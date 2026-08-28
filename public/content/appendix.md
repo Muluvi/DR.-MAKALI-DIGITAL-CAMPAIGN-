@@ -1,6 +1,7 @@
 ---
 
 <section id="firefly-audit-implementation" class="audit-section">
+
 ## Firefly Internal Audit & Implementation
 
 <p class="section-kicker">Internal working appendix — commercial, strategic, structural, compliance and deployment readiness</p>

@@ -2,10 +2,11 @@ import fs from "fs/promises";
 import path from "path";
 import { ClientPage } from "@/components/ClientPage";
 import { MarkdownViewer } from "@/components/MarkdownViewer";
+import type { TabId } from "@/lib/heading-slug";
 
-function toSection(raw: string) {
+function toSection(raw: string, tabId: TabId) {
   return {
-    node: <MarkdownViewer content={raw} />,
+    node: <MarkdownViewer content={raw} tabId={tabId} />,
     wordCount: raw.split(/\s+/).filter(Boolean).length,
   };
 }
@@ -27,12 +28,12 @@ export default async function Page() {
   // remark/rehype plugins never ship to the client bundle.
   return (
     <ClientPage
-      exec={toSection(exec)}
-      strategy={toSection(strategy)}
-      operations={toSection(operations)}
-      tactics={toSection(tactics)}
-      execution={toSection(execution)}
-      appendix={toSection(appendix)}
+      exec={toSection(exec, "exec")}
+      strategy={toSection(strategy, "strategy")}
+      operations={toSection(operations, "operations")}
+      tactics={toSection(tactics, "tactics")}
+      execution={toSection(execution, "execution")}
+      appendix={toSection(appendix, "appendix")}
     />
   );
 }

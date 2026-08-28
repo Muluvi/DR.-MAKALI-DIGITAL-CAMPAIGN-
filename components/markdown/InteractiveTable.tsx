@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import { Search, Sparkles, ArrowUpDown, BarChart3, Table } from "lucide-react";
 import { LazyMount } from "../LazyMount";
+import { SourceLine, detectSources } from "./SourceLine";
 
 // Recharts only loads once the user actually asks to see the chart view.
 const TableChart = dynamic(() => import("./TableChart"), { ssr: false });
@@ -14,6 +15,10 @@ function getDeepText(node: any): string {
   if (Array.isArray(node)) return node.map(getDeepText).join("");
   if (typeof node === "object" && node.props) {
     if (node.props.children) return getDeepText(node.props.children);
+    // HighlightedText (used inside <strong>/<p>/<li> to linkify cross-refs and badge stated
+    // figures) takes its string as `text`, not `children` — without this fallback, any bold
+    // or paragraph text routed through it goes invisible to the header/sort/search/chart logic.
+    if (node.props.text) return String(node.props.text);
     if (node.props.value) return String(node.props.value);
   }
   return "";
@@ -155,6 +160,11 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
     }).filter(item => item.name && !isNaN(item.value));
   }, [filteredRows, numericColumnIndex]);
 
+  const tableSources = React.useMemo(() => {
+    const allText = [...ths, ...rowElements].map(getDeepText).join(" ");
+    return detectSources(allText);
+  }, [ths, rowElements]);
+
   if (ths.length === 0) {
     return <div className="overflow-x-auto border border-line rounded-2xl my-4">{children}</div>;
   }
@@ -162,7 +172,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
   return (
     <div className="border-x-0 sm:border border-y sm:border-line rounded-none sm:rounded-2xl -mx-4 sm:mx-0 bg-card/40 my-6 overflow-hidden shadow-none sm:shadow-sm hover:shadow-md transition-shadow">
       {/* Interactive Controls & Analytics Header */}
-      <div className="p-3 sm:p-4 border-b border-line/60 bg-paper/60 backdrop-blur-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+      <div className="print:hidden p-3 sm:p-4 border-b border-line/60 bg-paper/60 backdrop-blur-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <div className="p-1.5 rounded-lg bg-accent/10 border border-accent/20 text-accent">
             <Sparkles size={14} />
@@ -286,6 +296,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
           )}
         </div>
       )}
+      <SourceLine sources={tableSources} />
     </div>
   );
 }

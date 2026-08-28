@@ -14,6 +14,11 @@
   --color-dark: var(--dark);
   --color-danger: var(--danger);
   --color-glow: var(--glow);
+  --color-phase-neg1: var(--phase-neg1);
+  --color-phase-0: var(--phase-0);
+  --color-phase-1: var(--phase-1);
+  --color-phase-2: var(--phase-2);
+  --color-phase-3: var(--phase-3);
   --font-serif: Montserrat, sans-serif;
   --font-sans: Montserrat, sans-serif;
 }
@@ -38,6 +43,22 @@
   --placeholder-bg: #ffebeb;
   --placeholder-border: #f8b4b4;
   --placeholder-color: #9c1c24;
+
+  /* Claim-status badges (Verified / Estimate / Awaiting campaign decision) */
+  --verified-bg: #e9f7ef;
+  --verified-border: #a8ddc0;
+  --verified-color: #146c43;
+  --estimate-bg: #fdf3e0;
+  --estimate-border: #f0cf8a;
+  --estimate-color: #8a5a05;
+
+  /* Phase colour palette — one hue per campaign stage (Section 20), used consistently across
+     the timeline, phase-scoped charts and section headers. */
+  --phase-neg1: #6d28d9;  /* Phase -1: Nomination Sprint */
+  --phase-0: #0891b2;     /* Phase 0: Audit & Infrastructure */
+  --phase-1: #0056a8;     /* Phase 1: Awareness & Community (= brand accent) */
+  --phase-2: #b45309;     /* Phase 2: Engagement & Persuasion */
+  --phase-3: #15803d;     /* Phase 3: Mobilisation & GOTV */
 }
 
 .dark {
@@ -60,6 +81,19 @@
   --placeholder-bg: #1f080b;
   --placeholder-border: #4a1215;
   --placeholder-color: #ff5765;
+
+  --verified-bg: #0c2118;
+  --verified-border: #1f5f3f;
+  --verified-color: #4ade80;
+  --estimate-bg: #241a06;
+  --estimate-border: #6b4e0f;
+  --estimate-color: #fbbf24;
+
+  --phase-neg1: #a78bfa;
+  --phase-0: #22d3ee;
+  --phase-1: #338dfd;
+  --phase-2: #fb923c;
+  --phase-3: #4ade80;
 }
 
 html {
@@ -77,6 +111,8 @@ body {
   -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
+  /* Tabular figures everywhere numerals appear, so stats and tables don't jitter in width. */
+  font-variant-numeric: tabular-nums;
 }
 
 /* Base style for elements that transition when theme switches */
@@ -176,6 +212,60 @@ body {
   font-weight: 650;
   font-size: 0.85em;
 }
+
+/* Claim-status badges */
+.claim-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  border-radius: 999px;
+  border-width: 1px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.claim-badge-verified {
+  background: var(--verified-bg);
+  border-color: var(--verified-border);
+  color: var(--verified-color);
+}
+.claim-badge-estimate {
+  background: var(--estimate-bg);
+  border-color: var(--estimate-border);
+  color: var(--estimate-color);
+}
+.claim-badge-awaiting {
+  background: var(--placeholder-bg);
+  border-color: var(--placeholder-border);
+  color: var(--placeholder-color);
+}
+
+/* Eyebrow label — a short kicker line above a major heading. Explicitly resets every
+   property the ".prose p:first-of-type" drop-cap treatment sets, since an eyebrow line
+   can otherwise land on that selector by being the first <p> in its section. */
+.eyebrow-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+  margin: 0 0 0.5rem 0;
+  border-bottom: none;
+  padding-bottom: 0;
+  line-height: 1.4;
+}
+.eyebrow-label::first-letter {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  margin-right: 0;
+  float: none;
+  line-height: inherit;
+}
+
 .prose strong {
   color: var(--prose-strong);
   font-weight: 600;
@@ -247,5 +337,136 @@ body {
   .cv-auto-hero,
   .cv-auto-strip {
     content-visibility: visible;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Scroll progress bar — CSS scroll-driven animation, JS only as fallback  */
+/* ---------------------------------------------------------------------- */
+.scroll-progress-track {
+  background: color-mix(in srgb, var(--color-line) 40%, transparent);
+}
+.scroll-progress-fill {
+  transform: scaleX(0);
+  transform-origin: left;
+}
+@supports (animation-timeline: scroll()) {
+  .scroll-progress-fill {
+    animation: scroll-progress-grow auto linear;
+    animation-timeline: scroll(root block);
+  }
+}
+@keyframes scroll-progress-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* ---------------------------------------------------------------------- */
+/* :target highlight — arriving at a deep-linked section flashes it       */
+/* ---------------------------------------------------------------------- */
+:target {
+  animation: target-flash 2.2s ease-out;
+  scroll-margin-top: 7rem;
+}
+@keyframes target-flash {
+  0% { background-color: color-mix(in srgb, var(--color-accent) 16%, transparent); border-radius: 8px; }
+  100% { background-color: transparent; }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Editorial text-wrap: balanced headings, no orphan words in body copy   */
+/* ---------------------------------------------------------------------- */
+h1, h2, h3, .text-balance-heading {
+  text-wrap: balance;
+}
+p, li, blockquote {
+  text-wrap: pretty;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Confidentiality marker                                                 */
+/* ---------------------------------------------------------------------- */
+.confidentiality-marker {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.confidentiality-marker strong {
+  color: var(--color-gold);
+}
+
+/* ---------------------------------------------------------------------- */
+/* Print stylesheet                                                       */
+/* ---------------------------------------------------------------------- */
+@media print {
+  @page {
+    margin: 16mm 14mm;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #0b1a30 !important;
+  }
+
+  /* Force the light palette regardless of the active theme toggle. */
+  :root, .dark {
+    --ink: #0b1a30;
+    --muted: #4e6178;
+    --paper: #ffffff;
+    --card: #ffffff;
+    --line: #c9d5e2;
+    --accent: #0056a8;
+    --gold: #a9151f;
+    --prose-body: #263241;
+    --prose-strong: #0a172c;
+    --prose-bg-nested: #ffffff;
+    --code-bg: #eef2f7;
+    --th-bg: #eef2f7;
+  }
+
+  /* Chrome, sticky bars, toggles and anything explicitly print-hidden. */
+  .print\:hidden,
+  .section-anchor-btn,
+  nav,
+  .scroll-progress-track,
+  .section-sticky-bar,
+  .toc-rail,
+  button {
+    display: none !important;
+  }
+
+  a[href^="http"]::after,
+  a[href^="https"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+    font-weight: 400;
+    color: #4e6178;
+    word-break: break-all;
+  }
+
+  /* Section collapse only exists as a client-side view mode; print always
+     shows every section regardless of which tab was active on screen. */
+  .cv-auto-section,
+  .cv-auto-hero,
+  .cv-auto-strip {
+    display: block !important;
+  }
+
+  table, figure, .print-avoid-break, .claim-card, .pull-quote {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  h2, h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .confidentiality-marker {
+    color: #4e6178 !important;
+  }
+  .confidentiality-marker strong {
+    color: #a9151f !important;
   }
 }

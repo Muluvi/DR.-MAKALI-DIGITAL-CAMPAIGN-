@@ -1,3 +1,4 @@
+import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -6,10 +7,103 @@ import { Volume2 } from "lucide-react";
 import { InteractiveTable } from "./markdown/InteractiveTable";
 import { MarkdownParagraph, MarkdownListItem } from "./markdown/MarkdownTextComponents";
 import { AudioBriefingButton } from "./markdown/AudioBriefingButton";
+import { SectionHeading } from "./markdown/SectionHeading";
+import { ClaimBadge } from "./markdown/ClaimBadge";
+import { HighlightedText } from "./markdown/HighlightedText";
+import { CompetitiveQuadrantBlock } from "./markdown/CompetitiveQuadrantBlock";
+import { ResourceEnvelopeBlock } from "./markdown/ResourceEnvelopeBlock";
+import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
+import { MizaniSlopeBlock } from "./markdown/MizaniSlopeBlock";
+import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
+import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
+import { PullQuote } from "./markdown/PullQuote";
+import { ClaimCards } from "./markdown/ClaimCards";
+import { headingSlug, sectionId, TAB_LABELS, type TabId } from "../lib/heading-slug";
+
+// Section 1.3's "three governing realities" — matched by the start of each bolded lead
+// sentence so the list item gets pull-quote emphasis without touching the wording.
+const GOVERNING_REALITY_TRIGGERS = [
+  "Roughly 86% of Kitui residents are outside the internet-using population",
+  "The regulatory ground shifted on 7 August 2026",
+  "Kamba-language radio",
+];
+import { PHASES } from "../lib/phases";
+
+// Section 20's phase subsections ("Phase −1: Nomination Sprint …", "Phase 0: …") don't start
+// with a digit, so they never pick up a heading id from headingSlug — but they should still get
+// the matching phase colour on their left border instead of the generic gold accent.
+const PHASE_HEADING_PATTERN = /^Phase\s+(−1|-1|0|1|2|3)\s*:/i;
+function phaseAccentFor(headingText: string): string | undefined {
+  const match = PHASE_HEADING_PATTERN.exec(headingText.trim());
+  if (!match) return undefined;
+  const id = match[1] === "−1" || match[1] === "-1" ? "neg1" : match[1];
+  const phase = PHASES.find((p) => p.id === id);
+  return phase ? `var(${phase.colorVar})` : undefined;
+}
+
+// Markdown hard-wraps around 80 columns, leaving a literal "\n" inside a text node wherever a
+// phrase happens to wrap — collapse all whitespace runs before substring-matching against a
+// trigger phrase, or matches silently fail whenever the wrap lands mid-phrase.
+function normalizeWhitespace(text: string): string {
+  return text.replace(/\s+/g, " ");
+}
+
+function getHeadingText(children: React.ReactNode): string {
+  if (typeof children === "string") return children;
+  if (Array.isArray(children)) return children.map(getHeadingText).join("");
+  return "";
+}
+
+function flattenText(children: React.ReactNode): string {
+  if (typeof children === "string") return children;
+  if (Array.isArray(children)) return children.map(flattenText).join("");
+  return "";
+}
+
+// Deep text extraction that also understands HighlightedText (props.text, not props.children) —
+// needed to read table headers, since a bolded header cell (e.g. "**Mulu**") is now rendered
+// through the strong -> HighlightedText path.
+function getDeepText(node: React.ReactNode): string {
+  if (node === null || node === undefined) return "";
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(getDeepText).join("");
+  if (typeof node === "object" && "props" in (node as object)) {
+    const props = (node as { props?: { children?: React.ReactNode; text?: string } }).props;
+    if (props?.children !== undefined) return getDeepText(props.children);
+    if (props?.text !== undefined) return String(props.text);
+  }
+  return "";
+}
+
+function getTableHeaderTexts(children: React.ReactNode): string[] {
+  const top = React.Children.toArray(children) as React.ReactElement[];
+  const thead = top.find((c) => c?.type === "thead");
+  if (!thead) return [];
+  const theadChildren = React.Children.toArray((thead.props as { children?: React.ReactNode }).children) as React.ReactElement[];
+  const headerRow = theadChildren.find((c) => c?.type === "tr");
+  if (!headerRow) return [];
+  const cells = React.Children.toArray((headerRow.props as { children?: React.ReactNode }).children) as React.ReactElement[];
+  return cells.filter((c) => c?.type === "th").map((c) => getDeepText((c.props as { children?: React.ReactNode }).children).trim());
+}
+
+// The source markdown already marks every open item consistently — either an inline
+// `[Insert …]` / `[Confirm …]` code span, or a `<span class="placeholder">OPEN/GATED</span>`
+// in the appendix checklist. Both are unambiguous, so they get the "Awaiting campaign
+// decision" badge mechanically rather than by guessing at status elsewhere.
+const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
+
+// Visualisations anchored to a specific heading rather than a table (Phase C, items 11/12/15/16).
+// Keyed by the same "<tab>-sec-<slug>" id SectionHeading assigns, so this stays correct even if
+// the heading text is edited later.
+const HEADING_INSERTS: Record<string, React.ReactNode> = {
+  "exec-sec-2-3": <WardCartogramBlock />,
+  "exec-sec-2-4": <ResourceEnvelopeBlock />,
+  "execution-sec-20": <KpiPhaseBlock />,
+};
 
 // Markdown parsing runs here on the server at render time, so react-markdown
 // and its remark/rehype plugins never ship to the client bundle.
-export function MarkdownViewer({ content }: { content: string }) {
+export function MarkdownViewer({ content, tabId }: { content: string; tabId: TabId }) {
   return (
     <div className="relative bg-card rounded-none sm:rounded-3xl border-0 shadow-none sm:shadow-sm overflow-hidden p-0 sm:p-8 pt-4 pb-6 sm:py-8">
       {/* Dynamic Faded Watermark Background */}
@@ -23,7 +117,7 @@ export function MarkdownViewer({ content }: { content: string }) {
       </div>
 
       {/* Integrated Media Briefing Placard at the top of long strategic pages */}
-      <div className="mx-4 sm:mx-0 mb-6 bg-gradient-to-r from-accent/[0.03] to-gold/[0.03] border border-line/25 p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 z-10 relative">
+      <div className="mx-4 sm:mx-0 mb-6 bg-gradient-to-r from-accent/[0.03] to-gold/[0.03] border border-line/25 p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 z-10 relative print:hidden">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-accent/10 border border-accent/20 text-accent">
             <Volume2 size={18} />
@@ -44,30 +138,132 @@ export function MarkdownViewer({ content }: { content: string }) {
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw]}
           components={{
-            table: ({ children }) => (
-              <InteractiveTable>{children}</InteractiveTable>
+            table: ({ children }) => {
+              const headers = getTableHeaderTexts(children).map((h) => h.toLowerCase());
+              const has = (text: string) => headers.some((h) => h.includes(text));
+
+              // Section 2.5 "National platform sizing" — replaced by the sorted bar chart
+              // (item 13), not kept alongside it.
+              if (tabId === "exec" && has("platform") && has("kenya audience")) {
+                return <PlatformSizingBlock />;
+              }
+
+              // Section 2.1 candidate-asset table — assertion/evidence/application becomes
+              // claim cards (item 21), replacing the table rather than sitting alongside it.
+              if (tabId === "exec" && has("asset") && has("evidence") && has("digital application")) {
+                return <ClaimCards>{children}</ClaimCards>;
+              }
+
+              const table = <InteractiveTable>{children}</InteractiveTable>;
+
+              // Section 1.1 Mizani survey table — table stays (item 14 says keep it with only
+              // two data points), slope chart added alongside it.
+              if (tabId === "exec" && has("kasalu") && has("wambua")) {
+                return (
+                  <>
+                    {table}
+                    <MizaniSlopeBlock />
+                  </>
+                );
+              }
+
+              // Section 2.2 competitive field table — quadrant plot added after it.
+              if (tabId === "exec" && has("contender") && has("exploitable gap")) {
+                return (
+                  <>
+                    {table}
+                    <CompetitiveQuadrantBlock />
+                  </>
+                );
+              }
+
+              return table;
+            },
+            code: ({ children }) => {
+              const text = flattenText(children);
+              if (PLACEHOLDER_PATTERN.test(text.trim())) {
+                return (
+                  <span className="inline-flex items-center gap-1.5 flex-wrap align-middle my-0.5">
+                    <ClaimBadge status="awaiting" compact />
+                    <code className="placeholder">{text}</code>
+                  </span>
+                );
+              }
+              return <code>{text}</code>;
+            },
+            span: ({ className, children }) => {
+              if (className === "placeholder") {
+                return (
+                  <span className="inline-flex items-center gap-1.5 flex-wrap align-middle">
+                    <ClaimBadge status="awaiting" compact />
+                    <span className="placeholder">{children}</span>
+                  </span>
+                );
+              }
+              return <span className={className}>{children}</span>;
+            },
+            p: ({ children, className }) => {
+              // The appendix's "section-kicker" lines are eyebrow labels, not body prose —
+              // render them as such instead of falling into the lead-paragraph drop-cap styling.
+              if (className === "section-kicker") {
+                return <p className="eyebrow-label not-prose">{children}</p>;
+              }
+              return <MarkdownParagraph tabId={tabId}>{children}</MarkdownParagraph>;
+            },
+            blockquote: ({ children }) => {
+              // The central narrative line (Section 4) gets the full pull-quote treatment;
+              // every other blockquote (the ethics charter, etc.) keeps the standard styling.
+              if (getDeepText(children).includes("Kitui has resources")) {
+                return <PullQuote>{children}</PullQuote>;
+              }
+              return (
+                <blockquote className="border-l-4 border-accent bg-accent/[0.03] px-5 py-4 rounded-r-2xl my-6 text-xs sm:text-sm font-semibold text-ink leading-relaxed shadow-sm italic relative text-pretty">
+                  {children}
+                </blockquote>
+              );
+            },
+            li: ({ children }) => {
+              // The three governing realities (Section 1.3) get a pull-quote-style emphasis
+              // treatment instead of a plain bullet — every other list item is unaffected.
+              const text = normalizeWhitespace(getDeepText(children));
+              const isGoverningReality = tabId === "exec" && GOVERNING_REALITY_TRIGGERS.some((t) => text.includes(t));
+              if (isGoverningReality) {
+                return <MarkdownListItem tabId={tabId} emphasis>{children}</MarkdownListItem>;
+              }
+              return <MarkdownListItem tabId={tabId}>{children}</MarkdownListItem>;
+            },
+            // Bold runs carry some of the document's most load-bearing figures (the derived
+            // win threshold, the deficit) — route their text through the same highlighter so
+            // cross-refs, claim badges and "show the working" triggers work inside bold too.
+            strong: ({ children }) => (
+              <strong>
+                {React.Children.map(children, (child) =>
+                  typeof child === "string" ? <HighlightedText text={child} tabId={tabId} /> : child
+                )}
+              </strong>
             ),
-            p: ({ children }) => (
-              <MarkdownParagraph>{children}</MarkdownParagraph>
-            ),
-            blockquote: ({ children }) => (
-              <blockquote className="border-l-4 border-accent bg-accent/[0.03] px-5 py-4 rounded-r-2xl my-6 text-xs sm:text-sm font-semibold text-ink leading-relaxed shadow-sm italic relative">
-                {children}
-              </blockquote>
-            ),
-            li: ({ children }) => (
-              <MarkdownListItem>{children}</MarkdownListItem>
-            ),
-            h2: ({ children }) => (
-              <h2 className="font-serif text-base sm:text-lg font-black text-ink mt-8 mb-4 border-l-3 border-gold pl-3 leading-none uppercase tracking-wide">
-                {children}
-              </h2>
-            ),
-            h3: ({ children }) => (
-              <h3 className="font-serif text-xs sm:text-sm font-extrabold text-ink mt-6 mb-2 text-accent uppercase tracking-wider">
-                {children}
-              </h3>
-            )
+            h2: ({ children }) => {
+              const text = getHeadingText(children);
+              const slug = headingSlug(text);
+              const id = slug ? sectionId(tabId, slug) : null;
+              return (
+                <>
+                  <SectionHeading id={id} level={2} eyebrow={TAB_LABELS[tabId]}>{children}</SectionHeading>
+                  {id && HEADING_INSERTS[id]}
+                </>
+              );
+            },
+            h3: ({ children }) => {
+              const text = getHeadingText(children);
+              const slug = headingSlug(text);
+              const id = slug ? sectionId(tabId, slug) : null;
+              return (
+                <>
+                  <SectionHeading id={id} level={3} accentColor={phaseAccentFor(text)}>{children}</SectionHeading>
+                  {id && HEADING_INSERTS[id]}
+                </>
+              );
+            }
           }}
         >
           {content}
