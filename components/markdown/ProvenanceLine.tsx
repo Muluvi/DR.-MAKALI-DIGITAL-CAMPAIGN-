@@ -1,4 +1,4 @@
-import { Database, MapPin } from "lucide-react";
+import { Database } from "lucide-react";
 import type { Provenance } from "../../data/types";
 import { GRANULARITY_LABEL } from "../../data/types";
 import { TierBadge } from "./TierBadge";
@@ -46,10 +46,7 @@ export function ProvenanceLine({ provenance }: { provenance: Provenance | Proven
           <span className="opacity-60">·</span>
           <span>{p.source.publicationDate}</span>
           <span className="opacity-60">·</span>
-          <span className="flex items-center gap-1">
-            <MapPin size={9} className="shrink-0 opacity-60" aria-hidden="true" />
-            {GRANULARITY_LABEL[p.granularity]}
-          </span>
+          <span>{GRANULARITY_LABEL[p.granularity]}</span>
           {p.note && <span className="w-full sm:w-auto normal-case font-semibold text-muted/80 italic">{p.note}</span>}
         </div>
       ))}

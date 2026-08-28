@@ -2,9 +2,17 @@
 
 import dynamic from "next/dynamic";
 import { LazyMount } from "../LazyMount";
-import { SourceLine } from "./SourceLine";
+import { ProvenanceLine } from "./ProvenanceLine";
+import { IEBC_WARD_REGISTER } from "../../data/sources";
+import type { Provenance } from "../../data/types";
 
 const WardCartogram = dynamic(() => import("../charts/WardCartogram"), { ssr: false });
+
+// Only the (tiny) Source constant is imported here, not the 40-ward register itself — that
+// stays inside the dynamically-imported chart module so it never enters the initial route
+// bundle. Every new Phase 5/6 Block component follows the same rule: eager imports carry
+// provenance metadata only; full datasets live behind a `dynamic(..., { ssr: false })` boundary.
+const PROVENANCE: Provenance = { source: IEBC_WARD_REGISTER, granularity: "ward" };
 
 export function WardCartogramBlock() {
   return (
@@ -15,14 +23,15 @@ export function WardCartogramBlock() {
       </div>
       <p className="text-[11px] text-muted mb-3 leading-relaxed pl-3.5">
         One tile per ward, clustered by constituency. No ward-boundary map exists in this repository, so this grid —
-        not a geographic map — is the cartogram.
+        not a geographic map — is the cartogram. All 40 wards are itemised (Phase 2 of the provenance system replaced
+        the previous 13-of-40 partial register).
       </p>
       <div className="min-h-[420px]">
         <LazyMount minHeight={420}>
           <WardCartogram />
         </LazyMount>
       </div>
-      <SourceLine sources={["IEBC"]} />
+      <ProvenanceLine provenance={PROVENANCE} />
     </div>
   );
 }

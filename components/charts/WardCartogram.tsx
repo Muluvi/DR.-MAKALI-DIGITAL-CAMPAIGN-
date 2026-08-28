@@ -1,12 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { CONSTITUENCIES, type Ward } from "../../lib/ward-data";
+import { useState } from "react";
+import { CONSTITUENCIES, type Ward } from "../../data/ward-register";
 
-const MAX_VOTERS = Math.max(...CONSTITUENCIES.flatMap((c) => c.wards.map((w) => w.voters ?? 0)));
+const MAX_VOTERS = Math.max(...CONSTITUENCIES.flatMap((c) => c.wards.map((w) => w.voters)));
 
-function tileBackground(voters: number | null): string {
-  if (voters === null) return "transparent";
+function tileBackground(voters: number): string {
   const intensity = 0.18 + 0.72 * (voters / MAX_VOTERS);
   return `color-mix(in srgb, var(--color-accent) ${Math.round(intensity * 100)}%, var(--color-card))`;
 }
@@ -18,12 +17,6 @@ interface Selected {
 
 export default function WardCartogram() {
   const [selected, setSelected] = useState<Selected | null>(null);
-
-  const itemisedCount = useMemo(
-    () => CONSTITUENCIES.reduce((sum, c) => sum + c.wards.filter((w) => w.voters !== null).length, 0),
-    []
-  );
-  const totalWards = useMemo(() => CONSTITUENCIES.reduce((sum, c) => sum + c.wards.length, 0), []);
 
   return (
     <div>
@@ -41,10 +34,10 @@ export default function WardCartogram() {
                     key={w.name}
                     type="button"
                     onClick={() => setSelected({ constituency: c.id, ward: w })}
-                    aria-label={`${w.name}, ${c.name}: ${w.voters !== null ? `${w.voters.toLocaleString()} registered voters` : "voter count not itemised in source"}`}
-                    className={`w-6 h-6 sm:w-7 sm:h-7 rounded-[5px] border transition-all cursor-pointer ${
-                      w.voters === null ? "border-dashed border-line/70" : "border-line/40"
-                    } ${isSelected ? "ring-2 ring-accent ring-offset-1 ring-offset-paper" : "hover:scale-110"}`}
+                    aria-label={`${w.name}, ${c.name}: ${w.voters.toLocaleString()} registered voters`}
+                    className={`w-6 h-6 sm:w-7 sm:h-7 rounded-[5px] border border-line/40 transition-all cursor-pointer ${
+                      isSelected ? "ring-2 ring-accent ring-offset-1 ring-offset-paper" : "hover:scale-110"
+                    }`}
                     style={{ background: tileBackground(w.voters) }}
                   />
                 );
@@ -63,10 +56,7 @@ export default function WardCartogram() {
           <span className="w-3 h-3 rounded-sm border border-line/40" style={{ background: tileBackground(1) }} />
           Lower
         </span>
-        <span className="flex items-center gap-1.5">
-          <span className="w-3 h-3 rounded-sm border border-dashed border-line/70" />
-          Not itemised in source ({totalWards - itemisedCount} of {totalWards} wards)
-        </span>
+        <span>All 40 wards itemised — IEBC, 2022 register</span>
       </div>
 
       <div className="bg-paper border border-line rounded-xl p-3.5 min-h-[64px]">
@@ -76,16 +66,7 @@ export default function WardCartogram() {
               {CONSTITUENCIES.find((c) => c.id === selected.constituency)?.name}
             </div>
             <div className="font-serif text-sm font-black text-ink mt-0.5">{selected.ward.name}</div>
-            <div className="text-xs font-bold text-ink/80 mt-1">
-              {selected.ward.voters !== null ? (
-                <>{selected.ward.voters.toLocaleString()} registered voters (2022)</>
-              ) : (
-                <span className="text-muted italic">
-                  Voter count not itemised in the source register — Section 2.3 covers only Kitui Central, Kitui South
-                  and two highlighted Mwingi North wards individually.
-                </span>
-              )}
-            </div>
+            <div className="text-xs font-bold text-ink/80 mt-1">{selected.ward.voters.toLocaleString()} registered voters (2022)</div>
           </div>
         ) : (
           <div className="text-xs text-muted italic">Tap a ward tile to see its detail.</div>
