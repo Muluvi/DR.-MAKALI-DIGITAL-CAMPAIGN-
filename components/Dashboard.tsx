@@ -2,7 +2,9 @@
 
 import { motion, useInView } from "motion/react";
 import { useEffect, useState, useRef } from "react";
-import { 
+import { useMarqueeActive } from "../hooks/use-marquee-active";
+import { useIsMobile } from "../hooks/use-mobile";
+import {
   TrendingUp, 
   Coins, 
   WifiOff, 
@@ -66,17 +68,19 @@ function TiltCard({
   className: string;
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isMobile) return;
     const card = cardRef.current;
     if (!card) return;
 
     const rect = card.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
-    
+
     // Mouse coordinate relative to the center of the card
     const mouseX = e.clientX - rect.left - width / 2;
     const mouseY = e.clientY - rect.top - height / 2;
@@ -99,7 +103,7 @@ function TiltCard({
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      animate={{ rotateX, rotateY }}
+      animate={{ rotateX: isMobile ? 0 : rotateX, rotateY: isMobile ? 0 : rotateY }}
       style={{
         transformStyle: "preserve-3d",
         perspective: 1000
@@ -193,15 +197,17 @@ function RadialProgress({ percentage, label, sub, color, icon, isMarquee = false
 
 // Premium endless looping marquee wrapper using Framer Motion
 function InfiniteScrollingMarquee({ children, speed = 25 }: { children: React.ReactNode; speed?: number }) {
+  const { containerRef, isActive } = useMarqueeActive<HTMLDivElement>();
+
   return (
-    <div className="relative w-full overflow-hidden select-none py-2 pointer-events-auto">
+    <div ref={containerRef} className="relative w-full overflow-hidden select-none py-2 pointer-events-auto">
       {/* Soft overlay gradient masks for a smooth fade entry and exit */}
       <div className="absolute top-0 bottom-0 left-0 w-12 bg-gradient-to-r from-paper to-transparent z-10 pointer-events-none" />
       <div className="absolute top-0 bottom-0 right-0 w-12 bg-gradient-to-l from-paper to-transparent z-10 pointer-events-none" />
-      
+
       <motion.div
         className="flex gap-4 w-max pr-4"
-        animate={{ x: ["0%", "-50%"] }}
+        animate={isActive ? { x: ["0%", "-50%"] } : {}}
         transition={{
           ease: "linear",
           duration: speed,

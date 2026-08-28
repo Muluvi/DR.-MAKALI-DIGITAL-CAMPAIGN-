@@ -2,8 +2,11 @@
 
 import { motion, AnimatePresence, useInView } from "motion/react";
 import { useState, useEffect, useRef } from "react";
-import { BarChart, Bar, Cell, ResponsiveContainer, XAxis, YAxis, Tooltip, PieChart, Pie, CartesianGrid } from "recharts";
-import { 
+import dynamic from "next/dynamic";
+import { useMarqueeActive } from "../hooks/use-marquee-active";
+import { useIsMobile } from "../hooks/use-mobile";
+import { LazyMount } from "./LazyMount";
+import {
   Play, 
   Pause, 
   Volume2, 
@@ -41,6 +44,10 @@ import {
   Grid, 
   Filter 
 } from "lucide-react";
+
+// Recharts is only pulled into the bundle once one of these charts scrolls into view.
+const ConstituencyBarChart = dynamic(() => import("./charts/ConstituencyBarChart"), { ssr: false });
+const ResourceLedgerBarChart = dynamic(() => import("./charts/ResourceLedgerBarChart"), { ssr: false });
 
 // ==========================================
 // 1. EXECUTIVE SUMMARY VISUAL AIDS
@@ -255,10 +262,12 @@ export function MilestoneTimeline() {
 // 5. Hero Statistic Callout with 3D Tilt Effect
 export function HeroStatTilt() {
   const cardRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isMobile) return;
     const card = cardRef.current;
     if (!card) return;
     const rect = card.getBoundingClientRect();
@@ -273,7 +282,7 @@ export function HeroStatTilt() {
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={() => { setRotateX(0); setRotateY(0); }}
-      animate={{ rotateX, rotateY }}
+      animate={{ rotateX: isMobile ? 0 : rotateX, rotateY: isMobile ? 0 : rotateY }}
       style={{ transformStyle: "preserve-3d", perspective: 1000 }}
       className="bg-card border-2 border-gold/30 hover:border-gold/60 rounded-2xl p-6 shadow-md transition-all max-w-sm my-6 select-none cursor-grab"
     >
@@ -342,16 +351,17 @@ export function ObjectiveAccordion() {
 
 // 7. Endless Scrolling Policy Badge Ticker
 export function BadgeTicker() {
+  const { containerRef, isActive } = useMarqueeActive<HTMLDivElement>();
   const slogans = [
     "ECONOMIC PROGRESS", "WIPER DEMOCRATIC MOVEMENT", "DELEGATE ALIGNMENT",
     "DIGITIZED REVENUE", "GRASSROOTS VOICE", "KIKAMBA BROADCAST COALITION",
     "GOVERNANCE AUDITING", "ECONOMIC BLUEPRINT", "KITUI VICTORY 2027"
   ];
   return (
-    <div className="relative w-full overflow-hidden select-none py-2 border-y border-line/50 my-4 bg-paper/60 backdrop-blur-sm">
+    <div ref={containerRef} className="relative w-full overflow-hidden select-none py-2 border-y border-line/50 my-4 bg-paper/60 backdrop-blur-sm">
       <motion.div
         className="flex gap-4 w-max shrink-0"
-        animate={{ x: ["0%", "-50%"] }}
+        animate={isActive ? { x: ["0%", "-50%"] } : {}}
         transition={{ ease: "linear", duration: 18, repeat: Infinity }}
       >
         <div className="flex gap-4 shrink-0">
@@ -585,39 +595,9 @@ export function VoterDensityMap() {
 
       {/* Interactive Recharts Constituency Chart */}
       <div className="h-44 w-full text-[9px] mb-6">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={chartData} margin={{ top: 10, right: 10, left: 10, bottom: 5 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" opacity={0.3} />
-            <XAxis dataKey="name" tick={{ fill: "var(--color-muted)", fontSize: 8, fontWeight: 700 }} tickLine={false} axisLine={false} />
-            <YAxis tick={{ fill: "var(--color-muted)", fontSize: 8 }} tickLine={false} axisLine={false} width={35} tickFormatter={(val) => `${(val / 1000).toFixed(0)}k`} />
-            <Tooltip 
-              content={({ active, payload }) => {
-                if (active && payload && payload.length) {
-                  const dataEntry = payload[0].payload;
-                  return (
-                    <div className="bg-card border border-line p-2 shadow-md rounded-xl text-[10px] font-bold text-ink">
-                      <p className="font-extrabold text-ink">{dataEntry.name}</p>
-                      <p className="text-accent">Registered: <span className="font-extrabold text-ink">{dataEntry.voters.toLocaleString()}</span></p>
-                      <p className="text-gold">Share: <span className="font-extrabold text-ink">{dataEntry.share}</span></p>
-                    </div>
-                  );
-                }
-                return null;
-              }}
-            />
-            <Bar dataKey="voters" fill="var(--color-accent)" radius={[4, 4, 0, 0]}>
-              {chartData.map((entry, idx) => (
-                <Cell 
-                  key={`cell-${idx}`} 
-                  fill={selectedID === entry.id ? "var(--color-accent)" : "var(--color-muted)"} 
-                  opacity={selectedID === entry.id ? 1 : 0.4}
-                  className="cursor-pointer"
-                  onClick={() => setSelectedID(entry.id)}
-                />
-              ))}
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
+        <LazyMount minHeight={176}>
+          <ConstituencyBarChart chartData={chartData} selectedID={selectedID} onSelect={setSelectedID} />
+        </LazyMount>
       </div>
 
       {/* Grid of All 8 Constituencies */}
@@ -1413,38 +1393,9 @@ export function ResourceLedger() {
 
         {/* Recharts Breakdown Column */}
         <div className="h-48 sm:h-56 w-full text-[9px]">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={chartData} layout="vertical" margin={{ top: 10, right: 10, left: 10, bottom: 5 }}>
-              <XAxis type="number" hide />
-              <YAxis 
-                dataKey="name" 
-                type="category" 
-                tick={{ fill: "var(--color-muted)", fontSize: 8, fontWeight: 700 }} 
-                tickLine={false} 
-                axisLine={false}
-                width={85}
-              />
-              <Tooltip 
-                content={({ active, payload }) => {
-                  if (active && payload && payload.length) {
-                    const data = payload[0].payload;
-                    return (
-                      <div className="bg-card border border-line p-2.5 shadow-md rounded-xl text-[10px] font-bold text-ink">
-                        <p className="border-b border-line pb-1 mb-1 text-ink">{data.name}</p>
-                        <p className="text-accent">Budget: {data.formatted}</p>
-                      </div>
-                    );
-                  }
-                  return null;
-                }}
-              />
-              <Bar dataKey="budget" radius={[0, 4, 4, 0]}>
-                {chartData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
+          <LazyMount minHeight={224}>
+            <ResourceLedgerBarChart chartData={chartData} colors={colors} />
+          </LazyMount>
         </div>
       </div>
     </div>
@@ -1851,12 +1802,13 @@ export function CounterMessagingGrid() {
 
 // 4. Endless Slogan Carousel
 export function SloganCarousel() {
+  const { containerRef, isActive } = useMarqueeActive<HTMLDivElement>();
   const slogans = ["MBEU NSYA", "KAZI BORA", "GOVERNOR ECONOMIST", "WIPER DEMOCRATIC MOVEMENT", "UTAWALA BORA"];
   return (
-    <div className="relative w-full overflow-hidden select-none py-3 border-y border-line/60 bg-card my-4">
+    <div ref={containerRef} className="relative w-full overflow-hidden select-none py-3 border-y border-line/60 bg-card my-4">
       <motion.div
         className="flex gap-4 w-max shrink-0"
-        animate={{ x: ["0%", "-50%"] }}
+        animate={isActive ? { x: ["0%", "-50%"] } : {}}
         transition={{ ease: "linear", duration: 15, repeat: Infinity }}
       >
         <div className="flex gap-6 shrink-0">

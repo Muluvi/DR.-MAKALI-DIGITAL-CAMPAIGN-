@@ -1,14 +1,15 @@
 "use client";
 
 import { motion } from "motion/react";
-import { 
-  Target, 
-  MapPin, 
-  MessageSquare, 
-  Sparkles, 
-  Megaphone, 
-  Users 
+import {
+  Target,
+  MapPin,
+  MessageSquare,
+  Sparkles,
+  Megaphone,
+  Users
 } from "lucide-react";
+import { useMarqueeActive } from "../hooks/use-marquee-active";
 
 interface MarqueeItem {
   text: string;
@@ -17,6 +18,7 @@ interface MarqueeItem {
 }
 
 export function MarqueeCarousel({ speed = 30 }: { speed?: number }) {
+  const { containerRef, isActive } = useMarqueeActive<HTMLDivElement>();
   const items: MarqueeItem[] = [
     { text: "1.3M+ Population Outreach", category: "Milestone", icon: <Users size={14} className="text-accent" /> },
     { text: "Own-Source Revenue Growth Strategy", category: "Economic Policy", icon: <Target size={14} className="text-gold" /> },
@@ -27,14 +29,14 @@ export function MarqueeCarousel({ speed = 30 }: { speed?: number }) {
   ];
 
   return (
-    <div className="relative w-full overflow-hidden select-none py-4 bg-card border-y border-line my-6">
+    <div ref={containerRef} className="relative w-full overflow-hidden select-none py-4 bg-card border-y border-line my-6">
       {/* Soft gradient edge fade masks */}
       <div className="absolute top-0 bottom-0 left-0 w-16 bg-gradient-to-r from-paper to-transparent z-10 pointer-events-none" />
       <div className="absolute top-0 bottom-0 right-0 w-16 bg-gradient-to-l from-paper to-transparent z-10 pointer-events-none" />
 
       <motion.div
         className="flex gap-4 w-max pr-4"
-        animate={{ x: ["0%", "-50%"] }}
+        animate={isActive ? { x: ["0%", "-50%"] } : {}}
         transition={{
           ease: "linear",
           duration: speed,
