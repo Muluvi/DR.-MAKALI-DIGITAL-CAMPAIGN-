@@ -1,3 +1,4 @@
+import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -7,6 +8,8 @@ import { InteractiveTable } from "./markdown/InteractiveTable";
 import { MarkdownParagraph, MarkdownListItem } from "./markdown/MarkdownTextComponents";
 import { AudioBriefingButton } from "./markdown/AudioBriefingButton";
 import { SectionHeading } from "./markdown/SectionHeading";
+import { ClaimBadge } from "./markdown/ClaimBadge";
+import { HighlightedText } from "./markdown/HighlightedText";
 import { headingSlug, sectionId, type TabId } from "../lib/heading-slug";
 
 function getHeadingText(children: React.ReactNode): string {
@@ -14,6 +17,18 @@ function getHeadingText(children: React.ReactNode): string {
   if (Array.isArray(children)) return children.map(getHeadingText).join("");
   return "";
 }
+
+function flattenText(children: React.ReactNode): string {
+  if (typeof children === "string") return children;
+  if (Array.isArray(children)) return children.map(flattenText).join("");
+  return "";
+}
+
+// The source markdown already marks every open item consistently — either an inline
+// `[Insert …]` / `[Confirm …]` code span, or a `<span class="placeholder">OPEN/GATED</span>`
+// in the appendix checklist. Both are unambiguous, so they get the "Awaiting campaign
+// decision" badge mechanically rather than by guessing at status elsewhere.
+const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
 
 // Markdown parsing runs here on the server at render time, so react-markdown
 // and its remark/rehype plugins never ship to the client bundle.
@@ -55,9 +70,37 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
             table: ({ children }) => (
               <InteractiveTable>{children}</InteractiveTable>
             ),
-            p: ({ children }) => (
-              <MarkdownParagraph tabId={tabId}>{children}</MarkdownParagraph>
-            ),
+            code: ({ children }) => {
+              const text = flattenText(children);
+              if (PLACEHOLDER_PATTERN.test(text.trim())) {
+                return (
+                  <span className="inline-flex items-center gap-1.5 flex-wrap align-middle my-0.5">
+                    <ClaimBadge status="awaiting" compact />
+                    <code className="placeholder">{text}</code>
+                  </span>
+                );
+              }
+              return <code>{text}</code>;
+            },
+            span: ({ className, children }) => {
+              if (className === "placeholder") {
+                return (
+                  <span className="inline-flex items-center gap-1.5 flex-wrap align-middle">
+                    <ClaimBadge status="awaiting" compact />
+                    <span className="placeholder">{children}</span>
+                  </span>
+                );
+              }
+              return <span className={className}>{children}</span>;
+            },
+            p: ({ children, className }) => {
+              // The appendix's "section-kicker" lines are eyebrow labels, not body prose —
+              // render them as such instead of falling into the lead-paragraph drop-cap styling.
+              if (className === "section-kicker") {
+                return <p className="eyebrow-label not-prose">{children}</p>;
+              }
+              return <MarkdownParagraph tabId={tabId}>{children}</MarkdownParagraph>;
+            },
             blockquote: ({ children }) => (
               <blockquote className="border-l-4 border-accent bg-accent/[0.03] px-5 py-4 rounded-r-2xl my-6 text-xs sm:text-sm font-semibold text-ink leading-relaxed shadow-sm italic relative text-pretty">
                 {children}
@@ -65,6 +108,16 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
             ),
             li: ({ children }) => (
               <MarkdownListItem tabId={tabId}>{children}</MarkdownListItem>
+            ),
+            // Bold runs carry some of the document's most load-bearing figures (the derived
+            // win threshold, the deficit) — route their text through the same highlighter so
+            // cross-refs, claim badges and "show the working" triggers work inside bold too.
+            strong: ({ children }) => (
+              <strong>
+                {React.Children.map(children, (child) =>
+                  typeof child === "string" ? <HighlightedText text={child} tabId={tabId} /> : child
+                )}
+              </strong>
             ),
             h2: ({ children }) => {
               const text = getHeadingText(children);

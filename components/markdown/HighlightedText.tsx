@@ -4,7 +4,35 @@ import React, { useState } from "react";
 import { Info } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { CrossSectionLink } from "./CrossSectionLink";
+import { ClaimBadge, type ClaimStatus } from "./ClaimBadge";
+import { DerivedFigureDrawer } from "./DerivedFigureDrawer";
 import { crossSectionTarget, type TabId } from "../../lib/heading-slug";
+
+// Source markdown hard-wraps around 80 columns, which leaves a literal "\n" inside a single
+// text node wherever a phrase happens to wrap — so every multi-word pattern below matches on
+// `\s+` rather than a literal space, or it silently fails to fire on a wrapped line.
+function ws(phrase: string): string {
+  return phrase.replace(/ /g, "\\s+");
+}
+
+// The two derived figures the proposal leans on hardest, matched at their canonical first
+// statement so the "show the working" drawer appears once, not on every later restatement.
+const WORKING_TRIGGERS: { pattern: string; id: string }[] = [
+  { pattern: ws("approximately 200,000 votes\\.?"), id: "win-threshold" },
+  { pattern: ws("15\\.3 percentage points\\.?"), id: "deficit" },
+];
+
+// Figures the copy itself already states a status for — an approved fiscal-strategy-paper
+// total, a register the text calls "verified", a population figure the text itself calls an
+// "estimate". Deliberately narrow: only phrases the prose makes unambiguous get badged: see
+// "leave the claim unbadged rather than guessing" in the brief. Matched on the exact prose
+// wording so a badge never lands next to a number the text doesn't make a claim about.
+const STATUS_PHRASES: { pattern: string; status: ClaimStatus }[] = [
+  { pattern: ws("KSh13\\.79 billion"), status: "verified" },
+  { pattern: ws("532,758 voters"), status: "verified" },
+  { pattern: ws("22\\.1% against a front-runner at 37\\.4%"), status: "verified" },
+  { pattern: ws("approximately 1\\.2 million by 2024"), status: "estimate" },
+];
 
 // Dictionary of definitions for hover tooltips
 const DEFINITIONS: Record<string, string> = {
@@ -57,8 +85,13 @@ const termsUnion = Object.keys(DEFINITIONS).join("|");
 const datePatterns = "August 2026|December 2026|April 2027|August 2027|2026/27|KSh 1\\.339bn";
 // In-text cross-references the proposal makes to specific numbered sections — see
 // lib/heading-slug.ts for where each one resolves to.
-const crossRefPattern = "Section (?:19B|9B|17A)";
-const masterRegex = new RegExp(`(${termsUnion}|${datePatterns}|${crossRefPattern})`, "gi");
+const crossRefPattern = "Section\\s+(?:19B|9B|17A)";
+const statusPhrasePattern = STATUS_PHRASES.map((p) => p.pattern).join("|");
+const workingTriggerPattern = WORKING_TRIGGERS.map((p) => p.pattern).join("|");
+const masterRegex = new RegExp(
+  `(${termsUnion}|${datePatterns}|${crossRefPattern}|${statusPhrasePattern}|${workingTriggerPattern})`,
+  "gi"
+);
 
 // Highly optimized memoized component to handle tooltip wrapping and badge highlights
 export const HighlightedText = React.memo(function HighlightedText({ text, tabId }: { text: string; tabId?: TabId }) {
@@ -74,7 +107,7 @@ export const HighlightedText = React.memo(function HighlightedText({ text, tabId
         return <InlineTooltip key={idx} text={part} term={lower} />;
       }
       // If it is a cross-reference to another numbered section, make it a working link
-      const crossRefMatch = /^Section (19B|9B|17A)$/i.exec(part);
+      const crossRefMatch = /^Section\s+(19B|9B|17A)$/i.exec(part);
       if (crossRefMatch) {
         const sectionNumber = crossRefMatch[1].toUpperCase();
         const targetId =
@@ -89,6 +122,26 @@ export const HighlightedText = React.memo(function HighlightedText({ text, tabId
           );
         }
         return part;
+      }
+      // If this is the canonical statement of a derived figure, attach a "show the working" drawer
+      const workingMatch = WORKING_TRIGGERS.find((t) => new RegExp(`^${t.pattern}$`, "i").test(part));
+      if (workingMatch) {
+        return (
+          <DerivedFigureDrawer key={idx} id={workingMatch.id}>
+            {part}
+          </DerivedFigureDrawer>
+        );
+      }
+      // If the copy already states this figure's status (verified / estimate), badge it —
+      // the matched text itself is left untouched, the badge is only appended after it.
+      const statusMatch = STATUS_PHRASES.find((p) => new RegExp(`^${p.pattern}$`, "i").test(part));
+      if (statusMatch) {
+        return (
+          <span key={idx} className="inline-flex items-center gap-1.5 flex-wrap align-middle">
+            {part}
+            <ClaimBadge status={statusMatch.status} compact />
+          </span>
+        );
       }
       // If it is a key milestone date or budget figure, wrap in a badge
       if (/^(August 2026|December 2026|April 2027|August 2027|2026\/27|KSh 1\.339bn)$/i.test(part)) {

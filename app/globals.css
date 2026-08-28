@@ -38,6 +38,14 @@
   --placeholder-bg: #ffebeb;
   --placeholder-border: #f8b4b4;
   --placeholder-color: #9c1c24;
+
+  /* Claim-status badges (Verified / Estimate / Awaiting campaign decision) */
+  --verified-bg: #e9f7ef;
+  --verified-border: #a8ddc0;
+  --verified-color: #146c43;
+  --estimate-bg: #fdf3e0;
+  --estimate-border: #f0cf8a;
+  --estimate-color: #8a5a05;
 }
 
 .dark {
@@ -60,6 +68,13 @@
   --placeholder-bg: #1f080b;
   --placeholder-border: #4a1215;
   --placeholder-color: #ff5765;
+
+  --verified-bg: #0c2118;
+  --verified-border: #1f5f3f;
+  --verified-color: #4ade80;
+  --estimate-bg: #241a06;
+  --estimate-border: #6b4e0f;
+  --estimate-color: #fbbf24;
 }
 
 html {
@@ -178,6 +193,60 @@ body {
   font-weight: 650;
   font-size: 0.85em;
 }
+
+/* Claim-status badges */
+.claim-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  border-radius: 999px;
+  border-width: 1px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.claim-badge-verified {
+  background: var(--verified-bg);
+  border-color: var(--verified-border);
+  color: var(--verified-color);
+}
+.claim-badge-estimate {
+  background: var(--estimate-bg);
+  border-color: var(--estimate-border);
+  color: var(--estimate-color);
+}
+.claim-badge-awaiting {
+  background: var(--placeholder-bg);
+  border-color: var(--placeholder-border);
+  color: var(--placeholder-color);
+}
+
+/* Eyebrow label — a short kicker line above a major heading. Explicitly resets every
+   property the ".prose p:first-of-type" drop-cap treatment sets, since an eyebrow line
+   can otherwise land on that selector by being the first <p> in its section. */
+.eyebrow-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+  margin: 0 0 0.5rem 0;
+  border-bottom: none;
+  padding-bottom: 0;
+  line-height: 1.4;
+}
+.eyebrow-label::first-letter {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  margin-right: 0;
+  float: none;
+  line-height: inherit;
+}
+
 .prose strong {
   color: var(--prose-strong);
   font-weight: 600;
