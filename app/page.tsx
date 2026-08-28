@@ -1,10 +1,18 @@
 import fs from "fs/promises";
 import path from "path";
 import { ClientPage } from "@/components/ClientPage";
+import { MarkdownViewer } from "@/components/MarkdownViewer";
+
+function toSection(raw: string) {
+  return {
+    node: <MarkdownViewer content={raw} />,
+    wordCount: raw.split(/\s+/).filter(Boolean).length,
+  };
+}
 
 export default async function Page() {
   const contentDir = path.join(process.cwd(), "public", "content");
-  
+
   // Read markdown files
   const [exec, strategy, operations, tactics, execution, appendix] = await Promise.all([
     fs.readFile(path.join(contentDir, "exec.md"), "utf-8").catch(() => ""),
@@ -15,14 +23,16 @@ export default async function Page() {
     fs.readFile(path.join(contentDir, "appendix.md"), "utf-8").catch(() => ""),
   ]);
 
+  // Markdown parsing happens here, on the server, so react-markdown and its
+  // remark/rehype plugins never ship to the client bundle.
   return (
-    <ClientPage 
-      exec={exec} 
-      strategy={strategy} 
-      operations={operations}
-      tactics={tactics}
-      execution={execution} 
-      appendix={appendix} 
+    <ClientPage
+      exec={toSection(exec)}
+      strategy={toSection(strategy)}
+      operations={toSection(operations)}
+      tactics={toSection(tactics)}
+      execution={toSection(execution)}
+      appendix={toSection(appendix)}
     />
   );
 }

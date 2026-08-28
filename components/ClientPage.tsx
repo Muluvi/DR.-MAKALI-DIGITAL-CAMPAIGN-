@@ -27,6 +27,7 @@ import { useTheme } from "../lib/useTheme";
 import { MarqueeCarousel } from "./MarqueeCarousel";
 import { AnimatedMetric } from "./AnimatedMetric";
 import { RadialProgress } from "./RadialProgress";
+import { LazyMount } from "./LazyMount";
 
 import {
   WatermarkedPillars,
@@ -90,15 +91,19 @@ const HeroVisual = dynamic(() => import("./HeroVisual").then(mod => mod.HeroVisu
 const DataVisualizations = dynamic(() => import("./DataVisualizations").then(mod => mod.DataVisualizations), { ssr: false }); // Disable SSR for charts to reduce hydration cost
 const VoterProjectionsChart = dynamic(() => import("./VoterProjectionsChart").then(mod => mod.VoterProjectionsChart), { ssr: false });
 const StrategyRail = dynamic(() => import("./StrategyRail").then(mod => mod.StrategyRail), { ssr: true });
-const MarkdownViewer = dynamic(() => import("./MarkdownViewer").then(mod => mod.MarkdownViewer), { ssr: true });
+
+interface MarkdownSection {
+  node: React.ReactNode;
+  wordCount: number;
+}
 
 interface ClientPageProps {
-  exec: string;
-  strategy: string;
-  operations: string;
-  tactics: string;
-  execution: string;
-  appendix: string;
+  exec: MarkdownSection;
+  strategy: MarkdownSection;
+  operations: MarkdownSection;
+  tactics: MarkdownSection;
+  execution: MarkdownSection;
+  appendix: MarkdownSection;
 }
 
 const WiperUmbrellaLogo = () => (
@@ -120,7 +125,7 @@ const WiperUmbrellaLogo = () => (
 
 interface LazySectionProps {
   id: string;
-  content: string;
+  content: React.ReactNode;
   renderSectionExtras: (sectionId: string) => React.ReactNode;
   immediate?: boolean;
 }
@@ -158,14 +163,14 @@ function LazySection({ id, content, renderSectionExtras, immediate = false }: La
   }, [immediate]);
 
   return (
-    <div ref={containerRef} id={`section-${id}`} className="print:break-inside-avoid min-h-[150px] snap-start scroll-mt-24 transition-all duration-500 ease-out">
+    <div ref={containerRef} id={`section-${id}`} className="cv-auto-section print:break-inside-avoid min-h-[150px] snap-start scroll-mt-24 transition-all duration-500 ease-out">
       {hasBeenVisible ? (
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <MarkdownViewer content={content} />
+          {content}
           {renderSectionExtras(id)}
         </motion.div>
       ) : (
@@ -201,12 +206,12 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
   }, []);
 
   const navItems = useMemo(() => [
-    { id: "exec", label: "Executive Summary", icon: FileText, content: exec },
-    { id: "strategy", label: "Strategy & Targeting", icon: Target, content: strategy },
-    { id: "operations", label: "Operations & Architecture", icon: Activity, content: operations },
-    { id: "tactics", label: "Tactics & Themes", icon: Activity, content: tactics },
-    { id: "execution", label: "Implementation & KPIs", icon: Activity, content: execution },
-    { id: "appendix", label: "Appendix", icon: FileKey, content: appendix },
+    { id: "exec", label: "Executive Summary", icon: FileText, content: exec.node, wordCount: exec.wordCount },
+    { id: "strategy", label: "Strategy & Targeting", icon: Target, content: strategy.node, wordCount: strategy.wordCount },
+    { id: "operations", label: "Operations & Architecture", icon: Activity, content: operations.node, wordCount: operations.wordCount },
+    { id: "tactics", label: "Tactics & Themes", icon: Activity, content: tactics.node, wordCount: tactics.wordCount },
+    { id: "execution", label: "Implementation & KPIs", icon: Activity, content: execution.node, wordCount: execution.wordCount },
+    { id: "appendix", label: "Appendix", icon: FileKey, content: appendix.node, wordCount: appendix.wordCount },
   ], [exec, strategy, operations, tactics, execution, appendix]);
 
   // Premium dynamic category intersection observer to track active section while scrolling
@@ -379,11 +384,10 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
   
   const wordCount = useMemo(() => {
     if (isExpanded) {
-      const allContent = navItems.map(item => item.content).join("\n\n");
-      return allContent.split(/\s+/).filter(Boolean).length;
+      return navItems.reduce((sum, item) => sum + item.wordCount, 0);
     }
-    return activeItem.content.split(/\s+/).filter(Boolean).length;
-  }, [isExpanded, activeItem.content, navItems]);
+    return activeItem.wordCount;
+  }, [isExpanded, activeItem.wordCount, navItems]);
 
   const readingTime = useMemo(() => Math.max(1, Math.ceil(wordCount / 220)), [wordCount]);
 
@@ -400,7 +404,7 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
       
       {/* Hero Header */}
       {(activeTab === "exec" || isExpanded) && (
-        <header className="relative pt-16 pb-12 overflow-hidden print:pt-4 print:pb-4">
+        <header className="cv-auto-hero relative pt-16 pb-12 overflow-hidden print:pt-4 print:pb-4">
           <div className="absolute inset-0 pointer-events-none opacity-50 bg-[radial-gradient(circle_at_82%_10%,var(--color-glow),transparent_32%),linear-gradient(180deg,var(--color-card),var(--color-paper))]" />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
             
@@ -465,9 +469,13 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
 
       {/* Data Strip */}
       {(activeTab === "exec" || isExpanded) && (
-        <section className="max-w-7xl mx-auto px-0 sm:px-6 mb-8 print:hidden space-y-8">
-          <DataVisualizations />
-          <VoterProjectionsChart />
+        <section className="cv-auto-strip max-w-7xl mx-auto px-0 sm:px-6 mb-8 print:hidden space-y-8">
+          <LazyMount minHeight={420}>
+            <DataVisualizations />
+          </LazyMount>
+          <LazyMount minHeight={500}>
+            <VoterProjectionsChart />
+          </LazyMount>
         </section>
       )}
 

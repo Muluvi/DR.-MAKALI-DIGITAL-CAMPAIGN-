@@ -140,8 +140,6 @@ body {
   border: 1px solid var(--color-line);
   border-radius: 12px;
   overflow: hidden;
-  display: block;
-  overflow-x: auto;
 }
 .prose th, .prose td {
   padding: 0.75rem;
@@ -224,4 +222,30 @@ body {
 .marquee, svg, .motion-div {
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
+}
+
+/* content-visibility: auto skips layout/paint work for off-screen top-level
+   sections; contain-intrinsic-size reserves a placeholder size so the
+   scrollbar and scroll position don't jump before a section is first measured. */
+.cv-auto-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 1800px;
+}
+.cv-auto-hero {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 760px;
+}
+.cv-auto-strip {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 480px;
+}
+
+/* content-visibility can otherwise cause skipped sections to be omitted from
+   print output; force full rendering when printing. */
+@media print {
+  .cv-auto-section,
+  .cv-auto-hero,
+  .cv-auto-strip {
+    content-visibility: visible;
+  }
 }
