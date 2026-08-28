@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { 
   FileText, 
@@ -28,6 +28,9 @@ import { MarqueeCarousel } from "./MarqueeCarousel";
 import { AnimatedMetric } from "./AnimatedMetric";
 import { RadialProgress } from "./RadialProgress";
 import { LazyMount } from "./LazyMount";
+import { ScrollProgressBar } from "./ScrollProgressBar";
+import { SectionStickyBar } from "./SectionStickyBar";
+import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
 
 import {
   WatermarkedPillars,
@@ -183,27 +186,19 @@ function LazySection({ id, content, renderSectionExtras, immediate = false }: La
   );
 }
 
+const TAB_IDS = ["exec", "strategy", "operations", "tactics", "execution", "appendix"];
+
 export function ClientPage({ exec, strategy, operations, tactics, execution, appendix }: ClientPageProps) {
+  // Always starts on "exec" so server and client render the same tree on first paint — the URL
+  // fragment is only readable client-side, so a shared deep link switches tab in a mount effect
+  // below rather than in the initial state (see the useEffect reading window.location.hash).
   const [activeTab, setActiveTab] = useState("exec");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
 
   const { theme, toggleTheme, mounted } = useTheme();
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [isFabOpen, setIsFabOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (totalHeight > 0) {
-        const progress = (window.scrollY / totalHeight) * 100;
-        setScrollProgress(progress);
-      }
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const navItems = useMemo(() => [
     { id: "exec", label: "Executive Summary", icon: FileText, content: exec.node, wordCount: exec.wordCount },
@@ -261,6 +256,45 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
+
+  // Deep-link navigation to a specific numbered section (id format "<tab>-sec-<slug>"),
+  // used by in-text cross-references and the per-section copy-link buttons. Switches tab
+  // if needed, waits for the target to mount, then scrolls to it and sets :target via the hash.
+  const navigateToSection = useCallback(
+    (id: string) => {
+      const targetTab = id.split("-sec-")[0];
+      const isValidTab = navItems.some((item) => item.id === targetTab);
+
+      if (isValidTab && !isExpanded && activeTab !== targetTab) {
+        setActiveTab(targetTab);
+      }
+      setIsMobileMenuOpen(false);
+      scrollToSectionWhenReady(id, "smooth");
+    },
+    [activeTab, isExpanded, navItems]
+  );
+
+  useEffect(() => {
+    window.__navigateToSection = navigateToSection;
+    return () => {
+      delete window.__navigateToSection;
+    };
+  }, [navigateToSection]);
+
+  // On first load with a URL fragment already present (a shared deep link), switch to the
+  // right tab — the fragment only exists client-side, so this can't happen in initial state —
+  // then land on the section once its content has mounted.
+  useEffect(() => {
+    const hash = window.location.hash.replace(/^#/, "");
+    if (!hash) return;
+    const targetTab = hash.split("-sec-")[0];
+    if (TAB_IDS.includes(targetTab)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- syncing from the URL, which only exists client-side
+      setActiveTab(targetTab);
+    }
+    scrollToSectionWhenReady(hash, "auto");
+    // Runs once, on mount only.
+  }, []);
 
   const renderSectionExtras = (sectionId: string) => {
     const showFocusToggle = sectionId !== "appendix";
@@ -395,12 +429,9 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
     <div className="min-h-screen bg-paper text-ink font-sans selection:bg-accent/20">
       {/* Top Gradient Line */}
       <div className="h-1.5 bg-gradient-to-r from-accent to-gold fixed top-0 left-0 right-0 z-50 print:hidden" />
-      
-      {/* Scroll Progress Indicator */}
-      <div 
-        className="fixed top-1.5 left-0 right-0 h-1 bg-gradient-to-r from-accent to-gold z-50 origin-left transition-transform duration-75 pointer-events-none print:hidden"
-        style={{ transform: `scaleX(${scrollProgress / 100})` }}
-      />
+
+      {/* Scroll Progress Indicator — CSS scroll-driven animation, JS fallback only */}
+      <ScrollProgressBar />
       
       {/* Hero Header */}
       {(activeTab === "exec" || isExpanded) && (
@@ -419,6 +450,11 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
                   Official Campaign Strategy Portal
                 </div>
               </div>
+            </div>
+
+            <div className="confidentiality-marker mb-6 flex items-center gap-1.5">
+              <strong>Confidential</strong>
+              <span className="opacity-70">— prepared for Wiper Patriotic Front campaign leadership. Not for public distribution.</span>
             </div>
 
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl leading-[1.05] tracking-tight max-w-4xl text-ink mb-6">
@@ -535,6 +571,8 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
           </div>
         </div>
 
+        <SectionStickyBar />
+
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 relative mt-8">
           
           {/* Mobile Tab Selector */}
@@ -578,7 +616,7 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
           </div>
 
           {/* Desktop Sidebar Navigation */}
-          <aside className="hidden lg:block w-72 flex-shrink-0 print:hidden">
+          <aside className="toc-rail hidden lg:block w-72 flex-shrink-0 print:hidden">
             <div className="sticky top-24">
               <div className="text-xs uppercase tracking-widest font-extrabold text-muted mb-6 px-4">
                 {isExpanded ? "Table of Contents" : "Architecture Sections"}
@@ -644,12 +682,16 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
         </div>
       </main>
       
-      {/* Print Note */}
-      <div className="hidden print:block border-t border-line mt-8 pt-8 pb-8 px-4 text-sm text-muted max-w-7xl mx-auto">
-        <p>Prepared by Firefly Management · August 2026 · Proposal for discussion.</p>
-        <p className="mt-2 font-bold text-ink">Confidentiality / distribution:</p>
-        <p>This proposal is designed as a personally shared, link-only document. It is configured as noindex, nofollow and contains deliberate placeholders where primary documents or campaign decisions are still required.</p>
-      </div>
+      {/* Footer — visible on screen and repeated in print output */}
+      <footer className="border-t border-line mt-8 pt-8 pb-10 px-4 sm:px-6 max-w-7xl mx-auto">
+        <div className="confidentiality-marker mb-3">
+          <strong>Confidential</strong>
+          <span className="opacity-70"> — link-only proposal for Wiper Patriotic Front campaign leadership. Not for public distribution.</span>
+        </div>
+        <p className="text-sm text-muted">Prepared by Firefly Management · August 2026 · Proposal for discussion.</p>
+        <p className="mt-2 text-sm font-bold text-ink">Confidentiality / distribution:</p>
+        <p className="text-sm text-muted">This proposal is designed as a personally shared, link-only document. It is configured as noindex, nofollow and contains deliberate placeholders where primary documents or campaign decisions are still required.</p>
+      </footer>
 
       {/* Mobile Floating Action Button (Thumb-Zone Optimization) */}
       <div className="fixed bottom-6 right-6 z-50 print:hidden lg:hidden">

@@ -77,6 +77,8 @@ body {
   -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
+  /* Tabular figures everywhere numerals appear, so stats and tables don't jitter in width. */
+  font-variant-numeric: tabular-nums;
 }
 
 /* Base style for elements that transition when theme switches */
@@ -247,5 +249,136 @@ body {
   .cv-auto-hero,
   .cv-auto-strip {
     content-visibility: visible;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Scroll progress bar — CSS scroll-driven animation, JS only as fallback  */
+/* ---------------------------------------------------------------------- */
+.scroll-progress-track {
+  background: color-mix(in srgb, var(--color-line) 40%, transparent);
+}
+.scroll-progress-fill {
+  transform: scaleX(0);
+  transform-origin: left;
+}
+@supports (animation-timeline: scroll()) {
+  .scroll-progress-fill {
+    animation: scroll-progress-grow auto linear;
+    animation-timeline: scroll(root block);
+  }
+}
+@keyframes scroll-progress-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* ---------------------------------------------------------------------- */
+/* :target highlight — arriving at a deep-linked section flashes it       */
+/* ---------------------------------------------------------------------- */
+:target {
+  animation: target-flash 2.2s ease-out;
+  scroll-margin-top: 7rem;
+}
+@keyframes target-flash {
+  0% { background-color: color-mix(in srgb, var(--color-accent) 16%, transparent); border-radius: 8px; }
+  100% { background-color: transparent; }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Editorial text-wrap: balanced headings, no orphan words in body copy   */
+/* ---------------------------------------------------------------------- */
+h1, h2, h3, .text-balance-heading {
+  text-wrap: balance;
+}
+p, li, blockquote {
+  text-wrap: pretty;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Confidentiality marker                                                 */
+/* ---------------------------------------------------------------------- */
+.confidentiality-marker {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.confidentiality-marker strong {
+  color: var(--color-gold);
+}
+
+/* ---------------------------------------------------------------------- */
+/* Print stylesheet                                                       */
+/* ---------------------------------------------------------------------- */
+@media print {
+  @page {
+    margin: 16mm 14mm;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #0b1a30 !important;
+  }
+
+  /* Force the light palette regardless of the active theme toggle. */
+  :root, .dark {
+    --ink: #0b1a30;
+    --muted: #4e6178;
+    --paper: #ffffff;
+    --card: #ffffff;
+    --line: #c9d5e2;
+    --accent: #0056a8;
+    --gold: #a9151f;
+    --prose-body: #263241;
+    --prose-strong: #0a172c;
+    --prose-bg-nested: #ffffff;
+    --code-bg: #eef2f7;
+    --th-bg: #eef2f7;
+  }
+
+  /* Chrome, sticky bars, toggles and anything explicitly print-hidden. */
+  .print\:hidden,
+  .section-anchor-btn,
+  nav,
+  .scroll-progress-track,
+  .section-sticky-bar,
+  .toc-rail,
+  button {
+    display: none !important;
+  }
+
+  a[href^="http"]::after,
+  a[href^="https"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+    font-weight: 400;
+    color: #4e6178;
+    word-break: break-all;
+  }
+
+  /* Section collapse only exists as a client-side view mode; print always
+     shows every section regardless of which tab was active on screen. */
+  .cv-auto-section,
+  .cv-auto-hero,
+  .cv-auto-strip {
+    display: block !important;
+  }
+
+  table, figure, .print-avoid-break, .claim-card, .pull-quote {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  h2, h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .confidentiality-marker {
+    color: #4e6178 !important;
+  }
+  .confidentiality-marker strong {
+    color: #a9151f !important;
   }
 }

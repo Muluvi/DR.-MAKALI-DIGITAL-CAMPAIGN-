@@ -6,10 +6,18 @@ import { Volume2 } from "lucide-react";
 import { InteractiveTable } from "./markdown/InteractiveTable";
 import { MarkdownParagraph, MarkdownListItem } from "./markdown/MarkdownTextComponents";
 import { AudioBriefingButton } from "./markdown/AudioBriefingButton";
+import { SectionHeading } from "./markdown/SectionHeading";
+import { headingSlug, sectionId, type TabId } from "../lib/heading-slug";
+
+function getHeadingText(children: React.ReactNode): string {
+  if (typeof children === "string") return children;
+  if (Array.isArray(children)) return children.map(getHeadingText).join("");
+  return "";
+}
 
 // Markdown parsing runs here on the server at render time, so react-markdown
 // and its remark/rehype plugins never ship to the client bundle.
-export function MarkdownViewer({ content }: { content: string }) {
+export function MarkdownViewer({ content, tabId }: { content: string; tabId: TabId }) {
   return (
     <div className="relative bg-card rounded-none sm:rounded-3xl border-0 shadow-none sm:shadow-sm overflow-hidden p-0 sm:p-8 pt-4 pb-6 sm:py-8">
       {/* Dynamic Faded Watermark Background */}
@@ -23,7 +31,7 @@ export function MarkdownViewer({ content }: { content: string }) {
       </div>
 
       {/* Integrated Media Briefing Placard at the top of long strategic pages */}
-      <div className="mx-4 sm:mx-0 mb-6 bg-gradient-to-r from-accent/[0.03] to-gold/[0.03] border border-line/25 p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 z-10 relative">
+      <div className="mx-4 sm:mx-0 mb-6 bg-gradient-to-r from-accent/[0.03] to-gold/[0.03] border border-line/25 p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 z-10 relative print:hidden">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-accent/10 border border-accent/20 text-accent">
             <Volume2 size={18} />
@@ -48,26 +56,28 @@ export function MarkdownViewer({ content }: { content: string }) {
               <InteractiveTable>{children}</InteractiveTable>
             ),
             p: ({ children }) => (
-              <MarkdownParagraph>{children}</MarkdownParagraph>
+              <MarkdownParagraph tabId={tabId}>{children}</MarkdownParagraph>
             ),
             blockquote: ({ children }) => (
-              <blockquote className="border-l-4 border-accent bg-accent/[0.03] px-5 py-4 rounded-r-2xl my-6 text-xs sm:text-sm font-semibold text-ink leading-relaxed shadow-sm italic relative">
+              <blockquote className="border-l-4 border-accent bg-accent/[0.03] px-5 py-4 rounded-r-2xl my-6 text-xs sm:text-sm font-semibold text-ink leading-relaxed shadow-sm italic relative text-pretty">
                 {children}
               </blockquote>
             ),
             li: ({ children }) => (
-              <MarkdownListItem>{children}</MarkdownListItem>
+              <MarkdownListItem tabId={tabId}>{children}</MarkdownListItem>
             ),
-            h2: ({ children }) => (
-              <h2 className="font-serif text-base sm:text-lg font-black text-ink mt-8 mb-4 border-l-3 border-gold pl-3 leading-none uppercase tracking-wide">
-                {children}
-              </h2>
-            ),
-            h3: ({ children }) => (
-              <h3 className="font-serif text-xs sm:text-sm font-extrabold text-ink mt-6 mb-2 text-accent uppercase tracking-wider">
-                {children}
-              </h3>
-            )
+            h2: ({ children }) => {
+              const text = getHeadingText(children);
+              const slug = headingSlug(text);
+              const id = slug ? sectionId(tabId, slug) : null;
+              return <SectionHeading id={id} level={2}>{children}</SectionHeading>;
+            },
+            h3: ({ children }) => {
+              const text = getHeadingText(children);
+              const slug = headingSlug(text);
+              const id = slug ? sectionId(tabId, slug) : null;
+              return <SectionHeading id={id} level={3}>{children}</SectionHeading>;
+            }
           }}
         >
           {content}

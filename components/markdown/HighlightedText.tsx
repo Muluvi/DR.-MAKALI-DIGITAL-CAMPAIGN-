@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { Info } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { CrossSectionLink } from "./CrossSectionLink";
+import { crossSectionTarget, type TabId } from "../../lib/heading-slug";
 
 // Dictionary of definitions for hover tooltips
 const DEFINITIONS: Record<string, string> = {
@@ -53,10 +55,13 @@ function InlineTooltip({ text, term }: { text: string; term: string }) {
 // Master regex to match definitions and key badges in a single native pass
 const termsUnion = Object.keys(DEFINITIONS).join("|");
 const datePatterns = "August 2026|December 2026|April 2027|August 2027|2026/27|KSh 1\\.339bn";
-const masterRegex = new RegExp(`(${termsUnion}|${datePatterns})`, "gi");
+// In-text cross-references the proposal makes to specific numbered sections — see
+// lib/heading-slug.ts for where each one resolves to.
+const crossRefPattern = "Section (?:19B|9B|17A)";
+const masterRegex = new RegExp(`(${termsUnion}|${datePatterns}|${crossRefPattern})`, "gi");
 
 // Highly optimized memoized component to handle tooltip wrapping and badge highlights
-export const HighlightedText = React.memo(function HighlightedText({ text }: { text: string }) {
+export const HighlightedText = React.memo(function HighlightedText({ text, tabId }: { text: string; tabId?: TabId }) {
   const elements = React.useMemo(() => {
     if (!text) return null;
     const parts = text.split(masterRegex);
@@ -67,6 +72,23 @@ export const HighlightedText = React.memo(function HighlightedText({ text }: { t
       // If it is a defined term, wrap in a tooltip
       if (DEFINITIONS[lower]) {
         return <InlineTooltip key={idx} text={part} term={lower} />;
+      }
+      // If it is a cross-reference to another numbered section, make it a working link
+      const crossRefMatch = /^Section (19B|9B|17A)$/i.exec(part);
+      if (crossRefMatch) {
+        const sectionNumber = crossRefMatch[1].toUpperCase();
+        const targetId =
+          tabId && crossSectionTarget(sectionNumber)?.startsWith(`${tabId}-sec-`)
+            ? null // already inside the section being referenced — plain text reads better than a self-link
+            : crossSectionTarget(sectionNumber);
+        if (targetId) {
+          return (
+            <CrossSectionLink key={idx} id={targetId}>
+              {part}
+            </CrossSectionLink>
+          );
+        }
+        return part;
       }
       // If it is a key milestone date or budget figure, wrap in a badge
       if (/^(August 2026|December 2026|April 2027|August 2027|2026\/27|KSh 1\.339bn)$/i.test(part)) {
@@ -81,7 +103,7 @@ export const HighlightedText = React.memo(function HighlightedText({ text }: { t
       }
       return part;
     });
-  }, [text]);
+  }, [text, tabId]);
 
   return <>{elements}</>;
 });

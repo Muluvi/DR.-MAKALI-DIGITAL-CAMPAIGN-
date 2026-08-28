@@ -162,7 +162,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
   return (
     <div className="border-x-0 sm:border border-y sm:border-line rounded-none sm:rounded-2xl -mx-4 sm:mx-0 bg-card/40 my-6 overflow-hidden shadow-none sm:shadow-sm hover:shadow-md transition-shadow">
       {/* Interactive Controls & Analytics Header */}
-      <div className="p-3 sm:p-4 border-b border-line/60 bg-paper/60 backdrop-blur-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+      <div className="print:hidden p-3 sm:p-4 border-b border-line/60 bg-paper/60 backdrop-blur-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <div className="p-1.5 rounded-lg bg-accent/10 border border-accent/20 text-accent">
             <Sparkles size={14} />
