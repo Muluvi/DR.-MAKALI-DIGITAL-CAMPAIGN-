@@ -126,6 +126,26 @@ const WiperUmbrellaLogo = () => (
   </svg>
 );
 
+// Full-bleed divider marking the start of one of the document's six major parts — breaks out
+// of the max-w-7xl container to span the viewport edge-to-edge.
+function PartDivider({ index, label }: { index: number; label: string }) {
+  return (
+    <div className="relative left-1/2 -translate-x-1/2 w-screen print:hidden" aria-hidden="true">
+      <div className="h-12 sm:h-14 flex items-center bg-gradient-to-r from-accent/[0.05] via-gold/[0.06] to-accent/[0.05] border-y border-line/40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full flex items-center gap-3">
+          <span className="font-mono text-[9px] sm:text-[10px] font-black text-accent/70 shrink-0">
+            PART {index + 1}/6
+          </span>
+          <span className="h-px flex-1 bg-line/60" />
+          <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-muted truncate">{label}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const PART_TINTS = ["from-accent/[0.025]", "from-gold/[0.025]", "from-accent/[0.025]", "from-gold/[0.025]", "from-accent/[0.025]", "from-gold/[0.025]"];
+
 interface LazySectionProps {
   id: string;
   content: React.ReactNode;
@@ -649,13 +669,17 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
             {isExpanded ? (
               <div className="space-y-16">
                 {navItems.map((item, index) => (
-                  <LazySection 
-                    key={item.id}
-                    id={item.id}
-                    content={item.content}
-                    renderSectionExtras={renderSectionExtras}
-                    immediate={index === 0}
-                  />
+                  <div key={item.id}>
+                    <PartDivider index={index} label={item.label} />
+                    <div className={`bg-gradient-to-b ${PART_TINTS[index % PART_TINTS.length]} to-transparent rounded-b-3xl pt-8`}>
+                      <LazySection
+                        id={item.id}
+                        content={item.content}
+                        renderSectionExtras={renderSectionExtras}
+                        immediate={index === 0}
+                      />
+                    </div>
+                  </div>
                 ))}
               </div>
             ) : (

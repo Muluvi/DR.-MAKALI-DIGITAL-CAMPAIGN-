@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { CrossSectionLink } from "./CrossSectionLink";
 import { ClaimBadge, type ClaimStatus } from "./ClaimBadge";
 import { DerivedFigureDrawer } from "./DerivedFigureDrawer";
+import { KeyTakeawayBanner } from "./KeyTakeawayBanner";
 import { crossSectionTarget, type TabId } from "../../lib/heading-slug";
 
 // Source markdown hard-wraps around 80 columns, which leaves a literal "\n" inside a single
@@ -32,6 +33,22 @@ const STATUS_PHRASES: { pattern: string; status: ClaimStatus }[] = [
   { pattern: ws("532,758 voters"), status: "verified" },
   { pattern: ws("22\\.1% against a front-runner at 37\\.4%"), status: "verified" },
   { pattern: ws("approximately 1\\.2 million by 2024"), status: "estimate" },
+];
+
+// A key-takeaway banner closes each major section, quoting a line that's already that
+// section's own natural closing statement — never new copy. "exec" is skipped: Section 4
+// already closes on the promoted central-narrative pull quote, and a second banner quoting
+// the same line would just duplicate it. strategy/tactics share a trigger because the source
+// markdown duplicates that content across both documents (see strategy.md and tactics.md,
+// Section 19B.4) — each tab gets its own banner instance from the same stated line.
+const BANNER_TRIGGERS: { pattern: string; tabIds: TabId[] }[] = [
+  {
+    pattern: ws("one that continues is a governance commitment — and the commitment is the persuasive element\\."),
+    tabIds: ["strategy", "tactics"],
+  },
+  { pattern: ws("the reason the campaign's own deepfake denials will be believed\\."), tabIds: ["operations"] },
+  { pattern: ws("Firefly Management is ready to build that operation\\."), tabIds: ["execution"] },
+  { pattern: ws("commence Phase\\s+[−-]1 Week 1\\."), tabIds: ["appendix"] },
 ];
 
 // Dictionary of definitions for hover tooltips
@@ -88,8 +105,9 @@ const datePatterns = "August 2026|December 2026|April 2027|August 2027|2026/27|K
 const crossRefPattern = "Section\\s+(?:19B|9B|17A)";
 const statusPhrasePattern = STATUS_PHRASES.map((p) => p.pattern).join("|");
 const workingTriggerPattern = WORKING_TRIGGERS.map((p) => p.pattern).join("|");
+const bannerTriggerPattern = BANNER_TRIGGERS.map((p) => p.pattern).join("|");
 const masterRegex = new RegExp(
-  `(${termsUnion}|${datePatterns}|${crossRefPattern}|${statusPhrasePattern}|${workingTriggerPattern})`,
+  `(${termsUnion}|${datePatterns}|${crossRefPattern}|${statusPhrasePattern}|${workingTriggerPattern}|${bannerTriggerPattern})`,
   "gi"
 );
 
@@ -122,6 +140,17 @@ export const HighlightedText = React.memo(function HighlightedText({ text, tabId
           );
         }
         return part;
+      }
+      // If this is a section's natural closing line, follow it with a key-takeaway banner
+      const bannerMatch =
+        tabId && BANNER_TRIGGERS.find((t) => t.tabIds.includes(tabId) && new RegExp(`^${t.pattern}$`, "i").test(part));
+      if (bannerMatch && tabId) {
+        return (
+          <React.Fragment key={idx}>
+            {part}
+            <KeyTakeawayBanner tabId={tabId}>{part}</KeyTakeawayBanner>
+          </React.Fragment>
+        );
       }
       // If this is the canonical statement of a derived figure, attach a "show the working" drawer
       const workingMatch = WORKING_TRIGGERS.find((t) => new RegExp(`^${t.pattern}$`, "i").test(part));

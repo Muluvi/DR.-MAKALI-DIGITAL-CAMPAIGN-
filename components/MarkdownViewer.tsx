@@ -16,7 +16,37 @@ import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
 import { MizaniSlopeBlock } from "./markdown/MizaniSlopeBlock";
 import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
 import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
-import { headingSlug, sectionId, type TabId } from "../lib/heading-slug";
+import { PullQuote } from "./markdown/PullQuote";
+import { ClaimCards } from "./markdown/ClaimCards";
+import { headingSlug, sectionId, TAB_LABELS, type TabId } from "../lib/heading-slug";
+
+// Section 1.3's "three governing realities" — matched by the start of each bolded lead
+// sentence so the list item gets pull-quote emphasis without touching the wording.
+const GOVERNING_REALITY_TRIGGERS = [
+  "Roughly 86% of Kitui residents are outside the internet-using population",
+  "The regulatory ground shifted on 7 August 2026",
+  "Kamba-language radio",
+];
+import { PHASES } from "../lib/phases";
+
+// Section 20's phase subsections ("Phase −1: Nomination Sprint …", "Phase 0: …") don't start
+// with a digit, so they never pick up a heading id from headingSlug — but they should still get
+// the matching phase colour on their left border instead of the generic gold accent.
+const PHASE_HEADING_PATTERN = /^Phase\s+(−1|-1|0|1|2|3)\s*:/i;
+function phaseAccentFor(headingText: string): string | undefined {
+  const match = PHASE_HEADING_PATTERN.exec(headingText.trim());
+  if (!match) return undefined;
+  const id = match[1] === "−1" || match[1] === "-1" ? "neg1" : match[1];
+  const phase = PHASES.find((p) => p.id === id);
+  return phase ? `var(${phase.colorVar})` : undefined;
+}
+
+// Markdown hard-wraps around 80 columns, leaving a literal "\n" inside a text node wherever a
+// phrase happens to wrap — collapse all whitespace runs before substring-matching against a
+// trigger phrase, or matches silently fail whenever the wrap lands mid-phrase.
+function normalizeWhitespace(text: string): string {
+  return text.replace(/\s+/g, " ");
+}
 
 function getHeadingText(children: React.ReactNode): string {
   if (typeof children === "string") return children;
@@ -118,6 +148,12 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
                 return <PlatformSizingBlock />;
               }
 
+              // Section 2.1 candidate-asset table — assertion/evidence/application becomes
+              // claim cards (item 21), replacing the table rather than sitting alongside it.
+              if (tabId === "exec" && has("asset") && has("evidence") && has("digital application")) {
+                return <ClaimCards>{children}</ClaimCards>;
+              }
+
               const table = <InteractiveTable>{children}</InteractiveTable>;
 
               // Section 1.1 Mizani survey table — table stays (item 14 says keep it with only
@@ -174,14 +210,28 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
               }
               return <MarkdownParagraph tabId={tabId}>{children}</MarkdownParagraph>;
             },
-            blockquote: ({ children }) => (
-              <blockquote className="border-l-4 border-accent bg-accent/[0.03] px-5 py-4 rounded-r-2xl my-6 text-xs sm:text-sm font-semibold text-ink leading-relaxed shadow-sm italic relative text-pretty">
-                {children}
-              </blockquote>
-            ),
-            li: ({ children }) => (
-              <MarkdownListItem tabId={tabId}>{children}</MarkdownListItem>
-            ),
+            blockquote: ({ children }) => {
+              // The central narrative line (Section 4) gets the full pull-quote treatment;
+              // every other blockquote (the ethics charter, etc.) keeps the standard styling.
+              if (getDeepText(children).includes("Kitui has resources")) {
+                return <PullQuote>{children}</PullQuote>;
+              }
+              return (
+                <blockquote className="border-l-4 border-accent bg-accent/[0.03] px-5 py-4 rounded-r-2xl my-6 text-xs sm:text-sm font-semibold text-ink leading-relaxed shadow-sm italic relative text-pretty">
+                  {children}
+                </blockquote>
+              );
+            },
+            li: ({ children }) => {
+              // The three governing realities (Section 1.3) get a pull-quote-style emphasis
+              // treatment instead of a plain bullet — every other list item is unaffected.
+              const text = normalizeWhitespace(getDeepText(children));
+              const isGoverningReality = tabId === "exec" && GOVERNING_REALITY_TRIGGERS.some((t) => text.includes(t));
+              if (isGoverningReality) {
+                return <MarkdownListItem tabId={tabId} emphasis>{children}</MarkdownListItem>;
+              }
+              return <MarkdownListItem tabId={tabId}>{children}</MarkdownListItem>;
+            },
             // Bold runs carry some of the document's most load-bearing figures (the derived
             // win threshold, the deficit) — route their text through the same highlighter so
             // cross-refs, claim badges and "show the working" triggers work inside bold too.
@@ -198,7 +248,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
               const id = slug ? sectionId(tabId, slug) : null;
               return (
                 <>
-                  <SectionHeading id={id} level={2}>{children}</SectionHeading>
+                  <SectionHeading id={id} level={2} eyebrow={TAB_LABELS[tabId]}>{children}</SectionHeading>
                   {id && HEADING_INSERTS[id]}
                 </>
               );
@@ -209,7 +259,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
               const id = slug ? sectionId(tabId, slug) : null;
               return (
                 <>
-                  <SectionHeading id={id} level={3}>{children}</SectionHeading>
+                  <SectionHeading id={id} level={3} accentColor={phaseAccentFor(text)}>{children}</SectionHeading>
                   {id && HEADING_INSERTS[id]}
                 </>
               );

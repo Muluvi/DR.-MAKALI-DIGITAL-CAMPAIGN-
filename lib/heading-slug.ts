@@ -20,6 +20,17 @@ export function sectionId(tabId: TabId, slug: string): string {
   return `${tabId}-sec-${slug}`;
 }
 
+// The document's six major parts (== the six tabs in ClientPage). Used as a running-header
+// eyebrow label above every major (h2) heading, and to mark part boundaries in Expand-All view.
+export const TAB_LABELS: Record<TabId, string> = {
+  exec: "Executive Summary",
+  strategy: "Strategy & Targeting",
+  operations: "Operations & Architecture",
+  tactics: "Tactics & Themes",
+  execution: "Implementation & KPIs",
+  appendix: "Appendix",
+};
+
 // Cross-references the proposal's own prose makes by section number ("Section 19B", "Section 9B",
 // "Section 17A"). Some numbers (17A, 19B) appear as headings in more than one tab because the
 // source markdown duplicates that content across the strategy and tactics documents; the map below

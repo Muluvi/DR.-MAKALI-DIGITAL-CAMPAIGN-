@@ -35,22 +35,39 @@ function CopyLinkButton({ id }: { id: string }) {
 export function SectionHeading({
   id,
   level,
+  eyebrow,
+  accentColor,
   children,
 }: {
   id: string | null;
   level: 2 | 3;
+  /** Running-header label above a major (h2) heading — which of the six parts it belongs to. */
+  eyebrow?: string;
+  /** Overrides the default gold left border, e.g. a campaign-phase colour. */
+  accentColor?: string;
   children: React.ReactNode;
 }) {
   const Tag = level === 2 ? "h2" : "h3";
   const baseClass =
     level === 2
-      ? "font-serif text-base sm:text-lg font-black text-ink mt-8 mb-4 border-l-3 border-gold pl-3 leading-none uppercase tracking-wide text-balance"
-      : "font-serif text-xs sm:text-sm font-extrabold text-ink mt-6 mb-2 text-accent uppercase tracking-wider text-balance";
+      ? "font-serif text-base sm:text-lg font-black text-ink mt-10 mb-4 border-l-3 pl-3 leading-none uppercase tracking-wide text-balance"
+      : "font-serif text-xs sm:text-sm font-extrabold text-ink mt-7 mb-2 text-accent uppercase tracking-wider text-balance";
 
   return (
-    <Tag id={id ?? undefined} className={`${baseClass} group scroll-mt-28 flex items-center gap-2`}>
-      <span>{children}</span>
-      {id && <CopyLinkButton id={id} />}
-    </Tag>
+    <>
+      {eyebrow && (
+        <div className="eyebrow-label mt-10 not-prose" aria-hidden="true">
+          {eyebrow}
+        </div>
+      )}
+      <Tag
+        id={id ?? undefined}
+        className={`${baseClass} group scroll-mt-28 flex items-center gap-2 ${eyebrow ? "!mt-1" : ""} ${!accentColor ? "border-gold" : ""}`}
+        style={accentColor ? { borderColor: accentColor } : undefined}
+      >
+        <span>{children}</span>
+        {id && <CopyLinkButton id={id} />}
+      </Tag>
+    </>
   );
 }
