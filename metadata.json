@@ -1,0 +1,6 @@
+{
+  "name": "Kitui 2027 Campaign Strategy",
+  "description": "Campaign Strategy & Digital Architecture Proposal for Hon. Dr. Benson Makali Mulu, Kitui County.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
