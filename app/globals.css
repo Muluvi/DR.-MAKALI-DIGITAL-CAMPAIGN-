@@ -52,6 +52,20 @@
   --estimate-border: #f0cf8a;
   --estimate-color: #8a5a05;
 
+  /* Source-tier badges (Tier 1 Official / Tier 2 Reported / Tier 3 Single-source) — reuses the
+     claim-badge palette on a second semantic axis: source reliability rather than claim status.
+     Tier 1 borrows the "verified" green, Tier 2 the "estimate" amber, Tier 3 the placeholder red
+     used everywhere else in the document to flag something the reader must not take at face value. */
+  --tier1-bg: var(--verified-bg);
+  --tier1-border: var(--verified-border);
+  --tier1-color: var(--verified-color);
+  --tier2-bg: var(--estimate-bg);
+  --tier2-border: var(--estimate-border);
+  --tier2-color: var(--estimate-color);
+  --tier3-bg: var(--placeholder-bg);
+  --tier3-border: var(--placeholder-border);
+  --tier3-color: var(--placeholder-color);
+
   /* Phase colour palette — one hue per campaign stage (Section 20), used consistently across
      the timeline, phase-scoped charts and section headers. */
   --phase-neg1: #6d28d9;  /* Phase -1: Nomination Sprint */
@@ -240,6 +254,35 @@ body {
   background: var(--placeholder-bg);
   border-color: var(--placeholder-border);
   color: var(--placeholder-color);
+}
+
+/* Source-tier badges — same shape as claim-badge, second semantic axis (source reliability). */
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  border-radius: 999px;
+  border-width: 1px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.tier-badge-1 {
+  background: var(--tier1-bg);
+  border-color: var(--tier1-border);
+  color: var(--tier1-color);
+}
+.tier-badge-2 {
+  background: var(--tier2-bg);
+  border-color: var(--tier2-border);
+  color: var(--tier2-color);
+}
+.tier-badge-3 {
+  background: var(--tier3-bg);
+  border-color: var(--tier3-border);
+  color: var(--tier3-color);
 }
 
 /* Eyebrow label — a short kicker line above a major heading. Explicitly resets every
