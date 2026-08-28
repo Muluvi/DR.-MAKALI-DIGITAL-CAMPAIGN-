@@ -14,6 +14,11 @@
   --color-dark: var(--dark);
   --color-danger: var(--danger);
   --color-glow: var(--glow);
+  --color-phase-neg1: var(--phase-neg1);
+  --color-phase-0: var(--phase-0);
+  --color-phase-1: var(--phase-1);
+  --color-phase-2: var(--phase-2);
+  --color-phase-3: var(--phase-3);
   --font-serif: Montserrat, sans-serif;
   --font-sans: Montserrat, sans-serif;
 }
@@ -46,6 +51,14 @@
   --estimate-bg: #fdf3e0;
   --estimate-border: #f0cf8a;
   --estimate-color: #8a5a05;
+
+  /* Phase colour palette — one hue per campaign stage (Section 20), used consistently across
+     the timeline, phase-scoped charts and section headers. */
+  --phase-neg1: #6d28d9;  /* Phase -1: Nomination Sprint */
+  --phase-0: #0891b2;     /* Phase 0: Audit & Infrastructure */
+  --phase-1: #0056a8;     /* Phase 1: Awareness & Community (= brand accent) */
+  --phase-2: #b45309;     /* Phase 2: Engagement & Persuasion */
+  --phase-3: #15803d;     /* Phase 3: Mobilisation & GOTV */
 }
 
 .dark {
@@ -75,6 +88,12 @@
   --estimate-bg: #241a06;
   --estimate-border: #6b4e0f;
   --estimate-color: #fbbf24;
+
+  --phase-neg1: #a78bfa;
+  --phase-0: #22d3ee;
+  --phase-1: #338dfd;
+  --phase-2: #fb923c;
+  --phase-3: #4ade80;
 }
 
 html {

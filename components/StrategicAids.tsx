@@ -595,7 +595,7 @@ export function VoterDensityMap() {
 
       {/* Interactive Recharts Constituency Chart */}
       <div className="h-44 w-full text-[9px] mb-6">
-        <LazyMount minHeight={176}>
+        <LazyMount minHeight={176} className="h-full">
           <ConstituencyBarChart chartData={chartData} selectedID={selectedID} onSelect={setSelectedID} />
         </LazyMount>
       </div>
@@ -1393,7 +1393,7 @@ export function ResourceLedger() {
 
         {/* Recharts Breakdown Column */}
         <div className="h-48 sm:h-56 w-full text-[9px]">
-          <LazyMount minHeight={224}>
+          <LazyMount minHeight={224} className="h-full">
             <ResourceLedgerBarChart chartData={chartData} colors={colors} />
           </LazyMount>
         </div>

@@ -10,6 +10,12 @@ import { AudioBriefingButton } from "./markdown/AudioBriefingButton";
 import { SectionHeading } from "./markdown/SectionHeading";
 import { ClaimBadge } from "./markdown/ClaimBadge";
 import { HighlightedText } from "./markdown/HighlightedText";
+import { CompetitiveQuadrantBlock } from "./markdown/CompetitiveQuadrantBlock";
+import { ResourceEnvelopeBlock } from "./markdown/ResourceEnvelopeBlock";
+import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
+import { MizaniSlopeBlock } from "./markdown/MizaniSlopeBlock";
+import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
+import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
 import { headingSlug, sectionId, type TabId } from "../lib/heading-slug";
 
 function getHeadingText(children: React.ReactNode): string {
@@ -24,11 +30,46 @@ function flattenText(children: React.ReactNode): string {
   return "";
 }
 
+// Deep text extraction that also understands HighlightedText (props.text, not props.children) —
+// needed to read table headers, since a bolded header cell (e.g. "**Mulu**") is now rendered
+// through the strong -> HighlightedText path.
+function getDeepText(node: React.ReactNode): string {
+  if (node === null || node === undefined) return "";
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(getDeepText).join("");
+  if (typeof node === "object" && "props" in (node as object)) {
+    const props = (node as { props?: { children?: React.ReactNode; text?: string } }).props;
+    if (props?.children !== undefined) return getDeepText(props.children);
+    if (props?.text !== undefined) return String(props.text);
+  }
+  return "";
+}
+
+function getTableHeaderTexts(children: React.ReactNode): string[] {
+  const top = React.Children.toArray(children) as React.ReactElement[];
+  const thead = top.find((c) => c?.type === "thead");
+  if (!thead) return [];
+  const theadChildren = React.Children.toArray((thead.props as { children?: React.ReactNode }).children) as React.ReactElement[];
+  const headerRow = theadChildren.find((c) => c?.type === "tr");
+  if (!headerRow) return [];
+  const cells = React.Children.toArray((headerRow.props as { children?: React.ReactNode }).children) as React.ReactElement[];
+  return cells.filter((c) => c?.type === "th").map((c) => getDeepText((c.props as { children?: React.ReactNode }).children).trim());
+}
+
 // The source markdown already marks every open item consistently — either an inline
 // `[Insert …]` / `[Confirm …]` code span, or a `<span class="placeholder">OPEN/GATED</span>`
 // in the appendix checklist. Both are unambiguous, so they get the "Awaiting campaign
 // decision" badge mechanically rather than by guessing at status elsewhere.
 const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
+
+// Visualisations anchored to a specific heading rather than a table (Phase C, items 11/12/15/16).
+// Keyed by the same "<tab>-sec-<slug>" id SectionHeading assigns, so this stays correct even if
+// the heading text is edited later.
+const HEADING_INSERTS: Record<string, React.ReactNode> = {
+  "exec-sec-2-3": <WardCartogramBlock />,
+  "exec-sec-2-4": <ResourceEnvelopeBlock />,
+  "execution-sec-20": <KpiPhaseBlock />,
+};
 
 // Markdown parsing runs here on the server at render time, so react-markdown
 // and its remark/rehype plugins never ship to the client bundle.
@@ -67,9 +108,41 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw]}
           components={{
-            table: ({ children }) => (
-              <InteractiveTable>{children}</InteractiveTable>
-            ),
+            table: ({ children }) => {
+              const headers = getTableHeaderTexts(children).map((h) => h.toLowerCase());
+              const has = (text: string) => headers.some((h) => h.includes(text));
+
+              // Section 2.5 "National platform sizing" — replaced by the sorted bar chart
+              // (item 13), not kept alongside it.
+              if (tabId === "exec" && has("platform") && has("kenya audience")) {
+                return <PlatformSizingBlock />;
+              }
+
+              const table = <InteractiveTable>{children}</InteractiveTable>;
+
+              // Section 1.1 Mizani survey table — table stays (item 14 says keep it with only
+              // two data points), slope chart added alongside it.
+              if (tabId === "exec" && has("kasalu") && has("wambua")) {
+                return (
+                  <>
+                    {table}
+                    <MizaniSlopeBlock />
+                  </>
+                );
+              }
+
+              // Section 2.2 competitive field table — quadrant plot added after it.
+              if (tabId === "exec" && has("contender") && has("exploitable gap")) {
+                return (
+                  <>
+                    {table}
+                    <CompetitiveQuadrantBlock />
+                  </>
+                );
+              }
+
+              return table;
+            },
             code: ({ children }) => {
               const text = flattenText(children);
               if (PLACEHOLDER_PATTERN.test(text.trim())) {
@@ -123,13 +196,23 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
               const text = getHeadingText(children);
               const slug = headingSlug(text);
               const id = slug ? sectionId(tabId, slug) : null;
-              return <SectionHeading id={id} level={2}>{children}</SectionHeading>;
+              return (
+                <>
+                  <SectionHeading id={id} level={2}>{children}</SectionHeading>
+                  {id && HEADING_INSERTS[id]}
+                </>
+              );
             },
             h3: ({ children }) => {
               const text = getHeadingText(children);
               const slug = headingSlug(text);
               const id = slug ? sectionId(tabId, slug) : null;
-              return <SectionHeading id={id} level={3}>{children}</SectionHeading>;
+              return (
+                <>
+                  <SectionHeading id={id} level={3}>{children}</SectionHeading>
+                  {id && HEADING_INSERTS[id]}
+                </>
+              );
             }
           }}
         >
