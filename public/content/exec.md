@@ -34,10 +34,12 @@ Most digital campaign proposals for the 2027 cycle are written for August 2027.
 This one is not, because the decisive contest for Dr. Mulu is happening now.
 
 The Wiper Democratic Movement has opted to select its Kitui gubernatorial
-flagbearer by **opinion poll rather than competitive primaries**, placing Dr.
-Mulu, Woman Representative Dr. Irene Kasalu and Senator Enoch Wambua in a
-measured popularity contest. Party strategists have indicated they want the
-exercise concluded before the final quarter of 2026.
+flagbearer by **opinion poll rather than competitive primaries** — *reported*
+by local digital media and **not yet confirmed by Wiper itself** (Tier 3;
+Section 1A sets out exactly what would confirm it) — placing Dr. Mulu, Woman
+Representative Dr. Irene Kasalu and Senator Enoch Wambua in a measured
+popularity contest. Party strategists have indicated they want the exercise
+concluded before the final quarter of 2026.
 
 The published trend is not favourable, and it is moving in the wrong direction:
 
@@ -122,6 +124,21 @@ and converting online attention into registered voters, volunteers and donors.
 The strategy that follows is built for one purpose: to make Dr. Makali Mulu the
 unavoidable choice — first for the Wiper ticket, then for Governor of Kitui
 County.
+
+---
+
+## 1A. The Nomination Path
+
+Section 1.1 opened with the claim this entire Phase −1 strategy is built on:
+that the Wiper Kitui gubernatorial ticket will be settled by opinion poll
+rather than a competitive primary. That claim deserves to be stated plainly
+for what it is — **a Tier 3, single-source report, not a confirmed party
+decision.**
+
+If it turns out to be wrong — if Wiper instead runs a competitive primary, or
+delegate vote, or some hybrid — the phasing in Section 20 needs to be revised
+before further budget commits against it. This section exists so that
+re-check happens deliberately rather than by accident.
 
 ---
 

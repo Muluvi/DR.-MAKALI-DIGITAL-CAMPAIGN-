@@ -248,3 +248,11 @@ and treated as subject to change.**
 Market rates for SMS, USSD and messaging infrastructure reflect published
 Kenyan provider pricing as at 2026 and are presented as market ranges, not as
 contracted quotations.
+
+---
+
+## Appendix C: Data Gaps Register
+
+Every figure this document could not complete is tracked here rather than
+silently filled in. This is a deliverable in its own right — it scopes the
+research this engagement would be buying next, not a list of apologies.

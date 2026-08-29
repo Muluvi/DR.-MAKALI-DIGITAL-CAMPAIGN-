@@ -178,14 +178,14 @@ to **KSh2 million**, imprisonment up to **five years**, or both.
 * Covered expenditure expressly includes **advertising, publicity material,
 campaign personnel and communication** — that is, this engagement.
 
-> **`[Insert verified Kitui County expenditure ceiling — IEBC Gazette Notice No. 12251, 7 August 2026, First Schedule]`**
->
-> This figure has not been assumed or estimated in this document. Kitui's
-> population sits mid-range nationally while its land area (30,430 km², sixth
-> largest) attracts the 30% area weighting, but the campaign should read the
-> schedule directly rather than rely on inference. **Every budget tier below is
-> expressed as a percentage of that ceiling as well as in absolute terms, so
-> the model holds whatever the verified figure proves to be.**
+> **Verified: the Kitui county-seat expenditure ceiling is KSh97.56 million**
+> (IEBC, Gazette Notice No. 12251, 7 August 2026, First Schedule) — shared
+> across the Governor, Senator and Woman Representative races. This figure has
+> not been assumed or estimated. Kitui's population sits mid-range nationally
+> while its land area (30,430 km², sixth largest) attracts the 30% area
+> weighting. **Every budget tier below is expressed as a percentage of that
+> ceiling as well as in absolute terms** — see Section 8B.7 for the full
+> operational compliance panel this ceiling drives.
 
 ### 8B.2 Unit economics — verified market rates
 These are current Kenyan market rates, not estimates. They make cost-per-contact
@@ -321,6 +321,16 @@ Mulu is already strong and leaves the recognition deficit untouched. Tier 3 is
 defensible but presses against a statutory ceiling that must also accommodate
 transport, venues and personnel across 30,430 square kilometres — and
 transport is typically the largest single category of campaign expenditure.
+
+### 8B.7 Compliance and Spending-Ceiling Panel
+
+The verified KSh97.56 million ceiling is not background reading — it is the
+campaign's **binding budget constraint**, and every figure elsewhere in this
+document sits underneath it. The panel below turns the Gazette Notice's
+provisions into an operational checklist: the 20% single-source contribution
+cap, the dedicated-account and authorised-person requirements, the KSh1
+million audited-report threshold, the regulated expenditure window, and the
+penalty exposure for getting any of it wrong.
 
 ---
 

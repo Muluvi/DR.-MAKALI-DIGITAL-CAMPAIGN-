@@ -33,6 +33,7 @@ const STATUS_PHRASES: { pattern: string; status: ClaimStatus }[] = [
   { pattern: ws("532,758 voters"), status: "verified" },
   { pattern: ws("22\\.1% against a front-runner at 37\\.4%"), status: "verified" },
   { pattern: ws("approximately 1\\.2 million by 2024"), status: "estimate" },
+  { pattern: ws("KSh97\\.56 million"), status: "verified" },
 ];
 
 // A key-takeaway banner closes each major section, quoting a line that's already that
