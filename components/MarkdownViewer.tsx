@@ -28,6 +28,10 @@ import { NominationPathPanel } from "./markdown/NominationPathPanel";
 import { ComplianceCeilingPanel } from "./markdown/ComplianceCeilingPanel";
 import { MediaOwnershipBlock } from "./markdown/MediaOwnershipBlock";
 import { DataGapsRegister } from "./markdown/DataGapsRegister";
+import { PathTo200kBlock } from "./markdown/PathTo200kBlock";
+import { ConstituencyWeightBlock } from "./markdown/ConstituencyWeightBlock";
+import { ElectoralTimelineBlock } from "./markdown/ElectoralTimelineBlock";
+import { FiscalAuditChartBlock } from "./markdown/FiscalAuditChartBlock";
 import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, TAB_LABELS, type TabId } from "../lib/heading-slug";
 
@@ -110,11 +114,27 @@ const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
 // the heading text is edited later.
 const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "exec-sec-1a": <NominationPathPanel />,
-  "exec-sec-2-3": <WardCartogramBlock />,
+  "exec-sec-2-3": (
+    <>
+      <WardCartogramBlock />
+      <PathTo200kBlock />
+      <ConstituencyWeightBlock />
+    </>
+  ),
   "exec-sec-2-4": <ResourceEnvelopeBlock />,
   "exec-sec-2-5": <DisputedFigure entry={kituiCentralPopulationDispute} />,
-  "exec-sec-2-6": <ElectoralHistoryPanel />,
-  "exec-sec-2-7": <FiscalAuditPanel />,
+  "exec-sec-2-6": (
+    <>
+      <ElectoralHistoryPanel />
+      <ElectoralTimelineBlock />
+    </>
+  ),
+  "exec-sec-2-7": (
+    <>
+      <FiscalAuditPanel />
+      <FiscalAuditChartBlock />
+    </>
+  ),
   "exec-sec-2-8": <DroughtFoodSecurityPanel />,
   "exec-sec-2-9": <MuiBasinPanel />,
   "exec-sec-2-10": <CompetitorFieldPanel />,

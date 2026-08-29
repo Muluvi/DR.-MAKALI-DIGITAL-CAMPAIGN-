@@ -303,15 +303,18 @@ the multilingual content strategy in Section 18.
 
 ### 2.6 Electoral History: 2013, 2017 and 2022
 
-The Kitui governorship has had three different winners in its three completed
-cycles — this is not a safe seat for any single machine, Wiper included. The
-**2017 result is court-confirmed** (Court of Appeal, *Malombe v Ngilu* [2018]
-KECA 460), which is the most authoritative figure this document cites for that
-cycle. The **2022 governor race carries one disputed figure** — David Musila's
-runner-up total is reported as both 114,606 and 117,606 depending on outlet —
-shown below with both values rather than a single silently-chosen number.
-**2013 is shown as a named gap:** the research behind this proposal did not
-surface sourced 2013 results, and none are invented to complete the pattern.
+Kitui has had **two different Governor-race winners across the two cycles this
+document can source** — Charity Ngilu in 2017, Julius Malombe in 2022 — which
+on its own is enough to say this is not a safe seat for any single machine,
+Wiper included. The **2017 result is court-confirmed** (Court of Appeal,
+*Malombe v Ngilu* [2018] KECA 460), which is the most authoritative figure
+this document cites for that cycle. The **2022 governor race carries one
+disputed figure** — David Musila's runner-up total is reported as both
+114,606 and 117,606 depending on outlet — shown below with both values rather
+than a single silently-chosen number. **2013 is shown as a named gap:** the
+research behind this proposal did not surface sourced 2013 results, so the
+winner for that cycle — and whether it extends the pattern to three different
+winners — is not asserted here.
 
 ### 2.7 County Fiscal Record and Audit Queries
 

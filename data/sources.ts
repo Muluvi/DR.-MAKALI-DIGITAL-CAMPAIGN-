@@ -39,6 +39,12 @@ export const CONTROLLER_OF_BUDGET: Source = {
   // Section: Appendix C, "current pending bills" / audit-record row.
 };
 
+export const FISCAL_STRATEGY_PAPER_FY2026_27: Source = {
+  name: "Kitui County Fiscal Strategy Paper, FY2026/27 (approved by the County Assembly)",
+  publicationDate: "2026",
+  tier: 1,
+};
+
 export const AUDITOR_GENERAL_FY2023_24: Source = {
   name: "Office of the Auditor-General, Kitui County FY2023/24 audit report",
   publicationDate: "FY2023/24",
