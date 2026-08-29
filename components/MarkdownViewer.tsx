@@ -18,7 +18,16 @@ import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
 import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
 import { PullQuote } from "./markdown/PullQuote";
 import { ClaimCards } from "./markdown/ClaimCards";
+import { DisputedFigure } from "./markdown/DisputedFigure";
+import { ElectoralHistoryPanel } from "./markdown/ElectoralHistoryPanel";
+import { FiscalAuditPanel } from "./markdown/FiscalAuditPanel";
+import { DroughtFoodSecurityPanel } from "./markdown/DroughtFoodSecurityPanel";
+import { MuiBasinPanel } from "./markdown/MuiBasinPanel";
+import { CompetitorFieldPanel } from "./markdown/CompetitorFieldPanel";
+import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, TAB_LABELS, type TabId } from "../lib/heading-slug";
+
+const kituiCentralPopulationDispute = DISPUTED_FIGURES.find((d) => d.id === "kitui-central-2019-population")!;
 
 // Section 1.3's "three governing realities" — matched by the start of each bolded lead
 // sentence so the list item gets pull-quote emphasis without touching the wording.
@@ -98,6 +107,12 @@ const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
 const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "exec-sec-2-3": <WardCartogramBlock />,
   "exec-sec-2-4": <ResourceEnvelopeBlock />,
+  "exec-sec-2-5": <DisputedFigure entry={kituiCentralPopulationDispute} />,
+  "exec-sec-2-6": <ElectoralHistoryPanel />,
+  "exec-sec-2-7": <FiscalAuditPanel />,
+  "exec-sec-2-8": <DroughtFoodSecurityPanel />,
+  "exec-sec-2-9": <MuiBasinPanel />,
+  "exec-sec-2-10": <CompetitorFieldPanel />,
   "execution-sec-20": <KpiPhaseBlock />,
 };
 

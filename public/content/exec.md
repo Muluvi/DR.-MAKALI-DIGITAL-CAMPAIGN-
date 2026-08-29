@@ -284,6 +284,58 @@ motivated local touchpoints in exactly the settlements where broadband is not.
 younger and professional audiences and by national media. This is the basis for
 the multilingual content strategy in Section 18.
 
+### 2.6 Electoral History: 2013, 2017 and 2022
+
+The Kitui governorship has had three different winners in its three completed
+cycles — this is not a safe seat for any single machine, Wiper included. The
+**2017 result is court-confirmed** (Court of Appeal, *Malombe v Ngilu* [2018]
+KECA 460), which is the most authoritative figure this document cites for that
+cycle. The **2022 governor race carries one disputed figure** — David Musila's
+runner-up total is reported as both 114,606 and 117,606 depending on outlet —
+shown below with both values rather than a single silently-chosen number.
+**2013 is shown as a named gap:** the research behind this proposal did not
+surface sourced 2013 results, and none are invented to complete the pattern.
+
+### 2.7 County Fiscal Record and Audit Queries
+
+The KSh13.79 billion resource envelope in Section 2.4 is only half the fiscal
+story. The Auditor-General's FY2023/24 report raises four queries the campaign
+should be prepared to discuss, and the county carried an estimated **KSh1.3
+billion in pending bills as at FY2020/21**. **FY2025/26 Q1 development
+absorption is itself disputed** — 18% per Controller of Budget reporting
+against roughly 5% in other reporting — and is shown unresolved rather than
+picking a side.
+
+### 2.8 Drought, Food Security and Climate Volatility
+
+Kitui's climate risk now runs in both directions within a single reporting
+window: an NDMA drought Alert in January 2026, an IPC Phase 2 ("Stressed")
+food-security classification in September 2025, and reported March 2026
+flooding in the same county. The County CECM's own statement that only
+roughly 28,000 of a stated 1.2 million-plus households hold food reserves is
+carried through exactly as stated, including the scale question it raises
+against the county's 2019 census household count (Section 2.5).
+
+### 2.9 The Mui Basin Coal Question
+
+Coal concessions across the Mui Basin, straddling Kitui East and Kitui South,
+have sat undeveloped for roughly a decade, with a legal challenge (Petition 12
+of 2014) on record and unresolved displacement exposure for the communities in
+the affected wards. No concession count, petition status or displacement
+headcount was supplied by the research behind this proposal — each is named as
+an open question rather than estimated.
+
+### 2.10 The Wider Competitor Field — Full Profiles
+
+Section 2.2 covers the Wiper nomination contest in depth. The general-election
+field beyond it is wider still, and is treated with particular care here: only
+material from court records, official reports, parliamentary proceedings or
+established media appears, every adverse claim is attributed to its source in
+the visible text, and nothing here asserts wrongdoing as settled fact unless a
+court determined it. Incumbent Governor Julius Malombe's term-limit eligibility
+is a genuinely open legal question, presented below with both readings rather
+than a conclusion.
+
 ---
 
 ## 3. Digital Campaign Objectives

@@ -112,6 +112,15 @@ export const MEDIA_MUI_BASIN: Source = {
   tier: 2,
 };
 
+export const PETITION_12_2014: Source = {
+  name: "Petition 12 of 2014 (Mui Basin coal concessions)",
+  publicationDate: "2014",
+  tier: 1,
+  // The research hand-off did not specify which court/bench this petition was filed at, so no
+  // URL is attached — cite via Kenya Law's case search using this reference. See Data Gaps
+  // Register.
+};
+
 // ---- Tier 3 · Single-source / partisan -----------------------------------------------------
 
 export const LOCAL_DIGITAL_NOMINATION_REPORT: Source = {
