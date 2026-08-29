@@ -43,12 +43,12 @@ export function MarqueeCarousel({ speed = 30 }: { speed?: number }) {
           repeat: Infinity,
         }}
       >
-        {/* Render duplicate items to ensure a seamless looping illusion */}
+        {/* Primary items accessible to screen readers */}
         <div className="flex gap-4 shrink-0">
           {items.map((item, idx) => (
             <div
               key={`slide-1-${idx}`}
-              className="flex items-center gap-2.5 bg-paper border border-line rounded-full px-4 py-2.5 shadow-sm hover:border-accent/40 transition-colors cursor-pointer"
+              className="flex items-center gap-2.5 bg-paper border border-line rounded-full px-4 py-2.5 shadow-sm hover:border-accent/40 transition-colors"
             >
               <div className="p-1 rounded-full bg-card border border-line">
                 {item.icon}
@@ -65,11 +65,13 @@ export function MarqueeCarousel({ speed = 30 }: { speed?: number }) {
           ))}
         </div>
 
-        <div className="flex gap-4 shrink-0">
+        {/* Duplicate items for seamless visual animation loop (aria-hidden and non-focusable) */}
+        <div className="flex gap-4 shrink-0" aria-hidden="true">
           {items.map((item, idx) => (
             <div
               key={`slide-2-${idx}`}
-              className="flex items-center gap-2.5 bg-paper border border-line rounded-full px-4 py-2.5 shadow-sm hover:border-accent/40 transition-colors cursor-pointer"
+              tabIndex={-1}
+              className="flex items-center gap-2.5 bg-paper border border-line rounded-full px-4 py-2.5 shadow-sm hover:border-accent/40 transition-colors pointer-events-none"
             >
               <div className="p-1 rounded-full bg-card border border-line">
                 {item.icon}

@@ -72,10 +72,10 @@ export function RadialProgress({
 
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">
-          <span className="text-[10px] font-black tracking-widest text-muted uppercase bg-paper border border-line px-2 py-0.5 rounded-md">
-            Milestone
+          <span className="claim-badge claim-badge-estimate text-[8px] px-1.5 py-0.5 font-bold uppercase tracking-wider">
+            Internal Target
           </span>
-          <span className="text-xs font-bold" style={{ color }}>Active Target</span>
+          <span className="text-[10px] font-bold text-muted uppercase tracking-wider">Aspiration</span>
         </div>
         <h4 className="font-serif text-sm font-extrabold text-ink leading-snug mt-1.5 truncate">
           {label}

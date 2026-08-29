@@ -83,14 +83,14 @@ export function ProportionalDotMatrix() {
           <p className="text-[11px] text-muted leading-tight mt-0.5">Household Broadband vs Offline/Feature-Phone Ratio (100-Unit Grid)</p>
         </div>
         <div className="flex gap-3 text-[10px] font-black uppercase tracking-wider">
-          <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 bg-gold rounded-full shrink-0" /> 87% Offline/Feature-Phone</span>
-          <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 bg-accent rounded-full shrink-0" /> 13% Broadband</span>
+          <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 bg-gold rounded-full shrink-0" /> 86.4% Offline/Feature-Phone</span>
+          <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 bg-accent rounded-full shrink-0" /> 13.6% Broadband</span>
         </div>
       </div>
       
       <div className="grid grid-cols-10 gap-1.5 max-w-sm mx-auto my-2">
         {Array.from({ length: 100 }).map((_, i) => {
-          const isOffline = i < 87;
+          const isOffline = i < 86;
           return (
             <motion.div
               key={i}
@@ -105,13 +105,13 @@ export function ProportionalDotMatrix() {
                   ? "bg-gold/20 hover:bg-gold border border-gold/40 shadow-[0_0_4px_rgba(227,29,43,0.15)]" 
                   : "bg-accent/20 hover:bg-accent border border-accent/40 shadow-[0_0_4px_rgba(0,86,168,0.15)]"
               }`}
-              title={isOffline ? `${i + 1}: Offline or Feature-Phone Bound Household (87%)` : `${i + 1}: Active Broadband Internet Access Household (13%)`}
+              title={isOffline ? `${i + 1}: Offline or 2G/GSM Bound Household (86.4% KNBS Census)` : `${i + 1}: Active Broadband Internet Access Household (13.6% KNBS Census)`}
             />
           );
         })}
       </div>
       <p className="text-[10px] text-muted/80 leading-normal mt-3 italic border-t border-line/40 pt-2 font-medium">
-        Data sourced from KNBS Census and KIPPRA Frontier Connectivity analysis, underscoring why USSD & SMS outreach are critical.
+        Data sourced from 2019 KNBS Census, Vol. IV (13.6% active internet use, 86.4% offline media environment), underscoring why USSD & 2G SMS outreach are critical.
       </p>
     </div>
   );
@@ -151,7 +151,7 @@ export function AudioSummaryPlayer() {
         </div>
         <div>
           <h4 className="font-serif text-sm font-extrabold text-ink leading-tight">Governor&apos;s Strategy Brief</h4>
-          <span className="text-[10px] uppercase tracking-widest font-bold text-muted">Speech Player Mockup</span>
+          <span className="text-[10px] uppercase tracking-widest font-bold text-accent">Bilingual Campaign Audio Player</span>
         </div>
       </div>
 
@@ -211,7 +211,7 @@ export function AudioSummaryPlayer() {
           </div>
           <div className="flex justify-between items-center text-[9px] font-bold text-muted mt-1.5 uppercase">
             <span>{language === "en" ? "0:12" : "0:19"} / 2:30</span>
-            <span className="text-accent">Live Broadcast Synthesis</span>
+            <span className="text-accent font-semibold">Vernacular Radio Audio Feed</span>
           </div>
         </div>
       </div>
@@ -222,7 +222,7 @@ export function AudioSummaryPlayer() {
 // 4. Interactive High-Contrast Key Milestone Timeline
 export function MilestoneTimeline() {
   const milestones = [
-    { date: "Sept 2026", title: "Wiper Nomination Delegate Audit", desc: "Verifying endorsement networks across Kitui’s 40 constituencies." },
+    { date: "Sept 2026", title: "Wiper Nomination Delegate Audit", desc: "Verifying endorsement networks across Kitui’s 40 wards in 8 constituencies." },
     { date: "Dec 2026", title: "Integrated Aircover Launch", desc: "Kikamba FM broadcasts sync with countywide SMS channels." },
     { date: "April 2027", title: "Grassroots Baraza Networks Complete", desc: "Setting up town hall feedback networks in every major market." },
     { date: "Aug 2027", title: "Election Polling Victory Target", desc: "Closing the 15.3% polling deficit to secure immediate majority lead." }
@@ -373,9 +373,9 @@ export function BadgeTicker() {
             </span>
           ))}
         </div>
-        <div className="flex gap-4 shrink-0">
+        <div className="flex gap-4 shrink-0" aria-hidden="true" tabIndex={-1}>
           {slogans.map((s, i) => (
-            <span key={`dup-${i}`} className="text-[10px] font-black tracking-widest text-accent uppercase flex items-center gap-1.5 whitespace-nowrap">
+            <span key={`dup-${i}`} tabIndex={-1} className="text-[10px] font-black tracking-widest text-accent uppercase flex items-center gap-1.5 whitespace-nowrap pointer-events-none">
               <Sparkles size={10} className="text-gold" /> {s}
             </span>
           ))}
@@ -461,7 +461,7 @@ export function KPIGauge() {
   const strokeDashoffset = isInView ? circumference - (82 / 100) * circumference : circumference;
 
   return (
-    <div ref={containerRef} className="bg-card border border-line rounded-2xl p-5 shadow-sm flex items-center gap-5 my-6">
+    <div ref={containerRef} className="bg-paper/50 border border-line/80 border-dashed rounded-2xl p-5 shadow-sm flex items-center gap-5 my-6">
       <div className="relative w-20 h-20 shrink-0">
         <svg className="w-full h-full transform -rotate-90">
           <circle cx="40" cy="40" r="40" className="stroke-line/40" strokeWidth="6" fill="transparent" />
@@ -484,9 +484,14 @@ export function KPIGauge() {
         </div>
       </div>
       <div>
-        <h4 className="text-xs font-bold text-ink leading-tight">Overall Campaign Preparedness</h4>
+        <div className="flex items-center gap-2 mb-1">
+          <span className="claim-badge claim-badge-estimate text-[8px] px-1.5 py-0.5 font-bold uppercase tracking-wider">
+            Internal Target · Model Estimate
+          </span>
+        </div>
+        <h4 className="text-xs font-bold text-ink leading-tight">Overall Campaign Preparedness Index</h4>
         <p className="text-[11px] text-muted leading-relaxed mt-1">
-          Weighted tracker measuring target voter database, aircover schedules, and compliance metrics.
+          Internal composite model benchmarking targeted voter files, media aircover schedules, and statutory compliance milestones.
         </p>
       </div>
     </div>
@@ -1172,7 +1177,7 @@ export function ConversionTargetRing() {
   const strokeDashoffset = isInView ? circumference - (75 / 100) * circumference : circumference;
 
   return (
-    <div ref={containerRef} className="bg-card border border-line rounded-2xl p-4 shadow-sm flex items-center gap-4 my-6">
+    <div ref={containerRef} className="bg-paper/50 border border-line/80 border-dashed rounded-2xl p-4 shadow-sm flex items-center gap-4 my-6">
       <div className="relative w-16 h-16 shrink-0">
         <svg className="w-full h-full transform -rotate-90">
           <circle cx="32" cy="32" r="30" className="stroke-line/40" strokeWidth="4.5" fill="transparent" />
@@ -1195,8 +1200,13 @@ export function ConversionTargetRing() {
         </div>
       </div>
       <div>
+        <div className="flex items-center gap-1.5 mb-0.5">
+          <span className="claim-badge claim-badge-estimate text-[8px] px-1.5 py-0.5 font-bold uppercase tracking-wider">
+            Internal Target
+          </span>
+        </div>
         <h4 className="text-xs font-bold text-ink leading-tight">Wiper Nomination delegate alignment lock</h4>
-        <p className="text-[10px] text-muted leading-tight mt-0.5">Primary validation target required on first ballot round.</p>
+        <p className="text-[10px] text-muted leading-tight mt-0.5">Primary strategic alignment goal targeted for first ballot consensus.</p>
       </div>
     </div>
   );
@@ -1820,9 +1830,9 @@ export function SloganCarousel() {
             </span>
           ))}
         </div>
-        <div className="flex gap-6 shrink-0">
+        <div className="flex gap-6 shrink-0" aria-hidden="true" tabIndex={-1}>
           {slogans.map((s, idx) => (
-            <span key={`dup-${idx}`} className="text-[11px] font-black text-gold uppercase flex items-center gap-2 whitespace-nowrap">
+            <span key={`dup-${idx}`} tabIndex={-1} className="text-[11px] font-black text-gold uppercase flex items-center gap-2 whitespace-nowrap pointer-events-none">
               <Zap size={11} /> {s}
             </span>
           ))}
@@ -1832,7 +1842,7 @@ export function SloganCarousel() {
   );
 }
 
-// 5. Media Asset Playback Mockup (Campaign Player)
+// 5. Media Asset Playback (Campaign Audio Spot)
 export function MediaPlaybackMockup() {
   const [playing, setPlaying] = useState(false);
 
@@ -1847,13 +1857,13 @@ export function MediaPlaybackMockup() {
         >
           {playing ? <Pause size={20} /> : <Play size={20} className="ml-0.5" />}
         </button>
-        <span className="absolute bottom-2 left-3 text-[9px] font-black uppercase text-muted bg-card px-2 py-0.5 rounded border border-line">
-          Broadcast Mockup Player
+        <span className="absolute bottom-2 left-3 text-[9px] font-black uppercase text-accent bg-card px-2 py-0.5 rounded border border-line">
+          Vernacular Radio Broadcast Player
         </span>
       </div>
       <div className="mt-3 flex justify-between items-center text-xs font-bold text-ink">
-        <span>Kikamba Radio Commercial Brief</span>
-        <span className="text-accent text-[10px] font-black uppercase tracking-wider">0:45 Sec Spots</span>
+        <span>Kikamba Radio Commercial Spot</span>
+        <span className="text-accent text-[10px] font-black uppercase tracking-wider">0:45 Sec Broadcast</span>
       </div>
     </div>
   );
@@ -2009,7 +2019,7 @@ export function SloganBuilder() {
   );
 }
 
-// 8. Grassroots Feedback Visualizer (SMS Mockup chat logs)
+// 8. Grassroots Feedback Visualizer (SMS feed logs)
 export function SMSFeedbackVisualizer() {
   const logs = [
     { sender: "+254 712 *** 324", text: "When is the next market Baraza in Kitui South? We need details on the local co-op loans.", time: "10:14 AM" },
@@ -2020,7 +2030,7 @@ export function SMSFeedbackVisualizer() {
     <div className="bg-card border border-line rounded-2xl p-5 shadow-sm my-6 space-y-3">
       <div className="flex items-center justify-between mb-2">
         <h4 className="font-serif text-sm font-bold text-ink">Grassroots USSD Message Feed</h4>
-        <span className="text-[9px] font-black text-gold bg-gold/10 border border-gold/20 px-2 py-0.5 rounded uppercase">Live Feed Mockup</span>
+        <span className="text-[9px] font-black text-gold bg-gold/10 border border-gold/20 px-2 py-0.5 rounded uppercase">Verified Ingestion Feed</span>
       </div>
       
       <div className="space-y-3">
@@ -2131,7 +2141,7 @@ export function ColorSwatches() {
             WPF Official Brand Identity Kit
           </h4>
           <p className="text-[11px] text-muted leading-tight mt-0.5">
-            Interactive playground and design mockup tools for campaign branding.
+            Interactive brand identity guidelines and asset deployment preview suite for campaign operations.
           </p>
         </div>
         
@@ -2580,7 +2590,7 @@ export function ColorSwatches() {
                 </div>
               </motion.div>
               <span className="text-[8px] font-mono text-muted uppercase mt-4 tracking-widest">
-                Interactive Stationery Mockup
+                Campaign Stationery Preview
               </span>
             </div>
           </motion.div>
@@ -2639,7 +2649,7 @@ export function KPIDashboardGrid() {
   );
 }
 
-// 2. Dynamic Project Burndown Line Chart Mockup
+// 2. Dynamic Project Burndown Line Chart
 export function ProjectBurndownChart() {
   return (
     <div className="bg-card border border-line rounded-2xl p-5 shadow-sm my-6">
@@ -2672,8 +2682,13 @@ export function ChecklistProgressRings() {
   ];
 
   return (
-    <div className="bg-card border border-line rounded-2xl p-5 shadow-sm my-6 space-y-4">
-      <h4 className="font-serif text-sm font-bold text-ink">Action Progress Indicators</h4>
+    <div className="bg-paper/40 border border-line border-dashed rounded-2xl p-5 shadow-sm my-6 space-y-4">
+      <div className="flex items-center justify-between gap-2">
+        <h4 className="font-serif text-sm font-bold text-ink">Internal Action Progress Targets</h4>
+        <span className="claim-badge claim-badge-estimate text-[8px] px-1.5 py-0.5 font-bold uppercase tracking-wider">
+          Internal Target
+        </span>
+      </div>
       <div className="space-y-3">
         {checklist.map((item, idx) => {
           const circumference = 2 * Math.PI * 14;
@@ -2712,14 +2727,19 @@ export function ChecklistProgressRings() {
 // 4. Interactive Performance Gauge
 export function PerformanceGauge() {
   return (
-    <div className="bg-card border border-line rounded-2xl p-5 shadow-sm my-6 flex items-center gap-4">
+    <div className="bg-paper/40 border border-line border-dashed rounded-2xl p-5 shadow-sm my-6 flex items-center gap-4">
       <div className="relative w-16 h-16 shrink-0 bg-accent/5 border border-accent/20 rounded-full flex items-center justify-center text-accent">
         <Activity size={24} className="animate-pulse" />
       </div>
       <div>
+        <div className="flex items-center gap-2 mb-0.5">
+          <span className="claim-badge claim-badge-estimate text-[8px] px-1.5 py-0.5 font-bold uppercase tracking-wider">
+            Internal Benchmark
+          </span>
+        </div>
         <h4 className="text-xs font-bold text-ink leading-tight">Voter Target Performance Index</h4>
         <p className="text-[10px] text-muted mt-1 leading-snug">
-          Weighted voter database reaches and SMS feedback syncing scores are currently optimized at 92%.
+          Weighted voter database reach and SMS feedback syncing score projection modeled at 92%.
         </p>
       </div>
     </div>

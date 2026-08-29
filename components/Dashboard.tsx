@@ -183,12 +183,14 @@ function RadialProgress({ percentage, label, sub, color, icon, isMarquee = false
       </div>
 
       {/* Narrative detail */}
-      <div className="min-w-0">
-        <div className="flex items-baseline gap-1.5">
+      <div className="min-w-0 flex-1">
+        <div className="flex items-baseline justify-between gap-1.5 mb-1">
           <span className="font-serif text-2xl font-bold text-ink">{percentage}%</span>
-          <span className="text-[10px] font-bold tracking-wider text-muted uppercase">Target</span>
+          <span className="claim-badge claim-badge-estimate text-[8px] px-1.5 py-0.5 font-bold uppercase tracking-wider">
+            Internal Target
+          </span>
         </div>
-        <h4 className="text-xs font-bold text-ink leading-tight mt-0.5 truncate">{label}</h4>
+        <h4 className="text-xs font-bold text-ink leading-tight truncate">{label}</h4>
         <p className="text-[11px] text-muted leading-relaxed mt-0.5 truncate">{sub}</p>
       </div>
     </motion.div>
@@ -214,9 +216,10 @@ function InfiniteScrollingMarquee({ children, speed = 25 }: { children: React.Re
           repeat: Infinity,
         }}
       >
-        {/* Render twice for a perfect, visual seamless gap-free cycle */}
+        {/* Primary interactive / screen-reader copy */}
         <div className="flex gap-4 shrink-0">{children}</div>
-        <div className="flex gap-4 shrink-0">{children}</div>
+        {/* Duplicate copy for infinite loop — aria-hidden and removed from tab order */}
+        <div className="flex gap-4 shrink-0" aria-hidden="true" tabIndex={-1}>{children}</div>
       </motion.div>
     </div>
   );
@@ -239,15 +242,15 @@ export function Dashboard() {
       icon: <Coins size={16} className="text-accent" />
     },
     { 
-      num: "86%", 
-      label: "Outside internet pop", 
-      sub: "13.6% active internet use in data",
+      num: "86.4%", 
+      label: "Offline pop (KNBS 2019)", 
+      sub: "13.6% active internet use in census", 
       icon: <WifiOff size={16} className="text-muted" />
     },
     { 
       num: "≈200k", 
       label: "2022 winning-vote", 
-      sub: "198,004 votes won the 2022 seat",
+      sub: "198,004 votes won the 2022 seat", 
       icon: <Vote size={16} className="text-gold" />
     }
   ];
@@ -352,12 +355,20 @@ export function Dashboard() {
         </div>
       </div>
 
-      {/* SVG Radial Progress Milestone Section */}
-      <div>
-        <div className="flex items-center gap-2 mb-4">
-          <span className="w-1.5 h-6 bg-gold rounded-full" />
-          <h3 className="font-serif text-lg sm:text-xl font-bold text-ink">Projected Goal Completion Progress</h3>
+      {/* SVG Radial Progress Milestone Section — Segregated Internal Targets Treatment */}
+      <div className="bg-paper/40 border border-line/70 border-dashed rounded-3xl p-5 sm:p-6">
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-6 bg-gold rounded-full" />
+            <h3 className="font-serif text-lg sm:text-xl font-bold text-ink">Internal Strategic Targets & Mobilization Aspirations</h3>
+          </div>
+          <span className="claim-badge claim-badge-estimate text-[9px] px-2.5 py-1 font-bold uppercase tracking-wider">
+            Internal Target Milestones · Not Measured Actuals
+          </span>
         </div>
+        <p className="text-xs text-muted leading-relaxed mb-5 max-w-3xl">
+          The percentages below represent internal campaign aspiration benchmarks and target threshold objectives established for the 2026–2027 mobilization roadmap.
+        </p>
 
         {/* Desktop / Tablet Grid View */}
         <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-4">
