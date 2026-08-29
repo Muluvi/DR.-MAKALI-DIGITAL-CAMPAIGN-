@@ -45,6 +45,8 @@ import {
   Filter 
 } from "lucide-react";
 
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
+
 // Recharts is only pulled into the bundle once one of these charts scrolls into view.
 const ConstituencyBarChart = dynamic(() => import("./charts/ConstituencyBarChart"), { ssr: false });
 const ResourceLedgerBarChart = dynamic(() => import("./charts/ResourceLedgerBarChart"), { ssr: false });
@@ -2908,6 +2910,176 @@ export function PrintReportGenerator() {
       >
         Export PDF
       </button>
+    </div>
+  );
+}
+
+// 11. Custom Campaign Performance Chart Component
+export function ChartComponent() {
+  const [mounted, setMounted] = useState(false);
+  const [activeTab, setActiveTab] = useState<"phases" | "segments">("phases");
+  const [activePhase, setActivePhase] = useState<"share" | "phase1" | "phase2" | "phase3">("phase1");
+
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setMounted(true);
+    }, 0);
+    return () => clearTimeout(timerId);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="bg-card border border-line rounded-2xl p-5 shadow-sm my-6 h-[340px] flex items-center justify-center text-xs text-muted font-bold animate-pulse">
+        Loading Campaign Targets Chart...
+      </div>
+    );
+  }
+
+  // Zone Weighting Model Data
+  const phaseData = [
+    { name: "Central/West", share: 19.7, phase1: 20, phase2: 25, phase3: 25, color: "#00209f" },
+    { name: "Mwingi Block", share: 22.5, phase1: 35, phase2: 25, phase3: 25, color: "#e31d2b" },
+    { name: "Arid & Resource", share: 36.6, phase1: 30, phase2: 30, phase3: 35, color: "#e5a93c" },
+    { name: "Rotating/Testing", share: 21.2, phase1: 15, phase2: 20, phase3: 15, color: "#475569" },
+  ];
+
+  // Demographic segment goals
+  const segmentData = [
+    { name: "Agrarian", reach: 86, color: "#00209f", detail: "86% of total county pop" },
+    { name: "Women Coops", reach: 90, color: "#e31d2b", detail: "90% of households (poultry income)" },
+    { name: "Offline Majority", reach: 86, color: "#e5a93c", detail: "86% outside persistent digital use" },
+    { name: "Youth (18-35)", reach: 45, color: "#22c55e", detail: "12,573 targeted scholarship/TVET outreach" },
+    { name: "MSMEs", reach: 62, color: "#475569", detail: "Trade associations & town hall hubs" },
+  ];
+
+  return (
+    <div className="bg-card border border-line rounded-2xl p-5 shadow-sm my-6 space-y-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-line/40 pb-4">
+        <div>
+          <h4 className="font-serif text-sm font-bold text-ink flex items-center gap-2">
+            <Target size={16} className="text-accent" />
+            Campaign Performance & Target Milestones
+          </h4>
+          <p className="text-[11px] text-muted leading-tight mt-0.5">
+            Quantitative models extracted from sections 6 &amp; 7 of the strategic manifesto.
+          </p>
+        </div>
+
+        {/* Tab switcher */}
+        <div className="flex gap-1 bg-paper p-1 rounded-xl border border-line/60 self-start">
+          <button
+            onClick={() => setActiveTab("phases")}
+            className={`text-[9px] font-black uppercase tracking-wider px-2.5 py-1.5 rounded-lg transition-all cursor-pointer ${
+              activeTab === "phases" ? "bg-accent text-white shadow-sm" : "text-muted hover:text-ink"
+            }`}
+          >
+            Regional Weights
+          </button>
+          <button
+            onClick={() => setActiveTab("segments")}
+            className={`text-[9px] font-black uppercase tracking-wider px-2.5 py-1.5 rounded-lg transition-all cursor-pointer ${
+              activeTab === "segments" ? "bg-accent text-white shadow-sm" : "text-muted hover:text-ink"
+            }`}
+          >
+            Demographic Targets
+          </button>
+        </div>
+      </div>
+
+      {activeTab === "phases" ? (
+        <div className="space-y-4">
+          <div className="flex flex-wrap gap-2 items-center justify-between">
+            <span className="text-[10px] font-black text-muted uppercase">Select Campaign Milestone Phase</span>
+            <div className="flex gap-1 bg-paper p-0.5 rounded-lg border border-line/50">
+              {([
+                { id: "share", label: "Base Share" },
+                { id: "phase1", label: "Phase -1 (Nomination)" },
+                { id: "phase2", label: "Phase 1-2 (Campaign)" },
+                { id: "phase3", label: "Phase 3 (GOTV)" },
+              ] as const).map((phase) => (
+                <button
+                  key={phase.id}
+                  onClick={() => setActivePhase(phase.id)}
+                  className={`text-[9px] font-bold px-2 py-1 rounded transition-all cursor-pointer ${
+                    activePhase === phase.id ? "bg-card border border-line shadow-sm text-accent" : "text-muted hover:text-ink"
+                  }`}
+                >
+                  {phase.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="h-64 w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={phaseData} margin={{ top: 10, right: 10, left: -20, bottom: 5 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" opacity={0.2} vertical={false} />
+                <XAxis dataKey="name" tick={{ fill: "var(--color-muted)", fontSize: 9, fontWeight: 700 }} tickLine={false} axisLine={{ stroke: "var(--color-line)" }} />
+                <YAxis tick={{ fill: "var(--color-muted)", fontSize: 9 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} />
+                <Tooltip
+                  content={({ active, payload }) => {
+                    if (active && payload && payload.length) {
+                      const d = payload[0].payload;
+                      const activeVal = activePhase === "share" ? d.share : activePhase === "phase1" ? d.phase1 : activePhase === "phase2" ? d.phase2 : d.phase3;
+                      return (
+                        <div className="bg-card border border-line p-2.5 shadow-md rounded-xl text-[10px] font-bold text-ink">
+                          <p className="border-b border-line pb-1 mb-1 font-serif text-xs font-black">{d.name}</p>
+                          <p className="text-accent">Target Share: <span className="font-extrabold">{activeVal}%</span></p>
+                          <p className="text-muted text-[8px] mt-0.5 leading-tight">Recommended budget share of communication assets</p>
+                        </div>
+                      );
+                    }
+                    return null;
+                  }}
+                />
+                <Bar dataKey={activePhase === "share" ? "share" : activePhase === "phase1" ? "phase1" : activePhase === "phase2" ? "phase2" : "phase3"} radius={[6, 6, 0, 0]}>
+                  {phaseData.map((entry, idx) => (
+                    <Cell key={idx} fill={idx % 2 === 0 ? "var(--color-accent)" : "var(--color-gold)"} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+          <p className="text-[10px] text-muted leading-relaxed text-center italic">
+            Phase -1 intentionally indexes on Mwingi and the arid belt relative to population share to correct the nomination deficit.
+          </p>
+        </div>
+      ) : (
+        <div className="space-y-4">
+          <div className="h-64 w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={segmentData} layout="vertical" margin={{ top: 10, right: 10, left: 10, bottom: 5 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" opacity={0.2} horizontal={false} />
+                <XAxis type="number" domain={[0, 100]} tick={{ fill: "var(--color-muted)", fontSize: 9 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} />
+                <YAxis dataKey="name" type="category" tick={{ fill: "var(--color-muted)", fontSize: 9, fontWeight: 700 }} tickLine={false} axisLine={{ stroke: "var(--color-line)" }} width={90} />
+                <Tooltip
+                  content={({ active, payload }) => {
+                    if (active && payload && payload.length) {
+                      const d = payload[0].payload;
+                      return (
+                        <div className="bg-card border border-line p-2.5 shadow-md rounded-xl text-[10px] font-bold text-ink max-w-[200px]">
+                          <p className="border-b border-line pb-1 mb-1 font-serif text-xs font-black">{d.name}</p>
+                          <p className="text-accent">Baseline/Target Share: <span className="font-extrabold">{d.reach}%</span></p>
+                          <p className="text-muted text-[8px] mt-1 leading-normal font-medium">{d.detail}</p>
+                        </div>
+                      );
+                    }
+                    return null;
+                  }}
+                />
+                <Bar dataKey="reach" radius={[0, 4, 4, 0]}>
+                  {segmentData.map((entry, idx) => (
+                    <Cell key={idx} fill={idx % 2 === 0 ? "var(--color-accent)" : "var(--color-gold)"} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+          <p className="text-[10px] text-muted leading-relaxed text-center italic">
+            Quantifiable targets representing high-salience priority cohorts mapped directly from survey baseline data.
+          </p>
+        </div>
+      )}
     </div>
   );
 }

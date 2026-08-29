@@ -85,7 +85,8 @@ import {
   ActionPriorityMatrix,
   CampaignRoadmapGantt,
   FeedbackLoopCircuit,
-  PrintReportGenerator
+  PrintReportGenerator,
+  ChartComponent
 } from "./StrategicAids";
 
 // Dynamically import heavy components to optimize mobile performance and TTI
@@ -94,6 +95,20 @@ const HeroVisual = dynamic(() => import("./HeroVisual").then(mod => mod.HeroVisu
 const DataVisualizations = dynamic(() => import("./DataVisualizations").then(mod => mod.DataVisualizations), { ssr: false }); // Disable SSR for charts to reduce hydration cost
 const VoterProjectionsChart = dynamic(() => import("./VoterProjectionsChart").then(mod => mod.VoterProjectionsChart), { ssr: false });
 const StrategyRail = dynamic(() => import("./StrategyRail").then(mod => mod.StrategyRail), { ssr: true });
+
+function SectionTabTransition({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -15 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
+      className="w-full"
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 interface MarkdownSection {
   node: React.ReactNode;
@@ -333,98 +348,109 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
         ) : (
           <>
             {sectionId === "exec" && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start relative">
-                <WatermarkedPillars />
-                <div className="space-y-6 z-10">
-                  <BadgeTicker />
-                  <ProportionalDotMatrix />
-                  <ObjectiveAccordion />
-                  <SpeechSnippetCard />
+              <SectionTabTransition>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start relative">
+                  <WatermarkedPillars />
+                  <div className="space-y-6 z-10">
+                    <BadgeTicker />
+                    <ProportionalDotMatrix />
+                    <ObjectiveAccordion />
+                    <SpeechSnippetCard />
+                  </div>
+                  <div className="space-y-6 z-10">
+                    <HeroStatTilt />
+                    <AudioSummaryPlayer />
+                    <MilestoneTimeline />
+                    <InteractiveMapHover />
+                    <KPIGauge />
+                  </div>
                 </div>
-                <div className="space-y-6 z-10">
-                  <HeroStatTilt />
-                  <AudioSummaryPlayer />
-                  <MilestoneTimeline />
-                  <InteractiveMapHover />
-                  <KPIGauge />
-                </div>
-              </div>
+              </SectionTabTransition>
             )}
 
             {sectionId === "strategy" && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                <div className="space-y-6">
-                  <VoterDensityMap />
-                  <InteractiveVoterFunnel />
-                  <VoterProfile />
-                  <IsotypeCitizens />
-                  <SWOTMatrix />
+              <SectionTabTransition>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                  <div className="space-y-6">
+                    <VoterDensityMap />
+                    <InteractiveVoterFunnel />
+                    <VoterProfile />
+                    <IsotypeCitizens />
+                    <SWOTMatrix />
+                  </div>
+                  <div className="space-y-6">
+                    <DeficitSlider />
+                    <VoteProjectionGraph />
+                    <DemographicBento />
+                    <TargetingSimulator />
+                    <ConversionTargetRing />
+                    <ChartComponent />
+                  </div>
                 </div>
-                <div className="space-y-6">
-                  <DeficitSlider />
-                  <VoteProjectionGraph />
-                  <DemographicBento />
-                  <TargetingSimulator />
-                  <ConversionTargetRing />
-                </div>
-              </div>
+              </SectionTabTransition>
             )}
 
             {sectionId === "operations" && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                <div className="space-y-6">
-                  <LiveGroundActivityTracker />
-                  <ResourceLedger />
-                  <OrgStructureTree />
-                  <BudgetDistributionDial />
+              <SectionTabTransition>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                  <div className="space-y-6">
+                    <LiveGroundActivityTracker />
+                    <ResourceLedger />
+                    <OrgStructureTree />
+                    <BudgetDistributionDial />
+                  </div>
+                  <div className="space-y-6">
+                    <FlywheelSchematic />
+                    <CircuitWiringVisual />
+                    <HorizontalMilestones />
+                    <ComplianceDial />
+                    <WardChecklist />
+                    <ArchitecturePipeline />
+                  </div>
                 </div>
-                <div className="space-y-6">
-                  <FlywheelSchematic />
-                  <CircuitWiringVisual />
-                  <HorizontalMilestones />
-                  <ComplianceDial />
-                  <WardChecklist />
-                  <ArchitecturePipeline />
-                </div>
-              </div>
+              </SectionTabTransition>
             )}
 
             {sectionId === "tactics" && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                <div className="space-y-6">
-                  <MessagingPlayground />
-                  <CounterMessagingGrid />
-                  <MediaPlaybackMockup />
-                  <SloganBuilder />
+              <SectionTabTransition>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                  <div className="space-y-6">
+                    <MessagingPlayground />
+                    <CounterMessagingGrid />
+                    <MediaPlaybackMockup />
+                    <SloganBuilder />
+                  </div>
+                  <div className="space-y-6">
+                    <RadioAircoverDial />
+                    <SloganCarousel />
+                    <ToneVoiceSlider />
+                    <SMSFeedbackVisualizer />
+                    <CommunityScheduler />
+                    <ColorSwatches />
+                  </div>
                 </div>
-                <div className="space-y-6">
-                  <RadioAircoverDial />
-                  <SloganCarousel />
-                  <ToneVoiceSlider />
-                  <SMSFeedbackVisualizer />
-                  <CommunityScheduler />
-                  <ColorSwatches />
-                </div>
-              </div>
+              </SectionTabTransition>
             )}
 
             {sectionId === "execution" && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                <div className="space-y-6">
-                  <KPIDashboardGrid />
-                  <ChecklistProgressRings />
-                  <StatusBadgeMatrix />
-                  <ActionPriorityMatrix />
+              <SectionTabTransition>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                  <div className="space-y-6">
+                    <KPIDashboardGrid />
+                    <ChecklistProgressRings />
+                    <StatusBadgeMatrix />
+                    <ActionPriorityMatrix />
+                  </div>
+                  <div className="space-y-6">
+                    <ProjectBurndownChart />
+                    <PerformanceGauge />
+                    <ResourceSpendingChart />
+                    <CampaignRoadmapGantt />
+                    <FeedbackLoopCircuit />
+                    <PrintReportGenerator />
+                  </div>
                 </div>
-                <div className="space-y-6">
-                  <ProjectBurndownChart />
-                  <PerformanceGauge />
-                  <ResourceSpendingChart />
-                  <CampaignRoadmapGantt />
-                  <FeedbackLoopCircuit />
-                  <PrintReportGenerator />
-                </div>
-              </div>
+              </SectionTabTransition>
             )}
           </>
         )}
@@ -523,7 +549,7 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
 
       {/* Data Strip */}
       {(activeTab === "exec" || isExpanded) && (
-        <section className="cv-auto-strip max-w-7xl mx-auto px-0 sm:px-6 mb-8 print:hidden space-y-8">
+        <section className="cv-auto-strip max-w-7xl mx-auto px-4 sm:px-6 mb-8 print:hidden space-y-8">
           <LazyMount minHeight={420}>
             <DataVisualizations />
           </LazyMount>
@@ -534,13 +560,13 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
       )}
 
       {/* Main Content Layout */}
-      <main className="max-w-7xl mx-auto px-0 sm:px-6 pb-24">
-        <div className="print:hidden px-4 sm:px-0">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 pb-24">
+        <div className="print:hidden">
           {(activeTab === "exec" || isExpanded) && <StrategyRail />}
         </div>
         
         {/* Toolbar */}
-        <div className={`sticky top-0 z-40 bg-paper/95 backdrop-blur-md py-3 px-4 sm:px-0 border-b border-line/25 ${(activeTab === "exec" || isExpanded) ? "mt-6" : "mt-0"} mb-6 flex items-center justify-between print:hidden`}>
+        <div className={`sticky top-0 z-40 bg-paper/95 backdrop-blur-md py-3 border-b border-line/25 ${(activeTab === "exec" || isExpanded) ? "mt-6" : "mt-0"} mb-6 flex items-center justify-between print:hidden`}>
           <div className="flex items-center gap-4">
             {activeTab !== "exec" && !isExpanded && (
               <div className="flex items-center gap-2.5 mr-2">
