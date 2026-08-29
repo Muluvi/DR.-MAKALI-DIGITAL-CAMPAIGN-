@@ -18,7 +18,24 @@ import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
 import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
 import { PullQuote } from "./markdown/PullQuote";
 import { ClaimCards } from "./markdown/ClaimCards";
+import { DisputedFigure } from "./markdown/DisputedFigure";
+import { ElectoralHistoryPanel } from "./markdown/ElectoralHistoryPanel";
+import { FiscalAuditPanel } from "./markdown/FiscalAuditPanel";
+import { DroughtFoodSecurityPanel } from "./markdown/DroughtFoodSecurityPanel";
+import { MuiBasinPanel } from "./markdown/MuiBasinPanel";
+import { CompetitorFieldPanel } from "./markdown/CompetitorFieldPanel";
+import { NominationPathPanel } from "./markdown/NominationPathPanel";
+import { ComplianceCeilingPanel } from "./markdown/ComplianceCeilingPanel";
+import { MediaOwnershipBlock } from "./markdown/MediaOwnershipBlock";
+import { DataGapsRegister } from "./markdown/DataGapsRegister";
+import { PathTo200kBlock } from "./markdown/PathTo200kBlock";
+import { ConstituencyWeightBlock } from "./markdown/ConstituencyWeightBlock";
+import { ElectoralTimelineBlock } from "./markdown/ElectoralTimelineBlock";
+import { FiscalAuditChartBlock } from "./markdown/FiscalAuditChartBlock";
+import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, TAB_LABELS, type TabId } from "../lib/heading-slug";
+
+const kituiCentralPopulationDispute = DISPUTED_FIGURES.find((d) => d.id === "kitui-central-2019-population")!;
 
 // Section 1.3's "three governing realities" — matched by the start of each bolded lead
 // sentence so the list item gets pull-quote emphasis without touching the wording.
@@ -96,9 +113,41 @@ const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
 // Keyed by the same "<tab>-sec-<slug>" id SectionHeading assigns, so this stays correct even if
 // the heading text is edited later.
 const HEADING_INSERTS: Record<string, React.ReactNode> = {
-  "exec-sec-2-3": <WardCartogramBlock />,
+  "exec-sec-1a": <NominationPathPanel />,
+  "exec-sec-2-3": (
+    <>
+      <WardCartogramBlock />
+      <PathTo200kBlock />
+      <ConstituencyWeightBlock />
+    </>
+  ),
   "exec-sec-2-4": <ResourceEnvelopeBlock />,
+  "exec-sec-2-5": <DisputedFigure entry={kituiCentralPopulationDispute} />,
+  "exec-sec-2-6": (
+    <>
+      <ElectoralHistoryPanel />
+      <ElectoralTimelineBlock />
+    </>
+  ),
+  "exec-sec-2-7": (
+    <>
+      <FiscalAuditPanel />
+      <FiscalAuditChartBlock />
+    </>
+  ),
+  "exec-sec-2-8": <DroughtFoodSecurityPanel />,
+  "exec-sec-2-9": <MuiBasinPanel />,
+  "exec-sec-2-10": <CompetitorFieldPanel />,
+  "operations-sec-8b-7": <ComplianceCeilingPanel />,
+  "strategy-sec-17a-7": <MediaOwnershipBlock />,
   "execution-sec-20": <KpiPhaseBlock />,
+};
+
+// A handful of headings (the "Appendix A/B/C" style) carry no leading digit, so headingSlug
+// never assigns them an id — matched on exact heading text instead, same mechanism as
+// PLACEHOLDER_PATTERN and GOVERNING_REALITY_TRIGGERS above.
+const HEADING_TEXT_INSERTS: Record<string, React.ReactNode> = {
+  "Appendix C: Data Gaps Register": <DataGapsRegister />,
 };
 
 // Markdown parsing runs here on the server at render time, so react-markdown
@@ -246,10 +295,11 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
               const text = getHeadingText(children);
               const slug = headingSlug(text);
               const id = slug ? sectionId(tabId, slug) : null;
+              const insert = id ? HEADING_INSERTS[id] : HEADING_TEXT_INSERTS[text.trim()];
               return (
                 <>
                   <SectionHeading id={id} level={2} eyebrow={TAB_LABELS[tabId]}>{children}</SectionHeading>
-                  {id && HEADING_INSERTS[id]}
+                  {insert}
                 </>
               );
             },

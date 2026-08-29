@@ -1,0 +1,109 @@
+{
+  "source": {
+    "name": "IEBC — Registered Voters per County Assembly Ward",
+    "url": "https://www.iebc.or.ke/docs/rov_per_caw.pdf",
+    "publicationDate": "2022",
+    "tier": 1
+  },
+  "prisonVoters": 75,
+  "countyTotalWards": 532758,
+  "countyTotalWithPrisons": 532833,
+  "constituencies": [
+    {
+      "id": "mwingi-north",
+      "name": "Mwingi North",
+      "voters": 68829,
+      "wards": [
+        { "name": "Ngomeni", "voters": 9131 },
+        { "name": "Kyuso", "voters": 19921 },
+        { "name": "Mumoni", "voters": 15877 },
+        { "name": "Tseikuru", "voters": 16471 },
+        { "name": "Tharaka", "voters": 7429 }
+      ]
+    },
+    {
+      "id": "mwingi-west",
+      "name": "Mwingi West",
+      "voters": 57138,
+      "wards": [
+        { "name": "Kyome/Thaana", "voters": 14979 },
+        { "name": "Nguutani", "voters": 15121 },
+        { "name": "Migwani", "voters": 14678 },
+        { "name": "Kiomo/Kyethani", "voters": 12360 }
+      ]
+    },
+    {
+      "id": "mwingi-central",
+      "name": "Mwingi Central",
+      "voters": 74231,
+      "wards": [
+        { "name": "Central", "voters": 14525 },
+        { "name": "Kivou", "voters": 12301 },
+        { "name": "Nguni", "voters": 13165 },
+        { "name": "Nuu", "voters": 12729 },
+        { "name": "Mui", "voters": 11039 },
+        { "name": "Waita", "voters": 10472 }
+      ]
+    },
+    {
+      "id": "kitui-west",
+      "name": "Kitui West",
+      "voters": 59047,
+      "wards": [
+        { "name": "Mutonguni", "voters": 17979 },
+        { "name": "Kauwi", "voters": 15767 },
+        { "name": "Matinyani", "voters": 14279 },
+        { "name": "Kwa Mutonga/Kithumula", "voters": 11022 }
+      ]
+    },
+    {
+      "id": "kitui-rural",
+      "name": "Kitui Rural",
+      "voters": 55000,
+      "wards": [
+        { "name": "Kisasi", "voters": 13840 },
+        { "name": "Mbitini", "voters": 12048 },
+        { "name": "Kwa Vonza/Yatta", "voters": 18020 },
+        { "name": "Kanyangi", "voters": 11092 }
+      ]
+    },
+    {
+      "id": "kitui-central",
+      "name": "Kitui Central",
+      "voters": 77764,
+      "wards": [
+        { "name": "Miambani", "voters": 11759 },
+        { "name": "Township", "voters": 19538 },
+        { "name": "Kyangwithya West", "voters": 15931 },
+        { "name": "Mulango", "voters": 15135 },
+        { "name": "Kyangwithya East", "voters": 15401 }
+      ]
+    },
+    {
+      "id": "kitui-east",
+      "name": "Kitui East",
+      "voters": 65377,
+      "wards": [
+        { "name": "Zombe/Mwitika", "voters": 13152 },
+        { "name": "Nzambani", "voters": 11723 },
+        { "name": "Chuluni", "voters": 12622 },
+        { "name": "Voo/Kyamatu", "voters": 10003 },
+        { "name": "Endau/Malalani", "voters": 7897 },
+        { "name": "Mutitu/Kaliku", "voters": 9980 }
+      ]
+    },
+    {
+      "id": "kitui-south",
+      "name": "Kitui South",
+      "voters": 75372,
+      "wards": [
+        { "name": "Ikanga/Kyatune", "voters": 15384 },
+        { "name": "Mutomo", "voters": 12637 },
+        { "name": "Mutha", "voters": 11039 },
+        { "name": "Ikutha", "voters": 12066 },
+        { "name": "Kanziko", "voters": 8403 },
+        { "name": "Athi", "voters": 15843 }
+      ]
+    }
+  ]
+}

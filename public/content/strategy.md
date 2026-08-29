@@ -409,6 +409,16 @@ substance fixed, delivery natural.
 | Share of voice in Kitui gubernatorial coverage | ≥ 50% |
 | Fact-checker corrections secured on false claims | 100% of material false claims challenged |
 
+### 17A.7 Media Ownership Map
+
+Section 17A.1 already names the ownership problem. This subsection formalises
+it against the three-tier provenance system: every ownership association below
+is Tier 2 or Tier 3, labelled individually, and reach is a qualitative reading
+rather than a measured listenership figure — the campaign does not have one
+(Appendix C, Data Gaps Register). **The strategic point survives that gap
+intact: on Section 17A.1's own reading, the highest-reach stations are
+controlled by a rival or the party gatekeeper, not by this campaign.**
+
 ---
 
 ## 18. Multilingual Content Strategy
