@@ -16,12 +16,17 @@ function detectNeedsFallback() {
 }
 
 export function ScrollProgressBar() {
-  const [needsFallback] = useState(detectNeedsFallback);
+  const [needsFallback, setNeedsFallback] = useState(false);
   const [progress, setProgress] = useState(0);
   const ticking = useRef(false);
 
   useEffect(() => {
-    if (!needsFallback) return;
+    const fallback = detectNeedsFallback();
+    if (!fallback) return;
+
+    const rafId = requestAnimationFrame(() => {
+      setNeedsFallback(true);
+    });
 
     const handleScroll = () => {
       if (ticking.current) return;
@@ -35,8 +40,11 @@ export function ScrollProgressBar() {
 
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [needsFallback]);
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div

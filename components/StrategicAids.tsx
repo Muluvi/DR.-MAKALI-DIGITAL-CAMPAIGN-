@@ -2067,45 +2067,523 @@ export function CommunityScheduler() {
   );
 }
 
-// 10. Brand Asset Color Swatches
+// A helper Brand Umbrella logo matching the split colors of the brand identity kit
+export function BrandUmbrella({ size = 48, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 120 120" fill="none" className={`shrink-0 select-none drop-shadow-sm filter ${className}`}>
+      {/* Left Canopy Segment (Royal Blue #00209f) */}
+      <path d="M60 20 C30 20 16 42 12 58 C24 53 42 53 60 58 Z" fill="#00209f" />
+      {/* Right Canopy Segment (Bright Red #e31d2b) */}
+      <path d="M60 20 C90 20 104 42 108 58 C96 53 78 53 60 58 Z" fill="#e31d2b" />
+      {/* Center Division Line */}
+      <path d="M60 20 V58" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
+      {/* Top Pinnacle Pointer (Bright Red) */}
+      <path d="M57 11 H63 L60 20 Z" fill="#e31d2b" />
+      {/* J-Hook handle (Royal Blue) */}
+      <path d="M60 58 V92 C60 99 51 99 51 92" stroke="#00209f" strokeWidth="6" strokeLinecap="round" fill="none" />
+    </svg>
+  );
+}
+
+// 10. Brand Asset Color Swatches & Asset Mockup Playground
 export function ColorSwatches() {
+  const [activeTab, setActiveTab] = useState<"colors" | "social" | "letter" | "mobile" | "pen">("colors");
   const [copied, setCopied] = useState<string | null>(null);
 
-  const copyToClipboard = (hex: string) => {
-    navigator.clipboard.writeText(hex);
-    setCopied(hex);
+  // Social Card State
+  const [socialTitle, setSocialTitle] = useState("A NEW PATH.");
+  const [socialSubtitle, setSocialSubtitle] = useState("A UNITED NATION. A BETTER FUTURE.");
+  const [socialHashtag, setSocialHashtag] = useState("#WIPERPATRIOTICFRONT");
+  const [socialColor, setSocialColor] = useState<"blue" | "red">("blue");
+
+  // Letterhead State
+  const [letterDate, setLetterDate] = useState("25 May 2027");
+  const [letterSubject, setLetterSubject] = useState("Digital Infrastructure Consensus Agenda");
+  const [letterRecipient, setLetterRecipient] = useState("Wiper Democratic Movement delegates & Campaign staff");
+  const [letterBody, setLetterBody] = useState(
+    "We are building a robust and resilient grassroots digital platform for Kitui County. Moving into 2027, our focus remains on civic clarity, evidence-based economic governance, and ensuring that every single citizen is brought into the digital communication umbrella."
+  );
+
+  // Mobile Screen State
+  const [mobileSlogan, setMobileSlogan] = useState("Together. For Kenya.");
+  const [mobileBg, setMobileBg] = useState<"blue" | "red" | "dark">("blue");
+
+  const copyToClipboard = (text: string, label: string) => {
+    navigator.clipboard.writeText(text);
+    setCopied(label);
     setTimeout(() => setCopied(null), 1500);
   };
 
+  const socialPresets = [
+    { title: "A NEW PATH.", subtitle: "A UNITED NATION. A BETTER FUTURE." },
+    { title: "ECONOMIC REFORM.", subtitle: "EVIDENCE-BASED LEADERSHIP FOR KITUI." },
+    { title: "CIVIC CLARITY.", subtitle: "MEASURE. LEARN. REALLOCATE." }
+  ];
+
   return (
-    <div className="bg-card border border-line rounded-2xl p-5 shadow-sm my-6">
-      <h4 className="font-serif text-sm font-bold text-ink mb-3">Official Brand Color Toolkit</h4>
-      <div className="grid grid-cols-2 gap-3">
-        <button
-          onClick={() => copyToClipboard("#0056a8")}
-          className="flex items-center gap-3 p-2.5 bg-paper rounded-xl border border-line hover:border-accent/40 text-left transition-all cursor-pointer"
-        >
-          <span className="w-8 h-8 rounded-lg bg-[#0056a8] shrink-0 border border-black/10" />
-          <div>
-            <span className="text-[9px] font-black text-muted uppercase">Royal Blue</span>
-            <span className="block font-serif text-xs font-bold text-ink mt-0.5">
-              {copied === "#0056a8" ? "COPIED" : "#0056A8"}
-            </span>
-          </div>
-        </button>
-        <button
-          onClick={() => copyToClipboard("#e31d2b")}
-          className="flex items-center gap-3 p-2.5 bg-paper rounded-xl border border-line hover:border-gold/40 text-left transition-all cursor-pointer"
-        >
-          <span className="w-8 h-8 rounded-lg bg-[#e31d2b] shrink-0 border border-black/10" />
-          <div>
-            <span className="text-[9px] font-black text-muted uppercase">Earth Red</span>
-            <span className="block font-serif text-xs font-bold text-ink mt-0.5">
-              {copied === "#e31d2b" ? "COPIED" : "#E31D2B"}
-            </span>
-          </div>
-        </button>
+    <div className="bg-card border border-line rounded-2xl p-5 shadow-sm my-6 space-y-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-line/40 pb-4">
+        <div>
+          <h4 className="font-serif text-sm font-bold text-ink flex items-center gap-2">
+            <BrandUmbrella size={24} />
+            WPF Official Brand Identity Kit
+          </h4>
+          <p className="text-[11px] text-muted leading-tight mt-0.5">
+            Interactive playground and design mockup tools for campaign branding.
+          </p>
+        </div>
+        
+        {/* Playground Tab Selectors */}
+        <div className="flex flex-wrap gap-1 bg-paper p-1 rounded-xl border border-line/60">
+          {(["colors", "social", "letter", "mobile", "pen"] as const).map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`text-[9px] font-black uppercase tracking-wider px-2.5 py-1.5 rounded-lg transition-all cursor-pointer ${
+                activeTab === tab
+                  ? "bg-accent text-white shadow-sm"
+                  : "text-muted hover:text-ink"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
       </div>
+
+      <AnimatePresence mode="wait">
+        {/* TAB 1: OFFICIAL BRAND COLOR SWATCHES */}
+        {activeTab === "colors" && (
+          <motion.div
+            key="colors"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="space-y-4"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <button
+                onClick={() => copyToClipboard("#00209f", "blue")}
+                className="flex items-center gap-4 p-3 bg-paper rounded-xl border border-line hover:border-accent/40 text-left transition-all cursor-pointer group"
+              >
+                <span className="w-12 h-12 rounded-lg bg-[#00209f] shrink-0 border border-black/10 shadow-inner group-hover:scale-105 transition-transform" />
+                <div>
+                  <span className="text-[9px] font-black text-muted uppercase tracking-wider block">Official Party Blue (Royal)</span>
+                  <span className="font-serif text-sm font-black text-ink block mt-0.5">
+                    {copied === "blue" ? "COPIED" : "#00209F"}
+                  </span>
+                  <span className="text-[9px] text-muted leading-none">Primary branding element</span>
+                </div>
+              </button>
+
+              <button
+                onClick={() => copyToClipboard("#e31d2b", "red")}
+                className="flex items-center gap-4 p-3 bg-paper rounded-xl border border-line hover:border-gold/40 text-left transition-all cursor-pointer group"
+              >
+                <span className="w-12 h-12 rounded-lg bg-[#e31d2b] shrink-0 border border-black/10 shadow-inner group-hover:scale-105 transition-transform" />
+                <div>
+                  <span className="text-[9px] font-black text-muted uppercase tracking-wider block">Official Party Red (Earth)</span>
+                  <span className="font-serif text-sm font-black text-ink block mt-0.5">
+                    {copied === "red" ? "COPIED" : "#E31D2B"}
+                  </span>
+                  <span className="text-[9px] text-muted leading-none">Pinnacles and secondary accents</span>
+                </div>
+              </button>
+            </div>
+            
+            <div className="bg-paper rounded-xl border border-line p-3 text-[11px] leading-relaxed text-muted">
+              <strong>Usage Guidelines:</strong> Maintain the correct 2-segment split proportions. The umbrella logo must strictly place the Royal Blue on the left half and Earth Red on the right half. Avoid gradients or arbitrary text overlays.
+            </div>
+          </motion.div>
+        )}
+
+        {/* TAB 2: INTERACTIVE SOCIAL CARD DESIGNER */}
+        {activeTab === "social" && (
+          <motion.div
+            key="social"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-5"
+          >
+            {/* Control Panel */}
+            <div className="space-y-4">
+              <div className="space-y-1.5">
+                <label className="text-[10px] font-black uppercase text-muted tracking-wide">Select Preset Slogans</label>
+                <div className="grid grid-cols-1 gap-2">
+                  {socialPresets.map((preset, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => {
+                        setSocialTitle(preset.title);
+                        setSocialSubtitle(preset.subtitle);
+                      }}
+                      className="text-left text-xs p-2.5 bg-paper rounded-lg border border-line/70 hover:border-accent text-ink transition-all font-semibold"
+                    >
+                      {preset.title}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-[10px] font-black uppercase text-muted tracking-wide">Custom Headline</label>
+                <input
+                  type="text"
+                  value={socialTitle}
+                  onChange={(e) => setSocialTitle(e.target.value)}
+                  className="w-full text-xs p-2.5 bg-paper border border-line rounded-lg text-ink focus:outline-none focus:border-accent font-bold"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-[10px] font-black uppercase text-muted tracking-wide">Custom Sub-slogan</label>
+                <input
+                  type="text"
+                  value={socialSubtitle}
+                  onChange={(e) => setSocialSubtitle(e.target.value)}
+                  className="w-full text-xs p-2.5 bg-paper border border-line rounded-lg text-ink focus:outline-none focus:border-accent font-semibold"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-[10px] font-black uppercase text-muted tracking-wide">Card Theme</label>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setSocialColor("blue")}
+                    className={`flex-1 text-[10px] font-bold py-1.5 rounded border transition-colors ${
+                      socialColor === "blue" ? "bg-accent border-accent text-white" : "bg-paper border-line text-muted"
+                    }`}
+                  >
+                    Royal Blue
+                  </button>
+                  <button
+                    onClick={() => setSocialColor("red")}
+                    className={`flex-1 text-[10px] font-bold py-1.5 rounded border transition-colors ${
+                      socialColor === "red" ? "bg-gold border-gold text-white" : "bg-paper border-line text-muted"
+                    }`}
+                  >
+                    Earth Red
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Live Media Preview Card */}
+            <div className="flex flex-col items-center justify-center p-3 bg-paper border border-line rounded-xl">
+              <div
+                id="brand-social-card"
+                className={`w-full aspect-square max-w-[280px] rounded-xl flex flex-col justify-between p-6 text-white relative shadow-md overflow-hidden transition-all duration-300 ${
+                  socialColor === "blue" ? "bg-[#00209f]" : "bg-[#e31d2b]"
+                }`}
+              >
+                {/* Visual Geometry Grid */}
+                <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:16px_16px]" />
+                
+                {/* Brand Logo Header */}
+                <div className="flex justify-between items-start relative z-10">
+                  <div className="bg-white p-2 rounded-lg shadow-sm">
+                    <BrandUmbrella size={24} />
+                  </div>
+                  <span className="text-[8px] font-black uppercase tracking-widest bg-white/20 px-2 py-0.5 rounded-full">
+                    Official Card
+                  </span>
+                </div>
+
+                {/* Main Content Area */}
+                <div className="space-y-2 relative z-10">
+                  <h3 className="font-serif text-lg font-black tracking-tight leading-tight uppercase">
+                    {socialTitle}
+                  </h3>
+                  <p className="text-[9px] font-bold tracking-wide opacity-90 uppercase leading-snug">
+                    {socialSubtitle}
+                  </p>
+                </div>
+
+                {/* Footer with Hashtag */}
+                <div className="flex justify-between items-end border-t border-white/20 pt-2.5 relative z-10">
+                  <span className="text-[7px] font-black uppercase tracking-wider opacity-75">
+                    Wiper Democratic Movement
+                  </span>
+                  <span className="text-[8px] font-mono font-bold text-yellow-300">
+                    {socialHashtag}
+                  </span>
+                </div>
+              </div>
+              <button
+                onClick={() => copyToClipboard(`Slogan: ${socialTitle} - ${socialSubtitle} ${socialHashtag}`, "slogan")}
+                className="mt-3 text-[10px] font-black uppercase bg-accent text-white px-4 py-1.5 rounded-lg hover:bg-accent/90 cursor-pointer"
+              >
+                {copied === "slogan" ? "COPIED PREVIEW" : "COPY SLOGAN CONTENT"}
+              </button>
+            </div>
+          </motion.div>
+        )}
+
+        {/* TAB 3: OFFICIAL LETTERHEAD DESIGNER */}
+        {activeTab === "letter" && (
+          <motion.div
+            key="letter"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-5"
+          >
+            {/* Control Panel */}
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <label className="text-[10px] font-black uppercase text-muted tracking-wide">Document Date</label>
+                <input
+                  type="text"
+                  value={letterDate}
+                  onChange={(e) => setLetterDate(e.target.value)}
+                  className="w-full text-xs p-2.5 bg-paper border border-line rounded-lg text-ink font-bold"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-[10px] font-black uppercase text-muted tracking-wide">Addressed To</label>
+                <input
+                  type="text"
+                  value={letterRecipient}
+                  onChange={(e) => setLetterRecipient(e.target.value)}
+                  className="w-full text-xs p-2.5 bg-paper border border-line rounded-lg text-ink font-semibold"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-[10px] font-black uppercase text-muted tracking-wide">Memo Subject</label>
+                <input
+                  type="text"
+                  value={letterSubject}
+                  onChange={(e) => setLetterSubject(e.target.value)}
+                  className="w-full text-xs p-2.5 bg-paper border border-line rounded-lg text-ink font-bold"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-[10px] font-black uppercase text-muted tracking-wide">Memo Content</label>
+                <textarea
+                  value={letterBody}
+                  onChange={(e) => setLetterBody(e.target.value)}
+                  rows={4}
+                  className="w-full text-xs p-2.5 bg-paper border border-line rounded-lg text-ink leading-relaxed font-medium focus:outline-none focus:border-accent"
+                />
+              </div>
+            </div>
+
+            {/* Letterhead Preview Sheet */}
+            <div className="flex flex-col items-center justify-center p-3 bg-paper border border-line rounded-xl">
+              <div className="w-full max-w-[280px] bg-white border border-line shadow-md p-5 rounded-lg text-slate-800 text-left space-y-4 relative overflow-hidden">
+                {/* Official Letter Header */}
+                <div className="flex items-center gap-2 border-b border-line pb-3">
+                  <BrandUmbrella size={24} />
+                  <div>
+                    <h5 className="text-[9px] font-black uppercase tracking-widest text-[#00209f] leading-none">
+                      Wiper Patriotic Front
+                    </h5>
+                    <p className="text-[7px] text-muted uppercase mt-0.5 font-bold leading-none">
+                      Hon. Dr. Benson Makali Mulu Campaign
+                    </p>
+                  </div>
+                </div>
+
+                {/* Letter Metadata */}
+                <div className="space-y-1 text-[7px] font-bold text-slate-500 uppercase">
+                  <div>Date: {letterDate}</div>
+                  <div>To: {letterRecipient}</div>
+                  <div className="text-slate-800 font-black border-l-2 border-accent pl-1.5 mt-1.5">
+                    Ref: {letterSubject}
+                  </div>
+                </div>
+
+                {/* Letter Body Text */}
+                <p className="text-[8px] text-slate-600 leading-relaxed font-medium">
+                  {letterBody}
+                </p>
+
+                {/* Signature Line */}
+                <div className="pt-3 border-t border-line/50 flex justify-between items-end">
+                  <div>
+                    <div className="text-[7px] font-black text-slate-800 uppercase">
+                      Dr. Benson Makali Mulu
+                    </div>
+                    <div className="text-[6px] text-muted uppercase">
+                      Gubernatorial Candidate, Kitui County
+                    </div>
+                  </div>
+                  <span className="text-[5px] font-mono font-bold bg-amber-50 border border-amber-200 px-1 text-amber-800 rounded">
+                    CONFIDENTIAL
+                  </span>
+                </div>
+              </div>
+              <button
+                onClick={() => window.print()}
+                className="mt-3 text-[10px] font-black uppercase bg-accent text-white px-4 py-1.5 rounded-lg hover:bg-accent/90 cursor-pointer"
+              >
+                PRINT COMPLETED LETTER
+              </button>
+            </div>
+          </motion.div>
+        )}
+
+        {/* TAB 4: MOBILE SPLASH SCREEN MOCKUP */}
+        {activeTab === "mobile" && (
+          <motion.div
+            key="mobile"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-5"
+          >
+            {/* Control Panel */}
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <label className="text-[10px] font-black uppercase text-muted tracking-wide">Splash Slogan</label>
+                <input
+                  type="text"
+                  value={mobileSlogan}
+                  onChange={(e) => setMobileSlogan(e.target.value)}
+                  className="w-full text-xs p-2.5 bg-paper border border-line rounded-lg text-ink font-bold"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-[10px] font-black uppercase text-muted tracking-wide">Background Canvas Style</label>
+                <div className="flex gap-2">
+                  {(["blue", "red", "dark"] as const).map((style) => (
+                    <button
+                      key={style}
+                      onClick={() => setMobileBg(style)}
+                      className={`flex-1 text-[9px] font-black uppercase py-1.5 rounded border transition-colors ${
+                        mobileBg === style ? "bg-accent border-accent text-white" : "bg-paper border-line text-muted"
+                      }`}
+                    >
+                      {style}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile Device Container */}
+            <div className="flex flex-col items-center justify-center p-3 bg-paper border border-line rounded-xl">
+              <div className="w-[180px] h-[320px] rounded-[24px] border-[6px] border-slate-800 relative shadow-lg overflow-hidden flex flex-col justify-between p-4 text-white">
+                {/* Background State */}
+                <div
+                  className={`absolute inset-0 transition-colors duration-300 ${
+                    mobileBg === "blue"
+                      ? "bg-[#00209f]"
+                      : mobileBg === "red"
+                      ? "bg-[#e31d2b]"
+                      : "bg-[#060d17]"
+                  }`}
+                />
+
+                {/* Notched Camera & Status Bar Simulated */}
+                <div className="w-full flex justify-between items-center text-[7px] font-bold opacity-80 z-10 px-1">
+                  <span>9:41 AM</span>
+                  <div className="w-10 h-3 bg-slate-800 rounded-full absolute left-1/2 -translate-x-1/2 top-0" />
+                  <div className="flex gap-1">
+                    <span>5G</span>
+                    <span className="w-3.5 h-2 bg-white/40 rounded-sm" />
+                  </div>
+                </div>
+
+                {/* Central Brand Identity */}
+                <div className="flex flex-col items-center text-center space-y-3 mt-10 z-10">
+                  <div className="bg-white p-3 rounded-2xl shadow-md scale-95">
+                    <BrandUmbrella size={40} />
+                  </div>
+                  <div>
+                    <h5 className="text-[10px] font-black uppercase tracking-widest text-white leading-none">
+                      WIPER
+                    </h5>
+                    <p className="text-[7px] uppercase tracking-wider text-white/70 mt-1">
+                      PATRIOTIC FRONT
+                    </p>
+                  </div>
+                </div>
+
+                {/* Splash Call to Actions */}
+                <div className="text-center space-y-4 z-10 pb-2">
+                  <div>
+                    <h4 className="font-serif text-xs font-black tracking-tight text-white leading-tight">
+                      {mobileSlogan}
+                    </h4>
+                    <p className="text-[6px] text-white/50 tracking-widest uppercase mt-0.5">
+                      wiper.co.ke
+                    </p>
+                  </div>
+                  <div className="w-full py-1.5 bg-white text-[#00209f] rounded-lg text-[8px] font-black uppercase tracking-wider shadow-inner">
+                    ENTER PORTAL
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* TAB 5: STATIONERY BRAND PEN VISUALIZER */}
+        {activeTab === "pen" && (
+          <motion.div
+            key="pen"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="flex flex-col md:flex-row items-center gap-6"
+          >
+            <div className="flex-1 space-y-3">
+              <h5 className="font-serif text-xs font-black text-ink">Official Campaign Pen Stationery</h5>
+              <p className="text-[11px] text-muted leading-relaxed">
+                A highly customizable promotional campaign pen mockup utilizing white glossy body layers with the primary split-logo printed along the barrel and rich Royal Blue rubber grip pads.
+              </p>
+              <div className="bg-paper p-3 rounded-xl border border-line text-[10px] leading-relaxed text-muted">
+                <strong>Branding specifications:</strong> Printed logo must be positioned 15mm from the top clip boundary. The J-Hook curves along the horizontal axis to align with normal grip holds.
+              </div>
+            </div>
+
+            {/* Simulated 3D Pen Mockup */}
+            <div className="flex-1 flex flex-col items-center justify-center p-4 bg-paper border border-line rounded-xl min-h-[160px]">
+              <motion.div
+                whileHover={{ rotate: 3, scale: 1.05 }}
+                className="w-full max-w-[260px] h-12 relative flex items-center"
+              >
+                {/* Simulated pen cap assembly (gloss white) */}
+                <div className="w-16 h-4 bg-white border border-slate-300 rounded-l-md shadow-sm relative flex items-center justify-end px-2">
+                  {/* Metal pen clip (chrome/silver gradient) */}
+                  <div className="absolute top-[-3px] left-3 w-10 h-1.5 bg-gradient-to-b from-slate-200 to-slate-400 rounded-full shadow-inner border border-slate-400" />
+                </div>
+
+                {/* Pen main body barrel (white gloss print) */}
+                <div className="flex-1 h-4 bg-white border-y border-r border-slate-300 shadow-sm flex items-center justify-start px-3 relative">
+                  <div className="flex items-center gap-1.5 scale-75 origin-left">
+                    <BrandUmbrella size={14} />
+                    <span className="text-[6px] font-black uppercase text-[#00209f] tracking-wider whitespace-nowrap leading-none">
+                      WIPER PATRIOTIC FRONT
+                    </span>
+                  </div>
+                </div>
+
+                {/* Brand blue rubber grip */}
+                <div className="w-12 h-4 bg-[#00209f] border-y border-blue-900 shadow-inner" />
+
+                {/* Chrome metal band */}
+                <div className="w-1 h-4 bg-gradient-to-r from-slate-200 to-slate-400 border border-slate-400" />
+
+                {/* Pen pointer tip */}
+                <div className="w-5 h-4 bg-slate-200 border-y border-slate-300 relative overflow-hidden" style={{ clipPath: "polygon(0 0, 100% 50%, 0 100%)" }}>
+                  {/* Ink tip */}
+                  <div className="absolute right-0 top-0 bottom-0 w-1.5 bg-slate-900" />
+                </div>
+              </motion.div>
+              <span className="text-[8px] font-mono text-muted uppercase mt-4 tracking-widest">
+                Interactive Stationery Mockup
+              </span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

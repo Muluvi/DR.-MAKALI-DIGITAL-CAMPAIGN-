@@ -111,18 +111,16 @@ interface ClientPageProps {
 
 const WiperUmbrellaLogo = () => (
   <svg width="42" height="42" viewBox="0 0 120 120" fill="none" className="shrink-0 select-none drop-shadow-sm filter">
-    {/* Red canopy segments (Left & Right) */}
-    <path d="M60 20 C35 20 20 42 16 58 C25 54 36 54 44 58 C44 58 48 35 60 20 Z" fill="#e31d2b" />
-    <path d="M60 20 C85 20 100 42 104 58 C95 54 84 54 76 58 C76 58 72 35 60 20 Z" fill="#e31d2b" />
-    {/* Royal Blue canopy segment (Center) */}
-    <path d="M60 20 C48 35 44 58 44 58 C54 54 66 54 76 58 C76 58 72 35 60 20 Z" fill="#0056a8" />
-    {/* Clean division lines */}
-    <path d="M60 20 L44 58" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" />
-    <path d="M60 20 L76 58" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" />
-    {/* Center top pinnacle pointer */}
-    <path d="M58 14 H62 L60 20 Z" fill="#0056a8" />
-    {/* Royal Blue J-Hook handle */}
-    <path d="M60 58 V92 C60 98 52 98 52 92" stroke="#0056a8" strokeWidth="5.5" strokeLinecap="round" fill="none" />
+    {/* Left Canopy Segment (Royal Blue) */}
+    <path d="M60 20 C30 20 16 42 12 58 C24 53 42 53 60 58 Z" fill="#00209f" />
+    {/* Right Canopy Segment (Bright Red) */}
+    <path d="M60 20 C90 20 104 42 108 58 C96 53 78 53 60 58 Z" fill="#e31d2b" />
+    {/* Center Division Line */}
+    <path d="M60 20 V58" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
+    {/* Top Pinnacle Pointer (Bright Red, as on PDF page 1) */}
+    <path d="M57 11 H63 L60 20 Z" fill="#e31d2b" />
+    {/* J-Hook handle (Royal Blue) */}
+    <path d="M60 58 V92 C60 99 51 99 51 92" stroke="#00209f" strokeWidth="6" strokeLinecap="round" fill="none" />
   </svg>
 );
 

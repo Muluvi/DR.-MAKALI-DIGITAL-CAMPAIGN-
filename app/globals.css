@@ -29,11 +29,11 @@
   --paper: #f4f7fc;
   --card: #ffffff;
   --line: #d2dee9;
-  --accent: #0056a8; /* Wiper Official Royal Blue */
+  --accent: #00209f; /* Wiper Official Royal Blue */
   --gold: #e31d2b;   /* Wiper Official Earth Red */
   --dark: #071224;
   --danger: #e31d2b;  /* Wiper Official Earth Red */
-  --glow: rgba(0, 86, 168, 0.18);
+  --glow: rgba(0, 32, 159, 0.15);
 
   --prose-body: #344356;
   --prose-strong: #0a172c;
