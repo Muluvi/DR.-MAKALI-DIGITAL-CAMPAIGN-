@@ -42,6 +42,10 @@ import { GeographicZoneMatrix } from "./markdown/GeographicZoneMatrix";
 import { PersuasionFramingMatrix } from "./markdown/PersuasionFramingMatrix";
 import { PublicServiceDeliveryTracker } from "./markdown/PublicServiceDeliveryTracker";
 import { MediaRadioLandscapeCard } from "./markdown/MediaRadioLandscapeCard";
+import { BudgetScenarioModeler } from "./markdown/BudgetScenarioModeler";
+import { CampaignOrgChart } from "./markdown/CampaignOrgChart";
+import { CrisisWarRoomMatrix } from "./markdown/CrisisWarRoomMatrix";
+import { DataSecurityEthicsCharter } from "./markdown/DataSecurityEthicsCharter";
 import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, TAB_LABELS, type TabId } from "../lib/heading-slug";
 
@@ -162,7 +166,16 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "strategy-sec-17a-1": <MediaRadioLandscapeCard />,
   "strategy-sec-17a-7": <MediaOwnershipBlock />,
   "strategy-sec-19b": <PublicServiceDeliveryTracker />,
+  "operations-sec-8a": <CampaignOrgChart />,
+  "operations-sec-8b-5": <BudgetScenarioModeler />,
+  "operations-sec-8b-6": <BudgetScenarioModeler />,
   "operations-sec-8b-7": <ComplianceCeilingPanel />,
+  "operations-sec-13": <CrisisWarRoomMatrix />,
+  "operations-sec-13-1": <CrisisWarRoomMatrix />,
+  "operations-sec-13-4": <CrisisWarRoomMatrix />,
+  "operations-sec-16": <DataSecurityEthicsCharter />,
+  "operations-sec-16-1": <DataSecurityEthicsCharter />,
+  "operations-sec-16-4": <DataSecurityEthicsCharter />,
   "execution-sec-20": <KpiPhaseBlock />,
 };
 

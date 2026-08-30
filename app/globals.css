@@ -135,32 +135,51 @@ body {
   transition-duration: 150ms;
 }
 
-.prose h1, .prose h2, .prose h3 {
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
   font-family: Montserrat, sans-serif;
   color: var(--color-ink);
+  font-weight: 700;
 }
 .prose h1 {
-  font-size: 2.25rem;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
+  font-size: 2.125rem;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  margin-top: 2rem;
   margin-bottom: 1rem;
 }
 .prose h2 {
-  font-size: 1.75rem;
-  margin-top: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-top: 2.25rem;
   margin-bottom: 1rem;
   border-bottom: 1px solid var(--color-line);
   padding-bottom: 0.5rem;
 }
 .prose h3 {
   font-size: 1.25rem;
-  margin-top: 1.5rem;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  margin-top: 1.75rem;
   margin-bottom: 0.75rem;
+}
+.prose h4 {
+  font-size: 1.0625rem;
+  line-height: 1.4;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.prose h5, .prose h6 {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 .prose p {
   margin-bottom: 1rem;
   color: var(--prose-body);
-  line-height: 1.6;
+  line-height: 1.65;
+  font-size: 0.9375rem;
 }
 .prose ul, .prose ol {
   padding-left: 1.5rem;
