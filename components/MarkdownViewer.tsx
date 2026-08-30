@@ -32,6 +32,16 @@ import { PathTo200kBlock } from "./markdown/PathTo200kBlock";
 import { ConstituencyWeightBlock } from "./markdown/ConstituencyWeightBlock";
 import { ElectoralTimelineBlock } from "./markdown/ElectoralTimelineBlock";
 import { FiscalAuditChartBlock } from "./markdown/FiscalAuditChartBlock";
+import { ConstitutionalBranchNavigator } from "./markdown/ConstitutionalBranchNavigator";
+import { PathTo200kCalculator } from "./markdown/PathTo200kCalculator";
+import { RecognitionDeficitOverlay } from "./markdown/RecognitionDeficitOverlay";
+import { AudienceSegmentationMatrix } from "./markdown/AudienceSegmentationMatrix";
+import { PollingTrajectorySimulator } from "./markdown/PollingTrajectorySimulator";
+import { StrategicPillarsMatrix } from "./markdown/StrategicPillarsMatrix";
+import { GeographicZoneMatrix } from "./markdown/GeographicZoneMatrix";
+import { PersuasionFramingMatrix } from "./markdown/PersuasionFramingMatrix";
+import { PublicServiceDeliveryTracker } from "./markdown/PublicServiceDeliveryTracker";
+import { MediaRadioLandscapeCard } from "./markdown/MediaRadioLandscapeCard";
 import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, TAB_LABELS, type TabId } from "../lib/heading-slug";
 
@@ -113,7 +123,9 @@ const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
 // Keyed by the same "<tab>-sec-<slug>" id SectionHeading assigns, so this stays correct even if
 // the heading text is edited later.
 const HEADING_INSERTS: Record<string, React.ReactNode> = {
+  "exec-sec-1-1": <PollingTrajectorySimulator />,
   "exec-sec-1a": <NominationPathPanel />,
+  "exec-sec-2-2": <ConstitutionalBranchNavigator />,
   "exec-sec-2-3": (
     <>
       <WardCartogramBlock />
@@ -138,8 +150,19 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "exec-sec-2-8": <DroughtFoodSecurityPanel />,
   "exec-sec-2-9": <MuiBasinPanel />,
   "exec-sec-2-10": <CompetitorFieldPanel />,
-  "operations-sec-8b-7": <ComplianceCeilingPanel />,
+  "exec-sec-6-3": <PathTo200kCalculator />,
+  "exec-sec-6-5": <RecognitionDeficitOverlay />,
+  "exec-sec-7-0": <AudienceSegmentationMatrix />,
+  "exec-sec-7": <AudienceSegmentationMatrix />,
+  "strategy-sec-5": <StrategicPillarsMatrix />,
+  "strategy-sec-6": <AudienceSegmentationMatrix />,
+  "strategy-sec-7": <GeographicZoneMatrix />,
+  "strategy-sec-10": <PersuasionFramingMatrix />,
+  "strategy-sec-17a": <MediaRadioLandscapeCard />,
+  "strategy-sec-17a-1": <MediaRadioLandscapeCard />,
   "strategy-sec-17a-7": <MediaOwnershipBlock />,
+  "strategy-sec-19b": <PublicServiceDeliveryTracker />,
+  "operations-sec-8b-7": <ComplianceCeilingPanel />,
   "execution-sec-20": <KpiPhaseBlock />,
 };
 
@@ -228,6 +251,19 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
 
               return table;
             },
+            pre: ({ children }) => (
+              <div className="my-6 rounded-2xl border border-line bg-paper/60 p-3 sm:p-4 overflow-hidden not-prose">
+                <div className="flex items-center justify-between pb-2 mb-2 border-b border-line/40 text-[10px] font-mono font-bold text-muted uppercase tracking-wider">
+                  <span>Structured Analytical Data</span>
+                  <span>Swipe to scroll horizontally if needed</span>
+                </div>
+                <div className="overflow-x-auto max-w-full scrollbar-thin">
+                  <pre className="text-[11px] sm:text-xs font-mono text-ink leading-snug m-0 p-0 whitespace-pre">
+                    {children}
+                  </pre>
+                </div>
+              </div>
+            ),
             code: ({ children }) => {
               const text = flattenText(children);
               if (PLACEHOLDER_PATTERN.test(text.trim())) {

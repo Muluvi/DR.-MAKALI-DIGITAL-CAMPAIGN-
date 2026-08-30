@@ -1,11 +1,8 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { LazyMount } from "../LazyMount";
 import { SourceLine } from "./SourceLine";
-import type { WaterfallStep } from "../charts/ResourceEnvelopeChart";
-
-const ResourceEnvelopeChart = dynamic(() => import("../charts/ResourceEnvelopeChart"), { ssr: false });
+import ResourceEnvelopeChart, { type WaterfallStep } from "../charts/ResourceEnvelopeChart";
 
 // Section 2.4: "a total resource envelope of KSh13.79 billion, comprising roughly KSh11.64
 // billion in equitable share (approximately 84.5% of revenue), around KSh1.03 billion in

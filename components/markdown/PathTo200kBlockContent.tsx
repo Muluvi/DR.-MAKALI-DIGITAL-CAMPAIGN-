@@ -1,14 +1,11 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { LazyMount } from "../LazyMount";
 import { ProvenanceLine } from "./ProvenanceLine";
 import { ALL_WARDS, MWINGI_BLOC_TOTAL, CONSTITUENCIES } from "../../data/ward-register";
 import { IEBC_WARD_REGISTER } from "../../data/sources";
 import type { Provenance } from "../../data/types";
-import type { PathPoint } from "../charts/PathTo200kChart";
-
-const PathTo200kChart = dynamic(() => import("../charts/PathTo200kChart"), { ssr: false });
+import PathTo200kChart, { type PathPoint } from "../charts/PathTo200kChart";
 
 const WIN_THRESHOLD = 200_000; // Section 2.3: 198,004 actual 2022 winning total, rounded for KPI-setting.
 const PROVENANCE: Provenance = { source: IEBC_WARD_REGISTER, granularity: "ward" };

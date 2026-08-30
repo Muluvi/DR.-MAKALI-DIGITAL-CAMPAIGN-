@@ -1,11 +1,8 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { LazyMount } from "../LazyMount";
 import { SourceLine } from "./SourceLine";
-import type { PlatformDatum } from "../charts/PlatformSizingChart";
-
-const PlatformSizingChart = dynamic(() => import("../charts/PlatformSizingChart"), { ssr: false });
+import PlatformSizingChart, { type PlatformDatum } from "../charts/PlatformSizingChart";
 
 // Section 2.5, "National platform sizing (for ad planning)". Sorted descending by audience.
 // LinkedIn is a stated 6.30–7.44m range — plotted at its upper bound, with the true range kept

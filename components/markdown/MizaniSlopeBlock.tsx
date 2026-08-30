@@ -1,11 +1,8 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { LazyMount } from "../LazyMount";
 import { SourceLine } from "./SourceLine";
-import type { SlopeSeries } from "../charts/MizaniSlopeChart";
-
-const MizaniSlopeChart = dynamic(() => import("../charts/MizaniSlopeChart"), { ssr: false });
+import MizaniSlopeChart, { type SlopeSeries } from "../charts/MizaniSlopeChart";
 
 // Section 1.1 table. Ngilu has no June 2026 figure (she wasn't in that round), so her line
 // starts null rather than an invented June value — the chart draws no segment before August.

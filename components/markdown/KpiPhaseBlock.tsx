@@ -1,11 +1,8 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { LazyMount } from "../LazyMount";
 import { PHASES, phaseColor } from "../../lib/phases";
-import type { KpiRow } from "../charts/KpiPhaseBarChart";
-
-const KpiPhaseBarChart = dynamic(() => import("../charts/KpiPhaseBarChart"), { ssr: false });
+import KpiPhaseBarChart, { type KpiRow } from "../charts/KpiPhaseBarChart";
 
 function points(values: Partial<Record<string, number>>): KpiRow["points"] {
   // JS reorders integer-like object keys ("1", "2", "3") ahead of non-numeric ones ("neg1")

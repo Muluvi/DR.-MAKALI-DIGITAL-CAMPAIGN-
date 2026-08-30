@@ -1,6 +1,5 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { 
@@ -31,6 +30,9 @@ import { LazyMount } from "./LazyMount";
 import { ScrollProgressBar } from "./ScrollProgressBar";
 import { SectionStickyBar } from "./SectionStickyBar";
 import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
+import { MobileTOCModal } from "./MobileTOCModal";
+import { MobileBottomNav } from "./MobileBottomNav";
+import type { TabId } from "../lib/heading-slug";
 
 import {
   WatermarkedPillars,
@@ -89,12 +91,11 @@ import {
   ChartComponent
 } from "./StrategicAids";
 
-// Dynamically import heavy components to optimize mobile performance and TTI
-const Dashboard = dynamic(() => import("./Dashboard").then(mod => mod.Dashboard), { ssr: true });
-const HeroVisual = dynamic(() => import("./HeroVisual").then(mod => mod.HeroVisual), { ssr: true });
-const DataVisualizations = dynamic(() => import("./DataVisualizations").then(mod => mod.DataVisualizations), { ssr: false }); // Disable SSR for charts to reduce hydration cost
-const VoterProjectionsChart = dynamic(() => import("./VoterProjectionsChart").then(mod => mod.VoterProjectionsChart), { ssr: false });
-const StrategyRail = dynamic(() => import("./StrategyRail").then(mod => mod.StrategyRail), { ssr: true });
+import { Dashboard } from "./Dashboard";
+import { HeroVisual } from "./HeroVisual";
+import { DataVisualizations } from "./DataVisualizations";
+import { VoterProjectionsChart } from "./VoterProjectionsChart";
+import { StrategyRail } from "./StrategyRail";
 
 function SectionTabTransition({ children }: { children: React.ReactNode }) {
   return (
@@ -227,11 +228,11 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
   // below rather than in the initial state (see the useEffect reading window.location.hash).
   const [activeTab, setActiveTab] = useState("exec");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isTOCModalOpen, setIsTOCModalOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
 
   const { theme, toggleTheme, mounted } = useTheme();
-  const [isFabOpen, setIsFabOpen] = useState(false);
 
   const navItems = useMemo(() => [
     { id: "exec", label: "Executive Summary", icon: FileText, content: exec.node, wordCount: exec.wordCount },
@@ -479,35 +480,72 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
       
       {/* Hero Header */}
       {(activeTab === "exec" || isExpanded) && (
-        <header className="cv-auto-hero relative pt-16 pb-12 overflow-hidden print:pt-4 print:pb-4">
+        <header className="cv-auto-hero relative pt-12 sm:pt-16 pb-8 sm:pb-12 overflow-hidden print:pt-4 print:pb-4">
           <div className="absolute inset-0 pointer-events-none opacity-50 bg-[radial-gradient(circle_at_82%_10%,var(--color-glow),transparent_32%),linear-gradient(180deg,var(--color-card),var(--color-paper))]" />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
             
             {/* Wiper Patriotic Front (WPF) Brand Banner */}
-            <div className="flex items-center gap-3.5 mb-6 select-none bg-card/60 backdrop-blur-md border border-line rounded-2xl p-3.5 w-fit shadow-sm">
+            <div className="flex items-center gap-3 mb-4 sm:mb-6 select-none bg-card/80 backdrop-blur-md border border-line rounded-2xl p-2.5 sm:p-3.5 w-fit shadow-sm">
               <WiperUmbrellaLogo />
               <div>
-                <div className="text-xs sm:text-sm tracking-[0.12em] uppercase text-accent font-black">
+                <div className="text-[11px] sm:text-sm tracking-[0.12em] uppercase text-accent font-black">
                   Wiper Patriotic Front (WPF)
                 </div>
-                <div className="text-[10px] sm:text-xs tracking-wider text-muted uppercase font-semibold mt-0.5">
-                  Official Campaign Strategy Portal
+                <div className="text-[9px] sm:text-xs tracking-wider text-muted uppercase font-semibold mt-0.5">
+                  Kitui 2027 Strategy Portal
                 </div>
               </div>
             </div>
 
-            <div className="confidentiality-marker mb-6 flex items-center gap-1.5">
+            <div className="confidentiality-marker mb-4 sm:mb-6 flex items-center gap-1.5 text-xs">
               <strong>Confidential</strong>
-              <span className="opacity-70">— prepared for Wiper Patriotic Front campaign leadership. Not for public distribution.</span>
+              <span className="opacity-70 truncate sm:whitespace-normal">— prepared for Wiper Patriotic Front campaign leadership.</span>
             </div>
 
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl leading-[1.05] tracking-tight max-w-4xl text-ink mb-6">
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-7xl leading-[1.08] sm:leading-[1.05] tracking-tight max-w-4xl text-ink mb-4 sm:mb-6">
               Kitui 2027:<br />
               <span className="opacity-90">the operating system for an Economist Governor.</span>
             </h1>
-            <p className="text-base sm:text-lg text-muted max-w-3xl leading-relaxed">
+            <p className="text-sm sm:text-lg text-muted max-w-3xl leading-relaxed">
               Campaign Strategy & Digital Architecture Proposal for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
             </p>
+
+            {/* Mobile Quick-Jump Chips (Thumb-accessible shortcuts) */}
+            <div className="mt-5 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none lg:hidden select-none">
+              <span className="text-[10px] uppercase font-extrabold tracking-widest text-muted shrink-0">
+                Jump To:
+              </span>
+              <button
+                onClick={() => setIsTOCModalOpen(true)}
+                className="px-3 py-1.5 rounded-xl bg-accent text-white text-xs font-bold shrink-0 flex items-center gap-1.5 shadow-sm shadow-accent/20 cursor-pointer"
+              >
+                <span>Full Index (20 Secs)</span>
+              </button>
+              <button
+                onClick={() => navigateToSection("exec-sec-2-3")}
+                className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
+              >
+                200k Target Math
+              </button>
+              <button
+                onClick={() => navigateToSection("strategy-sec-6")}
+                className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
+              >
+                40 Wards Register
+              </button>
+              <button
+                onClick={() => navigateToSection("operations-sec-9c")}
+                className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
+              >
+                Kikamba Radio
+              </button>
+              <button
+                onClick={() => navigateToSection("operations-sec-8")}
+                className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
+              >
+                ECFA Compliance
+              </button>
+            </div>
             
             <Dashboard />
 
@@ -517,27 +555,27 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
               <div className="lg:col-span-2">
                 <HeroVisual />
               </div>
-              <div className="lg:col-span-1 flex flex-col gap-4">
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-card/70 backdrop-blur-md border border-line p-4 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+              <div className="lg:col-span-1 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3 sm:gap-4">
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-card/70 backdrop-blur-md border border-line p-3.5 sm:p-4 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
                   <div className="text-[10px] uppercase tracking-widest text-muted font-extrabold mb-1">Recognition Gap</div>
-                  <div className="font-serif text-2xl font-bold">15.3 pts</div>
-                  <div className="h-1.5 bg-line rounded-full mt-3 overflow-hidden">
+                  <div className="font-serif text-xl sm:text-2xl font-bold">15.3 pts</div>
+                  <div className="h-1.5 bg-line rounded-full mt-2.5 overflow-hidden">
                     <motion.div initial={{ width: 0 }} animate={{ width: "76%" }} className="h-full bg-gradient-to-r from-accent to-gold" transition={{ duration: 1, delay: 0.4 }} />
                   </div>
                 </motion.div>
                 
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-card/70 backdrop-blur-md border border-line p-4 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-card/70 backdrop-blur-md border border-line p-3.5 sm:p-4 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
                   <div className="text-[10px] uppercase tracking-widest text-muted font-extrabold mb-1">Low-connectivity layer</div>
-                  <div className="font-serif text-2xl font-bold">SMS + USSD</div>
-                  <div className="h-1.5 bg-line rounded-full mt-3 overflow-hidden">
+                  <div className="font-serif text-xl sm:text-2xl font-bold">SMS + USSD</div>
+                  <div className="h-1.5 bg-line rounded-full mt-2.5 overflow-hidden">
                     <motion.div initial={{ width: 0 }} animate={{ width: "86%" }} className="h-full bg-gradient-to-r from-accent to-gold" transition={{ duration: 1, delay: 0.5 }} />
                   </div>
                 </motion.div>
                 
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="bg-card/70 backdrop-blur-md border border-line p-4 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="bg-card/70 backdrop-blur-md border border-line p-3.5 sm:p-4 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
                   <div className="text-[10px] uppercase tracking-widest text-muted font-extrabold mb-1">Operating principle</div>
-                  <div className="font-serif text-xl font-bold tracking-tight">Measure → learn → reallocate</div>
-                  <div className="h-1.5 bg-line rounded-full mt-3 overflow-hidden">
+                  <div className="font-serif text-base sm:text-xl font-bold tracking-tight">Measure → learn → reallocate</div>
+                  <div className="h-1.5 bg-line rounded-full mt-2.5 overflow-hidden">
                     <motion.div initial={{ width: 0 }} animate={{ width: "92%" }} className="h-full bg-gradient-to-r from-accent to-gold" transition={{ duration: 1, delay: 0.6 }} />
                   </div>
                 </motion.div>
@@ -560,105 +598,81 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
       )}
 
       {/* Main Content Layout */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 pb-24">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 pb-36 lg:pb-24">
         <div className="print:hidden">
           {(activeTab === "exec" || isExpanded) && <StrategyRail />}
         </div>
         
-        {/* Toolbar */}
-        <div className={`sticky top-0 z-40 bg-paper/95 backdrop-blur-md py-3 border-b border-line/25 ${(activeTab === "exec" || isExpanded) ? "mt-6" : "mt-0"} mb-6 flex items-center justify-between print:hidden`}>
-          <div className="flex items-center gap-4">
+        {/* Responsive Toolbar */}
+        <div className={`sticky top-0 z-40 bg-paper/95 backdrop-blur-md py-2.5 sm:py-3 border-b border-line/25 ${(activeTab === "exec" || isExpanded) ? "mt-4 sm:mt-6" : "mt-0"} mb-4 sm:mb-6 flex items-center justify-between print:hidden`}>
+          <div className="flex items-center gap-2 sm:gap-4 flex-1">
             {activeTab !== "exec" && !isExpanded && (
-              <div className="flex items-center gap-2.5 mr-2">
+              <div className="flex items-center gap-2 mr-1 shrink-0">
                 <div className="scale-75 origin-left">
                   <WiperUmbrellaLogo />
                 </div>
-                <div className="hidden md:block">
+                <div className="hidden sm:block">
                   <div className="text-[10px] tracking-wider font-black text-accent uppercase leading-none">Wiper Patriotic Front</div>
                   <div className="text-[9px] font-bold text-muted uppercase mt-0.5 leading-none">Kitui 2027 Strategy</div>
                 </div>
               </div>
             )}
-            <div className="flex gap-2">
+
+            {/* Desktop & Mobile Responsive Control Buttons */}
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <button 
+                onClick={() => setIsTOCModalOpen(true)}
+                className="flex items-center gap-1.5 px-3 py-2 bg-accent/10 border border-accent/20 rounded-xl text-xs sm:text-sm font-bold text-accent hover:bg-accent hover:text-white transition-colors cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                aria-label="Open Table of Contents"
+              >
+                <FileText size={15} />
+                <span className="hidden xs:inline">Index</span>
+              </button>
+
               <button 
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="flex items-center gap-2 px-4 py-2 bg-card border border-line/60 rounded-xl text-sm font-bold text-ink hover:border-accent hover:text-accent transition-colors cursor-pointer"
+                className="flex items-center gap-1.5 px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent transition-colors cursor-pointer min-h-[40px] sm:min-h-[42px]"
               >
-                {isExpanded ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
-                {isExpanded ? "Collapse All" : "Expand All"}
+                {isExpanded ? <Minimize2 size={15} /> : <Maximize2 size={15} />}
+                <span className="hidden sm:inline">{isExpanded ? "Collapse All" : "Expand All"}</span>
+                <span className="sm:hidden">{isExpanded ? "Collapse" : "All"}</span>
               </button>
+
               <button 
                 onClick={() => window.print()}
-                className="flex items-center gap-2 px-4 py-2 bg-card border border-line/60 rounded-xl text-sm font-bold text-ink hover:border-accent hover:text-accent transition-colors cursor-pointer"
+                className="hidden sm:flex items-center gap-2 px-3.5 py-2 bg-card border border-line/60 rounded-xl text-sm font-bold text-ink hover:border-accent hover:text-accent transition-colors cursor-pointer min-h-[42px]"
               >
-                <Printer size={16} />
-                Print
+                <Printer size={15} />
+                <span>Print</span>
               </button>
+
               <button 
                 onClick={toggleTheme}
-                className="flex items-center gap-2 px-4 py-2 bg-card border border-line/60 rounded-xl text-sm font-bold text-ink hover:border-accent hover:text-accent transition-colors cursor-pointer"
+                className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent transition-colors cursor-pointer min-h-[40px] sm:min-h-[42px]"
                 aria-label="Toggle theme"
               >
                 {mounted ? (
-                  theme === "light" ? <Moon size={16} className="text-gold" /> : <Sun size={16} className="text-gold" />
+                  theme === "light" ? <Moon size={15} className="text-gold" /> : <Sun size={15} className="text-gold" />
                 ) : (
                   <div className="w-4 h-4 rounded-full border border-line/40 animate-pulse" />
                 )}
-                <span>
-                  {!mounted ? "Theme" : theme === "light" ? "Dark Mode" : "Light Mode"}
+                <span className="hidden sm:inline">
+                  {!mounted ? "Theme" : theme === "light" ? "Dark" : "Light"}
                 </span>
               </button>
             </div>
           </div>
-          <div className="text-xs font-bold text-muted hidden sm:block">
-            {readingTime} min read · {wordCount.toLocaleString()} words
+
+          <div className="text-[11px] sm:text-xs font-bold text-muted shrink-0 pl-2">
+            <span className="hidden md:inline">{readingTime} min read · </span>
+            <span>{wordCount.toLocaleString()} wds</span>
           </div>
         </div>
 
         <SectionStickyBar />
 
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 relative mt-8">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 relative mt-4 sm:mt-8">
           
-          {/* Mobile Tab Selector */}
-          <div className="lg:hidden sticky top-20 z-30 print:hidden px-4">
-            <button 
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="w-full flex items-center justify-between bg-card/95 backdrop-blur-md border border-line/60 shadow-sm rounded-2xl p-4 text-left font-semibold"
-            >
-              <div className="flex items-center gap-3">
-                <activeItem.icon size={20} className="text-accent animate-pulse" />
-                <span className="text-xs font-bold text-ink">
-                  {isExpanded ? `Reading: ${activeItem.label}` : activeItem.label}
-                </span>
-              </div>
-              {isMobileMenuOpen ? <X size={20} className="text-muted" /> : <Menu size={20} className="text-muted" />}
-            </button>
-            
-            <AnimatePresence>
-              {isMobileMenuOpen && (
-                <motion.div 
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="absolute top-full left-0 right-0 mt-2 bg-card border border-line rounded-2xl shadow-xl overflow-hidden z-50"
-                >
-                  {navItems.map((item) => (
-                    <button
-                      key={item.id}
-                      onClick={() => handleNavClick(item.id)}
-                      className={`w-full flex items-center gap-3 px-4 py-4 text-sm font-semibold border-b border-line last:border-b-0 transition-colors ${
-                        activeTab === item.id ? "bg-accent/5 text-accent" : "text-muted hover:bg-paper"
-                      }`}
-                    >
-                      <item.icon size={18} className={activeTab === item.id ? "text-accent" : "text-muted"} />
-                      {item.label}
-                    </button>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
           {/* Desktop Sidebar Navigation */}
           <aside className="toc-rail hidden lg:block w-72 flex-shrink-0 print:hidden">
             <div className="sticky top-24">
@@ -731,7 +745,7 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
       </main>
       
       {/* Footer — visible on screen and repeated in print output */}
-      <footer className="border-t border-line mt-8 pt-8 pb-10 px-4 sm:px-6 max-w-7xl mx-auto">
+      <footer className="border-t border-line mt-8 pt-8 pb-28 lg:pb-10 px-4 sm:px-6 max-w-7xl mx-auto">
         <div className="confidentiality-marker mb-3">
           <strong>Confidential</strong>
           <span className="opacity-70"> — link-only proposal for Wiper Patriotic Front campaign leadership. Not for public distribution.</span>
@@ -741,94 +755,29 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
         <p className="text-sm text-muted">This proposal is designed as a personally shared, link-only document. It is configured as noindex, nofollow and contains deliberate placeholders where primary documents or campaign decisions are still required.</p>
       </footer>
 
-      {/* Mobile Floating Action Button (Thumb-Zone Optimization) */}
-      <div className="fixed bottom-6 right-6 z-50 print:hidden lg:hidden">
-        <div className="relative flex flex-col items-end gap-3">
-          {/* Expanded FAB Menu Options */}
-          <AnimatePresence>
-            {isFabOpen && (
-              <motion.div 
-                initial={{ opacity: 0, y: 15, scale: 0.9 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 15, scale: 0.9 }}
-                className="flex flex-col items-end gap-2"
-              >
-                {/* Scroll to Top Option */}
-                <button
-                  onClick={() => {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                    setIsFabOpen(false);
-                  }}
-                  className="flex items-center gap-2.5 px-3 py-2 bg-card border border-line shadow-lg rounded-xl text-xs font-bold text-ink hover:text-accent transition-all cursor-pointer"
-                >
-                  <span>Top</span>
-                  <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent">
-                    <ChevronUp size={16} />
-                  </div>
-                </button>
+      {/* Streamlined Mobile Bottom Navigation Dock */}
+      <MobileBottomNav
+        activeTab={activeTab}
+        onTabChange={(tabId) => handleNavClick(tabId)}
+        onOpenTOC={() => setIsTOCModalOpen(true)}
+        isExpanded={isExpanded}
+        onToggleExpanded={() => setIsExpanded(!isExpanded)}
+        theme={theme}
+        onToggleTheme={toggleTheme}
+      />
 
-                {/* Theme Selector Option */}
-                <button
-                  onClick={() => {
-                    toggleTheme();
-                    setIsFabOpen(false);
-                  }}
-                  className="flex items-center gap-2.5 px-3 py-2 bg-card border border-line shadow-lg rounded-xl text-xs font-bold text-ink hover:text-accent transition-all cursor-pointer"
-                >
-                  <span>{theme === "light" ? "Dark Mode" : "Light Mode"}</span>
-                  <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent">
-                    {theme === "light" ? <Moon size={15} /> : <Sun size={15} />}
-                  </div>
-                </button>
-
-                {/* Print Option */}
-                <button
-                  onClick={() => {
-                    window.print();
-                    setIsFabOpen(false);
-                  }}
-                  className="flex items-center gap-2.5 px-3 py-2 bg-card border border-line shadow-lg rounded-xl text-xs font-bold text-ink hover:text-accent transition-all cursor-pointer"
-                >
-                  <span>Print Document</span>
-                  <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent">
-                    <Printer size={15} />
-                  </div>
-                </button>
-
-                {/* Expand All / Collapse Option */}
-                <button
-                  onClick={() => {
-                    setIsExpanded(!isExpanded);
-                    setIsFabOpen(false);
-                  }}
-                  className="flex items-center gap-2.5 px-3 py-2 bg-card border border-line shadow-lg rounded-xl text-xs font-bold text-ink hover:text-accent transition-all cursor-pointer"
-                >
-                  <span>{isExpanded ? "Collapse View" : "Expand All"}</span>
-                  <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent">
-                    {isExpanded ? <Minimize2 size={15} /> : <Maximize2 size={15} />}
-                  </div>
-                </button>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* Trigger Floating Action Button */}
-          <button
-            onClick={() => setIsFabOpen(!isFabOpen)}
-            className="w-14 h-14 rounded-full bg-accent text-white flex items-center justify-center shadow-xl hover:scale-105 active:scale-95 transition-all cursor-pointer relative"
-            aria-label="Open helper menu"
-          >
-            {isFabOpen ? (
-              <X size={24} />
-            ) : (
-              <div className="relative">
-                <Settings className="animate-spin-slow" size={24} />
-                <span className="absolute top-0 right-0 w-2 h-2 bg-gold rounded-full border border-accent animate-ping" />
-              </div>
-            )}
-          </button>
-        </div>
-      </div>
+      {/* Mobile Table of Contents Full Modal Sheet */}
+      <MobileTOCModal
+        isOpen={isTOCModalOpen}
+        onClose={() => setIsTOCModalOpen(false)}
+        activeTab={activeTab}
+        onSelectSection={(secId, tabId) => {
+          if (!isExpanded && activeTab !== tabId) {
+            setActiveTab(tabId);
+          }
+          scrollToSectionWhenReady(secId, "smooth");
+        }}
+      />
     </div>
   );
 }

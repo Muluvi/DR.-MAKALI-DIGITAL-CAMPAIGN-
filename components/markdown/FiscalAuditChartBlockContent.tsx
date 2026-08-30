@@ -1,12 +1,9 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { LazyMount } from "../LazyMount";
 import { ProvenanceLine } from "./ProvenanceLine";
 import { RESOURCE_ENVELOPE_FY2026_27, AUDIT_QUERIES_FY2023_24, PENDING_BILLS_FY2020_21 } from "../../data/fiscal-audit";
-import type { FiscalBar } from "../charts/FiscalAuditChart";
-
-const FiscalAuditChart = dynamic(() => import("../charts/FiscalAuditChart"), { ssr: false });
+import FiscalAuditChart, { type FiscalBar } from "../charts/FiscalAuditChart";
 
 const AUDIT_TOTAL = AUDIT_QUERIES_FY2023_24.reduce((sum, q) => sum + q.value, 0);
 const EXPOSURE_TOTAL = AUDIT_TOTAL + PENDING_BILLS_FY2020_21.value;

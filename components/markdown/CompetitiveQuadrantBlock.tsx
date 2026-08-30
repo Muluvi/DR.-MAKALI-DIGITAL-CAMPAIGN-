@@ -1,11 +1,8 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { LazyMount } from "../LazyMount";
 import { SourceLine } from "./SourceLine";
-import type { QuadrantPoint } from "../charts/CompetitiveQuadrantChart";
-
-const CompetitiveQuadrantChart = dynamic(() => import("../charts/CompetitiveQuadrantChart"), { ssr: false });
+import CompetitiveQuadrantChart, { type QuadrantPoint } from "../charts/CompetitiveQuadrantChart";
 
 // Preference: Mizani Africa, 7 August 2026 (Section 1.1 / 2.2 table). Credibility: a
 // qualitative reading of how the proposal itself characterises each candidate in Section 2.2 —

@@ -1,13 +1,10 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { LazyMount } from "../LazyMount";
 import { ProvenanceLine } from "./ProvenanceLine";
 import { COURT_OF_APPEAL_2018, IEBC_2022_RESULTS } from "../../data/sources";
 import type { Provenance } from "../../data/types";
-import type { TimelinePoint } from "../charts/ElectoralTimelineChart";
-
-const ElectoralTimelineChart = dynamic(() => import("../charts/ElectoralTimelineChart"), { ssr: false });
+import ElectoralTimelineChart, { type TimelinePoint } from "../charts/ElectoralTimelineChart";
 
 const DATA: TimelinePoint[] = [
   { year: "2013", winner: null, votes: null, color: "transparent" },

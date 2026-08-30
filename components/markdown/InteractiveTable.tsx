@@ -1,13 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import dynamic from "next/dynamic";
 import { Search, Sparkles, ArrowUpDown, BarChart3, Table } from "lucide-react";
 import { LazyMount } from "../LazyMount";
 import { SourceLine, detectSources } from "./SourceLine";
-
-// Recharts only loads once the user actually asks to see the chart view.
-const TableChart = dynamic(() => import("./TableChart"), { ssr: false });
+import TableChart from "./TableChart";
 
 function getDeepText(node: any): string {
   if (!node) return "";

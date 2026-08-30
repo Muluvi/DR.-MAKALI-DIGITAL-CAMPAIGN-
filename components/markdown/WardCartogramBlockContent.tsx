@@ -1,12 +1,10 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { LazyMount } from "../LazyMount";
 import { ProvenanceLine } from "./ProvenanceLine";
 import { IEBC_WARD_REGISTER } from "../../data/sources";
 import type { Provenance } from "../../data/types";
-
-const WardCartogram = dynamic(() => import("../charts/WardCartogram"), { ssr: false });
+import WardCartogram from "../charts/WardCartogram";
 
 const PROVENANCE: Provenance = { source: IEBC_WARD_REGISTER, granularity: "ward" };
 

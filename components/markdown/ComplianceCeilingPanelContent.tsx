@@ -1,6 +1,5 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { LazyMount } from "../LazyMount";
 import { ProvenanceLine } from "./ProvenanceLine";
 import { TierBadge } from "./TierBadge";
@@ -13,9 +12,7 @@ import {
   EXPENDITURE_WINDOW,
   COMPLIANCE_REQUIREMENTS,
 } from "../../data/spending-ceiling";
-import type { TierBand } from "../charts/SpendingCeilingChart";
-
-const SpendingCeilingChart = dynamic(() => import("../charts/SpendingCeilingChart"), { ssr: false });
+import SpendingCeilingChart, { type TierBand } from "../charts/SpendingCeilingChart";
 
 const CEILING = KITUI_SPENDING_CEILING.value;
 

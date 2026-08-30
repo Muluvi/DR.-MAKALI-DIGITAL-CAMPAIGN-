@@ -1,14 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import dynamic from "next/dynamic";
 import { LazyMount } from "../LazyMount";
 import { ProvenanceLine } from "./ProvenanceLine";
 import { CONSTITUENCIES_BY_SIZE, COUNTY_TOTAL_WARDS } from "../../data/ward-register";
 import { IEBC_WARD_REGISTER } from "../../data/sources";
 import type { Provenance } from "../../data/types";
-
-const ConstituencyBarChart = dynamic(() => import("../charts/ConstituencyBarChart"), { ssr: false });
+import ConstituencyBarChart from "../charts/ConstituencyBarChart";
 
 const PROVENANCE: Provenance = { source: IEBC_WARD_REGISTER, granularity: "constituency" };
 

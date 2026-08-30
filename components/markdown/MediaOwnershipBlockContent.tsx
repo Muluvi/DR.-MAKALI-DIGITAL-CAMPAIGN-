@@ -1,13 +1,10 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { LazyMount } from "../LazyMount";
 import { ProvenanceLine } from "./ProvenanceLine";
 import { TierBadge } from "./TierBadge";
 import { RADIO_STATIONS } from "../../data/media-ownership";
-import type { StationBar } from "../charts/MediaOwnershipChart";
-
-const MediaOwnershipChart = dynamic(() => import("../charts/MediaOwnershipChart"), { ssr: false });
+import MediaOwnershipChart, { type StationBar } from "../charts/MediaOwnershipChart";
 
 function alignmentColor(alignment: string): string {
   if (alignment.includes("Ngilu")) return "#e31d2b";

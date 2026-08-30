@@ -1,0 +1,287 @@
+"use client";
+
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { 
+  CheckCircle2, 
+  Clock, 
+  AlertTriangle, 
+  Search, 
+  Smartphone, 
+  Send, 
+  FileText, 
+  Activity, 
+  ShieldCheck, 
+  Layers, 
+  MapPin, 
+  ChevronRight,
+  Filter
+} from "lucide-react";
+
+interface ServiceReport {
+  refNumber: string;
+  ward: string;
+  constituency: string;
+  category: "Water Infrastructure" | "Feeder Roads" | "Health Clinic" | "Market Sanitation";
+  issue: string;
+  channel: "USSD (*384#)" | "SMS" | "WhatsApp" | "Ward Champion";
+  status: "Under Verification" | "Raised with County" | "Resolved / Audited" | "Escalated";
+  date: string;
+  outcomeNote: string;
+}
+
+const SAMPLE_REPORTS: ServiceReport[] = [
+  {
+    refNumber: "KT-2026-0814",
+    ward: "Kyuso",
+    constituency: "Mwingi North",
+    category: "Water Infrastructure",
+    issue: "Kyuso Solar-powered borehole pump failed; 1,200 households walking 8km to Tana River basin.",
+    channel: "USSD (*384#)",
+    status: "Raised with County",
+    date: "28 Aug 2026",
+    outcomeNote: "Formal query submitted to County Water Chief Officer; Ward Coordinator verifying solar inverter warranty."
+  },
+  {
+    refNumber: "KT-2026-0792",
+    ward: "Mutomo",
+    constituency: "Kitui South",
+    category: "Health Clinic",
+    issue: "Mutomo Sub-County Hospital maternity wing lacks standby generator during frequent grid blackouts.",
+    channel: "SMS",
+    status: "Escalated",
+    date: "25 Aug 2026",
+    outcomeNote: "Dr. Mulu raised on parliamentary committee record regarding unspent county emergency health reserves."
+  },
+  {
+    refNumber: "KT-2026-0750",
+    ward: "Township",
+    constituency: "Kitui Central",
+    category: "Market Sanitation",
+    issue: "Kalundu Market solid waste accumulation blocking drainage channels before onset of short rains.",
+    channel: "WhatsApp",
+    status: "Resolved / Audited",
+    date: "19 Aug 2026",
+    outcomeNote: "Municipal cleanup completed following public petition; audited by volunteer youth champions."
+  },
+  {
+    refNumber: "KT-2026-0681",
+    ward: "Waita",
+    constituency: "Mwingi Central",
+    category: "Feeder Roads",
+    issue: "Waita-Kavuvwani culvert washed away during March 2026 floods; agricultural produce trucks cut off.",
+    channel: "Ward Champion",
+    status: "Under Verification",
+    date: "14 Aug 2026",
+    outcomeNote: "GPS coordinates and photo verification logged into citizen evidence register."
+  }
+];
+
+export function PublicServiceDeliveryTracker() {
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [isSimulatingSubmission, setIsSimulatingSubmission] = useState(false);
+  const [submissionSuccess, setSubmissionSuccess] = useState(false);
+  const [generatedRef, setGeneratedRef] = useState("KT-2026-0889");
+  const [wardInput, setWardInput] = useState("Mwingi Central");
+  const [issueInput, setIssueInput] = useState("");
+
+  const filteredReports = selectedCategory === "All"
+    ? SAMPLE_REPORTS
+    : SAMPLE_REPORTS.filter(r => r.category === selectedCategory);
+
+  const handleSubmitSim = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!issueInput.trim()) return;
+    setIsSimulatingSubmission(true);
+    const newRef = `KT-2026-0${Math.floor(Math.random() * 800) + 100}`;
+    setGeneratedRef(newRef);
+    setTimeout(() => {
+      setIsSimulatingSubmission(false);
+      setSubmissionSuccess(true);
+      setTimeout(() => setSubmissionSuccess(false), 5000);
+      setIssueInput("");
+    }, 1000);
+  };
+
+  return (
+    <div className="my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
+      {/* Top Header */}
+      <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
+            <Activity size={20} />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+                Section 19B M&E Tool
+              </span>
+              <span className="text-[10px] font-mono font-bold text-muted">
+                Public Register
+              </span>
+            </div>
+            <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
+              Public Service-Delivery & Promise Tracker
+            </h4>
+          </div>
+        </div>
+
+        {/* Live Channel Pills */}
+        <div className="flex flex-wrap items-center gap-1.5 text-[10px] font-mono font-bold text-muted">
+          <span className="px-2 py-1 bg-paper border border-line rounded-lg">USSD *384#</span>
+          <span className="px-2 py-1 bg-paper border border-line rounded-lg">SMS 40440</span>
+          <span className="px-2 py-1 bg-paper border border-line rounded-lg">WhatsApp</span>
+        </div>
+      </div>
+
+      {/* 5-Step M&E Pipeline Visualizer (Replacing raw ASCII tree) */}
+      <div className="p-4 bg-paper/70 border-b border-line">
+        <div className="text-[10px] font-black uppercase tracking-wider text-muted mb-2 flex items-center gap-1">
+          <Layers size={12} className="text-accent" />
+          <span>The 5-Stage Verification Protocol</span>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center">
+          <div className="p-2 bg-card rounded-lg border border-line">
+            <div className="text-[10px] font-mono font-bold text-accent">1. INTAKE</div>
+            <div className="text-[11px] font-bold text-ink truncate mt-0.5">USSD / SMS / Baraza</div>
+          </div>
+          <div className="p-2 bg-card rounded-lg border border-line">
+            <div className="text-[10px] font-mono font-bold text-accent">2. LOGGING</div>
+            <div className="text-[11px] font-bold text-ink truncate mt-0.5">Auto Reference ID</div>
+          </div>
+          <div className="p-2 bg-card rounded-lg border border-line">
+            <div className="text-[10px] font-mono font-bold text-accent">3. AUDIT</div>
+            <div className="text-[11px] font-bold text-ink truncate mt-0.5">Ward Field Check</div>
+          </div>
+          <div className="p-2 bg-card rounded-lg border border-line">
+            <div className="text-[10px] font-mono font-bold text-accent">4. ESCALATION</div>
+            <div className="text-[11px] font-bold text-ink truncate mt-0.5">County / Assembly</div>
+          </div>
+          <div className="p-2 bg-accent/10 rounded-lg border border-accent/20 col-span-2 sm:col-span-1">
+            <div className="text-[10px] font-mono font-bold text-accent">5. OUTCOME</div>
+            <div className="text-[11px] font-bold text-accent truncate mt-0.5">SMS Notification</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Category Filter Chips */}
+      <div className="p-3 bg-card border-b border-line flex items-center gap-1.5 overflow-x-auto scrollbar-none">
+        {["All", "Water Infrastructure", "Feeder Roads", "Health Clinic", "Market Sanitation"].map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setSelectedCategory(cat)}
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
+              selectedCategory === cat
+                ? "bg-accent text-white shadow-sm"
+                : "bg-paper border border-line text-muted hover:text-ink"
+            }`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      {/* Reports Feed */}
+      <div className="p-4 sm:p-6 space-y-3">
+        {filteredReports.map((report) => (
+          <div key={report.refNumber} className="p-3.5 sm:p-4 bg-paper rounded-xl border border-line space-y-2">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+              <div className="flex items-center gap-2">
+                <span className="font-mono text-xs font-black text-accent bg-card px-2 py-0.5 rounded border border-line">
+                  {report.refNumber}
+                </span>
+                <span className="text-xs font-bold text-ink">{report.ward} Ward</span>
+                <span className="text-[10px] text-muted font-medium">({report.constituency})</span>
+              </div>
+
+              <div className="flex items-center gap-2 self-start sm:self-auto">
+                <span className="text-[10px] font-mono text-muted">{report.date}</span>
+                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                  report.status === "Resolved / Audited"
+                    ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20"
+                    : report.status === "Escalated"
+                    ? "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20"
+                    : "bg-card text-muted border-line"
+                }`}>
+                  {report.status}
+                </span>
+              </div>
+            </div>
+
+            <p className="text-xs text-ink font-medium leading-relaxed">
+              {report.issue}
+            </p>
+
+            <div className="pt-1.5 border-t border-line/60 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[11px]">
+              <span className="text-muted">
+                <strong className="text-ink">M&E Verification Note:</strong> {report.outcomeNote}
+              </span>
+              <span className="text-[10px] font-mono text-muted shrink-0">
+                Via {report.channel}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Interactive Simulation Form */}
+      <div className="p-4 bg-paper/80 border-t border-line">
+        <div className="text-xs font-bold text-ink mb-2 flex items-center gap-1.5">
+          <Smartphone size={14} className="text-accent" />
+          <span>Simulate Ward Issue Submission (Web / USSD Bridge)</span>
+        </div>
+
+        <form onSubmit={handleSubmitSim} className="space-y-2">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <select
+              value={wardInput}
+              onChange={(e) => setWardInput(e.target.value)}
+              className="p-2 bg-card border border-line rounded-lg text-xs font-semibold text-ink"
+            >
+              <option value="Mwingi Central">Mwingi Central Ward</option>
+              <option value="Mutomo">Mutomo Ward</option>
+              <option value="Kitui Township">Kitui Township Ward</option>
+              <option value="Kyuso">Kyuso Ward</option>
+              <option value="Ikutha">Ikutha Ward</option>
+            </select>
+
+            <input
+              type="text"
+              placeholder="e.g. Broken solar borehole pump at Kavuvwani market"
+              value={issueInput}
+              onChange={(e) => setIssueInput(e.target.value)}
+              className="sm:col-span-2 p-2 bg-card border border-line rounded-lg text-xs text-ink placeholder:text-muted"
+            />
+          </div>
+
+          <div className="flex items-center justify-between pt-1">
+            <span className="text-[10px] text-muted">
+              {submissionSuccess && (
+                <span className="text-emerald-600 font-bold flex items-center gap-1">
+                  <CheckCircle2 size={12} /> Logged as #{generatedRef} & SMS notification simulated!
+                </span>
+              )}
+            </span>
+
+            <button
+              type="submit"
+              disabled={isSimulatingSubmission || !issueInput.trim()}
+              className="px-4 py-1.5 rounded-lg bg-accent text-white text-xs font-bold flex items-center gap-1.5 disabled:opacity-50 cursor-pointer"
+            >
+              <Send size={12} />
+              <span>{isSimulatingSubmission ? "Logging to Register..." : "Submit Test Report"}</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      {/* Footer Rule */}
+      <div className="p-3 bg-paper/60 border-t border-line text-[11px] text-muted flex items-center justify-between px-4 font-semibold">
+        <span className="flex items-center gap-1.5">
+          <ShieldCheck size={12} className="text-accent" />
+          <span>Governance Commitment: The public delivery tracker continues post-election as the official County Citizen Oversight Portal.</span>
+        </span>
+      </div>
+    </div>
+  );
+}

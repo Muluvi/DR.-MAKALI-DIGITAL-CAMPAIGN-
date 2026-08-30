@@ -2,7 +2,6 @@
 
 import { motion, AnimatePresence, useInView } from "motion/react";
 import { useState, useEffect, useRef } from "react";
-import dynamic from "next/dynamic";
 import { useMarqueeActive } from "../hooks/use-marquee-active";
 import { useIsMobile } from "../hooks/use-mobile";
 import { LazyMount } from "./LazyMount";
@@ -46,10 +45,8 @@ import {
 } from "lucide-react";
 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
-
-// Recharts is only pulled into the bundle once one of these charts scrolls into view.
-const ConstituencyBarChart = dynamic(() => import("./charts/ConstituencyBarChart"), { ssr: false });
-const ResourceLedgerBarChart = dynamic(() => import("./charts/ResourceLedgerBarChart"), { ssr: false });
+import ConstituencyBarChart from "./charts/ConstituencyBarChart";
+import ResourceLedgerBarChart from "./charts/ResourceLedgerBarChart";
 
 // ==========================================
 // 1. EXECUTIVE SUMMARY VISUAL AIDS
