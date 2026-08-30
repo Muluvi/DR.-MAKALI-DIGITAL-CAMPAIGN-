@@ -145,12 +145,12 @@ export function CampaignOrgChart() {
       </div>
 
       {/* Category Filter Chips */}
-      <div className="p-3 bg-paper/70 border-b border-line flex items-center gap-1.5 overflow-x-auto scrollbar-none">
+      <div className="p-3 bg-paper/70 border-b border-line flex flex-wrap items-center gap-1.5">
         {["All", "Leadership", "Core Retained", "Activated Surge", "Field Volunteers"].map((cat) => (
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
               selectedCategory === cat
                 ? "bg-accent text-white shadow-sm"
                 : "bg-card border border-line text-muted hover:text-ink"

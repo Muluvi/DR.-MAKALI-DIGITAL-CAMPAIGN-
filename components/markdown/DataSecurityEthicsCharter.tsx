@@ -132,12 +132,12 @@ export function DataSecurityEthicsCharter() {
       </div>
 
       {/* Filter Tabs */}
-      <div className="p-3 bg-paper/70 border-b border-line flex items-center gap-1.5 overflow-x-auto scrollbar-none">
+      <div className="p-3 bg-paper/70 border-b border-line flex flex-wrap items-center gap-1.5">
         {["All", "Consent & Messaging", "Data Storage & Privacy", "AI & Synthetic Media", "Campaign Finance"].map((cat) => (
           <button
             key={cat}
             onClick={() => setSelectedFilter(cat)}
-            className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
               selectedFilter === cat
                 ? "bg-accent text-white shadow-sm"
                 : "bg-card border border-line text-muted hover:text-ink"

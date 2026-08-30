@@ -267,8 +267,8 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
             pre: ({ children }) => (
               <div className="my-6 rounded-2xl border border-line bg-paper/60 p-3 sm:p-4 overflow-hidden not-prose">
                 <div className="flex items-center justify-between pb-2 mb-2 border-b border-line/40 text-[10px] font-mono font-bold text-muted uppercase tracking-wider">
-                  <span>Structured Analytical Data</span>
-                  <span>Swipe to scroll horizontally if needed</span>
+                  <span>Architecture & Process Model</span>
+                  <span className="hidden sm:inline">Diagram / Script</span>
                 </div>
                 <div className="overflow-x-auto max-w-full scrollbar-thin">
                   <pre className="text-[11px] sm:text-xs font-mono text-ink leading-snug m-0 p-0 whitespace-pre">

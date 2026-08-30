@@ -64,24 +64,28 @@ export function ComplianceCeilingPanelContent() {
         </LazyMount>
       </div>
 
-      {/* Accessible table equivalent of the chart above */}
-      <div className="overflow-x-auto mb-4">
-        <table className="w-full text-left text-[11px]">
+      {/* Accessible table equivalent of the chart above (stacked on mobile, tabular on sm+) */}
+      <div className="mb-4">
+        <table className="w-full text-left text-[11px] block sm:table">
           <caption className="sr-only">Recommended ad-spend range by tier, against the KSh97.56m statutory ceiling</caption>
-          <thead>
-            <tr className="text-[9px] uppercase tracking-wider font-bold text-muted">
+          <thead className="hidden sm:table-header-group">
+            <tr className="text-[9px] uppercase tracking-wider font-bold text-muted border-b border-line/40">
               <th className="py-1 pr-3">Tier</th>
               <th className="py-1 pr-3">Range</th>
               <th className="py-1">% of ceiling</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="block sm:table-row-group space-y-2 sm:space-y-0">
             {TIER_RANGES.map((t, i) => (
-              <tr key={i} className="border-t border-line/40">
-                <td className="py-1.5 pr-3 font-bold text-ink">{t.name}</td>
-                <td className="py-1.5 pr-3 text-ink/80">{CHART_DATA[i].display.split(" (")[0]}</td>
-                <td className="py-1.5 text-ink/80">
-                  {t.lowPct}–{t.highPct}%
+              <tr key={i} className="block sm:table-row p-2.5 sm:p-0 bg-paper sm:bg-transparent rounded-xl sm:rounded-none border border-line/50 sm:border-0 sm:border-t sm:border-line/40">
+                <td className="block sm:table-cell py-0.5 sm:py-1.5 pr-0 sm:pr-3 font-bold text-ink text-xs sm:text-[11px]">
+                  {t.name}
+                </td>
+                <td className="flex sm:table-cell justify-between sm:justify-start items-center py-0.5 sm:py-1.5 pr-0 sm:pr-3 text-ink/80 text-[11px] before:content-['Range:'] before:text-[9px] before:font-bold before:text-muted before:uppercase sm:before:content-none">
+                  <span>{CHART_DATA[i].display.split(" (")[0]}</span>
+                </td>
+                <td className="flex sm:table-cell justify-between sm:justify-start items-center py-0.5 sm:py-1.5 text-ink/80 text-[11px] before:content-['Ceiling_share:'] before:text-[9px] before:font-bold before:text-muted before:uppercase sm:before:content-none">
+                  <span>{t.lowPct}–{t.highPct}%</span>
                 </td>
               </tr>
             ))}
