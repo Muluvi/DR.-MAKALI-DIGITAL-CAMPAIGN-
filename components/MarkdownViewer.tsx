@@ -48,6 +48,7 @@ import { CampaignOrgChart } from "./markdown/CampaignOrgChart";
 import { CrisisWarRoomMatrix } from "./markdown/CrisisWarRoomMatrix";
 import { DataSecurityEthicsCharter } from "./markdown/DataSecurityEthicsCharter";
 import { CrossSectionLink } from "./markdown/CrossSectionLink";
+import { MarginalSpendModel } from "./markdown/MarginalSpendModel";
 import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, TAB_LABELS, type TabId } from "../lib/heading-slug";
 
@@ -177,6 +178,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "operations-sec-13-4": <CrisisWarRoomMatrix />,
   "operations-sec-16": <DataSecurityEthicsCharter />,
   "operations-sec-16-1": <DataSecurityEthicsCharter />,
+  "exec-sec-16": <MarginalSpendModel />,
   "operations-sec-16-4": <DataSecurityEthicsCharter />,
   "execution-sec-20": <KpiPhaseBlock />,
   // "Appendix C: Data Gaps Register" now resolves to a real id via the
