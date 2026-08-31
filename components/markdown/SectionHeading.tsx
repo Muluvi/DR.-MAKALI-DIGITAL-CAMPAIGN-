@@ -25,9 +25,9 @@ function CopyLinkButton({ id }: { id: string }) {
       onClick={handleCopy}
       aria-label="Copy link to this section"
       title={copied ? "Link copied" : "Copy link to this section"}
-      className="section-anchor-btn inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-md border border-line/60 text-muted hover:text-accent hover:border-accent/50 transition-colors align-middle shrink-0 no-underline print:hidden"
+      className="section-anchor-btn inline-flex items-center justify-center w-7 h-7 sm:w-6 sm:h-6 rounded-lg sm:rounded-md border border-line/60 text-muted hover:text-accent hover:border-accent/50 transition-colors align-middle shrink-0 no-underline print:hidden cursor-pointer"
     >
-      {copied ? <Check size={11} className="text-accent" /> : <Link2 size={11} />}
+      {copied ? <Check size={12} className="text-accent" /> : <Link2 size={12} />}
     </a>
   );
 }
@@ -48,21 +48,21 @@ export function SectionHeading({
   children: React.ReactNode;
 }) {
   const Tag = level === 2 ? "h2" : "h3";
-  const baseClass =
+  const baseClass技巧 =
     level === 2
-      ? "font-serif text-base sm:text-lg font-black text-ink mt-10 mb-4 border-l-3 pl-3 leading-none uppercase tracking-wide text-balance"
-      : "font-serif text-xs sm:text-sm font-extrabold text-ink mt-7 mb-2 text-accent uppercase tracking-wider text-balance";
+      ? "font-serif text-base sm:text-lg md:text-xl font-semibold text-ink mt-7 sm:mt-10 mb-3 border-l-4 pl-3 leading-snug tracking-tight text-balance"
+      : "font-serif text-sm sm:text-base font-semibold text-accent mt-5 sm:mt-7 mb-2 leading-snug tracking-normal text-balance";
 
   return (
     <>
       {eyebrow && (
-        <div className="eyebrow-label mt-10 not-prose" aria-hidden="true">
+        <div className="eyebrow-label mt-7 sm:mt-10 not-prose text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-muted" aria-hidden="true">
           {eyebrow}
         </div>
       )}
       <Tag
         id={id ?? undefined}
-        className={`${baseClass} group scroll-mt-28 flex items-center gap-2 ${eyebrow ? "!mt-1" : ""} ${!accentColor ? "border-gold" : ""}`}
+        className={`${level === 2 ? "font-serif text-base sm:text-lg md:text-xl font-semibold text-ink mt-7 sm:mt-10 mb-3 border-l-4 pl-3 leading-snug tracking-tight text-balance" : "font-serif text-sm sm:text-base font-semibold text-accent mt-5 sm:mt-7 mb-2 leading-snug tracking-normal text-balance"} group scroll-mt-28 flex items-center gap-2 ${eyebrow ? "!mt-1" : ""} ${!accentColor ? "border-gold" : ""}`}
         style={accentColor ? { borderColor: accentColor } : undefined}
       >
         <span>{children}</span>

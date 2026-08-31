@@ -9,7 +9,7 @@ export function PullQuote({ children }: { children: React.ReactNode }) {
       {/* A <div>, not a <p> — children is blockquote content already wrapped in its own <p>
           by the markdown pipeline, and nested <p> tags are invalid HTML (silent hydration
           mismatch: the browser auto-closes the outer one during SSR parsing). */}
-      <div className="font-serif text-lg sm:text-2xl font-black text-ink leading-snug text-balance [&_p]:m-0">{children}</div>
+      <div className="font-serif text-lg sm:text-xl md:text-2xl font-semibold text-ink leading-snug text-balance [&_p]:m-0">{children}</div>
     </div>
   );
 }

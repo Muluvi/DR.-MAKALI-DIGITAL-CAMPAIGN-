@@ -167,45 +167,45 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="border-x-0 sm:border border-y sm:border-line rounded-none sm:rounded-2xl -mx-4 sm:mx-0 bg-card/40 my-6 overflow-hidden shadow-none sm:shadow-sm hover:shadow-md transition-shadow">
+    <div className="border-y sm:border border-line/40 sm:rounded-xl my-5 overflow-hidden bg-card/30">
       {/* Interactive Controls & Analytics Header */}
-      <div className="print:hidden p-3 sm:p-4 border-b border-line/60 bg-paper/60 backdrop-blur-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+      <div className="print:hidden p-2.5 sm:p-3.5 border-b border-line/40 bg-paper/40 flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center gap-2">
-          <div className="p-1.5 rounded-lg bg-accent/10 border border-accent/20 text-accent">
-            <Sparkles size={14} />
+          <div className="p-1 rounded-md bg-accent/10 text-accent">
+            <Sparkles size={13} />
           </div>
           <div>
-            <span className="text-[9px] uppercase tracking-wider font-extrabold text-muted">Analytical Matrix</span>
-            <span className="text-[10px] font-black text-ink block mt-0.5">
+            <span className="text-[9px] uppercase tracking-wider font-semibold text-muted">Analytical Matrix</span>
+            <span className="text-[10px] font-semibold text-ink block">
               {filteredRows.length} of {parsedRows.length} targets matching
             </span>
           </div>
         </div>
 
         {/* Actions & Filters */}
-        <div className="flex items-center gap-2 self-stretch md:self-auto shrink-0 justify-between md:justify-end">
+        <div className="flex items-center gap-2 grow sm:grow-0 justify-end">
           {numericColumnIndex !== -1 && (
             <button
               onClick={() => setShowChart(!showChart)}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer ${
+              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg border text-[10px] font-semibold uppercase tracking-wider transition-all cursor-pointer ${
                 showChart
                   ? "bg-accent border-accent text-white shadow-sm"
                   : "bg-paper/80 border-line text-muted hover:border-accent/40 hover:text-ink"
               }`}
             >
-              {showChart ? <Table size={12} /> : <BarChart3 size={12} />}
-              <span>{showChart ? "Show Table" : "Show Chart"}</span>
+              {showChart ? <Table size={11} /> : <BarChart3 size={11} />}
+              <span>{showChart ? "Table" : "Chart"}</span>
             </button>
           )}
 
-          <div className="relative flex-1 max-w-xs md:w-48">
-            <Search size={12} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted animate-pulse" />
+          <div className="relative flex-1 sm:w-44">
+            <Search size={11} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-muted" />
             <input
               type="text"
-              placeholder="Search..."
+              placeholder="Filter table..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-8 pr-3 py-1.5 bg-paper/80 border border-line rounded-lg text-[11px] font-semibold text-ink placeholder:text-muted focus:outline-none focus:border-accent transition-colors"
+              className="w-full pl-7 pr-2.5 py-1 bg-paper/80 border border-line rounded-lg text-xs font-normal text-ink placeholder:text-muted focus:outline-none focus:border-accent transition-colors"
             />
           </div>
         </div>
@@ -213,43 +213,42 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
 
       {/* Numerical Insights Drawer (Displays only if a column is numeric) */}
       {stats && (
-        <div className="px-4 py-2 bg-gradient-to-r from-accent/[0.02] to-gold/[0.02] border-b border-line/40 grid grid-cols-3 gap-2 text-center">
+        <div className="px-3 py-1.5 bg-accent/[0.02] border-b border-line/30 grid grid-cols-3 gap-2 text-center">
           <div>
-            <span className="text-[8px] uppercase tracking-widest font-bold text-muted">Avg {stats.label}</span>
-            <span className="block text-xs font-black text-accent mt-0.5">{stats.avg}</span>
+            <span className="text-[8px] uppercase tracking-wider font-semibold text-muted">Avg {stats.label}</span>
+            <span className="block text-xs font-semibold text-accent mt-0.5">{stats.avg}</span>
           </div>
           <div>
-            <span className="text-[8px] uppercase tracking-widest font-bold text-muted">Max Peak</span>
-            <span className="block text-xs font-black text-gold mt-0.5">{stats.max}</span>
+            <span className="text-[8px] uppercase tracking-wider font-semibold text-muted">Max Peak</span>
+            <span className="block text-xs font-semibold text-gold mt-0.5">{stats.max}</span>
           </div>
           <div>
-            <span className="text-[8px] uppercase tracking-widest font-bold text-muted">Combined Target</span>
-            <span className="block text-xs font-black text-ink mt-0.5">{stats.sum}</span>
+            <span className="text-[8px] uppercase tracking-wider font-semibold text-muted">Combined Target</span>
+            <span className="block text-xs font-semibold text-ink mt-0.5">{stats.sum}</span>
           </div>
         </div>
       )}
 
       {/* Chart View (if toggle is active and data is available) */}
       {showChart && chartData.length > 0 ? (
-        <div className="p-4 sm:p-6 bg-card/60 backdrop-blur-sm border-t border-line/40">
-          <LazyMount minHeight={256}>
+        <div className="p-3 sm:p-5 bg-card/60 border-t border-line/30">
+          <LazyMount minHeight={240}>
             <TableChart chartData={chartData} statsLabel={stats?.label} />
           </LazyMount>
-          <div className="mt-4 text-center text-[9px] font-bold text-muted uppercase tracking-wider animate-pulse">
+          <div className="mt-3 text-center text-[9px] font-semibold text-muted uppercase tracking-wider">
             Interactive analytical projection of {stats?.label || "metrics"}
           </div>
         </div>
       ) : (
-        // Single table markup for all viewports — mobile layout is CSS-only (data-label + ::before)
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse text-[11px] block sm:table">
-            <thead className="hidden sm:table-header-group">
-              <tr className="border-b border-line bg-line/10">
+        <div className="overflow-x-auto w-full scrollbar-thin">
+          <table className="w-full text-left border-collapse text-xs">
+            <thead className="table-header-group">
+              <tr className="border-b border-line/50 bg-paper/50">
                 {ths.map((th: any, idx) => (
                   <th
                     key={idx}
                     onClick={() => toggleSort(idx)}
-                    className="p-3 font-extrabold tracking-wider text-muted uppercase cursor-pointer hover:bg-line/20 transition-colors select-none group"
+                    className="p-2.5 sm:p-3 font-semibold text-[10px] sm:text-[11px] tracking-wider text-muted uppercase cursor-pointer hover:bg-line/20 transition-colors select-none group whitespace-nowrap"
                   >
                     <div className="flex items-center gap-1.5 justify-between">
                       <span>{th.props.children}</span>
@@ -259,24 +258,22 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                 ))}
               </tr>
             </thead>
-            <tbody className="block sm:table-row-group">
+            <tbody className="table-row-group divide-y divide-line/20">
               {filteredRows.map((row, rIdx) => (
                 <tr
                   key={rIdx}
-                  className="block sm:table-row p-4 sm:p-0 space-y-2.5 sm:space-y-0 bg-paper/10 sm:bg-transparent border-b border-line/60 sm:border-line last:border-b-0 hover:bg-line/5 transition-colors"
+                  className="hover:bg-line/10 transition-colors"
                 >
                   {row.map((cell: any, cIdx) => {
-                    const headerLabel = getDeepText(ths[cIdx]) || `Field ${cIdx + 1}`;
                     const isPrimary = cIdx === 0;
                     return (
                       <td
                         key={cIdx}
-                        data-label={headerLabel}
-                        className={
+                        className={`p-2.5 sm:p-3 text-xs sm:text-[13px] leading-relaxed ${
                           isPrimary
-                            ? "block sm:table-cell p-0 sm:p-3 pb-1.5 mb-2 sm:pb-3 sm:mb-0 border-b border-line/40 sm:border-b-0 text-[11px] font-black text-ink sm:font-semibold sm:text-ink/90 leading-relaxed before:content-[attr(data-label)] before:block before:text-[8px] before:uppercase before:font-bold before:tracking-wider before:text-accent before:mb-0.5 sm:before:content-none"
-                            : "flex sm:table-cell justify-between sm:justify-start items-baseline gap-4 sm:gap-0 p-0 sm:p-3 text-[11px] text-right sm:text-left font-semibold text-ink/90 leading-relaxed before:content-[attr(data-label)] before:text-[9px] before:uppercase before:font-bold before:tracking-wider before:text-muted sm:before:content-none"
-                        }
+                            ? "font-semibold text-ink whitespace-nowrap"
+                            : "text-ink/90 whitespace-nowrap md:whitespace-normal"
+                        }`}
                       >
                         {cell ? cell.props.children : null}
                       </td>
@@ -287,7 +284,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
             </tbody>
           </table>
           {filteredRows.length === 0 && (
-            <div className="p-6 text-center text-[10px] font-mono font-bold text-muted/60">
+            <div className="p-6 text-center text-xs font-mono text-muted/70">
               No matching strategic metrics found.
             </div>
           )}

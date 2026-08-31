@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { 
   FileText, 
   Target, 
@@ -19,7 +19,12 @@ import {
   Coins,
   Users,
   Radio,
-  ShieldCheck
+  ShieldCheck,
+  Type,
+  Eye,
+  EyeOff,
+  Sparkles,
+  BookOpen
 } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
@@ -32,6 +37,7 @@ import { SectionStickyBar } from "./SectionStickyBar";
 import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
 import { MobileTOCModal } from "./MobileTOCModal";
 import { MobileBottomNav } from "./MobileBottomNav";
+import { QuickNavCapsule } from "./QuickNavCapsule";
 import type { TabId } from "../lib/heading-slug";
 
 import {
@@ -88,16 +94,35 @@ import {
   CampaignRoadmapGantt,
   FeedbackLoopCircuit,
   PrintReportGenerator,
+  CampaignTargetsChart,
   ChartComponent
 } from "./StrategicAids";
+
 
 import { Dashboard } from "./Dashboard";
 import { HeroVisual } from "./HeroVisual";
 import { DataVisualizations } from "./DataVisualizations";
 import { VoterProjectionsChart } from "./VoterProjectionsChart";
 import { StrategyRail } from "./StrategyRail";
+import { SectionSkeleton } from "./SectionSkeleton";
+
+function SectionTransition({ children, tabKey }: { children: React.ReactNode; tabKey?: string }) {
+  return (
+    <motion.div
+      key={tabKey}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="w-full print:block"
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 function SectionTabTransition({ children }: { children: React.ReactNode }) {
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 15 }}
@@ -146,7 +171,7 @@ function PartDivider({ index, label }: { index: number; label: string }) {
   return (
     <div className="relative left-1/2 -translate-x-1/2 w-screen print:hidden" aria-hidden="true">
       <div className="h-12 sm:h-14 flex items-center bg-gradient-to-r from-accent/[0.05] via-gold/[0.06] to-accent/[0.05] border-y border-line/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full flex items-center gap-3">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 w-full flex items-center gap-3">
           <span className="font-mono text-[9px] sm:text-[10px] font-black text-accent/70 shrink-0">
             PART {index + 1}/6
           </span>
@@ -200,7 +225,7 @@ function LazySection({ id, content, renderSectionExtras, immediate = false }: La
   }, [immediate]);
 
   return (
-    <div ref={containerRef} id={`section-${id}`} className="cv-auto-section print:break-inside-avoid min-h-[150px] snap-start scroll-mt-24 transition-all duration-500 ease-out">
+    <div ref={containerRef} id={`section-${id}`} className="cv-auto-section clean-editorial-section py-4 sm:py-8 px-0 sm:px-2 print:break-inside-avoid min-h-[150px] snap-start scroll-mt-24 transition-all duration-500 ease-out">
       {hasBeenVisible ? (
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -211,10 +236,7 @@ function LazySection({ id, content, renderSectionExtras, immediate = false }: La
           {renderSectionExtras(id)}
         </motion.div>
       ) : (
-        <div className="h-[200px] w-full bg-card/10 border border-line border-dashed rounded-3xl flex flex-col items-center justify-center text-[10px] font-mono font-bold text-muted/60 animate-pulse gap-2">
-          <div className="w-6 h-6 rounded-full border-2 border-accent/30 border-t-accent animate-spin" />
-          <span>High-DPI 4K OLED Pipeline Loading Section...</span>
-        </div>
+        <SectionSkeleton />
       )}
     </div>
   );
@@ -231,6 +253,11 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
   const [isTOCModalOpen, setIsTOCModalOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
+  const [readingDensity, setReadingDensity] = useState<"compact" | "balanced" | "generous">("balanced");
+
+  const cycleDensity = () => {
+    setReadingDensity((prev) => (prev === "compact" ? "balanced" : prev === "balanced" ? "generous" : "compact"));
+  };
 
   const { theme, toggleTheme, mounted } = useTheme();
 
@@ -385,8 +412,9 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
                     <DemographicBento />
                     <TargetingSimulator />
                     <ConversionTargetRing />
-                    <ChartComponent />
+                    <CampaignTargetsChart />
                   </div>
+
                 </div>
               </SectionTabTransition>
             )}
@@ -480,9 +508,9 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
       
       {/* Hero Header */}
       {(activeTab === "exec" || isExpanded) && (
-        <header className="cv-auto-hero relative pt-12 sm:pt-16 pb-8 sm:pb-12 overflow-hidden print:pt-4 print:pb-4">
+        <header className="cv-auto-hero relative pt-10 sm:pt-14 pb-8 sm:pb-12 overflow-hidden print:pt-4 print:pb-4">
           <div className="absolute inset-0 pointer-events-none opacity-50 bg-[radial-gradient(circle_at_82%_10%,var(--color-glow),transparent_32%),linear-gradient(180deg,var(--color-card),var(--color-paper))]" />
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 relative z-10">
             
             {/* Wiper Patriotic Front (WPF) Brand Banner */}
             <div className="flex items-center gap-3 mb-4 sm:mb-6 select-none bg-card/80 backdrop-blur-md border border-line rounded-2xl p-2.5 sm:p-3.5 w-fit shadow-sm">
@@ -502,11 +530,11 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
               <span className="opacity-70 truncate sm:whitespace-normal">— prepared for Wiper Patriotic Front campaign leadership.</span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-7xl leading-[1.08] sm:leading-[1.05] tracking-tight max-w-4xl text-ink mb-4 sm:mb-6">
+            <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.12] sm:leading-[1.08] tracking-tight max-w-4xl text-ink mb-4 sm:mb-6 font-semibold">
               Kitui 2027:<br />
               <span className="opacity-90">the operating system for an Economist Governor.</span>
             </h1>
-            <p className="text-sm sm:text-lg text-muted max-w-3xl leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-muted max-w-3xl leading-relaxed">
               Campaign Strategy & Digital Architecture Proposal for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
             </p>
 
@@ -587,7 +615,7 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
 
       {/* Data Strip */}
       {(activeTab === "exec" || isExpanded) && (
-        <section className="cv-auto-strip max-w-7xl mx-auto px-4 sm:px-6 mb-8 print:hidden space-y-8">
+        <section className="cv-auto-strip max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 mb-8 print:hidden space-y-6">
           <LazyMount minHeight={420}>
             <DataVisualizations />
           </LazyMount>
@@ -598,14 +626,14 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
       )}
 
       {/* Main Content Layout */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 pb-36 lg:pb-24">
+      <main className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 pb-36 lg:pb-24">
         <div className="print:hidden">
           {(activeTab === "exec" || isExpanded) && <StrategyRail />}
         </div>
         
         {/* Responsive Toolbar */}
-        <div className={`sticky top-0 z-40 bg-paper/95 backdrop-blur-md py-2.5 sm:py-3 border-b border-line/25 ${(activeTab === "exec" || isExpanded) ? "mt-4 sm:mt-6" : "mt-0"} mb-4 sm:mb-6 flex items-center justify-between print:hidden`}>
-          <div className="flex items-center gap-2 sm:gap-4 flex-1">
+        <div className={`sticky top-0 z-40 bg-paper/95 backdrop-blur-md py-2 sm:py-3 border-b border-line/25 ${(activeTab === "exec" || isExpanded) ? "mt-3 sm:mt-6" : "mt-0"} mb-3 sm:mb-6 flex items-center justify-between print:hidden`}>
+          <div className="flex items-center gap-1.5 sm:gap-4 flex-1">
             {activeTab !== "exec" && !isExpanded && (
               <div className="flex items-center gap-2 mr-1 shrink-0">
                 <div className="scale-75 origin-left">
@@ -622,7 +650,7 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
             <div className="flex items-center gap-1.5 sm:gap-2">
               <button 
                 onClick={() => setIsTOCModalOpen(true)}
-                className="flex items-center gap-1.5 px-3 py-2 bg-accent/10 border border-accent/20 rounded-xl text-xs sm:text-sm font-bold text-accent hover:bg-accent hover:text-white transition-colors cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                className="flex items-center gap-1.5 px-3 py-2 bg-accent/10 border border-accent/20 rounded-xl text-xs sm:text-sm font-bold text-accent hover:bg-accent hover:text-white active:scale-95 transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
                 aria-label="Open Table of Contents"
               >
                 <FileText size={15} />
@@ -630,8 +658,32 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
               </button>
 
               <button 
+                onClick={cycleDensity}
+                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent active:scale-95 transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                title={`Reading Density: ${readingDensity}`}
+                aria-label="Toggle Reading Density"
+              >
+                <Type size={14} />
+                <span className="capitalize text-[11px] sm:text-xs hidden xs:inline">{readingDensity}</span>
+              </button>
+
+              <button 
+                onClick={() => setIsFocusMode(!isFocusMode)}
+                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl text-xs sm:text-sm font-bold active:scale-95 transition-all cursor-pointer min-h-[40px] sm:min-h-[42px] ${
+                  isFocusMode 
+                    ? "bg-accent border-accent text-white shadow-sm" 
+                    : "bg-card border-line/60 text-ink hover:border-accent hover:text-accent"
+                }`}
+                title={isFocusMode ? "Exit Focus Mode" : "Enter Distraction-Free Focus Mode"}
+                aria-label="Toggle Focus Mode"
+              >
+                {isFocusMode ? <EyeOff size={14} /> : <Eye size={14} />}
+                <span className="hidden md:inline">{isFocusMode ? "Focus" : "Focus"}</span>
+              </button>
+
+              <button 
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="flex items-center gap-1.5 px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent transition-colors cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                className="flex items-center gap-1.5 px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent active:scale-95 transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
               >
                 {isExpanded ? <Minimize2 size={15} /> : <Maximize2 size={15} />}
                 <span className="hidden sm:inline">{isExpanded ? "Collapse All" : "Expand All"}</span>
@@ -640,7 +692,7 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
 
               <button 
                 onClick={() => window.print()}
-                className="hidden sm:flex items-center gap-2 px-3.5 py-2 bg-card border border-line/60 rounded-xl text-sm font-bold text-ink hover:border-accent hover:text-accent transition-colors cursor-pointer min-h-[42px]"
+                className="hidden sm:flex items-center gap-2 px-3.5 py-2 bg-card border border-line/60 rounded-xl text-sm font-bold text-ink hover:border-accent hover:text-accent active:scale-95 transition-all cursor-pointer min-h-[42px]"
               >
                 <Printer size={15} />
                 <span>Print</span>
@@ -648,7 +700,7 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
 
               <button 
                 onClick={toggleTheme}
-                className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent transition-colors cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent active:scale-95 transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
                 aria-label="Toggle theme"
               >
                 {mounted ? (
@@ -663,7 +715,7 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
             </div>
           </div>
 
-          <div className="text-[11px] sm:text-xs font-bold text-muted shrink-0 pl-2">
+          <div className="text-[11px] sm:text-xs font-bold text-muted shrink-0 pl-1 sm:pl-2">
             <span className="hidden md:inline">{readingTime} min read · </span>
             <span>{wordCount.toLocaleString()} wds</span>
           </div>
@@ -675,35 +727,61 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
           
           {/* Desktop Sidebar Navigation */}
           <aside className="toc-rail hidden lg:block w-72 flex-shrink-0 print:hidden">
-            <div className="sticky top-24">
-              <div className="text-xs uppercase tracking-widest font-extrabold text-muted mb-6 px-4">
-                {isExpanded ? "Table of Contents" : "Architecture Sections"}
+            <div className="sticky top-24 space-y-4">
+              <div className="bg-card/70 backdrop-blur-md border border-line/60 rounded-2xl p-4 shadow-sm">
+                <div className="text-[10px] uppercase tracking-widest font-black text-muted mb-3 flex items-center justify-between">
+                  <span>{isExpanded ? "All Chapters" : "Sections"}</span>
+                  <span className="font-mono text-accent">{navItems.length} parts</span>
+                </div>
+                <nav className="flex flex-col gap-1.5">
+                  {navItems.map((item) => {
+                    const Icon = item.icon;
+                    const isActive = activeTab === item.id;
+                    const sectionReadMin = Math.max(1, Math.ceil(item.wordCount / 220));
+                    return (
+                      <button
+                        key={item.id}
+                        onClick={() => handleNavClick(item.id)}
+                        className={`group relative flex items-center justify-between p-2.5 rounded-xl text-xs font-bold transition-all text-left ${
+                          isActive 
+                            ? "bg-accent text-white shadow-md shadow-accent/20" 
+                            : "text-muted hover:bg-ink/5 hover:text-ink cursor-pointer"
+                        }`}
+                      >
+                        <div className="flex items-center gap-2.5 truncate">
+                          <Icon size={15} className={isActive ? "text-white" : "text-muted group-hover:text-accent transition-colors"} />
+                          <span className="truncate">{item.label}</span>
+                        </div>
+                        <span className={`text-[9px] font-mono shrink-0 px-1.5 py-0.5 rounded ${
+                          isActive ? "bg-white/20 text-white" : "bg-line/30 text-muted"
+                        }`}>
+                          {sectionReadMin}m
+                        </span>
+                      </button>
+                    );
+                  })}
+                </nav>
               </div>
-              <nav className="flex flex-col gap-2">
-                {navItems.map((item) => {
-                  const Icon = item.icon;
-                  const isActive = activeTab === item.id;
-                  return (
-                    <button
-                      key={item.id}
-                      onClick={() => handleNavClick(item.id)}
-                      className={`flex items-center gap-4 px-4 py-3.5 rounded-2xl text-sm font-semibold transition-all ${
-                        isActive 
-                          ? "bg-accent text-white shadow-md shadow-accent/20" 
-                          : "text-muted hover:bg-ink/5 hover:text-ink cursor-pointer"
-                      }`}
-                    >
-                      <Icon size={18} className={isActive ? "text-white" : "text-muted"} />
-                      {item.label}
-                    </button>
-                  );
-                })}
-              </nav>
+
+              {/* Minimalist Key Metric Summary Card */}
+              <div className="bg-card/50 backdrop-blur-sm border border-line/40 rounded-2xl p-3.5 text-xs space-y-2">
+                <div className="flex items-center justify-between text-[10px] uppercase tracking-wider font-extrabold text-muted">
+                  <span>Target Victory</span>
+                  <span className="text-accent font-black">200k Votes</span>
+                </div>
+                <div className="w-full bg-line/40 h-1.5 rounded-full overflow-hidden">
+                  <div className="bg-gradient-to-r from-accent to-gold h-full w-[68%]" />
+                </div>
+                <div className="flex justify-between text-[9px] font-bold text-muted">
+                  <span>Kitui Central Core</span>
+                  <span>40 Wards Field</span>
+                </div>
+              </div>
             </div>
           </aside>
 
           {/* Content Area */}
-          <div id="content-area" className="flex-1 min-w-0 scroll-mt-24">
+          <div id="content-area" className={`flex-1 min-w-0 scroll-mt-24 density-${readingDensity} ${isFocusMode ? "focus-reading-mode" : ""}`}>
             {isExpanded ? (
               <div className="space-y-16">
                 {navItems.map((item, index) => (
@@ -722,22 +800,16 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
               </div>
             ) : (
               <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeTab}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                  className="print:block"
-                >
+                <SectionTransition tabKey={activeTab}>
                   <LazySection 
                     id={activeItem.id}
                     content={activeItem.content}
                     renderSectionExtras={renderSectionExtras}
                     immediate={true}
                   />
-                </motion.div>
+                </SectionTransition>
               </AnimatePresence>
+
             )}
           </div>
           
@@ -777,6 +849,12 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
           }
           scrollToSectionWhenReady(secId, "smooth");
         }}
+      />
+
+      {/* Quick Navigation Floating Capsule */}
+      <QuickNavCapsule
+        onNavigate={(secId) => navigateToSection(secId)}
+        activeTab={activeTab}
       />
     </div>
   );

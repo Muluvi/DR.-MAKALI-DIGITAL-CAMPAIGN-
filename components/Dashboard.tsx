@@ -293,9 +293,9 @@ export function Dashboard() {
         <div className="flex items-center justify-between gap-4 mb-4">
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-6 bg-accent rounded-full" />
-            <h3 className="font-serif text-lg sm:text-xl font-bold text-ink">Core Campaign Baseline Metrics</h3>
+            <h3 className="font-serif text-lg sm:text-xl font-semibold text-ink">Core Campaign Baseline Metrics</h3>
           </div>
-          <span className="hidden sm:inline-flex items-center gap-1.5 text-[10px] font-extrabold tracking-widest text-muted uppercase bg-paper border border-line px-2.5 py-0.5 rounded-full">
+          <span className="hidden sm:inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-wider text-muted uppercase bg-paper border border-line px-2.5 py-0.5 rounded-full">
             <span className="w-1.5 h-1.5 bg-accent rounded-full animate-ping" /> 3D Tilt Active
           </span>
         </div>
@@ -305,14 +305,14 @@ export function Dashboard() {
           {metrics.map((m, i) => (
             <TiltCard
               key={i}
-              className={`relative overflow-hidden bg-card border rounded-2xl p-5 shadow-sm transition-all hover:shadow-lg hover:border-accent/40 ${
+              className={`relative overflow-hidden bg-card border rounded-xl p-4 sm:p-5 shadow-sm transition-all hover:border-accent/40 ${
                 m.warn ? 'border-danger/30' : m.good ? 'border-accent/40' : 'border-line'
               }`}
             >
               <div className="absolute -bottom-10 -right-10 w-24 h-24 rounded-full blur-2xl bg-accent/10 pointer-events-none" />
               
               <div className="flex justify-between items-start mb-2">
-                <div className={`font-serif text-3xl font-bold leading-none ${m.warn ? 'text-danger' : m.good ? 'text-accent' : 'text-ink'}`}>
+                <div className={`font-serif text-2xl sm:text-3xl font-semibold leading-none ${m.warn ? 'text-danger' : m.good ? 'text-accent' : 'text-ink'}`}>
                   <AnimatedCounter value={m.num} />
                 </div>
                 <div className="p-1.5 rounded-lg bg-paper border border-line">
@@ -321,25 +321,25 @@ export function Dashboard() {
               </div>
               
               <div className="text-sm font-semibold text-muted mt-2 leading-tight">{m.label}</div>
-              <div className="text-xs text-muted/70 mt-2">{m.sub}</div>
+              <div className="text-xs text-muted/70 mt-1.5">{m.sub}</div>
             </TiltCard>
           ))}
         </div>
 
         {/* Mobile Automatic Infinite Marquee Carousel */}
-        <div className="block sm:hidden -mx-4">
+        <div className="block sm:hidden -mx-2">
           <InfiniteScrollingMarquee speed={22}>
             {metrics.map((m, i) => (
               <div
                 key={i}
-                className={`relative overflow-hidden bg-card border rounded-2xl p-5 shadow-sm w-[270px] shrink-0 ${
+                className={`relative overflow-hidden bg-card border rounded-xl p-4 shadow-sm w-[260px] shrink-0 ${
                   m.warn ? 'border-danger/30' : m.good ? 'border-accent/30' : 'border-line'
                 }`}
               >
                 <div className="absolute -bottom-10 -right-10 w-24 h-24 rounded-full blur-2xl bg-accent/10 pointer-events-none" />
                 
                 <div className="flex justify-between items-start mb-2">
-                  <div className={`font-serif text-2xl font-bold leading-none ${m.warn ? 'text-danger' : m.good ? 'text-accent' : 'text-ink'}`}>
+                  <div className={`font-serif text-2xl font-semibold leading-none ${m.warn ? 'text-danger' : m.good ? 'text-accent' : 'text-ink'}`}>
                     <AnimatedCounter value={m.num} />
                   </div>
                   <div className="p-1.5 rounded-lg bg-paper border border-line">
@@ -348,7 +348,7 @@ export function Dashboard() {
                 </div>
                 
                 <div className="text-xs font-semibold text-muted mt-2 leading-tight truncate">{m.label}</div>
-                <div className="text-[11px] text-muted/70 mt-1.5 truncate">{m.sub}</div>
+                <div className="text-[11px] text-muted/70 mt-1 truncate">{m.sub}</div>
               </div>
             ))}
           </InfiniteScrollingMarquee>
@@ -356,13 +356,13 @@ export function Dashboard() {
       </div>
 
       {/* SVG Radial Progress Milestone Section — Segregated Internal Targets Treatment */}
-      <div className="bg-paper/40 border border-line/70 border-dashed rounded-3xl p-5 sm:p-6">
+      <div className="bg-paper/40 border border-line/60 rounded-2xl p-4 sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-6 bg-gold rounded-full" />
-            <h3 className="font-serif text-lg sm:text-xl font-bold text-ink">Internal Strategic Targets & Mobilization Aspirations</h3>
+            <h3 className="font-serif text-lg sm:text-xl font-semibold text-ink">Internal Strategic Targets & Mobilization Aspirations</h3>
           </div>
-          <span className="claim-badge claim-badge-estimate text-[9px] px-2.5 py-1 font-bold uppercase tracking-wider">
+          <span className="claim-badge claim-badge-estimate text-[9px] px-2.5 py-1 font-semibold uppercase tracking-wider">
             Internal Target Milestones · Not Measured Actuals
           </span>
         </div>

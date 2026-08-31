@@ -141,7 +141,7 @@ export function MobileTOCModal({
           animate={{ y: 0 }}
           exit={{ y: "100%" }}
           transition={{ type: "spring", damping: 28, stiffness: 300 }}
-          className="relative w-full max-w-xl max-h-[85vh] sm:max-h-[80vh] bg-card border-t sm:border border-line rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-10"
+          className="relative w-full max-w-xl max-h-[88vh] sm:max-h-[80vh] bg-card border-t sm:border border-line rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-10"
         >
           {/* Top Grab Handle on Mobile */}
           <div className="sm:hidden pt-3 pb-1 flex justify-center cursor-grab active:cursor-grabbing">
@@ -149,24 +149,24 @@ export function MobileTOCModal({
           </div>
 
           {/* Header */}
-          <div className="p-4 sm:p-5 border-b border-line flex items-center justify-between gap-3">
+          <div className="p-3.5 sm:p-5 border-b border-line flex items-center justify-between gap-3">
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold">
                 <Layers size={18} />
               </div>
               <div>
-                <h3 className="font-serif text-lg font-bold text-ink leading-none">
+                <h3 className="font-serif text-base sm:text-lg font-bold text-ink leading-tight">
                   Document Table of Contents
                 </h3>
-                <p className="text-[11px] text-muted font-medium mt-1">
-                  20 Strategic Sections · 6 Major Architecture Parts
+                <p className="text-[10.5px] sm:text-[11px] text-muted font-medium mt-0.5">
+                  20 Strategic Sections · 6 Architecture Parts
                 </p>
               </div>
             </div>
 
             <button
               onClick={onClose}
-              className="w-9 h-9 rounded-xl bg-paper border border-line text-muted hover:text-ink flex items-center justify-center transition-colors cursor-pointer"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-paper border border-line text-muted hover:text-ink flex items-center justify-center transition-colors cursor-pointer shrink-0"
               aria-label="Close navigation"
             >
               <X size={18} />
@@ -174,7 +174,7 @@ export function MobileTOCModal({
           </div>
 
           {/* Search Box */}
-          <div className="p-3 sm:p-4 bg-paper/50 border-b border-line space-y-3">
+          <div className="p-3 sm:p-4 bg-paper/50 border-b border-line space-y-2.5">
             <div className="relative">
               <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted" />
               <input
@@ -182,13 +182,13 @@ export function MobileTOCModal({
                 placeholder="Search sections (e.g., 200k, Radio, 40 Wards, DPA)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 bg-card border border-line rounded-xl text-xs font-semibold text-ink placeholder:text-muted focus:outline-none focus:border-accent transition-colors"
+                className="w-full pl-10 pr-4 py-2 bg-card border border-line rounded-xl text-xs font-semibold text-ink placeholder:text-muted focus:outline-none focus:border-accent transition-colors min-h-[40px]"
                 autoFocus
               />
               {searchQuery && (
                 <button 
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] text-muted hover:text-ink px-1.5 py-0.5 bg-paper rounded"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] text-muted hover:text-ink px-2 py-1 bg-paper rounded-lg border border-line cursor-pointer"
                 >
                   Clear
                 </button>
@@ -199,7 +199,7 @@ export function MobileTOCModal({
             <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none text-[11px] font-bold">
               <button
                 onClick={() => setSelectedTabFilter("all")}
-                className={`px-3 py-1 rounded-full whitespace-nowrap transition-colors border cursor-pointer ${
+                className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[32px] ${
                   selectedTabFilter === "all"
                     ? "bg-accent text-white border-accent"
                     : "bg-card text-muted border-line hover:text-ink"
@@ -220,7 +220,7 @@ export function MobileTOCModal({
                   <button
                     key={tab}
                     onClick={() => setSelectedTabFilter(tab)}
-                    className={`px-3 py-1 rounded-full whitespace-nowrap transition-colors border cursor-pointer ${
+                    className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[32px] ${
                       selectedTabFilter === tab
                         ? "bg-accent text-white border-accent"
                         : "bg-card text-muted border-line hover:text-ink"
@@ -234,7 +234,7 @@ export function MobileTOCModal({
           </div>
 
           {/* Section List */}
-          <div className="flex-1 overflow-y-auto p-3 sm:p-4 divide-y divide-line/40">
+          <div className="flex-1 overflow-y-auto p-2.5 sm:p-4 divide-y divide-line/40 overscroll-contain">
             {filteredSections.length > 0 ? (
               filteredSections.map((item) => {
                 const Icon = TAB_ICONS[item.tabId] || FileText;
@@ -247,9 +247,9 @@ export function MobileTOCModal({
                       onSelectSection(item.id, item.tabId);
                       onClose();
                     }}
-                    className="w-full py-3 px-2.5 flex items-center justify-between text-left hover:bg-paper/70 rounded-xl transition-all group cursor-pointer"
+                    className="w-full py-3 px-2 flex items-center justify-between text-left hover:bg-paper/70 active:bg-paper rounded-xl transition-all group cursor-pointer min-h-[50px]"
                   >
-                    <div className="flex items-start gap-3 min-w-0 pr-2">
+                    <div className="flex items-start gap-2.5 sm:gap-3 min-w-0 pr-2">
                       <div className="w-8 h-8 rounded-lg bg-paper border border-line flex items-center justify-center shrink-0 mt-0.5 text-accent group-hover:border-accent/40 transition-colors">
                         <span className="font-mono text-[10px] font-black">{item.number}</span>
                       </div>

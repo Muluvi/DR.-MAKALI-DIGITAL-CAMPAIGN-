@@ -2932,8 +2932,11 @@ export function PrintReportGenerator() {
 }
 
 // 11. Custom Campaign Performance Chart Component
-export function ChartComponent() {
+export { ChartComponent } from "./ChartComponent";
+
+export function CampaignTargetsChart() {
   const [mounted, setMounted] = useState(false);
+
   const [activeTab, setActiveTab] = useState<"phases" | "segments">("phases");
   const [activePhase, setActivePhase] = useState<"share" | "phase1" | "phase2" | "phase3">("phase1");
 

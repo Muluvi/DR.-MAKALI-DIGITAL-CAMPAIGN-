@@ -1,13 +1,24 @@
-import type {Metadata} from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Montserrat } from 'next/font/google';
 import './globals.css'; // Global styles
 
 const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800', '900'],
+  weight: ['400', '600'],
   variable: '--font-montserrat',
   display: 'swap',
 });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f4f7fc' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+  ],
+};
 
 export const metadata: Metadata = {
   title: 'Kitui 2027 — Campaign Strategy & Digital Architecture',
@@ -30,8 +41,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="en" className={montserrat.variable}>
-      <body suppressHydrationWarning className="font-sans antialiased">{children}</body>
+    <html lang="en" className={`dark ${montserrat.variable}`}>
+      <body suppressHydrationWarning className="font-sans antialiased bg-paper text-ink">{children}</body>
     </html>
   );
 }
+

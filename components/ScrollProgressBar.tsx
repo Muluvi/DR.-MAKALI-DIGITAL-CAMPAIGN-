@@ -16,24 +16,23 @@ function detectNeedsFallback() {
 }
 
 export function ScrollProgressBar() {
+  const [isMounted, setIsMounted] = useState(false);
   const [needsFallback, setNeedsFallback] = useState(false);
   const [progress, setProgress] = useState(0);
   const ticking = useRef(false);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const timerId = setTimeout(() => {
-      setMounted(true);
-    }, 0);
+    const rafMount = requestAnimationFrame(() => {
+      setIsMounted(true);
+      if (detectNeedsFallback()) {
+        setNeedsFallback(true);
+      }
+    });
 
     const fallback = detectNeedsFallback();
     if (!fallback) {
-      return () => clearTimeout(timerId);
+      return () => cancelAnimationFrame(rafMount);
     }
-
-    const rafId = requestAnimationFrame(() => {
-      setNeedsFallback(true);
-    });
 
     const handleScroll = () => {
       if (ticking.current) return;
@@ -48,23 +47,13 @@ export function ScrollProgressBar() {
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
-      clearTimeout(timerId);
-      cancelAnimationFrame(rafId);
+      cancelAnimationFrame(rafMount);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  if (!mounted) {
-    return (
-      <div
-        className="scroll-progress-track fixed top-1.5 left-0 right-0 h-1 z-50 print:hidden"
-        role="progressbar"
-        aria-label="Reading progress"
-        aria-hidden="true"
-      >
-        <div className="scroll-progress-fill h-full origin-left bg-gradient-to-r from-accent to-gold" />
-      </div>
-    );
+  if (!isMounted) {
+    return null;
   }
 
   return (
@@ -81,3 +70,4 @@ export function ScrollProgressBar() {
     </div>
   );
 }
+
