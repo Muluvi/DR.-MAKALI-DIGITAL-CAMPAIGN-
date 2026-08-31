@@ -1,5 +1,6 @@
 ## 20. Phased Implementation Plan and KPIs
 
+
 Five phases: a new Phase −1 addressing the nomination contest, followed by the
 original four phases running to the General Election on **10 August 2027**.
 
@@ -8,6 +9,9 @@ original four phases running to the General Election on **10 August 2027**.
 **Objective:** close the measured preference deficit ahead of the Wiper
 flagbearer decision, which party sources indicate is intended to conclude
 before the final quarter of 2026.
+
+<details class="section-detail">
+<summary>Full detail — Phase −1: Nomination Sprint — August–September 2026 *(new)*</summary>
 
 **The strategic hypothesis being tested:** Dr. Mulu's deficit is a
 geography-of-recognition problem concentrated outside Kitui Central, not a
@@ -78,9 +82,15 @@ proposal claims to embody, applied to its own first assumption.
 
 ---
 
+</details>
+
 ### Phase 0: Digital Audit and Infrastructure — September–October 2026
+
 *Runs concurrently with the tail of Phase −1 where the nomination timetable
 allows; sequential if the decision slips.*
+
+<details class="section-detail">
+<summary>Full detail — Phase 0: Digital Audit and Infrastructure — September–October 2026</summary>
 
 **Activities:**
 - Weeks 1–2: complete competitor analysis; identify structural gaps and
@@ -106,6 +116,8 @@ allows; sequential if the decision slips.*
 
 ---
 
+</details>
+
 ### Phase 1: Awareness and Community Building — October–December 2026
 
 **Activities:**
@@ -121,6 +133,9 @@ allows; sequential if the decision slips.*
 - First three "Dr. Mulu Explains" policy videos
 - Coalition programme: MSME associations, youth groups
 - Analytics maturity Stage 1 complete
+
+<details class="section-detail">
+<summary>Full detail — Phase 1: Awareness and Community Building — October–December 2026</summary>
 
 **KPIs:**
 
@@ -140,6 +155,8 @@ allows; sequential if the decision slips.*
 
 ---
 
+</details>
+
 ### Phase 2: Engagement and Persuasion — January–March 2027
 
 **Activities:**
@@ -155,6 +172,9 @@ allows; sequential if the decision slips.*
 - Weekly sentiment reporting
 - **Quarterly red-team drill; quarterly message lab**
 - Analytics maturity Stages 2–3, subject to the compliance gate
+
+<details class="section-detail">
+<summary>Full detail — Phase 2: Engagement and Persuasion — January–March 2027</summary>
 
 **KPIs:**
 
@@ -175,6 +195,8 @@ allows; sequential if the decision slips.*
 
 ---
 
+</details>
+
 ### Phase 3: Mobilisation and GOTV — April–August 2027
 
 **Activities:**
@@ -189,6 +211,9 @@ allows; sequential if the decision slips.*
 - Daily countdown content from 30 days out
 - **Full-scale red-team drill at 60 days**
 - Analytics maturity Stage 4
+
+<details class="section-detail">
+<summary>Full detail — Phase 3: Mobilisation and GOTV — April–August 2027</summary>
 
 **KPIs:**
 
@@ -210,43 +235,69 @@ allows; sequential if the decision slips.*
 
 ---
 
+</details>
+
 ### Post-election
+
 - Data deletion executed within **90 days** of the declaration of results, per
   the charter, with public confirmation
+
+<details class="section-detail">
+<summary>Full detail — Post-election</summary>
+
 - Final IEBC expenditure return filed with the campaign finance agent
 - Service-delivery tracker continues, per the Section 19B.4 commitment
 - Full campaign post-mortem with performance against every KPI in this document
 
 ---
 
+</details>
+
 ## 21. Execution & Workflow
 
+
 ### 21.1 Weekly strategy syncs
+
 A scheduled virtual briefing aligns digital output with the candidate's
 physical itinerary: prior-week performance, next-week content calendar
 approval, emerging issues. Firefly reports to a single named campaign-side
 counterpart (Section 8A.4).
 
+
+
 ### 21.2 Asset centralisation
+
 A cloud repository for the ground team to upload photographs and video daily.
 Raw assets are professionally edited, captioned and distributed within hours.
 **Originals retained with metadata** to support the provenance requirement in
 Section 16A.5 — a practice that costs nothing now and is invaluable under
 attack.
 
+
+
 ### 21.3 Performance tracking
+
 Monthly analytics reports covering reach, engagement, sentiment and conversion,
 plus the competitive brief (Section 15.3), the compliance ledger reconciliation
 (Section 8B.4), and progress against the analytics maturity roadmap (Section
 14.5).
 
+
+
 ### 21.4 Escalation
+
 The Section 8A.6 decision matrix governs all approvals. The Section 13.4
 severity matrix governs all crisis response. Both are rehearsed quarterly
 (Section 13.7) rather than read for the first time under pressure.
 
+
+
 ### 21.5 What Firefly needs from the campaign
+
 Stated plainly, because these are the dependencies that determine delivery:
+
+<details class="section-detail">
+<summary>Full detail — 21.5 What Firefly needs from the campaign</summary>
 
 1. **One named counterpart** with authority to approve content
 2. **Candidate time:** approximately 3 hours per week — one Facebook Live, one
@@ -261,7 +312,10 @@ Stated plainly, because these are the dependencies that determine delivery:
 
 ---
 
+</details>
+
 ## 22. Why This Remote Operation Works
+
 
 A remote digital operation is not a compromise. Digital campaigning does not
 require a physical office in Kitui; it requires speed, data, creative
@@ -281,7 +335,11 @@ and physical mobilisation — while the two operations feed a single voter model
 rather than running blind to each other (Section 9A).
 
 ### The Firefly proposition
+
 Firefly is being proposed as the campaign's **outsourced digital function**, not as a single communications hire. The value is the operating system around the candidate: one accountable digital lead, a lean core, specialist surge capacity when the KPI or phase requires it, governed spend, multilingual production, low-connectivity distribution and a measurable reporting cadence.
+
+<details class="section-detail">
+<summary>Full detail — The Firefly proposition</summary>
 
 Firefly is a **Kenya-based media and consulting company**. The proposal deliberately does not claim named clients or case studies; its proof is the specificity of the operating model, the governance architecture and the measurable deliverables set out in this document.
 
@@ -295,6 +353,8 @@ document's entire proposition is that it does not oversell.
 
 ---
 
+</details>
+
 ## 23. Conclusion and Call to Action
 
 Dr. Makali Mulu has the credentials, the experience and the vision to be an
@@ -302,6 +362,9 @@ outstanding Governor of Kitui County. He also has something no rival in this
 race has: a professional qualification in verifying whether public money
 delivered what it promised. That is the exact deficit Kitui voters have lived
 with, and it is currently the campaign's most under-used asset.
+
+<details class="section-detail">
+<summary>Full detail — 23. Conclusion and Call to Action</summary>
 
 **But the timeline is not the one the planning cycle assumes.** The Wiper
 flagbearer decision is expected to be settled by opinion poll before the final
@@ -336,3 +399,5 @@ within the next fourteen days.**
 Firefly Management
 Strategic Communications & Digital Campaign Consultancy
 `[Insert contact email]` · `[Insert phone]` · `[Insert website/portfolio URL]`
+
+</details>

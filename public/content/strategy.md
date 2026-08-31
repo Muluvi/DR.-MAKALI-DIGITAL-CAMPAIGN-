@@ -1,27 +1,38 @@
 ## 5. Strategic Communication Pillars
 
+
 Four pillars, extended from the original three.
 
 ### 5.1 Fiscal Accountability & Devolution
+
 Translate Dr. Mulu's parliamentary advocacy for equitable resource distribution
 into a clear, actionable manifesto for Kitui's 40 wards. Content will show,
 line by line, how the county's KSh13.79 billion should be allocated and
 audited — using his economics background to give voters confidence their money
 will be managed well.
 
+
+
 ### 5.2 Data-Driven Civic Engagement
+
 Infographic analyses breaking down Dr. Mulu's track record — including
 NG-CDF-funded projects in Kitui Central — so voters can visualise impact.
 Complex budget documents converted into simple charts, ward-level maps, and
 before-and-after comparisons.
 
+
+
 ### 5.3 Policy-to-People Translation
+
 Convert dense policy topics — climate investment in water infrastructure,
 agricultural revitalisation — into relatable, vernacular-friendly content. A
 90-second video, a Kikamba voice note, or a shareable card makes every policy
 tangible and personal.
 
+
+
 ### 5.4 Verification and Follow-Through *(new)*
+
 The pillar that distinguishes Dr. Mulu from every rival: **publishing what was
 promised, then publishing whether it happened.** Operationalised through the
 public service-delivery tracker (Section 19B), the quarterly evidence cadence
@@ -29,12 +40,17 @@ in Section 14, and the transparent ad-spend disclosure in the Digital Ethics &
 Data Charter (Section 16.4). An M&E specialist who campaigns without a
 verification mechanism is wasting his strongest asset.
 
+
 ---
+
 
 ## 6. Target Audiences, Voter Segments & Messaging Framework
 
 Messaging is tailored to distinct economic realities, geographic interests and
 demographic priorities across Kitui County's eight constituencies and 40 wards.
+
+<details class="section-detail">
+<summary>Full detail — 6. Target Audiences, Voter Segments & Messaging Framework</summary>
 
 **Segmentation principle and hard constraint.** Segmentation is by **economic
 interest, geography, life stage and issue salience only**. It is never by
@@ -64,7 +80,10 @@ digital plan and a communications plan.
 
 ---
 
+</details>
+
 ## 7. Geographic & Regional Dynamics
+
 
 Kitui is not a monolith. Its eight constituencies and 18 sub-counties have
 distinct economic bases, infrastructure needs and political histories. Digital
@@ -79,6 +98,9 @@ and SMS messaging is calibrated to each.
 | Katulani | 47,108 | 146 | 12,170 | Dense peri-urban |
 | **Total** | **223,970** | **~190** | **58,724** | **19.7% of county population** |
 
+<details class="section-detail">
+<summary>Full detail — 7.1 The Urban & Central Anchor — Kitui Central & Kitui West</summary>
+
 Kitui Central leads the county in registered voter density and is Dr. Mulu's
 home base and highest-literacy zone — 77,764 registered voters in 2022 across
 five wards (Township 19,538; Kyangwithya West 15,931; Kyangwithya East 15,401;
@@ -90,6 +112,8 @@ zone where Dr. Mulu starts with a structural advantage, and in a
 nomination-poll contest, consolidating a base is cheaper than converting a
 stranger.**
 
+</details>
+
 ### 7.2 The Northern Block — Mwingi Region
 
 | Sub-County | Population | Density/km² | Households | Key issues |
@@ -100,6 +124,9 @@ stranger.**
 | Tseikuru | 40,871 | 30 | 8,579 | Pastoral/agricultural mix |
 | **Total** | **255,795** | **~53** | **57,821** | **22.5% of county population** |
 
+<details class="section-detail">
+<summary>Full detail — 7.2 The Northern Block — Mwingi Region</summary>
+
 Balancing representation between "Kitui Proper" and "Mwingi" is critical.
 Messaging must assure northern voters that devolved funds will be distributed
 equitably per ward without regional bias — a commitment Dr. Mulu can make more
@@ -109,6 +136,8 @@ methodology and then evaluate against it.
 **Nomination-window priority.** This zone represents nearly a quarter of the
 county and is where a Kitui Central MP is structurally least known. It carries
 disproportionate Phase −1 budget weighting.
+
+</details>
 
 ### 7.3 The Arid & Resource Belt — Kitui South & East
 
@@ -121,6 +150,9 @@ disproportionate Phase −1 budget weighting.
 | Migwani | 79,255 | 125 | 19,096 | Higher density; market centre |
 | **Total** | **416,001** | **~19** | **89,070** | **36.6% of county population** |
 
+<details class="section-detail">
+<summary>Full detail — 7.3 The Arid & Resource Belt — Kitui South & East</summary>
+
 Over a third of the county, at an average of 19 persons per square kilometre.
 Framing centres on transformative infrastructure — water pipelines, road
 networks, and responsible management of mineral resource wealth for local
@@ -132,9 +164,14 @@ is not a strategy; it is an assumption. Mapped against the 2022 baseline registe
 registered voters in Kitui South total 75,372, distributed across six wards: Athi (15,843),
 Ikanga/Kyatune (15,384), Mutomo/Kibwea (12,637), Ikutha (12,066), Mutha (11,039), and Kanziko (8,403).
 
+</details>
+
 ### 7.4 Zone Weighting Model
 
 Budget and content allocation across zones, by phase:
+
+<details class="section-detail">
+<summary>Full detail — 7.4 Zone Weighting Model</summary>
 
 | Zone | Share of population | Phase −1 (nomination) | Phase 1–2 | Phase 3 (GOTV) |
 |---|---|---|---|---|
@@ -150,17 +187,26 @@ tracking data and reallocated.
 
 ---
 
+</details>
+
 ## 10. Behavioural Science & Persuasion Architecture
 
+
 ### 10.1 Overview
+
 The campaign applies behavioural economics to make every message
 psychologically effective — moving beyond "what to say" to "how to frame it so
 voters act."
+
+<details class="section-detail">
+<summary>Full detail — 10.1 Overview</summary>
 
 **Boundary.** These are framing techniques applied to **true claims**, delivered
 transparently, at population level. They are not psychographic targeting, not
 personality-based manipulation, and not individualised emotional profiling.
 Section 16.4 makes this a published commitment.
+
+</details>
 
 ### 10.2 Core principles applied
 
@@ -175,8 +221,10 @@ Section 16.4 makes this a published commitment.
 | **Framing effects** | Presentation changes decisions | County revenue as "your money," not "government money" |
 | **Verification bias** *(new)* | Claims that can be checked are trusted more than claims that cannot | Every promise paired with the mechanism for checking it — the tracker, the published allocation, the quarterly audit |
 
+
 The final row is the campaign's signature move. It converts Dr. Mulu's M&E
 credential into a persuasion technique available to no rival.
+
 
 ### 10.3 Message framing examples
 
@@ -188,6 +236,9 @@ credential into a persuasion technique available to no rival.
   already signed for sand dams. Add your name."
 - *Verification:* "We will publish every borehole location, cost and
   completion date. Dial `[shortcode]` to check the one nearest you."
+
+<details class="section-detail">
+<summary>Full detail — 10.3 Message framing examples</summary>
 
 **Fiscal accountability**
 - *Anchoring:* "Kitui County will handle KSh13.79 billion this financial year.
@@ -226,10 +277,18 @@ publication under the Section 16.4 fact-check protocol.*
 
 ---
 
+</details>
+
 ## 17. Platform-Specific Tactics
 
+
 ### Facebook
+
 - Daily posts in English, Kiswahili and Kikamba
+
+<details class="section-detail">
+<summary>Full detail — Facebook</summary>
+
 - **Weekly Facebook Live town halls** where Dr. Mulu answers constituent
   questions — the highest-value recurring format, because unscripted
   competence is his strongest asset
@@ -239,16 +298,30 @@ publication under the Section 16.4 fact-check protocol.*
   Makali Mulu is an economist and an evaluator — he knows how to allocate it and
   how to prove it was spent. #MuluForKitui"*
 
+</details>
+
 ### X
+
 - Policy commentary on national and county budget matters
+
+<details class="section-detail">
+<summary>Full detail — X</summary>
+
 - Threads breaking down county issues into shareable explanations
 - Engagement with journalists, analysts and national conversations
 - **Sample thread starter:** *"Kitui County's approved resource envelope for
   2026/27 is KSh13.79 billion, of which KSh1.339 billion is own-source revenue.
   As an economist, here are three things I would change on day one…"*
 
+</details>
+
 ### WhatsApp
+
 - Broadcast lists segmented by ward and interest group — **opt-in only**
+
+<details class="section-detail">
+<summary>Full detail — WhatsApp</summary>
+
 - **Kikamba voice notes from Dr. Mulu** — the single highest-trust format
   available to this campaign
 - Shareable cards with key policy points, designed for forwarding
@@ -257,30 +330,54 @@ publication under the Section 16.4 fact-check protocol.*
 - Weekly "Kitui Updates" broadcast in Kikamba and Kiswahili
 - **Forwarding-friendly correction cards** during crisis response
 
+</details>
+
 ### TikTok
+
 - Short, energetic videos on youth issues, campaign moments and Kikamba
   cultural content
+
+<details class="section-detail">
+<summary>Full detail — TikTok</summary>
+
 - Explainer format: county money made visual and concrete
 - Paid ads targeting Kitui-based users aged 18–35
 - **Sample content:** a 30-second video explaining county revenue allocation
   using common objects — *"Hii pesa ya county inatumika aje? Mchukue mwana
   uchumi aeleze."*
 
+</details>
+
 ### Instagram
+
 - Visual storytelling: events, community projects, aspirational imagery
+
 - Reels and Stories for daily relevance
 - Infographics summarising budget priorities and development plans
 - Polls and question stickers for younger voters
 
+
 ### YouTube
+
 - Long-form policy speeches, town halls and documentary-style Kitui stories
+
+<details class="section-detail">
+<summary>Full detail — YouTube</summary>
+
 - Search-optimised videos answering "What does the Kitui Governor do?" and
   "Kitui development 2027"
 - **Monthly "Kitui Economic Brief"** reviewing county budget execution
 - **Home for full sign-language-interpreted versions** (Section 18A)
 
+</details>
+
 ### Google Ads
+
 - Search ads on the candidate's name and related terms
+
+<details class="section-detail">
+<summary>Full detail — Google Ads</summary>
+
 - Display on Kenyan news sites and local blogs
 - Location targeting to Kitui County and Nairobi diaspora areas
 - **Sample search ad:** *"Dr. Makali Mulu for Kitui Governor | Economist.
@@ -288,7 +385,10 @@ publication under the Section 16.4 fact-check protocol.*
 
 ---
 
+</details>
+
 ## 17A. Earned Media, Radio and Debate Strategy
+
 
 *New section. Paid and owned media reach the connected minority. Earned media —
 especially radio — reaches everyone else.*
@@ -298,6 +398,9 @@ especially radio — reaches everyone else.*
 Kamba-language radio is the dominant information channel for the roughly 86% of
 Kitui residents outside the internet-using population. **But the ownership map
 is politically compromised, and any credible media plan must say so:**
+
+<details class="section-detail">
+<summary>Full detail — 17A.1 The radio problem, stated plainly</summary>
 
 | Station | Kitui frequency | Ownership association | Campaign posture |
 |---|---|---|---|
@@ -320,6 +423,8 @@ monitoring sits in the war room (Section 13.2) rather than in a media annex.
 *This map is based on publicly reported ownership associations and should be
 verified and updated by the campaign; media ownership changes.*
 
+</details>
+
 ### 17A.2 Journalist relationship programme
 
 | Tier | Who | Cadence | Offer |
@@ -328,6 +433,9 @@ verified and updated by the campaign; media ownership changes.*
 | **Tier B** | Kamba-language radio presenters and producers at priority stations | Monthly | Candidate availability; Kikamba-ready talking points and audio |
 | **Tier C** | National business and economics desks | Quarterly | Dr. Mulu as an expert source on county public finance — **not as a candidate** |
 | **Tier D** | Fact-checking organisations | Standing relationship | Proactive contact on manipulated media; the campaign as a reliable source |
+
+<details class="section-detail">
+<summary>Full detail — 17A.2 Journalist relationship programme</summary>
 
 **Tier C is the underused opportunity.** A gubernatorial aspirant who is also a
 credible national commentator on county fiscal management earns coverage that
@@ -339,9 +447,14 @@ with sources, policy briefs by theme, verified county data with citations, and
 contact routes. The easier the campaign makes a journalist's job, the more
 often it is quoted.
 
+</details>
+
 ### 17A.3 Candidate media training
 
 Three sessions, plus refreshers:
+
+<details class="section-detail">
+<summary>Full detail — 17A.3 Candidate media training</summary>
 
 1. **Core message discipline** — bridging from any question to the Economist
    Governor narrative without appearing evasive; keeping economic explanation
@@ -357,6 +470,8 @@ Three sessions, plus refreshers:
 **Refreshers** before each debate or major forum, plus a recorded mock with
 playback review.
 
+</details>
+
 ### 17A.4 Debate and forum playbook
 
 **Preparation:**
@@ -365,6 +480,9 @@ playback review.
 - Mock debate with a stand-in playing the leading rival
 - Three prepared "moments" — a memorable, quotable formulation for each of the
   top three issues
+
+<details class="section-detail">
+<summary>Full detail — 17A.4 Debate and forum playbook</summary>
 
 **Live clipping operation:**
 
@@ -382,10 +500,15 @@ playback review.
 **The rule: the clip is published before the coverage is written.** Whoever
 distributes the moment first defines what the debate was about.
 
+</details>
+
 ### 17A.5 Pre-drafted response lines
 
 Prepared, verified, and rehearsed in drills. Each is a structure, not a script —
 substance fixed, delivery natural.
+
+<details class="section-detail">
+<summary>Full detail — 17A.5 Pre-drafted response lines</summary>
 
 | Likely attack | Response structure |
 |---|---|
@@ -398,6 +521,8 @@ substance fixed, delivery natural.
 | **Manipulated media** | Section 16A.5 protocol — 30-minute clock |
 | **Unsolicited SMS allegation** | Produce the consent audit trail; cite the published charter; correct publicly within the hour |
 
+</details>
+
 ### 17A.6 Earned media KPIs
 
 | Metric | Target |
@@ -409,6 +534,8 @@ substance fixed, delivery natural.
 | Share of voice in Kitui gubernatorial coverage | ≥ 50% |
 | Fact-checker corrections secured on false claims | 100% of material false claims challenged |
 
+
+
 ### 17A.7 Media Ownership Map
 
 Section 17A.1 already names the ownership problem. This subsection formalises
@@ -419,11 +546,16 @@ rather than a measured listenership figure — the campaign does not have one
 intact: on Section 17A.1's own reading, the highest-reach stations are
 controlled by a rival or the party gatekeeper, not by this campaign.**
 
+
 ---
+
 
 ## 18. Multilingual Content Strategy
 
 Language is central to trust in Kitui.
+
+<details class="section-detail">
+<summary>Full detail — 18. Multilingual Content Strategy</summary>
 
 - **Kikamba** — deep local resonance, especially on WhatsApp, TikTok, Facebook,
   SMS and radio. Local proverbs, idioms and cultural reference. Working
@@ -456,14 +588,22 @@ substantive error, not a cosmetic one.
 
 ---
 
+</details>
+
 ## 18A. Accessibility and Inclusion
+
 
 *New section. In a county where 13.0% of the population never attended school,
 accessibility is reach, not compliance theatre.*
 
 ### 18A.1 The case
+
 - **13.0% of Kitui residents have never attended school**; only 17.4% completed
   secondary education
+
+<details class="section-detail">
+<summary>Full detail — 18A.1 The case</summary>
+
 - Roughly **86% are outside the internet-using population**
 - Kenyans with disabilities are a substantial constituency systematically
   under-served by campaign communication in every cycle
@@ -471,6 +611,8 @@ accessibility is reach, not compliance theatre.*
 
 A campaign built on transparency that publishes only in dense written English
 is not transparent. It is legible to the people who already had access.
+
+</details>
 
 ### 18A.2 Commitments
 
@@ -484,13 +626,18 @@ is not transparent. It is legible to the people who already had access.
 | **Low bandwidth** | Text-first fallbacks; compressed images; a site that loads on 3G; SMS and USSD paths to the same information (Section 9B) |
 | **Print** | Ward-level materials in large print with QR and USSD codes |
 
+
+
 ### 18A.3 Why this belongs in the strategy, not an annex
+
 The plain-language and audio versions are not a parallel accessibility track —
 they are the **primary format for the largest segment of the electorate**. A
 one-page plain-language summary that can be read aloud at a baraza, sent as a
 voice note, and broadcast on County FM is the most-used asset the campaign will
 produce. Building it as an afterthought means building the campaign's most
 important content last.
+
+
 
 ### 18A.4 KPIs
 
@@ -503,11 +650,16 @@ important content last.
 | Flagship content with audio version | 100% |
 | Site load time on simulated 3G | < 3 seconds |
 
+
 ---
+
 
 ## 19. Key Campaign Themes to Amplify
 
 Six themes, each evidenced.
+
+<details class="section-detail">
+<summary>Full detail — 19. Key Campaign Themes to Amplify</summary>
 
 1. **Water Security and Climate Resilience** — sand dams, boreholes,
    irrigation, and adaptation to both drought and flood.
@@ -541,17 +693,23 @@ did."**
 
 ---
 
+</details>
+
 ## 19A. Qualitative Research: The Kitui Message Lab
+
 
 *New section. Digital engagement metrics measure the 13.6% who are online.*
 
 ### 19A.1 The problem with metrics-only optimisation
+
 A campaign that optimises purely on engagement data optimises for the connected
 minority, in the wards with the best signal, among the people most inclined to
 respond. In Kitui that is a systematically biased sample — and it is biased
 *towards* the zone where Dr. Mulu is already strong. Optimising on it would
 confirm the campaign is winning while the recognition deficit outside the
 Anchor zone stays exactly where it is.
+
+
 
 ### 19A.2 Design
 
@@ -564,9 +722,16 @@ Anchor zone stays exactly where it is.
 | **Facilitation** | `[Insert — independent Kenyan qualitative research facilitator; Firefly to recommend, campaign to appoint]` |
 | **Ethics** | Participation voluntary; withdrawal at any time; no contact data retained for campaigning without separate explicit opt-in |
 
+
+
 ### 19A.3 What gets tested
+
 - **Message framings** from Section 10 — does loss-aversion framing on water
   land, or does it read as pessimism about Kitui?
+
+<details class="section-detail">
+<summary>Full detail — 19A.3 What gets tested</summary>
+
 - **The Economist Governor narrative** — does "economist" read as competent or
   as distant? This is the single highest-value question in the research
   programme, and it is not answerable from engagement data.
@@ -579,13 +744,18 @@ Anchor zone stays exactly where it is.
 - **The tracker concept** (Section 19B) — would people use it, and do they
   believe it would change anything?
 
+</details>
+
 ### 19A.4 Feedback loop
+
 Findings are written up within **10 days** and feed directly into the next
 content cycle, the SMS message architecture and the paid-media creative brief.
 Where qualitative findings contradict engagement data, **the qualitative finding
 is treated as the signal about the offline majority and the quantitative data
 as the signal about the online minority** — neither overrides the other, and
 the disagreement itself is information.
+
+
 
 ### 19A.5 KPIs
 
@@ -596,27 +766,40 @@ the disagreement itself is information.
 | Findings incorporated into content within 14 days | 100% |
 | Message framings tested before major spend | 100% of flagship campaigns |
 
+
 ---
 
+
 ## 19B. Public Service-Delivery Tracker
+
 
 *New section. The single clearest expression of the candidate's actual
 professional discipline.*
 
 ### 19B.1 Why this exists
+
 Dr. Mulu is a monitoring and evaluation specialist — a member of the Evaluation
 Society of Kenya and an M&E Champion recognised by the Ministry of Finance,
 whose constituency was certified best evaluated in the Eastern region.
+
+<details class="section-detail">
+<summary>Full detail — 19B.1 Why this exists</summary>
 
 Every candidate in this race will promise water points, roads and markets. Only
 one is professionally qualified in **verifying whether promises were kept**. A
 public service-delivery tracker is not a campaign gadget; it is that
 qualification, running in public, before the election rather than after it.
 
+</details>
+
 ### 19B.2 What it is
+
 A simple public tool through which any Kitui resident can report and follow up
 on a local service-delivery issue — a broken water point, an impassable feeder
 road, a market without sanitation, a stalled project.
+
+<details class="section-detail">
+<summary>Full detail — 19B.2 What it is</summary>
 
 **Deliberately multi-channel, because the people with the most to report have
 the least connectivity:**
@@ -628,6 +811,8 @@ the least connectivity:**
 | **WhatsApp** | Message the campaign line |
 | **Web** | Simple mobile-first form, WCAG compliant |
 | **Ward champion** | Report in person; champion logs it |
+
+</details>
 
 ### 19B.3 What happens to a report
 
@@ -654,10 +839,16 @@ the least connectivity:**
    Reporter notified by SMS
 ```
 
+
+
 ### 19B.4 Design principles
 
 1. **Public by default.** The register is visible to anyone, mapped by ward,
    with counts by category. Transparency is the point.
+
+<details class="section-detail">
+<summary>Full detail — 19B.4 Design principles</summary>
+
 2. **No personal data published.** Reports appear with ward, category and
    status only. Contact details are used to update the reporter and nothing
    else, under the Section 16.4 charter.
@@ -673,10 +864,16 @@ the least connectivity:**
    polling day was a campaign tactic; one that continues is a governance
    commitment — and the commitment is the persuasive element.
 
+</details>
+
 ### 19B.5 Campaign value
 
 - **Narrative:** the strongest possible proof of the Verification pillar
   (Section 5.4) — evidence rather than assertion
+
+<details class="section-detail">
+<summary>Full detail — 19B.5 Campaign value</summary>
+
 - **Data:** ward-level issue salience derived from citizens' own priorities
   rather than from campaign assumptions, feeding directly into content and
   message-lab design
@@ -687,11 +884,16 @@ the least connectivity:**
 - **Defensive:** it makes "he is not close to ordinary people" a difficult
   attack to sustain against a candidate publishing their reported problems
 
+</details>
+
 ### 19B.6 Build and cost
+
 Built on the USSD/SMS infrastructure already costed in Section 8B.2 — shared
 USSD code (~KSh34,800 per network), development (~KSh140,000), hosting
 (~KSh5,000/month) — plus a lightweight public register on the campaign site.
 **Marginal cost over the SMS/USSD layer is low; distinctiveness is high.**
+
+
 
 ### 19B.7 KPIs
 
@@ -703,3 +905,5 @@ USSD code (~KSh34,800 per network), development (~KSh140,000), hosting
 | Median time to first status update | 14 days | 10 days | 7 days |
 | Reports converting to consented contacts | ≥ 60% | ≥ 65% | ≥ 70% |
 | Earned media items citing the tracker | 1 | 3 | 5 |
+
+
