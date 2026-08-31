@@ -47,6 +47,7 @@ import { BudgetScenarioModeler } from "./markdown/BudgetScenarioModeler";
 import { CampaignOrgChart } from "./markdown/CampaignOrgChart";
 import { CrisisWarRoomMatrix } from "./markdown/CrisisWarRoomMatrix";
 import { DataSecurityEthicsCharter } from "./markdown/DataSecurityEthicsCharter";
+import { CrossSectionLink } from "./markdown/CrossSectionLink";
 import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, TAB_LABELS, type TabId } from "../lib/heading-slug";
 
@@ -178,14 +179,14 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "operations-sec-16-1": <DataSecurityEthicsCharter />,
   "operations-sec-16-4": <DataSecurityEthicsCharter />,
   "execution-sec-20": <KpiPhaseBlock />,
+  // "Appendix C: Data Gaps Register" now resolves to a real id via the
+  // Appendix-letter fallback in headingSlug() (see lib/heading-slug.ts).
+  "appendix-sec-c": <DataGapsRegister />,
 };
 
-// A handful of headings (the "Appendix A/B/C" style) carry no leading digit, so headingSlug
-// never assigns them an id — matched on exact heading text instead, same mechanism as
-// PLACEHOLDER_PATTERN and GOVERNING_REALITY_TRIGGERS above.
-const HEADING_TEXT_INSERTS: Record<string, React.ReactNode> = {
-  "Appendix C: Data Gaps Register": <DataGapsRegister />,
-};
+// Reserved for any heading that still resolves to no id at all (headingSlug
+// returns null) and needs an insert matched on its exact text instead.
+const HEADING_TEXT_INSERTS: Record<string, React.ReactNode> = {};
 
 // Markdown parsing runs here on the server at render time, so react-markdown
 // and its remark/rehype plugins never ship to the client bundle.
@@ -341,6 +342,20 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
                 )}
               </strong>
             ),
+            // A markdown link to "#tab-sec-slug" routes through CrossSectionLink so it
+            // switches tabs and scrolls, exactly like the auto-detected "Section 19B"
+            // in-text references — this is how progressive-disclosure link stubs jump
+            // to the section that owns the fuller version of that content.
+            a: ({ href, children }) => {
+              if (href && href.startsWith("#")) {
+                return <CrossSectionLink id={href.slice(1)}>{children}</CrossSectionLink>;
+              }
+              return (
+                <a href={href} target="_blank" rel="noopener noreferrer" className="font-bold text-accent underline decoration-accent/40 decoration-2 underline-offset-2 hover:decoration-accent transition-colors">
+                  {children}
+                </a>
+              );
+            },
             img: ({ src, alt }) => {
               if (!src || typeof src !== "string") return null;
               return (

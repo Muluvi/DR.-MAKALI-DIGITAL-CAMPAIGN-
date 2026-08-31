@@ -405,6 +405,49 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   color: var(--tier3-color);
 }
 
+/* Progressive-disclosure expander for the top-layer/deep-dive split (exec tab
+   restructure) — a native <details> element, styled to read as an intentional
+   part of the document rather than a raw browser default. Purely vertical,
+   so it needs no responsive handling below md:. */
+details.section-detail {
+  margin: 1.25rem 0;
+  padding: 0.15rem 1.1rem 1rem 1.1rem;
+  border: 1px solid var(--color-line);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--color-accent) 3%, var(--color-paper));
+}
+details.section-detail > summary {
+  cursor: pointer;
+  list-style: none;
+  margin: 0 -1.1rem;
+  padding: 0.7rem 1.1rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  -webkit-tap-highlight-color: transparent;
+}
+details.section-detail > summary::-webkit-details-marker { display: none; }
+details.section-detail > summary::after {
+  content: "Show full detail";
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  border: 1px solid color-mix(in srgb, var(--color-gold) 40%, transparent);
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+details.section-detail[open] > summary { border-bottom: 1px solid var(--color-line); padding-bottom: 0.7rem; margin-bottom: 0.75rem; }
+details.section-detail[open] > summary::after { content: "Hide detail"; }
+details.section-detail > summary:hover { color: color-mix(in srgb, var(--color-accent) 80%, black); }
+
 /* Eyebrow label — a short kicker line above a major heading. Explicitly resets every
    property the ".prose p:first-of-type" drop-cap treatment sets, since an eyebrow line
    can otherwise land on that selector by being the first <p> in its section. */

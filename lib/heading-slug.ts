@@ -2,10 +2,19 @@
 // -> "9b", "9A.1 The problem" -> "9a-1") so every numbered section gets a stable, predictable id.
 const LEADING_NUMBER = /^(\d+[A-Za-z]?(?:\.\d+)*)\.?\s/;
 
+// "Appendix A: Placeholder Register", "Appendix A1: Data Gaps & Empirical
+// Acquisition Register" — these headings carry no leading digit, so
+// LEADING_NUMBER never matches and they got no anchor id at all. Letter-only
+// appendix headings need one too so in-text cross-references can reach them.
+const APPENDIX_LETTER = /^Appendix\s+([A-Za-z]\d*)\s*:/;
+
 export function headingNumber(text: string): string | null {
-  const match = LEADING_NUMBER.exec(text.trim());
-  if (!match) return null;
-  return match[1];
+  const trimmed = text.trim();
+  const match = LEADING_NUMBER.exec(trimmed);
+  if (match) return match[1];
+  const appendixMatch = APPENDIX_LETTER.exec(trimmed);
+  if (appendixMatch) return appendixMatch[1];
+  return null;
 }
 
 export function headingSlug(text: string): string | null {
