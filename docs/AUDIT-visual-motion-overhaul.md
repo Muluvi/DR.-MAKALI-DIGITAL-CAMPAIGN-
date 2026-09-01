@@ -28,10 +28,15 @@ The document polices this explicitly. Appendix A is headed: *"Every unverified
 figure in this document, consolidated. **No figure has been invented to fill any
 of these.**"* The UI breaks that promise in at least eleven places.
 
-**So this is not a proposal to add motion. It is a proposal to remove what the
-site should never have claimed, then spend the remaining effort on the two
+**So the sequence is: remove what the site should never have claimed, fix the two
 structural problems — 55,500 words for a reader who will scroll once, and 3,667
-of them printed twice — that no easing curve fixes.**
+of them printed twice — and only then spend motion on what remains.**
+
+Parts 5–8 do that spending in detail: all 241 techniques triaged against this
+document, 32 surfaces given distinct signatures, a reduced-motion path specified
+per technique class, and a frame budget saying what each surface may cost. The
+site ends up with *more* motion than it has now, and roughly a fifth as much of
+it running continuously.
 
 ### Severity classes
 
@@ -378,25 +383,353 @@ Verified string-by-string at the end of every phase.
 
 ---
 
-## 5. Build plan
+## 5. Motion taxonomy triage
+
+All 241 techniques across 18 categories, judged against this document.
+"Where appropriate" made auditable.
+
+A menu this size is a diversity budget, not a checklist. Used well it guarantees
+the brief's hardest verification line — *no two sections may animate
+identically* — which the site currently fails: fourteen surfaces share the same
+fade-and-rise.
+
+Four filters, specific to this document:
+
+- **Truth.** Does it assert something the repository can't support? Anything
+  implying live data is the F3 defect wearing a new coat.
+- **Register.** A vendor pitch about a 15.3-point deficit, governed by
+  campaign-finance law. It cannot be jubilant, playful, or cute.
+- **Phone.** 390px, touch, one visit. Anything requiring a cursor is a desktop
+  enhancement, never load-bearing.
+- **Budget.** 60fps on mid-range Android, against a page already at 420 kB.
+
+**68 adopted · 29 conditional · 144 rejected · 32 surfaces specified.**
+
+### Adopted — 68 techniques that encode meaning here
+
+| Category | Technique | What it encodes | Surface |
+|---|---|---|---|
+| Entrance | Number count-up | Counting is what the document does — the deficit, the threshold, the ceiling | M1, M2, §8B.7 |
+| Entrance | SVG path draw | Tracing a route: escalation paths, response branches, the field–digital loop | §8A, §12, §15, §10 |
+| Entrance | Stroke-to-fill | Completion, only against states the source supports | §15, §17 |
+| Entrance | Clip-path wipe (linear) | A wipe divides. 13.6% / 86.4% is the central division | M3 |
+| Entrance | Text reveal by line | The one narrative claim, at reading pace | §4 pull quote |
+| Entrance | Typewriter | A USSD menu literally prints line by line. Mimesis, not effect | M3 handset |
+| Entrance | Ripple stagger from focal point | Reach spreading outward from Kitui Central | M2 |
+| Entrance | Stagger cascade | Genuinely enumerable sibling groups. 60–90ms, sparingly | §8, nav |
+| Entrance | Unfold / origami expand | Claim → 4 pillars → 6 segments is a literal hierarchy | §13 |
+| Entrance | Flip in on axis | Two faces of one decision: poll vs. delegate primary | §5, §1A |
+| Entrance | Skeleton resolving into content | Present via LazyMount; needs to resolve rather than pop | All lazy sections |
+| Entrance | Fade in | The floor. Reduced-motion fallback for nearly everything | Global |
+| Entrance | Slide in (single axis) | Only on the axis of travel. Never a generic entrance | §7, nav, TOC |
+| Scroll | Scroll-scrubbed animation | Time advancing with scroll. The one place scrub is honest | M4 |
+| Scroll | Sticky pinned section | Holds five phases while the timeline moves through them | M4 |
+| Scroll | Scroll progress rail | Already on a CSS scroll-timeline. Earns its place at 55,000 words | Global |
+| Scroll | Viewport-triggered reveal, once | The brief's tokens: `once: true`, `amount: 0.35`, `-10% 0px` | Global default |
+| Scroll | Scroll-triggered count-up | Figures count when reached, not on mount where nobody sees them | M1, M2, §2.7 |
+| Scroll | Scroll-direction-aware header | Reclaims vertical space on a phone across a long read | Toolbar |
+| Scroll | Scroll-spy indicator | "Where am I in 55,000 words" is a real question this document creates | TOC rail |
+| Scroll | Text highlighted line-by-line | Reserved for the ethics charter — the passage worth slowing down | §16.4 |
+| Data | Bars growing from baseline | Zero is the honest origin for a poll share or budget band | M1, §8B, §2.7 |
+| Data | Line draw | Multi-cycle electoral history is a sequence in time | §2.6 |
+| Data | Value morph between numbers | Same quantity re-costed across tiers | §8B |
+| Data | Odometer digit roll | The four verified hero figures. Reads as a meter, not a flourish | Dashboard |
+| Data | Progress ring fill | Spend against the KSh97.56m ceiling — a real proportion of a real cap | §8B.7 |
+| Data | Linear progress fill | Ward votes accumulating into the 198,004 threshold | M2 |
+| Data | Gauge needle sweep | Headroom beneath the cap. Once, not looping | §8B.7 |
+| Data | Point-by-point scatter drop-in | Each competitor is a separately sourced observation | §2.2, §2.10 |
+| Data | Axis and gridline fade-in | Frame before data. Stops the chart reading as decoration | All recharts |
+| Data | Tooltip follow along a series | Inspection on a dense series | Charts |
+| Data | Area fill sweep | Cumulative quantities only, where area means something | §2.7 |
+| Data | Sparkline draw | Inline trend where two or more real points exist | §2.6 |
+| Map | Progressive region fill | 40 wards filling by registration weight, bound to the IEBC register | M2 |
+| Map | Choropleth value transition | Switching measure without redrawing | M2 |
+| Map | Zoom to region | Constituency drill-down. Eight real subdivisions | M2 |
+| Map | Pin drop with bounce | A citizen report landing. The one bounce on the site | §19B |
+| Map | Route path trace | The 4-hour field-to-digital loop, along its actual path | §10 |
+| State | Accordion expand / collapse | Reference material. Biggest word-count lever on the site | §11, §14, §9, A2, A3 |
+| State | Disclosure reveal | Same at paragraph scale. `grid-template-rows`, not `height: auto` | Throughout |
+| State | Segmented control slide | Three tiers are mutually exclusive; the control should say so | §8B |
+| State | Tab indicator slide | Six tabs, and the reader needs to know which | Nav |
+| State | Shared element transition | Heading persists across a tab change | Tab switch |
+| State | Crossfade between data states | Where position carries no meaning | §7, M2 |
+| State | Filter and sort reflow (FLIP) | Stations re-sorting by alignment — the reorder *is* the finding | §17 |
+| State | Bottom sheet with detents | Mobile TOC, usable one-handed | MobileTOCModal |
+| State | Drawer / sheet slide | "Show the working" drawers, already in the codebase | DerivedFigureDrawer |
+| State | Popover / tooltip enter | Source-tier badges and glossary terms | HighlightedText |
+| State | Theme switch | Present; needs a token crossfade rather than instant swap | Global |
+| Interaction | **Focus ring animation** | **Zero focus styles exist sitewide (F8).** Highest-value adoption here | Every control |
+| Interaction | Press / active scale-down | Touch feedback, phone-first | Every control |
+| Interaction | Hover tint / colour shift | Cheaper and quieter than lift; replaces the universal card lift | Cards, rows |
+| Interaction | Hover lift | Kept *selectively* — only where a card is genuinely actionable | Selected cards |
+| Interaction | Underline draw | Cross-section links. Replaces the `→` glued to every link | CrossSectionLink |
+| Interaction | Border draw on hover | Ward cells — precise, no layout shift | M2 |
+| Interaction | Long-press progress fill | The handset behaves like a handset | M3 |
+| Interaction | Icon swap on hover | State changes only — expand/collapse, copy/copied | Controls |
+| Type | Kinetic typography | Exactly once, on the "Economist Governor" claim | §4 |
+| Type | Line-by-line mask reveal | Same moment, as its mechanism | §4 |
+| Type | Cycling word swap | English → Kiswahili → Kikamba. The content *is* three languages | §18 |
+| Type | Vertical digit roll | The odometer mechanism on verified figures | Dashboard |
+| Type | Highlight sweep behind text | Marks a Tier 1 figure inline; ties motion to the provenance system | HighlightedText |
+| Nav | Sticky header state change | Compacts as you descend | Toolbar |
+| Nav | Active-link indicator slide | One indicator moving beats six highlighting | TOC rail |
+| Nav | Hamburger-to-close morph | Path morph between two icons meaning opposite things | Mobile nav |
+| Nav | Nav item stagger on open | Short list, one axis, 60ms | Mobile TOC |
+| Nav | Back-to-top reveal | Non-negotiable at this length | QuickNavCapsule |
+| Feedback | Checkmark draw on success | Charter commitments and compliance gates. Drawn, never popped | §16.4, §8B.7 |
+| Feedback | Highlight flash | Arriving at a deep link. Already implemented as `:target` | Deep links |
+| Loading | Skeleton shimmer | One shimmer, GPU-cheap, replacing the pulse. Ambient loop 1 of 3 | SectionSkeleton |
+| Loading | Page-load orchestration | The single choreographed hero the brief permits, ~1.4s | M1 |
+| Physics | Spring settle | Anything user-driven. Stiffness ~300, damping ~30 | Toggles, sliders |
+| Physics | Chain / follow-the-leader lag | Escalation up a reporting line has direction and delay | §8A, §12 |
+| Gesture | Swipe between panels | Phone-first. Segments and tiers should swipe | §7, §8B |
+| Gesture | Slider / range handle | The path-to-200k calculator is a real model with real inputs | PathTo200kCalculator |
+
+### Conditional — 29 techniques, desktop-only or gated on data
+
+Progressive enhancement above 1024px with a pointer, or gated on a named
+Appendix A placeholder. None load-bearing; the phone experience is complete
+without any of them.
+
+| Technique | Gate | If the gate opens |
+|---|---|---|
+| Pointer tilt with 3D perspective | Pointer + ≥1024px | Ward cells only. 3–4° max, never on text |
+| Spotlight / glow tracking pointer | Pointer + ≥1024px | The hero deficit figure alone |
+| Image zoom within a frame | Assets exist | No campaign imagery ships in the repo |
+| Reveal-on-hover overlay | Pointer | Ward detail; tap-to-open is the primary path |
+| Ripple from click point | Perf pass | Keypad only, if it clears budget |
+| Pinch to zoom | Map only | Cartogram at 390px, if it doesn't fight native scroll |
+| Before/after comparison slider | **Data gap** | Needs a real before and after; §8B.3 is a placeholder |
+| Split-view divider drag | **Data gap** | Tier comparison is categorical, not continuous |
+| Brush and zoom on a range | **Data gap** | Two Mizani points do not make a brushable series |
+| Heatmap cell fill | **Data gap** | Needs ward × time. Ward-level polling does not exist (F1) |
+| Sankey / flow trace | **Data gap** | Needs channel→conversion volumes |
+| Dial or knob rotation | Register | A slider says the same without the skeuomorphism |
+| Elastic overshoot | Register | USSD keypad only, where a device metaphor licenses it |
+| Fling momentum · Snap-back | Swipe surfaces | Falls out of the swipe adoption |
+| Scroll-snap between panels | Already partial | `scroll-snap-type: y proximity` is set. Keep, don't extend |
+| Section-to-section crossfade | Perf pass | Risks fighting `content-visibility: auto` |
+| Viewport-triggered, re-fires | Rare | Scroll-spy only. Re-firing reveals on a long read is punishing |
+| Modal · Toast · Banner · Dropdown | As needed | Standard chrome, specified once in the system |
+| Blur-to-sharp | Perf pass | Animated `filter: blur` is expensive. LQIP only |
+| Progressive image load | Assets exist | Wired in MarkdownViewer already; no images to serve |
+| Mask reveal · Curtain · Iris | One only | M3's wipe is the site's one masked reveal |
+| Rotate in · Scale down/settle | Reserve | Held back so the adopted set stays distinguishable |
+| Variable font weight / optical size | Font | Montserrat as loaded is static, two weights |
+| Text along a path · Outline-to-fill | Register | Available for the closing panel. Probably unneeded |
+
+### Rejected — 144 techniques, with the filter that caught each
+
+**Truth** — *Live-status blink · Live-updating stream · Optimistic UI placeholder
+· Radius/catchment pulse · Pulse or breathe · Glow pulse · Audio-reactive motion
+· Attention nudge on idle.*
+These are F3 wearing a new coat. A blinking "Live" dot on
+`LiveGroundActivityTracker` is precisely how the site currently asserts an
+operation that does not exist. Nothing here is live: it is a proposal for work
+not yet commissioned. Motion implying a running system is a false claim however
+good it looks. *22 ambient loops run today; the specification allows 3.*
+
+**Register** — *Confetti / celebration burst · Badge count pop · Bounce (except
+the one map pin) · Wobble or jiggle · Soft-body / jelly · Rubber-band overscroll
+· Split-flap · Text scramble or decode · Shake on error · Cross draw on failure ·
+Gravity drop · Collision and bounce · Character-count warning.*
+He is 15.3 points behind, weeks from a nomination decided by opinion poll. A site
+that celebrates, springs or jiggles reads as a startup landing page wearing a
+proposal's clothes. Scramble-decode on a statutory figure is worse: it treats a
+Gazette Notice as a puzzle. The register here is competence under pressure.
+
+**Phone** — *Magnetic cursor attraction · Cursor-follow / custom cursor ·
+Parallax layers · Horizontal scroll section · Scroll-velocity skew · Infinite
+scroll append · Pull-to-refresh · Drag to reorder · Drag to dismiss.*
+He opens it on a phone, once. Parallax is banned by the brief's own
+anti-patterns. Cursor-driven motion has no touch equivalent, so anything
+load-bearing built on it doesn't exist for the actual reader. Infinite scroll and
+pull-to-refresh describe a feed; this is a finite document that must also print.
+
+**Budget** — *Particle field · Disintegrate / particle dissolve · Noise or grain
+· Generative canvas or shader · Cloth or ribbon simulation · Flocking · Node-graph
+physics settle · Image sequence scrub · Video scrub tied to scroll · Scroll-linked
+3D camera · Camera dolly or orbit · Cube / carousel 3D · Blob or metaball morph ·
+Aurora or mesh gradient drift · Wave or ripple field · Model rotation · Extrusion.*
+Target is 60fps on mid-range Android against a page already shipping 420 kB of
+first-load JS. Each needs a physics loop, a canvas/WebGL context, or per-frame
+paint on a large surface. The brief says simplify a section that misses budget —
+the cheapest way to hit budget is not to spend it here. There is also the
+argument the document itself makes: a site about bandwidth exclusion should not
+ship a shader.
+
+**Anti-pattern** — *Gradient shift · Shimmer sweep as decoration · Rotate loop /
+orbits · Float and drift · Orbiting elements · Conveyor (except §10) · Logo wall
+loop · Carousel autoplay.*
+The brief bans "gradient washes used as decoration"; the site runs gradient fills
+on every progress bar and a full-bleed gradient on every part divider. Orbits,
+drift and autoplay animate without encoding anything — the brief's closing
+anti-pattern.
+
+**No content** — *Fly to target · Lightbox · Gallery transition · Ken Burns ·
+Video autoplay · Duotone transition · Focus rack · Command palette · Empty-state
+transition · Floating label · Input focus expand · Inline validation · Error
+slide-in · Password meter · Multi-step form · Autocomplete reveal ·
+Submit→loading→success · Field clearing · File upload progress · Spinner ·
+Indeterminate bar · List insert/remove/reorder · Expand card to full screen ·
+Breadcrumb · Full-screen overlay nav · Flight-line arc · Cluster expand.*
+The site has no forms, no media library, no cart, no accounts and no async
+writes. It collects nothing and submits nothing — itself a compliance posture
+worth preserving under the Data Protection Act. Specifying form and media motion
+for surfaces that don't exist is how a motion system becomes decoration.
+
+**Redundant** — exits (fade/slide/collapse/wipe/shrink/reverse-stagger) are the
+reverse of their entrances and specified once globally, not per surface. The
+eight orchestration patterns are *how* the adopted set is sequenced, so they
+appear in the surface spec rather than as separate adoptions. A splash screen on
+a document opened once, impatient, is a tax.
+
+**On the marquee.** The site runs two — `MarqueeCarousel` in the hero and
+`BadgeTicker` in the shelf — plus an 18-second logo loop. The brief permits
+ambient loops "where they mean something… capped in number." A ticker of verified
+figures qualifies; a ticker of badges does not. **One marquee, hero only, Tier 1
+figures, paused off-screen and under reduced-motion** — the existing
+`use-marquee-active` hook already does both. The other two go.
+
+---
+
+## 6. Surface specification
+
+32 surfaces, 32 distinct signatures. No two animate alike — the brief's hardest
+verification line, satisfied by construction.
+
+| # | Surface | Signature | What the motion means | Timing |
+|---|---|---|---|---|
+| 01 | Page load | Skeleton shimmer → content resolve | Arrival, not performance | 420ms expo-out |
+| 02 | **M1 · NominationVerdict** | Choreographed hero: count-up 0→15.3 · two bars diverging from a shared baseline · date rail path-draw | The deficit is a gap that *opened*. The bars separating is the argument in one gesture | ~1.4s chain |
+| 03 | Dashboard (4 verified figures) | Odometer digit roll, parallel — no stagger | Four independent facts, not a sequence | 560ms parallel |
+| 04 | Hero marquee | Marquee, Tier 1 figures only, pause off-screen | Ambient loop 1 of 3 | Loop 25s |
+| 05 | §1 Executive summary | Disclosure reveal via grid-template-rows | Depth on demand, zero layout shift | 300ms |
+| 06 | §1A Nomination path | Flip in on Y axis | Two mutually exclusive routes — two faces, one card | 480ms |
+| 07 | §2.2 / §2.10 Competitive field | Axis fade → scatter drop-in | Each contender lands on its own | 70ms stagger |
+| 08 | **M2 · WardReachMap** | Progressive region fill, ripple outward from Kitui Central · running count-up · linear fill into 198,004 | Reach spreading from his strongest ground; total accumulating toward a real threshold | 900ms ripple |
+| 09 | §2.6 Electoral history | Line draw + sparkline, left to right | History is a sequence in time | 620ms |
+| 10 | §2.7 Fiscal audit | Bars from baseline + area fill sweep | Zero is the honest origin for a pending-bills figure | 520ms, 60ms stagger |
+| 11 | §4 Economist Governor | **Kinetic typography:** line-by-line mask reveal | The single big claim. The one place type is the event | 3 lines, 110ms apart |
+| 12 | §5 Selection mechanism | Flip on X (distinct axis from #06) | Poll vs. primary. Different axis so it doesn't read as a repeat | 480ms |
+| 13 | §7 SegmentDeck | Tab indicator slide + crossfade, swipe on touch | Six parallel segments. No entrance stagger — they are not ranked | 180ms crossfade |
+| 14 | §8 ScopeGrid | Stagger cascade, opacity + 8px rise | The quietest thing on the site, on purpose | 60ms stagger |
+| 15 | §8A / §12 Org chart | SVG path draw + chain lag up the escalation line | Escalation has direction and delay. The lag *is* the cadence | 80ms per hop |
+| 16 | §8B Budget tiers | Segmented control slide · value morph · bars growing into a fixed ceiling bar · spring | The ceiling never moves; each tier grows into it. The compliance argument, animated | Spring 300/30 |
+| 17 | §8B.7 Compliance ceiling | Progress ring fill + single gauge sweep | Sweeps once and stops — a looping dial would imply monitoring | 700ms once |
+| 18 | **M3 · ReachSplit** | Clip-path wipe, linear, splitting 13.6 / 86.4 | A wipe divides. The site's one masked reveal, on its central division | 640ms |
+| 19 | **M3 · USSD handset** | Typewriter menu · press scale-down · long-press fill · elastic keypad | A feature phone prints line by line. Also the best execution proof on the site | 28ms/char |
+| 20 | §10 Field–digital loop | Route path trace, continuous, pause on hover | Ambient loop 2 of 3. The only loop that documents a loop | Loop 6s |
+| 21 | §13 Message architecture | Unfold / origami expand | Claim → 4 pillars → 6 segments opening out | 440ms |
+| 22 | §15 ResponseTree | Branch expand + stroke-to-fill on the chosen path + SLA bar | A decision tree resolves down one branch | 380ms |
+| 23 | §16.4 Ethics charter | Line-by-line highlight on scroll + checkmark draw | Drawn, never popped — these are commitments, not achievements | Scroll-linked |
+| 24 | §17 Radio landscape | FLIP filter/sort reflow + stroke-to-fill on alignment | Stations re-ranking. The reorder is the finding | 400ms FLIP |
+| 25 | §18 Multilingual | Cycling word swap, EN → SW → Kikamba | Ambient loop 3 of 3. The content is three languages | Loop, 2.4s hold |
+| 26 | §19B Service tracker | Pin drop with bounce + status state machine | A report landing. The only bounce, and a dropped pin earns it | 520ms damped |
+| 27 | **M4 · PhaseRail** | Scroll-scrubbed, sticky-pinned, advancing internally | Time advancing with scroll. The one place 01–05 markers are earned | Scrubbed |
+| 28 | §11 / §14 / A2 / A3 Reference | Accordion expand, height-safe | Reference material collapses | 280ms |
+| 29 | **M5 · DecisionPanel** | **None.** Arrives complete | After 55,000 words and 31 animated surfaces, stillness is the strongest available effect. The ask should not perform | — |
+| 30 | Navigation | Direction-aware header · active-link slide · scroll-spy · hamburger morph · back-to-top | Orientation across a very long document | 140–180ms |
+| 31 | Tab switch | Shared element transition on the section heading | Continuity. Currently a generic fade, identical to fourteen others | 320ms |
+| 32 | Global controls | Focus ring draw · press scale · hover tint · underline draw | **Zero focus styles exist today (F8).** Highest-value motion work here | 120–160ms |
+
+**Ambient loop budget: 3.** The hero marquee (#04), the field–digital cycle
+(#20), the language swap (#25) — each documents something genuinely continuous.
+**The page currently runs 22** (8 JS `repeat: Infinity` loops, 14 CSS pulse/ping),
+most of them the fake-liveness indicators from F3. Nineteen come out.
+
+---
+
+## 7. Reduced-motion path
+
+Not a degraded page. A different, finished one.
+
+The brief is explicit this is accessibility, not a performance hedge. Today it
+isn't handled: `globals.css:556` zeroes CSS durations, which every `motion.div`
+ignores. A reader with *reduce* set currently gets all 22 loops and every JS
+entrance.
+
+Fix: a `useReducedMotionSafe()` hook threaded through `lib/motion.ts`, so no
+component decides for itself.
+
+| Technique class | Full path | Reduced path | Why not just "instant" |
+|---|---|---|---|
+| Count-up, odometer | Rolls 0 → value | Final value, immediate | The number is the content. Present, not skipped |
+| Bars, rings, gauges | Grow from baseline | Final proportion, 120ms fade | A bar at zero shows false data. Never animate *to* the truth under reduce |
+| SVG path draw | Dashoffset travels | Complete path, fade | A half-drawn escalation line is an incomplete diagram |
+| Map region fill | Ripples outward | All 40 wards filled, no stagger | Same data, arriving at once |
+| Clip-path wipe (M3) | Wipes across | Both sides present, 1px divider | The division must still read; only the reveal goes |
+| Kinetic type (§4) | Line-by-line mask | Full quote, single 160ms fade | The claim can't arrive in pieces for a reader who opted out of pieces |
+| Typewriter (M3) | 28ms per character | Full menu text present | Nobody waits 4s for a menu they can already read |
+| Scroll-scrubbed (M4) | Scrubs with scroll | Static timeline, all phases visible, pin released | Scrubbing hijacks scroll. Under reduce, scroll stays ordinary |
+| Stagger cascades | 60–90ms between siblings | Stagger → 0, group fades once | Cheapest correct fallback; preserves grouping |
+| All 3 ambient loops | Marquee, cycle, word swap | **Stopped.** Marquee → static list; cycle → static diagram; word swap → all three languages stacked | Looping motion is the commonest migraine and vestibular trigger. The language swap must still show all three — that's its point |
+| Accordion, drawer | Height transition | Instant, focus moves to content | Functional, not decorative. They keep working |
+| Spring controls | Stiffness 300, damping 30 | Instant state change | User-driven; response stays immediate either way |
+| Hover / press / focus | 120–180ms ease-out | **Kept, shortened to ~80ms** | Interaction feedback is not optional motion. A focus ring that doesn't appear is a bug, not a preference |
+| Flip, unfold, FLIP | Transform through space | Crossfade in place, 140ms | Positional change without traversal |
+| Pin drop (§19B) | Drop + damped bounce | Pin present, no arrival | — |
+
+**Verification:** the reduced path gets its own pass at 390 / 768 / 1440px in P7,
+not a spot-check. The test is whether a reader who never saw the full version
+would notice anything missing. If a section only makes sense once it has
+animated, that section is wrong.
+
+---
+
+## 8. Frame & payload budget
+
+Baseline measured this session: **420 kB first-load JS, 318 kB route-specific**.
+Target device is a mid-range Android on a Kitui network — the reader this
+document spends 906 words describing.
+
+Target after P6: **≤380 kB. Ambient loops 22 → 3.**
+
+| Rule | Specification | Enforcement |
+|---|---|---|
+| Compositor-only properties | Animate `transform` and `opacity`. Nothing else. `clip-path` permitted on M3 alone, measured | Lint rule + P7 |
+| No layout animation | Zero `width`/`height`/`top`/`left`. Height uses `grid-template-rows: 0fr → 1fr`. **12 current violations (F10)** | P2 sweep |
+| Reserved space | Every animating element occupies its final box first. Target CLS from motion: **0** | P7 |
+| Ambient loop cap | 3. Each pauses off-screen and stops under reduce. `use-marquee-active` is the pattern | P2 |
+| One scrub surface | M4 only. The most expensive category adopted; a second would compete | Spec |
+| No new dependencies | Brief's constraint. Also drops one: `framer-motion` v13 goes (F9) | P2 |
+| Client boundary discipline | `"use client"` as low as possible. Markdown parsing stays server-side | Per phase |
+| Section-level fallback | If a surface misses 60fps, **simplify that surface** — don't lower the global bar. M2's ripple and M4's scrub are likeliest to need it | P7 |
+
+**Where the payload comes back.** Retiring ~20 of the 50 shelf widgets, dropping
+`framer-motion`, and deleting `lib/document-content.ts` should more than pay for
+the new modules. If P6 lands above 380 kB, the next lever is `recharts` — the
+heaviest dependency, and several adopted chart signatures (bars from baseline,
+line draw, progress ring) are cheaper hand-built in SVG.
+
+---
+
+## 9. Build plan
 
 | Phase | Work | Why here | Files |
 |---|---|---|---:|
 | **P0** *(blocking)* | **Truth pass.** Remove or rebind every fabricated figure (F1, F2, F3). Fix "15.3%" → "15.3 points" (F6). Delete `lib/document-content.ts` (F15). Add `scripts/verify-figures.mjs`, in the pattern of the existing ward-register check, that fails the build on a hardcoded campaign figure absent from `data/` or the markdown. | Nothing else is worth doing first. Also stops the problem recurring in anything built after it. | ~18 |
 | **P1** | **Content resolution.** Resolve the strategy/tactics duplication (F4). Reconcile the two section-number universes so cross-references resolve. | Every later phase depends on knowing which sections exist. | ~6 |
-| **P2** | **Motion & icon system.** `lib/motion.ts` with the brief's tokens; `MOTION-SYSTEM.md`; a `useReducedMotionSafe` hook wired through every variant (F7); consolidate onto `motion` v12 and drop `framer-motion` (F9); global `focus-visible` treatment (F8); freeze the lucide subset at ~30 icons, each mapped to a concept (F11). | The brief's own sequencing, and what makes P3–P6 one system rather than fifty opinions. | ~30 |
+| **P2** | **Motion & icon system.** `lib/motion.ts` exporting all 68 adopted variants as named tokens; `MOTION-SYSTEM.md` documenting the triage and surface map; `useReducedMotionSafe()` threaded through every variant (F7); the full reduced-motion matrix from Part 7; consolidate onto `motion` v12 and drop `framer-motion` (F9); global `focus-visible` treatment (F8); sweep the 12 layout-animation violations (F10); cut ambient loops 22 → 3; freeze the lucide subset at ~30 icons (F11). | Everything downstream imports from here. Doing this after the sections would mean fifty separate opinions instead of one system. | ~34 |
 | **P3** | **Hero & §1.** M1 `NominationVerdict`; retire the three generic stat cards and `StrategyRail` (F14); rebuild `Dashboard` around the four verified figures only. | First screen, one orchestrated moment, where the boldness gets spent. | ~8 |
 | **P4** | **Evidence sections.** M2 `WardReachMap` (§2.3, §6); `SegmentDeck` (§7); M3 `ReachSplit` + USSD handset (§9, §9B). | The analytical core, and the largest word reduction — ~4,600. | ~14 |
 | **P5** | **Commercial sections.** Rebuild `BudgetScenarioModeler` from source (§8B); `ScopeGrid` (§8); team + cadence (§8A, §12); `ResponseTree` (§15); radio landscape (§17). | Where the engagement is won or lost, and where P0's corrections must hold visibly. | ~16 |
 | **P6** | **Timeline, close, dissolve the shelf.** M4 `PhaseRail` (§20); M5 `DecisionPanel` (§23); dismantle `renderSectionExtras` and rehome surviving widgets next to their prose (F13); collapse reference sections behind disclosures. | Last because it moves everything the earlier phases built. | ~22 |
-| **P7** | **Verification.** 390 / 768 / 1440px; CLS from motion at zero; keyboard traverse; reduced-motion path complete; protected register verified string-by-string; JS budget re-measured against the 420 kB baseline; confirm no two sections animate alike. | The brief's verification block, run as its own commit rather than claimed. | ~8 |
+| **P7** | **Verification.** 390 / 768 / 1440px, full and reduced paths separately; CLS from motion measured at zero; keyboard traverse with visible focus on all ~90 controls; protected register checked string-by-string; JS re-measured against the 420 kB baseline; ambient loops counted (target 3); frame profile on mid-range Android for M2 and M4; and the surface-signature check — confirm no two of the 32 signatures read alike. | The brief's verification block, run as its own commit rather than claimed. | ~10 |
 
 ---
 
-## 6. Self-check
+## 10. Self-check
 
 ### Requirements I could not meet
 
+- **I did not adopt all 241 techniques.** 68 adopted, 29 conditional, 144
+  rejected — each with the filter that caught it in Part 5. Adopting the full
+  list would require the site to have forms, media, a cart, live data and a
+  cursor, none of which it has, and would breach the brief's own anti-patterns
+  and frame budget. If you want a specific reject reinstated, name it and I'll
+  build it — but I'd want to argue the ones under *Truth* first, because those
+  are how the site got into the F3 state.
 - **The branch.** The brief specifies `feat/visual-motion-overhaul`; this session
   is provisioned to develop on `claude/new-session-ysc0gp` and instructed not to
   push elsewhere without permission. Following the session branch; say the word
@@ -406,7 +739,15 @@ Verified string-by-string at the end of every phase.
   system meaningful and consistent) as the real requirement and reported the
   discrepancy rather than manufacturing agreement.
 - **A dashboard mock and a funnel diagram**, both suggested in the brief, need
-  data the repository does not have. Deferred rather than invented.
+  data the repository does not have. Deferred rather than invented. Six further
+  techniques — before/after slider, split-view drag, brush-and-zoom, heatmap,
+  Sankey, choropleth over time — are blocked on the same gaps and listed as
+  conditional rather than rejected, because they become available the moment
+  Appendix A's placeholders are filled.
+- **Frame budget is asserted, not yet measured.** I costed each technique from
+  experience; M2's ripple fill and M4's scroll scrub are the two I'd expect to
+  need simplification on a real mid-range Android. That measurement happens in
+  P7 and may change the specification.
 
 ### Assumptions
 
@@ -437,6 +778,14 @@ Verified string-by-string at the end of every phase.
   percentages measure nothing; M1 replaces the slot.
 - **Focus Mode and the reading-density cycler.** Genuine craft, but controls for a
   document problem that Part 2 solves by making the document shorter.
+- **19 of the 22 ambient loops.** Most are the fake-liveness pulses from F3 and
+  have to go on truth grounds. But the hero's floating orbs and the badge ticker
+  are just atmosphere, and losing them makes the top of the page calmer than it
+  currently is. If you want atmosphere back, I'd rather add one deliberate thing
+  than restore three incidental ones.
+- **Parallax.** You've listed it and the original brief bans it in the same
+  document. I've followed the ban. If the phone-first constraint is softer than
+  the brief implies, depth layering on the hero is the one place it would pay.
 
 ---
 
