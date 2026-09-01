@@ -3,6 +3,7 @@ import path from "path";
 import { ClientPage } from "@/components/ClientPage";
 import { MarkdownViewer } from "@/components/MarkdownViewer";
 import type { TabId } from "@/lib/heading-slug";
+import { buildSectionIndex } from "@/lib/section-index";
 
 function toSection(raw: string, tabId: TabId) {
   return {
@@ -24,10 +25,15 @@ export default async function Page() {
     fs.readFile(path.join(contentDir, "appendix.md"), "utf-8").catch(() => ""),
   ]);
 
+  // The section index is derived from the same markdown, here on the server, so the
+  // table of contents can never disagree with the document it indexes.
+  const sections = buildSectionIndex({ exec, strategy, operations, tactics, execution, appendix });
+
   // Markdown parsing happens here, on the server, so react-markdown and its
   // remark/rehype plugins never ship to the client bundle.
   return (
     <ClientPage
+      sections={sections}
       exec={toSection(exec, "exec")}
       strategy={toSection(strategy, "strategy")}
       operations={toSection(operations, "operations")}

@@ -25,7 +25,7 @@ const QUICK_TARGETS = [
   { id: "exec-sec-2-3", label: "200k Target Math", icon: Calculator, tab: "exec" },
   { id: "strategy-sec-6", label: "40 Wards Register", icon: MapPin, tab: "strategy" },
   { id: "operations-sec-8b-7", label: "ECFA Budget Ceiling", icon: Coins, tab: "operations" },
-  { id: "strategy-sec-17a", label: "Kikamba Radio Grid", icon: Radio, tab: "strategy" },
+  { id: "tactics-sec-17a", label: "Kikamba Radio Grid", icon: Radio, tab: "tactics" },
   { id: "exec-sec-2-7", label: "Fiscal Audit Analysis", icon: Activity, tab: "exec" },
   { id: "operations-sec-13", label: "War Room Matrix", icon: Target, tab: "operations" },
 ];

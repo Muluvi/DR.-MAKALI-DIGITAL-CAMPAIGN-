@@ -39,6 +39,7 @@ import { MobileTOCModal } from "./MobileTOCModal";
 import { MobileBottomNav } from "./MobileBottomNav";
 import { QuickNavCapsule } from "./QuickNavCapsule";
 import type { TabId } from "../lib/heading-slug";
+import type { SectionItem } from "../lib/section-index";
 
 import {
   WatermarkedPillars,
@@ -125,6 +126,7 @@ interface MarkdownSection {
 }
 
 interface ClientPageProps {
+  sections: SectionItem[];
   exec: MarkdownSection;
   strategy: MarkdownSection;
   operations: MarkdownSection;
@@ -227,7 +229,7 @@ function LazySection({ id, content, renderSectionExtras, immediate = false }: La
 
 const TAB_IDS = ["exec", "strategy", "operations", "tactics", "execution", "appendix"];
 
-export function ClientPage({ exec, strategy, operations, tactics, execution, appendix }: ClientPageProps) {
+export function ClientPage({ sections, exec, strategy, operations, tactics, execution, appendix }: ClientPageProps) {
   // Always starts on "exec" so server and client render the same tree on first paint — the URL
   // fragment is only readable client-side, so a shared deep link switches tab in a mount effect
   // below rather than in the initial state (see the useEffect reading window.location.hash).
@@ -807,6 +809,7 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
 
       {/* Mobile Table of Contents Full Modal Sheet */}
       <MobileTOCModal
+        sections={sections}
         isOpen={isTOCModalOpen}
         onClose={() => setIsTOCModalOpen(false)}
         activeTab={activeTab}

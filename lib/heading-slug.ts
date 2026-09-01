@@ -32,13 +32,13 @@ export const TAB_LABELS: Record<TabId, string> = {
 };
 
 // Cross-references the proposal's own prose makes by section number ("Section 19B", "Section 9B",
-// "Section 17A"). Some numbers (17A, 19B) appear as headings in more than one tab because the
-// source markdown duplicates that content across the strategy and tactics documents; the map below
-// points each reference at its first, canonical appearance so links are unambiguous.
+// "Section 17A"). Each number appears as a heading in exactly one tab: strategy.md carries §5-§10
+// and tactics.md carries §17-§19B, so a reference resolves unambiguously. (Before the split both
+// documents carried §17-§19B verbatim and this map existed to disambiguate them.)
 export const SECTION_TAB_MAP: Record<string, TabId> = {
   "9B": "operations",
-  "17A": "strategy",
-  "19B": "strategy",
+  "17A": "tactics",
+  "19B": "tactics",
 };
 
 export function crossSectionTarget(sectionNumber: string): string | null {
