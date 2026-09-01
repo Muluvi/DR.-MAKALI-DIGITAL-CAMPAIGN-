@@ -16,18 +16,15 @@ export default async function Page() {
   const contentDir = path.join(process.cwd(), "public", "content");
 
   // Read markdown files
-  const [exec, strategy, operations, tactics, execution, appendix] = await Promise.all([
+  const [exec, programme, registers] = await Promise.all([
     fs.readFile(path.join(contentDir, "exec.md"), "utf-8").catch(() => ""),
-    fs.readFile(path.join(contentDir, "strategy.md"), "utf-8").catch(() => ""),
-    fs.readFile(path.join(contentDir, "operations.md"), "utf-8").catch(() => ""),
-    fs.readFile(path.join(contentDir, "tactics.md"), "utf-8").catch(() => ""),
-    fs.readFile(path.join(contentDir, "execution.md"), "utf-8").catch(() => ""),
-    fs.readFile(path.join(contentDir, "appendix.md"), "utf-8").catch(() => ""),
+    fs.readFile(path.join(contentDir, "programme.md"), "utf-8").catch(() => ""),
+    fs.readFile(path.join(contentDir, "registers.md"), "utf-8").catch(() => ""),
   ]);
 
   // The section index is derived from the same markdown, here on the server, so the
   // table of contents can never disagree with the document it indexes.
-  const sections = buildSectionIndex({ exec, strategy, operations, tactics, execution, appendix });
+  const sections = buildSectionIndex({ exec, programme, registers });
 
   // Markdown parsing happens here, on the server, so react-markdown and its
   // remark/rehype plugins never ship to the client bundle.
@@ -35,11 +32,8 @@ export default async function Page() {
     <ClientPage
       sections={sections}
       exec={toSection(exec, "exec")}
-      strategy={toSection(strategy, "strategy")}
-      operations={toSection(operations, "operations")}
-      tactics={toSection(tactics, "tactics")}
-      execution={toSection(execution, "execution")}
-      appendix={toSection(appendix, "appendix")}
+      programme={toSection(programme, "programme")}
+      registers={toSection(registers, "registers")}
     />
   );
 }

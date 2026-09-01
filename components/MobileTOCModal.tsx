@@ -9,11 +9,8 @@ import type { SectionItem } from "../lib/section-index";
 
 const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
   exec: FileText,
-  strategy: Target,
-  operations: Activity,
-  tactics: Activity,
-  execution: Activity,
-  appendix: FileKey,
+  programme: Target,
+  registers: FileKey,
 };
 
 interface MobileTOCModalProps {
@@ -134,15 +131,12 @@ export function MobileTOCModal({
               >
                 All (26)
               </button>
-              {(["exec", "strategy", "operations", "tactics", "execution", "appendix"] as const).map((tab) => {
-                const labelMap = {
-                  exec: "1. Exec",
-                  strategy: "2. Strategy",
-                  operations: "3. Ops",
-                  tactics: "4. Tactics",
-                  execution: "5. Execution",
-                  appendix: "6. Appendix"
-                };
+              {(["exec", "programme", "registers"] as const).map((tab) => {
+                const labelMap: Record<TabId, string> = {
+    exec: "Analysis",
+    programme: "Programme",
+    registers: "Registers",
+  };
                 return (
                   <button
                     key={tab}

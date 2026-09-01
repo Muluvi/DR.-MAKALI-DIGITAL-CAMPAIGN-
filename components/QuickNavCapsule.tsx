@@ -11,11 +11,11 @@ interface QuickNavCapsuleProps {
 
 const QUICK_TARGETS = [
   { id: "exec-sec-2-3", label: "200k Target Math", icon: Calculator, tab: "exec" },
-  { id: "strategy-sec-6", label: "40 Wards Register", icon: MapPin, tab: "strategy" },
-  { id: "operations-sec-8b-7", label: "ECFA Budget Ceiling", icon: Coins, tab: "operations" },
-  { id: "tactics-sec-17a", label: "Kikamba Radio Table", icon: Radio, tab: "tactics" },
+  { id: "programme-sec-6", label: "40 Wards Register", icon: MapPin, tab: "programme" },
+  { id: "programme-sec-8b-7", label: "ECFA Budget Ceiling", icon: Coins, tab: "programme" },
+  { id: "programme-sec-17a", label: "Kikamba Radio Table", icon: Radio, tab: "programme" },
   { id: "exec-sec-2-7", label: "Fiscal Audit Analysis", icon: Activity, tab: "exec" },
-  { id: "operations-sec-13", label: "War Room Matrix", icon: Target, tab: "operations" },
+  { id: "programme-sec-13", label: "War Room Matrix", icon: Target, tab: "programme" },
 ];
 
 export function QuickNavCapsule({ onNavigate, activeTab }: QuickNavCapsuleProps) {

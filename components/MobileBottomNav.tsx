@@ -24,12 +24,9 @@ export function MobileBottomNav({
   onToggleTheme
 }: MobileBottomNavProps) {
   const tabs: { id: TabId; label: string; shortLabel: string; icon: React.ComponentType<{ size?: number; className?: string }> }[] = [
-    { id: "exec", label: "Executive", shortLabel: "Exec", icon: FileText },
-    { id: "strategy", label: "Strategy", shortLabel: "Strategy", icon: Target },
-    { id: "operations", label: "Operations", shortLabel: "Ops", icon: Activity },
-    { id: "tactics", label: "Tactics", shortLabel: "Tactics", icon: Activity },
-    { id: "execution", label: "Execution", shortLabel: "KPIs", icon: Activity },
-    { id: "appendix", label: "Appendix", shortLabel: "Appx", icon: FileKey },
+    { id: "exec", label: "The Analysis", shortLabel: "Analysis", icon: FileText },
+    { id: "programme", label: "The Programme", shortLabel: "Programme", icon: Target },
+    { id: "registers", label: "Registers", shortLabel: "Registers", icon: FileKey },
   ];
 
   return (

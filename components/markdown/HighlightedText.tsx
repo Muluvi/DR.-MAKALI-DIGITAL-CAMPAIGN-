@@ -45,11 +45,11 @@ const STATUS_PHRASES: { pattern: string; status: ClaimStatus }[] = [
 const BANNER_TRIGGERS: { pattern: string; tabIds: TabId[] }[] = [
   {
     pattern: ws("one that continues is a governance commitment — and the commitment is the persuasive element\\."),
-    tabIds: ["strategy", "tactics"],
+    tabIds: ["programme"],
   },
-  { pattern: ws("the reason the campaign's own deepfake denials will be believed\\."), tabIds: ["operations"] },
-  { pattern: ws("Firefly Management is ready to build that operation\\."), tabIds: ["execution"] },
-  { pattern: ws("commence Phase\\s+[−-]1 Week 1\\."), tabIds: ["appendix"] },
+  { pattern: ws("the reason the campaign's own deepfake denials will be believed\\."), tabIds: ["programme"] },
+  { pattern: ws("Firefly Management is ready to build that operation\\."), tabIds: ["programme"] },
+  { pattern: ws("commence Phase\\s+[−-]1 Week 1\\."), tabIds: ["registers"] },
 ];
 
 // Dictionary of definitions for hover tooltips

@@ -137,10 +137,17 @@ function getTableHeaderTexts(children: React.ReactNode): string[] {
 // decision" badge mechanically rather than by guessing at status elsewhere.
 const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
 
-// Visualisations anchored to a specific heading rather than a table (Phase C, items 11/12/15/16).
-// Keyed by the same "<tab>-sec-<slug>" id SectionHeading assigns, so this stays correct even if
-// the heading text is edited later.
+// Visualisations anchored to a specific heading rather than a table, keyed by the same
+// "<tab>-sec-<slug>" id SectionHeading assigns, so this stays correct even if the heading text is
+// edited later.
+//
+// ONE COMPONENT, ONE HOME. Several components used to be keyed at two or three ids at once —
+// defensively, because before the section index was generated nobody could be sure which heading
+// actually existed. That guesswork rendered the same chart up to three times in a single
+// section. Every key below now resolves to a heading that exists; a build-time check would be
+// the next step if this map grows again.
 const HEADING_INSERTS: Record<string, React.ReactNode> = {
+  // ---- The Analysis (exec.md, §1–§20) -------------------------------------------------
   "exec-sec-1-1": <PollingTrajectorySimulator />,
   "exec-sec-1a": <NominationPathPanel />,
   "exec-sec-2-2": <ConstitutionalBranchNavigator />,
@@ -170,39 +177,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "exec-sec-2-10": <CompetitorFieldPanel />,
   "exec-sec-6-3": <PathTo200kCalculator />,
   "exec-sec-6-5": <RecognitionDeficitOverlay />,
-  "exec-sec-7-0": <AudienceSegmentationMatrix />,
   "exec-sec-7": <AudienceSegmentationMatrix />,
-  "strategy-sec-5": <StrategicPillarsMatrix />,
-  "strategy-sec-6": <AudienceSegmentationMatrix />,
-  "strategy-sec-7": <GeographicZoneMatrix />,
-  "strategy-sec-10": <PersuasionFramingMatrix />,
-  "tactics-sec-17a": (
-    <>
-      <MediaRadioLandscapeCard />
-      <RadioAircoverDial />
-    </>
-  ),
-  "tactics-sec-17a-1": <MediaRadioLandscapeCard />,
-  "tactics-sec-17a-7": <MediaOwnershipBlock />,
-  "tactics-sec-19b": <PublicServiceDeliveryTracker />,
-  "operations-sec-8a": <CampaignOrgChart />,
-  "operations-sec-8b-5": <BudgetScenarioModeler />,
-  "operations-sec-8b-6": <BudgetScenarioModeler />,
-  "operations-sec-8b-7": <ComplianceCeilingPanel />,
-  "operations-sec-13": <CrisisWarRoomMatrix />,
-  "operations-sec-13-1": <CrisisWarRoomMatrix />,
-  "operations-sec-13-4": <CrisisWarRoomMatrix />,
-  "operations-sec-16": <DataSecurityEthicsCharter />,
-  "operations-sec-16-1": <DataSecurityEthicsCharter />,
-  "operations-sec-16-4": <DataSecurityEthicsCharter />,
-  "operations-sec-9a": <FlywheelSchematic />,
-  "operations-sec-9b": (
-    <>
-      <ReachSplit />
-      <SMSFeedbackVisualizer />
-    </>
-  ),
-  "exec-sec-10": <FlywheelSchematic />,
   "exec-sec-13": (
     <>
       <MessagingPlayground />
@@ -211,16 +186,44 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   ),
   "exec-sec-14-4": <CommunityScheduler />,
   "exec-sec-15": <CounterMessagingGrid />,
-  "tactics-sec-17": <MediaPlaybackMockup />,
-  "tactics-sec-19": <SloganBuilder />,
-  "exec-sec-9": <ReachSplit />,
-  "execution-sec-20": (
+  // §17.1 is the ownership/alignment/tier table this chart plots. It had been keyed to a
+  // §17A.7 heading that stopped existing when strategy and tactics were split, so the chart
+  // was rendering nowhere.
+  "exec-sec-17-1": <MediaOwnershipBlock />,
+
+  // ---- The Programme (programme.md, §5–§23) -------------------------------------------
+  "programme-sec-5": <StrategicPillarsMatrix />,
+  "programme-sec-7": <GeographicZoneMatrix />,
+  "programme-sec-8a": <CampaignOrgChart />,
+  "programme-sec-8b-5": <BudgetScenarioModeler />,
+  "programme-sec-8b-7": <ComplianceCeilingPanel />,
+  "programme-sec-9a": <FlywheelSchematic />,
+  "programme-sec-9b": (
+    <>
+      <ReachSplit />
+      <SMSFeedbackVisualizer />
+    </>
+  ),
+  "programme-sec-10": <PersuasionFramingMatrix />,
+  "programme-sec-13": <CrisisWarRoomMatrix />,
+  "programme-sec-16": <DataSecurityEthicsCharter />,
+  "programme-sec-17": <MediaPlaybackMockup />,
+  "programme-sec-17a": (
+    <>
+      <MediaRadioLandscapeCard />
+      <RadioAircoverDial />
+    </>
+  ),
+  "programme-sec-19": <SloganBuilder />,
+  "programme-sec-19b": <PublicServiceDeliveryTracker />,
+  "programme-sec-20": (
     <>
       <PhaseRail />
       <KpiPhaseBlock />
     </>
   ),
 };
+
 
 // A handful of headings (the "Appendix A/B/C" style) carry no leading digit, so headingSlug
 // never assigns them an id — matched on exact heading text instead, same mechanism as

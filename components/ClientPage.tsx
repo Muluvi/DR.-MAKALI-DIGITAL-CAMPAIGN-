@@ -15,7 +15,7 @@ import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
 import { MobileTOCModal } from "./MobileTOCModal";
 import { MobileBottomNav } from "./MobileBottomNav";
 import { QuickNavCapsule } from "./QuickNavCapsule";
-import type { TabId } from "../lib/heading-slug";
+import { resolveLegacySectionId, type TabId } from "../lib/heading-slug";
 import type { SectionItem } from "../lib/section-index";
 
 import { FocusModeToggle, PrintReportGenerator } from "./StrategicAids";
@@ -67,11 +67,8 @@ interface MarkdownSection {
 interface ClientPageProps {
   sections: SectionItem[];
   exec: MarkdownSection;
-  strategy: MarkdownSection;
-  operations: MarkdownSection;
-  tactics: MarkdownSection;
-  execution: MarkdownSection;
-  appendix: MarkdownSection;
+  programme: MarkdownSection;
+  registers: MarkdownSection;
 }
 
 const WiperUmbrellaLogo = () => (
@@ -97,7 +94,7 @@ function PartDivider({ index, label }: { index: number; label: string }) {
       <div className="h-12 sm:h-14 flex items-center bg-gradient-to-r from-accent/[0.05] via-gold/[0.06] to-accent/[0.05] border-y border-line/40">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 w-full flex items-center gap-3">
           <span className="font-mono text-[9px] sm:text-[10px] font-black text-accent/70 shrink-0">
-            PART {index + 1}/6
+            PART {index + 1}/3
           </span>
           <span className="h-px flex-1 bg-line/60" />
           <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-muted truncate">{label}</span>
@@ -166,9 +163,9 @@ function LazySection({ id, content, renderSectionExtras, immediate = false }: La
   );
 }
 
-const TAB_IDS = ["exec", "strategy", "operations", "tactics", "execution", "appendix"];
+const TAB_IDS = ["exec", "programme", "registers"];
 
-export function ClientPage({ sections, exec, strategy, operations, tactics, execution, appendix }: ClientPageProps) {
+export function ClientPage({ sections, exec, programme, registers }: ClientPageProps) {
   // Always starts on "exec" so server and client render the same tree on first paint — the URL
   // fragment is only readable client-side, so a shared deep link switches tab in a mount effect
   // below rather than in the initial state (see the useEffect reading window.location.hash).
@@ -186,13 +183,10 @@ export function ClientPage({ sections, exec, strategy, operations, tactics, exec
   const { theme, toggleTheme, mounted } = useTheme();
 
   const navItems = useMemo(() => [
-    { id: "exec", label: "Executive Summary", icon: FileText, content: exec.node, wordCount: exec.wordCount },
-    { id: "strategy", label: "Strategy & Targeting", icon: Target, content: strategy.node, wordCount: strategy.wordCount },
-    { id: "operations", label: "Operations & Architecture", icon: Activity, content: operations.node, wordCount: operations.wordCount },
-    { id: "tactics", label: "Tactics & Themes", icon: Activity, content: tactics.node, wordCount: tactics.wordCount },
-    { id: "execution", label: "Implementation & KPIs", icon: Activity, content: execution.node, wordCount: execution.wordCount },
-    { id: "appendix", label: "Appendix", icon: FileKey, content: appendix.node, wordCount: appendix.wordCount },
-  ], [exec, strategy, operations, tactics, execution, appendix]);
+    { id: "exec", label: "The Analysis", icon: FileText, content: exec.node, wordCount: exec.wordCount },
+    { id: "programme", label: "The Programme", icon: Target, content: programme.node, wordCount: programme.wordCount },
+    { id: "registers", label: "Registers", icon: FileKey, content: registers.node, wordCount: registers.wordCount },
+  ], [exec, programme, registers]);
 
   // Premium dynamic category intersection observer to track active section while scrolling
   useEffect(() => {
@@ -246,7 +240,8 @@ export function ClientPage({ sections, exec, strategy, operations, tactics, exec
   // used by in-text cross-references and the per-section copy-link buttons. Switches tab
   // if needed, waits for the target to mount, then scrolls to it and sets :target via the hash.
   const navigateToSection = useCallback(
-    (id: string) => {
+    (rawId: string) => {
+      const id = resolveLegacySectionId(rawId);
       const targetTab = id.split("-sec-")[0];
       const isValidTab = navItems.some((item) => item.id === targetTab);
 
@@ -270,7 +265,7 @@ export function ClientPage({ sections, exec, strategy, operations, tactics, exec
   // right tab — the fragment only exists client-side, so this can't happen in initial state —
   // then land on the section once its content has mounted.
   useEffect(() => {
-    const hash = window.location.hash.replace(/^#/, "");
+    const hash = resolveLegacySectionId(window.location.hash.replace(/^#/, ""));
     if (!hash) return;
     const targetTab = hash.split("-sec-")[0];
     if (TAB_IDS.includes(targetTab)) {
@@ -289,7 +284,7 @@ export function ClientPage({ sections, exec, strategy, operations, tactics, exec
   // the prose it belongs to. What remains here is the handful of surfaces that are about the
   // document as a whole rather than about one section, plus the closing ask.
   const renderSectionExtras = (sectionId: string) => {
-    const showFocusToggle = sectionId !== "appendix";
+    const showFocusToggle = sectionId !== "registers";
 
     return (
       <div className="mt-8 pt-8 border-t border-line/20 space-y-8">
@@ -300,7 +295,7 @@ export function ClientPage({ sections, exec, strategy, operations, tactics, exec
           />
         )}
 
-        {!isFocusMode && sectionId === "execution" && (
+        {!isFocusMode && sectionId === "programme" && (
           <>
             <PrintReportGenerator />
             <DecisionPanel />
@@ -382,19 +377,19 @@ export function ClientPage({ sections, exec, strategy, operations, tactics, exec
                 200k Target Math
               </button>
               <button
-                onClick={() => navigateToSection("strategy-sec-6")}
+                onClick={() => navigateToSection("programme-sec-6")}
                 className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
               >
                 40 Wards Register
               </button>
               <button
-                onClick={() => navigateToSection("operations-sec-9c")}
+                onClick={() => navigateToSection("programme-sec-9b")}
                 className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
               >
                 Kikamba Radio
               </button>
               <button
-                onClick={() => navigateToSection("operations-sec-8")}
+                onClick={() => navigateToSection("programme-sec-8b")}
                 className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
               >
                 ECFA Compliance
