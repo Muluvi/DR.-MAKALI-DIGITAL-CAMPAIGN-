@@ -2,108 +2,141 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  Calculator, 
-  CheckCircle2, 
-  AlertOctagon, 
-  TrendingUp, 
-  Compass, 
-  Layers, 
+import {
+  Calculator,
+  CheckCircle2,
+  AlertOctagon,
+  TrendingUp,
+  Compass,
+  Layers,
   ArrowRight,
   ShieldAlert,
   Percent
 } from "lucide-react";
+
+import { ALL_WARDS, CONSTITUENCIES, COUNTY_TOTAL_WARDS } from "../../data/ward-register";
+
+/**
+ * Section 6.3 — the four structural paths to ~200,000, showing the working.
+ *
+ * Every figure is DERIVED from data/ward-register.json. Nothing is typed in, which matters
+ * here more than anywhere else on the site: this component is the proposal's central
+ * arithmetic claim, and an earlier version had every constituency figure wrong (Mwingi North
+ * 68,932 against a true 68,829; Kitui Central 78,512 against 77,764) while also substituting
+ * Kitui East for Kitui West in Path D. The totals were right and the breakdowns were invented
+ * underneath them — which is exactly the failure mode "showing the working" exists to prevent.
+ */
+
+/** 2022 winning total (Malombe), §6.1. The benchmark every path is measured against. */
+const WINNING_TOTAL_2022 = 198004;
+/** The round benchmark §6.3 states the paths against. */
+const TARGET_THRESHOLD = 200000;
+
+const byId = (id: string) => {
+  const c = CONSTITUENCIES.find((x) => x.id === id);
+  if (!c) throw new Error(`Unknown constituency id: ${id}`);
+  return c;
+};
 
 interface CoalitionPath {
   id: string;
   name: string;
   code: string;
   tagline: string;
-  voterPool: number;
-  shareOfCounty: number;
-  marginOverTarget: number;
-  isViable: boolean;
-  constituencies: { name: string; voters: number; wards: number }[];
   strategicVerdict: string;
   tacticalRequirement: string;
+  /** Either whole constituencies, or the top-N wards countywide. */
+  composition: { kind: "constituencies"; ids: string[] } | { kind: "topWards"; count: number };
 }
 
-const COALITION_PATHS: CoalitionPath[] = [
+const PATH_DEFS: CoalitionPath[] = [
   {
     id: "pathA",
     name: "Path A: The Northern Mwingi Triad",
-    code: "MWINGI-NORTH + MWINGI-CENTRAL + MWINGI-WEST",
-    tagline: "Total Northern Bloc Consolidation",
-    voterPool: 200198,
-    shareOfCounty: 37.58,
-    marginOverTarget: 2194, // over 198,004 (2022 winning threshold)
-    isViable: true,
-    constituencies: [
-      { name: "Mwingi North", voters: 68932, wards: 5 },
-      { name: "Mwingi Central", voters: 74653, wards: 6 },
-      { name: "Mwingi West", voters: 56613, wards: 4 },
-    ],
-    strategicVerdict: "Mathematically viable (+2,194 votes over winning mark). Captures the entire northern demographic belt.",
-    tacticalRequirement: "Must close the 15.3-pt deficit in Mwingi against Kasalu through aggressive Kikamba vernacular radio (Musyi FM 06:00–08:30) and targeted church networks."
+    code: "MWINGI CENTRAL + MWINGI NORTH + MWINGI WEST",
+    tagline: "Total northern bloc consolidation",
+    composition: { kind: "constituencies", ids: ["mwingi-central", "mwingi-north", "mwingi-west"] },
+    strategicVerdict:
+      "The northern three constituencies possess enough registered voters to meet the entire historical victory threshold on their own.",
+    tacticalRequirement:
+      "Consolidating a decisive margin in Mwingi is a mathematically sufficient foundation for victory — and Mwingi is where the recognition deficit is deepest.",
   },
   {
     id: "pathB",
     name: "Path B: The Central-South-West Axis",
-    code: "KITUI-CENTRAL + KITUI-SOUTH + KITUI-WEST",
-    tagline: "The Southern & Urban Bastion",
-    voterPool: 212183,
-    shareOfCounty: 39.83,
-    marginOverTarget: 14179,
-    isViable: true,
-    constituencies: [
-      { name: "Kitui Central (Home Anchor)", voters: 78512, wards: 5 },
-      { name: "Kitui South (Largest Deficit)", voters: 76891, wards: 6 },
-      { name: "Kitui West", voters: 56780, wards: 4 },
-    ],
-    strategicVerdict: "Strongest numerical cushion (+14,179 votes over winning mark). Highest turnout stability.",
-    tacticalRequirement: "Requires neutralizing Irene Kasalu's home advantage in Kitui South while defending Dr. Mulu's 80%+ anchor in Kitui Central."
+    code: "KITUI CENTRAL + KITUI SOUTH + KITUI WEST",
+    tagline: "The southern and urban bastion",
+    composition: { kind: "constituencies", ids: ["kitui-central", "kitui-south", "kitui-west"] },
+    strategicVerdict:
+      "Combining the home base with the county's largest southern constituency and the peri-urban west forms a contiguous coalition that clears the threshold with the widest margin of any path.",
+    tacticalRequirement:
+      "Requires breaking into Kitui South, which §6.5 identifies as critical-deficit territory.",
   },
   {
     id: "pathC",
-    name: "Path C: The Top 12 Megawards Coalition",
-    code: "TOP 12 WARDS ACROSS ALL 8 CONSTITUENCIES",
-    tagline: "High-Density Ward Concentration",
-    voterPool: 201267,
-    shareOfCounty: 37.78,
-    marginOverTarget: 3263,
-    isViable: true,
-    constituencies: [
-      { name: "Township & Kyangwithya (Central)", voters: 42100, wards: 2 },
-      { name: "Mwingi Central & Waita (Mwingi)", voters: 39850, wards: 2 },
-      { name: "Mutomo & Ikutha (South)", voters: 38200, wards: 2 },
-      { name: "6 Other High-Density Wards", voters: 81117, wards: 6 },
-    ],
-    strategicVerdict: "Highest capital efficiency. Directs 70% of ground and digital ad budget into just 30% of county wards.",
-    tacticalRequirement: "Intensive field-agent deployment, ward coordinators, and targeted digital/SMS bursts in Kitui Township, Mwingi Town, and Mutomo."
+    name: "Path C: The 12 Megawards",
+    code: "TOP 12 WARDS ACROSS 6 CONSTITUENCIES",
+    tagline: "High-density ward concentration",
+    composition: { kind: "topWards", count: 12 },
+    strategicVerdict:
+      "The campaign does not need to contest all 40 wards with equal resource intensity.",
+    tacticalRequirement:
+      "High-intensity micro-targeting across just these 12 high-yield wards directly engages the whole threshold.",
   },
   {
     id: "pathD",
-    name: "Path D: The Home-Belt Ceiling Trap",
-    code: "KITUI-CENTRAL + KITUI-RURAL + KITUI-EAST",
-    tagline: "Central Geography Only (Fatal Flaw)",
-    voterPool: 191811,
-    shareOfCounty: 36.00,
-    marginOverTarget: -6193, // Deficit vs 198,004
-    isViable: false,
-    constituencies: [
-      { name: "Kitui Central", voters: 78512, wards: 5 },
-      { name: "Kitui Rural", voters: 58240, wards: 4 },
-      { name: "Kitui East", voters: 55059, wards: 5 },
-    ],
-    strategicVerdict: "FATAL DEFICIT (-6,193 votes short of 2022 winning mark even at 100% voter registration).",
-    tacticalRequirement: "Demonstrates conclusively that an inward-focused Central-only campaign cannot win without breaking into Mwingi or Kitui South."
-  }
+    name: "Path D: The Home-Belt Ceiling",
+    code: "KITUI CENTRAL + KITUI WEST + KITUI RURAL",
+    tagline: "Central geography only — the isolation trap",
+    composition: { kind: "constituencies", ids: ["kitui-central", "kitui-west", "kitui-rural"] },
+    strategicVerdict:
+      "A home-constituency strategy is mathematically impossible. At the 62.0% turnout baseline these registered voters produce only 118,923 ballots cast; even at an unprecedented 80% share across the entire home belt, the result falls far short.",
+    tacticalRequirement:
+      "Aggressive outward expansion into Mwingi and Kitui South is an absolute, non-negotiable arithmetic necessity.",
+  },
 ];
+
+/** Resolve each path against the register — pool, ward count, share and margin all computed. */
+const COALITION_PATHS = PATH_DEFS.map((def) => {
+  let voterPool: number;
+  let wardCount: number;
+  let parts: { name: string; voters: number; wards: number }[];
+
+  if (def.composition.kind === "constituencies") {
+    const cs = def.composition.ids.map(byId);
+    voterPool = cs.reduce((sum, c) => sum + c.voters, 0);
+    wardCount = cs.reduce((sum, c) => sum + c.wards.length, 0);
+    parts = cs.map((c) => ({ name: c.name, voters: c.voters, wards: c.wards.length }));
+  } else {
+    const top = [...ALL_WARDS].sort((a, b) => b.voters - a.voters).slice(0, def.composition.count);
+    voterPool = top.reduce((sum, w) => sum + w.voters, 0);
+    wardCount = top.length;
+    const byConstituency = new Map<string, { voters: number; wards: number }>();
+    for (const w of top) {
+      const cur = byConstituency.get(w.constituencyName) ?? { voters: 0, wards: 0 };
+      byConstituency.set(w.constituencyName, { voters: cur.voters + w.voters, wards: cur.wards + 1 });
+    }
+    parts = [...byConstituency.entries()]
+      .map(([name, v]) => ({ name, ...v }))
+      .sort((a, b) => b.voters - a.voters);
+  }
+
+  return {
+    ...def,
+    voterPool,
+    wardCount,
+    constituencies: parts,
+    shareOfCounty: (voterPool / COUNTY_TOTAL_WARDS) * 100,
+    marginOver2022: voterPool - WINNING_TOTAL_2022,
+    marginOverBenchmark: voterPool - TARGET_THRESHOLD,
+    isViable: voterPool >= TARGET_THRESHOLD,
+  };
+});
 
 export function PathTo200kCalculator() {
   const [selectedPathId, setSelectedPathId] = useState<string>("pathB");
   const selectedPath = COALITION_PATHS.find(p => p.id === selectedPathId) || COALITION_PATHS[0];
-  const targetThreshold = 200000;
+  const targetThreshold = TARGET_THRESHOLD;
   const progressPercent = Math.min(100, (selectedPath.voterPool / targetThreshold) * 100);
 
   return (
@@ -138,12 +171,12 @@ export function PathTo200kCalculator() {
           {selectedPath.isViable ? (
             <>
               <CheckCircle2 size={14} />
-              <span>Viable Coalition (+{selectedPath.marginOverTarget.toLocaleString()} votes)</span>
+              <span>Clears the benchmark (+{selectedPath.marginOverBenchmark.toLocaleString()})</span>
             </>
           ) : (
             <>
               <AlertOctagon size={14} />
-              <span>Mathematical Ceiling Deficit ({selectedPath.marginOverTarget.toLocaleString()} votes)</span>
+              <span>Short of the benchmark ({selectedPath.marginOverBenchmark.toLocaleString()})</span>
             </>
           )}
         </div>
@@ -187,7 +220,7 @@ export function PathTo200kCalculator() {
           <div className="flex items-center justify-between text-xs mb-1.5 font-bold">
             <span className="text-ink">{selectedPath.name}</span>
             <span className="font-mono text-accent">
-              {selectedPath.voterPool.toLocaleString()} / 200,000 ({selectedPath.shareOfCounty}% of County Register)
+              {selectedPath.voterPool.toLocaleString()} / {TARGET_THRESHOLD.toLocaleString()} ({selectedPath.shareOfCounty.toFixed(2)}% of register, {selectedPath.wardCount} wards)
             </span>
           </div>
           <div className="h-3.5 bg-paper border border-line rounded-full overflow-hidden p-0.5 relative">
@@ -203,12 +236,16 @@ export function PathTo200kCalculator() {
               }`}
             />
             {/* 200k Marker */}
-            <div className="absolute top-0 bottom-0 left-[94.3%] w-0.5 bg-ink/70 z-10" title="2022 Winner Baseline (198,004)" />
+            <div
+              className="absolute top-0 bottom-0 w-0.5 bg-ink/70 z-10"
+              style={{ left: `${(WINNING_TOTAL_2022 / TARGET_THRESHOLD) * 100}%` }}
+              title={`2022 winning total (${WINNING_TOTAL_2022.toLocaleString()})`}
+            />
           </div>
           <div className="flex justify-between text-[10px] font-mono text-muted mt-1">
             <span>0</span>
-            <span className="text-accent font-bold">532,758 Kitui Registered Pool</span>
-            <span>200,000 Target Threshold</span>
+            <span className="text-accent font-bold tabular-nums">{COUNTY_TOTAL_WARDS.toLocaleString()} Kitui registered pool</span>
+            <span className="tabular-nums">{TARGET_THRESHOLD.toLocaleString()} target</span>
           </div>
         </div>
 

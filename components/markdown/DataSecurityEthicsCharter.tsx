@@ -40,7 +40,7 @@ const ETHICAL_COMMITMENTS: EthicalCommitment[] = [
     category: "Consent & Messaging",
     ruleName: "One-Touch Unconditional Opt-Out",
     statutoryBasis: "DPA 2019 Right to Object & DND Regulations",
-    campaignStandard: "Every bulk SMS carries an immediate opt-out keyword ('STOP to 40440'). Processed automatically within 60 seconds across all campaign lists.",
+    campaignStandard: "Every bulk SMS carries an immediate opt-out keyword. The shortcode is a vendor allocation pending at Phase 0 (Appendix A), so the footer reads 'STOP to <shortcode>' until it is issued. Opt-outs are processed automatically across all campaign lists.",
     penaltyForBreach: "Immediate permanent suppression of number across all databases.",
     isComplianceGated: false
   },

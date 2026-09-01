@@ -16,7 +16,7 @@ import {
   MapPin, 
   ChevronRight,
   Filter
-} from "lucide-react";
+, Info } from "lucide-react";
 
 interface ServiceReport {
   refNumber: string;
@@ -24,7 +24,7 @@ interface ServiceReport {
   constituency: string;
   category: "Water Infrastructure" | "Feeder Roads" | "Health Clinic" | "Market Sanitation";
   issue: string;
-  channel: "USSD (*384#)" | "SMS" | "WhatsApp" | "Ward Champion";
+  channel: "USSD" | "SMS" | "WhatsApp" | "Ward Champion";
   status: "Under Verification" | "Raised with County" | "Resolved / Audited" | "Escalated";
   date: string;
   outcomeNote: string;
@@ -32,18 +32,18 @@ interface ServiceReport {
 
 const SAMPLE_REPORTS: ServiceReport[] = [
   {
-    refNumber: "KT-2026-0814",
+    refNumber: "KT-SAMPLE-A",
     ward: "Kyuso",
     constituency: "Mwingi North",
     category: "Water Infrastructure",
     issue: "Kyuso Solar-powered borehole pump failed; 1,200 households walking 8km to Tana River basin.",
-    channel: "USSD (*384#)",
+    channel: "USSD",
     status: "Raised with County",
     date: "28 Aug 2026",
     outcomeNote: "Formal query submitted to County Water Chief Officer; Ward Coordinator verifying solar inverter warranty."
   },
   {
-    refNumber: "KT-2026-0792",
+    refNumber: "KT-SAMPLE-B",
     ward: "Mutomo",
     constituency: "Kitui South",
     category: "Health Clinic",
@@ -54,7 +54,7 @@ const SAMPLE_REPORTS: ServiceReport[] = [
     outcomeNote: "Dr. Mulu raised on parliamentary committee record regarding unspent county emergency health reserves."
   },
   {
-    refNumber: "KT-2026-0750",
+    refNumber: "KT-SAMPLE-C",
     ward: "Township",
     constituency: "Kitui Central",
     category: "Market Sanitation",
@@ -65,7 +65,7 @@ const SAMPLE_REPORTS: ServiceReport[] = [
     outcomeNote: "Municipal cleanup completed following public petition; audited by volunteer youth champions."
   },
   {
-    refNumber: "KT-2026-0681",
+    refNumber: "KT-SAMPLE-D",
     ward: "Waita",
     constituency: "Mwingi Central",
     category: "Feeder Roads",
@@ -81,7 +81,7 @@ export function PublicServiceDeliveryTracker() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [isSimulatingSubmission, setIsSimulatingSubmission] = useState(false);
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
-  const [generatedRef, setGeneratedRef] = useState("KT-2026-0889");
+  const [generatedRef, setGeneratedRef] = useState("KT-SAMPLE-E");
   const [wardInput, setWardInput] = useState("Mwingi Central");
   const [issueInput, setIssueInput] = useState("");
 
@@ -126,12 +126,21 @@ export function PublicServiceDeliveryTracker() {
           </div>
         </div>
 
-        {/* Live Channel Pills */}
+        {/* Intake channels. Shortcodes are vendor allocations pending at Phase 0 (Appendix A). */}
         <div className="flex flex-wrap items-center gap-1.5 text-[10px] font-mono font-bold text-muted">
-          <span className="px-2 py-1 bg-paper border border-line rounded-lg">USSD *384#</span>
-          <span className="px-2 py-1 bg-paper border border-line rounded-lg">SMS 40440</span>
+          <span className="px-2 py-1 bg-paper border border-line rounded-lg">USSD &mdash; code pending</span>
+          <span className="px-2 py-1 bg-paper border border-line rounded-lg">SMS &mdash; shortcode pending</span>
           <span className="px-2 py-1 bg-paper border border-line rounded-lg">WhatsApp</span>
         </div>
+      </div>
+
+      <div className="px-4 py-2.5 bg-gold/[0.06] border-b border-gold/25 flex items-start gap-2">
+        <Info size={13} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
+        <p className="text-[11px] text-ink leading-relaxed">
+          <strong>Interface preview.</strong> The tracker described in §19B has not been built &mdash; §19B.6 sets out
+          its build and cost. Every entry below is illustrative, written to show the intake format and the
+          verification protocol. No citizen report has been received and no query has been raised with the county.
+        </p>
       </div>
 
       {/* 5-Step M&E Pipeline Visualizer (Replacing raw ASCII tree) */}

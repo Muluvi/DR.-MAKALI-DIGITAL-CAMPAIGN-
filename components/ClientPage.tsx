@@ -44,17 +44,10 @@ import {
   WatermarkedPillars,
   ProportionalDotMatrix,
   AudioSummaryPlayer,
-  MilestoneTimeline,
   HeroStatTilt,
   ObjectiveAccordion,
   BadgeTicker,
   SpeechSnippetCard,
-  InteractiveMapHover,
-  KPIGauge,
-  VoterDensityMap,
-  DeficitSlider,
-  VoterFunnel,
-  InteractiveVoterFunnel,
   VoterProfile,
   IsotypeCitizens,
   SWOTMatrix,
@@ -63,11 +56,9 @@ import {
   TargetingSimulator,
   ConversionTargetRing,
   FocusModeToggle,
-  LiveGroundActivityTracker,
   FlywheelSchematic,
   ResourceLedger,
   OrgStructureTree,
-  BudgetDistributionDial,
   CircuitWiringVisual,
   HorizontalMilestones,
   ComplianceDial,
@@ -84,14 +75,6 @@ import {
   SMSFeedbackVisualizer,
   CommunityScheduler,
   ColorSwatches,
-  KPIDashboardGrid,
-  ProjectBurndownChart,
-  ChecklistProgressRings,
-  PerformanceGauge,
-  StatusBadgeMatrix,
-  ResourceSpendingChart,
-  ActionPriorityMatrix,
-  CampaignRoadmapGantt,
   FeedbackLoopCircuit,
   PrintReportGenerator,
   CampaignTargetsChart,
@@ -388,9 +371,6 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
                   <div className="space-y-6 z-10">
                     <HeroStatTilt />
                     <AudioSummaryPlayer />
-                    <MilestoneTimeline />
-                    <InteractiveMapHover />
-                    <KPIGauge />
                   </div>
                 </div>
               </SectionTabTransition>
@@ -400,14 +380,11 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
               <SectionTabTransition>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                   <div className="space-y-6">
-                    <VoterDensityMap />
-                    <InteractiveVoterFunnel />
                     <VoterProfile />
                     <IsotypeCitizens />
                     <SWOTMatrix />
                   </div>
                   <div className="space-y-6">
-                    <DeficitSlider />
                     <VoteProjectionGraph />
                     <DemographicBento />
                     <TargetingSimulator />
@@ -423,10 +400,8 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
               <SectionTabTransition>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                   <div className="space-y-6">
-                    <LiveGroundActivityTracker />
                     <ResourceLedger />
                     <OrgStructureTree />
-                    <BudgetDistributionDial />
                   </div>
                   <div className="space-y-6">
                     <FlywheelSchematic />
@@ -465,16 +440,8 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
               <SectionTabTransition>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                   <div className="space-y-6">
-                    <KPIDashboardGrid />
-                    <ChecklistProgressRings />
-                    <StatusBadgeMatrix />
-                    <ActionPriorityMatrix />
                   </div>
                   <div className="space-y-6">
-                    <ProjectBurndownChart />
-                    <PerformanceGauge />
-                    <ResourceSpendingChart />
-                    <CampaignRoadmapGantt />
                     <FeedbackLoopCircuit />
                     <PrintReportGenerator />
                   </div>

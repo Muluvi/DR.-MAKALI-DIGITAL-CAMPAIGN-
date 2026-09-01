@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/verify-ward-register.mjs",
+    "prebuild": "node scripts/verify-ward-register.mjs && node scripts/verify-figures.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "clean": "next clean"
+    "clean": "next clean",
+    "verify": "node scripts/verify-ward-register.mjs && node scripts/verify-figures.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

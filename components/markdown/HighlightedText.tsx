@@ -55,7 +55,7 @@ const BANNER_TRIGGERS: { pattern: string; tabIds: TabId[] }[] = [
 // Dictionary of definitions for hover tooltips
 const DEFINITIONS: Record<string, string> = {
   "own-source revenue": "Kitui's locally-generated county treasury funds, targeted at KSh 1.339bn.",
-  "polling deficit": "The 15.3% voter margin gap that this campaign is actively closing.",
+  "polling deficit": "The 15.3-point gap between Dr. Mulu (22.1%) and Dr. Kasalu (37.4%) in the 7 August 2026 Mizani survey. Percentage points, not percent.",
   "ussd database": "Offline text-based digital voter registration system designed to reach citizens without internet.",
   "aircover": "Continuous community FM radio broadcasting synchronized with SMS networks.",
   "consensus strategy": "Direct delegate alignment to secure 75%+ endorsements without ballot splits.",

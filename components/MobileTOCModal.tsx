@@ -39,7 +39,7 @@ const ALL_SECTIONS: SectionItem[] = [
   { id: "exec-sec-2-4", number: "2.4", title: "County Revenue & Resource Realities (KSh13.79bn)", tabId: "exec", tabLabel: "Executive Summary" },
   { id: "exec-sec-2-5", number: "2.5", title: "Demographics & Connectivity (KNBS 2019)", tabId: "exec", tabLabel: "Executive Summary" },
   { id: "exec-sec-2-6", number: "2.6", title: "Historical Electoral Precedent (2013–2022)", tabId: "exec", tabLabel: "Executive Summary" },
-  { id: "exec-sec-2-7", number: "2.7", title: "Fiscal Governance & Audit Queries (KSh2.38bn)", tabId: "exec", tabLabel: "Executive Summary" },
+  { id: "exec-sec-2-7", number: "2.7", title: "Fiscal Governance & Audit Queries (4 queries)", tabId: "exec", tabLabel: "Executive Summary" },
   { id: "exec-sec-2-8", number: "2.8", title: "Drought & Climate Vulnerability (11 Sub-Counties)", tabId: "exec", tabLabel: "Executive Summary" },
   { id: "exec-sec-2-9", number: "2.9", title: "Mui Basin Coal Concession (Blocks A–D)", tabId: "exec", tabLabel: "Executive Summary" },
   { id: "exec-sec-2-10", number: "2.10", title: "Competitor Field Analysis (Kasalu & Malombe)", tabId: "exec", tabLabel: "Executive Summary" },
