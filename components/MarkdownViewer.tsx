@@ -17,6 +17,7 @@ import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
 import { MizaniSlopeBlock } from "./markdown/MizaniSlopeBlock";
 import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
 import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
+import { AsciiDiagram } from "./markdown/AsciiDiagram";
 import { ReachSplit } from "./ReachSplit";
 import {
   FlywheelSchematic,
@@ -310,19 +311,12 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
 
               return table;
             },
-            pre: ({ children }) => (
-              <div className="my-6 rounded-2xl border border-line bg-paper/60 p-3 sm:p-4 overflow-hidden not-prose">
-                <div className="flex items-center justify-between pb-2 mb-2 border-b border-line/40 text-[10px] font-mono font-bold text-muted uppercase tracking-wider">
-                  <span>Architecture & Process Model</span>
-                  <span className="hidden sm:inline">Diagram / Script</span>
-                </div>
-                <div className="overflow-x-auto max-w-full scrollbar-thin">
-                  <pre className="text-[11px] sm:text-xs font-mono text-ink leading-snug m-0 p-0 whitespace-pre">
-                    {children}
-                  </pre>
-                </div>
-              </div>
-            ),
+            pre: ({ children }) => {
+              // 102 of these are box-drawing diagrams, not code. AsciiDiagram parses them into
+              // real tables and summaries, gated on losslessness — anything it cannot read with
+              // confidence keeps exactly the treatment it had.
+              return <AsciiDiagram source={getDeepText(children)}>{children}</AsciiDiagram>;
+            },
             code: ({ children }) => {
               const text = flattenText(children);
               if (PLACEHOLDER_PATTERN.test(text.trim())) {
