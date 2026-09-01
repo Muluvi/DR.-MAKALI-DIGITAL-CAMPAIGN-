@@ -2,18 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  ShieldCheck, 
-  Lock, 
-  EyeOff, 
-  Database, 
-  FileCode2, 
-  AlertOctagon, 
-  CheckSquare, 
-  ArrowRight,
-  FileCheck,
-  Scale
-} from "lucide-react";
+import { ShieldCheck, Lock, EyeOff, Database, FileCode2, AlertTriangle, CheckSquare, ArrowRight, FileCheck2, Scale } from "lucide-react";
 
 interface EthicalCommitment {
   id: string;
@@ -148,7 +137,7 @@ export function DataSecurityEthicsCharter() {
         ))}
       </div>
 
-      {/* Rules Grid */}
+      {/* Rules Table */}
       <div className="p-4 sm:p-6 space-y-3">
         {filteredRules.map((rule) => {
           const isChecked = !!checkedRules[rule.id];

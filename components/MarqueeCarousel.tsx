@@ -1,14 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import {
-  Target,
-  MapPin,
-  MessageSquare,
-  Sparkles,
-  Megaphone,
-  Users
-} from "lucide-react";
+import { Target, MapPin, MessageSquare, Sparkles, Megaphone, Users } from "lucide-react";
 import { useMarqueeActive } from "../hooks/use-marquee-active";
 
 interface MarqueeItem {

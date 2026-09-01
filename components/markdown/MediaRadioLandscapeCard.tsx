@@ -2,18 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  Radio, 
-  Volume2, 
-  VolumeX, 
-  ShieldAlert, 
-  CheckCircle2, 
-  AlertTriangle, 
-  Play, 
-  Pause,
-  ArrowRight,
-  Info
-} from "lucide-react";
+import { Radio, Volume2, VolumeX, ShieldAlert, CheckCircle2, AlertTriangle, Play, Pause, ArrowRight, Info } from "lucide-react";
 
 interface RadioStation {
   name: string;
@@ -119,7 +108,7 @@ export function MediaRadioLandscapeCard() {
                 Section 17A Media Landscape
               </span>
               <span className="text-[10px] font-mono font-bold text-muted">
-                Vernacular Radio Grid
+                Vernacular Radio Table
               </span>
             </div>
             <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">

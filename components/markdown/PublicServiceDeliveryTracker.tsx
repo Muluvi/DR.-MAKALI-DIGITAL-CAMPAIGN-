@@ -2,21 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  CheckCircle2, 
-  Clock, 
-  AlertTriangle, 
-  Search, 
-  Smartphone, 
-  Send, 
-  FileText, 
-  Activity, 
-  ShieldCheck, 
-  Layers, 
-  MapPin, 
-  ChevronRight,
-  Filter
-, Info } from "lucide-react";
+import { CheckCircle2, Clock, AlertTriangle, Search, Smartphone, Send, FileText, Activity, ShieldCheck, Layers, MapPin, ChevronRight, Filter, Info } from "lucide-react";
 
 interface ServiceReport {
   refNumber: string;

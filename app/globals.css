@@ -552,7 +552,71 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   contain-intrinsic-size: 0 420px;
 }
 
-/* Reduced motion optimization for accessibility & low-power devices */
+
+/* ---------------------------------------------------------------------- */
+/* Focus                                                                  */
+/* ---------------------------------------------------------------------- */
+/* There were no focus styles anywhere in this stylesheet or in any component, against roughly
+   ninety interactive elements. A keyboard user got the user-agent default over custom
+   backgrounds, or nothing at all. This is the single highest-value interaction fix on the site.
+
+   :focus-visible only, so a mouse click doesn't leave a ring behind, and a double outline
+   (accent inside, paper outside) so the ring stays legible on both the card and paper grounds
+   and in both themes. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible,
+[role="tab"]:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--color-paper);
+}
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+/* A focus ring on a control sitting on the accent itself needs the inverse treatment. */
+.bg-accent:focus-visible,
+[aria-selected="true"]:focus-visible {
+  outline-color: var(--color-paper);
+}
+
+/* Skip link — first tab stop, hidden until focused. */
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -120%);
+  z-index: 100;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 0.6rem 1.1rem;
+  border-radius: 0 0 0.75rem 0.75rem;
+  transition: transform 0.14s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.skip-link:focus-visible {
+  transform: translate(-50%, 0);
+}
+
+/* Reduced motion.
+
+   This block is the CSS half only. It cannot reach a `motion.div`, so on its own it left every
+   JavaScript entrance and all 22 ambient loops running for a reader who had asked for none. The
+   other half is hooks/use-reduced-motion-safe.ts, threaded through lib/motion.ts, which is what
+   actually honours the preference for animated components.
+
+   Interaction feedback is deliberately exempt: a focus ring or press state that never appears is
+   a bug, not a preference. Those keep a short transition rather than none. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -561,6 +625,17 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  button,
+  a,
+  [role="button"],
+  [role="tab"],
+  input,
+  select,
+  textarea,
+  .skip-link {
+    transition-duration: 0.08s !important;
   }
 }
 

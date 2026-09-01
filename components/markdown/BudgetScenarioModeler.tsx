@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Coins, ShieldCheck, Scale, Users, Radio, CheckCircle2, AlertCircle } from "lucide-react";
+import { Coins, ShieldCheck, Scale, Users, Radio, CheckCircle2, AlertTriangle } from "lucide-react";
 
 import { ClaimBadge } from "./ClaimBadge";
 import { TierBadge } from "./TierBadge";
@@ -254,7 +254,7 @@ export function BudgetScenarioModeler() {
 
           <div className="p-3.5 rounded-xl bg-paper/60 border border-line">
             <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1 mb-1.5">
-              <AlertCircle size={12} className="text-gold" aria-hidden="true" />
+              <AlertTriangle size={12} className="text-gold" aria-hidden="true" />
               Trade-offs
             </div>
             <p className="text-xs text-ink leading-relaxed">{currentTier.tradeOffs}</p>

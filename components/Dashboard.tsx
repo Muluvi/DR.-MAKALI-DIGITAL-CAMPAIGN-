@@ -113,33 +113,6 @@ function TiltCard({
 // Custom animated SVG Radial Progress indicator component
 
 
-// Premium endless looping marquee wrapper using Framer Motion
-function InfiniteScrollingMarquee({ children, speed = 25 }: { children: React.ReactNode; speed?: number }) {
-  const { containerRef, isActive } = useMarqueeActive<HTMLDivElement>();
-
-  return (
-    <div ref={containerRef} className="relative w-full overflow-hidden select-none py-2 pointer-events-auto">
-      {/* Soft overlay gradient masks for a smooth fade entry and exit */}
-      <div className="absolute top-0 bottom-0 left-0 w-12 bg-gradient-to-r from-paper to-transparent z-10 pointer-events-none" />
-      <div className="absolute top-0 bottom-0 right-0 w-12 bg-gradient-to-l from-paper to-transparent z-10 pointer-events-none" />
-
-      <motion.div
-        className="flex gap-4 w-max pr-4"
-        animate={isActive ? { x: ["0%", "-50%"] } : {}}
-        transition={{
-          ease: "linear",
-          duration: speed,
-          repeat: Infinity,
-        }}
-      >
-        {/* Primary interactive / screen-reader copy */}
-        <div className="flex gap-4 shrink-0">{children}</div>
-        {/* Duplicate copy for infinite loop — aria-hidden and removed from tab order */}
-        <div className="flex gap-4 shrink-0" aria-hidden="true" tabIndex={-1}>{children}</div>
-      </motion.div>
-    </div>
-  );
-}
 
 export function Dashboard() {
   const metrics = [
@@ -181,12 +154,9 @@ export function Dashboard() {
             <span className="w-1.5 h-6 bg-accent rounded-full" />
             <h3 className="font-serif text-lg sm:text-xl font-semibold text-ink">Core Campaign Baseline Metrics</h3>
           </div>
-          <span className="hidden sm:inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-wider text-muted uppercase bg-paper border border-line px-2.5 py-0.5 rounded-full">
-            <span className="w-1.5 h-1.5 bg-accent rounded-full animate-ping" /> 3D Tilt Active
-          </span>
         </div>
 
-        {/* Desktop / Tablet Grid View */}
+        {/* Desktop / Tablet Table View */}
         <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-4">
           {metrics.map((m, i) => (
             <TiltCard
@@ -214,7 +184,7 @@ export function Dashboard() {
 
         {/* Mobile Automatic Infinite Marquee Carousel */}
         <div className="block sm:hidden -mx-2">
-          <InfiniteScrollingMarquee speed={22}>
+          <div className="flex gap-4 overflow-x-auto scrollbar-none px-4 pb-2 snap-x snap-mandatory">
             {metrics.map((m, i) => (
               <div
                 key={i}
@@ -237,7 +207,7 @@ export function Dashboard() {
                 <div className="text-[11px] text-muted/70 mt-1 truncate">{m.sub}</div>
               </div>
             ))}
-          </InfiniteScrollingMarquee>
+          </div>
         </div>
       </div>
 

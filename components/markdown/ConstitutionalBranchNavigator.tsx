@@ -2,17 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  Scale, 
-  AlertTriangle, 
-  CheckCircle2, 
-  ChevronRight, 
-  HelpCircle, 
-  ArrowRight,
-  ShieldCheck,
-  Building2,
-  Users
-} from "lucide-react";
+import { Scale, AlertTriangle, CheckCircle2, ChevronRight, HelpCircle, ArrowRight, ShieldCheck, Building2, Users } from "lucide-react";
 
 export function ConstitutionalBranchNavigator() {
   const [activeBranch, setActiveBranch] = useState<"branchA" | "branchB">("branchA");

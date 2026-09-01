@@ -2,16 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { 
-  TrendingUp, 
-  Calendar, 
-  Target, 
-  CheckCircle2, 
-  AlertCircle, 
-  Flame, 
-  Sparkles,
-  Sliders
-} from "lucide-react";
+import { TrendingUp, Calendar, Target, CheckCircle2, AlertTriangle, Flame, Sparkles, Sliders } from "lucide-react";
 
 export function PollingTrajectorySimulator() {
   const [weeklyGainRate, setWeeklyGainRate] = useState<number>(1.2); // Percentage points per week
@@ -61,7 +52,7 @@ export function PollingTrajectorySimulator() {
             </>
           ) : (
             <>
-              <AlertCircle size={14} />
+              <AlertTriangle size={14} />
               <span>Below Viability Threshold ({projectedPolling.toFixed(1)}%)</span>
             </>
           )}

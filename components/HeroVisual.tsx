@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
+import { EASE_ENTRANCE } from "../lib/motion";
 import { useState } from "react";
 import { X, Search, CheckCircle2, ChevronRight, HelpCircle } from "lucide-react";
 
@@ -141,7 +142,7 @@ export function HeroVisual() {
             </filter>
           </defs>
 
-          {/* Grid background Lines */}
+          {/* Table background Lines */}
           <g opacity=".4" className="transition-opacity duration-500">
             <path className="stroke-line" strokeWidth="1" d="M0 55H900M0 105H900M0 155H900M0 205H900M90 0V260M210 0V260M330 0V260M450 0V260M570 0V260M690 0V260M810 0V260"/>
           </g>
@@ -150,7 +151,7 @@ export function HeroVisual() {
           <motion.path 
             initial={{ strokeDashoffset: 1000 }}
             animate={{ strokeDashoffset: [1000, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 1.2, ease: EASE_ENTRANCE }}
             strokeDasharray="8 10"
             className="fill-none stroke-[url(#routeGrad)] stroke-3 stroke-linecap-round"
             d="M90 178 C180 80 250 215 350 126 S520 54 610 132 S750 202 820 78" 
@@ -158,7 +159,7 @@ export function HeroVisual() {
           <motion.path 
             initial={{ strokeDashoffset: -1000 }}
             animate={{ strokeDashoffset: [-1000, 0] }}
-            transition={{ duration: 7, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 1.2, delay: 0.15, ease: EASE_ENTRANCE }}
             strokeDasharray="8 10"
             className="fill-none stroke-[url(#routeGrad)] stroke-3 stroke-linecap-round opacity-40"
             d="M90 178 C250 178 270 72 420 78 S650 190 820 78" 

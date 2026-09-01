@@ -1,11 +1,11 @@
-import { CheckCircle2, TrendingUp, Clock3 } from "lucide-react";
+import { CheckCircle2, TrendingUp, Clock } from "lucide-react";
 
 export type ClaimStatus = "verified" | "estimate" | "awaiting";
 
 const STATUS_CONFIG: Record<ClaimStatus, { label: string; icon: typeof CheckCircle2; className: string }> = {
   verified: { label: "Verified", icon: CheckCircle2, className: "claim-badge-verified" },
   estimate: { label: "Estimate", icon: TrendingUp, className: "claim-badge-estimate" },
-  awaiting: { label: "Awaiting campaign decision", icon: Clock3, className: "claim-badge-awaiting" },
+  awaiting: { label: "Awaiting campaign decision", icon: Clock, className: "claim-badge-awaiting" },
 };
 
 /**

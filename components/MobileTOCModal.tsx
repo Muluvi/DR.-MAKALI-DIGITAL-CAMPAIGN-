@@ -2,18 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  X, 
-  Search, 
-  ChevronRight, 
-  FileText, 
-  Target, 
-  Activity, 
-  FileKey,
-  Clock,
-  Layers,
-  Sparkles
-} from "lucide-react";
+import { X, Search, ChevronRight, FileText, Target, Activity, FileKey, Clock, Layers, Sparkles } from "lucide-react";
 import type { TabId } from "../lib/heading-slug";
 import type { SectionItem } from "../lib/section-index";
 

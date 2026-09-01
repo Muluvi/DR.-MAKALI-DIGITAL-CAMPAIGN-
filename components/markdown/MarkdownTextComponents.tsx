@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { HighlightedText } from "./HighlightedText";
 import type { TabId } from "../../lib/heading-slug";
 
@@ -43,7 +43,7 @@ export function MarkdownListItem({
   return (
     <li className="flex items-start gap-2 my-2 sm:my-2.5 text-[14px] sm:text-[15px] text-ink/90 list-none">
       <span className="mt-1 text-accent shrink-0">
-        <CheckCircle size={14} className="stroke-[2.5]" />
+        <CheckCircle2 size={14} className="stroke-[2.5]" />
       </span>
       <span className="leading-relaxed text-pretty">{content}</span>
     </li>

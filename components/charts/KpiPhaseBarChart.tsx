@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { VIEWPORT, deliberate } from "../../lib/motion";
 
 export interface KpiRow {
   label: string;
@@ -31,12 +32,15 @@ export default function KpiPhaseBarChart({ rows }: { rows: KpiRow[] }) {
               </span>
             </div>
             <div className="relative h-3 rounded-full bg-line/40 overflow-visible mx-1.5">
+              {/* scaleX, not width — width forces layout every frame. Origin left, so the
+                  rail grows from its baseline the way the values it carries accumulate. */}
               <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: "100%" }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-accent/25 to-accent/10"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={VIEWPORT}
+                transition={deliberate}
+                style={{ transformOrigin: "left" }}
+                className="absolute inset-0 rounded-full bg-gradient-to-r from-accent/25 to-accent/10"
               />
               {row.points.map((p) => (
                 <div

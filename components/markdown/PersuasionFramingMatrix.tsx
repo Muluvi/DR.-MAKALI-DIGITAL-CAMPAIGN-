@@ -2,17 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  Brain, 
-  Sparkles, 
-  CheckCircle2, 
-  ArrowRight, 
-  HelpCircle, 
-  Droplet, 
-  Coins, 
-  HeartHandshake, 
-  GraduationCap 
-} from "lucide-react";
+import { Brain, Sparkles, CheckCircle2, ArrowRight, HelpCircle, Droplet, Coins, HeartHandshake, GraduationCap } from "lucide-react";
 
 interface PersuasionTheme {
   id: string;

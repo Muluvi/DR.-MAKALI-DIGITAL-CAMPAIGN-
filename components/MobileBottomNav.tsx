@@ -1,18 +1,7 @@
 "use client";
 
 import React from "react";
-import { 
-  FileText, 
-  Target, 
-  Activity, 
-  FileKey, 
-  ListTree, 
-  ChevronUp, 
-  Moon, 
-  Sun,
-  Maximize2,
-  Minimize2
-} from "lucide-react";
+import { FileText, Target, Activity, FileKey, ListTree, ChevronUp, Moon, Sun, Maximize2, Minimize2 } from "lucide-react";
 import type { TabId } from "../lib/heading-slug";
 
 interface MobileBottomNavProps {

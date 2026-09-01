@@ -1,48 +1,12 @@
 "use client";
 
 import { motion, AnimatePresence, useInView } from "motion/react";
+import { SPRING } from "../lib/motion";
 import { useState, useEffect, useRef } from "react";
 import { useMarqueeActive } from "../hooks/use-marquee-active";
 import { useIsMobile } from "../hooks/use-mobile";
 import { LazyMount } from "./LazyMount";
-import {
-  Play, 
-  Pause, 
-  Volume2, 
-  ChevronDown, 
-  ChevronUp, 
-  Calendar, 
-  User, 
-  Check, 
-  AlertTriangle, 
-  Sparkles, 
-  Target, 
-  Zap, 
-  ArrowRight, 
-  Maximize2, 
-  Minimize2, 
-  Sliders, 
-  Radio, 
-  ShieldCheck, 
-  Users, 
-  Coins, 
-  FileText, 
-  TrendingUp, 
-  MessageSquare, 
-  CheckCircle, 
-  CheckSquare, 
-  MapPin, 
-  Globe, 
-  BookOpen, 
-  Activity, 
-  Database, 
-  RefreshCw, 
-  HelpCircle, 
-  Layers, 
-  TrendingDown, 
-  Grid, 
-  Filter 
-} from "lucide-react";
+import { Play, Pause, Volume2, ChevronDown, ChevronUp, Calendar, User, Check, AlertTriangle, Sparkles, Target, Zap, ArrowRight, Maximize2, Minimize2, Sliders, Radio, ShieldCheck, Users, Coins, FileText, TrendingUp, MessageSquare, CheckCircle2, CheckSquare, MapPin, Globe, BookOpen, Activity, Database, RefreshCw, HelpCircle, Layers, TrendingDown, Table, Filter } from "lucide-react";
 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import ConstituencyBarChart from "./charts/ConstituencyBarChart";
@@ -77,7 +41,7 @@ export function ProportionalDotMatrix() {
       <div className="flex items-center justify-between mb-4">
         <div>
           <h4 className="font-serif text-sm font-bold text-ink">Kitui Connectivity Matrix (KIPPRA/KNBS)</h4>
-          <p className="text-[11px] text-muted leading-tight mt-0.5">Household Broadband vs Offline/Feature-Phone Ratio (100-Unit Grid)</p>
+          <p className="text-[11px] text-muted leading-tight mt-0.5">Household Broadband vs Offline/Feature-Phone Ratio (100-Unit Table)</p>
         </div>
         <div className="flex gap-3 text-[10px] font-black uppercase tracking-wider">
           <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 bg-gold rounded-full shrink-0" /> 86.4% Offline/Feature-Phone</span>
@@ -183,10 +147,10 @@ export function AudioSummaryPlayer() {
           return (
             <motion.div
               key={i}
-              animate={{ height: randomHeight }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className={`w-1.5 rounded-full ${isPlaying ? "bg-accent" : "bg-line"}`}
-              style={{ maxHeight: "36px" }}
+              animate={{ scaleY: randomHeight / 36 }}
+              transition={SPRING}
+              className={`w-1.5 rounded-full origin-bottom ${isPlaying ? "bg-accent" : "bg-line"}`}
+              style={{ height: 36 }}
             />
           );
         })}
@@ -307,39 +271,6 @@ export function ObjectiveAccordion() {
   );
 }
 
-// 7. Endless Scrolling Policy Badge Ticker
-export function BadgeTicker() {
-  const { containerRef, isActive } = useMarqueeActive<HTMLDivElement>();
-  const slogans = [
-    "ECONOMIC PROGRESS", "WIPER DEMOCRATIC MOVEMENT", "DELEGATE ALIGNMENT",
-    "DIGITIZED REVENUE", "GRASSROOTS VOICE", "KIKAMBA BROADCAST COALITION",
-    "GOVERNANCE AUDITING", "ECONOMIC BLUEPRINT", "KITUI VICTORY 2027"
-  ];
-  return (
-    <div ref={containerRef} className="relative w-full overflow-hidden select-none py-2 border-y border-line/50 my-4 bg-paper/60 backdrop-blur-sm">
-      <motion.div
-        className="flex gap-4 w-max shrink-0"
-        animate={isActive ? { x: ["0%", "-50%"] } : {}}
-        transition={{ ease: "linear", duration: 18, repeat: Infinity }}
-      >
-        <div className="flex gap-4 shrink-0">
-          {slogans.map((s, i) => (
-            <span key={i} className="text-[10px] font-black tracking-widest text-accent uppercase flex items-center gap-1.5 whitespace-nowrap">
-              <Sparkles size={10} className="text-gold" /> {s}
-            </span>
-          ))}
-        </div>
-        <div className="flex gap-4 shrink-0" aria-hidden="true" tabIndex={-1}>
-          {slogans.map((s, i) => (
-            <span key={`dup-${i}`} tabIndex={-1} className="text-[10px] font-black tracking-widest text-accent uppercase flex items-center gap-1.5 whitespace-nowrap pointer-events-none">
-              <Sparkles size={10} className="text-gold" /> {s}
-            </span>
-          ))}
-        </div>
-      </motion.div>
-    </div>
-  );
-}
 
 // 8. Dynamic Speech Snippet Card
 export function SpeechSnippetCard() {
@@ -449,7 +380,7 @@ export function VoterProfile() {
           <span className="text-[9px] uppercase tracking-wider font-black text-muted block mb-1">Outreach Channels:</span>
           {profiles[selectedIdx].tactics.map((t, idx) => (
             <div key={idx} className="flex items-start gap-1.5 text-[10px] text-ink/80 leading-normal">
-              <span className="w-1.5 h-1.5 bg-accent rounded-full mt-1.5 shrink-0 animate-pulse" />
+              <span className="w-1.5 h-1.5 bg-accent rounded-full mt-1.5 shrink-0" aria-hidden="true" />
               <span>{t}</span>
             </div>
           ))}
@@ -587,7 +518,7 @@ export function VoteProjectionGraph() {
   );
 }
 
-// 7. Bento-Grid Demographic Cards
+// 7. Bento-Table Demographic Cards
 export function DemographicBento() {
   const cards = [
     { title: "Kitui Central SME Networks", percentage: "45%", sub: "Voter Density Concentration", color: "border-accent/40 bg-accent/5" },
@@ -751,8 +682,8 @@ export function FlywheelSchematic() {
           <rect x="220" y="40" width="70" height="40" rx="6" className="fill-card stroke-accent stroke-[1.5]" />
           <text x="255" y="64" textAnchor="middle" className="fill-ink font-serif text-[8px] font-black">SECRETARIAT</text>
         </svg>
-        <span className="absolute bottom-2 right-3 text-[9px] font-extrabold text-accent uppercase tracking-wider flex items-center gap-1">
-          <RefreshCw size={10} className="animate-spin" /> Live Data Synchronization Loop
+        <span className="absolute bottom-2 right-3 text-[9px] font-extrabold text-muted uppercase tracking-wider flex items-center gap-1">
+          <RefreshCw size={10} aria-hidden="true" /> Proposed synchronisation loop
         </span>
       </div>
     </div>
@@ -924,7 +855,7 @@ export function CircuitWiringVisual() {
         </div>
         
         <svg className="absolute inset-0 w-full h-full pointer-events-none">
-          <path d="M 50 48 Q 150 20 250 48" fill="none" stroke="var(--color-accent)" strokeWidth="1.5" strokeDasharray="4 4" className="animate-pulse" />
+          <path d="M 50 48 Q 150 20 250 48" fill="none" stroke="var(--color-accent)" strokeWidth="1.5" strokeDasharray="4 4" />
         </svg>
 
         <div className="flex flex-col items-center gap-1 relative z-10">
@@ -1110,7 +1041,7 @@ export function RadioAircoverDial() {
   return (
     <div className="bg-card border border-line rounded-2xl p-5 shadow-sm my-6 flex items-center gap-5">
       <div className="relative w-16 h-16 shrink-0 flex items-center justify-center bg-accent/5 border border-accent/20 rounded-full text-accent">
-        <Radio size={24} className="animate-pulse" />
+        <Radio size={24} aria-hidden="true" />
       </div>
       <div>
         <h4 className="text-xs font-bold text-ink leading-tight">Interactive FM Broadcasters Sync</h4>
@@ -1122,7 +1053,7 @@ export function RadioAircoverDial() {
   );
 }
 
-// 3. Dynamic Counter-Messaging Grid (Side-by-side)
+// 3. Dynamic Counter-Messaging Table (Side-by-side)
 export function CounterMessagingGrid() {
   return (
     <div className="bg-card border border-line rounded-2xl p-5 shadow-sm my-6 space-y-4">
@@ -1153,8 +1084,8 @@ export function SloganCarousel() {
     <div ref={containerRef} className="relative w-full overflow-hidden select-none py-3 border-y border-line/60 bg-card my-4">
       <motion.div
         className="flex gap-4 w-max shrink-0"
-        animate={isActive ? { x: ["0%", "-50%"] } : {}}
-        transition={{ ease: "linear", duration: 15, repeat: Infinity }}
+        animate={{}}
+        
       >
         <div className="flex gap-6 shrink-0">
           {slogans.map((s, idx) => (
@@ -1622,7 +1553,7 @@ export function ColorSwatches() {
                   socialColor === "blue" ? "bg-[#00209f]" : "bg-[#e31d2b]"
                 }`}
               >
-                {/* Visual Geometry Grid */}
+                {/* Visual Geometry Table */}
                 <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:16px_16px]" />
                 
                 {/* Brand Logo Header */}

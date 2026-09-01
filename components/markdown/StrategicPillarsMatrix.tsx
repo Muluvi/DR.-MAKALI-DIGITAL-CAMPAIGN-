@@ -2,16 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  Building2, 
-  BarChart3, 
-  Languages, 
-  CheckSquare, 
-  ShieldCheck, 
-  ArrowRight,
-  Sparkles,
-  FileCheck2
-} from "lucide-react";
+import { Building2, BarChart3, Languages, CheckSquare, ShieldCheck, ArrowRight, Sparkles, FileCheck2 } from "lucide-react";
 
 interface StrategicPillar {
   id: string;
@@ -148,7 +139,7 @@ export function StrategicPillarsMatrix() {
           {currentPillar.corePremise}
         </div>
 
-        {/* Breakdown Grid */}
+        {/* Breakdown Table */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
           <div className="p-3.5 rounded-xl bg-paper/60 border border-line space-y-1">
             <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1">

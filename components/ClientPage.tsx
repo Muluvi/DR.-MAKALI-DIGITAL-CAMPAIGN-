@@ -1,31 +1,8 @@
 "use client";
 
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { 
-  FileText, 
-  Target, 
-  Activity, 
-  FileKey, 
-  Menu, 
-  X, 
-  Printer, 
-  Maximize2, 
-  Minimize2, 
-  Sun, 
-  Moon, 
-  ChevronUp, 
-  Settings,
-  Coins,
-  Users,
-  Radio,
-  ShieldCheck,
-  Type,
-  Eye,
-  EyeOff,
-  Sparkles,
-  BookOpen
-} from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { FileText, Target, Activity, FileKey, Menu, X, Printer, Maximize2, Minimize2, Sun, Moon, ChevronUp, Settings, Coins, Users, Radio, ShieldCheck, Type, Eye, EyeOff, Sparkles, BookOpen } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
 import { MarqueeCarousel } from "./MarqueeCarousel";
@@ -47,7 +24,6 @@ import {
   AudioSummaryPlayer,
   HeroStatTilt,
   ObjectiveAccordion,
-  BadgeTicker,
   SpeechSnippetCard,
   VoterProfile,
   IsotypeCitizens,
@@ -365,7 +341,6 @@ export function ClientPage({ sections, exec, strategy, operations, tactics, exec
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start relative">
                   <WatermarkedPillars />
                   <div className="space-y-6 z-10">
-                    <BadgeTicker />
                     <ProportionalDotMatrix />
                     <ObjectiveAccordion />
                     <SpeechSnippetCard />
@@ -469,6 +444,9 @@ export function ClientPage({ sections, exec, strategy, operations, tactics, exec
 
   return (
     <div className="min-h-screen bg-paper text-ink font-sans selection:bg-accent/20">
+      {/* First tab stop: skip 55,000 words of navigation chrome. */}
+      <a href="#content-area" className="skip-link">Skip to content</a>
+
       {/* Top Gradient Line */}
       <div className="h-1.5 bg-gradient-to-r from-accent to-gold fixed top-0 left-0 right-0 z-50 print:hidden" />
 

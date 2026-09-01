@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LabelList } from 'recharts';
-import { Sliders, HelpCircle, CheckCircle } from "lucide-react";
+import { Sliders, HelpCircle, CheckCircle2 } from "lucide-react";
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
@@ -173,7 +173,7 @@ export function DataVisualizations() {
           className="bg-paper rounded-2xl p-5 border border-line"
         >
           <div className="flex items-center gap-2 mb-2">
-            <CheckCircle size={15} className="text-accent shrink-0" />
+            <CheckCircle2 size={15} className="text-accent shrink-0" />
             <h4 className="font-serif text-lg font-bold text-ink">{tiers[activeTier].title}</h4>
           </div>
           <div className="text-sm text-muted space-y-2.5">

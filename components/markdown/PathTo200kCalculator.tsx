@@ -2,17 +2,8 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import {
-  Calculator,
-  CheckCircle2,
-  AlertOctagon,
-  TrendingUp,
-  Compass,
-  Layers,
-  ArrowRight,
-  ShieldAlert,
-  Percent
-} from "lucide-react";
+import { deliberate } from "../../lib/motion";
+import { Calculator, CheckCircle2, AlertTriangle, TrendingUp, Compass, Layers, ArrowRight, ShieldAlert, Percent } from "lucide-react";
 
 import { ALL_WARDS, CONSTITUENCIES, COUNTY_TOTAL_WARDS } from "../../data/ward-register";
 
@@ -175,7 +166,7 @@ export function PathTo200kCalculator() {
             </>
           ) : (
             <>
-              <AlertOctagon size={14} />
+              <AlertTriangle size={14} />
               <span>Short of the benchmark ({selectedPath.marginOverBenchmark.toLocaleString()})</span>
             </>
           )}
@@ -226,9 +217,10 @@ export function PathTo200kCalculator() {
           <div className="h-3.5 bg-paper border border-line rounded-full overflow-hidden p-0.5 relative">
             <motion.div
               key={selectedPath.id}
-              initial={{ width: 0 }}
-              animate={{ width: `${Math.min(100, progressPercent)}%` }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: Math.min(100, progressPercent) / 100 }}
+              transition={deliberate}
+              style={{ transformOrigin: "left", width: "100%" }}
               className={`h-full rounded-full ${
                 selectedPath.isViable
                   ? "bg-gradient-to-r from-accent to-emerald-500"

@@ -1,20 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { 
-  Compass, 
-  ChevronUp, 
-  FileText, 
-  Target, 
-  Activity, 
-  Radio, 
-  Calculator, 
-  MapPin, 
-  Coins, 
-  X,
-  Sparkles
-} from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Compass, ChevronUp, FileText, Target, Activity, Radio, Calculator, MapPin, Coins, X, Sparkles } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 
 interface QuickNavCapsuleProps {
   onNavigate: (sectionId: string) => void;
@@ -25,7 +13,7 @@ const QUICK_TARGETS = [
   { id: "exec-sec-2-3", label: "200k Target Math", icon: Calculator, tab: "exec" },
   { id: "strategy-sec-6", label: "40 Wards Register", icon: MapPin, tab: "strategy" },
   { id: "operations-sec-8b-7", label: "ECFA Budget Ceiling", icon: Coins, tab: "operations" },
-  { id: "tactics-sec-17a", label: "Kikamba Radio Grid", icon: Radio, tab: "tactics" },
+  { id: "tactics-sec-17a", label: "Kikamba Radio Table", icon: Radio, tab: "tactics" },
   { id: "exec-sec-2-7", label: "Fiscal Audit Analysis", icon: Activity, tab: "exec" },
   { id: "operations-sec-13", label: "War Room Matrix", icon: Target, tab: "operations" },
 ];

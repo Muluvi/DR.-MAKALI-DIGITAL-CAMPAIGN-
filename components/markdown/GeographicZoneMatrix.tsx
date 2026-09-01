@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { MapPin, Radio, Compass, TrendingUp, Percent, AlertCircle } from "lucide-react";
+import { MapPin, Radio, Compass, TrendingUp, Percent, AlertTriangle } from "lucide-react";
 
 import { CONSTITUENCIES, COUNTY_TOTAL_WARDS } from "../../data/ward-register";
 import { TierBadge } from "./TierBadge";
@@ -272,7 +272,7 @@ export function GeographicZoneMatrix() {
         </p>
         {UNASSIGNED.length > 0 && (
           <p className="text-[11px] text-muted flex items-start gap-1.5">
-            <AlertCircle size={12} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
+            <AlertTriangle size={12} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
             <span>
               Section 7 groups the county by sub-county; the IEBC register is published by constituency, and the two do
               not nest. Zone totals above sum whole constituencies.{" "}
