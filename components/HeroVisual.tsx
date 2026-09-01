@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
+import { disclosure } from "../lib/motion";
 import { EASE_ENTRANCE } from "../lib/motion";
 import { useState } from "react";
 import { X, Search, CheckCircle2, ChevronRight, HelpCircle } from "lucide-react";
@@ -227,13 +228,14 @@ export function HeroVisual() {
       {/* Detail panel with entrance animation */}
       <AnimatePresence mode="wait">
         {selectedStage && (
-          <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="border-t border-line bg-card/90"
+          <motion.div
+            initial={{ opacity: 0, gridTemplateRows: "0fr" }}
+            animate={{ opacity: 1, gridTemplateRows: "1fr" }}
+            exit={{ opacity: 0, gridTemplateRows: "0fr" }}
+            transition={disclosure}
+            className="grid border-t border-line bg-card/90"
           >
+            <div className="overflow-hidden min-h-0">
             <div className="p-5 sm:p-6 space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-line pb-3">
                 <span className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full bg-accent/10 text-accent self-start">
@@ -279,6 +281,7 @@ export function HeroVisual() {
                   </ul>
                 </div>
               </div>
+            </div>
             </div>
           </motion.div>
         )}

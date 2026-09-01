@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { disclosure } from "../../lib/motion";
 import { Radio, Volume2, VolumeX, ShieldAlert, CheckCircle2, AlertTriangle, Play, Pause, ArrowRight, Info } from "lucide-react";
 
 interface RadioStation {
@@ -232,11 +233,14 @@ export function MediaRadioLandscapeCard() {
 
             {playingSnippet === station.name && (
               <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                className="mt-2 p-3 bg-card rounded-lg border border-accent/20 text-xs space-y-1"
+                initial={{ opacity: 0, gridTemplateRows: "0fr" }}
+                animate={{ opacity: 1, gridTemplateRows: "1fr" }}
+                exit={{ opacity: 0, gridTemplateRows: "0fr" }}
+                transition={disclosure}
+                className="grid mt-2"
               >
+              <div className="overflow-hidden min-h-0">
+              <div className="p-3 bg-card rounded-lg border border-accent/20 text-xs space-y-1">
                 <div className="font-bold text-accent flex items-center gap-1.5">
                   <Volume2 size={13} />
                   <span>Sample On-Air Talking Point ({station.name}):</span>
@@ -244,6 +248,8 @@ export function MediaRadioLandscapeCard() {
                 <p className="italic text-ink">
                   &ldquo;Mbee! Mbee! Kĩla kĩndũ kĩ na thayũ, ĩtina nĩ kũmenya. Dr. Makali Mulu is the tested economist who will allocate Kitui&apos;s KSh 13.79 billion transparently to each of our 40 wards.&rdquo;
                 </p>
+              </div>
+              </div>
               </motion.div>
             )}
           </div>

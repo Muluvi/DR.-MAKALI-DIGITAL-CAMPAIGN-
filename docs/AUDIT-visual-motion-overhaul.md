@@ -1,7 +1,7 @@
-# Pre-build audit — visual & motion overhaul
+# Audit and build record — visual & motion overhaul
 
-Phase 1, read-only. No application code modified. Baseline `bun run lint` and
-`bun run build` both verified clean before and after.
+**Status: implemented.** Phases P0–P7 complete on `claude/new-session-ysc0gp`.
+The audit below is preserved as written; the implementation record is at the end.
 
 Rendered version: https://claude.ai/code/artifact/eb7c2728-5d7f-4f4f-a11a-925c39211a66
 
@@ -808,3 +808,82 @@ needs no new material.
 Also needed: should the P0 truth pass **remove** the fabricated figures outright,
 or **replace each with a marked placeholder** in the style Appendix A already
 uses?
+
+
+---
+
+# Implementation record
+
+All seven phases landed. `bun run lint`, `bun run build`, and both verification
+scripts pass. Verified in Chromium at 390 / 768 / 1440px.
+
+## What changed, by phase
+
+**P0 — Truth pass.** Rebound `GeographicZoneMatrix`, `PathTo200kCalculator` and
+`RecognitionDeficitOverlay` to `data/ward-register.json`; the four coalition paths now
+derive to §6.3's exact figures (200,198 / 212,183 / 201,267 / 191,811). Rebuilt
+`BudgetScenarioModeler` and `AudienceSegmentationMatrix` from the proposal, with the
+placeholders the source leaves open shown as placeholders and the three unsized segments shown
+as unsized. Replaced the Dashboard's four invented progress rings with §20.2's KPIs as
+baseline-to-target bars. Removed 17 fabricating widgets. Corrected "15.3%" to "15.3 points".
+Added `scripts/verify-figures.mjs` as a prebuild guard.
+
+**P1 — Split.** `strategy.md` keeps §5–§10; `tactics.md` keeps §17–§19B. 3,752 duplicated
+words leave the reading path. The hand-maintained 43-entry TOC — which listed sections that did
+not exist — is replaced by `lib/section-index.ts`, generated from the markdown on the server:
+269 entries, all resolving.
+
+**P2 — Motion and icon system.** `lib/motion.ts`, `MOTION-SYSTEM.md`,
+`hooks/use-reduced-motion-safe.ts`. Dropped `framer-motion`. Added the `:focus-visible` system
+and a skip link. Collapsed 6 near-duplicate icon pairs across 27 files.
+
+**P3–P6 — Modules.** M1 `NominationVerdict`, M3 `ReachSplit` + USSD handset, M4 `PhaseRail`,
+M5 `DecisionPanel`. Retired `StrategyRail`. Dissolved `renderSectionExtras`; nine surviving
+widgets became heading inserts beside their own sections, 24 more were removed.
+
+**P7 — Verification.** Results below.
+
+## Verification results
+
+| Check | Target | Result |
+|---|---|---|
+| Protected register | every string present | **43 / 43** |
+| Ward register integrity | 40 wards, 532,758 | **passes** (prebuild + module load) |
+| Figure guard | no unsourced literal | **passes** |
+| Horizontal overflow | 0px | **0px** at 390 / 768 / 1440 |
+| Layout-triggering animation | 0 | **0** (was 12) |
+| CLS across a full scroll | ~0 | **0.0036** |
+| Keyboard focus ring | every control | **40 / 40**, none missing |
+| Ambient loops | ≤3 | **1** running (2 reserved) |
+| Reduced motion — loops | 0 | **0** |
+| Reduced motion — hero figure | present, not mid-count | **renders 15.3** |
+| Console errors | none | **none**; no 404s |
+| First-load JS | ≤380 kB | **374 kB** (from 420 kB) |
+| Animation signatures | no two surfaces alike | **14 distinct** across 22 components |
+
+On the last row: eight components share a `crossfade` signature, and that is deliberate — they
+are all tab and panel switches, where position carries no meaning and a consistent interaction
+is the point of having a system. Every section-level surface is distinct: M3 owns the only
+clip-path wipe, M4 the only scroll-scrub, `MarqueeCarousel` the only loop.
+
+## Open items for the campaign
+
+Three things this work surfaced that only Dr. Mulu's team can close:
+
+1. **Platform sizing figures.** `appendix.md` §B cites NapoleonCat and DataReportal as the
+   source for national platform audience data, but the table carrying the numbers is no longer
+   in `public/content/`. They now live in `data/external-figures.ts` with their citations.
+   Either restore the table to the proposal or confirm the figures should be dropped.
+2. **The ad-spend placeholders** (§8B.5, Appendix A ref 8B.5) remain open by design, pending the
+   verified ceiling. The comparator shows the recommendation band and marks the absolute figure
+   as awaiting a decision.
+3. **Ward-level recognition data** (§6.6) is still a named Tier 1 gap. The deficit overlay shows
+   structural recognition status only, and says so.
+
+## Deviations from the audit
+
+- The audit proposed `SegmentDeck`, `ScopeGrid` and `ResponseTree` as separate builds. The first
+  was delivered by rebuilding `AudienceSegmentationMatrix` against §7.1–7.2 in P0, which covered
+  the same ground; the other two remain unbuilt — §8 and §15 keep their prose treatment.
+- The branch is `claude/new-session-ysc0gp`, not `feat/visual-motion-overhaul`, per the session's
+  provisioning.
