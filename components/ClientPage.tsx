@@ -18,52 +18,15 @@ import { QuickNavCapsule } from "./QuickNavCapsule";
 import type { TabId } from "../lib/heading-slug";
 import type { SectionItem } from "../lib/section-index";
 
-import {
-  WatermarkedPillars,
-  ProportionalDotMatrix,
-  AudioSummaryPlayer,
-  HeroStatTilt,
-  ObjectiveAccordion,
-  SpeechSnippetCard,
-  VoterProfile,
-  IsotypeCitizens,
-  SWOTMatrix,
-  VoteProjectionGraph,
-  DemographicBento,
-  TargetingSimulator,
-  ConversionTargetRing,
-  FocusModeToggle,
-  FlywheelSchematic,
-  ResourceLedger,
-  OrgStructureTree,
-  CircuitWiringVisual,
-  HorizontalMilestones,
-  ComplianceDial,
-  WardChecklist,
-  ArchitecturePipeline,
-  MessagingPlayground,
-  RadioAircoverDial,
-  CounterMessagingGrid,
-  SloganCarousel,
-  MediaPlaybackMockup,
-  ToneOfVoiceScale,
-  ToneVoiceSlider,
-  SloganBuilder,
-  SMSFeedbackVisualizer,
-  CommunityScheduler,
-  ColorSwatches,
-  FeedbackLoopCircuit,
-  PrintReportGenerator,
-  CampaignTargetsChart,
-  ChartComponent
-} from "./StrategicAids";
+import { FocusModeToggle, PrintReportGenerator } from "./StrategicAids";
 
 
 import { Dashboard } from "./Dashboard";
 import { HeroVisual } from "./HeroVisual";
+import { NominationVerdict } from "./NominationVerdict";
+import { DecisionPanel } from "./DecisionPanel";
 import { DataVisualizations } from "./DataVisualizations";
 import { VoterProjectionsChart } from "./VoterProjectionsChart";
-import { StrategyRail } from "./StrategyRail";
 import { SectionSkeleton } from "./SectionSkeleton";
 
 function SectionTransition({ children, tabKey }: { children: React.ReactNode; tabKey?: string }) {
@@ -318,113 +281,29 @@ export function ClientPage({ sections, exec, strategy, operations, tactics, exec
     // Runs once, on mount only.
   }, []);
 
+  // Section extras.
+  //
+  // This used to be a two-column shelf of ~50 widgets appended BELOW each tab's entire prose —
+  // the chart explaining §8B.5 sat 20,000 words downstream of the text it illustrated. Anything
+  // that genuinely explains a section is now a heading insert in MarkdownViewer, mounted next to
+  // the prose it belongs to. What remains here is the handful of surfaces that are about the
+  // document as a whole rather than about one section, plus the closing ask.
   const renderSectionExtras = (sectionId: string) => {
     const showFocusToggle = sectionId !== "appendix";
 
     return (
       <div className="mt-8 pt-8 border-t border-line/20 space-y-8">
         {showFocusToggle && (
-          <FocusModeToggle 
-            isActive={isFocusMode} 
-            onToggle={() => setIsFocusMode(!isFocusMode)} 
+          <FocusModeToggle
+            isActive={isFocusMode}
+            onToggle={() => setIsFocusMode(!isFocusMode)}
           />
         )}
 
-        {isFocusMode ? (
-          <div className="bg-paper border border-line border-dashed rounded-2xl p-6 text-center text-xs font-bold text-muted">
-            Focus Mode Active: Non-prose elements and interactive visual dashboards are hidden.
-          </div>
-        ) : (
+        {!isFocusMode && sectionId === "execution" && (
           <>
-            {sectionId === "exec" && (
-              <SectionTabTransition>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start relative">
-                  <WatermarkedPillars />
-                  <div className="space-y-6 z-10">
-                    <ProportionalDotMatrix />
-                    <ObjectiveAccordion />
-                    <SpeechSnippetCard />
-                  </div>
-                  <div className="space-y-6 z-10">
-                    <HeroStatTilt />
-                    <AudioSummaryPlayer />
-                  </div>
-                </div>
-              </SectionTabTransition>
-            )}
-
-            {sectionId === "strategy" && (
-              <SectionTabTransition>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                  <div className="space-y-6">
-                    <VoterProfile />
-                    <IsotypeCitizens />
-                    <SWOTMatrix />
-                  </div>
-                  <div className="space-y-6">
-                    <VoteProjectionGraph />
-                    <DemographicBento />
-                    <TargetingSimulator />
-                    <ConversionTargetRing />
-                    <CampaignTargetsChart />
-                  </div>
-
-                </div>
-              </SectionTabTransition>
-            )}
-
-            {sectionId === "operations" && (
-              <SectionTabTransition>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                  <div className="space-y-6">
-                    <ResourceLedger />
-                    <OrgStructureTree />
-                  </div>
-                  <div className="space-y-6">
-                    <FlywheelSchematic />
-                    <CircuitWiringVisual />
-                    <HorizontalMilestones />
-                    <ComplianceDial />
-                    <WardChecklist />
-                    <ArchitecturePipeline />
-                  </div>
-                </div>
-              </SectionTabTransition>
-            )}
-
-            {sectionId === "tactics" && (
-              <SectionTabTransition>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                  <div className="space-y-6">
-                    <MessagingPlayground />
-                    <CounterMessagingGrid />
-                    <MediaPlaybackMockup />
-                    <SloganBuilder />
-                  </div>
-                  <div className="space-y-6">
-                    <RadioAircoverDial />
-                    <SloganCarousel />
-                    <ToneVoiceSlider />
-                    <SMSFeedbackVisualizer />
-                    <CommunityScheduler />
-                    <ColorSwatches />
-                  </div>
-                </div>
-              </SectionTabTransition>
-            )}
-
-            {sectionId === "execution" && (
-              <SectionTabTransition>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                  <div className="space-y-6">
-                  </div>
-                  <div className="space-y-6">
-                    <FeedbackLoopCircuit />
-                    <PrintReportGenerator />
-                  </div>
-                </div>
-              </SectionTabTransition>
-            )}
+            <PrintReportGenerator />
+            <DecisionPanel />
           </>
         )}
       </div>
@@ -526,34 +405,12 @@ export function ClientPage({ sections, exec, strategy, operations, tactics, exec
 
             <MarqueeCarousel />
 
-            <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6 items-end print:hidden">
+            <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start print:hidden">
               <div className="lg:col-span-2">
-                <HeroVisual />
+                <NominationVerdict />
               </div>
-              <div className="lg:col-span-1 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3 sm:gap-4">
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-card/70 backdrop-blur-md border border-line p-3.5 sm:p-4 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
-                  <div className="text-[10px] uppercase tracking-widest text-muted font-extrabold mb-1">Recognition Gap</div>
-                  <div className="font-serif text-xl sm:text-2xl font-bold">15.3 pts</div>
-                  <div className="h-1.5 bg-line rounded-full mt-2.5 overflow-hidden">
-                    <motion.div initial={{ width: 0 }} animate={{ width: "76%" }} className="h-full bg-gradient-to-r from-accent to-gold" transition={{ duration: 1, delay: 0.4 }} />
-                  </div>
-                </motion.div>
-                
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-card/70 backdrop-blur-md border border-line p-3.5 sm:p-4 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
-                  <div className="text-[10px] uppercase tracking-widest text-muted font-extrabold mb-1">Low-connectivity layer</div>
-                  <div className="font-serif text-xl sm:text-2xl font-bold">SMS + USSD</div>
-                  <div className="h-1.5 bg-line rounded-full mt-2.5 overflow-hidden">
-                    <motion.div initial={{ width: 0 }} animate={{ width: "86%" }} className="h-full bg-gradient-to-r from-accent to-gold" transition={{ duration: 1, delay: 0.5 }} />
-                  </div>
-                </motion.div>
-                
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="bg-card/70 backdrop-blur-md border border-line p-3.5 sm:p-4 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
-                  <div className="text-[10px] uppercase tracking-widest text-muted font-extrabold mb-1">Operating principle</div>
-                  <div className="font-serif text-base sm:text-xl font-bold tracking-tight">Measure → learn → reallocate</div>
-                  <div className="h-1.5 bg-line rounded-full mt-2.5 overflow-hidden">
-                    <motion.div initial={{ width: 0 }} animate={{ width: "92%" }} className="h-full bg-gradient-to-r from-accent to-gold" transition={{ duration: 1, delay: 0.6 }} />
-                  </div>
-                </motion.div>
+              <div className="lg:col-span-1">
+                <HeroVisual />
               </div>
             </div>
           </div>
@@ -575,7 +432,6 @@ export function ClientPage({ sections, exec, strategy, operations, tactics, exec
       {/* Main Content Layout */}
       <main className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 pb-36 lg:pb-24">
         <div className="print:hidden">
-          {(activeTab === "exec" || isExpanded) && <StrategyRail />}
         </div>
         
         {/* Responsive Toolbar */}

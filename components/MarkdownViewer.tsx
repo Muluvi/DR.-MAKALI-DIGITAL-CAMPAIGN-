@@ -17,6 +17,19 @@ import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
 import { MizaniSlopeBlock } from "./markdown/MizaniSlopeBlock";
 import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
 import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
+import { ReachSplit } from "./ReachSplit";
+import {
+  FlywheelSchematic,
+  MessagingPlayground,
+  CounterMessagingGrid,
+  ToneVoiceSlider,
+  SloganBuilder,
+  SMSFeedbackVisualizer,
+  CommunityScheduler,
+  MediaPlaybackMockup,
+  RadioAircoverDial,
+} from "./StrategicAids";
+import { PhaseRail } from "./PhaseRail";
 import { PullQuote } from "./markdown/PullQuote";
 import { ClaimCards } from "./markdown/ClaimCards";
 import { DisputedFigure } from "./markdown/DisputedFigure";
@@ -163,7 +176,12 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "strategy-sec-6": <AudienceSegmentationMatrix />,
   "strategy-sec-7": <GeographicZoneMatrix />,
   "strategy-sec-10": <PersuasionFramingMatrix />,
-  "tactics-sec-17a": <MediaRadioLandscapeCard />,
+  "tactics-sec-17a": (
+    <>
+      <MediaRadioLandscapeCard />
+      <RadioAircoverDial />
+    </>
+  ),
   "tactics-sec-17a-1": <MediaRadioLandscapeCard />,
   "tactics-sec-17a-7": <MediaOwnershipBlock />,
   "tactics-sec-19b": <PublicServiceDeliveryTracker />,
@@ -177,7 +195,31 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "operations-sec-16": <DataSecurityEthicsCharter />,
   "operations-sec-16-1": <DataSecurityEthicsCharter />,
   "operations-sec-16-4": <DataSecurityEthicsCharter />,
-  "execution-sec-20": <KpiPhaseBlock />,
+  "operations-sec-9a": <FlywheelSchematic />,
+  "operations-sec-9b": (
+    <>
+      <ReachSplit />
+      <SMSFeedbackVisualizer />
+    </>
+  ),
+  "exec-sec-10": <FlywheelSchematic />,
+  "exec-sec-13": (
+    <>
+      <MessagingPlayground />
+      <ToneVoiceSlider />
+    </>
+  ),
+  "exec-sec-14-4": <CommunityScheduler />,
+  "exec-sec-15": <CounterMessagingGrid />,
+  "tactics-sec-17": <MediaPlaybackMockup />,
+  "tactics-sec-19": <SloganBuilder />,
+  "exec-sec-9": <ReachSplit />,
+  "execution-sec-20": (
+    <>
+      <PhaseRail />
+      <KpiPhaseBlock />
+    </>
+  ),
 };
 
 // A handful of headings (the "Appendix A/B/C" style) carry no leading digit, so headingSlug

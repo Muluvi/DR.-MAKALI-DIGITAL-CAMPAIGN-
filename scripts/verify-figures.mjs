@@ -73,6 +73,17 @@ function candidatesIn(source) {
     ...source.matchAll(/'([^'\n]*)'/g),
     ...source.matchAll(/>([^<>{}\n]*)</g),
   ];
+
+  // Bare numeric literals assigned to a data-shaped property (budget: 4800000, voters: 22105).
+  // An earlier version scanned only strings, which let object literals carrying invented budget
+  // allocations and voter counts through untouched.
+  const DATA_KEYS = /\b(budget|voters|value|amount|total|count|votes|share|percentage|percent|reach|target|pool|population|spend|cost|price|size)\s*:\s*(\d[\d_]*\.?\d*)/g;
+  for (const m of source.matchAll(DATA_KEYS)) {
+    const bare = m[2].replace(/_/g, "");
+    if (bare.length < 4 && !bare.includes(".")) continue;
+    if (STRUCTURAL.has(bare)) continue;
+    found.push({ bare, display: `${m[1]}: ${m[2]}`, context: m[0].slice(0, 90) });
+  }
   for (const z of zones) {
     const text = z[1];
     if (!text || !/\d/.test(text)) continue;
