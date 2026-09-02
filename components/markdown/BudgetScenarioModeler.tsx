@@ -119,7 +119,7 @@ export function BudgetScenarioModeler() {
   const currentTier = BUDGET_TIERS.find((t) => t.id === selectedTierId) ?? BUDGET_TIERS[1];
 
   return (
-    <div className="my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
+    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-start justify-between gap-3">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0">

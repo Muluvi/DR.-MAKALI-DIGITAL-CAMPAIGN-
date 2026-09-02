@@ -105,7 +105,7 @@ export function PhoneShowcase() {
   const Screen = SCREENS[channel];
 
   return (
-    <div className="not-prose my-8 print-avoid-break">
+    <div className="not-prose my-6 sm:my-8 print-avoid-break">
       {/* Selector. A real tab pattern: roving tabindex, arrow keys, aria-selected. */}
       <div
         role="tablist"

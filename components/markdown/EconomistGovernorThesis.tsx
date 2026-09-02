@@ -38,7 +38,7 @@ export function EconomistGovernorThesis() {
   return (
     <div
       ref={ref}
-      className="not-prose my-8 rounded-2xl border border-accent/20 bg-gradient-to-br from-accent/[0.05] to-transparent p-5 sm:p-7 print-avoid-break"
+      className="not-prose my-6 sm:my-8 rounded-2xl border border-accent/20 bg-gradient-to-br from-accent/[0.05] to-transparent p-5 sm:p-7 print-avoid-break"
     >
       <div className="flex items-center gap-4 sm:gap-6">
         <div className="min-w-0 flex-1">

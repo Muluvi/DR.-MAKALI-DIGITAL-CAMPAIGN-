@@ -328,7 +328,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
       {(activeTab === "exec" || isExpanded) && (
         <header className="cv-auto-hero relative pt-10 sm:pt-14 pb-8 sm:pb-12 overflow-hidden print:pt-4 print:pb-4">
           <div className="absolute inset-0 pointer-events-none opacity-50 bg-[radial-gradient(circle_at_82%_10%,var(--color-glow),transparent_32%),linear-gradient(180deg,var(--color-card),var(--color-paper))]" />
-          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 relative z-10">
             
             {/* Wiper Patriotic Front (WPF) Brand Banner */}
             <div className="flex items-center gap-3 mb-4 sm:mb-6 select-none bg-card/80 backdrop-blur-md border border-line rounded-2xl p-2.5 sm:p-3.5 w-fit shadow-sm">
@@ -351,18 +351,24 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
             {/* The title and the candidate, together. The portrait is a cutout, so it stands on
                 the page rather than sitting in a frame; on a phone it goes under the text at a
                 size that reads as a portrait rather than a thumbnail. */}
-            <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_auto] md:gap-8 items-end">
-              <div className="min-w-0">
-                <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.12] sm:leading-[1.08] tracking-tight max-w-4xl text-ink mb-4 sm:mb-6 font-semibold text-balance">
-                  Kitui 2027:<br />
-                  <span className="opacity-90">the operating system for an Economist Governor.</span>
-                </h1>
-                <p className="text-sm sm:text-base md:text-lg text-muted max-w-3xl leading-relaxed text-pretty">
-                  Campaign Strategy & Digital Architecture Proposal for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
-                </p>
-              </div>
-              <div className="hidden md:block w-[210px] lg:w-[260px] shrink-0 -mb-2">
-                <Portrait id="hero-clasped-hands" sizes="(min-width: 1024px) 260px, 210px" priority />
+            {/* One portrait element, repositioned by grid rather than duplicated.
+                Two elements with `hidden md:block` would look right and cost double: a browser
+                downloads a `priority` image even when it is display:none, so a phone would pay
+                for the 260px desktop rendition it never shows. `sizes` picks the rendition. */}
+            <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 md:gap-x-8 items-end">
+              <h1 className="col-span-2 md:col-span-1 font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.12] sm:leading-[1.08] tracking-tight max-w-4xl text-ink mb-4 sm:mb-6 font-semibold text-balance">
+                Kitui 2027:<br />
+                <span className="opacity-90">the operating system for an Economist Governor.</span>
+              </h1>
+              <p className="col-start-1 text-sm sm:text-base md:text-lg text-muted max-w-3xl leading-relaxed text-pretty">
+                Campaign Strategy & Digital Architecture Proposal for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
+              </p>
+              <div className="col-start-2 row-start-2 md:row-start-1 md:row-span-2 self-end w-[104px] md:w-[210px] lg:w-[260px] shrink-0 -mb-1 md:-mb-2">
+                <Portrait
+                  id="hero-clasped-hands"
+                  sizes="(min-width: 1024px) 260px, (min-width: 768px) 210px, 104px"
+                  priority
+                />
               </div>
             </div>
 
@@ -421,7 +427,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
 
       {/* Data Strip */}
       {(activeTab === "exec" || isExpanded) && (
-        <section className="cv-auto-strip max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 mb-8 print:hidden space-y-6">
+        <section className="cv-auto-strip max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 mb-8 print:hidden space-y-6">
           <LazyMount minHeight={420}>
             <DataVisualizations />
           </LazyMount>
@@ -432,7 +438,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
       )}
 
       {/* Main Content Layout */}
-      <main className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 pb-36 lg:pb-24">
+      <main className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 pb-36 lg:pb-24">
         <div className="print:hidden">
         </div>
         

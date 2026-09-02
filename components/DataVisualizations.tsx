@@ -170,7 +170,7 @@ export function DataVisualizations() {
           initial={{ opacity: 0, x: -8 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
-          className="bg-paper rounded-2xl p-5 border border-line"
+          className="bg-paper rounded-2xl p-4 sm:p-5 border border-line"
         >
           <div className="flex items-center gap-2 mb-2">
             <CheckCircle2 size={15} className="text-accent shrink-0" />

@@ -64,7 +64,7 @@ export function AnimatedMetric({
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className={`relative overflow-hidden border border-line rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-accent/30 transition-all ${
+      className={`relative overflow-hidden border border-line rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-md hover:border-accent/30 transition-all ${
         isCustomBg ? "bg-accent/5" : "bg-card"
       }`}
     >

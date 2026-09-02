@@ -89,7 +89,7 @@ export function ChartComponent({
   if (!isMounted) {
     return (
       <div
-        className={`bg-card border border-line rounded-2xl p-5 shadow-sm my-6 flex flex-col justify-center items-center gap-2 text-xs text-muted font-bold ${className}`}
+        className={`bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 flex flex-col justify-center items-center gap-2 text-xs text-muted font-bold ${className}`}
         style={{ minHeight: height + 60 }}
       >
         <div className="w-6 h-6 border-2 border-accent border-t-transparent rounded-full animate-spin" />
@@ -100,7 +100,7 @@ export function ChartComponent({
 
   if (!data || data.length === 0) {
     return (
-      <div className={`bg-card border border-line rounded-2xl p-5 shadow-sm my-6 text-center text-xs text-muted ${className}`}>
+      <div className={`bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 text-center text-xs text-muted ${className}`}>
         No data available for chart.
       </div>
     );

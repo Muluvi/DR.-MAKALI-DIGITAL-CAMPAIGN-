@@ -35,7 +35,7 @@ export function RadialProgress({
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="bg-card border border-line rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-accent/40 transition-all flex items-center gap-5 w-full select-none"
+      className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-md hover:border-accent/40 transition-all flex items-center gap-5 w-full select-none"
     >
       <div className="relative w-24 h-24 shrink-0 flex items-center justify-center">
         <svg className="w-full h-full transform -rotate-90">

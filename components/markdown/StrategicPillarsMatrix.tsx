@@ -68,7 +68,7 @@ export function StrategicPillarsMatrix() {
   const currentPillar = STRATEGIC_PILLARS.find(p => p.id === selectedPillarId) || STRATEGIC_PILLARS[0];
 
   return (
-    <div className="my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
+    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
       {/* Top Header */}
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">

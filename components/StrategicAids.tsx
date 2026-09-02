@@ -43,7 +43,7 @@ export function AudioSummaryPlayer() {
   }, [isPlaying]);
 
   return (
-    <div className="bg-gradient-to-br from-card to-paper border border-line rounded-2xl p-5 shadow-sm max-w-md my-4">
+    <div className="bg-gradient-to-br from-card to-paper border border-line rounded-2xl p-4 sm:p-5 shadow-sm max-w-md my-4">
       <div className="flex items-center gap-3">
         <div className="p-2.5 rounded-xl bg-accent/10 border border-accent/20 text-accent">
           <Volume2 size={18} />
@@ -162,7 +162,7 @@ export function FocusModeToggle({
 // 2. Operational Flywheel Schematic (Animated SVG flow diagram)
 export function FlywheelSchematic() {
   return (
-    <div className="bg-card border border-line rounded-2xl p-5 shadow-sm my-6">
+    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6">
       <h4 className="font-serif text-sm font-bold text-ink mb-4">Integrated Feedback Flow Circuit</h4>
       <div className="w-full h-32 flex items-center justify-center bg-paper border border-line rounded-xl relative overflow-hidden">
         <svg className="w-full h-full max-w-xs overflow-visible" viewBox="0 0 300 120">
@@ -206,7 +206,7 @@ export function MessagingPlayground() {
   };
 
   return (
-    <div className="bg-card border border-line rounded-2xl p-5 shadow-sm my-6">
+    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6">
       <h4 className="font-serif text-sm font-bold text-ink mb-3">Multilingual Campaign Slogan Selector</h4>
       <div className="flex gap-1.5 mb-4">
         {Object.keys(messages).map((l) => (
@@ -234,7 +234,7 @@ export function MessagingPlayground() {
 // 2. Kikamba Radio Aircover Dial (Animated SVG wavelength)
 export function RadioAircoverDial() {
   return (
-    <div className="bg-card border border-line rounded-2xl p-5 shadow-sm my-6 flex items-center gap-5">
+    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 flex items-center gap-5">
       <div className="relative w-16 h-16 shrink-0 flex items-center justify-center bg-accent/5 border border-accent/20 rounded-full text-accent">
         <Radio size={24} aria-hidden="true" />
       </div>
@@ -251,7 +251,7 @@ export function RadioAircoverDial() {
 // 3. Dynamic Counter-Messaging Table (Side-by-side)
 export function CounterMessagingGrid() {
   return (
-    <div className="bg-card border border-line rounded-2xl p-5 shadow-sm my-6 space-y-4">
+    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 space-y-4">
       <h4 className="font-serif text-sm font-bold text-ink">Opposition Counter-Narrative Matrix</h4>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="p-4 bg-red-500/[0.03] border border-red-500/20 rounded-xl">
@@ -276,7 +276,7 @@ export function MediaPlaybackMockup() {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <div className="bg-card border border-line rounded-2xl p-5 shadow-sm max-w-sm my-6 select-none">
+    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm max-w-sm my-6 select-none">
       <div className="bg-paper border border-line rounded-xl aspect-video relative overflow-hidden flex items-center justify-center">
         {/* Soft background visual glow pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-gold/10" />
@@ -333,7 +333,7 @@ export function ToneVoiceSlider() {
   const tone = getToneDetails(sliderVal);
 
   return (
-    <div className="bg-card border border-line rounded-2xl p-5 shadow-sm my-6 overflow-hidden">
+    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 overflow-hidden">
       <div className="flex items-center gap-2 mb-3">
         <span className="w-1.5 h-6 bg-accent rounded-full" />
         <h4 className="font-serif text-sm font-bold text-ink">Interactive Communication Tone Guideline</h4>
@@ -411,7 +411,7 @@ export function SloganBuilder() {
   };
 
   return (
-    <div className="bg-card border border-line rounded-2xl p-5 shadow-sm my-6">
+    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6">
       <h4 className="font-serif text-sm font-bold text-ink mb-3">Modular Slogan Sandbox</h4>
       <div className="flex flex-wrap gap-2 mb-4">
         {pillars.map((pill) => {
@@ -451,7 +451,7 @@ export function SMSFeedbackVisualizer() {
   ];
 
   return (
-    <div className="bg-card border border-line rounded-2xl p-5 shadow-sm my-6 space-y-3">
+    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 space-y-3">
       <div className="flex items-center justify-between mb-2">
         <h4 className="font-serif text-sm font-bold text-ink">Grassroots USSD Message Feed</h4>
         <span className="t-micro font-black text-gold bg-gold/10 border border-gold/20 px-2 py-0.5 rounded uppercase">Verified Ingestion Feed</span>
@@ -480,7 +480,7 @@ export function CommunityScheduler() {
   ];
 
   return (
-    <div className="bg-card border border-line rounded-2xl p-5 shadow-sm my-6 space-y-3">
+    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 space-y-3">
       <h4 className="font-serif text-sm font-bold text-ink mb-1">Upcoming Market Assembly Schedules</h4>
       <div className="space-y-3">
         {events.map((ev, i) => (
