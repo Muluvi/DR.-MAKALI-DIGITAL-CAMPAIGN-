@@ -102,9 +102,9 @@ re-check happens deliberately rather than by accident.
 
 ---
 
-## 5. The Nomination Path: Selection Mechanisms & Deficit Diagnostics
+## 2. The Nomination Path: Selection Mechanisms & Deficit Diagnostics
 
-### 5.1 Status of the Opinion-Poll Selection Mechanism (Tier 3 Classification)
+### 2.1 Status of the Opinion-Poll Selection Mechanism (Tier 3 Classification)
 The strategic assumption that the Wiper Democratic Movement will select its Kitui gubernatorial nominee via a countywide opinion poll is classified as **Tier 3 (single-sourced campaign report, not confirmed by party officials)**. This mechanism remains highly fluid and subject to internal party negotiations.
 
 To transition this selection mechanism from a Tier 3 strategic assumption to a **Tier 1 verified operational constraint**, the campaign requires:
@@ -113,7 +113,7 @@ To transition this selection mechanism from a Tier 3 strategic assumption to a *
 
 ---
 
-### 5.2 Technical Specifications of the Polling Instrument
+### 2.2 Technical Specifications of the Polling Instrument
 To protect the campaign against biased or unweighted polling results, the digital and analytical teams must evaluate any party-commissioned polling instrument against these strict research parameters:
 *   **Sampling Frame:** A multi-stage stratified random sampling model based on the official **2022/2027 IEBC Polling Station Registries** across all 8 sub-counties, excluding any non-voter or unregistered residents.
 *   **Sample Size ($N$):** A minimum countywide sample of **$N = 1,200$ to $N = 1,500$ registered voters**, yielding a margin of error of $\pm 2.53\%$ at a 95% confidence interval.
@@ -125,21 +125,21 @@ To protect the campaign against biased or unweighted polling results, the digita
 
 ---
 
-### 5.3 The Strategic Leverage of Kitui Central's Voter Weighting
+### 2.3 The Strategic Leverage of Kitui Central's Voter Weighting
 Any standard, scientifically weighted polling instrument represents a critical strategic advantage for Dr. Mulu because of his home base:
 *   **Kitui Central's Demographic Weight:** Command of exactly **77,764 registered voters** (Tier 1) makes Kitui Central the single largest and most concentrated voting constituency in the county.
 *   **The Weighting Argument:** The campaign must forcefully advocate to party pollsters that Kitui Central's immense voter density represents the county's primary turnout anchor. In an unweighted poll, Dr. Mulu's concentrated, high-intensity support in Kitui Central could be artificially diluted. Proper geographic weighting guarantees that his home-base dominance is fully represented in the countywide polling results.
 
 ---
 
-### 5.4 Deficit Diagnostics: Sourced Polling Realities
+### 2.4 Deficit Diagnostics: Sourced Polling Realities
 The campaign must operate with absolute, clinical objectivity regarding the current polling environment. There is no statistical basis to project a positive growth trend based on the two survey rounds completed to date:
 *   **The Polling Deficit (Tier 2):** Dr. Mulu remains in a substantial countywide deficit. The August 2026 Mizani survey places Dr. Irene Kasalu at **37.4%** preference share, while Dr. Mulu stands at **22.1%** (Tier 2).
 *   **Honest Deficit Assessment:** This represents a significant, flat **15.3-point countywide deficit**. The two data points available (June vs. August 2026) are statistically insufficient to project a positive trend or reliable trajectory. The campaign is currently trailing, and closing this 15.3-point gap before the mid-November evaluation window demands an immediate, aggressive, and highly localized deployment of the Phase −1 digital and SMS campaign.
 
 ---
 
-### 5.5 Contingency Branch: Transition to a Delegate Primary System
+### 2.5 Contingency Branch: Transition to a Delegate Primary System
 If Wiper party leadership departs from the opinion-poll mechanism and reverts to a delegate-based nomination primary, the campaign will immediately trigger its **Delegate Whip Contingency Plan**:
 1.  **Map the Delegate Registry:** Instantly map and profile the estimated **1,200 to 1,500 official delegates** (comprising constituency executives, sub-branch officials, and ward-level party committee members).
 2.  **Targeted Whip Operations:** Reallocate the 400 Ward Captains from general voter outreach to peer-to-peer lobbying and direct, physical whip operations. Each captain will be assigned specific delegates residing in their ward.
@@ -147,18 +147,18 @@ If Wiper party leadership departs from the opinion-poll mechanism and reverts to
 
 ---
 
-## 4. Core Campaign Narrative: The "Economist Governor"
+## 3. Core Campaign Narrative: The "Economist Governor"
 
 The core narrative of the campaign turns standard political promotion on its head: **Dr. Makali Mulu is the Economist Governor Kitui needs.** This narrative frames him not as a politician who merely promises, but as an expert economist who can show his working and enforce rigorous accountability.
 
-### 4.1 Empirical Proof Points of the "Economist Governor" Claim
+### 3.1 Empirical Proof Points of the "Economist Governor" Claim
 Dr. Mulu's technocratic and delivery credentials are not abstract campaign claims; they are backed by verified, empirical milestones (Tier 1):
 *   **The National Budget Seat:** Sourced legislative records confirm Dr. Mulu's senior position on the National Assembly's **Budget and Appropriations Committee** (Tier 1). His tenure provides him with unparalleled authority and direct oversight of macroeconomic resource allocation.
 *   **Direct Local Investment (Educational Bursaries):** Dr. Mulu has successfully directed **KSh 47 million in educational bursaries to 12,573 needy students** within Kitui Central (Tier 1), proving that high-level economic stewardship translates directly into concrete household financial relief.
 *   **Certified Administrative Excellence:** Sourced Ministry of Finance performance audits officially certified Kitui Central as the **best-evaluated constituency in the Eastern region, FY2014/15**—ranking first out of all 71 constituencies in its peer group (Tier 1).
 *   **Professional Monitoring & Evaluation Credentials:** He is a certified consultant in project management, a member of the **Evaluation Society of Kenya (ESK)** (Tier 1), and was officially designated as an **M&E Champion by the Ministry of Finance** (Tier 1).
 
-### 4.2 Anchoring in Fiscal Evidence: The Resource Paradox
+### 3.2 Anchoring in Fiscal Evidence: The Resource Paradox
 The campaign's primary argument is anchored in a documented, structural paradox: **Kitui has ample developmental resources; what it completely lacks is disciplined, accountable deployment.**
 
 According to the approved Kitui County Fiscal Strategy Paper for FY2026/27, the county executive commands a substantial annual resource envelope of **KSh 13.79 billion** (Tier 1). However, the Office of the Auditor-General's FY2023/24 audit report exposes severe, systemic public financial management failures under the current administration (Tier 1):
@@ -169,16 +169,16 @@ According to the approved Kitui County Fiscal Strategy Paper for FY2026/27, the 
 
 Furthermore, Controller of Budget reports reveal that the county carries an estimated **KSh 1.3 billion in outstanding pending bills** as of FY2020/21 (Tier 1). These metrics prove that Kitui's primary developmental obstacle is not a lack of funding, but a lack of fiscal discipline, project oversight, and structural monitoring and evaluation—the exact competencies that define Dr. Mulu's professional career.
 
-### 4.3 Preempting the Rival Counter-Narrative: The Empathy of Discipline
+### 3.3 Preempting the Rival Counter-Narrative: The Empathy of Discipline
 Competitors will seek to weaponize Dr. Mulu's technocratic and economic credentials to paint him as politically detached:
 *   **The Rival Attack:** *"Dr. Mulu is a cold, distant, Nairobi-facing intellectual who spends his time in air-conditioned parliamentary offices, completely out of touch with the raw, daily struggles of rural Kitui households."*
 *   **The Clinical Rebuttal:** The campaign will aggressively pivot this attack into a powerful, reinforcing asset. A "warm," charismatic leader without fiscal discipline is precisely what has delivered KSh 670 million in unconfirmed cash balances and KSh 1.3 billion in pending bills, leaving rural boreholes dry, clinics unstaffed, and schools unbuilt. Dr. Mulu’s clinical precision is not "coldness"; it is the ultimate expression of empathy. His fiscal discipline is the protective shield that prevents public funds from being stolen by corrupt cartels or wasted on white-elephant projects, ensuring every single shilling is accountably deployed to the 86.4% offline, rural majority who rely on county services for survival. Kitui has resources. What it has lacked is leadership that understands how to use them—and the discipline to prove it did.
 
 ---
 
-## 2. Strategic Context: Dr. Makali Mulu and Kitui County
+## 4. Strategic Context: Dr. Makali Mulu and Kitui County
 
-### 2.1 Candidate Profile: Clinical Leadership Diagnostics and Portfolio Strengths
+### 4.1 Candidate Profile: Clinical Leadership Diagnostics and Portfolio Strengths
 
 Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS, represents a highly refined technocratic option for the Kitui County gubernatorial seat (Tier 1). In his extensive tenure in the National Assembly, he has established an unassailable reputation as one of Kenya's most consistent and authoritative voices on macroeconomic governance, fiscal discipline, and budget oversight. His long-standing membership on the critical Budget and Appropriations Committee provides him with an intimate, operational understanding of public finance systems and the optimization of county resource allocation frameworks.
 
@@ -193,7 +193,7 @@ Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS, represents a highly refined t
 | Administrative Longevity | 17 years in active political leadership, 13 years as Member of Parliament for Kitui Central (Tier 1); Commander of the Order of the Burning Spear (CBS) (Tier 1) | Steady, low-risk leadership framing contrasted with less-experienced candidates |
 | Existing Web Footprint | Active, established Kitui Central NG-CDF digital portal (Tier 1) | Integration and leveraging of existing assets to minimize redundant budget expenditure |
 
-### 2.2 The Competitive Field: Multi-Contender Audits and Incumbency Legal Vulnerability
+### 4.2 The Competitive Field: Multi-Contender Audits and Incumbency Legal Vulnerability
 
 The 2027 gubernatorial race in Kitui features a highly competitive, multi-candidate field. The campaign's strategic and digital architecture must navigate a distinct, two-stage contest.
 
@@ -244,7 +244,7 @@ Because Governor Malombe served as Governor from 2013–2017, lost the 2017 elec
 *   **Scenario Branch B — Eligibility Upheld:** Alternatively, a reading of the constitutional provisions may interpret the two-term limit as applying only to consecutive terms of service, or that an interrupted term resets the constitutional clock, rendering him eligible for the 2027 cycle.
     *   *Strategic Consequence:* Under this scenario, Governor Malombe remains eligible to defend his seat. The campaign must therefore execute a direct anti-incumbency strategy, overcoming a seated executive who commands county development resources, public-funding distribution systems, and established grassroots patronages.
 
-### 2.3 The 2022 Baseline: Complete Ward-Level Registration Analytics
+### 4.3 The 2022 Baseline: Complete Ward-Level Registration Analytics
 
 To achieve absolute mathematical certainty, the campaign's success metrics are anchored strictly to the official 2022 IEBC register (Tier 1), rather than volatile digital vanity metrics:
 
@@ -316,7 +316,7 @@ To achieve absolute mathematical certainty, the campaign's success metrics are a
 
 A key strategic finding emerges from this integrated database: **Mwingi North, Mwingi West, and Mwingi Central together command exactly 200,198 registered voters (Tier 1).** This total is mathematically greater than the entire 2022 winning threshold (198,004 votes, Tier 1). This proves that consolidating voter turnout and preference across the northern sub-counties can unilaterally secure a gubernatorial victory. This finding informs the campaign's geographic prioritization, directing immediate SMS/USSD and digital outreach to establish Dr. Mulu as the dominant alternative in Mwingi.
 
-### 2.4 The Governorship Mandate: Core Competencies and Resource Envelope Constraints
+### 4.4 The Governorship Mandate: Core Competencies and Resource Envelope Constraints
 
 The Governor of Kitui is the supreme executive authority of the county, responsible under the County Governments Act for administering public services to over one million residents. Key administrative and policy competencies include:
 
@@ -333,7 +333,7 @@ The county budget represents a significant administrative responsibility. Accord
 
 **The Strategic Opportunity:** This KSh 13.79 billion envelope (Tier 1) represents a substantial development fund. The campaign will translate this complex budget into clear, ward-level policy targets, demonstrating how an expert economist will optimize this capital to address the county's developmental priorities.
 
-### 2.5 Socio-Demographic and Digital Infrastructure Realities
+### 4.5 Socio-Demographic and Digital Infrastructure Realities
 
 Kitui County's vast physical and demographic characteristics define its developmental and electoral context:
 
@@ -362,14 +362,14 @@ Sourced from the official 2019 KNBS Census (Tier 1), Kitui has exactly **143,340
 
 The **602,470 mobile-money agent network** (representing a rapid expansion from 480,216 in late 2025, Tier 1) is a vital offline asset. These agents represent trusted, commercially motivated local touchpoints in settlements where broadband access is unavailable.
 
-### 2.6 Electoral History: Multi-Cycle Analysis and Disputed Results
+### 4.6 Electoral History: Multi-Cycle Analysis and Disputed Results
 
 *   **2013 General Election (Kitui Governor):** This cycle represents a **named data gap** in the official campaign records (Tier 1 gap). The research did not supply certified results, and the campaign does not use unverified recollections.
 *   **2017 General Election (Kitui Governor):** Won by Charity Ngilu (NARC) with **169,990 votes** (Tier 1), following a highly contested election confirmed by the Court of Appeal (*Malombe v Ngilu* [2018] KECA 460) (Tier 1). The certified runner-up was David Musila with **114,827 votes** (Tier 1), and the incumbent Julius Malombe finished third with **74,681 votes** (Tier 1).
 *   **2022 General Election (Kitui Governor):** Won by Julius Malombe (Wiper) with **198,004 votes** (Tier 1). David Musila (Jubilee) finished as the runner-up with a certified lower total of **114,606 votes** (Tier 1), although separate media reports alleged a total of **117,606 votes** (Tier 2) (a verified dispute detailed in Appendix B). Jonathan Mueke (UDA) finished third with **10,639 votes** (Tier 1).
 *   **2022 Senate and Woman Representative Elections:** Senator Enoch Wambua (Wiper) secured his seat with **191,317 votes** (Tier 2), and Woman Representative Irene Kasalu (Wiper) won with **201,899 votes** (Tier 2).
 
-### 2.7 County Fiscal Analytics and Forensic Audit Gaps
+### 4.7 County Fiscal Analytics and Forensic Audit Gaps
 
 According to the Office of the Auditor-General's FY2023/24 audit report, four critical financial queries must be addressed by the county administration (Tier 1):
 *   **Unconfirmed Cash Balances:** KSh 670,000,000 (Tier 1).
@@ -379,15 +379,15 @@ According to the Office of the Auditor-General's FY2023/24 audit report, four cr
 
 Additionally, Controller of Budget reports indicate that the county carried outstanding pending bills of approximately **KSh 1.3 billion as of FY2020/21** (Tier 1). Sourced from the Controller of Budget’s County Budget Implementation Review Report, the county’s FY2025/26 Q1 development absorption rate is recorded as **18%** (Tier 1), although other independent media reports alleged an absorption rate of only **5%** (Tier 2), a discrepancy detailed in Appendix B. Sourced reports also note stalled county health projects, though the exact list of facilities remains a **named data gap** (Tier 1 gap).
 
-### 2.8 Drought, Food Security, and Multi-Directional Climate Pressures
+### 4.8 Drought, Food Security, and Multi-Directional Climate Pressures
 
 The county's climate profile features multi-directional hazards, as documented by the NDMA January 2026 Alert bulletin (Tier 1). Kitui's food security remains classified under **IPC Phase 2 ("Stressed")** as of September 2025 (Tier 1). According to an official statement by the County CECM for Agriculture, only **28,000 households** hold food reserves (Tier 2), although this figure raises statistical scale questions compared to the 2019 Census count of 262,942 total households (Tier 1). The county was also severely affected by the **March 2026 national flooding** (Tier 2), disrupting rural transportation networks.
 
-### 2.9 The Mui Basin Coal Concessions and Displaced Communities
+### 4.9 The Mui Basin Coal Concessions and Displaced Communities
 
 The extensive coal deposits in the Mui Basin, straddling Kitui East and Kitui South, have remained undeveloped for over a decade due to unresolved legal challenges under **Petition 12 of 2014** (Tier 1). The legal standstill has created significant uncertainty regarding displacement exposure for communities across the affected wards (Tier 1). The exact concession counts and displacement headcounts remain **named data gaps** (Tier 1 gaps) in the campaign's records.
 
-### 2.10 Comprehensive Competitor Deep-Dives and Legal Protection
+### 4.10 Comprehensive Competitor Deep-Dives and Legal Protection
 
 The general election field is treated with strict legal caution. To prevent libel or campaign interference charges, all candidate profiles in this proposal rely strictly on official court records, parliamentary reports, or published media. Every adverse claim is explicitly attributed to its source, and no wrongdoing is asserted as settled fact unless confirmed by a court of law:
 
@@ -402,11 +402,11 @@ The general election field is treated with strict legal caution. To prevent libe
 
 ---
 
-## 3. Operational Campaign Objectives & Commitments
+## 5. Operational Campaign Objectives & Commitments
 
 The campaign's objectives are structured across two separate timelines, each with its own clocks, success parameters, and strictly traceable targets. Every objective traces directly either to securing the Wiper nomination poll share or delivering the ~200,000 vote threshold at the general election. All non-traceable, purely digital vanity or procedural metrics have been eliminated.
 
-### 3.1 Timeline 1: The Wiper Party Nomination Window (Phase −1 Clock)
+### 5.1 Timeline 1: The Wiper Party Nomination Window (Phase −1 Clock)
 *   **Active Period (Clock):** August 29, 2026 to 15 November 2026.
 *   **Success Definition:** Erase the current 15.3-point deficit and secure the Wiper Democratic Movement gubernatorial nomination by achieving a measured countywide public preference share of **40.0%+** in the official, party-commissioned surveys (Tier 2).
 
@@ -428,7 +428,7 @@ The campaign's objectives are structured across two separate timelines, each wit
 
 ---
 
-### 3.2 Timeline 2: The General Election Window (Post-Nomination Clock)
+### 5.2 Timeline 2: The General Election Window (Post-Nomination Clock)
 *   **Active Period (Clock):** 16 November 2026 to 10 August 2027.
 *   **Success Definition:** Mobilize and deliver a minimum of **200,000 verified votes** (Tier 1) at the ballot box, surpassing Governor Malombe's 2022 winning threshold (198,004 votes, Tier 1).
 
@@ -586,7 +586,7 @@ Voter registration in Kitui County is highly concentrated. Rather than a flat ge
 
 ---
 
-## 6.3 Ward Combinations to Reach the ~200,000 Threshold (Showing the Working)
+## 6A. Ward Combinations to Reach the ~200,000 Threshold (Showing the Working)
 
 To establish an unshakeable mathematical path to victory, the campaign evaluates specific ward combinations against the ~200,000 registered voter benchmark:
 
@@ -644,7 +644,7 @@ To establish an unshakeable mathematical path to victory, the campaign evaluates
 
 ---
 
-### 6.4 Structurally Decisive Constituencies
+### 6A.1 Structurally Decisive Constituencies
 
 A constituency's structural importance is determined by its total voter weight, the density of its wards, and its historical role in party nominating conventions:
 
@@ -677,7 +677,7 @@ A constituency's structural importance is determined by its total voter weight, 
 
 ---
 
-### 6.5 Recognition Deficit Mapping & Overlap with Decisive Wards
+### 6A.2 Recognition Deficit Mapping & Overlap with Decisive Wards
 
 To formulate a targeted intervention, the campaign maps Dr. Mulu's structural profile against the county's voter geography.
 
@@ -739,12 +739,12 @@ This represents **51.72% of the entire Kitui County voter register**.
 #### Strategic Operational Mandate:
 Because **over 51% of the county register sits in Dr. Mulu's primary recognition deficit zones**, the campaign cannot rely on organic voter spillover from Kitui Central. The digital and field apparatus must execute a targeted resource reallocation:
 *   **65% of all Phase −1 digital ad spend (Meta, Google, YouTube)** must be geofenced exclusively to Mwingi North, Mwingi Central, Mwingi West, and Kitui South.
-*   **70% of the offline SMS/USSD onboarding infrastructure** (Section 9B) and **240 of the 400 Ward Captains** (Section 3.2) must be concentrated in these 24 northern and southern deficit wards.
+*   **70% of the offline SMS/USSD onboarding infrastructure** (Section 9B) and **240 of the 400 Ward Captains** (Section 5.2) must be concentrated in these 24 northern and southern deficit wards.
 *   The "Economist Governor" messaging in these wards must emphasize countywide fiscal redistribution, showing how Dr. Mulu's public finance oversight will direct water and health infrastructure capital into historically neglected rural wards like Kyuso, Tseikuru, Athi, and Mutha.
 
 ---
 
-### 6.6 Sourced Data Gaps in Ward-Level Analytics
+### 6A.3 Sourced Data Gaps in Ward-Level Analytics
 
 In strict adherence to the campaign's data provenance standards, the analytical team explicitly marks empirical data gaps rather than interpolating unverified statistics:
 
@@ -814,7 +814,7 @@ This section defines the structural architecture of the Kitui electorate across 
 *   **Connectivity & Media Consumption:** **86.4% offline**; 2G/GSM feature phone dominance; high evening vernacular radio listenership; weekly open-air market gatherings.
 *   **Reachable Channels:**
     *   **Primary:** Kamba Vernacular Radio (Musyi FM, Mbaitu FM, Sang'u FM, Athiani FM, Syokimau FM) during morning (06:00–08:30) and evening drive (19:00–21:30).
-    *   **Secondary:** Direct localized bulk SMS in Kikamba via the 400 Ward Captain field network (Section 3.2).
+    *   **Secondary:** Direct localized bulk SMS in Kikamba via the 400 Ward Captain field network (Section 5.2).
     *   **Physical:** Open-air market day barazas (e.g., Kalundu, Kabati, Mbondoni, Nguni, Mutomo), church fellowships (AIC, Catholic, Redeemed), and agricultural cooperative/SACCO meetings.
 *   **Persuasion Lever (What It Takes to Move Them):**
     *   *Core Anxiety:* Persistent seasonal crop failure, unmitigated drought shocks, exploitative middlemen for green grams (*ndengu*) and pigeon peas (*nzuu*), and erratic subsidized seed/fertilizer distribution.
@@ -1422,7 +1422,7 @@ The campaign establishes a **Closed-Loop Ground-Digital Integration Engine**. Fi
 
 ### 10.1 The 40-Ward Field Reporting Protocol
 
-The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, who supervise the **400 Ward Captains** (10 per ward, Section 3.2). Each coordinator is equipped with a dual reporting channel: a **secure field WhatsApp bot** for smartphone-equipped coordinators in 3G/4G zones, and a **zero-rated USSD/SMS structured reporting tree** for offline/2G wards.
+The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, who supervise the **400 Ward Captains** (10 per ward, Section 5.2). Each coordinator is equipped with a dual reporting channel: a **secure field WhatsApp bot** for smartphone-equipped coordinators in 3G/4G zones, and a **zero-rated USSD/SMS structured reporting tree** for offline/2G wards.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -3090,7 +3090,7 @@ The campaign builds and maintains the **Kitui County Service-Delivery Performanc
 
 ## 20. The Performance KPI Framework: Milestone Metrics Anchored to Electoral Victory Thresholds
 
-In accordance with the foundational strategic doctrine established in **Section 2.3**, the campaign rejects vanity metrics—such as social media follower counts, video views, impressions, and post likes—as actionable indicators of political strength. In a county where ~86% of registered voters reside offline in rural agrarian settings, digital engagement metrics correlate weakly with ballot-box outcomes and create dangerous operational complacency.
+In accordance with the foundational strategic doctrine established in **Section 4.3**, the campaign rejects vanity metrics—such as social media follower counts, video views, impressions, and post likes—as actionable indicators of political strength. In a county where ~86% of registered voters reside offline in rural agrarian settings, digital engagement metrics correlate weakly with ballot-box outcomes and create dangerous operational complacency.
 
 Every Key Performance Indicator (KPI) in this framework is strictly anchored to one of two decisive statutory milestones:
 1.  **The Nomination Window Threshold:** Achieving $>55\%$ Wiper Party primary delegate/voter preference share.

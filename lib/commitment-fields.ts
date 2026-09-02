@@ -1,14 +1,14 @@
 import type React from "react";
 
 /**
- * The shape of Section 3's Operational Commitments.
+ * The shape of Section 5's Operational Commitments.
  *
  * Pure, no React rendering, no "use client" — MarkdownViewer parses on the server, so the
  * detection helpers have to be callable there. Only the presentation half (CommitmentFields)
  * is a client component.
  */
 
-/** The six field labels §3 uses, keyed by the role each plays in the layout. */
+/** The six field labels §5 uses, keyed by the role each plays in the layout. */
 export const COMMITMENT_FIELDS = {
   baseline: "baseline figure",
   target: "target figure",

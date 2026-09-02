@@ -4,7 +4,7 @@ import { LazyMount } from "../LazyMount";
 import { SourceLine } from "./SourceLine";
 import ResourceEnvelopeChart, { type WaterfallStep } from "../charts/ResourceEnvelopeChart";
 
-// Section 2.4: "a total resource envelope of KSh13.79 billion, comprising roughly KSh11.64
+// Section 4.4: "a total resource envelope of KSh13.79 billion, comprising roughly KSh11.64
 // billion in equitable share (approximately 84.5% of revenue), around KSh1.03 billion in
 // grants, and own-source revenue revised upward to KSh1.339 billion." All three components are
 // stated as approximate ("roughly" / "around") — their sum (14.009bn) doesn't exactly match the
@@ -19,7 +19,7 @@ const DATA: WaterfallStep[] = [
   { name: "Equitable share", base: 0, value: EQUITABLE, display: "≈ KSh11.64bn (≈84.5% of revenue)", color: "#0056a8" },
   { name: "Grants", base: EQUITABLE, value: GRANTS, display: "≈ KSh1.03bn", color: "#338dfd" },
   { name: "Own-source revenue", base: EQUITABLE + GRANTS, value: OWN_SOURCE, display: "KSh1.339bn (revised upward)", color: "#e31d2b" },
-  { name: "Stated total", base: 0, value: STATED_TOTAL, display: "KSh13.79bn — as stated in Section 2.4", color: "#0b1a30", isTotal: true },
+  { name: "Stated total", base: 0, value: STATED_TOTAL, display: "KSh13.79bn — as stated in Section 4.4", color: "#0b1a30", isTotal: true },
 ];
 
 export function ResourceEnvelopeBlock() {

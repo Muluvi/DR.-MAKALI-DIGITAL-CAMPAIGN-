@@ -14,7 +14,7 @@ export interface FiscalBar {
 }
 
 /**
- * Section 2.7 — audit exposure measured against the resource envelope.
+ * Section 4.7 — audit exposure measured against the resource envelope.
  *
  * This was three bars side by side, which invites the reader to compare the envelope with the
  * exposures as if they were peers. They are not: the envelope is the denominator and the other

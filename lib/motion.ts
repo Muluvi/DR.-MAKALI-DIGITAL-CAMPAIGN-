@@ -111,7 +111,7 @@ export const cascade = (gap: number = STAGGER.tight, delay = 0): Variants => ({
 });
 
 /** Two faces of one decision — the poll/primary and nomination-path cards. Each axis is a
- *  distinct signature, so §1A and §5 can both flip without reading as a repeat. */
+ *  distinct signature, so §1A and §2 can both flip without reading as a repeat. */
 export const flipInY: Variants = {
   hidden: { opacity: 0, rotateY: -14 },
   visible: { opacity: 1, rotateY: 0, transition: entrance },

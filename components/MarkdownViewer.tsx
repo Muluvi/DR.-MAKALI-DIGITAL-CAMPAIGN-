@@ -195,35 +195,40 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // ---- The Analysis (exec.md, §1–§20) -------------------------------------------------
   "exec-sec-1-1": <PollingTrajectorySimulator />,
   "exec-sec-1a": <NominationPathPanel />,
-  // §4 now sits second, ahead of §2 — its thesis opens the argument.
-  "exec-sec-4": <EconomistGovernorThesis />,
-  "exec-sec-2-2": <ConstitutionalBranchNavigator />,
-  "exec-sec-2-3": (
+  // The core narrative is §3 now, ahead of the strategic context — its thesis opens the argument.
+  "exec-sec-3": <EconomistGovernorThesis />,
+  "exec-sec-4-2": (
+    <>
+      <ConstitutionalBranchNavigator />
+      <CompetitiveQuadrantBlock />
+    </>
+  ),
+  "exec-sec-4-3": (
     <>
       <WardCartogramBlock />
       <PathTo200kBlock />
       <ConstituencyWeightBlock />
     </>
   ),
-  "exec-sec-2-4": <ResourceEnvelopeBlock />,
-  "exec-sec-2-5": <DisputedFigure entry={kituiCentralPopulationDispute} />,
-  "exec-sec-2-6": (
+  "exec-sec-4-4": <ResourceEnvelopeBlock />,
+  "exec-sec-4-5": <DisputedFigure entry={kituiCentralPopulationDispute} />,
+  "exec-sec-4-6": (
     <>
       <ElectoralHistoryPanel />
       <ElectoralTimelineBlock />
     </>
   ),
-  "exec-sec-2-7": (
+  "exec-sec-4-7": (
     <>
       <FiscalAuditPanel />
       <FiscalAuditChartBlock />
     </>
   ),
-  "exec-sec-2-8": <DroughtFoodSecurityPanel />,
-  "exec-sec-2-9": <MuiBasinPanel />,
-  "exec-sec-2-10": <CompetitorFieldPanel />,
-  "exec-sec-6-3": <PathTo200kCalculator />,
-  "exec-sec-6-5": <RecognitionDeficitOverlay />,
+  "exec-sec-4-8": <DroughtFoodSecurityPanel />,
+  "exec-sec-4-9": <MuiBasinPanel />,
+  "exec-sec-4-10": <CompetitorFieldPanel />,
+  "exec-sec-6a": <PathTo200kCalculator />,
+  "exec-sec-6a-2": <RecognitionDeficitOverlay />,
   "exec-sec-7": <AudienceSegmentationMatrix />,
   "exec-sec-13": (
     <>
@@ -324,13 +329,13 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
               const headers = getTableHeaderTexts(children).map((h) => h.toLowerCase());
               const has = (text: string) => headers.some((h) => h.includes(text));
 
-              // Section 2.5 "National platform sizing" — replaced by the sorted bar chart
+              // Section 4.5 "National platform sizing" — replaced by the sorted bar chart
               // (item 13), not kept alongside it.
               if (tabId === "exec" && has("platform") && has("kenya audience")) {
                 return <PlatformSizingBlock />;
               }
 
-              // Section 2.1 candidate-asset table — assertion/evidence/application becomes
+              // Section 4.1 candidate-asset table — assertion/evidence/application becomes
               // claim cards (item 21), replacing the table rather than sitting alongside it.
               if (tabId === "exec" && has("asset") && has("evidence") && has("digital application")) {
                 return <ClaimCards>{children}</ClaimCards>;
@@ -358,16 +363,6 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
                   <>
                     {table}
                     <MizaniSlopeBlock />
-                  </>
-                );
-              }
-
-              // Section 2.2 competitive field table — quadrant plot added after it.
-              if (tabId === "exec" && has("contender") && has("exploitable gap")) {
-                return (
-                  <>
-                    {table}
-                    <CompetitiveQuadrantBlock />
                   </>
                 );
               }
@@ -412,7 +407,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
               return <MarkdownParagraph tabId={tabId}>{children}</MarkdownParagraph>;
             },
             blockquote: ({ children }) => {
-              // The central narrative line (Section 4) gets the full pull-quote treatment;
+              // The central narrative line (Section 3) gets the full pull-quote treatment;
               // every other blockquote (the ethics charter, etc.) keeps the standard styling.
               if (getDeepText(children).includes("Kitui has resources")) {
                 return <PullQuote>{children}</PullQuote>;
@@ -424,7 +419,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
               );
             },
             ul: ({ children }) => {
-              // §3 writes each Operational Commitment as six bolded fields in a fixed order —
+              // §5 writes each Operational Commitment as six bolded fields in a fixed order —
               // a table written as prose. Where that exact shape appears, lay it out as one;
               // every other list in the document is untouched.
               const fields = parseLabelledList(children);

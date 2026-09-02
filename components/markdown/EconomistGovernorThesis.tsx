@@ -7,18 +7,18 @@ import { EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
 
 /**
- * Section 4 — the campaign's core narrative, set as the section's opening statement.
+ * Section 3 — the campaign's core narrative, set as the section's opening statement.
  *
- * Section 4 now opens the document's argument rather than sitting fourth, and its thesis is a
+ * Section 3 opens the document's argument rather than trailing the strategic context, and its
  * single sentence carrying the whole positioning. In running prose that sentence reads as one
  * more bolded clause; given room and a moment of motion it reads as the claim everything after
  * it has to earn.
  *
- * The words are quoted verbatim from Section 4's own first paragraph — the same discipline
+ * The words are quoted verbatim from Section 3's own first paragraph — the same discipline
  * KeyTakeawayBanner follows. No new copy is introduced here, and nothing is paraphrased.
  */
 
-/** Section 4, paragraph 1, verbatim. Split only so the operative phrase can carry emphasis. */
+/** Section 3, paragraph 1, verbatim. Split only so the operative phrase can carry emphasis. */
 const SEGMENTS: { text: string; accent?: boolean }[] = [
   { text: "Dr. Makali Mulu is the" },
   { text: "Economist Governor", accent: true },

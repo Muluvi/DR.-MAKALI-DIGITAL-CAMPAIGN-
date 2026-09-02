@@ -367,7 +367,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
                 <span>Full Index (20 Secs)</span>
               </button>
               <button
-                onClick={() => navigateToSection("exec-sec-2-3")}
+                onClick={() => navigateToSection("exec-sec-4-3")}
                 className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
               >
                 200k Target Math

@@ -11,7 +11,7 @@ import { HighlightedText } from "./HighlightedText";
 import type { TabId } from "../../lib/heading-slug";
 
 /**
- * Section 3 — the five Operational Commitments, as a grid rather than a bullet list.
+ * Section 5 — the five Operational Commitments, as a grid rather than a bullet list.
  *
  * Every commitment carries the same six fields in the same order: Traceability, Baseline Figure,
  * Target Figure, Deadline, Named Owner, Escalation Trigger. That is a table the document happens

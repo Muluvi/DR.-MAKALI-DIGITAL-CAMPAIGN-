@@ -12,7 +12,7 @@
 // estimates, and the campaign should confirm them against a current NapoleonCat/DataReportal
 // pull before any of them is used for ad planning.
 //
-// OPEN ITEM for the campaign: restore the §2.5 platform-sizing table to the proposal text, or
+// OPEN ITEM for the campaign: restore the §4.5 platform-sizing table to the proposal text, or
 // confirm these figures should be dropped. Flagged in the audit rather than resolved silently.
 
 import type { Source } from "./types";

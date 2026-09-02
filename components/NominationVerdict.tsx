@@ -18,9 +18,9 @@ import { TierBadge } from "./markdown/TierBadge";
  * The motion is the argument: the two poll shares separate from a shared baseline while the
  * deficit counts up to the gap between them. A deficit is something that OPENED — showing it
  * opening says more than a number sitting still does. This is the only surface on the site that
- * does this; §4's kinetic type is the only other place motion is the event.
+ * does this; §3's kinetic type is the only other place motion is the event.
  *
- * Every figure is from exec.md §1.1 (Mizani Africa, 7 August 2026) and §3.1.
+ * Every figure is from exec.md §1.1 (Mizani Africa, 7 August 2026) and §5.1.
  */
 
 /** exec.md §1.1, the 7 August 2026 Mizani survey. */
@@ -153,7 +153,7 @@ export function NominationVerdict() {
               })}
             </div>
 
-            {/* The date rail: what has to happen, and by when. §3.1. */}
+            {/* The date rail: what has to happen, and by when. §5.1. */}
             <div className="mt-6 pt-5 border-t border-line/60 grid grid-cols-2 gap-4">
               <div className="flex items-start gap-2">
                 <CalendarClock size={15} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />

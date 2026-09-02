@@ -8,7 +8,7 @@ import { ProvenanceLine } from "./ProvenanceLine";
 const musilaDispute = DISPUTED_FIGURES.find((d) => d.id === "musila-2022-governor-votes")!;
 
 /**
- * Electoral history across 2013 / 2017 / 2022 (Section 2.6). Server component — no chart
+ * Electoral history across 2013 / 2017 / 2022 (Section 4.6). Server component — no chart
  * library, so this renders directly rather than behind a dynamic() boundary; the Phase 6c
  * timeline chart sits alongside it in ElectoralTimelineBlock.
  */

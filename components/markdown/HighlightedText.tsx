@@ -37,7 +37,7 @@ const STATUS_PHRASES: { pattern: string; status: ClaimStatus }[] = [
 ];
 
 // A key-takeaway banner closes each major section, quoting a line that's already that
-// section's own natural closing statement — never new copy. "exec" is skipped: Section 4
+// section's own natural closing statement — never new copy. "exec" is skipped: Section 3
 // already closes on the promoted central-narrative pull quote, and a second banner quoting
 // the same line would just duplicate it. strategy/tactics share a trigger because the source
 // markdown duplicates that content across both documents (see strategy.md and tactics.md,
