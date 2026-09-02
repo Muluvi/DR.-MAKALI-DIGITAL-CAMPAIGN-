@@ -102,6 +102,35 @@ re-check happens deliberately rather than by accident.
 
 ---
 
+## 4. Core Campaign Narrative: The "Economist Governor"
+
+The core narrative of the campaign turns standard political promotion on its head: **Dr. Makali Mulu is the Economist Governor Kitui needs.** This narrative frames him not as a politician who merely promises, but as an expert economist who can show his working and enforce rigorous accountability.
+
+### 4.1 Empirical Proof Points of the "Economist Governor" Claim
+Dr. Mulu's technocratic and delivery credentials are not abstract campaign claims; they are backed by verified, empirical milestones (Tier 1):
+*   **The National Budget Seat:** Sourced legislative records confirm Dr. Mulu's senior position on the National Assembly's **Budget and Appropriations Committee** (Tier 1). His tenure provides him with unparalleled authority and direct oversight of macroeconomic resource allocation.
+*   **Direct Local Investment (Educational Bursaries):** Dr. Mulu has successfully directed **KSh 47 million in educational bursaries to 12,573 needy students** within Kitui Central (Tier 1), proving that high-level economic stewardship translates directly into concrete household financial relief.
+*   **Certified Administrative Excellence:** Sourced Ministry of Finance performance audits officially certified Kitui Central as the **best-evaluated constituency in the Eastern region, FY2014/15**—ranking first out of all 71 constituencies in its peer group (Tier 1).
+*   **Professional Monitoring & Evaluation Credentials:** He is a certified consultant in project management, a member of the **Evaluation Society of Kenya (ESK)** (Tier 1), and was officially designated as an **M&E Champion by the Ministry of Finance** (Tier 1).
+
+### 4.2 Anchoring in Fiscal Evidence: The Resource Paradox
+The campaign's primary argument is anchored in a documented, structural paradox: **Kitui has ample developmental resources; what it completely lacks is disciplined, accountable deployment.**
+
+According to the approved Kitui County Fiscal Strategy Paper for FY2026/27, the county executive commands a substantial annual resource envelope of **KSh 13.79 billion** (Tier 1). However, the Office of the Auditor-General's FY2023/24 audit report exposes severe, systemic public financial management failures under the current administration (Tier 1):
+1.  **KSh 670,000,000** in unconfirmed, highly volatile cash balances (Tier 1).
+2.  **KSh 1,090,000,000** in uncollected county rates, rents, and local revenues (Tier 1).
+3.  **KSh 621,500,000** in unexplained variances between the county's financial statements and the Integrated Financial Management Information System (IFMIS) (Tier 1).
+4.  **KSh 356,200,000** in unexplained inter-account transfers (Tier 1).
+
+Furthermore, Controller of Budget reports reveal that the county carries an estimated **KSh 1.3 billion in outstanding pending bills** as of FY2020/21 (Tier 1). These metrics prove that Kitui's primary developmental obstacle is not a lack of funding, but a lack of fiscal discipline, project oversight, and structural monitoring and evaluation—the exact competencies that define Dr. Mulu's professional career.
+
+### 4.3 Preempting the Rival Counter-Narrative: The Empathy of Discipline
+Competitors will seek to weaponize Dr. Mulu's technocratic and economic credentials to paint him as politically detached:
+*   **The Rival Attack:** *"Dr. Mulu is a cold, distant, Nairobi-facing intellectual who spends his time in air-conditioned parliamentary offices, completely out of touch with the raw, daily struggles of rural Kitui households."*
+*   **The Clinical Rebuttal:** The campaign will aggressively pivot this attack into a powerful, reinforcing asset. A "warm," charismatic leader without fiscal discipline is precisely what has delivered KSh 670 million in unconfirmed cash balances and KSh 1.3 billion in pending bills, leaving rural boreholes dry, clinics unstaffed, and schools unbuilt. Dr. Mulu’s clinical precision is not "coldness"; it is the ultimate expression of empathy. His fiscal discipline is the protective shield that prevents public funds from being stolen by corrupt cartels or wasted on white-elephant projects, ensuring every single shilling is accountably deployed to the 86.4% offline, rural majority who rely on county services for survival. Kitui has resources. What it has lacked is leadership that understands how to use them—and the discipline to prove it did.
+
+---
+
 ## 2. Strategic Context: Dr. Makali Mulu and Kitui County
 
 ### 2.1 Candidate Profile: Clinical Leadership Diagnostics and Portfolio Strengths
@@ -381,35 +410,6 @@ The campaign's objectives are structured across two separate timelines, each wit
 *   **Deadline:** 31 January 2027.
 *   **Named Owner:** Grassroots Operations Coordinator.
 *   **Escalation Trigger:** If any of the 40 wards has fewer than 8 verified and active captains by 15 January 2027, automatically trigger targeted SMS recruitment and deploy regional organizers to host physical briefing forums.
-
----
-
-## 4. Core Campaign Narrative: The "Economist Governor"
-
-The core narrative of the campaign turns standard political promotion on its head: **Dr. Makali Mulu is the Economist Governor Kitui needs.** This narrative frames him not as a politician who merely promises, but as an expert economist who can show his working and enforce rigorous accountability.
-
-### 4.1 Empirical Proof Points of the "Economist Governor" Claim
-Dr. Mulu's technocratic and delivery credentials are not abstract campaign claims; they are backed by verified, empirical milestones (Tier 1):
-*   **The National Budget Seat:** Sourced legislative records confirm Dr. Mulu's senior position on the National Assembly's **Budget and Appropriations Committee** (Tier 1). His tenure provides him with unparalleled authority and direct oversight of macroeconomic resource allocation.
-*   **Direct Local Investment (Educational Bursaries):** Dr. Mulu has successfully directed **KSh 47 million in educational bursaries to 12,573 needy students** within Kitui Central (Tier 1), proving that high-level economic stewardship translates directly into concrete household financial relief.
-*   **Certified Administrative Excellence:** Sourced Ministry of Finance performance audits officially certified Kitui Central as the **best-evaluated constituency in the Eastern region, FY2014/15**—ranking first out of all 71 constituencies in its peer group (Tier 1).
-*   **Professional Monitoring & Evaluation Credentials:** He is a certified consultant in project management, a member of the **Evaluation Society of Kenya (ESK)** (Tier 1), and was officially designated as an **M&E Champion by the Ministry of Finance** (Tier 1).
-
-### 4.2 Anchoring in Fiscal Evidence: The Resource Paradox
-The campaign's primary argument is anchored in a documented, structural paradox: **Kitui has ample developmental resources; what it completely lacks is disciplined, accountable deployment.**
-
-According to the approved Kitui County Fiscal Strategy Paper for FY2026/27, the county executive commands a substantial annual resource envelope of **KSh 13.79 billion** (Tier 1). However, the Office of the Auditor-General's FY2023/24 audit report exposes severe, systemic public financial management failures under the current administration (Tier 1):
-1.  **KSh 670,000,000** in unconfirmed, highly volatile cash balances (Tier 1).
-2.  **KSh 1,090,000,000** in uncollected county rates, rents, and local revenues (Tier 1).
-3.  **KSh 621,500,000** in unexplained variances between the county's financial statements and the Integrated Financial Management Information System (IFMIS) (Tier 1).
-4.  **KSh 356,200,000** in unexplained inter-account transfers (Tier 1).
-
-Furthermore, Controller of Budget reports reveal that the county carries an estimated **KSh 1.3 billion in outstanding pending bills** as of FY2020/21 (Tier 1). These metrics prove that Kitui's primary developmental obstacle is not a lack of funding, but a lack of fiscal discipline, project oversight, and structural monitoring and evaluation—the exact competencies that define Dr. Mulu's professional career.
-
-### 4.3 Preempting the Rival Counter-Narrative: The Empathy of Discipline
-Competitors will seek to weaponize Dr. Mulu's technocratic and economic credentials to paint him as politically detached:
-*   **The Rival Attack:** *"Dr. Mulu is a cold, distant, Nairobi-facing intellectual who spends his time in air-conditioned parliamentary offices, completely out of touch with the raw, daily struggles of rural Kitui households."*
-*   **The Clinical Rebuttal:** The campaign will aggressively pivot this attack into a powerful, reinforcing asset. A "warm," charismatic leader without fiscal discipline is precisely what has delivered KSh 670 million in unconfirmed cash balances and KSh 1.3 billion in pending bills, leaving rural boreholes dry, clinics unstaffed, and schools unbuilt. Dr. Mulu’s clinical precision is not "coldness"; it is the ultimate expression of empathy. His fiscal discipline is the protective shield that prevents public funds from being stolen by corrupt cartels or wasted on white-elephant projects, ensuring every single shilling is accountably deployed to the 86.4% offline, rural majority who rely on county services for survival. Kitui has resources. What it has lacked is leadership that understands how to use them—and the discipline to prove it did.
 
 ---
 

@@ -40,6 +40,7 @@ import { DroughtFoodSecurityPanel } from "./markdown/DroughtFoodSecurityPanel";
 import { MuiBasinPanel } from "./markdown/MuiBasinPanel";
 import { CompetitorFieldPanel } from "./markdown/CompetitorFieldPanel";
 import { NominationPathPanel } from "./markdown/NominationPathPanel";
+import { EconomistGovernorThesis } from "./markdown/EconomistGovernorThesis";
 import { ComplianceCeilingPanel } from "./markdown/ComplianceCeilingPanel";
 import { MediaOwnershipBlock } from "./markdown/MediaOwnershipBlock";
 import { DataGapsRegister } from "./markdown/DataGapsRegister";
@@ -151,6 +152,8 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // ---- The Analysis (exec.md, §1–§20) -------------------------------------------------
   "exec-sec-1-1": <PollingTrajectorySimulator />,
   "exec-sec-1a": <NominationPathPanel />,
+  // §4 now sits second, ahead of §2 — its thesis opens the argument.
+  "exec-sec-4": <EconomistGovernorThesis />,
   "exec-sec-2-2": <ConstitutionalBranchNavigator />,
   "exec-sec-2-3": (
     <>
