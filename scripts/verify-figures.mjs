@@ -65,13 +65,34 @@ function collectFiles(dir, out = []) {
  * literals and JSX text, never bare numeric expressions, so Tailwind classes and transform
  * values don't generate noise.
  */
+/**
+ * SVG path data. A `d` attribute is geometry — every coordinate in a drawn icon would otherwise
+ * be reported as an invented campaign figure, which is 150 false positives from one icon set and
+ * would train everyone to ignore this script.
+ */
+function isSvgPath(text) {
+  return /^[MmLlHhVvCcSsQqTtAaZz][\dMmLlHhVvCcSsQqTtAaZz\s,.\-eE]*$/.test(text.trim());
+}
+
+/**
+ * A bare number in an attribute or style position — `r="1.15"`, `left: "58.5%"`, `viewBox="0 0
+ * 24 24"`. Exempted only when the preceding characters name a geometry attribute or CSS
+ * property, so a displayed string that merely looks numeric is still checked.
+ */
+const GEOMETRY_KEY =
+  /\b(d|cx|cy|r|rx|ry|x|y|x1|y1|x2|y2|width|height|viewBox|points|offset|strokeWidth|stroke-width|strokeDasharray|left|right|top|bottom|inset|fontSize|letterSpacing|lineHeight|aspectRatio|opacity|transform|transformOrigin|gap|padding|margin|borderRadius|size)\s*[:=]\s*\{?\s*$/;
+
 function candidatesIn(source) {
   const found = [];
-  // Quoted strings and JSX text nodes.
+  // Quoted strings and JSX text nodes. Indexes are kept so an attribute's context can be read.
   const zones = [
     ...source.matchAll(/"([^"\n]*)"/g),
     ...source.matchAll(/'([^'\n]*)'/g),
-    ...source.matchAll(/>([^<>{}\n]*)</g),
+    // Text immediately before a tag, whether it follows a tag or a {expression}. The original
+    // form only matched after ">", so a figure typed after an interpolation — "{x} · 74.9%
+    // approval <span>" — was invisible to this scan. Requiring the closing "<" keeps ordinary
+    // code ("}, 2600);") out.
+    ...source.matchAll(/[>}]([^<>{}\n]*)</g),
   ];
 
   // Bare numeric literals assigned to a data-shaped property (budget: 4800000, voters: 22105).
@@ -87,6 +108,9 @@ function candidatesIn(source) {
   for (const z of zones) {
     const text = z[1];
     if (!text || !/\d/.test(text)) continue;
+    if (isSvgPath(text)) continue;
+    // Bare numeric strings are geometry only where a geometry key introduces them.
+    if (/^[-\d][\d\s.,%-]*$/.test(text.trim()) && GEOMETRY_KEY.test(source.slice(0, z.index))) continue;
     // Skip anything that is obviously CSS, a path, a URL or a class list.
     if (/^(https?:|\/|#|[a-z-]+:)/.test(text.trim())) continue;
     // Hex colours, Tailwind arbitrary values and CSS var fallbacks are structure, not data.
@@ -135,6 +159,60 @@ for (const file of SCAN_DIRS.flatMap((d) => collectFiles(d))) {
   });
 }
 
+/**
+ * Second check: the phone showcase config.
+ *
+ * The main scan covers components/ and treats data/ as corpus, which leaves a hole — a config in
+ * lib/ is neither scanned nor sourced, so an invented follower count sitting there would render
+ * on screen with nothing to catch it. The phone screens structurally need numbers, so the rule
+ * is not "no numbers" but "every number is either in the proposal or in the illustrative
+ * register", and the register is the thing a reviewer reads.
+ */
+const PHONE_CONFIG = path.join(ROOT, "lib", "phone-showcase.ts");
+
+function checkIllustrativeRegister() {
+  if (!fs.existsSync(PHONE_CONFIG)) return [];
+  const src = fs.readFileSync(PHONE_CONFIG, "utf8");
+
+  const open = src.indexOf("export const ILLUSTRATIVE_COUNTS");
+  if (open === -1) {
+    return [{ line: 0, figure: "ILLUSTRATIVE_COUNTS", context: "register missing from lib/phone-showcase.ts" }];
+  }
+  const close = src.indexOf("} as const;", open);
+  const registerStart = src.slice(0, open).split("\n").length;
+  const registerEnd = src.slice(0, close).split("\n").length;
+
+  const bad = [];
+  src.split("\n").forEach((line, i) => {
+    const n = i + 1;
+    if (n >= registerStart && n <= registerEnd) return;      // inside the register: that is the point
+    if (/verify-figures-ignore/.test(line)) return;
+    if (/^\s*(\*|\/\/|\/\*)/.test(line)) return;                 // comments and doc blocks
+    for (const c of candidatesIn(line)) {
+      if (corpus.includes(c.bare)) continue;
+      const trimmed = c.bare.replace(/(\.\d*?)0+$/, "$1").replace(/\.$/, "");
+      if (corpus.includes(trimmed)) continue;
+      bad.push({ line: n, figure: c.display, context: c.context });
+    }
+  });
+  return bad;
+}
+
+const unregistered = checkIllustrativeRegister();
+if (unregistered.length > 0) {
+  console.error(
+    `\nFigure verification FAILED — ${unregistered.length} number(s) in lib/phone-showcase.ts neither trace to the proposal nor sit in ILLUSTRATIVE_COUNTS.\n`
+  );
+  console.error(
+    "The phone screens may show illustrative interface numbers, but every one of them must be\n" +
+      "declared in the ILLUSTRATIVE_COUNTS register so a reviewer can see the whole set at once.\n" +
+      "Move the number into that register, or source it from the proposal.\n"
+  );
+  for (const v of unregistered) console.error(`    line ${v.line}: ${v.figure}  —  "${v.context}"`);
+  console.error("");
+  process.exit(1);
+}
+
 if (violations.length > 0) {
   console.error(
     `\nFigure verification FAILED — ${violations.length} numeric literal(s) in the UI do not appear in public/content/*.md or data/.\n`
@@ -156,4 +234,7 @@ if (violations.length > 0) {
   process.exit(1);
 }
 
-console.log("Figure verification passed: every numeric literal in the UI traces to the source.");
+console.log(
+  "Figure verification passed: every numeric literal in the UI traces to the source,\n" +
+    "and every illustrative interface number is declared in the phone-showcase register."
+);

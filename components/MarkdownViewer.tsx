@@ -43,6 +43,7 @@ import { NominationPathPanel } from "./markdown/NominationPathPanel";
 import { EconomistGovernorThesis } from "./markdown/EconomistGovernorThesis";
 import { DecisionPanel } from "./DecisionPanel";
 import { CommitmentFields } from "./markdown/CommitmentFields";
+import { PhoneShowcase } from "./phone/PhoneShowcase";
 import { ReadinessBoard } from "./markdown/ReadinessBoard";
 import { TeamRoster } from "./markdown/TeamRoster";
 import { commitmentFieldKey, isCommitmentFieldList, type CommitmentField } from "../lib/commitment-fields";
@@ -230,6 +231,10 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "exec-sec-6a": <PathTo200kCalculator />,
   "exec-sec-6a-2": <RecognitionDeficitOverlay />,
   "exec-sec-7": <AudienceSegmentationMatrix />,
+  // §9 splits the electorate into a connected minority and an offline majority. The showcase is
+  // that argument as an object: one handset, the campaign on all seven channels, ending on the
+  // USSD dialog that reaches more voters than the six apps together.
+  "exec-sec-9": <PhoneShowcase />,
   "exec-sec-13": (
     <>
       <MessagingPlayground />

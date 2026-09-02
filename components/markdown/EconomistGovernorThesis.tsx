@@ -10,7 +10,7 @@ import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
  * Section 3 — the campaign's core narrative, set as the section's opening statement.
  *
  * Section 3 opens the document's argument rather than trailing the strategic context, and its
- * single sentence carrying the whole positioning. In running prose that sentence reads as one
+ * thesis is a single sentence carrying the whole positioning. In running prose that reads as one
  * more bolded clause; given room and a moment of motion it reads as the claim everything after
  * it has to earn.
  *
