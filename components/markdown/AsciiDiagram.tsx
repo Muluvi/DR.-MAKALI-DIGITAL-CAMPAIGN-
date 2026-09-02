@@ -18,7 +18,33 @@ import { parseAsciiDiagram, type Diagram } from "../../lib/ascii-diagram";
  * set in mono reads worse than the same sentence in the body face, so the test is deliberately
  * narrow: short, and mostly digits.
  */
-function isFigure(text: string): boolean {
+/**
+ * These diagrams are box-drawing art, so their text never went through the markdown parser —
+ * which left 204 runs of `**bold**` across 29 blocks rendering as literal asterisks once the
+ * blocks became real tables. The markers are formatting, not content: emphasis is applied and
+ * the delimiters drop out, exactly as they would anywhere else in the document.
+ */
+function withEmphasis(text: string): React.ReactNode {
+  if (!text.includes("**")) return text;
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, i) =>
+    /^\*\*[^*]+\*\*$/.test(part) ? (
+      <strong key={i} className="font-bold text-ink">
+        {part.slice(2, -2)}
+      </strong>
+    ) : (
+      // A run that opens on one line of the diagram and closes on the next leaves an unpaired
+      // marker in each cell. The emphasis cannot span table rows, but the stray asterisks must
+      // not survive into the page either.
+      part.replace(/\*\*/g, "")
+    )
+  );
+}
+
+function isFigure(raw: string): boolean {
+  // Measure the visible text, not the emphasis markers — "**1**" is a figure, "1" with four
+  // asterisks bolted on is not, and the ratio test cannot tell them apart otherwise.
+  const text = raw.replace(/\*\*/g, "");
   if (!text || text.length > 26) return false;
   const digits = (text.match(/\d/g) ?? []).length;
   return digits > 0 && digits / text.length > 0.3;
@@ -91,7 +117,7 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
                             } ${isFigure(cell.text) ? "tabular-nums font-mono" : ""}`
                       }
                     >
-                      {cell.text}
+                      {withEmphasis(cell.text)}
                     </td>
                   ))}
                 </tr>
@@ -111,14 +137,14 @@ function DiagramKeyValue({ d }: { d: Extract<Diagram, { kind: "keyvalue" }> }) {
         {d.items.map((item, i) => (
           <div key={i} className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-4 px-4 py-2.5">
             <dt className="text-[11px] sm:text-xs font-semibold text-ink sm:w-[15rem] sm:shrink-0 leading-snug">
-              {item.label}
+              {withEmphasis(item.label)}
             </dt>
             <dd
               className={`text-[11px] sm:text-xs text-muted leading-snug ${
                 isFigure(item.value) ? "font-mono tabular-nums" : ""
               }`}
             >
-              {item.value}
+              {withEmphasis(item.value)}
             </dd>
           </div>
         ))}

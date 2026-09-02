@@ -41,6 +41,11 @@ import { MuiBasinPanel } from "./markdown/MuiBasinPanel";
 import { CompetitorFieldPanel } from "./markdown/CompetitorFieldPanel";
 import { NominationPathPanel } from "./markdown/NominationPathPanel";
 import { EconomistGovernorThesis } from "./markdown/EconomistGovernorThesis";
+import { DecisionPanel } from "./DecisionPanel";
+import { CommitmentFields } from "./markdown/CommitmentFields";
+import { ReadinessBoard } from "./markdown/ReadinessBoard";
+import { TeamRoster } from "./markdown/TeamRoster";
+import { commitmentFieldKey, isCommitmentFieldList, type CommitmentField } from "../lib/commitment-fields";
 import { ComplianceCeilingPanel } from "./markdown/ComplianceCeilingPanel";
 import { MediaOwnershipBlock } from "./markdown/MediaOwnershipBlock";
 import { DataGapsRegister } from "./markdown/DataGapsRegister";
@@ -120,6 +125,44 @@ function getDeepText(node: React.ReactNode): string {
     if (props?.text !== undefined) return String(props.text);
   }
   return "";
+}
+
+/**
+ * Read a list whose every item opens with a bolded field label ("**Named Owner:** …").
+ *
+ * The label is lifted out of the item's children and the REST is passed through untouched, so
+ * cross-references, claim badges and figure highlighting inside a value keep working exactly as
+ * they do in a bullet. Returns null the moment an item does not fit the shape, which leaves the
+ * list rendering as an ordinary list.
+ */
+function parseLabelledList(children: React.ReactNode): CommitmentField[] | null {
+  // Both `li` and `strong` are overridden in the components map below, so their rendered
+  // elements are custom functions rather than the DOM strings — identity checks against "li"
+  // or "strong" silently match nothing. Detect by shape instead: every item must open with a
+  // short inline run ending in a colon, which is what a bolded field label looks like.
+  const items = (React.Children.toArray(children) as React.ReactElement[]).filter((c) =>
+    React.isValidElement(c)
+  );
+  if (items.length < 4) return null;
+
+  const fields: CommitmentField[] = [];
+  for (const li of items) {
+    const parts = React.Children.toArray((li.props as { children?: React.ReactNode }).children);
+    // A loose list wraps the item body in a <p>; unwrap one level before looking for the label.
+    const body =
+      parts.length === 1 && React.isValidElement(parts[0])
+        ? React.Children.toArray((parts[0].props as { children?: React.ReactNode }).children)
+        : parts;
+
+    const first = body[0];
+    if (!React.isValidElement(first)) return null;
+    const raw = getDeepText(first).trim();
+    if (!/:$/.test(raw) || raw.length > 40) return null;
+    const label = raw.replace(/:$/, "").trim();
+    if (!label) return null;
+    fields.push({ key: commitmentFieldKey(label), label, value: body.slice(1) });
+  }
+  return fields;
 }
 
 function getTableHeaderTexts(children: React.ReactNode): string[] {
@@ -293,6 +336,19 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
                 return <ClaimCards>{children}</ClaimCards>;
               }
 
+              // Firefly appendix §15 — the pre-launch checklist is the one place that says what
+              // is blocking launch, and as a flat table the single GATED row read like the
+              // eleven OPEN ones. Becomes a status board, replacing the table.
+              if (tabId === "registers" && has("control") && has("status") && has("owner")) {
+                return <ReadinessBoard>{children}</ReadinessBoard>;
+              }
+
+              // Firefly appendix §3 — the operating model, grouped by when each role switches
+              // on, which is the column a reader is actually reading the table for.
+              if (tabId === "registers" && has("role") && has("activation")) {
+                return <TeamRoster>{children}</TeamRoster>;
+              }
+
               const table = <InteractiveTable>{children}</InteractiveTable>;
 
               // Section 1.1 Mizani survey table — table stays (item 14 says keep it with only
@@ -367,6 +423,16 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
                 </blockquote>
               );
             },
+            ul: ({ children }) => {
+              // §3 writes each Operational Commitment as six bolded fields in a fixed order —
+              // a table written as prose. Where that exact shape appears, lay it out as one;
+              // every other list in the document is untouched.
+              const fields = parseLabelledList(children);
+              if (fields && isCommitmentFieldList(fields.map((f) => f.label))) {
+                return <CommitmentFields fields={fields} tabId={tabId} />;
+              }
+              return <ul>{children}</ul>;
+            },
             li: ({ children }) => {
               // The three governing realities (Section 1.3) get a pull-quote-style emphasis
               // treatment instead of a plain bullet — every other list item is unaffected.
@@ -431,6 +497,11 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
         >
           {content}
         </ReactMarkdown>
+
+        {/* The ask closes the document, inside the prose flow. It used to sit in the footer
+            chrome below a rule, next to the print widget — which framed a vendor's closing
+            request as one more piece of page tooling. §21-23 build to it; it belongs there. */}
+        {tabId === "programme" && <DecisionPanel />}
       </div>
     </div>
   );

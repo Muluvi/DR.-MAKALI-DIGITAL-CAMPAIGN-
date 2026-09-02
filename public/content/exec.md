@@ -102,6 +102,51 @@ re-check happens deliberately rather than by accident.
 
 ---
 
+## 5. The Nomination Path: Selection Mechanisms & Deficit Diagnostics
+
+### 5.1 Status of the Opinion-Poll Selection Mechanism (Tier 3 Classification)
+The strategic assumption that the Wiper Democratic Movement will select its Kitui gubernatorial nominee via a countywide opinion poll is classified as **Tier 3 (single-sourced campaign report, not confirmed by party officials)**. This mechanism remains highly fluid and subject to internal party negotiations.
+
+To transition this selection mechanism from a Tier 3 strategic assumption to a **Tier 1 verified operational constraint**, the campaign requires:
+1.  An official, signed resolution by the **Wiper National Executive Committee (NEC)**.
+2.  A formal, written communique signed jointly by the **Wiper Party Leader (Hon. Kalonzo Musyoka)** and the **National Elections Board (NEB) Chairperson**, specifying opinion polling as the sole nomination instrument for Kitui County.
+
+---
+
+### 5.2 Technical Specifications of the Polling Instrument
+To protect the campaign against biased or unweighted polling results, the digital and analytical teams must evaluate any party-commissioned polling instrument against these strict research parameters:
+*   **Sampling Frame:** A multi-stage stratified random sampling model based on the official **2022/2027 IEBC Polling Station Registries** across all 8 sub-counties, excluding any non-voter or unregistered residents.
+*   **Sample Size ($N$):** A minimum countywide sample of **$N = 1,200$ to $N = 1,500$ registered voters**, yielding a margin of error of $\pm 2.53\%$ at a 95% confidence interval.
+*   **Sub-Sample Allocation:** Sub-sample sizes must be proportionally allocated per sub-county based on official registered voter numbers (e.g., Kitui Central's sub-sample size must be approximately **175 to 220 respondents**).
+*   **Question Wording (Aided vs. Unaided):**
+    *   *Unaided (Spontaneous) Recognition:* *"If the election for Governor of Kitui County were held today, who would you spontaneously vote for?"* (This tests top-of-mind brand equity and intensity of support).
+    *   *Aided (Prompted) Recognition:* *"From this official list of candidates, who would you choose as Governor?"* (This prompted model typically inflates candidates who have high passive name recognition but low intensity of support).
+*   **Geographic Weighting:** Raw data must be weighted to match the exact IEBC sub-county voter distribution. Unweighted or poorly weighted surveys that over-sample urban hubs (e.g., Kitui Township) at the expense of vast rural wards (e.g., Kyuso, Mutha) will severely distort the final figures.
+
+---
+
+### 5.3 The Strategic Leverage of Kitui Central's Voter Weighting
+Any standard, scientifically weighted polling instrument represents a critical strategic advantage for Dr. Mulu because of his home base:
+*   **Kitui Central's Demographic Weight:** Command of exactly **77,764 registered voters** (Tier 1) makes Kitui Central the single largest and most concentrated voting constituency in the county.
+*   **The Weighting Argument:** The campaign must forcefully advocate to party pollsters that Kitui Central's immense voter density represents the county's primary turnout anchor. In an unweighted poll, Dr. Mulu's concentrated, high-intensity support in Kitui Central could be artificially diluted. Proper geographic weighting guarantees that his home-base dominance is fully represented in the countywide polling results.
+
+---
+
+### 5.4 Deficit Diagnostics: Sourced Polling Realities
+The campaign must operate with absolute, clinical objectivity regarding the current polling environment. There is no statistical basis to project a positive growth trend based on the two survey rounds completed to date:
+*   **The Polling Deficit (Tier 2):** Dr. Mulu remains in a substantial countywide deficit. The August 2026 Mizani survey places Dr. Irene Kasalu at **37.4%** preference share, while Dr. Mulu stands at **22.1%** (Tier 2).
+*   **Honest Deficit Assessment:** This represents a significant, flat **15.3-point countywide deficit**. The two data points available (June vs. August 2026) are statistically insufficient to project a positive trend or reliable trajectory. The campaign is currently trailing, and closing this 15.3-point gap before the mid-November evaluation window demands an immediate, aggressive, and highly localized deployment of the Phase −1 digital and SMS campaign.
+
+---
+
+### 5.5 Contingency Branch: Transition to a Delegate Primary System
+If Wiper party leadership departs from the opinion-poll mechanism and reverts to a delegate-based nomination primary, the campaign will immediately trigger its **Delegate Whip Contingency Plan**:
+1.  **Map the Delegate Registry:** Instantly map and profile the estimated **1,200 to 1,500 official delegates** (comprising constituency executives, sub-branch officials, and ward-level party committee members).
+2.  **Targeted Whip Operations:** Reallocate the 400 Ward Captains from general voter outreach to peer-to-peer lobbying and direct, physical whip operations. Each captain will be assigned specific delegates residing in their ward.
+3.  **Encrypted SMS Delegate Channel:** Establish a secure, dedicated SMS/USSD communications loop directly targeting the delegates, pushing policy briefs on Dr. Mulu's "Economist Governor" platform to reinforce party loyalty and administrative competence.
+
+---
+
 ## 4. Core Campaign Narrative: The "Economist Governor"
 
 The core narrative of the campaign turns standard political promotion on its head: **Dr. Makali Mulu is the Economist Governor Kitui needs.** This narrative frames him not as a politician who merely promises, but as an expert economist who can show his working and enforce rigorous accountability.
@@ -413,51 +458,6 @@ The campaign's objectives are structured across two separate timelines, each wit
 
 ---
 
-## 5. The Nomination Path: Selection Mechanisms & Deficit Diagnostics
-
-### 5.1 Status of the Opinion-Poll Selection Mechanism (Tier 3 Classification)
-The strategic assumption that the Wiper Democratic Movement will select its Kitui gubernatorial nominee via a countywide opinion poll is classified as **Tier 3 (single-sourced campaign report, not confirmed by party officials)**. This mechanism remains highly fluid and subject to internal party negotiations.
-
-To transition this selection mechanism from a Tier 3 strategic assumption to a **Tier 1 verified operational constraint**, the campaign requires:
-1.  An official, signed resolution by the **Wiper National Executive Committee (NEC)**.
-2.  A formal, written communique signed jointly by the **Wiper Party Leader (Hon. Kalonzo Musyoka)** and the **National Elections Board (NEB) Chairperson**, specifying opinion polling as the sole nomination instrument for Kitui County.
-
----
-
-### 5.2 Technical Specifications of the Polling Instrument
-To protect the campaign against biased or unweighted polling results, the digital and analytical teams must evaluate any party-commissioned polling instrument against these strict research parameters:
-*   **Sampling Frame:** A multi-stage stratified random sampling model based on the official **2022/2027 IEBC Polling Station Registries** across all 8 sub-counties, excluding any non-voter or unregistered residents.
-*   **Sample Size ($N$):** A minimum countywide sample of **$N = 1,200$ to $N = 1,500$ registered voters**, yielding a margin of error of $\pm 2.53\%$ at a 95% confidence interval.
-*   **Sub-Sample Allocation:** Sub-sample sizes must be proportionally allocated per sub-county based on official registered voter numbers (e.g., Kitui Central's sub-sample size must be approximately **175 to 220 respondents**).
-*   **Question Wording (Aided vs. Unaided):**
-    *   *Unaided (Spontaneous) Recognition:* *"If the election for Governor of Kitui County were held today, who would you spontaneously vote for?"* (This tests top-of-mind brand equity and intensity of support).
-    *   *Aided (Prompted) Recognition:* *"From this official list of candidates, who would you choose as Governor?"* (This prompted model typically inflates candidates who have high passive name recognition but low intensity of support).
-*   **Geographic Weighting:** Raw data must be weighted to match the exact IEBC sub-county voter distribution. Unweighted or poorly weighted surveys that over-sample urban hubs (e.g., Kitui Township) at the expense of vast rural wards (e.g., Kyuso, Mutha) will severely distort the final figures.
-
----
-
-### 5.3 The Strategic Leverage of Kitui Central's Voter Weighting
-Any standard, scientifically weighted polling instrument represents a critical strategic advantage for Dr. Mulu because of his home base:
-*   **Kitui Central's Demographic Weight:** Command of exactly **77,764 registered voters** (Tier 1) makes Kitui Central the single largest and most concentrated voting constituency in the county.
-*   **The Weighting Argument:** The campaign must forcefully advocate to party pollsters that Kitui Central's immense voter density represents the county's primary turnout anchor. In an unweighted poll, Dr. Mulu's concentrated, high-intensity support in Kitui Central could be artificially diluted. Proper geographic weighting guarantees that his home-base dominance is fully represented in the countywide polling results.
-
----
-
-### 5.4 Deficit Diagnostics: Sourced Polling Realities
-The campaign must operate with absolute, clinical objectivity regarding the current polling environment. There is no statistical basis to project a positive growth trend based on the two survey rounds completed to date:
-*   **The Polling Deficit (Tier 2):** Dr. Mulu remains in a substantial countywide deficit. The August 2026 Mizani survey places Dr. Irene Kasalu at **37.4%** preference share, while Dr. Mulu stands at **22.1%** (Tier 2).
-*   **Honest Deficit Assessment:** This represents a significant, flat **15.3-point countywide deficit**. The two data points available (June vs. August 2026) are statistically insufficient to project a positive trend or reliable trajectory. The campaign is currently trailing, and closing this 15.3-point gap before the mid-November evaluation window demands an immediate, aggressive, and highly localized deployment of the Phase −1 digital and SMS campaign.
-
----
-
-### 5.5 Contingency Branch: Transition to a Delegate Primary System
-If Wiper party leadership departs from the opinion-poll mechanism and reverts to a delegate-based nomination primary, the campaign will immediately trigger its **Delegate Whip Contingency Plan**:
-1.  **Map the Delegate Registry:** Instantly map and profile the estimated **1,200 to 1,500 official delegates** (comprising constituency executives, sub-branch officials, and ward-level party committee members).
-2.  **Targeted Whip Operations:** Reallocate the 400 Ward Captains from general voter outreach to peer-to-peer lobbying and direct, physical whip operations. Each captain will be assigned specific delegates residing in their ward.
-3.  **Encrypted SMS Delegate Channel:** Establish a secure, dedicated SMS/USSD communications loop directly targeting the delegates, pushing policy briefs on Dr. Mulu's "Economist Governor" platform to reinforce party loyalty and administrative competence.
-
----
-
 ## 6. Ward-Level Targeting: Electoral Arithmetic, Spatial Concentrations & Deficit Mapping
 
 The path to the Kitui County governorship is governed by strict spatial and demographic mathematics. An effective campaign cannot treat the county as a uniform political landscape; it must allocate capital, digital ad impressions, offline SMS broadcasts, and field organizers in direct proportion to registered voter density and structural electoral leverage.
@@ -586,7 +586,7 @@ Voter registration in Kitui County is highly concentrated. Rather than a flat ge
 
 ---
 
-### 6.3 Ward Combinations to Reach the ~200,000 Threshold (Showing the Working)
+## 6.3 Ward Combinations to Reach the ~200,000 Threshold (Showing the Working)
 
 To establish an unshakeable mathematical path to victory, the campaign evaluates specific ward combinations against the ~200,000 registered voter benchmark:
 

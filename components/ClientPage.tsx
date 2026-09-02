@@ -24,7 +24,6 @@ import { FocusModeToggle, PrintReportGenerator } from "./StrategicAids";
 import { Dashboard } from "./Dashboard";
 import { HeroVisual } from "./HeroVisual";
 import { NominationVerdict } from "./NominationVerdict";
-import { DecisionPanel } from "./DecisionPanel";
 import { DataVisualizations } from "./DataVisualizations";
 import { VoterProjectionsChart } from "./VoterProjectionsChart";
 import { SectionSkeleton } from "./SectionSkeleton";
@@ -295,12 +294,9 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
           />
         )}
 
-        {!isFocusMode && sectionId === "programme" && (
-          <>
-            <PrintReportGenerator />
-            <DecisionPanel />
-          </>
-        )}
+        {/* DecisionPanel moved into the document's own close (MarkdownViewer); what remains
+            here is page tooling, which is what this footer strip is for. */}
+        {!isFocusMode && sectionId === "programme" && <PrintReportGenerator />}
       </div>
     );
   };

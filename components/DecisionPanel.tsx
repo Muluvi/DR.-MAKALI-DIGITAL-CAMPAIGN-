@@ -42,7 +42,9 @@ export function DecisionPanel() {
   return (
     <section
       aria-labelledby="decision-panel-heading"
-      className="my-12 border-t-2 border-ink pt-8 print:break-inside-avoid"
+      // Rendered inside the document's prose container now, so it opts out of the document
+      // element styles the way every other card component does.
+      className="not-prose my-12 border-t-2 border-ink pt-8 print:break-inside-avoid"
     >
       <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)] gap-8 lg:gap-12">
         <div>
