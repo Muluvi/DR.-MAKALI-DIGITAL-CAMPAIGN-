@@ -30,7 +30,7 @@ export default function PathTo200kChart({ data, threshold }: { data: PathPoint[]
             if (active && payload && payload.length) {
               const d = payload[0].payload as PathPoint;
               return (
-                <div className="bg-card border border-line p-2.5 shadow-md rounded-xl text-[10px] font-bold text-ink max-w-[200px]">
+                <div className="bg-card border border-line p-2.5 shadow-md rounded-xl t-label font-bold text-ink max-w-[200px]">
                   <p className="font-extrabold text-ink">{d.ward}</p>
                   <p className="text-muted font-semibold">{d.constituencyName}</p>
                   <p className="text-accent mt-1">Ward: <span className="text-ink">{d.voters.toLocaleString()}</span></p>

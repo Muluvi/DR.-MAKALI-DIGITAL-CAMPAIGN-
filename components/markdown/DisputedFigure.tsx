@@ -29,10 +29,10 @@ export function DisputedFigure({ entry }: { entry: DisputedFigureEntry }) {
             >
               <div className="flex items-center justify-between gap-2 mb-1.5">
                 <TierBadge tier={v.source.tier} compact />
-                {isPreferred && <span className="text-[8px] font-black uppercase tracking-wider text-accent">Preferred</span>}
+                {isPreferred && <span className="t-micro font-black uppercase tracking-wider text-accent">Preferred</span>}
               </div>
               <div className="font-serif text-lg font-black text-ink">{formatValue(v.value, v.unit)}</div>
-              <div className="text-[10px] text-muted mt-1">
+              <div className="t-label text-muted mt-1">
                 {v.source.name} · {v.source.publicationDate}
               </div>
             </div>
@@ -51,7 +51,7 @@ export function DisputedFigure({ entry }: { entry: DisputedFigureEntry }) {
       </p>
 
       {entry.status === "unresolved" && (
-        <p className="text-[9px] uppercase tracking-wider font-black text-danger mt-2">
+        <p className="t-micro uppercase tracking-wider font-black text-danger mt-2">
           Unresolved — neither value is asserted as correct.
         </p>
       )}

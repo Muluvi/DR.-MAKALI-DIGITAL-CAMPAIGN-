@@ -29,7 +29,7 @@ export default function ConstituencyBarChart({
             if (active && payload && payload.length) {
               const dataEntry = payload[0].payload;
               return (
-                <div className="bg-card border border-line p-2 shadow-md rounded-xl text-[10px] font-bold text-ink">
+                <div className="bg-card border border-line p-2 shadow-md rounded-xl t-label font-bold text-ink">
                   <p className="font-extrabold text-ink">{dataEntry.name}</p>
                   <p className="text-accent">Registered: <span className="font-extrabold text-ink">{dataEntry.voters.toLocaleString()}</span></p>
                   <p className="text-gold">Share: <span className="font-extrabold text-ink">{dataEntry.share}</span></p>

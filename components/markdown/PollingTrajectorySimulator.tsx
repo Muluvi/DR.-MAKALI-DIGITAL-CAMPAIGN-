@@ -2,16 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { 
-  TrendingUp, 
-  Calendar, 
-  Target, 
-  CheckCircle2, 
-  AlertCircle, 
-  Flame, 
-  Sparkles,
-  Sliders
-} from "lucide-react";
+import { TrendingUp, Calendar, Target, CheckCircle2, AlertTriangle, Flame, Sparkles, Sliders } from "lucide-react";
 
 export function PollingTrajectorySimulator() {
   const [weeklyGainRate, setWeeklyGainRate] = useState<number>(1.2); // Percentage points per week
@@ -26,7 +17,7 @@ export function PollingTrajectorySimulator() {
   const isMeetingThreshold = projectedPolling >= targetThreshold;
 
   return (
-    <div className="my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
+    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
       {/* Top Header */}
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
@@ -35,10 +26,10 @@ export function PollingTrajectorySimulator() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Simulation Engine
               </span>
-              <span className="text-[10px] font-mono font-bold text-muted">
+              <span className="t-label font-mono font-bold text-muted">
                 Phase -1 Evaluation Window
               </span>
             </div>
@@ -61,7 +52,7 @@ export function PollingTrajectorySimulator() {
             </>
           ) : (
             <>
-              <AlertCircle size={14} />
+              <AlertTriangle size={14} />
               <span>Below Viability Threshold ({projectedPolling.toFixed(1)}%)</span>
             </>
           )}
@@ -93,7 +84,7 @@ export function PollingTrajectorySimulator() {
             className="w-full accent-accent cursor-pointer h-2 bg-line rounded-lg"
           />
 
-          <div className="flex justify-between text-[10px] font-mono text-muted font-semibold">
+          <div className="flex justify-between t-label font-mono text-muted font-semibold">
             <span>0.4% (Organic Pace)</span>
             <span>1.2% (Recommended Baseline)</span>
             <span>2.5% (High-Intensity Airwaves)</span>
@@ -103,25 +94,25 @@ export function PollingTrajectorySimulator() {
         {/* Trajectory Outcome Comparison */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div className="p-4 bg-paper/60 border border-line rounded-xl space-y-1">
-            <div className="text-[10px] font-black uppercase tracking-wider text-muted">Baseline Polling (Mizani)</div>
+            <div className="t-label font-black uppercase tracking-wider text-muted">Baseline Polling (Mizani)</div>
             <div className="font-serif text-2xl font-bold text-muted">22.1%</div>
-            <div className="text-[11px] text-muted">Initial standing in county</div>
+            <div className="t-small text-muted">Initial standing in county</div>
           </div>
 
           <div className="p-4 bg-accent/5 border border-accent/20 rounded-xl space-y-1">
-            <div className="text-[10px] font-black uppercase tracking-wider text-accent">Simulated 14-Week Standing</div>
+            <div className="t-label font-black uppercase tracking-wider text-accent">Simulated 14-Week Standing</div>
             <div className="font-serif text-2xl font-bold text-ink">
               {projectedPolling.toFixed(1)}%
             </div>
-            <div className="text-[11px] text-emerald-600 dark:text-emerald-400 font-bold">
+            <div className="t-small text-emerald-600 dark:text-emerald-400 font-bold">
               +{pointsGained.toFixed(1)}% Total Improvement
             </div>
           </div>
 
           <div className="p-4 bg-paper/60 border border-line rounded-xl space-y-1">
-            <div className="text-[10px] font-black uppercase tracking-wider text-muted">Benchmark Target</div>
+            <div className="t-label font-black uppercase tracking-wider text-muted">Benchmark Target</div>
             <div className="font-serif text-2xl font-bold text-ink">40.0%+</div>
-            <div className="text-[11px] text-muted">Wiper Nomination threshold</div>
+            <div className="t-small text-muted">Wiper Nomination threshold</div>
           </div>
         </div>
 

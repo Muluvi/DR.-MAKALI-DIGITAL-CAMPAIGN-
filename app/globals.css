@@ -151,33 +151,71 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   background: var(--color-accent);
 }
 
+/* ---------------------------------------------------------------------------
+   UI type scale
+   ---------------------------------------------------------------------------
+   The interface layer had thirteen ad-hoc sizes between 8px and 15.5px, chosen
+   file by file, and its floor was 8px — below the point most people can read a
+   label on a phone held at arm's length. These five tokens replace all of them.
+
+   Each is a shade larger below 640px. That is deliberate: a phone is the only
+   device this proposal is likely to be opened on, and it is the one where the
+   old floor hurt most. Document prose is NOT set from these tokens — it keeps
+   its own fluid scale under .prose, and the reading-density control below.
+
+   Sizes are in rem so they honour the reader's browser text-size setting.
+   --------------------------------------------------------------------------- */
+:root {
+  --fs-micro: 0.625rem;   /* 10px — uppercase eyebrows and axis ticks */
+  --fs-label: 0.6875rem;  /* 11px — field labels, badges, table headers */
+  --fs-small: 0.75rem;    /* 12px — secondary text, captions, notes */
+  --fs-body: 0.8125rem;   /* 13px — card body copy */
+  --fs-lead: 0.9375rem;   /* 15px — card ledes and figures */
+}
+
+@media (max-width: 639px) {
+  :root {
+    --fs-micro: 0.65625rem; /* 10.5px */
+    --fs-label: 0.71875rem; /* 11.5px */
+    --fs-small: 0.78125rem; /* 12.5px */
+    --fs-body: 0.84375rem;  /* 13.5px */
+    --fs-lead: 0.96875rem;  /* 15.5px */
+  }
+}
+
+.t-micro { font-size: var(--fs-micro); }
+.t-label { font-size: var(--fs-label); }
+.t-small { font-size: var(--fs-small); }
+.t-body  { font-size: var(--fs-body); }
+.t-lead  { font-size: var(--fs-lead); }
+
 /* Reading Density Scales */
-.density-compact .prose p,
-.density-compact .prose li {
+.density-compact .prose p:not(.not-prose *),
+.density-compact .prose li:not(.not-prose *) {
   font-size: 0.875rem !important;
   line-height: 1.6 !important;
   margin-bottom: 0.5rem !important;
 }
-.density-compact .prose h1 { font-size: 1.625rem !important; margin-top: 1.25rem !important; margin-bottom: 0.5rem !important; }
-.density-compact .prose h2 { font-size: 1.25rem !important; margin-top: 1.25rem !important; margin-bottom: 0.5rem !important; }
-.density-compact .prose h3 { font-size: 1.05rem !important; margin-top: 1rem !important; margin-bottom: 0.375rem !important; }
+.density-compact .prose h1:not(.not-prose *) { font-size: 1.625rem !important; margin-top: 1.25rem !important; margin-bottom: 0.5rem !important; }
+.density-compact .prose h2:not(.not-prose *) { font-size: 1.25rem !important; margin-top: 1.25rem !important; margin-bottom: 0.5rem !important; }
+.density-compact .prose h3:not(.not-prose *) { font-size: 1.05rem !important; margin-top: 1rem !important; margin-bottom: 0.375rem !important; }
 
-.density-balanced .prose p,
-.density-balanced .prose li {
+.density-balanced .prose p:not(.not-prose *),
+.density-balanced .prose li:not(.not-prose *) {
   font-size: 0.95rem !important;
   line-height: 1.72 !important;
   margin-bottom: 0.75rem !important;
 }
 
-.density-generous .prose p,
-.density-generous .prose li {
+.density-generous .prose p:not(.not-prose *),
+.density-generous .prose li:not(.not-prose *) {
   font-size: 1.0625rem !important;
   line-height: 1.82 !important;
   margin-bottom: 1rem !important;
 }
-.density-generous .prose h1 { font-size: 2.25rem !important; margin-top: 2rem !important; margin-bottom: 1rem !important; }
-.density-generous .prose h2 { font-size: 1.75rem !important; margin-top: 1.75rem !important; margin-bottom: 0.875rem !important; }
-.density-generous .prose h3 { font-size: 1.35rem !important; margin-top: 1.5rem !important; margin-bottom: 0.625rem !important; }
+.density-generous .prose h1:not(.not-prose *) { font-size: 2.25rem !important; margin-top: 2rem !important; margin-bottom: 1rem !important; }
+.density-generous .prose h2:not(.not-prose *) { font-size: 1.75rem !important; margin-top: 1.75rem !important; margin-bottom: 0.875rem !important; }
+.density-generous .prose h3:not(.not-prose *) { font-size: 1.35rem !important; margin-top: 1.5rem !important; margin-bottom: 0.625rem !important; }
 
 /* Focus Mode Refinements */
 .focus-reading-mode {
@@ -210,15 +248,22 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   transition-duration: 150ms;
 }
 
-.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+.prose h1:not(.not-prose *), .prose h2:not(.not-prose *), .prose h3:not(.not-prose *), .prose h4:not(.not-prose *), .prose h5:not(.not-prose *), .prose h6:not(.not-prose *) {
   font-family: Montserrat, sans-serif;
   color: var(--color-ink);
   font-weight: 600;
   text-wrap: balance;
 }
 
+/* `not-prose` opt-out.
+   The document body is styled by element selectors under `.prose`, and the density controls
+   restate them with `!important`. Both reach every nested paragraph, list and table — including
+   the ones inside chart cards and panels, whose own type sizes were being overridden. Components
+   across this codebase already declare `not-prose` to opt out; these guards are what make that
+   declaration do anything. */
+
 /* Fluid typography scale across 320px to 1280px viewports */
-.prose h1 {
+.prose h1:not(.not-prose *) {
   font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem);
   line-height: 1.2;
   letter-spacing: -0.015em;
@@ -226,7 +271,7 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   margin-top: 1.75rem;
   margin-bottom: 0.75rem;
 }
-.prose h2 {
+.prose h2:not(.not-prose *) {
   font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.45rem);
   line-height: 1.28;
   letter-spacing: -0.01em;
@@ -236,7 +281,7 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   border-bottom: 1px solid var(--color-line);
   padding-bottom: 0.375rem;
 }
-.prose h3 {
+.prose h3:not(.not-prose *) {
   font-size: clamp(1rem, 0.95rem + 0.25vw, 1.2rem);
   line-height: 1.35;
   letter-spacing: 0;
@@ -244,7 +289,7 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   margin-top: 1.25rem;
   margin-bottom: 0.5rem;
 }
-.prose h4 {
+.prose h4:not(.not-prose *) {
   font-size: clamp(0.875rem, 0.85rem + 0.15vw, 1rem);
   line-height: 1.4;
   letter-spacing: 0;
@@ -252,7 +297,7 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   margin-top: 1rem;
   margin-bottom: 0.375rem;
 }
-.prose h5, .prose h6 {
+.prose h5:not(.not-prose *), .prose h6:not(.not-prose *) {
   font-size: 0.875rem;
   line-height: 1.4;
   letter-spacing: 0;
@@ -260,7 +305,7 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   margin-top: 0.75rem;
   margin-bottom: 0.25rem;
 }
-.prose p {
+.prose p:not(.not-prose *) {
   margin-bottom: 0.75rem;
   color: var(--prose-body);
   line-height: 1.68;
@@ -271,17 +316,17 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   text-wrap: pretty;
 }
 @media (min-width: 1024px) {
-  .prose p {
+  .prose p:not(.not-prose *) {
     max-width: 72ch;
   }
 }
-.prose ul, .prose ol {
+.prose ul:not(.not-prose *), .prose ol:not(.not-prose *) {
   padding-left: 1.25rem;
   margin-bottom: 0.75rem;
   font-weight: 400;
   letter-spacing: 0;
 }
-.prose li {
+.prose li:not(.not-prose *) {
   margin-bottom: 0.25rem;
   color: var(--prose-body);
   line-height: 1.65;
@@ -289,7 +334,7 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   font-weight: 400;
   font-size: clamp(0.875rem, 0.844rem + 0.156vw, 0.96875rem);
 }
-.prose blockquote {
+.prose blockquote:not(.not-prose *) {
   border-left: 4px solid var(--color-gold);
   background: var(--prose-bg-nested);
   padding: 0.75rem 0.875rem;
@@ -301,7 +346,7 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   line-height: 1.65;
   font-size: clamp(0.875rem, 0.833rem + 0.21vw, 1rem);
 }
-.prose table {
+.prose table:not(.not-prose *) {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
@@ -311,14 +356,14 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   border-radius: 12px;
   overflow: hidden;
 }
-.prose th, .prose td {
+.prose th:not(.not-prose *), .prose td:not(.not-prose *) {
   padding: 0.5rem 0.625rem;
   border-bottom: 1px solid var(--color-line);
   text-align: left;
   min-width: 100px;
   font-size: clamp(0.75rem, 0.71rem + 0.2vw, 0.875rem);
 }
-.prose th {
+.prose th:not(.not-prose *) {
   background: var(--th-bg);
   font-size: clamp(0.7rem, 0.68rem + 0.1vw, 0.75rem);
   text-transform: uppercase;
@@ -326,16 +371,121 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   color: var(--color-muted);
   font-weight: 700;
 }
-.prose tr:last-child td {
+.prose tr:last-child td:not(.not-prose *) {
   border-bottom: 0;
 }
-.prose code {
+.prose code:not(.not-prose *) {
   background: var(--code-bg);
   padding: 2px 6px;
   border-radius: 5px;
   font-size: 0.85em;
   color: var(--color-ink);
 }
+/* Raw-HTML blocks in the Firefly internal audit appendix.
+   The appendix authors its own structure in HTML — section kicker, callouts, and two- and
+   three-up card grids — against class names that had NO rules anywhere in the stylesheet. Every
+   one of those blocks was rendering as flat stacked prose, which is most of why that appendix
+   reads denser than the rest of the document. These are the styles that markup was written for;
+   the content is untouched. Selectors are qualified with .prose so they outrank the document
+   element rules for the type inside a card. */
+.section-kicker {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+}
+
+.callout {
+  border: 1px solid var(--color-line);
+  border-left: 4px solid var(--color-accent);
+  background: var(--prose-bg-nested);
+  border-radius: 0 12px 12px 0;
+  padding: 0.875rem 1rem;
+  margin: 1.25rem 0;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: var(--prose-body);
+}
+.callout strong {
+  color: var(--color-ink);
+}
+.callout.warning {
+  border-left-color: var(--color-danger);
+  background: color-mix(in srgb, var(--color-danger) 5%, transparent);
+}
+.callout.warning strong {
+  color: var(--color-danger);
+}
+
+.grid-2,
+.grid-3 {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+@media (min-width: 640px) {
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 900px) {
+  .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.card {
+  border: 1px solid var(--color-line);
+  background: var(--prose-bg-nested);
+  border-radius: 14px;
+  padding: 0.875rem 1rem;
+  break-inside: avoid;
+}
+.prose .card h4 {
+  font-size: 0.8125rem !important;
+  font-weight: 800;
+  color: var(--color-ink);
+  margin: 0 0 0.5rem 0 !important;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--color-line);
+  line-height: 1.35;
+}
+.prose .card ul,
+.prose .card ol {
+  margin: 0;
+  padding-left: 0;
+}
+.prose .card li {
+  font-size: 0.78125rem !important;
+  line-height: 1.55 !important;
+  margin-bottom: 0.3rem !important;
+}
+
+/* Accessible table equivalents inside component cards. Those cards are `not-prose`, so a
+   table there carries its own chrome instead of borrowing the document table styling by
+   accident — which is what it had been doing. */
+.data-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--prose-bg-nested);
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.data-table th,
+.data-table td {
+  padding: 0.4rem 0.625rem;
+  text-align: left;
+}
+.data-table thead th {
+  background: var(--th-bg);
+  border-bottom: 1px solid var(--color-line);
+}
+.data-table tbody tr + tr td {
+  border-top: 1px solid color-mix(in srgb, var(--color-line) 55%, transparent);
+}
+
 .prose .placeholder {
   display: inline-block;
   background: var(--placeholder-bg);
@@ -405,9 +555,9 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   color: var(--tier3-color);
 }
 
-/* Eyebrow label — a short kicker line above a major heading. Explicitly resets every
-   property the ".prose p:first-of-type" drop-cap treatment sets, since an eyebrow line
-   can otherwise land on that selector by being the first <p> in its section. */
+/* Eyebrow label — a short kicker line above a major heading. It keeps an explicit reset of
+   the drop-cap properties: the lede treatment is now scoped to the document's own first
+   paragraph, but an eyebrow that opens the document would still land on it. */
 .eyebrow-label {
   display: block;
   font-size: 0.7rem;
@@ -429,7 +579,7 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   line-height: inherit;
 }
 
-.prose strong {
+.prose strong:not(.not-prose *) {
   color: var(--prose-strong);
   font-weight: 600;
 }
@@ -440,44 +590,44 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
     font-size: 0.875rem;
     line-height: 1.62;
   }
-  .prose h1 {
+  .prose h1:not(.not-prose *) {
     margin-top: 1.125rem;
     margin-bottom: 0.5rem;
   }
-  .prose h2 {
+  .prose h2:not(.not-prose *) {
     margin-top: 1.125rem;
     margin-bottom: 0.5rem;
     padding-bottom: 0.25rem;
   }
-  .prose h3 {
+  .prose h3:not(.not-prose *) {
     margin-top: 0.875rem;
     margin-bottom: 0.375rem;
   }
-  .prose h4 {
+  .prose h4:not(.not-prose *) {
     margin-top: 0.75rem;
     margin-bottom: 0.25rem;
   }
-  .prose p {
+  .prose p:not(.not-prose *) {
     margin-bottom: 0.5rem;
     line-height: 1.62;
   }
-  .prose ul, .prose ol {
+  .prose ul:not(.not-prose *), .prose ol:not(.not-prose *) {
     padding-left: 1rem;
     margin-bottom: 0.5rem;
   }
-  .prose li {
+  .prose li:not(.not-prose *) {
     margin-bottom: 0.1875rem;
     line-height: 1.58;
   }
-  .prose blockquote {
+  .prose blockquote:not(.not-prose *) {
     padding: 0.5rem 0.625rem;
     margin: 0.75rem 0;
     border-left-width: 3px;
   }
-  .prose table {
+  .prose table:not(.not-prose *) {
     margin: 0.75rem 0;
   }
-  .prose th, .prose td {
+  .prose th:not(.not-prose *), .prose td:not(.not-prose *) {
     padding: 0.375rem 0.5rem;
     min-width: 85px;
   }
@@ -541,18 +691,82 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
    scrollbar and scroll position don't jump before a section is first measured. */
 .cv-auto-section {
   content-visibility: auto;
-  contain-intrinsic-size: 0 1000px;
+  contain-intrinsic-size: auto 1000px;
 }
 .cv-auto-hero {
   content-visibility: auto;
-  contain-intrinsic-size: 0 650px;
+  contain-intrinsic-size: auto 650px;
 }
 .cv-auto-strip {
   content-visibility: auto;
-  contain-intrinsic-size: 0 420px;
+  contain-intrinsic-size: auto 420px;
 }
 
-/* Reduced motion optimization for accessibility & low-power devices */
+
+/* ---------------------------------------------------------------------- */
+/* Focus                                                                  */
+/* ---------------------------------------------------------------------- */
+/* There were no focus styles anywhere in this stylesheet or in any component, against roughly
+   ninety interactive elements. A keyboard user got the user-agent default over custom
+   backgrounds, or nothing at all. This is the single highest-value interaction fix on the site.
+
+   :focus-visible only, so a mouse click doesn't leave a ring behind, and a double outline
+   (accent inside, paper outside) so the ring stays legible on both the card and paper grounds
+   and in both themes. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible,
+[role="tab"]:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--color-paper);
+}
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+/* A focus ring on a control sitting on the accent itself needs the inverse treatment. */
+.bg-accent:focus-visible,
+[aria-selected="true"]:focus-visible {
+  outline-color: var(--color-paper);
+}
+
+/* Skip link — first tab stop, hidden until focused. */
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -120%);
+  z-index: 100;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 0.6rem 1.1rem;
+  border-radius: 0 0 0.75rem 0.75rem;
+  transition: transform 0.14s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.skip-link:focus-visible {
+  transform: translate(-50%, 0);
+}
+
+/* Reduced motion.
+
+   This block is the CSS half only. It cannot reach a `motion.div`, so on its own it left every
+   JavaScript entrance and all 22 ambient loops running for a reader who had asked for none. The
+   other half is hooks/use-reduced-motion-safe.ts, threaded through lib/motion.ts, which is what
+   actually honours the preference for animated components.
+
+   Interaction feedback is deliberately exempt: a focus ring or press state that never appears is
+   a bug, not a preference. Those keep a short transition rather than none. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -561,6 +775,17 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  button,
+  a,
+  [role="button"],
+  [role="tab"],
+  input,
+  select,
+  textarea,
+  .skip-link {
+    transition-duration: 0.08s !important;
   }
 }
 

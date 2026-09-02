@@ -1,31 +1,8 @@
 "use client";
 
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { 
-  FileText, 
-  Target, 
-  Activity, 
-  FileKey, 
-  Menu, 
-  X, 
-  Printer, 
-  Maximize2, 
-  Minimize2, 
-  Sun, 
-  Moon, 
-  ChevronUp, 
-  Settings,
-  Coins,
-  Users,
-  Radio,
-  ShieldCheck,
-  Type,
-  Eye,
-  EyeOff,
-  Sparkles,
-  BookOpen
-} from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { FileText, Target, Activity, FileKey, Menu, X, Printer, Maximize2, Minimize2, Sun, Moon, ChevronUp, Settings, Coins, Users, Radio, ShieldCheck, Type, Eye, EyeOff, Sparkles, BookOpen } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
 import { MarqueeCarousel } from "./MarqueeCarousel";
@@ -38,72 +15,18 @@ import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
 import { MobileTOCModal } from "./MobileTOCModal";
 import { MobileBottomNav } from "./MobileBottomNav";
 import { QuickNavCapsule } from "./QuickNavCapsule";
-import type { TabId } from "../lib/heading-slug";
+import { resolveLegacySectionId, type TabId } from "../lib/heading-slug";
+import type { SectionItem } from "../lib/section-index";
 
-import {
-  WatermarkedPillars,
-  ProportionalDotMatrix,
-  AudioSummaryPlayer,
-  MilestoneTimeline,
-  HeroStatTilt,
-  ObjectiveAccordion,
-  BadgeTicker,
-  SpeechSnippetCard,
-  InteractiveMapHover,
-  KPIGauge,
-  VoterDensityMap,
-  DeficitSlider,
-  VoterFunnel,
-  InteractiveVoterFunnel,
-  VoterProfile,
-  IsotypeCitizens,
-  SWOTMatrix,
-  VoteProjectionGraph,
-  DemographicBento,
-  TargetingSimulator,
-  ConversionTargetRing,
-  FocusModeToggle,
-  LiveGroundActivityTracker,
-  FlywheelSchematic,
-  ResourceLedger,
-  OrgStructureTree,
-  BudgetDistributionDial,
-  CircuitWiringVisual,
-  HorizontalMilestones,
-  ComplianceDial,
-  WardChecklist,
-  ArchitecturePipeline,
-  MessagingPlayground,
-  RadioAircoverDial,
-  CounterMessagingGrid,
-  SloganCarousel,
-  MediaPlaybackMockup,
-  ToneOfVoiceScale,
-  ToneVoiceSlider,
-  SloganBuilder,
-  SMSFeedbackVisualizer,
-  CommunityScheduler,
-  ColorSwatches,
-  KPIDashboardGrid,
-  ProjectBurndownChart,
-  ChecklistProgressRings,
-  PerformanceGauge,
-  StatusBadgeMatrix,
-  ResourceSpendingChart,
-  ActionPriorityMatrix,
-  CampaignRoadmapGantt,
-  FeedbackLoopCircuit,
-  PrintReportGenerator,
-  CampaignTargetsChart,
-  ChartComponent
-} from "./StrategicAids";
+import { FocusModeToggle, PrintReportGenerator } from "./StrategicAids";
 
 
 import { Dashboard } from "./Dashboard";
 import { HeroVisual } from "./HeroVisual";
+import { Portrait } from "./Portrait";
+import { NominationVerdict } from "./NominationVerdict";
 import { DataVisualizations } from "./DataVisualizations";
 import { VoterProjectionsChart } from "./VoterProjectionsChart";
-import { StrategyRail } from "./StrategyRail";
 import { SectionSkeleton } from "./SectionSkeleton";
 
 function SectionTransition({ children, tabKey }: { children: React.ReactNode; tabKey?: string }) {
@@ -142,12 +65,10 @@ interface MarkdownSection {
 }
 
 interface ClientPageProps {
+  sections: SectionItem[];
   exec: MarkdownSection;
-  strategy: MarkdownSection;
-  operations: MarkdownSection;
-  tactics: MarkdownSection;
-  execution: MarkdownSection;
-  appendix: MarkdownSection;
+  programme: MarkdownSection;
+  registers: MarkdownSection;
 }
 
 const WiperUmbrellaLogo = () => (
@@ -172,11 +93,11 @@ function PartDivider({ index, label }: { index: number; label: string }) {
     <div className="relative left-1/2 -translate-x-1/2 w-screen print:hidden" aria-hidden="true">
       <div className="h-12 sm:h-14 flex items-center bg-gradient-to-r from-accent/[0.05] via-gold/[0.06] to-accent/[0.05] border-y border-line/40">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 w-full flex items-center gap-3">
-          <span className="font-mono text-[9px] sm:text-[10px] font-black text-accent/70 shrink-0">
-            PART {index + 1}/6
+          <span className="font-mono t-micro sm:t-label font-black text-accent/70 shrink-0">
+            PART {index + 1}/3
           </span>
           <span className="h-px flex-1 bg-line/60" />
-          <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-muted truncate">{label}</span>
+          <span className="t-micro sm:t-label font-black uppercase tracking-widest text-muted truncate">{label}</span>
         </div>
       </div>
     </div>
@@ -242,9 +163,9 @@ function LazySection({ id, content, renderSectionExtras, immediate = false }: La
   );
 }
 
-const TAB_IDS = ["exec", "strategy", "operations", "tactics", "execution", "appendix"];
+const TAB_IDS = ["exec", "programme", "registers"];
 
-export function ClientPage({ exec, strategy, operations, tactics, execution, appendix }: ClientPageProps) {
+export function ClientPage({ sections, exec, programme, registers }: ClientPageProps) {
   // Always starts on "exec" so server and client render the same tree on first paint — the URL
   // fragment is only readable client-side, so a shared deep link switches tab in a mount effect
   // below rather than in the initial state (see the useEffect reading window.location.hash).
@@ -262,13 +183,10 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
   const { theme, toggleTheme, mounted } = useTheme();
 
   const navItems = useMemo(() => [
-    { id: "exec", label: "Executive Summary", icon: FileText, content: exec.node, wordCount: exec.wordCount },
-    { id: "strategy", label: "Strategy & Targeting", icon: Target, content: strategy.node, wordCount: strategy.wordCount },
-    { id: "operations", label: "Operations & Architecture", icon: Activity, content: operations.node, wordCount: operations.wordCount },
-    { id: "tactics", label: "Tactics & Themes", icon: Activity, content: tactics.node, wordCount: tactics.wordCount },
-    { id: "execution", label: "Implementation & KPIs", icon: Activity, content: execution.node, wordCount: execution.wordCount },
-    { id: "appendix", label: "Appendix", icon: FileKey, content: appendix.node, wordCount: appendix.wordCount },
-  ], [exec, strategy, operations, tactics, execution, appendix]);
+    { id: "exec", label: "The Analysis", icon: FileText, content: exec.node, wordCount: exec.wordCount },
+    { id: "programme", label: "The Programme", icon: Target, content: programme.node, wordCount: programme.wordCount },
+    { id: "registers", label: "Registers", icon: FileKey, content: registers.node, wordCount: registers.wordCount },
+  ], [exec, programme, registers]);
 
   // Premium dynamic category intersection observer to track active section while scrolling
   useEffect(() => {
@@ -322,7 +240,8 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
   // used by in-text cross-references and the per-section copy-link buttons. Switches tab
   // if needed, waits for the target to mount, then scrolls to it and sets :target via the hash.
   const navigateToSection = useCallback(
-    (id: string) => {
+    (rawId: string) => {
+      const id = resolveLegacySectionId(rawId);
       const targetTab = id.split("-sec-")[0];
       const isValidTab = navItems.some((item) => item.id === targetTab);
 
@@ -346,7 +265,7 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
   // right tab — the fragment only exists client-side, so this can't happen in initial state —
   // then land on the section once its content has mounted.
   useEffect(() => {
-    const hash = window.location.hash.replace(/^#/, "");
+    const hash = resolveLegacySectionId(window.location.hash.replace(/^#/, ""));
     if (!hash) return;
     const targetTab = hash.split("-sec-")[0];
     if (TAB_IDS.includes(targetTab)) {
@@ -357,132 +276,28 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
     // Runs once, on mount only.
   }, []);
 
+  // Section extras.
+  //
+  // This used to be a two-column shelf of ~50 widgets appended BELOW each tab's entire prose —
+  // the chart explaining §8B.5 sat 20,000 words downstream of the text it illustrated. Anything
+  // that genuinely explains a section is now a heading insert in MarkdownViewer, mounted next to
+  // the prose it belongs to. What remains here is the handful of surfaces that are about the
+  // document as a whole rather than about one section, plus the closing ask.
   const renderSectionExtras = (sectionId: string) => {
-    const showFocusToggle = sectionId !== "appendix";
+    const showFocusToggle = sectionId !== "registers";
 
     return (
       <div className="mt-8 pt-8 border-t border-line/20 space-y-8">
         {showFocusToggle && (
-          <FocusModeToggle 
-            isActive={isFocusMode} 
-            onToggle={() => setIsFocusMode(!isFocusMode)} 
+          <FocusModeToggle
+            isActive={isFocusMode}
+            onToggle={() => setIsFocusMode(!isFocusMode)}
           />
         )}
 
-        {isFocusMode ? (
-          <div className="bg-paper border border-line border-dashed rounded-2xl p-6 text-center text-xs font-bold text-muted">
-            Focus Mode Active: Non-prose elements and interactive visual dashboards are hidden.
-          </div>
-        ) : (
-          <>
-            {sectionId === "exec" && (
-              <SectionTabTransition>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start relative">
-                  <WatermarkedPillars />
-                  <div className="space-y-6 z-10">
-                    <BadgeTicker />
-                    <ProportionalDotMatrix />
-                    <ObjectiveAccordion />
-                    <SpeechSnippetCard />
-                  </div>
-                  <div className="space-y-6 z-10">
-                    <HeroStatTilt />
-                    <AudioSummaryPlayer />
-                    <MilestoneTimeline />
-                    <InteractiveMapHover />
-                    <KPIGauge />
-                  </div>
-                </div>
-              </SectionTabTransition>
-            )}
-
-            {sectionId === "strategy" && (
-              <SectionTabTransition>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                  <div className="space-y-6">
-                    <VoterDensityMap />
-                    <InteractiveVoterFunnel />
-                    <VoterProfile />
-                    <IsotypeCitizens />
-                    <SWOTMatrix />
-                  </div>
-                  <div className="space-y-6">
-                    <DeficitSlider />
-                    <VoteProjectionGraph />
-                    <DemographicBento />
-                    <TargetingSimulator />
-                    <ConversionTargetRing />
-                    <CampaignTargetsChart />
-                  </div>
-
-                </div>
-              </SectionTabTransition>
-            )}
-
-            {sectionId === "operations" && (
-              <SectionTabTransition>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                  <div className="space-y-6">
-                    <LiveGroundActivityTracker />
-                    <ResourceLedger />
-                    <OrgStructureTree />
-                    <BudgetDistributionDial />
-                  </div>
-                  <div className="space-y-6">
-                    <FlywheelSchematic />
-                    <CircuitWiringVisual />
-                    <HorizontalMilestones />
-                    <ComplianceDial />
-                    <WardChecklist />
-                    <ArchitecturePipeline />
-                  </div>
-                </div>
-              </SectionTabTransition>
-            )}
-
-            {sectionId === "tactics" && (
-              <SectionTabTransition>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                  <div className="space-y-6">
-                    <MessagingPlayground />
-                    <CounterMessagingGrid />
-                    <MediaPlaybackMockup />
-                    <SloganBuilder />
-                  </div>
-                  <div className="space-y-6">
-                    <RadioAircoverDial />
-                    <SloganCarousel />
-                    <ToneVoiceSlider />
-                    <SMSFeedbackVisualizer />
-                    <CommunityScheduler />
-                    <ColorSwatches />
-                  </div>
-                </div>
-              </SectionTabTransition>
-            )}
-
-            {sectionId === "execution" && (
-              <SectionTabTransition>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                  <div className="space-y-6">
-                    <KPIDashboardGrid />
-                    <ChecklistProgressRings />
-                    <StatusBadgeMatrix />
-                    <ActionPriorityMatrix />
-                  </div>
-                  <div className="space-y-6">
-                    <ProjectBurndownChart />
-                    <PerformanceGauge />
-                    <ResourceSpendingChart />
-                    <CampaignRoadmapGantt />
-                    <FeedbackLoopCircuit />
-                    <PrintReportGenerator />
-                  </div>
-                </div>
-              </SectionTabTransition>
-            )}
-          </>
-        )}
+        {/* DecisionPanel moved into the document's own close (MarkdownViewer); what remains
+            here is page tooling, which is what this footer strip is for. */}
+        {!isFocusMode && sectionId === "programme" && <PrintReportGenerator />}
       </div>
     );
   };
@@ -500,6 +315,9 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
 
   return (
     <div className="min-h-screen bg-paper text-ink font-sans selection:bg-accent/20">
+      {/* First tab stop: skip 55,000 words of navigation chrome. */}
+      <a href="#content-area" className="skip-link">Skip to content</a>
+
       {/* Top Gradient Line */}
       <div className="h-1.5 bg-gradient-to-r from-accent to-gold fixed top-0 left-0 right-0 z-50 print:hidden" />
 
@@ -510,16 +328,16 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
       {(activeTab === "exec" || isExpanded) && (
         <header className="cv-auto-hero relative pt-10 sm:pt-14 pb-8 sm:pb-12 overflow-hidden print:pt-4 print:pb-4">
           <div className="absolute inset-0 pointer-events-none opacity-50 bg-[radial-gradient(circle_at_82%_10%,var(--color-glow),transparent_32%),linear-gradient(180deg,var(--color-card),var(--color-paper))]" />
-          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 relative z-10">
             
             {/* Wiper Patriotic Front (WPF) Brand Banner */}
             <div className="flex items-center gap-3 mb-4 sm:mb-6 select-none bg-card/80 backdrop-blur-md border border-line rounded-2xl p-2.5 sm:p-3.5 w-fit shadow-sm">
               <WiperUmbrellaLogo />
               <div>
-                <div className="text-[11px] sm:text-sm tracking-[0.12em] uppercase text-accent font-black">
+                <div className="t-small sm:text-sm tracking-[0.12em] uppercase text-accent font-black">
                   Wiper Patriotic Front (WPF)
                 </div>
-                <div className="text-[9px] sm:text-xs tracking-wider text-muted uppercase font-semibold mt-0.5">
+                <div className="t-micro sm:text-xs tracking-wider text-muted uppercase font-semibold mt-0.5">
                   Kitui 2027 Strategy Portal
                 </div>
               </div>
@@ -530,17 +348,33 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
               <span className="opacity-70 truncate sm:whitespace-normal">— prepared for Wiper Patriotic Front campaign leadership.</span>
             </div>
 
-            <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.12] sm:leading-[1.08] tracking-tight max-w-4xl text-ink mb-4 sm:mb-6 font-semibold">
-              Kitui 2027:<br />
-              <span className="opacity-90">the operating system for an Economist Governor.</span>
-            </h1>
-            <p className="text-sm sm:text-base md:text-lg text-muted max-w-3xl leading-relaxed">
-              Campaign Strategy & Digital Architecture Proposal for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
-            </p>
+            {/* The title and the candidate, together. The portrait is a cutout, so it stands on
+                the page rather than sitting in a frame; on a phone it goes under the text at a
+                size that reads as a portrait rather than a thumbnail. */}
+            {/* One portrait element, repositioned by grid rather than duplicated.
+                Two elements with `hidden md:block` would look right and cost double: a browser
+                downloads a `priority` image even when it is display:none, so a phone would pay
+                for the 260px desktop rendition it never shows. `sizes` picks the rendition. */}
+            <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 md:gap-x-8 items-end">
+              <h1 className="col-span-2 md:col-span-1 font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.12] sm:leading-[1.08] tracking-tight max-w-4xl text-ink mb-4 sm:mb-6 font-semibold text-balance">
+                Kitui 2027:<br />
+                <span className="opacity-90">the operating system for an Economist Governor.</span>
+              </h1>
+              <p className="col-start-1 text-sm sm:text-base md:text-lg text-muted max-w-3xl leading-relaxed text-pretty">
+                Campaign Strategy & Digital Architecture Proposal for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
+              </p>
+              <div className="col-start-2 row-start-2 md:row-start-1 md:row-span-2 self-end w-[104px] md:w-[210px] lg:w-[260px] shrink-0 -mb-1 md:-mb-2">
+                <Portrait
+                  id="hero-clasped-hands"
+                  sizes="(min-width: 1024px) 260px, (min-width: 768px) 210px, 104px"
+                  priority
+                />
+              </div>
+            </div>
 
             {/* Mobile Quick-Jump Chips (Thumb-accessible shortcuts) */}
             <div className="mt-5 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none lg:hidden select-none">
-              <span className="text-[10px] uppercase font-extrabold tracking-widest text-muted shrink-0">
+              <span className="t-label uppercase font-extrabold tracking-widest text-muted shrink-0">
                 Jump To:
               </span>
               <button
@@ -550,25 +384,25 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
                 <span>Full Index (20 Secs)</span>
               </button>
               <button
-                onClick={() => navigateToSection("exec-sec-2-3")}
+                onClick={() => navigateToSection("exec-sec-4-3")}
                 className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
               >
                 200k Target Math
               </button>
               <button
-                onClick={() => navigateToSection("strategy-sec-6")}
+                onClick={() => navigateToSection("programme-sec-6")}
                 className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
               >
                 40 Wards Register
               </button>
               <button
-                onClick={() => navigateToSection("operations-sec-9c")}
+                onClick={() => navigateToSection("programme-sec-9b")}
                 className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
               >
                 Kikamba Radio
               </button>
               <button
-                onClick={() => navigateToSection("operations-sec-8")}
+                onClick={() => navigateToSection("programme-sec-8b")}
                 className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
               >
                 ECFA Compliance
@@ -579,34 +413,12 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
 
             <MarqueeCarousel />
 
-            <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6 items-end print:hidden">
+            <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start print:hidden">
               <div className="lg:col-span-2">
-                <HeroVisual />
+                <NominationVerdict />
               </div>
-              <div className="lg:col-span-1 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3 sm:gap-4">
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-card/70 backdrop-blur-md border border-line p-3.5 sm:p-4 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
-                  <div className="text-[10px] uppercase tracking-widest text-muted font-extrabold mb-1">Recognition Gap</div>
-                  <div className="font-serif text-xl sm:text-2xl font-bold">15.3 pts</div>
-                  <div className="h-1.5 bg-line rounded-full mt-2.5 overflow-hidden">
-                    <motion.div initial={{ width: 0 }} animate={{ width: "76%" }} className="h-full bg-gradient-to-r from-accent to-gold" transition={{ duration: 1, delay: 0.4 }} />
-                  </div>
-                </motion.div>
-                
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-card/70 backdrop-blur-md border border-line p-3.5 sm:p-4 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
-                  <div className="text-[10px] uppercase tracking-widest text-muted font-extrabold mb-1">Low-connectivity layer</div>
-                  <div className="font-serif text-xl sm:text-2xl font-bold">SMS + USSD</div>
-                  <div className="h-1.5 bg-line rounded-full mt-2.5 overflow-hidden">
-                    <motion.div initial={{ width: 0 }} animate={{ width: "86%" }} className="h-full bg-gradient-to-r from-accent to-gold" transition={{ duration: 1, delay: 0.5 }} />
-                  </div>
-                </motion.div>
-                
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="bg-card/70 backdrop-blur-md border border-line p-3.5 sm:p-4 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
-                  <div className="text-[10px] uppercase tracking-widest text-muted font-extrabold mb-1">Operating principle</div>
-                  <div className="font-serif text-base sm:text-xl font-bold tracking-tight">Measure → learn → reallocate</div>
-                  <div className="h-1.5 bg-line rounded-full mt-2.5 overflow-hidden">
-                    <motion.div initial={{ width: 0 }} animate={{ width: "92%" }} className="h-full bg-gradient-to-r from-accent to-gold" transition={{ duration: 1, delay: 0.6 }} />
-                  </div>
-                </motion.div>
+              <div className="lg:col-span-1">
+                <HeroVisual />
               </div>
             </div>
           </div>
@@ -615,7 +427,7 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
 
       {/* Data Strip */}
       {(activeTab === "exec" || isExpanded) && (
-        <section className="cv-auto-strip max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 mb-8 print:hidden space-y-6">
+        <section className="cv-auto-strip max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 mb-8 print:hidden space-y-6">
           <LazyMount minHeight={420}>
             <DataVisualizations />
           </LazyMount>
@@ -626,9 +438,8 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
       )}
 
       {/* Main Content Layout */}
-      <main className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 pb-36 lg:pb-24">
+      <main className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 pb-36 lg:pb-24">
         <div className="print:hidden">
-          {(activeTab === "exec" || isExpanded) && <StrategyRail />}
         </div>
         
         {/* Responsive Toolbar */}
@@ -640,8 +451,8 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
                   <WiperUmbrellaLogo />
                 </div>
                 <div className="hidden sm:block">
-                  <div className="text-[10px] tracking-wider font-black text-accent uppercase leading-none">Wiper Patriotic Front</div>
-                  <div className="text-[9px] font-bold text-muted uppercase mt-0.5 leading-none">Kitui 2027 Strategy</div>
+                  <div className="t-label tracking-wider font-black text-accent uppercase leading-none">Wiper Patriotic Front</div>
+                  <div className="t-micro font-bold text-muted uppercase mt-0.5 leading-none">Kitui 2027 Strategy</div>
                 </div>
               </div>
             )}
@@ -664,7 +475,7 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
                 aria-label="Toggle Reading Density"
               >
                 <Type size={14} />
-                <span className="capitalize text-[11px] sm:text-xs hidden xs:inline">{readingDensity}</span>
+                <span className="capitalize t-small sm:text-xs hidden xs:inline">{readingDensity}</span>
               </button>
 
               <button 
@@ -715,7 +526,7 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
             </div>
           </div>
 
-          <div className="text-[11px] sm:text-xs font-bold text-muted shrink-0 pl-1 sm:pl-2">
+          <div className="t-small sm:text-xs font-bold text-muted shrink-0 pl-1 sm:pl-2">
             <span className="hidden md:inline">{readingTime} min read · </span>
             <span>{wordCount.toLocaleString()} wds</span>
           </div>
@@ -729,7 +540,7 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
           <aside className="toc-rail hidden lg:block w-72 flex-shrink-0 print:hidden">
             <div className="sticky top-24 space-y-4">
               <div className="bg-card/70 backdrop-blur-md border border-line/60 rounded-2xl p-4 shadow-sm">
-                <div className="text-[10px] uppercase tracking-widest font-black text-muted mb-3 flex items-center justify-between">
+                <div className="t-label uppercase tracking-widest font-black text-muted mb-3 flex items-center justify-between">
                   <span>{isExpanded ? "All Chapters" : "Sections"}</span>
                   <span className="font-mono text-accent">{navItems.length} parts</span>
                 </div>
@@ -752,7 +563,7 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
                           <Icon size={15} className={isActive ? "text-white" : "text-muted group-hover:text-accent transition-colors"} />
                           <span className="truncate">{item.label}</span>
                         </div>
-                        <span className={`text-[9px] font-mono shrink-0 px-1.5 py-0.5 rounded ${
+                        <span className={`t-micro font-mono shrink-0 px-1.5 py-0.5 rounded ${
                           isActive ? "bg-white/20 text-white" : "bg-line/30 text-muted"
                         }`}>
                           {sectionReadMin}m
@@ -765,14 +576,14 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
 
               {/* Minimalist Key Metric Summary Card */}
               <div className="bg-card/50 backdrop-blur-sm border border-line/40 rounded-2xl p-3.5 text-xs space-y-2">
-                <div className="flex items-center justify-between text-[10px] uppercase tracking-wider font-extrabold text-muted">
+                <div className="flex items-center justify-between t-label uppercase tracking-wider font-extrabold text-muted">
                   <span>Target Victory</span>
                   <span className="text-accent font-black">200k Votes</span>
                 </div>
                 <div className="w-full bg-line/40 h-1.5 rounded-full overflow-hidden">
                   <div className="bg-gradient-to-r from-accent to-gold h-full w-[68%]" />
                 </div>
-                <div className="flex justify-between text-[9px] font-bold text-muted">
+                <div className="flex justify-between t-micro font-bold text-muted">
                   <span>Kitui Central Core</span>
                   <span>40 Wards Field</span>
                 </div>
@@ -840,6 +651,7 @@ export function ClientPage({ exec, strategy, operations, tactics, execution, app
 
       {/* Mobile Table of Contents Full Modal Sheet */}
       <MobileTOCModal
+        sections={sections}
         isOpen={isTOCModalOpen}
         onClose={() => setIsTOCModalOpen(false)}
         activeTab={activeTab}

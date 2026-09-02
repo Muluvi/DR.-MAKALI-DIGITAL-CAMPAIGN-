@@ -1,4 +1,4 @@
-// Phase 4c — drought and food security. Feeds the new Section 2.8.
+// Phase 4c — drought and food security. Feeds the new Section 4.8.
 import type { SourcedFigure } from "./types";
 import { NDMA_ALERT, IPC_CLASSIFICATION, CBC_CECM_STATEMENT, MEDIA_FLOODING_MARCH_2026 } from "./sources";
 
@@ -24,7 +24,7 @@ export const FOOD_RESERVE_HOUSEHOLDS: SourcedFigure = {
     source: CBC_CECM_STATEMENT,
     granularity: "county",
     note:
-      "The CECM's stated household base (over 1.2 million) is markedly higher than the 2019 census household count for the whole county (262,942 — Section 2.5). Rendered exactly as stated rather than corrected; the discrepancy may reflect the CECM conflating population with households, but this pass has no second source to resolve which figure is right.",
+      "The CECM's stated household base (over 1.2 million) is markedly higher than the 2019 census household count for the whole county (262,942 — Section 4.5). Rendered exactly as stated rather than corrected; the discrepancy may reflect the CECM conflating population with households, but this pass has no second source to resolve which figure is right.",
   },
 };
 

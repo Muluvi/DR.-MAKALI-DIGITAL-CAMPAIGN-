@@ -1,4 +1,4 @@
-// Phase 4a — electoral history across the 2013, 2017 and 2022 cycles. Feeds Section 2.6 and
+// Phase 4a — electoral history across the 2013, 2017 and 2022 cycles. Feeds Section 4.6 and
 // the Phase 6c electoral-timeline chart.
 import type { Source } from "./types";
 import { COURT_OF_APPEAL_2018, IEBC_2022_RESULTS, MEDIA_2022_DECLARATION, THE_STAR } from "./sources";

@@ -1,6 +1,8 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
+import { disclosure } from "../lib/motion";
+import { EASE_ENTRANCE } from "../lib/motion";
 import { useState } from "react";
 import { X, Search, CheckCircle2, ChevronRight, HelpCircle } from "lucide-react";
 
@@ -99,7 +101,7 @@ export function HeroVisual() {
       {/* Top Bar Info */}
       <div className="p-4 sm:p-5 flex items-center justify-between border-b border-line bg-card/60 backdrop-blur-md">
         <div>
-          <div className="text-[10px] uppercase tracking-[0.15em] font-extrabold text-accent">
+          <div className="t-label uppercase tracking-[0.15em] font-extrabold text-accent">
             Countywide Campaign Architecture
           </div>
           <h4 className="font-serif text-lg font-bold text-ink mt-0.5">
@@ -115,7 +117,7 @@ export function HeroVisual() {
             <span>Reset Map</span>
           </button>
         ) : (
-          <div className="flex items-center gap-1 text-[11px] text-muted font-bold hidden sm:flex">
+          <div className="flex items-center gap-1 t-small text-muted font-bold hidden sm:flex">
             <Search size={12} className="text-accent" />
             <span>Tap nodes to inspect</span>
           </div>
@@ -141,7 +143,7 @@ export function HeroVisual() {
             </filter>
           </defs>
 
-          {/* Grid background Lines */}
+          {/* Table background Lines */}
           <g opacity=".4" className="transition-opacity duration-500">
             <path className="stroke-line" strokeWidth="1" d="M0 55H900M0 105H900M0 155H900M0 205H900M90 0V260M210 0V260M330 0V260M450 0V260M570 0V260M690 0V260M810 0V260"/>
           </g>
@@ -150,7 +152,7 @@ export function HeroVisual() {
           <motion.path 
             initial={{ strokeDashoffset: 1000 }}
             animate={{ strokeDashoffset: [1000, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 1.2, ease: EASE_ENTRANCE }}
             strokeDasharray="8 10"
             className="fill-none stroke-[url(#routeGrad)] stroke-3 stroke-linecap-round"
             d="M90 178 C180 80 250 215 350 126 S520 54 610 132 S750 202 820 78" 
@@ -158,7 +160,7 @@ export function HeroVisual() {
           <motion.path 
             initial={{ strokeDashoffset: -1000 }}
             animate={{ strokeDashoffset: [-1000, 0] }}
-            transition={{ duration: 7, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 1.2, delay: 0.15, ease: EASE_ENTRANCE }}
             strokeDasharray="8 10"
             className="fill-none stroke-[url(#routeGrad)] stroke-3 stroke-linecap-round opacity-40"
             d="M90 178 C250 178 270 72 420 78 S650 190 820 78" 
@@ -215,7 +217,7 @@ export function HeroVisual() {
         {/* Small floating hint on non-selected state */}
         {!selectedStage && (
           <div className="absolute bottom-3 left-4 right-4 text-center pointer-events-none sm:hidden">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent/90 text-white text-[10px] font-bold tracking-wider shadow-md">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent/90 text-white t-label font-bold tracking-wider shadow-md">
               <HelpCircle size={10} />
               Tap on any node to view stage details
             </span>
@@ -226,13 +228,14 @@ export function HeroVisual() {
       {/* Detail panel with entrance animation */}
       <AnimatePresence mode="wait">
         {selectedStage && (
-          <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="border-t border-line bg-card/90"
+          <motion.div
+            initial={{ opacity: 0, gridTemplateRows: "0fr" }}
+            animate={{ opacity: 1, gridTemplateRows: "1fr" }}
+            exit={{ opacity: 0, gridTemplateRows: "0fr" }}
+            transition={disclosure}
+            className="grid border-t border-line bg-card/90"
           >
+            <div className="overflow-hidden min-h-0">
             <div className="p-5 sm:p-6 space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-line pb-3">
                 <span className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full bg-accent/10 text-accent self-start">
@@ -278,6 +281,7 @@ export function HeroVisual() {
                   </ul>
                 </div>
               </div>
+            </div>
             </div>
           </motion.div>
         )}

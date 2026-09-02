@@ -29,7 +29,7 @@ export function ProvenanceLine({ provenance }: { provenance: Provenance | Proven
   return (
     <div className="px-4 sm:px-0 pt-3 pb-1 space-y-1.5 border-t border-line/30 mt-3">
       {unique.map((p, i) => (
-        <div key={i} className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[9px] uppercase tracking-wider font-bold text-muted">
+        <div key={i} className="flex flex-wrap items-center gap-x-2 gap-y-1 t-micro uppercase tracking-wider font-bold text-muted">
           <Database size={10} className="shrink-0 opacity-60" aria-hidden="true" />
           <TierBadge tier={p.source.tier} compact />
           <span>

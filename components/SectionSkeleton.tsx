@@ -27,7 +27,7 @@ export function SectionSkeleton() {
         <div className="h-3.5 w-[76%] bg-line/35 rounded" />
       </div>
 
-      {/* Metric Cards Skeleton Grid */}
+      {/* Metric Cards Skeleton Table */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
         <div className="p-3.5 rounded-xl border border-line/50 bg-card/40 space-y-2">
           <div className="h-2.5 w-20 bg-line/40 rounded" />

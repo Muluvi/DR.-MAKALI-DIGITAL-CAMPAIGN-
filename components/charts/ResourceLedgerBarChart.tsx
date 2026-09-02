@@ -32,7 +32,7 @@ export default function ResourceLedgerBarChart({
             if (active && payload && payload.length) {
               const data = payload[0].payload;
               return (
-                <div className="bg-card border border-line p-2.5 shadow-md rounded-xl text-[10px] font-bold text-ink">
+                <div className="bg-card border border-line p-2.5 shadow-md rounded-xl t-label font-bold text-ink">
                   <p className="border-b border-line pb-1 mb-1 text-ink">{data.name}</p>
                   <p className="text-accent">Budget: {data.formatted}</p>
                 </div>

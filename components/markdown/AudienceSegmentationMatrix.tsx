@@ -2,206 +2,265 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  Users2, 
-  Smartphone, 
-  Radio, 
-  Globe, 
-  Coins, 
-  GraduationCap, 
-  Sparkles,
-  ChevronRight,
-  Send,
-  Zap
-} from "lucide-react";
+import { Users, Radio, MessageSquare, AlertTriangle, Layers } from "lucide-react";
+
+import { ClaimBadge } from "./ClaimBadge";
+import { TierBadge } from "./TierBadge";
+
+/**
+ * Sections 7.1–7.2 — the six structural segments.
+ *
+ * Sizing figures are quoted from §7.1's "Empirical Sizing" line and §7.2's summary matrix.
+ * Three of the six are marked in the source as a Named Data Gap requiring primary survey; those
+ * render as unsized, with the source's estimated range shown as an estimate rather than promoted
+ * to a fact. An earlier version of this component assigned all six invented percentages and
+ * voter counts that appear nowhere in the proposal
+ * and did not sum correctly against the register.
+ */
+
+type Sizing =
+  | { kind: "sized"; voters: string; share: string; tier: 1 | 2 | 3 }
+  | { kind: "gap"; estimate: string; note: string };
 
 interface AudienceSegment {
   id: string;
+  index: number;
   name: string;
-  demographicSize: string;
-  connectivityLevel: "Ultra-Low / Feature Phone" | "Mixed / WhatsApp" | "High / Broadband";
-  primaryLanguage: "Kikamba (Monolingual)" | "Kikamba + Sheng" | "English + Swahili";
-  keyFrustration: string;
-  leadMessage: string;
-  recommendedChannels: string[];
+  sizing: Sizing;
+  connectivity: string;
+  geographicBase: string;
+  coreAnxiety: string;
+  valueProposition: string;
+  channels: string[];
 }
 
 const AUDIENCE_SEGMENTS: AudienceSegment[] = [
   {
-    id: "rural-farmers",
-    name: "1. Rural Smallholders & Livestock Keepers",
-    demographicSize: "44.5% of County (approx. 237,000 voters)",
-    connectivityLevel: "Ultra-Low / Feature Phone",
-    primaryLanguage: "Kikamba (Monolingual)",
-    keyFrustration: "Chronic droughts, broken water boreholes, unmitigated livestock losses, and lack of subsidized inputs.",
-    leadMessage: "The Economist Governor guarantees predictable county budget allocations for water pans, subsidized seeds, and livestock insurance.",
-    recommendedChannels: ["Kikamba Vernacular Radio (Musyi FM, Mbaitu FM)", "Weekly Market Barazas", "SMS Weather & Commodity Alerts"]
+    id: "agrarian",
+    index: 1,
+    name: "Rural agrarian & smallholder baseline",
+    sizing: { kind: "sized", voters: "~455,000 registered voters", share: "~86.2% of county population", tier: 1 },
+    connectivity: "86.4% offline. 2G feature-phone dominance, high evening vernacular radio listenership.",
+    geographicBase: "Rural belts across Kitui Central, Kitui West, Kitui Rural, Mwingi Central, Mwingi West and Kitui East — 36 non-urban wards.",
+    coreAnxiety:
+      "Persistent seasonal crop failure, unmitigated drought shocks, exploitative middlemen for green grams and pigeon peas, erratic subsidised seed and fertiliser distribution.",
+    valueProposition:
+      "Public finance expertise as a guarantee of guaranteed minimum returns, county-backed cold storage and aggregate marketing boards, and decentralised solar-powered sand dam and borehole expansion.",
+    channels: ["Kamba vernacular radio, 06:00–08:30 and 19:00–21:30", "Localised bulk SMS in Kikamba", "Market-day barazas", "Church fellowships and SACCO meetings"],
   },
   {
-    id: "youth-underemployed",
-    name: "2. Underemployed Youth (18–35)",
-    demographicSize: "32.8% of County (approx. 175,000 voters)",
-    connectivityLevel: "Mixed / WhatsApp",
-    primaryLanguage: "Kikamba + Sheng",
-    keyFrustration: "Zero formal jobs after tertiary education, unpaid county supplier invoices, and predatory digital loans.",
-    leadMessage: "Economic empowerment through County Enterprise Fund access, digital work hubs in every ward, and youth procurement compliance.",
-    recommendedChannels: ["WhatsApp Viral Voice Notes", "TikTok Strategy Clips", "Bodaboda Stage Activations", "Football Tournament Sponsorships"]
+    id: "pastoralist",
+    index: 2,
+    name: "Agro-pastoralist & arid-zone livestock keepers",
+    sizing: {
+      kind: "gap",
+      estimate: "~80,000–105,000 registered voters",
+      note: "~15%–20% of the rural population. Precise registration figures require a targeted primary survey.",
+    },
+    connectivity: "Highly dispersed. Intermittent 2G coverage, heavy battery and solar radio listenership.",
+    geographicBase: "Mwingi North, Mwingi Central, Kitui South and Kitui East borderlands.",
+    coreAnxiety:
+      "Banditry along the Tana River and Garissa borders, pasture depletion, no county livestock off-take during drought, disease outbreaks, predatory livestock buyers.",
+    valueProposition:
+      "County-financed livestock vaccination corridors, modern abattoir facilities in Mwingi and Mutomo, and assertive security coordination backed by parliamentary budgeting influence.",
+    channels: ["Vernacular radio pastoralist segments", "Weekly livestock market hubs", "Clan elders and grazing committee chairs"],
   },
   {
-    id: "market-traders",
-    name: "3. Market Women & Informal MSME Traders",
-    demographicSize: "18.2% of County (approx. 97,000 voters)",
-    connectivityLevel: "Mixed / WhatsApp",
-    primaryLanguage: "Kikamba (Monolingual)",
-    keyFrustration: "Excessive municipal cess and market levies without clean sanitation, market stalls, or lighting.",
-    leadMessage: "A rationalized cess regime, modern market shade infrastructure with solar lighting, and revolving micro-credit chamas.",
-    recommendedChannels: ["Chama & Table Banking Visits", "Market Day PA Sound Trucks", "USSD Financial Survey Engagement"]
+    id: "youth",
+    index: 3,
+    name: "Youth cohort, ages 18–35",
+    sizing: { kind: "sized", voters: "~234,000 registered voters", share: "~44% of the active register", tier: 1 },
+    connectivity: "~70%+ smartphone adoption within the cohort. WhatsApp, TikTok, Facebook Mobile, YouTube.",
+    geographicBase: "Peri-urban corridors — Kitui Township, the Kwa Vonza university belt, Mwingi Central town, Mutonguni, Kabati — and rural trading centres.",
+    coreAnxiety:
+      "Chronic un- and under-employment, predatory digital lending apps, arbitrary county revenue enforcement against bodaboda riders and kiosks, no startup capital.",
+    valueProposition:
+      "Dismantling the handouts model in favour of an institutionalised County Youth Enterprise & Innovation Fund, TVET scholarship vouchers, and zero-rating of small informal trade licences.",
+    channels: ["Meta and TikTok short-form video", "WhatsApp audio and graphic forwards", "Bodaboda stage associations", "University and college student unions"],
   },
   {
-    id: "teachers-civil-servants",
-    name: "4. Teachers, Health Workers & County Staff",
-    demographicSize: "6.5% of County (approx. 35,000 opinion shapers)",
-    connectivityLevel: "High / Broadband",
-    primaryLanguage: "English + Swahili",
-    keyFrustration: "Delayed salaries, unremitted statutory deductions (NHIF/NSSF), and political interference in promotions.",
-    leadMessage: "Fiscal discipline: 100% timely payroll disbursement, transparent civil service promotions, and audited pending bill clearance.",
-    recommendedChannels: ["Detailed Policy Whitepapers", "LinkedIn & Facebook Thought Leadership", "Union Delegation Breakfasts"]
+    id: "msme",
+    index: 4,
+    name: "Urban & peri-urban informal commerce",
+    sizing: { kind: "sized", voters: "~73,500 registered voters", share: "~13.8% of county population", tier: 1 },
+    connectivity: "~45%–55% smartphone connectivity. Constant WhatsApp business use, daily county revenue contact.",
+    geographicBase: "Kitui Township, Mwingi Central town, Kwa Vonza/Yatta, Mutomo, Matinyani and Nguutani.",
+    coreAnxiety:
+      "Excessive cess without basic market infrastructure, arbitrary harassment by county enforcement, market fires with no response.",
+    valueProposition:
+      "The Economist's Business Charter — a single unified business permit, 24-hour solar-lit and secured markets, modern sanitation, and predictable county tax codes.",
+    channels: ["Business-district walk-throughs", "Trader association meetings", "KNCCI Kitui chapter", "Market-day PA activations"],
   },
   {
-    id: "nairobi-diaspora",
-    name: "5. Nairobi & Coastal Kitui Diaspora",
-    demographicSize: "High Influence (Influences 80,000+ home votes)",
-    connectivityLevel: "High / Broadband",
-    primaryLanguage: "English + Swahili",
-    keyFrustration: "Brain drain, poor county health infrastructure forcing relatives to travel to Nairobi, and corrupt land registry.",
-    leadMessage: "Partnering with diaspora capital for value addition in green grams, honey processing, and mineral rights protection.",
-    recommendedChannels: ["Nairobi Town Hall Dinners", "WhatsApp Community Groups", "Twitter/X Spaces & YouTube Policy Briefs"]
+    id: "professionals",
+    index: 5,
+    name: "Formal professionals, civil servants & educators",
+    sizing: {
+      kind: "gap",
+      estimate: "~25,000–35,000 registered voters",
+      note: "Teachers under KNUT/KUPPET, healthcare workers, civil servants, bank staff and clergy. Sizing requires administrative primary research.",
+    },
+    connectivity: ">90% smartphone and laptop connectivity. Active on X, Facebook, LinkedIn and professional WhatsApp groups.",
+    geographicBase: "Concentrated in Kitui town, Mwingi town and county administrative centres.",
+    coreAnxiety:
+      "Delayed statutory deductions, stalled promotions, poor hospital drug supplies undermining medical practice, politicised public service appointments.",
+    valueProposition:
+      "Meritocratic public service administration, on-time payment of county health workers, professionalisation of the County Public Service Board, and governance free from cronyism.",
+    channels: ["Policy whitepapers", "LinkedIn and Facebook thought leadership", "Union delegation briefings"],
   },
   {
-    id: "clergy-elders",
-    name: "6. Church Clergy & Clan Elders (Atumia)",
-    demographicSize: "Supreme Moral Authority (Gatekeepers)",
-    connectivityLevel: "Ultra-Low / Feature Phone",
-    primaryLanguage: "Kikamba (Monolingual)",
-    keyFrustration: "Erosion of communal values, political hooliganism, and neglect of church-sponsored schools and dispensaries.",
-    leadMessage: "Integrity, parliamentary pedigree, decorum, and transparent collaboration with faith-based organizations.",
-    recommendedChannels: ["Sunday Pulpit Protocol Engagements", "Council of Elders (Nzama) Consultations", "Direct Phone Calls from Dr. Mulu"]
-  }
+    id: "diaspora",
+    index: 6,
+    name: "Out-of-county Kamba diaspora",
+    sizing: {
+      kind: "gap",
+      estimate: "150,000+ individuals",
+      note: "Total diaspora volume. The subset registered to vote in Kitui County requires specialised primary polling.",
+    },
+    connectivity: ">95% internet and smartphone connected. Active on X, Facebook, WhatsApp, YouTube and national podcasts.",
+    geographicBase: "Nairobi, the Coast and nationwide, plus the 26 countries IEBC is opening to diaspora registration.",
+    coreAnxiety:
+      "Inefficient county spending that leaves rural parents and siblings in perpetual poverty, requiring continuous emergency bailouts from the diaspora.",
+    valueProposition:
+      "Dr. Mulu as the diaspora's trusted steward — an economist who will manage county funds with audited transparency and create an enabling environment for diaspora investment.",
+    channels: ["Nairobi and Coast geotargeted ads", "Diaspora town halls", "National podcasts"],
+  },
 ];
 
 export function AudienceSegmentationMatrix() {
-  const [selectedSegmentId, setSelectedSegmentId] = useState<string>("rural-farmers");
-  const currentSegment = AUDIENCE_SEGMENTS.find(s => s.id === selectedSegmentId) || AUDIENCE_SEGMENTS[0];
+  const [activeId, setActiveId] = useState(AUDIENCE_SEGMENTS[0].id);
+  const active = AUDIENCE_SEGMENTS.find((s) => s.id === activeId) ?? AUDIENCE_SEGMENTS[0];
+  const gapCount = AUDIENCE_SEGMENTS.filter((s) => s.sizing.kind === "gap").length;
 
   return (
-    <div className="my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
-      {/* Top Header */}
-      <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
+      <div className="p-4 sm:p-5 border-b border-line bg-paper/50">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <Users2 size={20} />
+          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0">
+            <Layers size={20} aria-hidden="true" />
           </div>
           <div>
-            <div className="flex items-center gap-2">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Audience Architecture
-              </span>
-              <span className="text-[10px] font-mono font-bold text-muted">
-                6 Strategic Demographic Cohorts
-              </span>
-            </div>
-            <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
-              Demographic Segmentation & Messaging Engine
-            </h4>
+            <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              Section 7 · Audience architecture
+            </span>
+            <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-1">Six structural segments</h4>
           </div>
         </div>
       </div>
 
-      {/* Segment Selector Chips (Scrollable / Grid) */}
-      <div className="p-3 bg-paper/70 border-b border-line overflow-x-auto scrollbar-none flex items-center gap-2">
-        {AUDIENCE_SEGMENTS.map((segment) => {
-          const isSelected = segment.id === selectedSegmentId;
+      <div
+        className="flex overflow-x-auto gap-1 p-2 bg-paper/70 border-b border-line scrollbar-none"
+        role="tablist"
+        aria-label="Audience segments"
+      >
+        {AUDIENCE_SEGMENTS.map((s) => {
+          const isActive = s.id === activeId;
           return (
             <button
-              key={segment.id}
-              onClick={() => setSelectedSegmentId(segment.id)}
-              className={`px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer flex items-center gap-1.5 shrink-0 ${
-                isSelected
-                  ? "bg-accent text-white shadow-sm shadow-accent/20"
-                  : "bg-card border border-line text-muted hover:text-ink hover:border-accent/40"
+              key={s.id}
+              role="tab"
+              aria-selected={isActive}
+              onClick={() => setActiveId(s.id)}
+              className={`px-3 py-2 rounded-lg t-small font-bold whitespace-nowrap transition-colors cursor-pointer shrink-0 ${
+                isActive ? "bg-accent text-white" : "text-muted hover:text-ink hover:bg-ink/5"
               }`}
             >
-              <span>{segment.name.split(". ")[1]}</span>
+              <span className="font-mono opacity-70 mr-1.5">{s.index}</span>
+              {s.name.split(" ").slice(0, 3).join(" ")}
             </button>
           );
         })}
       </div>
 
-      {/* Selected Segment Details Card */}
-      <div className="p-4 sm:p-6 space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-line/60 pb-3">
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.div
+          key={active.id}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.18, ease: "easeOut" }}
+          className="p-4 sm:p-6 space-y-4"
+        >
           <div>
-            <h5 className="text-base font-bold text-ink">{currentSegment.name}</h5>
-            <p className="text-xs font-mono text-accent font-bold mt-0.5">{currentSegment.demographicSize}</p>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <span className="text-[10px] font-bold px-2 py-1 bg-paper border border-line rounded-lg text-muted">
-              {currentSegment.connectivityLevel}
-            </span>
-            <span className="text-[10px] font-bold px-2 py-1 bg-accent/10 border border-accent/20 rounded-lg text-accent">
-              {currentSegment.primaryLanguage}
-            </span>
-          </div>
-        </div>
-
-        {/* Frustration vs Solution Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 pt-1">
-          <div className="p-4 rounded-xl bg-paper border border-line space-y-1.5">
-            <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
-              <Zap size={13} className="text-rose-500" />
-              Core Livelihood Frustration
+            <h5 className="font-serif text-lg font-bold text-ink leading-tight">{active.name}</h5>
+            <div className="mt-2 flex items-center gap-2 flex-wrap">
+              {active.sizing.kind === "sized" ? (
+                <>
+                  <span className="font-mono text-sm font-black text-accent tabular-nums">{active.sizing.voters}</span>
+                  <span className="text-xs text-muted">{active.sizing.share}</span>
+                  <TierBadge tier={active.sizing.tier} compact />
+                </>
+              ) : (
+                <>
+                  <span className="font-mono text-sm font-black text-muted tabular-nums">{active.sizing.estimate}</span>
+                  <ClaimBadge status="estimate" compact />
+                </>
+              )}
             </div>
-            <p className="text-xs text-ink leading-relaxed font-medium">
-              {currentSegment.keyFrustration}
-            </p>
+            {active.sizing.kind === "gap" && (
+              <p className="t-small text-muted mt-2 flex items-start gap-1.5">
+                <AlertTriangle size={11} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
+                <span>
+                  <strong>Named data gap (§7.3).</strong> {active.sizing.note} Commissioning this is a Phase −1
+                  research priority; it is not sized here because it is not sized in the source.
+                </span>
+              </p>
+            )}
           </div>
 
-          <div className="p-4 rounded-xl bg-accent/5 border border-accent/20 space-y-1.5">
-            <div className="text-[10px] font-black uppercase tracking-wider text-accent flex items-center gap-1.5">
-              <Sparkles size={13} />
-              Tailored Campaign Narrative
-            </div>
-            <p className="text-xs text-ink leading-relaxed font-semibold">
-              &ldquo;{currentSegment.leadMessage}&rdquo;
-            </p>
-          </div>
-        </div>
-
-        {/* Recommended Tactical Channels */}
-        <div className="pt-2">
-          <div className="text-[10px] font-black uppercase tracking-widest text-muted mb-2">
-            High-Impact Delivery Channels
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-            {currentSegment.recommendedChannels.map((channel, i) => (
-              <div key={i} className="p-2.5 bg-paper rounded-xl border border-line text-xs font-bold text-ink flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-accent/10 text-accent flex items-center justify-center text-[10px]">
-                  {i + 1}
-                </div>
-                <span className="truncate">{channel}</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="p-3.5 rounded-xl bg-paper/60 border border-line">
+              <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1 mb-1.5">
+                <Radio size={12} className="text-accent" aria-hidden="true" />
+                Connectivity &amp; media
               </div>
-            ))}
+              <p className="text-xs text-ink leading-relaxed">{active.connectivity}</p>
+            </div>
+            <div className="p-3.5 rounded-xl bg-paper/60 border border-line">
+              <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1 mb-1.5">
+                <Users size={12} className="text-accent" aria-hidden="true" />
+                Geographic base
+              </div>
+              <p className="text-xs text-ink leading-relaxed">{active.geographicBase}</p>
+            </div>
           </div>
-        </div>
-      </div>
 
-      {/* Footer Rule */}
-      <div className="p-3 bg-paper/60 border-t border-line text-[11px] text-muted flex items-center justify-between px-4 font-semibold">
-        <span className="flex items-center gap-1.5">
-          <Globe size={12} className="text-accent" />
-          <span>86.4% of voters reside in rural/offline low-bandwidth environments (KNBS 2019 Census).</span>
-        </span>
+          <div className="p-4 rounded-xl bg-paper border border-line space-y-3">
+            <div>
+              <div className="t-label font-black uppercase tracking-wider text-rose-600 dark:text-rose-400 mb-1">
+                Core anxiety
+              </div>
+              <p className="text-xs text-ink leading-relaxed">{active.coreAnxiety}</p>
+            </div>
+            <div className="pt-3 border-t border-line/50">
+              <div className="t-label font-black uppercase tracking-wider text-accent mb-1">
+                Candidate value proposition
+              </div>
+              <p className="text-xs text-ink leading-relaxed">{active.valueProposition}</p>
+            </div>
+          </div>
+
+          <div>
+            <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1 mb-2">
+              <MessageSquare size={12} className="text-accent" aria-hidden="true" />
+              Reachable channels
+            </div>
+            <ul className="flex flex-wrap gap-1.5">
+              {active.channels.map((c) => (
+                <li key={c} className="t-small px-2.5 py-1 rounded-lg bg-card border border-line text-ink">
+                  {c}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+
+      <div className="px-4 py-3 bg-paper/60 border-t border-line">
+        <p className="t-small text-muted leading-relaxed">
+          {gapCount} of the 6 segments are unsized in the source and are shown as such. §7.3 catalogues them for
+          commissioning in the Phase −1 baseline survey — this document does not estimate past its own evidence.
+        </p>
       </div>
     </div>
   );

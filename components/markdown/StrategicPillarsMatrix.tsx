@@ -2,16 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  Building2, 
-  BarChart3, 
-  Languages, 
-  CheckSquare, 
-  ShieldCheck, 
-  ArrowRight,
-  Sparkles,
-  FileCheck2
-} from "lucide-react";
+import { Building2, BarChart3, Languages, CheckSquare, ShieldCheck, ArrowRight, Sparkles, FileCheck2 } from "lucide-react";
 
 interface StrategicPillar {
   id: string;
@@ -77,7 +68,7 @@ export function StrategicPillarsMatrix() {
   const currentPillar = STRATEGIC_PILLARS.find(p => p.id === selectedPillarId) || STRATEGIC_PILLARS[0];
 
   return (
-    <div className="my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
+    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
       {/* Top Header */}
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
@@ -86,10 +77,10 @@ export function StrategicPillarsMatrix() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Section 5.0 Framework
               </span>
-              <span className="text-[10px] font-mono font-bold text-muted">
+              <span className="t-label font-mono font-bold text-muted">
                 Core Policy Architecture
               </span>
             </div>
@@ -116,7 +107,7 @@ export function StrategicPillarsMatrix() {
               }`}
             >
               <div className="flex items-center justify-between w-full">
-                <span className={`text-[10px] font-mono font-black ${isSelected ? "text-accent" : "text-muted"}`}>
+                <span className={`t-label font-mono font-black ${isSelected ? "text-accent" : "text-muted"}`}>
                   PILLAR {pillar.num}
                 </span>
                 <IconComponent size={14} className={isSelected ? "text-accent" : "text-muted"} />
@@ -148,10 +139,10 @@ export function StrategicPillarsMatrix() {
           {currentPillar.corePremise}
         </div>
 
-        {/* Breakdown Grid */}
+        {/* Breakdown Table */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
           <div className="p-3.5 rounded-xl bg-paper/60 border border-line space-y-1">
-            <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1">
+            <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1">
               <Sparkles size={12} className="text-accent" />
               Tangible Evidence
             </div>
@@ -161,7 +152,7 @@ export function StrategicPillarsMatrix() {
           </div>
 
           <div className="p-3.5 rounded-xl bg-paper/60 border border-line space-y-1">
-            <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1">
+            <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1">
               <Languages size={12} className="text-accent" />
               Operational Delivery
             </div>
@@ -171,7 +162,7 @@ export function StrategicPillarsMatrix() {
           </div>
 
           <div className="p-3.5 rounded-xl bg-accent/5 border border-accent/20 space-y-1">
-            <div className="text-[10px] font-black uppercase tracking-wider text-accent flex items-center gap-1">
+            <div className="t-label font-black uppercase tracking-wider text-accent flex items-center gap-1">
               <FileCheck2 size={12} />
               M&E Verification Audit
             </div>
@@ -183,7 +174,7 @@ export function StrategicPillarsMatrix() {
       </div>
 
       {/* Footer Rule */}
-      <div className="p-3 bg-paper/60 border-t border-line text-[11px] text-muted flex items-center justify-between px-4 font-semibold">
+      <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
           <ArrowRight size={12} className="text-accent" />
           <span>Underlying Campaign Doctrine: &ldquo;Kitui has resources. What it has lacked is leadership that understands how to use them — and the discipline to prove it did.&rdquo;</span>

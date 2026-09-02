@@ -2,18 +2,8 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  Radio, 
-  Volume2, 
-  VolumeX, 
-  ShieldAlert, 
-  CheckCircle2, 
-  AlertTriangle, 
-  Play, 
-  Pause,
-  ArrowRight,
-  Info
-} from "lucide-react";
+import { disclosure } from "../../lib/motion";
+import { Radio, Volume2, VolumeX, ShieldAlert, CheckCircle2, AlertTriangle, Play, Pause, ArrowRight, Info } from "lucide-react";
 
 interface RadioStation {
   name: string;
@@ -106,7 +96,7 @@ export function MediaRadioLandscapeCard() {
   };
 
   return (
-    <div className="my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
+    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
       {/* Top Header */}
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
@@ -115,11 +105,11 @@ export function MediaRadioLandscapeCard() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Section 17A Media Landscape
               </span>
-              <span className="text-[10px] font-mono font-bold text-muted">
-                Vernacular Radio Grid
+              <span className="t-label font-mono font-bold text-muted">
+                Vernacular Radio Table
               </span>
             </div>
             <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
@@ -185,11 +175,11 @@ export function MediaRadioLandscapeCard() {
                 <div>
                   <div className="flex items-center gap-2">
                     <h5 className="text-sm font-bold text-ink">{station.name}</h5>
-                    <span className="text-[11px] font-mono font-bold text-accent bg-card px-2 py-0.5 rounded border border-line">
+                    <span className="t-small font-mono font-bold text-accent bg-card px-2 py-0.5 rounded border border-line">
                       {station.frequency}
                     </span>
                     {station.isPriority && (
-                      <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                      <span className="t-micro font-black uppercase px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
                         Priority Placement
                       </span>
                     )}
@@ -202,7 +192,7 @@ export function MediaRadioLandscapeCard() {
 
               {/* Status Badge */}
               <div className="self-start sm:self-auto">
-                <span className={`text-[10px] font-bold px-2.5 py-1 rounded-lg border ${
+                <span className={`t-label font-bold px-2.5 py-1 rounded-lg border ${
                   station.politicalAllegiance.includes("Independent")
                     ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/20"
                     : station.politicalAllegiance.includes("Rival")
@@ -218,7 +208,7 @@ export function MediaRadioLandscapeCard() {
               {station.campaignPosture}
             </p>
 
-            <div className="mt-2.5 pt-2 border-t border-line/60 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-[11px]">
+            <div className="mt-2.5 pt-2 border-t border-line/60 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 t-small">
               <span className="text-muted">
                 <strong>Reach:</strong> {station.reachEstimate} &bull; <strong>Recommended Slot:</strong> {station.recommendedSlot}
               </span>
@@ -243,11 +233,14 @@ export function MediaRadioLandscapeCard() {
 
             {playingSnippet === station.name && (
               <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                className="mt-2 p-3 bg-card rounded-lg border border-accent/20 text-xs space-y-1"
+                initial={{ opacity: 0, gridTemplateRows: "0fr" }}
+                animate={{ opacity: 1, gridTemplateRows: "1fr" }}
+                exit={{ opacity: 0, gridTemplateRows: "0fr" }}
+                transition={disclosure}
+                className="grid mt-2"
               >
+              <div className="overflow-hidden min-h-0">
+              <div className="p-3 bg-card rounded-lg border border-accent/20 text-xs space-y-1">
                 <div className="font-bold text-accent flex items-center gap-1.5">
                   <Volume2 size={13} />
                   <span>Sample On-Air Talking Point ({station.name}):</span>
@@ -255,6 +248,8 @@ export function MediaRadioLandscapeCard() {
                 <p className="italic text-ink">
                   &ldquo;Mbee! Mbee! Kĩla kĩndũ kĩ na thayũ, ĩtina nĩ kũmenya. Dr. Makali Mulu is the tested economist who will allocate Kitui&apos;s KSh 13.79 billion transparently to each of our 40 wards.&rdquo;
                 </p>
+              </div>
+              </div>
               </motion.div>
             )}
           </div>
@@ -262,7 +257,7 @@ export function MediaRadioLandscapeCard() {
       </div>
 
       {/* Footer Rule */}
-      <div className="p-3 bg-paper/60 border-t border-line text-[11px] text-muted flex items-center justify-between px-4 font-semibold">
+      <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
           <Info size={12} className="text-accent" />
           <span>Vernacular Airwave Primacy: 86% of Kitui relies on radio as their primary daily source of political truth.</span>

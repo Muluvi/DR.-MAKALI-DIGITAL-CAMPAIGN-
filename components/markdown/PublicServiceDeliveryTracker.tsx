@@ -2,21 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  CheckCircle2, 
-  Clock, 
-  AlertTriangle, 
-  Search, 
-  Smartphone, 
-  Send, 
-  FileText, 
-  Activity, 
-  ShieldCheck, 
-  Layers, 
-  MapPin, 
-  ChevronRight,
-  Filter
-} from "lucide-react";
+import { CheckCircle2, Clock, AlertTriangle, Search, Smartphone, Send, FileText, Activity, ShieldCheck, Layers, MapPin, ChevronRight, Filter, Info } from "lucide-react";
 
 interface ServiceReport {
   refNumber: string;
@@ -24,7 +10,7 @@ interface ServiceReport {
   constituency: string;
   category: "Water Infrastructure" | "Feeder Roads" | "Health Clinic" | "Market Sanitation";
   issue: string;
-  channel: "USSD (*384#)" | "SMS" | "WhatsApp" | "Ward Champion";
+  channel: "USSD" | "SMS" | "WhatsApp" | "Ward Champion";
   status: "Under Verification" | "Raised with County" | "Resolved / Audited" | "Escalated";
   date: string;
   outcomeNote: string;
@@ -32,18 +18,18 @@ interface ServiceReport {
 
 const SAMPLE_REPORTS: ServiceReport[] = [
   {
-    refNumber: "KT-2026-0814",
+    refNumber: "KT-SAMPLE-A",
     ward: "Kyuso",
     constituency: "Mwingi North",
     category: "Water Infrastructure",
     issue: "Kyuso Solar-powered borehole pump failed; 1,200 households walking 8km to Tana River basin.",
-    channel: "USSD (*384#)",
+    channel: "USSD",
     status: "Raised with County",
     date: "28 Aug 2026",
     outcomeNote: "Formal query submitted to County Water Chief Officer; Ward Coordinator verifying solar inverter warranty."
   },
   {
-    refNumber: "KT-2026-0792",
+    refNumber: "KT-SAMPLE-B",
     ward: "Mutomo",
     constituency: "Kitui South",
     category: "Health Clinic",
@@ -54,7 +40,7 @@ const SAMPLE_REPORTS: ServiceReport[] = [
     outcomeNote: "Dr. Mulu raised on parliamentary committee record regarding unspent county emergency health reserves."
   },
   {
-    refNumber: "KT-2026-0750",
+    refNumber: "KT-SAMPLE-C",
     ward: "Township",
     constituency: "Kitui Central",
     category: "Market Sanitation",
@@ -65,7 +51,7 @@ const SAMPLE_REPORTS: ServiceReport[] = [
     outcomeNote: "Municipal cleanup completed following public petition; audited by volunteer youth champions."
   },
   {
-    refNumber: "KT-2026-0681",
+    refNumber: "KT-SAMPLE-D",
     ward: "Waita",
     constituency: "Mwingi Central",
     category: "Feeder Roads",
@@ -81,7 +67,7 @@ export function PublicServiceDeliveryTracker() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [isSimulatingSubmission, setIsSimulatingSubmission] = useState(false);
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
-  const [generatedRef, setGeneratedRef] = useState("KT-2026-0889");
+  const [generatedRef, setGeneratedRef] = useState("KT-SAMPLE-E");
   const [wardInput, setWardInput] = useState("Mwingi Central");
   const [issueInput, setIssueInput] = useState("");
 
@@ -104,7 +90,7 @@ export function PublicServiceDeliveryTracker() {
   };
 
   return (
-    <div className="my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
+    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
       {/* Top Header */}
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
@@ -113,10 +99,10 @@ export function PublicServiceDeliveryTracker() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Section 19B M&E Tool
               </span>
-              <span className="text-[10px] font-mono font-bold text-muted">
+              <span className="t-label font-mono font-bold text-muted">
                 Public Register
               </span>
             </div>
@@ -126,40 +112,49 @@ export function PublicServiceDeliveryTracker() {
           </div>
         </div>
 
-        {/* Live Channel Pills */}
-        <div className="flex flex-wrap items-center gap-1.5 text-[10px] font-mono font-bold text-muted">
-          <span className="px-2 py-1 bg-paper border border-line rounded-lg">USSD *384#</span>
-          <span className="px-2 py-1 bg-paper border border-line rounded-lg">SMS 40440</span>
+        {/* Intake channels. Shortcodes are vendor allocations pending at Phase 0 (Appendix A). */}
+        <div className="flex flex-wrap items-center gap-1.5 t-label font-mono font-bold text-muted">
+          <span className="px-2 py-1 bg-paper border border-line rounded-lg">USSD &mdash; code pending</span>
+          <span className="px-2 py-1 bg-paper border border-line rounded-lg">SMS &mdash; shortcode pending</span>
           <span className="px-2 py-1 bg-paper border border-line rounded-lg">WhatsApp</span>
         </div>
       </div>
 
+      <div className="px-4 py-2.5 bg-gold/[0.06] border-b border-gold/25 flex items-start gap-2">
+        <Info size={13} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
+        <p className="t-small text-ink leading-relaxed">
+          <strong>Interface preview.</strong> The tracker described in §19B has not been built &mdash; §19B.6 sets out
+          its build and cost. Every entry below is illustrative, written to show the intake format and the
+          verification protocol. No citizen report has been received and no query has been raised with the county.
+        </p>
+      </div>
+
       {/* 5-Step M&E Pipeline Visualizer (Replacing raw ASCII tree) */}
       <div className="p-4 bg-paper/70 border-b border-line">
-        <div className="text-[10px] font-black uppercase tracking-wider text-muted mb-2 flex items-center gap-1">
+        <div className="t-label font-black uppercase tracking-wider text-muted mb-2 flex items-center gap-1">
           <Layers size={12} className="text-accent" />
           <span>The 5-Stage Verification Protocol</span>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center">
           <div className="p-2 bg-card rounded-lg border border-line">
-            <div className="text-[10px] font-mono font-bold text-accent">1. INTAKE</div>
-            <div className="text-[11px] font-bold text-ink truncate mt-0.5">USSD / SMS / Baraza</div>
+            <div className="t-label font-mono font-bold text-accent">1. INTAKE</div>
+            <div className="t-small font-bold text-ink truncate mt-0.5">USSD / SMS / Baraza</div>
           </div>
           <div className="p-2 bg-card rounded-lg border border-line">
-            <div className="text-[10px] font-mono font-bold text-accent">2. LOGGING</div>
-            <div className="text-[11px] font-bold text-ink truncate mt-0.5">Auto Reference ID</div>
+            <div className="t-label font-mono font-bold text-accent">2. LOGGING</div>
+            <div className="t-small font-bold text-ink truncate mt-0.5">Auto Reference ID</div>
           </div>
           <div className="p-2 bg-card rounded-lg border border-line">
-            <div className="text-[10px] font-mono font-bold text-accent">3. AUDIT</div>
-            <div className="text-[11px] font-bold text-ink truncate mt-0.5">Ward Field Check</div>
+            <div className="t-label font-mono font-bold text-accent">3. AUDIT</div>
+            <div className="t-small font-bold text-ink truncate mt-0.5">Ward Field Check</div>
           </div>
           <div className="p-2 bg-card rounded-lg border border-line">
-            <div className="text-[10px] font-mono font-bold text-accent">4. ESCALATION</div>
-            <div className="text-[11px] font-bold text-ink truncate mt-0.5">County / Assembly</div>
+            <div className="t-label font-mono font-bold text-accent">4. ESCALATION</div>
+            <div className="t-small font-bold text-ink truncate mt-0.5">County / Assembly</div>
           </div>
           <div className="p-2 bg-accent/10 rounded-lg border border-accent/20 col-span-2 sm:col-span-1">
-            <div className="text-[10px] font-mono font-bold text-accent">5. OUTCOME</div>
-            <div className="text-[11px] font-bold text-accent truncate mt-0.5">SMS Notification</div>
+            <div className="t-label font-mono font-bold text-accent">5. OUTCOME</div>
+            <div className="t-small font-bold text-accent truncate mt-0.5">SMS Notification</div>
           </div>
         </div>
       </div>
@@ -191,12 +186,12 @@ export function PublicServiceDeliveryTracker() {
                   {report.refNumber}
                 </span>
                 <span className="text-xs font-bold text-ink">{report.ward} Ward</span>
-                <span className="text-[10px] text-muted font-medium">({report.constituency})</span>
+                <span className="t-label text-muted font-medium">({report.constituency})</span>
               </div>
 
               <div className="flex items-center gap-2 self-start sm:self-auto">
-                <span className="text-[10px] font-mono text-muted">{report.date}</span>
-                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                <span className="t-label font-mono text-muted">{report.date}</span>
+                <span className={`t-label font-bold px-2 py-0.5 rounded-full border ${
                   report.status === "Resolved / Audited"
                     ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20"
                     : report.status === "Escalated"
@@ -212,11 +207,11 @@ export function PublicServiceDeliveryTracker() {
               {report.issue}
             </p>
 
-            <div className="pt-1.5 border-t border-line/60 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[11px]">
+            <div className="pt-1.5 border-t border-line/60 flex flex-col sm:flex-row sm:items-center justify-between gap-1 t-small">
               <span className="text-muted">
                 <strong className="text-ink">M&E Verification Note:</strong> {report.outcomeNote}
               </span>
-              <span className="text-[10px] font-mono text-muted shrink-0">
+              <span className="t-label font-mono text-muted shrink-0">
                 Via {report.channel}
               </span>
             </div>
@@ -255,7 +250,7 @@ export function PublicServiceDeliveryTracker() {
           </div>
 
           <div className="flex items-center justify-between pt-1">
-            <span className="text-[10px] text-muted">
+            <span className="t-label text-muted">
               {submissionSuccess && (
                 <span className="text-emerald-600 font-bold flex items-center gap-1">
                   <CheckCircle2 size={12} /> Logged as #{generatedRef} & SMS notification simulated!
@@ -276,7 +271,7 @@ export function PublicServiceDeliveryTracker() {
       </div>
 
       {/* Footer Rule */}
-      <div className="p-3 bg-paper/60 border-t border-line text-[11px] text-muted flex items-center justify-between px-4 font-semibold">
+      <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
           <ShieldCheck size={12} className="text-accent" />
           <span>Governance Commitment: The public delivery tracker continues post-election as the official County Citizen Oversight Portal.</span>

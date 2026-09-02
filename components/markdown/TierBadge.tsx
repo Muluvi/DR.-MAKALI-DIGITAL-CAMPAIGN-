@@ -15,7 +15,7 @@ export function TierBadge({ tier, compact = false }: { tier: Tier; compact?: boo
   const { label, short } = TIER_META[tier];
   return (
     <span
-      className={`tier-badge tier-badge-${tier} ${compact ? "px-1.5 py-[1px] text-[8px]" : "px-2 py-0.5 text-[9px] sm:text-[10px]"}`}
+      className={`tier-badge tier-badge-${tier} ${compact ? "px-1.5 py-[1px] t-micro" : "px-2 py-0.5 t-micro sm:t-label"}`}
       title={TIER_META[tier].description}
     >
       {compact ? short : `Tier ${tier} — ${label}`}

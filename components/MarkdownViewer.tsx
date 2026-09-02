@@ -17,6 +17,20 @@ import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
 import { MizaniSlopeBlock } from "./markdown/MizaniSlopeBlock";
 import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
 import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
+import { AsciiDiagram } from "./markdown/AsciiDiagram";
+import { ReachSplit } from "./ReachSplit";
+import {
+  FlywheelSchematic,
+  MessagingPlayground,
+  CounterMessagingGrid,
+  ToneVoiceSlider,
+  SloganBuilder,
+  SMSFeedbackVisualizer,
+  CommunityScheduler,
+  MediaPlaybackMockup,
+  RadioAircoverDial,
+} from "./StrategicAids";
+import { PhaseRail } from "./PhaseRail";
 import { PullQuote } from "./markdown/PullQuote";
 import { ClaimCards } from "./markdown/ClaimCards";
 import { DisputedFigure } from "./markdown/DisputedFigure";
@@ -26,6 +40,14 @@ import { DroughtFoodSecurityPanel } from "./markdown/DroughtFoodSecurityPanel";
 import { MuiBasinPanel } from "./markdown/MuiBasinPanel";
 import { CompetitorFieldPanel } from "./markdown/CompetitorFieldPanel";
 import { NominationPathPanel } from "./markdown/NominationPathPanel";
+import { EconomistGovernorThesis } from "./markdown/EconomistGovernorThesis";
+import { DecisionPanel } from "./DecisionPanel";
+import { CommitmentFields } from "./markdown/CommitmentFields";
+import { PhoneShowcase } from "./phone/PhoneShowcase";
+import { SectionPortrait } from "./markdown/SectionPortrait";
+import { ReadinessBoard } from "./markdown/ReadinessBoard";
+import { TeamRoster } from "./markdown/TeamRoster";
+import { commitmentFieldKey, isCommitmentFieldList, type CommitmentField } from "../lib/commitment-fields";
 import { ComplianceCeilingPanel } from "./markdown/ComplianceCeilingPanel";
 import { MediaOwnershipBlock } from "./markdown/MediaOwnershipBlock";
 import { DataGapsRegister } from "./markdown/DataGapsRegister";
@@ -107,6 +129,44 @@ function getDeepText(node: React.ReactNode): string {
   return "";
 }
 
+/**
+ * Read a list whose every item opens with a bolded field label ("**Named Owner:** …").
+ *
+ * The label is lifted out of the item's children and the REST is passed through untouched, so
+ * cross-references, claim badges and figure highlighting inside a value keep working exactly as
+ * they do in a bullet. Returns null the moment an item does not fit the shape, which leaves the
+ * list rendering as an ordinary list.
+ */
+function parseLabelledList(children: React.ReactNode): CommitmentField[] | null {
+  // Both `li` and `strong` are overridden in the components map below, so their rendered
+  // elements are custom functions rather than the DOM strings — identity checks against "li"
+  // or "strong" silently match nothing. Detect by shape instead: every item must open with a
+  // short inline run ending in a colon, which is what a bolded field label looks like.
+  const items = (React.Children.toArray(children) as React.ReactElement[]).filter((c) =>
+    React.isValidElement(c)
+  );
+  if (items.length < 4) return null;
+
+  const fields: CommitmentField[] = [];
+  for (const li of items) {
+    const parts = React.Children.toArray((li.props as { children?: React.ReactNode }).children);
+    // A loose list wraps the item body in a <p>; unwrap one level before looking for the label.
+    const body =
+      parts.length === 1 && React.isValidElement(parts[0])
+        ? React.Children.toArray((parts[0].props as { children?: React.ReactNode }).children)
+        : parts;
+
+    const first = body[0];
+    if (!React.isValidElement(first)) return null;
+    const raw = getDeepText(first).trim();
+    if (!/:$/.test(raw) || raw.length > 40) return null;
+    const label = raw.replace(/:$/, "").trim();
+    if (!label) return null;
+    fields.push({ key: commitmentFieldKey(label), label, value: body.slice(1) });
+  }
+  return fields;
+}
+
 function getTableHeaderTexts(children: React.ReactNode): string[] {
   const top = React.Children.toArray(children) as React.ReactElement[];
   const thead = top.find((c) => c?.type === "thead");
@@ -124,61 +184,115 @@ function getTableHeaderTexts(children: React.ReactNode): string[] {
 // decision" badge mechanically rather than by guessing at status elsewhere.
 const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
 
-// Visualisations anchored to a specific heading rather than a table (Phase C, items 11/12/15/16).
-// Keyed by the same "<tab>-sec-<slug>" id SectionHeading assigns, so this stays correct even if
-// the heading text is edited later.
+// Visualisations anchored to a specific heading rather than a table, keyed by the same
+// "<tab>-sec-<slug>" id SectionHeading assigns, so this stays correct even if the heading text is
+// edited later.
+//
+// ONE COMPONENT, ONE HOME. Several components used to be keyed at two or three ids at once —
+// defensively, because before the section index was generated nobody could be sure which heading
+// actually existed. That guesswork rendered the same chart up to three times in a single
+// section. Every key below now resolves to a heading that exists; a build-time check would be
+// the next step if this map grows again.
 const HEADING_INSERTS: Record<string, React.ReactNode> = {
+  // ---- The Analysis (exec.md, §1–§20) -------------------------------------------------
   "exec-sec-1-1": <PollingTrajectorySimulator />,
   "exec-sec-1a": <NominationPathPanel />,
-  "exec-sec-2-2": <ConstitutionalBranchNavigator />,
-  "exec-sec-2-3": (
+  // The core narrative is §3 now, ahead of the strategic context — its thesis opens the argument.
+  "exec-sec-3": <EconomistGovernorThesis />,
+  "exec-sec-4-2": (
+    <>
+      <ConstitutionalBranchNavigator />
+      <CompetitiveQuadrantBlock />
+    </>
+  ),
+  "exec-sec-4-1": (
+    <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §4.1">
+      One of Kenya&rsquo;s most consistent and authoritative voices on macroeconomic governance,
+      fiscal discipline, and budget oversight.
+    </SectionPortrait>
+  ),
+  "exec-sec-4-3": (
     <>
       <WardCartogramBlock />
       <PathTo200kBlock />
       <ConstituencyWeightBlock />
     </>
   ),
-  "exec-sec-2-4": <ResourceEnvelopeBlock />,
-  "exec-sec-2-5": <DisputedFigure entry={kituiCentralPopulationDispute} />,
-  "exec-sec-2-6": (
+  "exec-sec-4-4": <ResourceEnvelopeBlock />,
+  "exec-sec-4-5": <DisputedFigure entry={kituiCentralPopulationDispute} />,
+  "exec-sec-4-6": (
     <>
       <ElectoralHistoryPanel />
       <ElectoralTimelineBlock />
     </>
   ),
-  "exec-sec-2-7": (
+  "exec-sec-4-7": (
     <>
       <FiscalAuditPanel />
       <FiscalAuditChartBlock />
     </>
   ),
-  "exec-sec-2-8": <DroughtFoodSecurityPanel />,
-  "exec-sec-2-9": <MuiBasinPanel />,
-  "exec-sec-2-10": <CompetitorFieldPanel />,
-  "exec-sec-6-3": <PathTo200kCalculator />,
-  "exec-sec-6-5": <RecognitionDeficitOverlay />,
-  "exec-sec-7-0": <AudienceSegmentationMatrix />,
+  "exec-sec-4-8": <DroughtFoodSecurityPanel />,
+  "exec-sec-4-9": <MuiBasinPanel />,
+  "exec-sec-4-10": <CompetitorFieldPanel />,
+  "exec-sec-6a": <PathTo200kCalculator />,
+  "exec-sec-6a-2": <RecognitionDeficitOverlay />,
   "exec-sec-7": <AudienceSegmentationMatrix />,
-  "strategy-sec-5": <StrategicPillarsMatrix />,
-  "strategy-sec-6": <AudienceSegmentationMatrix />,
-  "strategy-sec-7": <GeographicZoneMatrix />,
-  "strategy-sec-10": <PersuasionFramingMatrix />,
-  "strategy-sec-17a": <MediaRadioLandscapeCard />,
-  "strategy-sec-17a-1": <MediaRadioLandscapeCard />,
-  "strategy-sec-17a-7": <MediaOwnershipBlock />,
-  "strategy-sec-19b": <PublicServiceDeliveryTracker />,
-  "operations-sec-8a": <CampaignOrgChart />,
-  "operations-sec-8b-5": <BudgetScenarioModeler />,
-  "operations-sec-8b-6": <BudgetScenarioModeler />,
-  "operations-sec-8b-7": <ComplianceCeilingPanel />,
-  "operations-sec-13": <CrisisWarRoomMatrix />,
-  "operations-sec-13-1": <CrisisWarRoomMatrix />,
-  "operations-sec-13-4": <CrisisWarRoomMatrix />,
-  "operations-sec-16": <DataSecurityEthicsCharter />,
-  "operations-sec-16-1": <DataSecurityEthicsCharter />,
-  "operations-sec-16-4": <DataSecurityEthicsCharter />,
-  "execution-sec-20": <KpiPhaseBlock />,
+  // §9 splits the electorate into a connected minority and an offline majority. The showcase is
+  // that argument as an object: one handset, the campaign on all seven channels, ending on the
+  // USSD dialog that reaches more voters than the six apps together.
+  "exec-sec-9": <PhoneShowcase />,
+  "exec-sec-13": (
+    <>
+      <MessagingPlayground />
+      <ToneVoiceSlider />
+    </>
+  ),
+  "exec-sec-14-4": <CommunityScheduler />,
+  "exec-sec-15": <CounterMessagingGrid />,
+  // §17.1 is the ownership/alignment/tier table this chart plots. It had been keyed to a
+  // §17A.7 heading that stopped existing when strategy and tactics were split, so the chart
+  // was rendering nowhere.
+  "exec-sec-17-1": <MediaOwnershipBlock />,
+
+  // ---- The Programme (programme.md, §5–§23) -------------------------------------------
+  "programme-sec-21": (
+    <SectionPortrait id="seated-grey-cropped" kicker="Execution &amp; workflow — §21" flip>
+      Firefly reports to a single named campaign-side counterpart.
+    </SectionPortrait>
+  ),
+  "programme-sec-5": <StrategicPillarsMatrix />,
+  "programme-sec-7": <GeographicZoneMatrix />,
+  "programme-sec-8a": <CampaignOrgChart />,
+  "programme-sec-8b-5": <BudgetScenarioModeler />,
+  "programme-sec-8b-7": <ComplianceCeilingPanel />,
+  "programme-sec-9a": <FlywheelSchematic />,
+  "programme-sec-9b": (
+    <>
+      <ReachSplit />
+      <SMSFeedbackVisualizer />
+    </>
+  ),
+  "programme-sec-10": <PersuasionFramingMatrix />,
+  "programme-sec-13": <CrisisWarRoomMatrix />,
+  "programme-sec-16": <DataSecurityEthicsCharter />,
+  "programme-sec-17": <MediaPlaybackMockup />,
+  "programme-sec-17a": (
+    <>
+      <MediaRadioLandscapeCard />
+      <RadioAircoverDial />
+    </>
+  ),
+  "programme-sec-19": <SloganBuilder />,
+  "programme-sec-19b": <PublicServiceDeliveryTracker />,
+  "programme-sec-20": (
+    <>
+      <PhaseRail />
+      <KpiPhaseBlock />
+    </>
+  ),
 };
+
 
 // A handful of headings (the "Appendix A/B/C" style) carry no leading digit, so headingSlug
 // never assigns them an id — matched on exact heading text instead, same mechanism as
@@ -210,15 +324,19 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
           </div>
           <div>
             <h4 className="font-serif text-xs font-semibold text-ink">Campaign Audio Strategy Briefing</h4>
-            <p className="text-[10px] text-muted uppercase tracking-wider font-semibold">Listen to synthesized narrative breakdown (2:15 min)</p>
+            <p className="t-label text-muted uppercase tracking-wider font-semibold">Listen to synthesized narrative breakdown (2:15 min)</p>
           </div>
         </div>
         <AudioBriefingButton />
       </div>
 
+      {/* The lede treatment is scoped with `>` deliberately. As a descendant selector
+          (`[&_p:first-of-type]`) it matched the first paragraph of EVERY nested container —
+          so chart footnotes, card ledes and diagram notes all picked up a 3xl gold drop cap.
+          A direct-child selector reaches the document's opening paragraph and nothing else. */}
       <div className="prose max-w-none relative z-10 px-0
-        [&_p:first-of-type]:text-base [&_p:first-of-type]:sm:text-lg [&_p:first-of-type]:font-semibold [&_p:first-of-type]:text-ink [&_p:first-of-type]:leading-relaxed [&_p:first-of-type]:border-b [&_p:first-of-type]:border-line/40 [&_p:first-of-type]:pb-4 [&_p:first-of-type]:mb-6
-        [&_p:first-of-type::first-letter]:text-3xl [&_p:first-of-type::first-letter]:font-semibold [&_p:first-of-type::first-letter]:text-gold [&_p:first-of-type::first-letter]:mr-2 [&_p:first-of-type::first-letter]:float-left [&_p:first-of-type::first-letter]:leading-none
+        [&>p:first-of-type]:text-base [&>p:first-of-type]:sm:text-lg [&>p:first-of-type]:font-semibold [&>p:first-of-type]:text-ink [&>p:first-of-type]:leading-relaxed [&>p:first-of-type]:border-b [&>p:first-of-type]:border-line/40 [&>p:first-of-type]:pb-4 [&>p:first-of-type]:mb-6
+        [&>p:first-of-type::first-letter]:text-3xl [&>p:first-of-type::first-letter]:font-semibold [&>p:first-of-type::first-letter]:text-gold [&>p:first-of-type::first-letter]:mr-2 [&>p:first-of-type::first-letter]:float-left [&>p:first-of-type::first-letter]:leading-none
       ">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
@@ -228,16 +346,29 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
               const headers = getTableHeaderTexts(children).map((h) => h.toLowerCase());
               const has = (text: string) => headers.some((h) => h.includes(text));
 
-              // Section 2.5 "National platform sizing" — replaced by the sorted bar chart
+              // Section 4.5 "National platform sizing" — replaced by the sorted bar chart
               // (item 13), not kept alongside it.
               if (tabId === "exec" && has("platform") && has("kenya audience")) {
                 return <PlatformSizingBlock />;
               }
 
-              // Section 2.1 candidate-asset table — assertion/evidence/application becomes
+              // Section 4.1 candidate-asset table — assertion/evidence/application becomes
               // claim cards (item 21), replacing the table rather than sitting alongside it.
               if (tabId === "exec" && has("asset") && has("evidence") && has("digital application")) {
                 return <ClaimCards>{children}</ClaimCards>;
+              }
+
+              // Firefly appendix §15 — the pre-launch checklist is the one place that says what
+              // is blocking launch, and as a flat table the single GATED row read like the
+              // eleven OPEN ones. Becomes a status board, replacing the table.
+              if (tabId === "registers" && has("control") && has("status") && has("owner")) {
+                return <ReadinessBoard>{children}</ReadinessBoard>;
+              }
+
+              // Firefly appendix §3 — the operating model, grouped by when each role switches
+              // on, which is the column a reader is actually reading the table for.
+              if (tabId === "registers" && has("role") && has("activation")) {
+                return <TeamRoster>{children}</TeamRoster>;
               }
 
               const table = <InteractiveTable>{children}</InteractiveTable>;
@@ -253,31 +384,14 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
                 );
               }
 
-              // Section 2.2 competitive field table — quadrant plot added after it.
-              if (tabId === "exec" && has("contender") && has("exploitable gap")) {
-                return (
-                  <>
-                    {table}
-                    <CompetitiveQuadrantBlock />
-                  </>
-                );
-              }
-
               return table;
             },
-            pre: ({ children }) => (
-              <div className="my-6 rounded-2xl border border-line bg-paper/60 p-3 sm:p-4 overflow-hidden not-prose">
-                <div className="flex items-center justify-between pb-2 mb-2 border-b border-line/40 text-[10px] font-mono font-bold text-muted uppercase tracking-wider">
-                  <span>Architecture & Process Model</span>
-                  <span className="hidden sm:inline">Diagram / Script</span>
-                </div>
-                <div className="overflow-x-auto max-w-full scrollbar-thin">
-                  <pre className="text-[11px] sm:text-xs font-mono text-ink leading-snug m-0 p-0 whitespace-pre">
-                    {children}
-                  </pre>
-                </div>
-              </div>
-            ),
+            pre: ({ children }) => {
+              // 102 of these are box-drawing diagrams, not code. AsciiDiagram parses them into
+              // real tables and summaries, gated on losslessness — anything it cannot read with
+              // confidence keeps exactly the treatment it had.
+              return <AsciiDiagram source={getDeepText(children)}>{children}</AsciiDiagram>;
+            },
             code: ({ children }) => {
               const text = flattenText(children);
               if (PLACEHOLDER_PATTERN.test(text.trim())) {
@@ -310,7 +424,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
               return <MarkdownParagraph tabId={tabId}>{children}</MarkdownParagraph>;
             },
             blockquote: ({ children }) => {
-              // The central narrative line (Section 4) gets the full pull-quote treatment;
+              // The central narrative line (Section 3) gets the full pull-quote treatment;
               // every other blockquote (the ethics charter, etc.) keeps the standard styling.
               if (getDeepText(children).includes("Kitui has resources")) {
                 return <PullQuote>{children}</PullQuote>;
@@ -320,6 +434,16 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
                   {children}
                 </blockquote>
               );
+            },
+            ul: ({ children }) => {
+              // §5 writes each Operational Commitment as six bolded fields in a fixed order —
+              // a table written as prose. Where that exact shape appears, lay it out as one;
+              // every other list in the document is untouched.
+              const fields = parseLabelledList(children);
+              if (fields && isCommitmentFieldList(fields.map((f) => f.label))) {
+                return <CommitmentFields fields={fields} tabId={tabId} />;
+              }
+              return <ul>{children}</ul>;
             },
             li: ({ children }) => {
               // The three governing realities (Section 1.3) get a pull-quote-style emphasis
@@ -385,6 +509,11 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
         >
           {content}
         </ReactMarkdown>
+
+        {/* The ask closes the document, inside the prose flow. It used to sit in the footer
+            chrome below a rule, next to the print widget — which framed a vendor's closing
+            request as one more piece of page tooling. §21-23 build to it; it belongs there. */}
+        {tabId === "programme" && <DecisionPanel />}
       </div>
     </div>
   );

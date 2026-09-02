@@ -45,12 +45,12 @@ const CHART_DATA: TierBand[] = TIER_RANGES.map((t) => {
  */
 export function ComplianceCeilingPanelContent() {
   return (
-    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
+    <div className="not-prose bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
       <div className="flex items-center gap-2 mb-1">
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">Compliance and Spending-Ceiling Panel</h4>
       </div>
-      <p className="text-[11px] text-muted mb-1 leading-relaxed pl-3.5">
+      <p className="t-small text-muted mb-1 leading-relaxed pl-3.5">
         The verified Kitui county-seat ceiling — shared by the Governor, Senator and Woman Representative races.
       </p>
       <div className="pl-3.5 mb-4">
@@ -58,18 +58,18 @@ export function ComplianceCeilingPanelContent() {
         <TierBadge tier={KITUI_SPENDING_CEILING.provenance.source.tier} compact />
       </div>
 
-      <div className="h-64 w-full text-[9px] mb-4">
-        <LazyMount minHeight={256} className="h-full">
+      <div className="w-full t-micro mb-4">
+        <LazyMount minHeight={216}>
           <SpendingCeilingChart data={CHART_DATA} ceiling={CEILING} />
         </LazyMount>
       </div>
 
       {/* Accessible table equivalent of the chart above (stacked on mobile, tabular on sm+) */}
       <div className="mb-4">
-        <table className="w-full text-left text-[11px] block sm:table">
+        <table className="w-full text-left t-small block sm:table">
           <caption className="sr-only">Recommended ad-spend range by tier, against the KSh97.56m statutory ceiling</caption>
           <thead className="hidden sm:table-header-group">
-            <tr className="text-[9px] uppercase tracking-wider font-bold text-muted border-b border-line/40">
+            <tr className="t-micro uppercase tracking-wider font-bold text-muted border-b border-line/40">
               <th className="py-1 pr-3">Tier</th>
               <th className="py-1 pr-3">Range</th>
               <th className="py-1">% of ceiling</th>
@@ -78,13 +78,13 @@ export function ComplianceCeilingPanelContent() {
           <tbody className="block sm:table-row-group space-y-2 sm:space-y-0">
             {TIER_RANGES.map((t, i) => (
               <tr key={i} className="block sm:table-row p-2.5 sm:p-0 bg-paper sm:bg-transparent rounded-xl sm:rounded-none border border-line/50 sm:border-0 sm:border-t sm:border-line/40">
-                <td className="block sm:table-cell py-0.5 sm:py-1.5 pr-0 sm:pr-3 font-bold text-ink text-xs sm:text-[11px]">
+                <td className="block sm:table-cell py-0.5 sm:py-1.5 pr-0 sm:pr-3 font-bold text-ink text-xs sm:t-small">
                   {t.name}
                 </td>
-                <td className="flex sm:table-cell justify-between sm:justify-start items-center py-0.5 sm:py-1.5 pr-0 sm:pr-3 text-ink/80 text-[11px] before:content-['Range:'] before:text-[9px] before:font-bold before:text-muted before:uppercase sm:before:content-none">
+                <td className="flex sm:table-cell justify-between sm:justify-start items-center py-0.5 sm:py-1.5 pr-0 sm:pr-3 text-ink/80 t-small before:content-['Range:'] before:t-micro before:font-bold before:text-muted before:uppercase sm:before:content-none">
                   <span>{CHART_DATA[i].display.split(" (")[0]}</span>
                 </td>
-                <td className="flex sm:table-cell justify-between sm:justify-start items-center py-0.5 sm:py-1.5 text-ink/80 text-[11px] before:content-['Ceiling_share:'] before:text-[9px] before:font-bold before:text-muted before:uppercase sm:before:content-none">
+                <td className="flex sm:table-cell justify-between sm:justify-start items-center py-0.5 sm:py-1.5 text-ink/80 t-small before:content-['Ceiling_share:'] before:t-micro before:font-bold before:text-muted before:uppercase sm:before:content-none">
                   <span>{t.lowPct}–{t.highPct}%</span>
                 </td>
               </tr>
@@ -95,19 +95,19 @@ export function ComplianceCeilingPanelContent() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
         <div className="rounded-xl border border-line/60 bg-paper p-3">
-          <div className="text-[9px] uppercase tracking-wider font-bold text-muted mb-1">{SINGLE_SOURCE_CONTRIBUTION_CAP_PCT.label}</div>
+          <div className="t-micro uppercase tracking-wider font-bold text-muted mb-1">{SINGLE_SOURCE_CONTRIBUTION_CAP_PCT.label}</div>
           <div className="font-serif text-sm font-black text-ink">{SINGLE_SOURCE_CONTRIBUTION_CAP_PCT.value}{SINGLE_SOURCE_CONTRIBUTION_CAP_PCT.unit.replace("% of the total ceiling", "% of ceiling")}</div>
         </div>
         <div className="rounded-xl border border-line/60 bg-paper p-3">
-          <div className="text-[9px] uppercase tracking-wider font-bold text-muted mb-1">{AUDITED_REPORT_THRESHOLD.label}</div>
+          <div className="t-micro uppercase tracking-wider font-bold text-muted mb-1">{AUDITED_REPORT_THRESHOLD.label}</div>
           <div className="font-serif text-sm font-black text-ink">KSh{(AUDITED_REPORT_THRESHOLD.value / 1_000_000).toFixed(0)}m+</div>
         </div>
         <div className="rounded-xl border border-line/60 bg-paper p-3">
-          <div className="text-[9px] uppercase tracking-wider font-bold text-muted mb-1">Regulated expenditure window</div>
+          <div className="t-micro uppercase tracking-wider font-bold text-muted mb-1">Regulated expenditure window</div>
           <div className="text-xs font-bold text-ink">{EXPENDITURE_WINDOW.start} → {EXPENDITURE_WINDOW.end}</div>
         </div>
         <div className="rounded-xl border border-danger/40 bg-paper p-3">
-          <div className="text-[9px] uppercase tracking-wider font-bold text-danger mb-1">Penalty exposure</div>
+          <div className="t-micro uppercase tracking-wider font-bold text-danger mb-1">Penalty exposure</div>
           <div className="font-serif text-sm font-black text-ink">
             Up to KSh{(PENALTY_MAX_FINE.value / 1_000_000).toFixed(0)}m and/or {PENALTY_MAX_PRISON_YEARS.value} years
           </div>
@@ -115,7 +115,7 @@ export function ComplianceCeilingPanelContent() {
       </div>
 
       <div className="rounded-xl border border-line/60 bg-paper p-3">
-        <div className="text-[9px] uppercase tracking-wider font-black text-ink mb-1.5">Operational requirements</div>
+        <div className="t-micro uppercase tracking-wider font-black text-ink mb-1.5">Operational requirements</div>
         <ul className="space-y-1.5">
           {COMPLIANCE_REQUIREMENTS.map((req, i) => (
             <li key={i} className="flex items-start gap-1.5 text-xs text-ink/80 leading-relaxed">

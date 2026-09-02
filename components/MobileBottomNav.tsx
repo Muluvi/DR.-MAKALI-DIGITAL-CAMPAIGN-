@@ -1,18 +1,7 @@
 "use client";
 
 import React from "react";
-import { 
-  FileText, 
-  Target, 
-  Activity, 
-  FileKey, 
-  ListTree, 
-  ChevronUp, 
-  Moon, 
-  Sun,
-  Maximize2,
-  Minimize2
-} from "lucide-react";
+import { FileText, Target, Activity, FileKey, ListTree, ChevronUp, Moon, Sun, Maximize2, Minimize2 } from "lucide-react";
 import type { TabId } from "../lib/heading-slug";
 
 interface MobileBottomNavProps {
@@ -35,12 +24,9 @@ export function MobileBottomNav({
   onToggleTheme
 }: MobileBottomNavProps) {
   const tabs: { id: TabId; label: string; shortLabel: string; icon: React.ComponentType<{ size?: number; className?: string }> }[] = [
-    { id: "exec", label: "Executive", shortLabel: "Exec", icon: FileText },
-    { id: "strategy", label: "Strategy", shortLabel: "Strategy", icon: Target },
-    { id: "operations", label: "Operations", shortLabel: "Ops", icon: Activity },
-    { id: "tactics", label: "Tactics", shortLabel: "Tactics", icon: Activity },
-    { id: "execution", label: "Execution", shortLabel: "KPIs", icon: Activity },
-    { id: "appendix", label: "Appendix", shortLabel: "Appx", icon: FileKey },
+    { id: "exec", label: "The Analysis", shortLabel: "Analysis", icon: FileText },
+    { id: "programme", label: "The Programme", shortLabel: "Programme", icon: Target },
+    { id: "registers", label: "Registers", shortLabel: "Registers", icon: FileKey },
   ];
 
   return (
@@ -48,7 +34,7 @@ export function MobileBottomNav({
       {/* Background with Blur & Border */}
       <div className="bg-card/95 backdrop-blur-xl border-t border-line shadow-2xl px-2 pt-1.5 pb-[max(0.75rem,env(safe-area-inset-bottom,0.75rem))]">
         {/* Quick Utilities Strip on Mobile (Scroll Top, Expand All, Theme, TOC) */}
-        <div className="flex items-center justify-between px-1.5 pb-1.5 mb-1 border-b border-line/40 text-[11px] font-bold">
+        <div className="flex items-center justify-between px-1.5 pb-1.5 mb-1 border-b border-line/40 t-small font-bold">
           <button
             onClick={onOpenTOC}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-accent/10 text-accent border border-accent/20 active:scale-95 transition-all cursor-pointer min-h-[36px]"
@@ -64,7 +50,7 @@ export function MobileBottomNav({
               aria-label={isExpanded ? "Collapse view" : "Expand all sections"}
             >
               {isExpanded ? <Minimize2 size={13} /> : <Maximize2 size={13} />}
-              <span className="text-[10px]">{isExpanded ? "Collapse" : "All"}</span>
+              <span className="t-label">{isExpanded ? "Collapse" : "All"}</span>
             </button>
 
             <button
@@ -101,7 +87,7 @@ export function MobileBottomNav({
                 }`}
               >
                 <Icon size={16} className={isActive ? "text-white" : "text-muted"} />
-                <span className="text-[9.5px] tracking-tight mt-0.5 leading-tight truncate w-full text-center">
+                <span className="t-micro tracking-tight mt-0.5 leading-tight truncate w-full text-center">
                   {tab.shortLabel}
                 </span>
               </button>

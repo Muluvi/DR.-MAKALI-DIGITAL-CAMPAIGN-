@@ -2,18 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  ShieldCheck, 
-  Lock, 
-  EyeOff, 
-  Database, 
-  FileCode2, 
-  AlertOctagon, 
-  CheckSquare, 
-  ArrowRight,
-  FileCheck,
-  Scale
-} from "lucide-react";
+import { ShieldCheck, Lock, EyeOff, Database, FileCode2, AlertTriangle, CheckSquare, ArrowRight, FileCheck2, Scale } from "lucide-react";
 
 interface EthicalCommitment {
   id: string;
@@ -40,7 +29,7 @@ const ETHICAL_COMMITMENTS: EthicalCommitment[] = [
     category: "Consent & Messaging",
     ruleName: "One-Touch Unconditional Opt-Out",
     statutoryBasis: "DPA 2019 Right to Object & DND Regulations",
-    campaignStandard: "Every bulk SMS carries an immediate opt-out keyword ('STOP to 40440'). Processed automatically within 60 seconds across all campaign lists.",
+    campaignStandard: "Every bulk SMS carries an immediate opt-out keyword. The shortcode is a vendor allocation pending at Phase 0 (Appendix A), so the footer reads 'STOP to <shortcode>' until it is issued. Opt-outs are processed automatically across all campaign lists.",
     penaltyForBreach: "Immediate permanent suppression of number across all databases.",
     isComplianceGated: false
   },
@@ -102,7 +91,7 @@ export function DataSecurityEthicsCharter() {
   };
 
   return (
-    <div className="my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
+    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
       {/* Top Header */}
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
@@ -111,10 +100,10 @@ export function DataSecurityEthicsCharter() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Section 16.0 Charter
               </span>
-              <span className="text-[10px] font-mono font-bold text-muted">
+              <span className="t-label font-mono font-bold text-muted">
                 DPA 2019 & IEBC Compliance
               </span>
             </div>
@@ -148,7 +137,7 @@ export function DataSecurityEthicsCharter() {
         ))}
       </div>
 
-      {/* Rules Grid */}
+      {/* Rules Table */}
       <div className="p-4 sm:p-6 space-y-3">
         {filteredRules.map((rule) => {
           const isChecked = !!checkedRules[rule.id];
@@ -172,19 +161,19 @@ export function DataSecurityEthicsCharter() {
                     <div className="flex items-center gap-2">
                       <h5 className="text-xs sm:text-sm font-bold text-ink">{rule.ruleName}</h5>
                       {rule.isComplianceGated && (
-                        <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded bg-accent/10 text-accent border border-accent/20">
+                        <span className="t-micro font-black uppercase px-2 py-0.5 rounded bg-accent/10 text-accent border border-accent/20">
                           Compliance Gate
                         </span>
                       )}
                     </div>
-                    <div className="text-[11px] font-mono text-muted mt-0.5">
+                    <div className="t-small font-mono text-muted mt-0.5">
                       Statutory Basis: {rule.statutoryBasis}
                     </div>
                   </div>
                 </div>
 
                 <div className="self-start sm:self-auto">
-                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-card border border-line text-muted">
+                  <span className="t-label font-mono font-bold px-2 py-0.5 rounded bg-card border border-line text-muted">
                     {rule.category}
                   </span>
                 </div>
@@ -194,11 +183,11 @@ export function DataSecurityEthicsCharter() {
                 {rule.campaignStandard}
               </p>
 
-              <div className="mt-2.5 pt-2 border-t border-line/60 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[11px]">
+              <div className="mt-2.5 pt-2 border-t border-line/60 flex flex-col sm:flex-row sm:items-center justify-between gap-1 t-small">
                 <span className="text-muted">
                   <strong className="text-rose-600 dark:text-rose-400">Statutory Exposure / Penalty:</strong> {rule.penaltyForBreach}
                 </span>
-                <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
+                <span className="t-label font-mono text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
                   <ShieldCheck size={12} /> Active Campaign Standard
                 </span>
               </div>
@@ -208,7 +197,7 @@ export function DataSecurityEthicsCharter() {
       </div>
 
       {/* Footer Rule */}
-      <div className="p-3 bg-paper/60 border-t border-line text-[11px] text-muted flex items-center justify-between px-4 font-semibold">
+      <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
           <Scale size={12} className="text-accent" />
           <span>Legal Doctrine: High ethical standards protect Dr. Mulu&apos;s brand as a disciplined economist while eliminating regulatory liability under the ODPC and IEBC.</span>

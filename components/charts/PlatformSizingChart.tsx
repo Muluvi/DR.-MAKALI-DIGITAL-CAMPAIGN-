@@ -22,7 +22,7 @@ export default function PlatformSizingChart({ data }: { data: PlatformDatum[] })
             if (active && payload && payload.length) {
               const d = payload[0].payload as PlatformDatum;
               return (
-                <div className="bg-card border border-line p-2.5 shadow-md rounded-xl text-[10px] font-bold text-ink max-w-[220px]">
+                <div className="bg-card border border-line p-2.5 shadow-md rounded-xl t-label font-bold text-ink max-w-[220px]">
                   <p className="border-b border-line pb-1 mb-1">{d.name}</p>
                   <p className="text-accent">{d.display}</p>
                   <p className="text-muted font-semibold mt-1 leading-snug normal-case">{d.note}</p>

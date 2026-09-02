@@ -49,7 +49,7 @@ export default function CompetitiveQuadrantChart({ data }: { data: QuadrantPoint
             if (active && payload && payload.length) {
               const d = payload[0].payload as QuadrantPoint;
               return (
-                <div className="bg-card border border-line p-3 shadow-md rounded-xl text-[10px] font-bold text-ink max-w-[220px]">
+                <div className="bg-card border border-line p-3 shadow-md rounded-xl t-label font-bold text-ink max-w-[220px]">
                   <p className="font-extrabold text-ink mb-1">{d.name}</p>
                   <p className="text-accent">Preference: <span className="text-ink">{d.preference}%</span></p>
                   <p className="text-gold">Credibility: <span className="text-ink">{d.credibilityLabel}</span></p>

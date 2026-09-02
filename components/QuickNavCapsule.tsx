@@ -1,20 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { 
-  Compass, 
-  ChevronUp, 
-  FileText, 
-  Target, 
-  Activity, 
-  Radio, 
-  Calculator, 
-  MapPin, 
-  Coins, 
-  X,
-  Sparkles
-} from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Compass, ChevronUp, FileText, Target, Activity, Radio, Calculator, MapPin, Coins, X, Sparkles } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 
 interface QuickNavCapsuleProps {
   onNavigate: (sectionId: string) => void;
@@ -22,12 +10,12 @@ interface QuickNavCapsuleProps {
 }
 
 const QUICK_TARGETS = [
-  { id: "exec-sec-2-3", label: "200k Target Math", icon: Calculator, tab: "exec" },
-  { id: "strategy-sec-6", label: "40 Wards Register", icon: MapPin, tab: "strategy" },
-  { id: "operations-sec-8b-7", label: "ECFA Budget Ceiling", icon: Coins, tab: "operations" },
-  { id: "strategy-sec-17a", label: "Kikamba Radio Grid", icon: Radio, tab: "strategy" },
-  { id: "exec-sec-2-7", label: "Fiscal Audit Analysis", icon: Activity, tab: "exec" },
-  { id: "operations-sec-13", label: "War Room Matrix", icon: Target, tab: "operations" },
+  { id: "exec-sec-4-3", label: "200k Target Math", icon: Calculator, tab: "exec" },
+  { id: "programme-sec-6", label: "40 Wards Register", icon: MapPin, tab: "programme" },
+  { id: "programme-sec-8b-7", label: "ECFA Budget Ceiling", icon: Coins, tab: "programme" },
+  { id: "programme-sec-17a", label: "Kikamba Radio Table", icon: Radio, tab: "programme" },
+  { id: "exec-sec-4-7", label: "Fiscal Audit Analysis", icon: Activity, tab: "exec" },
+  { id: "programme-sec-13", label: "War Room Matrix", icon: Target, tab: "programme" },
 ];
 
 export function QuickNavCapsule({ onNavigate, activeTab }: QuickNavCapsuleProps) {
@@ -91,7 +79,7 @@ export function QuickNavCapsule({ onNavigate, activeTab }: QuickNavCapsuleProps)
                       <Icon size={14} className="text-muted group-hover:text-accent transition-colors shrink-0" />
                       <span className="truncate">{item.label}</span>
                     </div>
-                    <span className="text-[9px] uppercase tracking-wider font-extrabold px-1.5 py-0.5 rounded bg-line/30 text-muted group-hover:bg-accent group-hover:text-white transition-all shrink-0">
+                    <span className="t-micro uppercase tracking-wider font-extrabold px-1.5 py-0.5 rounded bg-line/30 text-muted group-hover:bg-accent group-hover:text-white transition-all shrink-0">
                       {item.tab}
                     </span>
                   </button>
@@ -99,7 +87,7 @@ export function QuickNavCapsule({ onNavigate, activeTab }: QuickNavCapsuleProps)
               })}
             </div>
             
-            <div className="mt-3 pt-2.5 border-t border-line/30 flex items-center justify-between text-[10px] text-muted font-semibold">
+            <div className="mt-3 pt-2.5 border-t border-line/30 flex items-center justify-between t-label text-muted font-semibold">
               <span>Press shortcut to deep link</span>
               <span className="font-mono text-accent">2027 Portal</span>
             </div>

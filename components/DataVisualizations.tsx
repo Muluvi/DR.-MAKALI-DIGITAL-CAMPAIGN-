@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LabelList } from 'recharts';
-import { Sliders, HelpCircle, CheckCircle } from "lucide-react";
+import { Sliders, HelpCircle, CheckCircle2 } from "lucide-react";
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
@@ -116,7 +116,7 @@ export function DataVisualizations() {
         <div>
           <div className="flex items-center justify-between gap-2 mb-1">
             <h3 className="font-serif text-2xl text-dark">Budget scenario</h3>
-            <span className="text-accent bg-accent/10 px-2 py-0.5 rounded-full text-[10px] font-extrabold tracking-wider uppercase">
+            <span className="text-accent bg-accent/10 px-2 py-0.5 rounded-full t-label font-extrabold tracking-wider uppercase">
               Interactive Slider
             </span>
           </div>
@@ -124,7 +124,7 @@ export function DataVisualizations() {
           
           {/* Slider input control - excellent for mobile fingers */}
           <div className="mb-6 px-1">
-            <div className="flex justify-between text-[11px] font-extrabold text-muted tracking-wider uppercase mb-2">
+            <div className="flex justify-between t-small font-extrabold text-muted tracking-wider uppercase mb-2">
               <span className={activeTier === "lean" ? "text-accent scale-105 transition-transform" : ""}>Lean</span>
               <span className={activeTier === "standard" ? "text-accent scale-105 transition-transform" : ""}>Recommended</span>
               <span className={activeTier === "premium" ? "text-accent scale-105 transition-transform" : ""}>Premium</span>
@@ -170,10 +170,10 @@ export function DataVisualizations() {
           initial={{ opacity: 0, x: -8 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
-          className="bg-paper rounded-2xl p-5 border border-line"
+          className="bg-paper rounded-2xl p-4 sm:p-5 border border-line"
         >
           <div className="flex items-center gap-2 mb-2">
-            <CheckCircle size={15} className="text-accent shrink-0" />
+            <CheckCircle2 size={15} className="text-accent shrink-0" />
             <h4 className="font-serif text-lg font-bold text-ink">{tiers[activeTier].title}</h4>
           </div>
           <div className="text-sm text-muted space-y-2.5">

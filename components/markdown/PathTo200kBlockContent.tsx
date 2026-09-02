@@ -7,7 +7,7 @@ import { IEBC_WARD_REGISTER } from "../../data/sources";
 import type { Provenance } from "../../data/types";
 import PathTo200kChart, { type PathPoint } from "../charts/PathTo200kChart";
 
-const WIN_THRESHOLD = 200_000; // Section 2.3: 198,004 actual 2022 winning total, rounded for KPI-setting.
+const WIN_THRESHOLD = 200_000; // Section 4.3: 198,004 actual 2022 winning total, rounded for KPI-setting.
 const PROVENANCE: Provenance = { source: IEBC_WARD_REGISTER, granularity: "ward" };
 
 const CONSTITUENCY_COLORS: Record<string, string> = {
@@ -42,7 +42,7 @@ export function PathTo200kBlockContent() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">Path to 200,000 — Wards Ranked by Register</h4>
       </div>
-      <p className="text-[11px] text-muted mb-3 leading-relaxed pl-3.5">
+      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
         All 40 wards, ranked descending by register size (bars, coloured by constituency) with the cumulative running
         total (line) against the ~200,000-vote win threshold. <strong className="text-ink">The three Mwingi
         constituencies alone total {MWINGI_BLOC_TOTAL.toLocaleString()}</strong> — the threshold is reachable from
@@ -51,14 +51,14 @@ export function PathTo200kBlockContent() {
 
       <div className="flex flex-wrap gap-x-3 gap-y-1 mb-3 pl-3.5">
         {CONSTITUENCIES.map((c) => (
-          <span key={c.id} className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-wide text-muted">
+          <span key={c.id} className="flex items-center gap-1.5 t-micro font-black uppercase tracking-wide text-muted">
             <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: CONSTITUENCY_COLORS[c.id] }} />
             {c.name}
           </span>
         ))}
       </div>
 
-      <div className="h-72 w-full text-[9px] mb-4">
+      <div className="h-72 w-full t-micro mb-4">
         <LazyMount minHeight={288} className="h-full">
           <PathTo200kChart data={CHART_DATA} threshold={WIN_THRESHOLD} />
         </LazyMount>
@@ -66,10 +66,10 @@ export function PathTo200kBlockContent() {
 
       {/* Accessible table equivalent — all 40 wards */}
       <div className="overflow-x-auto max-h-72 overflow-y-auto border border-line/40 rounded-xl">
-        <table className="w-full text-left text-[11px]">
+        <table className="w-full text-left t-small">
           <caption className="sr-only">All 40 wards ranked by 2022 register size with cumulative running total</caption>
           <thead className="sticky top-0 bg-paper">
-            <tr className="text-[9px] uppercase tracking-wider font-bold text-muted">
+            <tr className="t-micro uppercase tracking-wider font-bold text-muted">
               <th className="py-1.5 px-2">#</th>
               <th className="py-1.5 px-2">Ward</th>
               <th className="py-1.5 px-2">Constituency</th>

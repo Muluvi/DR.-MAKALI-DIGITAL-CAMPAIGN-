@@ -21,7 +21,7 @@ export function detectSources(text: string): string[] {
 export function SourceLine({ sources }: { sources: string[] }) {
   if (sources.length === 0) return null;
   return (
-    <div className="flex items-center gap-1.5 px-4 sm:px-0 pt-2 pb-1 text-[9px] uppercase tracking-wider font-bold text-muted">
+    <div className="flex items-center gap-1.5 px-4 sm:px-0 pt-2 pb-1 t-micro uppercase tracking-wider font-bold text-muted">
       <Database size={10} className="shrink-0 opacity-60" aria-hidden="true" />
       <span>Source: {sources.join(" · ")}</span>
     </div>

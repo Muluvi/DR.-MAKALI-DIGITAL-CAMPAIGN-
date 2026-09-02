@@ -97,7 +97,7 @@ export function VoterProjectionsChart() {
       <div className="p-4 sm:p-5 border-b border-line bg-gradient-to-r from-accent/5 via-transparent to-transparent">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <span className="inline-flex items-center gap-1 text-[10px] tracking-[0.14em] uppercase text-accent font-extrabold px-2.5 py-0.5 rounded-full bg-accent/10">
+            <span className="inline-flex items-center gap-1 t-label tracking-[0.14em] uppercase text-accent font-extrabold px-2.5 py-0.5 rounded-full bg-accent/10">
               Quantitative Insights
             </span>
             <h3 className="font-serif text-2xl font-bold text-ink mt-1.5 leading-tight">
@@ -142,7 +142,7 @@ export function VoterProjectionsChart() {
                 <button
                   key={metric}
                   onClick={() => setActiveMetric(metric)}
-                  className={`flex-1 py-1.5 rounded-lg text-[10px] sm:text-xs font-bold uppercase tracking-wider border transition-all cursor-pointer text-center ${
+                  className={`flex-1 py-1.5 rounded-lg t-label sm:text-xs font-bold uppercase tracking-wider border transition-all cursor-pointer text-center ${
                     activeMetric === metric 
                       ? "bg-accent/10 text-accent border-accent/30" 
                       : "bg-card text-muted border-line hover:border-accent/30"
@@ -283,7 +283,7 @@ export function VoterProjectionsChart() {
         </div>
 
         {/* Legend / Key indicators summary */}
-        <div className="mt-4 pt-4 border-t border-line flex flex-wrap justify-center sm:justify-start gap-x-5 gap-y-2 text-[11px] font-bold">
+        <div className="mt-4 pt-4 border-t border-line flex flex-wrap justify-center sm:justify-start gap-x-5 gap-y-2 t-small font-bold">
           {activeTab === "demographics" ? (
             <>
               <div className="flex items-center gap-1.5">

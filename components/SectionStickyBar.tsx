@@ -68,10 +68,10 @@ export function SectionStickyBar() {
         {headingText && (
           <div className="pointer-events-auto px-2 sm:px-0">
             <div className="inline-flex items-center gap-2 max-w-full bg-card/95 backdrop-blur-md border border-line/60 shadow-md rounded-full pl-2.5 pr-3.5 py-1.5 sm:px-4 sm:py-2">
-              <span className="w-2 h-2 rounded-full bg-accent shrink-0 animate-pulse" aria-hidden="true" />
+              <span className="w-2 h-2 rounded-full bg-accent shrink-0" aria-hidden="true" />
               {/* Responsive section label */}
               <span className="hidden sm:inline text-xs font-bold text-ink truncate max-w-md">{headingText}</span>
-              <span className="sm:hidden text-[11px] font-bold text-ink truncate max-w-[68vw]">{headingText}</span>
+              <span className="sm:hidden t-small font-bold text-ink truncate max-w-[68vw]">{headingText}</span>
             </div>
           </div>
         )}

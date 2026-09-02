@@ -2,17 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  Users, 
-  UserCheck, 
-  ChevronRight, 
-  ShieldAlert, 
-  Clock, 
-  Briefcase,
-  Layers,
-  Sparkles,
-  ArrowRight
-} from "lucide-react";
+import { Users, UserCheck, ChevronRight, ShieldAlert, Clock, Briefcase, Layers, Sparkles, ArrowRight } from "lucide-react";
 
 interface TeamRole {
   title: string;
@@ -115,7 +105,7 @@ export function CampaignOrgChart() {
     : CAMPAIGN_ROLES.filter(r => r.category === selectedCategory);
 
   return (
-    <div className="my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
+    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
       {/* Top Header */}
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
@@ -124,10 +114,10 @@ export function CampaignOrgChart() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Section 8A Structure
               </span>
-              <span className="text-[10px] font-mono font-bold text-muted">
+              <span className="t-label font-mono font-bold text-muted">
                 Lean Core + Defined Surge
               </span>
             </div>
@@ -179,14 +169,14 @@ export function CampaignOrgChart() {
               >
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="text-[9px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-paper border border-line text-muted">
+                    <span className="t-micro font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-paper border border-line text-muted">
                       {role.category}
                     </span>
                   </div>
                   <div className="text-xs font-bold text-ink mt-1">
                     {role.title}
                   </div>
-                  <div className="text-[10px] text-muted truncate">
+                  <div className="t-label text-muted truncate">
                     Reports to: {role.reportingTo}
                   </div>
                 </div>
@@ -200,7 +190,7 @@ export function CampaignOrgChart() {
         {/* Selected Role Detail Panel */}
         <div className="lg:col-span-6 p-4 sm:p-6 bg-paper/40 space-y-4">
           <div>
-            <span className="text-[10px] font-black uppercase tracking-wider text-accent bg-accent/10 px-2 py-0.5 rounded">
+            <span className="t-label font-black uppercase tracking-wider text-accent bg-accent/10 px-2 py-0.5 rounded">
               {selectedRole.category} Role Detail
             </span>
             <h5 className="font-serif text-base sm:text-lg font-bold text-ink mt-1">
@@ -212,7 +202,7 @@ export function CampaignOrgChart() {
           </div>
 
           <div className="p-3.5 rounded-xl bg-card border border-line space-y-1">
-            <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1">
+            <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1">
               <Briefcase size={12} className="text-accent" />
               Core Responsibilities
             </div>
@@ -222,7 +212,7 @@ export function CampaignOrgChart() {
           </div>
 
           <div className="p-3.5 rounded-xl bg-card border border-line space-y-1">
-            <div className="text-[10px] font-black uppercase tracking-wider text-accent flex items-center gap-1">
+            <div className="t-label font-black uppercase tracking-wider text-accent flex items-center gap-1">
               <Sparkles size={12} />
               Decision Rights & Sign-off Limits
             </div>
@@ -231,7 +221,7 @@ export function CampaignOrgChart() {
             </p>
           </div>
 
-          <div className="p-3 rounded-xl bg-paper border border-line text-[11px] text-muted flex items-center gap-2">
+          <div className="p-3 rounded-xl bg-paper border border-line t-small text-muted flex items-center gap-2">
             <Clock size={13} className="text-accent shrink-0" />
             <span><strong>Activation Trigger:</strong> {selectedRole.triggerCondition}</span>
           </div>
@@ -239,7 +229,7 @@ export function CampaignOrgChart() {
       </div>
 
       {/* Footer Rule */}
-      <div className="p-3 bg-paper/60 border-t border-line text-[11px] text-muted flex items-center justify-between px-4 font-semibold">
+      <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
           <ArrowRight size={12} className="text-accent" />
           <span>Operational Efficiency Principle: Defined surge roles prevent standing overhead while ensuring rapid scaling during crisis or GOTV peaks.</span>

@@ -5,7 +5,7 @@ import { SourceLine } from "./SourceLine";
 import CompetitiveQuadrantChart, { type QuadrantPoint } from "../charts/CompetitiveQuadrantChart";
 
 // Preference: Mizani Africa, 7 August 2026 (Section 1.1 / 2.2 table). Credibility: a
-// qualitative reading of how the proposal itself characterises each candidate in Section 2.2 —
+// qualitative reading of how the proposal itself characterises each candidate in Section 4.2 —
 // not a survey figure. Only Mulu carries an explicit fiscal-credibility claim in the text
 // ("deepest fiscal and M&E credentials in the field"); Kasalu's fiscal competence is named as
 // an "exploitable gap" there, and Wambua's entry makes no claim either way.
@@ -15,7 +15,7 @@ const DATA: QuadrantPoint[] = [
     preference: 37.4,
     credibility: 1.5,
     credibilityLabel: "Low–Medium (qualitative read)",
-    note: "Leading on measured preference. Section 2.2 names fiscal competence as her exploitable gap, not her strength.",
+    note: "Leading on measured preference. Section 4.2 names fiscal competence as her exploitable gap, not her strength.",
     color: "#e31d2b",
   },
   {
@@ -23,7 +23,7 @@ const DATA: QuadrantPoint[] = [
     preference: 22.1,
     credibility: 3,
     credibilityLabel: "High (qualitative read)",
-    note: "Deepest fiscal and M&E credentials in the field per Section 2.2 — the proposal's central strategic bet.",
+    note: "Deepest fiscal and M&E credentials in the field per Section 4.2 — the proposal's central strategic bet.",
     color: "#0056a8",
   },
   {
@@ -31,7 +31,7 @@ const DATA: QuadrantPoint[] = [
     preference: 14.3,
     credibility: 2,
     credibilityLabel: "Medium (unstated — no claim either way)",
-    note: "Section 2.2 cites steady party base as his strength; the text makes no fiscal-credibility claim about him.",
+    note: "Section 4.2 cites steady party base as his strength; the text makes no fiscal-credibility claim about him.",
     color: "#8295a9",
   },
 ];
@@ -43,11 +43,11 @@ export function CompetitiveQuadrantBlock() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">Competitive Field: Preference vs. Fiscal Credibility</h4>
       </div>
-      <p className="text-[11px] text-muted mb-3 leading-relaxed pl-3.5">
-        Horizontal axis is measured survey data. Vertical axis is a qualitative editorial reading of Section 2.2&apos;s own
+      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
+        Horizontal axis is measured survey data. Vertical axis is a qualitative editorial reading of Section 4.2&apos;s own
         candidate assessments, not a measured input — plotted only where the text itself makes a claim.
       </p>
-      <div className="h-72 w-full text-[9px]">
+      <div className="h-72 w-full t-micro">
         <LazyMount minHeight={288} className="h-full">
           <CompetitiveQuadrantChart data={DATA} />
         </LazyMount>

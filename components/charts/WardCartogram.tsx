@@ -23,7 +23,7 @@ export default function WardCartogram() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
         {CONSTITUENCIES.map((c) => (
           <div key={c.id} className="bg-paper border border-line/60 rounded-xl p-2.5">
-            <div className="text-[8px] font-black uppercase tracking-wider text-muted mb-1.5 truncate" title={c.name}>
+            <div className="t-micro font-black uppercase tracking-wider text-muted mb-1.5 truncate" title={c.name}>
               {c.name}
             </div>
             <div className="flex flex-wrap gap-1">
@@ -47,7 +47,7 @@ export default function WardCartogram() {
         ))}
       </div>
 
-      <div className="flex items-center gap-4 mb-4 text-[9px] font-bold text-muted flex-wrap">
+      <div className="flex items-center gap-4 mb-4 t-micro font-bold text-muted flex-wrap">
         <span className="flex items-center gap-1.5">
           <span className="w-3 h-3 rounded-sm border border-line/40" style={{ background: tileBackground(MAX_VOTERS) }} />
           Higher registered voters
@@ -62,7 +62,7 @@ export default function WardCartogram() {
       <div className="bg-paper border border-line rounded-xl p-3.5 min-h-[64px]">
         {selected ? (
           <div>
-            <div className="text-[9px] uppercase tracking-widest font-black text-accent">
+            <div className="t-micro uppercase tracking-widest font-black text-accent">
               {CONSTITUENCIES.find((c) => c.id === selected.constituency)?.name}
             </div>
             <div className="font-serif text-sm font-black text-ink mt-0.5">{selected.ward.name}</div>

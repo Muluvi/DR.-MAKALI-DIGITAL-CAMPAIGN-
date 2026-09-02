@@ -30,7 +30,7 @@ export function ClaimCards({ children }: { children: React.ReactNode }) {
             {cells[0] && (
               <>
                 {headers[0] && (
-                  <div className="text-[9px] uppercase tracking-widest font-black text-accent mb-1">
+                  <div className="t-micro uppercase tracking-widest font-black text-accent mb-1">
                     {(headers[0].props as { children?: React.ReactNode }).children}
                   </div>
                 )}
@@ -42,7 +42,7 @@ export function ClaimCards({ children }: { children: React.ReactNode }) {
             {cells[1] && (
               <div className="pt-3 border-t border-line/40">
                 {headers[1] && (
-                  <div className="text-[9px] uppercase tracking-widest font-black text-muted mb-1">
+                  <div className="t-micro uppercase tracking-widest font-black text-muted mb-1">
                     {(headers[1].props as { children?: React.ReactNode }).children}
                   </div>
                 )}
@@ -52,7 +52,7 @@ export function ClaimCards({ children }: { children: React.ReactNode }) {
             {cells[2] && (
               <div className="mt-3 pt-3 border-t border-line/40">
                 {headers[2] && (
-                  <div className="text-[9px] uppercase tracking-widest font-black text-muted mb-1">
+                  <div className="t-micro uppercase tracking-widest font-black text-muted mb-1">
                     {(headers[2].props as { children?: React.ReactNode }).children}
                   </div>
                 )}
