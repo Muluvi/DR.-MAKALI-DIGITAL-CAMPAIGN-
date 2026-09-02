@@ -24,7 +24,7 @@ const DATA: WaterfallStep[] = [
 
 export function ResourceEnvelopeBlock() {
   return (
-    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
+    <div className="not-prose bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
       <div className="flex items-center gap-2 mb-1">
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">FY2026/27 Resource Envelope — KSh13.79bn</h4>
@@ -38,7 +38,7 @@ export function ResourceEnvelopeBlock() {
         </LazyMount>
       </div>
       <p className="text-[10px] text-muted/80 leading-normal mt-3 italic border-t border-line/40 pt-2 font-medium">
-        The three components are each stated as approximate figures ({"“"}roughly{"”"}, {"“"}around{"”"}) and sum to
+        The three components are each stated as approximate figures ({"“"}roughly{"”"}, {"“"}around{"”"}) and sum to{" "}
         ≈KSh{COMPONENT_SUM.toFixed(2)}bn — about KSh{(COMPONENT_SUM - STATED_TOTAL).toFixed(2)}bn above the stated KSh{STATED_TOTAL}bn total.
         That gap is rounding in the source document, shown here rather than reconciled.
       </p>

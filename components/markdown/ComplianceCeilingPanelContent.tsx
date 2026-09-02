@@ -45,7 +45,7 @@ const CHART_DATA: TierBand[] = TIER_RANGES.map((t) => {
  */
 export function ComplianceCeilingPanelContent() {
   return (
-    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
+    <div className="not-prose bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
       <div className="flex items-center gap-2 mb-1">
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">Compliance and Spending-Ceiling Panel</h4>
@@ -58,8 +58,8 @@ export function ComplianceCeilingPanelContent() {
         <TierBadge tier={KITUI_SPENDING_CEILING.provenance.source.tier} compact />
       </div>
 
-      <div className="h-64 w-full text-[9px] mb-4">
-        <LazyMount minHeight={256} className="h-full">
+      <div className="w-full text-[9px] mb-4">
+        <LazyMount minHeight={216}>
           <SpendingCeilingChart data={CHART_DATA} ceiling={CEILING} />
         </LazyMount>
       </div>

@@ -262,9 +262,13 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
         <AudioBriefingButton />
       </div>
 
+      {/* The lede treatment is scoped with `>` deliberately. As a descendant selector
+          (`[&_p:first-of-type]`) it matched the first paragraph of EVERY nested container —
+          so chart footnotes, card ledes and diagram notes all picked up a 3xl gold drop cap.
+          A direct-child selector reaches the document's opening paragraph and nothing else. */}
       <div className="prose max-w-none relative z-10 px-0
-        [&_p:first-of-type]:text-base [&_p:first-of-type]:sm:text-lg [&_p:first-of-type]:font-semibold [&_p:first-of-type]:text-ink [&_p:first-of-type]:leading-relaxed [&_p:first-of-type]:border-b [&_p:first-of-type]:border-line/40 [&_p:first-of-type]:pb-4 [&_p:first-of-type]:mb-6
-        [&_p:first-of-type::first-letter]:text-3xl [&_p:first-of-type::first-letter]:font-semibold [&_p:first-of-type::first-letter]:text-gold [&_p:first-of-type::first-letter]:mr-2 [&_p:first-of-type::first-letter]:float-left [&_p:first-of-type::first-letter]:leading-none
+        [&>p:first-of-type]:text-base [&>p:first-of-type]:sm:text-lg [&>p:first-of-type]:font-semibold [&>p:first-of-type]:text-ink [&>p:first-of-type]:leading-relaxed [&>p:first-of-type]:border-b [&>p:first-of-type]:border-line/40 [&>p:first-of-type]:pb-4 [&>p:first-of-type]:mb-6
+        [&>p:first-of-type::first-letter]:text-3xl [&>p:first-of-type::first-letter]:font-semibold [&>p:first-of-type::first-letter]:text-gold [&>p:first-of-type::first-letter]:mr-2 [&>p:first-of-type::first-letter]:float-left [&>p:first-of-type::first-letter]:leading-none
       ">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}

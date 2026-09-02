@@ -126,7 +126,7 @@ function DiagramKeyValue({ d }: { d: Extract<Diagram, { kind: "keyvalue" }> }) {
       {d.notes.length > 0 && (
         <div className="px-4 py-2.5 border-t border-line/60 bg-paper/40 space-y-1">
           {d.notes.map((n, i) => (
-            <p key={i} className="text-[10px] sm:text-[11px] text-muted leading-relaxed [&::first-letter]:text-inherit [&::first-letter]:font-inherit [&::first-letter]:float-none [&::first-letter]:m-0 [&::first-letter]:leading-inherit">
+            <p key={i} className="text-[10px] sm:text-[11px] text-muted leading-relaxed">
               {n}
             </p>
           ))}
