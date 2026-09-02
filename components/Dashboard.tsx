@@ -182,13 +182,13 @@ export function Dashboard() {
           ))}
         </div>
 
-        {/* Mobile Automatic Infinite Marquee Carousel */}
-        <div className="block sm:hidden -mx-2">
-          <div className="flex gap-4 overflow-x-auto scrollbar-none px-4 pb-2 snap-x snap-mandatory">
+        {/* Mobile Automatic Horizontal Scroll Carousel */}
+        <div className="block sm:hidden -mx-4">
+          <div className="flex gap-3 overflow-x-auto scrollbar-none px-4 pb-2 snap-x snap-mandatory">
             {metrics.map((m, i) => (
               <div
                 key={i}
-                className={`relative overflow-hidden bg-card border rounded-xl p-4 shadow-sm w-[260px] shrink-0 ${
+                className={`relative overflow-hidden bg-card border rounded-xl p-3.5 shadow-sm w-[230px] shrink-0 snap-center ${
                   m.warn ? 'border-danger/30' : m.good ? 'border-accent/30' : 'border-line'
                 }`}
               >

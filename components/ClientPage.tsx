@@ -373,7 +373,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
             </div>
 
             {/* Mobile Quick-Jump Chips (Thumb-accessible shortcuts) */}
-            <div className="mt-5 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none lg:hidden select-none">
+            <div className="mt-5 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none lg:hidden select-none -mx-4 px-4">
               <span className="t-label uppercase font-extrabold tracking-widest text-muted shrink-0">
                 Jump To:
               </span>
@@ -381,7 +381,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
                 onClick={() => setIsTOCModalOpen(true)}
                 className="px-3 py-1.5 rounded-xl bg-accent text-white text-xs font-bold shrink-0 flex items-center gap-1.5 shadow-sm shadow-accent/20 cursor-pointer"
               >
-                <span>Full Index (20 Secs)</span>
+                <span>Full Index (26 Secs)</span>
               </button>
               <button
                 onClick={() => navigateToSection("exec-sec-4-3")}
@@ -443,11 +443,11 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
         </div>
         
         {/* Responsive Toolbar */}
-        <div className={`sticky top-0 z-40 bg-paper/95 backdrop-blur-md py-2 sm:py-3 border-b border-line/25 ${(activeTab === "exec" || isExpanded) ? "mt-3 sm:mt-6" : "mt-0"} mb-3 sm:mb-6 flex items-center justify-between print:hidden`}>
-          <div className="flex items-center gap-1.5 sm:gap-4 flex-1">
+        <div className={`sticky top-0 z-40 bg-paper/95 backdrop-blur-md py-2 sm:py-3 border-b border-line/25 ${(activeTab === "exec" || isExpanded) ? "mt-3 sm:mt-6" : "mt-0"} mb-3 sm:mb-6 flex items-center justify-between gap-2 print:hidden`}>
+          <div className="flex items-center gap-1.5 sm:gap-4 flex-1 min-w-0 overflow-x-auto scrollbar-none py-0.5">
             {activeTab !== "exec" && !isExpanded && (
-              <div className="flex items-center gap-2 mr-1 shrink-0">
-                <div className="scale-75 origin-left">
+              <div className="flex items-center gap-1.5 mr-1 shrink-0">
+                <div className="scale-75 origin-left shrink-0">
                   <WiperUmbrellaLogo />
                 </div>
                 <div className="hidden sm:block">
@@ -458,7 +458,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
             )}
 
             {/* Desktop & Mobile Responsive Control Buttons */}
-            <div className="flex items-center gap-1.5 sm:gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
               <button 
                 onClick={() => setIsTOCModalOpen(true)}
                 className="flex items-center gap-1.5 px-3 py-2 bg-accent/10 border border-accent/20 rounded-xl text-xs sm:text-sm font-bold text-accent hover:bg-accent hover:text-white active:scale-95 transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"

@@ -48,7 +48,7 @@ export function SectionHeading({
   children: React.ReactNode;
 }) {
   const Tag = level === 2 ? "h2" : "h3";
-  const baseClass技巧 =
+  const baseClass =
     level === 2
       ? "font-serif text-base sm:text-lg md:text-xl font-semibold text-ink mt-7 sm:mt-10 mb-3 border-l-4 pl-3 leading-snug tracking-tight text-balance"
       : "font-serif text-sm sm:text-base font-semibold text-accent mt-5 sm:mt-7 mb-2 leading-snug tracking-normal text-balance";
@@ -62,7 +62,7 @@ export function SectionHeading({
       )}
       <Tag
         id={id ?? undefined}
-        className={`${level === 2 ? "font-serif text-base sm:text-lg md:text-xl font-semibold text-ink mt-7 sm:mt-10 mb-3 border-l-4 pl-3 leading-snug tracking-tight text-balance" : "font-serif text-sm sm:text-base font-semibold text-accent mt-5 sm:mt-7 mb-2 leading-snug tracking-normal text-balance"} group scroll-mt-28 flex items-center gap-2 ${eyebrow ? "!mt-1" : ""} ${!accentColor ? "border-gold" : ""}`}
+        className={`${baseClass} group scroll-mt-28 flex items-center gap-2 ${eyebrow ? "!mt-1" : ""} ${!accentColor ? "border-gold" : ""}`}
         style={accentColor ? { borderColor: accentColor } : undefined}
       >
         <span>{children}</span>

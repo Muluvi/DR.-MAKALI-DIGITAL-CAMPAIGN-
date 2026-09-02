@@ -94,10 +94,10 @@ export function NominationVerdict() {
               Dr. Mulu trails by {DEFICIT} percentage points
             </h2>
             <div className="flex items-start gap-2">
-              <span className="font-serif text-[3.5rem] sm:text-[4.75rem] lg:text-[5.5rem] leading-[0.86] font-semibold text-ink tabular-nums tracking-tight">
+              <span className="font-serif text-4xl sm:text-[4.75rem] lg:text-[5.5rem] leading-[0.86] font-semibold text-ink tabular-nums tracking-tight">
                 {reduce ? DEFICIT.toFixed(1) : deficit.toFixed(1)}
               </span>
-              <span className="font-serif text-xl sm:text-2xl font-semibold text-muted mt-2">pts</span>
+              <span className="font-serif text-xl sm:text-2xl font-semibold text-muted mt-1 sm:mt-2">pts</span>
             </div>
             <p className="text-sm sm:text-base text-ink font-semibold mt-3 leading-snug max-w-[34ch]">
               behind in the survey that will choose the Wiper flagbearer.

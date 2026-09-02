@@ -71,8 +71,8 @@ export function MobileBottomNav({
           </div>
         </div>
 
-        {/* 6 Strategic Part Tabs with 46px+ touch targets */}
-        <div className="grid grid-cols-6 gap-1">
+        {/* 3 Strategic Part Tabs with 48px+ touch targets */}
+        <div className="grid grid-cols-3 gap-1.5">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -80,14 +80,14 @@ export function MobileBottomNav({
               <button
                 key={tab.id}
                 onClick={() => onTabChange(tab.id)}
-                className={`flex flex-col items-center justify-center min-h-[46px] py-1 px-0.5 rounded-xl transition-all select-none cursor-pointer ${
+                className={`flex flex-col items-center justify-center min-h-[48px] py-1.5 px-1 rounded-xl transition-all select-none cursor-pointer ${
                   isActive 
                     ? "bg-accent text-white shadow-md shadow-accent/20 font-black" 
-                    : "text-muted hover:text-ink active:bg-paper font-semibold"
+                    : "text-muted hover:text-ink active:bg-paper/80 font-semibold"
                 }`}
               >
-                <Icon size={16} className={isActive ? "text-white" : "text-muted"} />
-                <span className="t-micro tracking-tight mt-0.5 leading-tight truncate w-full text-center">
+                <Icon size={18} className={isActive ? "text-white" : "text-muted"} />
+                <span className="t-small tracking-tight mt-1 leading-tight truncate w-full text-center">
                   {tab.shortLabel}
                 </span>
               </button>

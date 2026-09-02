@@ -48,7 +48,7 @@ export function QuickNavCapsule({ onNavigate, activeTab }: QuickNavCapsuleProps)
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 15 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="bg-card/95 backdrop-blur-xl border border-line/60 shadow-2xl rounded-2xl p-4 w-72 sm:w-80 mb-2 overflow-hidden"
+            className="bg-card/95 backdrop-blur-xl border border-line/60 shadow-2xl rounded-2xl p-4 w-[calc(100vw-2rem)] max-w-xs sm:w-80 mb-2 overflow-hidden"
           >
             <div className="flex items-center justify-between border-b border-line/40 pb-2.5 mb-3">
               <div className="flex items-center gap-2">

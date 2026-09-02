@@ -83,7 +83,7 @@ export function MobileTOCModal({
                   Document Table of Contents
                 </h3>
                 <p className="t-label sm:t-small text-muted font-medium mt-0.5">
-                  20 Strategic Sections · 6 Architecture Parts
+                  26 Strategic Sections · 3 Document Parts
                 </p>
               </div>
             </div>
