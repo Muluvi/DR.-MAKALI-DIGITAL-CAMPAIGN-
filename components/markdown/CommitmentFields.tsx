@@ -54,8 +54,8 @@ function Chip({
     <div className="flex items-start gap-2 rounded-xl border border-line/60 bg-paper px-3 py-2 flex-1 min-w-0">
       <Icon size={13} className="text-muted shrink-0 mt-0.5" aria-hidden="true" />
       <div className="min-w-0">
-        <div className="text-[9px] font-black uppercase tracking-wider text-muted leading-none mb-1">{label}</div>
-        <div className="text-[11px] font-bold text-ink leading-snug">
+        <div className="t-micro font-black uppercase tracking-wider text-muted leading-none mb-1">{label}</div>
+        <div className="t-small font-bold text-ink leading-snug">
           <Value tabId={tabId}>{children}</Value>
         </div>
       </div>
@@ -91,8 +91,8 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
       {baseline && target && (
         <motion.div className="flex flex-col sm:flex-row items-stretch gap-2" {...rise(0)}>
           <div className="flex-1 rounded-xl border border-line/60 bg-paper p-3">
-            <div className="text-[9px] font-black uppercase tracking-wider text-muted mb-1">{baseline.label}</div>
-            <div className="text-[12px] text-ink leading-snug">
+            <div className="t-micro font-black uppercase tracking-wider text-muted mb-1">{baseline.label}</div>
+            <div className="t-body text-ink leading-snug">
               <Value tabId={tabId}>{baseline.value}</Value>
             </div>
           </div>
@@ -100,8 +100,8 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
             <ArrowRight size={16} className="text-accent rotate-90 sm:rotate-0" />
           </div>
           <div className="flex-1 rounded-xl border border-accent/30 bg-accent/[0.05] p-3">
-            <div className="text-[9px] font-black uppercase tracking-wider text-accent mb-1">{target.label}</div>
-            <div className="text-[12px] font-semibold text-ink leading-snug">
+            <div className="t-micro font-black uppercase tracking-wider text-accent mb-1">{target.label}</div>
+            <div className="t-body font-semibold text-ink leading-snug">
               <Value tabId={tabId}>{target.value}</Value>
             </div>
           </div>
@@ -126,8 +126,8 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
       {traceability && (
         <motion.div className="flex items-start gap-2 px-1" {...rise(2)}>
           <Route size={13} className="text-muted shrink-0 mt-1" aria-hidden="true" />
-          <p className="text-[11px] text-muted leading-relaxed">
-            <span className="font-black uppercase tracking-wider text-[9px] text-muted mr-1.5">
+          <p className="t-small text-muted leading-relaxed">
+            <span className="font-black uppercase tracking-wider t-micro text-muted mr-1.5">
               {traceability.label}
             </span>
             <Value tabId={tabId}>{traceability.value}</Value>
@@ -141,8 +141,8 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
           {...rise(3)}
         >
           <TriangleAlert size={13} className="text-danger shrink-0 mt-0.5" aria-hidden="true" />
-          <p className="text-[11px] text-ink/90 leading-relaxed min-w-0">
-            <span className="font-black uppercase tracking-wider text-[9px] text-danger mr-1.5">
+          <p className="t-small text-ink/90 leading-relaxed min-w-0">
+            <span className="font-black uppercase tracking-wider t-micro text-danger mr-1.5">
               {escalation.label}
             </span>
             <Value tabId={tabId}>{escalation.value}</Value>
@@ -151,8 +151,8 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
       )}
 
       {extras.map((f, i) => (
-        <motion.p key={i} className="text-[11px] text-muted leading-relaxed px-1" {...rise(4 + i)}>
-          <span className="font-black uppercase tracking-wider text-[9px] text-muted mr-1.5">{f.label}</span>
+        <motion.p key={i} className="t-small text-muted leading-relaxed px-1" {...rise(4 + i)}>
+          <span className="font-black uppercase tracking-wider t-micro text-muted mr-1.5">{f.label}</span>
           <Value tabId={tabId}>{f.value}</Value>
         </motion.p>
       ))}

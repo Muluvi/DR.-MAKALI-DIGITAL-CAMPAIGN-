@@ -151,6 +151,44 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   background: var(--color-accent);
 }
 
+/* ---------------------------------------------------------------------------
+   UI type scale
+   ---------------------------------------------------------------------------
+   The interface layer had thirteen ad-hoc sizes between 8px and 15.5px, chosen
+   file by file, and its floor was 8px — below the point most people can read a
+   label on a phone held at arm's length. These five tokens replace all of them.
+
+   Each is a shade larger below 640px. That is deliberate: a phone is the only
+   device this proposal is likely to be opened on, and it is the one where the
+   old floor hurt most. Document prose is NOT set from these tokens — it keeps
+   its own fluid scale under .prose, and the reading-density control below.
+
+   Sizes are in rem so they honour the reader's browser text-size setting.
+   --------------------------------------------------------------------------- */
+:root {
+  --fs-micro: 0.625rem;   /* 10px — uppercase eyebrows and axis ticks */
+  --fs-label: 0.6875rem;  /* 11px — field labels, badges, table headers */
+  --fs-small: 0.75rem;    /* 12px — secondary text, captions, notes */
+  --fs-body: 0.8125rem;   /* 13px — card body copy */
+  --fs-lead: 0.9375rem;   /* 15px — card ledes and figures */
+}
+
+@media (max-width: 639px) {
+  :root {
+    --fs-micro: 0.65625rem; /* 10.5px */
+    --fs-label: 0.71875rem; /* 11.5px */
+    --fs-small: 0.78125rem; /* 12.5px */
+    --fs-body: 0.84375rem;  /* 13.5px */
+    --fs-lead: 0.96875rem;  /* 15.5px */
+  }
+}
+
+.t-micro { font-size: var(--fs-micro); }
+.t-label { font-size: var(--fs-label); }
+.t-small { font-size: var(--fs-small); }
+.t-body  { font-size: var(--fs-body); }
+.t-lead  { font-size: var(--fs-lead); }
+
 /* Reading Density Scales */
 .density-compact .prose p:not(.not-prose *),
 .density-compact .prose li:not(.not-prose *) {
@@ -653,15 +691,15 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
    scrollbar and scroll position don't jump before a section is first measured. */
 .cv-auto-section {
   content-visibility: auto;
-  contain-intrinsic-size: 0 1000px;
+  contain-intrinsic-size: auto 1000px;
 }
 .cv-auto-hero {
   content-visibility: auto;
-  contain-intrinsic-size: 0 650px;
+  contain-intrinsic-size: auto 650px;
 }
 .cv-auto-strip {
   content-visibility: auto;
-  contain-intrinsic-size: 0 420px;
+  contain-intrinsic-size: auto 420px;
 }
 
 

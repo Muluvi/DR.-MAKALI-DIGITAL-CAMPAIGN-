@@ -204,7 +204,7 @@ export function Dashboard() {
                 </div>
                 
                 <div className="text-xs font-semibold text-muted mt-2 leading-tight truncate">{m.label}</div>
-                <div className="text-[11px] text-muted/70 mt-1 truncate">{m.sub}</div>
+                <div className="t-small text-muted/70 mt-1 truncate">{m.sub}</div>
               </div>
             ))}
           </div>

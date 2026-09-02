@@ -5,6 +5,7 @@ import { motion, useInView } from "motion/react";
 
 import { EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
+import { Portrait } from "../Portrait";
 
 /**
  * Section 3 — the campaign's core narrative, set as the section's opening statement.
@@ -39,7 +40,9 @@ export function EconomistGovernorThesis() {
       ref={ref}
       className="not-prose my-8 rounded-2xl border border-accent/20 bg-gradient-to-br from-accent/[0.05] to-transparent p-5 sm:p-7 print-avoid-break"
     >
-      <p className="text-[9px] font-black uppercase tracking-widest text-accent mb-3">
+      <div className="flex items-center gap-4 sm:gap-6">
+        <div className="min-w-0 flex-1">
+      <p className="t-micro font-black uppercase tracking-widest text-accent mb-3">
         The campaign&rsquo;s core narrative
       </p>
 
@@ -64,6 +67,17 @@ export function EconomistGovernorThesis() {
           </React.Fragment>
         ))}
       </p>
+
+        </div>
+        {/* The statesman register, next to the claim it is making. */}
+        <div className="hidden sm:block w-[118px] lg:w-[136px] shrink-0 -my-3">
+          <Portrait
+            id="three-piece-formal"
+            sizes="(min-width: 1024px) 136px, 118px"
+            className="max-h-[178px] object-bottom"
+          />
+        </div>
+      </div>
 
       {/* The rule lands after the last word, so the sentence finishes on a beat rather than
           simply stopping. It carries no meaning of its own and is hidden from assistive tech. */}

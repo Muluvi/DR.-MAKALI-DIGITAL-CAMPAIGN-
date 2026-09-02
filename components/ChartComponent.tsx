@@ -120,17 +120,17 @@ export function ChartComponent({
               </h4>
             )}
             {description && (
-              <p className="text-[11px] text-muted leading-tight mt-0.5">{description}</p>
+              <p className="t-small text-muted leading-tight mt-0.5">{description}</p>
             )}
           </div>
-          <div className="flex items-center gap-1 text-[10px] font-bold text-accent bg-accent/5 px-2.5 py-1 rounded-lg border border-accent/15 self-start sm:self-auto">
+          <div className="flex items-center gap-1 t-label font-bold text-accent bg-accent/5 px-2.5 py-1 rounded-lg border border-accent/15 self-start sm:self-auto">
             <TrendingUp size={12} />
             <span>Interactive Data</span>
           </div>
         </div>
       )}
 
-      <div className="w-full text-[10px]" style={{ height }}>
+      <div className="w-full t-label" style={{ height }}>
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}
@@ -192,7 +192,7 @@ export function ChartComponent({
                 if (active && payload && payload.length) {
                   const item = payload[0].payload;
                   return (
-                    <div className="bg-card border border-line p-3 shadow-xl rounded-xl text-[10px] font-bold text-ink max-w-[220px] backdrop-blur-md">
+                    <div className="bg-card border border-line p-3 shadow-xl rounded-xl t-label font-bold text-ink max-w-[220px] backdrop-blur-md">
                       <p className="border-b border-line pb-1 mb-1 font-serif text-xs font-black truncate">
                         {item[xAxisKey] || item.name}
                       </p>
@@ -205,7 +205,7 @@ export function ChartComponent({
                         </p>
                       ))}
                       {item.detail && (
-                        <p className="text-[9px] text-muted font-normal mt-1 border-t border-line/40 pt-1">
+                        <p className="t-micro text-muted font-normal mt-1 border-t border-line/40 pt-1">
                           {item.detail}
                         </p>
                       )}
@@ -247,12 +247,12 @@ export function ChartComponent({
         </ResponsiveContainer>
       </div>
 
-      <div className="flex items-center justify-between text-[10px] text-muted border-t border-line/30 pt-2.5">
+      <div className="flex items-center justify-between t-label text-muted border-t border-line/30 pt-2.5">
         <span className="flex items-center gap-1">
           <Info size={12} className="text-accent" />
           Kitui 2027 Strategic Architecture Data Model
         </span>
-        <span className="font-mono text-[9px]">Recharts Engine</span>
+        <span className="font-mono t-micro">Recharts Engine</span>
       </div>
     </div>
   );

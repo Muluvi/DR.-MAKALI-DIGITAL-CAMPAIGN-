@@ -17,10 +17,10 @@ export function ConstitutionalBranchNavigator() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Constitutional Precedent Analysis
               </span>
-              <span className="text-[10px] font-mono font-bold text-muted">
+              <span className="t-label font-mono font-bold text-muted">
                 Article 180(7)
               </span>
             </div>
@@ -82,40 +82,40 @@ export function ConstitutionalBranchNavigator() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
-                  <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
+                  <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
                     <Users size={12} className="text-accent" />
                     Wiper Nomination Dynamics
                   </div>
                   <div className="text-xs font-bold text-ink">
                     Open Succession Contest
                   </div>
-                  <p className="text-[11px] text-muted leading-relaxed">
+                  <p className="t-small text-muted leading-relaxed">
                     Eliminates incumbent executive patronage advantage. Contest simplifies into a direct technocratic choice between Dr. Mulu and Irene Kasalu.
                   </p>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
-                  <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
+                  <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
                     <Building2 size={12} className="text-accent" />
                     Kitui Central Anchor
                   </div>
                   <div className="text-xs font-bold text-ink">
                     Malombe Base Fragmentation
                   </div>
-                  <p className="text-[11px] text-muted leading-relaxed">
+                  <p className="t-small text-muted leading-relaxed">
                     Malombe&apos;s loyalist bloc in Kitui Central and rural wards becomes available. Dr. Mulu becomes the primary home-base consolidation candidate.
                   </p>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
-                  <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
+                  <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
                     <ShieldCheck size={12} className="text-accent" />
                     Strategic Posture
                   </div>
                   <div className="text-xs font-bold text-ink">
                     The Competence Coalition
                   </div>
-                  <p className="text-[11px] text-muted leading-relaxed">
+                  <p className="t-small text-muted leading-relaxed">
                     Frame Dr. Mulu as the sole contender equipped to steer the KSh 13.79B county resource envelope without political factional instability.
                   </p>
                 </div>
@@ -137,40 +137,40 @@ export function ConstitutionalBranchNavigator() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
-                  <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
+                  <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
                     <Users size={12} className="text-accent" />
                     Nomination Mechanism
                   </div>
                   <div className="text-xs font-bold text-ink">
                     Three-Way Wiper Primary
                   </div>
-                  <p className="text-[11px] text-muted leading-relaxed">
+                  <p className="t-small text-muted leading-relaxed">
                     Requires forcing party primaries through scientific polling before mid-November 2026 to prevent consensus nomination of the incumbent.
                   </p>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
-                  <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
+                  <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
                     <Building2 size={12} className="text-accent" />
                     Audit & Delivery Wedge
                   </div>
                   <div className="text-xs font-bold text-ink">
                     KSh 2.73B Audit Exposure
                   </div>
-                  <p className="text-[11px] text-muted leading-relaxed">
+                  <p className="t-small text-muted leading-relaxed">
                     Deploy OAG fiscal audit queries, pending bills (KSh 2.38B), and incomplete health facilities as empirical proof of executive mismanagement.
                   </p>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
-                  <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
+                  <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
                     <ShieldCheck size={12} className="text-accent" />
                     Strategic Posture
                   </div>
                   <div className="text-xs font-bold text-ink">
                     The Generational Shift
                   </div>
-                  <p className="text-[11px] text-muted leading-relaxed">
+                  <p className="t-small text-muted leading-relaxed">
                     Position Dr. Mulu as the modern, data-driven alternative to an exhausted 10-year political establishment.
                   </p>
                 </div>
@@ -181,7 +181,7 @@ export function ConstitutionalBranchNavigator() {
       </div>
 
       {/* Strategic Rule Footer */}
-      <div className="p-3 bg-paper/60 border-t border-line text-[11px] text-muted flex items-center justify-between px-4 font-semibold">
+      <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
           <ArrowRight size={12} className="text-accent" />
           <span>Strategic Command Rule: Campaign operations must prepare simultaneously for both branches.</span>

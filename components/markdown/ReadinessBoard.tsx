@@ -90,12 +90,12 @@ export function ReadinessBoard({ children }: { children: React.ReactNode }) {
               className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 ${style.ring}`}
             >
               <Icon size={12} className={`${style.className} shrink-0`} aria-hidden="true" />
-              <span className={`text-[10px] font-black tabular-nums ${style.className}`}>{tally[s]}</span>
-              <span className="text-[9px] font-black uppercase tracking-widest text-muted">{s}</span>
+              <span className={`t-label font-black tabular-nums ${style.className}`}>{tally[s]}</span>
+              <span className="t-micro font-black uppercase tracking-widest text-muted">{s}</span>
             </span>
           );
         })}
-        <span className="text-[10px] text-muted ml-auto tabular-nums">
+        <span className="t-label text-muted ml-auto tabular-nums">
           {rows.length} controls
         </span>
       </div>
@@ -111,17 +111,17 @@ export function ReadinessBoard({ children }: { children: React.ReactNode }) {
             >
               <Icon size={14} className={`${style.className} shrink-0 mt-0.5`} aria-hidden="true" />
               <div className="min-w-0 flex-1">
-                <div className="text-[12px] font-semibold text-ink leading-snug">{r.control}</div>
+                <div className="t-body font-semibold text-ink leading-snug">{r.control}</div>
                 {r.owner && (
-                  <div className="text-[10px] text-muted mt-1">
-                    <span className="font-black uppercase tracking-wider text-[9px] mr-1">
+                  <div className="t-label text-muted mt-1">
+                    <span className="font-black uppercase tracking-wider t-micro mr-1">
                       {headers[2] || "Owner"}
                     </span>
                     {r.owner}
                   </div>
                 )}
               </div>
-              <span className={`text-[9px] font-black uppercase tracking-widest shrink-0 ${style.className}`}>
+              <span className={`t-micro font-black uppercase tracking-widest shrink-0 ${style.className}`}>
                 {r.status}
               </span>
             </div>

@@ -62,7 +62,7 @@ export default function MediaOwnershipChart({ data }: { data: StationBar[] }) {
           {ALIGNMENTS.map((a) => (
             <span
               key={a.key}
-              className="text-[9px] font-black uppercase tracking-wider text-muted leading-tight text-center"
+              className="t-micro font-black uppercase tracking-wider text-muted leading-tight text-center"
             >
               {a.label}
             </span>
@@ -72,8 +72,8 @@ export default function MediaOwnershipChart({ data }: { data: StationBar[] }) {
         {TIERS.map((row) => (
           <div key={row.tier} className="grid grid-cols-[5.5rem_repeat(3,minmax(0,1fr))] gap-1.5 mb-1.5">
             <div className="flex flex-col justify-center pr-1">
-              <span className="text-[10px] font-bold text-ink leading-tight">{row.label}</span>
-              <span className="text-[9px] text-muted font-mono">{row.note}</span>
+              <span className="t-label font-bold text-ink leading-tight">{row.label}</span>
+              <span className="t-micro text-muted font-mono">{row.note}</span>
             </div>
 
             {ALIGNMENTS.map((col) => {
@@ -88,7 +88,7 @@ export default function MediaOwnershipChart({ data }: { data: StationBar[] }) {
                     return (
                       <motion.span
                         key={s.name}
-                        className="text-[10px] font-bold px-1.5 py-1 rounded border leading-none"
+                        className="t-label font-bold px-1.5 py-1 rounded border leading-none"
                         style={{
                           color: s.color,
                           borderColor: s.color,
@@ -109,7 +109,7 @@ export default function MediaOwnershipChart({ data }: { data: StationBar[] }) {
           </div>
         ))}
 
-        <p className="text-[10px] text-muted leading-relaxed mt-2.5">
+        <p className="t-label text-muted leading-relaxed mt-2.5">
           Position carries the reading — nothing here is drawn to scale, and an empty cell means no station in
           this landscape occupies that combination.
         </p>

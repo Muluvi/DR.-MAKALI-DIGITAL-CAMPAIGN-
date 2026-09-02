@@ -55,7 +55,7 @@ export default function ElectoralTimelineChart({ data }: { data: TimelinePoint[]
   return (
     <div ref={ref} className="w-full max-w-[30rem] mx-auto">
       {/* The delta is the finding, so it is stated rather than left to be inferred. */}
-      <p className="text-[11px] font-bold text-ink text-center mb-1 tabular-nums">
+      <p className="t-small font-bold text-ink text-center mb-1 tabular-nums">
         {delta > 0 ? "+" : ""}
         {delta.toLocaleString()} ({pct > 0 ? "+" : ""}
         {pct.toFixed(1)}%){" "}
@@ -175,7 +175,7 @@ export default function ElectoralTimelineChart({ data }: { data: TimelinePoint[]
       </svg>
 
       {gaps.length > 0 && (
-        <p className="flex items-center justify-center gap-1.5 text-[10.5px] text-muted mt-1">
+        <p className="flex items-center justify-center gap-1.5 t-label text-muted mt-1">
           <span
             className="inline-block w-2.5 h-2.5 rounded-full border-[1.5px] border-dashed border-muted shrink-0"
             aria-hidden="true"

@@ -54,13 +54,13 @@ export function KpiPhaseBlock() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">KPI Targets by Phase</h4>
       </div>
-      <p className="text-[11px] text-muted mb-4 leading-relaxed pl-3.5">
+      <p className="t-small text-muted mb-4 leading-relaxed pl-3.5">
         This is a proposal, not a report — there are no achieved results to plot yet. Each marker is the stated target
         for that phase; phases the tables mark {"“"}Not live{"”"} are omitted rather than shown as zero.
       </p>
       <div className="flex flex-wrap gap-3 mb-5 pl-3.5">
         {PHASES.map((p) => (
-          <span key={p.id} className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-wide text-muted">
+          <span key={p.id} className="flex items-center gap-1.5 t-micro font-black uppercase tracking-wide text-muted">
             <span className="w-2 h-2 rounded-full" style={{ backgroundColor: `var(${p.colorVar})` }} />
             {p.label}
           </span>

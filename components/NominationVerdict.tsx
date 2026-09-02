@@ -81,7 +81,7 @@ export function NominationVerdict() {
     >
       <div className="p-5 sm:p-7 lg:p-8">
         <div className="flex items-center gap-2 flex-wrap mb-5">
-          <span className="text-[10px] font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+          <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
             The immediate contest
           </span>
           <TierBadge tier={2} compact />
@@ -107,7 +107,7 @@ export function NominationVerdict() {
               delegate contest to organise — the number above <em>is</em> the ballot.
             </p>
 
-            <div className="flex items-center gap-1.5 mt-4 text-[11px] text-muted">
+            <div className="flex items-center gap-1.5 mt-4 t-small text-muted">
               <TrendingDown size={13} className="text-rose-500 shrink-0" aria-hidden="true" />
               <span>
                 Widened from {PRIOR.deficit} points in June 2026. The trend is moving the wrong way.
@@ -118,10 +118,10 @@ export function NominationVerdict() {
           {/* The two shares, separating from a shared baseline. */}
           <div>
             <div className="flex items-baseline justify-between mb-3">
-              <span className="text-[10px] font-black uppercase tracking-wider text-muted">
+              <span className="t-label font-black uppercase tracking-wider text-muted">
                 {POLL.source}, {POLL.date}
               </span>
-              <span className="text-[10px] text-muted">First-choice preference</span>
+              <span className="t-label text-muted">First-choice preference</span>
             </div>
 
             <div className="space-y-4">
@@ -158,17 +158,17 @@ export function NominationVerdict() {
               <div className="flex items-start gap-2">
                 <CalendarClock size={15} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
                 <div>
-                  <div className="text-[10px] font-black uppercase tracking-wider text-muted">Nomination window</div>
+                  <div className="t-label font-black uppercase tracking-wider text-muted">Nomination window</div>
                   <div className="text-xs font-bold text-ink mt-0.5">Aug–Sep 2026</div>
-                  <div className="text-[10px] text-muted">Phase −1</div>
+                  <div className="t-label text-muted">Phase −1</div>
                 </div>
               </div>
               <div className="flex items-start gap-2">
                 <Vote size={15} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
                 <div>
-                  <div className="text-[10px] font-black uppercase tracking-wider text-muted">General election</div>
+                  <div className="t-label font-black uppercase tracking-wider text-muted">General election</div>
                   <div className="text-xs font-bold text-ink mt-0.5">10 August 2027</div>
-                  <div className="text-[10px] text-muted">Threshold ≈200,000</div>
+                  <div className="t-label text-muted">Threshold ≈200,000</div>
                 </div>
               </div>
             </div>

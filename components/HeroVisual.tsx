@@ -101,7 +101,7 @@ export function HeroVisual() {
       {/* Top Bar Info */}
       <div className="p-4 sm:p-5 flex items-center justify-between border-b border-line bg-card/60 backdrop-blur-md">
         <div>
-          <div className="text-[10px] uppercase tracking-[0.15em] font-extrabold text-accent">
+          <div className="t-label uppercase tracking-[0.15em] font-extrabold text-accent">
             Countywide Campaign Architecture
           </div>
           <h4 className="font-serif text-lg font-bold text-ink mt-0.5">
@@ -117,7 +117,7 @@ export function HeroVisual() {
             <span>Reset Map</span>
           </button>
         ) : (
-          <div className="flex items-center gap-1 text-[11px] text-muted font-bold hidden sm:flex">
+          <div className="flex items-center gap-1 t-small text-muted font-bold hidden sm:flex">
             <Search size={12} className="text-accent" />
             <span>Tap nodes to inspect</span>
           </div>
@@ -217,7 +217,7 @@ export function HeroVisual() {
         {/* Small floating hint on non-selected state */}
         {!selectedStage && (
           <div className="absolute bottom-3 left-4 right-4 text-center pointer-events-none sm:hidden">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent/90 text-white text-[10px] font-bold tracking-wider shadow-md">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent/90 text-white t-label font-bold tracking-wider shadow-md">
               <HelpCircle size={10} />
               Tap on any node to view stage details
             </span>

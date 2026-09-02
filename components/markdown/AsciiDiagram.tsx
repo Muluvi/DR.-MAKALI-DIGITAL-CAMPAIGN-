@@ -66,9 +66,9 @@ function Frame({
       <figcaption className="flex items-center gap-2 px-4 py-2.5 bg-paper/60 border-b border-line">
         <Icon size={13} className="text-accent shrink-0" aria-hidden="true" />
         {title ? (
-          <span className="text-[11px] sm:text-xs font-bold text-ink leading-tight">{title}</span>
+          <span className="t-small sm:text-xs font-bold text-ink leading-tight">{title}</span>
         ) : (
-          <span className="text-[10px] font-black uppercase tracking-widest text-muted">{kind}</span>
+          <span className="t-label font-black uppercase tracking-widest text-muted">{kind}</span>
         )}
       </figcaption>
       {children}
@@ -83,7 +83,7 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
     <Frame title={d.title} icon={Table2} kind="Matrix">
       {/* The table scrolls inside its own frame; the page never scrolls sideways. */}
       <div className="overflow-x-auto">
-        <table className="w-full text-[11px] sm:text-xs border-collapse min-w-[30rem]">
+        <table className="w-full t-small sm:text-xs border-collapse min-w-[30rem]">
           {d.headers && (
             <thead>
               <tr className="bg-paper/70">
@@ -91,7 +91,7 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
                   <th
                     key={i}
                     scope="col"
-                    className="text-left px-3 py-2 font-black uppercase tracking-wider text-[9px] sm:text-[10px] text-muted border-b border-line align-bottom"
+                    className="text-left px-3 py-2 font-black uppercase tracking-wider t-micro sm:t-label text-muted border-b border-line align-bottom"
                   >
                     {h}
                   </th>
@@ -111,7 +111,7 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
                       colSpan={cell.spans > 1 ? width : 1}
                       className={
                         isBanner
-                          ? "px-3 py-1.5 font-black uppercase tracking-wider text-[9px] sm:text-[10px] text-accent"
+                          ? "px-3 py-1.5 font-black uppercase tracking-wider t-micro sm:t-label text-accent"
                           : `px-3 py-2 align-top leading-snug ${
                               j === 0 ? "font-semibold text-ink" : "text-muted"
                             } ${isFigure(cell.text) ? "tabular-nums font-mono" : ""}`
@@ -136,11 +136,11 @@ function DiagramKeyValue({ d }: { d: Extract<Diagram, { kind: "keyvalue" }> }) {
       <dl className="divide-y divide-line/40">
         {d.items.map((item, i) => (
           <div key={i} className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-4 px-4 py-2.5">
-            <dt className="text-[11px] sm:text-xs font-semibold text-ink sm:w-[15rem] sm:shrink-0 leading-snug">
+            <dt className="t-small sm:text-xs font-semibold text-ink sm:w-[15rem] sm:shrink-0 leading-snug">
               {withEmphasis(item.label)}
             </dt>
             <dd
-              className={`text-[11px] sm:text-xs text-muted leading-snug ${
+              className={`t-small sm:text-xs text-muted leading-snug ${
                 isFigure(item.value) ? "font-mono tabular-nums" : ""
               }`}
             >
@@ -152,7 +152,7 @@ function DiagramKeyValue({ d }: { d: Extract<Diagram, { kind: "keyvalue" }> }) {
       {d.notes.length > 0 && (
         <div className="px-4 py-2.5 border-t border-line/60 bg-paper/40 space-y-1">
           {d.notes.map((n, i) => (
-            <p key={i} className="text-[10px] sm:text-[11px] text-muted leading-relaxed">
+            <p key={i} className="t-label sm:t-small text-muted leading-relaxed">
               {n}
             </p>
           ))}
@@ -172,7 +172,7 @@ function DiagramPanel({ d }: { d: Extract<Diagram, { kind: "panel" }> }) {
   return (
     <Frame title={d.title} icon={GitBranch} kind="Diagram">
       <div className="overflow-x-auto px-3 py-3">
-        <pre className="text-[10px] sm:text-[11px] font-mono leading-[1.45] text-ink m-0 p-0 whitespace-pre">
+        <pre className="t-label sm:t-small font-mono leading-[1.45] text-ink m-0 p-0 whitespace-pre">
           {d.body}
         </pre>
       </div>
@@ -187,12 +187,12 @@ export function AsciiDiagram({ source, children }: { source: string; children: R
     // Unparsed — a USSD menu, a script, a code sample. Keep the original treatment.
     return (
       <div className="my-6 rounded-2xl border border-line bg-paper/60 p-3 sm:p-4 overflow-hidden not-prose">
-        <div className="flex items-center justify-between pb-2 mb-2 border-b border-line/40 text-[10px] font-mono font-bold text-muted uppercase tracking-wider">
+        <div className="flex items-center justify-between pb-2 mb-2 border-b border-line/40 t-label font-mono font-bold text-muted uppercase tracking-wider">
           <span>Architecture &amp; process model</span>
           <span className="hidden sm:inline">Diagram / script</span>
         </div>
         <div className="overflow-x-auto max-w-full scrollbar-thin">
-          <pre className="text-[11px] sm:text-xs font-mono text-ink leading-snug m-0 p-0 whitespace-pre">
+          <pre className="t-small sm:text-xs font-mono text-ink leading-snug m-0 p-0 whitespace-pre">
             {children}
           </pre>
         </div>

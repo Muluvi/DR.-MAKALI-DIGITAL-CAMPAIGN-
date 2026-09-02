@@ -101,14 +101,14 @@ export function PhaseRail() {
     <div ref={ref} className="my-10 not-prose">
       <div className="flex items-baseline justify-between gap-3 mb-6 flex-wrap">
         <div>
-          <span className="text-[10px] font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+          <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
             Section 20 · Phased plan
           </span>
           <h3 className="font-serif text-xl sm:text-2xl font-semibold text-ink mt-2 tracking-tight">
             August 2026 to August 2027
           </h3>
         </div>
-        <span className="text-[11px] text-muted font-mono">5 phases · 12 months</span>
+        <span className="t-small text-muted font-mono">5 phases · 12 months</span>
       </div>
 
       <div className="relative pl-8 sm:pl-10">
@@ -128,7 +128,7 @@ export function PhaseRail() {
               <li key={phase.id} className="relative">
                 {/* Node. Fills with the phase's own colour, which the section headings share. */}
                 <span
-                  className="absolute -left-8 sm:-left-10 top-1 w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 bg-paper flex items-center justify-center font-mono text-[9px] sm:text-[10px] font-black"
+                  className="absolute -left-8 sm:-left-10 top-1 w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 bg-paper flex items-center justify-center font-mono t-micro sm:t-label font-black"
                   style={{ borderColor: `var(${phase.colorVar})`, color: `var(${phase.colorVar})` }}
                   aria-hidden="true"
                 >
@@ -139,7 +139,7 @@ export function PhaseRail() {
                   <div className="flex items-baseline justify-between gap-3 flex-wrap mb-2">
                     <h4 className="font-serif text-base font-bold text-ink">{phase.label}</h4>
                     <span
-                      className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded"
+                      className="t-label font-black uppercase tracking-wider px-2 py-0.5 rounded"
                       style={{
                         color: `var(${phase.colorVar})`,
                         backgroundColor: `color-mix(in srgb, var(${phase.colorVar}) 12%, transparent)`,
@@ -152,7 +152,7 @@ export function PhaseRail() {
                   {detail && (
                     <ul className="mt-3 pt-3 border-t border-line/50 space-y-1.5">
                       {detail.highlights.map((h) => (
-                        <li key={h} className="flex items-start gap-2 text-[11px] text-muted leading-relaxed">
+                        <li key={h} className="flex items-start gap-2 t-small text-muted leading-relaxed">
                           <span
                             className="w-1 h-1 rounded-full shrink-0 mt-1.5"
                             style={{ backgroundColor: `var(${phase.colorVar})` }}
@@ -166,7 +166,7 @@ export function PhaseRail() {
                 </div>
 
                 {anchor && (
-                  <div className="flex items-center gap-2 mt-3 ml-1 text-[11px]">
+                  <div className="flex items-center gap-2 mt-3 ml-1 t-small">
                     <anchor.icon size={13} className="text-gold shrink-0" aria-hidden="true" />
                     <span className="font-bold text-ink">{anchor.label}</span>
                     <span className="text-muted">{anchor.sub}</span>

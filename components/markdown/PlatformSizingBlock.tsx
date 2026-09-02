@@ -27,13 +27,13 @@ export function PlatformSizingBlock() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">National Platform Sizing (for ad planning)</h4>
       </div>
-      <p className="text-[11px] text-muted mb-3 leading-relaxed pl-3.5">Kenya-wide audience figures, sorted by size.</p>
-      <div className="h-56 w-full text-[9px]">
+      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">Kenya-wide audience figures, sorted by size.</p>
+      <div className="h-56 w-full t-micro">
         <LazyMount minHeight={224} className="h-full">
           <PlatformSizingChart data={DATA} />
         </LazyMount>
       </div>
-      <p className="text-[10px] text-muted/80 leading-normal mt-3 pt-2 border-t border-line/40 font-medium">
+      <p className="t-label text-muted/80 leading-normal mt-3 pt-2 border-t border-line/40 font-medium">
         <span className="italic">Not sized:</span> WhatsApp — the source describes it as {"“"}effectively universal among connected users{"”"} with no audience figure given, so it isn{"'"}t plotted here rather than assigned an invented number.
       </p>
       <SourceLine sources={["NapoleonCat, May 2026", "DataReportal Digital 2026 Kenya"]} />

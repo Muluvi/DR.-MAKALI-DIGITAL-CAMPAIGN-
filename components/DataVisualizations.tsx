@@ -116,7 +116,7 @@ export function DataVisualizations() {
         <div>
           <div className="flex items-center justify-between gap-2 mb-1">
             <h3 className="font-serif text-2xl text-dark">Budget scenario</h3>
-            <span className="text-accent bg-accent/10 px-2 py-0.5 rounded-full text-[10px] font-extrabold tracking-wider uppercase">
+            <span className="text-accent bg-accent/10 px-2 py-0.5 rounded-full t-label font-extrabold tracking-wider uppercase">
               Interactive Slider
             </span>
           </div>
@@ -124,7 +124,7 @@ export function DataVisualizations() {
           
           {/* Slider input control - excellent for mobile fingers */}
           <div className="mb-6 px-1">
-            <div className="flex justify-between text-[11px] font-extrabold text-muted tracking-wider uppercase mb-2">
+            <div className="flex justify-between t-small font-extrabold text-muted tracking-wider uppercase mb-2">
               <span className={activeTier === "lean" ? "text-accent scale-105 transition-transform" : ""}>Lean</span>
               <span className={activeTier === "standard" ? "text-accent scale-105 transition-transform" : ""}>Recommended</span>
               <span className={activeTier === "premium" ? "text-accent scale-105 transition-transform" : ""}>Premium</span>

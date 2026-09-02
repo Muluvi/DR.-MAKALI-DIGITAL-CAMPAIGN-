@@ -27,14 +27,14 @@ export function ConstituencyWeightBlockContent() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">Constituency Weight — All Eight, by Register</h4>
       </div>
-      <p className="text-[11px] text-muted mb-3 leading-relaxed pl-3.5">
+      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
         <strong className="text-ink">{largest.name} is the largest constituency in the county register, at{" "}
         {largest.voters.toLocaleString()} voters</strong> ({((largest.voters / COUNTY_TOTAL_WARDS) * 100).toFixed(1)}%
         of the county total) — the candidate&apos;s own base is the county&apos;s heaviest constituency. That is the
         strongest structural argument he has.
       </p>
 
-      <div className="h-64 w-full text-[9px] mb-4">
+      <div className="h-64 w-full t-micro mb-4">
         <LazyMount minHeight={256} className="h-full">
           <ConstituencyBarChart chartData={CHART_DATA} selectedID={selectedID} onSelect={setSelectedID} />
         </LazyMount>
@@ -42,9 +42,9 @@ export function ConstituencyWeightBlockContent() {
 
       {/* Accessible table equivalent */}
       <div className="overflow-x-auto">
-        <table className="w-full text-left text-[11px]">
+        <table className="w-full text-left t-small">
           <thead>
-            <tr className="text-[9px] uppercase tracking-wider font-bold text-muted">
+            <tr className="t-micro uppercase tracking-wider font-bold text-muted">
               <th className="py-1 pr-3">Constituency</th>
               <th className="py-1 pr-3">Registered voters</th>
               <th className="py-1">Share of county</th>

@@ -127,7 +127,7 @@ export function BudgetScenarioModeler() {
           </div>
           <div>
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Section 8B · The three tiers
               </span>
               <TierBadge tier={1} compact />
@@ -139,7 +139,7 @@ export function BudgetScenarioModeler() {
         <div className="flex items-center gap-2 px-3 py-1.5 bg-card border border-accent/30 rounded-xl shrink-0">
           <Scale size={14} className="text-accent" aria-hidden="true" />
           <div>
-            <div className="text-[9px] uppercase font-black text-muted">Statutory county ceiling</div>
+            <div className="t-micro uppercase font-black text-muted">Statutory county ceiling</div>
             <div className="text-xs font-mono font-black text-ink tabular-nums">{CEILING_LABEL}</div>
           </div>
         </div>
@@ -161,17 +161,17 @@ export function BudgetScenarioModeler() {
               }`}
             >
               <div className="flex items-center justify-between w-full gap-2">
-                <span className={`text-[10px] font-mono font-black ${isSelected ? "text-accent" : "text-muted"}`}>
+                <span className={`t-label font-mono font-black ${isSelected ? "text-accent" : "text-muted"}`}>
                   {tier.adSpendBand.low}–{tier.adSpendBand.high}% of ceiling
                 </span>
                 {tier.recommended && (
-                  <span className="text-[9px] font-extrabold uppercase bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 px-1.5 py-0.5 rounded shrink-0">
+                  <span className="t-micro font-extrabold uppercase bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 px-1.5 py-0.5 rounded shrink-0">
                     Recommended
                   </span>
                 )}
               </div>
               <div className="text-xs font-bold text-ink truncate">{tier.name}</div>
-              <div className="text-[11px] text-muted truncate">{tier.badge}</div>
+              <div className="t-small text-muted truncate">{tier.badge}</div>
             </button>
           );
         })}
@@ -192,7 +192,7 @@ export function BudgetScenarioModeler() {
               the UI says so rather than picking one. */}
           <div className="p-4 rounded-xl border border-line bg-paper space-y-2.5">
             <div className="flex items-center justify-between gap-3 flex-wrap">
-              <span className="text-[10px] font-black uppercase tracking-wider text-muted">
+              <span className="t-label font-black uppercase tracking-wider text-muted">
                 Recommended ad spend, as a share of the verified ceiling
               </span>
               <ClaimBadge status="awaiting" compact />
@@ -210,15 +210,15 @@ export function BudgetScenarioModeler() {
                 }}
               />
               <div className="absolute inset-0 flex items-center px-2.5">
-                <span className="text-[11px] font-mono font-bold text-ink tabular-nums">
+                <span className="t-small font-mono font-bold text-ink tabular-nums">
                   {currentTier.adSpendBand.low}%–{currentTier.adSpendBand.high}%
                 </span>
               </div>
-              <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-mono text-muted">
+              <span className="absolute right-2 top-1/2 -translate-y-1/2 t-label font-mono text-muted">
                 100% = {CEILING_LABEL}
               </span>
             </div>
-            <p className="text-[11px] text-muted leading-relaxed">
+            <p className="t-small text-muted leading-relaxed">
               §8B.5 states this as <code className="placeholder">[Insert — recommend {currentTier.adSpendBand.low}–{currentTier.adSpendBand.high}% of ceiling]</code>. The absolute
               figure is set on tier selection and is owned by the campaign (Appendix A, ref 8B.5). Percentages refer to
               the verified county ceiling; absolute figures are illustrative structures to be finalised against it.
@@ -234,18 +234,18 @@ export function BudgetScenarioModeler() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
             <div className="p-3 bg-paper rounded-xl border border-line">
-              <div className="text-[10px] uppercase font-bold text-muted">SMS volume / month</div>
+              <div className="t-label uppercase font-bold text-muted">SMS volume / month</div>
               <div className="text-xs font-semibold text-ink mt-1 flex items-center gap-1.5 flex-wrap">
                 {currentTier.smsVolume}
                 <ClaimBadge status="awaiting" compact />
               </div>
             </div>
             <div className="p-3 bg-paper rounded-xl border border-line">
-              <div className="text-[10px] uppercase font-bold text-muted">USSD</div>
+              <div className="t-label uppercase font-bold text-muted">USSD</div>
               <div className="text-xs font-semibold text-ink mt-1">{currentTier.ussd}</div>
             </div>
             <div className="p-3 bg-accent/5 rounded-xl border border-accent/20">
-              <div className="text-[10px] uppercase font-bold text-accent">Phase 3 contact universe</div>
+              <div className="t-label uppercase font-bold text-accent">Phase 3 contact universe</div>
               <div className="text-sm font-black text-accent mt-0.5 font-mono tabular-nums">
                 {currentTier.contactUniverse}
               </div>
@@ -253,7 +253,7 @@ export function BudgetScenarioModeler() {
           </div>
 
           <div className="p-3.5 rounded-xl bg-paper/60 border border-line">
-            <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1 mb-1.5">
+            <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1 mb-1.5">
               <AlertTriangle size={12} className="text-gold" aria-hidden="true" />
               Trade-offs
             </div>
@@ -263,8 +263,8 @@ export function BudgetScenarioModeler() {
       </AnimatePresence>
 
       <div className="border-t border-line overflow-x-auto">
-        <table className="w-full text-[11px] sm:text-xs">
-          <caption className="text-left px-4 pt-3 pb-2 text-[10px] font-black uppercase tracking-wider text-muted">
+        <table className="w-full t-small sm:text-xs">
+          <caption className="text-left px-4 pt-3 pb-2 t-label font-black uppercase tracking-wider text-muted">
             §8B.6 Tier comparison
           </caption>
           <thead>
@@ -295,7 +295,7 @@ export function BudgetScenarioModeler() {
       </div>
 
       <div className="px-4 py-3 bg-paper/60 border-t border-line">
-        <p className="text-[11px] text-muted leading-relaxed">
+        <p className="t-small text-muted leading-relaxed">
           <strong className="text-ink">Recommendation: Tier 2 (Standard).</strong> Tier 1 concentrates spend where Dr.
           Mulu is already strong and leaves the recognition deficit untouched. Tier 3 is defensible but presses against
           a statutory ceiling that must also accommodate transport, venues and personnel across 30,430 square
@@ -317,7 +317,7 @@ function Detail({
 }) {
   return (
     <div className="p-3.5 rounded-xl bg-paper/60 border border-line">
-      <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1 mb-1.5">
+      <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1 mb-1.5">
         <Icon size={12} className="text-accent" aria-hidden="true" />
         {label}
       </div>

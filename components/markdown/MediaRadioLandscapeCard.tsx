@@ -105,10 +105,10 @@ export function MediaRadioLandscapeCard() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Section 17A Media Landscape
               </span>
-              <span className="text-[10px] font-mono font-bold text-muted">
+              <span className="t-label font-mono font-bold text-muted">
                 Vernacular Radio Table
               </span>
             </div>
@@ -175,11 +175,11 @@ export function MediaRadioLandscapeCard() {
                 <div>
                   <div className="flex items-center gap-2">
                     <h5 className="text-sm font-bold text-ink">{station.name}</h5>
-                    <span className="text-[11px] font-mono font-bold text-accent bg-card px-2 py-0.5 rounded border border-line">
+                    <span className="t-small font-mono font-bold text-accent bg-card px-2 py-0.5 rounded border border-line">
                       {station.frequency}
                     </span>
                     {station.isPriority && (
-                      <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                      <span className="t-micro font-black uppercase px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
                         Priority Placement
                       </span>
                     )}
@@ -192,7 +192,7 @@ export function MediaRadioLandscapeCard() {
 
               {/* Status Badge */}
               <div className="self-start sm:self-auto">
-                <span className={`text-[10px] font-bold px-2.5 py-1 rounded-lg border ${
+                <span className={`t-label font-bold px-2.5 py-1 rounded-lg border ${
                   station.politicalAllegiance.includes("Independent")
                     ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/20"
                     : station.politicalAllegiance.includes("Rival")
@@ -208,7 +208,7 @@ export function MediaRadioLandscapeCard() {
               {station.campaignPosture}
             </p>
 
-            <div className="mt-2.5 pt-2 border-t border-line/60 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-[11px]">
+            <div className="mt-2.5 pt-2 border-t border-line/60 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 t-small">
               <span className="text-muted">
                 <strong>Reach:</strong> {station.reachEstimate} &bull; <strong>Recommended Slot:</strong> {station.recommendedSlot}
               </span>
@@ -257,7 +257,7 @@ export function MediaRadioLandscapeCard() {
       </div>
 
       {/* Footer Rule */}
-      <div className="p-3 bg-paper/60 border-t border-line text-[11px] text-muted flex items-center justify-between px-4 font-semibold">
+      <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
           <Info size={12} className="text-accent" />
           <span>Vernacular Airwave Primacy: 86% of Kitui relies on radio as their primary daily source of political truth.</span>

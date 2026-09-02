@@ -25,11 +25,11 @@ export function MizaniSlopeBlock() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">Trajectory Between the Two Published Surveys</h4>
       </div>
-      <p className="text-[11px] text-muted mb-3 leading-relaxed pl-3.5">
+      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
         Ngilu was not included in the June round, so her point appears only at August — with only two rounds published,
         the table above remains the exact reference.
       </p>
-      <div className="h-64 w-full text-[9px]">
+      <div className="h-64 w-full t-micro">
         <LazyMount minHeight={256} className="h-full">
           <MizaniSlopeChart data={DATA} series={SERIES} />
         </LazyMount>

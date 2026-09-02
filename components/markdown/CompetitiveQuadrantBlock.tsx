@@ -43,11 +43,11 @@ export function CompetitiveQuadrantBlock() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">Competitive Field: Preference vs. Fiscal Credibility</h4>
       </div>
-      <p className="text-[11px] text-muted mb-3 leading-relaxed pl-3.5">
+      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
         Horizontal axis is measured survey data. Vertical axis is a qualitative editorial reading of Section 4.2&apos;s own
         candidate assessments, not a measured input — plotted only where the text itself makes a claim.
       </p>
-      <div className="h-72 w-full text-[9px]">
+      <div className="h-72 w-full t-micro">
         <LazyMount minHeight={288} className="h-full">
           <CompetitiveQuadrantChart data={DATA} />
         </LazyMount>

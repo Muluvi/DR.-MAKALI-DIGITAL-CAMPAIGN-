@@ -93,7 +93,7 @@ export function ReachSplit() {
   return (
     <div ref={ref} className="my-10 not-prose">
       <div className="flex items-center gap-2 flex-wrap mb-4">
-        <span className="text-[10px] font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+        <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
           Section 9 · Channel architecture
         </span>
         <TierBadge tier={1} compact />
@@ -133,12 +133,12 @@ export function ReachSplit() {
           <span className="font-serif text-lg sm:text-xl font-bold text-paper dark:text-ink tabular-nums">
             {OFFLINE}%
           </span>
-          <span className="text-[11px] sm:text-xs text-paper/80 dark:text-ink/70 font-semibold">
+          <span className="t-small sm:text-xs text-paper/80 dark:text-ink/70 font-semibold">
             offline
           </span>
         </motion.div>
       </div>
-      <div className="flex justify-between mt-1.5 text-[10px] font-mono text-muted tabular-nums">
+      <div className="flex justify-between mt-1.5 t-label font-mono text-muted tabular-nums">
         <span>{CONNECTED}% connected</span>
         <span>KNBS 2019</span>
       </div>
@@ -146,7 +146,7 @@ export function ReachSplit() {
       {/* What serves each side. */}
       <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] gap-3 mt-5">
         <div className="p-4 rounded-2xl border border-accent/30 bg-accent/[0.04]">
-          <div className="text-[10px] font-black uppercase tracking-wider text-accent mb-2.5">
+          <div className="t-label font-black uppercase tracking-wider text-accent mb-2.5">
             The connected minority
           </div>
           <ul className="space-y-2">
@@ -159,7 +159,7 @@ export function ReachSplit() {
           </ul>
         </div>
         <div className="p-4 rounded-2xl border border-line bg-card">
-          <div className="text-[10px] font-black uppercase tracking-wider text-ink mb-2.5">
+          <div className="t-label font-black uppercase tracking-wider text-ink mb-2.5">
             The offline majority — where the election is
           </div>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -176,7 +176,7 @@ export function ReachSplit() {
       {/* The handset. The deliverable, demonstrated. */}
       <div className="mt-6 grid grid-cols-1 sm:grid-cols-[auto_minmax(0,1fr)] gap-5 sm:gap-7 items-start">
         <div className="mx-auto sm:mx-0 w-[248px] rounded-[1.75rem] border-[6px] border-ink/85 dark:border-line bg-ink dark:bg-black p-3 shadow-lg">
-          <div className="rounded-lg bg-[#0d1a0d] px-3 py-3 min-h-[188px] font-mono text-[11px] leading-[1.55] text-[#7dd87d] whitespace-pre-wrap">
+          <div className="rounded-lg bg-[#0d1a0d] px-3 py-3 min-h-[188px] font-mono t-small leading-[1.55] text-[#7dd87d] whitespace-pre-wrap">
             {typed}
             {!reduce && typed.length < USSD_MENU.join("\n").length && (
               <span className="inline-block w-[7px] h-[13px] bg-[#7dd87d] align-middle ml-0.5" />
@@ -218,11 +218,11 @@ export function ReachSplit() {
             publishes the outcome. That is the M&amp;E credential operating in public, before the
             election, on the cheapest possible technology.
           </p>
-          <dl className="grid grid-cols-3 gap-2 text-[11px]">
+          <dl className="grid grid-cols-3 gap-2 t-small">
             <div className="p-2.5 rounded-lg bg-paper border border-line">
               <dt className="text-muted">Shared code</dt>
               <dd className="font-mono font-bold text-ink mt-0.5 tabular-nums">~KSh34,800</dd>
-              <dd className="text-[10px] text-muted">per network</dd>
+              <dd className="t-label text-muted">per network</dd>
             </div>
             <div className="p-2.5 rounded-lg bg-paper border border-line">
               <dt className="text-muted">Development</dt>
@@ -231,10 +231,10 @@ export function ReachSplit() {
             <div className="p-2.5 rounded-lg bg-paper border border-line">
               <dt className="text-muted">Hosting</dt>
               <dd className="font-mono font-bold text-ink mt-0.5 tabular-nums">~KSh5,000</dd>
-              <dd className="text-[10px] text-muted">per month</dd>
+              <dd className="t-label text-muted">per month</dd>
             </div>
           </dl>
-          <p className="text-[11px] text-muted mt-2.5">
+          <p className="t-small text-muted mt-2.5">
             Set-up in 5–7 working days for a shared code; 2–4 weeks for a dedicated code pending
             operator approval.
           </p>

@@ -97,7 +97,7 @@ export function NominationScorecard() {
             Nomination-window targets
           </h3>
         </div>
-        <span className="claim-badge claim-badge-estimate text-[9px] px-2.5 py-1 font-semibold uppercase tracking-wider">
+        <span className="claim-badge claim-badge-estimate t-micro px-2.5 py-1 font-semibold uppercase tracking-wider">
           Targets, not measured progress
         </span>
       </div>
@@ -119,7 +119,7 @@ export function NominationScorecard() {
                   </span>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1.5">
-                      <span className="font-mono text-[10px] font-black text-accent">{kpi.code}</span>
+                      <span className="font-mono t-label font-black text-accent">{kpi.code}</span>
                       {kpi.baselineIsEstimate && <ClaimBadge status="estimate" compact />}
                     </div>
                     <h4 className="text-sm font-bold text-ink leading-tight mt-0.5">{kpi.title}</h4>
@@ -127,7 +127,7 @@ export function NominationScorecard() {
                 </div>
               </div>
 
-              <p className="text-[11px] text-muted leading-relaxed mb-3">{kpi.definition}</p>
+              <p className="t-small text-muted leading-relaxed mb-3">{kpi.definition}</p>
 
               <div
                 className="relative h-7 rounded-lg bg-line/40 overflow-hidden"
@@ -156,7 +156,7 @@ export function NominationScorecard() {
                 />
               </div>
 
-              <div className="flex items-center justify-between mt-2 text-[10px]">
+              <div className="flex items-center justify-between mt-2 t-label">
                 <span className="text-muted">
                   Baseline <span className="font-mono font-bold text-ink tabular-nums">{kpi.baselineLabel}</span>
                 </span>
@@ -164,7 +164,7 @@ export function NominationScorecard() {
                   Target <span className="font-mono tabular-nums">{kpi.targetLabel}</span>
                 </span>
               </div>
-              <div className="text-[10px] text-muted mt-1.5 pt-1.5 border-t border-line/40">
+              <div className="t-label text-muted mt-1.5 pt-1.5 border-t border-line/40">
                 Owner: {kpi.owner}
               </div>
             </div>

@@ -79,7 +79,7 @@ export default function ResourceEnvelopeChart({ data }: { data: WaterfallStep[] 
               />
 
               <span
-                className="absolute w-full text-center font-mono text-[9px] font-bold text-ink tabular-nums"
+                className="absolute w-full text-center font-mono t-micro font-bold text-ink tabular-nums"
                 style={{ bottom: `calc(${top}% + 3px)` }}
               >
                 {fmt(step.value)}
@@ -93,7 +93,7 @@ export default function ResourceEnvelopeChart({ data }: { data: WaterfallStep[] 
         {data.map((step) => (
           <div key={step.name} className="flex-1 text-center">
             <span
-              className={`block text-[9px] leading-tight ${
+              className={`block t-micro leading-tight ${
                 step.isTotal ? "font-black text-ink" : "font-bold text-muted"
               }`}
             >

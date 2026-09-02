@@ -86,7 +86,7 @@ function InlineTooltip({ text, term }: { text: string; term: string }) {
             exit={{ opacity: 0, y: 5 }}
             className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-paper border border-line rounded-xl shadow-lg text-xs text-ink font-sans z-50 text-center leading-normal"
           >
-            <span className="font-bold text-accent block mb-1 uppercase tracking-wider text-[10px] flex items-center justify-center gap-1">
+            <span className="font-bold text-accent block mb-1 uppercase tracking-wider t-label flex items-center justify-center gap-1">
               <Info size={11} /> Strategy Definition
             </span>
             {definition}
@@ -178,7 +178,7 @@ export const HighlightedText = React.memo(function HighlightedText({ text, tabId
         return (
           <span
             key={idx}
-            className="bg-gold/10 text-gold border border-gold/20 px-1.5 py-0.5 rounded font-mono text-[10px] font-bold mx-1 whitespace-nowrap"
+            className="bg-gold/10 text-gold border border-gold/20 px-1.5 py-0.5 rounded font-mono t-label font-bold mx-1 whitespace-nowrap"
           >
             {part}
           </span>

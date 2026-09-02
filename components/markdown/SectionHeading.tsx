@@ -56,7 +56,7 @@ export function SectionHeading({
   return (
     <>
       {eyebrow && (
-        <div className="eyebrow-label mt-7 sm:mt-10 not-prose text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-muted" aria-hidden="true">
+        <div className="eyebrow-label mt-7 sm:mt-10 not-prose t-label sm:text-xs font-semibold uppercase tracking-wider text-muted" aria-hidden="true">
           {eyebrow}
         </div>
       )}

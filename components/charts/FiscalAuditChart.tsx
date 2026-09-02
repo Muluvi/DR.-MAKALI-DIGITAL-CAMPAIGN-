@@ -48,7 +48,7 @@ export default function FiscalAuditChart({ data }: { data: FiscalBar[] }) {
   return (
     <div ref={ref} className="w-full">
       <div className="flex items-baseline justify-between gap-3 mb-1.5">
-        <span className="text-[10px] font-black uppercase tracking-wider text-muted">{whole.name}</span>
+        <span className="t-label font-black uppercase tracking-wider text-muted">{whole.name}</span>
         <span className="font-mono text-sm font-black text-ink tabular-nums">{fmt(whole.value)}</span>
       </div>
 
@@ -77,7 +77,7 @@ export default function FiscalAuditChart({ data }: { data: FiscalBar[] }) {
           aria-hidden="true"
         />
         <span
-          className="absolute top-1/2 -translate-y-1/2 text-[10px] font-mono font-black text-ink tabular-nums"
+          className="absolute top-1/2 -translate-y-1/2 t-label font-mono font-black text-ink tabular-nums"
           style={{ left: `calc(${sharePct}% + 8px)` }}
         >
           {sharePct.toFixed(0)}%
@@ -86,7 +86,7 @@ export default function FiscalAuditChart({ data }: { data: FiscalBar[] }) {
 
       <ul className="mt-3 space-y-1.5">
         {segments.map((s) => (
-          <li key={s.name} className="flex items-baseline gap-2 text-[11px] leading-snug">
+          <li key={s.name} className="flex items-baseline gap-2 t-small leading-snug">
             <span
               className="w-2.5 h-2.5 rounded-sm shrink-0 mt-0.5"
               style={{ backgroundColor: s.color }}
@@ -99,7 +99,7 @@ export default function FiscalAuditChart({ data }: { data: FiscalBar[] }) {
             </span>
           </li>
         ))}
-        <li className="flex items-baseline gap-2 text-[11px] pt-1.5 border-t border-line/50">
+        <li className="flex items-baseline gap-2 t-small pt-1.5 border-t border-line/50">
           <span className="w-2.5 shrink-0" aria-hidden="true" />
           <span className="text-ink font-bold flex-1">Total exposure</span>
           <span className="font-mono text-ink font-bold tabular-nums shrink-0">{fmt(exposure)}</span>

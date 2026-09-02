@@ -44,6 +44,7 @@ import { EconomistGovernorThesis } from "./markdown/EconomistGovernorThesis";
 import { DecisionPanel } from "./DecisionPanel";
 import { CommitmentFields } from "./markdown/CommitmentFields";
 import { PhoneShowcase } from "./phone/PhoneShowcase";
+import { SectionPortrait } from "./markdown/SectionPortrait";
 import { ReadinessBoard } from "./markdown/ReadinessBoard";
 import { TeamRoster } from "./markdown/TeamRoster";
 import { commitmentFieldKey, isCommitmentFieldList, type CommitmentField } from "../lib/commitment-fields";
@@ -204,6 +205,12 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
       <CompetitiveQuadrantBlock />
     </>
   ),
+  "exec-sec-4-1": (
+    <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §4.1">
+      One of Kenya&rsquo;s most consistent and authoritative voices on macroeconomic governance,
+      fiscal discipline, and budget oversight.
+    </SectionPortrait>
+  ),
   "exec-sec-4-3": (
     <>
       <WardCartogramBlock />
@@ -249,6 +256,11 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "exec-sec-17-1": <MediaOwnershipBlock />,
 
   // ---- The Programme (programme.md, §5–§23) -------------------------------------------
+  "programme-sec-21": (
+    <SectionPortrait id="seated-grey-cropped" kicker="Execution &amp; workflow — §21" flip>
+      Firefly reports to a single named campaign-side counterpart.
+    </SectionPortrait>
+  ),
   "programme-sec-5": <StrategicPillarsMatrix />,
   "programme-sec-7": <GeographicZoneMatrix />,
   "programme-sec-8a": <CampaignOrgChart />,
@@ -312,7 +324,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
           </div>
           <div>
             <h4 className="font-serif text-xs font-semibold text-ink">Campaign Audio Strategy Briefing</h4>
-            <p className="text-[10px] text-muted uppercase tracking-wider font-semibold">Listen to synthesized narrative breakdown (2:15 min)</p>
+            <p className="t-label text-muted uppercase tracking-wider font-semibold">Listen to synthesized narrative breakdown (2:15 min)</p>
           </div>
         </div>
         <AudioBriefingButton />

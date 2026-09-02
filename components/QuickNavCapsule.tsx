@@ -79,7 +79,7 @@ export function QuickNavCapsule({ onNavigate, activeTab }: QuickNavCapsuleProps)
                       <Icon size={14} className="text-muted group-hover:text-accent transition-colors shrink-0" />
                       <span className="truncate">{item.label}</span>
                     </div>
-                    <span className="text-[9px] uppercase tracking-wider font-extrabold px-1.5 py-0.5 rounded bg-line/30 text-muted group-hover:bg-accent group-hover:text-white transition-all shrink-0">
+                    <span className="t-micro uppercase tracking-wider font-extrabold px-1.5 py-0.5 rounded bg-line/30 text-muted group-hover:bg-accent group-hover:text-white transition-all shrink-0">
                       {item.tab}
                     </span>
                   </button>
@@ -87,7 +87,7 @@ export function QuickNavCapsule({ onNavigate, activeTab }: QuickNavCapsuleProps)
               })}
             </div>
             
-            <div className="mt-3 pt-2.5 border-t border-line/30 flex items-center justify-between text-[10px] text-muted font-semibold">
+            <div className="mt-3 pt-2.5 border-t border-line/30 flex items-center justify-between t-label text-muted font-semibold">
               <span>Press shortcut to deep link</span>
               <span className="font-mono text-accent">2027 Portal</span>
             </div>

@@ -26,7 +26,7 @@ export default function MizaniSlopeChart({ data, series }: { data: Record<string
           content={({ active, payload, label }) => {
             if (active && payload && payload.length) {
               return (
-                <div className="bg-card border border-line p-2.5 shadow-md rounded-xl text-[10px] font-bold text-ink">
+                <div className="bg-card border border-line p-2.5 shadow-md rounded-xl t-label font-bold text-ink">
                   <p className="border-b border-line pb-1 mb-1">{label}</p>
                   {payload.map((p) => (
                     <p key={p.dataKey as string} style={{ color: p.color }}>

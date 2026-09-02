@@ -23,6 +23,7 @@ import { FocusModeToggle, PrintReportGenerator } from "./StrategicAids";
 
 import { Dashboard } from "./Dashboard";
 import { HeroVisual } from "./HeroVisual";
+import { Portrait } from "./Portrait";
 import { NominationVerdict } from "./NominationVerdict";
 import { DataVisualizations } from "./DataVisualizations";
 import { VoterProjectionsChart } from "./VoterProjectionsChart";
@@ -92,11 +93,11 @@ function PartDivider({ index, label }: { index: number; label: string }) {
     <div className="relative left-1/2 -translate-x-1/2 w-screen print:hidden" aria-hidden="true">
       <div className="h-12 sm:h-14 flex items-center bg-gradient-to-r from-accent/[0.05] via-gold/[0.06] to-accent/[0.05] border-y border-line/40">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 w-full flex items-center gap-3">
-          <span className="font-mono text-[9px] sm:text-[10px] font-black text-accent/70 shrink-0">
+          <span className="font-mono t-micro sm:t-label font-black text-accent/70 shrink-0">
             PART {index + 1}/3
           </span>
           <span className="h-px flex-1 bg-line/60" />
-          <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-muted truncate">{label}</span>
+          <span className="t-micro sm:t-label font-black uppercase tracking-widest text-muted truncate">{label}</span>
         </div>
       </div>
     </div>
@@ -333,10 +334,10 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
             <div className="flex items-center gap-3 mb-4 sm:mb-6 select-none bg-card/80 backdrop-blur-md border border-line rounded-2xl p-2.5 sm:p-3.5 w-fit shadow-sm">
               <WiperUmbrellaLogo />
               <div>
-                <div className="text-[11px] sm:text-sm tracking-[0.12em] uppercase text-accent font-black">
+                <div className="t-small sm:text-sm tracking-[0.12em] uppercase text-accent font-black">
                   Wiper Patriotic Front (WPF)
                 </div>
-                <div className="text-[9px] sm:text-xs tracking-wider text-muted uppercase font-semibold mt-0.5">
+                <div className="t-micro sm:text-xs tracking-wider text-muted uppercase font-semibold mt-0.5">
                   Kitui 2027 Strategy Portal
                 </div>
               </div>
@@ -347,17 +348,27 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
               <span className="opacity-70 truncate sm:whitespace-normal">— prepared for Wiper Patriotic Front campaign leadership.</span>
             </div>
 
-            <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.12] sm:leading-[1.08] tracking-tight max-w-4xl text-ink mb-4 sm:mb-6 font-semibold">
-              Kitui 2027:<br />
-              <span className="opacity-90">the operating system for an Economist Governor.</span>
-            </h1>
-            <p className="text-sm sm:text-base md:text-lg text-muted max-w-3xl leading-relaxed">
-              Campaign Strategy & Digital Architecture Proposal for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
-            </p>
+            {/* The title and the candidate, together. The portrait is a cutout, so it stands on
+                the page rather than sitting in a frame; on a phone it goes under the text at a
+                size that reads as a portrait rather than a thumbnail. */}
+            <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_auto] md:gap-8 items-end">
+              <div className="min-w-0">
+                <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.12] sm:leading-[1.08] tracking-tight max-w-4xl text-ink mb-4 sm:mb-6 font-semibold text-balance">
+                  Kitui 2027:<br />
+                  <span className="opacity-90">the operating system for an Economist Governor.</span>
+                </h1>
+                <p className="text-sm sm:text-base md:text-lg text-muted max-w-3xl leading-relaxed text-pretty">
+                  Campaign Strategy & Digital Architecture Proposal for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
+                </p>
+              </div>
+              <div className="hidden md:block w-[210px] lg:w-[260px] shrink-0 -mb-2">
+                <Portrait id="hero-clasped-hands" sizes="(min-width: 1024px) 260px, 210px" priority />
+              </div>
+            </div>
 
             {/* Mobile Quick-Jump Chips (Thumb-accessible shortcuts) */}
             <div className="mt-5 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none lg:hidden select-none">
-              <span className="text-[10px] uppercase font-extrabold tracking-widest text-muted shrink-0">
+              <span className="t-label uppercase font-extrabold tracking-widest text-muted shrink-0">
                 Jump To:
               </span>
               <button
@@ -434,8 +445,8 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
                   <WiperUmbrellaLogo />
                 </div>
                 <div className="hidden sm:block">
-                  <div className="text-[10px] tracking-wider font-black text-accent uppercase leading-none">Wiper Patriotic Front</div>
-                  <div className="text-[9px] font-bold text-muted uppercase mt-0.5 leading-none">Kitui 2027 Strategy</div>
+                  <div className="t-label tracking-wider font-black text-accent uppercase leading-none">Wiper Patriotic Front</div>
+                  <div className="t-micro font-bold text-muted uppercase mt-0.5 leading-none">Kitui 2027 Strategy</div>
                 </div>
               </div>
             )}
@@ -458,7 +469,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
                 aria-label="Toggle Reading Density"
               >
                 <Type size={14} />
-                <span className="capitalize text-[11px] sm:text-xs hidden xs:inline">{readingDensity}</span>
+                <span className="capitalize t-small sm:text-xs hidden xs:inline">{readingDensity}</span>
               </button>
 
               <button 
@@ -509,7 +520,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
             </div>
           </div>
 
-          <div className="text-[11px] sm:text-xs font-bold text-muted shrink-0 pl-1 sm:pl-2">
+          <div className="t-small sm:text-xs font-bold text-muted shrink-0 pl-1 sm:pl-2">
             <span className="hidden md:inline">{readingTime} min read · </span>
             <span>{wordCount.toLocaleString()} wds</span>
           </div>
@@ -523,7 +534,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
           <aside className="toc-rail hidden lg:block w-72 flex-shrink-0 print:hidden">
             <div className="sticky top-24 space-y-4">
               <div className="bg-card/70 backdrop-blur-md border border-line/60 rounded-2xl p-4 shadow-sm">
-                <div className="text-[10px] uppercase tracking-widest font-black text-muted mb-3 flex items-center justify-between">
+                <div className="t-label uppercase tracking-widest font-black text-muted mb-3 flex items-center justify-between">
                   <span>{isExpanded ? "All Chapters" : "Sections"}</span>
                   <span className="font-mono text-accent">{navItems.length} parts</span>
                 </div>
@@ -546,7 +557,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
                           <Icon size={15} className={isActive ? "text-white" : "text-muted group-hover:text-accent transition-colors"} />
                           <span className="truncate">{item.label}</span>
                         </div>
-                        <span className={`text-[9px] font-mono shrink-0 px-1.5 py-0.5 rounded ${
+                        <span className={`t-micro font-mono shrink-0 px-1.5 py-0.5 rounded ${
                           isActive ? "bg-white/20 text-white" : "bg-line/30 text-muted"
                         }`}>
                           {sectionReadMin}m
@@ -559,14 +570,14 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
 
               {/* Minimalist Key Metric Summary Card */}
               <div className="bg-card/50 backdrop-blur-sm border border-line/40 rounded-2xl p-3.5 text-xs space-y-2">
-                <div className="flex items-center justify-between text-[10px] uppercase tracking-wider font-extrabold text-muted">
+                <div className="flex items-center justify-between t-label uppercase tracking-wider font-extrabold text-muted">
                   <span>Target Victory</span>
                   <span className="text-accent font-black">200k Votes</span>
                 </div>
                 <div className="w-full bg-line/40 h-1.5 rounded-full overflow-hidden">
                   <div className="bg-gradient-to-r from-accent to-gold h-full w-[68%]" />
                 </div>
-                <div className="flex justify-between text-[9px] font-bold text-muted">
+                <div className="flex justify-between t-micro font-bold text-muted">
                   <span>Kitui Central Core</span>
                   <span>40 Wards Field</span>
                 </div>

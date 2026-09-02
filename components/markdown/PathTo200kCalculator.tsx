@@ -140,10 +140,10 @@ export function PathTo200kCalculator() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Coalition Arithmetic Engine
               </span>
-              <span className="text-[10px] font-mono font-bold text-muted">
+              <span className="t-label font-mono font-bold text-muted">
                 Target: 200,000 Votes
               </span>
             </div>
@@ -188,7 +188,7 @@ export function PathTo200kCalculator() {
               }`}
             >
               <div className="flex items-center justify-between w-full">
-                <span className={`text-[10px] font-black uppercase tracking-wider ${isSelected ? "text-accent" : "text-muted"}`}>
+                <span className={`t-label font-black uppercase tracking-wider ${isSelected ? "text-accent" : "text-muted"}`}>
                   {path.id.toUpperCase()}
                 </span>
                 <span className={`w-2 h-2 rounded-full ${path.isViable ? "bg-emerald-500" : "bg-rose-500"}`} />
@@ -196,7 +196,7 @@ export function PathTo200kCalculator() {
               <div className="text-xs font-bold text-ink mt-1 truncate">
                 {path.tagline}
               </div>
-              <div className="text-[11px] font-mono font-semibold text-muted mt-0.5">
+              <div className="t-small font-mono font-semibold text-muted mt-0.5">
                 {path.voterPool.toLocaleString()} voters
               </div>
             </button>
@@ -234,7 +234,7 @@ export function PathTo200kCalculator() {
               title={`2022 winning total (${WINNING_TOTAL_2022.toLocaleString()})`}
             />
           </div>
-          <div className="flex justify-between text-[10px] font-mono text-muted mt-1">
+          <div className="flex justify-between t-label font-mono text-muted mt-1">
             <span>0</span>
             <span className="text-accent font-bold tabular-nums">{COUNTY_TOTAL_WARDS.toLocaleString()} Kitui registered pool</span>
             <span className="tabular-nums">{TARGET_THRESHOLD.toLocaleString()} target</span>
@@ -243,7 +243,7 @@ export function PathTo200kCalculator() {
 
         {/* Constituent Sub-County Cards */}
         <div>
-          <div className="text-[10px] font-black uppercase tracking-widest text-muted mb-2 flex items-center gap-1.5">
+          <div className="t-label font-black uppercase tracking-widest text-muted mb-2 flex items-center gap-1.5">
             <Layers size={12} className="text-accent" />
             <span>Constituency Building Blocks</span>
           </div>
@@ -251,9 +251,9 @@ export function PathTo200kCalculator() {
             {selectedPath.constituencies.map((c, i) => (
               <div key={i} className="p-3 bg-paper border border-line rounded-xl space-y-1">
                 <div className="text-xs font-bold text-ink">{c.name}</div>
-                <div className="flex items-center justify-between text-[11px] font-mono text-muted">
+                <div className="flex items-center justify-between t-small font-mono text-muted">
                   <span>{c.voters.toLocaleString()} Voters</span>
-                  <span className="text-[10px] px-1.5 py-0.2 bg-card rounded border border-line">{c.wards} Wards</span>
+                  <span className="t-label px-1.5 py-0.2 bg-card rounded border border-line">{c.wards} Wards</span>
                 </div>
               </div>
             ))}
@@ -263,7 +263,7 @@ export function PathTo200kCalculator() {
         {/* Strategic Verdict Callout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
           <div className="p-3.5 rounded-xl bg-accent/5 border border-accent/20 space-y-1">
-            <div className="text-[10px] font-black uppercase tracking-wider text-accent flex items-center gap-1">
+            <div className="t-label font-black uppercase tracking-wider text-accent flex items-center gap-1">
               <TrendingUp size={12} />
               Strategic Verdict
             </div>
@@ -273,7 +273,7 @@ export function PathTo200kCalculator() {
           </div>
 
           <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1">
-            <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1">
+            <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1">
               <ShieldAlert size={12} className="text-gold" />
               Tactical Requirement
             </div>
@@ -285,7 +285,7 @@ export function PathTo200kCalculator() {
       </div>
 
       {/* Footer Insight */}
-      <div className="p-3 bg-paper/60 border-t border-line text-[11px] text-muted flex items-center justify-between px-4 font-semibold">
+      <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
           <Percent size={12} className="text-accent" />
           <span>IEBC Benchmark: Minimum winning threshold is 198,004 – 200,000 valid votes in a 3-way contest.</span>

@@ -15,7 +15,7 @@ export function WardCartogramBlockContent() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">Ward Register — Table Cartogram</h4>
       </div>
-      <p className="text-[11px] text-muted mb-3 leading-relaxed pl-3.5">
+      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
         One tile per ward, clustered by constituency. No ward-boundary map exists in this repository, so this grid —
         not a geographic map — is the cartogram. All 40 wards are itemised (Phase 2 of the provenance system replaced
         the previous 13-of-40 partial register).

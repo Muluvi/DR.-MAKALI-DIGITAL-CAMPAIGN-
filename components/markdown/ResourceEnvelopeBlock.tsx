@@ -29,15 +29,15 @@ export function ResourceEnvelopeBlock() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">FY2026/27 Resource Envelope — KSh13.79bn</h4>
       </div>
-      <p className="text-[11px] text-muted mb-3 leading-relaxed pl-3.5">
+      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
         Split into its three stated components, each carried at the approximate figure the proposal itself gives.
       </p>
-      <div className="h-64 w-full text-[9px]">
+      <div className="h-64 w-full t-micro">
         <LazyMount minHeight={256} className="h-full">
           <ResourceEnvelopeChart data={DATA} />
         </LazyMount>
       </div>
-      <p className="text-[10px] text-muted/80 leading-normal mt-3 italic border-t border-line/40 pt-2 font-medium">
+      <p className="t-label text-muted/80 leading-normal mt-3 italic border-t border-line/40 pt-2 font-medium">
         The three components are each stated as approximate figures ({"“"}roughly{"”"}, {"“"}around{"”"}) and sum to{" "}
         ≈KSh{COMPONENT_SUM.toFixed(2)}bn — about KSh{(COMPONENT_SUM - STATED_TOTAL).toFixed(2)}bn above the stated KSh{STATED_TOTAL}bn total.
         That gap is rounding in the source document, shown here rather than reconciled.

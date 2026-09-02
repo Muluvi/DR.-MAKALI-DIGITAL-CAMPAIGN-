@@ -71,7 +71,7 @@ export function SectionStickyBar() {
               <span className="w-2 h-2 rounded-full bg-accent shrink-0" aria-hidden="true" />
               {/* Responsive section label */}
               <span className="hidden sm:inline text-xs font-bold text-ink truncate max-w-md">{headingText}</span>
-              <span className="sm:hidden text-[11px] font-bold text-ink truncate max-w-[68vw]">{headingText}</span>
+              <span className="sm:hidden t-small font-bold text-ink truncate max-w-[68vw]">{headingText}</span>
             </div>
           </div>
         )}

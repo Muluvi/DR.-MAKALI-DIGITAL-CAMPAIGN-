@@ -131,7 +131,7 @@ export function GeographicZoneMatrix() {
           </div>
           <div>
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Section 7 · Regional dynamics
               </span>
               <TierBadge tier={1} compact />
@@ -164,15 +164,15 @@ export function GeographicZoneMatrix() {
               }`}
             >
               <div className="flex items-center justify-between w-full gap-2">
-                <span className={`text-[10px] font-black uppercase tracking-wider ${isSelected ? "text-accent" : "text-muted"}`}>
+                <span className={`t-label font-black uppercase tracking-wider ${isSelected ? "text-accent" : "text-muted"}`}>
                   {zone.popShare} of population
                 </span>
-                <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-accent/10 text-accent shrink-0">
+                <span className="t-label font-mono font-bold px-1.5 py-0.5 rounded bg-accent/10 text-accent shrink-0">
                   Phase −1: {zone.nominationWeight}%
                 </span>
               </div>
               <div className="text-xs font-bold text-ink truncate">{zone.name}</div>
-              <div className="text-[11px] font-mono text-muted tabular-nums">
+              <div className="t-small font-mono text-muted tabular-nums">
                 {fmt(zr.voters)} registered
               </div>
             </button>
@@ -192,34 +192,34 @@ export function GeographicZoneMatrix() {
           >
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
               <div className="p-3 bg-paper rounded-xl border border-line">
-                <div className="text-[10px] uppercase font-bold text-muted">Population</div>
+                <div className="t-label uppercase font-bold text-muted">Population</div>
                 <div className="text-sm font-bold text-ink mt-0.5 font-mono tabular-nums">{currentZone.population}</div>
-                <div className="text-[10px] text-accent font-semibold">{currentZone.popShare} of county</div>
+                <div className="t-label text-accent font-semibold">{currentZone.popShare} of county</div>
               </div>
 
               <div className="p-3 bg-paper rounded-xl border border-line">
-                <div className="text-[10px] uppercase font-bold text-muted">Registered voters</div>
+                <div className="t-label uppercase font-bold text-muted">Registered voters</div>
                 <div className="text-sm font-bold text-ink mt-0.5 font-mono tabular-nums">{fmt(register.voters)}</div>
-                <div className="text-[10px] text-muted">{shareOfRegister.toFixed(1)}% of the register</div>
+                <div className="t-label text-muted">{shareOfRegister.toFixed(1)}% of the register</div>
               </div>
 
               <div className="p-3 bg-paper rounded-xl border border-line">
-                <div className="text-[10px] uppercase font-bold text-muted">Density</div>
+                <div className="t-label uppercase font-bold text-muted">Density</div>
                 <div className="text-sm font-bold text-ink mt-0.5 font-mono">{currentZone.density}</div>
-                <div className="text-[10px] text-muted tabular-nums">{currentZone.households} households</div>
+                <div className="t-label text-muted tabular-nums">{currentZone.households} households</div>
               </div>
 
               <div className="p-3 bg-accent/5 rounded-xl border border-accent/20">
-                <div className="text-[10px] uppercase font-bold text-accent">Phase −1 weighting</div>
+                <div className="t-label uppercase font-bold text-accent">Phase −1 weighting</div>
                 <div className="text-sm font-black text-accent mt-0.5 font-mono tabular-nums">
                   {currentZone.nominationWeight}%
                 </div>
-                <div className="text-[10px] text-muted font-medium">Phase 3: {currentZone.generalWeight}%</div>
+                <div className="t-label text-muted font-medium">Phase 3: {currentZone.generalWeight}%</div>
               </div>
             </div>
 
             <div className="p-4 rounded-xl bg-paper border border-line space-y-1.5">
-              <div className="text-[10px] font-black uppercase tracking-wider text-accent flex items-center gap-1.5">
+              <div className="t-label font-black uppercase tracking-wider text-accent flex items-center gap-1.5">
                 <TrendingUp size={13} aria-hidden="true" />
                 Zone strategic imperative
               </div>
@@ -228,30 +228,30 @@ export function GeographicZoneMatrix() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
               <div className="p-3.5 rounded-xl bg-paper/60 border border-line space-y-1.5">
-                <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1">
+                <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1">
                   <Radio size={12} className="text-accent" aria-hidden="true" />
                   Connectivity &amp; delivery channels
                 </div>
                 <p className="text-xs text-ink font-medium leading-relaxed">{currentZone.connectivityProfile}</p>
-                <p className="text-[10px] text-muted pt-1">
+                <p className="t-label text-muted pt-1">
                   Sub-counties in this zone: {currentZone.subCounties}
                 </p>
               </div>
 
               <div className="p-3.5 rounded-xl bg-paper/60 border border-line space-y-1.5">
-                <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1">
+                <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1">
                   <MapPin size={12} className="text-accent" aria-hidden="true" />
                   Largest wards by register
                 </div>
                 <ul className="flex flex-col gap-1 mt-1">
                   {register.wards.slice(0, 5).map((w) => (
-                    <li key={`${w.constituency}-${w.name}`} className="flex items-baseline justify-between gap-2 text-[11px]">
+                    <li key={`${w.constituency}-${w.name}`} className="flex items-baseline justify-between gap-2 t-small">
                       <span className="text-ink font-semibold truncate">{w.name}</span>
                       <span className="font-mono text-muted tabular-nums shrink-0">{fmt(w.voters)}</span>
                     </li>
                   ))}
                 </ul>
-                <p className="text-[10px] text-muted pt-1">
+                <p className="t-label text-muted pt-1">
                   {register.constituencies.map((c) => c.name).join(" · ")} — {register.wards.length} wards
                 </p>
               </div>
@@ -261,7 +261,7 @@ export function GeographicZoneMatrix() {
       </div>
 
       <div className="px-4 py-3 bg-paper/60 border-t border-line space-y-2">
-        <p className="text-[11px] text-muted font-medium flex items-start gap-1.5">
+        <p className="t-small text-muted font-medium flex items-start gap-1.5">
           <Percent size={12} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
           <span>
             Phase −1 deliberately over-indexes on Mwingi and the arid belt relative to population share, because the
@@ -271,7 +271,7 @@ export function GeographicZoneMatrix() {
           </span>
         </p>
         {UNASSIGNED.length > 0 && (
-          <p className="text-[11px] text-muted flex items-start gap-1.5">
+          <p className="t-small text-muted flex items-start gap-1.5">
             <AlertTriangle size={12} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
             <span>
               Section 7 groups the county by sub-county; the IEBC register is published by constituency, and the two do

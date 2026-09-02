@@ -23,15 +23,15 @@ export function FiscalAuditPanel() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">Auditor-General FY2023/24 Queries and Pending Bills</h4>
       </div>
-      <p className="text-[11px] text-muted mb-4 leading-relaxed pl-3.5">
+      <p className="t-small text-muted mb-4 leading-relaxed pl-3.5">
         These are queries flagged by the Auditor-General, not settled findings of wrongdoing — the county has a right
         of reply through the normal audit process.
       </p>
 
       <div className="overflow-x-auto">
-        <table className="w-full text-left text-[11px]">
+        <table className="w-full text-left t-small">
           <thead>
-            <tr className="text-[9px] uppercase tracking-wider font-bold text-muted">
+            <tr className="t-micro uppercase tracking-wider font-bold text-muted">
               <th className="py-1 pr-3">Query</th>
               <th className="py-1 pr-3">Amount</th>
               <th className="py-1">Tier</th>

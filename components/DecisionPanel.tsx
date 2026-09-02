@@ -56,7 +56,7 @@ export function DecisionPanel() {
           </h2>
 
           <div className="mt-5 p-4 bg-card border border-accent/30 rounded-2xl">
-            <div className="text-[10px] font-black uppercase tracking-wider text-accent">The recommendation</div>
+            <div className="t-label font-black uppercase tracking-wider text-accent">The recommendation</div>
             <div className="font-serif text-xl font-bold text-ink mt-1">Tier 2 — Standard</div>
             <p className="text-xs text-muted leading-relaxed mt-2">
               Tier 1 concentrates spend where Dr. Mulu is already strong and leaves the recognition
@@ -79,10 +79,10 @@ export function DecisionPanel() {
 
         <div>
           <div className="flex items-baseline justify-between gap-3 mb-4">
-            <h3 className="text-[10px] font-black uppercase tracking-wider text-muted">
+            <h3 className="t-label font-black uppercase tracking-wider text-muted">
               What Firefly needs from the campaign
             </h3>
-            <span className="text-[10px] text-muted font-mono">§21.5</span>
+            <span className="t-label text-muted font-mono">§21.5</span>
           </div>
 
           <ol className="space-y-2.5">
@@ -115,7 +115,7 @@ export function DecisionPanel() {
             })}
           </ol>
 
-          <p className="text-[11px] text-muted leading-relaxed mt-4 pt-4 border-t border-line/60">
+          <p className="t-small text-muted leading-relaxed mt-4 pt-4 border-t border-line/60">
             Items 4, 5 and 6 are the ones that gate everything else. The compliance reviewer is the
             long-lead appointment; the ceiling and the ward register are the two figures this
             document leaves open, and both are the campaign&apos;s to supply.

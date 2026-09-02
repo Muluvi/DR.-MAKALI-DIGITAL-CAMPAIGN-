@@ -47,7 +47,7 @@ export function MarqueeCarousel({ speed = 30 }: { speed?: number }) {
                 {item.icon}
               </div>
               <div className="flex flex-col">
-                <span className="text-[9px] uppercase tracking-wider font-extrabold text-muted leading-none">
+                <span className="t-micro uppercase tracking-wider font-extrabold text-muted leading-none">
                   {item.category}
                 </span>
                 <span className="text-xs font-bold text-ink leading-tight mt-0.5 whitespace-nowrap">
@@ -70,7 +70,7 @@ export function MarqueeCarousel({ speed = 30 }: { speed?: number }) {
                 {item.icon}
               </div>
               <div className="flex flex-col">
-                <span className="text-[9px] uppercase tracking-wider font-extrabold text-muted leading-none">
+                <span className="t-micro uppercase tracking-wider font-extrabold text-muted leading-none">
                   {item.category}
                 </span>
                 <span className="text-xs font-bold text-ink leading-tight mt-0.5 whitespace-nowrap">

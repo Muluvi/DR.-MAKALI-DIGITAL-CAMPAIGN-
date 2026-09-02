@@ -140,7 +140,7 @@ export function AudienceSegmentationMatrix() {
             <Layers size={20} aria-hidden="true" />
           </div>
           <div>
-            <span className="text-[10px] font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+            <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
               Section 7 · Audience architecture
             </span>
             <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-1">Six structural segments</h4>
@@ -161,7 +161,7 @@ export function AudienceSegmentationMatrix() {
               role="tab"
               aria-selected={isActive}
               onClick={() => setActiveId(s.id)}
-              className={`px-3 py-2 rounded-lg text-[11px] font-bold whitespace-nowrap transition-colors cursor-pointer shrink-0 ${
+              className={`px-3 py-2 rounded-lg t-small font-bold whitespace-nowrap transition-colors cursor-pointer shrink-0 ${
                 isActive ? "bg-accent text-white" : "text-muted hover:text-ink hover:bg-ink/5"
               }`}
             >
@@ -198,7 +198,7 @@ export function AudienceSegmentationMatrix() {
               )}
             </div>
             {active.sizing.kind === "gap" && (
-              <p className="text-[11px] text-muted mt-2 flex items-start gap-1.5">
+              <p className="t-small text-muted mt-2 flex items-start gap-1.5">
                 <AlertTriangle size={11} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
                 <span>
                   <strong>Named data gap (§7.3).</strong> {active.sizing.note} Commissioning this is a Phase −1
@@ -210,14 +210,14 @@ export function AudienceSegmentationMatrix() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="p-3.5 rounded-xl bg-paper/60 border border-line">
-              <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1 mb-1.5">
+              <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1 mb-1.5">
                 <Radio size={12} className="text-accent" aria-hidden="true" />
                 Connectivity &amp; media
               </div>
               <p className="text-xs text-ink leading-relaxed">{active.connectivity}</p>
             </div>
             <div className="p-3.5 rounded-xl bg-paper/60 border border-line">
-              <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1 mb-1.5">
+              <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1 mb-1.5">
                 <Users size={12} className="text-accent" aria-hidden="true" />
                 Geographic base
               </div>
@@ -227,13 +227,13 @@ export function AudienceSegmentationMatrix() {
 
           <div className="p-4 rounded-xl bg-paper border border-line space-y-3">
             <div>
-              <div className="text-[10px] font-black uppercase tracking-wider text-rose-600 dark:text-rose-400 mb-1">
+              <div className="t-label font-black uppercase tracking-wider text-rose-600 dark:text-rose-400 mb-1">
                 Core anxiety
               </div>
               <p className="text-xs text-ink leading-relaxed">{active.coreAnxiety}</p>
             </div>
             <div className="pt-3 border-t border-line/50">
-              <div className="text-[10px] font-black uppercase tracking-wider text-accent mb-1">
+              <div className="t-label font-black uppercase tracking-wider text-accent mb-1">
                 Candidate value proposition
               </div>
               <p className="text-xs text-ink leading-relaxed">{active.valueProposition}</p>
@@ -241,13 +241,13 @@ export function AudienceSegmentationMatrix() {
           </div>
 
           <div>
-            <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1 mb-2">
+            <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1 mb-2">
               <MessageSquare size={12} className="text-accent" aria-hidden="true" />
               Reachable channels
             </div>
             <ul className="flex flex-wrap gap-1.5">
               {active.channels.map((c) => (
-                <li key={c} className="text-[11px] px-2.5 py-1 rounded-lg bg-card border border-line text-ink">
+                <li key={c} className="t-small px-2.5 py-1 rounded-lg bg-card border border-line text-ink">
                   {c}
                 </li>
               ))}
@@ -257,7 +257,7 @@ export function AudienceSegmentationMatrix() {
       </AnimatePresence>
 
       <div className="px-4 py-3 bg-paper/60 border-t border-line">
-        <p className="text-[11px] text-muted leading-relaxed">
+        <p className="t-small text-muted leading-relaxed">
           {gapCount} of the 6 segments are unsized in the source and are shown as such. §7.3 catalogues them for
           commissioning in the Phase −1 baseline survey — this document does not estimate past its own evidence.
         </p>

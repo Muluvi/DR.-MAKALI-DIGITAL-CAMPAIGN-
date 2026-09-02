@@ -24,12 +24,12 @@ export function ElectoralTimelineBlockContent() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">Governor-Race Winner by Cycle</h4>
       </div>
-      <p className="text-[11px] text-muted mb-3 leading-relaxed pl-3.5">
+      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
         Two different winners across the two cycles with sourced results. 2013 is drawn as an empty gap, not a zero —
         no sourced winner or vote total was supplied for that cycle.
       </p>
 
-      <div className="w-full text-[9px] mb-4">
+      <div className="w-full t-micro mb-4">
         <LazyMount minHeight={180}>
           <ElectoralTimelineChart data={DATA} />
         </LazyMount>
@@ -37,9 +37,9 @@ export function ElectoralTimelineBlockContent() {
 
       {/* Accessible table equivalent */}
       <div className="overflow-x-auto">
-        <table className="data-table text-left text-[11px]">
+        <table className="data-table text-left t-small">
           <thead>
-            <tr className="text-[9px] uppercase tracking-wider font-bold text-muted">
+            <tr className="t-micro uppercase tracking-wider font-bold text-muted">
               <th className="py-1 pr-3">Year</th>
               <th className="py-1 pr-3">Winner</th>
               <th className="py-1">Votes</th>

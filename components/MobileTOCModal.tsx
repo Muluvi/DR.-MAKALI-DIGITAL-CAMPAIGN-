@@ -82,7 +82,7 @@ export function MobileTOCModal({
                 <h3 className="font-serif text-base sm:text-lg font-bold text-ink leading-tight">
                   Document Table of Contents
                 </h3>
-                <p className="text-[10.5px] sm:text-[11px] text-muted font-medium mt-0.5">
+                <p className="t-label sm:t-small text-muted font-medium mt-0.5">
                   20 Strategic Sections · 6 Architecture Parts
                 </p>
               </div>
@@ -112,7 +112,7 @@ export function MobileTOCModal({
               {searchQuery && (
                 <button 
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] text-muted hover:text-ink px-2 py-1 bg-paper rounded-lg border border-line cursor-pointer"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 t-label text-muted hover:text-ink px-2 py-1 bg-paper rounded-lg border border-line cursor-pointer"
                 >
                   Clear
                 </button>
@@ -120,7 +120,7 @@ export function MobileTOCModal({
             </div>
 
             {/* Filter Pills */}
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none text-[11px] font-bold">
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none t-small font-bold">
               <button
                 onClick={() => setSelectedTabFilter("all")}
                 className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[32px] ${
@@ -172,7 +172,7 @@ export function MobileTOCModal({
                   >
                     <div className="flex items-start gap-2.5 sm:gap-3 min-w-0 pr-2">
                       <div className="w-8 h-8 rounded-lg bg-paper border border-line flex items-center justify-center shrink-0 mt-0.5 text-accent group-hover:border-accent/40 transition-colors">
-                        <span className="font-mono text-[10px] font-black">{item.number}</span>
+                        <span className="font-mono t-label font-black">{item.number}</span>
                       </div>
                       <div className="min-w-0">
                         <div className="flex items-center gap-2">
@@ -180,7 +180,7 @@ export function MobileTOCModal({
                             {item.title}
                           </span>
                         </div>
-                        <div className="flex items-center gap-2 mt-0.5 text-[10px] text-muted">
+                        <div className="flex items-center gap-2 mt-0.5 t-label text-muted">
                           <span className="capitalize font-semibold">{item.tabLabel}</span>
                           {isCurrentTab && (
                             <span className="text-accent font-bold">· (Active Part)</span>
@@ -204,7 +204,7 @@ export function MobileTOCModal({
           </div>
 
           {/* Footer Quick Info */}
-          <div className="p-3 bg-paper/60 border-t border-line flex items-center justify-between text-[11px] text-muted px-4 font-semibold">
+          <div className="p-3 bg-paper/60 border-t border-line flex items-center justify-between t-small text-muted px-4 font-semibold">
             <span className="flex items-center gap-1.5">
               <Sparkles size={12} className="text-accent" />
               <span>Tap any section to jump instantly</span>

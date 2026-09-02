@@ -82,18 +82,18 @@ export function TeamRoster({ children }: { children: React.ReactNode }) {
       {grouped.map((g) => (
         <div key={g.key}>
           <div className="flex items-baseline gap-2 mb-2 pb-1.5 border-b border-line/50">
-            <span className="text-[10px] font-black uppercase tracking-widest text-accent">{g.label}</span>
-            <span className="text-[10px] text-muted">{g.note}</span>
-            <span className="text-[10px] text-muted ml-auto tabular-nums">
+            <span className="t-label font-black uppercase tracking-widest text-accent">{g.label}</span>
+            <span className="t-label text-muted">{g.note}</span>
+            <span className="t-label text-muted ml-auto tabular-nums">
               {g.members.length} {g.members.length === 1 ? "role" : "roles"}
             </span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {g.members.map((m, i) => (
               <div key={i} className="rounded-xl border border-line/60 bg-paper p-3">
-                <div className="text-[12px] font-bold text-ink leading-snug">{m.role}</div>
-                <div className="text-[11px] text-muted leading-relaxed mt-1">{m.responsibility}</div>
-                <div className="text-[9.5px] font-mono text-muted/80 mt-2 pt-2 border-t border-line/40">
+                <div className="t-body font-bold text-ink leading-snug">{m.role}</div>
+                <div className="t-small text-muted leading-relaxed mt-1">{m.responsibility}</div>
+                <div className="t-micro font-mono text-muted/80 mt-2 pt-2 border-t border-line/40">
                   {m.activation}
                 </div>
               </div>

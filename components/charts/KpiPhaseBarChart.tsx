@@ -26,8 +26,8 @@ export default function KpiPhaseBarChart({ rows }: { rows: KpiRow[] }) {
         return (
           <div key={row.label}>
             <div className="flex items-baseline justify-between mb-3">
-              <span className="text-[11px] font-black text-ink uppercase tracking-wide">{row.label}</span>
-              <span className="text-[10px] font-bold text-accent">
+              <span className="t-small font-black text-ink uppercase tracking-wide">{row.label}</span>
+              <span className="t-label font-bold text-accent">
                 {finalPoint.value.toLocaleString()} <span className="text-muted font-semibold normal-case">{row.unit} by {finalPoint.phaseLabel}</span>
               </span>
             </div>
@@ -54,7 +54,7 @@ export default function KpiPhaseBarChart({ rows }: { rows: KpiRow[] }) {
                     title={`${p.phaseLabel}: ${p.value.toLocaleString()} ${row.unit}`}
                   />
                   <span
-                    className="absolute left-1/2 -translate-x-1/2 top-6 text-[8px] font-black whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity bg-card border border-line rounded-md px-1.5 py-0.5 shadow-sm z-10"
+                    className="absolute left-1/2 -translate-x-1/2 top-6 t-micro font-black whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity bg-card border border-line rounded-md px-1.5 py-0.5 shadow-sm z-10"
                     style={{ color: p.color }}
                   >
                     {p.phaseLabel}: {p.value.toLocaleString()}

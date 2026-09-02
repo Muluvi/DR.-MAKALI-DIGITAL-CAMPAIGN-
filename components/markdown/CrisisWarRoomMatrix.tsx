@@ -95,10 +95,10 @@ export function CrisisWarRoomMatrix() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Section 13.0 Protocol
               </span>
-              <span className="text-[10px] font-mono font-bold text-muted">
+              <span className="t-label font-mono font-bold text-muted">
                 Digital War Room
               </span>
             </div>
@@ -109,7 +109,7 @@ export function CrisisWarRoomMatrix() {
         </div>
 
         {/* 3-Tier SLA Pill */}
-        <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold text-muted">
+        <div className="flex items-center gap-1.5 t-label font-mono font-bold text-muted">
           <span className="px-2 py-1 bg-paper border border-line rounded-lg text-emerald-600">L1: 4h</span>
           <span className="px-2 py-1 bg-paper border border-line rounded-lg text-amber-600">L2: 2h</span>
           <span className="px-2 py-1 bg-paper border border-line rounded-lg text-rose-600">L3: 30m</span>
@@ -131,10 +131,10 @@ export function CrisisWarRoomMatrix() {
               }`}
             >
               <div className="flex items-center justify-between w-full">
-                <span className={`text-[10px] font-mono font-black ${isSelected ? "text-accent" : "text-muted"}`}>
+                <span className={`t-label font-mono font-black ${isSelected ? "text-accent" : "text-muted"}`}>
                   {level.level.toUpperCase()}
                 </span>
-                <span className={`text-[9px] font-black uppercase px-1.5 py-0.5 rounded border ${
+                <span className={`t-micro font-black uppercase px-1.5 py-0.5 rounded border ${
                   level.level === "Level 3"
                     ? "bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20"
                     : level.level === "Level 2"
@@ -156,7 +156,7 @@ export function CrisisWarRoomMatrix() {
       <div className="p-4 sm:p-6 space-y-4">
         {/* Trigger Banner */}
         <div className="p-3.5 sm:p-4 rounded-xl bg-paper border border-line space-y-1">
-          <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
+          <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
             <AlertTriangle size={13} className="text-accent" />
             <span>Trigger Scenario & Attack Footprint</span>
           </div>
@@ -168,7 +168,7 @@ export function CrisisWarRoomMatrix() {
         {/* Approval Chain & Scenario */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div className="p-3.5 rounded-xl bg-card border border-line space-y-1">
-            <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1">
+            <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1">
               <Clock size={12} className="text-accent" />
               Sign-Off Authority
             </div>
@@ -178,7 +178,7 @@ export function CrisisWarRoomMatrix() {
           </div>
 
           <div className="p-3.5 rounded-xl bg-card border border-line space-y-1">
-            <div className="text-[10px] font-black uppercase tracking-wider text-muted flex items-center gap-1">
+            <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1">
               <FileText size={12} className="text-accent" />
               Live Simulation Example
             </div>
@@ -190,14 +190,14 @@ export function CrisisWarRoomMatrix() {
 
         {/* Action Protocol Checklist */}
         <div className="p-3.5 rounded-xl bg-paper border border-line space-y-2">
-          <div className="text-[10px] font-black uppercase tracking-wider text-accent flex items-center gap-1">
+          <div className="t-label font-black uppercase tracking-wider text-accent flex items-center gap-1">
             <Layers size={12} />
             Mandatory Rapid Response Action Protocol
           </div>
           <div className="space-y-1.5">
             {currentLevel.actionProtocol.map((act, i) => (
               <div key={i} className="flex items-start gap-2 text-xs text-ink font-medium">
-                <span className="w-4 h-4 rounded-full bg-accent/10 text-accent flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
+                <span className="w-4 h-4 rounded-full bg-accent/10 text-accent flex items-center justify-center t-label font-bold shrink-0 mt-0.5">
                   {i + 1}
                 </span>
                 <span>{act}</span>
@@ -214,14 +214,14 @@ export function CrisisWarRoomMatrix() {
             <Bot size={14} className="text-accent" />
             <span>Quarterly Red-Team Crisis Simulation Drill</span>
           </div>
-          <p className="text-[11px] text-muted">
+          <p className="t-small text-muted">
             Simulate an unannounced deepfake attack to test the 30-minute sign-off clock.
           </p>
         </div>
 
         <div className="flex items-center gap-2">
           {drillCompleted && (
-            <span className="text-[11px] font-bold text-emerald-600 flex items-center gap-1">
+            <span className="t-small font-bold text-emerald-600 flex items-center gap-1">
               <CheckCircle2 size={12} /> Target SLA met: 18m response logged!
             </span>
           )}
@@ -238,7 +238,7 @@ export function CrisisWarRoomMatrix() {
       </div>
 
       {/* Footer Rule */}
-      <div className="p-3 bg-paper/60 border-t border-line text-[11px] text-muted flex items-center justify-between px-4 font-semibold">
+      <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
           <ShieldAlert size={12} className="text-accent" />
           <span>Section 13.7 Red-Team Standard: By Phase 2, 90% of drill responses must beat their severity-level time target.</span>

@@ -17,15 +17,15 @@ export function DataGapsRegister() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">Data Gaps Register</h4>
       </div>
-      <p className="text-[11px] text-muted mb-4 leading-relaxed pl-3.5">
+      <p className="t-small text-muted mb-4 leading-relaxed pl-3.5">
         {DATA_GAPS.length} tracked gaps. Every figure in this document that could not be completed is named here
         rather than filled in — this table is the acquisition plan, not a disclaimer.
       </p>
 
       <div className="overflow-x-auto">
-        <table className="w-full text-left text-[11px]">
+        <table className="w-full text-left t-small">
           <thead>
-            <tr className="text-[9px] uppercase tracking-wider font-bold text-muted">
+            <tr className="t-micro uppercase tracking-wider font-bold text-muted">
               <th className="py-1 pr-3">Dataset</th>
               <th className="py-1 pr-3">Why it matters</th>
               <th className="py-1">Acquisition route</th>
@@ -37,7 +37,7 @@ export function DataGapsRegister() {
                 <td className="py-2 pr-3 font-bold text-ink whitespace-nowrap">{g.dataset}</td>
                 <td className="py-2 pr-3 text-ink/75 leading-relaxed">{g.whyItMatters}</td>
                 <td className="py-2">
-                  <span className={`inline-block px-2 py-0.5 rounded-full border text-[9px] font-black uppercase tracking-wider whitespace-nowrap ${ROUTE_STYLE[g.acquisitionRoute]}`}>
+                  <span className={`inline-block px-2 py-0.5 rounded-full border t-micro font-black uppercase tracking-wider whitespace-nowrap ${ROUTE_STYLE[g.acquisitionRoute]}`}>
                     {g.acquisitionRoute}
                   </span>
                 </td>

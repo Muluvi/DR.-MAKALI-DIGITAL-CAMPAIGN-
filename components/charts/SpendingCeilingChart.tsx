@@ -48,8 +48,8 @@ export default function SpendingCeilingChart({ data, ceiling }: { data: TierBand
         return (
           <div key={t.name}>
             <div className="flex items-baseline justify-between gap-3 mb-1">
-              <span className="text-[11px] font-bold text-ink">{t.name}</span>
-              <span className="font-mono text-[10px] text-muted tabular-nums">{t.display}</span>
+              <span className="t-small font-bold text-ink">{t.name}</span>
+              <span className="font-mono t-label text-muted tabular-nums">{t.display}</span>
             </div>
 
             <div
@@ -85,7 +85,7 @@ export default function SpendingCeilingChart({ data, ceiling }: { data: TierBand
             {/* The low end is labelled beneath where the band actually begins; at the container's
                 left edge it reads as an axis origin instead. On a phone the two labels would
                 collide once the band sits far enough right, so the headroom drops to its own line. */}
-            <div className="relative mt-0.5 h-3.5 text-[9.5px] font-mono text-muted tabular-nums">
+            <div className="relative mt-0.5 h-3.5 t-micro font-mono text-muted tabular-nums">
               <span className="absolute whitespace-nowrap" style={{ left: `${pct(low)}%` }}>
                 KSh {fmtM(low)}
               </span>
@@ -93,14 +93,14 @@ export default function SpendingCeilingChart({ data, ceiling }: { data: TierBand
                 {headroomText}
               </span>
             </div>
-            <div className={`sm:hidden text-right text-[9.5px] font-mono tabular-nums ${headroomClass}`}>
+            <div className={`sm:hidden text-right t-micro font-mono tabular-nums ${headroomClass}`}>
               {headroomText}
             </div>
           </div>
         );
       })}
 
-      <div className="flex items-center gap-2 pt-1 text-[10px] text-muted">
+      <div className="flex items-center gap-2 pt-1 t-label text-muted">
         <span className="w-[2.5px] h-3.5 bg-danger rounded-full shrink-0" aria-hidden="true" />
         <span>
           Statutory county ceiling, <span className="font-mono tabular-nums">KSh {fmtM(ceiling)}</span> — shared

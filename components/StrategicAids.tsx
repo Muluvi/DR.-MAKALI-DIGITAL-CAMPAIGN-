@@ -50,14 +50,14 @@ export function AudioSummaryPlayer() {
         </div>
         <div>
           <h4 className="font-serif text-sm font-extrabold text-ink leading-tight">Governor&apos;s Strategy Brief</h4>
-          <span className="text-[10px] uppercase tracking-widest font-bold text-accent">Bilingual Campaign Audio Player</span>
+          <span className="t-label uppercase tracking-widest font-bold text-accent">Bilingual Campaign Audio Player</span>
         </div>
       </div>
 
       <div className="mt-4 flex gap-2">
         <button
           onClick={() => setLanguage("en")}
-          className={`flex-1 text-[11px] font-bold py-1.5 rounded-lg border transition-all ${
+          className={`flex-1 t-small font-bold py-1.5 rounded-lg border transition-all ${
             language === "en" ? "bg-accent text-white border-accent" : "bg-card text-muted border-line"
           }`}
         >
@@ -65,7 +65,7 @@ export function AudioSummaryPlayer() {
         </button>
         <button
           onClick={() => setLanguage("kik")}
-          className={`flex-1 text-[11px] font-bold py-1.5 rounded-lg border transition-all ${
+          className={`flex-1 t-small font-bold py-1.5 rounded-lg border transition-all ${
             language === "kik" ? "bg-gold text-white border-gold" : "bg-card text-muted border-line"
           }`}
         >
@@ -108,7 +108,7 @@ export function AudioSummaryPlayer() {
               style={{ width: `${progress}%` }}
             />
           </div>
-          <div className="flex justify-between items-center text-[9px] font-bold text-muted mt-1.5 uppercase">
+          <div className="flex justify-between items-center t-micro font-bold text-muted mt-1.5 uppercase">
             <span>{language === "en" ? "0:12" : "0:19"} / 2:30</span>
             <span className="text-accent font-semibold">Vernacular Radio Audio Feed</span>
           </div>
@@ -138,7 +138,7 @@ export function FocusModeToggle({
         </div>
         <div>
           <h4 className="text-xs font-extrabold text-ink leading-tight">Campaign Focus Mode</h4>
-          <p className="text-[10px] text-muted">Collapse visual aids to focus solely on campaign strategy text.</p>
+          <p className="t-label text-muted">Collapse visual aids to focus solely on campaign strategy text.</p>
         </div>
       </div>
       <button
@@ -168,23 +168,23 @@ export function FlywheelSchematic() {
         <svg className="w-full h-full max-w-xs overflow-visible" viewBox="0 0 300 120">
           {/* Box 1 */}
           <rect x="10" y="40" width="70" height="40" rx="6" className="fill-card stroke-accent stroke-[1.5]" />
-          <text x="45" y="64" textAnchor="middle" className="fill-ink font-serif text-[8px] font-black">OFFLINE SMS</text>
+          <text x="45" y="64" textAnchor="middle" className="fill-ink font-serif t-micro font-black">OFFLINE SMS</text>
           
           {/* Flow Arrow 1 */}
           <path d="M 80 60 L 110 60" stroke="var(--color-accent)" strokeWidth="2" strokeDasharray="3 3" />
           
           {/* Box 2 */}
           <rect x="115" y="40" width="70" height="40" rx="6" className="fill-card stroke-gold stroke-[1.5]" />
-          <text x="150" y="64" textAnchor="middle" className="fill-ink font-serif text-[8px] font-black">CLOUD SYNC</text>
+          <text x="150" y="64" textAnchor="middle" className="fill-ink font-serif t-micro font-black">CLOUD SYNC</text>
           
           {/* Flow Arrow 2 */}
           <path d="M 185 60 L 215 60" stroke="var(--color-gold)" strokeWidth="2" strokeDasharray="3 3" />
           
           {/* Box 3 */}
           <rect x="220" y="40" width="70" height="40" rx="6" className="fill-card stroke-accent stroke-[1.5]" />
-          <text x="255" y="64" textAnchor="middle" className="fill-ink font-serif text-[8px] font-black">SECRETARIAT</text>
+          <text x="255" y="64" textAnchor="middle" className="fill-ink font-serif t-micro font-black">SECRETARIAT</text>
         </svg>
-        <span className="absolute bottom-2 right-3 text-[9px] font-extrabold text-muted uppercase tracking-wider flex items-center gap-1">
+        <span className="absolute bottom-2 right-3 t-micro font-extrabold text-muted uppercase tracking-wider flex items-center gap-1">
           <RefreshCw size={10} aria-hidden="true" /> Proposed synchronisation loop
         </span>
       </div>
@@ -213,7 +213,7 @@ export function MessagingPlayground() {
           <button
             key={l}
             onClick={() => setLang(l as "en" | "kik" | "sw")}
-            className={`flex-1 text-[10px] font-black uppercase py-1.5 rounded-lg border transition-all cursor-pointer ${
+            className={`flex-1 t-label font-black uppercase py-1.5 rounded-lg border transition-all cursor-pointer ${
               lang === l ? "bg-accent border-accent text-white" : "bg-paper border-line text-muted"
             }`}
           >
@@ -223,7 +223,7 @@ export function MessagingPlayground() {
       </div>
 
       <div className="p-4 bg-paper border border-line rounded-xl">
-        <span className="text-[9px] font-black text-accent uppercase tracking-widest leading-none">Aligned Brand Slogan</span>
+        <span className="t-micro font-black text-accent uppercase tracking-widest leading-none">Aligned Brand Slogan</span>
         <h5 className="font-serif text-sm font-black text-ink mt-0.5">{messages[lang].slogan}</h5>
         <p className="text-xs text-muted/90 mt-1.5 leading-relaxed">{messages[lang].copy}</p>
       </div>
@@ -240,7 +240,7 @@ export function RadioAircoverDial() {
       </div>
       <div>
         <h4 className="text-xs font-bold text-ink leading-tight">Interactive FM Broadcasters Sync</h4>
-        <p className="text-[10px] text-muted mt-1 leading-snug">
+        <p className="t-label text-muted mt-1 leading-snug">
           Syndicated audio broadcast network schedules cover 85% of Kitui&apos;s offline districts.
         </p>
       </div>
@@ -255,14 +255,14 @@ export function CounterMessagingGrid() {
       <h4 className="font-serif text-sm font-bold text-ink">Opposition Counter-Narrative Matrix</h4>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="p-4 bg-red-500/[0.03] border border-red-500/20 rounded-xl">
-          <span className="text-[9px] uppercase tracking-widest font-black text-red-600">Opposition Claim</span>
-          <p className="text-[11px] text-muted mt-1.5 leading-relaxed">
+          <span className="t-micro uppercase tracking-widest font-black text-red-600">Opposition Claim</span>
+          <p className="t-small text-muted mt-1.5 leading-relaxed">
             &ldquo;Wiper&apos;s offline model fails to match digitized investment and high-tech corporate frameworks.&rdquo;
           </p>
         </div>
         <div className="p-4 bg-accent/[0.03] border border-accent/20 rounded-xl">
-          <span className="text-[9px] uppercase tracking-widest font-black text-accent">Wiper Talking Point</span>
-          <p className="text-[11px] text-muted mt-1.5 leading-relaxed">
+          <span className="t-micro uppercase tracking-widest font-black text-accent">Wiper Talking Point</span>
+          <p className="t-small text-muted mt-1.5 leading-relaxed">
             &ldquo;We integrate offline SMS syncing with modern cloud systems, respecting Kitui&apos;s 86% offline population.&rdquo;
           </p>
         </div>
@@ -286,13 +286,13 @@ export function MediaPlaybackMockup() {
         >
           {playing ? <Pause size={20} /> : <Play size={20} className="ml-0.5" />}
         </button>
-        <span className="absolute bottom-2 left-3 text-[9px] font-black uppercase text-accent bg-card px-2 py-0.5 rounded border border-line">
+        <span className="absolute bottom-2 left-3 t-micro font-black uppercase text-accent bg-card px-2 py-0.5 rounded border border-line">
           Vernacular Radio Broadcast Player
         </span>
       </div>
       <div className="mt-3 flex justify-between items-center text-xs font-bold text-ink">
         <span>Kikamba Radio Commercial Spot</span>
-        <span className="text-accent text-[10px] font-black uppercase tracking-wider">0:45 Sec Broadcast</span>
+        <span className="text-accent t-label font-black uppercase tracking-wider">0:45 Sec Broadcast</span>
       </div>
     </div>
   );
@@ -344,7 +344,7 @@ export function ToneVoiceSlider() {
 
       <div className="space-y-4">
         <div>
-          <div className="flex justify-between items-center text-muted text-[10px] uppercase font-black mb-2">
+          <div className="flex justify-between items-center text-muted t-label uppercase font-black mb-2">
             <span>Authoritative Technical</span>
             <span>Empathetic Grassroots</span>
           </div>
@@ -358,7 +358,7 @@ export function ToneVoiceSlider() {
               className="w-full accent-accent h-2 bg-line/60 rounded-full cursor-pointer appearance-none"
             />
           </div>
-          <div className="flex justify-between text-[9px] font-bold text-muted/80 mt-1.5">
+          <div className="flex justify-between t-micro font-bold text-muted/80 mt-1.5">
             <span>0% Technical</span>
             <span className="font-black text-accent">{sliderVal}% Grassroots Weight</span>
             <span>100% Grassroots</span>
@@ -373,22 +373,22 @@ export function ToneVoiceSlider() {
           className="p-4 bg-paper border border-line rounded-xl space-y-3"
         >
           <div>
-            <span className="text-[9px] uppercase tracking-widest font-black text-muted">Active Slogan Archetype</span>
+            <span className="t-micro uppercase tracking-widest font-black text-muted">Active Slogan Archetype</span>
             <h5 className={`font-serif text-xs font-black ${tone.accent} mt-0.5`}>{tone.type}</h5>
           </div>
 
           <div className="space-y-2">
             <div>
-              <span className="text-[8px] uppercase tracking-wider font-extrabold text-muted">English Guideline</span>
+              <span className="t-micro uppercase tracking-wider font-extrabold text-muted">English Guideline</span>
               <p className="text-xs text-ink font-medium leading-relaxed italic">&ldquo;{tone.sloganEnglish}&rdquo;</p>
             </div>
             <div>
-              <span className="text-[8px] uppercase tracking-wider font-extrabold text-muted">Kikamba Slogan Variant</span>
+              <span className="t-micro uppercase tracking-wider font-extrabold text-muted">Kikamba Slogan Variant</span>
               <p className="text-xs text-ink/90 font-medium leading-relaxed italic">&ldquo;{tone.sloganKikamba}&rdquo;</p>
             </div>
             <div className="pt-2 border-t border-line/40">
-              <span className="text-[8px] uppercase tracking-wider font-extrabold text-muted block mb-0.5">Campaign Focus Elements</span>
-              <p className="text-[10px] text-muted leading-relaxed font-bold">{tone.focus}</p>
+              <span className="t-micro uppercase tracking-wider font-extrabold text-muted block mb-0.5">Campaign Focus Elements</span>
+              <p className="t-label text-muted leading-relaxed font-bold">{tone.focus}</p>
             </div>
           </div>
         </motion.div>
@@ -420,7 +420,7 @@ export function SloganBuilder() {
             <button
               key={pill}
               onClick={() => handleToggle(pill)}
-              className={`text-[10px] font-extrabold uppercase py-1 px-2.5 rounded-full border transition-all cursor-pointer ${
+              className={`t-label font-extrabold uppercase py-1 px-2.5 rounded-full border transition-all cursor-pointer ${
                 isSelected ? "bg-gold border-gold text-white" : "bg-paper border-line text-muted hover:border-gold/30"
               }`}
             >
@@ -432,7 +432,7 @@ export function SloganBuilder() {
 
       <div className="p-4 bg-paper border border-line rounded-xl flex items-center justify-between">
         <div>
-          <span className="text-[9px] uppercase tracking-wider font-extrabold text-muted">Generated Tagline</span>
+          <span className="t-micro uppercase tracking-wider font-extrabold text-muted">Generated Tagline</span>
           <p className="font-serif text-sm font-black text-ink mt-0.5 leading-none">
             {selectedPillars.length > 0 ? selectedPillars.join(" · ") : "Select Campaign Pillars"}
           </p>
@@ -454,13 +454,13 @@ export function SMSFeedbackVisualizer() {
     <div className="bg-card border border-line rounded-2xl p-5 shadow-sm my-6 space-y-3">
       <div className="flex items-center justify-between mb-2">
         <h4 className="font-serif text-sm font-bold text-ink">Grassroots USSD Message Feed</h4>
-        <span className="text-[9px] font-black text-gold bg-gold/10 border border-gold/20 px-2 py-0.5 rounded uppercase">Verified Ingestion Feed</span>
+        <span className="t-micro font-black text-gold bg-gold/10 border border-gold/20 px-2 py-0.5 rounded uppercase">Verified Ingestion Feed</span>
       </div>
       
       <div className="space-y-3">
         {logs.map((log, idx) => (
           <div key={idx} className="p-3 bg-paper border border-line rounded-xl">
-            <div className="flex justify-between text-[10px] font-extrabold text-muted mb-1.5 uppercase">
+            <div className="flex justify-between t-label font-extrabold text-muted mb-1.5 uppercase">
               <span>{log.sender}</span>
               <span>{log.time}</span>
             </div>
@@ -490,7 +490,7 @@ export function CommunityScheduler() {
             </div>
             <div>
               <h5 className="font-serif text-xs font-black text-ink leading-tight">{ev.title}</h5>
-              <div className="flex flex-wrap gap-x-3 gap-y-1 text-[10px] font-extrabold text-muted mt-1 uppercase">
+              <div className="flex flex-wrap gap-x-3 gap-y-1 t-label font-extrabold text-muted mt-1 uppercase">
                 <span>{ev.date}</span>
                 <span>{ev.time}</span>
                 <span className="text-accent">{ev.location}</span>
@@ -539,7 +539,7 @@ export function PrintReportGenerator() {
         </div>
         <div>
           <h4 className="text-xs font-extrabold text-ink leading-tight">Print PDF Briefing Kit</h4>
-          <p className="text-[10px] text-muted">Format the strategy portal for clean legal printing briefs.</p>
+          <p className="t-label text-muted">Format the strategy portal for clean legal printing briefs.</p>
         </div>
       </div>
       <button

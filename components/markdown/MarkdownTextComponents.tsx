@@ -7,7 +7,7 @@ import type { TabId } from "../../lib/heading-slug";
 
 export function MarkdownParagraph({ children, tabId }: { children?: React.ReactNode; tabId?: TabId }) {
   return (
-    <p className="text-[14.5px] sm:text-[15.5px] text-ink/90 leading-[1.7] my-3 sm:my-4.5 text-pretty max-w-none lg:max-w-[72ch]">
+    <p className="t-lead sm:t-lead text-ink/90 leading-[1.7] my-3 sm:my-4.5 text-pretty max-w-none lg:max-w-[72ch]">
       {React.Children.map(children, (child) => {
         if (typeof child === "string") return <HighlightedText text={child} tabId={tabId} />;
         return child;
@@ -41,7 +41,7 @@ export function MarkdownListItem({
   }
 
   return (
-    <li className="flex items-start gap-2 my-2 sm:my-2.5 text-[14px] sm:text-[15px] text-ink/90 list-none">
+    <li className="flex items-start gap-2 my-2 sm:my-2.5 t-lead sm:t-lead text-ink/90 list-none">
       <span className="mt-1 text-accent shrink-0">
         <CheckCircle2 size={14} className="stroke-[2.5]" />
       </span>
