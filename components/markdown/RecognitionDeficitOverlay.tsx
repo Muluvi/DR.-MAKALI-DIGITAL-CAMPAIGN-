@@ -193,7 +193,7 @@ export function RecognitionDeficitOverlay() {
           <AlertTriangle size={12} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
           <span>
             Recognition status here is <strong>structural</strong> — derived from where Dr. Mulu has held office, not
-            from any survey. No ward-level poll of this race exists; §6A.3 lists ward-level recognition data as a named
+            from any survey. No ward-level poll of this race exists; §6.6 lists ward-level recognition data as a named
             Tier 1 gap, and commissioning it is a Phase −1 research priority.
           </span>
         </p>

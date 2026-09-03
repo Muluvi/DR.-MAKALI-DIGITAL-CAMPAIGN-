@@ -381,7 +381,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
                 onClick={() => setIsTOCModalOpen(true)}
                 className="px-3 py-1.5 rounded-xl bg-accent text-white text-xs font-bold shrink-0 flex items-center gap-1.5 shadow-sm shadow-accent/20 cursor-pointer"
               >
-                <span>Full Index (26 Secs)</span>
+                <span>Full Index (39 Secs)</span>
               </button>
               <button
                 onClick={() => navigateToSection("exec-sec-4-3")}
@@ -390,19 +390,19 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
                 200k Target Math
               </button>
               <button
-                onClick={() => navigateToSection("programme-sec-6")}
+                onClick={() => navigateToSection("programme-sec-19")}
                 className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
               >
                 40 Wards Register
               </button>
               <button
-                onClick={() => navigateToSection("programme-sec-9b")}
+                onClick={() => navigateToSection("programme-sec-22-14")}
                 className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
               >
                 Kikamba Radio
               </button>
               <button
-                onClick={() => navigateToSection("programme-sec-8b")}
+                onClick={() => navigateToSection("programme-sec-21-14")}
                 className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
               >
                 ECFA Compliance

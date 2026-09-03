@@ -28,15 +28,15 @@ export const TAB_LABELS: Record<TabId, string> = {
   registers: "Registers",
 };
 
-// Cross-references the proposal's own prose makes by section number ("Section 19B", "Section 9B",
-// "Section 17A"). These all resolve into the programme document, which now carries the whole
-// §5-§23 sequence in one place. The analysis document uses its own §1-§20 numbering for the same
-// subject matter at greater depth; where a number exists in both, a bare "Section N" reference in
-// the prose means the programme's.
+// Cross-references the proposal's own prose makes by section number ("Section 22.14", "Section
+// 29.1", "Section 31.1", "Section 31.7") into the programme document, from either of the other two
+// documents. Numbering is unified and globally unique across all three documents as of the 2026
+// restructure, so each key here is unambiguous regardless of which document it's read from.
 export const SECTION_TAB_MAP: Record<string, TabId> = {
-  "9B": "programme",
-  "17A": "programme",
-  "19B": "programme",
+  "22.14": "programme",
+  "29.1": "programme",
+  "31.1": "programme",
+  "31.7": "programme",
 };
 
 // Deep links minted before the six-tab merge. The section slugs are unchanged — only the tab

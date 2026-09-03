@@ -194,10 +194,10 @@ const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
 // section. Every key below now resolves to a heading that exists; a build-time check would be
 // the next step if this map grows again.
 const HEADING_INSERTS: Record<string, React.ReactNode> = {
-  // ---- The Analysis (exec.md, §1–§20) -------------------------------------------------
+  // ---- The Analysis (exec.md, §1–§17 after the 2026 restructure) ----------------------
   "exec-sec-1-1": <PollingTrajectorySimulator />,
-  "exec-sec-1a": <NominationPathPanel />,
-  // The core narrative is §3 now, ahead of the strategic context — its thesis opens the argument.
+  "exec-sec-2": <NominationPathPanel />,
+  // The core narrative is §3, ahead of the strategic context — its thesis opens the argument.
   "exec-sec-3": <EconomistGovernorThesis />,
   "exec-sec-4-2": (
     <>
@@ -235,8 +235,8 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "exec-sec-4-8": <DroughtFoodSecurityPanel />,
   "exec-sec-4-9": <MuiBasinPanel />,
   "exec-sec-4-10": <CompetitorFieldPanel />,
-  "exec-sec-6a": <PathTo200kCalculator />,
-  "exec-sec-6a-2": <RecognitionDeficitOverlay />,
+  "exec-sec-6-3": <PathTo200kCalculator />,
+  "exec-sec-6-5": <RecognitionDeficitOverlay />,
   "exec-sec-7": <AudienceSegmentationMatrix />,
   // §9 splits the electorate into a connected minority and an offline majority. The showcase is
   // that argument as an object: one handset, the campaign on all seven channels, ending on the
@@ -248,58 +248,61 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
       <ToneVoiceSlider />
     </>
   ),
-  "exec-sec-14-4": <CommunityScheduler />,
-  "exec-sec-15": <CounterMessagingGrid />,
-  // §17.1 is the ownership/alignment/tier table this chart plots. It had been keyed to a
-  // §17A.7 heading that stopped existing when strategy and tactics were split, so the chart
-  // was rendering nowhere.
-  "exec-sec-17-1": <MediaOwnershipBlock />,
+  "exec-sec-13-9": <CommunityScheduler />,
+  "exec-sec-14": <CounterMessagingGrid />,
+  // The ownership/alignment/tier table this chart plots, now §15.6 after paid and earned
+  // media were folded into one section.
+  "exec-sec-15-6": <MediaOwnershipBlock />,
 
-  // ---- The Programme (programme.md, §5–§23) -------------------------------------------
-  "programme-sec-21": (
-    <SectionPortrait id="seated-grey-cropped" kicker="Execution &amp; workflow — §21" flip>
+  // ---- The Programme (programme.md, §18–§33 after the 2026 restructure) ---------------
+  "programme-sec-33": (
+    <SectionPortrait id="seated-grey-cropped" kicker="Execution &amp; workflow — §33" flip>
       Firefly reports to a single named campaign-side counterpart.
     </SectionPortrait>
   ),
-  "programme-sec-5": <StrategicPillarsMatrix />,
-  "programme-sec-7": <GeographicZoneMatrix />,
-  "programme-sec-8a": <CampaignOrgChart />,
-  "programme-sec-8b-5": <BudgetScenarioModeler />,
-  "programme-sec-8b-7": <ComplianceCeilingPanel />,
-  "programme-sec-9a": <FlywheelSchematic />,
-  "programme-sec-9b": (
+  "programme-sec-18": <StrategicPillarsMatrix />,
+  "programme-sec-20": <GeographicZoneMatrix />,
+  "programme-sec-21-7": <CampaignOrgChart />,
+  "programme-sec-21-19": <BudgetScenarioModeler />,
+  "programme-sec-21-21": <ComplianceCeilingPanel />,
+  "programme-sec-22-8": <FlywheelSchematic />,
+  "programme-sec-22-14": (
     <>
       <ReachSplit />
       <SMSFeedbackVisualizer />
     </>
   ),
-  "programme-sec-10": <PersuasionFramingMatrix />,
-  "programme-sec-13": <CrisisWarRoomMatrix />,
-  "programme-sec-16": <DataSecurityEthicsCharter />,
-  "programme-sec-17": <MediaPlaybackMockup />,
-  "programme-sec-17a": (
+  "programme-sec-23": <PersuasionFramingMatrix />,
+  "programme-sec-26": <CrisisWarRoomMatrix />,
+  "programme-sec-28": <DataSecurityEthicsCharter />,
+  "programme-sec-29": <MediaPlaybackMockup />,
+  "programme-sec-29-1": (
     <>
       <MediaRadioLandscapeCard />
       <RadioAircoverDial />
     </>
   ),
-  "programme-sec-19": <SloganBuilder />,
-  "programme-sec-19b": <PublicServiceDeliveryTracker />,
-  "programme-sec-20": (
+  "programme-sec-31": <SloganBuilder />,
+  "programme-sec-31-7": <PublicServiceDeliveryTracker />,
+  "programme-sec-32": (
     <>
       <PhaseRail />
       <KpiPhaseBlock />
     </>
   ),
+
+  // ---- Registers (registers.md, §34–§39 after the 2026 restructure) -------------------
+  // "Appendix C: Data Gaps Register" used to carry no leading digit, so headingSlug never
+  // assigned it an id — it's now numbered §39.2 like every other former appendix letter, so
+  // it gets a normal id instead of the text-match fallback below.
+  "registers-sec-39-2": <DataGapsRegister />,
 };
 
-
-// A handful of headings (the "Appendix A/B/C" style) carry no leading digit, so headingSlug
-// never assigns them an id — matched on exact heading text instead, same mechanism as
-// PLACEHOLDER_PATTERN and GOVERNING_REALITY_TRIGGERS above.
-const HEADING_TEXT_INSERTS: Record<string, React.ReactNode> = {
-  "Appendix C: Data Gaps Register": <DataGapsRegister />,
-};
+// A handful of headings still carry no leading digit (unnumbered platform names, phase
+// labels), so headingSlug never assigns them an id — matched on exact heading text instead,
+// same mechanism as PLACEHOLDER_PATTERN and GOVERNING_REALITY_TRIGGERS above. Currently empty:
+// nothing in the document needs this fallback after the 2026 restructure.
+const HEADING_TEXT_INSERTS: Record<string, React.ReactNode> = {};
 
 // Markdown parsing runs here on the server at render time, so react-markdown
 // and its remark/rehype plugins never ship to the client bundle.
@@ -512,7 +515,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
 
         {/* The ask closes the document, inside the prose flow. It used to sit in the footer
             chrome below a rule, next to the print widget — which framed a vendor's closing
-            request as one more piece of page tooling. §21-23 build to it; it belongs there. */}
+            request as one more piece of page tooling. §33 builds to it; it belongs there. */}
         {tabId === "programme" && <DecisionPanel />}
       </div>
     </div>

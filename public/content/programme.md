@@ -1,37 +1,37 @@
-## 5. Strategic Communication Pillars
+## 18. Strategic Communication Pillars
 
 Four pillars, extended from the original three.
 
-### 5.1 Fiscal Accountability & Devolution
+### 18.1 Fiscal Accountability & Devolution
 Translate Dr. Mulu's parliamentary advocacy for equitable resource distribution
 into a clear, actionable manifesto for Kitui's 40 wards. Content will show,
 line by line, how the county's KSh13.79 billion should be allocated and
 audited — using his economics background to give voters confidence their money
 will be managed well.
 
-### 5.2 Data-Driven Civic Engagement
+### 18.2 Data-Driven Civic Engagement
 Infographic analyses breaking down Dr. Mulu's track record — including
 NG-CDF-funded projects in Kitui Central — so voters can visualise impact.
 Complex budget documents converted into simple charts, ward-level maps, and
 before-and-after comparisons.
 
-### 5.3 Policy-to-People Translation
+### 18.3 Policy-to-People Translation
 Convert dense policy topics — climate investment in water infrastructure,
 agricultural revitalisation — into relatable, vernacular-friendly content. A
 90-second video, a Kikamba voice note, or a shareable card makes every policy
 tangible and personal.
 
-### 5.4 Verification and Follow-Through *(new)*
+### 18.4 Verification and Follow-Through *(new)*
 The pillar that distinguishes Dr. Mulu from every rival: **publishing what was
 promised, then publishing whether it happened.** Operationalised through the
-public service-delivery tracker (Section 19B), the quarterly evidence cadence
-in Section 14, and the transparent ad-spend disclosure in the Digital Ethics &
-Data Charter (Section 16.4). An M&E specialist who campaigns without a
+public service-delivery tracker (Section 31.7), the quarterly evidence cadence
+in Section 27, and the transparent ad-spend disclosure in the Digital Ethics &
+Data Charter (Section 28.4). An M&E specialist who campaigns without a
 verification mechanism is wasting his strongest asset.
 
 ---
 
-## 6. Target Audiences, Voter Segments & Messaging Framework
+## 19. Target Audiences, Voter Segments & Messaging Framework
 
 Messaging is tailored to distinct economic realities, geographic interests and
 demographic priorities across Kitui County's eight constituencies and 40 wards.
@@ -41,7 +41,7 @@ interest, geography, life stage and issue salience only**. It is never by
 ethnicity, clan or religious affiliation. Cultural and linguistic localisation —
 Kikamba content, local idiom, proverbs, cultural imagery — is a matter of
 respect and reach and stays. Identity-based wedge targeting does not, is
-excluded by the Digital Ethics & Data Charter (Section 16.4), and is a
+excluded by the Digital Ethics & Data Charter (Section 28.4), and is a
 documented driver of election-period tension in Kenya. This is a live risk in
 the 2027 cycle, not a theoretical one: EU-funded analysis of the 2025 digital
 ecosystem identified coordinated cross-platform operations explicitly
@@ -55,7 +55,7 @@ weaponising ethnicity.
 | **Women's Cooperatives & Table-Banking Groups** | CBOs and merry-go-rounds across all 40 wards; 587,151 women in 262,942 households | Domestic water proximity; maternal and household healthcare; market linkages for honey, mangoes, legumes; **poultry income (90%+ of households)** | **Message:** "Dignity at the Household Level." Reducing the distance walked for water; dedicated county empowerment revolving funds.<br>**Channels:** Church and cooperative networks, grassroots women leaders, **Kikamba voice notes**, WhatsApp, SMS |
 | **Diaspora Kitui Voters** | Nairobi, Mombasa and abroad; high out-migration from Kitui Central, Mutomo, Mwingi Central | Investment opportunities; transparent county budgeting; remittance links; home-county pride | **Message:** "Your Investment, Your County." **Newly actionable: IEBC is expanding diaspora voter registration from 12 to 26 countries.**<br>**Channels:** Facebook, X, YouTube, WhatsApp, LinkedIn, diaspora webinars |
 | **First-Time Voters** | 18–22; secondary and early tertiary | Hope, change, youth inclusion, digital opportunity, accountability | **Message:** "A New Kind of Leader." Integrity, economic expertise, youth digital empowerment.<br>**Channels:** TikTok, Instagram, WhatsApp, short-form video |
-| **Offline Majority** *(new segment)* | Any ward with low connectivity; older voters; the ~86% outside internet use | The same priorities as above — but reached by no digital channel currently in the plan | **Message:** identical policy substance, adapted to 160 characters and to audio.<br>**Channels:** **SMS, USSD, radio, mobile-money agent networks, printed QR-linked materials** (Section 9B) |
+| **Offline Majority** *(new segment)* | Any ward with low connectivity; older voters; the ~86% outside internet use | The same priorities as above — but reached by no digital channel currently in the plan | **Message:** identical policy substance, adapted to 160 characters and to audio.<br>**Channels:** **SMS, USSD, radio, mobile-money agent networks, printed QR-linked materials** (Section 22.14) |
 
 The final row is the most commercially significant addition in this document.
 Treating the offline majority as a segment with its own channel budget — rather
@@ -64,13 +64,13 @@ digital plan and a communications plan.
 
 ---
 
-## 7. Geographic & Regional Dynamics
+## 20. Geographic & Regional Dynamics
 
 Kitui is not a monolith. Its eight constituencies and 18 sub-counties have
 distinct economic bases, infrastructure needs and political histories. Digital
 and SMS messaging is calibrated to each.
 
-### 7.1 The Urban & Central Anchor — Kitui Central & Kitui West
+### 20.1 The Urban & Central Anchor — Kitui Central & Kitui West
 
 | Sub-County | Population | Density/km² | Households | Strategic value |
 |---|---|---|---|---|
@@ -90,7 +90,7 @@ zone where Dr. Mulu starts with a structural advantage, and in a
 nomination-poll contest, consolidating a base is cheaper than converting a
 stranger.**
 
-### 7.2 The Northern Block — Mwingi Region
+### 20.2 The Northern Block — Mwingi Region
 
 | Sub-County | Population | Density/km² | Households | Key issues |
 |---|---|---|---|---|
@@ -110,7 +110,7 @@ methodology and then evaluate against it.
 county and is where a Kitui Central MP is structurally least known. It carries
 disproportionate Phase −1 budget weighting.
 
-### 7.3 The Arid & Resource Belt — Kitui South & East
+### 20.3 The Arid & Resource Belt — Kitui South & East
 
 | Sub-County | Population | Density/km² | Households | Characteristics |
 |---|---|---|---|---|
@@ -132,7 +132,7 @@ is not a strategy; it is an assumption. Mapped against the 2022 baseline registe
 registered voters in Kitui South total 75,372, distributed across six wards: Athi (15,843),
 Ikanga/Kyatune (15,384), Mutomo/Kibwea (12,637), Ikutha (12,066), Mutha (11,039), and Kanziko (8,403).
 
-### 7.4 Zone Weighting Model
+### 20.4 Zone Weighting Model
 
 Budget and content allocation across zones, by phase:
 
@@ -150,17 +150,17 @@ tracking data and reallocated.
 
 ---
 
-## 8. Remote Scope of Work & Digital Strategy Pillars
+## 21. Remote Scope of Work & Digital Strategy Pillars
 Operating remotely allows for a dedicated digital war room, maintaining a
 continuous, high-quality digital footprint without the logistical overhead of
 being physically present on the campaign trail.
 
-### 8.1 Web Management & Digital Architecture
+### 21.1 Web Management & Digital Architecture
 * Development and deployment of a high-performance campaign web portal hosting
 the manifesto, tracking media appearances, and capturing volunteer data.
 * Lightweight, rapid-loading frameworks so the site is usable on 3G and on
 feature-phone browsers — non-negotiable in a county at 13.6% internet use.
-* **WCAG 2.1 AA compliance from build, not retrofitted** (Section 18A).
+* **WCAG 2.1 AA compliance from build, not retrofitted** (Section 30.1).
 * Search engine optimisation for "Kitui Governor 2027", "Kitui development" and
 related terms.
 * A "Meet Dr. Mulu" page with biography, parliamentary record, M&E credentials
@@ -168,18 +168,18 @@ and vision for Kitui.
 * **Audit before build:** an existing Kitui Central NG-CDF web presence is
 already live. Phase 0 audits and integrates it rather than duplicating it.
 
-### 8.2 Strategic Brand Management
+### 21.2 Strategic Brand Management
 * Core messaging matrix ensuring consistency across broadcast, print and digital.
 * Dynamic digital press kits for media houses and influencers — approved
-biographies, high-resolution assets, policy briefs (Section 17A).
+biographies, high-resolution assets, policy briefs (Section 29.1).
 * Daily management of Facebook, X, Instagram, TikTok, YouTube and WhatsApp.
 * Community management: responses to comments, DMs and mentions within **2
 hours** during peak periods.
 
-### 8.3 Civic Content & Visual Data
+### 21.3 Civic Content & Visual Data
 * Infographic analyses highlighting Kitui's economic challenges and Dr. Mulu's
 proposed solutions, anchored to the KSh13.79bn county envelope.
-* Content calendars tailored to each segment in Section 6.
+* Content calendars tailored to each segment in Section 19.
 * Graphics, short video, motion graphics and policy explainers in English,
 Kiswahili and Kikamba.
 * Human-interest storytelling: constituent testimonials, verified project
@@ -187,11 +187,11 @@ outcomes, vision-driven narratives.
 * A weekly **"Dr. Mulu Explains"** series breaking down county budgets, revenue
 sources and development economics in plain language.
 
-### 8.4 Online Fundraising & Data Analytics
+### 21.4 Online Fundraising & Data Analytics
 * Secure donation page integrated with M-Pesa and other mobile money options.
 * **All fundraising structured for compliance with the Election Campaign
 Financing Regulations, 2026** — including the 20% single-source contribution
-cap and full contribution records (Section 8B.4).
+cap and full contribution records (Section 21.18).
 * Email, SMS and WhatsApp fundraising to diaspora and local supporters, with
 asks tied to specific campaign needs.
 * Real-time dashboards tracking reach, engagement, sentiment and conversion.
@@ -199,7 +199,7 @@ asks tied to specific campaign needs.
 * Weekly A/B testing of messages, visuals and ad formats.
 * Monthly voter sentiment reports to campaign leadership.
 
-### 8.5 Digital Advertising
+### 21.5 Digital Advertising
 * Targeted Meta ads by ward, age, gender and interest.
 * Google Search and Display to capture high-intent voters.
 * YouTube pre-roll before local and national content.
@@ -207,9 +207,9 @@ asks tied to specific campaign needs.
 * Retargeting to convert engaged users into donors and volunteers.
 * Monthly spend allocation matrix based on ward-level registration and
 engagement data — **with every shilling logged against the IEBC expenditure
-return** (Section 8B.4).
+return** (Section 21.18).
 
-### 8.6 Crisis & Reputation Management
+### 21.6 Crisis & Reputation Management
 * Continuous sentiment monitoring across platforms.
 * Rapid-response statements managing emerging narratives or opponent claims.
 * Real-time monitoring and countering of misinformation and manipulated media
@@ -217,33 +217,33 @@ return** (Section 8B.4).
 
 ---
 
-## 8A. Team and Operating Structure
+### 21.7 Team and Operating Structure
 
-### 8A.1 Principle: a lean core with defined surge
+### 21.8 Principle: a lean core with defined surge
 Firefly delivers this engagement through a small senior core team supplemented
 by named surge roles activated at specific phases and budget tiers. This is
 stated plainly because a campaign is entitled to know exactly who is doing the
 work. A proposal claiming a large standing department it does not have will
 fail on the first question about it.
 
-The structure below scales with the budget tier selected in Section 8B.
+The structure below scales with the budget tier selected in Section 21.14.
 
-### 8A.2 Core team — retained throughout
+### 21.9 Core team — retained throughout
 | Role | Function | Decision rights |
 |---|---|---|
 | **Digital Director** (Firefly principal) | Owns strategy, campaign leadership relationship, weekly sync, final content sign-off, crisis Level 2 approval | Approves all published content; approves spend reallocation within an agreed monthly ceiling; escalates Level 3 to the candidate |
 | **Content & Language Lead** | Owns the calendar across all three languages; commissions and edits; manages the Kikamba review process | Approves routine content within approved templates; cannot approve policy claims |
 | **Paid Media & Analytics Manager** | Ad buying across Meta, Google, TikTok; SMS/USSD dispatch; dashboards; A/B testing; **compliance logging for IEBC returns** | Executes within the approved budget envelope; cannot exceed ward-level ceilings without Director approval |
 
-### 8A.3 Surge roles — activated by phase and tier
+### 21.10 Surge roles — activated by phase and tier
 | Role | Activated | Function |
 |---|---|---|
-| **Data Analyst / Modeller** | Phase 1 onward (standard and premium tiers) | Predictive scoring, field-digital integration, attribution modelling. **Named data-governance owner** (Section 14.6) |
+| **Data Analyst / Modeller** | Phase 1 onward (standard and premium tiers) | Predictive scoring, field-digital integration, attribution modelling. **Named data-governance owner** (Section 27.6) |
 | **Kikamba Content Producer (native speaker)** | Phase −1 onward — **mandatory at all tiers** | Voice notes, proverb verification, cultural authenticity review. No Kikamba content publishes without this role |
 | **Community Managers (×2, platform-split)** | Phase 1 onward | Meta/WhatsApp cluster; TikTok/Instagram/X cluster. Front-line response within the 2-hour SLA |
-| **Volunteer & Ward Champion Coordinator** | Phase 1 onward | Tiered volunteer programme (Section 12); ward champion training and reporting |
+| **Volunteer & Ward Champion Coordinator** | Phase 1 onward | Tiered volunteer programme (Section 25); ward champion training and reporting |
 | **Crisis Communications Lead** | Phase 2 onward, or immediately on trigger | Rapid response, red-team drills, deepfake rebuttal protocol |
-| **Earned Media / Press Officer** | Phase −1 onward (standard and premium) | Journalist relationships, debate clipping, radio placement (Section 17A) |
+| **Earned Media / Press Officer** | Phase −1 onward (standard and premium) | Journalist relationships, debate clipping, radio placement (Section 29.1) |
 | **Video Editor / Motion Designer** | Phase 1 onward | Clipping, subtitling, sign-language integration |
 
 **Subcontract triggers are explicit.** Each surge role has a named activation
@@ -252,7 +252,7 @@ second Community Manager activates when combined daily inbound messages exceed
 `[Insert threshold — recommend 150/day]` for two consecutive weeks. Roles are
 not added speculatively.
 
-### 8A.4 Reporting lines
+### 21.11 Reporting lines
 ```
                         Dr. Makali Mulu
                       Campaign Leadership
@@ -268,7 +268,7 @@ not added speculatively.
   Language Lead         Analytics Mgr         Lead (surge)
         |                     |                     |
    Kikamba              Data Analyst          Red-team panel
-   Producer             (surge)               (Section 13.7)
+   Producer             (surge)               (Section 26.7)
    Video Editor         SMS/USSD ops
         |                     |
    Community Mgrs       Compliance log
@@ -282,7 +282,7 @@ not added speculatively.
 named person in the campaign, not to a committee. Campaigns fail digitally when
 five people can commission content and no one can approve it.
 
-### 8A.5 Operating cadence
+### 21.12 Operating cadence
 | Cadence | Meeting | Participants | Output |
 |---|---|---|---|
 | **Daily (15 min)** | Stand-up | Firefly core | Priorities, escalations, live issues |
@@ -291,9 +291,9 @@ five people can commission content and no one can approve it.
 | **Weekly** | Creative review | Content Lead + Kikamba Producer | Language and cultural sign-off before scheduling |
 | **Fortnightly** | Ward champion call | Volunteer Coordinator + ward champions | Ground sentiment; content distribution; leaderboard |
 | **Monthly** | Performance & compliance review | Firefly Director + Campaign leadership + `[campaign counsel, where voter-file work is live]` | Analytics report; competitive brief; spend reconciliation against IEBC ceiling |
-| **Quarterly** | Red-team simulation | Full team + external panel | Crisis drill report and matrix revision (Section 13.7) |
+| **Quarterly** | Red-team simulation | Full team + external panel | Crisis drill report and matrix revision (Section 26.7) |
 
-### 8A.6 Decision rights — content approval matrix
+### 21.13 Decision rights — content approval matrix
 | Content type | Approver | Turnaround |
 |---|---|---|
 | Routine content within approved templates | Content Lead | Same day |
@@ -301,15 +301,15 @@ five people can commission content and no one can approve it.
 | Response to attack, Level 1 | Digital Director | ≤4 hours |
 | Response to attack, Level 2 | Campaign Communications Director | ≤2 hours |
 | Response to attack, Level 3 | **Candidate + senior leadership** | ≤30 minutes |
-| Any voter-file-based targeting | **Compliance gate — see Section 16.5** | Before launch, no exceptions |
+| Any voter-file-based targeting | **Compliance gate — see Section 28.5** | Before launch, no exceptions |
 | Paid spend reallocation within ceiling | Paid Media Manager | Immediate |
 | Paid spend exceeding ward ceiling | Digital Director | 24 hours |
 
 ---
 
-## 8B. Budget Scenario Planning and Unit Economics
+### 21.14 Budget Scenario Planning and Unit Economics
 
-### 8B.1 The regulatory ceiling comes first
+### 21.15 The regulatory ceiling comes first
 On **7 August 2026** the IEBC gazetted the Election Campaign Financing
 Regulations, 2026 (Gazette Notice No. 12251) together with binding contribution
 and spending limits for the **10 August 2027** General Election.
@@ -336,10 +336,10 @@ campaign personnel and communication** — that is, this engagement.
 > not been assumed or estimated. Kitui's population sits mid-range nationally
 > while its land area (30,430 km², sixth largest) attracts the 30% area
 > weighting. **Every budget tier below is expressed as a percentage of that
-> ceiling as well as in absolute terms** — see Section 8B.7 for the full
+> ceiling as well as in absolute terms** — see Section 21.21 for the full
 > operational compliance panel this ceiling drives.
 
-### 8B.2 Unit economics — verified market rates
+### 21.16 Unit economics — verified market rates
 These are current Kenyan market rates, not estimates. They make cost-per-contact
 calculable rather than notional.
 
@@ -352,7 +352,7 @@ calculable rather than notional.
 | **USSD development** | **~KSh140,000** one-off | Menu build |
 | **USSD hosting** | **~KSh5,000 per month** | Ongoing |
 | **WhatsApp Business API** | **~KSh0.50+ per message** | Template-approved messages only |
-| Meta / Google / TikTok ads | Market rate, auction-dependent | Benchmarked in Section 11.4 |
+| Meta / Google / TikTok ads | Market rate, auction-dependent | Benchmarked in Section 24.4 |
 
 Providers active in this market include Celcom Africa, Africa's Talking,
 Advanta Africa, Oramobile, AirTouch and Mobitech. **These are listed as market
@@ -360,7 +360,7 @@ options, not endorsements.** Final selection follows a procurement review at
 contracting, and any vendor must demonstrate CA compliance, opt-out management,
 DND filtering and per-send audit trails.
 
-### 8B.3 Cost-per-contact model
+### 21.17 Cost-per-contact model
 Worked against Kitui's 2022 register of **532,758 voters** and a win threshold
 of approximately **200,000 votes**.
 
@@ -377,7 +377,7 @@ digital impression is cheaper but reaches only the connected 13.6%, and a
 physical canvass contact costs an order of magnitude more.
 
 The critical constraint: **the campaign can only message consented numbers**
-(Section 16). List building is therefore a KPI in its own right from Phase −1,
+(Section 28). List building is therefore a KPI in its own right from Phase −1,
 not an afterthought — consented contacts are a campaign asset that compounds,
 and the only lawful route to this cost structure.
 
@@ -386,13 +386,13 @@ and the only lawful route to this cost structure.
 remains **≤ KSh200 per persuaded voter**, tracked monthly and reported against
 actual spend rather than modelled spend.
 
-### 8B.4 Compliance instrumentation
+### 21.18 Compliance instrumentation
 Because digital and SMS spend is now regulated expenditure:
 * Every ad account, SMS dispatch and vendor invoice is logged to a single
 reconciliation ledger from day one, tagged by date, channel, ward and
 purpose.
 * Monthly reconciliation against the county ceiling is a standing agenda item
-(Section 8A.5).
+(Section 21.12).
 * The ledger is structured to produce an IEBC expenditure return directly,
 without retrospective reconstruction.
 * Contribution records capture source and value to evidence the 20% cap.
@@ -400,7 +400,7 @@ without retrospective reconstruction.
 obligations and their interpretation are for the campaign's counsel and
 appointed campaign finance agent to confirm.
 
-### 8B.5 The three tiers
+### 21.19 The three tiers
 Percentages refer to the verified county ceiling once inserted. Absolute
 figures are illustrative structures to be finalised against that ceiling.
 
@@ -433,7 +433,7 @@ development + KSh5,000/month hosting)
 Facebook Live; weekly Kikamba voice note; monthly Kitui Economic Brief
 * **Analytics:** predictive voter scoring; multi-touch attribution;
 field-digital integration; weekly sentiment
-* **Research:** quarterly focus groups (Section 19A)
+* **Research:** quarterly focus groups (Section 31.1)
 * **Crisis:** dedicated lead from Phase 2; quarterly red-team drills
 * **Trade-offs:** no premium social listening licences; sign-language
 interpretation on flagship content only rather than all video
@@ -455,7 +455,7 @@ full attribution; monthly message-lab research
 headroom management against other campaign expenditure, since the ceiling
 covers the whole campaign, not the digital function alone
 
-### 8B.6 Tier comparison
+### 21.20 Tier comparison
 | | Lean | Standard | Premium |
 |---|---|---|---|
 | Team model | 3-person core + mandatory Kikamba producer | 3-person core + activated surge roles | 3-person core + full surge bench |
@@ -474,7 +474,7 @@ defensible but presses against a statutory ceiling that must also accommodate
 transport, venues and personnel across 30,430 square kilometres — and
 transport is typically the largest single category of campaign expenditure.
 
-### 8B.7 Compliance and Spending-Ceiling Panel
+### 21.21 Compliance and Spending-Ceiling Panel
 
 The verified KSh97.56 million ceiling is not background reading — it is the
 campaign's **binding budget constraint**, and every figure elsewhere in this
@@ -486,24 +486,24 @@ penalty exposure for getting any of it wrong.
 
 ---
 
-## 9. Predictive Voter Modelling & Micro-Targeting
+## 22. Predictive Voter Modelling, Field Integration & Low-Connectivity Channels
 
-### 9.1 Overview
+### 22.1 Overview
 The campaign will build a model scoring registered voters in Kitui County on
 two dimensions: likelihood to support Dr. Mulu and likelihood to turn out. This
 moves the campaign from broad messaging to disciplined prioritisation of
 persuasion and mobilisation effort.
 
-**This entire section is conditional on the compliance gate in Section 16.5.**
+**This entire section is conditional on the compliance gate in Section 28.5.**
 No voter-file-based targeting is deployed until a Kenyan data-protection or
 electoral-law specialist has reviewed and signed off the specific proposed
 processing. Nothing in this section should be read as a claim that such
 processing is already permissible.
 
-### 9.2 Data sources
+### 22.2 Data sources
 * **IEBC Voter Register:** name, gender, age bracket, polling station, ward,
 constituency, historical turnout flags — **subject to lawful access and the
-Section 16.5 gate**
+Section 28.5 gate**
 * **KNBS Census and county statistics:** ward-level demographics, education,
 household characteristics, economic activity
 * **Historical results:** ward and polling-station results from 2017 and 2022
@@ -511,14 +511,14 @@ to identify patterns and swing areas
 * **Campaign first-party data:** interactions with campaign content, WhatsApp
 membership, **SMS/USSD opt-ins**, volunteer sign-ups, donor status — all
 consent-based
-* **Field canvass returns** (Section 9A)
+* **Field canvass returns** (Section 22.8)
 
 **Explicitly excluded:** purchased third-party contact lists, scraped number
 databases, and any inferred psychographic or personality attributes. Vendors
 openly market bulk Kenyan mobile-number databases; the campaign will not buy
-them. See Section 16.4.
+them. See Section 28.4.
 
-### 9.3 Modelling methodology
+### 22.3 Modelling methodology
 | Model | Purpose | Strength |
 |---|---|---|
 | **Logistic regression** | Baseline support and turnout scores | Interpretability; identifies driving variables |
@@ -529,7 +529,7 @@ them. See Section 16.4.
 Final output: an ensemble probability score (0–1) for support likelihood and
 turnout likelihood.
 
-### 9.4 Model variables (data dictionary)
+### 22.4 Model variables (data dictionary)
 | Variable | Description | Source | Type | Format |
 |---|---|---|---|---|
 | `voter_id` | Unique identifier (hashed) | IEBC register | String | Alphanumeric |
@@ -552,7 +552,7 @@ turnout likelihood.
 | `whatsapp_group_member` | Campaign group member | Campaign | Binary | 0/1 |
 | `volunteer_status` | Sign-up status | Campaign | Categorical | None/Inactive/Active |
 | `donor_status` | Donation history | Campaign | Categorical | None/One-time/Recurring |
-| `field_contact_outcome` | **Canvass result (Section 9A)** | Field team | Categorical | Support/Undecided/Oppose/No contact |
+| `field_contact_outcome` | **Canvass result (Section 22.8)** | Field team | Categorical | Support/Undecided/Oppose/No contact |
 | `support_score` | Predicted support (output) | Model | Continuous | 0–1 |
 | `turnout_score` | Predicted turnout (output) | Model | Continuous | 0–1 |
 
@@ -561,7 +561,7 @@ this dictionary, and none may be added.** The `ward_connectivity_index` is the
 most operationally important addition — it determines whether a scored voter is
 reachable digitally or must be reached by SMS, USSD or radio.
 
-### 9.5 Model evaluation criteria
+### 22.5 Model evaluation criteria
 | Metric | Target | Frequency |
 |---|---|---|
 | Area under ROC curve (AUC) | ≥ 0.75 for support score | Monthly |
@@ -571,17 +571,17 @@ reachable digitally or must be reached by SMS, USSD or radio.
 | Cross-validation stability | Variance < 5% across folds | Quarterly |
 | Field validation match rate | ≥ 85% against ground canvass outcomes | Monthly |
 
-### 9.6 Operationalisation
+### 22.6 Operationalisation
 * **Ad targeting:** scored segments as custom audiences on Meta, Google, TikTok
 * **SMS/USSD segmentation:** priority broadcast lists for high-support,
 low-turnout voters — the single most valuable GOTV segment
 * **Content personalisation:** different messages to persuadable voters,
 strong supporters and low-propensity voters
 * **Volunteer routing:** ground teams directed to highest-persuasion-potential
-households first (Section 9A)
+households first (Section 22.8)
 
-### 9.7 Compliance dependency
-Model deployment is gated. If the Section 16.5 review does not clear
+### 22.7 Compliance dependency
+Model deployment is gated. If the Section 28.5 review does not clear
 voter-file-based processing, the campaign operates the model on **first-party
 consented data and aggregate ward-level statistics only** — a materially
 weaker but fully lawful fallback that has been costed into all three budget
@@ -589,16 +589,16 @@ tiers. The campaign is not exposed if the answer is no.
 
 ---
 
-## 9A. Field–Digital Integration
+### 22.8 Field–Digital Integration
 
-### 9A.1 The problem
+### 22.9 The problem
 Most campaigns run two separate operations: a ground team that knocks doors and
 a digital team that buys ads. Neither learns from the other. The ground team
 re-canvasses households digital already converted; digital keeps advertising to
 voters the ground team has confirmed as committed opponents. In a county of
 30,430 square kilometres, that duplication is unaffordable.
 
-### 9A.2 The loop
+### 22.10 The loop
 ```
    FIELD                                    DIGITAL
    -----                                    -------
@@ -607,7 +607,7 @@ voters the ground team has confirmed as committed opponents. In a county of
         ^                                        |
         |                                        v
    Priority route                        Voter score updated
-   delivered to                          (Section 9.4)
+   delivered to                          (Section 22.4)
    champion's phone                              |
         ^                                        v
         |                                Ad audiences and SMS
@@ -615,7 +615,7 @@ voters the ground team has confirmed as committed opponents. In a county of
    households first                      within 24 hours
 ```
 
-### 9A.3 Field-to-digital
+### 22.11 Field-to-digital
 * **Capture:** ward champions log outcomes via a simple mobile form —
 four options, under thirty seconds per household. Complexity kills field
 data collection.
@@ -627,7 +627,7 @@ Non-negotiable in Ikutha and Mutitu.
 targeting**, not messaged harder. This saves money and is the correct
 practice.
 
-### 9A.4 Digital-to-field
+### 22.12 Digital-to-field
 * **Warm-lead routing:** voters who engaged with content, opened an SMS, or
 completed a USSD session are routed to ward champions as priority doors.
 * **Pre-briefing:** champions receive the issue the household engaged with —
@@ -636,9 +636,9 @@ interest already is.
 * **Event conversion:** digital sign-ups for barazas are handed to ground
 organisers with attendance follow-up.
 
-### 9A.5 Governance
+### 22.13 Governance
 * Field data is campaign first-party data, collected with notice, and governed
-by the same charter as all other personal data (Section 16.4).
+by the same charter as all other personal data (Section 28.4).
 * Ward champions receive data-handling training before being issued the form,
 and cannot export or retain contact data on personal devices.
 * **Field validation match rate ≥ 85%** is the joint KPI holding both sides
@@ -646,9 +646,9 @@ honest: if the model and the doorstep disagree, the model is wrong.
 
 ---
 
-## 9B. Low-Connectivity Channel Strategy: SMS, USSD and the Offline Majority
+### 22.14 Low-Connectivity Channel Strategy: SMS, USSD and the Offline Majority
 
-### 9B.1 The strategic case
+### 22.15 The strategic case
 Kitui has **143,340 internet users out of a population of 1,136,187** — 13.6%.
 It has **452,948 mobile phone owners** — 42.9%. Nationally, smartphones are
 63.7% of connected devices, meaning feature phones remain a substantial share,
@@ -663,7 +663,7 @@ campaigning in this county, and solving it is the clearest demonstration of the
 "Economist Governor" proposition: allocating resources to where the need is,
 rather than where measurement is convenient.
 
-### 9B.2 The SMS layer
+### 22.16 The SMS layer
 **Consent-first architecture.** Every number in the campaign database arrives
 by opt-in: a USSD self-registration, a signed baraza sheet with a clear data
 notice, a WhatsApp opt-in confirmation, a website form, or a missed-call
@@ -692,9 +692,9 @@ and not Kyuso
 * Per-send audit trail retained for the compliance ledger
 
 **Cost:** at KSh0.25–0.60 per message, a fortnightly touch to 120,000 consented
-voters costs approximately **KSh30,000–72,000 per send** — see Section 8B.3.
+voters costs approximately **KSh30,000–72,000 per send** — see Section 21.17.
 
-### 9B.3 The USSD layer
+### 22.17 The USSD layer
 USSD works on every phone, requires no internet, and costs the voter almost
 nothing. It is the single most under-used civic channel in Kenyan county
 politics.
@@ -704,13 +704,13 @@ politics.
 KITUI NA MULU
 1. Sisemo sya Mulu / Mulu's plan for my ward
 2. Andikithya kuvota / Voter registration info
-3. Ripoti wia / Report a local issue      <-- Section 19B
+3. Ripoti wia / Report a local issue      <-- Section 31.7
 4. Kuthukuma / Volunteer
 5. Kwithukiisya / Get updates (opt-in)
 6. Kiswahili / English
 ```
 
-**Why option 3 matters most.** The service-delivery tracker (Section 19B) is
+**Why option 3 matters most.** The service-delivery tracker (Section 31.7) is
 reachable from a feature phone in Mutha. A constituent reports a broken water
 point by dialling a short code; the report enters a public register; the
 campaign follows up and publishes the outcome. That is the M&E credential
@@ -721,15 +721,15 @@ approximately **KSh140,000**, hosting approximately **KSh5,000 per month**.
 Set-up in 5–7 working days for a shared code; 2–4 weeks for a dedicated code
 pending operator approval.
 
-### 9B.4 Voice and audio
+### 22.18 Voice and audio
 * **Kikamba voice notes from Dr. Mulu** distributed by WhatsApp and by ward
 champions to Bluetooth-share onward. Audio travels where text does not, and
 carries the candidate's actual voice — the highest-trust format available.
-* **Radio** — see Section 17A.
+* **Radio** — see Section 29.1.
 * **Audio versions of all flagship policy content**, addressing both low
 literacy (13.0% of the population never attended school) and low bandwidth.
 
-### 9B.5 The mobile-money agent network
+### 22.19 The mobile-money agent network
 Kenya's registered mobile-money agents grew from **480,216 in September 2025 to
 602,470 in March 2026** — expanding roughly four times faster than
 subscriptions. In rural Kitui, the agent kiosk is often the most reliable
@@ -745,7 +745,7 @@ transaction records, balances or customer identity enters this programme.
 material.
 * `[Confirm approach with campaign counsel — agent networks are regulated financial infrastructure and any commercial arrangement should be reviewed]`
 
-### 9B.6 KPIs for the low-connectivity layer
+### 22.20 KPIs for the low-connectivity layer
 | Metric | Phase −1 | Phase 1 | Phase 2 | Phase 3 |
 |---|---|---|---|---|
 | Consented SMS contacts | 15,000 | 40,000 | 80,000 | **120,000** |
@@ -762,9 +762,9 @@ a vanity one.
 
 ---
 
-## 10. Behavioural Science & Persuasion Architecture
+## 23. Behavioural Science & Persuasion Architecture
 
-### 10.1 Overview
+### 23.1 Overview
 The campaign applies behavioural economics to make every message
 psychologically effective — moving beyond "what to say" to "how to frame it so
 voters act."
@@ -772,9 +772,9 @@ voters act."
 **Boundary.** These are framing techniques applied to **true claims**, delivered
 transparently, at population level. They are not psychographic targeting, not
 personality-based manipulation, and not individualised emotional profiling.
-Section 16.4 makes this a published commitment.
+Section 28.4 makes this a published commitment.
 
-### 10.2 Core principles applied
+### 23.2 Core principles applied
 
 | Principle | Definition | Campaign application |
 |---|---|---|
@@ -790,7 +790,7 @@ Section 16.4 makes this a published commitment.
 The final row is the campaign's signature move. It converts Dr. Mulu's M&E
 credential into a persuasion technique available to no rival.
 
-### 10.3 Message framing examples
+### 23.3 Message framing examples
 
 **Water scarcity**
 - *Loss aversion:* "Approximately 400,000 people in Kitui still depend on
@@ -834,11 +834,11 @@ credential into a persuasion technique available to no rival.
   poverty is economic poverty."
 
 *All figures drawn from KNBS and county sources; each is verified before
-publication under the Section 16.4 fact-check protocol.*
+publication under the Section 28.4 fact-check protocol.*
 
-## 11. AI-Driven Content Optimisation & Dynamic Creative
+## 24. AI-Driven Content Optimisation & Dynamic Creative
 
-### 11.1 Overview
+### 24.1 Overview
 AI is used to test and optimise content so that every shilling of regulated ad
 spend delivers maximum persuasive impact.
 
@@ -846,10 +846,10 @@ spend delivers maximum persuasive impact.
 used to fabricate imagery of real people, simulate events that did not occur,
 or generate synthetic voices of the candidate or any other person. Where
 AI-generated illustration appears in published material, it is labelled. This
-is a published commitment (Section 16.4) and a defensive necessity in an
-environment where opponents may deploy manipulated media (Section 16A.5).
+is a published commitment (Section 28.4) and a defensive necessity in an
+environment where opponents may deploy manipulated media (Section 28.11).
 
-### 11.2 Tools and platforms
+### 24.2 Tools and platforms
 | Tool | Function | Management |
 |---|---|---|
 | Meta Advantage+ Creative | Automatic variation testing and budget reallocation | Remote dashboard |
@@ -860,16 +860,16 @@ environment where opponents may deploy manipulated media (Section 16A.5).
 
 *Specific vendor selection at contracting; no tool is presented as retained.*
 
-### 11.3 Weekly creative testing cadence
+### 24.3 Weekly creative testing cadence
 * Minimum 5 ad variations per objective per platform
 * Minimum 3 headline and 3 visual variations per ad set
 * Monday–Thursday learning; Friday–Sunday optimisation and scaling
 * Budget split: **30% testing, 70% proven performers**
 * Automatic kill rule: any ad below `[Insert threshold — recommend 1.5% CTR]`
 after 5,000 impressions is paused
-* **Every test logged to the compliance ledger** (Section 8B.4)
+* **Every test logged to the compliance ledger** (Section 21.18)
 
-### 11.4 Performance benchmarks
+### 24.4 Performance benchmarks
 | Metric | Global standard | Campaign target |
 |---|---|---|
 | Facebook CTR | 1.0–1.5% | ≥ 1.5% |
@@ -882,24 +882,24 @@ after 5,000 impressions is paused
 
 ---
 
-## 12. Digital Organising & Gamified Volunteer Mobilisation
+## 25. Digital Organising, Gamified Mobilisation & Coalition Calendar
 
-### 12.1 Overview
+### 25.1 Overview
 A tiered volunteer programme converting passive online supporters into active
 offline organisers, with gamification driving sustained engagement.
 
-### 12.2 Volunteer tiers
+### 25.2 Volunteer tiers
 | Tier | Name | Entry requirement | Activities |
 |---|---|---|---|
 | **1** | Digital Advocate | Follow on 2+ platforms | Share, comment, amplify |
 | **2** | Ward Champion | Join ward WhatsApp group + data-handling briefing | Distribute content, report ground sentiment, recruit 5 advocates |
-| **3** | Community Organiser | Complete online training module | Host groups, coordinate local events, **log canvass outcomes (Section 9A)** |
+| **3** | Community Organiser | Complete online training module | Host groups, coordinate local events, **log canvass outcomes (Section 22.8)** |
 | **4** | County Coordinator | Manage 3+ organisers | Oversee regional operations, attend weekly syncs |
 
 **Data-handling training is a gate, not an option.** No volunteer collects
-personal data before completing it (Section 16.4).
+personal data before completing it (Section 28.4).
 
-### 12.3 Gamification mechanics
+### 25.3 Gamification mechanics
 | Mechanic | Implementation | Reward |
 |---|---|---|
 | Points | Awarded for shares, sign-ups, training completion, verified registration drives, canvass returns | Merchandise, recognition |
@@ -911,18 +911,18 @@ personal data before completing it (Section 16.4).
 voter, a canvassed household, a completed training — not raw posting volume.
 Reward systems that pay for volume produce spam and, at scale, look
 indistinguishable from inauthentic activity. That would breach both platform
-policy and the Section 16.4 charter, and it is designed out from the start.
+policy and the Section 28.4 charter, and it is designed out from the start.
 
-### 12.4 Management tooling
+### 25.4 Management tooling
 * **Custom WhatsApp bot** for low-cost volunteer management: registration,
 point tracking, content distribution, leaderboards
 * **USSD registration path** so volunteers without smartphones can join
-(Section 9B.3) — a genuine differentiator in the arid belt
+(Section 22.17) — a genuine differentiator in the arid belt
 * Forms and spreadsheets for baseline collection
 * Task management via a shared board
 * Purpose-built volunteer platforms only at premium tier, if budget allows
 
-### 12.5 Volunteer KPIs
+### 25.5 Volunteer KPIs
 | Metric | Target |
 |---|---|
 | Sign-up conversion from social traffic | ≥ 5% |
@@ -935,9 +935,9 @@ point tracking, content distribution, leaderboards
 
 ---
 
-## 12A. Coalition and Endorsement Calendar
+### 25.6 Coalition and Endorsement Calendar
 
-### 12A.1 Principle
+### 25.7 Principle
 Coalitions are built around **shared economic and civic interests** — water,
 credit, market access, employment, transparency. They are never built around
 ethnic, clan or religious bloc identity. Faith and community networks are
@@ -946,7 +946,7 @@ which is both the ethical position and the effective one: a water commitment
 made to a congregation is a policy conversation, while a bloc appeal is a
 liability.
 
-### 12A.2 Sequenced calendar
+### 25.8 Sequenced calendar
 | Phase | Target constituencies | Engagement | Digital output |
 |---|---|---|---|
 | **Phase −1** (Aug–Sep 2026) | Professional associations (economists, accountants, evaluators); Kitui teachers' networks; SEKU and MUT alumni | Roundtables on county fiscal management; leverage Evaluation Society of Kenya membership | Thought-leadership content; LinkedIn and X threads; earned media |
@@ -958,15 +958,15 @@ liability.
 | **Phase 2–3** | Diaspora chambers and associations | Investment, remittance, **the expansion of diaspora registration from 12 to 26 countries** | Webinars; diaspora fundraising |
 | **Phase 3** (Apr–Aug 2027) | Consolidation and public endorsement sequencing | Staged announcements for sustained news cycles | Endorsement content series |
 
-### 12A.3 Endorsement management
+### 25.9 Endorsement management
 * Every endorsement is **voluntary, documented and disclosed**. No paid
 endorsement is presented as organic — a breach of platform policy and of the
-Section 16.4 charter.
+Section 28.4 charter.
 * Influencer partnerships carry clear paid-partnership disclosure.
 * Endorsements are sequenced for cadence rather than clustered, sustaining
 momentum across the nomination and general-election windows.
 
-### 12A.4 KPIs
+### 25.10 KPIs
 | Metric | Target |
 |---|---|
 | Institutional engagements completed by end of Phase 2 | ≥ 40 |
@@ -976,13 +976,13 @@ momentum across the nomination and general-election windows.
 
 ---
 
-## 13. Digital War Room & Real-Time Crisis Management
+## 26. Digital War Room & Real-Time Crisis Management
 
-### 13.1 Overview
+### 26.1 Overview
 The remote war room is the campaign's nerve centre for monitoring, response and
 rapid decision-making.
 
-### 13.2 Monitoring tools
+### 26.2 Monitoring tools
 | Tool class | Function |
 |---|---|
 | Social monitoring dashboards | Real-time X and cross-platform keyword, hashtag and competitor tracking |
@@ -992,9 +992,9 @@ rapid decision-making.
 | **Meta Ad Library** | Competitor ad spend, creative and targeting estimates |
 | **Google Ads Transparency Centre** | Competitor search advertising |
 | Custom BI dashboard | Centralised real-time metrics |
-| **Radio monitoring** | Kamba-language station tracking (Section 17A) — critical, as most attacks on Dr. Mulu will originate on air, not online |
+| **Radio monitoring** | Kamba-language station tracking (Section 29.1) — critical, as most attacks on Dr. Mulu will originate on air, not online |
 
-### 13.3 Shift schedule
+### 26.3 Shift schedule
 During peak periods (January–August 2027):
 | Shift | Hours (EAT) | Focus |
 |---|---|---|
@@ -1002,27 +1002,27 @@ During peak periods (January–August 2027):
 | Afternoon | 14:00–22:00 | Live coverage, engagement, rapid response |
 | Night | 22:00–06:00 | Monitoring only; escalation to on-call strategist at crisis threshold |
 
-### 13.4 Rapid-response protocol
+### 26.4 Rapid-response protocol
 | Severity | Definition | Response time | Approval |
 |---|---|---|---|
 | **Level 1** | Minor negative comment or isolated misinformation | ≤ 4 hours | Digital Director |
 | **Level 2** | Coordinated attack; viral misinformation (>10,000 views) | ≤ 2 hours | Campaign Communications Director |
 | **Level 3** | Major crisis — false allegation, **manipulated or AI-generated media**, legal threat | ≤ 30 minutes | **Candidate + senior leadership** |
 
-### 13.5 Pre-approved message library
+### 26.5 Pre-approved message library
 Maintained for rapid response without waiting on approvals:
 * Standard rebuttals for false claims about Dr. Mulu's record
 * Kikamba, Kiswahili and English versions of key messages
 * Template statements for policy positions issued in response to attack
 * Fact-check cards linking to verified sources
-* **Deepfake first-response templates** (Section 16A.5)
+* **Deepfake first-response templates** (Section 28.11)
 
-### 13.6 Dashboard view
+### 26.6 Dashboard view
 Live sentiment score; trending hashtags; competitor activity alerts;
 misinformation tracking log; response status tracker; hourly engagement;
 **SMS delivery and opt-out rates**; **spend against ceiling**.
 
-### 13.7 Scheduled crisis simulation — red-team drills
+### 26.7 Scheduled crisis simulation — red-team drills
 *New. Reactive protocols fail because they are first used under real pressure.*
 
 **Cadence:** quarterly at standard tier, monthly at premium, with a mandatory
@@ -1032,17 +1032,17 @@ before the general election.
 **Method:** a small red-team panel — Firefly's crisis lead, one campaign
 representative, and an external participant with no stake in the outcome — is
 briefed to attack. The response team is **not** told which scenario is coming
-or when. The drill runs in real time against the Section 13.4 clock.
+or when. The drill runs in real time against the Section 26.4 clock.
 
 **Standing scenario library:**
 | # | Scenario | Tests |
 |---|---|---|
 | 1 | Fabricated audio of Dr. Mulu making an inflammatory statement, seeded on WhatsApp | Deepfake protocol; 30-minute Level 3 clock |
 | 2 | Coordinated hashtag attack on his NG-CDF record | Fact-base readiness; rebuttal library |
-| 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval (Section 16.4) |
-| 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 17A) |
-| 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section 16A.4) |
-| 6 | Allegation of exceeding the IEBC spending ceiling | Ledger reconciliation retrieval (Section 8B.4) |
+| 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval (Section 28.4) |
+| 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 29.1) |
+| 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section 28.10) |
+| 6 | Allegation of exceeding the IEBC spending ceiling | Ledger reconciliation retrieval (Section 21.18) |
 | 7 | Manufactured "grassroots" campaign attacking a rival, falsely attributed to Dr. Mulu | Charter defence; provenance evidence |
 
 **Output:** every drill produces a written report — actual response times
@@ -1056,14 +1056,14 @@ target**.
 
 ---
 
-## 14. Advanced Analytics & Attribution Modelling
+## 27. Advanced Analytics, Attribution & Competitive Intelligence
 
-### 14.1 Overview
+### 27.1 Overview
 Measurement moves beyond vanity metrics to what drives votes: multi-touch
 attribution, offline conversion tracking and cost-per-vote analysis, all
 anchored to the ~200,000-vote threshold.
 
-### 14.2 Multi-touch attribution framework
+### 27.2 Multi-touch attribution framework
 | Touchpoint | Attribution method | Source |
 |---|---|---|
 | Facebook ad view | Position-based | Meta Pixel |
@@ -1074,9 +1074,9 @@ anchored to the ~200,000-vote threshold.
 | YouTube view | View-through | Google Ads |
 | Website visit | Multi-touch weighted | GA4 |
 | Email open | Position-based | Email platform |
-| **Field canvass contact** | Direct event | Ward champion form (Section 9A) |
+| **Field canvass contact** | Direct event | Ward champion form (Section 22.8) |
 
-### 14.3 Offline conversion tracking
+### 27.3 Offline conversion tracking
 * **Unique QR codes** on printed materials and at barazas, tracking which
 content drove physical attendance
 * **SMS keyword short codes** — text a keyword to `[Insert shortcode]` to
@@ -1084,7 +1084,7 @@ register support and opt in
 * **USSD completions** as a direct offline-to-digital bridge
 * **Volunteer-reported contact outcomes** recording prior campaign awareness
 
-### 14.4 Key metrics and benchmarks
+### 27.4 Key metrics and benchmarks
 | Metric | Definition | Global benchmark | Campaign target |
 |---|---|---|---|
 | Share of voice | % of Kitui gubernatorial mentions about Dr. Mulu | 30–40% for leader | ≥ 50% |
@@ -1097,14 +1097,14 @@ register support and opt in
 | GOTV contact rate | % of target voters reached | 60–80% | ≥ 70% |
 | **Contact share of win threshold** | Contacted voters ÷ 200,000 | — | **≥ 75% by election week** |
 
-### 14.5 Analytics maturity roadmap
+### 27.5 Analytics maturity roadmap
 *New. A staged path, so the campaign is never blocked waiting on capability.*
 
 | Stage | Window | Capability | Prerequisite | Owner |
 |---|---|---|---|---|
 | **0 — Baseline** | Phase −1 | Platform-native dashboards; manual weekly report; SMS delivery reporting; single source of truth established | Accounts and pixel installed | Paid Media & Analytics Manager |
 | **1 — Integrated** | Phase 0–1 | Unified BI dashboard across paid, organic, SMS, USSD, web; ward-level segmentation; A/B testing discipline | Consistent tagging taxonomy | Paid Media & Analytics Manager |
-| **2 — Predictive** | Phase 1–2 | Voter scoring live; field-digital loop operating; audience segments driven by score | **Section 16.5 compliance gate cleared** | Data Analyst (surge) |
+| **2 — Predictive** | Phase 1–2 | Voter scoring live; field-digital loop operating; audience segments driven by score | **Section 28.5 compliance gate cleared** | Data Analyst (surge) |
 | **3 — Attributed** | Phase 2–3 | Multi-touch attribution; offline conversion tracking; cost-per-persuaded-voter reported against actuals | Stage 2 stable ≥ 6 weeks | Data Analyst |
 | **4 — Optimised** | Phase 3 | Continuous reallocation against modelled marginal return; GOTV list prioritisation | Stage 3 validated against field returns | Data Analyst + Director |
 
@@ -1112,7 +1112,7 @@ register support and opt in
 tagging is consistent produces confident nonsense, and a campaign that attempts
 it before the compliance gate produces legal exposure.
 
-### 14.6 Data governance ownership
+### 27.6 Data governance ownership
 A **single named data-governance owner** is accountable for both analytics
 performance and data compliance — deliberately one role, because splitting them
 creates an incentive to treat compliance as someone else's obstacle.
@@ -1121,9 +1121,9 @@ Responsibilities:
 * Maintains the data inventory: what is held, lawful basis, retention period,
 who has access
 * Owns the consent audit trail and can produce it on demand within
-**24 hours** — the standard the Section 13.7 drill tests
-* Owns the deletion schedule and executes it (Section 16.4)
-* Is the campaign's standing point of contact for the Section 16.5 compliance
+**24 hours** — the standard the Section 26.7 drill tests
+* Owns the deletion schedule and executes it (Section 28.4)
+* Is the campaign's standing point of contact for the Section 28.5 compliance
 reviewer
 * Holds authority to **suspend any targeting activity** pending review, without
 requiring commercial sign-off
@@ -1133,9 +1133,9 @@ sits with the Data Analyst. It is named in writing either way.
 
 ---
 
-## 15. Competitive Intelligence & Opposition Research Monitoring
+### 27.7 Competitive Intelligence & Opposition Research Monitoring
 
-### 15.1 Overview
+### 27.8 Overview
 Systematic, lawful, public-source tracking of rivals' digital activity to
 anticipate attacks, identify messaging vulnerabilities and find openings.
 
@@ -1145,17 +1145,17 @@ no infiltration of private groups, no purchase of private data, and no
 research into rivals' families or private lives.** Opposition research means
 knowing what opponents say publicly, not surveilling them.
 
-### 15.2 Monitoring tools
+### 27.9 Monitoring tools
 | Tool | Function |
 |---|---|
 | Meta Ad Library | Competitor ad spend, creative themes, targeting estimates, frequency |
 | Google Ads Transparency Centre | Competitor search advertising and keywords |
 | Social listening (premium tier) | Mentions, supporter sentiment, emerging narratives |
 | X lists | Curated rival, surrogate and influencer accounts |
-| **Radio monitoring** | Kamba-station coverage and airtime share (Section 17A) |
+| **Radio monitoring** | Kamba-station coverage and airtime share (Section 29.1) |
 | **Published polling tracker** | Mizani Africa and other published surveys, logged with dates and methodology notes |
 
-### 15.3 Monthly competitive brief
+### 27.10 Monthly competitive brief
 1. **Rival digital activity:** platforms, posting frequency, engagement rates,
 follower growth
 2. **Ad spend estimates:** from ad libraries and transparency data
@@ -1166,12 +1166,12 @@ sentiment trends
 where available
 6. **Recommendations:** counter-messaging and proactive content
 
-### 15.4 Rapid alert system
+### 27.11 Rapid alert system
 New attacks or significant messaging shifts trigger real-time alerts to
 campaign leadership with recommended responses drawn from the pre-approved
 library.
 
-### 15.5 Reading the current field
+### 27.12 Reading the current field
 The August 2026 published survey shows Dr. Kasalu's strength built on
 countywide grassroots touring under a branded programme. The strategic
 implication is not to replicate her method — the campaign cannot out-tour a
@@ -1184,9 +1184,9 @@ field.
 
 ---
 
-## 16. Ethical Data Use & Privacy Compliance
+## 28. Ethical Data Use, Privacy Compliance & Campaign Cybersecurity
 
-### 16.1 Overview
+### 28.1 Overview
 Voter data is handled in a manner intended to comply with Kenya's Data
 Protection Act 2019, the Communications Authority framework governing political
 messaging, and IEBC regulations. This protects the campaign from legal risk and
@@ -1194,10 +1194,10 @@ reinforces Dr. Mulu's brand as a trustworthy, accountable leader.
 
 **Important framing: this section describes the campaign's intended standard
 and control environment. It is not a legal opinion, and nothing here asserts
-that any specific processing is already lawful. Section 16.5 establishes the
+that any specific processing is already lawful. Section 28.5 establishes the
 gate that answers that question properly.**
 
-### 16.2 The regulatory environment as it stands
+### 28.2 The regulatory environment as it stands
 | Area | Requirement | Source |
 |---|---|---|
 | **Political SMS** | Recipients of political messages must have **opted in**, with express consent and clearly notified opt-out. Service providers are prohibited from sending unsolicited bulk content | Industry code governing bulk political messaging |
@@ -1212,7 +1212,7 @@ would give short-term reach and long-term exposure — regulatory, and
 reputational for a candidate whose entire proposition is rigour and
 accountability. The campaign will not.
 
-### 16.3 Compliance measures
+### 28.3 Compliance measures
 | Area | Requirement | Implementation |
 |---|---|---|
 | Collection | Voters informed of use; consent obtained | Clear privacy notice at every collection point — website, USSD, baraza sign-up sheet, WhatsApp opt-in |
@@ -1223,7 +1223,7 @@ accountability. The campaign will not.
 | Accuracy | Correction rights honoured | Documented request route with response SLA |
 | Misinformation | No false content | Fact-check protocol; pre-approval of sensitive claims |
 
-### 16.4 The Digital Ethics & Data Charter — published commitment
+### 28.4 The Digital Ethics & Data Charter — published commitment
 *New. Published on the campaign website in all three languages, in plain
 language, at a permanent URL.*
 
@@ -1306,7 +1306,7 @@ the data-governance owner (clause 5), the variable dictionary exclusions
 (clauses 6 and 7), the fact-check protocol (clause 2), and the correction log
 (clause 9). A charter without instrumentation is decoration.
 
-### 16.5 Compliance sign-off gate
+### 28.5 Compliance sign-off gate
 *New. The single most important governance control in this document.*
 
 **Before any voter-file-based targeting, list-building beyond first-party
@@ -1315,7 +1315,7 @@ data-protection or electoral-law specialist must review and sign off the
 specific proposed processing in writing.**
 
 **This proposal does not assert that the micro-targeting programme described in
-Section 9 is legally clear. It may not be.** The questions below are genuinely
+Section 22 is legally clear. It may not be.** The questions below are genuinely
 open, are questions of Kenyan law and regulatory interpretation, and are for
 the campaign's counsel to answer — not for a communications consultancy to
 assume:
@@ -1346,14 +1346,14 @@ at public events?
 
 **Until step 4 is complete, the campaign operates on first-party consented data
 and aggregate ward-level statistics only.** This fallback is fully costed in
-every budget tier (Section 9.7), so the campaign loses no time waiting and
+every budget tier (Section 22.7), so the campaign loses no time waiting and
 carries no exposure if the answer is restrictive.
 
 ---
 
-## 16A. Campaign Cybersecurity
+### 28.6 Campaign Cybersecurity
 
-### 16A.1 Threat model
+### 28.7 Threat model
 Kenyan campaigns face account takeover, phishing of staff and volunteers,
 leaked internal material, and increasingly the fabrication of audio and video.
 Kenya's Communications Authority attributed rising cyber threat volumes in part
@@ -1367,7 +1367,7 @@ For this campaign specifically, the highest-consequence scenarios are:
 3. Leaked internal strategy material — including, if mishandled, this document
 4. Fabricated audio or video of the candidate
 
-### 16A.2 Account security baseline
+### 28.8 Account security baseline
 | Control | Standard | Applies to |
 |---|---|---|
 | **Hardware security keys (FIDO2)** for two-factor authentication | **Mandatory** — SMS-based 2FA is not sufficient and is vulnerable to SIM-swap | Candidate, Digital Director, all admin-level accounts |
@@ -1381,7 +1381,7 @@ For this campaign specifically, the highest-consequence scenarios are:
 **Hardware keys for the candidate and admins are non-negotiable and cost very
 little.** `[Insert quoted cost — typically a modest per-key figure; two keys per critical account holder for redundancy]`
 
-### 16A.3 Phishing awareness
+### 28.9 Phishing awareness
 * Onboarding training for every staff member and Tier 3–4 volunteer before
 account access is granted
 * **Simulated phishing exercises quarterly**, with results used for coaching,
@@ -1392,7 +1392,7 @@ suspicion to report
 * Specific coverage of the patterns most likely here: fake platform security
 alerts, fake IEBC or party communications, and fake media interview requests
 
-### 16A.4 Incident response plan
+### 28.10 Incident response plan
 | Phase | Action | Owner | Target |
 |---|---|---|---|
 | **Detect** | Anomalous login, unexpected post, member report | Any team member | Immediate |
@@ -1407,7 +1407,7 @@ campaign confirms or denies authenticity accurately and quickly. It does not
 speculate about the source, and it does not deny the authenticity of genuine
 material — a denial later disproved is worse than the original leak.
 
-### 16A.5 Deepfake and manipulated media protocol
+### 28.11 Deepfake and manipulated media protocol
 *The threat that most warrants specific preparation.*
 
 **Context.** AI-generated video of serving Kenyan public figures has already
@@ -1449,7 +1449,7 @@ private-group circulation
 | 5–15 | Verify against the campaign's own archive: was Dr. Mulu there, on that date, saying that? Retrieve original footage if it exists |
 | 15–20 | Candidate and senior leadership briefed; response approved |
 | 20–30 | Publish: plain statement of falsity, the verified original where one exists, and provenance evidence. Simultaneously in Kikamba, Kiswahili and English, across all channels **including SMS to the affected wards** |
-| 30–120 | Platform reports filed; journalists briefed directly (Section 17A); ward champions supplied with a forwarding-friendly correction card for WhatsApp |
+| 30–120 | Platform reports filed; journalists briefed directly (Section 29.1); ward champions supplied with a forwarding-friendly correction card for WhatsApp |
 | Same day | Legal options reviewed with counsel |
 
 **The SMS component is what makes this work in Kitui.** A rebuttal published
@@ -1461,7 +1461,7 @@ lie.
 This is stated in the charter, rehearsed in drills, and is the reason the
 campaign's own deepfake denials will be believed.
 
-## 17. Platform-Specific Tactics
+## 29. Platform-Specific Tactics, Earned Media & Debate Strategy
 
 ### Facebook
 * Daily posts in English, Kiswahili and Kikamba
@@ -1512,7 +1512,7 @@ uchumi aeleze."*
 * Search-optimised videos answering "What does the Kitui Governor do?" and
 "Kitui development 2027"
 * **Monthly "Kitui Economic Brief"** reviewing county budget execution
-* **Home for full sign-language-interpreted versions** (Section 18A)
+* **Home for full sign-language-interpreted versions** (Section 30.1)
 
 ### Google Ads
 * Search ads on the candidate's name and related terms
@@ -1523,12 +1523,12 @@ Evaluator. Reformer. | Read the plan for your ward."*
 
 ---
 
-## 17A. Earned Media, Radio and Debate Strategy
+### 29.1 Earned Media, Radio and Debate Strategy
 
 *New section. Paid and owned media reach the connected minority. Earned media —
 especially radio — reaches everyone else.*
 
-### 17A.1 The radio problem, stated plainly
+### 29.2 The radio problem, stated plainly
 
 Kamba-language radio is the dominant information channel for the roughly 86% of
 Kitui residents outside the internet-using population. **But the ownership map
@@ -1550,12 +1550,12 @@ is politically compromised, and any credible media plan must say so:**
 County FM and Wikwatyo, treats Athiani as party-sensitive, and treats
 Mbaitu/Syokimau as monitoring targets rather than placement targets. Attacks
 on Dr. Mulu are more likely to originate on air than online, which is why radio
-monitoring sits in the war room (Section 13.2) rather than in a media annex.
+monitoring sits in the war room (Section 26.2) rather than in a media annex.
 
 *This map is based on publicly reported ownership associations and should be
 verified and updated by the campaign; media ownership changes.*
 
-### 17A.2 Journalist relationship programme
+### 29.3 Journalist relationship programme
 
 | Tier | Who | Cadence | Offer |
 |---|---|---|---|
@@ -1574,7 +1574,7 @@ with sources, policy briefs by theme, verified county data with citations, and
 contact routes. The easier the campaign makes a journalist's job, the more
 often it is quoted.
 
-### 17A.3 Candidate media training
+### 29.4 Candidate media training
 
 Three sessions, plus refreshers:
 
@@ -1592,7 +1592,7 @@ prepared pivot, and handling direct attack without appearing rattled.
 **Refreshers** before each debate or major forum, plus a recorded mock with
 playback review.
 
-### 17A.4 Debate and forum playbook
+### 29.5 Debate and forum playbook
 
 **Preparation:**
 
@@ -1618,7 +1618,7 @@ top three issues
 **The rule: the clip is published before the coverage is written.** Whoever
 distributes the moment first defines what the debate was about.
 
-### 17A.5 Pre-drafted response lines
+### 29.6 Pre-drafted response lines
 
 Prepared, verified, and rehearsed in drills. Each is a structure, not a script —
 substance fixed, delivery natural.
@@ -1631,10 +1631,10 @@ substance fixed, delivery natural.
 | **"NG-CDF questions"** | Lead with the documented record — bursary numbers, project list, the Eastern region evaluation certification — and invite scrutiny. **Never defensive; an evaluator welcomes audit.** |
 | **"Too technical / not close to ordinary people"** | Answer in Kikamba, with a household example. The best rebuttal to "too technical" is a demonstration, not a denial |
 | **"Wiper insider / party establishment"** | Point to the independence of his parliamentary record on budget matters |
-| **Manipulated media** | Section 16A.5 protocol — 30-minute clock |
+| **Manipulated media** | Section 28.11 protocol — 30-minute clock |
 | **Unsolicited SMS allegation** | Produce the consent audit trail; cite the published charter; correct publicly within the hour |
 
-### 17A.6 Earned media KPIs
+### 29.7 Earned media KPIs
 
 | Metric | Target |
 |---|---|
@@ -1647,7 +1647,7 @@ substance fixed, delivery natural.
 
 ---
 
-## 18. Multilingual Content Strategy
+## 30. Multilingual Content Strategy & Accessibility
 
 Language is central to trust in Kitui.
 
@@ -1673,19 +1673,19 @@ the key is knowledge — framing his expertise
 | **English** | **20%** | Policy documents, website, X, YouTube, national media |
 
 **Governance.** A native Kikamba speaker is a named, funded role in every budget
-tier (Section 8A.3), not an occasional reviewer. No Kikamba content publishes
+tier (Section 21.10), not an occasional reviewer. No Kikamba content publishes
 without their sign-off. Proverbs carry cultural weight and misused proverbs
 carry cultural cost — in a campaign built on rigour, a mangled idiom is a
 substantive error, not a cosmetic one.
 
 ---
 
-## 18A. Accessibility and Inclusion
+### 30.1 Accessibility and Inclusion
 
 *New section. In a county where 13.0% of the population never attended school,
 accessibility is reach, not compliance theatre.*
 
-### 18A.1 The case
+### 30.2 The case
 
 * **13.0% of Kitui residents have never attended school**; only 17.4% completed
 secondary education
@@ -1697,7 +1697,7 @@ under-served by campaign communication in every cycle
 A campaign built on transparency that publishes only in dense written English
 is not transparent. It is legible to the people who already had access.
 
-### 18A.2 Commitments
+### 30.3 Commitments
 
 | Area | Commitment |
 |---|---|
@@ -1706,10 +1706,10 @@ is not transparent. It is legible to the people who already had access.
 | **Website** | **WCAG 2.1 AA** — semantic structure, keyboard navigation, contrast ratios, alt text on every image and infographic, no information conveyed by colour alone |
 | **Plain language** | Every policy document paired with a **one-page plain-language summary** in all three languages, written to be read aloud |
 | **Audio versions** | Every flagship policy item available as audio, distributable by WhatsApp, voice note and radio |
-| **Low bandwidth** | Text-first fallbacks; compressed images; a site that loads on 3G; SMS and USSD paths to the same information (Section 9B) |
+| **Low bandwidth** | Text-first fallbacks; compressed images; a site that loads on 3G; SMS and USSD paths to the same information (Section 22.14) |
 | **Print** | Ward-level materials in large print with QR and USSD codes |
 
-### 18A.3 Why this belongs in the strategy, not an annex
+### 30.4 Why this belongs in the strategy, not an annex
 
 The plain-language and audio versions are not a parallel accessibility track —
 they are the **primary format for the largest segment of the electorate**. A
@@ -1718,7 +1718,7 @@ voice note, and broadcast on County FM is the most-used asset the campaign will
 produce. Building it as an afterthought means building the campaign's most
 important content last.
 
-### 18A.4 KPIs
+### 30.5 KPIs
 
 | Metric | Target |
 |---|---|
@@ -1731,7 +1731,7 @@ important content last.
 
 ---
 
-## 19. Key Campaign Themes to Amplify
+## 31. Campaign Themes, Message Lab Research & Public Service-Delivery Tracker
 
 Six themes, each evidenced.
 
@@ -1767,11 +1767,11 @@ did."**
 
 ---
 
-## 19A. Qualitative Research: The Kitui Message Lab
+### 31.1 Qualitative Research: The Kitui Message Lab
 
 *New section. Digital engagement metrics measure the 13.6% who are online.*
 
-### 19A.1 The problem with metrics-only optimisation
+### 31.2 The problem with metrics-only optimisation
 
 A campaign that optimises purely on engagement data optimises for the connected
 minority, in the wards with the best signal, among the people most inclined to
@@ -1780,7 +1780,7 @@ respond. In Kitui that is a systematically biased sample — and it is biased
 confirm the campaign is winning while the recognition deficit outside the
 Anchor zone stays exactly where it is.
 
-### 19A.2 Design
+### 31.3 Design
 
 | Element | Specification |
 |---|---|
@@ -1791,9 +1791,9 @@ Anchor zone stays exactly where it is.
 | **Facilitation** | `[Insert — independent Kenyan qualitative research facilitator; Firefly to recommend, campaign to appoint]` |
 | **Ethics** | Participation voluntary; withdrawal at any time; no contact data retained for campaigning without separate explicit opt-in |
 
-### 19A.3 What gets tested
+### 31.4 What gets tested
 
-* **Message framings** from Section 10 — does loss-aversion framing on water
+* **Message framings** from Section 23 — does loss-aversion framing on water
 land, or does it read as pessimism about Kitui?
 * **The Economist Governor narrative** — does "economist" read as competent or
 as distant? This is the single highest-value question in the research
@@ -1804,10 +1804,10 @@ front-runner? The answer determines whether the deficit is closeable by
 communication at all
 * **Channel reality** — where do people in Mutha actually get political
 information?
-* **The tracker concept** (Section 19B) — would people use it, and do they
+* **The tracker concept** (Section 31.7) — would people use it, and do they
 believe it would change anything?
 
-### 19A.4 Feedback loop
+### 31.5 Feedback loop
 
 Findings are written up within **10 days** and feed directly into the next
 content cycle, the SMS message architecture and the paid-media creative brief.
@@ -1816,7 +1816,7 @@ is treated as the signal about the offline majority and the quantitative data
 as the signal about the online minority** — neither overrides the other, and
 the disagreement itself is information.
 
-### 19A.5 KPIs
+### 31.6 KPIs
 
 | Metric | Target |
 |---|---|
@@ -1827,12 +1827,12 @@ the disagreement itself is information.
 
 ---
 
-## 19B. Public Service-Delivery Tracker
+### 31.7 Public Service-Delivery Tracker
 
 *New section. The single clearest expression of the candidate's actual
 professional discipline.*
 
-### 19B.1 Why this exists
+### 31.8 Why this exists
 
 Dr. Mulu is a monitoring and evaluation specialist — a member of the Evaluation
 Society of Kenya and an M&amp;E Champion recognised by the Ministry of Finance,
@@ -1843,7 +1843,7 @@ one is professionally qualified in **verifying whether promises were kept**. A
 public service-delivery tracker is not a campaign gadget; it is that
 qualification, running in public, before the election rather than after it.
 
-### 19B.2 What it is
+### 31.9 What it is
 
 A simple public tool through which any Kitui resident can report and follow up
 on a local service-delivery issue — a broken water point, an impassable feeder
@@ -1860,7 +1860,7 @@ the least connectivity:**
 | **Web** | Simple mobile-first form, WCAG compliant |
 | **Ward champion** | Report in person; champion logs it |
 
-### 19B.3 What happens to a report
+### 31.10 What happens to a report
 
 ```
    Report submitted (any channel)
@@ -1885,13 +1885,13 @@ the least connectivity:**
    Reporter notified by SMS
 ```
 
-### 19B.4 Design principles
+### 31.11 Design principles
 
 1. **Public by default.** The register is visible to anyone, mapped by ward,
 with counts by category. Transparency is the point.
 2. **No personal data published.** Reports appear with ward, category and
 status only. Contact details are used to update the reporter and nothing
-else, under the Section 16.4 charter.
+else, under the Section 28.4 charter.
 3. **Outcomes published honestly — including failures.** Where an issue is not
 resolved, the register says so. A tracker that only shows successes is
 marketing, and voters recognise it instantly. Publishing unresolved items is
@@ -1904,28 +1904,28 @@ attack the tool exists to pre-empt.
 polling day was a campaign tactic; one that continues is a governance
 commitment — and the commitment is the persuasive element.
 
-### 19B.5 Campaign value
+### 31.12 Campaign value
 
 * **Narrative:** the strongest possible proof of the Verification pillar
-(Section 5.4) — evidence rather than assertion
+(Section 18.4) — evidence rather than assertion
 * **Data:** ward-level issue salience derived from citizens' own priorities
 rather than from campaign assumptions, feeding directly into content and
 message-lab design
 * **Organising:** every report is a consented contact and a warm lead for ward
 champions
 * **Earned media:** a public register of county service-delivery failures is a
-standing story for county correspondents (Section 17A)
+standing story for county correspondents (Section 29.1)
 * **Defensive:** it makes "he is not close to ordinary people" a difficult
 attack to sustain against a candidate publishing their reported problems
 
-### 19B.6 Build and cost
+### 31.13 Build and cost
 
-Built on the USSD/SMS infrastructure already costed in Section 8B.2 — shared
+Built on the USSD/SMS infrastructure already costed in Section 21.16 — shared
 USSD code (~KSh34,800 per network), development (~KSh140,000), hosting
 (~KSh5,000/month) — plus a lightweight public register on the campaign site.
 **Marginal cost over the SMS/USSD layer is low; distinctiveness is high.**
 
-### 19B.7 KPIs
+### 31.14 KPIs
 
 | Metric | Phase 1 | Phase 2 | Phase 3 |
 |---|---|---|---|
@@ -1936,7 +1936,7 @@ USSD code (~KSh34,800 per network), development (~KSh140,000), hosting
 | Reports converting to consented contacts | ≥ 60% | ≥ 65% | ≥ 70% |
 | Earned media items citing the tracker | 1 | 3 | 5 |
 
-## 20. Phased Implementation Plan and KPIs
+## 32. Phased Implementation Plan and KPIs
 
 Five phases: a new Phase −1 addressing the nomination contest, followed by the
 original four phases running to the General Election on **10 August 2027**.
@@ -1968,10 +1968,10 @@ proposal claims to embody, applied to its own first assumption.
 
 **Weeks 1–2 — foundations:**
 - Secure and harden all accounts: **hardware-key 2FA for the candidate and all
-  admins on day one** (Section 16A.2)
-- Establish the compliance ledger (Section 8B.4)
+  admins on day one** (Section 28.8)
+- Establish the compliance ledger (Section 21.18)
 - Verify the Kitui expenditure ceiling from the gazette schedule
-- Commission the Section 16.5 compliance review — **start the clock early, it
+- Commission the Section 28.5 compliance review — **start the clock early, it
   is the long-lead item**
 - Appoint the Kikamba producer
 
@@ -1986,13 +1986,13 @@ proposal claims to embody, applied to its own first assumption.
 - Kikamba voice-note series from Dr. Mulu — one per week, distributed by
   WhatsApp and ward networks
 - Earned media push: Tier C expert placements on county fiscal management
-  (Section 17A.2), plus priority-station radio
-- **One message-lab round across all three zones** (Section 19A) — mandatory
+  (Section 29.3), plus priority-station radio
+- **One message-lab round across all three zones** (Section 31.1) — mandatory
 - Publish the Digital Ethics & Data Charter — a differentiating news moment in
   its own right during a nomination contest
 
 **Weeks 6–8 — consolidation:**
-- Full-scale red-team drill before the nomination decision (Section 13.7)
+- Full-scale red-team drill before the nomination decision (Section 26.7)
 - Coalition roundtables with professional associations
 - Ward champion recruitment begins in the 15 highest-priority wards
 
@@ -2031,7 +2031,7 @@ allows; sequential if the decision slips.*
 - Weeks 7–8: recruit and train **40 ward digital champions** remotely,
   including mandatory data-handling training; establish WhatsApp reporting
   structures. Recruitment priority: Mwingi Central, Mutomo, Kitui Central
-- Service-delivery tracker built and tested (Section 19B)
+- Service-delivery tracker built and tested (Section 31.7)
 
 **KPIs:**
 - All platforms live and verified
@@ -2040,7 +2040,7 @@ allows; sequential if the decision slips.*
 - USSD code live across all networks
 - 40 ward digital champions onboarded and data-trained
 - First 100 pieces of content approved and scheduled
-- **Section 16.5 compliance opinion received**
+- **Section 28.5 compliance opinion received**
 
 ---
 
@@ -2152,45 +2152,45 @@ allows; sequential if the decision slips.*
 - Data deletion executed within **90 days** of the declaration of results, per
   the charter, with public confirmation
 - Final IEBC expenditure return filed with the campaign finance agent
-- Service-delivery tracker continues, per the Section 19B.4 commitment
+- Service-delivery tracker continues, per the Section 31.11 commitment
 - Full campaign post-mortem with performance against every KPI in this document
 
 ---
 
-## 21. Execution & Workflow
+## 33. Execution, Rationale & Conclusion
 
-### 21.1 Weekly strategy syncs
+### 33.1 Weekly strategy syncs
 A scheduled virtual briefing aligns digital output with the candidate's
 physical itinerary: prior-week performance, next-week content calendar
 approval, emerging issues. Firefly reports to a single named campaign-side
-counterpart (Section 8A.4).
+counterpart (Section 21.11).
 
-### 21.2 Asset centralisation
+### 33.2 Asset centralisation
 A cloud repository for the ground team to upload photographs and video daily.
 Raw assets are professionally edited, captioned and distributed within hours.
 **Originals retained with metadata** to support the provenance requirement in
-Section 16A.5 — a practice that costs nothing now and is invaluable under
+Section 28.11 — a practice that costs nothing now and is invaluable under
 attack.
 
-### 21.3 Performance tracking
+### 33.3 Performance tracking
 Monthly analytics reports covering reach, engagement, sentiment and conversion,
-plus the competitive brief (Section 15.3), the compliance ledger reconciliation
-(Section 8B.4), and progress against the analytics maturity roadmap (Section
+plus the competitive brief (Section 27.10), the compliance ledger reconciliation
+(Section 21.18), and progress against the analytics maturity roadmap (Section
 14.5).
 
-### 21.4 Escalation
-The Section 8A.6 decision matrix governs all approvals. The Section 13.4
+### 33.4 Escalation
+The Section 21.13 decision matrix governs all approvals. The Section 26.4
 severity matrix governs all crisis response. Both are rehearsed quarterly
-(Section 13.7) rather than read for the first time under pressure.
+(Section 26.7) rather than read for the first time under pressure.
 
-### 21.5 What Firefly needs from the campaign
+### 33.5 What Firefly needs from the campaign
 Stated plainly, because these are the dependencies that determine delivery:
 
 1. **One named counterpart** with authority to approve content
 2. **Candidate time:** approximately 3 hours per week — one Facebook Live, one
    voice-note recording session, one interview or content block
 3. **Ground team asset uploads:** daily photographs and video from the trail
-4. **Appointment of the compliance reviewer** (Section 16.5) — the long-lead
+4. **Appointment of the compliance reviewer** (Section 28.5) — the long-lead
    item, needed in Phase −1
 5. **The verified expenditure ceiling** from the gazette schedule
 6. **Current ward-level registration data** from the IEBC published file
@@ -2199,7 +2199,7 @@ Stated plainly, because these are the dependencies that determine delivery:
 
 ---
 
-## 22. Why This Remote Operation Works
+### 33.6 Why This Remote Operation Works
 
 A remote digital operation is not a compromise. Digital campaigning does not
 require a physical office in Kitui; it requires speed, data, creative
@@ -2216,7 +2216,7 @@ discipline and continuous availability. Firefly's role is:
 
 This allows the ground team to concentrate on direct voter contact, logistics
 and physical mobilisation — while the two operations feed a single voter model
-rather than running blind to each other (Section 9A).
+rather than running blind to each other (Section 22.8).
 
 ### The Firefly proposition
 Firefly is being proposed as the campaign's **outsourced digital function**, not as a single communications hire. The value is the operating system around the candidate: one accountable digital lead, a lean core, specialist surge capacity when the KPI or phase requires it, governed spend, multilingual production, low-connectivity distribution and a measurable reporting cadence.
@@ -2224,7 +2224,7 @@ Firefly is being proposed as the campaign's **outsourced digital function**, not
 Firefly is a **Kenya-based media and consulting company**. The proposal deliberately does not claim named clients or case studies; its proof is the specificity of the operating model, the governance architecture and the measurable deliverables set out in this document.
 
 **One honest qualification.** Remote delivery works for everything above. It
-does not replace the things it should not: the focus groups in Section 19A
+does not replace the things it should not: the focus groups in Section 31.1
 require facilitation in Kitui, the Kikamba producer must be a native speaker,
 and the ward champion network is necessarily local. Those roles are budgeted as
 local appointments, not absorbed into a remote retainer. A proposal claiming
@@ -2233,7 +2233,7 @@ document's entire proposition is that it does not oversell.
 
 ---
 
-## 23. Conclusion and Call to Action
+### 33.7 Conclusion and Call to Action
 
 Dr. Makali Mulu has the credentials, the experience and the vision to be an
 outstanding Governor of Kitui County. He also has something no rival in this

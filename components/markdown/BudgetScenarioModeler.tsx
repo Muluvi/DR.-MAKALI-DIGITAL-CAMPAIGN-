@@ -219,8 +219,8 @@ export function BudgetScenarioModeler() {
               </span>
             </div>
             <p className="t-small text-muted leading-relaxed">
-              §8B.5 states this as <code className="placeholder">[Insert — recommend {currentTier.adSpendBand.low}–{currentTier.adSpendBand.high}% of ceiling]</code>. The absolute
-              figure is set on tier selection and is owned by the campaign (Appendix A, ref 8B.5). Percentages refer to
+              §21.19 states this as <code className="placeholder">[Insert — recommend {currentTier.adSpendBand.low}–{currentTier.adSpendBand.high}% of ceiling]</code>. The absolute
+              figure is set on tier selection and is owned by the campaign (§39.1, ref 21.19). Percentages refer to
               the verified county ceiling; absolute figures are illustrative structures to be finalised against it.
             </p>
           </div>
@@ -265,7 +265,7 @@ export function BudgetScenarioModeler() {
       <div className="border-t border-line overflow-x-auto">
         <table className="w-full t-small sm:text-xs">
           <caption className="text-left px-4 pt-3 pb-2 t-label font-black uppercase tracking-wider text-muted">
-            §8B.6 Tier comparison
+            §21.20 Tier comparison
           </caption>
           <thead>
             <tr className="bg-paper/70 border-y border-line">

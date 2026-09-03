@@ -103,7 +103,7 @@ const termsUnion = Object.keys(DEFINITIONS).join("|");
 const datePatterns = "August 2026|December 2026|April 2027|August 2027|2026/27|KSh 1\\.339bn";
 // In-text cross-references the proposal makes to specific numbered sections — see
 // lib/heading-slug.ts for where each one resolves to.
-const crossRefPattern = "Section\\s+(?:19B|9B|17A)";
+const crossRefPattern = "Section\\s+(?:22\\.14|29\\.1|31\\.1|31\\.7)";
 const statusPhrasePattern = STATUS_PHRASES.map((p) => p.pattern).join("|");
 const workingTriggerPattern = WORKING_TRIGGERS.map((p) => p.pattern).join("|");
 const bannerTriggerPattern = BANNER_TRIGGERS.map((p) => p.pattern).join("|");
@@ -126,9 +126,9 @@ export const HighlightedText = React.memo(function HighlightedText({ text, tabId
         return <InlineTooltip key={idx} text={part} term={lower} />;
       }
       // If it is a cross-reference to another numbered section, make it a working link
-      const crossRefMatch = /^Section\s+(19B|9B|17A)$/i.exec(part);
+      const crossRefMatch = /^Section\s+(22\.14|29\.1|31\.1|31\.7)$/i.exec(part);
       if (crossRefMatch) {
-        const sectionNumber = crossRefMatch[1].toUpperCase();
+        const sectionNumber = crossRefMatch[1];
         const targetId =
           tabId && crossSectionTarget(sectionNumber)?.startsWith(`${tabId}-sec-`)
             ? null // already inside the section being referenced — plain text reads better than a self-link
