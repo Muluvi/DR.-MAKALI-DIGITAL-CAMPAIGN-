@@ -11,7 +11,7 @@ import {
   DISCLOSURE,
   type ChannelId,
 } from "../../lib/phone-showcase";
-import { DURATION, EASE_ENTRANCE } from "../../lib/motion";
+import { DURATION, EASE_ENTRANCE, SPRING_SOFT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
 import { BODY_H, BODY_W } from "./device";
 import { ChannelMark } from "./marks";
@@ -52,6 +52,9 @@ export function PhoneShowcase() {
   const reduce = useReducedMotionSafe();
   const [channel, setChannel] = useState<ChannelId>(DEFAULT_CHANNEL);
   const tabRefs = useRef<Partial<Record<ChannelId, HTMLButtonElement | null>>>({});
+  // The tab pill and icon pop are traversal motion, not interaction feedback, so they stop under
+  // reduced motion rather than merely shortening.
+  const tabTransition = reduce ? { duration: 0 } : SPRING_SOFT;
 
   // The device is drawn once at true phone size and scaled as a single transform, so nothing
   // inside it ever reflows. The outer box reserves the scaled height via aspect-ratio, which is
@@ -118,7 +121,7 @@ export function PhoneShowcase() {
         {CHANNEL_ORDER.map((id) => {
           const selected = id === channel;
           return (
-            <button
+            <motion.button
               key={id}
               ref={(el) => {
                 tabRefs.current[id] = el;
@@ -129,13 +132,33 @@ export function PhoneShowcase() {
               aria-controls="phone-screen-panel"
               tabIndex={selected ? 0 : -1}
               onClick={() => setChannel(id)}
-              className={`shrink-0 inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
-                selected ? "border-accent bg-accent text-white" : "border-line bg-card text-muted hover:text-ink"
+              whileTap={{ scale: 0.94 }}
+              transition={SPRING_SOFT}
+              className={`relative shrink-0 inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+                selected ? "border-accent text-white" : "border-line bg-card text-muted hover:text-ink"
               }`}
             >
-              <ChannelMark id={id} />
-              <span className="text-[11.5px] font-bold whitespace-nowrap">{CHANNEL_LABELS[id]}</span>
-            </button>
+              {/* The active pill: one element that slides between tabs via a shared layoutId,
+                  rather than each tab flatly swapping its own background. */}
+              {selected && (
+                <motion.span
+                  layoutId="phone-tab-pill"
+                  className="absolute inset-0 rounded-full bg-accent"
+                  style={{ zIndex: 0 }}
+                  transition={tabTransition}
+                />
+              )}
+              <span className="relative z-10 flex items-center gap-1.5">
+                <motion.span
+                  className="flex"
+                  animate={{ scale: selected ? 1.1 : 1 }}
+                  transition={tabTransition}
+                >
+                  <ChannelMark id={id} />
+                </motion.span>
+                <span className="text-[11.5px] font-bold whitespace-nowrap">{CHANNEL_LABELS[id]}</span>
+              </span>
+            </motion.button>
           );
         })}
       </div>

@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { motion } from "motion/react";
 
 import { USSD } from "../../../lib/phone-showcase";
+import { crossfade, DURATION, STAGGER } from "../../../lib/motion";
 import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
 import { StatusBar } from "../primitives";
 
@@ -17,8 +19,14 @@ import { StatusBar } from "../primitives";
  *
  * The menu is §14.3C's tree, unchanged. The pause before the response is the point — USSD is a
  * network round trip, and a menu that appears instantly is the one detail that would give it
- * away as a mockup.
+ * away as a mockup. The dialog itself gets the same treatment: it pops in the way a real system
+ * dialog does (a quick scale, not a fade from nowhere), the menu lines cascade in as they resolve
+ * rather than snapping into place together, and the reply field carries an actual blinking text
+ * cursor — because a static field is the second detail that would give it away.
  */
+
+/** Real system dialogs pop, they don't fade — quick and slightly overshot. */
+const DIALOG_ENTRANCE = { duration: DURATION.fast, ease: [0.3, 1.4, 0.6, 1] as const };
 
 /** The OS's own type stack, deliberately not the site's. */
 const SYSTEM_FONT =
@@ -74,8 +82,11 @@ export function UssdScreen() {
         <StatusBar tone="light" />
 
         <div className="flex-1 min-h-0 flex items-center px-4">
-          <div
+          <motion.div
             className="w-full overflow-hidden"
+            initial={reduce ? false : { opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={DIALOG_ENTRANCE}
             style={{
               background: "#f1f1f1",
               borderRadius: 4,
@@ -94,20 +105,34 @@ export function UssdScreen() {
               ) : (
                 <div style={{ fontSize: 15, lineHeight: 1.45 }}>
                   <p style={{ marginBottom: 8 }}>{USSD.responseHeader}</p>
-                  <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+                  <motion.ul
+                    style={{ listStyle: "none", margin: 0, padding: 0 }}
+                    initial={reduce ? false : "hidden"}
+                    animate="visible"
+                    variants={{ visible: { transition: { staggerChildren: STAGGER.tight } } }}
+                  >
                     {USSD.menu.map((m) => (
-                      <li key={m.key} style={{ marginBottom: 4 }}>
+                      <motion.li
+                        key={m.key}
+                        style={{ marginBottom: 4 }}
+                        variants={{
+                          hidden: { opacity: 0, x: -6 },
+                          visible: { opacity: 1, x: 0, transition: crossfade },
+                        }}
+                      >
                         {m.key}. {m.label}
-                      </li>
+                      </motion.li>
                     ))}
-                  </ul>
+                  </motion.ul>
                 </div>
               )}
             </div>
 
-            {/* Reply field. A bare underline, because that is what the system dialog gives you. */}
+            {/* Reply field. A bare underline, because that is what the system dialog gives you —
+                plus the one detail a static mockup never has: a text cursor that actually blinks. */}
             <div className="px-5 pb-1">
               <div
+                className="flex items-center"
                 style={{
                   borderBottom: "1.5px solid #9aa0a6",
                   paddingBottom: 5,
@@ -116,6 +141,15 @@ export function UssdScreen() {
                   minHeight: 26,
                 }}
               >
+                {sent && (
+                  <motion.span
+                    aria-hidden="true"
+                    className="inline-block"
+                    style={{ width: 1.5, height: 16, background: "#1a73e8", marginRight: 1 }}
+                    animate={reduce ? { opacity: 1 } : { opacity: [1, 1, 0, 0] }}
+                    transition={reduce ? undefined : { duration: 1, repeat: Infinity, times: [0, 0.5, 0.5, 1], ease: "linear" }}
+                  />
+                )}
                 {USSD.inputPlaceholder}
               </div>
             </div>
@@ -128,7 +162,7 @@ export function UssdScreen() {
                 {USSD.sendLabel.toUpperCase()}
               </span>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         <div aria-hidden="true" className="shrink-0 flex justify-center pt-1.5 pb-2">
