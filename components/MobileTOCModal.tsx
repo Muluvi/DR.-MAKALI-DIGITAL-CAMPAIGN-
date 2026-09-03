@@ -37,13 +37,18 @@ export function MobileTOCModal({
       const matchesTab = selectedTabFilter === "all" || item.tabId === selectedTabFilter;
       const q = searchQuery.toLowerCase().trim();
       if (!q) return matchesTab;
-      const matchesQuery = 
+      const matchesQuery =
         item.number.toLowerCase().includes(q) ||
         item.title.toLowerCase().includes(q) ||
         item.tabLabel.toLowerCase().includes(q);
       return matchesTab && matchesQuery;
     });
   }, [sections, searchQuery, selectedTabFilter]);
+
+  // Counts shown in the header/pills — derived from the live index rather than hardcoded,
+  // so they never drift from the document again the way the old "26 Sections" figure did.
+  const majorSectionCount = useMemo(() => sections.filter((s) => s.level === 2).length, [sections]);
+  const partCount = useMemo(() => new Set(sections.map((s) => s.tabId)).size, [sections]);
 
   if (!isOpen) return null;
 
@@ -83,7 +88,7 @@ export function MobileTOCModal({
                   Document Table of Contents
                 </h3>
                 <p className="t-label sm:t-small text-muted font-medium mt-0.5">
-                  26 Strategic Sections · 3 Document Parts
+                  {majorSectionCount} Strategic Sections · {partCount} Document Parts
                 </p>
               </div>
             </div>
@@ -129,7 +134,7 @@ export function MobileTOCModal({
                     : "bg-card text-muted border-line hover:text-ink"
                 }`}
               >
-                All (26)
+                All ({sections.length})
               </button>
               {(["exec", "programme", "registers"] as const).map((tab) => {
                 const labelMap: Record<TabId, string> = {

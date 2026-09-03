@@ -2,7 +2,7 @@
 
 <section id="firefly-audit-implementation" class="audit-section">
 
-## Appendix A1: Data Gaps & Empirical Acquisition Register
+## 34. Appendix: Data Gaps & Empirical Acquisition Register
 
 This register identifies specific empirical datasets not currently available in public domain repositories or secondary literature. In accordance with the campaign's rigorous research governance standards, these missing datasets are treated as **structured procurement and primary research scoping tasks** rather than analytical deficits.
 
@@ -39,7 +39,7 @@ Each gap is linked directly to a high-stakes campaign decision, mapped to an acq
 
 ---
 
-### A1.1 Tracked Data Acquisition Matrix (Ranked by Value per Effort)
+### 34.1 Tracked Data Acquisition Matrix (Ranked by Value per Effort)
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -93,7 +93,7 @@ Each gap is linked directly to a high-stakes campaign decision, mapped to an acq
 
 ---
 
-### A1.2 Scoping & Procurement Execution Protocols
+### 34.2 Scoping & Procurement Execution Protocols
 
 To systematically acquire these datasets without incurring administrative delays or statutory compliance risks:
 
@@ -115,7 +115,7 @@ To systematically acquire these datasets without incurring administrative delays
 ```
 ---
 
-## Appendix A2: Master Source & Provenance Register
+## 35. Appendix: Master Source & Provenance Register
 
 In accordance with the evidentiary provenance standards established in Section 8.2, this register catalogs every empirical data point, demographic figure, audit metric, and statutory threshold cited throughout the master campaign strategy document.
 
@@ -144,7 +144,7 @@ Each data entry is indexed by its **Primary Source Entity**, **Official Publicat
 
 ---
 
-### A2.1 Master Empirical Citation Register
+### 35.1 Master Empirical Citation Register
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -187,7 +187,7 @@ Each data entry is indexed by its **Primary Source Entity**, **Official Publicat
 
 ---
 
-### A2.2 Reconciled Disputed Figures Register
+### 35.2 Reconciled Disputed Figures Register
 
 Where competing published sources present conflicting values for critical economic or fiscal indicators, the campaign strictly documents **both values, both institutional sources, and the strategic justification for the campaign's baseline choice**:
 
@@ -231,7 +231,7 @@ Where competing published sources present conflicting values for critical econom
 ```
 ---
 
-## Appendix A3: Consolidated Statutory & Regulatory Compliance Pack
+## 36. Appendix: Consolidated Statutory & Regulatory Compliance Pack
 
 This compliance pack consolidates all statutory, constitutional, and regulatory requirements governing Dr. Makali Mulu’s 2027 Kitui County gubernatorial campaign. Operating with strict legal adherence is both an ethical mandate and an essential defense against administrative disqualification or election petition exposure.
 
@@ -273,7 +273,7 @@ This compliance pack consolidates all statutory, constitutional, and regulatory 
 
 ---
 
-### A3.1 Election Campaign Financing Act (ECFA) 2026 Obligations
+### 36.1 Election Campaign Financing Act (ECFA) 2026 Obligations
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -308,7 +308,7 @@ This compliance pack consolidates all statutory, constitutional, and regulatory 
 
 ---
 
-### A3.2 IEBC Statutory Nomination Checklist & Clearance Milestones
+### 36.2 IEBC Statutory Nomination Checklist & Clearance Milestones
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -345,7 +345,7 @@ This compliance pack consolidates all statutory, constitutional, and regulatory 
 
 ---
 
-### A3.3 Data Protection Act (DPA 2019) & Election Offences Liability Matrix
+### 36.3 Data Protection Act (DPA 2019) & Election Offences Liability Matrix
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -372,7 +372,7 @@ This compliance pack consolidates all statutory, constitutional, and regulatory 
 
 ---
 
-## Appendix A4: The Master Honesty Ledger: Strategic Assumptions, Leadership Decisions & Tier 3 Claims
+## 37. Appendix: The Master Honesty Ledger — Strategic Assumptions, Leadership Decisions & Tier 3 Claims
 
 In accordance with the campaign's uncompromising research integrity standards, this **Honesty Ledger** consolidates every strategic assumption, pending leadership decision, and Tier 3 field claim underlying the master plan. This transparency ensures external evaluators and campaign leadership can audit the plan’s empirical foundations without ambiguity.
 
@@ -402,7 +402,7 @@ In accordance with the campaign's uncompromising research integrity standards, t
 
 ---
 
-### A4.1 The Strategic Assumptions Register
+### 37.1 The Strategic Assumptions Register
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -410,7 +410,7 @@ In accordance with the campaign's uncompromising research integrity standards, t
 ├────┬─────────────────────────────┬───────────────────────────────────────────┬──────────────────────────────┤
 │ #  │ Core Strategic Assumption   │ Operational Vulnerability if Invalidated  │ Contingency & Mitigation     │
 ├────┼─────────────────────────────┼───────────────────────────────────────────┼──────────────────────────────┤
-│ 1  │ **Wiper Party Ticket        │ If rival forces an acrimonious, costly    │ Activate Section 19A tracking│
+│ 1  │ **Wiper Party Ticket        │ If rival forces an acrimonious, costly    │ Activate Section 31.1 tracking│
 │    │ Securability:** Assumption  │ contested primary, campaign must expend   │ polling; deploy county-wide  │
 │    │ that Dr. Makali Mulu secures│ Ksh 15M–20M early, eroding general        │ branch executive consensus   │
 │    │ the ticket via consensus or │ election reserves.                        │ caucuses (NW-04).            │
@@ -436,7 +436,7 @@ In accordance with the campaign's uncompromising research integrity standards, t
 
 ---
 
-### A4.2 Decisions Awaiting Campaign Leadership
+### 37.2 Decisions Awaiting Campaign Leadership
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -463,7 +463,7 @@ In accordance with the campaign's uncompromising research integrity standards, t
 
 ---
 
-### A4.3 Tier 3 Operational Claims Register
+### 37.3 Tier 3 Operational Claims Register
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -489,38 +489,38 @@ In accordance with the campaign's uncompromising research integrity standards, t
 ════════════════════════════════════════════════════════════════════════════════════
                      APPENDICES A3 & A4 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
- • Absolute Statutory Compliance: Appendix A3 consolidates ECFA 2026 caps (Ksh 97.56M),
+ • Absolute Statutory Compliance: Section 36 consolidates ECFA 2026 caps (Ksh 97.56M),
                                   IEBC nomination checklists, DPA 2019 data protection,
                                   and Election Offences Act liability safeguards.
- • Uncompromising Honesty Ledger: Appendix A4 transparently discloses all strategic
+ • Uncompromising Honesty Ledger: Section 37 transparently discloses all strategic
                                   assumptions, pending leadership decisions (running mate,
                                   signatories), and Tier 3 internal operational metrics.
  • Complete Document Integrity:   The entire strategy document from Section 1 to
-                                  Appendix A4 is fully aligned, rigorously cited, and
+                                  Section 37 is fully aligned, rigorously cited, and
                                   empirically grounded.
 ════════════════════════════════════════════════════════════
 ```
 
-## Firefly Internal Audit & Implementation
+## 38. Firefly Internal Audit & Implementation
 
 <p class="section-kicker">Internal working appendix — commercial, strategic, structural, compliance and deployment readiness</p>
 <div class="callout"><strong>Purpose.</strong> This appendix converts the proposal into an execution checklist for Firefly and the campaign. It should be used to close evidence gaps, assign owners, verify dependencies and prepare the final client-facing deployment.</div>
 
-### 1. Executive assessment
+### 38.1 Executive assessment
 The proposal's strategic strength is that it treats the Wiper nomination as the immediate decision point rather than waiting for the August 2027 general election. The supplied polling material places Dr. Mulu at 22.1% versus Irene Kasalu at 37.4% in the 7 August 2026 survey, with the stated deficit widening from 11.1 to 15.3 percentage points.
 
 The strongest candidate-specific differentiator is the M&E credential: project-management, strategic-planning and monitoring-and-evaluation experience, M&E recognition, and the constituency's cited evaluation record. The public service-delivery tracker turns that credential into an observable operating proof point.
 
 The principal commercial weakness is evidence about Firefly itself. No client list, case studies, years-of-experience claims or performance claims should be invented. The defensible positioning is Firefly as a Kenya-based outsourced digital function with a lean accountable core and activated specialist capacity.
 
-### 2. Commercial positioning
+### 38.2 Commercial positioning
 - **Sell a function, not a freelancer:** strategy, content, distribution, analytics, low-connectivity channels, earned media, crisis response, compliance and reporting.
 - **Accountability:** one named campaign counterpart; one Firefly Digital Director with final operational authority within agreed limits.
 - **Operating model:** 3-person standing core plus surge specialists activated by phase, tier or KPI threshold.
 - **Differentiation:** multilingual execution, SMS/USSD reach, M&E-led tracker, governed analytics, compliance ledger, cybersecurity and measurable reporting.
 - **Commercial recommendation:** Standard tier, subject to the verified statutory ceiling and campaign priorities.
 
-### 3. Team and governance — final operating model
+### 38.3 Team and governance — final operating model
 | Role | Primary responsibility | Activation |
 |---|---|---|
 | Digital Director | Strategy, campaign relationship, final content sign-off, crisis Level 2 approval and spend reallocation within agreed limits | Permanent |
@@ -536,7 +536,7 @@ The principal commercial weakness is evidence about Firefly itself. No client li
 
 **Decision rule:** Firefly reports to one named campaign-side counterpart, not a committee. Level 3 crisis responses require candidate/senior-leadership approval; voter-file-based targeting requires the compliance gate before launch.
 
-### 4. Operating cadence
+### 38.4 Operating cadence
 | Cadence | Meeting / workflow | Output |
 |---|---|---|
 | Daily | 15-minute Firefly stand-up | Priorities, escalations and live issues |
@@ -547,7 +547,7 @@ The principal commercial weakness is evidence about Firefly itself. No client li
 | Monthly | Performance & compliance review | Analytics, competitive brief and spend reconciliation |
 | Quarterly | Red-team simulation | Crisis drill report and control updates |
 
-### 5. Immediate Phase −1 implementation
+### 38.5 Immediate Phase −1 implementation
 
 <div class="grid-3">
 <div class="card"><h4>Week 1 — Audit & baseline</h4><ul><li>Audit every campaign-adjacent social account.</li><li>Capture follower, reach, engagement and content-format baseline.</li><li>Collect current ward registration file.</li><li>Map competitor visibility and narrative share.</li><li>Complete compliance review appointment.</li><li>Confirm native Kikamba producer.</li><li>Set up dashboards, content repository and approval workflow.</li></ul></div>
@@ -555,7 +555,7 @@ The principal commercial weakness is evidence about Firefly itself. No client li
 <div class="card"><h4>Week 3+ — Preference shift</h4><ul><li>Scale countywide reach into recognition-gap zones.</li><li>Run message tests against the nomination objective.</li><li>Track recognition, preference and sentiment indicators.</li><li>Publish weekly decision dashboard.</li><li>Reallocate spend only against verified performance and compliance.</li></ul></div>
 </div>
 
-### 6. Budget and unit-economics controls
+### 38.6 Budget and unit-economics controls
 **Do not invent the county ceiling.** The verified IEBC Gazette figure must be inserted before absolute campaign-budget recommendations are presented as final. The three scenarios remain:
 
 | | Lean | Standard — recommended | Premium |
@@ -568,7 +568,7 @@ The principal commercial weakness is evidence about Firefly itself. No client li
 
 Illustrative USSD costs already specified in the source proposal: approximately KSh34,800 per network for a shared code, KSh140,000 development and KSh5,000/month hosting. SMS economics cited are approximately KSh0.25–0.60 per message; at 120,000 consented contacts, a fortnightly send is approximately KSh30,000–72,000.
 
-### 7. Compliance gate — mandatory before sensitive targeting
+### 38.7 Compliance gate — mandatory before sensitive targeting
 <div class="callout warning"><strong>No exceptions:</strong> voter-file-based targeting is not to be deployed until a Kenyan data-protection/electoral-law specialist has reviewed and signed off the specific processing. Maintain consent records, opt-outs, purpose limitation, access controls, retention/deletion schedule and expenditure logs.</div>
 
 - Appoint named compliance reviewer in Phase −1.
@@ -578,14 +578,14 @@ Illustrative USSD costs already specified in the source proposal: approximately 
 - Maintain per-send audit trail and reconcile campaign expenditure monthly.
 - Delete campaign data within the stated post-election retention period and publicly confirm completion.
 
-### 8. Low-connectivity implementation
+### 38.8 Low-connectivity implementation
 - **USSD:** voter information, local issue reporting, volunteer opt-in and updates.
 - **SMS:** ward-tagged, consented messages with 7am–7pm sending window and immediate opt-out.
 - **Voice:** Kikamba voice notes distributed through WhatsApp and ward champions; audio versions of flagship policy content.
 - **Ward champions:** human interface for residents who cannot or do not wish to use digital channels.
 - **Service tracker:** USSD, SMS, WhatsApp, web and ward-champion reporting routes.
 
-### 9. Public service-delivery tracker — implementation specification
+### 38.9 Public service-delivery tracker — implementation specification
 Build a simple public register where residents can report a broken water point, impassable feeder road, market sanitation problem or stalled project. Each report should receive an ID, ward/location tag, category, status, verification note and follow-up outcome. The tool should remain useful after the election.
 
 | Channel | Minimum implementation |
@@ -596,7 +596,7 @@ Build a simple public register where residents can report a broken water point, 
 | Web | Mobile-first WCAG-compliant form |
 | Ward champion | In-person report logged into the same register |
 
-### 10. Research and message laboratory
+### 38.10 Research and message laboratory
 - Test the Economist Governor framing: competence versus perceived distance.
 - Test water/land/livelihood framing for constructive versus pessimistic interpretation.
 - Validate Kikamba language, proverb use and authenticity with native speakers.
@@ -605,7 +605,7 @@ Build a simple public register where residents can report a broken water point, 
 - Test whether residents understand and trust the service-delivery tracker.
 - Feed findings into content, SMS architecture and paid-media briefs within the stated turnaround.
 
-### 11. Crisis, cybersecurity and manipulated-media readiness
+### 38.11 Crisis, cybersecurity and manipulated-media readiness
 - Maintain continuous narrative/sentiment monitoring.
 - Use a severity matrix with Level 1, 2 and 3 approval paths.
 - Maintain rapid-response templates for factual correction and misinformation.
@@ -614,7 +614,7 @@ Build a simple public register where residents can report a broken water point, 
 - Secure administrator accounts with strong authentication, role separation and recovery procedures.
 - Keep a central incident log and post-incident review.
 
-### 12. Accessibility and public-facing quality assurance
+### 38.12 Accessibility and public-facing quality assurance
 - Target WCAG 2.1 AA.
 - Semantic heading hierarchy and keyboard navigation.
 - Readable contrast and no information conveyed by colour alone.
@@ -623,7 +623,7 @@ Build a simple public register where residents can report a broken water point, 
 - Sign-language interpretation for flagship content according to selected tier.
 - Test mobile first, including low-bandwidth conditions.
 
-### 13. Client dependencies — request on appointment
+### 38.13 Client dependencies — request on appointment
 1. One named campaign-side counterpart with authority to approve content.
 2. Candidate availability of approximately 3 hours/week for core content blocks.
 3. Daily ground-team photo/video uploads.
@@ -635,10 +635,10 @@ Build a simple public register where residents can report a broken water point, 
 9. Permission/credentials for relevant digital accounts and assets.
 10. Approved visual identity, biography, policy documents and existing media archive.
 
-### 14. Deliberate non-claims
+### 38.14 Deliberate non-claims
 <div class="grid-2"><div class="card"><h4>Do not fabricate</h4><ul><li>Firefly clients or case studies</li><li>Years of experience</li><li>Performance results</li><li>Kitui spending ceiling</li><li>Current ward register</li><li>Kikamba proverbs or cultural claims</li></ul></div><div class="card"><h4>Do not overstate</h4><ul><li>Legality of voter-file targeting before counsel sign-off</li><li>Remote delivery of inherently local roles</li><li>Digital reach as equivalent to voter persuasion</li><li>Engagement as proof of offline majority sentiment</li><li>Budget affordability before the statutory ceiling is verified</li></ul></div></div>
 
-### 15. Final pre-launch checklist
+### 38.15 Final pre-launch checklist
 | Control | Status | Owner |
 |---|---|---|
 | IEBC ceiling verified from Gazette | <span class="placeholder">OPEN</span> | Campaign counsel / Firefly |
@@ -654,7 +654,7 @@ Build a simple public register where residents can report a broken water point, 
 | Mobile/low-bandwidth browser QA | <span class="placeholder">OPEN</span> | Firefly |
 | Final client approval | <span class="placeholder">OPEN</span> | Campaign |
 
-### 16. Recommended client presentation sequence
+### 38.16 Recommended client presentation sequence
 1. **Problem:** immediate nomination contest and widening recognition/preference deficit.
 2. **Insight:** test whether the deficit is concentrated outside the home base before major spend.
 3. **Response:** Phase −1 plus multilingual, low-connectivity, earned-media and analytics operation.
@@ -664,7 +664,7 @@ Build a simple public register where residents can report a broken water point, 
 7. **Governance:** compliance gate, spend ledger, cybersecurity, ethics and reporting.
 8. **Decision:** appoint counterpart, approve tier, supply verified register/ceiling and commence Phase −1 Week 1.
 
-### 17. Implementation status
+### 38.17 Implementation status
 <div class="callout"><strong>Website implementation:</strong> single-page self-contained HTML, responsive CSS, embedded proposal content, interactive dashboard, section navigation, search, print mode, placeholder highlighting and noindex controls.</div>
 
 **Ready for deployment:** static hosting/Vercel.
@@ -674,7 +674,7 @@ Build a simple public register where residents can report a broken water point, 
 
 ---
 
-## Appendix A: Placeholder Register
+## 39. Appendix: Supplementary Registers
 
 Every unverified figure in this document, consolidated. **No figure has been
 invented to fill any of these.**
@@ -706,7 +706,7 @@ invented to fill any of these.**
 
 ---
 
-## Appendix B: Source Notes
+### 39.1 Source Notes
 
 Figures in this document are drawn from the following, current as at August 2026:
 
@@ -750,7 +750,7 @@ contracted quotations.
 
 ---
 
-## Appendix C: Data Gaps Register
+### 39.2 Data Gaps Register
 
 Every figure this document could not complete is tracked here rather than
 silently filled in. This is a deliverable in its own right — it scopes the

@@ -61,7 +61,7 @@ const PATH_DEFS: CoalitionPath[] = [
     strategicVerdict:
       "Combining the home base with the county's largest southern constituency and the peri-urban west forms a contiguous coalition that clears the threshold with the widest margin of any path.",
     tacticalRequirement:
-      "Requires breaking into Kitui South, which §6A.2 identifies as critical-deficit territory.",
+      "Requires breaking into Kitui South, which §6.5 identifies as critical-deficit territory.",
   },
   {
     id: "pathC",
