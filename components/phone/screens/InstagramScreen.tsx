@@ -1,9 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { Bookmark, Heart, Home, MessageCircle, MoreHorizontal, Search, Send, SquarePlay, User } from "lucide-react";
 
 import { IDENTITY, ILLUSTRATIVE_COUNTS, INSTAGRAM } from "../../../lib/phone-showcase";
+import { EASE_ENTRANCE } from "../../../lib/motion";
 import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
 import { Avatar, ScreenShell } from "../primitives";
 
@@ -15,7 +17,10 @@ import { Avatar, ScreenShell } from "../primitives";
  * The card carries §14.1 Pillar B — the guaranteed Ksh 85/kg ndengu floor price — with the
  * pillar's own Kikamba name.
  *
- * Living detail: the carousel dots advancing.
+ * Living detail: the carousel dots advancing — the active dot pops rather than flatly swapping
+ * colour, and the "n/N" badge crossfades on each advance. Only the counter and dots move: the
+ * card itself holds on one designed slide, since the proposal specifies the carousel *format*
+ * but supplies copy for only one card, and inventing slides 2 and 3 would be inventing content.
  */
 
 const FG = "#262626";
@@ -77,12 +82,23 @@ export function InstagramScreen() {
               </span>
             </span>
           </div>
-          {/* Carousel index */}
+          {/* Carousel index — the digits crossfade on each advance rather than snapping. */}
           <span
-            className="absolute top-3 right-3 rounded-full px-2 py-0.5 tabular-nums"
+            className="absolute top-3 right-3 overflow-hidden rounded-full px-2 py-0.5 tabular-nums"
             style={{ fontSize: 11, fontWeight: 600, background: "rgba(0,0,0,0.6)", color: "#fff" }}
           >
-            {slide + 1}/{INSTAGRAM.slideCount}
+            <AnimatePresence mode="popLayout" initial={false}>
+              <motion.span
+                key={slide}
+                className="inline-block"
+                initial={reduce ? false : { opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={reduce ? { opacity: 0 } : { opacity: 0, y: -4 }}
+                transition={{ duration: 0.22, ease: EASE_ENTRANCE }}
+              >
+                {slide + 1}/{INSTAGRAM.slideCount}
+              </motion.span>
+            </AnimatePresence>
           </span>
         </div>
 
@@ -93,13 +109,18 @@ export function InstagramScreen() {
             <MessageCircle size={23} color={FG} strokeWidth={1.8} aria-hidden="true" />
             <Send size={22} color={FG} strokeWidth={1.8} aria-hidden="true" />
           </span>
-          {/* Carousel dots */}
+          {/* Carousel dots — the active dot pops rather than only recolouring. */}
           <span className="flex items-center gap-1.5" aria-hidden="true">
             {Array.from({ length: INSTAGRAM.slideCount }).map((_, i) => (
-              <span
+              <motion.span
                 key={i}
-                className="block rounded-full transition-colors"
-                style={{ width: 5.5, height: 5.5, background: i === slide ? "#0095f6" : "#c7c7c7" }}
+                className="block rounded-full"
+                animate={{
+                  scale: i === slide ? 1.35 : 1,
+                  backgroundColor: i === slide ? "#0095f6" : "#c7c7c7",
+                }}
+                transition={{ duration: 0.28, ease: EASE_ENTRANCE }}
+                style={{ width: 5.5, height: 5.5 }}
               />
             ))}
           </span>
