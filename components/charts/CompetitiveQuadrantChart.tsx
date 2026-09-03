@@ -2,6 +2,9 @@
 
 import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, ReferenceLine, Tooltip, ResponsiveContainer, Cell } from "recharts";
 
+import { DURATION } from "../../lib/motion";
+import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
+
 export interface QuadrantPoint {
   name: string;
   preference: number; // measured, Mizani Africa 7 August 2026 (%)
@@ -12,6 +15,7 @@ export interface QuadrantPoint {
 }
 
 export default function CompetitiveQuadrantChart({ data }: { data: QuadrantPoint[] }) {
+  const reduce = useReducedMotionSafe();
   return (
     <ResponsiveContainer width="100%" height="100%">
       <ScatterChart margin={{ top: 20, right: 30, left: 10, bottom: 20 }}>
@@ -60,7 +64,12 @@ export default function CompetitiveQuadrantChart({ data }: { data: QuadrantPoint
             return null;
           }}
         />
-        <Scatter data={data}>
+        <Scatter
+          data={data}
+          isAnimationActive={!reduce}
+          animationDuration={DURATION.entrance * 1000}
+          animationEasing="ease-out"
+        >
           {data.map((entry, idx) => (
             <Cell key={idx} fill={entry.color} stroke="var(--color-card)" strokeWidth={2} />
           ))}

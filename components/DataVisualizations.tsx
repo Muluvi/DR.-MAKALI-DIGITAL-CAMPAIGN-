@@ -5,6 +5,9 @@ import { useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LabelList } from 'recharts';
 import { Sliders, HelpCircle, CheckCircle2 } from "lucide-react";
 
+import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
+import { DURATION } from "../lib/motion";
+
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
@@ -19,6 +22,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 export function DataVisualizations() {
   const [activeTier, setActiveTier] = useState<"lean" | "standard" | "premium">("standard");
+  const reduce = useReducedMotionSafe();
 
   const tiers = {
     lean: {
@@ -63,8 +67,8 @@ export function DataVisualizations() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {/* Poll Visualization */}
-      <motion.section 
-        initial={{ opacity: 0, y: 10 }}
+      <motion.section
+        initial={reduce ? false : { opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         className="relative overflow-hidden bg-card border-x-0 sm:border border-y sm:border-line rounded-none sm:rounded-3xl p-4 sm:p-8 shadow-none sm:shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all"
@@ -90,10 +94,12 @@ export function DataVisualizations() {
                 width={85}
               />
               <Tooltip cursor={{ fill: 'var(--glow)' }} content={<CustomTooltip />} />
-              <Bar 
-                dataKey="percent" 
+              <Bar
+                dataKey="percent"
                 radius={[0, 10, 10, 0]}
-                animationDuration={1000}
+                isAnimationActive={!reduce}
+                animationDuration={DURATION.entrance * 1000}
+                animationEasing="ease-out"
                 barSize={20}
               >
                 {pollData.map((entry, index) => (
@@ -107,8 +113,8 @@ export function DataVisualizations() {
       </motion.section>
 
       {/* Budget Scenario */}
-      <motion.section 
-        initial={{ opacity: 0, y: 10 }}
+      <motion.section
+        initial={reduce ? false : { opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         className="bg-card border-x-0 sm:border border-y sm:border-line rounded-none sm:rounded-3xl p-4 sm:p-8 shadow-none sm:shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between"
@@ -165,11 +171,11 @@ export function DataVisualizations() {
         </div>
         
         {/* Scenario Detailed Outputs with motion container */}
-        <motion.div 
+        <motion.div
           key={activeTier}
-          initial={{ opacity: 0, x: -8 }}
+          initial={reduce ? false : { opacity: 0, x: -8 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: reduce ? 0 : 0.3 }}
           className="bg-paper rounded-2xl p-4 sm:p-5 border border-line"
         >
           <div className="flex items-center gap-2 mb-2">

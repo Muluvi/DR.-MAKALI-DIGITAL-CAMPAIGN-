@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { TrendingDown, CalendarClock, Vote } from "lucide-react";
 
 import { EASE_ENTRANCE, VIEWPORT } from "../lib/motion";
 import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
+import { useCountUp } from "../hooks/use-count-up";
 import { TierBadge } from "./markdown/TierBadge";
 
 /**
@@ -38,29 +39,6 @@ const DEFICIT = Math.round((POLL.leader.share - POLL.mulu.share) * 10) / 10;
 const PRIOR = { leader: 31.3, mulu: 20.2, deficit: 11.1 };
 
 const SCALE_MAX = 45;
-
-function useCountUp(target: number, active: boolean, reduce: boolean, duration = 900) {
-  const [progressed, setProgressed] = useState(0);
-
-  useEffect(() => {
-    // Under reduced motion the number is simply present — no effect, no frame loop.
-    if (reduce || !active) return;
-    let raf = 0;
-    const start = performance.now();
-    const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / duration);
-      // Expo-out, matching EASE_ENTRANCE so the number settles with everything else.
-      const eased = 1 - Math.pow(2, -10 * t);
-      setProgressed(t < 1 ? eased : 1);
-      if (t < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [active, reduce, duration]);
-
-  if (reduce) return target;
-  return Math.round(target * progressed * 10) / 10;
-}
 
 export function NominationVerdict() {
   const ref = useRef<HTMLDivElement>(null);

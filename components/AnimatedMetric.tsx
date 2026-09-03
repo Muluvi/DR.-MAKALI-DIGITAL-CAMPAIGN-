@@ -1,7 +1,10 @@
 "use client";
 
 import { motion, useInView } from "motion/react";
-import { useEffect, useState, useRef } from "react";
+import { useRef } from "react";
+
+import { useFormattedCountUp } from "../hooks/use-count-up";
+import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
 
 interface AnimatedMetricProps {
   value: string;
@@ -20,48 +23,15 @@ export function AnimatedMetric({
   accentColor = "var(--color-accent)",
   isCustomBg = false
 }: AnimatedMetricProps) {
-  const [displayValue, setDisplayValue] = useState(value);
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-40px" });
-
-  useEffect(() => {
-    if (!isInView) return;
-
-    const match = value.match(/^([^0-9.]*)([0-9.]+)([^0-9.]*)$/);
-    if (!match) {
-      return;
-    }
-
-    const prefix = match[1];
-    const targetNum = parseFloat(match[2]);
-    const suffix = match[3];
-    const decimals = match[2].includes(".") ? match[2].split(".")[1].length : 0;
-
-    let startTime: number | null = null;
-    const duration = 2.0; // Perfect duration for visual impact
-
-    const animate = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
-      
-      // Fluid ease-out cubic curve
-      const easeProgress = 1 - Math.pow(1 - progress, 3);
-      const currentNum = targetNum * easeProgress;
-
-      setDisplayValue(`${prefix}${currentNum.toFixed(decimals)}${suffix}`);
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
-    };
-
-    requestAnimationFrame(animate);
-  }, [value, isInView]);
+  const reduce = useReducedMotionSafe();
+  const displayValue = useFormattedCountUp(value, isInView, reduce, 2000);
 
   return (
     <motion.div
       ref={containerRef}
-      initial={{ opacity: 0, y: 15 }}
+      initial={reduce ? false : { opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       className={`relative overflow-hidden border border-line rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-md hover:border-accent/30 transition-all ${

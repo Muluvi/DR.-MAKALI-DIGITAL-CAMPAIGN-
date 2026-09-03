@@ -7,7 +7,6 @@ import { FileText, Target, Activity, FileKey, Menu, X, Printer, Maximize2, Minim
 import { useTheme } from "../lib/useTheme";
 import { MarqueeCarousel } from "./MarqueeCarousel";
 import { AnimatedMetric } from "./AnimatedMetric";
-import { RadialProgress } from "./RadialProgress";
 import { LazyMount } from "./LazyMount";
 import { ScrollProgressBar } from "./ScrollProgressBar";
 import { SectionStickyBar } from "./SectionStickyBar";

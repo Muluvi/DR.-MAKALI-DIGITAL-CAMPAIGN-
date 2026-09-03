@@ -1,5 +1,11 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
+import { motion, useInView } from "motion/react";
 import { CircleDot, Lock, CheckCircle2 } from "lucide-react";
+
+import { cascade, riseIn, STAGGER, VIEWPORT } from "../../lib/motion";
+import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
 
 function cellsOfType(node: React.ReactNode, type: string): React.ReactElement[] {
   return (React.Children.toArray(node) as React.ReactElement[]).filter((c) => c?.type === type);
@@ -48,6 +54,10 @@ function statusOf(text: string): string {
 }
 
 export function ReadinessBoard({ children }: { children: React.ReactNode }) {
+  const reduce = useReducedMotionSafe();
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, VIEWPORT);
+
   const top = React.Children.toArray(children) as React.ReactElement[];
   const thead = top.find((c) => c?.type === "thead");
   const tbody = top.find((c) => c?.type === "tbody");
@@ -79,7 +89,7 @@ export function ReadinessBoard({ children }: { children: React.ReactNode }) {
   const order = ["GATED", "OPEN", "DONE"].filter((s) => tally[s]);
 
   return (
-    <div className="not-prose my-6 print-avoid-break">
+    <div ref={ref} className="not-prose my-6 print-avoid-break">
       <div className="flex flex-wrap items-center gap-2 mb-3">
         {order.map((s) => {
           const style = STATUS_STYLES[s];
@@ -100,13 +110,19 @@ export function ReadinessBoard({ children }: { children: React.ReactNode }) {
         </span>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+      <motion.div
+        className="grid grid-cols-1 lg:grid-cols-2 gap-2"
+        initial={reduce ? false : "hidden"}
+        animate={inView || reduce ? "visible" : "hidden"}
+        variants={cascade(STAGGER.tight)}
+      >
         {rows.map((r, i) => {
           const style = STATUS_STYLES[r.status];
           const Icon = style.icon;
           return (
-            <div
+            <motion.div
               key={i}
+              variants={riseIn}
               className={`rounded-xl border p-3 flex items-start gap-2.5 ${style.ring}`}
             >
               <Icon size={14} className={`${style.className} shrink-0 mt-0.5`} aria-hidden="true" />
@@ -124,10 +140,10 @@ export function ReadinessBoard({ children }: { children: React.ReactNode }) {
               <span className={`t-micro font-black uppercase tracking-widest shrink-0 ${style.className}`}>
                 {r.status}
               </span>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 }

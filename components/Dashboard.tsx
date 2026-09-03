@@ -1,106 +1,73 @@
 "use client";
 
-import { motion, useInView } from "motion/react";
-import { useEffect, useState, useRef } from "react";
-import { useMarqueeActive } from "../hooks/use-marquee-active";
+import { motion, useInView, useMotionValue, useSpring } from "motion/react";
+import { useCallback, useRef } from "react";
 import { useIsMobile } from "../hooks/use-mobile";
+import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
+import { useFormattedCountUp } from "../hooks/use-count-up";
+import { SPRING_SOFT } from "../lib/motion";
 import { NominationScorecard } from "./NominationScorecard";
 import { TrendingUp, Coins, WifiOff, Vote } from "lucide-react";
 
-// Robust parser-counter that counts up any formatted numeric values cleanly when scrolled into view
-function AnimatedCounter({ value, duration = 1.8 }: { value: string; duration?: number }) {
-  const [displayValue, setDisplayValue] = useState(value);
+// Counts up a formatted metric ("22.1%", "KSh13.79bn") once it scrolls into view. Wraps the
+// site's shared count-up hook (hooks/use-count-up.ts) rather than reimplementing it.
+function AnimatedCounter({ value }: { value: string }) {
   const containerRef = useRef<HTMLSpanElement>(null);
-  
-  // Triggers the animation only when the number becomes visible on the screen
   const isInView = useInView(containerRef, { once: true, margin: "-50px" });
-
-  useEffect(() => {
-    if (!isInView) return;
-
-    const match = value.match(/^([^0-9.]*)([0-9.]+)([^0-9.]*)$/);
-    if (!match) {
-      return;
-    }
-
-    const prefix = match[1];
-    const targetNum = parseFloat(match[2]);
-    const suffix = match[3];
-    const decimals = match[2].includes(".") ? match[2].split(".")[1].length : 0;
-
-    let startTime: number | null = null;
-
-    const animate = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - timestamp % 1 + timestamp - startTime) / (duration * 1000), 1);
-      
-      // Custom ease-out cubic curve
-      const easeProgress = 1 - Math.pow(1 - progress, 3);
-      const currentNum = targetNum * easeProgress;
-
-      setDisplayValue(`${prefix}${currentNum.toFixed(decimals)}${suffix}`);
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
-    };
-
-    requestAnimationFrame(animate);
-  }, [value, duration, isInView]);
-
+  const reduce = useReducedMotionSafe();
+  const displayValue = useFormattedCountUp(value, isInView, reduce, 1800);
   return <span ref={containerRef}>{displayValue}</span>;
 }
 
-// 3D Tilt Card wrapper reacting to user cursors on desktop, fallback to static on touch
-function TiltCard({ 
-  children, 
-  className 
-}: { 
-  children: React.ReactNode; 
+// 3D tilt card, on the same spring-physics motion values as the phone mock's own tilt
+// (components/phone/PhoneFrame.tsx) rather than a raw mousemove -> setState loop that
+// re-rendered the card on every pixel of pointer movement and ignored reduced motion.
+function TiltCard({
+  children,
+  className
+}: {
+  children: React.ReactNode;
   className: string;
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
-  const [rotateX, setRotateX] = useState(0);
-  const [rotateY, setRotateY] = useState(0);
+  const reduce = useReducedMotionSafe();
+  const rawX = useMotionValue(0);
+  const rawY = useMotionValue(0);
+  const rotateX = useSpring(rawX, SPRING_SOFT);
+  const rotateY = useSpring(rawY, SPRING_SOFT);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (isMobile) return;
-    const card = cardRef.current;
-    if (!card) return;
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (isMobile || reduce) return;
+      const card = cardRef.current;
+      if (!card) return;
+      const rect = card.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left - rect.width / 2;
+      const mouseY = e.clientY - rect.top - rect.height / 2;
+      // Safe maximum tilt of 8 degrees to prevent layout clipping.
+      rawX.set(-(mouseY / (rect.height / 2)) * 8);
+      rawY.set((mouseX / (rect.width / 2)) * 8);
+    },
+    [isMobile, reduce, rawX, rawY]
+  );
 
-    const rect = card.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-
-    // Mouse coordinate relative to the center of the card
-    const mouseX = e.clientX - rect.left - width / 2;
-    const mouseY = e.clientY - rect.top - height / 2;
-
-    // Safe maximum tilt of 8 degrees to prevent layout clipping
-    const rX = -(mouseY / (height / 2)) * 8;
-    const rY = (mouseX / (width / 2)) * 8;
-
-    setRotateX(rX);
-    setRotateY(rY);
-  };
-
-  const handleMouseLeave = () => {
-    setRotateX(0);
-    setRotateY(0);
-  };
+  const handleMouseLeave = useCallback(() => {
+    rawX.set(0);
+    rawY.set(0);
+  }, [rawX, rawY]);
 
   return (
     <motion.div
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      animate={{ rotateX: isMobile ? 0 : rotateX, rotateY: isMobile ? 0 : rotateY }}
       style={{
+        rotateX: isMobile || reduce ? 0 : rotateX,
+        rotateY: isMobile || reduce ? 0 : rotateY,
         transformStyle: "preserve-3d",
         perspective: 1000
       }}
-      transition={{ type: "spring", stiffness: 350, damping: 25 }}
       className={className}
     >
       <div style={{ transform: "translateZ(25px)" }} className="h-full">
@@ -109,9 +76,6 @@ function TiltCard({
     </motion.div>
   );
 }
-
-// Custom animated SVG Radial Progress indicator component
-
 
 
 export function Dashboard() {

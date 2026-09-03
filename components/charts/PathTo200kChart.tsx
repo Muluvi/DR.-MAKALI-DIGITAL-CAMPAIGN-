@@ -2,6 +2,9 @@
 
 import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine, Cell } from "recharts";
 
+import { DURATION } from "../../lib/motion";
+import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
+
 export interface PathPoint {
   rank: number;
   ward: string;
@@ -12,6 +15,7 @@ export interface PathPoint {
 }
 
 export default function PathTo200kChart({ data, threshold }: { data: PathPoint[]; threshold: number }) {
+  const reduce = useReducedMotionSafe();
   return (
     <ResponsiveContainer width="100%" height="100%">
       <ComposedChart data={data} margin={{ top: 20, right: 20, left: 10, bottom: 10 }}>
@@ -41,12 +45,27 @@ export default function PathTo200kChart({ data, threshold }: { data: PathPoint[]
             return null;
           }}
         />
-        <Bar dataKey="voters" barSize={6}>
+        <Bar
+          dataKey="voters"
+          barSize={6}
+          isAnimationActive={!reduce}
+          animationDuration={DURATION.entrance * 1000}
+          animationEasing="ease-out"
+        >
           {data.map((entry, idx) => (
             <Cell key={idx} fill={entry.color} />
           ))}
         </Bar>
-        <Line type="monotone" dataKey="cumulative" stroke="var(--color-ink)" strokeWidth={2} dot={false} />
+        <Line
+          type="monotone"
+          dataKey="cumulative"
+          stroke="var(--color-ink)"
+          strokeWidth={2}
+          dot={false}
+          isAnimationActive={!reduce}
+          animationDuration={DURATION.entrance * 1000}
+          animationEasing="ease-out"
+        />
       </ComposedChart>
     </ResponsiveContainer>
   );

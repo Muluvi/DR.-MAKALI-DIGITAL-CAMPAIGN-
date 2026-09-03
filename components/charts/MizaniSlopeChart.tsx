@@ -2,6 +2,9 @@
 
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 
+import { DURATION } from "../../lib/motion";
+import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
+
 export interface SlopeSeries {
   key: string;
   name: string;
@@ -9,6 +12,7 @@ export interface SlopeSeries {
 }
 
 export default function MizaniSlopeChart({ data, series }: { data: Record<string, string | number | null>[]; series: SlopeSeries[] }) {
+  const reduce = useReducedMotionSafe();
   return (
     <ResponsiveContainer width="100%" height="100%">
       <LineChart data={data} margin={{ top: 10, right: 20, left: 0, bottom: 5 }}>
@@ -51,6 +55,9 @@ export default function MizaniSlopeChart({ data, series }: { data: Record<string
             dot={{ r: 4, strokeWidth: 0, fill: s.color }}
             activeDot={{ r: 6 }}
             connectNulls={false}
+            isAnimationActive={!reduce}
+            animationDuration={DURATION.entrance * 1000}
+            animationEasing="ease-out"
           />
         ))}
       </LineChart>

@@ -2,6 +2,9 @@
 
 import { BarChart, Bar, Cell, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts";
 
+import { DURATION } from "../../lib/motion";
+import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
+
 interface LedgerChartDatum {
   name: string;
   budget: number;
@@ -15,6 +18,7 @@ export default function ResourceLedgerBarChart({
   chartData: LedgerChartDatum[];
   colors: string[];
 }) {
+  const reduce = useReducedMotionSafe();
   return (
     <ResponsiveContainer width="100%" height="100%">
       <BarChart data={chartData} layout="vertical" margin={{ top: 10, right: 10, left: 10, bottom: 5 }}>
@@ -41,7 +45,13 @@ export default function ResourceLedgerBarChart({
             return null;
           }}
         />
-        <Bar dataKey="budget" radius={[0, 4, 4, 0]}>
+        <Bar
+          dataKey="budget"
+          radius={[0, 4, 4, 0]}
+          isAnimationActive={!reduce}
+          animationDuration={DURATION.entrance * 1000}
+          animationEasing="ease-out"
+        >
           {chartData.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
           ))}

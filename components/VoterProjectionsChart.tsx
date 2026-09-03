@@ -8,6 +8,9 @@ import {
 } from "recharts";
 import { Users, BarChart3, TrendingUp, Filter, Map, ChevronRight } from "lucide-react";
 
+import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
+import { DURATION } from "../lib/motion";
+
 interface SubCountyData {
   subCounty: string;
   population: number;
@@ -80,6 +83,8 @@ export function VoterProjectionsChart() {
   const [selectedRegion, setSelectedRegion] = useState<"All" | "Anchor" | "Mwingi Block" | "Arid Belt">("All");
   const [activeMetric, setActiveMetric] = useState<"population" | "density" | "households">("population");
   const [chartType, setChartType] = useState<"bar" | "line" | "area">("bar");
+  const reduce = useReducedMotionSafe();
+  const chartAnim = { isAnimationActive: !reduce, animationDuration: DURATION.entrance * 1000, animationEasing: "ease-out" as const };
 
   // Filtering sub-county demographics
   const filteredSubCounties = subCountyDataset.filter(
@@ -87,8 +92,8 @@ export function VoterProjectionsChart() {
   );
 
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 15 }}
+    <motion.div
+      initial={reduce ? false : { opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       className="bg-card border-x-0 sm:border border-y sm:border-line rounded-none sm:rounded-3xl overflow-hidden shadow-none sm:shadow-md transition-all"
@@ -223,7 +228,7 @@ export function VoterProjectionsChart() {
                   <XAxis dataKey="subCounty" tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} />
                   <YAxis tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} width={45} tickFormatter={(val) => val >= 1000 ? `${(val/1000).toFixed(0)}k` : val} />
                   <Tooltip content={<CustomChartTooltip />} cursor={{ fill: "var(--color-glow)" }} />
-                  <Bar dataKey={activeMetric} fill="var(--color-accent)" radius={[6, 6, 0, 0]} name={activeMetric === "density" ? "Density/km²" : activeMetric}>
+                  <Bar dataKey={activeMetric} fill="var(--color-accent)" radius={[6, 6, 0, 0]} name={activeMetric === "density" ? "Density/km²" : activeMetric} {...chartAnim}>
                     {filteredSubCounties.map((entry, idx) => {
                       const color = entry.region === "Anchor" ? "var(--color-accent)" : entry.region === "Mwingi Block" ? "var(--color-gold)" : "var(--color-danger)";
                       return <Cell key={`cell-${idx}`} fill={color} />;
@@ -236,7 +241,7 @@ export function VoterProjectionsChart() {
                   <XAxis dataKey="subCounty" tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} />
                   <YAxis tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} width={45} tickFormatter={(val) => val >= 1000 ? `${(val/1000).toFixed(0)}k` : val} />
                   <Tooltip content={<CustomChartTooltip />} />
-                  <Line type="monotone" dataKey={activeMetric} stroke="var(--color-accent)" strokeWidth={3} dot={{ stroke: "var(--color-accent)", strokeWidth: 2, r: 4 }} name={activeMetric === "density" ? "Density/km²" : activeMetric} />
+                  <Line type="monotone" dataKey={activeMetric} stroke="var(--color-accent)" strokeWidth={3} dot={{ stroke: "var(--color-accent)", strokeWidth: 2, r: 4 }} name={activeMetric === "density" ? "Density/km²" : activeMetric} {...chartAnim} />
                 </LineChart>
               ) : (
                 <AreaChart data={filteredSubCounties} margin={{ top: 10, right: 10, left: 0, bottom: 5 }}>
@@ -244,7 +249,7 @@ export function VoterProjectionsChart() {
                   <XAxis dataKey="subCounty" tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} />
                   <YAxis tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} width={45} tickFormatter={(val) => val >= 1000 ? `${(val/1000).toFixed(0)}k` : val} />
                   <Tooltip content={<CustomChartTooltip />} />
-                  <Area type="monotone" dataKey={activeMetric} stroke="var(--color-accent)" fill="var(--color-glow)" strokeWidth={2} name={activeMetric === "density" ? "Density/km²" : activeMetric} />
+                  <Area type="monotone" dataKey={activeMetric} stroke="var(--color-accent)" fill="var(--color-glow)" strokeWidth={2} name={activeMetric === "density" ? "Density/km²" : activeMetric} {...chartAnim} />
                 </AreaChart>
               )
             ) : (
@@ -254,7 +259,7 @@ export function VoterProjectionsChart() {
                   <XAxis dataKey="ward" tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} />
                   <YAxis tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} width={45} tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
                   <Tooltip content={<CustomChartTooltip />} cursor={{ fill: "var(--color-glow)" }} />
-                  <Bar dataKey="voters" fill="var(--color-accent)" radius={[6, 6, 0, 0]} name="Registered Voters">
+                  <Bar dataKey="voters" fill="var(--color-accent)" radius={[6, 6, 0, 0]} name="Registered Voters" {...chartAnim}>
                     {wardVoterDataset.map((entry, idx) => {
                       const color = entry.constituency === "Kitui Central" ? "var(--color-accent)" : "var(--color-gold)";
                       return <Cell key={`cell-${idx}`} fill={color} />;
@@ -267,7 +272,7 @@ export function VoterProjectionsChart() {
                   <XAxis dataKey="ward" tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} />
                   <YAxis tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} width={45} tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
                   <Tooltip content={<CustomChartTooltip />} />
-                  <Line type="monotone" dataKey="voters" stroke="var(--color-gold)" strokeWidth={3} dot={{ stroke: "var(--color-gold)", strokeWidth: 2, r: 4 }} name="Registered Voters" />
+                  <Line type="monotone" dataKey="voters" stroke="var(--color-gold)" strokeWidth={3} dot={{ stroke: "var(--color-gold)", strokeWidth: 2, r: 4 }} name="Registered Voters" {...chartAnim} />
                 </LineChart>
               ) : (
                 <AreaChart data={wardVoterDataset} margin={{ top: 10, right: 10, left: 0, bottom: 5 }}>
@@ -275,7 +280,7 @@ export function VoterProjectionsChart() {
                   <XAxis dataKey="ward" tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} />
                   <YAxis tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} width={45} tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
                   <Tooltip content={<CustomChartTooltip />} />
-                  <Area type="monotone" dataKey="voters" stroke="var(--color-gold)" fill="rgba(200, 148, 62, 0.2)" strokeWidth={2} name="Registered Voters" />
+                  <Area type="monotone" dataKey="voters" stroke="var(--color-gold)" fill="rgba(200, 148, 62, 0.2)" strokeWidth={2} name="Registered Voters" {...chartAnim} />
                 </AreaChart>
               )
             )}

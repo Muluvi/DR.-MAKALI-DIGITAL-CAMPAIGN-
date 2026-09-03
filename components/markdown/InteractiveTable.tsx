@@ -1,10 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { motion, useInView } from "motion/react";
 import { Search, Sparkles, ArrowUpDown, BarChart3, Table } from "lucide-react";
 import { LazyMount } from "../LazyMount";
 import { SourceLine, detectSources } from "./SourceLine";
 import TableChart from "./TableChart";
+import { riseIn, VIEWPORT } from "../../lib/motion";
+import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
 
 function getDeepText(node: any): string {
   if (!node) return "";
@@ -38,6 +41,11 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
   const [sortColumn, setSortColumn] = useState<number | null>(null);
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const [showChart, setShowChart] = useState(false);
+  const reduce = useReducedMotionSafe();
+  const containerRef = useRef<HTMLDivElement>(null);
+  // Once only: a live search/sort re-render must never replay this, or every keystroke would
+  // trigger a fresh entrance.
+  const inView = useInView(containerRef, VIEWPORT);
 
   const childrenArray = React.Children.toArray(children);
   const theadElement = childrenArray.find((child: any) => child?.type === "thead");
@@ -167,7 +175,13 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="border-y sm:border border-line/40 sm:rounded-xl my-5 overflow-hidden bg-card/30">
+    <motion.div
+      ref={containerRef}
+      className="border-y sm:border border-line/40 sm:rounded-xl my-5 overflow-hidden bg-card/30"
+      initial={reduce ? false : "hidden"}
+      animate={inView || reduce ? "visible" : "hidden"}
+      variants={riseIn}
+    >
       {/* Interactive Controls & Analytics Header */}
       <div className="print:hidden p-2.5 sm:p-3.5 border-b border-line/40 bg-paper/40 flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center gap-2">
@@ -291,6 +305,6 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
         </div>
       )}
       <SourceLine sources={tableSources} />
-    </div>
+    </motion.div>
   );
 }

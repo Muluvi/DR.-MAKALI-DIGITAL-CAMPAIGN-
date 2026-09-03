@@ -1,8 +1,8 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
-import { disclosure } from "../lib/motion";
-import { EASE_ENTRANCE } from "../lib/motion";
+import { disclosure, DURATION, EASE_ENTRANCE } from "../lib/motion";
+import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
 import { useState } from "react";
 import { X, Search, CheckCircle2, ChevronRight, HelpCircle } from "lucide-react";
 
@@ -21,6 +21,7 @@ interface StageDetail {
 
 export function HeroVisual() {
   const [selectedStage, setSelectedStage] = useState<StageDetail | null>(null);
+  const reduce = useReducedMotionSafe();
 
   const stages: StageDetail[] = [
     {
@@ -92,10 +93,10 @@ export function HeroVisual() {
   const currentViewBox = selectedStage ? selectedStage.zoomBox : "0 0 900 260";
 
   return (
-    <motion.div 
-      initial={{ opacity: 0, scale: 0.95 }}
+    <motion.div
+      initial={reduce ? false : { opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: DURATION.entrance }}
       className="relative bg-gradient-to-br from-card/95 to-paper/70 border border-line rounded-3xl overflow-hidden shadow-xl"
     >
       {/* Top Bar Info */}
@@ -148,22 +149,30 @@ export function HeroVisual() {
             <path className="stroke-line" strokeWidth="1" d="M0 55H900M0 105H900M0 155H900M0 205H900M90 0V260M210 0V260M330 0V260M450 0V260M570 0V260M690 0V260M810 0V260"/>
           </g>
 
-          {/* Animated Connecting Flow Lines */}
-          <motion.path 
-            initial={{ strokeDashoffset: 1000 }}
-            animate={{ strokeDashoffset: [1000, 0] }}
-            transition={{ duration: 1.2, ease: EASE_ENTRANCE }}
+          {/* Animated Connecting Flow Lines — pathLength, not a dash-array animation, per the
+              site's motion contract. Framer scales the "8 10" dash pattern by the path's real
+              length and reveals it via pathLength, so the dashes still read correctly. */}
+          <motion.path
+            initial={reduce ? false : { pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            transition={{
+              pathLength: { duration: 1.2, ease: EASE_ENTRANCE },
+              opacity: { duration: DURATION.micro },
+            }}
             strokeDasharray="8 10"
             className="fill-none stroke-[url(#routeGrad)] stroke-3 stroke-linecap-round"
-            d="M90 178 C180 80 250 215 350 126 S520 54 610 132 S750 202 820 78" 
+            d="M90 178 C180 80 250 215 350 126 S520 54 610 132 S750 202 820 78"
           />
-          <motion.path 
-            initial={{ strokeDashoffset: -1000 }}
-            animate={{ strokeDashoffset: [-1000, 0] }}
-            transition={{ duration: 1.2, delay: 0.15, ease: EASE_ENTRANCE }}
+          <motion.path
+            initial={reduce ? false : { pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 0.4 }}
+            transition={{
+              pathLength: { duration: 1.2, delay: reduce ? 0 : 0.15, ease: EASE_ENTRANCE },
+              opacity: { duration: DURATION.micro, delay: reduce ? 0 : 0.15 },
+            }}
             strokeDasharray="8 10"
-            className="fill-none stroke-[url(#routeGrad)] stroke-3 stroke-linecap-round opacity-40"
-            d="M90 178 C250 178 270 72 420 78 S650 190 820 78" 
+            className="fill-none stroke-[url(#routeGrad)] stroke-3 stroke-linecap-round"
+            d="M90 178 C250 178 270 72 420 78 S650 190 820 78"
           />
           
           {/* Node Interaction Markers */}

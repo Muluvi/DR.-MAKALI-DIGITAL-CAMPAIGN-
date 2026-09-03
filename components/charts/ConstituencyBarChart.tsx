@@ -2,6 +2,9 @@
 
 import { BarChart, Bar, Cell, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
 
+import { DURATION } from "../../lib/motion";
+import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
+
 interface ConstituencyChartDatum {
   id: string;
   name: string;
@@ -18,6 +21,7 @@ export default function ConstituencyBarChart({
   selectedID: string;
   onSelect: (id: string) => void;
 }) {
+  const reduce = useReducedMotionSafe();
   return (
     <ResponsiveContainer width="100%" height="100%">
       <BarChart data={chartData} margin={{ top: 10, right: 10, left: 10, bottom: 5 }}>
@@ -39,7 +43,14 @@ export default function ConstituencyBarChart({
             return null;
           }}
         />
-        <Bar dataKey="voters" fill="var(--color-accent)" radius={[4, 4, 0, 0]}>
+        <Bar
+          dataKey="voters"
+          fill="var(--color-accent)"
+          radius={[4, 4, 0, 0]}
+          isAnimationActive={!reduce}
+          animationDuration={DURATION.entrance * 1000}
+          animationEasing="ease-out"
+        >
           {chartData.map((entry, idx) => (
             <Cell
               key={`cell-${idx}`}
