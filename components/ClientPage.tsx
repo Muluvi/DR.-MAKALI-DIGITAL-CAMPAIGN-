@@ -188,6 +188,11 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
     { id: "registers", label: "Registers", icon: FileKey, content: registers.node, wordCount: registers.wordCount },
   ], [exec, programme, registers]);
 
+  // The set of ids that actually exist today, so resolveLegacySectionId can tell a retired
+  // section number (redirect it) apart from a current one that just happens to reuse an old
+  // number (leave it alone) — see the note on that function for why this matters.
+  const validSectionIds = useMemo(() => new Set(sections.map((s) => s.id)), [sections]);
+
   // Premium dynamic category intersection observer to track active section while scrolling
   useEffect(() => {
     if (!isExpanded) return;
@@ -241,7 +246,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
   // if needed, waits for the target to mount, then scrolls to it and sets :target via the hash.
   const navigateToSection = useCallback(
     (rawId: string) => {
-      const id = resolveLegacySectionId(rawId);
+      const id = resolveLegacySectionId(rawId, validSectionIds);
       const targetTab = id.split("-sec-")[0];
       const isValidTab = navItems.some((item) => item.id === targetTab);
 
@@ -251,7 +256,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
       setIsMobileMenuOpen(false);
       scrollToSectionWhenReady(id, "smooth");
     },
-    [activeTab, isExpanded, navItems]
+    [activeTab, isExpanded, navItems, validSectionIds]
   );
 
   useEffect(() => {
@@ -265,7 +270,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
   // right tab — the fragment only exists client-side, so this can't happen in initial state —
   // then land on the section once its content has mounted.
   useEffect(() => {
-    const hash = resolveLegacySectionId(window.location.hash.replace(/^#/, ""));
+    const hash = resolveLegacySectionId(window.location.hash.replace(/^#/, ""), validSectionIds);
     if (!hash) return;
     const targetTab = hash.split("-sec-")[0];
     if (TAB_IDS.includes(targetTab)) {
@@ -273,7 +278,9 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
       setActiveTab(targetTab);
     }
     scrollToSectionWhenReady(hash, "auto");
-    // Runs once, on mount only.
+    // Runs once, on mount only — validSectionIds is available synchronously from the sections
+    // prop by the time this fires, so it doesn't need to be a dependency.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Section extras.
