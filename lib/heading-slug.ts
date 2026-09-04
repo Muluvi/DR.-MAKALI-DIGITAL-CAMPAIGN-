@@ -79,12 +79,6 @@ const TAB_ALIASES: Record<string, string> = {
 // one of the deleted registers (§34, §35, §37, §38, §39) are absent by design — there is
 // nothing left for them to point at.
 const LEGACY_IDS: Record<string, string> = {
-  // Old id -> current id. Two pre-2026 generations of deep links plus every
-  // renumber applied by the 2026 consolidation. Deduplicated: a key that was
-  // remapped more than once carries its final target.
-  // The old §1 "Executive Summary" heading became the overview's own opening rather than a
-  // numbered heading inside it, so there is no "overview-sec-0" to land on — send the link to
-  // the first thing under it instead.
   "exec-sec-1": "overview-sec-0-1",
   "exec-sec-1-1": "overview-sec-0-1",
   "exec-sec-1-2": "overview-sec-0-2",
@@ -274,7 +268,7 @@ const LEGACY_IDS: Record<string, string> = {
   "programme-sec-17a-2": "channels-sec-3-5-2",
   "programme-sec-17a-3": "channels-sec-3-5-3",
   "programme-sec-17a-4": "channels-sec-3-5-4",
-  "programme-sec-17a-5": "channels-sec-3-5-5",
+  "programme-sec-17a-5": "channels-sec-3-5-4",
   "programme-sec-17a-6": "channels-sec-3-5-6",
   "programme-sec-18": "argument-sec-2-2",
   "programme-sec-18-1": "argument-sec-2-2-1",
@@ -408,7 +402,7 @@ const LEGACY_IDS: Record<string, string> = {
   "programme-sec-29-3": "channels-sec-3-5-2",
   "programme-sec-29-4": "channels-sec-3-5-3",
   "programme-sec-29-5": "channels-sec-3-5-4",
-  "programme-sec-29-6": "channels-sec-3-5-5",
+  "programme-sec-29-6": "channels-sec-3-5-4",
   "programme-sec-29-7": "channels-sec-3-5-6",
   "programme-sec-30": "channels-sec-3-6",
   "programme-sec-30-1": "channels-sec-3-6-1",
@@ -498,8 +492,6 @@ const LEGACY_IDS: Record<string, string> = {
   "registers-sec-36-1": "data-sec-6-6-1",
   "registers-sec-36-2": "data-sec-6-6-2",
   "registers-sec-36-3": "data-sec-6-6-3",
-
-  // Renumbered when the empty §1.1.1 was removed (M01).
   "race-sec-1-1-2": "race-sec-1-1-1",
   "race-sec-1-1-3": "race-sec-1-1-2",
   "race-sec-1-1-4": "race-sec-1-1-3",
@@ -524,15 +516,12 @@ const LEGACY_IDS: Record<string, string> = {
   "channels-sec-3-7-3": "channels-sec-3-6-3",
   "channels-sec-3-7-4": "channels-sec-3-6-4",
   "channels-sec-3-7-5": "channels-sec-3-6-5",
-
-  // §3.4 (earned media) and §3.5 (journalists, debates, radio) merged into one §3.4 (M12);
-  // the sections below them moved up one.
   "channels-sec-3-5": "channels-sec-3-4",
   "channels-sec-3-5-1": "channels-sec-3-4-1",
   "channels-sec-3-5-2": "channels-sec-3-4-4",
   "channels-sec-3-5-3": "channels-sec-3-4-5",
   "channels-sec-3-5-4": "channels-sec-3-4-5",
-  "channels-sec-3-5-5": "channels-sec-3-4-6",
+  "channels-sec-3-5-5": "channels-sec-3-5-4",
   "channels-sec-3-5-6": "channels-sec-3-4-6",
 };
 

@@ -729,7 +729,9 @@ A flawed translation—or an urban, anglicized phrasing of a traditional Kikamba
 
 ---
 
-### 3.5.1 Which language reaches which voters, on which channel
+### 3.5.1 Which language reaches which voters, and how it deploys by channel
+
+#### Audience, register and channel by language
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -756,6 +758,48 @@ A flawed translation—or an urban, anglicized phrasing of a traditional Kikamba
 │               │ • Judicial, EACC & Regulatory Bodies    │ • National TV Interviews│   national economic     │
 │               │ • **Estimated Primary Reach: ~8%**      │   (Citizen, KTN, NTV)   │   policy leadership.    │
 └───────────────┴─────────────────────────────────────────┴─────────────────────────┴─────────────────────────┘
+```
+
+---
+
+#### Channel-by-language deployment
+
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                CHANNEL-BY-LANGUAGE DEPLOYMENT MATRIX                                        │
+├────────────────────────────┬─────────────────────────────┬──────────────────────────────────────────────────┤
+│ Campaign Output Medium     │ Primary Language Allocation │ Secondary / Supplementary Language               │
+├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
+│ 1. Vernacular Radio Spots  │ **100% Kikamba**            │ None (Zero English/Swahili intrusion on spots)  │
+├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
+│ 2. Direct 2G Bulk SMS      │ **80% Kikamba** (Rural/Agro)│ **20% Kiswahili** (Urban Centers & Youth Boda)   │
+├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
+│ 3. USSD Menu System        │ **50% Kikamba**             │ **50% Kiswahili** (Toggle via Option 0 on USSD)  │
+├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
+│ 4. Baraza Print Collateral │ **70% Kikamba**             │ **30% Kiswahili & English** (Executive Summaries)│
+├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
+│ 5. Sound PA Truck Jingles  │ **85% Kikamba**             │ **15% Swahili / Sheng** (Urban Market Stops)     │
+├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
+│ 6. TikTok & Reels Video    │ **50% Swahili / Sheng**     │ **35% English** / **15% Kikamba Punchlines**     │
+├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
+│ 7. Formal Policy Manifesto │ **100% English**            │ Abridged 12-page summaries in Kikamba & Swahili  │
+└────────────────────────────┴─────────────────────────────┴──────────────────────────────────────────────────┘
+```
+
+```
+════════════════════════════════════════════════════════════════════════════════════
+                        SECTION 18 STRATEGIC TAKEAWAY
+════════════════════════════════════════════════════════════════════════════════════
+ • Trilingual Segmentation:     Kikamba drives grassroots trust (76% reach), Kiswahili
+                                energizes urban trade (16%), English governs policy (8%).
+ • Cultural Framing:            Bans generic machine translations; mandates proverbial
+                                Kikamba idioms ("Kĩtĩo kya Kũthũkũma na Moko Matheũ").
+ • Strict Sign-Off Authority:   All Kikamba broadcast, SMS, and print copy must receive
+                                written sign-off from the Lead Cultural Comms Advisor.
+ • Reverse-Translation Audit:   Enforces double-blind checks to prevent policy drift
+                                between English manifesto briefs and vernacular delivery.
+════════════════════════════════════════════════════════════
 ```
 
 ---
@@ -825,47 +869,7 @@ Running a synchronized three-language communications operation introduces severe
 
 ---
 
-### 3.5.4 Channel-by-language deployment
-
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                CHANNEL-BY-LANGUAGE DEPLOYMENT MATRIX                                        │
-├────────────────────────────┬─────────────────────────────┬──────────────────────────────────────────────────┤
-│ Campaign Output Medium     │ Primary Language Allocation │ Secondary / Supplementary Language               │
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 1. Vernacular Radio Spots  │ **100% Kikamba**            │ None (Zero English/Swahili intrusion on spots)  │
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 2. Direct 2G Bulk SMS      │ **80% Kikamba** (Rural/Agro)│ **20% Kiswahili** (Urban Centers & Youth Boda)   │
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 3. USSD Menu System        │ **50% Kikamba**             │ **50% Kiswahili** (Toggle via Option 0 on USSD)  │
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 4. Baraza Print Collateral │ **70% Kikamba**             │ **30% Kiswahili & English** (Executive Summaries)│
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 5. Sound PA Truck Jingles  │ **85% Kikamba**             │ **15% Swahili / Sheng** (Urban Market Stops)     │
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 6. TikTok & Reels Video    │ **50% Swahili / Sheng**     │ **35% English** / **15% Kikamba Punchlines**     │
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 7. Formal Policy Manifesto │ **100% English**            │ Abridged 12-page summaries in Kikamba & Swahili  │
-└────────────────────────────┴─────────────────────────────┴──────────────────────────────────────────────────┘
-```
-
-```
-════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 18 STRATEGIC TAKEAWAY
-════════════════════════════════════════════════════════════════════════════════════
- • Trilingual Segmentation:     Kikamba drives grassroots trust (76% reach), Kiswahili
-                                energizes urban trade (16%), English governs policy (8%).
- • Cultural Framing:            Bans generic machine translations; mandates proverbial
-                                Kikamba idioms ("Kĩtĩo kya Kũthũkũma na Moko Matheũ").
- • Strict Sign-Off Authority:   All Kikamba broadcast, SMS, and print copy must receive
-                                written sign-off from the Lead Cultural Comms Advisor.
- • Reverse-Translation Audit:   Enforces double-blind checks to prevent policy drift
-                                between English manifesto briefs and vernacular delivery.
-════════════════════════════════════════════════════════════
-```
----
-
-### 3.5.5 Language mix, idiom and who signs it off
+### 3.5.4 Language mix, idiom and who signs it off
 
 Language is central to trust in Kitui.
 
