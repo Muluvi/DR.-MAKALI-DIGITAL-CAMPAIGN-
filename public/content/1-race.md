@@ -15,9 +15,7 @@ re-check happens deliberately rather than by accident.
 
 ---
 
-### 1.1.1 How Wiper picks its candidate
-
-### 1.1.2 Where the opinion-poll mechanism stands
+### 1.1.1 Where the opinion-poll mechanism stands
 
 The strategic assumption that the Wiper Democratic Movement will select its Kitui gubernatorial nominee via a countywide opinion poll is classified as **Tier 3 (single-sourced campaign report, not confirmed by party officials)**. This mechanism remains highly fluid and subject to internal party negotiations.
 
@@ -27,7 +25,7 @@ To transition this selection mechanism from a Tier 3 strategic assumption to a *
 
 ---
 
-### 1.1.3 What the poll would measure
+### 1.1.2 What the poll would measure
 
 To protect the campaign against biased or unweighted polling results, the digital and analytical teams must evaluate any party-commissioned polling instrument against these strict research parameters:
 *   **Sampling Frame:** A multi-stage stratified random sampling model based on the official **2022/2027 IEBC Polling Station Registries** across all 8 sub-counties, excluding any non-voter or unregistered residents.
@@ -40,7 +38,7 @@ To protect the campaign against biased or unweighted polling results, the digita
 
 ---
 
-### 1.1.4 Kitui Central's weight in the vote
+### 1.1.3 Kitui Central's weight in the vote
 
 Any standard, scientifically weighted polling instrument represents a critical strategic advantage for Dr. Mulu because of his home base:
 *   **Kitui Central's Demographic Weight:** Command of exactly **77,764 registered voters** (Tier 1) makes Kitui Central the single largest and most concentrated voting constituency in the county.
@@ -48,7 +46,7 @@ Any standard, scientifically weighted polling instrument represents a critical s
 
 ---
 
-### 1.1.5 The polling gap, as sourced
+### 1.1.4 The polling gap, as sourced
 
 The campaign must operate with absolute, clinical objectivity regarding the current polling environment. There is no statistical basis to project a positive growth trend based on the two survey rounds completed to date:
 *   **The Polling Deficit (Tier 2):** Dr. Mulu remains in a substantial countywide deficit. The August 2026 Mizani survey places Dr. Irene Kasalu at **37.4%** preference share, while Dr. Mulu stands at **22.1%** (Tier 2).
@@ -56,7 +54,7 @@ The campaign must operate with absolute, clinical objectivity regarding the curr
 
 ---
 
-### 1.1.6 If it becomes a delegate primary
+### 1.1.5 If it becomes a delegate primary
 
 If Wiper party leadership departs from the opinion-poll mechanism and reverts to a delegate-based nomination primary, the campaign will immediately trigger its **Delegate Whip Contingency Plan**:
 1.  **Map the Delegate Registry:** Instantly map and profile the estimated **1,200 to 1,500 official delegates** (comprising constituency executives, sub-branch officials, and ward-level party committee members).

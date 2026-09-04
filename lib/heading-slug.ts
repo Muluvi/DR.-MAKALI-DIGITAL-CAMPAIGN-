@@ -155,11 +155,11 @@ const LEGACY_IDS: Record<string, string> = {
   "exec-sec-1a": "race-sec-1-1",
   "exec-sec-2": "race-sec-1-1",
   "exec-sec-2-1": "race-sec-1-1-1",
-  "exec-sec-2-2": "race-sec-1-1-2",
-  "exec-sec-2-3": "race-sec-1-1-3",
-  "exec-sec-2-4": "race-sec-1-1-4",
-  "exec-sec-2-5": "race-sec-1-1-5",
-  "exec-sec-2-6": "race-sec-1-1-6",
+  "exec-sec-2-2": "race-sec-1-1-1",
+  "exec-sec-2-3": "race-sec-1-1-2",
+  "exec-sec-2-4": "race-sec-1-1-3",
+  "exec-sec-2-5": "race-sec-1-1-4",
+  "exec-sec-2-6": "race-sec-1-1-5",
   "exec-sec-20": "measure-sec-8-2-3",
   "exec-sec-20-1": "measure-sec-8-2-4",
   "exec-sec-20-2": "measure-sec-8-1-1",
@@ -494,7 +494,15 @@ const LEGACY_IDS: Record<string, string> = {
   "registers-sec-36": "data-sec-6-6",
   "registers-sec-36-1": "data-sec-6-6-1",
   "registers-sec-36-2": "data-sec-6-6-2",
-  "registers-sec-36-3": "data-sec-6-6-3",};
+  "registers-sec-36-3": "data-sec-6-6-3",
+
+  // Renumbered when the empty §1.1.1 was removed (M01).
+  "race-sec-1-1-2": "race-sec-1-1-1",
+  "race-sec-1-1-3": "race-sec-1-1-2",
+  "race-sec-1-1-4": "race-sec-1-1-3",
+  "race-sec-1-1-5": "race-sec-1-1-4",
+  "race-sec-1-1-6": "race-sec-1-1-5",
+};
 
 /**
  * Resolves a possibly-outdated deep-link id to the id that exists today.
