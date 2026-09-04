@@ -44,6 +44,7 @@ import { EconomistGovernorThesis } from "./markdown/EconomistGovernorThesis";
 import { DecisionPanel } from "./DecisionPanel";
 import { CommitmentFields } from "./markdown/CommitmentFields";
 import { PhoneShowcase } from "./phone/PhoneShowcase";
+import { TerminalShowcase } from "./terminal/TerminalShowcase";
 import { SectionPortrait } from "./markdown/SectionPortrait";
 import { commitmentFieldKey, isCommitmentFieldList, type CommitmentField } from "../lib/commitment-fields";
 import { ComplianceCeilingPanel } from "./markdown/ComplianceCeilingPanel";
@@ -265,6 +266,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "team-sec-7-2": <CampaignOrgChart />,
   "ask-sec-9-2-5": <BudgetScenarioModeler />,
   "ask-sec-9-2-7": <ComplianceCeilingPanel />,
+  "ground-sec-4-1": <TerminalShowcase />,
   "ground-sec-4-2": <FlywheelSchematic />,
   "ground-sec-4-3": (
     <>
