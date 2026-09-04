@@ -865,7 +865,7 @@ Running a synchronized three-language communications operation introduces severe
 ```
 ---
 
-## 3.6 Accessibility and inclusion
+### 3.5.5 Language mix, idiom and who signs it off
 
 Language is central to trust in Kitui.
 
@@ -897,6 +897,8 @@ carry cultural cost — in a campaign built on rigour, a mangled idiom is a
 substantive error, not a cosmetic one.
 
 ---
+
+## 3.6 Accessibility and inclusion
 
 ### 3.6.1 What accessibility means here
 
