@@ -200,10 +200,13 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "race-sec-1-1": <NominationPathPanel />,
   // The core narrative is §3, ahead of the strategic context — its thesis opens the argument.
   "argument-sec-2-1": <EconomistGovernorThesis />,
+  // §1.2.10's rival-by-rival sourcing folded into §1.2.2 (M02), so the field panel
+  // now sits with the profiles it annotates rather than eight subsections later.
   "race-sec-1-2-2": (
     <>
       <ConstitutionalBranchNavigator />
       <CompetitiveQuadrantBlock />
+      <CompetitorFieldPanel />
     </>
   ),
   "race-sec-1-2-1": (
@@ -235,7 +238,6 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   ),
   "race-sec-1-2-8": <DroughtFoodSecurityPanel />,
   "race-sec-1-2-9": <MuiBasinPanel />,
-  "race-sec-1-2-10": <CompetitorFieldPanel />,
   "race-sec-1-3-3": <PathTo200kCalculator />,
   "race-sec-1-3-5": <RecognitionDeficitOverlay />,
   "argument-sec-2-4": <AudienceSegmentationMatrix />,

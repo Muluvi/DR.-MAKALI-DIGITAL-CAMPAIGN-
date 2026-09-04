@@ -131,6 +131,19 @@ Because Governor Malombe served as Governor from 2013–2017, lost the 2017 elec
 *   **Scenario Branch B — Eligibility Upheld:** Alternatively, a reading of the constitutional provisions may interpret the two-term limit as applying only to consecutive terms of service, or that an interrupted term resets the constitutional clock, rendering him eligible for the 2027 cycle.
     *   *Strategic Consequence:* Under this scenario, Governor Malombe remains eligible to defend his seat. The campaign must therefore execute a direct anti-incumbency strategy, overcoming a seated executive who commands county development resources, public-funding distribution systems, and established grassroots patronages.
 
+#### The legal ground we are careful on, rival by rival
+
+The general election field is treated with strict legal caution. To prevent libel or campaign interference charges, all candidate profiles in this proposal rely strictly on official court records, parliamentary reports, or published media. Every adverse claim is explicitly attributed to its source, and no wrongdoing is asserted as settled fact unless confirmed by a court of law:
+
+*   **Dr. Irene Kasalu (Woman Representative):** It is reported in local media that her platform leverages a wide countywide network built through her office (Tier 2).
+*   **Sen. Enoch Wambua (Senator):** Legislative records establish his role in senior Senate committee positions (Tier 1).
+*   **Charity Ngilu (Former Governor):** Court records in the 2018 appeal (*Malombe v Ngilu*) confirm her 2017 electoral victory (Tier 1).
+*   **David Musila (Former Senator):** Sourced election declarations confirm his high runner-up voting totals across two cycles (Tier 1).
+*   **Peninah Malonza (Former Cabinet Secretary):** Official records confirm her appointments as Deputy Governor and Cabinet Minister (Tier 1).
+*   **Nicholas Mulila (Corporate Executive):** Sourced business reports note his executive roles at Safaricom PLC (Tier 2).
+*   **Francis Musili Kauta (Activist):** Regional civic profiles document his litigation and advocacy on public land use (Tier 2).
+*   **Julius Malombe (Incumbent Governor):** Official records confirm his administrative oversight of county departments (Tier 1). Sourced legal commentaries treat his 2027 eligibility as an open constitutional question.
+
 ### 1.2.3 The 2022 baseline, ward by ward
 
 To achieve absolute mathematical certainty, the campaign's success metrics are anchored strictly to the official 2022 IEBC register (Tier 1), rather than volatile digital vanity metrics:
@@ -273,21 +286,6 @@ The county's climate profile features multi-directional hazards, as documented b
 ### 1.2.9 Mui Basin coal and the displaced communities
 
 The extensive coal deposits in the Mui Basin, straddling Kitui East and Kitui South, have remained undeveloped for over a decade due to unresolved legal challenges under **Petition 12 of 2014** (Tier 1). The legal standstill has created significant uncertainty regarding displacement exposure for communities across the affected wards (Tier 1). The exact concession counts and displacement headcounts remain **named data gaps** (Tier 1 gaps) in the campaign's records.
-
-### 1.2.10 Each rival, and the legal ground to be careful on
-
-The general election field is treated with strict legal caution. To prevent libel or campaign interference charges, all candidate profiles in this proposal rely strictly on official court records, parliamentary reports, or published media. Every adverse claim is explicitly attributed to its source, and no wrongdoing is asserted as settled fact unless confirmed by a court of law:
-
-*   **Dr. Irene Kasalu (Woman Representative):** It is reported in local media that her platform leverages a wide countywide network built through her office (Tier 2).
-*   **Sen. Enoch Wambua (Senator):** Legislative records establish his role in senior Senate committee positions (Tier 1).
-*   **Charity Ngilu (Former Governor):** Court records in the 2018 appeal (*Malombe v Ngilu*) confirm her 2017 electoral victory (Tier 1).
-*   **David Musila (Former Senator):** Sourced election declarations confirm his high runner-up voting totals across two cycles (Tier 1).
-*   **Peninah Malonza (Former Cabinet Secretary):** Official records confirm her appointments as Deputy Governor and Cabinet Minister (Tier 1).
-*   **Nicholas Mulila (Corporate Executive):** Sourced business reports note his executive roles at Safaricom PLC (Tier 2).
-*   **Francis Musili Kauta (Activist):** Regional civic profiles document his litigation and advocacy on public land use (Tier 2).
-*   **Julius Malombe (Incumbent Governor):** Official records confirm his administrative oversight of county departments (Tier 1). Sourced legal commentaries treat his 2027 eligibility as an open constitutional question.
-
----
 
 ## 1.3 The arithmetic of winning
 

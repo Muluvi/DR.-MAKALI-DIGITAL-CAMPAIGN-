@@ -16,3 +16,4 @@ literal rendered by a component no longer appears in `public/content/*.md` or
 | # | Merge | Source | Removed | Reason |
 |---|---|---|---|---|
 | C01 | M01 | §1.1.1 | Heading `### 1.1.1 How Wiper picks its candidate` | Entirely empty — zero words, no child headings — but live in the table of contents and the mobile TOC as an entry that landed on nothing. No content removed; the heading text itself was the only thing there. §1.1's opening paragraph already states how the nominee will be picked. |
+| C02 | M02 | §1.2.10 | Heading `### 1.2.10 Each rival, and the legal ground to be careful on` | Heading only. The attribution principle and all eight per-rival sourcing bullets moved verbatim into §1.2.2 as the panel "The legal ground we are careful on, rival by rival", where they sit with the profiles they qualify. `CompetitorFieldPanel` moved with them. |
