@@ -36,7 +36,7 @@ Competitors will seek to weaponize Dr. Mulu's technocratic and economic credenti
 
 Four pillars, extended from the original three.
 
-### 2.2.1 Fiscal accountability and devolution
+#### Fiscal accountability and devolution
 
 Translate Dr. Mulu's parliamentary advocacy for equitable resource distribution
 into a clear, actionable manifesto for Kitui's 40 wards. Content will show,
@@ -44,21 +44,21 @@ line by line, how the county's KSh13.79 billion should be allocated and
 audited — using his economics background to give voters confidence their money
 will be managed well.
 
-### 2.2.2 Data-driven civic engagement
+#### Data-driven civic engagement
 
 Infographic analyses breaking down Dr. Mulu's track record — including
 NG-CDF-funded projects in Kitui Central — so voters can visualise impact.
 Complex budget documents converted into simple charts, ward-level maps, and
 before-and-after comparisons.
 
-### 2.2.3 Policy, translated into what it changes
+#### Policy, translated into what it changes
 
 Convert dense policy topics — climate investment in water infrastructure,
 agricultural revitalisation — into relatable, vernacular-friendly content. A
 90-second video, a Kikamba voice note, or a shareable card makes every policy
 tangible and personal.
 
-### 2.2.4 Verification and follow-through
+#### Verification and follow-through
 
 The pillar that distinguishes Dr. Mulu from every rival: **publishing what was
 promised, then publishing whether it happened.** Operationalised through the
@@ -67,7 +67,6 @@ in Section 6.4, and the transparent ad-spend disclosure in the Digital Ethics &
 Data Charter (Section 6.5.4). An M&E specialist who campaigns without a
 verification mechanism is wasting his strongest asset.
 
----
 
 ## 2.3 The six campaign themes
 
