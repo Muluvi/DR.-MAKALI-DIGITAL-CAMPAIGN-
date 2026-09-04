@@ -70,6 +70,7 @@ import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, type TabId } from "../lib/heading-slug";
 import { segmentContent } from "../lib/collapse-groups";
 import { DisclosureGroup } from "./markdown/DisclosureGroup";
+import { ProseFold } from "./markdown/ProseFold";
 
 const kituiCentralPopulationDispute = DISPUTED_FIGURES.find((d) => d.id === "kitui-central-2019-population")!;
 
@@ -463,7 +464,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
   // panel, so the reader gets the labels at a glance and the bodies on demand. Everything else
   // comes back as ordinary markdown and renders exactly as before.
   const markdownComponents = buildComponents(tabId);
-  const segments = segmentContent(content);
+  const segments = segmentContent(content, { isClosingSection: tabId === "ask" });
 
   const renderMarkdown = (text: string, key?: string) => (
     <ReactMarkdown
@@ -510,15 +511,20 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
         [&>p:first-of-type]:text-base [&>p:first-of-type]:sm:text-lg [&>p:first-of-type]:font-semibold [&>p:first-of-type]:text-ink [&>p:first-of-type]:leading-relaxed [&>p:first-of-type]:border-b [&>p:first-of-type]:border-line/40 [&>p:first-of-type]:pb-4 [&>p:first-of-type]:mb-6
         [&>p:first-of-type::first-letter]:text-3xl [&>p:first-of-type::first-letter]:font-semibold [&>p:first-of-type::first-letter]:text-gold [&>p:first-of-type::first-letter]:mr-2 [&>p:first-of-type::first-letter]:float-left [&>p:first-of-type::first-letter]:leading-none
       ">
-        {segments.map((segment, i) =>
-          segment.kind === "markdown" ? (
-            renderMarkdown(segment.text, `md-${i}`)
-          ) : (
+        {segments.map((segment, i) => {
+          if (segment.kind === "markdown") return renderMarkdown(segment.text, `md-${i}`);
+          if (segment.kind === "fold")
+            return (
+              <ProseFold key={`fold-${i}`} label={segment.id}>
+                {renderMarkdown(segment.text, `fold-body-${i}`)}
+              </ProseFold>
+            );
+          return (
             <DisclosureGroup key={`group-${i}`} labels={segment.panels.map((panel) => panel.label)}>
               {segment.panels.map((panel) => renderMarkdown(panel.text, panel.label))}
             </DisclosureGroup>
-          )
-        )}
+          );
+        })}
 
         {/* The ask closes the document, inside the prose flow. It used to sit in the footer
             chrome below a rule, next to the print widget — which framed a vendor's closing
