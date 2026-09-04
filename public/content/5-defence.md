@@ -415,7 +415,7 @@ no infiltration of private groups, no purchase of private data, and no
 research into rivals' families or private lives.** Opposition research means
 knowing what opponents say publicly, not surveilling them.
 
-### 5.3.2 The monthly competitive brief
+### 5.3.2 The monthly competitive brief, and real-time alerts
 
 1. **Rival digital activity:** platforms, posting frequency, engagement rates,
 follower growth
@@ -427,13 +427,13 @@ sentiment trends
 where available
 6. **Recommendations:** counter-messaging and proactive content
 
-### 5.3.3 The rapid alert system
-
-New attacks or significant messaging shifts trigger real-time alerts to
+**Between briefs.** New attacks or significant messaging shifts trigger real-time alerts to
 campaign leadership with recommended responses drawn from the pre-approved
 library.
 
-### 5.3.4 Reading the current field
+---
+
+### 5.3.3 Reading the current field
 
 The August 2026 published survey shows Dr. Kasalu's strength built on
 countywide grassroots touring under a branded programme. The strategic
