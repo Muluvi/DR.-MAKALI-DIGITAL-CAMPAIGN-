@@ -105,7 +105,7 @@ calculable rather than notional.
 | **USSD development** | **~KSh140,000** one-off | Menu build |
 | **USSD hosting** | **~KSh5,000 per month** | Ongoing |
 | **WhatsApp Business API** | **~KSh0.50+ per message** | Template-approved messages only |
-| Meta / Google / TikTok ads | Market rate, auction-dependent | Benchmarked in Section 2.9.4 |
+| Meta / Google / TikTok ads | Market rate, auction-dependent | Benchmarked in Section 2.9.2 |
 
 Providers active in this market include Celcom Africa, Africa's Talking,
 Advanta Africa, Oramobile, AirTouch and Mobitech. **These are listed as market

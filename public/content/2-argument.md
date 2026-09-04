@@ -799,8 +799,6 @@ publication under the Section 6.5.4 fact-check protocol.*
 
 ## 2.9 AI-assisted creative and testing
 
-### 2.9.1 What AI is used for, and what it is never used for
-
 AI is used to test and optimise content so that every shilling of regulated ad
 spend delivers maximum persuasive impact.
 
@@ -811,7 +809,9 @@ AI-generated illustration appears in published material, it is labelled. This
 is a published commitment (Section 6.5.4) and a defensive necessity in an
 environment where opponents may deploy manipulated media (Section 5.3.5).
 
-### 2.9.2 Tools and platforms
+### 2.9.1 Tools, platforms and the weekly testing cycle
+
+#### Tools and platforms
 
 | Tool | Function | Management |
 |---|---|---|
@@ -823,7 +823,7 @@ environment where opponents may deploy manipulated media (Section 5.3.5).
 
 *Specific vendor selection at contracting; no tool is presented as retained.*
 
-### 2.9.3 The weekly testing cycle
+#### The weekly testing cycle
 
 * Minimum 5 ad variations per objective per platform
 * Minimum 3 headline and 3 visual variations per ad set
@@ -833,7 +833,7 @@ environment where opponents may deploy manipulated media (Section 5.3.5).
 after 5,000 impressions is paused
 * **Every test logged to the compliance ledger** (Section 9.2.4)
 
-### 2.9.4 Performance benchmarks
+### 2.9.2 Performance benchmarks
 
 | Metric | Global standard | Campaign target |
 |---|---|---|
