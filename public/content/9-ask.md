@@ -245,35 +245,29 @@ penalty exposure for getting any of it wrong.
 
 ## 9.3 Working together, and what happens next
 
-### 9.3.1 Weekly strategy syncs
+### 9.3.1 How we would work together
 
-A scheduled virtual briefing aligns digital output with the candidate's
-physical itinerary: prior-week performance, next-week content calendar
-approval, emerging issues. Firefly reports to a single named campaign-side
-counterpart (Section 7.2.4).
+Four standing mechanisms, running from the day the engagement starts.
 
-### 9.3.2 Asset centralisation
+*   **Weekly strategy syncs.** A scheduled virtual briefing aligns digital
+    output with the candidate's physical itinerary: prior-week performance,
+    next-week content calendar approval, emerging issues. Firefly reports to a
+    single named campaign-side counterpart (Section 7.2.4).
+*   **Asset centralisation.** A cloud repository for the ground team to upload
+    photographs and video daily. Raw assets are professionally edited,
+    captioned and distributed within hours. **Originals retained with metadata**
+    to support the provenance requirement in Section 5.2.4 — a practice that
+    costs nothing now and is invaluable under attack.
+*   **Performance tracking.** Monthly analytics reports covering reach,
+    engagement, sentiment and conversion, plus the competitive brief (Section
+    5.3.2), the compliance ledger reconciliation (Section 9.2.4), and progress
+    against the analytics maturity roadmap (Section 6.4.3).
+*   **Escalation.** The Section 7.2.6 decision matrix governs all approvals.
+    The Section 5.1.2 severity matrix governs all crisis response. Both are
+    rehearsed quarterly (Section 5.1.7) rather than read for the first time
+    under pressure.
 
-A cloud repository for the ground team to upload photographs and video daily.
-Raw assets are professionally edited, captioned and distributed within hours.
-**Originals retained with metadata** to support the provenance requirement in
-Section 5.2.4 — a practice that costs nothing now and is invaluable under
-attack.
-
-### 9.3.3 Performance tracking
-
-Monthly analytics reports covering reach, engagement, sentiment and conversion,
-plus the competitive brief (Section 5.3.2), the compliance ledger reconciliation
-(Section 9.2.4), and progress against the analytics maturity roadmap (Section
-5.1.5).
-
-### 9.3.4 Escalation
-
-The Section 7.2.6 decision matrix governs all approvals. The Section 5.1.2
-severity matrix governs all crisis response. Both are rehearsed quarterly
-(Section 5.1.7) rather than read for the first time under pressure.
-
-### 9.3.5 What Firefly needs from the campaign
+### 9.3.2 What Firefly needs from the campaign
 
 Stated plainly, because these are the dependencies that determine delivery:
 
@@ -290,7 +284,7 @@ Stated plainly, because these are the dependencies that determine delivery:
 
 ---
 
-### 9.3.6 Why a remote operation works
+### 9.3.3 Why a remote operation works
 
 A remote digital operation is not a compromise. Digital campaigning does not
 require a physical office in Kitui; it requires speed, data, creative
@@ -325,7 +319,7 @@ document's entire proposition is that it does not oversell.
 
 ---
 
-### 9.3.7 The ask
+### 9.3.4 The ask
 
 Dr. Makali Mulu has the credentials, the experience and the vision to be an
 outstanding Governor of Kitui County. He also has something no rival in this
