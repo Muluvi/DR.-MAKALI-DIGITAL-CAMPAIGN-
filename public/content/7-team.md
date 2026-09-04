@@ -98,7 +98,7 @@ The structure below scales with the budget tier selected in Section 9.2.
 
 | Role | Activated | Function |
 |---|---|---|
-| **Data Analyst / Modeller** | Phase 1 onward (standard and premium tiers) | Predictive scoring, field-digital integration, attribution modelling. **Named data-governance owner** (Section 6.4.6) |
+| **Data Analyst / Modeller** | Phase 1 onward (standard and premium tiers) | Predictive scoring, field-digital integration, attribution modelling. **Named data-governance owner** (Section 6.4.5) |
 | **Kikamba Content Producer (native speaker)** | Phase −1 onward — **mandatory at all tiers** | Voice notes, proverb verification, cultural authenticity review. No Kikamba content publishes without this role |
 | **Community Managers (×2, platform-split)** | Phase 1 onward | Meta/WhatsApp cluster; TikTok/Instagram/X cluster. Front-line response within the 2-hour SLA |
 | **Volunteer & Ward Champion Coordinator** | Phase 1 onward | Tiered volunteer programme (Section 4.3); ward champion training and reporting |
