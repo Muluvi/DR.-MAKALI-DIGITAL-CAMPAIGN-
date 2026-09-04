@@ -703,6 +703,8 @@ substance fixed, delivery natural.
 
 ---
 
+**Targets for earned media and radio are in the consolidated KPI ledger at Section 8.2.4.**
+
 ## 3.5 Working in three languages
 
 Kitui County is a deeply multilingual electoral ecosystem. While English functions as the language of statutory policy and constitutional governance, and Kiswahili serves as the commercial lingua franca of urban trading centers, **Kikamba is the primary language of emotional connection, rural trust, cultural authority, and grassroots electoral mobilization**.
@@ -942,15 +944,4 @@ important content last.
 | **Low bandwidth** | Text-first fallbacks; compressed images; a site that loads on 3G; SMS and USSD paths to the same information (Section 4.2) |
 | **Print** | Ward-level materials in large print with QR and USSD codes |
 
-### 3.6.3 Accessibility KPIs
-
-| Metric | Target |
-|---|---|
-| Flagship videos with KSL interpretation | 100% |
-| Video with captions | 100% |
-| WCAG 2.1 AA audit pass | Before public launch, re-audited quarterly |
-| Policy documents with plain-language summary | 100% |
-| Flagship content with audio version | 100% |
-| Site load time on simulated 3G | &lt; 3 seconds |
-
----
+**Targets for accessibility are in the consolidated KPI ledger at Section 8.2.4.**

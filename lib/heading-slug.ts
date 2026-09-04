@@ -136,10 +136,10 @@ const LEGACY_IDS: Record<string, string> = {
   "exec-sec-17-1": "measure-sec-8-2-1",
   "exec-sec-17-2": "measure-sec-8-2-2",
   "exec-sec-17-3": "measure-sec-8-2-3",
-  "exec-sec-17-4": "measure-sec-8-2-4",
+  "exec-sec-17-4": "measure-sec-8-2-5",
   "exec-sec-17-5": "measure-sec-8-1-1",
   "exec-sec-17-6": "measure-sec-8-1-2",
-  "exec-sec-17-7": "measure-sec-8-2-4",
+  "exec-sec-17-7": "measure-sec-8-2-5",
   "exec-sec-17a": "channels-sec-3-4-3",
   "exec-sec-18": "channels-sec-3-5",
   "exec-sec-18-1": "channels-sec-3-5-1",
@@ -158,10 +158,10 @@ const LEGACY_IDS: Record<string, string> = {
   "exec-sec-2-5": "race-sec-1-1-4",
   "exec-sec-2-6": "race-sec-1-1-5",
   "exec-sec-20": "measure-sec-8-2-3",
-  "exec-sec-20-1": "measure-sec-8-2-4",
+  "exec-sec-20-1": "measure-sec-8-2-5",
   "exec-sec-20-2": "measure-sec-8-1-1",
   "exec-sec-20-3": "measure-sec-8-1-2",
-  "exec-sec-20-4": "measure-sec-8-2-4",
+  "exec-sec-20-4": "measure-sec-8-2-5",
   "exec-sec-3": "argument-sec-2-1",
   "exec-sec-3-1": "argument-sec-2-1-1",
   "exec-sec-3-2": "argument-sec-2-1-2",
@@ -580,7 +580,9 @@ const LEGACY_IDS: Record<string, string> = {
   "team-sec-7-3-3": "team-sec-7-2-4",
   "team-sec-7-3-4": "team-sec-7-2-5",
 
-  "measure-sec-8-2-5": "measure-sec-8-2-4",
+  "measure-sec-8-2-5": "measure-sec-8-2-5",
+
+  "measure-sec-8-2-4": "measure-sec-8-2-5",
 };
 
 /**

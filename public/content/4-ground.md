@@ -368,23 +368,8 @@ transaction records, balances or customer identity enters this programme.
 material.
 * `[Confirm approach with campaign counsel — agent networks are regulated financial infrastructure and any commercial arrangement should be reviewed]`
 
-### 4.2.6 KPIs for the offline layer
 
-| Metric | Phase −1 | Phase 1 | Phase 2 | Phase 3 |
-|---|---|---|---|---|
-| Consented SMS contacts | 15,000 | 40,000 | 80,000 | **120,000** |
-| USSD unique sessions | Not live | 5,000 | 25,000 | 60,000 |
-| Issue reports via tracker | Not live | 500 | 3,000 | 8,000 |
-| Opt-out rate | <2% | <2% | <2% | <2% |
-| Wards with active SMS presence | 15 | 40 | 40 | 40 |
-| Cost per consented contact | ≤KSh0.60 | ≤KSh0.50 | ≤KSh0.40 | ≤KSh0.35 |
-
-**Opt-out rate is the health metric.** A rising opt-out rate means the campaign
-is being experienced as spam, which damages the brand of rigour and
-accountability the whole strategy rests on. It is treated as a red-flag KPI, not
-a vanity one.
-
----
+**Targets for the offline layer are in the consolidated KPI ledger at Section 8.2.4.**
 
 ## 4.3 Digital organising and volunteers
 
@@ -428,19 +413,8 @@ point tracking, content distribution, leaderboards
 * Task management via a shared board
 * Purpose-built volunteer platforms only at premium tier, if budget allows
 
-### 4.3.4 Volunteer KPIs
 
-| Metric | Target |
-|---|---|
-| Sign-up conversion from social traffic | ≥ 5% |
-| Active rate (engaged in last 30 days) | ≥ 40% |
-| Tier 2 advancement | ≥ 20% of Tier 1 |
-| Offline action completion | ≥ 60% |
-| Average points per volunteer per month | ≥ 100 |
-| 90-day retention | ≥ 50% |
-| **Canvass returns logged per active Tier 3 organiser per week** | ≥ 25 households |
-
----
+**Targets for the volunteer programme are in the consolidated KPI ledger at Section 8.2.4.**
 
 ## 4.4 The coalition and endorsement calendar
 
@@ -476,13 +450,4 @@ momentum across the nomination and general-election windows.
 
 ---
 
-### 4.4.2 Coalition KPIs
-
-| Metric | Target |
-|---|---|
-| Institutional engagements completed by end of Phase 2 | ≥ 40 |
-| Tier 3 organisers recruited from cooperative networks | ≥ 80 |
-| Endorsements publicly announced by Phase 3 | `[Insert target]` |
-| Earned media items generated from coalition activity | ≥ 2/month |
-
----
+**Targets for coalitions and endorsements are in the consolidated KPI ledger at Section 8.2.4.**

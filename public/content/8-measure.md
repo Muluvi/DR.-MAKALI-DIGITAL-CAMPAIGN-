@@ -240,7 +240,105 @@ The campaign strictly excludes vanity metrics from all executive dashboards, rep
 
 ---
 
-### 8.2.4 Performance governance and executive escalation
+### 8.2.4 What every programme is held to
+
+Seven programmes in this proposal carry their own performance targets. Until now
+each sat at the tail of its own subsection, in three different files, and none
+was cross-referenced from anywhere — so the question a campaign actually needs
+answered before signing, *what is this vendor offering to be measured on*, had
+no single answer.
+
+They are collected here unchanged. Every metric and every target is verbatim
+from the section it came from; nothing has been rescaled, reworded or added. The
+phased plan in Section 8.3 remains the view by time; this is the view by
+programme, and reading them together is what makes the two comparable.
+
+Read across, the ledger shows which commitments carry a numeric trajectory and
+which carry a single threshold — and it shows the one target the campaign has
+not yet set.
+
+#### Earned media and radio — from §3.4
+
+| Metric | Target |
+|---|---|
+| Earned media items per month, Phase 1 onward | ≥ 8 |
+| Radio appearances per month on priority stations | ≥ 4 |
+| Tier C expert-source placements per quarter | ≥ 2 |
+| Debate clips published within 60 minutes | 100% |
+| Share of voice in Kitui gubernatorial coverage | ≥ 50% |
+| Fact-checker corrections secured on false claims | 100% of material false claims challenged |
+
+#### Accessibility — from §3.6
+
+| Metric | Target |
+|---|---|
+| Flagship videos with KSL interpretation | 100% |
+| Video with captions | 100% |
+| WCAG 2.1 AA audit pass | Before public launch, re-audited quarterly |
+| Policy documents with plain-language summary | 100% |
+| Flagship content with audio version | 100% |
+| Site load time on simulated 3G | &lt; 3 seconds |
+
+#### The offline layer — SMS, USSD, voice — from §4.2
+
+| Metric | Phase −1 | Phase 1 | Phase 2 | Phase 3 |
+|---|---|---|---|---|
+| Consented SMS contacts | 15,000 | 40,000 | 80,000 | **120,000** |
+| USSD unique sessions | Not live | 5,000 | 25,000 | 60,000 |
+| Issue reports via tracker | Not live | 500 | 3,000 | 8,000 |
+| Opt-out rate | <2% | <2% | <2% | <2% |
+| Wards with active SMS presence | 15 | 40 | 40 | 40 |
+| Cost per consented contact | ≤KSh0.60 | ≤KSh0.50 | ≤KSh0.40 | ≤KSh0.35 |
+
+**Opt-out rate is the health metric.** A rising opt-out rate means the campaign
+is being experienced as spam, which damages the brand of rigour and
+accountability the whole strategy rests on. It is treated as a red-flag KPI, not
+a vanity one.
+
+#### Digital organising and volunteers — from §4.3
+
+| Metric | Target |
+|---|---|
+| Sign-up conversion from social traffic | ≥ 5% |
+| Active rate (engaged in last 30 days) | ≥ 40% |
+| Tier 2 advancement | ≥ 20% of Tier 1 |
+| Offline action completion | ≥ 60% |
+| Average points per volunteer per month | ≥ 100 |
+| 90-day retention | ≥ 50% |
+| **Canvass returns logged per active Tier 3 organiser per week** | ≥ 25 households |
+
+#### Coalitions and endorsements — from §4.4
+
+| Metric | Target |
+|---|---|
+| Institutional engagements completed by end of Phase 2 | ≥ 40 |
+| Tier 3 organisers recruited from cooperative networks | ≥ 80 |
+| Endorsements publicly announced by Phase 3 | `[Insert target]` |
+| Earned media items generated from coalition activity | ≥ 2/month |
+
+#### The Kitui message lab — from §8.4
+
+| Metric | Target |
+|---|---|
+| Research rounds completed by Phase 3 | ≥ 4 (standard tier) |
+| Zones covered per round | 3 of 3 |
+| Findings incorporated into content within 14 days | 100% |
+| Message framings tested before major spend | 100% of flagship campaigns |
+
+#### The public service-delivery tracker — from §8.5
+
+| Metric | Phase 1 | Phase 2 | Phase 3 |
+|---|---|---|---|
+| Reports received | 500 | 3,000 | 8,000 |
+| Wards with at least one report | 25 | 40 | 40 |
+| Reports with published status update | ≥ 80% | ≥ 85% | ≥ 90% |
+| Median time to first status update | 14 days | 10 days | 7 days |
+| Reports converting to consented contacts | ≥ 60% | ≥ 65% | ≥ 70% |
+| Earned media items citing the tracker | 1 | 3 | 5 |
+
+---
+
+### 8.2.5 Performance governance and executive escalation
 
 To ensure accountability across all divisions, the KPI framework is embedded in a rigid governance rhythm:
 
@@ -537,16 +635,8 @@ is treated as the signal about the offline majority and the quantitative data
 as the signal about the online minority** — neither overrides the other, and
 the disagreement itself is information.
 
-### 8.4.5 Message lab KPIs
 
-| Metric | Target |
-|---|---|
-| Research rounds completed by Phase 3 | ≥ 4 (standard tier) |
-| Zones covered per round | 3 of 3 |
-| Findings incorporated into content within 14 days | 100% |
-| Message framings tested before major spend | 100% of flagship campaigns |
-
----
+**Targets for the message lab are in the consolidated KPI ledger at Section 8.2.4.**
 
 ## 8.5 The public service-delivery tracker
 
@@ -646,13 +736,4 @@ USSD code (~KSh34,800 per network), development (~KSh140,000), hosting
 (~KSh5,000/month) — plus a lightweight public register on the campaign site.
 **Marginal cost over the SMS/USSD layer is low; distinctiveness is high.**
 
-### 8.5.7 Tracker KPIs
-
-| Metric | Phase 1 | Phase 2 | Phase 3 |
-|---|---|---|---|
-| Reports received | 500 | 3,000 | 8,000 |
-| Wards with at least one report | 25 | 40 | 40 |
-| Reports with published status update | ≥ 80% | ≥ 85% | ≥ 90% |
-| Median time to first status update | 14 days | 10 days | 7 days |
-| Reports converting to consented contacts | ≥ 60% | ≥ 65% | ≥ 70% |
-| Earned media items citing the tracker | 1 | 3 | 5 |
+**Targets for the tracker are in the consolidated KPI ledger at Section 8.2.4.**
