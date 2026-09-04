@@ -79,7 +79,10 @@ const TAB_ALIASES: Record<string, string> = {
 // one of the deleted registers (§34, §35, §37, §38, §39) are absent by design — there is
 // nothing left for them to point at.
 const LEGACY_IDS: Record<string, string> = {
-  "exec-sec-1": "overview-sec-0",
+  // The old §1 "Executive Summary" heading became the overview's own opening rather than a
+  // numbered heading inside it, so there is no "overview-sec-0" to land on — send the link to
+  // the first thing under it instead.
+  "exec-sec-1": "overview-sec-0-1",
   "exec-sec-1-1": "overview-sec-0-1",
   "exec-sec-1-2": "overview-sec-0-2",
   "exec-sec-1-3": "overview-sec-0-3",
