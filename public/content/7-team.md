@@ -12,7 +12,7 @@ being physically present on the campaign trail.
 the manifesto, tracking media appearances, and capturing volunteer data.
 * Lightweight, rapid-loading frameworks so the site is usable on 3G and on
 feature-phone browsers — non-negotiable in a county at 13.6% internet use.
-* **WCAG 2.1 AA compliance from build, not retrofitted** (Section 3.6.1).
+* **WCAG 2.1 AA compliance from build, not retrofitted** (Section 3.6.2).
 * Search engine optimisation for "Kitui Governor 2027", "Kitui development" and
 related terms.
 * A "Meet Dr. Mulu" page with biography, parliamentary record, M&E credentials

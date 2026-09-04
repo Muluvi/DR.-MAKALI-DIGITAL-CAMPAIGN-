@@ -266,7 +266,7 @@ uchumi aeleze."*
 * Search-optimised videos answering "What does the Kitui Governor do?" and
 "Kitui development 2027"
 * **Monthly "Kitui Economic Brief"** reviewing county budget execution
-* **Home for full sign-language-interpreted versions** (Section 3.6.1)
+* **Home for full sign-language-interpreted versions** (Section 3.6.2)
 
 #### Google Ads
 
@@ -444,7 +444,6 @@ Violations of campaign financing limits and accounting rules carry severe civil,
 
 Paid and owned media reach the connected minority. Earned media — especially
 radio — reaches everyone else.
-
 
 Vernacular radio is the primary medium of political consciousness and daily news in rural and peri-urban Kitui County. However, the media environment in Eastern Kenya is characterized by severe political concentration: **the highest-reach commercial radio stations broadcasting in Kikamba are owned, financed, or editorially steered by active political rivals or entrenched party gatekeepers**.
 
@@ -764,7 +763,6 @@ A flawed translation—or an urban, anglicized phrasing of a traditional Kikamba
 
 #### Channel-by-language deployment
 
-
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
 │                                CHANNEL-BY-LANGUAGE DEPLOYMENT MATRIX                                        │
@@ -904,12 +902,10 @@ substantive error, not a cosmetic one.
 
 ## 3.6 Accessibility and inclusion
 
-### 3.6.1 What accessibility means here
-
 *New section. In a county where 13.0% of the population never attended school,
 accessibility is reach, not compliance theatre.*
 
-### 3.6.2 The case
+### 3.6.1 The case for treating accessibility as reach
 
 * **13.0% of Kitui residents have never attended school**; only 17.4% completed
 secondary education
@@ -921,7 +917,16 @@ under-served by campaign communication in every cycle
 A campaign built on transparency that publishes only in dense written English
 is not transparent. It is legible to the people who already had access.
 
-### 3.6.3 The commitments
+The plain-language and audio versions are not a parallel accessibility track —
+they are the **primary format for the largest segment of the electorate**. A
+one-page plain-language summary that can be read aloud at a baraza, sent as a
+voice note, and broadcast on County FM is the most-used asset the campaign will
+produce. Building it as an afterthought means building the campaign's most
+important content last.
+
+---
+
+### 3.6.2 The commitments
 
 | Area | Commitment |
 |---|---|
@@ -933,16 +938,7 @@ is not transparent. It is legible to the people who already had access.
 | **Low bandwidth** | Text-first fallbacks; compressed images; a site that loads on 3G; SMS and USSD paths to the same information (Section 4.3) |
 | **Print** | Ward-level materials in large print with QR and USSD codes |
 
-### 3.6.4 Why this sits in the strategy, not an annex
-
-The plain-language and audio versions are not a parallel accessibility track —
-they are the **primary format for the largest segment of the electorate**. A
-one-page plain-language summary that can be read aloud at a baraza, sent as a
-voice note, and broadcast on County FM is the most-used asset the campaign will
-produce. Building it as an afterthought means building the campaign's most
-important content last.
-
-### 3.6.5 Accessibility KPIs
+### 3.6.3 Accessibility KPIs
 
 | Metric | Target |
 |---|---|
