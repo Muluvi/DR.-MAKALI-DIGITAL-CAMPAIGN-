@@ -38,6 +38,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
   const [sortColumn, setSortColumn] = useState<number | null>(null);
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const [showChart, setShowChart] = useState(false);
+  const [showAllRows, setShowAllRows] = useState(false);
 
   const childrenArray = React.Children.toArray(children);
   const theadElement = childrenArray.find((child: any) => child?.type === "thead");
@@ -91,6 +92,14 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
       row.some(cell => getDeepText(cell).toLowerCase().includes(term))
     );
   }, [sortedRows, searchTerm]);
+
+  // Long registers — the 40-ward table, the model data dictionary — are reference material, and
+  // rendering all of them inline turns a section into a scroll. Show a readable first screen and
+  // let the reader ask for the rest. Filtering shows every match: someone who has typed a query
+  // is looking for a specific row, not browsing.
+  const ROW_PREVIEW = 10;
+  const isCapped = !showAllRows && !searchTerm && filteredRows.length > ROW_PREVIEW + 2;
+  const visibleRows = isCapped ? filteredRows.slice(0, ROW_PREVIEW) : filteredRows;
 
   // Analytical stats automatic detector
   const numericColumnIndex = React.useMemo(() => {
@@ -259,7 +268,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
               </tr>
             </thead>
             <tbody className="table-row-group divide-y divide-line/20">
-              {filteredRows.map((row, rIdx) => (
+              {visibleRows.map((row, rIdx) => (
                 <tr
                   key={rIdx}
                   className="hover:bg-line/10 transition-colors"
@@ -283,6 +292,24 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
               ))}
             </tbody>
           </table>
+        {isCapped && (
+          <button
+            type="button"
+            onClick={() => setShowAllRows(true)}
+            className="w-full mt-1 py-2.5 text-xs font-semibold text-accent border-t border-line/40 hover:bg-accent/[0.06] transition-colors cursor-pointer min-h-[44px]"
+          >
+            Show all {filteredRows.length} rows
+          </button>
+        )}
+        {showAllRows && !searchTerm && filteredRows.length > 12 && (
+          <button
+            type="button"
+            onClick={() => setShowAllRows(false)}
+            className="w-full mt-1 py-2.5 text-xs font-semibold text-muted border-t border-line/40 hover:text-ink transition-colors cursor-pointer min-h-[44px]"
+          >
+            Show fewer rows
+          </button>
+        )}
           {filteredRows.length === 0 && (
             <div className="p-6 text-center text-xs font-mono text-muted/70">
               No matching strategic metrics found.

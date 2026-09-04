@@ -18,17 +18,23 @@
  */
 
 /** Below this, a run of headings is short enough to just read. */
-const MIN_PANELS = 3;
-/** Below this, the part is not heavy enough for the interaction to be worth it. */
-const MIN_WORDS = 300;
+const MIN_PANELS = 2;
+/** Below this, the block is not heavy enough for the interaction to be worth it. */
+const MIN_WORDS = 150;
+/** A block with no headings but a long unbroken run of prose gets folded after its opening. */
+const MIN_FOLD_RUN = 6;
+const MIN_FOLD_WORDS = 250;
+/** A fold that hides less than this is pure friction — the tap costs more than the scroll. */
+const MIN_FOLD_HIDDEN = 150;
 
 export type Segment =
   | { kind: "markdown"; text: string }
-  | { kind: "group"; id: string; panels: { label: string; text: string }[] };
+  | { kind: "group"; id: string; panels: { label: string; text: string }[] }
+  | { kind: "fold"; id: string; text: string };
 
 const FENCE = /^\s*```/;
 const SECTION_HEADING = /^(#{2,3})\s+(.+?)\s*$/;
-const PANEL_HEADING = /^####\s+(.+?)\s*$/;
+const PANEL_HEADING = /^(#{4,5})\s+(.+?)\s*$/;
 
 /** Strip markdown emphasis from a heading so it can be used as a button label. */
 function cleanLabel(raw: string): string {
@@ -44,19 +50,36 @@ function wordCount(lines: string[]): number {
   return lines.reduce((n, line) => n + line.trim().split(/\s+/).filter(Boolean).length, 0);
 }
 
-/** Split one section's body into the text before its first `h4` and one chunk per `h4`. */
+/**
+ * Split one section's body into the text before its first sub-heading and one chunk per
+ * sub-heading.
+ *
+ * Splits on the SHALLOWEST heading level present, so a block that nests h5s under an h4 — the
+ * 40-ward register does exactly this — divides into the two things the author actually wrote
+ * rather than into eight fragments with the second h4 buried inside the last of them.
+ */
 function splitPanels(body: string[]): { preamble: string[]; panels: { label: string; text: string }[] } {
+  let inFence = false;
+  let level = 0;
+  for (const line of body) {
+    if (FENCE.test(line)) inFence = !inFence;
+    if (inFence) continue;
+    const heading = PANEL_HEADING.exec(line);
+    if (heading) level = level ? Math.min(level, heading[1].length) : heading[1].length;
+  }
+  if (!level) return { preamble: body, panels: [] };
+
   const preamble: string[] = [];
   const panels: { label: string; text: string }[] = [];
   let current: { label: string; lines: string[] } | null = null;
-  let inFence = false;
+  inFence = false;
 
   for (const line of body) {
     if (FENCE.test(line)) inFence = !inFence;
     const heading = inFence ? null : PANEL_HEADING.exec(line);
-    if (heading) {
+    if (heading && heading[1].length === level) {
       if (current) panels.push({ label: current.label, text: current.lines.join("\n").trim() });
-      current = { label: cleanLabel(heading[1]), lines: [] };
+      current = { label: cleanLabel(heading[2]), lines: [] };
       continue;
     }
     if (current) current.lines.push(line);
@@ -66,7 +89,38 @@ function splitPanels(body: string[]): { preamble: string[]; panels: { label: str
   return { preamble, panels };
 }
 
-export function segmentContent(markdown: string): Segment[] {
+/** Longest run of consecutive prose lines — the thing that actually reads as a wall of text. */
+function longestProseRun(body: string[]): number {
+  let inFence = false;
+  let run = 0;
+  let longest = 0;
+  for (const line of body) {
+    if (FENCE.test(line)) { inFence = !inFence; run = 0; continue; }
+    const t = line.trim();
+    if (inFence || t === "" || /^\|/.test(t) || /^[*\-+]\s|^\d+\.\s/.test(t) || /^#/.test(t)) { run = 0; continue; }
+    run += 1;
+    longest = Math.max(longest, run);
+  }
+  return longest;
+}
+
+/** Everything from the end of the opening paragraph onwards, which is what gets folded. */
+function splitLead(body: string[]): { lead: string[]; rest: string[] } {
+  let seenText = false;
+  for (let i = 0; i < body.length; i += 1) {
+    const t = body[i].trim();
+    if (t !== "") { seenText = true; continue; }
+    if (seenText && body.slice(i).some((l) => l.trim() !== "")) return { lead: body.slice(0, i), rest: body.slice(i) };
+  }
+  return { lead: body, rest: [] };
+}
+
+/**
+ * @param isClosingSection the section the proposal ends on. Its final block is the ask, and the
+ * ask is never folded — a proposal that hides what it wants behind a "read more" does not close,
+ * whatever it saves in scroll. Every other section's final block folds like any other.
+ */
+export function segmentContent(markdown: string, { isClosingSection = false } = {}): Segment[] {
   const segments: Segment[] = [];
   const lines = markdown.split("\n");
 
@@ -102,11 +156,28 @@ export function segmentContent(markdown: string): Segment[] {
       j += 1;
     }
 
+    const words = wordCount(body);
     const { preamble, panels } = splitPanels(body);
-    if (panels.length >= MIN_PANELS && wordCount(body) >= MIN_WORDS) {
+    if (panels.length >= MIN_PANELS && words >= MIN_WORDS) {
       pending.push(line, ...preamble);
       flush();
       segments.push({ kind: "group", id: cleanLabel(heading[2]), panels });
+    } else if (
+      !panels.length &&
+      words >= MIN_FOLD_WORDS &&
+      longestProseRun(body) >= MIN_FOLD_RUN &&
+      !(isClosingSection && j >= lines.length)
+    ) {
+      // No sub-headings to fold on, but a long unbroken run of prose. Keep the opening
+      // paragraph — the block still has to say what it is — and fold the argument behind it.
+      const { lead, rest } = splitLead(body);
+      if (wordCount(rest) >= MIN_FOLD_HIDDEN) {
+        pending.push(line, ...lead);
+        flush();
+        segments.push({ kind: "fold", id: cleanLabel(heading[2]), text: rest.join("\n") });
+      } else {
+        pending.push(line, ...body);
+      }
     } else {
       pending.push(line, ...body);
     }
