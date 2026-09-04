@@ -6,7 +6,7 @@ Operating remotely allows for a dedicated digital war room, maintaining a
 continuous, high-quality digital footprint without the logistical overhead of
 being physically present on the campaign trail.
 
-### 7.1.1 Web management and digital architecture
+#### Web management and digital architecture
 
 * Development and deployment of a high-performance campaign web portal hosting
 the manifesto, tracking media appearances, and capturing volunteer data.
@@ -20,7 +20,7 @@ and vision for Kitui.
 * **Audit before build:** an existing Kitui Central NG-CDF web presence is
 already live. Phase 0 audits and integrates it rather than duplicating it.
 
-### 7.1.2 Brand management
+#### Brand management
 
 * Core messaging matrix ensuring consistency across broadcast, print and digital.
 * Dynamic digital press kits for media houses and influencers — approved
@@ -29,7 +29,7 @@ biographies, high-resolution assets, policy briefs (Section 3.4).
 * Community management: responses to comments, DMs and mentions within **2
 hours** during peak periods.
 
-### 7.1.3 Civic content and visual data
+#### Civic content and visual data
 
 * Infographic analyses highlighting Kitui's economic challenges and Dr. Mulu's
 proposed solutions, anchored to the KSh13.79bn county envelope.
@@ -41,7 +41,7 @@ outcomes, vision-driven narratives.
 * A weekly **"Dr. Mulu Explains"** series breaking down county budgets, revenue
 sources and development economics in plain language.
 
-### 7.1.4 Online fundraising and data analytics
+#### Online fundraising and data analytics
 
 * Secure donation page integrated with M-Pesa and other mobile money options.
 * **All fundraising structured for compliance with the Election Campaign
@@ -54,7 +54,7 @@ asks tied to specific campaign needs.
 * Weekly A/B testing of messages, visuals and ad formats.
 * Monthly voter sentiment reports to campaign leadership.
 
-### 7.1.5 Digital advertising
+#### Digital advertising
 
 * Targeted Meta ads by ward, age, gender and interest.
 * Google Search and Display to capture high-intent voters.
@@ -65,14 +65,13 @@ asks tied to specific campaign needs.
 engagement data — **with every shilling logged against the IEBC expenditure
 return** (Section 9.2.4).
 
-### 7.1.6 Crisis and reputation management
+#### Crisis and reputation management
 
 * Continuous sentiment monitoring across platforms.
 * Rapid-response statements managing emerging narratives or opponent claims.
 * Real-time monitoring and countering of misinformation and manipulated media
 (Sections 2.6 and 16A).
 
----
 
 ## 7.2 The team and how it is structured
 
