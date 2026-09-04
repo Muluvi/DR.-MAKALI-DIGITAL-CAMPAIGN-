@@ -284,11 +284,10 @@ Stated plainly, because these are the dependencies that determine delivery:
 
 ---
 
-### 9.3.3 Why a remote operation works
+### 9.3.3 What Firefly delivers remotely, and what it does not
 
-A remote digital operation is not a compromise. Digital campaigning does not
-require a physical office in Kitui; it requires speed, data, creative
-discipline and continuous availability. Firefly's role is:
+Section 0.4 sets out why a decentralised operation is a strategic asset rather
+than a compromise. In delivery terms, Firefly's role is:
 
 - Strategy and message architecture
 - Predictive modelling and analytics, within a governed compliance framework
