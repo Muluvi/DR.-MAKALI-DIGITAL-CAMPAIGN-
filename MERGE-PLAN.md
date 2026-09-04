@@ -513,6 +513,17 @@ appear as "KSh47m to 12,573 students" (§1.2.1, §2.1.1) and as "18,000+" (§5.1
 §8.2.2). **These need reconciling against the primary records** — particularly
 in a proposal whose §6.1.2 requires every figure to carry its provenance.
 
+**TODO-8 — The county register does not reconcile three ways.**
+§1.2.3's summary records "**532,758** (comprising **532,753** ward-registered
+voters and **5** prison-registered voters)". But its own 40-ward register — and
+§1.3.2's ranked table — sum to **532,758 ward-registered voters**, which leaves
+no room for the 5. Meanwhile `data/ward-register.json` records 532,758 ward
+voters plus **75** prison voters, totalling 532,833, and
+`scripts/verify-ward-register.mjs` asserts that arithmetic on every build. So the
+build guard and the prose disagree. Surfaced in §1.2.3 with a `[Confirm …]`
+marker; **no figure was changed.** This one matters more than the others because
+532,758 is the denominator under the ~200,000 win threshold.
+
 **TODO-7 — Twelve stale banner labels.** `SECTION 10 … SECTION 20 STRATEGIC
 TAKEAWAY` inside ASCII boxes, from a retired numbering scheme, visible to the
 reader. Fixed as part of the sections they sit in where a merge touches them;

@@ -154,63 +154,25 @@ To achieve absolute mathematical certainty, the campaign's success metrics are a
 *   **Victory Threshold:** Historically set at approximately **200,000 votes** (Tier 1), derived directly from Governor Malombe's 2022 winning total of **198,004 votes** (Tier 1).
 *   **Electoral Turnout Baseline:** Approximately 62% (Tier 1).
 
-#### The Complete, Integrated 40-Ward IEBC Voter Register (Tier 1, Sourced from IEBC):
+#### The 2022 IEBC register by constituency (Tier 1, sourced from IEBC):
 
-##### 1. Mwingi North Constituency (68,829 total registered voters, Tier 1)
-*   **Kyuso Ward:** 19,921 voters
-*   **Tseikuru Ward:** 16,471 voters
-*   **Mumoni Ward:** 15,877 voters
-*   **Ngomeni Ward:** 9,131 voters
-*   **Tharaka Ward:** 7,429 voters
+| Constituency | Wards | Registered voters |
+|---|--:|--:|
+| **Mwingi North** | 5 | 68,829 |
+| **Mwingi West** | 4 | 57,138 |
+| **Mwingi Central** | 6 | 74,231 |
+| **Kitui West** | 4 | 59,047 |
+| **Kitui Rural** | 4 | 55,000 |
+| **Kitui Central** | 5 | 77,764 |
+| **Kitui East** | 6 | 65,377 |
+| **Kitui South** | 6 | 75,372 |
+| **County total** | **40** | **532,758** |
 
-##### 2. Mwingi West Constituency (57,138 total registered voters, Tier 1)
-*   **Nguutani Ward:** 15,121 voters
-*   **Kyome/Thaana Ward:** 14,979 voters
-*   **Migwani Ward:** 14,678 voters
-*   **Kiomo/Kyethani Ward:** 12,360 voters
+The complete ward-by-ward register — all 40 wards ranked by size, with each
+ward's share of the county electorate and the running cumulative total — is set
+out once, in Section 1.3.2, where the concentration analysis is derived from it.
 
-##### 3. Mwingi Central Constituency (74,231 total registered voters, Tier 1)
-*   **Central Ward:** 14,525 voters
-*   **Nguni Ward:** 13,165 voters
-*   **Nuu Ward:** 12,729 voters
-*   **Kivou Ward:** 12,301 voters
-*   **Mui Ward:** 11,039 voters
-*   **Waita Ward:** 10,472 voters
-
-##### 4. Kitui West Constituency (59,047 total registered voters, Tier 1)
-*   **Mutonguni Ward:** 17,979 voters
-*   **Kauwi Ward:** 15,767 voters
-*   **Matinyani Ward:** 14,279 voters
-*   **Kwa Mutonga/Kithumula Ward:** 11,022 voters
-
-##### 5. Kitui Rural Constituency (55,000 total registered voters, Tier 1)
-*   **Kwa Vonza/Yatta Ward:** 18,020 voters
-*   **Kisasi Ward:** 13,840 voters
-*   **Mbitini Ward:** 12,048 voters
-*   **Kanyangi Ward:** 11,092 voters
-
-##### 6. Kitui Central Constituency (77,764 total registered voters, Tier 1)
-*   **Township Ward:** 19,538 voters
-*   **Kyangwithya West Ward:** 15,931 voters
-*   **Kyangwithya East Ward:** 15,401 voters
-*   **Mulango Ward:** 15,135 voters
-*   **Miambani Ward:** 11,759 voters
-
-##### 7. Kitui East Constituency (65,377 total registered voters, Tier 1)
-*   **Zombe/Mwitika Ward:** 13,152 voters
-*   **Chuluni Ward:** 12,622 voters
-*   **Nzambani Ward:** 11,723 voters
-*   **Voo/Kyamatu Ward:** 10,003 voters
-*   **Mutitu/Kaliku Ward:** 9,980 voters
-*   **Endau/Malalani Ward:** 7,897 voters
-
-##### 8. Kitui South Constituency (75,372 total registered voters, Tier 1)
-*   **Athi Ward:** 15,843 voters
-*   **Ikanga/Kyatune Ward:** 15,384 voters
-*   **Mutomo Ward:** 12,637 voters
-*   **Ikutha Ward:** 12,066 voters
-*   **Mutha Ward:** 11,039 voters
-*   **Kanziko Ward:** 8,403 voters
+`[Confirm the county register reconciliation: this constituency table and the 40-ward register in Section 1.3.2 both sum to 532,758 ward-registered voters, but the summary above records 532,753 ward-registered plus 5 prison-registered. data/ward-register.json carries 532,758 ward plus 75 prison. The three do not agree and should be reconciled against the IEBC published file.]`
 
 #### The Mwingi Bloc Pivot: A Decisive Strategic Finding
 
