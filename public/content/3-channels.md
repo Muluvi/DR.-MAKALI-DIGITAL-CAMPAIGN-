@@ -379,7 +379,9 @@ To maintain strict accounting integrity, **unverified cost estimates are rejecte
 
 ---
 
-### 3.3.3 The campaign financing rules we work inside
+### 3.3.3 The financing rules we work inside, and the penalties for breaking them
+
+#### The six statutory financing mandates
 
 The campaign adheres to all six statutory financing mandates established under Kenyan electoral law:
 
@@ -416,7 +418,8 @@ The campaign adheres to all six statutory financing mandates established under K
 
 ---
 
-### 3.3.4 Penalty exposure, and how we stay clear of it
+#### Penalty exposure, and how we stay clear of it
+
 
 Violations of campaign financing limits and accounting rules carry severe civil, financial, and criminal liabilities under Kenyan law:
 
@@ -426,7 +429,7 @@ Violations of campaign financing limits and accounting rules carry severe civil,
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 16 STRATEGIC TAKEAWAY
+                     PAID MEDIA & FINANCING — TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Statutory Cap Compliance:    Planned budget of Ksh 64.5M operates safely within the
                                 Ksh 97.56M IEBC ceiling (Gazette Notice 12251).
@@ -438,6 +441,7 @@ Violations of campaign financing limits and accounting rules carry severe civil,
                                 research rather than speculative estimation.
 ════════════════════════════════════════════════════════════
 ```
+
 ---
 
 ## 3.4 Earned media, radio and the gatekeeper bypass
