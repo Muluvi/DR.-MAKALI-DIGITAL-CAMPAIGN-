@@ -234,7 +234,7 @@ two dimensions: likelihood to support Dr. Mulu and likelihood to turn out. This
 moves the campaign from broad messaging to disciplined prioritisation of
 persuasion and mobilisation effort.
 
-**This entire section is conditional on the compliance gate in Section 6.5.5.**
+**This entire section is conditional on the compliance gate in Section 6.5.3.**
 No voter-file-based targeting is deployed until a Kenyan data-protection or
 electoral-law specialist has reviewed and signed off the specific proposed
 processing. Nothing in this section should be read as a claim that such
@@ -244,7 +244,7 @@ processing is already permissible.
 
 * **IEBC Voter Register:** name, gender, age bracket, polling station, ward,
 constituency, historical turnout flags — **subject to lawful access and the
-Section 6.5.5 gate**
+Section 6.5.3 gate**
 * **KNBS Census and county statistics:** ward-level demographics, education,
 household characteristics, economic activity
 * **Historical results:** ward and polling-station results from 2017 and 2022
@@ -257,7 +257,7 @@ consent-based
 **Explicitly excluded:** purchased third-party contact lists, scraped number
 databases, and any inferred psychographic or personality attributes. Vendors
 openly market bulk Kenyan mobile-number databases; the campaign will not buy
-them. See Section 6.5.4.
+them. See Section 6.5.2.
 
 ### 6.2.3 Modelling methodology
 
@@ -327,7 +327,7 @@ households first (Section 4.1)
 
 ### 6.2.7 The compliance gate this depends on
 
-Model deployment is gated. If the Section 6.5.5 review does not clear
+Model deployment is gated. If the Section 6.5.3 review does not clear
 voter-file-based processing, the campaign operates the model on **first-party
 consented data and aggregate ward-level statistics only** — a materially
 weaker but fully lawful fallback that has been costed into all three budget
@@ -539,7 +539,7 @@ register support and opt in
 |---|---|---|---|---|
 | **0 — Baseline** | Phase −1 | Platform-native dashboards; manual weekly report; SMS delivery reporting; single source of truth established | Accounts and pixel installed | Paid Media & Analytics Manager |
 | **1 — Integrated** | Phase 0–1 | Unified BI dashboard across paid, organic, SMS, USSD, web; ward-level segmentation; A/B testing discipline | Consistent tagging taxonomy | Paid Media & Analytics Manager |
-| **2 — Predictive** | Phase 1–2 | Voter scoring live; field-digital loop operating; audience segments driven by score | **Section 6.5.5 compliance gate cleared** | Data Analyst (surge) |
+| **2 — Predictive** | Phase 1–2 | Voter scoring live; field-digital loop operating; audience segments driven by score | **Section 6.5.3 compliance gate cleared** | Data Analyst (surge) |
 | **3 — Attributed** | Phase 2–3 | Multi-touch attribution; offline conversion tracking; cost-per-persuaded-voter reported against actuals | Stage 2 stable ≥ 6 weeks | Data Analyst |
 | **4 — Optimised** | Phase 3 | Continuous reallocation against modelled marginal return; GOTV list prioritisation | Stage 3 validated against field returns | Data Analyst + Director |
 
@@ -558,8 +558,8 @@ Responsibilities:
 who has access
 * Owns the consent audit trail and can produce it on demand within
 **24 hours** — the standard the Section 5.1.7 drill tests
-* Owns the deletion schedule and executes it (Section 6.5.4)
-* Is the campaign's standing point of contact for the Section 6.5.5 compliance
+* Owns the deletion schedule and executes it (Section 6.5.2)
+* Is the campaign's standing point of contact for the Section 6.5.3 compliance
 reviewer
 * Holds authority to **suspend any targeting activity** pending review, without
 requiring commercial sign-off
@@ -571,8 +571,6 @@ sits with the Data Analyst. It is named in writing either way.
 
 ## 6.5 Ethics, privacy and the data charter
 
-### 6.5.1 The standard we hold ourselves to
-
 Voter data is handled in a manner intended to comply with Kenya's Data
 Protection Act 2019, the Communications Authority framework governing political
 messaging, and IEBC regulations. This protects the campaign from legal risk and
@@ -580,10 +578,12 @@ reinforces Dr. Mulu's brand as a trustworthy, accountable leader.
 
 **Important framing: this section describes the campaign's intended standard
 and control environment. It is not a legal opinion, and nothing here asserts
-that any specific processing is already lawful. Section 6.5.5 establishes the
+that any specific processing is already lawful. Section 6.5.3 establishes the
 gate that answers that question properly.**
 
-### 6.5.2 The regulatory environment as it stands
+### 6.5.1 The regulatory environment, and the controls that answer it
+
+#### What the law and the regulators require
 
 | Area | Requirement | Source |
 |---|---|---|
@@ -599,19 +599,21 @@ would give short-term reach and long-term exposure — regulatory, and
 reputational for a candidate whose entire proposition is rigour and
 accountability. The campaign will not.
 
-### 6.5.3 Compliance measures
+#### The control that answers each requirement
 
 | Area | Requirement | Implementation |
 |---|---|---|
 | Collection | Voters informed of use; consent obtained | Clear privacy notice at every collection point — website, USSD, baraza sign-up sheet, WhatsApp opt-in |
 | Storage | Data secured | Encrypted storage, role-based access control, access logging, periodic review |
 | Sharing | No sharing without consent | No third-party transfer; no sale under any circumstance |
-| Retention | Not kept indefinitely | Published deletion schedule (16.4) |
+| Retention | Not kept indefinitely | Published deletion schedule (Section 6.5.2, clause 5) |
 | Communication | Opt-outs respected | One-touch opt-out on every message; honoured immediately and permanently |
 | Accuracy | Correction rights honoured | Documented request route with response SLA |
 | Misinformation | No false content | Fact-check protocol; pre-approval of sensitive claims |
 
-### 6.5.4 The Digital Ethics and Data Charter
+---
+
+### 6.5.2 The Digital Ethics and Data Charter
 
 *New. Published on the campaign website in all three languages, in plain
 language, at a permanent URL.*
@@ -695,7 +697,7 @@ the data-governance owner (clause 5), the variable dictionary exclusions
 (clauses 6 and 7), the fact-check protocol (clause 2), and the correction log
 (clause 9). A charter without instrumentation is decoration.
 
-### 6.5.5 The compliance sign-off gate
+### 6.5.3 The compliance sign-off gate
 
 *New. The single most important governance control in this document.*
 

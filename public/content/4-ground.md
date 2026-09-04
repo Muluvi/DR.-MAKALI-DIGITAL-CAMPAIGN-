@@ -158,7 +158,7 @@ organisers with attendance follow-up.
 ### 4.1.4 Who governs the loop, and the KPI that holds it honest
 
 * Field data is campaign first-party data, collected with notice, and governed
-by the same charter as all other personal data (Section 6.5.4).
+by the same charter as all other personal data (Section 6.5.2).
 * Ward champions receive data-handling training before being issued the form,
 and cannot export or retain contact data on personal devices.
 * **Field validation match rate ≥ 85%** is the joint KPI holding both sides
@@ -401,7 +401,7 @@ offline organisers, with gamification driving sustained engagement.
 | **4** | County Coordinator | Manage 3+ organisers | Oversee regional operations, attend weekly syncs |
 
 **Data-handling training is a gate, not an option.** No volunteer collects
-personal data before completing it (Section 6.5.4).
+personal data before completing it (Section 6.5.2).
 
 ### 4.3.2 Gamification mechanics
 
@@ -416,7 +416,7 @@ personal data before completing it (Section 6.5.4).
 voter, a canvassed household, a completed training — not raw posting volume.
 Reward systems that pay for volume produce spam and, at scale, look
 indistinguishable from inauthentic activity. That would breach both platform
-policy and the Section 6.5.4 charter, and it is designed out from the start.
+policy and the Section 6.5.2 charter, and it is designed out from the start.
 
 ### 4.3.3 Management tooling
 
@@ -469,7 +469,7 @@ liability.
 
 * Every endorsement is **voluntary, documented and disclosed**. No paid
 endorsement is presented as organic — a breach of platform policy and of the
-Section 6.5.4 charter.
+Section 6.5.2 charter.
 * Influencer partnerships carry clear paid-partnership disclosure.
 * Endorsements are sequenced for cadence rather than clustered, sustaining
 momentum across the nomination and general-election windows.

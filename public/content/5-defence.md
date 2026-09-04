@@ -270,7 +270,7 @@ or when. The drill runs in real time against the Section 5.1.2 clock.
 |---|---|---|
 | 1 | Fabricated audio of Dr. Mulu making an inflammatory statement, seeded on WhatsApp | Deepfake protocol; 30-minute Level 3 clock |
 | 2 | Coordinated hashtag attack on his NG-CDF record | Fact-base readiness; rebuttal library |
-| 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval (Section 6.5.4) |
+| 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval (Section 6.5.2) |
 | 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 3.4) |
 | 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section 5.2.3) |
 | 6 | Allegation of exceeding the IEBC spending ceiling | Ledger reconciliation retrieval (Section 9.2.4) |

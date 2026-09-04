@@ -300,7 +300,7 @@ proposal claims to embody, applied to its own first assumption.
   admins on day one** (Section 5.2.2)
 - Establish the compliance ledger (Section 9.2.4)
 - Verify the Kitui expenditure ceiling from the gazette schedule
-- Commission the Section 6.5.5 compliance review — **start the clock early, it
+- Commission the Section 6.5.3 compliance review — **start the clock early, it
   is the long-lead item**
 - Appoint the Kikamba producer
 
@@ -370,7 +370,7 @@ allows; sequential if the decision slips.*
 - USSD code live across all networks
 - 40 ward digital champions onboarded and data-trained
 - First 100 pieces of content approved and scheduled
-- **Section 6.5.5 compliance opinion received**
+- **Section 6.5.3 compliance opinion received**
 
 ---
 
@@ -612,7 +612,7 @@ the least connectivity:**
 with counts by category. Transparency is the point.
 2. **No personal data published.** Reports appear with ward, category and
 status only. Contact details are used to update the reporter and nothing
-else, under the Section 6.5.4 charter.
+else, under the Section 6.5.2 charter.
 3. **Outcomes published honestly — including failures.** Where an issue is not
 resolved, the register says so. A tracker that only shows successes is
 marketing, and voters recognise it instantly. Publishing unresolved items is

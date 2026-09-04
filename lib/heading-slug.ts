@@ -252,10 +252,10 @@ const LEGACY_IDS: Record<string, string> = {
   "programme-sec-15-5": "defence-sec-5-3-3",
   "programme-sec-16": "data-sec-6-5",
   "programme-sec-16-1": "data-sec-6-5-1",
-  "programme-sec-16-2": "data-sec-6-5-2",
+  "programme-sec-16-2": "data-sec-6-5-1",
   "programme-sec-16-3": "data-sec-6-5-3",
-  "programme-sec-16-4": "data-sec-6-5-4",
-  "programme-sec-16-5": "data-sec-6-5-5",
+  "programme-sec-16-4": "data-sec-6-5-2",
+  "programme-sec-16-5": "data-sec-6-5-3",
   "programme-sec-16a": "defence-sec-5-2",
   "programme-sec-16a-1": "defence-sec-5-2-1",
   "programme-sec-16a-2": "defence-sec-5-2-2",
@@ -388,10 +388,10 @@ const LEGACY_IDS: Record<string, string> = {
   "programme-sec-28-1": "data-sec-6-5-1",
   "programme-sec-28-10": "defence-sec-5-2-3",
   "programme-sec-28-11": "defence-sec-5-2-4",
-  "programme-sec-28-2": "data-sec-6-5-2",
+  "programme-sec-28-2": "data-sec-6-5-1",
   "programme-sec-28-3": "data-sec-6-5-3",
-  "programme-sec-28-4": "data-sec-6-5-4",
-  "programme-sec-28-5": "data-sec-6-5-5",
+  "programme-sec-28-4": "data-sec-6-5-2",
+  "programme-sec-28-5": "data-sec-6-5-3",
   "programme-sec-28-6": "defence-sec-5-2",
   "programme-sec-28-7": "defence-sec-5-2-1",
   "programme-sec-28-8": "defence-sec-5-2-2",
@@ -567,6 +567,10 @@ const LEGACY_IDS: Record<string, string> = {
   "data-sec-6-4-4": "data-sec-6-4-3",
   "data-sec-6-4-5": "data-sec-6-4-4",
   "data-sec-6-4-6": "data-sec-6-4-4",
+
+  "data-sec-6-5-2": "data-sec-6-5-1",
+  "data-sec-6-5-4": "data-sec-6-5-2",
+  "data-sec-6-5-5": "data-sec-6-5-3",
 };
 
 /**

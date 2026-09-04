@@ -197,7 +197,7 @@ To prevent defamatory statements, policy contradictions, electoral code infracti
 | Response to attack, Level 1 | Digital Director | ≤4 hours |
 | Response to attack, Level 2 | Campaign Communications Director | ≤2 hours |
 | Response to attack, Level 3 | **Candidate + senior leadership** | ≤30 minutes |
-| Any voter-file-based targeting | **Compliance gate — see Section 6.5.5** | Before launch, no exceptions |
+| Any voter-file-based targeting | **Compliance gate — see Section 6.5.3** | Before launch, no exceptions |
 | Paid spend reallocation within ceiling | Paid Media Manager | Immediate |
 | Paid spend exceeding ward ceiling | Digital Director | 24 hours |
 

@@ -281,7 +281,7 @@ Stated plainly, because these are the dependencies that determine delivery:
 2. **Candidate time:** approximately 3 hours per week — one Facebook Live, one
    voice-note recording session, one interview or content block
 3. **Ground team asset uploads:** daily photographs and video from the trail
-4. **Appointment of the compliance reviewer** (Section 6.5.5) — the long-lead
+4. **Appointment of the compliance reviewer** (Section 6.5.3) — the long-lead
    item, needed in Phase −1
 5. **The verified expenditure ceiling** from the gazette schedule
 6. **Current ward-level registration data** from the IEBC published file

@@ -64,7 +64,7 @@ The pillar that distinguishes Dr. Mulu from every rival: **publishing what was
 promised, then publishing whether it happened.** Operationalised through the
 public service-delivery tracker (Section 8.5), the quarterly evidence cadence
 in Section 6.4, and the transparent ad-spend disclosure in the Digital Ethics &
-Data Charter (Section 6.5.4). An M&E specialist who campaigns without a
+Data Charter (Section 6.5.2). An M&E specialist who campaigns without a
 verification mechanism is wasting his strongest asset.
 
 ## 2.3 The six campaign themes
@@ -290,7 +290,7 @@ interest, geography, life stage and issue salience only**. It is never by
 ethnicity, clan or religious affiliation. Cultural and linguistic localisation —
 Kikamba content, local idiom, proverbs, cultural imagery — is a matter of
 respect and reach and stays. Identity-based wedge targeting does not, is
-excluded by the Digital Ethics & Data Charter (Section 6.5.4), and is a
+excluded by the Digital Ethics & Data Charter (Section 6.5.2), and is a
 documented driver of election-period tension in Kenya. This is a live risk in
 the 2027 cycle, not a theoretical one: EU-funded analysis of the 2025 digital
 ecosystem identified coordinated cross-platform operations explicitly
@@ -704,7 +704,7 @@ voters act."
 **Boundary.** These are framing techniques applied to **true claims**, delivered
 transparently, at population level. They are not psychographic targeting, not
 personality-based manipulation, and not individualised emotional profiling.
-Section 6.5.4 makes this a published commitment.
+Section 6.5.2 makes this a published commitment.
 
 ### 2.8.1 The principles we apply
 
@@ -766,7 +766,7 @@ credential into a persuasion technique available to no rival.
   poverty is economic poverty."
 
 *All figures drawn from KNBS and county sources; each is verified before
-publication under the Section 6.5.4 fact-check protocol.*
+publication under the Section 6.5.2 fact-check protocol.*
 
 ## 2.9 AI-assisted creative and testing
 
@@ -777,7 +777,7 @@ spend delivers maximum persuasive impact.
 used to fabricate imagery of real people, simulate events that did not occur,
 or generate synthetic voices of the candidate or any other person. Where
 AI-generated illustration appears in published material, it is labelled. This
-is a published commitment (Section 6.5.4) and a defensive necessity in an
+is a published commitment (Section 6.5.2) and a defensive necessity in an
 environment where opponents may deploy manipulated media (Section 5.2.4).
 
 ### 2.9.1 Tools, platforms and the weekly testing cycle
