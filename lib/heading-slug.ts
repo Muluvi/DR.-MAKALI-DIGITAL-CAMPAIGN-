@@ -571,6 +571,14 @@ const LEGACY_IDS: Record<string, string> = {
   "data-sec-6-5-2": "data-sec-6-5-1",
   "data-sec-6-5-4": "data-sec-6-5-2",
   "data-sec-6-5-5": "data-sec-6-5-3",
+
+  // §7.2 (team structure) and §7.3 (leadership and governance rhythm) merged into
+  // one §7.2 (M31) -- they described the same team twice.
+  "team-sec-7-3": "team-sec-7-2",
+  "team-sec-7-3-1": "team-sec-7-2-1",
+  "team-sec-7-3-2": "team-sec-7-2-2",
+  "team-sec-7-3-3": "team-sec-7-2-4",
+  "team-sec-7-3-4": "team-sec-7-2-5",
 };
 
 /**
