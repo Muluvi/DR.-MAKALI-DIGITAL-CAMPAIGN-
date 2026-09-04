@@ -67,7 +67,6 @@ in Section 6.4, and the transparent ad-spend disclosure in the Digital Ethics &
 Data Charter (Section 6.5.4). An M&E specialist who campaigns without a
 verification mechanism is wasting his strongest asset.
 
-
 ## 2.3 The six campaign themes
 
 Six themes, each evidenced.
@@ -355,7 +354,6 @@ Cross-referencing the demographic and livelihood segments established in **Secti
 └──────────────────────────────┴──────────────────────────────────────────┴───────────────────────────────────┘
 ```
 
-
 ---
 
 ## 2.6 Message architecture
@@ -523,7 +521,6 @@ Two views of the same channel mix: the message and its supporting evidence,
 then the production specification that carries it.
 
 #### Message and evidence, by channel
-
 
 Cross-referencing the channel reach realities established in **Section 3.1**:
 
@@ -729,8 +726,6 @@ All creative assets are stored in a centralized, cloud-backed Digital Asset Mana
 
 ## 2.8 Behavioural science and persuasion
 
-### 2.8.1 Framing true claims, transparently
-
 The campaign applies behavioural economics to make every message
 psychologically effective — moving beyond "what to say" to "how to frame it so
 voters act."
@@ -740,7 +735,7 @@ transparently, at population level. They are not psychographic targeting, not
 personality-based manipulation, and not individualised emotional profiling.
 Section 6.5.4 makes this a published commitment.
 
-### 2.8.2 The principles we apply
+### 2.8.1 The principles we apply
 
 | Principle | Definition | Campaign application |
 |---|---|---|
@@ -756,7 +751,7 @@ Section 6.5.4 makes this a published commitment.
 The final row is the campaign's signature move. It converts Dr. Mulu's M&E
 credential into a persuasion technique available to no rival.
 
-### 2.8.3 Framing, worked through in examples
+### 2.8.2 Framing, worked through in examples
 
 **Water scarcity**
 - *Loss aversion:* "Approximately 400,000 people in Kitui still depend on

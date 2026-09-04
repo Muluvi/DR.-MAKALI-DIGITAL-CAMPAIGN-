@@ -214,8 +214,8 @@ const LEGACY_IDS: Record<string, string> = {
   "exec-sec-9c": "channels-sec-3-1-3",
   "programme-sec-10": "argument-sec-2-8",
   "programme-sec-10-1": "argument-sec-2-8-1",
-  "programme-sec-10-2": "argument-sec-2-8-2",
-  "programme-sec-10-3": "argument-sec-2-8-3",
+  "programme-sec-10-2": "argument-sec-2-8-1",
+  "programme-sec-10-3": "argument-sec-2-8-2",
   "programme-sec-11": "argument-sec-2-9",
   "programme-sec-11-1": "argument-sec-2-9-1",
   "programme-sec-11-2": "argument-sec-2-9-2",
@@ -348,8 +348,8 @@ const LEGACY_IDS: Record<string, string> = {
   "programme-sec-22-9": "ground-sec-4-2-1",
   "programme-sec-23": "argument-sec-2-8",
   "programme-sec-23-1": "argument-sec-2-8-1",
-  "programme-sec-23-2": "argument-sec-2-8-2",
-  "programme-sec-23-3": "argument-sec-2-8-3",
+  "programme-sec-23-2": "argument-sec-2-8-1",
+  "programme-sec-23-3": "argument-sec-2-8-2",
   "programme-sec-24": "argument-sec-2-9",
   "programme-sec-24-1": "argument-sec-2-9-1",
   "programme-sec-24-2": "argument-sec-2-9-2",
@@ -509,6 +509,9 @@ const LEGACY_IDS: Record<string, string> = {
   "argument-sec-2-6-4": "argument-sec-2-6-2",
 
   "argument-sec-2-6-3": "argument-sec-2-6-2",
+
+  "argument-sec-2-8-2": "argument-sec-2-8-1",
+  "argument-sec-2-8-3": "argument-sec-2-8-2",
 };
 
 /**
