@@ -444,8 +444,6 @@ point tracking, content distribution, leaderboards
 
 ## 4.4 The coalition and endorsement calendar
 
-### 4.4.1 The principle behind the sequence
-
 Coalitions are built around **shared economic and civic interests** — water,
 credit, market access, employment, transparency. They are never built around
 ethnic, clan or religious bloc identity. Faith and community networks are
@@ -454,7 +452,7 @@ which is both the ethical position and the effective one: a water commitment
 made to a congregation is a policy conversation, while a bloc appeal is a
 liability.
 
-### 4.4.2 The sequenced calendar
+### 4.4.1 The sequenced calendar, and how endorsements are managed
 
 | Phase | Target constituencies | Engagement | Digital output |
 |---|---|---|---|
@@ -467,7 +465,7 @@ liability.
 | **Phase 2–3** | Diaspora chambers and associations | Investment, remittance, **the expansion of diaspora registration from 12 to 26 countries** | Webinars; diaspora fundraising |
 | **Phase 3** (Apr–Aug 2027) | Consolidation and public endorsement sequencing | Staged announcements for sustained news cycles | Endorsement content series |
 
-### 4.4.3 Managing endorsements
+#### Managing endorsements
 
 * Every endorsement is **voluntary, documented and disclosed**. No paid
 endorsement is presented as organic — a breach of platform policy and of the
@@ -476,7 +474,9 @@ Section 6.5.4 charter.
 * Endorsements are sequenced for cadence rather than clustered, sustaining
 momentum across the nomination and general-election windows.
 
-### 4.4.4 Coalition KPIs
+---
+
+### 4.4.2 Coalition KPIs
 
 | Metric | Target |
 |---|---|
