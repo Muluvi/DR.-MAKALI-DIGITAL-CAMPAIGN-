@@ -590,8 +590,6 @@ allows; sequential if the decision slips.*
 
 *New section. Digital engagement metrics measure the 13.6% who are online.*
 
-### 8.4.1 The problem with metrics-only optimisation
-
 A campaign that optimises purely on engagement data optimises for the connected
 minority, in the wards with the best signal, among the people most inclined to
 respond. In Kitui that is a systematically biased sample — and it is biased
@@ -599,7 +597,7 @@ respond. In Kitui that is a systematically biased sample — and it is biased
 confirm the campaign is winning while the recognition deficit outside the
 Anchor zone stays exactly where it is.
 
-### 8.4.2 How the lab is designed
+### 8.4.1 How the lab is designed
 
 | Element | Specification |
 |---|---|
@@ -610,7 +608,7 @@ Anchor zone stays exactly where it is.
 | **Facilitation** | `[Insert — independent Kenyan qualitative research facilitator; Firefly to recommend, campaign to appoint]` |
 | **Ethics** | Participation voluntary; withdrawal at any time; no contact data retained for campaigning without separate explicit opt-in |
 
-### 8.4.3 What gets tested
+### 8.4.2 What gets tested
 
 * **Message framings** from Section 2.8 — does loss-aversion framing on water
 land, or does it read as pessimism about Kitui?
@@ -626,7 +624,7 @@ information?
 * **The tracker concept** (Section 8.5) — would people use it, and do they
 believe it would change anything?
 
-### 8.4.4 The feedback loop
+### 8.4.3 The feedback loop
 
 Findings are written up within **10 days** and feed directly into the next
 content cycle, the SMS message architecture and the paid-media creative brief.
@@ -634,7 +632,6 @@ Where qualitative findings contradict engagement data, **the qualitative finding
 is treated as the signal about the offline majority and the quantitative data
 as the signal about the online minority** — neither overrides the other, and
 the disagreement itself is information.
-
 
 **Targets for the message lab are in the consolidated KPI ledger at Section 8.2.4.**
 
