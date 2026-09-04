@@ -257,7 +257,7 @@ counterpart (Section 7.2.4).
 A cloud repository for the ground team to upload photographs and video daily.
 Raw assets are professionally edited, captioned and distributed within hours.
 **Originals retained with metadata** to support the provenance requirement in
-Section 5.2.5 — a practice that costs nothing now and is invaluable under
+Section 5.2.4 — a practice that costs nothing now and is invaluable under
 attack.
 
 ### 9.3.3 Performance tracking

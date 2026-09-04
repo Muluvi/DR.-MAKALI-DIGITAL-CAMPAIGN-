@@ -203,7 +203,7 @@ Maintained for rapid response without waiting on approvals:
 * Kikamba, Kiswahili and English versions of key messages
 * Template statements for policy positions issued in response to attack
 * Fact-check cards linking to verified sources
-* **Deepfake first-response templates** (Section 5.2.5)
+* **Deepfake first-response templates** (Section 5.2.4)
 
 ---
 
@@ -272,7 +272,7 @@ or when. The drill runs in real time against the Section 5.1.2 clock.
 | 2 | Coordinated hashtag attack on his NG-CDF record | Fact-base readiness; rebuttal library |
 | 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval (Section 6.5.4) |
 | 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 3.4) |
-| 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section 5.2.4) |
+| 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section 5.2.3) |
 | 6 | Allegation of exceeding the IEBC spending ceiling | Ledger reconciliation retrieval (Section 9.2.4) |
 | 7 | Manufactured "grassroots" campaign attacking a rival, falsely attributed to Dr. Mulu | Charter defence; provenance evidence |
 
@@ -304,7 +304,7 @@ For this campaign specifically, the highest-consequence scenarios are:
 3. Leaked internal strategy material — including, if mishandled, this document
 4. Fabricated audio or video of the candidate
 
-### 5.2.2 Account security baseline
+### 5.2.2 Account security baseline, and the human attack surface
 
 | Control | Standard | Applies to |
 |---|---|---|
@@ -319,7 +319,7 @@ For this campaign specifically, the highest-consequence scenarios are:
 **Hardware keys for the candidate and admins are non-negotiable and cost very
 little.** `[Insert quoted cost — typically a modest per-key figure; two keys per critical account holder for redundancy]`
 
-### 5.2.3 Phishing awareness
+#### Phishing awareness
 
 * Onboarding training for every staff member and Tier 3–4 volunteer before
 account access is granted
@@ -331,7 +331,9 @@ suspicion to report
 * Specific coverage of the patterns most likely here: fake platform security
 alerts, fake IEBC or party communications, and fake media interview requests
 
-### 5.2.4 The incident response plan
+---
+
+### 5.2.3 The incident response plan
 
 | Phase | Action | Owner | Target |
 |---|---|---|---|
@@ -347,7 +349,7 @@ campaign confirms or denies authenticity accurately and quickly. It does not
 speculate about the source, and it does not deny the authenticity of genuine
 material — a denial later disproved is worse than the original leak.
 
-### 5.2.5 The deepfake and manipulated media protocol
+### 5.2.4 The deepfake and manipulated media protocol
 
 *The threat that most warrants specific preparation.*
 
