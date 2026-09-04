@@ -566,7 +566,7 @@ Kitui is not a monolith. Its eight constituencies and 18 sub-counties have
 distinct economic bases, infrastructure needs and political histories. Digital
 and SMS messaging is calibrated to each.
 
-### 1.4.1 The urban and central anchor: Kitui Central and Kitui West
+#### The urban and central anchor: Kitui Central and Kitui West
 
 | Sub-County | Population | Density/km² | Households | Strategic value |
 |---|---|---|---|---|
@@ -586,7 +586,7 @@ zone where Dr. Mulu starts with a structural advantage, and in a
 nomination-poll contest, consolidating a base is cheaper than converting a
 stranger.**
 
-### 1.4.2 The northern block: Mwingi
+#### The northern block: Mwingi
 
 | Sub-County | Population | Density/km² | Households | Key issues |
 |---|---|---|---|---|
@@ -606,7 +606,7 @@ methodology and then evaluate against it.
 county and is where a Kitui Central MP is structurally least known. It carries
 disproportionate Phase −1 budget weighting.
 
-### 1.4.3 The arid and resource belt: Kitui South and East
+#### The arid and resource belt: Kitui South and East
 
 | Sub-County | Population | Density/km² | Households | Characteristics |
 |---|---|---|---|---|
@@ -628,7 +628,7 @@ is not a strategy; it is an assumption. Mapped against the 2022 baseline registe
 registered voters in Kitui South total 75,372, distributed across six wards: Athi (15,843),
 Ikanga/Kyatune (15,384), Mutomo/Kibwea (12,637), Ikutha (12,066), Mutha (11,039), and Kanziko (8,403).
 
-### 1.4.4 How the zones are weighted
+#### How the zones are weighted
 
 Budget and content allocation across zones, by phase:
 
@@ -644,4 +644,3 @@ population share, because the nomination deficit is a recognition deficit
 concentrated outside the home base. Weightings are reviewed monthly against
 tracking data and reallocated.
 
----
