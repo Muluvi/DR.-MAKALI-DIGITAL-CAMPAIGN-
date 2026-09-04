@@ -79,14 +79,14 @@ The general election phase focuses on systematic voter mobilization, ground netw
 
 ## 8.2 What we measure, and why
 
-Political strategy without empirical measurement risks misallocating scarce campaign capital. To eliminate speculative assumptions, the campaign implements a two-part data architecture: **Subsection 19A** establishes the research programme to test the recognition-deficit hypothesis and govern nomination polling, while **Subsection 19B** operationalizes a public service-delivery tracker that bridges campaign credibility with day-one governance.
+Political strategy without empirical measurement risks misallocating scarce campaign capital. To eliminate speculative assumptions, the campaign implements a two-part data architecture: **Section 8.2.1** establishes the research programme to test the recognition-deficit hypothesis and govern nomination polling, while **Section 8.2.2** operationalizes a public service-delivery tracker that bridges campaign credibility with day-one governance.
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
                   EMPIRICAL RESEARCH & SERVICE-DELIVERY TRACKER
 ════════════════════════════════════════════════════════════════════════════════════
 
-   19A: RESEARCH PROGRAMME                        19B: SERVICE-DELIVERY TRACKER
+   8.2.1: RESEARCH PROGRAMME                      8.2.2: SERVICE-DELIVERY TRACKER
  ┌──────────────────────────────────────┐       ┌───────────────────────────────────┐
  │ • Pre-Budget Recognition Testing     │       │ • Ward-by-Ward Baseline Metrics   │
  │   (Confirm/Refute Deficit)           │       │ • OAG / KNBS / CRA Data Feeds     │
@@ -187,12 +187,12 @@ The campaign builds and maintains the **Kitui County Service-Delivery Performanc
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 19 STRATEGIC TAKEAWAY
+                   RESEARCH & TRACKER — TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
- • Subsection 19A (Research):   Deploys N=1,600 CATI poll and 12 Kikamba FGDs to test
+ • §8.2.1 (Research):          Deploys N=1,600 CATI poll and 12 Kikamba FGDs to test
                                 name ID before committing major ad spend; integrates a
                                 6-week rolling tracking poll for the Wiper nomination.
- • Subsection 19B (Tracker):    Maintains open-data delivery ledger combining OAG audits,
+ • §8.2.2 (Tracker):           Maintains open-data delivery ledger combining OAG audits,
                                 84 solar boreholes, 140+ classrooms, and 18k bursaries.
  • Dual-Asset Function:         Operates as an irrefutable debate/media evidence weapon
                                 pre-election, and transitions into the Governor's Day-1
@@ -201,12 +201,12 @@ The campaign builds and maintains the **Kitui County Service-Delivery Performanc
 ```
 ---
 
-### 8.2.3 The KPI framework, anchored to the vote threshold
+### 8.2.3 The KPI framework, and why we reject vanity metrics
 
-In accordance with the foundational strategic doctrine established in **Section 1.2.3**, the campaign rejects vanity metrics—such as social media follower counts, video views, impressions, and post likes—as actionable indicators of political strength. In a county where ~86% of registered voters reside offline in rural agrarian settings, digital engagement metrics correlate weakly with ballot-box outcomes and create dangerous operational complacency.
+The campaign rejects vanity metrics—such as social media follower counts, video views, impressions, and post likes—as actionable indicators of political strength. In a county where ~86% of registered voters reside offline in rural agrarian settings, digital engagement metrics correlate weakly with ballot-box outcomes and create dangerous operational complacency.
 
 Every Key Performance Indicator (KPI) in this framework is strictly anchored to one of two decisive statutory milestones:
-1.  **The Nomination Window Threshold:** Achieving $>55\%$ Wiper Party primary delegate/voter preference share.
+1.  **The Nomination Window Threshold:** Achieving $>55\%$ Wiper Party primary delegate/voter preference share. `[Confirm the nomination target. This states >55% preference share; Section 9.1.1 defines nomination success as 40.0%+ countywide preference share, and Section 8.3.1's Phase −1 KPI is the deficit reduced to <=10 points, which against a 37.4% front-runner implies roughly 27%. Neither figure has been changed here.]`
 2.  **The General Election Victory Threshold:** Securing **$\ge 200,000$ verified, counted votes** (representing ~53.4% of expected turnout across Kitui's 532,758 registered voters).
 
 ```
@@ -230,7 +230,7 @@ Every Key Performance Indicator (KPI) in this framework is strictly anchored to 
 
 ---
 
-### 8.2.4 Why we reject vanity metrics
+#### Why we reject vanity metrics
 
 The campaign strictly excludes vanity metrics from all executive dashboards, reporting meetings, and vendor performance contracts based on the following empirical realities:
 
@@ -240,7 +240,7 @@ The campaign strictly excludes vanity metrics from all executive dashboards, rep
 
 ---
 
-### 8.2.5 Performance governance and executive escalation
+### 8.2.4 Performance governance and executive escalation
 
 To ensure accountability across all divisions, the KPI framework is embedded in a rigid governance rhythm:
 
@@ -250,7 +250,7 @@ To ensure accountability across all divisions, the KPI framework is embedded in 
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 20 STRATEGIC TAKEAWAY
+                    MEASUREMENT — TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Zero Vanity Metrics:         Explicitly bans social followers/likes; focuses 100% on
                                 voter pledges, name ID, agent coverage, and turnout.
