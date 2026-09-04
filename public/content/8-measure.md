@@ -297,7 +297,7 @@ proposal claims to embody, applied to its own first assumption.
 
 **Weeks 1–2 — foundations:**
 - Secure and harden all accounts: **hardware-key 2FA for the candidate and all
-  admins on day one** (Section 5.3.2)
+  admins on day one** (Section 5.2.2)
 - Establish the compliance ledger (Section 9.2.4)
 - Verify the Kitui expenditure ceiling from the gazette schedule
 - Commission the Section 6.5.5 compliance review — **start the clock early, it
@@ -321,7 +321,7 @@ proposal claims to embody, applied to its own first assumption.
   its own right during a nomination contest
 
 **Weeks 6–8 — consolidation:**
-- Full-scale red-team drill before the nomination decision (Section 5.2.7)
+- Full-scale red-team drill before the nomination decision (Section 5.1.7)
 - Coalition roundtables with professional associations
 - Ward champion recruitment begins in the 15 highest-priority wards
 

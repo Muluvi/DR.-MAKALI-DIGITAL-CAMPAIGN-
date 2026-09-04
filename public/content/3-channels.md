@@ -451,7 +451,7 @@ radio — reaches everyone else.
 
 Vernacular radio is the primary medium of political consciousness and daily news in rural and peri-urban Kitui County. However, the media environment in Eastern Kenya is characterized by severe political concentration: **the highest-reach commercial radio stations broadcasting in Kikamba are owned, financed, or editorially steered by active political rivals or entrenched party gatekeepers**.
 
-To ensure uninterrupted, high-credibility communication with the electorate, the campaign constructs a dual strategy: a disciplined operational engagement model for Tier 1 commercial networks, coupled with an aggressive bypass architecture detailed in **Section 3.4.2**.
+To ensure uninterrupted, high-credibility communication with the electorate, the campaign constructs a dual strategy: a disciplined operational engagement model for Tier 1 commercial networks, coupled with an aggressive bypass architecture detailed in **Section 3.4.3**.
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
@@ -497,7 +497,7 @@ is politically compromised, and any credible media plan must say so:**
 County FM and Wikwatyo, treats Athiani as party-sensitive, and treats
 Mbaitu/Syokimau as monitoring targets rather than placement targets. Attacks
 on Dr. Mulu are more likely to originate on air than online, which is why radio
-monitoring sits in the war room (Section 5.2.2) rather than in a media annex.
+monitoring sits in the war room (Section 5.1.1) rather than in a media annex.
 
 *This map is based on publicly reported ownership associations and should be
 verified and updated by the campaign; media ownership changes.*
@@ -631,7 +631,7 @@ To capture objective news coverage on mainstream national and regional platforms
                                 aligned with rival factions or party gatekeepers.
  • Provenance Standard:         Listenership share figures are marked as Required Primary
                                 Research rather than speculatively estimated.
- • Section 3.4.2 Workaround:    Bypasses hostile gatekeepers via Church/Community radio
+ • Section 3.4.3 Workaround:    Bypasses hostile gatekeepers via Church/Community radio
                                 (Wikwatyo/Mang'elete), 2G SMS, USSD, 8 PA sound trucks,
                                 and 400 village megaphone broadcast points.
  • Earned Media Discipline:     Focuses on evidence-backed national exclusives, on-site
@@ -698,7 +698,7 @@ substance fixed, delivery natural.
 | **"NG-CDF questions"** | Lead with the documented record — bursary numbers, project list, the Eastern region evaluation certification — and invite scrutiny. **Never defensive; an evaluator welcomes audit.** |
 | **"Too technical / not close to ordinary people"** | Answer in Kikamba, with a household example. The best rebuttal to "too technical" is a demonstration, not a denial |
 | **"Wiper insider / party establishment"** | Point to the independence of his parliamentary record on budget matters |
-| **Manipulated media** | Section 5.3.4 protocol — 30-minute clock |
+| **Manipulated media** | Section 5.2.5 protocol — 30-minute clock |
 | **Unsolicited SMS allegation** | Produce the consent audit trail; cite the published charter; correct publicly within the hour |
 
 ---

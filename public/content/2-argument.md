@@ -778,7 +778,7 @@ used to fabricate imagery of real people, simulate events that did not occur,
 or generate synthetic voices of the candidate or any other person. Where
 AI-generated illustration appears in published material, it is labelled. This
 is a published commitment (Section 6.5.4) and a defensive necessity in an
-environment where opponents may deploy manipulated media (Section 5.3.4).
+environment where opponents may deploy manipulated media (Section 5.2.5).
 
 ### 2.9.1 Tools, platforms and the weekly testing cycle
 

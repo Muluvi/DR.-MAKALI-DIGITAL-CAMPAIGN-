@@ -258,7 +258,14 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
     </>
   ),
   "argument-sec-2-7-4": <CommunityScheduler />,
-  "defence-sec-5-1": <CounterMessagingGrid />,
+  // §5.1 (rapid response) and §5.2 (the war room) merged (M22): the counter-messaging
+  // grid and the war-room matrix describe one operation.
+  "defence-sec-5-1": (
+    <>
+      <CounterMessagingGrid />
+      <CrisisWarRoomMatrix />
+    </>
+  ),
   // The ownership/alignment/tier table this chart plots, now §3.4.1 after paid and earned
   // media were folded into one section.
   "channels-sec-3-4-1": <MediaOwnershipBlock />,
@@ -289,7 +296,6 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
     </>
   ),
   "argument-sec-2-8": <PersuasionFramingMatrix />,
-  "defence-sec-5-2": <CrisisWarRoomMatrix />,
   "data-sec-6-5": <DataSecurityEthicsCharter />,
   "channels-sec-3-2": <MediaPlaybackMockup />,
   // §3.4 and §3.5 merged into one earned-media section (M12); the radio landscape

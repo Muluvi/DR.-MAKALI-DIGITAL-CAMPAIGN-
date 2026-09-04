@@ -257,21 +257,21 @@ counterpart (Section 7.2.4).
 A cloud repository for the ground team to upload photographs and video daily.
 Raw assets are professionally edited, captioned and distributed within hours.
 **Originals retained with metadata** to support the provenance requirement in
-Section 5.3.4 — a practice that costs nothing now and is invaluable under
+Section 5.2.5 — a practice that costs nothing now and is invaluable under
 attack.
 
 ### 9.3.3 Performance tracking
 
 Monthly analytics reports covering reach, engagement, sentiment and conversion,
-plus the competitive brief (Section 5.4.2), the compliance ledger reconciliation
+plus the competitive brief (Section 5.3.2), the compliance ledger reconciliation
 (Section 9.2.4), and progress against the analytics maturity roadmap (Section
 5.1.5).
 
 ### 9.3.4 Escalation
 
-The Section 7.2.6 decision matrix governs all approvals. The Section 5.2.4
+The Section 7.2.6 decision matrix governs all approvals. The Section 5.1.2
 severity matrix governs all crisis response. Both are rehearsed quarterly
-(Section 5.2.7) rather than read for the first time under pressure.
+(Section 5.1.7) rather than read for the first time under pressure.
 
 ### 9.3.5 What Firefly needs from the campaign
 

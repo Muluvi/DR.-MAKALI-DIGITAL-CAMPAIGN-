@@ -1,10 +1,10 @@
 Rapid response, the war room that runs it, the cybersecurity and manipulated-media protocols behind it, and how rivals are monitored from public sources.
 
-## 5.1 Rapid response and opposition handling
+## 5.1 Rapid response and the war room
 
 In a high-stakes gubernatorial campaign, unchecked misinformation and coordinated political attacks can erode voter trust within hours. In Kitui County, ground rumors and hostile talking points travel primarily through two high-velocity vectors: **morning vernacular radio talk shows (06:00–09:00 EAT)** and **hyper-local ward WhatsApp groups**.
 
-The campaign enforces a disciplined **Rapid Response & Opposition Handling System**. This framework is governed by strict **Defamation Law Safeguards (Section 6.1.2)**: all rebuttals focus exclusively on certified public records, legislative Hansard transcripts, and verifiable policy positions, completely eschewing personal invective or unsubstantiated allegations against political rivals.
+The campaign enforces a disciplined **Rapid Response & Opposition Handling System**. This framework is governed by strict **Defamation Law Safeguards (Section 5.1.5)**: all rebuttals focus exclusively on certified public records, legislative Hansard transcripts, and verifiable policy positions, completely eschewing personal invective or unsubstantiated allegations against political rivals.
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
@@ -28,9 +28,14 @@ The campaign enforces a disciplined **Rapid Response & Opposition Handling Syste
 ════════════════════════════════════════════════════════════════════════════════════
 ```
 
----
+### 5.1.1 What we monitor, and with what
 
-### 5.1.1 What we monitor, and how threats reach us
+The campaign runs a single sensing operation. It serves two purposes — detecting
+threats and tracking rivals — and the table below is deliberately one table,
+because most of the same instruments serve both. The *Serves* column records
+which of the campaign's two monitoring briefs each tool answers to.
+
+#### The four intelligence streams
 
 The campaign monitors four complementary intelligence streams 24 hours a day, 7 days a week:
 
@@ -39,9 +44,32 @@ The campaign monitors four complementary intelligence streams 24 hours a day, 7 
 3.  **Social Listening Keyword Feeds:** Automated continuous tracking via Brand24 / Talkwalker of high-frequency keywords: *"Dr. Makali Mulu"*, *"Kitui Governor 2027"*, *"Kitui Central CDF"*, *"Ndengu price"*, and competitor candidate handles.
 4.  **Field Captain Rumor Logs:** Twice-daily SMS pulse reports from the 400 Village Ward Captains logging prevalent market-day and baraza whispers.
 
+#### The monitoring stack
+
+| Tool | What it watches | Serves |
+|---|---|---|
+| Social monitoring dashboards | Real-time X and cross-platform keyword, hashtag and competitor tracking | Threats + rivals |
+| Social listening and sentiment (premium tier) | Cross-platform sentiment analysis; mentions, supporter sentiment, emerging narratives | Threats + rivals |
+| Meta Business Suite | Facebook and Instagram monitoring; competitor content | Threats + rivals |
+| Google Alerts | "Makali Mulu," "Kitui Governor 2027," rival names | Threats |
+| **Meta Ad Library** | Competitor ad spend, creative and creative themes, targeting estimates, frequency | Rivals |
+| **Google Ads Transparency Centre** | Competitor search advertising and keywords | Rivals |
+| **X lists** | Curated rival, surrogate and influencer accounts | Rivals |
+| Custom BI dashboard | Centralised real-time metrics | Threats |
+| **Radio monitoring** | Kamba-language station tracking, coverage and airtime share (Section 3.4) — critical, as most attacks on Dr. Mulu will originate on air, not online | Threats + rivals |
+| **Published polling tracker** | Mizani Africa and other published surveys, logged with dates and methodology notes | Rivals |
+
 ---
 
-### 5.1.2 The four-tier response decision tree
+### 5.1.2 How severe is it, and who authorises the response
+
+Two severity scales are in force in this proposal and they do not agree. Both
+are reproduced here, unaltered, so the campaign can choose between them rather
+than discover the conflict during an incident.
+
+`[Confirm which severity scale governs rapid response. The decision tree below defines four tiers in which Level 1 receives no public response and Level 3 carries a <15-minute clock. The authority matrix beneath it defines three levels in which Level 1 carries a <=4-hour clock and Level 3 <=30 minutes. Section 5.1.7's red-team drills and Section 9.3.4 both name the three-level matrix as governing, and Section 7.2.6's approval table uses it; the four-tier tree is the only place the fourth tier and the ignore-and-log posture appear. Neither has been changed here.]`
+
+#### The response decision tree — four tiers
 
 To avoid elevating fringe attacks or wasting campaign capital, the campaign evaluates every incident against a standardized **Response Decision Tree**:
 
@@ -69,6 +97,14 @@ To avoid elevating fringe attacks or wasting campaign capital, the campaign eval
 │            │   legal/regulatory threat.  │   Constituency Lead joint press.│ • **< 2 Hours:** 2G Ward SMS.  │
 └────────────┴─────────────────────────────┴─────────────────────────────────┴────────────────────────────────┘
 ```
+
+#### Response authority and approval — three levels
+
+| Severity | Definition | Response time | Approval |
+|---|---|---|---|
+| **Level 1** | Minor negative comment or isolated misinformation | ≤ 4 hours | Digital Director |
+| **Level 2** | Coordinated attack; viral misinformation (>10,000 views) | ≤ 2 hours | Campaign Communications Director |
+| **Level 3** | Major crisis — false allegation, **manipulated or AI-generated media**, legal threat | ≤ 30 minutes | **Candidate + senior leadership** |
 
 ---
 
@@ -99,7 +135,13 @@ To avoid elevating fringe attacks or wasting campaign capital, the campaign eval
 
 ---
 
-### 5.1.4 Holding positions, pre-drafted
+### 5.1.4 The pre-drafted message library
+
+Two libraries are maintained against the same incidents: long-form holding
+positions with their evidential citations and Kikamba framing, and the short
+pre-approved assets that go out while a holding position is being cleared.
+
+#### Pre-drafted holding positions and evidence citations
 
 The campaign maintains ready-to-deploy holding positions, evidential citations, and Kikamba framing for the four primary lines of attack:
 
@@ -154,6 +196,15 @@ The campaign maintains ready-to-deploy holding positions, evidential citations, 
 └─────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
+#### The pre-approved message library
+
+Maintained for rapid response without waiting on approvals:
+* Standard rebuttals for false claims about Dr. Mulu's record
+* Kikamba, Kiswahili and English versions of key messages
+* Template statements for policy positions issued in response to attack
+* Fact-check cards linking to verified sources
+* **Deepfake first-response templates** (Section 5.2.5)
+
 ---
 
 ### 5.1.5 Staying inside defamation law
@@ -176,29 +227,15 @@ All campaign communicators, surrogates, and media buyers are strictly bound by t
                                 prohibits private character attacks and unverified claims.
 ════════════════════════════════════════════════════════════
 ```
+
 ---
 
-## 5.2 The digital war room
-
-### 5.2.1 What the war room is for
+### 5.1.6 War-room shifts and the dashboard
 
 The remote war room is the campaign's nerve centre for monitoring, response and
 rapid decision-making.
 
-### 5.2.2 Monitoring tools
-
-| Tool class | Function |
-|---|---|
-| Social monitoring dashboards | Real-time X and cross-platform keyword, hashtag and competitor tracking |
-| Social listening and sentiment (premium tier) | Cross-platform sentiment analysis |
-| Meta Business Suite | Facebook and Instagram monitoring; competitor content |
-| Google Alerts | "Makali Mulu," "Kitui Governor 2027," rival names |
-| **Meta Ad Library** | Competitor ad spend, creative and targeting estimates |
-| **Google Ads Transparency Centre** | Competitor search advertising |
-| Custom BI dashboard | Centralised real-time metrics |
-| **Radio monitoring** | Kamba-language station tracking (Section 3.4) — critical, as most attacks on Dr. Mulu will originate on air, not online |
-
-### 5.2.3 The shift schedule
+#### The shift schedule
 
 During peak periods (January–August 2027):
 | Shift | Hours (EAT) | Focus |
@@ -207,30 +244,15 @@ During peak periods (January–August 2027):
 | Afternoon | 14:00–22:00 | Live coverage, engagement, rapid response |
 | Night | 22:00–06:00 | Monitoring only; escalation to on-call strategist at crisis threshold |
 
-### 5.2.4 The rapid-response protocol
-
-| Severity | Definition | Response time | Approval |
-|---|---|---|---|
-| **Level 1** | Minor negative comment or isolated misinformation | ≤ 4 hours | Digital Director |
-| **Level 2** | Coordinated attack; viral misinformation (>10,000 views) | ≤ 2 hours | Campaign Communications Director |
-| **Level 3** | Major crisis — false allegation, **manipulated or AI-generated media**, legal threat | ≤ 30 minutes | **Candidate + senior leadership** |
-
-### 5.2.5 The pre-approved message library
-
-Maintained for rapid response without waiting on approvals:
-* Standard rebuttals for false claims about Dr. Mulu's record
-* Kikamba, Kiswahili and English versions of key messages
-* Template statements for policy positions issued in response to attack
-* Fact-check cards linking to verified sources
-* **Deepfake first-response templates** (Section 5.3.4)
-
-### 5.2.6 The dashboard view
+#### The dashboard view
 
 Live sentiment score; trending hashtags; competitor activity alerts;
 misinformation tracking log; response status tracker; hourly engagement;
 **SMS delivery and opt-out rates**; **spend against ceiling**.
 
-### 5.2.7 Red-team drills
+---
+
+### 5.1.7 Red-team drills
 
 *New. Reactive protocols fail because they are first used under real pressure.*
 
@@ -241,7 +263,7 @@ before the general election.
 **Method:** a small red-team panel — Firefly's crisis lead, one campaign
 representative, and an external participant with no stake in the outcome — is
 briefed to attack. The response team is **not** told which scenario is coming
-or when. The drill runs in real time against the Section 5.2.4 clock.
+or when. The drill runs in real time against the Section 5.1.2 clock.
 
 **Standing scenario library:**
 | # | Scenario | Tests |
@@ -250,7 +272,7 @@ or when. The drill runs in real time against the Section 5.2.4 clock.
 | 2 | Coordinated hashtag attack on his NG-CDF record | Fact-base readiness; rebuttal library |
 | 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval (Section 6.5.4) |
 | 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 3.4) |
-| 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section 5.3.4) |
+| 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section 5.2.4) |
 | 6 | Allegation of exceeding the IEBC spending ceiling | Ledger reconciliation retrieval (Section 9.2.4) |
 | 7 | Manufactured "grassroots" campaign attacking a rival, falsely attributed to Dr. Mulu | Charter defence; provenance evidence |
 
@@ -265,9 +287,9 @@ target**.
 
 ---
 
-## 5.3 Cybersecurity and manipulated media
+## 5.2 Cybersecurity and manipulated media
 
-### 5.3.1 The threat model
+### 5.2.1 The threat model
 
 Kenyan campaigns face account takeover, phishing of staff and volunteers,
 leaked internal material, and increasingly the fabrication of audio and video.
@@ -282,7 +304,7 @@ For this campaign specifically, the highest-consequence scenarios are:
 3. Leaked internal strategy material — including, if mishandled, this document
 4. Fabricated audio or video of the candidate
 
-### 5.3.2 Account security baseline
+### 5.2.2 Account security baseline
 
 | Control | Standard | Applies to |
 |---|---|---|
@@ -297,7 +319,7 @@ For this campaign specifically, the highest-consequence scenarios are:
 **Hardware keys for the candidate and admins are non-negotiable and cost very
 little.** `[Insert quoted cost — typically a modest per-key figure; two keys per critical account holder for redundancy]`
 
-### 5.3.3 Phishing awareness
+### 5.2.3 Phishing awareness
 
 * Onboarding training for every staff member and Tier 3–4 volunteer before
 account access is granted
@@ -309,7 +331,7 @@ suspicion to report
 * Specific coverage of the patterns most likely here: fake platform security
 alerts, fake IEBC or party communications, and fake media interview requests
 
-### 5.3.4 The incident response plan
+### 5.2.4 The incident response plan
 
 | Phase | Action | Owner | Target |
 |---|---|---|---|
@@ -325,7 +347,7 @@ campaign confirms or denies authenticity accurately and quickly. It does not
 speculate about the source, and it does not deny the authenticity of genuine
 material — a denial later disproved is worse than the original leak.
 
-### 5.3.5 The deepfake and manipulated media protocol
+### 5.2.5 The deepfake and manipulated media protocol
 
 *The threat that most warrants specific preparation.*
 
@@ -380,9 +402,9 @@ lie.
 This is stated in the charter, rehearsed in drills, and is the reason the
 campaign's own deepfake denials will be believed.
 
-## 5.4 Watching the other campaigns
+## 5.3 Watching the other campaigns
 
-### 5.4.1 Public sources only, and the line we do not cross
+### 5.3.1 Public sources only, and the line we do not cross
 
 Systematic, lawful, public-source tracking of rivals' digital activity to
 anticipate attacks, identify messaging vulnerabilities and find openings.
@@ -393,18 +415,7 @@ no infiltration of private groups, no purchase of private data, and no
 research into rivals' families or private lives.** Opposition research means
 knowing what opponents say publicly, not surveilling them.
 
-### 5.4.2 Monitoring tools
-
-| Tool | Function |
-|---|---|
-| Meta Ad Library | Competitor ad spend, creative themes, targeting estimates, frequency |
-| Google Ads Transparency Centre | Competitor search advertising and keywords |
-| Social listening (premium tier) | Mentions, supporter sentiment, emerging narratives |
-| X lists | Curated rival, surrogate and influencer accounts |
-| **Radio monitoring** | Kamba-station coverage and airtime share (Section 3.4) |
-| **Published polling tracker** | Mizani Africa and other published surveys, logged with dates and methodology notes |
-
-### 5.4.3 The monthly competitive brief
+### 5.3.2 The monthly competitive brief
 
 1. **Rival digital activity:** platforms, posting frequency, engagement rates,
 follower growth
@@ -416,13 +427,13 @@ sentiment trends
 where available
 6. **Recommendations:** counter-messaging and proactive content
 
-### 5.4.4 The rapid alert system
+### 5.3.3 The rapid alert system
 
 New attacks or significant messaging shifts trigger real-time alerts to
 campaign leadership with recommended responses drawn from the pre-approved
 library.
 
-### 5.4.5 Reading the current field
+### 5.3.4 Reading the current field
 
 The August 2026 published survey shows Dr. Kasalu's strength built on
 countywide grassroots touring under a branded programme. The strategic

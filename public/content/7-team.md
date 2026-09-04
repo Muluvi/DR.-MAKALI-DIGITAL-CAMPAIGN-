@@ -129,7 +129,7 @@ not added speculatively.
   Language Lead         Analytics Mgr         Lead (surge)
         |                     |                     |
    Kikamba              Data Analyst          Red-team panel
-   Producer             (surge)               (Section 5.2.7)
+   Producer             (surge)               (Section 5.1.7)
    Video Editor         SMS/USSD ops
         |                     |
    Community Mgrs       Compliance log
@@ -153,7 +153,7 @@ five people can commission content and no one can approve it.
 | **Weekly** | Creative review | Content Lead + Kikamba Producer | Language and cultural sign-off before scheduling |
 | **Fortnightly** | Ward champion call | Volunteer Coordinator + ward champions | Ground sentiment; content distribution; leaderboard |
 | **Monthly** | Performance & compliance review | Firefly Director + Campaign leadership + `[campaign counsel, where voter-file work is live]` | Analytics report; competitive brief; spend reconciliation against IEBC ceiling |
-| **Quarterly** | Red-team simulation | Full team + external panel | Crisis drill report and matrix revision (Section 5.2.7) |
+| **Quarterly** | Red-team simulation | Full team + external panel | Crisis drill report and matrix revision (Section 5.1.7) |
 
 ### 7.2.6 Who signs off on content, and how it is cleared
 

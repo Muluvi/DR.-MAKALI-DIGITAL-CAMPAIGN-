@@ -557,7 +557,7 @@ Responsibilities:
 * Maintains the data inventory: what is held, lawful basis, retention period,
 who has access
 * Owns the consent audit trail and can produce it on demand within
-**24 hours** — the standard the Section 5.2.7 drill tests
+**24 hours** — the standard the Section 5.1.7 drill tests
 * Owns the deletion schedule and executes it (Section 6.5.4)
 * Is the campaign's standing point of contact for the Section 6.5.5 compliance
 reviewer
