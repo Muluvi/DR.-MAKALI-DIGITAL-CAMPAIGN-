@@ -233,7 +233,7 @@ The county budget represents a significant administrative responsibility. Accord
 
 **The Strategic Opportunity:** This KSh 13.79 billion envelope (Tier 1) represents a substantial development fund. The campaign will translate this complex budget into clear, ward-level policy targets, demonstrating how an expert economist will optimize this capital to address the county's developmental priorities.
 
-### 1.2.5 Who lives here, and what they can reach online
+### 1.2.5 Who lives here, what they face, and what they can reach online
 
 Kitui County's vast physical and demographic characteristics define its developmental and electoral context:
 
@@ -244,8 +244,10 @@ Kitui County's vast physical and demographic characteristics define its developm
 *   **Socio-Economic Vulnerability:** **60.4% of Kitui residents live below the poverty line** (Tier 1) (KNBS, via the NDMA Long Rains Food Security Assessment), compared to a national average of 45.2% (Tier 1). Approximately **400,000 residents rely on untreated surface water** as their primary domestic source (Tier 1).
 *   **Livestock Economy:** Anchored by approximately 613,000 cattle, 2,000,000 goats, 4,000,000 poultry, and 326,000 donkeys (Tier 1). **Poultry farming is practiced by over 90% of households** (Tier 1), serving as a highly inclusive, gender-focused entry point for economic empowerment messaging.
 
-#### Natural Hazards and NDMA Early-Warning Context:
-The county experienced severe, chronic drought pressure throughout 2025 (Tier 1). Sourced from the National Drought Management Authority (NDMA) January 2026 bulletin, the county's drought early-warning status was designated as **Alert Phase** (Tier 1), and its food security was classified under **IPC Phase 2 ("Stressed")** as of September 2025 (Tier 1). This drought pressure was immediately followed by the **March 2026 national flooding** (Tier 2), which disrupted infrastructure across multiple sub-counties.
+#### Natural Hazards, Food Security and NDMA Early-Warning Context:
+The county's climate profile features multi-directional hazards. The county experienced severe, chronic drought pressure throughout 2025 (Tier 1). Sourced from the National Drought Management Authority (NDMA) January 2026 bulletin, the county's drought early-warning status was designated as **Alert Phase** (Tier 1), and its food security was classified under **IPC Phase 2 ("Stressed")** as of September 2025 (Tier 1). This drought pressure was immediately followed by the **March 2026 national flooding** (Tier 2), which disrupted infrastructure across multiple sub-counties and rural transportation networks.
+
+According to an official statement by the County CECM for Agriculture, only **28,000 households** hold food reserves (Tier 2) — although this figure raises statistical scale questions against the 2019 Census count of **262,942 total households** (Tier 1) recorded above.
 
 #### The Defining Digital and Telecommunications Constraints (KNBS & CA Sourced):
 
@@ -279,11 +281,7 @@ According to the Office of the Auditor-General's FY2023/24 audit report, four cr
 
 Additionally, Controller of Budget reports indicate that the county carried outstanding pending bills of approximately **KSh 1.3 billion as of FY2020/21** (Tier 1). Sourced from the Controller of Budget’s County Budget Implementation Review Report, the county’s FY2025/26 Q1 development absorption rate is recorded as **18%** (Tier 1), although other independent media reports alleged an absorption rate of only **5%** (Tier 2). Sourced reports also note stalled county health projects, though the exact list of facilities remains a **named data gap** (Tier 1 gap).
 
-### 1.2.8 Drought, food security and climate pressure
-
-The county's climate profile features multi-directional hazards, as documented by the NDMA January 2026 Alert bulletin (Tier 1). Kitui's food security remains classified under **IPC Phase 2 ("Stressed")** as of September 2025 (Tier 1). According to an official statement by the County CECM for Agriculture, only **28,000 households** hold food reserves (Tier 2), although this figure raises statistical scale questions compared to the 2019 Census count of 262,942 total households (Tier 1). The county was also severely affected by the **March 2026 national flooding** (Tier 2), disrupting rural transportation networks.
-
-### 1.2.9 Mui Basin coal and the displaced communities
+### 1.2.8 Mui Basin coal and the displaced communities
 
 The extensive coal deposits in the Mui Basin, straddling Kitui East and Kitui South, have remained undeveloped for over a decade due to unresolved legal challenges under **Petition 12 of 2014** (Tier 1). The legal standstill has created significant uncertainty regarding displacement exposure for communities across the affected wards (Tier 1). The exact concession counts and displacement headcounts remain **named data gaps** (Tier 1 gaps) in the campaign's records.
 

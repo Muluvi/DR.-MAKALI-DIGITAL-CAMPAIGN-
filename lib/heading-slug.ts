@@ -179,7 +179,7 @@ const LEGACY_IDS: Record<string, string> = {
   "exec-sec-4-6": "race-sec-1-2-6",
   "exec-sec-4-7": "race-sec-1-2-7",
   "exec-sec-4-8": "race-sec-1-2-8",
-  "exec-sec-4-9": "race-sec-1-2-9",
+  "exec-sec-4-9": "race-sec-1-2-8",
   "exec-sec-5": "ask-sec-9-1",
   "exec-sec-5-1": "ask-sec-9-1-1",
   "exec-sec-5-2": "ask-sec-9-1-2",
@@ -502,6 +502,8 @@ const LEGACY_IDS: Record<string, string> = {
   "race-sec-1-1-4": "race-sec-1-1-3",
   "race-sec-1-1-5": "race-sec-1-1-4",
   "race-sec-1-1-6": "race-sec-1-1-5",
+
+  "race-sec-1-2-9": "race-sec-1-2-8",
 };
 
 /**

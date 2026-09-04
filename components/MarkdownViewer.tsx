@@ -223,7 +223,14 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
     </>
   ),
   "race-sec-1-2-4": <ResourceEnvelopeBlock />,
-  "race-sec-1-2-5": <DisputedFigure entry={kituiCentralPopulationDispute} />,
+  // §1.2.8's drought and food-security material folded in here (M03), so the panel
+  // sits with the census and connectivity figures it is read against.
+  "race-sec-1-2-5": (
+    <>
+      <DisputedFigure entry={kituiCentralPopulationDispute} />
+      <DroughtFoodSecurityPanel />
+    </>
+  ),
   "race-sec-1-2-6": (
     <>
       <ElectoralHistoryPanel />
@@ -236,8 +243,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
       <FiscalAuditChartBlock />
     </>
   ),
-  "race-sec-1-2-8": <DroughtFoodSecurityPanel />,
-  "race-sec-1-2-9": <MuiBasinPanel />,
+  "race-sec-1-2-8": <MuiBasinPanel />,
   "race-sec-1-3-3": <PathTo200kCalculator />,
   "race-sec-1-3-5": <RecognitionDeficitOverlay />,
   "argument-sec-2-4": <AudienceSegmentationMatrix />,
