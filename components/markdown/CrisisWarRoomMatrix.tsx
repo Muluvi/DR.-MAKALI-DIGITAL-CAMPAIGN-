@@ -61,7 +61,7 @@ const CRISIS_LEVELS: CrisisLevel[] = [
     approvalChain: "Dr. Makali Mulu & Campaign Senior Leadership direct approval.",
     actionProtocol: [
       "Activate 30-minute candidate response video recorded direct-to-camera.",
-      "File emergency takedown notices with Meta, TikTok & Google (under Section 16A).",
+      "File emergency takedown notices with Meta, TikTok & Google (under Section 5.3).",
       "Deploy broadcast rebuttal across all 6 Kamba radio stations.",
       "SMS broadcast to 120k registered voters debunking the synthetic media."
     ],
@@ -96,7 +96,7 @@ export function CrisisWarRoomMatrix() {
           <div>
             <div className="flex items-center gap-2">
               <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Section 13.0 Protocol
+                War room
               </span>
               <span className="t-label font-mono font-bold text-muted">
                 Digital War Room
@@ -241,7 +241,7 @@ export function CrisisWarRoomMatrix() {
       <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
           <ShieldAlert size={12} className="text-accent" />
-          <span>Section 13.7 Red-Team Standard: By Phase 2, 90% of drill responses must beat their severity-level time target.</span>
+          <span>§5.2.7 red-team standard: By Phase 2, 90% of drill responses must beat their severity-level time target.</span>
         </span>
       </div>
     </div>

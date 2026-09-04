@@ -211,7 +211,7 @@ export function Dashboard() {
         </div>
       </div>
 
-      {/* Section 20.2 nomination KPIs — targets against baselines, not progress. */}
+      {/* §8.1.1 nomination KPIs — targets against baselines, not progress. */}
       <div className="bg-paper/40 border border-line/60 rounded-2xl p-4 sm:p-6">
         <NominationScorecard />
       </div>

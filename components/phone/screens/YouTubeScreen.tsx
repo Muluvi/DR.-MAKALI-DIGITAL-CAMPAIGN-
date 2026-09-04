@@ -20,8 +20,8 @@ import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
 import { Avatar, ScreenShell, SlotGap } from "../primitives";
 
 /**
- * YouTube — §9A.1's home for "long-form debates, church sermons and rally livestreams", carrying
- * §14.1 Pillar A: the documentary case study on thirteen years of clean NG-CDF audits.
+ * YouTube — §3.1.1's home for "long-form debates, church sermons and rally livestreams", carrying
+ * §2.7.1 Pillar A: the documentary case study on thirteen years of clean NG-CDF audits.
  *
  * Living detail: the playhead moving along the scrubber.
  */

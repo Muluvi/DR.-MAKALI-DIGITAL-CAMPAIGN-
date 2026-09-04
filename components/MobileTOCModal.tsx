@@ -2,15 +2,21 @@
 
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Search, ChevronRight, FileText, Target, Activity, FileKey, Clock, Layers, Sparkles } from "lucide-react";
-import type { TabId } from "../lib/heading-slug";
+import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, HandCoins } from "lucide-react";
+import { SECTIONS, type TabId } from "../lib/heading-slug";
 import type { SectionItem } from "../lib/section-index";
 
-
 const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
-  exec: FileText,
-  programme: Target,
-  registers: FileKey,
+  overview: Compass,
+  race: Map,
+  argument: MessageSquare,
+  channels: Megaphone,
+  ground: Users,
+  defence: Shield,
+  data: Database,
+  team: Target,
+  measure: Gauge,
+  ask: HandCoins,
 };
 
 interface MobileTOCModalProps {
@@ -47,8 +53,8 @@ export function MobileTOCModal({
 
   // Counts shown in the header/pills — derived from the live index rather than hardcoded,
   // so they never drift from the document again the way the old "26 Sections" figure did.
-  const majorSectionCount = useMemo(() => sections.filter((s) => s.level === 2).length, [sections]);
-  const partCount = useMemo(() => new Set(sections.map((s) => s.tabId)).size, [sections]);
+  const subSectionCount = useMemo(() => sections.filter((s) => s.level === 2).length, [sections]);
+  const partCount = useMemo(() => sections.filter((s) => s.level === 3).length, [sections]);
 
   if (!isOpen) return null;
 
@@ -85,10 +91,10 @@ export function MobileTOCModal({
               </div>
               <div>
                 <h3 className="font-serif text-base sm:text-lg font-bold text-ink leading-tight">
-                  Document Table of Contents
+                  Full index
                 </h3>
-                <p className="t-label sm:t-small text-muted font-medium mt-0.5">
-                  {majorSectionCount} Strategic Sections · {partCount} Document Parts
+                <p className="text-xs text-muted font-medium mt-0.5">
+                  {SECTIONS.length} sections, {subSectionCount} sub-sections, {partCount} parts
                 </p>
               </div>
             </div>
@@ -136,26 +142,19 @@ export function MobileTOCModal({
               >
                 All ({sections.length})
               </button>
-              {(["exec", "programme", "registers"] as const).map((tab) => {
-                const labelMap: Record<TabId, string> = {
-    exec: "Analysis",
-    programme: "Programme",
-    registers: "Registers",
-  };
-                return (
-                  <button
-                    key={tab}
-                    onClick={() => setSelectedTabFilter(tab)}
-                    className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[32px] ${
-                      selectedTabFilter === tab
-                        ? "bg-accent text-white border-accent"
-                        : "bg-card text-muted border-line hover:text-ink"
-                    }`}
-                  >
-                    {labelMap[tab]}
-                  </button>
-                );
-              })}
+              {SECTIONS.map((section) => (
+                <button
+                  key={section.id}
+                  onClick={() => setSelectedTabFilter(section.id)}
+                  className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[32px] ${
+                    selectedTabFilter === section.id
+                      ? "bg-accent text-white border-accent"
+                      : "bg-card text-muted border-line hover:text-ink"
+                  }`}
+                >
+                  {section.label}
+                </button>
+              ))}
             </div>
           </div>
 
@@ -163,7 +162,7 @@ export function MobileTOCModal({
           <div className="flex-1 overflow-y-auto p-2.5 sm:p-4 divide-y divide-line/40 overscroll-contain">
             {filteredSections.length > 0 ? (
               filteredSections.map((item) => {
-                const Icon = TAB_ICONS[item.tabId] || FileText;
+                const Icon = TAB_ICONS[item.tabId] ?? Compass;
                 const isCurrentTab = activeTab === item.tabId;
 
                 return (
@@ -175,21 +174,18 @@ export function MobileTOCModal({
                     }}
                     className="w-full py-3 px-2 flex items-center justify-between text-left hover:bg-paper/70 active:bg-paper rounded-xl transition-all group cursor-pointer min-h-[50px]"
                   >
-                    <div className="flex items-start gap-2.5 sm:gap-3 min-w-0 pr-2">
-                      <div className="w-8 h-8 rounded-lg bg-paper border border-line flex items-center justify-center shrink-0 mt-0.5 text-accent group-hover:border-accent/40 transition-colors">
-                        <span className="font-mono t-label font-black">{item.number}</span>
-                      </div>
+                    <div className={`flex items-start gap-2.5 sm:gap-3 min-w-0 pr-2 ${item.level === 3 ? "pl-3 sm:pl-5" : ""}`}>
+                      <span className="font-mono text-[11px] tabular-nums text-accent shrink-0 mt-0.5 min-w-[38px]">
+                        {item.number}
+                      </span>
                       <div className="min-w-0">
-                        <div className="flex items-center gap-2">
-                          <span className="text-xs font-bold text-ink group-hover:text-accent transition-colors truncate">
-                            {item.title}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2 mt-0.5 t-label text-muted">
-                          <span className="capitalize font-semibold">{item.tabLabel}</span>
-                          {isCurrentTab && (
-                            <span className="text-accent font-bold">· (Active Part)</span>
-                          )}
+                        <span className={`block text-xs text-ink group-hover:text-accent transition-colors truncate ${item.level === 2 ? "font-bold" : "font-medium"}`}>
+                          {item.title}
+                        </span>
+                        <div className="flex items-center gap-1.5 mt-0.5 text-[11px] text-muted">
+                          <Icon size={11} className="shrink-0" />
+                          <span className="font-medium truncate">{item.tabLabel}</span>
+                          {isCurrentTab && <span className="text-accent font-semibold">· current</span>}
                         </div>
                       </div>
                     </div>

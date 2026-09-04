@@ -12,18 +12,18 @@ import { TierBadge } from "./markdown/TierBadge";
  * M1 — the site's opening claim, and its one choreographed moment.
  *
  * The reason this proposal exists is that Dr. Mulu is 15.3 points behind in a contest decided by
- * opinion poll rather than by primary. That arrived as the fourth paragraph of §1.1, underneath a
+ * opinion poll rather than by primary. That arrived as the fourth paragraph of §0.1, underneath a
  * hero of three generic stat cards whose progress bars (76% / 86% / 92%) measured nothing.
  *
  * The motion is the argument: the two poll shares separate from a shared baseline while the
  * deficit counts up to the gap between them. A deficit is something that OPENED — showing it
  * opening says more than a number sitting still does. This is the only surface on the site that
- * does this; §3's kinetic type is the only other place motion is the event.
+ * does this; §2.1's kinetic type is the only other place motion is the event.
  *
- * Every figure is from exec.md §1.1 (Mizani Africa, 7 August 2026) and §5.1.
+ * Every figure is from §0.1 (Mizani Africa, 7 August 2026) and §9.1.1.
  */
 
-/** exec.md §1.1, the 7 August 2026 Mizani survey. */
+/** §0.1, the 7 August 2026 Mizani survey. */
 const POLL = {
   date: "7 August 2026",
   source: "Mizani Africa",
@@ -34,7 +34,7 @@ const POLL = {
 /** 37.4 − 22.1. Derived, not asserted — see DerivedFigureDrawer for the same working. */
 const DEFICIT = Math.round((POLL.leader.share - POLL.mulu.share) * 10) / 10;
 
-/** The June 2026 reading, for the direction of travel. §1.1. */
+/** The June 2026 reading, for the direction of travel. §0.1. */
 const PRIOR = { leader: 31.3, mulu: 20.2, deficit: 11.1 };
 
 const SCALE_MAX = 45;
@@ -153,7 +153,7 @@ export function NominationVerdict() {
               })}
             </div>
 
-            {/* The date rail: what has to happen, and by when. §5.1. */}
+            {/* The date rail: what has to happen, and by when. §9.1.1. */}
             <div className="mt-6 pt-5 border-t border-line/60 grid grid-cols-2 gap-4">
               <div className="flex items-start gap-2">
                 <CalendarClock size={15} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />

@@ -7,18 +7,18 @@ import { ALL_WARDS, CONSTITUENCIES, COUNTY_TOTAL_WARDS, MWINGI_BLOC_TOTAL } from
 import { TierBadge } from "./TierBadge";
 
 /**
- * Section 6A.2 — recognition deficit mapped against voter concentration.
+ * §1.3.5 — recognition deficit mapped against voter concentration.
  *
  * WHAT THIS DELIBERATELY DOES NOT SHOW: ward-level polling. No ward-level poll of this race
- * exists. Only two countywide Mizani data points are available (§1.1), and §6A.3 lists
+ * exists. Only two countywide Mizani data points are available (§0.1), and §1.3.6 lists
  * ward-level recognition data as a named Tier 1 gap. An earlier version of this component
  * carried per-ward `muluPollingBaseline` / `kasaluPollingBaseline` percentages; they were
  * invented, and they are gone.
  *
- * What replaces them is what §6A.2 actually asserts: a STRUCTURAL recognition status per
+ * What replaces them is what §1.3.5 actually asserts: a STRUCTURAL recognition status per
  * constituency — home anchor, neighbouring belt, or critical deficit — derived from where
  * Dr. Mulu has held office, not from any survey. The ward list is the top 12 by register,
- * computed from data/ward-register.json rather than typed in; §6A.2's own table is that same
+ * computed from data/ward-register.json rather than typed in; §1.3.5's own table is that same
  * top 12, so the two cannot drift apart.
  */
 
@@ -45,7 +45,7 @@ const STATUS_META: Record<RecognitionStatus, { label: string; note: string; clas
   },
 };
 
-/** Per §6A.2: the anchor is Kitui Central, with Kitui West and Kitui Rural as the adjacent belt;
+/** Per §1.3.5: the anchor is Kitui Central, with Kitui West and Kitui Rural as the adjacent belt;
  *  Mwingi (all three), Kitui South and Kitui East are the named deficit zones. */
 const STATUS_BY_CONSTITUENCY: Record<string, RecognitionStatus> = {
   "kitui-central": "anchor",
@@ -60,7 +60,7 @@ const STATUS_BY_CONSTITUENCY: Record<string, RecognitionStatus> = {
 
 const KITUI_SOUTH_TOTAL = CONSTITUENCIES.find((c) => c.id === "kitui-south")?.voters ?? 0;
 
-/** §6A.2's "Total Decisive Deficit Pool" — Mwingi bloc plus Kitui South, both from the register. */
+/** §1.3.5's "Total Decisive Deficit Pool" — Mwingi bloc plus Kitui South, both from the register. */
 const DEFICIT_POOL = MWINGI_BLOC_TOTAL + KITUI_SOUTH_TOTAL;
 const DEFICIT_POOL_SHARE = (DEFICIT_POOL / COUNTY_TOTAL_WARDS) * 100;
 
@@ -89,7 +89,7 @@ export function RecognitionDeficitOverlay() {
           <div>
             <div className="flex items-center gap-2 flex-wrap">
               <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Section 6A.2 · Deficit mapping
+                Recognition deficit
               </span>
               <TierBadge tier={1} compact />
             </div>
@@ -193,7 +193,7 @@ export function RecognitionDeficitOverlay() {
           <AlertTriangle size={12} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
           <span>
             Recognition status here is <strong>structural</strong> — derived from where Dr. Mulu has held office, not
-            from any survey. No ward-level poll of this race exists; §6.6 lists ward-level recognition data as a named
+            from any survey. No ward-level poll of this race exists; §1.3.6 lists ward-level recognition data as a named
             Tier 1 gap, and commissioning it is a Phase −1 research priority.
           </span>
         </p>

@@ -104,7 +104,7 @@ export function VoterProjectionsChart() {
               Constituency Demographics &amp; Voter Distribution
             </h3>
             <p className="text-xs text-muted mt-0.5">
-              Interactive datasets synthesized directly from Section 7 of the strategic campaign proposal.
+              Interactive datasets synthesized directly from Section 2.4 of the proposal.
             </p>
           </div>
 

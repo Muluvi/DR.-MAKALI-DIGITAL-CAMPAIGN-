@@ -8,11 +8,11 @@ import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
 import { Avatar, ScreenShell } from "../primitives";
 
 /**
- * Instagram — a square feed carousel, which is the only format §14.2 actually specifies for
+ * Instagram — a square feed carousel, which is the only format §2.6.2 actually specifies for
  * social ("1080x1080 square carousel cards"). Not a Story, not a Reel: a Reel here would be the
  * TikTok screen twice, and neither format is named in the proposal.
  *
- * The card carries §14.1 Pillar B — the guaranteed Ksh 85/kg ndengu floor price — with the
+ * The card carries §2.7.1 Pillar B — the guaranteed Ksh 85/kg ndengu floor price — with the
  * pillar's own Kikamba name.
  *
  * Living detail: the carousel dots advancing.
@@ -59,7 +59,7 @@ export function InstagramScreen() {
           <MoreHorizontal size={18} color={FG} aria-hidden="true" />
         </div>
 
-        {/* Square media — a designed policy card, per §14.2's carousel format. */}
+        {/* Square media — a designed policy card, per §2.6.2's carousel format. */}
         <div className="relative w-full" style={{ aspectRatio: "1 / 1", background: "#0b1a30" }}>
           <div className="absolute inset-0 flex flex-col justify-between p-5">
             <span

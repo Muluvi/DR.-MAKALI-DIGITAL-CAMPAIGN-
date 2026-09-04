@@ -3,26 +3,24 @@ import { headingNumber, headingSlug, sectionId, TAB_LABELS, type TabId } from ".
 /**
  * The document's section index, derived from the markdown at build time.
  *
- * This replaces a hand-maintained list of 43 entries that had drifted badly from the content it
- * indexed: it carried strategy-sec-3 and strategy-sec-4, which do not exist, and titled
- * strategy-sec-5 "Coalition Architecture & Regional Blocs" when §5 of strategy.md is "Strategic
- * Communication Pillars". The drift was a symptom of the two colliding section-number universes
- * — exec.md numbers its own sections 1–20 with entirely different titles from the tab documents
- * that use the same numbers — so a hand-written index had no way to stay correct.
+ * One file per top-level section, so a document's own headings are the only source of truth for
+ * the index. Generating it means the index cannot disagree with the document — which matters
+ * more since the restructure, because numbering is now section.sub-section.part and a
+ * hand-written index would have 262 chances to drift.
  *
- * Generating it means the index cannot disagree with the document. Parsing happens on the server
- * in app/page.tsx, so no markdown or parser reaches the client bundle.
+ * Parsing happens on the server in app/page.tsx, so no markdown or parser reaches the client
+ * bundle.
  */
 
 export interface SectionItem {
   /** Deep-link target, "<tab>-sec-<slug>". */
   id: string;
-  /** Section number as printed, e.g. "9B" or "2.10". */
+  /** Section number as printed, e.g. "4.3" or "4.3.2". */
   number: string;
   title: string;
   tabId: TabId;
   tabLabel: string;
-  /** 2 for a major section, 3 for a subsection. */
+  /** 2 for a sub-section, 3 for one of its parts. */
   level: 2 | 3;
 }
 

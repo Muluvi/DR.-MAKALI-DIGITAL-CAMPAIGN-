@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Compass, ChevronUp, FileText, Target, Activity, Radio, Calculator, MapPin, Coins, X, Sparkles } from "lucide-react";
+import { Compass, ChevronUp, Sparkles, Activity, Radio, Calculator, MapPin, Coins, X, Gauge, Shield } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface QuickNavCapsuleProps {
@@ -10,12 +10,13 @@ interface QuickNavCapsuleProps {
 }
 
 const QUICK_TARGETS = [
-  { id: "exec-sec-4-3", label: "200k Target Math", icon: Calculator, tab: "exec" },
-  { id: "programme-sec-19", label: "40 Wards Register", icon: MapPin, tab: "programme" },
-  { id: "programme-sec-21-21", label: "ECFA Budget Ceiling", icon: Coins, tab: "programme" },
-  { id: "programme-sec-29-1", label: "Kikamba Radio Table", icon: Radio, tab: "programme" },
-  { id: "exec-sec-4-7", label: "Fiscal Audit Analysis", icon: Activity, tab: "exec" },
-  { id: "programme-sec-26", label: "War Room Matrix", icon: Target, tab: "programme" },
+  { id: "measure-sec-8-1", label: "The scorecards", icon: Gauge, tab: "measure" },
+  { id: "race-sec-1-3-1", label: "Votes needed to win", icon: Calculator, tab: "race" },
+  { id: "race-sec-1-3-2", label: "The 40 wards", icon: MapPin, tab: "race" },
+  { id: "ask-sec-9-2", label: "Budget tiers", icon: Coins, tab: "ask" },
+  { id: "channels-sec-3-4-1", label: "Kikamba radio", icon: Radio, tab: "channels" },
+  { id: "race-sec-1-2-7", label: "County money and audits", icon: Activity, tab: "race" },
+  { id: "defence-sec-5-2", label: "The war room", icon: Shield, tab: "defence" },
 ];
 
 export function QuickNavCapsule({ onNavigate, activeTab }: QuickNavCapsuleProps) {

@@ -13,7 +13,7 @@ function fmt(v: number): string {
 }
 
 const DATA: FiscalBar[] = [
-  { name: "Resource envelope (FY2026/27)", value: RESOURCE_ENVELOPE_FY2026_27.value, display: `${fmt(RESOURCE_ENVELOPE_FY2026_27.value)} — Section 4.4`, color: "#0056a8" },
+  { name: "Resource envelope (FY2026/27)", value: RESOURCE_ENVELOPE_FY2026_27.value, display: `${fmt(RESOURCE_ENVELOPE_FY2026_27.value)} — Section 1.2.4`, color: "#0056a8" },
   { name: "Audit queries (FY2023/24)", value: AUDIT_TOTAL, display: `${fmt(AUDIT_TOTAL)} — sum of the four Auditor-General queries above`, color: "#e31d2b" },
   { name: "Pending bills (FY2020/21)", value: PENDING_BILLS_FY2020_21.value, display: `${fmt(PENDING_BILLS_FY2020_21.value)} (approx.)`, color: "#b45309" },
 ];
@@ -29,7 +29,7 @@ export function FiscalAuditChartBlockContent() {
         Audit queries and pending bills together are <strong className="text-ink">{fmt(EXPOSURE_TOTAL)}</strong> — about{" "}
         <strong className="text-ink">{((EXPOSURE_TOTAL / RESOURCE_ENVELOPE_FY2026_27.value) * 100).toFixed(0)}%</strong> of
         the annual resource envelope. That comparison is this chart&apos;s only computation: a sum of figures already
-        stated above and in Section 4.4, not a new estimate.
+        stated above and in Section 1.2.4, not a new estimate.
       </p>
 
       <div className="w-full t-micro mb-4">

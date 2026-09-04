@@ -166,6 +166,12 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
    Sizes are in rem so they honour the reader's browser text-size setting.
    --------------------------------------------------------------------------- */
 :root {
+  /* Vertical rhythm. Every margin under .prose is a multiple of this, so spacing is one
+     decision rather than a per-element guess — and the reading-density control below moves the
+     whole document by changing the multiplier, not by restating each rule. */
+  --rhythm: 0.5rem;
+  --rhythm-scale: 1;
+
   --fs-micro: 0.625rem;   /* 10px — uppercase eyebrows and axis ticks */
   --fs-label: 0.6875rem;  /* 11px — field labels, badges, table headers */
   --fs-small: 0.75rem;    /* 12px — secondary text, captions, notes */
@@ -190,32 +196,29 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
 .t-lead  { font-size: var(--fs-lead); }
 
 /* Reading Density Scales */
+/* Reading density moves one multiplier and one type step. It used to restate a margin on every
+   element with !important, which meant the base rules and the density rules quietly fought over
+   the same properties — the single largest source of the uneven spacing this pass fixes. */
+.density-compact { --rhythm-scale: 0.75; }
 .density-compact .prose p:not(.not-prose *),
 .density-compact .prose li:not(.not-prose *) {
-  font-size: 0.875rem !important;
-  line-height: 1.6 !important;
-  margin-bottom: 0.5rem !important;
+  font-size: 0.875rem;
+  line-height: 1.6;
 }
-.density-compact .prose h1:not(.not-prose *) { font-size: 1.625rem !important; margin-top: 1.25rem !important; margin-bottom: 0.5rem !important; }
-.density-compact .prose h2:not(.not-prose *) { font-size: 1.25rem !important; margin-top: 1.25rem !important; margin-bottom: 0.5rem !important; }
-.density-compact .prose h3:not(.not-prose *) { font-size: 1.05rem !important; margin-top: 1rem !important; margin-bottom: 0.375rem !important; }
 
+.density-balanced { --rhythm-scale: 1; }
 .density-balanced .prose p:not(.not-prose *),
 .density-balanced .prose li:not(.not-prose *) {
-  font-size: 0.95rem !important;
-  line-height: 1.72 !important;
-  margin-bottom: 0.75rem !important;
+  font-size: 0.95rem;
+  line-height: 1.72;
 }
 
+.density-generous { --rhythm-scale: 1.35; }
 .density-generous .prose p:not(.not-prose *),
 .density-generous .prose li:not(.not-prose *) {
-  font-size: 1.0625rem !important;
-  line-height: 1.82 !important;
-  margin-bottom: 1rem !important;
+  font-size: 1.0625rem;
+  line-height: 1.82;
 }
-.density-generous .prose h1:not(.not-prose *) { font-size: 2.25rem !important; margin-top: 2rem !important; margin-bottom: 1rem !important; }
-.density-generous .prose h2:not(.not-prose *) { font-size: 1.75rem !important; margin-top: 1.75rem !important; margin-bottom: 0.875rem !important; }
-.density-generous .prose h3:not(.not-prose *) { font-size: 1.35rem !important; margin-top: 1.5rem !important; margin-bottom: 0.625rem !important; }
 
 /* Focus Mode Refinements */
 .focus-reading-mode {
@@ -272,22 +275,27 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   margin-bottom: 0.75rem;
 }
 .prose h2:not(.not-prose *) {
-  font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.45rem);
-  line-height: 1.28;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.6rem);
+  line-height: 1.24;
+  letter-spacing: -0.012em;
   font-weight: 600;
-  margin-top: 1.5rem;
-  margin-bottom: 0.625rem;
-  border-bottom: 1px solid var(--color-line);
-  padding-bottom: 0.375rem;
+  margin-top: calc(var(--rhythm) * 6 * var(--rhythm-scale));
+  margin-bottom: calc(var(--rhythm) * 2 * var(--rhythm-scale));
+  border-bottom: none;
+  padding-bottom: 0;
+}
+/* The first sub-section of a section sits directly under the orientation line, so it does not
+   need the full separation a mid-document sub-section does. */
+.prose > h2:not(.not-prose *):first-child {
+  margin-top: calc(var(--rhythm) * 2 * var(--rhythm-scale));
 }
 .prose h3:not(.not-prose *) {
-  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.2rem);
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.2rem);
   line-height: 1.35;
   letter-spacing: 0;
   font-weight: 600;
-  margin-top: 1.25rem;
-  margin-bottom: 0.5rem;
+  margin-top: calc(var(--rhythm) * 3.5 * var(--rhythm-scale));
+  margin-bottom: calc(var(--rhythm) * 1.25 * var(--rhythm-scale));
 }
 .prose h4:not(.not-prose *) {
   font-size: clamp(0.875rem, 0.85rem + 0.15vw, 1rem);
@@ -312,19 +320,18 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   letter-spacing: 0;
   font-weight: 400;
   font-size: clamp(0.875rem, 0.844rem + 0.156vw, 0.96875rem);
-  max-width: none;
+  /* Body measure. This was capped only above 1024px, which left tablets and small laptops
+     running past 100 characters a line — the width at which prose stops being readable. */
+  max-width: 72ch;
   text-wrap: pretty;
-}
-@media (min-width: 1024px) {
-  .prose p:not(.not-prose *) {
-    max-width: 72ch;
-  }
+  margin-bottom: calc(var(--rhythm) * 1.5 * var(--rhythm-scale));
 }
 .prose ul:not(.not-prose *), .prose ol:not(.not-prose *) {
   padding-left: 1.25rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: calc(var(--rhythm) * 1.5 * var(--rhythm-scale));
   font-weight: 400;
   letter-spacing: 0;
+  max-width: 74ch;
 }
 .prose li:not(.not-prose *) {
   margin-bottom: 0.25rem;
@@ -584,36 +591,28 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   font-weight: 600;
 }
 
-/* Mobile Spacing & Padding Optimization (Below 640px) */
+/* Mobile spacing (below 640px).
+   A phone is the device this proposal is most likely to be opened on, and it wants a tighter
+   rhythm — but tightening it here means moving the same token the rest of the document uses,
+   not restating a margin per element and re-opening the specificity fight. */
 @media (max-width: 639.98px) {
   .prose {
     font-size: 0.875rem;
     line-height: 1.62;
+    --rhythm: 0.375rem;
   }
   .prose h1:not(.not-prose *) {
     margin-top: 1.125rem;
     margin-bottom: 0.5rem;
   }
   .prose h2:not(.not-prose *) {
-    margin-top: 1.125rem;
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.25rem;
-  }
-  .prose h3:not(.not-prose *) {
-    margin-top: 0.875rem;
-    margin-bottom: 0.375rem;
-  }
-  .prose h4:not(.not-prose *) {
-    margin-top: 0.75rem;
-    margin-bottom: 0.25rem;
+    padding-bottom: 0;
   }
   .prose p:not(.not-prose *) {
-    margin-bottom: 0.5rem;
     line-height: 1.62;
   }
   .prose ul:not(.not-prose *), .prose ol:not(.not-prose *) {
     padding-left: 1rem;
-    margin-bottom: 0.5rem;
   }
   .prose li:not(.not-prose *) {
     margin-bottom: 0.1875rem;

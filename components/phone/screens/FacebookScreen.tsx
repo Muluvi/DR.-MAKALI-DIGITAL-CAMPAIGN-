@@ -10,7 +10,7 @@ import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
 import { Avatar, ScreenShell, Slot } from "../primitives";
 
 /**
- * Facebook — §9A.1's "broadest public social network in Kitui". The post is §13.1 Pillar 3's
+ * Facebook — §3.1.1's "broadest public social network in Kitui". The post is §2.6.1 Pillar 3's
  * narrative statement on the Ward Development Equalization Fund, with that pillar's own Tier 1
  * water-access proof point as the attached card.
  *

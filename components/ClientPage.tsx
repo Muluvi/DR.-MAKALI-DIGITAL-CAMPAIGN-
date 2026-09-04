@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { FileText, Target, Activity, FileKey, Menu, X, Printer, Maximize2, Minimize2, Sun, Moon, ChevronUp, Settings, Coins, Users, Radio, ShieldCheck, Type, Eye, EyeOff, Sparkles, BookOpen } from "lucide-react";
+import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Coins, Users, Radio, ShieldCheck, Type, Eye, EyeOff, Compass, Map, MessageSquare, Megaphone, Shield, Database, Gauge, HandCoins } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
 import { MarqueeCarousel } from "./MarqueeCarousel";
@@ -15,7 +15,7 @@ import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
 import { MobileTOCModal } from "./MobileTOCModal";
 import { MobileBottomNav } from "./MobileBottomNav";
 import { QuickNavCapsule } from "./QuickNavCapsule";
-import { resolveLegacySectionId, type TabId } from "../lib/heading-slug";
+import { resolveLegacySectionId, SECTIONS, type TabId } from "../lib/heading-slug";
 import type { SectionItem } from "../lib/section-index";
 
 import { FocusModeToggle, PrintReportGenerator } from "./StrategicAids";
@@ -66,10 +66,22 @@ interface MarkdownSection {
 
 interface ClientPageProps {
   sections: SectionItem[];
-  exec: MarkdownSection;
-  programme: MarkdownSection;
-  registers: MarkdownSection;
+  documents: Record<TabId, MarkdownSection>;
 }
+
+// One icon per top-level section, keyed to what the section is about rather than to its position.
+const SECTION_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
+  overview: Compass,
+  race: Map,
+  argument: MessageSquare,
+  channels: Megaphone,
+  ground: Users,
+  defence: Shield,
+  data: Database,
+  team: Target,
+  measure: Gauge,
+  ask: HandCoins,
+};
 
 const WiperUmbrellaLogo = () => (
   <svg width="42" height="42" viewBox="0 0 120 120" fill="none" className="shrink-0 select-none drop-shadow-sm filter">
@@ -86,25 +98,33 @@ const WiperUmbrellaLogo = () => (
   </svg>
 );
 
-// Full-bleed divider marking the start of one of the document's six major parts — breaks out
+// Full-bleed divider marking the start of a top-level section in Expand-All view — breaks out
 // of the max-w-7xl container to span the viewport edge-to-edge.
-function PartDivider({ index, label }: { index: number; label: string }) {
+function PartDivider({ number, label }: { number: string; label: string }) {
   return (
     <div className="relative left-1/2 -translate-x-1/2 w-screen print:hidden" aria-hidden="true">
       <div className="h-12 sm:h-14 flex items-center bg-gradient-to-r from-accent/[0.05] via-gold/[0.06] to-accent/[0.05] border-y border-line/40">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 w-full flex items-center gap-3">
-          <span className="font-mono t-micro sm:t-label font-black text-accent/70 shrink-0">
-            PART {index + 1}/3
-          </span>
-          <span className="h-px flex-1 bg-line/60" />
-          <span className="t-micro sm:t-label font-black uppercase tracking-widest text-muted truncate">{label}</span>
+          <span className="font-mono text-xs sm:text-sm font-bold text-accent shrink-0">{number}</span>
+          <span className="h-px w-6 bg-line/60 shrink-0" />
+          <span className="text-sm sm:text-base font-semibold text-ink truncate">{label}</span>
         </div>
       </div>
     </div>
   );
 }
 
-const PART_TINTS = ["from-accent/[0.025]", "from-gold/[0.025]", "from-accent/[0.025]", "from-gold/[0.025]", "from-accent/[0.025]", "from-gold/[0.025]"];
+const PART_TINTS = ["from-accent/[0.025]", "from-gold/[0.025]"];
+
+// The five places a candidate looks for first. The scorecards lead, because they are the numbers
+// the brief asks to be reachable in one interaction from the landing view.
+const QUICK_LINKS = [
+  { id: "measure-sec-8-1", label: "The scorecards" },
+  { id: "race-sec-1-3-1", label: "Votes needed to win" },
+  { id: "race-sec-1-3-2", label: "The 40 wards" },
+  { id: "ask-sec-9-2", label: "Budget tiers" },
+  { id: "channels-sec-3-4-1", label: "Kikamba radio" },
+];
 
 interface LazySectionProps {
   id: string;
@@ -163,13 +183,13 @@ function LazySection({ id, content, renderSectionExtras, immediate = false }: La
   );
 }
 
-const TAB_IDS = ["exec", "programme", "registers"];
+const TAB_IDS: string[] = SECTIONS.map((s) => s.id);
 
-export function ClientPage({ sections, exec, programme, registers }: ClientPageProps) {
-  // Always starts on "exec" so server and client render the same tree on first paint — the URL
-  // fragment is only readable client-side, so a shared deep link switches tab in a mount effect
-  // below rather than in the initial state (see the useEffect reading window.location.hash).
-  const [activeTab, setActiveTab] = useState("exec");
+export function ClientPage({ sections, documents }: ClientPageProps) {
+  // Always starts on the overview so server and client render the same tree on first paint — the
+  // URL fragment is only readable client-side, so a shared deep link switches section in a mount
+  // effect below rather than in the initial state (see the useEffect reading window.location.hash).
+  const [activeTab, setActiveTab] = useState<string>("overview");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTOCModalOpen, setIsTOCModalOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -182,11 +202,19 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
 
   const { theme, toggleTheme, mounted } = useTheme();
 
-  const navItems = useMemo(() => [
-    { id: "exec", label: "The Analysis", icon: FileText, content: exec.node, wordCount: exec.wordCount },
-    { id: "programme", label: "The Programme", icon: Target, content: programme.node, wordCount: programme.wordCount },
-    { id: "registers", label: "Registers", icon: FileKey, content: registers.node, wordCount: registers.wordCount },
-  ], [exec, programme, registers]);
+  const navItems = useMemo(
+    () =>
+      SECTIONS.map((section) => ({
+        id: section.id,
+        number: section.number,
+        label: section.label,
+        blurb: section.blurb,
+        icon: SECTION_ICONS[section.id],
+        content: documents[section.id].node,
+        wordCount: documents[section.id].wordCount,
+      })),
+    [documents]
+  );
 
   // The set of ids that actually exist today, so resolveLegacySectionId can tell a retired
   // section number (redirect it) apart from a current one that just happens to reuse an old
@@ -286,15 +314,47 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
   // Section extras.
   //
   // This used to be a two-column shelf of ~50 widgets appended BELOW each tab's entire prose —
-  // the chart explaining §8B.5 sat 20,000 words downstream of the text it illustrated. Anything
+  // the chart explaining §9.2.5 sat 20,000 words downstream of the text it illustrated. Anything
   // that genuinely explains a section is now a heading insert in MarkdownViewer, mounted next to
   // the prose it belongs to. What remains here is the handful of surfaces that are about the
   // document as a whole rather than about one section, plus the closing ask.
   const renderSectionExtras = (sectionId: string) => {
-    const showFocusToggle = sectionId !== "registers";
+    // The overview is the landing view and closes on its own section cards, so it does not need
+    // the reading-mode strip beneath it.
+    const showFocusToggle = sectionId !== "overview";
 
     return (
       <div className="mt-8 pt-8 border-t border-line/20 space-y-8">
+        {/* The landing closes on the offer itself: nine cards, in reading order, so the first
+            screen answers "what is being proposed" without opening a menu. */}
+        {sectionId === "overview" && !isExpanded && (
+          <nav aria-label="Proposal sections">
+            <h2 className="font-serif text-lg sm:text-xl font-semibold text-ink mb-1">What this proposal covers</h2>
+            <p className="text-sm text-muted mb-5">Nine sections. Every one of them opens on what it is for.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
+              {navItems.slice(1).map((item) => {
+                const Icon = item.icon;
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => handleNavClick(item.id)}
+                    className="group text-left bg-card border border-line/60 rounded-2xl p-4 hover:border-accent focus-visible:border-accent transition-colors cursor-pointer flex flex-col gap-2 min-h-[112px]"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <Icon size={16} className="text-accent shrink-0" />
+                      <span className="font-mono text-[11px] text-muted tabular-nums">{item.number}</span>
+                    </div>
+                    <span className="font-serif text-[15px] font-semibold text-ink leading-snug group-hover:text-accent transition-colors text-balance">
+                      {item.label}
+                    </span>
+                    <span className="text-xs text-muted leading-snug mt-auto">{item.blurb}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </nav>
+        )}
+
         {showFocusToggle && (
           <FocusModeToggle
             isActive={isFocusMode}
@@ -304,7 +364,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
 
         {/* DecisionPanel moved into the document's own close (MarkdownViewer); what remains
             here is page tooling, which is what this footer strip is for. */}
-        {!isFocusMode && sectionId === "programme" && <PrintReportGenerator />}
+        {!isFocusMode && sectionId === "ask" && <PrintReportGenerator />}
       </div>
     );
   };
@@ -332,7 +392,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
       <ScrollProgressBar />
       
       {/* Hero Header */}
-      {(activeTab === "exec" || isExpanded) && (
+      {(activeTab === "overview" || isExpanded) && (
         <header className="cv-auto-hero relative pt-10 sm:pt-14 pb-8 sm:pb-12 overflow-hidden print:pt-4 print:pb-4">
           <div className="absolute inset-0 pointer-events-none opacity-50 bg-[radial-gradient(circle_at_82%_10%,var(--color-glow),transparent_32%),linear-gradient(180deg,var(--color-card),var(--color-paper))]" />
           <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 relative z-10">
@@ -379,43 +439,26 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
               </div>
             </div>
 
-            {/* Mobile Quick-Jump Chips (Thumb-accessible shortcuts) */}
+            {/* Quick-jump chips — the five places a candidate reads first, one tap from the top. */}
             <div className="mt-5 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none lg:hidden select-none -mx-4 px-4">
-              <span className="t-label uppercase font-extrabold tracking-widest text-muted shrink-0">
-                Jump To:
-              </span>
+              <span className="text-xs font-semibold text-muted shrink-0">Jump to</span>
               <button
                 onClick={() => setIsTOCModalOpen(true)}
                 className="px-3 py-1.5 rounded-xl bg-accent text-white text-xs font-bold shrink-0 flex items-center gap-1.5 shadow-sm shadow-accent/20 cursor-pointer"
               >
-                <span>Full Index (39 Secs)</span>
+                <span>Full index</span>
               </button>
-              <button
-                onClick={() => navigateToSection("exec-sec-4-3")}
-                className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
-              >
-                200k Target Math
-              </button>
-              <button
-                onClick={() => navigateToSection("programme-sec-19")}
-                className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
-              >
-                40 Wards Register
-              </button>
-              <button
-                onClick={() => navigateToSection("programme-sec-22-14")}
-                className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
-              >
-                Kikamba Radio
-              </button>
-              <button
-                onClick={() => navigateToSection("programme-sec-21-14")}
-                className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
-              >
-                ECFA Compliance
-              </button>
+              {QUICK_LINKS.map((link) => (
+                <button
+                  key={link.id}
+                  onClick={() => navigateToSection(link.id)}
+                  className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
+                >
+                  {link.label}
+                </button>
+              ))}
             </div>
-            
+
             <Dashboard />
 
             <MarqueeCarousel />
@@ -433,7 +476,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
       )}
 
       {/* Data Strip */}
-      {(activeTab === "exec" || isExpanded) && (
+      {(activeTab === "overview" || isExpanded) && (
         <section className="cv-auto-strip max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 mb-8 print:hidden space-y-6">
           <LazyMount minHeight={420}>
             <DataVisualizations />
@@ -445,14 +488,14 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
       )}
 
       {/* Main Content Layout */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 pb-36 lg:pb-24">
+      <main className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 pb-48 lg:pb-24">
         <div className="print:hidden">
         </div>
         
         {/* Responsive Toolbar */}
-        <div className={`sticky top-0 z-40 bg-paper/95 backdrop-blur-md py-2 sm:py-3 border-b border-line/25 ${(activeTab === "exec" || isExpanded) ? "mt-3 sm:mt-6" : "mt-0"} mb-3 sm:mb-6 flex items-center justify-between gap-2 print:hidden`}>
+        <div className={`sticky top-0 z-40 bg-paper/95 backdrop-blur-md py-2 sm:py-3 border-b border-line/25 ${(activeTab === "overview" || isExpanded) ? "mt-3 sm:mt-6" : "mt-0"} mb-3 sm:mb-6 flex items-center justify-between gap-2 print:hidden`}>
           <div className="flex items-center gap-1.5 sm:gap-4 flex-1 min-w-0 overflow-x-auto scrollbar-none py-0.5">
-            {activeTab !== "exec" && !isExpanded && (
+            {activeTab !== "overview" && !isExpanded && (
               <div className="flex items-center gap-1.5 mr-1 shrink-0">
                 <div className="scale-75 origin-left shrink-0">
                   <WiperUmbrellaLogo />
@@ -539,7 +582,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
           </div>
         </div>
 
-        <SectionStickyBar />
+        <SectionStickyBar sectionLabel={isExpanded ? undefined : activeItem.label} />
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 relative mt-4 sm:mt-8">
           
@@ -547,11 +590,11 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
           <aside className="toc-rail hidden lg:block w-72 flex-shrink-0 print:hidden">
             <div className="sticky top-24 space-y-4">
               <div className="bg-card/70 backdrop-blur-md border border-line/60 rounded-2xl p-4 shadow-sm">
-                <div className="t-label uppercase tracking-widest font-black text-muted mb-3 flex items-center justify-between">
-                  <span>{isExpanded ? "All Chapters" : "Sections"}</span>
-                  <span className="font-mono text-accent">{navItems.length} parts</span>
+                <div className="text-xs font-semibold text-muted mb-3 flex items-center justify-between">
+                  <span>The proposal</span>
+                  <span className="font-mono text-accent">{navItems.length} sections</span>
                 </div>
-                <nav className="flex flex-col gap-1.5">
+                <nav className="flex flex-col gap-0.5">
                   {navItems.map((item) => {
                     const Icon = item.icon;
                     const isActive = activeTab === item.id;
@@ -560,18 +603,19 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
                       <button
                         key={item.id}
                         onClick={() => handleNavClick(item.id)}
-                        className={`group relative flex items-center justify-between p-2.5 rounded-xl text-xs font-bold transition-all text-left ${
-                          isActive 
-                            ? "bg-accent text-white shadow-md shadow-accent/20" 
-                            : "text-muted hover:bg-ink/5 hover:text-ink cursor-pointer"
+                        aria-current={isActive ? "true" : undefined}
+                        className={`group relative flex items-center justify-between gap-2 px-2.5 py-2 rounded-xl text-xs transition-colors text-left ${
+                          isActive
+                            ? "bg-accent text-white shadow-sm shadow-accent/20 font-semibold"
+                            : "text-muted hover:bg-ink/5 hover:text-ink cursor-pointer font-medium"
                         }`}
                       >
-                        <div className="flex items-center gap-2.5 truncate">
-                          <Icon size={15} className={isActive ? "text-white" : "text-muted group-hover:text-accent transition-colors"} />
-                          <span className="truncate">{item.label}</span>
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <Icon size={15} className={`shrink-0 ${isActive ? "text-white" : "text-muted group-hover:text-accent transition-colors"}`} />
+                          <span className="truncate leading-snug">{item.label}</span>
                         </div>
-                        <span className={`t-micro font-mono shrink-0 px-1.5 py-0.5 rounded ${
-                          isActive ? "bg-white/20 text-white" : "bg-line/30 text-muted"
+                        <span className={`font-mono text-[10px] shrink-0 tabular-nums ${
+                          isActive ? "text-white/70" : "text-muted/70"
                         }`}>
                           {sectionReadMin}m
                         </span>
@@ -604,7 +648,7 @@ export function ClientPage({ sections, exec, programme, registers }: ClientPageP
               <div className="space-y-16">
                 {navItems.map((item, index) => (
                   <div key={item.id}>
-                    <PartDivider index={index} label={item.label} />
+                    <PartDivider number={item.number} label={item.label} />
                     <div className={`bg-gradient-to-b ${PART_TINTS[index % PART_TINTS.length]} to-transparent rounded-b-3xl pt-8`}>
                       <LazySection
                         id={item.id}

@@ -36,7 +36,7 @@ const ETHICAL_COMMITMENTS: EthicalCommitment[] = [
   {
     id: "eth-3",
     category: "Data Storage & Privacy",
-    ruleName: "Section 16.5 Compliance Gate on Voter-File Processing",
+    ruleName: "§6.5.5 compliance gate on voter-file processing",
     statutoryBasis: "ODPC Voter Register Guidance 2026",
     campaignStandard: "No voter-file predictive modeling is deployed until independent Kenyan legal counsel certifies lawful basis. Operates on aggregate ward statistics as fallback.",
     penaltyForBreach: "Model frozen automatically by Data Governance Owner without commercial sign-off.",
@@ -101,7 +101,7 @@ export function DataSecurityEthicsCharter() {
           <div>
             <div className="flex items-center gap-2">
               <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Section 16.0 Charter
+                Ethics and data charter
               </span>
               <span className="t-label font-mono font-bold text-muted">
                 DPA 2019 & IEBC Compliance

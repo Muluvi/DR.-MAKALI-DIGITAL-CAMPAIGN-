@@ -21,8 +21,8 @@ const CHART_DATA: StationBar[] = RADIO_STATIONS.map((s) => ({
 }));
 
 /**
- * Media ownership map (Section 17A.7 / Phase 6f). The strategic point: the highest-reach
- * stations on Section 17A.1's own reading are controlled by a rival or the party gatekeeper,
+ * Media ownership map (§3.4.1). The strategic point: the highest-reach
+ * stations on §3.4.1's own reading are controlled by a rival or the party gatekeeper,
  * not by the campaign. Reach is a qualitative 1–3 read, never a measured listenership figure —
  * see the Data Gaps Register for that gap.
  */
@@ -34,7 +34,7 @@ export function MediaOwnershipBlockContent() {
         <h4 className="font-serif text-sm font-bold text-ink">Media Ownership Map — Reach vs. Alignment</h4>
       </div>
       <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
-        Reach is a qualitative reading of Section 17A.1&apos;s own &quot;Campaign posture&quot; column, not a measured
+        Reach is a qualitative reading of Section 3.4.1&apos;s own &quot;Campaign posture&quot; column, not a measured
         listenership figure — none was supplied by the research pass (Data Gaps Register). Ownership associations are
         Tier 2/3 and labelled individually below.
       </p>

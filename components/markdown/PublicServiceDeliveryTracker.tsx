@@ -100,7 +100,7 @@ export function PublicServiceDeliveryTracker() {
           <div>
             <div className="flex items-center gap-2">
               <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Section 19B M&E Tool
+                Service-delivery tracker
               </span>
               <span className="t-label font-mono font-bold text-muted">
                 Public Register
@@ -123,7 +123,7 @@ export function PublicServiceDeliveryTracker() {
       <div className="px-4 py-2.5 bg-gold/[0.06] border-b border-gold/25 flex items-start gap-2">
         <Info size={13} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
         <p className="t-small text-ink leading-relaxed">
-          <strong>Interface preview.</strong> The tracker described in §31.7 has not been built &mdash; §31.13 sets out
+          <strong>Interface preview.</strong> The tracker described in §8.5 has not been built &mdash; §8.5.6 sets out
           its build and cost. Every entry below is illustrative, written to show the intake format and the
           verification protocol. No citizen report has been received and no query has been raised with the county.
         </p>

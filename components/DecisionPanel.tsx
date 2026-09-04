@@ -15,11 +15,11 @@ import { ClaimBadge } from "./markdown/ClaimBadge";
  * DELIBERATELY UNANIMATED. After 55,000 words and every animated surface before it, stillness is
  * the strongest effect left. The ask should not perform.
  *
- * Content is §33.5 (what Firefly needs), §21.20 (the tier recommendation) and §39.1's owner
+ * Content is §9.3.5 (what Firefly needs) and §9.2.6 (the tier recommendation), with the owner
  * column. Nothing here is new.
  */
 
-/** §33.5, verbatim. The `owner` field is from §39.1's register. */
+/** §9.3.5, verbatim. The `owner` field is carried here; its register was retired. */
 const DEPENDENCIES: { icon: typeof UserCheck; text: string; longLead?: boolean }[] = [
   { icon: UserCheck, text: "One named counterpart with authority to approve content" },
   {
@@ -29,7 +29,7 @@ const DEPENDENCIES: { icon: typeof UserCheck; text: string; longLead?: boolean }
   { icon: Camera, text: "Ground team asset uploads: daily photographs and video from the trail" },
   {
     icon: Scale,
-    text: "Appointment of the compliance reviewer (§28.5) — the long-lead item, needed in Phase −1",
+    text: "Appointment of the compliance reviewer (§6.5.5) — the long-lead item, needed in Phase −1",
     longLead: true,
   },
   { icon: FileText, text: "The verified expenditure ceiling from the gazette schedule" },
@@ -82,7 +82,7 @@ export function DecisionPanel() {
             <h3 className="t-label font-black uppercase tracking-wider text-muted">
               What Firefly needs from the campaign
             </h3>
-            <span className="t-label text-muted font-mono">§33.5</span>
+            <span className="t-label text-muted font-mono">§9.3.5</span>
           </div>
 
           <ol className="space-y-2.5">

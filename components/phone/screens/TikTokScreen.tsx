@@ -10,8 +10,8 @@ import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
 import { ScreenShell, SlotGap } from "../primitives";
 
 /**
- * TikTok — §9A.1's fastest-growing channel among 18–25s, carrying §14.1 Pillar D (youth
- * enterprise and TVET) in the vertical format §14.2 specifies.
+ * TikTok — §3.1.1's fastest-growing channel among 18–25s, carrying §2.7.1 Pillar D (youth
+ * enterprise and TVET) in the vertical format §2.6.2 specifies.
  *
  * The "video" is a designed poster frame, not a file: the proposal ships no footage, and a
  * stock clip would be worse than an honest frame. Hashtags and the audio track name are gaps —
