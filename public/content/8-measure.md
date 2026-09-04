@@ -628,7 +628,7 @@ commitment — and the commitment is the persuasive element.
 ### 8.5.5 What it is worth to the campaign
 
 * **Narrative:** the strongest possible proof of the Verification pillar
-(Section 2.2.4) — evidence rather than assertion
+(Section 2.2) — evidence rather than assertion
 * **Data:** ward-level issue salience derived from citizens' own priorities
 rather than from campaign assumptions, feeding directly into content and
 message-lab design

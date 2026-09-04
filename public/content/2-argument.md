@@ -297,6 +297,8 @@ the 2027 cycle, not a theoretical one: EU-funded analysis of the 2025 digital
 ecosystem identified coordinated cross-platform operations explicitly
 weaponising ethnicity.
 
+#### Segments, priorities and channels
+
 | Voter Segment | Demographics & Primary Hubs | Core Priorities | Tailored Messaging & Channels |
 |---|---|---|---|
 | **Youth & Digital Natives** | 18–35; Kitui Town, Mwingi, Kwa Vonza; SEKU and MUT | Youth unemployment; TVET funding & digital skills; boda boda regulation & trade licensing; enterprise loans | **Message:** "Economic Empowerment & Tech Integration." The leader who will digitise county services and allocate bursaries transparently — with a public record of 12,573 bursary beneficiaries to prove it.<br>**Channels:** TikTok, Instagram, X, short video, infographics |
@@ -311,6 +313,48 @@ The final row is the most commercially significant addition in this document.
 Treating the offline majority as a segment with its own channel budget — rather
 than as a group the campaign regrets not reaching — is the difference between a
 digital plan and a communications plan.
+
+#### Message and evidence, segment by segment
+
+Cross-referencing the demographic and livelihood segments established in **Section 2.4**:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                  MESSAGE-BY-DEMOGRAPHIC SEGMENT MATRIX                                      │
+├──────────────────────────────┬──────────────────────────────────────────┬───────────────────────────────────┤
+│ Target Demographic Segment   │ Tailored Message & Kikamba Framing       │ Verifiable Evidence & Data Source │
+├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
+│ 1. Smallholder Crop Farmers  │ • *"Never sell Ndengu at Ksh 40 again."* │ • **KNBS Agrarian Data:**         │
+│    (32.8% of Electorate /    │ • County guaranteed aggregation minimum  │   Kitui farmers lose ~68% of value│
+│    174,745 Voters)           │   floor price (Ksh 85/kg) + local storage│   to middlemen during peak harvest│
+│                              │ • Kikamba: *"Uithio wa Ndengu na Mbemba"*│ • Pilot Kitui Central Farmers SACCO│
+├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
+│ 2. Agro-Pastoralists &       │ • *"Water pans, livestock feed reserves, │ • **National Drought Management   │
+│    Herders (Mwingi/South)    │   and border security lighting."*        │   Authority (NDMA) Reports:**     │
+│    (14.5% / 77,250 Voters)   │ • Decentralized veterinary cold-chain.   │   Livestock mortality drops 45%   │
+│                              │ • Kikamba: *"Kithima kya Kyalo na Syana"*│   with localized water points.    │
+├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
+│ 3. Youth Hustlers & Boda     │ • *"The Youth Innovation & Enterprise   │ • **Kitui Central NG-CDF Data:**  │
+│    Operators (18–35 Years)   │   Fund: Zero-interest equipment loans."* │   Over 4,200 youth sponsored with │
+│    (43.9% / 233,881 Voters)  │ • Free driving licenses & digital hubs.  │   NITA/TVET technical bursaries.  │
+│                              │ • Kikamba: *"Wathi wa Mwanya kwa Mwanake"*│                                  │
+├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
+│ 4. Rural Women, Caregivers & │ • *"Clean water within 1 km and stocked  │ • **Kitui Central Project Log:**  │
+│    Chamas (52.1% Electorate /│   maternity dispensaries in every sub-loc"│   84 functional solar boreholes   │
+│    277,567 Voters)           │ • Ksh 50,000 table-banking seed capital. │   built with clean water tariffs. │
+│                              │ • Kikamba: *"Mumo kwa Aka na Syana"*     │ • Ksh 120M disbursed to women CBOs│
+├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
+│ 5. Urban MSMEs, Traders &    │ • *"Single Business Permit reform and 0% │ • **Parliamentary Hansard:**      │
+│    Market Stall Keepers      │   harassment of mama mbogas."*           │   Dr. Mulu's defense of MSME tax  │
+│    (18.2% / 96,962 Voters)   │ • Modern solar market shades & drainage. │   relief in the Finance Bill 2024.│
+│                              │ • Kikamba: *"Biashara Nzeo na Kazi"*     │ • Kitui Market Vendor Council Log │
+├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
+│ 6. Teachers, Civil Servants  │ • *"Timely county salaries, meritocratic │ • **Auditor-General & CRA Data:** │
+│    & Elite Professionals     │   promotions, and NHIF/SHIF hospital cover"│ Dr. Mulu's published fiscal     │
+│    (8.5% / 45,284 Voters)    │ • Strict adherence to SRC salary codes.  │   blueprints on county debt relief│
+└──────────────────────────────┴──────────────────────────────────────────┴───────────────────────────────────┘
+```
+
 
 ---
 
@@ -380,50 +424,7 @@ Under the campaign's Provenance Discipline (Section 6.1.2), **no claim is made w
 
 ---
 
-### 2.6.2 What we say to each segment
-
-Cross-referencing the demographic and livelihood segments established in **Section 2.4**:
-
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                  MESSAGE-BY-DEMOGRAPHIC SEGMENT MATRIX                                      │
-├──────────────────────────────┬──────────────────────────────────────────┬───────────────────────────────────┤
-│ Target Demographic Segment   │ Tailored Message & Kikamba Framing       │ Verifiable Evidence & Data Source │
-├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
-│ 1. Smallholder Crop Farmers  │ • *"Never sell Ndengu at Ksh 40 again."* │ • **KNBS Agrarian Data:**         │
-│    (32.8% of Electorate /    │ • County guaranteed aggregation minimum  │   Kitui farmers lose ~68% of value│
-│    174,745 Voters)           │   floor price (Ksh 85/kg) + local storage│   to middlemen during peak harvest│
-│                              │ • Kikamba: *"Uithio wa Ndengu na Mbemba"*│ • Pilot Kitui Central Farmers SACCO│
-├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
-│ 2. Agro-Pastoralists &       │ • *"Water pans, livestock feed reserves, │ • **National Drought Management   │
-│    Herders (Mwingi/South)    │   and border security lighting."*        │   Authority (NDMA) Reports:**     │
-│    (14.5% / 77,250 Voters)   │ • Decentralized veterinary cold-chain.   │   Livestock mortality drops 45%   │
-│                              │ • Kikamba: *"Kithima kya Kyalo na Syana"*│   with localized water points.    │
-├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
-│ 3. Youth Hustlers & Boda     │ • *"The Youth Innovation & Enterprise   │ • **Kitui Central NG-CDF Data:**  │
-│    Operators (18–35 Years)   │   Fund: Zero-interest equipment loans."* │   Over 4,200 youth sponsored with │
-│    (43.9% / 233,881 Voters)  │ • Free driving licenses & digital hubs.  │   NITA/TVET technical bursaries.  │
-│                              │ • Kikamba: *"Wathi wa Mwanya kwa Mwanake"*│                                  │
-├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
-│ 4. Rural Women, Caregivers & │ • *"Clean water within 1 km and stocked  │ • **Kitui Central Project Log:**  │
-│    Chamas (52.1% Electorate /│   maternity dispensaries in every sub-loc"│   84 functional solar boreholes   │
-│    277,567 Voters)           │ • Ksh 50,000 table-banking seed capital. │   built with clean water tariffs. │
-│                              │ • Kikamba: *"Mumo kwa Aka na Syana"*     │ • Ksh 120M disbursed to women CBOs│
-├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
-│ 5. Urban MSMEs, Traders &    │ • *"Single Business Permit reform and 0% │ • **Parliamentary Hansard:**      │
-│    Market Stall Keepers      │   harassment of mama mbogas."*           │   Dr. Mulu's defense of MSME tax  │
-│    (18.2% / 96,962 Voters)   │ • Modern solar market shades & drainage. │   relief in the Finance Bill 2024.│
-│                              │ • Kikamba: *"Biashara Nzeo na Kazi"*     │ • Kitui Market Vendor Council Log │
-├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
-│ 6. Teachers, Civil Servants  │ • *"Timely county salaries, meritocratic │ • **Auditor-General & CRA Data:** │
-│    & Elite Professionals     │   promotions, and NHIF/SHIF hospital cover"│ Dr. Mulu's published fiscal     │
-│    (8.5% / 45,284 Voters)    │ • Strict adherence to SRC salary codes.  │   blueprints on county debt relief│
-└──────────────────────────────┴──────────────────────────────────────────┴───────────────────────────────────┘
-```
-
----
-
-### 2.6.3 What we say on each channel
+### 2.6.2 What we say on each channel
 
 Cross-referencing the channel reach realities established in **Section 3.1**:
 
@@ -457,7 +458,7 @@ Cross-referencing the channel reach realities established in **Section 3.1**:
 
 ---
 
-### 2.6.4 Answering disinformation
+### 2.6.3 Answering disinformation
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
