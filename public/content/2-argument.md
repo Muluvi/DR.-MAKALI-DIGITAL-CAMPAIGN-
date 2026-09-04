@@ -644,39 +644,10 @@ The creative studio operates on a synchronized **7-Day Production Cadence**:
 
 ---
 
-### 2.7.5 Who approves what, and when
+Every asset produced by this pipeline passes the content approval gateway and
+sign-off matrix in Section 7.2.6 before it is broadcast or printed.
 
-To prevent defamatory statements, policy contradictions, electoral code infractions, or Data Protection Act (DPA) violations, **no asset may be broadcast or printed without passing through the 4-Step Governance Gateway**:
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                       4-STEP CONTENT APPROVAL GATEWAY                       │
-└─────────────────────────────────────────────────────────────────────────────┘
-
-  STEP 1: CREATIVE DRAFTING & SOURCING
-  ────────────────────────────────────
-  • Specialist vendor or in-house creator drafts script, video, or SMS copy.
-  • Mandatory: Creator must attach primary citation (Hansard, OAG report, KNBS).
-
-  STEP 2: COMMUNICATIONS & MESSAGE INTEGRITY REVIEW
-  ─────────────────────────────────────────────────
-  • Communications Lead verifies narrative alignment, Kikamba dialect accuracy,
-    and visual brand guidelines.
-
-  STEP 3: LEGAL, ELECTORAL & DPA COMPLIANCE CHECK
-  ───────────────────────────────────────────────
-  • Data Protection Officer (DPO) audits audience list, verifies explicit consent
-    tags, ensures mandatory opt-out footers, and checks electoral libel laws.
-
-  STEP 4: EXECUTIVE AUTHORIZATION & DISPATCH SIGN-OFF
-  ───────────────────────────────────────────────────
-  • Campaign Manager / Chief of Operations gives final electronic signature.
-  • Release authorization code logged in campaign audit register.
-```
-
----
-
-### 2.7.6 The asset library
+### 2.7.5 The asset library
 
 All creative assets are stored in a centralized, cloud-backed Digital Asset Management repository structured as follows:
 

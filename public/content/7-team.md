@@ -155,7 +155,40 @@ five people can commission content and no one can approve it.
 | **Monthly** | Performance & compliance review | Firefly Director + Campaign leadership + `[campaign counsel, where voter-file work is live]` | Analytics report; competitive brief; spend reconciliation against IEBC ceiling |
 | **Quarterly** | Red-team simulation | Full team + external panel | Crisis drill report and matrix revision (Section 5.2.7) |
 
-### 7.2.6 Who signs off on content
+### 7.2.6 Who signs off on content, and how it is cleared
+
+#### The 4-step content approval gateway
+
+
+To prevent defamatory statements, policy contradictions, electoral code infractions, or Data Protection Act (DPA) violations, **no asset may be broadcast or printed without passing through the 4-Step Governance Gateway**:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                       4-STEP CONTENT APPROVAL GATEWAY                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+  STEP 1: CREATIVE DRAFTING & SOURCING
+  ────────────────────────────────────
+  • Specialist vendor or in-house creator drafts script, video, or SMS copy.
+  • Mandatory: Creator must attach primary citation (Hansard, OAG report, KNBS).
+
+  STEP 2: COMMUNICATIONS & MESSAGE INTEGRITY REVIEW
+  ─────────────────────────────────────────────────
+  • Communications Lead verifies narrative alignment, Kikamba dialect accuracy,
+    and visual brand guidelines.
+
+  STEP 3: LEGAL, ELECTORAL & DPA COMPLIANCE CHECK
+  ───────────────────────────────────────────────
+  • Data Protection Officer (DPO) audits audience list, verifies explicit consent
+    tags, ensures mandatory opt-out footers, and checks electoral libel laws.
+
+  STEP 4: EXECUTIVE AUTHORIZATION & DISPATCH SIGN-OFF
+  ───────────────────────────────────────────────────
+  • Campaign Manager / Chief of Operations gives final electronic signature.
+  • Release authorization code logged in campaign audit register.
+```
+
+#### Approval authority and turnaround
 
 | Content type | Approver | Turnaround |
 |---|---|---|
