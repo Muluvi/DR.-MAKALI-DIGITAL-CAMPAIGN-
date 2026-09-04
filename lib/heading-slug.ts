@@ -79,6 +79,9 @@ const TAB_ALIASES: Record<string, string> = {
 // one of the deleted registers (§34, §35, §37, §38, §39) are absent by design — there is
 // nothing left for them to point at.
 const LEGACY_IDS: Record<string, string> = {
+  // Old id -> current id. Two pre-2026 generations of deep links plus every
+  // renumber applied by the 2026 consolidation. Deduplicated: a key that was
+  // remapped more than once carries its final target.
   // The old §1 "Executive Summary" heading became the overview's own opening rather than a
   // numbered heading inside it, so there is no "overview-sec-0" to land on — send the link to
   // the first thing under it instead.
@@ -130,11 +133,11 @@ const LEGACY_IDS: Record<string, string> = {
   "exec-sec-15-7": "channels-sec-3-4-2",
   "exec-sec-15-8": "channels-sec-3-4-3",
   "exec-sec-15-9": "channels-sec-3-4-4",
-  "exec-sec-16": "channels-sec-3-6",
-  "exec-sec-16-1": "channels-sec-3-6-1",
-  "exec-sec-16-2": "channels-sec-3-6-2",
-  "exec-sec-16-3": "channels-sec-3-6-3",
-  "exec-sec-16-4": "channels-sec-3-6-4",
+  "exec-sec-16": "channels-sec-3-5",
+  "exec-sec-16-1": "channels-sec-3-5-1",
+  "exec-sec-16-2": "channels-sec-3-5-2",
+  "exec-sec-16-3": "channels-sec-3-5-3",
+  "exec-sec-16-4": "channels-sec-3-5-4",
   "exec-sec-17": "measure-sec-8-2",
   "exec-sec-17-1": "measure-sec-8-2-1",
   "exec-sec-17-2": "measure-sec-8-2-2",
@@ -144,11 +147,11 @@ const LEGACY_IDS: Record<string, string> = {
   "exec-sec-17-6": "measure-sec-8-1-2",
   "exec-sec-17-7": "measure-sec-8-2-5",
   "exec-sec-17a": "channels-sec-3-4-3",
-  "exec-sec-18": "channels-sec-3-6",
-  "exec-sec-18-1": "channels-sec-3-6-1",
-  "exec-sec-18-2": "channels-sec-3-6-2",
-  "exec-sec-18-3": "channels-sec-3-6-3",
-  "exec-sec-18-4": "channels-sec-3-6-4",
+  "exec-sec-18": "channels-sec-3-5",
+  "exec-sec-18-1": "channels-sec-3-5-1",
+  "exec-sec-18-2": "channels-sec-3-5-2",
+  "exec-sec-18-3": "channels-sec-3-5-3",
+  "exec-sec-18-4": "channels-sec-3-5-4",
   "exec-sec-19": "measure-sec-8-2",
   "exec-sec-19a": "measure-sec-8-2-1",
   "exec-sec-19b": "measure-sec-8-2-2",
@@ -278,11 +281,11 @@ const LEGACY_IDS: Record<string, string> = {
   "programme-sec-18-2": "argument-sec-2-2-2",
   "programme-sec-18-3": "argument-sec-2-2-3",
   "programme-sec-18-4": "argument-sec-2-2-4",
-  "programme-sec-18a": "channels-sec-3-7-1",
-  "programme-sec-18a-1": "channels-sec-3-7-2",
-  "programme-sec-18a-2": "channels-sec-3-7-3",
-  "programme-sec-18a-3": "channels-sec-3-7-4",
-  "programme-sec-18a-4": "channels-sec-3-7-5",
+  "programme-sec-18a": "channels-sec-3-6-1",
+  "programme-sec-18a-1": "channels-sec-3-6-2",
+  "programme-sec-18a-2": "channels-sec-3-6-3",
+  "programme-sec-18a-3": "channels-sec-3-6-4",
+  "programme-sec-18a-4": "channels-sec-3-6-5",
   "programme-sec-19": "argument-sec-2-5",
   "programme-sec-19a": "measure-sec-8-4",
   "programme-sec-19a-1": "measure-sec-8-4-1",
@@ -407,12 +410,12 @@ const LEGACY_IDS: Record<string, string> = {
   "programme-sec-29-5": "channels-sec-3-5-4",
   "programme-sec-29-6": "channels-sec-3-5-5",
   "programme-sec-29-7": "channels-sec-3-5-6",
-  "programme-sec-30": "channels-sec-3-7",
-  "programme-sec-30-1": "channels-sec-3-7-1",
-  "programme-sec-30-2": "channels-sec-3-7-2",
-  "programme-sec-30-3": "channels-sec-3-7-3",
-  "programme-sec-30-4": "channels-sec-3-7-4",
-  "programme-sec-30-5": "channels-sec-3-7-5",
+  "programme-sec-30": "channels-sec-3-6",
+  "programme-sec-30-1": "channels-sec-3-6-1",
+  "programme-sec-30-2": "channels-sec-3-6-2",
+  "programme-sec-30-3": "channels-sec-3-6-3",
+  "programme-sec-30-4": "channels-sec-3-6-4",
+  "programme-sec-30-5": "channels-sec-3-6-5",
   "programme-sec-31": "argument-sec-2-3",
   "programme-sec-31-1": "measure-sec-8-4",
   "programme-sec-31-10": "measure-sec-8-5-3",
@@ -502,21 +505,35 @@ const LEGACY_IDS: Record<string, string> = {
   "race-sec-1-1-4": "race-sec-1-1-3",
   "race-sec-1-1-5": "race-sec-1-1-4",
   "race-sec-1-1-6": "race-sec-1-1-5",
-
   "race-sec-1-2-9": "race-sec-1-2-8",
-
   "argument-sec-2-6-3": "argument-sec-2-6-2",
   "argument-sec-2-6-4": "argument-sec-2-6-2",
-
-  "argument-sec-2-6-3": "argument-sec-2-6-2",
-
   "argument-sec-2-8-2": "argument-sec-2-8-1",
   "argument-sec-2-8-3": "argument-sec-2-8-2",
-
   "argument-sec-2-9-2": "argument-sec-2-9-1",
   "argument-sec-2-9-4": "argument-sec-2-9-2",
-
   "argument-sec-2-7-6": "argument-sec-2-7-5",
+  "channels-sec-3-6": "channels-sec-3-5",
+  "channels-sec-3-6-1": "channels-sec-3-5-1",
+  "channels-sec-3-6-2": "channels-sec-3-5-2",
+  "channels-sec-3-6-3": "channels-sec-3-5-3",
+  "channels-sec-3-6-4": "channels-sec-3-5-4",
+  "channels-sec-3-7": "channels-sec-3-6",
+  "channels-sec-3-7-1": "channels-sec-3-6-1",
+  "channels-sec-3-7-2": "channels-sec-3-6-2",
+  "channels-sec-3-7-3": "channels-sec-3-6-3",
+  "channels-sec-3-7-4": "channels-sec-3-6-4",
+  "channels-sec-3-7-5": "channels-sec-3-6-5",
+
+  // §3.4 (earned media) and §3.5 (journalists, debates, radio) merged into one §3.4 (M12);
+  // the sections below them moved up one.
+  "channels-sec-3-5": "channels-sec-3-4",
+  "channels-sec-3-5-1": "channels-sec-3-4-1",
+  "channels-sec-3-5-2": "channels-sec-3-4-4",
+  "channels-sec-3-5-3": "channels-sec-3-4-5",
+  "channels-sec-3-5-4": "channels-sec-3-4-5",
+  "channels-sec-3-5-5": "channels-sec-3-4-6",
+  "channels-sec-3-5-6": "channels-sec-3-4-6",
 };
 
 /**

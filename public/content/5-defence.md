@@ -196,7 +196,7 @@ rapid decision-making.
 | **Meta Ad Library** | Competitor ad spend, creative and targeting estimates |
 | **Google Ads Transparency Centre** | Competitor search advertising |
 | Custom BI dashboard | Centralised real-time metrics |
-| **Radio monitoring** | Kamba-language station tracking (Section 3.5) — critical, as most attacks on Dr. Mulu will originate on air, not online |
+| **Radio monitoring** | Kamba-language station tracking (Section 3.4) — critical, as most attacks on Dr. Mulu will originate on air, not online |
 
 ### 5.2.3 The shift schedule
 
@@ -222,7 +222,7 @@ Maintained for rapid response without waiting on approvals:
 * Kikamba, Kiswahili and English versions of key messages
 * Template statements for policy positions issued in response to attack
 * Fact-check cards linking to verified sources
-* **Deepfake first-response templates** (Section 5.3.5)
+* **Deepfake first-response templates** (Section 5.3.4)
 
 ### 5.2.6 The dashboard view
 
@@ -249,7 +249,7 @@ or when. The drill runs in real time against the Section 5.2.4 clock.
 | 1 | Fabricated audio of Dr. Mulu making an inflammatory statement, seeded on WhatsApp | Deepfake protocol; 30-minute Level 3 clock |
 | 2 | Coordinated hashtag attack on his NG-CDF record | Fact-base readiness; rebuttal library |
 | 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval (Section 6.5.4) |
-| 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 3.5) |
+| 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 3.4) |
 | 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section 5.3.4) |
 | 6 | Allegation of exceeding the IEBC spending ceiling | Ledger reconciliation retrieval (Section 9.2.4) |
 | 7 | Manufactured "grassroots" campaign attacking a rival, falsely attributed to Dr. Mulu | Charter defence; provenance evidence |
@@ -368,7 +368,7 @@ private-group circulation
 | 5–15 | Verify against the campaign's own archive: was Dr. Mulu there, on that date, saying that? Retrieve original footage if it exists |
 | 15–20 | Candidate and senior leadership briefed; response approved |
 | 20–30 | Publish: plain statement of falsity, the verified original where one exists, and provenance evidence. Simultaneously in Kikamba, Kiswahili and English, across all channels **including SMS to the affected wards** |
-| 30–120 | Platform reports filed; journalists briefed directly (Section 3.5); ward champions supplied with a forwarding-friendly correction card for WhatsApp |
+| 30–120 | Platform reports filed; journalists briefed directly (Section 3.4); ward champions supplied with a forwarding-friendly correction card for WhatsApp |
 | Same day | Legal options reviewed with counsel |
 
 **The SMS component is what makes this work in Kitui.** A rebuttal published
@@ -401,7 +401,7 @@ knowing what opponents say publicly, not surveilling them.
 | Google Ads Transparency Centre | Competitor search advertising and keywords |
 | Social listening (premium tier) | Mentions, supporter sentiment, emerging narratives |
 | X lists | Curated rival, surrogate and influencer accounts |
-| **Radio monitoring** | Kamba-station coverage and airtime share (Section 3.5) |
+| **Radio monitoring** | Kamba-station coverage and airtime share (Section 3.4) |
 | **Published polling tracker** | Mizani Africa and other published surveys, logged with dates and methodology notes |
 
 ### 5.4.3 The monthly competitive brief

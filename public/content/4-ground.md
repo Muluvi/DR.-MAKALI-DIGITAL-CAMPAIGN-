@@ -291,7 +291,7 @@ rather than where measurement is convenient.
 **Consent-first architecture.** Every number in the campaign database arrives
 by opt-in: a USSD self-registration, a signed baraza sheet with a clear data
 notice, a WhatsApp opt-in confirmation, a website form, or a missed-call
-opt-in. **No purchased lists. Ever.** See Sections 3.6.4 and 16.5 for the
+opt-in. **No purchased lists. Ever.** See Sections 3.5.4 and 16.5 for the
 regulatory basis; the short version is that the industry code requires express
 opt-in for political messages and the ODPC has demonstrated willingness to
 penalise unsolicited messaging.
@@ -351,7 +351,7 @@ pending operator approval.
 * **Kikamba voice notes from Dr. Mulu** distributed by WhatsApp and by ward
 champions to Bluetooth-share onward. Audio travels where text does not, and
 carries the candidate's actual voice — the highest-trust format available.
-* **Radio** — see Section 3.5.
+* **Radio** — see Section 3.4.
 * **Audio versions of all flagship policy content**, addressing both low
 literacy (13.0% of the population never attended school) and low bandwidth.
 

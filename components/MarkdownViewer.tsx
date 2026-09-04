@@ -286,7 +286,9 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "defence-sec-5-2": <CrisisWarRoomMatrix />,
   "data-sec-6-5": <DataSecurityEthicsCharter />,
   "channels-sec-3-2": <MediaPlaybackMockup />,
-  "channels-sec-3-5": (
+  // §3.4 and §3.5 merged into one earned-media section (M12); the radio landscape
+  // card and air-cover dial belong at its head.
+  "channels-sec-3-4": (
     <>
       <MediaRadioLandscapeCard />
       <RadioAircoverDial />

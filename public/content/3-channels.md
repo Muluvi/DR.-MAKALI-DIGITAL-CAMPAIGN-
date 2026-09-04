@@ -266,7 +266,7 @@ uchumi aeleze."*
 * Search-optimised videos answering "What does the Kitui Governor do?" and
 "Kitui development 2027"
 * **Monthly "Kitui Economic Brief"** reviewing county budget execution
-* **Home for full sign-language-interpreted versions** (Section 3.7.1)
+* **Home for full sign-language-interpreted versions** (Section 3.6.1)
 
 #### Google Ads
 
@@ -440,11 +440,15 @@ Violations of campaign financing limits and accounting rules carry severe civil,
 ```
 ---
 
-## 3.4 Earned media and the radio landscape
+## 3.4 Earned media, radio and the gatekeeper bypass
+
+Paid and owned media reach the connected minority. Earned media — especially
+radio — reaches everyone else.
+
 
 Vernacular radio is the primary medium of political consciousness and daily news in rural and peri-urban Kitui County. However, the media environment in Eastern Kenya is characterized by severe political concentration: **the highest-reach commercial radio stations broadcasting in Kikamba are owned, financed, or editorially steered by active political rivals or entrenched party gatekeepers**.
 
-To ensure uninterrupted, high-credibility communication with the electorate, the campaign constructs a dual strategy: a disciplined operational engagement model for Tier 1 commercial networks, coupled with an aggressive bypass architecture detailed in **Subsection 17A**.
+To ensure uninterrupted, high-credibility communication with the electorate, the campaign constructs a dual strategy: a disciplined operational engagement model for Tier 1 commercial networks, coupled with an aggressive bypass architecture detailed in **Section 3.4.3**.
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
@@ -456,7 +460,7 @@ To ensure uninterrupted, high-credibility communication with the electorate, the
    • High frequency coverage | Politically aligned ownership & editorial vetoes
                                       │
                                       ▼
-   THE BYPASS WORKAROUND ARCHITECTURE (SUBSECTION 17A)
+   THE BYPASS WORKAROUND ARCHITECTURE (SECTION 3.4.3)
  ┌─────────────────────────────────────────────────────────────────────────────────┐
  │ 1. Neutral & Church-Owned Stations (Syokimau, Mang'elete, Voice of Hope, Wikwatyo)│
  │ 2. Direct 2G SMS & Zero-Rated Interactive USSD Gateway (*483*77#)               │
@@ -466,9 +470,36 @@ To ensure uninterrupted, high-credibility communication with the electorate, the
 ════════════════════════════════════════════════════════════════════════════════════
 ```
 
----
-
 ### 3.4.1 Who owns the Kamba-language stations, and who they favour
+
+#### The ownership and alignment map
+
+Kamba-language radio is the dominant information channel for the roughly 86% of
+Kitui residents outside the internet-using population. **But the ownership map
+is politically compromised, and any credible media plan must say so:**
+
+| Station | Kitui frequency | Ownership association | Campaign posture |
+|---|---|---|---|
+| **Mbaitu FM** | 100.4 (Kitui/Mwingi) | Associated with **Charity Ngilu** — a declared rival | Monitor closely; expect unfavourable framing; do not rely on placement |
+| **Syokimau FM** | — | Associated with **Charity Ngilu** | As above |
+| **Athiani FM** | 97.7 | Associated with **Kalonzo Musyoka**, Wiper leader | Party-aligned, not neutral. Relevant during the nomination window — coverage may track party leadership sentiment rather than merit |
+| **Musyi FM** | 102.2 (regional) | Royal Media Services | **Priority — commercially independent, broad Ukambani reach** |
+| **County FM** | 90.3 Kitui / 91.8 Mwingi | Kitui-based independent | **Priority — local, independent, Mwingi reach** |
+| **Wikwatyo FM** | 105.3 | Seventh-Day Adventist Church, Kitui-based | Priority for community and service-delivery programming |
+| **Ene FM** | 90.6 (Kitui) | Makueni-based | Secondary |
+| **Akamba FM** | 103.3 (Kitui) | Independent, launched 2023 | Secondary — newer, may be more accessible |
+| **KBC Mwatu FM** | 93.1 | Public broadcaster | Institutional coverage |
+
+**Strategic implication:** the campaign's radio strategy runs through Musyi,
+County FM and Wikwatyo, treats Athiani as party-sensitive, and treats
+Mbaitu/Syokimau as monitoring targets rather than placement targets. Attacks
+on Dr. Mulu are more likely to originate on air than online, which is why radio
+monitoring sits in the war room (Section 5.2.2) rather than in a media annex.
+
+*This map is based on publicly reported ownership associations and should be
+verified and updated by the campaign; media ownership changes.*
+
+#### Tier, ownership and campaign posture in full
 
 The table below maps the major radio stations broadcasting across Kitui County, categorized by tier, reported corporate ownership, and known political alignment.
 
@@ -520,8 +551,6 @@ The table below maps the major radio stations broadcasting across Kitui County, 
 └──────────────┴───────────────────────────────┴───────────────────────────┴──────────────────────────────────┘
 ```
 
----
-
 ### 3.4.2 The gatekeeper bottleneck
 
 The political economy of Kamba broadcasting presents three structural hazards for the campaign:
@@ -529,15 +558,13 @@ The political economy of Kamba broadcasting presents three structural hazards fo
 2.  **Surrogate Studio Ambush Tactics:** Morning talk shows (*06:00–09:00 EAT*) frequently host adversarial panels stacked with rival proxies, designed to draw the candidate into unverified local controversies.
 3.  **Arbitrary Commercial Rate Inflation:** Politically steered media houses impose punitive rate surcharges or refuse prime morning ad slots for competitive campaigns.
 
----
-
 ### 3.4.3 Getting on air around a hostile gatekeeper
 
 To guarantee uninhibited communication with all 532,758 registered voters across the 40 wards, the campaign executes a four-pillar bypass strategy that operates entirely independently of captured Tier 1 commercial gatekeepers:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                          THE 17A GATEKEEPER BYPASS & DIRECT REACH ARCHITECTURE                              │
+│                       THE SECTION 3.4.3 GATEKEEPER BYPASS & DIRECT REACH ARCHITECTURE                       │
 ├────────────────────────────────┬────────────────────────────────────────────────────────────────────────────┤
 │ Workaround Pillar              │ Operational Strategy & Deployment Protocol                                 │
 ├────────────────────────────────┼────────────────────────────────────────────────────────────────────────────┤
@@ -564,66 +591,9 @@ To guarantee uninhibited communication with all 532,758 registered voters across
 └────────────────────────────────┴────────────────────────────────────────────────────────────────────────────┘
 ```
 
----
+### 3.4.4 Journalists, and how we pitch
 
-### 3.4.4 How we pitch: evidence first
-
-To capture objective news coverage on mainstream national and regional platforms without paying extortionate broadcast gatekeeper fees, the press desk operates an **Evidence-First Pitch Engine**:
-
-1.  **Hansard & Audit Exclusives:** Providing national media bureau chiefs (*Daily Nation, Standard, Citizen TV, KTN News*) with verified, data-dense policy briefs on national debt, equalization fund legislation, and local county pending bills.
-2.  **On-Site Project Media Tours:** Transporting accredited regional correspondents directly to Kitui Central model projects (solar boreholes, modern TVET workshops, secondary school laboratories) with on-camera beneficiary interviews.
-3.  **Rapid Studio Call-In Rights:** Enforcing statutory right-of-reply provisions under the Media Council of Kenya (MCK) Act whenever candidate record distortions are aired on rival stations.
-
-```
-════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 17 STRATEGIC TAKEAWAY
-════════════════════════════════════════════════════════════════════════════════════
- • Structural Vulnerability:    Tier 1 commercial Kamba radio stations are politically
-                                aligned with rival factions or party gatekeepers.
- • Provenance Standard:         Listenership share figures are marked as Required Primary
-                                Research rather than speculatively estimated.
- • Subsection 17A Workaround:   Bypasses hostile gatekeepers via Church/Community radio
-                                (Wikwatyo/Mang'elete), 2G SMS, USSD, 8 PA sound trucks,
-                                and 400 village megaphone broadcast points.
- • Earned Media Discipline:     Focuses on evidence-backed national exclusives, on-site
-                                project tours, and MCK statutory right-of-reply rules.
-════════════════════════════════════════════════════════════
-```
----
-
-## 3.5 Journalists, debates and radio strategy
-
-*New section. Paid and owned media reach the connected minority. Earned media —
-especially radio — reaches everyone else.*
-
-### 3.5.1 The radio problem, stated plainly
-
-Kamba-language radio is the dominant information channel for the roughly 86% of
-Kitui residents outside the internet-using population. **But the ownership map
-is politically compromised, and any credible media plan must say so:**
-
-| Station | Kitui frequency | Ownership association | Campaign posture |
-|---|---|---|---|
-| **Mbaitu FM** | 100.4 (Kitui/Mwingi) | Associated with **Charity Ngilu** — a declared rival | Monitor closely; expect unfavourable framing; do not rely on placement |
-| **Syokimau FM** | — | Associated with **Charity Ngilu** | As above |
-| **Athiani FM** | 97.7 | Associated with **Kalonzo Musyoka**, Wiper leader | Party-aligned, not neutral. Relevant during the nomination window — coverage may track party leadership sentiment rather than merit |
-| **Musyi FM** | 102.2 (regional) | Royal Media Services | **Priority — commercially independent, broad Ukambani reach** |
-| **County FM** | 90.3 Kitui / 91.8 Mwingi | Kitui-based independent | **Priority — local, independent, Mwingi reach** |
-| **Wikwatyo FM** | 105.3 | Seventh-Day Adventist Church, Kitui-based | Priority for community and service-delivery programming |
-| **Ene FM** | 90.6 (Kitui) | Makueni-based | Secondary |
-| **Akamba FM** | 103.3 (Kitui) | Independent, launched 2023 | Secondary — newer, may be more accessible |
-| **KBC Mwatu FM** | 93.1 | Public broadcaster | Institutional coverage |
-
-**Strategic implication:** the campaign's radio strategy runs through Musyi,
-County FM and Wikwatyo, treats Athiani as party-sensitive, and treats
-Mbaitu/Syokimau as monitoring targets rather than placement targets. Attacks
-on Dr. Mulu are more likely to originate on air than online, which is why radio
-monitoring sits in the war room (Section 5.2.2) rather than in a media annex.
-
-*This map is based on publicly reported ownership associations and should be
-verified and updated by the campaign; media ownership changes.*
-
-### 3.5.2 The journalist relationship programme
+#### The journalist relationship programme
 
 | Tier | Who | Cadence | Offer |
 |---|---|---|---|
@@ -642,7 +612,33 @@ with sources, policy briefs by theme, verified county data with citations, and
 contact routes. The easier the campaign makes a journalist's job, the more
 often it is quoted.
 
-### 3.5.3 Candidate media training
+#### The evidence-first pitch engine
+
+To capture objective news coverage on mainstream national and regional platforms without paying extortionate broadcast gatekeeper fees, the press desk operates an **Evidence-First Pitch Engine**:
+
+1.  **Hansard & Audit Exclusives:** Providing national media bureau chiefs (*Daily Nation, Standard, Citizen TV, KTN News*) with verified, data-dense policy briefs on national debt, equalization fund legislation, and local county pending bills.
+2.  **On-Site Project Media Tours:** Transporting accredited regional correspondents directly to Kitui Central model projects (solar boreholes, modern TVET workshops, secondary school laboratories) with on-camera beneficiary interviews.
+3.  **Rapid Studio Call-In Rights:** Enforcing statutory right-of-reply provisions under the Media Council of Kenya (MCK) Act whenever candidate record distortions are aired on rival stations.
+
+```
+════════════════════════════════════════════════════════════════════════════════════
+                        SECTION 17 STRATEGIC TAKEAWAY
+════════════════════════════════════════════════════════════════════════════════════
+ • Structural Vulnerability:    Tier 1 commercial Kamba radio stations are politically
+                                aligned with rival factions or party gatekeepers.
+ • Provenance Standard:         Listenership share figures are marked as Required Primary
+                                Research rather than speculatively estimated.
+ • Section 3.4.3 Workaround:    Bypasses hostile gatekeepers via Church/Community radio
+                                (Wikwatyo/Mang'elete), 2G SMS, USSD, 8 PA sound trucks,
+                                and 400 village megaphone broadcast points.
+ • Earned Media Discipline:     Focuses on evidence-backed national exclusives, on-site
+                                project tours, and MCK statutory right-of-reply rules.
+════════════════════════════════════════════════════════════
+```
+
+### 3.4.5 Media training, debates and forums
+
+#### Candidate media training
 
 Three sessions, plus refreshers:
 
@@ -660,7 +656,7 @@ prepared pivot, and handling direct attack without appearing rattled.
 **Refreshers** before each debate or major forum, plus a recorded mock with
 playback review.
 
-### 3.5.4 The debate and forum playbook
+#### The debate and forum playbook
 
 **Preparation:**
 
@@ -686,7 +682,7 @@ top three issues
 **The rule: the clip is published before the coverage is written.** Whoever
 distributes the moment first defines what the debate was about.
 
-### 3.5.5 Pre-drafted response lines
+### 3.4.6 Pre-drafted response lines
 
 Prepared, verified, and rehearsed in drills. Each is a structure, not a script —
 substance fixed, delivery natural.
@@ -699,23 +695,12 @@ substance fixed, delivery natural.
 | **"NG-CDF questions"** | Lead with the documented record — bursary numbers, project list, the Eastern region evaluation certification — and invite scrutiny. **Never defensive; an evaluator welcomes audit.** |
 | **"Too technical / not close to ordinary people"** | Answer in Kikamba, with a household example. The best rebuttal to "too technical" is a demonstration, not a denial |
 | **"Wiper insider / party establishment"** | Point to the independence of his parliamentary record on budget matters |
-| **Manipulated media** | Section 5.3.5 protocol — 30-minute clock |
+| **Manipulated media** | Section 5.3.4 protocol — 30-minute clock |
 | **Unsolicited SMS allegation** | Produce the consent audit trail; cite the published charter; correct publicly within the hour |
-
-### 3.5.6 Earned media KPIs
-
-| Metric | Target |
-|---|---|
-| Earned media items per month, Phase 1 onward | ≥ 8 |
-| Radio appearances per month on priority stations | ≥ 4 |
-| Tier C expert-source placements per quarter | ≥ 2 |
-| Debate clips published within 60 minutes | 100% |
-| Share of voice in Kitui gubernatorial coverage | ≥ 50% |
-| Fact-checker corrections secured on false claims | 100% of material false claims challenged |
 
 ---
 
-## 3.6 Working in three languages
+## 3.5 Working in three languages
 
 Kitui County is a deeply multilingual electoral ecosystem. While English functions as the language of statutory policy and constitutional governance, and Kiswahili serves as the commercial lingua franca of urban trading centers, **Kikamba is the primary language of emotional connection, rural trust, cultural authority, and grassroots electoral mobilization**.
 
@@ -744,7 +729,7 @@ A flawed translation—or an urban, anglicized phrasing of a traditional Kikamba
 
 ---
 
-### 3.6.1 Which language reaches which voters, on which channel
+### 3.5.1 Which language reaches which voters, on which channel
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -775,7 +760,7 @@ A flawed translation—or an urban, anglicized phrasing of a traditional Kikamba
 
 ---
 
-### 3.6.2 Register, dialect and the discipline it takes
+### 3.5.2 Register, dialect and the discipline it takes
 
 Translating political concepts from statutory English into vernacular Kikamba requires precise cultural calibration. Kikamba varies across sub-counties—from the *Kitui Central/South dialect* to the *Northern/Mwingi dialect*—and uses rich proverbial allegories that must be deployed correctly:
 
@@ -806,7 +791,7 @@ Translating political concepts from statutory English into vernacular Kikamba re
 
 ---
 
-### 3.6.3 The production and quality-control pipeline
+### 3.5.3 The production and quality-control pipeline
 
 Running a synchronized three-language communications operation introduces severe version-drift and contradiction risks. The campaign implements a rigid **Translation & Quality-Control Gateway**:
 
@@ -840,7 +825,7 @@ Running a synchronized three-language communications operation introduces severe
 
 ---
 
-### 3.6.4 Channel-by-language deployment
+### 3.5.4 Channel-by-language deployment
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -880,7 +865,7 @@ Running a synchronized three-language communications operation introduces severe
 ```
 ---
 
-## 3.7 Accessibility and inclusion
+## 3.6 Accessibility and inclusion
 
 Language is central to trust in Kitui.
 
@@ -913,12 +898,12 @@ substantive error, not a cosmetic one.
 
 ---
 
-### 3.7.1 What accessibility means here
+### 3.6.1 What accessibility means here
 
 *New section. In a county where 13.0% of the population never attended school,
 accessibility is reach, not compliance theatre.*
 
-### 3.7.2 The case
+### 3.6.2 The case
 
 * **13.0% of Kitui residents have never attended school**; only 17.4% completed
 secondary education
@@ -930,7 +915,7 @@ under-served by campaign communication in every cycle
 A campaign built on transparency that publishes only in dense written English
 is not transparent. It is legible to the people who already had access.
 
-### 3.7.3 The commitments
+### 3.6.3 The commitments
 
 | Area | Commitment |
 |---|---|
@@ -942,7 +927,7 @@ is not transparent. It is legible to the people who already had access.
 | **Low bandwidth** | Text-first fallbacks; compressed images; a site that loads on 3G; SMS and USSD paths to the same information (Section 4.3) |
 | **Print** | Ward-level materials in large print with QR and USSD codes |
 
-### 3.7.4 Why this sits in the strategy, not an annex
+### 3.6.4 Why this sits in the strategy, not an annex
 
 The plain-language and audio versions are not a parallel accessibility track —
 they are the **primary format for the largest segment of the electorate**. A
@@ -951,7 +936,7 @@ voice note, and broadcast on County FM is the most-used asset the campaign will
 produce. Building it as an afterthought means building the campaign's most
 important content last.
 
-### 3.7.5 Accessibility KPIs
+### 3.6.5 Accessibility KPIs
 
 | Metric | Target |
 |---|---|

@@ -12,7 +12,7 @@ being physically present on the campaign trail.
 the manifesto, tracking media appearances, and capturing volunteer data.
 * Lightweight, rapid-loading frameworks so the site is usable on 3G and on
 feature-phone browsers — non-negotiable in a county at 13.6% internet use.
-* **WCAG 2.1 AA compliance from build, not retrofitted** (Section 3.7.1).
+* **WCAG 2.1 AA compliance from build, not retrofitted** (Section 3.6.1).
 * Search engine optimisation for "Kitui Governor 2027", "Kitui development" and
 related terms.
 * A "Meet Dr. Mulu" page with biography, parliamentary record, M&E credentials
@@ -24,7 +24,7 @@ already live. Phase 0 audits and integrates it rather than duplicating it.
 
 * Core messaging matrix ensuring consistency across broadcast, print and digital.
 * Dynamic digital press kits for media houses and influencers — approved
-biographies, high-resolution assets, policy briefs (Section 3.5).
+biographies, high-resolution assets, policy briefs (Section 3.4).
 * Daily management of Facebook, X, Instagram, TikTok, YouTube and WhatsApp.
 * Community management: responses to comments, DMs and mentions within **2
 hours** during peak periods.
@@ -103,7 +103,7 @@ The structure below scales with the budget tier selected in Section 9.2.
 | **Community Managers (×2, platform-split)** | Phase 1 onward | Meta/WhatsApp cluster; TikTok/Instagram/X cluster. Front-line response within the 2-hour SLA |
 | **Volunteer & Ward Champion Coordinator** | Phase 1 onward | Tiered volunteer programme (Section 4.4); ward champion training and reporting |
 | **Crisis Communications Lead** | Phase 2 onward, or immediately on trigger | Rapid response, red-team drills, deepfake rebuttal protocol |
-| **Earned Media / Press Officer** | Phase −1 onward (standard and premium) | Journalist relationships, debate clipping, radio placement (Section 3.5) |
+| **Earned Media / Press Officer** | Phase −1 onward (standard and premium) | Journalist relationships, debate clipping, radio placement (Section 3.4) |
 | **Video Editor / Motion Designer** | Phase 1 onward | Clipping, subtitling, sign-language integration |
 
 **Subcontract triggers are explicit.** Each surge role has a named activation

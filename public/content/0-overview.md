@@ -54,7 +54,7 @@ Three structural constraints dictate the execution of this strategy:
 
 1. **Broadband Exclusion Boundaries:** **Approximately 86% of the Kitui electorate remains outside the active internet-using population.** Any digital strategy confined to online platforms will systematically fail to reach a constituency that is 95.2% rural. Section 4.3 resolves this limitation via integration with offline SMS and USSD infrastructures.
 2. **The New Campaign Financing Framework:** **The regulatory environment underwent a critical transformation on 7 August 2026,** when the IEBC gazetted the Election Campaign Financing Regulations, 2026, establishing strict, reportable, and criminally sanctionable expenditure and contribution ceilings. Every digital ad spend and campaign allocation is now legally regulated and must be monitored with forensic accounting precision.
-3. **Political Capture of Local Radio:** **Kamba-language broadcast media — the primary information source for offline rural voters — is highly compromised by rival interests.** Two major regional stations are directly aligned with a primary gubernatorial competitor, and a third is controlled by party leadership. Section 3.5 bypasses this broadcast bottleneck through direct, decentralized communication channels.
+3. **Political Capture of Local Radio:** **Kamba-language broadcast media — the primary information source for offline rural voters — is highly compromised by rival interests.** Two major regional stations are directly aligned with a primary gubernatorial competitor, and a third is controlled by party leadership. Section 3.4 bypasses this broadcast bottleneck through direct, decentralized communication channels.
 
 ## 0.4 Why the operation is run remotely
 
