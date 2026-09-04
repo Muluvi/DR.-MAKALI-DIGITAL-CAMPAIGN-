@@ -10,7 +10,7 @@ import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
 import { ScreenShell } from "../primitives";
 
 /**
- * WhatsApp — §9A.1's "primary closed-group organizing hub", carrying the dispatch §10.2
+ * WhatsApp — §3.1.1's "primary closed-group organizing hub", carrying the dispatch §4.1.2
  * describes: a localized ward pledge, then a voice note from Dr. Mulu, out to the ward captains
  * for peer forwarding.
  *
@@ -170,7 +170,7 @@ export function WhatsAppScreen() {
           </div>
         </div>
 
-        {/* Outgoing voice note — §10.2's 45-second audio note. No words to invent. */}
+        {/* Outgoing voice note — §4.1.2's 45-second audio note. No words to invent. */}
         <div className="relative self-end max-w-[85%] w-[80%]">
           <Tail side="out" />
           <div

@@ -6,7 +6,7 @@ declare global {
   }
 }
 
-/** In-text cross-reference (e.g. "Section 19B") that jumps to the heading even when it
+/** In-text cross-reference (e.g. "Section 8.5") that jumps to the heading even when it
  * lives in a different tab — routed through the global navigator ClientPage installs,
  * so a bare markdown-rendered link doesn't need to know about tab state. */
 export function CrossSectionLink({ id, children }: { id: string; children: React.ReactNode }) {

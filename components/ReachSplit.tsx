@@ -18,11 +18,11 @@ import { ClaimBadge } from "./markdown/ClaimBadge";
  * The split is the site's ONE masked reveal: a clip-path wipe, because a wipe divides. Spending
  * it here rather than scattering masked reveals across the site is what keeps it meaningful.
  *
- * The handset below it runs the real Kikamba menu from §9B.3 — mimesis, not effect: a feature
+ * The handset below it runs the real Kikamba menu from §3.1.2 — mimesis, not effect: a feature
  * phone prints its menu line by line, so the mock does too. It is also the best proof-of-execution
  * artefact on the site, which is why the deliverable is demonstrated rather than described.
  *
- * Figures: exec.md §4.5 (KNBS 2019, Tier 1). Menu: operations.md §9B.3, verbatim including the
+ * Figures: §1.2.5 (KNBS 2019, Tier 1). Menu: §3.1.2, verbatim including the
  * unallocated shortcode.
  */
 
@@ -31,7 +31,7 @@ const OFFLINE = 86.4;
 const INTERNET_USERS = 143_340;
 const BASE_POPULATION = 1_053_991;
 
-/** operations.md §9B.3, verbatim. Kikamba first, English gloss second, exactly as written. */
+/** §3.1.2, verbatim. Kikamba first, English gloss second, exactly as written. */
 const USSD_MENU = [
   "KITUI NA MULU",
   "1. Sisemo sya Mulu / Mulu's plan for my ward",
@@ -94,7 +94,7 @@ export function ReachSplit() {
     <div ref={ref} className="my-10 not-prose">
       <div className="flex items-center gap-2 flex-wrap mb-4">
         <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-          Section 9 · Channel architecture
+          Channel architecture · 3.1
         </span>
         <TierBadge tier={1} compact />
       </div>

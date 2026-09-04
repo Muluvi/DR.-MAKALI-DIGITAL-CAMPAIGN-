@@ -7,14 +7,14 @@ import { Target, Users, Scale, Building2 } from "lucide-react";
 import { ClaimBadge } from "./markdown/ClaimBadge";
 
 /**
- * Section 20.2 — the nomination-window KPI scorecard, quoted.
+ * §8.1.1 — the nomination-window KPI scorecard, quoted.
  *
  * This replaces four progress rings that read 75% / 65% / 85% / 95% against invented labels
  * ("Wiper Nomination Target", "Mwingi-West Support"). Those numbers appeared nowhere in the
  * proposal, and a ring reading 95% implies attainment on a campaign that has not been engaged.
  *
  * The distinction this component exists to hold: a BASELINE is where the campaign starts, a
- * TARGET is where §20.2 says it must reach. Neither is progress, and nothing here should ever
+ * TARGET is where §8.1.1 says it must reach. Neither is progress, and nothing here should ever
  * be read as work completed. The bar therefore shows the gap between the two — which is the
  * actual argument — rather than a percentage of anything.
  */
@@ -25,7 +25,7 @@ interface Kpi {
   definition: string;
   baseline: number;
   baselineLabel: string;
-  /** True where §20.2 marks the baseline "(Est. Baseline)" rather than measured. */
+  /** True where §8.1.1 marks the baseline "(Est. Baseline)" rather than measured. */
   baselineIsEstimate: boolean;
   target: number;
   targetLabel: string;
@@ -102,7 +102,7 @@ export function NominationScorecard() {
         </span>
       </div>
       <p className="text-xs text-muted leading-relaxed mb-5 max-w-3xl">
-        Section 20.2 sets four KPIs for the nomination window. The bar shows the distance from the
+        Section 8.1.1 sets four KPIs for the nomination window. The bar shows the distance from the
         stated baseline to the target objective — the gap the engagement exists to close. No work
         has been performed against these; the campaign has not been engaged.
       </p>

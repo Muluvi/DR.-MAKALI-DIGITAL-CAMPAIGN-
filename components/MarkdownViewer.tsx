@@ -45,12 +45,9 @@ import { DecisionPanel } from "./DecisionPanel";
 import { CommitmentFields } from "./markdown/CommitmentFields";
 import { PhoneShowcase } from "./phone/PhoneShowcase";
 import { SectionPortrait } from "./markdown/SectionPortrait";
-import { ReadinessBoard } from "./markdown/ReadinessBoard";
-import { TeamRoster } from "./markdown/TeamRoster";
 import { commitmentFieldKey, isCommitmentFieldList, type CommitmentField } from "../lib/commitment-fields";
 import { ComplianceCeilingPanel } from "./markdown/ComplianceCeilingPanel";
 import { MediaOwnershipBlock } from "./markdown/MediaOwnershipBlock";
-import { DataGapsRegister } from "./markdown/DataGapsRegister";
 import { PathTo200kBlock } from "./markdown/PathTo200kBlock";
 import { ConstituencyWeightBlock } from "./markdown/ConstituencyWeightBlock";
 import { ElectoralTimelineBlock } from "./markdown/ElectoralTimelineBlock";
@@ -74,7 +71,7 @@ import { headingSlug, sectionId, TAB_LABELS, type TabId } from "../lib/heading-s
 
 const kituiCentralPopulationDispute = DISPUTED_FIGURES.find((d) => d.id === "kitui-central-2019-population")!;
 
-// Section 1.3's "three governing realities" — matched by the start of each bolded lead
+// §0.3's "three governing realities" — matched by the start of each bolded lead
 // sentence so the list item gets pull-quote emphasis without touching the wording.
 const GOVERNING_REALITY_TRIGGERS = [
   "Roughly 86% of Kitui residents are outside the internet-using population",
@@ -83,7 +80,7 @@ const GOVERNING_REALITY_TRIGGERS = [
 ];
 import { PHASES } from "../lib/phases";
 
-// Section 20's phase subsections ("Phase −1: Nomination Sprint …", "Phase 0: …") don't start
+// §8.3's phase parts ("Phase −1: Nomination Sprint …", "Phase 0: …") don't start
 // with a digit, so they never pick up a heading id from headingSlug — but they should still get
 // the matching phase colour on their left border instead of the generic gold accent.
 const PHASE_HEADING_PATTERN = /^Phase\s+(−1|-1|0|1|2|3)\s*:/i;
@@ -194,108 +191,102 @@ const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
 // section. Every key below now resolves to a heading that exists; a build-time check would be
 // the next step if this map grows again.
 const HEADING_INSERTS: Record<string, React.ReactNode> = {
-  // ---- The Analysis (exec.md, §1–§17 after the 2026 restructure) ----------------------
-  "exec-sec-1-1": <PollingTrajectorySimulator />,
-  "exec-sec-2": <NominationPathPanel />,
+  // ---- Situation and argument (§0–§2) -------------------------------------------------
+  "overview-sec-0-1": <PollingTrajectorySimulator />,
+  "race-sec-1-1": <NominationPathPanel />,
   // The core narrative is §3, ahead of the strategic context — its thesis opens the argument.
-  "exec-sec-3": <EconomistGovernorThesis />,
-  "exec-sec-4-2": (
+  "argument-sec-2-1": <EconomistGovernorThesis />,
+  "race-sec-1-2-2": (
     <>
       <ConstitutionalBranchNavigator />
       <CompetitiveQuadrantBlock />
     </>
   ),
-  "exec-sec-4-1": (
-    <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §4.1">
+  "race-sec-1-2-1": (
+    <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §1.2.1">
       One of Kenya&rsquo;s most consistent and authoritative voices on macroeconomic governance,
       fiscal discipline, and budget oversight.
     </SectionPortrait>
   ),
-  "exec-sec-4-3": (
+  "race-sec-1-2-3": (
     <>
       <WardCartogramBlock />
       <PathTo200kBlock />
       <ConstituencyWeightBlock />
     </>
   ),
-  "exec-sec-4-4": <ResourceEnvelopeBlock />,
-  "exec-sec-4-5": <DisputedFigure entry={kituiCentralPopulationDispute} />,
-  "exec-sec-4-6": (
+  "race-sec-1-2-4": <ResourceEnvelopeBlock />,
+  "race-sec-1-2-5": <DisputedFigure entry={kituiCentralPopulationDispute} />,
+  "race-sec-1-2-6": (
     <>
       <ElectoralHistoryPanel />
       <ElectoralTimelineBlock />
     </>
   ),
-  "exec-sec-4-7": (
+  "race-sec-1-2-7": (
     <>
       <FiscalAuditPanel />
       <FiscalAuditChartBlock />
     </>
   ),
-  "exec-sec-4-8": <DroughtFoodSecurityPanel />,
-  "exec-sec-4-9": <MuiBasinPanel />,
-  "exec-sec-4-10": <CompetitorFieldPanel />,
-  "exec-sec-6-3": <PathTo200kCalculator />,
-  "exec-sec-6-5": <RecognitionDeficitOverlay />,
-  "exec-sec-7": <AudienceSegmentationMatrix />,
+  "race-sec-1-2-8": <DroughtFoodSecurityPanel />,
+  "race-sec-1-2-9": <MuiBasinPanel />,
+  "race-sec-1-2-10": <CompetitorFieldPanel />,
+  "race-sec-1-3-3": <PathTo200kCalculator />,
+  "race-sec-1-3-5": <RecognitionDeficitOverlay />,
+  "argument-sec-2-4": <AudienceSegmentationMatrix />,
   // §9 splits the electorate into a connected minority and an offline majority. The showcase is
   // that argument as an object: one handset, the campaign on all seven channels, ending on the
   // USSD dialog that reaches more voters than the six apps together.
-  "exec-sec-9": <PhoneShowcase />,
-  "exec-sec-13": (
+  "channels-sec-3-1": <PhoneShowcase />,
+  "argument-sec-2-6": (
     <>
       <MessagingPlayground />
       <ToneVoiceSlider />
     </>
   ),
-  "exec-sec-13-9": <CommunityScheduler />,
-  "exec-sec-14": <CounterMessagingGrid />,
-  // The ownership/alignment/tier table this chart plots, now §15.6 after paid and earned
+  "argument-sec-2-7-4": <CommunityScheduler />,
+  "defence-sec-5-1": <CounterMessagingGrid />,
+  // The ownership/alignment/tier table this chart plots, now §3.4.1 after paid and earned
   // media were folded into one section.
-  "exec-sec-15-6": <MediaOwnershipBlock />,
+  "channels-sec-3-4-1": <MediaOwnershipBlock />,
 
-  // ---- The Programme (programme.md, §18–§33 after the 2026 restructure) ---------------
-  "programme-sec-33": (
-    <SectionPortrait id="seated-grey-cropped" kicker="Execution &amp; workflow — §33" flip>
+  // ---- What we run, defend, measure and ask for (§3–§9) --------------------------------
+  "ask-sec-9-3": (
+    <SectionPortrait id="seated-grey-cropped" kicker="Working together — §9.3" flip>
       Firefly reports to a single named campaign-side counterpart.
     </SectionPortrait>
   ),
-  "programme-sec-18": <StrategicPillarsMatrix />,
-  "programme-sec-20": <GeographicZoneMatrix />,
-  "programme-sec-21-7": <CampaignOrgChart />,
-  "programme-sec-21-19": <BudgetScenarioModeler />,
-  "programme-sec-21-21": <ComplianceCeilingPanel />,
-  "programme-sec-22-8": <FlywheelSchematic />,
-  "programme-sec-22-14": (
+  "argument-sec-2-2": <StrategicPillarsMatrix />,
+  "race-sec-1-4": <GeographicZoneMatrix />,
+  "team-sec-7-2": <CampaignOrgChart />,
+  "ask-sec-9-2-5": <BudgetScenarioModeler />,
+  "ask-sec-9-2-7": <ComplianceCeilingPanel />,
+  "ground-sec-4-2": <FlywheelSchematic />,
+  "ground-sec-4-3": (
     <>
       <ReachSplit />
       <SMSFeedbackVisualizer />
     </>
   ),
-  "programme-sec-23": <PersuasionFramingMatrix />,
-  "programme-sec-26": <CrisisWarRoomMatrix />,
-  "programme-sec-28": <DataSecurityEthicsCharter />,
-  "programme-sec-29": <MediaPlaybackMockup />,
-  "programme-sec-29-1": (
+  "argument-sec-2-8": <PersuasionFramingMatrix />,
+  "defence-sec-5-2": <CrisisWarRoomMatrix />,
+  "data-sec-6-5": <DataSecurityEthicsCharter />,
+  "channels-sec-3-2": <MediaPlaybackMockup />,
+  "channels-sec-3-5": (
     <>
       <MediaRadioLandscapeCard />
       <RadioAircoverDial />
     </>
   ),
-  "programme-sec-31": <SloganBuilder />,
-  "programme-sec-31-7": <PublicServiceDeliveryTracker />,
-  "programme-sec-32": (
+  "argument-sec-2-3": <SloganBuilder />,
+  "measure-sec-8-5": <PublicServiceDeliveryTracker />,
+  "measure-sec-8-3": (
     <>
       <PhaseRail />
       <KpiPhaseBlock />
     </>
   ),
-
-  // ---- Registers (registers.md, §34–§39 after the 2026 restructure) -------------------
-  // "Appendix C: Data Gaps Register" used to carry no leading digit, so headingSlug never
-  // assigned it an id — it's now numbered §39.2 like every other former appendix letter, so
-  // it gets a normal id instead of the text-match fallback below.
-  "registers-sec-39-2": <DataGapsRegister />,
 };
 
 // A handful of headings still carry no leading digit (unnumbered platform names, phase
@@ -349,36 +340,23 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
               const headers = getTableHeaderTexts(children).map((h) => h.toLowerCase());
               const has = (text: string) => headers.some((h) => h.includes(text));
 
-              // Section 4.5 "National platform sizing" — replaced by the sorted bar chart
+              // §1.2.5 "National platform sizing" — replaced by the sorted bar chart
               // (item 13), not kept alongside it.
-              if (tabId === "exec" && has("platform") && has("kenya audience")) {
+              if (tabId === "race" && has("platform") && has("kenya audience")) {
                 return <PlatformSizingBlock />;
               }
 
-              // Section 4.1 candidate-asset table — assertion/evidence/application becomes
+              // §1.2.1 candidate-asset table — assertion/evidence/application becomes
               // claim cards (item 21), replacing the table rather than sitting alongside it.
-              if (tabId === "exec" && has("asset") && has("evidence") && has("digital application")) {
+              if (tabId === "race" && has("asset") && has("evidence") && has("digital application")) {
                 return <ClaimCards>{children}</ClaimCards>;
-              }
-
-              // Firefly appendix §15 — the pre-launch checklist is the one place that says what
-              // is blocking launch, and as a flat table the single GATED row read like the
-              // eleven OPEN ones. Becomes a status board, replacing the table.
-              if (tabId === "registers" && has("control") && has("status") && has("owner")) {
-                return <ReadinessBoard>{children}</ReadinessBoard>;
-              }
-
-              // Firefly appendix §3 — the operating model, grouped by when each role switches
-              // on, which is the column a reader is actually reading the table for.
-              if (tabId === "registers" && has("role") && has("activation")) {
-                return <TeamRoster>{children}</TeamRoster>;
               }
 
               const table = <InteractiveTable>{children}</InteractiveTable>;
 
-              // Section 1.1 Mizani survey table — table stays (item 14 says keep it with only
+              // §0.1 Mizani survey table — table stays (item 14 says keep it with only
               // two data points), slope chart added alongside it.
-              if (tabId === "exec" && has("kasalu") && has("wambua")) {
+              if (tabId === "overview" && has("kasalu") && has("wambua")) {
                 return (
                   <>
                     {table}
@@ -427,7 +405,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
               return <MarkdownParagraph tabId={tabId}>{children}</MarkdownParagraph>;
             },
             blockquote: ({ children }) => {
-              // The central narrative line (Section 3) gets the full pull-quote treatment;
+              // The central narrative line (§2.1) gets the full pull-quote treatment;
               // every other blockquote (the ethics charter, etc.) keeps the standard styling.
               if (getDeepText(children).includes("Kitui has resources")) {
                 return <PullQuote>{children}</PullQuote>;
@@ -439,7 +417,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
               );
             },
             ul: ({ children }) => {
-              // §5 writes each Operational Commitment as six bolded fields in a fixed order —
+              // §9.1 writes each Operational Commitment as six bolded fields in a fixed order —
               // a table written as prose. Where that exact shape appears, lay it out as one;
               // every other list in the document is untouched.
               const fields = parseLabelledList(children);
@@ -449,10 +427,10 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
               return <ul>{children}</ul>;
             },
             li: ({ children }) => {
-              // The three governing realities (Section 1.3) get a pull-quote-style emphasis
+              // The three governing realities (§0.3) get a pull-quote-style emphasis
               // treatment instead of a plain bullet — every other list item is unaffected.
               const text = normalizeWhitespace(getDeepText(children));
-              const isGoverningReality = tabId === "exec" && GOVERNING_REALITY_TRIGGERS.some((t) => text.includes(t));
+              const isGoverningReality = tabId === "overview" && GOVERNING_REALITY_TRIGGERS.some((t) => text.includes(t));
               if (isGoverningReality) {
                 return <MarkdownListItem tabId={tabId} emphasis>{children}</MarkdownListItem>;
               }
@@ -515,8 +493,8 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
 
         {/* The ask closes the document, inside the prose flow. It used to sit in the footer
             chrome below a rule, next to the print widget — which framed a vendor's closing
-            request as one more piece of page tooling. §33 builds to it; it belongs there. */}
-        {tabId === "programme" && <DecisionPanel />}
+            request as one more piece of page tooling. §9.3 builds to it; it belongs there. */}
+        {tabId === "ask" && <DecisionPanel />}
       </div>
     </div>
   );

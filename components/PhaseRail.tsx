@@ -29,7 +29,7 @@ interface PhaseDetail {
   highlights: string[];
 }
 
-/** Quoted from execution.md §20. */
+/** Quoted from §8.3. */
 const DETAIL: Record<string, PhaseDetail> = {
   neg1: {
     id: "neg1",
@@ -102,7 +102,7 @@ export function PhaseRail() {
       <div className="flex items-baseline justify-between gap-3 mb-6 flex-wrap">
         <div>
           <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-            Section 20 · Phased plan
+            Phased plan · 8.3
           </span>
           <h3 className="font-serif text-xl sm:text-2xl font-semibold text-ink mt-2 tracking-tight">
             August 2026 to August 2027

@@ -3,7 +3,7 @@ import { TierBadge } from "./TierBadge";
 import { ProvenanceLine } from "./ProvenanceLine";
 
 /**
- * The nomination path (Section 1A) — the highest-stakes Tier 3 claim in the document, since
+ * The nomination path (§1.1) — the highest-stakes Tier 3 claim in the document, since
  * the whole Phase −1 strategy is built on it. Server component, no chart.
  */
 export function NominationPathPanel() {

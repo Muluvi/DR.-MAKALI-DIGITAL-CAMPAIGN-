@@ -36,20 +36,13 @@ const STATUS_PHRASES: { pattern: string; status: ClaimStatus }[] = [
   { pattern: ws("KSh97\\.56 million"), status: "verified" },
 ];
 
-// A key-takeaway banner closes each major section, quoting a line that's already that
-// section's own natural closing statement — never new copy. "exec" is skipped: Section 3
-// already closes on the promoted central-narrative pull quote, and a second banner quoting
-// the same line would just duplicate it. strategy/tactics share a trigger because the source
-// markdown duplicates that content across both documents (see strategy.md and tactics.md,
-// Section 19B.4) — each tab gets its own banner instance from the same stated line.
+// A key-takeaway banner closes a section by quoting a line that is already that section's own
+// natural closing statement — never new copy. Two triggers here previously quoted lines that no
+// longer appear anywhere in the proposal ("a governance commitment…", "commence Phase −1 Week
+// 1."); they matched nothing and have been removed rather than repointed.
 const BANNER_TRIGGERS: { pattern: string; tabIds: TabId[] }[] = [
-  {
-    pattern: ws("one that continues is a governance commitment — and the commitment is the persuasive element\\."),
-    tabIds: ["programme"],
-  },
-  { pattern: ws("the reason the campaign's own deepfake denials will be believed\\."), tabIds: ["programme"] },
-  { pattern: ws("Firefly Management is ready to build that operation\\."), tabIds: ["programme"] },
-  { pattern: ws("commence Phase\\s+[−-]1 Week 1\\."), tabIds: ["registers"] },
+  { pattern: ws("the reason the campaign's own deepfake denials will be believed\\."), tabIds: ["defence"] },
+  { pattern: ws("Firefly Management is ready to build that operation\\."), tabIds: ["ask"] },
 ];
 
 // Dictionary of definitions for hover tooltips
@@ -101,9 +94,10 @@ function InlineTooltip({ text, term }: { text: string; term: string }) {
 // Master regex to match definitions and key badges in a single native pass
 const termsUnion = Object.keys(DEFINITIONS).join("|");
 const datePatterns = "August 2026|December 2026|April 2027|August 2027|2026/27|KSh 1\\.339bn";
-// In-text cross-references the proposal makes to specific numbered sections — see
-// lib/heading-slug.ts for where each one resolves to.
-const crossRefPattern = "Section\\s+(?:22\\.14|29\\.1|31\\.1|31\\.7)";
+// In-text cross-references to numbered sections. Every reference in the document is matched,
+// not a hand-listed handful: crossSectionTarget resolves the number to an id and returns null
+// for anything that is not a real section, so a stray figure never becomes a link to nowhere.
+const crossRefPattern = "Section\\s+\\d+(?:\\.\\d+){1,2}";
 const statusPhrasePattern = STATUS_PHRASES.map((p) => p.pattern).join("|");
 const workingTriggerPattern = WORKING_TRIGGERS.map((p) => p.pattern).join("|");
 const bannerTriggerPattern = BANNER_TRIGGERS.map((p) => p.pattern).join("|");

@@ -4,7 +4,7 @@ import { LazyMount } from "../LazyMount";
 import { SourceLine } from "./SourceLine";
 import MizaniSlopeChart, { type SlopeSeries } from "../charts/MizaniSlopeChart";
 
-// Section 1.1 table. Ngilu has no June 2026 figure (she wasn't in that round), so her line
+// §0.1 table. Ngilu has no June 2026 figure (she wasn't in that round), so her line
 // starts null rather than an invented June value — the chart draws no segment before August.
 const DATA = [
   { survey: "Mizani Africa, June 2026", kasalu: 31.3, mulu: 20.2, wambua: 16.3, ngilu: null },

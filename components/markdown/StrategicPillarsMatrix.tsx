@@ -57,7 +57,7 @@ const STRATEGIC_PILLARS: StrategicPillar[] = [
     subtitle: "The M&E Signature Differentiator",
     icon: CheckSquare,
     corePremise: "The single pillar separating Dr. Mulu from every rival: publishing what was promised, then systematically publishing whether it actually happened. An evaluator who measures outcomes.",
-    tangibleProofPoint: "Public Service-Delivery Tracker (Section 19B) operational on USSD, SMS, WhatsApp, and Web.",
+    tangibleProofPoint: "Public Service-Delivery Tracker (Section 8.5) operational on USSD, SMS, WhatsApp, and Web.",
     deliveryFormat: "Quarterly evidence scorecards, live issue resolution registers, and transparent ad-spend ledger.",
     verificationAudit: "Independent verification through Evaluation Society of Kenya standards."
   }
@@ -78,7 +78,7 @@ export function StrategicPillarsMatrix() {
           <div>
             <div className="flex items-center gap-2">
               <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Section 5.0 Framework
+                Campaign pillars · 2.2
               </span>
               <span className="t-label font-mono font-bold text-muted">
                 Core Policy Architecture

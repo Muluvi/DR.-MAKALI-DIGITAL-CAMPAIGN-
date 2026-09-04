@@ -8,9 +8,9 @@ import { ClaimBadge } from "./ClaimBadge";
 import { TierBadge } from "./TierBadge";
 
 /**
- * Sections 7.1–7.2 — the six structural segments.
+ * §2.4.1–2.4.2 — the six structural segments.
  *
- * Sizing figures are quoted from §7.1's "Empirical Sizing" line and §7.2's summary matrix.
+ * Sizing figures are quoted from §2.4.1's "Empirical Sizing" line and §2.4.2's summary matrix.
  * Three of the six are marked in the source as a Named Data Gap requiring primary survey; those
  * render as unsized, with the source's estimated range shown as an estimate rather than promoted
  * to a fact. An earlier version of this component assigned all six invented percentages and
@@ -141,7 +141,7 @@ export function AudienceSegmentationMatrix() {
           </div>
           <div>
             <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-              Section 7 · Audience architecture
+              Audience architecture · 2.4
             </span>
             <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-1">Six structural segments</h4>
           </div>
@@ -201,7 +201,7 @@ export function AudienceSegmentationMatrix() {
               <p className="t-small text-muted mt-2 flex items-start gap-1.5">
                 <AlertTriangle size={11} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
                 <span>
-                  <strong>Named data gap (§7.3).</strong> {active.sizing.note} Commissioning this is a Phase −1
+                  <strong>Named data gap (§2.4.3).</strong> {active.sizing.note} Commissioning this is a Phase −1
                   research priority; it is not sized here because it is not sized in the source.
                 </span>
               </p>
@@ -258,7 +258,7 @@ export function AudienceSegmentationMatrix() {
 
       <div className="px-4 py-3 bg-paper/60 border-t border-line">
         <p className="t-small text-muted leading-relaxed">
-          {gapCount} of the 6 segments are unsized in the source and are shown as such. §7.3 catalogues them for
+          {gapCount} of the 6 segments are unsized in the source and are shown as such. §2.4.3 catalogues them for
           commissioning in the Phase −1 baseline survey — this document does not estimate past its own evidence.
         </p>
       </div>

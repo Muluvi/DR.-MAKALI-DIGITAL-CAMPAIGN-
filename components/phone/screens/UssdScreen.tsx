@@ -9,13 +9,13 @@ import { StatusBar } from "../primitives";
 /**
  * The USSD screen. Not an app — a system dialog over whatever was on screen.
  *
- * This is the channel that reaches the ~250,000 feature-phone voters in §9B, which is more than
+ * This is the channel that reaches the ~250,000 feature-phone voters in §3.1.2, which is more than
  * the entire connected population of the county, and it is the screen this module exists to put
  * in front of the candidate. So it gets the same care as the others and none of their styling:
  * no brand colour, no icons, no rounded design language, system type. It should look like the
  * operating system, because that is what a voter on a Nokia actually sees.
  *
- * The menu is §14.3C's tree, unchanged. The pause before the response is the point — USSD is a
+ * The menu is §2.7.3's tree, unchanged. The pause before the response is the point — USSD is a
  * network round trip, and a menu that appears instantly is the one detail that would give it
  * away as a mockup.
  */

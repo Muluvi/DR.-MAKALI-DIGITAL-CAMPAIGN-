@@ -16,7 +16,7 @@ import SpendingCeilingChart, { type TierBand } from "../charts/SpendingCeilingCh
 
 const CEILING = KITUI_SPENDING_CEILING.value;
 
-// Tier ad-spend ranges as recommended in Section 8B.5 (Lean 15–20%, Standard 30–40%, Premium
+// Tier ad-spend ranges as recommended in §9.2.5 (Lean 15–20%, Standard 30–40%, Premium
 // 45–55% of the ceiling) — this proposal's own recommended structure, not an external source,
 // so these percentages are not separately tiered; the ceiling they are plotted against is.
 const TIER_RANGES: { name: string; lowPct: number; highPct: number; color: string }[] = [
@@ -38,7 +38,7 @@ const CHART_DATA: TierBand[] = TIER_RANGES.map((t) => {
 });
 
 /**
- * Compliance and spending-ceiling panel (Section 8B.7 / Phase 6e). Resolves the previous
+ * Compliance and spending-ceiling panel (§9.2.7). Resolves the previous
  * `[Insert verified Kitui County expenditure ceiling]` placeholder with the verified figure and
  * turns the regulatory constraints into an operational checklist, since this is the campaign's
  * binding budget constraint, not background reading.

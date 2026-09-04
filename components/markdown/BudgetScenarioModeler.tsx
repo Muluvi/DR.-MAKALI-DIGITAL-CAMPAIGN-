@@ -8,10 +8,10 @@ import { ClaimBadge } from "./ClaimBadge";
 import { TierBadge } from "./TierBadge";
 
 /**
- * Section 8B tier comparator.
+ * §9.2 tier comparator.
  *
- * EVERY FIGURE HERE IS QUOTED FROM operations.md §8B.5–8B.6. Nothing is derived, rounded or
- * filled in. That constraint is the point of the component, not a limitation of it: §8B exists
+ * EVERY FIGURE HERE IS QUOTED FROM §9.2.5–9.2.6. Nothing is derived, rounded or
+ * filled in. That constraint is the point of the component, not a limitation of it: §9.2 exists
  * to demonstrate that Firefly understands the Election Campaign Financing Act, and a comparator
  * that invents its own percentages of a statutory ceiling demonstrates the opposite.
  *
@@ -32,7 +32,7 @@ interface BudgetTier {
   badge: string;
   recommended: boolean;
   purpose: string;
-  /** §8B.5's bracketed recommendation, as a band. The absolute figure is not yet set. */
+  /** §9.2.5's bracketed recommendation, as a band. The absolute figure is not yet set. */
   adSpendBand: { low: number; high: number };
   team: string;
   channels: string;
@@ -40,7 +40,7 @@ interface BudgetTier {
   ussd: string;
   content: string;
   analytics: string;
-  /** §8B.6's "Realistic Phase 3 contact universe" row — the one sized figure per tier. */
+  /** §9.2.6's "Realistic Phase 3 contact universe" row — the one sized figure per tier. */
   contactUniverse: string;
   tradeOffs: string;
 }
@@ -101,7 +101,7 @@ const BUDGET_TIERS: BudgetTier[] = [
   },
 ];
 
-/** §8B.6, verbatim. */
+/** §9.2.6, verbatim. */
 const COMPARISON_ROWS: { label: string; lean: string; standard: string; premium: string }[] = [
   { label: "Team model", lean: "3-person core + mandatory Kikamba producer", standard: "3-person core + activated surge roles", premium: "3-person core + full surge bench" },
   { label: "Wards with active SMS/USSD", lean: "Partial", standard: "All 40", premium: "All 40 + diaspora" },
@@ -128,7 +128,7 @@ export function BudgetScenarioModeler() {
           <div>
             <div className="flex items-center gap-2 flex-wrap">
               <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Section 8B · The three tiers
+                Budget tiers · 9.2
               </span>
               <TierBadge tier={1} compact />
             </div>
@@ -219,8 +219,8 @@ export function BudgetScenarioModeler() {
               </span>
             </div>
             <p className="t-small text-muted leading-relaxed">
-              §21.19 states this as <code className="placeholder">[Insert — recommend {currentTier.adSpendBand.low}–{currentTier.adSpendBand.high}% of ceiling]</code>. The absolute
-              figure is set on tier selection and is owned by the campaign (§39.1, ref 21.19). Percentages refer to
+              §9.2.5 states this as <code className="placeholder">[Insert — recommend {currentTier.adSpendBand.low}–{currentTier.adSpendBand.high}% of ceiling]</code>. The absolute
+              figure is set on tier selection and is owned by the campaign. Percentages refer to
               the verified county ceiling; absolute figures are illustrative structures to be finalised against it.
             </p>
           </div>
@@ -265,7 +265,7 @@ export function BudgetScenarioModeler() {
       <div className="border-t border-line overflow-x-auto">
         <table className="w-full t-small sm:text-xs">
           <caption className="text-left px-4 pt-3 pb-2 t-label font-black uppercase tracking-wider text-muted">
-            §21.20 Tier comparison
+            §9.2.6 The tiers compared
           </caption>
           <thead>
             <tr className="bg-paper/70 border-y border-line">
