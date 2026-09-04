@@ -388,12 +388,10 @@ a vanity one.
 
 ## 4.3 Digital organising and volunteers
 
-### 4.3.1 Turning online supporters into offline organisers
-
 A tiered volunteer programme converting passive online supporters into active
 offline organisers, with gamification driving sustained engagement.
 
-### 4.3.2 Volunteer tiers
+### 4.3.1 Volunteer tiers
 
 | Tier | Name | Entry requirement | Activities |
 |---|---|---|---|
@@ -405,7 +403,7 @@ offline organisers, with gamification driving sustained engagement.
 **Data-handling training is a gate, not an option.** No volunteer collects
 personal data before completing it (Section 6.5.4).
 
-### 4.3.3 Gamification mechanics
+### 4.3.2 Gamification mechanics
 
 | Mechanic | Implementation | Reward |
 |---|---|---|
@@ -420,7 +418,7 @@ Reward systems that pay for volume produce spam and, at scale, look
 indistinguishable from inauthentic activity. That would breach both platform
 policy and the Section 6.5.4 charter, and it is designed out from the start.
 
-### 4.3.4 Management tooling
+### 4.3.3 Management tooling
 
 * **Custom WhatsApp bot** for low-cost volunteer management: registration,
 point tracking, content distribution, leaderboards
@@ -430,7 +428,7 @@ point tracking, content distribution, leaderboards
 * Task management via a shared board
 * Purpose-built volunteer platforms only at premium tier, if budget allows
 
-### 4.3.5 Volunteer KPIs
+### 4.3.4 Volunteer KPIs
 
 | Metric | Target |
 |---|---|
