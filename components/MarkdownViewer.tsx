@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { Volume2 } from "lucide-react";
@@ -68,6 +68,8 @@ import { CrisisWarRoomMatrix } from "./markdown/CrisisWarRoomMatrix";
 import { DataSecurityEthicsCharter } from "./markdown/DataSecurityEthicsCharter";
 import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, type TabId } from "../lib/heading-slug";
+import { segmentContent } from "../lib/collapse-groups";
+import { DisclosureGroup } from "./markdown/DisclosureGroup";
 
 const kituiCentralPopulationDispute = DISPUTED_FIGURES.find((d) => d.id === "kitui-central-2019-population")!;
 
@@ -297,45 +299,11 @@ const HEADING_TEXT_INSERTS: Record<string, React.ReactNode> = {};
 
 // Markdown parsing runs here on the server at render time, so react-markdown
 // and its remark/rehype plugins never ship to the client bundle.
-export function MarkdownViewer({ content, tabId }: { content: string; tabId: TabId }) {
-  return (
-    <div className="relative bg-transparent overflow-hidden p-0">
-      {/* Dynamic Faded Watermark Background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0 opacity-5">
-        <div className="absolute top-[20%] right-[-10%] text-[8rem] font-black text-accent/5 rotate-[-12deg] font-serif uppercase">
-          Wiper Movement
-        </div>
-        <div className="absolute bottom-[20%] left-[-15%] text-[8rem] font-black text-gold/5 rotate-[8deg] font-serif uppercase">
-          Democratic
-        </div>
-      </div>
-
-      {/* Integrated Media Briefing Placard at the top of long strategic pages */}
-      <div className="mb-6 bg-gradient-to-r from-accent/[0.03] to-gold/[0.03] border border-line/25 p-3 sm:p-4 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 z-10 relative print:hidden">
-        <div className="flex items-center gap-3">
-          <div className="p-2 rounded-lg bg-accent/10 border border-accent/20 text-accent">
-            <Volume2 size={16} />
-          </div>
-          <div>
-            <h4 className="font-serif text-xs font-semibold text-ink">Campaign Audio Strategy Briefing</h4>
-            <p className="t-label text-muted uppercase tracking-wider font-semibold">Listen to synthesized narrative breakdown (2:15 min)</p>
-          </div>
-        </div>
-        <AudioBriefingButton />
-      </div>
-
-      {/* The lede treatment is scoped with `>` deliberately. As a descendant selector
-          (`[&_p:first-of-type]`) it matched the first paragraph of EVERY nested container —
-          so chart footnotes, card ledes and diagram notes all picked up a 3xl gold drop cap.
-          A direct-child selector reaches the document's opening paragraph and nothing else. */}
-      <div className="prose max-w-none relative z-10 px-0
-        [&>p:first-of-type]:text-base [&>p:first-of-type]:sm:text-lg [&>p:first-of-type]:font-semibold [&>p:first-of-type]:text-ink [&>p:first-of-type]:leading-relaxed [&>p:first-of-type]:border-b [&>p:first-of-type]:border-line/40 [&>p:first-of-type]:pb-4 [&>p:first-of-type]:mb-6
-        [&>p:first-of-type::first-letter]:text-3xl [&>p:first-of-type::first-letter]:font-semibold [&>p:first-of-type::first-letter]:text-gold [&>p:first-of-type::first-letter]:mr-2 [&>p:first-of-type::first-letter]:float-left [&>p:first-of-type::first-letter]:leading-none
-      ">
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw]}
-          components={{
+// Every ReactMarkdown pass shares one components map — the document body, and each
+// disclosure panel split out of it — so a table, badge or cross-reference renders the
+// same wherever it happens to sit.
+function buildComponents(tabId: TabId): Components {
+  return {
             table: ({ children }) => {
               const headers = getTableHeaderTexts(children).map((h) => h.toLowerCase());
               const has = (text: string) => headers.some((h) => h.includes(text));
@@ -486,10 +454,71 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
                 </>
               );
             }
-          }}
-        >
-          {content}
-        </ReactMarkdown>
+  };
+}
+
+export function MarkdownViewer({ content, tabId }: { content: string; tabId: TabId }) {
+  // The heaviest parts of the proposal are matrices typed as prose. segmentContent finds them
+  // by shape — three or more sibling h4 blocks over 300 words — and hands each block back as a
+  // panel, so the reader gets the labels at a glance and the bodies on demand. Everything else
+  // comes back as ordinary markdown and renders exactly as before.
+  const markdownComponents = buildComponents(tabId);
+  const segments = segmentContent(content);
+
+  const renderMarkdown = (text: string, key?: string) => (
+    <ReactMarkdown
+      key={key}
+      remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeRaw]}
+      components={markdownComponents}
+    >
+      {text}
+    </ReactMarkdown>
+  );
+
+  return (
+    <div className="relative bg-transparent overflow-hidden p-0">
+      {/* Dynamic Faded Watermark Background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0 opacity-5">
+        <div className="absolute top-[20%] right-[-10%] text-[8rem] font-black text-accent/5 rotate-[-12deg] font-serif uppercase">
+          Wiper Movement
+        </div>
+        <div className="absolute bottom-[20%] left-[-15%] text-[8rem] font-black text-gold/5 rotate-[8deg] font-serif uppercase">
+          Democratic
+        </div>
+      </div>
+
+      {/* Integrated Media Briefing Placard at the top of long strategic pages */}
+      <div className="mb-6 bg-gradient-to-r from-accent/[0.03] to-gold/[0.03] border border-line/25 p-3 sm:p-4 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 z-10 relative print:hidden">
+        <div className="flex items-center gap-3">
+          <div className="p-2 rounded-lg bg-accent/10 border border-accent/20 text-accent">
+            <Volume2 size={16} />
+          </div>
+          <div>
+            <h4 className="font-serif text-xs font-semibold text-ink">Campaign Audio Strategy Briefing</h4>
+            <p className="t-label text-muted uppercase tracking-wider font-semibold">Listen to synthesized narrative breakdown (2:15 min)</p>
+          </div>
+        </div>
+        <AudioBriefingButton />
+      </div>
+
+      {/* The lede treatment is scoped with `>` deliberately. As a descendant selector
+          (`[&_p:first-of-type]`) it matched the first paragraph of EVERY nested container —
+          so chart footnotes, card ledes and diagram notes all picked up a 3xl gold drop cap.
+          A direct-child selector reaches the document's opening paragraph and nothing else. */}
+      <div className="prose max-w-none relative z-10 px-0
+        [&>p:first-of-type]:text-base [&>p:first-of-type]:sm:text-lg [&>p:first-of-type]:font-semibold [&>p:first-of-type]:text-ink [&>p:first-of-type]:leading-relaxed [&>p:first-of-type]:border-b [&>p:first-of-type]:border-line/40 [&>p:first-of-type]:pb-4 [&>p:first-of-type]:mb-6
+        [&>p:first-of-type::first-letter]:text-3xl [&>p:first-of-type::first-letter]:font-semibold [&>p:first-of-type::first-letter]:text-gold [&>p:first-of-type::first-letter]:mr-2 [&>p:first-of-type::first-letter]:float-left [&>p:first-of-type::first-letter]:leading-none
+      ">
+        {segments.map((segment, i) =>
+          segment.kind === "markdown" ? (
+            renderMarkdown(segment.text, `md-${i}`)
+          ) : (
+            <DisclosureGroup key={`group-${i}`} labels={segment.panels.map((panel) => panel.label)}>
+              {segment.panels.map((panel) => renderMarkdown(panel.text, panel.label))}
+            </DisclosureGroup>
+          )
+        )}
 
         {/* The ask closes the document, inside the prose flow. It used to sit in the footer
             chrome below a rule, next to the print widget — which framed a vendor's closing
