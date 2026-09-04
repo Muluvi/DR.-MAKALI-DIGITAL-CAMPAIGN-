@@ -263,7 +263,7 @@ attack.
 ### 9.3.3 Performance tracking
 
 Monthly analytics reports covering reach, engagement, sentiment and conversion,
-plus the competitive brief (Section 5.4.3), the compliance ledger reconciliation
+plus the competitive brief (Section 5.4.2), the compliance ledger reconciliation
 (Section 9.2.4), and progress against the analytics maturity roadmap (Section
 5.1.5).
 
@@ -307,7 +307,7 @@ discipline and continuous availability. Firefly's role is:
 
 This allows the ground team to concentrate on direct voter contact, logistics
 and physical mobilisation — while the two operations feed a single voter model
-rather than running blind to each other (Section 4.2).
+rather than running blind to each other (Section 4.1).
 
 #### The Firefly proposition
 

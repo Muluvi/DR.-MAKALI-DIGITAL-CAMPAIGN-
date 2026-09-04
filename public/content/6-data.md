@@ -252,7 +252,7 @@ to identify patterns and swing areas
 * **Campaign first-party data:** interactions with campaign content, WhatsApp
 membership, **SMS/USSD opt-ins**, volunteer sign-ups, donor status — all
 consent-based
-* **Field canvass returns** (Section 4.2)
+* **Field canvass returns** (Section 4.1)
 
 **Explicitly excluded:** purchased third-party contact lists, scraped number
 databases, and any inferred psychographic or personality attributes. Vendors
@@ -295,7 +295,7 @@ turnout likelihood.
 | `whatsapp_group_member` | Campaign group member | Campaign | Binary | 0/1 |
 | `volunteer_status` | Sign-up status | Campaign | Categorical | None/Inactive/Active |
 | `donor_status` | Donation history | Campaign | Categorical | None/One-time/Recurring |
-| `field_contact_outcome` | **Canvass result (Section 4.2)** | Field team | Categorical | Support/Undecided/Oppose/No contact |
+| `field_contact_outcome` | **Canvass result (Section 4.1)** | Field team | Categorical | Support/Undecided/Oppose/No contact |
 | `support_score` | Predicted support (output) | Model | Continuous | 0–1 |
 | `turnout_score` | Predicted turnout (output) | Model | Continuous | 0–1 |
 
@@ -323,7 +323,7 @@ low-turnout voters — the single most valuable GOTV segment
 * **Content personalisation:** different messages to persuadable voters,
 strong supporters and low-propensity voters
 * **Volunteer routing:** ground teams directed to highest-persuasion-potential
-households first (Section 4.2)
+households first (Section 4.1)
 
 ### 6.2.7 The compliance gate this depends on
 
@@ -375,13 +375,13 @@ This section specifies the six core software components of the campaign: the **S
 
 #### 1. SMS / USSD Telecommunications Gateway
 *   **Tooling Recommendation:** **Africa's Talking API Suite** (or Safaricom Direct Enterprise SDP Gateway).
-*   **Function & Purpose:** Powers the offline communications engine (Section 4.3 & 10.1). Dispatches targeted, opt-in bulk 2G SMS to registered voters across 40 wards, manages the zero-rated interactive USSD menu (`*483*XX#`), and handles inbound field report ingestion from the 400 Ward Captains.
+*   **Function & Purpose:** Powers the offline communications engine (Section 4.2). Dispatches targeted, opt-in bulk 2G SMS to registered voters across 40 wards, manages the zero-rated interactive USSD menu (`*483*XX#`), and handles inbound field report ingestion from the 400 Ward Captains.
 *   **Cost Structure:**
     *   *Dedicated Sender ID / Shortcode Setup:* ~Ksh 30,000–50,000 (one-off CAK/Telco registration).
     *   *Dedicated USSD Channel:* ~Ksh 25,000/month hosting fee.
     *   *Per-Message SMS Traffic:* Ksh 0.60–0.80 per 160-character SMS (Volume Tier: ~1,500,000 outbound messages across campaign lifecycle = ~Ksh 900,000–1,200,000).
 *   **Data Held & Processed:** Voter mobile phone numbers (MSISDN), geolocation ward tags, inbound USSD survey responses, delivery receipt timestamps, and opt-out trigger logs.
-*   **DPA 2019 Exposure & Compliance:** **HIGH RISK.** Telecommunications data constitutes direct personal data (Section 4.4). Requires explicit opt-in confirmation logs, automated STOP opt-out processing within 15 seconds, and signed Data Processing Agreements (DPA) with the gateway aggregator.
+*   **DPA 2019 Exposure & Compliance:** **HIGH RISK.** Telecommunications data constitutes direct personal data (Section 4.4 of the DPA 2019). Requires explicit opt-in confirmation logs, automated STOP opt-out processing within 15 seconds, and signed Data Processing Agreements (DPA) with the gateway aggregator.
 *   **Procurement Status:** **Awaiting campaign decision** *(Vendor selection between Africa's Talking vs. Safaricom SDP Enterprise)*.
 
 ---
@@ -407,7 +407,7 @@ This section specifies the six core software components of the campaign: the **S
     *   *Social Publishing Tier (Hootsuite/Buffer Team Plan):* ~Ksh 15,000–25,000/month ($120–$200/mo).
     *   *Social Listening & Monitoring Tier (Brand24 Pro/Enterprise):* ~Ksh 30,000–45,000/month ($250–$350/mo).
 *   **Data Held & Processed:** Public social media posts, comments, engagement metrics, sentiment scores, influencer handles, and public reach metrics.
-*   **DPA 2019 Exposure & Compliance:** **LOW TO MODERATE RISK.** Processes only publicly accessible posts and aggregated sentiment metadata. Compliant with Section 4.4 provided individual user profiles are not scraped or merged into private voter records without consent.
+*   **DPA 2019 Exposure & Compliance:** **LOW TO MODERATE RISK.** Processes only publicly accessible posts and aggregated sentiment metadata. Compliant with Section 4.4 of the DPA 2019 provided individual user profiles are not scraped or merged into private voter records without consent.
 *   **Procurement Status:** **Awaiting campaign decision** *(Approval of monthly software subscription allocation)*.
 
 ---
@@ -506,7 +506,7 @@ anchored to the ~200,000-vote threshold.
 | YouTube view | View-through | Google Ads |
 | Website visit | Multi-touch weighted | GA4 |
 | Email open | Position-based | Email platform |
-| **Field canvass contact** | Direct event | Ward champion form (Section 4.2) |
+| **Field canvass contact** | Direct event | Ward champion form (Section 4.1) |
 
 ### 6.4.3 Tracking offline conversion
 

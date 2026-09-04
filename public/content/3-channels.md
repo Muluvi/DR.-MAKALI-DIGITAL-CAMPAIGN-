@@ -28,7 +28,7 @@ According to the official **2019 Kenya National Bureau of Statistics (KNBS) Cens
 >
 > If the campaign captures **100% of every single internet-connected voter in Kitui County**, it would assemble only **~72,455 votes**—leaving the candidate **125,549 votes short** of the 198,004 benchmark.
 >
-> Therefore, digital channels alone **cannot mathematically win this election**. Victory depends on dominating the offline media and field infrastructure (Section 4.3), while using digital channels (Section 4.2) with surgical precision to shape elite opinion, organize youth volunteers, and mobilize the out-of-county diaspora.
+> Therefore, digital channels alone **cannot mathematically win this election**. Victory depends on dominating the offline media and field infrastructure (Section 4.2), while using digital channels (Section 4.1) with surgical precision to shape elite opinion, organize youth volunteers, and mobilize the out-of-county diaspora.
 
 ---
 
@@ -451,7 +451,7 @@ radio — reaches everyone else.
 
 Vernacular radio is the primary medium of political consciousness and daily news in rural and peri-urban Kitui County. However, the media environment in Eastern Kenya is characterized by severe political concentration: **the highest-reach commercial radio stations broadcasting in Kikamba are owned, financed, or editorially steered by active political rivals or entrenched party gatekeepers**.
 
-To ensure uninterrupted, high-credibility communication with the electorate, the campaign constructs a dual strategy: a disciplined operational engagement model for Tier 1 commercial networks, coupled with an aggressive bypass architecture detailed in **Section 3.4.3**.
+To ensure uninterrupted, high-credibility communication with the electorate, the campaign constructs a dual strategy: a disciplined operational engagement model for Tier 1 commercial networks, coupled with an aggressive bypass architecture detailed in **Section 3.4.2**.
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
@@ -631,7 +631,7 @@ To capture objective news coverage on mainstream national and regional platforms
                                 aligned with rival factions or party gatekeepers.
  • Provenance Standard:         Listenership share figures are marked as Required Primary
                                 Research rather than speculatively estimated.
- • Section 3.4.3 Workaround:    Bypasses hostile gatekeepers via Church/Community radio
+ • Section 3.4.2 Workaround:    Bypasses hostile gatekeepers via Church/Community radio
                                 (Wikwatyo/Mang'elete), 2G SMS, USSD, 8 PA sound trucks,
                                 and 400 village megaphone broadcast points.
  • Earned Media Discipline:     Focuses on evidence-backed national exclusives, on-site
@@ -939,7 +939,7 @@ important content last.
 | **Website** | **WCAG 2.1 AA** — semantic structure, keyboard navigation, contrast ratios, alt text on every image and infographic, no information conveyed by colour alone |
 | **Plain language** | Every policy document paired with a **one-page plain-language summary** in all three languages, written to be read aloud |
 | **Audio versions** | Every flagship policy item available as audio, distributable by WhatsApp, voice note and radio |
-| **Low bandwidth** | Text-first fallbacks; compressed images; a site that loads on 3G; SMS and USSD paths to the same information (Section 4.3) |
+| **Low bandwidth** | Text-first fallbacks; compressed images; a site that loads on 3G; SMS and USSD paths to the same information (Section 4.2) |
 | **Print** | Ward-level materials in large print with QR and USSD codes |
 
 ### 3.6.3 Accessibility KPIs

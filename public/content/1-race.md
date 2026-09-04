@@ -528,7 +528,7 @@ This represents **51.72% of the entire Kitui County voter register**.
 #### Strategic Operational Mandate:
 Because **over 51% of the county register sits in Dr. Mulu's primary recognition deficit zones**, the campaign cannot rely on organic voter spillover from Kitui Central. The digital and field apparatus must execute a targeted resource reallocation:
 *   **65% of all Phase −1 digital ad spend (Meta, Google, YouTube)** must be geofenced exclusively to Mwingi North, Mwingi Central, Mwingi West, and Kitui South.
-*   **70% of the offline SMS/USSD onboarding infrastructure** (Section 4.3) and **240 of the 400 Ward Captains** (Section 9.1.2) must be concentrated in these 24 northern and southern deficit wards.
+*   **70% of the offline SMS/USSD onboarding infrastructure** (Section 4.2) and **240 of the 400 Ward Captains** (Section 9.1.2) must be concentrated in these 24 northern and southern deficit wards.
 *   The "Economist Governor" messaging in these wards must emphasize countywide fiscal redistribution, showing how Dr. Mulu's public finance oversight will direct water and health infrastructure capital into historically neglected rural wards like Kyuso, Tseikuru, Athi, and Mutha.
 
 ---
@@ -623,7 +623,7 @@ networks, and responsible management of mineral resource wealth for local
 benefit.
 
 **This is where the connectivity gap bites hardest and where SMS/USSD (Section
-4.3) does the heavy lifting.** Digital-only reach into Ikutha at 9 persons/km²
+4.2) does the heavy lifting.** Digital-only reach into Ikutha at 9 persons/km²
 is not a strategy; it is an assumption. Mapped against the 2022 baseline register,
 registered voters in Kitui South total 75,372, distributed across six wards: Athi (15,843),
 Ikanga/Kyatune (15,384), Mutomo/Kibwea (12,637), Ikutha (12,066), Mutha (11,039), and Kanziko (8,403).

@@ -315,7 +315,7 @@ proposal claims to embody, applied to its own first assumption.
 - Kikamba voice-note series from Dr. Mulu — one per week, distributed by
   WhatsApp and ward networks
 - Earned media push: Tier C expert placements on county fiscal management
-  (Section 3.4.4), plus priority-station radio
+  (Section 3.4.3), plus priority-station radio
 - **One message-lab round across all three zones** (Section 8.4) — mandatory
 - Publish the Digital Ethics & Data Charter — a differentiating news moment in
   its own right during a nomination contest

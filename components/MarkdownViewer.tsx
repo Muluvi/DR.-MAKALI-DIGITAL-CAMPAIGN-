@@ -274,9 +274,15 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "team-sec-7-2": <CampaignOrgChart />,
   "ask-sec-9-2-5": <BudgetScenarioModeler />,
   "ask-sec-9-2-7": <ComplianceCeilingPanel />,
-  "ground-sec-4-1": <TerminalShowcase />,
-  "ground-sec-4-2": <FlywheelSchematic />,
-  "ground-sec-4-3": (
+  // §4.1 and §4.2 merged into one loop section (M18): the field terminal and the
+  // flywheel schematic now open the same section.
+  "ground-sec-4-1": (
+    <>
+      <TerminalShowcase />
+      <FlywheelSchematic />
+    </>
+  ),
+  "ground-sec-4-2": (
     <>
       <ReachSplit />
       <SMSFeedbackVisualizer />
