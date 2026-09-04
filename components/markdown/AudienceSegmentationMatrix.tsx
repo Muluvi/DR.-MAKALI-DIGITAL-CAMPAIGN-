@@ -141,7 +141,7 @@ export function AudienceSegmentationMatrix() {
           </div>
           <div>
             <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-              Audience architecture · 2.4
+              Audience architecture
             </span>
             <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-1">Six structural segments</h4>
           </div>

@@ -67,7 +67,7 @@ import { CampaignOrgChart } from "./markdown/CampaignOrgChart";
 import { CrisisWarRoomMatrix } from "./markdown/CrisisWarRoomMatrix";
 import { DataSecurityEthicsCharter } from "./markdown/DataSecurityEthicsCharter";
 import { DISPUTED_FIGURES } from "../data/disputed-figures";
-import { headingSlug, sectionId, TAB_LABELS, type TabId } from "../lib/heading-slug";
+import { headingSlug, sectionId, type TabId } from "../lib/heading-slug";
 
 const kituiCentralPopulationDispute = DISPUTED_FIGURES.find((d) => d.id === "kitui-central-2019-population")!;
 
@@ -470,7 +470,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
               const insert = id ? HEADING_INSERTS[id] : HEADING_TEXT_INSERTS[text.trim()];
               return (
                 <>
-                  <SectionHeading id={id} level={2} eyebrow={TAB_LABELS[tabId]}>{children}</SectionHeading>
+                  <SectionHeading id={id} level={2}>{children}</SectionHeading>
                   {insert}
                 </>
               );

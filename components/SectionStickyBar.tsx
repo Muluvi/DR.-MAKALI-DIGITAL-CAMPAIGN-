@@ -3,11 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Compact bar that names the section currently in view. Both the "have we
- * scrolled past the toolbar" state and the "which heading is current" state
- * are derived from IntersectionObserver entries — no scroll listener.
+ * Compact bar naming where the reader currently is: the top-level section they are in, and the
+ * sub-section in view. Both the "have we scrolled past the toolbar" state and the "which heading
+ * is current" state are derived from IntersectionObserver entries — no scroll listener.
+ *
+ * The section name is always shown once the bar appears, so current position never depends on
+ * having scrolled a heading into view.
  */
-export function SectionStickyBar() {
+export function SectionStickyBar({ sectionLabel }: { sectionLabel?: string }) {
   const sentinelRef = useRef<HTMLDivElement>(null);
   const [stuck, setStuck] = useState(false);
   const [headingText, setHeadingText] = useState<string | null>(null);
@@ -55,7 +58,7 @@ export function SectionStickyBar() {
     };
   }, []);
 
-  const showBar = stuck && Boolean(headingText);
+  const showBar = stuck && Boolean(headingText || sectionLabel);
 
   return (
     <>
@@ -65,13 +68,21 @@ export function SectionStickyBar() {
           showBar ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"
         }`}
       >
-        {headingText && (
+        {(headingText || sectionLabel) && (
           <div className="pointer-events-auto px-2 sm:px-0">
             <div className="inline-flex items-center gap-2 max-w-full bg-card/95 backdrop-blur-md border border-line/60 shadow-md rounded-full pl-2.5 pr-3.5 py-1.5 sm:px-4 sm:py-2">
               <span className="w-2 h-2 rounded-full bg-accent shrink-0" aria-hidden="true" />
-              {/* Responsive section label */}
-              <span className="hidden sm:inline text-xs font-bold text-ink truncate max-w-md">{headingText}</span>
-              <span className="sm:hidden t-small font-bold text-ink truncate max-w-[68vw]">{headingText}</span>
+              {sectionLabel && (
+                <span className="text-xs font-semibold text-accent shrink-0 max-w-[38vw] sm:max-w-none truncate">
+                  {sectionLabel}
+                </span>
+              )}
+              {sectionLabel && headingText && (
+                <span className="w-px h-3 bg-line shrink-0" aria-hidden="true" />
+              )}
+              {headingText && (
+                <span className="text-xs font-medium text-muted truncate max-w-[42vw] sm:max-w-md">{headingText}</span>
+              )}
             </div>
           </div>
         )}

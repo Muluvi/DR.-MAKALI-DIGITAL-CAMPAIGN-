@@ -667,7 +667,7 @@ networks, and responsible management of mineral resource wealth for local
 benefit.
 
 **This is where the connectivity gap bites hardest and where SMS/USSD (Section
-3.1B) does the heavy lifting.** Digital-only reach into Ikutha at 9 persons/km²
+4.3) does the heavy lifting.** Digital-only reach into Ikutha at 9 persons/km²
 is not a strategy; it is an assumption. Mapped against the 2022 baseline register,
 registered voters in Kitui South total 75,372, distributed across six wards: Athi (15,843),
 Ikanga/Kyatune (15,384), Mutomo/Kibwea (12,637), Ikutha (12,066), Mutha (11,039), and Kanziko (8,403).

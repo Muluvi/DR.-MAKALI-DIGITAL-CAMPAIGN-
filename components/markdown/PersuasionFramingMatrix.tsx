@@ -121,7 +121,7 @@ export function PersuasionFramingMatrix() {
           <div>
             <div className="flex items-center gap-2">
               <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Persuasion architecture · 2.8
+                Persuasion architecture
               </span>
               <span className="t-label font-mono font-bold text-muted">
                 Behavioural Economics

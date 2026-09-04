@@ -101,7 +101,7 @@ export function DataSecurityEthicsCharter() {
           <div>
             <div className="flex items-center gap-2">
               <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Ethics and data charter · 6.5
+                Ethics and data charter
               </span>
               <span className="t-label font-mono font-bold text-muted">
                 DPA 2019 & IEBC Compliance

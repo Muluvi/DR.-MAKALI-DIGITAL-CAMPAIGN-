@@ -94,7 +94,7 @@ export function ReachSplit() {
     <div ref={ref} className="my-10 not-prose">
       <div className="flex items-center gap-2 flex-wrap mb-4">
         <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-          Channel architecture · 3.1
+          Channel architecture
         </span>
         <TierBadge tier={1} compact />
       </div>

@@ -35,39 +35,41 @@ function CopyLinkButton({ id }: { id: string }) {
 export function SectionHeading({
   id,
   level,
-  eyebrow,
   accentColor,
   children,
 }: {
   id: string | null;
+  /** 2 for a sub-section, 3 for one of its parts. */
   level: 2 | 3;
-  /** Running-header label above a major (h2) heading — which of the six parts it belongs to. */
-  eyebrow?: string;
   /** Overrides the default gold left border, e.g. a campaign-phase colour. */
   accentColor?: string;
   children: React.ReactNode;
 }) {
+  // A sub-section opens a new argument and carries a left bar; a part is a step inside it and
+  // carries none. The running position is the sticky bar's job, not a repeated eyebrow above
+  // every heading.
+  //
+  // Size and vertical rhythm are deliberately NOT set here. They live in app/globals.css under
+  // .prose, which reaches these elements with higher specificity than a utility class and which
+  // the reading-density control restates with !important — so margins set here were silently
+  // discarded. One owner for spacing means the density control actually moves everything.
   const Tag = level === 2 ? "h2" : "h3";
   const baseClass =
     level === 2
-      ? "font-serif text-base sm:text-lg md:text-xl font-semibold text-ink mt-7 sm:mt-10 mb-3 border-l-4 pl-3 leading-snug tracking-tight text-balance"
-      : "font-serif text-sm sm:text-base font-semibold text-accent mt-5 sm:mt-7 mb-2 leading-snug tracking-normal text-balance";
+      ? "font-serif font-semibold text-ink border-l-4 pl-3.5 leading-snug tracking-tight text-balance"
+      : "font-serif font-semibold text-accent leading-snug tracking-normal text-balance";
+  // A phase heading takes its own campaign-stage colour. This previously set a border colour on
+  // an element with no border width, so it never showed; the width is now set alongside it.
+  const phaseBorder = level === 3 && accentColor ? "border-l-4 pl-3" : "";
 
   return (
-    <>
-      {eyebrow && (
-        <div className="eyebrow-label mt-7 sm:mt-10 not-prose t-label sm:text-xs font-semibold uppercase tracking-wider text-muted" aria-hidden="true">
-          {eyebrow}
-        </div>
-      )}
-      <Tag
-        id={id ?? undefined}
-        className={`${baseClass} group scroll-mt-28 flex items-center gap-2 ${eyebrow ? "!mt-1" : ""} ${!accentColor ? "border-gold" : ""}`}
-        style={accentColor ? { borderColor: accentColor } : undefined}
-      >
-        <span>{children}</span>
-        {id && <CopyLinkButton id={id} />}
-      </Tag>
-    </>
+    <Tag
+      id={id ?? undefined}
+      className={`${baseClass} ${phaseBorder} group scroll-mt-28 flex items-center gap-2 ${level === 2 && !accentColor ? "border-gold" : ""}`}
+      style={accentColor ? { borderColor: accentColor } : undefined}
+    >
+      <span>{children}</span>
+      {id && <CopyLinkButton id={id} />}
+    </Tag>
   );
 }

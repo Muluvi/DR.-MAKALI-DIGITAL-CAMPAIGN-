@@ -132,7 +132,7 @@ export function GeographicZoneMatrix() {
           <div>
             <div className="flex items-center gap-2 flex-wrap">
               <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Regional dynamics · 1.4
+                Regional dynamics
               </span>
               <TierBadge tier={1} compact />
             </div>

@@ -78,7 +78,7 @@ export function StrategicPillarsMatrix() {
           <div>
             <div className="flex items-center gap-2">
               <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Campaign pillars · 2.2
+                Campaign pillars
               </span>
               <span className="t-label font-mono font-bold text-muted">
                 Core Policy Architecture

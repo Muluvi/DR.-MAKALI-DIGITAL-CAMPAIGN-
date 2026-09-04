@@ -96,7 +96,7 @@ export function CrisisWarRoomMatrix() {
           <div>
             <div className="flex items-center gap-2">
               <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                War room · 5.2
+                War room
               </span>
               <span className="t-label font-mono font-bold text-muted">
                 Digital War Room
