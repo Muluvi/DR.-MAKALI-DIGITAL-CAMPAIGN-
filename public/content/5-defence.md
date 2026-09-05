@@ -217,7 +217,7 @@ All campaign communicators, surrogates, and media buyers are strictly bound by t
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 15 STRATEGIC TAKEAWAY
+              RAPID RESPONSE — TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • 4-Tier Decision Matrix:      Prevents elevating fringe attacks while ensuring 
                                 <15 min radio rebuttals and <30 min WhatsApp containment.

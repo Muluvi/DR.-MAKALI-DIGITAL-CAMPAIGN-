@@ -249,7 +249,7 @@ To maintain operational tempo across 8 constituencies and 40 wards, the campaign
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 10 STRATEGIC TAKEAWAY
+             FIELD & DIGITAL — TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Closed-Loop Engine:   Field intel from 40 Ward Coordinators feeds digital/radio
                          messaging within a 4-hour rapid response cycle.
@@ -287,7 +287,7 @@ rather than where measurement is convenient.
 **Consent-first architecture.** Every number in the campaign database arrives
 by opt-in: a USSD self-registration, a signed baraza sheet with a clear data
 notice, a WhatsApp opt-in confirmation, a website form, or a missed-call
-opt-in. **No purchased lists. Ever.** See Sections 3.5.4 and 16.5 for the
+opt-in. **No purchased lists. Ever.** See Sections 6.1.5 and 6.5.1 for the
 regulatory basis; the short version is that the industry code requires express
 opt-in for political messages and the ODPC has demonstrated willingness to
 penalise unsolicited messaging.

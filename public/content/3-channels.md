@@ -195,7 +195,7 @@ The campaign enforces an explicit mathematical alignment rule:
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 9 STRATEGIC TAKEAWAY
+          CHANNEL ARCHITECTURE — TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • The Digital Ceiling: Digital reaches ~72,455 voters (13.6%), capable of 
                         delivering only 36.2% of the 200,000 threshold.
@@ -625,7 +625,7 @@ To capture objective news coverage on mainstream national and regional platforms
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 17 STRATEGIC TAKEAWAY
+           EARNED MEDIA & RADIO — TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Structural Vulnerability:    Tier 1 commercial Kamba radio stations are politically
                                 aligned with rival factions or party gatekeepers.
@@ -793,7 +793,7 @@ A flawed translation—or an urban, anglicized phrasing of a traditional Kikamba
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 18 STRATEGIC TAKEAWAY
+                 LANGUAGE — TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Trilingual Segmentation:     Kikamba drives grassroots trust (76% reach), Kiswahili
                                 energizes urban trade (16%), English governs policy (8%).

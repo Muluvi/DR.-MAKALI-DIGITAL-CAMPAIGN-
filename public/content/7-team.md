@@ -70,7 +70,7 @@ return** (Section 9.2.4).
 * Continuous sentiment monitoring across platforms.
 * Rapid-response statements managing emerging narratives or opponent claims.
 * Real-time monitoring and countering of misinformation and manipulated media
-(Sections 2.6 and 16A).
+(Sections 2.6.2 and 5.2.4).
 
 
 ## 7.2 The team, and how it is governed

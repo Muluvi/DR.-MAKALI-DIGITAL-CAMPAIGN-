@@ -211,7 +211,7 @@ Political messaging, bulk SMS broadcasting, and voter profiling operate under st
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 8 STRATEGIC TAKEAWAY
+             THE DATA LAYER — TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Architecture: Relational, AES-256 encrypted voter model mapped to 40 wards.
  • Provenance:   Tri-partite metadata standard (Source, Date, Geography) on every
@@ -473,7 +473,7 @@ To ensure 100% operational uptime and protect campaign systems from infiltration
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 11 STRATEGIC TAKEAWAY
+            DATA & COMPLIANCE — TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Modular Architecture: 5 integrated components connecting offline 2G telecom 
                          gateways to encrypted cloud CRMs and public web trackers.

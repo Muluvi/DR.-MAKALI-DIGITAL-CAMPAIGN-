@@ -267,7 +267,7 @@ To uphold the campaign's rigorous data integrity standard, the following empiric
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 7 STRATEGIC TAKEAWAY
+          AUDIENCE ARCHITECTURE — TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Audience Architecture: 86.2% Rural, 13.8% Urban, ~44% Youth (18-35).
  • Channel Strategy:      Vernacular radio & offline SMS capture the 86.4% offline
@@ -452,7 +452,7 @@ Under the campaign's Provenance Discipline (Section 6.1.2), **no claim is made w
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 13 STRATEGIC TAKEAWAY
+           AUDIENCES & MESSAGE — TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Central Proposition: "The Proven Economist for Kitui's Economy" — anchored on
                         13 years of clean audit records and fiscal expertise.
@@ -682,7 +682,7 @@ All creative assets are stored in a centralized, cloud-backed Digital Asset Mana
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 14 STRATEGIC TAKEAWAY
+            CONTENT PRODUCTION — TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Offline Broadcast Dominance: Content engine prioritizes 45s Kikamba radio spots,
                                 2G SMS, USSD menus, and printed baraza photobooks.
