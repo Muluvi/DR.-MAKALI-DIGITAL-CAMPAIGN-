@@ -23,10 +23,9 @@ interface Kpi {
   code: string;
   title: string;
   definition: string;
-  baseline: number;
+  /** Null until the Week 1 baseline instrument runs — §8.1.1 carries no measured start point. */
+  baseline: number | null;
   baselineLabel: string;
-  /** True where §8.1.1 marks the baseline "(Est. Baseline)" rather than measured. */
-  baselineIsEstimate: boolean;
   target: number;
   targetLabel: string;
   owner: string;
@@ -38,9 +37,8 @@ const KPIS: Kpi[] = [
     code: "NW-01",
     title: "Wiper ballot preference share",
     definition: "Sampled likely Wiper primary voters naming Dr. Mulu as first choice.",
-    baseline: 38.5,
-    baselineLabel: "38.5%",
-    baselineIsEstimate: true,
+    baseline: null,
+    baselineLabel: "Not yet measured",
     target: 55,
     targetLabel: "≥ 55.0%",
     owner: "Head of Research & Polling",
@@ -50,9 +48,8 @@ const KPIS: Kpi[] = [
     code: "NW-02",
     title: "Northern sub-county name ID",
     definition: "Spontaneous plus aided recognition across Mwingi North, Central and West.",
-    baseline: 42,
-    baselineLabel: "42.0%",
-    baselineIsEstimate: true,
+    baseline: null,
+    baselineLabel: "Not yet measured",
     target: 70,
     targetLabel: "≥ 70.0%",
     owner: "Comms Director",
@@ -62,9 +59,8 @@ const KPIS: Kpi[] = [
     code: "NW-03",
     title: "Fiscal integrity salience",
     definition: "Voters ranking a clean audit record as their first or second voting criterion.",
-    baseline: 31,
-    baselineLabel: "31.0%",
-    baselineIsEstimate: false,
+    baseline: null,
+    baselineLabel: "Not yet measured",
     target: 60,
     targetLabel: "≥ 60.0%",
     owner: "Policy & Strategy Lead",
@@ -74,9 +70,8 @@ const KPIS: Kpi[] = [
     code: "NW-04",
     title: "Branch executive endorsement",
     definition: "Signed support pledges from sub-county Wiper executive branch committees.",
-    baseline: 37.5,
-    baselineLabel: "3 of 8 branches",
-    baselineIsEstimate: false,
+    baseline: null,
+    baselineLabel: "Confirm with party",
     target: 100,
     targetLabel: "8 of 8 branches",
     owner: "Political Affairs Director",
@@ -102,9 +97,10 @@ export function NominationScorecard() {
         </span>
       </div>
       <p className="text-xs text-muted leading-relaxed mb-5 max-w-3xl">
-        Section 8.1.1 sets four KPIs for the nomination window. The bar shows the distance from the
-        stated baseline to the target objective — the gap the engagement exists to close. No work
-        has been performed against these; the campaign has not been engaged.
+        Section 8.1.1 sets four KPIs for the nomination window. The bar shows each target. No
+        baseline is drawn: none has been measured, and Section 1.3.6 records that no published
+        poll reports these quantities. Each is established by the Week 1 instrument. No work has
+        been performed against these; the campaign has not been engaged.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -120,7 +116,7 @@ export function NominationScorecard() {
                   <div className="min-w-0">
                     <div className="flex items-center gap-1.5">
                       <span className="font-mono t-label font-black text-accent">{kpi.code}</span>
-                      {kpi.baselineIsEstimate && <ClaimBadge status="estimate" compact />}
+                      {kpi.baseline === null && <ClaimBadge status="estimate" compact />}
                     </div>
                     <h4 className="text-sm font-bold text-ink leading-tight mt-0.5">{kpi.title}</h4>
                   </div>
@@ -132,26 +128,15 @@ export function NominationScorecard() {
               <div
                 className="relative h-7 rounded-lg bg-line/40 overflow-hidden"
                 role="img"
-                aria-label={`${kpi.title}: baseline ${kpi.baselineLabel}, target ${kpi.targetLabel}`}
+                aria-label={`${kpi.title}: baseline ${kpi.baselineLabel}; target ${kpi.targetLabel}`}
               >
-                {/* Baseline block — where the campaign starts. */}
+                {/* Target only. With no measured baseline there is no distance to draw, and
+                    drawing one from an assumed start point is what §8.1.1 got wrong. */}
                 <motion.div
-                  className="absolute inset-y-0 left-0 bg-muted/25"
+                  className="absolute inset-y-0 left-0 bg-accent/30 border-r-2 border-accent"
                   initial={{ scaleX: 0 }}
                   animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
-                  style={{ width: `${kpi.baseline}%`, transformOrigin: "left" }}
-                  transition={{ duration: 0.52, ease: [0.16, 1, 0.3, 1], delay: i * 0.06 }}
-                />
-                {/* The gap to close — the actual argument. */}
-                <motion.div
-                  className="absolute inset-y-0 bg-accent/30 border-r-2 border-accent"
-                  initial={{ scaleX: 0 }}
-                  animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
-                  style={{
-                    left: `${kpi.baseline}%`,
-                    width: `${kpi.target - kpi.baseline}%`,
-                    transformOrigin: "left",
-                  }}
+                  style={{ width: `${kpi.target}%`, transformOrigin: "left" }}
                   transition={{ duration: 0.52, ease: [0.16, 1, 0.3, 1], delay: 0.14 + i * 0.06 }}
                 />
               </div>

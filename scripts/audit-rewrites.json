@@ -1,0 +1,90 @@
+[
+ {
+  "before": "A key strategic finding emerges from this integrated database: **Mwingi North, Mwingi West, and Mwingi Central together command exactly 200,198 registered voters (Tier 1).** This total is mathematically greater than the entire 2022 winning threshold (198,004 votes, Tier 1). This proves that consolidating voter turnout and preference across the northern sub-counties can unilaterally secure a gubernatorial victory. This finding informs the campaign's geographic prioritization, directing immediate SMS/USSD and digital outreach to establish Dr. Mulu as the dominant alternative in Mwingi.",
+  "after": "A key strategic finding emerges from this integrated database: **Mwingi North, Mwingi West, and Mwingi Central together command exactly 200,198 registered voters (Tier 1).** That is more *registered voters* than the 2022 winning vote total (198,004 votes, Tier 1) — but registration is not turnout. At the county's 62% turnout baseline the Mwingi bloc yields roughly **124,100 ballots**, so even total dominance there leaves the campaign about 74,000 votes short. Mwingi is therefore **necessary and not sufficient**: no path to 200,000 runs around it, and none ends there. This finding informs the campaign's geographic prioritization, directing immediate SMS/USSD and digital outreach to establish Dr. Mulu as the dominant alternative in Mwingi."
+ },
+ {
+  "before": "*   **Strategic Implication:** The northern three constituencies possess enough registered voters to meet the entire historical victory threshold on their own. Consolidating a decisive margin in Mwingi is a mathematically sufficient foundation for victory.",
+  "after": "*   **Turnout Reality:** At the 62.0% turnout baseline these 200,198 registered voters produce approximately **124,100 actual ballots cast**. Even an unprecedented 80% share of them ($99,280$ votes) leaves the campaign roughly **99,000 votes short** of the 200,000 threshold.\n*   **Strategic Implication:** The Mwingi bloc is the largest single reservoir of votes in the county and the campaign cannot win without a decisive margin in it — but it cannot win on it alone either. Mwingi is the necessary foundation, paired with Kitui South and the home belt."
+ },
+ {
+  "before": " • Mwingi Triad Proof:       Mwingi 3 sub-counties = 200,198 voters (meets threshold).",
+  "after": " • Mwingi Triad Proof:       Mwingi 3 sub-counties = 200,198 registered (~124,100 ballots)."
+ },
+ {
+  "before": "    *   *Musyi FM (Royal Media Services):* Dominant market leader (>45% listenership in Ukambani); broad multi-generational credibility.\n    *   *Mbaitu FM:* High rural penetration, particularly among women and smallholders.\n    *   *Sang'u FM & Athiani FM:* Strong youth and peri-urban listenership.\n    *   *Syokimau FM & County FM:* Hyper-local community programming.",
+  "after": "    *   *Musyi FM (Royal Media Services):* Dominant market leader in Ukambani; commercially independent. **Priority placement.**\n    *   *County FM (Kitui-based independent):* Local ward news and debates, strong in Kitui Town, Kabati and Kwa Vonza. **Priority placement.**\n    *   *Wikwatyo FM (Seventh-Day Adventist Church, Kitui):* Broad rural community trust. **Priority for community and service-delivery programming.**\n    *   *Mbaitu FM, Syokimau FM (Ngilu-associated) and Athiani FM (Wiper leadership):* **monitoring targets, not placement targets** — see Section 3.5.1 for the ownership map and the posture each one carries."
+ },
+ {
+  "before": "│ (Musyi, Mbaitu, Sang'u)      │ (Under-allocated) │ (Dominant Share)  │ medium reaching 78%+ of voters daily.│",
+  "after": "│ (Musyi, County, Wikwatyo)    │ (Under-allocated) │ (Dominant Share)  │ medium reaching 78%+ of voters daily.│"
+ },
+ {
+  "before": "│    Radio (Musyi, Mbaitu) │                   │                   │                │                         │",
+  "after": "│    Radio (Musyi, County) │                   │                   │                │                         │"
+ },
+ {
+  "before": "│    (Musyi FM / Mbaitu FM)  │ (Royal Media / Mediamax)    │ Required: Negotiate bulk multi-month package rate│",
+  "after": "│    (Musyi FM / County FM)  │ (Royal Media; independent)  │ Required: Negotiate bulk multi-month package rate│"
+ },
+ {
+  "before": "The table below maps the major radio stations broadcasting across Kitui County, categorized by tier, reported corporate ownership, and known political alignment.",
+  "after": "The ownership map, the frequencies and the resulting campaign posture for every\nKikamba-language station are set out once, in **Section 3.5.1**, and that table\ngoverns. It is the version reconciled against `data/media-ownership.ts`, which\nthe site renders directly."
+ },
+ {
+  "before": "```\n┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n│                                KAMBA-LANGUAGE VERNACULAR RADIO LANDSCAPE                                    │\n├──────────────┬───────────────────────────────┬───────────────────────────┬──────────────────────────────────┤\n│ Station Name │ Corporate Ownership & Parent  │ Reported Political        │ Listenership Share &             │\n│ & Frequency  │ Conglomerate                  │ Alignment / Bias          │ Audience Metric Status           │\n├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤\n│ TIER 1: COMMERCIAL HEAVYWEIGHTS (POLITICALLY CONTROLLED / GATEKEEPER NETWORKS)                              │\n├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤\n│ 1. Musyi FM  │ Royal Media Services (RMS)    │ Commercial / Mainstream   │ **[Required Primary Research]**  │\n│    (102.2 FM)│ (SK Macharia Family)          │ Azimio & Wiper Hegemony   │ Kitui-wide reach; highest market │\n│              │                               │ Gatekeeper influence      │ presence across Lower Eastern.   │\n├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤\n│ 2. Mbaitu FM │ Mbaitu FM Media Enterprises   │ Pro-Incumbent / Regional  │ **[Required Primary Research]**  │\n│    (92.5 FM) │ (Associated with Rival Focus) │ Business Interests;       │ Dominant coverage in Kitui Rural,│\n│              │                               │ Competitive Gatekeeper    │ Mutomo, and Kitui South.         │\n├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤\n│ 3. Sang'u FM │ Regional Commercial Entity    │ Aligned with Northern     │ **[Required Primary Research]**  │\n│    (96.2 FM) │ (Kitui Business / Political)  │ Kitui Political Rival     │ Strong signal penetration across │\n│              │                               │ Interests                 │ Mwingi North, Central & West.    │\n├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤\n│ 4. Athiani FM│ Athiani Media Network         │ Politically steered by    │ **[Required Primary Research]**  │\n│    (99.2 FM) │ (Prominent Regional Elite)    │ Machakos/Kitui Rival Bloc │ Key youth and urban market       │\n│              │                               │ & Coalition Gatekeeper    │ listenership in town centers.    │\n├──────────────┴───────────────────────────────┴───────────────────────────┴──────────────────────────────────┤\n│ TIER 2: FAITH-BASED, DIOCESAN & COMMUNITY BROADCASTERS (EDITORIAL INTEGRITY / NEUTRAL)                     │\n├──────────────┬───────────────────────────────┬───────────────────────────┬──────────────────────────────────┤\n│ 5. Radio     │ Catholic Diocese of Kitui     │ **Strictly Neutral**      │ **[Required Primary Research]**  │\n│    Wikwatyo  │ (Bishop / Diocesan Comms)     │ Pastoral / Civic Education│ Broad rural community trust;     │\n│    (107.1 FM)│                               │ High Credibility Factor   │ zero political candidate capture.│\n├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤\n│ 6. Syokimau  │ Independent Faith Entity      │ **Faith-Based / Neutral** │ **[Required Primary Research]**  │\n│    FM        │ (Lower Eastern Christian Com) │ Community Development &   │ Dedicated church fellowship and  │\n│              │                               │ Family Stewardship        │ women chama audience base.       │\n├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤\n│ 7. Radio     │ Community Media Trust         │ **Grassroots / Neutral**  │ **[Required Primary Research]**  │\n│    Mang'elete│ (Kibwezi / Southern Border)   │ Agrarian, Water, Women &  │ Deep penetration in Kitui South, │\n│    (89.1 FM) │                               │ Ecological Resilience     │ Ikutha, and Mutha borderlands.   │\n├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤\n│ 8. County FM │ Kitui Local Media Consortium  │ **Independent Commercial**│ **[Required Primary Research]**  │\n│    (90.3 FM) │ (Local Journalists / Business)│ Local Ward News & Debates;│ Strong presence in Kitui Town,   │\n│              │                               │ Open to Issue-Based Ads   │ Kabati, and Kwa Vonza.           │\n└──────────────┴───────────────────────────────┴───────────────────────────┴──────────────────────────────────┘\n```",
+  "after": "The three structural facts that drive the rest of this section:\n\n*   **Two stations are associated with Charity Ngilu**, a declared general-election rival: **Mbaitu FM** and **Syokimau FM**. Both are monitoring targets, not placement targets.\n*   **One station is associated with Kalonzo Musyoka**, the Wiper party leader: **Athiani FM**. It is party-sensitive rather than hostile, and it matters most during the nomination window, when coverage may track party leadership sentiment rather than merit.\n*   **The stations open to the campaign are commercially or institutionally independent**: **Musyi FM** (Royal Media Services), **County FM** (Kitui-based independent) and **Wikwatyo FM** (Seventh-Day Adventist Church, Kitui). These carry the placement budget.\n\nOwnership associations are publicly reported rather than certified, and media\nownership changes. Section 3.5.1 carries the standing instruction to verify and\nupdate this map before any placement is booked."
+ },
+ {
+  "before": "│    Community Radio Dominance   │   (Catholic Diocese of Kitui)**, **Syokimau FM**, and **Radio Mang'elete**.│",
+  "after": "│    Community Radio Dominance   │   (Seventh-Day Adventist, Kitui)**, **County FM**, **Mang'elete**.         │"
+ },
+ {
+  "before": "│ **NW-01:**  │ % of sampled likely      │ 38.5%     │ **≥ 55.0%**│ Rolling 7-day    │ Head of   │ Weekly /    │\n│ Wiper Ballot│ Wiper primary voters     │ (Est.     │ Primary   │ Tracking Poll    │ Research  │ Fortnightly │\n│ Preference  │ naming Dr. Makali Mulu as│ Baseline) │ Preference│ ($N = 400$ CATI) │ & Polling │             │",
+  "after": "│ **NW-01:**  │ % of sampled likely      │ Not yet   │ **≥ 55.0%**│ Rolling 7-day    │ Head of   │ Weekly /    │\n│ Wiper Ballot│ Wiper primary voters     │ measured  │ Primary   │ Tracking Poll    │ Research  │ Fortnightly │\n│ Preference  │ naming Dr. Makali Mulu as│ (Week 1)  │ Preference│ ($N = 400$ CATI) │ & Polling │             │"
+ },
+ {
+  "before": "│ **NW-02:**  │ Spontaneous + aided name │ 42.0%     │ **≥ 70.0%**│ Sub-County CATI  │ Comms     │ Fortnightly │\n│ Northern    │ recognition in Mwingi    │ (North    │ Name ID   │ Poll booster in  │ Director  │ Tracking    │\n│ Sub-County  │ North, Central & West    │ Baseline) │           │ Mwingi North &   │           │             │",
+  "after": "│ **NW-02:**  │ Spontaneous + aided name │ Not yet   │ **≥ 70.0%**│ Sub-County CATI  │ Comms     │ Fortnightly │\n│ Northern    │ recognition in Mwingi    │ measured  │ Name ID   │ Poll booster in  │ Director  │ Tracking    │\n│ Sub-County  │ North, Central & West    │ (Week 1)  │           │ Mwingi North &   │           │             │"
+ },
+ {
+  "before": "│ **NW-03:**  │ Voter ranking of \"Clean  │ 31.0%     │ **≥ 60.0%**│ Issue Salience   │ Policy &  │ Fortnightly │\n│ Fiscal      │ Audit Record / Anti-     │           │ Issue     │ Index in County  │ Strategy  │             │\n│ Integrity   │ Corruption\" as the #1 or │           │ Salience  │ Tracking Survey  │ Lead      │             │",
+  "after": "│ **NW-03:**  │ Voter ranking of \"Clean  │ Not yet   │ **≥ 60.0%**│ Issue Salience   │ Policy &  │ Fortnightly │\n│ Fiscal      │ Audit Record / Anti-     │ measured  │ Issue     │ Index in County  │ Strategy  │             │\n│ Integrity   │ Corruption\" as the #1 or │ (Week 1)  │ Salience  │ Tracking Survey  │ Lead      │             │"
+ },
+ {
+  "before": "│ **NW-04:**  │ Verified, signed support │ 3 / 8     │ **8 / 8** │ Formal written   │ Political │ Weekly      │\n│ Branch Exec │ pledges from Sub-County  │ Sub-Count.│ Sub-Count.│ branch caucus    │ Affairs   │ Executive   │\n│ Endorsement │ Wiper Executive Branch   │ Branches  │ Branches  │ endorsement      │ Director  │ Dashboard   │",
+  "after": "│ **NW-04:**  │ Verified, signed support │ Confirm   │ **8 / 8** │ Formal written   │ Political │ Weekly      │\n│ Branch Exec │ pledges from Sub-County  │ w/ party  │ Sub-Count.│ branch caucus    │ Affairs   │ Executive   │\n│ Endorsement │ Wiper Executive Branch   │ (Week 1)  │ Branches  │ endorsement      │ Director  │ Dashboard   │"
+ },
+ {
+  "before": "*   **Baseline Figure:** 22.1% countywide poll preference share (Mizani Survey, August 2026, Tier 2); specifically 12.0% average recognition in Mwingi sub-counties (Tier 2).\n*   **Target Figure:** 40.0%+ countywide poll preference share; 45.0%+ average recognition in Mwingi sub-counties (Tier 2).",
+  "after": "*   **Baseline Figure:** 22.1% countywide poll preference share (Mizani Survey, 7 August 2026, Tier 2). Sub-county recognition in Mwingi is a **named data gap** (Section 1.3.6) — no published poll reports it, and the campaign does not estimate it. It is established by the Week 1 baseline instrument (Section 8.3.1) before this commitment is scored.\n*   **Target Figure:** 40.0%+ countywide poll preference share. The Mwingi recognition target is set against the Week 1 measured baseline once it exists, not against an assumed starting point."
+ },
+ {
+  "before": "*   **Escalation Trigger:** If bi-weekly internal tracking surveys (Section 8.4) show regional recognition remains below 28.0% by 30 September 2026, trigger immediate reallocation of 40% of the digital ad budget to localized Kikamba voice-note broadcast and USSD push messaging.",
+  "after": "*   **Escalation Trigger:** If bi-weekly internal tracking surveys (Section 8.4) show regional recognition flat or falling across two consecutive waves, trigger immediate reallocation of 40% of the digital ad budget to localized Kikamba voice-note broadcast and USSD push messaging."
+ },
+ {
+  "before": "*   **Traceability:** Traces directly to nomination poll share by targeting the county's largest voting demographic (52% female, Tier 1) and addressing household economic security.\n*   **Baseline Figure:** 18.5% measured preference share among female voters aged 18–45 (Mizani Survey, August 2026, Tier 2).\n*   **Target Figure:** 35.0% measured preference share among female voters aged 18–45 (Tier 2).",
+  "after": "*   **Traceability:** Traces directly to nomination poll share by targeting the county's largest demographic (women are 587,151 of 1,136,187 residents, 51.7%, Tier 1; the register is not published by sex) and addressing household economic security.\n*   **Baseline Figure:** **Named data gap.** The published Mizani rounds report countywide aggregates only (Section 1.3.6); no preference share by sex or age band exists in the public domain. Established by the Week 1 baseline instrument (Section 8.3.1).\n*   **Target Figure:** Set against the Week 1 measured baseline, as a stated point gain rather than an absolute share assumed in advance."
+ },
+ {
+  "before": "*   **Escalation Trigger:** If qualitative focus group assessments in mid-October reveal less than 25% positive policy association with Dr. Mulu's economic agenda, immediately deploy targeted direct-to-WhatsApp audio explainers centering household poultry subsidies and water proximity financing.",
+  "after": "*   **Escalation Trigger:** If mid-October focus groups (Section 8.4) find weak or negative policy association with Dr. Mulu's economic agenda among women in the target wards, immediately deploy targeted direct-to-WhatsApp audio explainers centering household poultry subsidies and water proximity financing."
+ },
+ {
+  "before": "Percentages refer to the verified county ceiling once inserted. Absolute\nfigures are illustrative structures to be finalised against that ceiling.",
+  "after": "Percentages refer to the verified county ceiling of **KSh97.56 million**\n(Section 9.2.1) and are stated in absolute terms against it. Ad spend is\nregulated expenditure and sits inside that ceiling alongside transport, venues\nand personnel — it is not additional to them."
+ },
+ {
+  "before": "* **Ad spend:** approximately `[Insert — recommend 15–20% of ceiling]`",
+  "after": "* **Ad spend:** **KSh14.63m–19.51m** (15–20% of the KSh97.56m ceiling)"
+ },
+ {
+  "before": "* **Ad spend:** approximately `[Insert — recommend 30–40% of ceiling]`",
+  "after": "* **Ad spend:** **KSh29.27m–39.02m** (30–40% of the KSh97.56m ceiling)"
+ },
+ {
+  "before": "* **Ad spend:** approximately `[Insert — recommend 45–55% of ceiling]`, with",
+  "after": "* **Ad spend:** **KSh43.90m–53.66m** (45–55% of the KSh97.56m ceiling), with"
+ }
+]

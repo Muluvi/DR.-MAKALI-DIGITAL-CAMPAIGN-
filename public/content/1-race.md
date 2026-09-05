@@ -203,7 +203,7 @@ To achieve absolute mathematical certainty, the campaign's success metrics are a
 
 #### The Mwingi Bloc Pivot: A Decisive Strategic Finding
 
-A key strategic finding emerges from this integrated database: **Mwingi North, Mwingi West, and Mwingi Central together command exactly 200,198 registered voters (Tier 1).** This total is mathematically greater than the entire 2022 winning threshold (198,004 votes, Tier 1). This proves that consolidating voter turnout and preference across the northern sub-counties can unilaterally secure a gubernatorial victory. This finding informs the campaign's geographic prioritization, directing immediate SMS/USSD and digital outreach to establish Dr. Mulu as the dominant alternative in Mwingi.
+A key strategic finding emerges from this integrated database: **Mwingi North, Mwingi West, and Mwingi Central together command exactly 200,198 registered voters (Tier 1).** That is more *registered voters* than the 2022 winning vote total (198,004 votes, Tier 1) — but registration is not turnout. At the county's 62% turnout baseline the Mwingi bloc yields roughly **124,100 ballots**, so even total dominance there leaves the campaign about 74,000 votes short. Mwingi is therefore **necessary and not sufficient**: no path to 200,000 runs around it, and none ends there. This finding informs the campaign's geographic prioritization, directing immediate SMS/USSD and digital outreach to establish Dr. Mulu as the dominant alternative in Mwingi.
 
 ### 1.2.4 What the governorship controls, and what it is worth
 
@@ -450,7 +450,8 @@ To establish an unshakeable mathematical path to victory, the campaign evaluates
 *   **Mathematical Proof:**
     $$\text{Total}_{\text{Mwingi}} = 74,231 + 68,829 + 57,138 = 200,198 \text{ registered voters}$$
     $$\text{Margin over 2022 Malombe winning total (198,004)} = 200,198 - 198,004 = +2,194 \text{ voters}$$
-*   **Strategic Implication:** The northern three constituencies possess enough registered voters to meet the entire historical victory threshold on their own. Consolidating a decisive margin in Mwingi is a mathematically sufficient foundation for victory.
+*   **Turnout Reality:** At the 62.0% turnout baseline these 200,198 registered voters produce approximately **124,100 actual ballots cast**. Even an unprecedented 80% share of them ($99,280$ votes) leaves the campaign roughly **99,000 votes short** of the 200,000 threshold.
+*   **Strategic Implication:** The Mwingi bloc is the largest single reservoir of votes in the county and the campaign cannot win without a decisive margin in it — but it cannot win on it alone either. Mwingi is the necessary foundation, paired with Kitui South and the home belt.
 
 #### Path B: The Central-South-West Urban/Rural Axis
 *   **Constituency Composition:** Kitui Central ($77,764$) + Kitui South ($75,372$) + Kitui West ($59,047$).
@@ -593,7 +594,7 @@ In strict adherence to the campaign's data provenance standards, the analytical 
  • Registered Electorate:    532,758 voters across 40 wards (532,833 with prisons).
  • Victory Threshold:        198,004 – 200,000 votes (~37.5% of total register).
  • 12 Megawards Density:     Top 12 wards hold 201,267 voters (37.78% of county).
- • Mwingi Triad Proof:       Mwingi 3 sub-counties = 200,198 voters (meets threshold).
+ • Mwingi Triad Proof:       Mwingi 3 sub-counties = 200,198 registered (~124,100 ballots).
  • Home-Belt Ceiling Trap:   Central + West + Rural = 191,811 (cannot win alone).
  • Primary Deficit Zones:    Mwingi (200,198) + Kitui South (75,372) = 275,570 (51.72%).
  • Overlap Finding:          Direct 1:1 overlap; 5 of top 8 wards sit in deficit zones.

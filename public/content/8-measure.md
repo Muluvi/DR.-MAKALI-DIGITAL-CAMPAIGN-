@@ -13,24 +13,24 @@ The nomination phase focuses on establishing unassailable party consensus and se
 │ KPI Code &  │ Operational Definition & │ Empirical │ Target    │ Measurement      │ KPI Owner │ Reporting   │
 │ Title       │ Mathematical Formula     │ Baseline  │ Objective │ Methodology      │ & Division│ Cadence     │
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
-│ **NW-01:**  │ % of sampled likely      │ 38.5%     │ **≥ 55.0%**│ Rolling 7-day    │ Head of   │ Weekly /    │
-│ Wiper Ballot│ Wiper primary voters     │ (Est.     │ Primary   │ Tracking Poll    │ Research  │ Fortnightly │
-│ Preference  │ naming Dr. Makali Mulu as│ Baseline) │ Preference│ ($N = 400$ CATI) │ & Polling │             │
+│ **NW-01:**  │ % of sampled likely      │ Not yet   │ **≥ 55.0%**│ Rolling 7-day    │ Head of   │ Weekly /    │
+│ Wiper Ballot│ Wiper primary voters     │ measured  │ Primary   │ Tracking Poll    │ Research  │ Fortnightly │
+│ Preference  │ naming Dr. Makali Mulu as│ (Week 1)  │ Preference│ ($N = 400$ CATI) │ & Polling │             │
 │ Share       │ their 1st choice.        │           │           │ (Section 8.4)    │           │             │
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
-│ **NW-02:**  │ Spontaneous + aided name │ 42.0%     │ **≥ 70.0%**│ Sub-County CATI  │ Comms     │ Fortnightly │
-│ Northern    │ recognition in Mwingi    │ (North    │ Name ID   │ Poll booster in  │ Director  │ Tracking    │
-│ Sub-County  │ North, Central & West    │ Baseline) │           │ Mwingi North &   │           │             │
+│ **NW-02:**  │ Spontaneous + aided name │ Not yet   │ **≥ 70.0%**│ Sub-County CATI  │ Comms     │ Fortnightly │
+│ Northern    │ recognition in Mwingi    │ measured  │ Name ID   │ Poll booster in  │ Director  │ Tracking    │
+│ Sub-County  │ North, Central & West    │ (Week 1)  │           │ Mwingi North &   │           │             │
 │ Name ID     │ sub-counties.            │           │           │ Central ($N=600$)│           │             │
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
-│ **NW-03:**  │ Voter ranking of "Clean  │ 31.0%     │ **≥ 60.0%**│ Issue Salience   │ Policy &  │ Fortnightly │
-│ Fiscal      │ Audit Record / Anti-     │           │ Issue     │ Index in County  │ Strategy  │             │
-│ Integrity   │ Corruption" as the #1 or │           │ Salience  │ Tracking Survey  │ Lead      │             │
+│ **NW-03:**  │ Voter ranking of "Clean  │ Not yet   │ **≥ 60.0%**│ Issue Salience   │ Policy &  │ Fortnightly │
+│ Fiscal      │ Audit Record / Anti-     │ measured  │ Issue     │ Index in County  │ Strategy  │             │
+│ Integrity   │ Corruption" as the #1 or │ (Week 1)  │ Salience  │ Tracking Survey  │ Lead      │             │
 │ Salience    │ #2 voting criterion.     │           │           │ (Section 8.4)    │           │             │
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
-│ **NW-04:**  │ Verified, signed support │ 3 / 8     │ **8 / 8** │ Formal written   │ Political │ Weekly      │
-│ Branch Exec │ pledges from Sub-County  │ Sub-Count.│ Sub-Count.│ branch caucus    │ Affairs   │ Executive   │
-│ Endorsement │ Wiper Executive Branch   │ Branches  │ Branches  │ endorsement      │ Director  │ Dashboard   │
+│ **NW-04:**  │ Verified, signed support │ Confirm   │ **8 / 8** │ Formal written   │ Political │ Weekly      │
+│ Branch Exec │ pledges from Sub-County  │ w/ party  │ Sub-Count.│ branch caucus    │ Affairs   │ Executive   │
+│ Endorsement │ Wiper Executive Branch   │ (Week 1)  │ Branches  │ endorsement      │ Director  │ Dashboard   │
 │ Rate        │ Committees.              │           │           │ resolutions      │           │             │
 └─────────────┴──────────────────────────┴───────────┴───────────┴──────────────────┴───────────┴─────────────┘
 ```

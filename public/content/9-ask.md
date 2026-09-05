@@ -11,19 +11,19 @@ The campaign's objectives are structured across two separate timelines, each wit
 
 #### Operational Commitment 1: Closing the Sub-County Recognition Gap
 *   **Traceability:** Traces directly to Wiper nomination poll share by elevating name recognition in the northern Mwingi and arid southern sub-counties where Dr. Mulu's constituency-bounded profile is weakest (Tier 1 constraint).
-*   **Baseline Figure:** 22.1% countywide poll preference share (Mizani Survey, August 2026, Tier 2); specifically 12.0% average recognition in Mwingi sub-counties (Tier 2).
-*   **Target Figure:** 40.0%+ countywide poll preference share; 45.0%+ average recognition in Mwingi sub-counties (Tier 2).
+*   **Baseline Figure:** 22.1% countywide poll preference share (Mizani Survey, 7 August 2026, Tier 2). Sub-county recognition in Mwingi is a **named data gap** (Section 1.3.6) — no published poll reports it, and the campaign does not estimate it. It is established by the Week 1 baseline instrument (Section 8.3.1) before this commitment is scored.
+*   **Target Figure:** 40.0%+ countywide poll preference share. The Mwingi recognition target is set against the Week 1 measured baseline once it exists, not against an assumed starting point.
 *   **Deadline:** 31 October 2026.
 *   **Named Owner:** Director of Digital Communications & Media.
-*   **Escalation Trigger:** If bi-weekly internal tracking surveys (Section 8.4) show regional recognition remains below 28.0% by 30 September 2026, trigger immediate reallocation of 40% of the digital ad budget to localized Kikamba voice-note broadcast and USSD push messaging.
+*   **Escalation Trigger:** If bi-weekly internal tracking surveys (Section 8.4) show regional recognition flat or falling across two consecutive waves, trigger immediate reallocation of 40% of the digital ad budget to localized Kikamba voice-note broadcast and USSD push messaging.
 
 #### Operational Commitment 2: Targeted Opinion-Poll Female Demographic Preference Lift
-*   **Traceability:** Traces directly to nomination poll share by targeting the county's largest voting demographic (52% female, Tier 1) and addressing household economic security.
-*   **Baseline Figure:** 18.5% measured preference share among female voters aged 18–45 (Mizani Survey, August 2026, Tier 2).
-*   **Target Figure:** 35.0% measured preference share among female voters aged 18–45 (Tier 2).
+*   **Traceability:** Traces directly to nomination poll share by targeting the county's largest demographic (women are 587,151 of 1,136,187 residents, 51.7%, Tier 1; the register is not published by sex) and addressing household economic security.
+*   **Baseline Figure:** **Named data gap.** The published Mizani rounds report countywide aggregates only (Section 1.3.6); no preference share by sex or age band exists in the public domain. Established by the Week 1 baseline instrument (Section 8.3.1).
+*   **Target Figure:** Set against the Week 1 measured baseline, as a stated point gain rather than an absolute share assumed in advance.
 *   **Deadline:** 31 October 2026.
 *   **Named Owner:** Demographic Outreach & Persuasion Lead.
-*   **Escalation Trigger:** If qualitative focus group assessments in mid-October reveal less than 25% positive policy association with Dr. Mulu's economic agenda, immediately deploy targeted direct-to-WhatsApp audio explainers centering household poultry subsidies and water proximity financing.
+*   **Escalation Trigger:** If mid-October focus groups (Section 8.4) find weak or negative policy association with Dr. Mulu's economic agenda among women in the target wards, immediately deploy targeted direct-to-WhatsApp audio explainers centering household poultry subsidies and water proximity financing.
 
 ---
 
@@ -157,8 +157,10 @@ appointed campaign finance agent to confirm.
 
 ### 9.2.5 The three tiers
 
-Percentages refer to the verified county ceiling once inserted. Absolute
-figures are illustrative structures to be finalised against that ceiling.
+Percentages refer to the verified county ceiling of **KSh97.56 million**
+(Section 9.2.1) and are stated in absolute terms against it. Ad spend is
+regulated expenditure and sits inside that ceiling alongside transport, venues
+and personnel — it is not additional to them.
 
 #### Tier 1 — LEAN
 **Purpose:** win the nomination, hold the field, prove the model.
@@ -167,7 +169,7 @@ figures are illustrative structures to be finalised against that ceiling.
 SMS to a consented list built organically
 * **SMS volume:** up to `[Insert]` messages/month
 * **USSD:** not activated
-* **Ad spend:** approximately `[Insert — recommend 15–20% of ceiling]`
+* **Ad spend:** **KSh14.63m–19.51m** (15–20% of the KSh97.56m ceiling)
 * **Content:** 1 flagship video/week; daily social; weekly Kikamba voice note
 * **Analytics:** platform-native dashboards; monthly report
 * **Trade-offs:** no predictive modelling; no attribution beyond last-click; no
@@ -184,7 +186,7 @@ election competitively.
 * **SMS volume:** `[Insert]` messages/month, scaling to a GOTV surge
 * **USSD:** shared code, all networks (~KSh34,800/network + KSh140,000
 development + KSh5,000/month hosting)
-* **Ad spend:** approximately `[Insert — recommend 30–40% of ceiling]`
+* **Ad spend:** **KSh29.27m–39.02m** (30–40% of the KSh97.56m ceiling)
 * **Content:** 2–3 flagship videos/week; daily multilingual social; weekly
 Facebook Live; weekly Kikamba voice note; monthly Kitui Economic Brief
 * **Analytics:** predictive voter scoring; multi-touch attribution;
@@ -200,7 +202,7 @@ interpretation on flagship content only rather than all video
 * **Channels:** everything in Standard, plus dedicated USSD short code,
 expanded WhatsApp Business API, and diaspora-targeted programming across the
 26 countries IEBC is opening to diaspora registration
-* **Ad spend:** approximately `[Insert — recommend 45–55% of ceiling]`, with
+* **Ad spend:** **KSh43.90m–53.66m** (45–55% of the KSh97.56m ceiling), with
 headroom preserved beneath the statutory cap
 * **Content:** daily video; documentary series; full sign-language and
 plain-language versioning across all flagship output

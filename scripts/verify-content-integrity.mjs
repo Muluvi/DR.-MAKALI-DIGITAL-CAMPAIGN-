@@ -135,6 +135,28 @@ const AUDIT_CORRECTIONS = [
  * Editorial scaffolding addressed to a previous reviewer ("New section.", "New.", "(new
  * segment)") and the takeaway banners' short closing rules, both removed by the same audit.
  */
+/**
+ * Loaded from scripts/audit-rewrites.json, which holds the exact before/after text of every
+ * Stage B-D rewrite so the check stays verbatim rather than being loosened to accommodate them.
+ * Stage B-D of the same audit: the fabricated baselines removed, the second radio ownership
+ * table dropped in favour of Section 3.5.1, the Mwingi bloc restated against turnout, and the
+ * budget tiers costed against the ceiling Section 9.2.1 already verifies. These are rewrites
+ * rather than one-for-one swaps, so they are counted here and reviewed in the diff, not
+ * matched line by line.
+ */
+const AUDIT_REWRITES = [
+  "9.1.1 Commitments 1-2: removed the 12.0% Mwingi and 18.5% female-18-45 baselines, and the targets and triggers keyed to them. Section 1.3.6 records that the published Mizani rounds carry countywide aggregates only.",
+  "8.1.1 NW-01..NW-04: replaced four unsourced baselines (38.5%, 42.0%, 31.0%, 3/8 branches) with the Week 1 instrument. NW-02's 42.0% contradicted 9.1.1's 12.0% for the same quantity.",
+  "3.4.1: removed the second station ownership table, which contradicted Section 3.5.1 and data/media-ownership.ts on Musyi, Syokimau, Mbaitu, Athiani and Wikwatyo, and on three frequencies.",
+  "3.1.2, 3.1.3, 3.3.1, 3.3.2, 3.4.3: repointed radio placement from Mbaitu/Sang'u/Syokimau to Musyi, County FM and Wikwatyo, per the 3.5.1 posture column.",
+  "1.2.3, 1.3.3, 1.3.6: restated the Mwingi bloc against the 62% turnout baseline (200,198 registered is ~124,100 ballots), matching the treatment Path D already applied.",
+  "9.2.5: costed the three tiers against the verified KSh97.56m ceiling instead of leaving [Insert] placeholders.",
+];
+
+const AUDIT_REWRITE_PAIRS = JSON.parse(
+  fs.readFileSync(new URL("./audit-rewrites.json", import.meta.url), "utf8"),
+);
+
 const AUDIT_PREFIXES = [
   ["*New section. ", "*"],
   ["*New. ", "*"],
@@ -220,6 +242,9 @@ for (const file of OLD_FILES) {
   raw = raw.replace(/^\u2550{50,83}$/gm, "\u2550".repeat(84));
   let normalised = normaliseRefs(raw);
   for (const pointer of REMOVED_POINTERS) normalised = normalised.split(pointer).join("");
+  for (const { before, after } of AUDIT_REWRITE_PAIRS) {
+    normalised = normalised.split(normaliseRefs(before)).join(normaliseRefs(after));
+  }
   before = before.concat(bodyLines(normalised, { dropDeletedSections: true }));
 }
 
@@ -245,7 +270,8 @@ if (lost.length === 0 && added.length === 0) {
     `Content integrity check passed: all ${after.length} body lines are unchanged since ${BASE}, ` +
       `apart from the deleted registers, the nine logged orientation lines, repointed cross-references ` +
       `the ${FILLED_PLACEHOLDERS.length} placeholders the client has filled in, ` +
-      `and the ${AUDIT_CORRECTIONS.length} logged pre-send audit corrections.`
+      `the ${AUDIT_CORRECTIONS.length} logged pre-send audit corrections, ` +
+      `and ${AUDIT_REWRITE_PAIRS.length} logged audit rewrite hunks.`
   );
   process.exit(0);
 }

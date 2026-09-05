@@ -119,10 +119,10 @@ The election will be won or lost across the **~460,303 offline voters** living i
 #### 3.1.2.1 Kikamba Vernacular Radio (The Decisive Broadcast Medium)
 *   **Empirical Reach:** **~420,000 voters (78%–80% daily/weekly listenership in rural Kitui)** (GeoPoll / KARF Industry Data, Tier 2).
 *   **Station Hierarchy & Reach:**
-    *   *Musyi FM (Royal Media Services):* Dominant market leader (>45% listenership in Ukambani); broad multi-generational credibility.
-    *   *Mbaitu FM:* High rural penetration, particularly among women and smallholders.
-    *   *Sang'u FM & Athiani FM:* Strong youth and peri-urban listenership.
-    *   *Syokimau FM & County FM:* Hyper-local community programming.
+    *   *Musyi FM (Royal Media Services):* Dominant market leader in Ukambani; commercially independent. **Priority placement.**
+    *   *County FM (Kitui-based independent):* Local ward news and debates, strong in Kitui Town, Kabati and Kwa Vonza. **Priority placement.**
+    *   *Wikwatyo FM (Seventh-Day Adventist Church, Kitui):* Broad rural community trust. **Priority for community and service-delivery programming.**
+    *   *Mbaitu FM, Syokimau FM (Ngilu-associated) and Athiani FM (Wiper leadership):* **monitoring targets, not placement targets** — see Section 3.5.1 for the ownership map and the posture each one carries.
 *   **Operational Execution:**
     *   *Prime-Time Strategic Bookings:* Secure weekly 2-hour interactive morning studio interviews (06:30–08:30) with Dr. Mulu during key policy rollout weeks.
     *   *Kikamba Voice Jingles & Audio Testimonials:* 45-second micro-stories featuring real farmers from Mwingi North, Kitui South, and Kitui Rural explaining how Dr. Mulu's economic model protects their harvest prices.
@@ -180,7 +180,7 @@ The campaign enforces an explicit mathematical alignment rule:
 │ (Meta, TikTok, X, YouTube)   │ (Over-allocated)  │ (Right-sized)     │ penetration + diaspora mobilization. │
 ├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
 │ Vernacular Radio Broadcast   │ 20.0%             │ **37.0%**         │ Scaled up to dominate the primary    │
-│ (Musyi, Mbaitu, Sang'u)      │ (Under-allocated) │ (Dominant Share)  │ medium reaching 78%+ of voters daily.│
+│ (Musyi, County, Wikwatyo)    │ (Under-allocated) │ (Dominant Share)  │ medium reaching 78%+ of voters daily.│
 ├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
 │ Direct 2G SMS & USSD Tree    │ 10.0%             │ **20.0%**         │ Doubled to build a resilient, direct │
 │ (Ward Captain Field Net)     │ (Under-allocated) │ (High Priority)   │ pipeline to 320k feature phone voters│
@@ -320,7 +320,7 @@ To maximize cost-per-contact efficiency, media expenditures are strictly indexed
 │                          │ (Section 3.1 Data)  │ of Electorate     │ Allocation     │ (% of Total Planned)    │
 ├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
 │ 1. Kikamba Vernacular    │ 420,000 Voters    │ 78.8%             │ Ksh 10,800,000 │ 16.7%                   │
-│    Radio (Musyi, Mbaitu) │                   │                   │                │                         │
+│    Radio (Musyi, County) │                   │                   │                │                         │
 ├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
 │ 2. Direct 2G Bulk SMS    │ 320,000 Voters    │ 60.1%             │ Ksh 2,850,000  │ 4.4%                    │
 │    & USSD Portal         │                   │                   │                │                         │
@@ -358,7 +358,7 @@ To maintain strict accounting integrity, **unverified cost estimates are rejecte
 │ Procurement Item           │ Verified Rate-Card Status   │ Action & Required Procurement Research           │
 ├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
 │ 1. Vernacular Radio Spots  │ **Verified Industry Bench** │ Standard prime-time rates (Ksh 8k–14k per 45s);  │
-│    (Musyi FM / Mbaitu FM)  │ (Royal Media / Mediamax)    │ Required: Negotiate bulk multi-month package rate│
+│    (Musyi FM / County FM)  │ (Royal Media; independent)  │ Required: Negotiate bulk multi-month package rate│
 ├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
 │ 2. 2G Bulk SMS Gateway     │ **Verified Carrier Rate**   │ Safaricom/Airtel aggregated via Africa's Talking │
 │    (Sender ID: DR_MAKALI)  │ (Africa's Talking API)      │ at Ksh 0.60–0.80 per SMS.                        │
@@ -470,55 +470,23 @@ To ensure uninterrupted, high-credibility communication with the electorate, the
 
 ### 3.4.1 Who owns the Kamba-language stations, and who they favour
 
-The table below maps the major radio stations broadcasting across Kitui County, categorized by tier, reported corporate ownership, and known political alignment.
+The ownership map, the frequencies and the resulting campaign posture for every
+Kikamba-language station are set out once, in **Section 3.5.1**, and that table
+governs. It is the version reconciled against `data/media-ownership.ts`, which
+the site renders directly.
 
 > **Research Integrity Note on Listenership Data:**  
 > Precise, disaggregated county-level listenership figures (GeoPoll / KARF audience share percentages for Kitui) are **not published in the underlying empirical research**. In accordance with the campaign's provenance standards (Section 6.1.2), **listenership share is marked as Required Primary Research** rather than estimated speculatively.
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                KAMBA-LANGUAGE VERNACULAR RADIO LANDSCAPE                                    │
-├──────────────┬───────────────────────────────┬───────────────────────────┬──────────────────────────────────┤
-│ Station Name │ Corporate Ownership & Parent  │ Reported Political        │ Listenership Share &             │
-│ & Frequency  │ Conglomerate                  │ Alignment / Bias          │ Audience Metric Status           │
-├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤
-│ TIER 1: COMMERCIAL HEAVYWEIGHTS (POLITICALLY CONTROLLED / GATEKEEPER NETWORKS)                              │
-├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤
-│ 1. Musyi FM  │ Royal Media Services (RMS)    │ Commercial / Mainstream   │ **[Required Primary Research]**  │
-│    (102.2 FM)│ (SK Macharia Family)          │ Azimio & Wiper Hegemony   │ Kitui-wide reach; highest market │
-│              │                               │ Gatekeeper influence      │ presence across Lower Eastern.   │
-├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤
-│ 2. Mbaitu FM │ Mbaitu FM Media Enterprises   │ Pro-Incumbent / Regional  │ **[Required Primary Research]**  │
-│    (92.5 FM) │ (Associated with Rival Focus) │ Business Interests;       │ Dominant coverage in Kitui Rural,│
-│              │                               │ Competitive Gatekeeper    │ Mutomo, and Kitui South.         │
-├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤
-│ 3. Sang'u FM │ Regional Commercial Entity    │ Aligned with Northern     │ **[Required Primary Research]**  │
-│    (96.2 FM) │ (Kitui Business / Political)  │ Kitui Political Rival     │ Strong signal penetration across │
-│              │                               │ Interests                 │ Mwingi North, Central & West.    │
-├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤
-│ 4. Athiani FM│ Athiani Media Network         │ Politically steered by    │ **[Required Primary Research]**  │
-│    (99.2 FM) │ (Prominent Regional Elite)    │ Machakos/Kitui Rival Bloc │ Key youth and urban market       │
-│              │                               │ & Coalition Gatekeeper    │ listenership in town centers.    │
-├──────────────┴───────────────────────────────┴───────────────────────────┴──────────────────────────────────┤
-│ TIER 2: FAITH-BASED, DIOCESAN & COMMUNITY BROADCASTERS (EDITORIAL INTEGRITY / NEUTRAL)                     │
-├──────────────┬───────────────────────────────┬───────────────────────────┬──────────────────────────────────┤
-│ 5. Radio     │ Catholic Diocese of Kitui     │ **Strictly Neutral**      │ **[Required Primary Research]**  │
-│    Wikwatyo  │ (Bishop / Diocesan Comms)     │ Pastoral / Civic Education│ Broad rural community trust;     │
-│    (107.1 FM)│                               │ High Credibility Factor   │ zero political candidate capture.│
-├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤
-│ 6. Syokimau  │ Independent Faith Entity      │ **Faith-Based / Neutral** │ **[Required Primary Research]**  │
-│    FM        │ (Lower Eastern Christian Com) │ Community Development &   │ Dedicated church fellowship and  │
-│              │                               │ Family Stewardship        │ women chama audience base.       │
-├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤
-│ 7. Radio     │ Community Media Trust         │ **Grassroots / Neutral**  │ **[Required Primary Research]**  │
-│    Mang'elete│ (Kibwezi / Southern Border)   │ Agrarian, Water, Women &  │ Deep penetration in Kitui South, │
-│    (89.1 FM) │                               │ Ecological Resilience     │ Ikutha, and Mutha borderlands.   │
-├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤
-│ 8. County FM │ Kitui Local Media Consortium  │ **Independent Commercial**│ **[Required Primary Research]**  │
-│    (90.3 FM) │ (Local Journalists / Business)│ Local Ward News & Debates;│ Strong presence in Kitui Town,   │
-│              │                               │ Open to Issue-Based Ads   │ Kabati, and Kwa Vonza.           │
-└──────────────┴───────────────────────────────┴───────────────────────────┴──────────────────────────────────┘
-```
+The three structural facts that drive the rest of this section:
+
+*   **Two stations are associated with Charity Ngilu**, a declared general-election rival: **Mbaitu FM** and **Syokimau FM**. Both are monitoring targets, not placement targets.
+*   **One station is associated with Kalonzo Musyoka**, the Wiper party leader: **Athiani FM**. It is party-sensitive rather than hostile, and it matters most during the nomination window, when coverage may track party leadership sentiment rather than merit.
+*   **The stations open to the campaign are commercially or institutionally independent**: **Musyi FM** (Royal Media Services), **County FM** (Kitui-based independent) and **Wikwatyo FM** (Seventh-Day Adventist Church, Kitui). These carry the placement budget.
+
+Ownership associations are publicly reported rather than certified, and media
+ownership changes. Section 3.5.1 carries the standing instruction to verify and
+update this map before any placement is booked.
 
 ---
 
@@ -542,7 +510,7 @@ To guarantee uninhibited communication with all 532,758 registered voters across
 │ Workaround Pillar              │ Operational Strategy & Deployment Protocol                                 │
 ├────────────────────────────────┼────────────────────────────────────────────────────────────────────────────┤
 │ 1. Faith-Based, Diocesan &     │ • Direct media buying and civic issue programming on **Radio Wikwatyo      │
-│    Community Radio Dominance   │   (Catholic Diocese of Kitui)**, **Syokimau FM**, and **Radio Mang'elete**.│
+│    Community Radio Dominance   │   (Seventh-Day Adventist, Kitui)**, **County FM**, **Mang'elete**.         │
 │                                │ • These stations possess the highest qualitative credibility among rural   │
 │                                │   women, church elders, and farming chamas; strictly neutral and immune    │
 │                                │   to commercial political vetoes.                                          │
