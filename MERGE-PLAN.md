@@ -172,7 +172,7 @@ What changes is the *inside* of six of them. The organising principle:
 > merge. Where a section is genuinely a different question, it stays — however
 > short.**
 
-### Final count: 262 → 193
+### Final count: 262 → 196 *(as built)*
 
 The number is an output, not a target. It is what remains after applying the
 merge criterion, and it decomposes as:
@@ -182,14 +182,18 @@ merge criterion, and it decomposes as:
 | §0 Overview | 4 | 4 | 0 |
 | §1 Where the race stands | 30 | 23 | −7 |
 | §2 The argument we will make | 36 | 26 | −10 |
-| §3 What we publish, and where | 33 | 22 | −11 |
+| §3 What we publish, and where | 33 | 24 | −9 |
 | §4 What we run on the ground | 29 | 19 | −10 |
 | §5 Defending the campaign | 26 | 17 | −9 |
-| §6 Data, technology and compliance | 36 | 31 | −5 |
+| §6 Data, technology and compliance | 36 | 32 | −4 |
 | §7 Who does the work | 19 | 8 | −11 |
 | §8 How we will know it is working | 30 | 27 | −3 |
 | §9 What we are asking for | 19 | 16 | −3 |
-| **Total** | **262** | **193** | **−69** |
+| **Total** | **262** | **196** | **−66** |
+
+*(Planned 193. The three-section difference: §3 and §6 each kept one section the
+plan proposed merging — see "Changed during implementation" below — and §8 gained
+the consolidated KPI ledger as a new section.)*
 
 **Why not lower.** Roughly 90 of the remaining sections are irreducible
 evidence: §1.3's six-part ward arithmetic (four routes to the threshold with the
@@ -373,9 +377,8 @@ controls.
 The ODPC penalty record and the specific control that answers it stop being 200
 words apart.
 
-**M29 · §6.2.3 + §6.2.5 → one** — modelling methodology and how the model is
-evaluated. *Gain:* a method cannot be judged without its acceptance thresholds
-(AUC ≥ 0.75, ≥85% field match); together they are one falsifiable claim.
+**M29 · §6.2.3 + §6.2.5 → one** — **not executed.** See "Changed during
+implementation".
 
 ### §7 — Who does the work (19 → 8)
 
@@ -513,6 +516,19 @@ appear as "KSh47m to 12,573 students" (§1.2.1, §2.1.1) and as "18,000+" (§5.1
 §8.2.2). **These need reconciling against the primary records** — particularly
 in a proposal whose §6.1.2 requires every figure to carry its provenance.
 
+**TODO-9 — An undetermined statutory citation in §6.3.1.**
+Two bullets in the technology stack's compliance notes read "Telecommunications
+data constitutes direct personal data (Section 4.4)" and "Compliant with Section
+4.4 provided individual user profiles are not scraped". In context — a "DPA 2019
+Exposure & Compliance" bullet — this reads as a citation to the Data Protection
+Act, but the old §4.4 of *this document* was "Digital organising and volunteers",
+which would also be a plausible if unhelpful referent. A renumber in this branch
+initially rewrote it as though it named this document; that was reverted and the
+text now reads "Section 4.4 of the DPA 2019", which is the reading the
+surrounding sentence supports. **If that is wrong, it should be corrected by
+counsel** — this consolidation has no basis for deciding which Act section was
+meant.
+
 **TODO-8 — The county register does not reconcile three ways.**
 §1.2.3's summary records "**532,758** (comprising **532,753** ward-registered
 voters and **5** prison-registered voters)". But its own 40-ward register — and
@@ -528,6 +544,30 @@ marker; **no figure was changed.** This one matters more than the others because
 TAKEAWAY` inside ASCII boxes, from a retired numbering scheme, visible to the
 reader. Fixed as part of the sections they sit in where a merge touches them;
 listed in `CUT-LOG.md` where changed.
+
+---
+
+## 6a. Changed during implementation
+
+Two departures from the plan above, both made on closer reading of the text:
+
+**M29 (§6.2.3 + §6.2.5) was dropped.** The plan proposed merging the modelling
+methodology with the model's evaluation criteria. In place, §6.2 runs: what the
+model scores → data sources → method → **variable dictionary** → evaluation →
+use → the compliance gate. The variable dictionary sits between method and
+evaluation and is 367 words, the longest part of the section and the one §4.1
+cross-references. Merging around it would have either buried the dictionary or
+broken the sequence, for a gain that was marginal to begin with. §6.2's seven
+parts each answer a distinct question in order; that earns independence.
+
+**§3.6 kept three sections rather than two.** M15 merged the accessibility case
+into one section as planned, but the commitments table and its KPI pointer stayed
+separate rather than collapsing further — the commitments are cited by name from
+§7.1 and §3.4, and are the section's load-bearing content.
+
+**Two defects were found during implementation, not planning**, and are recorded
+as TODO-8 (the county register reconciling three different ways) and TODO-9
+below. Both were surfaced by doing arithmetic the audit had not planned to do.
 
 ---
 
