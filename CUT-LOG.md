@@ -13,6 +13,29 @@ survives in the target section, verbatim unless noted.
 literal rendered by a component no longer appears in `public/content/*.md` or
 `data/`. No figure below was removed from the document as a whole.
 
+## Summary
+
+22 removals across 36 merges. Categorised:
+
+| Kind | Count | What it was |
+|---|--:|---|
+| Section headings whose bodies moved intact | 8 | C01, C02, C05, C07, C10, C14, C18, C19 — the heading is gone, every word beneath it survives in the named target |
+| Dead pointers into retired numbering | 5 | C06, C09, C13, C17, C22 — `Subsection 17A`, `19A`, `19B`, `Section 16.4`, `16.5`, `16A`, `& 10.1`; none resolved to anything |
+| Mis-targeted cross-references, repointed | 3 | C08, C12, C16 — pointed at real sections about other subjects |
+| Verbatim duplicated content | 3 | C03, C04, C11 — the same claims or the same 40 numbers printed twice |
+| Stale numbering shown to the reader | 2 | C15, C21 — twelve `SECTION nn STRATEGIC TAKEAWAY` banners |
+| Duplicated thesis | 1 | C20 — §9.3.3 restating §0.4 |
+
+**No figure was removed from the document.** All 601 distinct figures present in
+the pre-merge baseline are present now, verified mechanically, and
+`scripts/verify-figures.mjs` independently asserts the same on every build.
+
+**No claim, promise, commitment, target, price or scope statement was removed.**
+The removals above are headings whose content moved, references that pointed at
+nothing or at the wrong thing, text printed twice, and retired numbering.
+
+---
+
 | # | Merge | Source | Removed | Reason |
 |---|---|---|---|---|
 | C01 | M01 | §1.1.1 | Heading `### 1.1.1 How Wiper picks its candidate` | Entirely empty — zero words, no child headings — but live in the table of contents and the mobile TOC as an entry that landed on nothing. No content removed; the heading text itself was the only thing there. §1.1's opening paragraph already states how the nominee will be picked. |
