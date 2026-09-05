@@ -8,6 +8,8 @@ Gubernatorial Aspirant, Kitui County
 **Prepared by:**
 Firefly Management
 Strategic Communications & Digital Campaign Consultancy
+6th Floor, Next Gen Mall, Mombasa Road, Nairobi
+fireflymanagement.ke@gmail.com · 0726 766 800
 
 **Date:** August 2026
 

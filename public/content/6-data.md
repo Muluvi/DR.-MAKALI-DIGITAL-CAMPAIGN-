@@ -684,7 +684,7 @@ denial.
 >
 > **10. Your rights.**
 > You may ask us what data we hold about you, ask us to correct it, or ask us
-> to delete it, at any time, at `[Insert contact route]`. We will respond
+> to delete it, at any time, at fireflymanagement.ke@gmail.com. We will respond
 > within `[Insert SLA — recommend 14 days]`.
 >
 > *Published in Kikamba, Kiswahili and English.*

@@ -365,4 +365,5 @@ within the next fourteen days.**
 **Prepared by:**
 Firefly Management
 Strategic Communications & Digital Campaign Consultancy
-`[Insert contact email]` · `[Insert phone]` · `[Insert website/portfolio URL]`
+6th Floor, Next Gen Mall, Mombasa Road, Nairobi
+fireflymanagement.ke@gmail.com · 0726 766 800
