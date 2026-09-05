@@ -53,7 +53,14 @@ const ORIENTATION_LINES = new Set([
  * would miss exactly those and report them as content changes.
  */
 function normaliseRefs(text) {
-  return text.replace(/(Sections?|§)\s*\d+[A-Za-z]?(?:\.\d+)*/g, "$1 #");
+  // Collapse every reference form to one token, so "Subsection 19A" and "Section 8.2.1"
+  // compare equal, and flatten padding runs, which are cosmetic inside the ASCII boxes.
+  return text
+    .replace(/(?:Sub)?sections?\s*\d+[A-Za-z]?(?:\.\d+)*/gi, "§#")
+    .replace(/Sec\s*\d+(?:\.\d+)*/gi, "§#")
+    .replace(/§\s*\d+[A-Za-z]?(?:\.\d+)*/g, "§#")
+    .replace(/[ \t]{2,}/g, " ")
+    .replace(/[ \t]+$/gm, "");
 }
 
 /**
@@ -83,13 +90,65 @@ const FILLED_PLACEHOLDERS = [
 ];
 
 /**
+ * Corrections applied by the September 2026 pre-send audit, quoted old and new so each is
+ * auditable here rather than silently tolerated. Every one is a figure the document itself
+ * refutes elsewhere — the ward register, a table's own cumulative column, or a Tier 1 figure
+ * in Section 1 — or a label pointing at a section that no longer exists.
+ */
+const AUDIT_CORRECTIONS = [
+  // Contradicted 1.3.1 and data/ward-register.json, whose 40 wards sum to 532,758 before prisons.
+  {
+    before: "**532,758** (comprising **532,753** ward-registered voters and **5** prison-registered voters) (Tier 1)",
+    after: "**532,758** ward-registered voters (plus **75** prison-registered voters, totalling **532,833**) (Tier 1)",
+  },
+  // The ranking table's own cumulative column gives 532,758 - 436,343 = 96,415 (18.10%).
+  {
+    before: "aggregate to **92,415 registered voters** (only **17.35%**",
+    after: "aggregate to **96,415 registered voters** (only **18.10%**",
+  },
+  // The body text's own sub-totals (52,269 + 31,227) give 83,496; Ikanga/Kyatune ranks 11th.
+  { before: "(83,596 Voters)", after: "(83,496 Voters)" },
+  // "17A" and "16.5" named sections that no longer exist; the first had no successor label.
+  { before: "THE 17A GATEKEEPER BYPASS", after: "THE GATEKEEPER BYPASS" },
+  { before: "and 16.5 for the\nregulatory basis", after: "and 6.5 for the\nregulatory basis" },
+  { before: "5 of the Top 8 Wards", after: "5 of the Top 11 Wards" },
+  // Section 1.2.3 gives 1,578 polling stations (Tier 1). Streams cannot be fewer than stations.
+  { before: "**1,527** \u2502 IEBC official", after: "**1,578** \u2502 IEBC official" },
+  { before: "(100% of 1,527 Polling Streams)", after: "(100% of 1,578 Stations)      " },
+  { before: "across all 1,527 polling streams.", after: "across all 1,578 polling stations." },
+  // Voice of Hope appears in no ownership map and is dropped from 3.4.3's own list two boxes later.
+  {
+    before: "(Syokimau, Mang'elete, Voice of Hope, Wikwatyo)",
+    after: "(Wikwatyo, Mang'elete, County FM)             ",
+  },
+  // The slogan appeared in two forms ~15 lines apart; 2.6.1's is the one the Kikamba and
+  // Swahili renderings beneath it are built on.
+  {
+    before: "Clean Leadership, Fiscal Discipline, and Shared Wealth\"",
+    after: "Clean Hands, Real Jobs, and Lasting Wealth\"    ",
+  },
+  // The document's only US-format date.
+  { before: "August 29, 2026 to 15 November 2026", after: "29 August 2026 to 15 November 2026" },
+];
+
+/**
+ * Editorial scaffolding addressed to a previous reviewer ("New section.", "New.", "(new
+ * segment)") and the takeaway banners' short closing rules, both removed by the same audit.
+ */
+const AUDIT_PREFIXES = [
+  ["*New section. ", "*"],
+  ["*New. ", "*"],
+  [" *(new segment)*", ""],
+];
+
+/**
  * The two pointers into the deleted §39.1, removed by cutting a self-contained appositive so
  * each sentence closes on words already present. Quoted here in full so the one category of
  * permitted deletion inside a sentence is auditable rather than implicit.
  */
 const REMOVED_POINTERS = [
-  " (a verified dispute detailed in Section #)",
-  ", a discrepancy detailed in Section #",
+  " (a verified dispute detailed in §#)",
+  ", a discrepancy detailed in §#",
 ];
 
 /**
@@ -154,9 +213,13 @@ for (const file of OLD_FILES) {
     console.error("This needs the pre-restructure commit in history; set CONTENT_BASELINE to override.");
     process.exit(0);
   }
-  let normalised = normaliseRefs(text);
+  let raw = text;
+  for (const { before, after } of FILLED_PLACEHOLDERS) raw = raw.split(before).join(after);
+  for (const { before, after } of AUDIT_CORRECTIONS) raw = raw.split(before).join(after);
+  for (const [before, after] of AUDIT_PREFIXES) raw = raw.split(before).join(after);
+  raw = raw.replace(/^\u2550{50,83}$/gm, "\u2550".repeat(84));
+  let normalised = normaliseRefs(raw);
   for (const pointer of REMOVED_POINTERS) normalised = normalised.split(pointer).join("");
-  for (const { before, after } of FILLED_PLACEHOLDERS) normalised = normalised.split(before).join(after);
   before = before.concat(bodyLines(normalised, { dropDeletedSections: true }));
 }
 
@@ -181,7 +244,8 @@ if (lost.length === 0 && added.length === 0) {
   console.log(
     `Content integrity check passed: all ${after.length} body lines are unchanged since ${BASE}, ` +
       `apart from the deleted registers, the nine logged orientation lines, repointed cross-references ` +
-      `and the ${FILLED_PLACEHOLDERS.length} placeholders the client has filled in.`
+      `the ${FILLED_PLACEHOLDERS.length} placeholders the client has filled in, ` +
+      `and the ${AUDIT_CORRECTIONS.length} logged pre-send audit corrections.`
   );
   process.exit(0);
 }

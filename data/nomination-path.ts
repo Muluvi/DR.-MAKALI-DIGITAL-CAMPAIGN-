@@ -12,7 +12,7 @@ export const NOMINATION_METHOD_CLAIM: SourcedFigure<string> = {
   provenance: {
     source: LOCAL_DIGITAL_NOMINATION_REPORT,
     granularity: "county",
-    note: "Not confirmed by Wiper. Section 1.1's survey-based strategy assumes this reporting is accurate — if it is wrong, the phasing in Section 20 needs to be revisited before it is acted on.",
+    note: "Not confirmed by Wiper. Section 1.1's survey-based strategy assumes this reporting is accurate — if it is wrong, the phasing in Section 8.2.3 needs to be revisited before it is acted on.",
   },
 };
 

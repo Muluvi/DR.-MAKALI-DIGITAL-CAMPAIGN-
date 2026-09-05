@@ -2,6 +2,8 @@ Four readings of the ground: how the nomination will be decided, who the candida
 
 ## 1.1 The nomination, and how it will be decided
 
+### 1.1.1 How Wiper picks its candidate
+
 Section 0.1 opened with the claim this entire Phase −1 strategy is built on:
 that the Wiper Kitui gubernatorial ticket will be settled by opinion poll
 rather than a competitive primary. That claim deserves to be stated plainly
@@ -14,8 +16,6 @@ before further budget commits against it. This section exists so that
 re-check happens deliberately rather than by accident.
 
 ---
-
-### 1.1.1 How Wiper picks its candidate
 
 ### 1.1.2 Where the opinion-poll mechanism stands
 
@@ -137,7 +137,7 @@ Because Governor Malombe served as Governor from 2013–2017, lost the 2017 elec
 
 To achieve absolute mathematical certainty, the campaign's success metrics are anchored strictly to the official 2022 IEBC register (Tier 1), rather than volatile digital vanity metrics:
 
-*   **Total Registered County Voters:** **532,758** (comprising **532,753** ward-registered voters and **5** prison-registered voters) (Tier 1).
+*   **Total Registered County Voters:** **532,758** ward-registered voters (plus **75** prison-registered voters, totalling **532,833**) (Tier 1).
 *   **Total Registered County Assembly Wards:** **40** across **8** constituencies (Tier 1).
 *   **Total Polling Stations:** 1,578 (Tier 1).
 *   **Victory Threshold:** Historically set at approximately **200,000 votes** (Tier 1), derived directly from Governor Malombe's 2022 winning total of **198,004 votes** (Tier 1).
@@ -415,7 +415,7 @@ Voter registration in Kitui County is highly concentrated. Rather than a flat ge
 #### Critical Concentration Insights:
 1.  **The "12 Megawards" Rule:** The top **12 largest wards** (representing just 30.0% of all wards) contain **201,267 registered voters** (37.78% of the entire county electorate). A candidate who dominates these 12 wards touches a voting population equal to the entire 2022 winning threshold.
 2.  **The Upper Half Domination:** The top **20 wards** (50% of the wards) command **315,006 registered voters** (**59.13%** of the county total).
-3.  **The Lower Tail Dispersal:** The bottom **10 smallest wards** (from Mui down to Tharaka) aggregate to **92,415 registered voters** (only **17.35%** of the county register across 25% of the total wards), yet cover vast geographic areas with severe logistical transit costs.
+3.  **The Lower Tail Dispersal:** The bottom **10 smallest wards** (from Mui down to Tharaka) aggregate to **96,415 registered voters** (only **18.10%** of the county register across 25% of the total wards), yet cover vast geographic areas with severe logistical transit costs.
 
 ---
 
@@ -544,8 +544,8 @@ To formulate a targeted intervention, the campaign maps Dr. Mulu's structural pr
  └──────────────────────────────────────┘    └──────────────────────────────────────┘
    ▲                                            ▲
    └─────────────────── DIRECT OVERLAP ─────────┘
-   5 of the Top 8 Wards (Kyuso, Tseikuru, Mumoni, Athi, Ikanga) Sit Directly in 
-   the Candidate's Deepest Recognition Deficit Territories (83,596 Voters).
+   5 of the Top 11 Wards (Kyuso, Tseikuru, Mumoni, Athi, Ikanga) Sit Directly in 
+   the Candidate's Deepest Recognition Deficit Territories (83,496 Voters).
 ```
 
 #### Do the Deficit Wards Overlap the Decisive Ones?
@@ -588,7 +588,7 @@ In strict adherence to the campaign's data provenance standards, the analytical 
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 6 STRATEGIC TARGETING SUMMARY
+                     SECTION 1.3.6 STRATEGIC TARGETING SUMMARY
 ════════════════════════════════════════════════════════════════════════════════════
  • Registered Electorate:    532,758 voters across 40 wards (532,833 with prisons).
  • Victory Threshold:        198,004 – 200,000 votes (~37.5% of total register).

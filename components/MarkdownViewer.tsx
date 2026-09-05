@@ -3,11 +3,9 @@ import Image from "next/image";
 import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
-import { Volume2 } from "lucide-react";
 
 import { InteractiveTable } from "./markdown/InteractiveTable";
 import { MarkdownParagraph, MarkdownListItem } from "./markdown/MarkdownTextComponents";
-import { AudioBriefingButton } from "./markdown/AudioBriefingButton";
 import { SectionHeading } from "./markdown/SectionHeading";
 import { ClaimBadge } from "./markdown/ClaimBadge";
 import { HighlightedText } from "./markdown/HighlightedText";
@@ -492,18 +490,6 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
       </div>
 
       {/* Integrated Media Briefing Placard at the top of long strategic pages */}
-      <div className="mb-6 bg-gradient-to-r from-accent/[0.03] to-gold/[0.03] border border-line/25 p-3 sm:p-4 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 z-10 relative print:hidden">
-        <div className="flex items-center gap-3">
-          <div className="p-2 rounded-lg bg-accent/10 border border-accent/20 text-accent">
-            <Volume2 size={16} />
-          </div>
-          <div>
-            <h4 className="font-serif text-xs font-semibold text-ink">Campaign Audio Strategy Briefing</h4>
-            <p className="t-label text-muted uppercase tracking-wider font-semibold">Listen to synthesized narrative breakdown (2:15 min)</p>
-          </div>
-        </div>
-        <AudioBriefingButton />
-      </div>
 
       {/* The lede treatment is scoped with `>` deliberately. As a descendant selector
           (`[&_p:first-of-type]`) it matched the first paragraph of EVERY nested container —

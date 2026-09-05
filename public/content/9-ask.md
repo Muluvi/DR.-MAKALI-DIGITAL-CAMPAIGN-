@@ -6,7 +6,7 @@ The campaign's objectives are structured across two separate timelines, each wit
 
 ### 9.1.1 Through the nomination window
 
-*   **Active Period (Clock):** August 29, 2026 to 15 November 2026.
+*   **Active Period (Clock):** 29 August 2026 to 15 November 2026.
 *   **Success Definition:** Erase the current 15.3-point deficit and secure the Wiper Democratic Movement gubernatorial nomination by achieving a measured countywide public preference share of **40.0%+** in the official, party-commissioned surveys (Tier 2).
 
 #### Operational Commitment 1: Closing the Sub-County Recognition Gap

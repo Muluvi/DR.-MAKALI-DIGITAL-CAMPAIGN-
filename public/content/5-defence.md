@@ -166,7 +166,7 @@ All campaign communicators, surrogates, and media buyers are strictly bound by t
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 15 STRATEGIC TAKEAWAY
+                          SECTION 5.1.5 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • 4-Tier Decision Matrix:      Prevents elevating fringe attacks while ensuring 
                                 <15 min radio rebuttals and <30 min WhatsApp containment.
@@ -174,7 +174,7 @@ All campaign communicators, surrogates, and media buyers are strictly bound by t
                                 regional familiarity, technocrat, and fiscal attacks.
  • Strict Defamation Law Gate:  Focuses 100% on certified Auditor-General/CRA records;
                                 prohibits private character attacks and unverified claims.
-════════════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════════════════════════════
 ```
 ---
 
@@ -232,7 +232,7 @@ misinformation tracking log; response status tracker; hourly engagement;
 
 ### 5.2.7 Red-team drills
 
-*New. Reactive protocols fail because they are first used under real pressure.*
+*Reactive protocols fail because they are first used under real pressure.*
 
 **Cadence:** quarterly at standard tier, monthly at premium, with a mandatory
 full-scale drill immediately before the nomination decision and again 60 days

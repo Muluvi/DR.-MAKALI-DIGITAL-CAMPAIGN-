@@ -269,7 +269,7 @@ To uphold the campaign's rigorous data integrity standard, the following empiric
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 7 STRATEGIC TAKEAWAY
+                          SECTION 2.4.3 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Audience Architecture: 86.2% Rural, 13.8% Urban, ~44% Youth (18-35).
  • Channel Strategy:      Vernacular radio & offline SMS capture the 86.4% offline
@@ -306,7 +306,7 @@ weaponising ethnicity.
 | **Women's Cooperatives & Table-Banking Groups** | CBOs and merry-go-rounds across all 40 wards; 587,151 women in 262,942 households | Domestic water proximity; maternal and household healthcare; market linkages for honey, mangoes, legumes; **poultry income (90%+ of households)** | **Message:** "Dignity at the Household Level." Reducing the distance walked for water; dedicated county empowerment revolving funds.<br>**Channels:** Church and cooperative networks, grassroots women leaders, **Kikamba voice notes**, WhatsApp, SMS |
 | **Diaspora Kitui Voters** | Nairobi, Mombasa and abroad; high out-migration from Kitui Central, Mutomo, Mwingi Central | Investment opportunities; transparent county budgeting; remittance links; home-county pride | **Message:** "Your Investment, Your County." **Newly actionable: IEBC is expanding diaspora voter registration from 12 to 26 countries.**<br>**Channels:** Facebook, X, YouTube, WhatsApp, LinkedIn, diaspora webinars |
 | **First-Time Voters** | 18–22; secondary and early tertiary | Hope, change, youth inclusion, digital opportunity, accountability | **Message:** "A New Kind of Leader." Integrity, economic expertise, youth digital empowerment.<br>**Channels:** TikTok, Instagram, WhatsApp, short-form video |
-| **Offline Majority** *(new segment)* | Any ward with low connectivity; older voters; the ~86% outside internet use | The same priorities as above — but reached by no digital channel currently in the plan | **Message:** identical policy substance, adapted to 160 characters and to audio.<br>**Channels:** **SMS, USSD, radio, mobile-money agent networks, printed QR-linked materials** (Section 4.3) |
+| **Offline Majority** | Any ward with low connectivity; older voters; the ~86% outside internet use | The same priorities as above — but reached by no digital channel currently in the plan | **Message:** identical policy substance, adapted to 160 characters and to audio.<br>**Channels:** **SMS, USSD, radio, mobile-money agent networks, printed QR-linked materials** (Section 4.3) |
 
 The final row is the most commercially significant addition in this document.
 Treating the offline majority as a segment with its own channel budget — rather
@@ -328,7 +328,7 @@ Under the campaign's Provenance Discipline (Section 6.1.2), **no claim is made w
 
                                THE CENTRAL CLAIM
                   "The Proven Economist for Kitui's Economy:
-            Clean Leadership, Fiscal Discipline, and Shared Wealth"
+            Clean Hands, Real Jobs, and Lasting Wealth"    
                                       │
          ┌────────────────────────────┼────────────────────────────┐
          ▼                            ▼                            ▼
@@ -488,7 +488,7 @@ Cross-referencing the channel reach realities established in **Section 3.1**:
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 13 STRATEGIC TAKEAWAY
+                          SECTION 2.6.4 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Central Proposition: "The Proven Economist for Kitui's Economy" — anchored on
                         13 years of clean audit records and fiscal expertise.
@@ -496,7 +496,7 @@ Cross-referencing the channel reach realities established in **Section 3.1**:
                         and channel delivery carries primary Tier 1/2 proof points.
  • Segment Alignment:   Tailored messages address the specific economic pain points
                         of the 6 demographic cohorts mapped in Section 2.4.
-════════════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════════════════════════════
 ```
 ---
 
@@ -710,7 +710,7 @@ All creative assets are stored in a centralized, cloud-backed Digital Asset Mana
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 14 STRATEGIC TAKEAWAY
+                          SECTION 2.7.6 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Offline Broadcast Dominance: Content engine prioritizes 45s Kikamba radio spots,
                                 2G SMS, USSD menus, and printed baraza photobooks.
@@ -719,7 +719,7 @@ All creative assets are stored in a centralized, cloud-backed Digital Asset Mana
  • Strict 4-Step Approval:      Drafter ──► Comms Lead ──► DPO Compliance ──► CM Sign.
  • Centralized DAM Vault:       Organized asset repository preserving high-res evidence,
                                 audio masters, and print-ready vector collateral.
-════════════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════════════════════════════
 ```
 ---
 
