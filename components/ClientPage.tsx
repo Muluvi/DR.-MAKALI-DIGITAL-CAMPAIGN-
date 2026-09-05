@@ -8,6 +8,9 @@ import { useTheme } from "../lib/useTheme";
 import { MarqueeCarousel } from "./MarqueeCarousel";
 import { AnimatedMetric } from "./AnimatedMetric";
 import { RadialProgress } from "./RadialProgress";
+import dynamic from "next/dynamic";
+
+import { ChartFallback } from "./ChartFallback";
 import { LazyMount } from "./LazyMount";
 import { ScrollProgressBar } from "./ScrollProgressBar";
 import { SectionStickyBar } from "./SectionStickyBar";
@@ -25,8 +28,14 @@ import { Dashboard } from "./Dashboard";
 import { HeroVisual } from "./HeroVisual";
 import { Portrait } from "./Portrait";
 import { NominationVerdict } from "./NominationVerdict";
-import { DataVisualizations } from "./DataVisualizations";
-import { VoterProjectionsChart } from "./VoterProjectionsChart";
+const DataVisualizations = dynamic(
+  () => import("./DataVisualizations").then((m) => m.DataVisualizations),
+  { ssr: false, loading: () => <ChartFallback height={420} /> },
+);
+const VoterProjectionsChart = dynamic(
+  () => import("./VoterProjectionsChart").then((m) => m.VoterProjectionsChart),
+  { ssr: false, loading: () => <ChartFallback height={500} /> },
+);
 import { SectionSkeleton } from "./SectionSkeleton";
 
 function SectionTransition({ children, tabKey }: { children: React.ReactNode; tabKey?: string }) {
@@ -104,7 +113,7 @@ function PartDivider({ number, label }: { number: string; label: string }) {
   return (
     <div className="relative left-1/2 -translate-x-1/2 w-screen print:hidden" aria-hidden="true">
       <div className="h-12 sm:h-14 flex items-center bg-gradient-to-r from-accent/[0.05] via-gold/[0.06] to-accent/[0.05] border-y border-line/40">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 w-full flex items-center gap-3">
+        <div className="shell w-full flex items-center gap-3">
           <span className="font-mono text-xs sm:text-sm font-bold text-accent shrink-0">{number}</span>
           <span className="h-px w-6 bg-line/60 shrink-0" />
           <span className="text-sm sm:text-base font-semibold text-ink truncate">{label}</span>
@@ -166,7 +175,7 @@ function LazySection({ id, content, renderSectionExtras, immediate = false }: La
   }, [immediate]);
 
   return (
-    <div ref={containerRef} id={`section-${id}`} className="cv-auto-section clean-editorial-section py-4 sm:py-8 px-0 sm:px-2 print:break-inside-avoid min-h-[150px] snap-start scroll-mt-24 transition-all duration-500 ease-out">
+    <div ref={containerRef} id={`section-${id}`} className="cv-auto-section clean-editorial-section print:break-inside-avoid min-h-[150px] snap-start scroll-mt-24">
       {hasBeenVisible ? (
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -395,7 +404,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
       {(activeTab === "overview" || isExpanded) && (
         <header className="cv-auto-hero relative pt-10 sm:pt-14 pb-8 sm:pb-12 overflow-hidden print:pt-4 print:pb-4">
           <div className="absolute inset-0 pointer-events-none opacity-50 bg-[radial-gradient(circle_at_82%_10%,var(--color-glow),transparent_32%),linear-gradient(180deg,var(--color-card),var(--color-paper))]" />
-          <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 relative z-10">
+          <div className="shell relative z-10">
             
             {/* Wiper Patriotic Front (WPF) Brand Banner */}
             <div className="flex items-center gap-3 mb-4 sm:mb-6 select-none bg-card/80 backdrop-blur-md border border-line rounded-2xl p-2.5 sm:p-3.5 w-fit shadow-sm">
@@ -444,7 +453,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
               <span className="text-xs font-semibold text-muted shrink-0">Jump to</span>
               <button
                 onClick={() => setIsTOCModalOpen(true)}
-                className="px-3 py-1.5 rounded-xl bg-accent text-white text-xs font-bold shrink-0 flex items-center gap-1.5 shadow-sm shadow-accent/20 cursor-pointer"
+                className="tap-chip px-3 py-1.5 rounded-xl bg-accent text-white text-xs font-bold shrink-0 flex items-center gap-1.5 shadow-sm shadow-accent/20 cursor-pointer"
               >
                 <span>Full index</span>
               </button>
@@ -452,7 +461,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
                 <button
                   key={link.id}
                   onClick={() => navigateToSection(link.id)}
-                  className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
+                  className="tap-chip px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
                 >
                   {link.label}
                 </button>
@@ -477,7 +486,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
       {/* Data Strip */}
       {(activeTab === "overview" || isExpanded) && (
-        <section className="cv-auto-strip max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 mb-8 print:hidden space-y-6">
+        <section className="cv-auto-strip shell mb-8 print:hidden space-y-6">
           <LazyMount minHeight={420}>
             <DataVisualizations />
           </LazyMount>
@@ -488,7 +497,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
       )}
 
       {/* Main Content Layout */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 pb-48 lg:pb-24">
+      <main className="shell pb-48 lg:pb-24">
         <div className="print:hidden">
         </div>
         
@@ -511,7 +520,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
             <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
               <button 
                 onClick={() => setIsTOCModalOpen(true)}
-                className="flex items-center gap-1.5 px-3 py-2 bg-accent/10 border border-accent/20 rounded-xl text-xs sm:text-sm font-bold text-accent hover:bg-accent hover:text-white active:scale-95 transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                className="flex items-center gap-1.5 px-3 py-2 bg-accent/10 border border-accent/20 rounded-xl text-xs sm:text-sm font-bold text-accent hover:bg-accent hover:text-white active:scale-95 transition-all cursor-pointer tap min-h-[40px] sm:min-h-[42px]"
                 aria-label="Open Table of Contents"
               >
                 <FileText size={15} />
@@ -520,7 +529,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
               <button 
                 onClick={cycleDensity}
-                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent active:scale-95 transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent active:scale-95 transition-all cursor-pointer tap min-h-[40px] sm:min-h-[42px]"
                 title={`Reading Density: ${readingDensity}`}
                 aria-label="Toggle Reading Density"
               >
@@ -530,7 +539,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
               <button 
                 onClick={() => setIsFocusMode(!isFocusMode)}
-                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl text-xs sm:text-sm font-bold active:scale-95 transition-all cursor-pointer min-h-[40px] sm:min-h-[42px] ${
+                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl text-xs sm:text-sm font-bold active:scale-95 transition-all cursor-pointer tap min-h-[40px] sm:min-h-[42px] ${
                   isFocusMode 
                     ? "bg-accent border-accent text-white shadow-sm" 
                     : "bg-card border-line/60 text-ink hover:border-accent hover:text-accent"
@@ -544,7 +553,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
               <button 
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="flex items-center gap-1.5 px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent active:scale-95 transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                className="flex items-center gap-1.5 px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent active:scale-95 transition-all cursor-pointer tap min-h-[40px] sm:min-h-[42px]"
               >
                 {isExpanded ? <Minimize2 size={15} /> : <Maximize2 size={15} />}
                 <span className="hidden sm:inline">{isExpanded ? "Collapse All" : "Expand All"}</span>
@@ -561,7 +570,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
               <button 
                 onClick={toggleTheme}
-                className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent active:scale-95 transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent active:scale-95 transition-all cursor-pointer tap min-h-[40px] sm:min-h-[42px]"
                 aria-label="Toggle theme"
               >
                 {mounted ? (
@@ -679,7 +688,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
       </main>
       
       {/* Footer — visible on screen and repeated in print output */}
-      <footer className="border-t border-line mt-8 pt-8 pb-28 lg:pb-10 px-4 sm:px-6 max-w-7xl mx-auto">
+      <footer className="border-t border-line mt-8 pt-8 pb-28 lg:pb-10 shell">
         <div className="confidentiality-marker mb-3">
           <strong>Confidential</strong>
           <span className="opacity-70"> — link-only proposal for Wiper Patriotic Front campaign leadership. Not for public distribution.</span>

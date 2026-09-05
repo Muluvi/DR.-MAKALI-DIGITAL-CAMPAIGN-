@@ -113,7 +113,7 @@ export function QuickNavCapsule({ onNavigate, activeTab }: QuickNavCapsuleProps)
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`flex items-center gap-2 px-3.5 py-2.5 rounded-full backdrop-blur-md border shadow-lg text-xs font-bold transition-all cursor-pointer active:scale-95 ${
+          className={`tap-chip flex items-center gap-2 px-3.5 py-2.5 rounded-full backdrop-blur-md border shadow-lg text-xs font-bold transition-all cursor-pointer active:scale-95 ${
             isOpen
               ? "bg-accent text-white border-accent shadow-accent/25"
               : "bg-card/95 text-ink border-line/60 hover:border-accent/60 hover:text-accent"

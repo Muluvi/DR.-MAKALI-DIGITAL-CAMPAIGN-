@@ -1,8 +1,18 @@
 "use client";
 
+import dynamic from "next/dynamic";
+
+import { ChartFallback } from "../ChartFallback";
 import { LazyMount } from "../LazyMount";
 import { SourceLine } from "./SourceLine";
-import MizaniSlopeChart, { type SlopeSeries } from "../charts/MizaniSlopeChart";
+import type { SlopeSeries } from "../charts/MizaniSlopeChart";
+
+// Dynamic boundary: the charting runtime stays out of the first load. LazyMount below
+// still gates when it mounts; this gates when it downloads.
+const MizaniSlopeChart = dynamic(() => import("../charts/MizaniSlopeChart"), {
+  ssr: false,
+  loading: () => <ChartFallback />,
+});
 
 // §0.1 table. Ngilu has no June 2026 figure (she wasn't in that round), so her line
 // starts null rather than an invented June value — the chart draws no segment before August.

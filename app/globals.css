@@ -172,21 +172,39 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   --rhythm: 0.5rem;
   --rhythm-scale: 1;
 
-  --fs-micro: 0.625rem;   /* 10px — uppercase eyebrows and axis ticks */
-  --fs-label: 0.6875rem;  /* 11px — field labels, badges, table headers */
-  --fs-small: 0.75rem;    /* 12px — secondary text, captions, notes */
-  --fs-body: 0.8125rem;   /* 13px — card body copy */
-  --fs-lead: 0.9375rem;   /* 15px — card ledes and figures */
+  /* Fluid type. Each step interpolates between a 360px phone and a 1280px desktop, so there
+     is one continuous scale rather than a phone value and a desktop value with a cliff at
+     640px. The old scale ran 10-15px and got *smaller* above 640px, which is why body copy
+     read as cramped on every device: the document was set at caption size throughout. */
+  --fs-micro: clamp(0.6875rem, 0.66rem + 0.12vw, 0.75rem);   /* 11 → 12px */
+  --fs-label: clamp(0.75rem,   0.72rem + 0.15vw, 0.8125rem); /* 12 → 13px */
+  --fs-small: clamp(0.8125rem, 0.78rem + 0.16vw, 0.875rem);  /* 13 → 14px */
+  --fs-body:  clamp(0.9375rem, 0.90rem + 0.20vw, 1rem);      /* 15 → 16px */
+  --fs-lead:  clamp(1.0625rem, 1.02rem + 0.24vw, 1.1875rem); /* 17 → 19px */
+
+  /* Page gutter and the gap between sections, both fluid on the same interval. */
+  --gutter: clamp(0.875rem, 0.55rem + 1.5vw, 2.5rem);
+  --section-gap: clamp(1.75rem, 1.1rem + 2.6vw, 3.5rem);
+
+  /* Comfortable line length for running prose. Wide elements (tables, ASCII figures, charts)
+     opt out via .prose-wide so they still use the full shell width. */
+  --measure: 72ch;
 }
 
-@media (max-width: 639px) {
+/* Galaxy Fold folded (280px) and small Android. Below this width the gutter and the badge
+   chrome have to give way or the ASCII figures have nothing left to scroll inside. */
+@media (max-width: 380px) {
   :root {
-    --fs-micro: 0.65625rem; /* 10.5px */
-    --fs-label: 0.71875rem; /* 11.5px */
-    --fs-small: 0.78125rem; /* 12.5px */
-    --fs-body: 0.84375rem;  /* 13.5px */
-    --fs-lead: 0.96875rem;  /* 15.5px */
+    --gutter: 0.75rem;
+    --fs-micro: 0.6875rem;
+    --fs-label: 0.75rem;
   }
+}
+
+/* Fold unfolded and tablets read at arm's length, so the measure can widen a little without
+   the line becoming hard to track back. */
+@media (min-width: 900px) {
+  :root { --measure: 74ch; }
 }
 
 .t-micro { font-size: var(--fs-micro); }
@@ -199,25 +217,44 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
 /* Reading density moves one multiplier and one type step. It used to restate a margin on every
    element with !important, which meant the base rules and the density rules quietly fought over
    the same properties — the single largest source of the uneven spacing this pass fixes. */
-.density-compact { --rhythm-scale: 0.75; }
+/* Density moves one multiplier and one type step. The three steps are expressed against the
+   fluid --fs-body above rather than as fixed pixel sizes, so density and viewport compose
+   instead of overriding each other — compact on a Fold and compact on a desktop are both
+   one step down from that device's own comfortable size. */
+.density-compact { --rhythm-scale: 0.8; --prose-fs: calc(var(--fs-body) * 0.94); --prose-lh: 1.62; }
+.density-balanced { --rhythm-scale: 1; --prose-fs: var(--fs-body); --prose-lh: 1.7; }
+.density-generous { --rhythm-scale: 1.3; --prose-fs: calc(var(--fs-body) * 1.1); --prose-lh: 1.8; }
+
 .density-compact .prose p:not(.not-prose *),
-.density-compact .prose li:not(.not-prose *) {
-  font-size: 0.875rem;
-  line-height: 1.6;
-}
-
-.density-balanced { --rhythm-scale: 1; }
+.density-compact .prose li:not(.not-prose *),
 .density-balanced .prose p:not(.not-prose *),
-.density-balanced .prose li:not(.not-prose *) {
-  font-size: 0.95rem;
-  line-height: 1.72;
-}
-
-.density-generous { --rhythm-scale: 1.35; }
+.density-balanced .prose li:not(.not-prose *),
 .density-generous .prose p:not(.not-prose *),
 .density-generous .prose li:not(.not-prose *) {
-  font-size: 1.0625rem;
-  line-height: 1.82;
+  font-size: var(--prose-fs);
+  line-height: var(--prose-lh);
+  text-wrap: pretty;
+}
+
+/* Running prose is held to a readable measure; anything that needs the full shell width
+   (tables, ASCII figures, charts, component cards) is marked .prose-wide or is .not-prose
+   and keeps it. Without this the document set 1200px-wide lines on a desktop. */
+.prose > p:not(.not-prose *),
+.prose > ul:not(.not-prose *),
+.prose > ol:not(.not-prose *),
+.prose > blockquote:not(.not-prose *) {
+  max-width: var(--measure);
+}
+.prose > h2:not(.not-prose *),
+.prose > h3:not(.not-prose *),
+.prose > h4:not(.not-prose *) {
+  max-width: calc(var(--measure) + 6ch);
+}
+.prose .prose-wide,
+.prose > figure,
+.prose > table,
+.prose > .not-prose {
+  max-width: none;
 }
 
 /* Focus Mode Refinements */
@@ -232,21 +269,19 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   position: relative;
   background-color: transparent;
   border: none;
-  margin-bottom: 2.5rem;
-  padding-bottom: 2rem;
+  padding-block: calc(var(--section-gap) * 0.55);
+  margin-bottom: calc(var(--section-gap) * 0.7);
   border-bottom: 1px solid var(--color-line);
 }
 
-@media (max-width: 640px) {
-  .clean-editorial-section {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-}
-
-/* Base style for elements that transition when theme switches */
-* {
-  transition-property: background-color, border-color, text-decoration-color, fill, stroke;
+/* Theme-switch transition. This used to be an unscoped `*` rule, which put four animatable
+   properties on every node in a very large DOM — the single biggest scripted-style cost on a
+   mid-range Android, paid on every scroll and every repaint, not just at theme switch. It is
+   now applied only while a theme change is actually in flight (useTheme adds .theme-switching
+   for the duration), so the steady state carries no transition at all. */
+.theme-switching,
+.theme-switching *:not(svg *) {
+  transition-property: background-color, border-color, color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -927,4 +962,119 @@ p, li, blockquote {
   .confidentiality-marker strong {
     color: #a9151f !important;
   }
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* Responsive layout pass                                                  */
+/*                                                                         */
+/* The document was built at two widths — phone and "not phone" — with a   */
+/* single 640px step. That reads as crowded at both ends: a folded Galaxy  */
+/* Fold gets desktop gutters it cannot spare, and a 1440px desktop gets    */
+/* 1200px-wide lines of 13px type. Everything below is tier work.          */
+/* ---------------------------------------------------------------------- */
+
+/* One shell width and one gutter, both fluid, so every band on the page lines up. */
+.shell {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  max-width: 90rem;
+}
+
+/* Figures, ASCII diagrams and wide tables are the worst offenders on a narrow screen: the
+   page gutter steals ~28px from a 280px viewport before the scroll window even starts. On
+   phones they break out to the full viewport width and drop their corner radius, which buys
+   back roughly a fifth of the readable area on a Fold. */
+@media (max-width: 767px) {
+  .bleed-narrow {
+    margin-inline: calc(var(--gutter) * -1);
+    border-radius: 0;
+    border-inline: none;
+  }
+  .bleed-narrow > .overflow-x-auto {
+    padding-inline: var(--gutter);
+  }
+}
+
+/* A horizontally scrollable figure should say so. The shadow appears only while there is
+   something to scroll to, so it never fires on a diagram that already fits. */
+.scroll-x {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  background:
+    linear-gradient(to right, var(--color-card) 30%, transparent) left / 2.5rem 100% no-repeat,
+    linear-gradient(to left, var(--color-card) 30%, transparent) right / 2.5rem 100% no-repeat,
+    radial-gradient(farthest-side at 0 50%, rgba(0, 0, 0, 0.14), transparent) left / 0.75rem 100% no-repeat,
+    radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.14), transparent) right / 0.75rem 100% no-repeat;
+  background-attachment: local, local, scroll, scroll;
+}
+
+/* Monospace figures shrink a step on narrow screens so more of the drawing lands inside the
+   scroll window. Below the Fold's folded width they take one step more. The grid is never
+   reflowed — that would destroy the diagram — only scaled. */
+.ascii-pre { font-size: clamp(0.625rem, 0.55rem + 0.34vw, 0.8125rem); }
+@media (max-width: 380px) {
+  .ascii-pre { font-size: 0.5625rem; }
+}
+
+/* Touch targets. iOS and Android both want ~44px; the toolbar rows were 40px. */
+@media (pointer: coarse) {
+  .tap,
+  .tap button,
+  button.tap {
+    min-height: 44px;
+  }
+}
+
+/* Tablet and Fold-unfolded: two columns become genuinely useful here, and this is the tier
+   the document never had — it was inheriting phone spacing up to 1024px. */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .prose > * { margin-block: calc(var(--rhythm) * var(--rhythm-scale) * 2.2); }
+}
+
+/* Desktop: the shell can be wide for figures while running text stays at --measure. */
+@media (min-width: 1280px) {
+  .shell { padding-inline: clamp(2.5rem, 1rem + 3vw, 4rem); }
+}
+
+/* The two decorative watermark words are ~8rem of rotated text painted behind every section.
+   They cost real paint time on a mid-range phone and contribute nothing at a width where
+   they are mostly clipped. Desktop keeps them. */
+@media (max-width: 1023px) {
+  .decor-watermark { display: none; }
+}
+
+/* Document tables get the same treatment as the ASCII figures: on a phone the gutter is worth
+   more than the card edge, and a table that scrolls should look like one. */
+.prose table:not(.not-prose *) { display: block; overflow-x: auto; width: 100%; }
+@media (max-width: 767px) {
+  .prose table:not(.not-prose *) {
+    margin-inline: calc(var(--gutter) * -1);
+    width: calc(100% + var(--gutter) * 2);
+    padding-inline: var(--gutter);
+  }
+}
+
+/* Touch target floor. iOS HIG and Android Material both put the minimum at ~44px; several
+   controls here sit at 28-30px, which on a phone means a mis-tap rather than a scroll.
+   Icon-only buttons expand their *hit area* with a pseudo-element instead of their box, so
+   the visual density of the anchor rail and the chart toggles is unchanged. */
+@media (pointer: coarse) {
+  /* A pseudo-element hit-area expansion was tried first and could not be shown to work here —
+     the ::after computed correctly but never received the hit in testing — so the box itself
+     is enlarged instead, and the border and fill are dropped so a 44px target next to a
+     heading does not read as a heavy button. The icon keeps the affordance. */
+  .section-anchor-btn,
+  .tap-expand {
+    width: 44px;
+    height: 44px;
+    border-color: transparent;
+    background-color: transparent;
+    margin-inline: -0.5rem;
+  }
+
+  /* Rows of text chips can afford the real height. */
+  .tap-chip { min-height: 44px; }
 }

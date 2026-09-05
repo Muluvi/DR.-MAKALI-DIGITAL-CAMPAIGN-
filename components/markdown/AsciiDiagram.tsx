@@ -62,7 +62,7 @@ function Frame({
   children: React.ReactNode;
 }) {
   return (
-    <figure className="my-6 not-prose border border-line rounded-2xl bg-card overflow-hidden shadow-sm print:break-inside-avoid">
+    <figure className="bleed-narrow my-6 not-prose border border-line rounded-2xl bg-card overflow-hidden shadow-sm print:break-inside-avoid">
       <figcaption className="flex items-center gap-2 px-4 py-2.5 bg-paper/60 border-b border-line">
         <Icon size={13} className="text-accent shrink-0" aria-hidden="true" />
         {title ? (
@@ -82,7 +82,7 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
   return (
     <Frame title={d.title} icon={Table2} kind="Matrix">
       {/* The table scrolls inside its own frame; the page never scrolls sideways. */}
-      <div className="overflow-x-auto">
+      <div className="scroll-x">
         <table className="w-full t-small sm:text-xs border-collapse min-w-[30rem]">
           {d.headers && (
             <thead>
@@ -171,8 +171,8 @@ function DiagramKeyValue({ d }: { d: Extract<Diagram, { kind: "keyvalue" }> }) {
 function DiagramPanel({ d }: { d: Extract<Diagram, { kind: "panel" }> }) {
   return (
     <Frame title={d.title} icon={GitBranch} kind="Diagram">
-      <div className="overflow-x-auto px-3 py-3">
-        <pre className="t-label sm:t-small font-mono leading-[1.45] text-ink m-0 p-0 whitespace-pre">
+      <div className="scroll-x px-3 py-3">
+        <pre className="ascii-pre font-mono leading-[1.45] text-ink m-0 p-0 whitespace-pre">
           {d.body}
         </pre>
       </div>
@@ -186,13 +186,13 @@ export function AsciiDiagram({ source, children }: { source: string; children: R
   if (!parsed) {
     // Unparsed — a USSD menu, a script, a code sample. Keep the original treatment.
     return (
-      <div className="my-6 rounded-2xl border border-line bg-paper/60 p-3 sm:p-4 overflow-hidden not-prose">
+      <div className="bleed-narrow my-6 rounded-2xl border border-line bg-paper/60 p-3 sm:p-4 overflow-hidden not-prose">
         <div className="flex items-center justify-between pb-2 mb-2 border-b border-line/40 t-label font-mono font-bold text-muted uppercase tracking-wider">
           <span>Architecture &amp; process model</span>
           <span className="hidden sm:inline">Diagram / script</span>
         </div>
-        <div className="overflow-x-auto max-w-full scrollbar-thin">
-          <pre className="t-small sm:text-xs font-mono text-ink leading-snug m-0 p-0 whitespace-pre">
+        <div className="scroll-x max-w-full">
+          <pre className="ascii-pre font-mono text-ink leading-snug m-0 p-0 whitespace-pre">
             {children}
           </pre>
         </div>

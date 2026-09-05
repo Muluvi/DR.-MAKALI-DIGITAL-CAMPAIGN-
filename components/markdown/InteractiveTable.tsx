@@ -196,7 +196,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
           {numericColumnIndex !== -1 && (
             <button
               onClick={() => setShowChart(!showChart)}
-              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg border t-label font-semibold uppercase tracking-wider transition-all cursor-pointer ${
+              className={`tap-chip flex items-center gap-1.5 px-2.5 py-1 rounded-lg border t-label font-semibold uppercase tracking-wider transition-all cursor-pointer ${
                 showChart
                   ? "bg-accent border-accent text-white shadow-sm"
                   : "bg-paper/80 border-line text-muted hover:border-accent/40 hover:text-ink"

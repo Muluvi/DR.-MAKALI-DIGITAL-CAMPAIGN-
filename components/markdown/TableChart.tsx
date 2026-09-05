@@ -1,6 +1,13 @@
 "use client";
 
-import { ChartComponent } from "../ChartComponent";
+import dynamic from "next/dynamic";
+
+import { ChartFallback } from "../ChartFallback";
+
+const ChartComponent = dynamic(() => import("../ChartComponent").then((m) => m.ChartComponent), {
+  ssr: false,
+  loading: () => <ChartFallback height={260} />,
+});
 
 interface TableChartDatum {
   name: string;
