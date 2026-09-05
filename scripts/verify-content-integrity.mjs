@@ -57,6 +57,32 @@ function normaliseRefs(text) {
 }
 
 /**
+ * Placeholders the client has since filled in, quoted old and new so the change is auditable
+ * here rather than silently tolerated. These are the only body-text edits since the
+ * restructure, and each was supplied by Firefly directly — the proposal's own status line
+ * always said it carried marked placeholders awaiting exactly this.
+ */
+const FILLED_PLACEHOLDERS = [
+  {
+    before: "`[Insert contact email]` · `[Insert phone]` · `[Insert website/portfolio URL]`",
+    after: "6th Floor, Next Gen Mall, Mombasa Road, Nairobi\nfireflymanagement.ke@gmail.com · 0726 766 800",
+  },
+  {
+    before: "> to delete it, at any time, at `[Insert contact route]`. We will respond",
+    after: "> to delete it, at any time, at fireflymanagement.ke@gmail.com. We will respond",
+  },
+  {
+    // Added to the front matter. Anchored on the line that follows it, because the same
+    // consultancy line also appears in the close and only the front-matter one gains an address.
+    before: "Strategic Communications & Digital Campaign Consultancy\n\n**Date:** August 2026",
+    after:
+      "Strategic Communications & Digital Campaign Consultancy\n" +
+      "6th Floor, Next Gen Mall, Mombasa Road, Nairobi\n" +
+      "fireflymanagement.ke@gmail.com · 0726 766 800\n\n**Date:** August 2026",
+  },
+];
+
+/**
  * The two pointers into the deleted §39.1, removed by cutting a self-contained appositive so
  * each sentence closes on words already present. Quoted here in full so the one category of
  * permitted deletion inside a sentence is auditable rather than implicit.
@@ -130,6 +156,7 @@ for (const file of OLD_FILES) {
   }
   let normalised = normaliseRefs(text);
   for (const pointer of REMOVED_POINTERS) normalised = normalised.split(pointer).join("");
+  for (const { before, after } of FILLED_PLACEHOLDERS) normalised = normalised.split(before).join(after);
   before = before.concat(bodyLines(normalised, { dropDeletedSections: true }));
 }
 
@@ -153,7 +180,8 @@ const added = difference(tally(after), tally(beforeBody));
 if (lost.length === 0 && added.length === 0) {
   console.log(
     `Content integrity check passed: all ${after.length} body lines are unchanged since ${BASE}, ` +
-      `apart from the deleted registers, the nine logged orientation lines, and repointed cross-references.`
+      `apart from the deleted registers, the nine logged orientation lines, repointed cross-references ` +
+      `and the ${FILLED_PLACEHOLDERS.length} placeholders the client has filled in.`
   );
   process.exit(0);
 }
