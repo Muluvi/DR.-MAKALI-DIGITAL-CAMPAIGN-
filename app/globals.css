@@ -20,41 +20,53 @@
   --color-phase-3: var(--phase-3);
   --font-serif: var(--font-montserrat), sans-serif;
   --font-sans: var(--font-montserrat), sans-serif;
+
+  /* Domain A - Reading Token Ramp */
+  --text-micro: var(--fs-micro);
+  --text-label: var(--fs-label);
+  --text-small: var(--fs-small);
+  --text-body: var(--fs-body);
+  --text-lead: var(--fs-lead);
+
+  /* Domain B - Chart Scale Tokens */
+  --text-chart-micro: var(--fs-chart-micro);
+  --text-chart-tick: var(--fs-chart-tick);
+  --text-chart-axis: var(--fs-chart-axis);
+  --text-chart-label: var(--fs-chart-label);
+  --text-chart-title: var(--fs-chart-title);
 }
 
 :root {
-  --ink: #0b1a30;
-  --muted: #4e6178;
-  --paper: #f4f7fc;
-  --card: #ffffff;
-  --line: #d2dee9;
-  --accent: #00209f; /* Wiper Official Royal Blue */
-  --gold: #e31d2b;   /* Wiper Official Earth Red */
-  --dark: #071224;
-  --danger: #e31d2b;  /* Wiper Official Earth Red */
-  --glow: rgba(0, 32, 159, 0.15);
+  /* OKLCH wide-gamut compatible palette */
+  --ink: oklch(0.21 0.045 250);
+  --muted: oklch(0.48 0.038 245);
+  --paper: oklch(0.97 0.012 250);
+  --card: oklch(1 0 0);
+  --line: oklch(0.89 0.02 245);
+  --accent: oklch(0.35 0.22 265); /* Wiper Official Royal Blue */
+  --gold: oklch(0.55 0.22 27);    /* Wiper Official Earth Red */
+  --dark: oklch(0.18 0.04 252);
+  --danger: oklch(0.55 0.22 27);
+  --glow: oklch(0.35 0.22 265 / 0.15);
 
-  --prose-body: #344356;
-  --prose-strong: #0a172c;
-  --prose-bg-nested: #ffffff;
-  --code-bg: #e2ebf5;
-  --th-bg: #eaf0f6;
-  --placeholder-bg: #ffebeb;
-  --placeholder-border: #f8b4b4;
-  --placeholder-color: #9c1c24;
+  --prose-body: oklch(0.38 0.035 245);
+  --prose-strong: oklch(0.20 0.045 250);
+  --prose-bg-nested: oklch(1 0 0);
+  --code-bg: oklch(0.93 0.018 245);
+  --th-bg: oklch(0.95 0.015 245);
+  --placeholder-bg: oklch(0.95 0.04 25);
+  --placeholder-border: oklch(0.82 0.09 25);
+  --placeholder-color: oklch(0.44 0.18 27);
 
   /* Claim-status badges (Verified / Estimate / Awaiting campaign decision) */
-  --verified-bg: #e9f7ef;
-  --verified-border: #a8ddc0;
-  --verified-color: #146c43;
-  --estimate-bg: #fdf3e0;
-  --estimate-border: #f0cf8a;
-  --estimate-color: #8a5a05;
+  --verified-bg: oklch(0.96 0.03 155);
+  --verified-border: oklch(0.86 0.07 155);
+  --verified-color: oklch(0.46 0.12 155);
+  --estimate-bg: oklch(0.96 0.04 85);
+  --estimate-border: oklch(0.85 0.09 85);
+  --estimate-color: oklch(0.50 0.14 85);
 
-  /* Source-tier badges (Tier 1 Official / Tier 2 Reported / Tier 3 Single-source) — reuses the
-     claim-badge palette on a second semantic axis: source reliability rather than claim status.
-     Tier 1 borrows the "verified" green, Tier 2 the "estimate" amber, Tier 3 the placeholder red
-     used everywhere else in the document to flag something the reader must not take at face value. */
+  /* Source-tier badges */
   --tier1-bg: var(--verified-bg);
   --tier1-border: var(--verified-border);
   --tier1-color: var(--verified-color);
@@ -65,48 +77,66 @@
   --tier3-border: var(--placeholder-border);
   --tier3-color: var(--placeholder-color);
 
-  /* Phase colour palette — one hue per campaign stage (Section 20), used consistently across
-     the timeline, phase-scoped charts and section headers. */
-  --phase-neg1: #6d28d9;  /* Phase -1: Nomination Sprint */
-  --phase-0: #0891b2;     /* Phase 0: Audit & Infrastructure */
-  --phase-1: #0056a8;     /* Phase 1: Awareness & Community (= brand accent) */
-  --phase-2: #b45309;     /* Phase 2: Engagement & Persuasion */
-  --phase-3: #15803d;     /* Phase 3: Mobilisation & GOTV */
+  /* Phase colour palette */
+  --phase-neg1: oklch(0.45 0.22 295);  /* Phase -1: Nomination Sprint */
+  --phase-0: oklch(0.60 0.14 210);     /* Phase 0: Audit & Infrastructure */
+  --phase-1: oklch(0.45 0.18 255);     /* Phase 1: Awareness & Community */
+  --phase-2: oklch(0.55 0.16 60);      /* Phase 2: Engagement & Persuasion */
+  --phase-3: oklch(0.52 0.16 145);     /* Phase 3: Mobilisation & GOTV */
+
+  /* Domain B — Chart Scale (fixed coordinate space / SVG geometry) */
+  --fs-chart-micro: 8px;
+  --fs-chart-tick: 9px;
+  --fs-chart-axis: 10px;
+  --fs-chart-label: 10.5px;
+  --fs-chart-title: 11px;
 }
 
 .dark {
-  --ink: #ffffff; /* Crisp white for ultra high contrast */
-  --muted: #8295a9;
-  --paper: #000000; /* True infinite contrast OLED black */
-  --card: #060d17;  /* Deep OLED card black/navy */
-  --line: #122036;  /* Hairline divider contrast */
-  --accent: #338dfd; /* Luminous royal blue for OLED punch */
-  --gold: #ff5765;   /* Vivid crimson red */
-  --dark: #ffffff;
-  --danger: #ff5765;
-  --glow: rgba(51, 141, 253, 0.15);
+  --ink: oklch(1 0 0); /* Crisp white for infinite OLED contrast */
+  --muted: oklch(0.66 0.035 240);
+  --paper: oklch(0 0 0); /* True infinite contrast OLED black */
+  --card: oklch(0.16 0.03 250);
+  --line: oklch(0.24 0.04 250);
+  --accent: oklch(0.65 0.18 255); /* Luminous royal blue for OLED punch */
+  --gold: oklch(0.68 0.21 22);    /* Vivid crimson red */
+  --dark: oklch(1 0 0);
+  --danger: oklch(0.68 0.21 22);
+  --glow: oklch(0.65 0.18 255 / 0.15);
 
-  --prose-body: #a2b4c7;
-  --prose-strong: #ffffff;
-  --prose-bg-nested: #060d17;
-  --code-bg: #111d33;
-  --th-bg: #111d33;
-  --placeholder-bg: #1f080b;
-  --placeholder-border: #4a1215;
-  --placeholder-color: #ff5765;
+  --prose-body: oklch(0.74 0.03 240);
+  --prose-strong: oklch(1 0 0);
+  --prose-bg-nested: oklch(0.16 0.03 250);
+  --code-bg: oklch(0.22 0.04 250);
+  --th-bg: oklch(0.22 0.04 250);
+  --placeholder-bg: oklch(0.20 0.08 25);
+  --placeholder-border: oklch(0.35 0.12 25);
+  --placeholder-color: oklch(0.70 0.20 22);
 
-  --verified-bg: #0c2118;
-  --verified-border: #1f5f3f;
-  --verified-color: #4ade80;
-  --estimate-bg: #241a06;
-  --estimate-border: #6b4e0f;
-  --estimate-color: #fbbf24;
+  --verified-bg: oklch(0.22 0.06 155);
+  --verified-border: oklch(0.40 0.10 155);
+  --verified-color: oklch(0.80 0.16 150);
+  --estimate-bg: oklch(0.24 0.07 85);
+  --estimate-border: oklch(0.44 0.12 85);
+  --estimate-color: oklch(0.82 0.15 85);
 
-  --phase-neg1: #a78bfa;
-  --phase-0: #22d3ee;
-  --phase-1: #338dfd;
-  --phase-2: #fb923c;
-  --phase-3: #4ade80;
+  --phase-neg1: oklch(0.72 0.16 295);
+  --phase-0: oklch(0.78 0.12 210);
+  --phase-1: oklch(0.68 0.18 255);
+  --phase-2: oklch(0.74 0.15 60);
+  --phase-3: oklch(0.78 0.17 145);
+}
+
+/* Wide-gamut display P3 layer for flagship Android AMOLED */
+@media (color-gamut: p3) {
+  :root {
+    --accent: oklch(0.36 0.26 265);
+    --gold: oklch(0.56 0.26 27);
+  }
+  .dark {
+    --accent: oklch(0.66 0.22 255);
+    --gold: oklch(0.70 0.25 22);
+  }
 }
 
 html {
@@ -124,8 +154,6 @@ body {
   -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
-  /* Tabular figures everywhere numerals appear, so stats and tables don't jitter in width. */
-  font-variant-numeric: tabular-nums;
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
@@ -172,15 +200,12 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   --rhythm: 0.5rem;
   --rhythm-scale: 1;
 
-  /* Fluid type. Each step interpolates between a 360px phone and a 1280px desktop, so there
-     is one continuous scale rather than a phone value and a desktop value with a cliff at
-     640px. The old scale ran 10-15px and got *smaller* above 640px, which is why body copy
-     read as cramped on every device: the document was set at caption size throughout. */
-  --fs-micro: clamp(0.6875rem, 0.66rem + 0.12vw, 0.75rem);   /* 11 → 12px */
-  --fs-label: clamp(0.75rem,   0.72rem + 0.15vw, 0.8125rem); /* 12 → 13px */
-  --fs-small: clamp(0.8125rem, 0.78rem + 0.16vw, 0.875rem);  /* 13 → 14px */
-  --fs-body:  clamp(0.9375rem, 0.90rem + 0.20vw, 1rem);      /* 15 → 16px */
-  --fs-lead:  clamp(1.0625rem, 1.02rem + 0.24vw, 1.1875rem); /* 17 → 19px */
+  /* Fluid type. Rebased to 16px at 360px viewport, interpolating to 1280px desktop. */
+  --fs-micro: clamp(0.75rem,   0.72rem + 0.13vw, 0.8125rem); /* 12 → 13px */
+  --fs-label: clamp(0.8125rem, 0.78rem + 0.14vw, 0.875rem);  /* 13 → 14px */
+  --fs-small: clamp(0.875rem,  0.84rem + 0.16vw, 0.9375rem); /* 14 → 15px */
+  --fs-body:  clamp(1rem,      0.96rem + 0.18vw, 1.0625rem); /* 16 → 17px */
+  --fs-lead:  clamp(1.125rem,  1.08rem + 0.20vw, 1.25rem);   /* 18 → 20px */
 
   /* Page gutter and the gap between sections, both fluid on the same interval. */
   --gutter: clamp(0.875rem, 0.55rem + 1.5vw, 2.5rem);
@@ -196,8 +221,8 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
 @media (max-width: 380px) {
   :root {
     --gutter: 0.75rem;
-    --fs-micro: 0.6875rem;
-    --fs-label: 0.75rem;
+    --fs-micro: 0.75rem;
+    --fs-label: 0.8125rem;
   }
 }
 
@@ -207,11 +232,51 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   :root { --measure: 74ch; }
 }
 
+/* Domain A — Reading Token Classes */
 .t-micro { font-size: var(--fs-micro); }
 .t-label { font-size: var(--fs-label); }
 .t-small { font-size: var(--fs-small); }
 .t-body  { font-size: var(--fs-body); }
 .t-lead  { font-size: var(--fs-lead); }
+
+/* Domain B — Chart Scale Utilities (SVG Geometry & Fixed Coordinate Space) */
+.t-chart-micro { font-size: var(--fs-chart-micro); }
+.t-chart-tick  { font-size: var(--fs-chart-tick); }
+.t-chart-axis  { font-size: var(--fs-chart-axis); }
+.t-chart-label { font-size: var(--fs-chart-label); }
+.t-chart-title { font-size: var(--fs-chart-title); }
+
+/* Recharts and SVG Chart Typography Hierarchy */
+.recharts-cartesian-axis-tick text {
+  font-size: var(--fs-chart-tick);
+  font-family: var(--font-montserrat), sans-serif;
+}
+.recharts-legend-item-text {
+  font-size: var(--fs-chart-axis) !important;
+  font-family: var(--font-montserrat), sans-serif;
+}
+.recharts-label text,
+.recharts-cartesian-axis text.recharts-label {
+  font-size: var(--fs-chart-axis);
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+/* Scoped Tabular Figures for Financial, Electoral, and Telemetry Data */
+.tabular-nums,
+table,
+.prose table,
+.t-numeric,
+.metric-value,
+.stat-figure,
+.vote-count,
+[data-tabular="true"] {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Editorial Serif styling with optical negative tracking */
+.font-serif {
+  letter-spacing: -0.018em;
+}
 
 /* Reading Density Scales */
 /* Reading density moves one multiplier and one type step. It used to restate a margin on every
@@ -354,7 +419,7 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   line-height: 1.68;
   letter-spacing: 0;
   font-weight: 400;
-  font-size: clamp(0.875rem, 0.844rem + 0.156vw, 0.96875rem);
+  font-size: var(--fs-body);
   /* Body measure. This was capped only above 1024px, which left tablets and small laptops
      running past 100 characters a line — the width at which prose stops being readable. */
   max-width: 72ch;
@@ -374,7 +439,7 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   line-height: 1.65;
   letter-spacing: 0;
   font-weight: 400;
-  font-size: clamp(0.875rem, 0.844rem + 0.156vw, 0.96875rem);
+  font-size: var(--fs-body);
 }
 .prose blockquote:not(.not-prose *) {
   border-left: 4px solid var(--color-gold);
@@ -888,6 +953,115 @@ p, li, blockquote {
 }
 .confidentiality-marker strong {
   color: var(--color-gold);
+}
+
+/* ---------------------------------------------------------------------- */
+/* Multi-Device Spacing, Typography & Performance Optimization           */
+/* (Galaxy Fold, Android, iPhone, Tablet, Desktop)                       */
+/* ---------------------------------------------------------------------- */
+
+/* Global touch manipulation for zero 300ms tap latency */
+button, a, input, select, textarea {
+  touch-action: manipulation;
+}
+
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 1. Ultra-Narrow Devices: Samsung Galaxy Fold Cover Screen (<= 320px) */
+@media (max-width: 320px) {
+  body {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 1.35rem !important;
+    line-height: 1.2 !important;
+  }
+  h2 {
+    font-size: 1.15rem !important;
+    line-height: 1.25 !important;
+  }
+  h3 {
+    font-size: 1.05rem !important;
+  }
+  .clean-editorial-section {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .t-label, .t-micro {
+    font-size: 9px !important;
+  }
+}
+
+/* 2. Standard Smartphones: Android & iPhone (321px - 640px) */
+@media (min-width: 321px) and (max-width: 640px) {
+  .clean-editorial-section h1 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    line-height: 1.2;
+  }
+  .clean-editorial-section h2 {
+    font-size: clamp(1.25rem, 5vw, 1.6rem);
+    line-height: 1.25;
+  }
+  .clean-editorial-section p {
+    font-size: 15px;
+    line-height: 1.62;
+  }
+  button, input, select {
+    min-height: 42px;
+  }
+}
+
+/* 3. Tablets & Galaxy Fold Inner Display (641px - 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .clean-editorial-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .clean-editorial-section p {
+    font-size: 16px;
+    line-height: 1.68;
+    max-width: 72ch;
+  }
+}
+
+/* 4. Desktop & High-Resolution Workstations (>= 1025px) */
+@media (min-width: 1025px) {
+  .clean-editorial-section p {
+    font-size: 16.5px;
+    line-height: 1.72;
+    max-width: 74ch;
+  }
+  .claim-card, .cv-auto-section {
+    contain: layout style;
+  }
+}
+
+/* Performance: Offscreen content rendering containment */
+@supports (content-visibility: auto) {
+  .cv-auto-section:not(:first-child) {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 360px;
+  }
+}
+
+/* Zero Chrome mobile full-screen transitions */
+.zero-chrome-active {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom, 1rem)) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* ---------------------------------------------------------------------- */

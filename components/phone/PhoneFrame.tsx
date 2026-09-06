@@ -178,8 +178,14 @@ export function PhoneFrame({
         >
           {/* Screen. Radius is BODY_RADIUS - BEZEL, so the curves are concentric. */}
           <div
-            className="relative overflow-hidden bg-black"
-            style={{ width: SCREEN_W, height: SCREEN_H, borderRadius: SCREEN_RADIUS }}
+            className="relative overflow-hidden bg-black @container"
+            style={{
+              width: SCREEN_W,
+              height: SCREEN_H,
+              borderRadius: SCREEN_RADIUS,
+              containerType: "inline-size",
+              fontSize: "16px",
+            }}
             role="img"
             aria-label={label}
           >

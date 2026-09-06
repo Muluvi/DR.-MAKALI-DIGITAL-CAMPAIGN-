@@ -66,7 +66,7 @@ export function UssdScreen() {
   const sent = reduce || responded;
 
   return (
-    <div className="absolute inset-0 overflow-hidden" style={{ fontFamily: SYSTEM_FONT }}>
+    <div className="absolute inset-0 overflow-hidden @container" style={{ fontFamily: SYSTEM_FONT, containerType: "inline-size", fontSize: "16px" }}>
       <DimmedHome />
       <div aria-hidden="true" className="absolute inset-0" style={{ background: "rgba(0,0,0,0.55)" }} />
 
@@ -85,14 +85,14 @@ export function UssdScreen() {
           >
             <div className="px-5 pt-4 pb-3">
               {/* The code that was dialled. */}
-              <p className="tabular-nums" style={{ fontSize: 15, color: "#5f6368", marginBottom: 12 }}>
+              <p className="tabular-nums" style={{ fontSize: "0.9375em", color: "#5f6368", marginBottom: 12 }}>
                 {USSD.shortCode}
               </p>
 
               {!sent ? (
-                <p style={{ fontSize: 15, lineHeight: 1.5, color: "#5f6368" }}>{USSD.dialingMessage}</p>
+                <p style={{ fontSize: "0.9375em", lineHeight: 1.5, color: "#5f6368" }}>{USSD.dialingMessage}</p>
               ) : (
-                <div style={{ fontSize: 15, lineHeight: 1.45 }}>
+                <div style={{ fontSize: "0.9375em", lineHeight: 1.45 }}>
                   <p style={{ marginBottom: 8 }}>{USSD.responseHeader}</p>
                   <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
                     {USSD.menu.map((m) => (
@@ -111,7 +111,7 @@ export function UssdScreen() {
                 style={{
                   borderBottom: "1.5px solid #9aa0a6",
                   paddingBottom: 5,
-                  fontSize: 15,
+                  fontSize: "0.9375em",
                   color: "#9aa0a6",
                   minHeight: 26,
                 }}
@@ -121,10 +121,10 @@ export function UssdScreen() {
             </div>
 
             <div className="flex justify-end gap-6 px-5 py-3">
-              <span style={{ fontSize: 13.5, fontWeight: 600, letterSpacing: "0.04em", color: "#5f6368" }}>
+              <span style={{ fontSize: "0.84375em", fontWeight: 600, letterSpacing: "0.04em", color: "#5f6368" }}>
                 {USSD.cancelLabel.toUpperCase()}
               </span>
-              <span style={{ fontSize: 13.5, fontWeight: 600, letterSpacing: "0.04em", color: "#1a73e8" }}>
+              <span style={{ fontSize: "0.84375em", fontWeight: 600, letterSpacing: "0.04em", color: "#1a73e8" }}>
                 {USSD.sendLabel.toUpperCase()}
               </span>
             </div>

@@ -5,6 +5,7 @@ import { Search, Sparkles, ArrowUpDown, BarChart3, Table } from "lucide-react";
 import { LazyMount } from "../LazyMount";
 import { SourceLine, detectSources } from "./SourceLine";
 import TableChart from "./TableChart";
+import { WardRegisterTicker } from "../charts/WardRegisterTicker";
 
 function getDeepText(node: any): string {
   if (!node) return "";
@@ -171,12 +172,26 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
     return detectSources(allText);
   }, [ths, rowElements]);
 
+  const isWardRegister = React.useMemo(() => {
+    const allText = [...ths, ...parsedRows.slice(0, 8).flat()].map(getDeepText).join(" ").toLowerCase();
+    return (
+      (allText.includes("ward") && (allText.includes("voter") || allText.includes("register") || allText.includes("constituency"))) ||
+      allText.includes("iebc register")
+    );
+  }, [ths, parsedRows]);
+
   if (ths.length === 0) {
     return <div className="overflow-x-auto border border-line rounded-2xl my-4">{children}</div>;
   }
 
   return (
-    <div className="border-y sm:border border-line/40 sm:rounded-xl my-5 overflow-hidden bg-card/30">
+    <>
+      {isWardRegister && (
+        <div className="my-4">
+          <WardRegisterTicker />
+        </div>
+      )}
+      <div className="border-y sm:border border-line/40 sm:rounded-xl my-5 overflow-hidden bg-card/30">
       {/* Interactive Controls & Analytics Header */}
       <div className="print:hidden p-2.5 sm:p-3.5 border-b border-line/40 bg-paper/40 flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center gap-2">
@@ -318,6 +333,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
         </div>
       )}
       <SourceLine sources={tableSources} />
-    </div>
+      </div>
+    </>
   );
 }

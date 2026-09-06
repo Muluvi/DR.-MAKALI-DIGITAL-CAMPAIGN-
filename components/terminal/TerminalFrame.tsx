@@ -155,12 +155,14 @@ export function TerminalFrame({
 
         {/* Physical Tablet Body */}
         <div
-          className="relative w-full h-full rounded-[28px] overflow-hidden flex flex-col justify-between border-2 border-slate-700/80 shadow-2xl"
+          className="relative w-full h-full rounded-[28px] overflow-hidden flex flex-col justify-between border-2 border-slate-700/80 shadow-2xl @container"
           style={{
             background:
               "linear-gradient(145deg, #242b36 0%, #171c24 35%, #0f1319 75%, #0a0d12 100%)",
             boxShadow:
               "inset 0 1px 1px rgba(255,255,255,0.15), inset 0 -2px 4px rgba(0,0,0,0.8), 0 20px 40px -10px rgba(0,0,0,0.6)",
+            containerType: "inline-size",
+            fontSize: "16px",
           }}
         >
           {/* Top Industrial Bezel Header */}
@@ -179,7 +181,7 @@ export function TerminalFrame({
                       boxShadow: `0 0 5px ${led.color}`,
                     }}
                   />
-                  <span className="text-[9px] font-mono tracking-wider font-semibold text-slate-400">
+                  <span className="font-mono tracking-wider font-semibold text-slate-400" style={{ fontSize: "0.5625em" }}>
                     {led.label}
                   </span>
                 </div>
@@ -189,13 +191,13 @@ export function TerminalFrame({
             {/* Center: Device Brand / Hardware Badge */}
             <div className="flex items-center gap-1.5 px-2 py-0.5 rounded bg-slate-900/90 border border-slate-700/60">
               <Shield className="w-3 h-3 text-amber-400" />
-              <span className="text-[10px] font-mono tracking-widest text-slate-200 font-bold uppercase">
+              <span className="font-mono tracking-widest text-slate-200 font-bold uppercase" style={{ fontSize: "0.625em" }}>
                 KITUI-TAC 40
               </span>
             </div>
 
             {/* Right: Telemetry Indicators */}
-            <div className="flex items-center gap-2 text-[10px] font-mono text-slate-400">
+            <div className="flex items-center gap-2 font-mono text-slate-400" style={{ fontSize: "0.625em" }}>
               <span className="flex items-center gap-1 text-slate-300">
                 <Sun className="w-3 h-3 text-amber-400" />
                 <BatteryCharging className="w-3 h-3 text-emerald-400" />
@@ -210,10 +212,12 @@ export function TerminalFrame({
 
           {/* Screen Recess */}
           <div
-            className="mx-auto relative overflow-hidden bg-black border border-slate-800/90 rounded-[10px] shadow-inner"
+            className="mx-auto relative overflow-hidden bg-black border border-slate-800/90 rounded-[10px] shadow-inner @container"
             style={{
               width: SCREEN_W,
               height: SCREEN_H,
+              containerType: "inline-size",
+              fontSize: "16px",
             }}
           >
             {/* Screen Content */}
@@ -253,19 +257,19 @@ export function TerminalFrame({
             {/* Center Hardware Keys */}
             <div className="flex items-center gap-2">
               <div className="w-12 h-3.5 rounded bg-slate-900 border border-slate-700/80 shadow-inner flex items-center justify-center">
-                <span className="text-[8px] font-mono tracking-widest text-slate-400 uppercase font-bold">
+                <span className="font-mono tracking-widest text-slate-400 uppercase font-bold" style={{ fontSize: "0.5em" }}>
                   TAC-1
                 </span>
               </div>
               <div className="w-16 h-3.5 rounded bg-slate-900 border border-slate-700/80 shadow-inner flex items-center justify-center">
-                <span className="text-[8px] font-mono tracking-widest text-emerald-400 uppercase font-bold">
+                <span className="font-mono tracking-widest text-emerald-400 uppercase font-bold" style={{ fontSize: "0.5em" }}>
                   DISPATCH
                 </span>
               </div>
             </div>
 
             {/* County Crest / Unit Allocation */}
-            <div className="text-[9px] font-mono text-slate-400 tracking-wider">
+            <div className="font-mono text-slate-400 tracking-wider" style={{ fontSize: "0.5625em" }}>
               FIELD UNIT #04-COORD
             </div>
           </div>

@@ -19,11 +19,11 @@ export function IncidentScreen({ data }: { data: WardPulseData }) {
             <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${isTier1 ? "bg-rose-400" : isTier2 ? "bg-amber-400" : "bg-blue-400"} opacity-75`} />
             <span className={`relative inline-flex rounded-full h-2 w-2 ${isTier1 ? "bg-rose-500" : isTier2 ? "bg-amber-500" : "bg-blue-500"}`} />
           </span>
-          <span className="text-[11px] font-mono tracking-wider text-rose-400 uppercase font-semibold">
+          <span className="font-mono tracking-wider text-rose-400 uppercase font-semibold" style={{ fontSize: "0.6875em" }}>
             IAD-SEC • Incident Rapid Response
           </span>
         </div>
-        <div className="text-[10px] font-mono text-slate-400 flex items-center gap-1">
+        <div className="font-mono text-slate-400 flex items-center gap-1" style={{ fontSize: "0.625em" }}>
           <Clock className="w-3 h-3 text-slate-400" />
           <span>{alert?.timestamp || "14:15 EAT"}</span>
         </div>
@@ -46,29 +46,29 @@ export function IncidentScreen({ data }: { data: WardPulseData }) {
             <ShieldAlert className="w-4 h-4 text-amber-400 shrink-0" />
           )}
           <div>
-            <div className="text-[11px] font-bold tracking-tight">
+            <div className="font-bold tracking-tight" style={{ fontSize: "0.6875em" }}>
               {alert?.tier || "Tier 2 — High Priority"}
             </div>
-            <div className="text-[9px] font-mono opacity-80">
+            <div className="font-mono opacity-80" style={{ fontSize: "0.5625em" }}>
               Ward Coordinates: {data.ward} • {data.constituency}
             </div>
           </div>
         </div>
-        <span className="text-[9px] font-mono uppercase px-2 py-0.5 rounded bg-slate-900/80 border border-slate-700">
+        <span className="font-mono uppercase px-2 py-0.5 rounded bg-slate-900/80 border border-slate-700" style={{ fontSize: "0.5625em" }}>
           Logged
         </span>
       </div>
 
       {/* Incident Body */}
       <div className="bg-slate-900/80 rounded-lg p-3 border border-slate-800 mb-3 space-y-2">
-        <div className="text-[10px] font-mono uppercase text-slate-400">
+        <div className="font-mono uppercase text-slate-400" style={{ fontSize: "0.625em" }}>
           Reported Hostile Information / Action
         </div>
-        <p className="text-xs text-slate-200 font-medium leading-relaxed">
+        <p className="text-slate-200 font-medium leading-relaxed" style={{ fontSize: "0.75em" }}>
           &ldquo;{alert?.incidentType || "Misinformation circulating in local transport stages."}&rdquo;
         </p>
 
-        <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between text-[10px] font-mono">
+        <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between font-mono" style={{ fontSize: "0.625em" }}>
           <span className="text-slate-400">Attribution Source:</span>
           <span className="text-rose-300 font-semibold">{alert?.adversary || "Unverified proxy"}</span>
         </div>
@@ -77,15 +77,15 @@ export function IncidentScreen({ data }: { data: WardPulseData }) {
       {/* Protocol Response Action */}
       <div className="bg-slate-900/60 rounded-lg p-3 border border-slate-800/80 mb-3 flex-1 flex flex-col justify-between">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-[10px] font-mono uppercase text-emerald-400 flex items-center gap-1 font-bold">
+          <span className="font-mono uppercase text-emerald-400 flex items-center gap-1 font-bold" style={{ fontSize: "0.625em" }}>
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> War Room Counter-Action
           </span>
-          <span className="text-[9px] font-mono text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded">
+          <span className="font-mono text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded" style={{ fontSize: "0.5625em" }}>
             Target SLA: &lt;15m
           </span>
         </div>
 
-        <div className="space-y-1.5 text-xs text-slate-300">
+        <div className="space-y-1.5 text-slate-300" style={{ fontSize: "0.75em" }}>
           <div className="flex items-center gap-2">
             <Send className="w-3 h-3 text-cyan-400 shrink-0" />
             <span>Debunk dispatch drafted in Kikamba & Kiswahili</span>
@@ -96,14 +96,14 @@ export function IncidentScreen({ data }: { data: WardPulseData }) {
           </div>
         </div>
 
-        <div className="mt-2.5 p-2 rounded bg-emerald-950/30 border border-emerald-800/50 flex items-center justify-between text-[11px] font-mono">
+        <div className="mt-2.5 p-2 rounded bg-emerald-950/30 border border-emerald-800/50 flex items-center justify-between font-mono" style={{ fontSize: "0.6875em" }}>
           <span className="text-slate-300">Status:</span>
           <span className="text-emerald-300 font-bold">{alert?.status || "Counter-Ad Geofenced"}</span>
         </div>
       </div>
 
       {/* Footer */}
-      <div className="pt-1 flex items-center justify-between text-[10px] font-mono text-slate-400 border-t border-slate-800">
+      <div className="pt-1 flex items-center justify-between font-mono text-slate-400 border-t border-slate-800" style={{ fontSize: "0.625em" }}>
         <span>Rapid Response Desk #5</span>
         <span className="text-cyan-400">Auto-Alert Pushed</span>
       </div>

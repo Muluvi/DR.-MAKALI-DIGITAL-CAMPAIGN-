@@ -16,11 +16,11 @@ export function MarketAuditScreen({ data }: { data: WardPulseData }) {
           <span className="flex h-2 w-2 relative">
             <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400" />
           </span>
-          <span className="text-[11px] font-mono tracking-wider text-amber-400 uppercase font-semibold">
+          <span className="font-mono tracking-wider text-amber-400 uppercase font-semibold" style={{ fontSize: "0.6875em" }}>
             MEA-08 • Market Day Event Audit
           </span>
         </div>
-        <div className="text-[10px] font-mono text-slate-400">
+        <div className="font-mono text-slate-400" style={{ fontSize: "0.625em" }}>
           Weekly Ground Recon
         </div>
       </div>
@@ -28,14 +28,14 @@ export function MarketAuditScreen({ data }: { data: WardPulseData }) {
       {/* Market Location Header */}
       <div className="bg-slate-900/90 rounded-lg p-2.5 border border-slate-800 mb-3 flex items-center justify-between">
         <div>
-          <div className="text-[10px] font-mono text-slate-400 uppercase">Target Commercial Hub</div>
-          <div className="text-sm font-bold text-white flex items-center gap-1.5">
+          <div className="font-mono text-slate-400 uppercase" style={{ fontSize: "0.625em" }}>Target Commercial Hub</div>
+          <div className="font-bold text-white flex items-center gap-1.5" style={{ fontSize: "0.875em" }}>
             <ShoppingBag className="w-3.5 h-3.5 text-amber-400" />
             {market?.marketName || "Ward Trading Center"}
           </div>
         </div>
         <div className="text-right">
-          <span className="text-[9px] font-mono bg-amber-500/20 text-amber-300 border border-amber-500/30 px-1.5 py-0.5 rounded">
+          <span className="font-mono bg-amber-500/20 text-amber-300 border border-amber-500/30 px-1.5 py-0.5 rounded" style={{ fontSize: "0.5625em" }}>
             Active Market Day
           </span>
         </div>
@@ -44,39 +44,39 @@ export function MarketAuditScreen({ data }: { data: WardPulseData }) {
       {/* Main Stats Grid */}
       <div className="grid grid-cols-3 gap-2 mb-3">
         <div className="bg-slate-900/70 p-2 rounded-lg border border-slate-800 text-center">
-          <div className="flex items-center justify-center gap-1 text-slate-400 text-[9px] font-mono uppercase mb-0.5">
+          <div className="flex items-center justify-center gap-1 text-slate-400 font-mono uppercase mb-0.5" style={{ fontSize: "0.5625em" }}>
             <Users className="w-2.5 h-2.5 text-cyan-400" /> Crowd
           </div>
-          <div className="text-xs font-bold font-mono text-white">
+          <div className="font-bold font-mono text-white" style={{ fontSize: "0.75em" }}>
             {market?.crowdEstimate.split(" ")[0] || "3,500+"}
           </div>
-          <div className="text-[9px] text-slate-400">Attendees</div>
+          <div className="text-slate-400" style={{ fontSize: "0.5625em" }}>Attendees</div>
         </div>
 
         <div className="bg-slate-900/70 p-2 rounded-lg border border-slate-800 text-center">
-          <div className="flex items-center justify-center gap-1 text-slate-400 text-[9px] font-mono uppercase mb-0.5">
+          <div className="flex items-center justify-center gap-1 text-slate-400 font-mono uppercase mb-0.5" style={{ fontSize: "0.5625em" }}>
             <FileText className="w-2.5 h-2.5 text-emerald-400" /> Leaflets
           </div>
-          <div className="text-xs font-bold font-mono text-emerald-400">
+          <div className="font-bold font-mono text-emerald-400" style={{ fontSize: "0.75em" }}>
             {market?.leafletsDistributed.toLocaleString() || "1,500"}
           </div>
-          <div className="text-[9px] text-slate-400">Kikamba/ENG</div>
+          <div className="text-slate-400" style={{ fontSize: "0.5625em" }}>Kikamba/ENG</div>
         </div>
 
         <div className="bg-slate-900/70 p-2 rounded-lg border border-slate-800 text-center">
-          <div className="flex items-center justify-center gap-1 text-slate-400 text-[9px] font-mono uppercase mb-0.5">
+          <div className="flex items-center justify-center gap-1 text-slate-400 font-mono uppercase mb-0.5" style={{ fontSize: "0.5625em" }}>
             <Bike className="w-2.5 h-2.5 text-amber-400" /> Boda
           </div>
-          <div className="text-xs font-bold font-mono text-amber-300">
+          <div className="font-bold font-mono text-amber-300" style={{ fontSize: "0.75em" }}>
             {market?.bodaBodaChampionsActive || "30"}
           </div>
-          <div className="text-[9px] text-slate-400">Champions</div>
+          <div className="text-slate-400" style={{ fontSize: "0.5625em" }}>Champions</div>
         </div>
       </div>
 
       {/* Field Audio Dispatch Player */}
       <div className="bg-slate-900/90 rounded-lg p-2.5 border border-slate-800 mb-3">
-        <div className="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1.5">
+        <div className="flex items-center justify-between font-mono text-slate-400 mb-1.5" style={{ fontSize: "0.625em" }}>
           <span className="flex items-center gap-1 text-cyan-400">
             <Volume2 className="w-3 h-3" /> Vernacular Audio Memo
           </span>
@@ -94,10 +94,10 @@ export function MarketAuditScreen({ data }: { data: WardPulseData }) {
           </button>
 
           <div className="flex-1 min-w-0">
-            <div className="text-[11px] font-semibold text-slate-200 truncate">
+            <div className="font-semibold text-slate-200 truncate" style={{ fontSize: "0.6875em" }}>
               {data.recentAudioDispatch.title}
             </div>
-            <div className="text-[9px] text-slate-400 truncate">
+            <div className="text-slate-400 truncate" style={{ fontSize: "0.5625em" }}>
               {data.recentAudioDispatch.speaker} • {data.recentAudioDispatch.location}
             </div>
             {/* Simulated audio waveform */}
@@ -118,16 +118,16 @@ export function MarketAuditScreen({ data }: { data: WardPulseData }) {
 
       {/* Grassroots Sentiment Quote */}
       <div className="bg-slate-900/60 rounded-lg p-2.5 border border-slate-800/80 mb-2 flex-1 flex flex-col justify-center">
-        <span className="text-[9px] font-mono uppercase text-slate-400 mb-1">
+        <span className="font-mono uppercase text-slate-400 mb-1" style={{ fontSize: "0.5625em" }}>
           Direct Ground Sentiment Recorded
         </span>
-        <p className="text-xs italic text-slate-300 leading-relaxed">
+        <p className="italic text-slate-300 leading-relaxed" style={{ fontSize: "0.75em" }}>
           &ldquo;{market?.keyQuote || "Traders emphasize local water storage and market gate fees."}&rdquo;
         </p>
       </div>
 
       {/* Sync Footer */}
-      <div className="pt-1 flex items-center justify-between text-[10px] font-mono text-slate-400 border-t border-slate-800">
+      <div className="pt-1 flex items-center justify-between font-mono text-slate-400 border-t border-slate-800" style={{ fontSize: "0.625em" }}>
         <span>Channel: Kikamba Sound Notes</span>
         <span className="text-emerald-400">War Room Synced</span>
       </div>

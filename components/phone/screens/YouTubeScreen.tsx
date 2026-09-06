@@ -34,7 +34,7 @@ function Pill({ children }: { children: React.ReactNode }) {
   return (
     <span
       className="flex items-center gap-1.5 rounded-full shrink-0"
-      style={{ background: "#f2f2f2", padding: "7px 12px", fontSize: 12.5, fontWeight: 500, color: FG }}
+      style={{ background: "#f2f2f2", padding: "7px 12px", fontSize: "0.78125em", fontWeight: 500, color: FG }}
     >
       {children}
     </span>
@@ -71,11 +71,11 @@ export function YouTubeScreen() {
         <div className="absolute inset-x-0 bottom-0 flex flex-col justify-end px-4 pb-6">
           <span
             className="self-start rounded px-1.5 py-0.5 font-black uppercase"
-            style={{ fontSize: 8, letterSpacing: "0.12em", background: "rgba(255,255,255,0.14)", color: "#cfe0ff" }}
+            style={{ fontSize: "0.5em", letterSpacing: "0.12em", background: "rgba(255,255,255,0.14)", color: "#cfe0ff" }}
           >
             {YOUTUBE.thumbnailKicker.value}
           </span>
-          <p className="mt-2 font-black pr-16" style={{ fontSize: 18, lineHeight: 1.12, color: "#fff", letterSpacing: "-0.02em" }}>
+          <p className="mt-2 font-black pr-16" style={{ fontSize: "1.125em", lineHeight: 1.12, color: "#fff", letterSpacing: "-0.02em" }}>
             {IDENTITY.sloganKikamba}
           </p>
         </div>
@@ -89,7 +89,7 @@ export function YouTubeScreen() {
           <Play size={22} color="#fff" fill="#fff" strokeWidth={0} />
         </span>
         <span className="absolute right-2 bottom-4 flex items-center gap-2.5" aria-hidden="true">
-          <span className="tabular-nums" style={{ fontSize: 10.5, color: "#fff", textShadow: "0 1px 2px rgba(0,0,0,0.6)" }}>
+          <span className="tabular-nums" style={{ fontSize: "0.65625em", color: "#fff", textShadow: "0 1px 2px rgba(0,0,0,0.6)" }}>
             {YOUTUBE.duration}
           </span>
           <Maximize size={14} color="#fff" strokeWidth={2.4} />
@@ -109,10 +109,10 @@ export function YouTubeScreen() {
       <div className="flex-1 min-h-0 overflow-hidden">
         {/* Title */}
         <div className="px-3 pt-2.5">
-          <p className="font-semibold" style={{ fontSize: 15.5, lineHeight: 1.26, color: FG }}>
+          <p className="font-semibold" style={{ fontSize: "0.96875em", lineHeight: 1.26, color: FG }}>
             {YOUTUBE.title.value}
           </p>
-          <p className="mt-1 tabular-nums" style={{ fontSize: 12.5, color: MUTED }}>
+          <p className="mt-1 tabular-nums" style={{ fontSize: "0.78125em", color: MUTED }}>
             {ILLUSTRATIVE_COUNTS.youtubeViews} views · {YOUTUBE.publishedAgo}
           </p>
         </div>
@@ -121,7 +121,7 @@ export function YouTubeScreen() {
         <div className="flex items-center gap-2 px-3 pt-2.5 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
           <span
             className="flex items-center rounded-full shrink-0"
-            style={{ background: "#f2f2f2", fontSize: 12.5, fontWeight: 500, color: FG }}
+            style={{ background: "#f2f2f2", fontSize: "0.78125em", fontWeight: 500, color: FG }}
           >
             <span className="flex items-center gap-1.5" style={{ padding: "7px 10px 7px 12px" }}>
               <ThumbsUp size={15} strokeWidth={2} aria-hidden="true" />
@@ -147,16 +147,16 @@ export function YouTubeScreen() {
         <div className="flex items-center gap-2.5 px-3 py-3 mt-1">
           <Avatar size={36} />
           <span className="flex-1 min-w-0">
-            <span className="block font-semibold truncate" style={{ fontSize: 13.5, color: FG }}>
+            <span className="block font-semibold truncate" style={{ fontSize: "0.84375em", color: FG }}>
               {IDENTITY.channelName}
             </span>
-            <span className="block tabular-nums" style={{ fontSize: 11.5, color: MUTED }}>
+            <span className="block tabular-nums" style={{ fontSize: "0.71875em", color: MUTED }}>
               {ILLUSTRATIVE_COUNTS.youtubeSubscribers} subscribers
             </span>
           </span>
           <span
             className="rounded-full shrink-0 font-semibold"
-            style={{ background: FG, color: "#fff", fontSize: 13, padding: "7px 15px" }}
+            style={{ background: FG, color: "#fff", fontSize: "0.8125em", padding: "7px 15px" }}
           >
             {YOUTUBE.subscribeLabel}
           </span>
@@ -164,17 +164,17 @@ export function YouTubeScreen() {
 
         {/* Collapsed description */}
         <div className="mx-3 rounded-xl px-3 py-2.5" style={{ background: "#f2f2f2" }}>
-          <p className="truncate" style={{ fontSize: 12.5, color: FG }}>
+          <p className="truncate" style={{ fontSize: "0.78125em", color: FG }}>
             {YOUTUBE.descriptionLine.value}
           </p>
-          <p className="mt-0.5 font-semibold" style={{ fontSize: 12.5, color: MUTED }}>
+          <p className="mt-0.5 font-semibold" style={{ fontSize: "0.78125em", color: MUTED }}>
             ...more
           </p>
         </div>
 
         {/* Comments. The proposal carries no comment copy, here or on the Facebook post. */}
         <div className="mx-3 mt-2.5 rounded-xl px-3 py-2.5" style={{ background: "#f2f2f2" }}>
-          <p className="font-semibold" style={{ fontSize: 12.5, color: FG }}>
+          <p className="font-semibold" style={{ fontSize: "0.78125em", color: FG }}>
             Comments
           </p>
           <span className="flex items-center gap-2 mt-2">

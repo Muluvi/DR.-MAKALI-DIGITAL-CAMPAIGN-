@@ -79,7 +79,7 @@ export function FacebookScreen() {
     <ScreenShell tone="dark" background={CANVAS}>
       {/* App bar */}
       <div className="shrink-0 flex items-center justify-between px-4 pb-2 bg-white">
-        <span style={{ fontSize: 24, fontWeight: 800, color: BLUE, letterSpacing: "-0.03em" }}>facebook</span>
+        <span style={{ fontSize: "1.5em", fontWeight: 800, color: BLUE, letterSpacing: "-0.03em" }}>facebook</span>
         <span className="flex items-center gap-2">
           <span className="grid place-items-center rounded-full" style={{ width: 32, height: 32, background: "#e4e6eb" }}>
             <Search size={17} color={FG} strokeWidth={2.4} aria-hidden="true" />
@@ -96,10 +96,10 @@ export function FacebookScreen() {
           <div className="flex items-start gap-2.5 px-3 pt-3">
             <Avatar size={40} />
             <span className="flex-1 min-w-0">
-              <span className="block font-semibold truncate" style={{ fontSize: 14.5, color: FG }}>
+              <span className="block font-semibold truncate" style={{ fontSize: "0.90625em", color: FG }}>
                 {IDENTITY.pageName}
               </span>
-              <span className="flex items-center gap-1" style={{ fontSize: 12.5, color: MUTED }}>
+              <span className="flex items-center gap-1" style={{ fontSize: "0.78125em", color: MUTED }}>
                 {FACEBOOK.timestamp} · <Globe size={11.5} strokeWidth={2.2} aria-hidden="true" />
               </span>
             </span>
@@ -107,7 +107,7 @@ export function FacebookScreen() {
           </div>
 
           {/* Body, with the fold */}
-          <p className="px-3 pt-2.5" style={{ fontSize: 14.5, lineHeight: 1.36, color: FG }}>
+          <p className="px-3 pt-2.5" style={{ fontSize: "0.90625em", lineHeight: 1.36, color: FG }}>
             {FACEBOOK.body.value}{" "}
             <span style={{ color: MUTED }}>See more</span>
           </p>
@@ -117,11 +117,11 @@ export function FacebookScreen() {
             <div className="px-4 py-5">
               <span
                 className="inline-block rounded px-1.5 py-0.5 font-black uppercase"
-                style={{ fontSize: 8.5, letterSpacing: "0.1em", background: "#132644", color: "#8fb4f0" }}
+                style={{ fontSize: "0.53125em", letterSpacing: "0.1em", background: "#132644", color: "#8fb4f0" }}
               >
                 {FACEBOOK.card.value.kicker}
               </span>
-              <p className="mt-2 font-bold" style={{ fontSize: 17, lineHeight: 1.22, color: "#fff" }}>
+              <p className="mt-2 font-bold" style={{ fontSize: "1.0625em", lineHeight: 1.22, color: "#fff" }}>
                 {FACEBOOK.card.value.headline}
               </p>
             </div>
@@ -131,11 +131,11 @@ export function FacebookScreen() {
           <div className="flex items-center justify-between px-3 py-2">
             <span className="flex items-center gap-1.5">
               <ReactionPills show={reacted} reduce={reduce} />
-              <span className="tabular-nums" style={{ fontSize: 13, color: MUTED }}>
+              <span className="tabular-nums" style={{ fontSize: "0.8125em", color: MUTED }}>
                 {ILLUSTRATIVE_COUNTS.facebookReactions}
               </span>
             </span>
-            <span className="tabular-nums" style={{ fontSize: 13, color: MUTED }}>
+            <span className="tabular-nums" style={{ fontSize: "0.8125em", color: MUTED }}>
               {ILLUSTRATIVE_COUNTS.facebookComments} comments · {ILLUSTRATIVE_COUNTS.facebookShares} shares
             </span>
           </div>
@@ -149,7 +149,7 @@ export function FacebookScreen() {
             ].map(({ icon: Icon, label }) => (
               <span key={label} className="flex items-center gap-1.5 py-1.5">
                 <Icon size={17} color={MUTED} strokeWidth={2} aria-hidden="true" />
-                <span style={{ fontSize: 13.5, fontWeight: 600, color: MUTED }}>{label}</span>
+                <span style={{ fontSize: "0.84375em", fontWeight: 600, color: MUTED }}>{label}</span>
               </span>
             ))}
           </div>

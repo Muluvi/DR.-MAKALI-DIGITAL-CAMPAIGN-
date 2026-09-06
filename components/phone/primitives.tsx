@@ -20,7 +20,7 @@ export function StatusBar({ tone = "dark", className = "" }: { tone?: Tone; clas
       className={`relative z-20 flex items-center justify-between px-6 pt-3 pb-1 shrink-0 ${className}`}
       style={{ height: 44, color: fg }}
     >
-      <span className="text-[14px] font-semibold tabular-nums tracking-tight" style={{ letterSpacing: "-0.01em" }}>
+      <span className="font-semibold tabular-nums tracking-tight" style={{ fontSize: "0.875em", letterSpacing: "-0.01em" }}>
         {ILLUSTRATIVE_COUNTS.statusBarTime}
       </span>
       <span className="flex items-center gap-[5px]">
@@ -109,7 +109,7 @@ export function SlotGap({ label, dark = false }: { label: string; dark?: boolean
     <span
       className="inline-block rounded font-mono leading-none align-middle"
       style={{
-        fontSize: 9.5,
+        fontSize: "0.59375em",
         padding: "2.5px 5px",
         color: dark ? "#ff9aa2" : "#9c1c24",
         background: dark ? "rgba(227,29,43,0.16)" : "#ffebeb",
@@ -143,7 +143,14 @@ export function ScreenShell({
   statusBarBackground?: string;
 }) {
   return (
-    <div className="absolute inset-0 flex flex-col overflow-hidden" style={{ background }}>
+    <div
+      className="absolute inset-0 flex flex-col overflow-hidden @container"
+      style={{
+        background,
+        containerType: "inline-size",
+        fontSize: "16px",
+      }}
+    >
       <div style={{ background: statusBarBackground }} className="shrink-0">
         <StatusBar tone={tone} />
       </div>

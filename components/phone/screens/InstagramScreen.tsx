@@ -35,7 +35,7 @@ export function InstagramScreen() {
     <ScreenShell tone="dark" background="#ffffff">
       {/* App bar */}
       <div className="shrink-0 flex items-center justify-between px-4 pb-2">
-        <span style={{ fontSize: 23, fontWeight: 600, color: FG, fontFamily: "Georgia, serif", letterSpacing: "-0.02em" }}>
+        <span style={{ fontSize: "1.4375em", fontWeight: 600, color: FG, fontFamily: "Georgia, serif", letterSpacing: "-0.02em" }}>
           Instagram
         </span>
         <span className="flex items-center gap-4">
@@ -49,10 +49,10 @@ export function InstagramScreen() {
         <div className="flex items-center gap-2.5 px-3 py-2">
           <Avatar size={34} ring />
           <span className="flex-1 min-w-0">
-            <span className="block font-semibold truncate" style={{ fontSize: 13.5, color: FG }}>
+            <span className="block font-semibold truncate" style={{ fontSize: "0.84375em", color: FG }}>
               {IDENTITY.handle.replace("@", "")}
             </span>
-            <span className="block truncate" style={{ fontSize: 11.5, color: FG }}>
+            <span className="block truncate" style={{ fontSize: "0.71875em", color: FG }}>
               {INSTAGRAM.location}
             </span>
           </span>
@@ -64,15 +64,15 @@ export function InstagramScreen() {
           <div className="absolute inset-0 flex flex-col justify-between p-5">
             <span
               className="self-start rounded px-2 py-1 font-black uppercase"
-              style={{ fontSize: 8.5, letterSpacing: "0.12em", background: "rgba(255,255,255,0.12)", color: "#cfe0ff" }}
+              style={{ fontSize: "0.53125em", letterSpacing: "0.12em", background: "rgba(255,255,255,0.12)", color: "#cfe0ff" }}
             >
               {INSTAGRAM.captionTitle.value}
             </span>
             <span>
-              <span className="block font-black" style={{ fontSize: 46, lineHeight: 1, color: "#fff", letterSpacing: "-0.03em" }}>
+              <span className="block font-black" style={{ fontSize: "2.875em", lineHeight: 1, color: "#fff", letterSpacing: "-0.03em" }}>
                 {INSTAGRAM.cardHeadline.value}
               </span>
-              <span className="block mt-1.5" style={{ fontSize: 14.5, color: "#9fb6d8" }}>
+              <span className="block mt-1.5" style={{ fontSize: "0.90625em", color: "#9fb6d8" }}>
                 {INSTAGRAM.cardSub.value}
               </span>
             </span>
@@ -80,7 +80,7 @@ export function InstagramScreen() {
           {/* Carousel index */}
           <span
             className="absolute top-3 right-3 rounded-full px-2 py-0.5 tabular-nums"
-            style={{ fontSize: 11, fontWeight: 600, background: "rgba(0,0,0,0.6)", color: "#fff" }}
+            style={{ fontSize: "0.6875em", fontWeight: 600, background: "rgba(0,0,0,0.6)", color: "#fff" }}
           >
             {slide + 1}/{INSTAGRAM.slideCount}
           </span>
@@ -108,14 +108,14 @@ export function InstagramScreen() {
 
         {/* Likes, caption, timestamp */}
         <div className="px-3 pt-2">
-          <p className="font-semibold tabular-nums" style={{ fontSize: 13.5, color: FG }}>
+          <p className="font-semibold tabular-nums" style={{ fontSize: "0.84375em", color: FG }}>
             {ILLUSTRATIVE_COUNTS.instagramLikes} likes
           </p>
-          <p className="mt-1" style={{ fontSize: 13.5, lineHeight: 1.4, color: FG }}>
+          <p className="mt-1" style={{ fontSize: "0.84375em", lineHeight: 1.4, color: FG }}>
             <span className="font-semibold">{IDENTITY.handle.replace("@", "")}</span>{" "}
             {INSTAGRAM.caption.value} <span style={{ color: MUTED }}>more</span>
           </p>
-          <p className="mt-1.5 uppercase" style={{ fontSize: 10.5, letterSpacing: "0.02em", color: MUTED }}>
+          <p className="mt-1.5 uppercase" style={{ fontSize: "0.65625em", letterSpacing: "0.02em", color: MUTED }}>
             {INSTAGRAM.timestamp}
           </p>
         </div>

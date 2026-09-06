@@ -47,7 +47,7 @@ function RailAction({
       >
         <Icon size={31} color={color} fill={filled ? color : "none"} strokeWidth={filled ? 0 : 1.8} aria-hidden="true" />
       </motion.span>
-      <span className="font-semibold tabular-nums" style={{ fontSize: 11.5, color: "#fff", textShadow: "0 1px 3px rgba(0,0,0,0.5)" }}>
+      <span className="font-semibold tabular-nums" style={{ fontSize: "0.71875em", color: "#fff", textShadow: "0 1px 3px rgba(0,0,0,0.5)" }}>
         {count}
       </span>
     </span>
@@ -95,11 +95,11 @@ export function TikTokScreen() {
         <div className="absolute left-6 right-20 top-1/2 -translate-y-1/2">
           <p
             className="font-black uppercase"
-            style={{ fontSize: 10.5, letterSpacing: "0.22em", color: CYAN, marginBottom: 12 }}
+            style={{ fontSize: "0.65625em", letterSpacing: "0.22em", color: CYAN, marginBottom: 12 }}
           >
             Pillar D
           </p>
-          <p className="font-black" style={{ fontSize: 33, lineHeight: 1.05, color: "#fff", letterSpacing: "-0.02em" }}>
+          <p className="font-black" style={{ fontSize: "2.0625em", lineHeight: 1.05, color: "#fff", letterSpacing: "-0.02em" }}>
             {TIKTOK.overlayTitle.value}
           </p>
         </div>
@@ -110,7 +110,7 @@ export function TikTokScreen() {
             <span
               key={t}
               style={{
-                fontSize: 15.5,
+                fontSize: "0.96875em",
                 fontWeight: t === TIKTOK.activeTab ? 700 : 500,
                 color: t === TIKTOK.activeTab ? "#fff" : "rgba(255,255,255,0.65)",
                 textShadow: "0 1px 4px rgba(0,0,0,0.4)",
@@ -131,7 +131,7 @@ export function TikTokScreen() {
           <span className="relative mb-1">
             <span
               className="grid place-items-center rounded-full text-white font-bold"
-              style={{ width: 44, height: 44, fontSize: 15, background: "linear-gradient(145deg,#00209f,#0b1a30)", border: "1.5px solid #fff" }}
+              style={{ width: 44, height: 44, fontSize: "0.9375em", background: "linear-gradient(145deg,#00209f,#0b1a30)", border: "1.5px solid #fff" }}
             >
               {IDENTITY.initials}
             </span>
@@ -159,10 +159,10 @@ export function TikTokScreen() {
 
         {/* Bottom-left stack */}
         <div className="absolute left-3 right-20 bottom-8">
-          <p className="font-bold" style={{ fontSize: 15.5, color: "#fff", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}>
+          <p className="font-bold" style={{ fontSize: "0.96875em", color: "#fff", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}>
             {IDENTITY.handle}
           </p>
-          <p className="mt-1" style={{ fontSize: 13.5, lineHeight: 1.32, color: "#fff", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}>
+          <p className="mt-1" style={{ fontSize: "0.84375em", lineHeight: 1.32, color: "#fff", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}>
             {TIKTOK.caption.value}
           </p>
           <p className="mt-1.5">

@@ -49,7 +49,7 @@ function Action({
     <span className="flex items-center gap-1.5" style={{ color }}>
       <Icon size={17.5} strokeWidth={1.9} fill={fill ? color : "none"} aria-hidden="true" />
       {count && (
-        <span className="tabular-nums" style={{ fontSize: 12.5 }}>
+        <span className="tabular-nums" style={{ fontSize: "0.78125em" }}>
           {count}
         </span>
       )}
@@ -77,7 +77,7 @@ export function XScreen() {
       {/* Top bar */}
       <div className="shrink-0 flex items-center gap-6 px-4 pb-2.5" style={{ borderBottom: `1px solid ${LINE}` }}>
         <ArrowLeft size={20} color={FG} strokeWidth={2} aria-hidden="true" />
-        <span style={{ fontSize: 17, fontWeight: 700, color: FG }}>Post</span>
+        <span style={{ fontSize: "1.0625em", fontWeight: 700, color: FG }}>Post</span>
       </div>
 
       <div className="flex-1 min-h-0 px-4 pt-3 overflow-hidden">
@@ -86,14 +86,14 @@ export function XScreen() {
           <Avatar size={40} />
           <span className="flex-1 min-w-0">
             <span className="flex items-center gap-1">
-              <span className="font-bold truncate" style={{ fontSize: 15, color: FG }}>
+              <span className="font-bold truncate" style={{ fontSize: "0.9375em", color: FG }}>
                 {IDENTITY.displayName}
               </span>
               <svg width="15" height="15" viewBox="0 0 22 22" fill="#1d9bf0" aria-hidden="true" className="shrink-0">
                 <path d="M20.4 11a3 3 0 0 0-1.6-2.6 3 3 0 0 0-.7-3.2 3 3 0 0 0-3.2-.7A3 3 0 0 0 11 2.9a3 3 0 0 0-2.6 1.6 3 3 0 0 0-3.2.7 3 3 0 0 0-.7 3.2A3 3 0 0 0 2.9 11a3 3 0 0 0 1.6 2.6 3 3 0 0 0 .7 3.2 3 3 0 0 0 3.2.7 3 3 0 0 0 2.6 1.6 3 3 0 0 0 2.6-1.6 3 3 0 0 0 3.2-.7 3 3 0 0 0 .7-3.2A3 3 0 0 0 20.4 11Zm-10.6 4-3-3 1.3-1.3 1.7 1.7 4.6-4.6 1.3 1.3-5.9 5.9Z" />
               </svg>
             </span>
-            <span className="block truncate" style={{ fontSize: 14, color: MUTED }}>
+            <span className="block truncate" style={{ fontSize: "0.875em", color: MUTED }}>
               {IDENTITY.handle}
             </span>
           </span>
@@ -101,7 +101,7 @@ export function XScreen() {
         </div>
 
         {/* Body */}
-        <p className="mt-3 whitespace-pre-line" style={{ fontSize: 16.5, lineHeight: 1.38, color: FG }}>
+        <p className="mt-3 whitespace-pre-line" style={{ fontSize: "1.03125em", lineHeight: 1.38, color: FG }}>
           {X_POST.body.value}
         </p>
 
@@ -113,11 +113,11 @@ export function XScreen() {
           <div className="px-3.5 py-4">
             <span
               className="inline-block rounded px-1.5 py-0.5 font-black uppercase"
-              style={{ fontSize: 8.5, letterSpacing: "0.1em", background: "#132644", color: "#8fb4f0" }}
+              style={{ fontSize: "0.53125em", letterSpacing: "0.1em", background: "#132644", color: "#8fb4f0" }}
             >
               Tier 1 — Auditor-General
             </span>
-            <p className="mt-2 font-bold" style={{ fontSize: 15, lineHeight: 1.25, color: "#ffffff" }}>
+            <p className="mt-2 font-bold" style={{ fontSize: "0.9375em", lineHeight: 1.25, color: "#ffffff" }}>
               {X_POST.mediaLabel.value}
             </p>
             {/* One mark per audited year, all clean — which is exactly what the claim says. */}
@@ -126,14 +126,14 @@ export function XScreen() {
                 <span key={i} className="flex-1 rounded-sm" style={{ height: "100%", background: "#3d84e8" }} />
               ))}
             </span>
-            <p className="mt-2 font-mono" style={{ fontSize: 9.5, color: "#7f9fd0", letterSpacing: "0.04em" }}>
+            <p className="mt-2 font-mono" style={{ fontSize: "0.59375em", color: "#7f9fd0", letterSpacing: "0.04em" }}>
               13 audited years · zero queries
             </p>
           </div>
         </div>
 
         {/* Timestamp and views */}
-        <p className="mt-3" style={{ fontSize: 13.5, color: MUTED }}>
+        <p className="mt-3" style={{ fontSize: "0.84375em", color: MUTED }}>
           {X_POST.timestamp} · <span className="font-bold" style={{ color: FG }}>{ILLUSTRATIVE_COUNTS.xViews}</span> Views
         </p>
 

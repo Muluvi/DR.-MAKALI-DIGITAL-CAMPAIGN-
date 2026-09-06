@@ -5,10 +5,9 @@ import { Compass, ChevronUp, Sparkles, Activity, Radio, Calculator, MapPin, Coin
 import { motion, AnimatePresence } from "motion/react";
 
 interface QuickNavCapsuleProps {
-  /** Shared zero-chrome visibility (hooks/use-chrome-visible). */
-  visible?: boolean;
   onNavigate: (sectionId: string) => void;
   activeTab: string;
+  isZeroChrome?: boolean;
 }
 
 const QUICK_TARGETS = [
@@ -21,7 +20,7 @@ const QUICK_TARGETS = [
   { id: "defence-sec-5-2", label: "The war room", icon: Shield, tab: "defence" },
 ];
 
-export function QuickNavCapsule({ onNavigate, activeTab, visible = true }: QuickNavCapsuleProps) {
+export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }: QuickNavCapsuleProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -42,12 +41,10 @@ export function QuickNavCapsule({ onNavigate, activeTab, visible = true }: Quick
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  if (isZeroChrome) return null;
+
   return (
-    <div
-      className={`fixed bottom-20 lg:bottom-6 right-4 sm:right-6 z-40 print:hidden flex flex-col items-end gap-2.5 select-none transition-all duration-300 ease-out motion-reduce:transition-none ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6 pointer-events-none"
-      }`}
-    >
+    <div className={`fixed bottom-20 lg:bottom-6 right-4 sm:right-6 z-40 print:hidden flex flex-col items-end gap-2.5 select-none transition-all duration-300`}>
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -119,7 +116,7 @@ export function QuickNavCapsule({ onNavigate, activeTab, visible = true }: Quick
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`tap-chip flex items-center gap-2 px-3.5 py-2.5 rounded-full backdrop-blur-md border shadow-lg text-xs font-bold transition-all cursor-pointer active:scale-95 ${
+          className={`flex items-center gap-2 px-3.5 py-2.5 rounded-full backdrop-blur-md border shadow-lg text-xs font-bold transition-all cursor-pointer active:scale-95 ${
             isOpen
               ? "bg-accent text-white border-accent shadow-accent/25"
               : "bg-card/95 text-ink border-line/60 hover:border-accent/60 hover:text-accent"
