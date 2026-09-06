@@ -115,8 +115,10 @@ The campaign maintains ready-to-deploy holding positions, evidential citations, 
 │                     serve as Ranking Member on Finance, and maintain a spotless anti-corruption record."    │
 │ • Kikamba Framing: "Kũthũkũma nĩ wĩtĩkĩlo na wathi mũseo. Nĩ mũthũkũmi mũmanya meko, ũte na kambĩ sya kũya │
 │                     mbesa sya mwananchi."                                                                   │
-│ • Primary Source:  National Assembly Hansard; Kitui Central NG-CDF Project Inventory (84 solar boreholes,    │
-│                     140+ classrooms, 18,000+ secondary/tertiary bursaries).                                 │
+│ • Primary Source:  National Assembly Hansard; Kitui Central NG-CDF Project Inventory (84                    │
+│                     solar boreholes; classroom and bursary counts pending the inventory —                   │
+│                     the Tier 1 figure in 1.2.1 and 2.1.1 is 12,573 bursary recipients and                   │
+│                     KSh 47m, and only that figure should be used until it is reconciled).                   │
 ├─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
 │ 2. THE "NORTHERN & SOUTHERN RECOGNITION DEFICIT" QUESTION                                                   │
 ├─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤

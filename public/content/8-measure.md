@@ -161,7 +161,8 @@ The campaign builds and maintains the **Kitui County Service-Delivery Performanc
 ├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
 │ 1. Ward Infrastructure & │ • Kitui Central NG-CDF Project Ledger     │ • **Monthly Sync**                   │
 │    School Laboratories   │ • Ministry of Education Infrastructure DB │ • On-site geotagged photo audit;     │
-│                          │ • 140+ classrooms & 12 TVET laboratories  │   certified contractor handovers.    │
+│                          │ • Classroom & TVET counts pending the     │   certified contractor handovers.    │
+│                          │   project ledger (see 5.1.4)              │                                      │
 ├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
 │ 2. Solar Boreholes &     │ • National Water Resources Authority      │ • **Bi-Weekly Water Quality & Pump   │
 │    Water Access Points   │ • County Water Master Plan Baseline       │   Telemetry Feed**                   │
@@ -172,8 +173,8 @@ The campaign builds and maintains the **Kitui County Service-Delivery Performanc
 │                          │ • Controller of Budget (OCOB) Reports     │   against National Assembly Hansard. │
 ├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
 │ 4. Secondary & Tertiary  │ • NG-CDF Bursary Disbursements Ledger     │ • **Termly Disbursement Audit**      │
-│    Bursary Distribution  │ • Higher Education Loans Board (HELB) DB  │ • 18,000+ audited student receipts;  │
-│                          │ • 100% Ward equity allocation formula     │   publicly searchable by school.     │
+│    Bursary Distribution  │ • NG-CDF constituency records — not       │ • Receipt count pending the ledger;  │
+│                          │   HELB, which holds national loan data    │   1.2.1 gives 12,573 as Tier 1.      │
 └──────────────────────────┴───────────────────────────────────────────┴──────────────────────────────────────┘
 ```
 
@@ -193,7 +194,8 @@ The campaign builds and maintains the **Kitui County Service-Delivery Performanc
                                 name ID before committing major ad spend; integrates a
                                 6-week rolling tracking poll for the Wiper nomination.
  • Section 8.2.2 (Tracker):    Maintains open-data delivery ledger combining OAG audits,
-                                84 solar boreholes, 140+ classrooms, and 18k bursaries.
+                                84 solar boreholes, and the bursary and classroom counts
+                                pending the project ledger (Tier 1: 12,573 recipients).
  • Dual-Asset Function:         Operates as an irrefutable debate/media evidence weapon
                                 pre-election, and transitions into the Governor's Day-1
                                 Ksh 100M Ward Equalization governing dashboard post-election.

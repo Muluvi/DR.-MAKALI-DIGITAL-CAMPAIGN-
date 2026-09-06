@@ -332,6 +332,26 @@ Stated plainly, because these are the dependencies that determine delivery:
 7. **Access to the existing NG-CDF project record** for verified proof points
 8. **Sign-off on the budget tier** so the team can be assembled
 
+#### The marked placeholders, in one list
+
+The proposal's status line says it carries marked placeholders. There are 19, and they fall
+into three kinds. Collected here so none has to be hunted for:
+
+| What is needed | Where it appears | From whom |
+|---|---|---|
+| **Shortcode and sender ID**, once the USSD and SMS codes are provisioned | 4.3.3, 6.4.3, 8.5.3, 8.5.7 | Telco / aggregator at contracting |
+| **Dedicated USSD code quotation** | 9.2.2 | Operator, 2–4 weeks |
+| **Hardware security key cost**; **deepfake detection vendor and cost** | 5.3.2, 5.3.5 | Firefly, at contracting |
+| **Named data-protection / electoral-law reviewer** — the long-lead item in row 4 above | 6.5.5, 6.6 | Campaign appoints |
+| **Independent qualitative research facilitator** | 8.4.2 | Firefly recommends, campaign appoints |
+| **Kenyan Sign Language interpreter or service** | 3.7.3 | Campaign or KNAD |
+| **Verified Kikamba proverbs and idiom**, native-speaker reviewed | 3.7 | Kikamba producer, Phase −1 |
+| **Response SLA for data-subject requests** (14 days recommended) | 6.5.4 | Campaign counsel |
+| **Week 1 audit baseline**; **community-manager surge threshold**; **ad kill-rate threshold**; **tested conversion rate**; **endorsement target** | 8.3.1, 7.2.3, 2.9.3, 9.2.3, 4.5.4 | Established by measurement, not assumed |
+
+Nothing in the last row is a number the campaign can supply today; each is set by the Week 1
+baseline or by testing, and each is left open deliberately rather than filled with an estimate.
+
 ---
 
 ### 9.3.6 Why a remote operation works

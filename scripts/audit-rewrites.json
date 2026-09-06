@@ -354,5 +354,29 @@
  {
   "before": "**An unresolved question that has to go to counsel first.** Section 3.3.3 puts the lawful\nspending window as beginning \"upon formal gazettement of candidates\" (2027); Section 9.2.1\nputs it at \"at least six months before polling\". Phase −1 runs from now to the nomination —\noutside both. So either Phase −1 spending is unregulated, in which case the ceiling does not\nconstrain it and the tiers below are conservative, or it is regulated and this document has\nno compliance treatment for the period carrying its most concentrated spend. **The campaign\nshould not commit Phase −1 budget until this is settled.** It is stated here rather than\nresolved because the answer is a legal reading, not a drafting choice.",
   "after": "**One question for the campaign's counsel before Phase −1 spend begins.** Section 3.3.3 puts\nthe lawful spending window as beginning \"upon formal gazettement of candidates\" (2027);\nSection 9.2.1 puts it at \"at least six months before polling\". Phase −1 runs from now to the\nnomination, which is outside both. Either that spending sits outside the regulated period —\nin which case the ceiling does not constrain it and the tiers below are conservative — or it\nis regulated, and the compliance instrumentation here should extend back to cover it.\nFirefly's position is that the ledger below runs from day one either way, so the campaign is\ncovered on the stricter reading. **The legal reading itself is properly counsel's, and we\nwould want it confirmed before the first Phase −1 invoice.**"
+ },
+ {
+  "before": "    *   **CDF Proof — a request to your constituency office:** 84 community solar boreholes and 142 school water-harvesting projects (Kitui Central Project Inventory 2013–2026). Sections 5.1.4 and 8.2.2 cite the same inventory for \"140+ classrooms\", a different project category. The inventory's own line items would let Firefly use one consistent set of figures throughout.",
+  "after": "    *   **CDF Proof — a request to your constituency office:** 84 community solar boreholes and 142 school water-harvesting projects (Kitui Central Project Inventory 2013–2026). Sections 5.1.4 and 8.2.2 previously cited the same inventory for a classroom count, a different project category; both now defer to the ledger. The inventory's own line items would let Firefly use one consistent set of figures throughout."
+ },
+ {
+  "before": "│   numbers, not the poor.\"*     │   directed over 65% of all funds directly  │\n│                                │   to needy student bursaries (18,000+      │\n│                                │   graduates) and village water boreholes.  │",
+  "after": "│   numbers, not the poor.\"*     │   directed the majority of funds to needy  │\n│                                │   student bursaries — 12,573 recipients,   │\n│                                │   KSh 47m (Tier 1, §2.1.1) — and village   │\n│                                │   boreholes. Share pending the ledger.     │"
+ },
+ {
+  "before": "│ • Primary Source:  National Assembly Hansard; Kitui Central NG-CDF Project Inventory (84 solar boreholes,    │\n│                     140+ classrooms, 18,000+ secondary/tertiary bursaries).                                 │",
+  "after": "│ • Primary Source:  National Assembly Hansard; Kitui Central NG-CDF Project Inventory (84                    │\n│                     solar boreholes; classroom and bursary counts pending the inventory —                   │\n│                     the Tier 1 figure in 1.2.1 and 2.1.1 is 12,573 bursary recipients and                   │\n│                     KSh 47m, and only that figure should be used until it is reconciled).                   │"
+ },
+ {
+  "before": "│                          │ • 140+ classrooms & 12 TVET laboratories  │   certified contractor handovers.    │",
+  "after": "│                          │ • Classroom & TVET counts pending the     │   certified contractor handovers.    │\n│                          │   project ledger (see 5.1.4)              │                                      │"
+ },
+ {
+  "before": "│    Bursary Distribution  │ • Higher Education Loans Board (HELB) DB  │ • 18,000+ audited student receipts;  │\n│                          │ • 100% Ward equity allocation formula     │   publicly searchable by school.     │",
+  "after": "│    Bursary Distribution  │ • NG-CDF constituency records — not       │ • Receipt count pending the ledger;  │\n│                          │   HELB, which holds national loan data    │   1.2.1 gives 12,573 as Tier 1.      │"
+ },
+ {
+  "before": "                                84 solar boreholes, 140+ classrooms, and 18k bursaries.",
+  "after": "                                84 solar boreholes, and the bursary and classroom counts\n                                pending the project ledger (Tier 1: 12,573 recipients)."
  }
 ]

@@ -397,7 +397,7 @@ Under the campaign's Provenance Discipline (Section 6.1.2), **no claim is made w
 *   **Narrative Statement:** *"Development in Kitui must no longer depend on which ward voted for the Governor. Dr. Mulu guarantees an institutionalized Ward Development Equalization Fund of Ksh 100 Million per ward annually, prioritizing solar borehole reticulation and stocked village dispensaries."*
 *   **Primary Evidence & Source:**
     *   **Proof Point — awaiting page reference:** **Kitui County Integrated Development Plan (CIDP III).** The 61% figure is not yet tiered. Section 1.2.5 carries a related Tier 1 statistic — approximately 400,000 residents relying on untreated surface water — which measures something different and is the one currently documented.
-    *   **CDF Proof — a request to your constituency office:** 84 community solar boreholes and 142 school water-harvesting projects (Kitui Central Project Inventory 2013–2026). Sections 5.1.4 and 8.2.2 cite the same inventory for "140+ classrooms", a different project category. The inventory's own line items would let Firefly use one consistent set of figures throughout.
+    *   **CDF Proof — a request to your constituency office:** 84 community solar boreholes and 142 school water-harvesting projects (Kitui Central Project Inventory 2013–2026). Sections 5.1.4 and 8.2.2 previously cited the same inventory for a classroom count, a different project category; both now defer to the ledger. The inventory's own line items would let Firefly use one consistent set of figures throughout.
 
 ---
 
@@ -411,6 +411,20 @@ Cross-referencing the demographic and livelihood segments established in **Secti
 > segments and would be an error for a population breakdown. Counts are shown to the
 > thousand: they are shares applied to the 532,758 register, not measured headcounts, and
 > quoting them to the unit would imply a precision no source here supports.
+>
+> **This table and Section 2.4.2 are two different cuts of the same electorate**, and three
+> rows carry similar names with deliberately different boundaries. Where they differ,
+> **Section 2.4.2 is the sizing authority** — it is built from census and register data — and
+> the shares below are message-reach targets, which is why they are wider:
+>
+> | Here (message target) | Section 2.4.2 (sized segment) | Why the numbers differ |
+> |---|---|---|
+> | Urban MSMEs, Traders & Market Stall Keepers — ~97,000 | Urban MSMEs & Informal Traders — ~26,000 | 2.4.2 counts the KNBS *urban* classification only. Trading centres in rural wards carry most of the county's market stalls, and this row reaches them too. |
+> | Agro-Pastoralists & Herders (Mwingi/South) — ~77,000 | Agro-Pastoralists (Arid Borderlands) — ~80,000–105,000 | 2.4.2's range awaits the primary survey in 2.4.3; this row's figure sits just under it and should be replaced by the surveyed number once it exists. |
+> | Teachers, Civil Servants & Elite Professionals — ~45,000 | Formal Professionals & Civil Servants — ~25,000–35,000 | This row adds private-sector professionals and clergy to the public-payroll base 2.4.2 counts. |
+>
+> None of the three is a measured figure. When the Phase −1 baseline survey (Section 2.4.3)
+> returns, all six rows here should be restated against it and this reconciliation dropped.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -501,9 +515,10 @@ Cross-referencing the channel reach realities established in **Section 3.1**:
 │                                │   Equalization Fund guarantee (Ksh 100M/yr)│
 ├────────────────────────────────┼────────────────────────────────────────────┤
 │ *"Economists only care about   │ • **FACT:** 13 years of Kitui Central CDF  │
-│   numbers, not the poor."*     │   directed over 65% of all funds directly  │
-│                                │   to needy student bursaries (18,000+      │
-│                                │   graduates) and village water boreholes.  │
+│   numbers, not the poor."*     │   directed the majority of funds to needy  │
+│                                │   student bursaries — 12,573 recipients,   │
+│                                │   KSh 47m (Tier 1, §2.1.1) — and village   │
+│                                │   boreholes. Share pending the ledger.     │
 ├────────────────────────────────┼────────────────────────────────────────────┤
 │ *"He is not politically        │ • **FACT:** Dr. Mulu is a senior founding  │
 │   aligned with Kalonzo         │   parliamentary stalwart of the Wiper      │
