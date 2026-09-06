@@ -1,0 +1,358 @@
+[
+ {
+  "before": "A key strategic finding emerges from this integrated database: **Mwingi North, Mwingi West, and Mwingi Central together command exactly 200,198 registered voters (Tier 1).** This total is mathematically greater than the entire 2022 winning threshold (198,004 votes, Tier 1). This proves that consolidating voter turnout and preference across the northern sub-counties can unilaterally secure a gubernatorial victory. This finding informs the campaign's geographic prioritization, directing immediate SMS/USSD and digital outreach to establish Dr. Mulu as the dominant alternative in Mwingi.",
+  "after": "A key strategic finding emerges from this integrated database: **Mwingi North, Mwingi West, and Mwingi Central together command exactly 200,198 registered voters (Tier 1).** That is more *registered voters* than the 2022 winning vote total (198,004 votes, Tier 1) — but registration is not turnout. At the county's 62% turnout baseline the Mwingi bloc yields roughly **124,100 ballots**, so even total dominance there leaves the campaign about 74,000 votes short. Mwingi is therefore **necessary and not sufficient**: no path to 200,000 runs around it, and none ends there. This finding informs the campaign's geographic prioritization, directing immediate SMS/USSD and digital outreach to establish Dr. Mulu as the dominant alternative in Mwingi."
+ },
+ {
+  "before": "*   **Strategic Implication:** The northern three constituencies possess enough registered voters to meet the entire historical victory threshold on their own. Consolidating a decisive margin in Mwingi is a mathematically sufficient foundation for victory.",
+  "after": "*   **Turnout Reality:** At the 62.0% turnout baseline these 200,198 registered voters produce approximately **124,100 actual ballots cast**. Even an unprecedented 80% share of them ($99,280$ votes) leaves the campaign roughly **99,000 votes short** of the 200,000 threshold.\n*   **Strategic Implication:** The Mwingi bloc is the largest single reservoir of votes in the county and the campaign cannot win without a decisive margin in it — but it cannot win on it alone either. Mwingi is the necessary foundation, paired with Kitui South and the home belt."
+ },
+ {
+  "before": " • Mwingi Triad Proof:       Mwingi 3 sub-counties = 200,198 voters (meets threshold).",
+  "after": " • Mwingi Triad Proof:       Mwingi 3 sub-counties = 200,198 registered (~124,100 ballots)."
+ },
+ {
+  "before": "    *   *Musyi FM (Royal Media Services):* Dominant market leader (>45% listenership in Ukambani); broad multi-generational credibility.\n    *   *Mbaitu FM:* High rural penetration, particularly among women and smallholders.\n    *   *Sang'u FM & Athiani FM:* Strong youth and peri-urban listenership.\n    *   *Syokimau FM & County FM:* Hyper-local community programming.",
+  "after": "    *   *Musyi FM (Royal Media Services):* Dominant market leader in Ukambani; commercially independent. **Priority placement.**\n    *   *County FM (Kitui-based independent):* Local ward news and debates, strong in Kitui Town, Kabati and Kwa Vonza. **Priority placement.**\n    *   *Wikwatyo FM (Seventh-Day Adventist Church, Kitui):* Broad rural community trust. **Priority for community and service-delivery programming.**\n    *   *Mbaitu FM, Syokimau FM (Ngilu-associated) and Athiani FM (Wiper leadership):* **monitoring targets, not placement targets** — see Section 3.5.1 for the ownership map and the posture each one carries."
+ },
+ {
+  "before": "│ (Musyi, Mbaitu, Sang'u)      │ (Under-allocated) │ (Dominant Share)  │ medium reaching 78%+ of voters daily.│",
+  "after": "│ (Musyi, County, Wikwatyo)    │ (Under-allocated) │ (Dominant Share)  │ medium reaching 78%+ of voters daily.│"
+ },
+ {
+  "before": "│    Radio (Musyi, Mbaitu) │                   │                   │                │                         │",
+  "after": "│    Radio (Musyi, County) │                   │                   │                │                         │"
+ },
+ {
+  "before": "│    (Musyi FM / Mbaitu FM)  │ (Royal Media / Mediamax)    │ Required: Negotiate bulk multi-month package rate│",
+  "after": "│    (Musyi FM / County FM)  │ (Royal Media; independent)  │ Required: Negotiate bulk multi-month package rate│"
+ },
+ {
+  "before": "The table below maps the major radio stations broadcasting across Kitui County, categorized by tier, reported corporate ownership, and known political alignment.",
+  "after": "The ownership map, the frequencies and the resulting campaign posture for every\nKikamba-language station are set out once, in **Section 3.5.1**, and that table\ngoverns. It is the version reconciled against `data/media-ownership.ts`, which\nthe site renders directly."
+ },
+ {
+  "before": "```\n┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n│                                KAMBA-LANGUAGE VERNACULAR RADIO LANDSCAPE                                    │\n├──────────────┬───────────────────────────────┬───────────────────────────┬──────────────────────────────────┤\n│ Station Name │ Corporate Ownership & Parent  │ Reported Political        │ Listenership Share &             │\n│ & Frequency  │ Conglomerate                  │ Alignment / Bias          │ Audience Metric Status           │\n├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤\n│ TIER 1: COMMERCIAL HEAVYWEIGHTS (POLITICALLY CONTROLLED / GATEKEEPER NETWORKS)                              │\n├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤\n│ 1. Musyi FM  │ Royal Media Services (RMS)    │ Commercial / Mainstream   │ **[Required Primary Research]**  │\n│    (102.2 FM)│ (SK Macharia Family)          │ Azimio & Wiper Hegemony   │ Kitui-wide reach; highest market │\n│              │                               │ Gatekeeper influence      │ presence across Lower Eastern.   │\n├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤\n│ 2. Mbaitu FM │ Mbaitu FM Media Enterprises   │ Pro-Incumbent / Regional  │ **[Required Primary Research]**  │\n│    (92.5 FM) │ (Associated with Rival Focus) │ Business Interests;       │ Dominant coverage in Kitui Rural,│\n│              │                               │ Competitive Gatekeeper    │ Mutomo, and Kitui South.         │\n├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤\n│ 3. Sang'u FM │ Regional Commercial Entity    │ Aligned with Northern     │ **[Required Primary Research]**  │\n│    (96.2 FM) │ (Kitui Business / Political)  │ Kitui Political Rival     │ Strong signal penetration across │\n│              │                               │ Interests                 │ Mwingi North, Central & West.    │\n├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤\n│ 4. Athiani FM│ Athiani Media Network         │ Politically steered by    │ **[Required Primary Research]**  │\n│    (99.2 FM) │ (Prominent Regional Elite)    │ Machakos/Kitui Rival Bloc │ Key youth and urban market       │\n│              │                               │ & Coalition Gatekeeper    │ listenership in town centers.    │\n├──────────────┴───────────────────────────────┴───────────────────────────┴──────────────────────────────────┤\n│ TIER 2: FAITH-BASED, DIOCESAN & COMMUNITY BROADCASTERS (EDITORIAL INTEGRITY / NEUTRAL)                     │\n├──────────────┬───────────────────────────────┬───────────────────────────┬──────────────────────────────────┤\n│ 5. Radio     │ Catholic Diocese of Kitui     │ **Strictly Neutral**      │ **[Required Primary Research]**  │\n│    Wikwatyo  │ (Bishop / Diocesan Comms)     │ Pastoral / Civic Education│ Broad rural community trust;     │\n│    (107.1 FM)│                               │ High Credibility Factor   │ zero political candidate capture.│\n├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤\n│ 6. Syokimau  │ Independent Faith Entity      │ **Faith-Based / Neutral** │ **[Required Primary Research]**  │\n│    FM        │ (Lower Eastern Christian Com) │ Community Development &   │ Dedicated church fellowship and  │\n│              │                               │ Family Stewardship        │ women chama audience base.       │\n├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤\n│ 7. Radio     │ Community Media Trust         │ **Grassroots / Neutral**  │ **[Required Primary Research]**  │\n│    Mang'elete│ (Kibwezi / Southern Border)   │ Agrarian, Water, Women &  │ Deep penetration in Kitui South, │\n│    (89.1 FM) │                               │ Ecological Resilience     │ Ikutha, and Mutha borderlands.   │\n├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤\n│ 8. County FM │ Kitui Local Media Consortium  │ **Independent Commercial**│ **[Required Primary Research]**  │\n│    (90.3 FM) │ (Local Journalists / Business)│ Local Ward News & Debates;│ Strong presence in Kitui Town,   │\n│              │                               │ Open to Issue-Based Ads   │ Kabati, and Kwa Vonza.           │\n└──────────────┴───────────────────────────────┴───────────────────────────┴──────────────────────────────────┘\n```",
+  "after": "The three structural facts that drive the rest of this section:\n\n*   **Two stations are associated with Charity Ngilu**, a declared general-election rival: **Mbaitu FM** and **Syokimau FM**. Both are monitoring targets, not placement targets.\n*   **One station is associated with Kalonzo Musyoka**, the Wiper party leader: **Athiani FM**. It is party-sensitive rather than hostile, and it matters most during the nomination window, when coverage may track party leadership sentiment rather than merit.\n*   **The stations open to the campaign are commercially or institutionally independent**: **Musyi FM** (Royal Media Services), **County FM** (Kitui-based independent) and **Wikwatyo FM** (Seventh-Day Adventist Church, Kitui). These carry the placement budget.\n\nOwnership associations are publicly reported rather than certified, and media\nownership changes. Section 3.5.1 carries the standing instruction to verify and\nupdate this map before any placement is booked."
+ },
+ {
+  "before": "│    Community Radio Dominance   │   (Catholic Diocese of Kitui)**, **Syokimau FM**, and **Radio Mang'elete**.│",
+  "after": "│    Community Radio Dominance   │   (Seventh-Day Adventist, Kitui)**, **County FM**, **Mang'elete**.         │"
+ },
+ {
+  "before": "│ **NW-01:**  │ % of sampled likely      │ 38.5%     │ **≥ 55.0%**│ Rolling 7-day    │ Head of   │ Weekly /    │\n│ Wiper Ballot│ Wiper primary voters     │ (Est.     │ Primary   │ Tracking Poll    │ Research  │ Fortnightly │\n│ Preference  │ naming Dr. Makali Mulu as│ Baseline) │ Preference│ ($N = 400$ CATI) │ & Polling │             │",
+  "after": "│ **NW-01:**  │ % of sampled likely      │ Not yet   │ **≥ 55.0%**│ Rolling 7-day    │ Head of   │ Weekly /    │\n│ Wiper Ballot│ Wiper primary voters     │ measured  │ Primary   │ Tracking Poll    │ Research  │ Fortnightly │\n│ Preference  │ naming Dr. Makali Mulu as│ (Week 1)  │ Preference│ ($N = 400$ CATI) │ & Polling │             │"
+ },
+ {
+  "before": "│ **NW-02:**  │ Spontaneous + aided name │ 42.0%     │ **≥ 70.0%**│ Sub-County CATI  │ Comms     │ Fortnightly │\n│ Northern    │ recognition in Mwingi    │ (North    │ Name ID   │ Poll booster in  │ Director  │ Tracking    │\n│ Sub-County  │ North, Central & West    │ Baseline) │           │ Mwingi North &   │           │             │",
+  "after": "│ **NW-02:**  │ Spontaneous + aided name │ Not yet   │ **≥ 70.0%**│ Sub-County CATI  │ Comms     │ Fortnightly │\n│ Northern    │ recognition in Mwingi    │ measured  │ Name ID   │ Poll booster in  │ Director  │ Tracking    │\n│ Sub-County  │ North, Central & West    │ (Week 1)  │           │ Mwingi North &   │           │             │"
+ },
+ {
+  "before": "│ **NW-03:**  │ Voter ranking of \"Clean  │ 31.0%     │ **≥ 60.0%**│ Issue Salience   │ Policy &  │ Fortnightly │\n│ Fiscal      │ Audit Record / Anti-     │           │ Issue     │ Index in County  │ Strategy  │             │\n│ Integrity   │ Corruption\" as the #1 or │           │ Salience  │ Tracking Survey  │ Lead      │             │",
+  "after": "│ **NW-03:**  │ Voter ranking of \"Clean  │ Not yet   │ **≥ 60.0%**│ Issue Salience   │ Policy &  │ Fortnightly │\n│ Fiscal      │ Audit Record / Anti-     │ measured  │ Issue     │ Index in County  │ Strategy  │             │\n│ Integrity   │ Corruption\" as the #1 or │ (Week 1)  │ Salience  │ Tracking Survey  │ Lead      │             │"
+ },
+ {
+  "before": "│ **NW-04:**  │ Verified, signed support │ 3 / 8     │ **8 / 8** │ Formal written   │ Political │ Weekly      │\n│ Branch Exec │ pledges from Sub-County  │ Sub-Count.│ Sub-Count.│ branch caucus    │ Affairs   │ Executive   │\n│ Endorsement │ Wiper Executive Branch   │ Branches  │ Branches  │ endorsement      │ Director  │ Dashboard   │",
+  "after": "│ **NW-04:**  │ Verified, signed support │ Confirm   │ **8 / 8** │ Formal written   │ Political │ Weekly      │\n│ Branch Exec │ pledges from Sub-County  │ w/ party  │ Sub-Count.│ branch caucus    │ Affairs   │ Executive   │\n│ Endorsement │ Wiper Executive Branch   │ (Week 1)  │ Branches  │ endorsement      │ Director  │ Dashboard   │"
+ },
+ {
+  "before": "*   **Baseline Figure:** 22.1% countywide poll preference share (Mizani Survey, August 2026, Tier 2); specifically 12.0% average recognition in Mwingi sub-counties (Tier 2).\n*   **Target Figure:** 40.0%+ countywide poll preference share; 45.0%+ average recognition in Mwingi sub-counties (Tier 2).",
+  "after": "*   **Baseline Figure:** 22.1% countywide poll preference share (Mizani Survey, 7 August 2026, Tier 2). Sub-county recognition in Mwingi is a **named data gap** (Section 1.3.6) — no published poll reports it, and the campaign does not estimate it. It is established by the Week 1 baseline instrument (Section 8.3.1) before this commitment is scored.\n*   **Target Figure:** 40.0%+ countywide poll preference share. The Mwingi recognition target is set against the Week 1 measured baseline once it exists, not against an assumed starting point."
+ },
+ {
+  "before": "*   **Escalation Trigger:** If bi-weekly internal tracking surveys (Section 8.4) show regional recognition remains below 28.0% by 30 September 2026, trigger immediate reallocation of 40% of the digital ad budget to localized Kikamba voice-note broadcast and USSD push messaging.",
+  "after": "*   **Escalation Trigger:** If bi-weekly internal tracking surveys (Section 8.4) show regional recognition flat or falling across two consecutive waves, trigger immediate reallocation of 40% of the digital ad budget to localized Kikamba voice-note broadcast and USSD push messaging."
+ },
+ {
+  "before": "*   **Traceability:** Traces directly to nomination poll share by targeting the county's largest voting demographic (52% female, Tier 1) and addressing household economic security.\n*   **Baseline Figure:** 18.5% measured preference share among female voters aged 18–45 (Mizani Survey, August 2026, Tier 2).\n*   **Target Figure:** 35.0% measured preference share among female voters aged 18–45 (Tier 2).",
+  "after": "*   **Traceability:** Traces directly to nomination poll share by targeting the county's largest demographic (women are 587,151 of 1,136,187 residents, 51.7%, Tier 1; the register is not published by sex) and addressing household economic security.\n*   **Baseline Figure:** **Named data gap.** The published Mizani rounds report countywide aggregates only (Section 1.3.6); no preference share by sex or age band exists in the public domain. Established by the Week 1 baseline instrument (Section 8.3.1).\n*   **Target Figure:** Set against the Week 1 measured baseline, as a stated point gain rather than an absolute share assumed in advance."
+ },
+ {
+  "before": "*   **Escalation Trigger:** If qualitative focus group assessments in mid-October reveal less than 25% positive policy association with Dr. Mulu's economic agenda, immediately deploy targeted direct-to-WhatsApp audio explainers centering household poultry subsidies and water proximity financing.",
+  "after": "*   **Escalation Trigger:** If mid-October focus groups (Section 8.4) find weak or negative policy association with Dr. Mulu's economic agenda among women in the target wards, immediately deploy targeted direct-to-WhatsApp audio explainers centering household poultry subsidies and water proximity financing."
+ },
+ {
+  "before": "Percentages refer to the verified county ceiling once inserted. Absolute\nfigures are illustrative structures to be finalised against that ceiling.",
+  "after": "Percentages refer to the verified county ceiling of **KSh97.56 million**\n(Section 9.2.1) and are stated in absolute terms against it. Ad spend is\nregulated expenditure and sits inside that ceiling alongside transport, venues\nand personnel — it is not additional to them."
+ },
+ {
+  "before": "* **Ad spend:** approximately `[Insert — recommend 15–20% of ceiling]`",
+  "after": "* **Ad spend:** **KSh14.63m–19.51m** (15–20% of the KSh97.56m ceiling)"
+ },
+ {
+  "before": "* **Ad spend:** approximately `[Insert — recommend 30–40% of ceiling]`",
+  "after": "* **Ad spend:** **KSh29.27m–39.02m** (30–40% of the KSh97.56m ceiling)"
+ },
+ {
+  "before": "* **Ad spend:** approximately `[Insert — recommend 45–55% of ceiling]`, with",
+  "after": "* **Ad spend:** **KSh43.90m–53.66m** (45–55% of the KSh97.56m ceiling), with"
+ },
+ {
+  "before": "*   **Dr. Irene Kasalu (Woman Representative, Kitui County):** Commands an expansive, countywide constituency base by virtue of her seat. It has been reported in regional media that she maintains active grassroots networks built through her extensive local development tours (\"Ziara Mashinani\") (Tier 2). Polling data as of August 2026 establishes her as the current frontrunner in public preference at 37.4% (Tier 2). However, critics allege a lack of structured financial governance or executive experience. Her public criticism of the incumbent's equal-ward funding allocation represents a strategic opening for a technical, policy-driven rebuttal that Dr. Mulu is uniquely equipped to deliver.",
+  "after": "*   **Dr. Irene Kasalu (Woman Representative, Kitui County):** Commands an expansive, countywide constituency base by virtue of her seat. It has been reported in regional media that she maintains active grassroots networks built through her extensive local development tours (\"Ziara Mashinani\") (Tier 2). Polling data as of August 2026 establishes her as the current frontrunner in public preference at 37.4% (Tier 2). However, critics allege a lack of structured financial governance or executive experience. Her public criticism of the incumbent's equal-ward funding allocation is a live policy argument the campaign has to take a position on — and note that Section 2.6.1 currently commits Dr. Mulu to an equal-ward guarantee of its own. The two cannot both stand: either the equal-ward guarantee is the platform and this line of attack is unavailable, or the attack is used and the guarantee is restated as a needs-weighted formula. **This is an open decision, not a settled opening.**"
+ },
+ {
+  "before": "**Strategic Diagnosis:** Dr. Mulu's polling deficit represents a **geography-of-recognition bottleneck, not a deficit of leadership credibility**. Name recognition is the most rapidly addressable deficit through micro-targeted digital ads and SMS/USSD localized outreach. Phase −1 is specifically engineered to resolve this visibility challenge.",
+  "after": "**Strategic Diagnosis:** Dr. Mulu's polling deficit is substantially a\n**geography-of-recognition bottleneck** rather than a deficit of leadership credibility, and\nname recognition is the most rapidly addressable deficit through micro-targeted digital ads\nand SMS/USSD localized outreach. Phase −1 is engineered to resolve that visibility challenge.\n\n**The counter-evidence this diagnosis has to survive.** Section 1.2.6 records that Dr. Kasalu\nwon the 2022 Woman Representative race with **201,899 votes** — more than Governor Malombe's\n198,004 winning gubernatorial total in the same election. She has already demonstrated\ncountywide vote-getting capacity above the victory threshold. That is not the profile of a\ncandidate leading purely on passive name recognition, and the Week 1 message-lab work in\nSection 8.3.1 is specifically designed to test whether the recognition hypothesis holds\nbefore significant budget commits against it. If it does not, the response is different."
+ },
+ {
+  "before": "Budget and content allocation across zones, by phase:",
+  "after": "Budget and content allocation across zones, by phase.\n\n**Coverage note.** The three zones above total 895,766 residents — **78.8% of the county's\n1,136,187**. They name 12 of the county's 18 sub-counties; the remaining six, about 240,000\nresidents, are not in any zone. The weightings below therefore distribute 100% of budget\nacross zones covering under four-fifths of the population, and the missing sub-counties need\neither adding to a zone or an explicit statement of why they are out of scope before this\ntable drives spend."
+ },
+ {
+  "before": "Four pillars, extended from the original three.",
+  "after": "Four pillars, extended from the original three. **These four are the campaign's pillars.**\nTwo other groupings appear later in this section and are deliberately different things, not\ncompeting versions of this one: Section 2.6 sets out the three *message* pillars — how the\nclaim is argued to a voter — and Section 2.7.1 the four *content* pillars, which are\nproduction buckets for the studio. Each of those maps back to the four below."
+ },
+ {
+  "before": "   PILLAR 1: INTEGRITY          PILLAR 2: JOBS &             PILLAR 3: DEVOLUTION\n   & FISCAL PRUDENCE            WEALTH CREATION              EQUITY & WATER",
+  "after": "   MESSAGE PILLAR 1:            MESSAGE PILLAR 2:            MESSAGE PILLAR 3:\n   INTEGRITY & PRUDENCE         JOBS & WEALTH                DEVOLUTION & WATER"
+ },
+ {
+  "before": "#### Pillar 1: Fiscal Integrity & Transparent Public Finance",
+  "after": "#### Message Pillar 1: Fiscal Integrity & Transparent Public Finance *(carries campaign pillars 2.2.1 and 2.2.4)*"
+ },
+ {
+  "before": "    *   **Tier 1 Proof Point:** **Office of the Auditor-General (OAG) Certified NG-CDF Audit Reports (2013–2025)**. Kitui Central NG-CDF consistently achieved unqualified (clean) audit opinions and was ranked among the top 5 best-managed constituencies in Kenya for institutional transparency and infrastructure value-for-money.\n    *   **Tier 1 Contrast:** Kitui County Government audited accounts under both predecessor regimes accumulated over **Ksh 2.4 Billion in contested pending bills** and adverse OAG audit queries (OAG County Executive Audit FY 2021/22 & FY 2022/23).",
+  "after": "    *   **Proof Point — requires sourcing before use:** **Office of the Auditor-General (OAG) NG-CDF audit reports, 2013–2025.** The claim of consistently unqualified opinions is checkable and, if any year carries a qualification, collapses this pillar publicly. It is not tiered here because the underlying reports have not been retrieved. The separate \"top 5 best-managed constituencies in Kenya\" ranking is **not the Tier 1 claim in Sections 1.2.1 and 2.1.1**, which is narrower — best-evaluated constituency in the Eastern region, FY2014/15 — and only that narrower claim should be used until the wider one is sourced.\n    *   **Contrast — requires sourcing:** Kitui County Government audited accounts under both predecessor regimes are reported to have accumulated over **Ksh 2.4 billion in contested pending bills** (OAG County Executive Audit FY2021/22 & FY2022/23). Note this is a **different measure** from the KSh 1.3 billion pending-bill figure at FY2020/21 carried as Tier 1 in Sections 1.2.7 and 2.1.2; the two are not interchangeable and should not be used in the same argument without stating which is which."
+ },
+ {
+  "before": "#### Pillar 2: Household Economic Empowerment & Agrarian Value Addition\n*   **Narrative Statement:** *\"78.4% of Kitui's households depend on farming and livestock, yet our farmers sell raw green grams and charcoal at throwaway prices. Dr. Mulu's economic plan introduces solar-powered cold storage, green gram aggregation centers, and honey processing to double household farm incomes.\"*",
+  "after": "#### Message Pillar 2: Household Economic Empowerment & Agrarian Value Addition *(carries campaign pillar 2.2.3)*\n*   **Narrative Statement** *(the 78.4% figure is untiered and unsourced — verify or drop before publication)*: *\"78.4% of Kitui's households depend on farming and livestock, yet our farmers sell raw green grams and charcoal at throwaway prices. Dr. Mulu's economic plan introduces solar-powered cold storage, green gram aggregation centers, and honey processing to double household farm incomes.\"*"
+ },
+ {
+  "before": "    *   **Tier 1 Proof Point:** **KNBS 2019 Census & Agricultural Sector Transformation Strategy (ASTGS)**. Kitui produces over 45,000 metric tonnes of green grams (*ndengu*) annually, but captures less than 32% of terminal market value due to broker cartels.\n    *   **Policy Intervention Proof:** Legislative sponsorship of Sessional Paper No. 1 on National Value Addition and Export Promotion during Dr. Mulu's parliamentary tenure.",
+  "after": "    *   **Proof Point — awaiting page references:** **KNBS 2019 Census & Agricultural Sector Transformation Strategy (ASTGS).** The 45,000 tonne output and the sub-32% value-capture figure are not yet tiered to a specific page. Both carry the floor-price commitment above, so Firefly is sourcing them before either appears in published copy."
+ },
+ {
+  "before": "#### Pillar 3: Devolution Equity, Universal Water Access & Healthcare",
+  "after": "#### Message Pillar 3: Devolution Equity, Universal Water Access & Healthcare *(carries campaign pillars 2.2.1 and 2.2.2)*"
+ },
+ {
+  "before": "    *   **Tier 1 Proof Point:** **Kitui County Integrated Development Plan (CIDP III)**. Over 61% of rural Kitui households still walk >5 km to fetch water during dry seasons.\n    *   **Empirical CDF Proof:** Delivery of 84 community solar boreholes and 142 school water harvesting projects across Kitui Central under Dr. Mulu's administration (Kitui Central Project Inventory 2013–2026).",
+  "after": "    *   **Proof Point — requires sourcing:** **Kitui County Integrated Development Plan (CIDP III).** The 61% figure is untiered. Section 1.2.5 carries a related Tier 1 statistic — approximately 400,000 residents relying on untreated surface water — which is a different measure and is the one currently defensible.\n    *   **CDF Proof — requires the inventory:** 84 community solar boreholes and 142 school water-harvesting projects (Kitui Central Project Inventory 2013–2026). Sections 5.1.4 and 8.2.2 cite the same inventory as \"140+ classrooms\", which is a different category of project. Publish the inventory's own line items once and quote them consistently."
+ },
+ {
+  "before": "│    174,745 Voters)           │   floor price (Ksh 85/kg) + local storage│   to middlemen during peak harvest│",
+  "after": "│    ~175,000 Voters)          │   floor price (Ksh 85/kg) + local storage│   to middlemen during peak harvest│"
+ },
+ {
+  "before": "│    (14.5% / 77,250 Voters)   │ • Decentralized veterinary cold-chain.   │   Livestock mortality drops 45%   │",
+  "after": "│    (14.5% / ~77,000 Voters)  │ • Decentralized veterinary cold-chain.   │   Livestock mortality drops 45%   │"
+ },
+ {
+  "before": "│    (43.9% / 233,881 Voters)  │ • Free driving licenses & digital hubs.  │   NITA/TVET technical bursaries.  │",
+  "after": "│    (43.9% / ~234,000 Voters) │ • Free driving licenses & digital hubs.  │   NITA/TVET technical bursaries.  │"
+ },
+ {
+  "before": "│    277,567 Voters)           │ • Ksh 50,000 table-banking seed capital. │   built with clean water tariffs. │",
+  "after": "│    ~278,000 Voters)          │ • Ksh 50,000 table-banking seed capital. │   built with clean water tariffs. │"
+ },
+ {
+  "before": "│    (18.2% / 96,962 Voters)   │ • Modern solar market shades & drainage. │   relief in the Finance Bill 2024.│",
+  "after": "│    (18.2% / ~97,000 Voters)  │ • Modern solar market shades & drainage. │   relief in the Finance Bill 2024.│"
+ },
+ {
+  "before": "│    (8.5% / 45,284 Voters)    │ • Strict adherence to SRC salary codes.  │   blueprints on county debt relief│",
+  "after": "│    (8.5% / ~45,000 Voters)   │ • Strict adherence to SRC salary codes.  │   blueprints on county debt relief│"
+ },
+ {
+  "before": "│    [Reach: ~72,455 Voters]   │   highlighting national economic policy. │ • National Assembly hansard clips │",
+  "after": "│    [Reach: ~72,000 voters]   │   highlighting national economic policy. │ • National Assembly hansard clips │"
+ },
+ {
+  "before": "Every piece of creative output generated by the campaign must anchor to one of four verified content pillars:",
+  "after": "Production buckets for the studio, not a restatement of the campaign pillars in Section 2.2\nor the message pillars in Section 2.6. Every piece of creative output anchors to one of these\nfour, and each carries one or more of the 2.2 pillars:"
+ },
+ {
+  "before": "│                       │ • USSD: 8-level text menu tree (*483*XX#) │   opt-out footer (*\"STOP to 22XXX\"*).   │",
+  "after": "│                       │ • USSD: 4-option menu tree (see 2.7.3C)   │   opt-out footer (*\"STOP to 22XXX\"*).   │"
+ },
+ {
+  "before": "  • Sized Reach: ~72,455 Voters (13.6%)         • Sized Reach: ~460,303 Voters (86.4%)\n  • Maximum Reachable: 36.2% of 200k            • Maximum Reachable: 230.2% of 200k",
+  "after": "  • Sized Reach: ~72,000 voters (13.6%)         • Sized Reach: ~460,000 voters (86.4%)\n  • Share of the register: 13.6%                • Share of the register: 86.4%    "
+ },
+ {
+  "before": "> If the campaign captures **100% of every single internet-connected voter in Kitui County**, it would assemble only **~72,455 votes**—leaving the candidate **125,549 votes short** of the 198,004 benchmark.",
+  "after": "> If the campaign captures **100% of every single internet-connected voter in Kitui County**, it would assemble only about **72,000 reachable voters** — and reach is not votes—leaving the candidate **125,549 votes short** of the 198,004 benchmark."
+ },
+ {
+  "before": "1.  **It Cannot Deliver the 200,000 Vote Benchmark Alone:** Capped at ~72,455 total reachable voters inside Kitui County.",
+  "after": "1.  **It Cannot Deliver the 200,000 Vote Benchmark Alone:** Capped at roughly 72,000 reachable voters inside Kitui County."
+ },
+ {
+  "before": "The election will be won or lost across the **~460,303 offline voters** living in Kitui's rural wards. Reaching this electorate requires an orchestrated combination of telecommunications protocol channels (SMS/USSD), broadcast audio (vernacular radio), financial agent touchpoints, and dense physical market presence.",
+  "after": "The election will be won or lost across the **~460,000 offline voters** living in Kitui's rural wards. Reaching this electorate requires an orchestrated combination of telecommunications protocol channels (SMS/USSD), broadcast audio (vernacular radio), financial agent touchpoints, and dense physical market presence."
+ },
+ {
+  "before": "│ Offline Channel      │ Maximum Reachable    │ % of 200,000 Goal    │ Delivery Mechanism & Operational Role  │",
+  "after": "│ Offline Channel      │ Maximum Reachable    │ % of 532,758 Register│ Delivery Mechanism & Operational Role  │"
+ },
+ {
+  "before": "│ 1. Kikamba Radio     │ ~420,000 voters      │ **210.0%**           │ Mass persuasion, cultural credibility, │\n│    (Vernacular)      │ (78%–80% listenership)│ of victory target    │ policy dissemination & rally build-ups.│",
+  "after": "│ 1. Kikamba Radio     │ ~420,000 voters      │ **78.8%**            │ Mass persuasion, cultural credibility, │\n│    (Vernacular)      │ (78–80% listenership)│ of the register      │ policy dissemination & rally build-ups.│"
+ },
+ {
+  "before": "│ 2. Direct 2G SMS     │ ~320,000 voters      │ **160.0%**           │ Hyper-localized ward updates, candidate│\n│    (Opt-in Database) │ (60% mobile register)│ of victory target    │ endorsement letters & GOTV alerts.     │",
+  "after": "│ 2. Direct 2G SMS     │ ~320,000 voters      │ **60.1%**            │ Hyper-localized ward updates, candidate│\n│    (Opt-in Database) │ (60% mobile register)│ of the register      │ endorsement letters & GOTV alerts.     │"
+ },
+ {
+  "before": "│ 3. USSD Interactive  │ ~250,000 voters      │ **125.0%**           │ Zero-rated policy quiz, ward captain   │\n│    (*XXX# Service)   │ (Feature phone users)│ of victory target    │ registration & live polling surveys.   │",
+  "after": "│ 3. USSD Interactive  │ ~250,000 voters      │ **46.9%**            │ Zero-rated policy quiz, ward captain   │\n│    (*XXX# Service)   │ (Feature phone users)│ of the register      │ registration & live polling surveys.   │"
+ },
+ {
+  "before": "│ 4. Open-Air Market   │ ~280,000 voters      │ **140.0%**           │ Weekly physical interaction, flyer     │\n│    Barazas (Weekly)  │ (Physical foot-fall) │ of victory target    │ distribution & localized speeches.     │",
+  "after": "│ 4. Open-Air Market   │ ~280,000 voters      │ **52.6%**            │ Weekly physical interaction, flyer     │\n│    Barazas (Weekly)  │ (Physical foot-fall) │ of the register      │ distribution & localized speeches.     │"
+ },
+ {
+  "before": "│ 5. Mobile Money      │ ~180,000 voters      │ **90.0%**            │ Word-of-mouth peer network, branded    │\n│    Agents (M-Pesa)   │ (Monthly store visits│ of victory target    │ point-of-sale collateral & buzz agents.│",
+  "after": "│ 5. Mobile Money      │ ~180,000 voters      │ **33.8%**            │ Word-of-mouth peer network, branded    │\n│    Agents (M-Pesa)   │ (Monthly store visits│ of the register      │ point-of-sale collateral & buzz agents.│"
+ },
+ {
+  "before": "│ 6. Church & Synods   │ ~350,000 voters      │ **175.0%**           │ Sunday faith fellowship greetings,     │\n│    (Faith Networks)  │ (Weekly attendance)  │ of victory target    │ pastoral blessings & clergy alignment. │",
+  "after": "│ 6. Church & Synods   │ ~350,000 voters      │ **65.7%**            │ Sunday faith fellowship greetings,     │\n│    (Faith Networks)  │ (Weekly attendance)  │ of the register      │ pastoral blessings & clergy alignment. │"
+ },
+ {
+  "before": "    *   M-Pesa agents are trusted community hubs where residents deposit funds, buy airtime, and discuss local news.",
+  "after": "    *   M-Pesa agents are trusted community hubs where residents deposit funds, buy airtime, and discuss local news. **Agent networks are regulated financial infrastructure**; Section 4.3.5 flags that any commercial arrangement with them must be reviewed by campaign counsel before recruitment begins. The 1,800 kiosk and 800 ambassador counts are also untiered and need a source."
+ },
+ {
+  "before": "The campaign enforces an explicit mathematical alignment rule:",
+  "after": "The table below is the **rebalancing target** — the direction of travel away from the\nconventional pitch, argued from reach. It is not a formula the budget already satisfies:\nSection 3.3.1 carries the actual shillings, and the two do not currently agree. That gap is\nstated under 3.3.1 rather than smoothed over here, because closing it is a live decision\nabout where roughly KSh 14 million goes, not a presentation choice."
+ },
+ {
+  "before": " • The Digital Ceiling: Digital reaches ~72,455 voters (13.6%), capable of ",
+  "after": " • The Digital Ceiling: Digital reaches ~72,000 voters (13.6%), capable of "
+ },
+ {
+  "before": "   FIELD MOBILIZATION           BROADCAST & OFFLINE          TECH, COMPLIANCE\n   & GROUND GROUNDGAME          PAID MEDIA (4 CHANNELS)      & CONTINGENCY RESERVE\n   Ksh 31,500,000 (48.8%)       Ksh 23,200,000 (36.0%)       Ksh 9,800,000 (15.2%)",
+  "after": "   FIELD & GROUND               BROADCAST & OFFLINE          TECH, COMPLIANCE\n   MOBILISATION (rows 3+6)      PAID MEDIA (rows 1,2,4,5)    & CONTINGENCY (row 7)\n   Ksh 36,000,000 (55.8%)       Ksh 21,700,000 (33.6%)       Ksh 6,800,000 (10.5%)"
+ },
+ {
+  "before": "│                          │ (Section 3.1 Data)  │ of Electorate     │ Allocation     │ (% of Total Planned)    │",
+  "after": "│                          │ (3.1 unless marked) │ of Electorate     │ Allocation     │ (% of Total Planned)    │"
+ },
+ {
+  "before": "│ 4. Printed Collateral &  │ 220,000 Voters    │ 41.3%             │ Ksh 6,200,000  │ 9.6%                    │",
+  "after": "│ 4. Printed Collateral &  │ 220,000 (est.)    │ 41.3%             │ Ksh 6,200,000  │ 9.6%                    │"
+ },
+ {
+  "before": "│ 5. Digital Video & Ads   │ 72,455 Voters     │ 13.6%             │ Ksh 1,850,000  │ 2.9%                    │",
+  "after": "│ 5. Digital Video & Ads   │ ~72,000 voters    │ 13.6%             │ Ksh 1,850,000  │ 2.9%                    │"
+ },
+ {
+  "before": "│ 6. Groundgame Mobilizers │ 450,000+ Voters   │ 84.5%             │ Ksh 21,500,000 │ 33.3%                   │",
+  "after": "│ 6. Groundgame Mobilizers │ 450,000+ (est.)   │ 84.5%             │ Ksh 21,500,000 │ 33.3%                   │"
+ },
+ {
+  "before": "│    (Sender ID: DR_MAKALI)  │ (Africa's Talking API)      │ at Ksh 0.60–0.80 per SMS.                        │",
+  "after": "│    (Sender ID: DR_MAKALI)  │ (Africa's Talking API)      │ — see Section 9.2.2 for the rate card.           │"
+ },
+ {
+  "before": "│ 3. USSD Interactive Portal │ **Verified Carrier Rate**   │ Zero-rated shared code setup Ksh 30k;            │\n│    (*483*77#)              │ (Direct Telco SDP)          │ Session fee Ksh 0.15/20s session.                │",
+  "after": "│ 3. USSD Interactive Portal │ **Verified Carrier Rate**   │ Shared code, development and hosting per the     │\n│    (*483*77#)              │ (Direct Telco SDP)          │ Section 9.2.2 rate card; session fee Ksh 0.15.   │"
+ },
+ {
+  "before": "│ 4. Authorised Person & Agent      │ • Mandatory formal written notification to IEBC designating the named   │\n│    Notification to IEBC           │   Campaign Treasurer / Finance Lead as the sole Authorized Signatory.   │",
+  "after": "│ 4. Authorised Person & Agent      │ • Written notification to IEBC of the Campaign Expenditure Committee    │\n│    Notification to IEBC           │   and signatory — see 6.6.1 for members and the 3-month deadline.       │"
+ },
+ {
+  "before": "│    Compliance Lead (DPO) │   dashboards, and voter registration targets.   │   (Africa's Talking)           │\n│                          │ • Statutory compliance with DPA 2019, consent   │ • Cloud Infrastructure (AWS)   │",
+  "after": "│    Compliance Lead (DPO) │   dashboards, and voter registration targets.   │   (selected at contracting)    │\n│                          │ • Statutory compliance with DPA 2019, consent   │ • Cloud Infrastructure         │"
+ },
+ {
+  "before": "│ Station     │ deployed across 100% of  │ Agents    │ (100% +   │ badges & signed  │ Station   │ Days)       │\n│ Agent Cvrg  │ Kitui polling streams.   │           │ 152 Resv) │ deployment forms │ Lead      │             │",
+  "after": "│ Station     │ deployed across 100% of  │ Agents    │ (100% of  │ badges & signed  │ Station   │ Days)       │\n│ Agent Cvrg  │ Kitui polling stations.  │           │ stations) │ deployment forms │ Lead      │             │"
+ },
+ {
+  "before": "interpretation on flagship content only rather than all video",
+  "after": "interpretation on flagship content only rather than all video (unchanged from\nLean — it is Premium that adds full-video coverage)"
+ },
+ {
+  "before": "| Sign-language interpretation | Flagship only | Flagship | All video |",
+  "after": "| Sign-language interpretation | Flagship only | Flagship only | All video |"
+ },
+ {
+  "before": "1.  An official, signed resolution by the **Wiper National Executive Committee (NEC)**.\n2.  A formal, written communique signed jointly by the **Wiper Party Leader (Hon. Kalonzo Musyoka)** and the **National Elections Board (NEB) Chairperson**, specifying opinion polling as the sole nomination instrument for Kitui County.",
+  "after": "1.  An official, signed resolution by the **Wiper National Executive Council (NEC)**.\n2.  **The commissioned pollster's terms of reference** — sample frame, questionnaire, fieldwork dates, and the count and weighting method. This is the obtainable test, and the operationally useful one: it is what tells the campaign whether the instrument deciding the ticket is sound (Section 1.1.3 sets the parameters to judge it against). A signed communique from the party leader would settle the question but is not something the campaign can produce on demand."
+ },
+ {
+  "before": " │ • Rural: ~86.2%        │  │ • Youth (18-35): ~44%  │  │ • Offline (2G): 86.4%  │\n │ • Urban: ~13.8%        │  │ • Mid/Senior (36+): 56%│  │ • Online (Smart): 13.6%│",
+  "after": " │ • Rural: 95.2%         │  │ • Youth (18-35): ~44%  │  │ • Offline (2G): 86.4%  │\n │ • Urban: 4.8%          │  │ • Mid/Senior (36+): 56%│  │ • Online (Smart): 13.6%│"
+ },
+ {
+  "before": " │ • Kikamba: >85% (Home) │  │ • Dryland Agrarian     │  │ • Nairobi / Mombasa    │\n │ • Kiswahili: ~12%      │  │ • Pastoral / Livestock │  │ • Remittance Leverage   │\n │ • English: ~3%         │  │ • Informal / Bodaboda  │  │ • Family Opinion Shapers│",
+  "after": " │ • Kikamba: ~76% (3.6)  │  │ • Dryland Agrarian     │  │ • Nairobi / Mombasa    │\n │ • Kiswahili: ~16%      │  │ • Pastoral / Livestock │  │ • Remittance Leverage  │\n │ • English: ~8%         │  │ • Informal / Bodaboda  │  │ • Family Opinion Shprs │"
+ },
+ {
+  "before": "*   **Empirical Sizing:** **~459,000 residents / ~86.2% of the county population** (2019 KNBS Census, Tier 1); representing approximately **455,000 registered voters** across 36 non-urban wards.",
+  "after": "*   **Empirical Sizing:** **1,082,168 rural residents — 95.2% of the county population** (2019 KNBS Census, Tier 1; see Section 1.2.5). The register is not published by rural/urban split, so applying that share to the 532,758 register gives approximately **507,000 rural registered voters** across 36 non-urban wards — a **derived estimate, not a measured figure**."
+ },
+ {
+  "before": "*   **Empirical Sizing:** **~13.8% of the county population** (~73,500 registered voters, 2019 KNBS Census urban classification, Tier 1).",
+  "after": "*   **Empirical Sizing:** **54,019 urban residents — 4.8% of the county population** (2019 KNBS Census urban classification, Tier 1). Applying that share to the register gives approximately **26,000 urban registered voters** — again derived, not measured. Note this segment's messaging reach extends well beyond the urban classification, since peri-urban trading centres in the ward list sit inside rural wards."
+ },
+ {
+  "before": "│ 1. Rural Smallholders    │ ~455,000 voters      │ Tier 1      │ Kamba Radio &     │ Guaranteed Minimum      │\n│    (Agrarian Core)       │ (86.2% of county)    │ KNBS/IEBC   │ Offline SMS       │ Returns & Sand Dams     │",
+  "after": "│ 1. Rural Smallholders    │ ~507,000 (derived)   │ Tier 1      │ Kamba Radio &     │ Guaranteed Minimum      │\n│    (Agrarian Core)       │ (95.2% of county)    │ KNBS/IEBC   │ Offline SMS       │ Returns & Sand Dams     │"
+ },
+ {
+  "before": "│ 4. Urban MSMEs &         │ ~73,500 voters       │ Tier 1      │ Geofenced Digital │ Single Business Permit, │\n│    Informal Traders      │ (13.8% of county)    │ KNBS 2019   │ & Trader Barazas  │ 24-Hr Lit Market Stalls │",
+  "after": "│ 4. Urban MSMEs &         │ ~26,000 (derived)    │ Tier 1      │ Geofenced Digital │ Single Business Permit, │\n│    Informal Traders      │ (4.8% of county)     │ KNBS 2019   │ & Trader Barazas  │ 24-Hr Lit Market Stalls │"
+ },
+ {
+  "before": " • Audience Architecture: 86.2% Rural, 13.8% Urban, ~44% Youth (18-35).",
+  "after": " • Audience Architecture: 95.2% Rural, 4.8% Urban, ~44% Youth (18-35)."
+ },
+ {
+  "before": "│ • Primary Source:  Kitui Economic Blueprint 2027–2032; Section 8.5 Ward Allocations Schedule.               │",
+  "after": "│ • Primary Source:  Not yet sourced. The ward allocation formula does not exist in this                      │\n│                     document; Section 8.5 is the delivery tracker and carries no schedule.                  │\n│                     Draft and cost the formula before this line is spoken.                                  │"
+ },
+ {
+  "before": "1.  **Velocity of Decision-Making (<15-Minute Turnaround):** In an environment where political attacks and ground rumors spread rapidly on morning radio and WhatsApp, a 4-person core command structure can authorize rapid-response counter-messaging within 15 minutes, bypassing multi-layered approval committees.",
+  "after": "1.  **Velocity of Decision-Making (<15-Minute Turnaround):** In an environment where political attacks and ground rumors spread rapidly on morning radio and WhatsApp, the campaign's four-person core command structure can authorize rapid-response counter-messaging within 15 minutes, bypassing multi-layered approval committees."
+ },
+ {
+  "before": " • Agile Architecture:  Lean 4-person core steering team directing specialized ",
+  "after": " • Agile Architecture:  The campaign's four-person core steering team directing"
+ },
+ {
+  "before": "* **SMS volume:** up to `[Insert]` messages/month",
+  "after": "* **SMS volume:** paced against the consented list in 4.3.6 (15,000 at Phase −1 rising to 40,000 by Phase 1) at roughly one touch a fortnight — order of 30,000–80,000 messages/month, confirmed at contracting"
+ },
+ {
+  "before": "* **SMS volume:** `[Insert]` messages/month, scaling to a GOTV surge",
+  "after": "* **SMS volume:** the full 4.3.6 trajectory to 120,000 consented contacts at a fortnightly touch — order of 240,000 messages/month at Phase 3, inside the 1.5m total in the 3.3 envelope, scaling to a GOTV surge"
+ },
+ {
+  "before": "*   **Dr. Irene Kasalu (Woman Representative, Kitui County):** Commands an expansive, countywide constituency base by virtue of her seat. It has been reported in regional media that she maintains active grassroots networks built through her extensive local development tours (\"Ziara Mashinani\") (Tier 2). Polling data as of August 2026 establishes her as the current frontrunner in public preference at 37.4% (Tier 2). However, critics allege a lack of structured financial governance or executive experience. Her public criticism of the incumbent's equal-ward funding allocation is a live policy argument the campaign has to take a position on — and note that Section 2.6.1 currently commits Dr. Mulu to an equal-ward guarantee of its own. The two cannot both stand: either the equal-ward guarantee is the platform and this line of attack is unavailable, or the attack is used and the guarantee is restated as a needs-weighted formula. **This is an open decision, not a settled opening.**",
+  "after": "*   **Dr. Irene Kasalu (Woman Representative, Kitui County):** Commands an expansive, countywide constituency base by virtue of her seat. It has been reported in regional media that she maintains active grassroots networks built through her extensive local development tours (\"Ziara Mashinani\") (Tier 2). Polling data as of August 2026 establishes her as the current frontrunner in public preference at 37.4% (Tier 2). However, critics allege a lack of structured financial governance or executive experience. Her public criticism of the incumbent's equal-ward funding allocation is a live policy argument, and one where the campaign's own position needs settling first: Section 2.6.1 currently proposes an equal-ward guarantee of its own. The two positions cannot both be run. Either the equal-ward guarantee is the platform, and this line of argument is not available to the campaign, or the argument is made and the guarantee is restated as a needs-weighted formula. **Firefly's recommendation is the second, because a published allocation methodology is the stronger fit with the verification pillar in Section 2.2.4 — but it is the campaign's policy call.**"
+ },
+ {
+  "before": "    *   **Proof Point — requires sourcing before use:** **Office of the Auditor-General (OAG) NG-CDF audit reports, 2013–2025.** The claim of consistently unqualified opinions is checkable and, if any year carries a qualification, collapses this pillar publicly. It is not tiered here because the underlying reports have not been retrieved. The separate \"top 5 best-managed constituencies in Kenya\" ranking is **not the Tier 1 claim in Sections 1.2.1 and 2.1.1**, which is narrower — best-evaluated constituency in the Eastern region, FY2014/15 — and only that narrower claim should be used until the wider one is sourced.\n    *   **Contrast — requires sourcing:** Kitui County Government audited accounts under both predecessor regimes are reported to have accumulated over **Ksh 2.4 billion in contested pending bills** (OAG County Executive Audit FY2021/22 & FY2022/23). Note this is a **different measure** from the KSh 1.3 billion pending-bill figure at FY2020/21 carried as Tier 1 in Sections 1.2.7 and 2.1.2; the two are not interchangeable and should not be used in the same argument without stating which is which.",
+  "after": "    *   **Proof Point — awaiting primary documents:** **Office of the Auditor-General (OAG) NG-CDF audit reports, 2013–2025.** Firefly has not yet retrieved the underlying reports, so the claim of consistently unqualified opinions is untiered pending that. It is worth settling early: because the claim is precisely checkable, a single qualified year would carry more weight in an opponent's hands than the record deserves. Note also that the \"top 5 best-managed constituencies in Kenya\" ranking is wider than the Tier 1 claim in Sections 1.2.1 and 2.1.1 — best-evaluated constituency in the Eastern region, FY2014/15. Firefly would use the narrower, documented version until the wider one is sourced.\n    *   **Contrast — awaiting primary documents:** Kitui County Government audited accounts under both predecessor regimes are reported to have accumulated over **Ksh 2.4 billion in contested pending bills** (OAG County Executive Audit FY2021/22 & FY2022/23). This is a **different measure** from the KSh 1.3 billion pending-bill figure at FY2020/21 carried as Tier 1 in Sections 1.2.7 and 2.1.2 — different years, different scopes. Both are usable; whichever is quoted is named with its year."
+ },
+ {
+  "before": "*   **Narrative Statement** *(the 78.4% figure is untiered and unsourced — verify or drop before publication)*: *\"78.4% of Kitui's households depend on farming and livestock, yet our farmers sell raw green grams and charcoal at throwaway prices. Dr. Mulu's economic plan introduces solar-powered cold storage, green gram aggregation centers, and honey processing to double household farm incomes.\"*",
+  "after": "*   **Narrative Statement** *(Firefly is verifying the 78.4% figure against KNBS before this line is used)*: *\"78.4% of Kitui's households depend on farming and livestock, yet our farmers sell raw green grams and charcoal at throwaway prices. Dr. Mulu's economic plan introduces solar-powered cold storage, green gram aggregation centers, and honey processing to double household farm incomes.\"*"
+ },
+ {
+  "before": "    *   **Proof Point — requires sourcing:** **KNBS 2019 Census & Agricultural Sector Transformation Strategy (ASTGS).** The 45,000 tonne output and the sub-32% value-capture figure carry no tier and no page reference. Both are load-bearing for the floor-price commitment below and must be sourced before either is quoted.\n    *   **Policy Intervention — verify:** Sessional papers are ordinarily Executive instruments rather than backbench sponsorships. Establish from the Hansard record what Dr. Mulu's actual role was before \"legislative sponsorship\" is claimed.\n\n> **Both flagship commitments below need costing against the envelope before they are said\n> in public.** Taking the document's own Tier 1 figures: the Ward Development Equalization\n> Fund at KSh 100 million across 40 wards is **KSh 4.0 billion a year — 29% of the KSh 13.79\n> billion envelope** in Section 1.2.4, before salaries. The *ndengu* floor price at KSh 85/kg\n> against the 45,000 tonnes cited in Message Pillar 2 is **a further ~KSh 2.0 billion a year**\n> if the county bridges from the KSh 40 quoted in 2.6.2, or KSh 3.8 billion if it buys the\n> crop outright. Together the bridge case is **~KSh 6.0 billion, or 44% of the envelope**,\n> committed to two instruments.",
+  "after": "    *   **Proof Point — awaiting page references:** **KNBS 2019 Census & Agricultural Sector Transformation Strategy (ASTGS).** The 45,000 tonne output and the sub-32% value-capture figure are not yet tiered to a specific page. Both carry the floor-price commitment above, so Firefly is sourcing them before either appears in published copy.\n    *   **Policy Intervention — one point to confirm with your office:** sessional papers are ordinarily Executive instruments rather than backbench sponsorships, so the precise role is worth stating exactly as the Hansard record has it. Firefly will describe it accordingly.\n\n> **What the two flagship commitments would cost, and what still has to be decided.**\n> Against the KSh 13.79 billion envelope in Section 1.2.4: a Ward Development Equalization\n> Fund at KSh 100 million across 40 wards is **KSh 4.0 billion a year, or 29% of the\n> envelope** before salaries. A *ndengu* floor price at KSh 85/kg against the 45,000 tonnes\n> cited in Message Pillar 2 is **a further ~KSh 2.0 billion** if the county bridges from the\n> KSh 40 farm-gate price, or KSh 3.8 billion if it buys the crop outright. Together, on the\n> bridge case, **~KSh 6.0 billion — 44% of the envelope.**"
+ },
+ {
+  "before": "> Neither figure is a costing — the delivery mechanism for each is undefined, and a floor\n> price may be a revolving fund or a partial aggregation scheme rather than a purchase\n> guarantee. That is the point: **the numbers are already in broadcast copy** (2.7.1, 2.7.3,\n> 5.1.4 and the USSD menu) without a mechanism or a budget line behind them. The candidate\n> sits on the Budget and Appropriations Committee and will do this arithmetic on sight.\n> Cost them, scale them, or restate them as directions of travel — before they are printed.",
+  "after": "> These are envelope arithmetic, not costings: the delivery mechanism for each is still to be\n> set, and a floor price may be structured as a revolving fund or a partial aggregation\n> scheme rather than a purchase guarantee, which changes the figure materially. Firefly's\n> recommendation is that both are sized and structured with the campaign's fiscal team before\n> they go into broadcast copy, since the figures already appear in the radio scripts, SMS\n> copy and USSD menu in Section 2.7. **This is the campaign's call, and one worth settling\n> early rather than on air.**"
+ },
+ {
+  "before": "    *   **Proof Point — requires sourcing:** **Kitui County Integrated Development Plan (CIDP III).** The 61% figure is untiered. Section 1.2.5 carries a related Tier 1 statistic — approximately 400,000 residents relying on untreated surface water — which is a different measure and is the one currently defensible.\n    *   **CDF Proof — requires the inventory:** 84 community solar boreholes and 142 school water-harvesting projects (Kitui Central Project Inventory 2013–2026). Sections 5.1.4 and 8.2.2 cite the same inventory as \"140+ classrooms\", which is a different category of project. Publish the inventory's own line items once and quote them consistently.",
+  "after": "    *   **Proof Point — awaiting page reference:** **Kitui County Integrated Development Plan (CIDP III).** The 61% figure is not yet tiered. Section 1.2.5 carries a related Tier 1 statistic — approximately 400,000 residents relying on untreated surface water — which measures something different and is the one currently documented.\n    *   **CDF Proof — a request to your constituency office:** 84 community solar boreholes and 142 school water-harvesting projects (Kitui Central Project Inventory 2013–2026). Sections 5.1.4 and 8.2.2 cite the same inventory for \"140+ classrooms\", a different project category. The inventory's own line items would let Firefly use one consistent set of figures throughout."
+ },
+ {
+  "before": "│ • Primary Source:  Not yet sourced. The ward allocation formula does not exist in this                      │\n│                     document; Section 8.5 is the delivery tracker and carries no schedule.                  │\n│                     Draft and cost the formula before this line is spoken.                                  │",
+  "after": "│ • Primary Source:  The ward allocation methodology, once drafted. Section 8.5 is the                        │\n│                     delivery tracker and does not carry a schedule; Firefly would build                     │\n│                     the formula with the campaign before this line is used on air.                          │"
+ },
+ {
+  "before": "**An unresolved question that has to go to counsel first.** Section 3.3.3 puts the lawful\nspending window as beginning \"upon formal gazettement of candidates\" (2027); Section 9.2.1\nputs it at \"at least six months before polling\". Phase −1 runs from now to the nomination —\noutside both. So either Phase −1 spending is unregulated, in which case the ceiling does not\nconstrain it and the tiers below are conservative, or it is regulated and this document has\nno compliance treatment for the period carrying its most concentrated spend. **The campaign\nshould not commit Phase −1 budget until this is settled.** It is stated here rather than\nresolved because the answer is a legal reading, not a drafting choice.",
+  "after": "**One question for the campaign's counsel before Phase −1 spend begins.** Section 3.3.3 puts\nthe lawful spending window as beginning \"upon formal gazettement of candidates\" (2027);\nSection 9.2.1 puts it at \"at least six months before polling\". Phase −1 runs from now to the\nnomination, which is outside both. Either that spending sits outside the regulated period —\nin which case the ceiling does not constrain it and the tiers below are conservative — or it\nis regulated, and the compliance instrumentation here should extend back to cover it.\nFirefly's position is that the ledger below runs from day one either way, so the campaign is\ncovered on the stricter reading. **The legal reading itself is properly counsel's, and we\nwould want it confirmed before the first Phase −1 invoice.**"
+ }
+]

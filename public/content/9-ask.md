@@ -6,24 +6,24 @@ The campaign's objectives are structured across two separate timelines, each wit
 
 ### 9.1.1 Through the nomination window
 
-*   **Active Period (Clock):** August 29, 2026 to 15 November 2026.
+*   **Active Period (Clock):** 29 August 2026 to 15 November 2026.
 *   **Success Definition:** Erase the current 15.3-point deficit and secure the Wiper Democratic Movement gubernatorial nomination by achieving a measured countywide public preference share of **40.0%+** in the official, party-commissioned surveys (Tier 2).
 
 #### Operational Commitment 1: Closing the Sub-County Recognition Gap
 *   **Traceability:** Traces directly to Wiper nomination poll share by elevating name recognition in the northern Mwingi and arid southern sub-counties where Dr. Mulu's constituency-bounded profile is weakest (Tier 1 constraint).
-*   **Baseline Figure:** 22.1% countywide poll preference share (Mizani Survey, August 2026, Tier 2); specifically 12.0% average recognition in Mwingi sub-counties (Tier 2).
-*   **Target Figure:** 40.0%+ countywide poll preference share; 45.0%+ average recognition in Mwingi sub-counties (Tier 2).
+*   **Baseline Figure:** 22.1% countywide poll preference share (Mizani Survey, 7 August 2026, Tier 2). Sub-county recognition in Mwingi is a **named data gap** (Section 1.3.6) — no published poll reports it, and the campaign does not estimate it. It is established by the Week 1 baseline instrument (Section 8.3.1) before this commitment is scored.
+*   **Target Figure:** 40.0%+ countywide poll preference share. The Mwingi recognition target is set against the Week 1 measured baseline once it exists, not against an assumed starting point.
 *   **Deadline:** 31 October 2026.
 *   **Named Owner:** Director of Digital Communications & Media.
-*   **Escalation Trigger:** If bi-weekly internal tracking surveys (Section 8.4) show regional recognition remains below 28.0% by 30 September 2026, trigger immediate reallocation of 40% of the digital ad budget to localized Kikamba voice-note broadcast and USSD push messaging.
+*   **Escalation Trigger:** If bi-weekly internal tracking surveys (Section 8.4) show regional recognition flat or falling across two consecutive waves, trigger immediate reallocation of 40% of the digital ad budget to localized Kikamba voice-note broadcast and USSD push messaging.
 
 #### Operational Commitment 2: Targeted Opinion-Poll Female Demographic Preference Lift
-*   **Traceability:** Traces directly to nomination poll share by targeting the county's largest voting demographic (52% female, Tier 1) and addressing household economic security.
-*   **Baseline Figure:** 18.5% measured preference share among female voters aged 18–45 (Mizani Survey, August 2026, Tier 2).
-*   **Target Figure:** 35.0% measured preference share among female voters aged 18–45 (Tier 2).
+*   **Traceability:** Traces directly to nomination poll share by targeting the county's largest demographic (women are 587,151 of 1,136,187 residents, 51.7%, Tier 1; the register is not published by sex) and addressing household economic security.
+*   **Baseline Figure:** **Named data gap.** The published Mizani rounds report countywide aggregates only (Section 1.3.6); no preference share by sex or age band exists in the public domain. Established by the Week 1 baseline instrument (Section 8.3.1).
+*   **Target Figure:** Set against the Week 1 measured baseline, as a stated point gain rather than an absolute share assumed in advance.
 *   **Deadline:** 31 October 2026.
 *   **Named Owner:** Demographic Outreach & Persuasion Lead.
-*   **Escalation Trigger:** If qualitative focus group assessments in mid-October reveal less than 25% positive policy association with Dr. Mulu's economic agenda, immediately deploy targeted direct-to-WhatsApp audio explainers centering household poultry subsidies and water proximity financing.
+*   **Escalation Trigger:** If mid-October focus groups (Section 8.4) find weak or negative policy association with Dr. Mulu's economic agenda among women in the target wards, immediately deploy targeted direct-to-WhatsApp audio explainers centering household poultry subsidies and water proximity financing.
 
 ---
 
@@ -82,6 +82,15 @@ to **KSh2 million**, imprisonment up to **five years**, or both.
 * Covered expenditure expressly includes **advertising, publicity material,
 campaign personnel and communication** — that is, this engagement.
 
+> **What the shared ceiling means, and the question it raises.** If the ceiling is genuinely
+> shared across the Governor, Senator and Woman Representative races, then whose spending
+> counts against Dr. Mulu's KSh97.56 million is a material question — and one the campaign
+> cannot answer from the Gazette Notice alone. It most likely binds the three seats of a
+> single party ticket at the general election rather than rival aspirants during a
+> nomination, but that reading needs confirming with counsel before any tier below is
+> committed to. **Every budget figure in this document assumes the whole ceiling is
+> available to this campaign.** If it is not, all three tiers move.
+>
 > **Verified: the Kitui county-seat expenditure ceiling is KSh97.56 million**
 > (IEBC, Gazette Notice No. 12251, 7 August 2026, First Schedule) — shared
 > across the Governor, Senator and Woman Representative races. This figure has
@@ -142,6 +151,16 @@ actual spend rather than modelled spend.
 
 ### 9.2.4 Compliance instrumentation
 
+**One question for the campaign's counsel before Phase −1 spend begins.** Section 3.3.3 puts
+the lawful spending window as beginning "upon formal gazettement of candidates" (2027);
+Section 9.2.1 puts it at "at least six months before polling". Phase −1 runs from now to the
+nomination, which is outside both. Either that spending sits outside the regulated period —
+in which case the ceiling does not constrain it and the tiers below are conservative — or it
+is regulated, and the compliance instrumentation here should extend back to cover it.
+Firefly's position is that the ledger below runs from day one either way, so the campaign is
+covered on the stricter reading. **The legal reading itself is properly counsel's, and we
+would want it confirmed before the first Phase −1 invoice.**
+
 Because digital and SMS spend is now regulated expenditure:
 * Every ad account, SMS dispatch and vendor invoice is logged to a single
 reconciliation ledger from day one, tagged by date, channel, ward and
@@ -157,17 +176,41 @@ appointed campaign finance agent to confirm.
 
 ### 9.2.5 The three tiers
 
-Percentages refer to the verified county ceiling once inserted. Absolute
-figures are illustrative structures to be finalised against that ceiling.
+**How these tiers relate to the KSh 64.5 million plan.** Sections 3.3 and 6.6.1 set out a
+KSh 64,500,000 operational budget for the whole campaign — field, media, tech and
+contingency. The tiers below size **Firefly's digital and SMS function inside that**, not in
+addition to it. The ad-spend percentages are of the KSh 97.56m statutory ceiling, which is
+the binding legal constraint; the KSh 64.5m plan is the campaign's own spending intent
+beneath it. Where the two disagree — the recommended tier's ad spend exceeds what 3.3.1
+currently allocates to paid media — 3.3.1 is the figure to revise, and the target-vs-actual
+table there says by how much.
+
+**One definition per number.** Four different quantities are in play and were previously
+quoted interchangeably:
+
+| Term | Means | Where it is set |
+|---|---|---|
+| **Consented SMS contacts** | Phone numbers held with opt-in, reachable by SMS | 4.3.6: 120,000 by Phase 3 |
+| **Contact universe** | Everyone reachable by any owned channel, SMS or otherwise | 9.2.6: ~60k / ~150k / ~250k by tier |
+| **Pledged voters** | CRM records with phone, ward and polling station logged | 8.1.2 GE-01: 220,000 target |
+| **Verified supporters** | Pledged voters confirmed by a second touch | 9.1.2: 200,000 target |
+
+They are nested, not alternatives: consented contacts ⊂ contact universe, and verified
+supporters ⊂ pledged voters. Cost-per-contact in 9.2.3 is priced on the first of these.
+
+Percentages refer to the verified county ceiling of **KSh97.56 million**
+(Section 9.2.1) and are stated in absolute terms against it. Ad spend is
+regulated expenditure and sits inside that ceiling alongside transport, venues
+and personnel — it is not additional to them.
 
 #### Tier 1 — LEAN
 **Purpose:** win the nomination, hold the field, prove the model.
 * **Team:** 3-person core + Kikamba producer only
 * **Channels:** Facebook, WhatsApp, TikTok organic; limited paid on Meta;
 SMS to a consented list built organically
-* **SMS volume:** up to `[Insert]` messages/month
+* **SMS volume:** paced against the consented list in 4.3.6 (15,000 at Phase −1 rising to 40,000 by Phase 1) at roughly one touch a fortnight — order of 30,000–80,000 messages/month, confirmed at contracting
 * **USSD:** not activated
-* **Ad spend:** approximately `[Insert — recommend 15–20% of ceiling]`
+* **Ad spend:** **KSh14.63m–19.51m** (15–20% of the KSh97.56m ceiling)
 * **Content:** 1 flagship video/week; daily social; weekly Kikamba voice note
 * **Analytics:** platform-native dashboards; monthly report
 * **Trade-offs:** no predictive modelling; no attribution beyond last-click; no
@@ -181,10 +224,10 @@ the central weakness of this tier
 election competitively.
 * **Team:** lean Firefly core + activated surge bench (data, community, volunteer, earned media and video roles are activated by phase/KPI; they are not presented as a permanent standing department)
 * **Channels:** full platform mix; **SMS/USSD layer active across all 40 wards**
-* **SMS volume:** `[Insert]` messages/month, scaling to a GOTV surge
+* **SMS volume:** the full 4.3.6 trajectory to 120,000 consented contacts at a fortnightly touch — order of 240,000 messages/month at Phase 3, inside the 1.5m total in the 3.3 envelope, scaling to a GOTV surge
 * **USSD:** shared code, all networks (~KSh34,800/network + KSh140,000
 development + KSh5,000/month hosting)
-* **Ad spend:** approximately `[Insert — recommend 30–40% of ceiling]`
+* **Ad spend:** **KSh29.27m–39.02m** (30–40% of the KSh97.56m ceiling)
 * **Content:** 2–3 flagship videos/week; daily multilingual social; weekly
 Facebook Live; weekly Kikamba voice note; monthly Kitui Economic Brief
 * **Analytics:** predictive voter scoring; multi-touch attribution;
@@ -192,7 +235,8 @@ field-digital integration; weekly sentiment
 * **Research:** quarterly focus groups (Section 8.4)
 * **Crisis:** dedicated lead from Phase 2; quarterly red-team drills
 * **Trade-offs:** no premium social listening licences; sign-language
-interpretation on flagship content only rather than all video
+interpretation on flagship content only rather than all video (unchanged from
+Lean — it is Premium that adds full-video coverage)
 
 #### Tier 3 — PREMIUM
 **Purpose:** dominate share of voice and run a fully instrumented operation.
@@ -200,7 +244,7 @@ interpretation on flagship content only rather than all video
 * **Channels:** everything in Standard, plus dedicated USSD short code,
 expanded WhatsApp Business API, and diaspora-targeted programming across the
 26 countries IEBC is opening to diaspora registration
-* **Ad spend:** approximately `[Insert — recommend 45–55% of ceiling]`, with
+* **Ad spend:** **KSh43.90m–53.66m** (45–55% of the KSh97.56m ceiling), with
 headroom preserved beneath the statutory cap
 * **Content:** daily video; documentary series; full sign-language and
 plain-language versioning across all flagship output
@@ -221,7 +265,7 @@ covers the whole campaign, not the digital function alone
 | Multi-touch attribution | ✗ | ✓ | ✓ |
 | Focus groups | ✗ | Quarterly | Monthly |
 | Red-team drills | On trigger | Quarterly | Monthly |
-| Sign-language interpretation | Flagship only | Flagship | All video |
+| Sign-language interpretation | Flagship only | Flagship only | All video |
 | Arid-belt reach | Weak | Strong | Strong |
 | Realistic Phase 3 contact universe | ~60,000 | ~150,000 | ~250,000 |
 

@@ -211,7 +211,7 @@ Political messaging, bulk SMS broadcasting, and voter profiling operate under st
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 8 STRATEGIC TAKEAWAY
+                          SECTION 6.1.6 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Architecture: Relational, AES-256 encrypted voter model mapped to 40 wards.
  • Provenance:   Tri-partite metadata standard (Source, Date, Geography) on every
@@ -473,7 +473,7 @@ To ensure 100% operational uptime and protect campaign systems from infiltration
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 11 STRATEGIC TAKEAWAY
+                          SECTION 6.3.3 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Modular Architecture: 5 integrated components connecting offline 2G telecom 
                          gateways to encrypted cloud CRMs and public web trackers.
@@ -533,7 +533,7 @@ register support and opt in
 
 ### 6.4.5 The analytics maturity roadmap
 
-*New. A staged path, so the campaign is never blocked waiting on capability.*
+*A staged path, so the campaign is never blocked waiting on capability.*
 
 | Stage | Window | Capability | Prerequisite | Owner |
 |---|---|---|---|---|
@@ -613,7 +613,7 @@ accountability. The campaign will not.
 
 ### 6.5.4 The Digital Ethics and Data Charter
 
-*New. Published on the campaign website in all three languages, in plain
+*Published on the campaign website in all three languages, in plain
 language, at a permanent URL.*
 
 **Why publish it.** Because a commitment nobody can read is a policy, and a
@@ -697,7 +697,7 @@ the data-governance owner (clause 5), the variable dictionary exclusions
 
 ### 6.5.5 The compliance sign-off gate
 
-*New. The single most important governance control in this document.*
+*The single most important governance control in this document.*
 
 **Before any voter-file-based targeting, list-building beyond first-party
 consented data, or bulk political messaging goes live, a named Kenyan

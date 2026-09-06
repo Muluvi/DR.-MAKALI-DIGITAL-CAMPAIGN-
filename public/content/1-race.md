@@ -2,6 +2,8 @@ Four readings of the ground: how the nomination will be decided, who the candida
 
 ## 1.1 The nomination, and how it will be decided
 
+### 1.1.1 How Wiper picks its candidate
+
 Section 0.1 opened with the claim this entire Phase −1 strategy is built on:
 that the Wiper Kitui gubernatorial ticket will be settled by opinion poll
 rather than a competitive primary. That claim deserves to be stated plainly
@@ -15,15 +17,13 @@ re-check happens deliberately rather than by accident.
 
 ---
 
-### 1.1.1 How Wiper picks its candidate
-
 ### 1.1.2 Where the opinion-poll mechanism stands
 
 The strategic assumption that the Wiper Democratic Movement will select its Kitui gubernatorial nominee via a countywide opinion poll is classified as **Tier 3 (single-sourced campaign report, not confirmed by party officials)**. This mechanism remains highly fluid and subject to internal party negotiations.
 
 To transition this selection mechanism from a Tier 3 strategic assumption to a **Tier 1 verified operational constraint**, the campaign requires:
-1.  An official, signed resolution by the **Wiper National Executive Committee (NEC)**.
-2.  A formal, written communique signed jointly by the **Wiper Party Leader (Hon. Kalonzo Musyoka)** and the **National Elections Board (NEB) Chairperson**, specifying opinion polling as the sole nomination instrument for Kitui County.
+1.  An official, signed resolution by the **Wiper National Executive Council (NEC)**.
+2.  **The commissioned pollster's terms of reference** — sample frame, questionnaire, fieldwork dates, and the count and weighting method. This is the obtainable test, and the operationally useful one: it is what tells the campaign whether the instrument deciding the ticket is sound (Section 1.1.3 sets the parameters to judge it against). A signed communique from the party leader would settle the question but is not something the campaign can produce on demand.
 
 ---
 
@@ -88,11 +88,22 @@ The 2027 gubernatorial race in Kitui features a highly competitive, multi-candid
 
 #### Stage One: The Wiper Democratic Movement Nomination Window (Immediate Target)
 
-*   **Dr. Irene Kasalu (Woman Representative, Kitui County):** Commands an expansive, countywide constituency base by virtue of her seat. It has been reported in regional media that she maintains active grassroots networks built through her extensive local development tours ("Ziara Mashinani") (Tier 2). Polling data as of August 2026 establishes her as the current frontrunner in public preference at 37.4% (Tier 2). However, critics allege a lack of structured financial governance or executive experience. Her public criticism of the incumbent's equal-ward funding allocation represents a strategic opening for a technical, policy-driven rebuttal that Dr. Mulu is uniquely equipped to deliver.
+*   **Dr. Irene Kasalu (Woman Representative, Kitui County):** Commands an expansive, countywide constituency base by virtue of her seat. It has been reported in regional media that she maintains active grassroots networks built through her extensive local development tours ("Ziara Mashinani") (Tier 2). Polling data as of August 2026 establishes her as the current frontrunner in public preference at 37.4% (Tier 2). However, critics allege a lack of structured financial governance or executive experience. Her public criticism of the incumbent's equal-ward funding allocation is a live policy argument, and one where the campaign's own position needs settling first: Section 2.6.1 currently proposes an equal-ward guarantee of its own. The two positions cannot both be run. Either the equal-ward guarantee is the platform, and this line of argument is not available to the campaign, or the argument is made and the guarantee is restated as a needs-weighted formula. **Firefly's recommendation is the second, because a published allocation methodology is the stronger fit with the verification pillar in Section 2.2.4 — but it is the campaign's policy call.**
 *   **Sen. Enoch Wambua (Senator, Kitui County):** Commands significant party influence and standing as a senior legislator within the Wiper Democratic Movement (Tier 1). He retains a highly loyal, traditional party delegate and voter base (Tier 1). However, published survey trends indicate a contraction in his countywide support, declining from 16.3% in June 2026 to 14.3% as of 7 August 2026 (Tier 2).
 *   **Hon. Dr. Benson Makali Mulu (Member of Parliament, Kitui Central):** Possesses the most comprehensive macroeconomic, fiscal, and monitoring and evaluation credentials in the race (Tier 1). However, his primary structural challenge is constituency-bounded name recognition: a Kitui Central MP is inherently less visible in the Mwingi sub-counties and the arid southern belt than countywide office holders (Tier 1).
 
-**Strategic Diagnosis:** Dr. Mulu's polling deficit represents a **geography-of-recognition bottleneck, not a deficit of leadership credibility**. Name recognition is the most rapidly addressable deficit through micro-targeted digital ads and SMS/USSD localized outreach. Phase −1 is specifically engineered to resolve this visibility challenge.
+**Strategic Diagnosis:** Dr. Mulu's polling deficit is substantially a
+**geography-of-recognition bottleneck** rather than a deficit of leadership credibility, and
+name recognition is the most rapidly addressable deficit through micro-targeted digital ads
+and SMS/USSD localized outreach. Phase −1 is engineered to resolve that visibility challenge.
+
+**The counter-evidence this diagnosis has to survive.** Section 1.2.6 records that Dr. Kasalu
+won the 2022 Woman Representative race with **201,899 votes** — more than Governor Malombe's
+198,004 winning gubernatorial total in the same election. She has already demonstrated
+countywide vote-getting capacity above the victory threshold. That is not the profile of a
+candidate leading purely on passive name recognition, and the Week 1 message-lab work in
+Section 8.3.1 is specifically designed to test whether the recognition hypothesis holds
+before significant budget commits against it. If it does not, the response is different.
 
 #### Stage Two: The General Election Arena (Downstream Competitors)
 
@@ -137,7 +148,7 @@ Because Governor Malombe served as Governor from 2013–2017, lost the 2017 elec
 
 To achieve absolute mathematical certainty, the campaign's success metrics are anchored strictly to the official 2022 IEBC register (Tier 1), rather than volatile digital vanity metrics:
 
-*   **Total Registered County Voters:** **532,758** (comprising **532,753** ward-registered voters and **5** prison-registered voters) (Tier 1).
+*   **Total Registered County Voters:** **532,758** ward-registered voters (plus **75** prison-registered voters, totalling **532,833**) (Tier 1).
 *   **Total Registered County Assembly Wards:** **40** across **8** constituencies (Tier 1).
 *   **Total Polling Stations:** 1,578 (Tier 1).
 *   **Victory Threshold:** Historically set at approximately **200,000 votes** (Tier 1), derived directly from Governor Malombe's 2022 winning total of **198,004 votes** (Tier 1).
@@ -203,7 +214,7 @@ To achieve absolute mathematical certainty, the campaign's success metrics are a
 
 #### The Mwingi Bloc Pivot: A Decisive Strategic Finding
 
-A key strategic finding emerges from this integrated database: **Mwingi North, Mwingi West, and Mwingi Central together command exactly 200,198 registered voters (Tier 1).** This total is mathematically greater than the entire 2022 winning threshold (198,004 votes, Tier 1). This proves that consolidating voter turnout and preference across the northern sub-counties can unilaterally secure a gubernatorial victory. This finding informs the campaign's geographic prioritization, directing immediate SMS/USSD and digital outreach to establish Dr. Mulu as the dominant alternative in Mwingi.
+A key strategic finding emerges from this integrated database: **Mwingi North, Mwingi West, and Mwingi Central together command exactly 200,198 registered voters (Tier 1).** That is more *registered voters* than the 2022 winning vote total (198,004 votes, Tier 1) — but registration is not turnout. At the county's 62% turnout baseline the Mwingi bloc yields roughly **124,100 ballots**, so even total dominance there leaves the campaign about 74,000 votes short. Mwingi is therefore **necessary and not sufficient**: no path to 200,000 runs around it, and none ends there. This finding informs the campaign's geographic prioritization, directing immediate SMS/USSD and digital outreach to establish Dr. Mulu as the dominant alternative in Mwingi.
 
 ### 1.2.4 What the governorship controls, and what it is worth
 
@@ -415,7 +426,7 @@ Voter registration in Kitui County is highly concentrated. Rather than a flat ge
 #### Critical Concentration Insights:
 1.  **The "12 Megawards" Rule:** The top **12 largest wards** (representing just 30.0% of all wards) contain **201,267 registered voters** (37.78% of the entire county electorate). A candidate who dominates these 12 wards touches a voting population equal to the entire 2022 winning threshold.
 2.  **The Upper Half Domination:** The top **20 wards** (50% of the wards) command **315,006 registered voters** (**59.13%** of the county total).
-3.  **The Lower Tail Dispersal:** The bottom **10 smallest wards** (from Mui down to Tharaka) aggregate to **92,415 registered voters** (only **17.35%** of the county register across 25% of the total wards), yet cover vast geographic areas with severe logistical transit costs.
+3.  **The Lower Tail Dispersal:** The bottom **10 smallest wards** (from Mui down to Tharaka) aggregate to **96,415 registered voters** (only **18.10%** of the county register across 25% of the total wards), yet cover vast geographic areas with severe logistical transit costs.
 
 ---
 
@@ -450,7 +461,8 @@ To establish an unshakeable mathematical path to victory, the campaign evaluates
 *   **Mathematical Proof:**
     $$\text{Total}_{\text{Mwingi}} = 74,231 + 68,829 + 57,138 = 200,198 \text{ registered voters}$$
     $$\text{Margin over 2022 Malombe winning total (198,004)} = 200,198 - 198,004 = +2,194 \text{ voters}$$
-*   **Strategic Implication:** The northern three constituencies possess enough registered voters to meet the entire historical victory threshold on their own. Consolidating a decisive margin in Mwingi is a mathematically sufficient foundation for victory.
+*   **Turnout Reality:** At the 62.0% turnout baseline these 200,198 registered voters produce approximately **124,100 actual ballots cast**. Even an unprecedented 80% share of them ($99,280$ votes) leaves the campaign roughly **99,000 votes short** of the 200,000 threshold.
+*   **Strategic Implication:** The Mwingi bloc is the largest single reservoir of votes in the county and the campaign cannot win without a decisive margin in it — but it cannot win on it alone either. Mwingi is the necessary foundation, paired with Kitui South and the home belt.
 
 #### Path B: The Central-South-West Urban/Rural Axis
 *   **Constituency Composition:** Kitui Central ($77,764$) + Kitui South ($75,372$) + Kitui West ($59,047$).
@@ -544,8 +556,8 @@ To formulate a targeted intervention, the campaign maps Dr. Mulu's structural pr
  └──────────────────────────────────────┘    └──────────────────────────────────────┘
    ▲                                            ▲
    └─────────────────── DIRECT OVERLAP ─────────┘
-   5 of the Top 8 Wards (Kyuso, Tseikuru, Mumoni, Athi, Ikanga) Sit Directly in 
-   the Candidate's Deepest Recognition Deficit Territories (83,596 Voters).
+   5 of the Top 11 Wards (Kyuso, Tseikuru, Mumoni, Athi, Ikanga) Sit Directly in 
+   the Candidate's Deepest Recognition Deficit Territories (83,496 Voters).
 ```
 
 #### Do the Deficit Wards Overlap the Decisive Ones?
@@ -588,12 +600,12 @@ In strict adherence to the campaign's data provenance standards, the analytical 
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 6 STRATEGIC TARGETING SUMMARY
+                     SECTION 1.3.6 STRATEGIC TARGETING SUMMARY
 ════════════════════════════════════════════════════════════════════════════════════
  • Registered Electorate:    532,758 voters across 40 wards (532,833 with prisons).
  • Victory Threshold:        198,004 – 200,000 votes (~37.5% of total register).
  • 12 Megawards Density:     Top 12 wards hold 201,267 voters (37.78% of county).
- • Mwingi Triad Proof:       Mwingi 3 sub-counties = 200,198 voters (meets threshold).
+ • Mwingi Triad Proof:       Mwingi 3 sub-counties = 200,198 registered (~124,100 ballots).
  • Home-Belt Ceiling Trap:   Central + West + Rural = 191,811 (cannot win alone).
  • Primary Deficit Zones:    Mwingi (200,198) + Kitui South (75,372) = 275,570 (51.72%).
  • Overlap Finding:          Direct 1:1 overlap; 5 of top 8 wards sit in deficit zones.
@@ -661,6 +673,13 @@ disproportionate Phase −1 budget weighting.
 | Migwani | 79,255 | 125 | 19,096 | Higher density; market centre |
 | **Total** | **416,001** | **~19** | **89,070** | **36.6% of county population** |
 
+**A note on the names in this table.** These are *administrative sub-counties*, which do not
+map one-to-one onto the eight constituencies used for the ward register in Section 1.2.3.
+Migwani and Mwingi East appear here, while Migwani **Ward** sits in Mwingi West constituency
+in the northern bloc — the two are different units with the same name. Anyone reading the
+zone tables against the ward register should treat the constituency figures in 1.2.3 as
+authoritative for targeting, and these as demographic context only.
+
 Over a third of the county, at an average of 19 persons per square kilometre.
 Framing centres on transformative infrastructure — water pipelines, road
 networks, and responsible management of mineral resource wealth for local
@@ -674,7 +693,14 @@ Ikanga/Kyatune (15,384), Mutomo/Kibwea (12,637), Ikutha (12,066), Mutha (11,039)
 
 ### 1.4.4 How the zones are weighted
 
-Budget and content allocation across zones, by phase:
+Budget and content allocation across zones, by phase.
+
+**Coverage note.** The three zones above total 895,766 residents — **78.8% of the county's
+1,136,187**. They name 12 of the county's 18 sub-counties; the remaining six, about 240,000
+residents, are not in any zone. The weightings below therefore distribute 100% of budget
+across zones covering under four-fifths of the population, and the missing sub-counties need
+either adding to a zone or an explicit statement of why they are out of scope before this
+table drives spend.
 
 | Zone | Share of population | Phase −1 (nomination) | Phase 1–2 | Phase 3 (GOTV) |
 |---|---|---|---|---|

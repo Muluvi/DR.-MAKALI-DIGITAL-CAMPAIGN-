@@ -14,8 +14,8 @@ According to the official **2019 Kenya National Bureau of Statistics (KNBS) Cens
 
   DIGITAL / CONNECTED MINORITY                  OFFLINE INFRASTRUCTURE MAJORITY
   ────────────────────────────                  ───────────────────────────────
-  • Sized Reach: ~72,455 Voters (13.6%)         • Sized Reach: ~460,303 Voters (86.4%)
-  • Maximum Reachable: 36.2% of 200k            • Maximum Reachable: 230.2% of 200k
+  • Sized Reach: ~72,000 voters (13.6%)         • Sized Reach: ~460,000 voters (86.4%)
+  • Share of the register: 13.6%                • Share of the register: 86.4%    
   • Strategic Role: Influencer & Youth Engine   • Strategic Role: Decisive Ballot Delivery
 
   [████████] 13.6% (Digital Reach)
@@ -26,7 +26,7 @@ According to the official **2019 Kenya National Bureau of Statistics (KNBS) Cens
 > [!CRITICAL]
 > **STRATEGIC REALITY CHECK: THE DIGITAL CEILING**
 >
-> If the campaign captures **100% of every single internet-connected voter in Kitui County**, it would assemble only **~72,455 votes**—leaving the candidate **125,549 votes short** of the 198,004 benchmark.
+> If the campaign captures **100% of every single internet-connected voter in Kitui County**, it would assemble only about **72,000 reachable voters** — and reach is not votes—leaving the candidate **125,549 votes short** of the 198,004 benchmark.
 >
 > Therefore, digital channels alone **cannot mathematically win this election**. Victory depends on dominating the offline media and field infrastructure (Section 4.3), while using digital channels (Section 4.2) with surgical precision to shape elite opinion, organize youth volunteers, and mobilize the out-of-county diaspora.
 
@@ -36,11 +36,11 @@ According to the official **2019 Kenya National Bureau of Statistics (KNBS) Cens
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                   SECTION 9A: CONNECTED MINORITY CHANNELS                   │
+│                 SECTION 3.1.1: CONNECTED MINORITY CHANNELS                  │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-#### 9A.1 Platform Sizing & Realistic In-County Reach
+#### 3.1.1.1 Platform Sizing & Realistic In-County Reach
 
 The digital footprint in Kitui County is concentrated in urban nodes (Kitui Town, Mwingi Town, Kwa Vonza university corridor) and among educated youth. Based on KNBS 2019 internet penetration rates and Meta Audience Insights (Tier 1 & Tier 2):
 
@@ -67,14 +67,14 @@ The digital footprint in Kitui County is concentrated in urban nodes (Kitui Town
 └───────────────────┴──────────────────────┴──────────────────────┴───────────────────────────────────────────┘
 ```
 
-#### 9A.2 What Digital CAN Do
+#### 3.1.1.2 What Digital CAN Do
 1.  **Elite Agenda Setting & Narrative Defense:** X and Facebook dominate the information diet of local radio producers, vernacular talk-show hosts, church leaders, and county assembly members. Establishing rapid-response dominance on these platforms shapes the stories broadcast over radio 6 hours later.
 2.  **Diaspora Financial & Opinion Mobilization:** Reaching the 150,000+ Kamba diaspora living in Nairobi and Mombasa via geofenced Meta, YouTube, and WhatsApp campaigns transforms them into active campaign donors and remote family influencers.
 3.  **Youth Mobilization & Field Volunteer Recruitment:** Engaging the ~234,000 youth cohort via TikTok and WhatsApp generates high-energy field activists who operate the ground logistics and serve as polling agents.
 4.  **Cost-Effective Micro-Targeting of Urban MSMEs:** Hyper-geofencing commercial centers (Kitui CBD, Mwingi Central) allows testing policy messages ("The Economist's Single Business Permit") with minimal waste.
 
-#### 9A.3 What Digital CANNOT Do
-1.  **It Cannot Deliver the 200,000 Vote Benchmark Alone:** Capped at ~72,455 total reachable voters inside Kitui County.
+#### 3.1.1.3 What Digital CANNOT Do
+1.  **It Cannot Deliver the 200,000 Vote Benchmark Alone:** Capped at roughly 72,000 reachable voters inside Kitui County.
 2.  **It Cannot Penetrate the Rural Agrarian Base:** 86.4% of rural smallholders do not consume political content via social algorithms due to lack of smartphones, high data costs, and weak 3G/4G coverage in rural wards (e.g., Tharaka, Tseikuru, Voo/Kyamatu, Endau, Mutha).
 3.  **It Cannot Counteract Ground Rumors Directly:** WhatsApp and Facebook echo chambers rarely cross over into dryland farming communities without physical intermediaries.
 
@@ -84,63 +84,63 @@ The digital footprint in Kitui County is concentrated in urban nodes (Kitui Town
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    SECTION 9B: OFFLINE MAJORITY CHANNELS                    │
+│                  SECTION 3.1.2: OFFLINE MAJORITY CHANNELS                   │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-The election will be won or lost across the **~460,303 offline voters** living in Kitui's rural wards. Reaching this electorate requires an orchestrated combination of telecommunications protocol channels (SMS/USSD), broadcast audio (vernacular radio), financial agent touchpoints, and dense physical market presence.
+The election will be won or lost across the **~460,000 offline voters** living in Kitui's rural wards. Reaching this electorate requires an orchestrated combination of telecommunications protocol channels (SMS/USSD), broadcast audio (vernacular radio), financial agent touchpoints, and dense physical market presence.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
 │                                 OFFLINE CHANNEL REACH & CAPACITY AUDIT                                      │
 ├──────────────────────┬──────────────────────┬──────────────────────┬────────────────────────────────────────┤
-│ Offline Channel      │ Maximum Reachable    │ % of 200,000 Goal    │ Delivery Mechanism & Operational Role  │
+│ Offline Channel      │ Maximum Reachable    │ % of 532,758 Register│ Delivery Mechanism & Operational Role  │
 ├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 1. Kikamba Radio     │ ~420,000 voters      │ **210.0%**           │ Mass persuasion, cultural credibility, │
-│    (Vernacular)      │ (78%–80% listenership)│ of victory target    │ policy dissemination & rally build-ups.│
+│ 1. Kikamba Radio     │ ~420,000 voters      │ **78.8%**            │ Mass persuasion, cultural credibility, │
+│    (Vernacular)      │ (78–80% listenership)│ of the register      │ policy dissemination & rally build-ups.│
 ├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 2. Direct 2G SMS     │ ~320,000 voters      │ **160.0%**           │ Hyper-localized ward updates, candidate│
-│    (Opt-in Database) │ (60% mobile register)│ of victory target    │ endorsement letters & GOTV alerts.     │
+│ 2. Direct 2G SMS     │ ~320,000 voters      │ **60.1%**            │ Hyper-localized ward updates, candidate│
+│    (Opt-in Database) │ (60% mobile register)│ of the register      │ endorsement letters & GOTV alerts.     │
 ├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 3. USSD Interactive  │ ~250,000 voters      │ **125.0%**           │ Zero-rated policy quiz, ward captain   │
-│    (*XXX# Service)   │ (Feature phone users)│ of victory target    │ registration & live polling surveys.   │
+│ 3. USSD Interactive  │ ~250,000 voters      │ **46.9%**            │ Zero-rated policy quiz, ward captain   │
+│    (*XXX# Service)   │ (Feature phone users)│ of the register      │ registration & live polling surveys.   │
 ├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 4. Open-Air Market   │ ~280,000 voters      │ **140.0%**           │ Weekly physical interaction, flyer     │
-│    Barazas (Weekly)  │ (Physical foot-fall) │ of victory target    │ distribution & localized speeches.     │
+│ 4. Open-Air Market   │ ~280,000 voters      │ **52.6%**            │ Weekly physical interaction, flyer     │
+│    Barazas (Weekly)  │ (Physical foot-fall) │ of the register      │ distribution & localized speeches.     │
 ├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 5. Mobile Money      │ ~180,000 voters      │ **90.0%**            │ Word-of-mouth peer network, branded    │
-│    Agents (M-Pesa)   │ (Monthly store visits│ of victory target    │ point-of-sale collateral & buzz agents.│
+│ 5. Mobile Money      │ ~180,000 voters      │ **33.8%**            │ Word-of-mouth peer network, branded    │
+│    Agents (M-Pesa)   │ (Monthly store visits│ of the register      │ point-of-sale collateral & buzz agents.│
 ├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 6. Church & Synods   │ ~350,000 voters      │ **175.0%**           │ Sunday faith fellowship greetings,     │
-│    (Faith Networks)  │ (Weekly attendance)  │ of victory target    │ pastoral blessings & clergy alignment. │
+│ 6. Church & Synods   │ ~350,000 voters      │ **65.7%**            │ Sunday faith fellowship greetings,     │
+│    (Faith Networks)  │ (Weekly attendance)  │ of the register      │ pastoral blessings & clergy alignment. │
 └──────────────────────┴──────────────────────┴──────────────────────┴────────────────────────────────────────┘
 ```
 
-#### 9B.1 Kikamba Vernacular Radio (The Decisive Broadcast Medium)
+#### 3.1.2.1 Kikamba Vernacular Radio (The Decisive Broadcast Medium)
 *   **Empirical Reach:** **~420,000 voters (78%–80% daily/weekly listenership in rural Kitui)** (GeoPoll / KARF Industry Data, Tier 2).
 *   **Station Hierarchy & Reach:**
-    *   *Musyi FM (Royal Media Services):* Dominant market leader (>45% listenership in Ukambani); broad multi-generational credibility.
-    *   *Mbaitu FM:* High rural penetration, particularly among women and smallholders.
-    *   *Sang'u FM & Athiani FM:* Strong youth and peri-urban listenership.
-    *   *Syokimau FM & County FM:* Hyper-local community programming.
+    *   *Musyi FM (Royal Media Services):* Dominant market leader in Ukambani; commercially independent. **Priority placement.**
+    *   *County FM (Kitui-based independent):* Local ward news and debates, strong in Kitui Town, Kabati and Kwa Vonza. **Priority placement.**
+    *   *Wikwatyo FM (Seventh-Day Adventist Church, Kitui):* Broad rural community trust. **Priority for community and service-delivery programming.**
+    *   *Mbaitu FM, Syokimau FM (Ngilu-associated) and Athiani FM (Wiper leadership):* **monitoring targets, not placement targets** — see Section 3.5.1 for the ownership map and the posture each one carries.
 *   **Operational Execution:**
     *   *Prime-Time Strategic Bookings:* Secure weekly 2-hour interactive morning studio interviews (06:30–08:30) with Dr. Mulu during key policy rollout weeks.
     *   *Kikamba Voice Jingles & Audio Testimonials:* 45-second micro-stories featuring real farmers from Mwingi North, Kitui South, and Kitui Rural explaining how Dr. Mulu's economic model protects their harvest prices.
     *   *Live Event Feeds:* Sponsoring live outside broadcasting (OB) vans at major market rallies in Kalundu, Kabati, and Mutomo.
 
-#### 9B.2 Direct 2G Bulk SMS & USSD Service
+#### 3.1.2.2 Direct 2G Bulk SMS & USSD Service
 *   **Empirical Reach:** **~320,000 voters (60%+ of active register reachable on basic GSM handsets)**.
 *   **Operational Execution:**
     *   *Zero-Rated USSD Portal (`*483*XX#`):* Allows feature phone users to dial a free code to read Dr. Mulu's 5-point manifesto in Kikamba, register as a volunteer, or locate their nearest Ward Captain.
     *   *Hyper-Localized Bulk SMS:* Dispatching customized Kikamba messages to consented supporters within specific wards on the eve of market days and on election morning for Get-Out-The-Vote (GOTV) mobilization.
 
-#### 9B.3 Mobile-Money (M-Pesa) Agent Network Strategy
+#### 3.1.2.3 Mobile-Money (M-Pesa) Agent Network Strategy
 *   **Empirical Reach:** **~180,000 unique monthly voter interactions across 1,800+ M-Pesa kiosks in Kitui County**.
 *   **Operational Execution:**
-    *   M-Pesa agents are trusted community hubs where residents deposit funds, buy airtime, and discuss local news.
+    *   M-Pesa agents are trusted community hubs where residents deposit funds, buy airtime, and discuss local news. **Agent networks are regulated financial infrastructure**; Section 4.3.5 flags that any commercial arrangement with them must be reviewed by campaign counsel before recruitment begins. The 1,800 kiosk and 800 ambassador counts are also untiered and need a source.
     *   The campaign will recruit 800+ shopkeepers and M-Pesa agents as "Economic Ambassadors," providing them with branded business ledgers, counter pens, calendar posters, and daily economic talking points.
 
-#### 9B.4 Open-Air Market Day Barazas & Caravan Circuits
+#### 3.1.2.4 Open-Air Market Day Barazas & Caravan Circuits
 *   **Empirical Reach:** **~280,000 voters attend weekly market rotations**.
 *   **Market Rotation Map:**
     *   *Mondays:* Nguni Livestock Market (Mwingi Central), Kabati (Kitui West).
@@ -151,7 +151,7 @@ The election will be won or lost across the **~460,303 offline voters** living i
     *   *Saturdays:* Kitui Town Central Market, Mwingi Town Main Market.
 *   **Operational Execution:** Deploying two high-output mobile sound trucks (*The Mulu Economic Caravans*) equipped with live PA systems, Kikamba music, and local youth speakers to dominate market entrances on their designated days.
 
-#### 9B.5 Church Fellowships & Clergy Engagement
+#### 3.1.2.5 Church Fellowships & Clergy Engagement
 *   **Empirical Reach:** **~350,000 weekly attendees across Catholic, AIC, Redeemed Gospel, Anglican, and Baptist congregations**.
 *   **Operational Execution:** Sunday morning worship visits across all 8 constituencies, respecting liturgical decorum, requesting pastoral prayers, and engaging parish development committees post-service.
 
@@ -167,7 +167,11 @@ The election will be won or lost across the **~460,303 offline voters** living i
 
 A common failure mode in modern Kenyan political campaigns is over-allocating budget to flashy social media influencers while starving the unglamorous rural infrastructure that actually produces votes.
 
-The campaign enforces an explicit mathematical alignment rule:
+The table below is the **rebalancing target** — the direction of travel away from the
+conventional pitch, argued from reach. It is not a formula the budget already satisfies:
+Section 3.3.1 carries the actual shillings, and the two do not currently agree. That gap is
+stated under 3.3.1 rather than smoothed over here, because closing it is a live decision
+about where roughly KSh 14 million goes, not a presentation choice.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -180,7 +184,7 @@ The campaign enforces an explicit mathematical alignment rule:
 │ (Meta, TikTok, X, YouTube)   │ (Over-allocated)  │ (Right-sized)     │ penetration + diaspora mobilization. │
 ├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
 │ Vernacular Radio Broadcast   │ 20.0%             │ **37.0%**         │ Scaled up to dominate the primary    │
-│ (Musyi, Mbaitu, Sang'u)      │ (Under-allocated) │ (Dominant Share)  │ medium reaching 78%+ of voters daily.│
+│ (Musyi, County, Wikwatyo)    │ (Under-allocated) │ (Dominant Share)  │ medium reaching 78%+ of voters daily.│
 ├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
 │ Direct 2G SMS & USSD Tree    │ 10.0%             │ **20.0%**         │ Doubled to build a resilient, direct │
 │ (Ward Captain Field Net)     │ (Under-allocated) │ (High Priority)   │ pipeline to 320k feature phone voters│
@@ -195,9 +199,9 @@ The campaign enforces an explicit mathematical alignment rule:
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 9 STRATEGIC TAKEAWAY
+                          SECTION 3.1.3 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
- • The Digital Ceiling: Digital reaches ~72,455 voters (13.6%), capable of 
+ • The Digital Ceiling: Digital reaches ~72,000 voters (13.6%), capable of 
                         delivering only 36.2% of the 200,000 threshold.
  • The Offline Engine:  Vernacular radio (~420k reach) and Direct 2G SMS (~320k 
                         reach) are mathematically essential to win.
@@ -294,9 +298,9 @@ For Kitui County, the maximum statutory spending ceiling is **Ksh 97,560,000** (
                                       │
          ┌────────────────────────────┼────────────────────────────┐
          ▼                            ▼                            ▼
-   FIELD MOBILIZATION           BROADCAST & OFFLINE          TECH, COMPLIANCE
-   & GROUND GROUNDGAME          PAID MEDIA (4 CHANNELS)      & CONTINGENCY RESERVE
-   Ksh 31,500,000 (48.8%)       Ksh 23,200,000 (36.0%)       Ksh 9,800,000 (15.2%)
+   FIELD & GROUND               BROADCAST & OFFLINE          TECH, COMPLIANCE
+   MOBILISATION (rows 3+6)      PAID MEDIA (rows 1,2,4,5)    & CONTINGENCY (row 7)
+   Ksh 36,000,000 (55.8%)       Ksh 21,700,000 (33.6%)       Ksh 6,800,000 (10.5%)
  ┌──────────────────────┐     ┌──────────────────────┐     ┌──────────────────────┐
  │ • 400 Ward Captains  │     │ • Kikamba Radio Spots│     │ • Africa's Talking   │
  │ • 8 Sound PA Trucks  │     │ • 2G Bulk SMS (1.5M) │     │   USSD / SMS Gateway │
@@ -317,10 +321,10 @@ To maximize cost-per-contact efficiency, media expenditures are strictly indexed
 │                               CHANNEL ALLOCATION VS. REACHABLE POPULATION                                   │
 ├──────────────────────────┬───────────────────┬───────────────────┬────────────────┬─────────────────────────┤
 │ Media / Channel Medium   │ Reachable Voters  │ Channel Reach %   │ Budget         │ Budget Allocation Share │
-│                          │ (Section 3.1 Data)  │ of Electorate     │ Allocation     │ (% of Total Planned)    │
+│                          │ (3.1 unless marked) │ of Electorate     │ Allocation     │ (% of Total Planned)    │
 ├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
 │ 1. Kikamba Vernacular    │ 420,000 Voters    │ 78.8%             │ Ksh 10,800,000 │ 16.7%                   │
-│    Radio (Musyi, Mbaitu) │                   │                   │                │                         │
+│    Radio (Musyi, County) │                   │                   │                │                         │
 ├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
 │ 2. Direct 2G Bulk SMS    │ 320,000 Voters    │ 60.1%             │ Ksh 2,850,000  │ 4.4%                    │
 │    & USSD Portal         │                   │                   │                │                         │
@@ -328,13 +332,13 @@ To maximize cost-per-contact efficiency, media expenditures are strictly indexed
 │ 3. Market Caravans, PA   │ 280,000 Voters    │ 52.6%             │ Ksh 14,500,000 │ 22.5%                   │
 │    Trucks & Baraza Staging│                   │                   │                │                         │
 ├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
-│ 4. Printed Collateral &  │ 220,000 Voters    │ 41.3%             │ Ksh 6,200,000  │ 9.6%                    │
+│ 4. Printed Collateral &  │ 220,000 (est.)    │ 41.3%             │ Ksh 6,200,000  │ 9.6%                    │
 │    Baraza Photobooks     │                   │                   │                │                         │
 ├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
-│ 5. Digital Video & Ads   │ 72,455 Voters     │ 13.6%             │ Ksh 1,850,000  │ 2.9%                    │
+│ 5. Digital Video & Ads   │ ~72,000 voters    │ 13.6%             │ Ksh 1,850,000  │ 2.9%                    │
 │    (Meta, TikTok, X)     │ (Youth/Diaspora)  │                   │                │                         │
 ├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
-│ 6. Groundgame Mobilizers │ 450,000+ Voters   │ 84.5%             │ Ksh 21,500,000 │ 33.3%                   │
+│ 6. Groundgame Mobilizers │ 450,000+ (est.)   │ 84.5%             │ Ksh 21,500,000 │ 33.3%                   │
 │    & Polling Day Agents  │ (Direct Ground)   │                   │                │                         │
 ├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
 │ 7. Tech Stack, Legal,    │ System Wide       │ N/A               │ Ksh 6,800,000  │ 10.5%                   │
@@ -344,6 +348,28 @@ To maximize cost-per-contact efficiency, media expenditures are strictly indexed
 │ STATUTORY EXPENDITURE CEILING (IEBC GAZETTE 12251)               │ Ksh 97,560,000 │ (Headroom: Ksh 33.06M)  │
 └──────────────────────────────────────────────────────────────────┴────────────────┴─────────────────────────┘
 ```
+
+**Two rows are estimates, not Section 3.1 figures.** Printed collateral and groundgame reach
+are marked *(est.)* — Section 3.1 sizes six channels and neither is among them. Both need a
+sourced basis before they carry a budget line of this size.
+
+**Where this budget diverges from the 3.1.3 target.** Taking the five communications lines
+(rows 1–5, KSh 36.2m) as the communications budget:
+
+| Domain | 3.1.3 target | This budget | Gap |
+|---|---:|---:|---:|
+| Vernacular radio | 37% | **29.8%** | −7.2 pts |
+| Direct 2G SMS & USSD | 20% | **7.9%** | −12.1 pts |
+| Market caravans & collateral (rows 3 + 4) | 18% | **57.2%** | **+39.2 pts** |
+| Digital & social | 18% | **5.1%** | −12.9 pts |
+| Church & community | 7% | **0%** | −7 pts |
+
+The caravan and collateral line carries roughly **KSh 14 million more** than the reach
+argument in 3.1.3 supports, and the church network — sized at ~350,000 weekly attendees in
+3.1.2 — carries nothing at all. This is a decision for campaign leadership, not a rounding
+error: either the physical caravan programme is doing work the reach table does not capture
+and 3.1.3 should be restated, or the allocation moves. **It is flagged here rather than
+resolved, because the answer determines where a fifth of the communications budget goes.**
 
 ---
 
@@ -358,13 +384,13 @@ To maintain strict accounting integrity, **unverified cost estimates are rejecte
 │ Procurement Item           │ Verified Rate-Card Status   │ Action & Required Procurement Research           │
 ├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
 │ 1. Vernacular Radio Spots  │ **Verified Industry Bench** │ Standard prime-time rates (Ksh 8k–14k per 45s);  │
-│    (Musyi FM / Mbaitu FM)  │ (Royal Media / Mediamax)    │ Required: Negotiate bulk multi-month package rate│
+│    (Musyi FM / County FM)  │ (Royal Media; independent)  │ Required: Negotiate bulk multi-month package rate│
 ├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
 │ 2. 2G Bulk SMS Gateway     │ **Verified Carrier Rate**   │ Safaricom/Airtel aggregated via Africa's Talking │
-│    (Sender ID: DR_MAKALI)  │ (Africa's Talking API)      │ at Ksh 0.60–0.80 per SMS.                        │
+│    (Sender ID: DR_MAKALI)  │ (Africa's Talking API)      │ — see Section 9.2.2 for the rate card.           │
 ├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 3. USSD Interactive Portal │ **Verified Carrier Rate**   │ Zero-rated shared code setup Ksh 30k;            │
-│    (*483*77#)              │ (Direct Telco SDP)          │ Session fee Ksh 0.15/20s session.                │
+│ 3. USSD Interactive Portal │ **Verified Carrier Rate**   │ Shared code, development and hosting per the     │
+│    (*483*77#)              │ (Direct Telco SDP)          │ Section 9.2.2 rate card; session fee Ksh 0.15.   │
 ├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
 │ 4. Outdoor Billboard       │ **Awaiting Procurement Res**│ Commercial rate cards for Kitui Town, Mwingi, and│
 │    Structures (Static PVC) │                             │ Mutomo intersections *[Required Research]*.      │
@@ -400,8 +426,8 @@ The campaign adheres to all six statutory financing mandates established under K
 │    Account Requirement            │   commercial bank account at a licensed tier-1 Kenyan bank.             │
 │                                   │ • All donations, mobile money, and payments must flow through this acct.│
 ├───────────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
-│ 4. Authorised Person & Agent      │ • Mandatory formal written notification to IEBC designating the named   │
-│    Notification to IEBC           │   Campaign Treasurer / Finance Lead as the sole Authorized Signatory.   │
+│ 4. Authorised Person & Agent      │ • Written notification to IEBC of the Campaign Expenditure Committee    │
+│    Notification to IEBC           │   and signatory — see 6.6.1 for members and the 3-month deadline.       │
 ├───────────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
 │ 5. Ksh 1,000,000 Audited Report   │ • Any expenditure line or single donor receipt equal to or exceeding    │
 │    Disclosure Threshold           │   **Ksh 1,000,000** must be documented with a certified invoice/receipt │
@@ -426,7 +452,7 @@ Violations of campaign financing limits and accounting rules carry severe civil,
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 16 STRATEGIC TAKEAWAY
+                          SECTION 3.3.4 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Statutory Cap Compliance:    Planned budget of Ksh 64.5M operates safely within the
                                 Ksh 97.56M IEBC ceiling (Gazette Notice 12251).
@@ -436,7 +462,7 @@ Violations of campaign financing limits and accounting rules carry severe civil,
                                 (Ksh 19.51M), and certified audits for all Ksh 1M+ items.
  • Procurement Discipline:      Unverified cost items explicitly flagged for procurement
                                 research rather than speculative estimation.
-════════════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════════════════════════════
 ```
 ---
 
@@ -444,7 +470,7 @@ Violations of campaign financing limits and accounting rules carry severe civil,
 
 Vernacular radio is the primary medium of political consciousness and daily news in rural and peri-urban Kitui County. However, the media environment in Eastern Kenya is characterized by severe political concentration: **the highest-reach commercial radio stations broadcasting in Kikamba are owned, financed, or editorially steered by active political rivals or entrenched party gatekeepers**.
 
-To ensure uninterrupted, high-credibility communication with the electorate, the campaign constructs a dual strategy: a disciplined operational engagement model for Tier 1 commercial networks, coupled with an aggressive bypass architecture detailed in **Subsection 17A**.
+To ensure uninterrupted, high-credibility communication with the electorate, the campaign constructs a dual strategy: a disciplined operational engagement model for Tier 1 commercial networks, coupled with an aggressive bypass architecture detailed in **Section 3.4.3**.
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
@@ -456,9 +482,9 @@ To ensure uninterrupted, high-credibility communication with the electorate, the
    • High frequency coverage | Politically aligned ownership & editorial vetoes
                                       │
                                       ▼
-   THE BYPASS WORKAROUND ARCHITECTURE (SUBSECTION 17A)
+   THE BYPASS WORKAROUND ARCHITECTURE (SECTION 3.4.3)
  ┌─────────────────────────────────────────────────────────────────────────────────┐
- │ 1. Neutral & Church-Owned Stations (Syokimau, Mang'elete, Voice of Hope, Wikwatyo)│
+ │ 1. Neutral & Church-Owned Stations (Wikwatyo, Mang'elete, County FM)              │
  │ 2. Direct 2G SMS & Zero-Rated Interactive USSD Gateway (*483*77#)               │
  │ 3. 8-Sub-County Mobile PA Sound Trucks & High-Density Market Center Caravans    │
  │ 4. Grassroots Baraza Audio Distribution (Pre-loaded Megaphones & WhatsApp Voice)│
@@ -470,55 +496,23 @@ To ensure uninterrupted, high-credibility communication with the electorate, the
 
 ### 3.4.1 Who owns the Kamba-language stations, and who they favour
 
-The table below maps the major radio stations broadcasting across Kitui County, categorized by tier, reported corporate ownership, and known political alignment.
+The ownership map, the frequencies and the resulting campaign posture for every
+Kikamba-language station are set out once, in **Section 3.5.1**, and that table
+governs. It is the version reconciled against `data/media-ownership.ts`, which
+the site renders directly.
 
 > **Research Integrity Note on Listenership Data:**  
 > Precise, disaggregated county-level listenership figures (GeoPoll / KARF audience share percentages for Kitui) are **not published in the underlying empirical research**. In accordance with the campaign's provenance standards (Section 6.1.2), **listenership share is marked as Required Primary Research** rather than estimated speculatively.
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                KAMBA-LANGUAGE VERNACULAR RADIO LANDSCAPE                                    │
-├──────────────┬───────────────────────────────┬───────────────────────────┬──────────────────────────────────┤
-│ Station Name │ Corporate Ownership & Parent  │ Reported Political        │ Listenership Share &             │
-│ & Frequency  │ Conglomerate                  │ Alignment / Bias          │ Audience Metric Status           │
-├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤
-│ TIER 1: COMMERCIAL HEAVYWEIGHTS (POLITICALLY CONTROLLED / GATEKEEPER NETWORKS)                              │
-├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤
-│ 1. Musyi FM  │ Royal Media Services (RMS)    │ Commercial / Mainstream   │ **[Required Primary Research]**  │
-│    (102.2 FM)│ (SK Macharia Family)          │ Azimio & Wiper Hegemony   │ Kitui-wide reach; highest market │
-│              │                               │ Gatekeeper influence      │ presence across Lower Eastern.   │
-├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤
-│ 2. Mbaitu FM │ Mbaitu FM Media Enterprises   │ Pro-Incumbent / Regional  │ **[Required Primary Research]**  │
-│    (92.5 FM) │ (Associated with Rival Focus) │ Business Interests;       │ Dominant coverage in Kitui Rural,│
-│              │                               │ Competitive Gatekeeper    │ Mutomo, and Kitui South.         │
-├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤
-│ 3. Sang'u FM │ Regional Commercial Entity    │ Aligned with Northern     │ **[Required Primary Research]**  │
-│    (96.2 FM) │ (Kitui Business / Political)  │ Kitui Political Rival     │ Strong signal penetration across │
-│              │                               │ Interests                 │ Mwingi North, Central & West.    │
-├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤
-│ 4. Athiani FM│ Athiani Media Network         │ Politically steered by    │ **[Required Primary Research]**  │
-│    (99.2 FM) │ (Prominent Regional Elite)    │ Machakos/Kitui Rival Bloc │ Key youth and urban market       │
-│              │                               │ & Coalition Gatekeeper    │ listenership in town centers.    │
-├──────────────┴───────────────────────────────┴───────────────────────────┴──────────────────────────────────┤
-│ TIER 2: FAITH-BASED, DIOCESAN & COMMUNITY BROADCASTERS (EDITORIAL INTEGRITY / NEUTRAL)                     │
-├──────────────┬───────────────────────────────┬───────────────────────────┬──────────────────────────────────┤
-│ 5. Radio     │ Catholic Diocese of Kitui     │ **Strictly Neutral**      │ **[Required Primary Research]**  │
-│    Wikwatyo  │ (Bishop / Diocesan Comms)     │ Pastoral / Civic Education│ Broad rural community trust;     │
-│    (107.1 FM)│                               │ High Credibility Factor   │ zero political candidate capture.│
-├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤
-│ 6. Syokimau  │ Independent Faith Entity      │ **Faith-Based / Neutral** │ **[Required Primary Research]**  │
-│    FM        │ (Lower Eastern Christian Com) │ Community Development &   │ Dedicated church fellowship and  │
-│              │                               │ Family Stewardship        │ women chama audience base.       │
-├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤
-│ 7. Radio     │ Community Media Trust         │ **Grassroots / Neutral**  │ **[Required Primary Research]**  │
-│    Mang'elete│ (Kibwezi / Southern Border)   │ Agrarian, Water, Women &  │ Deep penetration in Kitui South, │
-│    (89.1 FM) │                               │ Ecological Resilience     │ Ikutha, and Mutha borderlands.   │
-├──────────────┼───────────────────────────────┼───────────────────────────┼──────────────────────────────────┤
-│ 8. County FM │ Kitui Local Media Consortium  │ **Independent Commercial**│ **[Required Primary Research]**  │
-│    (90.3 FM) │ (Local Journalists / Business)│ Local Ward News & Debates;│ Strong presence in Kitui Town,   │
-│              │                               │ Open to Issue-Based Ads   │ Kabati, and Kwa Vonza.           │
-└──────────────┴───────────────────────────────┴───────────────────────────┴──────────────────────────────────┘
-```
+The three structural facts that drive the rest of this section:
+
+*   **Two stations are associated with Charity Ngilu**, a declared general-election rival: **Mbaitu FM** and **Syokimau FM**. Both are monitoring targets, not placement targets.
+*   **One station is associated with Kalonzo Musyoka**, the Wiper party leader: **Athiani FM**. It is party-sensitive rather than hostile, and it matters most during the nomination window, when coverage may track party leadership sentiment rather than merit.
+*   **The stations open to the campaign are commercially or institutionally independent**: **Musyi FM** (Royal Media Services), **County FM** (Kitui-based independent) and **Wikwatyo FM** (Seventh-Day Adventist Church, Kitui). These carry the placement budget.
+
+Ownership associations are publicly reported rather than certified, and media
+ownership changes. Section 3.5.1 carries the standing instruction to verify and
+update this map before any placement is booked.
 
 ---
 
@@ -537,12 +531,12 @@ To guarantee uninhibited communication with all 532,758 registered voters across
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                          THE 17A GATEKEEPER BYPASS & DIRECT REACH ARCHITECTURE                              │
+│                          THE GATEKEEPER BYPASS & DIRECT REACH ARCHITECTURE                                  │
 ├────────────────────────────────┬────────────────────────────────────────────────────────────────────────────┤
 │ Workaround Pillar              │ Operational Strategy & Deployment Protocol                                 │
 ├────────────────────────────────┼────────────────────────────────────────────────────────────────────────────┤
 │ 1. Faith-Based, Diocesan &     │ • Direct media buying and civic issue programming on **Radio Wikwatyo      │
-│    Community Radio Dominance   │   (Catholic Diocese of Kitui)**, **Syokimau FM**, and **Radio Mang'elete**.│
+│    Community Radio Dominance   │   (Seventh-Day Adventist, Kitui)**, **County FM**, **Mang'elete**.         │
 │                                │ • These stations possess the highest qualitative credibility among rural   │
 │                                │   women, church elders, and farming chamas; strictly neutral and immune    │
 │                                │   to commercial political vetoes.                                          │
@@ -576,24 +570,24 @@ To capture objective news coverage on mainstream national and regional platforms
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 17 STRATEGIC TAKEAWAY
+                          SECTION 3.4.4 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Structural Vulnerability:    Tier 1 commercial Kamba radio stations are politically
                                 aligned with rival factions or party gatekeepers.
  • Provenance Standard:         Listenership share figures are marked as Required Primary
                                 Research rather than speculatively estimated.
- • Subsection 17A Workaround:   Bypasses hostile gatekeepers via Church/Community radio
+ • Section 3.4.3 Workaround:   Bypasses hostile gatekeepers via Church/Community radio
                                 (Wikwatyo/Mang'elete), 2G SMS, USSD, 8 PA sound trucks,
                                 and 400 village megaphone broadcast points.
  • Earned Media Discipline:     Focuses on evidence-backed national exclusives, on-site
                                 project tours, and MCK statutory right-of-reply rules.
-════════════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════════════════════════════
 ```
 ---
 
 ## 3.5 Journalists, debates and radio strategy
 
-*New section. Paid and owned media reach the connected minority. Earned media —
+*Paid and owned media reach the connected minority. Earned media —
 especially radio — reaches everyone else.*
 
 ### 3.5.1 The radio problem, stated plainly
@@ -866,7 +860,7 @@ Running a synchronized three-language communications operation introduces severe
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 18 STRATEGIC TAKEAWAY
+                          SECTION 3.6.4 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Trilingual Segmentation:     Kikamba drives grassroots trust (76% reach), Kiswahili
                                 energizes urban trade (16%), English governs policy (8%).
@@ -876,7 +870,7 @@ Running a synchronized three-language communications operation introduces severe
                                 written sign-off from the Lead Cultural Comms Advisor.
  • Reverse-Translation Audit:   Enforces double-blind checks to prevent policy drift
                                 between English manifesto briefs and vernacular delivery.
-════════════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════════════════════════════
 ```
 ---
 
@@ -915,7 +909,7 @@ substantive error, not a cosmetic one.
 
 ### 3.7.1 What accessibility means here
 
-*New section. In a county where 13.0% of the population never attended school,
+*In a county where 13.0% of the population never attended school,
 accessibility is reach, not compliance theatre.*
 
 ### 3.7.2 The case

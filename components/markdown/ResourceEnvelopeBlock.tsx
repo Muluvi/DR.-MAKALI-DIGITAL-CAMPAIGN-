@@ -1,8 +1,18 @@
 "use client";
 
+import dynamic from "next/dynamic";
+
+import { ChartFallback } from "../ChartFallback";
 import { LazyMount } from "../LazyMount";
 import { SourceLine } from "./SourceLine";
-import ResourceEnvelopeChart, { type WaterfallStep } from "../charts/ResourceEnvelopeChart";
+import type { WaterfallStep } from "../charts/ResourceEnvelopeChart";
+
+// Dynamic boundary: the charting runtime stays out of the first load. LazyMount below
+// still gates when it mounts; this gates when it downloads.
+const ResourceEnvelopeChart = dynamic(() => import("../charts/ResourceEnvelopeChart"), {
+  ssr: false,
+  loading: () => <ChartFallback />,
+});
 
 // §1.2.4: "a total resource envelope of KSh13.79 billion, comprising roughly KSh11.64
 // billion in equitable share (approximately 84.5% of revenue), around KSh1.03 billion in

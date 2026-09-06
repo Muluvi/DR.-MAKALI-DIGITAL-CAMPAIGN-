@@ -1,8 +1,18 @@
 "use client";
 
+import dynamic from "next/dynamic";
+
+import { ChartFallback } from "../ChartFallback";
 import { LazyMount } from "../LazyMount";
 import { SourceLine } from "./SourceLine";
-import CompetitiveQuadrantChart, { type QuadrantPoint } from "../charts/CompetitiveQuadrantChart";
+import type { QuadrantPoint } from "../charts/CompetitiveQuadrantChart";
+
+// Dynamic boundary: the charting runtime stays out of the first load. LazyMount below
+// still gates when it mounts; this gates when it downloads.
+const CompetitiveQuadrantChart = dynamic(() => import("../charts/CompetitiveQuadrantChart"), {
+  ssr: false,
+  loading: () => <ChartFallback />,
+});
 
 // Preference: Mizani Africa, 7 August 2026 (Section 1.1 / 2.2 table). Credibility: a
 // qualitative reading of how the proposal itself characterises each candidate in Section 4.2 —

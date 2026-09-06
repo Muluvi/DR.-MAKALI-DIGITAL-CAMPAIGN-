@@ -30,6 +30,13 @@ export function useTheme() {
     setTheme(nextTheme);
 
     const root = window.document.documentElement;
+
+    // The colour-transition rule is scoped to .theme-switching rather than left on `*`, so it
+    // is switched on for the length of the crossfade and removed again. Steady-state scrolling
+    // then carries no transition work at all.
+    root.classList.add("theme-switching");
+    window.setTimeout(() => root.classList.remove("theme-switching"), 200);
+
     if (nextTheme === "dark") {
       root.classList.add("dark");
     } else {

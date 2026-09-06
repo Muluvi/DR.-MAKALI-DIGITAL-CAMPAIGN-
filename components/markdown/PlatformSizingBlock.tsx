@@ -1,8 +1,18 @@
 "use client";
 
+import dynamic from "next/dynamic";
+
+import { ChartFallback } from "../ChartFallback";
 import { LazyMount } from "../LazyMount";
 import { SourceLine } from "./SourceLine";
-import PlatformSizingChart, { type PlatformDatum } from "../charts/PlatformSizingChart";
+import type { PlatformDatum } from "../charts/PlatformSizingChart";
+
+// Dynamic boundary: the charting runtime stays out of the first load. LazyMount below
+// still gates when it mounts; this gates when it downloads.
+const PlatformSizingChart = dynamic(() => import("../charts/PlatformSizingChart"), {
+  ssr: false,
+  loading: () => <ChartFallback />,
+});
 
 import { PLATFORM_AUDIENCES } from "../../data/external-figures";
 

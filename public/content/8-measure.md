@@ -13,24 +13,24 @@ The nomination phase focuses on establishing unassailable party consensus and se
 │ KPI Code &  │ Operational Definition & │ Empirical │ Target    │ Measurement      │ KPI Owner │ Reporting   │
 │ Title       │ Mathematical Formula     │ Baseline  │ Objective │ Methodology      │ & Division│ Cadence     │
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
-│ **NW-01:**  │ % of sampled likely      │ 38.5%     │ **≥ 55.0%**│ Rolling 7-day    │ Head of   │ Weekly /    │
-│ Wiper Ballot│ Wiper primary voters     │ (Est.     │ Primary   │ Tracking Poll    │ Research  │ Fortnightly │
-│ Preference  │ naming Dr. Makali Mulu as│ Baseline) │ Preference│ ($N = 400$ CATI) │ & Polling │             │
+│ **NW-01:**  │ % of sampled likely      │ Not yet   │ **≥ 55.0%**│ Rolling 7-day    │ Head of   │ Weekly /    │
+│ Wiper Ballot│ Wiper primary voters     │ measured  │ Primary   │ Tracking Poll    │ Research  │ Fortnightly │
+│ Preference  │ naming Dr. Makali Mulu as│ (Week 1)  │ Preference│ ($N = 400$ CATI) │ & Polling │             │
 │ Share       │ their 1st choice.        │           │           │ (Section 8.4)    │           │             │
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
-│ **NW-02:**  │ Spontaneous + aided name │ 42.0%     │ **≥ 70.0%**│ Sub-County CATI  │ Comms     │ Fortnightly │
-│ Northern    │ recognition in Mwingi    │ (North    │ Name ID   │ Poll booster in  │ Director  │ Tracking    │
-│ Sub-County  │ North, Central & West    │ Baseline) │           │ Mwingi North &   │           │             │
+│ **NW-02:**  │ Spontaneous + aided name │ Not yet   │ **≥ 70.0%**│ Sub-County CATI  │ Comms     │ Fortnightly │
+│ Northern    │ recognition in Mwingi    │ measured  │ Name ID   │ Poll booster in  │ Director  │ Tracking    │
+│ Sub-County  │ North, Central & West    │ (Week 1)  │           │ Mwingi North &   │           │             │
 │ Name ID     │ sub-counties.            │           │           │ Central ($N=600$)│           │             │
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
-│ **NW-03:**  │ Voter ranking of "Clean  │ 31.0%     │ **≥ 60.0%**│ Issue Salience   │ Policy &  │ Fortnightly │
-│ Fiscal      │ Audit Record / Anti-     │           │ Issue     │ Index in County  │ Strategy  │             │
-│ Integrity   │ Corruption" as the #1 or │           │ Salience  │ Tracking Survey  │ Lead      │             │
+│ **NW-03:**  │ Voter ranking of "Clean  │ Not yet   │ **≥ 60.0%**│ Issue Salience   │ Policy &  │ Fortnightly │
+│ Fiscal      │ Audit Record / Anti-     │ measured  │ Issue     │ Index in County  │ Strategy  │             │
+│ Integrity   │ Corruption" as the #1 or │ (Week 1)  │ Salience  │ Tracking Survey  │ Lead      │             │
 │ Salience    │ #2 voting criterion.     │           │           │ (Section 8.4)    │           │             │
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
-│ **NW-04:**  │ Verified, signed support │ 3 / 8     │ **8 / 8** │ Formal written   │ Political │ Weekly      │
-│ Branch Exec │ pledges from Sub-County  │ Sub-Count.│ Sub-Count.│ branch caucus    │ Affairs   │ Executive   │
-│ Endorsement │ Wiper Executive Branch   │ Branches  │ Branches  │ endorsement      │ Director  │ Dashboard   │
+│ **NW-04:**  │ Verified, signed support │ Confirm   │ **8 / 8** │ Formal written   │ Political │ Weekly      │
+│ Branch Exec │ pledges from Sub-County  │ w/ party  │ Sub-Count.│ branch caucus    │ Affairs   │ Executive   │
+│ Endorsement │ Wiper Executive Branch   │ (Week 1)  │ Branches  │ endorsement      │ Director  │ Dashboard   │
 │ Rate        │ Committees.              │           │           │ resolutions      │           │             │
 └─────────────┴──────────────────────────┴───────────┴───────────┴──────────────────┴───────────┴─────────────┘
 ```
@@ -51,17 +51,17 @@ The general election phase focuses on systematic voter mobilization, ground netw
 │ **GE-01:**  │ Individual registered    │ 45,000    │**220,000**│ Verified opt-in  │ Field Ops │ Weekly      │
 │ Pledged     │ voters with phone, ward, │ (Central  │ Pledged   │ 2G SMS & Baraza  │ & Data    │ Progress    │
 │ Voter Data  │ & polling station logged │ Baseline) │ Voters    │ registration     │ Director  │ Audit       │
-│ Base Size   │ in campaign CRM.         │           │ (110% Win)│ ledger (Sec 14.3)│           │             │
+│ Base Size   │ in campaign CRM.         │           │ (110% Win)│ ledger (Sec 8.2.2)│           │            │
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
 │ **GE-02:**  │ Active, vetted Village   │ 120       │ **400**   │ Biometric / ID   │ Groundgame│ Bi-Weekly   │
 │ Ward Captain│ Ward Captains operating  │ Captains  │ Captains  │ verification and │ Director  │ Field Audit │
 │ Deployment  │ across all 40 Wards      │ (Central  │ (10 / Ward│ monthly activity │           │             │
 │ Index       │ (10 per ward).           │ only)     │ 100% Cvrg)│ log confirmation │           │             │
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
-│ **GE-03:**  │ Accredited, trained party│ 0         │ **1,527** │ IEBC official    │ Legal &   │ Weekly      │
+│ **GE-03:**  │ Accredited, trained party│ 0         │ **1,578** │ IEBC official    │ Legal &   │ Weekly      │
 │ Polling     │ polling station agents   │ Station   │ Stations  │ accreditation    │ Polling   │ (Final 60   │
-│ Station     │ deployed across 100% of  │ Agents    │ (100% +   │ badges & signed  │ Station   │ Days)       │
-│ Agent Cvrg  │ Kitui polling streams.   │           │ 152 Resv) │ deployment forms │ Lead      │             │
+│ Station     │ deployed across 100% of  │ Agents    │ (100% of  │ badges & signed  │ Station   │ Days)       │
+│ Agent Cvrg  │ Kitui polling stations.  │           │ stations) │ deployment forms │ Lead      │             │
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
 │ **GE-04:**  │ Ratio of pledged voters  │ 72.0%     │ **≥ 82.0%**│ IEBC Form 37A    │ Polling   │ Post-Day    │
 │ Turnout     │ who cast verified ballots│ (Historical│ Voter     │ audit vs. CRM    │ Day Ops   │ Real-Time   │
@@ -79,7 +79,7 @@ The general election phase focuses on systematic voter mobilization, ground netw
 
 ## 8.2 What we measure, and why
 
-Political strategy without empirical measurement risks misallocating scarce campaign capital. To eliminate speculative assumptions, the campaign implements a two-part data architecture: **Subsection 19A** establishes the research programme to test the recognition-deficit hypothesis and govern nomination polling, while **Subsection 19B** operationalizes a public service-delivery tracker that bridges campaign credibility with day-one governance.
+Political strategy without empirical measurement risks misallocating scarce campaign capital. To eliminate speculative assumptions, the campaign implements a two-part data architecture: **Section 8.2.1** establishes the research programme to test the recognition-deficit hypothesis and govern nomination polling, while **Section 8.2.2** operationalizes a public service-delivery tracker that bridges campaign credibility with day-one governance.
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
@@ -187,17 +187,17 @@ The campaign builds and maintains the **Kitui County Service-Delivery Performanc
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 19 STRATEGIC TAKEAWAY
+                          SECTION 8.2.2 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
- • Subsection 19A (Research):   Deploys N=1,600 CATI poll and 12 Kikamba FGDs to test
+ • Section 8.2.1 (Research):   Deploys N=1,600 CATI poll and 12 Kikamba FGDs to test
                                 name ID before committing major ad spend; integrates a
                                 6-week rolling tracking poll for the Wiper nomination.
- • Subsection 19B (Tracker):    Maintains open-data delivery ledger combining OAG audits,
+ • Section 8.2.2 (Tracker):    Maintains open-data delivery ledger combining OAG audits,
                                 84 solar boreholes, 140+ classrooms, and 18k bursaries.
  • Dual-Asset Function:         Operates as an irrefutable debate/media evidence weapon
                                 pre-election, and transitions into the Governor's Day-1
                                 Ksh 100M Ward Equalization governing dashboard post-election.
-════════════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════════════════════════════
 ```
 ---
 
@@ -222,7 +222,7 @@ Every Key Performance Indicator (KPI) in this framework is strictly anchored to 
  │ • Integrity / Clean Audit Salience   │ ───► │ • Ward Captain Mobilization Index │
  │ • Delegate Endorsement Pledges (8/8) │      │   (400 Captains / 40 Wards)       │
  └──────────────────────────────────────┘      │ • Polling Agent Station Coverage  │
-                                               │   (100% of 1,527 Polling Streams) │
+                                               │   (100% of 1,578 Stations)        │
                                                │ • Turnout Conversion Rate (≥82%)  │
                                                └───────────────────────────────────┘
 ════════════════════════════════════════════════════════════════════════════════════
@@ -250,7 +250,7 @@ To ensure accountability across all divisions, the KPI framework is embedded in 
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 20 STRATEGIC TAKEAWAY
+                          SECTION 8.2.5 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Zero Vanity Metrics:         Explicitly bans social followers/likes; focuses 100% on
                                 voter pledges, name ID, agent coverage, and turnout.
@@ -258,10 +258,10 @@ To ensure accountability across all divisions, the KPI framework is embedded in 
                                 and 8/8 Sub-County branch endorsements.
  • General Election Threshold:  Indexed directly to delivering ≥200,000 counted votes
                                 through 220k pledged voters and 100% polling agent coverage
-                                across all 1,527 polling streams.
+                                across all 1,578 polling stations.
  • Rigid Governance Rhythm:     Weekly Monday standups with automated resource reallocation
                                 for any metric trailing target by >10%.
-════════════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════════════════════════════
 ```
 ---
 
@@ -490,7 +490,7 @@ allows; sequential if the decision slips.*
 
 ## 8.4 The Kitui message lab
 
-*New section. Digital engagement metrics measure the 13.6% who are online.*
+*Digital engagement metrics measure the 13.6% who are online.*
 
 ### 8.4.1 The problem with metrics-only optimisation
 
@@ -550,7 +550,7 @@ the disagreement itself is information.
 
 ## 8.5 The public service-delivery tracker
 
-*New section. The single clearest expression of the candidate's actual
+*The single clearest expression of the candidate's actual
 professional discipline.*
 
 ### 8.5.1 Why it exists

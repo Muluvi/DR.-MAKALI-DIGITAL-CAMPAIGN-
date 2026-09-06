@@ -34,7 +34,11 @@ Competitors will seek to weaponize Dr. Mulu's technocratic and economic credenti
 
 ## 2.2 The four campaign pillars
 
-Four pillars, extended from the original three.
+Four pillars, extended from the original three. **These four are the campaign's pillars.**
+Two other groupings appear later in this section and are deliberately different things, not
+competing versions of this one: Section 2.6 sets out the three *message* pillars — how the
+claim is argued to a voter — and Section 2.7.1 the four *content* pillars, which are
+production buckets for the studio. Each of those maps back to the four below.
 
 ### 2.2.1 Fiscal accountability and devolution
 
@@ -120,14 +124,14 @@ This section defines the structural architecture of the Kitui electorate across 
 
  ┌────────────────────────┐  ┌────────────────────────┐  ┌────────────────────────┐
  │   GEOGRAPHIC LOCUS     │  │     AGE DEMOGRAPHIC    │  │   CONNECTIVITY STATUS  │
- │ • Rural: ~86.2%        │  │ • Youth (18-35): ~44%  │  │ • Offline (2G): 86.4%  │
- │ • Urban: ~13.8%        │  │ • Mid/Senior (36+): 56%│  │ • Online (Smart): 13.6%│
+ │ • Rural: 95.2%         │  │ • Youth (18-35): ~44%  │  │ • Offline (2G): 86.4%  │
+ │ • Urban: 4.8%          │  │ • Mid/Senior (36+): 56%│  │ • Online (Smart): 13.6%│
  └────────────────────────┘  └────────────────────────┘  └────────────────────────┘
  ┌────────────────────────┐  ┌────────────────────────┐  ┌────────────────────────┐
  │   PRIMARY LANGUAGE     │  │   LIVELIHOOD CLUSTERS  │  │   DIASPORA MATRIX      │
- │ • Kikamba: >85% (Home) │  │ • Dryland Agrarian     │  │ • Nairobi / Mombasa    │
- │ • Kiswahili: ~12%      │  │ • Pastoral / Livestock │  │ • Remittance Leverage   │
- │ • English: ~3%         │  │ • Informal / Bodaboda  │  │ • Family Opinion Shapers│
+ │ • Kikamba: ~76% (3.6)  │  │ • Dryland Agrarian     │  │ • Nairobi / Mombasa    │
+ │ • Kiswahili: ~16%      │  │ • Pastoral / Livestock │  │ • Remittance Leverage  │
+ │ • English: ~8%         │  │ • Informal / Bodaboda  │  │ • Family Opinion Shprs │
  └────────────────────────┘  └────────────────────────┘  └────────────────────────┘
 ════════════════════════════════════════════════════════════════════════════════════
 ```
@@ -143,7 +147,7 @@ This section defines the structural architecture of the Kitui electorate across 
 ```
 
 #### 1. The Rural Agrarian & Smallholder Baseline
-*   **Empirical Sizing:** **~459,000 residents / ~86.2% of the county population** (2019 KNBS Census, Tier 1); representing approximately **455,000 registered voters** across 36 non-urban wards.
+*   **Empirical Sizing:** **1,082,168 rural residents — 95.2% of the county population** (2019 KNBS Census, Tier 1; see Section 1.2.5). The register is not published by rural/urban split, so applying that share to the 532,758 register gives approximately **507,000 rural registered voters** across 36 non-urban wards — a **derived estimate, not a measured figure**.
 *   **Geographic Base:** Rural agricultural belts in Kitui Central (Mulango, Kyangwithya East), Kitui West (Mutonguni, Kauwi), Kitui Rural (Kisasi, Mbitini), Mwingi Central (Nuu, Nguni), Mwingi West (Nguutani, Migwani), and Kitui East (Zombe, Chuluni).
 *   **Connectivity & Media Consumption:** **86.4% offline**; 2G/GSM feature phone dominance; high evening vernacular radio listenership; weekly open-air market gatherings.
 *   **Reachable Channels:**
@@ -187,7 +191,7 @@ This section defines the structural architecture of the Kitui electorate across 
 ---
 
 #### 4. The Urban & Peri-Urban Commercial Informal Sector (MSMEs & Traders)
-*   **Empirical Sizing:** **~13.8% of the county population** (~73,500 registered voters, 2019 KNBS Census urban classification, Tier 1).
+*   **Empirical Sizing:** **54,019 urban residents — 4.8% of the county population** (2019 KNBS Census urban classification, Tier 1). Applying that share to the register gives approximately **26,000 urban registered voters** — again derived, not measured. Note this segment's messaging reach extends well beyond the urban classification, since peri-urban trading centres in the ward list sit inside rural wards.
 *   **Geographic Base:** Kitui Township (19,538 voters), Mwingi Central Town (14,525 voters), Kwa Vonza/Yatta (18,020 voters), Mutomo (12,637 voters), Matinyani (14,279 voters), and Nguutani (15,121 voters).
 *   **Connectivity & Media Consumption:** High mobile internet penetration (**~45%–55% smartphone connectivity**); constant WhatsApp business use; daily interaction with county revenue collectors; regular local vernacular radio listening.
 *   **Reachable Channels:**
@@ -237,8 +241,8 @@ This section defines the structural architecture of the Kitui electorate across 
 ├──────────────────────────┬──────────────────────┬─────────────┬───────────────────┬─────────────────────────┤
 │ Segment                  │ Sized Electorate     │ Data Tier   │ Primary Channel   │ Decisive Persuasion Hook│
 ├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
-│ 1. Rural Smallholders    │ ~455,000 voters      │ Tier 1      │ Kamba Radio &     │ Guaranteed Minimum      │
-│    (Agrarian Core)       │ (86.2% of county)    │ KNBS/IEBC   │ Offline SMS       │ Returns & Sand Dams     │
+│ 1. Rural Smallholders    │ ~507,000 (derived)   │ Tier 1      │ Kamba Radio &     │ Guaranteed Minimum      │
+│    (Agrarian Core)       │ (95.2% of county)    │ KNBS/IEBC   │ Offline SMS       │ Returns & Sand Dams     │
 ├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
 │ 2. Agro-Pastoralists     │ ~80,000–105,000      │ Primary Res │ Vernacular Radio  │ Livestock Off-take &    │
 │    (Arid Borderlands)    │ (Requires Survey)    │ Needed      │ & Market Days     │ Border Security Support │
@@ -246,8 +250,8 @@ This section defines the structural architecture of the Kitui electorate across 
 │ 3. Youth Cohort          │ ~234,000 voters      │ Tier 1      │ TikTok, Meta,     │ Youth Enterprise Fund,  │
 │    (Ages 18–35)          │ (~44% of register)   │ KNBS/IEBC   │ WhatsApp & Sports │ TVET Grants, No Harass  │
 ├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
-│ 4. Urban MSMEs &         │ ~73,500 voters       │ Tier 1      │ Geofenced Digital │ Single Business Permit, │
-│    Informal Traders      │ (13.8% of county)    │ KNBS 2019   │ & Trader Barazas  │ 24-Hr Lit Market Stalls │
+│ 4. Urban MSMEs &         │ ~26,000 (derived)    │ Tier 1      │ Geofenced Digital │ Single Business Permit, │
+│    Informal Traders      │ (4.8% of county)     │ KNBS 2019   │ & Trader Barazas  │ 24-Hr Lit Market Stalls │
 ├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
 │ 5. Formal Professionals  │ ~25,000–35,000       │ Primary Res │ X, TV, LinkedIn,  │ Meritocracy, Reliable   │
 │    & Civil Servants      │ (Requires Survey)    │ Needed      │ Union Synods      │ Medicine & Pension Flow │
@@ -269,9 +273,9 @@ To uphold the campaign's rigorous data integrity standard, the following empiric
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 7 STRATEGIC TAKEAWAY
+                          SECTION 2.4.3 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
- • Audience Architecture: 86.2% Rural, 13.8% Urban, ~44% Youth (18-35).
+ • Audience Architecture: 95.2% Rural, 4.8% Urban, ~44% Youth (18-35).
  • Channel Strategy:      Vernacular radio & offline SMS capture the 86.4% offline
                           majority; digital ads activate the youth & diaspora.
  • Value Proposition:     Tailored economic messaging—Guaranteed crop returns for
@@ -306,7 +310,7 @@ weaponising ethnicity.
 | **Women's Cooperatives & Table-Banking Groups** | CBOs and merry-go-rounds across all 40 wards; 587,151 women in 262,942 households | Domestic water proximity; maternal and household healthcare; market linkages for honey, mangoes, legumes; **poultry income (90%+ of households)** | **Message:** "Dignity at the Household Level." Reducing the distance walked for water; dedicated county empowerment revolving funds.<br>**Channels:** Church and cooperative networks, grassroots women leaders, **Kikamba voice notes**, WhatsApp, SMS |
 | **Diaspora Kitui Voters** | Nairobi, Mombasa and abroad; high out-migration from Kitui Central, Mutomo, Mwingi Central | Investment opportunities; transparent county budgeting; remittance links; home-county pride | **Message:** "Your Investment, Your County." **Newly actionable: IEBC is expanding diaspora voter registration from 12 to 26 countries.**<br>**Channels:** Facebook, X, YouTube, WhatsApp, LinkedIn, diaspora webinars |
 | **First-Time Voters** | 18–22; secondary and early tertiary | Hope, change, youth inclusion, digital opportunity, accountability | **Message:** "A New Kind of Leader." Integrity, economic expertise, youth digital empowerment.<br>**Channels:** TikTok, Instagram, WhatsApp, short-form video |
-| **Offline Majority** *(new segment)* | Any ward with low connectivity; older voters; the ~86% outside internet use | The same priorities as above — but reached by no digital channel currently in the plan | **Message:** identical policy substance, adapted to 160 characters and to audio.<br>**Channels:** **SMS, USSD, radio, mobile-money agent networks, printed QR-linked materials** (Section 4.3) |
+| **Offline Majority** | Any ward with low connectivity; older voters; the ~86% outside internet use | The same priorities as above — but reached by no digital channel currently in the plan | **Message:** identical policy substance, adapted to 160 characters and to audio.<br>**Channels:** **SMS, USSD, radio, mobile-money agent networks, printed QR-linked materials** (Section 4.3) |
 
 The final row is the most commercially significant addition in this document.
 Treating the offline majority as a segment with its own channel budget — rather
@@ -328,12 +332,12 @@ Under the campaign's Provenance Discipline (Section 6.1.2), **no claim is made w
 
                                THE CENTRAL CLAIM
                   "The Proven Economist for Kitui's Economy:
-            Clean Leadership, Fiscal Discipline, and Shared Wealth"
+            Clean Hands, Real Jobs, and Lasting Wealth"    
                                       │
          ┌────────────────────────────┼────────────────────────────┐
          ▼                            ▼                            ▼
-   PILLAR 1: INTEGRITY          PILLAR 2: JOBS &             PILLAR 3: DEVOLUTION
-   & FISCAL PRUDENCE            WEALTH CREATION              EQUITY & WATER
+   MESSAGE PILLAR 1:            MESSAGE PILLAR 2:            MESSAGE PILLAR 3:
+   INTEGRITY & PRUDENCE         JOBS & WEALTH                DEVOLUTION & WATER
  ┌──────────────────────┐     ┌──────────────────────┐     ┌──────────────────────┐
  │ Proof Point:         │     │ Proof Point:         │     │ Proof Point:         │
  │ 13 Years Clean CDF   │     │ KNBS Census &        │     │ Equal Ward Fund      │
@@ -361,29 +365,52 @@ Under the campaign's Provenance Discipline (Section 6.1.2), **no claim is made w
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-#### Pillar 1: Fiscal Integrity & Transparent Public Finance
+#### Message Pillar 1: Fiscal Integrity & Transparent Public Finance *(carries campaign pillars 2.2.1 and 2.2.4)*
 *   **Narrative Statement:** *"Kitui's Ksh 12+ Billion annual budget has been crippled by pending bills, procurement inflation, and ghost projects. Dr. Makali Mulu is the only candidate with a verified track record of managing public funds with zero financial audit queries."*
 *   **Primary Evidence & Source:**
-    *   **Tier 1 Proof Point:** **Office of the Auditor-General (OAG) Certified NG-CDF Audit Reports (2013–2025)**. Kitui Central NG-CDF consistently achieved unqualified (clean) audit opinions and was ranked among the top 5 best-managed constituencies in Kenya for institutional transparency and infrastructure value-for-money.
-    *   **Tier 1 Contrast:** Kitui County Government audited accounts under both predecessor regimes accumulated over **Ksh 2.4 Billion in contested pending bills** and adverse OAG audit queries (OAG County Executive Audit FY 2021/22 & FY 2022/23).
+    *   **Proof Point — awaiting primary documents:** **Office of the Auditor-General (OAG) NG-CDF audit reports, 2013–2025.** Firefly has not yet retrieved the underlying reports, so the claim of consistently unqualified opinions is untiered pending that. It is worth settling early: because the claim is precisely checkable, a single qualified year would carry more weight in an opponent's hands than the record deserves. Note also that the "top 5 best-managed constituencies in Kenya" ranking is wider than the Tier 1 claim in Sections 1.2.1 and 2.1.1 — best-evaluated constituency in the Eastern region, FY2014/15. Firefly would use the narrower, documented version until the wider one is sourced.
+    *   **Contrast — awaiting primary documents:** Kitui County Government audited accounts under both predecessor regimes are reported to have accumulated over **Ksh 2.4 billion in contested pending bills** (OAG County Executive Audit FY2021/22 & FY2022/23). This is a **different measure** from the KSh 1.3 billion pending-bill figure at FY2020/21 carried as Tier 1 in Sections 1.2.7 and 2.1.2 — different years, different scopes. Both are usable; whichever is quoted is named with its year.
 
-#### Pillar 2: Household Economic Empowerment & Agrarian Value Addition
-*   **Narrative Statement:** *"78.4% of Kitui's households depend on farming and livestock, yet our farmers sell raw green grams and charcoal at throwaway prices. Dr. Mulu's economic plan introduces solar-powered cold storage, green gram aggregation centers, and honey processing to double household farm incomes."*
+#### Message Pillar 2: Household Economic Empowerment & Agrarian Value Addition *(carries campaign pillar 2.2.3)*
+*   **Narrative Statement** *(Firefly is verifying the 78.4% figure against KNBS before this line is used)*: *"78.4% of Kitui's households depend on farming and livestock, yet our farmers sell raw green grams and charcoal at throwaway prices. Dr. Mulu's economic plan introduces solar-powered cold storage, green gram aggregation centers, and honey processing to double household farm incomes."*
 *   **Primary Evidence & Source:**
-    *   **Tier 1 Proof Point:** **KNBS 2019 Census & Agricultural Sector Transformation Strategy (ASTGS)**. Kitui produces over 45,000 metric tonnes of green grams (*ndengu*) annually, but captures less than 32% of terminal market value due to broker cartels.
-    *   **Policy Intervention Proof:** Legislative sponsorship of Sessional Paper No. 1 on National Value Addition and Export Promotion during Dr. Mulu's parliamentary tenure.
+    *   **Proof Point — awaiting page references:** **KNBS 2019 Census & Agricultural Sector Transformation Strategy (ASTGS).** The 45,000 tonne output and the sub-32% value-capture figure are not yet tiered to a specific page. Both carry the floor-price commitment above, so Firefly is sourcing them before either appears in published copy.
+    *   **Policy Intervention — one point to confirm with your office:** sessional papers are ordinarily Executive instruments rather than backbench sponsorships, so the precise role is worth stating exactly as the Hansard record has it. Firefly will describe it accordingly.
 
-#### Pillar 3: Devolution Equity, Universal Water Access & Healthcare
+> **What the two flagship commitments would cost, and what still has to be decided.**
+> Against the KSh 13.79 billion envelope in Section 1.2.4: a Ward Development Equalization
+> Fund at KSh 100 million across 40 wards is **KSh 4.0 billion a year, or 29% of the
+> envelope** before salaries. A *ndengu* floor price at KSh 85/kg against the 45,000 tonnes
+> cited in Message Pillar 2 is **a further ~KSh 2.0 billion** if the county bridges from the
+> KSh 40 farm-gate price, or KSh 3.8 billion if it buys the crop outright. Together, on the
+> bridge case, **~KSh 6.0 billion — 44% of the envelope.**
+>
+> These are envelope arithmetic, not costings: the delivery mechanism for each is still to be
+> set, and a floor price may be structured as a revolving fund or a partial aggregation
+> scheme rather than a purchase guarantee, which changes the figure materially. Firefly's
+> recommendation is that both are sized and structured with the campaign's fiscal team before
+> they go into broadcast copy, since the figures already appear in the radio scripts, SMS
+> copy and USSD menu in Section 2.7. **This is the campaign's call, and one worth settling
+> early rather than on air.**
+
+#### Message Pillar 3: Devolution Equity, Universal Water Access & Healthcare *(carries campaign pillars 2.2.1 and 2.2.2)*
 *   **Narrative Statement:** *"Development in Kitui must no longer depend on which ward voted for the Governor. Dr. Mulu guarantees an institutionalized Ward Development Equalization Fund of Ksh 100 Million per ward annually, prioritizing solar borehole reticulation and stocked village dispensaries."*
 *   **Primary Evidence & Source:**
-    *   **Tier 1 Proof Point:** **Kitui County Integrated Development Plan (CIDP III)**. Over 61% of rural Kitui households still walk >5 km to fetch water during dry seasons.
-    *   **Empirical CDF Proof:** Delivery of 84 community solar boreholes and 142 school water harvesting projects across Kitui Central under Dr. Mulu's administration (Kitui Central Project Inventory 2013–2026).
+    *   **Proof Point — awaiting page reference:** **Kitui County Integrated Development Plan (CIDP III).** The 61% figure is not yet tiered. Section 1.2.5 carries a related Tier 1 statistic — approximately 400,000 residents relying on untreated surface water — which measures something different and is the one currently documented.
+    *   **CDF Proof — a request to your constituency office:** 84 community solar boreholes and 142 school water-harvesting projects (Kitui Central Project Inventory 2013–2026). Sections 5.1.4 and 8.2.2 cite the same inventory for "140+ classrooms", a different project category. The inventory's own line items would let Firefly use one consistent set of figures throughout.
 
 ---
 
 ### 2.6.2 What we say to each segment
 
 Cross-referencing the demographic and livelihood segments established in **Section 2.4**:
+
+> **These segments overlap, and the percentages are shares of the register, not a partition
+> of it.** A woman farming in Mwingi is in rows 1 and 4; a boda operator in Kitui Town is in
+> rows 3 and 5. The shares therefore sum to about 170%, which is expected for messaging
+> segments and would be an error for a population breakdown. Counts are shown to the
+> thousand: they are shares applied to the 532,758 register, not measured headcounts, and
+> quoting them to the unit would imply a precision no source here supports.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -393,32 +420,32 @@ Cross-referencing the demographic and livelihood segments established in **Secti
 ├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
 │ 1. Smallholder Crop Farmers  │ • *"Never sell Ndengu at Ksh 40 again."* │ • **KNBS Agrarian Data:**         │
 │    (32.8% of Electorate /    │ • County guaranteed aggregation minimum  │   Kitui farmers lose ~68% of value│
-│    174,745 Voters)           │   floor price (Ksh 85/kg) + local storage│   to middlemen during peak harvest│
+│    ~175,000 Voters)          │   floor price (Ksh 85/kg) + local storage│   to middlemen during peak harvest│
 │                              │ • Kikamba: *"Uithio wa Ndengu na Mbemba"*│ • Pilot Kitui Central Farmers SACCO│
 ├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
 │ 2. Agro-Pastoralists &       │ • *"Water pans, livestock feed reserves, │ • **National Drought Management   │
 │    Herders (Mwingi/South)    │   and border security lighting."*        │   Authority (NDMA) Reports:**     │
-│    (14.5% / 77,250 Voters)   │ • Decentralized veterinary cold-chain.   │   Livestock mortality drops 45%   │
+│    (14.5% / ~77,000 Voters)  │ • Decentralized veterinary cold-chain.   │   Livestock mortality drops 45%   │
 │                              │ • Kikamba: *"Kithima kya Kyalo na Syana"*│   with localized water points.    │
 ├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
 │ 3. Youth Hustlers & Boda     │ • *"The Youth Innovation & Enterprise   │ • **Kitui Central NG-CDF Data:**  │
 │    Operators (18–35 Years)   │   Fund: Zero-interest equipment loans."* │   Over 4,200 youth sponsored with │
-│    (43.9% / 233,881 Voters)  │ • Free driving licenses & digital hubs.  │   NITA/TVET technical bursaries.  │
+│    (43.9% / ~234,000 Voters) │ • Free driving licenses & digital hubs.  │   NITA/TVET technical bursaries.  │
 │                              │ • Kikamba: *"Wathi wa Mwanya kwa Mwanake"*│                                  │
 ├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
 │ 4. Rural Women, Caregivers & │ • *"Clean water within 1 km and stocked  │ • **Kitui Central Project Log:**  │
 │    Chamas (52.1% Electorate /│   maternity dispensaries in every sub-loc"│   84 functional solar boreholes   │
-│    277,567 Voters)           │ • Ksh 50,000 table-banking seed capital. │   built with clean water tariffs. │
+│    ~278,000 Voters)          │ • Ksh 50,000 table-banking seed capital. │   built with clean water tariffs. │
 │                              │ • Kikamba: *"Mumo kwa Aka na Syana"*     │ • Ksh 120M disbursed to women CBOs│
 ├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
 │ 5. Urban MSMEs, Traders &    │ • *"Single Business Permit reform and 0% │ • **Parliamentary Hansard:**      │
 │    Market Stall Keepers      │   harassment of mama mbogas."*           │   Dr. Mulu's defense of MSME tax  │
-│    (18.2% / 96,962 Voters)   │ • Modern solar market shades & drainage. │   relief in the Finance Bill 2024.│
+│    (18.2% / ~97,000 Voters)  │ • Modern solar market shades & drainage. │   relief in the Finance Bill 2024.│
 │                              │ • Kikamba: *"Biashara Nzeo na Kazi"*     │ • Kitui Market Vendor Council Log │
 ├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
 │ 6. Teachers, Civil Servants  │ • *"Timely county salaries, meritocratic │ • **Auditor-General & CRA Data:** │
 │    & Elite Professionals     │   promotions, and NHIF/SHIF hospital cover"│ Dr. Mulu's published fiscal     │
-│    (8.5% / 45,284 Voters)    │ • Strict adherence to SRC salary codes.  │   blueprints on county debt relief│
+│    (8.5% / ~45,000 Voters)   │ • Strict adherence to SRC salary codes.  │   blueprints on county debt relief│
 └──────────────────────────────┴──────────────────────────────────────────┴───────────────────────────────────┘
 ```
 
@@ -448,7 +475,7 @@ Cross-referencing the channel reach realities established in **Section 3.1**:
 ├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
 │ 4. WhatsApp & Social Video   │ • **30s TikTok Clips & Infographic Cards**│ • Side-by-side graphical comparison│
 │    (Meta, TikTok, X)         │ • Visual, fast-paced, urban Sheng/English│   of CDF budgets vs County wastage│
-│    [Reach: ~72,455 Voters]   │   highlighting national economic policy. │ • National Assembly hansard clips │
+│    [Reach: ~72,000 voters]   │   highlighting national economic policy. │ • National Assembly hansard clips │
 ├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
 │ 5. Church Synods & Pastoral  │ • **Reverent 3-Minute Fellowship Speech** │ • Values of servant leadership,   │
 │    [Reach: ~350,000 Voters]  │ • Biblical stewardship themes (Luke 16:10│   integrity, non-violent politics,│
@@ -488,7 +515,7 @@ Cross-referencing the channel reach realities established in **Section 3.1**:
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 13 STRATEGIC TAKEAWAY
+                          SECTION 2.6.4 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Central Proposition: "The Proven Economist for Kitui's Economy" — anchored on
                         13 years of clean audit records and fiscal expertise.
@@ -496,7 +523,7 @@ Cross-referencing the channel reach realities established in **Section 3.1**:
                         and channel delivery carries primary Tier 1/2 proof points.
  • Segment Alignment:   Tailored messages address the specific economic pain points
                         of the 6 demographic cohorts mapped in Section 2.4.
-════════════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════════════════════════════
 ```
 ---
 
@@ -530,7 +557,9 @@ Campaign communications succeed when production is treated as a rigorous, indust
 
 ### 2.7.1 The four content pillars
 
-Every piece of creative output generated by the campaign must anchor to one of four verified content pillars:
+Production buckets for the studio, not a restatement of the campaign pillars in Section 2.2
+or the message pillars in Section 2.6. Every piece of creative output anchors to one of these
+four, and each carries one or more of the 2.2 pillars:
 
 1.  **Pillar A: The Integrity & Stewardship Ledger (*Kĩtĩo kya Kũthũkũma*)**
     *   *Core Theme:* 13 years of spotless public financial management and zero Auditor-General queries in Kitui Central NG-CDF.
@@ -565,7 +594,7 @@ Every piece of creative output generated by the campaign must anchor to one of f
 ├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
 │ 2. Direct 2G Bulk SMS │ • Single-part 160-character plain text    │ • Localized Kikamba & Swahili; includes │
 │    & USSD Portal      │ • GSM-7 encoding (no accented unicode)    │   ward name, policy pledge, and free    │
-│                       │ • USSD: 8-level text menu tree (*483*XX#) │   opt-out footer (*"STOP to 22XXX"*).   │
+│                       │ • USSD: 4-option menu tree (see 2.7.3C)   │   opt-out footer (*"STOP to 22XXX"*).   │
 ├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
 │ 3. Open-Air Baraza &  │ • A5 full-color 4-page glossy fold-outs   │ • Bilingual Kikamba/Swahili; high visual│
 │    Market Print       │ • A1 weatherproof PVC caravan banners     │   density with real GPS project photos, │
@@ -710,7 +739,7 @@ All creative assets are stored in a centralized, cloud-backed Digital Asset Mana
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                        SECTION 14 STRATEGIC TAKEAWAY
+                          SECTION 2.7.6 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Offline Broadcast Dominance: Content engine prioritizes 45s Kikamba radio spots,
                                 2G SMS, USSD menus, and printed baraza photobooks.
@@ -719,7 +748,7 @@ All creative assets are stored in a centralized, cloud-backed Digital Asset Mana
  • Strict 4-Step Approval:      Drafter ──► Comms Lead ──► DPO Compliance ──► CM Sign.
  • Centralized DAM Vault:       Organized asset repository preserving high-res evidence,
                                 audio masters, and print-ready vector collateral.
-════════════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════════════════════════════
 ```
 ---
 
