@@ -151,14 +151,15 @@ actual spend rather than modelled spend.
 
 ### 9.2.4 Compliance instrumentation
 
-**An unresolved question that has to go to counsel first.** Section 3.3.3 puts the lawful
-spending window as beginning "upon formal gazettement of candidates" (2027); Section 9.2.1
-puts it at "at least six months before polling". Phase −1 runs from now to the nomination —
-outside both. So either Phase −1 spending is unregulated, in which case the ceiling does not
-constrain it and the tiers below are conservative, or it is regulated and this document has
-no compliance treatment for the period carrying its most concentrated spend. **The campaign
-should not commit Phase −1 budget until this is settled.** It is stated here rather than
-resolved because the answer is a legal reading, not a drafting choice.
+**One question for the campaign's counsel before Phase −1 spend begins.** Section 3.3.3 puts
+the lawful spending window as beginning "upon formal gazettement of candidates" (2027);
+Section 9.2.1 puts it at "at least six months before polling". Phase −1 runs from now to the
+nomination, which is outside both. Either that spending sits outside the regulated period —
+in which case the ceiling does not constrain it and the tiers below are conservative — or it
+is regulated, and the compliance instrumentation here should extend back to cover it.
+Firefly's position is that the ledger below runs from day one either way, so the campaign is
+covered on the stricter reading. **The legal reading itself is properly counsel's, and we
+would want it confirmed before the first Phase −1 invoice.**
 
 Because digital and SMS spend is now regulated expenditure:
 * Every ad account, SMS dispatch and vendor invoice is logged to a single

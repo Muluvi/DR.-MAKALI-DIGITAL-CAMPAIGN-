@@ -368,36 +368,36 @@ Under the campaign's Provenance Discipline (Section 6.1.2), **no claim is made w
 #### Message Pillar 1: Fiscal Integrity & Transparent Public Finance *(carries campaign pillars 2.2.1 and 2.2.4)*
 *   **Narrative Statement:** *"Kitui's Ksh 12+ Billion annual budget has been crippled by pending bills, procurement inflation, and ghost projects. Dr. Makali Mulu is the only candidate with a verified track record of managing public funds with zero financial audit queries."*
 *   **Primary Evidence & Source:**
-    *   **Proof Point — requires sourcing before use:** **Office of the Auditor-General (OAG) NG-CDF audit reports, 2013–2025.** The claim of consistently unqualified opinions is checkable and, if any year carries a qualification, collapses this pillar publicly. It is not tiered here because the underlying reports have not been retrieved. The separate "top 5 best-managed constituencies in Kenya" ranking is **not the Tier 1 claim in Sections 1.2.1 and 2.1.1**, which is narrower — best-evaluated constituency in the Eastern region, FY2014/15 — and only that narrower claim should be used until the wider one is sourced.
-    *   **Contrast — requires sourcing:** Kitui County Government audited accounts under both predecessor regimes are reported to have accumulated over **Ksh 2.4 billion in contested pending bills** (OAG County Executive Audit FY2021/22 & FY2022/23). Note this is a **different measure** from the KSh 1.3 billion pending-bill figure at FY2020/21 carried as Tier 1 in Sections 1.2.7 and 2.1.2; the two are not interchangeable and should not be used in the same argument without stating which is which.
+    *   **Proof Point — awaiting primary documents:** **Office of the Auditor-General (OAG) NG-CDF audit reports, 2013–2025.** Firefly has not yet retrieved the underlying reports, so the claim of consistently unqualified opinions is untiered pending that. It is worth settling early: because the claim is precisely checkable, a single qualified year would carry more weight in an opponent's hands than the record deserves. Note also that the "top 5 best-managed constituencies in Kenya" ranking is wider than the Tier 1 claim in Sections 1.2.1 and 2.1.1 — best-evaluated constituency in the Eastern region, FY2014/15. Firefly would use the narrower, documented version until the wider one is sourced.
+    *   **Contrast — awaiting primary documents:** Kitui County Government audited accounts under both predecessor regimes are reported to have accumulated over **Ksh 2.4 billion in contested pending bills** (OAG County Executive Audit FY2021/22 & FY2022/23). This is a **different measure** from the KSh 1.3 billion pending-bill figure at FY2020/21 carried as Tier 1 in Sections 1.2.7 and 2.1.2 — different years, different scopes. Both are usable; whichever is quoted is named with its year.
 
 #### Message Pillar 2: Household Economic Empowerment & Agrarian Value Addition *(carries campaign pillar 2.2.3)*
-*   **Narrative Statement** *(the 78.4% figure is untiered and unsourced — verify or drop before publication)*: *"78.4% of Kitui's households depend on farming and livestock, yet our farmers sell raw green grams and charcoal at throwaway prices. Dr. Mulu's economic plan introduces solar-powered cold storage, green gram aggregation centers, and honey processing to double household farm incomes."*
+*   **Narrative Statement** *(Firefly is verifying the 78.4% figure against KNBS before this line is used)*: *"78.4% of Kitui's households depend on farming and livestock, yet our farmers sell raw green grams and charcoal at throwaway prices. Dr. Mulu's economic plan introduces solar-powered cold storage, green gram aggregation centers, and honey processing to double household farm incomes."*
 *   **Primary Evidence & Source:**
-    *   **Proof Point — requires sourcing:** **KNBS 2019 Census & Agricultural Sector Transformation Strategy (ASTGS).** The 45,000 tonne output and the sub-32% value-capture figure carry no tier and no page reference. Both are load-bearing for the floor-price commitment below and must be sourced before either is quoted.
-    *   **Policy Intervention — verify:** Sessional papers are ordinarily Executive instruments rather than backbench sponsorships. Establish from the Hansard record what Dr. Mulu's actual role was before "legislative sponsorship" is claimed.
+    *   **Proof Point — awaiting page references:** **KNBS 2019 Census & Agricultural Sector Transformation Strategy (ASTGS).** The 45,000 tonne output and the sub-32% value-capture figure are not yet tiered to a specific page. Both carry the floor-price commitment above, so Firefly is sourcing them before either appears in published copy.
+    *   **Policy Intervention — one point to confirm with your office:** sessional papers are ordinarily Executive instruments rather than backbench sponsorships, so the precise role is worth stating exactly as the Hansard record has it. Firefly will describe it accordingly.
 
-> **Both flagship commitments below need costing against the envelope before they are said
-> in public.** Taking the document's own Tier 1 figures: the Ward Development Equalization
-> Fund at KSh 100 million across 40 wards is **KSh 4.0 billion a year — 29% of the KSh 13.79
-> billion envelope** in Section 1.2.4, before salaries. The *ndengu* floor price at KSh 85/kg
-> against the 45,000 tonnes cited in Message Pillar 2 is **a further ~KSh 2.0 billion a year**
-> if the county bridges from the KSh 40 quoted in 2.6.2, or KSh 3.8 billion if it buys the
-> crop outright. Together the bridge case is **~KSh 6.0 billion, or 44% of the envelope**,
-> committed to two instruments.
+> **What the two flagship commitments would cost, and what still has to be decided.**
+> Against the KSh 13.79 billion envelope in Section 1.2.4: a Ward Development Equalization
+> Fund at KSh 100 million across 40 wards is **KSh 4.0 billion a year, or 29% of the
+> envelope** before salaries. A *ndengu* floor price at KSh 85/kg against the 45,000 tonnes
+> cited in Message Pillar 2 is **a further ~KSh 2.0 billion** if the county bridges from the
+> KSh 40 farm-gate price, or KSh 3.8 billion if it buys the crop outright. Together, on the
+> bridge case, **~KSh 6.0 billion — 44% of the envelope.**
 >
-> Neither figure is a costing — the delivery mechanism for each is undefined, and a floor
-> price may be a revolving fund or a partial aggregation scheme rather than a purchase
-> guarantee. That is the point: **the numbers are already in broadcast copy** (2.7.1, 2.7.3,
-> 5.1.4 and the USSD menu) without a mechanism or a budget line behind them. The candidate
-> sits on the Budget and Appropriations Committee and will do this arithmetic on sight.
-> Cost them, scale them, or restate them as directions of travel — before they are printed.
+> These are envelope arithmetic, not costings: the delivery mechanism for each is still to be
+> set, and a floor price may be structured as a revolving fund or a partial aggregation
+> scheme rather than a purchase guarantee, which changes the figure materially. Firefly's
+> recommendation is that both are sized and structured with the campaign's fiscal team before
+> they go into broadcast copy, since the figures already appear in the radio scripts, SMS
+> copy and USSD menu in Section 2.7. **This is the campaign's call, and one worth settling
+> early rather than on air.**
 
 #### Message Pillar 3: Devolution Equity, Universal Water Access & Healthcare *(carries campaign pillars 2.2.1 and 2.2.2)*
 *   **Narrative Statement:** *"Development in Kitui must no longer depend on which ward voted for the Governor. Dr. Mulu guarantees an institutionalized Ward Development Equalization Fund of Ksh 100 Million per ward annually, prioritizing solar borehole reticulation and stocked village dispensaries."*
 *   **Primary Evidence & Source:**
-    *   **Proof Point — requires sourcing:** **Kitui County Integrated Development Plan (CIDP III).** The 61% figure is untiered. Section 1.2.5 carries a related Tier 1 statistic — approximately 400,000 residents relying on untreated surface water — which is a different measure and is the one currently defensible.
-    *   **CDF Proof — requires the inventory:** 84 community solar boreholes and 142 school water-harvesting projects (Kitui Central Project Inventory 2013–2026). Sections 5.1.4 and 8.2.2 cite the same inventory as "140+ classrooms", which is a different category of project. Publish the inventory's own line items once and quote them consistently.
+    *   **Proof Point — awaiting page reference:** **Kitui County Integrated Development Plan (CIDP III).** The 61% figure is not yet tiered. Section 1.2.5 carries a related Tier 1 statistic — approximately 400,000 residents relying on untreated surface water — which measures something different and is the one currently documented.
+    *   **CDF Proof — a request to your constituency office:** 84 community solar boreholes and 142 school water-harvesting projects (Kitui Central Project Inventory 2013–2026). Sections 5.1.4 and 8.2.2 cite the same inventory for "140+ classrooms", a different project category. The inventory's own line items would let Firefly use one consistent set of figures throughout.
 
 ---
 
