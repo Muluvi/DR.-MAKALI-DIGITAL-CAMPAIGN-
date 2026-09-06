@@ -5,6 +5,8 @@ import { Compass, ChevronUp, Sparkles, Activity, Radio, Calculator, MapPin, Coin
 import { motion, AnimatePresence } from "motion/react";
 
 interface QuickNavCapsuleProps {
+  /** Shared zero-chrome visibility (hooks/use-chrome-visible). */
+  visible?: boolean;
   onNavigate: (sectionId: string) => void;
   activeTab: string;
 }
@@ -19,7 +21,7 @@ const QUICK_TARGETS = [
   { id: "defence-sec-5-2", label: "The war room", icon: Shield, tab: "defence" },
 ];
 
-export function QuickNavCapsule({ onNavigate, activeTab }: QuickNavCapsuleProps) {
+export function QuickNavCapsule({ onNavigate, activeTab, visible = true }: QuickNavCapsuleProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -41,7 +43,11 @@ export function QuickNavCapsule({ onNavigate, activeTab }: QuickNavCapsuleProps)
   };
 
   return (
-    <div className="fixed bottom-20 lg:bottom-6 right-4 sm:right-6 z-40 print:hidden flex flex-col items-end gap-2.5 select-none">
+    <div
+      className={`fixed bottom-20 lg:bottom-6 right-4 sm:right-6 z-40 print:hidden flex flex-col items-end gap-2.5 select-none transition-all duration-300 ease-out motion-reduce:transition-none ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6 pointer-events-none"
+      }`}
+    >
       <AnimatePresence>
         {isOpen && (
           <motion.div

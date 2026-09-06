@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 
-import { useHideOnScroll } from "../hooks/use-hide-on-scroll";
+import { useChromeVisible } from "../hooks/use-chrome-visible";
 import { ListTree, ChevronUp, Moon, Sun, Maximize2, Minimize2 } from "lucide-react";
 import { SECTIONS } from "../lib/heading-slug";
 
@@ -26,7 +26,7 @@ export function MobileBottomNav({
   onToggleTheme
 }: MobileBottomNavProps) {
   const stripRef = useRef<HTMLDivElement>(null);
-  const hidden = useHideOnScroll();
+  const visible = useChromeVisible();
 
   // Ten sections do not fit a phone as a grid of equal tabs, so they scroll — which only works
   // if the current one is always brought into view when it changes.
@@ -39,7 +39,7 @@ export function MobileBottomNav({
     <aside
       aria-label="Section navigation"
       className={`fixed bottom-0 left-0 right-0 z-40 lg:hidden print:hidden transition-transform duration-300 ease-out motion-reduce:transition-none ${
-        hidden ? "translate-y-full" : "translate-y-0"
+        visible ? "translate-y-0" : "translate-y-full"
       }`}
     >
       <div className="bg-card/95 backdrop-blur-xl border-t border-line shadow-2xl px-2 pt-1.5 pb-[max(0.75rem,env(safe-area-inset-bottom,0.75rem))]">

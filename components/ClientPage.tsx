@@ -11,6 +11,7 @@ import { RadialProgress } from "./RadialProgress";
 import dynamic from "next/dynamic";
 
 import { ChartFallback } from "./ChartFallback";
+import { useChromeVisible } from "../hooks/use-chrome-visible";
 import { LazyMount } from "./LazyMount";
 import { ScrollProgressBar } from "./ScrollProgressBar";
 import { SectionStickyBar } from "./SectionStickyBar";
@@ -201,6 +202,9 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
   const [activeTab, setActiveTab] = useState<string>("overview");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTOCModalOpen, setIsTOCModalOpen] = useState(false);
+  // Zero-chrome: on touch viewports every fixed element withdraws while reading.
+  const chromeVisible = useChromeVisible();
+
   const [isExpanded, setIsExpanded] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
   const [readingDensity, setReadingDensity] = useState<"compact" | "balanced" | "generous">("balanced");
@@ -395,10 +399,20 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
       <a href="#content-area" className="skip-link">Skip to content</a>
 
       {/* Top Gradient Line */}
-      <div className="h-1.5 bg-gradient-to-r from-accent to-gold fixed top-0 left-0 right-0 z-50 print:hidden" />
+      <div
+        className={`h-1.5 bg-gradient-to-r from-accent to-gold fixed top-0 left-0 right-0 z-50 print:hidden transition-transform duration-300 ease-out motion-reduce:transition-none ${
+          chromeVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
+      />
 
       {/* Scroll Progress Indicator — CSS scroll-driven animation, JS fallback only */}
-      <ScrollProgressBar />
+      <div
+        className={`transition-transform duration-300 ease-out motion-reduce:transition-none ${
+          chromeVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
+        <ScrollProgressBar />
+      </div>
       
       {/* Hero Header */}
       {(activeTab === "overview" || isExpanded) && (
@@ -591,7 +605,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
           </div>
         </div>
 
-        <SectionStickyBar sectionLabel={isExpanded ? undefined : activeItem.label} />
+        <SectionStickyBar sectionLabel={isExpanded ? undefined : activeItem.label} visible={chromeVisible} />
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 relative mt-4 sm:mt-8">
           
@@ -725,6 +739,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
       {/* Quick Navigation Floating Capsule */}
       <QuickNavCapsule
+        visible={chromeVisible}
         onNavigate={(secId) => navigateToSection(secId)}
         activeTab={activeTab}
       />

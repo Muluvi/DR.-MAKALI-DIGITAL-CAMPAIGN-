@@ -10,7 +10,14 @@ import { useEffect, useRef, useState } from "react";
  * The section name is always shown once the bar appears, so current position never depends on
  * having scrolled a heading into view.
  */
-export function SectionStickyBar({ sectionLabel }: { sectionLabel?: string }) {
+export function SectionStickyBar({
+  sectionLabel,
+  /** Shared zero-chrome visibility (hooks/use-chrome-visible). */
+  visible = true,
+}: {
+  sectionLabel?: string;
+  visible?: boolean;
+}) {
   const sentinelRef = useRef<HTMLDivElement>(null);
   const [stuck, setStuck] = useState(false);
   const [headingText, setHeadingText] = useState<string | null>(null);
@@ -64,8 +71,11 @@ export function SectionStickyBar({ sectionLabel }: { sectionLabel?: string }) {
     <>
       <div ref={sentinelRef} className="h-px" aria-hidden="true" />
       <div
-        className={`section-sticky-bar sticky top-12 sm:top-14 z-40 -mt-px print:hidden pointer-events-none transition-all duration-300 ${
-          showBar ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"
+        className={`section-sticky-bar sticky top-12 sm:top-14 z-40 -mt-px print:hidden pointer-events-none transition-all duration-300 motion-reduce:transition-none ${
+          // Two independent reasons to be off screen. Emitted as one branch rather than two
+          // concatenated groups, which produced conflicting opacity/translate utilities whose
+          // winner depended on Tailwind's output order rather than on intent.
+          showBar && visible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
         }`}
       >
         {(headingText || sectionLabel) && (

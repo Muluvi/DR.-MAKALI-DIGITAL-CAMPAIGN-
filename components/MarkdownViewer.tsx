@@ -16,6 +16,7 @@ import { MizaniSlopeBlock } from "./markdown/MizaniSlopeBlock";
 import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
 import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
 import { AsciiDiagram } from "./markdown/AsciiDiagram";
+import { ReachArchitecture3D } from "./ReachArchitecture3D";
 import { ReachSplit } from "./ReachSplit";
 import {
   FlywheelSchematic,
@@ -240,7 +241,12 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // §9 splits the electorate into a connected minority and an offline majority. The showcase is
   // that argument as an object: one handset, the campaign on all seven channels, ending on the
   // USSD dialog that reaches more voters than the six apps together.
-  "channels-sec-3-1": <PhoneShowcase />,
+  "channels-sec-3-1": (
+    <>
+      <ReachArchitecture3D />
+      <PhoneShowcase />
+    </>
+  ),
   "argument-sec-2-6": (
     <>
       <MessagingPlayground />

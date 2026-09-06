@@ -1078,3 +1078,80 @@ p, li, blockquote {
   /* Rows of text chips can afford the real height. */
   .tap-chip { min-height: 44px; }
 }
+
+/* ---------------------------------------------------------------------- */
+/* Depth and dimensional illustration                                      */
+/*                                                                         */
+/* Real 3D, done with compositor-only transforms rather than WebGL. A      */
+/* three.js scene would add well over 150KB to a first load that is read   */
+/* on a mid-range Android over a slow connection, for a document whose     */
+/* argument is that the audience cannot be reached that way. Perspective,  */
+/* layered planes and scroll-linked parallax give the depth at no bundle   */
+/* cost and composite on the GPU, so a folded Fold renders them as         */
+/* smoothly as a desktop.                                                  */
+/* ---------------------------------------------------------------------- */
+
+.stage-3d {
+  perspective: 1400px;
+  perspective-origin: 50% 42%;
+  transform-style: preserve-3d;
+}
+@media (max-width: 480px) {
+  /* Shallower on a small screen: a strong perspective at 280px reads as distortion. */
+  .stage-3d { perspective: 900px; }
+}
+
+.plane-3d {
+  transform-style: preserve-3d;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* A card that sits slightly proud of the page and lifts toward the pointer. The lift is
+   driven by CSS custom properties the component sets, so the animation stays on the
+   compositor and no layout is read during the gesture. */
+.depth-card {
+  --lift: 0;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y))
+    translateZ(calc(var(--lift) * 14px));
+  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 420ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow:
+    0 1px 2px rgba(8, 20, 40, calc(0.05 + var(--lift) * 0.04)),
+    0 calc(6px + var(--lift) * 10px) calc(18px + var(--lift) * 24px)
+      rgba(8, 20, 40, calc(0.06 + var(--lift) * 0.10));
+}
+.dark .depth-card {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    0 calc(6px + var(--lift) * 10px) calc(18px + var(--lift) * 24px) rgba(0, 0, 0, 0.55);
+}
+
+/* The illustration's own light: a soft directional sheen that moves with the tilt. */
+.sheen-3d {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(
+    115deg,
+    color-mix(in srgb, var(--color-card) 92%, white) 0%,
+    transparent 42%,
+    transparent 62%,
+    color-mix(in srgb, var(--color-accent) 8%, transparent) 100%
+  );
+  opacity: calc(0.35 + var(--lift) * 0.4);
+  mix-blend-mode: soft-light;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* The depth stays; the motion does not. A reader who has asked for less movement still
+     gets the layered drawing, just without parallax or tilt. */
+  .depth-card,
+  .plane-3d {
+    transition: none !important;
+    transform: none !important;
+  }
+}
