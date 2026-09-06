@@ -88,6 +88,13 @@ The structure below scales with the budget tier selected in Section 9.2.
 
 ### 7.2.2 The core team, retained throughout
 
+**What this section covers, and what it does not.** The roles below are **Firefly's** — the
+people this engagement pays for. Section 7.3.2 sets out the **campaign's own** leadership
+structure, which Firefly reports into and does not staff, and Section 8.1's KPI owners are
+campaign-side roles unless the campaign asks Firefly to fill them. The boundary matters
+commercially: everything in 7.2.2 and 7.2.3 is in scope for the tiers in Section 9.2, and
+nothing in 7.3.2 is.
+
 | Role | Function | Decision rights |
 |---|---|---|
 | **Digital Director** (Firefly principal) | Owns strategy, campaign leadership relationship, weekly sync, final content sign-off, crisis Level 2 approval | Approves all published content; approves spend reallocation within an agreed monthly ceiling; escalates Level 3 to the candidate |
@@ -217,7 +224,7 @@ The campaign adopts a **Lean Core Delivery Model**: an agile, tightly coordinate
 
 Rather than justifying a lean team as a budgetary constraint, this operational architecture offers distinct strategic and competitive advantages over traditional sprawling campaign bureaucracies:
 
-1.  **Velocity of Decision-Making (<15-Minute Turnaround):** In an environment where political attacks and ground rumors spread rapidly on morning radio and WhatsApp, a 4-person core command structure can authorize rapid-response counter-messaging within 15 minutes, bypassing multi-layered approval committees.
+1.  **Velocity of Decision-Making (<15-Minute Turnaround):** In an environment where political attacks and ground rumors spread rapidly on morning radio and WhatsApp, the campaign's four-person core command structure can authorize rapid-response counter-messaging within 15 minutes, bypassing multi-layered approval committees.
 2.  **Strict Operational Security & Leak Prevention:** Sprawling campaign offices leak internal strategies, poll numbers, and itinerary details to competitors. A tightly bounded core team maintains strict operational secrecy, with all external vendors working under compartmentalized Non-Disclosure Agreements (NDAs) that expose only the specific creative brief, not the overarching campaign strategy.
 3.  **Variable-Cost Scalability without Fixed Overhead Drag:** Retaining in-house video animators, sound engineers, and billboard riggers during slow campaign phases burns capital unproductive to winning votes. Subcontracting allows the campaign to scale output dramatically during peak surge phases (e.g., 30 days to party primaries and 45 days to general election) and scale back down instantly between phases.
 4.  **Specialist Quality over Generalist Mediocrity:** In-house generalists rarely match the creative production quality of top-tier vernacular recording studios in Machakos and Nairobi, or the technical infrastructure uptime of dedicated cloud telecom aggregators.
@@ -321,7 +328,7 @@ The campaign maintains operational synchronization through four structured leade
 ════════════════════════════════════════════════════════════════════════════════════
                           SECTION 7.3.4 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
- • Agile Architecture:  Lean 4-person core steering team directing specialized 
+ • Agile Architecture:  The campaign's four-person core steering team directing
                         subcontractors (audio, video, ad buying, staging, SMS/USSD).
  • Operational Edge:    Maximizes decision velocity (<15 min response), guarantees 
                         strict operational secrecy, and enables variable-cost scaling.

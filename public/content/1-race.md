@@ -22,8 +22,8 @@ re-check happens deliberately rather than by accident.
 The strategic assumption that the Wiper Democratic Movement will select its Kitui gubernatorial nominee via a countywide opinion poll is classified as **Tier 3 (single-sourced campaign report, not confirmed by party officials)**. This mechanism remains highly fluid and subject to internal party negotiations.
 
 To transition this selection mechanism from a Tier 3 strategic assumption to a **Tier 1 verified operational constraint**, the campaign requires:
-1.  An official, signed resolution by the **Wiper National Executive Committee (NEC)**.
-2.  A formal, written communique signed jointly by the **Wiper Party Leader (Hon. Kalonzo Musyoka)** and the **National Elections Board (NEB) Chairperson**, specifying opinion polling as the sole nomination instrument for Kitui County.
+1.  An official, signed resolution by the **Wiper National Executive Council (NEC)**.
+2.  **The commissioned pollster's terms of reference** — sample frame, questionnaire, fieldwork dates, and the count and weighting method. This is the obtainable test, and the operationally useful one: it is what tells the campaign whether the instrument deciding the ticket is sound (Section 1.1.3 sets the parameters to judge it against). A signed communique from the party leader would settle the question but is not something the campaign can produce on demand.
 
 ---
 
@@ -672,6 +672,13 @@ disproportionate Phase −1 budget weighting.
 | Mutitu | 55,287 | 12 | 11,521 | Sparse; pastoral |
 | Migwani | 79,255 | 125 | 19,096 | Higher density; market centre |
 | **Total** | **416,001** | **~19** | **89,070** | **36.6% of county population** |
+
+**A note on the names in this table.** These are *administrative sub-counties*, which do not
+map one-to-one onto the eight constituencies used for the ward register in Section 1.2.3.
+Migwani and Mwingi East appear here, while Migwani **Ward** sits in Mwingi West constituency
+in the northern bloc — the two are different units with the same name. Anyone reading the
+zone tables against the ward register should treat the constituency figures in 1.2.3 as
+authoritative for targeting, and these as demographic context only.
 
 Over a third of the county, at an average of 19 persons per square kilometre.
 Framing centres on transformative infrastructure — water pipelines, road

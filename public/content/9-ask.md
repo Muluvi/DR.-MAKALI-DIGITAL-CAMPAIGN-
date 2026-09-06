@@ -175,6 +175,28 @@ appointed campaign finance agent to confirm.
 
 ### 9.2.5 The three tiers
 
+**How these tiers relate to the KSh 64.5 million plan.** Sections 3.3 and 6.6.1 set out a
+KSh 64,500,000 operational budget for the whole campaign — field, media, tech and
+contingency. The tiers below size **Firefly's digital and SMS function inside that**, not in
+addition to it. The ad-spend percentages are of the KSh 97.56m statutory ceiling, which is
+the binding legal constraint; the KSh 64.5m plan is the campaign's own spending intent
+beneath it. Where the two disagree — the recommended tier's ad spend exceeds what 3.3.1
+currently allocates to paid media — 3.3.1 is the figure to revise, and the target-vs-actual
+table there says by how much.
+
+**One definition per number.** Four different quantities are in play and were previously
+quoted interchangeably:
+
+| Term | Means | Where it is set |
+|---|---|---|
+| **Consented SMS contacts** | Phone numbers held with opt-in, reachable by SMS | 4.3.6: 120,000 by Phase 3 |
+| **Contact universe** | Everyone reachable by any owned channel, SMS or otherwise | 9.2.6: ~60k / ~150k / ~250k by tier |
+| **Pledged voters** | CRM records with phone, ward and polling station logged | 8.1.2 GE-01: 220,000 target |
+| **Verified supporters** | Pledged voters confirmed by a second touch | 9.1.2: 200,000 target |
+
+They are nested, not alternatives: consented contacts ⊂ contact universe, and verified
+supporters ⊂ pledged voters. Cost-per-contact in 9.2.3 is priced on the first of these.
+
 Percentages refer to the verified county ceiling of **KSh97.56 million**
 (Section 9.2.1) and are stated in absolute terms against it. Ad spend is
 regulated expenditure and sits inside that ceiling alongside transport, venues
@@ -185,7 +207,7 @@ and personnel — it is not additional to them.
 * **Team:** 3-person core + Kikamba producer only
 * **Channels:** Facebook, WhatsApp, TikTok organic; limited paid on Meta;
 SMS to a consented list built organically
-* **SMS volume:** up to `[Insert]` messages/month
+* **SMS volume:** paced against the consented list in 4.3.6 (15,000 at Phase −1 rising to 40,000 by Phase 1) at roughly one touch a fortnight — order of 30,000–80,000 messages/month, confirmed at contracting
 * **USSD:** not activated
 * **Ad spend:** **KSh14.63m–19.51m** (15–20% of the KSh97.56m ceiling)
 * **Content:** 1 flagship video/week; daily social; weekly Kikamba voice note
@@ -201,7 +223,7 @@ the central weakness of this tier
 election competitively.
 * **Team:** lean Firefly core + activated surge bench (data, community, volunteer, earned media and video roles are activated by phase/KPI; they are not presented as a permanent standing department)
 * **Channels:** full platform mix; **SMS/USSD layer active across all 40 wards**
-* **SMS volume:** `[Insert]` messages/month, scaling to a GOTV surge
+* **SMS volume:** the full 4.3.6 trajectory to 120,000 consented contacts at a fortnightly touch — order of 240,000 messages/month at Phase 3, inside the 1.5m total in the 3.3 envelope, scaling to a GOTV surge
 * **USSD:** shared code, all networks (~KSh34,800/network + KSh140,000
 development + KSh5,000/month hosting)
 * **Ad spend:** **KSh29.27m–39.02m** (30–40% of the KSh97.56m ceiling)

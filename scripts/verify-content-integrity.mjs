@@ -214,9 +214,11 @@ function bodyLines(text, { dropDeletedSections = false } = {}) {
         continue;
       }
     }
-    // A bare ">" is a blockquote continuation marker carrying no body text, so it is
-    // ignored like a blank line rather than counted as content that moved.
-    if (skipping || line.trim() === "" || line.trim() === ">") continue;
+    // Structural markers carrying no body text — a bare ">" blockquote continuation and a
+    // markdown table separator row — are ignored like blank lines rather than counted as
+    // content that moved. (ASCII box rules use ├─┼─┤ and are not matched here.)
+    const bare = line.trim();
+    if (skipping || bare === "" || bare === ">" || /^\|[\s|:-]+\|$/.test(bare)) continue;
     out.push(line);
   }
   return out;

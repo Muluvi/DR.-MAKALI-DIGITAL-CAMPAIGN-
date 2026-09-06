@@ -270,5 +270,57 @@
  {
   "before": "| Sign-language interpretation | Flagship only | Flagship | All video |",
   "after": "| Sign-language interpretation | Flagship only | Flagship only | All video |"
+ },
+ {
+  "before": "1.  An official, signed resolution by the **Wiper National Executive Committee (NEC)**.\n2.  A formal, written communique signed jointly by the **Wiper Party Leader (Hon. Kalonzo Musyoka)** and the **National Elections Board (NEB) Chairperson**, specifying opinion polling as the sole nomination instrument for Kitui County.",
+  "after": "1.  An official, signed resolution by the **Wiper National Executive Council (NEC)**.\n2.  **The commissioned pollster's terms of reference** — sample frame, questionnaire, fieldwork dates, and the count and weighting method. This is the obtainable test, and the operationally useful one: it is what tells the campaign whether the instrument deciding the ticket is sound (Section 1.1.3 sets the parameters to judge it against). A signed communique from the party leader would settle the question but is not something the campaign can produce on demand."
+ },
+ {
+  "before": " │ • Rural: ~86.2%        │  │ • Youth (18-35): ~44%  │  │ • Offline (2G): 86.4%  │\n │ • Urban: ~13.8%        │  │ • Mid/Senior (36+): 56%│  │ • Online (Smart): 13.6%│",
+  "after": " │ • Rural: 95.2%         │  │ • Youth (18-35): ~44%  │  │ • Offline (2G): 86.4%  │\n │ • Urban: 4.8%          │  │ • Mid/Senior (36+): 56%│  │ • Online (Smart): 13.6%│"
+ },
+ {
+  "before": " │ • Kikamba: >85% (Home) │  │ • Dryland Agrarian     │  │ • Nairobi / Mombasa    │\n │ • Kiswahili: ~12%      │  │ • Pastoral / Livestock │  │ • Remittance Leverage   │\n │ • English: ~3%         │  │ • Informal / Bodaboda  │  │ • Family Opinion Shapers│",
+  "after": " │ • Kikamba: ~76% (3.6)  │  │ • Dryland Agrarian     │  │ • Nairobi / Mombasa    │\n │ • Kiswahili: ~16%      │  │ • Pastoral / Livestock │  │ • Remittance Leverage  │\n │ • English: ~8%         │  │ • Informal / Bodaboda  │  │ • Family Opinion Shprs │"
+ },
+ {
+  "before": "*   **Empirical Sizing:** **~459,000 residents / ~86.2% of the county population** (2019 KNBS Census, Tier 1); representing approximately **455,000 registered voters** across 36 non-urban wards.",
+  "after": "*   **Empirical Sizing:** **1,082,168 rural residents — 95.2% of the county population** (2019 KNBS Census, Tier 1; see Section 1.2.5). The register is not published by rural/urban split, so applying that share to the 532,758 register gives approximately **507,000 rural registered voters** across 36 non-urban wards — a **derived estimate, not a measured figure**."
+ },
+ {
+  "before": "*   **Empirical Sizing:** **~13.8% of the county population** (~73,500 registered voters, 2019 KNBS Census urban classification, Tier 1).",
+  "after": "*   **Empirical Sizing:** **54,019 urban residents — 4.8% of the county population** (2019 KNBS Census urban classification, Tier 1). Applying that share to the register gives approximately **26,000 urban registered voters** — again derived, not measured. Note this segment's messaging reach extends well beyond the urban classification, since peri-urban trading centres in the ward list sit inside rural wards."
+ },
+ {
+  "before": "│ 1. Rural Smallholders    │ ~455,000 voters      │ Tier 1      │ Kamba Radio &     │ Guaranteed Minimum      │\n│    (Agrarian Core)       │ (86.2% of county)    │ KNBS/IEBC   │ Offline SMS       │ Returns & Sand Dams     │",
+  "after": "│ 1. Rural Smallholders    │ ~507,000 (derived)   │ Tier 1      │ Kamba Radio &     │ Guaranteed Minimum      │\n│    (Agrarian Core)       │ (95.2% of county)    │ KNBS/IEBC   │ Offline SMS       │ Returns & Sand Dams     │"
+ },
+ {
+  "before": "│ 4. Urban MSMEs &         │ ~73,500 voters       │ Tier 1      │ Geofenced Digital │ Single Business Permit, │\n│    Informal Traders      │ (13.8% of county)    │ KNBS 2019   │ & Trader Barazas  │ 24-Hr Lit Market Stalls │",
+  "after": "│ 4. Urban MSMEs &         │ ~26,000 (derived)    │ Tier 1      │ Geofenced Digital │ Single Business Permit, │\n│    Informal Traders      │ (4.8% of county)     │ KNBS 2019   │ & Trader Barazas  │ 24-Hr Lit Market Stalls │"
+ },
+ {
+  "before": " • Audience Architecture: 86.2% Rural, 13.8% Urban, ~44% Youth (18-35).",
+  "after": " • Audience Architecture: 95.2% Rural, 4.8% Urban, ~44% Youth (18-35)."
+ },
+ {
+  "before": "│ • Primary Source:  Kitui Economic Blueprint 2027–2032; Section 8.5 Ward Allocations Schedule.               │",
+  "after": "│ • Primary Source:  Not yet sourced. The ward allocation formula does not exist in this                      │\n│                     document; Section 8.5 is the delivery tracker and carries no schedule.                  │\n│                     Draft and cost the formula before this line is spoken.                                  │"
+ },
+ {
+  "before": "1.  **Velocity of Decision-Making (<15-Minute Turnaround):** In an environment where political attacks and ground rumors spread rapidly on morning radio and WhatsApp, a 4-person core command structure can authorize rapid-response counter-messaging within 15 minutes, bypassing multi-layered approval committees.",
+  "after": "1.  **Velocity of Decision-Making (<15-Minute Turnaround):** In an environment where political attacks and ground rumors spread rapidly on morning radio and WhatsApp, the campaign's four-person core command structure can authorize rapid-response counter-messaging within 15 minutes, bypassing multi-layered approval committees."
+ },
+ {
+  "before": " • Agile Architecture:  Lean 4-person core steering team directing specialized ",
+  "after": " • Agile Architecture:  The campaign's four-person core steering team directing"
+ },
+ {
+  "before": "* **SMS volume:** up to `[Insert]` messages/month",
+  "after": "* **SMS volume:** paced against the consented list in 4.3.6 (15,000 at Phase −1 rising to 40,000 by Phase 1) at roughly one touch a fortnight — order of 30,000–80,000 messages/month, confirmed at contracting"
+ },
+ {
+  "before": "* **SMS volume:** `[Insert]` messages/month, scaling to a GOTV surge",
+  "after": "* **SMS volume:** the full 4.3.6 trajectory to 120,000 consented contacts at a fortnightly touch — order of 240,000 messages/month at Phase 3, inside the 1.5m total in the 3.3 envelope, scaling to a GOTV surge"
  }
 ]

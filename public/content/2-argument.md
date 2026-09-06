@@ -124,14 +124,14 @@ This section defines the structural architecture of the Kitui electorate across 
 
  ┌────────────────────────┐  ┌────────────────────────┐  ┌────────────────────────┐
  │   GEOGRAPHIC LOCUS     │  │     AGE DEMOGRAPHIC    │  │   CONNECTIVITY STATUS  │
- │ • Rural: ~86.2%        │  │ • Youth (18-35): ~44%  │  │ • Offline (2G): 86.4%  │
- │ • Urban: ~13.8%        │  │ • Mid/Senior (36+): 56%│  │ • Online (Smart): 13.6%│
+ │ • Rural: 95.2%         │  │ • Youth (18-35): ~44%  │  │ • Offline (2G): 86.4%  │
+ │ • Urban: 4.8%          │  │ • Mid/Senior (36+): 56%│  │ • Online (Smart): 13.6%│
  └────────────────────────┘  └────────────────────────┘  └────────────────────────┘
  ┌────────────────────────┐  ┌────────────────────────┐  ┌────────────────────────┐
  │   PRIMARY LANGUAGE     │  │   LIVELIHOOD CLUSTERS  │  │   DIASPORA MATRIX      │
- │ • Kikamba: >85% (Home) │  │ • Dryland Agrarian     │  │ • Nairobi / Mombasa    │
- │ • Kiswahili: ~12%      │  │ • Pastoral / Livestock │  │ • Remittance Leverage   │
- │ • English: ~3%         │  │ • Informal / Bodaboda  │  │ • Family Opinion Shapers│
+ │ • Kikamba: ~76% (3.6)  │  │ • Dryland Agrarian     │  │ • Nairobi / Mombasa    │
+ │ • Kiswahili: ~16%      │  │ • Pastoral / Livestock │  │ • Remittance Leverage  │
+ │ • English: ~8%         │  │ • Informal / Bodaboda  │  │ • Family Opinion Shprs │
  └────────────────────────┘  └────────────────────────┘  └────────────────────────┘
 ════════════════════════════════════════════════════════════════════════════════════
 ```
@@ -147,7 +147,7 @@ This section defines the structural architecture of the Kitui electorate across 
 ```
 
 #### 1. The Rural Agrarian & Smallholder Baseline
-*   **Empirical Sizing:** **~459,000 residents / ~86.2% of the county population** (2019 KNBS Census, Tier 1); representing approximately **455,000 registered voters** across 36 non-urban wards.
+*   **Empirical Sizing:** **1,082,168 rural residents — 95.2% of the county population** (2019 KNBS Census, Tier 1; see Section 1.2.5). The register is not published by rural/urban split, so applying that share to the 532,758 register gives approximately **507,000 rural registered voters** across 36 non-urban wards — a **derived estimate, not a measured figure**.
 *   **Geographic Base:** Rural agricultural belts in Kitui Central (Mulango, Kyangwithya East), Kitui West (Mutonguni, Kauwi), Kitui Rural (Kisasi, Mbitini), Mwingi Central (Nuu, Nguni), Mwingi West (Nguutani, Migwani), and Kitui East (Zombe, Chuluni).
 *   **Connectivity & Media Consumption:** **86.4% offline**; 2G/GSM feature phone dominance; high evening vernacular radio listenership; weekly open-air market gatherings.
 *   **Reachable Channels:**
@@ -191,7 +191,7 @@ This section defines the structural architecture of the Kitui electorate across 
 ---
 
 #### 4. The Urban & Peri-Urban Commercial Informal Sector (MSMEs & Traders)
-*   **Empirical Sizing:** **~13.8% of the county population** (~73,500 registered voters, 2019 KNBS Census urban classification, Tier 1).
+*   **Empirical Sizing:** **54,019 urban residents — 4.8% of the county population** (2019 KNBS Census urban classification, Tier 1). Applying that share to the register gives approximately **26,000 urban registered voters** — again derived, not measured. Note this segment's messaging reach extends well beyond the urban classification, since peri-urban trading centres in the ward list sit inside rural wards.
 *   **Geographic Base:** Kitui Township (19,538 voters), Mwingi Central Town (14,525 voters), Kwa Vonza/Yatta (18,020 voters), Mutomo (12,637 voters), Matinyani (14,279 voters), and Nguutani (15,121 voters).
 *   **Connectivity & Media Consumption:** High mobile internet penetration (**~45%–55% smartphone connectivity**); constant WhatsApp business use; daily interaction with county revenue collectors; regular local vernacular radio listening.
 *   **Reachable Channels:**
@@ -241,8 +241,8 @@ This section defines the structural architecture of the Kitui electorate across 
 ├──────────────────────────┬──────────────────────┬─────────────┬───────────────────┬─────────────────────────┤
 │ Segment                  │ Sized Electorate     │ Data Tier   │ Primary Channel   │ Decisive Persuasion Hook│
 ├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
-│ 1. Rural Smallholders    │ ~455,000 voters      │ Tier 1      │ Kamba Radio &     │ Guaranteed Minimum      │
-│    (Agrarian Core)       │ (86.2% of county)    │ KNBS/IEBC   │ Offline SMS       │ Returns & Sand Dams     │
+│ 1. Rural Smallholders    │ ~507,000 (derived)   │ Tier 1      │ Kamba Radio &     │ Guaranteed Minimum      │
+│    (Agrarian Core)       │ (95.2% of county)    │ KNBS/IEBC   │ Offline SMS       │ Returns & Sand Dams     │
 ├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
 │ 2. Agro-Pastoralists     │ ~80,000–105,000      │ Primary Res │ Vernacular Radio  │ Livestock Off-take &    │
 │    (Arid Borderlands)    │ (Requires Survey)    │ Needed      │ & Market Days     │ Border Security Support │
@@ -250,8 +250,8 @@ This section defines the structural architecture of the Kitui electorate across 
 │ 3. Youth Cohort          │ ~234,000 voters      │ Tier 1      │ TikTok, Meta,     │ Youth Enterprise Fund,  │
 │    (Ages 18–35)          │ (~44% of register)   │ KNBS/IEBC   │ WhatsApp & Sports │ TVET Grants, No Harass  │
 ├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
-│ 4. Urban MSMEs &         │ ~73,500 voters       │ Tier 1      │ Geofenced Digital │ Single Business Permit, │
-│    Informal Traders      │ (13.8% of county)    │ KNBS 2019   │ & Trader Barazas  │ 24-Hr Lit Market Stalls │
+│ 4. Urban MSMEs &         │ ~26,000 (derived)    │ Tier 1      │ Geofenced Digital │ Single Business Permit, │
+│    Informal Traders      │ (4.8% of county)     │ KNBS 2019   │ & Trader Barazas  │ 24-Hr Lit Market Stalls │
 ├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
 │ 5. Formal Professionals  │ ~25,000–35,000       │ Primary Res │ X, TV, LinkedIn,  │ Meritocracy, Reliable   │
 │    & Civil Servants      │ (Requires Survey)    │ Needed      │ Union Synods      │ Medicine & Pension Flow │
@@ -275,7 +275,7 @@ To uphold the campaign's rigorous data integrity standard, the following empiric
 ════════════════════════════════════════════════════════════════════════════════════
                           SECTION 2.4.3 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
- • Audience Architecture: 86.2% Rural, 13.8% Urban, ~44% Youth (18-35).
+ • Audience Architecture: 95.2% Rural, 4.8% Urban, ~44% Youth (18-35).
  • Channel Strategy:      Vernacular radio & offline SMS capture the 86.4% offline
                           majority; digital ads activate the youth & diaspora.
  • Value Proposition:     Tailored economic messaging—Guaranteed crop returns for
@@ -376,6 +376,22 @@ Under the campaign's Provenance Discipline (Section 6.1.2), **no claim is made w
 *   **Primary Evidence & Source:**
     *   **Proof Point — requires sourcing:** **KNBS 2019 Census & Agricultural Sector Transformation Strategy (ASTGS).** The 45,000 tonne output and the sub-32% value-capture figure carry no tier and no page reference. Both are load-bearing for the floor-price commitment below and must be sourced before either is quoted.
     *   **Policy Intervention — verify:** Sessional papers are ordinarily Executive instruments rather than backbench sponsorships. Establish from the Hansard record what Dr. Mulu's actual role was before "legislative sponsorship" is claimed.
+
+> **Both flagship commitments below need costing against the envelope before they are said
+> in public.** Taking the document's own Tier 1 figures: the Ward Development Equalization
+> Fund at KSh 100 million across 40 wards is **KSh 4.0 billion a year — 29% of the KSh 13.79
+> billion envelope** in Section 1.2.4, before salaries. The *ndengu* floor price at KSh 85/kg
+> against the 45,000 tonnes cited in Message Pillar 2 is **a further ~KSh 2.0 billion a year**
+> if the county bridges from the KSh 40 quoted in 2.6.2, or KSh 3.8 billion if it buys the
+> crop outright. Together the bridge case is **~KSh 6.0 billion, or 44% of the envelope**,
+> committed to two instruments.
+>
+> Neither figure is a costing — the delivery mechanism for each is undefined, and a floor
+> price may be a revolving fund or a partial aggregation scheme rather than a purchase
+> guarantee. That is the point: **the numbers are already in broadcast copy** (2.7.1, 2.7.3,
+> 5.1.4 and the USSD menu) without a mechanism or a budget line behind them. The candidate
+> sits on the Budget and Appropriations Committee and will do this arithmetic on sight.
+> Cost them, scale them, or restate them as directions of travel — before they are printed.
 
 #### Message Pillar 3: Devolution Equity, Universal Water Access & Healthcare *(carries campaign pillars 2.2.1 and 2.2.2)*
 *   **Narrative Statement:** *"Development in Kitui must no longer depend on which ward voted for the Governor. Dr. Mulu guarantees an institutionalized Ward Development Equalization Fund of Ksh 100 Million per ward annually, prioritizing solar borehole reticulation and stocked village dispensaries."*

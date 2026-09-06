@@ -128,7 +128,9 @@ The campaign maintains ready-to-deploy holding positions, evidential citations, 
 │                     Mwingi North and Kitui South receives guaranteed, direct capital investment."           │
 │ • Kikamba Framing: "Mwanya wa maendeeo nĩ wa kĩla mũndũ. Mbesa sya Ward Fund syĩithiwa kwa kĩla kĩtheka     │
 │                     kũtetheesya mĩsyĩ yonthe ya Kitui ta ĩmwe."                                             │
-│ • Primary Source:  Kitui Economic Blueprint 2027–2032; Section 8.5 Ward Allocations Schedule.               │
+│ • Primary Source:  Not yet sourced. The ward allocation formula does not exist in this                      │
+│                     document; Section 8.5 is the delivery tracker and carries no schedule.                  │
+│                     Draft and cost the formula before this line is spoken.                                  │
 ├─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
 │ 3. THE "REMOTE OPERATING MODEL / NAIROBI TECHNOCRAT" QUESTION                                               │
 ├─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤

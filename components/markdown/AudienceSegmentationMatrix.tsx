@@ -39,7 +39,7 @@ const AUDIENCE_SEGMENTS: AudienceSegment[] = [
     id: "agrarian",
     index: 1,
     name: "Rural agrarian & smallholder baseline",
-    sizing: { kind: "sized", voters: "~455,000 registered voters", share: "~86.2% of county population", tier: 1 },
+    sizing: { kind: "sized", voters: "~507,000 registered voters (derived)", share: "95.2% of county population", tier: 1 },
     connectivity: "86.4% offline. 2G feature-phone dominance, high evening vernacular radio listenership.",
     geographicBase: "Rural belts across Kitui Central, Kitui West, Kitui Rural, Mwingi Central, Mwingi West and Kitui East — 36 non-urban wards.",
     coreAnxiety:
@@ -82,7 +82,7 @@ const AUDIENCE_SEGMENTS: AudienceSegment[] = [
     id: "msme",
     index: 4,
     name: "Urban & peri-urban informal commerce",
-    sizing: { kind: "sized", voters: "~73,500 registered voters", share: "~13.8% of county population", tier: 1 },
+    sizing: { kind: "sized", voters: "~26,000 registered voters (derived)", share: "4.8% of county population", tier: 1 },
     connectivity: "~45%–55% smartphone connectivity. Constant WhatsApp business use, daily county revenue contact.",
     geographicBase: "Kitui Township, Mwingi Central town, Kwa Vonza/Yatta, Mutomo, Matinyani and Nguutani.",
     coreAnxiety:
