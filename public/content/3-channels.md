@@ -14,8 +14,8 @@ According to the official **2019 Kenya National Bureau of Statistics (KNBS) Cens
 
   DIGITAL / CONNECTED MINORITY                  OFFLINE INFRASTRUCTURE MAJORITY
   ────────────────────────────                  ───────────────────────────────
-  • Sized Reach: ~72,455 Voters (13.6%)         • Sized Reach: ~460,303 Voters (86.4%)
-  • Maximum Reachable: 36.2% of 200k            • Maximum Reachable: 230.2% of 200k
+  • Sized Reach: ~72,000 voters (13.6%)         • Sized Reach: ~460,000 voters (86.4%)
+  • Share of the register: 13.6%                • Share of the register: 86.4%    
   • Strategic Role: Influencer & Youth Engine   • Strategic Role: Decisive Ballot Delivery
 
   [████████] 13.6% (Digital Reach)
@@ -26,7 +26,7 @@ According to the official **2019 Kenya National Bureau of Statistics (KNBS) Cens
 > [!CRITICAL]
 > **STRATEGIC REALITY CHECK: THE DIGITAL CEILING**
 >
-> If the campaign captures **100% of every single internet-connected voter in Kitui County**, it would assemble only **~72,455 votes**—leaving the candidate **125,549 votes short** of the 198,004 benchmark.
+> If the campaign captures **100% of every single internet-connected voter in Kitui County**, it would assemble only about **72,000 reachable voters** — and reach is not votes—leaving the candidate **125,549 votes short** of the 198,004 benchmark.
 >
 > Therefore, digital channels alone **cannot mathematically win this election**. Victory depends on dominating the offline media and field infrastructure (Section 4.3), while using digital channels (Section 4.2) with surgical precision to shape elite opinion, organize youth volunteers, and mobilize the out-of-county diaspora.
 
@@ -74,7 +74,7 @@ The digital footprint in Kitui County is concentrated in urban nodes (Kitui Town
 4.  **Cost-Effective Micro-Targeting of Urban MSMEs:** Hyper-geofencing commercial centers (Kitui CBD, Mwingi Central) allows testing policy messages ("The Economist's Single Business Permit") with minimal waste.
 
 #### 3.1.1.3 What Digital CANNOT Do
-1.  **It Cannot Deliver the 200,000 Vote Benchmark Alone:** Capped at ~72,455 total reachable voters inside Kitui County.
+1.  **It Cannot Deliver the 200,000 Vote Benchmark Alone:** Capped at roughly 72,000 reachable voters inside Kitui County.
 2.  **It Cannot Penetrate the Rural Agrarian Base:** 86.4% of rural smallholders do not consume political content via social algorithms due to lack of smartphones, high data costs, and weak 3G/4G coverage in rural wards (e.g., Tharaka, Tseikuru, Voo/Kyamatu, Endau, Mutha).
 3.  **It Cannot Counteract Ground Rumors Directly:** WhatsApp and Facebook echo chambers rarely cross over into dryland farming communities without physical intermediaries.
 
@@ -88,31 +88,31 @@ The digital footprint in Kitui County is concentrated in urban nodes (Kitui Town
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-The election will be won or lost across the **~460,303 offline voters** living in Kitui's rural wards. Reaching this electorate requires an orchestrated combination of telecommunications protocol channels (SMS/USSD), broadcast audio (vernacular radio), financial agent touchpoints, and dense physical market presence.
+The election will be won or lost across the **~460,000 offline voters** living in Kitui's rural wards. Reaching this electorate requires an orchestrated combination of telecommunications protocol channels (SMS/USSD), broadcast audio (vernacular radio), financial agent touchpoints, and dense physical market presence.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
 │                                 OFFLINE CHANNEL REACH & CAPACITY AUDIT                                      │
 ├──────────────────────┬──────────────────────┬──────────────────────┬────────────────────────────────────────┤
-│ Offline Channel      │ Maximum Reachable    │ % of 200,000 Goal    │ Delivery Mechanism & Operational Role  │
+│ Offline Channel      │ Maximum Reachable    │ % of 532,758 Register│ Delivery Mechanism & Operational Role  │
 ├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 1. Kikamba Radio     │ ~420,000 voters      │ **210.0%**           │ Mass persuasion, cultural credibility, │
-│    (Vernacular)      │ (78%–80% listenership)│ of victory target    │ policy dissemination & rally build-ups.│
+│ 1. Kikamba Radio     │ ~420,000 voters      │ **78.8%**            │ Mass persuasion, cultural credibility, │
+│    (Vernacular)      │ (78–80% listenership)│ of the register      │ policy dissemination & rally build-ups.│
 ├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 2. Direct 2G SMS     │ ~320,000 voters      │ **160.0%**           │ Hyper-localized ward updates, candidate│
-│    (Opt-in Database) │ (60% mobile register)│ of victory target    │ endorsement letters & GOTV alerts.     │
+│ 2. Direct 2G SMS     │ ~320,000 voters      │ **60.1%**            │ Hyper-localized ward updates, candidate│
+│    (Opt-in Database) │ (60% mobile register)│ of the register      │ endorsement letters & GOTV alerts.     │
 ├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 3. USSD Interactive  │ ~250,000 voters      │ **125.0%**           │ Zero-rated policy quiz, ward captain   │
-│    (*XXX# Service)   │ (Feature phone users)│ of victory target    │ registration & live polling surveys.   │
+│ 3. USSD Interactive  │ ~250,000 voters      │ **46.9%**            │ Zero-rated policy quiz, ward captain   │
+│    (*XXX# Service)   │ (Feature phone users)│ of the register      │ registration & live polling surveys.   │
 ├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 4. Open-Air Market   │ ~280,000 voters      │ **140.0%**           │ Weekly physical interaction, flyer     │
-│    Barazas (Weekly)  │ (Physical foot-fall) │ of victory target    │ distribution & localized speeches.     │
+│ 4. Open-Air Market   │ ~280,000 voters      │ **52.6%**            │ Weekly physical interaction, flyer     │
+│    Barazas (Weekly)  │ (Physical foot-fall) │ of the register      │ distribution & localized speeches.     │
 ├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 5. Mobile Money      │ ~180,000 voters      │ **90.0%**            │ Word-of-mouth peer network, branded    │
-│    Agents (M-Pesa)   │ (Monthly store visits│ of victory target    │ point-of-sale collateral & buzz agents.│
+│ 5. Mobile Money      │ ~180,000 voters      │ **33.8%**            │ Word-of-mouth peer network, branded    │
+│    Agents (M-Pesa)   │ (Monthly store visits│ of the register      │ point-of-sale collateral & buzz agents.│
 ├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 6. Church & Synods   │ ~350,000 voters      │ **175.0%**           │ Sunday faith fellowship greetings,     │
-│    (Faith Networks)  │ (Weekly attendance)  │ of victory target    │ pastoral blessings & clergy alignment. │
+│ 6. Church & Synods   │ ~350,000 voters      │ **65.7%**            │ Sunday faith fellowship greetings,     │
+│    (Faith Networks)  │ (Weekly attendance)  │ of the register      │ pastoral blessings & clergy alignment. │
 └──────────────────────┴──────────────────────┴──────────────────────┴────────────────────────────────────────┘
 ```
 
@@ -137,7 +137,7 @@ The election will be won or lost across the **~460,303 offline voters** living i
 #### 3.1.2.3 Mobile-Money (M-Pesa) Agent Network Strategy
 *   **Empirical Reach:** **~180,000 unique monthly voter interactions across 1,800+ M-Pesa kiosks in Kitui County**.
 *   **Operational Execution:**
-    *   M-Pesa agents are trusted community hubs where residents deposit funds, buy airtime, and discuss local news.
+    *   M-Pesa agents are trusted community hubs where residents deposit funds, buy airtime, and discuss local news. **Agent networks are regulated financial infrastructure**; Section 4.3.5 flags that any commercial arrangement with them must be reviewed by campaign counsel before recruitment begins. The 1,800 kiosk and 800 ambassador counts are also untiered and need a source.
     *   The campaign will recruit 800+ shopkeepers and M-Pesa agents as "Economic Ambassadors," providing them with branded business ledgers, counter pens, calendar posters, and daily economic talking points.
 
 #### 3.1.2.4 Open-Air Market Day Barazas & Caravan Circuits
@@ -167,7 +167,11 @@ The election will be won or lost across the **~460,303 offline voters** living i
 
 A common failure mode in modern Kenyan political campaigns is over-allocating budget to flashy social media influencers while starving the unglamorous rural infrastructure that actually produces votes.
 
-The campaign enforces an explicit mathematical alignment rule:
+The table below is the **rebalancing target** — the direction of travel away from the
+conventional pitch, argued from reach. It is not a formula the budget already satisfies:
+Section 3.3.1 carries the actual shillings, and the two do not currently agree. That gap is
+stated under 3.3.1 rather than smoothed over here, because closing it is a live decision
+about where roughly KSh 14 million goes, not a presentation choice.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -197,7 +201,7 @@ The campaign enforces an explicit mathematical alignment rule:
 ════════════════════════════════════════════════════════════════════════════════════
                           SECTION 3.1.3 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
- • The Digital Ceiling: Digital reaches ~72,455 voters (13.6%), capable of 
+ • The Digital Ceiling: Digital reaches ~72,000 voters (13.6%), capable of 
                         delivering only 36.2% of the 200,000 threshold.
  • The Offline Engine:  Vernacular radio (~420k reach) and Direct 2G SMS (~320k 
                         reach) are mathematically essential to win.
@@ -294,9 +298,9 @@ For Kitui County, the maximum statutory spending ceiling is **Ksh 97,560,000** (
                                       │
          ┌────────────────────────────┼────────────────────────────┐
          ▼                            ▼                            ▼
-   FIELD MOBILIZATION           BROADCAST & OFFLINE          TECH, COMPLIANCE
-   & GROUND GROUNDGAME          PAID MEDIA (4 CHANNELS)      & CONTINGENCY RESERVE
-   Ksh 31,500,000 (48.8%)       Ksh 23,200,000 (36.0%)       Ksh 9,800,000 (15.2%)
+   FIELD & GROUND               BROADCAST & OFFLINE          TECH, COMPLIANCE
+   MOBILISATION (rows 3+6)      PAID MEDIA (rows 1,2,4,5)    & CONTINGENCY (row 7)
+   Ksh 36,000,000 (55.8%)       Ksh 21,700,000 (33.6%)       Ksh 6,800,000 (10.5%)
  ┌──────────────────────┐     ┌──────────────────────┐     ┌──────────────────────┐
  │ • 400 Ward Captains  │     │ • Kikamba Radio Spots│     │ • Africa's Talking   │
  │ • 8 Sound PA Trucks  │     │ • 2G Bulk SMS (1.5M) │     │   USSD / SMS Gateway │
@@ -317,7 +321,7 @@ To maximize cost-per-contact efficiency, media expenditures are strictly indexed
 │                               CHANNEL ALLOCATION VS. REACHABLE POPULATION                                   │
 ├──────────────────────────┬───────────────────┬───────────────────┬────────────────┬─────────────────────────┤
 │ Media / Channel Medium   │ Reachable Voters  │ Channel Reach %   │ Budget         │ Budget Allocation Share │
-│                          │ (Section 3.1 Data)  │ of Electorate     │ Allocation     │ (% of Total Planned)    │
+│                          │ (3.1 unless marked) │ of Electorate     │ Allocation     │ (% of Total Planned)    │
 ├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
 │ 1. Kikamba Vernacular    │ 420,000 Voters    │ 78.8%             │ Ksh 10,800,000 │ 16.7%                   │
 │    Radio (Musyi, County) │                   │                   │                │                         │
@@ -328,13 +332,13 @@ To maximize cost-per-contact efficiency, media expenditures are strictly indexed
 │ 3. Market Caravans, PA   │ 280,000 Voters    │ 52.6%             │ Ksh 14,500,000 │ 22.5%                   │
 │    Trucks & Baraza Staging│                   │                   │                │                         │
 ├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
-│ 4. Printed Collateral &  │ 220,000 Voters    │ 41.3%             │ Ksh 6,200,000  │ 9.6%                    │
+│ 4. Printed Collateral &  │ 220,000 (est.)    │ 41.3%             │ Ksh 6,200,000  │ 9.6%                    │
 │    Baraza Photobooks     │                   │                   │                │                         │
 ├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
-│ 5. Digital Video & Ads   │ 72,455 Voters     │ 13.6%             │ Ksh 1,850,000  │ 2.9%                    │
+│ 5. Digital Video & Ads   │ ~72,000 voters    │ 13.6%             │ Ksh 1,850,000  │ 2.9%                    │
 │    (Meta, TikTok, X)     │ (Youth/Diaspora)  │                   │                │                         │
 ├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
-│ 6. Groundgame Mobilizers │ 450,000+ Voters   │ 84.5%             │ Ksh 21,500,000 │ 33.3%                   │
+│ 6. Groundgame Mobilizers │ 450,000+ (est.)   │ 84.5%             │ Ksh 21,500,000 │ 33.3%                   │
 │    & Polling Day Agents  │ (Direct Ground)   │                   │                │                         │
 ├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
 │ 7. Tech Stack, Legal,    │ System Wide       │ N/A               │ Ksh 6,800,000  │ 10.5%                   │
@@ -344,6 +348,28 @@ To maximize cost-per-contact efficiency, media expenditures are strictly indexed
 │ STATUTORY EXPENDITURE CEILING (IEBC GAZETTE 12251)               │ Ksh 97,560,000 │ (Headroom: Ksh 33.06M)  │
 └──────────────────────────────────────────────────────────────────┴────────────────┴─────────────────────────┘
 ```
+
+**Two rows are estimates, not Section 3.1 figures.** Printed collateral and groundgame reach
+are marked *(est.)* — Section 3.1 sizes six channels and neither is among them. Both need a
+sourced basis before they carry a budget line of this size.
+
+**Where this budget diverges from the 3.1.3 target.** Taking the five communications lines
+(rows 1–5, KSh 36.2m) as the communications budget:
+
+| Domain | 3.1.3 target | This budget | Gap |
+|---|---:|---:|---:|
+| Vernacular radio | 37% | **29.8%** | −7.2 pts |
+| Direct 2G SMS & USSD | 20% | **7.9%** | −12.1 pts |
+| Market caravans & collateral (rows 3 + 4) | 18% | **57.2%** | **+39.2 pts** |
+| Digital & social | 18% | **5.1%** | −12.9 pts |
+| Church & community | 7% | **0%** | −7 pts |
+
+The caravan and collateral line carries roughly **KSh 14 million more** than the reach
+argument in 3.1.3 supports, and the church network — sized at ~350,000 weekly attendees in
+3.1.2 — carries nothing at all. This is a decision for campaign leadership, not a rounding
+error: either the physical caravan programme is doing work the reach table does not capture
+and 3.1.3 should be restated, or the allocation moves. **It is flagged here rather than
+resolved, because the answer determines where a fifth of the communications budget goes.**
 
 ---
 
@@ -361,10 +387,10 @@ To maintain strict accounting integrity, **unverified cost estimates are rejecte
 │    (Musyi FM / County FM)  │ (Royal Media; independent)  │ Required: Negotiate bulk multi-month package rate│
 ├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
 │ 2. 2G Bulk SMS Gateway     │ **Verified Carrier Rate**   │ Safaricom/Airtel aggregated via Africa's Talking │
-│    (Sender ID: DR_MAKALI)  │ (Africa's Talking API)      │ at Ksh 0.60–0.80 per SMS.                        │
+│    (Sender ID: DR_MAKALI)  │ (Africa's Talking API)      │ — see Section 9.2.2 for the rate card.           │
 ├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 3. USSD Interactive Portal │ **Verified Carrier Rate**   │ Zero-rated shared code setup Ksh 30k;            │
-│    (*483*77#)              │ (Direct Telco SDP)          │ Session fee Ksh 0.15/20s session.                │
+│ 3. USSD Interactive Portal │ **Verified Carrier Rate**   │ Shared code, development and hosting per the     │
+│    (*483*77#)              │ (Direct Telco SDP)          │ Section 9.2.2 rate card; session fee Ksh 0.15.   │
 ├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
 │ 4. Outdoor Billboard       │ **Awaiting Procurement Res**│ Commercial rate cards for Kitui Town, Mwingi, and│
 │    Structures (Static PVC) │                             │ Mutomo intersections *[Required Research]*.      │
@@ -400,8 +426,8 @@ The campaign adheres to all six statutory financing mandates established under K
 │    Account Requirement            │   commercial bank account at a licensed tier-1 Kenyan bank.             │
 │                                   │ • All donations, mobile money, and payments must flow through this acct.│
 ├───────────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
-│ 4. Authorised Person & Agent      │ • Mandatory formal written notification to IEBC designating the named   │
-│    Notification to IEBC           │   Campaign Treasurer / Finance Lead as the sole Authorized Signatory.   │
+│ 4. Authorised Person & Agent      │ • Written notification to IEBC of the Campaign Expenditure Committee    │
+│    Notification to IEBC           │   and signatory — see 6.6.1 for members and the 3-month deadline.       │
 ├───────────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
 │ 5. Ksh 1,000,000 Audited Report   │ • Any expenditure line or single donor receipt equal to or exceeding    │
 │    Disclosure Threshold           │   **Ksh 1,000,000** must be documented with a certified invoice/receipt │

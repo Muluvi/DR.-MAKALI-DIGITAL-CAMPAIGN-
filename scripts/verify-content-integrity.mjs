@@ -153,6 +153,16 @@ const AUDIT_REWRITES = [
   "9.2.5: costed the three tiers against the verified KSh97.56m ceiling instead of leaving [Insert] placeholders.",
 ];
 
+/**
+ * Lines the audit *added* rather than changed — the segment-overlap note, the budget
+ * divergence table, the coverage note, the two open questions for counsel. They have no
+ * pre-restructure counterpart, so they are subtracted from the current side the same way the
+ * nine orientation lines are, and listed in scripts/audit-additions.json to stay auditable.
+ */
+const AUDIT_ADDITIONS = JSON.parse(
+  fs.readFileSync(new URL("./audit-additions.json", import.meta.url), "utf8"),
+);
+
 const AUDIT_REWRITE_PAIRS = JSON.parse(
   fs.readFileSync(new URL("./audit-rewrites.json", import.meta.url), "utf8"),
 );
@@ -204,7 +214,9 @@ function bodyLines(text, { dropDeletedSections = false } = {}) {
         continue;
       }
     }
-    if (skipping || line.trim() === "") continue;
+    // A bare ">" is a blockquote continuation marker carrying no body text, so it is
+    // ignored like a blank line rather than counted as content that moved.
+    if (skipping || line.trim() === "" || line.trim() === ">") continue;
     out.push(line);
   }
   return out;
@@ -252,7 +264,23 @@ let after = [];
 for (const file of fs.readdirSync(CONTENT).sort()) {
   if (!file.endsWith(".md")) continue;
   const text = normaliseRefs(fs.readFileSync(path.join(CONTENT, file), "utf8"));
-  after = after.concat(bodyLines(text).filter((line) => !ORIENTATION_LINES.has(line.trim())));
+  const addedAllowance = new Map();
+  for (const line of AUDIT_ADDITIONS) {
+    const key = normaliseRefs(line).trim();
+    addedAllowance.set(key, (addedAllowance.get(key) ?? 0) + 1);
+  }
+  after = after.concat(
+    bodyLines(text).filter((line) => {
+      const trimmed = line.trim();
+      if (ORIENTATION_LINES.has(trimmed)) return false;
+      const left = addedAllowance.get(trimmed);
+      if (left) {
+        addedAllowance.set(trimmed, left - 1);
+        return false;
+      }
+      return true;
+    }),
+  );
 }
 
 const allowance = new Map(REMOVED_SCAFFOLDING);
@@ -271,7 +299,8 @@ if (lost.length === 0 && added.length === 0) {
       `apart from the deleted registers, the nine logged orientation lines, repointed cross-references ` +
       `the ${FILLED_PLACEHOLDERS.length} placeholders the client has filled in, ` +
       `the ${AUDIT_CORRECTIONS.length} logged pre-send audit corrections, ` +
-      `and ${AUDIT_REWRITE_PAIRS.length} logged audit rewrite hunks.`
+      `${AUDIT_REWRITE_PAIRS.length} logged audit rewrite hunks, ` +
+      `and ${AUDIT_ADDITIONS.length} logged added lines.`
   );
   process.exit(0);
 }

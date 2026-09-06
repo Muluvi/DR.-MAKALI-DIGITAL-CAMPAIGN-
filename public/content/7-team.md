@@ -249,8 +249,8 @@ Rather than justifying a lean team as a budgetary constraint, this operational a
 │                          │   and volunteer deployment logistics.           │ • Transport & Fuel Fleet SACCOs│
 ├──────────────────────────┼─────────────────────────────────────────────────┼────────────────────────────────┤
 │ 4. Data, Technology &    │ • Management of CRM database, analytics BI      │ • SMS/USSD Gateway Vendor      │
-│    Compliance Lead (DPO) │   dashboards, and voter registration targets.   │   (Africa's Talking)           │
-│                          │ • Statutory compliance with DPA 2019, consent   │ • Cloud Infrastructure (AWS)   │
+│    Compliance Lead (DPO) │   dashboards, and voter registration targets.   │   (selected at contracting)    │
+│                          │ • Statutory compliance with DPA 2019, consent   │ • Cloud Infrastructure         │
 │                          │   logging, and cyber incident management.       │ • Legal Data Protection Counsel│
 └──────────────────────────┴─────────────────────────────────────────────────┴────────────────────────────────┘
 ```

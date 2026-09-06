@@ -60,8 +60,8 @@ The general election phase focuses on systematic voter mobilization, ground netw
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
 │ **GE-03:**  │ Accredited, trained party│ 0         │ **1,578** │ IEBC official    │ Legal &   │ Weekly      │
 │ Polling     │ polling station agents   │ Station   │ Stations  │ accreditation    │ Polling   │ (Final 60   │
-│ Station     │ deployed across 100% of  │ Agents    │ (100% +   │ badges & signed  │ Station   │ Days)       │
-│ Agent Cvrg  │ Kitui polling streams.   │           │ 152 Resv) │ deployment forms │ Lead      │             │
+│ Station     │ deployed across 100% of  │ Agents    │ (100% of  │ badges & signed  │ Station   │ Days)       │
+│ Agent Cvrg  │ Kitui polling stations.  │           │ stations) │ deployment forms │ Lead      │             │
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
 │ **GE-04:**  │ Ratio of pledged voters  │ 72.0%     │ **≥ 82.0%**│ IEBC Form 37A    │ Polling   │ Post-Day    │
 │ Turnout     │ who cast verified ballots│ (Historical│ Voter     │ audit vs. CRM    │ Day Ops   │ Real-Time   │

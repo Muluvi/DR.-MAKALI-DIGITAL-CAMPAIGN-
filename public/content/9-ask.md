@@ -82,6 +82,15 @@ to **KSh2 million**, imprisonment up to **five years**, or both.
 * Covered expenditure expressly includes **advertising, publicity material,
 campaign personnel and communication** — that is, this engagement.
 
+> **What the shared ceiling means, and the question it raises.** If the ceiling is genuinely
+> shared across the Governor, Senator and Woman Representative races, then whose spending
+> counts against Dr. Mulu's KSh97.56 million is a material question — and one the campaign
+> cannot answer from the Gazette Notice alone. It most likely binds the three seats of a
+> single party ticket at the general election rather than rival aspirants during a
+> nomination, but that reading needs confirming with counsel before any tier below is
+> committed to. **Every budget figure in this document assumes the whole ceiling is
+> available to this campaign.** If it is not, all three tiers move.
+>
 > **Verified: the Kitui county-seat expenditure ceiling is KSh97.56 million**
 > (IEBC, Gazette Notice No. 12251, 7 August 2026, First Schedule) — shared
 > across the Governor, Senator and Woman Representative races. This figure has
@@ -142,6 +151,15 @@ actual spend rather than modelled spend.
 
 ### 9.2.4 Compliance instrumentation
 
+**An unresolved question that has to go to counsel first.** Section 3.3.3 puts the lawful
+spending window as beginning "upon formal gazettement of candidates" (2027); Section 9.2.1
+puts it at "at least six months before polling". Phase −1 runs from now to the nomination —
+outside both. So either Phase −1 spending is unregulated, in which case the ceiling does not
+constrain it and the tiers below are conservative, or it is regulated and this document has
+no compliance treatment for the period carrying its most concentrated spend. **The campaign
+should not commit Phase −1 budget until this is settled.** It is stated here rather than
+resolved because the answer is a legal reading, not a drafting choice.
+
 Because digital and SMS spend is now regulated expenditure:
 * Every ad account, SMS dispatch and vendor invoice is logged to a single
 reconciliation ledger from day one, tagged by date, channel, ward and
@@ -194,7 +212,8 @@ field-digital integration; weekly sentiment
 * **Research:** quarterly focus groups (Section 8.4)
 * **Crisis:** dedicated lead from Phase 2; quarterly red-team drills
 * **Trade-offs:** no premium social listening licences; sign-language
-interpretation on flagship content only rather than all video
+interpretation on flagship content only rather than all video (unchanged from
+Lean — it is Premium that adds full-video coverage)
 
 #### Tier 3 — PREMIUM
 **Purpose:** dominate share of voice and run a fully instrumented operation.
@@ -223,7 +242,7 @@ covers the whole campaign, not the digital function alone
 | Multi-touch attribution | ✗ | ✓ | ✓ |
 | Focus groups | ✗ | Quarterly | Monthly |
 | Red-team drills | On trigger | Quarterly | Monthly |
-| Sign-language interpretation | Flagship only | Flagship | All video |
+| Sign-language interpretation | Flagship only | Flagship only | All video |
 | Arid-belt reach | Weak | Strong | Strong |
 | Realistic Phase 3 contact universe | ~60,000 | ~150,000 | ~250,000 |
 

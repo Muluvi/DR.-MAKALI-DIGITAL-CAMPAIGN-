@@ -88,11 +88,22 @@ The 2027 gubernatorial race in Kitui features a highly competitive, multi-candid
 
 #### Stage One: The Wiper Democratic Movement Nomination Window (Immediate Target)
 
-*   **Dr. Irene Kasalu (Woman Representative, Kitui County):** Commands an expansive, countywide constituency base by virtue of her seat. It has been reported in regional media that she maintains active grassroots networks built through her extensive local development tours ("Ziara Mashinani") (Tier 2). Polling data as of August 2026 establishes her as the current frontrunner in public preference at 37.4% (Tier 2). However, critics allege a lack of structured financial governance or executive experience. Her public criticism of the incumbent's equal-ward funding allocation represents a strategic opening for a technical, policy-driven rebuttal that Dr. Mulu is uniquely equipped to deliver.
+*   **Dr. Irene Kasalu (Woman Representative, Kitui County):** Commands an expansive, countywide constituency base by virtue of her seat. It has been reported in regional media that she maintains active grassroots networks built through her extensive local development tours ("Ziara Mashinani") (Tier 2). Polling data as of August 2026 establishes her as the current frontrunner in public preference at 37.4% (Tier 2). However, critics allege a lack of structured financial governance or executive experience. Her public criticism of the incumbent's equal-ward funding allocation is a live policy argument the campaign has to take a position on — and note that Section 2.6.1 currently commits Dr. Mulu to an equal-ward guarantee of its own. The two cannot both stand: either the equal-ward guarantee is the platform and this line of attack is unavailable, or the attack is used and the guarantee is restated as a needs-weighted formula. **This is an open decision, not a settled opening.**
 *   **Sen. Enoch Wambua (Senator, Kitui County):** Commands significant party influence and standing as a senior legislator within the Wiper Democratic Movement (Tier 1). He retains a highly loyal, traditional party delegate and voter base (Tier 1). However, published survey trends indicate a contraction in his countywide support, declining from 16.3% in June 2026 to 14.3% as of 7 August 2026 (Tier 2).
 *   **Hon. Dr. Benson Makali Mulu (Member of Parliament, Kitui Central):** Possesses the most comprehensive macroeconomic, fiscal, and monitoring and evaluation credentials in the race (Tier 1). However, his primary structural challenge is constituency-bounded name recognition: a Kitui Central MP is inherently less visible in the Mwingi sub-counties and the arid southern belt than countywide office holders (Tier 1).
 
-**Strategic Diagnosis:** Dr. Mulu's polling deficit represents a **geography-of-recognition bottleneck, not a deficit of leadership credibility**. Name recognition is the most rapidly addressable deficit through micro-targeted digital ads and SMS/USSD localized outreach. Phase −1 is specifically engineered to resolve this visibility challenge.
+**Strategic Diagnosis:** Dr. Mulu's polling deficit is substantially a
+**geography-of-recognition bottleneck** rather than a deficit of leadership credibility, and
+name recognition is the most rapidly addressable deficit through micro-targeted digital ads
+and SMS/USSD localized outreach. Phase −1 is engineered to resolve that visibility challenge.
+
+**The counter-evidence this diagnosis has to survive.** Section 1.2.6 records that Dr. Kasalu
+won the 2022 Woman Representative race with **201,899 votes** — more than Governor Malombe's
+198,004 winning gubernatorial total in the same election. She has already demonstrated
+countywide vote-getting capacity above the victory threshold. That is not the profile of a
+candidate leading purely on passive name recognition, and the Week 1 message-lab work in
+Section 8.3.1 is specifically designed to test whether the recognition hypothesis holds
+before significant budget commits against it. If it does not, the response is different.
 
 #### Stage Two: The General Election Arena (Downstream Competitors)
 
@@ -675,7 +686,14 @@ Ikanga/Kyatune (15,384), Mutomo/Kibwea (12,637), Ikutha (12,066), Mutha (11,039)
 
 ### 1.4.4 How the zones are weighted
 
-Budget and content allocation across zones, by phase:
+Budget and content allocation across zones, by phase.
+
+**Coverage note.** The three zones above total 895,766 residents — **78.8% of the county's
+1,136,187**. They name 12 of the county's 18 sub-counties; the remaining six, about 240,000
+residents, are not in any zone. The weightings below therefore distribute 100% of budget
+across zones covering under four-fifths of the population, and the missing sub-counties need
+either adding to a zone or an explicit statement of why they are out of scope before this
+table drives spend.
 
 | Zone | Share of population | Phase −1 (nomination) | Phase 1–2 | Phase 3 (GOTV) |
 |---|---|---|---|---|

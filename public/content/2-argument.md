@@ -34,7 +34,11 @@ Competitors will seek to weaponize Dr. Mulu's technocratic and economic credenti
 
 ## 2.2 The four campaign pillars
 
-Four pillars, extended from the original three.
+Four pillars, extended from the original three. **These four are the campaign's pillars.**
+Two other groupings appear later in this section and are deliberately different things, not
+competing versions of this one: Section 2.6 sets out the three *message* pillars — how the
+claim is argued to a voter — and Section 2.7.1 the four *content* pillars, which are
+production buckets for the studio. Each of those maps back to the four below.
 
 ### 2.2.1 Fiscal accountability and devolution
 
@@ -332,8 +336,8 @@ Under the campaign's Provenance Discipline (Section 6.1.2), **no claim is made w
                                       │
          ┌────────────────────────────┼────────────────────────────┐
          ▼                            ▼                            ▼
-   PILLAR 1: INTEGRITY          PILLAR 2: JOBS &             PILLAR 3: DEVOLUTION
-   & FISCAL PRUDENCE            WEALTH CREATION              EQUITY & WATER
+   MESSAGE PILLAR 1:            MESSAGE PILLAR 2:            MESSAGE PILLAR 3:
+   INTEGRITY & PRUDENCE         JOBS & WEALTH                DEVOLUTION & WATER
  ┌──────────────────────┐     ┌──────────────────────┐     ┌──────────────────────┐
  │ Proof Point:         │     │ Proof Point:         │     │ Proof Point:         │
  │ 13 Years Clean CDF   │     │ KNBS Census &        │     │ Equal Ward Fund      │
@@ -361,29 +365,36 @@ Under the campaign's Provenance Discipline (Section 6.1.2), **no claim is made w
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-#### Pillar 1: Fiscal Integrity & Transparent Public Finance
+#### Message Pillar 1: Fiscal Integrity & Transparent Public Finance *(carries campaign pillars 2.2.1 and 2.2.4)*
 *   **Narrative Statement:** *"Kitui's Ksh 12+ Billion annual budget has been crippled by pending bills, procurement inflation, and ghost projects. Dr. Makali Mulu is the only candidate with a verified track record of managing public funds with zero financial audit queries."*
 *   **Primary Evidence & Source:**
-    *   **Tier 1 Proof Point:** **Office of the Auditor-General (OAG) Certified NG-CDF Audit Reports (2013–2025)**. Kitui Central NG-CDF consistently achieved unqualified (clean) audit opinions and was ranked among the top 5 best-managed constituencies in Kenya for institutional transparency and infrastructure value-for-money.
-    *   **Tier 1 Contrast:** Kitui County Government audited accounts under both predecessor regimes accumulated over **Ksh 2.4 Billion in contested pending bills** and adverse OAG audit queries (OAG County Executive Audit FY 2021/22 & FY 2022/23).
+    *   **Proof Point — requires sourcing before use:** **Office of the Auditor-General (OAG) NG-CDF audit reports, 2013–2025.** The claim of consistently unqualified opinions is checkable and, if any year carries a qualification, collapses this pillar publicly. It is not tiered here because the underlying reports have not been retrieved. The separate "top 5 best-managed constituencies in Kenya" ranking is **not the Tier 1 claim in Sections 1.2.1 and 2.1.1**, which is narrower — best-evaluated constituency in the Eastern region, FY2014/15 — and only that narrower claim should be used until the wider one is sourced.
+    *   **Contrast — requires sourcing:** Kitui County Government audited accounts under both predecessor regimes are reported to have accumulated over **Ksh 2.4 billion in contested pending bills** (OAG County Executive Audit FY2021/22 & FY2022/23). Note this is a **different measure** from the KSh 1.3 billion pending-bill figure at FY2020/21 carried as Tier 1 in Sections 1.2.7 and 2.1.2; the two are not interchangeable and should not be used in the same argument without stating which is which.
 
-#### Pillar 2: Household Economic Empowerment & Agrarian Value Addition
-*   **Narrative Statement:** *"78.4% of Kitui's households depend on farming and livestock, yet our farmers sell raw green grams and charcoal at throwaway prices. Dr. Mulu's economic plan introduces solar-powered cold storage, green gram aggregation centers, and honey processing to double household farm incomes."*
+#### Message Pillar 2: Household Economic Empowerment & Agrarian Value Addition *(carries campaign pillar 2.2.3)*
+*   **Narrative Statement** *(the 78.4% figure is untiered and unsourced — verify or drop before publication)*: *"78.4% of Kitui's households depend on farming and livestock, yet our farmers sell raw green grams and charcoal at throwaway prices. Dr. Mulu's economic plan introduces solar-powered cold storage, green gram aggregation centers, and honey processing to double household farm incomes."*
 *   **Primary Evidence & Source:**
-    *   **Tier 1 Proof Point:** **KNBS 2019 Census & Agricultural Sector Transformation Strategy (ASTGS)**. Kitui produces over 45,000 metric tonnes of green grams (*ndengu*) annually, but captures less than 32% of terminal market value due to broker cartels.
-    *   **Policy Intervention Proof:** Legislative sponsorship of Sessional Paper No. 1 on National Value Addition and Export Promotion during Dr. Mulu's parliamentary tenure.
+    *   **Proof Point — requires sourcing:** **KNBS 2019 Census & Agricultural Sector Transformation Strategy (ASTGS).** The 45,000 tonne output and the sub-32% value-capture figure carry no tier and no page reference. Both are load-bearing for the floor-price commitment below and must be sourced before either is quoted.
+    *   **Policy Intervention — verify:** Sessional papers are ordinarily Executive instruments rather than backbench sponsorships. Establish from the Hansard record what Dr. Mulu's actual role was before "legislative sponsorship" is claimed.
 
-#### Pillar 3: Devolution Equity, Universal Water Access & Healthcare
+#### Message Pillar 3: Devolution Equity, Universal Water Access & Healthcare *(carries campaign pillars 2.2.1 and 2.2.2)*
 *   **Narrative Statement:** *"Development in Kitui must no longer depend on which ward voted for the Governor. Dr. Mulu guarantees an institutionalized Ward Development Equalization Fund of Ksh 100 Million per ward annually, prioritizing solar borehole reticulation and stocked village dispensaries."*
 *   **Primary Evidence & Source:**
-    *   **Tier 1 Proof Point:** **Kitui County Integrated Development Plan (CIDP III)**. Over 61% of rural Kitui households still walk >5 km to fetch water during dry seasons.
-    *   **Empirical CDF Proof:** Delivery of 84 community solar boreholes and 142 school water harvesting projects across Kitui Central under Dr. Mulu's administration (Kitui Central Project Inventory 2013–2026).
+    *   **Proof Point — requires sourcing:** **Kitui County Integrated Development Plan (CIDP III).** The 61% figure is untiered. Section 1.2.5 carries a related Tier 1 statistic — approximately 400,000 residents relying on untreated surface water — which is a different measure and is the one currently defensible.
+    *   **CDF Proof — requires the inventory:** 84 community solar boreholes and 142 school water-harvesting projects (Kitui Central Project Inventory 2013–2026). Sections 5.1.4 and 8.2.2 cite the same inventory as "140+ classrooms", which is a different category of project. Publish the inventory's own line items once and quote them consistently.
 
 ---
 
 ### 2.6.2 What we say to each segment
 
 Cross-referencing the demographic and livelihood segments established in **Section 2.4**:
+
+> **These segments overlap, and the percentages are shares of the register, not a partition
+> of it.** A woman farming in Mwingi is in rows 1 and 4; a boda operator in Kitui Town is in
+> rows 3 and 5. The shares therefore sum to about 170%, which is expected for messaging
+> segments and would be an error for a population breakdown. Counts are shown to the
+> thousand: they are shares applied to the 532,758 register, not measured headcounts, and
+> quoting them to the unit would imply a precision no source here supports.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -393,32 +404,32 @@ Cross-referencing the demographic and livelihood segments established in **Secti
 ├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
 │ 1. Smallholder Crop Farmers  │ • *"Never sell Ndengu at Ksh 40 again."* │ • **KNBS Agrarian Data:**         │
 │    (32.8% of Electorate /    │ • County guaranteed aggregation minimum  │   Kitui farmers lose ~68% of value│
-│    174,745 Voters)           │   floor price (Ksh 85/kg) + local storage│   to middlemen during peak harvest│
+│    ~175,000 Voters)          │   floor price (Ksh 85/kg) + local storage│   to middlemen during peak harvest│
 │                              │ • Kikamba: *"Uithio wa Ndengu na Mbemba"*│ • Pilot Kitui Central Farmers SACCO│
 ├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
 │ 2. Agro-Pastoralists &       │ • *"Water pans, livestock feed reserves, │ • **National Drought Management   │
 │    Herders (Mwingi/South)    │   and border security lighting."*        │   Authority (NDMA) Reports:**     │
-│    (14.5% / 77,250 Voters)   │ • Decentralized veterinary cold-chain.   │   Livestock mortality drops 45%   │
+│    (14.5% / ~77,000 Voters)  │ • Decentralized veterinary cold-chain.   │   Livestock mortality drops 45%   │
 │                              │ • Kikamba: *"Kithima kya Kyalo na Syana"*│   with localized water points.    │
 ├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
 │ 3. Youth Hustlers & Boda     │ • *"The Youth Innovation & Enterprise   │ • **Kitui Central NG-CDF Data:**  │
 │    Operators (18–35 Years)   │   Fund: Zero-interest equipment loans."* │   Over 4,200 youth sponsored with │
-│    (43.9% / 233,881 Voters)  │ • Free driving licenses & digital hubs.  │   NITA/TVET technical bursaries.  │
+│    (43.9% / ~234,000 Voters) │ • Free driving licenses & digital hubs.  │   NITA/TVET technical bursaries.  │
 │                              │ • Kikamba: *"Wathi wa Mwanya kwa Mwanake"*│                                  │
 ├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
 │ 4. Rural Women, Caregivers & │ • *"Clean water within 1 km and stocked  │ • **Kitui Central Project Log:**  │
 │    Chamas (52.1% Electorate /│   maternity dispensaries in every sub-loc"│   84 functional solar boreholes   │
-│    277,567 Voters)           │ • Ksh 50,000 table-banking seed capital. │   built with clean water tariffs. │
+│    ~278,000 Voters)          │ • Ksh 50,000 table-banking seed capital. │   built with clean water tariffs. │
 │                              │ • Kikamba: *"Mumo kwa Aka na Syana"*     │ • Ksh 120M disbursed to women CBOs│
 ├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
 │ 5. Urban MSMEs, Traders &    │ • *"Single Business Permit reform and 0% │ • **Parliamentary Hansard:**      │
 │    Market Stall Keepers      │   harassment of mama mbogas."*           │   Dr. Mulu's defense of MSME tax  │
-│    (18.2% / 96,962 Voters)   │ • Modern solar market shades & drainage. │   relief in the Finance Bill 2024.│
+│    (18.2% / ~97,000 Voters)  │ • Modern solar market shades & drainage. │   relief in the Finance Bill 2024.│
 │                              │ • Kikamba: *"Biashara Nzeo na Kazi"*     │ • Kitui Market Vendor Council Log │
 ├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
 │ 6. Teachers, Civil Servants  │ • *"Timely county salaries, meritocratic │ • **Auditor-General & CRA Data:** │
 │    & Elite Professionals     │   promotions, and NHIF/SHIF hospital cover"│ Dr. Mulu's published fiscal     │
-│    (8.5% / 45,284 Voters)    │ • Strict adherence to SRC salary codes.  │   blueprints on county debt relief│
+│    (8.5% / ~45,000 Voters)   │ • Strict adherence to SRC salary codes.  │   blueprints on county debt relief│
 └──────────────────────────────┴──────────────────────────────────────────┴───────────────────────────────────┘
 ```
 
@@ -448,7 +459,7 @@ Cross-referencing the channel reach realities established in **Section 3.1**:
 ├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
 │ 4. WhatsApp & Social Video   │ • **30s TikTok Clips & Infographic Cards**│ • Side-by-side graphical comparison│
 │    (Meta, TikTok, X)         │ • Visual, fast-paced, urban Sheng/English│   of CDF budgets vs County wastage│
-│    [Reach: ~72,455 Voters]   │   highlighting national economic policy. │ • National Assembly hansard clips │
+│    [Reach: ~72,000 voters]   │   highlighting national economic policy. │ • National Assembly hansard clips │
 ├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
 │ 5. Church Synods & Pastoral  │ • **Reverent 3-Minute Fellowship Speech** │ • Values of servant leadership,   │
 │    [Reach: ~350,000 Voters]  │ • Biblical stewardship themes (Luke 16:10│   integrity, non-violent politics,│
@@ -530,7 +541,9 @@ Campaign communications succeed when production is treated as a rigorous, indust
 
 ### 2.7.1 The four content pillars
 
-Every piece of creative output generated by the campaign must anchor to one of four verified content pillars:
+Production buckets for the studio, not a restatement of the campaign pillars in Section 2.2
+or the message pillars in Section 2.6. Every piece of creative output anchors to one of these
+four, and each carries one or more of the 2.2 pillars:
 
 1.  **Pillar A: The Integrity & Stewardship Ledger (*Kĩtĩo kya Kũthũkũma*)**
     *   *Core Theme:* 13 years of spotless public financial management and zero Auditor-General queries in Kitui Central NG-CDF.
@@ -565,7 +578,7 @@ Every piece of creative output generated by the campaign must anchor to one of f
 ├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
 │ 2. Direct 2G Bulk SMS │ • Single-part 160-character plain text    │ • Localized Kikamba & Swahili; includes │
 │    & USSD Portal      │ • GSM-7 encoding (no accented unicode)    │   ward name, policy pledge, and free    │
-│                       │ • USSD: 8-level text menu tree (*483*XX#) │   opt-out footer (*"STOP to 22XXX"*).   │
+│                       │ • USSD: 4-option menu tree (see 2.7.3C)   │   opt-out footer (*"STOP to 22XXX"*).   │
 ├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
 │ 3. Open-Air Baraza &  │ • A5 full-color 4-page glossy fold-outs   │ • Bilingual Kikamba/Swahili; high visual│
 │    Market Print       │ • A1 weatherproof PVC caravan banners     │   density with real GPS project photos, │
