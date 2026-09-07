@@ -1,68 +1,50 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
- * Whether the persistent mobile chrome should be on screen.
+ * Whether the floating page chrome should be on screen.
  *
- * "Zero chrome": at rest, a phone shows the document and nothing else. On a folded Galaxy Fold
- * the five fixed elements this governs — progress bar, top rule, section bar, bottom nav and
- * the quick-nav capsule — took about a fifth of a 653px viewport permanently, against a
- * document meant to be read in fragments between other obligations.
+ * One model for every floating element, because they were each deciding for themselves and the
+ * ones that never withdrew sat permanently over the document. Measured at 1440px, the
+ * quick-nav capsule covered content in every section sampled — the ward register's "County Ward
+ * Average" figure, §0.1's "Wiper Nomination threshold", §2.4's geographic base — which is the
+ * "figures are blocked" symptom rather than anything wrong with the figures.
  *
- * Chrome is shown when the reader is plausibly looking for it: near the top of the page, or
- * immediately after an upward scroll. It withdraws when they scroll down, and again after a
- * pause once they have settled into reading. Nothing is removed — every control returns on one
- * upward flick, which is the gesture people already use to summon a browser's own chrome.
- *
- * Desktop is unaffected: the rail there is not competing for space.
+ * Thresholds match the behaviour MobileBottomNav already established, so the nav dock and the
+ * capsules move together instead of fighting: reveal near the top of the page or on any
+ * meaningful upward scroll, withdraw on a deliberate downward scroll.
  */
-export function useChromeVisible({
-  topThreshold = 240,
-  idleMs = 2600,
-  minDelta = 6,
-}: { topThreshold?: number; idleMs?: number; minDelta?: number } = {}) {
+export function useChromeVisible() {
   const [visible, setVisible] = useState(true);
+  const lastY = useRef(0);
 
   useEffect(() => {
-    const coarse = window.matchMedia("(pointer: coarse)").matches;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    // Reduced motion keeps the chrome put: withdrawing it is motion the reader opted out of.
-    if (!coarse || reduced) return;
+    // Reduced motion keeps the chrome put: sliding it away is motion the reader opted out of.
+    // The layout fix below still applies, so nothing is covered either way.
+    if (reduced) return;
 
-    let last = window.scrollY;
     let frame = 0;
-    let idle: ReturnType<typeof setTimeout> | undefined;
-
-    const settle = () => {
-      window.clearTimeout(idle);
-      idle = setTimeout(() => {
-        if (window.scrollY > topThreshold) setVisible(false);
-      }, idleMs);
-    };
-
     const onScroll = () => {
       if (frame) return;
       frame = window.requestAnimationFrame(() => {
         frame = 0;
         const y = window.scrollY;
-        const delta = y - last;
-        if (Math.abs(delta) < minDelta) return;
-        last = y;
-        if (y <= topThreshold) setVisible(true);
-        else setVisible(delta < 0);
-        settle();
+        const delta = y - lastY.current;
+        if (y < 80) setVisible(true);
+        else if (delta > 14 && y > 150) setVisible(false);
+        else if (delta < -10) setVisible(true);
+        lastY.current = y;
       });
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    settle();
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.clearTimeout(idle);
       if (frame) window.cancelAnimationFrame(frame);
     };
-  }, [topThreshold, idleMs, minDelta]);
+  }, []);
 
   return visible;
 }

@@ -26,6 +26,8 @@ interface AudienceSegment {
   id: string;
   index: number;
   name: string;
+  /** Tab label. Set explicitly: chopping `name` to N words left tabs reading "Rural agrarian &". */
+  shortName: string;
   sizing: Sizing;
   connectivity: string;
   geographicBase: string;
@@ -39,6 +41,7 @@ const AUDIENCE_SEGMENTS: AudienceSegment[] = [
     id: "agrarian",
     index: 1,
     name: "Rural agrarian & smallholder baseline",
+    shortName: "Rural agrarian",
     sizing: { kind: "sized", voters: "~507,000 registered voters (derived)", share: "95.2% of county population", tier: 1 },
     connectivity: "86.4% offline. 2G feature-phone dominance, high evening vernacular radio listenership.",
     geographicBase: "Rural belts across Kitui Central, Kitui West, Kitui Rural, Mwingi Central, Mwingi West and Kitui East — 36 non-urban wards.",
@@ -52,6 +55,7 @@ const AUDIENCE_SEGMENTS: AudienceSegment[] = [
     id: "pastoralist",
     index: 2,
     name: "Agro-pastoralist & arid-zone livestock keepers",
+    shortName: "Agro-pastoralist",
     sizing: {
       kind: "gap",
       estimate: "~80,000–105,000 registered voters",
@@ -69,6 +73,7 @@ const AUDIENCE_SEGMENTS: AudienceSegment[] = [
     id: "youth",
     index: 3,
     name: "Youth cohort, ages 18–35",
+    shortName: "Youth 18–35",
     sizing: { kind: "sized", voters: "~234,000 registered voters", share: "~44% of the active register", tier: 1 },
     connectivity: "~70%+ smartphone adoption within the cohort. WhatsApp, TikTok, Facebook Mobile, YouTube.",
     geographicBase: "Peri-urban corridors — Kitui Township, the Kwa Vonza university belt, Mwingi Central town, Mutonguni, Kabati — and rural trading centres.",
@@ -82,6 +87,7 @@ const AUDIENCE_SEGMENTS: AudienceSegment[] = [
     id: "msme",
     index: 4,
     name: "Urban & peri-urban informal commerce",
+    shortName: "Urban commerce",
     sizing: { kind: "sized", voters: "~26,000 registered voters (derived)", share: "4.8% of county population", tier: 1 },
     connectivity: "~45%–55% smartphone connectivity. Constant WhatsApp business use, daily county revenue contact.",
     geographicBase: "Kitui Township, Mwingi Central town, Kwa Vonza/Yatta, Mutomo, Matinyani and Nguutani.",
@@ -95,6 +101,7 @@ const AUDIENCE_SEGMENTS: AudienceSegment[] = [
     id: "professionals",
     index: 5,
     name: "Formal professionals, civil servants & educators",
+    shortName: "Professionals",
     sizing: {
       kind: "gap",
       estimate: "~25,000–35,000 registered voters",
@@ -112,6 +119,7 @@ const AUDIENCE_SEGMENTS: AudienceSegment[] = [
     id: "diaspora",
     index: 6,
     name: "Out-of-county Kamba diaspora",
+    shortName: "Diaspora",
     sizing: {
       kind: "gap",
       estimate: "150,000+ individuals",
@@ -149,7 +157,7 @@ export function AudienceSegmentationMatrix() {
       </div>
 
       <div
-        className="flex overflow-x-auto gap-1 p-2 bg-paper/70 border-b border-line scrollbar-none"
+        className="scroll-x snap-x snap-mandatory flex md:flex-wrap md:overflow-visible gap-1 p-2 bg-paper/70 border-b border-line"
         role="tablist"
         aria-label="Audience segments"
       >
@@ -161,12 +169,12 @@ export function AudienceSegmentationMatrix() {
               role="tab"
               aria-selected={isActive}
               onClick={() => setActiveId(s.id)}
-              className={`px-3 py-2 rounded-lg t-small font-bold whitespace-nowrap transition-colors cursor-pointer shrink-0 ${
+              className={`snap-start tap-chip px-3 py-2 rounded-lg t-small font-bold whitespace-nowrap transition-colors cursor-pointer shrink-0 ${
                 isActive ? "bg-accent text-white" : "text-muted hover:text-ink hover:bg-ink/5"
               }`}
             >
               <span className="font-mono opacity-70 mr-1.5">{s.index}</span>
-              {s.name.split(" ").slice(0, 3).join(" ")}
+              {s.shortName}
             </button>
           );
         })}

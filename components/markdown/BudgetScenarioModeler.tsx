@@ -17,14 +17,16 @@ import { TierBadge } from "./TierBadge";
  *
  * An earlier version hardcoded tier envelopes in both percentage and absolute KSh terms, a shared
  * USSD shortcode, and a share-of-voice dominance guarantee. None of
- * those appear in the source. The source deliberately leaves ad spend as
- * `[Insert — recommend N–M% of ceiling]` pending the verified ceiling, and Appendix A logs it
- * as an open item owned by the campaign. So the recommendation BAND is what renders, with the
- * unresolved figure shown as unresolved — using the same "Awaiting campaign decision" badge the
- * rest of the document already uses for exactly this.
+ * those appear in the source. §9.2.5 previously left ad spend as a bracketed placeholder; it
+ * now states each tier in shillings against the verified KSh97.56m ceiling, so this panel shows
+ * the absolute band rather than a percentage awaiting a decision. The figures are derived here
+ * from the ceiling and the tier band so the two cannot drift apart.
  */
 
 const CEILING_LABEL = "KSh97.56 million";
+/** The verified ceiling, in shillings. Absolute tier figures are derived, never restated. */
+const CEILING = 97_560_000;
+const millions = (pct: number) => (CEILING * (pct / 100) / 1_000_000).toFixed(2);
 
 interface BudgetTier {
   id: "lean" | "standard" | "premium";
@@ -66,7 +68,7 @@ const BUDGET_TIERS: BudgetTier[] = [
   {
     id: "standard",
     name: "Tier 2 — Standard",
-    badge: "Recommended",
+    badge: "Close the recognition gap countywide",
     recommended: true,
     purpose: "Close the recognition gap countywide and contest the general election competitively.",
     adSpendBand: { low: 30, high: 40 },
@@ -160,18 +162,22 @@ export function BudgetScenarioModeler() {
                   : "bg-paper/40 border-line hover:border-accent/40 text-muted hover:text-ink"
               }`}
             >
-              <div className="flex items-center justify-between w-full gap-2">
-                <span className={`t-label font-mono font-black ${isSelected ? "text-accent" : "text-muted"}`}>
-                  {tier.adSpendBand.low}–{tier.adSpendBand.high}% of ceiling
-                </span>
+              {/* The badge gets its own reserved row. Inline it pushed the band onto a second
+                  line on the recommended card only; absolutely positioned it overlapped the
+                  band. A row every card reserves keeps all three aligned and nothing on top of
+                  anything else. */}
+              <span className="h-[18px] flex items-center">
                 {tier.recommended && (
-                  <span className="t-micro font-extrabold uppercase bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 px-1.5 py-0.5 rounded shrink-0">
+                  <span className="t-micro font-extrabold uppercase bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 px-1.5 py-0.5 rounded">
                     Recommended
                   </span>
                 )}
-              </div>
-              <div className="text-xs font-bold text-ink truncate">{tier.name}</div>
-              <div className="t-small text-muted truncate">{tier.badge}</div>
+              </span>
+              <span className={`t-label font-mono font-black ${isSelected ? "text-accent" : "text-muted"}`}>
+                {tier.adSpendBand.low}–{tier.adSpendBand.high}% · KSh{millions(tier.adSpendBand.low)}m–{millions(tier.adSpendBand.high)}m
+              </span>
+              <div className="text-xs font-bold text-ink">{tier.name}</div>
+              <div className="t-small text-muted leading-snug text-pretty">{tier.badge}</div>
             </button>
           );
         })}
@@ -193,9 +199,11 @@ export function BudgetScenarioModeler() {
           <div className="p-4 rounded-xl border border-line bg-paper space-y-2.5">
             <div className="flex items-center justify-between gap-3 flex-wrap">
               <span className="t-label font-black uppercase tracking-wider text-muted">
-                Recommended ad spend, as a share of the verified ceiling
+                Recommended ad spend, against the verified ceiling
               </span>
-              <ClaimBadge status="awaiting" compact />
+              <span className="t-small font-mono font-bold text-accent tabular-nums shrink-0">
+                KSh{millions(currentTier.adSpendBand.low)}m–{millions(currentTier.adSpendBand.high)}m
+              </span>
             </div>
             <div
               className="relative h-8 rounded-lg bg-line/40 overflow-hidden"
@@ -219,9 +227,10 @@ export function BudgetScenarioModeler() {
               </span>
             </div>
             <p className="t-small text-muted leading-relaxed">
-              §9.2.5 states this as <code className="placeholder">[Insert — recommend {currentTier.adSpendBand.low}–{currentTier.adSpendBand.high}% of ceiling]</code>. The absolute
-              figure is set on tier selection and is owned by the campaign. Percentages refer to
-              the verified county ceiling; absolute figures are illustrative structures to be finalised against it.
+              §9.2.5 sets this tier at {currentTier.adSpendBand.low}–{currentTier.adSpendBand.high}% of the verified {CEILING_LABEL} ceiling —
+              <strong className="text-ink"> KSh{millions(currentTier.adSpendBand.low)}m–{millions(currentTier.adSpendBand.high)}m</strong>.
+              Ad spend is regulated expenditure and sits inside that ceiling alongside transport,
+              venues and personnel, not in addition to them.
             </p>
           </div>
 
