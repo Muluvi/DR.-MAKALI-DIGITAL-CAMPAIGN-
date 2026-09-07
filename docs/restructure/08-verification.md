@@ -176,6 +176,10 @@ exactly this and now fails the build on it.
 | `###` sub-parts | 212 | **212** | 0 |
 | Indexed headings | 262 | **262** | 0 |
 
+Re-verified after the second pass (§6.1.2–.4 promoted into Part 2, `hashchange` handler added):
+words 49,665, `##` 50, `###` 212, indexed headings 262, all guards green, full browser suite
+passing including hashchange resolution on an already-open page.
+
 **The +5 words, accounted exactly.** Each content file carries a one-line description of what
 that part contains. Nine described the old grouping and were false after the move (e.g.
 `2-evidence.md`'s said "four readings of the ground" for a part that now holds eight sections
