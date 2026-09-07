@@ -1,6 +1,7 @@
 "use client";
 
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useMemo } from "react";
+import type { SectionItem } from "../../lib/section-index";
 
 /**
  * Maps a printed section number ("6.5.4") to the deep-link id it lives at today
@@ -16,17 +17,31 @@ import React, { createContext, useContext } from "react";
  * moves again.
  */
 const SectionNumberMapContext = createContext<Readonly<Record<string, string>>>({});
+const SectionIndexContext = createContext<readonly SectionItem[]>([]);
 
 export function SectionNumberMapProvider({
-  map,
+  sections,
   children,
 }: {
-  map: Readonly<Record<string, string>>;
+  sections: readonly SectionItem[];
   children: React.ReactNode;
 }) {
-  return <SectionNumberMapContext.Provider value={map}>{children}</SectionNumberMapContext.Provider>;
+  const map = useMemo(
+    () => Object.fromEntries(sections.map((s) => [s.number, s.id])) as Record<string, string>,
+    [sections]
+  );
+  return (
+    <SectionIndexContext.Provider value={sections}>
+      <SectionNumberMapContext.Provider value={map}>{children}</SectionNumberMapContext.Provider>
+    </SectionIndexContext.Provider>
+  );
 }
 
 export function useSectionNumberMap(): Readonly<Record<string, string>> {
   return useContext(SectionNumberMapContext);
+}
+
+/** The document's generated section index, for surfaces that index the document itself. */
+export function useSectionIndex(): readonly SectionItem[] {
+  return useContext(SectionIndexContext);
 }

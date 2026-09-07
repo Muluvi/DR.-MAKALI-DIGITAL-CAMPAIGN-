@@ -222,13 +222,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
   // number (leave it alone) — see the note on that function for why this matters.
   const validSectionIds = useMemo(() => new Set(sections.map((s) => s.id)), [sections]);
 
-  // Printed section number -> the id it lives at today, derived from the same generated index the
-  // table of contents uses. This is what makes the document's 173 in-prose "Section N.N"
-  // references resolve after the five-part restructure moved sections between files.
-  const sectionNumberMap = useMemo(
-    () => Object.fromEntries(sections.map((s) => [s.number, s.id])) as Record<string, string>,
-    [sections]
-  );
+
 
   // Premium dynamic category intersection observer to track active section while scrolling
   useEffect(() => {
@@ -390,7 +384,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
   const readingTime = useMemo(() => Math.max(1, Math.ceil(wordCount / 220)), [wordCount]);
 
   return (
-    <SectionNumberMapProvider map={sectionNumberMap}>
+    <SectionNumberMapProvider sections={sections}>
     <div className="min-h-screen bg-paper text-ink font-sans selection:bg-accent/20">
       {/* First tab stop: skip 55,000 words of navigation chrome. */}
       <a href="#content-area" className="skip-link">Skip to content</a>

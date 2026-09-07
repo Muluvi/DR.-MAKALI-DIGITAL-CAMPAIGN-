@@ -29,18 +29,35 @@ export function headingSlug(text: string): string | null {
 // Part 4 is five parallel tracks rather than one part, because nothing in the defence track
 // depends on having read the ground track. The reader enters at the track they own.
 export const SECTIONS = [
-  { id: "decision", number: "1", label: "The decision", blurb: "Objectives, scope, budget, the ask" },
-  { id: "evidence", number: "2", label: "What we know, and what it means", blurb: "Nomination, county, arithmetic, reach, the law" },
-  { id: "strategy", number: "3", label: "What we will therefore do", blurb: "Claim, message, ethics, accessibility" },
-  { id: "publishing", number: "4A", label: "What we publish, and where", blurb: "Content, paid media, earned media, language" },
-  { id: "ground", number: "4B", label: "What we run on the ground", blurb: "Field, offline reach, organising" },
-  { id: "defence", number: "4C", label: "Defending the campaign", blurb: "Rapid response, war room, security" },
-  { id: "technology", number: "4D", label: "What it runs on", blurb: "Data, modelling, stack, analytics" },
-  { id: "team", number: "4E", label: "Who does the work", blurb: "Team structure, governance" },
-  { id: "delivery", number: "5", label: "Delivery and proof", blurb: "Phased plan, measurement, message lab" },
+  { id: "decision", part: 1, number: "1", label: "The decision", blurb: "Objectives, scope, budget, the ask" },
+  { id: "evidence", part: 2, number: "2", label: "What we know, and what it means", blurb: "Nomination, county, arithmetic, reach, the law" },
+  { id: "strategy", part: 3, number: "3", label: "What we will therefore do", blurb: "Claim, message, ethics, accessibility" },
+  { id: "publishing", part: 4, number: "4A", label: "What we publish, and where", blurb: "Content, paid media, earned media, language" },
+  { id: "ground", part: 4, number: "4B", label: "What we run on the ground", blurb: "Field, offline reach, organising" },
+  { id: "defence", part: 4, number: "4C", label: "Defending the campaign", blurb: "Rapid response, war room, security" },
+  { id: "technology", part: 4, number: "4D", label: "What it runs on", blurb: "Data, modelling, stack, analytics" },
+  { id: "team", part: 4, number: "4E", label: "Who does the work", blurb: "Team structure, governance" },
+  { id: "delivery", part: 5, number: "5", label: "Delivery and proof", blurb: "Phased plan, measurement, message lab" },
 ] as const;
 
+
+
 export type TabId = (typeof SECTIONS)[number]["id"];
+
+/** The five parts, for navigation that groups Part 4's five parallel tracks under one choice. */
+export const PARTS = [
+  { part: 1, label: "The decision", blurb: "What you are buying, and what it costs" },
+  { part: 2, label: "What we know", blurb: "The evidence, and what it implies" },
+  { part: 3, label: "What we will do", blurb: "The strategy, and its limits" },
+  { part: 4, label: "How it runs", blurb: "Five parallel delivery tracks" },
+  { part: 5, label: "Delivery and proof", blurb: "The plan, and how it is measured" },
+] as const;
+
+export type PartId = (typeof PARTS)[number]["part"];
+
+export function partOf(tabId: TabId): PartId {
+  return (SECTIONS.find((s) => s.id === tabId)?.part ?? 1) as PartId;
+}
 
 export const TAB_LABELS: Record<TabId, string> = Object.fromEntries(
   SECTIONS.map((s) => [s.id, s.label])
@@ -54,6 +71,11 @@ export function sectionId(tabId: TabId, slug: string): string {
 // (strategy/operations/tactics/execution/appendix) and the 2026 renumbering that produced the
 // three-tab exec/programme/registers document. Both are resolved here so a bookmark or a link
 // already shared with the campaign still lands on the right section rather than nowhere.
+//
+// NOTE: "strategy" is both a retired six-tab name here and a live part id today. That is safe
+// only because resolveLegacySectionId checks the live section index BEFORE consulting this
+// table, so a current strategy id is returned untouched and never aliased to "programme".
+// Always pass validIds. scripts/verify-deep-links.mjs asserts both directions hold.
 const TAB_ALIASES: Record<string, string> = {
   strategy: "programme",
   operations: "programme",

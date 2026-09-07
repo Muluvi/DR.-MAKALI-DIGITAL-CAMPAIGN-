@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, HandCoins } from "lucide-react";
-import { SECTIONS, type TabId } from "../lib/heading-slug";
+import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
 import type { SectionItem } from "../lib/section-index";
 
 const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
@@ -35,11 +35,14 @@ export function MobileTOCModal({
   sections
 }: MobileTOCModalProps) {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedTabFilter, setSelectedTabFilter] = useState<TabId | "all">("all");
+  // Filtering is by PART, not by tab. Nine tabs is more choices than a first filter should
+  // offer on a phone; the five parts are the shape of the document, and Part 4's five parallel
+  // delivery tracks belong behind one choice rather than five.
+  const [selectedTabFilter, setSelectedTabFilter] = useState<PartId | "all">("all");
 
   const filteredSections = useMemo(() => {
     return sections.filter((item) => {
-      const matchesTab = selectedTabFilter === "all" || item.tabId === selectedTabFilter;
+      const matchesTab = selectedTabFilter === "all" || partOf(item.tabId) === selectedTabFilter;
       const q = searchQuery.toLowerCase().trim();
       if (!q) return matchesTab;
       const matchesQuery =
@@ -141,17 +144,17 @@ export function MobileTOCModal({
               >
                 All ({sections.length})
               </button>
-              {SECTIONS.map((section) => (
+              {PARTS.map((part) => (
                 <button
-                  key={section.id}
-                  onClick={() => setSelectedTabFilter(section.id)}
+                  key={part.part}
+                  onClick={() => setSelectedTabFilter(part.part)}
                   className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[32px] ${
-                    selectedTabFilter === section.id
+                    selectedTabFilter === part.part
                       ? "bg-accent text-white border-accent"
                       : "bg-card text-muted border-line hover:text-ink"
                   }`}
                 >
-                  {section.label}
+                  {part.label}
                 </button>
               ))}
             </div>

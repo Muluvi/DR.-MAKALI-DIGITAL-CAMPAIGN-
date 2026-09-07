@@ -70,6 +70,7 @@ import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, type TabId } from "../lib/heading-slug";
 import { segmentContent } from "../lib/collapse-groups";
 import { DisclosureGroup } from "./markdown/DisclosureGroup";
+import { ObjectivesIndex } from "./markdown/ObjectivesIndex";
 import { ProseFold } from "./markdown/ProseFold";
 
 const kituiCentralPopulationDispute = DISPUTED_FIGURES.find((d) => d.id === "kitui-central-2019-population")!;
@@ -196,6 +197,9 @@ const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
 const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // ---- Situation and argument (§0–§2) -------------------------------------------------
   "decision-sec-0-1": <PollingTrajectorySimulator />,
+  // The scorecards are the objectives. What they do not carry is the eight indicator sets that
+  // stayed with the work they measure — indexed beneath them rather than moved here.
+  "decision-sec-8-1": <ObjectivesIndex />,
   "evidence-sec-1-1": <NominationPathPanel />,
   // The core narrative is §3, ahead of the strategic context — its thesis opens the argument.
   "strategy-sec-2-1": <EconomistGovernorThesis />,
