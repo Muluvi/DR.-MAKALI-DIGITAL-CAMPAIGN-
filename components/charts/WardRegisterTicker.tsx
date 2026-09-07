@@ -97,11 +97,11 @@ export function WardRegisterTicker() {
         </div>
 
         {/* Filter modes and playback controls */}
-        <div className="flex items-center gap-1.5 flex-wrap">
-          <div className="inline-flex p-0.5 bg-card border border-line/60 rounded-xl">
+        <div className="flex items-center gap-1.5 flex-wrap max-w-full">
+          <div className="inline-flex p-0.5 bg-card border border-line/60 rounded-xl overflow-x-auto max-w-full">
             <button
               onClick={() => setFilterMode("all")}
-              className={`px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all cursor-pointer ${
+              className={`px-2.5 py-1.5 t-micro font-bold rounded-lg transition-all cursor-pointer whitespace-nowrap min-h-[36px] ${
                 filterMode === "all"
                   ? "bg-accent text-white shadow-xs"
                   : "text-muted hover:text-ink"
@@ -111,7 +111,7 @@ export function WardRegisterTicker() {
             </button>
             <button
               onClick={() => setFilterMode("top")}
-              className={`px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 ${
+              className={`px-2.5 py-1.5 t-micro font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 whitespace-nowrap min-h-[36px] ${
                 filterMode === "top"
                   ? "bg-gold text-ink shadow-xs"
                   : "text-muted hover:text-ink"
@@ -122,7 +122,7 @@ export function WardRegisterTicker() {
             </button>
             <button
               onClick={() => setFilterMode("bottom")}
-              className={`px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 ${
+              className={`px-2.5 py-1.5 t-micro font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 whitespace-nowrap min-h-[36px] ${
                 filterMode === "bottom"
                   ? "bg-line/90 text-ink shadow-xs"
                   : "text-muted hover:text-ink"
@@ -136,7 +136,7 @@ export function WardRegisterTicker() {
           {/* Pause / Resume button */}
           <button
             onClick={() => setIsPausedByUser(!isPausedByUser)}
-            className="p-1.5 rounded-xl bg-card border border-line text-ink hover:border-accent/40 active:scale-95 transition-all cursor-pointer"
+            className="p-2 rounded-xl bg-card border border-line text-ink hover:border-accent/40 active:scale-95 transition-all cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center"
             title={isPausedByUser ? "Resume ticker" : "Pause ticker"}
             aria-label={isPausedByUser ? "Resume ticker" : "Pause ticker"}
           >
@@ -146,18 +146,18 @@ export function WardRegisterTicker() {
       </div>
 
       {/* Summary KPI Strip */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 my-3 text-xs">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 my-3 t-label">
         <div className="bg-card/70 border border-line/60 rounded-xl px-3 py-2 flex items-center justify-between">
-          <span className="text-[11px] text-muted">Top 10 Wards Concentration:</span>
-          <span className="font-mono font-bold text-ink">{top10Total.toLocaleString()} voters</span>
+          <span className="t-micro text-muted">Top 10 Wards Concentration:</span>
+          <span className="font-mono font-bold text-ink t-label">{top10Total.toLocaleString()} voters</span>
         </div>
         <div className="bg-card/70 border border-line/60 rounded-xl px-3 py-2 flex items-center justify-between">
-          <span className="text-[11px] text-muted">Frontier 10 Wards Total:</span>
-          <span className="font-mono font-bold text-ink">{bottom10Total.toLocaleString()} voters</span>
+          <span className="t-micro text-muted">Frontier 10 Wards Total:</span>
+          <span className="font-mono font-bold text-ink t-label">{bottom10Total.toLocaleString()} voters</span>
         </div>
         <div className="bg-card/70 border border-line/60 rounded-xl px-3 py-2 flex items-center justify-between">
-          <span className="text-[11px] text-muted">County Ward Average:</span>
-          <span className="font-mono font-bold text-accent">13,319 voters</span>
+          <span className="t-micro text-muted">County Ward Average:</span>
+          <span className="font-mono font-bold text-accent t-label">13,319 voters</span>
         </div>
       </div>
 
@@ -201,7 +201,7 @@ export function WardRegisterTicker() {
                 >
                   {/* Rank Badge */}
                   <div
-                    className={`w-6 h-6 rounded-lg flex items-center justify-center font-mono text-[11px] font-black shrink-0 ${
+                    className={`w-6 h-6 rounded-lg flex items-center justify-center font-mono t-micro font-black shrink-0 ${
                       ward.performanceTier === "top"
                         ? "bg-gold text-ink"
                         : ward.performanceTier === "bottom"
@@ -215,21 +215,21 @@ export function WardRegisterTicker() {
                   {/* Ward & Voters Details */}
                   <div className="flex flex-col min-w-0">
                     <div className="flex items-center gap-1.5">
-                      <span className="text-xs font-bold text-ink whitespace-nowrap">
+                      <span className="t-label font-bold text-ink whitespace-nowrap">
                         {ward.name}
                       </span>
                       {ward.performanceTier === "top" && (
-                        <span className="text-[10px] font-black uppercase tracking-wider px-1.5 py-0.2 bg-gold/15 text-ink rounded">
+                        <span className="t-micro font-black uppercase tracking-wider px-1.5 py-0.2 bg-gold/15 text-ink rounded">
                           Top Tier
                         </span>
                       )}
                       {ward.performanceTier === "bottom" && (
-                        <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.2 bg-line text-muted rounded">
+                        <span className="t-micro font-bold uppercase tracking-wider px-1.5 py-0.2 bg-line text-muted rounded">
                           Frontier
                         </span>
                       )}
                     </div>
-                    <div className="flex items-center gap-2 text-[11px] text-muted whitespace-nowrap">
+                    <div className="flex items-center gap-2 t-micro text-muted whitespace-nowrap">
                       <span className="font-mono font-bold text-ink">{ward.voters.toLocaleString()} voters</span>
                       <span className="text-line">|</span>
                       <span>{ward.constituencyName}</span>
@@ -255,7 +255,7 @@ export function WardRegisterTicker() {
                 }`}
               >
                 <div
-                  className={`w-6 h-6 rounded-lg flex items-center justify-center font-mono text-[11px] font-black shrink-0 ${
+                  className={`w-6 h-6 rounded-lg flex items-center justify-center font-mono t-micro font-black shrink-0 ${
                     ward.performanceTier === "top"
                       ? "bg-gold text-ink"
                       : ward.performanceTier === "bottom"
@@ -267,21 +267,21 @@ export function WardRegisterTicker() {
                 </div>
                 <div className="flex flex-col min-w-0">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-xs font-bold text-ink whitespace-nowrap">
+                    <span className="t-label font-bold text-ink whitespace-nowrap">
                       {ward.name}
                     </span>
                     {ward.performanceTier === "top" && (
-                      <span className="text-[10px] font-black uppercase tracking-wider px-1.5 py-0.2 bg-gold/15 text-ink rounded">
+                      <span className="t-micro font-black uppercase tracking-wider px-1.5 py-0.2 bg-gold/15 text-ink rounded">
                         Top Tier
                       </span>
                     )}
                     {ward.performanceTier === "bottom" && (
-                      <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.2 bg-line text-muted rounded">
+                      <span className="t-micro font-bold uppercase tracking-wider px-1.5 py-0.2 bg-line text-muted rounded">
                         Frontier
                       </span>
                     )}
                   </div>
-                  <div className="flex items-center gap-2 text-[11px] text-muted whitespace-nowrap">
+                  <div className="flex items-center gap-2 t-micro text-muted whitespace-nowrap">
                     <span className="font-mono font-bold text-ink">{ward.voters.toLocaleString()} voters</span>
                     <span className="text-line">|</span>
                     <span>{ward.constituencyName}</span>

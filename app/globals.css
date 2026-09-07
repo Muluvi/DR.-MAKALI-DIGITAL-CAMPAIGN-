@@ -140,8 +140,13 @@
 }
 
 html {
+  color-scheme: light;
   scroll-behavior: smooth;
   scroll-snap-type: y proximity;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 body {
@@ -152,7 +157,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: transparent;
-  overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
@@ -248,7 +252,7 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
 
 /* Recharts and SVG Chart Typography Hierarchy */
 .recharts-cartesian-axis-tick text {
-  font-size: var(--fs-chart-tick);
+  font-size: var(--fs-chart-tick) !important;
   font-family: var(--font-montserrat), sans-serif;
 }
 .recharts-legend-item-text {
@@ -257,7 +261,7 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
 }
 .recharts-label text,
 .recharts-cartesian-axis text.recharts-label {
-  font-size: var(--fs-chart-axis);
+  font-size: var(--fs-chart-axis) !important;
   font-family: var(--font-montserrat), sans-serif;
 }
 
@@ -301,6 +305,11 @@ table,
   text-wrap: pretty;
 }
 
+.prose {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
 /* Running prose is held to a readable measure; anything that needs the full shell width
    (tables, ASCII figures, charts, component cards) is marked .prose-wide or is .not-prose
    and keeps it. Without this the document set 1200px-wide lines on a desktop. */
@@ -309,11 +318,14 @@ table,
 .prose > ol:not(.not-prose *),
 .prose > blockquote:not(.not-prose *) {
   max-width: var(--measure);
+  overflow-wrap: anywhere;
 }
+.prose > h1:not(.not-prose *),
 .prose > h2:not(.not-prose *),
 .prose > h3:not(.not-prose *),
 .prose > h4:not(.not-prose *) {
   max-width: calc(var(--measure) + 6ch);
+  overflow-wrap: anywhere;
 }
 .prose .prose-wide,
 .prose > figure,

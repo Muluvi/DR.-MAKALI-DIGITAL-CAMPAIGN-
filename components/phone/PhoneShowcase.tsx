@@ -134,7 +134,7 @@ export function PhoneShowcase() {
               }`}
             >
               <ChannelMark id={id} />
-              <span className="text-[11.5px] font-bold whitespace-nowrap">{CHANNEL_LABELS[id]}</span>
+              <span className="t-micro font-bold whitespace-nowrap">{CHANNEL_LABELS[id]}</span>
             </button>
           );
         })}
@@ -186,10 +186,10 @@ export function PhoneShowcase() {
       </div>
 
       {/* What this screen is — visible caption, and the assistive-tech description of the frame. */}
-      <p className="mt-4 text-center text-[12px] text-muted leading-relaxed max-w-md mx-auto">
+      <p className="mt-4 text-center t-label text-muted leading-relaxed max-w-md mx-auto">
         {CHANNEL_SUMMARY[channel]}
       </p>
-      <p className="mt-2 text-center text-[10.5px] text-muted/75 leading-relaxed max-w-lg mx-auto">
+      <p className="mt-2 text-center t-micro text-muted/75 leading-relaxed max-w-lg mx-auto">
         {DISCLOSURE}
       </p>
     </div>

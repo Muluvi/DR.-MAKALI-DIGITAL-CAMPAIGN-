@@ -294,7 +294,7 @@ export function HeroVisual() {
           >
             {/* Rotating 3D Tactical Orbital Ring */}
             <div
-              className="absolute w-[440px] sm:w-[560px] h-[200px] sm:h-[240px] rounded-full border border-accent/25 pointer-events-none"
+              className="absolute w-[min(320px,92vw)] sm:w-[560px] h-[160px] sm:h-[240px] rounded-full border border-accent/25 pointer-events-none"
               style={{
                 transform: "translateZ(-10px) rotateX(70deg)",
                 animation: "spin 35s linear infinite"
@@ -306,7 +306,7 @@ export function HeroVisual() {
 
             {/* Base Isometric Plinth (Shadow and Base Slab) */}
             <div
-              className="absolute w-[360px] sm:w-[480px] h-[160px] sm:h-[190px] rounded-3xl bg-card border border-line/80 shadow-2xl transition-all"
+              className="absolute w-[min(300px,88vw)] sm:w-[480px] h-[150px] sm:h-[190px] rounded-3xl bg-card border border-line/80 shadow-2xl transition-all"
               style={{
                 transform: "translateZ(0px)",
                 boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
@@ -396,7 +396,7 @@ export function HeroVisual() {
 
             {/* Elevated 3D Tactical Nodes */}
             <div
-              className="absolute w-[360px] sm:w-[480px] h-[160px] sm:h-[190px] pointer-events-none"
+              className="absolute w-[min(300px,88vw)] sm:w-[480px] h-[150px] sm:h-[190px] pointer-events-none"
               style={{
                 transform: "translateZ(30px)",
                 transformStyle: "preserve-3d"

@@ -152,7 +152,7 @@ export function DataVisualizations() {
               <button
                 key={tier}
                 onClick={() => setActiveTier(tier)}
-                className={`flex-1 py-1.5 rounded-xl text-xs font-bold capitalize transition-all border cursor-pointer ${
+                className={`flex-1 min-h-[44px] px-2 py-2 rounded-xl text-xs font-bold capitalize transition-all border cursor-pointer flex items-center justify-center ${
                   activeTier === tier 
                     ? "bg-accent text-white border-accent shadow-sm" 
                     : "bg-card text-muted border-line hover:border-accent/40"
@@ -167,9 +167,9 @@ export function DataVisualizations() {
         {/* Scenario Detailed Outputs with motion container */}
         <motion.div 
           key={activeTier}
-          initial={{ opacity: 0, x: -8 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3 }}
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.25 }}
           className="bg-paper rounded-2xl p-4 sm:p-5 border border-line"
         >
           <div className="flex items-center gap-2 mb-2">

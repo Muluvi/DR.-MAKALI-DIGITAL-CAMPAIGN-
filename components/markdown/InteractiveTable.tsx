@@ -6,6 +6,7 @@ import { LazyMount } from "../LazyMount";
 import { SourceLine, detectSources } from "./SourceLine";
 import TableChart from "./TableChart";
 import { WardRegisterTicker } from "../charts/WardRegisterTicker";
+import ModelVariablesDrawer from "./ModelVariablesDrawer";
 
 function getDeepText(node: any): string {
   if (!node) return "";
@@ -172,6 +173,14 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
     return detectSources(allText);
   }, [ths, rowElements]);
 
+  const isModelVariables = React.useMemo(() => {
+    const allText = [...ths, ...parsedRows.slice(0, 5).flat()].map(getDeepText).join(" ").toLowerCase();
+    return (
+      allText.includes("variable") &&
+      (allText.includes("voter_id") || (allText.includes("source") && allText.includes("format") && allText.includes("type")))
+    );
+  }, [ths, parsedRows]);
+
   const isWardRegister = React.useMemo(() => {
     const allText = [...ths, ...parsedRows.slice(0, 8).flat()].map(getDeepText).join(" ").toLowerCase();
     return (
@@ -179,6 +188,10 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
       allText.includes("iebc register")
     );
   }, [ths, parsedRows]);
+
+  if (isModelVariables) {
+    return <ModelVariablesDrawer />;
+  }
 
   if (ths.length === 0) {
     return <div className="overflow-x-auto border border-line rounded-2xl my-4">{children}</div>;
@@ -211,25 +224,25 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
           {numericColumnIndex !== -1 && (
             <button
               onClick={() => setShowChart(!showChart)}
-              className={`tap-chip flex items-center gap-1.5 px-2.5 py-1 rounded-lg border t-label font-semibold uppercase tracking-wider transition-all cursor-pointer ${
+              className={`tap-chip flex items-center gap-1.5 px-3 py-2 rounded-xl border t-micro font-bold uppercase tracking-wider transition-all cursor-pointer min-h-[44px] ${
                 showChart
                   ? "bg-accent border-accent text-white shadow-sm"
                   : "bg-paper/80 border-line text-muted hover:border-accent/40 hover:text-ink"
               }`}
             >
-              {showChart ? <Table size={11} /> : <BarChart3 size={11} />}
+              {showChart ? <Table size={14} /> : <BarChart3 size={14} />}
               <span>{showChart ? "Table" : "Chart"}</span>
             </button>
           )}
 
           <div className="relative flex-1 sm:w-44">
-            <Search size={11} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-muted" />
+            <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-muted" />
             <input
               type="text"
               placeholder="Filter table..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-7 pr-2.5 py-1 bg-paper/80 border border-line rounded-lg text-xs font-normal text-ink placeholder:text-muted focus:outline-none focus:border-accent transition-colors"
+              className="w-full pl-8 pr-2.5 py-2 bg-paper/80 border border-line rounded-xl t-label font-normal text-ink placeholder:text-muted focus:outline-none focus:border-accent transition-colors min-h-[44px]"
             />
           </div>
         </div>
@@ -237,18 +250,18 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
 
       {/* Numerical Insights Drawer (Displays only if a column is numeric) */}
       {stats && (
-        <div className="px-3 py-1.5 bg-accent/[0.02] border-b border-line/30 grid grid-cols-3 gap-2 text-center">
-          <div>
-            <span className="t-micro uppercase tracking-wider font-semibold text-muted">Avg {stats.label}</span>
-            <span className="block text-xs font-semibold text-accent mt-0.5">{stats.avg}</span>
+        <div className="px-3 py-2 bg-accent/[0.02] border-b border-line/30 grid grid-cols-3 gap-1.5 sm:gap-2 text-center">
+          <div className="min-w-0">
+            <span className="text-[10px] sm:t-micro uppercase tracking-wider font-semibold text-muted truncate block">Avg {stats.label}</span>
+            <span className="block text-xs sm:t-label font-bold text-accent mt-0.5 truncate">{stats.avg}</span>
           </div>
-          <div>
-            <span className="t-micro uppercase tracking-wider font-semibold text-muted">Max Peak</span>
-            <span className="block text-xs font-semibold text-gold mt-0.5">{stats.max}</span>
+          <div className="min-w-0">
+            <span className="text-[10px] sm:t-micro uppercase tracking-wider font-semibold text-muted truncate block">Max Peak</span>
+            <span className="block text-xs sm:t-label font-bold text-gold mt-0.5 truncate">{stats.max}</span>
           </div>
-          <div>
-            <span className="t-micro uppercase tracking-wider font-semibold text-muted">Combined Target</span>
-            <span className="block text-xs font-semibold text-ink mt-0.5">{stats.sum}</span>
+          <div className="min-w-0">
+            <span className="text-[10px] sm:t-micro uppercase tracking-wider font-semibold text-muted truncate block">Combined</span>
+            <span className="block text-xs sm:t-label font-bold text-ink mt-0.5 truncate">{stats.sum}</span>
           </div>
         </div>
       )}
@@ -264,69 +277,120 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       ) : (
-        <div className="overflow-x-auto w-full scrollbar-thin">
-          <table className="w-full text-left border-collapse text-xs">
-            <thead className="table-header-group">
-              <tr className="border-b border-line/50 bg-paper/50">
-                {ths.map((th: any, idx) => (
-                  <th
-                    key={idx}
-                    onClick={() => toggleSort(idx)}
-                    className="p-2.5 sm:p-3 font-semibold t-label sm:t-small tracking-wider text-muted uppercase cursor-pointer hover:bg-line/20 transition-colors select-none group whitespace-nowrap"
-                  >
-                    <div className="flex items-center gap-1.5 justify-between">
-                      <span>{th.props.children}</span>
-                      <ArrowUpDown size={10} className="text-muted group-hover:text-accent transition-colors shrink-0" />
-                    </div>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className="table-row-group divide-y divide-line/20">
-              {visibleRows.map((row, rIdx) => (
-                <tr
+        <div className="w-full">
+          {/* Mobile Card-Stacking View (< md) */}
+          <div className="block md:hidden p-2.5 space-y-2.5">
+            {visibleRows.map((row, rIdx) => {
+              const primaryCell = row[0];
+              const remainingCells = row.slice(1);
+              return (
+                <div
                   key={rIdx}
-                  className="hover:bg-line/10 transition-colors"
+                  className="bg-card/70 border border-line/60 rounded-xl p-3 shadow-xs space-y-2 hover:border-line transition-colors"
                 >
-                  {row.map((cell: any, cIdx) => {
-                    const isPrimary = cIdx === 0;
-                    return (
-                      <td
-                        key={cIdx}
-                        className={`p-2.5 sm:p-3 text-xs sm:t-body leading-relaxed ${
-                          isPrimary
-                            ? "font-semibold text-ink whitespace-nowrap"
-                            : "text-ink/90 whitespace-nowrap md:whitespace-normal"
-                        }`}
-                      >
-                        {cell ? cell.props.children : null}
-                      </td>
-                    );
-                  })}
+                  {/* Lead cell rendered as card header */}
+                  <div className="font-bold text-ink t-small pb-1.5 border-b border-line/30 flex items-center justify-between">
+                    <div className="min-w-0 break-words">{primaryCell ? primaryCell.props?.children : null}</div>
+                    {ths[0] && (
+                      <span className="t-micro font-mono uppercase tracking-wider text-muted shrink-0 ml-2" aria-hidden="true">
+                        #{rIdx + 1}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Remaining cells rendered as paired key-values */}
+                  <div className="space-y-1.5">
+                    {remainingCells.map((cell: any, cIdx: number) => {
+                      const colIdx = cIdx + 1;
+                      const thNode = ths[colIdx];
+                      const colLabel = thNode ? getDeepText(thNode) : `Col ${colIdx + 1}`;
+                      return (
+                        <div
+                          key={colIdx}
+                          className="flex items-start justify-between gap-2.5 py-1 border-b border-line/15 last:border-b-0"
+                        >
+                          <span className="t-micro uppercase tracking-wider font-semibold text-muted shrink-0 pt-0.5" aria-hidden="true">
+                            {colLabel}
+                          </span>
+                          <div className="text-right t-small text-ink/90 leading-snug break-words max-w-[70%]">
+                            {cell ? cell.props?.children : null}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Desktop Tabular Grid View (>= md) */}
+          <div className="hidden md:block overflow-x-auto w-full scrollbar-thin">
+            <table className="w-full text-left border-collapse t-small">
+              <thead className="table-header-group">
+                <tr className="border-b border-line/50 bg-paper/50">
+                  {ths.map((th: any, idx) => (
+                    <th
+                      key={idx}
+                      onClick={() => toggleSort(idx)}
+                      className="p-2.5 sm:p-3 font-semibold t-label sm:t-small tracking-wider text-muted uppercase cursor-pointer hover:bg-line/20 transition-colors select-none group whitespace-nowrap"
+                    >
+                      <div className="flex items-center gap-1.5 justify-between">
+                        <span>{th.props.children}</span>
+                        <ArrowUpDown size={10} className="text-muted group-hover:text-accent transition-colors shrink-0" />
+                      </div>
+                    </th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        {isCapped && (
-          <button
-            type="button"
-            onClick={() => setShowAllRows(true)}
-            className="w-full mt-1 py-2.5 text-xs font-semibold text-accent border-t border-line/40 hover:bg-accent/[0.06] transition-colors cursor-pointer min-h-[44px]"
-          >
-            Show all {filteredRows.length} rows
-          </button>
-        )}
-        {showAllRows && !searchTerm && filteredRows.length > 12 && (
-          <button
-            type="button"
-            onClick={() => setShowAllRows(false)}
-            className="w-full mt-1 py-2.5 text-xs font-semibold text-muted border-t border-line/40 hover:text-ink transition-colors cursor-pointer min-h-[44px]"
-          >
-            Show fewer rows
-          </button>
-        )}
+              </thead>
+              <tbody className="table-row-group divide-y divide-line/20">
+                {visibleRows.map((row, rIdx) => (
+                  <tr
+                    key={rIdx}
+                    className="hover:bg-line/10 transition-colors"
+                  >
+                    {row.map((cell: any, cIdx) => {
+                      const isPrimary = cIdx === 0;
+                      return (
+                        <td
+                          key={cIdx}
+                          className={`p-2.5 sm:p-3 t-small sm:t-body leading-relaxed ${
+                            isPrimary
+                              ? "font-semibold text-ink whitespace-nowrap"
+                              : "text-ink/90 whitespace-normal"
+                          }`}
+                        >
+                          {cell ? cell.props.children : null}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Pagination and View Limits */}
+          {isCapped && (
+            <button
+              type="button"
+              onClick={() => setShowAllRows(true)}
+              className="w-full py-3 t-label font-bold text-accent border-t border-line/40 hover:bg-accent/[0.06] transition-colors cursor-pointer min-h-[44px] flex items-center justify-center"
+            >
+              Show all {filteredRows.length} rows
+            </button>
+          )}
+          {showAllRows && !searchTerm && filteredRows.length > 12 && (
+            <button
+              type="button"
+              onClick={() => setShowAllRows(false)}
+              className="w-full py-3 t-label font-bold text-muted border-t border-line/40 hover:text-ink transition-colors cursor-pointer min-h-[44px] flex items-center justify-center"
+            >
+              Show fewer rows
+            </button>
+          )}
           {filteredRows.length === 0 && (
-            <div className="p-6 text-center text-xs font-mono text-muted/70">
+            <div className="p-6 text-center t-label font-mono text-muted/70">
               No matching strategic metrics found.
             </div>
           )}
