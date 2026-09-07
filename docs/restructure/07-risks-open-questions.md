@@ -28,6 +28,36 @@ the first nine lines of the nine content files and are trivially revertible.
 
 **Body prose delta is zero**, asserted by the migration script, which refuses to write otherwise.
 
+## 2a. The one body-prose edit, quoted in full
+
+The first and only change to the author's body text in this engagement, made on explicit
+instruction after the §6.1 move left its lead paragraph inaccurate.
+
+**`public/content/4d-technology.md`, §6.1 lead — before:**
+
+> This section defines the voter and supporter data model, the three-tier empirical provenance
+> standard, protocols for handling disputed electoral figures, and legal compliance workflows
+> under Kenya's **Data Protection Act (DPA) 2019** and the **Office of the Data Protection
+> Commissioner (ODPC)**.
+
+**After:**
+
+> This section defines the voter and supporter data model and the legal compliance workflows
+> under Kenya's **Data Protection Act (DPA) 2019** and the **Office of the Data Protection
+> Commissioner (ODPC)**. The three-tier provenance standard that grades every figure in this
+> proposal (Section 6.1.2) and the protocol for when two sources disagree (Section 6.1.4) are
+> set out alongside the evidence they govern.
+
+The enumeration now matches what the section contains, and the two moved items are pointed at
+rather than dropped — both render as working links into Part 2, verified in-browser. No claim,
+figure, commitment or qualification is added or removed.
+
+**Also corrected, in the same file:** that part's one-line description (my text, not the
+author's) read "The data model **and its provenance rules**, the voter model built on it, …".
+The bolded clause is deleted; the rest is unchanged.
+
+**Corpus effect:** 49,665 → 49,682 words (+17). Sections 50, headings 262 — both unchanged.
+
 ## 3. Deliberately unfinished
 
 ### ~~§6.1.2–.4 is still in Part 4D~~ — **done**
@@ -46,11 +76,9 @@ report". Under the old order the reader met that grade 33,000 words before anyth
 The tiers now sit immediately after the section that first uses one, and ahead of §1.2's 3,530
 words of Tier-graded evidence.
 
-**One cost, and it is real.** §6.1's lead paragraph says the section "defines the voter and
-supporter data model, the three-tier empirical provenance standard, protocols for handling
-disputed electoral figures, and legal compliance workflows" — and two of those four are now in
-Part 2. Correcting it is a prose edit. This is the same trade already accepted at §3.4, and it is
-the one place in the document where a lead sentence over-promises its section.
+**~~One cost, and it is real.~~ Corrected on your instruction.** §6.1's lead paragraph enumerated
+four things the section defined, two of which had moved to Part 2. See §2a below for the exact
+change.
 
 ### §8.1 and §9.1 overlap, and now visibly
 
