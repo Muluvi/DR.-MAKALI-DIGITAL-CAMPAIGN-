@@ -58,6 +58,26 @@ The bolded clause is deleted; the rest is unchanged.
 
 **Corpus effect:** 49,665 → 49,682 words (+17). Sections 50, headings 262 — both unchanged.
 
+## 2b. The second body-prose edit, quoted in full
+
+Added on explicit instruction, after the reorder in §2a's sibling change put the two preference
+figures within a screen of each other. §8.1 previously had no lead paragraph; this is the whole
+of the addition, sitting between the `## 8.1` heading and `### 8.1.1`:
+
+> Two preference figures appear in this proposal, and they measure different populations rather
+> than revising one another. Section 9.1's **40.0%+** is a share of the **countywide public**, as
+> reported in the party-commissioned surveys. NW-01 below is **≥ 55.0%** of **sampled likely
+> Wiper primary voters** — a narrower universe, which is why the threshold sits higher. Section
+> 8.2.3 states that same primary-voter threshold.
+
+**No figure was altered, added or recomputed.** Both numbers are quoted exactly as the document
+already states them, and their originals — §9.1.1's success definition, NW-01's target row, and
+§8.2.3's threshold — are untouched and verified intact. The two cross-references render as
+working links, confirmed in-browser.
+
+**Corpus effect:** 49,682 → 49,743 words (+61, the sentence itself). Sections 50, headings 262 —
+both unchanged. `verify-figures.mjs` still passes.
+
 ## 3. Deliberately unfinished
 
 ### ~~§6.1.2–.4 is still in Part 4D~~ — **done**
@@ -98,12 +118,12 @@ load-bearing, for different readers.
 §9.1 now comes first, then §8.1, then §8.2.3 — commitment, then instrument, then the principle
 anchoring both to the vote threshold. A pure move: word count unchanged at 49,682.
 
-**One thing the new adjacency surfaces, left untouched.** §9.1.1's success definition is a
-**40.0%+ countywide public preference share**; §8.1.1's NW-01 target is **≥ 55.0% of sampled
-likely Wiper primary voters**; §8.2.3 restates the 55% figure. Different denominators, so not a
-contradiction — but the two now sit within one screen of each other for the first time, and a
-reader may pause on it. Per Ground Rule 2 no figure was altered. Making the two universes
-explicit would be a one-clause prose edit if you want it.
+**~~One thing the new adjacency surfaces, left untouched.~~ Made explicit on your instruction.**
+§9.1.1's success definition is a **40.0%+ countywide public preference share**; §8.1.1's NW-01
+target is **≥ 55.0% of sampled likely Wiper primary voters**; §8.2.3 restates the 55% figure.
+Different denominators, so never a contradiction — but the two now sit within one screen of each
+other, and a reader would reasonably pause. §8.1 had no lead paragraph, so one was added at
+exactly that transition. See §2b below.
 
 ### §0.4 and §9.3.6 also overlap
 
