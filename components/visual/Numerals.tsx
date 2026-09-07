@@ -81,6 +81,43 @@ export function CountUp({
   );
 }
 
+/**
+ * The string form of CountUp, for values the document writes as text — "1.3M+", "KSh 4.2B", "86%".
+ *
+ * It replaces two near-identical hand-rolled counters that were in this repo, one of which
+ * computed its progress as `(timestamp - timestamp % 1 + timestamp - startTime)` — very close to
+ * double the real elapsed time, so it finished in about half the duration it was asked for.
+ *
+ * Anything that does not parse as prefix-number-suffix is rendered verbatim rather than being
+ * coerced. A figure this document cannot parse is a figure it must not animate.
+ */
+export function CountUpText({
+  text,
+  duration = 1600,
+  className = "",
+}: {
+  text: string;
+  duration?: number;
+  className?: string;
+}) {
+  const match = text.match(/^([^0-9.]*)([0-9.]+)([^0-9.]*)$/);
+  if (!match) return <span className={className}>{text}</span>;
+
+  const [, prefix, digits, suffix] = match;
+  const decimals = digits.includes(".") ? digits.split(".")[1].length : 0;
+
+  return (
+    <CountUp
+      value={parseFloat(digits)}
+      decimals={decimals}
+      prefix={prefix}
+      suffix={suffix}
+      duration={duration}
+      className={className}
+    />
+  );
+}
+
 interface OdometerProps {
   value: number;
   className?: string;

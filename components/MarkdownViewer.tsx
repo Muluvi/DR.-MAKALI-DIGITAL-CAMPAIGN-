@@ -390,7 +390,7 @@ function buildComponents(tabId: TabId): Components {
                 return <PullQuote>{children}</PullQuote>;
               }
               return (
-                <blockquote className="border-l-4 border-accent bg-accent/[0.03] px-5 py-4 rounded-r-2xl my-6 text-xs sm:text-sm font-semibold text-ink leading-relaxed shadow-sm italic relative text-pretty">
+                <blockquote className="fx-lift border-l-4 border-accent bg-accent/[0.03] px-5 py-4 rounded-r-2xl my-6 text-xs sm:text-sm font-semibold text-ink leading-relaxed shadow-sm italic relative text-pretty">
                   {children}
                 </blockquote>
               );
@@ -427,8 +427,10 @@ function buildComponents(tabId: TabId): Components {
             ),
             img: ({ src, alt }) => {
               if (!src || typeof src !== "string") return null;
+              // The frame lifts; the picture scales inside it. Scaling the frame instead would
+              // push the paragraph after it, which is a layout change disguised as a hover.
               return (
-                <span className="block my-4 overflow-hidden rounded-xl border border-line/60">
+                <span className="fx-zoom-frame fx-reveal-overlay fx-lift block my-4 rounded-xl border border-line/60">
                   <Image
                     src={src}
                     alt={alt || "Illustration"}
@@ -439,6 +441,9 @@ function buildComponents(tabId: TabId): Components {
                     referrerPolicy="no-referrer"
                     unoptimized={src.startsWith("data:") || src.startsWith("blob:")}
                   />
+                  {alt && (
+                    <span className="fx-overlay-body block t-small font-semibold">{alt}</span>
+                  )}
                 </span>
               );
             },

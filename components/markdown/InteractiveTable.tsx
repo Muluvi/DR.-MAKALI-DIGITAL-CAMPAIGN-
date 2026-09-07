@@ -229,7 +229,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
               placeholder="Filter table..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-7 pr-2.5 py-1 bg-paper/80 border border-line rounded-lg text-xs font-normal text-ink placeholder:text-muted focus:outline-none focus:border-accent transition-colors"
+              className="fx-input-glow w-full pl-7 pr-2.5 py-1 bg-paper/80 border border-line rounded-lg text-xs font-normal text-ink placeholder:text-muted focus:outline-none focus:border-accent"
             />
           </div>
         </div>
@@ -272,11 +272,11 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                   <th
                     key={idx}
                     onClick={() => toggleSort(idx)}
-                    className="p-2.5 sm:p-3 font-semibold t-label sm:t-small tracking-wider text-muted uppercase cursor-pointer hover:bg-line/20 transition-colors select-none group whitespace-nowrap"
+                    className="fx-focus sticky top-0 z-10 p-2.5 sm:p-3 font-semibold t-label sm:t-small tracking-wider text-muted uppercase cursor-pointer bg-paper/90 backdrop-blur-sm hover:bg-line/20 transition-colors select-none group whitespace-nowrap"
                   >
                     <div className="flex items-center gap-1.5 justify-between">
                       <span>{th.props.children}</span>
-                      <ArrowUpDown size={10} className="text-muted group-hover:text-accent transition-colors shrink-0" />
+                      <ArrowUpDown size={10} className="fx-icon-rise text-muted group-hover:text-accent transition-colors shrink-0" />
                     </div>
                   </th>
                 ))}
@@ -286,7 +286,8 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
               {visibleRows.map((row, rIdx) => (
                 <tr
                   key={rIdx}
-                  className="hover:bg-line/10 transition-colors"
+                  style={{ "--fx-i": Math.min(rIdx, 12) } as React.CSSProperties}
+                  className="fx-item-insert fx-flip-item hover:bg-accent/[0.06] hover:shadow-[inset_3px_0_0_var(--color-accent)] transition-colors"
                 >
                   {row.map((cell: any, cIdx) => {
                     const isPrimary = cIdx === 0;
@@ -311,7 +312,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
           <button
             type="button"
             onClick={() => setShowAllRows(true)}
-            className="w-full mt-1 py-2.5 text-xs font-semibold text-accent border-t border-line/40 hover:bg-accent/[0.06] transition-colors cursor-pointer min-h-[44px]"
+            className="fx-press fx-focus w-full mt-1 py-2.5 text-xs font-semibold text-accent border-t border-line/40 hover:bg-accent/[0.06] transition-colors cursor-pointer min-h-[44px]"
           >
             Show all {filteredRows.length} rows
           </button>

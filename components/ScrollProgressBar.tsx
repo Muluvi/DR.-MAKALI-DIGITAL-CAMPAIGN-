@@ -64,7 +64,7 @@ export function ScrollProgressBar() {
       aria-hidden="true"
     >
       <div
-        className="scroll-progress-fill h-full origin-left bg-gradient-to-r from-accent to-gold"
+        className="scroll-progress-fill fx-gradient-live h-full origin-left bg-[linear-gradient(90deg,var(--color-accent),var(--color-gold),var(--color-accent))] shadow-[0_0_10px_-2px_var(--color-accent)]"
         style={needsFallback ? { transform: `scaleX(${progress})` } : undefined}
       />
     </div>

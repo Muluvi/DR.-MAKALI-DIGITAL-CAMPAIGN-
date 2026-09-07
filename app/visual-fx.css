@@ -139,6 +139,20 @@
 .fx-in-rotate   { animation-name: fx-rotate-in; }
 .fx-in-unfold   { animation-name: fx-unfold; animation-duration: var(--fx-dur, var(--fx-dur-deliberate)); }
 
+/* The pre-reveal state.
+   
+   Every scroll-triggered entrance holds its element here until the observer fires. It must NOT be
+   a plain `opacity: 0`, and the reason is print: IntersectionObserver never reports an element
+   that was below the fold when the print was requested, so a bare `opacity: 0` would send blank
+   headings to paper on a document that is meant to be printed. Same argument for reduced motion,
+   where there is no entrance to wait for in the first place.
+   
+   So the hold is a named class that both of those contexts override, and the visible state is
+   the default rather than something an observer has to grant. */
+.fx-preveal { opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .fx-preveal { opacity: 1; } }
+@media print { .fx-preveal { opacity: 1 !important; } }
+
 /* Stagger cascade. `--fx-i` is the sibling index; the ripple variant adds a
    radial term so delay propagates outward from a focal cell rather than
    left-to-right. Both are set inline by the component that owns the group. */
@@ -822,7 +836,7 @@
    component; these are the entry and exit halves it hands off to. */
 .fx-flip-item { transition: transform 420ms var(--fx-ease-entrance); }
 @keyframes fx-item-insert { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: none; } }
-.fx-item-insert { animation: fx-item-insert 320ms var(--fx-ease-spring) both; }
+.fx-item-insert { animation: fx-item-insert 320ms var(--fx-ease-spring) both; animation-delay: calc(var(--fx-i, 0) * 24ms); }
 
 /* Theme switch. The whole page crossfades once rather than each element
    transitioning its own colour, which is what made the old switch shimmer. */
@@ -1689,4 +1703,21 @@
 @media print {
   .prose thead th:not(.not-prose *) { position: static; backdrop-filter: none; }
   .prose blockquote:not(.not-prose *)::before { display: none; }
+}
+
+/* The per-heading copy-link button.
+
+   It appears on hover — but only on a device that has one. Gating this in CSS rather than with a
+   `group-hover:opacity-100` utility is the whole point: on a touch screen `:hover` never fires,
+   so the utility version would have hidden the control permanently on the device this proposal is
+   most likely to be opened on. Keyboard focus and the copied state both force it visible. */
+@media (hover: hover) and (pointer: fine) {
+  .section-anchor-btn {
+    opacity: 0;
+    transition: opacity 180ms var(--fx-ease-out), color 160ms linear, border-color 160ms linear;
+  }
+  h2:hover > .section-anchor-btn,
+  h3:hover > .section-anchor-btn,
+  .section-anchor-btn:focus-visible,
+  .section-anchor-btn[data-copied="true"] { opacity: 1; }
 }

@@ -69,7 +69,7 @@ export function Reveal({
       // The cast is the one unavoidable seam in a polymorphic tag: every element in the union
       // accepts a ref of its own concrete type, and TypeScript will not unify them.
       ref={ref as React.Ref<never>}
-      className={`${inView ? `fx-in-${variant}` : "opacity-0"} ${className}`}
+      className={`${inView ? `fx-in-${variant}` : "fx-preveal"} ${className}`}
       style={
         {
           "--fx-delay": `${delay}ms`,
@@ -128,7 +128,7 @@ export function Stagger({
         const distance = ripple === undefined ? i : Math.abs(i - ripple);
         return cloneElement(el, {
           key: el.key ?? i,
-          className: `${el.props.className ?? ""} ${inView ? `fx-in-${variant}` : "opacity-0"}`.trim(),
+          className: `${el.props.className ?? ""} ${inView ? `fx-in-${variant}` : "fx-preveal"}`.trim(),
           style: {
             ...el.props.style,
             ...({ "--fx-i": i, "--fx-r": distance } as React.CSSProperties),

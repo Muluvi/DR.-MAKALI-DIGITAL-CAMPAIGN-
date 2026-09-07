@@ -61,7 +61,7 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 15 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="bg-card/95 backdrop-blur-xl border border-line/60 shadow-2xl rounded-2xl p-4 w-[calc(100vw-2rem)] max-w-xs sm:w-80 mb-2 overflow-hidden"
+            className="fx-glass shadow-2xl rounded-2xl p-4 w-[calc(100vw-2rem)] max-w-xs sm:w-80 mb-2 overflow-hidden"
           >
             <div className="flex items-center justify-between border-b border-line/40 pb-2.5 mb-3">
               <div className="flex items-center gap-2">
@@ -79,17 +79,17 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
               </button>
             </div>
 
-            <div className="grid grid-cols-1 gap-1.5 max-h-64 overflow-y-auto pr-1">
+            <div className="fx-menu grid grid-cols-1 gap-1.5 max-h-64 overflow-y-auto pr-1">
               {QUICK_TARGETS.map((item) => {
                 const Icon = item.icon;
                 return (
                   <button
                     key={item.id}
                     onClick={() => handleSelect(item.id)}
-                    className="flex items-center justify-between p-2 rounded-xl text-left hover:bg-accent/10 hover:text-accent group transition-all cursor-pointer text-xs font-bold text-ink"
+                    className="fx-press fx-focus flex items-center justify-between p-2 rounded-xl text-left hover:bg-accent/10 hover:text-accent group transition-all cursor-pointer text-xs font-bold text-ink"
                   >
                     <div className="flex items-center gap-2.5 truncate">
-                      <Icon size={14} className="text-muted group-hover:text-accent transition-colors shrink-0" />
+                      <Icon size={14} className="fx-icon-rise text-muted group-hover:text-accent transition-colors shrink-0" />
                       <span className="truncate">{item.label}</span>
                     </div>
                     <span className="t-micro uppercase tracking-wider font-extrabold px-1.5 py-0.5 rounded bg-line/30 text-muted group-hover:bg-accent group-hover:text-white transition-all shrink-0">
@@ -109,19 +109,20 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
       </AnimatePresence>
 
       <div className="flex items-center gap-2">
-        {showScrollTop && (
-          <motion.button
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            onClick={scrollToTop}
-            className="p-2.5 sm:p-3 rounded-full bg-card/90 backdrop-blur-md border border-line/60 shadow-lg text-muted hover:text-accent hover:border-accent active:scale-95 transition-all cursor-pointer"
-            aria-label="Scroll to top"
-            title="Scroll to top"
-          >
-            <ChevronUp size={16} />
-          </motion.button>
-        )}
+        {/* Kept mounted and revealed, rather than mounted on crossing the threshold. A control
+            that is inserted into the row as you scroll shifts the Quick Jump button sideways
+            under the reader's thumb; one that fades in from `.fx-backtotop` does not. */}
+        <button
+          onClick={scrollToTop}
+          data-visible={showScrollTop}
+          aria-hidden={!showScrollTop}
+          tabIndex={showScrollTop ? 0 : -1}
+          className="fx-backtotop fx-glass fx-press fx-focus p-2.5 sm:p-3 rounded-full shadow-lg text-muted hover:text-accent hover:border-accent cursor-pointer"
+          aria-label="Scroll to top"
+          title="Scroll to top"
+        >
+          <ChevronUp size={16} />
+        </button>
 
         <button
           onClick={() => setIsOpen(!isOpen)}

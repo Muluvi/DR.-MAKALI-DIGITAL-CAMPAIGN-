@@ -47,9 +47,12 @@ function CopyLinkButton({ id }: { id: string }) {
       onPointerDown={ripple}
       aria-label="Copy link to this section"
       title={copied ? "Link copied" : "Copy link to this section"}
-      className={`section-anchor-btn fx-ripple-host fx-press fx-focus inline-flex items-center justify-center w-7 h-7 sm:w-6 sm:h-6 rounded-lg sm:rounded-md border border-line/60 text-muted hover:text-accent hover:border-accent/50 transition-colors align-middle shrink-0 no-underline print:hidden cursor-pointer opacity-0 group-hover:opacity-100 focus-visible:opacity-100 ${
-        copied ? "opacity-100" : ""
-      }`}
+      // Visibility is handled in CSS, not here: the button hides until hover ONLY where there is
+      // a real hover to reveal it with. On a touch screen there is none, so it stays visible —
+      // a `group-hover` utility alone would have made it permanently invisible on a phone, which
+      // is the device this document is most likely to be read on.
+      data-copied={copied ? "true" : undefined}
+      className="section-anchor-btn fx-ripple-host fx-press fx-focus inline-flex items-center justify-center w-7 h-7 sm:w-6 sm:h-6 rounded-lg sm:rounded-md border border-line/60 text-muted hover:text-accent hover:border-accent/50 transition-colors align-middle shrink-0 no-underline print:hidden cursor-pointer"
     >
       {/* The tick draws itself rather than appearing, and the button pops once — the whole
           confirmation is 400ms and needs no toast. */}
@@ -92,7 +95,7 @@ export function SectionHeading({
 
   // The entrance. h2 wipes open from the left; h3 rises. Both resolve to the finished heading
   // under reduced motion and in print — see the guards at the end of visual-fx.css.
-  const entrance = inView ? (level === 2 ? "fx-in-wipe" : "fx-in-up") : "opacity-0";
+  const entrance = inView ? (level === 2 ? "fx-in-wipe" : "fx-in-up") : "fx-preveal";
 
   return (
     <Tag

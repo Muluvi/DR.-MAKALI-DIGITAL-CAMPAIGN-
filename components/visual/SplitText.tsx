@@ -57,11 +57,11 @@ export function SplitText({
       <span aria-hidden="true" style={{ "--fx-split-stagger": `${gap}ms`, "--fx-delay": `${delay}ms` } as React.CSSProperties}>
         {units.map((unit, i) =>
           by === "line" ? (
-            <span key={i} className={`fx-split-line ${inView ? "" : "opacity-0"}`}>
+            <span key={i} className={`fx-split-line ${inView ? "" : "fx-preveal"}`}>
               <span style={{ "--fx-i": i } as React.CSSProperties}>{unit}</span>
             </span>
           ) : (
-            <span key={i} className={`${by === "char" ? "fx-split-char" : "fx-split-word"} ${inView ? "" : "opacity-0"}`}>
+            <span key={i} className={`${by === "char" ? "fx-split-char" : "fx-split-word"} ${inView ? "" : "fx-preveal"}`}>
               <span style={{ "--fx-i": i } as React.CSSProperties}>{unit === " " ? " " : unit}</span>
             </span>
           )

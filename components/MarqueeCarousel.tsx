@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "motion/react";
 import { Target, MapPin, MessageSquare, Sparkles, Megaphone, Users } from "lucide-react";
 import { useMarqueeActive } from "../hooks/use-marquee-active";
 
@@ -22,26 +21,31 @@ export function MarqueeCarousel({ speed = 30 }: { speed?: number }) {
   ];
 
   return (
-    <div ref={containerRef} className="relative w-full overflow-hidden select-none py-4 bg-card border-y border-line my-6">
-      {/* Soft gradient edge fade masks */}
-      <div className="absolute top-0 bottom-0 left-0 w-16 bg-gradient-to-r from-paper to-transparent z-10 pointer-events-none" />
-      <div className="absolute top-0 bottom-0 right-0 w-16 bg-gradient-to-l from-paper to-transparent z-10 pointer-events-none" />
+    <div
+      ref={containerRef}
+      className="fx-pause-on-hover fx-mask-fade-x relative w-full overflow-hidden select-none py-4 bg-card border-y border-line my-6"
+    >
+      {/* The strip itself is masked to transparent at both ends (fx-mask-fade-x), so items
+          dissolve rather than being clipped by an overlay in the page's background colour —
+          which is what the two gradient panels here used to fake, and why they broke whenever
+          the strip sat on anything but paper. */}
 
-      <motion.div
-        className="flex gap-4 w-max pr-4"
-        animate={isActive ? { x: ["0%", "-50%"] } : {}}
-        transition={{
-          ease: "linear",
-          duration: speed,
-          repeat: Infinity,
-        }}
+      {/* The loop is a CSS animation rather than a `motion` one, for two reasons that both
+          matter here. A continuously-running JS animation keeps the main thread busy for as long
+          as the strip is on screen; and `animation-play-state` is what lets `.fx-pause-on-hover`
+          stop the strip when a reader puts the pointer on it — which a `motion` animate array
+          cannot be halted by from CSS. Off-screen, `isActive` drops the class entirely, so the
+          strip costs nothing at all while the reader is 40,000 words further down. */}
+      <div
+        className={`flex gap-4 w-max pr-4 ${isActive ? "fx-loop-marquee" : ""}`}
+        style={{ "--fx-loop-dur": `${speed}s` } as React.CSSProperties}
       >
         {/* Primary items accessible to screen readers */}
         <div className="flex gap-4 shrink-0">
           {items.map((item, idx) => (
             <div
               key={`slide-1-${idx}`}
-              className="flex items-center gap-2.5 bg-paper border border-line rounded-full px-4 py-2.5 shadow-sm hover:border-accent/40 transition-colors"
+              className="fx-lift flex items-center gap-2.5 bg-paper border border-line rounded-full px-4 py-2.5 shadow-sm hover:border-accent/40"
             >
               <div className="p-1 rounded-full bg-card border border-line">
                 {item.icon}
@@ -80,7 +84,7 @@ export function MarqueeCarousel({ speed = 30 }: { speed?: number }) {
             </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

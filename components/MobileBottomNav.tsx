@@ -74,7 +74,7 @@ export function MobileBottomNav({
         <div className="fixed bottom-3 right-3 sm:right-6 z-40 lg:hidden print:hidden animate-fade-in select-none">
           <button
             onClick={() => setIsScrolledDown(false)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card/90 backdrop-blur-xl border border-accent/30 text-ink shadow-lg active:scale-95 transition-all text-xs font-bold cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card/90 backdrop-blur-xl border border-accent/30 text-ink shadow-lg fx-press fx-focus transition-all text-xs font-bold cursor-pointer"
             aria-label="Show navigation"
             title="Show navigation"
           >
@@ -91,12 +91,12 @@ export function MobileBottomNav({
           shouldHide ? "translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100"
         }`}
       >
-        <div className="bg-card/95 backdrop-blur-xl border-t border-line shadow-2xl px-2 pt-1.5 pb-[max(0.75rem,env(safe-area-inset-bottom,0.75rem))]">
+        <div className="fx-glass border-t border-line shadow-2xl px-2 pt-1.5 pb-[max(0.75rem,env(safe-area-inset-bottom,0.75rem))]">
           {/* Page tooling: index, expand-all, zero-chrome, theme, back to top. */}
           <div className="flex items-center justify-between px-1.5 pb-1.5 mb-1.5 border-b border-line/40 text-xs font-semibold">
             <button
               onClick={onOpenTOC}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-accent/10 text-accent border border-accent/20 active:scale-95 transition-all cursor-pointer min-h-[36px]"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-accent/10 text-accent border border-accent/20 fx-press fx-focus transition-all cursor-pointer min-h-[36px]"
             >
               <ListTree size={14} />
               <span>Full index</span>
@@ -107,7 +107,7 @@ export function MobileBottomNav({
               {onToggleZeroChrome && (
                 <button
                   onClick={onToggleZeroChrome}
-                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-paper border border-line text-ink active:scale-95 transition-all cursor-pointer min-h-[36px]"
+                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[36px]"
                   aria-label="Toggle Zero Chrome full-screen reading mode"
                   title="Toggle Zero Chrome reading mode"
                 >
@@ -118,7 +118,7 @@ export function MobileBottomNav({
 
               <button
                 onClick={onToggleExpanded}
-                className="flex items-center gap-1 px-2 py-1.5 rounded-xl bg-paper border border-line text-ink active:scale-95 transition-all cursor-pointer min-h-[36px]"
+                className="flex items-center gap-1 px-2 py-1.5 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[36px]"
                 aria-label={isExpanded ? "Collapse to one section" : "Show all sections"}
               >
                 {isExpanded ? <Minimize2 size={13} /> : <Maximize2 size={13} />}
@@ -127,7 +127,7 @@ export function MobileBottomNav({
 
               <button
                 onClick={onToggleTheme}
-                className="p-2 rounded-xl bg-paper border border-line text-ink active:scale-95 transition-all cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center"
+                className="p-2 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center"
                 aria-label="Toggle dark mode"
               >
                 {theme === "light" ? <Moon size={13} className="text-gold" /> : <Sun size={13} className="text-gold" />}
@@ -135,7 +135,7 @@ export function MobileBottomNav({
 
               <button
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="p-2 rounded-xl bg-paper border border-line text-ink active:scale-95 transition-all cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center"
+                className="p-2 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center"
                 aria-label="Back to top"
               >
                 <ChevronUp size={14} className="text-accent" />

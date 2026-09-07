@@ -1,60 +1,20 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
-import { ArrowUp } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useFinePointer, useReducedMotion } from "../../hooks/use-media-query";
 
 /**
- * Page chrome that only exists once the reader has started reading: the back-to-top control, the
- * scroll-spy dots, and the custom cursor.
+ * Page chrome that only exists once the reader has started reading: the scroll-spy dots and the
+ * custom cursor.
  *
- * All three are strictly additive. Nothing in the document depends on them, none of them traps
- * focus, and each one removes itself on the input modality it does not suit — the cursor never
- * mounts on touch, the dots never mount on a phone.
+ * A back-to-top button belongs on this list and is deliberately not here: QuickNavCapsule already
+ * renders one, in the same corner. Two would have collided, and the brief's "back-to-top reveal"
+ * is better served by giving the existing control the reveal than by adding a second control.
+ *
+ * Both are strictly additive. Nothing in the document depends on either, neither traps focus, and
+ * each removes itself on the input modality it does not suit — the cursor never mounts on touch,
+ * the dots never mount below xl.
  */
-
-export function BackToTop({ threshold = 900 }: { threshold?: number }) {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    let frame = 0;
-    const onScroll = () => {
-      if (frame) return;
-      frame = requestAnimationFrame(() => {
-        frame = 0;
-        setVisible(window.scrollY > threshold);
-      });
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      if (frame) cancelAnimationFrame(frame);
-    };
-  }, [threshold]);
-
-  const toTop = useCallback(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
-  }, []);
-
-  return (
-    <button
-      type="button"
-      onClick={toTop}
-      data-visible={visible}
-      // `inert` rather than a conditional render: the button keeps its place in the layout and in
-      // the tab order's geometry, and never becomes a focusable control the reader cannot see.
-      aria-hidden={!visible}
-      tabIndex={visible ? 0 : -1}
-      className="fx-backtotop fx-glass fx-press fx-focus fixed right-4 z-40 hidden lg:grid place-items-center w-11 h-11 rounded-full text-accent bottom-6 print:hidden"
-      aria-label="Back to top"
-      title="Back to top"
-    >
-      <ArrowUp size={18} />
-    </button>
-  );
-}
 
 interface NavDotsProps {
   sections: { id: string; label: string }[];

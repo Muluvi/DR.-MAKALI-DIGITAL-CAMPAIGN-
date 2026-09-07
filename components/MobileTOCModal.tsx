@@ -69,7 +69,7 @@ export function MobileTOCModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="absolute inset-0 bg-ink/70 backdrop-blur-md"
+          className="fx-backdrop absolute inset-0 bg-ink/70"
         />
 
         {/* Sheet / Modal Container */}
@@ -78,7 +78,7 @@ export function MobileTOCModal({
           animate={{ y: 0 }}
           exit={{ y: "100%" }}
           transition={{ type: "spring", damping: 28, stiffness: 300 }}
-          className="relative w-full max-w-xl max-h-[88vh] sm:max-h-[80vh] bg-card border-t sm:border border-line rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-10"
+          className="fx-sheet-bottom sm:fx-modal relative w-full max-w-xl max-h-[88vh] sm:max-h-[80vh] fx-glass border-t sm:border border-line rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-10"
         >
           {/* Top Grab Handle on Mobile */}
           <div className="sm:hidden pt-3 pb-1 flex justify-center cursor-grab active:cursor-grabbing">
@@ -119,7 +119,7 @@ export function MobileTOCModal({
                 placeholder="Search sections (e.g., 200k, Radio, 40 Wards, DPA)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 bg-card border border-line rounded-xl text-xs font-semibold text-ink placeholder:text-muted focus:outline-none focus:border-accent transition-colors min-h-[40px]"
+                className="fx-input-glow w-full pl-10 pr-4 py-2 bg-card border border-line rounded-xl text-xs font-semibold text-ink placeholder:text-muted focus:outline-none focus:border-accent min-h-[40px]"
                 autoFocus
               />
               {searchQuery && (
@@ -174,7 +174,7 @@ export function MobileTOCModal({
                       onSelectSection(item.id, item.tabId);
                       onClose();
                     }}
-                    className="w-full py-3 px-2 flex items-center justify-between text-left hover:bg-paper/70 active:bg-paper rounded-xl transition-all group cursor-pointer min-h-[50px]"
+                    className="fx-press fx-focus w-full py-3 px-2 flex items-center justify-between text-left hover:bg-paper/70 active:bg-paper rounded-xl transition-all group cursor-pointer min-h-[50px]"
                   >
                     <div className={`flex items-start gap-2.5 sm:gap-3 min-w-0 pr-2 ${item.level === 3 ? "pl-3 sm:pl-5" : ""}`}>
                       <span className="font-mono text-[11px] tabular-nums text-accent shrink-0 mt-0.5 min-w-[38px]">
@@ -192,7 +192,7 @@ export function MobileTOCModal({
                       </div>
                     </div>
 
-                    <div className="w-7 h-7 rounded-full bg-paper border border-line flex items-center justify-center shrink-0 text-muted group-hover:text-accent group-hover:border-accent/50 transition-colors">
+                    <div className="fx-icon-nudge w-7 h-7 rounded-full bg-paper border border-line flex items-center justify-center shrink-0 text-muted group-hover:text-accent group-hover:border-accent/50 transition-colors">
                       <ChevronRight size={14} />
                     </div>
                   </button>

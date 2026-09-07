@@ -6,8 +6,6 @@ import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Coins, User
 
 import { useTheme } from "../lib/useTheme";
 import { MarqueeCarousel } from "./MarqueeCarousel";
-import { AnimatedMetric } from "./AnimatedMetric";
-import { RadialProgress } from "./RadialProgress";
 import { LazyMount } from "./LazyMount";
 import { ScrollProgressBar } from "./ScrollProgressBar";
 import { SectionStickyBar } from "./SectionStickyBar";
@@ -24,7 +22,6 @@ import { SectionNumberMapProvider } from "./markdown/SectionNumberMap";
 
 import {
   AmbientField,
-  BackToTop,
   CustomCursor,
   MagneticButton,
   NavDots,
@@ -835,7 +832,6 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
       {/* Additive chrome. Nothing in the document depends on any of it: the dots are a second
           route to a section the sidebar and the index already reach, back-to-top duplicates the
           Home key, and the cursor mounts only on a fine pointer with motion allowed. */}
-      {!isZeroChrome && <BackToTop />}
       {!isZeroChrome && isExpanded && (
         <NavDots
           sections={navItems.map((n) => ({ id: n.id, label: n.label }))}

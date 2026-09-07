@@ -1,114 +1,20 @@
 "use client";
 
-import { motion, useInView } from "motion/react";
-import { useEffect, useState, useRef } from "react";
-import { useMarqueeActive } from "../hooks/use-marquee-active";
-import { useIsMobile } from "../hooks/use-mobile";
 import { NominationScorecard } from "./NominationScorecard";
+import { CountUpText, Reveal, SpotlightCard, TiltCard } from "./visual";
 import { TrendingUp, Coins, WifiOff, Vote } from "lucide-react";
 
-// Robust parser-counter that counts up any formatted numeric values cleanly when scrolled into view
-function AnimatedCounter({ value, duration = 1.8 }: { value: string; duration?: number }) {
-  const [displayValue, setDisplayValue] = useState(value);
-  const containerRef = useRef<HTMLSpanElement>(null);
-  
-  // Triggers the animation only when the number becomes visible on the screen
-  const isInView = useInView(containerRef, { once: true, margin: "-50px" });
-
-  useEffect(() => {
-    if (!isInView) return;
-
-    const match = value.match(/^([^0-9.]*)([0-9.]+)([^0-9.]*)$/);
-    if (!match) {
-      return;
-    }
-
-    const prefix = match[1];
-    const targetNum = parseFloat(match[2]);
-    const suffix = match[3];
-    const decimals = match[2].includes(".") ? match[2].split(".")[1].length : 0;
-
-    let startTime: number | null = null;
-
-    const animate = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - timestamp % 1 + timestamp - startTime) / (duration * 1000), 1);
-      
-      // Custom ease-out cubic curve
-      const easeProgress = 1 - Math.pow(1 - progress, 3);
-      const currentNum = targetNum * easeProgress;
-
-      setDisplayValue(`${prefix}${currentNum.toFixed(decimals)}${suffix}`);
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
-    };
-
-    requestAnimationFrame(animate);
-  }, [value, duration, isInView]);
-
-  return <span ref={containerRef}>{displayValue}</span>;
-}
-
-// 3D Tilt Card wrapper reacting to user cursors on desktop, fallback to static on touch
-function TiltCard({ 
-  children, 
-  className 
-}: { 
-  children: React.ReactNode; 
-  className: string;
-}) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const isMobile = useIsMobile();
-  const [rotateX, setRotateX] = useState(0);
-  const [rotateY, setRotateY] = useState(0);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (isMobile) return;
-    const card = cardRef.current;
-    if (!card) return;
-
-    const rect = card.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-
-    // Mouse coordinate relative to the center of the card
-    const mouseX = e.clientX - rect.left - width / 2;
-    const mouseY = e.clientY - rect.top - height / 2;
-
-    // Safe maximum tilt of 8 degrees to prevent layout clipping
-    const rX = -(mouseY / (height / 2)) * 8;
-    const rY = (mouseX / (width / 2)) * 8;
-
-    setRotateX(rX);
-    setRotateY(rY);
-  };
-
-  const handleMouseLeave = () => {
-    setRotateX(0);
-    setRotateY(0);
-  };
-
-  return (
-    <motion.div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      animate={{ rotateX: isMobile ? 0 : rotateX, rotateY: isMobile ? 0 : rotateY }}
-      style={{
-        transformStyle: "preserve-3d",
-        perspective: 1000
-      }}
-      transition={{ type: "spring", stiffness: 350, damping: 25 }}
-      className={className}
-    >
-      <div style={{ transform: "translateZ(25px)" }} className="h-full">
-        {children}
-      </div>
-    </motion.div>
-  );
-}
+/*
+ * The counter and the tilt card that used to live here have moved to components/visual/.
+ *
+ * Both had defects the shared versions do not. The counter computed its progress as
+ * `(timestamp - timestamp % 1 + timestamp - startTime)`, roughly double the real elapsed time,
+ * so it finished in about half its stated duration; it also had no reduced-motion path and
+ * exposed the mid-count figure to assistive technology rather than the final one. The tilt card
+ * called setState on every mousemove, which is a full React render per frame of a gesture — on
+ * the mid-range Android this document is written to be read on, that is the whole frame budget.
+ * The replacement writes two custom properties and never renders.
+ */
 
 // Custom animated SVG Radial Progress indicator component
 
@@ -149,46 +55,54 @@ export function Dashboard() {
     <div className="space-y-8 my-8">
       {/* Scroll-Triggered Animated Metrics Section */}
       <div>
-        <div className="flex items-center justify-between gap-4 mb-4">
+        <Reveal variant="left" className="flex items-center justify-between gap-4 mb-4">
           <div className="flex items-center gap-2">
-            <span className="w-1.5 h-6 bg-accent rounded-full" />
+            <span className="w-1.5 h-6 rounded-full bg-gradient-to-b from-accent to-gold" />
             <h3 className="font-serif text-lg sm:text-xl font-semibold text-ink">Core Campaign Baseline Metrics</h3>
+            <span aria-hidden="true" className="fx-divider-soft flex-1 min-w-4 ml-2" />
           </div>
-        </div>
+        </Reveal>
 
         {/* Desktop / Tablet Table View */}
         <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-4">
           {metrics.map((m, i) => (
-            <TiltCard
-              key={i}
-              className={`relative overflow-hidden bg-card border rounded-xl p-4 sm:p-5 shadow-sm transition-all hover:border-accent/40 ${
-                m.warn ? 'border-danger/30' : m.good ? 'border-accent/40' : 'border-line'
-              }`}
-            >
-              <div className="absolute -bottom-10 -right-10 w-24 h-24 rounded-full blur-2xl bg-accent/10 pointer-events-none" />
-              
-              <div className="flex justify-between items-start mb-2">
-                <div className={`font-serif text-2xl sm:text-3xl font-semibold leading-none ${m.warn ? 'text-danger' : m.good ? 'text-accent' : 'text-ink'}`}>
-                  <AnimatedCounter value={m.num} />
-                </div>
-                <div className="p-1.5 rounded-lg bg-paper border border-line">
-                  {m.icon}
-                </div>
-              </div>
-              
-              <div className="text-sm font-semibold text-muted mt-2 leading-tight">{m.label}</div>
-              <div className="text-xs text-muted/70 mt-1.5">{m.sub}</div>
-            </TiltCard>
+            <Reveal key={i} variant="pop" delay={i * 90} amount={0.3}>
+              <TiltCard max={6} className="h-full">
+                <SpotlightCard
+                  border
+                  className={`group relative h-full overflow-hidden fx-mesh border rounded-xl p-4 sm:p-5 shadow-sm transition-all hover:border-accent/40 ${
+                    m.warn ? "border-danger/30" : m.good ? "border-accent/40" : "border-line"
+                  }`}
+                >
+                  <div className="absolute -bottom-10 -right-10 w-24 h-24 rounded-full blur-2xl bg-accent/10 pointer-events-none" />
+
+                  {/* The figure sits proudest in the card's own 3D space, so the tilt reads as
+                      depth rather than as the whole panel rocking. */}
+                  <div className="flex justify-between items-start mb-2 fx-z-1">
+                    <div className={`font-serif text-2xl sm:text-3xl font-semibold leading-none tabular-nums ${m.warn ? "text-danger" : m.good ? "text-accent" : "text-ink"}`}>
+                      <CountUpText text={m.num} />
+                    </div>
+                    <div className="p-1.5 rounded-lg bg-paper border border-line fx-icon-rise">
+                      {m.icon}
+                    </div>
+                  </div>
+
+                  <div className="text-sm font-semibold text-muted mt-2 leading-tight">{m.label}</div>
+                  <div className="text-xs text-muted/70 mt-1.5">{m.sub}</div>
+                </SpotlightCard>
+              </TiltCard>
+            </Reveal>
           ))}
         </div>
 
         {/* Mobile Automatic Horizontal Scroll Carousel */}
         <div className="block sm:hidden -mx-4">
-          <div className="flex gap-3 overflow-x-auto scrollbar-none px-4 pb-2 snap-x snap-mandatory">
+          <div className="fx-stagger fx-rubber flex gap-3 overflow-x-auto scrollbar-none px-4 pb-2 snap-x snap-mandatory">
             {metrics.map((m, i) => (
               <div
                 key={i}
-                className={`relative overflow-hidden bg-card border rounded-xl p-3.5 shadow-sm w-[230px] shrink-0 snap-center ${
+                style={{ "--fx-i": i } as React.CSSProperties}
+                className={`fx-in-right relative overflow-hidden fx-mesh border rounded-xl p-3.5 shadow-sm w-[230px] shrink-0 snap-center ${
                   m.warn ? 'border-danger/30' : m.good ? 'border-accent/30' : 'border-line'
                 }`}
               >
@@ -196,7 +110,7 @@ export function Dashboard() {
                 
                 <div className="flex justify-between items-start mb-2">
                   <div className={`font-serif text-2xl font-semibold leading-none ${m.warn ? 'text-danger' : m.good ? 'text-accent' : 'text-ink'}`}>
-                    <AnimatedCounter value={m.num} />
+                    <CountUpText text={m.num} />
                   </div>
                   <div className="p-1.5 rounded-lg bg-paper border border-line">
                     {m.icon}
@@ -212,9 +126,9 @@ export function Dashboard() {
       </div>
 
       {/* §8.1.1 nomination KPIs — targets against baselines, not progress. */}
-      <div className="bg-paper/40 border border-line/60 rounded-2xl p-4 sm:p-6">
+      <Reveal variant="up" amount={0.1} className="fx-glass rounded-2xl p-4 sm:p-6">
         <NominationScorecard />
-      </div>
+      </Reveal>
     </div>
   );
 }

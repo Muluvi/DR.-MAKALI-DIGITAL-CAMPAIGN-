@@ -10,7 +10,7 @@
  */
 export { Reveal, Stagger, type RevealVariant } from "./Reveal";
 export { SplitText, Typewriter, Scramble, WordCycler } from "./SplitText";
-export { CountUp, Odometer, ProgressRing } from "./Numerals";
+export { CountUp, CountUpText, Odometer, ProgressRing } from "./Numerals";
 export { TiltCard, SpotlightCard, MagneticButton, RippleButton } from "./Surfaces";
 export { AmbientField } from "./AmbientField";
-export { BackToTop, NavDots, CustomCursor } from "./Chrome";
+export { NavDots, CustomCursor } from "./Chrome";
