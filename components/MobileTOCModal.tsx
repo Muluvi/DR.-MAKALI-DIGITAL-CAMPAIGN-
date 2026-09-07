@@ -7,7 +7,6 @@ import { SECTIONS, type TabId } from "../lib/heading-slug";
 import type { SectionItem } from "../lib/section-index";
 
 const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
-  overview: Compass,
   decision: HandCoins,
   evidence: Map,
   strategy: MessageSquare,

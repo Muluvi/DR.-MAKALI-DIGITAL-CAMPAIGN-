@@ -331,7 +331,7 @@ function buildComponents(tabId: TabId): Components {
 
               // §0.1 Mizani survey table — table stays (item 14 says keep it with only
               // two data points), slope chart added alongside it.
-              if (tabId === "overview" && has("kasalu") && has("wambua")) {
+              if (tabId === "decision" && has("kasalu") && has("wambua")) {
                 return (
                   <>
                     {table}
@@ -405,7 +405,7 @@ function buildComponents(tabId: TabId): Components {
               // The three governing realities (§0.3) get a pull-quote-style emphasis
               // treatment instead of a plain bullet — every other list item is unaffected.
               const text = normalizeWhitespace(getDeepText(children));
-              const isGoverningReality = tabId === "overview" && GOVERNING_REALITY_TRIGGERS.some((t) => text.includes(t));
+              const isGoverningReality = tabId === "decision" && GOVERNING_REALITY_TRIGGERS.some((t) => text.includes(t));
               if (isGoverningReality) {
                 return <MarkdownListItem tabId={tabId} emphasis>{children}</MarkdownListItem>;
               }

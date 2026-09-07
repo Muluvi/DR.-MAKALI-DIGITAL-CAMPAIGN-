@@ -7,7 +7,6 @@ import { buildSectionIndex } from "@/lib/section-index";
 
 // One file per top-level section, named so the directory listing reads as the offer itself.
 const FILES: Record<TabId, string> = {
-  overview: "0-overview.md",
   decision: "1-decision.md",
   evidence: "2-evidence.md",
   strategy: "3-strategy.md",

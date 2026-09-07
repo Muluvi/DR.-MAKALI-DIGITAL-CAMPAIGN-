@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Coins, Users, Radio, ShieldCheck, Type, Eye, EyeOff, Compass, Map, MessageSquare, Megaphone, Shield, Database, Gauge, HandCoins } from "lucide-react";
+import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Coins, Users, Radio, ShieldCheck, Type, Eye, EyeOff, Map, MessageSquare, Megaphone, Shield, Database, Gauge, HandCoins } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
 import { MarqueeCarousel } from "./MarqueeCarousel";
@@ -71,7 +71,6 @@ interface ClientPageProps {
 
 // One icon per top-level section, keyed to what the section is about rather than to its position.
 const SECTION_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
-  overview: Compass,
   decision: HandCoins,
   evidence: Map,
   strategy: MessageSquare,
@@ -189,7 +188,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
   // Always starts on the overview so server and client render the same tree on first paint — the
   // URL fragment is only readable client-side, so a shared deep link switches section in a mount
   // effect below rather than in the initial state (see the useEffect reading window.location.hash).
-  const [activeTab, setActiveTab] = useState<string>("overview");
+  const [activeTab, setActiveTab] = useState<string>("decision");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTOCModalOpen, setIsTOCModalOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -322,13 +321,13 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
   const renderSectionExtras = (sectionId: string) => {
     // The overview is the landing view and closes on its own section cards, so it does not need
     // the reading-mode strip beneath it.
-    const showFocusToggle = sectionId !== "overview";
+    const showFocusToggle = sectionId !== "decision";
 
     return (
       <div className="mt-8 pt-8 border-t border-line/20 space-y-8">
         {/* The landing closes on the offer itself: nine cards, in reading order, so the first
             screen answers "what is being proposed" without opening a menu. */}
-        {sectionId === "overview" && !isExpanded && (
+        {sectionId === "decision" && !isExpanded && (
           <nav aria-label="Proposal sections">
             <h2 className="font-serif text-lg sm:text-xl font-semibold text-ink mb-1">What this proposal covers</h2>
             <p className="text-sm text-muted mb-5">Nine sections. Every one of them opens on what it is for.</p>
@@ -393,7 +392,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
       <ScrollProgressBar />
       
       {/* Hero Header */}
-      {(activeTab === "overview" || isExpanded) && (
+      {(activeTab === "decision" || isExpanded) && (
         <header className="cv-auto-hero relative pt-10 sm:pt-14 pb-8 sm:pb-12 overflow-hidden print:pt-4 print:pb-4">
           <div className="absolute inset-0 pointer-events-none opacity-50 bg-[radial-gradient(circle_at_82%_10%,var(--color-glow),transparent_32%),linear-gradient(180deg,var(--color-card),var(--color-paper))]" />
           <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 relative z-10">
@@ -477,7 +476,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
       )}
 
       {/* Data Strip */}
-      {(activeTab === "overview" || isExpanded) && (
+      {(activeTab === "decision" || isExpanded) && (
         <section className="cv-auto-strip max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 mb-8 print:hidden space-y-6">
           <LazyMount minHeight={420}>
             <DataVisualizations />
@@ -494,9 +493,9 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
         </div>
         
         {/* Responsive Toolbar */}
-        <div className={`sticky top-0 z-40 bg-paper/95 backdrop-blur-md py-2 sm:py-3 border-b border-line/25 ${(activeTab === "overview" || isExpanded) ? "mt-3 sm:mt-6" : "mt-0"} mb-3 sm:mb-6 flex items-center justify-between gap-2 print:hidden`}>
+        <div className={`sticky top-0 z-40 bg-paper/95 backdrop-blur-md py-2 sm:py-3 border-b border-line/25 ${(activeTab === "decision" || isExpanded) ? "mt-3 sm:mt-6" : "mt-0"} mb-3 sm:mb-6 flex items-center justify-between gap-2 print:hidden`}>
           <div className="flex items-center gap-1.5 sm:gap-4 flex-1 min-w-0 overflow-x-auto scrollbar-none py-0.5">
-            {activeTab !== "overview" && !isExpanded && (
+            {activeTab !== "decision" && !isExpanded && (
               <div className="flex items-center gap-1.5 mr-1 shrink-0">
                 <div className="scale-75 origin-left shrink-0">
                   <WiperUmbrellaLogo />

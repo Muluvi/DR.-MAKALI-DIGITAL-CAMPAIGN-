@@ -1,4 +1,4 @@
-Four readings of the ground: how the nomination will be decided, who the candidate is running against, the ward arithmetic, and the county’s three regions.
+The ground as it is: how the nomination will be decided, the candidate and the county, the ward arithmetic that sets the winning number, what digital reach can and cannot deliver against it, who the voters are, who controls the radio, and the law all of it runs inside.
 
 ## 1.1 The nomination, and how it will be decided
 
@@ -616,6 +616,219 @@ In strict adherence to the campaign's data provenance standards, the analytical 
 
 ---
 
+## 3.1 The two-tier channel architecture
+
+Winning Kitui County requires building a communication strategy aligned with empirical reality rather than digital wishful thinking. 
+
+According to the official **2019 Kenya National Bureau of Statistics (KNBS) Census** (Tier 1), only **13.6% of Kitui's population (ages 3+) uses the internet**, while **86.4% of the population resides in an offline media environment**.
+
+```
+════════════════════════════════════════════════════════════════════════════════════
+                     KITUI COUNTY ELECTORATE REACHABILITY AUDIT
+                          Total Electorate: 532,758 Voters
+════════════════════════════════════════════════════════════════════════════════════
+
+  DIGITAL / CONNECTED MINORITY                  OFFLINE INFRASTRUCTURE MAJORITY
+  ────────────────────────────                  ───────────────────────────────
+  • Sized Reach: ~72,000 voters (13.6%)         • Sized Reach: ~460,000 voters (86.4%)
+  • Share of the register: 13.6%                • Share of the register: 86.4%    
+  • Strategic Role: Influencer & Youth Engine   • Strategic Role: Decisive Ballot Delivery
+
+  [████████] 13.6% (Digital Reach)
+  [████████████████████████████████████████████████████████████████████] 86.4% (Offline)
+════════════════════════════════════════════════════════════════════════════════════
+```
+
+> [!CRITICAL]
+> **STRATEGIC REALITY CHECK: THE DIGITAL CEILING**
+>
+> If the campaign captures **100% of every single internet-connected voter in Kitui County**, it would assemble only about **72,000 reachable voters** — and reach is not votes—leaving the candidate **125,549 votes short** of the 198,004 benchmark.
+>
+> Therefore, digital channels alone **cannot mathematically win this election**. Victory depends on dominating the offline media and field infrastructure (Section 4.3), while using digital channels (Section 4.2) with surgical precision to shape elite opinion, organize youth volunteers, and mobilize the out-of-county diaspora.
+
+---
+
+### 3.1.1 The connected minority, and its limits
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                 SECTION 3.1.1: CONNECTED MINORITY CHANNELS                  │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### 3.1.1.1 Platform Sizing & Realistic In-County Reach
+
+The digital footprint in Kitui County is concentrated in urban nodes (Kitui Town, Mwingi Town, Kwa Vonza university corridor) and among educated youth. Based on KNBS 2019 internet penetration rates and Meta Audience Insights (Tier 1 & Tier 2):
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                DIGITAL PLATFORM IN-COUNTY SIZING MATRIX                                     │
+├───────────────────┬──────────────────────┬──────────────────────┬───────────────────────────────────────────┤
+│ Digital Platform  │ Estimated In-County  │ % of 532k Register   │ Core Demographic & Behavioral Profile     │
+├───────────────────┼──────────────────────┼──────────────────────┼───────────────────────────────────────────┤
+│ 1. WhatsApp       │ ~65,000–80,000       │ 12.2% – 15.0%        │ Primary closed-group organizing hub; peer │
+│                   │ active users         │                      │ forwards; family & welfare associations.  │
+├───────────────────┼──────────────────────┼──────────────────────┼───────────────────────────────────────────┤
+│ 2. Meta (FB/IG)   │ ~50,000–65,000       │ 9.4% – 12.2%         │ Broadest public social network in Kitui;  │
+│                   │ monthly active users │                      │ high engagement on political pages/groups.│
+├───────────────────┼──────────────────────┼──────────────────────┼───────────────────────────────────────────┤
+│ 3. TikTok         │ ~35,000–45,000       │ 6.5% – 8.4%          │ Fastest growing among youth (18–25); high │
+│                   │ active users         │                      │ virality for vernacular political comedy. │
+├───────────────────┼──────────────────────┼──────────────────────┼───────────────────────────────────────────┤
+│ 4. YouTube        │ ~25,000–35,000       │ 4.7% – 6.6%          │ Long-form debates, church sermons, and    │
+│                   │ active users         │                      │ rally livestreams; heavy data-cost limit. │
+├───────────────────┼──────────────────────┼──────────────────────┼───────────────────────────────────────────┤
+│ 5. X (Twitter)    │ ~8,000–12,000        │ 1.5% – 2.3%          │ Journalists, county elites, professionals,│
+│                   │ active users         │                      │ and national political commentators.      │
+└───────────────────┴──────────────────────┴──────────────────────┴───────────────────────────────────────────┘
+```
+
+#### 3.1.1.2 What Digital CAN Do
+1.  **Elite Agenda Setting & Narrative Defense:** X and Facebook dominate the information diet of local radio producers, vernacular talk-show hosts, church leaders, and county assembly members. Establishing rapid-response dominance on these platforms shapes the stories broadcast over radio 6 hours later.
+2.  **Diaspora Financial & Opinion Mobilization:** Reaching the 150,000+ Kamba diaspora living in Nairobi and Mombasa via geofenced Meta, YouTube, and WhatsApp campaigns transforms them into active campaign donors and remote family influencers.
+3.  **Youth Mobilization & Field Volunteer Recruitment:** Engaging the ~234,000 youth cohort via TikTok and WhatsApp generates high-energy field activists who operate the ground logistics and serve as polling agents.
+4.  **Cost-Effective Micro-Targeting of Urban MSMEs:** Hyper-geofencing commercial centers (Kitui CBD, Mwingi Central) allows testing policy messages ("The Economist's Single Business Permit") with minimal waste.
+
+#### 3.1.1.3 What Digital CANNOT Do
+1.  **It Cannot Deliver the 200,000 Vote Benchmark Alone:** Capped at roughly 72,000 reachable voters inside Kitui County.
+2.  **It Cannot Penetrate the Rural Agrarian Base:** 86.4% of rural smallholders do not consume political content via social algorithms due to lack of smartphones, high data costs, and weak 3G/4G coverage in rural wards (e.g., Tharaka, Tseikuru, Voo/Kyamatu, Endau, Mutha).
+3.  **It Cannot Counteract Ground Rumors Directly:** WhatsApp and Facebook echo chambers rarely cross over into dryland farming communities without physical intermediaries.
+
+---
+
+### 3.1.2 The offline majority, and the infrastructure that reaches it
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                  SECTION 3.1.2: OFFLINE MAJORITY CHANNELS                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+The election will be won or lost across the **~460,000 offline voters** living in Kitui's rural wards. Reaching this electorate requires an orchestrated combination of telecommunications protocol channels (SMS/USSD), broadcast audio (vernacular radio), financial agent touchpoints, and dense physical market presence.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                 OFFLINE CHANNEL REACH & CAPACITY AUDIT                                      │
+├──────────────────────┬──────────────────────┬──────────────────────┬────────────────────────────────────────┤
+│ Offline Channel      │ Maximum Reachable    │ % of 532,758 Register│ Delivery Mechanism & Operational Role  │
+├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
+│ 1. Kikamba Radio     │ ~420,000 voters      │ **78.8%**            │ Mass persuasion, cultural credibility, │
+│    (Vernacular)      │ (78–80% listenership)│ of the register      │ policy dissemination & rally build-ups.│
+├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
+│ 2. Direct 2G SMS     │ ~320,000 voters      │ **60.1%**            │ Hyper-localized ward updates, candidate│
+│    (Opt-in Database) │ (60% mobile register)│ of the register      │ endorsement letters & GOTV alerts.     │
+├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
+│ 3. USSD Interactive  │ ~250,000 voters      │ **46.9%**            │ Zero-rated policy quiz, ward captain   │
+│    (*XXX# Service)   │ (Feature phone users)│ of the register      │ registration & live polling surveys.   │
+├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
+│ 4. Open-Air Market   │ ~280,000 voters      │ **52.6%**            │ Weekly physical interaction, flyer     │
+│    Barazas (Weekly)  │ (Physical foot-fall) │ of the register      │ distribution & localized speeches.     │
+├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
+│ 5. Mobile Money      │ ~180,000 voters      │ **33.8%**            │ Word-of-mouth peer network, branded    │
+│    Agents (M-Pesa)   │ (Monthly store visits│ of the register      │ point-of-sale collateral & buzz agents.│
+├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
+│ 6. Church & Synods   │ ~350,000 voters      │ **65.7%**            │ Sunday faith fellowship greetings,     │
+│    (Faith Networks)  │ (Weekly attendance)  │ of the register      │ pastoral blessings & clergy alignment. │
+└──────────────────────┴──────────────────────┴──────────────────────┴────────────────────────────────────────┘
+```
+
+#### 3.1.2.1 Kikamba Vernacular Radio (The Decisive Broadcast Medium)
+*   **Empirical Reach:** **~420,000 voters (78%–80% daily/weekly listenership in rural Kitui)** (GeoPoll / KARF Industry Data, Tier 2).
+*   **Station Hierarchy & Reach:**
+    *   *Musyi FM (Royal Media Services):* Dominant market leader in Ukambani; commercially independent. **Priority placement.**
+    *   *County FM (Kitui-based independent):* Local ward news and debates, strong in Kitui Town, Kabati and Kwa Vonza. **Priority placement.**
+    *   *Wikwatyo FM (Seventh-Day Adventist Church, Kitui):* Broad rural community trust. **Priority for community and service-delivery programming.**
+    *   *Mbaitu FM, Syokimau FM (Ngilu-associated) and Athiani FM (Wiper leadership):* **monitoring targets, not placement targets** — see Section 3.5.1 for the ownership map and the posture each one carries.
+*   **Operational Execution:**
+    *   *Prime-Time Strategic Bookings:* Secure weekly 2-hour interactive morning studio interviews (06:30–08:30) with Dr. Mulu during key policy rollout weeks.
+    *   *Kikamba Voice Jingles & Audio Testimonials:* 45-second micro-stories featuring real farmers from Mwingi North, Kitui South, and Kitui Rural explaining how Dr. Mulu's economic model protects their harvest prices.
+    *   *Live Event Feeds:* Sponsoring live outside broadcasting (OB) vans at major market rallies in Kalundu, Kabati, and Mutomo.
+
+#### 3.1.2.2 Direct 2G Bulk SMS & USSD Service
+*   **Empirical Reach:** **~320,000 voters (60%+ of active register reachable on basic GSM handsets)**.
+*   **Operational Execution:**
+    *   *Zero-Rated USSD Portal (`*483*XX#`):* Allows feature phone users to dial a free code to read Dr. Mulu's 5-point manifesto in Kikamba, register as a volunteer, or locate their nearest Ward Captain.
+    *   *Hyper-Localized Bulk SMS:* Dispatching customized Kikamba messages to consented supporters within specific wards on the eve of market days and on election morning for Get-Out-The-Vote (GOTV) mobilization.
+
+#### 3.1.2.3 Mobile-Money (M-Pesa) Agent Network Strategy
+*   **Empirical Reach:** **~180,000 unique monthly voter interactions across 1,800+ M-Pesa kiosks in Kitui County**.
+*   **Operational Execution:**
+    *   M-Pesa agents are trusted community hubs where residents deposit funds, buy airtime, and discuss local news. **Agent networks are regulated financial infrastructure**; Section 4.3.5 flags that any commercial arrangement with them must be reviewed by campaign counsel before recruitment begins. The 1,800 kiosk and 800 ambassador counts are also untiered and need a source.
+    *   The campaign will recruit 800+ shopkeepers and M-Pesa agents as "Economic Ambassadors," providing them with branded business ledgers, counter pens, calendar posters, and daily economic talking points.
+
+#### 3.1.2.4 Open-Air Market Day Barazas & Caravan Circuits
+*   **Empirical Reach:** **~280,000 voters attend weekly market rotations**.
+*   **Market Rotation Map:**
+    *   *Mondays:* Nguni Livestock Market (Mwingi Central), Kabati (Kitui West).
+    *   *Tuesdays:* Kalundu Market (Kitui Central), Tseikuru (Mwingi North).
+    *   *Wednesdays:* Mbondoni (Mwingi West), Mutomo (Kitui South).
+    *   *Thursdays:* Chuluni (Kitui East), Kyuso (Mwingi North).
+    *   *Fridays:* Kisasi (Kitui Rural), Migwani (Mwingi West).
+    *   *Saturdays:* Kitui Town Central Market, Mwingi Town Main Market.
+*   **Operational Execution:** Deploying two high-output mobile sound trucks (*The Mulu Economic Caravans*) equipped with live PA systems, Kikamba music, and local youth speakers to dominate market entrances on their designated days.
+
+#### 3.1.2.5 Church Fellowships & Clergy Engagement
+*   **Empirical Reach:** **~350,000 weekly attendees across Catholic, AIC, Redeemed Gospel, Anglican, and Baptist congregations**.
+*   **Operational Execution:** Sunday morning worship visits across all 8 constituencies, respecting liturgical decorum, requesting pastoral prayers, and engaging parish development committees post-service.
+
+---
+
+### 3.1.3 Budget against reach
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│              BUDGET ALLOCATION VS. ELECTORAL REACH REALITY AUDIT             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+A common failure mode in modern Kenyan political campaigns is over-allocating budget to flashy social media influencers while starving the unglamorous rural infrastructure that actually produces votes.
+
+The table below is the **rebalancing target** — the direction of travel away from the
+conventional pitch, argued from reach. It is not a formula the budget already satisfies:
+Section 3.3.1 carries the actual shillings, and the two do not currently agree. That gap is
+stated under 3.3.1 rather than smoothed over here, because closing it is a live decision
+about where roughly KSh 14 million goes, not a presentation choice.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                              CAMPAIGN RESOURCE REBALANCING AUDIT                                            │
+├──────────────────────────────┬───────────────────┬───────────────────┬──────────────────────────────────────┤
+│ Communication Domain         │ Traditional Pitch │ Rebalanced Reality│ Strategic Rationale & Mathematical   │
+│                              │ (% of Comm Budget)│ (% of Comm Budget)│ Justification                        │
+├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
+│ Digital & Social Media       │ 45.0%             │ **18.0%**         │ Capped to reflect 13.6% in-county    │
+│ (Meta, TikTok, X, YouTube)   │ (Over-allocated)  │ (Right-sized)     │ penetration + diaspora mobilization. │
+├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
+│ Vernacular Radio Broadcast   │ 20.0%             │ **37.0%**         │ Scaled up to dominate the primary    │
+│ (Musyi, County, Wikwatyo)    │ (Under-allocated) │ (Dominant Share)  │ medium reaching 78%+ of voters daily.│
+├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
+│ Direct 2G SMS & USSD Tree    │ 10.0%             │ **20.0%**         │ Doubled to build a resilient, direct │
+│ (Ward Captain Field Net)     │ (Under-allocated) │ (High Priority)   │ pipeline to 320k feature phone voters│
+├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
+│ Market Caravans & Barazas    │ 15.0%             │ **18.0%**         │ Maintained for physical presence and │
+│ (PA Trucks & Collateral)     │                   │ (Core Ground)     │ live crowd momentum on market days.  │
+├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
+│ Church & Community Outreaches│ 10.0%             │ **7.0%**          │ Focused on protocol-compliant clergy │
+│ (Clergy Synods & Guilds)     │                   │ (Targeted)        │ partnerships and Sunday tours.       │
+└──────────────────────────────┴───────────────────┴───────────────────┴──────────────────────────────────────┘
+```
+
+```
+════════════════════════════════════════════════════════════════════════════════════
+                          SECTION 3.1.3 STRATEGIC TAKEAWAY
+════════════════════════════════════════════════════════════════════════════════════
+ • The Digital Ceiling: Digital reaches ~72,000 voters (13.6%), capable of 
+                        delivering only 36.2% of the 200,000 threshold.
+ • The Offline Engine:  Vernacular radio (~420k reach) and Direct 2G SMS (~320k 
+                        reach) are mathematically essential to win.
+ • Budget Discipline:   Rebalanced communications budget—allocating 82% to offline
+                        channels (Radio 37%, SMS 20%, Caravans 18%, Church 7%)
+                        and 18% to digital to reflect the empirical media landscape.
+════════════════════════════════════════════════════════════════════════════════════
+```
+
+---
+
 ## 1.4 The county's three regions
 
 Kitui is not a monolith. Its eight constituencies and 18 sub-counties have
@@ -713,5 +926,382 @@ Phase −1 deliberately over-indexes on Mwingi and the arid belt relative to
 population share, because the nomination deficit is a recognition deficit
 concentrated outside the home base. Weightings are reviewed monthly against
 tracking data and reallocated.
+
+---
+
+## 2.4 Who we are talking to
+
+Electoral conversion in Kitui County requires disaggregating the 532,758 registered voters into distinct, behavioral, and demographic segments grounded in official data from the **2019 Kenya National Bureau of Statistics (KNBS) Census**, the **Independent Electoral and Boundaries Commission (IEBC)**, and the **Communications Authority of Kenya (CA)** (Tier 1).
+
+A generic countywide message fails because an offline smallholder farmer in Tseikuru evaluating drought mitigation has entirely different information channels, daily anxieties, and economic incentives than an urban bodaboda operator in Kitui Township or a diaspora professional remitting money from Nairobi.
+
+This section defines the structural architecture of the Kitui electorate across six empirical dimensions: **Rural/Urban Split**, **Youth Cohort**, **Connectivity Infrastructure**, **Language Hierarchy**, **Livelihood Clusters**, and the **Out-of-County Diaspora Matrix**.
+
+```
+════════════════════════════════════════════════════════════════════════════════════
+                     KITUI COUNTY AUDIENCE ARCHITECTURE OVERVIEW
+════════════════════════════════════════════════════════════════════════════════════
+
+ ┌────────────────────────┐  ┌────────────────────────┐  ┌────────────────────────┐
+ │   GEOGRAPHIC LOCUS     │  │     AGE DEMOGRAPHIC    │  │   CONNECTIVITY STATUS  │
+ │ • Rural: 95.2%         │  │ • Youth (18-35): ~44%  │  │ • Offline (2G): 86.4%  │
+ │ • Urban: 4.8%          │  │ • Mid/Senior (36+): 56%│  │ • Online (Smart): 13.6%│
+ └────────────────────────┘  └────────────────────────┘  └────────────────────────┘
+ ┌────────────────────────┐  ┌────────────────────────┐  ┌────────────────────────┐
+ │   PRIMARY LANGUAGE     │  │   LIVELIHOOD CLUSTERS  │  │   DIASPORA MATRIX      │
+ │ • Kikamba: ~76% (3.6)  │  │ • Dryland Agrarian     │  │ • Nairobi / Mombasa    │
+ │ • Kiswahili: ~16%      │  │ • Pastoral / Livestock │  │ • Remittance Leverage  │
+ │ • English: ~8%         │  │ • Informal / Bodaboda  │  │ • Family Opinion Shprs │
+ └────────────────────────┘  └────────────────────────┘  └────────────────────────┘
+════════════════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+### 2.4.1 The six voter segments
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    ELECTORAL SEGMENTATION MASTER MATRIX                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### 1. The Rural Agrarian & Smallholder Baseline
+*   **Empirical Sizing:** **1,082,168 rural residents — 95.2% of the county population** (2019 KNBS Census, Tier 1; see Section 1.2.5). The register is not published by rural/urban split, so applying that share to the 532,758 register gives approximately **507,000 rural registered voters** across 36 non-urban wards — a **derived estimate, not a measured figure**.
+*   **Geographic Base:** Rural agricultural belts in Kitui Central (Mulango, Kyangwithya East), Kitui West (Mutonguni, Kauwi), Kitui Rural (Kisasi, Mbitini), Mwingi Central (Nuu, Nguni), Mwingi West (Nguutani, Migwani), and Kitui East (Zombe, Chuluni).
+*   **Connectivity & Media Consumption:** **86.4% offline**; 2G/GSM feature phone dominance; high evening vernacular radio listenership; weekly open-air market gatherings.
+*   **Reachable Channels:**
+    *   **Primary:** Kamba Vernacular Radio (Musyi FM, Mbaitu FM, Sang'u FM, Athiani FM, Syokimau FM) during morning (06:00–08:30) and evening drive (19:00–21:30).
+    *   **Secondary:** Direct localized bulk SMS in Kikamba via the 400 Ward Captain field network (Section 9.1.2).
+    *   **Physical:** Open-air market day barazas (e.g., Kalundu, Kabati, Mbondoni, Nguni, Mutomo), church fellowships (AIC, Catholic, Redeemed), and agricultural cooperative/SACCO meetings.
+*   **Persuasion Lever (What It Takes to Move Them):**
+    *   *Core Anxiety:* Persistent seasonal crop failure, unmitigated drought shocks, exploitative middlemen for green grams (*ndengu*) and pigeon peas (*nzuu*), and erratic subsidized seed/fertilizer distribution.
+    *   *Candidate Value Proposition:* Frame Dr. Mulu's public finance expertise as a guarantee of **guaranteed minimum returns (GMR)**, county-backed cold storage and aggregate marketing boards, and decentralized solar-powered sand dam and borehole expansion.
+    *   *Track Record Proof:* Evidence of CDF-funded water harvesting tanks and community boreholes installed across Kitui Central schools and dispensaries.
+
+---
+
+#### 2. The Agro-Pastoralist & Arid-Zone Livestock Keepers
+*   **Empirical Sizing:** Sizing requires targeted primary survey for precise voter registration figures (**Named Data Gap**); estimated at **~15%–20% of the rural population** (~80,000–105,000 registered voters) concentrated in the semi-arid northern and southern borderlands.
+*   **Geographic Base:** Mwingi North (Kyuso, Tseikuru, Tharaka, Ngomeni), Mwingi Central (Waita, Kivou), Kitui South (Mutha, Kanziko, Ikutha, Athi), and Kitui East (Endau/Malalani, Voo/Kyamatu).
+*   **Connectivity & Media Consumption:** Highly dispersed geography; intermittent 2G cellular coverage; heavy battery-powered solar radio listenership; pastoral migration routes.
+*   **Reachable Channels:**
+    *   **Primary:** Vernacular radio news bulletins and pastoralist agricultural segments (Musyi FM, Sang'u FM).
+    *   **Secondary:** Weekly livestock market hubs (e.g., Nguni Livestock Market, Tseikuru, Mutha, Kanziko livestock yards).
+    *   **Intermediaries:** Clan elders (*Atumia ma Utui*), grazing committee chairpersons, and livestock trader association leaders.
+*   **Persuasion Lever (What It Takes to Move Them):**
+    *   *Core Anxiety:* Banditry/insecurity along the Tana River and Garissa borders, pasture depletion, lack of county livestock off-take programs during drought, animal disease outbreaks, and predatory livestock buyers.
+    *   *Candidate Value Proposition:* Concrete commitments to county-financed livestock vaccination corridors, modern meat processing/abattoir facilities in Mwingi and Mutomo, and assertive security coordination with the national government backed by Dr. Mulu's parliamentary budgeting influence.
+
+---
+
+#### 3. The Youth Cohort (Ages 18–35: Students, Bodaboda, Unemployed Graduates & Creatives)
+*   **Empirical Sizing:** **~44% of the active voter register** (~234,000 registered voters, derived from 2019 KNBS Census age distribution and 2022 IEBC voter register, Tier 1).
+*   **Geographic Base:** Clustered heavily in peri-urban corridors (Kitui Township, Kwa Vonza/SEKU/KU university belts, Mwingi Central town, Mutonguni, Kabati) and dispersed across rural trading centers.
+*   **Connectivity & Media Consumption:** High smartphone and feature-phone social media usage (**~70%+ smartphone adoption within this sub-group**); active on WhatsApp groups, TikTok, Facebook Mobile, and YouTube; congregation at bodaboda stages, video dens, and sports centers.
+*   **Reachable Channels:**
+    *   **Primary Digital:** Targeted Meta (Facebook/Instagram) and TikTok short-form video campaigns; viral WhatsApp audio and graphic forwards.
+    *   **Primary Physical:** Bodaboda stage associations, local football tournament circuits, university/college student unions (SEKU, KU Kitui Campus, Kitui KMTC).
+    *   **Direct:** SMS broadcasts detailing youth enterprise programs and vocational grants.
+*   **Persuasion Lever (What It Takes to Move Them):**
+    *   *Core Anxiety:* Chronic youth un/underemployment, predatory digital lending apps, arbitrary county revenue enforcement/harassment of bodaboda and small kiosks, lack of capital for startup ventures.
+    *   *Candidate Value Proposition:* Dismantling the "politician handouts" model in favor of an institutionalized **County Youth Enterprise & Innovation Fund**, county-funded driving and TVET scholarship vouchers, zero-rating of small informal trade licenses, and creative economy support.
+    *   *Track Record Proof:* Highlight Dr. Mulu's 100% transparent Kitui Central Constituency NG-CDF bursary disbursement formula, which educated thousands of tertiary and secondary students without patronage.
+
+---
+
+#### 4. The Urban & Peri-Urban Commercial Informal Sector (MSMEs & Traders)
+*   **Empirical Sizing:** **54,019 urban residents — 4.8% of the county population** (2019 KNBS Census urban classification, Tier 1). Applying that share to the register gives approximately **26,000 urban registered voters** — again derived, not measured. Note this segment's messaging reach extends well beyond the urban classification, since peri-urban trading centres in the ward list sit inside rural wards.
+*   **Geographic Base:** Kitui Township (19,538 voters), Mwingi Central Town (14,525 voters), Kwa Vonza/Yatta (18,020 voters), Mutomo (12,637 voters), Matinyani (14,279 voters), and Nguutani (15,121 voters).
+*   **Connectivity & Media Consumption:** High mobile internet penetration (**~45%–55% smartphone connectivity**); constant WhatsApp business use; daily interaction with county revenue collectors; regular local vernacular radio listening.
+*   **Reachable Channels:**
+    *   **Physical:** Direct walk-throughs in commercial business districts, market trader association meetings, chamber of commerce chapters (KNCCI Kitui Chapter).
+    *   **Digital:** Hyper-geofenced Meta ads (Kitui and Mwingi town centers) and peer-to-peer WhatsApp broadcast chains.
+    *   **Radio:** Midday business talk shows on Musyi FM and Mbaitu FM.
+*   **Persuasion Lever (What It Takes to Move Them):**
+    *   *Core Anxiety:* Excessive county cess/taxes without basic market infrastructure (clean water, lighting, sanitation, paved stalls), arbitrary harassment by county enforcement officers (*kanjo*), fire disasters in markets with zero fire engine response.
+    *   *Candidate Value Proposition:* "The Economist's Business Charter": Single unified business permit, 24-hour solar-lit and secured markets, modern sanitation facilities, and predictable county tax codes that stimulate rather than suffocate micro-commerce.
+
+---
+
+#### 5. The Formal Sector Professionals, Civil Servants & Educators
+*   **Empirical Sizing:** Sizing requires administrative primary research (**Named Data Gap**); estimated at **~25,000–35,000 registered voters** (comprising teachers under KNUT/KUPPET, healthcare workers, county/national civil servants, bank staff, and clergy).
+*   **Geographic Base:** Administrative hubs (Kitui Town, Mwingi Town, sub-county headquarters) and public schools/hospitals throughout all 40 wards.
+*   **Connectivity & Media Consumption:** **>90% smartphone and laptop connectivity**; active on X (Twitter), Facebook, LinkedIn, professional WhatsApp groups; readers of national daily newspapers and policy analyses.
+*   **Reachable Channels:**
+    *   **Direct & Digital:** Thought-leadership policy whitepapers, LinkedIn/X executive briefs, structured appearances on national/regional television (Citizen TV, TV47, KTN) and prime-time radio talk shows.
+    *   **Institutional:** Union delegate barazas (KNUT Kitui Branch, KUPPET, KMPDU, KNUMLO), Kenya Primary School Heads Association (KEPSHA), and clergy synods.
+*   **Persuasion Lever (What It Takes to Move Them):**
+    *   *Core Anxiety:* Delayed statutory deductions, stalled career progression/promotions in county government, poor hospital drug supplies undermining medical practice, politicized public service appointments.
+    *   *Candidate Value Proposition:* Meritocratic public service administration, on-time payment of county health workers, professionalization of the County Public Service Board, and institutional governance free from cronyism.
+    *   *Track Record Proof:* Dr. Mulu's pristine academic and professional standing (PhD in Economics, Parliamentary Budget & Appropriations Committee member, non-corrupt institutional reputation).
+
+---
+
+#### 6. The Out-of-County Kamba Diaspora Matrix (Nairobi, Coast & Nationwide)
+*   **Empirical Sizing:** Total diaspora volume is estimated in excess of 150,000+ individuals, but the exact subset registered to vote within Kitui County requires specialized primary polling (**Named Data Gap**).
+*   **Geographic Concentration:** Nairobi (Embakasi, Kasarani, Kibra, Starehe, Eastleigh, Westlands), Mombasa/Coast (Changamwe, Likoni, Kisauni, Malindi), Machakos/Makueni urban centers.
+*   **Strategic Role:** Even those registered to vote in Nairobi/Mombasa act as **critical opinion shapers and financial remitters**. They pay school fees, medical bills, and funeral costs for rural relatives; their political endorsements carry immense weight during family decision-making.
+*   **Connectivity & Media Consumption:** **>95% internet/smartphone connected**; active on X, Facebook, WhatsApp, YouTube, and national podcasts.
+*   **Reachable Channels:**
+    *   **Digital:** Targeted geofenced Meta/Google/YouTube digital ad campaigns focused on Nairobi and Mombasa IP addresses targeting Kamba language speakers and Kitui interest groups.
+    *   **Town Halls:** Physical diaspora engagement dinners and business breakfast town halls in Nairobi and Mombasa.
+    *   **WhatsApp Networks:** Organized Kitui Professionals Diaspora WhatsApp forums and welfare association groups.
+*   **Persuasion Lever (What It Takes to Move Them):**
+    *   *Core Anxiety:* Inefficient county spending that leaves their rural parents and siblings in perpetual poverty, requiring continuous emergency financial bailouts from the diaspora.
+    *   *Candidate Value Proposition:* Presenting Dr. Mulu as the "Diaspora's Trusted Steward"—an economist who will manage county funds with audited transparency, build reliable healthcare and water systems, and create an enabling environment for diaspora private investments in real estate, agribusiness, and tourism.
+
+---
+
+### 2.4.2 How large each segment is, and what the evidence says
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                               AUDIENCE SEGMENT COMPARATIVE SUMMARY MATRIX                                  │
+├──────────────────────────┬──────────────────────┬─────────────┬───────────────────┬─────────────────────────┤
+│ Segment                  │ Sized Electorate     │ Data Tier   │ Primary Channel   │ Decisive Persuasion Hook│
+├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
+│ 1. Rural Smallholders    │ ~507,000 (derived)   │ Tier 1      │ Kamba Radio &     │ Guaranteed Minimum      │
+│    (Agrarian Core)       │ (95.2% of county)    │ KNBS/IEBC   │ Offline SMS       │ Returns & Sand Dams     │
+├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
+│ 2. Agro-Pastoralists     │ ~80,000–105,000      │ Primary Res │ Vernacular Radio  │ Livestock Off-take &    │
+│    (Arid Borderlands)    │ (Requires Survey)    │ Needed      │ & Market Days     │ Border Security Support │
+├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
+│ 3. Youth Cohort          │ ~234,000 voters      │ Tier 1      │ TikTok, Meta,     │ Youth Enterprise Fund,  │
+│    (Ages 18–35)          │ (~44% of register)   │ KNBS/IEBC   │ WhatsApp & Sports │ TVET Grants, No Harass  │
+├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
+│ 4. Urban MSMEs &         │ ~26,000 (derived)    │ Tier 1      │ Geofenced Digital │ Single Business Permit, │
+│    Informal Traders      │ (4.8% of county)     │ KNBS 2019   │ & Trader Barazas  │ 24-Hr Lit Market Stalls │
+├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
+│ 5. Formal Professionals  │ ~25,000–35,000       │ Primary Res │ X, TV, LinkedIn,  │ Meritocracy, Reliable   │
+│    & Civil Servants      │ (Requires Survey)    │ Needed      │ Union Synods      │ Medicine & Pension Flow │
+├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
+│ 6. Out-of-County         │ 150k+ influencers    │ Primary Res │ Nairobi/Coast Ads │ Remittance Relief &     │
+│    Kamba Diaspora        │ (Requires Survey)    │ Needed      │ & Town Halls      │ Audited Fiscal Prudence │
+└──────────────────────────┴──────────────────────┴─────────────┴───────────────────┴─────────────────────────┘
+```
+
+---
+
+### 2.4.3 What we still need to research
+
+To uphold the campaign's rigorous data integrity standard, the following empirical gaps are formally cataloged for commissioning in the Phase −1 baseline survey:
+
+1.  **Agro-Pastoral Electorate Sizing:** **Primary Research Required.** While census population counts exist for arid sub-counties (Mwingi North, Kitui South), the exact proportion of voters whose primary livelihood is strictly pastoral livestock rearing versus mixed subsistence farming requires primary household sampling.
+2.  **Formal Sector Civil Service Registry:** **Primary Research Required.** Exact voter registration counts for teachers (KNUT/KUPPET), county staff, and healthcare workers residing in Kitui County are not publicly disaggregated in IEBC reports.
+3.  **Diaspora Voter Registration Ratio:** **Primary Research Required.** The total volume of out-of-county Kamba residents originating from Kitui is large, but the precise percentage who remain registered to vote in Kitui (and travel home to vote) versus those registered in Nairobi/Mombasa has never been measured by an empirical survey.
+
+```
+════════════════════════════════════════════════════════════════════════════════════
+                          SECTION 2.4.3 STRATEGIC TAKEAWAY
+════════════════════════════════════════════════════════════════════════════════════
+ • Audience Architecture: 95.2% Rural, 4.8% Urban, ~44% Youth (18-35).
+ • Channel Strategy:      Vernacular radio & offline SMS capture the 86.4% offline
+                          majority; digital ads activate the youth & diaspora.
+ • Value Proposition:     Tailored economic messaging—Guaranteed crop returns for
+                          farmers, enterprise funds for youth, single permits for 
+                          traders, and fiscal governance for professionals/diaspora.
+════════════════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+## 3.4 Earned media and the radio landscape
+
+Vernacular radio is the primary medium of political consciousness and daily news in rural and peri-urban Kitui County. However, the media environment in Eastern Kenya is characterized by severe political concentration: **the highest-reach commercial radio stations broadcasting in Kikamba are owned, financed, or editorially steered by active political rivals or entrenched party gatekeepers**.
+
+To ensure uninterrupted, high-credibility communication with the electorate, the campaign constructs a dual strategy: a disciplined operational engagement model for Tier 1 commercial networks, coupled with an aggressive bypass architecture detailed in **Section 3.4.3**.
+
+```
+════════════════════════════════════════════════════════════════════════════════════
+                  KAMBA RADIO LANDSCAPE & BYPASS ARCHITECTURE
+════════════════════════════════════════════════════════════════════════════════════
+
+   TIER 1: HOSTILE / GATEKEEPER COMMERCIAL STATIONS
+   (Musyi FM, Mbaitu FM, Sang'u FM, Athiani FM)
+   • High frequency coverage | Politically aligned ownership & editorial vetoes
+                                      │
+                                      ▼
+   THE BYPASS WORKAROUND ARCHITECTURE (SECTION 3.4.3)
+ ┌─────────────────────────────────────────────────────────────────────────────────┐
+ │ 1. Neutral & Church-Owned Stations (Wikwatyo, Mang'elete, County FM)              │
+ │ 2. Direct 2G SMS & Zero-Rated Interactive USSD Gateway (*483*77#)               │
+ │ 3. 8-Sub-County Mobile PA Sound Trucks & High-Density Market Center Caravans    │
+ │ 4. Grassroots Baraza Audio Distribution (Pre-loaded Megaphones & WhatsApp Voice)│
+ └─────────────────────────────────────────────────────────────────────────────────┘
+════════════════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+### 3.4.1 Who owns the Kamba-language stations, and who they favour
+
+The ownership map, the frequencies and the resulting campaign posture for every
+Kikamba-language station are set out once, in **Section 3.5.1**, and that table
+governs. It is the version reconciled against `data/media-ownership.ts`, which
+the site renders directly.
+
+> **Research Integrity Note on Listenership Data:**  
+> Precise, disaggregated county-level listenership figures (GeoPoll / KARF audience share percentages for Kitui) are **not published in the underlying empirical research**. In accordance with the campaign's provenance standards (Section 6.1.2), **listenership share is marked as Required Primary Research** rather than estimated speculatively.
+
+The three structural facts that drive the rest of this section:
+
+*   **Two stations are associated with Charity Ngilu**, a declared general-election rival: **Mbaitu FM** and **Syokimau FM**. Both are monitoring targets, not placement targets.
+*   **One station is associated with Kalonzo Musyoka**, the Wiper party leader: **Athiani FM**. It is party-sensitive rather than hostile, and it matters most during the nomination window, when coverage may track party leadership sentiment rather than merit.
+*   **The stations open to the campaign are commercially or institutionally independent**: **Musyi FM** (Royal Media Services), **County FM** (Kitui-based independent) and **Wikwatyo FM** (Seventh-Day Adventist Church, Kitui). These carry the placement budget.
+
+Ownership associations are publicly reported rather than certified, and media
+ownership changes. Section 3.5.1 carries the standing instruction to verify and
+update this map before any placement is booked.
+
+---
+
+### 3.4.2 The gatekeeper bottleneck
+
+The political economy of Kamba broadcasting presents three structural hazards for the campaign:
+1.  **Editorial Blackouts on Key Milestones:** High-profile developmental achievements (e.g., OAG clean audit certificates, parliamentary budget wins) are routinely downplayed or denied airtime on politically captured Tier 1 stations.
+2.  **Surrogate Studio Ambush Tactics:** Morning talk shows (*06:00–09:00 EAT*) frequently host adversarial panels stacked with rival proxies, designed to draw the candidate into unverified local controversies.
+3.  **Arbitrary Commercial Rate Inflation:** Politically steered media houses impose punitive rate surcharges or refuse prime morning ad slots for competitive campaigns.
+
+---
+
+## 6.6 Statutory and regulatory compliance
+
+This compliance pack consolidates all statutory, constitutional, and regulatory requirements governing Dr. Makali Mulu’s 2027 Kitui County gubernatorial campaign. Operating with strict legal adherence is both an ethical mandate and an essential defense against administrative disqualification or election petition exposure.
+
+```
+════════════════════════════════════════════════════════════════════════════════════
+                        STATUTORY COMPLIANCE ARCHITECTURE
+════════════════════════════════════════════════════════════════════════════════════
+
+   1. CAMPAIGN FINANCING COMPLIANCE (IEBC Gazette No. 12251 & ECFA 2026)
+   • Strict Ksh 97,560,000 Total Expenditure Ceiling (Utilization capped at Ksh 64.5M)
+   • 20% Single-Source Donor Cap (Max Ksh 19,512,000 per entity)
+   • Dedicated Campaign Trust Bank Account & Certified Signatory Notification
+   • Mandatory Reporting on all Receipts/Expenditures ≥ Ksh 1,000,000
+   • 90-Day Post-Election Audited Accounts Submission to IEBC
+                                      │
+                                      ▼
+   2. IEBC NOMINATION & STATUTORY CLEARANCE REQUIREMENTS
+   • University Degree Recognition & Commission for University Education (CUE) Clearance
+   • EACC Chapter Six Integrity Clearance Self-Declaration
+   • Kenya Revenue Authority (KRA) Tax Compliance Certificate
+   • Directorate of Criminal Investigations (DCI) Police Clearance Certificate
+   • Higher Education Loans Board (HELB) Clearance Certificate
+   • 500 Registered Voter Nomination Endorsement Signatures per Sub-County
+                                      │
+                                      ▼
+   3. DATA PROTECTION ACT (DPA 2019) & TELCO PRIVACY COMPLIANCE
+   • Lawful Basis: Explicit Opt-In Consent for 2G SMS & USSD Registry
+   • Certificate of Registration with the Office of the Data Protection Commissioner (ODPC)
+   • 100% On-Premise Encrypted Storage (AES-256) within Kenyan Borders
+   • Direct "STOP" Opt-Out Mechanism via Africa's Talking API
+                                      │
+                                      ▼
+   4. ELECTION OFFENCES ACT (EOA 2016) DEFENSE & LIABILITY MATRIX
+   • Prohibition of Bribery, Treating & Undue Influence
+   • Defamation & Hate Speech Quarantine (NCIC / Penal Code Compliance)
+   • Strict Campaign Ad Blackout Window (48 Hours Prior to Polling Station Opening)
+════════════════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+### 6.6.1 Campaign financing obligations under the ECFA
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                           ELECTION CAMPAIGN FINANCING STATUTORY OBLIGATIONS                                 │
+├──────────────────────────┬───────────────────────────────────────────┬──────────────────────────────────────┤
+│ Statutory Requirement    │ Operational Rule & Legal Threshold        │ Verification & Compliance Protocol   │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 1. County Expenditure    │ • Total campaign spend must not exceed    │ • Campaign budget strictly capped    │
+│    Ceiling               │   **Ksh 97,560,000** (IEBC Gazette        │   at Ksh 64,500,000 (66.1% limit),   │
+│                          │   Notice No. 12251, 7 August 2026).       │   leaving Ksh 33.06M safety margin.  │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 2. Single-Source Donor   │ • No single individual or corporate donor │ • All donations > Ksh 500,000 undergo│
+│    Contribution Cap      │   may contribute > **20% of the ceiling** │   source-of-funds verification by the│
+│                          │   (**Max: Ksh 19,512,000**).              │   Compliance Officer before receipt. │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 3. Dedicated Campaign    │ • All campaign funds must flow through a  │ • Formal account opening at a Tier-1 │
+│    Bank Account          │   single dedicated bank account titled    │   commercial bank; certified bank    │
+│                          │   *"Dr. Makali Mulu Campaign Trust"*.     │   statements filed monthly.          │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 4. Campaign Expenditure  │ • Campaign Expenditure Committee must be  │ • Formal written notification of 3–5 │
+│    Committee & Signatory │   notified to the IEBC at least 3 months  │   committee members and Authorized   │
+│                          │   prior to the general election.          │   Signatory submitted to IEBC Chair. │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 5. Large Transaction     │ • Mandatory itemized disclosure of all    │ • Certified invoices, contracts, and │
+│    Reporting Threshold   │   receipts and payments **≥ Ksh 1,000,000**│   receipts logged in real time.      │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 6. Post-Election Audited │ • Certified, audited campaign expenditure │ • External ICPAK-registered audit    │
+│    Final Accounts        │   accounts must be submitted to the IEBC  │   firm commissioned to deliver final │
+│                          │   within **90 days** post-election.       │   filing within 60 days of election. │
+└──────────────────────────┴───────────────────────────────────────────┴──────────────────────────────────────┘
+```
+
+---
+
+### 6.6.2 The IEBC nomination and clearance checklist
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                 IEBC STATUTORY NOMINATION CLEARANCE CHECKLIST                               │
+├──────────────────────────┬───────────────────────────────────────────┬──────────────────────────────────────┤
+│ Clearance Dimension      │ Statutory Standard & Issuing Authority    │ Current Status & Legal Verification  │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 1. Academic Degree       │ • Bachelor's Degree from a recognized     │ • **Verified:** Ph.D. in Economics,  │
+│    Requirement           │   university (Article 180(2) & Elections  │   valid Master's and Bachelor's from │
+│                          │   Act Sec. 22). CUE Recognition Letter.   │   University of Nairobi.             │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 2. Chapter Six Integrity │ • Self-Declaration Form cleared by the    │ • **Pending Filing Window:** Formal  │
+│    Clearance             │   Ethics and Anti-Corruption Commission   │   clearance submitted during official│
+│                          │   (EACC). Zero pending corruption trials. │   statutory nomination window.       │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 3. Tax Compliance        │ • Valid Tax Compliance Certificate (TCC)  │ • **Active / Current:** Annual KRA   │
+│    Certificate (TCC)     │   issued by the Kenya Revenue Authority.  │   clearance renewed annually.        │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 4. Police Clearance      │ • Valid Certificate of Good Conduct from  │ • **Scheduled:** Application to be   │
+│    Certificate (CID/DCI) │   the Directorate of Criminal Invest.     │   filed 60 days prior to IEBC date.  │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 5. HELB Clearance        │ • Certificate of Compliance from Higher   │ • **Verified:** Clear record with no │
+│    Certificate           │   Education Loans Board (HELB).           │   outstanding student debt arrears.  │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 6. Voter Nomination      │ • 500 registered voter signatures from at │ • **Operationalized:** Field Ops     │
+│    Endorsement Roll      │   least 5 of the 8 Sub-Counties (Elections│   registering 250 signatures per     │
+│                          │   Act Regulations).                       │   ward (10,000 total buffer roll).   │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 7. Party Nomination /    │ • Certificate of Nomination issued by the │ • **[Requires Legal Confirmation]:** │
+│    Direct Ticket Seal    │   Wiper Democratic Movement NEC/NEB.      │   Exact internal party dispute filing│
+│                          │                                           │   timelines and gazette deadlines.   │
+└──────────────────────────┴───────────────────────────────────────────┴──────────────────────────────────────┘
+```
+
+---
+
+### 6.6.3 Data protection and election offences liability
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                 DPA 2019 & ELECTION OFFENCES STATUTORY MATRIX                               │
+├──────────────────────────┬───────────────────────────────────────────┬──────────────────────────────────────┤
+│ Legal Dimension          │ Statutory Obligation / Exposure Risk      │ Campaign Risk Mitigation Protocol    │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 1. Data Protection Act   │ • Unlawful processing of personal voter   │ • Campaign registered with ODPC as a │
+│    (DPA 2019) Compliance │   phone numbers carries fines up to       │   Data Controller; all voter phone   │
+│                          │   **Ksh 5,000,000** or 2 years jail.      │   numbers sourced via opt-in barazas;│
+│                          │                                           │   mandatory "STOP" SMS opt-out.      │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 2. Election Offences Act │ • Voter bribery, distribution of cash, or │ • Strict prohibition of direct cash  │
+│    (EOA 2016) - Bribery  │   free merchandise at rallies is an       │   handouts at rallies; all logistics │
+│                          │   electoral offence causing candidate     │   payments to agents made via audited│
+│                          │   disqualification and 5-year jail.       │   M-Pesa bulk business disbursements.│
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 3. 48-Hour Campaign      │ • All campaign advertising, broadcasts,   │ • All radio spots, SMS engines, and  │
+│    Blackout Window       │   and public rallies must cease **48 hours│   sound caravans terminate exactly   │
+│                          │   prior to polling station opening**.     │   at 18:00 EAT on the 2nd day prior  │
+│                          │                                           │   to polling day.                    │
+└──────────────────────────┴───────────────────────────────────────────┴──────────────────────────────────────┘
+```
 
 ---

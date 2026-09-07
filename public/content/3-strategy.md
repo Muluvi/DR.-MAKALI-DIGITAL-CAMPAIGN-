@@ -1,4 +1,4 @@
-The claim at the centre of this campaign, the pillars and themes beneath it, the segments it is aimed at, and how the message is built, framed and produced.
+The claim at the centre of this campaign, the pillars, themes and segments beneath it, how the message is built and framed, and the limits the campaign puts on itself.
 
 ## 2.1 The Economist Governor
 
@@ -106,183 +106,6 @@ coverage.
 Underlying narrative throughout: **"Kitui has resources. What it has lacked is
 leadership that understands how to use them — and the discipline to prove it
 did."**
-
----
-
-## 2.4 Who we are talking to
-
-Electoral conversion in Kitui County requires disaggregating the 532,758 registered voters into distinct, behavioral, and demographic segments grounded in official data from the **2019 Kenya National Bureau of Statistics (KNBS) Census**, the **Independent Electoral and Boundaries Commission (IEBC)**, and the **Communications Authority of Kenya (CA)** (Tier 1).
-
-A generic countywide message fails because an offline smallholder farmer in Tseikuru evaluating drought mitigation has entirely different information channels, daily anxieties, and economic incentives than an urban bodaboda operator in Kitui Township or a diaspora professional remitting money from Nairobi.
-
-This section defines the structural architecture of the Kitui electorate across six empirical dimensions: **Rural/Urban Split**, **Youth Cohort**, **Connectivity Infrastructure**, **Language Hierarchy**, **Livelihood Clusters**, and the **Out-of-County Diaspora Matrix**.
-
-```
-════════════════════════════════════════════════════════════════════════════════════
-                     KITUI COUNTY AUDIENCE ARCHITECTURE OVERVIEW
-════════════════════════════════════════════════════════════════════════════════════
-
- ┌────────────────────────┐  ┌────────────────────────┐  ┌────────────────────────┐
- │   GEOGRAPHIC LOCUS     │  │     AGE DEMOGRAPHIC    │  │   CONNECTIVITY STATUS  │
- │ • Rural: 95.2%         │  │ • Youth (18-35): ~44%  │  │ • Offline (2G): 86.4%  │
- │ • Urban: 4.8%          │  │ • Mid/Senior (36+): 56%│  │ • Online (Smart): 13.6%│
- └────────────────────────┘  └────────────────────────┘  └────────────────────────┘
- ┌────────────────────────┐  ┌────────────────────────┐  ┌────────────────────────┐
- │   PRIMARY LANGUAGE     │  │   LIVELIHOOD CLUSTERS  │  │   DIASPORA MATRIX      │
- │ • Kikamba: ~76% (3.6)  │  │ • Dryland Agrarian     │  │ • Nairobi / Mombasa    │
- │ • Kiswahili: ~16%      │  │ • Pastoral / Livestock │  │ • Remittance Leverage  │
- │ • English: ~8%         │  │ • Informal / Bodaboda  │  │ • Family Opinion Shprs │
- └────────────────────────┘  └────────────────────────┘  └────────────────────────┘
-════════════════════════════════════════════════════════════════════════════════════
-```
-
----
-
-### 2.4.1 The six voter segments
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                    ELECTORAL SEGMENTATION MASTER MATRIX                     │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-#### 1. The Rural Agrarian & Smallholder Baseline
-*   **Empirical Sizing:** **1,082,168 rural residents — 95.2% of the county population** (2019 KNBS Census, Tier 1; see Section 1.2.5). The register is not published by rural/urban split, so applying that share to the 532,758 register gives approximately **507,000 rural registered voters** across 36 non-urban wards — a **derived estimate, not a measured figure**.
-*   **Geographic Base:** Rural agricultural belts in Kitui Central (Mulango, Kyangwithya East), Kitui West (Mutonguni, Kauwi), Kitui Rural (Kisasi, Mbitini), Mwingi Central (Nuu, Nguni), Mwingi West (Nguutani, Migwani), and Kitui East (Zombe, Chuluni).
-*   **Connectivity & Media Consumption:** **86.4% offline**; 2G/GSM feature phone dominance; high evening vernacular radio listenership; weekly open-air market gatherings.
-*   **Reachable Channels:**
-    *   **Primary:** Kamba Vernacular Radio (Musyi FM, Mbaitu FM, Sang'u FM, Athiani FM, Syokimau FM) during morning (06:00–08:30) and evening drive (19:00–21:30).
-    *   **Secondary:** Direct localized bulk SMS in Kikamba via the 400 Ward Captain field network (Section 9.1.2).
-    *   **Physical:** Open-air market day barazas (e.g., Kalundu, Kabati, Mbondoni, Nguni, Mutomo), church fellowships (AIC, Catholic, Redeemed), and agricultural cooperative/SACCO meetings.
-*   **Persuasion Lever (What It Takes to Move Them):**
-    *   *Core Anxiety:* Persistent seasonal crop failure, unmitigated drought shocks, exploitative middlemen for green grams (*ndengu*) and pigeon peas (*nzuu*), and erratic subsidized seed/fertilizer distribution.
-    *   *Candidate Value Proposition:* Frame Dr. Mulu's public finance expertise as a guarantee of **guaranteed minimum returns (GMR)**, county-backed cold storage and aggregate marketing boards, and decentralized solar-powered sand dam and borehole expansion.
-    *   *Track Record Proof:* Evidence of CDF-funded water harvesting tanks and community boreholes installed across Kitui Central schools and dispensaries.
-
----
-
-#### 2. The Agro-Pastoralist & Arid-Zone Livestock Keepers
-*   **Empirical Sizing:** Sizing requires targeted primary survey for precise voter registration figures (**Named Data Gap**); estimated at **~15%–20% of the rural population** (~80,000–105,000 registered voters) concentrated in the semi-arid northern and southern borderlands.
-*   **Geographic Base:** Mwingi North (Kyuso, Tseikuru, Tharaka, Ngomeni), Mwingi Central (Waita, Kivou), Kitui South (Mutha, Kanziko, Ikutha, Athi), and Kitui East (Endau/Malalani, Voo/Kyamatu).
-*   **Connectivity & Media Consumption:** Highly dispersed geography; intermittent 2G cellular coverage; heavy battery-powered solar radio listenership; pastoral migration routes.
-*   **Reachable Channels:**
-    *   **Primary:** Vernacular radio news bulletins and pastoralist agricultural segments (Musyi FM, Sang'u FM).
-    *   **Secondary:** Weekly livestock market hubs (e.g., Nguni Livestock Market, Tseikuru, Mutha, Kanziko livestock yards).
-    *   **Intermediaries:** Clan elders (*Atumia ma Utui*), grazing committee chairpersons, and livestock trader association leaders.
-*   **Persuasion Lever (What It Takes to Move Them):**
-    *   *Core Anxiety:* Banditry/insecurity along the Tana River and Garissa borders, pasture depletion, lack of county livestock off-take programs during drought, animal disease outbreaks, and predatory livestock buyers.
-    *   *Candidate Value Proposition:* Concrete commitments to county-financed livestock vaccination corridors, modern meat processing/abattoir facilities in Mwingi and Mutomo, and assertive security coordination with the national government backed by Dr. Mulu's parliamentary budgeting influence.
-
----
-
-#### 3. The Youth Cohort (Ages 18–35: Students, Bodaboda, Unemployed Graduates & Creatives)
-*   **Empirical Sizing:** **~44% of the active voter register** (~234,000 registered voters, derived from 2019 KNBS Census age distribution and 2022 IEBC voter register, Tier 1).
-*   **Geographic Base:** Clustered heavily in peri-urban corridors (Kitui Township, Kwa Vonza/SEKU/KU university belts, Mwingi Central town, Mutonguni, Kabati) and dispersed across rural trading centers.
-*   **Connectivity & Media Consumption:** High smartphone and feature-phone social media usage (**~70%+ smartphone adoption within this sub-group**); active on WhatsApp groups, TikTok, Facebook Mobile, and YouTube; congregation at bodaboda stages, video dens, and sports centers.
-*   **Reachable Channels:**
-    *   **Primary Digital:** Targeted Meta (Facebook/Instagram) and TikTok short-form video campaigns; viral WhatsApp audio and graphic forwards.
-    *   **Primary Physical:** Bodaboda stage associations, local football tournament circuits, university/college student unions (SEKU, KU Kitui Campus, Kitui KMTC).
-    *   **Direct:** SMS broadcasts detailing youth enterprise programs and vocational grants.
-*   **Persuasion Lever (What It Takes to Move Them):**
-    *   *Core Anxiety:* Chronic youth un/underemployment, predatory digital lending apps, arbitrary county revenue enforcement/harassment of bodaboda and small kiosks, lack of capital for startup ventures.
-    *   *Candidate Value Proposition:* Dismantling the "politician handouts" model in favor of an institutionalized **County Youth Enterprise & Innovation Fund**, county-funded driving and TVET scholarship vouchers, zero-rating of small informal trade licenses, and creative economy support.
-    *   *Track Record Proof:* Highlight Dr. Mulu's 100% transparent Kitui Central Constituency NG-CDF bursary disbursement formula, which educated thousands of tertiary and secondary students without patronage.
-
----
-
-#### 4. The Urban & Peri-Urban Commercial Informal Sector (MSMEs & Traders)
-*   **Empirical Sizing:** **54,019 urban residents — 4.8% of the county population** (2019 KNBS Census urban classification, Tier 1). Applying that share to the register gives approximately **26,000 urban registered voters** — again derived, not measured. Note this segment's messaging reach extends well beyond the urban classification, since peri-urban trading centres in the ward list sit inside rural wards.
-*   **Geographic Base:** Kitui Township (19,538 voters), Mwingi Central Town (14,525 voters), Kwa Vonza/Yatta (18,020 voters), Mutomo (12,637 voters), Matinyani (14,279 voters), and Nguutani (15,121 voters).
-*   **Connectivity & Media Consumption:** High mobile internet penetration (**~45%–55% smartphone connectivity**); constant WhatsApp business use; daily interaction with county revenue collectors; regular local vernacular radio listening.
-*   **Reachable Channels:**
-    *   **Physical:** Direct walk-throughs in commercial business districts, market trader association meetings, chamber of commerce chapters (KNCCI Kitui Chapter).
-    *   **Digital:** Hyper-geofenced Meta ads (Kitui and Mwingi town centers) and peer-to-peer WhatsApp broadcast chains.
-    *   **Radio:** Midday business talk shows on Musyi FM and Mbaitu FM.
-*   **Persuasion Lever (What It Takes to Move Them):**
-    *   *Core Anxiety:* Excessive county cess/taxes without basic market infrastructure (clean water, lighting, sanitation, paved stalls), arbitrary harassment by county enforcement officers (*kanjo*), fire disasters in markets with zero fire engine response.
-    *   *Candidate Value Proposition:* "The Economist's Business Charter": Single unified business permit, 24-hour solar-lit and secured markets, modern sanitation facilities, and predictable county tax codes that stimulate rather than suffocate micro-commerce.
-
----
-
-#### 5. The Formal Sector Professionals, Civil Servants & Educators
-*   **Empirical Sizing:** Sizing requires administrative primary research (**Named Data Gap**); estimated at **~25,000–35,000 registered voters** (comprising teachers under KNUT/KUPPET, healthcare workers, county/national civil servants, bank staff, and clergy).
-*   **Geographic Base:** Administrative hubs (Kitui Town, Mwingi Town, sub-county headquarters) and public schools/hospitals throughout all 40 wards.
-*   **Connectivity & Media Consumption:** **>90% smartphone and laptop connectivity**; active on X (Twitter), Facebook, LinkedIn, professional WhatsApp groups; readers of national daily newspapers and policy analyses.
-*   **Reachable Channels:**
-    *   **Direct & Digital:** Thought-leadership policy whitepapers, LinkedIn/X executive briefs, structured appearances on national/regional television (Citizen TV, TV47, KTN) and prime-time radio talk shows.
-    *   **Institutional:** Union delegate barazas (KNUT Kitui Branch, KUPPET, KMPDU, KNUMLO), Kenya Primary School Heads Association (KEPSHA), and clergy synods.
-*   **Persuasion Lever (What It Takes to Move Them):**
-    *   *Core Anxiety:* Delayed statutory deductions, stalled career progression/promotions in county government, poor hospital drug supplies undermining medical practice, politicized public service appointments.
-    *   *Candidate Value Proposition:* Meritocratic public service administration, on-time payment of county health workers, professionalization of the County Public Service Board, and institutional governance free from cronyism.
-    *   *Track Record Proof:* Dr. Mulu's pristine academic and professional standing (PhD in Economics, Parliamentary Budget & Appropriations Committee member, non-corrupt institutional reputation).
-
----
-
-#### 6. The Out-of-County Kamba Diaspora Matrix (Nairobi, Coast & Nationwide)
-*   **Empirical Sizing:** Total diaspora volume is estimated in excess of 150,000+ individuals, but the exact subset registered to vote within Kitui County requires specialized primary polling (**Named Data Gap**).
-*   **Geographic Concentration:** Nairobi (Embakasi, Kasarani, Kibra, Starehe, Eastleigh, Westlands), Mombasa/Coast (Changamwe, Likoni, Kisauni, Malindi), Machakos/Makueni urban centers.
-*   **Strategic Role:** Even those registered to vote in Nairobi/Mombasa act as **critical opinion shapers and financial remitters**. They pay school fees, medical bills, and funeral costs for rural relatives; their political endorsements carry immense weight during family decision-making.
-*   **Connectivity & Media Consumption:** **>95% internet/smartphone connected**; active on X, Facebook, WhatsApp, YouTube, and national podcasts.
-*   **Reachable Channels:**
-    *   **Digital:** Targeted geofenced Meta/Google/YouTube digital ad campaigns focused on Nairobi and Mombasa IP addresses targeting Kamba language speakers and Kitui interest groups.
-    *   **Town Halls:** Physical diaspora engagement dinners and business breakfast town halls in Nairobi and Mombasa.
-    *   **WhatsApp Networks:** Organized Kitui Professionals Diaspora WhatsApp forums and welfare association groups.
-*   **Persuasion Lever (What It Takes to Move Them):**
-    *   *Core Anxiety:* Inefficient county spending that leaves their rural parents and siblings in perpetual poverty, requiring continuous emergency financial bailouts from the diaspora.
-    *   *Candidate Value Proposition:* Presenting Dr. Mulu as the "Diaspora's Trusted Steward"—an economist who will manage county funds with audited transparency, build reliable healthcare and water systems, and create an enabling environment for diaspora private investments in real estate, agribusiness, and tourism.
-
----
-
-### 2.4.2 How large each segment is, and what the evidence says
-
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                               AUDIENCE SEGMENT COMPARATIVE SUMMARY MATRIX                                  │
-├──────────────────────────┬──────────────────────┬─────────────┬───────────────────┬─────────────────────────┤
-│ Segment                  │ Sized Electorate     │ Data Tier   │ Primary Channel   │ Decisive Persuasion Hook│
-├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
-│ 1. Rural Smallholders    │ ~507,000 (derived)   │ Tier 1      │ Kamba Radio &     │ Guaranteed Minimum      │
-│    (Agrarian Core)       │ (95.2% of county)    │ KNBS/IEBC   │ Offline SMS       │ Returns & Sand Dams     │
-├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
-│ 2. Agro-Pastoralists     │ ~80,000–105,000      │ Primary Res │ Vernacular Radio  │ Livestock Off-take &    │
-│    (Arid Borderlands)    │ (Requires Survey)    │ Needed      │ & Market Days     │ Border Security Support │
-├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
-│ 3. Youth Cohort          │ ~234,000 voters      │ Tier 1      │ TikTok, Meta,     │ Youth Enterprise Fund,  │
-│    (Ages 18–35)          │ (~44% of register)   │ KNBS/IEBC   │ WhatsApp & Sports │ TVET Grants, No Harass  │
-├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
-│ 4. Urban MSMEs &         │ ~26,000 (derived)    │ Tier 1      │ Geofenced Digital │ Single Business Permit, │
-│    Informal Traders      │ (4.8% of county)     │ KNBS 2019   │ & Trader Barazas  │ 24-Hr Lit Market Stalls │
-├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
-│ 5. Formal Professionals  │ ~25,000–35,000       │ Primary Res │ X, TV, LinkedIn,  │ Meritocracy, Reliable   │
-│    & Civil Servants      │ (Requires Survey)    │ Needed      │ Union Synods      │ Medicine & Pension Flow │
-├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
-│ 6. Out-of-County         │ 150k+ influencers    │ Primary Res │ Nairobi/Coast Ads │ Remittance Relief &     │
-│    Kamba Diaspora        │ (Requires Survey)    │ Needed      │ & Town Halls      │ Audited Fiscal Prudence │
-└──────────────────────────┴──────────────────────┴─────────────┴───────────────────┴─────────────────────────┘
-```
-
----
-
-### 2.4.3 What we still need to research
-
-To uphold the campaign's rigorous data integrity standard, the following empirical gaps are formally cataloged for commissioning in the Phase −1 baseline survey:
-
-1.  **Agro-Pastoral Electorate Sizing:** **Primary Research Required.** While census population counts exist for arid sub-counties (Mwingi North, Kitui South), the exact proportion of voters whose primary livelihood is strictly pastoral livestock rearing versus mixed subsistence farming requires primary household sampling.
-2.  **Formal Sector Civil Service Registry:** **Primary Research Required.** Exact voter registration counts for teachers (KNUT/KUPPET), county staff, and healthcare workers residing in Kitui County are not publicly disaggregated in IEBC reports.
-3.  **Diaspora Voter Registration Ratio:** **Primary Research Required.** The total volume of out-of-county Kamba residents originating from Kitui is large, but the precise percentage who remain registered to vote in Kitui (and travel home to vote) versus those registered in Nairobi/Mombasa has never been measured by an empirical survey.
-
-```
-════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 2.4.3 STRATEGIC TAKEAWAY
-════════════════════════════════════════════════════════════════════════════════════
- • Audience Architecture: 95.2% Rural, 4.8% Urban, ~44% Youth (18-35).
- • Channel Strategy:      Vernacular radio & offline SMS capture the 86.4% offline
-                          majority; digital ads activate the youth & diaspora.
- • Value Proposition:     Tailored economic messaging—Guaranteed crop returns for
-                          farmers, enterprise funds for youth, single permits for 
-                          traders, and fiscal governance for professionals/diaspora.
-════════════════════════════════════════════════════════════════════════════════════
-```
 
 ---
 
@@ -542,231 +365,6 @@ Cross-referencing the channel reach realities established in **Section 3.1**:
 ```
 ---
 
-## 2.7 Content production and asset governance
-
-Campaign communications succeed when production is treated as a rigorous, industrial pipeline rather than ad-hoc creative posting. In a county where only ~14% of voters are active on digital social media (Section 3.1.1), the content production engine must be **predominantly focused on offline and broadcast formats**—vernacular radio scripts, 2G bulk SMS, USSD menu trees, printed baraza photobooks, and market PA audio jingles—while maintaining a high-fidelity digital and video pipeline for youth and the diaspora.
-
-```
-════════════════════════════════════════════════════════════════════════════════════
-                  CAMPAIGN 360° CONTENT PRODUCTION PIPELINE
-════════════════════════════════════════════════════════════════════════════════════
-
-   STRATEGIC CORE                 OFFLINE BROADCAST ENGINE           DIGITAL ENGINE
- ┌────────────────┐              ┌──────────────────────────┐      ┌───────────────┐
- │ 4 Core Content │ ───────────► │ • Kikamba Radio Audio    │      │ • TikTok Clips│
- │ Pillars        │              │ • 160-char 2G Bulk SMS   │      │ • WhatsApp    │
- │ (Evidence-Led) │              │ • USSD Interactive Menus │      │   Infographics│
- └────────────────┘              │ • Baraza Leaflets & Books│      │ • Meta Video  │
-                                 │ • Boda & Market PA Jingles│     │ • Web Tracker │
-                                 └──────────────────────────┘      └───────────────┘
-                                               │                           │
-                                               ▼                           ▼
-                                 ┌─────────────────────────────────────────────────┐
-                                 │       RIGID 4-STEP APPROVAL & DPA GATEWAY       │
-                                 │   (Drafter ──► Comms Lead ──► DPO ──► CM Sign)  │
-                                 └─────────────────────────────────────────────────┘
-════════════════════════════════════════════════════════════════════════════════════
-```
-
----
-
-### 2.7.1 The four content pillars
-
-Production buckets for the studio, not a restatement of the campaign pillars in Section 2.2
-or the message pillars in Section 2.6. Every piece of creative output anchors to one of these
-four, and each carries one or more of the 2.2 pillars:
-
-1.  **Pillar A: The Integrity & Stewardship Ledger (*Kĩtĩo kya Kũthũkũma*)**
-    *   *Core Theme:* 13 years of spotless public financial management and zero Auditor-General queries in Kitui Central NG-CDF.
-    *   *Tone:* Authoritative, calm, legally certified, transparent.
-    *   *Primary Formats:* Radio debate evidence cards, documentary video case studies, audit certificate infographics, press statements.
-2.  **Pillar B: The Agrarian & Household Wealth Engine (*Ũtonga wa Mĩsyĩ na Mĩũnda*)**
-    *   *Core Theme:* Guaranteed minimum floor prices for *ndengu* (Ksh 85/kg), county aggregation cold-storage hubs, solar borehole irrigation, and livestock feed reserves.
-    *   *Tone:* Pragmatic, empathetic, farmer-centric, culturally resonant Kikamba.
-    *   *Primary Formats:* Vernacular morning radio skits, 2G market day SMS alerts, printed agricultural policy fold-outs.
-3.  **Pillar C: Devolution Equity & Universal Basic Services (*Kĩla Kĩtheka na Mwanya Wayo*)**
-    *   *Core Theme:* The statutory Ksh 100 Million/year Ward Equalization Fund, solar water within 1 km, functional maternity dispensaries, and bursary equity.
-    *   *Tone:* Inclusive, forward-looking, accountable, grassroots-empowering.
-    *   *Primary Formats:* Ward-by-ward budget pledge cards, USSD interactive budget explorer, market caravan speeches.
-4.  **Pillar D: The Youth Enterprise & TVET Frontier (*Mwanya wa Mwanake na Wathi*)**
-    *   *Core Theme:* Zero-interest equipment loans, digital cottage hubs, fee waivers for artisan TVET courses, and boda boda dignity.
-    *   *Tone:* Energetic, aspirational, street-smart Sheng/Kikamba blend, action-oriented.
-    *   *Primary Formats:* Vertical TikTok/Reels clips, sound truck music tracks, boda boda shed sticker banners, WhatsApp voice notes.
-
----
-
-### 2.7.2 Formats, by channel
-
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                PRODUCTION FORMAT SPECIFICATIONS BY CHANNEL                                  │
-├───────────────────────┬───────────────────────────────────────────┬─────────────────────────────────────────┤
-│ Channel & Medium      │ Technical Specification & Format          │ Language & Creative Treatment           │
-├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
-│ 1. Kikamba Vernacular │ • 45-second pre-recorded audio spots      │ • Pure Kikamba (Kitui/Mwingi dialects)  │
-│    Radio Spots        │ • 15-second sponsor time-check bumpers    │ • Real farmer/elder voice testimonials; │
-│    (Musyi/Mbaitu)     │ • 60-second studio live-read endorsements │   zero abrasive partisan attacks.       │
-├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
-│ 2. Direct 2G Bulk SMS │ • Single-part 160-character plain text    │ • Localized Kikamba & Swahili; includes │
-│    & USSD Portal      │ • GSM-7 encoding (no accented unicode)    │   ward name, policy pledge, and free    │
-│                       │ • USSD: 4-option menu tree (see 2.7.3C)   │   opt-out footer (*"STOP to 22XXX"*).   │
-├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
-│ 3. Open-Air Baraza &  │ • A5 full-color 4-page glossy fold-outs   │ • Bilingual Kikamba/Swahili; high visual│
-│    Market Print       │ • A1 weatherproof PVC caravan banners     │   density with real GPS project photos, │
-│                       │ • Pocket-sized 12-page Manifesto Summary  │   auditor stamps, and ward maps.        │
-├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
-│ 4. Market Caravans &  │ • High-energy 90-second studio jingles    │ • Catchy traditional Kamba rhythm &     │
-│    PA Sound Rigs      │ • Pre-recorded 3-minute candidate address │   benga beat; easily memorized chorus   │
-│                       │ • Megaphone audio clips for Boda marshals │   reinforcing "Dr. Makali Mulu 2027".   │
-├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
-│ 5. Digital & Social   │ • 1080x1920 vertical video (Reels/TikTok) │ • Fast-paced (first 3s hook); hard-coded│
-│    Media (Youth/Diasp)│ • 1080x1080 square carousel cards         │   captions; dynamic motion graphics;    │
-│                       │ • 1920x1080 horizontal YouTube features   │   English/Sheng with Kikamba hooks.     │
-└───────────────────────┴───────────────────────────────────────────┴─────────────────────────────────────────┘
-```
-
----
-
-### 2.7.3 Copy samples: radio, SMS and USSD
-
-#### A. Vernacular Radio 45-Second Script Sample (Kikamba)
-> **SFX:** Ambient sounds of a busy grain market (*ndengu* bags being loaded, tractor engine idling).  
-> **Elder Farmer (Male, 50s):** *"Mwaĩĩ, nĩtwamĩnyie kũthoozya ndengu ya mĩio mĩtheke kwa mbesa nini nũndũ wa makuli? (My brother, are we tired of selling our hard-earned green grams for pennies to exploitative middlemen?)"*  
-> **Candidate (Dr. Makali Mulu, Calm & Authoritative):** *"Nĩ Mwanya Mweũ. Serikalĩ yitũ ya Kitui ĩkese kũũnganĩsya ndengu yonthe na kũthoozya kĩla kilo kĩvĩndĩ kĩla kĩũ (Ksh 85). Wathi witũ nĩ ũtonga wa mĩsyĩ. Nĩ ngwenda twĩthĩwe na mbesa mĩkonĩ yitũ. (A new dawn is here. Our Kitui government will aggregate all produce and guarantee a floor price of Ksh 85/kg. Our priority is household wealth. Real money in your hands.)"*  
-> **Voiceover (Fast, Punchy):** *"Vota Dr. Makali Mulu – Gavana wa Kitui 2027. Muvisi Mũlũngalu, Mwĩkĩi wa Wathi! (Vote Dr. Makali Mulu – Governor Kitui 2027. The Proven Economist, The Trusted Leader!)"*
-
-#### B. Direct 2G Bulk SMS Copy Sample (Ward-Specific)
-> *"Kitui Rural / Mbitini: Dr. Makali Mulu guarantees Ksh 100M Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. STOP=22340"*
-
-#### C. USSD Interactive Menu Tree Structure (`*483*77#`)
-```
-*483*77# (Zero-Rated Gateway)
-├── 1. Dr. Makali Mulu Manifesto Summary
-│   ├── 1. Ksh 100M Ward Equalization Fund
-│   ├── 2. Ksh 85/kg Ndengu Floor Price & Cold Hubs
-│   └── 3. Free Boda Boda Licenses & TVET Bursaries
-├── 2. Ward Development Tracker (Enter Ward Name)
-├── 3. Volunteer as a Village Captain
-└── 4. Privacy Policy & Data Opt-Out
-```
-
----
-
-### 2.7.4 The weekly production schedule
-
-The creative studio operates on a synchronized **7-Day Production Cadence**:
-
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                   WEEKLY 7-DAY CONTENT PRODUCTION CYCLE                                     │
-├───────────┬─────────────────────────────────────────────────────────┬───────────────────────────────────────┤
-│ Day       │ Production Focus & Milestones                           │ Output Deliverables                   │
-├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ Monday    │ • Strategic War Room briefing & narrative theme setting │ • Weekly Creative Master Brief        │
-│           │ • Scriptwriting for radio, SMS copy & WhatsApp cards    │ • Draft radio & video scripts         │
-├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ Tuesday   │ • Studio recording for Kikamba audio spots & jingles    │ • Master audio WAVs & 2G voice clips  │
-│           │ • Graphics design for social carousels & print flyers   │ • Social static cards & baraza sheets │
-├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ Wednesday │ • Multi-tier approval gateway review (Comms, DPO, CM)   │ • Fully signed-off creative package   │
-│           │ • SMS gateway scheduling & USSD menu updates            │ • Africa's Talking staging upload     │
-├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ Thursday  │ • Dispatch of physical print collateral to 8 sub-counties│ • Printed packages on morning courier │
-│           │ • Early flighting of market-day radio spots (Musyi/Mbaitu│ • Radio ads live for Friday markets   │
-├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ Friday    │ • Market day caravan deployment & live content capture  │ • Live field photos & raw 4K video    │
-│           │ • Real-time SMS broadcast to Friday market wards        │ • 100,000 ward SMS delivered          │
-├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ Saturday  │ • Major rally/baraza coverage & rapid-turnaround video  │ • 60s summary reel within 3 hours     │
-│           │ • Audio snippet extraction for Sunday radio morning news│ • Radio soundbites sent to stations   │
-├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ Sunday    │ • Church fellowship photos & message distribution       │ • Weekly recap carousel & podcast clip│
-│           │ • Weekly analytics & reach performance audit            │ • BI dashboard weekly content report  │
-└───────────┴─────────────────────────────────────────────────────────┴───────────────────────────────────────┘
-```
-
----
-
-### 2.7.5 Who approves what, and when
-
-To prevent defamatory statements, policy contradictions, electoral code infractions, or Data Protection Act (DPA) violations, **no asset may be broadcast or printed without passing through the 4-Step Governance Gateway**:
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                       4-STEP CONTENT APPROVAL GATEWAY                       │
-└─────────────────────────────────────────────────────────────────────────────┘
-
-  STEP 1: CREATIVE DRAFTING & SOURCING
-  ────────────────────────────────────
-  • Specialist vendor or in-house creator drafts script, video, or SMS copy.
-  • Mandatory: Creator must attach primary citation (Hansard, OAG report, KNBS).
-
-  STEP 2: COMMUNICATIONS & MESSAGE INTEGRITY REVIEW
-  ─────────────────────────────────────────────────
-  • Communications Lead verifies narrative alignment, Kikamba dialect accuracy,
-    and visual brand guidelines.
-
-  STEP 3: LEGAL, ELECTORAL & DPA COMPLIANCE CHECK
-  ───────────────────────────────────────────────
-  • Data Protection Officer (DPO) audits audience list, verifies explicit consent
-    tags, ensures mandatory opt-out footers, and checks electoral libel laws.
-
-  STEP 4: EXECUTIVE AUTHORIZATION & DISPATCH SIGN-OFF
-  ───────────────────────────────────────────────────
-  • Campaign Manager / Chief of Operations gives final electronic signature.
-  • Release authorization code logged in campaign audit register.
-```
-
----
-
-### 2.7.6 The asset library
-
-All creative assets are stored in a centralized, cloud-backed Digital Asset Management repository structured as follows:
-
-```
-/CAMPAIGN_ASSET_REPOSITORY_2027/
-├── 01_BRAND_GUIDELINES_&_FONTS/
-│   ├── Typography/ (Plus_Jakarta_Sans, Playfair_Display, Inter)
-│   ├── Color_Palettes/ (Kitui_Blue, Earth_Gold, Clean_White)
-│   └── Official_Candidate_Logos_&_Emblems/
-├── 02_PRIMARY_EVIDENCE_VAULT/
-│   ├── OAG_Clean_Audit_Certificates_2013_2025/
-│   ├── Parliamentary_Hansard_Records_Finance_Committee/
-│   └── KNBS_Census_&_Agricultural_Baseline_Reports/
-├── 03_AUDIO_BROADCAST_VAULT/
-│   ├── Radio_45s_Spots_Master_WAV/ (Musyi, Mbaitu, Sang'u)
-│   ├── Sound_Truck_Jingles_&_Benga_Anthems/
-│   └── Megaphone_Audio_Clips_for_Boda_Marshals/
-├── 04_SMS_USSD_COPY_VAULT/
-│   ├── 40_Ward_Localized_SMS_Pledges/
-│   ├── Crisis_Rapid_Response_SMS_Templates/
-│   └── USSD_Interactive_Menu_Scripts/
-├── 05_PRINT_COLLATERAL_VAULT/
-│   ├── A5_Baraza_4Page_Foldouts_PrintReady_PDF/
-│   ├── 12Page_Manifesto_Executive_Summary_Kikamba_Swahili/
-│   └── PVC_Caravan_Banners_&_Boda_Shed_Signage/
-├── 06_DIGITAL_VIDEO_VAULT/
-│   ├── TikTok_Reels_Vertical_1080x1920/
-│   ├── Longform_YouTube_Documentaries/
-│   └── WhatsApp_Status_Infographic_Cards/
-└── 07_RAW_FIELD_FOOTAGE_ARCHIVE/ (Organized by Date & Sub-County)
-```
-
-```
-════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 2.7.6 STRATEGIC TAKEAWAY
-════════════════════════════════════════════════════════════════════════════════════
- • Offline Broadcast Dominance: Content engine prioritizes 45s Kikamba radio spots,
-                                2G SMS, USSD menus, and printed baraza photobooks.
- • 4 Core Content Pillars:      Integrity Ledger, Agrarian Wealth, Devolution Equity,
-                                and Youth Enterprise.
- • Strict 4-Step Approval:      Drafter ──► Comms Lead ──► DPO Compliance ──► CM Sign.
- • Centralized DAM Vault:       Organized asset repository preserving high-res evidence,
-                                audio masters, and print-ready vector collateral.
-════════════════════════════════════════════════════════════════════════════════════
-```
----
-
 ## 2.8 Behavioural science and persuasion
 
 ### 2.8.1 Framing true claims, transparently
@@ -842,52 +440,367 @@ credential into a persuasion technique available to no rival.
 *All figures drawn from KNBS and county sources; each is verified before
 publication under the Section 6.5.4 fact-check protocol.*
 
-## 2.9 AI-assisted creative and testing
+## 6.5 Ethics, privacy and the data charter
 
-### 2.9.1 What AI is used for, and what it is never used for
+### 6.5.1 The standard we hold ourselves to
 
-AI is used to test and optimise content so that every shilling of regulated ad
-spend delivers maximum persuasive impact.
+Voter data is handled in a manner intended to comply with Kenya's Data
+Protection Act 2019, the Communications Authority framework governing political
+messaging, and IEBC regulations. This protects the campaign from legal risk and
+reinforces Dr. Mulu's brand as a trustworthy, accountable leader.
 
-**Disclosure commitment.** AI assists production and optimisation. It is never
-used to fabricate imagery of real people, simulate events that did not occur,
-or generate synthetic voices of the candidate or any other person. Where
-AI-generated illustration appears in published material, it is labelled. This
-is a published commitment (Section 6.5.4) and a defensive necessity in an
-environment where opponents may deploy manipulated media (Section 5.3.5).
+**Important framing: this section describes the campaign's intended standard
+and control environment. It is not a legal opinion, and nothing here asserts
+that any specific processing is already lawful. Section 6.5.5 establishes the
+gate that answers that question properly.**
 
-### 2.9.2 Tools and platforms
+### 6.5.2 The regulatory environment as it stands
 
-| Tool | Function | Management |
+| Area | Requirement | Source |
 |---|---|---|
-| Meta Advantage+ Creative | Automatic variation testing and budget reallocation | Remote dashboard |
-| Google Responsive Search Ads | Headline/description combination testing | Remote dashboard |
-| AI creative variation tools | Ad creative variations at scale | Cloud-based |
-| Design tooling with AI assist | Rapid Kikamba-language infographics and cards | Cloud-based |
-| AI writing assistance | First-draft copy for email, social and ads — **always human-edited, always native-speaker-reviewed for Kikamba** | Cloud-based |
+| **Political SMS** | Recipients of political messages must have **opted in**, with express consent and clearly notified opt-out. Service providers are prohibited from sending unsolicited bulk content | Industry code governing bulk political messaging |
+| **Consent standard** | Must be **express, free, specific, informed and unequivocal**. Consent for one purpose does not transfer to another | ODPC determinations under the Data Protection Act 2019 |
+| **Enforcement** | ODPC has issued penalties up to **KSh5 million**, including **KSh400,000 against a lender for unsolicited marketing SMS (December 2025)** and penalties of KSh1.85m–4.55m against three controllers | ODPC |
+| **Political messaging scrutiny** | Unsolicited political SMS was the subject of public and press scrutiny in August 2026 as the 2027 cycle began | Kenyan press reporting |
+| **Campaign finance** | Expenditure limits, contribution caps and disclosure obligations in force from 7 August 2026 | IEBC Gazette Notice No. 12251 |
 
-*Specific vendor selection at contracting; no tool is presented as retained.*
+**The commercial reality this creates.** Vendors openly market databases of
+millions of Kenyan mobile numbers. Rival campaigns may well buy them. Doing so
+would give short-term reach and long-term exposure — regulatory, and
+reputational for a candidate whose entire proposition is rigour and
+accountability. The campaign will not.
 
-### 2.9.3 The weekly testing cycle
+### 6.5.3 Compliance measures
 
-* Minimum 5 ad variations per objective per platform
-* Minimum 3 headline and 3 visual variations per ad set
-* Monday–Thursday learning; Friday–Sunday optimisation and scaling
-* Budget split: **30% testing, 70% proven performers**
-* Automatic kill rule: any ad below `[Insert threshold — recommend 1.5% CTR]`
-after 5,000 impressions is paused
-* **Every test logged to the compliance ledger** (Section 9.2.4)
-
-### 2.9.4 Performance benchmarks
-
-| Metric | Global standard | Campaign target |
+| Area | Requirement | Implementation |
 |---|---|---|
-| Facebook CTR | 1.0–1.5% | ≥ 1.5% |
-| Facebook CPM | $1–$5 | ≤ $2 |
-| Google Search CTR | 2–5% | ≥ 3% |
-| TikTok engagement rate | 3–6% | ≥ 5% |
-| YouTube view rate | 30–50% | ≥ 35% |
-| **SMS delivery rate** | 98–99.9% | ≥ 98% |
-| **SMS opt-out rate** | — | **< 2%** |
+| Collection | Voters informed of use; consent obtained | Clear privacy notice at every collection point — website, USSD, baraza sign-up sheet, WhatsApp opt-in |
+| Storage | Data secured | Encrypted storage, role-based access control, access logging, periodic review |
+| Sharing | No sharing without consent | No third-party transfer; no sale under any circumstance |
+| Retention | Not kept indefinitely | Published deletion schedule (16.4) |
+| Communication | Opt-outs respected | One-touch opt-out on every message; honoured immediately and permanently |
+| Accuracy | Correction rights honoured | Documented request route with response SLA |
+| Misinformation | No false content | Fact-check protocol; pre-approval of sensitive claims |
+
+### 6.5.4 The Digital Ethics and Data Charter
+
+*Published on the campaign website in all three languages, in plain
+language, at a permanent URL.*
+
+**Why publish it.** Because a commitment nobody can read is a policy, and a
+commitment published with a verification route is a differentiator. This is the
+"Economist Governor" proposition applied to the campaign's own conduct: it is
+the campaign holding itself to the standard it asks of the county government.
+It also has hard defensive value — when an opponent alleges bot activity or
+spam, a published charter plus a retained audit trail is an answer, not a
+denial.
+
+> ### DIGITAL ETHICS & DATA CHARTER
+> **Kwĩyumya kwa Ũthaithi — Ahadi Yetu ya Uwazi — Our Commitment to Integrity**
+>
+> **1. No fabricated engagement.**
+> This campaign does not and will not use bot accounts, sockpuppet or fake
+> accounts, purchased followers, purchased likes or comments, or paid
+> engagement presented as organic. Every supporter is a real person. Every
+> follower count is honest.
+>
+> **2. No disinformation.**
+> We will not publish false claims about any candidate, including our
+> opponents. We will not create or share manipulated images, audio or video. We
+> will not present AI-generated content as real footage. Where AI assists in
+> producing an illustration, we label it.
+>
+> **3. Transparent advertising.**
+> Every paid advertisement is run from a publicly identified campaign account
+> with the required disclaimers, and is therefore visible in the platform ad
+> libraries any citizen or journalist can search. We will additionally publish
+> a **monthly digital advertising spend summary** on the campaign website,
+> reconciled to the returns we file.
+>
+> **4. Consent-based contact only.**
+> We do not buy voter contact lists. Every phone number and email address we
+> hold was given to us voluntarily, with a clear explanation of what we would
+> use it for. Every message we send carries a one-touch opt-out, and every
+> opt-out is honoured immediately and permanently.
+>
+> **5. Data retention and deletion.**
+> We will hold personal data only for the campaign period. **Within 90 days of
+> the declaration of results, all personal data collected for campaigning will
+> be permanently deleted**, except where a specific legal or regulatory
+> obligation requires retention — in which case only the required records are
+> kept, for the required period, and nothing more. Deletion will be confirmed
+> publicly.
+>
+> **6. No identity-based targeting.**
+> We segment voters by the issues that affect their lives — water, jobs,
+> markets, health, education — and by where they live. **We do not target,
+> segment or profile any voter on the basis of ethnicity, clan or religion, and
+> we will not run messaging designed to set any community in Kitui against
+> another.** We communicate in Kikamba, Kiswahili and English because that is
+> how Kitui speaks, not to divide it.
+>
+> **7. No psychological profiling.**
+> We do not build personality or psychographic profiles of voters. We use
+> demographic, geographic and issue-interest information that any voter would
+> reasonably expect a campaign to consider.
+>
+> **8. No voter suppression.**
+> We will never discourage any eligible Kenyan from registering or voting,
+> including supporters of rival candidates. We will publish accurate
+> registration and polling information to anyone who asks, whoever they support.
+>
+> **9. Accountability.**
+> Where we get something wrong, we will correct it publicly and promptly, with
+> the same prominence as the original.
+>
+> **10. Your rights.**
+> You may ask us what data we hold about you, ask us to correct it, or ask us
+> to delete it, at any time, at fireflymanagement.ke@gmail.com. We will respond
+> within `[Insert SLA — recommend 14 days]`.
+>
+> *Published in Kikamba, Kiswahili and English.*
+
+**Operational backing.** Each clause maps to a control: the consent audit trail
+(clause 4), the compliance ledger (clause 3), the deletion schedule executed by
+the data-governance owner (clause 5), the variable dictionary exclusions
+(clauses 6 and 7), the fact-check protocol (clause 2), and the correction log
+(clause 9). A charter without instrumentation is decoration.
+
+### 6.5.5 The compliance sign-off gate
+
+*The single most important governance control in this document.*
+
+**Before any voter-file-based targeting, list-building beyond first-party
+consented data, or bulk political messaging goes live, a named Kenyan
+data-protection or electoral-law specialist must review and sign off the
+specific proposed processing in writing.**
+
+**This proposal does not assert that the micro-targeting programme described in
+Section 6.2 is legally clear. It may not be.** The questions below are genuinely
+open, are questions of Kenyan law and regulatory interpretation, and are for
+the campaign's counsel to answer — not for a communications consultancy to
+assume:
+
+1. On what lawful basis, if any, may a campaign process the IEBC voter register
+for targeting, and what are the limits of any such basis?
+2. Does the campaign or its vendors require registration as a data controller
+or processor, and what documentation must be in place?
+3. Do the consent mechanisms proposed here meet the express, free, specific,
+informed and unequivocal standard as the ODPC applies it to **political**
+messaging specifically?
+4. What are the disclosure and record-keeping obligations for digital and SMS
+expenditure under the Election Campaign Financing Regulations, 2026, and who
+must file them?
+5. Does matching first-party consented data against the register constitute
+further processing requiring separate consent?
+6. What is the correct handling of data collected from minors who may sign up
+at public events?
+
+**Process:**
+| Step | Owner | Output |
+|---|---|---|
+| 1. Scope memorandum: exactly what data, from where, for what | Data-governance owner | Written scope, before any counsel time is spent |
+| 2. Independent review | `[Insert named Kenyan data-protection / electoral-law specialist — to be appointed by the campaign]` | Written opinion |
+| 3. Remediation of any gaps | Firefly + campaign | Revised processing design |
+| 4. Written sign-off | Reviewer | Dated authorisation, scope-limited |
+| 5. Re-review on material change | Data-governance owner triggers | Updated sign-off |
+
+**Until step 4 is complete, the campaign operates on first-party consented data
+and aggregate ward-level statistics only.** This fallback is fully costed in
+every budget tier (Section 6.2.7), so the campaign loses no time waiting and
+carries no exposure if the answer is restrictive.
 
 ---
+
+## 3.7 Accessibility and inclusion
+
+Language is central to trust in Kitui.
+
+* **Kikamba** — deep local resonance, especially on WhatsApp, TikTok, Facebook,
+SMS and radio. Local proverbs, idioms and cultural reference. Working
+examples, all requiring native-speaker verification before publication:
+  * *"Kĩtui nĩ yethu, tũtethanĩe"* — Kitui is ours, let us help each other
+  * The Kamba call-and-response form — opening a video with *"Mbee! Mbee!"*
+(Forward! Forward!)
+  * *"Kĩla kĩndũ kĩ na thayũ, ĩtina nĩ kũmenya"* — everything has a solution,
+the key is knowledge — framing his expertise
+  * Imagery: the baobab as resilience, the calabash as shared resources
+  * `[Insert additional authentic Kikamba proverbs and phrases — all to be reviewed and corrected by a native speaker before any publication. The examples above are working drafts, not verified copy.]`
+* **Kiswahili** — broader reach, urban and younger audiences, national framing
+* **English** — policy depth, professional audiences, national media
+
+**Content mix for locally facing platforms:**
+
+| Language | Share | Primary use |
+|---|---|---|
+| **Kikamba** | **50%** | WhatsApp, TikTok, Facebook grassroots, SMS, voice notes, radio |
+| **Kiswahili** | **30%** | General social, national reach, SMS |
+| **English** | **20%** | Policy documents, website, X, YouTube, national media |
+
+**Governance.** A native Kikamba speaker is a named, funded role in every budget
+tier (Section 7.2.3), not an occasional reviewer. No Kikamba content publishes
+without their sign-off. Proverbs carry cultural weight and misused proverbs
+carry cultural cost — in a campaign built on rigour, a mangled idiom is a
+substantive error, not a cosmetic one.
+
+---
+
+### 3.7.1 What accessibility means here
+
+*In a county where 13.0% of the population never attended school,
+accessibility is reach, not compliance theatre.*
+
+### 3.7.2 The case
+
+* **13.0% of Kitui residents have never attended school**; only 17.4% completed
+secondary education
+* Roughly **86% are outside the internet-using population**
+* Kenyans with disabilities are a substantial constituency systematically
+under-served by campaign communication in every cycle
+* Low bandwidth is itself an accessibility constraint
+
+A campaign built on transparency that publishes only in dense written English
+is not transparent. It is legible to the people who already had access.
+
+### 3.7.3 The commitments
+
+| Area | Commitment |
+|---|---|
+| **Sign language** | **Kenyan Sign Language interpretation on all flagship video** — manifesto launch, vision video, monthly Economic Brief, closing argument. Full-video coverage at premium tier. Interpreter engaged from `[Insert — Kenya National Association of the Deaf or an accredited interpreter service]` |
+| **Captioning** | Burned-in captions on **all** video, in the language of the audio. Non-negotiable: most social video is watched without sound |
+| **Website** | **WCAG 2.1 AA** — semantic structure, keyboard navigation, contrast ratios, alt text on every image and infographic, no information conveyed by colour alone |
+| **Plain language** | Every policy document paired with a **one-page plain-language summary** in all three languages, written to be read aloud |
+| **Audio versions** | Every flagship policy item available as audio, distributable by WhatsApp, voice note and radio |
+| **Low bandwidth** | Text-first fallbacks; compressed images; a site that loads on 3G; SMS and USSD paths to the same information (Section 4.3) |
+| **Print** | Ward-level materials in large print with QR and USSD codes |
+
+### 3.7.4 Why this sits in the strategy, not an annex
+
+The plain-language and audio versions are not a parallel accessibility track —
+they are the **primary format for the largest segment of the electorate**. A
+one-page plain-language summary that can be read aloud at a baraza, sent as a
+voice note, and broadcast on County FM is the most-used asset the campaign will
+produce. Building it as an afterthought means building the campaign's most
+important content last.
+
+### 3.7.5 Accessibility KPIs
+
+| Metric | Target |
+|---|---|
+| Flagship videos with KSL interpretation | 100% |
+| Video with captions | 100% |
+| WCAG 2.1 AA audit pass | Before public launch, re-audited quarterly |
+| Policy documents with plain-language summary | 100% |
+| Flagship content with audio version | 100% |
+| Site load time on simulated 3G | &lt; 3 seconds |
+
+---
+
+## 8.5 The public service-delivery tracker
+
+*The single clearest expression of the candidate's actual
+professional discipline.*
+
+### 8.5.1 Why it exists
+
+Dr. Mulu is a monitoring and evaluation specialist — a member of the Evaluation
+Society of Kenya and an M&amp;E Champion recognised by the Ministry of Finance,
+whose constituency was certified best evaluated in the Eastern region.
+
+Every candidate in this race will promise water points, roads and markets. Only
+one is professionally qualified in **verifying whether promises were kept**. A
+public service-delivery tracker is not a campaign gadget; it is that
+qualification, running in public, before the election rather than after it.
+
+### 8.5.2 What it is
+
+A simple public tool through which any Kitui resident can report and follow up
+on a local service-delivery issue — a broken water point, an impassable feeder
+road, a market without sanitation, a stalled project.
+
+**Deliberately multi-channel, because the people with the most to report have
+the least connectivity:**
+
+| Channel | Access route |
+|---|---|
+| **USSD** | `*[Insert shortcode]#` → option 3 → **works on any phone, no internet** |
+| **SMS** | Text the issue to `[Insert shortcode]` |
+| **WhatsApp** | Message the campaign line |
+| **Web** | Simple mobile-first form, WCAG compliant |
+| **Ward champion** | Report in person; champion logs it |
+
+### 8.5.3 What happens to a report
+
+```
+   Report submitted (any channel)
+              |
+              v
+   Logged with ward, category, date, reference number
+              |
+              v
+   Reporter receives SMS confirmation + reference number
+              |
+              v
+   Published to the public register (aggregated, no personal data)
+              |
+              v
+   Campaign follows up: raises with the relevant authority,
+   or verifies status through the ward champion network
+              |
+              v
+   Outcome published against the original report
+              |
+              v
+   Reporter notified by SMS
+```
+
+### 8.5.4 Design principles
+
+1. **Public by default.** The register is visible to anyone, mapped by ward,
+with counts by category. Transparency is the point.
+2. **No personal data published.** Reports appear with ward, category and
+status only. Contact details are used to update the reporter and nothing
+else, under the Section 6.5.4 charter.
+3. **Outcomes published honestly — including failures.** Where an issue is not
+resolved, the register says so. A tracker that only shows successes is
+marketing, and voters recognise it instantly. Publishing unresolved items is
+what makes the resolved ones credible.
+4. **No false authority.** Dr. Mulu is not the county government. The tracker
+records what was reported, what was raised, and what happened — never
+implying powers he does not hold. Overclaiming here would invite exactly the
+attack the tool exists to pre-empt.
+5. **Continues after the election.** Stated up front. A tracker that closes on
+polling day was a campaign tactic; one that continues is a governance
+commitment — and the commitment is the persuasive element.
+
+### 8.5.5 What it is worth to the campaign
+
+* **Narrative:** the strongest possible proof of the Verification pillar
+(Section 2.2.4) — evidence rather than assertion
+* **Data:** ward-level issue salience derived from citizens' own priorities
+rather than from campaign assumptions, feeding directly into content and
+message-lab design
+* **Organising:** every report is a consented contact and a warm lead for ward
+champions
+* **Earned media:** a public register of county service-delivery failures is a
+standing story for county correspondents (Section 3.5)
+* **Defensive:** it makes "he is not close to ordinary people" a difficult
+attack to sustain against a candidate publishing their reported problems
+
+### 8.5.6 Build and cost
+
+Built on the USSD/SMS infrastructure already costed in Section 9.2.2 — shared
+USSD code (~KSh34,800 per network), development (~KSh140,000), hosting
+(~KSh5,000/month) — plus a lightweight public register on the campaign site.
+**Marginal cost over the SMS/USSD layer is low; distinctiveness is high.**
+
+### 8.5.7 Tracker KPIs
+
+| Metric | Phase 1 | Phase 2 | Phase 3 |
+|---|---|---|---|
+| Reports received | 500 | 3,000 | 8,000 |
+| Wards with at least one report | 25 | 40 | 40 |
+| Reports with published status update | ≥ 80% | ≥ 85% | ≥ 90% |
+| Median time to first status update | 14 days | 10 days | 7 days |
+| Reports converting to consented contacts | ≥ 60% | ≥ 65% | ≥ 70% |
+| Earned media items citing the tracker | 1 | 3 | 5 |

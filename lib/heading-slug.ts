@@ -29,7 +29,6 @@ export function headingSlug(text: string): string | null {
 // Part 4 is five parallel tracks rather than one part, because nothing in the defence track
 // depends on having read the ground track. The reader enters at the track they own.
 export const SECTIONS = [
-  { id: "overview", number: "0", label: "Overview", blurb: "Executive summary" },
   { id: "decision", number: "1", label: "The decision", blurb: "Objectives, scope, budget, the ask" },
   { id: "evidence", number: "2", label: "What we know, and what it means", blurb: "Nomination, county, arithmetic, reach, the law" },
   { id: "strategy", number: "3", label: "What we will therefore do", blurb: "Claim, message, ethics, accessibility" },
