@@ -119,11 +119,11 @@ const PART_TINTS = ["from-accent/[0.025]", "from-gold/[0.025]"];
 // The five places a candidate looks for first. The scorecards lead, because they are the numbers
 // the brief asks to be reachable in one interaction from the landing view.
 const QUICK_LINKS = [
-  { id: "delivery-sec-8-1", label: "The scorecards" },
+  { id: "decision-sec-8-1", label: "The scorecards" },
   { id: "evidence-sec-1-3-1", label: "Votes needed to win" },
   { id: "evidence-sec-1-3-2", label: "The 40 wards" },
   { id: "decision-sec-9-2", label: "Budget tiers" },
-  { id: "publishing-sec-3-4-1", label: "Kikamba radio" },
+  { id: "evidence-sec-3-4-1", label: "Kikamba radio" },
 ];
 
 interface LazySectionProps {

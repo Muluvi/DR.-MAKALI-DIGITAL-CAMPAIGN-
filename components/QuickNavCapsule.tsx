@@ -11,11 +11,11 @@ interface QuickNavCapsuleProps {
 }
 
 const QUICK_TARGETS = [
-  { id: "delivery-sec-8-1", label: "The scorecards", icon: Gauge, tab: "delivery" },
+  { id: "decision-sec-8-1", label: "The scorecards", icon: Gauge, tab: "decision" },
   { id: "evidence-sec-1-3-1", label: "Votes needed to win", icon: Calculator, tab: "evidence" },
   { id: "evidence-sec-1-3-2", label: "The 40 wards", icon: MapPin, tab: "evidence" },
   { id: "decision-sec-9-2", label: "Budget tiers", icon: Coins, tab: "decision" },
-  { id: "publishing-sec-3-4-1", label: "Kikamba radio", icon: Radio, tab: "publishing" },
+  { id: "evidence-sec-3-4-1", label: "Kikamba radio", icon: Radio, tab: "evidence" },
   { id: "evidence-sec-1-2-7", label: "County money and audits", icon: Activity, tab: "evidence" },
   { id: "defence-sec-5-2", label: "The war room", icon: Shield, tab: "defence" },
 ];

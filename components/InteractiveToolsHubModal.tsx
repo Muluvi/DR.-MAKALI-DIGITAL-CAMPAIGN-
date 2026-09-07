@@ -73,7 +73,7 @@ export function InteractiveToolsHubModal({
       description: "Interactive slider testing weekly growth rates (+0.4% to +2.5%/wk) against the 40% viability benchmark.",
       icon: TrendingUp,
       badge: "Nomination Sprint",
-      sectionTarget: "exec-sec-1-1",
+      sectionTarget: "decision-sec-0-1",
       component: <PollingTrajectorySimulator />
     },
     {
@@ -83,7 +83,7 @@ export function InteractiveToolsHubModal({
       description: "Constituency-by-constituency turnout and vote-share modeler targeting 200,000 winning votes.",
       icon: Calculator,
       badge: "Electoral Math",
-      sectionTarget: "exec-sec-6-3",
+      sectionTarget: "evidence-sec-1-3-3",
       component: <PathTo200kCalculator />
     },
     {
@@ -93,7 +93,7 @@ export function InteractiveToolsHubModal({
       description: "Interactive scenario engine adjusting OSR collection rates and development absorption.",
       icon: Coins,
       badge: "Economic Policy",
-      sectionTarget: "programme-sec-21-19",
+      sectionTarget: "decision-sec-9-2-5",
       component: <BudgetScenarioModeler />
     },
     {
@@ -103,7 +103,7 @@ export function InteractiveToolsHubModal({
       description: "Historical turnout curves juxtaposed against 2027 low, baseline, and surge projections.",
       icon: BarChart3,
       badge: "Electoral Trends",
-      sectionTarget: "exec-sec-2-3",
+      sectionTarget: "evidence-sec-1-1-3",
       component: <VoterProjectionsChart />
     },
     {
@@ -113,7 +113,7 @@ export function InteractiveToolsHubModal({
       description: "Proportional cartographic mapping of all 40 Kitui wards sized by voter density.",
       icon: Map,
       badge: "Cartography",
-      sectionTarget: "exec-sec-4-3",
+      sectionTarget: "evidence-sec-1-2-3",
       component: <WardCartogramBlock />
     },
     {
@@ -123,7 +123,7 @@ export function InteractiveToolsHubModal({
       description: "2D scatter matrix mapping aspirants across public recognition vs. policy governance competence.",
       icon: Compass,
       badge: "Competitor Intel",
-      sectionTarget: "exec-sec-4-2",
+      sectionTarget: "evidence-sec-1-2-2",
       component: <CompetitiveQuadrantBlock />
     },
     {
@@ -133,7 +133,7 @@ export function InteractiveToolsHubModal({
       description: "Multi-wave polling trajectory comparing Dr. Mulu against Dr. Kasalu and Sen. Wambua.",
       icon: Sliders,
       badge: "Polling Audit",
-      sectionTarget: "exec-sec-1-2",
+      sectionTarget: "decision-sec-0-2",
       component: <MizaniSlopeBlock />
     },
     {
@@ -143,7 +143,7 @@ export function InteractiveToolsHubModal({
       description: "Visual breakdown of recurrent vs. development expenditure and pending bill liabilities.",
       icon: PieChart,
       badge: "Fiscal Audit",
-      sectionTarget: "exec-sec-4-7",
+      sectionTarget: "evidence-sec-1-2-7",
       component: <FiscalAuditChartBlock />
     },
     {
@@ -153,7 +153,7 @@ export function InteractiveToolsHubModal({
       description: "Operational response playbook mapping opposition attack vectors to rapid deployment protocols.",
       icon: ShieldAlert,
       badge: "War Room",
-      sectionTarget: "programme-sec-26",
+      sectionTarget: "defence-sec-5-2",
       component: <CrisisWarRoomMatrix />
     },
     {
@@ -163,7 +163,7 @@ export function InteractiveToolsHubModal({
       description: "Demographic voter personas mapped to tailored messaging angles, channels, and tone.",
       icon: Users,
       badge: "Demographics",
-      sectionTarget: "exec-sec-7",
+      sectionTarget: "evidence-sec-2-4",
       component: <AudienceSegmentationMatrix />
     },
     {
@@ -173,7 +173,7 @@ export function InteractiveToolsHubModal({
       description: "Regional strategic priorities across Central, Northern Arid Belt, and Southern Border corridors.",
       icon: Layers,
       badge: "Regional Ground",
-      sectionTarget: "programme-sec-20",
+      sectionTarget: "evidence-sec-1-4",
       component: <GeographicZoneMatrix />
     },
     {
@@ -183,7 +183,7 @@ export function InteractiveToolsHubModal({
       description: "Flagship county project scorecard tracking healthcare, water, and agricultural benchmarks.",
       icon: CheckCircle2,
       badge: "Performance Audit",
-      sectionTarget: "programme-sec-31-7",
+      sectionTarget: "strategy-sec-8-5",
       component: <PublicServiceDeliveryTracker />
     },
     {
@@ -193,7 +193,7 @@ export function InteractiveToolsHubModal({
       description: "Kamba-language radio station penetration, prime drive-time slots, and aircover distribution.",
       icon: Radio,
       badge: "Media Strategy",
-      sectionTarget: "programme-sec-29-1",
+      sectionTarget: "publishing-sec-3-5",
       component: <MediaRadioLandscapeCard />
     },
     {
@@ -203,7 +203,7 @@ export function InteractiveToolsHubModal({
       description: "Inter-governmental checks and executive power allocation mapped across legal frameworks.",
       icon: Scale,
       badge: "Governance Law",
-      sectionTarget: "exec-sec-4-2",
+      sectionTarget: "evidence-sec-1-2-2",
       component: <ConstitutionalBranchNavigator />
     },
     {
@@ -213,7 +213,7 @@ export function InteractiveToolsHubModal({
       description: "Full organizational blueprint detailing secretariat reporting lines and field team deployment.",
       icon: Users,
       badge: "Command Structure",
-      sectionTarget: "programme-sec-21-7",
+      sectionTarget: "team-sec-7-2",
       component: <CampaignOrgChart />
     },
     {
@@ -223,7 +223,7 @@ export function InteractiveToolsHubModal({
       description: "Detailed manifesto pillars: Fiscal Discipline, Water Infrastructure, Healthcare, and Economic Value-Add.",
       icon: Sparkles,
       badge: "Manifesto Core",
-      sectionTarget: "programme-sec-18",
+      sectionTarget: "strategy-sec-2-2",
       component: <StrategicPillarsMatrix />
     }
   ], []);
