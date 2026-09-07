@@ -8,15 +8,15 @@ import { buildSectionIndex } from "@/lib/section-index";
 // One file per top-level section, named so the directory listing reads as the offer itself.
 const FILES: Record<TabId, string> = {
   overview: "0-overview.md",
-  race: "1-race.md",
-  argument: "2-argument.md",
-  channels: "3-channels.md",
-  ground: "4-ground.md",
-  defence: "5-defence.md",
-  data: "6-data.md",
-  team: "7-team.md",
-  measure: "8-measure.md",
-  ask: "9-ask.md",
+  decision: "1-decision.md",
+  evidence: "2-evidence.md",
+  strategy: "3-strategy.md",
+  publishing: "4a-publishing.md",
+  ground: "4b-ground.md",
+  defence: "4c-defence.md",
+  technology: "4d-technology.md",
+  team: "4e-team.md",
+  delivery: "5-delivery.md",
 };
 
 export default async function Page() {

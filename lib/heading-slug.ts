@@ -18,20 +18,27 @@ export function headingSlug(text: string): string | null {
   return num.replace(/\./g, "-");
 }
 
-// The proposal's ten top-level sections. The order is the reader's arc through the offer:
-// where the race stands, what we will argue, what we will run, how we defend it, what it runs
-// on, who does it, how we will know it worked, and what we are asking for.
+// The proposal's parts, in reading order.
+//
+// Two layers. `decision` is the decision layer — objectives, scope, budget and the ask, promoted
+// out of the old Parts 7-9 so a reader with fifteen minutes can stop there and still have the
+// whole offer. Everything after it is the audit layer, ordered the way the argument is actually
+// built: what we know and what it implies, what we will therefore do, how it runs, and how it is
+// delivered and proved.
+//
+// Part 4 is five parallel tracks rather than one part, because nothing in the defence track
+// depends on having read the ground track. The reader enters at the track they own.
 export const SECTIONS = [
   { id: "overview", number: "0", label: "Overview", blurb: "Executive summary" },
-  { id: "race", number: "1", label: "Where the race stands", blurb: "Nomination, county, wards, regions" },
-  { id: "argument", number: "2", label: "The argument we will make", blurb: "Narrative, message, audiences" },
-  { id: "channels", number: "3", label: "What we publish, and where", blurb: "Channels, media, language" },
-  { id: "ground", number: "4", label: "What we run on the ground", blurb: "Field, offline reach, organising" },
-  { id: "defence", number: "5", label: "Defending the campaign", blurb: "Rapid response, war room, security" },
-  { id: "data", number: "6", label: "Data, technology and compliance", blurb: "Data, modelling, stack, the law" },
-  { id: "team", number: "7", label: "Who does the work", blurb: "Scope, team, governance" },
-  { id: "measure", number: "8", label: "How we will know it is working", blurb: "Scorecards, phased plan, research" },
-  { id: "ask", number: "9", label: "What we are asking for", blurb: "Commitments, budget tiers, the ask" },
+  { id: "decision", number: "1", label: "The decision", blurb: "Objectives, scope, budget, the ask" },
+  { id: "evidence", number: "2", label: "What we know, and what it means", blurb: "Nomination, county, arithmetic, reach, the law" },
+  { id: "strategy", number: "3", label: "What we will therefore do", blurb: "Claim, message, ethics, accessibility" },
+  { id: "publishing", number: "4A", label: "What we publish, and where", blurb: "Content, paid media, earned media, language" },
+  { id: "ground", number: "4B", label: "What we run on the ground", blurb: "Field, offline reach, organising" },
+  { id: "defence", number: "4C", label: "Defending the campaign", blurb: "Rapid response, war room, security" },
+  { id: "technology", number: "4D", label: "What it runs on", blurb: "Data, modelling, stack, analytics" },
+  { id: "team", number: "4E", label: "Who does the work", blurb: "Team structure, governance" },
+  { id: "delivery", number: "5", label: "Delivery and proof", blurb: "Phased plan, measurement, message lab" },
 ] as const;
 
 export type TabId = (typeof SECTIONS)[number]["id"];

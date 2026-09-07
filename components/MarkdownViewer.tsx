@@ -195,81 +195,81 @@ const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
 // the next step if this map grows again.
 const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // ---- Situation and argument (§0–§2) -------------------------------------------------
-  "overview-sec-0-1": <PollingTrajectorySimulator />,
-  "race-sec-1-1": <NominationPathPanel />,
+  "decision-sec-0-1": <PollingTrajectorySimulator />,
+  "evidence-sec-1-1": <NominationPathPanel />,
   // The core narrative is §3, ahead of the strategic context — its thesis opens the argument.
-  "argument-sec-2-1": <EconomistGovernorThesis />,
-  "race-sec-1-2-2": (
+  "strategy-sec-2-1": <EconomistGovernorThesis />,
+  "evidence-sec-1-2-2": (
     <>
       <ConstitutionalBranchNavigator />
       <CompetitiveQuadrantBlock />
     </>
   ),
-  "race-sec-1-2-1": (
+  "evidence-sec-1-2-1": (
     <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §1.2.1">
       One of Kenya&rsquo;s most consistent and authoritative voices on macroeconomic governance,
       fiscal discipline, and budget oversight.
     </SectionPortrait>
   ),
-  "race-sec-1-2-3": (
+  "evidence-sec-1-2-3": (
     <>
       <WardCartogramBlock />
       <PathTo200kBlock />
       <ConstituencyWeightBlock />
     </>
   ),
-  "race-sec-1-2-4": <ResourceEnvelopeBlock />,
-  "race-sec-1-2-5": <DisputedFigure entry={kituiCentralPopulationDispute} />,
-  "race-sec-1-2-6": (
+  "evidence-sec-1-2-4": <ResourceEnvelopeBlock />,
+  "evidence-sec-1-2-5": <DisputedFigure entry={kituiCentralPopulationDispute} />,
+  "evidence-sec-1-2-6": (
     <>
       <ElectoralHistoryPanel />
       <ElectoralTimelineBlock />
     </>
   ),
-  "race-sec-1-2-7": (
+  "evidence-sec-1-2-7": (
     <>
       <FiscalAuditPanel />
       <FiscalAuditChartBlock />
     </>
   ),
-  "race-sec-1-2-8": <DroughtFoodSecurityPanel />,
-  "race-sec-1-2-9": <MuiBasinPanel />,
-  "race-sec-1-2-10": <CompetitorFieldPanel />,
-  "race-sec-1-3-3": <PathTo200kCalculator />,
-  "race-sec-1-3-5": <RecognitionDeficitOverlay />,
-  "argument-sec-2-4": <AudienceSegmentationMatrix />,
+  "evidence-sec-1-2-8": <DroughtFoodSecurityPanel />,
+  "evidence-sec-1-2-9": <MuiBasinPanel />,
+  "evidence-sec-1-2-10": <CompetitorFieldPanel />,
+  "evidence-sec-1-3-3": <PathTo200kCalculator />,
+  "evidence-sec-1-3-5": <RecognitionDeficitOverlay />,
+  "strategy-sec-2-4": <AudienceSegmentationMatrix />,
   // §9 splits the electorate into a connected minority and an offline majority. The showcase is
   // that argument as an object: one handset, the campaign on all seven channels, ending on the
   // USSD dialog that reaches more voters than the six apps together.
-  "channels-sec-3-1": (
+  "publishing-sec-3-1": (
     <>
       <ReachArchitecture3D />
       <PhoneShowcase />
     </>
   ),
-  "argument-sec-2-6": (
+  "strategy-sec-2-6": (
     <>
       <MessagingPlayground />
       <ToneVoiceSlider />
     </>
   ),
-  "argument-sec-2-7-4": <CommunityScheduler />,
+  "strategy-sec-2-7-4": <CommunityScheduler />,
   "defence-sec-5-1": <CounterMessagingGrid />,
   // The ownership/alignment/tier table this chart plots, now §3.4.1 after paid and earned
   // media were folded into one section.
-  "channels-sec-3-4-1": <MediaOwnershipBlock />,
+  "publishing-sec-3-4-1": <MediaOwnershipBlock />,
 
   // ---- What we run, defend, measure and ask for (§3–§9) --------------------------------
-  "ask-sec-9-3": (
+  "decision-sec-9-3": (
     <SectionPortrait id="seated-grey-cropped" kicker="Working together — §9.3" flip>
       Firefly reports to a single named campaign-side counterpart.
     </SectionPortrait>
   ),
-  "argument-sec-2-2": <StrategicPillarsMatrix />,
-  "race-sec-1-4": <GeographicZoneMatrix />,
+  "strategy-sec-2-2": <StrategicPillarsMatrix />,
+  "evidence-sec-1-4": <GeographicZoneMatrix />,
   "team-sec-7-2": <CampaignOrgChart />,
-  "ask-sec-9-2-5": <BudgetScenarioModeler />,
-  "ask-sec-9-2-7": <ComplianceCeilingPanel />,
+  "decision-sec-9-2-5": <BudgetScenarioModeler />,
+  "decision-sec-9-2-7": <ComplianceCeilingPanel />,
   "ground-sec-4-1": <TerminalShowcase />,
   "ground-sec-4-2": <FlywheelSchematic />,
   "ground-sec-4-3": (
@@ -278,19 +278,19 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
       <SMSFeedbackVisualizer />
     </>
   ),
-  "argument-sec-2-8": <PersuasionFramingMatrix />,
+  "strategy-sec-2-8": <PersuasionFramingMatrix />,
   "defence-sec-5-2": <CrisisWarRoomMatrix />,
-  "data-sec-6-5": <DataSecurityEthicsCharter />,
-  "channels-sec-3-2": <MediaPlaybackMockup />,
-  "channels-sec-3-5": (
+  "technology-sec-6-5": <DataSecurityEthicsCharter />,
+  "publishing-sec-3-2": <MediaPlaybackMockup />,
+  "publishing-sec-3-5": (
     <>
       <MediaRadioLandscapeCard />
       <RadioAircoverDial />
     </>
   ),
-  "argument-sec-2-3": <SloganBuilder />,
-  "measure-sec-8-5": <PublicServiceDeliveryTracker />,
-  "measure-sec-8-3": (
+  "strategy-sec-2-3": <SloganBuilder />,
+  "delivery-sec-8-5": <PublicServiceDeliveryTracker />,
+  "delivery-sec-8-3": (
     <>
       <PhaseRail />
       <KpiPhaseBlock />
@@ -317,13 +317,13 @@ function buildComponents(tabId: TabId): Components {
 
               // §1.2.5 "National platform sizing" — replaced by the sorted bar chart
               // (item 13), not kept alongside it.
-              if (tabId === "race" && has("platform") && has("kenya audience")) {
+              if (tabId === "evidence" && has("platform") && has("kenya audience")) {
                 return <PlatformSizingBlock />;
               }
 
               // §1.2.1 candidate-asset table — assertion/evidence/application becomes
               // claim cards (item 21), replacing the table rather than sitting alongside it.
-              if (tabId === "race" && has("asset") && has("evidence") && has("digital application")) {
+              if (tabId === "evidence" && has("asset") && has("evidence") && has("digital application")) {
                 return <ClaimCards>{children}</ClaimCards>;
               }
 
@@ -470,7 +470,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
   // panel, so the reader gets the labels at a glance and the bodies on demand. Everything else
   // comes back as ordinary markdown and renders exactly as before.
   const markdownComponents = buildComponents(tabId);
-  const segments = segmentContent(content, { isClosingSection: tabId === "ask" });
+  const segments = segmentContent(content, { isClosingSection: tabId === "decision" });
 
   const renderMarkdown = (text: string, key?: string) => (
     <ReactMarkdown
@@ -523,7 +523,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
         {/* The ask closes the document, inside the prose flow. It used to sit in the footer
             chrome below a rule, next to the print widget — which framed a vendor's closing
             request as one more piece of page tooling. §9.3 builds to it; it belongs there. */}
-        {tabId === "ask" && <DecisionPanel />}
+        {tabId === "decision" && <DecisionPanel />}
       </div>
     </div>
   );

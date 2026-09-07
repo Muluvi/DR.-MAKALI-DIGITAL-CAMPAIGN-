@@ -8,15 +8,15 @@ import type { SectionItem } from "../lib/section-index";
 
 const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
   overview: Compass,
-  race: Map,
-  argument: MessageSquare,
-  channels: Megaphone,
+  decision: HandCoins,
+  evidence: Map,
+  strategy: MessageSquare,
+  publishing: Megaphone,
   ground: Users,
   defence: Shield,
-  data: Database,
+  technology: Database,
   team: Target,
-  measure: Gauge,
-  ask: HandCoins,
+  delivery: Gauge,
 };
 
 interface MobileTOCModalProps {

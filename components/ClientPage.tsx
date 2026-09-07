@@ -72,15 +72,15 @@ interface ClientPageProps {
 // One icon per top-level section, keyed to what the section is about rather than to its position.
 const SECTION_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
   overview: Compass,
-  race: Map,
-  argument: MessageSquare,
-  channels: Megaphone,
+  decision: HandCoins,
+  evidence: Map,
+  strategy: MessageSquare,
+  publishing: Megaphone,
   ground: Users,
   defence: Shield,
-  data: Database,
+  technology: Database,
   team: Target,
-  measure: Gauge,
-  ask: HandCoins,
+  delivery: Gauge,
 };
 
 const WiperUmbrellaLogo = () => (
@@ -119,11 +119,11 @@ const PART_TINTS = ["from-accent/[0.025]", "from-gold/[0.025]"];
 // The five places a candidate looks for first. The scorecards lead, because they are the numbers
 // the brief asks to be reachable in one interaction from the landing view.
 const QUICK_LINKS = [
-  { id: "measure-sec-8-1", label: "The scorecards" },
-  { id: "race-sec-1-3-1", label: "Votes needed to win" },
-  { id: "race-sec-1-3-2", label: "The 40 wards" },
-  { id: "ask-sec-9-2", label: "Budget tiers" },
-  { id: "channels-sec-3-4-1", label: "Kikamba radio" },
+  { id: "delivery-sec-8-1", label: "The scorecards" },
+  { id: "evidence-sec-1-3-1", label: "Votes needed to win" },
+  { id: "evidence-sec-1-3-2", label: "The 40 wards" },
+  { id: "decision-sec-9-2", label: "Budget tiers" },
+  { id: "publishing-sec-3-4-1", label: "Kikamba radio" },
 ];
 
 interface LazySectionProps {
@@ -365,7 +365,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
         {/* DecisionPanel moved into the document's own close (MarkdownViewer); what remains
             here is page tooling, which is what this footer strip is for. */}
-        {!isFocusMode && sectionId === "ask" && <PrintReportGenerator />}
+        {!isFocusMode && sectionId === "decision" && <PrintReportGenerator />}
       </div>
     );
   };

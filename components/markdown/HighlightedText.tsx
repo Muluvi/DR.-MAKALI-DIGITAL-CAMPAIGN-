@@ -42,7 +42,7 @@ const STATUS_PHRASES: { pattern: string; status: ClaimStatus }[] = [
 // 1."); they matched nothing and have been removed rather than repointed.
 const BANNER_TRIGGERS: { pattern: string; tabIds: TabId[] }[] = [
   { pattern: ws("the reason the campaign's own deepfake denials will be believed\\."), tabIds: ["defence"] },
-  { pattern: ws("Firefly Management is ready to build that operation\\."), tabIds: ["ask"] },
+  { pattern: ws("Firefly Management is ready to build that operation\\."), tabIds: ["decision"] },
 ];
 
 // Dictionary of definitions for hover tooltips
