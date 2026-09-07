@@ -61,9 +61,9 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 15 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fx-glass shadow-2xl rounded-2xl p-4 w-[calc(100vw-2rem)] max-w-xs sm:w-80 mb-2 overflow-hidden"
+            className="fx-glass shadow-2xl rounded-2xl p-4 w-[min(calc(100vw-2.5rem),20rem)] mb-2 overflow-hidden"
           >
-            <div className="flex items-center justify-between border-b border-line/40 pb-2.5 mb-3">
+            <div className="flex items-center justify-between border-b border-line/40 pb-2 mb-2.5">
               <div className="flex items-center gap-2">
                 <div className="p-1 rounded-md bg-accent/10 text-accent">
                   <Sparkles size={13} />
@@ -72,21 +72,21 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-1 text-muted hover:text-ink rounded-lg hover:bg-paper cursor-pointer transition-colors"
+                className="w-11 h-11 text-muted hover:text-ink rounded-lg hover:bg-paper cursor-pointer transition-colors flex items-center justify-center -mr-2"
                 aria-label="Close shortcuts"
               >
-                <X size={14} />
+                <X size={16} />
               </button>
             </div>
 
-            <div className="fx-menu grid grid-cols-1 gap-1.5 max-h-64 overflow-y-auto pr-1">
+            <div className="fx-menu grid grid-cols-1 gap-1 max-h-64 overflow-y-auto pr-1">
               {QUICK_TARGETS.map((item) => {
                 const Icon = item.icon;
                 return (
                   <button
                     key={item.id}
                     onClick={() => handleSelect(item.id)}
-                    className="fx-press fx-focus flex items-center justify-between p-2 rounded-xl text-left hover:bg-accent/10 hover:text-accent group transition-all cursor-pointer text-xs font-bold text-ink"
+                    className="fx-press fx-focus flex items-center justify-between p-2.5 rounded-xl text-left hover:bg-accent/10 hover:text-accent group transition-all cursor-pointer text-xs font-bold text-ink min-h-[44px]"
                   >
                     <div className="flex items-center gap-2.5 truncate">
                       <Icon size={14} className="fx-icon-rise text-muted group-hover:text-accent transition-colors shrink-0" />
@@ -100,7 +100,7 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
               })}
             </div>
             
-            <div className="mt-3 pt-2.5 border-t border-line/30 flex items-center justify-between t-label text-muted font-semibold">
+            <div className="mt-2.5 pt-2 border-t border-line/30 flex items-center justify-between t-label text-muted font-semibold">
               <span>Press shortcut to deep link</span>
               <span className="font-mono text-accent">2027 Portal</span>
             </div>
@@ -110,14 +110,15 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
 
       <div className="flex items-center gap-2">
         {/* Kept mounted and revealed, rather than mounted on crossing the threshold. A control
-            that is inserted into the row as you scroll shifts the Quick Jump button sideways
-            under the reader's thumb; one that fades in from `.fx-backtotop` does not. */}
+            inserted into the row as you scroll shifts the Quick Jump button sideways under the
+            reader's thumb; one that fades in from `.fx-backtotop` does not. The 44px square is
+            main's, and it is the platform minimum. */}
         <button
           onClick={scrollToTop}
           data-visible={showScrollTop}
           aria-hidden={!showScrollTop}
           tabIndex={showScrollTop ? 0 : -1}
-          className="fx-backtotop fx-glass fx-press fx-focus p-2.5 sm:p-3 rounded-full shadow-lg text-muted hover:text-accent hover:border-accent cursor-pointer"
+          className="fx-backtotop fx-glass fx-press fx-focus w-11 h-11 rounded-full shadow-lg text-muted hover:text-accent hover:border-accent cursor-pointer flex items-center justify-center"
           aria-label="Scroll to top"
           title="Scroll to top"
         >
@@ -126,7 +127,7 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`flex items-center gap-2 px-3.5 py-2.5 rounded-full backdrop-blur-md border shadow-lg text-xs font-bold transition-all cursor-pointer active:scale-95 ${
+          className={`flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] rounded-full backdrop-blur-md border shadow-lg text-xs font-bold transition-all cursor-pointer active:scale-95 ${
             isOpen
               ? "bg-accent text-white border-accent shadow-accent/25"
               : "bg-card/95 text-ink border-line/60 hover:border-accent/60 hover:text-accent"

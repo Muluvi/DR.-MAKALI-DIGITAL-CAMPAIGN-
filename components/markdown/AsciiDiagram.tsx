@@ -81,9 +81,71 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
 
   return (
     <Frame title={d.title} icon={Table2} kind="Matrix">
-      {/* The table scrolls inside its own frame; the page never scrolls sideways. */}
-      <div className="scroll-x">
-        <table className="w-full t-small sm:text-xs border-collapse min-w-[30rem]">
+      {/* Mobile Card-Stacking View (< md) */}
+      <div className="block md:hidden p-3 space-y-2.5">
+        {d.rows.map((row, i) => {
+          const isBanner = row.length === 1 && row[0].spans > 1;
+          if (isBanner) {
+            return (
+              <div
+                key={i}
+                className="px-3 py-1.5 font-bold uppercase tracking-wider t-micro text-accent bg-accent/[0.08] rounded-lg my-1.5"
+              >
+                {withEmphasis(row[0].text)}
+              </div>
+            );
+          }
+
+          const primaryCell = row[0];
+          const secondaryCells = row.slice(1);
+
+          return (
+            <div
+              key={i}
+              className="bg-paper/70 border border-line/50 rounded-xl p-3 shadow-xs space-y-2"
+            >
+              {/* Card Header (Leading Cell) */}
+              <div className="font-bold text-ink t-small pb-1.5 border-b border-line/30 flex items-center justify-between">
+                <span className="break-words">{primaryCell ? withEmphasis(primaryCell.text) : ""}</span>
+                {d.headers && d.headers[0] && (
+                  <span className="t-micro uppercase tracking-wider font-semibold text-muted shrink-0 ml-2" aria-hidden="true">
+                    {d.headers[0]}
+                  </span>
+                )}
+              </div>
+
+              {/* Data fields with explicit headers */}
+              <div className="space-y-1.5">
+                {secondaryCells.map((cell, j) => {
+                  const colIdx = j + 1;
+                  const header = d.headers && d.headers[colIdx] ? d.headers[colIdx] : `Item ${colIdx + 1}`;
+                  return (
+                    <div
+                      key={j}
+                      className="flex items-start justify-between gap-2.5 py-1 border-b border-line/15 last:border-b-0"
+                    >
+                      <span className="t-micro uppercase tracking-wider font-semibold text-muted shrink-0 pt-0.5" aria-hidden="true">
+                        {header}
+                      </span>
+                      <span
+                        className={`text-right t-small text-ink leading-snug break-words max-w-[70%] ${
+                          isFigure(cell.text) ? "tabular-nums font-mono font-semibold" : ""
+                        }`}
+                      >
+                        {withEmphasis(cell.text)}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Desktop Grid View (>= md) */}
+      <div className="hidden md:block overflow-x-auto w-full">
+        <table className="w-full t-small border-collapse">
           {d.headers && (
             <thead>
               <tr className="bg-paper/70">
@@ -91,7 +153,7 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
                   <th
                     key={i}
                     scope="col"
-                    className="text-left px-3 py-2 font-black uppercase tracking-wider t-micro sm:t-label text-muted border-b border-line align-bottom"
+                    className="text-left px-3 py-2 font-black uppercase tracking-wider t-micro text-muted border-b border-line align-bottom"
                   >
                     {h}
                   </th>
@@ -101,7 +163,6 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
           )}
           <tbody>
             {d.rows.map((row, i) => {
-              // A single full-width cell is a section header inside the body, not a data row.
               const isBanner = row.length === 1 && row[0].spans > 1;
               return (
                 <tr key={i} className={isBanner ? "bg-accent/[0.05]" : "border-b border-line/40 last:border-b-0"}>
@@ -111,10 +172,10 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
                       colSpan={cell.spans > 1 ? width : 1}
                       className={
                         isBanner
-                          ? "px-3 py-1.5 font-black uppercase tracking-wider t-micro sm:t-label text-accent"
+                          ? "px-3 py-1.5 font-black uppercase tracking-wider t-micro text-accent"
                           : `px-3 py-2 align-top leading-snug ${
                               j === 0 ? "font-semibold text-ink" : "text-muted"
-                            } ${isFigure(cell.text) ? "tabular-nums font-mono" : ""}`
+                            } ${isFigure(cell.text) ? "tabular-nums font-mono font-semibold" : ""}`
                       }
                     >
                       {withEmphasis(cell.text)}
@@ -136,12 +197,12 @@ function DiagramKeyValue({ d }: { d: Extract<Diagram, { kind: "keyvalue" }> }) {
       <dl className="divide-y divide-line/40">
         {d.items.map((item, i) => (
           <div key={i} className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-4 px-4 py-2.5">
-            <dt className="t-small sm:text-xs font-semibold text-ink sm:w-[15rem] sm:shrink-0 leading-snug">
+            <dt className="t-small font-semibold text-ink sm:w-[15rem] sm:shrink-0 leading-snug">
               {withEmphasis(item.label)}
             </dt>
             <dd
-              className={`t-small sm:text-xs text-muted leading-snug ${
-                isFigure(item.value) ? "font-mono tabular-nums" : ""
+              className={`t-small text-muted leading-snug ${
+                isFigure(item.value) ? "font-mono tabular-nums font-semibold" : ""
               }`}
             >
               {withEmphasis(item.value)}

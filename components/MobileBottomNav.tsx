@@ -62,11 +62,11 @@ export function MobileBottomNav({
         <div className="fixed top-0 left-1/2 -translate-x-1/2 z-50 lg:hidden print:hidden select-none">
           <button
             onClick={onToggleZeroChrome}
-            className="px-3 py-1 bg-card/90 backdrop-blur-md rounded-b-xl border-x border-b border-line/60 shadow-md text-[10px] font-extrabold text-muted hover:text-accent flex items-center gap-1.5 cursor-pointer transition-all active:scale-95"
+            className="px-3 py-2 min-h-[44px] bg-card/90 backdrop-blur-md rounded-b-xl border-x border-b border-line/60 shadow-md text-[11px] font-extrabold text-muted hover:text-accent flex items-center gap-1.5 cursor-pointer transition-all active:scale-95"
             aria-label="Exit Zero Chrome Fullscreen"
             title="Exit Zero Chrome Fullscreen"
           >
-            <Eye size={11} className="text-accent" />
+            <Eye size={13} className="text-accent" />
             <span>Restore Bars</span>
           </button>
         </div>
@@ -74,12 +74,12 @@ export function MobileBottomNav({
         <div className="fixed bottom-3 right-3 sm:right-6 z-40 lg:hidden print:hidden animate-fade-in select-none">
           <button
             onClick={() => setIsScrolledDown(false)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card/90 backdrop-blur-xl border border-accent/30 text-ink shadow-lg fx-press fx-focus transition-all text-xs font-bold cursor-pointer"
+            className="flex items-center justify-center gap-1.5 min-h-[44px] min-w-[44px] px-3.5 py-2 rounded-full bg-card/90 backdrop-blur-xl border border-accent/30 text-ink shadow-lg fx-press fx-focus transition-all text-xs font-bold cursor-pointer"
             aria-label="Show navigation"
             title="Show navigation"
           >
-            <ChevronUp size={12} className="text-accent" />
-            <span className="text-[11px] font-semibold">Nav</span>
+            <ChevronUp size={14} className="text-accent" />
+            <span className="text-xs font-semibold">Nav</span>
           </button>
         </div>
       ) : null}
@@ -93,52 +93,52 @@ export function MobileBottomNav({
       >
         <div className="fx-glass border-t border-line shadow-2xl px-2 pt-1.5 pb-[max(0.75rem,env(safe-area-inset-bottom,0.75rem))]">
           {/* Page tooling: index, expand-all, zero-chrome, theme, back to top. */}
-          <div className="flex items-center justify-between px-1.5 pb-1.5 mb-1.5 border-b border-line/40 text-xs font-semibold">
+          <div className="flex items-center justify-between px-1 pb-1.5 mb-1.5 border-b border-line/40 text-xs font-semibold gap-1">
             <button
               onClick={onOpenTOC}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-accent/10 text-accent border border-accent/20 fx-press fx-focus transition-all cursor-pointer min-h-[36px]"
+              className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-accent/10 text-accent border border-accent/20 fx-press fx-focus transition-all cursor-pointer min-h-[40px] shrink-0"
             >
               <ListTree size={14} />
-              <span>Full index</span>
+              <span className="text-[11px] sm:text-xs">Index</span>
             </button>
 
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 shrink-0">
               {/* Zero Chrome Toggle Button */}
               {onToggleZeroChrome && (
                 <button
                   onClick={onToggleZeroChrome}
-                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[36px]"
+                  className="flex items-center gap-1 px-2 sm:px-2.5 py-1.5 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[40px]"
                   aria-label="Toggle Zero Chrome full-screen reading mode"
                   title="Toggle Zero Chrome reading mode"
                 >
                   <EyeOff size={13} className="text-accent" />
-                  <span className="text-[11px]">Zero Chrome</span>
+                  <span className="text-[11px]">Zero</span>
                 </button>
               )}
 
               <button
                 onClick={onToggleExpanded}
-                className="flex items-center gap-1 px-2 py-1.5 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[36px]"
+                className="flex items-center gap-1 px-2 py-1.5 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[40px]"
                 aria-label={isExpanded ? "Collapse to one section" : "Show all sections"}
               >
                 {isExpanded ? <Minimize2 size={13} /> : <Maximize2 size={13} />}
-                <span className="text-[11px]">{isExpanded ? "Collapse" : "All"}</span>
+                <span className="text-[11px]">{isExpanded ? "One" : "All"}</span>
               </button>
 
               <button
                 onClick={onToggleTheme}
-                className="p-2 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center"
+                className="p-2 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[40px] min-w-[40px] flex items-center justify-center"
                 aria-label="Toggle dark mode"
               >
-                {theme === "light" ? <Moon size={13} className="text-gold" /> : <Sun size={13} className="text-gold" />}
+                {theme === "light" ? <Moon size={14} className="text-gold" /> : <Sun size={14} className="text-gold" />}
               </button>
 
               <button
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="p-2 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center"
+                className="p-2 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[40px] min-w-[40px] flex items-center justify-center"
                 aria-label="Back to top"
               >
-                <ChevronUp size={14} className="text-accent" />
+                <ChevronUp size={15} className="text-accent" />
               </button>
             </div>
           </div>

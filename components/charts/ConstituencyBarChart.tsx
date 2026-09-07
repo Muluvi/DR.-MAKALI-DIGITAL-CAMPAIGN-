@@ -9,6 +9,17 @@ interface ConstituencyChartDatum {
   share: string;
 }
 
+const ABBR: Record<string, string> = {
+  "Mwingi North": "Mw.N",
+  "Mwingi West": "Mw.W",
+  "Mwingi Central": "Mw.C",
+  "Kitui West": "Kt.W",
+  "Kitui Rural": "Kt.R",
+  "Kitui Central": "Kt.C",
+  "Kitui East": "Kt.E",
+  "Kitui South": "Kt.S",
+};
+
 export default function ConstituencyBarChart({
   chartData,
   selectedID,
@@ -20,10 +31,17 @@ export default function ConstituencyBarChart({
 }) {
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={chartData} margin={{ top: 10, right: 10, left: 10, bottom: 5 }}>
+      <BarChart data={chartData} margin={{ top: 10, right: 10, left: -15, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" opacity={0.3} />
-        <XAxis dataKey="name" tick={{ fill: "var(--color-muted)", fontSize: 8, fontWeight: 700 }} tickLine={false} axisLine={false} />
-        <YAxis tick={{ fill: "var(--color-muted)", fontSize: 8 }} tickLine={false} axisLine={false} width={35} tickFormatter={(val) => `${(val / 1000).toFixed(0)}k`} />
+        <XAxis
+          dataKey="name"
+          tick={{ fill: "var(--color-muted)", fontSize: "var(--fs-chart-tick)", fontWeight: 700 }}
+          tickLine={false}
+          axisLine={false}
+          interval={0}
+          tickFormatter={(name: string) => ABBR[name] || (name.length > 5 ? name.slice(0, 4) + "." : name)}
+        />
+        <YAxis tick={{ fill: "var(--color-muted)", fontSize: "var(--fs-chart-tick)" }} tickLine={false} axisLine={false} width={35} tickFormatter={(val) => `${(val / 1000).toFixed(0)}k`} />
         <Tooltip
           content={({ active, payload }) => {
             if (active && payload && payload.length) {

@@ -260,7 +260,7 @@ export function InteractiveToolsHubModal({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 10 }}
           transition={{ duration: 0.2 }}
-          className="relative w-full max-w-6xl h-[92vh] sm:h-[88vh] bg-card border border-line rounded-2xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-10"
+          className="relative w-full max-w-6xl h-[92dvh] sm:h-[88dvh] bg-card border border-line rounded-2xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-10"
         >
           {/* Header Bar */}
           <div className="p-3.5 sm:p-5 border-b border-line bg-paper/70 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shrink-0">
@@ -289,7 +289,7 @@ export function InteractiveToolsHubModal({
                   onClose();
                   onNavigateToSection(activeTool.sectionTarget);
                 }}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-accent/10 hover:bg-accent text-accent hover:text-white text-xs font-bold transition-all cursor-pointer"
+                className="flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-xl bg-accent/10 hover:bg-accent text-accent hover:text-white text-xs font-bold transition-all cursor-pointer"
               >
                 <span>Jump to Section in Text</span>
                 <ArrowRight size={13} />
@@ -297,10 +297,10 @@ export function InteractiveToolsHubModal({
 
               <button
                 onClick={onClose}
-                className="w-8 h-8 rounded-xl bg-card border border-line hover:bg-line/40 text-muted hover:text-ink flex items-center justify-center transition-colors cursor-pointer"
+                className="w-11 h-11 rounded-xl bg-card border border-line hover:bg-line/40 text-muted hover:text-ink flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="Close modal"
               >
-                <X size={16} />
+                <X size={18} />
               </button>
             </div>
           </div>

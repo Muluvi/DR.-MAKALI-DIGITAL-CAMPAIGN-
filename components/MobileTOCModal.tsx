@@ -78,7 +78,7 @@ export function MobileTOCModal({
           animate={{ y: 0 }}
           exit={{ y: "100%" }}
           transition={{ type: "spring", damping: 28, stiffness: 300 }}
-          className="fx-sheet-bottom sm:fx-modal relative w-full max-w-xl max-h-[88vh] sm:max-h-[80vh] fx-glass border-t sm:border border-line rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-10"
+          className="fx-sheet-bottom sm:fx-modal relative w-full max-w-xl max-h-[88dvh] sm:max-h-[80dvh] fx-glass border-t sm:border border-line rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-10"
         >
           {/* Top Grab Handle on Mobile */}
           <div className="sm:hidden pt-3 pb-1 flex justify-center cursor-grab active:cursor-grabbing">
@@ -103,7 +103,7 @@ export function MobileTOCModal({
 
             <button
               onClick={onClose}
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-paper border border-line text-muted hover:text-ink flex items-center justify-center transition-colors cursor-pointer shrink-0"
+              className="w-11 h-11 rounded-xl bg-paper border border-line text-muted hover:text-ink flex items-center justify-center transition-colors cursor-pointer shrink-0"
               aria-label="Close navigation"
             >
               <X size={18} />
