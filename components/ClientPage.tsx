@@ -314,6 +314,25 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // The same resolution, for a hash that changes while the page is already open — a legacy link
+  // opened from another tab, or the back button after an in-document jump. Without this the
+  // effect above only ever fires on a cold load, so a shared link from an earlier generation of
+  // this document worked when pasted into a fresh tab and silently did nothing when clicked by
+  // someone already reading.
+  useEffect(() => {
+    const onHashChange = () => {
+      const raw = window.location.hash.replace(/^#/, "");
+      if (!raw) return;
+      const id = resolveLegacySectionId(raw, validSectionIds);
+      const targetTab = id.split("-sec-")[0];
+      if (!TAB_IDS.includes(targetTab)) return;
+      setActiveTab(targetTab);
+      scrollToSectionWhenReady(id, "smooth");
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, [validSectionIds]);
+
   // Section extras.
   //
   // This used to be a two-column shelf of ~50 widgets appended BELOW each tab's entire prose —
