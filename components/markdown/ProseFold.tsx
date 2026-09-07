@@ -22,7 +22,7 @@ export function ProseFold({ label, children }: { label: string; children: React.
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        className="w-full flex items-center gap-2.5 text-left px-4 py-3 rounded-xl border border-line/70 bg-card/40 text-muted hover:text-ink hover:border-accent/40 transition-colors cursor-pointer min-h-[48px]"
+        className="w-full flex items-center gap-2.5 text-left px-4 py-3 rounded-xl border border-line/70 bg-card/40 text-muted hover:text-ink hover:border-accent/40 transition-colors cursor-pointer min-h-[48px] print:hidden"
       >
         <span className="text-xs sm:text-sm font-semibold flex-1">
           {open ? "Hide the rest of" : "Read the rest of"} {label}
@@ -34,7 +34,12 @@ export function ProseFold({ label, children }: { label: string; children: React.
           }`}
         />
       </button>
-      {open && <div className="prose max-w-none pt-4">{children}</div>}
+      {/* Rendered whether or not it is open, and hidden with CSS rather than dropped from the
+          tree, so the printed briefing kit carries the folded prose instead of a heading with
+          nothing under it. */}
+      <div className={open ? "prose max-w-none pt-4" : "hidden print:block prose max-w-none pt-4"}>
+        {children}
+      </div>
     </div>
   );
 }

@@ -518,7 +518,11 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
               </ProseFold>
             );
           return (
-            <DisclosureGroup key={`group-${i}`} labels={segment.panels.map((panel) => panel.label)}>
+            <DisclosureGroup
+              key={`group-${i}`}
+              labels={segment.panels.map((panel) => panel.label)}
+              unresolved={segment.panels.map((panel) => panel.unresolved)}
+            >
               {segment.panels.map((panel) => renderMarkdown(panel.text, panel.label))}
             </DisclosureGroup>
           );

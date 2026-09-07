@@ -1072,6 +1072,18 @@ html {
     margin: 16mm 14mm;
   }
 
+  /* The briefing kit is read linearly, off the screen, by someone auditing the proposal — so it
+     carries everything the screen puts behind a control. The disclosure panels and prose folds
+     render their bodies in the DOM and hide them with `hidden`; this brings them back, and drops
+     the toggles that would print as dead buttons. */
+  .print\:block {
+    display: block !important;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
   html, body {
     background: #ffffff !important;
     color: #0b1a30 !important;

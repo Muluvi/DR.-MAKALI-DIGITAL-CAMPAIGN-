@@ -27,9 +27,36 @@ const MIN_FOLD_WORDS = 250;
 /** A fold that hides less than this is pure friction — the tap costs more than the scroll. */
 const MIN_FOLD_HIDDEN = 150;
 
+/**
+ * Sections that are never collapsed, whatever their shape, because the reader has to hold two of
+ * their parts side by side to judge a trade-off — and an accordion shows one at a time.
+ *
+ * §9.2 is the whole of it: the statutory spending ceiling is §9.2.1 and the three budget tiers
+ * are §9.2.5, and choosing a tier means reading them together. Collapsing that section puts the
+ * ceiling and the tiers behind two different taps, which is the one thing an answer-first
+ * document must not do to the section it is asking the reader to decide on.
+ */
+const NEVER_COLLAPSE = new Set(["9.2"]);
+
+/**
+ * A block carrying a figure the campaign has not yet established — an `[Insert …]` placeholder,
+ * a `[Confirm …]`, or a `Not yet` KPI baseline cell.
+ *
+ * The document is deliberate about marking what it does not know, and that honesty is worth more
+ * to a professional reader than a confident-sounding gap would be. Panels carrying one are
+ * flagged so the marker is visible on the closed label, rather than only to whoever opens it.
+ */
+const UNRESOLVED = /\[Insert|\[Confirm|\bNot yet\b/i;
+
+export function hasUnresolvedFigure(text: string): boolean {
+  return UNRESOLVED.test(text);
+}
+
+const LEADING_NUMBER = /^(\d+(?:\.\d+)*)/;
+
 export type Segment =
   | { kind: "markdown"; text: string }
-  | { kind: "group"; id: string; panels: { label: string; text: string }[] }
+  | { kind: "group"; id: string; panels: { label: string; text: string; unresolved: boolean }[] }
   | { kind: "fold"; id: string; text: string };
 
 const FENCE = /^\s*```/;
@@ -58,7 +85,12 @@ function wordCount(lines: string[]): number {
  * 40-ward register does exactly this — divides into the two things the author actually wrote
  * rather than into eight fragments with the second h4 buried inside the last of them.
  */
-function splitPanels(body: string[]): { preamble: string[]; panels: { label: string; text: string }[] } {
+function makePanel(current: { label: string; lines: string[] }) {
+  const text = current.lines.join("\n").trim();
+  return { label: current.label, text, unresolved: hasUnresolvedFigure(text) };
+}
+
+function splitPanels(body: string[]): { preamble: string[]; panels: { label: string; text: string; unresolved: boolean }[] } {
   let inFence = false;
   let level = 0;
   for (const line of body) {
@@ -70,7 +102,7 @@ function splitPanels(body: string[]): { preamble: string[]; panels: { label: str
   if (!level) return { preamble: body, panels: [] };
 
   const preamble: string[] = [];
-  const panels: { label: string; text: string }[] = [];
+  const panels: { label: string; text: string; unresolved: boolean }[] = [];
   let current: { label: string; lines: string[] } | null = null;
   inFence = false;
 
@@ -78,14 +110,14 @@ function splitPanels(body: string[]): { preamble: string[]; panels: { label: str
     if (FENCE.test(line)) inFence = !inFence;
     const heading = inFence ? null : PANEL_HEADING.exec(line);
     if (heading && heading[1].length === level) {
-      if (current) panels.push({ label: current.label, text: current.lines.join("\n").trim() });
+      if (current) panels.push(makePanel(current));
       current = { label: cleanLabel(heading[2]), lines: [] };
       continue;
     }
     if (current) current.lines.push(line);
     else preamble.push(line);
   }
-  if (current) panels.push({ label: current.label, text: current.lines.join("\n").trim() });
+  if (current) panels.push(makePanel(current));
   return { preamble, panels };
 }
 
@@ -158,6 +190,12 @@ export function segmentContent(markdown: string, { isClosingSection = false } = 
 
     const words = wordCount(body);
     const { preamble, panels } = splitPanels(body);
+    const number = LEADING_NUMBER.exec(cleanLabel(heading[2]))?.[1];
+    if (number && NEVER_COLLAPSE.has(number)) {
+      pending.push(line, ...body);
+      i = j;
+      continue;
+    }
     if (panels.length >= MIN_PANELS && words >= MIN_WORDS) {
       pending.push(line, ...preamble);
       flush();
