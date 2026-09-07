@@ -108,6 +108,8 @@ The campaign's objectives are structured across two separate timelines, each wit
 
 ## 8.1 The headline scorecards
 
+Two preference figures appear in this proposal, and they measure different populations rather than revising one another. Section 9.1's **40.0%+** is a share of the **countywide public**, as reported in the party-commissioned surveys. NW-01 below is **≥ 55.0%** of **sampled likely Wiper primary voters** — a narrower universe, which is why the threshold sits higher. Section 8.2.3 states that same primary-voter threshold.
+
 ### 8.1.1 Stage 1: the nomination-window scorecard
 
 The nomination phase focuses on establishing unassailable party consensus and securing the Wiper Democratic Movement nomination ticket.
