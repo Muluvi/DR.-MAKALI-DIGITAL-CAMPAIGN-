@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 
+import { useChromeVisible } from "../hooks/use-chrome-visible";
+
 /**
  * Compact bar naming where the reader currently is: the top-level section they are in, and the
  * sub-section in view. Both the "have we scrolled past the toolbar" state and the "which heading
@@ -10,14 +12,8 @@ import { useEffect, useRef, useState } from "react";
  * The section name is always shown once the bar appears, so current position never depends on
  * having scrolled a heading into view.
  */
-export function SectionStickyBar({
-  sectionLabel,
-  /** Shared zero-chrome visibility (hooks/use-chrome-visible). */
-  visible = true,
-}: {
-  sectionLabel?: string;
-  visible?: boolean;
-}) {
+export function SectionStickyBar({ sectionLabel }: { sectionLabel?: string }) {
+  const visible = useChromeVisible();
   const sentinelRef = useRef<HTMLDivElement>(null);
   const [stuck, setStuck] = useState(false);
   const [headingText, setHeadingText] = useState<string | null>(null);

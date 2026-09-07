@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ListTree, ChevronUp, Moon, Sun, Maximize2, Minimize2, Eye, EyeOff, Compass } from "lucide-react";
 import { SECTIONS } from "../lib/heading-slug";
+import { useChromeVisible } from "../hooks/use-chrome-visible";
 
 interface MobileBottomNavProps {
   activeTab: string;
@@ -28,30 +29,22 @@ export function MobileBottomNav({
   onToggleZeroChrome
 }: MobileBottomNavProps) {
   const stripRef = useRef<HTMLDivElement>(null);
-  const [isScrolledDown, setIsScrolledDown] = useState(false);
-  const lastScrollY = useRef(0);
+  // Shared with the quick-nav capsule and the top chrome, so every floating element withdraws
+  // and returns together rather than each running its own scroll listener.
+  const chromeVisible = useChromeVisible();
 
-  // Auto-hide navigation on downward scroll for "Zero Chrome" mobile reading,
-  // and reveal when scrolling upward or near the top
+  // The recall pill has to be able to beat the scroll model, or tapping it while scrolled down
+  // does nothing. The override wins until the next scroll, which hands control straight back.
+  const [override, setOverride] = useState(false);
   useEffect(() => {
-    const handleScroll = () => {
-      const currentY = window.scrollY;
-      const delta = currentY - lastScrollY.current;
+    if (!override) return;
+    const clear = () => setOverride(false);
+    window.addEventListener("scroll", clear, { passive: true, once: true });
+    return () => window.removeEventListener("scroll", clear);
+  }, [override]);
 
-      if (currentY < 80) {
-        setIsScrolledDown(false);
-      } else if (delta > 14 && currentY > 150) {
-        setIsScrolledDown(true);
-      } else if (delta < -10) {
-        setIsScrolledDown(false);
-      }
-
-      lastScrollY.current = currentY;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const isScrolledDown = !chromeVisible && !override;
+  const setIsScrolledDown = (v: boolean) => setOverride(!v);
 
   // Ten sections do not fit a phone as a grid of equal tabs, so they scroll — which only works
   // if the current one is always brought into view when it changes.

@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import { Compass, ChevronUp, Sparkles, Activity, Radio, Calculator, MapPin, Coins, X, Gauge, Shield } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
+import { useChromeVisible } from "../hooks/use-chrome-visible";
+
 interface QuickNavCapsuleProps {
   onNavigate: (sectionId: string) => void;
   activeTab: string;
@@ -21,6 +23,11 @@ const QUICK_TARGETS = [
 ];
 
 export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }: QuickNavCapsuleProps) {
+  // Previously fixed over the document with no scroll behaviour: at 1440px it covered a figure
+  // in every section sampled. It now follows the same model as the bottom nav, so it is out of
+  // the way while reading and back on any upward scroll. The isZeroChrome toggle still removes
+  // it entirely for readers who want that.
+  const visible = useChromeVisible();
   const [isOpen, setIsOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -44,7 +51,9 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
   if (isZeroChrome) return null;
 
   return (
-    <div className={`fixed bottom-20 lg:bottom-6 right-4 sm:right-6 z-40 print:hidden flex flex-col items-end gap-2.5 select-none transition-all duration-300`}>
+    <div className={`fixed bottom-20 lg:bottom-6 right-4 sm:right-6 z-40 print:hidden flex flex-col items-end gap-2.5 select-none transition-all duration-300 ease-out motion-reduce:transition-none ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6 pointer-events-none"
+      }`}>
       <AnimatePresence>
         {isOpen && (
           <motion.div
