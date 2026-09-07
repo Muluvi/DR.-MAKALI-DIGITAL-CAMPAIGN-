@@ -479,7 +479,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
                   register as deliberate rather than as a stutter. The accessible copy is a
                   single unsplit string inside SplitText — the spans are aria-hidden. */}
               <h1 className="col-span-2 md:col-span-1 font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.12] sm:leading-[1.08] tracking-tight max-w-4xl text-ink mb-4 sm:mb-6 font-semibold text-balance">
-                <SplitText by="line" as="span" className="block fx-text-gradient" delay={180}>
+                <SplitText by="line" as="span" className="block" delay={180}>
                   {"Kitui 2027:\nthe operating system for an Economist Governor."}
                 </SplitText>
               </h1>

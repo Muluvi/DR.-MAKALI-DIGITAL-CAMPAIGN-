@@ -108,6 +108,10 @@ export function CustomCursor() {
     let frame = 0;
 
     const move = (e: PointerEvent) => {
+      // Nothing is painted until the pointer has actually been somewhere. Before the first move
+      // both nodes sit at the origin of their transform, which put a stray ring in the middle of
+      // the page for anyone who landed and started scrolling without moving the mouse.
+      if (root.dataset.cursorLive !== "true") root.dataset.cursorLive = "true";
       x = e.clientX;
       y = e.clientY;
       root.style.setProperty("--cx", `${x}px`);
@@ -135,6 +139,7 @@ export function CustomCursor() {
       window.removeEventListener("pointermove", move);
       cancelAnimationFrame(frame);
       document.body.classList.remove("fx-cursor-host");
+      delete root.dataset.cursorLive;
     };
   }, [enabled]);
 

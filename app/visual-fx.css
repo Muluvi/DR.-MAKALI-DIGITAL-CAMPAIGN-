@@ -231,6 +231,12 @@
 /* Aurora / mesh-gradient drift. Three blurred colour wells on independent
    cycles; because they are transforms on a blurred layer the compositor keeps
    the whole field on the GPU. */
+/* Parallax shift, composited on top of an element's own drift via
+   `animation-composition: add`. `--fx-depth` is the layer's rate. */
+@keyframes fx-parallax-shift {
+  from { transform: translate3d(0, calc(var(--fx-depth, 1) * 30px), 0); }
+  to   { transform: translate3d(0, calc(var(--fx-depth, 1) * -30px), 0); }
+}
 @keyframes fx-aurora-a { 0%, 100% { transform: translate3d(-6%, -4%, 0) scale(1); } 50% { transform: translate3d(8%, 6%, 0) scale(1.18); } }
 @keyframes fx-aurora-b { 0%, 100% { transform: translate3d(6%, 4%, 0) scale(1.12); } 50% { transform: translate3d(-8%, -6%, 0) scale(1); } }
 @keyframes fx-aurora-c { 0%, 100% { transform: translate3d(0, 6%, 0) scale(1.05); } 50% { transform: translate3d(4%, -8%, 0) scale(1.22); } }
@@ -686,7 +692,13 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 /* ========================================================================== */
 
 
-/* Gradient text and image-clipped text. */
+/* Gradient text and image-clipped text.
+
+   Do not combine this with SplitText. `background-clip: text` clips the
+   background of the element it is set on; each split unit is an inline-block
+   with its own transform, which establishes a containing block, so the
+   ancestor's clipped background never reaches those glyphs and the text
+   renders fully transparent. Use it on a heading that is not split. */
 .fx-text-gradient {
   background: linear-gradient(100deg, var(--color-ink) 8%, var(--color-accent) 46%, var(--color-gold) 88%);
   background-size: 200% 100%;
@@ -890,7 +902,11 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 .fx-cursor-dot, .fx-cursor-ring {
   position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;
   border-radius: 50%; mix-blend-mode: difference;
+  opacity: 0;
+  transition: opacity 160ms linear;
 }
+[data-cursor-live="true"] .fx-cursor-dot,
+[data-cursor-live="true"] .fx-cursor-ring { opacity: 1; }
 .fx-cursor-dot  { width: 7px; height: 7px; background: white; transform: translate3d(var(--cx, -50px), var(--cy, -50px), 0) translate(-50%, -50%); }
 .fx-cursor-ring {
   width: 34px; height: 34px; border: 1.5px solid white;
@@ -1194,8 +1210,19 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
    depth multiplier is per-layer, so the three aurora wells separate. */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .fx-aurora span:nth-child(1) { --fx-depth: 0.6; }
-    .fx-aurora span:nth-child(2) { --fx-depth: 1; }
-    .fx-aurora span:nth-child(3) { --fx-depth: 1.5; }
+    /* Each well moves against the page at its own rate, which is what makes the header read
+       as having depth rather than as a picture sitting behind text. The drift keyframes keep
+       running; this rides on top of them via a second animation on the same element. */
+    .fx-aurora span {
+      animation-composition: add;
+      animation-timeline: auto, view();
+      animation-range: auto, cover 0% cover 100%;
+    }
+    .fx-aurora span:nth-child(1) { animation-name: fx-aurora-a, fx-parallax-shift; --fx-depth: 0.6; }
+    .fx-aurora span:nth-child(2) { animation-name: fx-aurora-b, fx-parallax-shift; --fx-depth: 1; }
+    .fx-aurora span:nth-child(3) { animation-name: fx-aurora-c, fx-parallax-shift; --fx-depth: 1.5; }
+    .fx-aurora span:nth-child(1) { animation-duration: 26s, auto; animation-iteration-count: infinite, 1; }
+    .fx-aurora span:nth-child(2) { animation-duration: 32s, auto; animation-iteration-count: infinite, 1; }
+    .fx-aurora span:nth-child(3) { animation-duration: 38s, auto; animation-iteration-count: infinite, 1; }
   }
 }
