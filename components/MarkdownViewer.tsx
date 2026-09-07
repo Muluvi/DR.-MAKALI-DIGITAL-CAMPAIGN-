@@ -237,11 +237,11 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "evidence-sec-1-2-10": <CompetitorFieldPanel />,
   "evidence-sec-1-3-3": <PathTo200kCalculator />,
   "evidence-sec-1-3-5": <RecognitionDeficitOverlay />,
-  "strategy-sec-2-4": <AudienceSegmentationMatrix />,
+  "evidence-sec-2-4": <AudienceSegmentationMatrix />,
   // §9 splits the electorate into a connected minority and an offline majority. The showcase is
   // that argument as an object: one handset, the campaign on all seven channels, ending on the
   // USSD dialog that reaches more voters than the six apps together.
-  "publishing-sec-3-1": (
+  "evidence-sec-3-1": (
     <>
       <ReachArchitecture3D />
       <PhoneShowcase />
@@ -253,11 +253,11 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
       <ToneVoiceSlider />
     </>
   ),
-  "strategy-sec-2-7-4": <CommunityScheduler />,
+  "publishing-sec-2-7-4": <CommunityScheduler />,
   "defence-sec-5-1": <CounterMessagingGrid />,
   // The ownership/alignment/tier table this chart plots, now §3.4.1 after paid and earned
   // media were folded into one section.
-  "publishing-sec-3-4-1": <MediaOwnershipBlock />,
+  "evidence-sec-3-4-1": <MediaOwnershipBlock />,
 
   // ---- What we run, defend, measure and ask for (§3–§9) --------------------------------
   "decision-sec-9-3": (
@@ -280,7 +280,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   ),
   "strategy-sec-2-8": <PersuasionFramingMatrix />,
   "defence-sec-5-2": <CrisisWarRoomMatrix />,
-  "technology-sec-6-5": <DataSecurityEthicsCharter />,
+  "strategy-sec-6-5": <DataSecurityEthicsCharter />,
   "publishing-sec-3-2": <MediaPlaybackMockup />,
   "publishing-sec-3-5": (
     <>
@@ -289,7 +289,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
     </>
   ),
   "strategy-sec-2-3": <SloganBuilder />,
-  "delivery-sec-8-5": <PublicServiceDeliveryTracker />,
+  "strategy-sec-8-5": <PublicServiceDeliveryTracker />,
   "delivery-sec-8-3": (
     <>
       <PhaseRail />
