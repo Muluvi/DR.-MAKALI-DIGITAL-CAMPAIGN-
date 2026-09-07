@@ -16,9 +16,12 @@ import { ChevronDown } from "lucide-react";
  */
 export function DisclosureGroup({
   labels,
+  unresolved = [],
   children,
 }: {
   labels: string[];
+  /** Per-panel: does this panel carry a figure the campaign has not yet established? */
+  unresolved?: boolean[];
   children: React.ReactNode[];
 }) {
   const [open, setOpen] = useState(0);
@@ -47,6 +50,18 @@ export function DisclosureGroup({
                 <span className="font-serif text-sm sm:text-[15px] font-semibold leading-snug flex-1 text-balance">
                   {label}
                 </span>
+                {/* The document marks what it has not yet measured, and that marking is worth
+                    more to this reader than a confident-looking gap. Surfacing it on the closed
+                    label means collapsing a panel never hides the fact that something in it is
+                    still open. */}
+                {unresolved[i] && (
+                  <span
+                    className="t-micro font-extrabold uppercase tracking-wider text-gold border border-gold/40 bg-gold/[0.08] rounded-full px-2 py-0.5 shrink-0"
+                    title="Contains a figure awaiting a campaign decision or verification"
+                  >
+                    Awaiting
+                  </span>
+                )}
                 <ChevronDown
                   size={16}
                   className={`shrink-0 transition-transform duration-200 motion-reduce:transition-none ${
@@ -55,11 +70,16 @@ export function DisclosureGroup({
                 />
               </button>
             </h4>
-            {isOpen && (
-              <div className="prose max-w-none px-4 pb-5 pt-1 sm:px-5 border-t border-line/40">
-                {children[i]}
-              </div>
-            )}
+            {/* Rendered whether or not it is open, and hidden with CSS rather than dropped from
+                the tree, so the printed briefing kit carries every panel instead of a row of
+                labels with nothing under them. */}
+            <div
+              className={`prose max-w-none px-4 pb-5 pt-1 sm:px-5 border-t border-line/40 ${
+                isOpen ? "" : "hidden print:block"
+              }`}
+            >
+              {children[i]}
+            </div>
           </div>
         );
       })}

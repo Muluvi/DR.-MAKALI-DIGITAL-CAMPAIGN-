@@ -1,215 +1,277 @@
-The channel architecture and the platforms it runs on, paid and earned media, the radio landscape, and the languages and access requirements every asset has to meet.
+What the campaign produces and where it goes: the content pipeline, paid media, the radio bypass, journalists and debates, and the three languages every asset has to work in.
 
-## 3.1 The two-tier channel architecture
+## 2.7 Content production and asset governance
 
-Winning Kitui County requires building a communication strategy aligned with empirical reality rather than digital wishful thinking. 
-
-According to the official **2019 Kenya National Bureau of Statistics (KNBS) Census** (Tier 1), only **13.6% of Kitui's population (ages 3+) uses the internet**, while **86.4% of the population resides in an offline media environment**.
+Campaign communications succeed when production is treated as a rigorous, industrial pipeline rather than ad-hoc creative posting. In a county where only ~14% of voters are active on digital social media (Section 3.1.1), the content production engine must be **predominantly focused on offline and broadcast formats**—vernacular radio scripts, 2G bulk SMS, USSD menu trees, printed baraza photobooks, and market PA audio jingles—while maintaining a high-fidelity digital and video pipeline for youth and the diaspora.
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                     KITUI COUNTY ELECTORATE REACHABILITY AUDIT
-                          Total Electorate: 532,758 Voters
+                  CAMPAIGN 360° CONTENT PRODUCTION PIPELINE
 ════════════════════════════════════════════════════════════════════════════════════
 
-  DIGITAL / CONNECTED MINORITY                  OFFLINE INFRASTRUCTURE MAJORITY
-  ────────────────────────────                  ───────────────────────────────
-  • Sized Reach: ~72,000 voters (13.6%)         • Sized Reach: ~460,000 voters (86.4%)
-  • Share of the register: 13.6%                • Share of the register: 86.4%    
-  • Strategic Role: Influencer & Youth Engine   • Strategic Role: Decisive Ballot Delivery
-
-  [████████] 13.6% (Digital Reach)
-  [████████████████████████████████████████████████████████████████████] 86.4% (Offline)
+   STRATEGIC CORE                 OFFLINE BROADCAST ENGINE           DIGITAL ENGINE
+ ┌────────────────┐              ┌──────────────────────────┐      ┌───────────────┐
+ │ 4 Core Content │ ───────────► │ • Kikamba Radio Audio    │      │ • TikTok Clips│
+ │ Pillars        │              │ • 160-char 2G Bulk SMS   │      │ • WhatsApp    │
+ │ (Evidence-Led) │              │ • USSD Interactive Menus │      │   Infographics│
+ └────────────────┘              │ • Baraza Leaflets & Books│      │ • Meta Video  │
+                                 │ • Boda & Market PA Jingles│     │ • Web Tracker │
+                                 └──────────────────────────┘      └───────────────┘
+                                               │                           │
+                                               ▼                           ▼
+                                 ┌─────────────────────────────────────────────────┐
+                                 │       RIGID 4-STEP APPROVAL & DPA GATEWAY       │
+                                 │   (Drafter ──► Comms Lead ──► DPO ──► CM Sign)  │
+                                 └─────────────────────────────────────────────────┘
 ════════════════════════════════════════════════════════════════════════════════════
 ```
-
-> [!CRITICAL]
-> **STRATEGIC REALITY CHECK: THE DIGITAL CEILING**
->
-> If the campaign captures **100% of every single internet-connected voter in Kitui County**, it would assemble only about **72,000 reachable voters** — and reach is not votes—leaving the candidate **125,549 votes short** of the 198,004 benchmark.
->
-> Therefore, digital channels alone **cannot mathematically win this election**. Victory depends on dominating the offline media and field infrastructure (Section 4.3), while using digital channels (Section 4.2) with surgical precision to shape elite opinion, organize youth volunteers, and mobilize the out-of-county diaspora.
 
 ---
 
-### 3.1.1 The connected minority, and its limits
+### 2.7.1 The four content pillars
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                 SECTION 3.1.1: CONNECTED MINORITY CHANNELS                  │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+Production buckets for the studio, not a restatement of the campaign pillars in Section 2.2
+or the message pillars in Section 2.6. Every piece of creative output anchors to one of these
+four, and each carries one or more of the 2.2 pillars:
 
-#### 3.1.1.1 Platform Sizing & Realistic In-County Reach
-
-The digital footprint in Kitui County is concentrated in urban nodes (Kitui Town, Mwingi Town, Kwa Vonza university corridor) and among educated youth. Based on KNBS 2019 internet penetration rates and Meta Audience Insights (Tier 1 & Tier 2):
-
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                DIGITAL PLATFORM IN-COUNTY SIZING MATRIX                                     │
-├───────────────────┬──────────────────────┬──────────────────────┬───────────────────────────────────────────┤
-│ Digital Platform  │ Estimated In-County  │ % of 532k Register   │ Core Demographic & Behavioral Profile     │
-├───────────────────┼──────────────────────┼──────────────────────┼───────────────────────────────────────────┤
-│ 1. WhatsApp       │ ~65,000–80,000       │ 12.2% – 15.0%        │ Primary closed-group organizing hub; peer │
-│                   │ active users         │                      │ forwards; family & welfare associations.  │
-├───────────────────┼──────────────────────┼──────────────────────┼───────────────────────────────────────────┤
-│ 2. Meta (FB/IG)   │ ~50,000–65,000       │ 9.4% – 12.2%         │ Broadest public social network in Kitui;  │
-│                   │ monthly active users │                      │ high engagement on political pages/groups.│
-├───────────────────┼──────────────────────┼──────────────────────┼───────────────────────────────────────────┤
-│ 3. TikTok         │ ~35,000–45,000       │ 6.5% – 8.4%          │ Fastest growing among youth (18–25); high │
-│                   │ active users         │                      │ virality for vernacular political comedy. │
-├───────────────────┼──────────────────────┼──────────────────────┼───────────────────────────────────────────┤
-│ 4. YouTube        │ ~25,000–35,000       │ 4.7% – 6.6%          │ Long-form debates, church sermons, and    │
-│                   │ active users         │                      │ rally livestreams; heavy data-cost limit. │
-├───────────────────┼──────────────────────┼──────────────────────┼───────────────────────────────────────────┤
-│ 5. X (Twitter)    │ ~8,000–12,000        │ 1.5% – 2.3%          │ Journalists, county elites, professionals,│
-│                   │ active users         │                      │ and national political commentators.      │
-└───────────────────┴──────────────────────┴──────────────────────┴───────────────────────────────────────────┘
-```
-
-#### 3.1.1.2 What Digital CAN Do
-1.  **Elite Agenda Setting & Narrative Defense:** X and Facebook dominate the information diet of local radio producers, vernacular talk-show hosts, church leaders, and county assembly members. Establishing rapid-response dominance on these platforms shapes the stories broadcast over radio 6 hours later.
-2.  **Diaspora Financial & Opinion Mobilization:** Reaching the 150,000+ Kamba diaspora living in Nairobi and Mombasa via geofenced Meta, YouTube, and WhatsApp campaigns transforms them into active campaign donors and remote family influencers.
-3.  **Youth Mobilization & Field Volunteer Recruitment:** Engaging the ~234,000 youth cohort via TikTok and WhatsApp generates high-energy field activists who operate the ground logistics and serve as polling agents.
-4.  **Cost-Effective Micro-Targeting of Urban MSMEs:** Hyper-geofencing commercial centers (Kitui CBD, Mwingi Central) allows testing policy messages ("The Economist's Single Business Permit") with minimal waste.
-
-#### 3.1.1.3 What Digital CANNOT Do
-1.  **It Cannot Deliver the 200,000 Vote Benchmark Alone:** Capped at roughly 72,000 reachable voters inside Kitui County.
-2.  **It Cannot Penetrate the Rural Agrarian Base:** 86.4% of rural smallholders do not consume political content via social algorithms due to lack of smartphones, high data costs, and weak 3G/4G coverage in rural wards (e.g., Tharaka, Tseikuru, Voo/Kyamatu, Endau, Mutha).
-3.  **It Cannot Counteract Ground Rumors Directly:** WhatsApp and Facebook echo chambers rarely cross over into dryland farming communities without physical intermediaries.
+1.  **Pillar A: The Integrity & Stewardship Ledger (*Kĩtĩo kya Kũthũkũma*)**
+    *   *Core Theme:* 13 years of spotless public financial management and zero Auditor-General queries in Kitui Central NG-CDF.
+    *   *Tone:* Authoritative, calm, legally certified, transparent.
+    *   *Primary Formats:* Radio debate evidence cards, documentary video case studies, audit certificate infographics, press statements.
+2.  **Pillar B: The Agrarian & Household Wealth Engine (*Ũtonga wa Mĩsyĩ na Mĩũnda*)**
+    *   *Core Theme:* Guaranteed minimum floor prices for *ndengu* (Ksh 85/kg), county aggregation cold-storage hubs, solar borehole irrigation, and livestock feed reserves.
+    *   *Tone:* Pragmatic, empathetic, farmer-centric, culturally resonant Kikamba.
+    *   *Primary Formats:* Vernacular morning radio skits, 2G market day SMS alerts, printed agricultural policy fold-outs.
+3.  **Pillar C: Devolution Equity & Universal Basic Services (*Kĩla Kĩtheka na Mwanya Wayo*)**
+    *   *Core Theme:* The statutory Ksh 100 Million/year Ward Equalization Fund, solar water within 1 km, functional maternity dispensaries, and bursary equity.
+    *   *Tone:* Inclusive, forward-looking, accountable, grassroots-empowering.
+    *   *Primary Formats:* Ward-by-ward budget pledge cards, USSD interactive budget explorer, market caravan speeches.
+4.  **Pillar D: The Youth Enterprise & TVET Frontier (*Mwanya wa Mwanake na Wathi*)**
+    *   *Core Theme:* Zero-interest equipment loans, digital cottage hubs, fee waivers for artisan TVET courses, and boda boda dignity.
+    *   *Tone:* Energetic, aspirational, street-smart Sheng/Kikamba blend, action-oriented.
+    *   *Primary Formats:* Vertical TikTok/Reels clips, sound truck music tracks, boda boda shed sticker banners, WhatsApp voice notes.
 
 ---
 
-### 3.1.2 The offline majority, and the infrastructure that reaches it
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                  SECTION 3.1.2: OFFLINE MAJORITY CHANNELS                   │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-The election will be won or lost across the **~460,000 offline voters** living in Kitui's rural wards. Reaching this electorate requires an orchestrated combination of telecommunications protocol channels (SMS/USSD), broadcast audio (vernacular radio), financial agent touchpoints, and dense physical market presence.
+### 2.7.2 Formats, by channel
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                 OFFLINE CHANNEL REACH & CAPACITY AUDIT                                      │
-├──────────────────────┬──────────────────────┬──────────────────────┬────────────────────────────────────────┤
-│ Offline Channel      │ Maximum Reachable    │ % of 532,758 Register│ Delivery Mechanism & Operational Role  │
-├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 1. Kikamba Radio     │ ~420,000 voters      │ **78.8%**            │ Mass persuasion, cultural credibility, │
-│    (Vernacular)      │ (78–80% listenership)│ of the register      │ policy dissemination & rally build-ups.│
-├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 2. Direct 2G SMS     │ ~320,000 voters      │ **60.1%**            │ Hyper-localized ward updates, candidate│
-│    (Opt-in Database) │ (60% mobile register)│ of the register      │ endorsement letters & GOTV alerts.     │
-├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 3. USSD Interactive  │ ~250,000 voters      │ **46.9%**            │ Zero-rated policy quiz, ward captain   │
-│    (*XXX# Service)   │ (Feature phone users)│ of the register      │ registration & live polling surveys.   │
-├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 4. Open-Air Market   │ ~280,000 voters      │ **52.6%**            │ Weekly physical interaction, flyer     │
-│    Barazas (Weekly)  │ (Physical foot-fall) │ of the register      │ distribution & localized speeches.     │
-├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 5. Mobile Money      │ ~180,000 voters      │ **33.8%**            │ Word-of-mouth peer network, branded    │
-│    Agents (M-Pesa)   │ (Monthly store visits│ of the register      │ point-of-sale collateral & buzz agents.│
-├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 6. Church & Synods   │ ~350,000 voters      │ **65.7%**            │ Sunday faith fellowship greetings,     │
-│    (Faith Networks)  │ (Weekly attendance)  │ of the register      │ pastoral blessings & clergy alignment. │
-└──────────────────────┴──────────────────────┴──────────────────────┴────────────────────────────────────────┘
+│                                PRODUCTION FORMAT SPECIFICATIONS BY CHANNEL                                  │
+├───────────────────────┬───────────────────────────────────────────┬─────────────────────────────────────────┤
+│ Channel & Medium      │ Technical Specification & Format          │ Language & Creative Treatment           │
+├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
+│ 1. Kikamba Vernacular │ • 45-second pre-recorded audio spots      │ • Pure Kikamba (Kitui/Mwingi dialects)  │
+│    Radio Spots        │ • 15-second sponsor time-check bumpers    │ • Real farmer/elder voice testimonials; │
+│    (Musyi/Mbaitu)     │ • 60-second studio live-read endorsements │   zero abrasive partisan attacks.       │
+├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
+│ 2. Direct 2G Bulk SMS │ • Single-part 160-character plain text    │ • Localized Kikamba & Swahili; includes │
+│    & USSD Portal      │ • GSM-7 encoding (no accented unicode)    │   ward name, policy pledge, and free    │
+│                       │ • USSD: 4-option menu tree (see 2.7.3C)   │   opt-out footer (*"STOP to 22XXX"*).   │
+├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
+│ 3. Open-Air Baraza &  │ • A5 full-color 4-page glossy fold-outs   │ • Bilingual Kikamba/Swahili; high visual│
+│    Market Print       │ • A1 weatherproof PVC caravan banners     │   density with real GPS project photos, │
+│                       │ • Pocket-sized 12-page Manifesto Summary  │   auditor stamps, and ward maps.        │
+├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
+│ 4. Market Caravans &  │ • High-energy 90-second studio jingles    │ • Catchy traditional Kamba rhythm &     │
+│    PA Sound Rigs      │ • Pre-recorded 3-minute candidate address │   benga beat; easily memorized chorus   │
+│                       │ • Megaphone audio clips for Boda marshals │   reinforcing "Dr. Makali Mulu 2027".   │
+├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
+│ 5. Digital & Social   │ • 1080x1920 vertical video (Reels/TikTok) │ • Fast-paced (first 3s hook); hard-coded│
+│    Media (Youth/Diasp)│ • 1080x1080 square carousel cards         │   captions; dynamic motion graphics;    │
+│                       │ • 1920x1080 horizontal YouTube features   │   English/Sheng with Kikamba hooks.     │
+└───────────────────────┴───────────────────────────────────────────┴─────────────────────────────────────────┘
 ```
-
-#### 3.1.2.1 Kikamba Vernacular Radio (The Decisive Broadcast Medium)
-*   **Empirical Reach:** **~420,000 voters (78%–80% daily/weekly listenership in rural Kitui)** (GeoPoll / KARF Industry Data, Tier 2).
-*   **Station Hierarchy & Reach:**
-    *   *Musyi FM (Royal Media Services):* Dominant market leader in Ukambani; commercially independent. **Priority placement.**
-    *   *County FM (Kitui-based independent):* Local ward news and debates, strong in Kitui Town, Kabati and Kwa Vonza. **Priority placement.**
-    *   *Wikwatyo FM (Seventh-Day Adventist Church, Kitui):* Broad rural community trust. **Priority for community and service-delivery programming.**
-    *   *Mbaitu FM, Syokimau FM (Ngilu-associated) and Athiani FM (Wiper leadership):* **monitoring targets, not placement targets** — see Section 3.5.1 for the ownership map and the posture each one carries.
-*   **Operational Execution:**
-    *   *Prime-Time Strategic Bookings:* Secure weekly 2-hour interactive morning studio interviews (06:30–08:30) with Dr. Mulu during key policy rollout weeks.
-    *   *Kikamba Voice Jingles & Audio Testimonials:* 45-second micro-stories featuring real farmers from Mwingi North, Kitui South, and Kitui Rural explaining how Dr. Mulu's economic model protects their harvest prices.
-    *   *Live Event Feeds:* Sponsoring live outside broadcasting (OB) vans at major market rallies in Kalundu, Kabati, and Mutomo.
-
-#### 3.1.2.2 Direct 2G Bulk SMS & USSD Service
-*   **Empirical Reach:** **~320,000 voters (60%+ of active register reachable on basic GSM handsets)**.
-*   **Operational Execution:**
-    *   *Zero-Rated USSD Portal (`*483*XX#`):* Allows feature phone users to dial a free code to read Dr. Mulu's 5-point manifesto in Kikamba, register as a volunteer, or locate their nearest Ward Captain.
-    *   *Hyper-Localized Bulk SMS:* Dispatching customized Kikamba messages to consented supporters within specific wards on the eve of market days and on election morning for Get-Out-The-Vote (GOTV) mobilization.
-
-#### 3.1.2.3 Mobile-Money (M-Pesa) Agent Network Strategy
-*   **Empirical Reach:** **~180,000 unique monthly voter interactions across 1,800+ M-Pesa kiosks in Kitui County**.
-*   **Operational Execution:**
-    *   M-Pesa agents are trusted community hubs where residents deposit funds, buy airtime, and discuss local news. **Agent networks are regulated financial infrastructure**; Section 4.3.5 flags that any commercial arrangement with them must be reviewed by campaign counsel before recruitment begins. The 1,800 kiosk and 800 ambassador counts are also untiered and need a source.
-    *   The campaign will recruit 800+ shopkeepers and M-Pesa agents as "Economic Ambassadors," providing them with branded business ledgers, counter pens, calendar posters, and daily economic talking points.
-
-#### 3.1.2.4 Open-Air Market Day Barazas & Caravan Circuits
-*   **Empirical Reach:** **~280,000 voters attend weekly market rotations**.
-*   **Market Rotation Map:**
-    *   *Mondays:* Nguni Livestock Market (Mwingi Central), Kabati (Kitui West).
-    *   *Tuesdays:* Kalundu Market (Kitui Central), Tseikuru (Mwingi North).
-    *   *Wednesdays:* Mbondoni (Mwingi West), Mutomo (Kitui South).
-    *   *Thursdays:* Chuluni (Kitui East), Kyuso (Mwingi North).
-    *   *Fridays:* Kisasi (Kitui Rural), Migwani (Mwingi West).
-    *   *Saturdays:* Kitui Town Central Market, Mwingi Town Main Market.
-*   **Operational Execution:** Deploying two high-output mobile sound trucks (*The Mulu Economic Caravans*) equipped with live PA systems, Kikamba music, and local youth speakers to dominate market entrances on their designated days.
-
-#### 3.1.2.5 Church Fellowships & Clergy Engagement
-*   **Empirical Reach:** **~350,000 weekly attendees across Catholic, AIC, Redeemed Gospel, Anglican, and Baptist congregations**.
-*   **Operational Execution:** Sunday morning worship visits across all 8 constituencies, respecting liturgical decorum, requesting pastoral prayers, and engaging parish development committees post-service.
 
 ---
 
-### 3.1.3 Budget against reach
+### 2.7.3 Copy samples: radio, SMS and USSD
 
+#### A. Vernacular Radio 45-Second Script Sample (Kikamba)
+> **SFX:** Ambient sounds of a busy grain market (*ndengu* bags being loaded, tractor engine idling).  
+> **Elder Farmer (Male, 50s):** *"Mwaĩĩ, nĩtwamĩnyie kũthoozya ndengu ya mĩio mĩtheke kwa mbesa nini nũndũ wa makuli? (My brother, are we tired of selling our hard-earned green grams for pennies to exploitative middlemen?)"*  
+> **Candidate (Dr. Makali Mulu, Calm & Authoritative):** *"Nĩ Mwanya Mweũ. Serikalĩ yitũ ya Kitui ĩkese kũũnganĩsya ndengu yonthe na kũthoozya kĩla kilo kĩvĩndĩ kĩla kĩũ (Ksh 85). Wathi witũ nĩ ũtonga wa mĩsyĩ. Nĩ ngwenda twĩthĩwe na mbesa mĩkonĩ yitũ. (A new dawn is here. Our Kitui government will aggregate all produce and guarantee a floor price of Ksh 85/kg. Our priority is household wealth. Real money in your hands.)"*  
+> **Voiceover (Fast, Punchy):** *"Vota Dr. Makali Mulu – Gavana wa Kitui 2027. Muvisi Mũlũngalu, Mwĩkĩi wa Wathi! (Vote Dr. Makali Mulu – Governor Kitui 2027. The Proven Economist, The Trusted Leader!)"*
+
+#### B. Direct 2G Bulk SMS Copy Sample (Ward-Specific)
+> *"Kitui Rural / Mbitini: Dr. Makali Mulu guarantees Ksh 100M Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. STOP=22340"*
+
+#### C. USSD Interactive Menu Tree Structure (`*483*77#`)
 ```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│              BUDGET ALLOCATION VS. ELECTORAL REACH REALITY AUDIT             │
-└─────────────────────────────────────────────────────────────────────────────┘
+*483*77# (Zero-Rated Gateway)
+├── 1. Dr. Makali Mulu Manifesto Summary
+│   ├── 1. Ksh 100M Ward Equalization Fund
+│   ├── 2. Ksh 85/kg Ndengu Floor Price & Cold Hubs
+│   └── 3. Free Boda Boda Licenses & TVET Bursaries
+├── 2. Ward Development Tracker (Enter Ward Name)
+├── 3. Volunteer as a Village Captain
+└── 4. Privacy Policy & Data Opt-Out
 ```
 
-A common failure mode in modern Kenyan political campaigns is over-allocating budget to flashy social media influencers while starving the unglamorous rural infrastructure that actually produces votes.
+---
 
-The table below is the **rebalancing target** — the direction of travel away from the
-conventional pitch, argued from reach. It is not a formula the budget already satisfies:
-Section 3.3.1 carries the actual shillings, and the two do not currently agree. That gap is
-stated under 3.3.1 rather than smoothed over here, because closing it is a live decision
-about where roughly KSh 14 million goes, not a presentation choice.
+### 2.7.4 The weekly production schedule
+
+The creative studio operates on a synchronized **7-Day Production Cadence**:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                              CAMPAIGN RESOURCE REBALANCING AUDIT                                            │
-├──────────────────────────────┬───────────────────┬───────────────────┬──────────────────────────────────────┤
-│ Communication Domain         │ Traditional Pitch │ Rebalanced Reality│ Strategic Rationale & Mathematical   │
-│                              │ (% of Comm Budget)│ (% of Comm Budget)│ Justification                        │
-├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
-│ Digital & Social Media       │ 45.0%             │ **18.0%**         │ Capped to reflect 13.6% in-county    │
-│ (Meta, TikTok, X, YouTube)   │ (Over-allocated)  │ (Right-sized)     │ penetration + diaspora mobilization. │
-├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
-│ Vernacular Radio Broadcast   │ 20.0%             │ **37.0%**         │ Scaled up to dominate the primary    │
-│ (Musyi, County, Wikwatyo)    │ (Under-allocated) │ (Dominant Share)  │ medium reaching 78%+ of voters daily.│
-├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
-│ Direct 2G SMS & USSD Tree    │ 10.0%             │ **20.0%**         │ Doubled to build a resilient, direct │
-│ (Ward Captain Field Net)     │ (Under-allocated) │ (High Priority)   │ pipeline to 320k feature phone voters│
-├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
-│ Market Caravans & Barazas    │ 15.0%             │ **18.0%**         │ Maintained for physical presence and │
-│ (PA Trucks & Collateral)     │                   │ (Core Ground)     │ live crowd momentum on market days.  │
-├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
-│ Church & Community Outreaches│ 10.0%             │ **7.0%**          │ Focused on protocol-compliant clergy │
-│ (Clergy Synods & Guilds)     │                   │ (Targeted)        │ partnerships and Sunday tours.       │
-└──────────────────────────────┴───────────────────┴───────────────────┴──────────────────────────────────────┘
+│                                   WEEKLY 7-DAY CONTENT PRODUCTION CYCLE                                     │
+├───────────┬─────────────────────────────────────────────────────────┬───────────────────────────────────────┤
+│ Day       │ Production Focus & Milestones                           │ Output Deliverables                   │
+├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
+│ Monday    │ • Strategic War Room briefing & narrative theme setting │ • Weekly Creative Master Brief        │
+│           │ • Scriptwriting for radio, SMS copy & WhatsApp cards    │ • Draft radio & video scripts         │
+├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
+│ Tuesday   │ • Studio recording for Kikamba audio spots & jingles    │ • Master audio WAVs & 2G voice clips  │
+│           │ • Graphics design for social carousels & print flyers   │ • Social static cards & baraza sheets │
+├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
+│ Wednesday │ • Multi-tier approval gateway review (Comms, DPO, CM)   │ • Fully signed-off creative package   │
+│           │ • SMS gateway scheduling & USSD menu updates            │ • Africa's Talking staging upload     │
+├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
+│ Thursday  │ • Dispatch of physical print collateral to 8 sub-counties│ • Printed packages on morning courier │
+│           │ • Early flighting of market-day radio spots (Musyi/Mbaitu│ • Radio ads live for Friday markets   │
+├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
+│ Friday    │ • Market day caravan deployment & live content capture  │ • Live field photos & raw 4K video    │
+│           │ • Real-time SMS broadcast to Friday market wards        │ • 100,000 ward SMS delivered          │
+├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
+│ Saturday  │ • Major rally/baraza coverage & rapid-turnaround video  │ • 60s summary reel within 3 hours     │
+│           │ • Audio snippet extraction for Sunday radio morning news│ • Radio soundbites sent to stations   │
+├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
+│ Sunday    │ • Church fellowship photos & message distribution       │ • Weekly recap carousel & podcast clip│
+│           │ • Weekly analytics & reach performance audit            │ • BI dashboard weekly content report  │
+└───────────┴─────────────────────────────────────────────────────────┴───────────────────────────────────────┘
+```
+
+---
+
+### 2.7.5 Who approves what, and when
+
+To prevent defamatory statements, policy contradictions, electoral code infractions, or Data Protection Act (DPA) violations, **no asset may be broadcast or printed without passing through the 4-Step Governance Gateway**:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                       4-STEP CONTENT APPROVAL GATEWAY                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+  STEP 1: CREATIVE DRAFTING & SOURCING
+  ────────────────────────────────────
+  • Specialist vendor or in-house creator drafts script, video, or SMS copy.
+  • Mandatory: Creator must attach primary citation (Hansard, OAG report, KNBS).
+
+  STEP 2: COMMUNICATIONS & MESSAGE INTEGRITY REVIEW
+  ─────────────────────────────────────────────────
+  • Communications Lead verifies narrative alignment, Kikamba dialect accuracy,
+    and visual brand guidelines.
+
+  STEP 3: LEGAL, ELECTORAL & DPA COMPLIANCE CHECK
+  ───────────────────────────────────────────────
+  • Data Protection Officer (DPO) audits audience list, verifies explicit consent
+    tags, ensures mandatory opt-out footers, and checks electoral libel laws.
+
+  STEP 4: EXECUTIVE AUTHORIZATION & DISPATCH SIGN-OFF
+  ───────────────────────────────────────────────────
+  • Campaign Manager / Chief of Operations gives final electronic signature.
+  • Release authorization code logged in campaign audit register.
+```
+
+---
+
+### 2.7.6 The asset library
+
+All creative assets are stored in a centralized, cloud-backed Digital Asset Management repository structured as follows:
+
+```
+/CAMPAIGN_ASSET_REPOSITORY_2027/
+├── 01_BRAND_GUIDELINES_&_FONTS/
+│   ├── Typography/ (Plus_Jakarta_Sans, Playfair_Display, Inter)
+│   ├── Color_Palettes/ (Kitui_Blue, Earth_Gold, Clean_White)
+│   └── Official_Candidate_Logos_&_Emblems/
+├── 02_PRIMARY_EVIDENCE_VAULT/
+│   ├── OAG_Clean_Audit_Certificates_2013_2025/
+│   ├── Parliamentary_Hansard_Records_Finance_Committee/
+│   └── KNBS_Census_&_Agricultural_Baseline_Reports/
+├── 03_AUDIO_BROADCAST_VAULT/
+│   ├── Radio_45s_Spots_Master_WAV/ (Musyi, Mbaitu, Sang'u)
+│   ├── Sound_Truck_Jingles_&_Benga_Anthems/
+│   └── Megaphone_Audio_Clips_for_Boda_Marshals/
+├── 04_SMS_USSD_COPY_VAULT/
+│   ├── 40_Ward_Localized_SMS_Pledges/
+│   ├── Crisis_Rapid_Response_SMS_Templates/
+│   └── USSD_Interactive_Menu_Scripts/
+├── 05_PRINT_COLLATERAL_VAULT/
+│   ├── A5_Baraza_4Page_Foldouts_PrintReady_PDF/
+│   ├── 12Page_Manifesto_Executive_Summary_Kikamba_Swahili/
+│   └── PVC_Caravan_Banners_&_Boda_Shed_Signage/
+├── 06_DIGITAL_VIDEO_VAULT/
+│   ├── TikTok_Reels_Vertical_1080x1920/
+│   ├── Longform_YouTube_Documentaries/
+│   └── WhatsApp_Status_Infographic_Cards/
+└── 07_RAW_FIELD_FOOTAGE_ARCHIVE/ (Organized by Date & Sub-County)
 ```
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 3.1.3 STRATEGIC TAKEAWAY
+                          SECTION 2.7.6 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
- • The Digital Ceiling: Digital reaches ~72,000 voters (13.6%), capable of 
-                        delivering only 36.2% of the 200,000 threshold.
- • The Offline Engine:  Vernacular radio (~420k reach) and Direct 2G SMS (~320k 
-                        reach) are mathematically essential to win.
- • Budget Discipline:   Rebalanced communications budget—allocating 82% to offline
-                        channels (Radio 37%, SMS 20%, Caravans 18%, Church 7%)
-                        and 18% to digital to reflect the empirical media landscape.
+ • Offline Broadcast Dominance: Content engine prioritizes 45s Kikamba radio spots,
+                                2G SMS, USSD menus, and printed baraza photobooks.
+ • 4 Core Content Pillars:      Integrity Ledger, Agrarian Wealth, Devolution Equity,
+                                and Youth Enterprise.
+ • Strict 4-Step Approval:      Drafter ──► Comms Lead ──► DPO Compliance ──► CM Sign.
+ • Centralized DAM Vault:       Organized asset repository preserving high-res evidence,
+                                audio masters, and print-ready vector collateral.
 ════════════════════════════════════════════════════════════════════════════════════
 ```
+---
+
+## 2.9 AI-assisted creative and testing
+
+### 2.9.1 What AI is used for, and what it is never used for
+
+AI is used to test and optimise content so that every shilling of regulated ad
+spend delivers maximum persuasive impact.
+
+**Disclosure commitment.** AI assists production and optimisation. It is never
+used to fabricate imagery of real people, simulate events that did not occur,
+or generate synthetic voices of the candidate or any other person. Where
+AI-generated illustration appears in published material, it is labelled. This
+is a published commitment (Section 6.5.4) and a defensive necessity in an
+environment where opponents may deploy manipulated media (Section 5.3.5).
+
+### 2.9.2 Tools and platforms
+
+| Tool | Function | Management |
+|---|---|---|
+| Meta Advantage+ Creative | Automatic variation testing and budget reallocation | Remote dashboard |
+| Google Responsive Search Ads | Headline/description combination testing | Remote dashboard |
+| AI creative variation tools | Ad creative variations at scale | Cloud-based |
+| Design tooling with AI assist | Rapid Kikamba-language infographics and cards | Cloud-based |
+| AI writing assistance | First-draft copy for email, social and ads — **always human-edited, always native-speaker-reviewed for Kikamba** | Cloud-based |
+
+*Specific vendor selection at contracting; no tool is presented as retained.*
+
+### 2.9.3 The weekly testing cycle
+
+* Minimum 5 ad variations per objective per platform
+* Minimum 3 headline and 3 visual variations per ad set
+* Monday–Thursday learning; Friday–Sunday optimisation and scaling
+* Budget split: **30% testing, 70% proven performers**
+* Automatic kill rule: any ad below `[Insert threshold — recommend 1.5% CTR]`
+after 5,000 impressions is paused
+* **Every test logged to the compliance ledger** (Section 9.2.4)
+
+### 2.9.4 Performance benchmarks
+
+| Metric | Global standard | Campaign target |
+|---|---|---|
+| Facebook CTR | 1.0–1.5% | ≥ 1.5% |
+| Facebook CPM | $1–$5 | ≤ $2 |
+| Google Search CTR | 2–5% | ≥ 3% |
+| TikTok engagement rate | 3–6% | ≥ 5% |
+| YouTube view rate | 30–50% | ≥ 35% |
+| **SMS delivery rate** | 98–99.9% | ≥ 98% |
+| **SMS opt-out rate** | — | **< 2%** |
 
 ---
 
@@ -464,65 +526,6 @@ Violations of campaign financing limits and accounting rules carry severe civil,
                                 research rather than speculative estimation.
 ════════════════════════════════════════════════════════════════════════════════════
 ```
----
-
-## 3.4 Earned media and the radio landscape
-
-Vernacular radio is the primary medium of political consciousness and daily news in rural and peri-urban Kitui County. However, the media environment in Eastern Kenya is characterized by severe political concentration: **the highest-reach commercial radio stations broadcasting in Kikamba are owned, financed, or editorially steered by active political rivals or entrenched party gatekeepers**.
-
-To ensure uninterrupted, high-credibility communication with the electorate, the campaign constructs a dual strategy: a disciplined operational engagement model for Tier 1 commercial networks, coupled with an aggressive bypass architecture detailed in **Section 3.4.3**.
-
-```
-════════════════════════════════════════════════════════════════════════════════════
-                  KAMBA RADIO LANDSCAPE & BYPASS ARCHITECTURE
-════════════════════════════════════════════════════════════════════════════════════
-
-   TIER 1: HOSTILE / GATEKEEPER COMMERCIAL STATIONS
-   (Musyi FM, Mbaitu FM, Sang'u FM, Athiani FM)
-   • High frequency coverage | Politically aligned ownership & editorial vetoes
-                                      │
-                                      ▼
-   THE BYPASS WORKAROUND ARCHITECTURE (SECTION 3.4.3)
- ┌─────────────────────────────────────────────────────────────────────────────────┐
- │ 1. Neutral & Church-Owned Stations (Wikwatyo, Mang'elete, County FM)              │
- │ 2. Direct 2G SMS & Zero-Rated Interactive USSD Gateway (*483*77#)               │
- │ 3. 8-Sub-County Mobile PA Sound Trucks & High-Density Market Center Caravans    │
- │ 4. Grassroots Baraza Audio Distribution (Pre-loaded Megaphones & WhatsApp Voice)│
- └─────────────────────────────────────────────────────────────────────────────────┘
-════════════════════════════════════════════════════════════════════════════════════
-```
-
----
-
-### 3.4.1 Who owns the Kamba-language stations, and who they favour
-
-The ownership map, the frequencies and the resulting campaign posture for every
-Kikamba-language station are set out once, in **Section 3.5.1**, and that table
-governs. It is the version reconciled against `data/media-ownership.ts`, which
-the site renders directly.
-
-> **Research Integrity Note on Listenership Data:**  
-> Precise, disaggregated county-level listenership figures (GeoPoll / KARF audience share percentages for Kitui) are **not published in the underlying empirical research**. In accordance with the campaign's provenance standards (Section 6.1.2), **listenership share is marked as Required Primary Research** rather than estimated speculatively.
-
-The three structural facts that drive the rest of this section:
-
-*   **Two stations are associated with Charity Ngilu**, a declared general-election rival: **Mbaitu FM** and **Syokimau FM**. Both are monitoring targets, not placement targets.
-*   **One station is associated with Kalonzo Musyoka**, the Wiper party leader: **Athiani FM**. It is party-sensitive rather than hostile, and it matters most during the nomination window, when coverage may track party leadership sentiment rather than merit.
-*   **The stations open to the campaign are commercially or institutionally independent**: **Musyi FM** (Royal Media Services), **County FM** (Kitui-based independent) and **Wikwatyo FM** (Seventh-Day Adventist Church, Kitui). These carry the placement budget.
-
-Ownership associations are publicly reported rather than certified, and media
-ownership changes. Section 3.5.1 carries the standing instruction to verify and
-update this map before any placement is booked.
-
----
-
-### 3.4.2 The gatekeeper bottleneck
-
-The political economy of Kamba broadcasting presents three structural hazards for the campaign:
-1.  **Editorial Blackouts on Key Milestones:** High-profile developmental achievements (e.g., OAG clean audit certificates, parliamentary budget wins) are routinely downplayed or denied airtime on politically captured Tier 1 stations.
-2.  **Surrogate Studio Ambush Tactics:** Morning talk shows (*06:00–09:00 EAT*) frequently host adversarial panels stacked with rival proxies, designed to draw the candidate into unverified local controversies.
-3.  **Arbitrary Commercial Rate Inflation:** Politically steered media houses impose punitive rate surcharges or refuse prime morning ad slots for competitive campaigns.
-
 ---
 
 ### 3.4.3 Getting on air around a hostile gatekeeper
@@ -872,88 +875,4 @@ Running a synchronized three-language communications operation introduces severe
                                 between English manifesto briefs and vernacular delivery.
 ════════════════════════════════════════════════════════════════════════════════════
 ```
----
-
-## 3.7 Accessibility and inclusion
-
-Language is central to trust in Kitui.
-
-* **Kikamba** — deep local resonance, especially on WhatsApp, TikTok, Facebook,
-SMS and radio. Local proverbs, idioms and cultural reference. Working
-examples, all requiring native-speaker verification before publication:
-  * *"Kĩtui nĩ yethu, tũtethanĩe"* — Kitui is ours, let us help each other
-  * The Kamba call-and-response form — opening a video with *"Mbee! Mbee!"*
-(Forward! Forward!)
-  * *"Kĩla kĩndũ kĩ na thayũ, ĩtina nĩ kũmenya"* — everything has a solution,
-the key is knowledge — framing his expertise
-  * Imagery: the baobab as resilience, the calabash as shared resources
-  * `[Insert additional authentic Kikamba proverbs and phrases — all to be reviewed and corrected by a native speaker before any publication. The examples above are working drafts, not verified copy.]`
-* **Kiswahili** — broader reach, urban and younger audiences, national framing
-* **English** — policy depth, professional audiences, national media
-
-**Content mix for locally facing platforms:**
-
-| Language | Share | Primary use |
-|---|---|---|
-| **Kikamba** | **50%** | WhatsApp, TikTok, Facebook grassroots, SMS, voice notes, radio |
-| **Kiswahili** | **30%** | General social, national reach, SMS |
-| **English** | **20%** | Policy documents, website, X, YouTube, national media |
-
-**Governance.** A native Kikamba speaker is a named, funded role in every budget
-tier (Section 7.2.3), not an occasional reviewer. No Kikamba content publishes
-without their sign-off. Proverbs carry cultural weight and misused proverbs
-carry cultural cost — in a campaign built on rigour, a mangled idiom is a
-substantive error, not a cosmetic one.
-
----
-
-### 3.7.1 What accessibility means here
-
-*In a county where 13.0% of the population never attended school,
-accessibility is reach, not compliance theatre.*
-
-### 3.7.2 The case
-
-* **13.0% of Kitui residents have never attended school**; only 17.4% completed
-secondary education
-* Roughly **86% are outside the internet-using population**
-* Kenyans with disabilities are a substantial constituency systematically
-under-served by campaign communication in every cycle
-* Low bandwidth is itself an accessibility constraint
-
-A campaign built on transparency that publishes only in dense written English
-is not transparent. It is legible to the people who already had access.
-
-### 3.7.3 The commitments
-
-| Area | Commitment |
-|---|---|
-| **Sign language** | **Kenyan Sign Language interpretation on all flagship video** — manifesto launch, vision video, monthly Economic Brief, closing argument. Full-video coverage at premium tier. Interpreter engaged from `[Insert — Kenya National Association of the Deaf or an accredited interpreter service]` |
-| **Captioning** | Burned-in captions on **all** video, in the language of the audio. Non-negotiable: most social video is watched without sound |
-| **Website** | **WCAG 2.1 AA** — semantic structure, keyboard navigation, contrast ratios, alt text on every image and infographic, no information conveyed by colour alone |
-| **Plain language** | Every policy document paired with a **one-page plain-language summary** in all three languages, written to be read aloud |
-| **Audio versions** | Every flagship policy item available as audio, distributable by WhatsApp, voice note and radio |
-| **Low bandwidth** | Text-first fallbacks; compressed images; a site that loads on 3G; SMS and USSD paths to the same information (Section 4.3) |
-| **Print** | Ward-level materials in large print with QR and USSD codes |
-
-### 3.7.4 Why this sits in the strategy, not an annex
-
-The plain-language and audio versions are not a parallel accessibility track —
-they are the **primary format for the largest segment of the electorate**. A
-one-page plain-language summary that can be read aloud at a baraza, sent as a
-voice note, and broadcast on County FM is the most-used asset the campaign will
-produce. Building it as an afterthought means building the campaign's most
-important content last.
-
-### 3.7.5 Accessibility KPIs
-
-| Metric | Target |
-|---|---|
-| Flagship videos with KSL interpretation | 100% |
-| Video with captions | 100% |
-| WCAG 2.1 AA audit pass | Before public launch, re-audited quarterly |
-| Policy documents with plain-language summary | 100% |
-| Flagship content with audio version | 100% |
-| Site load time on simulated 3G | &lt; 3 seconds |
-
 ---

@@ -7,7 +7,8 @@ import { CrossSectionLink } from "./CrossSectionLink";
 import { ClaimBadge, type ClaimStatus } from "./ClaimBadge";
 import { DerivedFigureDrawer } from "./DerivedFigureDrawer";
 import { KeyTakeawayBanner } from "./KeyTakeawayBanner";
-import { crossSectionTarget, type TabId } from "../../lib/heading-slug";
+import { type TabId } from "../../lib/heading-slug";
+import { useSectionNumberMap } from "./SectionNumberMap";
 
 // Source markdown hard-wraps around 80 columns, which leaves a literal "\n" inside a single
 // text node wherever a phrase happens to wrap — so every multi-word pattern below matches on
@@ -42,7 +43,7 @@ const STATUS_PHRASES: { pattern: string; status: ClaimStatus }[] = [
 // 1."); they matched nothing and have been removed rather than repointed.
 const BANNER_TRIGGERS: { pattern: string; tabIds: TabId[] }[] = [
   { pattern: ws("the reason the campaign's own deepfake denials will be believed\\."), tabIds: ["defence"] },
-  { pattern: ws("Firefly Management is ready to build that operation\\."), tabIds: ["ask"] },
+  { pattern: ws("Firefly Management is ready to build that operation\\."), tabIds: ["decision"] },
 ];
 
 // Dictionary of definitions for hover tooltips
@@ -94,9 +95,9 @@ function InlineTooltip({ text, term }: { text: string; term: string }) {
 // Master regex to match definitions and key badges in a single native pass
 const termsUnion = Object.keys(DEFINITIONS).join("|");
 const datePatterns = "August 2026|December 2026|April 2027|August 2027|2026/27|KSh 1\\.339bn";
-// In-text cross-references to numbered sections. Every reference in the document is matched,
-// not a hand-listed handful: crossSectionTarget resolves the number to an id and returns null
-// for anything that is not a real section, so a stray figure never becomes a link to nowhere.
+// In-text cross-references to numbered sections. Every reference in the document is matched;
+// the section-number map resolves each one to the id it lives at today and yields nothing for
+// anything that is not a real section, so a stray figure never becomes a link to nowhere.
 const crossRefPattern = "Section\\s+\\d+(?:\\.\\d+){1,2}";
 const statusPhrasePattern = STATUS_PHRASES.map((p) => p.pattern).join("|");
 const workingTriggerPattern = WORKING_TRIGGERS.map((p) => p.pattern).join("|");
@@ -108,6 +109,7 @@ const masterRegex = new RegExp(
 
 // Highly optimized memoized component to handle tooltip wrapping and badge highlights
 export const HighlightedText = React.memo(function HighlightedText({ text, tabId }: { text: string; tabId?: TabId }) {
+  const sectionNumberMap = useSectionNumberMap();
   const elements = React.useMemo(() => {
     if (!text) return null;
     const parts = text.split(masterRegex);
@@ -120,13 +122,12 @@ export const HighlightedText = React.memo(function HighlightedText({ text, tabId
         return <InlineTooltip key={idx} text={part} term={lower} />;
       }
       // If it is a cross-reference to another numbered section, make it a working link
-      const crossRefMatch = /^Section\s+(22\.14|29\.1|31\.1|31\.7)$/i.exec(part);
+      // Every "Section N.N" the author wrote, not a hand-listed handful. The previous list held
+      // four numbers (22.14, 29.1, 31.1, 31.7) left over from an earlier renumbering, none of
+      // which survive in the document — so all 173 references rendered as plain text.
+      const crossRefMatch = /^Section\s+(\d+(?:\.\d+){1,2})$/i.exec(part);
       if (crossRefMatch) {
-        const sectionNumber = crossRefMatch[1];
-        const targetId =
-          tabId && crossSectionTarget(sectionNumber)?.startsWith(`${tabId}-sec-`)
-            ? null // already inside the section being referenced — plain text reads better than a self-link
-            : crossSectionTarget(sectionNumber);
+        const targetId = sectionNumberMap[crossRefMatch[1]] ?? null;
         if (targetId) {
           return (
             <CrossSectionLink key={idx} id={targetId}>
@@ -180,7 +181,7 @@ export const HighlightedText = React.memo(function HighlightedText({ text, tabId
       }
       return part;
     });
-  }, [text, tabId]);
+  }, [text, tabId, sectionNumberMap]);
 
   return <>{elements}</>;
 });
