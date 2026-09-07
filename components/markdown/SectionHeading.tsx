@@ -2,9 +2,30 @@
 
 import { useState } from "react";
 import { Link2, Check } from "lucide-react";
+import { useInView } from "../../hooks/use-in-view";
+import { useRipple } from "../../hooks/use-pointer-fx";
+
+/**
+ * Every one of the document's 262 headings renders through this component, which makes it the
+ * one place where a visual decision reaches the whole proposal rather than one surface of it.
+ *
+ * That is also why the treatment here is restrained and *differentiated* rather than lavish and
+ * uniform. Two levels, two signatures:
+ *
+ *   - A sub-section (h2) opens a new argument. It gets a clip wipe from the left, a left bar that
+ *     is a brand gradient rather than a flat rule, and a hairline that runs out to the right
+ *     margin — the visual equivalent of a new chapter heading.
+ *   - A part (h3) is a step inside an argument already open. It rises a few pixels and nothing
+ *     more, because 190-odd of the 262 are h3s and anything stronger would turn a long read into
+ *     a strobe.
+ *
+ * Both are IntersectionObserver-gated and fire once, so scrolling back up a 55,000-word document
+ * never replays anything.
+ */
 
 function CopyLinkButton({ id }: { id: string }) {
   const [copied, setCopied] = useState(false);
+  const ripple = useRipple<HTMLAnchorElement>();
 
   const handleCopy = async (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -23,11 +44,16 @@ function CopyLinkButton({ id }: { id: string }) {
     <a
       href={`#${id}`}
       onClick={handleCopy}
+      onPointerDown={ripple}
       aria-label="Copy link to this section"
       title={copied ? "Link copied" : "Copy link to this section"}
-      className="section-anchor-btn inline-flex items-center justify-center w-7 h-7 sm:w-6 sm:h-6 rounded-lg sm:rounded-md border border-line/60 text-muted hover:text-accent hover:border-accent/50 transition-colors align-middle shrink-0 no-underline print:hidden cursor-pointer"
+      className={`section-anchor-btn fx-ripple-host fx-press fx-focus inline-flex items-center justify-center w-7 h-7 sm:w-6 sm:h-6 rounded-lg sm:rounded-md border border-line/60 text-muted hover:text-accent hover:border-accent/50 transition-colors align-middle shrink-0 no-underline print:hidden cursor-pointer opacity-0 group-hover:opacity-100 focus-visible:opacity-100 ${
+        copied ? "opacity-100" : ""
+      }`}
     >
-      {copied ? <Check size={12} className="text-accent" /> : <Link2 size={12} />}
+      {/* The tick draws itself rather than appearing, and the button pops once — the whole
+          confirmation is 400ms and needs no toast. */}
+      {copied ? <Check size={12} className="text-accent fx-badge-pop" /> : <Link2 size={12} />}
     </a>
   );
 }
@@ -45,6 +71,8 @@ export function SectionHeading({
   accentColor?: string;
   children: React.ReactNode;
 }) {
+  const [ref, inView] = useInView<HTMLHeadingElement>({ amount: 0.5, margin: "0px 0px -10% 0px" });
+
   // A sub-section opens a new argument and carries a left bar; a part is a step inside it and
   // carries none. The running position is the sticky bar's job, not a repeated eyebrow above
   // every heading.
@@ -62,14 +90,31 @@ export function SectionHeading({
   // an element with no border width, so it never showed; the width is now set alongside it.
   const phaseBorder = level === 3 && accentColor ? "border-l-4 pl-3" : "";
 
+  // The entrance. h2 wipes open from the left; h3 rises. Both resolve to the finished heading
+  // under reduced motion and in print — see the guards at the end of visual-fx.css.
+  const entrance = inView ? (level === 2 ? "fx-in-wipe" : "fx-in-up") : "opacity-0";
+
   return (
     <Tag
+      ref={ref}
       id={id ?? undefined}
-      className={`${baseClass} ${phaseBorder} group scroll-mt-28 flex items-center gap-2 ${level === 2 && !accentColor ? "border-gold" : ""}`}
-      style={accentColor ? { borderColor: accentColor } : undefined}
+      className={`${baseClass} ${phaseBorder} ${entrance} group scroll-mt-28 flex items-center gap-2 ${
+        level === 2 && !accentColor ? "border-gold" : ""
+      }`}
+      style={
+        {
+          ...(accentColor ? { borderColor: accentColor } : {}),
+          // h3s are dense — a shorter travel and a shorter duration keep a run of five of them
+          // from reading as a queue of things arriving.
+          ...(level === 3 ? ({ "--fx-travel": "6px", "--fx-dur": "340ms" } as React.CSSProperties) : {}),
+        } as React.CSSProperties
+      }
     >
-      <span>{children}</span>
+      <span className={level === 2 ? "fx-marker" : undefined}>{children}</span>
       {id && <CopyLinkButton id={id} />}
+      {/* A hairline running out to the right margin, so a new sub-section reads as a rule across
+          the page rather than as bolder text. h3 keeps its line clean. */}
+      {level === 2 && <span aria-hidden="true" className="fx-divider-soft flex-1 min-w-4 ml-1" />}
     </Tag>
   );
 }

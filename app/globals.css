@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./visual-fx.css";
 @plugin "@tailwindcss/typography";
 
 @theme {
@@ -163,21 +164,8 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Custom Minimalist Precision Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--color-line) 60%, transparent);
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent);
-}
+/* The scrollbar is branded in visual-fx.css §19, which supersedes the flat grey
+   rule that used to live here. */
 
 /* ---------------------------------------------------------------------------
    UI type scale

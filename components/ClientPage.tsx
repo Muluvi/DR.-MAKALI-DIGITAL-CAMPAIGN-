@@ -22,6 +22,21 @@ import { FocusModeToggle, PrintReportGenerator } from "./StrategicAids";
 import { SectionNumberMapProvider } from "./markdown/SectionNumberMap";
 
 
+import {
+  AmbientField,
+  BackToTop,
+  CustomCursor,
+  MagneticButton,
+  NavDots,
+  RippleButton,
+  Reveal,
+  SplitText,
+  SpotlightCard,
+  TiltCard,
+  WordCycler,
+} from "./visual";
+import { useDaypart, useScrollShell } from "../hooks/use-scroll-shell";
+
 import { Dashboard } from "./Dashboard";
 import { HeroVisual } from "./HeroVisual";
 import { Portrait } from "./Portrait";
@@ -103,10 +118,14 @@ const WiperUmbrellaLogo = () => (
 function PartDivider({ number, label }: { number: string; label: string }) {
   return (
     <div className="relative left-1/2 -translate-x-1/2 w-screen print:hidden" aria-hidden="true">
-      <div className="h-12 sm:h-14 flex items-center bg-gradient-to-r from-accent/[0.05] via-gold/[0.06] to-accent/[0.05] border-y border-line/40">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 w-full flex items-center gap-3">
-          <span className="font-mono text-xs sm:text-sm font-bold text-accent shrink-0">{number}</span>
-          <span className="h-px w-6 bg-line/60 shrink-0" />
+      {/* The band is the seam between two parts of the argument, so it earns a little more than a
+          rule: a slow gradient drift under a diagonal hatch, and one shimmer pass as it arrives. */}
+      <div className="fx-shimmer relative h-12 sm:h-14 flex items-center border-y border-line/40 overflow-hidden">
+        <div className="absolute inset-0 fx-gradient-live bg-[linear-gradient(100deg,var(--color-accent)_0%,transparent_35%,transparent_65%,var(--color-gold)_100%)] opacity-[0.07]" />
+        <div className="absolute inset-0 fx-pattern-diagonal" />
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 w-full flex items-center gap-3 relative z-10">
+          <span className="font-mono text-xs sm:text-sm font-bold text-accent shrink-0 tabular-nums">{number}</span>
+          <span className="h-px w-6 bg-gradient-to-r from-accent to-transparent shrink-0" />
           <span className="text-sm sm:text-base font-semibold text-ink truncate">{label}</span>
         </div>
       </div>
@@ -196,6 +215,12 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
   const [isFocusMode, setIsFocusMode] = useState(false);
   const [isZeroChrome, setIsZeroChrome] = useState(false);
   const [readingDensity, setReadingDensity] = useState<"compact" | "balanced" | "generous">("balanced");
+
+  // Page-level scroll state (direction, stuck, velocity skew) and the reader's local time of day,
+  // both written onto <html> as data attributes and custom properties that CSS reads. Neither
+  // triggers a React render; see hooks/use-scroll-shell.ts.
+  useScrollShell();
+  useDaypart();
 
   const cycleDensity = () => {
     setReadingDensity((prev) => (prev === "compact" ? "balanced" : prev === "balanced" ? "generous" : "compact"));
@@ -416,13 +441,18 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
       
       {/* Hero Header */}
       {(activeTab === "decision" || isExpanded) && (
-        <header className="cv-auto-hero relative pt-10 sm:pt-14 pb-8 sm:pb-12 overflow-hidden print:pt-4 print:pb-4">
+        <header className="cv-auto-hero fx-vignette relative pt-10 sm:pt-14 pb-8 sm:pb-12 overflow-hidden print:pt-4 print:pb-4">
+          {/* The base plate stays: it is what guarantees contrast for the title. The ambient
+              field — drifting colour wells, a masked grid, film grain — is layered over it and
+              is switched off wholesale under reduced motion, reduced data and print. */}
           <div className="absolute inset-0 pointer-events-none opacity-50 bg-[radial-gradient(circle_at_82%_10%,var(--color-glow),transparent_32%),linear-gradient(180deg,var(--color-card),var(--color-paper))]" />
-          <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 relative z-10">
+          <AmbientField intensity="full" pattern="grid" />
+
+          <div className="fx-hero-seq max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 relative z-10">
             
             {/* Wiper Patriotic Front (WPF) Brand Banner */}
-            <div className="flex items-center gap-3 mb-4 sm:mb-6 select-none bg-card/80 backdrop-blur-md border border-line rounded-2xl p-2.5 sm:p-3.5 w-fit shadow-sm">
-              <WiperUmbrellaLogo />
+            <div style={{ "--fx-i": 0 } as React.CSSProperties} className="fx-in-left fx-glass fx-lift flex items-center gap-3 mb-4 sm:mb-6 select-none rounded-2xl p-2.5 sm:p-3.5 w-fit">
+              <span className="fx-loop-float inline-flex"><WiperUmbrellaLogo /></span>
               <div>
                 <div className="t-small sm:text-sm tracking-[0.12em] uppercase text-accent font-black">
                   Wiper Patriotic Front (WPF)
@@ -433,7 +463,8 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
               </div>
             </div>
 
-            <div className="confidentiality-marker mb-4 sm:mb-6 flex items-center gap-1.5 text-xs">
+            <div style={{ "--fx-i": 1 } as React.CSSProperties} className="fx-in-fade confidentiality-marker mb-4 sm:mb-6 flex items-center gap-1.5 text-xs">
+              <span className="fx-loop-blink w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
               <strong>Confidential</strong>
               <span className="opacity-70 truncate sm:whitespace-normal">— prepared for Wiper Patriotic Front campaign leadership.</span>
             </div>
@@ -446,39 +477,55 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
                 downloads a `priority` image even when it is display:none, so a phone would pay
                 for the 260px desktop rendition it never shows. `sizes` picks the rendition. */}
             <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 md:gap-x-8 items-end">
+              {/* The one place on the site that gets a per-line masked reveal. It is the first
+                  thing the candidate reads and the only heading long enough for the effect to
+                  register as deliberate rather than as a stutter. The accessible copy is a
+                  single unsplit string inside SplitText — the spans are aria-hidden. */}
               <h1 className="col-span-2 md:col-span-1 font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.12] sm:leading-[1.08] tracking-tight max-w-4xl text-ink mb-4 sm:mb-6 font-semibold text-balance">
-                Kitui 2027:<br />
-                <span className="opacity-90">the operating system for an Economist Governor.</span>
+                <SplitText by="line" as="span" className="block fx-text-gradient" delay={180}>
+                  {"Kitui 2027:\nthe operating system for an Economist Governor."}
+                </SplitText>
               </h1>
-              <p className="col-start-1 text-sm sm:text-base md:text-lg text-muted max-w-3xl leading-relaxed text-pretty">
+              <p style={{ "--fx-i": 3 } as React.CSSProperties} className="fx-in-up col-start-1 text-sm sm:text-base md:text-lg text-muted max-w-3xl leading-relaxed text-pretty">
                 Campaign Strategy & Digital Architecture Proposal for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
               </p>
-              <div className="col-start-2 row-start-2 md:row-start-1 md:row-span-2 self-end w-[104px] md:w-[210px] lg:w-[260px] shrink-0 -mb-1 md:-mb-2">
-                <Portrait
-                  id="hero-clasped-hands"
-                  sizes="(min-width: 1024px) 260px, (min-width: 768px) 210px, 104px"
-                  priority
-                />
+              {/* The cycler's word list is the section index itself, so it can never drift out of
+                  step with the document the way a hand-written list would. */}
+              <p style={{ "--fx-i": 4 } as React.CSSProperties} className="fx-in-up col-start-1 mt-3 t-small font-semibold text-muted flex items-baseline gap-1.5">
+                <span>Covering</span>
+                <WordCycler words={navItems.map((n) => n.label)} className="text-accent font-black" />
+              </p>
+              <div style={{ "--fx-i": 2 } as React.CSSProperties} className="fx-in-settle col-start-2 row-start-2 md:row-start-1 md:row-span-2 self-end w-[104px] md:w-[210px] lg:w-[260px] shrink-0 -mb-1 md:-mb-2">
+                {/* Ken Burns on the cutout, at a rate slow enough that it reads as presence
+                    rather than as movement. It is the only looping transform above the fold. */}
+                <div className="fx-kenburns">
+                  <Portrait
+                    id="hero-clasped-hands"
+                    sizes="(min-width: 1024px) 260px, (min-width: 768px) 210px, 104px"
+                    priority
+                  />
+                </div>
               </div>
             </div>
 
             {/* Quick-jump chips — the five places a candidate reads first, one tap from the top. */}
-            <div className="mt-5 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none lg:hidden select-none -mx-4 px-4">
+            <div style={{ "--fx-i": 4 } as React.CSSProperties} className="fx-in-up mt-5 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none lg:hidden select-none -mx-4 px-4">
               <span className="text-xs font-semibold text-muted shrink-0">Jump to</span>
-              <button
+              <RippleButton
                 onClick={() => setIsTOCModalOpen(true)}
-                className="px-3 py-1.5 rounded-xl bg-accent text-white text-xs font-bold shrink-0 flex items-center gap-1.5 shadow-sm shadow-accent/20 cursor-pointer"
+                className="fx-shine px-3 py-1.5 rounded-xl bg-accent text-white text-xs font-bold shrink-0 flex items-center gap-1.5 shadow-sm shadow-accent/20 cursor-pointer tap-chip"
               >
                 <span>Full index</span>
-              </button>
-              {QUICK_LINKS.map((link) => (
-                <button
+              </RippleButton>
+              {QUICK_LINKS.map((link, i) => (
+                <RippleButton
                   key={link.id}
                   onClick={() => navigateToSection(link.id)}
-                  className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent cursor-pointer"
+                  style={{ "--fx-i": i } as React.CSSProperties}
+                  className="fx-bg-slide px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent hover:text-white cursor-pointer tap-chip"
                 >
                   {link.label}
-                </button>
+                </RippleButton>
               ))}
             </div>
 
@@ -487,12 +534,19 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
             <MarqueeCarousel />
 
             <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start print:hidden">
-              <div className="lg:col-span-2">
-                <NominationVerdict />
-              </div>
-              <div className="lg:col-span-1">
-                <HeroVisual />
-              </div>
+              {/* The verdict is the answer the whole document exists to give, so it gets the
+                  pointer-tracked light. The illustration beside it gets the tilt — two distinct
+                  signatures rather than the same treatment applied twice. */}
+              <Reveal variant="left" className="lg:col-span-2" amount={0.1}>
+                <SpotlightCard border className="rounded-2xl">
+                  <NominationVerdict />
+                </SpotlightCard>
+              </Reveal>
+              <Reveal variant="right" delay={120} className="lg:col-span-1" amount={0.1}>
+                <TiltCard max={6}>
+                  <HeroVisual />
+                </TiltCard>
+              </Reveal>
             </div>
           </div>
         </header>
@@ -516,7 +570,10 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
         </div>
         
         {/* Responsive Toolbar */}
-        <div className={`sticky top-0 z-40 bg-paper/95 backdrop-blur-md py-2 sm:py-3 border-b border-line/25 ${(activeTab === "decision" || isExpanded) ? "mt-3 sm:mt-6" : "mt-0"} mb-3 sm:mb-6 flex items-center justify-between gap-2 print:hidden`}>
+        <div className={`fx-header sticky top-0 z-40 fx-glass rounded-b-xl py-2 sm:py-3 ${(activeTab === "decision" || isExpanded) ? "mt-3 sm:mt-6" : "mt-0"} mb-3 sm:mb-6 flex items-center justify-between gap-2 print:hidden`}>
+          {/* The hairline under the bar is a gradient rather than a rule, so the toolbar reads as
+              a lit edge over the document instead of a box drawn on top of it. */}
+          <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-0 bottom-0" />
           <div className="flex items-center gap-1.5 sm:gap-4 flex-1 min-w-0 overflow-x-auto scrollbar-none py-0.5">
             {activeTab !== "decision" && !isExpanded && (
               <div className="flex items-center gap-1.5 mr-1 shrink-0">
@@ -532,18 +589,18 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
             {/* Desktop & Mobile Responsive Control Buttons */}
             <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-              <button 
+              <RippleButton
                 onClick={() => setIsTOCModalOpen(true)}
-                className="flex items-center gap-1.5 px-3 py-2 bg-accent/10 border border-accent/20 rounded-xl text-xs sm:text-sm font-bold text-accent hover:bg-accent hover:text-white active:scale-95 transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                className="group fx-shine flex items-center gap-1.5 px-3 py-2 bg-accent/10 border border-accent/20 rounded-xl text-xs sm:text-sm font-bold text-accent hover:bg-accent hover:text-white transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
                 aria-label="Open Table of Contents"
               >
-                <FileText size={15} />
+                <FileText size={15} className="fx-icon-rise" />
                 <span className="hidden xs:inline">Index</span>
-              </button>
+              </RippleButton>
 
               <button 
                 onClick={cycleDensity}
-                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent active:scale-95 transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
                 title={`Reading Density: ${readingDensity}`}
                 aria-label="Toggle Reading Density"
               >
@@ -553,7 +610,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
               <button 
                 onClick={() => setIsFocusMode(!isFocusMode)}
-                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl text-xs sm:text-sm font-bold active:scale-95 transition-all cursor-pointer min-h-[40px] sm:min-h-[42px] ${
+                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl text-xs sm:text-sm font-bold fx-press fx-focus transition-all cursor-pointer min-h-[40px] sm:min-h-[42px] ${
                   isFocusMode 
                     ? "bg-accent border-accent text-white shadow-sm" 
                     : "bg-card border-line/60 text-ink hover:border-accent hover:text-accent"
@@ -567,7 +624,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
               <button 
                 onClick={() => setIsZeroChrome(!isZeroChrome)}
-                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl text-xs sm:text-sm font-bold active:scale-95 transition-all cursor-pointer min-h-[40px] sm:min-h-[42px] ${
+                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl text-xs sm:text-sm font-bold fx-press fx-focus transition-all cursor-pointer min-h-[40px] sm:min-h-[42px] ${
                   isZeroChrome 
                     ? "bg-accent border-accent text-white shadow-sm" 
                     : "bg-card border-line/60 text-ink hover:border-accent hover:text-accent"
@@ -581,24 +638,25 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
               <button 
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="flex items-center gap-1.5 px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent active:scale-95 transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                className="flex items-center gap-1.5 px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
               >
                 {isExpanded ? <Minimize2 size={15} /> : <Maximize2 size={15} />}
                 <span className="hidden sm:inline">{isExpanded ? "Collapse All" : "Expand All"}</span>
                 <span className="sm:hidden">{isExpanded ? "Collapse" : "All"}</span>
               </button>
 
-              <button 
+              <MagneticButton
                 onClick={() => window.print()}
-                className="hidden sm:flex items-center gap-2 px-3.5 py-2 bg-card border border-line/60 rounded-xl text-sm font-bold text-ink hover:border-accent hover:text-accent active:scale-95 transition-all cursor-pointer min-h-[42px]"
+                strength={0.22}
+                className="group hidden sm:flex items-center gap-2 px-3.5 py-2 bg-card border border-line/60 rounded-xl text-sm font-bold text-ink hover:border-accent hover:text-accent transition-all cursor-pointer min-h-[42px]"
               >
-                <Printer size={15} />
+                <Printer size={15} className="fx-icon-rise" />
                 <span>Print</span>
-              </button>
+              </MagneticButton>
 
               <button 
                 onClick={toggleTheme}
-                className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent active:scale-95 transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
                 aria-label="Toggle theme"
               >
                 {mounted ? (
@@ -626,12 +684,23 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
           {/* Desktop Sidebar Navigation */}
           <aside className="toc-rail hidden lg:block w-72 flex-shrink-0 print:hidden">
             <div className="sticky top-24 space-y-4">
-              <div className="bg-card/70 backdrop-blur-md border border-line/60 rounded-2xl p-4 shadow-sm">
+              <SpotlightCard className="fx-glass rounded-2xl p-4">
                 <div className="text-xs font-semibold text-muted mb-3 flex items-center justify-between">
                   <span>The proposal</span>
-                  <span className="font-mono text-accent">{navItems.length} sections</span>
+                  <span className="font-mono text-accent tabular-nums">{navItems.length} sections</span>
                 </div>
-                <nav className="flex flex-col gap-0.5">
+                <nav className="flex flex-col gap-0.5 relative">
+                  {/* The active-link marker is one element that slides, rather than a border that
+                      appears on whichever item is current. --fx-rail-y/-h are written from the
+                      active index, so the travel is a transform and never a layout read. */}
+                  <span
+                    aria-hidden="true"
+                    className="fx-rail-indicator"
+                    style={{
+                      "--fx-rail-y": `${Math.max(0, navItems.findIndex((n) => n.id === activeTab)) * 36 + 6}px`,
+                      "--fx-rail-h": "24px",
+                    } as React.CSSProperties}
+                  />
                   {navItems.map((item) => {
                     const Icon = item.icon;
                     const isActive = activeTab === item.id;
@@ -660,16 +729,18 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
                     );
                   })}
                 </nav>
-              </div>
+              </SpotlightCard>
 
               {/* Minimalist Key Metric Summary Card */}
-              <div className="bg-card/50 backdrop-blur-sm border border-line/40 rounded-2xl p-3.5 text-xs space-y-2">
+              <div className="fx-glass fx-lift rounded-2xl p-3.5 text-xs space-y-2">
                 <div className="flex items-center justify-between t-label uppercase tracking-wider font-extrabold text-muted">
                   <span>Target Victory</span>
-                  <span className="text-accent font-black">200k Votes</span>
+                  <span className="text-accent font-black tabular-nums">200k Votes</span>
                 </div>
+                {/* The bar grows from its baseline on entry, and under reduced motion it renders
+                    at its true proportion rather than at zero. */}
                 <div className="w-full bg-line/40 h-1.5 rounded-full overflow-hidden">
-                  <div className="bg-gradient-to-r from-accent to-gold h-full w-[68%]" />
+                  <div className="fx-bar-h bg-gradient-to-r from-accent to-gold h-full w-[68%] origin-left" />
                 </div>
                 <div className="flex justify-between t-micro font-bold text-muted">
                   <span>Kitui Central Core</span>
@@ -716,7 +787,8 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
       </main>
       
       {/* Footer — visible on screen and repeated in print output */}
-      <footer className="border-t border-line mt-8 pt-8 pb-28 lg:pb-10 px-4 sm:px-6 max-w-7xl mx-auto">
+      <footer className="relative mt-8 pt-8 pb-28 lg:pb-10 px-4 sm:px-6 max-w-7xl mx-auto">
+        <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-4 sm:inset-x-6 top-0" />
         <div className="confidentiality-marker mb-3">
           <strong>Confidential</strong>
           <span className="opacity-70"> — link-only proposal for Wiper Patriotic Front campaign leadership. Not for public distribution.</span>
@@ -759,6 +831,18 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
         activeTab={activeTab}
         isZeroChrome={isZeroChrome}
       />
+
+      {/* Additive chrome. Nothing in the document depends on any of it: the dots are a second
+          route to a section the sidebar and the index already reach, back-to-top duplicates the
+          Home key, and the cursor mounts only on a fine pointer with motion allowed. */}
+      {!isZeroChrome && <BackToTop />}
+      {!isZeroChrome && isExpanded && (
+        <NavDots
+          sections={navItems.map((n) => ({ id: n.id, label: n.label }))}
+          onSelect={(id) => handleNavClick(id)}
+        />
+      )}
+      <CustomCursor />
     </div>
     </SectionNumberMapProvider>
   );
