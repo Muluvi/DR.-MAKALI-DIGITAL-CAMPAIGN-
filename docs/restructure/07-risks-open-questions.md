@@ -10,7 +10,7 @@ reversible; each is stated here so you can reverse it.
 | **Section numbers preserved** | §1.3 is still §1.3 wherever it sits. Only parts were renumbered. Renumbering would mean editing 173 sentences of your prose. | A full renumber is a separate engagement needing an explicit waiver on prose edits. Nothing here blocks it. |
 | **Single route kept** | `/` remains the only page. Per-part routes would force ~262 anchors to carry a path as well as a fragment, for no gain the restructure needs. | Additive later; the part ids are already the natural route segments. |
 | **Deep links client-side** | `LEGACY_IDS`, now 608 entries. Server redirects were used only for the ten `/content/*.md` asset paths, which are the only server-visible URLs that changed. | n/a — no alternative exists for fragments. |
-| **Public audit file left in place** | `public/AUDIT-FINDINGS-PROMPTS-A-AND-B.md` still ships. It is an internal engineering audit served as a public static asset, byte-identical to the repo-root copy, and nothing imports it. | `git rm public/AUDIT-FINDINGS-PROMPTS-A-AND-B.md` — one command, no code change. **I recommend you run it.** I did not, because it is outside the restructure and shouldn't ride along unannounced. |
+| **Public audit file deleted** | ~~Left in place.~~ **Done on your instruction.** `public/AUDIT-FINDINGS-PROMPTS-A-AND-B.md` no longer ships; it was an internal engineering audit served as a public static asset at `/AUDIT-FINDINGS-PROMPTS-A-AND-B.md`. Nothing imported it, and the byte-identical repo-root copy is untouched, so no content is lost. | `git revert` the deletion commit, or restore from the root copy. |
 
 ## 2. The one place I wrote text that is not a heading
 
@@ -98,7 +98,7 @@ exist, most could go — but every deletion is a prose edit. Logged, not perform
 2. **Decide §8.1 vs §9.1.** Merge, or keep both and say why.
 3. **Say where §6.1's method ends and its infrastructure begins**, and I will finish the move.
 4. **Confirm the eight part descriptions** (§2 above) — the only non-heading text on this branch.
-5. **Delete the public audit file**, or tell me to.
+5. ~~Delete the public audit file~~ — **done.**
 
 ## 7. What I did not find
 

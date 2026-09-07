@@ -298,3 +298,4 @@ treating Rule 5 as satisfied in spirit. Say so if you want the other name.
    diffs and very different risk. I will argue one in Phase 3/4 — but if you have a preference,
    now is the cheapest moment to say it.
 4. **`public/AUDIT-FINDINGS-PROMPTS-A-AND-B.md`** — remove the public copy? (Item 10.1.)
+   **Resolved: deleted on the author's instruction.** The repo-root copy is retained.
