@@ -80,12 +80,30 @@ words of Tier-graded evidence.
 four things the section defined, two of which had moved to Part 2. See §2a below for the exact
 change.
 
-### §8.1 and §9.1 overlap, and now visibly
+### ~~§8.1 and §9.1 overlap~~ — **resolved, and not by merging**
 
-§8.1.1/§8.1.2 are stage-1/stage-2 scorecards; §9.1.1/§9.1.2 are nomination-window/general-election
-objectives. Substantially the same content, and for the first time they are adjacent, three
-headings apart in Part 1. I did not merge them — merging is a prose edit. **Your call which
-absorbs which.**
+On instruction to choose for user experience, I read both properly. They are not duplicates, and
+merging them would have been the wrong call:
+
+- **§8.1** is two seven-column ASCII scorecards — KPI code, operational definition, baseline,
+  target, measurement methodology, owner, reporting cadence. A reference instrument.
+- **§9.1** is five Operational Commitments, each with a named owner, a deadline and an escalation
+  trigger, rendered through the `CommitmentFields` layout. What Firefly commits to *do*.
+
+Fusing them would produce a ten-column table — unreadable on the phone this document is written
+for — and would force dropping either the escalation triggers or the CATI methodology. Both are
+load-bearing, for different readers.
+
+**What was actually wrong was the order.** The instrument preceded the commitment it scores.
+§9.1 now comes first, then §8.1, then §8.2.3 — commitment, then instrument, then the principle
+anchoring both to the vote threshold. A pure move: word count unchanged at 49,682.
+
+**One thing the new adjacency surfaces, left untouched.** §9.1.1's success definition is a
+**40.0%+ countywide public preference share**; §8.1.1's NW-01 target is **≥ 55.0% of sampled
+likely Wiper primary voters**; §8.2.3 restates the 55% figure. Different denominators, so not a
+contradiction — but the two now sit within one screen of each other for the first time, and a
+reader may pause on it. Per Ground Rule 2 no figure was altered. Making the two universes
+explicit would be a one-clause prose edit if you want it.
 
 ### §0.4 and §9.3.6 also overlap
 
