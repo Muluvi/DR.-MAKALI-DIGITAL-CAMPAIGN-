@@ -46,26 +46,8 @@ export const TAB_LABELS: Record<TabId, string> = Object.fromEntries(
   SECTIONS.map((s) => [s.id, s.label])
 ) as Record<TabId, string>;
 
-const TAB_BY_NUMBER: Record<string, TabId> = Object.fromEntries(
-  SECTIONS.map((s) => [s.number, s.id])
-) as Record<string, TabId>;
-
 export function sectionId(tabId: TabId, slug: string): string {
   return `${tabId}-sec-${slug}`;
-}
-
-/**
- * Resolves an in-prose reference like "Section 4.3.2" to the id it points at.
- *
- * Every cross-reference in the document is now resolvable, not just a hand-listed handful: the
- * leading digit names the top-level section, which names the file, which names the tab half of
- * the id. Returns null for anything that isn't a real section number, so a stray figure in the
- * prose never becomes a link to nowhere.
- */
-export function crossSectionTarget(sectionNumber: string): string | null {
-  const tab = TAB_BY_NUMBER[sectionNumber.split(".")[0]];
-  if (!tab) return null;
-  return sectionId(tab, sectionNumber.replace(/\./g, "-"));
 }
 
 // Deep links minted before this restructure. Two generations of them: the six-tab merge
