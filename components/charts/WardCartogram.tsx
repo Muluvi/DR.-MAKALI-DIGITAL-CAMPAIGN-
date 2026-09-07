@@ -26,8 +26,14 @@ export default function WardCartogram() {
             <div className="t-micro font-black uppercase tracking-wider text-muted mb-1.5 truncate" title={c.name}>
               {c.name}
             </div>
+            {/* The forty tiles fill in ward order rather than all at once, which is the
+                cartogram equivalent of a map's regions filling one by one. The delay carries
+                the reading order, so a reader watching it sees the constituency assemble.
+                Under reduced motion `.fx-region` is `animation: none` — every tile is present
+                and at its true colour from the first frame, because a half-drawn register is
+                a register showing the wrong number of wards. */}
             <div className="flex flex-wrap gap-1">
-              {c.wards.map((w) => {
+              {c.wards.map((w, wIdx) => {
                 const isSelected = selected?.constituency === c.id && selected.ward.name === w.name;
                 return (
                   <button
@@ -35,10 +41,10 @@ export default function WardCartogram() {
                     type="button"
                     onClick={() => setSelected({ constituency: c.id, ward: w })}
                     aria-label={`${w.name}, ${c.name}: ${w.voters.toLocaleString()} registered voters`}
-                    className={`w-6 h-6 sm:w-7 sm:h-7 rounded-[5px] border border-line/40 transition-all cursor-pointer ${
-                      isSelected ? "ring-2 ring-accent ring-offset-1 ring-offset-paper" : "hover:scale-110"
+                    style={{ background: tileBackground(w.voters), "--fx-r": wIdx } as React.CSSProperties}
+                    className={`fx-region w-6 h-6 sm:w-7 sm:h-7 rounded-[5px] border border-line/40 transition-all cursor-pointer ${
+                      isSelected ? "ring-2 ring-accent ring-offset-1 ring-offset-paper" : "hover:scale-110 hover:z-10 hover:shadow-md"
                     }`}
-                    style={{ background: tileBackground(w.voters) }}
                   />
                 );
               })}

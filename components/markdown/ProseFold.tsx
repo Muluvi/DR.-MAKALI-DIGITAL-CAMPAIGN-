@@ -37,8 +37,17 @@ export function ProseFold({ label, children }: { label: string; children: React.
       {/* Rendered whether or not it is open, and hidden with CSS rather than dropped from the
           tree, so the printed briefing kit carries the folded prose instead of a heading with
           nothing under it. */}
-      <div className={open ? "prose max-w-none pt-4" : "hidden print:block prose max-w-none pt-4"}>
+      {/* `display: none` cannot be transitioned, so the fold used to snap open. This is a
+          grid-template-rows collapse from 0fr to 1fr, which the compositor interpolates — no
+          height is measured or animated. Print keeps it open regardless. */}
+      <div className="fx-collapse" data-open={open ? "true" : "false"}>
+        {/* `inert` while closed. A 0fr grid row clips the content visually but leaves every link
+            and control inside it in the tab order, so without this a reader tabbing past a
+            collapsed fold would land in prose they cannot see. Print un-collapses the whole thing
+            in visual-fx.css, where the rule can be stated once rather than per fold. */}
+        <div inert={!open} className={`prose max-w-none ${open ? "pt-4" : ""} print:pt-4`}>
         {children}
+        </div>
       </div>
     </div>
   );

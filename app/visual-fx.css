@@ -1,20 +1,28 @@
-/* ======================================================================== */
-/*  visual-fx.css — the site's visual effects layer                         */
+/* ========================================================================== */
+/*  visual-fx.css — the site's visual effects layer                          */
 /*                                                                          */
-/*  Companion to lib/motion.ts (the JS half). Everything here obeys the      */
-/*  same three house rules:                                                  */
+/*  Companion to lib/motion.ts, which is the JavaScript half of the same     */
+/*  system. Three house rules hold throughout:                               */
 /*                                                                          */
-/*    1. Transform and opacity only. Never width/height/top/left — the       */
-/*       target device is a mid-range Android and those force layout.        */
+/*    1. Transform and opacity only. Never width, height, top or left — the  */
+/*       target device is a mid-range Android and those force layout on      */
+/*       every frame.                                                        */
+/*                                                                          */
 /*    2. Motion encodes meaning. A bar grows from its baseline; a timeline   */
-/*       draws forward; a counter counts.                                    */
-/*    3. Never animate to the truth. Under `prefers-reduced-motion` every    */
-/*       effect resolves to its FINAL state, never to zero. A bar caught at  */
-/*       zero is showing false data and this document cannot afford that.    */
+/*       draws forward; a counter counts. A generic slide-up applied to a    */
+/*       number, a map and a paragraph alike is decoration.                  */
 /*                                                                          */
-/*  Sections are numbered to match the visual-features brief so the          */
-/*  coverage ledger in docs/VISUAL-FEATURE-LEDGER.md can cite them.          */
-/* ======================================================================== */
+/*    3. Never animate to the truth. Under prefers-reduced-motion every      */
+/*       effect resolves to its FINAL state, never to zero. A bar caught at  */
+/*       zero is showing false data, and this document cannot afford that.   */
+/*                                                                          */
+/*  Sections are numbered to match the visual-features brief so the coverage */
+/*  ledger in docs/VISUAL-FEATURE-LEDGER.md can cite them. The numbering     */
+/*  deliberately skips: where the document declined a whole class of         */
+/*  technique, the section is absent here rather than present and unused,    */
+/*  and the ledger records the reason. Dead rules that imply a capability    */
+/*  the site does not have are worse than no rules at all.                   */
+/* ========================================================================== */
 
 /* Shared effect tokens. Kept here rather than in @theme because these are
    effect-layer concerns, not design tokens the components choose between. */
@@ -48,9 +56,9 @@
   --fx-pattern-opacity: 0.07;
 }
 
-/* ======================================================================== */
-/*  §1 — ENTRANCE & REVEAL                                                  */
-/* ======================================================================== */
+/* ========================================================================== */
+/*  §1 — ENTRANCE & REVEAL                                                   */
+/* ========================================================================== */
 
 @keyframes fx-fade-in { from { opacity: 0; } to { opacity: 1; } }
 
@@ -87,9 +95,6 @@
 @keyframes fx-iris-open     { from { clip-path: circle(0% at 50% 50%); } to { clip-path: circle(78% at 50% 50%); } }
 
 /* Curtain / shutter: two panels retreating to the edges. */
-@keyframes fx-curtain-left  { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-101%, 0, 0); } }
-@keyframes fx-curtain-right { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(101%, 0, 0); } }
-
 @keyframes fx-flip-in-x { from { opacity: 0; transform: perspective(1200px) rotateX(22deg); } to { opacity: 1; transform: perspective(1200px) rotateX(0); } }
 @keyframes fx-flip-in-y { from { opacity: 0; transform: perspective(1200px) rotateY(-22deg); } to { opacity: 1; transform: perspective(1200px) rotateY(0); } }
 @keyframes fx-rotate-in { from { opacity: 0; transform: rotate(-7deg) scale(0.96); } to { opacity: 1; transform: none; } }
@@ -100,22 +105,6 @@
   to   { opacity: 1; transform: perspective(900px) rotateX(0); transform-origin: top center; }
 }
 
-/* SVG stroke draw, and the outline-becomes-filled follow-through. */
-@keyframes fx-draw-path { from { stroke-dashoffset: var(--fx-path-len, 1000); } to { stroke-dashoffset: 0; } }
-@keyframes fx-stroke-to-fill { from { fill-opacity: 0; } to { fill-opacity: 1; } }
-
-/* Progressive image load: the low-quality placeholder resolving. */
-@keyframes fx-lqip-resolve { from { filter: blur(18px) saturate(1.4); transform: scale(1.04); } to { filter: none; transform: none; } }
-
-/* Glitch — three channel-split shears, over in a quarter second. Used once,
-   on the terminal showcase, where a digital artefact is on-message. */
-@keyframes fx-glitch {
-  0%, 100% { transform: none; clip-path: none; }
-  12% { transform: translate3d(-3px, 0, 0); clip-path: inset(18% 0 62% 0); }
-  24% { transform: translate3d(3px, 0, 0);  clip-path: inset(70% 0 12% 0); }
-  36% { transform: translate3d(-2px, 0, 0); clip-path: inset(42% 0 38% 0); }
-  48% { transform: none; clip-path: none; }
-}
 
 /* --- Applied entrance utilities ---------------------------------------- */
 
@@ -159,230 +148,86 @@
 .fx-stagger > * { animation-delay: calc(var(--fx-stagger) * var(--fx-i, 0) + var(--fx-delay, 0ms)); }
 .fx-ripple-stagger > * { animation-delay: calc(var(--fx-stagger) * var(--fx-r, 0) + var(--fx-delay, 0ms)); }
 
-/* Curtain overlay: a two-panel reveal that lives inside a positioned parent. */
-.fx-curtain { position: absolute; inset: 0; pointer-events: none; z-index: 2; overflow: hidden; }
-.fx-curtain::before,
-.fx-curtain::after {
-  content: ""; position: absolute; top: 0; bottom: 0; width: 50.5%;
-  background: linear-gradient(180deg, var(--color-card), var(--color-paper));
-  animation-duration: var(--fx-dur-deliberate); animation-timing-function: var(--fx-ease-entrance); animation-fill-mode: forwards;
-}
-.fx-curtain::before { left: 0; animation-name: fx-curtain-left; }
-.fx-curtain::after  { right: 0; animation-name: fx-curtain-right; }
 
-/* SVG path draw applied to any stroked path. */
-.fx-draw { stroke-dasharray: var(--fx-path-len, 1000); animation: fx-draw-path var(--fx-dur-deliberate) var(--fx-ease-entrance) both var(--fx-delay, 0ms); }
-.fx-stroke-fill { animation: fx-stroke-to-fill 420ms var(--fx-ease-out) both calc(var(--fx-delay, 0ms) + 380ms); }
-
-.fx-lqip { animation: fx-lqip-resolve 700ms var(--fx-ease-out) both; }
-.fx-glitch:hover, .fx-glitch[data-glitch="on"] { animation: fx-glitch 380ms steps(2, end) 1; }
-
-/* ======================================================================== */
-/*  §2 — EXIT & DISMISSAL                                                   */
-/* ======================================================================== */
+/* ========================================================================== */
+/*  §2 — EXIT                                                                */
+/*                                                                           */
+/*  Only the shared fade-out survives here. Every other exit on the site    */
+/*  is run                                                                  */
+/*  by `motion`'s AnimatePresence, which already wraps the modal, the       */
+/*  quick-nav                                                               */
+/*  capsule and the section switch — a second, CSS-only exit vocabulary would*/
+/*  have been a parallel system nothing called.                              */
+/* ========================================================================== */
 
 @keyframes fx-fade-out { from { opacity: 1; } to { opacity: 0; } }
-@keyframes fx-out-up    { to { opacity: 0; transform: translate3d(0, -16px, 0); } }
-@keyframes fx-out-down  { to { opacity: 0; transform: translate3d(0, 16px, 0); } }
-@keyframes fx-out-left  { to { opacity: 0; transform: translate3d(-24px, 0, 0); } }
-@keyframes fx-out-right { to { opacity: 0; transform: translate3d(24px, 0, 0); } }
-@keyframes fx-collapse-out { to { opacity: 0; transform: scale(0.94); } }
-@keyframes fx-wipe-out { to { clip-path: inset(0 0 0 100%); } }
-@keyframes fx-shrink-to-point { to { opacity: 0; transform: scale(0.04); } }
-@keyframes fx-roll-out { to { opacity: 0; transform: translate3d(110%, 0, 0) rotate(120deg); } }
-@keyframes fx-lightspeed-out { 0% { opacity: 1; } 100% { opacity: 0; transform: translate3d(140%, 0, 0) skewX(28deg); } }
-@keyframes fx-bounce-out { 20% { transform: scale(1.06); } 100% { opacity: 0; transform: scale(0.4); } }
-@keyframes fx-flip-out { to { opacity: 0; transform: perspective(1200px) rotateY(78deg); } }
-/* Disintegrate: the element blurs apart rather than shattering into real
-   particles — a canvas particle system for a dismissal is not worth the frame
-   budget on the device this is read on. */
-@keyframes fx-disintegrate { to { opacity: 0; filter: blur(9px) contrast(2.2); transform: translate3d(0, -10px, 0) scale(1.05); } }
 
-.fx-out-fade    { animation: fx-fade-out var(--fx-dur-fast) var(--fx-ease-out) both; }
-.fx-out-up      { animation: fx-out-up var(--fx-dur-medium) var(--fx-ease-out) both; }
-.fx-out-down    { animation: fx-out-down var(--fx-dur-medium) var(--fx-ease-out) both; }
-.fx-out-left    { animation: fx-out-left var(--fx-dur-medium) var(--fx-ease-out) both; }
-.fx-out-right   { animation: fx-out-right var(--fx-dur-medium) var(--fx-ease-out) both; }
-.fx-out-collapse{ animation: fx-collapse-out var(--fx-dur-medium) var(--fx-ease-out) both; }
-.fx-out-wipe    { animation: fx-wipe-out var(--fx-dur-medium) var(--fx-ease-entrance) both; }
-.fx-out-point   { animation: fx-shrink-to-point var(--fx-dur-medium) var(--fx-ease-out) both; }
-.fx-out-roll    { animation: fx-roll-out 520ms var(--fx-ease-out) both; }
-.fx-out-lightspeed { animation: fx-lightspeed-out 380ms var(--fx-ease-out) both; }
-.fx-out-bounce  { animation: fx-bounce-out 420ms var(--fx-ease-out) both; }
-.fx-out-flip    { animation: fx-flip-out 380ms var(--fx-ease-out) both; }
-.fx-out-disintegrate { animation: fx-disintegrate 480ms var(--fx-ease-out) both; }
 
-/* Reverse stagger: siblings leave in the opposite order they arrived. */
-.fx-stagger-reverse > * { animation-delay: calc(var(--fx-stagger) * var(--fx-n-reverse, 0)); }
-
-/* ======================================================================== */
-/*  §3 — SCROLL-DRIVEN & SCROLL-TRIGGERED                                   */
-/*                                                                          */
-/*  Native scroll-driven animations where the browser has them, so the       */
-/*  scroll thread never calls into JS. Everything degrades to "already       */
-/*  visible" — never to "invisible" — so a browser without                   */
-/*  `animation-timeline` shows a complete page, not a blank one.             */
-/* ======================================================================== */
+/* ========================================================================== */
+/*  §3 — SCROLL-DRIVEN & SCROLL-TRIGGERED                                    */
+/*                                                                           */
+/*  Native scroll-driven animation where the browser has it, so the scroll  */
+/*  thread                                                                  */
+/*  never calls into JS. Everything degrades to 'already visible' — never to */
+/*  'invisible' — so a browser without `animation-timeline` shows a         */
+/*  complete page.                                                          */
+/* ========================================================================== */
 
 @supports (animation-timeline: view()) {
   /* Viewport-triggered reveal, done by the compositor. `both` plus a range
      ending at cover 34% means the element is fully resolved a third of the
      way up the viewport and stays resolved. */
-  .fx-scroll-reveal {
-    animation: fx-slide-up auto var(--fx-ease-entrance) both;
-    animation-timeline: view();
-    animation-range: entry 8% cover 34%;
-  }
-  .fx-scroll-reveal-blur {
-    animation: fx-blur-in auto var(--fx-ease-entrance) both;
-    animation-timeline: view();
-    animation-range: entry 8% cover 34%;
-  }
-  .fx-scroll-reveal-clip {
-    animation: fx-wipe-linear auto var(--fx-ease-entrance) both;
-    animation-timeline: view();
-    animation-range: entry 5% cover 40%;
-  }
-  .fx-scroll-zoom {
-    animation: fx-settle-in auto linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 45%;
-  }
+  
+  
+  
+  
 
   /* Opacity fade zones — content dims at both viewport edges, so the band the
      reader is actually in is the brightest thing on screen. */
-  .fx-fade-zones {
-    animation: fx-edge-fade auto linear both;
-    animation-timeline: view();
-    animation-range: entry 0% exit 100%;
-  }
+  
 
   /* Blur-out on exit. Applied only to decorative strips; never to a table. */
-  .fx-scroll-blur-out {
-    animation: fx-exit-blur auto linear both;
-    animation-timeline: view();
-    animation-range: exit 0% exit 100%;
-  }
+  
 
   /* Parallax layers. Depth is a multiplier the element sets, so one keyframe
      serves every layer in a stack. */
-  .fx-parallax {
-    animation: fx-parallax-shift auto linear both;
-    animation-timeline: view();
-    animation-range: cover 0% cover 100%;
-  }
+  
 
   /* Rotation and scroll-linked hue, for badges and ambient marks only. */
-  .fx-scroll-rotate {
-    animation: fx-scroll-spin auto linear both;
-    animation-timeline: view();
-    animation-range: cover 0% cover 100%;
-  }
+  
 
   /* Scroll-scrubbed progress rail: a ring or bar whose fill IS the scroll
      position, not an animation of it. */
-  .fx-scrub-fill {
-    animation: fx-scrub auto linear both;
-    animation-timeline: scroll(root block);
-  }
-  .fx-scrub-section {
-    animation: fx-scrub auto linear both;
-    animation-timeline: view();
-    animation-range: contain 0% contain 100%;
-  }
+  
+  
 }
 
-@keyframes fx-edge-fade {
-  0%   { opacity: 0.15; }
-  22%  { opacity: 1; }
-  78%  { opacity: 1; }
-  100% { opacity: 0.15; }
-}
-@keyframes fx-exit-blur {
-  from { opacity: 1; filter: blur(0); }
-  to   { opacity: 0.25; filter: blur(5px); }
-}
-@keyframes fx-parallax-shift {
-  from { transform: translate3d(0, calc(var(--fx-depth, 1) * 34px), 0); }
-  to   { transform: translate3d(0, calc(var(--fx-depth, 1) * -34px), 0); }
-}
-@keyframes fx-scroll-spin {
-  from { transform: rotate(calc(var(--fx-spin, 1) * -22deg)); }
-  to   { transform: rotate(calc(var(--fx-spin, 1) * 22deg)); }
-}
-@keyframes fx-scrub { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-
-/* Scroll-snap between panels, opt-in per container so the whole document
-   never becomes a slide deck. */
-.fx-snap-y { scroll-snap-type: y proximity; }
-.fx-snap-start { scroll-snap-align: start; scroll-snap-stop: normal; }
-
-/* Horizontal scroll section — a real overflow rail rather than a pinned
-   transform, so keyboard and trackpad both work and nothing is trapped. */
-.fx-hscroll {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: min(78vw, 24rem);
-  gap: 1rem;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
-  padding-block: 0.25rem;
-}
-.fx-hscroll > * { scroll-snap-align: center; }
-
-/* Sticky pinned band. */
-.fx-pin { position: sticky; top: 5.5rem; }
 
 /* Scroll-direction-aware header: the shell sets data-scroll-dir, the header
    reads it. Transform only, so nothing reflows at 60fps. */
 .fx-dir-header { transition: transform 320ms var(--fx-ease-entrance), opacity 240ms linear; will-change: transform; }
 [data-scroll-dir="down"] .fx-dir-header:not([data-pinned="true"]) { transform: translate3d(0, -102%, 0); opacity: 0; }
+/* Focus outranks scroll direction. A toolbar that hides itself while one of its own buttons is
+   focused strands a keyboard user on a control they cannot see. */
+[data-scroll-dir="down"] .fx-dir-header:focus-within { transform: none; opacity: 1; }
 [data-scroll-dir="up"] .fx-dir-header { transform: none; opacity: 1; }
 
-/* Scroll-velocity skew. The shell writes --scroll-skew (clamped in JS to
-   ±4deg); at rest the value is 0 and this costs nothing. */
-.fx-velocity-skew { transform: skewY(var(--scroll-skew, 0deg)); transition: transform 220ms var(--fx-ease-out); }
 
-/* Section-to-section crossfade band. */
-.fx-section-seam {
-  position: relative;
-}
-.fx-section-seam::before {
-  content: ""; position: absolute; left: 0; right: 0; top: -3rem; height: 3rem;
-  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--color-accent) 4%, transparent));
-  pointer-events: none;
-}
-
-/* ======================================================================== */
-/*  §4 — CONTINUOUS & LOOPING                                               */
-/*                                                                          */
-/*  Every loop in this section is opt-in and pauses on hover, off-screen or  */
-/*  under reduced motion. The previous build ran 22 ambient loops on a page  */
-/*  a candidate reads on a mid-range phone; the rule now is that a loop must  */
-/*  either carry state (live status, progress) or be confined to a           */
-/*  decorative band that content never sits inside.                          */
-/* ======================================================================== */
+/* ========================================================================== */
+/*  §4 — CONTINUOUS & LOOPING                                                */
+/*                                                                           */
+/*  Every loop here is opt-in and pauses on hover, off-screen or under reduced*/
+/*  motion. The rule: a loop must either carry state (live status,          */
+/*  progress) or                                                            */
+/*  stay inside a decorative band that content never sits on.                */
+/* ========================================================================== */
 
 @keyframes fx-marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
-@keyframes fx-marquee-reverse { from { transform: translate3d(-50%, 0, 0); } to { transform: translate3d(0, 0, 0); } }
-@keyframes fx-breathe { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.035); opacity: 1; } }
 @keyframes fx-float { 0%, 100% { transform: translate3d(0, 0, 0); } 50% { transform: translate3d(0, -6px, 0); } }
-@keyframes fx-drift {
-  0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
-  33%  { transform: translate3d(8px, -10px, 0) rotate(2deg); }
-  66%  { transform: translate3d(-6px, 6px, 0) rotate(-1.5deg); }
-  100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-}
-@keyframes fx-spin { to { transform: rotate(360deg); } }
-@keyframes fx-orbit { from { transform: rotate(0deg) translateX(var(--fx-orbit-r, 42px)) rotate(0deg); } to { transform: rotate(360deg) translateX(var(--fx-orbit-r, 42px)) rotate(-360deg); } }
 @keyframes fx-gradient-shift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 @keyframes fx-shimmer { from { transform: translate3d(-120%, 0, 0); } to { transform: translate3d(220%, 0, 0); } }
 @keyframes fx-live-blink { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(0.86); } }
 @keyframes fx-conveyor { from { background-position: 0 0; } to { background-position: 56px 0; } }
-@keyframes fx-wave { 0%, 100% { transform: translate3d(0,0,0) scaleY(1); } 50% { transform: translate3d(-12px, 0, 0) scaleY(1.08); } }
-
 /* Aurora / mesh-gradient drift. Three blurred colour wells on independent
    cycles; because they are transforms on a blurred layer the compositor keeps
    the whole field on the GPU. */
@@ -403,15 +248,13 @@
 @keyframes fx-fall { from { transform: translate3d(0, -12%, 0); opacity: 0; } 12% { opacity: 0.7; } 88% { opacity: 0.7; } to { transform: translate3d(var(--fx-sway, 12px), 112%, 0); opacity: 0; } }
 
 .fx-loop-marquee { animation: fx-marquee var(--fx-loop-dur, 38s) linear infinite; }
-.fx-loop-marquee-rev { animation: fx-marquee-reverse var(--fx-loop-dur, 38s) linear infinite; }
-.fx-loop-breathe { animation: fx-breathe 3.6s ease-in-out infinite; }
+
+
 .fx-loop-float   { animation: fx-float 4.2s ease-in-out infinite; animation-delay: var(--fx-delay, 0ms); }
-.fx-loop-drift   { animation: fx-drift 14s ease-in-out infinite; }
-.fx-loop-spin    { animation: fx-spin var(--fx-loop-dur, 9s) linear infinite; }
-.fx-loop-orbit   { animation: fx-orbit var(--fx-loop-dur, 12s) linear infinite; }
+
+
 .fx-loop-blink   { animation: fx-live-blink 1.8s ease-in-out infinite; }
-.fx-loop-conveyor{ animation: fx-conveyor 1.4s linear infinite; }
-.fx-loop-wave    { animation: fx-wave 5s ease-in-out infinite; }
+
 
 /* Marquees stop when the pointer is on them — the brief's "loop with pause on
    hover", and the reason a ticker can carry real content. */
@@ -436,10 +279,11 @@
 }
 .dark .fx-shimmer::after { background: linear-gradient(105deg, transparent 32%, color-mix(in srgb, white 12%, transparent) 50%, transparent 68%); }
 
-/* ======================================================================== */
-/*  §22 — BACKGROUND & ENVIRONMENTAL FIELDS                                 */
-/*  (defined here because §5 hover effects composite over them)             */
-/* ======================================================================== */
+/* ========================================================================== */
+/*  §22 — BACKGROUND & ENVIRONMENTAL FIELDS                                  */
+/*                                                                           */
+/*  Placed before §5 because the hover effects composite over these.         */
+/* ========================================================================== */
 
 /* The aurora field. Sits behind the hero at low opacity; `contain: strict`
    and a fixed height keep it from ever being asked to re-layout. */
@@ -492,33 +336,7 @@
   opacity: var(--fx-pattern-opacity);
   animation: fx-conveyor 2.4s linear infinite;
 }
-.fx-pattern-grid {
-  background-image:
-    linear-gradient(color-mix(in srgb, var(--color-line) 60%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--color-line) 60%, transparent) 1px, transparent 1px);
-  background-size: 40px 40px;
-  opacity: var(--fx-pattern-opacity);
-  /* The grid fades toward the edges so it reads as a field, not a table. */
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent 78%);
-}
-.fx-pattern-dots {
-  background-image: radial-gradient(color-mix(in srgb, var(--color-accent) 40%, transparent) 1px, transparent 1px);
-  background-size: 22px 22px;
-  opacity: var(--fx-pattern-opacity);
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent 76%);
-}
 
-/* Caustics — a soft refracted-light band. Two offset conic gradients at low
-   opacity, drifting against each other. */
-.fx-caustics {
-  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
-  opacity: 0.12; mix-blend-mode: screen;
-  background:
-    conic-gradient(from 20deg at 30% 40%, transparent, color-mix(in srgb, var(--color-accent) 60%, transparent), transparent 40%),
-    conic-gradient(from 200deg at 70% 60%, transparent, color-mix(in srgb, var(--color-gold) 50%, transparent), transparent 35%);
-  filter: blur(28px);
-  animation: fx-drift 22s ease-in-out infinite;
-}
 
 /* Mesh-gradient plate for cards that want a lit surface rather than a flat fill. */
 .fx-mesh {
@@ -548,13 +366,12 @@
 [data-daypart="night"] { --fx-ambient-warm: -6deg; }
 .fx-ambient-tint { filter: hue-rotate(var(--fx-ambient-warm, 0deg)); transition: filter 1.2s linear; }
 
-/* ======================================================================== */
-/*  §5 — INTERACTION-DRIVEN (HOVER, FOCUS, CURSOR)                          */
-/*                                                                          */
-/*  Interaction feedback is deliberately exempt from the reduced-motion      */
-/*  cull further down: a press state that never appears is a bug, not a      */
-/*  preference. Those keep a shortened transition instead of none.           */
-/* ======================================================================== */
+/* ========================================================================== */
+/*  §5 — INTERACTION-DRIVEN (HOVER, FOCUS, CURSOR)                           */
+/*                                                                           */
+/*  Interaction feedback is exempt from the reduced-motion cull at the end of*/
+/*  this file: a press state that never appears is a bug, not a preference.  */
+/* ========================================================================== */
 
 /* Hover lift with a real shadow ramp. */
 .fx-lift {
@@ -580,15 +397,8 @@
 
 /* Underline draw — from left, from centre, and a marker-pen variant that
    sweeps a translucent highlight rather than a rule. */
-.fx-underline { position: relative; }
-.fx-underline::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px;
-  background: currentColor; border-radius: 2px;
-  transform: scaleX(0); transform-origin: left;
-  transition: transform var(--fx-dur-medium) var(--fx-ease-entrance);
-}
-.fx-underline:hover::after, .fx-underline:focus-visible::after { transform: scaleX(1); }
-.fx-underline-center::after { transform-origin: center; }
+
+
 .fx-marker { position: relative; }
 .fx-marker::before {
   content: ""; position: absolute; left: -0.15em; right: -0.15em; bottom: 0.02em; height: 0.52em;
@@ -599,21 +409,6 @@
 }
 .fx-marker:hover::before, .fx-marker.is-on::before { transform: scaleX(1); }
 
-/* Border draw on hover: two pseudo-elements, each drawing two sides, so the
-   line appears to travel the perimeter rather than fading in. */
-.fx-border-draw { position: relative; }
-.fx-border-draw::before,
-.fx-border-draw::after {
-  content: ""; position: absolute; border-radius: inherit; pointer-events: none;
-  border: 1.5px solid var(--color-accent);
-  transition: transform 320ms var(--fx-ease-entrance);
-}
-.fx-border-draw::before { inset: 0; border-right-color: transparent; border-bottom-color: transparent; transform: scale(0.985) rotate(0deg); opacity: 0; }
-.fx-border-draw::after  { inset: 0; border-left-color: transparent;  border-top-color: transparent;    transform: scale(0.985); opacity: 0; }
-.fx-border-draw:hover::before,
-.fx-border-draw:hover::after { opacity: 1; transform: scale(1); }
-.fx-border-draw::before { transition: opacity 200ms linear, transform 320ms var(--fx-ease-entrance); }
-.fx-border-draw::after  { transition: opacity 200ms linear 120ms, transform 320ms var(--fx-ease-entrance) 120ms; }
 
 /* Background slide-in from an edge. */
 .fx-bg-slide { position: relative; overflow: hidden; isolation: isolate; }
@@ -624,7 +419,7 @@
   transition: transform 360ms var(--fx-ease-entrance);
 }
 .fx-bg-slide:hover::before, .fx-bg-slide:focus-visible::before { transform: none; }
-.fx-bg-slide-up::before { transform: translate3d(0, 101%, 0); }
+
 
 /* Shine / sweep across a button or image on hover. */
 .fx-shine { position: relative; overflow: hidden; isolation: isolate; }
@@ -659,14 +454,6 @@
   transition: opacity 260ms linear;
 }
 
-/* Neon glow, for the live/status marks only. */
-.fx-neon {
-  color: var(--color-accent);
-  text-shadow:
-    0 0 4px color-mix(in srgb, var(--color-accent) 60%, transparent),
-    0 0 12px color-mix(in srgb, var(--color-accent) 40%, transparent),
-    0 0 28px color-mix(in srgb, var(--color-accent) 20%, transparent);
-}
 
 /* Material-style ripple from the click point. The component writes --rx/--ry. */
 @keyframes fx-ripple { to { transform: translate(-50%, -50%) scale(1); opacity: 0; } }
@@ -680,8 +467,8 @@
 }
 
 /* Icon micro-interactions: rotate, float, nudge-forward arrow, swap. */
-.fx-icon-spin  { transition: transform 420ms var(--fx-ease-spring); }
-.group:hover .fx-icon-spin, .fx-icon-spin:hover { transform: rotate(180deg); }
+
+
 .fx-icon-nudge { transition: transform var(--fx-dur-medium) var(--fx-ease-entrance); }
 .group:hover .fx-icon-nudge, .fx-icon-nudge:hover { transform: translate3d(3px, 0, 0); }
 .fx-icon-rise  { transition: transform var(--fx-dur-medium) var(--fx-ease-entrance); }
@@ -712,69 +499,85 @@
   animation: fx-focus-ring 240ms var(--fx-ease-out) forwards;
 }
 
-/* Long-press / hold-to-confirm progress ring fill. */
-@keyframes fx-hold-fill { from { stroke-dashoffset: var(--fx-ring-len, 176); } to { stroke-dashoffset: 0; } }
-.fx-hold-ring { stroke-dasharray: var(--fx-ring-len, 176); stroke-dashoffset: var(--fx-ring-len, 176); }
-.fx-hold-ring[data-holding="true"] { animation: fx-hold-fill var(--fx-hold-dur, 900ms) linear forwards; }
 
 /* Magnetic attraction. The hook writes --mx/--my in pixels, already clamped. */
 .fx-magnetic { transform: translate3d(var(--mx, 0px), var(--my, 0px), 0); transition: transform 260ms var(--fx-ease-out); will-change: transform; }
 .fx-magnetic[data-engaged="true"] { transition: transform 90ms linear; }
 
-/* ======================================================================== */
-/*  §6 — GESTURE & DRAG                                                     */
-/* ======================================================================== */
+/* ========================================================================== */
+/*  §6 — GESTURE                                                             */
+/* ========================================================================== */
 
-.fx-draggable { cursor: grab; touch-action: pan-y; transition: transform 220ms var(--fx-ease-out), box-shadow 220ms linear; }
-.fx-draggable:active,
-.fx-draggable[data-dragging="true"] { cursor: grabbing; transition: none; box-shadow: 0 18px 40px -16px rgba(8, 20, 40, 0.4); }
-/* Snap-back on release is the transition returning to its resting transform,
-   so it costs nothing when no drag is in flight. */
-.fx-draggable[data-dragging="false"] { transform: translate3d(0, 0, 0); }
 
 /* Rubber-band overscroll at the boundaries of a rail. */
 .fx-rubber { overscroll-behavior: contain; }
 
-/* Split-view / before-after divider handle. */
-.fx-divider-handle {
-  position: absolute; top: 0; bottom: 0; width: 2px;
+
+/* Slider handles.
+
+   Styled on the native control rather than through a class, so every range input on the site
+   gets it — the three that exist today and any added later — without a per-call-site opt-in
+   that someone will forget. `accent-color` alone cannot animate a thumb, which is why these
+   are full pseudo-element rules.
+
+   The 44px hit area is kept by padding the track, not by growing the thumb: a 44px thumb on a
+   3-stop budget slider looks broken. */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+  touch-action: pan-y;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px; height: 18px; border-radius: 50%;
   background: var(--color-accent);
-  cursor: ew-resize; touch-action: none;
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-accent) 30%, transparent);
+  border: 2px solid var(--color-card);
+  box-shadow: 0 1px 4px rgba(8, 20, 40, 0.3);
+  transition: transform 180ms var(--fx-ease-spring), box-shadow 180ms linear;
 }
-.fx-divider-handle::after {
-  content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 34px; height: 34px; border-radius: 50%;
-  background: var(--color-card); border: 2px solid var(--color-accent);
-  box-shadow: 0 4px 14px -4px rgba(8, 20, 40, 0.4);
-  transition: transform 200ms var(--fx-ease-spring);
+input[type="range"]::-moz-range-thumb {
+  width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--color-card);
+  background: var(--color-accent);
+  box-shadow: 0 1px 4px rgba(8, 20, 40, 0.3);
+  transition: transform 180ms var(--fx-ease-spring), box-shadow 180ms linear;
 }
-.fx-divider-handle:hover::after { transform: translate(-50%, -50%) scale(1.12); }
+input[type="range"]:hover::-webkit-slider-thumb,
+input[type="range"]:focus-visible::-webkit-slider-thumb {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 7px color-mix(in srgb, var(--color-accent) 18%, transparent);
+}
+input[type="range"]:hover::-moz-range-thumb,
+input[type="range"]:focus-visible::-moz-range-thumb {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 7px color-mix(in srgb, var(--color-accent) 18%, transparent);
+}
+input[type="range"]:active::-webkit-slider-thumb { transform: scale(1.28); }
+input[type="range"]:active::-moz-range-thumb { transform: scale(1.28); }
+input[type="range"]:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 6px; }
 
-/* Sortable-list reordering, and drag-to-dismiss travel. */
-.fx-sortable-item { transition: transform 320ms var(--fx-ease-entrance); }
-.fx-swipe-row { transition: transform 260ms var(--fx-ease-out); }
-.fx-swipe-row[data-revealed="true"] { transform: translate3d(-88px, 0, 0); }
+/* Text and search fields get the focus glow without needing the class, for the same reason. */
+input[type="text"], input[type="search"], input[type="email"], input[type="number"], textarea, select {
+  transition: box-shadow 220ms var(--fx-ease-out), border-color 180ms linear;
+}
+input[type="text"]:focus, input[type="search"]:focus, input[type="email"]:focus,
+input[type="number"]:focus, textarea:focus, select:focus {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 15%, transparent);
+}
 
-/* Animated toggle / switch thumb. */
-.fx-switch { position: relative; transition: background-color var(--fx-dur-medium) var(--fx-ease-out); }
-.fx-switch > .fx-switch-thumb { transition: transform var(--fx-dur-medium) var(--fx-ease-spring); }
-.fx-switch[data-on="true"] > .fx-switch-thumb { transform: translate3d(var(--fx-switch-travel, 18px), 0, 0); }
+/* Checkboxes and radios take the brand colour and a press response. */
+input[type="checkbox"], input[type="radio"] {
+  accent-color: var(--color-accent);
+  transition: transform 160ms var(--fx-ease-spring);
+}
+input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.88); }
 
-/* Slider / range handle and its fill. */
-.fx-range-fill { transform-origin: left; transition: transform 180ms var(--fx-ease-out); }
-.fx-range-thumb { transition: transform 180ms var(--fx-ease-spring), box-shadow 180ms linear; }
-.fx-range-thumb:hover, .fx-range-thumb:focus-visible { transform: scale(1.18); box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-accent) 18%, transparent); }
 
-/* Dial / knob rotation. */
-.fx-knob { transition: transform 260ms var(--fx-ease-spring); transform: rotate(var(--fx-knob-deg, 0deg)); }
-
-/* 360° viewer frame — the drag surface, not the frames themselves. */
-.fx-360 { cursor: ew-resize; touch-action: none; user-select: none; }
-
-/* ======================================================================== */
-/*  §7 — LAYOUT & STATE TRANSITIONS                                         */
-/* ======================================================================== */
+/* ========================================================================== */
+/*  §7 — LAYOUT & STATE TRANSITIONS                                          */
+/* ========================================================================== */
 
 /* Accordion / disclosure without animating height. `grid-template-rows`
    interpolates 0fr→1fr on the compositor; the child carries overflow:hidden. */
@@ -782,21 +585,6 @@
 .fx-collapse[data-open="true"] { grid-template-rows: 1fr; opacity: 1; }
 .fx-collapse > * { overflow: hidden; min-height: 0; }
 
-/* Tab / segmented indicator that slides between options. The container writes
-   --fx-tab-x and --fx-tab-w from the active button's box. */
-.fx-tab-indicator {
-  position: absolute; bottom: 0; left: 0; height: 2px; width: var(--fx-tab-w, 0px);
-  background: var(--color-accent); border-radius: 2px;
-  transform: translate3d(var(--fx-tab-x, 0px), 0, 0);
-  transition: transform 380ms var(--fx-ease-entrance), width 380ms var(--fx-ease-entrance);
-}
-.fx-segment-thumb {
-  position: absolute; inset: 3px auto 3px 3px; width: var(--fx-tab-w, 0px);
-  border-radius: 0.6rem; background: var(--color-card);
-  box-shadow: 0 1px 3px rgba(8, 20, 40, 0.14);
-  transform: translate3d(var(--fx-tab-x, 0px), 0, 0);
-  transition: transform 320ms var(--fx-ease-spring), width 320ms var(--fx-ease-spring);
-}
 
 /* Modal / dialog and its backdrop. */
 @keyframes fx-backdrop-in { from { opacity: 0; backdrop-filter: blur(0); } to { opacity: 1; backdrop-filter: blur(6px); } }
@@ -806,31 +594,14 @@
 
 /* Drawer / sheet / off-canvas, one keyframe per edge. */
 @keyframes fx-sheet-bottom { from { transform: translate3d(0, 100%, 0); } to { transform: none; } }
-@keyframes fx-sheet-left   { from { transform: translate3d(-100%, 0, 0); } to { transform: none; } }
-@keyframes fx-sheet-right  { from { transform: translate3d(100%, 0, 0); } to { transform: none; } }
-@keyframes fx-banner-down  { from { transform: translate3d(0, -100%, 0); } to { transform: none; } }
 .fx-sheet-bottom { animation: fx-sheet-bottom 380ms var(--fx-ease-entrance) both; }
-.fx-sheet-left   { animation: fx-sheet-left 340ms var(--fx-ease-entrance) both; }
-.fx-sheet-right  { animation: fx-sheet-right 340ms var(--fx-ease-entrance) both; }
-.fx-banner-down  { animation: fx-banner-down 340ms var(--fx-ease-entrance) both; }
 
-/* Bottom sheet with detents — snap positions the component sets. */
-.fx-detents { transition: transform 380ms var(--fx-ease-entrance); transform: translate3d(0, var(--fx-detent, 0%), 0); }
 
 /* Dropdown / menu with a staggered item cascade. */
 @keyframes fx-menu-in { from { opacity: 0; transform: translate3d(0, -6px, 0) scale(0.98); transform-origin: top; } to { opacity: 1; transform: none; } }
 .fx-menu { animation: fx-menu-in 200ms var(--fx-ease-entrance) both; }
 .fx-menu > * { animation: fx-slide-down 260ms var(--fx-ease-entrance) both; animation-delay: calc(var(--fx-i, 0) * 34ms); --fx-travel: 6px; }
 
-/* Toast / snackbar, and its countdown rail. */
-@keyframes fx-toast-in { from { opacity: 0; transform: translate3d(0, 18px, 0) scale(0.96); } to { opacity: 1; transform: none; } }
-@keyframes fx-toast-countdown { from { transform: scaleX(1); } to { transform: scaleX(0); } }
-.fx-toast { animation: fx-toast-in 300ms var(--fx-ease-spring) both; }
-.fx-toast-bar { transform-origin: left; animation: fx-toast-countdown var(--fx-toast-dur, 4s) linear forwards; }
-
-/* Command palette. */
-@keyframes fx-palette-in { from { opacity: 0; transform: translate3d(0, -10px, 0) scale(0.985); } to { opacity: 1; transform: none; } }
-.fx-palette { animation: fx-palette-in 220ms var(--fx-ease-entrance) both; }
 
 /* Filter / sort reflow and list insert-remove. FLIP is done in JS by the grid
    component; these are the entry and exit halves it hands off to. */
@@ -838,36 +609,6 @@
 @keyframes fx-item-insert { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: none; } }
 .fx-item-insert { animation: fx-item-insert 320ms var(--fx-ease-spring) both; animation-delay: calc(var(--fx-i, 0) * 24ms); }
 
-/* Theme switch. The whole page crossfades once rather than each element
-   transitioning its own colour, which is what made the old switch shimmer. */
-@keyframes fx-theme-sweep { from { clip-path: circle(0% at var(--px, 50%) var(--py, 50%)); } to { clip-path: circle(150% at var(--px, 50%) var(--py, 50%)); } }
-.fx-theme-sweep { animation: fx-theme-sweep 520ms var(--fx-ease-entrance) both; }
-
-/* 3D card flip, front and back. */
-.fx-flip-card { perspective: 1200px; }
-.fx-flip-inner { position: relative; transform-style: preserve-3d; transition: transform 620ms var(--fx-ease-entrance); }
-.fx-flip-card[data-flipped="true"] .fx-flip-inner { transform: rotateY(180deg); }
-.fx-flip-face { backface-visibility: hidden; }
-.fx-flip-back { position: absolute; inset: 0; transform: rotateY(180deg); }
-
-/* Card stack — a deck with the ones behind peeking out. */
-.fx-stack > * { transition: transform 420ms var(--fx-ease-entrance), opacity 320ms linear; }
-.fx-stack > *:nth-child(2) { transform: translate3d(0, 6px, 0) scale(0.97); opacity: 0.7; }
-.fx-stack > *:nth-child(3) { transform: translate3d(0, 12px, 0) scale(0.94); opacity: 0.45; }
-.fx-stack:hover > *:nth-child(2) { transform: translate3d(0, 10px, 0) scale(0.975); }
-.fx-stack:hover > *:nth-child(3) { transform: translate3d(0, 20px, 0) scale(0.95); }
-
-/* Bento and masonry grids. */
-.fx-bento { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 0.75rem; grid-auto-flow: dense; }
-.fx-bento-wide { grid-column: span 2; }
-.fx-bento-tall { grid-row: span 2; }
-@supports (grid-template-rows: masonry) {
-  .fx-masonry { grid-template-rows: masonry; }
-}
-.fx-masonry { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr)); gap: 0.75rem; align-items: start; }
-
-/* Aspect-ratio container. */
-.fx-ratio { aspect-ratio: var(--fx-ratio, 16 / 9); }
 
 /* Route / view transition. Progressive: browsers without the API just cut. */
 @media (prefers-reduced-motion: no-preference) {
@@ -876,38 +617,20 @@
 ::view-transition-old(root) { animation: fx-fade-out 180ms var(--fx-ease-out) both; }
 ::view-transition-new(root) { animation: fx-fade-in 260ms var(--fx-ease-entrance) both; }
 
-/* Top-of-page route loading bar. */
-@keyframes fx-loadbar { 0% { transform: scaleX(0); } 60% { transform: scaleX(0.7); } 100% { transform: scaleX(1); } }
-.fx-loadbar { transform-origin: left; animation: fx-loadbar 1.4s var(--fx-ease-out) forwards; }
 
-/* Search field expanding out of its icon. */
-.fx-search-expand { transition: width 320ms var(--fx-ease-entrance), background-color 220ms linear; width: var(--fx-search-w, 2.75rem); }
-.fx-search-expand:focus-within { width: var(--fx-search-w-open, 16rem); }
+/* ========================================================================== */
+/*  §8 — DATA & CHART                                                        */
+/*                                                                           */
+/*  Rule 3 governs this section. Under reduced motion these are set to       */
+/*  `animation: none`, so a bar renders at its true proportion from the first*/
+/*  frame rather than at any point along a growth curve.                     */
+/* ========================================================================== */
 
-/* ======================================================================== */
-/*  §8 — DATA & CHART                                                       */
-/*                                                                          */
-/*  Rule 3 governs this whole section. Under reduced motion a bar renders at */
-/*  its true proportion, never at zero — the reduced block at the end of     */
-/*  this file sets `animation: none` rather than zeroing the transform.      */
-/* ======================================================================== */
-
-@keyframes fx-bar-grow  { from { transform: scaleY(0); } to { transform: scaleY(1); } }
 @keyframes fx-bar-growx { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes fx-ring-fill { from { stroke-dashoffset: var(--fx-ring-len, 302); } to { stroke-dashoffset: var(--fx-ring-target, 0); } }
-@keyframes fx-sweep     { from { transform: rotate(-90deg) scale(0.9); opacity: 0; } to { transform: rotate(0deg) scale(1); opacity: 1; } }
-@keyframes fx-needle    { from { transform: rotate(var(--fx-needle-from, -90deg)); } to { transform: rotate(var(--fx-needle-to, 0deg)); } }
-@keyframes fx-point-drop{ from { opacity: 0; transform: translate3d(0, -8px, 0) scale(0.6); } to { opacity: 1; transform: none; } }
-@keyframes fx-cell-fill { from { opacity: 0; transform: scale(0.7); } to { opacity: 1; transform: none; } }
-
-.fx-bar   { transform-origin: bottom; animation: fx-bar-grow var(--fx-dur-deliberate) var(--fx-ease-entrance) both var(--fx-delay, 0ms); }
 .fx-bar-h { transform-origin: left;   animation: fx-bar-growx var(--fx-dur-deliberate) var(--fx-ease-entrance) both var(--fx-delay, 0ms); }
 .fx-ring  { animation: fx-ring-fill var(--fx-dur-deliberate) var(--fx-ease-entrance) both var(--fx-delay, 0ms); }
-.fx-sweep { transform-origin: center; animation: fx-sweep var(--fx-dur-deliberate) var(--fx-ease-entrance) both var(--fx-delay, 0ms); }
-.fx-needle{ transform-origin: bottom center; animation: fx-needle 900ms var(--fx-ease-spring) both var(--fx-delay, 0ms); }
-.fx-point { animation: fx-point-drop 360ms var(--fx-ease-spring) both var(--fx-delay, 0ms); }
-.fx-cell  { animation: fx-cell-fill 300ms var(--fx-ease-out) both var(--fx-delay, 0ms); }
-.fx-axis  { animation: fx-fade-in 420ms linear both; }
+
 
 /* Odometer / vertical digit roll. The column holds 0-9 stacked; the wheel is
    translated to the target digit. */
@@ -921,88 +644,31 @@
 }
 .fx-odometer-wheel > span { height: 1em; line-height: 1; font-variant-numeric: tabular-nums; }
 
-/* Split-flap / flip-board character. */
-@keyframes fx-flap { 0% { transform: rotateX(0); } 50% { transform: rotateX(-90deg); } 100% { transform: rotateX(0); } }
-.fx-flap { display: inline-block; animation: fx-flap 320ms var(--fx-ease-out) both; animation-delay: calc(var(--fx-i, 0) * 44ms); transform-origin: center bottom; }
 
-/* Data point highlight pulse. */
-@keyframes fx-datapoint { 0%, 100% { r: var(--fx-r, 4); opacity: 1; } 50% { r: calc(var(--fx-r, 4) * 1.6); opacity: 0.55; } }
-.fx-datapoint { animation: fx-datapoint 1.8s ease-in-out infinite; }
-
-/* Sparkline draw reuses the path-draw machinery from §1. */
-
-/* ======================================================================== */
-/*  §9 — MAP & GEOGRAPHY                                                    */
-/* ======================================================================== */
+/* ========================================================================== */
+/*  §9 — MAP & GEOGRAPHY                                                     */
+/* ========================================================================== */
 
 @keyframes fx-region-fill { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: none; } }
-@keyframes fx-pin-drop { 0% { opacity: 0; transform: translate3d(0, -22px, 0); } 62% { opacity: 1; transform: translate3d(0, 3px, 0); } 100% { transform: none; } }
-@keyframes fx-catchment { 0% { transform: scale(0.4); opacity: 0.7; } 100% { transform: scale(1.5); opacity: 0; } }
-
 /* Regions fill outward from the centre of the county rather than in file
    order — `--fx-r` is the ring index the cartogram computes. */
 .fx-region { transform-origin: center; animation: fx-region-fill 380ms var(--fx-ease-out) both; animation-delay: calc(var(--fx-r, 0) * 42ms); }
-.fx-pin { animation: fx-pin-drop 520ms var(--fx-ease-spring) both var(--fx-delay, 0ms); }
-.fx-catchment { transform-origin: center; animation: fx-catchment 2.4s var(--fx-ease-out) infinite; }
-.fx-choropleth { transition: fill 520ms var(--fx-ease-entrance); }
-/* Route trace and flight arcs reuse .fx-draw from §1. */
-.fx-map-tilt { transition: transform 520ms var(--fx-ease-entrance); transform: perspective(1000px) rotateX(var(--fx-map-x, 0deg)) rotateZ(var(--fx-map-z, 0deg)); }
 
-/* ======================================================================== */
-/*  §10 — FEEDBACK & ATTENTION                                              */
-/* ======================================================================== */
 
-@keyframes fx-shake { 0%, 100% { transform: translate3d(0,0,0); } 20% { transform: translate3d(-6px,0,0); } 40% { transform: translate3d(5px,0,0); } 60% { transform: translate3d(-3px,0,0); } 80% { transform: translate3d(2px,0,0); } }
-@keyframes fx-bounce { 0%, 100% { transform: translate3d(0,0,0); } 30% { transform: translate3d(0,-8px,0); } 55% { transform: translate3d(0,-3px,0); } }
-@keyframes fx-wobble { 0%, 100% { transform: rotate(0); } 20% { transform: rotate(-3deg); } 40% { transform: rotate(2.4deg); } 60% { transform: rotate(-1.6deg); } 80% { transform: rotate(0.8deg); } }
-@keyframes fx-flash { 0%, 100% { opacity: 1; } 25%, 75% { opacity: 0.35; } }
-@keyframes fx-highlight-flash { 0% { background-color: color-mix(in srgb, var(--color-accent) 20%, transparent); } 100% { background-color: transparent; } }
-@keyframes fx-glow-pulse { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 45%, transparent); } 70% { box-shadow: 0 0 0 12px transparent; } }
-@keyframes fx-tada { 0% { transform: scale(1); } 12% { transform: scale(0.94) rotate(-3deg); } 30%, 50%, 70% { transform: scale(1.08) rotate(3deg); } 40%, 60% { transform: scale(1.08) rotate(-3deg); } 100% { transform: scale(1) rotate(0); } }
-@keyframes fx-heartbeat { 0%, 100% { transform: scale(1); } 14% { transform: scale(1.12); } 28% { transform: scale(1); } 42% { transform: scale(1.09); } 56% { transform: scale(1); } }
-@keyframes fx-jello { 0%, 100% { transform: skewX(0) skewY(0); } 22% { transform: skewX(-9deg) skewY(-9deg); } 44% { transform: skewX(5deg) skewY(5deg); } 66% { transform: skewX(-2.5deg) skewY(-2.5deg); } }
-@keyframes fx-rubberband { 0%, 100% { transform: scale3d(1,1,1); } 30% { transform: scale3d(1.2,0.85,1); } 50% { transform: scale3d(0.88,1.12,1); } 70% { transform: scale3d(1.06,0.95,1); } }
-@keyframes fx-swing { 20% { transform: rotate(11deg); } 40% { transform: rotate(-8deg); } 60% { transform: rotate(5deg); } 80% { transform: rotate(-3deg); } 100% { transform: rotate(0); } }
+/* ========================================================================== */
+/*  §10 — FEEDBACK & ATTENTION                                               */
+/* ========================================================================== */
+
 @keyframes fx-badge-pop { 0% { transform: scale(0.4); opacity: 0; } 62% { transform: scale(1.22); opacity: 1; } 100% { transform: scale(1); } }
-@keyframes fx-nudge { 0%, 88%, 100% { transform: translate3d(0,0,0); } 92% { transform: translate3d(0,-3px,0); } 96% { transform: translate3d(0,-1px,0); } }
-@keyframes fx-check-draw { from { stroke-dashoffset: 48; } to { stroke-dashoffset: 0; } }
-@keyframes fx-burst { 0% { transform: translate3d(0,0,0) scale(1); opacity: 1; } 100% { transform: translate3d(var(--fx-bx, 0px), var(--fx-by, -60px), 0) scale(0.3) rotate(var(--fx-brot, 180deg)); opacity: 0; } }
-
-.fx-shake      { animation: fx-shake 420ms var(--fx-ease-out); }
-.fx-bounce     { animation: fx-bounce 620ms var(--fx-ease-spring); }
-.fx-wobble     { animation: fx-wobble 560ms var(--fx-ease-out); }
-.fx-flash      { animation: fx-flash 620ms linear; }
-.fx-highlight  { animation: fx-highlight-flash 1.6s var(--fx-ease-out); border-radius: 6px; }
-.fx-glow-pulse { animation: fx-glow-pulse 2.2s var(--fx-ease-out) infinite; }
-.fx-tada       { animation: fx-tada 820ms var(--fx-ease-out); }
-.fx-heartbeat  { animation: fx-heartbeat 1.6s var(--fx-ease-out) infinite; }
-.fx-jello      { animation: fx-jello 720ms var(--fx-ease-out); }
-.fx-rubberband { animation: fx-rubberband 720ms var(--fx-ease-out); }
-.fx-swing      { transform-origin: top center; animation: fx-swing 820ms var(--fx-ease-out); }
 .fx-badge-pop  { animation: fx-badge-pop 420ms var(--fx-ease-spring); }
-.fx-nudge      { animation: fx-nudge 6s var(--fx-ease-out) infinite; }
-.fx-check      { stroke-dasharray: 48; animation: fx-check-draw 460ms var(--fx-ease-entrance) both var(--fx-delay, 0ms); }
-.fx-cross      { stroke-dasharray: 34; animation: fx-check-draw 380ms var(--fx-ease-entrance) both var(--fx-delay, 0ms); }
-.fx-confetti-bit { animation: fx-burst var(--fx-loop-dur, 900ms) var(--fx-ease-out) forwards; animation-delay: var(--fx-delay, 0ms); }
 
-/* Field validation state shift, and the character-count warning ramp. */
-.fx-field { transition: border-color 200ms linear, background-color 200ms linear, box-shadow 200ms linear; }
-.fx-field[data-state="error"]   { border-color: var(--color-danger); background-color: color-mix(in srgb, var(--color-danger) 6%, transparent); }
-.fx-field[data-state="success"] { border-color: var(--verified-border); background-color: var(--verified-bg); }
-.fx-count-warn { transition: color 260ms linear; }
-.fx-count-warn[data-level="near"] { color: var(--estimate-color); }
-.fx-count-warn[data-level="over"] { color: var(--color-danger); }
 
-/* ======================================================================== */
-/*  §11 — LOADING & PROGRESS                                                */
-/* ======================================================================== */
+/* ========================================================================== */
+/*  §11 — LOADING & PROGRESS                                                 */
+/* ========================================================================== */
 
 @keyframes fx-skeleton-pulse { 0%, 100% { opacity: 0.55; } 50% { opacity: 0.9; } }
 @keyframes fx-skeleton-sweep { from { background-position: -180% 0; } to { background-position: 280% 0; } }
-@keyframes fx-indeterminate { 0% { transform: translate3d(-100%,0,0) scaleX(0.4); } 50% { transform: translate3d(20%,0,0) scaleX(0.75); } 100% { transform: translate3d(140%,0,0) scaleX(0.35); } }
-@keyframes fx-dots { 0%, 80%, 100% { transform: scale(0.7); opacity: 0.45; } 40% { transform: scale(1); opacity: 1; } }
-@keyframes fx-bars { 0%, 100% { transform: scaleY(0.35); } 50% { transform: scaleY(1); } }
-
 .fx-skeleton {
   background: linear-gradient(90deg,
     color-mix(in srgb, var(--color-line) 45%, transparent) 25%,
@@ -1013,27 +679,12 @@
   border-radius: 8px;
 }
 .fx-skeleton-pulse { animation: fx-skeleton-pulse 1.5s ease-in-out infinite; }
-.fx-progress-indeterminate { transform-origin: left; animation: fx-indeterminate 1.4s var(--fx-ease-out) infinite; }
-.fx-progress-determinate { transform-origin: left; transform: scaleX(var(--fx-progress, 0)); transition: transform 620ms var(--fx-ease-entrance); }
-.fx-spinner { animation: fx-spin 900ms linear infinite; }
-.fx-dots > * { animation: fx-dots 1.3s ease-in-out infinite; animation-delay: calc(var(--fx-i, 0) * 160ms); }
-.fx-bars > * { transform-origin: bottom; animation: fx-bars 1s ease-in-out infinite; animation-delay: calc(var(--fx-i, 0) * 120ms); }
 
-/* Step indicator: the connector fills as each step completes. */
-.fx-step-rail { transform-origin: left; transform: scaleX(var(--fx-progress, 0)); transition: transform 520ms var(--fx-ease-entrance); }
-.fx-step-dot { transition: background-color 260ms linear, transform 260ms var(--fx-ease-spring); }
-.fx-step-dot[data-done="true"] { transform: scale(1.15); }
 
-/* Branded preloader / splash. */
-@keyframes fx-preloader-out { to { opacity: 0; visibility: hidden; transform: scale(1.04); } }
-.fx-preloader { animation: fx-preloader-out 520ms var(--fx-ease-entrance) forwards; animation-delay: var(--fx-delay, 600ms); }
+/* ========================================================================== */
+/*  §12 — TYPOGRAPHIC EFFECTS                                                */
+/* ========================================================================== */
 
-/* ======================================================================== */
-/*  §12 — TYPOGRAPHIC EFFECTS                                               */
-/* ======================================================================== */
-
-/* Fluid, responsive type scale for display headings. */
-.fx-display { font-size: clamp(1.9rem, 1.1rem + 3.6vw, 4rem); line-height: 1.06; letter-spacing: -0.028em; }
 
 /* Gradient text and image-clipped text. */
 .fx-text-gradient {
@@ -1042,15 +693,7 @@
   -webkit-background-clip: text; background-clip: text;
   color: transparent; -webkit-text-fill-color: transparent;
 }
-.fx-text-gradient-live { animation: fx-gradient-shift 9s ease infinite; }
-.fx-text-stroke { -webkit-text-stroke: 1px var(--color-accent); color: transparent; }
-.fx-text-3d {
-  text-shadow:
-    0 1px 0 color-mix(in srgb, var(--color-ink) 18%, transparent),
-    0 2px 0 color-mix(in srgb, var(--color-ink) 14%, transparent),
-    0 4px 10px rgba(8, 20, 40, 0.20);
-}
-.fx-text-shadow-soft { text-shadow: 0 1px 2px rgba(8, 20, 40, 0.10); }
+
 
 /* Line / word / character reveal. The splitter emits one span per unit and
    sets --fx-i; the mask is a per-unit overflow clip so the line rises out of
@@ -1067,11 +710,6 @@
 .fx-split-word > span { --fx-travel: 14px; }
 .fx-split-char > span { --fx-travel: 10px; animation-delay: calc(var(--fx-i, 0) * var(--fx-split-stagger, 22ms) + var(--fx-delay, 0ms)); }
 
-/* Letter-spacing entry — the one place a non-transform property is animated,
-   because there is no transform that produces tracking. It runs once, on a
-   single short heading, and never during scroll. */
-@keyframes fx-tracking-in { from { letter-spacing: 0.42em; opacity: 0; } to { letter-spacing: inherit; opacity: 1; } }
-.fx-tracking-in { animation: fx-tracking-in 760ms var(--fx-ease-entrance) both; }
 
 /* Typewriter — a steps() caret over a clipped inline block. */
 @keyframes fx-typewrite { from { width: 0; } to { width: 100%; } }
@@ -1085,32 +723,6 @@
   animation-delay: var(--fx-delay, 0ms), 0ms;
 }
 
-/* Highlight sweep behind text — the "read this" mark. */
-@keyframes fx-highlight-sweep { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-.fx-highlight-text { position: relative; isolation: isolate; }
-.fx-highlight-text::before {
-  content: ""; position: absolute; inset: 0.08em -0.16em 0.06em -0.16em; z-index: -1;
-  background: linear-gradient(100deg, color-mix(in srgb, var(--color-gold) 24%, transparent), color-mix(in srgb, var(--color-accent) 16%, transparent));
-  border-radius: 3px; transform-origin: left;
-  animation: fx-highlight-sweep 620ms var(--fx-ease-entrance) both var(--fx-delay, 0ms);
-}
-
-/* Drop cap. */
-.fx-dropcap::first-letter {
-  float: left; font-size: 3.1em; line-height: 0.82; padding: 0.06em 0.1em 0 0;
-  font-weight: 900; color: var(--color-accent);
-}
-
-/* Variable-font weight animation. Montserrat is loaded as its variable axis,
-   so this is a real axis interpolation rather than synthesised bold. */
-@keyframes fx-weight-in { from { font-variation-settings: "wght" 300; } to { font-variation-settings: "wght" 800; } }
-.fx-weight-in { animation: fx-weight-in 720ms var(--fx-ease-entrance) both; }
-.fx-weight-hover { transition: font-variation-settings 320ms var(--fx-ease-out); }
-.fx-weight-hover:hover { font-variation-settings: "wght" 800; }
-
-/* Text along a path, and the kinetic marquee headline. */
-.fx-text-path { font-weight: 800; letter-spacing: 0.06em; }
-.fx-kinetic { display: inline-block; animation: fx-float 3.4s ease-in-out infinite; animation-delay: calc(var(--fx-i, 0) * 90ms); }
 
 /* Cycling word swap — the outgoing word leaves upward, the incoming arrives
    from below, inside a fixed-height clip so nothing reflows. */
@@ -1120,9 +732,9 @@
 .fx-cycler > span[data-state="in"]   { transform: none; opacity: 1; }
 .fx-cycler > span[data-state="next"] { transform: translate3d(0, 110%, 0); opacity: 0; }
 
-/* ======================================================================== */
-/*  §13 — MEDIA (IMAGES & VIDEO)                                            */
-/* ======================================================================== */
+/* ========================================================================== */
+/*  §13 — MEDIA (IMAGES & VIDEO)                                             */
+/* ========================================================================== */
 
 /* Ken Burns. Slow, and only on a portrait that is already the focal point. */
 @keyframes fx-kenburns {
@@ -1131,35 +743,12 @@
 }
 .fx-kenburns { animation: fx-kenburns 22s var(--fx-ease-out) alternate infinite; will-change: transform; }
 
-/* Duotone and colour-grade transitions. */
-.fx-duotone { filter: grayscale(1) contrast(1.08) sepia(0.35) hue-rotate(190deg) saturate(2.6); transition: filter 620ms var(--fx-ease-entrance); }
-.fx-duotone:hover, .fx-duotone.is-off { filter: none; }
-.fx-grade { transition: filter 520ms var(--fx-ease-entrance); }
-.fx-grade:hover { filter: saturate(1.14) contrast(1.05); }
-
-/* Focus rack — the layer behind sharpens as the one in front blurs. */
-.fx-rack-back  { filter: blur(3px); transition: filter 520ms var(--fx-ease-entrance); }
-.fx-rack:hover .fx-rack-back  { filter: none; }
-.fx-rack:hover .fx-rack-front { filter: blur(2px); }
-.fx-rack-front { transition: filter 520ms var(--fx-ease-entrance); }
-
-/* Depth-of-field blur for stacked planes. */
-.fx-dof { filter: blur(calc(var(--fx-depth, 0) * 2px)); }
-
-/* Crossfade between two stacked images. */
-.fx-crossfade { display: grid; }
-.fx-crossfade > * { grid-area: 1 / 1; transition: opacity 620ms var(--fx-ease-entrance); }
-.fx-crossfade > [data-active="false"] { opacity: 0; }
-
-/* Lightbox. */
-@keyframes fx-lightbox-in { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: none; } }
-.fx-lightbox { animation: fx-lightbox-in 300ms var(--fx-ease-spring) both; }
 
 /* Masked gradients — images and rails that fade out rather than stopping at a
    hard edge. */
-.fx-mask-fade-b { mask-image: linear-gradient(180deg, black 62%, transparent); }
+
 .fx-mask-fade-x { mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent); }
-.fx-mask-radial { mask-image: radial-gradient(ellipse 78% 78% at 50% 44%, black 58%, transparent); }
+
 
 /* Glassmorphism and neumorphism. Both are surface treatments rather than
    motion, and both are used sparingly: glass for floating chrome that sits
@@ -1175,15 +764,7 @@
   background: color-mix(in srgb, var(--color-card) 62%, transparent);
   box-shadow: 0 8px 32px -12px rgba(0, 0, 0, 0.7), inset 0 1px 0 color-mix(in srgb, white 8%, transparent);
 }
-.fx-neumorph {
-  background: var(--color-paper);
-  box-shadow: 4px 4px 10px color-mix(in srgb, var(--color-ink) 8%, transparent),
-             -4px -4px 10px color-mix(in srgb, white 70%, transparent);
-  border-radius: 0.9rem;
-}
-.dark .fx-neumorph {
-  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.55), -4px -4px 12px color-mix(in srgb, white 4%, transparent);
-}
+
 
 /* Gradient dividers and hairline rules in brand colour. */
 .fx-divider-gradient { height: 1px; border: 0; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--color-accent) 55%, transparent), color-mix(in srgb, var(--color-gold) 45%, transparent), transparent); }
@@ -1200,15 +781,10 @@
 }
 .fx-photo-frame:hover { transform: rotate(0deg) translate3d(0, -3px, 0); }
 
-/* Image border draw on entry. */
-@keyframes fx-frame-draw { from { clip-path: inset(0 100% 100% 0); } to { clip-path: inset(0 0 0 0); } }
-.fx-frame-draw { animation: fx-frame-draw 720ms var(--fx-ease-entrance) both; }
 
-/* ======================================================================== */
-/*  §14 — SPATIAL & 3D                                                      */
-/*  (the perspective stage and depth-card live in globals.css; these are     */
-/*   the additions the brief asks for on top of them)                        */
-/* ======================================================================== */
+/* ========================================================================== */
+/*  §14 — SPATIAL & 3D                                                       */
+/* ========================================================================== */
 
 .fx-tilt {
   transform: perspective(var(--fx-persp, 900px))
@@ -1222,45 +798,22 @@
 /* Layers inside a tilting card sit at real z-offsets, so the parallax between
    them is a consequence of the rotation rather than a second animation. */
 .fx-z-1 { transform: translateZ(18px); }
-.fx-z-2 { transform: translateZ(36px); }
+
 .fx-z-3 { transform: translateZ(58px); }
 
-@keyframes fx-cube-rotate { from { transform: rotateY(0); } to { transform: rotateY(360deg); } }
-.fx-cube { transform-style: preserve-3d; animation: fx-cube-rotate var(--fx-loop-dur, 18s) linear infinite; }
-
-@keyframes fx-extrude { from { transform: translateZ(0) scale(1); } to { transform: translateZ(40px) scale(1.02); } }
-.fx-extrude { animation: fx-extrude 620ms var(--fx-ease-entrance) both; }
-
-/* SVG shape / blob morph. `d` interpolation where the browser supports it,
-   with a scale fallback that reads as the same gesture where it does not. */
-@keyframes fx-blob { 0%, 100% { border-radius: 42% 58% 62% 38% / 46% 42% 58% 54%; } 33% { border-radius: 62% 38% 46% 54% / 58% 62% 38% 42%; } 66% { border-radius: 48% 52% 38% 62% / 62% 46% 54% 38%; } }
-.fx-blob { animation: fx-blob 16s ease-in-out infinite; }
 
 /* Post-processing: bloom and vignette, as compositor filters over a band. */
-.fx-bloom { filter: brightness(1.06) saturate(1.1) drop-shadow(0 0 12px color-mix(in srgb, var(--color-accent) 30%, transparent)); }
+
 .fx-vignette::after {
   content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
   background: radial-gradient(ellipse 90% 80% at 50% 45%, transparent 55%, rgba(4, 10, 24, 0.28));
 }
-.fx-chromatic { text-shadow: -0.5px 0 color-mix(in srgb, var(--color-gold) 55%, transparent), 0.5px 0 color-mix(in srgb, var(--color-accent) 55%, transparent); }
 
-/* Displacement — a cheap turbulence warp for the hero band's edge only. */
-.fx-displace { filter: url(#fx-displacement-filter); }
 
-/* ======================================================================== */
-/*  §15 — NAVIGATION                                                        */
-/* ======================================================================== */
+/* ========================================================================== */
+/*  §15 — NAVIGATION                                                         */
+/* ========================================================================== */
 
-/* Hamburger → close morph, three bars, no icon swap. */
-.fx-burger span { display: block; height: 2px; background: currentColor; border-radius: 2px; transition: transform 320ms var(--fx-ease-spring), opacity 180ms linear; }
-.fx-burger[data-open="true"] span:nth-child(1) { transform: translate3d(0, 6px, 0) rotate(45deg); }
-.fx-burger[data-open="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0.2); }
-.fx-burger[data-open="true"] span:nth-child(3) { transform: translate3d(0, -6px, 0) rotate(-45deg); }
-
-/* Full-screen overlay nav with an item cascade. */
-@keyframes fx-overlay-nav { from { opacity: 0; clip-path: circle(0% at 92% 6%); } to { opacity: 1; clip-path: circle(150% at 92% 6%); } }
-.fx-overlay-nav { animation: fx-overlay-nav 480ms var(--fx-ease-entrance) both; }
-.fx-overlay-nav [data-nav-item] { animation: fx-slide-up 420ms var(--fx-ease-entrance) both; animation-delay: calc(var(--fx-i, 0) * 55ms + 160ms); }
 
 /* Active-link indicator that slides between items in a rail. */
 .fx-rail-indicator {
@@ -1282,117 +835,34 @@
 .fx-header { transition: background-color 320ms linear, backdrop-filter 320ms linear, box-shadow 320ms linear, padding 320ms var(--fx-ease-entrance); }
 .fx-header[data-stuck="true"] { box-shadow: 0 4px 20px -12px rgba(8, 20, 40, 0.35); }
 
-/* Notification bell. */
-@keyframes fx-bell { 0%, 100% { transform: rotate(0); } 15% { transform: rotate(14deg); } 30% { transform: rotate(-12deg); } 45% { transform: rotate(8deg); } 60% { transform: rotate(-5deg); } 75% { transform: rotate(2deg); } }
-.fx-bell { transform-origin: top center; animation: fx-bell 900ms var(--fx-ease-out); }
 
-/* Breadcrumb level change. */
-.fx-crumb { animation: fx-slide-left 260ms var(--fx-ease-entrance) both; --fx-travel: 8px; animation-delay: calc(var(--fx-i, 0) * 40ms); }
+/* ========================================================================== */
+/*  §16 — FORM INTERACTIONS                                                  */
+/*                                                                           */
+/*  Styled on the native controls rather than through classes, so every range,*/
+/*  text field, checkbox and radio on the site is covered — including any   */
+/*  added                                                                   */
+/*  later — without a per-call-site opt-in someone will forget.              */
+/* ========================================================================== */
 
-/* Mega-menu / dynamic-island style pill that grows into a panel. */
-.fx-island { transition: transform 420ms var(--fx-ease-spring), border-radius 420ms var(--fx-ease-spring), background-color 320ms linear; }
-.fx-island[data-expanded="true"] { transform: scale(1.02); }
-
-/* ======================================================================== */
-/*  §16 — FORM INTERACTIONS                                                 */
-/* ======================================================================== */
-
-.fx-float-label { position: relative; }
-.fx-float-label > label {
-  position: absolute; left: 0.85rem; top: 50%; transform: translateY(-50%);
-  transform-origin: left center; pointer-events: none;
-  color: var(--color-muted);
-  transition: transform 220ms var(--fx-ease-entrance), color 200ms linear;
-}
-.fx-float-label:focus-within > label,
-.fx-float-label > input:not(:placeholder-shown) + label,
-.fx-float-label > textarea:not(:placeholder-shown) + label {
-  transform: translateY(-1.55rem) scale(0.78);
-  color: var(--color-accent);
-}
 
 .fx-input-glow { transition: box-shadow 240ms var(--fx-ease-out), border-color 200ms linear; }
 .fx-input-glow:focus, .fx-input-glow:focus-within { box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 16%, transparent); border-color: var(--color-accent); }
 
-/* Submit button state machine: idle → loading → success, one box, three faces. */
-.fx-submit { transition: background-color 260ms linear, transform 200ms var(--fx-ease-spring), width 320ms var(--fx-ease-entrance); }
-.fx-submit[data-state="loading"] { pointer-events: none; }
-.fx-submit[data-state="success"] { background-color: var(--verified-color); }
 
-/* Password strength meter. */
-.fx-strength { transform-origin: left; transform: scaleX(var(--fx-progress, 0)); transition: transform 320ms var(--fx-ease-entrance), background-color 260ms linear; }
+/* ========================================================================== */
+/*  §18 — ORCHESTRATION                                                      */
+/* ========================================================================== */
 
-/* Drop-zone. */
-.fx-dropzone { transition: border-color 200ms linear, background-color 200ms linear, transform 200ms var(--fx-ease-out); border-style: dashed; }
-.fx-dropzone[data-over="true"] { border-color: var(--color-accent); background-color: color-mix(in srgb, var(--color-accent) 7%, transparent); transform: scale(1.008); }
-
-/* Custom checkbox / radio: the tick draws rather than appearing. */
-.fx-check-box { transition: background-color 200ms linear, border-color 200ms linear, transform 200ms var(--fx-ease-spring); }
-.fx-check-box[data-checked="true"] { transform: scale(1.04); }
-.fx-check-box[data-checked="true"] .fx-check-mark { stroke-dasharray: 24; animation: fx-check-draw 300ms var(--fx-ease-entrance) forwards; }
-
-/* Autocomplete list. */
-.fx-autocomplete { animation: fx-menu-in 180ms var(--fx-ease-entrance) both; }
-.fx-autocomplete > * { animation: fx-fade-in 200ms linear both; animation-delay: calc(var(--fx-i, 0) * 26ms); }
-
-/* Multi-step form: steps travel on the axis they advance along. */
-.fx-step-in-next { animation: fx-slide-left 320ms var(--fx-ease-entrance) both; }
-.fx-step-in-prev { animation: fx-slide-right 320ms var(--fx-ease-entrance) both; }
-
-/* ======================================================================== */
-/*  §17 — PHYSICS & PROCEDURAL                                              */
-/*                                                                          */
-/*  Real physics — cloth, flocking, soft bodies, fluid solvers — is a WebGL  */
-/*  or canvas cost this document declined to pay: a three.js scene is 150KB+ */
-/*  on a first load that this proposal's own argument says will be read on a */
-/*  mid-range Android over a slow connection. What is here instead is the    */
-/*  perceptual result of those systems, expressed as compositor keyframes.   */
-/* ======================================================================== */
-
-@keyframes fx-spring-settle { 0% { transform: scale(0.86); } 45% { transform: scale(1.06); } 70% { transform: scale(0.98); } 88% { transform: scale(1.012); } 100% { transform: scale(1); } }
-@keyframes fx-damped { 0% { transform: translate3d(0, -18px, 0); } 40% { transform: translate3d(0, 5px, 0); } 65% { transform: translate3d(0, -2.5px, 0); } 85% { transform: translate3d(0, 1px, 0); } 100% { transform: none; } }
-@keyframes fx-gravity-drop { 0% { transform: translate3d(0, -120%, 0); animation-timing-function: cubic-bezier(0.6, 0, 1, 0.4); } 62% { transform: none; } 76% { transform: translate3d(0, -14%, 0); } 88% { transform: none; } 94% { transform: translate3d(0, -5%, 0); } 100% { transform: none; } }
-@keyframes fx-elastic { 0% { transform: scale(0.3); } 55% { transform: scale(1.16); } 75% { transform: scale(0.94); } 90% { transform: scale(1.03); } 100% { transform: scale(1); } }
-@keyframes fx-softbody { 0%, 100% { transform: scale(1, 1); } 30% { transform: scale(1.06, 0.94); } 60% { transform: scale(0.96, 1.04); } }
-@keyframes fx-ribbon { 0%, 100% { transform: skewY(0) translate3d(0,0,0); } 33% { transform: skewY(1.2deg) translate3d(4px, -3px, 0); } 66% { transform: skewY(-0.9deg) translate3d(-3px, 2px, 0); } }
-
-.fx-spring   { animation: fx-spring-settle 620ms var(--fx-ease-out) both var(--fx-delay, 0ms); }
-.fx-damped   { animation: fx-damped 760ms var(--fx-ease-out) both var(--fx-delay, 0ms); }
-.fx-gravity  { animation: fx-gravity-drop 900ms both var(--fx-delay, 0ms); }
-.fx-elastic  { animation: fx-elastic 720ms var(--fx-ease-out) both var(--fx-delay, 0ms); }
-.fx-softbody { animation: fx-softbody 900ms var(--fx-ease-out); }
-.fx-ribbon   { animation: fx-ribbon 9s ease-in-out infinite; }
-/* Chain lag: each follower carries a larger delay, so a row trails its leader. */
-.fx-chain > * { animation-delay: calc(var(--fx-i, 0) * 70ms); }
-/* Inertia decay for a released drag. */
-.fx-inertia { transition: transform 620ms cubic-bezier(0.12, 0.86, 0.2, 1); }
-
-/* ======================================================================== */
-/*  §18 — ORCHESTRATION                                                     */
-/*                                                                          */
-/*  These are contracts rather than effects: a class that says how a group    */
-/*  is timed, so a surface's choreography is declared where the markup is.    */
-/* ======================================================================== */
-
-/* Sequential chain — each child waits for the previous beat. */
-.fx-seq > * { animation-delay: calc(var(--fx-i, 0) * var(--fx-beat, 180ms)); }
-/* Parallel group — everything on the same beat. */
-.fx-parallel > * { animation-delay: var(--fx-delay, 0ms); }
-/* Cascade with an easing curve applied to the delay itself, so a long list
-   accelerates rather than marching. */
-.fx-cascade > * { animation-delay: calc(var(--fx-i, 0) * var(--fx-stagger) - var(--fx-i, 0) * var(--fx-i, 0) * 1.4ms); }
-/* Interruptible: transitions rather than animations, so a reversal mid-flight
-   picks up from where it is instead of snapping. */
-.fx-interruptible { transition-property: transform, opacity; transition-duration: var(--fx-dur-medium); transition-timing-function: var(--fx-ease-entrance); }
 
 /* Hero choreography: one named timeline the header's parts opt into by index,
    so the whole entrance can be retimed from a single custom property. */
 .fx-hero-seq { --fx-beat: 90ms; }
 .fx-hero-seq > * { animation-delay: calc(var(--fx-i, 0) * var(--fx-beat) + 120ms); }
 
-/* ======================================================================== */
-/*  §19 / §20 — ENABLING, BRAND & THEME                                     */
-/* ======================================================================== */
+/* ========================================================================== */
+/*  §19 / §20 — ENABLING, BRAND & THEME                                      */
+/* ========================================================================== */
 
 /* Branded scrollbar. */
 * { scrollbar-color: color-mix(in srgb, var(--color-accent) 55%, transparent) transparent; scrollbar-width: thin; }
@@ -1409,11 +879,6 @@
 /* Selection in brand colour. */
 ::selection { background: color-mix(in srgb, var(--color-accent) 26%, transparent); color: var(--color-ink); }
 
-/* GPU promotion, applied narrowly. `will-change` on everything is worse than
-   on nothing — it is only set on elements that are actively animating. */
-.fx-gpu { will-change: transform, opacity; transform: translateZ(0); backface-visibility: hidden; }
-/* Containment for bands that never affect the layout outside themselves. */
-.fx-contain { contain: layout paint style; }
 
 /* Custom cursor. The native cursor is only hidden where a replacement is
    actually painted, and never on a touch device or a form control. */
@@ -1432,50 +897,26 @@
   transform: translate3d(var(--cx-lag, -50px), var(--cy-lag, -50px), 0) translate(-50%, -50%) scale(var(--c-scale, 1));
   transition: width 200ms var(--fx-ease-out), height 200ms var(--fx-ease-out), opacity 200ms linear;
 }
-/* Cursor trail: the ring is the trail, lagging the dot. A particle trail was
-   tried and abandoned — it costs a rAF loop and reads as lag, not polish. */
+
 
 /* Seasonal / campaign-phase accent overrides, one attribute on the shell. */
 [data-campaign-phase="nomination"] { --color-accent: var(--phase-neg1); }
 [data-campaign-phase="gotv"]       { --color-accent: var(--phase-3); }
 
-/* ======================================================================== */
-/*  §21 — EMERGING & NICHE                                                  */
-/* ======================================================================== */
 
-/* Blend-mode transitions on a figure's overlay. */
-.fx-blend-multiply { mix-blend-mode: multiply; transition: mix-blend-mode 200ms linear, opacity 320ms linear; }
-.fx-blend-screen   { mix-blend-mode: screen; }
-.fx-blend-overlay  { mix-blend-mode: overlay; }
-.dark .fx-blend-multiply { mix-blend-mode: screen; }
-
-/* Step-by-step infographic reveal — each step is opt-in, driven by a click
-   rather than by scroll, so the reader controls the pace of the argument. */
-.fx-step-reveal { opacity: 0.28; filter: saturate(0.4); transition: opacity 420ms var(--fx-ease-entrance), filter 420ms var(--fx-ease-entrance), transform 420ms var(--fx-ease-entrance); }
-.fx-step-reveal[data-revealed="true"] { opacity: 1; filter: none; }
-
-/* Toast with a countdown bar is in §7; the dynamic-island pill is in §15. */
-
-/* ======================================================================== */
-/*  REDUCED MOTION                                                          */
-/*                                                                          */
+/* ========================================================================== */
+/*  REDUCED MOTION                                                           */
+/*                                                                           */
 /*  The reduced path is a DIFFERENT FINISHED PAGE, not a degraded one.       */
-/*                                                                          */
-/*  The blanket `animation-duration: 0.01ms` rule in globals.css handles      */
-/*  entrances correctly — a 0.01ms entrance lands on its `to` state, which    */
-/*  is the finished element. It is wrong for two classes of effect, and both  */
-/*  are corrected here:                                                       */
-/*                                                                            */
-/*    1. Ambient loops. Compressing a 26s aurora into 0.01ms leaves it        */
-/*       frozen at an arbitrary keyframe. They are switched off entirely.     */
-/*    2. Effects whose `to` state is not the truth — a typewriter's `to` is   */
-/*       the full string (fine), but a shimmer's is off-screen and a          */
-/*       skeleton's is mid-sweep. Those are reset to their resting state.     */
-/*                                                                            */
-/*  Charts are the case rule 3 was written for: `.fx-bar` and friends are     */
-/*  told `animation: none`, so the bar renders at its true height from the    */
-/*  first frame rather than at any point along a growth curve.                */
-/* ======================================================================== */
+/*                                                                           */
+/*  globals.css already compresses every animation to 0.01ms, which lands an */
+/*  entrance on its `to` state — correct. It is wrong for two classes of    */
+/*  effect,                                                                 */
+/*  and both are corrected below: ambient loops (a 26s aurora compressed to  */
+/*  0.01ms freezes at an arbitrary keyframe) and effects whose `to` state   */
+/*  is not                                                                  */
+/*  the truth (a shimmer's is off-screen; a chart's is a value).             */
+/* ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
   /* 1. Ambient loops stop. */
@@ -1491,9 +932,9 @@
   .fx-shimmer::after { animation: none !important; opacity: 0; }
   .fx-skeleton { animation: none !important; background: color-mix(in srgb, var(--color-line) 55%, transparent); }
   .fx-skeleton-pulse { animation: none !important; opacity: 0.7; }
-  .fx-progress-indeterminate { animation: none !important; transform: scaleX(1); }
-  .fx-dots > *, .fx-bars > * { animation: none !important; transform: none; opacity: 1; }
-  .fx-spinner { animation: fx-spin 1.6s linear infinite !important; } /* a spinner that does not spin is a bug */
+  
+  
+   /* a spinner that does not spin is a bug */
 
   /* 2. Charts render at the truth, not at a point on a growth curve. */
   .fx-bar, .fx-bar-h, .fx-ring, .fx-sweep, .fx-needle, .fx-point, .fx-cell,
@@ -1517,8 +958,8 @@
     letter-spacing: inherit !important;
   }
   .fx-typewriter { animation: none !important; width: auto !important; border-right-color: transparent !important; }
-  .fx-curtain { display: none !important; }
-  .fx-preloader { animation: none !important; display: none !important; }
+  
+  
 
   /* 4. Interaction feedback SURVIVES, shortened. A press state that never
         appears is a bug, not a preference. Hover travel is removed; the
@@ -1528,19 +969,20 @@
     transform: none !important;
   }
   .fx-lift, .fx-press, .fx-underline::after, .fx-marker::before, .fx-bg-slide::before,
-  .fx-field, .fx-input-glow, .fx-switch > .fx-switch-thumb, .fx-navdot, .fx-backtotop {
+  .fx-field, .fx-input-glow, .fx-switch > .fx-switch-thumb, .fx-navdot, .fx-backtotop,
+  input[type="range"]::-webkit-slider-thumb, input[type="range"]::-moz-range-thumb {
     transition-duration: 0.09s !important;
   }
   .fx-shine::before { display: none !important; }
   .fx-spotlight::before, .fx-glow-border::after { transition: none !important; }
 }
 
-/* ======================================================================== */
-/*  PRINT                                                                   */
-/*                                                                          */
-/*  This proposal gets printed. Every effect that exists to be seen on a     */
-/*  screen either resolves to its finished state on paper or disappears.     */
-/* ======================================================================== */
+/* ========================================================================== */
+/*  PRINT                                                                    */
+/*                                                                           */
+/*  This proposal gets printed. Every effect either resolves to its finished */
+/*  state on paper or disappears.                                            */
+/* ========================================================================== */
 
 @media print {
   [class*="fx-in-"], [class*="fx-out-"], [class*="fx-loop-"],
@@ -1562,12 +1004,9 @@
   .fx-lift, .fx-tilt, .fx-photo-frame { transform: none !important; box-shadow: none !important; }
 }
 
-/* ======================================================================== */
-/*  DATA-SAVER / LOW-END DEVICE                                             */
-/*                                                                          */
-/*  A reader on a metered connection or a low-power device gets the layout   */
-/*  and the colour, without the fields that cost continuous compositing.     */
-/* ======================================================================== */
+/* ========================================================================== */
+/*  DATA-SAVER / LOW-END DEVICE                                              */
+/* ========================================================================== */
 
 @media (prefers-reduced-data: reduce) {
   .fx-aurora, .fx-motes, .fx-caustics, .fx-grain::before { display: none; }
@@ -1579,18 +1018,17 @@
 .scrollbar-none { scrollbar-width: none; -ms-overflow-style: none; }
 .scrollbar-none::-webkit-scrollbar { width: 0; height: 0; display: none; }
 
-/* ======================================================================== */
-/*  DOCUMENT SURFACES                                                       */
-/*                                                                          */
-/*  The 262 sections of this proposal share one renderer, so a rule scoped   */
-/*  to `.prose` here reaches every one of them without a per-section edit.   */
-/*  Everything below is therefore held to a stricter standard than the       */
-/*  effects above: it has to survive being seen 262 times.                   */
-/*                                                                          */
-/*  The test each rule had to pass: would this still be welcome on the       */
-/*  fortieth section? Anything that only worked as a one-off — a sweep, a     */
-/*  bounce, a colour cycle — was rejected here and kept for a single surface. */
-/* ======================================================================== */
+/* ========================================================================== */
+/*  DOCUMENT SURFACES                                                        */
+/*                                                                           */
+/*  The 262 sections of this proposal share one renderer, so a rule scoped to*/
+/*  `.prose` here reaches every one of them without a per-section edit.     */
+/*  The test                                                                */
+/*  each rule had to pass: would this still be welcome on the fortieth      */
+/*  section?                                                                */
+/*  Anything that only worked as a one-off was rejected here and kept for a  */
+/*  single surface.                                                          */
+/* ========================================================================== */
 
 /* Rules become brand gradients rather than flat lines. */
 .prose hr:not(.not-prose *) {
@@ -1701,6 +1139,9 @@
 }
 
 @media print {
+  /* Folds print open. A briefing kit with a heading and nothing under it is worse than a long
+     one, and the collapse is a reading convenience, not an editorial decision. */
+  .fx-collapse { grid-template-rows: 1fr !important; opacity: 1 !important; }
   .prose thead th:not(.not-prose *) { position: static; backdrop-filter: none; }
   .prose blockquote:not(.not-prose *)::before { display: none; }
 }
@@ -1720,4 +1161,41 @@
   h3:hover > .section-anchor-btn,
   .section-anchor-btn:focus-visible,
   .section-anchor-btn[data-copied="true"] { opacity: 1; }
+}
+
+/* ========================================================================== */
+/*  NATIVE SCROLL-DRIVEN REVEAL FOR DOCUMENT FIGURES                         */
+/*                                                                           */
+/*  Applied by selector, so every figure, table and mounted visualisation   */
+/*  across                                                                  */
+/*  all 262 sections reveals on scroll without a component opting in, and   */
+/*  without                                                                 */
+/*  a single IntersectionObserver. Inside @supports for a reason that is not */
+/*  politeness: a browser without `animation-timeline` never applies the    */
+/*  rule, so                                                                */
+/*  the figure is visible by default and the reveal can never hide content.  */
+/* ========================================================================== */
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .prose > figure:not(.not-prose *),
+    .prose > .not-prose,
+    .prose > table:not(.not-prose *) {
+      animation: fx-slide-up auto var(--fx-ease-entrance) both;
+      animation-timeline: view();
+      animation-range: entry 4% cover 26%;
+      --fx-travel: 14px;
+    }
+  }
+}
+
+/* The hero field drifts against the page as it scrolls, which is what makes
+   the header read as having depth rather than as a picture behind text. The
+   depth multiplier is per-layer, so the three aurora wells separate. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .fx-aurora span:nth-child(1) { --fx-depth: 0.6; }
+    .fx-aurora span:nth-child(2) { --fx-depth: 1; }
+    .fx-aurora span:nth-child(3) { --fx-depth: 1.5; }
+  }
 }

@@ -567,7 +567,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
         </div>
         
         {/* Responsive Toolbar */}
-        <div className={`fx-header sticky top-0 z-40 fx-glass rounded-b-xl py-2 sm:py-3 ${(activeTab === "decision" || isExpanded) ? "mt-3 sm:mt-6" : "mt-0"} mb-3 sm:mb-6 flex items-center justify-between gap-2 print:hidden`}>
+        <div className={`fx-header fx-dir-header sticky top-0 z-40 fx-glass rounded-b-xl py-2 sm:py-3 ${(activeTab === "decision" || isExpanded) ? "mt-3 sm:mt-6" : "mt-0"} mb-3 sm:mb-6 flex items-center justify-between gap-2 print:hidden`}>
           {/* The hairline under the bar is a gradient rather than a rule, so the toolbar reads as
               a lit edge over the document instead of a box drawn on top of it. */}
           <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-0 bottom-0" />
