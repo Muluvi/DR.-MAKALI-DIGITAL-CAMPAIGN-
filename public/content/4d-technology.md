@@ -1,10 +1,10 @@
-The data model and its provenance rules, the voter model built on it, the technology stack, and the analytics layer that measures all of it.
+The data model, the voter model built on it, the technology stack, and the analytics layer that measures all of it.
 
 ## 6.1 The data layer
 
 A modern, high-precision political operation requires an infallible data layer. The campaign rejects arbitrary spreadsheets, unverified voter claims, and ad-hoc phone lists. In their place, the strategy establishes a centralized, structured database architecture governed by strict mathematical provenance, audit trails, and rigorous adherence to Kenyan privacy legislation.
 
-This section defines the voter and supporter data model, the three-tier empirical provenance standard, protocols for handling disputed electoral figures, and legal compliance workflows under Kenya's **Data Protection Act (DPA) 2019** and the **Office of the Data Protection Commissioner (ODPC)**.
+This section defines the voter and supporter data model and the legal compliance workflows under Kenya's **Data Protection Act (DPA) 2019** and the **Office of the Data Protection Commissioner (ODPC)**. The three-tier provenance standard that grades every figure in this proposal (Section 6.1.2) and the protocol for when two sources disagree (Section 6.1.4) are set out alongside the evidence they govern.
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
