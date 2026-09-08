@@ -15,6 +15,7 @@ import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
 import { MizaniSlopeBlock } from "./markdown/MizaniSlopeBlock";
 import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
 import { KpiArchitecture } from "./charts/KpiArchitecture";
+import { BenchmarkLadder } from "./charts/BenchmarkLadder";
 import { CeilingMeter } from "./charts/CeilingMeter";
 import { OfflineWaterline } from "./charts/OfflineWaterline";
 import { VoteFunnel } from "./charts/VoteFunnel";
@@ -283,6 +284,10 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   ),
   "strategy-sec-2-2": <StrategicPillarsMatrix />,
   "evidence-sec-1-4": <GeographicZoneMatrix />,
+  // §4D carried no anchored visualisation at all before this — the one section of nine that was
+  // a wall of text, and the one describing the technology stack, which is the part of the
+  // proposal this reader is most likely to test against the artifact itself.
+  "technology-sec-6-4-4": <BenchmarkLadder />,
   "team-sec-7-2": <CampaignOrgChart />,
   "decision-sec-9-2-5": (
     <>
