@@ -526,9 +526,13 @@ export function BrandUmbrella({ size = 48, className = "" }: { size?: number; cl
 // ==========================================
 
 // 10. Interactive Report Generator (Print Toggle)
-export function PrintReportGenerator() {
+export function PrintReportGenerator({ onPrint }: { onPrint?: () => void } = {}) {
+  // Falls back to the browser dialog only if no handler is supplied. The handler ClientPage
+  // passes routes to /full first, so the PDF is the whole proposal rather than whichever
+  // section the reader happened to have open.
   const triggerPrint = () => {
-    window.print();
+    if (onPrint) onPrint();
+    else window.print();
   };
 
   return (

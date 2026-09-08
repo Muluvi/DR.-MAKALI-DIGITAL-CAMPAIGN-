@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Coins, Users, Radio, ShieldCheck, Type, Eye, EyeOff, Map, MessageSquare, Megaphone, Shield, Database, Gauge, HandCoins } from "lucide-react";
 
@@ -88,14 +89,14 @@ function SectionTabTransition({ children }: { children: React.ReactNode }) {
   );
 }
 
-interface MarkdownSection {
-  node: React.ReactNode;
-  wordCount: number;
-}
-
 interface ClientPageProps {
   sections: SectionItem[];
-  documents: Record<TabId, MarkdownSection>;
+  /** Rendered prose for the section this route serves — or all nine, on /full. */
+  documents: Partial<Record<TabId, React.ReactNode>>;
+  /** Every section's length, for reading time in the navigator. Nine integers, not nine trees. */
+  wordCounts: Record<TabId, number>;
+  activeTab: TabId;
+  expanded: boolean;
 }
 
 // One icon per top-level section, keyed to what the section is about rather than to its position.
@@ -217,28 +218,77 @@ function LazySection({ id, content, renderSectionExtras, immediate = false }: La
 
 const TAB_IDS: string[] = SECTIONS.map((s) => s.id);
 
-export function ClientPage({ sections, documents }: ClientPageProps) {
+export function ClientPage({ sections, documents, wordCounts, activeTab, expanded }: ClientPageProps) {
   // Always starts on the overview so server and client render the same tree on first paint — the
   // URL fragment is only readable client-side, so a shared deep link switches section in a mount
   // effect below rather than in the initial state (see the useEffect reading window.location.hash).
-  // The tab, plus whether the reader has ever changed it.
+  // The URL is the source of truth for which section is open.
   //
-  // The second half exists so the document body can ship legible: the section crossfade must not
-  // apply its `opacity: 0` starting state on first paint (see SectionTransition). Carrying it in
-  // the same state object means it is set from the seven existing `setActiveTab` call sites —
-  // all of them event handlers — with no effect and no extra render.
-  const [tabState, setTabState] = useState<{ tab: string; navigated: boolean }>({
-    tab: "decision",
-    navigated: false,
-  });
-  const activeTab = tabState.tab;
+  // Every section is its own statically generated route, so `activeTab` arrives as a prop and
+  // changing it is a navigation. That makes each section independently shareable and gives the
+  // reader a working back button through a 200-minute document — and it is what stops the server
+  // sending eight sections nobody is reading.
+  //
+  // `setActiveTab` keeps the name the seven existing call sites use, so the navigation, the
+  // observers and the deep-link handlers below are unchanged.
+  const router = useRouter();
+
+  // Whether the reader has navigated yet, so the section crossfade applies no `opacity: 0`
+  // starting state on first paint — see SectionTransition.
+  const [navigated, setNavigated] = useState(false);
+
   const setActiveTab = useCallback(
-    (tab: string) => setTabState((prev) => (prev.tab === tab ? prev : { tab, navigated: true })),
-    [],
+    (tab: string, hash?: string) => {
+      if (tab === activeTab && !hash) return;
+      setNavigated(true);
+      router.push(`/${tab}${hash ? `#${hash}` : ""}`, { scroll: false });
+    },
+    [activeTab, router],
   );
+
+  // Prefetching a section on hover or focus means the tap that follows resolves from cache.
+  // Nine routes prefetched eagerly would cost more than the split saves, so it is intent-driven.
+  const prefetchTab = useCallback((tab: string) => router.prefetch(`/${tab}`), [router]);
+
+  /**
+   * Print the whole proposal, not whichever section happens to be open.
+   *
+   * Before the route split there was no way to express "all of it" as a destination, so Export
+   * PDF printed the current tab — a reader who pressed it on the opening section got one ninth
+   * of a document of record and no indication that anything was missing. /full is that
+   * destination, so printing now routes there first and prints once the page has painted.
+   */
+  const printFullDocument = useCallback(() => {
+    if (expanded) {
+      window.print();
+      return;
+    }
+    setNavigated(true);
+    router.push("/full", { scroll: false });
+    // The navigation is a fetch; print once the new route has actually painted, rather than
+    // guessing at a delay. Two frames is enough for layout, and the flag stops a second press
+    // queueing a second dialog.
+    let done = false;
+    const fire = () => {
+      if (done) return;
+      done = true;
+      requestAnimationFrame(() => requestAnimationFrame(() => window.print()));
+    };
+    const timer = window.setTimeout(fire, 1200);
+    window.addEventListener("popstate", () => window.clearTimeout(timer), { once: true });
+  }, [expanded, router]);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTOCModalOpen, setIsTOCModalOpen] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
+  // Expand All is the /full route: the whole document on one page, which is also what the print
+  // path needs. It is the one route that pays for all nine sections, by design.
+  const isExpanded = expanded;
+  const setIsExpanded = useCallback(
+    (want: boolean) => {
+      setNavigated(true);
+      router.push(want ? "/full" : `/${activeTab}`, { scroll: false });
+    },
+    [activeTab, router],
+  );
   const [isFocusMode, setIsFocusMode] = useState(false);
   const [isZeroChrome, setIsZeroChrome] = useState(false);
   const [readingDensity, setReadingDensity] = useState<"compact" | "balanced" | "generous">("balanced");
@@ -263,10 +313,11 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
         label: section.label,
         blurb: section.blurb,
         icon: SECTION_ICONS[section.id],
-        content: documents[section.id].node,
-        wordCount: documents[section.id].wordCount,
+        // Only the served section carries prose; the rest are nav entries until visited.
+        content: documents[section.id] ?? null,
+        wordCount: wordCounts[section.id],
       })),
-    [documents]
+    [documents, wordCounts]
   );
 
   // The set of ids that actually exist today, so resolveLegacySectionId can tell a retired
@@ -333,10 +384,13 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
       const targetTab = id.split("-sec-")[0];
       const isValidTab = navItems.some((item) => item.id === targetTab);
 
+      // Carry the fragment into the navigation, so the destination URL is shareable the moment
+      // it lands rather than after the scroll helper catches up.
       if (isValidTab && !isExpanded && activeTab !== targetTab) {
-        setActiveTab(targetTab);
+        setActiveTab(targetTab, id);
       }
       setIsMobileMenuOpen(false);
+      // Polls for up to two seconds, which covers the route fetch as well as lazy mounting.
       scrollToSectionWhenReady(id, "smooth");
     },
     [activeTab, isExpanded, navItems, validSectionIds, setActiveTab]
@@ -356,9 +410,12 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
     const hash = resolveLegacySectionId(window.location.hash.replace(/^#/, ""), validSectionIds);
     if (!hash) return;
     const targetTab = hash.split("-sec-")[0];
-    if (TAB_IDS.includes(targetTab)) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- syncing from the URL, which only exists client-side
-      setActiveTab(targetTab);
+    // `replace`, not `push`: arriving on a shared deep link should not leave the landing route
+    // behind in history for the back button to return to. And deliberately not through
+    // setActiveTab — this is the first paint, so the section must not animate in as though the
+    // reader had navigated to it.
+    if (TAB_IDS.includes(targetTab) && targetTab !== activeTab) {
+      router.replace(`/${targetTab}#${hash}`, { scroll: false });
     }
     scrollToSectionWhenReady(hash, "auto");
     // Runs once, on mount only — validSectionIds is available synchronously from the sections
@@ -378,7 +435,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
       const id = resolveLegacySectionId(raw, validSectionIds);
       const targetTab = id.split("-sec-")[0];
       if (!TAB_IDS.includes(targetTab)) return;
-      setActiveTab(targetTab);
+      setActiveTab(targetTab, id);
       scrollToSectionWhenReady(id, "smooth");
     };
     window.addEventListener("hashchange", onHashChange);
@@ -412,6 +469,8 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(item.id)}
+                    onPointerEnter={() => prefetchTab(item.id)}
+                    onFocus={() => prefetchTab(item.id)}
                     className="group text-left bg-card border border-line/60 rounded-2xl p-4 hover:border-accent focus-visible:border-accent transition-colors cursor-pointer flex flex-col gap-2 min-h-[112px]"
                   >
                     <div className="flex items-center gap-2.5">
@@ -438,7 +497,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
         {/* DecisionPanel moved into the document's own close (MarkdownViewer); what remains
             here is page tooling, which is what this footer strip is for. */}
-        {!isFocusMode && sectionId === "decision" && <PrintReportGenerator />}
+        {!isFocusMode && sectionId === "decision" && <PrintReportGenerator onPrint={printFullDocument} />}
       </div>
     );
   };
@@ -673,7 +732,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
               </button>
 
               <MagneticButton
-                onClick={() => window.print()}
+                onClick={printFullDocument}
                 strength={0.22}
                 className="group hidden sm:flex items-center gap-2 px-3.5 py-2 bg-card border border-line/60 rounded-xl text-sm font-bold text-ink hover:border-accent hover:text-accent transition-all cursor-pointer min-h-[44px]"
               >
@@ -736,6 +795,8 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
                       <button
                         key={item.id}
                         onClick={() => handleNavClick(item.id)}
+                    onPointerEnter={() => prefetchTab(item.id)}
+                    onFocus={() => prefetchTab(item.id)}
                         aria-current={isActive ? "true" : undefined}
                         className={`group relative flex items-center justify-between gap-2 px-2.5 py-2 rounded-xl text-xs transition-colors text-left ${
                           isActive
@@ -785,11 +846,16 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
                   <div key={item.id}>
                     <PartDivider number={item.number} label={item.label} />
                     <div className={`bg-gradient-to-b ${PART_TINTS[index % PART_TINTS.length]} to-transparent rounded-b-3xl pt-8`}>
+                      {/* Every section mounts at once on /full, rather than waiting to be
+                          scrolled into view. This is the route Expand All and Export PDF lead
+                          to, and a print job does not scroll: lazy-mounting here is what made
+                          the old PDF come out as one section of prose followed by eight
+                          skeletons. /full is the expensive route by design; this is the expense. */}
                       <LazySection
                         id={item.id}
                         content={item.content}
                         renderSectionExtras={renderSectionExtras}
-                        immediate={index === 0}
+                        immediate
                       />
                     </div>
                   </div>
@@ -797,7 +863,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
               </div>
             ) : (
               <AnimatePresence mode="wait">
-                <SectionTransition tabKey={activeTab} animateEntrance={tabState.navigated}>
+                <SectionTransition tabKey={activeTab} animateEntrance={navigated}>
                   <LazySection 
                     id={activeItem.id}
                     content={activeItem.content}

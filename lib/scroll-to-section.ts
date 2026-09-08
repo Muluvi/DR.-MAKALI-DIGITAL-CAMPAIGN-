@@ -5,8 +5,22 @@
 export function scrollToSectionWhenReady(id: string, behavior: ScrollBehavior = "smooth", maxAttempts = 40) {
   let attempts = 0;
 
+  // Landing on a section is a two-stage problem, and one corrective pass was not enough once
+  // each section became its own route. The element can exist before the lazy sections above it
+  // have mounted and before `content-visibility: auto` ancestors have been measured, so its
+  // position keeps moving for up to a second or so after the first scroll. These passes re-seat
+  // it, and stop as soon as it is settled near the top rather than fighting a reader who has
+  // started scrolling themselves.
+  const SETTLE_DELAYS = [120, 320, 700, 1200];
+
   const settle = () => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "auto", block: "start" });
+    const el = document.getElementById(id);
+    if (!el) return;
+    const top = el.getBoundingClientRect().top;
+    // Within a heading's height of where it belongs, or the reader has taken over. Either way,
+    // leave it alone.
+    if (Math.abs(top) < 8 || top < -200) return;
+    el.scrollIntoView({ behavior: "auto", block: "start" });
   };
 
   const tryScroll = () => {
@@ -16,7 +30,7 @@ export function scrollToSectionWhenReady(id: string, behavior: ScrollBehavior = 
       if (`#${id}` !== window.location.hash) {
         history.pushState(null, "", `#${id}`);
       }
-      setTimeout(settle, 280);
+      for (const delay of SETTLE_DELAYS) setTimeout(settle, delay);
       return;
     }
     attempts += 1;
