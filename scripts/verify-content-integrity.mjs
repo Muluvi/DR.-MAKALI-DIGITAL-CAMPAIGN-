@@ -90,16 +90,54 @@ const SPINE_REWRITE_PAIRS = [
 ];
 
 /**
+ * Strip LaTeX notation, so a figure reads the same whether it was written as maths or as text.
+ *
+ * The document used `$…$` in about forty places for quantities it states in plain text
+ * everywhere else — `$N = 400$`, `$\\ge 200,000$`, `$\\pm 2.53\\%$`. Nothing rendered them:
+ * react-markdown has no maths plugin, so a reader saw the dollar signs and backslashes. They
+ * were converted to Unicode rather than adding KaTeX, whose CSS and web fonts would cost more
+ * over the wire than the whole shared JS chunk to typeset two comparison operators — against a
+ * proposal whose own §7.1.1 calls 3G loading non-negotiable.
+ *
+ * This removes delimiters, escapes and spacing around operators, and nothing else. It cannot
+ * change a figure: no digit, separator or magnitude passes through any rule below. So
+ * `$74,231$` and `74,231` compare equal, while `74,231` and `74,321` still do not.
+ *
+ * Dollar amounts survive because the strip is symmetric — `$1–$5` loses its dollar signs on
+ * both sides of the comparison and still matches itself.
+ */
+function normaliseMath(text) {
+  return text
+    .replace(/\\text(?:bf)?\{([^{}]*)\}/g, "$1")
+    .replace(/\\mathbf\{([^{}]*)\}/g, "$1")
+    .replace(/\\(?:ge|geq)\b/g, "\u2265")
+    .replace(/\\(?:le|leq)\b/g, "\u2264")
+    .replace(/\\pm\b/g, "\u00b1")
+    .replace(/\\dots\b/g, "\u2026")
+    .replace(/\\%/g, "%")
+    .replace(/\\,/g, "")
+    .replace(/\$+/g, "")
+    // Operator spacing only. Newlines are untouched, so the line structure the comparison
+    // depends on survives.
+    .replace(/[ \t]*([\u2265\u2264\u00b1<>=])[ \t]*/g, "$1");
+}
+
+/**
  * Strip section-number tokens, so a repointed cross-reference reads the same on both sides.
  *
  * Applied to the whole document rather than line by line, because the markdown hard-wraps at
  * about 80 columns and a reference can straddle the break ("Section\n4.3") — matching per line
  * would miss exactly those and report them as content changes.
+ *
+ * Notation is normalised first, for the same reason and on the same terms: see normaliseMath.
  */
-function normaliseRefs(text) {
+function normalise(text) {
+  text = normaliseMath(text);
   // Collapse every reference form to one token, so "Subsection 19A" and "Section 8.2.1"
   // compare equal, and flatten padding runs, which are cosmetic inside the ASCII boxes.
   return text
+    // A box-drawing rule's width is cosmetic; the reflow changed it and carries no content.
+    .replace(/^\u2550{50,}$/gm, "\u2550".repeat(84))
     .replace(/(?:Sub)?sections?\s*\d+[A-Za-z]?(?:\.\d+)*/gi, "§#")
     .replace(/Sec\s*\d+(?:\.\d+)*/gi, "§#")
     .replace(/§\s*\d+[A-Za-z]?(?:\.\d+)*/g, "§#")
@@ -203,12 +241,30 @@ const AUDIT_REWRITES = [
  * pre-restructure counterpart, so they are subtracted from the current side the same way the
  * nine orientation lines are, and listed in scripts/audit-additions.json to stay auditable.
  */
+const SPINE_ADDITIONS_NORMALISED = new Set([...SPINE_ADDITIONS].map((l) => normalise(l).trim()));
+
 const AUDIT_ADDITIONS = JSON.parse(
   fs.readFileSync(new URL("./audit-additions.json", import.meta.url), "utf8"),
 );
 
 const AUDIT_REWRITE_PAIRS = JSON.parse(
   fs.readFileSync(new URL("./audit-rewrites.json", import.meta.url), "utf8"),
+);
+
+/**
+ * The LaTeX-to-Unicode conversion, quoted before and after so every one is auditable here.
+ *
+ * Seven display-math derivations became plain code spans, and §8.2.3's KPI architecture diagram
+ * was relaid out from two side-by-side columns into two stacked blocks so it fits a phone. Both
+ * are structural, so normaliseMath cannot equate them and they are logged instead of tolerated.
+ *
+ * Checked line by line when written: every figure, label and bullet in the diagram survives the
+ * reflow verbatim. The reflow initially dropped "Opt-In" from the 220,000 pledged-voter target —
+ * a consent term the Data Protection Act 2019 obligations in §6.5 rest on — and that word has
+ * been restored rather than logged as an accepted change.
+ */
+const NOTATION_REWRITE_PAIRS = JSON.parse(
+  fs.readFileSync(new URL("./notation-rewrites.json", import.meta.url), "utf8"),
 );
 
 const AUDIT_PREFIXES = [
@@ -297,14 +353,16 @@ for (const file of OLD_FILES) {
   for (const { before, after } of FILLED_PLACEHOLDERS) raw = raw.split(before).join(after);
   for (const { before, after } of AUDIT_CORRECTIONS) raw = raw.split(before).join(after);
   for (const [before, after] of AUDIT_PREFIXES) raw = raw.split(before).join(after);
-  raw = raw.replace(/^\u2550{50,83}$/gm, "\u2550".repeat(84));
-  let normalised = normaliseRefs(raw);
+  let normalised = normalise(raw);
   for (const pointer of REMOVED_POINTERS) normalised = normalised.split(pointer).join("");
   for (const { before, after } of AUDIT_REWRITE_PAIRS) {
-    normalised = normalised.split(normaliseRefs(before)).join(normaliseRefs(after));
+    normalised = normalised.split(normalise(before)).join(normalise(after));
   }
   for (const { before, after } of SPINE_REWRITE_PAIRS) {
-    normalised = normalised.split(normaliseRefs(before)).join(normaliseRefs(after));
+    normalised = normalised.split(normalise(before)).join(normalise(after));
+  }
+  for (const { before, after } of NOTATION_REWRITE_PAIRS) {
+    normalised = normalised.split(normalise(before)).join(normalise(after));
   }
   before = before.concat(bodyLines(normalised, { dropDeletedSections: true }));
 }
@@ -312,10 +370,10 @@ for (const file of OLD_FILES) {
 let after = [];
 for (const file of fs.readdirSync(CONTENT).sort()) {
   if (!file.endsWith(".md")) continue;
-  const text = normaliseRefs(fs.readFileSync(path.join(CONTENT, file), "utf8"));
+  const text = normalise(fs.readFileSync(path.join(CONTENT, file), "utf8"));
   const addedAllowance = new Map();
   for (const line of AUDIT_ADDITIONS) {
-    const key = normaliseRefs(line).trim();
+    const key = normalise(line).trim();
     addedAllowance.set(key, (addedAllowance.get(key) ?? 0) + 1);
   }
   after = after.concat(
@@ -323,7 +381,8 @@ for (const file of fs.readdirSync(CONTENT).sort()) {
       const trimmed = line.trim();
       if (ORIENTATION_LINES.has(trimmed)) return false;
       if (SPINE_ORIENTATION_LINES.has(trimmed)) return false;
-      if (SPINE_ADDITIONS.has(trimmed)) return false;
+      // Normalised, because the body line it has to match has been through normalise() too.
+      if (SPINE_ADDITIONS_NORMALISED.has(trimmed)) return false;
       const left = addedAllowance.get(trimmed);
       if (left) {
         addedAllowance.set(trimmed, left - 1);
@@ -352,6 +411,7 @@ if (lost.length === 0 && added.length === 0) {
       `the ${AUDIT_CORRECTIONS.length} logged pre-send audit corrections, ` +
       `${AUDIT_REWRITE_PAIRS.length} logged audit rewrite hunks, ` +
       `${AUDIT_ADDITIONS.length} logged added lines, ` +
+      `${NOTATION_REWRITE_PAIRS.length} logged LaTeX-to-Unicode rewrites, ` +
       `and, from the five-part spine, ${SPINE_ORIENTATION_LINES.size} part orientation lines, ` +
       `${SPINE_ADDITIONS.size} logged addition and ${SPINE_REWRITE_PAIRS.length} logged rewrite.`
   );

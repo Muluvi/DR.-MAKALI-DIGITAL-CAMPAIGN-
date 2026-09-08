@@ -194,29 +194,29 @@ Every Key Performance Indicator (KPI) in this framework is strictly anchored to 
 2.  **The General Election Victory Threshold:** Securing **≥ 200,000 verified, counted votes** (representing ~53.4% of expected turnout across Kitui's 532,758 registered voters).
 
 ```
-══════════════════════════════════════════════════════════════════
-          VICTORY-ANCHORED KPI MONITORING ARCHITECTURE
-══════════════════════════════════════════════════════════════════
+═════════════════════════════════════════════════════════════════════
+            VICTORY-ANCHORED KPI MONITORING ARCHITECTURE
+═════════════════════════════════════════════════════════════════════
 
   STAGE 1: NOMINATION WINDOW TARGETS
   (Primary Delegate / Voter Preference)
- ┌──────────────────────────────────────────────────────────────┐
- │ • Wiper Primary Share (Target >55%)                          │
- │ • North Sub-County Name ID (>65%)                            │
- │ • Integrity / Clean Audit Salience                           │
- │ • Delegate Endorsement Pledges (8/8)                         │
- └──────────────────────────────────────────────────────────────┘
-                               │
-                               ▼
+ ┌───────────────────────────────────────────────────────────────────┐
+ │ • Wiper Primary Share (Target >55%)                               │
+ │ • North Sub-County Name ID (>65%)                                 │
+ │ • Integrity / Clean Audit Salience                                │
+ │ • Delegate Endorsement Pledges (8/8)                              │
+ └───────────────────────────────────────────────────────────────────┘
+                                 │
+                                 ▼
   STAGE 2: GENERAL ELECTION TARGETS
   (Victory Threshold: ≥200,000 Votes)
- ┌──────────────────────────────────────────────────────────────┐
- │ • Verified Pledged Voter Database (Target: 220,000 Voters)   │
- │ • Ward Captain Mobilization Index (400 Captains / 40 Wards)  │
- │ • Polling Agent Station Coverage (100% of 1,578 Stations)    │
- │ • Turnout Conversion Rate (≥82%)                             │
- └──────────────────────────────────────────────────────────────┘
-══════════════════════════════════════════════════════════════════
+ ┌───────────────────────────────────────────────────────────────────┐
+ │ • Verified Pledged Voter Database (Target: 220,000 Opt-In Voters) │
+ │ • Ward Captain Mobilization Index (400 Captains / 40 Wards)       │
+ │ • Polling Agent Station Coverage (100% of 1,578 Stations)         │
+ │ • Turnout Conversion Rate (≥82%)                                  │
+ └───────────────────────────────────────────────────────────────────┘
+═════════════════════════════════════════════════════════════════════
 ```
 
 ---

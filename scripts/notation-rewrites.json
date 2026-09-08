@@ -1,0 +1,42 @@
+[
+  {
+    "note": "exec.md:618 — display math to plain code span",
+    "before": "    $$\\text{Total}_{\\text{Mwingi}} = 74,231 + 68,829 + 57,138 = 200,198 \\text{ registered voters}$$",
+    "after": "    *   `Total (Mwingi) = 74,231 + 68,829 + 57,138 = 200,198 registered voters`"
+  },
+  {
+    "note": "exec.md:619 — display math to plain code span",
+    "before": "    $$\\text{Margin over 2022 Malombe winning total (198,004)} = 200,198 - 198,004 = +2,194 \\text{ voters}$$",
+    "after": "    *   `Margin over 2022 Malombe winning total (198,004) = 200,198 − 198,004 = +2,194 voters`"
+  },
+  {
+    "note": "exec.md:626 — display math to plain code span",
+    "before": "    $$\\text{Total}_{\\text{Central-South-West}} = 77,764 + 75,372 + 59,047 = 212,183 \\text{ registered voters}$$",
+    "after": "    *   `Total (Central-South-West) = 77,764 + 75,372 + 59,047 = 212,183 registered voters`"
+  },
+  {
+    "note": "exec.md:633 — display math to plain code span",
+    "before": "    $$\\sum_{i=1}^{12} \\text{Ward}_i = 19,921 + 19,538 + 18,020 + \\dots + 15,135 = 201,267 \\text{ registered voters}$$",
+    "after": "    *   `∑ (12 Wards) = 19,921 + 19,538 + 18,020 + … + 15,135 = 201,267 registered voters`"
+  },
+  {
+    "note": "exec.md:640 — display math to plain code span",
+    "before": "    $$\\text{Total}_{\\text{Home-Belt}} = 77,764 + 59,047 + 55,000 = 191,811 \\text{ registered voters}$$",
+    "after": "    *   `Total (Home-Belt) = 77,764 + 59,047 + 55,000 = 191,811 registered voters`"
+  },
+  {
+    "note": "exec.md:641 — display math to plain code span",
+    "before": "    $$\\text{Deficit to 200,000 benchmark} = 200,000 - 191,811 = -8,189 \\text{ registered voters}$$",
+    "after": "    *   `Deficit to 200,000 benchmark = 200,000 − 191,811 = −8,189 registered voters`"
+  },
+  {
+    "note": "exec.md:735 — display math to plain code span",
+    "before": "$$\\text{Deficit Pool}_{\\text{Mwingi + South}} = 200,198 \\text{ (Mwingi)} + 75,372 \\text{ (Kitui South)} = \\mathbf{275,570 \\text{ \\textbf{registered voters}}}$$",
+    "after": "*   `Deficit Pool (Mwingi + South) = 200,198 (Mwingi) + 75,372 (Kitui South) = 275,570 registered voters`"
+  },
+  {
+    "note": "1-decision.md §8.2.3 VICTORY-ANCHORED diagram — two columns relaid out as two stacked blocks",
+    "before": "════════════════════════════════════════════════════════════════════════════════════\n                  VICTORY-ANCHORED KPI MONITORING ARCHITECTURE\n════════════════════════════════════════════════════════════════════════════════════\n\n   STAGE 1: NOMINATION WINDOW TARGETS            STAGE 2: GENERAL ELECTION TARGETS\n   (Primary Delegate / Voter Preference)         (Victory Threshold: ≥200,000 Votes)\n ┌──────────────────────────────────────┐      ┌───────────────────────────────────┐\n │ • Wiper Primary Share (Target >55%)  │      │ • Verified Pledged Voter Database │\n │ • North Sub-County Name ID (>65%)    │      │   (Target: 220,000 Opt-In Voters) │\n │ • Integrity / Clean Audit Salience   │ ───► │ • Ward Captain Mobilization Index │\n │ • Delegate Endorsement Pledges (8/8) │      │   (400 Captains / 40 Wards)       │\n └──────────────────────────────────────┘      │ • Polling Agent Station Coverage  │\n                                               │   (100% of 1,578 Stations)       │\n                                               │ • Turnout Conversion Rate (≥82%)  │\n                                               └───────────────────────────────────┘\n════════════════════════════════════════════════════════════════════════════════════",
+    "after": "═════════════════════════════════════════════════════════════════════\n            VICTORY-ANCHORED KPI MONITORING ARCHITECTURE\n═════════════════════════════════════════════════════════════════════\n\n  STAGE 1: NOMINATION WINDOW TARGETS\n  (Primary Delegate / Voter Preference)\n ┌───────────────────────────────────────────────────────────────────┐\n │ • Wiper Primary Share (Target >55%)                               │\n │ • North Sub-County Name ID (>65%)                                 │\n │ • Integrity / Clean Audit Salience                                │\n │ • Delegate Endorsement Pledges (8/8)                              │\n └───────────────────────────────────────────────────────────────────┘\n                                 │\n                                 ▼\n  STAGE 2: GENERAL ELECTION TARGETS\n  (Victory Threshold: ≥200,000 Votes)\n ┌───────────────────────────────────────────────────────────────────┐\n │ • Verified Pledged Voter Database (Target: 220,000 Opt-In Voters) │\n │ • Ward Captain Mobilization Index (400 Captains / 40 Wards)       │\n │ • Polling Agent Station Coverage (100% of 1,578 Stations)         │\n │ • Turnout Conversion Rate (≥82%)                                  │\n └───────────────────────────────────────────────────────────────────┘\n═════════════════════════════════════════════════════════════════════"
+  }
+]
