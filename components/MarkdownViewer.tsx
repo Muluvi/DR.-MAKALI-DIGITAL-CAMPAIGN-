@@ -15,6 +15,7 @@ import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
 import { MizaniSlopeBlock } from "./markdown/MizaniSlopeBlock";
 import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
 import { KpiArchitecture } from "./charts/KpiArchitecture";
+import { CeilingMeter } from "./charts/CeilingMeter";
 import { OfflineWaterline } from "./charts/OfflineWaterline";
 import { VoteFunnel } from "./charts/VoteFunnel";
 import { KpiScorecards } from "./charts/KpiScorecards";
@@ -283,7 +284,12 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "strategy-sec-2-2": <StrategicPillarsMatrix />,
   "evidence-sec-1-4": <GeographicZoneMatrix />,
   "team-sec-7-2": <CampaignOrgChart />,
-  "decision-sec-9-2-5": <BudgetScenarioModeler />,
+  "decision-sec-9-2-5": (
+    <>
+      <CeilingMeter />
+      <BudgetScenarioModeler />
+    </>
+  ),
   "decision-sec-9-2-7": <ComplianceCeilingPanel />,
   "ground-sec-4-1": <TerminalShowcase />,
   "ground-sec-4-2": <FlywheelSchematic />,
