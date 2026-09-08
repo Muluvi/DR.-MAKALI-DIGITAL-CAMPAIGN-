@@ -43,7 +43,7 @@ function trackFraction(b: Baseline, targetValue: number | null): number | null {
 function KpiCard({ kpi }: { kpi: Kpi }) {
   const [open, setOpen] = useState(false);
   const drawerId = useId();
-  const { reduce, spring, viewportTall } = useMotionPreset();
+  const { reduce, spring, viewportTall, enter } = useMotionPreset();
   const status = baselineStatus(kpi.baseline);
   const fraction = trackFraction(kpi.baseline, kpi.targetValue);
 
@@ -120,7 +120,7 @@ function KpiCard({ kpi }: { kpi: Kpi }) {
                   <motion.div
                     className="absolute inset-y-0 left-0 rounded-full bg-accent-solid"
                     style={{ width: `${fraction * 100}%`, transformOrigin: "left" }}
-                    initial={reduce ? false : { scaleX: 0 }}
+                    initial={enter({ scaleX: 0 })}
                     whileInView={{ scaleX: 1 }}
                     viewport={viewportTall}
                     transition={spring("gentle")}
@@ -196,7 +196,7 @@ export function KpiScorecards({
   title: string;
   note: string;
 }) {
-  const { variants } = useMotionPreset();
+  const { variants, enter } = useMotionPreset();
   const unmeasured = kpis.filter((k) => k.baseline.kind !== "measured").length;
 
   return (
@@ -226,7 +226,7 @@ export function KpiScorecards({
       <motion.ul
         className="grid grid-cols-1 md:grid-cols-2 gap-3"
         variants={variants(staggerContainer(STAGGER.loose))}
-        initial="hidden"
+        initial={enter("hidden")}
         whileInView="visible"
         viewport={VIEWPORT_TALL}
       >

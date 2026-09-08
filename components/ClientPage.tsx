@@ -202,7 +202,10 @@ function LazySection({ id, content, renderSectionExtras, immediate = false }: La
     <div ref={containerRef} id={`section-${id}`} className="cv-auto-section clean-editorial-section py-4 sm:py-8 px-0 sm:px-2 print:break-inside-avoid min-h-[150px] snap-start scroll-mt-24 transition-all duration-500 ease-out">
       {hasBeenVisible ? (
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          // No starting state in the server HTML. This wraps a whole section's prose, so
+          // `initial={{ opacity: 0 }}` here means the document ships invisible and waits on
+          // hydration — the same defect the section crossfade above had, one level down.
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: DURATION.slow, ease: [0.16, 1, 0.3, 1] }}
         >

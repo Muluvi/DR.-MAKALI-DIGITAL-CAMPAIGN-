@@ -35,7 +35,7 @@ function Stage({
   items: string[];
   tone: "nomination" | "general";
 }) {
-  const { variants } = useMotionPreset();
+  const { variants, enter } = useMotionPreset();
   const accent = tone === "nomination" ? "text-accent" : "text-gold";
   const edge = tone === "nomination" ? "border-accent/35" : "border-gold/35";
   const Icon = tone === "nomination" ? Flag : Trophy;
@@ -43,7 +43,7 @@ function Stage({
   return (
     <motion.div
       variants={variants(staggerContainer(STAGGER.loose))}
-      initial="hidden"
+      initial={enter("hidden")}
       whileInView="visible"
       viewport={VIEWPORT_TALL}
       className={`flex-1 min-w-0 rounded-2xl border ${edge} bg-card p-4`}
@@ -79,7 +79,7 @@ function Stage({
 }
 
 export function KpiArchitecture() {
-  const { reduce, viewportTall, variants } = useMotionPreset();
+  const { reduce, viewportTall, variants, enter } = useMotionPreset();
 
   return (
     <figure className="not-prose my-7">
@@ -119,7 +119,7 @@ export function KpiArchitecture() {
               strokeWidth="1.75"
               strokeLinecap="round"
               variants={variants(drawPath)}
-              initial="hidden"
+              initial={enter("hidden")}
               whileInView="visible"
               viewport={viewportTall}
             />
@@ -130,7 +130,7 @@ export function KpiArchitecture() {
               strokeLinecap="round"
               strokeLinejoin="round"
               variants={variants(drawPath)}
-              initial="hidden"
+              initial={enter("hidden")}
               whileInView="visible"
               viewport={viewportTall}
               transition={reduce ? undefined : { delay: 0.35 }}

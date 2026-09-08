@@ -5,6 +5,7 @@ import { motion, useInView } from "motion/react";
 
 import { DURATION, EASE_ENTRANCE, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
+import { useMotionPreset } from "../../hooks/useMotionPreset";
 
 export interface TimelinePoint {
   year: string;
@@ -32,6 +33,7 @@ export default function ElectoralTimelineChart({ data }: { data: TimelinePoint[]
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, VIEWPORT);
   const reduce = useReducedMotionSafe();
+  const { enter } = useMotionPreset();
 
   const real = data.filter((d): d is TimelinePoint & { votes: number } => d.votes !== null);
   if (real.length < 2) return null;
@@ -99,7 +101,7 @@ export default function ElectoralTimelineChart({ data }: { data: TimelinePoint[]
           stroke="var(--color-accent)"
           strokeWidth="2.5"
           strokeLinecap="round"
-          initial={reduce ? false : { pathLength: 0 }}
+          initial={enter({ pathLength: 0 })}
           animate={inView || reduce ? { pathLength: 1 } : undefined}
           transition={{ duration: DURATION.slow, ease: EASE_ENTRANCE }}
         />

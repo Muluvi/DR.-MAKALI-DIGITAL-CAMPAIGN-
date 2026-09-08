@@ -1226,3 +1226,16 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
     .fx-aurora span:nth-child(3) { animation-duration: 38s, auto; animation-iteration-count: infinite, 1; }
   }
 }
+
+/* The direction-aware toolbar withdraws on a downward scroll — but not for a reader who asked
+   for less motion. useChromeVisible already exempts the JS-driven chrome from that behaviour
+   (it returns early under the preference), and this is the CSS half of the same rule. Without
+   it the toolbar, with the index and every reading control in it, was left at opacity 0 for a
+   reduced-motion reader who had scrolled down: chrome that hides itself and will not slide back
+   is chrome that has gone. */
+@media (prefers-reduced-motion: reduce) {
+  [data-scroll-dir="down"] .fx-dir-header:not([data-pinned="true"]) {
+    transform: none;
+    opacity: 1;
+  }
+}

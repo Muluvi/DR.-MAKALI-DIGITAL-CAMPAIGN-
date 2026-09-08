@@ -36,7 +36,7 @@ const BASE_POPULATION = 1053991;
 export function OfflineWaterline() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-20% 0px" });
-  const { reduce, spring } = useMotionPreset();
+  const { reduce, spring, enter } = useMotionPreset();
   const filled = reduce || inView;
 
   return (
@@ -76,7 +76,7 @@ export function OfflineWaterline() {
         <motion.div
           className="absolute inset-x-0 bottom-0 origin-bottom"
           style={{ height: `${OFFLINE}%` }}
-          initial={reduce ? false : { scaleY: 0 }}
+          initial={enter({ scaleY: 0 })}
           animate={filled ? { scaleY: 1 } : { scaleY: 0 }}
           transition={spring("heavy")}
         >
@@ -92,7 +92,7 @@ export function OfflineWaterline() {
         <motion.div
           className="absolute inset-x-0 px-3"
           style={{ top: `${ONLINE}%` }}
-          initial={reduce ? false : { opacity: 0, y: -6 }}
+          initial={enter({ opacity: 0, y: -6 })}
           animate={filled ? { opacity: 1, y: 0 } : { opacity: 0, y: -6 }}
           transition={{ delay: reduce ? 0 : 0.4 }}
         >

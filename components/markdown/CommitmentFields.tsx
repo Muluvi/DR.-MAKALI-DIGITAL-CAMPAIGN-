@@ -6,6 +6,7 @@ import { ArrowRight, CalendarDays, UserRound, Route, TriangleAlert } from "lucid
 
 import { DURATION, EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
+import { useMotionPreset } from "../../hooks/useMotionPreset";
 import type { CommitmentField, CommitmentFieldKey } from "../../lib/commitment-fields";
 import { HighlightedText } from "./HighlightedText";
 import type { TabId } from "../../lib/heading-slug";
@@ -67,6 +68,7 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, VIEWPORT);
   const reduce = useReducedMotionSafe();
+  const { enter } = useMotionPreset();
 
   const find = (k: CommitmentFieldKey) => fields.find((f) => f.key === k);
   const baseline = find("baseline");
@@ -80,7 +82,10 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
   const extras = fields.filter((f) => f.key === null);
 
   const rise = (i: number) => ({
-    initial: reduce ? false : { opacity: 0, y: 8 },
+    // `enter` rather than a bare object: these cards carry the baseline figure, the deadline and
+    // the named owner for each commitment, and an `initial` written into the server HTML means
+    // they ship invisible and stay that way until hydration.
+    initial: enter({ opacity: 0, y: 8 }),
     animate: inView || reduce ? { opacity: 1, y: 0 } : undefined,
     transition: { duration: DURATION.base, ease: EASE_ENTRANCE, delay: reduce ? 0 : i * STAGGER.tight },
   });

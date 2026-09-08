@@ -35,7 +35,7 @@ import { STAGGER } from "../../lib/motion";
  */
 
 function Row({ b, index, shown }: { b: Benchmark; index: number; shown: boolean }) {
-  const { reduce, spring } = useMotionPreset();
+  const { reduce, spring, enter } = useMotionPreset();
   const position = targetPosition(b);
   const width = b.benchmarkTo - b.benchmarkFrom;
 
@@ -64,14 +64,14 @@ function Row({ b, index, shown }: { b: Benchmark; index: number; shown: boolean 
         <motion.div
           className="absolute top-1/2 -translate-y-1/2 h-[7px] rounded-full bg-rival-solid/45"
           style={{ left: `${b.benchmarkFrom}%`, width: `${width}%`, transformOrigin: "left" }}
-          initial={reduce ? false : { scaleX: 0 }}
+          initial={enter({ scaleX: 0 })}
           animate={shown ? { scaleX: 1 } : { scaleX: 0 }}
           transition={{ ...spring("gentle"), delay: reduce ? 0 : index * STAGGER.loose }}
         />
         <motion.div
           className="absolute top-1/2 -translate-y-1/2 w-[3px] h-5 rounded-full bg-accent"
           style={{ left: `${b.target}%` }}
-          initial={reduce ? false : { opacity: 0, scaleY: 0.4 }}
+          initial={enter({ opacity: 0, scaleY: 0.4 })}
           animate={shown ? { opacity: 1, scaleY: 1 } : { opacity: 0, scaleY: 0.4 }}
           transition={{ ...spring("bouncy"), delay: reduce ? 0 : 0.25 + index * STAGGER.loose }}
         />

@@ -5,6 +5,7 @@ import { motion, useInView } from "motion/react";
 
 import { DURATION, EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
+import { useMotionPreset } from "../../hooks/useMotionPreset";
 
 export interface WaterfallStep {
   name: string;
@@ -30,6 +31,7 @@ export default function ResourceEnvelopeChart({ data }: { data: WaterfallStep[] 
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, VIEWPORT);
   const reduce = useReducedMotionSafe();
+  const { enter } = useMotionPreset();
 
   const max = Math.max(...data.map((d) => d.base + d.value)) * 1.06;
   const pct = (v: number) => (v / max) * 100;
@@ -52,7 +54,7 @@ export default function ResourceEnvelopeChart({ data }: { data: WaterfallStep[] 
                 <motion.div
                   className="absolute border-t border-dashed border-muted/70 -left-2 sm:-left-3 right-0 origin-left"
                   style={{ bottom: `${connectorAt}%` }}
-                  initial={reduce ? false : { scaleX: 0 }}
+                  initial={enter({ scaleX: 0 })}
                   animate={inView || reduce ? { scaleX: 1 } : undefined}
                   transition={{ duration: DURATION.quick, ease: EASE_ENTRANCE, delay: reduce ? 0 : i * STAGGER.tight }}
                   aria-hidden="true"
@@ -71,7 +73,7 @@ export default function ResourceEnvelopeChart({ data }: { data: WaterfallStep[] 
                   backgroundColor: step.isTotal ? "color-mix(in srgb, var(--color-ink) 22%, transparent)" : step.color,
                   borderTopColor: step.isTotal ? "var(--color-ink)" : undefined,
                 }}
-                initial={reduce ? false : { scaleY: 0 }}
+                initial={enter({ scaleY: 0 })}
                 animate={inView || reduce ? { scaleY: 1 } : undefined}
                 transition={{ duration: DURATION.base, ease: EASE_ENTRANCE, delay: reduce ? 0 : 0.1 + i * STAGGER.tight }}
                 role="img"

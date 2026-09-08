@@ -5,6 +5,7 @@ import { motion, useInView } from "motion/react";
 
 import { DURATION, EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
+import { useMotionPreset } from "../../hooks/useMotionPreset";
 import { Portrait } from "../Portrait";
 
 /**
@@ -30,6 +31,7 @@ export function EconomistGovernorThesis() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, VIEWPORT);
   const reduce = useReducedMotionSafe();
+  const { enter } = useMotionPreset();
 
   // One running index across all segments, so the stagger reads as a single line of type
   // arriving rather than three phrases arriving in parallel.
@@ -55,7 +57,7 @@ export function EconomistGovernorThesis() {
                 <motion.span
                   key={`${seg.text}-${w}-${word}`}
                   className={`inline-block ${seg.accent ? "text-accent" : ""}`}
-                  initial={reduce ? false : { opacity: 0, y: 10 }}
+                  initial={enter({ opacity: 0, y: 10 })}
                   animate={inView || reduce ? { opacity: 1, y: 0 } : undefined}
                   transition={{ duration: DURATION.base, ease: EASE_ENTRANCE, delay }}
                 >
@@ -83,7 +85,7 @@ export function EconomistGovernorThesis() {
           simply stopping. It carries no meaning of its own and is hidden from assistive tech. */}
       <motion.span
         className="block h-px bg-accent/40 mt-4 origin-left"
-        initial={reduce ? false : { scaleX: 0 }}
+        initial={enter({ scaleX: 0 })}
         animate={inView || reduce ? { scaleX: 1 } : undefined}
         transition={{ duration: DURATION.slow, ease: EASE_ENTRANCE, delay: reduce ? 0 : word * STAGGER.tight }}
         aria-hidden="true"

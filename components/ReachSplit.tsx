@@ -6,6 +6,7 @@ import { Wifi, WifiOff, Radio, MessageSquare, Smartphone, Users } from "lucide-r
 
 import { DURATION, EASE_ENTRANCE, VIEWPORT } from "../lib/motion";
 import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
+import { useMotionPreset } from "../hooks/useMotionPreset";
 import { TierBadge } from "./markdown/TierBadge";
 import { ClaimBadge } from "./markdown/ClaimBadge";
 
@@ -83,6 +84,7 @@ export function ReachSplit() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, VIEWPORT);
   const reduce = useReducedMotionSafe();
+  const { enter } = useMotionPreset();
   const typed = useTypewriter(USSD_MENU, inView, reduce);
   const [pressed, setPressed] = useState<string | null>(null);
 
@@ -117,7 +119,7 @@ export function ReachSplit() {
         <motion.div
           className="relative bg-accent flex items-center justify-center shrink-0"
           style={{ width: `${CONNECTED}%` }}
-          initial={reduce ? false : { clipPath: "inset(0 100% 0 0)" }}
+          initial={enter({ clipPath: "inset(0 100% 0 0)" })}
           animate={inView || reduce ? { clipPath: "inset(0 0% 0 0)" } : undefined}
           transition={wipe}
         >
@@ -125,7 +127,7 @@ export function ReachSplit() {
         </motion.div>
         <motion.div
           className="relative bg-ink/85 dark:bg-ink/20 flex items-center gap-2 px-4 flex-1"
-          initial={reduce ? false : { clipPath: "inset(0 100% 0 0)" }}
+          initial={enter({ clipPath: "inset(0 100% 0 0)" })}
           animate={inView || reduce ? { clipPath: "inset(0 0% 0 0)" } : undefined}
           transition={{ ...wipe, delay: reduce ? 0 : 0.12 }}
         >

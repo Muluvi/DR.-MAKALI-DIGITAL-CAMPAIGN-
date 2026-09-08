@@ -58,7 +58,7 @@ const STAGES = [
 export function VoteFunnel() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-15% 0px" });
-  const { reduce, spring, variants } = useMotionPreset();
+  const { reduce, spring, variants, enter } = useMotionPreset();
   const shown = reduce || inView;
 
   return (
@@ -93,7 +93,7 @@ export function VoteFunnel() {
                 <motion.div
                   className={`absolute inset-y-0 left-0 rounded-lg ${stage.tone}`}
                   style={{ width: `${width}%`, transformOrigin: "left" }}
-                  initial={reduce ? false : { scaleX: 0 }}
+                  initial={enter({ scaleX: 0 })}
                   animate={shown ? { scaleX: 1 } : { scaleX: 0 }}
                   transition={{ ...spring("gentle"), delay: reduce ? 0 : i * STAGGER.loose * 3 }}
                 />
@@ -102,7 +102,7 @@ export function VoteFunnel() {
                   <motion.div
                     className="absolute inset-y-0 w-[2px] bg-gold"
                     style={{ left: `${(WON_2022 / REGISTERED) * 100}%` }}
-                    initial={reduce ? false : { opacity: 0, scaleY: 0.4 }}
+                    initial={enter({ opacity: 0, scaleY: 0.4 })}
                     animate={shown ? { opacity: 1, scaleY: 1 } : { opacity: 0, scaleY: 0.4 }}
                     transition={{ ...spring("bouncy"), delay: reduce ? 0 : 0.75 }}
                   />
@@ -126,7 +126,7 @@ export function VoteFunnel() {
                     vectorEffect="non-scaling-stroke"
                     fill="none"
                     variants={variants(drawPath)}
-                    initial="hidden"
+                    initial={enter("hidden")}
                     animate={shown ? "visible" : "hidden"}
                   />
                   <motion.path
@@ -136,7 +136,7 @@ export function VoteFunnel() {
                     vectorEffect="non-scaling-stroke"
                     fill="none"
                     variants={variants(drawPath)}
-                    initial="hidden"
+                    initial={enter("hidden")}
                     animate={shown ? "visible" : "hidden"}
                   />
                 </svg>

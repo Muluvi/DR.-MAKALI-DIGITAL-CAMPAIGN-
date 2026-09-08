@@ -5,6 +5,7 @@ import { motion, useInView } from "motion/react";
 
 import { DURATION, EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
+import { useMotionPreset } from "../../hooks/useMotionPreset";
 
 export interface TierBand {
   name: string;
@@ -30,6 +31,7 @@ export default function SpendingCeilingChart({ data, ceiling }: { data: TierBand
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, VIEWPORT);
   const reduce = useReducedMotionSafe();
+  const { enter } = useMotionPreset();
 
   // The track runs past the cap so the marker sits inside the plot, not on its edge.
   const scaleMax = ceiling * 1.12;
@@ -63,7 +65,7 @@ export default function SpendingCeilingChart({ data, ceiling }: { data: TierBand
               <motion.div
                 className="absolute inset-y-1 rounded-sm origin-left"
                 style={{ left: `${pct(low)}%`, width: `${pct(high) - pct(low)}%`, backgroundColor: t.color }}
-                initial={reduce ? false : { scaleX: 0 }}
+                initial={enter({ scaleX: 0 })}
                 animate={inView || reduce ? { scaleX: 1 } : undefined}
                 transition={{ duration: DURATION.base, ease: EASE_ENTRANCE, delay: reduce ? 0 : i * STAGGER.tight }}
               />

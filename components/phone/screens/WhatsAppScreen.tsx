@@ -7,6 +7,7 @@ import { ArrowLeft, Camera, Mic, Paperclip, Plus, Video, Phone as PhoneIcon } fr
 import { IDENTITY, WHATSAPP } from "../../../lib/phone-showcase";
 import { DURATION, EASE_ENTRANCE } from "../../../lib/motion";
 import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
+import { useMotionPreset } from "../../../hooks/useMotionPreset";
 import { ScreenShell } from "../primitives";
 
 /**
@@ -73,6 +74,7 @@ function TypingDots() {
 
 export function WhatsAppScreen() {
   const reduce = useReducedMotionSafe();
+  const { enter } = useMotionPreset();
   const [arrived, setArrived] = useState(false);
 
   useEffect(() => {
@@ -152,7 +154,7 @@ export function WhatsAppScreen() {
           >
             {replied ? (
               <motion.span
-                initial={reduce ? false : { opacity: 0, y: 3 }}
+                initial={enter({ opacity: 0, y: 3 })}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: DURATION.quick, ease: EASE_ENTRANCE }}
                 className="block"

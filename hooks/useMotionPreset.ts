@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useSyncExternalStore } from "react";
 import type { Transition, Variants } from "motion/react";
 
 import {
@@ -25,8 +25,19 @@ import { useReducedMotionSafe } from "./use-reduced-motion-safe";
  *   - Ambient loops do not run at all. A loop has no finished state to settle at.
  *   - Stagger goes to zero, so a forty-item list arrives at once instead of over two seconds.
  */
+/**
+ * Whether we are past the first client render.
+ *
+ * `useSyncExternalStore` with a never-firing subscription: the server snapshot is false, the
+ * client snapshot is true, and there is no effect and no cascading second render to lint around.
+ */
+const subscribeNever = () => () => {};
+const clientSnapshot = () => true;
+const serverSnapshot = () => false;
+
 export function useMotionPreset() {
   const reduce = useReducedMotionSafe();
+  const mounted = useSyncExternalStore(subscribeNever, clientSnapshot, serverSnapshot);
 
   return useMemo(
     () => ({
@@ -35,6 +46,21 @@ export function useMotionPreset() {
 
       /** Collapse a variant set to its finished state when the reader asked for less motion. */
       variants: (v: Variants): Variants => variantsFor(v, reduce),
+
+      /**
+       * The `initial` prop for an entrance — and the reason it is a function rather than a value.
+       *
+       * `initial={{ opacity: 0 }}` is written into the SERVER-RENDERED HTML, so the element ships
+       * invisible and stays that way until React has hydrated and Motion has run. On this site
+       * that meant 42 elements arriving at opacity 0 in the markup, including cards carrying
+       * baseline figures, deadlines and named owners. A reader whose JavaScript is slow, blocked
+       * or broken never sees them; nor does anything that reads the HTML directly.
+       *
+       * So the starting state is only ever applied after the first client render, and never at
+       * all under reduced motion. The entrance still plays for everyone who can see it — it just
+       * cannot be the reason content is missing.
+       */
+      enter: <T,>(from: T): T | false => (mounted && !reduce ? from : false),
 
       /** Any transition, degraded. */
       transition: (t: Transition): Transition => (reduce ? reduced : t),
@@ -66,6 +92,6 @@ export function useMotionPreset() {
 
       LOOP,
     }),
-    [reduce],
+    [reduce, mounted],
   );
 }

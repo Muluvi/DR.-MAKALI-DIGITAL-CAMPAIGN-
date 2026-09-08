@@ -61,7 +61,7 @@ function TierPanel({ tier }: { tier: BudgetTier }) {
 export function CeilingMeter() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-15% 0px" });
-  const { reduce, spring, variants } = useMotionPreset();
+  const { reduce, spring, variants, enter } = useMotionPreset();
   const [selected, setSelected] = useState<BudgetTier["id"]>("standard");
   const shown = reduce || inView;
   const active = BUDGET_TIERS.find((t) => t.id === selected)!;
@@ -94,14 +94,14 @@ export function CeilingMeter() {
             <motion.div
               className="absolute inset-y-0 left-0 bg-accent-solid/25"
               style={{ width: `${active.pctTo}%`, transformOrigin: "left" }}
-              initial={reduce ? false : { scaleX: 0 }}
+              initial={enter({ scaleX: 0 })}
               animate={shown ? { scaleX: 1 } : { scaleX: 0 }}
               transition={spring("gentle")}
             />
             <motion.div
               className="absolute inset-y-0 left-0 bg-accent-solid"
               style={{ width: `${active.pctFrom}%`, transformOrigin: "left" }}
-              initial={reduce ? false : { scaleX: 0 }}
+              initial={enter({ scaleX: 0 })}
               animate={shown ? { scaleX: 1 } : { scaleX: 0 }}
               transition={spring("gentle")}
             />
@@ -187,7 +187,7 @@ export function CeilingMeter() {
           aria-labelledby={`tier-tab-${selected}`}
           className="mt-4 rounded-xl border border-line/60 bg-paper/50 p-3.5"
           variants={variants(staggerContainer(STAGGER.tight))}
-          initial="hidden"
+          initial={enter("hidden")}
           animate="visible"
         >
           <motion.div variants={fadeUp}>
