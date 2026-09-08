@@ -15,6 +15,8 @@ import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
 import { MizaniSlopeBlock } from "./markdown/MizaniSlopeBlock";
 import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
 import { KpiArchitecture } from "./charts/KpiArchitecture";
+import { OfflineWaterline } from "./charts/OfflineWaterline";
+import { VoteFunnel } from "./charts/VoteFunnel";
 import { KpiScorecards } from "./charts/KpiScorecards";
 import { GENERAL_ELECTION_KPIS, NOMINATION_KPIS } from "../data/kpis";
 import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
@@ -226,7 +228,12 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
     </>
   ),
   "evidence-sec-1-2-4": <ResourceEnvelopeBlock />,
-  "evidence-sec-1-2-5": <DisputedFigure entry={kituiCentralPopulationDispute} />,
+  "evidence-sec-1-2-5": (
+    <>
+      <OfflineWaterline />
+      <DisputedFigure entry={kituiCentralPopulationDispute} />
+    </>
+  ),
   "evidence-sec-1-2-6": (
     <>
       <ElectoralHistoryPanel />
@@ -242,6 +249,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "evidence-sec-1-2-8": <DroughtFoodSecurityPanel />,
   "evidence-sec-1-2-9": <MuiBasinPanel />,
   "evidence-sec-1-2-10": <CompetitorFieldPanel />,
+  "evidence-sec-1-3-1": <VoteFunnel />,
   "evidence-sec-1-3-3": <PathTo200kCalculator />,
   "evidence-sec-1-3-5": <RecognitionDeficitOverlay />,
   "evidence-sec-2-4": <AudienceSegmentationMatrix />,

@@ -31,6 +31,12 @@ import { useReducedMotionSafe } from "./use-reduced-motion-safe";
  * Android drops frames.
  */
 
+/**
+ * How long a count may run before it is over, whatever the spring is doing. Slightly longer than
+ * DURATION.deliberate, so a count that is going to finish on its own still does.
+ */
+const COUNT_DEADLINE_MS = 1600;
+
 export interface NumberFormat {
   /** e.g. "KSh " */
   prefix?: string;
@@ -88,11 +94,27 @@ export function useAnimatedNumber(value: number, options: Options = {}) {
   // Seeded with the real value, so the first server and client renders agree on the truth and
   // hydration has nothing to correct.
   const raw = useMotionValue(value);
-  const animated = useSpring(raw, SPRING[spring]);
+
+  // `restDelta` scaled to what is actually displayed, not left at the library default.
+  //
+  // A spring settles when it is within restDelta of its target, and the default is an absolute
+  // 0.01 — fine for an opacity, useless for a count to 532,758, where the spring was still
+  // 459 short when it stopped mattering visually and the page sat reading "532,299". The
+  // threshold has to be a fraction of one displayed unit, so settling and being correct to the
+  // last printed digit are the same event.
+  const unit = Math.pow(10, -(decimals ?? 0));
+  const animated = useSpring(raw, { ...SPRING[spring], restDelta: unit / 4 });
 
   useMotionValueEvent(animated, "change", (v) => {
     const node = textRef.current;
-    if (node) node.textContent = fmt(v);
+    if (!node) return;
+    // Pin the last stretch rather than interpolating through it.
+    //
+    // A spring approaches its target asymptotically, so the final frames are values like 86.3999
+    // — and at one decimal place that renders "86.4" only once it is close enough. It was not:
+    // a screenshot of the finished page caught "86.3%" against a figure of 86.4%. Anything
+    // inside half a display unit is the published figure, and is shown as it.
+    node.textContent = Math.abs(value - v) <= unit / 2 ? fmt(value) : fmt(v);
   });
 
   useEffect(() => {
@@ -104,11 +126,28 @@ export function useAnimatedNumber(value: number, options: Options = {}) {
     raw.set(value);
     // The spring settles asymptotically, so pin the exact figure once it is done. Floating-point
     // drift must not leave 532,758 displaying as 532,757.
-    const stop = animated.on("animationComplete", () => {
+    const pin = () => {
       const node = textRef.current;
       if (node) node.textContent = fmt(value);
-    });
-    return stop;
+    };
+    const stop = animated.on("animationComplete", pin);
+
+    // The deadline, and why a count that "usually finishes" is not good enough.
+    //
+    // Spring duration is a function of the distance travelled, so the same configuration that
+    // settles a percentage in under a second is still climbing through a 532,758-vote register
+    // seconds later. A reader who scrolls past at that moment, or a printer that captures the
+    // page, takes away a figure that is merely near the truth. After this deadline the count is
+    // over regardless of where the spring has got to, and the published figure is what stands.
+    const deadline = window.setTimeout(() => {
+      animated.jump(value);
+      pin();
+    }, COUNT_DEADLINE_MS);
+
+    return () => {
+      stop();
+      window.clearTimeout(deadline);
+    };
   }, [inView, reduce, value, raw, animated, fmt]);
 
   const final = fmt(value);

@@ -1420,6 +1420,19 @@ html {
 
   /* Grain. 2% over a flat fill is the difference between a gradient and a printed surface. */
   --grain-opacity: 0.022;
+
+  /* The offline waterline's submerged mass.
+     Fixed stops rather than theme tokens: an earlier pass built this from --ink and --dark,
+     both of which invert between themes, so in dark mode the mass rendered as a pale slab with
+     white text vanishing into it. Depth has to mean depth in both themes. Defined here, in the
+     palette, so no colour channel sits in a component where the figure guard has to read it as
+     a possible campaign statistic. */
+  --waterline-fill: linear-gradient(
+    to bottom,
+    var(--accent-solid) 0%,
+    oklch(0.32 0.16 265) 55%,
+    oklch(0.20 0.10 265) 100%
+  );
 }
 
 .dark {
