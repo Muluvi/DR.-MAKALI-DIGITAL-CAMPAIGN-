@@ -84,71 +84,24 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
 
   return (
     <Frame title={d.title} icon={Table2} kind="Matrix">
-      {/* Mobile Card-Stacking View (< md) - aria-hidden prevents dual screen-reader reading of the table */}
-      <div className="block md:hidden p-3 space-y-2.5" aria-hidden="true">
-        {d.rows.map((row, i) => {
-          const isBanner = row.length === 1 && row[0].spans > 1;
-          if (isBanner) {
-            return (
-              <div
-                key={i}
-                className="px-3 py-1.5 font-bold uppercase tracking-wider t-micro text-accent bg-accent/[0.08] rounded-lg my-1.5"
-              >
-                {withEmphasis(row[0].text)}
-              </div>
-            );
-          }
+      {/*
+        ONE TABLE, TWO SHAPES.
 
-          const primaryCell = row[0];
-          const secondaryCells = row.slice(1);
+        This used to mount a card stack for phones and a table for everything else, both at once
+        and both in the DOM — thirty of these blocks paying twice for markup only one of which is
+        ever visible. It also could not be fixed by branching in JavaScript without making this a
+        client component, which would put the parser's output into the bundle.
 
-          return (
-            <div
-              key={i}
-              className="bg-paper/70 border border-line/50 rounded-xl p-3 shadow-xs space-y-2"
-            >
-              {/* Card Header (Leading Cell) */}
-              <div className="font-bold text-ink t-small pb-1.5 border-b border-line/30 flex items-center justify-between">
-                <span className="break-words">{primaryCell ? withEmphasis(primaryCell.text) : ""}</span>
-                {d.headers && d.headers[0] && (
-                  <span className="t-micro uppercase tracking-wider font-semibold text-muted shrink-0 ml-2" aria-hidden="true">
-                    {d.headers[0]}
-                  </span>
-                )}
-              </div>
+        So the table stacks itself instead. Below `md` each row becomes a block and each cell
+        carries its column header in a `data-label`, printed by CSS. One DOM, no JavaScript, a
+        real <table> for a screen reader at every width, and nothing rendered that is not shown.
 
-              {/* Data fields with explicit headers */}
-              <div className="space-y-1.5">
-                {secondaryCells.map((cell, j) => {
-                  const colIdx = j + 1;
-                  const header = d.headers && d.headers[colIdx] ? d.headers[colIdx] : `Item ${colIdx + 1}`;
-                  return (
-                    <div
-                      key={j}
-                      className="flex items-start justify-between gap-2.5 py-1 border-b border-line/15 last:border-b-0"
-                    >
-                      <span className="t-micro uppercase tracking-wider font-semibold text-muted shrink-0 pt-0.5" aria-hidden="true">
-                        {header}
-                      </span>
-                      <span
-                        className={`text-right t-small text-ink leading-snug break-words max-w-[70%] ${
-                          isFigure(cell.text) ? "tabular-nums font-mono font-semibold" : ""
-                        }`}
-                      >
-                        {withEmphasis(cell.text)}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Desktop Grid View (>= md) */}
-      <div className="hidden md:block overflow-x-auto w-full">
-        <table className="w-full t-small border-collapse">
+        Where a column has no header the label is simply absent. It used to fall back to
+        "Item 2" / "Item 3", which put invented column names on screen — visible in the one block
+        in 3-strategy.md whose columns the parser cannot name.
+      */}
+      <div className="w-full md:overflow-x-auto">
+        <table className="diagram-table w-full t-small border-collapse">
           {d.headers && (
             <thead>
               <tr className="bg-paper/70">
@@ -168,11 +121,16 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
             {d.rows.map((row, i) => {
               const isBanner = row.length === 1 && row[0].spans > 1;
               return (
-                <tr key={i} className={isBanner ? "bg-accent/[0.05]" : "border-b border-line/40 last:border-b-0"}>
+                <tr
+                  key={i}
+                  className={isBanner ? "bg-accent/[0.05]" : "border-b border-line/40 last:border-b-0"}
+                  data-banner={isBanner ? "true" : undefined}
+                >
                   {row.map((cell, j) => (
                     <td
                       key={j}
                       colSpan={cell.spans > 1 ? width : 1}
+                      data-label={!isBanner && d.headers?.[j] ? d.headers[j] : undefined}
                       className={
                         isBanner
                           ? "px-3 py-1.5 font-black uppercase tracking-wider t-micro text-accent"

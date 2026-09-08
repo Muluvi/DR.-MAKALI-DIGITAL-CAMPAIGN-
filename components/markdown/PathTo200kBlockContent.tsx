@@ -6,7 +6,6 @@ import { ALL_WARDS, MWINGI_BLOC_TOTAL, CONSTITUENCIES } from "../../data/ward-re
 import { IEBC_WARD_REGISTER } from "../../data/sources";
 import type { Provenance } from "../../data/types";
 import PathTo200kChart, { type PathPoint } from "../charts/PathTo200kChart";
-import { WardRegisterTicker } from "../charts/WardRegisterTicker";
 
 const WIN_THRESHOLD = 200_000; // §1.2.3: 198,004 actual 2022 winning total, rounded for KPI-setting.
 const PROVENANCE: Provenance = { source: IEBC_WARD_REGISTER, granularity: "ward" };
@@ -64,9 +63,6 @@ export function PathTo200kBlockContent() {
           <PathTo200kChart data={CHART_DATA} threshold={WIN_THRESHOLD} />
         </LazyMount>
       </div>
-
-      {/* Dynamic Auto-Scrolling Ward Register Ticker */}
-      <WardRegisterTicker />
 
       {/* Accessible table equivalent — all 40 wards */}
       <div className="overflow-x-auto max-h-72 overflow-y-auto border border-line/40 rounded-xl">

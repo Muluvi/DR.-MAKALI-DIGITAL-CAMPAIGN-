@@ -1560,3 +1560,73 @@ html {
     display: revert !important;
   }
 }
+
+/* ==========================================================================
+   Diagram tables that stack instead of duplicating
+   ========================================================================== */
+
+/*
+ * The 30 parsed ASCII tables used to ship a card stack AND a table, both in the DOM, so a phone
+ * downloaded and painted markup for a desktop layout it would never show and a desktop did the
+ * reverse. Branching in JavaScript would have made the whole parser output a client component.
+ *
+ * Instead the same <table> takes two shapes. Below the md breakpoint every row becomes a card
+ * and every cell prints its own column header from `data-label`. The element is still a table,
+ * so a screen reader still gets headers and row associations at every width.
+ */
+@media (max-width: 767px) {
+  .diagram-table,
+  .diagram-table tbody,
+  .diagram-table tr,
+  .diagram-table td {
+    display: block;
+    width: 100%;
+  }
+
+  /* The header row is redundant once each cell carries its own label, and reading it aloud
+     twice is worse than not having it — but it must stay in the accessibility tree, so it is
+     positioned away rather than removed. */
+  .diagram-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .diagram-table tr {
+    border: 1px solid color-mix(in srgb, var(--color-line) 50%, transparent);
+    border-radius: 0.75rem;
+    background: color-mix(in srgb, var(--color-paper) 70%, transparent);
+    padding: 0.25rem 0;
+    margin-bottom: 0.625rem;
+  }
+
+  /* A full-width banner row is a heading inside the table, not a card. */
+  .diagram-table tr[data-banner="true"] {
+    border: 0;
+    background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+    border-radius: 0.5rem;
+    margin: 0.375rem 0;
+    padding: 0;
+  }
+
+  .diagram-table td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-size: var(--fs-micro);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-muted);
+    margin-bottom: 0.125rem;
+  }
+
+  .diagram-table td {
+    border-bottom: 1px solid color-mix(in srgb, var(--color-line) 18%, transparent);
+  }
+  .diagram-table td:last-child {
+    border-bottom: 0;
+  }
+}

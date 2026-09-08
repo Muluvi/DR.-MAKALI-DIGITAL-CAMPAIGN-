@@ -5,7 +5,6 @@ import { Search, Sparkles, ArrowUpDown, BarChart3, Table } from "lucide-react";
 import { LazyMount } from "../LazyMount";
 import { SourceLine, detectSources } from "./SourceLine";
 import TableChart from "./TableChart";
-import { WardRegisterTicker } from "../charts/WardRegisterTicker";
 import ModelVariablesDrawer from "./ModelVariablesDrawer";
 import { useIsMobile, useMounted } from "../../hooks/use-mobile";
 
@@ -182,15 +181,6 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
     );
   }, [ths, parsedRows]);
 
-  const isWardRegister = React.useMemo(() => {
-    const headerTexts = ths.map(getDeepText).map((t) => t.toLowerCase());
-    const hasHeader = (k: string) => headerTexts.some((t) => t.includes(k));
-    return (
-      hasHeader("ward") &&
-      (hasHeader("cumulative") || hasHeader("% of county register")) &&
-      parsedRows.length >= 20
-    );
-  }, [ths, parsedRows]);
 
   const isMobile = useIsMobile();
   const mounted = useMounted();
@@ -205,11 +195,6 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      {isWardRegister && (
-        <div className="my-4">
-          <WardRegisterTicker />
-        </div>
-      )}
       <div className="border-y sm:border border-line/40 sm:rounded-xl my-5 overflow-hidden bg-card/30">
       {/* Interactive Controls & Analytics Header */}
       <div className="print:hidden p-2.5 sm:p-3.5 border-b border-line/40 bg-paper/40 flex flex-wrap items-center justify-between gap-2">
