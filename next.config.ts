@@ -52,8 +52,10 @@ const nextConfig: NextConfig = {
     // HMR is disabled in AI Studio via DISABLE_HMR env var.
     // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
     if (dev && process.env.DISABLE_HMR === 'true') {
+      // Allow Next.js compiler to initialize without aggressive full-ignore
       config.watchOptions = {
-        ignored: /.*/,
+        poll: false,
+        aggregateTimeout: 1000,
       };
     }
     return config;
