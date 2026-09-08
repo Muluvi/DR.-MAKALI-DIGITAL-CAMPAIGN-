@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "motion/react";
 
-import { EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
+import { DURATION, EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
 
 export interface StationBar {
@@ -96,7 +96,7 @@ export default function MediaOwnershipChart({ data }: { data: StationBar[] }) {
                         }}
                         initial={reduce ? false : { opacity: 0, scale: 0.9 }}
                         animate={inView || reduce ? { opacity: 1, scale: 1 } : undefined}
-                        transition={{ duration: 0.42, ease: EASE_ENTRANCE, delay }}
+                        transition={{ duration: DURATION.base, ease: EASE_ENTRANCE, delay }}
                         title={`${s.name} — ${s.alignmentCategory}. ${s.reachLabel}`}
                       >
                         {s.name}

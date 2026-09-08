@@ -130,7 +130,7 @@ export function PhoneShowcase() {
               tabIndex={selected ? 0 : -1}
               onClick={() => setChannel(id)}
               className={`shrink-0 inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
-                selected ? "border-accent bg-accent text-white" : "border-line bg-card text-muted hover:text-ink"
+                selected ? "border-accent-solid bg-accent-solid text-on-accent" : "border-line bg-card text-muted hover:text-ink"
               }`}
             >
               <ChannelMark id={id} />
@@ -173,7 +173,7 @@ export function PhoneShowcase() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.97 }}
                   transition={{
-                    duration: reduce ? DURATION.micro : DURATION.entrance,
+                    duration: reduce ? DURATION.instant : DURATION.base,
                     ease: EASE_ENTRANCE,
                   }}
                 >

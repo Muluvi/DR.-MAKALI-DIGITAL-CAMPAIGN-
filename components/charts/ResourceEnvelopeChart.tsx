@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "motion/react";
 
-import { EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
+import { DURATION, EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
 
 export interface WaterfallStep {
@@ -54,7 +54,7 @@ export default function ResourceEnvelopeChart({ data }: { data: WaterfallStep[] 
                   style={{ bottom: `${connectorAt}%` }}
                   initial={reduce ? false : { scaleX: 0 }}
                   animate={inView || reduce ? { scaleX: 1 } : undefined}
-                  transition={{ duration: 0.3, ease: EASE_ENTRANCE, delay: reduce ? 0 : i * STAGGER.tight }}
+                  transition={{ duration: DURATION.quick, ease: EASE_ENTRANCE, delay: reduce ? 0 : i * STAGGER.tight }}
                   aria-hidden="true"
                 />
               )}
@@ -73,7 +73,7 @@ export default function ResourceEnvelopeChart({ data }: { data: WaterfallStep[] 
                 }}
                 initial={reduce ? false : { scaleY: 0 }}
                 animate={inView || reduce ? { scaleY: 1 } : undefined}
-                transition={{ duration: 0.5, ease: EASE_ENTRANCE, delay: reduce ? 0 : 0.1 + i * STAGGER.tight }}
+                transition={{ duration: DURATION.base, ease: EASE_ENTRANCE, delay: reduce ? 0 : 0.1 + i * STAGGER.tight }}
                 role="img"
                 aria-label={`${step.name}: ${step.display}`}
               />

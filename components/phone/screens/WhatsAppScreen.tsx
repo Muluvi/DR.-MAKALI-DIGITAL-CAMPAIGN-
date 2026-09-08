@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import { ArrowLeft, Camera, Mic, Paperclip, Plus, Video, Phone as PhoneIcon } from "lucide-react";
 
 import { IDENTITY, WHATSAPP } from "../../../lib/phone-showcase";
-import { EASE_ENTRANCE } from "../../../lib/motion";
+import { DURATION, EASE_ENTRANCE } from "../../../lib/motion";
 import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
 import { ScreenShell } from "../primitives";
 
@@ -64,7 +64,7 @@ function TypingDots() {
           className="block rounded-full"
           style={{ width: 6, height: 6, background: "#9aa5ad" }}
           animate={{ opacity: [0.3, 1, 0.3] }}
-          transition={{ duration: 1.1, repeat: Infinity, delay: i * 0.16, ease: "easeInOut" }}
+          transition={{ duration: DURATION.deliberate, repeat: Infinity, delay: i * 0.16, ease: "easeInOut" }}
         />
       ))}
     </span>
@@ -154,7 +154,7 @@ export function WhatsAppScreen() {
               <motion.span
                 initial={reduce ? false : { opacity: 0, y: 3 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, ease: EASE_ENTRANCE }}
+                transition={{ duration: DURATION.quick, ease: EASE_ENTRANCE }}
                 className="block"
               >
                 <span style={{ fontSize: "0.8875em", lineHeight: 1.36, color: "#111b21" }}>{reply.text}</span>

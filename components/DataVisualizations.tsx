@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LabelList } from 'recharts';
 import { Sliders, HelpCircle, CheckCircle2 } from "lucide-react";
+import { DURATION } from "../lib/motion";
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
@@ -154,7 +155,7 @@ export function DataVisualizations() {
                 onClick={() => setActiveTier(tier)}
                 className={`flex-1 min-h-[44px] px-2 py-2 rounded-xl text-xs font-bold capitalize transition-all border cursor-pointer flex items-center justify-center ${
                   activeTier === tier 
-                    ? "bg-accent text-white border-accent shadow-sm" 
+                    ? "bg-accent-solid text-on-accent border-accent-solid shadow-sm" 
                     : "bg-card text-muted border-line hover:border-accent/40"
                 }`}
               >
@@ -169,7 +170,7 @@ export function DataVisualizations() {
           key={activeTier}
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.25 }}
+          transition={{ duration: DURATION.quick }}
           className="bg-paper rounded-2xl p-4 sm:p-5 border border-line"
         >
           <div className="flex items-center gap-2 mb-2">

@@ -41,15 +41,31 @@ import { NominationVerdict } from "./NominationVerdict";
 import { DataVisualizations } from "./DataVisualizations";
 import { VoterProjectionsChart } from "./VoterProjectionsChart";
 import { SectionSkeleton } from "./SectionSkeleton";
+import { DURATION } from "../lib/motion";
 
-function SectionTransition({ children, tabKey }: { children: React.ReactNode; tabKey?: string }) {
+/**
+ * The crossfade between sections — on a tab CHANGE, never on first paint.
+ *
+ * This used to carry `initial={{ opacity: 0 }}` unconditionally, which meant the server sent the
+ * entire document body at `opacity: 0` and it stayed invisible until React had hydrated. Largest
+ * Contentful Paint therefore could not fire until hydration finished, which measured at 6.2s on a
+ * mid-range Android; the page also reported a perfect CLS of 0.000, for the unhelpful reason that
+ * nothing was visible to shift. A reader whose JavaScript failed got a blank page carrying 55,500
+ * words of markup.
+ *
+ * `initial={false}` until the reader has actually changed tab means Motion writes no starting
+ * style, so the body ships legible and paints as soon as the HTML arrives. Every subsequent tab
+ * change still animates. Server and first client render agree, so there is no hydration mismatch
+ * to repair.
+ */
+function SectionTransition({ children, tabKey, animateEntrance }: { children: React.ReactNode; tabKey?: string; animateEntrance: boolean }) {
   return (
     <motion.div
       key={tabKey}
-      initial={{ opacity: 0, y: 10 }}
+      initial={animateEntrance ? { opacity: 0, y: 10 } : false}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
+      transition={{ duration: DURATION.quick, ease: "easeOut" }}
       className="w-full print:block"
     >
       {children}
@@ -64,7 +80,7 @@ function SectionTabTransition({ children }: { children: React.ReactNode }) {
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
+      transition={{ duration: DURATION.base, ease: "easeOut" }}
       className="w-full"
     >
       {children}
@@ -187,7 +203,7 @@ function LazySection({ id, content, renderSectionExtras, immediate = false }: La
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: DURATION.slow, ease: [0.16, 1, 0.3, 1] }}
         >
           {content}
           {renderSectionExtras(id)}
@@ -205,7 +221,21 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
   // Always starts on the overview so server and client render the same tree on first paint — the
   // URL fragment is only readable client-side, so a shared deep link switches section in a mount
   // effect below rather than in the initial state (see the useEffect reading window.location.hash).
-  const [activeTab, setActiveTab] = useState<string>("decision");
+  // The tab, plus whether the reader has ever changed it.
+  //
+  // The second half exists so the document body can ship legible: the section crossfade must not
+  // apply its `opacity: 0` starting state on first paint (see SectionTransition). Carrying it in
+  // the same state object means it is set from the seven existing `setActiveTab` call sites —
+  // all of them event handlers — with no effect and no extra render.
+  const [tabState, setTabState] = useState<{ tab: string; navigated: boolean }>({
+    tab: "decision",
+    navigated: false,
+  });
+  const activeTab = tabState.tab;
+  const setActiveTab = useCallback(
+    (tab: string) => setTabState((prev) => (prev.tab === tab ? prev : { tab, navigated: true })),
+    [],
+  );
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTOCModalOpen, setIsTOCModalOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -273,7 +303,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
     });
 
     return () => observer.disconnect();
-  }, [isExpanded, navItems]);
+  }, [isExpanded, navItems, setActiveTab]);
 
   const handleNavClick = (itemId: string) => {
     setActiveTab(itemId);
@@ -309,7 +339,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
       setIsMobileMenuOpen(false);
       scrollToSectionWhenReady(id, "smooth");
     },
-    [activeTab, isExpanded, navItems, validSectionIds]
+    [activeTab, isExpanded, navItems, validSectionIds, setActiveTab]
   );
 
   useEffect(() => {
@@ -353,7 +383,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
     };
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
-  }, [validSectionIds]);
+  }, [validSectionIds, setActiveTab]);
 
   // Section extras.
   //
@@ -510,7 +540,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
               <span className="text-xs font-semibold text-muted shrink-0">Jump to</span>
               <RippleButton
                 onClick={() => setIsTOCModalOpen(true)}
-                className="fx-shine px-3 py-1.5 rounded-xl bg-accent text-white text-xs font-bold shrink-0 flex items-center gap-1.5 shadow-sm shadow-accent/20 cursor-pointer tap-chip"
+                className="fx-shine px-3 py-1.5 rounded-xl bg-accent-solid text-on-accent text-xs font-bold shrink-0 flex items-center gap-1.5 shadow-sm shadow-accent/20 cursor-pointer tap-chip"
               >
                 <span>Full index</span>
               </RippleButton>
@@ -588,7 +618,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
             <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
               <RippleButton
                 onClick={() => setIsTOCModalOpen(true)}
-                className="group fx-shine flex items-center gap-1.5 px-3 py-2 bg-accent/10 border border-accent/20 rounded-xl text-xs sm:text-sm font-bold text-accent hover:bg-accent hover:text-white transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                className="group fx-shine flex items-center gap-1.5 px-3 py-2 bg-accent/10 border border-accent/20 rounded-xl text-xs sm:text-sm font-bold text-accent hover:bg-accent hover:text-white transition-all cursor-pointer min-h-[44px] sm:min-h-[44px]"
                 aria-label="Open Table of Contents"
               >
                 <FileText size={15} className="fx-icon-rise" />
@@ -597,7 +627,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
               <button 
                 onClick={cycleDensity}
-                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[44px] sm:min-h-[44px]"
                 title={`Reading Density: ${readingDensity}`}
                 aria-label="Toggle Reading Density"
               >
@@ -607,9 +637,9 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
               <button 
                 onClick={() => setIsFocusMode(!isFocusMode)}
-                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl text-xs sm:text-sm font-bold fx-press fx-focus transition-all cursor-pointer min-h-[40px] sm:min-h-[42px] ${
+                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl text-xs sm:text-sm font-bold fx-press fx-focus transition-all cursor-pointer min-h-[44px] sm:min-h-[44px] ${
                   isFocusMode 
-                    ? "bg-accent border-accent text-white shadow-sm" 
+                    ? "bg-accent-solid border-accent-solid text-on-accent shadow-sm" 
                     : "bg-card border-line/60 text-ink hover:border-accent hover:text-accent"
                 }`}
                 title={isFocusMode ? "Exit Focus Mode" : "Enter Distraction-Free Focus Mode"}
@@ -621,9 +651,9 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
               <button 
                 onClick={() => setIsZeroChrome(!isZeroChrome)}
-                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl text-xs sm:text-sm font-bold fx-press fx-focus transition-all cursor-pointer min-h-[40px] sm:min-h-[42px] ${
+                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl text-xs sm:text-sm font-bold fx-press fx-focus transition-all cursor-pointer min-h-[44px] sm:min-h-[44px] ${
                   isZeroChrome 
-                    ? "bg-accent border-accent text-white shadow-sm" 
+                    ? "bg-accent-solid border-accent-solid text-on-accent shadow-sm" 
                     : "bg-card border-line/60 text-ink hover:border-accent hover:text-accent"
                 }`}
                 title={isZeroChrome ? "Exit Zero Chrome" : "Enter Zero Chrome Full-Screen"}
@@ -635,7 +665,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
               <button 
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="flex items-center gap-1.5 px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                className="flex items-center gap-1.5 px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[44px] sm:min-h-[44px]"
               >
                 {isExpanded ? <Minimize2 size={15} /> : <Maximize2 size={15} />}
                 <span className="hidden sm:inline">{isExpanded ? "Collapse All" : "Expand All"}</span>
@@ -645,7 +675,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
               <MagneticButton
                 onClick={() => window.print()}
                 strength={0.22}
-                className="group hidden sm:flex items-center gap-2 px-3.5 py-2 bg-card border border-line/60 rounded-xl text-sm font-bold text-ink hover:border-accent hover:text-accent transition-all cursor-pointer min-h-[42px]"
+                className="group hidden sm:flex items-center gap-2 px-3.5 py-2 bg-card border border-line/60 rounded-xl text-sm font-bold text-ink hover:border-accent hover:text-accent transition-all cursor-pointer min-h-[44px]"
               >
                 <Printer size={15} className="fx-icon-rise" />
                 <span>Print</span>
@@ -653,7 +683,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
               <button 
                 onClick={toggleTheme}
-                className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[44px] sm:min-h-[44px]"
                 aria-label="Toggle theme"
               >
                 {mounted ? (
@@ -709,7 +739,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
                         aria-current={isActive ? "true" : undefined}
                         className={`group relative flex items-center justify-between gap-2 px-2.5 py-2 rounded-xl text-xs transition-colors text-left ${
                           isActive
-                            ? "bg-accent text-white shadow-sm shadow-accent/20 font-semibold"
+                            ? "bg-accent-solid text-on-accent shadow-sm shadow-accent/20 font-semibold"
                             : "text-muted hover:bg-ink/5 hover:text-ink cursor-pointer font-medium"
                         }`}
                       >
@@ -767,7 +797,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
               </div>
             ) : (
               <AnimatePresence mode="wait">
-                <SectionTransition tabKey={activeTab}>
+                <SectionTransition tabKey={activeTab} animateEntrance={tabState.navigated}>
                   <LazySection 
                     id={activeItem.id}
                     content={activeItem.content}

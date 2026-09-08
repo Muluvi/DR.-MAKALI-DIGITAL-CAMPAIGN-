@@ -113,7 +113,7 @@ export function VoterProjectionsChart() {
             <button
               onClick={() => setActiveTab("demographics")}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                activeTab === "demographics" ? "bg-accent text-white shadow-sm" : "text-muted hover:text-ink"
+                activeTab === "demographics" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
               }`}
             >
               <Users size={14} />
@@ -122,7 +122,7 @@ export function VoterProjectionsChart() {
             <button
               onClick={() => setActiveTab("voters")}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                activeTab === "voters" ? "bg-accent text-white shadow-sm" : "text-muted hover:text-ink"
+                activeTab === "voters" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
               }`}
             >
               <BarChart3 size={14} />
@@ -171,7 +171,7 @@ export function VoterProjectionsChart() {
                   onClick={() => setSelectedRegion(r)}
                   className={`px-2.5 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-colors border cursor-pointer ${
                     selectedRegion === r
-                      ? "bg-accent text-white border-accent"
+                      ? "bg-accent-solid text-on-accent border-accent-solid"
                       : "bg-card text-muted border-line hover:bg-paper"
                   }`}
                 >
@@ -199,7 +199,7 @@ export function VoterProjectionsChart() {
               onClick={() => setChartType(type)}
               className={`p-1.5 rounded-lg border transition-all cursor-pointer ${
                 chartType === type 
-                  ? "bg-accent text-white border-accent shadow-sm" 
+                  ? "bg-accent-solid text-on-accent border-accent-solid shadow-sm" 
                   : "bg-card text-muted border-line hover:border-accent/40"
               }`}
               title={`Switch to ${type} chart`}

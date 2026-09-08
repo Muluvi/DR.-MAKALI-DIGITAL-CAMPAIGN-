@@ -6,6 +6,7 @@ import { Users, Radio, MessageSquare, AlertTriangle, Layers } from "lucide-react
 
 import { ClaimBadge } from "./ClaimBadge";
 import { TierBadge } from "./TierBadge";
+import { DURATION } from "../../lib/motion";
 
 /**
  * §2.4.1–2.4.2 — the six structural segments.
@@ -170,7 +171,7 @@ export function AudienceSegmentationMatrix() {
               aria-selected={isActive}
               onClick={() => setActiveId(s.id)}
               className={`snap-start tap-chip px-3 py-2 rounded-lg t-small font-bold whitespace-nowrap transition-colors cursor-pointer shrink-0 ${
-                isActive ? "bg-accent text-white" : "text-muted hover:text-ink hover:bg-ink/5"
+                isActive ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink hover:bg-ink/5"
               }`}
             >
               <span className="font-mono opacity-70 mr-1.5">{s.index}</span>
@@ -186,7 +187,7 @@ export function AudienceSegmentationMatrix() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.18, ease: "easeOut" }}
+          transition={{ duration: DURATION.instant, ease: "easeOut" }}
           className="p-4 sm:p-6 space-y-4"
         >
           <div>

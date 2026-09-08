@@ -6,6 +6,7 @@ import { MapPin, Radio, Compass, TrendingUp, Percent, AlertTriangle } from "luci
 
 import { CONSTITUENCIES, COUNTY_TOTAL_WARDS } from "../../data/ward-register";
 import { TierBadge } from "./TierBadge";
+import { DURATION } from "../../lib/motion";
 
 /**
  * §1.4 zone model, bound to the verified IEBC register.
@@ -187,7 +188,7 @@ export function GeographicZoneMatrix() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.18, ease: "easeOut" }}
+            transition={{ duration: DURATION.instant, ease: "easeOut" }}
             className="space-y-4"
           >
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">

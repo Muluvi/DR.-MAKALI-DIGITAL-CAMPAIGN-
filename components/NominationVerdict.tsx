@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
 import { TrendingDown, CalendarClock, Vote } from "lucide-react";
 
-import { EASE_ENTRANCE, VIEWPORT } from "../lib/motion";
+import { DURATION, EASE_ENTRANCE, VIEWPORT } from "../lib/motion";
 import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
 import { TierBadge } from "./markdown/TierBadge";
 
@@ -71,7 +71,7 @@ export function NominationVerdict() {
   // The bars separate from a shared baseline. Under reduce they are simply drawn apart.
   const barTransition = reduce
     ? { duration: 0 }
-    : { duration: 0.72, ease: EASE_ENTRANCE, delay: 0.18 };
+    : { duration: DURATION.slow, ease: EASE_ENTRANCE, delay: 0.18 };
 
   return (
     <section

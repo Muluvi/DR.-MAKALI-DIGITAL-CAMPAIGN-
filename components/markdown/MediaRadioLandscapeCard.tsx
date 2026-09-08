@@ -123,7 +123,7 @@ export function MediaRadioLandscapeCard() {
           <button
             onClick={() => setSelectedFilter("all")}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              selectedFilter === "all" ? "bg-accent text-white shadow-sm" : "text-muted hover:text-ink"
+              selectedFilter === "all" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
             }`}
           >
             All 6 Networks
@@ -131,7 +131,7 @@ export function MediaRadioLandscapeCard() {
           <button
             onClick={() => setSelectedFilter("priorityOnly")}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              selectedFilter === "priorityOnly" ? "bg-accent text-white shadow-sm" : "text-muted hover:text-ink"
+              selectedFilter === "priorityOnly" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
             }`}
           >
             Priority Placement (3)
@@ -164,7 +164,7 @@ export function MediaRadioLandscapeCard() {
               <div className="flex items-center gap-3">
                 <div className={`w-9 h-9 rounded-xl flex items-center justify-center font-bold shrink-0 ${
                   station.isPriority 
-                    ? "bg-accent text-white" 
+                    ? "bg-accent-solid text-on-accent" 
                     : station.politicalAllegiance.includes("Rival")
                     ? "bg-rose-500/20 text-rose-600"
                     : "bg-paper border border-line text-muted"

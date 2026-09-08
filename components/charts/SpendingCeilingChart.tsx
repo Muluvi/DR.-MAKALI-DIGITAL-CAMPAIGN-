@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "motion/react";
 
-import { EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
+import { DURATION, EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
 
 export interface TierBand {
@@ -65,7 +65,7 @@ export default function SpendingCeilingChart({ data, ceiling }: { data: TierBand
                 style={{ left: `${pct(low)}%`, width: `${pct(high) - pct(low)}%`, backgroundColor: t.color }}
                 initial={reduce ? false : { scaleX: 0 }}
                 animate={inView || reduce ? { scaleX: 1 } : undefined}
-                transition={{ duration: 0.52, ease: EASE_ENTRANCE, delay: reduce ? 0 : i * STAGGER.tight }}
+                transition={{ duration: DURATION.base, ease: EASE_ENTRANCE, delay: reduce ? 0 : i * STAGGER.tight }}
               />
               {/* Everything past the cap is unlawful spend. Tinting it says so, rather than
                   leaving a stretch of neutral track that reads as more available room. */}

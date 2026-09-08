@@ -5,6 +5,7 @@ import { Compass, ChevronUp, Sparkles, Activity, Radio, Calculator, MapPin, Coin
 import { motion, AnimatePresence } from "motion/react";
 
 import { useChromeVisible } from "../hooks/use-chrome-visible";
+import { DURATION } from "../lib/motion";
 
 interface QuickNavCapsuleProps {
   onNavigate: (sectionId: string) => void;
@@ -60,7 +61,7 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
             initial={{ opacity: 0, scale: 0.9, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 15 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
+            transition={{ duration: DURATION.quick, ease: "easeOut" }}
             className="fx-glass shadow-2xl rounded-2xl p-4 w-[min(calc(100vw-2.5rem),20rem)] mb-2 overflow-hidden"
           >
             <div className="flex items-center justify-between border-b border-line/40 pb-2 mb-2.5">
@@ -129,7 +130,7 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
           onClick={() => setIsOpen(!isOpen)}
           className={`flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] rounded-full backdrop-blur-md border shadow-lg text-xs font-bold transition-all cursor-pointer active:scale-95 ${
             isOpen
-              ? "bg-accent text-white border-accent shadow-accent/25"
+              ? "bg-accent-solid text-on-accent border-accent-solid shadow-accent/25"
               : "bg-card/95 text-ink border-line/60 hover:border-accent/60 hover:text-accent"
           }`}
           aria-label="Quick Navigator"

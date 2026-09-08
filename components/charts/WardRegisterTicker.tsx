@@ -101,9 +101,9 @@ export function WardRegisterTicker() {
           <div className="inline-flex p-0.5 bg-card border border-line/60 rounded-xl overflow-x-auto max-w-full">
             <button
               onClick={() => setFilterMode("all")}
-              className={`px-2.5 py-1.5 t-micro font-bold rounded-lg transition-all cursor-pointer whitespace-nowrap min-h-[36px] ${
+              className={`px-2.5 py-1.5 t-micro font-bold rounded-lg transition-all cursor-pointer whitespace-nowrap min-h-[44px] ${
                 filterMode === "all"
-                  ? "bg-accent text-white shadow-xs"
+                  ? "bg-accent-solid text-on-accent shadow-xs"
                   : "text-muted hover:text-ink"
               }`}
             >
@@ -111,7 +111,7 @@ export function WardRegisterTicker() {
             </button>
             <button
               onClick={() => setFilterMode("top")}
-              className={`px-2.5 py-1.5 t-micro font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 whitespace-nowrap min-h-[36px] ${
+              className={`px-2.5 py-1.5 t-micro font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 whitespace-nowrap min-h-[44px] ${
                 filterMode === "top"
                   ? "bg-gold text-ink shadow-xs"
                   : "text-muted hover:text-ink"
@@ -122,7 +122,7 @@ export function WardRegisterTicker() {
             </button>
             <button
               onClick={() => setFilterMode("bottom")}
-              className={`px-2.5 py-1.5 t-micro font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 whitespace-nowrap min-h-[36px] ${
+              className={`px-2.5 py-1.5 t-micro font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 whitespace-nowrap min-h-[44px] ${
                 filterMode === "bottom"
                   ? "bg-line/90 text-ink shadow-xs"
                   : "text-muted hover:text-ink"
@@ -136,7 +136,7 @@ export function WardRegisterTicker() {
           {/* Pause / Resume button */}
           <button
             onClick={() => setIsPausedByUser(!isPausedByUser)}
-            className="p-2 rounded-xl bg-card border border-line text-ink hover:border-accent/40 active:scale-95 transition-all cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center"
+            className="p-2 rounded-xl bg-card border border-line text-ink hover:border-accent/40 active:scale-95 transition-all cursor-pointer min-h-[44px] min-w-[44px] flex items-center justify-center"
             title={isPausedByUser ? "Resume ticker" : "Pause ticker"}
             aria-label={isPausedByUser ? "Resume ticker" : "Pause ticker"}
           >
@@ -302,7 +302,7 @@ export function WardRegisterTicker() {
           className="mt-3 pt-3 border-t border-line/60 bg-card rounded-xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
         >
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-accent text-white flex items-center justify-center font-mono font-black text-sm">
+            <div className="w-9 h-9 rounded-xl bg-accent-solid text-on-accent flex items-center justify-center font-mono font-black text-sm">
               #{selectedWard.rank}
             </div>
             <div>

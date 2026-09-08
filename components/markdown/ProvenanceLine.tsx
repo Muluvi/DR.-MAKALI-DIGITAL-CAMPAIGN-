@@ -47,7 +47,7 @@ export function ProvenanceLine({ provenance }: { provenance: Provenance | Proven
           <span>{p.source.publicationDate}</span>
           <span className="opacity-60">·</span>
           <span>{GRANULARITY_LABEL[p.granularity]}</span>
-          {p.note && <span className="w-full sm:w-auto normal-case font-semibold text-muted/80 italic">{p.note}</span>}
+          {p.note && <span className="w-full sm:w-auto normal-case font-semibold text-muted italic">{p.note}</span>}
         </div>
       ))}
     </div>

@@ -131,7 +131,7 @@ export default function ModelVariablesDrawer() {
                 onClick={() => setSourceFilter(s)}
                 className={`px-2.5 py-1 rounded-lg t-micro font-bold transition-all shrink-0 cursor-pointer min-h-[32px] ${
                   sourceFilter === s
-                    ? "bg-accent text-white shadow-xs"
+                    ? "bg-accent-solid text-on-accent shadow-xs"
                     : "bg-card border border-line/60 text-muted hover:text-ink"
                 }`}
               >

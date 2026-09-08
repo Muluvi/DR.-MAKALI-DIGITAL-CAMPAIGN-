@@ -4,7 +4,7 @@ import React, { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { ArrowRight, CalendarDays, UserRound, Route, TriangleAlert } from "lucide-react";
 
-import { EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
+import { DURATION, EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
 import type { CommitmentField, CommitmentFieldKey } from "../../lib/commitment-fields";
 import { HighlightedText } from "./HighlightedText";
@@ -82,7 +82,7 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
   const rise = (i: number) => ({
     initial: reduce ? false : { opacity: 0, y: 8 },
     animate: inView || reduce ? { opacity: 1, y: 0 } : undefined,
-    transition: { duration: 0.46, ease: EASE_ENTRANCE, delay: reduce ? 0 : i * STAGGER.tight },
+    transition: { duration: DURATION.base, ease: EASE_ENTRANCE, delay: reduce ? 0 : i * STAGGER.tight },
   });
 
   return (

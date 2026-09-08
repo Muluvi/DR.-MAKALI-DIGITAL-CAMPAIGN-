@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { disclosure, EASE_ENTRANCE } from "../lib/motion";
+import { DURATION, EASE_ENTRANCE, disclosure } from "../lib/motion";
 import {
   X,
   Search,
@@ -184,7 +184,7 @@ export function HeroVisual() {
     <motion.div
       initial={{ opacity: 0, scale: 0.96 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: DURATION.slow }}
       ref={containerRef}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
@@ -203,9 +203,9 @@ export function HeroVisual() {
               Spatial Strategy Command
             </span>
           </div>
-          <h4 className="font-serif text-sm sm:text-base font-bold text-ink mt-0.5">
+          <h2 className="font-serif text-sm sm:text-base font-bold text-ink mt-0.5">
             {selectedStage ? selectedStage.title : "Four-Stage Digital & Field Operating System"}
-          </h4>
+          </h2>
         </div>
 
         {/* Action buttons & View Mode Switcher */}
@@ -215,7 +215,7 @@ export function HeroVisual() {
               onClick={() => setViewMode("3d")}
               className={`px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 ${
                 viewMode === "3d"
-                  ? "bg-accent text-white shadow-xs"
+                  ? "bg-accent-solid text-on-accent shadow-xs"
                   : "text-muted hover:text-ink"
               }`}
               aria-label="3D Isometric Terrain View"
@@ -227,7 +227,7 @@ export function HeroVisual() {
               onClick={() => setViewMode("flow")}
               className={`px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 ${
                 viewMode === "flow"
-                  ? "bg-accent text-white shadow-xs"
+                  ? "bg-accent-solid text-on-accent shadow-xs"
                   : "text-muted hover:text-ink"
               }`}
               aria-label="Pipeline Flow View"
@@ -436,7 +436,7 @@ export function HeroVisual() {
                     <div
                       className={`relative px-3 py-1.5 rounded-xl border backdrop-blur-md shadow-lg transition-all duration-300 flex items-center gap-1.5 ${
                         isSelected
-                          ? "bg-accent text-white border-accent ring-4 ring-accent/30 scale-110"
+                          ? "bg-accent-solid text-on-accent border-accent-solid ring-4 ring-accent/30 scale-110"
                           : "bg-card/90 text-ink border-line hover:border-accent hover:scale-105"
                       }`}
                     >
@@ -522,7 +522,7 @@ export function HeroVisual() {
             <motion.path
               initial={{ strokeDashoffset: 1000 }}
               animate={{ strokeDashoffset: [1000, 0] }}
-              transition={{ duration: 1.2, ease: EASE_ENTRANCE }}
+              transition={{ duration: DURATION.deliberate, ease: EASE_ENTRANCE }}
               strokeDasharray="8 10"
               className="fill-none stroke-[url(#routeGradHero)] stroke-3 stroke-linecap-round"
               d="M90 178 C180 80 250 215 350 126 S520 54 610 132 S750 202 820 78"
@@ -530,7 +530,7 @@ export function HeroVisual() {
             <motion.path
               initial={{ strokeDashoffset: -1000 }}
               animate={{ strokeDashoffset: [-1000, 0] }}
-              transition={{ duration: 1.2, delay: 0.15, ease: EASE_ENTRANCE }}
+              transition={{ duration: DURATION.deliberate, delay: 0.15, ease: EASE_ENTRANCE }}
               strokeDasharray="8 10"
               className="fill-none stroke-[url(#routeGradHero)] stroke-3 stroke-linecap-round opacity-40"
               d="M90 178 C250 178 270 72 420 78 S650 190 820 78"

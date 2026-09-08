@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Scale, AlertTriangle, CheckCircle2, ChevronRight, HelpCircle, ArrowRight, ShieldCheck, Building2, Users } from "lucide-react";
+import { DURATION } from "../../lib/motion";
 
 export function ConstitutionalBranchNavigator() {
   const [activeBranch, setActiveBranch] = useState<"branchA" | "branchB">("branchA");
@@ -36,7 +37,7 @@ export function ConstitutionalBranchNavigator() {
             onClick={() => setActiveBranch("branchA")}
             className={`flex-1 sm:flex-none px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
               activeBranch === "branchA"
-                ? "bg-accent text-white shadow-sm"
+                ? "bg-accent-solid text-on-accent shadow-sm"
                 : "text-muted hover:text-ink"
             }`}
           >
@@ -46,7 +47,7 @@ export function ConstitutionalBranchNavigator() {
             onClick={() => setActiveBranch("branchB")}
             className={`flex-1 sm:flex-none px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
               activeBranch === "branchB"
-                ? "bg-accent text-white shadow-sm"
+                ? "bg-accent-solid text-on-accent shadow-sm"
                 : "text-muted hover:text-ink"
             }`}
           >
@@ -72,7 +73,7 @@ export function ConstitutionalBranchNavigator() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: DURATION.quick }}
               className="space-y-4"
             >
               <div className="flex items-center gap-2 text-xs font-extrabold text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 p-2.5 rounded-xl border border-emerald-500/20">
@@ -127,7 +128,7 @@ export function ConstitutionalBranchNavigator() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: DURATION.quick }}
               className="space-y-4"
             >
               <div className="flex items-center gap-2 text-xs font-extrabold text-amber-700 dark:text-amber-400 bg-amber-500/10 p-2.5 rounded-xl border border-amber-500/20">

@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
+import { LOOP } from "../lib/motion";
 
 interface RadialProgressProps {
   percentage: number;
@@ -59,7 +60,7 @@ export function RadialProgress({
             strokeDasharray={circumference}
             initial={{ strokeDashoffset: circumference }}
             animate={{ strokeDashoffset }}
-            transition={{ duration: 1.8, ease: "easeOut" }}
+            transition={{ duration: LOOP.pulse, ease: "easeOut" }}
             strokeLinecap="round"
           />
         </svg>

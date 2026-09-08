@@ -107,9 +107,9 @@ export function DataSecurityEthicsCharter() {
                 DPA 2019 & IEBC Compliance
               </span>
             </div>
-            <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
+            <h3 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
               Digital Ethics, Data Privacy & Regulatory Compliance Charter
-            </h4>
+            </h3>
           </div>
         </div>
 
@@ -128,7 +128,7 @@ export function DataSecurityEthicsCharter() {
             onClick={() => setSelectedFilter(cat)}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
               selectedFilter === cat
-                ? "bg-accent text-white shadow-sm"
+                ? "bg-accent-solid text-on-accent shadow-sm"
                 : "bg-card border border-line text-muted hover:text-ink"
             }`}
           >

@@ -6,6 +6,7 @@ import { Coins, ShieldCheck, Scale, Users, Radio, CheckCircle2, AlertTriangle } 
 
 import { ClaimBadge } from "./ClaimBadge";
 import { TierBadge } from "./TierBadge";
+import { DURATION } from "../../lib/motion";
 
 /**
  * §9.2 tier comparator.
@@ -134,7 +135,7 @@ export function BudgetScenarioModeler() {
               </span>
               <TierBadge tier={1} compact />
             </div>
-            <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-1">Scope and trade-offs by tier</h4>
+            <h3 className="font-serif text-base sm:text-lg font-bold text-ink mt-1">Scope and trade-offs by tier</h3>
           </div>
         </div>
 
@@ -189,7 +190,7 @@ export function BudgetScenarioModeler() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.18, ease: "easeOut" }}
+          transition={{ duration: DURATION.instant, ease: "easeOut" }}
           className="p-4 sm:p-6 space-y-4"
         >
           <p className="text-sm text-ink font-semibold leading-relaxed">{currentTier.purpose}</p>

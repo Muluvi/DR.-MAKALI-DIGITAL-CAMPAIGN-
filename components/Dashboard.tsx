@@ -58,7 +58,7 @@ export function Dashboard() {
         <Reveal variant="left" className="flex items-center justify-between gap-4 mb-4">
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-6 rounded-full bg-gradient-to-b from-accent to-gold" />
-            <h3 className="font-serif text-lg sm:text-xl font-semibold fx-text-gradient">Core Campaign Baseline Metrics</h3>
+            <h2 className="font-serif text-lg sm:text-xl font-semibold fx-text-gradient">Core Campaign Baseline Metrics</h2>
             <span aria-hidden="true" className="fx-divider-soft flex-1 min-w-4 ml-2" />
           </div>
         </Reveal>

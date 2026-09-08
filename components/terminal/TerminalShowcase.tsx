@@ -214,7 +214,7 @@ export function TerminalShowcase() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.98 }}
                 transition={{
-                  duration: reduce ? 0 : DURATION.fast,
+                  duration: reduce ? 0 : DURATION.quick,
                   ease: EASE_ENTRANCE,
                 }}
                 className="w-full h-full"

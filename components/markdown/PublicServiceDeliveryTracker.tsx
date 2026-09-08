@@ -106,9 +106,9 @@ export function PublicServiceDeliveryTracker() {
                 Public Register
               </span>
             </div>
-            <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
+            <h3 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
               Public Service-Delivery & Promise Tracker
-            </h4>
+            </h3>
           </div>
         </div>
 
@@ -167,7 +167,7 @@ export function PublicServiceDeliveryTracker() {
             onClick={() => setSelectedCategory(cat)}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
               selectedCategory === cat
-                ? "bg-accent text-white shadow-sm"
+                ? "bg-accent-solid text-on-accent shadow-sm"
                 : "bg-paper border border-line text-muted hover:text-ink"
             }`}
           >
@@ -261,7 +261,7 @@ export function PublicServiceDeliveryTracker() {
             <button
               type="submit"
               disabled={isSimulatingSubmission || !issueInput.trim()}
-              className="px-4 py-1.5 rounded-lg bg-accent text-white text-xs font-bold flex items-center gap-1.5 disabled:opacity-50 cursor-pointer"
+              className="px-4 py-1.5 rounded-lg bg-accent-solid text-on-accent text-xs font-bold flex items-center gap-1.5 disabled:opacity-50 cursor-pointer"
             >
               <Send size={12} />
               <span>{isSimulatingSubmission ? "Logging to Register..." : "Submit Test Report"}</span>

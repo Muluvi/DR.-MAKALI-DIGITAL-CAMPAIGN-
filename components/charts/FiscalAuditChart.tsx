@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "motion/react";
 
-import { EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
+import { DURATION, EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
 
 export interface FiscalBar {
@@ -67,7 +67,7 @@ export default function FiscalAuditChart({ data }: { data: FiscalBar[] }) {
             style={{ left: `${s.offset}%`, width: `calc(${s.pct}% - 2px)`, backgroundColor: s.color }}
             initial={reduce ? false : { scaleX: 0 }}
             animate={inView || reduce ? { scaleX: 1 } : undefined}
-            transition={{ duration: 0.52, ease: EASE_ENTRANCE, delay: reduce ? 0 : i * STAGGER.tight }}
+            transition={{ duration: DURATION.base, ease: EASE_ENTRANCE, delay: reduce ? 0 : i * STAGGER.tight }}
           />
         ))}
         {/* Where the exposure ends. The reader should be able to see the proportion, not compute it. */}

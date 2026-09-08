@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
 import { Wifi, WifiOff, Radio, MessageSquare, Smartphone, Users } from "lucide-react";
 
-import { EASE_ENTRANCE, VIEWPORT } from "../lib/motion";
+import { DURATION, EASE_ENTRANCE, VIEWPORT } from "../lib/motion";
 import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
 import { TierBadge } from "./markdown/TierBadge";
 import { ClaimBadge } from "./markdown/ClaimBadge";
@@ -88,7 +88,7 @@ export function ReachSplit() {
 
   const wipe = reduce
     ? { duration: 0 }
-    : { duration: 0.64, ease: EASE_ENTRANCE };
+    : { duration: DURATION.slow, ease: EASE_ENTRANCE };
 
   return (
     <div ref={ref} className="my-10 not-prose">
@@ -191,7 +191,7 @@ export function ReachSplit() {
                 onPointerLeave={() => setPressed(null)}
                 className={`h-8 rounded-md font-mono text-xs font-bold transition-transform ${
                   pressed === k
-                    ? "scale-95 bg-accent text-white"
+                    ? "scale-95 bg-accent-solid text-on-accent"
                     : "bg-paper/10 text-paper/80 hover:bg-paper/20"
                 }`}
                 style={{ transitionDuration: reduce ? "80ms" : "140ms" }}

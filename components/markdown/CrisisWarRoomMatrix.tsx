@@ -102,9 +102,9 @@ export function CrisisWarRoomMatrix() {
                 Digital War Room
               </span>
             </div>
-            <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
+            <h3 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
               Rapid Response & 30-Minute Crisis Escalation Engine
-            </h4>
+            </h3>
           </div>
         </div>
 
@@ -229,7 +229,7 @@ export function CrisisWarRoomMatrix() {
           <button
             onClick={handleSimulateDrill}
             disabled={drillRunning}
-            className="px-4 py-1.5 rounded-xl bg-accent text-white text-xs font-bold flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+            className="px-4 py-1.5 rounded-xl bg-accent-solid text-on-accent text-xs font-bold flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
           >
             <Clock size={12} />
             <span>{drillRunning ? "Running Simulation..." : "Trigger Red-Team Drill"}</span>

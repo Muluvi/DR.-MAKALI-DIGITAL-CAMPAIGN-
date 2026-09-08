@@ -119,7 +119,7 @@ export function MobileTOCModal({
                 placeholder="Search sections (e.g., 200k, Radio, 40 Wards, DPA)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="fx-input-glow w-full pl-10 pr-4 py-2 bg-card border border-line rounded-xl text-xs font-semibold text-ink placeholder:text-muted focus:outline-none focus:border-accent min-h-[40px]"
+                className="fx-input-glow w-full pl-10 pr-4 py-2 bg-card border border-line rounded-xl text-xs font-semibold text-ink placeholder:text-muted focus:outline-none focus:border-accent min-h-[44px]"
                 autoFocus
               />
               {searchQuery && (
@@ -138,7 +138,7 @@ export function MobileTOCModal({
                 onClick={() => setSelectedTabFilter("all")}
                 className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[32px] ${
                   selectedTabFilter === "all"
-                    ? "bg-accent text-white border-accent"
+                    ? "bg-accent-solid text-on-accent border-accent-solid"
                     : "bg-card text-muted border-line hover:text-ink"
                 }`}
               >
@@ -150,7 +150,7 @@ export function MobileTOCModal({
                   onClick={() => setSelectedTabFilter(part.part)}
                   className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[32px] ${
                     selectedTabFilter === part.part
-                      ? "bg-accent text-white border-accent"
+                      ? "bg-accent-solid text-on-accent border-accent-solid"
                       : "bg-card text-muted border-line hover:text-ink"
                   }`}
                 >

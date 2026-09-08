@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "motion/react";
 
-import { EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
+import { DURATION, EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
 import { Portrait } from "../Portrait";
 
@@ -57,7 +57,7 @@ export function EconomistGovernorThesis() {
                   className={`inline-block ${seg.accent ? "text-accent" : ""}`}
                   initial={reduce ? false : { opacity: 0, y: 10 }}
                   animate={inView || reduce ? { opacity: 1, y: 0 } : undefined}
-                  transition={{ duration: 0.52, ease: EASE_ENTRANCE, delay }}
+                  transition={{ duration: DURATION.base, ease: EASE_ENTRANCE, delay }}
                 >
                   {w}
                   {" "}
@@ -85,7 +85,7 @@ export function EconomistGovernorThesis() {
         className="block h-px bg-accent/40 mt-4 origin-left"
         initial={reduce ? false : { scaleX: 0 }}
         animate={inView || reduce ? { scaleX: 1 } : undefined}
-        transition={{ duration: 0.62, ease: EASE_ENTRANCE, delay: reduce ? 0 : word * STAGGER.tight }}
+        transition={{ duration: DURATION.slow, ease: EASE_ENTRANCE, delay: reduce ? 0 : word * STAGGER.tight }}
         aria-hidden="true"
       />
     </div>

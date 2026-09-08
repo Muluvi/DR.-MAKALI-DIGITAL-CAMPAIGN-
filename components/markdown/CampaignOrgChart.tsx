@@ -142,7 +142,7 @@ export function CampaignOrgChart() {
             onClick={() => setSelectedCategory(cat)}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
               selectedCategory === cat
-                ? "bg-accent text-white shadow-sm"
+                ? "bg-accent-solid text-on-accent shadow-sm"
                 : "bg-card border border-line text-muted hover:text-ink"
             }`}
           >

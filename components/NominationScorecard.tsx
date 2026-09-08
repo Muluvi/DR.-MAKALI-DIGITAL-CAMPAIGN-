@@ -5,6 +5,7 @@ import { motion, useInView } from "motion/react";
 import { Target, Users, Scale, Building2 } from "lucide-react";
 
 import { ClaimBadge } from "./markdown/ClaimBadge";
+import { DURATION } from "../lib/motion";
 
 /**
  * §8.1.1 — the nomination-window KPI scorecard, quoted.
@@ -137,7 +138,7 @@ export function NominationScorecard() {
                   initial={{ scaleX: 0 }}
                   animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
                   style={{ width: `${kpi.target}%`, transformOrigin: "left" }}
-                  transition={{ duration: 0.52, ease: [0.16, 1, 0.3, 1], delay: 0.14 + i * 0.06 }}
+                  transition={{ duration: DURATION.base, ease: [0.16, 1, 0.3, 1], delay: 0.14 + i * 0.06 }}
                 />
               </div>
 

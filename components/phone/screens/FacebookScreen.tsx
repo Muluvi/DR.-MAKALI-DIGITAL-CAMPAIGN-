@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import { Bell, Globe, Home, MessageCircle, MoreHorizontal, Search, Share2, ThumbsUp, Users } from "lucide-react";
 
 import { FACEBOOK, IDENTITY, ILLUSTRATIVE_COUNTS } from "../../../lib/phone-showcase";
-import { EASE_ENTRANCE, STAGGER } from "../../../lib/motion";
+import { DURATION, EASE_ENTRANCE, STAGGER } from "../../../lib/motion";
 import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
 import { Avatar, ScreenShell, Slot } from "../primitives";
 
@@ -54,7 +54,7 @@ function ReactionPills({ show, reduce }: { show: boolean; reduce: boolean }) {
           }}
           initial={reduce ? false : { scale: 0.4, opacity: 0 }}
           animate={show || reduce ? { scale: 1, opacity: 1 } : { scale: 0.4, opacity: 0 }}
-          transition={{ duration: 0.36, ease: EASE_ENTRANCE, delay: reduce ? 0 : i * STAGGER.tight }}
+          transition={{ duration: DURATION.base, ease: EASE_ENTRANCE, delay: reduce ? 0 : i * STAGGER.tight }}
         >
           {p.node}
         </motion.span>

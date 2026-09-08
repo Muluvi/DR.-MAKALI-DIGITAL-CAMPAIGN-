@@ -96,7 +96,7 @@ export function MobileBottomNav({
           <div className="flex items-center justify-between px-1 pb-1.5 mb-1.5 border-b border-line/40 text-xs font-semibold gap-1">
             <button
               onClick={onOpenTOC}
-              className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-accent/10 text-accent border border-accent/20 fx-press fx-focus transition-all cursor-pointer min-h-[40px] shrink-0"
+              className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-accent/10 text-accent border border-accent/20 fx-press fx-focus transition-all cursor-pointer min-h-[44px] shrink-0"
             >
               <ListTree size={14} />
               <span className="text-[11px] sm:text-xs">Index</span>
@@ -107,7 +107,7 @@ export function MobileBottomNav({
               {onToggleZeroChrome && (
                 <button
                   onClick={onToggleZeroChrome}
-                  className="flex items-center gap-1 px-2 sm:px-2.5 py-1.5 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[40px]"
+                  className="flex items-center gap-1 px-2 sm:px-2.5 py-1.5 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[44px]"
                   aria-label="Toggle Zero Chrome full-screen reading mode"
                   title="Toggle Zero Chrome reading mode"
                 >
@@ -118,7 +118,7 @@ export function MobileBottomNav({
 
               <button
                 onClick={onToggleExpanded}
-                className="flex items-center gap-1 px-2 py-1.5 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[40px]"
+                className="flex items-center gap-1 px-2 py-1.5 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[44px]"
                 aria-label={isExpanded ? "Collapse to one section" : "Show all sections"}
               >
                 {isExpanded ? <Minimize2 size={13} /> : <Maximize2 size={13} />}
@@ -127,7 +127,7 @@ export function MobileBottomNav({
 
               <button
                 onClick={onToggleTheme}
-                className="p-2 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[40px] min-w-[40px] flex items-center justify-center"
+                className="p-2 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] relative z-10 flex items-center justify-center"
                 aria-label="Toggle dark mode"
               >
                 {theme === "light" ? <Moon size={14} className="text-gold" /> : <Sun size={14} className="text-gold" />}
@@ -135,7 +135,7 @@ export function MobileBottomNav({
 
               <button
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="p-2 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[40px] min-w-[40px] flex items-center justify-center"
+                className="p-2 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] relative z-10 flex items-center justify-center"
                 aria-label="Back to top"
               >
                 <ChevronUp size={15} className="text-accent" />
@@ -159,7 +159,7 @@ export function MobileBottomNav({
                   aria-current={isActive ? "true" : undefined}
                   className={`flex items-center gap-1.5 shrink-0 snap-center min-h-[44px] px-3 rounded-xl transition-colors select-none cursor-pointer ${
                     isActive
-                      ? "bg-accent text-white shadow-sm shadow-accent/20 font-semibold"
+                      ? "bg-accent-solid text-on-accent shadow-sm shadow-accent/20 font-semibold"
                       : "text-muted bg-paper border border-line/70 active:bg-line/30 font-medium"
                   }`}
                 >

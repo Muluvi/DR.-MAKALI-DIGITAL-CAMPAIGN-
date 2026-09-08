@@ -232,7 +232,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
               onClick={() => setShowChart(!showChart)}
               className={`tap-chip flex items-center gap-1.5 px-3 py-2 rounded-xl border t-micro font-bold uppercase tracking-wider transition-all cursor-pointer min-h-[44px] ${
                 showChart
-                  ? "bg-accent border-accent text-white shadow-sm"
+                  ? "bg-accent-solid border-accent-solid text-on-accent shadow-sm"
                   : "bg-paper/80 border-line text-muted hover:border-accent/40 hover:text-ink"
               }`}
             >

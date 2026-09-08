@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "motion/react";
 
-import { EASE_ENTRANCE, VIEWPORT } from "../../lib/motion";
+import { DURATION, EASE_ENTRANCE, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
 
 export interface TimelinePoint {
@@ -101,7 +101,7 @@ export default function ElectoralTimelineChart({ data }: { data: TimelinePoint[]
           strokeLinecap="round"
           initial={reduce ? false : { pathLength: 0 }}
           animate={inView || reduce ? { pathLength: 1 } : undefined}
-          transition={{ duration: 0.62, ease: EASE_ENTRANCE }}
+          transition={{ duration: DURATION.slow, ease: EASE_ENTRANCE }}
         />
 
         {data.map((d, i) => {

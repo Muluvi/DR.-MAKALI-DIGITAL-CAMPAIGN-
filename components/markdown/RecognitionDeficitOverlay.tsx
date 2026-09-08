@@ -93,9 +93,9 @@ export function RecognitionDeficitOverlay() {
               </span>
               <TierBadge tier={1} compact />
             </div>
-            <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-1">
+            <h3 className="font-serif text-base sm:text-lg font-bold text-ink mt-1">
               The decisive wards are the deficit wards
-            </h4>
+            </h3>
           </div>
         </div>
 
@@ -104,7 +104,7 @@ export function RecognitionDeficitOverlay() {
             onClick={() => setFilterMode("all")}
             aria-pressed={filterMode === "all"}
             className={`px-3 py-1.5 rounded-lg t-small font-bold transition-colors cursor-pointer ${
-              filterMode === "all" ? "bg-accent text-white" : "text-muted hover:text-ink"
+              filterMode === "all" ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink"
             }`}
           >
             Top 12
@@ -113,7 +113,7 @@ export function RecognitionDeficitOverlay() {
             onClick={() => setFilterMode("deficitOnly")}
             aria-pressed={filterMode === "deficitOnly"}
             className={`px-3 py-1.5 rounded-lg t-small font-bold transition-colors cursor-pointer ${
-              filterMode === "deficitOnly" ? "bg-accent text-white" : "text-muted hover:text-ink"
+              filterMode === "deficitOnly" ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink"
             }`}
           >
             Deficit only ({deficitCount})

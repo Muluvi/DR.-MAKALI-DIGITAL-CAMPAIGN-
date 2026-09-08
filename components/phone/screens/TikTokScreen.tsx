@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import { Heart, Home, MessageCircle, Music, Plus, Search, Share, User } from "lucide-react";
 
 import { IDENTITY, ILLUSTRATIVE_COUNTS, TIKTOK } from "../../../lib/phone-showcase";
-import { EASE_ENTRANCE } from "../../../lib/motion";
+import { DURATION, EASE_ENTRANCE, LOOP } from "../../../lib/motion";
 import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
 import { ScreenShell, SlotGap } from "../primitives";
 
@@ -42,7 +42,7 @@ function RailAction({
     <span className="flex flex-col items-center gap-1">
       <motion.span
         animate={pulse && !reduce ? { scale: [1, 1.3, 1] } : { scale: 1 }}
-        transition={{ duration: 0.46, ease: EASE_ENTRANCE }}
+        transition={{ duration: DURATION.base, ease: EASE_ENTRANCE }}
         className="block"
       >
         <Icon size={31} color={color} fill={filled ? color : "none"} strokeWidth={filled ? 0 : 1.8} aria-hidden="true" />
@@ -150,7 +150,7 @@ export function TikTokScreen() {
             className="grid place-items-center rounded-full mt-1"
             style={{ width: 42, height: 42, background: "linear-gradient(145deg,#3a3a3a,#111)" }}
             animate={reduce ? { rotate: 0 } : { rotate: 360 }}
-            transition={{ duration: 6, repeat: reduce ? 0 : Infinity, ease: "linear" }}
+            transition={{ duration: LOOP.drift, repeat: reduce ? 0 : Infinity, ease: "linear" }}
             aria-hidden="true"
           >
             <Music size={16} color="#fff" strokeWidth={2.2} />

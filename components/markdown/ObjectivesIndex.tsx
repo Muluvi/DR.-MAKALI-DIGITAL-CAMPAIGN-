@@ -35,9 +35,9 @@ export function ObjectivesIndex() {
     <aside className="not-prose my-8 rounded-2xl border border-line/60 bg-card/60 p-5 sm:p-6">
       <div className="flex items-center gap-2 mb-1">
         <Target size={15} className="text-accent shrink-0" aria-hidden />
-        <h4 className="t-label uppercase tracking-wider font-extrabold text-muted">
+        <h3 className="t-label uppercase tracking-wider font-extrabold text-muted">
           The rest of what is measured
-        </h4>
+        </h3>
       </div>
       <p className="text-xs sm:text-sm text-muted leading-relaxed mb-4 text-pretty">
         The scorecards above are the campaign&rsquo;s headline targets. {items.length} further

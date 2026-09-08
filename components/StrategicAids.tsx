@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence, useInView } from "motion/react";
-import { SPRING } from "../lib/motion";
+import { DURATION, SPRING } from "../lib/motion";
 import { useState, useEffect, useRef } from "react";
 import { useMarqueeActive } from "../hooks/use-marquee-active";
 import { useIsMobile } from "../hooks/use-mobile";
@@ -58,7 +58,7 @@ export function AudioSummaryPlayer() {
         <button
           onClick={() => setLanguage("en")}
           className={`flex-1 t-small font-bold py-1.5 rounded-lg border transition-all ${
-            language === "en" ? "bg-accent text-white border-accent" : "bg-card text-muted border-line"
+            language === "en" ? "bg-accent-solid text-on-accent border-accent-solid" : "bg-card text-muted border-line"
           }`}
         >
           English Audio
@@ -86,7 +86,7 @@ export function AudioSummaryPlayer() {
             <motion.div
               key={i}
               animate={{ scaleY: randomHeight / 36 }}
-              transition={SPRING}
+              transition={SPRING.gentle}
               className={`w-1.5 rounded-full origin-bottom ${isPlaying ? "bg-accent" : "bg-line"}`}
               style={{ height: 36 }}
             />
@@ -97,7 +97,7 @@ export function AudioSummaryPlayer() {
       <div className="flex items-center gap-4">
         <button
           onClick={() => setIsPlaying(!isPlaying)}
-          className="p-3 rounded-full bg-accent text-white hover:bg-accent/90 transition-all shadow-md shrink-0 flex items-center justify-center cursor-pointer"
+          className="p-3 rounded-full bg-accent-solid text-on-accent hover:bg-accent/90 transition-all shadow-md shrink-0 flex items-center justify-center cursor-pointer"
         >
           {isPlaying ? <Pause size={16} /> : <Play size={16} className="ml-0.5" />}
         </button>
@@ -137,7 +137,7 @@ export function FocusModeToggle({
           <BookOpen size={16} />
         </div>
         <div>
-          <h4 className="text-xs font-extrabold text-ink leading-tight">Campaign Focus Mode</h4>
+          <p className="text-xs font-extrabold text-ink leading-tight">Campaign Focus Mode</p>
           <p className="t-label text-muted">Collapse visual aids to focus solely on campaign strategy text.</p>
         </div>
       </div>
@@ -145,7 +145,7 @@ export function FocusModeToggle({
         onClick={onToggle}
         className={`px-3 py-1.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition-all border cursor-pointer ${
           isActive 
-            ? "bg-accent border-accent text-white" 
+            ? "bg-accent-solid border-accent-solid text-on-accent" 
             : "bg-paper border-line text-muted hover:text-accent"
         }`}
       >
@@ -214,7 +214,7 @@ export function MessagingPlayground() {
             key={l}
             onClick={() => setLang(l as "en" | "kik" | "sw")}
             className={`flex-1 t-label font-black uppercase py-1.5 rounded-lg border transition-all cursor-pointer ${
-              lang === l ? "bg-accent border-accent text-white" : "bg-paper border-line text-muted"
+              lang === l ? "bg-accent-solid border-accent-solid text-on-accent" : "bg-paper border-line text-muted"
             }`}
           >
             {l === "en" ? "English" : l === "kik" ? "Kikamba" : "Swahili"}
@@ -282,7 +282,7 @@ export function MediaPlaybackMockup() {
         <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-gold/10" />
         <button
           onClick={() => setPlaying(!playing)}
-          className="p-4 rounded-full bg-accent text-white hover:bg-accent/90 transition-all shadow-md relative z-10 cursor-pointer"
+          className="p-4 rounded-full bg-accent-solid text-on-accent hover:bg-accent/90 transition-all shadow-md relative z-10 cursor-pointer"
         >
           {playing ? <Pause size={20} /> : <Play size={20} className="ml-0.5" />}
         </button>
@@ -369,7 +369,7 @@ export function ToneVoiceSlider() {
           key={tone.type}
           initial={{ opacity: 0, y: 3 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.25 }}
+          transition={{ duration: DURATION.quick }}
           className="p-4 bg-paper border border-line rounded-xl space-y-3"
         >
           <div>
@@ -538,13 +538,13 @@ export function PrintReportGenerator() {
           <FileText size={16} />
         </div>
         <div>
-          <h4 className="text-xs font-extrabold text-ink leading-tight">Print PDF Briefing Kit</h4>
+          <p className="text-xs font-extrabold text-ink leading-tight">Print PDF Briefing Kit</p>
           <p className="t-label text-muted">Format the strategy portal for clean legal printing briefs.</p>
         </div>
       </div>
       <button
         onClick={triggerPrint}
-        className="px-4 py-1.5 bg-accent text-white rounded-lg text-xs font-extrabold uppercase tracking-wider hover:bg-accent/90 transition-all cursor-pointer"
+        className="px-4 py-1.5 bg-accent-solid text-on-accent rounded-lg text-xs font-extrabold uppercase tracking-wider hover:bg-accent/90 transition-all cursor-pointer"
       >
         Export PDF
       </button>

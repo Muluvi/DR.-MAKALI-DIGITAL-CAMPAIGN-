@@ -19,6 +19,17 @@
   --color-phase-1: var(--phase-1);
   --color-phase-2: var(--phase-2);
   --color-phase-3: var(--phase-3);
+
+  /* The campaign's own position, and the field it is running against.
+     `accent` and `rival` are TEXT and STROKE colours, kept light enough to read on a dark
+     ground. `-solid` is the FILL that white text sits on, kept dark enough to clear 4.5:1.
+     Using one token for both is what put white-on-#348ff9 at 3.25:1 in the audit. */
+  --color-accent-solid: var(--accent-solid);
+  --color-on-accent: var(--on-accent);
+  --color-rival: var(--rival);
+  --color-rival-solid: var(--rival-solid);
+  --color-unmeasured: var(--unmeasured-color);
+
   --font-serif: var(--font-montserrat), sans-serif;
   --font-sans: var(--font-montserrat), sans-serif;
 
@@ -28,6 +39,11 @@
   --text-small: var(--fs-small);
   --text-body: var(--fs-body);
   --text-lead: var(--fs-lead);
+
+  /* Display end of the reading scale — hero statistics only, never body copy. */
+  --text-figure: var(--fs-figure);
+  --text-headline: var(--fs-headline);
+  --text-display: var(--fs-display);
 
   /* Domain B - Chart Scale Tokens */
   --text-chart-micro: var(--fs-chart-micro);
@@ -44,7 +60,14 @@
   --paper: oklch(0.97 0.012 250);
   --card: oklch(1 0 0);
   --line: oklch(0.89 0.02 245);
-  --accent: oklch(0.35 0.22 265); /* Wiper Official Royal Blue */
+  --accent: oklch(0.35 0.22 265); /* Wiper Official Royal Blue — as text and stroke */
+  --accent-solid: oklch(0.50 0.20 265); /* as a fill: 6.31:1 against --on-accent */
+  --on-accent: oklch(1 0 0);
+  /* The field. Cooler hue, a third of the chroma: a rival's 37.4% must never look more
+     energetic than the campaign's own 22.1%. Distinct from accent for a deuteranope too,
+     because the separation is lightness and chroma, not just hue. */
+  --rival: oklch(0.48 0.09 220);
+  --rival-solid: oklch(0.48 0.08 220); /* 6.36:1 against white */
   --gold: oklch(0.55 0.22 27);    /* Wiper Official Earth Red */
   --dark: oklch(0.18 0.04 252);
   --danger: oklch(0.55 0.22 27);
@@ -66,6 +89,13 @@
   --estimate-bg: oklch(0.96 0.04 85);
   --estimate-border: oklch(0.85 0.09 85);
   --estimate-color: oklch(0.50 0.14 85);
+  /* The fourth provenance state: a named data gap.
+     Not "zero", and not "awaiting a decision" either — the four nomination KPI baselines are
+     quantities nobody has measured yet, and the Week 1 instrument is what will establish them.
+     Deliberately colourless, because it is the absence of a reading rather than a status. */
+  --unmeasured-bg: oklch(0.95 0.004 250);
+  --unmeasured-border: oklch(0.80 0.01 250);
+  --unmeasured-color: oklch(0.44 0.015 250);
 
   /* Source-tier badges */
   --tier1-bg: var(--verified-bg);
@@ -99,11 +129,15 @@
   --paper: oklch(0 0 0); /* True infinite contrast OLED black */
   --card: oklch(0.16 0.03 250);
   --line: oklch(0.24 0.04 250);
-  --accent: oklch(0.65 0.18 255); /* Luminous royal blue for OLED punch */
+  --accent: oklch(0.70 0.16 255); /* Luminous royal blue — 7.23:1 as text on --card */
+  --accent-solid: oklch(0.50 0.20 265); /* the fill stays dark in both themes; white sits on it */
+  --on-accent: oklch(1 0 0);
+  --rival: oklch(0.74 0.07 220);
+  --rival-solid: oklch(0.48 0.08 220);
   --gold: oklch(0.68 0.21 22);    /* Vivid crimson red */
   --dark: oklch(1 0 0);
   --danger: oklch(0.68 0.21 22);
-  --glow: oklch(0.65 0.18 255 / 0.15);
+  --glow: oklch(0.70 0.16 255 / 0.15);
 
   --prose-body: oklch(0.74 0.03 240);
   --prose-strong: oklch(1 0 0);
@@ -120,6 +154,9 @@
   --estimate-bg: oklch(0.24 0.07 85);
   --estimate-border: oklch(0.44 0.12 85);
   --estimate-color: oklch(0.82 0.15 85);
+  --unmeasured-bg: oklch(0.20 0.005 250);
+  --unmeasured-border: oklch(0.36 0.01 250);
+  --unmeasured-color: oklch(0.74 0.015 250);
 
   --phase-neg1: oklch(0.72 0.16 295);
   --phase-0: oklch(0.78 0.12 210);
@@ -135,7 +172,10 @@
     --gold: oklch(0.56 0.26 27);
   }
   .dark {
-    --accent: oklch(0.66 0.22 255);
+    /* Text and stroke only. --accent-solid is deliberately absent from this block: it is a
+       fill carrying white text, and widening its gamut moves it off a contrast ratio that
+       was chosen by measurement. */
+    --accent: oklch(0.71 0.20 255);
     --gold: oklch(0.70 0.25 22);
   }
 }
@@ -198,6 +238,13 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   --fs-small: clamp(0.875rem,  0.84rem + 0.16vw, 0.9375rem); /* 14 → 15px */
   --fs-body:  clamp(1rem,      0.96rem + 0.18vw, 1.0625rem); /* 16 → 17px */
   --fs-lead:  clamp(1.125rem,  1.08rem + 0.20vw, 1.25rem);   /* 18 → 20px */
+
+  /* The display end. Hero statistics only — the deficit, the ceiling, the vote threshold —
+     never body copy. Weight 800, tabular figures, and a viewport coefficient steep enough
+     that a 15.3-point gap fills a 390px phone without a media query. */
+  --fs-figure:   clamp(1.75rem, 1.35rem + 2.0vw,  2.5rem);   /* 28 → 40px */
+  --fs-headline: clamp(2.0rem,  1.30rem + 3.5vw,  3.25rem);  /* 32 → 52px */
+  --fs-display:  clamp(2.5rem,  1.20rem + 6.5vw,  5rem);     /* 40 → 80px */
 
   /* Page gutter and the gap between sections, both fluid on the same interval. */
   --gutter: clamp(0.875rem, 0.55rem + 1.5vw, 2.5rem);
@@ -617,10 +664,14 @@ table,
   white-space: nowrap;
   vertical-align: middle;
 }
+/* The three provenance states differ by BORDER STYLE as well as by colour and icon, so the
+   distinction survives greyscale, a monochrome printer and every form of colour blindness:
+   solid = Verified, dashed = Awaiting campaign decision, dotted = Not yet measured. */
 .claim-badge-verified {
   background: var(--verified-bg);
   border-color: var(--verified-border);
   color: var(--verified-color);
+  border-style: solid;
 }
 .claim-badge-estimate {
   background: var(--estimate-bg);
@@ -631,6 +682,7 @@ table,
   background: var(--placeholder-bg);
   border-color: var(--placeholder-border);
   color: var(--placeholder-color);
+  border-style: dashed;
 }
 
 /* Source-tier badges — same shape as claim-badge, second semantic axis (source reliability). */
@@ -1339,5 +1391,152 @@ html {
   .plane-3d {
     transition: none !important;
     transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   Phase 1 — depth, numerics, and the fourth provenance state
+   ========================================================================== */
+
+:root {
+  /* Depth as three layered shadows rather than one blur.
+     A single large-radius shadow reads as a drop shadow; three stacked at increasing radius
+     and decreasing alpha read as a surface lifted off a ground, which is the difference
+     between "a card" and "considered". Never animated — box-shadow is not a compositor
+     property, so surfaces that need to lift do it with transform instead. */
+  --shadow-1: 0 1px 2px oklch(0.2 0.04 250 / 0.05);
+  --shadow-2: 0 1px 2px oklch(0.2 0.04 250 / 0.04), 0 3px 8px oklch(0.2 0.04 250 / 0.05);
+  --shadow-3: 0 1px 2px oklch(0.2 0.04 250 / 0.04), 0 4px 12px oklch(0.2 0.04 250 / 0.06),
+              0 12px 32px oklch(0.2 0.04 250 / 0.07);
+  --shadow-lift: 0 2px 4px oklch(0.2 0.04 250 / 0.05), 0 8px 20px oklch(0.2 0.04 250 / 0.08),
+              0 20px 48px oklch(0.2 0.04 250 / 0.10);
+
+  /* Grain. 2% over a flat fill is the difference between a gradient and a printed surface. */
+  --grain-opacity: 0.022;
+}
+
+.dark {
+  /* On an OLED black ground a shadow cannot darken anything, so depth inverts: the lift is a
+     hairline of light along the top edge plus a deeper spread beneath. */
+  --shadow-1: 0 1px 0 oklch(1 0 0 / 0.04);
+  --shadow-2: 0 1px 0 oklch(1 0 0 / 0.05), 0 3px 10px oklch(0 0 0 / 0.5);
+  --shadow-3: 0 1px 0 oklch(1 0 0 / 0.06), 0 4px 14px oklch(0 0 0 / 0.55),
+              0 12px 36px oklch(0 0 0 / 0.45);
+  --shadow-lift: 0 1px 0 oklch(1 0 0 / 0.08), 0 8px 24px oklch(0 0 0 / 0.6),
+              0 24px 56px oklch(0 0 0 / 0.5);
+  --grain-opacity: 0.03;
+}
+
+/* --------------------------------------------------------------------------
+   Counting figures — see hooks/useAnimatedNumber.ts
+   -------------------------------------------------------------------------- */
+
+/* The hidden copy sizes the box; the counting copy is laid over it. Without this every figure
+   on the page nudges its neighbours for the length of its own count, and CLS is measured on
+   exactly that. `tabular-nums` then keeps each digit the same width so the text does not
+   shimmer as it climbs. */
+.anim-num {
+  position: relative;
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+.anim-num__size { visibility: hidden; }
+.anim-num__value {
+  position: absolute;
+  inset: 0;
+  white-space: nowrap;
+}
+
+/* A printer gets the reserved box and the settled figure, with nothing overlapping. */
+@media print {
+  .anim-num { display: inline; }
+  .anim-num__size { display: none; }
+  .anim-num__value { position: static; }
+}
+
+/* --------------------------------------------------------------------------
+   Provenance state four: a named data gap
+   -------------------------------------------------------------------------- */
+
+/* The four nomination KPIs have no baseline. The document is scrupulous about this and so is
+   the interface: an unmeasured track is HATCHED, never filled, so it cannot be read as a
+   measurement of zero. The hatch is a texture, not a colour, which is also what keeps the
+   three provenance states distinguishable without relying on colour alone —
+   solid fill (Verified) / dashed outline (Awaiting) / diagonal hatch (Not yet measured). */
+.claim-badge-unmeasured {
+  background: var(--unmeasured-bg);
+  border-color: var(--unmeasured-border);
+  color: var(--unmeasured-color);
+  border-style: dotted;
+}
+
+.track-unmeasured {
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--unmeasured-border) 0 2px,
+    transparent 2px 8px
+  );
+  background-color: var(--unmeasured-bg);
+  background-size: 11.32px 11.32px; /* one hatch period on the 45° diagonal */
+  border: 1px dashed var(--unmeasured-border);
+}
+
+/* The hatch drifts once on entry to show the surface is live and deliberately empty. It never
+   acquires a fill, and under reduced motion it does not move at all — a still hatch already
+   says everything the drift does. */
+@media (prefers-reduced-motion: no-preference) {
+  .track-unmeasured[data-animate="true"] {
+    animation: track-hatch-drift 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+@keyframes track-hatch-drift {
+  from { background-position-x: -16px; }
+  to   { background-position-x: 0; }
+}
+
+/* ==========================================================================
+   Print — nothing animated may print invisible
+   ========================================================================== */
+
+/*
+ * The audit measured 28 elements carrying real text at `opacity: 0` in a print preview: the nine
+ * section titles, and the §9 Objectives cards with their baseline figures, deadlines and named
+ * owners. They are scroll-triggered reveals whose entrance had not fired, because a print job
+ * does not scroll — and several sit inside `hidden print:block` containers, so the print
+ * stylesheet revealed the container while an inline style kept the contents invisible.
+ *
+ * Inline styles are what Motion writes, so overriding them takes `!important`. This is the one
+ * place in the stylesheet where that is the correct tool rather than a shortcut: the rule has to
+ * beat an inline style, and a printed document of record silently losing a named owner and a
+ * deadline is a worse failure than any specificity argument.
+ *
+ * Scoped to print only, so it cannot affect anything on screen.
+ */
+@media print {
+  *,
+  *::before,
+  *::after {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+    mask-image: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Two exceptions, both deliberate: things whose whole purpose is to be absent from paper. */
+  [hidden],
+  .print\:hidden,
+  .sr-only {
+    display: none !important;
+  }
+
+  /* Collapsed disclosures print open — a folded section is a screen affordance, and a reader
+     holding the PDF cannot unfold it. */
+  details:not([open]) > *:not(summary) {
+    display: revert !important;
   }
 }
