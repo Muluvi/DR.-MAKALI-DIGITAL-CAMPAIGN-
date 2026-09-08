@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Search, Sparkles, ArrowUpDown, BarChart3, Table } from "lucide-react";
 import { LazyMount } from "../LazyMount";
 import { SourceLine, detectSources } from "./SourceLine";
 import TableChart from "./TableChart";
 import { WardRegisterTicker } from "../charts/WardRegisterTicker";
 import ModelVariablesDrawer from "./ModelVariablesDrawer";
+import { useIsMobile, useMounted } from "../../hooks/use-mobile";
 
 function getDeepText(node: any): string {
   if (!node) return "";
@@ -182,12 +183,17 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
   }, [ths, parsedRows]);
 
   const isWardRegister = React.useMemo(() => {
-    const allText = [...ths, ...parsedRows.slice(0, 8).flat()].map(getDeepText).join(" ").toLowerCase();
+    const headerTexts = ths.map(getDeepText).map((t) => t.toLowerCase());
+    const hasHeader = (k: string) => headerTexts.some((t) => t.includes(k));
     return (
-      (allText.includes("ward") && (allText.includes("voter") || allText.includes("register") || allText.includes("constituency"))) ||
-      allText.includes("iebc register")
+      hasHeader("ward") &&
+      (hasHeader("cumulative") || hasHeader("% of county register")) &&
+      parsedRows.length >= 20
     );
   }, [ths, parsedRows]);
+
+  const isMobile = useIsMobile();
+  const mounted = useMounted();
 
   if (isModelVariables) {
     return <ModelVariablesDrawer />;
@@ -278,99 +284,101 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
         </div>
       ) : (
         <div className="w-full">
-          {/* Mobile Card-Stacking View (< md) */}
-          <div className="block md:hidden p-2.5 space-y-2.5">
-            {visibleRows.map((row, rIdx) => {
-              const primaryCell = row[0];
-              const remainingCells = row.slice(1);
-              return (
-                <div
-                  key={rIdx}
-                  style={{ "--fx-i": Math.min(rIdx, 12) } as React.CSSProperties}
-                  className="fx-item-insert bg-card/70 border border-line/60 rounded-xl p-3 shadow-xs space-y-2 hover:border-line transition-colors"
-                >
-                  {/* Lead cell rendered as card header */}
-                  <div className="font-bold text-ink t-small pb-1.5 border-b border-line/30 flex items-center justify-between">
-                    <div className="min-w-0 break-words">{primaryCell ? primaryCell.props?.children : null}</div>
-                    {ths[0] && (
-                      <span className="t-micro font-mono uppercase tracking-wider text-muted shrink-0 ml-2" aria-hidden="true">
-                        #{rIdx + 1}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Remaining cells rendered as paired key-values */}
-                  <div className="space-y-1.5">
-                    {remainingCells.map((cell: any, cIdx: number) => {
-                      const colIdx = cIdx + 1;
-                      const thNode = ths[colIdx];
-                      const colLabel = thNode ? getDeepText(thNode) : `Col ${colIdx + 1}`;
-                      return (
-                        <div
-                          key={colIdx}
-                          className="flex items-start justify-between gap-2.5 py-1 border-b border-line/15 last:border-b-0"
-                        >
-                          <span className="t-micro uppercase tracking-wider font-semibold text-muted shrink-0 pt-0.5" aria-hidden="true">
-                            {colLabel}
-                          </span>
-                          <div className="text-right t-small text-ink/90 leading-snug break-words max-w-[70%]">
-                            {cell ? cell.props?.children : null}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Desktop Tabular Grid View (>= md) */}
-          <div className="hidden md:block overflow-x-auto w-full scrollbar-thin">
-            <table className="w-full text-left border-collapse t-small">
-              <thead className="table-header-group">
-                <tr className="border-b border-line/50 bg-paper/50">
-                  {ths.map((th: any, idx) => (
-                    <th
-                      key={idx}
-                      onClick={() => toggleSort(idx)}
-                      className="fx-focus sticky top-0 z-10 p-2.5 sm:p-3 font-semibold t-label sm:t-small tracking-wider text-muted uppercase cursor-pointer bg-paper/90 backdrop-blur-sm hover:bg-line/20 transition-colors select-none group whitespace-nowrap"
-                    >
-                      <div className="flex items-center gap-1.5 justify-between">
-                        <span>{th.props.children}</span>
-                        <ArrowUpDown size={10} className="fx-icon-rise text-muted group-hover:text-accent transition-colors shrink-0" />
-                      </div>
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="table-row-group divide-y divide-line/20">
-                {visibleRows.map((row, rIdx) => (
-                  <tr
+          {/* If on mobile viewport, render only the card-stacking view to avoid dual DOM bloat */}
+          {mounted && isMobile ? (
+            <div className="p-2.5 space-y-2.5">
+              {visibleRows.map((row, rIdx) => {
+                const primaryCell = row[0];
+                const remainingCells = row.slice(1);
+                return (
+                  <div
                     key={rIdx}
                     style={{ "--fx-i": Math.min(rIdx, 12) } as React.CSSProperties}
-                    className="fx-item-insert fx-flip-item hover:bg-accent/[0.06] hover:shadow-[inset_3px_0_0_var(--color-accent)] transition-colors"
+                    className="fx-item-insert bg-card/70 border border-line/60 rounded-xl p-3 shadow-xs space-y-2 hover:border-line transition-colors"
                   >
-                    {row.map((cell: any, cIdx) => {
-                      const isPrimary = cIdx === 0;
-                      return (
-                        <td
-                          key={cIdx}
-                          className={`p-2.5 sm:p-3 t-small sm:t-body leading-relaxed ${
-                            isPrimary
-                              ? "font-semibold text-ink whitespace-nowrap"
-                              : "text-ink/90 whitespace-normal"
-                          }`}
-                        >
-                          {cell ? cell.props.children : null}
-                        </td>
-                      );
-                    })}
+                    {/* Lead cell rendered as card header */}
+                    <div className="font-bold text-ink t-small pb-1.5 border-b border-line/30 flex items-center justify-between">
+                      <div className="min-w-0 break-words">{primaryCell ? primaryCell.props?.children : null}</div>
+                      {ths[0] && (
+                        <span className="t-micro font-mono uppercase tracking-wider text-muted shrink-0 ml-2" aria-hidden="true">
+                          #{rIdx + 1}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Remaining cells rendered as paired key-values */}
+                    <div className="space-y-1.5">
+                      {remainingCells.map((cell: any, cIdx: number) => {
+                        const colIdx = cIdx + 1;
+                        const thNode = ths[colIdx];
+                        const colLabel = thNode ? getDeepText(thNode) : `Col ${colIdx + 1}`;
+                        return (
+                          <div
+                            key={colIdx}
+                            className="flex items-start justify-between gap-2.5 py-1 border-b border-line/15 last:border-b-0"
+                          >
+                            <span className="t-micro uppercase tracking-wider font-semibold text-muted shrink-0 pt-0.5" aria-hidden="true">
+                              {colLabel}
+                            </span>
+                            <div className="text-right t-small text-ink/90 leading-snug break-words max-w-[70%]">
+                              {cell ? cell.props?.children : null}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            /* Desktop Tabular Grid View (>= md or SSR) */
+            <div className="overflow-x-auto w-full scrollbar-thin">
+              <table className="w-full text-left border-collapse t-small">
+                <thead className="table-header-group">
+                  <tr className="border-b border-line/50 bg-paper/50">
+                    {ths.map((th: any, idx) => (
+                      <th
+                        key={idx}
+                        onClick={() => toggleSort(idx)}
+                        className="fx-focus sticky top-0 z-10 p-2.5 sm:p-3 font-semibold t-label sm:t-small tracking-wider text-muted uppercase cursor-pointer bg-paper/90 backdrop-blur-sm hover:bg-line/20 transition-colors select-none group whitespace-nowrap"
+                      >
+                        <div className="flex items-center gap-1.5 justify-between">
+                          <span>{th.props.children}</span>
+                          <ArrowUpDown size={10} className="fx-icon-rise text-muted group-hover:text-accent transition-colors shrink-0" />
+                        </div>
+                      </th>
+                    ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody className="table-row-group divide-y divide-line/20">
+                  {visibleRows.map((row, rIdx) => (
+                    <tr
+                      key={rIdx}
+                      style={{ "--fx-i": Math.min(rIdx, 12) } as React.CSSProperties}
+                      className="fx-item-insert fx-flip-item hover:bg-accent/[0.06] hover:shadow-[inset_3px_0_0_var(--color-accent)] transition-colors"
+                    >
+                      {row.map((cell: any, cIdx) => {
+                        const isPrimary = cIdx === 0;
+                        return (
+                          <td
+                            key={cIdx}
+                            className={`p-2.5 sm:p-3 t-small sm:t-body leading-relaxed ${
+                              isPrimary
+                                ? "font-semibold text-ink whitespace-nowrap"
+                                : "text-ink/90 whitespace-normal"
+                            }`}
+                          >
+                            {cell ? cell.props.children : null}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
 
           {/* Pagination and View Limits */}
           {isCapped && (

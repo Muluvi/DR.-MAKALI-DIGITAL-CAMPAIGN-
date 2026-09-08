@@ -286,12 +286,12 @@ Before allocating major capital to paid broadcast media and market caravans in N
 
 #### Nomination Window Tracking Poll Design (The 6-Week Squeeze)
 During the critical **6-Week Wiper Nomination Window**, the research apparatus transitions into high-frequency tracking mode:
-*   **Sample Design:** Rolling 7-day tracking poll of $N = 400$ likely party delegates / primary voters per wave ($N = 2,400$ aggregate over 6 weeks).
+*   **Sample Design:** Rolling 7-day tracking poll of N = 400 likely party delegates / primary voters per wave (N = 2,400 aggregate over 6 weeks).
 *   **Core Question Battery:**
     1.  *Ballot Test:* "If the Wiper gubernatorial nomination were held today, which candidate would you vote for?"
     2.  *Electability Metric:* "Regardless of who you support, which candidate is best positioned to defeat rival party candidates in the August general election?"
     3.  *Integrity Index:* "Which candidate do you trust most to protect public county funds without corruption?"
-*   **Escalation Trigger:** Any candidate drop $>3.5\%$ in a tracking wave triggers an immediate War Room emergency convening and 48-hour sub-county advertising reallocation.
+*   **Escalation Trigger:** Any candidate drop >3.5% in a tracking wave triggers an immediate War Room emergency convening and 48-hour sub-county advertising reallocation.
 
 ---
 

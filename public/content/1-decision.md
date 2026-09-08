@@ -123,13 +123,13 @@ The nomination phase focuses on establishing unassailable party consensus and se
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
 │ **NW-01:**  │ % of sampled likely      │ Not yet   │ **≥ 55.0%**│ Rolling 7-day    │ Head of   │ Weekly /    │
 │ Wiper Ballot│ Wiper primary voters     │ measured  │ Primary   │ Tracking Poll    │ Research  │ Fortnightly │
-│ Preference  │ naming Dr. Makali Mulu as│ (Week 1)  │ Preference│ ($N = 400$ CATI) │ & Polling │             │
+│ Preference  │ naming Dr. Makali Mulu as│ (Week 1)  │ Preference│ (N = 400 CATI)   │ & Polling │             │
 │ Share       │ their 1st choice.        │           │           │ (Section 8.4)    │           │             │
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
 │ **NW-02:**  │ Spontaneous + aided name │ Not yet   │ **≥ 70.0%**│ Sub-County CATI  │ Comms     │ Fortnightly │
 │ Northern    │ recognition in Mwingi    │ measured  │ Name ID   │ Poll booster in  │ Director  │ Tracking    │
 │ Sub-County  │ North, Central & West    │ (Week 1)  │           │ Mwingi North &   │           │             │
-│ Name ID     │ sub-counties.            │           │           │ Central ($N=600$)│           │             │
+│ Name ID     │ sub-counties.            │           │           │ Central (N = 600)│           │             │
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
 │ **NW-03:**  │ Voter ranking of "Clean  │ Not yet   │ **≥ 60.0%**│ Issue Salience   │ Policy &  │ Fortnightly │
 │ Fiscal      │ Audit Record / Anti-     │ measured  │ Issue     │ Index in County  │ Strategy  │             │
@@ -190,26 +190,33 @@ The general election phase focuses on systematic voter mobilization, ground netw
 In accordance with the foundational strategic doctrine established in **Section 1.2.3**, the campaign rejects vanity metrics—such as social media follower counts, video views, impressions, and post likes—as actionable indicators of political strength. In a county where ~86% of registered voters reside offline in rural agrarian settings, digital engagement metrics correlate weakly with ballot-box outcomes and create dangerous operational complacency.
 
 Every Key Performance Indicator (KPI) in this framework is strictly anchored to one of two decisive statutory milestones:
-1.  **The Nomination Window Threshold:** Achieving $>55\%$ Wiper Party primary delegate/voter preference share.
-2.  **The General Election Victory Threshold:** Securing **$\ge 200,000$ verified, counted votes** (representing ~53.4% of expected turnout across Kitui's 532,758 registered voters).
+1.  **The Nomination Window Threshold:** Achieving >55% Wiper Party primary delegate/voter preference share.
+2.  **The General Election Victory Threshold:** Securing **≥ 200,000 verified, counted votes** (representing ~53.4% of expected turnout across Kitui's 532,758 registered voters).
 
 ```
-════════════════════════════════════════════════════════════════════════════════════
-                  VICTORY-ANCHORED KPI MONITORING ARCHITECTURE
-════════════════════════════════════════════════════════════════════════════════════
+══════════════════════════════════════════════════════════════════
+          VICTORY-ANCHORED KPI MONITORING ARCHITECTURE
+══════════════════════════════════════════════════════════════════
 
-   STAGE 1: NOMINATION WINDOW TARGETS            STAGE 2: GENERAL ELECTION TARGETS
-   (Primary Delegate / Voter Preference)         (Victory Threshold: ≥200,000 Votes)
- ┌──────────────────────────────────────┐      ┌───────────────────────────────────┐
- │ • Wiper Primary Share (Target >55%)  │      │ • Verified Pledged Voter Database │
- │ • North Sub-County Name ID (>65%)    │      │   (Target: 220,000 Opt-In Voters) │
- │ • Integrity / Clean Audit Salience   │ ───► │ • Ward Captain Mobilization Index │
- │ • Delegate Endorsement Pledges (8/8) │      │   (400 Captains / 40 Wards)       │
- └──────────────────────────────────────┘      │ • Polling Agent Station Coverage  │
-                                               │   (100% of 1,578 Stations)        │
-                                               │ • Turnout Conversion Rate (≥82%)  │
-                                               └───────────────────────────────────┘
-════════════════════════════════════════════════════════════════════════════════════
+  STAGE 1: NOMINATION WINDOW TARGETS
+  (Primary Delegate / Voter Preference)
+ ┌──────────────────────────────────────────────────────────────┐
+ │ • Wiper Primary Share (Target >55%)                          │
+ │ • North Sub-County Name ID (>65%)                            │
+ │ • Integrity / Clean Audit Salience                           │
+ │ • Delegate Endorsement Pledges (8/8)                         │
+ └──────────────────────────────────────────────────────────────┘
+                               │
+                               ▼
+  STAGE 2: GENERAL ELECTION TARGETS
+  (Victory Threshold: ≥200,000 Votes)
+ ┌──────────────────────────────────────────────────────────────┐
+ │ • Verified Pledged Voter Database (Target: 220,000 Voters)   │
+ │ • Ward Captain Mobilization Index (400 Captains / 40 Wards)  │
+ │ • Polling Agent Station Coverage (100% of 1,578 Stations)    │
+ │ • Turnout Conversion Rate (≥82%)                             │
+ └──────────────────────────────────────────────────────────────┘
+══════════════════════════════════════════════════════════════════
 ```
 
 ---

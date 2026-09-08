@@ -84,8 +84,8 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
 
   return (
     <Frame title={d.title} icon={Table2} kind="Matrix">
-      {/* Mobile Card-Stacking View (< md) */}
-      <div className="block md:hidden p-3 space-y-2.5">
+      {/* Mobile Card-Stacking View (< md) - aria-hidden prevents dual screen-reader reading of the table */}
+      <div className="block md:hidden p-3 space-y-2.5" aria-hidden="true">
         {d.rows.map((row, i) => {
           const isBanner = row.length === 1 && row[0].spans > 1;
           if (isBanner) {
