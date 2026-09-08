@@ -129,6 +129,12 @@ export const PETITION_12_2014: Source = {
 
 // ---- Tier 3 · Single-source / partisan -----------------------------------------------------
 
+export const MIZANI_AFRICA: Source = {
+  name: "Mizani Africa — Kitui County gubernatorial preference survey",
+  publicationDate: "2026-08-07",
+  tier: 2,
+};
+
 export const LOCAL_DIGITAL_NOMINATION_REPORT: Source = {
   name: "Local Kitui digital outlet reporting on the Wiper nomination method",
   publicationDate: "2026",

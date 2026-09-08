@@ -278,6 +278,13 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
 .t-body  { font-size: var(--fs-body); }
 .t-lead  { font-size: var(--fs-lead); }
 
+/* The display end. Hero statistics and section-opening figures only — never body copy.
+   Tabular figures and a tight measure, because these are numbers being compared, not read. */
+.t-figure   { font-size: var(--fs-figure);   line-height: 1; font-variant-numeric: tabular-nums; }
+.t-headline { font-size: var(--fs-headline); line-height: 1.05; letter-spacing: -0.02em; }
+.t-display  { font-size: var(--fs-display);  line-height: 0.95; letter-spacing: -0.03em;
+              font-variant-numeric: tabular-nums; }
+
 /* Domain B — Chart Scale Utilities (SVG Geometry & Fixed Coordinate Space) */
 .t-chart-micro { font-size: var(--fs-chart-micro); }
 .t-chart-tick  { font-size: var(--fs-chart-tick); }

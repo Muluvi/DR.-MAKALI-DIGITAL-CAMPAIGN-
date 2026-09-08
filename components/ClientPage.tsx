@@ -38,7 +38,7 @@ import { useDaypart, useScrollShell } from "../hooks/use-scroll-shell";
 import { Dashboard } from "./Dashboard";
 import { HeroVisual } from "./HeroVisual";
 import { Portrait } from "./Portrait";
-import { NominationVerdict } from "./NominationVerdict";
+import { DeficitGauge } from "./charts/DeficitGauge";
 import { DataVisualizations } from "./DataVisualizations";
 import { VoterProjectionsChart } from "./VoterProjectionsChart";
 import { SectionSkeleton } from "./SectionSkeleton";
@@ -625,7 +625,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                   signatures rather than the same treatment applied twice. */}
               <Reveal variant="left" className="lg:col-span-2" amount={0.1}>
                 <SpotlightCard border className="rounded-2xl">
-                  <NominationVerdict />
+                  <DeficitGauge />
                 </SpotlightCard>
               </Reveal>
               <Reveal variant="right" delay={120} className="lg:col-span-1" amount={0.1}>
