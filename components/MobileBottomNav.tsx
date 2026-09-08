@@ -101,7 +101,7 @@ export function MobileBottomNav({
           <MiniScorecard />
 
           {/* Page tooling: index, expand-all, zero-chrome, theme, back to top. */}
-          <div className="flex items-center justify-between px-1 pb-1.5 mb-1.5 border-b border-line/40 text-xs font-semibold gap-1">
+          <div className="flex flex-wrap items-center justify-between px-1 py-1.5 mb-3 border-b border-line/40 text-xs font-semibold gap-y-2 gap-x-2">
             <button
               onClick={onOpenTOC}
               className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-accent/10 text-accent border border-accent/20 fx-press fx-focus transition-all cursor-pointer min-h-[44px] shrink-0"
@@ -110,7 +110,7 @@ export function MobileBottomNav({
               <span className="text-[11px] sm:text-xs">Index</span>
             </button>
 
-            <div className="flex items-center gap-1 shrink-0">
+            <div className="flex items-center gap-1.5 shrink-0">
               {/* Zero Chrome Toggle Button */}
               {onToggleZeroChrome && (
                 <button
@@ -135,7 +135,7 @@ export function MobileBottomNav({
 
               <button
                 onClick={onToggleTheme}
-                className="p-2 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] relative z-10 flex items-center justify-center"
+                className="p-2 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer h-11 w-11 shrink-0 relative z-10 flex items-center justify-center"
                 aria-label="Toggle dark mode"
               >
                 {theme === "light" ? <Moon size={14} className="text-gold" /> : <Sun size={14} className="text-gold" />}
@@ -143,7 +143,7 @@ export function MobileBottomNav({
 
               <button
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="p-2 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] relative z-10 flex items-center justify-center"
+                className="p-2 rounded-xl bg-paper border border-line text-ink fx-press fx-focus transition-all cursor-pointer h-11 w-11 shrink-0 relative z-10 flex items-center justify-center"
                 aria-label="Back to top"
               >
                 <ChevronUp size={15} className="text-accent" />

@@ -162,18 +162,22 @@ function KpiCard({ kpi }: { kpi: Kpi }) {
           style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
         >
           <div className="overflow-hidden min-h-0">
+            {/* A <dl> may group a dt/dd pair in a <div>, but that div has to contain the pair
+                DIRECTLY. An icon beside a nested wrapper put two levels between the list and its
+                items, which detaches every dt and dd from their list for assistive technology —
+                54 orphaned items across nine cards. The icon moves inside the dt instead. */}
             <dl className="px-4 py-3 space-y-2.5 border-t border-line/40">
               {[
                 { icon: Ruler, term: "Measurement method", desc: kpi.method },
                 { icon: User, term: "Owner", desc: kpi.owner },
                 { icon: CalendarClock, term: "Reporting cadence", desc: kpi.cadence },
               ].map(({ icon: Icon, term, desc }) => (
-                <div key={term} className="flex items-start gap-2">
-                  <Icon size={13} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
-                  <div className="min-w-0">
-                    <dt className="t-micro font-black uppercase tracking-wider text-muted">{term}</dt>
-                    <dd className="t-small text-ink leading-snug">{desc}</dd>
-                  </div>
+                <div key={term}>
+                  <dt className="flex items-center gap-1.5 t-micro font-black uppercase tracking-wider text-muted">
+                    <Icon size={12} className="text-accent shrink-0" aria-hidden="true" />
+                    {term}
+                  </dt>
+                  <dd className="t-small text-ink leading-snug pl-[1.125rem]">{desc}</dd>
                 </div>
               ))}
             </dl>

@@ -33,9 +33,9 @@ export function PollingTrajectorySimulator() {
                 Phase -1 Evaluation Window
               </span>
             </div>
-            <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
+            <h3 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
               Wiper Nomination Viability Simulator
-            </h4>
+            </h3>
           </div>
         </div>
 

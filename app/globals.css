@@ -3,6 +3,21 @@
 @import "./visual-fx.css";
 @plugin "@tailwindcss/typography";
 
+/*
+ * Bind `dark:` to this application's own theme class, not to the operating system's setting.
+ *
+ * Tailwind v4's default `dark:` variant is `prefers-color-scheme: dark`. This site does not work
+ * that way: it puts `class="dark"` on <html> and swaps its tokens under `.dark`, so a reader on
+ * a light-mode OS was being served the dark palette with every `dark:` utility switched off.
+ *
+ * That is not cosmetic. The polling simulator's verdict pill resolved to `text-amber-700`
+ * (#bb4d00) on the dark ground instead of `dark:text-amber-400`, which measured 3.57:1 against
+ * the 4.5:1 floor — an accessibility failure that survived several passes because the colour
+ * could not be found in the DOM under a dark-mode OS, which is what the audit tooling used.
+ * Nine components carry `dark:` utilities and every one of them was affected.
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-ink: var(--ink);
   --color-muted: var(--muted);

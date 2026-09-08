@@ -161,7 +161,7 @@ export function CeilingMeter() {
                   {tier.recommended && (
                     <span
                       className={`inline-flex items-center gap-0.5 t-micro font-black uppercase tracking-wider rounded px-1 ${
-                        isActive ? "bg-on-accent/20" : "bg-gold/20 text-gold"
+                        isActive ? "bg-on-accent text-accent-solid" : "bg-gold/20 text-gold"
                       }`}
                     >
                       <Check size={9} aria-hidden="true" />
