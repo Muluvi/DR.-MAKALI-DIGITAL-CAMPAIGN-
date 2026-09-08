@@ -1630,3 +1630,23 @@ html {
     border-bottom: 0;
   }
 }
+
+/* ==========================================================================
+   The bottom dock is chrome, not a pane of glass over the document
+   ========================================================================== */
+
+/*
+ * .fx-glass is tuned for panels that sit inside the reading column, where seeing a little of what
+ * is behind them reads as depth. The bottom navigation dock is a different thing: it carries the
+ * three figures the whole document turns on, and at 62% opacity the prose behind it came through
+ * far enough that "KSh97.56m" was competing with a heading for the same pixels.
+ *
+ * Chrome that overlays content is opaque enough to read against anything. The blur stays, so it
+ * still reads as a surface above the page rather than a slab cut out of it.
+ */
+.bottom-dock.fx-glass,
+.dark .bottom-dock.fx-glass {
+  background: color-mix(in srgb, var(--color-card) 96%, transparent);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+}

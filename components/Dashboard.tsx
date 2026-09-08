@@ -1,6 +1,5 @@
 "use client";
 
-import { NominationScorecard } from "./NominationScorecard";
 import { CountUpText, Reveal, SpotlightCard, TiltCard } from "./visual";
 import { TrendingUp, Coins, WifiOff, Vote } from "lucide-react";
 
@@ -125,10 +124,6 @@ export function Dashboard() {
         </div>
       </div>
 
-      {/* §8.1.1 nomination KPIs — targets against baselines, not progress. */}
-      <Reveal variant="up" amount={0.1} className="fx-glass rounded-2xl p-4 sm:p-6">
-        <NominationScorecard />
-      </Reveal>
     </div>
   );
 }

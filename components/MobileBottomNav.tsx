@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { MiniScorecard } from "./MiniScorecard";
 import { ListTree, ChevronUp, Moon, Sun, Maximize2, Minimize2, Eye, EyeOff, Compass } from "lucide-react";
 import { SECTIONS } from "../lib/heading-slug";
 import { useChromeVisible } from "../hooks/use-chrome-visible";
@@ -91,7 +92,14 @@ export function MobileBottomNav({
           shouldHide ? "translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100"
         }`}
       >
-        <div className="fx-glass border-t border-line shadow-2xl px-2 pt-1.5 pb-[max(0.75rem,env(safe-area-inset-bottom,0.75rem))]">
+        <div className="bottom-dock fx-glass border-t border-line shadow-2xl px-2 pt-1.5 pb-[max(0.75rem,env(safe-area-inset-bottom,0.75rem))]">
+          {/* The three figures the document turns on, as the dock's first row.
+              They were briefly a separate floating strip and landed on top of this one — a
+              fixed element positioned above another fixed element is a guess about the second
+              one's height, and it was wrong. Inside the dock there is nothing to collide with,
+              and the figures are as thumb-reachable as the navigation. */}
+          <MiniScorecard />
+
           {/* Page tooling: index, expand-all, zero-chrome, theme, back to top. */}
           <div className="flex items-center justify-between px-1 pb-1.5 mb-1.5 border-b border-line/40 text-xs font-semibold gap-1">
             <button
