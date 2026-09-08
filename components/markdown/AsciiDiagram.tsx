@@ -2,6 +2,7 @@ import React from "react";
 import { Table2, ListTree, GitBranch } from "lucide-react";
 
 import { parseAsciiDiagram, type Diagram } from "../../lib/ascii-diagram";
+import { DiagramViewer } from "./DiagramViewer";
 
 /**
  * Renders the proposal's 102 ASCII box-drawing diagrams as real layout.
@@ -10,7 +11,9 @@ import { parseAsciiDiagram, type Diagram } from "../../lib/ascii-diagram";
  * with every figure intact or left as the original `<pre>`. Nothing here transcribes content —
  * it re-presents what the parser read.
  *
- * Server component: no interactivity, so none of this reaches the client bundle.
+ * Server component. The parse, the tables and the key/value cards stay on the server; only the
+ * panel path — the drawings that cannot be reflowed, and so have to be scaled or opened full
+ * screen — hands off to a client component for that reading surface.
  */
 
 /**
@@ -224,19 +227,37 @@ function DiagramKeyValue({ d }: { d: Extract<Diagram, { kind: "keyvalue" }> }) {
 }
 
 /**
+ * Six blocks in the proposal are a box with a title in it and nothing else — a banner drawn in
+ * ASCII, directly under the heading that already says the same thing. Framed as a diagram they
+ * render as a captioned card sitting on an empty well, which reads as a figure that failed to
+ * load. The words are still content, so they are kept; what goes is the hollow box around them.
+ */
+function DiagramBanner({ title }: { title: string }) {
+  return (
+    // The label wraps — these titles run to 50 characters, which is more than one phone line —
+    // so the rule sits under the whole block rather than beside it, where a wrap would leave it
+    // stranded as a stray dash against the first line.
+    <div className="not-prose my-5 pb-1.5 border-b border-line print:break-inside-avoid">
+      <span className="t-label font-black uppercase tracking-wider sm:tracking-widest text-muted break-words">
+        {withEmphasis(title)}
+      </span>
+    </div>
+  );
+}
+
+/**
  * Flow diagrams, branch trees and side-by-side comparisons. Here the monospace grid IS the
  * drawing — reflowing it would destroy the diagram — so the body is preserved exactly. What
  * changes is the frame: the title comes out of its box and becomes a real caption, the block
  * gets a card instead of a bare code well, and the scroll is contained.
  */
 function DiagramPanel({ d }: { d: Extract<Diagram, { kind: "panel" }> }) {
+  // A title-only banner: the frame would wrap an empty well, so it becomes a rule instead.
+  if (d.title && !d.body.trim()) return <DiagramBanner title={d.title} />;
+
   return (
     <Frame title={d.title} icon={GitBranch} kind="Diagram">
-      <div className="scroll-x px-3 py-3">
-        <pre className="ascii-pre font-mono leading-[1.45] text-ink m-0 p-0 whitespace-pre">
-          {d.body}
-        </pre>
-      </div>
+      <DiagramViewer title={d.title} body={d.body} />
     </Frame>
   );
 }

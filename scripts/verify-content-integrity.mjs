@@ -46,6 +46,50 @@ const ORIENTATION_LINES = new Set([
 ]);
 
 /**
+ * The five-part spine, layered on top of the earlier ten-file split.
+ *
+ * The document was restructured a second time, onto a five-part logical spine, which added its
+ * own landing lines — one per part, the same category as ORIENTATION_LINES above and allowed on
+ * the same grounds: they orient a reader arriving at a part, and they replace nothing.
+ */
+const SPINE_ORIENTATION_LINES = new Set([
+  "The ground as it is: how the nomination will be decided, the candidate and the county, the ward arithmetic that sets the winning number, what digital reach can and cannot deliver against it, who the voters are, who controls the radio, and the law all of it runs inside.",
+  "The claim at the centre of this campaign, the pillars, themes and segments beneath it, how the message is built and framed, and the limits the campaign puts on itself.",
+  "What the campaign produces and where it goes: the content pipeline, paid media, the radio bypass, journalists and debates, and the three languages every asset has to work in.",
+  "The data model, the voter model built on it, the technology stack, and the analytics layer that measures all of it.",
+  "The team that runs the engagement, how it is structured, and the leadership roles and governance rhythm around it.",
+  "The twelve-month plan phase by phase, what is measured and how performance is governed, the message lab that tests it, and why the operation runs remotely.",
+]);
+
+/**
+ * Body text added since the restructure, quoted in full so each addition is auditable here.
+ *
+ * Reordering the decision layer brought two preference figures onto the same screen for the
+ * first time — a countywide share and a primary-voter share, measuring different populations.
+ * Neither figure changed; this line names the two universes so the pair cannot be misread as
+ * one number revised. It reports no new quantity of its own.
+ */
+const SPINE_ADDITIONS = new Set([
+  "Two preference figures appear in this proposal, and they measure different populations rather than revising one another. §#'s **40.0%+** is a share of the **countywide public**, as reported in the party-commissioned surveys. NW-01 below is **\u2265 55.0%** of **sampled likely Wiper primary voters** — a narrower universe, which is why the threshold sits higher. §# states that same primary-voter threshold.",
+]);
+
+/**
+ * The one lead paragraph the second restructure rewrote rather than moved.
+ *
+ * Promoting the provenance method into the evidence part left §6.1's lead describing two things
+ * that were no longer in it. The rewrite drops those clauses and points to where they went; the
+ * standard and the protocol themselves moved verbatim and are checked as part of that move.
+ */
+const SPINE_REWRITE_PAIRS = [
+  {
+    before:
+      "This section defines the voter and supporter data model, the three-tier empirical provenance standard, protocols for handling disputed electoral figures, and legal compliance workflows under Kenya's **Data Protection Act (DPA) 2019** and the **Office of the Data Protection Commissioner (ODPC)**.",
+    after:
+      "This section defines the voter and supporter data model and the legal compliance workflows under Kenya's **Data Protection Act (DPA) 2019** and the **Office of the Data Protection Commissioner (ODPC)**. The three-tier provenance standard that grades every figure in this proposal (Section 6.1.2) and the protocol for when two sources disagree (Section 6.1.4) are set out alongside the evidence they govern.",
+  },
+];
+
+/**
  * Strip section-number tokens, so a repointed cross-reference reads the same on both sides.
  *
  * Applied to the whole document rather than line by line, because the markdown hard-wraps at
@@ -259,6 +303,9 @@ for (const file of OLD_FILES) {
   for (const { before, after } of AUDIT_REWRITE_PAIRS) {
     normalised = normalised.split(normaliseRefs(before)).join(normaliseRefs(after));
   }
+  for (const { before, after } of SPINE_REWRITE_PAIRS) {
+    normalised = normalised.split(normaliseRefs(before)).join(normaliseRefs(after));
+  }
   before = before.concat(bodyLines(normalised, { dropDeletedSections: true }));
 }
 
@@ -275,6 +322,8 @@ for (const file of fs.readdirSync(CONTENT).sort()) {
     bodyLines(text).filter((line) => {
       const trimmed = line.trim();
       if (ORIENTATION_LINES.has(trimmed)) return false;
+      if (SPINE_ORIENTATION_LINES.has(trimmed)) return false;
+      if (SPINE_ADDITIONS.has(trimmed)) return false;
       const left = addedAllowance.get(trimmed);
       if (left) {
         addedAllowance.set(trimmed, left - 1);
@@ -302,7 +351,9 @@ if (lost.length === 0 && added.length === 0) {
       `the ${FILLED_PLACEHOLDERS.length} placeholders the client has filled in, ` +
       `the ${AUDIT_CORRECTIONS.length} logged pre-send audit corrections, ` +
       `${AUDIT_REWRITE_PAIRS.length} logged audit rewrite hunks, ` +
-      `and ${AUDIT_ADDITIONS.length} logged added lines.`
+      `${AUDIT_ADDITIONS.length} logged added lines, ` +
+      `and, from the five-part spine, ${SPINE_ORIENTATION_LINES.size} part orientation lines, ` +
+      `${SPINE_ADDITIONS.size} logged addition and ${SPINE_REWRITE_PAIRS.length} logged rewrite.`
   );
   process.exit(0);
 }
