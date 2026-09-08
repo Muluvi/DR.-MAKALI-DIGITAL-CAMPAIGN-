@@ -24,26 +24,30 @@ interface Options {
  */
 export function useInView<T extends Element>({ once = true, amount = 0.3, margin = "0px" }: Options = {}) {
   const ref = useRef<T>(null);
-  const [inView, setInView] = useState(false);
+  const [seen, setSeen] = useState(false);
+
+  // Without IntersectionObserver the honest fallback is "visible", never "hidden" — an
+  // unsupported API must not leave content permanently invisible. Support is a constant for
+  // the life of the page, so it is derived here rather than pushed into state from an effect.
+  //
+  // The window check keeps the server's answer unchanged. Rendering on the server, there is no
+  // IntersectionObserver either, and without the guard every section would be emitted as
+  // already in view — the opposite of what this hook is for, and a flash of the whole document
+  // before the client corrected it.
+  const unobservable = typeof window !== "undefined" && typeof IntersectionObserver === "undefined";
+  const inView = unobservable || seen;
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
-
-    // Without IntersectionObserver the honest fallback is "visible", never "hidden" — an
-    // unsupported API must not leave content permanently invisible.
-    if (typeof IntersectionObserver === "undefined") {
-      setInView(true);
-      return;
-    }
+    if (!el || typeof IntersectionObserver === "undefined") return;
 
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setInView(true);
+          setSeen(true);
           if (once) io.disconnect();
         } else if (!once) {
-          setInView(false);
+          setSeen(false);
         }
       },
       { threshold: amount, rootMargin: margin }
