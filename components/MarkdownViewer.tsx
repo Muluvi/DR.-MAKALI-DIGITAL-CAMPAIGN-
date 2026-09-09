@@ -17,6 +17,7 @@ import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
 import { KpiArchitecture } from "./charts/KpiArchitecture";
 import { BenchmarkLadder } from "./charts/BenchmarkLadder";
 import { CeilingMeter } from "./charts/CeilingMeter";
+import { FeaturePhoneSpecimen } from "./charts/FeaturePhoneSpecimen";
 import { OfflineWaterline } from "./charts/OfflineWaterline";
 import { VoteFunnel } from "./charts/VoteFunnel";
 import { KpiScorecards } from "./charts/KpiScorecards";
@@ -300,6 +301,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "ground-sec-4-2": <FlywheelSchematic />,
   "ground-sec-4-3": (
     <>
+      <FeaturePhoneSpecimen />
       <ReachSplit />
       <SMSFeedbackVisualizer />
     </>

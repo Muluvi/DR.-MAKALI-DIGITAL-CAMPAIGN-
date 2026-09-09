@@ -34,7 +34,7 @@ export function ProvenanceLine({ provenance }: { provenance: Provenance | Proven
           <TierBadge tier={p.source.tier} compact />
           <span>
             {p.source.url ? (
-              <a href={p.source.url} target="_blank" rel="noopener noreferrer" className="underline decoration-dotted underline-offset-2 hover:text-accent transition-colors">
+              <a href={p.source.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[44px] py-1 underline decoration-dotted underline-offset-2 hover:text-accent transition-colors">
                 {p.source.name}
               </a>
             ) : (

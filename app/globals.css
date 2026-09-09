@@ -919,10 +919,16 @@ textarea:focus-visible {
   top: 0;
   transform: translate(-50%, -120%);
   z-index: 100;
-  background: var(--color-accent);
-  color: #fff;
+  /* accent-solid, not accent: this is white text on a fill, and those are different tokens
+     for a measured reason — see the palette block. */
+  background: var(--accent-solid);
+  color: var(--on-accent);
   font-size: 0.8125rem;
   font-weight: 700;
+  /* The first control a keyboard user meets should clear the 44px floor like every other. */
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   padding: 0.6rem 1.1rem;
   border-radius: 0 0 0.75rem 0.75rem;
   transition: transform 0.14s cubic-bezier(0.22, 1, 0.36, 1);
@@ -1086,8 +1092,13 @@ html {
     font-size: 15px;
     line-height: 1.62;
   }
+  /* The tap-target floor, and the reason it is 44 rather than 42.
+     This rule is unlayered, and unlayered styles beat Tailwind's utilities whatever their
+     specificity — so at 42px it silently capped EVERY button on the site's primary device,
+     defeating every `min-h-[44px]` in the codebase and putting the whole interface under the
+     44x44 minimum the brief sets and WCAG 2.2 measures. One number, every tap target. */
   button, input, select {
-    min-height: 42px;
+    min-height: 44px;
   }
 }
 
