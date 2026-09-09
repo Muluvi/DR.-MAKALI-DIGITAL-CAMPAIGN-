@@ -4,7 +4,6 @@ import dynamic from "next/dynamic";
 
 import { ChartFallback } from "../ChartFallback";
 import { LazyMount } from "../LazyMount";
-import { SourceLine } from "./SourceLine";
 import type { PlatformDatum } from "../charts/PlatformSizingChart";
 
 // Dynamic boundary: the charting runtime stays out of the first load. LazyMount below
@@ -15,6 +14,7 @@ const PlatformSizingChart = dynamic(() => import("../charts/PlatformSizingChart"
 });
 
 import { PLATFORM_AUDIENCES } from "../../data/external-figures";
+import { FigureBlock } from "./FigureBlock";
 
 // National platform sizing for ad planning, sorted descending by audience. The figures live in
 // data/external-figures.ts with their NapoleonCat / DataReportal citations rather than inline
@@ -32,11 +32,10 @@ const DATA: PlatformDatum[] = PLATFORM_AUDIENCES.map((p, i) => ({
 
 export function PlatformSizingBlock() {
   return (
-    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
-      <div className="flex items-center gap-2 mb-1">
-        <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
-        <h4 className="font-serif text-sm font-bold text-ink">National Platform Sizing (for ad planning)</h4>
-      </div>
+    <FigureBlock
+      title="National Platform Sizing (for ad planning)"
+      sources={["NapoleonCat, May 2026", "DataReportal Digital 2026 Kenya"]}
+    >
       <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">Kenya-wide audience figures, sorted by size.</p>
       <div className="h-56 w-full t-micro">
         <LazyMount minHeight={224} className="h-full">
@@ -46,7 +45,6 @@ export function PlatformSizingBlock() {
       <p className="t-label text-muted/80 leading-normal mt-3 pt-2 border-t border-line/40 font-medium">
         <span className="italic">Not sized:</span> WhatsApp — the source describes it as {"“"}effectively universal among connected users{"”"} with no audience figure given, so it isn{"'"}t plotted here rather than assigned an invented number.
       </p>
-      <SourceLine sources={["NapoleonCat, May 2026", "DataReportal Digital 2026 Kenya"]} />
-    </div>
+    </FigureBlock>
   );
 }

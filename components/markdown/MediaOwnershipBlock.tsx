@@ -4,10 +4,10 @@ import dynamic from "next/dynamic";
 
 import { ChartFallback } from "../ChartFallback";
 import { LazyMount } from "../LazyMount";
-import { ProvenanceLine } from "./ProvenanceLine";
 import { TierBadge } from "./TierBadge";
 import { RADIO_STATIONS } from "../../data/media-ownership";
 import type { StationBar } from "../charts/MediaOwnershipChart";
+import { FigureBlock } from "./FigureBlock";
 // Dynamic boundary: the charting runtime stays out of the first load. LazyMount below
 // still gates when it mounts; this gates when it downloads.
 const MediaOwnershipChart = dynamic(() => import("../charts/MediaOwnershipChart"), {
@@ -37,16 +37,17 @@ const CHART_DATA: StationBar[] = RADIO_STATIONS.map((s) => ({
  */
 export function MediaOwnershipBlock() {
   return (
-    <div className="not-prose bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
-      <div className="flex items-center gap-2 mb-1">
-        <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
-        <h4 className="font-serif text-sm font-bold text-ink">Media Ownership Map — Reach vs. Alignment</h4>
-      </div>
-      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
-        Reach is a qualitative reading of Section 3.4.1&apos;s own &quot;Campaign posture&quot; column, not a measured
-        listenership figure — none was supplied by the research pass (Data Gaps Register). Ownership associations are
-        Tier 2/3 and labelled individually below.
-      </p>
+    <FigureBlock
+      title="Media Ownership Map — Reach vs. Alignment"
+      subtitle={
+        <>
+          Reach is a qualitative reading of Section 3.4.1&apos;s own &quot;Campaign posture&quot; column, not a measured
+          listenership figure — none was supplied by the research pass (Data Gaps Register). Ownership associations are
+          Tier 2/3 and labelled individually below.
+        </>
+      }
+      provenance={RADIO_STATIONS.map((s) => ({ source: s.source, granularity: "county" as const }))}
+    >
 
       <div className="w-full t-micro mb-4">
         <LazyMount minHeight={200}>
@@ -79,8 +80,6 @@ export function MediaOwnershipBlock() {
           </tbody>
         </table>
       </div>
-
-      <ProvenanceLine provenance={RADIO_STATIONS.map((s) => ({ source: s.source, granularity: "county" as const }))} />
-    </div>
+    </FigureBlock>
   );
 }

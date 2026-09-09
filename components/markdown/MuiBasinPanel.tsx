@@ -1,15 +1,14 @@
 import { MUI_BASIN_FACTS } from "../../data/mui-basin";
 import { TierBadge } from "./TierBadge";
-import { ProvenanceLine } from "./ProvenanceLine";
+import { FigureBlock } from "./FigureBlock";
 
 /** The Mui Basin coal question (Section 4.9). Server component, no chart — qualitative record. */
 export function MuiBasinPanel() {
   return (
-    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
-      <div className="flex items-center gap-2 mb-1">
-        <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
-        <h4 className="font-serif text-sm font-bold text-ink">The Mui Basin Coal Question</h4>
-      </div>
+    <FigureBlock
+      title="The Mui Basin Coal Question"
+      provenance={MUI_BASIN_FACTS.map((f) => ({ source: f.source, granularity: f.granularity }))}
+    >
       <p className="t-small text-muted mb-4 leading-relaxed pl-3.5">
         Rendered as sourced statements, not invented figures — the research pass did not supply a concession count, a
         petition status, or a displacement headcount.
@@ -27,8 +26,6 @@ export function MuiBasinPanel() {
           </div>
         ))}
       </div>
-
-      <ProvenanceLine provenance={MUI_BASIN_FACTS.map((f) => ({ source: f.source, granularity: f.granularity }))} />
-    </div>
+    </FigureBlock>
   );
 }

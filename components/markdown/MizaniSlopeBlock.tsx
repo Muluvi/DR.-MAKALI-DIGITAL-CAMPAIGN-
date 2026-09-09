@@ -4,8 +4,8 @@ import dynamic from "next/dynamic";
 
 import { ChartFallback } from "../ChartFallback";
 import { LazyMount } from "../LazyMount";
-import { SourceLine } from "./SourceLine";
 import type { SlopeSeries } from "../charts/MizaniSlopeChart";
+import { FigureBlock } from "./FigureBlock";
 
 // Dynamic boundary: the charting runtime stays out of the first load. LazyMount below
 // still gates when it mounts; this gates when it downloads.
@@ -30,21 +30,21 @@ const SERIES: SlopeSeries[] = [
 
 export function MizaniSlopeBlock() {
   return (
-    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
-      <div className="flex items-center gap-2 mb-1">
-        <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
-        <h4 className="font-serif text-sm font-bold text-ink">Trajectory Between the Two Published Surveys</h4>
-      </div>
-      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
-        Ngilu was not included in the June round, so her point appears only at August — with only two rounds published,
-        the table above remains the exact reference.
-      </p>
+    <FigureBlock
+      title="Trajectory Between the Two Published Surveys"
+      subtitle={
+        <>
+          Ngilu was not included in the June round, so her point appears only at August — with only two rounds published,
+          the table above remains the exact reference.
+        </>
+      }
+      sources={["Mizani Africa"]}
+    >
       <div className="h-64 w-full t-micro">
         <LazyMount minHeight={256} className="h-full">
           <MizaniSlopeChart data={DATA} series={SERIES} />
         </LazyMount>
       </div>
-      <SourceLine sources={["Mizani Africa"]} />
-    </div>
+    </FigureBlock>
   );
 }

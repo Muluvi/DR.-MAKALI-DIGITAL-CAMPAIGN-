@@ -3,7 +3,7 @@ import { DISPUTED_FIGURES } from "../../data/disputed-figures";
 import { COURT_OF_APPEAL_2018, IEBC_2022_RESULTS, MEDIA_2022_DECLARATION } from "../../data/sources";
 import { TierBadge } from "./TierBadge";
 import { DisputedFigure } from "./DisputedFigure";
-import { ProvenanceLine } from "./ProvenanceLine";
+import { FigureBlock } from "./FigureBlock";
 
 const musilaDispute = DISPUTED_FIGURES.find((d) => d.id === "musila-2022-governor-votes")!;
 
@@ -14,11 +14,14 @@ const musilaDispute = DISPUTED_FIGURES.find((d) => d.id === "musila-2022-governo
  */
 export function ElectoralHistoryPanel() {
   return (
-    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
-      <div className="flex items-center gap-2 mb-1">
-        <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
-        <h4 className="font-serif text-sm font-bold text-ink">Kitui Governor, Senator and Woman Representative — Results by Cycle</h4>
-      </div>
+    <FigureBlock
+      title="Kitui Governor, Senator and Woman Representative — Results by Cycle"
+      provenance={[
+          { source: COURT_OF_APPEAL_2018, granularity: "county" },
+          { source: IEBC_2022_RESULTS, granularity: "county" },
+          { source: MEDIA_2022_DECLARATION, granularity: "county" },
+        ]}
+    >
       <p className="t-small text-muted mb-4 leading-relaxed pl-3.5">
         Three cycles, three different Governor-race winners. 2013 is shown as an explicit gap rather than filled in —
         see the note below and the Data Gaps Register.
@@ -72,13 +75,6 @@ export function ElectoralHistoryPanel() {
 
       <DisputedFigure entry={musilaDispute} />
 
-      <ProvenanceLine
-        provenance={[
-          { source: COURT_OF_APPEAL_2018, granularity: "county" },
-          { source: IEBC_2022_RESULTS, granularity: "county" },
-          { source: MEDIA_2022_DECLARATION, granularity: "county" },
-        ]}
-      />
-    </div>
+    </FigureBlock>
   );
 }

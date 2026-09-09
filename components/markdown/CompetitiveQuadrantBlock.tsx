@@ -4,8 +4,8 @@ import dynamic from "next/dynamic";
 
 import { ChartFallback } from "../ChartFallback";
 import { LazyMount } from "../LazyMount";
-import { SourceLine } from "./SourceLine";
 import type { QuadrantPoint } from "../charts/CompetitiveQuadrantChart";
+import { FigureBlock } from "./FigureBlock";
 
 // Dynamic boundary: the charting runtime stays out of the first load. LazyMount below
 // still gates when it mounts; this gates when it downloads.
@@ -48,21 +48,21 @@ const DATA: QuadrantPoint[] = [
 
 export function CompetitiveQuadrantBlock() {
   return (
-    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
-      <div className="flex items-center gap-2 mb-1">
-        <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
-        <h4 className="font-serif text-sm font-bold text-ink">Competitive Field: Preference vs. Fiscal Credibility</h4>
-      </div>
-      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
-        Horizontal axis is measured survey data. Vertical axis is a qualitative editorial reading of Section 1.2.2&apos;s own
-        candidate assessments, not a measured input — plotted only where the text itself makes a claim.
-      </p>
+    <FigureBlock
+      title="Competitive Field: Preference vs. Fiscal Credibility"
+      subtitle={
+        <>
+          Horizontal axis is measured survey data. Vertical axis is a qualitative editorial reading of Section 1.2.2&apos;s own
+          candidate assessments, not a measured input — plotted only where the text itself makes a claim.
+        </>
+      }
+      sources={["Mizani Africa"]}
+    >
       <div className="h-72 w-full t-micro">
         <LazyMount minHeight={288} className="h-full">
           <CompetitiveQuadrantChart data={DATA} />
         </LazyMount>
       </div>
-      <SourceLine sources={["Mizani Africa"]} />
-    </div>
+    </FigureBlock>
   );
 }

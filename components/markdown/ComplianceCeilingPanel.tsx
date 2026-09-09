@@ -4,10 +4,10 @@ import dynamic from "next/dynamic";
 
 import { ChartFallback } from "../ChartFallback";
 import { LazyMount } from "../LazyMount";
-import { ProvenanceLine } from "./ProvenanceLine";
 import { TierBadge } from "./TierBadge";
 import { KITUI_SPENDING_CEILING, SINGLE_SOURCE_CONTRIBUTION_CAP_PCT, AUDITED_REPORT_THRESHOLD, PENALTY_MAX_FINE, PENALTY_MAX_PRISON_YEARS, EXPENDITURE_WINDOW, COMPLIANCE_REQUIREMENTS } from "../../data/spending-ceiling";
 import type { TierBand } from "../charts/SpendingCeilingChart";
+import { FigureBlock } from "./FigureBlock";
 // Dynamic boundary: the charting runtime stays out of the first load. LazyMount below
 // still gates when it mounts; this gates when it downloads.
 const SpendingCeilingChart = dynamic(() => import("../charts/SpendingCeilingChart"), {
@@ -46,11 +46,10 @@ const CHART_DATA: TierBand[] = TIER_RANGES.map((t) => {
  */
 export function ComplianceCeilingPanel() {
   return (
-    <div className="not-prose bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
-      <div className="flex items-center gap-2 mb-1">
-        <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
-        <h4 className="font-serif text-sm font-bold text-ink">Compliance and Spending-Ceiling Panel</h4>
-      </div>
+    <FigureBlock
+      title="Compliance and Spending-Ceiling Panel"
+      provenance={KITUI_SPENDING_CEILING.provenance}
+    >
       <p className="t-small text-muted mb-1 leading-relaxed pl-3.5">
         The verified Kitui county-seat ceiling — shared by the Governor, Senator and Woman Representative races.
       </p>
@@ -126,8 +125,6 @@ export function ComplianceCeilingPanel() {
           ))}
         </ul>
       </div>
-
-      <ProvenanceLine provenance={KITUI_SPENDING_CEILING.provenance} />
-    </div>
+    </FigureBlock>
   );
 }

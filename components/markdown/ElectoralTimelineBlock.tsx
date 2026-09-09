@@ -4,10 +4,10 @@ import dynamic from "next/dynamic";
 
 import { ChartFallback } from "../ChartFallback";
 import { LazyMount } from "../LazyMount";
-import { ProvenanceLine } from "./ProvenanceLine";
 import { COURT_OF_APPEAL_2018, IEBC_2022_RESULTS } from "../../data/sources";
 import type { Provenance } from "../../data/types";
 import type { TimelinePoint } from "../charts/ElectoralTimelineChart";
+import { FigureBlock } from "./FigureBlock";
 // Dynamic boundary: the charting runtime stays out of the first load. LazyMount below
 // still gates when it mounts; this gates when it downloads.
 const ElectoralTimelineChart = dynamic(() => import("../charts/ElectoralTimelineChart"), {
@@ -28,15 +28,16 @@ const PROVENANCE: Provenance[] = [
 
 export function ElectoralTimelineBlock() {
   return (
-    <div className="not-prose bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
-      <div className="flex items-center gap-2 mb-1">
-        <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
-        <h4 className="font-serif text-sm font-bold text-ink">Governor-Race Winner by Cycle</h4>
-      </div>
-      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
-        Two different winners across the two cycles with sourced results. 2013 is drawn as an empty gap, not a zero —
-        no sourced winner or vote total was supplied for that cycle.
-      </p>
+    <FigureBlock
+      title="Governor-Race Winner by Cycle"
+      subtitle={
+        <>
+          Two different winners across the two cycles with sourced results. 2013 is drawn as an empty gap, not a zero —
+          no sourced winner or vote total was supplied for that cycle.
+        </>
+      }
+      provenance={PROVENANCE}
+    >
 
       <div className="w-full t-micro mb-4">
         <LazyMount minHeight={180}>
@@ -65,8 +66,6 @@ export function ElectoralTimelineBlock() {
           </tbody>
         </table>
       </div>
-
-      <ProvenanceLine provenance={PROVENANCE} />
-    </div>
+    </FigureBlock>
   );
 }

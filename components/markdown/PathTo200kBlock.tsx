@@ -4,11 +4,11 @@ import dynamic from "next/dynamic";
 
 import { ChartFallback } from "../ChartFallback";
 import { LazyMount } from "../LazyMount";
-import { ProvenanceLine } from "./ProvenanceLine";
 import { ALL_WARDS, MWINGI_BLOC_TOTAL, CONSTITUENCIES } from "../../data/ward-register";
 import { IEBC_WARD_REGISTER } from "../../data/sources";
 import type { Provenance } from "../../data/types";
 import type { PathPoint } from "../charts/PathTo200kChart";
+import { FigureBlock } from "./FigureBlock";
 // Dynamic boundary: the charting runtime stays out of the first load. LazyMount below
 // still gates when it mounts; this gates when it downloads.
 const PathTo200kChart = dynamic(() => import("../charts/PathTo200kChart"), {
@@ -46,17 +46,18 @@ const CHART_DATA: PathPoint[] = SORTED.map((w, i) => {
 
 export function PathTo200kBlock() {
   return (
-    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
-      <div className="flex items-center gap-2 mb-1">
-        <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
-        <h4 className="font-serif text-sm font-bold text-ink">Path to 200,000 — Wards Ranked by Register</h4>
-      </div>
-      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
-        All 40 wards, ranked descending by register size (bars, coloured by constituency) with the cumulative running
-        total (line) against the ~200,000-vote win threshold. <strong className="text-ink">The three Mwingi
-        constituencies alone total {MWINGI_BLOC_TOTAL.toLocaleString()}</strong> — the threshold is reachable from
-        that bloc on its own, a real targeting finding.
-      </p>
+    <FigureBlock
+      title="Path to 200,000 — Wards Ranked by Register"
+      subtitle={
+        <>
+          All 40 wards, ranked descending by register size (bars, coloured by constituency) with the cumulative running
+          total (line) against the ~200,000-vote win threshold. <strong className="text-ink">The three Mwingi
+          constituencies alone total {MWINGI_BLOC_TOTAL.toLocaleString()}</strong> — the threshold is reachable from
+          that bloc on its own, a real targeting finding.
+        </>
+      }
+      provenance={PROVENANCE}
+    >
 
       <div className="flex flex-wrap gap-x-3 gap-y-1 mb-3 pl-3.5">
         {CONSTITUENCIES.map((c) => (
@@ -99,8 +100,6 @@ export function PathTo200kBlock() {
           </tbody>
         </table>
       </div>
-
-      <ProvenanceLine provenance={PROVENANCE} />
-    </div>
+    </FigureBlock>
   );
 }

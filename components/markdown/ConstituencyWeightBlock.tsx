@@ -5,10 +5,10 @@ import dynamic from "next/dynamic";
 import { ChartFallback } from "../ChartFallback";
 import { useState } from "react";
 import { LazyMount } from "../LazyMount";
-import { ProvenanceLine } from "./ProvenanceLine";
 import { CONSTITUENCIES_BY_SIZE, COUNTY_TOTAL_WARDS } from "../../data/ward-register";
 import { IEBC_WARD_REGISTER } from "../../data/sources";
 import type { Provenance } from "../../data/types";
+import { FigureBlock } from "./FigureBlock";
 // Dynamic boundary: the charting runtime stays out of the first load. LazyMount below
 // still gates when it mounts; this gates when it downloads.
 const ConstituencyBarChart = dynamic(() => import("../charts/ConstituencyBarChart"), {
@@ -30,17 +30,18 @@ export function ConstituencyWeightBlock() {
   const largest = CONSTITUENCIES_BY_SIZE[0];
 
   return (
-    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
-      <div className="flex items-center gap-2 mb-1">
-        <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
-        <h4 className="font-serif text-sm font-bold text-ink">Constituency Weight — All Eight, by Register</h4>
-      </div>
-      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
-        <strong className="text-ink">{largest.name} is the largest constituency in the county register, at{" "}
-        {largest.voters.toLocaleString()} voters</strong> ({((largest.voters / COUNTY_TOTAL_WARDS) * 100).toFixed(1)}%
-        of the county total) — the candidate&apos;s own base is the county&apos;s heaviest constituency. That is the
-        strongest structural argument he has.
-      </p>
+    <FigureBlock
+      title="Constituency Weight — All Eight, by Register"
+      subtitle={
+        <>
+          <strong className="text-ink">{largest.name} is the largest constituency in the county register, at{" "}
+          {largest.voters.toLocaleString()} voters</strong> ({((largest.voters / COUNTY_TOTAL_WARDS) * 100).toFixed(1)}%
+          of the county total) — the candidate&apos;s own base is the county&apos;s heaviest constituency. That is the
+          strongest structural argument he has.
+        </>
+      }
+      provenance={PROVENANCE}
+    >
 
       <div className="h-64 w-full t-micro mb-4">
         <LazyMount minHeight={256} className="h-full">
@@ -69,8 +70,6 @@ export function ConstituencyWeightBlock() {
           </tbody>
         </table>
       </div>
-
-      <ProvenanceLine provenance={PROVENANCE} />
-    </div>
+    </FigureBlock>
   );
 }

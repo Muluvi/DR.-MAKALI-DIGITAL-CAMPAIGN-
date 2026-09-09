@@ -1,4 +1,5 @@
 import { CONTENDERS, MALOMBE_TERM_LIMIT_QUESTION } from "../../data/competitors";
+import { FigureBlock } from "./FigureBlock";
 
 /**
  * The wider competitor field (Section 4.10) — highest legal-risk section in the document.
@@ -10,11 +11,12 @@ import { CONTENDERS, MALOMBE_TERM_LIMIT_QUESTION } from "../../data/competitors"
  */
 export function CompetitorFieldPanel() {
   return (
-    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
-      <div className="flex items-center gap-2 mb-1">
-        <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
-        <h4 className="font-serif text-sm font-bold text-ink">The Wider Field</h4>
-      </div>
+    <FigureBlock
+      title="The Wider Field"
+      // Each competitor card renders its own sourced figures inline, so a single card-level
+      // footer would name the same sources a second time.
+      footer={false}
+    >
       <p className="t-small text-muted mb-4 leading-relaxed pl-3.5">
         Every entry attributes what it states to a specific, already-cited part of this document. Nothing here asserts
         wrongdoing; nothing here is sourced to a single partisan outlet.
@@ -37,6 +39,6 @@ export function CompetitorFieldPanel() {
         </div>
         <p className="text-xs text-ink/85 leading-relaxed">{MALOMBE_TERM_LIMIT_QUESTION}</p>
       </div>
-    </div>
+    </FigureBlock>
   );
 }

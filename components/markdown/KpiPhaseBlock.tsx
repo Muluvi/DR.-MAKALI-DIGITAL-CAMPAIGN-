@@ -6,6 +6,7 @@ import { ChartFallback } from "../ChartFallback";
 import { LazyMount } from "../LazyMount";
 import { PHASES, phaseColor } from "../../lib/phases";
 import type { KpiRow } from "../charts/KpiPhaseBarChart";
+import { FigureBlock } from "./FigureBlock";
 
 // Dynamic boundary: the charting runtime stays out of the first load. LazyMount below
 // still gates when it mounts; this gates when it downloads.
@@ -59,11 +60,11 @@ const ROWS: KpiRow[] = [
 
 export function KpiPhaseBlock() {
   return (
-    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
-      <div className="flex items-center gap-2 mb-1">
-        <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
-        <h4 className="font-serif text-sm font-bold text-ink">KPI Targets by Phase</h4>
-      </div>
+    <FigureBlock
+      title="KPI Targets by Phase"
+      // The KPI table this chart plots is the section above it, and it carries the provenance.
+      footer={false}
+    >
       <p className="t-small text-muted mb-4 leading-relaxed pl-3.5">
         This is a proposal, not a report — there are no achieved results to plot yet. Each marker is the stated target
         for that phase; phases the tables mark {"“"}Not live{"”"} are omitted rather than shown as zero.
@@ -81,6 +82,6 @@ export function KpiPhaseBlock() {
           <KpiPhaseBarChart rows={ROWS} />
         </LazyMount>
       </div>
-    </div>
+    </FigureBlock>
   );
 }

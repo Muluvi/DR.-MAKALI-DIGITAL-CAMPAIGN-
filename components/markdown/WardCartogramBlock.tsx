@@ -4,10 +4,10 @@ import dynamic from "next/dynamic";
 
 import { ChartFallback } from "../ChartFallback";
 import { LazyMount } from "../LazyMount";
-import { ProvenanceLine } from "./ProvenanceLine";
 import { IEBC_WARD_REGISTER } from "../../data/sources";
 import type { Provenance } from "../../data/types";
 import { WardRegisterTicker } from "../charts/WardRegisterTicker";
+import { FigureBlock } from "./FigureBlock";
 // Dynamic boundary: the charting runtime stays out of the first load. LazyMount below
 // still gates when it mounts; this gates when it downloads.
 const WardCartogram = dynamic(() => import("../charts/WardCartogram"), {
@@ -19,16 +19,17 @@ const PROVENANCE: Provenance = { source: IEBC_WARD_REGISTER, granularity: "ward"
 
 export function WardCartogramBlock() {
   return (
-    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
-      <div className="flex items-center gap-2 mb-1">
-        <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
-        <h4 className="font-serif text-sm font-bold text-ink">Ward Register — Table Cartogram & Dynamic Stream</h4>
-      </div>
-      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
-        One tile per ward, clustered by constituency. No ward-boundary map exists in this repository, so this grid —
-        not a geographic map — is the cartogram. All 40 wards are itemised (Phase 2 of the provenance system replaced
-        the previous 13-of-40 partial register).
-      </p>
+    <FigureBlock
+      title="Ward Register — Table Cartogram & Dynamic Stream"
+      subtitle={
+        <>
+          One tile per ward, clustered by constituency. No ward-boundary map exists in this repository, so this grid —
+          not a geographic map — is the cartogram. All 40 wards are itemised (Phase 2 of the provenance system replaced
+          the previous 13-of-40 partial register).
+        </>
+      }
+      provenance={PROVENANCE}
+    >
 
       {/*
         The register stream, mounted here and nowhere else.
@@ -52,7 +53,6 @@ export function WardCartogramBlock() {
           <WardCartogram />
         </LazyMount>
       </div>
-      <ProvenanceLine provenance={PROVENANCE} />
-    </div>
+    </FigureBlock>
   );
 }

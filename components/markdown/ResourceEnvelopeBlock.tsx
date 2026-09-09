@@ -4,8 +4,8 @@ import dynamic from "next/dynamic";
 
 import { ChartFallback } from "../ChartFallback";
 import { LazyMount } from "../LazyMount";
-import { SourceLine } from "./SourceLine";
 import type { WaterfallStep } from "../charts/ResourceEnvelopeChart";
+import { FigureBlock } from "./FigureBlock";
 
 // Dynamic boundary: the charting runtime stays out of the first load. LazyMount below
 // still gates when it mounts; this gates when it downloads.
@@ -34,14 +34,15 @@ const DATA: WaterfallStep[] = [
 
 export function ResourceEnvelopeBlock() {
   return (
-    <div className="not-prose bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
-      <div className="flex items-center gap-2 mb-1">
-        <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
-        <h4 className="font-serif text-sm font-bold text-ink">FY2026/27 Resource Envelope — KSh13.79bn</h4>
-      </div>
-      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
-        Split into its three stated components, each carried at the approximate figure the proposal itself gives.
-      </p>
+    <FigureBlock
+      title="FY2026/27 Resource Envelope — KSh13.79bn"
+      subtitle={
+        <>
+          Split into its three stated components, each carried at the approximate figure the proposal itself gives.
+        </>
+      }
+      sources={["Kitui County Fiscal Strategy Paper, FY2026/27"]}
+    >
       <div className="h-64 w-full t-micro">
         <LazyMount minHeight={256} className="h-full">
           <ResourceEnvelopeChart data={DATA} />
@@ -52,7 +53,6 @@ export function ResourceEnvelopeBlock() {
         ≈KSh{COMPONENT_SUM.toFixed(2)}bn — about KSh{(COMPONENT_SUM - STATED_TOTAL).toFixed(2)}bn above the stated KSh{STATED_TOTAL}bn total.
         That gap is rounding in the source document, shown here rather than reconciled.
       </p>
-      <SourceLine sources={["Kitui County Fiscal Strategy Paper, FY2026/27"]} />
-    </div>
+    </FigureBlock>
   );
 }
