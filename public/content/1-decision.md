@@ -227,71 +227,17 @@ Operating remotely allows for a dedicated digital war room, maintaining a
 continuous, high-quality digital footprint without the logistical overhead of
 being physically present on the campaign trail.
 
-### 7.1.1 Web management and digital architecture
+### 7.1.1 Digital infrastructure, brand and civic content
 
-* Development and deployment of a high-performance campaign web portal hosting
-the manifesto, tracking media appearances, and capturing volunteer data.
-* Lightweight, rapid-loading frameworks so the site is usable on 3G and on
-feature-phone browsers — non-negotiable in a county at 13.6% internet use.
-* **WCAG 2.1 AA compliance from build, not retrofitted** (Section 3.7.1).
-* Search engine optimisation for "Kitui Governor 2027", "Kitui development" and
-related terms.
-* A "Meet Dr. Mulu" page with biography, parliamentary record, M&E credentials
-and vision for Kitui.
-* **Audit before build:** an existing Kitui Central NG-CDF web presence is
-already live. Phase 0 audits and integrates it rather than duplicating it.
+* **Web management and digital architecture:** Development and deployment of a high-performance campaign web portal hosting the manifesto, tracking media appearances, and capturing volunteer data. Lightweight, rapid-loading frameworks so the site is usable on 3G and on feature-phone browsers — non-negotiable in a county at 13.6% internet use. **WCAG 2.1 AA compliance from build, not retrofitted** (Section 3.7.1). Search engine optimisation for "Kitui Governor 2027", "Kitui development" and related terms. A "Meet Dr. Mulu" page with biography, parliamentary record, M&E credentials and vision for Kitui. **Audit before build:** an existing Kitui Central NG-CDF web presence is already live. Phase 0 audits and integrates it rather than duplicating it.
+* **Brand management:** Core messaging matrix ensuring consistency across broadcast, print and digital. Dynamic digital press kits for media houses and influencers — approved biographies, high-resolution assets, policy briefs (Section 3.5). Daily management of Facebook, X, Instagram, TikTok, YouTube and WhatsApp. Community management: responses to comments, DMs and mentions within **2 hours** during peak periods.
+* **Civic content and visual data:** Infographic analyses highlighting Kitui's economic challenges and Dr. Mulu's proposed solutions, anchored to the KSh13.79bn county envelope. Content calendars tailored to each segment in Section 2.5. Graphics, short video, motion graphics and policy explainers in English, Kiswahili and Kikamba. Human-interest storytelling: constituent testimonials, verified project outcomes, vision-driven narratives. A weekly **"Dr. Mulu Explains"** series breaking down county budgets, revenue sources and development economics in plain language.
 
-### 7.1.2 Brand management
+### 7.1.2 Growth, field advertising and reputation operations
 
-* Core messaging matrix ensuring consistency across broadcast, print and digital.
-* Dynamic digital press kits for media houses and influencers — approved
-biographies, high-resolution assets, policy briefs (Section 3.5).
-* Daily management of Facebook, X, Instagram, TikTok, YouTube and WhatsApp.
-* Community management: responses to comments, DMs and mentions within **2
-hours** during peak periods.
-
-### 7.1.3 Civic content and visual data
-
-* Infographic analyses highlighting Kitui's economic challenges and Dr. Mulu's
-proposed solutions, anchored to the KSh13.79bn county envelope.
-* Content calendars tailored to each segment in Section 2.5.
-* Graphics, short video, motion graphics and policy explainers in English,
-Kiswahili and Kikamba.
-* Human-interest storytelling: constituent testimonials, verified project
-outcomes, vision-driven narratives.
-* A weekly **"Dr. Mulu Explains"** series breaking down county budgets, revenue
-sources and development economics in plain language.
-
-### 7.1.4 Online fundraising and data analytics
-
-* Secure donation page integrated with M-Pesa and other mobile money options.
-* **All fundraising structured for compliance with the Election Campaign
-Financing Regulations, 2026** — including the 20% single-source contribution
-cap and full contribution records (Section 9.2.4).
-* Email, SMS and WhatsApp fundraising to diaspora and local supporters, with
-asks tied to specific campaign needs.
-* Real-time dashboards tracking reach, engagement, sentiment and conversion.
-* Ward-level analytics identifying priority areas.
-* Weekly A/B testing of messages, visuals and ad formats.
-* Monthly voter sentiment reports to campaign leadership.
-
-### 7.1.5 Digital advertising
-
-* Targeted Meta ads by ward, age, gender and interest.
-* Google Search and Display to capture high-intent voters.
-* YouTube pre-roll before local and national content.
-* TikTok ads reaching first-time and younger voters.
-* Retargeting to convert engaged users into donors and volunteers.
-* Monthly spend allocation matrix based on ward-level registration and
-engagement data — **with every shilling logged against the IEBC expenditure
-return** (Section 9.2.4).
-
-### 7.1.6 Crisis and reputation management
-
-* Continuous sentiment monitoring across platforms.
-* Rapid-response statements managing emerging narratives or opponent claims.
-* Real-time monitoring and countering of misinformation and manipulated media
-(Sections 2.6 and 16A).
+* **Online fundraising and data analytics:** Secure donation page integrated with M-Pesa and other mobile money options. **All fundraising structured for compliance with the Election Campaign Financing Regulations, 2026** — including the 20% single-source contribution cap and full contribution records (Section 9.2.4). Email, SMS and WhatsApp fundraising to diaspora and local supporters, with asks tied to specific campaign needs. Real-time dashboards tracking reach, engagement, sentiment and conversion. Ward-level analytics identifying priority areas. Weekly A/B testing of messages, visuals and ad formats. Monthly voter sentiment reports to campaign leadership.
+* **Digital advertising:** Targeted Meta ads by ward, age, gender and interest. Google Search and Display to capture high-intent voters. YouTube pre-roll before local and national content. TikTok ads reaching first-time and younger voters. Retargeting to convert engaged users into donors and volunteers. Monthly spend allocation matrix based on ward-level registration and engagement data — **with every shilling logged against the IEBC expenditure return** (Section 9.2.4).
+* **Crisis and reputation management:** Continuous sentiment monitoring across platforms. Rapid-response statements managing emerging narratives or opponent claims. Real-time monitoring and countering of misinformation and manipulated media (Sections 2.6 and 16A).
 
 ---
 
@@ -536,35 +482,14 @@ penalty exposure for getting any of it wrong.
 
 ## 9.3 Working together, and what happens next
 
-### 9.3.1 Weekly strategy syncs
+### 9.3.1 Operational rhythm, tooling and escalation
 
-A scheduled virtual briefing aligns digital output with the candidate's
-physical itinerary: prior-week performance, next-week content calendar
-approval, emerging issues. Firefly reports to a single named campaign-side
-counterpart (Section 7.2.4).
+* **Weekly strategy syncs:** A scheduled virtual briefing aligns digital output with the candidate's physical itinerary: prior-week performance, next-week content calendar approval, emerging issues. Firefly reports to a single named campaign-side counterpart (Section 7.2.4).
+* **Asset centralisation:** A cloud repository for the ground team to upload photographs and video daily. Raw assets are professionally edited, captioned and distributed within hours. **Originals retained with metadata** to support the provenance requirement in Section 5.3.5 — a practice that costs nothing now and is invaluable under attack.
+* **Performance tracking:** Monthly analytics reports covering reach, engagement, sentiment and conversion, plus the competitive brief (Section 5.4.3), the compliance ledger reconciliation (Section 9.2.4), and progress against the analytics maturity roadmap (Section 6.4.3).
+* **Escalation:** The Section 7.2.6 decision matrix governs all approvals. The Section 5.2.3 severity matrix governs all crisis response. Both are rehearsed quarterly (Section 5.2.4) rather than read for the first time under pressure.
 
-### 9.3.2 Asset centralisation
-
-A cloud repository for the ground team to upload photographs and video daily.
-Raw assets are professionally edited, captioned and distributed within hours.
-**Originals retained with metadata** to support the provenance requirement in
-Section 5.3.5 — a practice that costs nothing now and is invaluable under
-attack.
-
-### 9.3.3 Performance tracking
-
-Monthly analytics reports covering reach, engagement, sentiment and conversion,
-plus the competitive brief (Section 5.4.3), the compliance ledger reconciliation
-(Section 9.2.4), and progress against the analytics maturity roadmap (Section
-5.1.5).
-
-### 9.3.4 Escalation
-
-The Section 7.2.6 decision matrix governs all approvals. The Section 5.2.4
-severity matrix governs all crisis response. Both are rehearsed quarterly
-(Section 5.2.7) rather than read for the first time under pressure.
-
-### 9.3.5 What Firefly needs from the campaign
+### 9.3.2 What Firefly needs from the campaign
 
 Stated plainly, because these are the dependencies that determine delivery:
 
@@ -586,11 +511,11 @@ into three kinds. Collected here so none has to be hunted for:
 
 | What is needed | Where it appears | From whom |
 |---|---|---|
-| **Shortcode and sender ID**, once the USSD and SMS codes are provisioned | 4.3.3, 6.4.3, 8.5.3, 8.5.7 | Telco / aggregator at contracting |
+| **Shortcode and sender ID**, once the USSD and SMS codes are provisioned | 4.3.3, 6.4.1, 8.5.3, 8.5.7 | Telco / aggregator at contracting |
 | **Dedicated USSD code quotation** | 9.2.2 | Operator, 2–4 weeks |
 | **Hardware security key cost**; **deepfake detection vendor and cost** | 5.3.2, 5.3.5 | Firefly, at contracting |
 | **Named data-protection / electoral-law reviewer** — the long-lead item in row 4 above | 6.5.5, 6.6 | Campaign appoints |
-| **Independent qualitative research facilitator** | 8.4.2 | Firefly recommends, campaign appoints |
+| **Independent qualitative research facilitator** | 8.4.1 | Firefly recommends, campaign appoints |
 | **Kenyan Sign Language interpreter or service** | 3.7.3 | Campaign or KNAD |
 | **Verified Kikamba proverbs and idiom**, native-speaker reviewed | 3.7 | Kikamba producer, Phase −1 |
 | **Response SLA for data-subject requests** (14 days recommended) | 6.5.4 | Campaign counsel |
@@ -601,7 +526,7 @@ baseline or by testing, and each is left open deliberately rather than filled wi
 
 ---
 
-### 9.3.6 Why a remote operation works
+### 9.3.3 Why a remote operation works
 
 A remote digital operation is not a compromise. Digital campaigning does not
 require a physical office in Kitui; it requires speed, data, creative
@@ -636,7 +561,7 @@ document's entire proposition is that it does not oversell.
 
 ---
 
-### 9.3.7 The ask
+### 9.3.4 The ask
 
 Dr. Makali Mulu has the credentials, the experience and the vision to be an
 outstanding Governor of Kitui County. He also has something no rival in this

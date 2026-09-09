@@ -208,15 +208,13 @@ To maintain operational tempo across 8 constituencies and 40 wards, the campaign
 
 ## 4.2 The field-to-digital loop
 
-### 4.2.1 The problem it solves
+### 4.2.1 Operating architecture and bidirectional sync
 
 Most campaigns run two separate operations: a ground team that knocks doors and
 a digital team that buys ads. Neither learns from the other. The ground team
 re-canvasses households digital already converted; digital keeps advertising to
 voters the ground team has confirmed as committed opponents. In a county of
 30,430 square kilometres, that duplication is unaffordable.
-
-### 4.2.2 How the loop runs
 
 ```
    FIELD                                    DIGITAL
@@ -234,30 +232,17 @@ voters the ground team has confirmed as committed opponents. In a county of
    households first                      within 24 hours
 ```
 
-### 4.2.3 Field to digital
+* **Field to digital synchronization:**
+  * **Capture:** ward champions log outcomes via a simple mobile form — four options, under thirty seconds per household. Complexity kills field data collection.
+  * **Offline-first:** the form caches locally and syncs when signal returns. Non-negotiable in Ikutha and Mutitu.
+  * **Latency target:** field outcomes reflected in digital targeting within **24 hours**.
+  * **Suppression:** confirmed committed opponents are **removed from paid targeting**, not messaged harder. This saves money and is the correct practice.
+* **Digital to field routing:**
+  * **Warm-lead routing:** voters who engaged with content, opened an SMS, or completed a USSD session are routed to ward champions as priority doors.
+  * **Pre-briefing:** champions receive the issue the household engaged with — water, bursaries, market fees — so the conversation starts where the voter's interest already is.
+  * **Event conversion:** digital sign-ups for barazas are handed to ground organisers with attendance follow-up.
 
-* **Capture:** ward champions log outcomes via a simple mobile form —
-four options, under thirty seconds per household. Complexity kills field
-data collection.
-* **Offline-first:** the form caches locally and syncs when signal returns.
-Non-negotiable in Ikutha and Mutitu.
-* **Latency target:** field outcomes reflected in digital targeting within
-**24 hours**.
-* **Suppression:** confirmed committed opponents are **removed from paid
-targeting**, not messaged harder. This saves money and is the correct
-practice.
-
-### 4.2.4 Digital to field
-
-* **Warm-lead routing:** voters who engaged with content, opened an SMS, or
-completed a USSD session are routed to ward champions as priority doors.
-* **Pre-briefing:** champions receive the issue the household engaged with —
-water, bursaries, market fees — so the conversation starts where the voter's
-interest already is.
-* **Event conversion:** digital sign-ups for barazas are handed to ground
-organisers with attendance follow-up.
-
-### 4.2.5 Who governs it
+### 4.2.2 Governance and data protection on the doorstep
 
 * Field data is campaign first-party data, collected with notice, and governed
 by the same charter as all other personal data (Section 6.5.4).

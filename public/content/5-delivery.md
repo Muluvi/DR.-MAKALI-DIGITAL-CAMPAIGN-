@@ -56,7 +56,7 @@ proposal claims to embody, applied to its own first assumption.
   its own right during a nomination contest
 
 **Weeks 6–8 — consolidation:**
-- Full-scale red-team drill before the nomination decision (Section 5.2.7)
+- Full-scale red-team drill before the nomination decision (Section 5.2.4)
 - Coalition roundtables with professional associations
 - Ward champion recruitment begins in the 15 highest-priority wards
 
@@ -388,7 +388,7 @@ To ensure accountability across all divisions, the KPI framework is embedded in 
 
 *Digital engagement metrics measure the 13.6% who are online.*
 
-### 8.4.1 The problem with metrics-only optimisation
+### 8.4.1 Rationale, structure and zone coverage
 
 A campaign that optimises purely on engagement data optimises for the connected
 minority, in the wards with the best signal, among the people most inclined to
@@ -396,8 +396,6 @@ respond. In Kitui that is a systematically biased sample — and it is biased
 *towards* the zone where Dr. Mulu is already strong. Optimising on it would
 confirm the campaign is winning while the recognition deficit outside the
 Anchor zone stays exactly where it is.
-
-### 8.4.2 How the lab is designed
 
 | Element | Specification |
 |---|---|
@@ -408,32 +406,17 @@ Anchor zone stays exactly where it is.
 | **Facilitation** | `[Insert — independent Kenyan qualitative research facilitator; Firefly to recommend, campaign to appoint]` |
 | **Ethics** | Participation voluntary; withdrawal at any time; no contact data retained for campaigning without separate explicit opt-in |
 
-### 8.4.3 What gets tested
+### 8.4.2 Qualitative hypotheses, feedback loops and KPIs
 
-* **Message framings** from Section 2.8 — does loss-aversion framing on water
-land, or does it read as pessimism about Kitui?
-* **The Economist Governor narrative** — does "economist" read as competent or
-as distant? This is the single highest-value question in the research
-programme, and it is not answerable from engagement data.
+To ensure offline reality shapes digital execution, the message lab systematically evaluates:
+* **Message framings** from Section 2.8 — does loss-aversion framing on water land, or does it read as pessimism about Kitui?
+* **The Economist Governor narrative** — does "economist" read as competent or as distant? This is the single highest-value question in the research programme, and it is not answerable from engagement data.
 * **Kikamba language and proverb use** — authentic or performative?
-* **Rival perception** — what specifically drives preference for the current
-front-runner? The answer determines whether the deficit is closeable by
-communication at all
-* **Channel reality** — where do people in Mutha actually get political
-information?
-* **The tracker concept** (Section 8.5) — would people use it, and do they
-believe it would change anything?
+* **Rival perception** — what specifically drives preference for the current front-runner? The answer determines whether the deficit is closeable by communication at all.
+* **Channel reality** — where do people in Mutha actually get political information?
+* **The tracker concept** (Section 8.5) — would people use it, and do they believe it would change anything?
 
-### 8.4.4 The feedback loop
-
-Findings are written up within **10 days** and feed directly into the next
-content cycle, the SMS message architecture and the paid-media creative brief.
-Where qualitative findings contradict engagement data, **the qualitative finding
-is treated as the signal about the offline majority and the quantitative data
-as the signal about the online minority** — neither overrides the other, and
-the disagreement itself is information.
-
-### 8.4.5 Message lab KPIs
+Findings are written up within **10 days** and feed directly into the next content cycle, the SMS message architecture and the paid-media creative brief. Where qualitative findings contradict engagement data, **the qualitative finding is treated as the signal about the offline majority and the quantitative data as the signal about the online minority** — neither overrides the other, and the disagreement itself is information.
 
 | Metric | Target |
 |---|---|

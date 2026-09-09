@@ -31,7 +31,7 @@ nothing in 7.3.2 is.
 
 | Role | Activated | Function |
 |---|---|---|
-| **Data Analyst / Modeller** | Phase 1 onward (standard and premium tiers) | Predictive scoring, field-digital integration, attribution modelling. **Named data-governance owner** (Section 6.4.6) |
+| **Data Analyst / Modeller** | Phase 1 onward (standard and premium tiers) | Predictive scoring, field-digital integration, attribution modelling. **Named data-governance owner** (Section 6.4.4) |
 | **Kikamba Content Producer (native speaker)** | Phase −1 onward — **mandatory at all tiers** | Voice notes, proverb verification, cultural authenticity review. No Kikamba content publishes without this role |
 | **Community Managers (×2, platform-split)** | Phase 1 onward | Meta/WhatsApp cluster; TikTok/Instagram/X cluster. Front-line response within the 2-hour SLA |
 | **Volunteer & Ward Champion Coordinator** | Phase 1 onward | Tiered volunteer programme (Section 4.4); ward champion training and reporting |
@@ -62,7 +62,7 @@ not added speculatively.
   Language Lead         Analytics Mgr         Lead (surge)
         |                     |                     |
    Kikamba              Data Analyst          Red-team panel
-   Producer             (surge)               (Section 5.2.7)
+   Producer             (surge)               (Section 5.2.4)
    Video Editor         SMS/USSD ops
         |                     |
    Community Mgrs       Compliance log
@@ -86,7 +86,7 @@ five people can commission content and no one can approve it.
 | **Weekly** | Creative review | Content Lead + Kikamba Producer | Language and cultural sign-off before scheduling |
 | **Fortnightly** | Ward champion call | Volunteer Coordinator + ward champions | Ground sentiment; content distribution; leaderboard |
 | **Monthly** | Performance & compliance review | Firefly Director + Campaign leadership + `[campaign counsel, where voter-file work is live]` | Analytics report; competitive brief; spend reconciliation against IEBC ceiling |
-| **Quarterly** | Red-team simulation | Full team + external panel | Crisis drill report and matrix revision (Section 5.2.7) |
+| **Quarterly** | Red-team simulation | Full team + external panel | Crisis drill report and matrix revision (Section 5.2.4) |
 
 ### 7.2.6 Who signs off on content
 
