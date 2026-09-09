@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import { Flag, Vote } from "lucide-react";
 
 import { PHASES } from "../lib/phases";
 import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
+import { SPRING } from "../lib/motion";
 
 /**
  * M4 — the phased plan on a real calendar, Aug 2026 to Aug 2027.
@@ -97,6 +98,48 @@ export function PhaseRail() {
   });
   const fillScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
+  // Which phase the reader is standing in.
+  //
+  // Observed from the cards themselves rather than derived from scroll progress, because the two
+  // disagree on a phone: below 768px the track lays out horizontally, so vertical progress says
+  // "Phase 2" while the card on screen says "Phase −1". An IntersectionObserver rooted on the
+  // track is right in both orientations — the card most in view is the phase being read.
+  const trackRef = useRef<HTMLOListElement>(null);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const items = Array.from(track.querySelectorAll<HTMLLIElement>("li[data-phase-index]"));
+    if (items.length === 0) return;
+
+    const ratios = new Map<number, number>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          const i = Number((e.target as HTMLElement).dataset.phaseIndex);
+          ratios.set(i, e.intersectionRatio);
+        }
+        let best = 0;
+        let bestRatio = -1;
+        for (const [i, r] of ratios) {
+          if (r > bestRatio) { bestRatio = r; best = i; }
+        }
+        setActive(best);
+      },
+      // Thresholds rather than a single one, so the winner changes as a card slides rather than
+      // only when it crosses a line.
+      { threshold: [0.25, 0.5, 0.75, 1] },
+    );
+    items.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+  // The pane's indicator travels on a spring rather than snapping, so the advance reads as
+  // progress through a plan rather than as a tab changing.
+  const indicator = useSpring(active, SPRING.gentle);
+  const indicatorX = useTransform(indicator, (i) => `${(i / PHASES.length) * 100}%`);
+  const activePhase = PHASES[active];
+
   return (
     <div ref={ref} className="my-10 not-prose">
       <div className="flex items-baseline justify-between gap-3 mb-6 flex-wrap">
@@ -111,24 +154,76 @@ export function PhaseRail() {
         <span className="t-small text-muted font-mono">5 phases · 12 months</span>
       </div>
 
-      <div className="relative pl-8 sm:pl-10">
-        {/* The rail. A static track with a fill that advances on scroll — scaleY, not height. */}
-        <div className="absolute left-[11px] sm:left-[15px] top-2 bottom-2 w-0.5 bg-line" aria-hidden="true" />
+      {/*
+        The sticky pane. The narrative scrolls past it; it says which phase that narrative is in.
+        A twelve-month plan read on a phone loses its place faster than any other content on this
+        site — five phases, twenty-odd commitments, and no way to tell Phase 1 from Phase 2 once
+        the heading has scrolled away. This is that heading, pinned.
+
+        Under reduced motion it is not sticky at all: pinning a pane while the page moves beneath
+        it is the class of effect the preference exists to switch off, and the phase labels are
+        on every card anyway.
+      */}
+      <div
+        className={`${reduce ? "" : "sticky top-[4.5rem] z-20"} mb-5 rounded-2xl border border-line bg-card/95 backdrop-blur-md px-4 py-3`}
+        style={{ boxShadow: "var(--shadow-2)" }}
+      >
+        <div className="flex items-baseline justify-between gap-3">
+          <div className="min-w-0">
+            <div className="t-micro font-black uppercase tracking-wider text-muted">
+              Now reading
+            </div>
+            <div className="flex items-baseline gap-2 flex-wrap">
+              <span
+                className="font-serif t-label font-black"
+                style={{ color: `var(${activePhase.colorVar})` }}
+              >
+                {activePhase.label}
+              </span>
+              <span className="t-small text-muted truncate">
+                {activePhase.window.split(" · ")[1]}
+              </span>
+            </div>
+          </div>
+          <span className="t-micro font-mono tabular-nums text-muted shrink-0">
+            {active + 1}/{PHASES.length}
+          </span>
+        </div>
+        {/* One indicator that travels, rather than five that light up. */}
+        <div className="relative mt-2 h-1 rounded-full bg-line/50 overflow-hidden" aria-hidden="true">
+          <motion.span
+            className="absolute inset-y-0 rounded-full"
+            style={{
+              left: reduce ? 0 : indicatorX,
+              width: `${100 / PHASES.length}%`,
+              background: `var(${activePhase.colorVar})`,
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Below 768px the same list lays out horizontally and snaps, because a vertical rail on a
+          phone is five full screens of scrolling to see five phases and no way to compare them.
+          One <ol>, two layouts — not two lists, which would put every phase in the DOM twice. */}
+      <div className="relative md:pl-10">
+        {/* The vertical rail, desktop only. A static track with a fill that advances on scroll —
+            scaleY, not height. */}
+        <div className="hidden md:block absolute left-[15px] top-2 bottom-2 w-0.5 bg-line" aria-hidden="true" />
         <motion.div
-          className="absolute left-[11px] sm:left-[15px] top-2 bottom-2 w-0.5 bg-accent origin-top"
+          className="hidden md:block absolute left-[15px] top-2 bottom-2 w-0.5 bg-accent origin-top"
           style={{ scaleY: reduce ? 1 : fillScale }}
           aria-hidden="true"
         />
 
-        <ol className="space-y-6">
+        <ol ref={trackRef} className="phase-track flex md:block gap-3 md:gap-0 md:space-y-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-none -mx-4 px-4 md:mx-0 md:px-0 pb-2 md:pb-0">
           {PHASES.map((phase, i) => {
             const detail = DETAIL[phase.id];
             const anchor = ANCHORS.find((a) => Math.round(a.at * (PHASES.length - 1)) === i);
             return (
-              <li key={phase.id} className="relative">
+              <li key={phase.id} data-phase-index={i} className="relative shrink-0 w-[84%] xs:w-[78%] md:w-auto snap-center md:snap-align-none">
                 {/* Node. Fills with the phase's own colour, which the section headings share. */}
                 <span
-                  className="absolute -left-8 sm:-left-10 top-1 w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 bg-paper flex items-center justify-center font-mono t-micro sm:t-label font-black"
+                  className="hidden md:flex absolute -left-10 top-1 w-8 h-8 rounded-full border-2 bg-paper items-center justify-center font-mono t-label font-black"
                   style={{ borderColor: `var(${phase.colorVar})`, color: `var(${phase.colorVar})` }}
                   aria-hidden="true"
                 >
@@ -176,6 +271,15 @@ export function PhaseRail() {
             );
           })}
         </ol>
+
+        {/* The horizontal progress rail, mobile only: where you are in five phases, at a glance,
+            without having to scroll the track to find out. */}
+        <div className="md:hidden mt-1 h-1 rounded-full bg-line/50 overflow-hidden" aria-hidden="true">
+          <motion.div
+            className="h-full rounded-full bg-accent origin-left"
+            style={{ scaleX: reduce ? 1 : fillScale }}
+          />
+        </div>
       </div>
     </div>
   );
