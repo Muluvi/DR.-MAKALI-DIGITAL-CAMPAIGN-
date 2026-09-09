@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Coins, Users, Radio, ShieldCheck, Type, Eye, EyeOff, Map, MessageSquare, Megaphone, Shield, Database, Gauge, HandCoins } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
+import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
 import { MarqueeCarousel } from "./MarqueeCarousel";
 import { LazyMount } from "./LazyMount";
 import { ScrollProgressBar } from "./ScrollProgressBar";
@@ -248,6 +249,9 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
     },
     [activeTab, router],
   );
+
+  // Which of the nine this reader has already opened, for the navigator's overview strip.
+  const { visited } = useReadingProgress(activeTab);
 
   // Prefetching a section on hover or focus means the tap that follows resolves from cache.
   // Nine routes prefetched eagerly would cost more than the split saves, so it is intent-driven.
@@ -514,7 +518,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
     return activeItem.wordCount;
   }, [isExpanded, activeItem.wordCount, navItems]);
 
-  const readingTime = useMemo(() => Math.max(1, Math.ceil(wordCount / 220)), [wordCount]);
+  const readingTime = useMemo(() => readingMinutes(wordCount), [wordCount]);
 
   return (
     <SectionNumberMapProvider sections={sections}>
@@ -793,7 +797,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                   {navItems.map((item) => {
                     const Icon = item.icon;
                     const isActive = activeTab === item.id;
-                    const sectionReadMin = Math.max(1, Math.ceil(item.wordCount / 220));
+                    const sectionReadMin = readingMinutes(item.wordCount);
                     return (
                       <button
                         key={item.id}
@@ -910,6 +914,9 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
       {/* Mobile Table of Contents Full Modal Sheet */}
       <MobileTOCModal
         sections={sections}
+        wordCounts={wordCounts}
+        visited={visited}
+        onSelectTab={(tabId) => handleNavClick(tabId)}
         isOpen={isTOCModalOpen}
         onClose={() => setIsTOCModalOpen(false)}
         activeTab={activeTab}

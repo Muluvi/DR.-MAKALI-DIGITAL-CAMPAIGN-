@@ -4,6 +4,7 @@ import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, HandCoins } from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
+import { readingMinutes } from "../hooks/useReadingProgress";
 import type { SectionItem } from "../lib/section-index";
 
 const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
@@ -25,6 +26,12 @@ interface MobileTOCModalProps {
   onSelectSection: (sectionId: string, tabId: TabId) => void;
   /** Derived from the markdown at build time — see lib/section-index.ts. */
   sections: SectionItem[];
+  /** Every section's length, for the reading estimate on the overview strip. */
+  wordCounts: Record<TabId, number>;
+  /** Which sections this reader has already opened, from localStorage. */
+  visited: ReadonlySet<TabId>;
+  /** Jump to a top-level section rather than to one of its 262 headings. */
+  onSelectTab: (tabId: TabId) => void;
 }
 
 export function MobileTOCModal({
@@ -32,7 +39,10 @@ export function MobileTOCModal({
   onClose,
   activeTab,
   onSelectSection,
-  sections
+  sections,
+  wordCounts,
+  visited,
+  onSelectTab,
 }: MobileTOCModalProps) {
   const [searchQuery, setSearchQuery] = useState("");
   // Filtering is by PART, not by tab. Nine tabs is more choices than a first filter should
@@ -130,6 +140,61 @@ export function MobileTOCModal({
                   Clear
                 </button>
               )}
+            </div>
+
+            {/*
+              The nine sections, with how long each takes and whether it has been opened.
+
+              The index below this lists 262 headings, which answers "where is X" and cannot
+              answer the question a reader of a 200-minute document actually has between
+              sittings: which parts have I already been through, and what am I taking on if I
+              start this one? Nine rows, a minute count, and a state.
+            */}
+            <div className="mb-3">
+              <div className="flex items-baseline justify-between gap-2 mb-1.5">
+                <span className="t-micro font-black uppercase tracking-wider text-muted">
+                  The nine sections
+                </span>
+                <span className="t-micro tabular-nums text-muted">
+                  {visited.size}/{SECTIONS.length} opened
+                </span>
+              </div>
+              <ul className="grid grid-cols-1 gap-1">
+                {SECTIONS.map((s) => {
+                  const Icon = TAB_ICONS[s.id] ?? Compass;
+                  const isRead = visited.has(s.id);
+                  const isHere = activeTab === s.id;
+                  const mins = readingMinutes(wordCounts[s.id] ?? 0);
+                  return (
+                    <li key={s.id}>
+                      <button
+                        onClick={() => { onSelectTab(s.id); onClose(); }}
+                        aria-current={isHere ? "true" : undefined}
+                        className={`w-full min-h-[44px] flex items-center gap-2.5 px-2.5 py-1.5 rounded-xl border text-left fx-press fx-focus cursor-pointer transition-colors ${
+                          isHere
+                            ? "bg-accent-solid border-accent-solid text-on-accent"
+                            : "bg-card border-line/60 hover:border-accent/40"
+                        }`}
+                      >
+                        <Icon size={14} className={isHere ? "" : "text-accent"} aria-hidden="true" />
+                        <span className={`t-micro font-mono font-black shrink-0 ${isHere ? "" : "text-muted"}`}>
+                          {s.number}
+                        </span>
+                        <span className={`t-small font-semibold flex-1 min-w-0 truncate ${isHere ? "" : "text-ink"}`}>
+                          {s.label}
+                        </span>
+                        <span className={`t-micro tabular-nums shrink-0 ${isHere ? "opacity-90" : "text-muted"}`}>
+                          {mins} min
+                        </span>
+                        {/* State carried by a word and a mark, not by colour alone. */}
+                        <span className={`t-micro font-black uppercase tracking-wider shrink-0 ${isHere ? "opacity-90" : isRead ? "text-accent" : "text-muted"}`}>
+                          {isHere ? "Here" : isRead ? "✓ Read" : "New"}
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
 
             {/* Filter Pills */}
