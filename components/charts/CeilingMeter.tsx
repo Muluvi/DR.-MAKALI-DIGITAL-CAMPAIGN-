@@ -7,7 +7,7 @@ import { Check, ChevronRight, Scale } from "lucide-react";
 import { BUDGET_TIERS, CEILING, OPERATIONAL_PLAN, OTHER_REGULATED, type BudgetTier } from "../../data/budget-tiers";
 import { useMotionPreset } from "../../hooks/useMotionPreset";
 import { AnimatedNumber } from "../visual/AnimatedNumber";
-import { STAGGER, fadeUp, staggerContainer, VIEWPORT_TALL } from "../../lib/motion";
+import { STAGGER, fadeUp, staggerContainer } from "../../lib/motion";
 
 /**
  * The statutory ceiling as one bar, with the three tiers as bands inside it.

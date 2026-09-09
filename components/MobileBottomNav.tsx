@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MiniScorecard } from "./MiniScorecard";
-import { ListTree, ChevronUp, Moon, Sun, Maximize2, Minimize2, Eye, EyeOff, Compass } from "lucide-react";
+import { ListTree, ChevronUp, Moon, Sun, Maximize2, Minimize2, Eye, EyeOff } from "lucide-react";
 import { SECTIONS } from "../lib/heading-slug";
 import { useChromeVisible } from "../hooks/use-chrome-visible";
 

@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { useState } from "react";
+import { motion } from "motion/react";
 import { disclosure } from "../../lib/motion";
-import { Radio, Volume2, VolumeX, ShieldAlert, CheckCircle2, AlertTriangle, Play, Pause, ArrowRight, Info } from "lucide-react";
+import { Radio, Volume2, ShieldAlert, Play, Pause, Info } from "lucide-react";
 
 interface RadioStation {
   name: string;

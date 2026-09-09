@@ -1,5 +1,4 @@
 import type { Transition, Variants } from "motion/react";
-import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
 
 /**
  * The site's motion system. Everything that animates imports from here.

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { USSD } from "../../../lib/phone-showcase";
 import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";

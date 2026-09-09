@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { Bell, Globe, Home, MessageCircle, MoreHorizontal, Search, Share2, ThumbsUp, Users } from "lucide-react";
 

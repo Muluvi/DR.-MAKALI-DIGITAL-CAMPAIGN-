@@ -4,22 +4,7 @@ import React, { useCallback, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { SPRING } from "@/lib/motion";
 import { useReducedMotionSafe } from "@/hooks/use-reduced-motion-safe";
-import {
-  BEZEL_BOTTOM,
-  BEZEL_TOP,
-  BEZEL_X,
-  BODY_H,
-  BODY_RADIUS,
-  BODY_W,
-  MAX_ROTATE_X,
-  MAX_ROTATE_Y,
-  PERSPECTIVE,
-  SCREEN_H,
-  SCREEN_RADIUS,
-  SCREEN_W,
-  STATUS_LEDS,
-  THICKNESS,
-} from "./device";
+import { BEZEL_BOTTOM, BEZEL_TOP, BODY_H, BODY_W, MAX_ROTATE_X, MAX_ROTATE_Y, PERSPECTIVE, SCREEN_H, SCREEN_W, STATUS_LEDS } from "./device";
 import { Sun, Wifi, BatteryCharging, Shield } from "lucide-react";
 
 /** Industrial hex bolt rivet for the rugged chassis */

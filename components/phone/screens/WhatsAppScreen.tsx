@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { ArrowLeft, Camera, Mic, Paperclip, Plus, Video, Phone as PhoneIcon } from "lucide-react";
 

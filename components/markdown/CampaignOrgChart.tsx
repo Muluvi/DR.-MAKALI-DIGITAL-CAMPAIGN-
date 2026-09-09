@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { Users, UserCheck, ChevronRight, ShieldAlert, Clock, Briefcase, Layers, Sparkles, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { Users, UserCheck, ChevronRight, Clock, Briefcase, Sparkles, ArrowRight } from "lucide-react";
 
 interface TeamRole {
   title: string;

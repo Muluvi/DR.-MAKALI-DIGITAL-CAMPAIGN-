@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
 import { Wifi, WifiOff, Radio, MessageSquare, Smartphone, Users } from "lucide-react";
 

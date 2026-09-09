@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Bookmark, Heart, Home, MessageCircle, MoreHorizontal, Search, Send, SquarePlay, User } from "lucide-react";
 
 import { IDENTITY, ILLUSTRATIVE_COUNTS, INSTAGRAM } from "../../../lib/phone-showcase";

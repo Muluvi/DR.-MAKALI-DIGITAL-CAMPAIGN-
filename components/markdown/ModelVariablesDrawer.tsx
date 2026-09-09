@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
-import { Search, Database, Tag, ShieldCheck, FileText, CheckCircle2, ChevronDown, ChevronUp } from "lucide-react";
+import { useState, useMemo } from "react";
+import { Search, Database, ShieldCheck, ChevronDown, ChevronUp } from "lucide-react";
 
 interface ModelVariable {
   variable: string;

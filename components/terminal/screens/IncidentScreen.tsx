@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { type WardPulseData } from "@/data/terminal-showcase";
 import { ShieldAlert, AlertOctagon, CheckCircle2, Clock, Send, Radio } from "lucide-react";
 

@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { type WardPulseData } from "@/data/terminal-showcase";
 import { Gauge, CheckCircle, BarChart2, ShieldCheck, MapPin } from "lucide-react";
 

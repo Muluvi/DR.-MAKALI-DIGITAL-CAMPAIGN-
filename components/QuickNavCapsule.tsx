@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Compass, ChevronUp, Sparkles, Activity, Radio, Calculator, MapPin, Coins, X, Gauge, Shield } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 

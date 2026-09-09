@@ -1,6 +1,6 @@
 "use client";
 
-import { cloneElement, isValidElement, type ReactElement, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { useInView } from "../../hooks/use-in-view";
 
 /**
@@ -80,61 +80,5 @@ export function Reveal({
     >
       {children}
     </Tag>
-  );
-}
-
-interface StaggerProps {
-  children: ReactNode;
-  /** Gap between siblings, in milliseconds. */
-  gap?: number;
-  delay?: number;
-  variant?: RevealVariant;
-  amount?: number;
-  className?: string;
-  /**
-   * Delays propagate outward from a focal child rather than left-to-right. Use where the group
-   * has a centre that means something — a cartogram's home ward, a matrix's diagonal.
-   */
-  ripple?: number;
-}
-
-/**
- * A stagger cascade over direct children.
- *
- * The index is written as `--fx-i` on each child rather than as a per-child delay string, so the
- * whole group's timing can be retuned by changing one custom property on the parent.
- */
-export function Stagger({
-  children,
-  gap = 60,
-  delay = 0,
-  variant = "up",
-  amount = 0.15,
-  className = "",
-  ripple,
-}: StaggerProps) {
-  const [ref, inView] = useInView<HTMLDivElement>({ amount, margin: "0px 0px -6% 0px" });
-  const items = Array.isArray(children) ? children : [children];
-
-  return (
-    <div
-      ref={ref}
-      className={`${ripple === undefined ? "fx-stagger" : "fx-ripple-stagger"} ${className}`}
-      style={{ "--fx-stagger": `${gap}ms`, "--fx-delay": `${delay}ms` } as React.CSSProperties}
-    >
-      {items.map((child, i) => {
-        if (!isValidElement(child)) return child;
-        const el = child as ReactElement<{ className?: string; style?: React.CSSProperties }>;
-        const distance = ripple === undefined ? i : Math.abs(i - ripple);
-        return cloneElement(el, {
-          key: el.key ?? i,
-          className: `${el.props.className ?? ""} ${inView ? `fx-in-${variant}` : "fx-preveal"}`.trim(),
-          style: {
-            ...el.props.style,
-            ...({ "--fx-i": i, "--fx-r": distance } as React.CSSProperties),
-          },
-        });
-      })}
-    </div>
   );
 }

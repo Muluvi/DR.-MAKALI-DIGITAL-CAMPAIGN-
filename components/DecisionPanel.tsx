@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { UserCheck, Clock, Camera, Scale, FileText, MapPin, Briefcase, CheckCircle2 } from "lucide-react";
 
 import { ClaimBadge } from "./markdown/ClaimBadge";

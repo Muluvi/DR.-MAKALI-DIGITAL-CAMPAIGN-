@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { type WardPulseData } from "@/data/terminal-showcase";
 import { ShoppingBag, Users, FileText, Bike, Play, Pause, Volume2 } from "lucide-react";
 

@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useMemo, useRef } from "react";
+import { useState, useMemo } from "react";
 import { motion } from "motion/react";
-import { Trophy, TrendingDown, Pause, Play, Compass, ArrowUpRight, CheckCircle2, ChevronRight, Gauge } from "lucide-react";
-import { CONSTITUENCIES, ALL_WARDS, COUNTY_TOTAL_WARDS, type Ward } from "../../data/ward-register";
+import { Trophy, TrendingDown, Pause, Play, Gauge } from "lucide-react";
+import { ALL_WARDS, COUNTY_TOTAL_WARDS, type Ward } from "../../data/ward-register";
 import { useMarqueeActive } from "../../hooks/use-marquee-active";
 
 type FilterMode = "all" | "top" | "bottom";

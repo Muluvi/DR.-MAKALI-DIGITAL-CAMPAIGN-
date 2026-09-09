@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { ShieldAlert, Clock, AlertTriangle, CheckCircle2, FileText, Radio, Bot, PhoneCall, ArrowRight, Flame, Layers } from "lucide-react";
+import { useState } from "react";
+import { ShieldAlert, Clock, AlertTriangle, CheckCircle2, FileText, Bot, Flame, Layers } from "lucide-react";
 
 interface CrisisLevel {
   level: "Level 1" | "Level 2" | "Level 3";

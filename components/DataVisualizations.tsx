@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LabelList } from 'recharts';
-import { Sliders, HelpCircle, CheckCircle2 } from "lucide-react";
+import { HelpCircle, CheckCircle2 } from "lucide-react";
 import { DURATION } from "../lib/motion";
 
 const CustomTooltip = ({ active, payload, label }: any) => {

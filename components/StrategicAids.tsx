@@ -1,125 +1,12 @@
 "use client";
 
-import { motion, AnimatePresence, useInView } from "motion/react";
+import { motion } from "motion/react";
 import { DURATION, SPRING } from "../lib/motion";
 import { useState, useEffect, useRef } from "react";
-import { useMarqueeActive } from "../hooks/use-marquee-active";
-import { useIsMobile } from "../hooks/use-mobile";
-import { LazyMount } from "./LazyMount";
-import { Play, Pause, Volume2, ChevronDown, ChevronUp, Calendar, User, Check, AlertTriangle, Sparkles, Target, Zap, ArrowRight, Maximize2, Minimize2, Sliders, Radio, ShieldCheck, Users, Coins, FileText, TrendingUp, MessageSquare, CheckCircle2, CheckSquare, MapPin, Globe, BookOpen, Activity, Database, RefreshCw, HelpCircle, Layers, TrendingDown, Table, Filter } from "lucide-react";
-
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
-import ConstituencyBarChart from "./charts/ConstituencyBarChart";
-import ResourceLedgerBarChart from "./charts/ResourceLedgerBarChart";
+import { Play, Pause, Volume2, Calendar, ArrowRight, Radio, FileText, BookOpen, RefreshCw, Table } from "lucide-react";
 
 // ==========================================
-// 1. EXECUTIVE SUMMARY VISUAL AIDS
-// ==========================================
-
-// 3. Interactive Audio Summary Player with dynamic wave animation
-export function AudioSummaryPlayer() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [language, setLanguage] = useState<"en" | "kik">("en");
-  const [progress, setProgress] = useState(0);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    if (isPlaying) {
-      intervalRef.current = setInterval(() => {
-        setProgress((p) => {
-          if (p >= 100) {
-            setIsPlaying(false);
-            return 0;
-          }
-          return p + 0.8;
-        });
-      }, 100);
-    } else {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    }
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [isPlaying]);
-
-  return (
-    <div className="bg-gradient-to-br from-card to-paper border border-line rounded-2xl p-4 sm:p-5 shadow-sm max-w-md my-4">
-      <div className="flex items-center gap-3">
-        <div className="p-2.5 rounded-xl bg-accent/10 border border-accent/20 text-accent">
-          <Volume2 size={18} />
-        </div>
-        <div>
-          <h4 className="font-serif text-sm font-extrabold text-ink leading-tight">Governor&apos;s Strategy Brief</h4>
-          <span className="t-label uppercase tracking-widest font-bold text-accent">Bilingual Campaign Audio Player</span>
-        </div>
-      </div>
-
-      <div className="mt-4 flex gap-2">
-        <button
-          onClick={() => setLanguage("en")}
-          className={`flex-1 t-small font-bold py-1.5 rounded-lg border transition-all ${
-            language === "en" ? "bg-accent-solid text-on-accent border-accent-solid" : "bg-card text-muted border-line"
-          }`}
-        >
-          English Audio
-        </button>
-        <button
-          onClick={() => setLanguage("kik")}
-          className={`flex-1 t-small font-bold py-1.5 rounded-lg border transition-all ${
-            language === "kik" ? "bg-gold text-white border-gold" : "bg-card text-muted border-line"
-          }`}
-        >
-          Kikamba Summary
-        </button>
-      </div>
-
-      {/* Dynamic Animated Waveform Visualization */}
-      <div className="h-10 flex items-end gap-1 my-5 justify-center overflow-hidden">
-        {Array.from({ length: 24 }).map((_, i) => {
-          // Dynamic height generation based on state
-          const randomBase = Math.sin(i * 0.3) * 14 + 16;
-          const offset = (i % 3 === 0) ? 6 : (i % 2 === 0) ? 10 : 2;
-          const randomHeight = isPlaying 
-            ? randomBase + offset 
-            : 4;
-          return (
-            <motion.div
-              key={i}
-              animate={{ scaleY: randomHeight / 36 }}
-              transition={SPRING.gentle}
-              className={`w-1.5 rounded-full origin-bottom ${isPlaying ? "bg-accent" : "bg-line"}`}
-              style={{ height: 36 }}
-            />
-          );
-        })}
-      </div>
-
-      <div className="flex items-center gap-4">
-        <button
-          onClick={() => setIsPlaying(!isPlaying)}
-          className="p-3 rounded-full bg-accent-solid text-on-accent hover:bg-accent/90 transition-all shadow-md shrink-0 flex items-center justify-center cursor-pointer"
-        >
-          {isPlaying ? <Pause size={16} /> : <Play size={16} className="ml-0.5" />}
-        </button>
-        <div className="flex-1">
-          <div className="relative w-full h-1.5 bg-line rounded-full overflow-hidden">
-            <div 
-              className="absolute top-0 bottom-0 left-0 bg-accent transition-all duration-100" 
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-          <div className="flex justify-between items-center t-micro font-bold text-muted mt-1.5 uppercase">
-            <span>{language === "en" ? "0:12" : "0:19"} / 2:30</span>
-            <span className="text-accent font-semibold">Vernacular Radio Audio Feed</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ==========================================
-// 2. STRATEGY & TARGETING VISUAL AIDS
+// 1. STRATEGY & TARGETING VISUAL AIDS
 // ==========================================
 
 // 10. Focus-Mode Reading View (Simulated context state controller)
@@ -156,7 +43,7 @@ export function FocusModeToggle({
 }
 
 // ==========================================
-// 3. OPERATIONS & ARCHITECTURE VISUAL AIDS
+// 2. OPERATIONS & ARCHITECTURE VISUAL AIDS
 // ==========================================
 
 // 2. Operational Flywheel Schematic (Animated SVG flow diagram)
@@ -193,7 +80,7 @@ export function FlywheelSchematic() {
 }
 
 // ==========================================
-// 4. TACTICS & THEMES VISUAL AIDS
+// 3. TACTICS & THEMES VISUAL AIDS
 // ==========================================
 
 // 1. Interactive Messaging Playground (Language Tabs)
@@ -503,26 +390,8 @@ export function CommunityScheduler() {
   );
 }
 
-// A helper Brand Umbrella logo matching the split colors of the brand identity kit
-export function BrandUmbrella({ size = 48, className = "" }: { size?: number; className?: string }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 120 120" fill="none" className={`shrink-0 select-none drop-shadow-sm filter ${className}`}>
-      {/* Left Canopy Segment (Royal Blue #00209f) */}
-      <path d="M60 20 C30 20 16 42 12 58 C24 53 42 53 60 58 Z" fill="#00209f" />
-      {/* Right Canopy Segment (Bright Red #e31d2b) */}
-      <path d="M60 20 C90 20 104 42 108 58 C96 53 78 53 60 58 Z" fill="#e31d2b" />
-      {/* Center Division Line */}
-      <path d="M60 20 V58" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
-      {/* Top Pinnacle Pointer (Bright Red) */}
-      <path d="M57 11 H63 L60 20 Z" fill="#e31d2b" />
-      {/* J-Hook handle (Royal Blue) */}
-      <path d="M60 58 V92 C60 99 51 99 51 92" stroke="#00209f" strokeWidth="6" strokeLinecap="round" fill="none" />
-    </svg>
-  );
-}
-
 // ==========================================
-// 5. IMPLEMENTATION & KPIS VISUAL AIDS
+// 4. EXPORT & READING CONTROLS
 // ==========================================
 
 // 10. Interactive Report Generator (Print Toggle)
@@ -555,6 +424,3 @@ export function PrintReportGenerator({ onPrint }: { onPrint?: () => void } = {})
     </div>
   );
 }
-
-// 11. Custom Campaign Performance Chart Component
-export { ChartComponent } from "./ChartComponent";

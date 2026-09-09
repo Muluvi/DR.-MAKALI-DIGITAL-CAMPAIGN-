@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { ShieldCheck, Lock, EyeOff, Database, FileCode2, AlertTriangle, CheckSquare, ArrowRight, FileCheck2, Scale } from "lucide-react";
+import { useState } from "react";
+import { ShieldCheck, Lock, CheckSquare, Scale } from "lucide-react";
 
 interface EthicalCommitment {
   id: string;

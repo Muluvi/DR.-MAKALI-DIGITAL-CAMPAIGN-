@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useId, useState, useEffect } from "react";
+import React, { useId, useState } from "react";
 import { Search, Sparkles, ArrowUpDown, BarChart3, Table } from "lucide-react";
 import { LayoutGroup, motion } from "motion/react";
-import { LazyMount } from "../LazyMount";
 import { SourceLine, detectSources } from "./SourceLine";
 import { MatrixMarks } from "./MatrixMarks";
 import ModelVariablesDrawer from "./ModelVariablesDrawer";

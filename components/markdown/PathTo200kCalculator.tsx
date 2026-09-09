@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { useState } from "react";
+import { motion } from "motion/react";
 import { deliberate } from "../../lib/motion";
-import { Calculator, CheckCircle2, AlertTriangle, TrendingUp, Compass, Layers, ArrowRight, ShieldAlert, Percent } from "lucide-react";
+import { Calculator, CheckCircle2, AlertTriangle, TrendingUp, Layers, ShieldAlert, Percent } from "lucide-react";
 
 import { ALL_WARDS, CONSTITUENCIES, COUNTY_TOTAL_WARDS } from "../../data/ward-register";
 
