@@ -4,7 +4,9 @@ A survey of the whole application (app/, components/, hooks/, lib/, data/, scrip
 stylesheets, and the nine markdown sections) looking for one thing: places where two or more
 parts do the same job and could be merged into one.
 
-Nothing here has been changed. This is the map, ordered by value against risk.
+**Status: all twelve are implemented.** This document is kept as the map that led to them;
+the "What was actually done" section at the end records the results, the two places this
+analysis was wrong, and the numbers measured rather than estimated.
 
 Method: every module was traced to its importers, every repeated markup idiom was counted by
 its exact class string, and every duplicated mechanism (scroll listeners, IntersectionObservers,
@@ -366,3 +368,87 @@ home, rather than things that do the same job living apart.
 `npm run verify` covers content integrity, figures, mounts, deep links and visual coverage, so
 items 1–4 have a real regression check behind them. Items 5 and 11 do not — they are visual and
 behavioural, and want a browser.
+
+
+---
+
+# What was actually done
+
+Every item above was implemented, in the order the plan suggested. Each landed as its own
+commit with its own verification; the summary below is what the measurements showed rather than
+what this document predicted.
+
+## Results
+
+| # | Merge | Outcome |
+|---|-------|---------|
+| 1 | Dynamic wrappers + the entry chunk | 7 files deleted; **First Load JS 428 kB → 306 kB** |
+| 2 | Dead code | 5 modules, 5 exports, 152 import bindings, 4 dependencies — 1,144 lines |
+| 3 | Panel shell | 14 → 1; six phantom `<h3>` headings fixed |
+| 4 | Figure block | 17 → 1; `not-prose` fixed on 14 cards |
+| 5 | Position broker | **8 scroll listeners → 2; live observers at rest 264 → 54** |
+| 6 | Verify scripts | 6 chained → 1 harness; all failures now report in one run |
+| 7 | Device hooks | 3 mechanisms shared; **5 broken tablists fixed** |
+| 8 | Count-up engines | 2 → 1; `Numerals.tsx` and its orphaned CSS gone |
+| 9 | `SourceLine` → `ProvenanceLine` | One footer; `detectSources` kept |
+| 10 | Paired cards | 7 components → 3 figures with views |
+| 11 | Stylesheets | Document surfaces in one file; **zero computed-style differences** |
+| 12 | `StrategicAids` split | 560-line grab-bag → 5 modules; ClientPage now pulls 75 lines |
+
+Net: **136 files changed, 3,159 insertions, 4,303 deletions.**
+
+## Where this analysis was wrong
+
+**`framer-motion` is not an unused dependency.** §2 listed it for removal because nothing
+imports it. `eslint.config.mjs` explains why it is declared and never imported: `motion`
+depends on it internally, so it cannot be uninstalled, only left unimported — and importing it
+directly would bundle the animation runtime twice past `transpilePackages`. It stays. The other
+four (`@hookform/resolvers`, `class-variance-authority`, `clsx`, `tailwind-merge`) were removed.
+
+**The `.prose` rules could not simply be co-located.** §11 proposed moving each component's
+rules next to its structural counterpart. The first attempt appended the block to the end of
+`globals.css` and flipped `.prose blockquote` from a left border to a gradient — the cascade
+order was load-bearing in a way the analysis noted but underweighted. The block now sits at the
+exact position the `@import` gave it: one file instead of two, same cascade, verified by
+diffing computed styles for 25 selectors across four routes in both themes.
+
+## What the merges surfaced
+
+The duplicates were not just duplicated — they had drifted, and unifying them fixed bugs that
+were invisible while each copy could be right on its own terms:
+
+- **Five tablists declared `role="tablist"` without arrow-key navigation** — a role that
+  promises a keyboard contract and does not honour it, which is worse than no role at all.
+- **Six panels titled themselves `<h3>`** — a sibling of the section heading they sit under, so
+  each injected a phantom entry into the document outline.
+- **Only 4 of 18 figure cards carried `not-prose`**, so 14 were laid out as prose against
+  `globals.css`'s own comment saying component cards should not be.
+- **`LazyMount`'s hand-rolled observer lacked `useInView`'s fallback** — where
+  `IntersectionObserver` is unavailable the hook reports visible, because an unsupported API
+  must never leave content permanently invisible; the copy left every chart unmounted.
+- **`ClientPage` and `NavDots` disagreed about the active section** on `/full`, different
+  margins and different tie-breaks over the same elements.
+- **Three ward cards each declared `const PROVENANCE`, two declared `const CHART_DATA`** for
+  different shapes — and their granularities were not the same, so a careless collapse would
+  have promoted a constituency-level figure to ward level.
+
+## What was not done
+
+`4e-team.md` keeps its own route. §10 flagged it as the shortest section by a factor of two
+with a route of its own, and recommended against merging it: `docs/restructure/04-target-architecture.md`
+argues 4A–4E are parallel execution tracks and must present as parallel. That argument stands.
+
+One pre-existing defect was found and left alone as out of scope: `/favicon.ico` 404s.
+
+## How each step was checked
+
+`npm run verify` (6 checks) and `tsc --noEmit` and `eslint` on every commit, plus, where the
+change could move pixels or behaviour:
+
+- **Rendered-HTML diffs** — visible text and a full CSS class-token census across up to six
+  routes, before and after (§3, §4).
+- **Computed-style diffs** — 25 selectors, four routes, light and dark (§11).
+- **Chromium instrumentation** — counting scroll listeners and live IntersectionObservers while
+  scrolling the whole document three times (§5).
+- **Keyboard walks** — every tab of every tablist, confirming each panel renders (§7, §10).
+- **Bundle measurement** — `next build`'s First Load JS on every step (§1, §10).
