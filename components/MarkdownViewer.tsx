@@ -18,6 +18,7 @@ import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
 import { KpiArchitecture } from "./charts/KpiArchitecture";
 import { BenchmarkLadder } from "./charts/BenchmarkLadder";
 import { CeilingMeter } from "./charts/CeilingMeter";
+import { TierComparisonCarousel } from "./charts/TierComparisonCarousel";
 import { FeaturePhoneSpecimen } from "./charts/FeaturePhoneSpecimen";
 import { OfflineWaterline } from "./charts/OfflineWaterline";
 import { VoteFunnel } from "./charts/VoteFunnel";
@@ -297,6 +298,10 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
       <BudgetScenarioModeler />
     </>
   ),
+  // The four-column matrix below this heading stacks into nine attribute cards on a phone, which
+  // answers "what does row six say" rather than "which tier should we buy". One card per tier,
+  // swipeable, with the table left in place underneath as the accessible equivalent.
+  "decision-sec-9-2-6": <TierComparisonCarousel />,
   "decision-sec-9-2-7": <ComplianceCeilingPanel />,
   "ground-sec-4-1": <TerminalShowcase />,
   "ground-sec-4-2": <FlywheelSchematic />,
