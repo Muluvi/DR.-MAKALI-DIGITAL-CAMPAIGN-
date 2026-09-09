@@ -67,7 +67,7 @@ export function SectionStickyBar({ sectionLabel }: { sectionLabel?: string }) {
     <>
       <div ref={sentinelRef} className="h-px" aria-hidden="true" />
       <div
-        className={`section-sticky-bar sticky top-12 sm:top-14 z-40 -mt-px print:hidden pointer-events-none transition-all duration-300 motion-reduce:transition-none ${
+        className={`section-sticky-bar relative lg:sticky lg:top-12 z-40 -mt-px print:hidden pointer-events-none transition-all duration-300 motion-reduce:transition-none ${
           // Two independent reasons to be off screen. Emitted as one branch rather than two
           // concatenated groups, which produced conflicting opacity/translate utilities whose
           // winner depended on Tailwind's output order rather than on intent.

@@ -402,13 +402,11 @@ To ensure 100% operational uptime and protect campaign systems from infiltration
 
 ## 6.4 Analytics and attribution
 
-### 6.4.1 Measuring what moves votes, not vanity
+### 6.4.1 Attribution model and offline conversion tracking
 
 Measurement moves beyond vanity metrics to what drives votes: multi-touch
 attribution, offline conversion tracking and cost-per-vote analysis, all
 anchored to the ~200,000-vote threshold.
-
-### 6.4.2 Multi-touch attribution
 
 | Touchpoint | Attribution method | Source |
 |---|---|---|
@@ -422,16 +420,13 @@ anchored to the ~200,000-vote threshold.
 | Email open | Position-based | Email platform |
 | **Field canvass contact** | Direct event | Ward champion form (Section 4.2) |
 
-### 6.4.3 Tracking offline conversion
-
-* **Unique QR codes** on printed materials and at barazas, tracking which
-content drove physical attendance
-* **SMS keyword short codes** — text a keyword to `[Insert shortcode]` to
-register support and opt in
+To track offline-to-digital and physical engagement, four mechanisms bridge the gap:
+* **Unique QR codes** on printed materials and at barazas, tracking which content drove physical attendance
+* **SMS keyword short codes** — text a keyword to `[Insert shortcode]` to register support and opt in
 * **USSD completions** as a direct offline-to-digital bridge
 * **Volunteer-reported contact outcomes** recording prior campaign awareness
 
-### 6.4.4 Key metrics and benchmarks
+### 6.4.2 Key metrics and benchmarks
 
 | Metric | Definition | Global benchmark | Campaign target |
 |---|---|---|---|
@@ -445,7 +440,7 @@ register support and opt in
 | GOTV contact rate | % of target voters reached | 60–80% | ≥ 70% |
 | **Contact share of win threshold** | Contacted voters ÷ 200,000 | — | **≥ 75% by election week** |
 
-### 6.4.5 The analytics maturity roadmap
+### 6.4.3 The analytics maturity roadmap
 
 *A staged path, so the campaign is never blocked waiting on capability.*
 
@@ -461,7 +456,7 @@ register support and opt in
 tagging is consistent produces confident nonsense, and a campaign that attempts
 it before the compliance gate produces legal exposure.
 
-### 6.4.6 Who owns the data
+### 6.4.4 Who owns the data
 
 A **single named data-governance owner** is accountable for both analytics
 performance and data compliance — deliberately one role, because splitting them
@@ -471,7 +466,7 @@ Responsibilities:
 * Maintains the data inventory: what is held, lawful basis, retention period,
 who has access
 * Owns the consent audit trail and can produce it on demand within
-**24 hours** — the standard the Section 5.2.7 drill tests
+**24 hours** — the standard the Section 5.2.4 drill tests
 * Owns the deletion schedule and executes it (Section 6.5.4)
 * Is the campaign's standing point of contact for the Section 6.5.5 compliance
 reviewer

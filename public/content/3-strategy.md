@@ -40,36 +40,12 @@ competing versions of this one: Section 2.6 sets out the three *message* pillars
 claim is argued to a voter — and Section 2.7.1 the four *content* pillars, which are
 production buckets for the studio. Each of those maps back to the four below.
 
-### 2.2.1 Fiscal accountability and devolution
+### 2.2.1 The four campaign pillars in practice
 
-Translate Dr. Mulu's parliamentary advocacy for equitable resource distribution
-into a clear, actionable manifesto for Kitui's 40 wards. Content will show,
-line by line, how the county's KSh13.79 billion should be allocated and
-audited — using his economics background to give voters confidence their money
-will be managed well.
-
-### 2.2.2 Data-driven civic engagement
-
-Infographic analyses breaking down Dr. Mulu's track record — including
-NG-CDF-funded projects in Kitui Central — so voters can visualise impact.
-Complex budget documents converted into simple charts, ward-level maps, and
-before-and-after comparisons.
-
-### 2.2.3 Policy, translated into what it changes
-
-Convert dense policy topics — climate investment in water infrastructure,
-agricultural revitalisation — into relatable, vernacular-friendly content. A
-90-second video, a Kikamba voice note, or a shareable card makes every policy
-tangible and personal.
-
-### 2.2.4 Verification and follow-through
-
-The pillar that distinguishes Dr. Mulu from every rival: **publishing what was
-promised, then publishing whether it happened.** Operationalised through the
-public service-delivery tracker (Section 8.5), the quarterly evidence cadence
-in Section 6.4, and the transparent ad-spend disclosure in the Digital Ethics &
-Data Charter (Section 6.5.4). An M&E specialist who campaigns without a
-verification mechanism is wasting his strongest asset.
+* **Fiscal accountability and devolution:** Translate Dr. Mulu's parliamentary advocacy for equitable resource distribution into a clear, actionable manifesto for Kitui's 40 wards. Content will show, line by line, how the county's KSh13.79 billion should be allocated and audited — using his economics background to give voters confidence their money will be managed well.
+* **Data-driven civic engagement:** Infographic analyses breaking down Dr. Mulu's track record — including NG-CDF-funded projects in Kitui Central — so voters can visualise impact. Complex budget documents converted into simple charts, ward-level maps, and before-and-after comparisons.
+* **Policy, translated into what it changes:** Convert dense policy topics — climate investment in water infrastructure, agricultural revitalisation — into relatable, vernacular-friendly content. A 90-second video, a Kikamba voice note, or a shareable card makes every policy tangible and personal.
+* **Verification and follow-through:** The pillar that distinguishes Dr. Mulu from every rival: **publishing what was promised, then publishing whether it happened.** Operationalised through the public service-delivery tracker (Section 8.5), the quarterly evidence cadence in Section 6.4, and the transparent ad-spend disclosure in the Digital Ethics & Data Charter (Section 6.5.4). An M&E specialist who campaigns without a verification mechanism is wasting his strongest asset.
 
 ---
 
@@ -776,7 +752,7 @@ commitment — and the commitment is the persuasive element.
 ### 8.5.5 What it is worth to the campaign
 
 * **Narrative:** the strongest possible proof of the Verification pillar
-(Section 2.2.4) — evidence rather than assertion
+(Section 2.2.1) — evidence rather than assertion
 * **Data:** ward-level issue salience derived from citizens' own priorities
 rather than from campaign assumptions, feeding directly into content and
 message-lab design

@@ -241,7 +241,7 @@ export function CrisisWarRoomMatrix() {
       <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
           <ShieldAlert size={12} className="text-accent" />
-          <span>§5.2.7 red-team standard: By Phase 2, 90% of drill responses must beat their severity-level time target.</span>
+          <span>§5.2.4 red-team standard: By Phase 2, 90% of drill responses must beat their severity-level time target.</span>
         </span>
       </div>
     </div>

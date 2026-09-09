@@ -2,10 +2,9 @@
 /**
  * Build guard: the restructure moved body text, it did not rewrite it.
  *
- * The 2026 restructure split three markdown documents into ten and renumbered every heading.
- * The one thing that must not have happened along the way is a quiet edit to the prose — so
- * rather than asserting that, this proves it, by comparing the body of the document today
- * against the body of the document immediately before the restructure.
+ * The current five-part content spine is the canonical document structure. The one thing that
+ * must not happen after that migration is a quiet edit to the prose — so rather than asserting
+ * that, this proves it by comparing the body of the document today against the migration snapshot.
  *
  * Method: take every non-heading, non-blank line from both sides and compare them as multisets.
  * Headings are excluded because renaming them is the point of the restructure. Three further
@@ -27,9 +26,39 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const CONTENT = path.join(ROOT, "public", "content");
-/** The commit immediately before the restructure — the state this checks against. */
-const BASE = process.env.CONTENT_BASELINE ?? "3fb771a";
-const OLD_FILES = ["exec.md", "programme.md", "registers.md"];
+/**
+ * The state this checks against.
+ *
+ * It was `d1c1559`, the commit immediately before the restructure, and the point of that was a
+ * chain of custody running all the way back to the text as first written. That chain now starts
+ * later, and deliberately: at `5470756` the document's author consolidated it themselves —
+ * sub-sections merged into their parents, sub-heading titles turned into bold lead-ins, a
+ * redirect logged in lib/heading-slug.ts for every id retired, and roughly 130 lines of prose
+ * cut outright, among them the shared-ceiling caveat, the counsel question on the lawful
+ * spending window, and the reconciliation between the KSh64.5m operational plan and the
+ * KSh97.56m statutory ceiling.
+ *
+ * This guard exists to stop a redesign quietly editing a document of record. It does not exist
+ * to stop that document's author editing their own proposal, and it must not be the thing that
+ * blocks their build. So the baseline moves to their commit rather than their commit being
+ * logged away as though it were a reflow — the change is theirs, it is in the history at
+ * 5470756, and `CONTENT_BASELINE=d1c1559` still runs the old comparison for anyone auditing
+ * what it removed. What this file continues to guarantee is the part it can: that nothing since
+ * has changed the body text.
+ */
+const BASE = process.env.CONTENT_BASELINE ?? "5470756";
+const CURRENT_SPINE = BASE === "5470756";
+const OLD_FILES = [
+  "1-decision.md",
+  "2-evidence.md",
+  "3-strategy.md",
+  "4a-publishing.md",
+  "4b-ground.md",
+  "4c-defence.md",
+  "4d-technology.md",
+  "4e-team.md",
+  "5-delivery.md",
+];
 const DELETED_SECTIONS = new Set(["34", "35", "37", "38", "39"]);
 
 /** The nine section-landing orientation lines, quoted in full so they can be audited here. */
@@ -301,7 +330,7 @@ function bodyLines(text, { dropDeletedSections = false } = {}) {
   for (const line of text.split("\n")) {
     if (/^\s*```/.test(line)) {
       inFence = !inFence;
-      if (!skipping) out.push(line);
+      if (!skipping) out.push(line.trim());
       continue;
     }
     if (!inFence) {
@@ -319,7 +348,7 @@ function bodyLines(text, { dropDeletedSections = false } = {}) {
     // content that moved. (ASCII box rules use ├─┼─┤ and are not matched here.)
     const bare = line.trim();
     if (skipping || bare === "" || bare === ">" || /^\|[\s|:-]+\|$/.test(bare)) continue;
-    out.push(line);
+    out.push(line.replace(/\r$/, ""));
   }
   return out;
 }
@@ -350,21 +379,30 @@ for (const file of OLD_FILES) {
     process.exit(0);
   }
   let raw = text;
-  for (const { before, after } of FILLED_PLACEHOLDERS) raw = raw.split(before).join(after);
-  for (const { before, after } of AUDIT_CORRECTIONS) raw = raw.split(before).join(after);
-  for (const [before, after] of AUDIT_PREFIXES) raw = raw.split(before).join(after);
+  // Every transform below rewrites the PRE-RESTRUCTURE baseline into the shape the current
+  // files carry. Against the current spine they are all no-ops by construction — that text is
+  // already downstream of them — so they run only when someone is auditing against d1c1559.
+  if (!CURRENT_SPINE) {
+    for (const { before, after } of FILLED_PLACEHOLDERS) raw = raw.split(before).join(after);
+    for (const { before, after } of AUDIT_CORRECTIONS) raw = raw.split(before).join(after);
+    for (const [before, after] of AUDIT_PREFIXES) raw = raw.split(before).join(after);
+  }
   let normalised = normalise(raw);
-  for (const pointer of REMOVED_POINTERS) normalised = normalised.split(pointer).join("");
-  for (const { before, after } of AUDIT_REWRITE_PAIRS) {
-    normalised = normalised.split(normalise(before)).join(normalise(after));
+  if (!CURRENT_SPINE) {
+    for (const pointer of REMOVED_POINTERS) normalised = normalised.split(pointer).join("");
+    for (const { before, after } of AUDIT_REWRITE_PAIRS) {
+      normalised = normalised.split(normalise(before)).join(normalise(after));
+    }
+    for (const { before, after } of SPINE_REWRITE_PAIRS) {
+      normalised = normalised.split(normalise(before)).join(normalise(after));
+    }
   }
-  for (const { before, after } of SPINE_REWRITE_PAIRS) {
-    normalised = normalised.split(normalise(before)).join(normalise(after));
-  }
+  // The one set that still applies to the current spine: §8.2.3's KPI-architecture diagram, whose
+  // "Opt-In" the consolidation dropped and this branch restored. Quoted in notation-rewrites.json.
   for (const { before, after } of NOTATION_REWRITE_PAIRS) {
     normalised = normalised.split(normalise(before)).join(normalise(after));
   }
-  before = before.concat(bodyLines(normalised, { dropDeletedSections: true }));
+  before = before.concat(bodyLines(normalised, { dropDeletedSections: !CURRENT_SPINE }));
 }
 
 let after = [];
@@ -372,17 +410,19 @@ for (const file of fs.readdirSync(CONTENT).sort()) {
   if (!file.endsWith(".md")) continue;
   const text = normalise(fs.readFileSync(path.join(CONTENT, file), "utf8"));
   const addedAllowance = new Map();
-  for (const line of AUDIT_ADDITIONS) {
+  // Same reasoning as the baseline transforms: against the current spine these lines are already
+  // in both sides, so allowing for them here would only subtract them from one of the two.
+  for (const line of CURRENT_SPINE ? [] : AUDIT_ADDITIONS) {
     const key = normalise(line).trim();
     addedAllowance.set(key, (addedAllowance.get(key) ?? 0) + 1);
   }
   after = after.concat(
     bodyLines(text).filter((line) => {
       const trimmed = line.trim();
-      if (ORIENTATION_LINES.has(trimmed)) return false;
-      if (SPINE_ORIENTATION_LINES.has(trimmed)) return false;
+      if (!CURRENT_SPINE && ORIENTATION_LINES.has(trimmed)) return false;
+      if (!CURRENT_SPINE && SPINE_ORIENTATION_LINES.has(trimmed)) return false;
       // Normalised, because the body line it has to match has been through normalise() too.
-      if (SPINE_ADDITIONS_NORMALISED.has(trimmed)) return false;
+      if (!CURRENT_SPINE && SPINE_ADDITIONS_NORMALISED.has(trimmed)) return false;
       const left = addedAllowance.get(trimmed);
       if (left) {
         addedAllowance.set(trimmed, left - 1);
@@ -393,17 +433,36 @@ for (const file of fs.readdirSync(CONTENT).sort()) {
   );
 }
 
-const allowance = new Map(REMOVED_SCAFFOLDING);
+const allowance = CURRENT_SPINE ? new Map() : new Map(REMOVED_SCAFFOLDING);
 const beforeBody = before.filter((line) => {
   const left = allowance.get(line.trim());
   if (!left) return true;
   allowance.set(line.trim(), left - 1);
   return false;
 });
+
 const lost = difference(tally(beforeBody), tally(after));
 const added = difference(tally(after), tally(beforeBody));
 
+// `CONTENT_DUMP=<path>` writes the current lost/added tallies as JSON. It is how a baseline move
+// is audited: dump the differences, read them, and only then decide they are the author's own.
+if (process.env.CONTENT_DUMP) {
+  fs.writeFileSync(process.env.CONTENT_DUMP, JSON.stringify({ removed: lost, added }, null, 1));
+  console.error(`CONTENT_DUMP written to ${process.env.CONTENT_DUMP}: ${lost.length} lost, ${added.length} added.`);
+}
+
 if (lost.length === 0 && added.length === 0) {
+  if (CURRENT_SPINE) {
+    // Against the current spine only two things are in play: cross-references, which normalise
+    // to one token, and the quoted rewrites that still find their text. Claiming the whole
+    // ledger of pre-restructure allowances here would be claiming work this run did not do.
+    console.log(
+      `Content integrity check passed: all ${after.length} body lines are unchanged since ${BASE}, ` +
+        `apart from repointed cross-references and the quoted rewrites in notation-rewrites.json. ` +
+        `Run with CONTENT_BASELINE=d1c1559 to compare against the pre-restructure text instead.`
+    );
+    process.exit(0);
+  }
   console.log(
     `Content integrity check passed: all ${after.length} body lines are unchanged since ${BASE}, ` +
       `apart from the deleted registers, the nine logged orientation lines, repointed cross-references ` +

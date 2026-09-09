@@ -1,4 +1,5 @@
 import type { Transition, Variants } from "motion/react";
+import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
 
 /**
  * The site's motion system. Everything that animates imports from here.
@@ -169,7 +170,8 @@ export const staggerContainer = (gap: number = STAGGER.normal, delay = 0): Varia
 /** The name the existing call sites use. Same function, so the two cannot drift. */
 export const cascade = staggerContainer;
 
-/** Two faces of one decision — the poll/primary and nomination-path cards. */
+/** Two faces of one decision — the poll/primary and nomination-path cards. Each axis is a
+ *  distinct signature, so §1A and §2 can both flip without reading as a repeat. */
 export const flipInY: Variants = {
   hidden: { opacity: 0, rotateY: -14 },
   visible: { opacity: 1, rotateY: 0, transition: entrance },

@@ -290,7 +290,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // §4D carried no anchored visualisation at all before this — the one section of nine that was
   // a wall of text, and the one describing the technology stack, which is the part of the
   // proposal this reader is most likely to test against the artifact itself.
-  "technology-sec-6-4-4": <BenchmarkLadder />,
+  "technology-sec-6-4-2": <BenchmarkLadder />,
   "team-sec-7-2": <CampaignOrgChart />,
   "decision-sec-9-2-5": (
     <>

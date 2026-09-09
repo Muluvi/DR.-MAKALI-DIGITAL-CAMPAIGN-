@@ -15,11 +15,11 @@ import { ClaimBadge } from "./markdown/ClaimBadge";
  * DELIBERATELY UNANIMATED. After 55,000 words and every animated surface before it, stillness is
  * the strongest effect left. The ask should not perform.
  *
- * Content is §9.3.5 (what Firefly needs) and §9.2.6 (the tier recommendation), with the owner
+ * Content is §9.3.2 (what Firefly needs) and §9.2.6 (the tier recommendation), with the owner
  * column. Nothing here is new.
  */
 
-/** §9.3.5, verbatim. The `owner` field is carried here; its register was retired. */
+/** §9.3.2, verbatim. The `owner` field is carried here; its register was retired. */
 const DEPENDENCIES: { icon: typeof UserCheck; text: string; longLead?: boolean }[] = [
   { icon: UserCheck, text: "One named counterpart with authority to approve content" },
   {
@@ -82,7 +82,7 @@ export function DecisionPanel() {
             <h3 className="t-label font-black uppercase tracking-wider text-muted">
               What Firefly needs from the campaign
             </h3>
-            <span className="t-label text-muted font-mono">§9.3.5</span>
+            <span className="t-label text-muted font-mono">§9.3.2</span>
           </div>
 
           <ol className="space-y-2.5">
