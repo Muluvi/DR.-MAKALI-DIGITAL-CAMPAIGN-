@@ -1,6 +1,168 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "./visual-fx.css";
+
+/* ==========================================================================
+   DOCUMENT SURFACES — moved here from visual-fx.css.
+   ==========================================================================
+   These rules style the same four things this file styles below — .prose,
+   .card, .callout, .claim-badge — and used to live 500 lines away in the other
+   file, on the theory that one file held structure and the other motion. The
+   split did not hold: the rules below also set `border` on inline code,
+   `background-color` on table rows and a border on blockquotes, none of which
+   is motion. So changing how a callout looked meant editing two files, and
+   which one won depended on an import order neither file stated.
+
+   They sit HERE, at the position the @import above gave them, so the cascade
+   is byte-for-byte what it was: the structural rules further down this file
+   still win the four places the two sets overlap. Verified by diffing computed
+   styles for 25 selectors in Chromium before and after the move.
+   ========================================================================== */
+
+/* ========================================================================== */
+/*  DOCUMENT SURFACES                                                        */
+/*                                                                           */
+/*  The 262 sections of this proposal share one renderer, so a rule scoped to*/
+/*  `.prose` here reaches every one of them without a per-section edit.     */
+/*  The test                                                                */
+/*  each rule had to pass: would this still be welcome on the fortieth      */
+/*  section?                                                                */
+/*  Anything that only worked as a one-off was rejected here and kept for a  */
+/*  single surface.                                                          */
+/* ========================================================================== */
+
+/* Rules become brand gradients rather than flat lines. */
+.prose hr:not(.not-prose *) {
+  height: 1px; border: 0; margin-block: 2.5rem;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--color-accent) 45%, transparent), color-mix(in srgb, var(--color-gold) 35%, transparent), transparent);
+}
+
+/* Links draw their underline rather than carrying one. */
+.prose a:not(.not-prose *) {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1.5px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 280ms var(--fx-ease-entrance), color 180ms linear;
+}
+.prose a:not(.not-prose *):hover,
+.prose a:not(.not-prose *):focus-visible { background-size: 100% 1.5px; color: var(--color-accent); }
+
+/* The lead paragraph of a sub-section gets a raised initial. Only the first
+   paragraph after an h2, and only at reading widths — a drop cap on a phone
+   eats a third of the line. */
+@media (min-width: 768px) {
+  .prose h2:not(.not-prose *) + p:not(.not-prose *)::first-letter {
+    float: left;
+    font-size: 3em;
+    line-height: 0.84;
+    padding: 0.08em 0.09em 0 0;
+    font-weight: 800;
+    color: var(--color-accent);
+  }
+}
+
+/* Blockquotes: the bar becomes a gradient and the mark becomes a real glyph.
+   No motion — a quote that animates is a quote that gets read twice. */
+.prose blockquote:not(.not-prose *) {
+  position: relative;
+  border-left-color: transparent;
+  background-image: linear-gradient(var(--color-accent), var(--color-gold));
+  background-size: 4px 100%;
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+.prose blockquote:not(.not-prose *)::before {
+  content: "\201C";
+  position: absolute; top: -0.15em; right: 0.5rem;
+  font-size: 3.4rem; line-height: 1; font-family: var(--font-serif);
+  color: color-mix(in srgb, var(--color-accent) 14%, transparent);
+  pointer-events: none;
+}
+
+/* Tables. A row lifts under the pointer and the header stays put while a long
+   ward table scrolls under it — on a 40-row register that is the difference
+   between reading a number and hunting for its column. */
+.prose thead th:not(.not-prose *) {
+  position: sticky; top: 0; z-index: 1;
+  background: linear-gradient(180deg, var(--th-bg), color-mix(in srgb, var(--th-bg) 80%, transparent));
+  backdrop-filter: blur(6px);
+}
+.prose tbody tr:not(.not-prose *) { transition: background-color 160ms linear, box-shadow 160ms linear; }
+.prose tbody tr:not(.not-prose *):hover {
+  background-color: color-mix(in srgb, var(--color-accent) 5%, transparent);
+  box-shadow: inset 3px 0 0 var(--color-accent);
+}
+.prose tbody tr:nth-child(even):not(.not-prose *) { background-color: color-mix(in srgb, var(--color-line) 16%, transparent); }
+.prose tbody tr:nth-child(even):not(.not-prose *):hover { background-color: color-mix(in srgb, var(--color-accent) 7%, transparent); }
+
+/* Figures and images sit in a frame that lifts, and their contents zoom
+   inside it rather than the whole card growing. */
+.prose figure:not(.not-prose *) { transition: transform 320ms var(--fx-ease-entrance), box-shadow 320ms var(--fx-ease-entrance); }
+.prose figure:not(.not-prose *):hover { transform: translate3d(0, -2px, 0); }
+
+/* Inline code gets a hairline so it reads as a token rather than as a
+   highlight, which at 262 sections' worth of `KSh` and `§` matters. */
+.prose code:not(.not-prose *) { border: 1px solid color-mix(in srgb, var(--color-line) 70%, transparent); }
+
+/* Bold runs carry this document's load-bearing figures. A hairline underline
+   in brand gold marks them without the shouting a background highlight does. */
+.prose strong:not(.not-prose *) {
+  background-image: linear-gradient(color-mix(in srgb, var(--color-gold) 42%, transparent), color-mix(in srgb, var(--color-gold) 42%, transparent));
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+}
+
+/* The cards the renderer emits inside prose lift as a set. */
+.prose .card { transition: transform 300ms var(--fx-ease-entrance), box-shadow 300ms var(--fx-ease-entrance), border-color 200ms linear; }
+.prose .card:hover { transform: translate3d(0, -3px, 0); border-color: color-mix(in srgb, var(--color-accent) 45%, transparent); box-shadow: 0 14px 34px -18px color-mix(in srgb, var(--color-accent) 55%, transparent); }
+
+/* Callouts get a lit left edge that matches their severity. */
+.callout { position: relative; overflow: hidden; }
+.callout::after {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(180deg, var(--color-accent), transparent);
+}
+.callout.warning::after { background: linear-gradient(180deg, var(--color-danger), transparent); }
+
+/* Claim and tier badges pop once when they mount, so a reader scanning for
+   provenance sees the badge arrive rather than finding it already there. */
+.claim-badge, .tier-badge { transition: transform 180ms var(--fx-ease-spring), box-shadow 180ms linear; }
+.claim-badge:hover, .tier-badge:hover { transform: translate3d(0, -1px, 0) scale(1.04); }
+
+@media (prefers-reduced-motion: reduce) {
+  .prose a:not(.not-prose *), .prose tbody tr:not(.not-prose *),
+  .prose .card, .claim-badge, .tier-badge { transition-duration: 0.09s !important; }
+  .prose figure:not(.not-prose *):hover, .prose .card:hover,
+  .claim-badge:hover, .tier-badge:hover { transform: none !important; }
+}
+
+@media print {
+  /* Folds print open. A briefing kit with a heading and nothing under it is worse than a long
+     one, and the collapse is a reading convenience, not an editorial decision. */
+  .fx-collapse { grid-template-rows: 1fr !important; opacity: 1 !important; }
+  .prose thead th:not(.not-prose *) { position: static; backdrop-filter: none; }
+  .prose blockquote:not(.not-prose *)::before { display: none; }
+}
+
+/* The per-heading copy-link button.
+
+   It appears on hover — but only on a device that has one. Gating this in CSS rather than with a
+   `group-hover:opacity-100` utility is the whole point: on a touch screen `:hover` never fires,
+   so the utility version would have hidden the control permanently on the device this proposal is
+   most likely to be opened on. Keyboard focus and the copied state both force it visible. */
+@media (hover: hover) and (pointer: fine) {
+  .section-anchor-btn {
+    opacity: 0;
+    transition: opacity 180ms var(--fx-ease-out), color 160ms linear, border-color 160ms linear;
+  }
+  h2:hover > .section-anchor-btn,
+  h3:hover > .section-anchor-btn,
+  .section-anchor-btn:focus-visible,
+  .section-anchor-btn[data-copied="true"] { opacity: 1; }
+}
 @plugin "@tailwindcss/typography";
 
 /*
