@@ -4,7 +4,7 @@
 // DataReportal (Digital 2026 Kenya) as the sources for national platform audience data, but the
 // table carrying the actual numbers is no longer present in public/content/. Those figures were
 // therefore living only inside a component, where nothing could review them and
-// scripts/verify-figures.mjs could not distinguish them from invented ones.
+// scripts/checks/figures.mjs could not distinguish them from invented ones.
 //
 // Putting them here does three things: it keeps them reviewable in one place alongside their
 // citation, it matches the pattern data/sources.ts already establishes, and it lets the figure

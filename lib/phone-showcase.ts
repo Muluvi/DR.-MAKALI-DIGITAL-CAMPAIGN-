@@ -12,7 +12,7 @@
  *    the document. It is not filled with something plausible.
  * 3. NUMBERS AN INTERFACE STRUCTURALLY NEEDS ARE ILLUSTRATIVE AND REGISTERED. Engagement counts,
  *    subscriber counts and view counts are not campaign performance data and must never be read
- *    as such. They live in ILLUSTRATIVE_COUNTS below, and scripts/verify-figures.mjs fails the
+ *    as such. They live in ILLUSTRATIVE_COUNTS below, and scripts/checks/figures.mjs fails the
  *    build if a number appears anywhere else in this file without tracing to the proposal.
  */
 

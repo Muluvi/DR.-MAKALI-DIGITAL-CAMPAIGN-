@@ -10,7 +10,7 @@ Neither half is typed by hand. Part 1 is regenerated from `public/content/*.md`
 and the renderer's own mount table; part 2 is regenerated from the brief. Run:
 
 ```
-node   scripts/visual-coverage.mjs --check          # part 1
+node   scripts/checks/visual-coverage.mjs --check          # part 1
 python scripts/visual-feature-ledger.py <brief.md>  # part 2
 ```
 
@@ -19,7 +19,7 @@ python scripts/visual-feature-ledger.py <brief.md>  # part 2
 ## 0. What "262" is
 
 It is not a count from the brief. It is this repository's own section count —
-the number `scripts/verify-mounts.mjs` and `scripts/verify-deep-links.mjs` have
+the number `scripts/checks/mounts.mjs` and `scripts/checks/deep-links.mjs` have
 been printing on every build:
 
 ```

@@ -47,7 +47,7 @@ const FULL = "full";
  *
  * Deep links are unaffected. Every id is "<tab>-sec-<slug>", so the tab is recoverable from the
  * fragment alone, and ClientPage routes to the right section on arrival. All 608 legacy ids
- * still resolve through LEGACY_IDS exactly as before; scripts/verify-deep-links.mjs proves it.
+ * still resolve through LEGACY_IDS exactly as before; scripts/checks/deep-links.mjs proves it.
  */
 export function generateStaticParams() {
   return [{ slug: [] as string[] }, ...TAB_IDS.map((id) => ({ slug: [id] })), { slug: [FULL] }];

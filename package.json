@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "node scripts/start-dev.mjs",
-    "prebuild": "node scripts/verify-ward-register.mjs && node scripts/verify-figures.mjs && node scripts/verify-content-integrity.mjs && node scripts/verify-mounts.mjs && node scripts/verify-deep-links.mjs && node scripts/visual-coverage.mjs --check",
+    "prebuild": "node scripts/verify.mjs",
     "build": "NODE_ENV=production next build",
     "start": "next start",
     "lint": "eslint .",
     "clean": "next clean",
-    "verify": "node scripts/verify-ward-register.mjs && node scripts/verify-figures.mjs && node scripts/verify-content-integrity.mjs && node scripts/verify-mounts.mjs && node scripts/verify-deep-links.mjs && node scripts/visual-coverage.mjs --check"
+    "verify": "node scripts/verify.mjs"
   },
   "dependencies": {
     "autoprefixer": "^10.4.21",

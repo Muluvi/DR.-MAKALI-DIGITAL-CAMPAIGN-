@@ -14,13 +14,17 @@
  * corpus built from public/content/*.md plus everything in data/. Anything not found is
  * reported and fails the build.
  *
- * Run as a `prebuild` step alongside verify-ward-register.mjs.
+ * Runs as part of `npm run verify` and on `prebuild`.
  */
 
 import fs from "node:fs";
 import path from "node:path";
 
-const ROOT = process.cwd();
+import { ROOT } from "../lib/content.mjs";
+import { fail, pass, runIfMain } from "../lib/report.mjs";
+
+export const name = "figures";
+
 const CONTENT_DIR = path.join(ROOT, "public", "content");
 const DATA_DIR = path.join(ROOT, "data");
 const SCAN_DIRS = [path.join(ROOT, "components")];
@@ -134,107 +138,97 @@ function candidatesIn(source) {
   return found;
 }
 
-const corpus = readCorpus();
-const violations = [];
+export function run() {
+  const corpus = readCorpus();
+  const violations = [];
 
-for (const file of SCAN_DIRS.flatMap((d) => collectFiles(d))) {
-  const src = fs.readFileSync(file, "utf8");
-  const lines = src.split("\n");
-  lines.forEach((line, i) => {
-    // Honour an explicit opt-out for genuinely non-campaign numbers.
-    if (/verify-figures-ignore/.test(line)) return;
-    for (const c of candidatesIn(line)) {
-      if (corpus.includes(c.bare)) continue;
-      // A decimal like 15.3 may legitimately appear as "15.3-point"; the bare check covers it.
-      // Try without trailing zeros too (37.40 -> 37.4).
-      const trimmed = c.bare.replace(/(\.\d*?)0+$/, "$1").replace(/\.$/, "");
-      if (corpus.includes(trimmed)) continue;
-      violations.push({
-        file: path.relative(ROOT, file),
-        line: i + 1,
-        figure: c.display,
-        context: c.context,
-      });
-    }
-  });
-}
-
-/**
- * Second check: the phone showcase config.
- *
- * The main scan covers components/ and treats data/ as corpus, which leaves a hole — a config in
- * lib/ is neither scanned nor sourced, so an invented follower count sitting there would render
- * on screen with nothing to catch it. The phone screens structurally need numbers, so the rule
- * is not "no numbers" but "every number is either in the proposal or in the illustrative
- * register", and the register is the thing a reviewer reads.
- */
-const PHONE_CONFIG = path.join(ROOT, "lib", "phone-showcase.ts");
-
-function checkIllustrativeRegister() {
-  if (!fs.existsSync(PHONE_CONFIG)) return [];
-  const src = fs.readFileSync(PHONE_CONFIG, "utf8");
-
-  const open = src.indexOf("export const ILLUSTRATIVE_COUNTS");
-  if (open === -1) {
-    return [{ line: 0, figure: "ILLUSTRATIVE_COUNTS", context: "register missing from lib/phone-showcase.ts" }];
+  for (const file of SCAN_DIRS.flatMap((d) => collectFiles(d))) {
+    const src = fs.readFileSync(file, "utf8");
+    const lines = src.split("\n");
+    lines.forEach((line, i) => {
+      // Honour an explicit opt-out for genuinely non-campaign numbers.
+      if (/verify-figures-ignore/.test(line)) return;
+      for (const c of candidatesIn(line)) {
+        if (corpus.includes(c.bare)) continue;
+        // A decimal like 15.3 may legitimately appear as "15.3-point"; the bare check covers it.
+        // Try without trailing zeros too (37.40 -> 37.4).
+        const trimmed = c.bare.replace(/(\.\d*?)0+$/, "$1").replace(/\.$/, "");
+        if (corpus.includes(trimmed)) continue;
+        violations.push({
+          file: path.relative(ROOT, file),
+          line: i + 1,
+          figure: c.display,
+          context: c.context,
+        });
+      }
+    });
   }
-  const close = src.indexOf("} as const;", open);
-  const registerStart = src.slice(0, open).split("\n").length;
-  const registerEnd = src.slice(0, close).split("\n").length;
 
-  const bad = [];
-  src.split("\n").forEach((line, i) => {
-    const n = i + 1;
-    if (n >= registerStart && n <= registerEnd) return;      // inside the register: that is the point
-    if (/verify-figures-ignore/.test(line)) return;
-    if (/^\s*(\*|\/\/|\/\*)/.test(line)) return;                 // comments and doc blocks
-    for (const c of candidatesIn(line)) {
-      if (corpus.includes(c.bare)) continue;
-      const trimmed = c.bare.replace(/(\.\d*?)0+$/, "$1").replace(/\.$/, "");
-      if (corpus.includes(trimmed)) continue;
-      bad.push({ line: n, figure: c.display, context: c.context });
+  /**
+   * Second check: the phone showcase config.
+   *
+   * The main scan covers components/ and treats data/ as corpus, which leaves a hole — a config in
+   * lib/ is neither scanned nor sourced, so an invented follower count sitting there would render
+   * on screen with nothing to catch it. The phone screens structurally need numbers, so the rule
+   * is not "no numbers" but "every number is either in the proposal or in the illustrative
+   * register", and the register is the thing a reviewer reads.
+   */
+  const PHONE_CONFIG = path.join(ROOT, "lib", "phone-showcase.ts");
+
+  function checkIllustrativeRegister() {
+    if (!fs.existsSync(PHONE_CONFIG)) return [];
+    const src = fs.readFileSync(PHONE_CONFIG, "utf8");
+
+    const open = src.indexOf("export const ILLUSTRATIVE_COUNTS");
+    if (open === -1) {
+      return [{ line: 0, figure: "ILLUSTRATIVE_COUNTS", context: "register missing from lib/phone-showcase.ts" }];
     }
-  });
-  return bad;
-}
+    const close = src.indexOf("} as const;", open);
+    const registerStart = src.slice(0, open).split("\n").length;
+    const registerEnd = src.slice(0, close).split("\n").length;
 
-const unregistered = checkIllustrativeRegister();
-if (unregistered.length > 0) {
-  console.error(
-    `\nFigure verification FAILED — ${unregistered.length} number(s) in lib/phone-showcase.ts neither trace to the proposal nor sit in ILLUSTRATIVE_COUNTS.\n`
-  );
-  console.error(
-    "The phone screens may show illustrative interface numbers, but every one of them must be\n" +
-      "declared in the ILLUSTRATIVE_COUNTS register so a reviewer can see the whole set at once.\n" +
-      "Move the number into that register, or source it from the proposal.\n"
-  );
-  for (const v of unregistered) console.error(`    line ${v.line}: ${v.figure}  —  "${v.context}"`);
-  console.error("");
-  process.exit(1);
-}
-
-if (violations.length > 0) {
-  console.error(
-    `\nFigure verification FAILED — ${violations.length} numeric literal(s) in the UI do not appear in public/content/*.md or data/.\n`
-  );
-  console.error(
-    "Every campaign figure the site displays must trace to the proposal or to a verified data module.\n" +
-      "Fix by sourcing the figure, deriving it from data/, or removing it. If a number is genuinely\n" +
-      "structural (a viewBox, a duration), append a `verify-figures-ignore` comment to that line.\n"
-  );
-  const byFile = violations.reduce((acc, v) => {
-    (acc[v.file] ??= []).push(v);
-    return acc;
-  }, {});
-  for (const [file, vs] of Object.entries(byFile)) {
-    console.error(`  ${file}`);
-    for (const v of vs) console.error(`    line ${v.line}: ${v.figure}  —  "${v.context}"`);
+    const bad = [];
+    src.split("\n").forEach((line, i) => {
+      const n = i + 1;
+      if (n >= registerStart && n <= registerEnd) return;      // inside the register: that is the point
+      if (/verify-figures-ignore/.test(line)) return;
+      if (/^\s*(\*|\/\/|\/\*)/.test(line)) return;                 // comments and doc blocks
+      for (const c of candidatesIn(line)) {
+        if (corpus.includes(c.bare)) continue;
+        const trimmed = c.bare.replace(/(\.\d*?)0+$/, "$1").replace(/\.$/, "");
+        if (corpus.includes(trimmed)) continue;
+        bad.push({ line: n, figure: c.display, context: c.context });
+      }
+    });
+    return bad;
   }
-  console.error("");
-  process.exit(1);
+
+  const unregistered = checkIllustrativeRegister();
+  if (unregistered.length > 0) {
+    return fail(
+      `${unregistered.length} number(s) in lib/phone-showcase.ts neither trace to the proposal nor sit in ILLUSTRATIVE_COUNTS.`,
+      unregistered.map((v) => `line ${v.line}: ${v.figure}  —  "${v.context}"`),
+      "The phone screens may show illustrative interface numbers, but every one of them must be\n" +
+        "declared in the ILLUSTRATIVE_COUNTS register so a reviewer can see the whole set at once.\n" +
+        "Move the number into that register, or source it from the proposal."
+    );
+  }
+
+  if (violations.length > 0) {
+    return fail(
+      `${violations.length} numeric literal(s) in the UI do not appear in public/content/*.md or data/.`,
+      violations.map((v) => `${v.file}:${v.line}  ${v.figure}  —  "${v.context}"`),
+      "Every campaign figure the site displays must trace to the proposal or to a verified data\n" +
+        "module. Fix by sourcing the figure, deriving it from data/, or removing it. If a number is\n" +
+        "genuinely structural (a viewBox, a duration), append a `verify-figures-ignore` comment to\n" +
+        "that line."
+    );
+  }
+
+  return pass(
+    "every numeric literal in the UI traces to the source,\n" +
+      "and every illustrative interface number is declared in the phone-showcase register."
+  );
 }
 
-console.log(
-  "Figure verification passed: every numeric literal in the UI traces to the source,\n" +
-    "and every illustrative interface number is declared in the phone-showcase register."
-);
+await runIfMain(import.meta.url, { name, run });

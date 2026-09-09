@@ -75,7 +75,7 @@ export function sectionId(tabId: TabId, slug: string): string {
 // NOTE: "strategy" is both a retired six-tab name here and a live part id today. That is safe
 // only because resolveLegacySectionId checks the live section index BEFORE consulting this
 // table, so a current strategy id is returned untouched and never aliased to "programme".
-// Always pass validIds. scripts/verify-deep-links.mjs asserts both directions hold.
+// Always pass validIds. scripts/checks/deep-links.mjs asserts both directions hold.
 const TAB_ALIASES: Record<string, string> = {
   strategy: "programme",
   operations: "programme",
@@ -120,7 +120,7 @@ const TAB_ALIASES: Record<string, string> = {
 // of the deleted registers (§34, §35, §37, §38, §39) are absent by design — there is nothing left
 // for them to point at.
 //
-// Verified mechanically by scripts/verify-deep-links.mjs, which fails the build if any key here
+// Verified mechanically by scripts/checks/deep-links.mjs, which fails the build if any key here
 // resolves to an id the document no longer offers.
 const LEGACY_IDS: Record<string, string> = {
   "argument-sec-2-1": "strategy-sec-2-1",

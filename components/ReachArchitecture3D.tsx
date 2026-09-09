@@ -15,7 +15,7 @@ import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
  * Three planes in real perspective: the register at the base, the offline majority above it,
  * and the connected minority as a small pane floating clear of both. The gap between the top
  * two planes is the argument. Every figure is read from the proposal (Sections 1.2.5, 3.1) or
- * from data/ward-register.ts; none is invented, and the build guard in verify-figures.mjs
+ * from data/ward-register.ts; none is invented, and the build guard in checks/figures.mjs
  * enforces that.
  *
  * Implemented with compositor-only transforms — no WebGL, no new dependency, no measurable

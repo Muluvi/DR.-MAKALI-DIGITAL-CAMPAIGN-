@@ -4,7 +4,7 @@
 // every consumer of ward data now reads from here.
 //
 // The raw figures live in ./ward-register.json rather than inline in this file so that
-// scripts/verify-ward-register.mjs (a plain Node script, run as an npm `prebuild` step) can
+// scripts/checks/ward-register.mjs (a plain Node script, run as an npm `prebuild` step) can
 // check the same numbers without a TypeScript toolchain. This file is the typed view onto
 // that JSON, plus a second copy of the same integrity assertion that runs at module-load
 // time — so any build that imports this module (which app/page.tsx does, transitively,

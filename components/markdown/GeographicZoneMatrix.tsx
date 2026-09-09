@@ -13,7 +13,7 @@ import { DURATION } from "../../lib/motion";
  *
  * Every registered-voter figure below is DERIVED from data/ward-register.json at module load,
  * never typed in. That register is Tier 1 and is checked for internal consistency both by
- * scripts/verify-ward-register.mjs (prebuild) and by data/ward-register.ts at import time, so
+ * scripts/checks/ward-register.mjs (prebuild) and by data/ward-register.ts at import time, so
  * a figure shown here cannot drift from the source without failing the build.
  *
  * Population, density and household figures are quoted from §1.4.1–1.4.3, which
