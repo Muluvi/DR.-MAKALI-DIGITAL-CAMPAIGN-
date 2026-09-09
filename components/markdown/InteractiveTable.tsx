@@ -3,7 +3,8 @@
 import React, { useId, useState } from "react";
 import { Search, Sparkles, ArrowUpDown, BarChart3, Table } from "lucide-react";
 import { LayoutGroup, motion } from "motion/react";
-import { SourceLine, detectSources } from "./SourceLine";
+import { detectSources } from "./SourceLine";
+import { SourceLine } from "./ProvenanceLine";
 import { MatrixMarks } from "./MatrixMarks";
 import ModelVariablesDrawer from "./ModelVariablesDrawer";
 import { useIsMobile, useMounted } from "../../hooks/use-mobile";

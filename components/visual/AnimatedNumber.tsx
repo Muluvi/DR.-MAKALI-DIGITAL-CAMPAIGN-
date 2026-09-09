@@ -1,10 +1,17 @@
 "use client";
 
-import { useAnimatedNumber, type NumberFormat } from "../../hooks/useAnimatedNumber";
+import { parseFigure, useAnimatedNumber, type NumberFormat } from "../../hooks/useAnimatedNumber";
 import type { SPRING } from "../../lib/motion";
 
 interface AnimatedNumberProps extends NumberFormat {
-  value: number;
+  value?: number;
+  /**
+   * A written figure — "22.1%", "KSh13.79bn", "≈200k" — parsed into a value and its format.
+   * Use it where the document writes the figure as text; pass `value` where it is already a
+   * number. Anything that does not parse is rendered verbatim rather than coerced: a figure this
+   * document cannot read is a figure it must not animate.
+   */
+  text?: string;
   className?: string;
   spring?: keyof typeof SPRING;
   /**
@@ -27,9 +34,16 @@ interface AnimatedNumberProps extends NumberFormat {
  * reader with JavaScript off all get the real number; only the pixels count up.
  */
 export function AnimatedNumber({
-  value, className = "", spring, label, ...format
+  value, text, className = "", spring, label, ...format
 }: AnimatedNumberProps) {
-  const { containerRef, textRef, final } = useAnimatedNumber(value, { spring, ...format });
+  const parsed = text !== undefined ? parseFigure(text) : null;
+  const resolved = parsed ? parsed.value : (value ?? 0);
+  const resolvedFormat = parsed ? { ...parsed.format, ...format } : format;
+
+  const { containerRef, textRef, final } = useAnimatedNumber(resolved, { spring, ...resolvedFormat });
+
+  // A string this parser cannot read is shown as written, never animated toward.
+  if (text !== undefined && final !== text) return <span className={className}>{text}</span>;
 
   return (
     <span ref={containerRef} className={`anim-num ${className}`}>

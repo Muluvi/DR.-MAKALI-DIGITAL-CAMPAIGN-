@@ -1,8 +1,7 @@
 import type { ReactNode } from "react";
 
 import type { Provenance } from "../../data/types";
-import { ProvenanceLine } from "./ProvenanceLine";
-import { SourceLine } from "./SourceLine";
+import { ProvenanceLine, SourceLine } from "./ProvenanceLine";
 
 /**
  * The card every sourced figure in this document sits in.

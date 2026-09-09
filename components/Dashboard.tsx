@@ -1,6 +1,6 @@
 "use client";
 
-import { CountUpText, Reveal, SpotlightCard, TiltCard } from "./visual";
+import { AnimatedNumber, Reveal, SpotlightCard, TiltCard } from "./visual";
 import { TrendingUp, Coins, WifiOff, Vote } from "lucide-react";
 
 /*
@@ -79,7 +79,7 @@ export function Dashboard() {
                       depth rather than as the whole panel rocking. */}
                   <div className="flex justify-between items-start mb-2 fx-z-1">
                     <div className={`font-serif text-2xl sm:text-3xl font-semibold leading-none tabular-nums ${m.warn ? "text-danger" : m.good ? "text-accent" : "text-ink"}`}>
-                      <CountUpText text={m.num} />
+                      <AnimatedNumber text={m.num} />
                     </div>
                     <div className="p-1.5 rounded-lg bg-paper border border-line fx-icon-rise">
                       {m.icon}
@@ -109,7 +109,7 @@ export function Dashboard() {
                 
                 <div className="flex justify-between items-start mb-2">
                   <div className={`font-serif text-2xl font-semibold leading-none ${m.warn ? 'text-danger' : m.good ? 'text-accent' : 'text-ink'}`}>
-                    <CountUpText text={m.num} />
+                    <AnimatedNumber text={m.num} />
                   </div>
                   <div className="p-1.5 rounded-lg bg-paper border border-line">
                     {m.icon}

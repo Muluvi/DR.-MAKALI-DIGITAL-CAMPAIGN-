@@ -10,7 +10,6 @@
  */
 export { Reveal, type RevealVariant } from "./Reveal";
 export { SplitText, WordCycler } from "./SplitText";
-export { CountUp, CountUpText, Odometer, ProgressRing } from "./Numerals";
 export { AnimatedNumber } from "./AnimatedNumber";
 export { TiltCard, SpotlightCard, MagneticButton, RippleButton } from "./Surfaces";
 export { AmbientField } from "./AmbientField";

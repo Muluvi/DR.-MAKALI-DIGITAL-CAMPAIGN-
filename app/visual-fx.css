@@ -633,22 +633,9 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 /* ========================================================================== */
 
 @keyframes fx-bar-growx { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-@keyframes fx-ring-fill { from { stroke-dashoffset: var(--fx-ring-len, 302); } to { stroke-dashoffset: var(--fx-ring-target, 0); } }
 .fx-bar-h { transform-origin: left;   animation: fx-bar-growx var(--fx-dur-deliberate) var(--fx-ease-entrance) both var(--fx-delay, 0ms); }
-.fx-ring  { animation: fx-ring-fill var(--fx-dur-deliberate) var(--fx-ease-entrance) both var(--fx-delay, 0ms); }
 
 
-/* Odometer / vertical digit roll. The column holds 0-9 stacked; the wheel is
-   translated to the target digit. */
-.fx-odometer { display: inline-flex; overflow: hidden; height: 1em; line-height: 1; vertical-align: baseline; }
-.fx-odometer-col { display: block; overflow: hidden; height: 1em; }
-.fx-odometer-wheel {
-  display: flex; flex-direction: column;
-  transform: translate3d(0, calc(var(--fx-digit, 0) * -1em), 0);
-  transition: transform 700ms var(--fx-ease-entrance);
-  transition-delay: calc(var(--fx-i, 0) * 55ms);
-}
-.fx-odometer-wheel > span { height: 1em; line-height: 1; font-variant-numeric: tabular-nums; }
 
 
 /* ========================================================================== */
@@ -723,17 +710,6 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 .fx-split-char > span { --fx-travel: 10px; animation-delay: calc(var(--fx-i, 0) * var(--fx-split-stagger, 22ms) + var(--fx-delay, 0ms)); }
 
 
-/* Typewriter — a steps() caret over a clipped inline block. */
-@keyframes fx-typewrite { from { width: 0; } to { width: 100%; } }
-@keyframes fx-caret { 50% { opacity: 0; } }
-.fx-typewriter {
-  display: inline-block; overflow: hidden; white-space: nowrap;
-  border-right: 2px solid var(--color-accent);
-  width: 0;
-  animation: fx-typewrite var(--fx-type-dur, 2.4s) steps(var(--fx-type-steps, 32), end) forwards,
-             fx-caret 780ms step-end infinite;
-  animation-delay: var(--fx-delay, 0ms), 0ms;
-}
 
 
 /* Cycling word swap — the outgoing word leaves upward, the incoming arrives
@@ -953,14 +929,13 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
    /* a spinner that does not spin is a bug */
 
   /* 2. Charts render at the truth, not at a point on a growth curve. */
-  .fx-bar, .fx-bar-h, .fx-ring, .fx-sweep, .fx-needle, .fx-point, .fx-cell,
+  .fx-bar, .fx-bar-h, .fx-sweep, .fx-needle, .fx-point, .fx-cell,
   .fx-region, .fx-pin, .fx-draw, .fx-stroke-fill, .fx-check, .fx-cross, .fx-flap {
     animation: none !important;
     transform: none !important;
-    stroke-dashoffset: var(--fx-ring-target, 0) !important;
+    stroke-dashoffset: 0 !important;
     opacity: 1 !important;
   }
-  .fx-odometer-wheel { transition: none !important; }
 
   /* 3. Entrances resolve instantly to their finished state. */
   [class*="fx-in-"], .fx-split-line > span, .fx-split-word > span, .fx-split-char > span,
@@ -973,7 +948,6 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
     filter: none !important;
     letter-spacing: inherit !important;
   }
-  .fx-typewriter { animation: none !important; width: auto !important; border-right-color: transparent !important; }
   
   
 
@@ -1003,8 +977,8 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 @media print {
   [class*="fx-in-"], [class*="fx-out-"], [class*="fx-loop-"],
   .fx-split-line > span, .fx-split-word > span, .fx-split-char > span,
-  .fx-bar, .fx-bar-h, .fx-ring, .fx-sweep, .fx-needle, .fx-point, .fx-cell,
-  .fx-region, .fx-pin, .fx-draw, .fx-typewriter, .fx-tracking-in {
+  .fx-bar, .fx-bar-h, .fx-sweep, .fx-needle, .fx-point, .fx-cell,
+  .fx-region, .fx-pin, .fx-draw, .fx-tracking-in {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
