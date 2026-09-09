@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Users, Type, Eye, EyeOff, Map, MessageSquare, Megaphone, Shield, Database, Gauge, HandCoins } from "lucide-react";
@@ -9,6 +10,7 @@ import { useTheme } from "../lib/useTheme";
 import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
 import { MarqueeCarousel } from "./MarqueeCarousel";
 import { LazyMount } from "./LazyMount";
+import { ChartFallback } from "./ChartFallback";
 import { ScrollProgressBar } from "./ScrollProgressBar";
 import { SectionStickyBar } from "./SectionStickyBar";
 import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
@@ -40,10 +42,25 @@ import { Dashboard } from "./Dashboard";
 import { HeroVisual } from "./HeroVisual";
 import { Portrait } from "./Portrait";
 import { DeficitGauge } from "./charts/DeficitGauge";
-import { DataVisualizations } from "./DataVisualizations";
-import { VoterProjectionsChart } from "./VoterProjectionsChart";
 import { SectionSkeleton } from "./SectionSkeleton";
 import { DURATION } from "../lib/motion";
+
+/**
+ * The two charts in the data strip, behind a dynamic boundary.
+ *
+ * These were the reason the charting runtime was in the first load on every route. ClientPage
+ * is the shell for all nine sections plus /full, and a static import here put recharts in the
+ * entry chunk — which is what every next/dynamic boundary in components/markdown/ exists to
+ * avoid. LazyMount below still decides when they mount; this decides when they download.
+ */
+const DataVisualizations = dynamic(() => import("./DataVisualizations").then((m) => m.DataVisualizations), {
+  ssr: false,
+  loading: () => <ChartFallback />,
+});
+const VoterProjectionsChart = dynamic(() => import("./VoterProjectionsChart").then((m) => m.VoterProjectionsChart), {
+  ssr: false,
+  loading: () => <ChartFallback />,
+});
 
 /**
  * The crossfade between sections — on a tab CHANGE, never on first paint.
