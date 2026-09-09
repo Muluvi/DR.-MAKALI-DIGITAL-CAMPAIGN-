@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+
+import { useScrollProgress } from "../hooks/use-scroll-position";
 
 /**
  * Fixed top progress bar. Primary implementation is pure CSS —
@@ -18,8 +20,11 @@ function detectNeedsFallback() {
 export function ScrollProgressBar() {
   const [isMounted, setIsMounted] = useState(false);
   const [needsFallback, setNeedsFallback] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const ticking = useRef(false);
+
+  // The progress figure comes from the shared scroll broker whether or not CSS is driving the
+  // bar. Where CSS drives it this is not painting anything — it is keeping aria-valuenow true,
+  // and a slider that reports 0% for the whole document is worse than no slider.
+  const progress = useScrollProgress();
 
   useEffect(() => {
     const rafMount = requestAnimationFrame(() => {
@@ -29,25 +34,7 @@ export function ScrollProgressBar() {
       }
     });
 
-    // The scroll listener runs whether or not CSS is driving the bar. Where CSS drives it the
-    // listener is not painting anything — it is keeping aria-valuenow true, and a slider that
-    // reports 0% for the whole document is worse than no slider.
-    const handleScroll = () => {
-      if (ticking.current) return;
-      ticking.current = true;
-      requestAnimationFrame(() => {
-        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-        setProgress(totalHeight > 0 ? Math.min(1, window.scrollY / totalHeight) : 0);
-        ticking.current = false;
-      });
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      cancelAnimationFrame(rafMount);
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => cancelAnimationFrame(rafMount);
   }, []);
 
   if (!isMounted) {

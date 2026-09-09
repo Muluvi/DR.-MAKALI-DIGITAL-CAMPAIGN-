@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Compass, ChevronUp, Sparkles, Activity, Radio, Calculator, MapPin, Coins, X, Gauge, Shield } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 import { useChromeVisible } from "../hooks/use-chrome-visible";
+import { useScrolledPast } from "../hooks/use-scroll-position";
 import { DURATION } from "../lib/motion";
 
 interface QuickNavCapsuleProps {
@@ -30,15 +31,7 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
   // it entirely for readers who want that.
   const visible = useChromeVisible();
   const [isOpen, setIsOpen] = useState(false);
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 400);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const showScrollTop = useScrolledPast(400);
 
   const handleSelect = (id: string) => {
     onNavigate(id);

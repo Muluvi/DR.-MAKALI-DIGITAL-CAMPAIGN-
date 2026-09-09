@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, useEffect, useMemo, useRef, useCallback } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Users, Type, Eye, EyeOff, Map, MessageSquare, Megaphone, Shield, Database, Gauge, HandCoins } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
+import { useActiveSection } from "../hooks/use-active-section";
+import { useInView } from "../hooks/use-in-view";
 import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
 import { MarqueeCarousel } from "./MarqueeCarousel";
 import { LazyMount } from "./LazyMount";
@@ -185,36 +187,11 @@ interface LazySectionProps {
 }
 
 function LazySection({ id, content, renderSectionExtras, immediate = false }: LazySectionProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [hasBeenVisible, setHasBeenVisible] = useState(immediate);
-
-  useEffect(() => {
-    if (immediate) {
-      return;
-    }
-    
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHasBeenVisible(true);
-          observer.disconnect();
-        }
-      },
-      {
-        rootMargin: "350px 0px", // Pre-renders when 350px close to the viewport
-        threshold: 0.01,
-      }
-    );
-
-    const el = containerRef.current;
-    if (el) {
-      observer.observe(el);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [immediate]);
+  // Same observer as LazyMount and every count-up on the page: one implementation of "is this
+  // near the viewport", in hooks/use-in-view.ts. `immediate` short-circuits it for the section
+  // the route actually serves, which must be in the DOM from the first paint.
+  const [containerRef, inView] = useInView<HTMLDivElement>({ once: true, amount: 0.01, margin: "350px 0px" }); // verify-figures-ignore — observer threshold
+  const hasBeenVisible = immediate || inView;
 
   return (
     <div ref={containerRef} id={`section-${id}`} className="cv-auto-section clean-editorial-section py-4 sm:py-8 px-0 sm:px-2 print:break-inside-avoid min-h-[150px] snap-start scroll-mt-24 transition-all duration-500 ease-out">
@@ -351,34 +328,13 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
 
 
 
-  // Premium dynamic category intersection observer to track active section while scrolling
-  useEffect(() => {
-    if (!isExpanded) return;
-
-    const observerOptions = {
-      root: null,
-      rootMargin: "-20% 0px -60% 0px", // Trigger active focus as section scrolls into viewport focus
-      threshold: 0.05,
-    };
-
-    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const sectionId = entry.target.id.replace("section-", "");
-          setActiveTab(sectionId);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(handleIntersection, observerOptions);
-
-    navItems.forEach((item) => {
-      const el = document.getElementById(`section-${item.id}`);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, [isExpanded, navItems, setActiveTab]);
+  // Which section the reader is in, on /full where all nine are on one page.
+  //
+  // This used to be a second IntersectionObserver over the same #section-<id> elements that
+  // NavDots observes, with a different rootMargin and a different tie-break — so the dots could
+  // highlight one section while the tab state said another. Both now read useActiveSection.
+  const navIds = useMemo(() => navItems.map((i) => i.id), [navItems]);
+  useActiveSection(navIds, isExpanded, setActiveTab);
 
   const handleNavClick = (itemId: string) => {
     setActiveTab(itemId);

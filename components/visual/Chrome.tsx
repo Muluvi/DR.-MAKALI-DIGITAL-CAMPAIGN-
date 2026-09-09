@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef } from "react";
+
+import { useActiveSection } from "../../hooks/use-active-section";
 import { useFinePointer, useReducedMotion } from "../../hooks/use-media-query";
 
 /**
@@ -24,34 +26,11 @@ interface NavDotsProps {
 /**
  * Scroll-spy dots down the right edge.
  *
- * The active section is resolved by an IntersectionObserver over the real section elements rather
- * than by comparing scroll offsets, so it stays correct when a lazy section changes height
- * underneath the reader — which, in a document that mounts fifty figures on demand, it does.
+ * The active section comes from useActiveSection, which ClientPage also reads, so the dots and
+ * the tab state can no longer disagree about where the reader is.
  */
 export function NavDots({ sections, onSelect }: NavDotsProps) {
-  const [active, setActive] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (typeof IntersectionObserver === "undefined") return;
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        // The section closest to the top of the band wins, so a tall section does not keep the
-        // marker while a short one scrolls past inside it.
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible[0]) setActive(visible[0].target.id.replace(/^section-/, ""));
-      },
-      { rootMargin: "-20% 0px -70% 0px", threshold: 0 }
-    );
-
-    const els = sections
-      .map((s) => document.getElementById(`section-${s.id}`))
-      .filter((el): el is HTMLElement => el !== null);
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, [sections]);
+  const active = useActiveSection(useMemo(() => sections.map((s) => s.id), [sections]));
 
   return (
     <nav

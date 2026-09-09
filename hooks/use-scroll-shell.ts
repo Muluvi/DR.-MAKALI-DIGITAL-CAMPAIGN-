@@ -2,6 +2,10 @@
 
 import { useEffect } from "react";
 
+import { useScrollSelector, useScrolledPast, type ScrollState } from "./use-scroll-position";
+
+const selectDirection = (s: ScrollState) => s.direction;
+
 /**
  * The page-level scroll state, written once onto <html> as data attributes and custom properties
  * that CSS reads.
@@ -22,42 +26,20 @@ import { useEffect } from "react";
  * rules that mention them.
  */
 export function useScrollShell() {
+  // Two scalar selections rather than one object: useSyncExternalStore compares snapshots by
+  // identity, and a selector returning a fresh object every call never compares equal.
+  const direction = useScrollSelector(selectDirection);
+  const scrolled = useScrolledPast(24);
+
   useEffect(() => {
-    if (typeof window === "undefined") return;
-
     const root = document.documentElement;
-
-    let lastY = window.scrollY;
-    let frame = 0;
-
-    const read = () => {
-      frame = 0;
-      const y = window.scrollY;
-      const dy = y - lastY;
-
-      // A 6px threshold stops the header flickering on the sub-pixel scroll that a trackpad or a
-      // momentum tail produces at rest.
-      if (Math.abs(dy) > 6) {
-        root.dataset.scrollDir = dy > 0 ? "down" : "up";
-      }
-      root.dataset.scrolled = y > 24 ? "true" : "false";
-
-      lastY = y;
-    };
-
-    const onScroll = () => {
-      if (!frame) frame = requestAnimationFrame(read);
-    };
-
-    read();
-    window.addEventListener("scroll", onScroll, { passive: true });
+    root.dataset.scrollDir = direction;
+    root.dataset.scrolled = scrolled ? "true" : "false";
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      if (frame) cancelAnimationFrame(frame);
       delete root.dataset.scrollDir;
       delete root.dataset.scrolled;
     };
-  }, []);
+  }, [direction, scrolled]);
 }
 
 /**

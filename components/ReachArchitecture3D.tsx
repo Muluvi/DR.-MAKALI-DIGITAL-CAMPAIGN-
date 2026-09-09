@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from "react";
 
 import { CONSTITUENCIES } from "../data/ward-register";
 import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
+import { useScrollSelector, type ScrollState } from "../hooks/use-scroll-position";
+
+const selectY = (s: ScrollState) => s.y;
 
 /**
  * The reachability of the county, drawn in depth.
@@ -31,32 +34,21 @@ export function ReachArchitecture3D() {
   const [depth, setDepth] = useState(0);
   // The project's own hook, which also covers motion's pre-hydration null.
   const reduced = useReducedMotionSafe();
+  const scrollY = useScrollSelector(selectY);
 
-  // Parallax is driven by how far the illustration has travelled through the viewport, sampled
-  // on rAF from a scroll listener rather than per-frame layout reads.
+  // Parallax is driven by how far the illustration has travelled through the viewport.
+  //
+  // Measured off the shared scroll broker rather than a fifth page-level listener: what is
+  // element-specific here is the measurement, not the question of whether the page moved. The
+  // broker is already rAF-coalesced, so this still reads layout once per frame at most.
   useEffect(() => {
     if (reduced) return;
     const el = ref.current;
     if (!el) return;
-    let frame = 0;
-    const measure = () => {
-      frame = 0;
-      const r = el.getBoundingClientRect();
-      const progress = 1 - (r.top + r.height / 2) / (window.innerHeight + r.height / 2);
-      setDepth(Math.max(0, Math.min(1, progress)));
-    };
-    const onScroll = () => {
-      if (!frame) frame = window.requestAnimationFrame(measure);
-    };
-    measure();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      if (frame) window.cancelAnimationFrame(frame);
-    };
-  }, [reduced]);
+    const r = el.getBoundingClientRect();
+    const progress = 1 - (r.top + r.height / 2) / (window.innerHeight + r.height / 2);
+    setDepth(Math.max(0, Math.min(1, progress)));
+  }, [reduced, scrollY]);
 
   // t runs 0 at the edges of travel to 1 at the centre of the viewport: the planes separate as
   // the illustration arrives and settle back as it leaves.
