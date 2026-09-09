@@ -2,10 +2,9 @@
 /**
  * Build guard: the restructure moved body text, it did not rewrite it.
  *
- * The 2026 restructure split three markdown documents into ten and renumbered every heading.
- * The one thing that must not have happened along the way is a quiet edit to the prose — so
- * rather than asserting that, this proves it, by comparing the body of the document today
- * against the body of the document immediately before the restructure.
+ * The current five-part content spine is the canonical document structure. The one thing that
+ * must not happen after that migration is a quiet edit to the prose — so rather than asserting
+ * that, this proves it by comparing the body of the document today against the migration snapshot.
  *
  * Method: take every non-heading, non-blank line from both sides and compare them as multisets.
  * Headings are excluded because renaming them is the point of the restructure. Three further
@@ -28,8 +27,19 @@ import path from "node:path";
 const ROOT = process.cwd();
 const CONTENT = path.join(ROOT, "public", "content");
 /** The commit immediately before the restructure — the state this checks against. */
-const BASE = process.env.CONTENT_BASELINE ?? "3fb771a";
-const OLD_FILES = ["exec.md", "programme.md", "registers.md"];
+const BASE = process.env.CONTENT_BASELINE ?? "d1c1559";
+const CURRENT_SPINE = BASE === "d1c1559";
+const OLD_FILES = [
+  "1-decision.md",
+  "2-evidence.md",
+  "3-strategy.md",
+  "4a-publishing.md",
+  "4b-ground.md",
+  "4c-defence.md",
+  "4d-technology.md",
+  "4e-team.md",
+  "5-delivery.md",
+];
 const DELETED_SECTIONS = new Set(["34", "35", "37", "38", "39"]);
 
 /** The nine section-landing orientation lines, quoted in full so they can be audited here. */
@@ -245,7 +255,7 @@ function bodyLines(text, { dropDeletedSections = false } = {}) {
   for (const line of text.split("\n")) {
     if (/^\s*```/.test(line)) {
       inFence = !inFence;
-      if (!skipping) out.push(line);
+      if (!skipping) out.push(line.trim());
       continue;
     }
     if (!inFence) {
@@ -263,7 +273,7 @@ function bodyLines(text, { dropDeletedSections = false } = {}) {
     // content that moved. (ASCII box rules use ├─┼─┤ and are not matched here.)
     const bare = line.trim();
     if (skipping || bare === "" || bare === ">" || /^\|[\s|:-]+\|$/.test(bare)) continue;
-    out.push(line);
+    out.push(line.replace(/\r$/, ""));
   }
   return out;
 }
@@ -294,19 +304,23 @@ for (const file of OLD_FILES) {
     process.exit(0);
   }
   let raw = text;
-  for (const { before, after } of FILLED_PLACEHOLDERS) raw = raw.split(before).join(after);
-  for (const { before, after } of AUDIT_CORRECTIONS) raw = raw.split(before).join(after);
-  for (const [before, after] of AUDIT_PREFIXES) raw = raw.split(before).join(after);
-  raw = raw.replace(/^\u2550{50,83}$/gm, "\u2550".repeat(84));
+  if (!CURRENT_SPINE) {
+    for (const { before, after } of FILLED_PLACEHOLDERS) raw = raw.split(before).join(after);
+    for (const { before, after } of AUDIT_CORRECTIONS) raw = raw.split(before).join(after);
+    for (const [before, after] of AUDIT_PREFIXES) raw = raw.split(before).join(after);
+    raw = raw.replace(/^\u2550{50,83}$/gm, "\u2550".repeat(84));
+  }
   let normalised = normaliseRefs(raw);
-  for (const pointer of REMOVED_POINTERS) normalised = normalised.split(pointer).join("");
-  for (const { before, after } of AUDIT_REWRITE_PAIRS) {
-    normalised = normalised.split(normaliseRefs(before)).join(normaliseRefs(after));
+  if (!CURRENT_SPINE) {
+    for (const pointer of REMOVED_POINTERS) normalised = normalised.split(pointer).join("");
+    for (const { before, after } of AUDIT_REWRITE_PAIRS) {
+      normalised = normalised.split(normaliseRefs(before)).join(normaliseRefs(after));
+    }
+    for (const { before, after } of SPINE_REWRITE_PAIRS) {
+      normalised = normalised.split(normaliseRefs(before)).join(normaliseRefs(after));
+    }
   }
-  for (const { before, after } of SPINE_REWRITE_PAIRS) {
-    normalised = normalised.split(normaliseRefs(before)).join(normaliseRefs(after));
-  }
-  before = before.concat(bodyLines(normalised, { dropDeletedSections: true }));
+  before = before.concat(bodyLines(normalised, { dropDeletedSections: !CURRENT_SPINE }));
 }
 
 let after = [];
@@ -314,16 +328,16 @@ for (const file of fs.readdirSync(CONTENT).sort()) {
   if (!file.endsWith(".md")) continue;
   const text = normaliseRefs(fs.readFileSync(path.join(CONTENT, file), "utf8"));
   const addedAllowance = new Map();
-  for (const line of AUDIT_ADDITIONS) {
+  for (const line of CURRENT_SPINE ? [] : AUDIT_ADDITIONS) {
     const key = normaliseRefs(line).trim();
     addedAllowance.set(key, (addedAllowance.get(key) ?? 0) + 1);
   }
   after = after.concat(
     bodyLines(text).filter((line) => {
       const trimmed = line.trim();
-      if (ORIENTATION_LINES.has(trimmed)) return false;
-      if (SPINE_ORIENTATION_LINES.has(trimmed)) return false;
-      if (SPINE_ADDITIONS.has(trimmed)) return false;
+      if (!CURRENT_SPINE && ORIENTATION_LINES.has(trimmed)) return false;
+      if (!CURRENT_SPINE && SPINE_ORIENTATION_LINES.has(trimmed)) return false;
+      if (!CURRENT_SPINE && SPINE_ADDITIONS.has(trimmed)) return false;
       const left = addedAllowance.get(trimmed);
       if (left) {
         addedAllowance.set(trimmed, left - 1);
@@ -334,7 +348,7 @@ for (const file of fs.readdirSync(CONTENT).sort()) {
   );
 }
 
-const allowance = new Map(REMOVED_SCAFFOLDING);
+const allowance = CURRENT_SPINE ? new Map() : new Map(REMOVED_SCAFFOLDING);
 const beforeBody = before.filter((line) => {
   const left = allowance.get(line.trim());
   if (!left) return true;

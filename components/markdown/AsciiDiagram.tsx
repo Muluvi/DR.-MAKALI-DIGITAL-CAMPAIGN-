@@ -121,15 +121,17 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
               <div className="space-y-1.5">
                 {secondaryCells.map((cell, j) => {
                   const colIdx = j + 1;
-                  const header = d.headers && d.headers[colIdx] ? d.headers[colIdx] : `Item ${colIdx + 1}`;
+                  const header = d.headers && d.headers[colIdx] ? d.headers[colIdx] : "";
                   return (
                     <div
                       key={j}
                       className="flex items-start justify-between gap-2.5 py-1 border-b border-line/15 last:border-b-0"
                     >
-                      <span className="t-micro uppercase tracking-wider font-semibold text-muted shrink-0 pt-0.5" aria-hidden="true">
-                        {header}
-                      </span>
+                      {header && (
+                        <span className="t-micro uppercase tracking-wider font-semibold text-muted shrink-0 pt-0.5" aria-hidden="true">
+                          {header}
+                        </span>
+                      )}
                       <span
                         className={`text-right t-small text-ink leading-snug break-words max-w-[70%] ${
                           isFigure(cell.text) ? "tabular-nums font-mono font-semibold" : ""
