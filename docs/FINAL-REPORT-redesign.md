@@ -127,6 +127,54 @@ Verified in a real print preview via Chromium's print media emulation, on `/full
 
 ---
 
+## f.0 The merge into main, and one thing to decide
+
+`main` had moved on by two commits while this branch was in flight, and **it did not build.**
+Commit `5470756` ("refactor: consolidate document sections and link redirects", 9 September)
+changed the body text, and `verify-content-integrity` — a prebuild step — rejected it: 140 lines
+lost, 47 added, exit 1. The Vercel production deployment for that commit is recorded as `ERROR`.
+Nothing had reached the site since.
+
+Most of that commit is a reflow: sub-sections merged into their parents, the retired heading
+becoming a bold lead-in, and a redirect logged in `heading-slug.ts` for every id it retires. It
+is careful work. But roughly **130 lines are cut outright rather than reflowed**, and they are
+not decorative. Among them:
+
+- the **shared-ceiling caveat** — whether the KSh97.56m ceiling binds a party ticket at the
+  general election or rival aspirants at a nomination, "and one the campaign cannot answer from
+  the Gazette Notice alone", closing with "Every budget figure in this document assumes the whole
+  ceiling is available to this campaign. If it is not, all three tiers move."
+- the **counsel question on the lawful spending window** — that §9's two statements of when
+  regulated expenditure begins disagree, that Phase −1 falls outside both, and that Firefly wants
+  the reading confirmed before the first Phase −1 invoice.
+- the **reconciliation between the KSh64.5m operational plan and the KSh97.56m ceiling** — which
+  quantity the tier percentages are of, and which is the binding legal constraint.
+- the note that **two preference figures in the proposal measure different populations** rather
+  than one revising the other.
+
+**This branch did not reverse them.** They are the author's edits to the author's own document,
+and a redesign branch does not get to overrule that by reverting a commit. What the merge did
+instead was move the guard's baseline to `5470756`, so `main` builds and the work deploys, with
+`CONTENT_BASELINE=d1c1559` still running the original comparison for anyone auditing what was
+removed. `CONTENT_DUMP=<path>` writes the differences as JSON — that is how the list above was
+produced.
+
+**The decision to make:** those four passages are caveats a reader on the Budget and
+Appropriations Committee is likely to ask about, and their absence changes what the budget
+section claims. If the cuts were for length, each one can be restored from `d1c1559` in a
+minute. If they were deliberate, nothing needs doing — but it is worth being deliberate.
+
+One line was restored: §8.2.3's KPI-architecture diagram lost **"Opt-In"** from its 220,000
+target, which is the DPA 2019 consent term the surrounding section turns on. Quoted old and new
+in `notation-rewrites.json`.
+
+Renumbering follow-through: §6.4.4 became §6.4.2 and §5.2.7 became §5.2.4, so `BenchmarkLadder`'s
+mount and the war-room matrix's citation moved with them. `verify-mounts` checks that a heading
+exists, not that it still means the same thing, so all 42 mounts were re-read by hand against the
+consolidated headings.
+
+---
+
 ## f. Judgement calls for review
 
 1. **NW-04's baseline state.** The brief lists all four nomination baselines as "Not yet
