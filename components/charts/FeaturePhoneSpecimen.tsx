@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useRovingTabs } from "../../hooks/use-device-showcase";
 import { motion } from "motion/react";
 import { MessageSquare, Phone, Signal, BatteryMedium } from "lucide-react";
 
@@ -128,9 +129,15 @@ function Handset({ step, pressed }: { step: Step; pressed: string | null }) {
   );
 }
 
+
+// Hoisted: useRovingTabs memoises on this array's identity, so rebuilding it every render
+// would invalidate the key handler on every render.
+const LANG_IDS = SPECIMEN_LANGUAGES.map((l) => l.id);
+
 export function FeaturePhoneSpecimen() {
   const { reduce } = useMotionPreset();
   const [lang, setLang] = useState<SpecimenLanguage>("kikamba");
+  const { onKeyDown, tabProps } = useRovingTabs(LANG_IDS, lang, setLang);
   const [specimenIndex, setSpecimenIndex] = useState(0);
   const [step, setStep] = useState<Step>(reduce ? "menu" : "dialling");
   const [pressed, setPressed] = useState<string | null>(null);
@@ -184,14 +191,12 @@ export function FeaturePhoneSpecimen() {
 
         {/* Language, scoped to this widget. The rest of the document stays in English. */}
         <div className="mt-4 flex items-center gap-2 flex-wrap">
-          <div role="tablist" aria-label="Specimen language" className="inline-flex gap-1 rounded-xl border border-line bg-paper p-0.5">
+          <div role="tablist" aria-label="Specimen language" onKeyDown={onKeyDown} className="inline-flex gap-1 rounded-xl border border-line bg-paper p-0.5">
             {SPECIMEN_LANGUAGES.map((l) => (
               <button
                 key={l.id}
-                role="tab"
-                aria-selected={lang === l.id}
+                {...tabProps(l.id)}
                 aria-controls={panelId}
-                onClick={() => setLang(l.id)}
                 title={l.note}
                 className={`min-h-[44px] px-3 rounded-lg t-micro font-black uppercase tracking-wider fx-press fx-focus cursor-pointer transition-colors ${
                   lang === l.id ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink"

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { useRovingTabs } from "../../hooks/use-device-showcase";
 import { motion, useInView } from "motion/react";
 import { Check, ChevronRight, Scale } from "lucide-react";
 
@@ -58,11 +59,17 @@ function TierPanel({ tier }: { tier: BudgetTier }) {
   );
 }
 
+
+// Hoisted: useRovingTabs memoises on this array's identity, so rebuilding it every render
+// would invalidate the key handler on every render.
+const TIER_IDS = BUDGET_TIERS.map((t) => t.id);
+
 export function CeilingMeter() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-15% 0px" });
   const { reduce, spring, variants, enter } = useMotionPreset();
   const [selected, setSelected] = useState<BudgetTier["id"]>("standard");
+  const { onKeyDown, tabProps } = useRovingTabs(TIER_IDS, selected, setSelected);
   const shown = reduce || inView;
   const active = BUDGET_TIERS.find((t) => t.id === selected)!;
 
@@ -138,6 +145,7 @@ export function CeilingMeter() {
         <div
           role="tablist"
           aria-label="Budget tiers"
+          onKeyDown={onKeyDown}
           className="mt-5 flex gap-2 overflow-x-auto snap-x snap-mandatory scrollbar-none -mx-1 px-1 pb-1"
         >
           {BUDGET_TIERS.map((tier) => {
@@ -145,11 +153,9 @@ export function CeilingMeter() {
             return (
               <button
                 key={tier.id}
-                role="tab"
-                aria-selected={isActive}
+                {...tabProps(tier.id)}
                 aria-controls={`tier-panel-${tier.id}`}
                 id={`tier-tab-${tier.id}`}
-                onClick={() => setSelected(tier.id)}
                 className={`snap-center shrink-0 min-h-[44px] rounded-xl border px-3 py-2 text-left fx-press fx-focus cursor-pointer transition-colors ${
                   isActive
                     ? "bg-accent-solid border-accent-solid text-on-accent"

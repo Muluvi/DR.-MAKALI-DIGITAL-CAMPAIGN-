@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useCallback, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import React from "react";
+import { motion, useTransform } from "motion/react";
+import { useDeviceTilt } from "../../hooks/use-device-showcase";
 
-import { SPRING } from "../../lib/motion";
-import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
 import {
   BEZEL,
   BODY_H,
@@ -61,14 +60,10 @@ export function PhoneFrame({
   /** Describes the screen currently shown, for assistive technology. */
   label: string;
 }) {
-  const reduce = useReducedMotionSafe();
-  const ref = useRef<HTMLDivElement>(null);
-  const [pointerInside, setPointerInside] = useState(false);
-
-  const rawY = useMotionValue(0);
-  const rawX = useMotionValue(0);
-  const rotateY = useSpring(rawY, SPRING.gentle);
-  const rotateX = useSpring(rawX, SPRING.gentle);
+  const { ref, reduce, pointerInside, rotateX, rotateY, handlers } = useDeviceTilt<HTMLDivElement>({
+    maxRotateX: MAX_ROTATE_X,
+    maxRotateY: MAX_ROTATE_Y,
+  });
 
   // The sheen tracks rotation, so the glass catches the light as the device turns.
   const sheenX = useTransform(rotateY, [-MAX_ROTATE_Y, MAX_ROTATE_Y], ["18%", "82%"]);
@@ -79,34 +74,12 @@ export function PhoneFrame({
       `linear-gradient(118deg, transparent 0%, transparent calc(${x} - 26%), rgba(255,255,255,0.9) ${x}, transparent calc(${x} + 26%), transparent 100%)`
   );
 
-  const onPointerMove = useCallback(
-    (e: React.PointerEvent) => {
-      if (reduce || e.pointerType !== "mouse") return;
-      const el = ref.current;
-      if (!el) return;
-      const r = el.getBoundingClientRect();
-      const px = (e.clientX - r.left) / r.width - 0.5;
-      const py = (e.clientY - r.top) / r.height - 0.5;
-      rawY.set(px * MAX_ROTATE_Y * 2);
-      rawX.set(-py * MAX_ROTATE_X * 2);
-    },
-    [reduce, rawX, rawY]
-  );
-
-  const reset = useCallback(() => {
-    setPointerInside(false);
-    rawY.set(0);
-    rawX.set(0);
-  }, [rawX, rawY]);
-
   return (
     <div
       ref={ref}
       className="select-none"
       style={{ perspective: `${PERSPECTIVE}px`, width: BODY_W, height: BODY_H }}
-      onPointerMove={onPointerMove}
-      onPointerEnter={() => setPointerInside(true)}
-      onPointerLeave={reset}
+      {...handlers}
     >
       <motion.div
         className="relative"

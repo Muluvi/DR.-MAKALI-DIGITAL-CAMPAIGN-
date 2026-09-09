@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRovingTabs } from "../../hooks/use-device-showcase";
 import { motion, AnimatePresence } from "motion/react";
 import { Coins, ShieldCheck, Scale, Users, Radio, CheckCircle2, AlertTriangle } from "lucide-react";
 
@@ -117,8 +118,14 @@ const COMPARISON_ROWS: { label: string; lean: string; standard: string; premium:
   { label: "Realistic Phase 3 contact universe", lean: "~60,000", standard: "~150,000", premium: "~250,000" },
 ];
 
+
+// Hoisted: useRovingTabs memoises on this array's identity, so rebuilding it every render
+// would invalidate the key handler on every render.
+const TIER_IDS = BUDGET_TIERS.map((t) => t.id);
+
 export function BudgetScenarioModeler() {
   const [selectedTierId, setSelectedTierId] = useState<BudgetTier["id"]>("standard");
+  const { onKeyDown, tabProps } = useRovingTabs(TIER_IDS, selectedTierId, setSelectedTierId);
   const currentTier = BUDGET_TIERS.find((t) => t.id === selectedTierId) ?? BUDGET_TIERS[1];
 
   return (
@@ -148,15 +155,13 @@ export function BudgetScenarioModeler() {
         </div>
       </div>
 
-      <div className="p-3 bg-paper/70 border-b border-line grid grid-cols-1 sm:grid-cols-3 gap-2" role="tablist" aria-label="Budget tiers">
+      <div className="p-3 bg-paper/70 border-b border-line grid grid-cols-1 sm:grid-cols-3 gap-2" role="tablist" aria-label="Budget tiers" onKeyDown={onKeyDown}>
         {BUDGET_TIERS.map((tier) => {
           const isSelected = tier.id === selectedTierId;
           return (
             <button
               key={tier.id}
-              role="tab"
-              aria-selected={isSelected}
-              onClick={() => setSelectedTierId(tier.id)}
+              {...tabProps(tier.id)}
               className={`p-3 rounded-xl border text-left transition-colors cursor-pointer flex flex-col gap-1 ${
                 isSelected
                   ? "bg-card border-accent ring-2 ring-accent/15"

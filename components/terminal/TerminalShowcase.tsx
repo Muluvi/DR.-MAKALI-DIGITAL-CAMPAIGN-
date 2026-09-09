@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import {
   TERMINAL_MODES,
@@ -10,6 +10,7 @@ import {
 } from "@/data/terminal-showcase";
 import { DURATION, EASE_ENTRANCE } from "@/lib/motion";
 import { useReducedMotionSafe } from "@/hooks/use-reduced-motion-safe";
+import { useRovingTabs, useStageScale } from "@/hooks/use-device-showcase";
 import { BODY_H, BODY_W } from "./device";
 import { TerminalFrame } from "./TerminalFrame";
 import { GroundPulseScreen } from "./screens/GroundPulseScreen";
@@ -25,58 +26,18 @@ const SCREENS: Record<TerminalModeId, React.ComponentType<{ data: (typeof WARD_D
   tpc: TurnoutScreen,
 };
 
+// Hoisted: useRovingTabs memoises on this array's identity, so rebuilding it every render would
+// invalidate the key handler on every render.
+const MODE_IDS = TERMINAL_MODES.map((m) => m.id);
+
 export function TerminalShowcase() {
   const reduce = useReducedMotionSafe();
   const [activeMode, setActiveMode] = useState<TerminalModeId>("dgp");
   const [selectedWard, setSelectedWard] = useState<string>("kitui-township");
-  const stageRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(1);
-  const tabRefs = useRef<Partial<Record<TerminalModeId, HTMLButtonElement | null>>>({});
-
-  // Responsive scaling with zero CLS
-  useLayoutEffect(() => {
-    const el = stageRef.current;
-    if (!el) return;
-    const measure = () => setScale(Math.min(1, el.clientWidth / BODY_W));
-    measure();
-    const ro = new ResizeObserver(measure);
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, []);
+  const { stageRef, scale } = useStageScale<HTMLDivElement>(BODY_W);
+  const { move, onKeyDown, tabProps } = useRovingTabs(MODE_IDS, activeMode, setActiveMode);
 
   const modeIndex = TERMINAL_MODES.findIndex((m) => m.id === activeMode);
-
-  const move = useCallback(
-    (delta: number) => {
-      const next =
-        TERMINAL_MODES[(modeIndex + delta + TERMINAL_MODES.length) % TERMINAL_MODES.length];
-      setActiveMode(next.id);
-      tabRefs.current[next.id]?.focus();
-    },
-    [modeIndex]
-  );
-
-  const onKeyDown = useCallback(
-    (e: React.KeyboardEvent) => {
-      if (e.key === "ArrowRight") {
-        e.preventDefault();
-        move(1);
-      } else if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        move(-1);
-      } else if (e.key === "Home") {
-        e.preventDefault();
-        setActiveMode(TERMINAL_MODES[0].id);
-        tabRefs.current[TERMINAL_MODES[0].id]?.focus();
-      } else if (e.key === "End") {
-        e.preventDefault();
-        const last = TERMINAL_MODES[TERMINAL_MODES.length - 1];
-        setActiveMode(last.id);
-        tabRefs.current[last.id]?.focus();
-      }
-    },
-    [move]
-  );
 
   const currentModeInfo = TERMINAL_MODES.find((m) => m.id === activeMode)!;
   const currentWardData = WARD_DATA[selectedWard] || WARD_DATA["kitui-township"];
@@ -124,16 +85,10 @@ export function TerminalShowcase() {
             return (
               <button
                 key={mode.id}
-                ref={(el) => {
-                  tabRefs.current[mode.id] = el;
-                }}
-                role="tab"
+                {...tabProps(mode.id)}
                 id={`terminal-tab-${mode.id}`}
                 aria-controls={`terminal-panel-${mode.id}`}
-                aria-selected={selected}
-                tabIndex={selected ? 0 : -1}
                 type="button"
-                onClick={() => setActiveMode(mode.id)}
                 className={`relative px-3.5 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all duration-200 shrink-0 border ${
                   selected
                     ? "bg-ink text-paper border-ink shadow-sm font-semibold"

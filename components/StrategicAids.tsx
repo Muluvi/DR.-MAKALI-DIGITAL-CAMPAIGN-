@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
-import { DURATION, SPRING } from "../lib/motion";
-import { useState, useEffect, useRef } from "react";
-import { Play, Pause, Volume2, Calendar, ArrowRight, Radio, FileText, BookOpen, RefreshCw, Table } from "lucide-react";
+import { DURATION } from "../lib/motion";
+import { useState } from "react";
+import { Play, Pause, Calendar, ArrowRight, Radio, FileText, BookOpen, RefreshCw, Table } from "lucide-react";
 
 // ==========================================
 // 1. STRATEGY & TARGETING VISUAL AIDS

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRovingTabs } from "../../hooks/use-device-showcase";
 import { motion, AnimatePresence } from "motion/react";
 import { Users, Radio, MessageSquare, AlertTriangle, Layers } from "lucide-react";
 
@@ -136,8 +137,14 @@ const AUDIENCE_SEGMENTS: AudienceSegment[] = [
   },
 ];
 
+
+// Hoisted: useRovingTabs memoises on this array's identity, so rebuilding it every render
+// would invalidate the key handler on every render.
+const SEGMENT_IDS = AUDIENCE_SEGMENTS.map((s) => s.id);
+
 export function AudienceSegmentationMatrix() {
   const [activeId, setActiveId] = useState(AUDIENCE_SEGMENTS[0].id);
+  const { onKeyDown, tabProps } = useRovingTabs(SEGMENT_IDS, activeId, setActiveId);
   const active = AUDIENCE_SEGMENTS.find((s) => s.id === activeId) ?? AUDIENCE_SEGMENTS[0];
   const gapCount = AUDIENCE_SEGMENTS.filter((s) => s.sizing.kind === "gap").length;
 
@@ -161,15 +168,14 @@ export function AudienceSegmentationMatrix() {
         className="scroll-x snap-x snap-mandatory flex md:flex-wrap md:overflow-visible gap-1 p-2 bg-paper/70 border-b border-line"
         role="tablist"
         aria-label="Audience segments"
+          onKeyDown={onKeyDown}
       >
         {AUDIENCE_SEGMENTS.map((s) => {
           const isActive = s.id === activeId;
           return (
             <button
               key={s.id}
-              role="tab"
-              aria-selected={isActive}
-              onClick={() => setActiveId(s.id)}
+              {...tabProps(s.id)}
               className={`snap-start tap-chip px-3 py-2 rounded-lg t-small font-bold whitespace-nowrap transition-colors cursor-pointer shrink-0 ${
                 isActive ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink hover:bg-ink/5"
               }`}

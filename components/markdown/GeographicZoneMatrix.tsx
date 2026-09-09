@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRovingTabs } from "../../hooks/use-device-showcase";
 import { motion, AnimatePresence } from "motion/react";
 import { MapPin, Radio, Compass, TrendingUp, Percent, AlertTriangle } from "lucide-react";
 
@@ -117,8 +118,14 @@ const UNASSIGNED = CONSTITUENCIES.filter((c) => !ASSIGNED.includes(c.id));
 
 const fmt = (n: number) => n.toLocaleString("en-KE");
 
+
+// Hoisted: useRovingTabs memoises on this array's identity, so rebuilding it every render
+// would invalidate the key handler on every render.
+const ZONE_IDS = GEOGRAPHIC_ZONES.map((z) => z.id);
+
 export function GeographicZoneMatrix() {
   const [selectedZoneId, setSelectedZoneId] = useState<string>("mwingi");
+  const { onKeyDown, tabProps } = useRovingTabs(ZONE_IDS, selectedZoneId, setSelectedZoneId);
   const currentZone = GEOGRAPHIC_ZONES.find((z) => z.id === selectedZoneId) ?? GEOGRAPHIC_ZONES[0];
   const register = ZONE_REGISTERS[currentZone.id];
   const shareOfRegister = (register.voters / COUNTY_TOTAL_WARDS) * 100;
@@ -148,6 +155,7 @@ export function GeographicZoneMatrix() {
         className="p-3 bg-paper/70 border-b border-line grid grid-cols-1 sm:grid-cols-3 gap-2"
         role="tablist"
         aria-label="Geographic zones"
+          onKeyDown={onKeyDown}
       >
         {GEOGRAPHIC_ZONES.map((zone) => {
           const isSelected = zone.id === selectedZoneId;
@@ -155,9 +163,7 @@ export function GeographicZoneMatrix() {
           return (
             <button
               key={zone.id}
-              role="tab"
-              aria-selected={isSelected}
-              onClick={() => setSelectedZoneId(zone.id)}
+              {...tabProps(zone.id)}
               className={`p-3 rounded-xl border text-left transition-colors cursor-pointer flex flex-col gap-1 ${
                 isSelected
                   ? "bg-card border-accent ring-2 ring-accent/15"

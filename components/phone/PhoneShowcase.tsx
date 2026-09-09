@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
 import {
@@ -13,6 +13,7 @@ import {
 } from "../../lib/phone-showcase";
 import { DURATION, EASE_ENTRANCE } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
+import { useRovingTabs, useStageScale } from "../../hooks/use-device-showcase";
 import { useMotionPreset } from "../../hooks/useMotionPreset";
 import { BODY_H, BODY_W } from "./device";
 import { ChannelMark } from "./marks";
@@ -53,56 +54,11 @@ export function PhoneShowcase() {
   const reduce = useReducedMotionSafe();
   const { enter } = useMotionPreset();
   const [channel, setChannel] = useState<ChannelId>(DEFAULT_CHANNEL);
-  const tabRefs = useRef<Partial<Record<ChannelId, HTMLButtonElement | null>>>({});
 
-  // The device is drawn once at true phone size and scaled as a single transform, so nothing
-  // inside it ever reflows. The outer box reserves the scaled height via aspect-ratio, which is
-  // what keeps cumulative layout shift at zero.
-  const stageRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(1);
-
-  useLayoutEffect(() => {
-    const el = stageRef.current;
-    if (!el) return;
-    const measure = () => setScale(Math.min(1, el.clientWidth / BODY_W));
-    measure();
-    const ro = new ResizeObserver(measure);
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, []);
+  const { stageRef, scale } = useStageScale<HTMLDivElement>(BODY_W);
+  const { move, onKeyDown, tabProps } = useRovingTabs(CHANNEL_ORDER, channel, setChannel);
 
   const index = CHANNEL_ORDER.indexOf(channel);
-
-  const move = useCallback(
-    (delta: number) => {
-      const next = CHANNEL_ORDER[(index + delta + CHANNEL_ORDER.length) % CHANNEL_ORDER.length];
-      setChannel(next);
-      tabRefs.current[next]?.focus();
-    },
-    [index]
-  );
-
-  const onKeyDown = useCallback(
-    (e: React.KeyboardEvent) => {
-      if (e.key === "ArrowRight") {
-        e.preventDefault();
-        move(1);
-      } else if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        move(-1);
-      } else if (e.key === "Home") {
-        e.preventDefault();
-        setChannel(CHANNEL_ORDER[0]);
-        tabRefs.current[CHANNEL_ORDER[0]]?.focus();
-      } else if (e.key === "End") {
-        e.preventDefault();
-        const last = CHANNEL_ORDER[CHANNEL_ORDER.length - 1];
-        setChannel(last);
-        tabRefs.current[last]?.focus();
-      }
-    },
-    [move]
-  );
 
   const Screen = SCREENS[channel];
 
@@ -122,15 +78,9 @@ export function PhoneShowcase() {
           return (
             <button
               key={id}
-              ref={(el) => {
-                tabRefs.current[id] = el;
-              }}
-              role="tab"
+              {...tabProps(id)}
               id={`phone-tab-${id}`}
-              aria-selected={selected}
               aria-controls="phone-screen-panel"
-              tabIndex={selected ? 0 : -1}
-              onClick={() => setChannel(id)}
               className={`shrink-0 inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
                 selected ? "border-accent-solid bg-accent-solid text-on-accent" : "border-line bg-card text-muted hover:text-ink"
               }`}
