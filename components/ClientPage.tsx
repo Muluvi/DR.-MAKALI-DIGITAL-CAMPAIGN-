@@ -20,7 +20,7 @@ import { QuickNavCapsule } from "./QuickNavCapsule";
 import { resolveLegacySectionId, SECTIONS, type TabId } from "../lib/heading-slug";
 import type { SectionItem } from "../lib/section-index";
 
-import { FocusModeToggle, PrintReportGenerator } from "./StrategicAids";
+import { FocusModeToggle, PrintReportGenerator } from "./aids/reading-controls";
 import { SectionNumberMapProvider } from "./markdown/SectionNumberMap";
 
 

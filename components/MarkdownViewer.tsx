@@ -28,17 +28,10 @@ import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
 import { AsciiDiagram } from "./markdown/AsciiDiagram";
 import { ReachArchitecture3D } from "./ReachArchitecture3D";
 import { ReachSplit } from "./ReachSplit";
-import {
-  FlywheelSchematic,
-  MessagingPlayground,
-  CounterMessagingGrid,
-  ToneVoiceSlider,
-  SloganBuilder,
-  SMSFeedbackVisualizer,
-  CommunityScheduler,
-  MediaPlaybackMockup,
-  RadioAircoverDial,
-} from "./StrategicAids";
+import { MediaPlaybackMockup, RadioAircoverDial } from "./aids/broadcast";
+import { FlywheelSchematic } from "./aids/flywheel";
+import { CounterMessagingGrid, MessagingPlayground, SloganBuilder, ToneVoiceSlider } from "./aids/messaging";
+import { CommunityScheduler, SMSFeedbackVisualizer } from "./aids/organising";
 import { PhaseRail } from "./PhaseRail";
 import { PullQuote } from "./markdown/PullQuote";
 import { ClaimCards } from "./markdown/ClaimCards";
