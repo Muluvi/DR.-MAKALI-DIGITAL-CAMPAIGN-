@@ -1,4 +1,5 @@
 import type { Transition, Variants } from "motion/react";
+import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
 
 /**
  * The site's motion system. Everything that animates imports from here.
@@ -42,6 +43,25 @@ export const DURATION = {
   deliberate: 0.62,
 } as const;
 
+/** Public duration scale for new surfaces. Values are seconds, matching Motion transitions. */
+export const durationScale = {
+  instant: 0.15,
+  quick: 0.25,
+  base: 0.4,
+  slow: 0.7,
+  deliberate: 1.1,
+} as const;
+
+export type SpringPreset = Transition & { type: "spring" };
+
+/** Named interaction springs keep gesture feedback consistent across the document. */
+export const springs = {
+  snappy: { type: "spring", stiffness: 420, damping: 32, mass: 0.7 },
+  gentle: { type: "spring", stiffness: 220, damping: 28, mass: 0.9 },
+  bouncy: { type: "spring", stiffness: 300, damping: 18, mass: 0.8 },
+  heavy: { type: "spring", stiffness: 180, damping: 30, mass: 1.2 },
+} satisfies Record<"snappy" | "gentle" | "bouncy" | "heavy", SpringPreset>;
+
 export const STAGGER = {
   /** Tight cascade for short sibling groups. */
   tight: 0.06,
@@ -68,7 +88,7 @@ export const VIEWPORT_TALL = { once: true, amount: 0.15, margin: "-5% 0px" } as 
 export const entrance: Transition = { duration: DURATION.entrance, ease: EASE_ENTRANCE };
 export const deliberate: Transition = { duration: DURATION.deliberate, ease: EASE_ENTRANCE };
 export const micro: Transition = { duration: DURATION.micro, ease: EASE_OUT };
-export const crossfade: Transition = { duration: DURATION.fast, ease: "easeOut" };
+export const crossfade: Transition = { duration: DURATION.fast, ease: EASE_OUT };
 export const disclosure: Transition = { duration: DURATION.medium, ease: EASE_ENTRANCE };
 
 /** Reduced-motion replacement for any of the above: present, but without traversal. */
@@ -109,6 +129,25 @@ export const cascade = (gap: number = STAGGER.tight, delay = 0): Variants => ({
   hidden: {},
   visible: { transition: { staggerChildren: gap, delayChildren: delay } },
 });
+
+/** Standard vocabulary for surfaces that enter from below or scale into focus. */
+export const fadeUp: Variants = riseIn;
+export const scaleIn: Variants = {
+  hidden: { opacity: 0, scale: 0.96 },
+  visible: { opacity: 1, scale: 1, transition: entrance },
+};
+
+export const slideIn: Variants = slideInX();
+
+/** A configurable parent variant for direct-child stagger sequences. */
+export const staggerContainer = (staggerChildren = STAGGER.normal, delayChildren = 0): Variants =>
+  cascade(staggerChildren, delayChildren);
+
+/** Mask-style reveal for headings and bounded editorial labels. */
+export const revealMask: Variants = {
+  hidden: { opacity: 0, clipPath: "inset(0 100% 0 0)" },
+  visible: { opacity: 1, clipPath: "inset(0 0% 0 0)", transition: deliberate },
+};
 
 /** Two faces of one decision — the poll/primary and nomination-path cards. Each axis is a
  *  distinct signature, so §1A and §2 can both flip without reading as a repeat. */
@@ -175,4 +214,9 @@ export function stillVariants(v: Variants): Variants {
 /** Pick between the full and reduced variant set. */
 export function variantsFor(v: Variants, reduce: boolean): Variants {
   return reduce ? stillVariants(v) : v;
+}
+
+/** Hook form for consumers that need the reduced-motion decision at render time. */
+export function useMotionVariants(v: Variants): Variants {
+  return variantsFor(v, useReducedMotionSafe());
 }
