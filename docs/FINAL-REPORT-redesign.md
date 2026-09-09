@@ -1,6 +1,6 @@
 # Final report — motion-driven redesign
 
-Branch `claude/makali-campaign-redesign-z6owop`, 13 commits on top of the Phase 0 audit.
+Branch `claude/makali-campaign-redesign-z6owop`, 21 commits on top of the Phase 0 audit.
 86 files changed, +5,310 / −1,318. Every figure below was measured in this container.
 
 ---
@@ -12,26 +12,30 @@ production build, three runs, median.
 
 | Item | Budget | Phase 0 | Now | |
 |---|---:|---:|---:|:--|
-| **Performance** | ≥ 85 | 45 | **51** | ✗ **misses by 34** |
-| **Accessibility** | ≥ 95 | 92 | **97** | ✓ |
+| **Performance** | ≥ 85 | 45 | **50** | ✗ **misses by 35** |
+| **Accessibility** | ≥ 95 | 92 | **100** | ✓ |
 | **CLS** | < 0.1 | 0.000 | **0.000** | ✓ |
-| **LCP** | < 2.5 s | 6,211 ms | **5,474 ms** | ✗ |
-| **Script transfer** | ≤ 507,029 B | 422,524 B | **441,209 B** | ✓ (+4.4%, ceiling +20%) |
-| First Load JS | ≤ 493 kB | 411 kB | **428 kB** | ✓ |
+| **LCP** | < 2.5 s | 6,211 ms | **5,623 ms** | ✗ |
+| **Script transfer** | ≤ 507,029 B | 422,524 B | **442,274 B** | ✓ (+4.7%, ceiling +20%) |
+| First Load JS | ≤ 493 kB | 411 kB | **429 kB** | ✓ |
 | Best Practices | — | 96 | 96 | — |
-| FCP | — | 3,144 ms | **2,184 ms** | −31% |
-| TBT | — | 1,326 ms | 1,338 ms | flat |
-| Speed Index | — | 4,200 ms | **3,933 ms** | −6% |
-| **Landing document, gzip** | — | 321,403 B | **87,252 B** | **−73%** |
-| **Total page transfer** | — | 819,530 B | **606,406 B** | **−26%** |
+| FCP | — | 3,144 ms | **2,001 ms** | −36% |
+| TBT | — | 1,326 ms | 1,780 ms | +34% |
+| Speed Index | — | 4,200 ms | **3,821 ms** | −9% |
+| **Landing document, gzip** | — | 321,403 B | **90,129 B** | **−72%** |
+| **Total page transfer** | — | 819,530 B | **610,976 B** | **−25%** |
 | **Print: invisible text** | 0 | 28 | **0** | ✓ |
 | **Print: characters emitted** | whole doc | 53,968 (1 of 9) | **399,733** | ✓ |
 | Horizontal overflow, 390px | none | none | **none, all 9 routes** | ✓ |
 
 **Performance misses, and I want to be direct about it.** The transfer problem is solved —
-the landing document is 73% smaller and FCP fell 35%. What remains is CPU: 7.8 s of
-main-thread work and 1.4 s of blocking time, hydrating a large server-rendered tree on a
-throttled mobile CPU. LCP is bound by that, not by the network.
+the landing document is 72% smaller and FCP fell 36%. What remains is CPU: 8.4 s of
+main-thread work and 1.8 s of blocking time, on a throttled mobile CPU. LCP is bound by that,
+not by the network. Tracing it rather than guessing at it changed the diagnosis: of that
+main-thread time, style and layout is 3.9 s and script evaluation only 1.9 s — the document's
+cost is recalculating style over 4,907 render objects (690 SVG paths among them), not running
+JavaScript. That is the shape of the visual repertoire the brief asks for, and I do not think
+it reaches 85 without cutting it.
 
 I tried the obvious fix and it made things worse, twice. `next/dynamic` on the five landing
 widgets with `ssr: false` took Performance 52 → 41 and CLS 0.000 → 0.208, because a skeleton
@@ -57,6 +61,7 @@ hydration cost around; it does not remove it. See §g.
 | `charts/FeaturePhoneSpecimen` | §4.3.3's USSD menu on a 2G handset with simulated keypad timing; §4.3.2's SMS with a live 160-char count; the four-stage approval chain in place of unreviewed vernacular | `data/ussd-specimen.ts`, §4.3.2–3, §3.6.3 |
 | `markdown/MatrixMarks` | The Analytical Matrix's chart view, each label sharing a `layoutId` with its table row | whichever table it renders |
 | `visual/AnimatedNumber` | Any counting figure, with width reserved and the truth always accessible | — |
+| `charts/TierComparisonCarousel` | §9.2.6's nine attributes as one swipeable card per tier, phone only | `data/tier-matrix.ts`, §9.2.6 |
 
 Four data modules were added so no figure is typed beside the thing that draws it:
 `nomination-contest.ts`, `kpis.ts`, `budget-tiers.ts`, `benchmarks.ts`, `ussd-specimen.ts`. Derived values —
@@ -163,22 +168,33 @@ native mark view because a shared-element transition needs both ends under Motio
 The feature-phone specimen is built, with the vernacular SMS deliberately absent behind §3.6.3's
 four-stage approval chain rather than invented.
 
-**Phase 3 — now substantially delivered.** The navigator carries all nine sections with reading
-time and Here/Read/New state, and the progress rail is tappable with full keyboard operation.
-Still outstanding: swipeable carousels beyond the tier selector and the §9.2.6 comparison matrix
-(that table stacks into cards below 768px rather than becoming a carousel), and the mini-
-scorecard's condense-on-scroll is inherited from the dock rather than being its own behaviour.
+**Phase 3 — delivered.** The navigator carries all nine sections with reading time and
+Here/Read/New state, the progress rail is tappable with full keyboard operation, and §9.2.6's
+tier matrix is now a swipeable snap carousel on a phone — one card per tier, in the section's
+own column order, with the table left in place at every width as the accessible equivalent.
+The mini-scorecard's condense-on-scroll is still inherited from the dock rather than being its
+own behaviour; that is the one Phase 3 item left.
 
-**Performance ≥ 85.** Missed at 51. Diagnosed, not hand-waved: the remaining cost is hydration
-CPU, and the two obvious code-splitting approaches both measured worse and were reverted. The
-credible next step is reducing what hydrates — converting presentational `"use client"`
-components to server components, of which there are around thirty candidates — which is a
-distinct piece of work I have not started.
+**Performance ≥ 85.** Missed at 50. Diagnosed by trace, not hand-waved. The two obvious
+code-splitting approaches both measured worse and were reverted; converting the text components
+to server components removed hydration from the large majority of text nodes and moved the
+score by less than run-to-run noise, because script evaluation was never the dominant cost.
+Style and layout is, and the tracing did find two real defects behind part of it, both fixed:
+`--scroll-skew` was written onto `<html>` on every scroll frame and read by nothing, and the
+custom cursor wrote five inherited custom properties onto `<html>` on every pointer move. An
+inherited custom property set on the root invalidates the computed style of every element
+below it, so each of those frames was buying a full-document recalculation of ~5,800 elements.
+What is left after that is the genuine cost of laying out this document, and I do not have a
+route to 85 that keeps the visual repertoire the brief specifies.
 
-**One accessibility node.** `target-size`, one node. Score is 97 against a 95 gate. Chasing it
-was worth it anyway: it led to an unlayered `button, input, select { min-height: 42px }` in a
-mobile media query that beat every Tailwind utility in the codebase and silently held the whole
-interface 2px under the floor. Every button now measures ≥ 44px across four routes.
+**Accessibility 100.** The one remaining node was `target-size`, and chasing it was worth it
+twice over. The first time it led to an unlayered `button, input, select { min-height: 42px }`
+in a mobile media query that beat every Tailwind utility in the codebase and silently held the
+whole interface 2px under the floor. The second time it was not a size at all: the quick-nav
+capsule floated at a hard-coded `bottom-20`, a guess at the mobile dock's height, and the dock
+is 190px tall — so the capsule was sitting exactly on top of the dock's own "Back to top"
+button on every phone viewport. The dock now publishes its measured height and the capsule
+reads it.
 
 **Things found by measuring rather than assuming, worth recording.** Four defects that had
 nothing to do with the work that surfaced them: `dark:` was bound to the OS setting rather than
@@ -205,7 +221,7 @@ fixed and each is described in its own commit.
   list, always in the DOM, with the graphic `aria-hidden` where the two would duplicate.
 - **(e) Print verified** in a real print preview: 0 invisible text elements, whole document.
 - **(f) `bun run build` passes** with all six guards, zero TypeScript errors, zero ESLint errors.
-- **(g) JS budget holds**: 439,037 B against a 507,029 B ceiling.
+- **(g) JS budget holds**: 442,274 B against a 507,029 B ceiling.
 
 **Assumption stated:** the JS budget is Lighthouse's `resourceType: Script` transfer sum on the
 mobile preset, as recorded in Phase 0 and unchallenged since.
