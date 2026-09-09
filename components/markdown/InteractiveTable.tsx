@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useId, useState, useEffect } from "react";
 import { Search, Sparkles, ArrowUpDown, BarChart3, Table } from "lucide-react";
+import { LayoutGroup, motion } from "motion/react";
 import { LazyMount } from "../LazyMount";
 import { SourceLine, detectSources } from "./SourceLine";
-import TableChart from "./TableChart";
+import { MatrixMarks } from "./MatrixMarks";
 import ModelVariablesDrawer from "./ModelVariablesDrawer";
 import { useIsMobile, useMounted } from "../../hooks/use-mobile";
 
@@ -40,6 +41,9 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
   const [sortColumn, setSortColumn] = useState<number | null>(null);
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const [showChart, setShowChart] = useState(false);
+  // Scopes the shared-element ids to this matrix, so two matrices on one page cannot claim each
+  // other's rows when both are toggled.
+  const matrixId = useId();
   const [showAllRows, setShowAllRows] = useState(false);
 
   const childrenArray = React.Children.toArray(children);
@@ -103,22 +107,52 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
   const isCapped = !showAllRows && !searchTerm && filteredRows.length > ROW_PREVIEW + 2;
   const visibleRows = isCapped ? filteredRows.slice(0, ROW_PREVIEW) : filteredRows;
 
-  // Analytical stats automatic detector
+  /**
+   * A column worth charting, and the reason this is strict.
+   *
+   * The old test stripped every non-digit and called whatever survived a number. So a column
+   * reading "Week 1", "Week 2", "Week 1, 100%", "15,000", "400,000" was charted as 1, 2, 1,
+   * 15000, 400000 — on one axis, against a maximum of 400,000, which drew "Week 1" as a bar
+   * 0.00025% wide. The same arithmetic fed the summary strip, so it was reporting an average and
+   * a total of a column that has no average or total.
+   *
+   * A column now qualifies only if EVERY cell in it is a bare figure — an optional currency or
+   * comparator, digits, an optional unit — with no words wrapped around it, and only if the
+   * whole column shares one unit. "15,000" and "400,000" qualify together. "Week 1" does not
+   * qualify at all, and "Week 1, 100%" carries two numbers so it never could.
+   *
+   * Where nothing qualifies the chart toggle and the summary strip simply do not appear. A table
+   * that cannot honestly be charted is a table, and that is a complete answer.
+   */
   const numericColumnIndex = React.useMemo(() => {
     if (ths.length === 0 || parsedRows.length === 0) return -1;
-    for (let colIdx = 0; colIdx < ths.length; colIdx++) {
-      let numericCount = 0;
-      parsedRows.forEach(row => {
-        if (row && row[colIdx]) {
-          const text = getDeepText(row[colIdx]);
-          if (text && !isNaN(parseFloat(text.replace(/[^0-9.-]/g, "")))) {
-            numericCount++;
-          }
-        }
-      });
-      if (numericCount > parsedRows.length * 0.6) {
-        return colIdx;
-      }
+
+    // Optional currency, optional comparator/sign, digits with separators, optional unit.
+    const PURE_FIGURE = /^(?:KSh|Ksh|USD|US\$|\$|€|£)?\s*[≥≤<>+\u2212-]?\s*\d[\d,\s]*(?:\.\d+)?\s*(?:%|bn|m|k|pts?|votes?|wards?|stations?|captains?)?$/i;
+    const unitOf = (t: string) =>
+      (t.match(/(%|bn|m|k|pts?|votes?|wards?|stations?|captains?)\s*$/i)?.[1] ?? "").toLowerCase();
+
+    // Column 0 is the label every mark is drawn against, so it is never also the measure.
+    // Charting it plots each row against itself.
+    for (let colIdx = 1; colIdx < ths.length; colIdx++) {
+      const texts = parsedRows
+        .map((row) => (row && row[colIdx] ? getDeepText(row[colIdx]).trim() : ""))
+        .filter((t) => t.length > 0);
+
+      // A mostly-empty column is not a measurement either.
+      if (texts.length < Math.max(2, parsedRows.length * 0.6)) continue;
+      if (!texts.every((t) => PURE_FIGURE.test(t))) continue;
+
+      const units = new Set(texts.map(unitOf));
+      if (units.size > 1) continue;
+
+      // A plain 1, 2, 3 … run is a rank or a row number, not a quantity. The ward register's
+      // Rank column passed every other test and produced a staircase of bars measuring nothing.
+      const nums = texts.map((t) => Number.parseFloat(t.replace(/[^0-9.-]/g, "")));
+      const isSequence = nums.every((n, i) => n === i + 1);
+      if (isSequence) continue;
+
+      return colIdx;
     }
     return -1;
   }, [ths, parsedRows]);
@@ -156,17 +190,39 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
     };
   }, [filteredRows, numericColumnIndex, ths]);
 
+  /**
+   * Which column names the marks.
+   *
+   * Not always the first one. The ward register opens with Rank, so every bar was labelled "1",
+   * "2", "3" against voter counts that were themselves correct — a chart of the right numbers
+   * with the wrong names on them. The label is the first column that is genuinely text: not the
+   * measure, and not a bare figure.
+   */
+  const labelColumnIndex = React.useMemo(() => {
+    const BARE_FIGURE = /^[^A-Za-z]*\d[\d,.\s]*[^A-Za-z]*$/;
+    for (let colIdx = 0; colIdx < ths.length; colIdx++) {
+      if (colIdx === numericColumnIndex) continue;
+      const texts = parsedRows
+        .map((row) => (row && row[colIdx] ? getDeepText(row[colIdx]).trim() : ""))
+        .filter(Boolean);
+      if (texts.length === 0) continue;
+      if (texts.every((t) => BARE_FIGURE.test(t))) continue;
+      return colIdx;
+    }
+    return 0;
+  }, [ths, parsedRows, numericColumnIndex]);
+
   const chartData = React.useMemo(() => {
     if (numericColumnIndex === -1) return [];
     return filteredRows.map((row) => {
-      const labelCell = row[0];
+      const labelCell = row[labelColumnIndex];
       const valueCell = row[numericColumnIndex];
       const name = getDeepText(labelCell) || "Item";
       const valText = getDeepText(valueCell);
       const value = parseFloat(valText.replace(/[^0-9.-]/g, "")) || 0;
       return { name, value, formatted: valText };
     }).filter(item => item.name && !isNaN(item.value));
-  }, [filteredRows, numericColumnIndex]);
+  }, [filteredRows, numericColumnIndex, labelColumnIndex]);
 
   const tableSources = React.useMemo(() => {
     const allText = [...ths, ...rowElements].map(getDeepText).join(" ");
@@ -194,7 +250,9 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <>
+    // LayoutGroup pairs the row labels with the marks they become. Without it each layoutId is
+    // matched globally, and two matrices open on the same page would trade rows.
+    <LayoutGroup id={matrixId}>
       <div className="border-y sm:border border-line/40 sm:rounded-xl my-5 overflow-hidden bg-card/30">
       {/* Interactive Controls & Analytics Header */}
       <div className="print:hidden p-2.5 sm:p-3.5 border-b border-line/40 bg-paper/40 flex flex-wrap items-center justify-between gap-2">
@@ -259,14 +317,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
 
       {/* Chart View (if toggle is active and data is available) */}
       {showChart && chartData.length > 0 ? (
-        <div className="p-3 sm:p-5 bg-card/60 border-t border-line/30">
-          <LazyMount minHeight={240}>
-            <TableChart chartData={chartData} statsLabel={stats?.label} />
-          </LazyMount>
-          <div className="mt-3 text-center t-micro font-semibold text-muted uppercase tracking-wider">
-            Interactive analytical projection of {stats?.label || "metrics"}
-          </div>
-        </div>
+        <MatrixMarks data={chartData} statsLabel={stats?.label} idPrefix={matrixId} />
       ) : (
         <div className="w-full">
           {/* If on mobile viewport, render only the card-stacking view to avoid dual DOM bloat */}
@@ -283,7 +334,9 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                   >
                     {/* Lead cell rendered as card header */}
                     <div className="font-bold text-ink t-small pb-1.5 border-b border-line/30 flex items-center justify-between">
-                      <div className="min-w-0 break-words">{primaryCell ? primaryCell.props?.children : null}</div>
+                      <motion.div layoutId={`${matrixId}-label-${rIdx}`} className="min-w-0 break-words">
+                        {primaryCell ? primaryCell.props?.children : null}
+                      </motion.div>
                       {ths[0] && (
                         <span className="t-micro font-mono uppercase tracking-wider text-muted shrink-0 ml-2" aria-hidden="true">
                           #{rIdx + 1}
@@ -393,6 +446,6 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
       )}
       <SourceLine sources={tableSources} />
       </div>
-    </>
+    </LayoutGroup>
   );
 }
