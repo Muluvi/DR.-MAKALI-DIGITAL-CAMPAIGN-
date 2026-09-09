@@ -15,17 +15,17 @@ production build, three runs, median.
 | **Performance** | ≥ 85 | 45 | **51** | ✗ **misses by 34** |
 | **Accessibility** | ≥ 95 | 92 | **97** | ✓ |
 | **CLS** | < 0.1 | 0.000 | **0.000** | ✓ |
-| **LCP** | < 2.5 s | 6,211 ms | **5,500 ms** | ✗ |
-| **Script transfer** | ≤ 507,029 B | 422,524 B | **439,037 B** | ✓ (+3.9%, ceiling +20%) |
-| First Load JS | ≤ 493 kB | 411 kB | **425 kB** | ✓ |
+| **LCP** | < 2.5 s | 6,211 ms | **5,474 ms** | ✗ |
+| **Script transfer** | ≤ 507,029 B | 422,524 B | **441,209 B** | ✓ (+4.4%, ceiling +20%) |
+| First Load JS | ≤ 493 kB | 411 kB | **428 kB** | ✓ |
 | Best Practices | — | 96 | 96 | — |
-| FCP | — | 3,144 ms | **2,044 ms** | −35% |
-| TBT | — | 1,326 ms | 1,428 ms | worse |
-| Speed Index | — | 4,200 ms | **3,922 ms** | −7% |
-| **Landing document, gzip** | — | 321,403 B | **87,529 B** | **−73%** |
-| **Total page transfer** | — | 819,530 B | **604,851 B** | **−26%** |
+| FCP | — | 3,144 ms | **2,184 ms** | −31% |
+| TBT | — | 1,326 ms | 1,338 ms | flat |
+| Speed Index | — | 4,200 ms | **3,933 ms** | −6% |
+| **Landing document, gzip** | — | 321,403 B | **87,252 B** | **−73%** |
+| **Total page transfer** | — | 819,530 B | **606,406 B** | **−26%** |
 | **Print: invisible text** | 0 | 28 | **0** | ✓ |
-| **Print: characters emitted** | whole doc | 53,968 (1 of 9) | **399,873** | ✓ |
+| **Print: characters emitted** | whole doc | 53,968 (1 of 9) | **399,733** | ✓ |
 | Horizontal overflow, 390px | none | none | **none, all 9 routes** | ✓ |
 
 **Performance misses, and I want to be direct about it.** The transfer problem is solved —
@@ -54,10 +54,12 @@ hydration cost around; it does not remove it. See §g.
 | `charts/CeilingMeter` | KSh97.56m as one bar with the three tiers as bands inside it | `data/budget-tiers.ts`, IEBC Gazette 12251 |
 | `charts/BenchmarkLadder` | Five §6.4.4 targets against their industry bands on one shared axis | `data/benchmarks.ts`, §6.4.4 |
 | `MiniScorecard` | Deficit · ceiling · vote threshold, in the dock on every section | derived from the three data modules |
+| `charts/FeaturePhoneSpecimen` | §4.3.3's USSD menu on a 2G handset with simulated keypad timing; §4.3.2's SMS with a live 160-char count; the four-stage approval chain in place of unreviewed vernacular | `data/ussd-specimen.ts`, §4.3.2–3, §3.6.3 |
+| `markdown/MatrixMarks` | The Analytical Matrix's chart view, each label sharing a `layoutId` with its table row | whichever table it renders |
 | `visual/AnimatedNumber` | Any counting figure, with width reserved and the truth always accessible | — |
 
 Four data modules were added so no figure is typed beside the thing that draws it:
-`nomination-contest.ts`, `kpis.ts`, `budget-tiers.ts`, `benchmarks.ts`. Derived values —
+`nomination-contest.ts`, `kpis.ts`, `budget-tiers.ts`, `benchmarks.ts`, `ussd-specimen.ts`. Derived values —
 every deficit, every fraction — are computed from the published figures rather than restated.
 
 ---
@@ -70,11 +72,11 @@ every deficit, every fraction — are computed from the published figures rather
 | **(2) What we know** | OfflineWaterline · VoteFunnel · WardCartogram + register stream · PathTo200k · ConstituencyWeight · ResourceEnvelope · ElectoralTimeline · FiscalAudit · GeographicZoneMatrix · PhoneShowcase · 12 more |
 | **(3) What we will do** | EconomistGovernorThesis · StrategicPillarsMatrix · SloganBuilder · MessagingPlayground · PersuasionFramingMatrix · DataSecurityEthicsCharter · PublicServiceDeliveryTracker |
 | **(4A) What we publish** | CommunityScheduler · MediaPlaybackMockup · MediaRadioLandscapeCard · RadioAircoverDial |
-| **(4B) On the ground** | TerminalShowcase · FlywheelSchematic · ReachSplit · SMSFeedbackVisualizer |
+| **(4B) On the ground** | **FeaturePhoneSpecimen** · TerminalShowcase · FlywheelSchematic · ReachSplit · SMSFeedbackVisualizer |
 | **(4C) Defending** | CounterMessagingGrid · CrisisWarRoomMatrix |
 | **(4D) What it runs on** | **BenchmarkLadder** — this section had nothing before |
 | **(4E) Who does the work** | CampaignOrgChart |
-| **(5) Delivery and proof** | PhaseRail · KpiPhaseBlock |
+| **(5) Delivery and proof** | PhaseRail (sticky pane + horizontal track) · KpiPhaseBlock |
 
 `visual-coverage` reports all 262 sections covered, 41 with a bespoke visualisation (was 39).
 
@@ -98,6 +100,10 @@ in the navigator regardless. Was 36 before this pass. Counters: 4 of 4 correct, 
 | BenchmarkLadder | Bands and markers final. |
 | MiniScorecard | Inherits the dock, which stays put under the preference. |
 | Section crossfade / LazySection | No entrance at all; content is in the HTML. |
+| FeaturePhoneSpecimen | The USSD session renders at its final screen; keypad presses do not animate. |
+| PhaseRail | The sticky pane is not sticky, and the rail is drawn complete with all five phases visible. |
+| MatrixMarks | Layout animation suppressed; marks appear at their true widths. |
+| Progress rail | Jumps are instant — `scroll-behavior: smooth` is already disabled by the same stylesheet. |
 | Marquees, ambient loops | Do not run. Zero running animations measured. |
 | Press and focus states | **Kept**, shortened to 90 ms. A button that stops responding is a bug. |
 
@@ -150,21 +156,18 @@ hand-drawing. Per the brief's own fallback clause the existing tile cartogram sh
 "land is not votes" argument survives in weaker form — a cartogram states it, the morph would
 have proved it. **Unblocked by committing a verified, attributable GeoJSON to `data/`.**
 
-**Phase 2, item 6 — sticky scrollytelling timeline.** Not built. The existing `PhaseRail` and
-the four-stage Spatial Strategy Command still carry the phased plan.
+**Phase 2, items 6, 9 and 11 — now delivered.** The phased plan gained a sticky
+active-phase pane and a horizontal snap track below 768px, built into the existing `PhaseRail`
+rather than beside it. The Analytical Matrix now morphs rows into marks via `layoutId`, on a
+native mark view because a shared-element transition needs both ends under Motion's control.
+The feature-phone specimen is built, with the vernacular SMS deliberately absent behind §3.6.3's
+four-stage approval chain rather than invented.
 
-**Phase 2, item 9 — `layoutId` on the Analytical Matrix.** Not built. The chart/table switcher
-works and already renders one variant at a time, so this was a refinement rather than a defect.
-
-**Phase 2, item 11 — the feature-phone USSD specimen.** Not built. `PhoneShowcase` already
-carries a USSD screen; the animated 2G handset with keypad timing, the 160-character SMS
-counter and the scoped Kikamba/Kiswahili/English toggle are not there.
-
-**Phase 3 — partially.** Delivered: the mini-scorecard, the 44px tap-target floor, diagram
-tables that stack instead of scrolling, first-paint choreography, and the preserved Focus /
-Zero Chrome / Expand All / Theme controls. Not delivered: the bottom-sheet navigator rebuild
-with per-section reading time and completion state (the existing `MobileTOCModal` is retained),
-a tappable progress rail, and swipeable carousels beyond the tier selector.
+**Phase 3 — now substantially delivered.** The navigator carries all nine sections with reading
+time and Here/Read/New state, and the progress rail is tappable with full keyboard operation.
+Still outstanding: swipeable carousels beyond the tier selector and the §9.2.6 comparison matrix
+(that table stacks into cards below 768px rather than becoming a carousel), and the mini-
+scorecard's condense-on-scroll is inherited from the dock rather than being its own behaviour.
 
 **Performance ≥ 85.** Missed at 51. Diagnosed, not hand-waved: the remaining cost is hydration
 CPU, and the two obvious code-splitting approaches both measured worse and were reverted. The
@@ -172,9 +175,18 @@ credible next step is reducing what hydrates — converting presentational `"use
 components to server components, of which there are around thirty candidates — which is a
 distinct piece of work I have not started.
 
-**One accessibility node.** `target-size` on a single dock button. Measured directly, no two
-dock buttons intersect; WCAG 2.2 counts clear space as well as size and the row spacing is
-still short of what axe wants. Score is 97 against a 95 gate.
+**One accessibility node.** `target-size`, one node. Score is 97 against a 95 gate. Chasing it
+was worth it anyway: it led to an unlayered `button, input, select { min-height: 42px }` in a
+mobile media query that beat every Tailwind utility in the codebase and silently held the whole
+interface 2px under the floor. Every button now measures ≥ 44px across four routes.
+
+**Things found by measuring rather than assuming, worth recording.** Four defects that had
+nothing to do with the work that surfaced them: `dark:` was bound to the OS setting rather than
+this site's theme class, so nine components rendered light-theme colours on a dark ground; the
+Analytical Matrix's column detector stripped non-digits and charted "Week 1" as 1 against
+400,000; a 1, 2, 3 rank column was charted as a quantity; and chart labels came from column 0
+whatever column 0 was, so the ward register's bars were labelled "1", "2", "3". All four are
+fixed and each is described in its own commit.
 
 ---
 
