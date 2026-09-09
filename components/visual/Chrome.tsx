@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useFinePointer, useReducedMotion } from "../../hooks/use-media-query";
 
 /**
@@ -95,12 +95,22 @@ export function CustomCursor() {
   const finePointer = useFinePointer();
   const reduce = useReducedMotion();
   const enabled = finePointer && !reduce;
+  // The position properties are written onto the two cursor nodes, not onto <html>. Custom
+  // properties inherit, so setting them on the root invalidates the computed style of every
+  // element in the document — which meant a full-document style recalculation on every pointer
+  // move, to move two 7px dots. Written on the nodes themselves, the invalidation is those nodes.
+  const dotRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!enabled) return;
-    document.body.classList.add("fx-cursor-host");
 
     const root = document.documentElement;
+    const dot = dotRef.current;
+    const ring = ringRef.current;
+    if (!dot || !ring) return;
+
+    document.body.classList.add("fx-cursor-host");
     let lagX = window.innerWidth / 2;
     let lagY = window.innerHeight / 2;
     let x = lagX;
@@ -114,12 +124,12 @@ export function CustomCursor() {
       if (root.dataset.cursorLive !== "true") root.dataset.cursorLive = "true";
       x = e.clientX;
       y = e.clientY;
-      root.style.setProperty("--cx", `${x}px`);
-      root.style.setProperty("--cy", `${y}px`);
+      dot.style.setProperty("--cx", `${x}px`);
+      dot.style.setProperty("--cy", `${y}px`);
 
       // The ring grows over anything clickable, so the cursor itself reports affordance.
       const overControl = (e.target as Element | null)?.closest?.("a, button, [role='button'], input, select, textarea");
-      root.style.setProperty("--c-scale", overControl ? "1.55" : "1"); // verify-figures-ignore — cursor ring scale
+      ring.style.setProperty("--c-scale", overControl ? "1.55" : "1"); // verify-figures-ignore — cursor ring scale
     };
 
     const follow = () => {
@@ -127,8 +137,8 @@ export function CustomCursor() {
       // like the ring is broken.
       lagX += (x - lagX) * 0.18;
       lagY += (y - lagY) * 0.18;
-      root.style.setProperty("--cx-lag", `${lagX}px`);
-      root.style.setProperty("--cy-lag", `${lagY}px`);
+      ring.style.setProperty("--cx-lag", `${lagX}px`);
+      ring.style.setProperty("--cy-lag", `${lagY}px`);
       frame = requestAnimationFrame(follow);
     };
 
@@ -146,8 +156,8 @@ export function CustomCursor() {
   if (!enabled) return null;
   return (
     <>
-      <div className="fx-cursor-dot" aria-hidden="true" />
-      <div className="fx-cursor-ring" aria-hidden="true" />
+      <div ref={dotRef} className="fx-cursor-dot" aria-hidden="true" />
+      <div ref={ringRef} className="fx-cursor-ring" aria-hidden="true" />
     </>
   );
 }

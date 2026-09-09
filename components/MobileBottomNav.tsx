@@ -30,6 +30,26 @@ export function MobileBottomNav({
   onToggleZeroChrome
 }: MobileBottomNavProps) {
   const stripRef = useRef<HTMLDivElement>(null);
+  const dockRef = useRef<HTMLDivElement>(null);
+
+  // The dock is 190px tall on a phone — two rows of tooling above the section strip — and the
+  // quick-nav capsule floats above it. The capsule used to guess that height at 5rem and landed
+  // squarely on the dock's own "Back to top" button, which is the same mistake the mini
+  // scorecard made before it moved inside. A guess about another fixed element's height is
+  // always wrong eventually, so publish the measured height instead and let the capsule read it.
+  useEffect(() => {
+    const el = dockRef.current;
+    const root = document.documentElement;
+    if (!el) return;
+    const publish = () => root.style.setProperty("--dock-h", `${Math.round(el.getBoundingClientRect().height)}px`);
+    publish();
+    const ro = new ResizeObserver(publish);
+    ro.observe(el);
+    return () => {
+      ro.disconnect();
+      root.style.removeProperty("--dock-h");
+    };
+  }, []);
   // Shared with the quick-nav capsule and the top chrome, so every floating element withdraws
   // and returns together rather than each running its own scroll listener.
   const chromeVisible = useChromeVisible();
@@ -92,7 +112,7 @@ export function MobileBottomNav({
           shouldHide ? "translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100"
         }`}
       >
-        <div className="bottom-dock fx-glass border-t border-line shadow-2xl px-2 pt-1.5 pb-[max(0.75rem,env(safe-area-inset-bottom,0.75rem))]">
+        <div ref={dockRef} className="bottom-dock fx-glass border-t border-line shadow-2xl px-2 pt-1.5 pb-[max(0.75rem,env(safe-area-inset-bottom,0.75rem))]">
           {/* The three figures the document turns on, as the dock's first row.
               They were briefly a separate floating strip and landed on top of this one — a
               fixed element positioned above another fixed element is a guess about the second

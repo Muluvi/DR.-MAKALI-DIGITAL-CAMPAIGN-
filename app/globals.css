@@ -1670,6 +1670,15 @@ html {
  * Chrome that overlays content is opaque enough to read against anything. The blur stays, so it
  * still reads as a surface above the page rather than a slab cut out of it.
  */
+/* The mobile dock's measured height, published by MobileBottomNav's ResizeObserver and read by
+   the quick-nav capsule so it floats clear of the dock instead of guessing at its height. The
+   default here is the height the dock actually renders at on a phone, so the capsule's first
+   paint is already in the right place and the measurement only corrects for the safe-area inset
+   and for a tooling row that wraps. Without it the capsule paints 5rem up, then moves. */
+:root {
+  --dock-h: 11.875rem;
+}
+
 .bottom-dock.fx-glass,
 .dark .bottom-dock.fx-glass {
   background: color-mix(in srgb, var(--color-card) 96%, transparent);

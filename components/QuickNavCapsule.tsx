@@ -52,7 +52,7 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
   if (isZeroChrome) return null;
 
   return (
-    <div className={`fixed bottom-20 lg:bottom-6 right-4 sm:right-6 z-40 print:hidden flex flex-col items-end gap-2.5 select-none transition-all duration-300 ease-out motion-reduce:transition-none ${
+    <div className={`fixed bottom-[calc(var(--dock-h,5rem)+0.75rem)] lg:bottom-6 right-4 sm:right-6 z-40 print:hidden flex flex-col items-end gap-2.5 select-none transition-all duration-300 ease-out motion-reduce:transition-none ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6 pointer-events-none"
       }`}>
       <AnimatePresence>
@@ -113,13 +113,17 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
         {/* Kept mounted and revealed, rather than mounted on crossing the threshold. A control
             inserted into the row as you scroll shifts the Quick Jump button sideways under the
             reader's thumb; one that fades in from `.fx-backtotop` does not. The 44px square is
-            main's, and it is the platform minimum. */}
+            main's, and it is the platform minimum.
+
+            Desktop only: the bottom dock carries its own "Back to top" on a phone, and two
+            identical controls a couple of centimetres apart is one of them too many — the
+            second is thumb space the section strip can use. */}
         <button
           onClick={scrollToTop}
           data-visible={showScrollTop}
           aria-hidden={!showScrollTop}
           tabIndex={showScrollTop ? 0 : -1}
-          className="fx-backtotop fx-glass fx-press fx-focus w-11 h-11 rounded-full shadow-lg text-muted hover:text-accent hover:border-accent cursor-pointer flex items-center justify-center"
+          className="fx-backtotop fx-glass fx-press fx-focus w-11 h-11 rounded-full shadow-lg text-muted hover:text-accent hover:border-accent cursor-pointer hidden lg:flex items-center justify-center"
           aria-label="Scroll to top"
           title="Scroll to top"
         >

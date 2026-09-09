@@ -9,6 +9,7 @@ import { MarkdownParagraph, MarkdownListItem } from "./markdown/MarkdownTextComp
 import { SectionHeading } from "./markdown/SectionHeading";
 import { ClaimBadge } from "./markdown/ClaimBadge";
 import { HighlightedText } from "./markdown/HighlightedText";
+import { hasHighlight } from "../lib/highlight-patterns";
 import { CompetitiveQuadrantBlock } from "./markdown/CompetitiveQuadrantBlock";
 import { ResourceEnvelopeBlock } from "./markdown/ResourceEnvelopeBlock";
 import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
@@ -481,7 +482,11 @@ function buildComponents(tabId: TabId): Components {
             strong: ({ children }) => (
               <strong>
                 {React.Children.map(children, (child) =>
-                  typeof child === "string" ? <HighlightedText text={child} tabId={tabId} /> : child
+                  typeof child === "string" && hasHighlight(child) ? (
+                    <HighlightedText text={child} tabId={tabId} />
+                  ) : (
+                    child
+                  )
                 )}
               </strong>
             ),
