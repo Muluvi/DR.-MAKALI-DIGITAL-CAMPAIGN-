@@ -14,7 +14,7 @@ import { CompetitiveQuadrantBlock } from "./markdown/CompetitiveQuadrantBlock";
 import { ResourceEnvelopeBlock } from "./markdown/ResourceEnvelopeBlock";
 import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
 import { MizaniSlopeBlock } from "./markdown/MizaniSlopeBlock";
-import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
+import { WardRegisterFigure } from "./markdown/WardRegisterFigure";
 import { KpiArchitecture } from "./charts/KpiArchitecture";
 import { BenchmarkLadder } from "./charts/BenchmarkLadder";
 import { CeilingMeter } from "./charts/CeilingMeter";
@@ -36,8 +36,6 @@ import { PhaseRail } from "./PhaseRail";
 import { PullQuote } from "./markdown/PullQuote";
 import { ClaimCards } from "./markdown/ClaimCards";
 import { DisputedFigure } from "./markdown/DisputedFigure";
-import { ElectoralHistoryPanel } from "./markdown/ElectoralHistoryPanel";
-import { FiscalAuditPanel } from "./markdown/FiscalAuditPanel";
 import { DroughtFoodSecurityPanel } from "./markdown/DroughtFoodSecurityPanel";
 import { MuiBasinPanel } from "./markdown/MuiBasinPanel";
 import { CompetitorFieldPanel } from "./markdown/CompetitorFieldPanel";
@@ -51,10 +49,8 @@ import { SectionPortrait } from "./markdown/SectionPortrait";
 import { commitmentFieldKey, isCommitmentFieldList, type CommitmentField } from "../lib/commitment-fields";
 import { ComplianceCeilingPanel } from "./markdown/ComplianceCeilingPanel";
 import { MediaOwnershipBlock } from "./markdown/MediaOwnershipBlock";
-import { PathTo200kBlock } from "./markdown/PathTo200kBlock";
-import { ConstituencyWeightBlock } from "./markdown/ConstituencyWeightBlock";
-import { ElectoralTimelineBlock } from "./markdown/ElectoralTimelineBlock";
-import { FiscalAuditChartBlock } from "./markdown/FiscalAuditChartBlock";
+import { ElectoralRecordFigure } from "./markdown/ElectoralRecordFigure";
+import { FiscalExposureFigure } from "./markdown/FiscalExposureFigure";
 import { ConstitutionalBranchNavigator } from "./markdown/ConstitutionalBranchNavigator";
 import { PathTo200kCalculator } from "./markdown/PathTo200kCalculator";
 import { RecognitionDeficitOverlay } from "./markdown/RecognitionDeficitOverlay";
@@ -218,13 +214,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
       fiscal discipline, and budget oversight.
     </SectionPortrait>
   ),
-  "evidence-sec-1-2-3": (
-    <>
-      <WardCartogramBlock />
-      <PathTo200kBlock />
-      <ConstituencyWeightBlock />
-    </>
-  ),
+  "evidence-sec-1-2-3": <WardRegisterFigure />,
   "evidence-sec-1-2-4": <ResourceEnvelopeBlock />,
   "evidence-sec-1-2-5": (
     <>
@@ -232,18 +222,8 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
       <DisputedFigure entry={kituiCentralPopulationDispute} />
     </>
   ),
-  "evidence-sec-1-2-6": (
-    <>
-      <ElectoralHistoryPanel />
-      <ElectoralTimelineBlock />
-    </>
-  ),
-  "evidence-sec-1-2-7": (
-    <>
-      <FiscalAuditPanel />
-      <FiscalAuditChartBlock />
-    </>
-  ),
+  "evidence-sec-1-2-6": <ElectoralRecordFigure />,
+  "evidence-sec-1-2-7": <FiscalExposureFigure />,
   "evidence-sec-1-2-8": <DroughtFoodSecurityPanel />,
   "evidence-sec-1-2-9": <MuiBasinPanel />,
   "evidence-sec-1-2-10": <CompetitorFieldPanel />,

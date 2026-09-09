@@ -1,27 +1,63 @@
+"use client";
+
+import { FigureTabs } from "./FigureTabs";
 import { ELECTORAL_HISTORY } from "../../data/electoral-history";
 import { DISPUTED_FIGURES } from "../../data/disputed-figures";
 import { COURT_OF_APPEAL_2018, IEBC_2022_RESULTS, MEDIA_2022_DECLARATION } from "../../data/sources";
 import { TierBadge } from "./TierBadge";
 import { DisputedFigure } from "./DisputedFigure";
-import { FigureBlock } from "./FigureBlock";
+import dynamic from "next/dynamic";
+import { ChartFallback } from "../ChartFallback";
+import { LazyMount } from "../LazyMount";
+import type { Provenance } from "../../data/types";
+import type { TimelinePoint } from "../charts/ElectoralTimelineChart";
 
 const musilaDispute = DISPUTED_FIGURES.find((d) => d.id === "musila-2022-governor-votes")!;
 
+// Dynamic boundary: the charting runtime stays out of the first load. LazyMount below
+// still gates when it mounts; this gates when it downloads.
+const ElectoralTimelineChart = dynamic(() => import("../charts/ElectoralTimelineChart"), {
+  ssr: false,
+  loading: () => <ChartFallback />,
+});
+const DATA: TimelinePoint[] = [
+  { year: "2013", winner: null, votes: null, color: "transparent" },
+  { year: "2017", winner: "Ngilu", votes: 169990, color: "#e31d2b" },
+  { year: "2022", winner: "Malombe", votes: 198004, color: "#0056a8" },
+];
+const PROVENANCE: Provenance[] = [
+  { source: COURT_OF_APPEAL_2018, granularity: "county" },
+  { source: IEBC_2022_RESULTS, granularity: "county" },
+];
+
 /**
- * Electoral history across 2013 / 2017 / 2022 (§1.2.6). Server component — no chart
- * library, so this renders directly rather than behind a dynamic() boundary; the Phase 6c
- * timeline chart sits alongside it in ElectoralTimelineBlock.
+ * The electoral record for Kitui, as one figure.
+ *
+ * §1.2.6 mounted two cards back to back: a table of the three offices by cycle, then a chart of
+ * the Governor race alone — same sources, same argument, two headings and two provenance
+ * footers to scroll past. They are two views of one thing, so they are one figure now.
+ *
+ * The table is the first view because it is what prints, what a screen reader reads, and what
+ * carries all three offices; the chart shows the one race where a trend across cycles is the
+ * point. The chart's own small governor-race table is gone — the results table above it
+ * itemises the same three rows and more.
  */
-export function ElectoralHistoryPanel() {
+export function ElectoralRecordFigure() {
   return (
-    <FigureBlock
+    <FigureTabs
       title="Kitui Governor, Senator and Woman Representative — Results by Cycle"
-      provenance={[
-          { source: COURT_OF_APPEAL_2018, granularity: "county" },
-          { source: IEBC_2022_RESULTS, granularity: "county" },
-          { source: MEDIA_2022_DECLARATION, granularity: "county" },
-        ]}
-    >
+      label="Views of the electoral record"
+      views={[
+        {
+          id: "results",
+          label: "Results by office",
+          provenance: [
+            { source: COURT_OF_APPEAL_2018, granularity: "county" },
+            { source: IEBC_2022_RESULTS, granularity: "county" },
+            { source: MEDIA_2022_DECLARATION, granularity: "county" },
+          ],
+          content: (
+            <>
       <p className="t-small text-muted mb-4 leading-relaxed pl-3.5">
         Three cycles, three different Governor-race winners. 2013 is shown as an explicit gap rather than filled in —
         see the note below and the Data Gaps Register.
@@ -75,6 +111,31 @@ export function ElectoralHistoryPanel() {
 
       <DisputedFigure entry={musilaDispute} />
 
-    </FigureBlock>
+    
+            </>
+          ),
+        },
+        {
+          id: "governor-trend",
+          label: "Governor race, charted",
+          provenance: PROVENANCE,
+          content: (
+            <>
+              <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
+                Two different winners across the two cycles with sourced results. 2013 is drawn as an
+                empty gap, not a zero — no sourced winner or vote total was supplied for that cycle.
+              </p>
+
+      <div className="w-full t-micro mb-4">
+        <LazyMount minHeight={180}>
+          <ElectoralTimelineChart data={DATA} />
+        </LazyMount>
+      </div>
+    
+            </>
+          ),
+        },
+      ]}
+    />
   );
 }

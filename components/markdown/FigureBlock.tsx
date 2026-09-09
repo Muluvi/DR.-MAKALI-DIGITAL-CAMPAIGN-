@@ -15,7 +15,8 @@ import { ProvenanceLine, SourceLine } from "./ProvenanceLine";
  * convention each new file has to remember is a convention that will eventually be forgotten.
  * A figure whose provenance is genuinely a set of prose-detected names passes `sources` instead;
  * one whose sources are already rendered inside its own body passes `footer={false}` and says
- * why at the call site.
+ * why at the call site. FigureTabs wraps this to give one figure several views, each carrying
+ * its own provenance.
  */
 export function FigureBlock({
   title,
