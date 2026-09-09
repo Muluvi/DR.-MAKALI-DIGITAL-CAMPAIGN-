@@ -8,6 +8,7 @@ import { Coins, ShieldCheck, Scale, Users, Radio, CheckCircle2, AlertTriangle } 
 import { ClaimBadge } from "./ClaimBadge";
 import { TierBadge } from "./TierBadge";
 import { DURATION } from "../../lib/motion";
+import { PanelShell } from "./PanelShell";
 
 /**
  * §9.2 tier comparator.
@@ -129,32 +130,24 @@ export function BudgetScenarioModeler() {
   const currentTier = BUDGET_TIERS.find((t) => t.id === selectedTierId) ?? BUDGET_TIERS[1];
 
   return (
-    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
-      <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-start justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0">
-            <Coins size={20} aria-hidden="true" />
-          </div>
-          <div>
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Budget tiers
-              </span>
-              <TierBadge tier={1} compact />
-            </div>
-            <h3 className="font-serif text-base sm:text-lg font-bold text-ink mt-1">Scope and trade-offs by tier</h3>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-2 px-3 py-1.5 bg-card border border-accent/30 rounded-xl shrink-0">
+    <PanelShell
+      icon={<Coins size={20} aria-hidden="true" />}
+      eyebrow="Budget tiers"
+      badge={<TierBadge tier={1} compact />}
+      align="start"
+      trailing={
+        <>
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-card border border-accent/30 rounded-xl shrink-0">
           <Scale size={14} className="text-accent" aria-hidden="true" />
           <div>
-            <div className="t-micro uppercase font-black text-muted">Statutory county ceiling</div>
-            <div className="text-xs font-mono font-black text-ink tabular-nums">{CEILING_LABEL}</div>
+          <div className="t-micro uppercase font-black text-muted">Statutory county ceiling</div>
+          <div className="text-xs font-mono font-black text-ink tabular-nums">{CEILING_LABEL}</div>
           </div>
-        </div>
-      </div>
-
+          </div>
+        </>
+      }
+      title="Scope and trade-offs by tier"
+    >
       <div className="p-3 bg-paper/70 border-b border-line grid grid-cols-1 sm:grid-cols-3 gap-2" role="tablist" aria-label="Budget tiers" onKeyDown={onKeyDown}>
         {BUDGET_TIERS.map((tier) => {
           const isSelected = tier.id === selectedTierId;
@@ -317,7 +310,7 @@ export function BudgetScenarioModeler() {
           kilometres — and transport is typically the largest single category of campaign expenditure.
         </p>
       </div>
-    </div>
+        </PanelShell>
   );
 }
 

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { CheckCircle2, Smartphone, Send, Activity, ShieldCheck, Layers, Filter, Info } from "lucide-react";
+import { PanelShell } from "./PanelShell";
 
 interface ServiceReport {
   refNumber: string;
@@ -89,36 +90,22 @@ export function PublicServiceDeliveryTracker() {
   };
 
   return (
-    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
-      {/* Top Header */}
-      <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <Activity size={20} />
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Service-delivery tracker
-              </span>
-              <span className="t-label font-mono font-bold text-muted">
-                Public Register
-              </span>
-            </div>
-            <h3 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
-              Public Service-Delivery & Promise Tracker
-            </h3>
-          </div>
-        </div>
-
-        {/* Intake channels. Shortcodes are vendor allocations pending at Phase 0 (Appendix A). */}
-        <div className="flex flex-wrap items-center gap-1.5 t-label font-mono font-bold text-muted">
+    <PanelShell
+      icon={<Activity size={20} />}
+      eyebrow="Service-delivery tracker"
+      qualifier="Public Register"
+      trailing={
+        <>
+          {/* Intake channels. Shortcodes are vendor allocations pending at Phase 0 (Appendix A). */}
+          <div className="flex flex-wrap items-center gap-1.5 t-label font-mono font-bold text-muted">
           <span className="px-2 py-1 bg-paper border border-line rounded-lg">USSD &mdash; code pending</span>
           <span className="px-2 py-1 bg-paper border border-line rounded-lg">SMS &mdash; shortcode pending</span>
           <span className="px-2 py-1 bg-paper border border-line rounded-lg">WhatsApp</span>
-        </div>
-      </div>
-
+          </div>
+        </>
+      }
+      title="Public Service-Delivery & Promise Tracker"
+    >
       <div className="px-4 py-2.5 bg-gold/[0.06] border-b border-gold/25 flex items-start gap-2">
         <Info size={13} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
         <p className="t-small text-ink leading-relaxed">
@@ -276,6 +263,6 @@ export function PublicServiceDeliveryTracker() {
           <span>Governance Commitment: The public delivery tracker continues post-election as the official County Citizen Oversight Portal.</span>
         </span>
       </div>
-    </div>
+        </PanelShell>
   );
 }

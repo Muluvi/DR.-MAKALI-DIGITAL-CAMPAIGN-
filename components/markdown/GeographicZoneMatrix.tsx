@@ -8,6 +8,7 @@ import { MapPin, Radio, Compass, TrendingUp, Percent, AlertTriangle } from "luci
 import { CONSTITUENCIES, COUNTY_TOTAL_WARDS } from "../../data/ward-register";
 import { TierBadge } from "./TierBadge";
 import { DURATION } from "../../lib/motion";
+import { PanelShell } from "./PanelShell";
 
 /**
  * §1.4 zone model, bound to the verified IEBC register.
@@ -131,26 +132,13 @@ export function GeographicZoneMatrix() {
   const shareOfRegister = (register.voters / COUNTY_TOTAL_WARDS) * 100;
 
   return (
-    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
-      <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-start justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0">
-            <Compass size={20} aria-hidden="true" />
-          </div>
-          <div>
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Regional dynamics
-              </span>
-              <TierBadge tier={1} compact />
-            </div>
-            <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-1">
-              Zone weighting against the 2022 register
-            </h4>
-          </div>
-        </div>
-      </div>
-
+    <PanelShell
+      icon={<Compass size={20} aria-hidden="true" />}
+      eyebrow="Regional dynamics"
+      badge={<TierBadge tier={1} compact />}
+      align="start"
+      title="Zone weighting against the 2022 register"
+    >
       <div
         className="p-3 bg-paper/70 border-b border-line grid grid-cols-1 sm:grid-cols-3 gap-2"
         role="tablist"
@@ -290,6 +278,6 @@ export function GeographicZoneMatrix() {
           </p>
         )}
       </div>
-    </div>
+        </PanelShell>
   );
 }

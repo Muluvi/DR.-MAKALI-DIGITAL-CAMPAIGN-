@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Brain, CheckCircle2, Droplet, Coins, HeartHandshake, GraduationCap } from "lucide-react";
+import { PanelShell } from "./PanelShell";
 
 interface PersuasionTheme {
   id: string;
@@ -110,29 +111,12 @@ export function PersuasionFramingMatrix() {
   const currentTheme = PERSUASION_THEMES.find(t => t.id === activeThemeId) || PERSUASION_THEMES[0];
 
   return (
-    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
-      {/* Top Header */}
-      <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <Brain size={20} />
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Persuasion architecture
-              </span>
-              <span className="t-label font-mono font-bold text-muted">
-                Behavioural Economics
-              </span>
-            </div>
-            <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
-              Behavioural Science & Persuasion Framing Engine
-            </h4>
-          </div>
-        </div>
-      </div>
-
+    <PanelShell
+      icon={<Brain size={20} />}
+      eyebrow="Persuasion architecture"
+      qualifier="Behavioural Economics"
+      title="Behavioural Science & Persuasion Framing Engine"
+    >
       {/* Theme Switcher Tabs */}
       <div className="p-3 bg-paper/70 border-b border-line grid grid-cols-2 sm:grid-cols-4 gap-2">
         {PERSUASION_THEMES.map((theme) => {
@@ -189,6 +173,6 @@ export function PersuasionFramingMatrix() {
           <span>Ethics Charter Boundary: Framing is applied strictly to verified empirical facts — zero psychographic micro-targeting or ethnic wedge operations.</span>
         </span>
       </div>
-    </div>
+        </PanelShell>
   );
 }

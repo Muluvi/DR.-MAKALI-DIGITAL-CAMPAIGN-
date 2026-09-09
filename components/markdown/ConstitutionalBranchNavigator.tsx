@@ -4,58 +4,45 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Scale, AlertTriangle, CheckCircle2, HelpCircle, ArrowRight, ShieldCheck, Building2, Users } from "lucide-react";
 import { DURATION } from "../../lib/motion";
+import { PanelShell } from "./PanelShell";
 
 export function ConstitutionalBranchNavigator() {
   const [activeBranch, setActiveBranch] = useState<"branchA" | "branchB">("branchA");
 
   return (
-    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
-      {/* Header */}
-      <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <Scale size={20} />
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Constitutional Precedent Analysis
-              </span>
-              <span className="t-label font-mono font-bold text-muted">
-                Article 180(7)
-              </span>
-            </div>
-            <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
-              Governor Malombe Eligibility Scenarios
-            </h4>
-          </div>
-        </div>
-
-        {/* Branch Selector Switch */}
-        <div className="flex items-center p-1 bg-paper border border-line rounded-xl w-full sm:w-auto">
+    <PanelShell
+      icon={<Scale size={20} />}
+      eyebrow="Constitutional Precedent Analysis"
+      qualifier="Article 180(7)"
+      trailing={
+        <>
+          {/* Branch Selector Switch */}
+          <div className="flex items-center p-1 bg-paper border border-line rounded-xl w-full sm:w-auto">
           <button
-            onClick={() => setActiveBranch("branchA")}
-            className={`flex-1 sm:flex-none px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              activeBranch === "branchA"
-                ? "bg-accent-solid text-on-accent shadow-sm"
-                : "text-muted hover:text-ink"
-            }`}
+          onClick={() => setActiveBranch("branchA")}
+          className={`flex-1 sm:flex-none px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+          activeBranch === "branchA"
+          ? "bg-accent-solid text-on-accent shadow-sm"
+          : "text-muted hover:text-ink"
+          }`}
           >
-            Scenario A: Disqualified
+          Scenario A: Disqualified
           </button>
           <button
-            onClick={() => setActiveBranch("branchB")}
-            className={`flex-1 sm:flex-none px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              activeBranch === "branchB"
-                ? "bg-accent-solid text-on-accent shadow-sm"
-                : "text-muted hover:text-ink"
-            }`}
+          onClick={() => setActiveBranch("branchB")}
+          className={`flex-1 sm:flex-none px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+          activeBranch === "branchB"
+          ? "bg-accent-solid text-on-accent shadow-sm"
+          : "text-muted hover:text-ink"
+          }`}
           >
-            Scenario B: Eligible
+          Scenario B: Eligible
           </button>
-        </div>
-      </div>
-
+          </div>
+        </>
+      }
+      title="Governor Malombe Eligibility Scenarios"
+    >
       {/* Scenario Context Banner */}
       <div className="p-4 bg-accent/5 border-b border-line text-xs font-medium text-ink flex items-start gap-2.5">
         <HelpCircle size={16} className="text-accent shrink-0 mt-0.5" />
@@ -188,6 +175,6 @@ export function ConstitutionalBranchNavigator() {
           <span>Strategic Command Rule: Campaign operations must prepare simultaneously for both branches.</span>
         </span>
       </div>
-    </div>
+        </PanelShell>
   );
 }

@@ -5,6 +5,7 @@ import { Target, MapPin, TrendingDown, AlertTriangle, Radio } from "lucide-react
 
 import { ALL_WARDS, CONSTITUENCIES, COUNTY_TOTAL_WARDS, MWINGI_BLOC_TOTAL } from "../../data/ward-register";
 import { TierBadge } from "./TierBadge";
+import { PanelShell } from "./PanelShell";
 
 /**
  * §1.3.5 — recognition deficit mapped against voter concentration.
@@ -80,47 +81,37 @@ export function RecognitionDeficitOverlay() {
   const deficitCount = DECISIVE_WARDS.filter((w) => w.status === "deficit").length;
 
   return (
-    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
-      <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-start justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0">
-            <Target size={20} aria-hidden="true" />
-          </div>
-          <div>
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Recognition deficit
-              </span>
-              <TierBadge tier={1} compact />
-            </div>
-            <h3 className="font-serif text-base sm:text-lg font-bold text-ink mt-1">
-              The decisive wards are the deficit wards
-            </h3>
-          </div>
-        </div>
-
-        <div className="flex items-center p-1 bg-paper border border-line rounded-xl shrink-0" role="group" aria-label="Filter wards">
+    <PanelShell
+      icon={<Target size={20} aria-hidden="true" />}
+      eyebrow="Recognition deficit"
+      badge={<TierBadge tier={1} compact />}
+      align="start"
+      trailing={
+        <>
+          <div className="flex items-center p-1 bg-paper border border-line rounded-xl shrink-0" role="group" aria-label="Filter wards">
           <button
-            onClick={() => setFilterMode("all")}
-            aria-pressed={filterMode === "all"}
-            className={`px-3 py-1.5 rounded-lg t-small font-bold transition-colors cursor-pointer ${
-              filterMode === "all" ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink"
-            }`}
+          onClick={() => setFilterMode("all")}
+          aria-pressed={filterMode === "all"}
+          className={`px-3 py-1.5 rounded-lg t-small font-bold transition-colors cursor-pointer ${
+          filterMode === "all" ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink"
+          }`}
           >
-            Top 12
+          Top 12
           </button>
           <button
-            onClick={() => setFilterMode("deficitOnly")}
-            aria-pressed={filterMode === "deficitOnly"}
-            className={`px-3 py-1.5 rounded-lg t-small font-bold transition-colors cursor-pointer ${
-              filterMode === "deficitOnly" ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink"
-            }`}
+          onClick={() => setFilterMode("deficitOnly")}
+          aria-pressed={filterMode === "deficitOnly"}
+          className={`px-3 py-1.5 rounded-lg t-small font-bold transition-colors cursor-pointer ${
+          filterMode === "deficitOnly" ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink"
+          }`}
           >
-            Deficit only ({deficitCount})
+          Deficit only ({deficitCount})
           </button>
-        </div>
-      </div>
-
+          </div>
+        </>
+      }
+      title="The decisive wards are the deficit wards"
+    >
       <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-line border-b border-line bg-card">
         <div className="p-3.5 sm:p-4">
           <div className="t-label uppercase font-black tracking-widest text-muted">Decisive deficit pool</div>
@@ -204,6 +195,6 @@ export function RecognitionDeficitOverlay() {
           </span>
         </p>
       </div>
-    </div>
+        </PanelShell>
   );
 }

@@ -6,6 +6,7 @@ import { deliberate } from "../../lib/motion";
 import { Calculator, CheckCircle2, AlertTriangle, TrendingUp, Layers, ShieldAlert, Percent } from "lucide-react";
 
 import { ALL_WARDS, CONSTITUENCIES, COUNTY_TOTAL_WARDS } from "../../data/ward-register";
+import { PanelShell } from "./PanelShell";
 
 /**
  * §1.3.3 — the four structural paths to ~200,000, showing the working.
@@ -131,48 +132,34 @@ export function PathTo200kCalculator() {
   const progressPercent = Math.min(100, (selectedPath.voterPool / targetThreshold) * 100);
 
   return (
-    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
-      {/* Top Header */}
-      <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <Calculator size={20} />
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Coalition Arithmetic Engine
-              </span>
-              <span className="t-label font-mono font-bold text-muted">
-                Target: 200,000 Votes
-              </span>
-            </div>
-            <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
-              Four Structural Paths to Electoral Victory
-            </h4>
-          </div>
-        </div>
-
-        {/* Victory Status Pill */}
-        <div className={`px-3 py-1.5 rounded-xl border text-xs font-black flex items-center gap-1.5 self-start sm:self-auto ${
+    <PanelShell
+      icon={<Calculator size={20} />}
+      eyebrow="Coalition Arithmetic Engine"
+      qualifier="Target: 200,000 Votes"
+      trailing={
+        <>
+          {/* Victory Status Pill */}
+          <div className={`px-3 py-1.5 rounded-xl border text-xs font-black flex items-center gap-1.5 self-start sm:self-auto ${
           selectedPath.isViable 
-            ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20"
-            : "bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/20"
-        }`}>
+          ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20"
+          : "bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/20"
+          }`}>
           {selectedPath.isViable ? (
-            <>
-              <CheckCircle2 size={14} />
-              <span>Clears the benchmark (+{selectedPath.marginOverBenchmark.toLocaleString()})</span>
-            </>
+          <>
+          <CheckCircle2 size={14} />
+          <span>Clears the benchmark (+{selectedPath.marginOverBenchmark.toLocaleString()})</span>
+          </>
           ) : (
-            <>
-              <AlertTriangle size={14} />
-              <span>Short of the benchmark ({selectedPath.marginOverBenchmark.toLocaleString()})</span>
-            </>
+          <>
+          <AlertTriangle size={14} />
+          <span>Short of the benchmark ({selectedPath.marginOverBenchmark.toLocaleString()})</span>
+          </>
           )}
-        </div>
-      </div>
-
+          </div>
+        </>
+      }
+      title="Four Structural Paths to Electoral Victory"
+    >
       {/* Path Selector Tabs (Touch-friendly grid) */}
       <div className="p-3 bg-paper/70 border-b border-line grid grid-cols-2 sm:grid-cols-4 gap-2">
         {COALITION_PATHS.map((path) => {
@@ -291,6 +278,6 @@ export function PathTo200kCalculator() {
           <span>IEBC Benchmark: Minimum winning threshold is 198,004 – 200,000 valid votes in a 3-way contest.</span>
         </span>
       </div>
-    </div>
+        </PanelShell>
   );
 }

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { disclosure } from "../../lib/motion";
 import { Radio, Volume2, ShieldAlert, Play, Pause, Info } from "lucide-react";
+import { PanelShell } from "./PanelShell";
 
 interface RadioStation {
   name: string;
@@ -96,49 +97,35 @@ export function MediaRadioLandscapeCard() {
   };
 
   return (
-    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
-      {/* Top Header */}
-      <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <Radio size={20} />
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Radio landscape
-              </span>
-              <span className="t-label font-mono font-bold text-muted">
-                Vernacular Radio Table
-              </span>
-            </div>
-            <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
-              Kamba-Language Broadcast Ownership & Risk Map
-            </h4>
-          </div>
-        </div>
-
-        {/* Filter Switch */}
-        <div className="flex items-center p-1 bg-paper border border-line rounded-xl">
+    <PanelShell
+      icon={<Radio size={20} />}
+      eyebrow="Radio landscape"
+      qualifier="Vernacular Radio Table"
+      trailing={
+        <>
+          {/* Filter Switch */}
+          <div className="flex items-center p-1 bg-paper border border-line rounded-xl">
           <button
-            onClick={() => setSelectedFilter("all")}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              selectedFilter === "all" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
-            }`}
+          onClick={() => setSelectedFilter("all")}
+          className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+          selectedFilter === "all" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
+          }`}
           >
-            All 6 Networks
+          All 6 Networks
           </button>
           <button
-            onClick={() => setSelectedFilter("priorityOnly")}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              selectedFilter === "priorityOnly" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
-            }`}
+          onClick={() => setSelectedFilter("priorityOnly")}
+          className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+          selectedFilter === "priorityOnly" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
+          }`}
           >
-            Priority Placement (3)
+          Priority Placement (3)
           </button>
-        </div>
-      </div>
-
+          </div>
+        </>
+      }
+      title="Kamba-Language Broadcast Ownership & Risk Map"
+    >
       {/* Strategic Takeaway Bar */}
       <div className="p-3.5 bg-amber-500/10 border-b border-amber-500/20 text-xs text-amber-900 dark:text-amber-300 flex items-start gap-2">
         <ShieldAlert size={16} className="shrink-0 mt-0.5" />
@@ -263,6 +250,6 @@ export function MediaRadioLandscapeCard() {
           <span>Vernacular Airwave Primacy: 86% of Kitui relies on radio as their primary daily source of political truth.</span>
         </span>
       </div>
-    </div>
+        </PanelShell>
   );
 }

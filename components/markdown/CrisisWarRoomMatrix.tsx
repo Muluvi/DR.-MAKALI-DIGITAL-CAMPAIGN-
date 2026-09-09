@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ShieldAlert, Clock, AlertTriangle, CheckCircle2, FileText, Bot, Flame, Layers } from "lucide-react";
+import { PanelShell } from "./PanelShell";
 
 interface CrisisLevel {
   level: "Level 1" | "Level 2" | "Level 3";
@@ -85,36 +86,22 @@ export function CrisisWarRoomMatrix() {
   };
 
   return (
-    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
-      {/* Top Header */}
-      <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <Flame size={20} />
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                War room
-              </span>
-              <span className="t-label font-mono font-bold text-muted">
-                Digital War Room
-              </span>
-            </div>
-            <h3 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
-              Rapid Response & 30-Minute Crisis Escalation Engine
-            </h3>
-          </div>
-        </div>
-
-        {/* 3-Tier SLA Pill */}
-        <div className="flex items-center gap-1.5 t-label font-mono font-bold text-muted">
+    <PanelShell
+      icon={<Flame size={20} />}
+      eyebrow="War room"
+      qualifier="Digital War Room"
+      trailing={
+        <>
+          {/* 3-Tier SLA Pill */}
+          <div className="flex items-center gap-1.5 t-label font-mono font-bold text-muted">
           <span className="px-2 py-1 bg-paper border border-line rounded-lg text-emerald-600">L1: 4h</span>
           <span className="px-2 py-1 bg-paper border border-line rounded-lg text-amber-600">L2: 2h</span>
           <span className="px-2 py-1 bg-paper border border-line rounded-lg text-rose-600">L3: 30m</span>
-        </div>
-      </div>
-
+          </div>
+        </>
+      }
+      title="Rapid Response & 30-Minute Crisis Escalation Engine"
+    >
       {/* Level Selector Tabs */}
       <div className="p-3 bg-paper/70 border-b border-line grid grid-cols-1 sm:grid-cols-3 gap-2">
         {CRISIS_LEVELS.map((level) => {
@@ -243,6 +230,6 @@ export function CrisisWarRoomMatrix() {
           <span>§5.2.4 red-team standard: By Phase 2, 90% of drill responses must beat their severity-level time target.</span>
         </span>
       </div>
-    </div>
+        </PanelShell>
   );
 }

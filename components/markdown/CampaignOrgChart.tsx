@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Users, UserCheck, ChevronRight, Clock, Briefcase, Sparkles, ArrowRight } from "lucide-react";
+import { PanelShell } from "./PanelShell";
 
 interface TeamRole {
   title: string;
@@ -104,35 +105,21 @@ export function CampaignOrgChart() {
     : CAMPAIGN_ROLES.filter(r => r.category === selectedCategory);
 
   return (
-    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
-      {/* Top Header */}
-      <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <Users size={20} />
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Team structure
-              </span>
-              <span className="t-label font-mono font-bold text-muted">
-                Lean Core + Defined Surge
-              </span>
-            </div>
-            <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
-              Campaign Team Org Chart & Decision Rights Matrix
-            </h4>
-          </div>
-        </div>
-
-        {/* Single Counterpart Pill */}
-        <div className="flex items-center gap-2 px-3 py-1.5 bg-card border border-line rounded-xl text-xs font-semibold text-muted">
+    <PanelShell
+      icon={<Users size={20} />}
+      eyebrow="Team structure"
+      qualifier="Lean Core + Defined Surge"
+      trailing={
+        <>
+          {/* Single Counterpart Pill */}
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-card border border-line rounded-xl text-xs font-semibold text-muted">
           <UserCheck size={14} className="text-accent" />
           <span>Single Campaign Counterpart Protocol</span>
-        </div>
-      </div>
-
+          </div>
+        </>
+      }
+      title="Campaign Team Org Chart & Decision Rights Matrix"
+    >
       {/* Category Filter Chips */}
       <div className="p-3 bg-paper/70 border-b border-line flex flex-wrap items-center gap-1.5">
         {["All", "Leadership", "Core Retained", "Activated Surge", "Field Volunteers"].map((cat) => (
@@ -234,6 +221,6 @@ export function CampaignOrgChart() {
           <span>Operational Efficiency Principle: Defined surge roles prevent standing overhead while ensuring rapid scaling during crisis or GOTV peaks.</span>
         </span>
       </div>
-    </div>
+        </PanelShell>
   );
 }

@@ -8,6 +8,7 @@ import { Users, Radio, MessageSquare, AlertTriangle, Layers } from "lucide-react
 import { ClaimBadge } from "./ClaimBadge";
 import { TierBadge } from "./TierBadge";
 import { DURATION } from "../../lib/motion";
+import { PanelShell } from "./PanelShell";
 
 /**
  * §2.4.1–2.4.2 — the six structural segments.
@@ -149,21 +150,11 @@ export function AudienceSegmentationMatrix() {
   const gapCount = AUDIENCE_SEGMENTS.filter((s) => s.sizing.kind === "gap").length;
 
   return (
-    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
-      <div className="p-4 sm:p-5 border-b border-line bg-paper/50">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0">
-            <Layers size={20} aria-hidden="true" />
-          </div>
-          <div>
-            <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-              Audience architecture
-            </span>
-            <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-1">Six structural segments</h4>
-          </div>
-        </div>
-      </div>
-
+    <PanelShell
+      icon={<Layers size={20} aria-hidden="true" />}
+      eyebrow="Audience architecture"
+      title="Six structural segments"
+    >
       <div
         className="scroll-x snap-x snap-mandatory flex md:flex-wrap md:overflow-visible gap-1 p-2 bg-paper/70 border-b border-line"
         role="tablist"
@@ -277,6 +268,6 @@ export function AudienceSegmentationMatrix() {
           commissioning in the Phase −1 baseline survey — this document does not estimate past its own evidence.
         </p>
       </div>
-    </div>
+        </PanelShell>
   );
 }

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Building2, BarChart3, Languages, CheckSquare, ShieldCheck, ArrowRight, Sparkles, FileCheck2 } from "lucide-react";
+import { PanelShell } from "./PanelShell";
 
 interface StrategicPillar {
   id: string;
@@ -67,29 +68,12 @@ export function StrategicPillarsMatrix() {
   const currentPillar = STRATEGIC_PILLARS.find(p => p.id === selectedPillarId) || STRATEGIC_PILLARS[0];
 
   return (
-    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
-      {/* Top Header */}
-      <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <ShieldCheck size={20} />
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Campaign pillars
-              </span>
-              <span className="t-label font-mono font-bold text-muted">
-                Core Policy Architecture
-              </span>
-            </div>
-            <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
-              Four Strategic Communication Pillars
-            </h4>
-          </div>
-        </div>
-      </div>
-
+    <PanelShell
+      icon={<ShieldCheck size={20} />}
+      eyebrow="Campaign pillars"
+      qualifier="Core Policy Architecture"
+      title="Four Strategic Communication Pillars"
+    >
       {/* Pillar Switcher Tabs */}
       <div className="p-3 bg-paper/70 border-b border-line grid grid-cols-2 sm:grid-cols-4 gap-2">
         {STRATEGIC_PILLARS.map((pillar) => {
@@ -179,6 +163,6 @@ export function StrategicPillarsMatrix() {
           <span>Underlying Campaign Doctrine: &ldquo;Kitui has resources. What it has lacked is leadership that understands how to use them — and the discipline to prove it did.&rdquo;</span>
         </span>
       </div>
-    </div>
+        </PanelShell>
   );
 }

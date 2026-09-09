@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ShieldCheck, Lock, CheckSquare, Scale } from "lucide-react";
+import { PanelShell } from "./PanelShell";
 
 interface EthicalCommitment {
   id: string;
@@ -90,35 +91,21 @@ export function DataSecurityEthicsCharter() {
   };
 
   return (
-    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
-      {/* Top Header */}
-      <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <Lock size={20} />
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Ethics and data charter
-              </span>
-              <span className="t-label font-mono font-bold text-muted">
-                DPA 2019 & IEBC Compliance
-              </span>
-            </div>
-            <h3 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
-              Digital Ethics, Data Privacy & Regulatory Compliance Charter
-            </h3>
-          </div>
-        </div>
-
-        {/* ODPC Status Pill */}
-        <div className="flex items-center gap-2 px-3 py-1.5 bg-card border border-emerald-500/30 rounded-xl text-xs font-semibold text-emerald-700 dark:text-emerald-300">
+    <PanelShell
+      icon={<Lock size={20} />}
+      eyebrow="Ethics and data charter"
+      qualifier="DPA 2019 & IEBC Compliance"
+      trailing={
+        <>
+          {/* ODPC Status Pill */}
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-card border border-emerald-500/30 rounded-xl text-xs font-semibold text-emerald-700 dark:text-emerald-300">
           <ShieldCheck size={14} className="text-emerald-600 dark:text-emerald-400" />
           <span>ODPC & IEBC Pre-Audited Standards</span>
-        </div>
-      </div>
-
+          </div>
+        </>
+      }
+      title="Digital Ethics, Data Privacy & Regulatory Compliance Charter"
+    >
       {/* Filter Tabs */}
       <div className="p-3 bg-paper/70 border-b border-line flex flex-wrap items-center gap-1.5">
         {["All", "Consent & Messaging", "Data Storage & Privacy", "AI & Synthetic Media", "Campaign Finance"].map((cat) => (
@@ -202,6 +189,6 @@ export function DataSecurityEthicsCharter() {
           <span>Legal Doctrine: High ethical standards protect Dr. Mulu&apos;s brand as a disciplined economist while eliminating regulatory liability under the ODPC and IEBC.</span>
         </span>
       </div>
-    </div>
+        </PanelShell>
   );
 }

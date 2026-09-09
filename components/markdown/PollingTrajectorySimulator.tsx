@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { TrendingUp, Target, CheckCircle2, AlertTriangle, Sparkles, Sliders } from "lucide-react";
+import { PanelShell } from "./PanelShell";
 
 export function PollingTrajectorySimulator() {
   const [weeklyGainRate, setWeeklyGainRate] = useState<number>(1.2); // Percentage points per week
@@ -16,48 +17,34 @@ export function PollingTrajectorySimulator() {
   const isMeetingThreshold = projectedPolling >= targetThreshold;
 
   return (
-    <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
-      {/* Top Header */}
-      <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <TrendingUp size={20} />
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Simulation Engine
-              </span>
-              <span className="t-label font-mono font-bold text-muted">
-                Phase -1 Evaluation Window
-              </span>
-            </div>
-            <h3 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
-              Wiper Nomination Viability Simulator
-            </h3>
-          </div>
-        </div>
-
-        {/* Status Pill */}
-        <div className={`px-3 py-1.5 rounded-xl border text-xs font-black flex items-center gap-1.5 self-start sm:self-auto ${
+    <PanelShell
+      icon={<TrendingUp size={20} />}
+      eyebrow="Simulation Engine"
+      qualifier="Phase -1 Evaluation Window"
+      trailing={
+        <>
+          {/* Status Pill */}
+          <div className={`px-3 py-1.5 rounded-xl border text-xs font-black flex items-center gap-1.5 self-start sm:self-auto ${
           isMeetingThreshold 
-            ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20"
-            : "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20"
-        }`}>
+          ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20"
+          : "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20"
+          }`}>
           {isMeetingThreshold ? (
-            <>
-              <CheckCircle2 size={14} />
-              <span>Target Achieved ({projectedPolling.toFixed(1)}%)</span>
-            </>
+          <>
+          <CheckCircle2 size={14} />
+          <span>Target Achieved ({projectedPolling.toFixed(1)}%)</span>
+          </>
           ) : (
-            <>
-              <AlertTriangle size={14} />
-              <span>Below Viability Threshold ({projectedPolling.toFixed(1)}%)</span>
-            </>
+          <>
+          <AlertTriangle size={14} />
+          <span>Below Viability Threshold ({projectedPolling.toFixed(1)}%)</span>
+          </>
           )}
-        </div>
-      </div>
-
+          </div>
+        </>
+      }
+      title="Wiper Nomination Viability Simulator"
+    >
       {/* Simulator Control & Visualizer */}
       <div className="p-4 sm:p-6 space-y-6">
         {/* Interactive Slider */}
@@ -123,6 +110,6 @@ export function PollingTrajectorySimulator() {
           </div>
         </div>
       </div>
-    </div>
+        </PanelShell>
   );
 }
