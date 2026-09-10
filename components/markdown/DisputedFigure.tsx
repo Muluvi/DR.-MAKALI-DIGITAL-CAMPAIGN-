@@ -29,7 +29,7 @@ export function DisputedFigure({ entry }: { entry: DisputedFigureEntry }) {
             >
               <div className="flex items-center justify-between gap-2 mb-1.5">
                 <TierBadge tier={v.source.tier} compact />
-                {isPreferred && <span className="t-micro font-black uppercase tracking-wider text-accent">Preferred</span>}
+                {isPreferred && <span className="t-micro font-black text-accent">Preferred</span>}
               </div>
               <div className="font-serif text-lg font-black text-ink">{formatValue(v.value, v.unit)}</div>
               <div className="t-label text-muted mt-1">
@@ -41,17 +41,17 @@ export function DisputedFigure({ entry }: { entry: DisputedFigureEntry }) {
       </div>
 
       {entry.status === "resolved-preferred" && entry.preferenceReason && (
-        <p className="text-xs text-ink/80 leading-relaxed">
+        <p className="t-label text-ink/80 leading-relaxed">
           <strong className="text-ink">Why the preferred value is used:</strong> {entry.preferenceReason}
         </p>
       )}
 
-      <p className="text-xs text-muted leading-relaxed mt-2">
+      <p className="t-label text-muted leading-relaxed mt-2">
         <strong className="text-ink/80">What would resolve this:</strong> {entry.resolutionPath}
       </p>
 
       {entry.status === "unresolved" && (
-        <p className="t-micro uppercase tracking-wider font-black text-danger mt-2">
+        <p className="t-micro font-black text-danger mt-2">
           Unresolved — neither value is asserted as correct.
         </p>
       )}

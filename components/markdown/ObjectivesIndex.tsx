@@ -35,11 +35,11 @@ export function ObjectivesIndex() {
     <aside className="not-prose my-8 rounded-2xl border border-line/60 bg-card/60 p-5 sm:p-6">
       <div className="flex items-center gap-2 mb-1">
         <Target size={15} className="text-accent shrink-0" aria-hidden />
-        <h3 className="t-label uppercase tracking-wider font-extrabold text-muted">
+        <h3 className="t-label font-extrabold text-muted">
           The rest of what is measured
         </h3>
       </div>
-      <p className="text-xs sm:text-sm text-muted leading-relaxed mb-4 text-pretty">
+      <p className="t-label sm:t-small text-muted leading-relaxed mb-4 text-pretty">
         The scorecards above are the campaign&rsquo;s headline targets. {items.length} further
         indicator sets sit with the work they measure, rather than being collected here — each one
         is a tap away.
@@ -55,12 +55,12 @@ export function ObjectivesIndex() {
                   window.__navigateToSection(item.id);
                 }
               }}
-              className="flex items-baseline gap-2 rounded-lg px-2 py-1.5 -mx-2 hover:bg-accent/[0.06] transition-colors"
+              className="flex min-h-[44px] min-w-[44px] justify-center items-baseline gap-2 rounded-lg px-2 py-2.5 -mx-2 hover:bg-accent/[0.06] transition-colors"
             >
               <span className="t-micro font-extrabold tabular-nums text-accent shrink-0">
                 {item.number}
               </span>
-              <span className="text-xs sm:text-sm font-semibold text-ink leading-snug">
+              <span className="t-label sm:t-small font-semibold text-ink leading-snug">
                 {item.title}
               </span>
               <span className="t-micro text-muted ml-auto shrink-0 hidden sm:inline">

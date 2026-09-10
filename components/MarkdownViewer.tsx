@@ -440,7 +440,7 @@ function buildComponents(tabId: TabId): Components {
                 );
               }
               return <span className={className}>{children}</span>;
-            },
+ },
             p: ({ children, className }) => {
               // The appendix's "section-kicker" lines are eyebrow labels, not body prose —
               // render them as such instead of falling into the lead-paragraph drop-cap styling.
@@ -456,7 +456,7 @@ function buildComponents(tabId: TabId): Components {
                 return <PullQuote>{children}</PullQuote>;
               }
               return (
-                <blockquote className="fx-lift border-l-4 border-accent bg-accent/[0.03] px-5 py-4 rounded-r-2xl my-6 text-xs sm:text-sm font-semibold text-ink leading-relaxed shadow-sm italic relative text-pretty">
+                <blockquote className="fx-lift border-l-4 border-accent bg-accent/[0.03] px-5 py-4 rounded-r-2xl my-6 t-label sm:t-small font-semibold text-ink leading-relaxed shadow-sm italic relative text-pretty">
                   {children}
                 </blockquote>
               );
@@ -581,9 +581,9 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
           so chart footnotes, card ledes and diagram notes all picked up a 3xl gold drop cap.
           A direct-child selector reaches the document's opening paragraph and nothing else. */}
       <div className="prose max-w-none relative z-10 px-0
-        [&>p:first-of-type]:text-base [&>p:first-of-type]:sm:text-lg [&>p:first-of-type]:font-semibold [&>p:first-of-type]:text-ink [&>p:first-of-type]:leading-relaxed [&>p:first-of-type]:border-b [&>p:first-of-type]:border-line/40 [&>p:first-of-type]:pb-4 [&>p:first-of-type]:mb-6
-        [&>p:first-of-type::first-letter]:text-3xl [&>p:first-of-type::first-letter]:font-semibold [&>p:first-of-type::first-letter]:text-gold [&>p:first-of-type::first-letter]:mr-2 [&>p:first-of-type::first-letter]:float-left [&>p:first-of-type::first-letter]:leading-none
-      ">
+ [&>p:first-of-type]:text-base [&>p:first-of-type]:sm:text-lg [&>p:first-of-type]:font-semibold [&>p:first-of-type]:text-ink [&>p:first-of-type]:leading-relaxed [&>p:first-of-type]:border-b [&>p:first-of-type]:border-line/40 [&>p:first-of-type]:pb-4 [&>p:first-of-type]:mb-6
+ [&>p:first-of-type::first-letter]:text-3xl [&>p:first-of-type::first-letter]:font-semibold [&>p:first-of-type::first-letter]:text-gold [&>p:first-of-type::first-letter]:mr-2 [&>p:first-of-type::first-letter]:float-left [&>p:first-of-type::first-letter]:leading-none
+">
         {segments.map((segment, i) => {
           if (segment.kind === "markdown") return renderMarkdown(segment.text, `md-${i}`);
           if (segment.kind === "fold")

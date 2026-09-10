@@ -72,7 +72,7 @@ export function MatrixMarks({
           </li>
         ))}
       </ol>
-      <p className="mt-3 text-center t-micro font-semibold text-muted uppercase tracking-wider">
+      <p className="mt-3 text-center t-micro font-semibold text-muted">
         {statsLabel || "Metrics"} — {data.length} rows, ranked as listed
       </p>
     </div>

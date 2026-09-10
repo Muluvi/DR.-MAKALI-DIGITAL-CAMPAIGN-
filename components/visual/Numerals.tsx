@@ -103,7 +103,7 @@ export function CountUpText({
   const match = text.match(/^([^0-9.]*)([0-9.]+)([^0-9.]*)$/);
   if (!match) return <span className={className}>{text}</span>;
 
-  const [, prefix, digits, suffix] = match;
+ const [, prefix, digits, suffix] = match;
   const decimals = digits.includes(".") ? digits.split(".")[1].length : 0;
 
   return (
@@ -114,7 +114,7 @@ export function CountUpText({
       suffix={suffix}
       duration={duration}
       className={className}
-    />
+ />
   );
 }
 

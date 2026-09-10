@@ -94,7 +94,7 @@ export function VoteFunnel() {
           return (
             <li key={stage.key}>
               <div className="flex items-baseline justify-between gap-2 mb-1">
-                <span className="t-micro font-black uppercase tracking-wider text-muted">
+                <span className="t-micro font-black text-muted">
                   {stage.label}
                 </span>
                 <span className="t-label font-black text-ink tabular-nums">

@@ -199,7 +199,7 @@ export function HeroVisual() {
         <div>
           <div className="flex items-center gap-1.5">
             <span className="w-1.5 h-3.5 bg-accent rounded-full shrink-0" />
-            <span className="t-micro uppercase tracking-[0.14em] font-extrabold text-accent">
+            <span className="t-micro font-extrabold text-accent">
               Where the votes are
             </span>
           </div>
@@ -214,7 +214,7 @@ export function HeroVisual() {
             <button
               onClick={() => setViewMode("3d")}
               className={`px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 ${
-                viewMode === "3d"
+ viewMode === "3d"
                   ? "bg-accent-solid text-on-accent shadow-xs"
                   : "text-muted hover:text-ink"
               }`}
@@ -226,7 +226,7 @@ export function HeroVisual() {
             <button
               onClick={() => setViewMode("flow")}
               className={`px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 ${
-                viewMode === "flow"
+ viewMode === "flow"
                   ? "bg-accent-solid text-on-accent shadow-xs"
                   : "text-muted hover:text-ink"
               }`}
@@ -240,8 +240,8 @@ export function HeroVisual() {
           {viewMode === "3d" && (
             <button
               onClick={() => setShowPillars(!showPillars)}
-              className={`px-2.5 py-1 text-[11px] font-bold rounded-xl border transition-all cursor-pointer flex items-center gap-1 ${
-                showPillars
+              className={`px-2.5 py-1 min-h-[44px] min-w-[44px] justify-center t-micro font-bold rounded-xl border transition-all cursor-pointer flex items-center gap-1 ${
+ showPillars
                   ? "bg-accent/10 border-accent/40 text-accent"
                   : "bg-paper border-line text-muted hover:text-ink"
               }`}
@@ -258,7 +258,7 @@ export function HeroVisual() {
                 setSelectedStage(null);
                 setSelectedConstituency(null);
               }}
-              className="flex items-center gap-1 px-2.5 py-1 bg-paper hover:bg-line border border-line rounded-xl text-xs font-bold text-ink transition-colors cursor-pointer"
+              className="flex items-center gap-1 px-2.5 py-1 bg-paper hover:bg-line border border-line rounded-xl t-label font-bold text-ink transition-colors cursor-pointer"
             >
               <X size={12} />
               <span className="hidden sm:inline">Reset</span>
@@ -435,7 +435,7 @@ export function HeroVisual() {
                     {/* 3D Node Head */}
                     <div
                       className={`relative px-3 py-1.5 rounded-xl border backdrop-blur-md shadow-lg transition-all duration-300 flex items-center gap-1.5 ${
-                        isSelected
+ isSelected
                           ? "bg-accent-solid text-on-accent border-accent-solid ring-4 ring-accent/30 scale-110"
                           : "bg-card/90 text-ink border-line hover:border-accent hover:scale-105"
                       }`}
@@ -445,12 +445,12 @@ export function HeroVisual() {
                         style={{ background: stage.color }}
                       />
                       <div className="flex flex-col">
-                        <span className="text-[10px] font-black uppercase tracking-wider leading-none">
+                        <span className="text-[10px] font-black leading-none">
                           {stage.name}
                         </span>
                         <span
                           className={`text-[9px] font-mono leading-none mt-0.5 ${
-                            isSelected ? "text-white/80" : "text-muted"
+ isSelected ? "text-white/80" : "text-muted"
                           }`}
                         >
                           {stage.statBadge}
@@ -489,7 +489,7 @@ export function HeroVisual() {
               }}
             >
               <Shield size={12} className="text-gold shrink-0" />
-              <span className="text-[10px] font-black text-ink uppercase tracking-wider">
+              <span className="text-[10px] font-black text-ink">
                 532,758 Voters | 30,430 km²
               </span>
             </div>
@@ -605,37 +605,37 @@ export function HeroVisual() {
             <div className="p-4 sm:p-5 space-y-3.5">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-line/60 pb-2.5">
                 <div className="flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-0.5 rounded-full bg-accent/10 text-accent">
+                  <span className="inline-flex items-center gap-1.5 t-label font-bold px-2.5 py-0.5 rounded-full bg-accent/10 text-accent">
                     Operational Stage #{selectedStage.id.toUpperCase()}
                   </span>
-                  <span className="text-xs font-mono font-bold text-ink">
+                  <span className="t-label font-mono font-bold text-ink">
                     {selectedStage.statBadge}
                   </span>
                 </div>
-                <span className="text-xs font-serif italic text-muted">
+                <span className="t-label font-serif italic text-muted">
                   Sourced Campaign Execution Protocol
                 </span>
               </div>
 
               <div>
-                <h5 className="font-semibold text-xs text-muted uppercase tracking-wider">
+                <h5 className="font-semibold t-label text-muted">
                   Strategic Focus
                 </h5>
-                <p className="text-xs sm:text-sm text-ink mt-0.5 leading-relaxed font-medium">
+                <p className="t-label sm:t-small text-ink mt-0.5 leading-relaxed font-medium">
                   {selectedStage.objective}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
                 <div>
-                  <h5 className="font-semibold text-xs text-muted uppercase tracking-wider mb-1.5">
+                  <h5 className="font-semibold t-label text-muted mb-1.5">
                     Core Channels
                   </h5>
                   <div className="flex flex-wrap gap-1.5">
                     {selectedStage.channels.map((channel, idx) => (
                       <span
                         key={idx}
-                        className="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-lg border border-line bg-paper text-ink font-semibold"
+                        className="inline-flex items-center gap-1 t-label px-2.5 py-1 rounded-lg border border-line bg-paper text-ink font-semibold"
                       >
                         <ChevronRight size={10} className="text-accent" />
                         {channel}
@@ -645,14 +645,14 @@ export function HeroVisual() {
                 </div>
 
                 <div>
-                  <h5 className="font-semibold text-xs text-muted uppercase tracking-wider mb-1.5">
+                  <h5 className="font-semibold t-label text-muted mb-1.5">
                     Verified Execution Tasks
                   </h5>
                   <ul className="space-y-1">
                     {selectedStage.checklist.map((item, idx) => (
                       <li
                         key={idx}
-                        className="flex items-start gap-1.5 text-xs text-ink font-medium leading-tight"
+                        className="flex items-start gap-1.5 t-label text-ink font-medium leading-tight"
                       >
                         <CheckCircle2 size={12} className="text-accent shrink-0 mt-0.5" />
                         <span>{item}</span>

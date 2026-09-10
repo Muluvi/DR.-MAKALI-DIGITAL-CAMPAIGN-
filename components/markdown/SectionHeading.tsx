@@ -52,7 +52,7 @@ function CopyLinkButton({ id }: { id: string }) {
       // a `group-hover` utility alone would have made it permanently invisible on a phone, which
       // is the device this document is most likely to be read on.
       data-copied={copied ? "true" : undefined}
-      className="section-anchor-btn fx-ripple-host fx-press fx-focus inline-flex items-center justify-center w-7 h-7 sm:w-6 sm:h-6 rounded-lg sm:rounded-md border border-line/60 text-muted hover:text-accent hover:border-accent/50 transition-colors align-middle shrink-0 no-underline print:hidden cursor-pointer"
+      className="section-anchor-btn fx-ripple-host fx-press fx-focus relative inline-flex items-center justify-center w-7 h-7 sm:w-6 sm:h-6 rounded-lg sm:rounded-md after:absolute after:left-1/2 after:top-1/2 after:h-11 after:w-11 after:-translate-x-1/2 after:-translate-y-1/2 after:content-[''] border border-line/60 text-muted hover:text-accent hover:border-accent/50 transition-colors align-middle shrink-0 no-underline print:hidden cursor-pointer"
     >
       {/* The tick draws itself rather than appearing, and the button pops once — the whole
           confirmation is 400ms and needs no toast. */}
@@ -102,7 +102,7 @@ export function SectionHeading({
       ref={ref}
       id={id ?? undefined}
       className={`${baseClass} ${phaseBorder} ${entrance} group scroll-mt-28 flex items-center gap-2 ${
-        level === 2 && !accentColor ? "border-gold" : ""
+ level === 2 && !accentColor ? "border-gold" : ""
       }`}
       style={
         {

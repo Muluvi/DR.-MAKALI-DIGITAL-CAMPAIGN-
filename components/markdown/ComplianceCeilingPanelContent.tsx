@@ -69,7 +69,7 @@ export function ComplianceCeilingPanelContent() {
         <table className="w-full text-left t-small block sm:table">
           <caption className="sr-only">Recommended ad-spend range by tier, against the KSh97.56m statutory ceiling</caption>
           <thead className="hidden sm:table-header-group">
-            <tr className="t-micro uppercase tracking-wider font-bold text-muted border-b border-line/40">
+            <tr className="t-micro font-bold text-muted border-b border-line/40">
               <th className="py-1 pr-3">Tier</th>
               <th className="py-1 pr-3">Range</th>
               <th className="py-1">% of ceiling</th>
@@ -78,7 +78,7 @@ export function ComplianceCeilingPanelContent() {
           <tbody className="block sm:table-row-group space-y-2 sm:space-y-0">
             {TIER_RANGES.map((t, i) => (
               <tr key={i} className="block sm:table-row p-2.5 sm:p-0 bg-paper sm:bg-transparent rounded-xl sm:rounded-none border border-line/50 sm:border-0 sm:border-t sm:border-line/40">
-                <td className="block sm:table-cell py-0.5 sm:py-1.5 pr-0 sm:pr-3 font-bold text-ink text-xs sm:t-small">
+                <td className="block sm:table-cell py-0.5 sm:py-1.5 pr-0 sm:pr-3 font-bold text-ink t-label sm:t-small">
                   {t.name}
                 </td>
                 <td className="flex sm:table-cell justify-between sm:justify-start items-center py-0.5 sm:py-1.5 pr-0 sm:pr-3 text-ink/80 t-small before:content-['Range:'] before:t-micro before:font-bold before:text-muted before:uppercase sm:before:content-none">
@@ -95,19 +95,19 @@ export function ComplianceCeilingPanelContent() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
         <div className="rounded-xl border border-line/60 bg-paper p-3">
-          <div className="t-micro uppercase tracking-wider font-bold text-muted mb-1">{SINGLE_SOURCE_CONTRIBUTION_CAP_PCT.label}</div>
+          <div className="t-micro font-bold text-muted mb-1">{SINGLE_SOURCE_CONTRIBUTION_CAP_PCT.label}</div>
           <div className="font-serif text-sm font-black text-ink">{SINGLE_SOURCE_CONTRIBUTION_CAP_PCT.value}{SINGLE_SOURCE_CONTRIBUTION_CAP_PCT.unit.replace("% of the total ceiling", "% of ceiling")}</div>
         </div>
         <div className="rounded-xl border border-line/60 bg-paper p-3">
-          <div className="t-micro uppercase tracking-wider font-bold text-muted mb-1">{AUDITED_REPORT_THRESHOLD.label}</div>
+          <div className="t-micro font-bold text-muted mb-1">{AUDITED_REPORT_THRESHOLD.label}</div>
           <div className="font-serif text-sm font-black text-ink">KSh{(AUDITED_REPORT_THRESHOLD.value / 1_000_000).toFixed(0)}m+</div>
         </div>
         <div className="rounded-xl border border-line/60 bg-paper p-3">
-          <div className="t-micro uppercase tracking-wider font-bold text-muted mb-1">Regulated expenditure window</div>
-          <div className="text-xs font-bold text-ink">{EXPENDITURE_WINDOW.start} → {EXPENDITURE_WINDOW.end}</div>
+          <div className="t-micro font-bold text-muted mb-1">Regulated expenditure window</div>
+          <div className="t-label font-bold text-ink">{EXPENDITURE_WINDOW.start} → {EXPENDITURE_WINDOW.end}</div>
         </div>
         <div className="rounded-xl border border-danger/40 bg-paper p-3">
-          <div className="t-micro uppercase tracking-wider font-bold text-danger mb-1">Penalty exposure</div>
+          <div className="t-micro font-bold text-danger mb-1">Penalty exposure</div>
           <div className="font-serif text-sm font-black text-ink">
             Up to KSh{(PENALTY_MAX_FINE.value / 1_000_000).toFixed(0)}m and/or {PENALTY_MAX_PRISON_YEARS.value} years
           </div>
@@ -115,10 +115,10 @@ export function ComplianceCeilingPanelContent() {
       </div>
 
       <div className="rounded-xl border border-line/60 bg-paper p-3">
-        <div className="t-micro uppercase tracking-wider font-black text-ink mb-1.5">Operational requirements</div>
+        <div className="t-micro font-black text-ink mb-1.5">Operational requirements</div>
         <ul className="space-y-1.5">
           {COMPLIANCE_REQUIREMENTS.map((req, i) => (
-            <li key={i} className="flex items-start gap-1.5 text-xs text-ink/80 leading-relaxed">
+            <li key={i} className="flex items-start gap-1.5 t-label text-ink/80 leading-relaxed">
               <span className="text-accent mt-0.5 shrink-0">›</span>
               <span>{req}</span>
             </li>

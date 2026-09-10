@@ -44,7 +44,7 @@ export function EconomistGovernorThesis() {
     >
       <div className="flex items-center gap-4 sm:gap-6">
         <div className="min-w-0 flex-1">
-      <p className="t-micro font-black uppercase tracking-widest text-accent mb-3">
+      <p className="t-micro font-black text-accent mb-3">
         The campaign&rsquo;s core narrative
       </p>
 

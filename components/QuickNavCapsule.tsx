@@ -53,7 +53,7 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
 
   return (
     <div className={`fixed bottom-[calc(var(--dock-h,5rem)+0.75rem)] lg:bottom-6 right-4 sm:right-6 z-40 print:hidden flex flex-col items-end gap-2.5 select-none transition-all duration-300 ease-out motion-reduce:transition-none ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6 pointer-events-none"
+ visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6 pointer-events-none"
       }`}>
       <AnimatePresence>
         {isOpen && (
@@ -69,7 +69,7 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
                 <div className="p-1 rounded-md bg-accent/10 text-accent">
                   <Sparkles size={13} />
                 </div>
-                <span className="font-serif text-xs font-black text-ink">Executive Shortcuts</span>
+                <span className="font-serif t-label font-black text-ink">Executive Shortcuts</span>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
@@ -87,13 +87,13 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
                   <button
                     key={item.id}
                     onClick={() => handleSelect(item.id)}
-                    className="fx-press fx-focus flex items-center justify-between p-2.5 rounded-xl text-left hover:bg-accent/10 hover:text-accent group transition-all cursor-pointer text-xs font-bold text-ink min-h-[44px]"
+                    className="fx-press fx-focus flex items-center justify-between p-2.5 rounded-xl text-left hover:bg-accent/10 hover:text-accent group transition-all cursor-pointer t-label font-bold text-ink min-h-[44px] min-w-[44px] justify-center"
                   >
                     <div className="flex items-center gap-2.5 truncate">
                       <Icon size={14} className="fx-icon-rise text-muted group-hover:text-accent transition-colors shrink-0" />
                       <span className="truncate">{item.label}</span>
                     </div>
-                    <span className="t-micro uppercase tracking-wider font-extrabold px-1.5 py-0.5 rounded bg-line/30 text-muted group-hover:bg-accent group-hover:text-white transition-all shrink-0">
+                    <span className="t-micro font-extrabold px-1.5 py-0.5 rounded bg-line/30 text-muted group-hover:bg-accent group-hover:text-white transition-all shrink-0">
                       {item.tab}
                     </span>
                   </button>
@@ -132,8 +132,8 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] rounded-full backdrop-blur-md border shadow-lg text-xs font-bold transition-all cursor-pointer active:scale-95 ${
-            isOpen
+          className={`flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] rounded-full backdrop-blur-md border shadow-lg t-label font-bold transition-all cursor-pointer active:scale-95 ${
+ isOpen
               ? "bg-accent-solid text-on-accent border-accent-solid shadow-accent/25"
               : "bg-card/95 text-ink border-line/60 hover:border-accent/60 hover:text-accent"
           }`}

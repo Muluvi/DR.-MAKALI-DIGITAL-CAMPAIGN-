@@ -83,7 +83,7 @@ export function WardRegisterTicker() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h5 className="font-serif text-xs sm:text-sm font-bold text-ink">
+              <h5 className="font-serif t-label sm:t-small font-bold text-ink">
                 40-Ward IEBC Voter Register Stream
               </h5>
               <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-accent/10 text-accent">
@@ -102,7 +102,7 @@ export function WardRegisterTicker() {
             <button
               onClick={() => setFilterMode("all")}
               className={`px-2.5 py-1.5 t-micro font-bold rounded-lg transition-all cursor-pointer whitespace-nowrap min-h-[44px] ${
-                filterMode === "all"
+ filterMode === "all"
                   ? "bg-accent-solid text-on-accent shadow-xs"
                   : "text-muted hover:text-ink"
               }`}
@@ -112,7 +112,7 @@ export function WardRegisterTicker() {
             <button
               onClick={() => setFilterMode("top")}
               className={`px-2.5 py-1.5 t-micro font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 whitespace-nowrap min-h-[44px] ${
-                filterMode === "top"
+ filterMode === "top"
                   ? "bg-gold text-ink shadow-xs"
                   : "text-muted hover:text-ink"
               }`}
@@ -123,7 +123,7 @@ export function WardRegisterTicker() {
             <button
               onClick={() => setFilterMode("bottom")}
               className={`px-2.5 py-1.5 t-micro font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 whitespace-nowrap min-h-[44px] ${
-                filterMode === "bottom"
+ filterMode === "bottom"
                   ? "bg-line/90 text-ink shadow-xs"
                   : "text-muted hover:text-ink"
               }`}
@@ -190,7 +190,7 @@ export function WardRegisterTicker() {
                   key={`ward-a-${ward.name}`}
                   onClick={() => setSelectedWard(isSelected ? null : ward)}
                   className={`flex items-center gap-2.5 bg-card border rounded-xl px-3 py-2 transition-all cursor-pointer ${
-                    isSelected
+ isSelected
                       ? "border-accent ring-2 ring-accent/30 bg-accent/5 shadow-md"
                       : ward.performanceTier === "top"
                       ? "border-gold/50 hover:border-gold shadow-xs"
@@ -202,7 +202,7 @@ export function WardRegisterTicker() {
                   {/* Rank Badge */}
                   <div
                     className={`w-6 h-6 rounded-lg flex items-center justify-center font-mono t-micro font-black shrink-0 ${
-                      ward.performanceTier === "top"
+ ward.performanceTier === "top"
                         ? "bg-gold text-ink"
                         : ward.performanceTier === "bottom"
                         ? "bg-line text-muted"
@@ -219,12 +219,12 @@ export function WardRegisterTicker() {
                         {ward.name}
                       </span>
                       {ward.performanceTier === "top" && (
-                        <span className="t-micro font-black uppercase tracking-wider px-1.5 py-0.2 bg-gold/15 text-ink rounded">
+                        <span className="t-micro font-black px-1.5 py-0.2 bg-gold/15 text-ink rounded">
                           Top Tier
                         </span>
                       )}
                       {ward.performanceTier === "bottom" && (
-                        <span className="t-micro font-bold uppercase tracking-wider px-1.5 py-0.2 bg-line text-muted rounded">
+                        <span className="t-micro font-bold px-1.5 py-0.2 bg-line text-muted rounded">
                           Frontier
                         </span>
                       )}
@@ -247,7 +247,7 @@ export function WardRegisterTicker() {
                 key={`ward-b-${ward.name}`}
                 onClick={() => setSelectedWard(ward)}
                 className={`flex items-center gap-2.5 bg-card border rounded-xl px-3 py-2 transition-all cursor-pointer ${
-                  ward.performanceTier === "top"
+ ward.performanceTier === "top"
                     ? "border-gold/50 hover:border-gold shadow-xs"
                     : ward.performanceTier === "bottom"
                     ? "border-line/70 hover:border-line"
@@ -256,7 +256,7 @@ export function WardRegisterTicker() {
               >
                 <div
                   className={`w-6 h-6 rounded-lg flex items-center justify-center font-mono t-micro font-black shrink-0 ${
-                    ward.performanceTier === "top"
+ ward.performanceTier === "top"
                       ? "bg-gold text-ink"
                       : ward.performanceTier === "bottom"
                       ? "bg-line text-muted"
@@ -271,12 +271,12 @@ export function WardRegisterTicker() {
                       {ward.name}
                     </span>
                     {ward.performanceTier === "top" && (
-                      <span className="t-micro font-black uppercase tracking-wider px-1.5 py-0.2 bg-gold/15 text-ink rounded">
+                      <span className="t-micro font-black px-1.5 py-0.2 bg-gold/15 text-ink rounded">
                         Top Tier
                       </span>
                     )}
                     {ward.performanceTier === "bottom" && (
-                      <span className="t-micro font-bold uppercase tracking-wider px-1.5 py-0.2 bg-line text-muted rounded">
+                      <span className="t-micro font-bold px-1.5 py-0.2 bg-line text-muted rounded">
                         Frontier
                       </span>
                     )}
@@ -308,11 +308,11 @@ export function WardRegisterTicker() {
             <div>
               <div className="flex items-center gap-2">
                 <h6 className="font-serif text-sm font-black text-ink">{selectedWard.name} Ward</h6>
-                <span className="t-micro uppercase tracking-wider font-bold text-accent px-2 py-0.5 rounded bg-accent/10">
+                <span className="t-micro font-bold text-accent px-2 py-0.5 rounded bg-accent/10">
                   {selectedWard.constituencyName}
                 </span>
               </div>
-              <p className="text-xs text-muted mt-0.5">
+              <p className="t-label text-muted mt-0.5">
                 {selectedWard.voters.toLocaleString()} registered voters ({selectedWard.sharePercent.toFixed(2)}% of county register).
                 {selectedWard.deltaFromMean >= 0
                   ? ` +${selectedWard.deltaFromMean.toLocaleString()} above county ward average.`
@@ -322,7 +322,7 @@ export function WardRegisterTicker() {
           </div>
           <button
             onClick={() => setSelectedWard(null)}
-            className="self-end sm:self-auto px-2.5 py-1 text-xs font-bold text-muted hover:text-ink bg-paper border border-line rounded-lg cursor-pointer"
+            className="self-end sm:self-auto px-2.5 py-1 t-label font-bold text-muted hover:text-ink bg-paper border border-line rounded-lg cursor-pointer"
           >
             Dismiss
           </button>

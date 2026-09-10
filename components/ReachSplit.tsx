@@ -95,7 +95,7 @@ export function ReachSplit() {
   return (
     <div ref={ref} className="my-10 not-prose">
       <div className="flex items-center gap-2 flex-wrap mb-4">
-        <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+        <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
           Channel architecture
         </span>
         <TierBadge tier={1} compact />
@@ -135,7 +135,7 @@ export function ReachSplit() {
           <span className="font-serif text-lg sm:text-xl font-bold text-paper dark:text-ink tabular-nums">
             {OFFLINE}%
           </span>
-          <span className="t-small sm:text-xs text-paper/80 dark:text-ink/70 font-semibold">
+          <span className="t-small sm:t-label text-paper/80 dark:text-ink/70 font-semibold">
             offline
           </span>
         </motion.div>
@@ -148,12 +148,12 @@ export function ReachSplit() {
       {/* What serves each side. */}
       <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] gap-3 mt-5">
         <div className="p-4 rounded-2xl border border-accent/30 bg-accent/[0.04]">
-          <div className="t-label font-black uppercase tracking-wider text-accent mb-2.5">
+          <div className="t-label font-black text-accent mb-2.5">
             The connected minority
           </div>
           <ul className="space-y-2">
             {CHANNELS.connected.map((c) => (
-              <li key={c.label} className="flex items-center gap-2 text-xs text-ink">
+              <li key={c.label} className="flex items-center gap-2 t-label text-ink">
                 <c.icon size={13} className="text-accent shrink-0" aria-hidden="true" />
                 {c.label}
               </li>
@@ -161,12 +161,12 @@ export function ReachSplit() {
           </ul>
         </div>
         <div className="p-4 rounded-2xl border border-line bg-card">
-          <div className="t-label font-black uppercase tracking-wider text-ink mb-2.5">
+          <div className="t-label font-black text-ink mb-2.5">
             The offline majority — where the election is
           </div>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {CHANNELS.offline.map((c) => (
-              <li key={c.label} className="flex items-center gap-2 text-xs text-ink">
+              <li key={c.label} className="flex items-center gap-2 t-label text-ink">
                 <c.icon size={13} className="text-gold shrink-0" aria-hidden="true" />
                 {c.label}
               </li>
@@ -191,8 +191,8 @@ export function ReachSplit() {
                 onPointerDown={() => setPressed(k)}
                 onPointerUp={() => setPressed(null)}
                 onPointerLeave={() => setPressed(null)}
-                className={`h-8 rounded-md font-mono text-xs font-bold transition-transform ${
-                  pressed === k
+                className={`h-8 rounded-md font-mono t-label font-bold transition-transform ${
+ pressed === k
                     ? "scale-95 bg-accent-solid text-on-accent"
                     : "bg-paper/10 text-paper/80 hover:bg-paper/20"
                 }`}
@@ -209,12 +209,12 @@ export function ReachSplit() {
             <h4 className="font-serif text-base font-bold text-ink">The USSD layer</h4>
             <ClaimBadge status="awaiting" compact />
           </div>
-          <p className="text-xs text-muted leading-relaxed mb-3">
+          <p className="t-label text-muted leading-relaxed mb-3">
             Works on every phone, requires no internet, costs the voter almost nothing. The
             shortcode is a vendor allocation pending at Phase 0, so the menu above shows the
             proposed tree rather than a live number.
           </p>
-          <p className="text-xs text-ink leading-relaxed font-medium mb-3">
+          <p className="t-label text-ink leading-relaxed font-medium mb-3">
             Option 3 matters most. A constituent in Mutha reports a broken water point from a
             feature phone; the report enters a public register; the campaign follows up and
             publishes the outcome. That is the M&amp;E credential operating in public, before the

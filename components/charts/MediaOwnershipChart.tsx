@@ -64,7 +64,7 @@ export default function MediaOwnershipChart({ data }: { data: StationBar[] }) {
           {ALIGNMENTS.map((a) => (
             <span
               key={a.key}
-              className="t-micro font-black uppercase tracking-wider text-muted leading-tight text-center"
+              className="t-micro font-black text-muted leading-tight text-center"
             >
               {a.label}
             </span>

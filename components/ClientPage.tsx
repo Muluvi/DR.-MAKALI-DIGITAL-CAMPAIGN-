@@ -139,7 +139,7 @@ function PartDivider({ number, label }: { number: string; label: string }) {
         <div className="absolute inset-0 fx-gradient-live bg-[linear-gradient(100deg,var(--color-accent)_0%,transparent_35%,transparent_65%,var(--color-gold)_100%)] opacity-[0.07]" />
         <div className="absolute inset-0 fx-pattern-diagonal" />
         <div className="max-w-7xl mx-auto px-3 sm:px-6 w-full flex items-center gap-3 relative z-10">
-          <span className="font-mono text-xs sm:text-sm font-bold text-accent shrink-0 tabular-nums">{number}</span>
+          <span className="font-mono t-label sm:t-small font-bold text-accent shrink-0 tabular-nums">{number}</span>
           <span className="h-px w-6 bg-gradient-to-r from-accent to-transparent shrink-0" />
           <span className="text-sm sm:text-base font-semibold text-ink truncate">{label}</span>
         </div>
@@ -487,7 +487,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                     <span className="font-serif text-[15px] font-semibold text-ink leading-snug group-hover:text-accent transition-colors text-balance">
                       {item.label}
                     </span>
-                    <span className="text-xs text-muted leading-snug mt-auto">{item.blurb}</span>
+                    <span className="t-label text-muted leading-snug mt-auto">{item.blurb}</span>
                   </button>
                 );
               })}
@@ -547,19 +547,19 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
             <div style={{ "--fx-i": 0 } as React.CSSProperties} className="fx-in-left fx-glass fx-lift flex items-center gap-3 mb-4 sm:mb-6 select-none rounded-2xl p-2.5 sm:p-3.5 w-fit">
               <span className="fx-loop-float inline-flex"><WiperUmbrellaLogo /></span>
               <div>
-                <div className="t-small sm:text-sm tracking-[0.12em] uppercase text-accent font-black">
+                <div className="t-small sm:text-sm text-accent font-black">
                   Wiper Democratic Movement
                 </div>
-                <div className="t-micro sm:text-xs tracking-wider text-muted uppercase font-semibold mt-0.5">
+                <div className="t-micro sm:t-label text-muted font-semibold mt-0.5">
                   Kitui 2027 Strategy Portal
                 </div>
               </div>
             </div>
 
-            <div style={{ "--fx-i": 1 } as React.CSSProperties} className="fx-in-fade confidentiality-marker mb-4 sm:mb-6 flex items-center gap-1.5 text-xs">
+            <div style={{ "--fx-i": 1 } as React.CSSProperties} className="fx-in-fade confidentiality-marker mb-4 sm:mb-6 flex items-baseline flex-wrap gap-x-1.5">
               <span className="fx-loop-blink w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
               <strong>Confidential</strong>
-              <span className="opacity-70 truncate sm:whitespace-normal">— prepared for Wiper Democratic Movement campaign leadership.</span>
+              <span className="opacity-70">— prepared for Wiper Democratic Movement campaign leadership.</span>
             </div>
 
             {/* The title and the candidate, together. The portrait is a cutout, so it stands on
@@ -579,7 +579,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                   {"Kitui 2027:\nthe operating system for an Economist Governor."}
                 </SplitText>
               </h1>
-              <p style={{ "--fx-i": 3 } as React.CSSProperties} className="fx-in-up col-start-1 text-sm sm:text-base md:text-lg text-muted max-w-3xl leading-relaxed text-pretty">
+              <p style={{ "--fx-i": 3 } as React.CSSProperties} className="fx-in-up col-start-1 t-body md:t-lead text-muted max-w-3xl leading-relaxed text-pretty">
                 Campaign Strategy & Digital Architecture Proposal for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
               </p>
               {/* The cycler's word list is the section index itself, so it can never drift out of
@@ -603,10 +603,10 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
 
             {/* Quick-jump chips — the five places a candidate reads first, one tap from the top. */}
             <div style={{ "--fx-i": 4 } as React.CSSProperties} className="fx-in-up mt-5 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none lg:hidden select-none -mx-4 px-4">
-              <span className="text-xs font-semibold text-muted shrink-0">Jump to</span>
+              <span className="t-label font-semibold text-muted shrink-0">Jump to</span>
               <RippleButton
                 onClick={() => setIsTOCModalOpen(true)}
-                className="fx-shine px-3 py-1.5 rounded-xl bg-accent-solid text-on-accent text-xs font-bold shrink-0 flex items-center gap-1.5 shadow-sm shadow-accent/20 cursor-pointer tap-chip"
+                className="fx-shine px-3 py-1.5 rounded-xl bg-accent-solid text-on-accent t-label font-bold shrink-0 flex items-center gap-1.5 shadow-sm shadow-accent/20 cursor-pointer tap-chip"
               >
                 <span>Full index</span>
               </RippleButton>
@@ -615,7 +615,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                   key={link.id}
                   onClick={() => navigateToSection(link.id)}
                   style={{ "--fx-i": i } as React.CSSProperties}
-                  className="fx-bg-slide px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent hover:text-white cursor-pointer tap-chip"
+                  className="fx-bg-slide px-3 py-1.5 rounded-xl bg-card border border-line text-ink t-label font-bold shrink-0 hover:border-accent hover:text-white cursor-pointer tap-chip"
                 >
                   {link.label}
                 </RippleButton>
@@ -674,7 +674,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                   <WiperUmbrellaLogo />
                 </div>
                 <div className="hidden sm:block">
-                  <div className="t-label tracking-wider font-black text-accent uppercase leading-none">Wiper Democratic Movement</div>
+                  <div className="t-label font-black text-accent leading-none">Wiper Democratic Movement</div>
                   <div className="t-micro font-bold text-muted uppercase mt-0.5 leading-none">Kitui 2027 Strategy</div>
                 </div>
               </div>
@@ -684,7 +684,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
             <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
               <RippleButton
                 onClick={() => setIsTOCModalOpen(true)}
-                className="group fx-shine flex items-center gap-1.5 px-3 py-2 bg-accent/10 border border-accent/20 rounded-xl text-xs sm:text-sm font-bold text-accent hover:bg-accent hover:text-white transition-all cursor-pointer min-h-[44px] sm:min-h-[44px]"
+                className="group fx-shine flex items-center gap-1.5 px-3 py-2 bg-accent/10 border border-accent/20 rounded-xl t-label sm:t-small font-bold text-accent hover:bg-accent hover:text-white transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px]"
                 aria-label="Open Table of Contents"
               >
                 <FileText size={15} className="fx-icon-rise" />
@@ -693,18 +693,18 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
 
               <button 
                 onClick={cycleDensity}
-                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[44px] sm:min-h-[44px]"
+                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-2 bg-card border border-line/60 rounded-xl t-label sm:t-small font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px]"
                 title={`Reading Density: ${readingDensity}`}
                 aria-label="Toggle Reading Density"
               >
                 <Type size={14} />
-                <span className="capitalize t-small sm:text-xs hidden xs:inline">{readingDensity}</span>
+                <span className="capitalize t-small sm:t-label hidden xs:inline">{readingDensity}</span>
               </button>
 
               <button 
                 onClick={() => setIsFocusMode(!isFocusMode)}
-                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl text-xs sm:text-sm font-bold fx-press fx-focus transition-all cursor-pointer min-h-[44px] sm:min-h-[44px] ${
-                  isFocusMode 
+                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl t-label sm:t-small font-bold fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px] ${
+ isFocusMode 
                     ? "bg-accent-solid border-accent-solid text-on-accent shadow-sm" 
                     : "bg-card border-line/60 text-ink hover:border-accent hover:text-accent"
                 }`}
@@ -717,31 +717,31 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
 
               <button 
                 onClick={() => setIsZeroChrome(!isZeroChrome)}
-                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl text-xs sm:text-sm font-bold fx-press fx-focus transition-all cursor-pointer min-h-[44px] sm:min-h-[44px] ${
-                  isZeroChrome 
+                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl t-label sm:t-small font-bold fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px] ${
+ isZeroChrome 
                     ? "bg-accent-solid border-accent-solid text-on-accent shadow-sm" 
                     : "bg-card border-line/60 text-ink hover:border-accent hover:text-accent"
                 }`}
-                title={isZeroChrome ? "Exit Zero Chrome" : "Enter Zero Chrome Full-Screen"}
-                aria-label="Toggle Zero Chrome"
+                title={isZeroChrome ? "Leave reading view" : "Enter reading view"}
+                aria-label="Toggle reading view"
               >
                 <EyeOff size={14} className={isZeroChrome ? "text-white" : "text-accent"} />
-                <span className="hidden sm:inline">Zero Chrome</span>
+                <span className="hidden sm:inline">Reading view</span>
               </button>
 
               <button 
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="flex items-center gap-1.5 px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[44px] sm:min-h-[44px]"
+                className="flex items-center gap-1.5 px-3 py-2 bg-card border border-line/60 rounded-xl t-label sm:t-small font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px]"
               >
                 {isExpanded ? <Minimize2 size={15} /> : <Maximize2 size={15} />}
-                <span className="hidden sm:inline">{isExpanded ? "Collapse All" : "Expand All"}</span>
+                <span className="hidden sm:inline">{isExpanded ? "Close every section" : "Open every section"}</span>
                 <span className="sm:hidden">{isExpanded ? "Collapse" : "All"}</span>
               </button>
 
               <MagneticButton
                 onClick={printFullDocument}
                 strength={0.22}
-                className="group hidden sm:flex items-center gap-2 px-3.5 py-2 bg-card border border-line/60 rounded-xl text-sm font-bold text-ink hover:border-accent hover:text-accent transition-all cursor-pointer min-h-[44px]"
+                className="group hidden sm:flex items-center gap-2 px-3.5 py-2 bg-card border border-line/60 rounded-xl text-sm font-bold text-ink hover:border-accent hover:text-accent transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center"
               >
                 <Printer size={15} className="fx-icon-rise" />
                 <span>Print</span>
@@ -749,7 +749,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
 
               <button 
                 onClick={toggleTheme}
-                className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[44px] sm:min-h-[44px]"
+                className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 bg-card border border-line/60 rounded-xl t-label sm:t-small font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px]"
                 aria-label="Toggle theme"
               >
                 {mounted ? (
@@ -764,7 +764,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
             </div>
           </div>
 
-          <div className="t-small sm:text-xs font-bold text-muted shrink-0 pl-1 sm:pl-2">
+          <div className="t-small sm:t-label font-bold text-muted shrink-0 pl-1 sm:pl-2">
             <span className="hidden md:inline">{readingTime} min read · </span>
             <span>{wordCount.toLocaleString()} wds</span>
           </div>
@@ -778,7 +778,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
           <aside className="toc-rail hidden lg:block w-72 flex-shrink-0 print:hidden">
             <div className="sticky top-24 space-y-4">
               <SpotlightCard className="fx-glass rounded-2xl p-4">
-                <div className="text-xs font-semibold text-muted mb-3 flex items-center justify-between">
+                <div className="t-label font-semibold text-muted mb-3 flex items-center justify-between">
                   <span>The proposal</span>
                   <span className="font-mono text-accent tabular-nums">{navItems.length} sections</span>
                 </div>
@@ -805,8 +805,8 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                     onPointerEnter={() => prefetchTab(item.id)}
                     onFocus={() => prefetchTab(item.id)}
                         aria-current={isActive ? "true" : undefined}
-                        className={`group relative flex items-center justify-between gap-2 px-2.5 py-2 rounded-xl text-xs transition-colors text-left ${
-                          isActive
+                        className={`group relative flex items-center justify-between gap-2 px-2.5 py-2 rounded-xl t-label transition-colors text-left ${
+ isActive
                             ? "bg-accent-solid text-on-accent shadow-sm shadow-accent/20 font-semibold"
                             : "text-muted hover:bg-ink/5 hover:text-ink cursor-pointer font-medium"
                         }`}
@@ -816,7 +816,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                           <span className="truncate leading-snug">{item.label}</span>
                         </div>
                         <span className={`font-mono text-[10px] shrink-0 tabular-nums ${
-                          isActive ? "text-white/70" : "text-muted/70"
+ isActive ? "text-white/70" : "text-muted/70"
                         }`}>
                           {sectionReadMin}m
                         </span>
@@ -827,8 +827,8 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
               </SpotlightCard>
 
               {/* Minimalist Key Metric Summary Card */}
-              <div className="fx-glass fx-lift rounded-2xl p-3.5 text-xs space-y-2">
-                <div className="flex items-center justify-between t-label uppercase tracking-wider font-extrabold text-muted">
+              <div className="fx-glass fx-lift rounded-2xl p-3.5 t-label space-y-2">
+                <div className="flex items-center justify-between t-label font-extrabold text-muted">
                   <span>Target Victory</span>
                   <span className="text-accent font-black tabular-nums">200k Votes</span>
                 </div>
@@ -893,7 +893,14 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
           <strong>Confidential</strong>
           <span className="opacity-70"> — link-only proposal for Wiper Democratic Movement campaign leadership. Not for public distribution.</span>
         </div>
-        <p className="text-sm text-muted">Prepared by Firefly Management · August 2026 · Proposal for discussion.</p>
+        <dl className="text-sm text-muted grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 max-w-md">
+          <dt className="font-semibold text-ink">Prepared by</dt>
+          <dd>Firefly Management</dd>
+          <dt className="font-semibold text-ink">Date</dt>
+          <dd>August 2026</dd>
+          <dt className="font-semibold text-ink">Status</dt>
+          <dd>Proposal for discussion</dd>
+        </dl>
         <p className="mt-2 text-sm font-bold text-ink">Confidentiality / distribution:</p>
         <p className="text-sm text-muted">This proposal is designed as a personally shared, link-only document. It is configured as noindex, nofollow and contains deliberate placeholders where primary documents or campaign decisions are still required.</p>
       </footer>

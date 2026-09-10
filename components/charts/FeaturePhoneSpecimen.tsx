@@ -193,7 +193,7 @@ export function FeaturePhoneSpecimen() {
                 aria-controls={panelId}
                 onClick={() => setLang(l.id)}
                 title={l.note}
-                className={`min-h-[44px] px-3 rounded-lg t-micro font-black uppercase tracking-wider fx-press fx-focus cursor-pointer transition-colors ${
+                className={`min-h-[44px] px-3 rounded-lg t-micro font-black fx-press fx-focus cursor-pointer transition-colors ${
                   lang === l.id ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink"
                 }`}
               >
@@ -213,7 +213,7 @@ export function FeaturePhoneSpecimen() {
           <div className="mt-3 flex items-center justify-center gap-2">
             <button
               onClick={() => { if (running) { clearTimers(); } setRunning((v) => !v); }}
-              className="min-h-[44px] px-3 rounded-xl border border-line bg-paper t-micro font-black uppercase tracking-wider text-muted hover:text-ink fx-press fx-focus cursor-pointer"
+              className="min-h-[44px] min-w-[44px] justify-center px-3 rounded-xl border border-line bg-paper t-micro font-black text-muted hover:text-ink fx-press fx-focus cursor-pointer"
             >
               {running && !reduce ? "Pause session" : "Play session"}
             </button>
@@ -227,7 +227,7 @@ export function FeaturePhoneSpecimen() {
             <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1.5 mb-2">
               <span className="inline-flex items-center gap-1.5 shrink-0">
                 <Phone size={12} className="text-accent" aria-hidden="true" />
-                <span className="t-micro font-black uppercase tracking-wider text-muted">Dial</span>
+                <span className="t-micro font-black text-muted">Dial</span>
                 <code className="placeholder t-micro whitespace-nowrap">
                   {USSD_SHORTCODE_PLACEHOLDER}
                 </code>
@@ -259,13 +259,13 @@ export function FeaturePhoneSpecimen() {
         <div id={panelId} role="tabpanel" className="min-w-0">
           <div className="rounded-xl border border-line/60 bg-paper p-3">
             <div className="flex items-center justify-between gap-2 mb-2">
-              <span className="inline-flex items-center gap-1.5 t-micro font-black uppercase tracking-wider text-muted">
+              <span className="inline-flex items-center gap-1.5 t-micro font-black text-muted">
                 <MessageSquare size={12} className="text-accent" aria-hidden="true" />
                 {specimen.type}
               </span>
               <span
                 className={`t-micro font-black tabular-nums px-1.5 py-0.5 rounded ${
-                  chars > SMS_LIMIT ? "bg-danger/15 text-danger" : "bg-accent/10 text-accent"
+ chars > SMS_LIMIT ? "bg-danger/15 text-danger" : "bg-accent/10 text-accent"
                 }`}
               >
                 {chars}/{SMS_LIMIT}
@@ -285,7 +285,7 @@ export function FeaturePhoneSpecimen() {
                     <li key={s.stage} className="flex gap-2 t-micro leading-snug">
                       <span
                         className={`shrink-0 w-4 h-4 rounded-full grid place-items-center font-black ${
-                          s.stage === 1 ? "bg-accent-solid text-on-accent" : "bg-line text-muted"
+ s.stage === 1 ? "bg-accent-solid text-on-accent" : "bg-line text-muted"
                         }`}
                         style={{ fontSize: 8 }}
                       >
@@ -327,7 +327,7 @@ export function FeaturePhoneSpecimen() {
                   onClick={() => setSpecimenIndex(i)}
                   aria-pressed={i === specimenIndex}
                   className={`min-h-[44px] px-2.5 rounded-lg border t-micro font-bold fx-press fx-focus cursor-pointer transition-colors ${
-                    i === specimenIndex
+ i === specimenIndex
                       ? "bg-accent-solid border-accent-solid text-on-accent"
                       : "bg-card border-line text-muted hover:text-ink"
                   }`}

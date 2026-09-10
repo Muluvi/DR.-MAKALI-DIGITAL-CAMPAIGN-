@@ -86,7 +86,7 @@ export default function ModelVariablesDrawer() {
                 <h4 className="font-serif text-sm sm:text-base font-bold text-ink">
                   Model Variables Dictionary (§6.2.4)
                 </h4>
-                <span className="t-micro font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-accent/10 text-accent">
+                <span className="t-micro font-bold px-2 py-0.5 rounded-full bg-accent/10 text-accent">
                   23 Verified Features
                 </span>
               </div>
@@ -122,7 +122,7 @@ export default function ModelVariablesDrawer() {
         <div className="mt-3 space-y-2">
           {/* Source filters */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 max-w-full">
-            <span className="t-micro uppercase tracking-wider font-bold text-muted shrink-0 mr-1">
+            <span className="t-micro font-bold text-muted shrink-0 mr-1">
               Source:
             </span>
             {SOURCES.map((s) => (
@@ -130,7 +130,7 @@ export default function ModelVariablesDrawer() {
                 key={s}
                 onClick={() => setSourceFilter(s)}
                 className={`px-2.5 py-1 rounded-lg t-micro font-bold transition-all shrink-0 cursor-pointer min-h-[32px] ${
-                  sourceFilter === s
+ sourceFilter === s
                     ? "bg-accent-solid text-on-accent shadow-xs"
                     : "bg-card border border-line/60 text-muted hover:text-ink"
                 }`}
@@ -142,7 +142,7 @@ export default function ModelVariablesDrawer() {
 
           {/* Type filters */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 max-w-full">
-            <span className="t-micro uppercase tracking-wider font-bold text-muted shrink-0 mr-1">
+            <span className="t-micro font-bold text-muted shrink-0 mr-1">
               Type:
             </span>
             {TYPES.map((t) => (
@@ -150,7 +150,7 @@ export default function ModelVariablesDrawer() {
                 key={t}
                 onClick={() => setTypeFilter(t)}
                 className={`px-2.5 py-1 rounded-lg t-micro font-bold transition-all shrink-0 cursor-pointer min-h-[32px] ${
-                  typeFilter === t
+ typeFilter === t
                     ? "bg-gold text-ink shadow-xs"
                     : "bg-card border border-line/60 text-muted hover:text-ink"
                 }`}
@@ -176,7 +176,7 @@ export default function ModelVariablesDrawer() {
                 key={item.variable}
                 onClick={() => setExpandedVar(isExpanded ? null : item.variable)}
                 className={`p-3 rounded-xl transition-all cursor-pointer ${
-                  item.highlight
+ item.highlight
                     ? "bg-accent/[0.04] border border-accent/30 my-1.5"
                     : "hover:bg-line/10"
                 }`}
@@ -193,7 +193,7 @@ export default function ModelVariablesDrawer() {
                       via {item.source}
                     </span>
                     {item.highlight && (
-                      <span className="t-micro font-black uppercase tracking-wider px-1.5 py-0.2 bg-gold/15 text-gold-dark rounded">
+                      <span className="t-micro font-black px-1.5 py-0.2 bg-gold/15 text-gold-dark rounded">
                         Key Driver
                       </span>
                     )}
@@ -211,15 +211,15 @@ export default function ModelVariablesDrawer() {
                 {isExpanded && (
                   <div className="mt-2.5 pt-2.5 border-t border-line/40 grid grid-cols-1 sm:grid-cols-3 gap-2 t-label">
                     <div className="bg-paper/70 p-2 rounded-lg border border-line/40">
-                      <span className="t-micro uppercase tracking-wider font-bold text-muted block">Format</span>
+                      <span className="t-micro font-bold text-muted block">Format</span>
                       <span className="font-mono text-ink font-semibold">{item.format}</span>
                     </div>
                     <div className="bg-paper/70 p-2 rounded-lg border border-line/40">
-                      <span className="t-micro uppercase tracking-wider font-bold text-muted block">Source Entity</span>
+                      <span className="t-micro font-bold text-muted block">Source Entity</span>
                       <span className="text-ink font-semibold">{item.source}</span>
                     </div>
                     <div className="bg-paper/70 p-2 rounded-lg border border-line/40">
-                      <span className="t-micro uppercase tracking-wider font-bold text-muted block">Targeting Utility</span>
+                      <span className="t-micro font-bold text-muted block">Targeting Utility</span>
                       <span className="text-accent font-semibold">
                         {item.variable === "ward_connectivity_index"
                           ? "Online vs SMS/USSD router"

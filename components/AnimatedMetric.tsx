@@ -65,14 +65,14 @@ export function AnimatedMetric({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       className={`relative overflow-hidden border border-line rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-md hover:border-accent/30 transition-all ${
-        isCustomBg ? "bg-accent/5" : "bg-card"
+ isCustomBg ? "bg-accent/5" : "bg-card"
       }`}
     >
       <div className="absolute -bottom-10 -right-10 w-24 h-24 rounded-full blur-2xl bg-accent/5 pointer-events-none" />
       
       <div className="flex items-start justify-between">
         <div className="space-y-1">
-          <div className="t-label uppercase tracking-widest font-extrabold text-muted">
+          <div className="t-label font-extrabold text-muted">
             Campaign Statistic
           </div>
           <div 
@@ -90,7 +90,7 @@ export function AnimatedMetric({
       </div>
 
       <div className="mt-4">
-        <h4 className="text-xs font-bold text-ink leading-snug">{label}</h4>
+        <h4 className="t-label font-bold text-ink leading-snug">{label}</h4>
         <p className="t-small text-muted/80 leading-relaxed mt-1">{sub}</p>
       </div>
     </motion.div>

@@ -31,7 +31,7 @@ export function FiscalAuditPanel() {
       <div className="overflow-x-auto">
         <table className="w-full text-left t-small">
           <thead>
-            <tr className="t-micro uppercase tracking-wider font-bold text-muted">
+            <tr className="t-micro font-bold text-muted">
               <th className="py-1 pr-3">Query</th>
               <th className="py-1 pr-3">Amount</th>
               <th className="py-1">Tier</th>
@@ -58,7 +58,7 @@ export function FiscalAuditPanel() {
         </table>
       </div>
 
-      <p className="text-xs text-muted italic mt-3 leading-relaxed">{STALLED_HEALTH_PROJECTS_GAP}</p>
+      <p className="t-label text-muted italic mt-3 leading-relaxed">{STALLED_HEALTH_PROJECTS_GAP}</p>
 
       <DisputedFigure entry={absorptionDispute} />
 

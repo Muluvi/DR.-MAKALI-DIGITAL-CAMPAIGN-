@@ -144,7 +144,7 @@ export function PhaseRail() {
     <div ref={ref} className="my-10 not-prose">
       <div className="flex items-baseline justify-between gap-3 mb-6 flex-wrap">
         <div>
-          <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+          <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
             Phased plan
           </span>
           <h3 className="font-serif text-xl sm:text-2xl font-semibold text-ink mt-2 tracking-tight">
@@ -170,7 +170,7 @@ export function PhaseRail() {
       >
         <div className="flex items-baseline justify-between gap-3">
           <div className="min-w-0">
-            <div className="t-micro font-black uppercase tracking-wider text-muted">
+            <div className="t-micro font-black text-muted">
               Now reading
             </div>
             <div className="flex items-baseline gap-2 flex-wrap">
@@ -234,7 +234,7 @@ export function PhaseRail() {
                   <div className="flex items-baseline justify-between gap-3 flex-wrap mb-2">
                     <h4 className="font-serif text-base font-bold text-ink">{phase.label}</h4>
                     <span
-                      className="t-label font-black uppercase tracking-wider px-2 py-0.5 rounded"
+                      className="t-label font-black px-2 py-0.5 rounded"
                       style={{
                         color: `var(${phase.colorVar})`,
                         backgroundColor: `color-mix(in srgb, var(${phase.colorVar}) 12%, transparent)`,
@@ -243,7 +243,7 @@ export function PhaseRail() {
                       {phase.window.split(" · ")[0]}
                     </span>
                   </div>
-                  <p className="text-xs text-ink leading-relaxed font-medium">{detail?.objective}</p>
+                  <p className="t-label text-ink leading-relaxed font-medium">{detail?.objective}</p>
                   {detail && (
                     <ul className="mt-3 pt-3 border-t border-line/50 space-y-1.5">
                       {detail.highlights.map((h) => (

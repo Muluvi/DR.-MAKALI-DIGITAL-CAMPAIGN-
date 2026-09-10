@@ -61,7 +61,7 @@ const formatNumber = (num: number) => num.toLocaleString();
 const CustomChartTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-card border border-line p-3.5 shadow-xl rounded-2xl text-xs space-y-1 backdrop-blur-md">
+      <div className="bg-card border border-line p-3.5 shadow-xl rounded-2xl t-label space-y-1 backdrop-blur-md">
         <p className="font-bold text-ink text-sm border-b border-line pb-1 mb-1">{label}</p>
         {payload.map((p: any, idx: number) => (
           <p key={idx} style={{ color: p.color }} className="font-semibold flex justify-between gap-4">
@@ -97,13 +97,13 @@ export function VoterProjectionsChart() {
       <div className="p-4 sm:p-5 border-b border-line bg-gradient-to-r from-accent/5 via-transparent to-transparent">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <span className="inline-flex items-center gap-1 t-label tracking-[0.14em] uppercase text-accent font-extrabold px-2.5 py-0.5 rounded-full bg-accent/10">
+            <span className="inline-flex items-center gap-1 t-label text-accent font-extrabold px-2.5 py-0.5 rounded-full bg-accent/10">
               Quantitative Insights
             </span>
             <h3 className="font-serif text-2xl font-bold text-ink mt-1.5 leading-tight">
               Constituency Demographics &amp; Voter Distribution
             </h3>
-            <p className="text-xs text-muted mt-0.5">
+            <p className="t-label text-muted mt-0.5">
               Interactive datasets synthesized directly from Section 2.4 of the proposal.
             </p>
           </div>
@@ -112,8 +112,8 @@ export function VoterProjectionsChart() {
           <div className="flex p-1 bg-paper border border-line rounded-xl self-start sm:self-center">
             <button
               onClick={() => setActiveTab("demographics")}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                activeTab === "demographics" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg t-label font-bold transition-all cursor-pointer ${
+ activeTab === "demographics" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
               }`}
             >
               <Users size={14} />
@@ -121,8 +121,8 @@ export function VoterProjectionsChart() {
             </button>
             <button
               onClick={() => setActiveTab("voters")}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                activeTab === "voters" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg t-label font-bold transition-all cursor-pointer ${
+ activeTab === "voters" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
               }`}
             >
               <BarChart3 size={14} />
@@ -142,7 +142,7 @@ export function VoterProjectionsChart() {
                 <button
                   key={metric}
                   onClick={() => setActiveMetric(metric)}
-                  className={`flex-1 py-1.5 rounded-lg t-label sm:text-xs font-bold uppercase tracking-wider border transition-all cursor-pointer text-center ${
+                  className={`flex-1 py-1.5 rounded-lg t-label sm:t-label font-bold border transition-all cursor-pointer text-center ${
                     activeMetric === metric 
                       ? "bg-accent/10 text-accent border-accent/30" 
                       : "bg-card text-muted border-line hover:border-accent/30"
@@ -153,7 +153,7 @@ export function VoterProjectionsChart() {
               ))}
             </div>
           ) : (
-            <div className="text-xs font-bold text-muted flex items-center gap-1.5">
+            <div className="t-label font-bold text-muted flex items-center gap-1.5">
               <ChevronRight size={14} className="text-accent" />
               <span>Voter thresholds across major baseline wards (2022)</span>
             </div>
@@ -169,8 +169,8 @@ export function VoterProjectionsChart() {
                 <button
                   key={r}
                   onClick={() => setSelectedRegion(r)}
-                  className={`px-2.5 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-colors border cursor-pointer ${
-                    selectedRegion === r
+                  className={`px-2.5 py-1 rounded-full t-label font-semibold whitespace-nowrap transition-colors border cursor-pointer ${
+ selectedRegion === r
                       ? "bg-accent-solid text-on-accent border-accent-solid"
                       : "bg-card text-muted border-line hover:bg-paper"
                   }`}
@@ -181,10 +181,10 @@ export function VoterProjectionsChart() {
             </div>
           ) : (
             <div className="flex gap-1">
-              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-accent/5 text-accent border border-accent/20">
+              <span className="px-3 py-1 rounded-full t-label font-semibold bg-accent/5 text-accent border border-accent/20">
                 Anchor Zone
               </span>
-              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-gold/5 text-gold border border-gold/20">
+              <span className="px-3 py-1 rounded-full t-label font-semibold bg-gold/5 text-gold border border-gold/20">
                 Arid Belt
               </span>
             </div>
@@ -198,7 +198,7 @@ export function VoterProjectionsChart() {
               key={type}
               onClick={() => setChartType(type)}
               className={`p-1.5 rounded-lg border transition-all cursor-pointer ${
-                chartType === type 
+ chartType === type 
                   ? "bg-accent-solid text-on-accent border-accent-solid shadow-sm" 
                   : "bg-card text-muted border-line hover:border-accent/40"
               }`}

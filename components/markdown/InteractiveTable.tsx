@@ -261,9 +261,8 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
             <Sparkles size={13} />
           </div>
           <div>
-            <span className="t-micro uppercase tracking-wider font-semibold text-muted">Analytical Matrix</span>
             <span className="t-label font-semibold text-ink block">
-              {filteredRows.length} of {parsedRows.length} targets matching
+              Showing {filteredRows.length} of {parsedRows.length} rows
             </span>
           </div>
         </div>
@@ -273,7 +272,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
           {numericColumnIndex !== -1 && (
             <button
               onClick={() => setShowChart(!showChart)}
-              className={`tap-chip flex items-center gap-1.5 px-3 py-2 rounded-xl border t-micro font-bold uppercase tracking-wider transition-all cursor-pointer min-h-[44px] ${
+              className={`tap-chip flex items-center gap-1.5 px-3 py-2 rounded-xl border t-micro font-bold transition-all cursor-pointer min-h-[44px] ${
                 showChart
                   ? "bg-accent-solid border-accent-solid text-on-accent shadow-sm"
                   : "bg-paper/80 border-line text-muted hover:border-accent/40 hover:text-ink"
@@ -301,16 +300,16 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
       {stats && (
         <div className="px-3 py-2 bg-accent/[0.02] border-b border-line/30 grid grid-cols-3 gap-1.5 sm:gap-2 text-center">
           <div className="min-w-0">
-            <span className="text-[10px] sm:t-micro uppercase tracking-wider font-semibold text-muted truncate block">Avg {stats.label}</span>
-            <span className="block text-xs sm:t-label font-bold text-accent mt-0.5 truncate">{stats.avg}</span>
+            <span className="text-[10px] sm:t-micro font-semibold text-muted truncate block">Avg {stats.label}</span>
+            <span className="block t-label sm:t-label font-bold text-accent mt-0.5 truncate">{stats.avg}</span>
           </div>
           <div className="min-w-0">
-            <span className="text-[10px] sm:t-micro uppercase tracking-wider font-semibold text-muted truncate block">Max Peak</span>
-            <span className="block text-xs sm:t-label font-bold text-gold mt-0.5 truncate">{stats.max}</span>
+            <span className="text-[10px] sm:t-micro font-semibold text-muted truncate block">Max Peak</span>
+            <span className="block t-label sm:t-label font-bold text-gold mt-0.5 truncate">{stats.max}</span>
           </div>
           <div className="min-w-0">
-            <span className="text-[10px] sm:t-micro uppercase tracking-wider font-semibold text-muted truncate block">Combined</span>
-            <span className="block text-xs sm:t-label font-bold text-ink mt-0.5 truncate">{stats.sum}</span>
+            <span className="text-[10px] sm:t-micro font-semibold text-muted truncate block">Combined</span>
+            <span className="block t-label sm:t-label font-bold text-ink mt-0.5 truncate">{stats.sum}</span>
           </div>
         </div>
       )}
@@ -338,7 +337,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                         {primaryCell ? primaryCell.props?.children : null}
                       </motion.div>
                       {ths[0] && (
-                        <span className="t-micro font-mono uppercase tracking-wider text-muted shrink-0 ml-2" aria-hidden="true">
+                        <span className="t-micro font-mono text-muted shrink-0 ml-2" aria-hidden="true">
                           #{rIdx + 1}
                         </span>
                       )}
@@ -355,7 +354,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                             key={colIdx}
                             className="flex items-start justify-between gap-2.5 py-1 border-b border-line/15 last:border-b-0"
                           >
-                            <span className="t-micro uppercase tracking-wider font-semibold text-muted shrink-0 pt-0.5" aria-hidden="true">
+                            <span className="t-micro font-semibold text-muted shrink-0 pt-0.5" aria-hidden="true">
                               {colLabel}
                             </span>
                             <div className="text-right t-small text-ink/90 leading-snug break-words max-w-[70%]">
@@ -379,7 +378,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                       <th
                         key={idx}
                         onClick={() => toggleSort(idx)}
-                        className="fx-focus sticky top-0 z-10 p-2.5 sm:p-3 font-semibold t-label sm:t-small tracking-wider text-muted uppercase cursor-pointer bg-paper/90 backdrop-blur-sm hover:bg-line/20 transition-colors select-none group whitespace-nowrap"
+                        className="fx-focus sticky top-0 z-10 p-2.5 sm:p-3 font-semibold t-label sm:t-small text-muted cursor-pointer bg-paper/90 backdrop-blur-sm hover:bg-line/20 transition-colors select-none group whitespace-nowrap"
                       >
                         <div className="flex items-center gap-1.5 justify-between">
                           <span>{th.props.children}</span>
@@ -402,7 +401,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                           <td
                             key={cIdx}
                             className={`p-2.5 sm:p-3 t-small sm:t-body leading-relaxed ${
-                              isPrimary
+ isPrimary
                                 ? "font-semibold text-ink whitespace-nowrap"
                                 : "text-ink/90 whitespace-normal"
                             }`}

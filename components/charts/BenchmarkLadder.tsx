@@ -44,7 +44,7 @@ function Row({ b, index, shown }: { b: Benchmark; index: number; shown: boolean 
       <div className="flex items-baseline justify-between gap-2 mb-1.5">
         <span className="t-small font-bold text-ink leading-snug min-w-0">{b.metric}</span>
         <span
-          className={`inline-flex items-center gap-1 t-micro font-black uppercase tracking-wider shrink-0 ${
+          className={`inline-flex items-center gap-1 t-micro font-black shrink-0 ${
             position === "above" ? "text-accent" : "text-muted"
           }`}
         >
@@ -128,7 +128,7 @@ export function BenchmarkLadder() {
       </ul>
 
       <div className="mt-4 pt-4 border-t border-line/60">
-        <p className="t-micro font-black uppercase tracking-wider text-muted mb-2">
+        <p className="t-micro font-black text-muted mb-2">
           Measured on their own scales
         </p>
         <dl className="space-y-2">

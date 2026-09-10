@@ -67,7 +67,7 @@ export function ReachArchitecture3D() {
   return (
     <figure className="not-prose bleed-narrow my-8 rounded-2xl border border-line bg-card overflow-hidden">
       <figcaption className="px-4 sm:px-5 pt-4 pb-3 border-b border-line/50">
-        <p className="t-label font-mono font-bold uppercase tracking-wider text-muted">
+        <p className="t-label font-mono font-bold text-muted">
           Reachability of the register
         </p>
         <h4 className="font-serif text-base sm:text-lg font-semibold text-ink mt-1">
@@ -100,7 +100,7 @@ export function ReachArchitecture3D() {
           {/* The gap between the two is the finding. */}
           <div className="plane-3d flex items-center gap-2 px-1" style={plane(70, -3)}>
             <span className="h-px flex-1 bg-gold/40" aria-hidden="true" />
-            <span className="t-micro font-mono uppercase tracking-wider text-gold font-bold whitespace-nowrap">
+            <span className="t-micro font-mono text-gold font-bold whitespace-nowrap">
               the gap SMS closes
             </span>
             <span className="h-px flex-1 bg-gold/40" aria-hidden="true" />
@@ -119,7 +119,7 @@ export function ReachArchitecture3D() {
               <span className="block t-label font-semibold text-muted mt-1.5 leading-snug">
                 outside the internet-using population
               </span>
-              <span className="block t-micro font-mono uppercase tracking-wider text-accent mt-2 leading-snug">
+              <span className="block t-micro font-mono text-accent mt-2 leading-snug">
                 SMS · USSD · vernacular radio
               </span>
             </div>
@@ -139,7 +139,7 @@ export function ReachArchitecture3D() {
               <rect width="240" height="40" fill="url(#ra-grid)" />
             </svg>
             <span className="absolute inset-0 flex items-center justify-center">
-              <span className="px-2.5 py-1 rounded-md bg-card/85 backdrop-blur-[2px] t-micro font-mono font-bold uppercase tracking-wider text-muted">
+              <span className="px-2.5 py-1 rounded-md bg-card/85 backdrop-blur-[2px] t-micro font-mono font-bold text-muted">
                 register · {REGISTER.toLocaleString()} voters
               </span>
             </span>

@@ -95,7 +95,7 @@ export function CrisisWarRoomMatrix() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
                 War room
               </span>
               <span className="t-label font-mono font-bold text-muted">
@@ -125,7 +125,7 @@ export function CrisisWarRoomMatrix() {
               key={level.level}
               onClick={() => setSelectedLevelId(level.level)}
               className={`p-3 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
-                isSelected
+ isSelected
                   ? "bg-card border-accent shadow-sm ring-2 ring-accent/15"
                   : "bg-paper/40 border-line hover:border-accent/40 text-muted hover:text-ink"
               }`}
@@ -135,7 +135,7 @@ export function CrisisWarRoomMatrix() {
                   {level.level.toUpperCase()}
                 </span>
                 <span className={`t-micro font-black uppercase px-1.5 py-0.5 rounded border ${
-                  level.level === "Level 3"
+ level.level === "Level 3"
                     ? "bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20"
                     : level.level === "Level 2"
                     ? "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20"
@@ -144,7 +144,7 @@ export function CrisisWarRoomMatrix() {
                   SLA: {level.slaDisplay}
                 </span>
               </div>
-              <div className="text-xs font-bold text-ink mt-1.5">
+              <div className="t-label font-bold text-ink mt-1.5">
                 {level.title}
               </div>
             </button>
@@ -156,11 +156,11 @@ export function CrisisWarRoomMatrix() {
       <div className="p-4 sm:p-6 space-y-4">
         {/* Trigger Banner */}
         <div className="p-3.5 sm:p-4 rounded-xl bg-paper border border-line space-y-1">
-          <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
+          <div className="t-label font-black text-muted flex items-center gap-1.5">
             <AlertTriangle size={13} className="text-accent" />
             <span>Trigger Scenario & Attack Footprint</span>
           </div>
-          <p className="text-xs sm:text-sm text-ink font-medium leading-relaxed">
+          <p className="t-label sm:t-small text-ink font-medium leading-relaxed">
             {currentLevel.triggerDescription}
           </p>
         </div>
@@ -168,21 +168,21 @@ export function CrisisWarRoomMatrix() {
         {/* Approval Chain & Scenario */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div className="p-3.5 rounded-xl bg-card border border-line space-y-1">
-            <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1">
+            <div className="t-label font-black text-muted flex items-center gap-1">
               <Clock size={12} className="text-accent" />
               Sign-Off Authority
             </div>
-            <p className="text-xs text-ink font-bold">
+            <p className="t-label text-ink font-bold">
               {currentLevel.approvalChain}
             </p>
           </div>
 
           <div className="p-3.5 rounded-xl bg-card border border-line space-y-1">
-            <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1">
+            <div className="t-label font-black text-muted flex items-center gap-1">
               <FileText size={12} className="text-accent" />
               Live Simulation Example
             </div>
-            <p className="text-xs text-muted font-medium italic">
+            <p className="t-label text-muted font-medium italic">
               &ldquo;{currentLevel.sampleScenario}&rdquo;
             </p>
           </div>
@@ -190,13 +190,13 @@ export function CrisisWarRoomMatrix() {
 
         {/* Action Protocol Checklist */}
         <div className="p-3.5 rounded-xl bg-paper border border-line space-y-2">
-          <div className="t-label font-black uppercase tracking-wider text-accent flex items-center gap-1">
+          <div className="t-label font-black text-accent flex items-center gap-1">
             <Layers size={12} />
             Mandatory Rapid Response Action Protocol
           </div>
           <div className="space-y-1.5">
             {currentLevel.actionProtocol.map((act, i) => (
-              <div key={i} className="flex items-start gap-2 text-xs text-ink font-medium">
+              <div key={i} className="flex items-start gap-2 t-label text-ink font-medium">
                 <span className="w-4 h-4 rounded-full bg-accent/10 text-accent flex items-center justify-center t-label font-bold shrink-0 mt-0.5">
                   {i + 1}
                 </span>
@@ -210,7 +210,7 @@ export function CrisisWarRoomMatrix() {
       {/* Red Team Simulation Bar */}
       <div className="p-4 bg-paper/80 border-t border-line flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <div className="text-xs font-bold text-ink flex items-center gap-1.5">
+          <div className="t-label font-bold text-ink flex items-center gap-1.5">
             <Bot size={14} className="text-accent" />
             <span>Quarterly Red-Team Crisis Simulation Drill</span>
           </div>
@@ -229,7 +229,7 @@ export function CrisisWarRoomMatrix() {
           <button
             onClick={handleSimulateDrill}
             disabled={drillRunning}
-            className="px-4 py-1.5 rounded-xl bg-accent-solid text-on-accent text-xs font-bold flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+            className="px-4 py-1.5 rounded-xl bg-accent-solid text-on-accent t-label font-bold flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
           >
             <Clock size={12} />
             <span>{drillRunning ? "Running Simulation..." : "Trigger Red-Team Drill"}</span>

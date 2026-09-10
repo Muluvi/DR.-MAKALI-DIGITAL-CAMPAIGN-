@@ -100,7 +100,7 @@ export function DataSecurityEthicsCharter() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Ethics and data charter
               </span>
               <span className="t-label font-mono font-bold text-muted">
@@ -114,7 +114,7 @@ export function DataSecurityEthicsCharter() {
         </div>
 
         {/* ODPC Status Pill */}
-        <div className="flex items-center gap-2 px-3 py-1.5 bg-card border border-emerald-500/30 rounded-xl text-xs font-semibold text-emerald-700 dark:text-emerald-300">
+        <div className="flex items-center gap-2 px-3 py-1.5 bg-card border border-emerald-500/30 rounded-xl t-label font-semibold text-emerald-700 dark:text-emerald-300">
           <ShieldCheck size={14} className="text-emerald-600 dark:text-emerald-400" />
           <span>ODPC & IEBC Pre-Audited Standards</span>
         </div>
@@ -126,8 +126,8 @@ export function DataSecurityEthicsCharter() {
           <button
             key={cat}
             onClick={() => setSelectedFilter(cat)}
-            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-              selectedFilter === cat
+            className={`px-3 py-1.5 rounded-xl t-label font-bold transition-all cursor-pointer ${
+ selectedFilter === cat
                 ? "bg-accent-solid text-on-accent shadow-sm"
                 : "bg-card border border-line text-muted hover:text-ink"
             }`}
@@ -145,7 +145,7 @@ export function DataSecurityEthicsCharter() {
             <div
               key={rule.id}
               className={`p-4 rounded-xl border transition-all ${
-                isChecked ? "bg-paper/80 border-line" : "bg-card border-line/40 opacity-70"
+ isChecked ? "bg-paper/80 border-line" : "bg-card border-line/40 opacity-70"
               }`}
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
@@ -159,7 +159,7 @@ export function DataSecurityEthicsCharter() {
 
                   <div>
                     <div className="flex items-center gap-2">
-                      <h5 className="text-xs sm:text-sm font-bold text-ink">{rule.ruleName}</h5>
+                      <h5 className="t-label sm:t-small font-bold text-ink">{rule.ruleName}</h5>
                       {rule.isComplianceGated && (
                         <span className="t-micro font-black uppercase px-2 py-0.5 rounded bg-accent/10 text-accent border border-accent/20">
                           Compliance Gate
@@ -179,7 +179,7 @@ export function DataSecurityEthicsCharter() {
                 </div>
               </div>
 
-              <p className="text-xs text-ink font-medium mt-2.5 leading-relaxed">
+              <p className="t-label text-ink font-medium mt-2.5 leading-relaxed">
                 {rule.campaignStandard}
               </p>
 

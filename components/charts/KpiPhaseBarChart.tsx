@@ -26,7 +26,7 @@ export default function KpiPhaseBarChart({ rows }: { rows: KpiRow[] }) {
         return (
           <div key={row.label}>
             <div className="flex items-baseline justify-between mb-3">
-              <span className="t-small font-black text-ink uppercase tracking-wide">{row.label}</span>
+              <span className="t-small font-black text-ink">{row.label}</span>
               <span className="t-label font-bold text-accent">
                 {finalPoint.value.toLocaleString()} <span className="text-muted font-semibold normal-case">{row.unit} by {finalPoint.phaseLabel}</span>
               </span>

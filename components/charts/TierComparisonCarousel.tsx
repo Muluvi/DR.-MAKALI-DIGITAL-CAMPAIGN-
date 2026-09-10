@@ -57,7 +57,7 @@ function TierCard({ column, index }: { column: TierColumn; index: number }) {
     <motion.li
       variants={preset.variants(fadeUp)}
       className={`snap-center shrink-0 basis-[85%] rounded-2xl border p-4 ${
-        column.recommended
+ column.recommended
           ? "border-accent/60 bg-accent/[0.06] ring-1 ring-accent/25"
           : "border-line/60 bg-card/70"
       }`}
@@ -65,13 +65,13 @@ function TierCard({ column, index }: { column: TierColumn; index: number }) {
     >
       <div className="flex items-baseline justify-between gap-2 pb-3 mb-3 border-b border-line/50">
         <h4 id={`tier-card-${column.id}`} className="font-serif font-semibold text-ink leading-tight">
-          <span className="block t-micro font-sans font-black uppercase tracking-wider text-muted">
+          <span className="block t-micro font-sans font-black text-muted">
             {column.number}
           </span>
           {column.label}
         </h4>
         {column.recommended && (
-          <span className="inline-flex items-center gap-1 shrink-0 rounded-full bg-accent-solid text-on-accent px-2 py-0.5 t-micro font-black uppercase tracking-wider">
+          <span className="inline-flex items-center gap-1 shrink-0 rounded-full bg-accent-solid text-on-accent px-2 py-0.5 t-micro font-black">
             <Star size={10} className="fill-current" aria-hidden="true" />
             Recommended
           </span>
@@ -81,7 +81,7 @@ function TierCard({ column, index }: { column: TierColumn; index: number }) {
       <dl className="space-y-3">
         {TIER_ATTRIBUTES.map((attr) => (
           <div key={attr.label}>
-            <dt className="t-micro font-black uppercase tracking-wider text-muted leading-snug">
+            <dt className="t-micro font-black text-muted leading-snug">
               {attr.label}
             </dt>
             <dd className="t-small leading-snug mt-0.5">
@@ -149,7 +149,7 @@ export function TierComparisonCarousel() {
 
   return (
     <div ref={ref} className="not-prose my-6 sm:hidden print:hidden">
-      <p className="t-micro font-black uppercase tracking-wider text-muted mb-2">
+      <p className="t-micro font-black text-muted mb-2">
         Swipe to compare the three tiers
       </p>
 
@@ -175,11 +175,11 @@ export function TierComparisonCarousel() {
             onClick={() => goTo(i)}
             aria-label={`Show ${column.number} — ${column.label}`}
             aria-current={active === i ? "true" : undefined}
-            className="fx-focus rounded-full p-2 cursor-pointer"
+            className="fx-focus flex h-11 w-11 items-center justify-center rounded-full cursor-pointer"
           >
             <span
               className={`block rounded-full transition-all duration-200 ${
-                active === i ? "w-6 h-2 bg-accent" : "w-2 h-2 bg-line"
+ active === i ? "w-6 h-2 bg-accent" : "w-2 h-2 bg-line"
               }`}
             />
           </button>

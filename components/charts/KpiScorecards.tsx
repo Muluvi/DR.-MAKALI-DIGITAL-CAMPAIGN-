@@ -73,7 +73,7 @@ function KpiCard({ kpi }: { kpi: Kpi }) {
           <div className="mt-4">
             <dl className="mb-2 space-y-1.5">
               <div className="flex items-baseline gap-2">
-                <dt className="t-micro font-black uppercase tracking-wider text-muted w-[4.75rem] shrink-0 whitespace-nowrap">
+                <dt className="t-micro font-black text-muted w-[4.75rem] shrink-0 whitespace-nowrap">
                   Baseline
                 </dt>
                 <dd className="t-small font-bold text-ink leading-snug min-w-0">
@@ -81,7 +81,7 @@ function KpiCard({ kpi }: { kpi: Kpi }) {
                 </dd>
               </div>
               <div className="flex items-baseline gap-2">
-                <dt className="t-micro font-black uppercase tracking-wider text-accent w-[4.75rem] shrink-0 whitespace-nowrap">
+                <dt className="t-micro font-black text-accent w-[4.75rem] shrink-0 whitespace-nowrap">
                   Target
                 </dt>
                 <dd className="t-small font-black text-ink leading-snug tabular-nums min-w-0">
@@ -144,7 +144,7 @@ function KpiCard({ kpi }: { kpi: Kpi }) {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls={drawerId}
-          className="w-full min-h-[44px] px-4 py-2.5 flex items-center justify-between gap-2 border-t border-line/60 bg-paper/50 t-micro font-black uppercase tracking-wider text-muted hover:text-ink fx-press fx-focus cursor-pointer"
+          className="w-full min-h-[44px] px-4 py-2.5 flex items-center justify-between gap-2 border-t border-line/60 bg-paper/50 t-micro font-black text-muted hover:text-ink fx-press fx-focus cursor-pointer"
         >
           <span>How it is measured, and by whom</span>
           <ChevronDown
@@ -173,7 +173,7 @@ function KpiCard({ kpi }: { kpi: Kpi }) {
                 { icon: CalendarClock, term: "Reporting cadence", desc: kpi.cadence },
               ].map(({ icon: Icon, term, desc }) => (
                 <div key={term}>
-                  <dt className="flex items-center gap-1.5 t-micro font-black uppercase tracking-wider text-muted">
+                  <dt className="flex items-center gap-1.5 t-micro font-black text-muted">
                     <Icon size={12} className="text-accent shrink-0" aria-hidden="true" />
                     {term}
                   </dt>

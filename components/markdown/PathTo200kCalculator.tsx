@@ -140,7 +140,7 @@ export function PathTo200kCalculator() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Coalition Arithmetic Engine
               </span>
               <span className="t-label font-mono font-bold text-muted">
@@ -154,8 +154,8 @@ export function PathTo200kCalculator() {
         </div>
 
         {/* Victory Status Pill */}
-        <div className={`px-3 py-1.5 rounded-xl border text-xs font-black flex items-center gap-1.5 self-start sm:self-auto ${
-          selectedPath.isViable 
+        <div className={`px-3 py-1.5 rounded-xl border t-label font-black flex items-center gap-1.5 self-start sm:self-auto ${
+ selectedPath.isViable 
             ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20"
             : "bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/20"
         }`}>
@@ -182,18 +182,18 @@ export function PathTo200kCalculator() {
               key={path.id}
               onClick={() => setSelectedPathId(path.id)}
               className={`p-2.5 sm:p-3 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
-                isSelected 
+ isSelected 
                   ? "bg-card border-accent shadow-sm ring-2 ring-accent/15"
                   : "bg-paper/40 border-line hover:border-accent/40 text-muted hover:text-ink"
               }`}
             >
               <div className="flex items-center justify-between w-full">
-                <span className={`t-label font-black uppercase tracking-wider ${isSelected ? "text-accent" : "text-muted"}`}>
+                <span className={`t-label font-black ${isSelected ? "text-accent" : "text-muted"}`}>
                   {path.id.toUpperCase()}
                 </span>
                 <span className={`w-2 h-2 rounded-full ${path.isViable ? "bg-emerald-500" : "bg-rose-500"}`} />
               </div>
-              <div className="text-xs font-bold text-ink mt-1 truncate">
+              <div className="t-label font-bold text-ink mt-1 truncate">
                 {path.tagline}
               </div>
               <div className="t-small font-mono font-semibold text-muted mt-0.5">
@@ -208,7 +208,7 @@ export function PathTo200kCalculator() {
       <div className="p-4 sm:p-6 space-y-5">
         {/* Animated Progress Bar */}
         <div>
-          <div className="flex items-center justify-between text-xs mb-1.5 font-bold">
+          <div className="flex items-center justify-between t-label mb-1.5 font-bold">
             <span className="text-ink">{selectedPath.name}</span>
             <span className="font-mono text-accent">
               {selectedPath.voterPool.toLocaleString()} / {TARGET_THRESHOLD.toLocaleString()} ({selectedPath.shareOfCounty.toFixed(2)}% of register, {selectedPath.wardCount} wards)
@@ -222,7 +222,7 @@ export function PathTo200kCalculator() {
               transition={deliberate}
               style={{ transformOrigin: "left", width: "100%" }}
               className={`h-full rounded-full ${
-                selectedPath.isViable
+ selectedPath.isViable
                   ? "bg-gradient-to-r from-accent to-emerald-500"
                   : "bg-gradient-to-r from-accent to-rose-500"
               }`}
@@ -243,14 +243,14 @@ export function PathTo200kCalculator() {
 
         {/* Constituent Sub-County Cards */}
         <div>
-          <div className="t-label font-black uppercase tracking-widest text-muted mb-2 flex items-center gap-1.5">
+          <div className="t-label font-black text-muted mb-2 flex items-center gap-1.5">
             <Layers size={12} className="text-accent" />
             <span>Constituency Building Blocks</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
             {selectedPath.constituencies.map((c, i) => (
               <div key={i} className="p-3 bg-paper border border-line rounded-xl space-y-1">
-                <div className="text-xs font-bold text-ink">{c.name}</div>
+                <div className="t-label font-bold text-ink">{c.name}</div>
                 <div className="flex items-center justify-between t-small font-mono text-muted">
                   <span>{c.voters.toLocaleString()} Voters</span>
                   <span className="t-label px-1.5 py-0.2 bg-card rounded border border-line">{c.wards} Wards</span>
@@ -263,21 +263,21 @@ export function PathTo200kCalculator() {
         {/* Strategic Verdict Callout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
           <div className="p-3.5 rounded-xl bg-accent/5 border border-accent/20 space-y-1">
-            <div className="t-label font-black uppercase tracking-wider text-accent flex items-center gap-1">
+            <div className="t-label font-black text-accent flex items-center gap-1">
               <TrendingUp size={12} />
               Strategic Verdict
             </div>
-            <p className="text-xs text-ink font-medium leading-relaxed">
+            <p className="t-label text-ink font-medium leading-relaxed">
               {selectedPath.strategicVerdict}
             </p>
           </div>
 
           <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1">
-            <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1">
+            <div className="t-label font-black text-muted flex items-center gap-1">
               <ShieldAlert size={12} className="text-gold" />
               Tactical Requirement
             </div>
-            <p className="text-xs text-muted font-medium leading-relaxed">
+            <p className="t-label text-muted font-medium leading-relaxed">
               {selectedPath.tacticalRequirement}
             </p>
           </div>

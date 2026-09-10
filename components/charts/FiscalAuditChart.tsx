@@ -50,7 +50,7 @@ export default function FiscalAuditChart({ data }: { data: FiscalBar[] }) {
   return (
     <div ref={ref} className="w-full">
       <div className="flex items-baseline justify-between gap-3 mb-1.5">
-        <span className="t-label font-black uppercase tracking-wider text-muted">{whole.name}</span>
+        <span className="t-label font-black text-muted">{whole.name}</span>
         <span className="font-mono text-sm font-black text-ink tabular-nums">{fmt(whole.value)}</span>
       </div>
 

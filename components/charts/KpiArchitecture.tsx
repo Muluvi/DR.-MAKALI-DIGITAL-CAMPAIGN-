@@ -52,7 +52,7 @@ function Stage({
       <motion.div variants={fadeUp} className="flex items-start gap-2 mb-3">
         <Icon size={16} className={`${accent} shrink-0 mt-0.5`} aria-hidden="true" />
         <div className="min-w-0">
-          <div className="t-micro font-black uppercase tracking-widest text-muted">{kicker}</div>
+          <div className="t-micro font-black text-muted">{kicker}</div>
           <h4 className="font-serif t-label font-black text-ink leading-snug">{title}</h4>
           <div className={`t-micro font-bold ${accent} mt-0.5`}>{sub}</div>
         </div>
@@ -67,7 +67,7 @@ function Stage({
             <span
               aria-hidden="true"
               className={`mt-[0.45em] w-1.5 h-1.5 rounded-full shrink-0 ${
-                tone === "nomination" ? "bg-accent" : "bg-gold"
+ tone === "nomination" ? "bg-accent" : "bg-gold"
               }`}
             />
             <span>{item}</span>
@@ -84,8 +84,8 @@ export function KpiArchitecture() {
   return (
     <figure className="not-prose my-7">
       <figcaption className="mb-3">
-        <div className="t-micro font-black uppercase tracking-widest text-muted">
-          Victory-anchored KPI monitoring architecture
+        <div className="t-label font-bold text-ink">
+          Every target traces to one of two numbers
         </div>
         <p className="t-small text-muted leading-relaxed mt-1">
           Every indicator is anchored to one of two statutory milestones. Stage 1 exists to win

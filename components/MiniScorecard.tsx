@@ -70,7 +70,7 @@ export function MiniScorecard() {
                     go(id);
                   }
                 }}
-                className="flex flex-col items-center justify-center gap-0 px-2 py-1 min-h-[44px] h-full rounded-lg fx-press fx-focus hover:bg-paper/70 transition-colors"
+                className="flex flex-col items-center justify-center gap-0 px-2 py-1 min-h-[44px] min-w-[44px] justify-center h-full rounded-lg fx-press fx-focus hover:bg-paper/70 transition-colors"
               >
                 <span className="sr-only">{describe}. Jump to the section.</span>
                 {/* The label row. The dock as a whole withdraws on a downward scroll, so this
@@ -78,7 +78,7 @@ export function MiniScorecard() {
                     first and leave the strip half-shown at the wrong moments. */}
                 <span
                   aria-hidden="true"
-                  className="t-micro font-black uppercase tracking-wider text-muted flex items-center gap-1"
+                  className="t-micro font-black text-muted flex items-center gap-1"
                 >
                   <Icon size={9} />
                   {label}

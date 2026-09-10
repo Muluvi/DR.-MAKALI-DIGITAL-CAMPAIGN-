@@ -132,7 +132,7 @@ export function GeographicZoneMatrix() {
           </div>
           <div>
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Regional dynamics
               </span>
               <TierBadge tier={1} compact />
@@ -159,20 +159,20 @@ export function GeographicZoneMatrix() {
               aria-selected={isSelected}
               onClick={() => setSelectedZoneId(zone.id)}
               className={`p-3 rounded-xl border text-left transition-colors cursor-pointer flex flex-col gap-1 ${
-                isSelected
+ isSelected
                   ? "bg-card border-accent ring-2 ring-accent/15"
                   : "bg-paper/40 border-line hover:border-accent/40 text-muted hover:text-ink"
               }`}
             >
               <div className="flex items-center justify-between w-full gap-2">
-                <span className={`t-label font-black uppercase tracking-wider ${isSelected ? "text-accent" : "text-muted"}`}>
+                <span className={`t-label font-black ${isSelected ? "text-accent" : "text-muted"}`}>
                   {zone.popShare} of population
                 </span>
                 <span className="t-label font-mono font-bold px-1.5 py-0.5 rounded bg-accent/10 text-accent shrink-0">
                   Phase −1: {zone.nominationWeight}%
                 </span>
               </div>
-              <div className="text-xs font-bold text-ink truncate">{zone.name}</div>
+              <div className="t-label font-bold text-ink truncate">{zone.name}</div>
               <div className="t-small font-mono text-muted tabular-nums">
                 {fmt(zr.voters)} registered
               </div>
@@ -220,27 +220,27 @@ export function GeographicZoneMatrix() {
             </div>
 
             <div className="p-4 rounded-xl bg-paper border border-line space-y-1.5">
-              <div className="t-label font-black uppercase tracking-wider text-accent flex items-center gap-1.5">
+              <div className="t-label font-black text-accent flex items-center gap-1.5">
                 <TrendingUp size={13} aria-hidden="true" />
                 Zone strategic imperative
               </div>
-              <p className="text-xs text-ink leading-relaxed font-medium">{currentZone.primaryStrategicImperative}</p>
+              <p className="t-label text-ink leading-relaxed font-medium">{currentZone.primaryStrategicImperative}</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
               <div className="p-3.5 rounded-xl bg-paper/60 border border-line space-y-1.5">
-                <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1">
+                <div className="t-label font-black text-muted flex items-center gap-1">
                   <Radio size={12} className="text-accent" aria-hidden="true" />
                   Connectivity &amp; delivery channels
                 </div>
-                <p className="text-xs text-ink font-medium leading-relaxed">{currentZone.connectivityProfile}</p>
+                <p className="t-label text-ink font-medium leading-relaxed">{currentZone.connectivityProfile}</p>
                 <p className="t-label text-muted pt-1">
                   Sub-counties in this zone: {currentZone.subCounties}
                 </p>
               </div>
 
               <div className="p-3.5 rounded-xl bg-paper/60 border border-line space-y-1.5">
-                <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1">
+                <div className="t-label font-black text-muted flex items-center gap-1">
                   <MapPin size={12} className="text-accent" aria-hidden="true" />
                   Largest wards by register
                 </div>

@@ -69,9 +69,9 @@ function Frame({
       <figcaption className="flex items-center gap-2 px-4 py-2.5 bg-paper/60 border-b border-line">
         <Icon size={13} className="text-accent shrink-0" aria-hidden="true" />
         {title ? (
-          <span className="t-small sm:text-xs font-bold text-ink leading-tight">{title}</span>
+          <span className="t-small sm:t-label font-bold text-ink leading-tight">{title}</span>
         ) : (
-          <span className="t-label font-black uppercase tracking-widest text-muted">{kind}</span>
+          <span className="t-label font-black text-muted">{kind}</span>
         )}
       </figcaption>
       {children}
@@ -109,7 +109,7 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
                   <th
                     key={i}
                     scope="col"
-                    className="text-left px-3 py-2 font-black uppercase tracking-wider t-micro text-muted border-b border-line align-bottom"
+                    className="text-left px-3 py-2 font-black t-micro text-muted border-b border-line align-bottom"
                   >
                     {h}
                   </th>
@@ -132,8 +132,8 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
                       colSpan={cell.spans > 1 ? width : 1}
                       data-label={!isBanner && d.headers?.[j] ? d.headers[j] : undefined}
                       className={
-                        isBanner
-                          ? "px-3 py-1.5 font-black uppercase tracking-wider t-micro text-accent"
+ isBanner
+                          ? "px-3 py-1.5 font-black  t-micro text-accent"
                           : `px-3 py-2 align-top leading-snug ${
                               j === 0 ? "font-semibold text-ink" : "text-muted"
                             } ${isFigure(cell.text) ? "tabular-nums font-mono font-semibold" : ""}`
@@ -163,7 +163,7 @@ function DiagramKeyValue({ d }: { d: Extract<Diagram, { kind: "keyvalue" }> }) {
             </dt>
             <dd
               className={`t-small text-muted leading-snug ${
-                isFigure(item.value) ? "font-mono tabular-nums font-semibold" : ""
+ isFigure(item.value) ? "font-mono tabular-nums font-semibold" : ""
               }`}
             >
               {withEmphasis(item.value)}
@@ -196,7 +196,7 @@ function DiagramBanner({ title }: { title: string }) {
     // so the rule sits under the whole block rather than beside it, where a wrap would leave it
     // stranded as a stray dash against the first line.
     <div className="not-prose my-5 pb-1.5 border-b border-line print:break-inside-avoid">
-      <span className="t-label font-black uppercase tracking-wider sm:tracking-widest text-muted break-words">
+      <span className="t-label font-black sm: text-muted break-words">
         {withEmphasis(title)}
       </span>
     </div>
@@ -227,7 +227,7 @@ export function AsciiDiagram({ source, children }: { source: string; children: R
     // Unparsed — a USSD menu, a script, a code sample. Keep the original treatment.
     return (
       <div className="bleed-narrow my-6 rounded-2xl border border-line bg-paper/60 p-3 sm:p-4 overflow-hidden not-prose">
-        <div className="flex items-center justify-between pb-2 mb-2 border-b border-line/40 t-label font-mono font-bold text-muted uppercase tracking-wider">
+        <div className="flex items-center justify-between pb-2 mb-2 border-b border-line/40 t-label font-mono font-bold text-muted">
           <span>Architecture &amp; process model</span>
           <span className="hidden sm:inline">Diagram / script</span>
         </div>

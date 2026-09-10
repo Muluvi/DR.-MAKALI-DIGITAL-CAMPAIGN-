@@ -38,7 +38,7 @@ export function DisclosureGroup({
                 onClick={() => setOpen(isOpen ? -1 : i)}
                 aria-expanded={isOpen}
                 className={`w-full flex items-center gap-3 text-left px-4 py-3.5 sm:px-5 cursor-pointer transition-colors min-h-[52px] ${
-                  isOpen ? "bg-accent/[0.06] text-ink" : "text-muted hover:bg-ink/[0.03] hover:text-ink"
+ isOpen ? "bg-accent/[0.06] text-ink" : "text-muted hover:bg-ink/[0.03] hover:text-ink"
                 }`}
               >
                 {/* No 01/02/03 marker: several of these runs are not sequences, and the ones
@@ -47,7 +47,7 @@ export function DisclosureGroup({
                   className={`w-1.5 h-1.5 rounded-full shrink-0 ${isOpen ? "bg-accent" : "bg-line"}`}
                   aria-hidden="true"
                 />
-                <span className="font-serif text-sm sm:text-[15px] font-semibold leading-snug flex-1 text-balance">
+                <span className="font-serif t-small font-semibold leading-snug flex-1 text-balance">
                   {label}
                 </span>
                 {/* The document marks what it has not yet measured, and that marking is worth
@@ -56,7 +56,7 @@ export function DisclosureGroup({
                     still open. */}
                 {unresolved[i] && (
                   <span
-                    className="t-micro font-extrabold uppercase tracking-wider text-gold border border-gold/40 bg-gold/[0.08] rounded-full px-2 py-0.5 shrink-0"
+                    className="t-micro font-extrabold text-gold border border-gold/40 bg-gold/[0.08] rounded-full px-2 py-0.5 shrink-0"
                     title="Contains a figure awaiting a campaign decision or verification"
                   >
                     Awaiting
@@ -65,7 +65,7 @@ export function DisclosureGroup({
                 <ChevronDown
                   size={16}
                   className={`shrink-0 transition-transform duration-200 motion-reduce:transition-none ${
-                    isOpen ? "rotate-180 text-accent" : "text-muted"
+ isOpen ? "rotate-180 text-accent" : "text-muted"
                   }`}
                 />
               </button>
@@ -75,7 +75,7 @@ export function DisclosureGroup({
                 labels with nothing under them. */}
             <div
               className={`prose max-w-none px-4 pb-5 pt-1 sm:px-5 border-t border-line/40 ${
-                isOpen ? "" : "hidden print:block"
+ isOpen ? "" : "hidden print:block"
               }`}
             >
               {children[i]}

@@ -130,7 +130,7 @@ export function BudgetScenarioModeler() {
           </div>
           <div>
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Budget tiers
               </span>
               <TierBadge tier={1} compact />
@@ -143,7 +143,7 @@ export function BudgetScenarioModeler() {
           <Scale size={14} className="text-accent" aria-hidden="true" />
           <div>
             <div className="t-micro uppercase font-black text-muted">Statutory county ceiling</div>
-            <div className="text-xs font-mono font-black text-ink tabular-nums">{CEILING_LABEL}</div>
+            <div className="t-label font-mono font-black text-ink tabular-nums">{CEILING_LABEL}</div>
           </div>
         </div>
       </div>
@@ -158,7 +158,7 @@ export function BudgetScenarioModeler() {
               aria-selected={isSelected}
               onClick={() => setSelectedTierId(tier.id)}
               className={`p-3 rounded-xl border text-left transition-colors cursor-pointer flex flex-col gap-1 ${
-                isSelected
+ isSelected
                   ? "bg-card border-accent ring-2 ring-accent/15"
                   : "bg-paper/40 border-line hover:border-accent/40 text-muted hover:text-ink"
               }`}
@@ -177,7 +177,7 @@ export function BudgetScenarioModeler() {
               <span className={`t-label font-mono font-black ${isSelected ? "text-accent" : "text-muted"}`}>
                 {tier.adSpendBand.low}–{tier.adSpendBand.high}% · KSh{millions(tier.adSpendBand.low)}m–{millions(tier.adSpendBand.high)}m
               </span>
-              <div className="text-xs font-bold text-ink">{tier.name}</div>
+              <div className="t-label font-bold text-ink">{tier.name}</div>
               <div className="t-small text-muted leading-snug text-pretty">{tier.badge}</div>
             </button>
           );
@@ -199,7 +199,7 @@ export function BudgetScenarioModeler() {
               the UI says so rather than picking one. */}
           <div className="p-4 rounded-xl border border-line bg-paper space-y-2.5">
             <div className="flex items-center justify-between gap-3 flex-wrap">
-              <span className="t-label font-black uppercase tracking-wider text-muted">
+              <span className="t-label font-black text-muted">
                 Recommended ad spend, against the verified ceiling
               </span>
               <span className="t-small font-mono font-bold text-accent tabular-nums shrink-0">
@@ -245,14 +245,14 @@ export function BudgetScenarioModeler() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
             <div className="p-3 bg-paper rounded-xl border border-line">
               <div className="t-label uppercase font-bold text-muted">SMS volume / month</div>
-              <div className="text-xs font-semibold text-ink mt-1 flex items-center gap-1.5 flex-wrap">
+              <div className="t-label font-semibold text-ink mt-1 flex items-center gap-1.5 flex-wrap">
                 {currentTier.smsVolume}
                 <ClaimBadge status="awaiting" compact />
               </div>
             </div>
             <div className="p-3 bg-paper rounded-xl border border-line">
               <div className="t-label uppercase font-bold text-muted">USSD</div>
-              <div className="text-xs font-semibold text-ink mt-1">{currentTier.ussd}</div>
+              <div className="t-label font-semibold text-ink mt-1">{currentTier.ussd}</div>
             </div>
             <div className="p-3 bg-accent/5 rounded-xl border border-accent/20">
               <div className="t-label uppercase font-bold text-accent">Phase 3 contact universe</div>
@@ -263,18 +263,18 @@ export function BudgetScenarioModeler() {
           </div>
 
           <div className="p-3.5 rounded-xl bg-paper/60 border border-line">
-            <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1 mb-1.5">
+            <div className="t-label font-black text-muted flex items-center gap-1 mb-1.5">
               <AlertTriangle size={12} className="text-gold" aria-hidden="true" />
               Trade-offs
             </div>
-            <p className="text-xs text-ink leading-relaxed">{currentTier.tradeOffs}</p>
+            <p className="t-label text-ink leading-relaxed">{currentTier.tradeOffs}</p>
           </div>
         </motion.div>
       </AnimatePresence>
 
       <div className="border-t border-line overflow-x-auto">
-        <table className="w-full t-small sm:text-xs">
-          <caption className="text-left px-4 pt-3 pb-2 t-label font-black uppercase tracking-wider text-muted">
+        <table className="w-full t-small sm:t-label">
+          <caption className="text-left px-4 pt-3 pb-2 t-label font-black text-muted">
             §9.2.6 The tiers compared
           </caption>
           <thead>
@@ -327,11 +327,11 @@ function Detail({
 }) {
   return (
     <div className="p-3.5 rounded-xl bg-paper/60 border border-line">
-      <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1 mb-1.5">
+      <div className="t-label font-black text-muted flex items-center gap-1 mb-1.5">
         <Icon size={12} className="text-accent" aria-hidden="true" />
         {label}
       </div>
-      <p className="text-xs text-ink leading-relaxed">{children}</p>
+      <p className="t-label text-ink leading-relaxed">{children}</p>
     </div>
   );
 }

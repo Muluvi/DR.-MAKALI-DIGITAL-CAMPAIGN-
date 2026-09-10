@@ -105,7 +105,7 @@ export function MobileTOCModal({
                 <h3 className="font-serif text-base sm:text-lg font-bold text-ink leading-tight">
                   Full index
                 </h3>
-                <p className="text-xs text-muted font-medium mt-0.5">
+                <p className="t-label text-muted font-medium mt-0.5">
                   {SECTIONS.length} sections, {subSectionCount} sub-sections, {partCount} parts
                 </p>
               </div>
@@ -129,7 +129,7 @@ export function MobileTOCModal({
                 placeholder="Search sections (e.g., 200k, Radio, 40 Wards, DPA)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="fx-input-glow w-full pl-10 pr-4 py-2 bg-card border border-line rounded-xl text-xs font-semibold text-ink placeholder:text-muted focus:outline-none focus:border-accent min-h-[44px]"
+                className="fx-input-glow w-full pl-10 pr-4 py-2 bg-card border border-line rounded-xl t-label font-semibold text-ink placeholder:text-muted focus:outline-none focus:border-accent min-h-[44px]"
                 autoFocus
               />
               {searchQuery && (
@@ -152,7 +152,7 @@ export function MobileTOCModal({
             */}
             <div className="mb-3">
               <div className="flex items-baseline justify-between gap-2 mb-1.5">
-                <span className="t-micro font-black uppercase tracking-wider text-muted">
+                <span className="t-micro font-black text-muted">
                   The nine sections
                 </span>
                 <span className="t-micro tabular-nums text-muted">
@@ -171,7 +171,7 @@ export function MobileTOCModal({
                         onClick={() => { onSelectTab(s.id); onClose(); }}
                         aria-current={isHere ? "true" : undefined}
                         className={`w-full min-h-[44px] flex items-center gap-2.5 px-2.5 py-1.5 rounded-xl border text-left fx-press fx-focus cursor-pointer transition-colors ${
-                          isHere
+ isHere
                             ? "bg-accent-solid border-accent-solid text-on-accent"
                             : "bg-card border-line/60 hover:border-accent/40"
                         }`}
@@ -187,7 +187,7 @@ export function MobileTOCModal({
                           {mins} min
                         </span>
                         {/* State carried by a word and a mark, not by colour alone. */}
-                        <span className={`t-micro font-black uppercase tracking-wider shrink-0 ${isHere ? "opacity-90" : isRead ? "text-accent" : "text-muted"}`}>
+                        <span className={`t-micro font-black shrink-0 ${isHere ? "opacity-90" : isRead ? "text-accent" : "text-muted"}`}>
                           {isHere ? "Here" : isRead ? "✓ Read" : "New"}
                         </span>
                       </button>
@@ -202,7 +202,7 @@ export function MobileTOCModal({
               <button
                 onClick={() => setSelectedTabFilter("all")}
                 className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[32px] ${
-                  selectedTabFilter === "all"
+ selectedTabFilter === "all"
                     ? "bg-accent-solid text-on-accent border-accent-solid"
                     : "bg-card text-muted border-line hover:text-ink"
                 }`}
@@ -214,7 +214,7 @@ export function MobileTOCModal({
                   key={part.part}
                   onClick={() => setSelectedTabFilter(part.part)}
                   className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[32px] ${
-                    selectedTabFilter === part.part
+ selectedTabFilter === part.part
                       ? "bg-accent-solid text-on-accent border-accent-solid"
                       : "bg-card text-muted border-line hover:text-ink"
                   }`}
@@ -246,7 +246,7 @@ export function MobileTOCModal({
                         {item.number}
                       </span>
                       <div className="min-w-0">
-                        <span className={`block text-xs text-ink group-hover:text-accent transition-colors truncate ${item.level === 2 ? "font-bold" : "font-medium"}`}>
+                        <span className={`block t-label text-ink group-hover:text-accent transition-colors truncate ${item.level === 2 ? "font-bold" : "font-medium"}`}>
                           {item.title}
                         </span>
                         <div className="flex items-center gap-1.5 mt-0.5 text-[11px] text-muted">
@@ -264,7 +264,7 @@ export function MobileTOCModal({
                 );
               })
             ) : (
-              <div className="p-8 text-center text-xs text-muted space-y-2">
+              <div className="p-8 text-center t-label text-muted space-y-2">
                 <p className="font-bold text-ink">No matching sections found</p>
                 <p>Try searching by keyword like &quot;Ward&quot;, &quot;Radio&quot;, &quot;Nomination&quot;, or &quot;Budget&quot;.</p>
               </div>

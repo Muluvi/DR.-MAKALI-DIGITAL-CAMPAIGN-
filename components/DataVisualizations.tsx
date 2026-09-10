@@ -23,21 +23,21 @@ export function DataVisualizations() {
 
   const tiers = {
     lean: {
-      title: "LEAN SYSTEM",
+      title: "Lean",
       ad: "15–20% of verified ceiling",
       reach: "~60,000 realistic Phase 3 contacts",
       team: "3-person core + mandatory Kikamba producer",
       note: "Best for nomination sprint; weakest in the arid belt and deliberately limited on modelling."
     },
     standard: {
-      title: "STANDARD SYSTEM · RECOMMENDED",
+      title: "Standard — recommended",
       ad: "30–40% of verified ceiling",
       reach: "~150,000 realistic Phase 3 contacts",
       team: "3-person core + activated surge roles",
       note: "Best balance of countywide recognition, low-connectivity reach, analytics and compliance discipline."
     },
     premium: {
-      title: "PREMIUM SYSTEM",
+      title: "Premium",
       ad: "45–55% of verified ceiling",
       reach: "~250,000 realistic Phase 3 contacts",
       team: "3-person core + full surge bench",
@@ -72,7 +72,7 @@ export function DataVisualizations() {
       >
         <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent pointer-events-none" />
         <h3 className="font-serif text-2xl mb-1 text-dark">The immediate contest</h3>
-        <p className="text-xs text-muted mb-6">Published Mizani Africa trend used in the proposal.</p>
+        <p className="t-label text-muted mb-6">Published Mizani Africa trend used in the proposal.</p>
         
         <div className="h-[250px] w-full relative z-10">
           <ResponsiveContainer width="100%" height="100%">
@@ -117,15 +117,15 @@ export function DataVisualizations() {
         <div>
           <div className="flex items-center justify-between gap-2 mb-1">
             <h3 className="font-serif text-2xl text-dark">Budget scenario</h3>
-            <span className="text-accent bg-accent/10 px-2 py-0.5 rounded-full t-label font-extrabold tracking-wider uppercase">
+            <span className="text-accent bg-accent/10 px-2 py-0.5 rounded-full t-label font-extrabold">
               Interactive Slider
             </span>
           </div>
-          <p className="text-xs text-muted mb-5">Slide or tap to reallocate the estimated campaign resources dynamically.</p>
+          <p className="t-label text-muted mb-5">Slide or tap to reallocate the estimated campaign resources dynamically.</p>
           
           {/* Slider input control - excellent for mobile fingers */}
           <div className="mb-6 px-1">
-            <div className="flex justify-between t-small font-extrabold text-muted tracking-wider uppercase mb-2">
+            <div className="flex justify-between t-small font-extrabold text-muted mb-2">
               <span className={activeTier === "lean" ? "text-accent scale-105 transition-transform" : ""}>Lean</span>
               <span className={activeTier === "standard" ? "text-accent scale-105 transition-transform" : ""}>Recommended</span>
               <span className={activeTier === "premium" ? "text-accent scale-105 transition-transform" : ""}>Premium</span>
@@ -153,8 +153,8 @@ export function DataVisualizations() {
               <button
                 key={tier}
                 onClick={() => setActiveTier(tier)}
-                className={`flex-1 min-h-[44px] px-2 py-2 rounded-xl text-xs font-bold capitalize transition-all border cursor-pointer flex items-center justify-center ${
-                  activeTier === tier 
+                className={`flex-1 min-h-[44px] px-2 py-2 rounded-xl t-label font-bold capitalize transition-all border cursor-pointer flex items-center justify-center ${
+ activeTier === tier 
                     ? "bg-accent-solid text-on-accent border-accent-solid shadow-sm" 
                     : "bg-card text-muted border-line hover:border-accent/40"
                 }`}
@@ -180,7 +180,7 @@ export function DataVisualizations() {
           <div className="text-sm text-muted space-y-2.5">
             <p><strong className="text-ink font-semibold">Allocated ad budget:</strong> {tiers[activeTier].ad}</p>
             <p><strong className="text-ink font-semibold">Citizen reach scope:</strong> {tiers[activeTier].reach}</p>
-            <p className="pt-2 border-t border-line/60 text-xs italic leading-relaxed text-ink/80 flex items-start gap-1.5">
+            <p className="pt-2 border-t border-line/60 t-label italic leading-relaxed text-ink/80 flex items-start gap-1.5">
               <HelpCircle size={13} className="text-accent shrink-0 mt-0.5" />
               <span>{tiers[activeTier].team}. {tiers[activeTier].note}</span>
             </p>

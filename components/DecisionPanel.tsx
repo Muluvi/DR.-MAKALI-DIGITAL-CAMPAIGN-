@@ -56,9 +56,9 @@ export function DecisionPanel() {
           </h2>
 
           <div className="mt-5 p-4 bg-card border border-accent/30 rounded-2xl">
-            <div className="t-label font-black uppercase tracking-wider text-accent">The recommendation</div>
+            <div className="t-label font-black text-accent">The recommendation</div>
             <div className="font-serif text-xl font-bold text-ink mt-1">Tier 2 — Standard</div>
-            <p className="text-xs text-muted leading-relaxed mt-2">
+            <p className="t-label text-muted leading-relaxed mt-2">
               Tier 1 concentrates spend where Dr. Mulu is already strong and leaves the recognition
               deficit untouched. Tier 3 is defensible but presses against a statutory ceiling that must
               also cover transport, venues and personnel across 30,430 square kilometres.
@@ -79,7 +79,7 @@ export function DecisionPanel() {
 
         <div>
           <div className="flex items-baseline justify-between gap-3 mb-4">
-            <h3 className="t-label font-black uppercase tracking-wider text-muted">
+            <h3 className="t-label font-black text-muted">
               What Firefly needs from the campaign
             </h3>
             <span className="t-label text-muted font-mono">§9.3.2</span>
@@ -92,18 +92,18 @@ export function DecisionPanel() {
                 <li
                   key={i}
                   className={`flex items-start gap-3 p-3 rounded-xl border ${
-                    d.longLead ? "border-gold/40 bg-gold/[0.05]" : "border-line bg-card"
+ d.longLead ? "border-gold/40 bg-gold/[0.05]" : "border-line bg-card"
                   }`}
                 >
                   <span
                     className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
-                      d.longLead ? "bg-gold/15 text-gold" : "bg-accent/10 text-accent"
+ d.longLead ? "bg-gold/15 text-gold" : "bg-accent/10 text-accent"
                     }`}
                   >
                     <Icon size={14} aria-hidden="true" />
                   </span>
                   <div className="min-w-0 flex-1">
-                    <p className="text-xs text-ink leading-relaxed">{d.text}</p>
+                    <p className="t-label text-ink leading-relaxed">{d.text}</p>
                     {d.longLead && (
                       <div className="mt-1.5">
                         <ClaimBadge status="awaiting" compact />

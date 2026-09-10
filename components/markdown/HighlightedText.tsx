@@ -43,9 +43,9 @@ function InlineTooltip({ text, term }: { text: string; term: string }) {
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 5 }}
-            className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-paper border border-line rounded-xl shadow-lg text-xs text-ink font-sans z-50 text-center leading-normal"
+            className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-paper border border-line rounded-xl shadow-lg t-label text-ink font-sans z-50 text-center leading-normal"
           >
-            <span className="font-bold text-accent block mb-1 uppercase tracking-wider t-label flex items-center justify-center gap-1">
+            <span className="font-bold text-accent block mb-1 t-label flex items-center justify-center gap-1">
               <Info size={11} /> Strategy Definition
             </span>
             {definition}

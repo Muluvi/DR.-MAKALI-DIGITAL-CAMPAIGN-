@@ -51,7 +51,7 @@ export function SplitText({
 
   return (
     <Tag ref={ref as React.Ref<never>} className={className}>
-      {/* The accessible copy. One node, the real string, never split. */}
+ {/* The accessible copy. One node, the real string, never split. */}
       <span className="sr-only">{children}</span>
 
       <span aria-hidden="true" style={{ "--fx-split-stagger": `${gap}ms`, "--fx-delay": `${delay}ms` } as React.CSSProperties}>
@@ -88,7 +88,7 @@ export function Typewriter({ text, duration = 2200, delay = 0, className = "" }:
   const [ref, inView] = useInView<HTMLSpanElement>({ amount: 0.6 });
   return (
     <span ref={ref} className={className}>
-      <span className="sr-only">{text}</span>
+ <span className="sr-only">{text}</span>
       <span
         aria-hidden="true"
         className={inView ? "fx-typewriter" : "invisible"}
@@ -153,7 +153,7 @@ export function Scramble({ text, className = "", speed = 34 }: ScrambleProps) {
 
   return (
     <span ref={ref} className={className}>
-      <span className="sr-only">{text}</span>
+ <span className="sr-only">{text}</span>
       <span aria-hidden="true" className="tabular-nums">{display}</span>
     </span>
   );

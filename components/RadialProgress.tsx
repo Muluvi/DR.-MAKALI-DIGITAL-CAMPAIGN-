@@ -73,15 +73,15 @@ export function RadialProgress({
 
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">
-          <span className="claim-badge claim-badge-estimate t-micro px-1.5 py-0.5 font-bold uppercase tracking-wider">
+          <span className="claim-badge claim-badge-estimate t-micro px-1.5 py-0.5 font-bold">
             Internal Target
           </span>
-          <span className="t-label font-bold text-muted uppercase tracking-wider">Aspiration</span>
+          <span className="t-label font-bold text-muted">Aspiration</span>
         </div>
         <h4 className="font-serif text-sm font-extrabold text-ink leading-snug mt-1.5 truncate">
           {label}
         </h4>
-        <p className="text-xs text-muted/80 leading-relaxed mt-1 line-clamp-2">
+        <p className="t-label text-muted/80 leading-relaxed mt-1 line-clamp-2">
           {sub}
         </p>
       </div>

@@ -18,7 +18,7 @@ export function ConstitutionalBranchNavigator() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Constitutional Precedent Analysis
               </span>
               <span className="t-label font-mono font-bold text-muted">
@@ -35,8 +35,8 @@ export function ConstitutionalBranchNavigator() {
         <div className="flex items-center p-1 bg-paper border border-line rounded-xl w-full sm:w-auto">
           <button
             onClick={() => setActiveBranch("branchA")}
-            className={`flex-1 sm:flex-none px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              activeBranch === "branchA"
+            className={`flex-1 sm:flex-none px-3 py-1.5 rounded-lg t-label font-bold transition-all cursor-pointer ${
+ activeBranch === "branchA"
                 ? "bg-accent-solid text-on-accent shadow-sm"
                 : "text-muted hover:text-ink"
             }`}
@@ -45,8 +45,8 @@ export function ConstitutionalBranchNavigator() {
           </button>
           <button
             onClick={() => setActiveBranch("branchB")}
-            className={`flex-1 sm:flex-none px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              activeBranch === "branchB"
+            className={`flex-1 sm:flex-none px-3 py-1.5 rounded-lg t-label font-bold transition-all cursor-pointer ${
+ activeBranch === "branchB"
                 ? "bg-accent-solid text-on-accent shadow-sm"
                 : "text-muted hover:text-ink"
             }`}
@@ -57,7 +57,7 @@ export function ConstitutionalBranchNavigator() {
       </div>
 
       {/* Scenario Context Banner */}
-      <div className="p-4 bg-accent/5 border-b border-line text-xs font-medium text-ink flex items-start gap-2.5">
+      <div className="p-4 bg-accent/5 border-b border-line t-label font-medium text-ink flex items-start gap-2.5">
         <HelpCircle size={16} className="text-accent shrink-0 mt-0.5" />
         <div>
           <span className="font-bold">Legal Question:</span> Does the 2017–2022 Ngilu interregnum reset or permit a 3rd term under the <em>two-term limit</em> clause of Article 180(7)? Active litigation in High Court.
@@ -76,18 +76,18 @@ export function ConstitutionalBranchNavigator() {
               transition={{ duration: DURATION.quick }}
               className="space-y-4"
             >
-              <div className="flex items-center gap-2 text-xs font-extrabold text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 p-2.5 rounded-xl border border-emerald-500/20">
+              <div className="flex items-center gap-2 t-label font-extrabold text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 p-2.5 rounded-xl border border-emerald-500/20">
                 <CheckCircle2 size={16} className="shrink-0" />
                 <span>Supreme Court / High Court Rules Malombe INELIGIBLE (Two-Term Absolute Bar)</span>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
-                  <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
+                  <div className="t-label font-black text-muted flex items-center gap-1.5">
                     <Users size={12} className="text-accent" />
                     Wiper Nomination Dynamics
                   </div>
-                  <div className="text-xs font-bold text-ink">
+                  <div className="t-label font-bold text-ink">
                     Open Succession Contest
                   </div>
                   <p className="t-small text-muted leading-relaxed">
@@ -96,11 +96,11 @@ export function ConstitutionalBranchNavigator() {
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
-                  <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
+                  <div className="t-label font-black text-muted flex items-center gap-1.5">
                     <Building2 size={12} className="text-accent" />
                     Kitui Central Anchor
                   </div>
-                  <div className="text-xs font-bold text-ink">
+                  <div className="t-label font-bold text-ink">
                     Malombe Base Fragmentation
                   </div>
                   <p className="t-small text-muted leading-relaxed">
@@ -109,11 +109,11 @@ export function ConstitutionalBranchNavigator() {
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
-                  <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
+                  <div className="t-label font-black text-muted flex items-center gap-1.5">
                     <ShieldCheck size={12} className="text-accent" />
                     Strategic Posture
                   </div>
-                  <div className="text-xs font-bold text-ink">
+                  <div className="t-label font-bold text-ink">
                     The Competence Coalition
                   </div>
                   <p className="t-small text-muted leading-relaxed">
@@ -131,18 +131,18 @@ export function ConstitutionalBranchNavigator() {
               transition={{ duration: DURATION.quick }}
               className="space-y-4"
             >
-              <div className="flex items-center gap-2 text-xs font-extrabold text-amber-700 dark:text-amber-400 bg-amber-500/10 p-2.5 rounded-xl border border-amber-500/20">
+              <div className="flex items-center gap-2 t-label font-extrabold text-amber-700 dark:text-amber-400 bg-amber-500/10 p-2.5 rounded-xl border border-amber-500/20">
                 <AlertTriangle size={16} className="shrink-0" />
                 <span>Court Rules Interregnum Permits Re-Election (Malombe Contests 2027)</span>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
-                  <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
+                  <div className="t-label font-black text-muted flex items-center gap-1.5">
                     <Users size={12} className="text-accent" />
                     Nomination Mechanism
                   </div>
-                  <div className="text-xs font-bold text-ink">
+                  <div className="t-label font-bold text-ink">
                     Three-Way Wiper Primary
                   </div>
                   <p className="t-small text-muted leading-relaxed">
@@ -151,11 +151,11 @@ export function ConstitutionalBranchNavigator() {
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
-                  <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
+                  <div className="t-label font-black text-muted flex items-center gap-1.5">
                     <Building2 size={12} className="text-accent" />
                     Audit & Delivery Wedge
                   </div>
-                  <div className="text-xs font-bold text-ink">
+                  <div className="t-label font-bold text-ink">
                     KSh 2.73B Audit Exposure
                   </div>
                   <p className="t-small text-muted leading-relaxed">
@@ -164,11 +164,11 @@ export function ConstitutionalBranchNavigator() {
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
-                  <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1.5">
+                  <div className="t-label font-black text-muted flex items-center gap-1.5">
                     <ShieldCheck size={12} className="text-accent" />
                     Strategic Posture
                   </div>
-                  <div className="text-xs font-bold text-ink">
+                  <div className="t-label font-bold text-ink">
                     The Generational Shift
                   </div>
                   <p className="t-small text-muted leading-relaxed">

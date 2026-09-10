@@ -65,7 +65,7 @@ export function OfflineWaterline() {
           className="absolute inset-x-0 top-0 flex items-center justify-between gap-2 px-3 border-b border-dashed border-accent/50"
           style={{ height: `${ONLINE}%` }}
         >
-          <span className="inline-flex items-center gap-1.5 t-micro font-black uppercase tracking-wider text-accent">
+          <span className="inline-flex items-center gap-1.5 t-micro font-black text-accent">
             <Wifi size={12} aria-hidden="true" />
             {ONLINE}% online
           </span>
@@ -97,7 +97,7 @@ export function OfflineWaterline() {
           transition={{ delay: reduce ? 0 : 0.4 }}
         >
           <div className="pt-3 flex items-start justify-between gap-2">
-            <span className="inline-flex items-center gap-1.5 t-micro font-black uppercase tracking-wider text-on-accent">
+            <span className="inline-flex items-center gap-1.5 t-micro font-black text-on-accent">
               <WifiOff size={12} aria-hidden="true" />
               {OFFLINE}% offline
             </span>
@@ -111,12 +111,12 @@ export function OfflineWaterline() {
       {/* The accessible equivalent. */}
       <dl className="px-4 sm:px-5 pb-5 grid grid-cols-2 gap-3">
         <div className="rounded-xl border border-line/60 bg-paper p-3">
-          <dt className="t-micro font-black uppercase tracking-wider text-accent">Active internet use</dt>
+          <dt className="t-micro font-black text-accent">Active internet use</dt>
           <dd className="t-label font-black text-ink tabular-nums mt-0.5">{ONLINE}%</dd>
           <dd className="t-micro text-muted">{ACTIVE_USERS.toLocaleString()} individuals</dd>
         </div>
         <div className="rounded-xl border border-line/60 bg-paper p-3">
-          <dt className="t-micro font-black uppercase tracking-wider text-muted">Offline majority</dt>
+          <dt className="t-micro font-black text-muted">Offline majority</dt>
           <dd className="t-label font-black text-ink tabular-nums mt-0.5">{OFFLINE}%</dd>
           <dd className="t-micro text-muted">of the base aged 3 and above</dd>
         </div>

@@ -69,7 +69,7 @@ export function NavDots({ sections, onSelect }: NavDotsProps) {
             aria-label={s.label}
             title={s.label}
             className={`fx-navdot fx-focus rounded-full ${
-              isActive ? "w-2.5 h-6 bg-accent" : "w-2.5 h-2.5 bg-line hover:bg-accent/60"
+ isActive ? "w-2.5 h-6 bg-accent" : "w-2.5 h-2.5 bg-line hover:bg-accent/60"
             }`}
           />
         );

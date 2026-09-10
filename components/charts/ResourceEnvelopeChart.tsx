@@ -96,7 +96,7 @@ export default function ResourceEnvelopeChart({ data }: { data: WaterfallStep[] 
           <div key={step.name} className="flex-1 text-center">
             <span
               className={`block t-micro leading-tight ${
-                step.isTotal ? "font-black text-ink" : "font-bold text-muted"
+ step.isTotal ? "font-black text-ink" : "font-bold text-muted"
               }`}
             >
               {step.name}

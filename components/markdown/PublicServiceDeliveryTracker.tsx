@@ -99,7 +99,7 @@ export function PublicServiceDeliveryTracker() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Service-delivery tracker
               </span>
               <span className="t-label font-mono font-bold text-muted">
@@ -131,7 +131,7 @@ export function PublicServiceDeliveryTracker() {
 
       {/* 5-Step M&E Pipeline Visualizer (Replacing raw ASCII tree) */}
       <div className="p-4 bg-paper/70 border-b border-line">
-        <div className="t-label font-black uppercase tracking-wider text-muted mb-2 flex items-center gap-1">
+        <div className="t-label font-black text-muted mb-2 flex items-center gap-1">
           <Layers size={12} className="text-accent" />
           <span>The 5-Stage Verification Protocol</span>
         </div>
@@ -165,8 +165,8 @@ export function PublicServiceDeliveryTracker() {
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
-              selectedCategory === cat
+            className={`px-3 py-1.5 rounded-xl t-label font-bold whitespace-nowrap transition-all cursor-pointer ${
+ selectedCategory === cat
                 ? "bg-accent-solid text-on-accent shadow-sm"
                 : "bg-paper border border-line text-muted hover:text-ink"
             }`}
@@ -182,17 +182,17 @@ export function PublicServiceDeliveryTracker() {
           <div key={report.refNumber} className="p-3.5 sm:p-4 bg-paper rounded-xl border border-line space-y-2">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
               <div className="flex items-center gap-2">
-                <span className="font-mono text-xs font-black text-accent bg-card px-2 py-0.5 rounded border border-line">
+                <span className="font-mono t-label font-black text-accent bg-card px-2 py-0.5 rounded border border-line">
                   {report.refNumber}
                 </span>
-                <span className="text-xs font-bold text-ink">{report.ward} Ward</span>
+                <span className="t-label font-bold text-ink">{report.ward} Ward</span>
                 <span className="t-label text-muted font-medium">({report.constituency})</span>
               </div>
 
               <div className="flex items-center gap-2 self-start sm:self-auto">
                 <span className="t-label font-mono text-muted">{report.date}</span>
                 <span className={`t-label font-bold px-2 py-0.5 rounded-full border ${
-                  report.status === "Resolved / Audited"
+ report.status === "Resolved / Audited"
                     ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20"
                     : report.status === "Escalated"
                     ? "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20"
@@ -203,7 +203,7 @@ export function PublicServiceDeliveryTracker() {
               </div>
             </div>
 
-            <p className="text-xs text-ink font-medium leading-relaxed">
+            <p className="t-label text-ink font-medium leading-relaxed">
               {report.issue}
             </p>
 
@@ -221,7 +221,7 @@ export function PublicServiceDeliveryTracker() {
 
       {/* Interactive Simulation Form */}
       <div className="p-4 bg-paper/80 border-t border-line">
-        <div className="text-xs font-bold text-ink mb-2 flex items-center gap-1.5">
+        <div className="t-label font-bold text-ink mb-2 flex items-center gap-1.5">
           <Smartphone size={14} className="text-accent" />
           <span>Simulate Ward Issue Submission (Web / USSD Bridge)</span>
         </div>
@@ -231,7 +231,7 @@ export function PublicServiceDeliveryTracker() {
             <select
               value={wardInput}
               onChange={(e) => setWardInput(e.target.value)}
-              className="p-2 bg-card border border-line rounded-lg text-xs font-semibold text-ink"
+              className="p-2 bg-card border border-line rounded-lg t-label font-semibold text-ink"
             >
               <option value="Mwingi Central">Mwingi Central Ward</option>
               <option value="Mutomo">Mutomo Ward</option>
@@ -245,7 +245,7 @@ export function PublicServiceDeliveryTracker() {
               placeholder="e.g. Broken solar borehole pump at Kavuvwani market"
               value={issueInput}
               onChange={(e) => setIssueInput(e.target.value)}
-              className="sm:col-span-2 p-2 bg-card border border-line rounded-lg text-xs text-ink placeholder:text-muted"
+              className="sm:col-span-2 p-2 bg-card border border-line rounded-lg t-label text-ink placeholder:text-muted"
             />
           </div>
 
@@ -261,7 +261,7 @@ export function PublicServiceDeliveryTracker() {
             <button
               type="submit"
               disabled={isSimulatingSubmission || !issueInput.trim()}
-              className="px-4 py-1.5 rounded-lg bg-accent-solid text-on-accent text-xs font-bold flex items-center gap-1.5 disabled:opacity-50 cursor-pointer"
+              className="px-4 py-1.5 rounded-lg bg-accent-solid text-on-accent t-label font-bold flex items-center gap-1.5 disabled:opacity-50 cursor-pointer"
             >
               <Send size={12} />
               <span>{isSimulatingSubmission ? "Logging to Register..." : "Submit Test Report"}</span>

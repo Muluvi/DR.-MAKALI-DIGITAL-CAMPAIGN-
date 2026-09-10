@@ -51,7 +51,7 @@ export function PathTo200kBlockContent() {
 
       <div className="flex flex-wrap gap-x-3 gap-y-1 mb-3 pl-3.5">
         {CONSTITUENCIES.map((c) => (
-          <span key={c.id} className="flex items-center gap-1.5 t-micro font-black uppercase tracking-wide text-muted">
+          <span key={c.id} className="flex items-center gap-1.5 t-micro font-black text-muted">
             <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: CONSTITUENCY_COLORS[c.id] }} />
             {c.name}
           </span>
@@ -69,7 +69,7 @@ export function PathTo200kBlockContent() {
         <table className="w-full text-left t-small">
           <caption className="sr-only">All 40 wards ranked by 2022 register size with cumulative running total</caption>
           <thead className="sticky top-0 bg-paper">
-            <tr className="t-micro uppercase tracking-wider font-bold text-muted">
+            <tr className="t-micro font-bold text-muted">
               <th className="py-1.5 px-2">#</th>
               <th className="py-1.5 px-2">Ward</th>
               <th className="py-1.5 px-2">Constituency</th>

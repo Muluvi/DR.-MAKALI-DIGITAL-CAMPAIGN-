@@ -191,7 +191,7 @@ export function TerminalFrame({
             {/* Center: Device Brand / Hardware Badge */}
             <div className="flex items-center gap-1.5 px-2 py-0.5 rounded bg-slate-900/90 border border-slate-700/60">
               <Shield className="w-3 h-3 text-amber-400" />
-              <span className="font-mono tracking-widest text-slate-200 font-bold uppercase" style={{ fontSize: "0.625em" }}>
+              <span className="font-mono text-slate-200 font-bold" style={{ fontSize: "0.625em" }}>
                 KITUI-TAC 40
               </span>
             </div>
@@ -257,12 +257,12 @@ export function TerminalFrame({
             {/* Center Hardware Keys */}
             <div className="flex items-center gap-2">
               <div className="w-12 h-3.5 rounded bg-slate-900 border border-slate-700/80 shadow-inner flex items-center justify-center">
-                <span className="font-mono tracking-widest text-slate-400 uppercase font-bold" style={{ fontSize: "0.5em" }}>
+                <span className="font-mono text-slate-400 font-bold" style={{ fontSize: "0.5em" }}>
                   TAC-1
                 </span>
               </div>
               <div className="w-16 h-3.5 rounded bg-slate-900 border border-slate-700/80 shadow-inner flex items-center justify-center">
-                <span className="font-mono tracking-widest text-emerald-400 uppercase font-bold" style={{ fontSize: "0.5em" }}>
+                <span className="font-mono text-emerald-400 font-bold" style={{ fontSize: "0.5em" }}>
                   DISPATCH
                 </span>
               </div>

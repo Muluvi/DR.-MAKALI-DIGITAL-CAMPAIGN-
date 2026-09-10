@@ -90,7 +90,7 @@ export function TerminalShowcase() {
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-xs font-mono uppercase tracking-wider text-muted font-bold">
+              <span className="t-label font-mono text-muted font-bold">
                 Section 4.1.1 Physical Hardware Model
               </span>
             </div>
@@ -98,7 +98,7 @@ export function TerminalShowcase() {
               Kitui Field Coordinator Terminal (TAC-40)
             </h3>
           </div>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-accent/10 border border-accent/20 text-accent text-xs font-mono font-semibold self-start sm:self-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-accent/10 border border-accent/20 text-accent t-label font-mono font-semibold self-start sm:self-auto">
             <Radio className="w-3.5 h-3.5" />
             <span>40 Wards Connected • Dual 2G/4G GSM</span>
           </div>
@@ -134,15 +134,15 @@ export function TerminalShowcase() {
                 tabIndex={selected ? 0 : -1}
                 type="button"
                 onClick={() => setActiveMode(mode.id)}
-                className={`relative px-3.5 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all duration-200 shrink-0 border ${
-                  selected
+                className={`relative px-3.5 py-2 rounded-xl t-label font-medium whitespace-nowrap transition-all duration-200 shrink-0 border ${
+ selected
                     ? "bg-ink text-paper border-ink shadow-sm font-semibold"
                     : "bg-surface hover:bg-surface-hover text-muted hover:text-ink border-line"
                 }`}
               >
                 <div className="flex items-center gap-1.5">
                   <span className={`text-[10px] font-mono px-1 py-0.2 rounded ${
-                    selected ? "bg-paper/20 text-paper" : "bg-muted/15 text-muted"
+ selected ? "bg-paper/20 text-paper" : "bg-muted/15 text-muted"
                   }`}>
                     {mode.code}
                   </span>
@@ -154,7 +154,7 @@ export function TerminalShowcase() {
         </div>
 
         {/* Protocol Cadence Badge & Blurb */}
-        <div className="text-center mt-2 text-xs text-muted">
+        <div className="text-center mt-2 t-label text-muted">
           <span className="font-mono font-semibold text-accent">{currentModeInfo.cadence}</span>
           <span className="mx-2">•</span>
           <span>{currentModeInfo.summary}</span>
@@ -163,7 +163,7 @@ export function TerminalShowcase() {
 
       {/* Ward Selector Strip */}
       <div className="flex flex-wrap items-center justify-center gap-1.5 mb-6">
-        <span className="text-xs font-mono text-muted mr-1.5 flex items-center gap-1">
+        <span className="t-label font-mono text-muted mr-1.5 flex items-center gap-1">
           <MapPin className="w-3.5 h-3.5" /> Sample Ward:
         </span>
         {WARDS_LIST.map((w) => (
@@ -171,8 +171,8 @@ export function TerminalShowcase() {
             key={w.id}
             type="button"
             onClick={() => setSelectedWard(w.id)}
-            className={`text-xs px-2.5 py-1 rounded-lg border transition ${
-              selectedWard === w.id
+            className={`t-label px-2.5 py-1 rounded-lg border transition ${
+ selectedWard === w.id
                 ? "bg-slate-900 text-white border-slate-900 font-medium shadow-xs"
                 : "bg-card text-muted hover:text-ink border-line hover:border-slate-300"
             }`}
@@ -227,7 +227,7 @@ export function TerminalShowcase() {
       </div>
 
       {/* Bottom Architectural Caption */}
-      <div className="mt-4 max-w-xl mx-auto text-center text-xs text-muted leading-relaxed">
+      <div className="mt-4 max-w-xl mx-auto text-center t-label text-muted leading-relaxed">
         <span className="font-semibold text-ink">Field-to-War Room Protocol:</span> Field intelligence logged by ward coordinators updates county voter projections within 15 minutes, synchronizing radio rebuttal aircover and targeted micro-geofenced voter mobilization.
       </div>
     </div>

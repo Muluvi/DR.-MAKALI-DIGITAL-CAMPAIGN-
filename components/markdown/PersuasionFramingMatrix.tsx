@@ -120,7 +120,7 @@ export function PersuasionFramingMatrix() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Persuasion architecture
               </span>
               <span className="t-label font-mono font-bold text-muted">
@@ -144,13 +144,13 @@ export function PersuasionFramingMatrix() {
               key={theme.id}
               onClick={() => setActiveThemeId(theme.id)}
               className={`p-2.5 sm:p-3 rounded-xl border text-left transition-all cursor-pointer flex items-center gap-2 ${
-                isSelected 
+ isSelected 
                   ? "bg-card border-accent shadow-sm ring-2 ring-accent/15" 
                   : "bg-paper/40 border-line hover:border-accent/40 text-muted hover:text-ink"
               }`}
             >
               <IconComp size={16} className={isSelected ? "text-accent shrink-0" : "text-muted shrink-0"} />
-              <span className="text-xs font-bold truncate">{theme.themeTitle.split(" ")[0]} {theme.themeTitle.split(" ")[1]}</span>
+              <span className="t-label font-bold truncate">{theme.themeTitle.split(" ")[0]} {theme.themeTitle.split(" ")[1]}</span>
             </button>
           );
         })}
@@ -158,7 +158,7 @@ export function PersuasionFramingMatrix() {
 
       {/* Persuasion Principle Cards */}
       <div className="p-4 sm:p-6 space-y-3">
-        <div className="text-xs font-bold text-muted uppercase tracking-wider mb-2">
+        <div className="t-label font-bold text-muted mb-2">
           Applied Behavioral Framings for: <span className="text-ink font-serif font-bold text-sm capitalize">{currentTheme.themeTitle}</span>
         </div>
 
@@ -170,12 +170,12 @@ export function PersuasionFramingMatrix() {
                   <span className="w-5 h-5 rounded-full bg-accent/10 text-accent flex items-center justify-center t-label font-bold">
                     {idx + 1}
                   </span>
-                  <span className="text-xs font-bold text-ink">{p.name}</span>
+                  <span className="t-label font-bold text-ink">{p.name}</span>
                 </div>
                 <span className="t-label text-muted font-medium">{p.description}</span>
               </div>
 
-              <div className="p-3 bg-card rounded-lg border border-line text-xs sm:text-sm text-ink font-semibold italic leading-relaxed">
+              <div className="p-3 bg-card rounded-lg border border-line t-label sm:t-small text-ink font-semibold italic leading-relaxed">
                 {p.scriptFraming}
               </div>
             </div>

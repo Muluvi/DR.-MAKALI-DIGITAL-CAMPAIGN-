@@ -88,7 +88,7 @@ export function RecognitionDeficitOverlay() {
           </div>
           <div>
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Recognition deficit
               </span>
               <TierBadge tier={1} compact />
@@ -104,7 +104,7 @@ export function RecognitionDeficitOverlay() {
             onClick={() => setFilterMode("all")}
             aria-pressed={filterMode === "all"}
             className={`px-3 py-1.5 rounded-lg t-small font-bold transition-colors cursor-pointer ${
-              filterMode === "all" ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink"
+ filterMode === "all" ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink"
             }`}
           >
             Top 12
@@ -113,7 +113,7 @@ export function RecognitionDeficitOverlay() {
             onClick={() => setFilterMode("deficitOnly")}
             aria-pressed={filterMode === "deficitOnly"}
             className={`px-3 py-1.5 rounded-lg t-small font-bold transition-colors cursor-pointer ${
-              filterMode === "deficitOnly" ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink"
+ filterMode === "deficitOnly" ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink"
             }`}
           >
             Deficit only ({deficitCount})
@@ -123,7 +123,7 @@ export function RecognitionDeficitOverlay() {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-line border-b border-line bg-card">
         <div className="p-3.5 sm:p-4">
-          <div className="t-label uppercase font-black tracking-widest text-muted">Decisive deficit pool</div>
+          <div className="t-label font-black text-muted">Decisive deficit pool</div>
           <div className="font-serif text-xl sm:text-2xl font-bold text-ink mt-0.5 tabular-nums">
             {fmt(DEFICIT_POOL)}
           </div>
@@ -132,14 +132,14 @@ export function RecognitionDeficitOverlay() {
           </div>
         </div>
         <div className="p-3.5 sm:p-4">
-          <div className="t-label uppercase font-black tracking-widest text-muted">Countywide polling deficit</div>
+          <div className="t-label font-black text-muted">Countywide polling deficit</div>
           <div className="font-serif text-xl sm:text-2xl font-bold text-rose-600 dark:text-rose-400 mt-0.5 tabular-nums">
             −15.3 points
           </div>
-          <div className="t-small text-muted mt-0.5">Kasalu 37.4% · Mulu 22.1%</div>
+          <div className="t-small text-muted mt-0.5">Kasalu 37.4%, Mulu 22.1%</div>
         </div>
         <div className="p-3.5 sm:p-4">
-          <div className="t-label uppercase font-black tracking-widest text-muted">Phase −1 geofenced spend</div>
+          <div className="t-label font-black text-muted">Phase −1 geofenced spend</div>
           <div className="font-serif text-xl sm:text-2xl font-bold text-accent mt-0.5 tabular-nums">65%</div>
           <div className="t-small text-muted mt-0.5">Mwingi (all three) + Kitui South</div>
         </div>
@@ -171,7 +171,7 @@ export function RecognitionDeficitOverlay() {
               </div>
               <div className="flex items-center gap-1.5 mt-2.5 pt-2.5 border-t border-line/40">
                 <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${meta.dot}`} aria-hidden="true" />
-                <span className="t-label font-black uppercase tracking-wider text-ink">{meta.label}</span>
+                <span className="t-label font-black text-ink">{meta.label}</span>
                 <span className="t-label text-muted truncate">— {meta.note}</span>
               </div>
             </div>

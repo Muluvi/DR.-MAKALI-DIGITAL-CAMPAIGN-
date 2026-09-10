@@ -114,7 +114,7 @@ export function CampaignOrgChart() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Team structure
               </span>
               <span className="t-label font-mono font-bold text-muted">
@@ -128,7 +128,7 @@ export function CampaignOrgChart() {
         </div>
 
         {/* Single Counterpart Pill */}
-        <div className="flex items-center gap-2 px-3 py-1.5 bg-card border border-line rounded-xl text-xs font-semibold text-muted">
+        <div className="flex items-center gap-2 px-3 py-1.5 bg-card border border-line rounded-xl t-label font-semibold text-muted">
           <UserCheck size={14} className="text-accent" />
           <span>Single Campaign Counterpart Protocol</span>
         </div>
@@ -140,8 +140,8 @@ export function CampaignOrgChart() {
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-              selectedCategory === cat
+            className={`px-3 py-1.5 rounded-xl t-label font-bold transition-all cursor-pointer ${
+ selectedCategory === cat
                 ? "bg-accent-solid text-on-accent shadow-sm"
                 : "bg-card border border-line text-muted hover:text-ink"
             }`}
@@ -162,18 +162,18 @@ export function CampaignOrgChart() {
                 key={role.title}
                 onClick={() => setSelectedRole(role)}
                 className={`w-full p-3 rounded-xl border text-left transition-all cursor-pointer flex items-center justify-between gap-2 ${
-                  isSelected
+ isSelected
                     ? "bg-paper border-accent shadow-sm ring-1 ring-accent/20"
                     : "bg-card border-line hover:border-accent/40 text-muted hover:text-ink"
                 }`}
               >
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="t-micro font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-paper border border-line text-muted">
+                    <span className="t-micro font-black px-1.5 py-0.5 rounded bg-paper border border-line text-muted">
                       {role.category}
                     </span>
                   </div>
-                  <div className="text-xs font-bold text-ink mt-1">
+                  <div className="t-label font-bold text-ink mt-1">
                     {role.title}
                   </div>
                   <div className="t-label text-muted truncate">
@@ -190,33 +190,33 @@ export function CampaignOrgChart() {
         {/* Selected Role Detail Panel */}
         <div className="lg:col-span-6 p-4 sm:p-6 bg-paper/40 space-y-4">
           <div>
-            <span className="t-label font-black uppercase tracking-wider text-accent bg-accent/10 px-2 py-0.5 rounded">
+            <span className="t-label font-black text-accent bg-accent/10 px-2 py-0.5 rounded">
               {selectedRole.category} Role Detail
             </span>
             <h5 className="font-serif text-base sm:text-lg font-bold text-ink mt-1">
               {selectedRole.title}
             </h5>
-            <p className="text-xs font-mono text-muted mt-0.5">
+            <p className="t-label font-mono text-muted mt-0.5">
               Reporting Line: <strong className="text-ink">{selectedRole.reportingTo}</strong>
             </p>
           </div>
 
           <div className="p-3.5 rounded-xl bg-card border border-line space-y-1">
-            <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1">
+            <div className="t-label font-black text-muted flex items-center gap-1">
               <Briefcase size={12} className="text-accent" />
               Core Responsibilities
             </div>
-            <p className="text-xs text-ink font-medium leading-relaxed">
+            <p className="t-label text-ink font-medium leading-relaxed">
               {selectedRole.keyResponsibilities}
             </p>
           </div>
 
           <div className="p-3.5 rounded-xl bg-card border border-line space-y-1">
-            <div className="t-label font-black uppercase tracking-wider text-accent flex items-center gap-1">
+            <div className="t-label font-black text-accent flex items-center gap-1">
               <Sparkles size={12} />
               Decision Rights & Sign-off Limits
             </div>
-            <p className="text-xs text-ink font-semibold leading-relaxed">
+            <p className="t-label text-ink font-semibold leading-relaxed">
               {selectedRole.decisionRights}
             </p>
           </div>

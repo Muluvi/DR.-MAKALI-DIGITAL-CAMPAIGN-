@@ -35,23 +35,23 @@ function TierPanel({ tier }: { tier: BudgetTier }) {
   return (
     <dl className="space-y-2.5">
       <div>
-        <dt className="t-micro font-black uppercase tracking-wider text-muted">Purpose</dt>
+        <dt className="t-micro font-black text-muted">Purpose</dt>
         <dd className="t-small text-ink leading-snug">{tier.purpose}</dd>
       </div>
       <div>
-        <dt className="t-micro font-black uppercase tracking-wider text-muted">Team model</dt>
+        <dt className="t-micro font-black text-muted">Team model</dt>
         <dd className="t-small text-ink leading-snug">{tier.team}</dd>
       </div>
       <div>
-        <dt className="t-micro font-black uppercase tracking-wider text-muted">USSD</dt>
+        <dt className="t-micro font-black text-muted">USSD</dt>
         <dd className="t-small text-ink leading-snug">{tier.ussd}</dd>
       </div>
       <div>
-        <dt className="t-micro font-black uppercase tracking-wider text-muted">Contact universe</dt>
+        <dt className="t-micro font-black text-muted">Contact universe</dt>
         <dd className="t-small text-ink leading-snug tabular-nums">{tier.contactUniverse}</dd>
       </div>
       <div>
-        <dt className="t-micro font-black uppercase tracking-wider text-danger">Trade-offs</dt>
+        <dt className="t-micro font-black text-danger">Trade-offs</dt>
         <dd className="t-small text-ink leading-snug">{tier.tradeOff}</dd>
       </div>
     </dl>
@@ -114,7 +114,7 @@ export function CeilingMeter() {
             <li className="flex items-center gap-2">
               <span aria-hidden="true" className="w-3 h-3 rounded-sm bg-accent-solid shrink-0" />
               <span className="t-micro text-ink">
-                <strong className="font-black uppercase tracking-wider">
+                <strong className="font-black">
                   {active.label} ad spend
                 </strong>{" "}
                 <span className="tabular-nums text-muted">
@@ -125,7 +125,7 @@ export function CeilingMeter() {
             <li className="flex items-center gap-2">
               <span aria-hidden="true" className="w-3 h-3 rounded-sm bg-line shrink-0" />
               <span className="t-micro text-muted">
-                <strong className="font-black uppercase tracking-wider text-ink">Headroom</strong>{" "}
+                <strong className="font-black text-ink">Headroom</strong>{" "}
                 <span className="tabular-nums">
                   for transport, venues, personnel and all other regulated spend
                 </span>
@@ -151,16 +151,16 @@ export function CeilingMeter() {
                 id={`tier-tab-${tier.id}`}
                 onClick={() => setSelected(tier.id)}
                 className={`snap-center shrink-0 min-h-[44px] rounded-xl border px-3 py-2 text-left fx-press fx-focus cursor-pointer transition-colors ${
-                  isActive
+ isActive
                     ? "bg-accent-solid border-accent-solid text-on-accent"
                     : "bg-paper border-line text-muted hover:text-ink hover:border-accent/40"
                 }`}
               >
                 <span className="flex items-center gap-1.5">
-                  <span className="t-micro font-black uppercase tracking-wider">{tier.name}</span>
+                  <span className="t-micro font-black">{tier.name}</span>
                   {tier.recommended && (
                     <span
-                      className={`inline-flex items-center gap-0.5 t-micro font-black uppercase tracking-wider rounded px-1 ${
+                      className={`inline-flex items-center gap-0.5 t-micro font-black rounded px-1 ${
                         isActive ? "bg-on-accent text-accent-solid" : "bg-gold/20 text-gold"
                       }`}
                     >
@@ -209,7 +209,7 @@ export function CeilingMeter() {
       {/* The accessible equivalent: all three tiers, all figures, always in the DOM. */}
       <div className="px-4 sm:px-5 pb-5">
         <details>
-          <summary className="t-label font-bold text-accent cursor-pointer list-none min-h-[44px] inline-flex items-center gap-1.5">
+          <summary className="t-label font-bold text-accent cursor-pointer list-none min-h-[44px] min-w-[44px] justify-center inline-flex items-center gap-1.5">
             <ChevronRight size={13} aria-hidden="true" />
             <span className="underline underline-offset-4 decoration-dotted">
               All three tiers, as a table
@@ -222,10 +222,10 @@ export function CeilingMeter() {
               </caption>
               <thead>
                 <tr>
-                  <th scope="col" className="text-left px-2 py-2 t-micro font-black uppercase tracking-wider text-muted border-b border-line">Tier</th>
-                  <th scope="col" className="text-right px-2 py-2 t-micro font-black uppercase tracking-wider text-muted border-b border-line">Share of ceiling</th>
-                  <th scope="col" className="text-right px-2 py-2 t-micro font-black uppercase tracking-wider text-muted border-b border-line">Ad spend</th>
-                  <th scope="col" className="text-right px-2 py-2 t-micro font-black uppercase tracking-wider text-muted border-b border-line">Contacts</th>
+                  <th scope="col" className="text-left px-2 py-2 t-micro font-black text-muted border-b border-line">Tier</th>
+                  <th scope="col" className="text-right px-2 py-2 t-micro font-black text-muted border-b border-line">Share of ceiling</th>
+                  <th scope="col" className="text-right px-2 py-2 t-micro font-black text-muted border-b border-line">Ad spend</th>
+                  <th scope="col" className="text-right px-2 py-2 t-micro font-black text-muted border-b border-line">Contacts</th>
                 </tr>
               </thead>
               <tbody>

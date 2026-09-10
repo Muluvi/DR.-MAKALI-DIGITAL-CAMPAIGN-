@@ -194,7 +194,7 @@ export function DeficitGauge() {
           />
           <div className="flex flex-col items-center gap-1 pb-16 sm:pb-24 shrink-0">
             <TrendingDown size={16} className="text-danger" />
-            <div className="t-micro font-black uppercase tracking-wider text-muted whitespace-nowrap">
+            <div className="t-micro font-black text-muted whitespace-nowrap">
               gap
             </div>
           </div>
@@ -209,11 +209,11 @@ export function DeficitGauge() {
       <div aria-hidden="true" className="mx-4 sm:mx-6 mt-6 rounded-2xl border border-danger/25 bg-danger/[0.04] p-3.5">
         <div className="flex items-center justify-between gap-3">
           <div className="min-w-0">
-            <div className="t-micro font-black uppercase tracking-wider text-muted">
+            <div className="t-micro font-black text-muted">
               And it is opening
             </div>
             <div className="t-small text-ink font-semibold leading-snug mt-0.5">
-              {DEFICIT_FIRST} points in June · {DEFICIT_LATEST} in August
+              {DEFICIT_FIRST} points in June, {DEFICIT_LATEST} points in August
             </div>
           </div>
           <div className="text-right shrink-0">
@@ -253,7 +253,7 @@ export function DeficitGauge() {
           <div className="flex items-start gap-2">
             <CalendarClock size={15} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
             <div>
-              <div className="t-micro font-black uppercase tracking-wider text-muted">Nomination window</div>
+              <div className="t-micro font-black text-muted">Nomination window</div>
               <div className="t-label font-bold text-ink mt-0.5">29 Aug – 15 Nov 2026</div>
               <div className="t-micro text-muted">Phase −1</div>
             </div>
@@ -261,7 +261,7 @@ export function DeficitGauge() {
           <div className="flex items-start gap-2">
             <Vote size={15} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
             <div>
-              <div className="t-micro font-black uppercase tracking-wider text-muted">General election</div>
+              <div className="t-micro font-black text-muted">General election</div>
               <div className="t-label font-bold text-ink mt-0.5">10 August 2027</div>
               <div className="t-micro text-muted">Threshold ≈200,000</div>
             </div>
@@ -272,7 +272,7 @@ export function DeficitGauge() {
       {/* The accessible equivalent, and the version that prints. Never hidden. */}
       <div className="px-4 sm:px-6 py-5">
         <details className="group">
-          <summary className="t-label font-bold text-accent cursor-pointer list-none inline-flex items-center gap-1.5 min-h-[44px]">
+          <summary className="t-label font-bold text-accent cursor-pointer list-none inline-flex items-center gap-1.5 min-h-[44px] min-w-[44px] justify-center">
             <span className="underline underline-offset-4 decoration-dotted">
               Both published rounds, as a table
             </span>
@@ -285,9 +285,9 @@ export function DeficitGauge() {
               </caption>
               <thead>
                 <tr className="bg-paper/70">
-                  <th scope="col" className="text-left px-3 py-2 t-micro font-black uppercase tracking-wider text-muted border-b border-line">Candidate</th>
+                  <th scope="col" className="text-left px-3 py-2 t-micro font-black text-muted border-b border-line">Candidate</th>
                   {CONTEST_ROUNDS.map((r) => (
-                    <th key={r.date} scope="col" className="text-right px-3 py-2 t-micro font-black uppercase tracking-wider text-muted border-b border-line">
+                    <th key={r.date} scope="col" className="text-right px-3 py-2 t-micro font-black text-muted border-b border-line">
                       {r.short}
                     </th>
                   ))}
