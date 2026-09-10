@@ -71,41 +71,6 @@
   },
   {
     "note": "One term per concept — the ward organiser role. The document names the same 400-person network three ways: \"Ward Captain\" (21 mentions, the term §9.1.2 Commitment 5, §8.1.2 GE-02 and data/kpis.ts all use), \"Village Ward Captain\"/\"Village Captain\" (3) and \"ward champion\" (6). No section defines a champion as anything other than a captain, and none gives the two different counts, owners or duties. Unified to Ward Captain. Flagged in docs/CONTENT-QUERIES.md in case the campaign does intend two tiers, in which case the fix is to define the second one rather than to rename it. No figure, owner or date changes.",
-    "before": "and the ward champion network is necessarily local.",
-    "after": "and the Ward Captain network is necessarily local."
-  },
-  {
-    "note": "One term per concept — the ward organiser role. The document names the same 400-person network three ways: \"Ward Captain\" (21 mentions, the term §9.1.2 Commitment 5, §8.1.2 GE-02 and data/kpis.ts all use), \"Village Ward Captain\"/\"Village Captain\" (3) and \"ward champion\" (6). No section defines a champion as anything other than a captain, and none gives the two different counts, owners or duties. Unified to Ward Captain. Flagged in docs/CONTENT-QUERIES.md in case the campaign does intend two tiers, in which case the fix is to define the second one rather than to rename it. No figure, owner or date changes.",
-    "before": "   or verifies status through the ward champion network",
-    "after": "   or verifies status through the Ward Captain network"
-  },
-  {
-    "note": "One term per concept — the ward organiser role. The document names the same 400-person network three ways: \"Ward Captain\" (21 mentions, the term §9.1.2 Commitment 5, §8.1.2 GE-02 and data/kpis.ts all use), \"Village Ward Captain\"/\"Village Captain\" (3) and \"ward champion\" (6). No section defines a champion as anything other than a captain, and none gives the two different counts, owners or duties. Unified to Ward Captain. Flagged in docs/CONTENT-QUERIES.md in case the campaign does intend two tiers, in which case the fix is to define the second one rather than to rename it. No figure, owner or date changes.",
-    "before": "| +45 min | WhatsApp-optimised version to ward champions | Volunteer coordinator |",
-    "after": "| +45 min | WhatsApp-optimised version to Ward Captains | Volunteer coordinator |"
-  },
-  {
-    "note": "One term per concept — the ward organiser role. The document names the same 400-person network three ways: \"Ward Captain\" (21 mentions, the term §9.1.2 Commitment 5, §8.1.2 GE-02 and data/kpis.ts all use), \"Village Ward Captain\"/\"Village Captain\" (3) and \"ward champion\" (6). No section defines a champion as anything other than a captain, and none gives the two different counts, owners or duties. Unified to Ward Captain. Flagged in docs/CONTENT-QUERIES.md in case the campaign does intend two tiers, in which case the fix is to define the second one rather than to rename it. No figure, owner or date changes.",
-    "before": "  * **Capture:** ward champions log outcomes via a simple mobile form",
-    "after": "  * **Capture:** Ward Captains log outcomes via a simple mobile form"
-  },
-  {
-    "note": "One term per concept — the ward organiser role. The document names the same 400-person network three ways: \"Ward Captain\" (21 mentions, the term §9.1.2 Commitment 5, §8.1.2 GE-02 and data/kpis.ts all use), \"Village Ward Captain\"/\"Village Captain\" (3) and \"ward champion\" (6). No section defines a champion as anything other than a captain, and none gives the two different counts, owners or duties. Unified to Ward Captain. Flagged in docs/CONTENT-QUERIES.md in case the campaign does intend two tiers, in which case the fix is to define the second one rather than to rename it. No figure, owner or date changes.",
-    "before": "are routed to ward champions as priority doors.",
-    "after": "are routed to Ward Captains as priority doors."
-  },
-  {
-    "note": "One term per concept — the ward organiser role. The document names the same 400-person network three ways: \"Ward Captain\" (21 mentions, the term §9.1.2 Commitment 5, §8.1.2 GE-02 and data/kpis.ts all use), \"Village Ward Captain\"/\"Village Captain\" (3) and \"ward champion\" (6). No section defines a champion as anything other than a captain, and none gives the two different counts, owners or duties. Unified to Ward Captain. Flagged in docs/CONTENT-QUERIES.md in case the campaign does intend two tiers, in which case the fix is to define the second one rather than to rename it. No figure, owner or date changes.",
-    "before": "2. A ward champion's WhatsApp account compromised and used to message a ward",
-    "after": "2. A Ward Captain's WhatsApp account compromised and used to message a ward"
-  },
-  {
-    "note": "One term per concept — the ward organiser role. The document names the same 400-person network three ways: \"Ward Captain\" (21 mentions, the term §9.1.2 Commitment 5, §8.1.2 GE-02 and data/kpis.ts all use), \"Village Ward Captain\"/\"Village Captain\" (3) and \"ward champion\" (6). No section defines a champion as anything other than a captain, and none gives the two different counts, owners or duties. Unified to Ward Captain. Flagged in docs/CONTENT-QUERIES.md in case the campaign does intend two tiers, in which case the fix is to define the second one rather than to rename it. No figure, owner or date changes.",
-    "before": "platforms and, critically, in WhatsApp groups where ward champions can report",
-    "after": "platforms and, critically, in WhatsApp groups where Ward Captains can report"
-  },
-  {
-    "note": "One term per concept — the ward organiser role. The document names the same 400-person network three ways: \"Ward Captain\" (21 mentions, the term §9.1.2 Commitment 5, §8.1.2 GE-02 and data/kpis.ts all use), \"Village Ward Captain\"/\"Village Captain\" (3) and \"ward champion\" (6). No section defines a champion as anything other than a captain, and none gives the two different counts, owners or duties. Unified to Ward Captain. Flagged in docs/CONTENT-QUERIES.md in case the campaign does intend two tiers, in which case the fix is to define the second one rather than to rename it. No figure, owner or date changes.",
     "before": "Twice-daily SMS pulse reports from the 400 Village Ward Captains logging",
     "after": "Twice-daily SMS pulse reports from the 400 Ward Captains logging"
   },

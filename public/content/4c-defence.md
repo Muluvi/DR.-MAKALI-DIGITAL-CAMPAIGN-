@@ -274,7 +274,7 @@ advisories in a single quarter.
 
 For this campaign specifically, the highest-consequence scenarios are:
 1. Compromise of the candidate's own social accounts
-2. A Ward Captain's WhatsApp account compromised and used to message a ward
+2. A ward champion's WhatsApp account compromised and used to message a ward
 3. Leaked internal strategy material — including, if mishandled, this document
 4. Fabricated audio or video of the candidate
 
@@ -350,7 +350,7 @@ civic-education content consistent with the campaign's brand
 
 **Detection:**
 * Monitoring for candidate-name mentions attached to video and audio across
-platforms and, critically, in WhatsApp groups where Ward Captains can report
+platforms and, critically, in WhatsApp groups where ward champions can report
 what monitoring tools cannot see
 * Ward champions briefed to report suspicious media immediately through a
 dedicated channel — **the human network is the primary detection layer** for

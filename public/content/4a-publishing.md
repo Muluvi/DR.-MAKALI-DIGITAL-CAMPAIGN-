@@ -675,7 +675,7 @@ top three issues
 | +5 min | First clip cut, subtitled in Kiswahili | Video editor |
 | +15 min | Published across Facebook, X, TikTok, Instagram | Community managers |
 | +30 min | Kikamba-subtitled version published | Content lead |
-| +45 min | WhatsApp-optimised version to Ward Captains | Volunteer coordinator |
+| +45 min | WhatsApp-optimised version to ward champions | Volunteer coordinator |
 | +60 min | Audio-only version for radio and voice-note distribution | Content lead |
 | +2 hours | SMS with a link, or a plain-text key line, to consented contacts in relevant wards | Paid media manager |
 | Next day | Long-form cut to YouTube; written summary to Tier A journalists | Content lead |

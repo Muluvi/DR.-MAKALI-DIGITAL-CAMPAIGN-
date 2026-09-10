@@ -233,12 +233,12 @@ voters the ground team has confirmed as committed opponents. In a county of
 ```
 
 * **Field to digital synchronization:**
-  * **Capture:** Ward Captains log outcomes via a simple mobile form — four options, under thirty seconds per household. Complexity kills field data collection.
+  * **Capture:** ward champions log outcomes via a simple mobile form — four options, under thirty seconds per household. Complexity kills field data collection.
   * **Offline-first:** the form caches locally and syncs when signal returns. Non-negotiable in Ikutha and Mutitu.
   * **Latency target:** field outcomes reflected in digital targeting within **24 hours**.
   * **Suppression:** confirmed committed opponents are **removed from paid targeting**, not messaged harder. This saves money and is the correct practice.
 * **Digital to field routing:**
-  * **Warm-lead routing:** voters who engaged with content, opened an SMS, or completed a USSD session are routed to Ward Captains as priority doors.
+  * **Warm-lead routing:** voters who engaged with content, opened an SMS, or completed a USSD session are routed to ward champions as priority doors.
   * **Pre-briefing:** champions receive the issue the household engaged with — water, bursaries, market fees — so the conversation starts where the voter's interest already is.
   * **Event conversion:** digital sign-ups for barazas are handed to ground organisers with attendance follow-up.
 

@@ -554,7 +554,7 @@ Firefly is a **Kenya-based media and consulting company**. The proposal delibera
 **One honest qualification.** Remote delivery works for everything above. It
 does not replace the things it should not: the focus groups in Section 8.4
 require facilitation in Kitui, the Kikamba producer must be a native speaker,
-and the Ward Captain network is necessarily local. Those roles are budgeted as
+and the ward champion network is necessarily local. Those roles are budgeted as
 local appointments, not absorbed into a remote retainer. A proposal claiming
 that everything can be done from a laptop would be overselling, and this
 document's entire proposition is that it does not oversell.
