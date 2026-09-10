@@ -859,28 +859,30 @@ The election will be won or lost across the **~460,000 offline voters** living i
 
 ---
 
-### 3.1.3 Budget against reach
+### 3.1.3 Weight against reach
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│              BUDGET ALLOCATION VS. ELECTORAL REACH REALITY AUDIT             │
+│               EFFORT WEIGHTING VS. ELECTORAL REACH REALITY AUDIT            │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-A common failure mode in modern Kenyan political campaigns is over-allocating budget to flashy social media influencers while starving the unglamorous rural infrastructure that actually produces votes.
+A common failure mode in modern Kenyan political campaigns is over-weighting flashy social
+media influencers while starving the unglamorous rural infrastructure that actually produces
+votes.
 
 The table below is the **rebalancing target** — the direction of travel away from the
-conventional pitch, argued from reach. It is not a formula the budget already satisfies:
-Section 3.3.1 carries the actual shillings, and the two do not currently agree. That gap is
-stated under 3.3.1 rather than smoothed over here, because closing it is a live decision
-about where roughly KSh 14 million goes, not a presentation choice.
+conventional pitch, argued from reach. It states the share of communications *effort* each
+domain should carry: production time, team attention, weekly output and channel priority. It
+is a statement of where the campaign's weight goes, not a schedule of what anything costs.
+
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
 │                              CAMPAIGN RESOURCE REBALANCING AUDIT                                            │
 ├──────────────────────────────┬───────────────────┬───────────────────┬──────────────────────────────────────┤
 │ Communication Domain         │ Traditional Pitch │ Rebalanced Reality│ Strategic Rationale & Mathematical   │
-│                              │ (% of Comm Budget)│ (% of Comm Budget)│ Justification                        │
+│                              │ (% of Comm Effort)│ (% of Comm Effort)│ Justification                        │
 ├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
 │ Digital & Social Media       │ 45.0%             │ **18.0%**         │ Capped to reflect 13.6% in-county    │
 │ (Meta, TikTok, X, YouTube)   │ (Over-allocated)  │ (Right-sized)     │ penetration + diaspora mobilization. │
@@ -1260,15 +1262,7 @@ This compliance pack consolidates all statutory, constitutional, and regulatory 
                         STATUTORY COMPLIANCE ARCHITECTURE
 ════════════════════════════════════════════════════════════════════════════════════
 
-   1. CAMPAIGN FINANCING COMPLIANCE (IEBC Gazette No. 12251 & ECFA 2026)
-   • Strict Ksh 97,560,000 Total Expenditure Ceiling (Utilization capped at Ksh 64.5M)
-   • 20% Single-Source Donor Cap (Max Ksh 19,512,000 per entity)
-   • Dedicated Campaign Trust Bank Account & Certified Signatory Notification
-   • Mandatory Reporting on all Receipts/Expenditures ≥ Ksh 1,000,000
-   • 90-Day Post-Election Audited Accounts Submission to IEBC
-                                      │
-                                      ▼
-   2. IEBC NOMINATION & STATUTORY CLEARANCE REQUIREMENTS
+   1. IEBC NOMINATION & STATUTORY CLEARANCE REQUIREMENTS
    • University Degree Recognition & Commission for University Education (CUE) Clearance
    • EACC Chapter Six Integrity Clearance Self-Declaration
    • Kenya Revenue Authority (KRA) Tax Compliance Certificate
@@ -1277,53 +1271,18 @@ This compliance pack consolidates all statutory, constitutional, and regulatory 
    • 500 Registered Voter Nomination Endorsement Signatures per Sub-County
                                       │
                                       ▼
-   3. DATA PROTECTION ACT (DPA 2019) & TELCO PRIVACY COMPLIANCE
+   2. DATA PROTECTION ACT (DPA 2019) & TELCO PRIVACY COMPLIANCE
    • Lawful Basis: Explicit Opt-In Consent for 2G SMS & USSD Registry
    • Certificate of Registration with the Office of the Data Protection Commissioner (ODPC)
    • 100% On-Premise Encrypted Storage (AES-256) within Kenyan Borders
    • Direct "STOP" Opt-Out Mechanism via Africa's Talking API
                                       │
                                       ▼
-   4. ELECTION OFFENCES ACT (EOA 2016) DEFENSE & LIABILITY MATRIX
+   3. ELECTION OFFENCES ACT (EOA 2016) DEFENSE & LIABILITY MATRIX
    • Prohibition of Bribery, Treating & Undue Influence
    • Defamation & Hate Speech Quarantine (NCIC / Penal Code Compliance)
    • Strict Campaign Ad Blackout Window (48 Hours Prior to Polling Station Opening)
 ════════════════════════════════════════════════════════════════════════════════════
-```
-
----
-
-### 6.6.1 Campaign financing obligations under the ECFA
-
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                           ELECTION CAMPAIGN FINANCING STATUTORY OBLIGATIONS                                 │
-├──────────────────────────┬───────────────────────────────────────────┬──────────────────────────────────────┤
-│ Statutory Requirement    │ Operational Rule & Legal Threshold        │ Verification & Compliance Protocol   │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 1. County Expenditure    │ • Total campaign spend must not exceed    │ • Campaign budget strictly capped    │
-│    Ceiling               │   **Ksh 97,560,000** (IEBC Gazette        │   at Ksh 64,500,000 (66.1% limit),   │
-│                          │   Notice No. 12251, 7 August 2026).       │   leaving Ksh 33.06M safety margin.  │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 2. Single-Source Donor   │ • No single individual or corporate donor │ • All donations > Ksh 500,000 undergo│
-│    Contribution Cap      │   may contribute > **20% of the ceiling** │   source-of-funds verification by the│
-│                          │   (**Max: Ksh 19,512,000**).              │   Compliance Officer before receipt. │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 3. Dedicated Campaign    │ • All campaign funds must flow through a  │ • Formal account opening at a Tier-1 │
-│    Bank Account          │   single dedicated bank account titled    │   commercial bank; certified bank    │
-│                          │   *"Dr. Makali Mulu Campaign Trust"*.     │   statements filed monthly.          │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 4. Campaign Expenditure  │ • Campaign Expenditure Committee must be  │ • Formal written notification of 3–5 │
-│    Committee & Signatory │   notified to the IEBC at least 3 months  │   committee members and Authorized   │
-│                          │   prior to the general election.          │   Signatory submitted to IEBC Chair. │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 5. Large Transaction     │ • Mandatory itemized disclosure of all    │ • Certified invoices, contracts, and │
-│    Reporting Threshold   │   receipts and payments **≥ Ksh 1,000,000**│   receipts logged in real time.      │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 6. Post-Election Audited │ • Certified, audited campaign expenditure │ • External ICPAK-registered audit    │
-│    Final Accounts        │   accounts must be submitted to the IEBC  │   firm commissioned to deliver final │
-│                          │   within **90 days** post-election.       │   filing within 60 days of election. │
-└──────────────────────────┴───────────────────────────────────────────┴──────────────────────────────────────┘
 ```
 
 ---

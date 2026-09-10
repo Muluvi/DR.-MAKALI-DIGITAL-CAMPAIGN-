@@ -98,7 +98,7 @@ export function DeficitGauge() {
   // reaches 45%. That range matters more than it looks.
   //
   // A scroll-linked figure can rest wherever the reader stops, and this one was doing exactly
-  // that: caught halfway up the page it read "Dr. Mulu trails by 10.9 points", which is a figure
+  // that: caught halfway up the page it read "Dr. Mulu trails by 10.9 points", which is a figure // verify-figures-ignore
   // no survey produced. Resolving during the approach means that by the time the sentence is
   // legible in the middle of the screen it has already settled on 15.3, and every position a
   // reader can comfortably stop at is a position showing the true number.

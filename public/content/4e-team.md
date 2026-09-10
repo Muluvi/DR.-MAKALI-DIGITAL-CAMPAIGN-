@@ -10,7 +10,7 @@ stated plainly because a campaign is entitled to know exactly who is doing the
 work. A proposal claiming a large standing department it does not have will
 fail on the first question about it.
 
-The structure below scales with the budget tier selected in Section 9.2.
+The structure below scales with the service level selected in Section 9.2.
 
 ### 7.2.2 The core team, retained throughout
 
@@ -18,7 +18,7 @@ The structure below scales with the budget tier selected in Section 9.2.
 people this engagement pays for. Section 7.3.2 sets out the **campaign's own** leadership
 structure, which Firefly reports into and does not staff, and Section 8.1's KPI owners are
 campaign-side roles unless the campaign asks Firefly to fill them. The boundary matters
-commercially: everything in 7.2.2 and 7.2.3 is in scope for the tiers in Section 9.2, and
+commercially: everything in 7.2.2 and 7.2.3 is in scope for the service levels in Section 9.2, and
 nothing in 7.3.2 is.
 
 | Role | Function | Decision rights |
@@ -27,20 +27,20 @@ nothing in 7.3.2 is.
 | **Content & Language Lead** | Owns the calendar across all three languages; commissions and edits; manages the Kikamba review process | Approves routine content within approved templates; cannot approve policy claims |
 | **Paid Media & Analytics Manager** | Ad buying across Meta, Google, TikTok; SMS/USSD dispatch; dashboards; A/B testing; **compliance logging for IEBC returns** | Executes within the approved budget envelope; cannot exceed ward-level ceilings without Director approval |
 
-### 7.2.3 Surge roles, activated by phase and tier
+### 7.2.3 Surge roles, activated by phase and service level
 
 | Role | Activated | Function |
 |---|---|---|
-| **Data Analyst / Modeller** | Phase 1 onward (standard and premium tiers) | Predictive scoring, field-digital integration, attribution modelling. **Named data-governance owner** (Section 6.4.4) |
-| **Kikamba Content Producer (native speaker)** | Phase −1 onward — **mandatory at all tiers** | Voice notes, proverb verification, cultural authenticity review. No Kikamba content publishes without this role |
+| **Data Analyst / Modeller** | Phase 1 onward (standard and premium levels) | Predictive scoring, field-digital integration, attribution modelling. **Named data-governance owner** (Section 6.4.4) |
+| **Kikamba Content Producer (native speaker)** | Phase −1 onward — **mandatory at all levels** | Voice notes, proverb verification, cultural authenticity review. No Kikamba content publishes without this role |
 | **Community Managers (×2, platform-split)** | Phase 1 onward | Meta/WhatsApp cluster; TikTok/Instagram/X cluster. Front-line response within the 2-hour SLA |
 | **Volunteer & Ward Champion Coordinator** | Phase 1 onward | Tiered volunteer programme (Section 4.4); ward champion training and reporting |
 | **Crisis Communications Lead** | Phase 2 onward, or immediately on trigger | Rapid response, red-team drills, deepfake rebuttal protocol |
-| **Earned Media / Press Officer** | Phase −1 onward (standard and premium) | Journalist relationships, debate clipping, radio placement (Section 3.5) |
+| **Earned Media / Press Officer** | Phase −1 onward (standard and premium levels) | Journalist relationships, debate clipping, radio placement (Section 3.5) |
 | **Video Editor / Motion Designer** | Phase 1 onward | Clipping, subtitling, sign-language integration |
 
 **Subcontract triggers are explicit.** Each surge role has a named activation
-condition — a phase date, a budget tier, or a KPI threshold. For example: the
+condition — a phase date, a service level, or a KPI threshold. For example: the
 second Community Manager activates when combined daily inbound messages exceed
 `[Insert threshold — recommend 150/day]` for two consecutive weeks. Roles are
 not added speculatively.
@@ -85,7 +85,8 @@ five people can commission content and no one can approve it.
 | **Weekly (60 min)** | Strategy sync | Firefly Director + Campaign Comms Director | Prior-week performance; next-week calendar approved; itinerary alignment |
 | **Weekly** | Creative review | Content Lead + Kikamba Producer | Language and cultural sign-off before scheduling |
 | **Fortnightly** | Ward champion call | Volunteer Coordinator + ward champions | Ground sentiment; content distribution; leaderboard |
-| **Monthly** | Performance & compliance review | Firefly Director + Campaign leadership + `[campaign counsel, where voter-file work is live]` | Analytics report; competitive brief; spend reconciliation against IEBC ceiling |
+| **Monthly** | Performance review | Firefly Director + Campaign leadership + `[campaign counsel, where voter-file work is live]` | Analytics report; competitive brief |
+| **Monthly** | Consented-list review | Firefly Director + Volunteer Coordinator | Consented-list growth against the 4.3.6 target; opt-out rate; ward coverage |
 | **Quarterly** | Red-team simulation | Full team + external panel | Crisis drill report and matrix revision (Section 5.2.4) |
 
 ### 7.2.6 Who signs off on content
@@ -207,7 +208,7 @@ To prevent decision bottlenecks and operational confusion during high-pressure f
 
   LEVEL 2: STRATEGIC & BUDGETARY ESCALATION (<2 HOURS)
   ────────────────────────────────────────────────────
-  • Issues: Unexpected budget overruns (>Ksh 100,000), competitor attack requiring
+  • Issues: Unexpected cost or scope overruns, competitor attack requiring
             major media expenditure change, or constituency coordinator dispute.
   • Resolution Authority: Campaign Manager & Chief of Operations.
   • Rule: Campaign Manager makes binding operational determination.

@@ -271,6 +271,10 @@ campaigning in this county, and solving it is the clearest demonstration of the
 "Economist Governor" proposition: allocating resources to where the need is,
 rather than where measurement is convenient.
 
+The critical constraint: the campaign can only message consented numbers
+(Section 6.5). List building is therefore a KPI in its own right from Phase −1,
+not an afterthought — consented contacts are a campaign asset that compounds.
+
 ### 4.3.2 The SMS layer
 
 **Consent-first architecture.** Every number in the campaign database arrives
@@ -298,10 +302,7 @@ permanently
 * Ward-tagged segmentation so a message about mango prices reaches Kitui West
 and not Kyuso
 * Personalisation by first name where consent covers it
-* Per-send audit trail retained for the compliance ledger
-
-**Cost:** at KSh0.25–0.60 per message, a fortnightly touch to 120,000 consented
-voters costs approximately **KSh30,000–72,000 per send** — see Section 9.2.3.
+* Per-send audit trail retained, per the charter (Section 6.5.4)
 
 ### 4.3.3 The USSD layer
 
@@ -326,9 +327,7 @@ point by dialling a short code; the report enters a public register; the
 campaign follows up and publishes the outcome. That is the M&E credential
 operating in public, before the election, on the cheapest possible technology.
 
-**Cost:** shared code approximately **KSh34,800 per network**, development
-approximately **KSh140,000**, hosting approximately **KSh5,000 per month**.
-Set-up in 5–7 working days for a shared code; 2–4 weeks for a dedicated code
+**Set-up:** 5–7 working days for a shared code; 2–4 weeks for a dedicated code
 pending operator approval.
 
 ### 4.3.4 Voice and audio
@@ -366,7 +365,6 @@ material.
 | Issue reports via tracker | Not live | 500 | 3,000 | 8,000 |
 | Opt-out rate | <2% | <2% | <2% | <2% |
 | Wards with active SMS presence | 15 | 40 | 40 | 40 |
-| Cost per consented contact | ≤KSh0.60 | ≤KSh0.50 | ≤KSh0.40 | ≤KSh0.35 |
 
 **Opt-out rate is the health metric.** A rising opt-out rate means the campaign
 is being experienced as spam, which damages the brand of rigour and

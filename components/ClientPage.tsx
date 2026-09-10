@@ -510,15 +510,6 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
   };
 
   const activeItem = useMemo(() => navItems.find((t) => t.id === activeTab) || navItems[0], [navItems, activeTab]);
-  
-  const wordCount = useMemo(() => {
-    if (isExpanded) {
-      return navItems.reduce((sum, item) => sum + item.wordCount, 0);
-    }
-    return activeItem.wordCount;
-  }, [isExpanded, activeItem.wordCount, navItems]);
-
-  const readingTime = useMemo(() => readingMinutes(wordCount), [wordCount]);
 
   return (
     <SectionNumberMapProvider sections={sections}>
@@ -765,10 +756,6 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
             </div>
           </div>
 
-          <div className="t-small sm:t-label font-bold text-muted shrink-0 pl-1 sm:pl-2">
-            <span className="hidden md:inline">{readingTime} min read · </span>
-            <span>{wordCount.toLocaleString()} wds</span>
-          </div>
         </div>
 
         <SectionStickyBar sectionLabel={isExpanded ? undefined : activeItem.label} />

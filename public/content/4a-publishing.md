@@ -243,8 +243,8 @@ environment where opponents may deploy manipulated media (Section 5.3.5).
 
 | Tool | Function | Management |
 |---|---|---|
-| Meta Advantage+ Creative | Automatic variation testing and budget reallocation | Remote dashboard |
-| Google Responsive Search Ads | Headline/description combination testing | Remote dashboard |
+| Meta Advantage+ Creative | Automatic variation testing and budget reallocation | Platform dashboard |
+| Google Responsive Search Ads | Headline/description combination testing | Platform dashboard |
 | AI creative variation tools | Ad creative variations at scale | Cloud-based |
 | Design tooling with AI assist | Rapid Kikamba-language infographics and cards | Cloud-based |
 | AI writing assistance | First-draft copy for email, social and ads — **always human-edited, always native-speaker-reviewed for Kikamba** | Cloud-based |
@@ -259,7 +259,6 @@ environment where opponents may deploy manipulated media (Section 5.3.5).
 * Budget split: **30% testing, 70% proven performers**
 * Automatic kill rule: any ad below `[Insert threshold — recommend 1.5% CTR]`
 after 5,000 impressions is paused
-* **Every test logged to the compliance ledger** (Section 9.2.4)
 
 ### 2.9.4 Performance benchmarks
 
@@ -304,7 +303,7 @@ As an economist, here are three things I would change on day one…"*
 * **Kikamba voice notes from Dr. Mulu** — the single highest-trust format
 available to this campaign
 * Shareable cards with key policy points, designed for forwarding
-* Ward-level group admins trained remotely to distribute content and report
+* Ward-level group admins trained by Firefly to distribute content and report
 sentiment
 * Weekly "Kitui Updates" broadcast in Kikamba and Kiswahili
 * **Forwarding-friendly correction cards** during crisis response
@@ -342,190 +341,6 @@ uchumi aeleze."*
 * **Sample search ad:** *"Dr. Makali Mulu for Kitui Governor | Economist.
 Evaluator. Reformer. | Read the plan for your ward."*
 
----
-
-## 3.3 Paid media and campaign financing
-
-Campaign expenditures in Kenyan gubernatorial elections are governed by strict statutory ceilings, disclosure requirements, and accounting rules enforced by the Independent Electoral and Boundaries Commission (IEBC) under the Election Offences Act, the Elections Act, and the Campaign Financing framework.
-
-For Kitui County, the maximum statutory spending ceiling is **Ksh 97,560,000** (IEBC Gazette Notice No. 12251, published 7 August 2026). The campaign constructs a disciplined, audited budget allocated proportionally against the **channel reach realities established in Section 3.1**.
-
-```
-════════════════════════════════════════════════════════════════════════════════════
-                  STATUTORY BUDGET ALLOCATION & CEILING (IEBC)
-════════════════════════════════════════════════════════════════════════════════════
-
-   STATUTORY CEILING: Ksh 97,560,000 (IEBC Gazette Notice 12251 / Aug 2026)
-   PLANNED OPERATIONAL BUDGET: Ksh 64,500,000 (Prudent 66.1% Deployment)
-                                      │
-         ┌────────────────────────────┼────────────────────────────┐
-         ▼                            ▼                            ▼
-   FIELD & GROUND               BROADCAST & OFFLINE          TECH, COMPLIANCE
-   MOBILISATION (rows 3+6)      PAID MEDIA (rows 1,2,4,5)    & CONTINGENCY (row 7)
-   Ksh 36,000,000 (55.8%)       Ksh 21,700,000 (33.6%)       Ksh 6,800,000 (10.5%)
- ┌──────────────────────┐     ┌──────────────────────┐     ┌──────────────────────┐
- │ • 400 Ward Captains  │     │ • Kikamba Radio Spots│     │ • Africa's Talking   │
- │ • 8 Sound PA Trucks  │     │ • 2G Bulk SMS (1.5M) │     │   USSD / SMS Gateway │
- │ • Boda Stage Rallies │     │ • Baraza Glossy Print│     │ • DPA Legal Audits   │
- │ • Polling Agent Pay  │     │ • Targeted Meta Ads  │     │ • Statutory Reserves │
- └──────────────────────┘     └──────────────────────┘     └──────────────────────┘
-════════════════════════════════════════════════════════════════════════════════════
-```
-
----
-
-### 3.3.1 Where the paid budget goes, by reachable population
-
-To maximize cost-per-contact efficiency, media expenditures are strictly indexed against the verified reachable voting population across Kitui's 8 sub-counties (532,758 registered voters):
-
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                               CHANNEL ALLOCATION VS. REACHABLE POPULATION                                   │
-├──────────────────────────┬───────────────────┬───────────────────┬────────────────┬─────────────────────────┤
-│ Media / Channel Medium   │ Reachable Voters  │ Channel Reach %   │ Budget         │ Budget Allocation Share │
-│                          │ (3.1 unless marked) │ of Electorate     │ Allocation     │ (% of Total Planned)    │
-├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
-│ 1. Kikamba Vernacular    │ 420,000 Voters    │ 78.8%             │ Ksh 10,800,000 │ 16.7%                   │
-│    Radio (Musyi, County) │                   │                   │                │                         │
-├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
-│ 2. Direct 2G Bulk SMS    │ 320,000 Voters    │ 60.1%             │ Ksh 2,850,000  │ 4.4%                    │
-│    & USSD Portal         │                   │                   │                │                         │
-├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
-│ 3. Market Caravans, PA   │ 280,000 Voters    │ 52.6%             │ Ksh 14,500,000 │ 22.5%                   │
-│    Trucks & Baraza Staging│                   │                   │                │                         │
-├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
-│ 4. Printed Collateral &  │ 220,000 (est.)    │ 41.3%             │ Ksh 6,200,000  │ 9.6%                    │
-│    Baraza Photobooks     │                   │                   │                │                         │
-├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
-│ 5. Digital Video & Ads   │ ~72,000 voters    │ 13.6%             │ Ksh 1,850,000  │ 2.9%                    │
-│    (Meta, TikTok, X)     │ (Youth/Diaspora)  │                   │                │                         │
-├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
-│ 6. Groundgame Mobilizers │ 450,000+ (est.)   │ 84.5%             │ Ksh 21,500,000 │ 33.3%                   │
-│    & Polling Day Agents  │ (Direct Ground)   │                   │                │                         │
-├──────────────────────────┼───────────────────┼───────────────────┼────────────────┼─────────────────────────┤
-│ 7. Tech Stack, Legal,    │ System Wide       │ N/A               │ Ksh 6,800,000  │ 10.5%                   │
-│    DPA & Contingency     │                   │                   │                │                         │
-├──────────────────────────┴───────────────────┴───────────────────┼────────────────┼─────────────────────────┤
-│ TOTAL PLANNED CAMPAIGN EXPENDITURE                              │ Ksh 64,500,000 │ 100.0%                  │
-│ STATUTORY EXPENDITURE CEILING (IEBC GAZETTE 12251)               │ Ksh 97,560,000 │ (Headroom: Ksh 33.06M)  │
-└──────────────────────────────────────────────────────────────────┴────────────────┴─────────────────────────┘
-```
-
-**Two rows are estimates, not Section 3.1 figures.** Printed collateral and groundgame reach
-are marked *(est.)* — Section 3.1 sizes six channels and neither is among them. Both need a
-sourced basis before they carry a budget line of this size.
-
-**Where this budget diverges from the 3.1.3 target.** Taking the five communications lines
-(rows 1–5, KSh 36.2m) as the communications budget:
-
-| Domain | 3.1.3 target | This budget | Gap |
-|---|---:|---:|---:|
-| Vernacular radio | 37% | **29.8%** | −7.2 pts |
-| Direct 2G SMS & USSD | 20% | **7.9%** | −12.1 pts |
-| Market caravans & collateral (rows 3 + 4) | 18% | **57.2%** | **+39.2 pts** |
-| Digital & social | 18% | **5.1%** | −12.9 pts |
-| Church & community | 7% | **0%** | −7 pts |
-
-The caravan and collateral line carries roughly **KSh 14 million more** than the reach
-argument in 3.1.3 supports, and the church network — sized at ~350,000 weekly attendees in
-3.1.2 — carries nothing at all. This is a decision for campaign leadership, not a rounding
-error: either the physical caravan programme is doing work the reach table does not capture
-and 3.1.3 should be restated, or the allocation moves. **It is flagged here rather than
-resolved, because the answer determines where a fifth of the communications budget goes.**
-
----
-
-### 3.3.2 Rate cards we still have to obtain
-
-To maintain strict accounting integrity, **unverified cost estimates are rejected**. Where published commercial rate cards do not exist in the empirical research repository, line items are formally designated as **"Required Procurement Research"**:
-
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                   RATE-CARD RESEARCH & PROCUREMENT STATUS                                   │
-├────────────────────────────┬─────────────────────────────┬──────────────────────────────────────────────────┤
-│ Procurement Item           │ Verified Rate-Card Status   │ Action & Required Procurement Research           │
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 1. Vernacular Radio Spots  │ **Verified Industry Bench** │ Standard prime-time rates (Ksh 8k–14k per 45s);  │
-│    (Musyi FM / County FM)  │ (Royal Media; independent)  │ Required: Negotiate bulk multi-month package rate│
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 2. 2G Bulk SMS Gateway     │ **Verified Carrier Rate**   │ Safaricom/Airtel aggregated via Africa's Talking │
-│    (Sender ID: DR_MAKALI)  │ (Africa's Talking API)      │ — see Section 9.2.2 for the rate card.           │
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 3. USSD Interactive Portal │ **Verified Carrier Rate**   │ Shared code, development and hosting per the     │
-│    (*483*77#)              │ (Direct Telco SDP)          │ Section 9.2.2 rate card; session fee Ksh 0.15.   │
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 4. Outdoor Billboard       │ **Awaiting Procurement Res**│ Commercial rate cards for Kitui Town, Mwingi, and│
-│    Structures (Static PVC) │                             │ Mutomo intersections *[Required Research]*.      │
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 5. Sound Truck & Mobile    │ **Awaiting Procurement Res**│ Formal lease quotations from Eastern Kenya audio │
-│    PA Rig Leases (8 Trucks)│                             │ rig vendors across 8 sub-counties *[Required]*.   │
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 6. High-Volume Color Print │ **Awaiting Procurement Res**│ Volume discount quotations for 200,000 A5        │
-│    (A5 Baraza Foldouts)    │                             │ glossy 4-page leaflets (Nairobi vs Kitui presses)│
-└────────────────────────────┴─────────────────────────────┴──────────────────────────────────────────────────┘
-```
-
----
-
-### 3.3.3 The campaign financing rules we work inside
-
-The campaign adheres to all six statutory financing mandates established under Kenyan electoral law:
-
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                             STATUTORY CAMPAIGN FINANCING COMPLIANCE PROTOCOLS                               │
-├───────────────────────────────────┬─────────────────────────────────────────────────────────────────────────┤
-│ Statutory Requirement             │ Operational Governance & Mandatory Compliance Protocol                  │
-├───────────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
-│ 1. County Spending Ceiling        │ • **Ksh 97,560,000** absolute statutory limit for Kitui County          │
-│    (IEBC Gazette Notice 12251)    │ • Planned budget (Ksh 64.50M) operates with a 33.9% safety margin.      │
-├───────────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
-│ 2. 20% Single-Source Contribution │ • **Maximum single-source contribution:** Ksh 19,512,000 (20% of limit). │
-│    Cap                            │ • System rejects any single donor contribution exceeding this threshold.│
-│                                   │ • Strict tracking of individual, corporate, and harambee donor ledgers. │
-├───────────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
-│ 3. Dedicated Campaign Bank        │ • Mandatory opening of a designated **"Dr. Makali Mulu Campaign Trust"**│
-│    Account Requirement            │   commercial bank account at a licensed tier-1 Kenyan bank.             │
-│                                   │ • All donations, mobile money, and payments must flow through this acct.│
-├───────────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
-│ 4. Authorised Person & Agent      │ • Written notification to IEBC of the Campaign Expenditure Committee    │
-│    Notification to IEBC           │   and signatory — see 6.6.1 for members and the 3-month deadline.       │
-├───────────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
-│ 5. Ksh 1,000,000 Audited Report   │ • Any expenditure line or single donor receipt equal to or exceeding    │
-│    Disclosure Threshold           │   **Ksh 1,000,000** must be documented with a certified invoice/receipt │
-│                                   │   and filed in the statutory audit register.                            │
-├───────────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
-│ 6. Statutory Expenditure Window   │ • Lawful spending window begins upon formal gazettement of candidates   │
-│    & Final Submission             │   and closes 24 hours before polling day (2027 General Election).       │
-│                                   │ • Final certified audit report submitted to IEBC within **90 days** post│
-│                                   │   election declaration.                                                 │
-└───────────────────────────────────┴─────────────────────────────────────────────────────────────────────────┘
-```
-
----
-
-### 3.3.4 Penalty exposure, and how we stay clear of it
-
-Violations of campaign financing limits and accounting rules carry severe civil, financial, and criminal liabilities under Kenyan law:
-
-1.  **Exceeding Spending Ceilings:** Disqualification of the candidate, fines up to **Ksh 2,000,000**, and imprisonment of the campaign treasurer for up to 5 years (Election Offences Act).
-2.  **Failure to File Audited Returns:** Formal bar from contesting future elective office for a period of up to five years.
-3.  **Accepting Prohibited Donations:** Forfeiture of foreign or anonymous funds exceeding statutory limits to the State, accompanied by mandatory statutory disclosures.
-
-```
-════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 3.3.4 STRATEGIC TAKEAWAY
-════════════════════════════════════════════════════════════════════════════════════
- • Statutory Cap Compliance:    Planned budget of Ksh 64.5M operates safely within the
-                                Ksh 97.56M IEBC ceiling (Gazette Notice 12251).
- • Population-Weighted Media:   78.8% of media budget goes to broadcast radio, bulk SMS,
-                                and physical field caravans reflecting true ground reach.
- • Strict Accounting Gates:     Dedicated campaign account, 20% single-source cap 
-                                (Ksh 19.51M), and certified audits for all Ksh 1M+ items.
- • Procurement Discipline:      Unverified cost items explicitly flagged for procurement
-                                research rather than speculative estimation.
-════════════════════════════════════════════════════════════════════════════════════
-```
 ---
 
 ### 3.4.3 Getting on air around a hostile gatekeeper

@@ -279,7 +279,7 @@ This section specifies the six core software components of the campaign: the **S
 
 ---
 
-### 6.3.1 Component by component, and what each costs
+### 6.3.1 Component by component, and what each does
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -291,9 +291,6 @@ This section specifies the six core software components of the campaign: the **S
 *   **Tooling Recommendation:** **Africa's Talking API Suite** (or Safaricom Direct Enterprise SDP Gateway).
 *   **Function & Purpose:** Powers the offline communications engine (Section 4.3 & 10.1). Dispatches targeted, opt-in bulk 2G SMS to registered voters across 40 wards, manages the zero-rated interactive USSD menu (`*483*XX#`), and handles inbound field report ingestion from the 400 Ward Captains.
 *   **Cost Structure:**
-    *   *Dedicated Sender ID / Shortcode Setup:* ~Ksh 30,000–50,000 (one-off CAK/Telco registration).
-    *   *Dedicated USSD Channel:* ~Ksh 25,000/month hosting fee.
-    *   *Per-Message SMS Traffic:* Ksh 0.60–0.80 per 160-character SMS (Volume Tier: ~1,500,000 outbound messages across campaign lifecycle = ~Ksh 900,000–1,200,000).
 *   **Data Held & Processed:** Voter mobile phone numbers (MSISDN), geolocation ward tags, inbound USSD survey responses, delivery receipt timestamps, and opt-out trigger logs.
 *   **DPA 2019 Exposure & Compliance:** **HIGH RISK.** Telecommunications data constitutes direct personal data (Section 4.4). Requires explicit opt-in confirmation logs, automated STOP opt-out processing within 15 seconds, and signed Data Processing Agreements (DPA) with the gateway aggregator.
 *   **Procurement Status:** **Awaiting campaign decision** *(Vendor selection between Africa's Talking vs. Safaricom SDP Enterprise)*.
@@ -304,8 +301,6 @@ This section specifies the six core software components of the campaign: the **S
 *   **Tooling Recommendation:** **Custom PostgreSQL Database with Hasura / Directus Headless Admin UI** (or CiviCRM instance).
 *   **Function & Purpose:** The centralized single-source-of-truth supporter data warehouse (Section 6.1.1). Stores supporter profiles, 40-ward geographic linkages, demographic classifications, volunteer skills, delegate tracking status, and contact history.
 *   **Cost Structure:**
-    *   *Managed Cloud Database Hosting (AWS Cape Town / GCP South Africa Region for African data residency):* ~Ksh 20,000–35,000/month ($150–$250/mo).
-    *   *Deployment & Custom Schema Configuration:* ~Ksh 150,000 (one-off technical setup).
 *   **Data Held & Processed:** Encrypted voter names, phone numbers (AES-256), constituency/ward/polling station IDs, gender, age cohort, livelihood classification, consent timestamps, and interaction logs.
 *   **DPA 2019 Exposure & Compliance:** **CRITICAL RISK.** Core repository of sensitive and personal supporter data. Requires strict Row-Level Security (RLS), multi-factor authentication (MFA) for all campaign operators, role-based access control (RBAC), daily encrypted off-site backups, and full audit logging of every query.
 *   **Procurement Status:** **Awaiting campaign decision** *(Architecture approval for custom PostgreSQL instance vs. open-source CiviCRM)*.
@@ -318,8 +313,6 @@ This section specifies the six core software components of the campaign: the **S
     *   *Publishing:* Multi-account scheduling across Facebook, X (Twitter), Instagram, TikTok, and YouTube.
     *   *Listening:* 24/7 automated monitoring of Kamba and national political keywords (e.g., "Dr. Makali Mulu", "Kitui Governor 2027", "Kitui Central CDF", "Wiper Primaries", "Kalonzo Musyoka"). Flags emerging viral rumors, competitor attacks, and trending local issues in real time.
 *   **Cost Structure:**
-    *   *Social Publishing Tier (Hootsuite/Buffer Team Plan):* ~Ksh 15,000–25,000/month ($120–$200/mo).
-    *   *Social Listening & Monitoring Tier (Brand24 Pro/Enterprise):* ~Ksh 30,000–45,000/month ($250–$350/mo).
 *   **Data Held & Processed:** Public social media posts, comments, engagement metrics, sentiment scores, influencer handles, and public reach metrics.
 *   **DPA 2019 Exposure & Compliance:** **LOW TO MODERATE RISK.** Processes only publicly accessible posts and aggregated sentiment metadata. Compliant with Section 4.4 provided individual user profiles are not scraped or merged into private voter records without consent.
 *   **Procurement Status:** **Awaiting campaign decision** *(Approval of monthly software subscription allocation)*.
@@ -330,8 +323,6 @@ This section specifies the six core software components of the campaign: the **S
 *   **Tooling Recommendation:** **Metabase Open Source** (Self-Hosted on private cloud) or **Apache Superset**.
 *   **Function & Purpose:** Delivers real-time analytical dashboards to the Campaign Manager and Dr. Mulu. Tracks the 200,000 vote threshold progress across all 40 wards, monitors SMS delivery rates, maps daily field pulse reports, visualizes polling trends, and audits budget efficiency per ward.
 *   **Cost Structure:**
-    *   *Software License:* Ksh 0 (Open Source self-hosted).
-    *   *Hosting & Infrastructure (Shared cloud VM):* ~Ksh 8,000–12,000/month ($60–$90/mo).
 *   **Data Held & Processed:** Aggregated, fully anonymized statistical data: voter counts, ward completion percentages, polling cross-tabulations, financial expenditure summaries. No raw unencrypted PII displayed.
 *   **DPA 2019 Exposure & Compliance:** **MINIMAL RISK.** Operates on aggregated, anonymized analytical views. Restricted to authorized War Room IP addresses via VPN and MFA.
 *   **Procurement Status:** **Awaiting campaign decision** *(Sign-off on technical hosting environment)*.
@@ -342,7 +333,6 @@ This section specifies the six core software components of the campaign: the **S
 *   **Tooling Recommendation:** **Next.js App Router Web Platform with Interactive GIS Ward Map (Vercel / Cloudflare Edge Hosting)**.
 *   **Function & Purpose:** The public-facing evidence engine supporting Dr. Mulu's good-governance brand. Displays verifiable records of 13 years of Kitui Central NG-CDF projects (schools, boreholes, dispensaries, bursary audits) and provides an interactive "Kitui Economic Blueprint" where citizens can track proposed ward-level investments for the 2027–2032 gubernatorial term.
 *   **Cost Structure:**
-    *   *Domain & Edge CDN Hosting (Cloudflare/Vercel Pro):* ~Ksh 3,500–5,000/month ($25–$40/mo).
     *   *Platform Development & Verification Data Population:* Integrated within core campaign web infrastructure.
 *   **Data Held & Processed:** Public infrastructure records, project GPS coordinates, photo/video documentation, project completion certificates, and public comment/feedback forms.
 *   **DPA 2019 Exposure & Compliance:** **LOW RISK.** Public government and campaign policy data. Feedback forms collect standard consented contact details governed by an explicit privacy policy.
@@ -353,26 +343,26 @@ This section specifies the six core software components of the campaign: the **S
 ### 6.3.2 The procurement matrix
 
 ```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                TECHNOLOGY STACK MASTER PROCUREMENT MATRIX                                   │
-├─────────────────────┬──────────────────────┬──────────────────────┬──────────────────┬──────────────────────┤
-│ System Component    │ Recommended Vendor   │ Estimated Budget     │ DPA Risk Level   │ Decision Status      │
-├─────────────────────┼──────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤
-│ 1. SMS/USSD Gateway │ Africa's Talking /   │ Ksh 950k–1.3M        │ **HIGH RISK**    │ **Awaiting campaign  │
-│                     │ Safaricom Enterprise │ (Lifecycle Total)    │ (Direct PII)     │ decision**           │
-├─────────────────────┼──────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤
-│ 2. Supporter CRM    │ PostgreSQL + Hasura  │ Ksh 350k–500k        │ **CRITICAL**     │ **Awaiting campaign  │
-│    Database         │ (Cape Town Region)   │ (Hosting + Config)   │ (Encrypted PII)  │ decision**           │
-├─────────────────────┼──────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤
-│ 3. Social Publishing│ Buffer / Hootsuite + │ Ksh 45k–70k / month  │ **LOW-MODERATE** │ **Awaiting campaign  │
-│    & Listening      │ Brand24 Monitoring   │ (SaaS Subscription)  │ (Public Data)    │ decision**           │
-├─────────────────────┼──────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤
-│ 4. BI Analytics     │ Metabase Open Source │ Ksh 10k–15k / month  │ **MINIMAL**      │ **Awaiting campaign  │
-│    Dashboard        │ (Self-Hosted Cloud)  │ (Server Compute)     │ (Anonymized)     │ decision**           │
-├─────────────────────┼──────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤
-│ 5. Public Service   │ Next.js Web Platform │ Ksh 5k / month       │ **LOW RISK**     │ **Awaiting campaign  │
-│    Tracker (19B)    │ + Cloudflare Edge    │ (Domain & Edge)      │ (Public Policy)  │ decision**           │
-└─────────────────────┴──────────────────────┴──────────────────────┴──────────────────┴──────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────┐
+│                                TECHNOLOGY STACK MASTER PROCUREMENT MATRIX            │
+├─────────────────────┬──────────────────────┬──────────────────┬──────────────────────┤
+│ System Component    │ Recommended Vendor   │ DPA Risk Level   │ Decision Status      │
+├─────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤
+│ 1. SMS/USSD Gateway │ Africa's Talking /   │ **HIGH RISK**    │ **Awaiting campaign  │
+│                     │ Safaricom Enterprise │ (Direct PII)     │ decision**           │
+├─────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤
+│ 2. Supporter CRM    │ PostgreSQL + Hasura  │ **CRITICAL**     │ **Awaiting campaign  │
+│    Database         │ (Cape Town Region)   │ (Encrypted PII)  │ decision**           │
+├─────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤
+│ 3. Social Publishing│ Buffer / Hootsuite + │ **LOW-MODERATE** │ **Awaiting campaign  │
+│    & Listening      │ Brand24 Monitoring   │ (Public Data)    │ decision**           │
+├─────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤
+│ 4. BI Analytics     │ Metabase Open Source │ **MINIMAL**      │ **Awaiting campaign  │
+│    Dashboard        │ (Self-Hosted Cloud)  │ (Anonymized)     │ decision**           │
+├─────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤
+│ 5. Public Service   │ Next.js Web Platform │ **LOW RISK**     │ **Awaiting campaign  │
+│    Tracker (19B)    │ + Cloudflare Edge    │ (Public Policy)  │ decision**           │
+└─────────────────────┴──────────────────────┴──────────────────┴──────────────────────┘
 ```
 
 ---
@@ -434,8 +424,6 @@ To track offline-to-digital and physical engagement, four mechanisms bridge the 
 | Net sentiment | (Positive − negative) / total | +20 to +30 | ≥ +40 |
 | **Measured preference shift** | Change in published survey share | — | **Close the deficit to ≤5 points by nomination window** |
 | Voter registration lift | Increase in target wards from campaign drives | 5–10% | ≥ 10% |
-| Cost per persuaded voter | Total spend ÷ estimated persuaded | $1–$5 | ≤ KSh200 |
-| **Cost per consented contact** | Total channel spend ÷ consented contacts | — | ≤ KSh0.60 falling to KSh0.35 |
 | Digital-to-offline conversion | % of engagers attending or volunteering | 5–15% | ≥ 10% |
 | GOTV contact rate | % of target voters reached | 60–80% | ≥ 70% |
 | **Contact share of win threshold** | Contacted voters ÷ 200,000 | — | **≥ 75% by election week** |

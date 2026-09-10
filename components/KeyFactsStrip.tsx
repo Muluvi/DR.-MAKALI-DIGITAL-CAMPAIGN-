@@ -1,6 +1,6 @@
 "use client";
 
-import { Users, MapPin, WifiOff, TrendingDown, Scale, Vote } from "lucide-react";
+import { Users, MapPin, WifiOff, TrendingDown, MessageSquare, Vote } from "lucide-react";
 
 import {
   COUNTY_POPULATION,
@@ -10,7 +10,6 @@ import {
   OFFLINE_SHARE_PCT,
 } from "../data/county-profile";
 import { DEFICIT_LATEST, LATEST_ROUND } from "../data/nomination-contest";
-import { KITUI_SPENDING_CEILING } from "../data/spending-ceiling";
 
 /**
  * The six figures the rest of the document argues from, stated once, under the hero.
@@ -58,10 +57,10 @@ const FACTS = [
     source: LATEST_ROUND.label,
   },
   {
-    icon: Scale,
-    figure: `KSh ${(KITUI_SPENDING_CEILING.value / 1_000_000).toFixed(2)}m`,
-    claim: "is the statutory ceiling on all regulated campaign spend",
-    source: "IEBC Gazette Notice 12251",
+    icon: MessageSquare,
+    figure: "120,000",
+    claim: "consented SMS contacts by Phase 3 — the asset that compounds",
+    source: "§4.3.6 KPI ladder",
   },
   {
     icon: MapPin,

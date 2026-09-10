@@ -1,14 +1,15 @@
 "use client";
 
-import { TrendingDown, Scale, Vote } from "lucide-react";
+import { TrendingDown, WifiOff, Vote } from "lucide-react";
 
 import { DEFICIT_LATEST } from "../data/nomination-contest";
-import { CEILING } from "../data/budget-tiers";
+import { OFFLINE_SHARE_PCT } from "../data/county-profile";
 /**
  * The three numbers the whole document turns on, permanently within reach.
  *
  * A reader 40,000 words into a 200-minute proposal should not have to scroll back to remember
- * what the deficit is, what the ceiling is, or how many votes win. These are the three figures
+ * what the deficit is, who the campaign cannot reach online, or how many votes win. These are
+ * the three figures
  * every other number in the document is argued against, so they get a rail of their own.
  *
  * It lives inside the bottom dock rather than floating above it. As its own fixed element it
@@ -36,12 +37,12 @@ const ENTRIES = [
     describe: `Dr. Mulu trails by ${DEFICIT_LATEST} percentage points`,
   },
   {
-    id: "decision-sec-9-2-1",
-    icon: Scale,
-    label: "Ceiling",
-    value: `KSh${(CEILING / 1_000_000).toFixed(2)}m`,
+    id: "ground-sec-4-3",
+    icon: WifiOff,
+    label: "Offline",
+    value: `${OFFLINE_SHARE_PCT}%`,
     tone: "text-ink",
-    describe: `Statutory county expenditure ceiling, KSh${(CEILING / 1_000_000).toFixed(2)} million`,
+    describe: `${OFFLINE_SHARE_PCT}% of residents are outside the internet-using population`,
   },
   {
     id: "evidence-sec-1-3-1",

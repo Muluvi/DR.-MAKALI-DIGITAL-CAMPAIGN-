@@ -5,7 +5,6 @@ import { ProvenanceLine } from "./ProvenanceLine";
 import { IEBC_WARD_REGISTER } from "../../data/sources";
 import type { Provenance } from "../../data/types";
 import WardCartogram from "../charts/WardCartogram";
-import { WardRegisterTicker } from "../charts/WardRegisterTicker";
 
 const PROVENANCE: Provenance = { source: IEBC_WARD_REGISTER, granularity: "ward" };
 
@@ -37,7 +36,6 @@ export function WardCartogramBlockContent() {
         seam needs two copies of the strip, and that copy is inert and hidden from assistive
         technology. It is the only duplication left.
       */}
-      <WardRegisterTicker />
 
       <div className="min-h-[420px]">
         <LazyMount minHeight={420}>

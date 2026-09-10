@@ -17,7 +17,6 @@ import { MizaniSlopeBlock } from "./markdown/MizaniSlopeBlock";
 import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
 import { KpiArchitecture } from "./charts/KpiArchitecture";
 import { BenchmarkLadder } from "./charts/BenchmarkLadder";
-import { CeilingMeter } from "./charts/CeilingMeter";
 import { TierComparisonCarousel } from "./charts/TierComparisonCarousel";
 import { FeaturePhoneSpecimen } from "./charts/FeaturePhoneSpecimen";
 import { OfflineWaterline } from "./charts/OfflineWaterline";
@@ -26,7 +25,6 @@ import { KpiScorecards } from "./charts/KpiScorecards";
 import { GENERAL_ELECTION_KPIS, NOMINATION_KPIS } from "../data/kpis";
 import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
 import { AsciiDiagram } from "./markdown/AsciiDiagram";
-import { ReachArchitecture3D } from "./ReachArchitecture3D";
 import { ReachSplit } from "./ReachSplit";
 import {
   FlywheelSchematic,
@@ -52,11 +50,11 @@ import { NominationPathPanel } from "./markdown/NominationPathPanel";
 import { EconomistGovernorThesis } from "./markdown/EconomistGovernorThesis";
 import { DecisionPanel } from "./DecisionPanel";
 import { CommitmentFields } from "./markdown/CommitmentFields";
+import { ServiceLevelSelector } from "./markdown/ServiceLevelSelector";
 import { PhoneShowcase } from "./phone/PhoneShowcase";
 import { TerminalShowcase } from "./terminal/TerminalShowcase";
 import { SectionPortrait } from "./markdown/SectionPortrait";
 import { commitmentFieldKey, isCommitmentFieldList, type CommitmentField } from "../lib/commitment-fields";
-import { ComplianceCeilingPanel } from "./markdown/ComplianceCeilingPanel";
 import { MediaOwnershipBlock } from "./markdown/MediaOwnershipBlock";
 import { PathTo200kBlock } from "./markdown/PathTo200kBlock";
 import { ConstituencyWeightBlock } from "./markdown/ConstituencyWeightBlock";
@@ -72,9 +70,6 @@ import { GeographicZoneMatrix } from "./markdown/GeographicZoneMatrix";
 import { PersuasionFramingMatrix } from "./markdown/PersuasionFramingMatrix";
 import { PublicServiceDeliveryTracker } from "./markdown/PublicServiceDeliveryTracker";
 import { MediaRadioLandscapeCard } from "./markdown/MediaRadioLandscapeCard";
-import { BudgetScenarioModeler } from "./markdown/BudgetScenarioModeler";
-import { CampaignOrgChart } from "./markdown/CampaignOrgChart";
-import { CrisisWarRoomMatrix } from "./markdown/CrisisWarRoomMatrix";
 import { DataSecurityEthicsCharter } from "./markdown/DataSecurityEthicsCharter";
 import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, type TabId } from "../lib/heading-slug";
@@ -261,12 +256,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // §9 splits the electorate into a connected minority and an offline majority. The showcase is
   // that argument as an object: one handset, the campaign on all seven channels, ending on the
   // USSD dialog that reaches more voters than the six apps together.
-  "evidence-sec-3-1": (
-    <>
-      <ReachArchitecture3D />
-      <PhoneShowcase />
-    </>
-  ),
+  "evidence-sec-3-1": <PhoneShowcase />,
   "strategy-sec-2-6": (
     <>
       <MessagingPlayground />
@@ -291,18 +281,11 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // a wall of text, and the one describing the technology stack, which is the part of the
   // proposal this reader is most likely to test against the artifact itself.
   "technology-sec-6-4-2": <BenchmarkLadder />,
-  "team-sec-7-2": <CampaignOrgChart />,
-  "decision-sec-9-2-5": (
-    <>
-      <CeilingMeter />
-      <BudgetScenarioModeler />
-    </>
-  ),
+  "decision-sec-9-2-5": <ServiceLevelSelector />,
   // The four-column matrix below this heading stacks into nine attribute cards on a phone, which
   // answers "what does row six say" rather than "which tier should we buy". One card per tier,
   // swipeable, with the table left in place underneath as the accessible equivalent.
   "decision-sec-9-2-6": <TierComparisonCarousel />,
-  "decision-sec-9-2-7": <ComplianceCeilingPanel />,
   "ground-sec-4-1": <TerminalShowcase />,
   "ground-sec-4-2": <FlywheelSchematic />,
   "ground-sec-4-3": (
@@ -313,7 +296,6 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
     </>
   ),
   "strategy-sec-2-8": <PersuasionFramingMatrix />,
-  "defence-sec-5-2": <CrisisWarRoomMatrix />,
   "strategy-sec-6-5": <DataSecurityEthicsCharter />,
   "publishing-sec-3-2": <MediaPlaybackMockup />,
   "publishing-sec-3-5": (

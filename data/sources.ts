@@ -11,12 +11,6 @@ export const IEBC_WARD_REGISTER: Source = {
   tier: 1,
 };
 
-export const IEBC_GAZETTE_CEILING: Source = {
-  name: "Kenya Gazette Notice No. 12251 (IEBC, Election Campaign Financing Regulations 2026)",
-  publicationDate: "2026-08-07",
-  tier: 1,
-};
-
 export const IEBC_2022_RESULTS: Source = {
   name: "IEBC 2022 General Election declared results",
   url: "https://www.iebc.or.ke",

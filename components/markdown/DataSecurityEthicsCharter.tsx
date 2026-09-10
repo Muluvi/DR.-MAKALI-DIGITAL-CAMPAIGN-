@@ -52,15 +52,6 @@ const ETHICAL_COMMITMENTS: EthicalCommitment[] = [
     isComplianceGated: false
   },
   {
-    id: "eth-5",
-    category: "Campaign Finance",
-    ruleName: "20% Single-Source Contribution Ceiling",
-    statutoryBasis: "IEBC Gazette Notice No. 12251 (7 Aug 2026)",
-    campaignStandard: "No single donor may contribute more than KSh 19.51M (20% of the KSh 97.56M county ceiling). All donations audited and logged to the compliance ledger.",
-    penaltyForBreach: "Fine up to KSh 2M, imprisonment up to 5 years, or campaign disqualification.",
-    isComplianceGated: true
-  },
-  {
     id: "eth-6",
     category: "Data Storage & Privacy",
     ruleName: "Post-Election Data Deletion Schedule",

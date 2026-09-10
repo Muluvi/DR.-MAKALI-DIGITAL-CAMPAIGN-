@@ -1,4 +1,4 @@
-// §9.2.6 "The tiers compared", transcribed exactly.
+// §9.2.6 "The service levels compared", transcribed exactly.
 //
 // Nine attributes across three tiers. Every string here is the cell as §9.2.6 prints it — the
 // table is the record and this is a second rendering of it, never a re-derivation. The prose's
@@ -38,12 +38,6 @@ export const TIER_ATTRIBUTES: TierAttribute[] = [
   { label: "Multi-touch attribution", lean: false, standard: true, premium: true },
   { label: "Focus groups", lean: false, standard: "Quarterly", premium: "Monthly" },
   { label: "Red-team drills", lean: "On trigger", standard: "Quarterly", premium: "Monthly" },
-  {
-    label: "Sign-language interpretation",
-    lean: "Flagship only",
-    standard: "Flagship only",
-    premium: "All video",
-  },
   { label: "Arid-belt reach", lean: "Weak", standard: "Strong", premium: "Strong" },
   {
     label: "Realistic Phase 3 contact universe",
@@ -63,7 +57,7 @@ export interface TierColumn {
 }
 
 export const TIER_COLUMNS: TierColumn[] = [
-  { id: "lean", number: "Tier 1", label: "Lean" },
-  { id: "standard", number: "Tier 2", label: "Standard", recommended: true },
-  { id: "premium", number: "Tier 3", label: "Premium" },
+  { id: "lean", number: "Level 1", label: "Lean" },
+  { id: "standard", number: "Level 2", label: "Standard", recommended: true },
+  { id: "premium", number: "Level 3", label: "Premium" },
 ];

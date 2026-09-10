@@ -1,6 +1,6 @@
 # REMOVAL MAP — Content Excision (Brief A, Phase 0)
 
-**Status:** Phase 0 complete. **No product code written. Nothing cut.**
+**Status:** Phases 0–C complete and applied. See §5 for what was decided and what changed.
 **Archive branch:** `archive/pre-excision` created at `4be4c43`.
 **Baseline verification:** `npm run verify` passes clean at HEAD (recorded below).
 
@@ -511,3 +511,92 @@ Draft of the rewritten module to follow in Phase C, before any build, as you ask
 ---
 
 *Phase 0 · Prepared for Firefly Management · Kitui 2027 · Nothing has been cut.*
+
+
+---
+
+## 5 · DECISIONS TAKEN, AND WHAT WAS APPLIED
+
+All recommendations in §§0–4 were approved. This section records what that meant in practice,
+including two places where executing the map corrected it.
+
+### 5.1 The decisions, as settled
+
+| Decision | Settled as |
+|---|---|
+| **1 — Budget tiers** | **Option B.** The three levels survive as *scope*. Every shilling figure and every percentage-of-ceiling is gone; team model, ward coverage, analytics depth, content cadence and research frequency remain. §9.2 is retitled **"Service levels"**, and Tier 1/2/3 become **Level 1/2/3** throughout. |
+| **2 — Fundraising** | Capability stays, compliance wrapper goes — including the contribution-cap row hidden inside `DataSecurityEthicsCharter.tsx`. |
+| **3 — §3.1.3** | **Option B.** Recast from *share of communications budget* to **share of communications effort**, and retitled **"Weight against reach"**. The channel thesis survives with its proof intact. |
+| **§0.3** | Third constraint replaced with **the selection method and the compressed window**. |
+| **MiniScorecard** | Ceiling chip → **86.4% offline**, linked to §4.3. |
+| **"Nairobi technocrat" holding line** | **Kept**, retitled. It answers an attack on the candidate, not on the delivery model. |
+| **Spending-ceiling holding row** | **Deleted** (T1-20). |
+| **Security cost placeholders** | **Kept**, reworded to *"hardware security key specification; deepfake detection vendor."* |
+| **§7.2.5** | Cell edit, not row replacement — plus a **fifth** governance row (consented-list review), as the brief suggested but as an addition rather than a substitute. |
+| **Vendor names** | Cut from §3.3.2 (which died whole); **kept** in §6.3.2, where they make the stack checkable. |
+
+### 5.2 Two corrections to this map, found while executing it
+
+1. **`TierBadge.tsx` is not a budget-tier component.** Row T2-22 listed it for deletion. It is the
+   **source-reliability badge** — *Tier 1 Official / Tier 2 Reported / Tier 3 Single-source* — used
+   by **eighteen** components, and it is the visual catalogue's own *"Build — Tier badges"* item.
+   It was never touched. This is also an argument for the Level 1/2/3 rename: the document was
+   using "Tier" for two unrelated things on the same page.
+
+2. **The §4.3.3 USSD cost paragraph carried the set-up timing.** T2-12 said delete the paragraph.
+   Deleting it whole would have taken *"5–7 working days for a shared code; 2–4 weeks for a
+   dedicated code pending operator approval"* — a delivery fact, not a price. The cost sentence
+   went; the timing was promoted to a **Set-up:** line.
+
+### 5.3 Phase C, as it actually resolved
+
+- **C.1 — what §9 is now for.** **It dissolves under Option B.** C.1's premise was that finance and
+  cost removal left §9 hollow; that was true of Option A. §9 still carries the five operational
+  commitments (§9.1), the service levels (§9.2), the operating rhythm, the dependencies, what
+  Firefly runs and the ask (§9.3). No restructure was made, and none is needed. Recommending one
+  anyway would have been a change made to satisfy a plan rather than the document.
+- **C.2 — what carries "we are careful".** As argued in §3.2, the argument needed promoting rather
+  than rebuilding. Applied surgically: the ask now routes the reader to **§6.5.4** (the charter)
+  and **§6.5.5** (the data-protection gate) by name, so the strongest surviving governance
+  material is reachable from the document's closing page. Moving §6.5 or §6.6.3 bodily between
+  files was rejected — that is a restructure, and `docs/restructure/` exists because the last one
+  needed a fifty-row migration map.
+- **C.3 — the new ask.** As §0.5 predicted, there was nothing to replace. The ask needed one
+  adjective removed (*virtual*) and dependency 8 rewritten. The passage is otherwise untouched.
+
+### 5.4 The visual catalogue, applied
+
+**Part 9 — dead with the excised content.** `CeilingMeter`, `SpendingCeilingChart`,
+`ComplianceCeilingPanel`(+`Content`), `BudgetScenarioModeler`, `data/spending-ceiling.ts` and
+`data/budget-tiers.ts` deleted. `CostCalculator` and `TwoQuantities` never existed.
+
+**Part 9 — cut on cost or return.** `ReachArchitecture3D` (3D terrain and pillar toggles),
+`WardRegisterTicker` (looping ticker), `CrisisWarRoomMatrix` (war room dashboard),
+`CampaignOrgChart` (organisation chart), and the header **read-time and word-count badge**.
+
+> **One dissent, recorded and overridden.** §3.3 of this map argued for keeping the badge: removing
+> it hides the length rather than fixing it. The catalogue cuts it explicitly, and the catalogue is
+> the authority on the visual layer, so it is gone. The underlying point stands and belongs to
+> Phase D: the document is still ~44,000 words.
+
+**Part 5 — the held item resolves to Build.** *"Service level selector — depends on whether the
+tiers survive as scope."* They do, so it is built: `components/markdown/ServiceLevelSelector.tsx`,
+mounted at §9.2.5 in place of the deleted ceiling meter and budget modeller. One segmented control
+(catalogue Part 6, *"Build — Segmented control thumb"*), one panel, and the **difference-only
+matrix** from Part 5 as its default — of eight attributes, the identical rows are hidden so the
+real difference between Standard and Premium is impossible to miss. Every string is read from
+`data/tier-matrix.ts`; nothing is derived and no figure is invented.
+
+**Already shipped, verified not rebuilt.** The phone pair, USSD simulator, slope chart, dot grid,
+growth simulator, bullet scorecards, ward choropleth, source chips, tier badges, hatched tracks,
+struck cells, the 48px single sticky bar, tabular numerals and 44px tap targets were all already
+in the repository from the previous visual brief. `visual-coverage --check` confirms 229 sections
+covered, 39 with a bespoke visualisation.
+
+### 5.5 The content-integrity baseline
+
+`scripts/verify-content-integrity.mjs` failed on the excision, exactly as §0.3 predicted (413 body
+lines lost, 132 added). Per the remedy the guard's own comment sanctions, `BASE` moves to the
+excision commit and `CONTENT_BASELINE=5470756` still diffs against the pre-excision text. The
+chain of custody is preserved, not broken — and `archive/pre-excision` plus
+`/docs/REMOVED-CONTENT.md` hold the removed prose verbatim.

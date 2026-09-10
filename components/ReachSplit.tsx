@@ -223,12 +223,13 @@ export function ReachSplit() {
           <dl className="grid grid-cols-3 gap-2 t-small">
             <div className="p-2.5 rounded-lg bg-paper border border-line">
               <dt className="text-muted">Shared code</dt>
-              <dd className="font-mono font-bold text-ink mt-0.5 tabular-nums">~KSh34,800</dd>
-              <dd className="t-label text-muted">per network</dd>
+              <dd className="font-mono font-bold text-ink mt-0.5 tabular-nums">5–7</dd>
+              <dd className="t-label text-muted">working days to live</dd>
             </div>
             <div className="p-2.5 rounded-lg bg-paper border border-line">
-              <dt className="text-muted">Development</dt>
-              <dd className="font-mono font-bold text-ink mt-0.5 tabular-nums">~KSh140,000</dd>
+              <dt className="text-muted">Dedicated code</dt>
+              <dd className="font-mono font-bold text-ink mt-0.5 tabular-nums">2–4</dd>
+              <dd className="t-label text-muted">weeks, operator pending</dd>
             </div>
             <div className="p-2.5 rounded-lg bg-paper border border-line">
               <dt className="text-muted">Hosting</dt>

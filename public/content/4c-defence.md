@@ -134,7 +134,7 @@ The campaign maintains ready-to-deploy holding positions, evidential citations, 
 │                     delivery tracker and does not carry a schedule; Firefly would build                     │
 │                     the formula with the campaign before this line is used on air.                          │
 ├─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 3. THE "REMOTE OPERATING MODEL / NAIROBI TECHNOCRAT" QUESTION                                               │
+│ 3. THE "NAIROBI TECHNOCRAT" QUESTION                                                                        │
 ├─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
 │ • Attack Line:     "He is a bookish technocrat who spends his time in Nairobi committees rather than on the│
 │                     ground with ordinary wananchi."                                                         │
@@ -186,7 +186,7 @@ All campaign communicators, surrogates, and media buyers are strictly bound by t
 
 ### 5.2.1 War room operating model, shift coverage and dashboard view
 
-The remote war room is the campaign's nerve centre for monitoring, response and
+The war room is the campaign's nerve centre for monitoring, response and
 rapid decision-making.
 
 During peak periods (January–August 2027), the war room operates on a three-shift rotation:
@@ -247,7 +247,6 @@ or when. The drill runs in real time against the Section 5.2.3 clock.
 | 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval (Section 6.5.4) |
 | 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 3.5) |
 | 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section 5.3.4) |
-| 6 | Allegation of exceeding the IEBC spending ceiling | Ledger reconciliation retrieval (Section 9.2.4) |
 | 7 | Manufactured "grassroots" campaign attacking a rival, falsely attributed to Dr. Mulu | Charter defence; provenance evidence |
 
 **Output:** every drill produces a written report — actual response times

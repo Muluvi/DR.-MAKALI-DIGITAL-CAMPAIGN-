@@ -438,7 +438,6 @@ gate that answers that question properly.**
 | **Consent standard** | Must be **express, free, specific, informed and unequivocal**. Consent for one purpose does not transfer to another | ODPC determinations under the Data Protection Act 2019 |
 | **Enforcement** | ODPC has issued penalties up to **KSh5 million**, including **KSh400,000 against a lender for unsolicited marketing SMS (December 2025)** and penalties of KSh1.85m–4.55m against three controllers | ODPC |
 | **Political messaging scrutiny** | Unsolicited political SMS was the subject of public and press scrutiny in August 2026 as the 2027 cycle began | Kenyan press reporting |
-| **Campaign finance** | Expenditure limits, contribution caps and disclosure obligations in force from 7 August 2026 | IEBC Gazette Notice No. 12251 |
 
 **The commercial reality this creates.** Vendors openly market databases of
 millions of Kenyan mobile numbers. Rival campaigns may well buy them. Doing so
@@ -537,8 +536,8 @@ denial.
 > *Published in Kikamba, Kiswahili and English.*
 
 **Operational backing.** Each clause maps to a control: the consent audit trail
-(clause 4), the compliance ledger (clause 3), the deletion schedule executed by
-the data-governance owner (clause 5), the variable dictionary exclusions
+(clause 4), the per-send audit trail (clause 3), the deletion schedule executed
+by the data-governance owner (clause 5), the variable dictionary exclusions
 (clauses 6 and 7), the fact-check protocol (clause 2), and the correction log
 (clause 9). A charter without instrumentation is decoration.
 
@@ -763,12 +762,11 @@ standing story for county correspondents (Section 3.5)
 * **Defensive:** it makes "he is not close to ordinary people" a difficult
 attack to sustain against a candidate publishing their reported problems
 
-### 8.5.6 Build and cost
+### 8.5.6 Build
 
-Built on the USSD/SMS infrastructure already costed in Section 9.2.2 — shared
-USSD code (~KSh34,800 per network), development (~KSh140,000), hosting
-(~KSh5,000/month) — plus a lightweight public register on the campaign site.
-**Marginal cost over the SMS/USSD layer is low; distinctiveness is high.**
+Built on the USSD/SMS infrastructure the campaign is already deploying (Section
+4.3), plus a lightweight public register on the campaign site. **It reuses a
+layer the campaign is building anyway; nothing comparable exists in this race.**
 
 ### 8.5.7 Tracker KPIs
 
