@@ -29,25 +29,34 @@ const CONTENT = path.join(ROOT, "public", "content");
 /**
  * The state this checks against.
  *
- * It was `d1c1559`, the commit immediately before the restructure, and the point of that was a
- * chain of custody running all the way back to the text as first written. That chain now starts
- * later, and deliberately: at `5470756` the document's author consolidated it themselves —
- * sub-sections merged into their parents, sub-heading titles turned into bold lead-ins, a
- * redirect logged in lib/heading-slug.ts for every id retired, and roughly 130 lines of prose
- * cut outright, among them the shared-ceiling caveat, the counsel question on the lawful
- * spending window, and the reconciliation between the KSh64.5m operational plan and the
- * KSh97.56m statutory ceiling.
+ * It has moved twice, both times for the same reason and never for a redesign.
+ *
+ * It was `d1c1559`, the commit immediately before the restructure. Then `5470756`, where the
+ * document's author consolidated it themselves — sub-sections merged into their parents,
+ * sub-heading titles turned into bold lead-ins, a redirect logged in lib/heading-slug.ts for
+ * every id retired, and roughly 130 lines of prose cut outright.
+ *
+ * It is now `5ff79ce`, the content excision: campaign finance, costs and remote-work framing
+ * removed on the client's instruction. That is over 400 body lines out — the statutory ceiling,
+ * the unit economics, the cost-per-contact model, the compliance instrumentation, §3.3 entire,
+ * the ECFA obligations, and both defences of a remote operation. Four passages were salvaged
+ * out of deleted sections rather than dying with them: the Phase −1 decision protocol, the
+ * consent argument, the local-staffing commitment, and the USSD set-up timing.
  *
  * This guard exists to stop a redesign quietly editing a document of record. It does not exist
  * to stop that document's author editing their own proposal, and it must not be the thing that
  * blocks their build. So the baseline moves to their commit rather than their commit being
- * logged away as though it were a reflow — the change is theirs, it is in the history at
- * 5470756, and `CONTENT_BASELINE=d1c1559` still runs the old comparison for anyone auditing
- * what it removed. What this file continues to guarantee is the part it can: that nothing since
- * has changed the body text.
+ * logged away as though it were a reflow. The chain of custody is not lost by moving it — it is
+ * enumerated: `CONTENT_BASELINE=5470756` diffs against the pre-excision text, and
+ * `CONTENT_BASELINE=d1c1559` against the text as first written. Every removal is classified in
+ * docs/REMOVAL-MAP.md, every removed passage is verbatim in docs/REMOVED-CONTENT.md, and the
+ * whole pre-excision tree is on branch `archive/pre-excision`.
+ *
+ * What this file continues to guarantee is the part it can: that nothing since has changed the
+ * body text.
  */
-const BASE = process.env.CONTENT_BASELINE ?? "5470756";
-const CURRENT_SPINE = BASE === "5470756";
+const BASE = process.env.CONTENT_BASELINE ?? "5ff79ce";
+const CURRENT_SPINE = BASE === "5ff79ce" || BASE === "5470756";
 const OLD_FILES = [
   "1-decision.md",
   "2-evidence.md",
