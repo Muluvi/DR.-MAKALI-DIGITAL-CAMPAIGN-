@@ -167,8 +167,14 @@ interface CyclerProps {
 }
 
 /**
- * Cycling word swap. The clip is a fixed 1.16em, so the line the cycler sits in never reflows as
- * words of different lengths pass through it.
+ * Cycling word swap, one pass. The clip is a fixed 1.16em, so the line the cycler sits in never
+ * reflows as words of different lengths pass through it.
+ *
+ * It used to loop for as long as it was on screen, which meant a re-render every 2.6 seconds,
+ * for the whole time a reader spent at the top of the page, on a mid-range Android, saying
+ * nothing after the first pass — the reader has seen all nine section names by then and the
+ * tenth showing of "The decision" is not information. One pass through the list, then it rests
+ * on the last item.
  */
 export function WordCycler({ words, interval = 2600, className = "" }: CyclerProps) {
   const [index, setIndex] = useState(0);
@@ -177,7 +183,10 @@ export function WordCycler({ words, interval = 2600, className = "" }: CyclerPro
 
   useEffect(() => {
     if (!inView || reduce || words.length < 2) return;
-    const id = window.setInterval(() => setIndex((i) => (i + 1) % words.length), interval);
+    const id = window.setInterval(
+      () => setIndex((i) => (i + 1 >= words.length ? (window.clearInterval(id), i) : i + 1)),
+      interval,
+    );
     return () => window.clearInterval(id);
   }, [inView, interval, words.length, reduce]);
 

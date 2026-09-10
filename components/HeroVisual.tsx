@@ -292,13 +292,12 @@ export function HeroVisual() {
               transformStyle: "preserve-3d"
             }}
           >
-            {/* Rotating 3D Tactical Orbital Ring */}
+            {/* The orbital ring, which used to rotate on a 35s loop. It is a ring around a map
+                of eight constituencies; the rotation carried no information and ran for as long
+                as the panel existed, on or off screen. */}
             <div
               className="absolute w-[min(320px,92vw)] sm:w-[560px] h-[160px] sm:h-[240px] rounded-full border border-accent/25 pointer-events-none"
-              style={{
-                transform: "translateZ(-10px) rotateX(70deg)",
-                animation: "spin 35s linear infinite"
-              }}
+              style={{ transform: "translateZ(-10px) rotateX(70deg)" }}
             >
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-accent shadow-sm shadow-accent" />
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gold shadow-sm shadow-gold" />
@@ -391,7 +390,7 @@ export function HeroVisual() {
               </svg>
 
               {/* Dynamic Radar Pulse Ring */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border border-accent/20 animate-ping opacity-20 pointer-events-none" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border border-accent/20 opacity-20 pointer-events-none" />
             </div>
 
             {/* Elevated 3D Tactical Nodes */}

@@ -545,7 +545,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
             
             {/* Wiper Democratic Movement brand banner */}
             <div style={{ "--fx-i": 0 } as React.CSSProperties} className="fx-in-left fx-glass fx-lift flex items-center gap-3 mb-4 sm:mb-6 select-none rounded-2xl p-2.5 sm:p-3.5 w-fit">
-              <span className="fx-loop-float inline-flex"><WiperUmbrellaLogo /></span>
+              <span className="inline-flex"><WiperUmbrellaLogo /></span>
               <div>
                 <div className="t-small sm:text-sm text-accent font-black">
                   Wiper Democratic Movement
@@ -557,7 +557,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
             </div>
 
             <div style={{ "--fx-i": 1 } as React.CSSProperties} className="fx-in-fade confidentiality-marker mb-4 sm:mb-6 flex items-baseline flex-wrap gap-x-1.5">
-              <span className="fx-loop-blink w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
+              <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
               <strong>Confidential</strong>
               <span className="opacity-70">— prepared for Wiper Democratic Movement campaign leadership.</span>
             </div>
@@ -589,9 +589,10 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                 <WordCycler words={navItems.map((n) => n.label)} className="text-accent font-black" />
               </p>
               <div style={{ "--fx-i": 2 } as React.CSSProperties} className="fx-in-settle col-start-2 row-start-2 md:row-start-1 md:row-span-2 self-end w-[104px] md:w-[210px] lg:w-[260px] shrink-0 -mb-1 md:-mb-2">
-                {/* Ken Burns on the cutout, at a rate slow enough that it reads as presence
-                    rather than as movement. It is the only looping transform above the fold. */}
-                <div className="fx-kenburns">
+                {/* No Ken Burns. It was the last looping transform above the fold, and it was
+                    running on the largest image on the page for as long as a reader stayed at
+                    the top of it. */}
+                <div>
                   <Portrait
                     id="hero-clasped-hands"
                     sizes="(min-width: 1024px) 260px, (min-width: 768px) 210px, 104px"
