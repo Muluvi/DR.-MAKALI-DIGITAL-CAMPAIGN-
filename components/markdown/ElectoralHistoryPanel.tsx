@@ -28,7 +28,7 @@ export function ElectoralHistoryPanel() {
         {ELECTORAL_HISTORY.map((race, i) => (
           <div key={i} className="rounded-xl border border-line/60 bg-paper p-3">
             <div className="flex items-center justify-between gap-2 mb-2">
-              <span className="t-label font-black uppercase tracking-wider text-ink">
+              <span className="t-label font-black text-ink">
                 {race.year} · {race.office}
               </span>
             </div>
@@ -37,7 +37,7 @@ export function ElectoralHistoryPanel() {
               <div className="overflow-x-auto">
                 <table className="w-full text-left t-small">
                   <thead>
-                    <tr className="t-micro uppercase tracking-wider font-bold text-muted">
+                    <tr className="t-micro font-bold text-muted">
                       <th className="py-1 pr-3">Candidate</th>
                       <th className="py-1 pr-3">Party</th>
                       <th className="py-1 pr-3">Votes</th>
@@ -50,7 +50,7 @@ export function ElectoralHistoryPanel() {
                         <td className="py-1.5 pr-3 font-bold text-ink">
                           {r.candidate}
                           {r.disputedFigureId && (
-                            <span className="ml-1.5 t-micro font-black uppercase tracking-wider text-danger">Disputed ↓</span>
+                            <span className="ml-1.5 t-micro font-black text-danger">Disputed ↓</span>
                           )}
                         </td>
                         <td className="py-1.5 pr-3 text-ink/70">{r.party ?? "—"}</td>
@@ -64,7 +64,7 @@ export function ElectoralHistoryPanel() {
                 </table>
               </div>
             ) : (
-              <p className="text-xs text-muted italic">{race.gapNote}</p>
+              <p className="t-label text-muted italic">{race.gapNote}</p>
             )}
           </div>
         ))}

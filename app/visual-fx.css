@@ -326,7 +326,7 @@
   content: ""; position: absolute; inset: -6%; pointer-events: none; z-index: 1;
   opacity: var(--fx-grain-opacity);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
-  animation: fx-grain 6s steps(4, end) infinite;
+  /* Static. See the note in ClientPage on why the ambient loops above the fold stopped. */
   mix-blend-mode: overlay;
 }
 
@@ -1224,5 +1224,18 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
     .fx-aurora span:nth-child(1) { animation-duration: 26s, auto; animation-iteration-count: infinite, 1; }
     .fx-aurora span:nth-child(2) { animation-duration: 32s, auto; animation-iteration-count: infinite, 1; }
     .fx-aurora span:nth-child(3) { animation-duration: 38s, auto; animation-iteration-count: infinite, 1; }
+  }
+}
+
+/* The direction-aware toolbar withdraws on a downward scroll — but not for a reader who asked
+   for less motion. useChromeVisible already exempts the JS-driven chrome from that behaviour
+   (it returns early under the preference), and this is the CSS half of the same rule. Without
+   it the toolbar, with the index and every reading control in it, was left at opacity 0 for a
+   reduced-motion reader who had scrolled down: chrome that hides itself and will not slide back
+   is chrome that has gone. */
+@media (prefers-reduced-motion: reduce) {
+  [data-scroll-dir="down"] .fx-dir-header:not([data-pinned="true"]) {
+    transform: none;
+    opacity: 1;
   }
 }

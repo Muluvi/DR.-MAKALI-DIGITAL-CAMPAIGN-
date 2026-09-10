@@ -42,7 +42,7 @@ export function FiscalAuditChartBlockContent() {
       <div className="overflow-x-auto">
         <table className="data-table text-left t-small">
           <thead>
-            <tr className="t-micro uppercase tracking-wider font-bold text-muted">
+            <tr className="t-micro font-bold text-muted">
               <th className="py-1 pr-3">Category</th>
               <th className="py-1">Amount</th>
             </tr>

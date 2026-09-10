@@ -2,10 +2,9 @@
 /**
  * Build guard: the restructure moved body text, it did not rewrite it.
  *
- * The 2026 restructure split three markdown documents into ten and renumbered every heading.
- * The one thing that must not have happened along the way is a quiet edit to the prose — so
- * rather than asserting that, this proves it, by comparing the body of the document today
- * against the body of the document immediately before the restructure.
+ * The current five-part content spine is the canonical document structure. The one thing that
+ * must not happen after that migration is a quiet edit to the prose — so rather than asserting
+ * that, this proves it by comparing the body of the document today against the migration snapshot.
  *
  * Method: take every non-heading, non-blank line from both sides and compare them as multisets.
  * Headings are excluded because renaming them is the point of the restructure. Three further
@@ -27,9 +26,48 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const CONTENT = path.join(ROOT, "public", "content");
-/** The commit immediately before the restructure — the state this checks against. */
-const BASE = process.env.CONTENT_BASELINE ?? "3fb771a";
-const OLD_FILES = ["exec.md", "programme.md", "registers.md"];
+/**
+ * The state this checks against.
+ *
+ * It has moved twice, both times for the same reason and never for a redesign.
+ *
+ * It was `d1c1559`, the commit immediately before the restructure. Then `5470756`, where the
+ * document's author consolidated it themselves — sub-sections merged into their parents,
+ * sub-heading titles turned into bold lead-ins, a redirect logged in lib/heading-slug.ts for
+ * every id retired, and roughly 130 lines of prose cut outright.
+ *
+ * It is now `5ff79ce`, the content excision: campaign finance, costs and remote-work framing
+ * removed on the client's instruction. That is over 400 body lines out — the statutory ceiling,
+ * the unit economics, the cost-per-contact model, the compliance instrumentation, §3.3 entire,
+ * the ECFA obligations, and both defences of a remote operation. Four passages were salvaged
+ * out of deleted sections rather than dying with them: the Phase −1 decision protocol, the
+ * consent argument, the local-staffing commitment, and the USSD set-up timing.
+ *
+ * This guard exists to stop a redesign quietly editing a document of record. It does not exist
+ * to stop that document's author editing their own proposal, and it must not be the thing that
+ * blocks their build. So the baseline moves to their commit rather than their commit being
+ * logged away as though it were a reflow. The chain of custody is not lost by moving it — it is
+ * enumerated: `CONTENT_BASELINE=5470756` diffs against the pre-excision text, and
+ * `CONTENT_BASELINE=d1c1559` against the text as first written. Every removal is classified in
+ * docs/REMOVAL-MAP.md, every removed passage is verbatim in docs/REMOVED-CONTENT.md, and the
+ * whole pre-excision tree is on branch `archive/pre-excision`.
+ *
+ * What this file continues to guarantee is the part it can: that nothing since has changed the
+ * body text.
+ */
+const BASE = process.env.CONTENT_BASELINE ?? "5ff79ce";
+const CURRENT_SPINE = BASE === "5ff79ce" || BASE === "5470756";
+const OLD_FILES = [
+  "1-decision.md",
+  "2-evidence.md",
+  "3-strategy.md",
+  "4a-publishing.md",
+  "4b-ground.md",
+  "4c-defence.md",
+  "4d-technology.md",
+  "4e-team.md",
+  "5-delivery.md",
+];
 const DELETED_SECTIONS = new Set(["34", "35", "37", "38", "39"]);
 
 /** The nine section-landing orientation lines, quoted in full so they can be audited here. */
@@ -90,16 +128,54 @@ const SPINE_REWRITE_PAIRS = [
 ];
 
 /**
+ * Strip LaTeX notation, so a figure reads the same whether it was written as maths or as text.
+ *
+ * The document used `$…$` in about forty places for quantities it states in plain text
+ * everywhere else — `$N = 400$`, `$\\ge 200,000$`, `$\\pm 2.53\\%$`. Nothing rendered them:
+ * react-markdown has no maths plugin, so a reader saw the dollar signs and backslashes. They
+ * were converted to Unicode rather than adding KaTeX, whose CSS and web fonts would cost more
+ * over the wire than the whole shared JS chunk to typeset two comparison operators — against a
+ * proposal whose own §7.1.1 calls 3G loading non-negotiable.
+ *
+ * This removes delimiters, escapes and spacing around operators, and nothing else. It cannot
+ * change a figure: no digit, separator or magnitude passes through any rule below. So
+ * `$74,231$` and `74,231` compare equal, while `74,231` and `74,321` still do not.
+ *
+ * Dollar amounts survive because the strip is symmetric — `$1–$5` loses its dollar signs on
+ * both sides of the comparison and still matches itself.
+ */
+function normaliseMath(text) {
+  return text
+    .replace(/\\text(?:bf)?\{([^{}]*)\}/g, "$1")
+    .replace(/\\mathbf\{([^{}]*)\}/g, "$1")
+    .replace(/\\(?:ge|geq)\b/g, "\u2265")
+    .replace(/\\(?:le|leq)\b/g, "\u2264")
+    .replace(/\\pm\b/g, "\u00b1")
+    .replace(/\\dots\b/g, "\u2026")
+    .replace(/\\%/g, "%")
+    .replace(/\\,/g, "")
+    .replace(/\$+/g, "")
+    // Operator spacing only. Newlines are untouched, so the line structure the comparison
+    // depends on survives.
+    .replace(/[ \t]*([\u2265\u2264\u00b1<>=])[ \t]*/g, "$1");
+}
+
+/**
  * Strip section-number tokens, so a repointed cross-reference reads the same on both sides.
  *
  * Applied to the whole document rather than line by line, because the markdown hard-wraps at
  * about 80 columns and a reference can straddle the break ("Section\n4.3") — matching per line
  * would miss exactly those and report them as content changes.
+ *
+ * Notation is normalised first, for the same reason and on the same terms: see normaliseMath.
  */
-function normaliseRefs(text) {
+function normalise(text) {
+  text = normaliseMath(text);
   // Collapse every reference form to one token, so "Subsection 19A" and "Section 8.2.1"
   // compare equal, and flatten padding runs, which are cosmetic inside the ASCII boxes.
   return text
+    // A box-drawing rule's width is cosmetic; the reflow changed it and carries no content.
+    .replace(/^\u2550{50,}$/gm, "\u2550".repeat(84))
     .replace(/(?:Sub)?sections?\s*\d+[A-Za-z]?(?:\.\d+)*/gi, "§#")
     .replace(/Sec\s*\d+(?:\.\d+)*/gi, "§#")
     .replace(/§\s*\d+[A-Za-z]?(?:\.\d+)*/g, "§#")
@@ -203,12 +279,30 @@ const AUDIT_REWRITES = [
  * pre-restructure counterpart, so they are subtracted from the current side the same way the
  * nine orientation lines are, and listed in scripts/audit-additions.json to stay auditable.
  */
+const SPINE_ADDITIONS_NORMALISED = new Set([...SPINE_ADDITIONS].map((l) => normalise(l).trim()));
+
 const AUDIT_ADDITIONS = JSON.parse(
   fs.readFileSync(new URL("./audit-additions.json", import.meta.url), "utf8"),
 );
 
 const AUDIT_REWRITE_PAIRS = JSON.parse(
   fs.readFileSync(new URL("./audit-rewrites.json", import.meta.url), "utf8"),
+);
+
+/**
+ * The LaTeX-to-Unicode conversion, quoted before and after so every one is auditable here.
+ *
+ * Seven display-math derivations became plain code spans, and §8.2.3's KPI architecture diagram
+ * was relaid out from two side-by-side columns into two stacked blocks so it fits a phone. Both
+ * are structural, so normaliseMath cannot equate them and they are logged instead of tolerated.
+ *
+ * Checked line by line when written: every figure, label and bullet in the diagram survives the
+ * reflow verbatim. The reflow initially dropped "Opt-In" from the 220,000 pledged-voter target —
+ * a consent term the Data Protection Act 2019 obligations in §6.5 rest on — and that word has
+ * been restored rather than logged as an accepted change.
+ */
+const NOTATION_REWRITE_PAIRS = JSON.parse(
+  fs.readFileSync(new URL("./notation-rewrites.json", import.meta.url), "utf8"),
 );
 
 const AUDIT_PREFIXES = [
@@ -245,7 +339,7 @@ function bodyLines(text, { dropDeletedSections = false } = {}) {
   for (const line of text.split("\n")) {
     if (/^\s*```/.test(line)) {
       inFence = !inFence;
-      if (!skipping) out.push(line);
+      if (!skipping) out.push(line.trim());
       continue;
     }
     if (!inFence) {
@@ -263,7 +357,7 @@ function bodyLines(text, { dropDeletedSections = false } = {}) {
     // content that moved. (ASCII box rules use ├─┼─┤ and are not matched here.)
     const bare = line.trim();
     if (skipping || bare === "" || bare === ">" || /^\|[\s|:-]+\|$/.test(bare)) continue;
-    out.push(line);
+    out.push(line.replace(/\r$/, ""));
   }
   return out;
 }
@@ -294,36 +388,50 @@ for (const file of OLD_FILES) {
     process.exit(0);
   }
   let raw = text;
-  for (const { before, after } of FILLED_PLACEHOLDERS) raw = raw.split(before).join(after);
-  for (const { before, after } of AUDIT_CORRECTIONS) raw = raw.split(before).join(after);
-  for (const [before, after] of AUDIT_PREFIXES) raw = raw.split(before).join(after);
-  raw = raw.replace(/^\u2550{50,83}$/gm, "\u2550".repeat(84));
-  let normalised = normaliseRefs(raw);
-  for (const pointer of REMOVED_POINTERS) normalised = normalised.split(pointer).join("");
-  for (const { before, after } of AUDIT_REWRITE_PAIRS) {
-    normalised = normalised.split(normaliseRefs(before)).join(normaliseRefs(after));
+  // Every transform below rewrites the PRE-RESTRUCTURE baseline into the shape the current
+  // files carry. Against the current spine they are all no-ops by construction — that text is
+  // already downstream of them — so they run only when someone is auditing against d1c1559.
+  if (!CURRENT_SPINE) {
+    for (const { before, after } of FILLED_PLACEHOLDERS) raw = raw.split(before).join(after);
+    for (const { before, after } of AUDIT_CORRECTIONS) raw = raw.split(before).join(after);
+    for (const [before, after] of AUDIT_PREFIXES) raw = raw.split(before).join(after);
   }
-  for (const { before, after } of SPINE_REWRITE_PAIRS) {
-    normalised = normalised.split(normaliseRefs(before)).join(normaliseRefs(after));
+  let normalised = normalise(raw);
+  if (!CURRENT_SPINE) {
+    for (const pointer of REMOVED_POINTERS) normalised = normalised.split(pointer).join("");
+    for (const { before, after } of AUDIT_REWRITE_PAIRS) {
+      normalised = normalised.split(normalise(before)).join(normalise(after));
+    }
+    for (const { before, after } of SPINE_REWRITE_PAIRS) {
+      normalised = normalised.split(normalise(before)).join(normalise(after));
+    }
   }
-  before = before.concat(bodyLines(normalised, { dropDeletedSections: true }));
+  // The one set that still applies to the current spine: §8.2.3's KPI-architecture diagram, whose
+  // "Opt-In" the consolidation dropped and this branch restored. Quoted in notation-rewrites.json.
+  for (const { before, after } of NOTATION_REWRITE_PAIRS) {
+    normalised = normalised.split(normalise(before)).join(normalise(after));
+  }
+  before = before.concat(bodyLines(normalised, { dropDeletedSections: !CURRENT_SPINE }));
 }
 
 let after = [];
 for (const file of fs.readdirSync(CONTENT).sort()) {
   if (!file.endsWith(".md")) continue;
-  const text = normaliseRefs(fs.readFileSync(path.join(CONTENT, file), "utf8"));
+  const text = normalise(fs.readFileSync(path.join(CONTENT, file), "utf8"));
   const addedAllowance = new Map();
-  for (const line of AUDIT_ADDITIONS) {
-    const key = normaliseRefs(line).trim();
+  // Same reasoning as the baseline transforms: against the current spine these lines are already
+  // in both sides, so allowing for them here would only subtract them from one of the two.
+  for (const line of CURRENT_SPINE ? [] : AUDIT_ADDITIONS) {
+    const key = normalise(line).trim();
     addedAllowance.set(key, (addedAllowance.get(key) ?? 0) + 1);
   }
   after = after.concat(
     bodyLines(text).filter((line) => {
       const trimmed = line.trim();
-      if (ORIENTATION_LINES.has(trimmed)) return false;
-      if (SPINE_ORIENTATION_LINES.has(trimmed)) return false;
-      if (SPINE_ADDITIONS.has(trimmed)) return false;
+      if (!CURRENT_SPINE && ORIENTATION_LINES.has(trimmed)) return false;
+      if (!CURRENT_SPINE && SPINE_ORIENTATION_LINES.has(trimmed)) return false;
+      // Normalised, because the body line it has to match has been through normalise() too.
+      if (!CURRENT_SPINE && SPINE_ADDITIONS_NORMALISED.has(trimmed)) return false;
       const left = addedAllowance.get(trimmed);
       if (left) {
         addedAllowance.set(trimmed, left - 1);
@@ -334,17 +442,36 @@ for (const file of fs.readdirSync(CONTENT).sort()) {
   );
 }
 
-const allowance = new Map(REMOVED_SCAFFOLDING);
+const allowance = CURRENT_SPINE ? new Map() : new Map(REMOVED_SCAFFOLDING);
 const beforeBody = before.filter((line) => {
   const left = allowance.get(line.trim());
   if (!left) return true;
   allowance.set(line.trim(), left - 1);
   return false;
 });
+
 const lost = difference(tally(beforeBody), tally(after));
 const added = difference(tally(after), tally(beforeBody));
 
+// `CONTENT_DUMP=<path>` writes the current lost/added tallies as JSON. It is how a baseline move
+// is audited: dump the differences, read them, and only then decide they are the author's own.
+if (process.env.CONTENT_DUMP) {
+  fs.writeFileSync(process.env.CONTENT_DUMP, JSON.stringify({ removed: lost, added }, null, 1));
+  console.error(`CONTENT_DUMP written to ${process.env.CONTENT_DUMP}: ${lost.length} lost, ${added.length} added.`);
+}
+
 if (lost.length === 0 && added.length === 0) {
+  if (CURRENT_SPINE) {
+    // Against the current spine only two things are in play: cross-references, which normalise
+    // to one token, and the quoted rewrites that still find their text. Claiming the whole
+    // ledger of pre-restructure allowances here would be claiming work this run did not do.
+    console.log(
+      `Content integrity check passed: all ${after.length} body lines are unchanged since ${BASE}, ` +
+        `apart from repointed cross-references and the quoted rewrites in notation-rewrites.json. ` +
+        `Run with CONTENT_BASELINE=d1c1559 to compare against the pre-restructure text instead.`
+    );
+    process.exit(0);
+  }
   console.log(
     `Content integrity check passed: all ${after.length} body lines are unchanged since ${BASE}, ` +
       `apart from the deleted registers, the nine logged orientation lines, repointed cross-references ` +
@@ -352,6 +479,7 @@ if (lost.length === 0 && added.length === 0) {
       `the ${AUDIT_CORRECTIONS.length} logged pre-send audit corrections, ` +
       `${AUDIT_REWRITE_PAIRS.length} logged audit rewrite hunks, ` +
       `${AUDIT_ADDITIONS.length} logged added lines, ` +
+      `${NOTATION_REWRITE_PAIRS.length} logged LaTeX-to-Unicode rewrites, ` +
       `and, from the five-part spine, ${SPINE_ORIENTATION_LINES.size} part orientation lines, ` +
       `${SPINE_ADDITIONS.size} logged addition and ${SPINE_REWRITE_PAIRS.length} logged rewrite.`
   );

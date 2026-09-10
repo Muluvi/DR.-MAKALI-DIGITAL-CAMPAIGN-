@@ -13,6 +13,7 @@ import {
 } from "../../lib/phone-showcase";
 import { DURATION, EASE_ENTRANCE } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
+import { useMotionPreset } from "../../hooks/useMotionPreset";
 import { BODY_H, BODY_W } from "./device";
 import { ChannelMark } from "./marks";
 import { PhoneFrame } from "./PhoneFrame";
@@ -50,6 +51,7 @@ const SWIPE_THRESHOLD = 56;
 
 export function PhoneShowcase() {
   const reduce = useReducedMotionSafe();
+  const { enter } = useMotionPreset();
   const [channel, setChannel] = useState<ChannelId>(DEFAULT_CHANNEL);
   const tabRefs = useRef<Partial<Record<ChannelId, HTMLButtonElement | null>>>({});
 
@@ -130,7 +132,7 @@ export function PhoneShowcase() {
               tabIndex={selected ? 0 : -1}
               onClick={() => setChannel(id)}
               className={`shrink-0 inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
-                selected ? "border-accent bg-accent text-white" : "border-line bg-card text-muted hover:text-ink"
+ selected ? "border-accent-solid bg-accent-solid text-on-accent" : "border-line bg-card text-muted hover:text-ink"
               }`}
             >
               <ChannelMark id={id} />
@@ -169,11 +171,11 @@ export function PhoneShowcase() {
                   role="tabpanel"
                   aria-labelledby={`phone-tab-${channel}`}
                   className="absolute inset-0"
-                  initial={reduce ? false : { opacity: 0, scale: 0.94 }}
+                  initial={enter({ opacity: 0, scale: 0.94 })}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.97 }}
                   transition={{
-                    duration: reduce ? DURATION.micro : DURATION.entrance,
+                    duration: reduce ? DURATION.instant : DURATION.base,
                     ease: EASE_ENTRANCE,
                   }}
                 >

@@ -1,6 +1,5 @@
 "use client";
 
-import { NominationScorecard } from "./NominationScorecard";
 import { CountUpText, Reveal, SpotlightCard, TiltCard } from "./visual";
 import { TrendingUp, Coins, WifiOff, Vote } from "lucide-react";
 
@@ -25,7 +24,7 @@ export function Dashboard() {
     { 
       num: "22.1%", 
       label: "Mulu — Aug 2026 poll", 
-      sub: "Kasalu: 37.4% · deficit: 15.3 pts", 
+      sub: "Kasalu 37.4%, a deficit of 15.3 points", 
       warn: true,
       icon: <TrendingUp size={16} className="text-danger" />
     },
@@ -58,7 +57,7 @@ export function Dashboard() {
         <Reveal variant="left" className="flex items-center justify-between gap-4 mb-4">
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-6 rounded-full bg-gradient-to-b from-accent to-gold" />
-            <h3 className="font-serif text-lg sm:text-xl font-semibold fx-text-gradient">Core Campaign Baseline Metrics</h3>
+            <h2 className="font-serif text-lg sm:text-xl font-semibold text-ink">Where the campaign stands today</h2>
             <span aria-hidden="true" className="fx-divider-soft flex-1 min-w-4 ml-2" />
           </div>
         </Reveal>
@@ -71,7 +70,7 @@ export function Dashboard() {
                 <SpotlightCard
                   border
                   className={`group relative h-full overflow-hidden fx-mesh border rounded-xl p-4 sm:p-5 shadow-sm transition-all hover:border-accent/40 ${
-                    m.warn ? "border-danger/30" : m.good ? "border-accent/40" : "border-line"
+ m.warn ? "border-danger/30" : m.good ? "border-accent/40" : "border-line"
                   }`}
                 >
                   <div className="absolute -bottom-10 -right-10 w-24 h-24 rounded-full blur-2xl bg-accent/10 pointer-events-none" />
@@ -88,7 +87,7 @@ export function Dashboard() {
                   </div>
 
                   <div className="text-sm font-semibold text-muted mt-2 leading-tight">{m.label}</div>
-                  <div className="text-xs text-muted/70 mt-1.5">{m.sub}</div>
+                  <div className="t-label text-muted/70 mt-1.5">{m.sub}</div>
                 </SpotlightCard>
               </TiltCard>
             </Reveal>
@@ -103,7 +102,7 @@ export function Dashboard() {
                 key={i}
                 style={{ "--fx-i": i } as React.CSSProperties}
                 className={`fx-in-right relative overflow-hidden fx-mesh border rounded-xl p-3.5 shadow-sm w-[230px] shrink-0 snap-center ${
-                  m.warn ? 'border-danger/30' : m.good ? 'border-accent/30' : 'border-line'
+ m.warn ? 'border-danger/30' : m.good ? 'border-accent/30' : 'border-line'
                 }`}
               >
                 <div className="absolute -bottom-10 -right-10 w-24 h-24 rounded-full blur-2xl bg-accent/10 pointer-events-none" />
@@ -117,7 +116,7 @@ export function Dashboard() {
                   </div>
                 </div>
                 
-                <div className="text-xs font-semibold text-muted mt-2 leading-tight truncate">{m.label}</div>
+                <div className="t-label font-semibold text-muted mt-2 leading-tight truncate">{m.label}</div>
                 <div className="t-small text-muted/70 mt-1 truncate">{m.sub}</div>
               </div>
             ))}
@@ -125,10 +124,6 @@ export function Dashboard() {
         </div>
       </div>
 
-      {/* §8.1.1 nomination KPIs — targets against baselines, not progress. */}
-      <Reveal variant="up" amount={0.1} className="fx-glass rounded-2xl p-4 sm:p-6">
-        <NominationScorecard />
-      </Reveal>
     </div>
   );
 }

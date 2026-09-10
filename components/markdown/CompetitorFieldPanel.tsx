@@ -23,7 +23,7 @@ export function CompetitorFieldPanel() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
         {CONTENDERS.map((c, i) => (
           <div key={i} className="rounded-xl border border-line/60 bg-paper p-3">
-            <div className="t-micro uppercase tracking-wider font-bold text-muted mb-0.5">{c.stage}</div>
+            <div className="t-micro font-bold text-muted mb-0.5">{c.stage}</div>
             <div className="font-serif text-sm font-black text-ink">{c.name}</div>
             <div className="t-small text-ink/70 font-semibold mt-0.5">{c.position}</div>
             <p className="t-label text-muted italic mt-1.5 leading-relaxed">{c.note}</p>
@@ -32,10 +32,10 @@ export function CompetitorFieldPanel() {
       </div>
 
       <div className="rounded-xl border border-line/60 bg-paper p-3">
-        <div className="t-micro uppercase tracking-wider font-black text-ink mb-1.5">
+        <div className="t-micro font-black text-ink mb-1.5">
           Open question: Governor Malombe&apos;s 2027 term-limit eligibility
         </div>
-        <p className="text-xs text-ink/85 leading-relaxed">{MALOMBE_TERM_LIMIT_QUESTION}</p>
+        <p className="t-label text-ink/85 leading-relaxed">{MALOMBE_TERM_LIMIT_QUESTION}</p>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-The twelve-month plan phase by phase, what is measured and how performance is governed, the message lab that tests it, and why the operation runs remotely.
+The twelve-month plan phase by phase, what is measured and how performance is governed, and the message lab that tests it.
 
 ## 8.3 The phased plan
 
@@ -33,7 +33,6 @@ proposal claims to embody, applied to its own first assumption.
 **Weeks 1–2 — foundations:**
 - Secure and harden all accounts: **hardware-key 2FA for the candidate and all
   admins on day one** (Section 5.3.2)
-- Establish the compliance ledger (Section 9.2.4)
 - Verify the Kitui expenditure ceiling from the gazette schedule
 - Commission the Section 6.5.5 compliance review — **start the clock early, it
   is the long-lead item**
@@ -56,7 +55,7 @@ proposal claims to embody, applied to its own first assumption.
   its own right during a nomination contest
 
 **Weeks 6–8 — consolidation:**
-- Full-scale red-team drill before the nomination decision (Section 5.2.7)
+- Full-scale red-team drill before the nomination decision (Section 5.2.4)
 - Coalition roundtables with professional associations
 - Ward champion recruitment begins in the 15 highest-priority wards
 
@@ -93,7 +92,7 @@ allows; sequential if the decision slips.*
   set-up)
 - Weeks 5–6: brand guidelines, content library, 90-day content calendar;
   **WCAG audit before public launch**
-- Weeks 7–8: recruit and train **40 ward digital champions** remotely,
+- Weeks 7–8: recruit and train **40 ward digital champions**,
   including mandatory data-handling training; establish WhatsApp reporting
   structures. Recruitment priority: Mwingi Central, Mutomo, Kitui Central
 - Service-delivery tracker built and tested (Section 8.5)
@@ -174,7 +173,6 @@ allows; sequential if the decision slips.*
 | Positive sentiment | ≥ 50% |
 | Viral content pieces (>100,000 views) | ≥ 10 |
 | Red-team response times meeting target | ≥ 90% |
-| Cost per persuaded voter | ≤ KSh200 |
 
 ---
 
@@ -217,7 +215,6 @@ allows; sequential if the decision slips.*
 
 - Data deletion executed within **90 days** of the declaration of results, per
   the charter, with public confirmation
-- Final IEBC expenditure return filed with the campaign finance agent
 - Service-delivery tracker continues, per the Section 8.5.4 commitment
 - Full campaign post-mortem with performance against every KPI in this document
 
@@ -247,51 +244,51 @@ Political strategy without empirical measurement risks misallocating scarce camp
 
 ### 8.2.1 The research programme and the nomination tracking poll
 
-Before allocating major capital to paid broadcast media and market caravans in Northern and Southern Kitui, the campaign mandates a structured research sequence to empirically validate the **"Recognition-Deficit Hypothesis"** (the proposition that Dr. Makali Mulu's primary electoral vulnerability outside Kitui Central is name recognition rather than unfavorable perception).
+Before committing the campaign's broadcast and caravan effort to Northern and Southern Kitui, the campaign mandates a structured research sequence to empirically validate the **"Recognition-Deficit Hypothesis"** (the proposition that Dr. Makali Mulu's primary electoral vulnerability outside Kitui Central is name recognition rather than unfavorable perception).
 
 ```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                RECOGNITION-DEFICIT RESEARCH ARCHITECTURE                                    │
-├───────────────┬──────────────────────────┬──────────────────────────┬───────────┬─────────────┬─────────────┤
-│ Research      │ Method & Instrument      │ Sample Size & Geographic │ Timing &  │ Estimated   │ Strategic   │
-│ Module        │                          │ Stratification           │ Window    │ Cost Band   │ Decision    │
-│               │                          │                          │           │ (Ksh)       │ Unlocked    │
-├───────────────┼──────────────────────────┼──────────────────────────┼───────────┼─────────────┼─────────────┤
-│ 1. Baseline   │ • Computer-Assisted      │ • N = 1,600 Registered   │ • Month 1 │ Ksh 1.2M –  │ • If Name ID│
-│    Countywide │   Telephone Interviews   │   Voters across all 8    │   (Early  │ Ksh 1.6M    │   <45% in   │
-│    Quantitative│  (CATI) + Face-to-Face   │   Sub-Counties.          │   Cycle)  │             │   North:    │
-│    Poll       │   (F2F) CAPI Boosters.   │ • Stratified by Ward &   │           │             │   Trigger 8-│
-│               │ • Spontaneous & Aided    │   Gender (52% F, 48% M). │           │             │   truck PA  │
-│               │   Candidate Name ID.     │ • Sub-County boost in    │           │             │   blitz;    │
-│               │ • Favorability & Primary │   Mwingi North & South.  │           │             │   If >65%:  │
-│               │   Issue Salience Index.  │                          │           │             │   Shift to  │
-│               │                          │                          │           │             │   Policy Ads│
-├───────────────┼──────────────────────────┼──────────────────────────┼───────────┼─────────────┼─────────────┤
-│ 2. Deep-Dive  │ • 12 In-Person Focus     │ • 12 Groups (8–10 pax)   │ • Month 2 │ Ksh 850k –  │ • Decides   │
-│    Qualitative│   Group Discussions (FGD)│   stratified by cohort:  │   (Post-  │ Ksh 1.1M    │   vernacular│
-│    Focus      │ • Audio-recorded in      │   - 4x Rural Women Chamas│   Quant)  │             │   dialect   │
-│    Groups     │   vernacular Kikamba.    │   - 4x Youth Boda/MSMEs  │           │             │   framing & │
-│               │ • Concept testing of     │   - 4x Village Elders &  │           │             │   identifies│
-│               │   Ksh 100M Ward Fund &   │      Smallholder Farmers │           │             │   fatal     │
-│               │   Ndengu floor price.    │ • Geographies: Tseikuru, │           │             │   cultural  │
-│               │                          │   Nguni, Mutomo, Ikutha. │           │             │   sensitivities│
-├───────────────┼──────────────────────────┼──────────────────────────┼───────────┼─────────────┼─────────────┤
-│ 3. SMS Pulse  │ • 2-Way Interactive SMS  │ • N = 5,000 Opt-In 2G    │ • Fort-   │ Ksh 250k –  │ • Rapid     │
-│    Ward-Level │   micro-surveys (3-qtn   │   Feature Phone Users    │   nightly │ Ksh 400k /  │   pivots for│
-│    Barometer  │   structured loop).      │   across 40 Wards.       │   Ongoing │ month       │   weekly    │
-│               │ • Direct feedback on     │ • Aggregated via         │           │             │   radio &   │
-│               │   market-day rumors.     │   Africa's Talking API.  │           │             │   SMS copy. │
-└───────────────┴──────────────────────────┴──────────────────────────┴───────────┴─────────────┴─────────────┘
+┌───────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                RECOGNITION-DEFICIT RESEARCH ARCHITECTURE                      │
+├───────────────┬──────────────────────────┬──────────────────────────┬───────────┬─────────────┤
+│ Research      │ Method & Instrument      │ Sample Size & Geographic │ Timing &  │ Strategic   │
+│ Module        │                          │ Stratification           │ Window    │ Decision    │
+│               │                          │                          │           │ Unlocked    │
+├───────────────┼──────────────────────────┼──────────────────────────┼───────────┼─────────────┤
+│ 1. Baseline   │ • Computer-Assisted      │ • N = 1,600 Registered   │ • Month 1 │ • If Name ID│
+│    Countywide │   Telephone Interviews   │   Voters across all 8    │   (Early  │   <45% in   │
+│    Quantitative│  (CATI) + Face-to-Face   │   Sub-Counties.          │   Cycle)  │   North:    │
+│    Poll       │   (F2F) CAPI Boosters.   │ • Stratified by Ward &   │           │   Trigger 8-│
+│               │ • Spontaneous & Aided    │   Gender (52% F, 48% M). │           │   truck PA  │
+│               │   Candidate Name ID.     │ • Sub-County boost in    │           │   blitz;    │
+│               │ • Favorability & Primary │   Mwingi North & South.  │           │   If >65%:  │
+│               │   Issue Salience Index.  │                          │           │   Shift to  │
+│               │                          │                          │           │   Policy Ads│
+├───────────────┼──────────────────────────┼──────────────────────────┼───────────┼─────────────┤
+│ 2. Deep-Dive  │ • 12 In-Person Focus     │ • 12 Groups (8–10 pax)   │ • Month 2 │ • Decides   │
+│    Qualitative│   Group Discussions (FGD)│   stratified by cohort:  │   (Post-  │   vernacular│
+│    Focus      │ • Audio-recorded in      │   - 4x Rural Women Chamas│   Quant)  │   dialect   │
+│    Groups     │   vernacular Kikamba.    │   - 4x Youth Boda/MSMEs  │           │   framing & │
+│               │ • Concept testing of     │   - 4x Village Elders &  │           │   identifies│
+│               │   Ksh 100M Ward Fund &   │      Smallholder Farmers │           │   fatal     │
+│               │   Ndengu floor price.    │ • Geographies: Tseikuru, │           │   cultural  │
+│               │                          │   Nguni, Mutomo, Ikutha. │           │   sensitivities│
+├───────────────┼──────────────────────────┼──────────────────────────┼───────────┼─────────────┤
+│ 3. SMS Pulse  │ • 2-Way Interactive SMS  │ • N = 5,000 Opt-In 2G    │ • Fort-   │ • Rapid     │
+│    Ward-Level │   micro-surveys (3-qtn   │   Feature Phone Users    │   nightly │   pivots for│
+│    Barometer  │   structured loop).      │   across 40 Wards.       │   Ongoing │   weekly    │
+│               │ • Direct feedback on     │ • Aggregated via         │           │   radio &   │
+│               │   market-day rumors.     │   Africa's Talking API.  │           │   SMS copy. │
+└───────────────┴──────────────────────────┴──────────────────────────┴───────────┴─────────────┘
 ```
 
 #### Nomination Window Tracking Poll Design (The 6-Week Squeeze)
 During the critical **6-Week Wiper Nomination Window**, the research apparatus transitions into high-frequency tracking mode:
-*   **Sample Design:** Rolling 7-day tracking poll of $N = 400$ likely party delegates / primary voters per wave ($N = 2,400$ aggregate over 6 weeks).
+*   **Sample Design:** Rolling 7-day tracking poll of N = 400 likely party delegates / primary voters per wave (N = 2,400 aggregate over 6 weeks).
 *   **Core Question Battery:**
     1.  *Ballot Test:* "If the Wiper gubernatorial nomination were held today, which candidate would you vote for?"
     2.  *Electability Metric:* "Regardless of who you support, which candidate is best positioned to defeat rival party candidates in the August general election?"
     3.  *Integrity Index:* "Which candidate do you trust most to protect public county funds without corruption?"
-*   **Escalation Trigger:** Any candidate drop $>3.5\%$ in a tracking wave triggers an immediate War Room emergency convening and 48-hour sub-county advertising reallocation.
+*   **Escalation Trigger:** Any candidate drop >3.5% in a tracking wave triggers an immediate War Room emergency convening and 48-hour sub-county advertising reallocation.
 
 ---
 
@@ -388,7 +385,7 @@ To ensure accountability across all divisions, the KPI framework is embedded in 
 
 *Digital engagement metrics measure the 13.6% who are online.*
 
-### 8.4.1 The problem with metrics-only optimisation
+### 8.4.1 Rationale, structure and zone coverage
 
 A campaign that optimises purely on engagement data optimises for the connected
 minority, in the wards with the best signal, among the people most inclined to
@@ -396,8 +393,6 @@ respond. In Kitui that is a systematically biased sample — and it is biased
 *towards* the zone where Dr. Mulu is already strong. Optimising on it would
 confirm the campaign is winning while the recognition deficit outside the
 Anchor zone stays exactly where it is.
-
-### 8.4.2 How the lab is designed
 
 | Element | Specification |
 |---|---|
@@ -408,32 +403,17 @@ Anchor zone stays exactly where it is.
 | **Facilitation** | `[Insert — independent Kenyan qualitative research facilitator; Firefly to recommend, campaign to appoint]` |
 | **Ethics** | Participation voluntary; withdrawal at any time; no contact data retained for campaigning without separate explicit opt-in |
 
-### 8.4.3 What gets tested
+### 8.4.2 Qualitative hypotheses, feedback loops and KPIs
 
-* **Message framings** from Section 2.8 — does loss-aversion framing on water
-land, or does it read as pessimism about Kitui?
-* **The Economist Governor narrative** — does "economist" read as competent or
-as distant? This is the single highest-value question in the research
-programme, and it is not answerable from engagement data.
+To ensure offline reality shapes digital execution, the message lab systematically evaluates:
+* **Message framings** from Section 2.8 — does loss-aversion framing on water land, or does it read as pessimism about Kitui?
+* **The Economist Governor narrative** — does "economist" read as competent or as distant? This is the single highest-value question in the research programme, and it is not answerable from engagement data.
 * **Kikamba language and proverb use** — authentic or performative?
-* **Rival perception** — what specifically drives preference for the current
-front-runner? The answer determines whether the deficit is closeable by
-communication at all
-* **Channel reality** — where do people in Mutha actually get political
-information?
-* **The tracker concept** (Section 8.5) — would people use it, and do they
-believe it would change anything?
+* **Rival perception** — what specifically drives preference for the current front-runner? The answer determines whether the deficit is closeable by communication at all.
+* **Channel reality** — where do people in Mutha actually get political information?
+* **The tracker concept** (Section 8.5) — would people use it, and do they believe it would change anything?
 
-### 8.4.4 The feedback loop
-
-Findings are written up within **10 days** and feed directly into the next
-content cycle, the SMS message architecture and the paid-media creative brief.
-Where qualitative findings contradict engagement data, **the qualitative finding
-is treated as the signal about the offline majority and the quantitative data
-as the signal about the online minority** — neither overrides the other, and
-the disagreement itself is information.
-
-### 8.4.5 Message lab KPIs
+Findings are written up within **10 days** and feed directly into the next content cycle, the SMS message architecture and the paid-media creative brief. Where qualitative findings contradict engagement data, **the qualitative finding is treated as the signal about the offline majority and the quantitative data as the signal about the online minority** — neither overrides the other, and the disagreement itself is information.
 
 | Metric | Target |
 |---|---|
@@ -444,29 +424,26 @@ the disagreement itself is information.
 
 ---
 
-## 0.4 Why the operation is run remotely
+## 8.6 The decision in front of the campaign
 
-Operating a decentralized digital command center is not an operational compromise; it is a high-yield strategic asset. Modern digital warfare is won through speed, analytical precision, and creative discipline rather than physical co-location. While ground teams execute face-to-face voter mobilization and barazas, Firefly maintains a highly secure, centralized digital command node. This operating model offers three decisive advantages:
-
-1. **Strategic Resource Arbitrage & Cost Efficiency:** By eliminating the substantial administrative overhead, transport logistics, physical security costs, and local office footprints associated with a centralized physical headquarters, the campaign can redirect maximum budget directly into high-impact digital and SMS micro-targeted voter outreach.
-2. **Uncompromised Information Security & Operational Resilience:** A decentralized node removes localized vulnerabilities. It insulates sensitive strategic planning, data assets, and coordination databases from local corporate espionage, physical wiretapping, device interception, and local political pressure, establishing an extremely secure operational buffer.
-3. **Speed, Technical Specialization, and Agile Crisis Mobilization:** This model allows the instant deployment of specialized technical talent — spanning real-time monitoring, AI-assisted creative optimization, multi-touch attribution, and defensive cybersecurity — without geographical friction. Technical specialists operate in a highly focused environment, enabling rapid-response asset creation and crisis mitigation around the clock.
-
-The strategic architecture detailed below is engineered for a singular objective: to position Dr. Makali Mulu as the mathematically undeniable candidate — first for the Wiper gubernatorial nomination, and subsequently for the governorship of Kitui County.
+The strategic architecture set out above is engineered for a singular objective: to position
+Dr. Makali Mulu as the mathematically undeniable candidate — first for the Wiper gubernatorial
+nomination, and subsequently for the governorship of Kitui County. What that requires now is a
+decision, and a date.
 
 > ### 🗳️ CAMPAIGN DECISION PROTOCOL: PHASE -1 STRATEGIC APPROVAL
 > 
 > **I. Action Required from Leadership:**
 > *   **Immediate Strategic Realignment:** Formal approval to pivot the campaign's primary focus to **Phase -1 (Nomination Path)**, reallocating digital, analytical, and SMS campaign infrastructure to target the opinion-poll selection process.
-> *   **Capital Allocation:** Authorization of the initial Phase -1 budget to deploy localized, ward-level SMS micro-targeting, digital visibility campaigns in low-recognition sub-counties, and the initial deployment of the public service-delivery tracker.
-> *   **Operational Integration:** Integration of the decentralized digital command center with the ground campaign's regional and youth volunteer networks.
+> *   **Deployment Authorisation:** Authorisation to begin Phase −1 deployment — localised, ward-level SMS micro-targeting, digital visibility campaigns in low-recognition sub-counties, and the initial deployment of the public service-delivery tracker.
+> *   **Operational Integration:** Integration of the digital operation with the ground campaign's regional and youth volunteer networks.
 > 
 > **II. Critical Operational Deadline:**
 > *   **Decision Target:** **15 September 2026** (to allow 45 days of concentrated digital, content, and SMS micro-targeting before the Wiper opinion polling window commences in late October 2026).
 > *   **Evaluation Window:** Late October – November 2026 (Q4 2026).
 > 
 > **III. Strategic Cost of Inaction (Missing the Q4 2026 Nomination Window):**
-> *   **Irreversible Campaign Termination:** Because the Wiper ticket is the definitive gateway to the Kitui Governorship, failing to secure the party nomination in Q4 2026 renders all downstream Phase 1–5 strategies (and their associated investments) entirely obsolete.
+> *   **Irreversible Campaign Termination:** Because the Wiper ticket is the definitive gateway to the Kitui Governorship, failing to secure the party nomination in Q4 2026 renders every downstream Phase 1–5 strategy entirely obsolete.
 > *   **Yielding the Visibility Monopoly:** Every day of delay allows the primary competitor (growing 3x faster) to monopolize countywide name recognition, consolidating a polling advantage that will become mathematically impossible to close within the party's selection window.
 > *   **Strategic Irrelevance:** Failing to narrow the current 15.3-point polling deficit before the party's evaluation period will result in a unilateral nomination decision based on existing name recognition, terminating the candidacy before the August 2027 general election.
 

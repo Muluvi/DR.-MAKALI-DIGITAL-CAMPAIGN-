@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 
 import { IDENTITY, ILLUSTRATIVE_COUNTS, X_POST } from "../../../lib/phone-showcase";
-import { EASE_ENTRANCE } from "../../../lib/motion";
+import { DURATION, EASE_ENTRANCE } from "../../../lib/motion";
 import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
 import { Avatar, ScreenShell } from "../primitives";
 
@@ -146,7 +146,7 @@ export function XScreen() {
           <Action icon={Repeat2} count={ILLUSTRATIVE_COUNTS.xReposts} />
           <motion.span
             animate={liked && !reduce ? { scale: [1, 1.28, 1] } : { scale: 1 }}
-            transition={{ duration: 0.42, ease: EASE_ENTRANCE }}
+            transition={{ duration: DURATION.base, ease: EASE_ENTRANCE }}
             className="flex"
           >
             <Action icon={Heart} count={likeCount} color={liked ? "#f91880" : MUTED} fill={liked} />

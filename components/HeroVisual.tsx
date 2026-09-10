@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { disclosure, EASE_ENTRANCE } from "../lib/motion";
+import { DURATION, EASE_ENTRANCE, disclosure } from "../lib/motion";
 import {
   X,
   Search,
@@ -97,7 +97,7 @@ export function HeroVisual() {
         "Set up radio monitoring in the campaign war room"
       ],
       color: "var(--color-gold)",
-      statBadge: "77,764 Home Base"
+      statBadge: "77,764 registered voters — home base"
     },
     {
       id: "field",
@@ -117,7 +117,7 @@ export function HeroVisual() {
         "Deploy mobile-money agent offline materials"
       ],
       color: "var(--color-accent)",
-      statBadge: "40 Wards Deployed"
+      statBadge: "40 wards — full deployment"
     },
     {
       id: "digital",
@@ -137,7 +137,7 @@ export function HeroVisual() {
         "Enforce Fact-Check protocols on digital channels"
       ],
       color: "var(--color-accent)",
-      statBadge: "200,198 Mwingi Pivot"
+      statBadge: "200,198 registered voters — the Mwingi bloc"
     },
     {
       id: "gotv",
@@ -157,7 +157,7 @@ export function HeroVisual() {
         "Provide sign language interpretation on all flagship videos"
       ],
       color: "var(--color-gold)",
-      statBadge: "198,004 Win Baseline"
+      statBadge: "198,004 votes cast — what won in 2022"
     }
   ];
 
@@ -184,7 +184,7 @@ export function HeroVisual() {
     <motion.div
       initial={{ opacity: 0, scale: 0.96 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: DURATION.slow }}
       ref={containerRef}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
@@ -199,13 +199,13 @@ export function HeroVisual() {
         <div>
           <div className="flex items-center gap-1.5">
             <span className="w-1.5 h-3.5 bg-accent rounded-full shrink-0" />
-            <span className="t-micro uppercase tracking-[0.14em] font-extrabold text-accent">
-              Spatial Strategy Command
+            <span className="t-micro font-extrabold text-accent">
+              Where the votes are
             </span>
           </div>
-          <h4 className="font-serif text-sm sm:text-base font-bold text-ink mt-0.5">
-            {selectedStage ? selectedStage.title : "Four-Stage Digital & Field Operating System"}
-          </h4>
+          <h2 className="font-serif text-sm sm:text-base font-bold text-ink mt-0.5">
+            {selectedStage ? selectedStage.title : "The four stages, and what each has to deliver"}
+          </h2>
         </div>
 
         {/* Action buttons & View Mode Switcher */}
@@ -213,9 +213,9 @@ export function HeroVisual() {
           <div className="inline-flex p-0.5 bg-paper border border-line/60 rounded-xl">
             <button
               onClick={() => setViewMode("3d")}
-              className={`px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 ${
-                viewMode === "3d"
-                  ? "bg-accent text-white shadow-xs"
+              className={`px-2.5 py-1 min-h-[44px] min-w-[44px] justify-center t-micro font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 ${
+ viewMode === "3d"
+                  ? "bg-accent-solid text-on-accent shadow-xs"
                   : "text-muted hover:text-ink"
               }`}
               aria-label="3D Isometric Terrain View"
@@ -225,9 +225,9 @@ export function HeroVisual() {
             </button>
             <button
               onClick={() => setViewMode("flow")}
-              className={`px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 ${
-                viewMode === "flow"
-                  ? "bg-accent text-white shadow-xs"
+              className={`px-2.5 py-1 min-h-[44px] min-w-[44px] justify-center t-micro font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 ${
+ viewMode === "flow"
+                  ? "bg-accent-solid text-on-accent shadow-xs"
                   : "text-muted hover:text-ink"
               }`}
               aria-label="Pipeline Flow View"
@@ -240,8 +240,8 @@ export function HeroVisual() {
           {viewMode === "3d" && (
             <button
               onClick={() => setShowPillars(!showPillars)}
-              className={`px-2.5 py-1 text-[11px] font-bold rounded-xl border transition-all cursor-pointer flex items-center gap-1 ${
-                showPillars
+              className={`px-2.5 py-1 min-h-[44px] min-w-[44px] justify-center t-micro font-bold rounded-xl border transition-all cursor-pointer flex items-center gap-1 ${
+ showPillars
                   ? "bg-accent/10 border-accent/40 text-accent"
                   : "bg-paper border-line text-muted hover:text-ink"
               }`}
@@ -258,7 +258,7 @@ export function HeroVisual() {
                 setSelectedStage(null);
                 setSelectedConstituency(null);
               }}
-              className="flex items-center gap-1 px-2.5 py-1 bg-paper hover:bg-line border border-line rounded-xl text-xs font-bold text-ink transition-colors cursor-pointer"
+              className="flex items-center gap-1 px-2.5 py-1 bg-paper hover:bg-line border border-line rounded-xl t-label font-bold text-ink transition-colors cursor-pointer"
             >
               <X size={12} />
               <span className="hidden sm:inline">Reset</span>
@@ -292,13 +292,12 @@ export function HeroVisual() {
               transformStyle: "preserve-3d"
             }}
           >
-            {/* Rotating 3D Tactical Orbital Ring */}
+            {/* The orbital ring, which used to rotate on a 35s loop. It is a ring around a map
+                of eight constituencies; the rotation carried no information and ran for as long
+                as the panel existed, on or off screen. */}
             <div
               className="absolute w-[min(320px,92vw)] sm:w-[560px] h-[160px] sm:h-[240px] rounded-full border border-accent/25 pointer-events-none"
-              style={{
-                transform: "translateZ(-10px) rotateX(70deg)",
-                animation: "spin 35s linear infinite"
-              }}
+              style={{ transform: "translateZ(-10px) rotateX(70deg)" }}
             >
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-accent shadow-sm shadow-accent" />
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gold shadow-sm shadow-gold" />
@@ -391,7 +390,7 @@ export function HeroVisual() {
               </svg>
 
               {/* Dynamic Radar Pulse Ring */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border border-accent/20 animate-ping opacity-20 pointer-events-none" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border border-accent/20 opacity-20 pointer-events-none" />
             </div>
 
             {/* Elevated 3D Tactical Nodes */}
@@ -435,8 +434,8 @@ export function HeroVisual() {
                     {/* 3D Node Head */}
                     <div
                       className={`relative px-3 py-1.5 rounded-xl border backdrop-blur-md shadow-lg transition-all duration-300 flex items-center gap-1.5 ${
-                        isSelected
-                          ? "bg-accent text-white border-accent ring-4 ring-accent/30 scale-110"
+ isSelected
+                          ? "bg-accent-solid text-on-accent border-accent-solid ring-4 ring-accent/30 scale-110"
                           : "bg-card/90 text-ink border-line hover:border-accent hover:scale-105"
                       }`}
                     >
@@ -445,12 +444,12 @@ export function HeroVisual() {
                         style={{ background: stage.color }}
                       />
                       <div className="flex flex-col">
-                        <span className="text-[10px] font-black uppercase tracking-wider leading-none">
+                        <span className="text-[10px] font-black leading-none">
                           {stage.name}
                         </span>
                         <span
                           className={`text-[9px] font-mono leading-none mt-0.5 ${
-                            isSelected ? "text-white/80" : "text-muted"
+ isSelected ? "text-white/80" : "text-muted"
                           }`}
                         >
                           {stage.statBadge}
@@ -489,7 +488,7 @@ export function HeroVisual() {
               }}
             >
               <Shield size={12} className="text-gold shrink-0" />
-              <span className="text-[10px] font-black text-ink uppercase tracking-wider">
+              <span className="text-[10px] font-black text-ink">
                 532,758 Voters | 30,430 km²
               </span>
             </div>
@@ -522,7 +521,7 @@ export function HeroVisual() {
             <motion.path
               initial={{ strokeDashoffset: 1000 }}
               animate={{ strokeDashoffset: [1000, 0] }}
-              transition={{ duration: 1.2, ease: EASE_ENTRANCE }}
+              transition={{ duration: DURATION.deliberate, ease: EASE_ENTRANCE }}
               strokeDasharray="8 10"
               className="fill-none stroke-[url(#routeGradHero)] stroke-3 stroke-linecap-round"
               d="M90 178 C180 80 250 215 350 126 S520 54 610 132 S750 202 820 78"
@@ -530,7 +529,7 @@ export function HeroVisual() {
             <motion.path
               initial={{ strokeDashoffset: -1000 }}
               animate={{ strokeDashoffset: [-1000, 0] }}
-              transition={{ duration: 1.2, delay: 0.15, ease: EASE_ENTRANCE }}
+              transition={{ duration: DURATION.deliberate, delay: 0.15, ease: EASE_ENTRANCE }}
               strokeDasharray="8 10"
               className="fill-none stroke-[url(#routeGradHero)] stroke-3 stroke-linecap-round opacity-40"
               d="M90 178 C250 178 270 72 420 78 S650 190 820 78"
@@ -605,37 +604,37 @@ export function HeroVisual() {
             <div className="p-4 sm:p-5 space-y-3.5">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-line/60 pb-2.5">
                 <div className="flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-0.5 rounded-full bg-accent/10 text-accent">
+                  <span className="inline-flex items-center gap-1.5 t-label font-bold px-2.5 py-0.5 rounded-full bg-accent/10 text-accent">
                     Operational Stage #{selectedStage.id.toUpperCase()}
                   </span>
-                  <span className="text-xs font-mono font-bold text-ink">
+                  <span className="t-label font-mono font-bold text-ink">
                     {selectedStage.statBadge}
                   </span>
                 </div>
-                <span className="text-xs font-serif italic text-muted">
+                <span className="t-label font-serif italic text-muted">
                   Sourced Campaign Execution Protocol
                 </span>
               </div>
 
               <div>
-                <h5 className="font-semibold text-xs text-muted uppercase tracking-wider">
+                <h5 className="font-semibold t-label text-muted">
                   Strategic Focus
                 </h5>
-                <p className="text-xs sm:text-sm text-ink mt-0.5 leading-relaxed font-medium">
+                <p className="t-label sm:t-small text-ink mt-0.5 leading-relaxed font-medium">
                   {selectedStage.objective}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
                 <div>
-                  <h5 className="font-semibold text-xs text-muted uppercase tracking-wider mb-1.5">
+                  <h5 className="font-semibold t-label text-muted mb-1.5">
                     Core Channels
                   </h5>
                   <div className="flex flex-wrap gap-1.5">
                     {selectedStage.channels.map((channel, idx) => (
                       <span
                         key={idx}
-                        className="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-lg border border-line bg-paper text-ink font-semibold"
+                        className="inline-flex items-center gap-1 t-label px-2.5 py-1 rounded-lg border border-line bg-paper text-ink font-semibold"
                       >
                         <ChevronRight size={10} className="text-accent" />
                         {channel}
@@ -645,14 +644,14 @@ export function HeroVisual() {
                 </div>
 
                 <div>
-                  <h5 className="font-semibold text-xs text-muted uppercase tracking-wider mb-1.5">
+                  <h5 className="font-semibold t-label text-muted mb-1.5">
                     Verified Execution Tasks
                   </h5>
                   <ul className="space-y-1">
                     {selectedStage.checklist.map((item, idx) => (
                       <li
                         key={idx}
-                        className="flex items-start gap-1.5 text-xs text-ink font-medium leading-tight"
+                        className="flex items-start gap-1.5 t-label text-ink font-medium leading-tight"
                       >
                         <CheckCircle2 size={12} className="text-accent shrink-0 mt-0.5" />
                         <span>{item}</span>

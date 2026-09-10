@@ -23,7 +23,7 @@ export default function WardCartogram() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
         {CONSTITUENCIES.map((c) => (
           <div key={c.id} className="bg-paper border border-line/60 rounded-xl p-2.5">
-            <div className="t-micro font-black uppercase tracking-wider text-muted mb-1.5 truncate" title={c.name}>
+            <div className="t-micro font-black text-muted mb-1.5 truncate" title={c.name}>
               {c.name}
             </div>
             {/* The forty tiles fill in ward order rather than all at once, which is the
@@ -43,7 +43,7 @@ export default function WardCartogram() {
                     aria-label={`${w.name}, ${c.name}: ${w.voters.toLocaleString()} registered voters`}
                     style={{ background: tileBackground(w.voters), "--fx-r": wIdx } as React.CSSProperties}
                     className={`fx-region w-6 h-6 sm:w-7 sm:h-7 rounded-[5px] border border-line/40 transition-all cursor-pointer ${
-                      isSelected ? "ring-2 ring-accent ring-offset-1 ring-offset-paper" : "hover:scale-110 hover:z-10 hover:shadow-md"
+ isSelected ? "ring-2 ring-accent ring-offset-1 ring-offset-paper" : "hover:scale-110 hover:z-10 hover:shadow-md"
                     }`}
                   />
                 );
@@ -68,14 +68,14 @@ export default function WardCartogram() {
       <div className="bg-paper border border-line rounded-xl p-3.5 min-h-[64px]">
         {selected ? (
           <div>
-            <div className="t-micro uppercase tracking-widest font-black text-accent">
+            <div className="t-micro font-black text-accent">
               {CONSTITUENCIES.find((c) => c.id === selected.constituency)?.name}
             </div>
             <div className="font-serif text-sm font-black text-ink mt-0.5">{selected.ward.name}</div>
-            <div className="text-xs font-bold text-ink/80 mt-1">{selected.ward.voters.toLocaleString()} registered voters (2022)</div>
+            <div className="t-label font-bold text-ink/80 mt-1">{selected.ward.voters.toLocaleString()} registered voters (2022)</div>
           </div>
         ) : (
-          <div className="text-xs text-muted italic">Tap a ward tile to see its detail.</div>
+          <div className="t-label text-muted italic">Tap a ward tile to see its detail.</div>
         )}
       </div>
     </div>

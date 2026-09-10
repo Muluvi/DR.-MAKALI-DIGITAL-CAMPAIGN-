@@ -3,8 +3,9 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "motion/react";
 
-import { EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
+import { DURATION, EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
+import { useMotionPreset } from "../../hooks/useMotionPreset";
 
 export interface FiscalBar {
   name: string;
@@ -29,6 +30,7 @@ export default function FiscalAuditChart({ data }: { data: FiscalBar[] }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, VIEWPORT);
   const reduce = useReducedMotionSafe();
+  const { enter } = useMotionPreset();
 
   if (data.length < 2) return null;
   const [whole, ...parts] = data;
@@ -48,7 +50,7 @@ export default function FiscalAuditChart({ data }: { data: FiscalBar[] }) {
   return (
     <div ref={ref} className="w-full">
       <div className="flex items-baseline justify-between gap-3 mb-1.5">
-        <span className="t-label font-black uppercase tracking-wider text-muted">{whole.name}</span>
+        <span className="t-label font-black text-muted">{whole.name}</span>
         <span className="font-mono text-sm font-black text-ink tabular-nums">{fmt(whole.value)}</span>
       </div>
 
@@ -65,9 +67,9 @@ export default function FiscalAuditChart({ data }: { data: FiscalBar[] }) {
             key={s.name}
             className="absolute inset-y-0 origin-left"
             style={{ left: `${s.offset}%`, width: `calc(${s.pct}% - 2px)`, backgroundColor: s.color }}
-            initial={reduce ? false : { scaleX: 0 }}
+            initial={enter({ scaleX: 0 })}
             animate={inView || reduce ? { scaleX: 1 } : undefined}
-            transition={{ duration: 0.52, ease: EASE_ENTRANCE, delay: reduce ? 0 : i * STAGGER.tight }}
+            transition={{ duration: DURATION.base, ease: EASE_ENTRANCE, delay: reduce ? 0 : i * STAGGER.tight }}
           />
         ))}
         {/* Where the exposure ends. The reader should be able to see the proportion, not compute it. */}

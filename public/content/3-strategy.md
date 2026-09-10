@@ -40,36 +40,12 @@ competing versions of this one: Section 2.6 sets out the three *message* pillars
 claim is argued to a voter — and Section 2.7.1 the four *content* pillars, which are
 production buckets for the studio. Each of those maps back to the four below.
 
-### 2.2.1 Fiscal accountability and devolution
+### 2.2.1 The four campaign pillars in practice
 
-Translate Dr. Mulu's parliamentary advocacy for equitable resource distribution
-into a clear, actionable manifesto for Kitui's 40 wards. Content will show,
-line by line, how the county's KSh13.79 billion should be allocated and
-audited — using his economics background to give voters confidence their money
-will be managed well.
-
-### 2.2.2 Data-driven civic engagement
-
-Infographic analyses breaking down Dr. Mulu's track record — including
-NG-CDF-funded projects in Kitui Central — so voters can visualise impact.
-Complex budget documents converted into simple charts, ward-level maps, and
-before-and-after comparisons.
-
-### 2.2.3 Policy, translated into what it changes
-
-Convert dense policy topics — climate investment in water infrastructure,
-agricultural revitalisation — into relatable, vernacular-friendly content. A
-90-second video, a Kikamba voice note, or a shareable card makes every policy
-tangible and personal.
-
-### 2.2.4 Verification and follow-through
-
-The pillar that distinguishes Dr. Mulu from every rival: **publishing what was
-promised, then publishing whether it happened.** Operationalised through the
-public service-delivery tracker (Section 8.5), the quarterly evidence cadence
-in Section 6.4, and the transparent ad-spend disclosure in the Digital Ethics &
-Data Charter (Section 6.5.4). An M&E specialist who campaigns without a
-verification mechanism is wasting his strongest asset.
+* **Fiscal accountability and devolution:** Translate Dr. Mulu's parliamentary advocacy for equitable resource distribution into a clear, actionable manifesto for Kitui's 40 wards. Content will show, line by line, how the county's KSh13.79 billion should be allocated and audited — using his economics background to give voters confidence their money will be managed well.
+* **Data-driven civic engagement:** Infographic analyses breaking down Dr. Mulu's track record — including NG-CDF-funded projects in Kitui Central — so voters can visualise impact. Complex budget documents converted into simple charts, ward-level maps, and before-and-after comparisons.
+* **Policy, translated into what it changes:** Convert dense policy topics — climate investment in water infrastructure, agricultural revitalisation — into relatable, vernacular-friendly content. A 90-second video, a Kikamba voice note, or a shareable card makes every policy tangible and personal.
+* **Verification and follow-through:** The pillar that distinguishes Dr. Mulu from every rival: **publishing what was promised, then publishing whether it happened.** Operationalised through the public service-delivery tracker (Section 8.5), the quarterly evidence cadence in Section 6.4, and the transparent ad-spend disclosure in the Digital Ethics & Data Charter (Section 6.5.4). An M&E specialist who campaigns without a verification mechanism is wasting his strongest asset.
 
 ---
 
@@ -462,7 +438,6 @@ gate that answers that question properly.**
 | **Consent standard** | Must be **express, free, specific, informed and unequivocal**. Consent for one purpose does not transfer to another | ODPC determinations under the Data Protection Act 2019 |
 | **Enforcement** | ODPC has issued penalties up to **KSh5 million**, including **KSh400,000 against a lender for unsolicited marketing SMS (December 2025)** and penalties of KSh1.85m–4.55m against three controllers | ODPC |
 | **Political messaging scrutiny** | Unsolicited political SMS was the subject of public and press scrutiny in August 2026 as the 2027 cycle began | Kenyan press reporting |
-| **Campaign finance** | Expenditure limits, contribution caps and disclosure obligations in force from 7 August 2026 | IEBC Gazette Notice No. 12251 |
 
 **The commercial reality this creates.** Vendors openly market databases of
 millions of Kenyan mobile numbers. Rival campaigns may well buy them. Doing so
@@ -561,8 +536,8 @@ denial.
 > *Published in Kikamba, Kiswahili and English.*
 
 **Operational backing.** Each clause maps to a control: the consent audit trail
-(clause 4), the compliance ledger (clause 3), the deletion schedule executed by
-the data-governance owner (clause 5), the variable dictionary exclusions
+(clause 4), the per-send audit trail (clause 3), the deletion schedule executed
+by the data-governance owner (clause 5), the variable dictionary exclusions
 (clauses 6 and 7), the fact-check protocol (clause 2), and the correction log
 (clause 9). A charter without instrumentation is decoration.
 
@@ -776,7 +751,7 @@ commitment — and the commitment is the persuasive element.
 ### 8.5.5 What it is worth to the campaign
 
 * **Narrative:** the strongest possible proof of the Verification pillar
-(Section 2.2.4) — evidence rather than assertion
+(Section 2.2.1) — evidence rather than assertion
 * **Data:** ward-level issue salience derived from citizens' own priorities
 rather than from campaign assumptions, feeding directly into content and
 message-lab design
@@ -787,12 +762,11 @@ standing story for county correspondents (Section 3.5)
 * **Defensive:** it makes "he is not close to ordinary people" a difficult
 attack to sustain against a candidate publishing their reported problems
 
-### 8.5.6 Build and cost
+### 8.5.6 Build
 
-Built on the USSD/SMS infrastructure already costed in Section 9.2.2 — shared
-USSD code (~KSh34,800 per network), development (~KSh140,000), hosting
-(~KSh5,000/month) — plus a lightweight public register on the campaign site.
-**Marginal cost over the SMS/USSD layer is low; distinctiveness is high.**
+Built on the USSD/SMS infrastructure the campaign is already deploying (Section
+4.3), plus a lightweight public register on the campaign site. **It reuses a
+layer the campaign is building anyway; nothing comparable exists in this race.**
 
 ### 8.5.7 Tracker KPIs
 

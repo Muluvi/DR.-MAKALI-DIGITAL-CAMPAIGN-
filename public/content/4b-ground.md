@@ -208,15 +208,13 @@ To maintain operational tempo across 8 constituencies and 40 wards, the campaign
 
 ## 4.2 The field-to-digital loop
 
-### 4.2.1 The problem it solves
+### 4.2.1 Operating architecture and bidirectional sync
 
 Most campaigns run two separate operations: a ground team that knocks doors and
 a digital team that buys ads. Neither learns from the other. The ground team
 re-canvasses households digital already converted; digital keeps advertising to
 voters the ground team has confirmed as committed opponents. In a county of
 30,430 square kilometres, that duplication is unaffordable.
-
-### 4.2.2 How the loop runs
 
 ```
    FIELD                                    DIGITAL
@@ -234,30 +232,17 @@ voters the ground team has confirmed as committed opponents. In a county of
    households first                      within 24 hours
 ```
 
-### 4.2.3 Field to digital
+* **Field to digital synchronization:**
+  * **Capture:** ward champions log outcomes via a simple mobile form — four options, under thirty seconds per household. Complexity kills field data collection.
+  * **Offline-first:** the form caches locally and syncs when signal returns. Non-negotiable in Ikutha and Mutitu.
+  * **Latency target:** field outcomes reflected in digital targeting within **24 hours**.
+  * **Suppression:** confirmed committed opponents are **removed from paid targeting**, not messaged harder. This saves money and is the correct practice.
+* **Digital to field routing:**
+  * **Warm-lead routing:** voters who engaged with content, opened an SMS, or completed a USSD session are routed to ward champions as priority doors.
+  * **Pre-briefing:** champions receive the issue the household engaged with — water, bursaries, market fees — so the conversation starts where the voter's interest already is.
+  * **Event conversion:** digital sign-ups for barazas are handed to ground organisers with attendance follow-up.
 
-* **Capture:** ward champions log outcomes via a simple mobile form —
-four options, under thirty seconds per household. Complexity kills field
-data collection.
-* **Offline-first:** the form caches locally and syncs when signal returns.
-Non-negotiable in Ikutha and Mutitu.
-* **Latency target:** field outcomes reflected in digital targeting within
-**24 hours**.
-* **Suppression:** confirmed committed opponents are **removed from paid
-targeting**, not messaged harder. This saves money and is the correct
-practice.
-
-### 4.2.4 Digital to field
-
-* **Warm-lead routing:** voters who engaged with content, opened an SMS, or
-completed a USSD session are routed to ward champions as priority doors.
-* **Pre-briefing:** champions receive the issue the household engaged with —
-water, bursaries, market fees — so the conversation starts where the voter's
-interest already is.
-* **Event conversion:** digital sign-ups for barazas are handed to ground
-organisers with attendance follow-up.
-
-### 4.2.5 Who governs it
+### 4.2.2 Governance and data protection on the doorstep
 
 * Field data is campaign first-party data, collected with notice, and governed
 by the same charter as all other personal data (Section 6.5.4).
@@ -272,8 +257,8 @@ honest: if the model and the doorstep disagree, the model is wrong.
 
 ### 4.3.1 Why this layer decides the race
 
-Kitui has **143,340 internet users out of a population of 1,136,187** — 13.6%.
-It has **452,948 mobile phone owners** — 42.9%. Nationally, smartphones are
+Kitui has **143,340 internet users out of a population of 1,053,991 aged 3 and
+above** — 13.6%. It has **452,948 mobile phone owners** — 42.9%. Nationally, smartphones are
 63.7% of connected devices, meaning feature phones remain a substantial share,
 and disproportionately so in rural, older and lower-income populations.
 
@@ -285,6 +270,10 @@ This is not an equity footnote. It is the central strategic problem of
 campaigning in this county, and solving it is the clearest demonstration of the
 "Economist Governor" proposition: allocating resources to where the need is,
 rather than where measurement is convenient.
+
+The critical constraint: the campaign can only message consented numbers
+(Section 6.5). List building is therefore a KPI in its own right from Phase −1,
+not an afterthought — consented contacts are a campaign asset that compounds.
 
 ### 4.3.2 The SMS layer
 
@@ -313,10 +302,7 @@ permanently
 * Ward-tagged segmentation so a message about mango prices reaches Kitui West
 and not Kyuso
 * Personalisation by first name where consent covers it
-* Per-send audit trail retained for the compliance ledger
-
-**Cost:** at KSh0.25–0.60 per message, a fortnightly touch to 120,000 consented
-voters costs approximately **KSh30,000–72,000 per send** — see Section 9.2.3.
+* Per-send audit trail retained, per the charter (Section 6.5.4)
 
 ### 4.3.3 The USSD layer
 
@@ -341,9 +327,7 @@ point by dialling a short code; the report enters a public register; the
 campaign follows up and publishes the outcome. That is the M&E credential
 operating in public, before the election, on the cheapest possible technology.
 
-**Cost:** shared code approximately **KSh34,800 per network**, development
-approximately **KSh140,000**, hosting approximately **KSh5,000 per month**.
-Set-up in 5–7 working days for a shared code; 2–4 weeks for a dedicated code
+**Set-up:** 5–7 working days for a shared code; 2–4 weeks for a dedicated code
 pending operator approval.
 
 ### 4.3.4 Voice and audio
@@ -381,7 +365,6 @@ material.
 | Issue reports via tracker | Not live | 500 | 3,000 | 8,000 |
 | Opt-out rate | <2% | <2% | <2% | <2% |
 | Wards with active SMS presence | 15 | 40 | 40 | 40 |
-| Cost per consented contact | ≤KSh0.60 | ≤KSh0.50 | ≤KSh0.40 | ≤KSh0.35 |
 
 **Opt-out rate is the health metric.** A rising opt-out rate means the campaign
 is being experienced as spam, which damages the brand of rigour and

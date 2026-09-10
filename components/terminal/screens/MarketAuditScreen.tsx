@@ -16,7 +16,7 @@ export function MarketAuditScreen({ data }: { data: WardPulseData }) {
           <span className="flex h-2 w-2 relative">
             <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400" />
           </span>
-          <span className="font-mono tracking-wider text-amber-400 uppercase font-semibold" style={{ fontSize: "0.6875em" }}>
+          <span className="font-mono text-amber-400 font-semibold" style={{ fontSize: "0.6875em" }}>
             MEA-08 • Market Day Event Audit
           </span>
         </div>
@@ -106,7 +106,7 @@ export function MarketAuditScreen({ data }: { data: WardPulseData }) {
                 <div
                   key={i}
                   className={`w-1 rounded-sm transition-all duration-300 ${
-                    isPlaying ? "bg-cyan-400" : "bg-slate-700"
+ isPlaying ? "bg-cyan-400" : "bg-slate-700"
                   }`}
                   style={{ height: `${isPlaying ? Math.max(3, (h * ((i % 3) + 1.2)) % 14) : h}px` }}
                 />

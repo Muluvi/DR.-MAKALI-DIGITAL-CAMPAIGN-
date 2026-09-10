@@ -238,7 +238,7 @@ export function DiagramViewer({ title, body }: { title?: string; body: string })
           <button
             type="button"
             onClick={() => setActualSize((v) => !v)}
-            className="tap inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-line bg-paper/60 t-label font-bold uppercase tracking-wider text-muted hover:text-ink"
+            className="tap inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-line bg-paper/60 t-label font-bold text-muted hover:text-ink"
           >
             <Scan size={12} />
             {actualSize ? "Fit to width" : "Actual size"}
@@ -246,7 +246,7 @@ export function DiagramViewer({ title, body }: { title?: string; body: string })
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="tap inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-accent/30 bg-accent/5 t-label font-bold uppercase tracking-wider text-accent hover:bg-accent/10"
+            className="tap inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-accent/30 bg-accent/5 t-label font-bold text-accent hover:bg-accent/10"
           >
             <Maximize2 size={12} />
             Full screen

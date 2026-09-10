@@ -1,0 +1,87 @@
+[
+  {
+    "note": "exec.md:618 — display math to plain code span",
+    "before": "    $$\\text{Total}_{\\text{Mwingi}} = 74,231 + 68,829 + 57,138 = 200,198 \\text{ registered voters}$$",
+    "after": "    *   `Total (Mwingi) = 74,231 + 68,829 + 57,138 = 200,198 registered voters`"
+  },
+  {
+    "note": "exec.md:619 — display math to plain code span",
+    "before": "    $$\\text{Margin over 2022 Malombe winning total (198,004)} = 200,198 - 198,004 = +2,194 \\text{ voters}$$",
+    "after": "    *   `Margin over 2022 Malombe winning total (198,004) = 200,198 − 198,004 = +2,194 voters`"
+  },
+  {
+    "note": "exec.md:626 — display math to plain code span",
+    "before": "    $$\\text{Total}_{\\text{Central-South-West}} = 77,764 + 75,372 + 59,047 = 212,183 \\text{ registered voters}$$",
+    "after": "    *   `Total (Central-South-West) = 77,764 + 75,372 + 59,047 = 212,183 registered voters`"
+  },
+  {
+    "note": "exec.md:633 — display math to plain code span",
+    "before": "    $$\\sum_{i=1}^{12} \\text{Ward}_i = 19,921 + 19,538 + 18,020 + \\dots + 15,135 = 201,267 \\text{ registered voters}$$",
+    "after": "    *   `∑ (12 Wards) = 19,921 + 19,538 + 18,020 + … + 15,135 = 201,267 registered voters`"
+  },
+  {
+    "note": "exec.md:640 — display math to plain code span",
+    "before": "    $$\\text{Total}_{\\text{Home-Belt}} = 77,764 + 59,047 + 55,000 = 191,811 \\text{ registered voters}$$",
+    "after": "    *   `Total (Home-Belt) = 77,764 + 59,047 + 55,000 = 191,811 registered voters`"
+  },
+  {
+    "note": "exec.md:641 — display math to plain code span",
+    "before": "    $$\\text{Deficit to 200,000 benchmark} = 200,000 - 191,811 = -8,189 \\text{ registered voters}$$",
+    "after": "    *   `Deficit to 200,000 benchmark = 200,000 − 191,811 = −8,189 registered voters`"
+  },
+  {
+    "note": "exec.md:735 — display math to plain code span",
+    "before": "$$\\text{Deficit Pool}_{\\text{Mwingi + South}} = 200,198 \\text{ (Mwingi)} + 75,372 \\text{ (Kitui South)} = \\mathbf{275,570 \\text{ \\textbf{registered voters}}}$$",
+    "after": "*   `Deficit Pool (Mwingi + South) = 200,198 (Mwingi) + 75,372 (Kitui South) = 275,570 registered voters`"
+  },
+  {
+    "note": "§8.2.3 KPI-architecture diagram. The consolidation at 5470756 rebuilt this box and dropped \"Opt-In\" from the 220,000 target — the DPA 2019 consent term the surrounding section turns on. Restored, and the box widened by five columns to fit it. The figures are untouched. The September 2026 accuracy pass then aligned four labels in the box with the scorecards it summarises: NW-02's Name ID target reads ≥ 70.0% rather than >65%, NW-01's share reads ≥ 55.0% rather than >55%, and the two \"Delegate\" labels name the Sub-County Wiper Executive Branch Committees that NW-04 actually measures — §1.1 reports the party intends to select by opinion poll, with no delegate contest to organise. Box widths are unchanged.",
+    "before": "══════════════════════════════════════════════════════════════════\n          VICTORY-ANCHORED KPI MONITORING ARCHITECTURE\n══════════════════════════════════════════════════════════════════\n\n  STAGE 1: NOMINATION WINDOW TARGETS\n  (Primary Delegate / Voter Preference)\n ┌──────────────────────────────────────────────────────────────┐\n │ • Wiper Primary Share (Target >55%)                          │\n │ • North Sub-County Name ID (>65%)                            │\n │ • Integrity / Clean Audit Salience                           │\n │ • Delegate Endorsement Pledges (8/8)                         │\n └──────────────────────────────────────────────────────────────┘\n                               │\n                               ▼\n  STAGE 2: GENERAL ELECTION TARGETS\n  (Victory Threshold: ≥200,000 Votes)\n ┌──────────────────────────────────────────────────────────────┐\n │ • Verified Pledged Voter Database (Target: 220,000 Voters)   │\n │ • Ward Captain Mobilization Index (400 Captains / 40 Wards)  │\n │ • Polling Agent Station Coverage (100% of 1,578 Stations)    │\n │ • Turnout Conversion Rate (≥82%)                             │\n └──────────────────────────────────────────────────────────────┘\n══════════════════════════════════════════════════════════════════\n",
+    "after": "═════════════════════════════════════════════════════════════════════\n            VICTORY-ANCHORED KPI MONITORING ARCHITECTURE\n═════════════════════════════════════════════════════════════════════\n\n  STAGE 1: NOMINATION WINDOW TARGETS\n  (Preference among likely Wiper primary voters)\n ┌───────────────────────────────────────────────────────────────────┐\n │ • Wiper Primary Share (Target ≥ 55.0%)                            │\n │ • North Sub-County Name ID (≥ 70.0%)                              │\n │ • Integrity / Clean Audit Salience                                │\n │ • Branch Executive Endorsement Pledges (8/8)                      │\n └───────────────────────────────────────────────────────────────────┘\n                                 │\n                                 ▼\n  STAGE 2: GENERAL ELECTION TARGETS\n  (Victory Threshold: ≥200,000 Votes)\n ┌───────────────────────────────────────────────────────────────────┐\n │ • Verified Pledged Voter Database (Target: 220,000 Opt-In Voters) │\n │ • Ward Captain Mobilization Index (400 Captains / 40 Wards)       │\n │ • Polling Agent Station Coverage (100% of 1,578 Stations)         │\n │ • Turnout Conversion Rate (≥82%)                                  │\n └───────────────────────────────────────────────────────────────────┘\n═════════════════════════════════════════════════════════════════════\n"
+  },
+  {
+    "note": "§4.3.1 — the 13.6% and 42.9% are shares of the population aged 3 and above (§2.2: 1,053,991), not of all 1,136,187 residents. Against the whole-county base they would read 12.6% and 39.9%. The denominator is corrected to the one §2.2 states; both percentages are untouched.",
+    "before": "Kitui has **143,340 internet users out of a population of 1,136,187** — 13.6%.\nIt has **452,948 mobile phone owners** — 42.9%.",
+    "after": "Kitui has **143,340 internet users out of a population of 1,053,991 aged 3 and\nabove** — 13.6%. It has **452,948 mobile phone owners** — 42.9%."
+  },
+  {
+    "note": "§8.2.3 — \"~53.4% of expected turnout\" implied an unstated turnout of ~374,500 (70.3% of the register). §1.3.1 states a 62.0% participation baseline giving ~330,310 ballots, against which 200,000 is 60.5%. Recomputed from the document's own figures, with the baseline now named.",
+    "before": "2.  **The General Election Victory Threshold:** Securing **≥ 200,000 verified, counted votes** (representing ~53.4% of expected turnout across Kitui's 532,758 registered voters).",
+    "after": "2.  **The General Election Victory Threshold:** Securing **≥ 200,000 verified, counted votes** — approximately **60.5%** of the ~330,310 ballots expected at the county's 62.0% participation baseline against 532,758 registered voters (Section 1.3.1)."
+  },
+  {
+    "note": "§8.2.3 — the nomination threshold restated as NW-01 states it: \"≥ 55.0%\" rather than \">55%\", and the universe named as sampled likely Wiper primary voters. \"Delegate\" is dropped because §1.1 reports selection by opinion poll, with no delegate contest to organise. No figure changes.",
+    "before": "1.  **The Nomination Window Threshold:** Achieving >55% Wiper Party primary delegate/voter preference share.",
+    "after": "1.  **The Nomination Window Threshold:** Achieving **≥ 55.0%** first-choice preference among sampled likely Wiper primary voters (NW-01)."
+  },
+  {
+    "note": "§8.1.2 GE-01 — baseline \"45,000 (Central Baseline)\" contradicted §9.1.2 Commitment 3's \"0 registered, verified supporters\" for the same quantity. 45,000 is unsourced and appears nowhere else; the §9.1.2 figure carries an owner, a deadline and a trigger. Aligned to §9.1.2 and cross-referenced. Flagged for the campaign in docs/CONTENT-QUERIES.md.",
+    "before": "│ **GE-01:**  │ Individual registered    │ 45,000    │**220,000**│ Verified opt-in  │ Field Ops │ Weekly      │\n│ Pledged     │ voters with phone, ward, │ (Central  │ Pledged   │ 2G SMS & Baraza  │ & Data    │ Progress    │\n│ Voter Data  │ & polling station logged │ Baseline) │ Voters    │ registration     │ Director  │ Audit       │",
+    "after": "│ **GE-01:**  │ Individual registered    │ 0 pledged │**220,000**│ Verified opt-in  │ Field Ops │ Weekly      │\n│ Pledged     │ voters with phone, ward, │ voters    │ Pledged   │ 2G SMS & Baraza  │ & Data    │ Progress    │\n│ Voter Data  │ & polling station logged │ (Section  │ Voters    │ registration     │ Director  │ Audit       │"
+  },
+  {
+    "note": "§8.1.2 GE-01 — the baseline's fourth line carries the cross-reference to §9.1.2 Commitment 3.",
+    "before": "│ Base Size   │ in campaign CRM.         │           │ (110% Win)│ ledger (Sec 8.2.2)│           │            │",
+    "after": "│ Base Size   │ in campaign CRM.         │ 9.1.2)    │ (110% Win)│ ledger (Sec 8.2.2)│           │            │"
+  },
+  {
+    "note": "§8.1.2 GE-02 — baseline \"120 Captains (Central only)\" contradicted §9.1.2 Commitment 5's \"0 active Ward Captains\". 120 is unsourced and appears nowhere else. Aligned to §9.1.2 and cross-referenced, on the same grounds as GE-01. \"Village Ward Captains\" also becomes \"Ward Captains\", the term §9.1.2 and the other 20 mentions use.",
+    "before": "│ **GE-02:**  │ Active, vetted Village   │ 120       │ **400**   │ Biometric / ID   │ Groundgame│ Bi-Weekly   │\n│ Ward Captain│ Ward Captains operating  │ Captains  │ Captains  │ verification and │ Director  │ Field Audit │\n│ Deployment  │ across all 40 Wards      │ (Central  │ (10 / Ward│ monthly activity │           │             │\n│ Index       │ (10 per ward).           │ only)     │ 100% Cvrg)│ log confirmation │           │             │",
+    "after": "│ **GE-02:**  │ Active, vetted Ward      │ 0 active  │ **400**   │ Biometric / ID   │ Groundgame│ Bi-Weekly   │\n│ Ward Captain│ Captains operating across│ Captains  │ Captains  │ verification and │ Director  │ Field Audit │\n│ Deployment  │ all 40 Wards (10 per     │ (Section  │ (10 / Ward│ monthly activity │           │             │\n│ Index       │ ward).                   │ 9.1.2)    │ 100% Cvrg)│ log confirmation │           │             │"
+  },
+  {
+    "note": "One term per concept — the ward organiser role. The document names the same 400-person network three ways: \"Ward Captain\" (21 mentions, the term §9.1.2 Commitment 5, §8.1.2 GE-02 and data/kpis.ts all use), \"Village Ward Captain\"/\"Village Captain\" (3) and \"ward champion\" (6). No section defines a champion as anything other than a captain, and none gives the two different counts, owners or duties. Unified to Ward Captain. Flagged in docs/CONTENT-QUERIES.md in case the campaign does intend two tiers, in which case the fix is to define the second one rather than to rename it. No figure, owner or date changes.",
+    "before": "Twice-daily SMS pulse reports from the 400 Village Ward Captains logging",
+    "after": "Twice-daily SMS pulse reports from the 400 Ward Captains logging"
+  },
+  {
+    "note": "One term per concept — the ward organiser role. The document names the same 400-person network three ways: \"Ward Captain\" (21 mentions, the term §9.1.2 Commitment 5, §8.1.2 GE-02 and data/kpis.ts all use), \"Village Ward Captain\"/\"Village Captain\" (3) and \"ward champion\" (6). No section defines a champion as anything other than a captain, and none gives the two different counts, owners or duties. Unified to Ward Captain. Flagged in docs/CONTENT-QUERIES.md in case the campaign does intend two tiers, in which case the fix is to define the second one rather than to rename it. No figure, owner or date changes.",
+    "before": "├── 3. Volunteer as a Village Captain",
+    "after": "├── 3. Volunteer as a Ward Captain"
+  },
+  {
+    "note": "One term per concept — the ward organiser role. The document names the same 400-person network three ways: \"Ward Captain\" (21 mentions, the term §9.1.2 Commitment 5, §8.1.2 GE-02 and data/kpis.ts all use), \"Village Ward Captain\"/\"Village Captain\" (3) and \"ward champion\" (6). No section defines a champion as anything other than a captain, and none gives the two different counts, owners or duties. Unified to Ward Captain. Flagged in docs/CONTENT-QUERIES.md in case the campaign does intend two tiers, in which case the fix is to define the second one rather than to rename it. No figure, owner or date changes.",
+    "before": "│ • 400 Village Ward Captains equipped with high-output portable megaphones  │",
+    "after": "│ • 400 Ward Captains equipped with high-output portable megaphones          │"
+  }
+]

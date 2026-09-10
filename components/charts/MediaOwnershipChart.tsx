@@ -3,8 +3,9 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "motion/react";
 
-import { EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
+import { DURATION, EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
+import { useMotionPreset } from "../../hooks/useMotionPreset";
 
 export interface StationBar {
   name: string;
@@ -50,6 +51,7 @@ export default function MediaOwnershipChart({ data }: { data: StationBar[] }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, VIEWPORT);
   const reduce = useReducedMotionSafe();
+  const { enter } = useMotionPreset();
 
   let order = 0;
 
@@ -62,7 +64,7 @@ export default function MediaOwnershipChart({ data }: { data: StationBar[] }) {
           {ALIGNMENTS.map((a) => (
             <span
               key={a.key}
-              className="t-micro font-black uppercase tracking-wider text-muted leading-tight text-center"
+              className="t-micro font-black text-muted leading-tight text-center"
             >
               {a.label}
             </span>
@@ -94,9 +96,9 @@ export default function MediaOwnershipChart({ data }: { data: StationBar[] }) {
                           borderColor: s.color,
                           backgroundColor: `color-mix(in srgb, ${s.color} 12%, transparent)`,
                         }}
-                        initial={reduce ? false : { opacity: 0, scale: 0.9 }}
+                        initial={enter({ opacity: 0, scale: 0.9 })}
                         animate={inView || reduce ? { opacity: 1, scale: 1 } : undefined}
-                        transition={{ duration: 0.42, ease: EASE_ENTRANCE, delay }}
+                        transition={{ duration: DURATION.base, ease: EASE_ENTRANCE, delay }}
                         title={`${s.name} — ${s.alignmentCategory}. ${s.reachLabel}`}
                       >
                         {s.name}

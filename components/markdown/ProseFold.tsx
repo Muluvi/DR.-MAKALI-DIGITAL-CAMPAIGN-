@@ -24,13 +24,13 @@ export function ProseFold({ label, children }: { label: string; children: React.
         aria-expanded={open}
         className="w-full flex items-center gap-2.5 text-left px-4 py-3 rounded-xl border border-line/70 bg-card/40 text-muted hover:text-ink hover:border-accent/40 transition-colors cursor-pointer min-h-[48px] print:hidden"
       >
-        <span className="text-xs sm:text-sm font-semibold flex-1">
+        <span className="t-label sm:t-small font-semibold flex-1">
           {open ? "Hide the rest of" : "Read the rest of"} {label}
         </span>
         <ChevronDown
           size={16}
           className={`shrink-0 transition-transform duration-200 motion-reduce:transition-none ${
-            open ? "rotate-180 text-accent" : ""
+ open ? "rotate-180 text-accent" : ""
           }`}
         />
       </button>

@@ -1,11 +1,13 @@
 "use client";
 
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Coins, Users, Radio, ShieldCheck, Type, Eye, EyeOff, Map, MessageSquare, Megaphone, Shield, Database, Gauge, HandCoins } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
-import { MarqueeCarousel } from "./MarqueeCarousel";
+import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
+import { KeyFactsStrip } from "./KeyFactsStrip";
 import { LazyMount } from "./LazyMount";
 import { ScrollProgressBar } from "./ScrollProgressBar";
 import { SectionStickyBar } from "./SectionStickyBar";
@@ -37,19 +39,35 @@ import { useDaypart, useScrollShell } from "../hooks/use-scroll-shell";
 import { Dashboard } from "./Dashboard";
 import { HeroVisual } from "./HeroVisual";
 import { Portrait } from "./Portrait";
-import { NominationVerdict } from "./NominationVerdict";
+import { DeficitGauge } from "./charts/DeficitGauge";
 import { DataVisualizations } from "./DataVisualizations";
 import { VoterProjectionsChart } from "./VoterProjectionsChart";
 import { SectionSkeleton } from "./SectionSkeleton";
+import { DURATION } from "../lib/motion";
 
-function SectionTransition({ children, tabKey }: { children: React.ReactNode; tabKey?: string }) {
+/**
+ * The crossfade between sections — on a tab CHANGE, never on first paint.
+ *
+ * This used to carry `initial={{ opacity: 0 }}` unconditionally, which meant the server sent the
+ * entire document body at `opacity: 0` and it stayed invisible until React had hydrated. Largest
+ * Contentful Paint therefore could not fire until hydration finished, which measured at 6.2s on a
+ * mid-range Android; the page also reported a perfect CLS of 0.000, for the unhelpful reason that
+ * nothing was visible to shift. A reader whose JavaScript failed got a blank page carrying 55,500
+ * words of markup.
+ *
+ * `initial={false}` until the reader has actually changed tab means Motion writes no starting
+ * style, so the body ships legible and paints as soon as the HTML arrives. Every subsequent tab
+ * change still animates. Server and first client render agree, so there is no hydration mismatch
+ * to repair.
+ */
+function SectionTransition({ children, tabKey, animateEntrance }: { children: React.ReactNode; tabKey?: string; animateEntrance: boolean }) {
   return (
     <motion.div
       key={tabKey}
-      initial={{ opacity: 0, y: 10 }}
+      initial={animateEntrance ? { opacity: 0, y: 10 } : false}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
+      transition={{ duration: DURATION.quick, ease: "easeOut" }}
       className="w-full print:block"
     >
       {children}
@@ -64,7 +82,7 @@ function SectionTabTransition({ children }: { children: React.ReactNode }) {
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
+      transition={{ duration: DURATION.base, ease: "easeOut" }}
       className="w-full"
     >
       {children}
@@ -72,14 +90,14 @@ function SectionTabTransition({ children }: { children: React.ReactNode }) {
   );
 }
 
-interface MarkdownSection {
-  node: React.ReactNode;
-  wordCount: number;
-}
-
 interface ClientPageProps {
   sections: SectionItem[];
-  documents: Record<TabId, MarkdownSection>;
+  /** Rendered prose for the section this route serves — or all nine, on /full. */
+  documents: Partial<Record<TabId, React.ReactNode>>;
+  /** Every section's length, for reading time in the navigator. Nine integers, not nine trees. */
+  wordCounts: Record<TabId, number>;
+  activeTab: TabId;
+  expanded: boolean;
 }
 
 // One icon per top-level section, keyed to what the section is about rather than to its position.
@@ -121,7 +139,7 @@ function PartDivider({ number, label }: { number: string; label: string }) {
         <div className="absolute inset-0 fx-gradient-live bg-[linear-gradient(100deg,var(--color-accent)_0%,transparent_35%,transparent_65%,var(--color-gold)_100%)] opacity-[0.07]" />
         <div className="absolute inset-0 fx-pattern-diagonal" />
         <div className="max-w-7xl mx-auto px-3 sm:px-6 w-full flex items-center gap-3 relative z-10">
-          <span className="font-mono text-xs sm:text-sm font-bold text-accent shrink-0 tabular-nums">{number}</span>
+          <span className="font-mono t-label sm:t-small font-bold text-accent shrink-0 tabular-nums">{number}</span>
           <span className="h-px w-6 bg-gradient-to-r from-accent to-transparent shrink-0" />
           <span className="text-sm sm:text-base font-semibold text-ink truncate">{label}</span>
         </div>
@@ -185,9 +203,12 @@ function LazySection({ id, content, renderSectionExtras, immediate = false }: La
     <div ref={containerRef} id={`section-${id}`} className="cv-auto-section clean-editorial-section py-4 sm:py-8 px-0 sm:px-2 print:break-inside-avoid min-h-[150px] snap-start scroll-mt-24 transition-all duration-500 ease-out">
       {hasBeenVisible ? (
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          // No starting state in the server HTML. This wraps a whole section's prose, so
+          // `initial={{ opacity: 0 }}` here means the document ships invisible and waits on
+          // hydration — the same defect the section crossfade above had, one level down.
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: DURATION.slow, ease: [0.16, 1, 0.3, 1] }}
         >
           {content}
           {renderSectionExtras(id)}
@@ -201,14 +222,80 @@ function LazySection({ id, content, renderSectionExtras, immediate = false }: La
 
 const TAB_IDS: string[] = SECTIONS.map((s) => s.id);
 
-export function ClientPage({ sections, documents }: ClientPageProps) {
+export function ClientPage({ sections, documents, wordCounts, activeTab, expanded }: ClientPageProps) {
   // Always starts on the overview so server and client render the same tree on first paint — the
   // URL fragment is only readable client-side, so a shared deep link switches section in a mount
   // effect below rather than in the initial state (see the useEffect reading window.location.hash).
-  const [activeTab, setActiveTab] = useState<string>("decision");
+  // The URL is the source of truth for which section is open.
+  //
+  // Every section is its own statically generated route, so `activeTab` arrives as a prop and
+  // changing it is a navigation. That makes each section independently shareable and gives the
+  // reader a working back button through a 200-minute document — and it is what stops the server
+  // sending eight sections nobody is reading.
+  //
+  // `setActiveTab` keeps the name the seven existing call sites use, so the navigation, the
+  // observers and the deep-link handlers below are unchanged.
+  const router = useRouter();
+
+  // Whether the reader has navigated yet, so the section crossfade applies no `opacity: 0`
+  // starting state on first paint — see SectionTransition.
+  const [navigated, setNavigated] = useState(false);
+
+  const setActiveTab = useCallback(
+    (tab: string, hash?: string) => {
+      if (tab === activeTab && !hash) return;
+      setNavigated(true);
+      router.push(`/${tab}${hash ? `#${hash}` : ""}`, { scroll: false });
+    },
+    [activeTab, router],
+  );
+
+  // Which of the nine this reader has already opened, for the navigator's overview strip.
+  const { visited } = useReadingProgress(activeTab);
+
+  // Prefetching a section on hover or focus means the tap that follows resolves from cache.
+  // Nine routes prefetched eagerly would cost more than the split saves, so it is intent-driven.
+  const prefetchTab = useCallback((tab: string) => router.prefetch(`/${tab}`), [router]);
+
+  /**
+   * Print the whole proposal, not whichever section happens to be open.
+   *
+   * Before the route split there was no way to express "all of it" as a destination, so Export
+   * PDF printed the current tab — a reader who pressed it on the opening section got one ninth
+   * of a document of record and no indication that anything was missing. /full is that
+   * destination, so printing now routes there first and prints once the page has painted.
+   */
+  const printFullDocument = useCallback(() => {
+    if (expanded) {
+      window.print();
+      return;
+    }
+    setNavigated(true);
+    router.push("/full", { scroll: false });
+    // The navigation is a fetch; print once the new route has actually painted, rather than
+    // guessing at a delay. Two frames is enough for layout, and the flag stops a second press
+    // queueing a second dialog.
+    let done = false;
+    const fire = () => {
+      if (done) return;
+      done = true;
+      requestAnimationFrame(() => requestAnimationFrame(() => window.print()));
+    };
+    const timer = window.setTimeout(fire, 1200);
+    window.addEventListener("popstate", () => window.clearTimeout(timer), { once: true });
+  }, [expanded, router]);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTOCModalOpen, setIsTOCModalOpen] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
+  // Expand All is the /full route: the whole document on one page, which is also what the print
+  // path needs. It is the one route that pays for all nine sections, by design.
+  const isExpanded = expanded;
+  const setIsExpanded = useCallback(
+    (want: boolean) => {
+      setNavigated(true);
+      router.push(want ? "/full" : `/${activeTab}`, { scroll: false });
+    },
+    [activeTab, router],
+  );
   const [isFocusMode, setIsFocusMode] = useState(false);
   const [isZeroChrome, setIsZeroChrome] = useState(false);
   const [readingDensity, setReadingDensity] = useState<"compact" | "balanced" | "generous">("balanced");
@@ -233,10 +320,11 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
         label: section.label,
         blurb: section.blurb,
         icon: SECTION_ICONS[section.id],
-        content: documents[section.id].node,
-        wordCount: documents[section.id].wordCount,
+        // Only the served section carries prose; the rest are nav entries until visited.
+        content: documents[section.id] ?? null,
+        wordCount: wordCounts[section.id],
       })),
-    [documents]
+    [documents, wordCounts]
   );
 
   // The set of ids that actually exist today, so resolveLegacySectionId can tell a retired
@@ -273,7 +361,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
     });
 
     return () => observer.disconnect();
-  }, [isExpanded, navItems]);
+  }, [isExpanded, navItems, setActiveTab]);
 
   const handleNavClick = (itemId: string) => {
     setActiveTab(itemId);
@@ -303,13 +391,16 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
       const targetTab = id.split("-sec-")[0];
       const isValidTab = navItems.some((item) => item.id === targetTab);
 
+      // Carry the fragment into the navigation, so the destination URL is shareable the moment
+      // it lands rather than after the scroll helper catches up.
       if (isValidTab && !isExpanded && activeTab !== targetTab) {
-        setActiveTab(targetTab);
+        setActiveTab(targetTab, id);
       }
       setIsMobileMenuOpen(false);
+      // Polls for up to two seconds, which covers the route fetch as well as lazy mounting.
       scrollToSectionWhenReady(id, "smooth");
     },
-    [activeTab, isExpanded, navItems, validSectionIds]
+    [activeTab, isExpanded, navItems, validSectionIds, setActiveTab]
   );
 
   useEffect(() => {
@@ -326,9 +417,12 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
     const hash = resolveLegacySectionId(window.location.hash.replace(/^#/, ""), validSectionIds);
     if (!hash) return;
     const targetTab = hash.split("-sec-")[0];
-    if (TAB_IDS.includes(targetTab)) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- syncing from the URL, which only exists client-side
-      setActiveTab(targetTab);
+    // `replace`, not `push`: arriving on a shared deep link should not leave the landing route
+    // behind in history for the back button to return to. And deliberately not through
+    // setActiveTab — this is the first paint, so the section must not animate in as though the
+    // reader had navigated to it.
+    if (TAB_IDS.includes(targetTab) && targetTab !== activeTab) {
+      router.replace(`/${targetTab}#${hash}`, { scroll: false });
     }
     scrollToSectionWhenReady(hash, "auto");
     // Runs once, on mount only — validSectionIds is available synchronously from the sections
@@ -348,12 +442,12 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
       const id = resolveLegacySectionId(raw, validSectionIds);
       const targetTab = id.split("-sec-")[0];
       if (!TAB_IDS.includes(targetTab)) return;
-      setActiveTab(targetTab);
+      setActiveTab(targetTab, id);
       scrollToSectionWhenReady(id, "smooth");
     };
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
-  }, [validSectionIds]);
+  }, [validSectionIds, setActiveTab]);
 
   // Section extras.
   //
@@ -382,6 +476,8 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(item.id)}
+                    onPointerEnter={() => prefetchTab(item.id)}
+                    onFocus={() => prefetchTab(item.id)}
                     className="group text-left bg-card border border-line/60 rounded-2xl p-4 hover:border-accent focus-visible:border-accent transition-colors cursor-pointer flex flex-col gap-2 min-h-[112px]"
                   >
                     <div className="flex items-center gap-2.5">
@@ -391,7 +487,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
                     <span className="font-serif text-[15px] font-semibold text-ink leading-snug group-hover:text-accent transition-colors text-balance">
                       {item.label}
                     </span>
-                    <span className="text-xs text-muted leading-snug mt-auto">{item.blurb}</span>
+                    <span className="t-label text-muted leading-snug mt-auto">{item.blurb}</span>
                   </button>
                 );
               })}
@@ -408,21 +504,12 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
         {/* DecisionPanel moved into the document's own close (MarkdownViewer); what remains
             here is page tooling, which is what this footer strip is for. */}
-        {!isFocusMode && sectionId === "decision" && <PrintReportGenerator />}
+        {!isFocusMode && sectionId === "decision" && <PrintReportGenerator onPrint={printFullDocument} />}
       </div>
     );
   };
 
   const activeItem = useMemo(() => navItems.find((t) => t.id === activeTab) || navItems[0], [navItems, activeTab]);
-  
-  const wordCount = useMemo(() => {
-    if (isExpanded) {
-      return navItems.reduce((sum, item) => sum + item.wordCount, 0);
-    }
-    return activeItem.wordCount;
-  }, [isExpanded, activeItem.wordCount, navItems]);
-
-  const readingTime = useMemo(() => Math.max(1, Math.ceil(wordCount / 220)), [wordCount]);
 
   return (
     <SectionNumberMapProvider sections={sections}>
@@ -447,23 +534,23 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
           <div className="fx-hero-seq max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 relative z-10">
             
-            {/* Wiper Patriotic Front (WPF) Brand Banner */}
+            {/* Wiper Democratic Movement brand banner */}
             <div style={{ "--fx-i": 0 } as React.CSSProperties} className="fx-in-left fx-glass fx-lift flex items-center gap-3 mb-4 sm:mb-6 select-none rounded-2xl p-2.5 sm:p-3.5 w-fit">
-              <span className="fx-loop-float inline-flex"><WiperUmbrellaLogo /></span>
+              <span className="inline-flex"><WiperUmbrellaLogo /></span>
               <div>
-                <div className="t-small sm:text-sm tracking-[0.12em] uppercase text-accent font-black">
-                  Wiper Patriotic Front (WPF)
+                <div className="t-small sm:text-sm text-accent font-black">
+                  Wiper Democratic Movement
                 </div>
-                <div className="t-micro sm:text-xs tracking-wider text-muted uppercase font-semibold mt-0.5">
+                <div className="t-micro sm:t-label text-muted font-semibold mt-0.5">
                   Kitui 2027 Strategy Portal
                 </div>
               </div>
             </div>
 
-            <div style={{ "--fx-i": 1 } as React.CSSProperties} className="fx-in-fade confidentiality-marker mb-4 sm:mb-6 flex items-center gap-1.5 text-xs">
-              <span className="fx-loop-blink w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
+            <div style={{ "--fx-i": 1 } as React.CSSProperties} className="fx-in-fade confidentiality-marker mb-4 sm:mb-6 flex items-baseline flex-wrap gap-x-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
               <strong>Confidential</strong>
-              <span className="opacity-70 truncate sm:whitespace-normal">— prepared for Wiper Patriotic Front campaign leadership.</span>
+              <span className="opacity-70">— prepared for Wiper Democratic Movement campaign leadership.</span>
             </div>
 
             {/* The title and the candidate, together. The portrait is a cutout, so it stands on
@@ -483,7 +570,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
                   {"Kitui 2027:\nthe operating system for an Economist Governor."}
                 </SplitText>
               </h1>
-              <p style={{ "--fx-i": 3 } as React.CSSProperties} className="fx-in-up col-start-1 text-sm sm:text-base md:text-lg text-muted max-w-3xl leading-relaxed text-pretty">
+              <p style={{ "--fx-i": 3 } as React.CSSProperties} className="fx-in-up col-start-1 t-body md:t-lead text-muted max-w-3xl leading-relaxed text-pretty">
                 Campaign Strategy & Digital Architecture Proposal for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
               </p>
               {/* The cycler's word list is the section index itself, so it can never drift out of
@@ -493,9 +580,10 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
                 <WordCycler words={navItems.map((n) => n.label)} className="text-accent font-black" />
               </p>
               <div style={{ "--fx-i": 2 } as React.CSSProperties} className="fx-in-settle col-start-2 row-start-2 md:row-start-1 md:row-span-2 self-end w-[104px] md:w-[210px] lg:w-[260px] shrink-0 -mb-1 md:-mb-2">
-                {/* Ken Burns on the cutout, at a rate slow enough that it reads as presence
-                    rather than as movement. It is the only looping transform above the fold. */}
-                <div className="fx-kenburns">
+                {/* No Ken Burns. It was the last looping transform above the fold, and it was
+                    running on the largest image on the page for as long as a reader stayed at
+                    the top of it. */}
+                <div>
                   <Portrait
                     id="hero-clasped-hands"
                     sizes="(min-width: 1024px) 260px, (min-width: 768px) 210px, 104px"
@@ -507,10 +595,10 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
             {/* Quick-jump chips — the five places a candidate reads first, one tap from the top. */}
             <div style={{ "--fx-i": 4 } as React.CSSProperties} className="fx-in-up mt-5 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none lg:hidden select-none -mx-4 px-4">
-              <span className="text-xs font-semibold text-muted shrink-0">Jump to</span>
+              <span className="t-label font-semibold text-muted shrink-0">Jump to</span>
               <RippleButton
                 onClick={() => setIsTOCModalOpen(true)}
-                className="fx-shine px-3 py-1.5 rounded-xl bg-accent text-white text-xs font-bold shrink-0 flex items-center gap-1.5 shadow-sm shadow-accent/20 cursor-pointer tap-chip"
+                className="fx-shine px-3 py-1.5 rounded-xl bg-accent-solid text-on-accent t-label font-bold shrink-0 flex items-center gap-1.5 shadow-sm shadow-accent/20 cursor-pointer tap-chip"
               >
                 <span>Full index</span>
               </RippleButton>
@@ -519,7 +607,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
                   key={link.id}
                   onClick={() => navigateToSection(link.id)}
                   style={{ "--fx-i": i } as React.CSSProperties}
-                  className="fx-bg-slide px-3 py-1.5 rounded-xl bg-card border border-line text-ink text-xs font-bold shrink-0 hover:border-accent hover:text-white cursor-pointer tap-chip"
+                  className="fx-bg-slide px-3 py-1.5 rounded-xl bg-card border border-line text-ink t-label font-bold shrink-0 hover:border-accent hover:text-white cursor-pointer tap-chip"
                 >
                   {link.label}
                 </RippleButton>
@@ -528,7 +616,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
             <Dashboard />
 
-            <MarqueeCarousel />
+            <KeyFactsStrip />
 
             <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start print:hidden">
               {/* The verdict is the answer the whole document exists to give, so it gets the
@@ -536,7 +624,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
                   signatures rather than the same treatment applied twice. */}
               <Reveal variant="left" className="lg:col-span-2" amount={0.1}>
                 <SpotlightCard border className="rounded-2xl">
-                  <NominationVerdict />
+                  <DeficitGauge />
                 </SpotlightCard>
               </Reveal>
               <Reveal variant="right" delay={120} className="lg:col-span-1" amount={0.1}>
@@ -578,7 +666,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
                   <WiperUmbrellaLogo />
                 </div>
                 <div className="hidden sm:block">
-                  <div className="t-label tracking-wider font-black text-accent uppercase leading-none">Wiper Patriotic Front</div>
+                  <div className="t-label font-black text-accent leading-none">Wiper Democratic Movement</div>
                   <div className="t-micro font-bold text-muted uppercase mt-0.5 leading-none">Kitui 2027 Strategy</div>
                 </div>
               </div>
@@ -588,7 +676,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
             <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
               <RippleButton
                 onClick={() => setIsTOCModalOpen(true)}
-                className="group fx-shine flex items-center gap-1.5 px-3 py-2 bg-accent/10 border border-accent/20 rounded-xl text-xs sm:text-sm font-bold text-accent hover:bg-accent hover:text-white transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                className="group fx-shine flex items-center gap-1.5 px-3 py-2 bg-accent/10 border border-accent/20 rounded-xl t-label sm:t-small font-bold text-accent hover:bg-accent hover:text-white transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px]"
                 aria-label="Open Table of Contents"
               >
                 <FileText size={15} className="fx-icon-rise" />
@@ -597,19 +685,19 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
               <button 
                 onClick={cycleDensity}
-                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-2 bg-card border border-line/60 rounded-xl t-label sm:t-small font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px]"
                 title={`Reading Density: ${readingDensity}`}
                 aria-label="Toggle Reading Density"
               >
                 <Type size={14} />
-                <span className="capitalize t-small sm:text-xs hidden xs:inline">{readingDensity}</span>
+                <span className="capitalize t-small sm:t-label hidden xs:inline">{readingDensity}</span>
               </button>
 
               <button 
                 onClick={() => setIsFocusMode(!isFocusMode)}
-                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl text-xs sm:text-sm font-bold fx-press fx-focus transition-all cursor-pointer min-h-[40px] sm:min-h-[42px] ${
-                  isFocusMode 
-                    ? "bg-accent border-accent text-white shadow-sm" 
+                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl t-label sm:t-small font-bold fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px] ${
+ isFocusMode 
+                    ? "bg-accent-solid border-accent-solid text-on-accent shadow-sm" 
                     : "bg-card border-line/60 text-ink hover:border-accent hover:text-accent"
                 }`}
                 title={isFocusMode ? "Exit Focus Mode" : "Enter Distraction-Free Focus Mode"}
@@ -621,31 +709,31 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
               <button 
                 onClick={() => setIsZeroChrome(!isZeroChrome)}
-                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl text-xs sm:text-sm font-bold fx-press fx-focus transition-all cursor-pointer min-h-[40px] sm:min-h-[42px] ${
-                  isZeroChrome 
-                    ? "bg-accent border-accent text-white shadow-sm" 
+                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl t-label sm:t-small font-bold fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px] ${
+ isZeroChrome 
+                    ? "bg-accent-solid border-accent-solid text-on-accent shadow-sm" 
                     : "bg-card border-line/60 text-ink hover:border-accent hover:text-accent"
                 }`}
-                title={isZeroChrome ? "Exit Zero Chrome" : "Enter Zero Chrome Full-Screen"}
-                aria-label="Toggle Zero Chrome"
+                title={isZeroChrome ? "Leave reading view" : "Enter reading view"}
+                aria-label="Toggle reading view"
               >
                 <EyeOff size={14} className={isZeroChrome ? "text-white" : "text-accent"} />
-                <span className="hidden sm:inline">Zero Chrome</span>
+                <span className="hidden sm:inline">Reading view</span>
               </button>
 
               <button 
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="flex items-center gap-1.5 px-3 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                className="flex items-center gap-1.5 px-3 py-2 bg-card border border-line/60 rounded-xl t-label sm:t-small font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px]"
               >
                 {isExpanded ? <Minimize2 size={15} /> : <Maximize2 size={15} />}
-                <span className="hidden sm:inline">{isExpanded ? "Collapse All" : "Expand All"}</span>
+                <span className="hidden sm:inline">{isExpanded ? "Close every section" : "Open every section"}</span>
                 <span className="sm:hidden">{isExpanded ? "Collapse" : "All"}</span>
               </button>
 
               <MagneticButton
-                onClick={() => window.print()}
+                onClick={printFullDocument}
                 strength={0.22}
-                className="group hidden sm:flex items-center gap-2 px-3.5 py-2 bg-card border border-line/60 rounded-xl text-sm font-bold text-ink hover:border-accent hover:text-accent transition-all cursor-pointer min-h-[42px]"
+                className="group hidden sm:flex items-center gap-2 px-3.5 py-2 bg-card border border-line/60 rounded-xl text-sm font-bold text-ink hover:border-accent hover:text-accent transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center"
               >
                 <Printer size={15} className="fx-icon-rise" />
                 <span>Print</span>
@@ -653,7 +741,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
 
               <button 
                 onClick={toggleTheme}
-                className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 bg-card border border-line/60 rounded-xl text-xs sm:text-sm font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[40px] sm:min-h-[42px]"
+                className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 bg-card border border-line/60 rounded-xl t-label sm:t-small font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px]"
                 aria-label="Toggle theme"
               >
                 {mounted ? (
@@ -668,10 +756,6 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
             </div>
           </div>
 
-          <div className="t-small sm:text-xs font-bold text-muted shrink-0 pl-1 sm:pl-2">
-            <span className="hidden md:inline">{readingTime} min read · </span>
-            <span>{wordCount.toLocaleString()} wds</span>
-          </div>
         </div>
 
         <SectionStickyBar sectionLabel={isExpanded ? undefined : activeItem.label} />
@@ -682,7 +766,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
           <aside className="toc-rail hidden lg:block w-72 flex-shrink-0 print:hidden">
             <div className="sticky top-24 space-y-4">
               <SpotlightCard className="fx-glass rounded-2xl p-4">
-                <div className="text-xs font-semibold text-muted mb-3 flex items-center justify-between">
+                <div className="t-label font-semibold text-muted mb-3 flex items-center justify-between">
                   <span>The proposal</span>
                   <span className="font-mono text-accent tabular-nums">{navItems.length} sections</span>
                 </div>
@@ -701,15 +785,17 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
                   {navItems.map((item) => {
                     const Icon = item.icon;
                     const isActive = activeTab === item.id;
-                    const sectionReadMin = Math.max(1, Math.ceil(item.wordCount / 220));
+                    const sectionReadMin = readingMinutes(item.wordCount);
                     return (
                       <button
                         key={item.id}
                         onClick={() => handleNavClick(item.id)}
+                    onPointerEnter={() => prefetchTab(item.id)}
+                    onFocus={() => prefetchTab(item.id)}
                         aria-current={isActive ? "true" : undefined}
-                        className={`group relative flex items-center justify-between gap-2 px-2.5 py-2 rounded-xl text-xs transition-colors text-left ${
-                          isActive
-                            ? "bg-accent text-white shadow-sm shadow-accent/20 font-semibold"
+                        className={`group relative flex items-center justify-between gap-2 px-2.5 py-2 rounded-xl t-label transition-colors text-left ${
+ isActive
+                            ? "bg-accent-solid text-on-accent shadow-sm shadow-accent/20 font-semibold"
                             : "text-muted hover:bg-ink/5 hover:text-ink cursor-pointer font-medium"
                         }`}
                       >
@@ -718,7 +804,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
                           <span className="truncate leading-snug">{item.label}</span>
                         </div>
                         <span className={`font-mono text-[10px] shrink-0 tabular-nums ${
-                          isActive ? "text-white/70" : "text-muted/70"
+ isActive ? "text-white/70" : "text-muted/70"
                         }`}>
                           {sectionReadMin}m
                         </span>
@@ -729,8 +815,8 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
               </SpotlightCard>
 
               {/* Minimalist Key Metric Summary Card */}
-              <div className="fx-glass fx-lift rounded-2xl p-3.5 text-xs space-y-2">
-                <div className="flex items-center justify-between t-label uppercase tracking-wider font-extrabold text-muted">
+              <div className="fx-glass fx-lift rounded-2xl p-3.5 t-label space-y-2">
+                <div className="flex items-center justify-between t-label font-extrabold text-muted">
                   <span>Target Victory</span>
                   <span className="text-accent font-black tabular-nums">200k Votes</span>
                 </div>
@@ -755,11 +841,16 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
                   <div key={item.id}>
                     <PartDivider number={item.number} label={item.label} />
                     <div className={`bg-gradient-to-b ${PART_TINTS[index % PART_TINTS.length]} to-transparent rounded-b-3xl pt-8`}>
+                      {/* Every section mounts at once on /full, rather than waiting to be
+                          scrolled into view. This is the route Expand All and Export PDF lead
+                          to, and a print job does not scroll: lazy-mounting here is what made
+                          the old PDF come out as one section of prose followed by eight
+                          skeletons. /full is the expensive route by design; this is the expense. */}
                       <LazySection
                         id={item.id}
                         content={item.content}
                         renderSectionExtras={renderSectionExtras}
-                        immediate={index === 0}
+                        immediate
                       />
                     </div>
                   </div>
@@ -767,7 +858,7 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
               </div>
             ) : (
               <AnimatePresence mode="wait">
-                <SectionTransition tabKey={activeTab}>
+                <SectionTransition tabKey={activeTab} animateEntrance={navigated}>
                   <LazySection 
                     id={activeItem.id}
                     content={activeItem.content}
@@ -788,9 +879,16 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
         <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-4 sm:inset-x-6 top-0" />
         <div className="confidentiality-marker mb-3">
           <strong>Confidential</strong>
-          <span className="opacity-70"> — link-only proposal for Wiper Patriotic Front campaign leadership. Not for public distribution.</span>
+          <span className="opacity-70"> — link-only proposal for Wiper Democratic Movement campaign leadership. Not for public distribution.</span>
         </div>
-        <p className="text-sm text-muted">Prepared by Firefly Management · August 2026 · Proposal for discussion.</p>
+        <dl className="text-sm text-muted grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 max-w-md">
+          <dt className="font-semibold text-ink">Prepared by</dt>
+          <dd>Firefly Management</dd>
+          <dt className="font-semibold text-ink">Date</dt>
+          <dd>August 2026</dd>
+          <dt className="font-semibold text-ink">Status</dt>
+          <dd>Proposal for discussion</dd>
+        </dl>
         <p className="mt-2 text-sm font-bold text-ink">Confidentiality / distribution:</p>
         <p className="text-sm text-muted">This proposal is designed as a personally shared, link-only document. It is configured as noindex, nofollow and contains deliberate placeholders where primary documents or campaign decisions are still required.</p>
       </footer>
@@ -811,6 +909,9 @@ export function ClientPage({ sections, documents }: ClientPageProps) {
       {/* Mobile Table of Contents Full Modal Sheet */}
       <MobileTOCModal
         sections={sections}
+        wordCounts={wordCounts}
+        visited={visited}
+        onSelectTab={(tabId) => handleNavClick(tabId)}
         isOpen={isTOCModalOpen}
         onClose={() => setIsTOCModalOpen(false)}
         activeTab={activeTab}

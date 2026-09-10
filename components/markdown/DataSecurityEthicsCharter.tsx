@@ -52,15 +52,6 @@ const ETHICAL_COMMITMENTS: EthicalCommitment[] = [
     isComplianceGated: false
   },
   {
-    id: "eth-5",
-    category: "Campaign Finance",
-    ruleName: "20% Single-Source Contribution Ceiling",
-    statutoryBasis: "IEBC Gazette Notice No. 12251 (7 Aug 2026)",
-    campaignStandard: "No single donor may contribute more than KSh 19.51M (20% of the KSh 97.56M county ceiling). All donations audited and logged to the compliance ledger.",
-    penaltyForBreach: "Fine up to KSh 2M, imprisonment up to 5 years, or campaign disqualification.",
-    isComplianceGated: true
-  },
-  {
     id: "eth-6",
     category: "Data Storage & Privacy",
     ruleName: "Post-Election Data Deletion Schedule",
@@ -100,21 +91,21 @@ export function DataSecurityEthicsCharter() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Ethics and data charter
               </span>
               <span className="t-label font-mono font-bold text-muted">
                 DPA 2019 & IEBC Compliance
               </span>
             </div>
-            <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
+            <h3 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
               Digital Ethics, Data Privacy & Regulatory Compliance Charter
-            </h4>
+            </h3>
           </div>
         </div>
 
         {/* ODPC Status Pill */}
-        <div className="flex items-center gap-2 px-3 py-1.5 bg-card border border-emerald-500/30 rounded-xl text-xs font-semibold text-emerald-700 dark:text-emerald-300">
+        <div className="flex items-center gap-2 px-3 py-1.5 bg-card border border-emerald-500/30 rounded-xl t-label font-semibold text-emerald-700 dark:text-emerald-300">
           <ShieldCheck size={14} className="text-emerald-600 dark:text-emerald-400" />
           <span>ODPC & IEBC Pre-Audited Standards</span>
         </div>
@@ -126,9 +117,9 @@ export function DataSecurityEthicsCharter() {
           <button
             key={cat}
             onClick={() => setSelectedFilter(cat)}
-            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-              selectedFilter === cat
-                ? "bg-accent text-white shadow-sm"
+            className={`px-3 py-1.5 min-h-[44px] min-w-[44px] justify-center inline-flex items-center rounded-xl t-label font-bold transition-all cursor-pointer ${
+ selectedFilter === cat
+                ? "bg-accent-solid text-on-accent shadow-sm"
                 : "bg-card border border-line text-muted hover:text-ink"
             }`}
           >
@@ -145,21 +136,21 @@ export function DataSecurityEthicsCharter() {
             <div
               key={rule.id}
               className={`p-4 rounded-xl border transition-all ${
-                isChecked ? "bg-paper/80 border-line" : "bg-card border-line/40 opacity-70"
+ isChecked ? "bg-paper/80 border-line" : "bg-card border-line/40 opacity-70"
               }`}
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div className="flex items-center gap-3">
                   <button
                     onClick={() => toggleCheck(rule.id)}
-                    className="w-6 h-6 rounded-lg bg-card border border-line flex items-center justify-center text-accent hover:border-accent cursor-pointer shrink-0"
+                    className="h-11 w-11 rounded-lg bg-card border border-line flex items-center justify-center text-accent hover:border-accent cursor-pointer shrink-0"
                   >
                     {isChecked && <CheckSquare size={16} className="text-accent" />}
                   </button>
 
                   <div>
                     <div className="flex items-center gap-2">
-                      <h5 className="text-xs sm:text-sm font-bold text-ink">{rule.ruleName}</h5>
+                      <h5 className="t-label sm:t-small font-bold text-ink">{rule.ruleName}</h5>
                       {rule.isComplianceGated && (
                         <span className="t-micro font-black uppercase px-2 py-0.5 rounded bg-accent/10 text-accent border border-accent/20">
                           Compliance Gate
@@ -179,7 +170,7 @@ export function DataSecurityEthicsCharter() {
                 </div>
               </div>
 
-              <p className="text-xs text-ink font-medium mt-2.5 leading-relaxed">
+              <p className="t-label text-ink font-medium mt-2.5 leading-relaxed">
                 {rule.campaignStandard}
               </p>
 

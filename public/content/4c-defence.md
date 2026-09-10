@@ -37,7 +37,7 @@ The campaign monitors four complementary intelligence streams 24 hours a day, 7 
 1.  **Broadcast Vernacular Radio Triage (06:00–21:00 EAT):** Dedicated audio recording monitors tracking morning and evening talk shows across *Musyi FM, Mbaitu FM, Sang'u FM, County FM*, and *Athiani FM*. Immediate audio clipping of candidate mentions or political challenger assertions.
 2.  **Ward WhatsApp Ingestion Network:** 40 Constituency Monitoring Assistants monitoring ~180 major community, market, church, and clan WhatsApp groups across all 8 sub-counties.
 3.  **Social Listening Keyword Feeds:** Automated continuous tracking via Brand24 / Talkwalker of high-frequency keywords: *"Dr. Makali Mulu"*, *"Kitui Governor 2027"*, *"Kitui Central CDF"*, *"Ndengu price"*, and competitor candidate handles.
-4.  **Field Captain Rumor Logs:** Twice-daily SMS pulse reports from the 400 Village Ward Captains logging prevalent market-day and baraza whispers.
+4.  **Field Captain Rumor Logs:** Twice-daily SMS pulse reports from the 400 Ward Captains logging prevalent market-day and baraza whispers.
 
 ---
 
@@ -134,7 +134,7 @@ The campaign maintains ready-to-deploy holding positions, evidential citations, 
 │                     delivery tracker and does not carry a schedule; Firefly would build                     │
 │                     the formula with the campaign before this line is used on air.                          │
 ├─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 3. THE "REMOTE OPERATING MODEL / NAIROBI TECHNOCRAT" QUESTION                                               │
+│ 3. THE "NAIROBI TECHNOCRAT" QUESTION                                                                        │
 ├─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
 │ • Attack Line:     "He is a bookish technocrat who spends his time in Nairobi committees rather than on the│
 │                     ground with ordinary wananchi."                                                         │
@@ -184,10 +184,19 @@ All campaign communicators, surrogates, and media buyers are strictly bound by t
 
 ## 5.2 The digital war room
 
-### 5.2.1 What the war room is for
+### 5.2.1 War room operating model, shift coverage and dashboard view
 
-The remote war room is the campaign's nerve centre for monitoring, response and
+The war room is the campaign's nerve centre for monitoring, response and
 rapid decision-making.
+
+During peak periods (January–August 2027), the war room operates on a three-shift rotation:
+| Shift | Hours (EAT) | Focus |
+|---|---|---|
+| Morning | 06:00–14:00 | Scheduling, sentiment check, news and radio monitoring |
+| Afternoon | 14:00–22:00 | Live coverage, engagement, rapid response |
+| Night | 22:00–06:00 | Monitoring only; escalation to on-call strategist at crisis threshold |
+
+The command console centralises real-time metrics: live sentiment score; trending hashtags; competitor activity alerts; misinformation tracking log; response status tracker; hourly engagement; **SMS delivery and opt-out rates**; and **spend against ceiling**.
 
 ### 5.2.2 Monitoring tools
 
@@ -202,16 +211,7 @@ rapid decision-making.
 | Custom BI dashboard | Centralised real-time metrics |
 | **Radio monitoring** | Kamba-language station tracking (Section 3.5) — critical, as most attacks on Dr. Mulu will originate on air, not online |
 
-### 5.2.3 The shift schedule
-
-During peak periods (January–August 2027):
-| Shift | Hours (EAT) | Focus |
-|---|---|---|
-| Morning | 06:00–14:00 | Scheduling, sentiment check, news and radio monitoring |
-| Afternoon | 14:00–22:00 | Live coverage, engagement, rapid response |
-| Night | 22:00–06:00 | Monitoring only; escalation to on-call strategist at crisis threshold |
-
-### 5.2.4 The rapid-response protocol
+### 5.2.3 Rapid-response protocol and pre-approved message library
 
 | Severity | Definition | Response time | Approval |
 |---|---|---|---|
@@ -219,22 +219,14 @@ During peak periods (January–August 2027):
 | **Level 2** | Coordinated attack; viral misinformation (>10,000 views) | ≤ 2 hours | Campaign Communications Director |
 | **Level 3** | Major crisis — false allegation, **manipulated or AI-generated media**, legal threat | ≤ 30 minutes | **Candidate + senior leadership** |
 
-### 5.2.5 The pre-approved message library
-
-Maintained for rapid response without waiting on approvals:
+To execute rapid containment without awaiting ad-hoc legal drafting, a pre-approved message library is maintained:
 * Standard rebuttals for false claims about Dr. Mulu's record
 * Kikamba, Kiswahili and English versions of key messages
 * Template statements for policy positions issued in response to attack
 * Fact-check cards linking to verified sources
 * **Deepfake first-response templates** (Section 5.3.5)
 
-### 5.2.6 The dashboard view
-
-Live sentiment score; trending hashtags; competitor activity alerts;
-misinformation tracking log; response status tracker; hourly engagement;
-**SMS delivery and opt-out rates**; **spend against ceiling**.
-
-### 5.2.7 Red-team drills
+### 5.2.4 Red-team drills
 
 *Reactive protocols fail because they are first used under real pressure.*
 
@@ -245,7 +237,7 @@ before the general election.
 **Method:** a small red-team panel — Firefly's crisis lead, one campaign
 representative, and an external participant with no stake in the outcome — is
 briefed to attack. The response team is **not** told which scenario is coming
-or when. The drill runs in real time against the Section 5.2.4 clock.
+or when. The drill runs in real time against the Section 5.2.3 clock.
 
 **Standing scenario library:**
 | # | Scenario | Tests |
@@ -255,7 +247,6 @@ or when. The drill runs in real time against the Section 5.2.4 clock.
 | 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval (Section 6.5.4) |
 | 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 3.5) |
 | 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section 5.3.4) |
-| 6 | Allegation of exceeding the IEBC spending ceiling | Ledger reconciliation retrieval (Section 9.2.4) |
 | 7 | Manufactured "grassroots" campaign attacking a rival, falsely attributed to Dr. Mulu | Charter defence; provenance evidence |
 
 **Output:** every drill produces a written report — actual response times
@@ -408,25 +399,20 @@ knowing what opponents say publicly, not surveilling them.
 | **Radio monitoring** | Kamba-station coverage and airtime share (Section 3.5) |
 | **Published polling tracker** | Mizani Africa and other published surveys, logged with dates and methodology notes |
 
-### 5.4.3 The monthly competitive brief
+### 5.4.3 Competitive intelligence outputs and rapid alerts
 
-1. **Rival digital activity:** platforms, posting frequency, engagement rates,
-follower growth
-2. **Ad spend estimates:** from ad libraries and transparency data
-3. **Messaging analysis:** themes, framing, target audiences
-4. **Vulnerability assessment:** gaps, policy inconsistencies, negative
-sentiment trends
-5. **Polling movement:** changes in published surveys with sub-county detail
-where available
-6. **Recommendations:** counter-messaging and proactive content
+The competitive intelligence workflow produces two operational outputs:
 
-### 5.4.4 The rapid alert system
+1. **The monthly competitive brief:**
+   * **Rival digital activity:** platforms, posting frequency, engagement rates, follower growth
+   * **Ad spend estimates:** from ad libraries and transparency data
+   * **Messaging analysis:** themes, framing, target audiences
+   * **Vulnerability assessment:** gaps, policy inconsistencies, negative sentiment trends
+   * **Polling movement:** changes in published surveys with sub-county detail where available
+   * **Recommendations:** counter-messaging and proactive content
+2. **The rapid alert system:** New attacks or significant messaging shifts trigger real-time alerts to campaign leadership with recommended responses drawn from the pre-approved library.
 
-New attacks or significant messaging shifts trigger real-time alerts to
-campaign leadership with recommended responses drawn from the pre-approved
-library.
-
-### 5.4.5 Reading the current field
+### 5.4.4 Reading the current field
 
 The August 2026 published survey shows Dr. Kasalu's strength built on
 countywide grassroots touring under a branded programme. The strategic

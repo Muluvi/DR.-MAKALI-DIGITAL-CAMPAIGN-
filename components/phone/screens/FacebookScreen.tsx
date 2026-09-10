@@ -5,8 +5,9 @@ import { motion } from "motion/react";
 import { Bell, Globe, Home, MessageCircle, MoreHorizontal, Search, Share2, ThumbsUp, Users } from "lucide-react";
 
 import { FACEBOOK, IDENTITY, ILLUSTRATIVE_COUNTS } from "../../../lib/phone-showcase";
-import { EASE_ENTRANCE, STAGGER } from "../../../lib/motion";
+import { DURATION, EASE_ENTRANCE, STAGGER } from "../../../lib/motion";
 import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
+import { useMotionPreset } from "../../../hooks/useMotionPreset";
 import { Avatar, ScreenShell, Slot } from "../primitives";
 
 /**
@@ -27,6 +28,7 @@ const CANVAS = "#f0f2f5";
 
 /** The overlapping reaction pills. Drawn, not emoji. */
 function ReactionPills({ show, reduce }: { show: boolean; reduce: boolean }) {
+  const { enter } = useMotionPreset();
   const pills = [
     { bg: BLUE, node: <ThumbsUp size={9} color="#fff" fill="#fff" strokeWidth={0} aria-hidden="true" /> },
     {
@@ -52,9 +54,9 @@ function ReactionPills({ show, reduce }: { show: boolean; reduce: boolean }) {
             marginLeft: i === 0 ? 0 : -6,
             zIndex: pills.length - i,
           }}
-          initial={reduce ? false : { scale: 0.4, opacity: 0 }}
+          initial={enter({ scale: 0.4, opacity: 0 })}
           animate={show || reduce ? { scale: 1, opacity: 1 } : { scale: 0.4, opacity: 0 }}
-          transition={{ duration: 0.36, ease: EASE_ENTRANCE, delay: reduce ? 0 : i * STAGGER.tight }}
+          transition={{ duration: DURATION.base, ease: EASE_ENTRANCE, delay: reduce ? 0 : i * STAGGER.tight }}
         >
           {p.node}
         </motion.span>
@@ -65,6 +67,7 @@ function ReactionPills({ show, reduce }: { show: boolean; reduce: boolean }) {
 
 export function FacebookScreen() {
   const reduce = useReducedMotionSafe();
+  const { enter } = useMotionPreset();
   const [settled, setSettled] = useState(false);
 
   useEffect(() => {

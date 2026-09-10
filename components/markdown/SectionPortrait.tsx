@@ -30,14 +30,14 @@ export function SectionPortrait({
     <div className="not-prose my-7 print-avoid-break">
       <div
         className={`flex flex-col sm:flex-row items-center gap-4 sm:gap-6 ${
-          flip ? "sm:flex-row-reverse" : ""
+ flip ? "sm:flex-row-reverse" : ""
         }`}
       >
         <div className="fx-photo-frame w-[140px] sm:w-[168px] lg:w-[196px] shrink-0">
           <Portrait id={id} sizes="(min-width: 1024px) 196px, (min-width: 640px) 168px, 140px" />
         </div>
         <div className={`min-w-0 ${flip ? "sm:pr-2" : "sm:pl-2"}`}>
-          <p className="t-micro font-black uppercase tracking-widest text-accent mb-2">{kicker}</p>
+          <p className="t-micro font-black text-accent mb-2">{kicker}</p>
           <p className="font-serif t-lead sm:text-lg font-semibold text-ink leading-snug text-balance">
             {children}
           </p>

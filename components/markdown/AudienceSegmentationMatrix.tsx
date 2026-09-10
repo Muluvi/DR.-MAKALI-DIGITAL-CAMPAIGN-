@@ -6,6 +6,7 @@ import { Users, Radio, MessageSquare, AlertTriangle, Layers } from "lucide-react
 
 import { ClaimBadge } from "./ClaimBadge";
 import { TierBadge } from "./TierBadge";
+import { DURATION } from "../../lib/motion";
 
 /**
  * §2.4.1–2.4.2 — the six structural segments.
@@ -148,7 +149,7 @@ export function AudienceSegmentationMatrix() {
             <Layers size={20} aria-hidden="true" />
           </div>
           <div>
-            <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+            <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
               Audience architecture
             </span>
             <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-1">Six structural segments</h4>
@@ -170,7 +171,7 @@ export function AudienceSegmentationMatrix() {
               aria-selected={isActive}
               onClick={() => setActiveId(s.id)}
               className={`snap-start tap-chip px-3 py-2 rounded-lg t-small font-bold whitespace-nowrap transition-colors cursor-pointer shrink-0 ${
-                isActive ? "bg-accent text-white" : "text-muted hover:text-ink hover:bg-ink/5"
+ isActive ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink hover:bg-ink/5"
               }`}
             >
               <span className="font-mono opacity-70 mr-1.5">{s.index}</span>
@@ -186,7 +187,7 @@ export function AudienceSegmentationMatrix() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.18, ease: "easeOut" }}
+          transition={{ duration: DURATION.instant, ease: "easeOut" }}
           className="p-4 sm:p-6 space-y-4"
         >
           <div>
@@ -195,7 +196,7 @@ export function AudienceSegmentationMatrix() {
               {active.sizing.kind === "sized" ? (
                 <>
                   <span className="font-mono text-sm font-black text-accent tabular-nums">{active.sizing.voters}</span>
-                  <span className="text-xs text-muted">{active.sizing.share}</span>
+                  <span className="t-label text-muted">{active.sizing.share}</span>
                   <TierBadge tier={active.sizing.tier} compact />
                 </>
               ) : (
@@ -218,38 +219,38 @@ export function AudienceSegmentationMatrix() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="p-3.5 rounded-xl bg-paper/60 border border-line">
-              <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1 mb-1.5">
+              <div className="t-label font-black text-muted flex items-center gap-1 mb-1.5">
                 <Radio size={12} className="text-accent" aria-hidden="true" />
                 Connectivity &amp; media
               </div>
-              <p className="text-xs text-ink leading-relaxed">{active.connectivity}</p>
+              <p className="t-label text-ink leading-relaxed">{active.connectivity}</p>
             </div>
             <div className="p-3.5 rounded-xl bg-paper/60 border border-line">
-              <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1 mb-1.5">
+              <div className="t-label font-black text-muted flex items-center gap-1 mb-1.5">
                 <Users size={12} className="text-accent" aria-hidden="true" />
                 Geographic base
               </div>
-              <p className="text-xs text-ink leading-relaxed">{active.geographicBase}</p>
+              <p className="t-label text-ink leading-relaxed">{active.geographicBase}</p>
             </div>
           </div>
 
           <div className="p-4 rounded-xl bg-paper border border-line space-y-3">
             <div>
-              <div className="t-label font-black uppercase tracking-wider text-rose-600 dark:text-rose-400 mb-1">
+              <div className="t-label font-black text-rose-600 dark:text-rose-400 mb-1">
                 Core anxiety
               </div>
-              <p className="text-xs text-ink leading-relaxed">{active.coreAnxiety}</p>
+              <p className="t-label text-ink leading-relaxed">{active.coreAnxiety}</p>
             </div>
             <div className="pt-3 border-t border-line/50">
-              <div className="t-label font-black uppercase tracking-wider text-accent mb-1">
+              <div className="t-label font-black text-accent mb-1">
                 Candidate value proposition
               </div>
-              <p className="text-xs text-ink leading-relaxed">{active.valueProposition}</p>
+              <p className="t-label text-ink leading-relaxed">{active.valueProposition}</p>
             </div>
           </div>
 
           <div>
-            <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1 mb-2">
+            <div className="t-label font-black text-muted flex items-center gap-1 mb-2">
               <MessageSquare size={12} className="text-accent" aria-hidden="true" />
               Reachable channels
             </div>

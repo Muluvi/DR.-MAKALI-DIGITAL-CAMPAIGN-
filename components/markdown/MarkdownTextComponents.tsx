@@ -1,17 +1,30 @@
-"use client";
-
 import React from "react";
 import { CheckCircle2 } from "lucide-react";
 import { HighlightedText } from "./HighlightedText";
+import { hasHighlight } from "../../lib/highlight-patterns";
 import type { TabId } from "../../lib/heading-slug";
+
+/**
+ * Server components. Between them they render every paragraph and every list item in a
+ * ~200-minute document, so the cost of marking them `"use client"` was paid on every one of
+ * several thousand text nodes — each shipped to the browser and hydrated purely to discover it
+ * had nothing to highlight. `hasHighlight` is the same pattern set the highlighter itself uses
+ * (lib/highlight-patterns is the single source), so a string only crosses into the client tree
+ * when there is genuinely a tooltip, cross-reference, claim badge, working drawer or key-takeaway
+ * banner in it. Everything else is plain server-rendered markup.
+ */
+function highlight(children: React.ReactNode, tabId?: TabId) {
+  return React.Children.map(children, (child) => {
+    if (typeof child !== "string") return child;
+    if (!hasHighlight(child)) return child;
+    return <HighlightedText text={child} tabId={tabId} />;
+  });
+}
 
 export function MarkdownParagraph({ children, tabId }: { children?: React.ReactNode; tabId?: TabId }) {
   return (
     <p className="t-lead sm:t-lead text-ink/90 leading-[1.7] my-3 sm:my-4.5 text-pretty max-w-none lg:max-w-[72ch]">
-      {React.Children.map(children, (child) => {
-        if (typeof child === "string") return <HighlightedText text={child} tabId={tabId} />;
-        return child;
-      })}
+      {highlight(children, tabId)}
     </p>
   );
 }
@@ -27,10 +40,7 @@ export function MarkdownListItem({
    * governing claims, instead of the default plain bullet. */
   emphasis?: boolean;
 }) {
-  const content = React.Children.map(children, (child) => {
-    if (typeof child === "string") return <HighlightedText text={child} tabId={tabId} />;
-    return child;
-  });
+  const content = highlight(children, tabId);
 
   if (emphasis) {
     return (

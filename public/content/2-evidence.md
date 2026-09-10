@@ -31,7 +31,7 @@ To transition this selection mechanism from a Tier 3 strategic assumption to a *
 
 To protect the campaign against biased or unweighted polling results, the digital and analytical teams must evaluate any party-commissioned polling instrument against these strict research parameters:
 *   **Sampling Frame:** A multi-stage stratified random sampling model based on the official **2022/2027 IEBC Polling Station Registries** across all 8 sub-counties, excluding any non-voter or unregistered residents.
-*   **Sample Size ($N$):** A minimum countywide sample of **$N = 1,200$ to $N = 1,500$ registered voters**, yielding a margin of error of $\pm 2.53\%$ at a 95% confidence interval.
+*   **Sample Size (N):** A minimum countywide sample of **N = 1,200 to N = 1,500 registered voters**, yielding a margin of error of ±2.53% at a 95% confidence interval.
 *   **Sub-Sample Allocation:** Sub-sample sizes must be proportionally allocated per sub-county based on official registered voter numbers (e.g., Kitui Central's sub-sample size must be approximately **175 to 220 respondents**).
 *   **Question Wording (Aided vs. Unaided):**
     *   *Unaided (Spontaneous) Recognition:* *"If the election for Governor of Kitui County were held today, who would you spontaneously vote for?"* (This tests top-of-mind brand equity and intensity of support).
@@ -117,7 +117,7 @@ The campaign classifies all intelligence into three immutable evidential tiers:
 
 #### Standard Implementation Rules:
 *   *Tier 1 Data* (e.g., 532,758 registered voters, 40 wards, 198,004 winning vote baseline) is hardcoded into operational models and cannot be modified without gazetted IEBC addenda.
-*   *Tier 2 Data* (e.g., Mizani Africa 7 August 2026 survey: Kasalu 37.4%, Mulu 22.1%) is treated as empirical snapshots carrying declared margins of error ($\pm 2.53\%$).
+*   *Tier 2 Data* (e.g., Mizani Africa 7 August 2026 survey: Kasalu 37.4%, Mulu 22.1%) is treated as empirical snapshots carrying declared margins of error (±2.53%).
 *   *Tier 3 Data* (e.g., informal reports that Wiper party primaries will use polling rather than delegates) is explicitly watermarked as single-source until validated by formal party communiques.
 
 ---
@@ -174,7 +174,7 @@ The 2027 gubernatorial race in Kitui features a highly competitive, multi-candid
 
 #### Stage One: The Wiper Democratic Movement Nomination Window (Immediate Target)
 
-*   **Dr. Irene Kasalu (Woman Representative, Kitui County):** Commands an expansive, countywide constituency base by virtue of her seat. It has been reported in regional media that she maintains active grassroots networks built through her extensive local development tours ("Ziara Mashinani") (Tier 2). Polling data as of August 2026 establishes her as the current frontrunner in public preference at 37.4% (Tier 2). However, critics allege a lack of structured financial governance or executive experience. Her public criticism of the incumbent's equal-ward funding allocation is a live policy argument, and one where the campaign's own position needs settling first: Section 2.6.1 currently proposes an equal-ward guarantee of its own. The two positions cannot both be run. Either the equal-ward guarantee is the platform, and this line of argument is not available to the campaign, or the argument is made and the guarantee is restated as a needs-weighted formula. **Firefly's recommendation is the second, because a published allocation methodology is the stronger fit with the verification pillar in Section 2.2.4 — but it is the campaign's policy call.**
+*   **Dr. Irene Kasalu (Woman Representative, Kitui County):** Commands an expansive, countywide constituency base by virtue of her seat. It has been reported in regional media that she maintains active grassroots networks built through her extensive local development tours ("Ziara Mashinani") (Tier 2). Polling data as of August 2026 establishes her as the current frontrunner in public preference at 37.4% (Tier 2). However, critics allege a lack of structured financial governance or executive experience. Her public criticism of the incumbent's equal-ward funding allocation is a live policy argument, and one where the campaign's own position needs settling first: Section 2.6.1 currently proposes an equal-ward guarantee of its own. The two positions cannot both be run. Either the equal-ward guarantee is the platform, and this line of argument is not available to the campaign, or the argument is made and the guarantee is restated as a needs-weighted formula. **Firefly's recommendation is the second, because a published allocation methodology is the stronger fit with the verification pillar in Section 2.2.1 — but it is the campaign's policy call.**
 *   **Sen. Enoch Wambua (Senator, Kitui County):** Commands significant party influence and standing as a senior legislator within the Wiper Democratic Movement (Tier 1). He retains a highly loyal, traditional party delegate and voter base (Tier 1). However, published survey trends indicate a contraction in his countywide support, declining from 16.3% in June 2026 to 14.3% as of 7 August 2026 (Tier 2).
 *   **Hon. Dr. Benson Makali Mulu (Member of Parliament, Kitui Central):** Possesses the most comprehensive macroeconomic, fiscal, and monitoring and evaluation credentials in the race (Tier 1). However, his primary structural challenge is constituency-bounded name recognition: a Kitui Central MP is inherently less visible in the Mwingi sub-counties and the arid southern belt than countywide office holders (Tier 1).
 
@@ -542,35 +542,35 @@ To establish an unshakeable mathematical path to victory, the campaign evaluates
 ```
 
 #### Path A: The Northern Mwingi Triad (The "Mwingi Bloc")
-*   **Constituency Composition:** Mwingi Central ($74,231$) + Mwingi North ($68,829$) + Mwingi West ($57,138$).
+*   **Constituency Composition:** Mwingi Central (74,231) + Mwingi North (68,829) + Mwingi West (57,138).
 *   **Total Registered Voters:** **200,198 voters** across **15 wards** (**37.58%** of county total).
 *   **Mathematical Proof:**
-    $$\text{Total}_{\text{Mwingi}} = 74,231 + 68,829 + 57,138 = 200,198 \text{ registered voters}$$
-    $$\text{Margin over 2022 Malombe winning total (198,004)} = 200,198 - 198,004 = +2,194 \text{ voters}$$
-*   **Turnout Reality:** At the 62.0% turnout baseline these 200,198 registered voters produce approximately **124,100 actual ballots cast**. Even an unprecedented 80% share of them ($99,280$ votes) leaves the campaign roughly **99,000 votes short** of the 200,000 threshold.
+    *   `Total (Mwingi) = 74,231 + 68,829 + 57,138 = 200,198 registered voters`
+    *   `Margin over 2022 Malombe winning total (198,004) = 200,198 − 198,004 = +2,194 voters`
+*   **Turnout Reality:** At the 62.0% turnout baseline these 200,198 registered voters produce approximately **124,100 actual ballots cast**. Even an unprecedented 80% share of them (99,280 votes) leaves the campaign roughly **99,000 votes short** of the 200,000 threshold.
 *   **Strategic Implication:** The Mwingi bloc is the largest single reservoir of votes in the county and the campaign cannot win without a decisive margin in it — but it cannot win on it alone either. Mwingi is the necessary foundation, paired with Kitui South and the home belt.
 
 #### Path B: The Central-South-West Urban/Rural Axis
-*   **Constituency Composition:** Kitui Central ($77,764$) + Kitui South ($75,372$) + Kitui West ($59,047$).
+*   **Constituency Composition:** Kitui Central (77,764) + Kitui South (75,372) + Kitui West (59,047).
 *   **Total Registered Voters:** **212,183 voters** across **15 wards** (**39.83%** of county total).
 *   **Mathematical Proof:**
-    $$\text{Total}_{\text{Central-South-West}} = 77,764 + 75,372 + 59,047 = 212,183 \text{ registered voters}$$
+    *   `Total (Central-South-West) = 77,764 + 75,372 + 59,047 = 212,183 registered voters`
 *   **Strategic Implication:** Combining the candidate's home base (Kitui Central) with the county's largest southern constituency (Kitui South) and the peri-urban west (Kitui West) forms a powerful contiguous southern/central coalition that exceeds the 200,000 threshold by 14,179 voters.
 
 #### Path C: The "Top 12 Megawards" Coalition
-*   **Ward Composition (12 Wards):** Kyuso ($19,921$) + Township ($19,538$) + Kwa Vonza/Yatta ($18,020$) + Mutonguni ($17,979$) + Tseikuru ($16,471$) + Kyangwithya West ($15,931$) + Mumoni ($15,877$) + Athi ($15,843$) + Kauwi ($15,767$) + Kyangwithya East ($15,401$) + Ikanga/Kyatune ($15,384$) + Mulango ($15,135$).
+*   **Ward Composition (12 Wards):** Kyuso (19,921) + Township (19,538) + Kwa Vonza/Yatta (18,020) + Mutonguni (17,979) + Tseikuru (16,471) + Kyangwithya West (15,931) + Mumoni (15,877) + Athi (15,843) + Kauwi (15,767) + Kyangwithya East (15,401) + Ikanga/Kyatune (15,384) + Mulango (15,135).
 *   **Total Registered Voters:** **201,267 voters** across **12 wards** (**37.78%** of county total).
 *   **Mathematical Proof:**
-    $$\sum_{i=1}^{12} \text{Ward}_i = 19,921 + 19,538 + 18,020 + \dots + 15,135 = 201,267 \text{ registered voters}$$
+    *   `∑ (12 Wards) = 19,921 + 19,538 + 18,020 + … + 15,135 = 201,267 registered voters`
 *   **Strategic Implication:** This proves that the campaign does not need to contest all 40 wards with equal resource intensity. High-intensity micro-targeting across just these 12 high-yield wards directly engages over 201,000 registered voters.
 
 #### Path D: The Home-Belt Ceiling (The "Central Isolation Trap")
-*   **Constituency Composition:** Kitui Central ($77,764$) + Kitui West ($59,047$) + Kitui Rural ($55,000$).
+*   **Constituency Composition:** Kitui Central (77,764) + Kitui West (59,047) + Kitui Rural (55,000).
 *   **Total Registered Voters:** **191,811 voters** across **13 wards** (**36.00%** of county total).
 *   **Mathematical Proof:**
-    $$\text{Total}_{\text{Home-Belt}} = 77,764 + 59,047 + 55,000 = 191,811 \text{ registered voters}$$
-    $$\text{Deficit to 200,000 benchmark} = 200,000 - 191,811 = -8,189 \text{ registered voters}$$
-*   **Turnout Reality:** At the 62.0% turnout baseline, these 191,811 registered voters produce only **118,923 actual ballots cast**. Even if Dr. Mulu captured an unprecedented 80% of all votes cast across this entire home belt ($95,138$ votes), he would still fall more than **100,000 votes short** of the 200,000 victory threshold.
+    *   `Total (Home-Belt) = 77,764 + 59,047 + 55,000 = 191,811 registered voters`
+    *   `Deficit to 200,000 benchmark = 200,000 − 191,811 = −8,189 registered voters`
+*   **Turnout Reality:** At the 62.0% turnout baseline, these 191,811 registered voters produce only **118,923 actual ballots cast**. Even if Dr. Mulu captured an unprecedented 80% of all votes cast across this entire home belt (95,138 votes), he would still fall more than **100,000 votes short** of the 200,000 victory threshold.
 *   **Strategic Conclusion:** **A home-constituency strategy is mathematically impossible.** Dr. Mulu cannot win by simply maximizing margins in Kitui Central, Kitui West, and Kitui Rural. Aggressive outward expansion into Mwingi and Kitui South is an absolute, non-negotiable arithmetic necessity.
 
 ---
@@ -604,7 +604,7 @@ A constituency's structural importance is determined by its total voter weight, 
 #### Analytical Hierarchy:
 1.  **The "Big 4" Electorate Engine (55.60% of County):** Kitui Central, Kitui South, Mwingi Central, and Mwingi North command **296,196 registered voters** across 22 wards. Securing parity or dominance in these four sub-counties decides the gubernatorial election.
 2.  **The Northern Anchor (Mwingi North - 68,829 voters):** While 4th in total voters, Mwingi North carries outsized structural leverage: it hosts the #1 largest ward in the county (**Kyuso, 19,921 voters**), the ancestral political base of Wiper Party Leader Hon. Kalonzo Musyoka (**Tseikuru, 16,471 voters**), and **Mumoni (15,877 voters)**. It is both a voter powerhouse and the party's spiritual heartland.
-3.  **The Southern Bulwark (Kitui South - 75,372 voters):** The second-largest constituency by volume, Kitui South is anchored by high-density wards in Athi ($15,843$) and Ikanga/Kyatune ($15,384$).
+3.  **The Southern Bulwark (Kitui South - 75,372 voters):** The second-largest constituency by volume, Kitui South is anchored by high-density wards in Athi (15,843) and Ikanga/Kyatune (15,384).
 
 ---
 
@@ -614,7 +614,7 @@ To formulate a targeted intervention, the campaign maps Dr. Mulu's structural pr
 
 #### Candidate Recognition Baseline & Deficit Geography:
 *   **Candidate Profile:** Dr. Benson Makali Mulu has served as Member of Parliament for Kitui Central for **13 consecutive years (since 2013, Tier 1)**.
-*   **High-Recognition / Core Anchor Zone:** Kitui Central ($77,764$ voters) and immediate adjacent wards in Kitui West (Matinyani, Kauwi) and Kitui Rural (Kisasi, Mbitini).
+*   **High-Recognition / Core Anchor Zone:** Kitui Central (77,764 voters) and immediate adjacent wards in Kitui West (Matinyani, Kauwi) and Kitui Rural (Kisasi, Mbitini).
 *   **Steep Recognition Deficit Zones:**
     1.  **The Mwingi Sub-Counties (Mwingi North, Mwingi Central, Mwingi West):** Total **200,198 registered voters** (**37.58%** of the county register). In these northern constituencies, Dr. Mulu's identity as a "Kitui Central MP" limits spontaneous recall compared to countywide office holders (Tier 2).
     2.  **Kitui South (6 Wards):** Total **75,372 registered voters** (**14.15%** of the county register). Geographically remote, separated by long transit corridors, and traditionally influenced by local southern leadership dynamics.
@@ -660,10 +660,10 @@ The exact wards that decide the election are the very wards where Dr. Mulu's rec
     *   Athi Ward (#8 countywide): **15,843 registered voters** (Severe Deficit).
     *   Ikanga/Kyatune Ward (#11 countywide): **15,384 registered voters** (Severe Deficit).
     *   *Sub-total in these 2 wards:* **31,227 registered voters** (5.86% of county total).
-3.  **Mwingi Central Overlap:** Contains Central ($14,525$), Nguni ($13,165$), and Nuu ($12,729$)—a combined **40,419 registered voters** in the candidate's deficit zone.
+3.  **Mwingi Central Overlap:** Contains Central (14,525), Nguni (13,165), and Nuu (12,729)—a combined **40,419 registered voters** in the candidate's deficit zone.
 
 #### Total Decisive Deficit Pool:
-$$\text{Deficit Pool}_{\text{Mwingi + South}} = 200,198 \text{ (Mwingi)} + 75,372 \text{ (Kitui South)} = \mathbf{275,570 \text{ \textbf{registered voters}}}$$
+*   `Deficit Pool (Mwingi + South) = 200,198 (Mwingi) + 75,372 (Kitui South) = 275,570 registered voters`
 
 This represents **51.72% of the entire Kitui County voter register**.
 
@@ -859,28 +859,30 @@ The election will be won or lost across the **~460,000 offline voters** living i
 
 ---
 
-### 3.1.3 Budget against reach
+### 3.1.3 Weight against reach
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│              BUDGET ALLOCATION VS. ELECTORAL REACH REALITY AUDIT             │
+│               EFFORT WEIGHTING VS. ELECTORAL REACH REALITY AUDIT            │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-A common failure mode in modern Kenyan political campaigns is over-allocating budget to flashy social media influencers while starving the unglamorous rural infrastructure that actually produces votes.
+A common failure mode in modern Kenyan political campaigns is over-weighting flashy social
+media influencers while starving the unglamorous rural infrastructure that actually produces
+votes.
 
 The table below is the **rebalancing target** — the direction of travel away from the
-conventional pitch, argued from reach. It is not a formula the budget already satisfies:
-Section 3.3.1 carries the actual shillings, and the two do not currently agree. That gap is
-stated under 3.3.1 rather than smoothed over here, because closing it is a live decision
-about where roughly KSh 14 million goes, not a presentation choice.
+conventional pitch, argued from reach. It states the share of communications *effort* each
+domain should carry: production time, team attention, weekly output and channel priority. It
+is a statement of where the campaign's weight goes, not a schedule of what anything costs.
+
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
 │                              CAMPAIGN RESOURCE REBALANCING AUDIT                                            │
 ├──────────────────────────────┬───────────────────┬───────────────────┬──────────────────────────────────────┤
 │ Communication Domain         │ Traditional Pitch │ Rebalanced Reality│ Strategic Rationale & Mathematical   │
-│                              │ (% of Comm Budget)│ (% of Comm Budget)│ Justification                        │
+│                              │ (% of Comm Effort)│ (% of Comm Effort)│ Justification                        │
 ├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
 │ Digital & Social Media       │ 45.0%             │ **18.0%**         │ Capped to reflect 13.6% in-county    │
 │ (Meta, TikTok, X, YouTube)   │ (Over-allocated)  │ (Right-sized)     │ penetration + diaspora mobilization. │
@@ -1260,15 +1262,7 @@ This compliance pack consolidates all statutory, constitutional, and regulatory 
                         STATUTORY COMPLIANCE ARCHITECTURE
 ════════════════════════════════════════════════════════════════════════════════════
 
-   1. CAMPAIGN FINANCING COMPLIANCE (IEBC Gazette No. 12251 & ECFA 2026)
-   • Strict Ksh 97,560,000 Total Expenditure Ceiling (Utilization capped at Ksh 64.5M)
-   • 20% Single-Source Donor Cap (Max Ksh 19,512,000 per entity)
-   • Dedicated Campaign Trust Bank Account & Certified Signatory Notification
-   • Mandatory Reporting on all Receipts/Expenditures ≥ Ksh 1,000,000
-   • 90-Day Post-Election Audited Accounts Submission to IEBC
-                                      │
-                                      ▼
-   2. IEBC NOMINATION & STATUTORY CLEARANCE REQUIREMENTS
+   1. IEBC NOMINATION & STATUTORY CLEARANCE REQUIREMENTS
    • University Degree Recognition & Commission for University Education (CUE) Clearance
    • EACC Chapter Six Integrity Clearance Self-Declaration
    • Kenya Revenue Authority (KRA) Tax Compliance Certificate
@@ -1277,53 +1271,18 @@ This compliance pack consolidates all statutory, constitutional, and regulatory 
    • 500 Registered Voter Nomination Endorsement Signatures per Sub-County
                                       │
                                       ▼
-   3. DATA PROTECTION ACT (DPA 2019) & TELCO PRIVACY COMPLIANCE
+   2. DATA PROTECTION ACT (DPA 2019) & TELCO PRIVACY COMPLIANCE
    • Lawful Basis: Explicit Opt-In Consent for 2G SMS & USSD Registry
    • Certificate of Registration with the Office of the Data Protection Commissioner (ODPC)
    • 100% On-Premise Encrypted Storage (AES-256) within Kenyan Borders
    • Direct "STOP" Opt-Out Mechanism via Africa's Talking API
                                       │
                                       ▼
-   4. ELECTION OFFENCES ACT (EOA 2016) DEFENSE & LIABILITY MATRIX
+   3. ELECTION OFFENCES ACT (EOA 2016) DEFENSE & LIABILITY MATRIX
    • Prohibition of Bribery, Treating & Undue Influence
    • Defamation & Hate Speech Quarantine (NCIC / Penal Code Compliance)
    • Strict Campaign Ad Blackout Window (48 Hours Prior to Polling Station Opening)
 ════════════════════════════════════════════════════════════════════════════════════
-```
-
----
-
-### 6.6.1 Campaign financing obligations under the ECFA
-
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                           ELECTION CAMPAIGN FINANCING STATUTORY OBLIGATIONS                                 │
-├──────────────────────────┬───────────────────────────────────────────┬──────────────────────────────────────┤
-│ Statutory Requirement    │ Operational Rule & Legal Threshold        │ Verification & Compliance Protocol   │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 1. County Expenditure    │ • Total campaign spend must not exceed    │ • Campaign budget strictly capped    │
-│    Ceiling               │   **Ksh 97,560,000** (IEBC Gazette        │   at Ksh 64,500,000 (66.1% limit),   │
-│                          │   Notice No. 12251, 7 August 2026).       │   leaving Ksh 33.06M safety margin.  │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 2. Single-Source Donor   │ • No single individual or corporate donor │ • All donations > Ksh 500,000 undergo│
-│    Contribution Cap      │   may contribute > **20% of the ceiling** │   source-of-funds verification by the│
-│                          │   (**Max: Ksh 19,512,000**).              │   Compliance Officer before receipt. │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 3. Dedicated Campaign    │ • All campaign funds must flow through a  │ • Formal account opening at a Tier-1 │
-│    Bank Account          │   single dedicated bank account titled    │   commercial bank; certified bank    │
-│                          │   *"Dr. Makali Mulu Campaign Trust"*.     │   statements filed monthly.          │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 4. Campaign Expenditure  │ • Campaign Expenditure Committee must be  │ • Formal written notification of 3–5 │
-│    Committee & Signatory │   notified to the IEBC at least 3 months  │   committee members and Authorized   │
-│                          │   prior to the general election.          │   Signatory submitted to IEBC Chair. │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 5. Large Transaction     │ • Mandatory itemized disclosure of all    │ • Certified invoices, contracts, and │
-│    Reporting Threshold   │   receipts and payments **≥ Ksh 1,000,000**│   receipts logged in real time.      │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 6. Post-Election Audited │ • Certified, audited campaign expenditure │ • External ICPAK-registered audit    │
-│    Final Accounts        │   accounts must be submitted to the IEBC  │   firm commissioned to deliver final │
-│                          │   within **90 days** post-election.       │   filing within 60 days of election. │
-└──────────────────────────┴───────────────────────────────────────────┴──────────────────────────────────────┘
 ```
 
 ---

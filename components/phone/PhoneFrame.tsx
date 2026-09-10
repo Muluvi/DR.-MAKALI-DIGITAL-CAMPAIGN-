@@ -3,7 +3,7 @@
 import React, { useCallback, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 
-import { SPRING_SOFT } from "../../lib/motion";
+import { SPRING } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
 import {
   BEZEL,
@@ -67,8 +67,8 @@ export function PhoneFrame({
 
   const rawY = useMotionValue(0);
   const rawX = useMotionValue(0);
-  const rotateY = useSpring(rawY, SPRING_SOFT);
-  const rotateX = useSpring(rawX, SPRING_SOFT);
+  const rotateY = useSpring(rawY, SPRING.gentle);
+  const rotateX = useSpring(rawX, SPRING.gentle);
 
   // The sheen tracks rotation, so the glass catches the light as the device turns.
   const sheenX = useTransform(rotateY, [-MAX_ROTATE_Y, MAX_ROTATE_Y], ["18%", "82%"]);

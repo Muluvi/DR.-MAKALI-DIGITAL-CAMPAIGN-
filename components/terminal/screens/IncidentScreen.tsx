@@ -19,7 +19,7 @@ export function IncidentScreen({ data }: { data: WardPulseData }) {
             <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${isTier1 ? "bg-rose-400" : isTier2 ? "bg-amber-400" : "bg-blue-400"} opacity-75`} />
             <span className={`relative inline-flex rounded-full h-2 w-2 ${isTier1 ? "bg-rose-500" : isTier2 ? "bg-amber-500" : "bg-blue-500"}`} />
           </span>
-          <span className="font-mono tracking-wider text-rose-400 uppercase font-semibold" style={{ fontSize: "0.6875em" }}>
+          <span className="font-mono text-rose-400 font-semibold" style={{ fontSize: "0.6875em" }}>
             IAD-SEC • Incident Rapid Response
           </span>
         </div>
@@ -32,7 +32,7 @@ export function IncidentScreen({ data }: { data: WardPulseData }) {
       {/* Incident Severity Banner */}
       <div
         className={`rounded-lg p-2.5 border mb-3 flex items-center justify-between ${
-          isTier1
+ isTier1
             ? "bg-rose-950/30 border-rose-800/80 text-rose-200"
             : isTier2
             ? "bg-amber-950/30 border-amber-800/80 text-amber-200"

@@ -19,10 +19,10 @@ export function MuiBasinPanel() {
         {MUI_BASIN_FACTS.map((f, i) => (
           <div key={i} className="rounded-xl border border-line/60 bg-paper p-3">
             <div className="flex items-center justify-between gap-2 mb-1">
-              <span className="t-micro uppercase tracking-wider font-bold text-muted">{f.label}</span>
+              <span className="t-micro font-bold text-muted">{f.label}</span>
               <TierBadge tier={f.source.tier} compact />
             </div>
-            <p className="text-xs text-ink/90 leading-relaxed">{f.statement}</p>
+            <p className="t-label text-ink/90 leading-relaxed">{f.statement}</p>
             {f.note && <p className="t-label text-muted italic mt-1.5 leading-relaxed">{f.note}</p>}
           </div>
         ))}

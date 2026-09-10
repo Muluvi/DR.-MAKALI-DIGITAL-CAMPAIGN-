@@ -26,22 +26,19 @@ export function PollingTrajectorySimulator() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
-                Simulation Engine
-              </span>
-              <span className="t-label font-mono font-bold text-muted">
-                Phase -1 Evaluation Window
+              <span className="t-label font-semibold text-accent bg-accent/10 px-2 py-0.5 rounded">
+                Phase −1, the nomination window
               </span>
             </div>
-            <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
-              Wiper Nomination Viability Simulator
-            </h4>
+            <h3 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
+              What a steady weekly gain would do
+            </h3>
           </div>
         </div>
 
         {/* Status Pill */}
-        <div className={`px-3 py-1.5 rounded-xl border text-xs font-black flex items-center gap-1.5 self-start sm:self-auto ${
-          isMeetingThreshold 
+        <div className={`px-3 py-1.5 rounded-xl border t-label font-black flex items-center gap-1.5 self-start sm:self-auto ${
+ isMeetingThreshold 
             ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20"
             : "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20"
         }`}>
@@ -64,7 +61,7 @@ export function PollingTrajectorySimulator() {
         {/* Interactive Slider */}
         <div className="p-4 bg-paper rounded-2xl border border-line space-y-3">
           <div className="flex items-center justify-between">
-            <label htmlFor="gain-rate-slider" className="text-xs font-bold text-ink flex items-center gap-1.5">
+            <label htmlFor="gain-rate-slider" className="t-label font-bold text-ink flex items-center gap-1.5">
               <Sliders size={14} className="text-accent" />
               <span>Target Weekly Growth Rate (Points / Week):</span>
             </label>
@@ -94,13 +91,13 @@ export function PollingTrajectorySimulator() {
         {/* Trajectory Outcome Comparison */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div className="p-4 bg-paper/60 border border-line rounded-xl space-y-1">
-            <div className="t-label font-black uppercase tracking-wider text-muted">Baseline Polling (Mizani)</div>
+            <div className="t-label font-black text-muted">Baseline Polling (Mizani)</div>
             <div className="font-serif text-2xl font-bold text-muted">22.1%</div>
             <div className="t-small text-muted">Initial standing in county</div>
           </div>
 
           <div className="p-4 bg-accent/5 border border-accent/20 rounded-xl space-y-1">
-            <div className="t-label font-black uppercase tracking-wider text-accent">Simulated 14-Week Standing</div>
+            <div className="t-label font-black text-accent">Simulated 14-Week Standing</div>
             <div className="font-serif text-2xl font-bold text-ink">
               {projectedPolling.toFixed(1)}%
             </div>
@@ -110,7 +107,7 @@ export function PollingTrajectorySimulator() {
           </div>
 
           <div className="p-4 bg-paper/60 border border-line rounded-xl space-y-1">
-            <div className="t-label font-black uppercase tracking-wider text-muted">Benchmark Target</div>
+            <div className="t-label font-black text-muted">Benchmark Target</div>
             <div className="font-serif text-2xl font-bold text-ink">40.0%+</div>
             <div className="t-small text-muted">Wiper Nomination threshold</div>
           </div>
@@ -119,8 +116,8 @@ export function PollingTrajectorySimulator() {
         {/* Strategic Takeaway Card */}
         <div className="p-4 rounded-xl bg-paper border border-line flex items-start gap-3">
           <Sparkles size={16} className="text-accent shrink-0 mt-0.5" />
-          <div className="text-xs text-muted leading-relaxed">
-            <strong className="text-ink">Operational Prescription:</strong> At a growth rate of <strong>+{weeklyGainRate.toFixed(1)}% per week</strong>, Dr. Mulu {isSurpassingKasalu ? "successfully overtakes Irene Kasalu (37.4%) and establishes" : "narrows the gap with Irene Kasalu but requires additional vernacular radio saturation to establish"} an undeniable mandate for the Wiper gubernatorial nomination before delegates convene in late 2026.
+          <div className="t-label text-muted leading-relaxed">
+            <strong className="text-ink">What this means:</strong> At a growth rate of <strong>+{weeklyGainRate.toFixed(1)}% per week</strong>, Dr. Mulu {isSurpassingKasalu ? "successfully overtakes Irene Kasalu (37.4%) and establishes" : "narrows the gap with Irene Kasalu but requires additional vernacular radio saturation to establish"} an undeniable mandate for the Wiper gubernatorial nomination before the party&rsquo;s opinion-polling window opens in late 2026.
           </div>
         </div>
       </div>

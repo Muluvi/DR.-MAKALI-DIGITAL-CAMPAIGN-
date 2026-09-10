@@ -16,7 +16,7 @@ export function GroundPulseScreen({ data }: { data: WardPulseData }) {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
           </span>
-          <span className="font-mono tracking-wider text-emerald-400 uppercase font-semibold" style={{ fontSize: "0.6875em" }}>
+          <span className="font-mono text-emerald-400 font-semibold" style={{ fontSize: "0.6875em" }}>
             DGP-40 • Ground Pulse Protocol
           </span>
         </div>
@@ -29,7 +29,7 @@ export function GroundPulseScreen({ data }: { data: WardPulseData }) {
       {/* Ward Identification Banner */}
       <div className="bg-slate-900/90 rounded-lg p-2.5 border border-slate-800 mb-3 flex items-center justify-between">
         <div>
-          <div className="font-mono text-slate-400 uppercase tracking-wide" style={{ fontSize: "0.625em" }}>
+          <div className="font-mono text-slate-400" style={{ fontSize: "0.625em" }}>
             {data.constituency} Constituency
           </div>
           <div className="font-bold text-white tracking-tight flex items-center gap-1.5" style={{ fontSize: "1em" }}>

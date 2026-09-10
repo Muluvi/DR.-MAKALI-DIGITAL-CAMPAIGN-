@@ -4,6 +4,7 @@ import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, HandCoins } from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
+import { readingMinutes } from "../hooks/useReadingProgress";
 import type { SectionItem } from "../lib/section-index";
 
 const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
@@ -25,6 +26,12 @@ interface MobileTOCModalProps {
   onSelectSection: (sectionId: string, tabId: TabId) => void;
   /** Derived from the markdown at build time — see lib/section-index.ts. */
   sections: SectionItem[];
+  /** Every section's length, for the reading estimate on the overview strip. */
+  wordCounts: Record<TabId, number>;
+  /** Which sections this reader has already opened, from localStorage. */
+  visited: ReadonlySet<TabId>;
+  /** Jump to a top-level section rather than to one of its 262 headings. */
+  onSelectTab: (tabId: TabId) => void;
 }
 
 export function MobileTOCModal({
@@ -32,7 +39,10 @@ export function MobileTOCModal({
   onClose,
   activeTab,
   onSelectSection,
-  sections
+  sections,
+  wordCounts,
+  visited,
+  onSelectTab,
 }: MobileTOCModalProps) {
   const [searchQuery, setSearchQuery] = useState("");
   // Filtering is by PART, not by tab. Nine tabs is more choices than a first filter should
@@ -95,7 +105,7 @@ export function MobileTOCModal({
                 <h3 className="font-serif text-base sm:text-lg font-bold text-ink leading-tight">
                   Full index
                 </h3>
-                <p className="text-xs text-muted font-medium mt-0.5">
+                <p className="t-label text-muted font-medium mt-0.5">
                   {SECTIONS.length} sections, {subSectionCount} sub-sections, {partCount} parts
                 </p>
               </div>
@@ -119,7 +129,7 @@ export function MobileTOCModal({
                 placeholder="Search sections (e.g., 200k, Radio, 40 Wards, DPA)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="fx-input-glow w-full pl-10 pr-4 py-2 bg-card border border-line rounded-xl text-xs font-semibold text-ink placeholder:text-muted focus:outline-none focus:border-accent min-h-[40px]"
+                className="fx-input-glow w-full pl-10 pr-4 py-2 bg-card border border-line rounded-xl t-label font-semibold text-ink placeholder:text-muted focus:outline-none focus:border-accent min-h-[44px]"
                 autoFocus
               />
               {searchQuery && (
@@ -132,13 +142,68 @@ export function MobileTOCModal({
               )}
             </div>
 
+            {/*
+              The nine sections, with how long each takes and whether it has been opened.
+
+              The index below this lists 262 headings, which answers "where is X" and cannot
+              answer the question a reader of a 200-minute document actually has between
+              sittings: which parts have I already been through, and what am I taking on if I
+              start this one? Nine rows, a minute count, and a state.
+            */}
+            <div className="mb-3">
+              <div className="flex items-baseline justify-between gap-2 mb-1.5">
+                <span className="t-micro font-black text-muted">
+                  The nine sections
+                </span>
+                <span className="t-micro tabular-nums text-muted">
+                  {visited.size}/{SECTIONS.length} opened
+                </span>
+              </div>
+              <ul className="grid grid-cols-1 gap-1">
+                {SECTIONS.map((s) => {
+                  const Icon = TAB_ICONS[s.id] ?? Compass;
+                  const isRead = visited.has(s.id);
+                  const isHere = activeTab === s.id;
+                  const mins = readingMinutes(wordCounts[s.id] ?? 0);
+                  return (
+                    <li key={s.id}>
+                      <button
+                        onClick={() => { onSelectTab(s.id); onClose(); }}
+                        aria-current={isHere ? "true" : undefined}
+                        className={`w-full min-h-[44px] flex items-center gap-2.5 px-2.5 py-1.5 rounded-xl border text-left fx-press fx-focus cursor-pointer transition-colors ${
+ isHere
+                            ? "bg-accent-solid border-accent-solid text-on-accent"
+                            : "bg-card border-line/60 hover:border-accent/40"
+                        }`}
+                      >
+                        <Icon size={14} className={isHere ? "" : "text-accent"} aria-hidden="true" />
+                        <span className={`t-micro font-mono font-black shrink-0 ${isHere ? "" : "text-muted"}`}>
+                          {s.number}
+                        </span>
+                        <span className={`t-small font-semibold flex-1 min-w-0 truncate ${isHere ? "" : "text-ink"}`}>
+                          {s.label}
+                        </span>
+                        <span className={`t-micro tabular-nums shrink-0 ${isHere ? "opacity-90" : "text-muted"}`}>
+                          {mins} min
+                        </span>
+                        {/* State carried by a word and a mark, not by colour alone. */}
+                        <span className={`t-micro font-black shrink-0 ${isHere ? "opacity-90" : isRead ? "text-accent" : "text-muted"}`}>
+                          {isHere ? "Here" : isRead ? "✓ Read" : "New"}
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
             {/* Filter Pills */}
             <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none t-small font-bold">
               <button
                 onClick={() => setSelectedTabFilter("all")}
                 className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[32px] ${
-                  selectedTabFilter === "all"
-                    ? "bg-accent text-white border-accent"
+ selectedTabFilter === "all"
+                    ? "bg-accent-solid text-on-accent border-accent-solid"
                     : "bg-card text-muted border-line hover:text-ink"
                 }`}
               >
@@ -149,8 +214,8 @@ export function MobileTOCModal({
                   key={part.part}
                   onClick={() => setSelectedTabFilter(part.part)}
                   className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[32px] ${
-                    selectedTabFilter === part.part
-                      ? "bg-accent text-white border-accent"
+ selectedTabFilter === part.part
+                      ? "bg-accent-solid text-on-accent border-accent-solid"
                       : "bg-card text-muted border-line hover:text-ink"
                   }`}
                 >
@@ -181,7 +246,7 @@ export function MobileTOCModal({
                         {item.number}
                       </span>
                       <div className="min-w-0">
-                        <span className={`block text-xs text-ink group-hover:text-accent transition-colors truncate ${item.level === 2 ? "font-bold" : "font-medium"}`}>
+                        <span className={`block t-label text-ink group-hover:text-accent transition-colors truncate ${item.level === 2 ? "font-bold" : "font-medium"}`}>
                           {item.title}
                         </span>
                         <div className="flex items-center gap-1.5 mt-0.5 text-[11px] text-muted">
@@ -199,7 +264,7 @@ export function MobileTOCModal({
                 );
               })
             ) : (
-              <div className="p-8 text-center text-xs text-muted space-y-2">
+              <div className="p-8 text-center t-label text-muted space-y-2">
                 <p className="font-bold text-ink">No matching sections found</p>
                 <p>Try searching by keyword like &quot;Ward&quot;, &quot;Radio&quot;, &quot;Nomination&quot;, or &quot;Budget&quot;.</p>
               </div>

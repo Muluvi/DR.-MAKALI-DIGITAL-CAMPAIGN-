@@ -84,6 +84,7 @@ function parseTable(lines: string[]): Diagram {
 
   let title: string | undefined;
   let headers: string[] | undefined;
+  const headerLines: string[][] = [];
   const rows: DiagramCell[][] = [];
 
   for (let i = 0; i < lines.length; i++) {
@@ -112,13 +113,36 @@ function parseTable(lines: string[]): Diagram {
     const cells = cellsAt(line, grid);
     if (cells.every((c) => !c.text)) continue;
 
-    // A header row is fenced on BOTH sides: ┬ above, ┼ below. Testing only for the ┬ promoted
-    // the first data row of every plain two-column table into a header.
-    const prev = lines[i - 1] ?? "";
-    const next = lines[i + 1] ?? "";
-    if (!headers && rows.length === 0 && /┬/.test(prev) && /┼/.test(next)) {
-      headers = cells.map((c) => c.text);
-      continue;
+    // Header detection: fenced between ┬ above and ┼ below, supporting single or multi-line headers.
+    if (!headers && rows.length === 0) {
+      let hasTopFence = false;
+      for (let k = i - 1; k >= 0; k--) {
+        if (/┬/.test(lines[k])) { hasTopFence = true; break; }
+        if (lines[k].includes("│")) continue;
+        break;
+      }
+      let hasBottomFence = false;
+      for (let k = i + 1; k < lines.length; k++) {
+        if (/┼/.test(lines[k])) { hasBottomFence = true; break; }
+        if (lines[k].includes("│")) continue;
+        break;
+      }
+
+      if (hasTopFence && hasBottomFence) {
+        headerLines.push(cells.map((c) => c.text));
+        const nextLine = lines[i + 1] ?? "";
+        if (/┼/.test(nextLine)) {
+          const colCount = Math.max(...headerLines.map((h) => h.length));
+          headers = Array.from({ length: colCount }, (_, c) =>
+            headerLines
+              .map((h) => h[c] ?? "")
+              .filter(Boolean)
+              .join(" ")
+              .trim()
+          );
+        }
+        continue;
+      }
     }
     rows.push(cells);
   }

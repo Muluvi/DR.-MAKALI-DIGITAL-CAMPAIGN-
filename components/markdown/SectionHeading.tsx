@@ -52,11 +52,18 @@ function CopyLinkButton({ id }: { id: string }) {
       // a `group-hover` utility alone would have made it permanently invisible on a phone, which
       // is the device this document is most likely to be read on.
       data-copied={copied ? "true" : undefined}
-      className="section-anchor-btn fx-ripple-host fx-press fx-focus inline-flex items-center justify-center w-7 h-7 sm:w-6 sm:h-6 rounded-lg sm:rounded-md border border-line/60 text-muted hover:text-accent hover:border-accent/50 transition-colors align-middle shrink-0 no-underline print:hidden cursor-pointer"
+      // The target is 44×44 and the chip inside it is 28. Padding grows the box and an equal
+      // negative margin gives the space back to the layout, so the heading line is unchanged
+      // and the thumb still gets a full target. A ::after overlay was tried first and does not
+      // work: it paints over the gap but the anchor's own box stays 28px, so neither a hit
+      // test nor an audit tool sees the larger area.
+      className="section-anchor-btn fx-ripple-host fx-press fx-focus inline-flex items-center justify-center p-2 -m-2 align-middle shrink-0 no-underline print:hidden cursor-pointer text-muted hover:text-accent"
     >
       {/* The tick draws itself rather than appearing, and the button pops once — the whole
           confirmation is 400ms and needs no toast. */}
-      {copied ? <Check size={12} className="text-accent fx-badge-pop" /> : <Link2 size={12} />}
+      <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg border border-line/60 transition-colors group-hover:border-accent/50 sm:h-6 sm:w-6 sm:rounded-md">
+        {copied ? <Check size={12} className="text-accent fx-badge-pop" /> : <Link2 size={12} />}
+      </span>
     </a>
   );
 }
@@ -102,7 +109,7 @@ export function SectionHeading({
       ref={ref}
       id={id ?? undefined}
       className={`${baseClass} ${phaseBorder} ${entrance} group scroll-mt-28 flex items-center gap-2 ${
-        level === 2 && !accentColor ? "border-gold" : ""
+ level === 2 && !accentColor ? "border-gold" : ""
       }`}
       style={
         {

@@ -25,7 +25,7 @@ export function DroughtFoodSecurityPanel() {
         {ITEMS.map((item, i) => (
           <div key={i} className="rounded-xl border border-line/60 bg-paper p-3">
             <div className="flex items-center justify-between gap-2 mb-1.5">
-              <span className="t-micro uppercase tracking-wider font-bold text-muted">{item.label}</span>
+              <span className="t-micro font-bold text-muted">{item.label}</span>
               <TierBadge tier={item.provenance.source.tier} compact />
             </div>
             <div className="font-serif text-sm font-black text-ink">{formatItemValue(item.value, item.unit)}</div>

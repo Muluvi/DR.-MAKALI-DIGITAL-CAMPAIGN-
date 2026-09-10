@@ -38,7 +38,7 @@ export function LazyMount({ children, minHeight = 260, className, rootMargin = "
 
   return (
     <div ref={containerRef} className={className} style={!isVisible ? { minHeight } : undefined}>
-      {isVisible ? children : null}
+ {isVisible ? children : null}
     </div>
   );
 }

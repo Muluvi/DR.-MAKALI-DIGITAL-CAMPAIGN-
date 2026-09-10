@@ -70,7 +70,7 @@ export function KpiPhaseBlock() {
       </p>
       <div className="flex flex-wrap gap-3 mb-5 pl-3.5">
         {PHASES.map((p) => (
-          <span key={p.id} className="flex items-center gap-1.5 t-micro font-black uppercase tracking-wide text-muted">
+          <span key={p.id} className="flex items-center gap-1.5 t-micro font-black text-muted">
             <span className="w-2 h-2 rounded-full" style={{ backgroundColor: `var(${p.colorVar})` }} />
             {p.label}
           </span>

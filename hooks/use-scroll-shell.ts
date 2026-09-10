@@ -10,34 +10,30 @@ import { useEffect } from "react";
  *
  *   - `data-scroll-dir`     — drives the direction-aware header (`.fx-dir-header`).
  *   - `data-scrolled`       — drives the sticky header's stuck state.
- *   - `--scroll-skew`       — scroll-velocity skew, clamped hard at ±3deg.
  *
  * All of it is one passive scroll listener coalesced into a single rAF, because the alternative
  * this replaces was three separate components each running their own handler.
+ *
+ * A `--scroll-skew` custom property used to be written here on every scroll frame as well. It
+ * was read by no rule and no component, and setting an inherited custom property on <html>
+ * invalidates the computed style of every element below it — so each frame of scrolling cost a
+ * full-document style recalculation (~5,800 elements) to drive nothing at all. Data attributes
+ * are safe here in a way custom properties are not: they invalidate only the elements matched by
+ * rules that mention them.
  */
 export function useScrollShell() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
     const root = document.documentElement;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     let lastY = window.scrollY;
-    let lastT = performance.now();
     let frame = 0;
-    let decay = 0;
-
-    const settle = () => {
-      // Skew has to return to zero on its own, or a page that stops scrolling stays sheared.
-      decay = window.setTimeout(() => root.style.setProperty("--scroll-skew", "0deg"), 90);
-    };
 
     const read = () => {
       frame = 0;
       const y = window.scrollY;
-      const now = performance.now();
       const dy = y - lastY;
-      const dt = Math.max(1, now - lastT);
 
       // A 6px threshold stops the header flickering on the sub-pixel scroll that a trackpad or a
       // momentum tail produces at rest.
@@ -46,17 +42,7 @@ export function useScrollShell() {
       }
       root.dataset.scrolled = y > 24 ? "true" : "false";
 
-      if (!reduce) {
-        // px/ms → degrees, clamped. Past ~3deg the skew stops reading as speed and starts
-        // reading as a rendering fault.
-        const skew = Math.max(-3, Math.min(3, (dy / dt) * 2.2));
-        root.style.setProperty("--scroll-skew", `${skew.toFixed(2)}deg`);
-        window.clearTimeout(decay);
-        settle();
-      }
-
       lastY = y;
-      lastT = now;
     };
 
     const onScroll = () => {
@@ -68,10 +54,8 @@ export function useScrollShell() {
     return () => {
       window.removeEventListener("scroll", onScroll);
       if (frame) cancelAnimationFrame(frame);
-      window.clearTimeout(decay);
       delete root.dataset.scrollDir;
       delete root.dataset.scrolled;
-      root.style.removeProperty("--scroll-skew");
     };
   }, []);
 }

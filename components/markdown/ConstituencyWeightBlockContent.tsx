@@ -44,7 +44,7 @@ export function ConstituencyWeightBlockContent() {
       <div className="overflow-x-auto">
         <table className="w-full text-left t-small">
           <thead>
-            <tr className="t-micro uppercase tracking-wider font-bold text-muted">
+            <tr className="t-micro font-bold text-muted">
               <th className="py-1 pr-3">Constituency</th>
               <th className="py-1 pr-3">Registered voters</th>
               <th className="py-1">Share of county</th>

@@ -89,7 +89,7 @@ export function ChartComponent({
   if (!isMounted) {
     return (
       <div
-        className={`bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 flex flex-col justify-center items-center gap-2 text-xs text-muted font-bold ${className}`}
+        className={`bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 flex flex-col justify-center items-center gap-2 t-label text-muted font-bold ${className}`}
         style={{ minHeight: height + 60 }}
       >
         <div className="w-6 h-6 border-2 border-accent border-t-transparent rounded-full animate-spin" />
@@ -100,7 +100,7 @@ export function ChartComponent({
 
   if (!data || data.length === 0) {
     return (
-      <div className={`bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 text-center text-xs text-muted ${className}`}>
+      <div className={`bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 text-center t-label text-muted ${className}`}>
         No data available for chart.
       </div>
     );
@@ -193,7 +193,7 @@ export function ChartComponent({
                   const item = payload[0].payload;
                   return (
                     <div className="bg-card border border-line p-3 shadow-xl rounded-xl t-label font-bold text-ink max-w-[220px] backdrop-blur-md">
-                      <p className="border-b border-line pb-1 mb-1 font-serif text-xs font-black truncate">
+                      <p className="border-b border-line pb-1 mb-1 font-serif t-label font-black truncate">
                         {item[xAxisKey] || item.name}
                       </p>
                       {payload.map((p, idx) => (

@@ -9,14 +9,22 @@ import { MarkdownParagraph, MarkdownListItem } from "./markdown/MarkdownTextComp
 import { SectionHeading } from "./markdown/SectionHeading";
 import { ClaimBadge } from "./markdown/ClaimBadge";
 import { HighlightedText } from "./markdown/HighlightedText";
+import { hasHighlight } from "../lib/highlight-patterns";
 import { CompetitiveQuadrantBlock } from "./markdown/CompetitiveQuadrantBlock";
 import { ResourceEnvelopeBlock } from "./markdown/ResourceEnvelopeBlock";
 import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
 import { MizaniSlopeBlock } from "./markdown/MizaniSlopeBlock";
 import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
+import { KpiArchitecture } from "./charts/KpiArchitecture";
+import { BenchmarkLadder } from "./charts/BenchmarkLadder";
+import { TierComparisonCarousel } from "./charts/TierComparisonCarousel";
+import { FeaturePhoneSpecimen } from "./charts/FeaturePhoneSpecimen";
+import { OfflineWaterline } from "./charts/OfflineWaterline";
+import { VoteFunnel } from "./charts/VoteFunnel";
+import { KpiScorecards } from "./charts/KpiScorecards";
+import { GENERAL_ELECTION_KPIS, NOMINATION_KPIS } from "../data/kpis";
 import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
 import { AsciiDiagram } from "./markdown/AsciiDiagram";
-import { ReachArchitecture3D } from "./ReachArchitecture3D";
 import { ReachSplit } from "./ReachSplit";
 import {
   FlywheelSchematic,
@@ -42,11 +50,11 @@ import { NominationPathPanel } from "./markdown/NominationPathPanel";
 import { EconomistGovernorThesis } from "./markdown/EconomistGovernorThesis";
 import { DecisionPanel } from "./DecisionPanel";
 import { CommitmentFields } from "./markdown/CommitmentFields";
+import { ServiceLevelSelector } from "./markdown/ServiceLevelSelector";
 import { PhoneShowcase } from "./phone/PhoneShowcase";
 import { TerminalShowcase } from "./terminal/TerminalShowcase";
 import { SectionPortrait } from "./markdown/SectionPortrait";
 import { commitmentFieldKey, isCommitmentFieldList, type CommitmentField } from "../lib/commitment-fields";
-import { ComplianceCeilingPanel } from "./markdown/ComplianceCeilingPanel";
 import { MediaOwnershipBlock } from "./markdown/MediaOwnershipBlock";
 import { PathTo200kBlock } from "./markdown/PathTo200kBlock";
 import { ConstituencyWeightBlock } from "./markdown/ConstituencyWeightBlock";
@@ -62,9 +70,6 @@ import { GeographicZoneMatrix } from "./markdown/GeographicZoneMatrix";
 import { PersuasionFramingMatrix } from "./markdown/PersuasionFramingMatrix";
 import { PublicServiceDeliveryTracker } from "./markdown/PublicServiceDeliveryTracker";
 import { MediaRadioLandscapeCard } from "./markdown/MediaRadioLandscapeCard";
-import { BudgetScenarioModeler } from "./markdown/BudgetScenarioModeler";
-import { CampaignOrgChart } from "./markdown/CampaignOrgChart";
-import { CrisisWarRoomMatrix } from "./markdown/CrisisWarRoomMatrix";
 import { DataSecurityEthicsCharter } from "./markdown/DataSecurityEthicsCharter";
 import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, type TabId } from "../lib/heading-slug";
@@ -223,7 +228,12 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
     </>
   ),
   "evidence-sec-1-2-4": <ResourceEnvelopeBlock />,
-  "evidence-sec-1-2-5": <DisputedFigure entry={kituiCentralPopulationDispute} />,
+  "evidence-sec-1-2-5": (
+    <>
+      <OfflineWaterline />
+      <DisputedFigure entry={kituiCentralPopulationDispute} />
+    </>
+  ),
   "evidence-sec-1-2-6": (
     <>
       <ElectoralHistoryPanel />
@@ -239,18 +249,14 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "evidence-sec-1-2-8": <DroughtFoodSecurityPanel />,
   "evidence-sec-1-2-9": <MuiBasinPanel />,
   "evidence-sec-1-2-10": <CompetitorFieldPanel />,
+  "evidence-sec-1-3-1": <VoteFunnel />,
   "evidence-sec-1-3-3": <PathTo200kCalculator />,
   "evidence-sec-1-3-5": <RecognitionDeficitOverlay />,
   "evidence-sec-2-4": <AudienceSegmentationMatrix />,
   // §9 splits the electorate into a connected minority and an offline majority. The showcase is
   // that argument as an object: one handset, the campaign on all seven channels, ending on the
   // USSD dialog that reaches more voters than the six apps together.
-  "evidence-sec-3-1": (
-    <>
-      <ReachArchitecture3D />
-      <PhoneShowcase />
-    </>
-  ),
+  "evidence-sec-3-1": <PhoneShowcase />,
   "strategy-sec-2-6": (
     <>
       <MessagingPlayground />
@@ -271,19 +277,25 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   ),
   "strategy-sec-2-2": <StrategicPillarsMatrix />,
   "evidence-sec-1-4": <GeographicZoneMatrix />,
-  "team-sec-7-2": <CampaignOrgChart />,
-  "decision-sec-9-2-5": <BudgetScenarioModeler />,
-  "decision-sec-9-2-7": <ComplianceCeilingPanel />,
+  // §4D carried no anchored visualisation at all before this — the one section of nine that was
+  // a wall of text, and the one describing the technology stack, which is the part of the
+  // proposal this reader is most likely to test against the artifact itself.
+  "technology-sec-6-4-2": <BenchmarkLadder />,
+  "decision-sec-9-2-5": <ServiceLevelSelector />,
+  // The four-column matrix below this heading stacks into nine attribute cards on a phone, which
+  // answers "what does row six say" rather than "which tier should we buy". One card per tier,
+  // swipeable, with the table left in place underneath as the accessible equivalent.
+  "decision-sec-9-2-6": <TierComparisonCarousel />,
   "ground-sec-4-1": <TerminalShowcase />,
   "ground-sec-4-2": <FlywheelSchematic />,
   "ground-sec-4-3": (
     <>
+      <FeaturePhoneSpecimen />
       <ReachSplit />
       <SMSFeedbackVisualizer />
     </>
   ),
   "strategy-sec-2-8": <PersuasionFramingMatrix />,
-  "defence-sec-5-2": <CrisisWarRoomMatrix />,
   "strategy-sec-6-5": <DataSecurityEthicsCharter />,
   "publishing-sec-3-2": <MediaPlaybackMockup />,
   "publishing-sec-3-5": (
@@ -347,10 +359,46 @@ function buildComponents(tabId: TabId): Components {
               return table;
             },
             pre: ({ children }) => {
+              const source = getDeepText(children);
+
+              // Three of these blocks are not diagrams to be parsed, they are the two scorecards
+              // and the architecture that anchors them — the widest ASCII in the document, and
+              // the tables whose seven columns cannot survive a 390px screen. Each is replaced by
+              // a purpose-built component reading from data/kpis.ts, so the figures come from one
+              // place and the "Not yet measured" baselines can be drawn as the absence they are
+              // rather than as a bar at zero.
+              //
+              // Matched on the block's own banner text rather than on a section id, because the
+              // markdown is under a content-integrity guard and must not be edited to carry a
+              // marker.
+              if (source.includes("VICTORY-ANCHORED KPI MONITORING ARCHITECTURE")) {
+                return <KpiArchitecture />;
+              }
+              if (source.includes("NOMINATION WINDOW KEY PERFORMANCE INDICATORS")) {
+                return (
+                  <KpiScorecards
+                    stage={1}
+                    kpis={NOMINATION_KPIS}
+                    title="Stage 1 — nomination window scorecard"
+                    note="Four indicators, measured against the Wiper primary-voter universe rather than the countywide public."
+                  />
+                );
+              }
+              if (source.includes("GENERAL ELECTION KEY PERFORMANCE INDICATORS")) {
+                return (
+                  <KpiScorecards
+                    stage={2}
+                    kpis={GENERAL_ELECTION_KPIS}
+                    title="Stage 2 — general election scorecard"
+                    note="Five indicators, every one anchored to the ~200,000-vote winning threshold."
+                  />
+                );
+              }
+
               // 102 of these are box-drawing diagrams, not code. AsciiDiagram parses them into
               // real tables and summaries, gated on losslessness — anything it cannot read with
               // confidence keeps exactly the treatment it had.
-              return <AsciiDiagram source={getDeepText(children)}>{children}</AsciiDiagram>;
+              return <AsciiDiagram source={source}>{children}</AsciiDiagram>;
             },
             code: ({ children }) => {
               const text = flattenText(children);
@@ -374,7 +422,7 @@ function buildComponents(tabId: TabId): Components {
                 );
               }
               return <span className={className}>{children}</span>;
-            },
+ },
             p: ({ children, className }) => {
               // The appendix's "section-kicker" lines are eyebrow labels, not body prose —
               // render them as such instead of falling into the lead-paragraph drop-cap styling.
@@ -390,7 +438,7 @@ function buildComponents(tabId: TabId): Components {
                 return <PullQuote>{children}</PullQuote>;
               }
               return (
-                <blockquote className="fx-lift border-l-4 border-accent bg-accent/[0.03] px-5 py-4 rounded-r-2xl my-6 text-xs sm:text-sm font-semibold text-ink leading-relaxed shadow-sm italic relative text-pretty">
+                <blockquote className="fx-lift border-l-4 border-accent bg-accent/[0.03] px-5 py-4 rounded-r-2xl my-6 t-label sm:t-small font-semibold text-ink leading-relaxed shadow-sm italic relative text-pretty">
                   {children}
                 </blockquote>
               );
@@ -421,7 +469,11 @@ function buildComponents(tabId: TabId): Components {
             strong: ({ children }) => (
               <strong>
                 {React.Children.map(children, (child) =>
-                  typeof child === "string" ? <HighlightedText text={child} tabId={tabId} /> : child
+                  typeof child === "string" && hasHighlight(child) ? (
+                    <HighlightedText text={child} tabId={tabId} />
+                  ) : (
+                    child
+                  )
                 )}
               </strong>
             ),
@@ -497,10 +549,10 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
       {/* Dynamic Faded Watermark Background */}
       <div className="decor-watermark absolute inset-0 pointer-events-none overflow-hidden select-none z-0 opacity-5">
         <div className="absolute top-[20%] right-[-10%] text-[8rem] font-black text-accent/5 rotate-[-12deg] font-serif uppercase">
-          Wiper Movement
+          Wiper Democratic
         </div>
         <div className="absolute bottom-[20%] left-[-15%] text-[8rem] font-black text-gold/5 rotate-[8deg] font-serif uppercase">
-          Democratic
+          Movement
         </div>
       </div>
 
@@ -511,9 +563,9 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
           so chart footnotes, card ledes and diagram notes all picked up a 3xl gold drop cap.
           A direct-child selector reaches the document's opening paragraph and nothing else. */}
       <div className="prose max-w-none relative z-10 px-0
-        [&>p:first-of-type]:text-base [&>p:first-of-type]:sm:text-lg [&>p:first-of-type]:font-semibold [&>p:first-of-type]:text-ink [&>p:first-of-type]:leading-relaxed [&>p:first-of-type]:border-b [&>p:first-of-type]:border-line/40 [&>p:first-of-type]:pb-4 [&>p:first-of-type]:mb-6
-        [&>p:first-of-type::first-letter]:text-3xl [&>p:first-of-type::first-letter]:font-semibold [&>p:first-of-type::first-letter]:text-gold [&>p:first-of-type::first-letter]:mr-2 [&>p:first-of-type::first-letter]:float-left [&>p:first-of-type::first-letter]:leading-none
-      ">
+ [&>p:first-of-type]:text-base [&>p:first-of-type]:sm:text-lg [&>p:first-of-type]:font-semibold [&>p:first-of-type]:text-ink [&>p:first-of-type]:leading-relaxed [&>p:first-of-type]:border-b [&>p:first-of-type]:border-line/40 [&>p:first-of-type]:pb-4 [&>p:first-of-type]:mb-6
+ [&>p:first-of-type::first-letter]:text-3xl [&>p:first-of-type::first-letter]:font-semibold [&>p:first-of-type::first-letter]:text-gold [&>p:first-of-type::first-letter]:mr-2 [&>p:first-of-type::first-letter]:float-left [&>p:first-of-type::first-letter]:leading-none
+">
         {segments.map((segment, i) => {
           if (segment.kind === "markdown") return renderMarkdown(segment.text, `md-${i}`);
           if (segment.kind === "fold")

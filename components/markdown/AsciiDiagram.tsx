@@ -69,9 +69,9 @@ function Frame({
       <figcaption className="flex items-center gap-2 px-4 py-2.5 bg-paper/60 border-b border-line">
         <Icon size={13} className="text-accent shrink-0" aria-hidden="true" />
         {title ? (
-          <span className="t-small sm:text-xs font-bold text-ink leading-tight">{title}</span>
+          <span className="t-small sm:t-label font-bold text-ink leading-tight">{title}</span>
         ) : (
-          <span className="t-label font-black uppercase tracking-widest text-muted">{kind}</span>
+          <span className="t-label font-black text-muted">{kind}</span>
         )}
       </figcaption>
       {children}
@@ -84,71 +84,24 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
 
   return (
     <Frame title={d.title} icon={Table2} kind="Matrix">
-      {/* Mobile Card-Stacking View (< md) */}
-      <div className="block md:hidden p-3 space-y-2.5">
-        {d.rows.map((row, i) => {
-          const isBanner = row.length === 1 && row[0].spans > 1;
-          if (isBanner) {
-            return (
-              <div
-                key={i}
-                className="px-3 py-1.5 font-bold uppercase tracking-wider t-micro text-accent bg-accent/[0.08] rounded-lg my-1.5"
-              >
-                {withEmphasis(row[0].text)}
-              </div>
-            );
-          }
+      {/*
+        ONE TABLE, TWO SHAPES.
 
-          const primaryCell = row[0];
-          const secondaryCells = row.slice(1);
+        This used to mount a card stack for phones and a table for everything else, both at once
+        and both in the DOM — thirty of these blocks paying twice for markup only one of which is
+        ever visible. It also could not be fixed by branching in JavaScript without making this a
+        client component, which would put the parser's output into the bundle.
 
-          return (
-            <div
-              key={i}
-              className="bg-paper/70 border border-line/50 rounded-xl p-3 shadow-xs space-y-2"
-            >
-              {/* Card Header (Leading Cell) */}
-              <div className="font-bold text-ink t-small pb-1.5 border-b border-line/30 flex items-center justify-between">
-                <span className="break-words">{primaryCell ? withEmphasis(primaryCell.text) : ""}</span>
-                {d.headers && d.headers[0] && (
-                  <span className="t-micro uppercase tracking-wider font-semibold text-muted shrink-0 ml-2" aria-hidden="true">
-                    {d.headers[0]}
-                  </span>
-                )}
-              </div>
+        So the table stacks itself instead. Below `md` each row becomes a block and each cell
+        carries its column header in a `data-label`, printed by CSS. One DOM, no JavaScript, a
+        real <table> for a screen reader at every width, and nothing rendered that is not shown.
 
-              {/* Data fields with explicit headers */}
-              <div className="space-y-1.5">
-                {secondaryCells.map((cell, j) => {
-                  const colIdx = j + 1;
-                  const header = d.headers && d.headers[colIdx] ? d.headers[colIdx] : `Item ${colIdx + 1}`;
-                  return (
-                    <div
-                      key={j}
-                      className="flex items-start justify-between gap-2.5 py-1 border-b border-line/15 last:border-b-0"
-                    >
-                      <span className="t-micro uppercase tracking-wider font-semibold text-muted shrink-0 pt-0.5" aria-hidden="true">
-                        {header}
-                      </span>
-                      <span
-                        className={`text-right t-small text-ink leading-snug break-words max-w-[70%] ${
-                          isFigure(cell.text) ? "tabular-nums font-mono font-semibold" : ""
-                        }`}
-                      >
-                        {withEmphasis(cell.text)}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Desktop Grid View (>= md) */}
-      <div className="hidden md:block overflow-x-auto w-full">
-        <table className="w-full t-small border-collapse">
+        Where a column has no header the label is simply absent. It used to fall back to
+        "Item 2" / "Item 3", which put invented column names on screen — visible in the one block
+        in 3-strategy.md whose columns the parser cannot name.
+      */}
+      <div className="w-full md:overflow-x-auto">
+        <table className="diagram-table w-full t-small border-collapse">
           {d.headers && (
             <thead>
               <tr className="bg-paper/70">
@@ -156,7 +109,7 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
                   <th
                     key={i}
                     scope="col"
-                    className="text-left px-3 py-2 font-black uppercase tracking-wider t-micro text-muted border-b border-line align-bottom"
+                    className="text-left px-3 py-2 font-black t-micro text-muted border-b border-line align-bottom"
                   >
                     {h}
                   </th>
@@ -168,14 +121,19 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
             {d.rows.map((row, i) => {
               const isBanner = row.length === 1 && row[0].spans > 1;
               return (
-                <tr key={i} className={isBanner ? "bg-accent/[0.05]" : "border-b border-line/40 last:border-b-0"}>
+                <tr
+                  key={i}
+                  className={isBanner ? "bg-accent/[0.05]" : "border-b border-line/40 last:border-b-0"}
+                  data-banner={isBanner ? "true" : undefined}
+                >
                   {row.map((cell, j) => (
                     <td
                       key={j}
                       colSpan={cell.spans > 1 ? width : 1}
+                      data-label={!isBanner && d.headers?.[j] ? d.headers[j] : undefined}
                       className={
-                        isBanner
-                          ? "px-3 py-1.5 font-black uppercase tracking-wider t-micro text-accent"
+ isBanner
+                          ? "px-3 py-1.5 font-black  t-micro text-accent"
                           : `px-3 py-2 align-top leading-snug ${
                               j === 0 ? "font-semibold text-ink" : "text-muted"
                             } ${isFigure(cell.text) ? "tabular-nums font-mono font-semibold" : ""}`
@@ -205,7 +163,7 @@ function DiagramKeyValue({ d }: { d: Extract<Diagram, { kind: "keyvalue" }> }) {
             </dt>
             <dd
               className={`t-small text-muted leading-snug ${
-                isFigure(item.value) ? "font-mono tabular-nums font-semibold" : ""
+ isFigure(item.value) ? "font-mono tabular-nums font-semibold" : ""
               }`}
             >
               {withEmphasis(item.value)}
@@ -238,7 +196,7 @@ function DiagramBanner({ title }: { title: string }) {
     // so the rule sits under the whole block rather than beside it, where a wrap would leave it
     // stranded as a stray dash against the first line.
     <div className="not-prose my-5 pb-1.5 border-b border-line print:break-inside-avoid">
-      <span className="t-label font-black uppercase tracking-wider sm:tracking-widest text-muted break-words">
+      <span className="t-label font-black sm: text-muted break-words">
         {withEmphasis(title)}
       </span>
     </div>
@@ -269,7 +227,7 @@ export function AsciiDiagram({ source, children }: { source: string; children: R
     // Unparsed — a USSD menu, a script, a code sample. Keep the original treatment.
     return (
       <div className="bleed-narrow my-6 rounded-2xl border border-line bg-paper/60 p-3 sm:p-4 overflow-hidden not-prose">
-        <div className="flex items-center justify-between pb-2 mb-2 border-b border-line/40 t-label font-mono font-bold text-muted uppercase tracking-wider">
+        <div className="flex items-center justify-between pb-2 mb-2 border-b border-line/40 t-label font-mono font-bold text-muted">
           <span>Architecture &amp; process model</span>
           <span className="hidden sm:inline">Diagram / script</span>
         </div>

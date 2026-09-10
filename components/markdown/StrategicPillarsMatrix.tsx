@@ -77,7 +77,7 @@ export function StrategicPillarsMatrix() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Campaign pillars
               </span>
               <span className="t-label font-mono font-bold text-muted">
@@ -101,7 +101,7 @@ export function StrategicPillarsMatrix() {
               key={pillar.id}
               onClick={() => setSelectedPillarId(pillar.id)}
               className={`p-3 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
-                isSelected 
+ isSelected 
                   ? "bg-card border-accent shadow-sm ring-2 ring-accent/15"
                   : "bg-paper/40 border-line hover:border-accent/40 text-muted hover:text-ink"
               }`}
@@ -112,7 +112,7 @@ export function StrategicPillarsMatrix() {
                 </span>
                 <IconComponent size={14} className={isSelected ? "text-accent" : "text-muted"} />
               </div>
-              <div className="text-xs font-bold text-ink mt-1.5 line-clamp-1">
+              <div className="t-label font-bold text-ink mt-1.5 line-clamp-1">
                 {pillar.title}
               </div>
             </button>
@@ -123,50 +123,50 @@ export function StrategicPillarsMatrix() {
       {/* Selected Pillar Content View */}
       <div className="p-4 sm:p-6 space-y-4">
         <div className="border-b border-line/60 pb-3">
-          <div className="text-xs font-bold text-accent uppercase tracking-wider">
+          <div className="t-label font-bold text-accent">
             Pillar {currentPillar.num} &bull; Strategic Mandate
           </div>
           <h5 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
             {currentPillar.title}
           </h5>
-          <p className="text-xs text-muted font-medium mt-1">
+          <p className="t-label text-muted font-medium mt-1">
             {currentPillar.subtitle}
           </p>
         </div>
 
         {/* Core Premise */}
-        <div className="p-3.5 sm:p-4 rounded-xl bg-paper border border-line text-xs sm:text-sm text-ink leading-relaxed font-medium">
+        <div className="p-3.5 sm:p-4 rounded-xl bg-paper border border-line t-label sm:t-small text-ink leading-relaxed font-medium">
           {currentPillar.corePremise}
         </div>
 
         {/* Breakdown Table */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
           <div className="p-3.5 rounded-xl bg-paper/60 border border-line space-y-1">
-            <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1">
+            <div className="t-label font-black text-muted flex items-center gap-1">
               <Sparkles size={12} className="text-accent" />
               Tangible Evidence
             </div>
-            <p className="text-xs text-ink font-semibold leading-relaxed">
+            <p className="t-label text-ink font-semibold leading-relaxed">
               {currentPillar.tangibleProofPoint}
             </p>
           </div>
 
           <div className="p-3.5 rounded-xl bg-paper/60 border border-line space-y-1">
-            <div className="t-label font-black uppercase tracking-wider text-muted flex items-center gap-1">
+            <div className="t-label font-black text-muted flex items-center gap-1">
               <Languages size={12} className="text-accent" />
               Operational Delivery
             </div>
-            <p className="text-xs text-muted font-medium leading-relaxed">
+            <p className="t-label text-muted font-medium leading-relaxed">
               {currentPillar.deliveryFormat}
             </p>
           </div>
 
           <div className="p-3.5 rounded-xl bg-accent/5 border border-accent/20 space-y-1">
-            <div className="t-label font-black uppercase tracking-wider text-accent flex items-center gap-1">
+            <div className="t-label font-black text-accent flex items-center gap-1">
               <FileCheck2 size={12} />
               M&E Verification Audit
             </div>
-            <p className="text-xs text-ink font-semibold leading-relaxed">
+            <p className="t-label text-ink font-semibold leading-relaxed">
               {currentPillar.verificationAudit}
             </p>
           </div>

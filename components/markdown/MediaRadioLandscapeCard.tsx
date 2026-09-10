@@ -105,7 +105,7 @@ export function MediaRadioLandscapeCard() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="t-label font-extrabold uppercase tracking-widest text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
                 Radio landscape
               </span>
               <span className="t-label font-mono font-bold text-muted">
@@ -122,16 +122,16 @@ export function MediaRadioLandscapeCard() {
         <div className="flex items-center p-1 bg-paper border border-line rounded-xl">
           <button
             onClick={() => setSelectedFilter("all")}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              selectedFilter === "all" ? "bg-accent text-white shadow-sm" : "text-muted hover:text-ink"
+            className={`px-3 py-1.5 rounded-lg t-label font-bold transition-all cursor-pointer ${
+ selectedFilter === "all" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
             }`}
           >
             All 6 Networks
           </button>
           <button
             onClick={() => setSelectedFilter("priorityOnly")}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              selectedFilter === "priorityOnly" ? "bg-accent text-white shadow-sm" : "text-muted hover:text-ink"
+            className={`px-3 py-1.5 rounded-lg t-label font-bold transition-all cursor-pointer ${
+ selectedFilter === "priorityOnly" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
             }`}
           >
             Priority Placement (3)
@@ -140,7 +140,7 @@ export function MediaRadioLandscapeCard() {
       </div>
 
       {/* Strategic Takeaway Bar */}
-      <div className="p-3.5 bg-amber-500/10 border-b border-amber-500/20 text-xs text-amber-900 dark:text-amber-300 flex items-start gap-2">
+      <div className="p-3.5 bg-amber-500/10 border-b border-amber-500/20 t-label text-amber-900 dark:text-amber-300 flex items-start gap-2">
         <ShieldAlert size={16} className="shrink-0 mt-0.5" />
         <div>
           <strong className="font-bold">Ownership Risk Reality:</strong> Two major Kikamba radio networks are owned or affiliated with declared political rivals (Charity Ngilu) and party leadership. Prime broadcast strategy concentrates on <strong>Musyi FM, County FM, and Wikwatyo FM</strong>.
@@ -153,7 +153,7 @@ export function MediaRadioLandscapeCard() {
           <div
             key={station.name}
             className={`p-4 rounded-xl border transition-all ${
-              station.isPriority
+ station.isPriority
                 ? "bg-paper/80 border-accent/30 hover:border-accent"
                 : station.politicalAllegiance.includes("Rival")
                 ? "bg-rose-500/5 border-rose-500/20"
@@ -163,8 +163,8 @@ export function MediaRadioLandscapeCard() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div className="flex items-center gap-3">
                 <div className={`w-9 h-9 rounded-xl flex items-center justify-center font-bold shrink-0 ${
-                  station.isPriority 
-                    ? "bg-accent text-white" 
+ station.isPriority 
+                    ? "bg-accent-solid text-on-accent" 
                     : station.politicalAllegiance.includes("Rival")
                     ? "bg-rose-500/20 text-rose-600"
                     : "bg-paper border border-line text-muted"
@@ -184,7 +184,7 @@ export function MediaRadioLandscapeCard() {
                       </span>
                     )}
                   </div>
-                  <div className="text-xs text-muted font-medium mt-0.5">
+                  <div className="t-label text-muted font-medium mt-0.5">
                     Ownership: <span className="text-ink font-semibold">{station.ownership}</span>
                   </div>
                 </div>
@@ -193,7 +193,7 @@ export function MediaRadioLandscapeCard() {
               {/* Status Badge */}
               <div className="self-start sm:self-auto">
                 <span className={`t-label font-bold px-2.5 py-1 rounded-lg border ${
-                  station.politicalAllegiance.includes("Independent")
+ station.politicalAllegiance.includes("Independent")
                     ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/20"
                     : station.politicalAllegiance.includes("Rival")
                     ? "bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/20"
@@ -204,7 +204,7 @@ export function MediaRadioLandscapeCard() {
               </div>
             </div>
 
-            <p className="text-xs text-ink font-medium mt-2.5 leading-relaxed">
+            <p className="t-label text-ink font-medium mt-2.5 leading-relaxed">
               {station.campaignPosture}
             </p>
 
@@ -215,7 +215,7 @@ export function MediaRadioLandscapeCard() {
 
               <button
                 onClick={() => toggleSnippet(station.name)}
-                className="text-xs font-bold text-accent hover:text-accent/80 flex items-center gap-1 cursor-pointer self-start sm:self-auto"
+                className="t-label font-bold text-accent hover:text-accent/80 flex items-center gap-1 cursor-pointer self-start sm:self-auto"
               >
                 {playingSnippet === station.name ? (
                   <>
@@ -240,7 +240,7 @@ export function MediaRadioLandscapeCard() {
                 className="grid mt-2"
               >
               <div className="overflow-hidden min-h-0">
-              <div className="p-3 bg-card rounded-lg border border-accent/20 text-xs space-y-1">
+              <div className="p-3 bg-card rounded-lg border border-accent/20 t-label space-y-1">
                 <div className="font-bold text-accent flex items-center gap-1.5">
                   <Volume2 size={13} />
                   <span>Sample On-Air Talking Point ({station.name}):</span>

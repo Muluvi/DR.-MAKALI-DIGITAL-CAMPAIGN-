@@ -4,8 +4,9 @@ import React, { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { ArrowRight, CalendarDays, UserRound, Route, TriangleAlert } from "lucide-react";
 
-import { EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
+import { DURATION, EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
+import { useMotionPreset } from "../../hooks/useMotionPreset";
 import type { CommitmentField, CommitmentFieldKey } from "../../lib/commitment-fields";
 import { HighlightedText } from "./HighlightedText";
 import type { TabId } from "../../lib/heading-slug";
@@ -54,7 +55,7 @@ function Chip({
     <div className="flex items-start gap-2 rounded-xl border border-line/60 bg-paper px-3 py-2 flex-1 min-w-0">
       <Icon size={13} className="text-muted shrink-0 mt-0.5" aria-hidden="true" />
       <div className="min-w-0">
-        <div className="t-micro font-black uppercase tracking-wider text-muted leading-none mb-1">{label}</div>
+        <div className="t-micro font-black text-muted leading-none mb-1">{label}</div>
         <div className="t-small font-bold text-ink leading-snug">
           <Value tabId={tabId}>{children}</Value>
         </div>
@@ -67,6 +68,7 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, VIEWPORT);
   const reduce = useReducedMotionSafe();
+  const { enter } = useMotionPreset();
 
   const find = (k: CommitmentFieldKey) => fields.find((f) => f.key === k);
   const baseline = find("baseline");
@@ -80,9 +82,12 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
   const extras = fields.filter((f) => f.key === null);
 
   const rise = (i: number) => ({
-    initial: reduce ? false : { opacity: 0, y: 8 },
+    // `enter` rather than a bare object: these cards carry the baseline figure, the deadline and
+    // the named owner for each commitment, and an `initial` written into the server HTML means
+    // they ship invisible and stay that way until hydration.
+    initial: enter({ opacity: 0, y: 8 }),
     animate: inView || reduce ? { opacity: 1, y: 0 } : undefined,
-    transition: { duration: 0.46, ease: EASE_ENTRANCE, delay: reduce ? 0 : i * STAGGER.tight },
+    transition: { duration: DURATION.base, ease: EASE_ENTRANCE, delay: reduce ? 0 : i * STAGGER.tight },
   });
 
   return (
@@ -91,7 +96,7 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
       {baseline && target && (
         <motion.div className="flex flex-col sm:flex-row items-stretch gap-2" {...rise(0)}>
           <div className="flex-1 rounded-xl border border-line/60 bg-paper p-3">
-            <div className="t-micro font-black uppercase tracking-wider text-muted mb-1">{baseline.label}</div>
+            <div className="t-micro font-black text-muted mb-1">{baseline.label}</div>
             <div className="t-body text-ink leading-snug">
               <Value tabId={tabId}>{baseline.value}</Value>
             </div>
@@ -100,7 +105,7 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
             <ArrowRight size={16} className="text-accent rotate-90 sm:rotate-0" />
           </div>
           <div className="flex-1 rounded-xl border border-accent/30 bg-accent/[0.05] p-3">
-            <div className="t-micro font-black uppercase tracking-wider text-accent mb-1">{target.label}</div>
+            <div className="t-micro font-black text-accent mb-1">{target.label}</div>
             <div className="t-body font-semibold text-ink leading-snug">
               <Value tabId={tabId}>{target.value}</Value>
             </div>
@@ -127,7 +132,7 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
         <motion.div className="flex items-start gap-2 px-1" {...rise(2)}>
           <Route size={13} className="text-muted shrink-0 mt-1" aria-hidden="true" />
           <p className="t-small text-muted leading-relaxed">
-            <span className="font-black uppercase tracking-wider t-micro text-muted mr-1.5">
+            <span className="font-black t-micro text-muted mr-1.5">
               {traceability.label}
             </span>
             <Value tabId={tabId}>{traceability.value}</Value>
@@ -142,7 +147,7 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
         >
           <TriangleAlert size={13} className="text-danger shrink-0 mt-0.5" aria-hidden="true" />
           <p className="t-small text-ink/90 leading-relaxed min-w-0">
-            <span className="font-black uppercase tracking-wider t-micro text-danger mr-1.5">
+            <span className="font-black t-micro text-danger mr-1.5">
               {escalation.label}
             </span>
             <Value tabId={tabId}>{escalation.value}</Value>
@@ -152,7 +157,7 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
 
       {extras.map((f, i) => (
         <motion.p key={i} className="t-small text-muted leading-relaxed px-1" {...rise(4 + i)}>
-          <span className="font-black uppercase tracking-wider t-micro text-muted mr-1.5">{f.label}</span>
+          <span className="font-black t-micro text-muted mr-1.5">{f.label}</span>
           <Value tabId={tabId}>{f.value}</Value>
         </motion.p>
       ))}

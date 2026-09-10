@@ -67,8 +67,8 @@ export function SectionStickyBar({ sectionLabel }: { sectionLabel?: string }) {
     <>
       <div ref={sentinelRef} className="h-px" aria-hidden="true" />
       <div
-        className={`section-sticky-bar sticky top-12 sm:top-14 z-40 -mt-px print:hidden pointer-events-none transition-all duration-300 motion-reduce:transition-none ${
-          // Two independent reasons to be off screen. Emitted as one branch rather than two
+        className={`section-sticky-bar relative lg:sticky lg:top-12 z-40 -mt-px print:hidden pointer-events-none transition-all duration-300 motion-reduce:transition-none ${
+ // Two independent reasons to be off screen. Emitted as one branch rather than two
           // concatenated groups, which produced conflicting opacity/translate utilities whose
           // winner depended on Tailwind's output order rather than on intent.
           showBar && visible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
@@ -79,7 +79,7 @@ export function SectionStickyBar({ sectionLabel }: { sectionLabel?: string }) {
             <div className="inline-flex items-center gap-2 max-w-full bg-card/95 backdrop-blur-md border border-line/60 shadow-md rounded-full pl-2.5 pr-3.5 py-1.5 sm:px-4 sm:py-2">
               <span className="w-2 h-2 rounded-full bg-accent shrink-0" aria-hidden="true" />
               {sectionLabel && (
-                <span className="text-xs font-semibold text-accent shrink-0 max-w-[38vw] sm:max-w-none truncate">
+                <span className="t-label font-semibold text-accent shrink-0 max-w-[38vw] sm:max-w-none truncate">
                   {sectionLabel}
                 </span>
               )}
@@ -87,7 +87,7 @@ export function SectionStickyBar({ sectionLabel }: { sectionLabel?: string }) {
                 <span className="w-px h-3 bg-line shrink-0" aria-hidden="true" />
               )}
               {headingText && (
-                <span className="text-xs font-medium text-muted truncate max-w-[42vw] sm:max-w-md">{headingText}</span>
+                <span className="t-label font-medium text-muted truncate max-w-[42vw] sm:max-w-md">{headingText}</span>
               )}
             </div>
           </div>
