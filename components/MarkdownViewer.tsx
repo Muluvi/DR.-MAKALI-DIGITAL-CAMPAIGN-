@@ -564,18 +564,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
 
   return (
     <div className="relative bg-transparent overflow-hidden p-0">
-      {/* Dynamic Faded Watermark Background */}
-      <div className="decor-watermark absolute inset-0 pointer-events-none overflow-hidden select-none z-0 opacity-5">
-        <div className="absolute top-[20%] right-[-10%] text-[8rem] font-black text-accent/5 rotate-[-12deg] font-serif uppercase">
-          Wiper Democratic
-        </div>
-        <div className="absolute bottom-[20%] left-[-15%] text-[8rem] font-black text-gold/5 rotate-[8deg] font-serif uppercase">
-          Movement
-        </div>
-      </div>
-
-      {/* Integrated Media Briefing Placard at the top of long strategic pages */}
-
+      {/* Editorial Content Container */}
       {/* The lede treatment is scoped with `>` deliberately. As a descendant selector
           (`[&_p:first-of-type]`) it matched the first paragraph of EVERY nested container —
           so chart footnotes, card ledes and diagram notes all picked up a 3xl gold drop cap.

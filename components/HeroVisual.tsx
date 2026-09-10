@@ -161,20 +161,28 @@ export function HeroVisual() {
     }
   ];
 
-  // Mouse & Touch 3D tilt calculations
+  // Mouse & Touch 3D tilt calculations with RAF throttling and reduced-motion support
+  const rafRef = useRef<number | null>(null);
   const handlePointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
-    // Cap tilt angles between -6deg and 6deg for tasteful subtlety
-    setTilt({
-      x: -y * 10,
-      y: x * 10
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(() => {
+      // Cap tilt angles between -5deg and 5deg for tasteful subtlety
+      setTilt({
+        x: -y * 8,
+        y: x * 8
+      });
     });
   }, []);
 
   const handlePointerLeave = useCallback(() => {
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
     setTilt({ x: 0, y: 0 });
   }, []);
 
@@ -203,7 +211,7 @@ export function HeroVisual() {
               Where the votes are
             </span>
           </div>
-          <h2 className="font-serif text-sm sm:text-base font-bold text-ink mt-0.5">
+          <h2 className="font-serif t-small sm:t-body font-bold text-ink mt-0.5">
             {selectedStage ? selectedStage.title : "The four stages, and what each has to deliver"}
           </h2>
         </div>

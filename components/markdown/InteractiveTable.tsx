@@ -300,15 +300,15 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
       {stats && (
         <div className="px-3 py-2 bg-accent/[0.02] border-b border-line/30 grid grid-cols-3 gap-1.5 sm:gap-2 text-center">
           <div className="min-w-0">
-            <span className="text-[10px] sm:t-micro font-semibold text-muted truncate block">Avg {stats.label}</span>
+            <span className="t-micro font-semibold text-muted truncate block">Avg {stats.label}</span>
             <span className="block t-label sm:t-label font-bold text-accent mt-0.5 truncate">{stats.avg}</span>
           </div>
           <div className="min-w-0">
-            <span className="text-[10px] sm:t-micro font-semibold text-muted truncate block">Max Peak</span>
+            <span className="t-micro font-semibold text-muted truncate block">Max Peak</span>
             <span className="block t-label sm:t-label font-bold text-gold mt-0.5 truncate">{stats.max}</span>
           </div>
           <div className="min-w-0">
-            <span className="text-[10px] sm:t-micro font-semibold text-muted truncate block">Combined</span>
+            <span className="t-micro font-semibold text-muted truncate block">Combined</span>
             <span className="block t-label sm:t-label font-bold text-ink mt-0.5 truncate">{stats.sum}</span>
           </div>
         </div>

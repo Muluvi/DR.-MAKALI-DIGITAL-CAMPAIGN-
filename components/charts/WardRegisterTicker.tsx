@@ -86,11 +86,11 @@ export function WardRegisterTicker() {
               <h5 className="font-serif t-label sm:t-small font-bold text-ink">
                 40-Ward IEBC Voter Register Stream
               </h5>
-              <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-accent/10 text-accent">
+              <span className="inline-flex items-center px-1.5 py-0.5 rounded-full t-micro font-bold bg-accent/10 text-accent">
                 Live Dynamic Ticker
               </span>
             </div>
-            <p className="text-[11px] text-muted">
+            <p className="t-micro text-muted">
               Auto-scrolling registry sorted by IEBC registered voter strength
             </p>
           </div>

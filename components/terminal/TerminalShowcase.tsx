@@ -141,8 +141,8 @@ export function TerminalShowcase() {
                 }`}
               >
                 <div className="flex items-center gap-1.5">
-                  <span className={`text-[10px] font-mono px-1 py-0.2 rounded ${
- selected ? "bg-paper/20 text-paper" : "bg-muted/15 text-muted"
+                  <span className={`t-micro font-mono px-1 py-0.2 rounded ${
+                    selected ? "bg-paper/20 text-paper" : "bg-muted/15 text-muted"
                   }`}>
                     {mode.code}
                   </span>
