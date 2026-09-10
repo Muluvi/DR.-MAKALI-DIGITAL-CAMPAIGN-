@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Scale, AlertTriangle, CheckCircle2, ChevronRight, HelpCircle, ArrowRight, ShieldCheck, Building2, Users } from "lucide-react";
+import { Scale, Flag, CheckCircle2, ChevronRight, HelpCircle, ArrowRight, ShieldCheck, Building2, Users } from "lucide-react";
 import { DURATION } from "../../lib/motion";
 
 export function ConstitutionalBranchNavigator() {
@@ -14,7 +14,7 @@ export function ConstitutionalBranchNavigator() {
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <Scale size={20} />
+            <Scale size={20} aria-hidden="true" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -58,7 +58,7 @@ export function ConstitutionalBranchNavigator() {
 
       {/* Scenario Context Banner */}
       <div className="p-4 bg-accent/5 border-b border-line t-label font-medium text-ink flex items-start gap-2.5">
-        <HelpCircle size={16} className="text-accent shrink-0 mt-0.5" />
+        <HelpCircle size={16} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
         <div>
           <span className="font-bold">Legal Question:</span> Does the 2017–2022 Ngilu interregnum reset or permit a 3rd term under the <em>two-term limit</em> clause of Article 180(7)? Active litigation in High Court.
         </div>
@@ -77,14 +77,14 @@ export function ConstitutionalBranchNavigator() {
               className="space-y-4"
             >
               <div className="flex items-center gap-2 t-label font-extrabold text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 p-2.5 rounded-xl border border-emerald-500/20">
-                <CheckCircle2 size={16} className="shrink-0" />
+                <CheckCircle2 size={16} className="shrink-0" aria-hidden="true" />
                 <span>Supreme Court / High Court Rules Malombe INELIGIBLE (Two-Term Absolute Bar)</span>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
                   <div className="t-label font-black text-muted flex items-center gap-1.5">
-                    <Users size={12} className="text-accent" />
+                    <Users size={12} className="text-accent" aria-hidden="true" />
                     Wiper Nomination Dynamics
                   </div>
                   <div className="t-label font-bold text-ink">
@@ -97,7 +97,7 @@ export function ConstitutionalBranchNavigator() {
 
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
                   <div className="t-label font-black text-muted flex items-center gap-1.5">
-                    <Building2 size={12} className="text-accent" />
+                    <Building2 size={12} className="text-accent" aria-hidden="true" />
                     Kitui Central Anchor
                   </div>
                   <div className="t-label font-bold text-ink">
@@ -110,7 +110,7 @@ export function ConstitutionalBranchNavigator() {
 
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
                   <div className="t-label font-black text-muted flex items-center gap-1.5">
-                    <ShieldCheck size={12} className="text-accent" />
+                    <ShieldCheck size={12} className="text-accent" aria-hidden="true" />
                     Strategic Posture
                   </div>
                   <div className="t-label font-bold text-ink">
@@ -131,15 +131,15 @@ export function ConstitutionalBranchNavigator() {
               transition={{ duration: DURATION.quick }}
               className="space-y-4"
             >
-              <div className="flex items-center gap-2 t-label font-extrabold text-amber-700 dark:text-amber-400 bg-amber-500/10 p-2.5 rounded-xl border border-amber-500/20">
-                <AlertTriangle size={16} className="shrink-0" />
+              <div className="flex items-center gap-2 t-label font-extrabold text-ink bg-paper p-2.5 rounded-xl border border-line">
+                <Flag size={16} className="shrink-0 text-muted" aria-hidden="true" />
                 <span>Court Rules Interregnum Permits Re-Election (Malombe Contests 2027)</span>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
                   <div className="t-label font-black text-muted flex items-center gap-1.5">
-                    <Users size={12} className="text-accent" />
+                    <Users size={12} className="text-accent" aria-hidden="true" />
                     Nomination Mechanism
                   </div>
                   <div className="t-label font-bold text-ink">
@@ -152,7 +152,7 @@ export function ConstitutionalBranchNavigator() {
 
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
                   <div className="t-label font-black text-muted flex items-center gap-1.5">
-                    <Building2 size={12} className="text-accent" />
+                    <Building2 size={12} className="text-accent" aria-hidden="true" />
                     Audit & Delivery Wedge
                   </div>
                   <div className="t-label font-bold text-ink">
@@ -165,7 +165,7 @@ export function ConstitutionalBranchNavigator() {
 
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
                   <div className="t-label font-black text-muted flex items-center gap-1.5">
-                    <ShieldCheck size={12} className="text-accent" />
+                    <ShieldCheck size={12} className="text-accent" aria-hidden="true" />
                     Strategic Posture
                   </div>
                   <div className="t-label font-bold text-ink">
@@ -184,7 +184,7 @@ export function ConstitutionalBranchNavigator() {
       {/* Strategic Rule Footer */}
       <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
-          <ArrowRight size={12} className="text-accent" />
+          <ArrowRight size={12} className="text-accent" aria-hidden="true" />
           <span>Strategic Command Rule: Campaign operations must prepare simultaneously for both branches.</span>
         </span>
       </div>

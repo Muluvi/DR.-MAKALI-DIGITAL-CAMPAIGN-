@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, HandCoins } from "lucide-react";
+import { X, Search, ChevronRight, Layers, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, HandCoins } from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
 import { readingMinutes } from "../hooks/useReadingProgress";
 import type { SectionItem } from "../lib/section-index";
@@ -99,7 +99,7 @@ export function MobileTOCModal({
           <div className="p-3.5 sm:p-5 border-b border-line flex items-center justify-between gap-3">
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold">
-                <Layers size={18} />
+                <Layers size={18} aria-hidden="true" />
               </div>
               <div>
                 <h3 className="font-serif text-base sm:text-lg font-bold text-ink leading-tight">
@@ -116,14 +116,14 @@ export function MobileTOCModal({
               className="w-11 h-11 rounded-xl bg-paper border border-line text-muted hover:text-ink flex items-center justify-center transition-colors cursor-pointer shrink-0"
               aria-label="Close navigation"
             >
-              <X size={18} />
+              <X size={18} aria-hidden="true" />
             </button>
           </div>
 
           {/* Search Box */}
           <div className="p-3 sm:p-4 bg-paper/50 border-b border-line space-y-2.5">
             <div className="relative">
-              <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted" />
+              <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted" aria-hidden="true" />
               <input
                 type="text"
                 placeholder="Search sections (e.g., 200k, Radio, 40 Wards, DPA)..."
@@ -250,7 +250,7 @@ export function MobileTOCModal({
                           {item.title}
                         </span>
                         <div className="flex items-center gap-1.5 mt-0.5 t-micro text-muted">
-                          <Icon size={11} className="shrink-0" />
+                          <Icon size={11} className="shrink-0" aria-hidden="true" />
                           <span className="font-medium truncate">{item.tabLabel}</span>
                           {isCurrentTab && <span className="text-accent font-semibold">· current</span>}
                         </div>
@@ -258,7 +258,7 @@ export function MobileTOCModal({
                     </div>
 
                     <div className="fx-icon-nudge w-7 h-7 rounded-full bg-paper border border-line flex items-center justify-center shrink-0 text-muted group-hover:text-accent group-hover:border-accent/50 transition-colors">
-                      <ChevronRight size={14} />
+                      <ChevronRight size={14} aria-hidden="true" />
                     </div>
                   </button>
                 );
@@ -273,10 +273,7 @@ export function MobileTOCModal({
 
           {/* Footer Quick Info */}
           <div className="p-3 bg-paper/60 border-t border-line flex items-center justify-between t-small text-muted px-4 font-semibold">
-            <span className="flex items-center gap-1.5">
-              <Sparkles size={12} className="text-accent" />
-              <span>Tap any section to jump instantly</span>
-            </span>
+            <span>Tap any section to jump instantly</span>
             <button
               onClick={onClose}
               className="text-accent font-bold hover:underline"

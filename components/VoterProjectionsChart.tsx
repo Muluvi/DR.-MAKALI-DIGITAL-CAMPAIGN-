@@ -116,7 +116,7 @@ export function VoterProjectionsChart() {
  activeTab === "demographics" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
               }`}
             >
-              <Users size={14} />
+              <Users size={14} aria-hidden="true" />
               <span>Sub-County</span>
             </button>
             <button
@@ -125,7 +125,7 @@ export function VoterProjectionsChart() {
  activeTab === "voters" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
               }`}
             >
-              <BarChart3 size={14} />
+              <BarChart3 size={14} aria-hidden="true" />
               <span>Ward Registered</span>
             </button>
           </div>
@@ -154,7 +154,7 @@ export function VoterProjectionsChart() {
             </div>
           ) : (
             <div className="t-label font-bold text-muted flex items-center gap-1.5">
-              <ChevronRight size={14} className="text-accent" />
+              <ChevronRight size={14} className="text-accent" aria-hidden="true" />
               <span>Voter thresholds across major baseline wards (2022)</span>
             </div>
           )}
@@ -162,7 +162,7 @@ export function VoterProjectionsChart() {
 
         {/* Region Filters (Visible on Demographics) */}
         <div className="md:col-span-5 flex items-center gap-1.5 overflow-x-auto py-1 scrollbar-none">
-          <Filter size={13} className="text-muted shrink-0 hidden sm:block" />
+          <Filter size={13} className="text-muted shrink-0 hidden sm:block" aria-hidden="true" />
           {activeTab === "demographics" ? (
             <div className="flex gap-1">
               {(["All", "Anchor", "Mwingi Block", "Arid Belt"] as const).map((r) => (
@@ -204,9 +204,9 @@ export function VoterProjectionsChart() {
               }`}
               title={`Switch to ${type} chart`}
             >
-              {type === "bar" && <BarChart3 size={14} />}
-              {type === "line" && <TrendingUp size={14} />}
-              {type === "area" && <Map size={14} />}
+              {type === "bar" && <BarChart3 size={14} aria-hidden="true" />}
+              {type === "line" && <TrendingUp size={14} aria-hidden="true" />}
+              {type === "area" && <Map size={14} aria-hidden="true" />}
             </button>
           ))}
         </div>

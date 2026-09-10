@@ -141,7 +141,7 @@ function DiagramOverlay({
           className="tap p-2 rounded-lg border border-line text-muted hover:text-ink"
           aria-label="Zoom out"
         >
-          <Minus size={15} />
+          <Minus size={15} aria-hidden="true" />
         </button>
         <button
           type="button"
@@ -149,7 +149,7 @@ function DiagramOverlay({
           className="tap p-2 rounded-lg border border-line text-muted hover:text-ink"
           aria-label="Zoom in"
         >
-          <Plus size={15} />
+          <Plus size={15} aria-hidden="true" />
         </button>
         <button
           type="button"
@@ -157,7 +157,7 @@ function DiagramOverlay({
           className="tap p-2 rounded-lg border border-line text-muted hover:text-ink"
           aria-label="Reset view"
         >
-          <RotateCcw size={15} />
+          <RotateCcw size={15} aria-hidden="true" />
         </button>
         <button
           type="button"
@@ -165,7 +165,7 @@ function DiagramOverlay({
           className="tap p-2 rounded-lg border border-line text-muted hover:text-ink"
           aria-label="Close full screen"
         >
-          <X size={15} />
+          <X size={15} aria-hidden="true" />
         </button>
       </div>
 
@@ -240,7 +240,7 @@ export function DiagramViewer({ title, body }: { title?: string; body: string })
             onClick={() => setActualSize((v) => !v)}
             className="tap inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-line bg-paper/60 t-label font-bold text-muted hover:text-ink"
           >
-            <Scan size={12} />
+            <Scan size={12} aria-hidden="true" />
             {actualSize ? "Fit to width" : "Actual size"}
           </button>
           <button
@@ -248,7 +248,7 @@ export function DiagramViewer({ title, body }: { title?: string; body: string })
             onClick={() => setOpen(true)}
             className="tap inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-accent/30 bg-accent/5 t-label font-bold text-accent hover:bg-accent/10"
           >
-            <Maximize2 size={12} />
+            <Maximize2 size={12} aria-hidden="true" />
             Full screen
           </button>
         </div>

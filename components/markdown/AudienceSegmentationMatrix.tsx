@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Users, Radio, MessageSquare, AlertTriangle, Layers } from "lucide-react";
+import { Users, Radio, MessageSquare, CircleDashed, Layers } from "lucide-react";
 
 import { ClaimBadge } from "./ClaimBadge";
 import { TierBadge } from "./TierBadge";
@@ -208,7 +208,7 @@ export function AudienceSegmentationMatrix() {
             </div>
             {active.sizing.kind === "gap" && (
               <p className="t-small text-muted mt-2 flex items-start gap-1.5">
-                <AlertTriangle size={11} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
+                <CircleDashed size={11} className="text-muted shrink-0 mt-0.5" aria-hidden="true" />
                 <span>
                   <strong>Named data gap (§2.4.3).</strong> {active.sizing.note} Commissioning this is a Phase −1
                   research priority; it is not sized here because it is not sized in the source.

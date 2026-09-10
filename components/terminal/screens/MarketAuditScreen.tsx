@@ -30,7 +30,7 @@ export function MarketAuditScreen({ data }: { data: WardPulseData }) {
         <div>
           <div className="font-mono text-slate-400 uppercase" style={{ fontSize: "0.625em" }}>Target Commercial Hub</div>
           <div className="font-bold text-white flex items-center gap-1.5" style={{ fontSize: "0.875em" }}>
-            <ShoppingBag className="w-3.5 h-3.5 text-amber-400" />
+            <ShoppingBag className="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
             {market?.marketName || "Ward Trading Center"}
           </div>
         </div>
@@ -45,7 +45,7 @@ export function MarketAuditScreen({ data }: { data: WardPulseData }) {
       <div className="grid grid-cols-3 gap-2 mb-3">
         <div className="bg-slate-900/70 p-2 rounded-lg border border-slate-800 text-center">
           <div className="flex items-center justify-center gap-1 text-slate-400 font-mono uppercase mb-0.5" style={{ fontSize: "0.5625em" }}>
-            <Users className="w-2.5 h-2.5 text-cyan-400" /> Crowd
+            <Users className="w-2.5 h-2.5 text-cyan-400" aria-hidden="true" /> Crowd
           </div>
           <div className="font-bold font-mono text-white" style={{ fontSize: "0.75em" }}>
             {market?.crowdEstimate.split(" ")[0] || "3,500+"}
@@ -55,7 +55,7 @@ export function MarketAuditScreen({ data }: { data: WardPulseData }) {
 
         <div className="bg-slate-900/70 p-2 rounded-lg border border-slate-800 text-center">
           <div className="flex items-center justify-center gap-1 text-slate-400 font-mono uppercase mb-0.5" style={{ fontSize: "0.5625em" }}>
-            <FileText className="w-2.5 h-2.5 text-emerald-400" /> Leaflets
+            <FileText className="w-2.5 h-2.5 text-emerald-400" aria-hidden="true" /> Leaflets
           </div>
           <div className="font-bold font-mono text-emerald-400" style={{ fontSize: "0.75em" }}>
             {market?.leafletsDistributed.toLocaleString() || "1,500"}
@@ -65,7 +65,7 @@ export function MarketAuditScreen({ data }: { data: WardPulseData }) {
 
         <div className="bg-slate-900/70 p-2 rounded-lg border border-slate-800 text-center">
           <div className="flex items-center justify-center gap-1 text-slate-400 font-mono uppercase mb-0.5" style={{ fontSize: "0.5625em" }}>
-            <Bike className="w-2.5 h-2.5 text-amber-400" /> Boda
+            <Bike className="w-2.5 h-2.5 text-amber-400" aria-hidden="true" /> Boda
           </div>
           <div className="font-bold font-mono text-amber-300" style={{ fontSize: "0.75em" }}>
             {market?.bodaBodaChampionsActive || "30"}
@@ -78,7 +78,7 @@ export function MarketAuditScreen({ data }: { data: WardPulseData }) {
       <div className="bg-slate-900/90 rounded-lg p-2.5 border border-slate-800 mb-3">
         <div className="flex items-center justify-between font-mono text-slate-400 mb-1.5" style={{ fontSize: "0.625em" }}>
           <span className="flex items-center gap-1 text-cyan-400">
-            <Volume2 className="w-3 h-3" /> Vernacular Audio Memo
+            <Volume2 className="w-3 h-3" aria-hidden="true" /> Vernacular Audio Memo
           </span>
           <span>{data.recentAudioDispatch.duration}</span>
         </div>
@@ -90,7 +90,7 @@ export function MarketAuditScreen({ data }: { data: WardPulseData }) {
             className="w-8 h-8 rounded-full bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/30 flex items-center justify-center border border-cyan-500/40 transition shrink-0"
             aria-label={isPlaying ? "Pause audio memo" : "Play audio memo"}
           >
-            {isPlaying ? <Pause className="w-3.5 h-3.5 fill-current" /> : <Play className="w-3.5 h-3.5 fill-current translate-x-0.5" />}
+            {isPlaying ? <Pause className="w-3.5 h-3.5 fill-current" aria-hidden="true" /> : <Play className="w-3.5 h-3.5 fill-current translate-x-0.5" aria-hidden="true" />}
           </button>
 
           <div className="flex-1 min-w-0">

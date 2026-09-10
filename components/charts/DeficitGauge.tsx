@@ -193,7 +193,7 @@ export function DeficitGauge() {
             progress={reduce ? null : grow} reduce={reduce}
           />
           <div className="flex flex-col items-center gap-1 pb-16 sm:pb-24 shrink-0">
-            <TrendingDown size={16} className="text-danger" />
+            <TrendingDown size={16} className="text-danger" aria-hidden="true" />
             <div className="t-micro font-black text-muted whitespace-nowrap">
               gap
             </div>

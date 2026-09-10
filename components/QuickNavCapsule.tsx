@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Compass, ChevronUp, Sparkles, Activity, Radio, Calculator, MapPin, Coins, X, Gauge, Shield } from "lucide-react";
+import { Compass, ChevronUp, Activity, Radio, Calculator, MapPin, Coins, X, Gauge, Shield } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 import { useChromeVisible } from "../hooks/use-chrome-visible";
@@ -65,18 +65,13 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
             className="fx-glass shadow-2xl rounded-2xl p-4 w-[min(calc(100vw-2.5rem),20rem)] mb-2 overflow-hidden"
           >
             <div className="flex items-center justify-between border-b border-line/40 pb-2 mb-2.5">
-              <div className="flex items-center gap-2">
-                <div className="p-1 rounded-md bg-accent/10 text-accent">
-                  <Sparkles size={13} />
-                </div>
-                <span className="font-serif t-label font-black text-ink">Executive Shortcuts</span>
-              </div>
+              <span className="font-serif t-label font-black text-ink">Executive Shortcuts</span>
               <button
                 onClick={() => setIsOpen(false)}
                 className="w-11 h-11 text-muted hover:text-ink rounded-lg hover:bg-paper cursor-pointer transition-colors flex items-center justify-center -mr-2"
                 aria-label="Close shortcuts"
               >
-                <X size={16} />
+                <X size={16} aria-hidden="true" />
               </button>
             </div>
 
@@ -90,7 +85,7 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
                     className="fx-press fx-focus flex items-center justify-between p-2.5 rounded-xl text-left hover:bg-accent/10 hover:text-accent group transition-all cursor-pointer t-label font-bold text-ink min-h-[44px] min-w-[44px] justify-center"
                   >
                     <div className="flex items-center gap-2.5 truncate">
-                      <Icon size={14} className="fx-icon-rise text-muted group-hover:text-accent transition-colors shrink-0" />
+                      <Icon size={14} className="fx-icon-rise text-muted group-hover:text-accent transition-colors shrink-0" aria-hidden="true" />
                       <span className="truncate">{item.label}</span>
                     </div>
                     <span className="t-micro font-extrabold px-1.5 py-0.5 rounded bg-line/30 text-muted group-hover:bg-accent group-hover:text-white transition-all shrink-0">
@@ -127,7 +122,7 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
           aria-label="Scroll to top"
           title="Scroll to top"
         >
-          <ChevronUp size={16} />
+          <ChevronUp size={16} aria-hidden="true" />
         </button>
 
         <button
@@ -139,7 +134,7 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
           }`}
           aria-label="Quick Navigator"
         >
-          <Compass size={16} className={isOpen ? "rotate-45 transition-transform" : "transition-transform"} />
+          <Compass size={16} className={isOpen ? "rotate-45 transition-transform" : "transition-transform"} aria-hidden="true" />
           <span className="hidden sm:inline">Quick Jump</span>
         </button>
       </div>

@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import { useMarqueeActive } from "../hooks/use-marquee-active";
 import { useIsMobile } from "../hooks/use-mobile";
 import { LazyMount } from "./LazyMount";
-import { Play, Pause, Volume2, ChevronDown, ChevronUp, Calendar, User, Check, AlertTriangle, Sparkles, Target, Zap, ArrowRight, Maximize2, Minimize2, Sliders, Radio, ShieldCheck, Users, Coins, FileText, TrendingUp, MessageSquare, CheckCircle2, CheckSquare, MapPin, Globe, BookOpen, Activity, Database, RefreshCw, HelpCircle, Layers, TrendingDown, Table, Filter } from "lucide-react";
+import { Play, Pause, Volume2, ChevronDown, ChevronUp, Calendar, User, Check, Target, Zap, ArrowRight, Maximize2, Minimize2, Sliders, Radio, ShieldCheck, Users, Coins, FileText, TrendingUp, MessageSquare, CheckCircle2, CheckSquare, MapPin, Globe, BookOpen, Activity, Database, RefreshCw, HelpCircle, Layers, TrendingDown, Table, Filter } from "lucide-react";
 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import ConstituencyBarChart from "./charts/ConstituencyBarChart";
@@ -46,7 +46,7 @@ export function AudioSummaryPlayer() {
     <div className="bg-gradient-to-br from-card to-paper border border-line rounded-2xl p-4 sm:p-5 shadow-sm max-w-md my-4">
       <div className="flex items-center gap-3">
         <div className="p-2.5 rounded-xl bg-accent/10 border border-accent/20 text-accent">
-          <Volume2 size={18} />
+          <Volume2 size={18} aria-hidden="true" />
         </div>
         <div>
           <h4 className="font-serif text-sm font-extrabold text-ink leading-tight">Governor&apos;s Strategy Brief</h4>
@@ -99,7 +99,7 @@ export function AudioSummaryPlayer() {
           onClick={() => setIsPlaying(!isPlaying)}
           className="p-3 rounded-full bg-accent-solid text-on-accent hover:bg-accent/90 transition-all shadow-md shrink-0 flex items-center justify-center cursor-pointer"
         >
-          {isPlaying ? <Pause size={16} /> : <Play size={16} className="ml-0.5" />}
+          {isPlaying ? <Pause size={16} aria-hidden="true" /> : <Play size={16} className="ml-0.5" aria-hidden="true" />}
         </button>
         <div className="flex-1">
           <div className="relative w-full h-1.5 bg-line rounded-full overflow-hidden">
@@ -134,7 +134,7 @@ export function FocusModeToggle({
     <div className="bg-card border border-line rounded-2xl p-4 shadow-sm flex items-center justify-between my-4 select-none">
       <div className="flex items-center gap-3">
         <div className="p-2 rounded-lg bg-accent/10 text-accent">
-          <BookOpen size={16} />
+          <BookOpen size={16} aria-hidden="true" />
         </div>
         <div>
           <p className="t-label font-extrabold text-ink leading-tight">Campaign Focus Mode</p>
@@ -284,7 +284,7 @@ export function MediaPlaybackMockup() {
           onClick={() => setPlaying(!playing)}
           className="p-4 rounded-full bg-accent-solid text-on-accent hover:bg-accent/90 transition-all shadow-md relative z-10 cursor-pointer"
         >
-          {playing ? <Pause size={20} /> : <Play size={20} className="ml-0.5" />}
+          {playing ? <Pause size={20} aria-hidden="true" /> : <Play size={20} className="ml-0.5" aria-hidden="true" />}
         </button>
         <span className="absolute bottom-2 left-3 t-micro font-black uppercase text-accent bg-card px-2 py-0.5 rounded border border-line">
           Vernacular Radio Broadcast Player
@@ -437,7 +437,7 @@ export function SloganBuilder() {
             {selectedPillars.length > 0 ? selectedPillars.join(" · ") : "Select Campaign Pillars"}
           </p>
         </div>
-        <ArrowRight size={16} className="text-gold" />
+        <ArrowRight size={16} className="text-gold" aria-hidden="true" />
       </div>
     </div>
   );
@@ -486,7 +486,7 @@ export function CommunityScheduler() {
         {events.map((ev, i) => (
           <div key={i} className="flex gap-3 bg-paper border border-line p-3 rounded-xl hover:border-accent/30 transition-all">
             <div className="p-2.5 bg-card border border-line rounded-lg text-accent self-start shrink-0">
-              <Calendar size={16} />
+              <Calendar size={16} aria-hidden="true" />
             </div>
             <div>
               <h5 className="font-serif t-label font-black text-ink leading-tight">{ev.title}</h5>
@@ -539,7 +539,7 @@ export function PrintReportGenerator({ onPrint }: { onPrint?: () => void } = {})
     <div className="bg-card border border-line rounded-2xl p-4 shadow-sm flex items-center justify-between my-6 select-none">
       <div className="flex items-center gap-3">
         <div className="p-2.5 rounded-lg bg-accent/10 text-accent">
-          <FileText size={16} />
+          <FileText size={16} aria-hidden="true" />
         </div>
         <div>
           <p className="t-label font-extrabold text-ink leading-tight">Print PDF Briefing Kit</p>

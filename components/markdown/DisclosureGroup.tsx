@@ -66,8 +66,7 @@ export function DisclosureGroup({
                   size={16}
                   className={`shrink-0 transition-transform duration-200 motion-reduce:transition-none ${
  isOpen ? "rotate-180 text-accent" : "text-muted"
-                  }`}
-                />
+                  }`} aria-hidden="true" />
               </button>
             </h4>
             {/* Rendered whether or not it is open, and hidden with CSS rather than dropped from

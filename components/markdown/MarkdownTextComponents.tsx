@@ -53,7 +53,7 @@ export function MarkdownListItem({
   return (
     <li className="flex items-start gap-2 my-2 sm:my-2.5 t-lead sm:t-lead text-ink/90 list-none">
       <span className="mt-1 text-accent shrink-0">
-        <CheckCircle2 size={14} className="stroke-[2.5]" />
+        <CheckCircle2 size={14} className="stroke-[2.5]" aria-hidden="true" />
       </span>
       <span className="leading-relaxed text-pretty">{content}</span>
     </li>

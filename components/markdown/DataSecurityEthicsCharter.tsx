@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ShieldCheck, Lock, EyeOff, Database, FileCode2, AlertTriangle, CheckSquare, ArrowRight, FileCheck2, Scale } from "lucide-react";
+import { ShieldCheck, Lock, EyeOff, Database, FileCode2, CheckSquare, ArrowRight, FileCheck2, Scale } from "lucide-react";
 
 interface EthicalCommitment {
   id: string;
@@ -87,7 +87,7 @@ export function DataSecurityEthicsCharter() {
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <Lock size={20} />
+            <Lock size={20} aria-hidden="true" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -106,7 +106,7 @@ export function DataSecurityEthicsCharter() {
 
         {/* ODPC Status Pill */}
         <div className="flex items-center gap-2 px-3 py-1.5 bg-card border border-emerald-500/30 rounded-xl t-label font-semibold text-emerald-700 dark:text-emerald-300">
-          <ShieldCheck size={14} className="text-emerald-600 dark:text-emerald-400" />
+          <ShieldCheck size={14} className="text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
           <span>ODPC & IEBC Pre-Audited Standards</span>
         </div>
       </div>
@@ -145,7 +145,7 @@ export function DataSecurityEthicsCharter() {
                     onClick={() => toggleCheck(rule.id)}
                     className="h-11 w-11 rounded-lg bg-card border border-line flex items-center justify-center text-accent hover:border-accent cursor-pointer shrink-0"
                   >
-                    {isChecked && <CheckSquare size={16} className="text-accent" />}
+                    {isChecked && <CheckSquare size={16} className="text-accent" aria-hidden="true" />}
                   </button>
 
                   <div>
@@ -179,7 +179,7 @@ export function DataSecurityEthicsCharter() {
                   <strong className="text-rose-600 dark:text-rose-400">Statutory Exposure / Penalty:</strong> {rule.penaltyForBreach}
                 </span>
                 <span className="t-label font-mono text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
-                  <ShieldCheck size={12} /> Active Campaign Standard
+                  <ShieldCheck size={12} aria-hidden="true" /> Active Campaign Standard
                 </span>
               </div>
             </div>
@@ -190,7 +190,7 @@ export function DataSecurityEthicsCharter() {
       {/* Footer Rule */}
       <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
-          <Scale size={12} className="text-accent" />
+          <Scale size={12} className="text-accent" aria-hidden="true" />
           <span>Legal Doctrine: High ethical standards protect Dr. Mulu&apos;s brand as a disciplined economist while eliminating regulatory liability under the ODPC and IEBC.</span>
         </span>
       </div>

@@ -79,7 +79,7 @@ export default function ModelVariablesDrawer() {
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-2.5">
             <div className="p-2 rounded-xl bg-accent/10 text-accent shrink-0">
-              <Database size={16} />
+              <Database size={16} aria-hidden="true" />
             </div>
             <div>
               <div className="flex items-center gap-2 flex-wrap">
@@ -99,7 +99,7 @@ export default function ModelVariablesDrawer() {
 
         {/* Compliance Pill Banner */}
         <div className="mt-3 px-3 py-2 rounded-xl bg-accent/[0.04] border border-accent/20 flex items-center gap-2 text-ink t-label">
-          <ShieldCheck size={14} className="text-accent shrink-0" />
+          <ShieldCheck size={14} className="text-accent shrink-0" aria-hidden="true" />
           <span>
             Strict compliance gate: <strong className="font-bold">Zero non-consented psychographic attributes</strong>. All features auditable under DPA 2019.
           </span>
@@ -107,7 +107,7 @@ export default function ModelVariablesDrawer() {
 
         {/* Search Bar */}
         <div className="mt-3 relative">
-          <Search size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
+          <Search size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" aria-hidden="true" />
           <input
             type="text"
             value={search}
@@ -199,7 +199,7 @@ export default function ModelVariablesDrawer() {
                     )}
                   </div>
                   <div className="shrink-0 text-muted mt-0.5">
-                    {isExpanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                    {isExpanded ? <ChevronUp size={14} aria-hidden="true" /> : <ChevronDown size={14} aria-hidden="true" />}
                   </div>
                 </div>
 

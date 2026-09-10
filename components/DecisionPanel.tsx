@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { UserCheck, Clock, Camera, Scale, FileText, MapPin, Briefcase, CheckCircle2 } from "lucide-react";
 
 import { ClaimBadge } from "./markdown/ClaimBadge";
 
@@ -19,23 +18,24 @@ import { ClaimBadge } from "./markdown/ClaimBadge";
  * column. Nothing here is new.
  */
 
-/** §9.3.2, verbatim. The `owner` field is carried here; its register was retired. */
-const DEPENDENCIES: { icon: typeof UserCheck; text: string; longLead?: boolean }[] = [
-  { icon: UserCheck, text: "One named counterpart with authority to approve content" },
+/** §9.3.2, verbatim. The `owner` field is carried here; its register was retired.
+ *
+ * No icons. This is the closing ask, and it is the quietest surface on the site by design —
+ * the numeral is the only mark each item gets, and the prose below refers to items by it. */
+const DEPENDENCIES: { text: string; longLead?: boolean }[] = [
+  { text: "One named counterpart with authority to approve content" },
   {
-    icon: Clock,
     text: "Candidate time: approximately 3 hours per week — one Facebook Live, one voice-note recording session, one interview or content block",
   },
-  { icon: Camera, text: "Ground team asset uploads: daily photographs and video from the trail" },
+  { text: "Ground team asset uploads: daily photographs and video from the trail" },
   {
-    icon: Scale,
     text: "Appointment of the compliance reviewer (§6.5.5) — the long-lead item, needed in Phase −1",
     longLead: true,
   },
-  { icon: FileText, text: "The verified expenditure ceiling from the gazette schedule" },
-  { icon: MapPin, text: "Current ward-level registration data from the IEBC published file" },
-  { icon: Briefcase, text: "Access to the existing NG-CDF project record for verified proof points" },
-  { icon: CheckCircle2, text: "Sign-off on the budget tier so the team can be assembled" },
+  { text: "The verified expenditure ceiling from the gazette schedule" },
+  { text: "Current ward-level registration data from the IEBC published file" },
+  { text: "Access to the existing NG-CDF project record for verified proof points" },
+  { text: "Sign-off on the budget tier so the team can be assembled" },
 ];
 
 export function DecisionPanel() {
@@ -55,8 +55,8 @@ export function DecisionPanel() {
             What we are asking for
           </h2>
 
-          <div className="mt-5 p-4 bg-card border border-accent/30 rounded-2xl">
-            <div className="t-label font-black text-accent">The recommendation</div>
+          <div className="mt-5 p-4 bg-card border border-line rounded-2xl">
+            <div className="t-label font-black text-muted">The recommendation</div>
             <div className="font-serif text-xl font-bold text-ink mt-1">Tier 2 — Standard</div>
             <p className="t-label text-muted leading-relaxed mt-2">
               Tier 1 concentrates spend where Dr. Mulu is already strong and leaves the recognition
@@ -86,33 +86,24 @@ export function DecisionPanel() {
           </div>
 
           <ol className="space-y-2.5">
-            {DEPENDENCIES.map((d, i) => {
-              const Icon = d.icon;
-              return (
-                <li
-                  key={i}
-                  className={`flex items-start gap-3 p-3 rounded-xl border ${
- d.longLead ? "border-gold/40 bg-gold/[0.05]" : "border-line bg-card"
-                  }`}
-                >
-                  <span
-                    className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
- d.longLead ? "bg-gold/15 text-gold" : "bg-accent/10 text-accent"
-                    }`}
-                  >
-                    <Icon size={14} aria-hidden="true" />
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <p className="t-label text-ink leading-relaxed">{d.text}</p>
-                    {d.longLead && (
-                      <div className="mt-1.5">
-                        <ClaimBadge status="awaiting" compact />
-                      </div>
-                    )}
-                  </div>
-                </li>
-              );
-            })}
+            {DEPENDENCIES.map((d, i) => (
+              <li
+                key={i}
+                className="flex items-start gap-3 p-3 rounded-xl border border-line bg-card"
+              >
+                <span className="t-label font-black text-muted tabular-nums shrink-0 w-4" aria-hidden="true">
+                  {i + 1}
+                </span>
+                <div className="min-w-0 flex-1">
+                  <p className="t-label text-ink leading-relaxed">{d.text}</p>
+                  {d.longLead && (
+                    <div className="mt-1.5">
+                      <ClaimBadge status="awaiting" compact />
+                    </div>
+                  )}
+                </div>
+              </li>
+            ))}
           </ol>
 
           <p className="t-small text-muted leading-relaxed mt-4 pt-4 border-t border-line/60">

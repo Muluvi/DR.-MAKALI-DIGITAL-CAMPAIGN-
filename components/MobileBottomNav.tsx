@@ -93,7 +93,7 @@ export function MobileBottomNav({
             aria-label="Leave reading view"
             title="Leave reading view"
           >
-            <Eye size={13} className="text-accent" />
+            <Eye size={13} className="text-accent" aria-hidden="true" />
             <span>Restore Bars</span>
           </button>
         </div>
@@ -105,7 +105,7 @@ export function MobileBottomNav({
             aria-label="Show navigation"
             title="Show navigation"
           >
-            <ChevronUp size={14} className="text-accent" />
+            <ChevronUp size={14} className="text-accent" aria-hidden="true" />
             <span className="t-label font-semibold">Nav</span>
           </button>
         </div>
@@ -130,7 +130,7 @@ export function MobileBottomNav({
               className="flex min-w-0 grow items-center gap-2 rounded-xl border border-accent/20 bg-accent/10 px-3 min-h-[44px] text-left fx-press fx-focus transition-colors cursor-pointer"
               aria-label={`Open the full index. Currently reading section ${current?.number ?? ""}, ${current?.label ?? ""}`}
             >
-              <ListTree size={16} className="shrink-0 text-accent" />
+              <ListTree size={16} className="shrink-0 text-accent" aria-hidden="true" />
               <span className="min-w-0">
                 <span className="block t-micro font-semibold text-muted leading-none">
                   {current ? `Section ${currentIndex + 1} of ${SECTIONS.length}` : "All sections"}
@@ -147,7 +147,7 @@ export function MobileBottomNav({
               aria-label="Reading settings"
               title="Reading settings"
             >
-              <SlidersHorizontal size={16} className="text-accent" />
+              <SlidersHorizontal size={16} className="text-accent" aria-hidden="true" />
             </button>
 
             <button
@@ -156,7 +156,7 @@ export function MobileBottomNav({
               aria-label="Back to top"
               title="Back to top"
             >
-              <ChevronUp size={17} className="text-accent" />
+              <ChevronUp size={17} className="text-accent" aria-hidden="true" />
             </button>
           </div>
         </div>

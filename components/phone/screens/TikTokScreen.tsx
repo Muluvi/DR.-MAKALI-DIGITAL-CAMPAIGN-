@@ -153,7 +153,7 @@ export function TikTokScreen() {
             transition={{ duration: LOOP.drift, repeat: reduce ? 0 : Infinity, ease: "linear" }}
             aria-hidden="true"
           >
-            <Music size={16} color="#fff" strokeWidth={2.2} />
+            <Music size={16} color="#fff" strokeWidth={2.2} aria-hidden="true" />
           </motion.span>
         </div>
 

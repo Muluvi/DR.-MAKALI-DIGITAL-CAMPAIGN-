@@ -83,14 +83,14 @@ export function ReadingSettingsSheet({
             aria-label="Close reading settings"
             className="flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-paper text-muted transition-colors hover:text-ink cursor-pointer"
           >
-            <X size={18} />
+            <X size={18} aria-hidden="true" />
           </button>
         </div>
 
         <div className="space-y-2">
           {onEnterReadingView && (
             <button onClick={() => { onEnterReadingView(); onClose(); }} className={row}>
-              <Eye size={17} className="shrink-0 text-accent" />
+              <Eye size={17} className="shrink-0 text-accent" aria-hidden="true" />
               <span className="min-w-0">
                 <span className="block t-small font-semibold">Reading view</span>
                 <span className="block t-micro text-muted">Hide every bar and read full screen</span>
@@ -100,9 +100,9 @@ export function ReadingSettingsSheet({
 
           <button onClick={onToggleExpanded} className={row} aria-pressed={isExpanded}>
             {isExpanded ? (
-              <Minimize2 size={17} className="shrink-0 text-accent" />
+              <Minimize2 size={17} className="shrink-0 text-accent" aria-hidden="true" />
             ) : (
-              <Maximize2 size={17} className="shrink-0 text-accent" />
+              <Maximize2 size={17} className="shrink-0 text-accent" aria-hidden="true" />
             )}
             <span className="min-w-0">
               <span className="block t-small font-semibold">
@@ -118,9 +118,9 @@ export function ReadingSettingsSheet({
 
           <button onClick={onToggleTheme} className={row} aria-pressed={theme === "light"}>
             {theme === "light" ? (
-              <Moon size={17} className="shrink-0 text-gold" />
+              <Moon size={17} className="shrink-0 text-gold" aria-hidden="true" />
             ) : (
-              <Sun size={17} className="shrink-0 text-gold" />
+              <Sun size={17} className="shrink-0 text-gold" aria-hidden="true" />
             )}
             <span className="min-w-0">
               <span className="block t-small font-semibold">

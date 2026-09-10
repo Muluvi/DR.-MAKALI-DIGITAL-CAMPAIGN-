@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { ArrowRight, CalendarDays, UserRound, Route, TriangleAlert } from "lucide-react";
+import { ArrowRight, CalendarDays, UserRound, Route, AlertCircle } from "lucide-react";
 
 import { DURATION, EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
@@ -102,7 +102,7 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
             </div>
           </div>
           <div className="flex items-center justify-center shrink-0" aria-hidden="true">
-            <ArrowRight size={16} className="text-accent rotate-90 sm:rotate-0" />
+            <ArrowRight size={16} className="text-accent rotate-90 sm:rotate-0" aria-hidden="true" />
           </div>
           <div className="flex-1 rounded-xl border border-accent/30 bg-accent/[0.05] p-3">
             <div className="t-micro font-black text-accent mb-1">{target.label}</div>
@@ -145,7 +145,7 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
           className="rounded-xl border border-danger/30 bg-danger/[0.04] p-3 flex items-start gap-2"
           {...rise(3)}
         >
-          <TriangleAlert size={13} className="text-danger shrink-0 mt-0.5" aria-hidden="true" />
+          <AlertCircle size={13} className="text-danger shrink-0 mt-0.5" aria-hidden="true" />
           <p className="t-small text-ink/90 leading-relaxed min-w-0">
             <span className="font-black t-micro text-danger mr-1.5">
               {escalation.label}

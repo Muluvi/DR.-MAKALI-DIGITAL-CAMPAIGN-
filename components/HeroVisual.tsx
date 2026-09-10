@@ -10,9 +10,9 @@ import {
   ChevronRight,
   HelpCircle,
   Layers,
+  ChartColumn,
   Compass,
   Radio,
-  Sparkles,
   MapPin,
   Shield,
   Activity,
@@ -228,7 +228,7 @@ export function HeroVisual() {
               }`}
               aria-label="3D Isometric Terrain View"
             >
-              <Layers size={11} />
+              <Layers size={11} aria-hidden="true" />
               <span>3D Terrain</span>
             </button>
             <button
@@ -240,7 +240,7 @@ export function HeroVisual() {
               }`}
               aria-label="Pipeline Flow View"
             >
-              <Compass size={11} />
+              <Compass size={11} aria-hidden="true" />
               <span>Pipeline</span>
             </button>
           </div>
@@ -253,9 +253,11 @@ export function HeroVisual() {
                   ? "bg-accent/10 border-accent/40 text-accent"
                   : "bg-paper border-line text-muted hover:text-ink"
               }`}
+              aria-label="Toggle 3D volumetric constituency pillars"
+              aria-pressed={showPillars}
               title="Toggle 3D Volumetric Constituency Pillars"
             >
-              <Sparkles size={11} />
+              <ChartColumn size={11} aria-hidden="true" />
               <span className="hidden sm:inline">3D Pillars</span>
             </button>
           )}
@@ -267,8 +269,9 @@ export function HeroVisual() {
                 setSelectedConstituency(null);
               }}
               className="flex items-center gap-1 px-2.5 py-1 bg-paper hover:bg-line border border-line rounded-xl t-label font-bold text-ink transition-colors cursor-pointer"
+              aria-label="Reset selection"
             >
-              <X size={12} />
+              <X size={12} aria-hidden="true" />
               <span className="hidden sm:inline">Reset</span>
             </button>
           )}
@@ -495,7 +498,7 @@ export function HeroVisual() {
                 transform: "translateZ(45px)"
               }}
             >
-              <Shield size={12} className="text-gold shrink-0" />
+              <Shield size={12} className="text-gold shrink-0" aria-hidden="true" />
               <span className="text-[10px] font-black text-ink">
                 532,758 Voters | 30,430 km²
               </span>
@@ -592,7 +595,6 @@ export function HeroVisual() {
         {!selectedStage && (
           <div className="absolute bottom-2.5 left-0 right-0 text-center pointer-events-none">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-card/90 border border-line text-muted text-[11px] font-bold shadow-xs">
-              <Sparkles size={11} className="text-accent" />
               Interactive: Tap any node or toggle 3D perspective
             </span>
           </div>
@@ -644,7 +646,7 @@ export function HeroVisual() {
                         key={idx}
                         className="inline-flex items-center gap-1 t-label px-2.5 py-1 rounded-lg border border-line bg-paper text-ink font-semibold"
                       >
-                        <ChevronRight size={10} className="text-accent" />
+                        <ChevronRight size={10} className="text-accent" aria-hidden="true" />
                         {channel}
                       </span>
                     ))}
@@ -661,7 +663,7 @@ export function HeroVisual() {
                         key={idx}
                         className="flex items-start gap-1.5 t-label text-ink font-medium leading-tight"
                       >
-                        <CheckCircle2 size={12} className="text-accent shrink-0 mt-0.5" />
+                        <CheckCircle2 size={12} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
                         <span>{item}</span>
                       </li>
                     ))}

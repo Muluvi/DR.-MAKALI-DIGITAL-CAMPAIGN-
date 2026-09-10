@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useId, useState, useEffect } from "react";
-import { Search, Sparkles, ArrowUpDown, BarChart3, Table } from "lucide-react";
+import { Search, ArrowUpDown, BarChart3, Table } from "lucide-react";
 import { LayoutGroup, motion } from "motion/react";
 import { LazyMount } from "../LazyMount";
 import { SourceLine, detectSources } from "./SourceLine";
@@ -256,16 +256,9 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
       <div className="border-y sm:border border-line/40 sm:rounded-xl my-5 overflow-hidden bg-card/30">
       {/* Interactive Controls & Analytics Header */}
       <div className="print:hidden p-2.5 sm:p-3.5 border-b border-line/40 bg-paper/40 flex flex-wrap items-center justify-between gap-2">
-        <div className="flex items-center gap-2">
-          <div className="p-1 rounded-md bg-accent/10 text-accent">
-            <Sparkles size={13} />
-          </div>
-          <div>
-            <span className="t-label font-semibold text-ink block">
-              Showing {filteredRows.length} of {parsedRows.length} rows
-            </span>
-          </div>
-        </div>
+        <span className="t-label font-semibold text-ink">
+          Showing {filteredRows.length} of {parsedRows.length} rows
+        </span>
 
         {/* Actions & Filters */}
         <div className="flex items-center gap-2 grow sm:grow-0 justify-end">
@@ -278,13 +271,13 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                   : "bg-paper/80 border-line text-muted hover:border-accent/40 hover:text-ink"
               }`}
             >
-              {showChart ? <Table size={14} /> : <BarChart3 size={14} />}
+              {showChart ? <Table size={14} aria-hidden="true" /> : <BarChart3 size={14} aria-hidden="true" />}
               <span>{showChart ? "Table" : "Chart"}</span>
             </button>
           )}
 
           <div className="relative flex-1 sm:w-44">
-            <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-muted" />
+            <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-muted" aria-hidden="true" />
             <input
               type="text"
               placeholder="Filter table..."
@@ -382,7 +375,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                       >
                         <div className="flex items-center gap-1.5 justify-between">
                           <span>{th.props.children}</span>
-                          <ArrowUpDown size={10} className="fx-icon-rise text-muted group-hover:text-accent transition-colors shrink-0" />
+                          <ArrowUpDown size={10} className="fx-icon-rise text-muted group-hover:text-accent transition-colors shrink-0" aria-hidden="true" />
                         </div>
                       </th>
                     ))}

@@ -29,7 +29,7 @@ export function TurnoutScreen({ data }: { data: WardPulseData }) {
         <div>
           <div className="font-mono text-slate-400 uppercase" style={{ fontSize: "0.625em" }}>Polling Day Stream Pacing</div>
           <div className="font-bold text-white flex items-center gap-1.5" style={{ fontSize: "0.875em" }}>
-            <MapPin className="w-3.5 h-3.5 text-cyan-400" />
+            <MapPin className="w-3.5 h-3.5 text-cyan-400" aria-hidden="true" />
             {data.ward} Ward ({data.constituency})
           </div>
         </div>
@@ -43,7 +43,7 @@ export function TurnoutScreen({ data }: { data: WardPulseData }) {
       <div className="grid grid-cols-2 gap-2 mb-3">
         <div className="bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
           <div className="font-mono uppercase text-slate-400 mb-1 flex items-center gap-1" style={{ fontSize: "0.625em" }}>
-            <Gauge className="w-3 h-3 text-cyan-400" /> Pacing Rate
+            <Gauge className="w-3 h-3 text-cyan-400" aria-hidden="true" /> Pacing Rate
           </div>
           <div className="font-bold font-mono text-white" style={{ fontSize: "1.25em" }}>
             {turnout?.currentPacingPct || 76.5}%
@@ -55,7 +55,7 @@ export function TurnoutScreen({ data }: { data: WardPulseData }) {
 
         <div className="bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
           <div className="font-mono uppercase text-slate-400 mb-1 flex items-center gap-1" style={{ fontSize: "0.625em" }}>
-            <BarChart2 className="w-3 h-3 text-emerald-400" /> Projected Yield
+            <BarChart2 className="w-3 h-3 text-emerald-400" aria-hidden="true" /> Projected Yield
           </div>
           <div className="font-bold font-mono text-emerald-400" style={{ fontSize: "1.25em" }}>
             {turnout ? turnout.projectedVotes.toLocaleString() : "—"}
@@ -85,13 +85,13 @@ export function TurnoutScreen({ data }: { data: WardPulseData }) {
         <div className="space-y-1.5 text-slate-300" style={{ fontSize: "0.75em" }}>
           <div className="flex items-center justify-between">
             <span className="flex items-center gap-1.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Form 37A Digital Photo Verified
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" /> Form 37A Digital Photo Verified
             </span>
             <span className="font-mono text-emerald-400 font-bold" style={{ fontSize: "0.625em" }}>100%</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="flex items-center gap-1.5">
-              <CheckCircle className="w-3.5 h-3.5 text-teal-400" /> Tamper-Evident Bag Seal Logged
+              <CheckCircle className="w-3.5 h-3.5 text-teal-400" aria-hidden="true" /> Tamper-Evident Bag Seal Logged
             </span>
             <span className="font-mono text-teal-400 font-bold" style={{ fontSize: "0.625em" }}>100%</span>
           </div>

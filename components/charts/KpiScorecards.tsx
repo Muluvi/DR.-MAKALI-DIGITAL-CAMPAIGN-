@@ -2,7 +2,7 @@
 
 import { useId, useState } from "react";
 import { motion } from "motion/react";
-import { ChevronDown, Gauge, Target, User, CalendarClock, Ruler } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 import { ClaimBadge } from "../markdown/ClaimBadge";
 import { baselineStatus, type Baseline, type Kpi } from "../../data/kpis";
@@ -163,21 +163,17 @@ function KpiCard({ kpi }: { kpi: Kpi }) {
         >
           <div className="overflow-hidden min-h-0">
             {/* A <dl> may group a dt/dd pair in a <div>, but that div has to contain the pair
-                DIRECTLY. An icon beside a nested wrapper put two levels between the list and its
-                items, which detaches every dt and dd from their list for assistive technology —
-                54 orphaned items across nine cards. The icon moves inside the dt instead. */}
+                DIRECTLY — anything nested between detaches every dt and dd from their list for
+                assistive technology. Each term is its own label, so no icon sits beside it. */}
             <dl className="px-4 py-3 space-y-2.5 border-t border-line/40">
               {[
-                { icon: Ruler, term: "Measurement method", desc: kpi.method },
-                { icon: User, term: "Owner", desc: kpi.owner },
-                { icon: CalendarClock, term: "Reporting cadence", desc: kpi.cadence },
-              ].map(({ icon: Icon, term, desc }) => (
+                { term: "Measurement method", desc: kpi.method },
+                { term: "Owner", desc: kpi.owner },
+                { term: "Reporting cadence", desc: kpi.cadence },
+              ].map(({ term, desc }) => (
                 <div key={term}>
-                  <dt className="flex items-center gap-1.5 t-micro font-black text-muted">
-                    <Icon size={12} className="text-accent shrink-0" aria-hidden="true" />
-                    {term}
-                  </dt>
-                  <dd className="t-small text-ink leading-snug pl-[1.125rem]">{desc}</dd>
+                  <dt className="t-micro font-black text-muted">{term}</dt>
+                  <dd className="t-small text-ink leading-snug">{desc}</dd>
                 </div>
               ))}
             </dl>
@@ -201,14 +197,7 @@ export function KpiScorecards({
 
   return (
     <section className="not-prose my-6" aria-label={title}>
-      <div className="flex items-center gap-2 mb-1">
-        {stage === 1 ? (
-          <Gauge size={15} className="text-accent shrink-0" aria-hidden="true" />
-        ) : (
-          <Target size={15} className="text-gold shrink-0" aria-hidden="true" />
-        )}
-        <h4 className="font-serif t-label font-black text-ink">{title}</h4>
-      </div>
+      <h4 className="font-serif t-label font-black text-ink mb-1">{title}</h4>
       <p className="t-small text-muted leading-relaxed mb-4">{note}</p>
 
       {unmeasured > 0 && (

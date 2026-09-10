@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { disclosure } from "../../lib/motion";
-import { Radio, Volume2, VolumeX, ShieldAlert, CheckCircle2, AlertTriangle, Play, Pause, ArrowRight, Info } from "lucide-react";
+import { Radio, Volume2, VolumeX, CheckCircle2, Play, Pause, ArrowRight, Info } from "lucide-react";
 
 interface RadioStation {
   name: string;
@@ -101,7 +101,7 @@ export function MediaRadioLandscapeCard() {
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <Radio size={20} />
+            <Radio size={20} aria-hidden="true" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -140,10 +140,10 @@ export function MediaRadioLandscapeCard() {
       </div>
 
       {/* Strategic Takeaway Bar */}
-      <div className="p-3.5 bg-amber-500/10 border-b border-amber-500/20 t-label text-amber-900 dark:text-amber-300 flex items-start gap-2">
-        <ShieldAlert size={16} className="shrink-0 mt-0.5" />
+      <div className="p-3.5 bg-paper/60 border-b border-line t-label text-muted flex items-start gap-2">
+        <Info size={16} className="shrink-0 mt-0.5 text-accent" aria-hidden="true" />
         <div>
-          <strong className="font-bold">Ownership Risk Reality:</strong> Two major Kikamba radio networks are owned or affiliated with declared political rivals (Charity Ngilu) and party leadership. Prime broadcast strategy concentrates on <strong>Musyi FM, County FM, and Wikwatyo FM</strong>.
+          <strong className="font-bold text-ink">Ownership Risk Reality:</strong> Two major Kikamba radio networks are owned or affiliated with declared political rivals (Charity Ngilu) and party leadership. Prime broadcast strategy concentrates on <strong>Musyi FM, County FM, and Wikwatyo FM</strong>.
         </div>
       </div>
 
@@ -169,7 +169,7 @@ export function MediaRadioLandscapeCard() {
                     ? "bg-rose-500/20 text-rose-600"
                     : "bg-paper border border-line text-muted"
                 }`}>
-                  <Radio size={18} />
+                  <Radio size={18} aria-hidden="true" />
                 </div>
 
                 <div>
@@ -219,12 +219,12 @@ export function MediaRadioLandscapeCard() {
               >
                 {playingSnippet === station.name ? (
                   <>
-                    <Pause size={12} />
+                    <Pause size={12} aria-hidden="true" />
                     <span>Stop Preview</span>
                   </>
                 ) : (
                   <>
-                    <Play size={12} />
+                    <Play size={12} aria-hidden="true" />
                     <span>Preview Vernacular Strategy Brief</span>
                   </>
                 )}
@@ -242,7 +242,7 @@ export function MediaRadioLandscapeCard() {
               <div className="overflow-hidden min-h-0">
               <div className="p-3 bg-card rounded-lg border border-accent/20 t-label space-y-1">
                 <div className="font-bold text-accent flex items-center gap-1.5">
-                  <Volume2 size={13} />
+                  <Volume2 size={13} aria-hidden="true" />
                   <span>Sample On-Air Talking Point ({station.name}):</span>
                 </div>
                 <p className="italic text-ink">
@@ -259,7 +259,7 @@ export function MediaRadioLandscapeCard() {
       {/* Footer Rule */}
       <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
-          <Info size={12} className="text-accent" />
+          <Info size={12} className="text-accent" aria-hidden="true" />
           <span>Vernacular Airwave Primacy: 86% of Kitui relies on radio as their primary daily source of political truth.</span>
         </span>
       </div>

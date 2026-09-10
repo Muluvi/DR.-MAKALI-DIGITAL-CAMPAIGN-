@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { deliberate } from "../../lib/motion";
-import { Calculator, CheckCircle2, AlertTriangle, TrendingUp, Compass, Layers, ArrowRight, ShieldAlert, Percent } from "lucide-react";
+import { Calculator, CheckCircle2, AlertCircle, TrendingUp, Compass, Layers, ArrowRight, Target, Percent } from "lucide-react";
 
 import { ALL_WARDS, CONSTITUENCIES, COUNTY_TOTAL_WARDS } from "../../data/ward-register";
 
@@ -136,7 +136,7 @@ export function PathTo200kCalculator() {
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <Calculator size={20} />
+            <Calculator size={20} aria-hidden="true" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -161,12 +161,12 @@ export function PathTo200kCalculator() {
         }`}>
           {selectedPath.isViable ? (
             <>
-              <CheckCircle2 size={14} />
+              <CheckCircle2 size={14} aria-hidden="true" />
               <span>Clears the benchmark (+{selectedPath.marginOverBenchmark.toLocaleString()})</span>
             </>
           ) : (
             <>
-              <AlertTriangle size={14} />
+              <AlertCircle size={14} aria-hidden="true" />
               <span>Short of the benchmark ({selectedPath.marginOverBenchmark.toLocaleString()})</span>
             </>
           )}
@@ -244,7 +244,7 @@ export function PathTo200kCalculator() {
         {/* Constituent Sub-County Cards */}
         <div>
           <div className="t-label font-black text-muted mb-2 flex items-center gap-1.5">
-            <Layers size={12} className="text-accent" />
+            <Layers size={12} className="text-accent" aria-hidden="true" />
             <span>Constituency Building Blocks</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
@@ -264,7 +264,7 @@ export function PathTo200kCalculator() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
           <div className="p-3.5 rounded-xl bg-accent/5 border border-accent/20 space-y-1">
             <div className="t-label font-black text-accent flex items-center gap-1">
-              <TrendingUp size={12} />
+              <TrendingUp size={12} aria-hidden="true" />
               Strategic Verdict
             </div>
             <p className="t-label text-ink font-medium leading-relaxed">
@@ -274,7 +274,7 @@ export function PathTo200kCalculator() {
 
           <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1">
             <div className="t-label font-black text-muted flex items-center gap-1">
-              <ShieldAlert size={12} className="text-gold" />
+              <Target size={12} aria-hidden="true" />
               Tactical Requirement
             </div>
             <p className="t-label text-muted font-medium leading-relaxed">
@@ -287,7 +287,7 @@ export function PathTo200kCalculator() {
       {/* Footer Insight */}
       <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
-          <Percent size={12} className="text-accent" />
+          <Percent size={12} className="text-accent" aria-hidden="true" />
           <span>IEBC Benchmark: Minimum winning threshold is 198,004 – 200,000 valid votes in a 3-way contest.</span>
         </span>
       </div>

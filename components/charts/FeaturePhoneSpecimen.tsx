@@ -72,8 +72,8 @@ function Handset({ step, pressed }: { step: Step; pressed: string | null }) {
         style={{ background: "#c8d6b9", color: "#12210b", minHeight: 132, fontSize: 8.5, lineHeight: 1.35 }}
       >
         <div className="flex items-center justify-between opacity-70" style={{ fontSize: 7 }}>
-          <span className="inline-flex items-center gap-0.5"><Signal size={7} /> 2G</span>
-          <span className="inline-flex items-center gap-0.5"><BatteryMedium size={8} /></span>
+          <span className="inline-flex items-center gap-0.5"><Signal size={7} aria-hidden="true" /> 2G</span>
+          <span className="inline-flex items-center gap-0.5"><BatteryMedium size={8} aria-hidden="true" /></span>
         </div>
 
         {step === "dialling" && (

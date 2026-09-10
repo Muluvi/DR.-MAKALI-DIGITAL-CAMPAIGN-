@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { Target } from "lucide-react";
 
 import { useSectionIndex } from "./SectionNumberMap";
 
@@ -33,12 +32,9 @@ export function ObjectivesIndex() {
 
   return (
     <aside className="not-prose my-8 rounded-2xl border border-line/60 bg-card/60 p-5 sm:p-6">
-      <div className="flex items-center gap-2 mb-1">
-        <Target size={15} className="text-accent shrink-0" aria-hidden />
-        <h3 className="t-label font-extrabold text-muted">
-          The rest of what is measured
-        </h3>
-      </div>
+      <h3 className="t-label font-extrabold text-muted mb-1">
+        The rest of what is measured
+      </h3>
       <p className="t-label sm:t-small text-muted leading-relaxed mb-4 text-pretty">
         The scorecards above are the campaign&rsquo;s headline targets. {items.length} further
         indicator sets sit with the work they measure, rather than being collected here — each one

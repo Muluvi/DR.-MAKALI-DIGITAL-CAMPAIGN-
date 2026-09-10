@@ -39,9 +39,9 @@ export function DerivedFigureDrawer({ id, children }: { id: string; children: Re
         aria-expanded={open}
         className="working-toggle inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md border border-accent/30 bg-accent/5 text-accent t-micro font-black align-middle cursor-pointer hover:bg-accent/10 transition-colors print:hidden"
       >
-        <Calculator size={9} className="shrink-0" />
+        <Calculator size={9} className="shrink-0" aria-hidden="true" />
         Show the working
-        {open ? <ChevronUp size={9} /> : <ChevronDown size={9} />}
+        {open ? <ChevronUp size={9} aria-hidden="true" /> : <ChevronDown size={9} aria-hidden="true" />}
       </button>
       {open && (
         <span className="block mt-2 mb-1 p-3 sm:p-4 bg-paper border border-line/60 rounded-xl not-italic font-normal print-avoid-break">

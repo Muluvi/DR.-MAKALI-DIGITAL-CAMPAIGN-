@@ -2,7 +2,7 @@
 
 import React from "react";
 import { type WardPulseData } from "@/data/terminal-showcase";
-import { Activity, Radio, Users, AlertTriangle, CheckCircle2, TrendingUp } from "lucide-react";
+import { Activity, Radio, Users, AlertCircle, CheckCircle2, TrendingUp } from "lucide-react";
 
 export function GroundPulseScreen({ data }: { data: WardPulseData }) {
   const pctOfTarget = Math.min(100, Math.round((data.totalWardSupporters / data.targetThreshold) * 100));
@@ -21,7 +21,7 @@ export function GroundPulseScreen({ data }: { data: WardPulseData }) {
           </span>
         </div>
         <div className="flex items-center gap-1.5 bg-slate-900 px-2 py-0.5 rounded border border-slate-800 font-mono text-slate-400" style={{ fontSize: "0.625em" }}>
-          <Radio className="w-3 h-3 text-cyan-400" />
+          <Radio className="w-3 h-3 text-cyan-400" aria-hidden="true" />
           <span>{data.channel}</span>
         </div>
       </div>
@@ -51,7 +51,7 @@ export function GroundPulseScreen({ data }: { data: WardPulseData }) {
         <div className="bg-slate-900/60 rounded-lg p-2.5 border border-slate-800/80">
           <div className="flex items-center justify-between mb-1">
             <span className="font-mono uppercase text-slate-400 flex items-center gap-1" style={{ fontSize: "0.625em" }}>
-              <Activity className="w-3 h-3 text-amber-400" /> Dominant Ground Anxiety / Issue
+              <Activity className="w-3 h-3 text-amber-400" aria-hidden="true" /> Dominant Ground Anxiety / Issue
             </span>
             <span className="font-mono text-slate-400 bg-slate-800 px-1.5 py-0.2 rounded" style={{ fontSize: "0.5625em" }}>
               Verified 18:00 EAT
@@ -66,7 +66,7 @@ export function GroundPulseScreen({ data }: { data: WardPulseData }) {
         <div className="bg-slate-900/60 rounded-lg p-2.5 border border-slate-800/80">
           <div className="flex items-center justify-between mb-1">
             <span className="font-mono uppercase text-slate-400 flex items-center gap-1" style={{ fontSize: "0.625em" }}>
-              <AlertTriangle className="w-3 h-3 text-rose-400" /> Adversary Field Activity
+              <AlertCircle className="w-3 h-3 text-rose-400" aria-hidden="true" /> Adversary Field Activity
             </span>
             <span className="font-mono text-rose-400 bg-rose-950/40 px-1.5 py-0.2 rounded border border-rose-900/40" style={{ fontSize: "0.5625em" }}>
               Monitored
@@ -81,11 +81,11 @@ export function GroundPulseScreen({ data }: { data: WardPulseData }) {
         <div className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-lg p-3 border border-slate-800">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-1.5">
-              <Users className="w-3.5 h-3.5 text-emerald-400" />
+              <Users className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" />
               <span className="font-bold text-slate-200" style={{ fontSize: "0.6875em" }}>Verified Pledges & Supporter Roll</span>
             </div>
             <div className="font-mono text-emerald-400 flex items-center gap-0.5 font-semibold" style={{ fontSize: "0.625em" }}>
-              <TrendingUp className="w-3 h-3" />
+              <TrendingUp className="w-3 h-3" aria-hidden="true" />
               +{data.optInSupportersToday} today
             </div>
           </div>
@@ -111,7 +111,7 @@ export function GroundPulseScreen({ data }: { data: WardPulseData }) {
         {/* Terminal Status Footer */}
         <div className="pt-1.5 flex items-center justify-between font-mono text-slate-400 border-t border-slate-800/80" style={{ fontSize: "0.625em" }}>
           <span className="flex items-center gap-1">
-            <CheckCircle2 className="w-3 h-3 text-emerald-500" /> Ground mesh synchronized
+            <CheckCircle2 className="w-3 h-3 text-emerald-500" aria-hidden="true" /> Ground mesh synchronized
           </span>
           <span>Encrypted 256-bit</span>
         </div>

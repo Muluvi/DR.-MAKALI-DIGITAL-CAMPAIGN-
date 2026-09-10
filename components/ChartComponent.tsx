@@ -115,7 +115,7 @@ export function ChartComponent({
           <div>
             {title && (
               <h4 className="font-serif text-sm font-bold text-ink flex items-center gap-2">
-                <BarChart3 size={16} className="text-accent shrink-0" />
+                <BarChart3 size={16} className="text-accent shrink-0" aria-hidden="true" />
                 {title}
               </h4>
             )}
@@ -124,7 +124,7 @@ export function ChartComponent({
             )}
           </div>
           <div className="flex items-center gap-1 t-label font-bold text-accent bg-accent/5 px-2.5 py-1 rounded-lg border border-accent/15 self-start sm:self-auto">
-            <TrendingUp size={12} />
+            <TrendingUp size={12} aria-hidden="true" />
             <span>Interactive Data</span>
           </div>
         </div>
@@ -249,7 +249,7 @@ export function ChartComponent({
 
       <div className="flex items-center justify-between t-label text-muted border-t border-line/30 pt-2.5">
         <span className="flex items-center gap-1">
-          <Info size={12} className="text-accent" />
+          <Info size={12} className="text-accent" aria-hidden="true" />
           Kitui 2027 Strategic Architecture Data Model
         </span>
         <span className="font-mono t-micro">Recharts Engine</span>

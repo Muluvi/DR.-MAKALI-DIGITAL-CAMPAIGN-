@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Building2, BarChart3, Languages, CheckSquare, ShieldCheck, ArrowRight, Sparkles, FileCheck2 } from "lucide-react";
+import { Building2, BarChart3, Languages, CheckSquare, ShieldCheck, ArrowRight, FileText, FileCheck2 } from "lucide-react";
 
 interface StrategicPillar {
   id: string;
@@ -73,7 +73,7 @@ export function StrategicPillarsMatrix() {
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <ShieldCheck size={20} />
+            <ShieldCheck size={20} aria-hidden="true" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -143,7 +143,7 @@ export function StrategicPillarsMatrix() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
           <div className="p-3.5 rounded-xl bg-paper/60 border border-line space-y-1">
             <div className="t-label font-black text-muted flex items-center gap-1">
-              <Sparkles size={12} className="text-accent" />
+              <FileText size={12} className="text-accent" aria-hidden="true" />
               Tangible Evidence
             </div>
             <p className="t-label text-ink font-semibold leading-relaxed">
@@ -153,7 +153,7 @@ export function StrategicPillarsMatrix() {
 
           <div className="p-3.5 rounded-xl bg-paper/60 border border-line space-y-1">
             <div className="t-label font-black text-muted flex items-center gap-1">
-              <Languages size={12} className="text-accent" />
+              <Languages size={12} className="text-accent" aria-hidden="true" />
               Operational Delivery
             </div>
             <p className="t-label text-muted font-medium leading-relaxed">
@@ -163,7 +163,7 @@ export function StrategicPillarsMatrix() {
 
           <div className="p-3.5 rounded-xl bg-accent/5 border border-accent/20 space-y-1">
             <div className="t-label font-black text-accent flex items-center gap-1">
-              <FileCheck2 size={12} />
+              <FileCheck2 size={12} aria-hidden="true" />
               M&E Verification Audit
             </div>
             <p className="t-label text-ink font-semibold leading-relaxed">
@@ -176,7 +176,7 @@ export function StrategicPillarsMatrix() {
       {/* Footer Rule */}
       <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
-          <ArrowRight size={12} className="text-accent" />
+          <ArrowRight size={12} className="text-accent" aria-hidden="true" />
           <span>Underlying Campaign Doctrine: &ldquo;Kitui has resources. What it has lacked is leadership that understands how to use them — and the discipline to prove it did.&rdquo;</span>
         </span>
       </div>

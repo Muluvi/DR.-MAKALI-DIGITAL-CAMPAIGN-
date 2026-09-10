@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { TrendingUp, Calendar, Target, CheckCircle2, AlertTriangle, Flame, Sparkles, Sliders } from "lucide-react";
+import { TrendingUp, Calendar, Target, CheckCircle2, AlertCircle, Sliders } from "lucide-react";
 
 export function PollingTrajectorySimulator() {
   const [weeklyGainRate, setWeeklyGainRate] = useState<number>(1.2); // Percentage points per week
@@ -22,7 +22,7 @@ export function PollingTrajectorySimulator() {
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <TrendingUp size={20} />
+            <TrendingUp size={20} aria-hidden="true" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -44,12 +44,12 @@ export function PollingTrajectorySimulator() {
         }`}>
           {isMeetingThreshold ? (
             <>
-              <CheckCircle2 size={14} />
+              <CheckCircle2 size={14} aria-hidden="true" />
               <span>Target Achieved ({projectedPolling.toFixed(1)}%)</span>
             </>
           ) : (
             <>
-              <AlertTriangle size={14} />
+              <AlertCircle size={14} aria-hidden="true" />
               <span>Below Viability Threshold ({projectedPolling.toFixed(1)}%)</span>
             </>
           )}
@@ -62,7 +62,7 @@ export function PollingTrajectorySimulator() {
         <div className="p-4 bg-paper rounded-2xl border border-line space-y-3">
           <div className="flex items-center justify-between">
             <label htmlFor="gain-rate-slider" className="t-label font-bold text-ink flex items-center gap-1.5">
-              <Sliders size={14} className="text-accent" />
+              <Sliders size={14} className="text-accent" aria-hidden="true" />
               <span>Target Weekly Growth Rate (Points / Week):</span>
             </label>
             <span className="font-mono text-sm font-black text-accent">
@@ -114,8 +114,7 @@ export function PollingTrajectorySimulator() {
         </div>
 
         {/* Strategic Takeaway Card */}
-        <div className="p-4 rounded-xl bg-paper border border-line flex items-start gap-3">
-          <Sparkles size={16} className="text-accent shrink-0 mt-0.5" />
+        <div className="p-4 rounded-xl bg-paper border border-line">
           <div className="t-label text-muted leading-relaxed">
             <strong className="text-ink">What this means:</strong> At a growth rate of <strong>+{weeklyGainRate.toFixed(1)}% per week</strong>, Dr. Mulu {isSurpassingKasalu ? "successfully overtakes Irene Kasalu (37.4%) and establishes" : "narrows the gap with Irene Kasalu but requires additional vernacular radio saturation to establish"} an undeniable mandate for the Wiper gubernatorial nomination before the party&rsquo;s opinion-polling window opens in late 2026.
           </div>

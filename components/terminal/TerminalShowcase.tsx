@@ -99,7 +99,7 @@ export function TerminalShowcase() {
             </h3>
           </div>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-accent/10 border border-accent/20 text-accent t-label font-mono font-semibold self-start sm:self-auto">
-            <Radio className="w-3.5 h-3.5" />
+            <Radio className="w-3.5 h-3.5" aria-hidden="true" />
             <span>40 Wards Connected • Dual 2G/4G GSM</span>
           </div>
         </div>
@@ -164,7 +164,7 @@ export function TerminalShowcase() {
       {/* Ward Selector Strip */}
       <div className="flex flex-wrap items-center justify-center gap-1.5 mb-6">
         <span className="t-label font-mono text-muted mr-1.5 flex items-center gap-1">
-          <MapPin className="w-3.5 h-3.5" /> Sample Ward:
+          <MapPin className="w-3.5 h-3.5" aria-hidden="true" /> Sample Ward:
         </span>
         {WARDS_LIST.map((w) => (
           <button

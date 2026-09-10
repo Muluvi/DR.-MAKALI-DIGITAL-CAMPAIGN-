@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { CheckCircle2, Clock, AlertTriangle, Search, Smartphone, Send, FileText, Activity, ShieldCheck, Layers, MapPin, ChevronRight, Filter, Info } from "lucide-react";
+import { CheckCircle2, Clock, Search, Smartphone, Send, FileText, Activity, ShieldCheck, Layers, MapPin, ChevronRight, Filter, Info } from "lucide-react";
 
 interface ServiceReport {
   refNumber: string;
@@ -95,7 +95,7 @@ export function PublicServiceDeliveryTracker() {
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <Activity size={20} />
+            <Activity size={20} aria-hidden="true" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -120,8 +120,8 @@ export function PublicServiceDeliveryTracker() {
         </div>
       </div>
 
-      <div className="px-4 py-2.5 bg-gold/[0.06] border-b border-gold/25 flex items-start gap-2">
-        <Info size={13} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
+      <div className="px-4 py-2.5 bg-paper/60 border-b border-line flex items-start gap-2">
+        <Info size={13} className="text-muted shrink-0 mt-0.5" aria-hidden="true" />
         <p className="t-small text-ink leading-relaxed">
           <strong>Interface preview.</strong> The tracker described in §8.5 has not been built &mdash; §8.5.6 sets out
           its build and cost. Every entry below is illustrative, written to show the intake format and the
@@ -132,7 +132,7 @@ export function PublicServiceDeliveryTracker() {
       {/* 5-Step M&E Pipeline Visualizer (Replacing raw ASCII tree) */}
       <div className="p-4 bg-paper/70 border-b border-line">
         <div className="t-label font-black text-muted mb-2 flex items-center gap-1">
-          <Layers size={12} className="text-accent" />
+          <Layers size={12} className="text-accent" aria-hidden="true" />
           <span>The 5-Stage Verification Protocol</span>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center">
@@ -222,7 +222,7 @@ export function PublicServiceDeliveryTracker() {
       {/* Interactive Simulation Form */}
       <div className="p-4 bg-paper/80 border-t border-line">
         <div className="t-label font-bold text-ink mb-2 flex items-center gap-1.5">
-          <Smartphone size={14} className="text-accent" />
+          <Smartphone size={14} className="text-accent" aria-hidden="true" />
           <span>Simulate Ward Issue Submission (Web / USSD Bridge)</span>
         </div>
 
@@ -253,7 +253,7 @@ export function PublicServiceDeliveryTracker() {
             <span className="t-label text-muted">
               {submissionSuccess && (
                 <span className="text-emerald-600 font-bold flex items-center gap-1">
-                  <CheckCircle2 size={12} /> Logged as #{generatedRef} & SMS notification simulated!
+                  <CheckCircle2 size={12} aria-hidden="true" /> Logged as #{generatedRef} & SMS notification simulated!
                 </span>
               )}
             </span>
@@ -263,7 +263,7 @@ export function PublicServiceDeliveryTracker() {
               disabled={isSimulatingSubmission || !issueInput.trim()}
               className="px-4 py-1.5 rounded-lg bg-accent-solid text-on-accent t-label font-bold flex items-center gap-1.5 disabled:opacity-50 cursor-pointer"
             >
-              <Send size={12} />
+              <Send size={12} aria-hidden="true" />
               <span>{isSimulatingSubmission ? "Logging to Register..." : "Submit Test Report"}</span>
             </button>
           </div>
@@ -273,7 +273,7 @@ export function PublicServiceDeliveryTracker() {
       {/* Footer Rule */}
       <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
-          <ShieldCheck size={12} className="text-accent" />
+          <ShieldCheck size={12} className="text-accent" aria-hidden="true" />
           <span>Governance Commitment: The public delivery tracker continues post-election as the official County Citizen Oversight Portal.</span>
         </span>
       </div>

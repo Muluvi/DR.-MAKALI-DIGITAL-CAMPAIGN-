@@ -81,7 +81,7 @@ export function MiniScorecard() {
                   aria-hidden="true"
                   className="t-micro font-black text-muted flex items-center gap-1"
                 >
-                  <Icon size={9} />
+                  <Icon size={9} aria-hidden="true" />
                   {label}
                 </span>
                 <span

@@ -26,26 +26,26 @@ export function Dashboard() {
       label: "Mulu — Aug 2026 poll", 
       sub: "Kasalu 37.4%, a deficit of 15.3 points", 
       warn: true,
-      icon: <TrendingUp size={16} className="text-danger" />
+      icon: <TrendingUp size={16} className="text-danger" aria-hidden="true" />
     },
     { 
       num: "KSh13.79bn", 
       label: "FY2026/27 Kitui resource", 
       sub: "Own-source revenue: KSh1.339bn", 
       good: true,
-      icon: <Coins size={16} className="text-accent" />
+      icon: <Coins size={16} className="text-accent" aria-hidden="true" />
     },
     { 
       num: "86.4%", 
       label: "Offline pop (KNBS 2019)", 
       sub: "13.6% active internet use in census", 
-      icon: <WifiOff size={16} className="text-muted" />
+      icon: <WifiOff size={16} className="text-muted" aria-hidden="true" />
     },
     { 
       num: "≈200k", 
       label: "2022 winning-vote", 
       sub: "198,004 votes won the 2022 seat", 
-      icon: <Vote size={16} className="text-gold" />
+      icon: <Vote size={16} className="text-gold" aria-hidden="true" />
     }
   ];
 

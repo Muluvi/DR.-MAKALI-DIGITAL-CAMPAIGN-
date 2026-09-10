@@ -86,13 +86,13 @@ export function YouTubeScreen() {
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 grid place-items-center rounded-full"
           style={{ width: 46, height: 46, background: "rgba(0,0,0,0.45)" }}
         >
-          <Play size={22} color="#fff" fill="#fff" strokeWidth={0} />
+          <Play size={22} color="#fff" fill="#fff" strokeWidth={0} aria-hidden="true" />
         </span>
         <span className="absolute right-2 bottom-4 flex items-center gap-2.5" aria-hidden="true">
           <span className="tabular-nums" style={{ fontSize: "0.65625em", color: "#fff", textShadow: "0 1px 2px rgba(0,0,0,0.6)" }}>
             {YOUTUBE.duration}
           </span>
-          <Maximize size={14} color="#fff" strokeWidth={2.4} />
+          <Maximize size={14} color="#fff" strokeWidth={2.4} aria-hidden="true" />
         </span>
         {/* Scrubber */}
         <div className="absolute inset-x-0 bottom-0" style={{ height: 3, background: "rgba(255,255,255,0.3)" }}>

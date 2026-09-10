@@ -62,7 +62,7 @@ function CopyLinkButton({ id }: { id: string }) {
       {/* The tick draws itself rather than appearing, and the button pops once — the whole
           confirmation is 400ms and needs no toast. */}
       <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg border border-line/60 transition-colors group-hover:border-accent/50 sm:h-6 sm:w-6 sm:rounded-md">
-        {copied ? <Check size={12} className="text-accent fx-badge-pop" /> : <Link2 size={12} />}
+        {copied ? <Check size={12} className="text-accent fx-badge-pop" aria-hidden="true" /> : <Link2 size={12} aria-hidden="true" />}
       </span>
     </a>
   );

@@ -190,7 +190,7 @@ export function TerminalFrame({
 
             {/* Center: Device Brand / Hardware Badge */}
             <div className="flex items-center gap-1.5 px-2 py-0.5 rounded bg-slate-900/90 border border-slate-700/60">
-              <Shield className="w-3 h-3 text-amber-400" />
+              <Shield className="w-3 h-3 text-amber-400" aria-hidden="true" />
               <span className="font-mono text-slate-200 font-bold" style={{ fontSize: "0.625em" }}>
                 KITUI-TAC 40
               </span>
@@ -199,12 +199,12 @@ export function TerminalFrame({
             {/* Right: Telemetry Indicators */}
             <div className="flex items-center gap-2 font-mono text-slate-400" style={{ fontSize: "0.625em" }}>
               <span className="flex items-center gap-1 text-slate-300">
-                <Sun className="w-3 h-3 text-amber-400" />
-                <BatteryCharging className="w-3 h-3 text-emerald-400" />
+                <Sun className="w-3 h-3 text-amber-400" aria-hidden="true" />
+                <BatteryCharging className="w-3 h-3 text-emerald-400" aria-hidden="true" />
                 {battery}
               </span>
               <span className="flex items-center gap-0.5 text-slate-300">
-                <Wifi className="w-3 h-3 text-cyan-400" />
+                <Wifi className="w-3 h-3 text-cyan-400" aria-hidden="true" />
                 4G
               </span>
             </div>

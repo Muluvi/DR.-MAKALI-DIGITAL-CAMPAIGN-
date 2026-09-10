@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Target, MapPin, TrendingDown, AlertTriangle, Radio } from "lucide-react";
+import { Target, MapPin, TrendingDown, Info, Radio } from "lucide-react";
 
 import { ALL_WARDS, CONSTITUENCIES, COUNTY_TOTAL_WARDS, MWINGI_BLOC_TOTAL } from "../../data/ward-register";
 import { TierBadge } from "./TierBadge";
@@ -190,7 +190,7 @@ export function RecognitionDeficitOverlay() {
           </span>
         </p>
         <p className="t-small text-muted flex items-start gap-1.5">
-          <AlertTriangle size={12} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
+          <Info size={12} className="text-muted shrink-0 mt-0.5" aria-hidden="true" />
           <span>
             Recognition status here is <strong>structural</strong> — derived from where Dr. Mulu has held office, not
             from any survey. No ward-level poll of this race exists; §1.3.6 lists ward-level recognition data as a named

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { type WardPulseData } from "@/data/terminal-showcase";
-import { ShieldAlert, AlertOctagon, CheckCircle2, Clock, Send, Radio } from "lucide-react";
+import { ShieldAlert, AlertCircle, CheckCircle2, Clock, Send, Radio } from "lucide-react";
 
 export function IncidentScreen({ data }: { data: WardPulseData }) {
   const alert = data.incidentAlert;
@@ -24,7 +24,7 @@ export function IncidentScreen({ data }: { data: WardPulseData }) {
           </span>
         </div>
         <div className="font-mono text-slate-400 flex items-center gap-1" style={{ fontSize: "0.625em" }}>
-          <Clock className="w-3 h-3 text-slate-400" />
+          <Clock className="w-3 h-3 text-slate-400" aria-hidden="true" />
           <span>{alert?.timestamp || "14:15 EAT"}</span>
         </div>
       </div>
@@ -41,9 +41,9 @@ export function IncidentScreen({ data }: { data: WardPulseData }) {
       >
         <div className="flex items-center gap-2">
           {isTier1 ? (
-            <AlertOctagon className="w-4 h-4 text-rose-400 shrink-0" />
+            <AlertCircle className="w-4 h-4 text-rose-400 shrink-0" aria-hidden="true" />
           ) : (
-            <ShieldAlert className="w-4 h-4 text-amber-400 shrink-0" />
+            <ShieldAlert className="w-4 h-4 text-amber-400 shrink-0" aria-hidden="true" />
           )}
           <div>
             <div className="font-bold tracking-tight" style={{ fontSize: "0.6875em" }}>
@@ -78,7 +78,7 @@ export function IncidentScreen({ data }: { data: WardPulseData }) {
       <div className="bg-slate-900/60 rounded-lg p-3 border border-slate-800/80 mb-3 flex-1 flex flex-col justify-between">
         <div className="flex items-center justify-between mb-2">
           <span className="font-mono uppercase text-emerald-400 flex items-center gap-1 font-bold" style={{ fontSize: "0.625em" }}>
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> War Room Counter-Action
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" /> War Room Counter-Action
           </span>
           <span className="font-mono text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded" style={{ fontSize: "0.5625em" }}>
             Target SLA: &lt;15m
@@ -87,11 +87,11 @@ export function IncidentScreen({ data }: { data: WardPulseData }) {
 
         <div className="space-y-1.5 text-slate-300" style={{ fontSize: "0.75em" }}>
           <div className="flex items-center gap-2">
-            <Send className="w-3 h-3 text-cyan-400 shrink-0" />
+            <Send className="w-3 h-3 text-cyan-400 shrink-0" aria-hidden="true" />
             <span>Debunk dispatch drafted in Kikamba & Kiswahili</span>
           </div>
           <div className="flex items-center gap-2">
-            <Radio className="w-3 h-3 text-amber-400 shrink-0" />
+            <Radio className="w-3 h-3 text-amber-400 shrink-0" aria-hidden="true" />
             <span>Broadcast alert queued for evening radio drive-time</span>
           </div>
         </div>

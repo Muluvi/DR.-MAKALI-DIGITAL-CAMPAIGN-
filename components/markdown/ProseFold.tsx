@@ -31,8 +31,7 @@ export function ProseFold({ label, children }: { label: string; children: React.
           size={16}
           className={`shrink-0 transition-transform duration-200 motion-reduce:transition-none ${
  open ? "rotate-180 text-accent" : ""
-          }`}
-        />
+          }`} aria-hidden="true" />
       </button>
       {/* Rendered whether or not it is open, and hidden with CSS rather than dropped from the
           tree, so the printed briefing kit carries the folded prose instead of a heading with

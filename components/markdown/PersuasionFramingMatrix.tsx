@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Brain, Sparkles, CheckCircle2, ArrowRight, HelpCircle, Droplet, Coins, HeartHandshake, GraduationCap } from "lucide-react";
+import { Brain, CheckCircle2, ArrowRight, HelpCircle, Droplet, Coins, HeartHandshake, GraduationCap } from "lucide-react";
 
 interface PersuasionTheme {
   id: string;
@@ -116,7 +116,7 @@ export function PersuasionFramingMatrix() {
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <Brain size={20} />
+            <Brain size={20} aria-hidden="true" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -186,7 +186,7 @@ export function PersuasionFramingMatrix() {
       {/* Ethical Boundary Note */}
       <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
-          <CheckCircle2 size={12} className="text-accent" />
+          <CheckCircle2 size={12} className="text-accent" aria-hidden="true" />
           <span>Ethics Charter Boundary: Framing is applied strictly to verified empirical facts — zero psychographic micro-targeting or ethnic wedge operations.</span>
         </span>
       </div>

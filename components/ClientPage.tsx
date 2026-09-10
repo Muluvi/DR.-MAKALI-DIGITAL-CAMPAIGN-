@@ -483,7 +483,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                     className="group text-left bg-card border border-line/60 rounded-2xl p-4 hover:border-accent focus-visible:border-accent transition-colors cursor-pointer flex flex-col gap-2 min-h-[112px]"
                   >
                     <div className="flex items-center gap-2.5">
-                      <Icon size={16} className="text-accent shrink-0" />
+                      <Icon size={16} className="text-accent shrink-0" aria-hidden="true" />
                       <span className="font-mono t-micro text-muted tabular-nums">{item.number}</span>
                     </div>
                     <span className="font-serif t-body font-semibold text-ink leading-snug group-hover:text-accent transition-colors text-balance">
@@ -683,7 +683,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                 className="group fx-shine flex items-center gap-1.5 px-3 py-2 bg-accent/10 border border-accent/20 rounded-xl t-label sm:t-small font-bold text-accent hover:bg-accent hover:text-white transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px]"
                 aria-label="Open Table of Contents"
               >
-                <FileText size={15} className="fx-icon-rise" />
+                <FileText size={15} className="fx-icon-rise" aria-hidden="true" />
                 <span className="hidden xs:inline">Index</span>
               </RippleButton>
 
@@ -693,7 +693,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                 title={`Reading Density: ${readingDensity}`}
                 aria-label="Toggle Reading Density"
               >
-                <Type size={14} />
+                <Type size={14} aria-hidden="true" />
                 <span className="capitalize t-small sm:t-label hidden xs:inline">{readingDensity}</span>
               </button>
 
@@ -707,7 +707,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                 title={isFocusMode ? "Exit Focus Mode" : "Enter Distraction-Free Focus Mode"}
                 aria-label="Toggle Focus Mode"
               >
-                {isFocusMode ? <EyeOff size={14} /> : <Eye size={14} />}
+                {isFocusMode ? <EyeOff size={14} aria-hidden="true" /> : <Eye size={14} aria-hidden="true" />}
                 <span className="hidden md:inline">{isFocusMode ? "Focus" : "Focus"}</span>
               </button>
 
@@ -721,7 +721,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                 title={isZeroChrome ? "Leave reading view" : "Enter reading view"}
                 aria-label="Toggle reading view"
               >
-                <EyeOff size={14} className={isZeroChrome ? "text-white" : "text-accent"} />
+                <EyeOff size={14} className={isZeroChrome ? "text-white" : "text-accent"} aria-hidden="true" />
                 <span className="hidden sm:inline">Reading view</span>
               </button>
 
@@ -729,7 +729,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                 onClick={() => setIsExpanded(!isExpanded)}
                 className="flex items-center gap-1.5 px-3 py-2 bg-card border border-line/60 rounded-xl t-label sm:t-small font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px]"
               >
-                {isExpanded ? <Minimize2 size={15} /> : <Maximize2 size={15} />}
+                {isExpanded ? <Minimize2 size={15} aria-hidden="true" /> : <Maximize2 size={15} aria-hidden="true" />}
                 <span className="hidden sm:inline">{isExpanded ? "Close every section" : "Open every section"}</span>
                 <span className="sm:hidden">{isExpanded ? "Collapse" : "All"}</span>
               </button>
@@ -739,7 +739,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                 strength={0.22}
                 className="group hidden sm:flex items-center gap-2 px-3.5 py-2 bg-card border border-line/60 rounded-xl t-small font-bold text-ink hover:border-accent hover:text-accent transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center"
               >
-                <Printer size={15} className="fx-icon-rise" />
+                <Printer size={15} className="fx-icon-rise" aria-hidden="true" />
                 <span>Print</span>
               </MagneticButton>
 
@@ -749,7 +749,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                 aria-label="Toggle theme"
               >
                 {mounted ? (
-                  theme === "light" ? <Moon size={15} className="text-gold" /> : <Sun size={15} className="text-gold" />
+                  theme === "light" ? <Moon size={15} className="text-gold" aria-hidden="true" /> : <Sun size={15} className="text-gold" aria-hidden="true" />
                 ) : (
                   <div className="w-4 h-4 rounded-full border border-line/40 animate-pulse" />
                 )}
@@ -804,7 +804,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                         }`}
                       >
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <Icon size={15} className={`shrink-0 ${isActive ? "text-white" : "text-muted group-hover:text-accent transition-colors"}`} />
+                          <Icon size={15} className={`shrink-0 ${isActive ? "text-white" : "text-muted group-hover:text-accent transition-colors"}`} aria-hidden="true" />
                           <span className="truncate leading-snug">{item.label}</span>
                         </div>
                         <span className={`font-mono t-micro shrink-0 tabular-nums ${
