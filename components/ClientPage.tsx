@@ -7,6 +7,7 @@ import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Coins, User
 
 import { useTheme } from "../lib/useTheme";
 import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
+import { useChromeVisible } from "../hooks/use-chrome-visible";
 import { KeyFactsStrip } from "./KeyFactsStrip";
 import { LazyMount } from "./LazyMount";
 import { ScrollProgressBar } from "./ScrollProgressBar";
@@ -298,6 +299,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
   );
   const [isFocusMode, setIsFocusMode] = useState(false);
   const [isZeroChrome, setIsZeroChrome] = useState(false);
+  const chromeVisible = useChromeVisible();
   const [readingDensity, setReadingDensity] = useState<"compact" | "balanced" | "generous">("balanced");
 
   // Page-level scroll state (direction, stuck, velocity skew) and the reader's local time of day,
@@ -482,9 +484,9 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                   >
                     <div className="flex items-center gap-2.5">
                       <Icon size={16} className="text-accent shrink-0" />
-                      <span className="font-mono text-[11px] text-muted tabular-nums">{item.number}</span>
+                      <span className="font-mono t-micro text-muted tabular-nums">{item.number}</span>
                     </div>
-                    <span className="font-serif text-[15px] font-semibold text-ink leading-snug group-hover:text-accent transition-colors text-balance">
+                    <span className="font-serif t-body font-semibold text-ink leading-snug group-hover:text-accent transition-colors text-balance">
                       {item.label}
                     </span>
                     <span className="t-label text-muted leading-snug mt-auto">{item.blurb}</span>
@@ -650,12 +652,14 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
       )}
 
       {/* Main Content Layout */}
-      <main className={`max-w-7xl mx-auto px-3.5 sm:px-5 lg:px-6 transition-all duration-300 ${isZeroChrome ? "pb-12 lg:pb-24" : "pb-48 lg:pb-24"}`}>
+      <main className={`max-w-7xl mx-auto px-3.5 sm:px-5 lg:px-6 transition-all duration-300 ${isZeroChrome ? "pb-12 lg:pb-24" : "pb-48 lg:pb-24"} ${isFocusMode ? "max-w-3xl" : ""}`}>
         <div className="print:hidden">
         </div>
         
         {/* Responsive Toolbar */}
-        <div className={`fx-header fx-dir-header sticky top-0 z-40 fx-glass rounded-b-xl py-2 sm:py-3 ${(activeTab === "decision" || isExpanded) ? "mt-3 sm:mt-6" : "mt-0"} mb-3 sm:mb-6 flex items-center justify-between gap-2 print:hidden`}>
+        <div className={`fx-header fx-dir-header sticky top-0 z-40 fx-glass rounded-b-xl py-2 sm:py-3 ${(activeTab === "decision" || isExpanded) ? "mt-3 sm:mt-6" : "mt-0"} mb-3 sm:mb-6 flex items-center justify-between gap-2 print:hidden transition-all duration-300 ${
+          (!chromeVisible && !isFocusMode) || isZeroChrome ? "-translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100"
+        }`}>
           {/* The hairline under the bar is a gradient rather than a rule, so the toolbar reads as
               a lit edge over the document instead of a box drawn on top of it. */}
           <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-0 bottom-0" />
@@ -733,7 +737,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
               <MagneticButton
                 onClick={printFullDocument}
                 strength={0.22}
-                className="group hidden sm:flex items-center gap-2 px-3.5 py-2 bg-card border border-line/60 rounded-xl text-sm font-bold text-ink hover:border-accent hover:text-accent transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center"
+                className="group hidden sm:flex items-center gap-2 px-3.5 py-2 bg-card border border-line/60 rounded-xl t-small font-bold text-ink hover:border-accent hover:text-accent transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center"
               >
                 <Printer size={15} className="fx-icon-rise" />
                 <span>Print</span>
@@ -763,7 +767,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 relative mt-4 sm:mt-8">
           
           {/* Desktop Sidebar Navigation */}
-          <aside className="toc-rail hidden lg:block w-72 flex-shrink-0 print:hidden">
+          <aside className={`toc-rail hidden ${isFocusMode ? "lg:hidden" : "lg:block"} w-72 flex-shrink-0 print:hidden`}>
             <div className="sticky top-24 space-y-4">
               <SpotlightCard className="fx-glass rounded-2xl p-4">
                 <div className="t-label font-semibold text-muted mb-3 flex items-center justify-between">
@@ -803,8 +807,8 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                           <Icon size={15} className={`shrink-0 ${isActive ? "text-white" : "text-muted group-hover:text-accent transition-colors"}`} />
                           <span className="truncate leading-snug">{item.label}</span>
                         </div>
-                        <span className={`font-mono text-[10px] shrink-0 tabular-nums ${
- isActive ? "text-white/70" : "text-muted/70"
+                        <span className={`font-mono t-micro shrink-0 tabular-nums ${
+                          isActive ? "text-white/90" : "text-muted"
                         }`}>
                           {sectionReadMin}m
                         </span>
@@ -902,7 +906,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
         onToggleExpanded={() => setIsExpanded(!isExpanded)}
         theme={theme}
         onToggleTheme={toggleTheme}
-        isZeroChrome={isZeroChrome}
+        isZeroChrome={isZeroChrome || isFocusMode}
         onToggleZeroChrome={() => setIsZeroChrome(!isZeroChrome)}
       />
 
@@ -927,7 +931,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
       <QuickNavCapsule
         onNavigate={(secId) => navigateToSection(secId)}
         activeTab={activeTab}
-        isZeroChrome={isZeroChrome}
+        isZeroChrome={isZeroChrome || isFocusMode}
       />
 
       {/* Additive chrome. Nothing in the document depends on any of it: the dots are a second

@@ -242,14 +242,14 @@ export function MobileTOCModal({
                     className="fx-press fx-focus w-full py-3 px-2 flex items-center justify-between text-left hover:bg-paper/70 active:bg-paper rounded-xl transition-all group cursor-pointer min-h-[50px]"
                   >
                     <div className={`flex items-start gap-2.5 sm:gap-3 min-w-0 pr-2 ${item.level === 3 ? "pl-3 sm:pl-5" : ""}`}>
-                      <span className="font-mono text-[11px] tabular-nums text-accent shrink-0 mt-0.5 min-w-[38px]">
+                      <span className="font-mono t-micro tabular-nums text-accent shrink-0 mt-0.5 min-w-[38px]">
                         {item.number}
                       </span>
                       <div className="min-w-0">
                         <span className={`block t-label text-ink group-hover:text-accent transition-colors truncate ${item.level === 2 ? "font-bold" : "font-medium"}`}>
                           {item.title}
                         </span>
-                        <div className="flex items-center gap-1.5 mt-0.5 text-[11px] text-muted">
+                        <div className="flex items-center gap-1.5 mt-0.5 t-micro text-muted">
                           <Icon size={11} className="shrink-0" />
                           <span className="font-medium truncate">{item.tabLabel}</span>
                           {isCurrentTab && <span className="text-accent font-semibold">· current</span>}

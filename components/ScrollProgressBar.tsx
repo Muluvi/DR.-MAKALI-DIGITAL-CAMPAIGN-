@@ -112,9 +112,9 @@ export function ScrollProgressBar() {
         jumpTo((e.clientX - rect.left) / rect.width);
       }}
     >
-      <div className="scroll-progress-track relative w-full h-1 group-hover:h-1.5 group-focus-visible:h-1.5 transition-[height] duration-150">
+      <div className="scroll-progress-track relative w-full h-[2px] group-hover:h-[3px] group-focus-visible:h-[3px] bg-line/30 transition-[height] duration-150">
         <div
-          className="scroll-progress-fill fx-gradient-live h-full origin-left bg-[linear-gradient(90deg,var(--color-accent),var(--color-gold),var(--color-accent))] shadow-[0_0_10px_-2px_var(--color-accent)]"
+          className="scroll-progress-fill h-full origin-left bg-accent transition-transform duration-75"
           style={needsFallback ? { transform: `scaleX(${progress})` } : undefined}
         />
       </div>
