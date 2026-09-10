@@ -191,7 +191,7 @@ export function ReachSplit() {
                 onPointerDown={() => setPressed(k)}
                 onPointerUp={() => setPressed(null)}
                 onPointerLeave={() => setPressed(null)}
-                className={`h-8 rounded-md font-mono t-label font-bold transition-transform ${
+                className={`h-11 min-w-[44px] rounded-md font-mono t-label font-bold transition-transform ${
  pressed === k
                     ? "scale-95 bg-accent-solid text-on-accent"
                     : "bg-paper/10 text-paper/80 hover:bg-paper/20"

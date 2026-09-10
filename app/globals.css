@@ -1339,11 +1339,11 @@ html {
    Icon-only buttons expand their *hit area* with a pseudo-element instead of their box, so
    the visual density of the anchor rail and the chart toggles is unchanged. */
 @media (pointer: coarse) {
-  /* A pseudo-element hit-area expansion was tried first and could not be shown to work here —
-     the ::after computed correctly but never received the hit in testing — so the box itself
-     is enlarged instead, and the border and fill are dropped so a 44px target next to a
-     heading does not read as a heavy button. The icon keeps the affordance. */
-  .section-anchor-btn,
+  /* The section anchor is no longer here. It used to be enlarged by this rule, which meant its
+     target was 44px only on a device reporting a coarse pointer — and a desktop browser with a
+     touchscreen, or any audit run without touch emulation, got 28px. It now carries its own
+     padding and an equal negative margin in the component, so the target is 44px everywhere
+     and the layout is unchanged either way. */
   .tap-expand {
     width: 44px;
     height: 44px;

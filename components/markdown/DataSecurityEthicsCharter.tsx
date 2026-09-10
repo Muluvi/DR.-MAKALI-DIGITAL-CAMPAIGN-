@@ -126,7 +126,7 @@ export function DataSecurityEthicsCharter() {
           <button
             key={cat}
             onClick={() => setSelectedFilter(cat)}
-            className={`px-3 py-1.5 rounded-xl t-label font-bold transition-all cursor-pointer ${
+            className={`px-3 py-1.5 min-h-[44px] min-w-[44px] justify-center inline-flex items-center rounded-xl t-label font-bold transition-all cursor-pointer ${
  selectedFilter === cat
                 ? "bg-accent-solid text-on-accent shadow-sm"
                 : "bg-card border border-line text-muted hover:text-ink"
@@ -152,7 +152,7 @@ export function DataSecurityEthicsCharter() {
                 <div className="flex items-center gap-3">
                   <button
                     onClick={() => toggleCheck(rule.id)}
-                    className="w-6 h-6 rounded-lg bg-card border border-line flex items-center justify-center text-accent hover:border-accent cursor-pointer shrink-0"
+                    className="h-11 w-11 rounded-lg bg-card border border-line flex items-center justify-center text-accent hover:border-accent cursor-pointer shrink-0"
                   >
                     {isChecked && <CheckSquare size={16} className="text-accent" />}
                   </button>

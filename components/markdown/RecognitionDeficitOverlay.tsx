@@ -103,7 +103,7 @@ export function RecognitionDeficitOverlay() {
           <button
             onClick={() => setFilterMode("all")}
             aria-pressed={filterMode === "all"}
-            className={`px-3 py-1.5 rounded-lg t-small font-bold transition-colors cursor-pointer ${
+            className={`px-3 py-1.5 min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-lg t-small font-bold transition-colors cursor-pointer ${
  filterMode === "all" ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink"
             }`}
           >
@@ -112,7 +112,7 @@ export function RecognitionDeficitOverlay() {
           <button
             onClick={() => setFilterMode("deficitOnly")}
             aria-pressed={filterMode === "deficitOnly"}
-            className={`px-3 py-1.5 rounded-lg t-small font-bold transition-colors cursor-pointer ${
+            className={`px-3 py-1.5 min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-lg t-small font-bold transition-colors cursor-pointer ${
  filterMode === "deficitOnly" ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink"
             }`}
           >

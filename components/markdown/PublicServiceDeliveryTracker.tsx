@@ -165,7 +165,7 @@ export function PublicServiceDeliveryTracker() {
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`px-3 py-1.5 rounded-xl t-label font-bold whitespace-nowrap transition-all cursor-pointer ${
+            className={`px-3 py-1.5 min-h-[44px] min-w-[44px] justify-center inline-flex items-center rounded-xl t-label font-bold whitespace-nowrap transition-all cursor-pointer ${
  selectedCategory === cat
                 ? "bg-accent-solid text-on-accent shadow-sm"
                 : "bg-paper border border-line text-muted hover:text-ink"

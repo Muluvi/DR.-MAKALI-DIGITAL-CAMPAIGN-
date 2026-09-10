@@ -213,7 +213,7 @@ export function MessagingPlayground() {
           <button
             key={l}
             onClick={() => setLang(l as "en" | "kik" | "sw")}
-            className={`flex-1 t-label font-black uppercase py-1.5 rounded-lg border transition-all cursor-pointer ${
+            className={`flex-1 min-h-[44px] t-label font-black py-1.5 rounded-lg border transition-all cursor-pointer ${
  lang === l ? "bg-accent-solid border-accent-solid text-on-accent" : "bg-paper border-line text-muted"
             }`}
           >

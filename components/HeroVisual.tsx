@@ -213,7 +213,7 @@ export function HeroVisual() {
           <div className="inline-flex p-0.5 bg-paper border border-line/60 rounded-xl">
             <button
               onClick={() => setViewMode("3d")}
-              className={`px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 ${
+              className={`px-2.5 py-1 min-h-[44px] min-w-[44px] justify-center t-micro font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 ${
  viewMode === "3d"
                   ? "bg-accent-solid text-on-accent shadow-xs"
                   : "text-muted hover:text-ink"
@@ -225,7 +225,7 @@ export function HeroVisual() {
             </button>
             <button
               onClick={() => setViewMode("flow")}
-              className={`px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 ${
+              className={`px-2.5 py-1 min-h-[44px] min-w-[44px] justify-center t-micro font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 ${
  viewMode === "flow"
                   ? "bg-accent-solid text-on-accent shadow-xs"
                   : "text-muted hover:text-ink"

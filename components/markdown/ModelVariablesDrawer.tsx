@@ -129,7 +129,7 @@ export default function ModelVariablesDrawer() {
               <button
                 key={s}
                 onClick={() => setSourceFilter(s)}
-                className={`px-2.5 py-1 rounded-lg t-micro font-bold transition-all shrink-0 cursor-pointer min-h-[32px] ${
+                className={`px-2.5 py-1 rounded-lg t-micro font-bold transition-all shrink-0 cursor-pointer min-h-[44px] min-w-[44px] justify-center ${
  sourceFilter === s
                     ? "bg-accent-solid text-on-accent shadow-xs"
                     : "bg-card border border-line/60 text-muted hover:text-ink"
@@ -149,7 +149,7 @@ export default function ModelVariablesDrawer() {
               <button
                 key={t}
                 onClick={() => setTypeFilter(t)}
-                className={`px-2.5 py-1 rounded-lg t-micro font-bold transition-all shrink-0 cursor-pointer min-h-[32px] ${
+                className={`px-2.5 py-1 rounded-lg t-micro font-bold transition-all shrink-0 cursor-pointer min-h-[44px] min-w-[44px] justify-center ${
  typeFilter === t
                     ? "bg-gold text-ink shadow-xs"
                     : "bg-card border border-line/60 text-muted hover:text-ink"
