@@ -21,15 +21,15 @@ re-read for what it was actually saying, and given the register's Part 2 glyph f
 | `markdown/RecognitionDeficitOverlay.tsx` | `AlertTriangle` · gold | `Info` · muted | Recognition status is derived, not surveyed — an assumption stated |
 | `markdown/GeographicZoneMatrix.tsx` | `AlertTriangle` · gold | `Info` · muted | Sub-county and constituency do not nest — a method note |
 | `markdown/AudienceSegmentationMatrix.tsx` | `AlertTriangle` · gold | `CircleDashed` · muted | A named data gap is *not yet measured*, not an error |
-| `markdown/PollingTrajectorySimulator.tsx` | `AlertTriangle` | `AlertCircle` | Target missed |
-| `markdown/PathTo200kCalculator.tsx` | `AlertTriangle` | `AlertCircle` | Target missed |
+| `markdown/PollingTrajectorySimulator.tsx` | `AlertTriangle` | `CircleAlert` | Target missed |
+| `markdown/PathTo200kCalculator.tsx` | `AlertTriangle` | `CircleAlert` | Target missed |
 | `markdown/PathTo200kCalculator.tsx` | `ShieldAlert` · gold | `Target` · inherited | A tactical requirement is a threshold, not a threat |
-| `markdown/CommitmentFields.tsx` | `TriangleAlert` | `AlertCircle` | Escalation route; the danger token stays, the triangle does not |
+| `markdown/CommitmentFields.tsx` | `TriangleAlert` | `CircleAlert` | Escalation route; the danger token stays, the triangle does not |
 | `markdown/ConstitutionalBranchNavigator.tsx` | `AlertTriangle` · amber banner | `Flag` · neutral banner | Both court outcomes are branches of an open decision. One is not an error state |
 | `markdown/MediaRadioLandscapeCard.tsx` | `ShieldAlert` · amber banner | `Info` · neutral banner | Rival ownership of two networks is a finding, and it reads harder in plain type than in yellow |
 | `markdown/PublicServiceDeliveryTracker.tsx` | `Info` · gold band | `Info` · neutral band | "This interface has not been built" is the document's most important trust signal. It should not look like a caution sticker |
-| `terminal/screens/GroundPulseScreen.tsx` | `AlertTriangle` | `AlertCircle` | One attention glyph across the site |
-| `terminal/screens/IncidentScreen.tsx` | `AlertOctagon` | `AlertCircle` | As above |
+| `terminal/screens/GroundPulseScreen.tsx` | `AlertTriangle` | `CircleAlert` | One attention glyph across the site |
+| `terminal/screens/IncidentScreen.tsx` | `AlertOctagon` | `CircleAlert` | As above |
 
 ## 2. `Sparkles` is gone
 
@@ -60,11 +60,44 @@ The register does not list it, in any of eight parts, for any job. Every use was
   the recommendation card is on the neutral line rather than the accent. The `ClaimBadge` on
   the long-lead item stays — it is the confidence system, not ornament.
 
-## 4. Accessibility
+## 4. The specification itself
+
+The first two passes fixed *which* icons appear and *where*. This one fixes how they are drawn,
+against the four measurable lines in Part 8's specification.
+
+**One stroke weight, and it is the specified one.** The register asks for a 24-pixel grid at a
+1.5-pixel stroke. Lucide's own default is 2, and it scales the stroke with the icon, so nothing
+on the site was at 1.5 and no two sizes matched: a 9-pixel badge mark rendered at 0.75px, a
+14-pixel label mark at 1.17px, a 20-pixel control at 1.67px. Three of them then overrode it
+upward again in Tailwind — `stroke-[3]` on the included/not-included marks, `stroke-[2.5]` on
+the checklist bullet.
+
+`components/IconDefaults.tsx` wraps the app in Lucide's `LucideProvider` with
+`strokeWidth={1.5} absoluteStrokeWidth`, and the three Tailwind overrides are gone. Every icon
+on the site now renders a true 1.5-pixel stroke at whatever size it is drawn — verified in the
+browser across the nine sizes in use. `absoluteStrokeWidth` is what makes that true rather than
+nominal: without it, "1.5" is a value on the 24-grid that thins as the icon shrinks, which is
+how the small marks became faint in the first place. Any icon passing its own `strokeWidth`
+still wins, which is how the device mockups keep the platform weights they are imitating.
+
+**`currentColor`, checked.** No document-side icon hard-codes a colour; they inherit through
+Tailwind text tokens, which is what the rule is asking for. The phone screens pass explicit
+hex — that is the platform's own chrome colour inside a picture of that platform, and it is
+listed under *What was deliberately left*.
+
+**No fills except where a filled state carries meaning.** The one document-side fill was a
+filled `Star` in a pill already reading "Recommended"; it went in pass 2. The fills that remain
+are a filled play button and a filled heart inside the mockups, where filled *is* the state.
+
+**Optical sizing.** After pass 2 no document-side icon is set above 18 pixels except the two
+20-pixel transport controls in the audio player, which are controls rather than marks beside
+body text. The register's case — a 24-pixel icon next to 16-pixel type — no longer occurs.
+
+## 5. Accessibility
 
 - Every decorative icon now carries `aria-hidden="true"` — 155 elements across 39 files that
   did not have it, plus the six rendered from a variable (`<Icon />` out of a config object).
-  Every lucide element in the codebase is marked (194 remain after the second pass).
+  Every lucide element in the codebase is marked; 194 remain after the second pass.
 - One standalone icon button was announced as nothing: the HeroVisual **Reset** control, whose
   label is `hidden sm:inline` and so is icon-only on a phone. It now has an `aria-label`.
   The 3D Pillars toggle, same pattern, gained an `aria-label` and `aria-pressed`.
@@ -101,14 +134,22 @@ register's own three criteria do not justify — an icon earns its place only if
 word that will not fit, encodes a repeated state faster than text, or distinguishes members
 of a set the reader must tell apart quickly.
 
-| | Before the register | After pass 1 | After pass 2 |
-|---|---|---|---|
-| Distinct glyphs | 128 | 121 | **97** |
-| — document and chrome | 100 | 92 | **64** |
-| — device and terminal mockups | 54 | 53 | 53 |
-| Icon elements in the codebase | 284 | 271 | **194** |
-| Glyph data, uncompressed | 29.5 KB | 27.7 KB | **21.3 KB** |
-| Glyph data, gzipped | 7.8 KB | 7.3 KB | **5.8 KB** |
+| | Before the register | Pass 1 | Pass 2 | Now |
+|---|---|---|---|---|
+| Imported names | 128 | 121 | 97 | **96** |
+| Distinct glyphs | 127 | 120 | 96 | **96** |
+| — document and chrome | 100 | 92 | 64 | **64** |
+| — device and terminal mockups | 54 | 53 | 53 | **53** |
+| Icon elements in the codebase | 284 | 271 | 194 | **194** |
+| Glyph data, uncompressed | 33.1 KB | 30.8 KB | 23.3 KB | **23.3 KB** |
+| Glyph data, gzipped | 8.5 KB | 8.0 KB | 6.3 KB | **6.3 KB** |
+
+The payload figures in the first two versions of this file were **understated** — 29.5, 27.7
+and 21.3 KB where the true numbers are 33.1, 30.8 and 23.3. The measurement summed each
+imported name's own module, and ten of those names were alias modules that re-export another
+glyph and carry no path data of their own, so their weight was counted as zero. Resolving
+aliases first (see *A note on names*) gives the figures above. The conclusion does not change,
+and neither does what ships: gzipped, 6.3 KB against a 15 KB budget.
 
 ### What the second pass removed
 
@@ -144,7 +185,7 @@ imports that had never rendered anything.
 
 ### What the count still contains, and why
 
-Of the 97 that remain, **53 are inside the device and terminal mockups** — the WhatsApp,
+Of the 96 that remain, **53 are inside the device and terminal mockups** — the WhatsApp,
 Facebook, TikTok, X, Instagram and YouTube screens, the feature-phone specimen, the field
 terminal. Those illustrations depict interfaces, and in an interface the icons *are* the
 content: a WhatsApp screen without a paperclip and a microphone is not a picture of WhatsApp.
@@ -158,7 +199,7 @@ and the small sets of markers in the key-facts strip, the mini scorecard and the
 where three or four glyphs distinguish members of a set at a glance. Roughly thirty of those
 are the document's own; the rest are controls the reader operates.
 
-Uncompressed, 21.3 KB is still above the 15 KB line; gzipped, 5.8 KB clears it with room, and
+Uncompressed, 23.3 KB is still above the 15 KB line; gzipped, 6.3 KB clears it with room, and
 gzip is what ships. Getting under 15 KB uncompressed means cutting the mockups, which is the
 one thing above that would cost the document something real.
 
@@ -166,8 +207,24 @@ one thing above that would cost the document something real.
 
 ## A note on names
 
-Installed is `lucide-react` 1.44.0 (`package.json` asks for `^1.34.0`). Both the legacy and
-the current spellings resolve in this version — `AlertCircle`/`CircleAlert`,
-`HelpCircle`/`CircleHelp`, `CheckCircle2`/`CircleCheckBig` — so this pass used the register's
-own names where it introduced an icon and left the existing spellings alone. That will not
-hold forever; the aliases are what Lucide keeps "only for a while".
+Installed is `lucide-react` 1.44.0 (`package.json` asks for `^1.34.0`). The first pass noted
+that the codebase was importing ten glyphs under legacy spellings that survive only as alias
+modules — a one-line re-export of the real icon — and that Lucide keeps those "only for a
+while". They are now migrated to the canonical names:
+
+| Was | Now | | Was | Now |
+|---|---|---|---|---|
+| `AlertCircle` | `CircleAlert` | | `CheckSquare` | `SquareCheckBig` |
+| `BarChart2` | `ChartNoAxesColumn` | | `Filter` | `Funnel` |
+| `BarChart3` | `ChartColumn` | | `HelpCircle` | `CircleQuestionMark` |
+| `CheckCircle` | `CircleCheckBig` | | `Home` | `House` |
+| `CheckCircle2` | `CircleCheck` | | `MoreHorizontal` | `Ellipsis` |
+
+Three of those land on the register's own vocabulary rather than beside it: `CircleCheck` is
+its "dependency satisfied", `CircleQuestionMark` its "question for counsel", `CircleAlert` its
+"target missed". `BarChart3` and `ChartColumn` turn out to have been the same glyph imported
+under two names, which is why 97 names became 96.
+
+The payload is unchanged — aliases tree-shake to the same modules — so this buys no bytes. What
+it buys is that the build does not break on a Lucide release that finally drops them, and that
+the names in the code match the names in the register.

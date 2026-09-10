@@ -1,9 +1,9 @@
-import { CheckCircle2, TrendingUp, Clock, CircleDashed } from "lucide-react";
+import { CircleCheck, TrendingUp, Clock, CircleDashed } from "lucide-react";
 
 export type ClaimStatus = "verified" | "estimate" | "awaiting" | "unmeasured";
 
-const STATUS_CONFIG: Record<ClaimStatus, { label: string; icon: typeof CheckCircle2; className: string }> = {
-  verified: { label: "Verified", icon: CheckCircle2, className: "claim-badge-verified" },
+const STATUS_CONFIG: Record<ClaimStatus, { label: string; icon: typeof CircleCheck; className: string }> = {
+  verified: { label: "Verified", icon: CircleCheck, className: "claim-badge-verified" },
   estimate: { label: "Estimate", icon: TrendingUp, className: "claim-badge-estimate" },
   awaiting: { label: "Awaiting campaign decision", icon: Clock, className: "claim-badge-awaiting" },
   // A named data gap, and a different thing from either of the two above. "Awaiting campaign

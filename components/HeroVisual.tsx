@@ -3,7 +3,7 @@
 import React, { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { DURATION, EASE_ENTRANCE, disclosure } from "../lib/motion";
-import { X, CheckCircle2, Layers, ChartColumn, Compass } from "lucide-react";
+import { X, CircleCheck, Layers, ChartColumn, Compass } from "lucide-react";
 import { CONSTITUENCIES } from "../data/ward-register";
 
 interface StageDetail {
@@ -647,7 +647,7 @@ export function HeroVisual() {
                         key={idx}
                         className="flex items-start gap-1.5 t-label text-ink font-medium leading-tight"
                       >
-                        <CheckCircle2 size={12} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
+                        <CircleCheck size={12} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
                         <span>{item}</span>
                       </li>
                     ))}

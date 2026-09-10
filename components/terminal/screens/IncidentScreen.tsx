@@ -2,7 +2,7 @@
 
 import React from "react";
 import { type WardPulseData } from "@/data/terminal-showcase";
-import { ShieldAlert, AlertCircle, CheckCircle2, Clock, Send, Radio } from "lucide-react";
+import { ShieldAlert, CircleAlert, CircleCheck, Clock, Send, Radio } from "lucide-react";
 
 export function IncidentScreen({ data }: { data: WardPulseData }) {
   const alert = data.incidentAlert;
@@ -41,7 +41,7 @@ export function IncidentScreen({ data }: { data: WardPulseData }) {
       >
         <div className="flex items-center gap-2">
           {isTier1 ? (
-            <AlertCircle className="w-4 h-4 text-rose-400 shrink-0" aria-hidden="true" />
+            <CircleAlert className="w-4 h-4 text-rose-400 shrink-0" aria-hidden="true" />
           ) : (
             <ShieldAlert className="w-4 h-4 text-amber-400 shrink-0" aria-hidden="true" />
           )}
@@ -78,7 +78,7 @@ export function IncidentScreen({ data }: { data: WardPulseData }) {
       <div className="bg-slate-900/60 rounded-lg p-3 border border-slate-800/80 mb-3 flex-1 flex flex-col justify-between">
         <div className="flex items-center justify-between mb-2">
           <span className="font-mono uppercase text-emerald-400 flex items-center gap-1 font-bold" style={{ fontSize: "0.625em" }}>
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" /> War Room Counter-Action
+            <CircleCheck className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" /> War Room Counter-Action
           </span>
           <span className="font-mono text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded" style={{ fontSize: "0.5625em" }}>
             Target SLA: &lt;15m

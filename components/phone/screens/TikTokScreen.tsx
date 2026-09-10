@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { Heart, Home, MessageCircle, Music, Plus, Search, Share, User } from "lucide-react";
+import { Heart, House, MessageCircle, Music, Plus, Search, Share, User } from "lucide-react";
 
 import { IDENTITY, ILLUSTRATIVE_COUNTS, TIKTOK } from "../../../lib/phone-showcase";
 import { DURATION, EASE_ENTRANCE, LOOP } from "../../../lib/motion";
@@ -182,7 +182,7 @@ export function TikTokScreen() {
 
       {/* Bottom nav */}
       <div className="shrink-0 flex items-center justify-around pt-2 pb-1" style={{ background: "#000" }}>
-        <Home size={22} color="#fff" strokeWidth={2} aria-hidden="true" />
+        <House size={22} color="#fff" strokeWidth={2} aria-hidden="true" />
         <Search size={22} color="rgba(255,255,255,0.6)" strokeWidth={2} aria-hidden="true" />
         <span
           className="grid place-items-center rounded-lg"

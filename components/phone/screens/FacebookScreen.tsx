@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { Bell, Globe, Home, MessageCircle, MoreHorizontal, Search, Share2, ThumbsUp, Users } from "lucide-react";
+import { Bell, Globe, House, MessageCircle, Ellipsis, Search, Share2, ThumbsUp, Users } from "lucide-react";
 
 import { FACEBOOK, IDENTITY, ILLUSTRATIVE_COUNTS } from "../../../lib/phone-showcase";
 import { DURATION, EASE_ENTRANCE, STAGGER } from "../../../lib/motion";
@@ -106,7 +106,7 @@ export function FacebookScreen() {
                 {FACEBOOK.timestamp} · <Globe size={11.5} strokeWidth={2.2} aria-hidden="true" />
               </span>
             </span>
-            <MoreHorizontal size={19} color={MUTED} aria-hidden="true" />
+            <Ellipsis size={19} color={MUTED} aria-hidden="true" />
           </div>
 
           {/* Body, with the fold */}
@@ -169,10 +169,10 @@ export function FacebookScreen() {
 
       {/* Bottom nav */}
       <div className="shrink-0 flex items-center justify-around bg-white pt-2 pb-1" style={{ borderTop: "1px solid #dadde1" }}>
-        <Home size={22} color={BLUE} strokeWidth={2.2} aria-hidden="true" />
+        <House size={22} color={BLUE} strokeWidth={2.2} aria-hidden="true" />
         <Users size={22} color={MUTED} strokeWidth={2} aria-hidden="true" />
         <Bell size={22} color={MUTED} strokeWidth={2} aria-hidden="true" />
-        <MoreHorizontal size={22} color={MUTED} strokeWidth={2} aria-hidden="true" />
+        <Ellipsis size={22} color={MUTED} strokeWidth={2} aria-hidden="true" />
       </div>
     </ScreenShell>
   );

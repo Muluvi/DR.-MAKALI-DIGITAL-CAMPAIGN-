@@ -4,16 +4,16 @@ import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import {
   ArrowLeft,
-  BarChart3,
   Bookmark,
+  ChartColumn,
+  Ellipsis,
   Heart,
-  Home,
+  House,
   MessageCircle,
-  MoreHorizontal,
   Repeat2,
   Search,
   Share,
-  User,
+  User
 } from "lucide-react";
 
 import { IDENTITY, ILLUSTRATIVE_COUNTS, X_POST } from "../../../lib/phone-showcase";
@@ -97,7 +97,7 @@ export function XScreen() {
               {IDENTITY.handle}
             </span>
           </span>
-          <MoreHorizontal size={18} color={MUTED} aria-hidden="true" />
+          <Ellipsis size={18} color={MUTED} aria-hidden="true" />
         </div>
 
         {/* Body */}
@@ -151,7 +151,7 @@ export function XScreen() {
           >
             <Action icon={Heart} count={likeCount} color={liked ? "#f91880" : MUTED} fill={liked} />
           </motion.span>
-          <Action icon={BarChart3} count={ILLUSTRATIVE_COUNTS.xViews} />
+          <Action icon={ChartColumn} count={ILLUSTRATIVE_COUNTS.xViews} />
           <span className="flex items-center gap-3.5" style={{ color: MUTED }}>
             <Bookmark size={17.5} strokeWidth={1.9} aria-hidden="true" />
             <Share size={17.5} strokeWidth={1.9} aria-hidden="true" />
@@ -164,7 +164,7 @@ export function XScreen() {
         className="shrink-0 flex items-center justify-around px-6 pt-2.5 pb-1"
         style={{ borderTop: `1px solid ${LINE}` }}
       >
-        <Home size={21} color={FG} strokeWidth={2.1} fill={FG} aria-hidden="true" />
+        <House size={21} color={FG} strokeWidth={2.1} fill={FG} aria-hidden="true" />
         <Search size={21} color={MUTED} strokeWidth={2} aria-hidden="true" />
         <MessageCircle size={21} color={MUTED} strokeWidth={2} aria-hidden="true" />
         <User size={21} color={MUTED} strokeWidth={2} aria-hidden="true" />

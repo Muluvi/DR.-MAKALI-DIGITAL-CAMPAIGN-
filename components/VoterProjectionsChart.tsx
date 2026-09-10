@@ -6,7 +6,7 @@ import {
   BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, 
   Tooltip, Legend, ResponsiveContainer, Cell, AreaChart, Area 
 } from "recharts";
-import { BarChart3, TrendingUp, Filter, Map } from "lucide-react";
+import { ChartColumn, TrendingUp, Funnel, Map } from "lucide-react";
 
 interface SubCountyData {
   subCounty: string;
@@ -159,7 +159,7 @@ export function VoterProjectionsChart() {
 
         {/* Region Filters (Visible on Demographics) */}
         <div className="md:col-span-5 flex items-center gap-1.5 overflow-x-auto py-1 scrollbar-none">
-          <Filter size={13} className="text-muted shrink-0 hidden sm:block" aria-hidden="true" />
+          <Funnel size={13} className="text-muted shrink-0 hidden sm:block" aria-hidden="true" />
           {activeTab === "demographics" ? (
             <div className="flex gap-1">
               {(["All", "Anchor", "Mwingi Block", "Arid Belt"] as const).map((r) => (
@@ -201,7 +201,7 @@ export function VoterProjectionsChart() {
               }`}
               title={`Switch to ${type} chart`}
             >
-              {type === "bar" && <BarChart3 size={14} aria-hidden="true" />}
+              {type === "bar" && <ChartColumn size={14} aria-hidden="true" />}
               {type === "line" && <TrendingUp size={14} aria-hidden="true" />}
               {type === "area" && <Map size={14} aria-hidden="true" />}
             </button>

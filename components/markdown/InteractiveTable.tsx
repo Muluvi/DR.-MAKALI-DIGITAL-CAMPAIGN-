@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useId, useState, useEffect } from "react";
-import { Search, ArrowUpDown, BarChart3, Table } from "lucide-react";
+import { Search, ArrowUpDown, ChartColumn, Table } from "lucide-react";
 import { LayoutGroup, motion } from "motion/react";
 import { LazyMount } from "../LazyMount";
 import { SourceLine, detectSources } from "./SourceLine";
@@ -271,7 +271,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                   : "bg-paper/80 border-line text-muted hover:border-accent/40 hover:text-ink"
               }`}
             >
-              {showChart ? <Table size={14} aria-hidden="true" /> : <BarChart3 size={14} aria-hidden="true" />}
+              {showChart ? <Table size={14} aria-hidden="true" /> : <ChartColumn size={14} aria-hidden="true" />}
               <span>{showChart ? "Table" : "Chart"}</span>
             </button>
           )}

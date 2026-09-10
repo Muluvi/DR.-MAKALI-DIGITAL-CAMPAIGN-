@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Bookmark, Heart, Home, MessageCircle, MoreHorizontal, Search, Send, SquarePlay, User } from "lucide-react";
+import { Bookmark, Heart, House, MessageCircle, Ellipsis, Search, Send, SquarePlay, User } from "lucide-react";
 
 import { IDENTITY, ILLUSTRATIVE_COUNTS, INSTAGRAM } from "../../../lib/phone-showcase";
 import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
@@ -56,7 +56,7 @@ export function InstagramScreen() {
               {INSTAGRAM.location}
             </span>
           </span>
-          <MoreHorizontal size={18} color={FG} aria-hidden="true" />
+          <Ellipsis size={18} color={FG} aria-hidden="true" />
         </div>
 
         {/* Square media — a designed policy card, per §2.6.2's carousel format. */}
@@ -123,7 +123,7 @@ export function InstagramScreen() {
 
       {/* Bottom nav */}
       <div className="shrink-0 flex items-center justify-around pt-2 pb-1" style={{ borderTop: "0.5px solid #dbdbdb" }}>
-        <Home size={23} color={FG} strokeWidth={2} fill={FG} aria-hidden="true" />
+        <House size={23} color={FG} strokeWidth={2} fill={FG} aria-hidden="true" />
         <Search size={23} color={FG} strokeWidth={2} aria-hidden="true" />
         <SquarePlay size={23} color={FG} strokeWidth={2} aria-hidden="true" />
         <User size={23} color={FG} strokeWidth={2} aria-hidden="true" />

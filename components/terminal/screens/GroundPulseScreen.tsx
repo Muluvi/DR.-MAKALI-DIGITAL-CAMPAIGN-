@@ -2,7 +2,7 @@
 
 import React from "react";
 import { type WardPulseData } from "@/data/terminal-showcase";
-import { Activity, Radio, Users, AlertCircle, CheckCircle2, TrendingUp } from "lucide-react";
+import { Activity, Radio, Users, CircleAlert, CircleCheck, TrendingUp } from "lucide-react";
 
 export function GroundPulseScreen({ data }: { data: WardPulseData }) {
   const pctOfTarget = Math.min(100, Math.round((data.totalWardSupporters / data.targetThreshold) * 100));
@@ -66,7 +66,7 @@ export function GroundPulseScreen({ data }: { data: WardPulseData }) {
         <div className="bg-slate-900/60 rounded-lg p-2.5 border border-slate-800/80">
           <div className="flex items-center justify-between mb-1">
             <span className="font-mono uppercase text-slate-400 flex items-center gap-1" style={{ fontSize: "0.625em" }}>
-              <AlertCircle className="w-3 h-3 text-rose-400" aria-hidden="true" /> Adversary Field Activity
+              <CircleAlert className="w-3 h-3 text-rose-400" aria-hidden="true" /> Adversary Field Activity
             </span>
             <span className="font-mono text-rose-400 bg-rose-950/40 px-1.5 py-0.2 rounded border border-rose-900/40" style={{ fontSize: "0.5625em" }}>
               Monitored
@@ -111,7 +111,7 @@ export function GroundPulseScreen({ data }: { data: WardPulseData }) {
         {/* Terminal Status Footer */}
         <div className="pt-1.5 flex items-center justify-between font-mono text-slate-400 border-t border-slate-800/80" style={{ fontSize: "0.625em" }}>
           <span className="flex items-center gap-1">
-            <CheckCircle2 className="w-3 h-3 text-emerald-500" aria-hidden="true" /> Ground mesh synchronized
+            <CircleCheck className="w-3 h-3 text-emerald-500" aria-hidden="true" /> Ground mesh synchronized
           </span>
           <span>Encrypted 256-bit</span>
         </div>

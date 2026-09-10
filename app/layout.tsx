@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next';
 import { Montserrat } from 'next/font/google';
 import './globals.css'; // Global styles
 
+import { IconDefaults } from '../components/IconDefaults';
+
 // The variable axis, not a pair of static cuts.
 //
 // This previously loaded weight 400 and 600 only, while the UI asks for 500, 700, 800 and 900 in
@@ -53,7 +55,9 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" className={`dark ${montserrat.variable}`}>
-      <body suppressHydrationWarning className="font-sans antialiased bg-paper text-ink">{children}</body>
+      <body suppressHydrationWarning className="font-sans antialiased bg-paper text-ink">
+        <IconDefaults>{children}</IconDefaults>
+      </body>
     </html>
   );
 }

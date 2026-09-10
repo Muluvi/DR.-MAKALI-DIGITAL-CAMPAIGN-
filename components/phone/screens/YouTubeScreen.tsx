@@ -5,14 +5,14 @@ import {
   Bell,
   Bookmark,
   Download,
-  Home,
+  House,
   Maximize,
   Play,
   Search,
   Share2,
   ThumbsDown,
   ThumbsUp,
-  User,
+  User
 } from "lucide-react";
 
 import { IDENTITY, ILLUSTRATIVE_COUNTS, YOUTUBE } from "../../../lib/phone-showcase";
@@ -186,7 +186,7 @@ export function YouTubeScreen() {
 
       {/* Bottom nav */}
       <div className="shrink-0 flex items-center justify-around pt-2 pb-1" style={{ borderTop: "0.5px solid #e5e5e5" }}>
-        <Home size={21} color={FG} strokeWidth={2.1} aria-hidden="true" />
+        <House size={21} color={FG} strokeWidth={2.1} aria-hidden="true" />
         <Search size={21} color={MUTED} strokeWidth={2} aria-hidden="true" />
         <Bell size={21} color={MUTED} strokeWidth={2} aria-hidden="true" />
         <User size={21} color={MUTED} strokeWidth={2} aria-hidden="true" />

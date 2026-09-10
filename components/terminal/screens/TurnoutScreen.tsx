@@ -2,7 +2,7 @@
 
 import React from "react";
 import { type WardPulseData } from "@/data/terminal-showcase";
-import { Gauge, CheckCircle, BarChart2, ShieldCheck, MapPin } from "lucide-react";
+import { Gauge, CircleCheckBig, ChartNoAxesColumn, ShieldCheck, MapPin } from "lucide-react";
 
 export function TurnoutScreen({ data }: { data: WardPulseData }) {
   const turnout = data.turnoutPacing;
@@ -55,7 +55,7 @@ export function TurnoutScreen({ data }: { data: WardPulseData }) {
 
         <div className="bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
           <div className="font-mono uppercase text-slate-400 mb-1 flex items-center gap-1" style={{ fontSize: "0.625em" }}>
-            <BarChart2 className="w-3 h-3 text-emerald-400" aria-hidden="true" /> Projected Yield
+            <ChartNoAxesColumn className="w-3 h-3 text-emerald-400" aria-hidden="true" /> Projected Yield
           </div>
           <div className="font-bold font-mono text-emerald-400" style={{ fontSize: "1.25em" }}>
             {turnout ? turnout.projectedVotes.toLocaleString() : "—"}
@@ -91,7 +91,7 @@ export function TurnoutScreen({ data }: { data: WardPulseData }) {
           </div>
           <div className="flex items-center justify-between">
             <span className="flex items-center gap-1.5">
-              <CheckCircle className="w-3.5 h-3.5 text-teal-400" aria-hidden="true" /> Tamper-Evident Bag Seal Logged
+              <CircleCheckBig className="w-3.5 h-3.5 text-teal-400" aria-hidden="true" /> Tamper-Evident Bag Seal Logged
             </span>
             <span className="font-mono text-teal-400 font-bold" style={{ fontSize: "0.625em" }}>100%</span>
           </div>

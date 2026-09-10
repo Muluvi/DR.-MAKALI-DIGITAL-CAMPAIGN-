@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { CheckCircle2, Send, Info } from "lucide-react";
+import { CircleCheck, Send, Info } from "lucide-react";
 
 interface ServiceReport {
   refNumber: string;
@@ -248,7 +248,7 @@ export function PublicServiceDeliveryTracker() {
             <span className="t-label text-muted">
               {submissionSuccess && (
                 <span className="text-emerald-600 font-bold flex items-center gap-1">
-                  <CheckCircle2 size={12} aria-hidden="true" /> Logged as #{generatedRef} & SMS notification simulated!
+                  <CircleCheck size={12} aria-hidden="true" /> Logged as #{generatedRef} & SMS notification simulated!
                 </span>
               )}
             </span>

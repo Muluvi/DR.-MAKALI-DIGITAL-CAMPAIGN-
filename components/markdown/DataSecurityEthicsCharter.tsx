@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { CheckSquare } from "lucide-react";
+import { SquareCheckBig } from "lucide-react";
 
 interface EthicalCommitment {
   id: string;
@@ -141,7 +141,7 @@ export function DataSecurityEthicsCharter() {
                     onClick={() => toggleCheck(rule.id)}
                     className="h-11 w-11 rounded-lg bg-card border border-line flex items-center justify-center text-accent hover:border-accent cursor-pointer shrink-0"
                   >
-                    {isChecked && <CheckSquare size={16} className="text-accent" aria-hidden="true" />}
+                    {isChecked && <SquareCheckBig size={16} className="text-accent" aria-hidden="true" />}
                   </button>
 
                   <div>

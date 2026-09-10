@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Flag, CheckCircle2, HelpCircle } from "lucide-react";
+import { Flag, CircleCheck, CircleQuestionMark } from "lucide-react";
 import { DURATION } from "../../lib/motion";
 
 export function ConstitutionalBranchNavigator() {
@@ -55,7 +55,7 @@ export function ConstitutionalBranchNavigator() {
 
       {/* Scenario Context Banner */}
       <div className="p-4 bg-accent/5 border-b border-line t-label font-medium text-ink flex items-start gap-2.5">
-        <HelpCircle size={16} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
+        <CircleQuestionMark size={16} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
         <div>
           <span className="font-bold">Legal Question:</span> Does the 2017–2022 Ngilu interregnum reset or permit a 3rd term under the <em>two-term limit</em> clause of Article 180(7)? Active litigation in High Court.
         </div>
@@ -74,7 +74,7 @@ export function ConstitutionalBranchNavigator() {
               className="space-y-4"
             >
               <div className="flex items-center gap-2 t-label font-extrabold text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 p-2.5 rounded-xl border border-emerald-500/20">
-                <CheckCircle2 size={16} className="shrink-0" aria-hidden="true" />
+                <CircleCheck size={16} className="shrink-0" aria-hidden="true" />
                 <span>Supreme Court / High Court Rules Malombe INELIGIBLE (Two-Term Absolute Bar)</span>
               </div>
 

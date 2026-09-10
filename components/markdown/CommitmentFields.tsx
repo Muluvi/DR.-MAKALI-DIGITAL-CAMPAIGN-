@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { ArrowRight, AlertCircle } from "lucide-react";
+import { ArrowRight, CircleAlert } from "lucide-react";
 
 import { DURATION, EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
@@ -141,7 +141,7 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
           className="rounded-xl border border-danger/30 bg-danger/[0.04] p-3 flex items-start gap-2"
           {...rise(3)}
         >
-          <AlertCircle size={13} className="text-danger shrink-0 mt-0.5" aria-hidden="true" />
+          <CircleAlert size={13} className="text-danger shrink-0 mt-0.5" aria-hidden="true" />
           <p className="t-small text-ink/90 leading-relaxed min-w-0">
             <span className="font-black t-micro text-danger mr-1.5">
               {escalation.label}

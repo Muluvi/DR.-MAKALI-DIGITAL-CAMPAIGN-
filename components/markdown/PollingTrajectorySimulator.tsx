@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { CheckCircle2, AlertCircle } from "lucide-react";
+import { CircleCheck, CircleAlert } from "lucide-react";
 
 export function PollingTrajectorySimulator() {
   const [weeklyGainRate, setWeeklyGainRate] = useState<number>(1.2); // Percentage points per week
@@ -41,12 +41,12 @@ export function PollingTrajectorySimulator() {
         }`}>
           {isMeetingThreshold ? (
             <>
-              <CheckCircle2 size={14} aria-hidden="true" />
+              <CircleCheck size={14} aria-hidden="true" />
               <span>Target Achieved ({projectedPolling.toFixed(1)}%)</span>
             </>
           ) : (
             <>
-              <AlertCircle size={14} aria-hidden="true" />
+              <CircleAlert size={14} aria-hidden="true" />
               <span>Below Viability Threshold ({projectedPolling.toFixed(1)}%)</span>
             </>
           )}

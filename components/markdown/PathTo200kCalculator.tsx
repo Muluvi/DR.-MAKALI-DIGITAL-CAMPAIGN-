@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { deliberate } from "../../lib/motion";
-import { CheckCircle2, AlertCircle } from "lucide-react";
+import { CircleCheck, CircleAlert } from "lucide-react";
 
 import { ALL_WARDS, CONSTITUENCIES, COUNTY_TOTAL_WARDS } from "../../data/ward-register";
 
@@ -158,12 +158,12 @@ export function PathTo200kCalculator() {
         }`}>
           {selectedPath.isViable ? (
             <>
-              <CheckCircle2 size={14} aria-hidden="true" />
+              <CircleCheck size={14} aria-hidden="true" />
               <span>Clears the benchmark (+{selectedPath.marginOverBenchmark.toLocaleString()})</span>
             </>
           ) : (
             <>
-              <AlertCircle size={14} aria-hidden="true" />
+              <CircleAlert size={14} aria-hidden="true" />
               <span>Short of the benchmark ({selectedPath.marginOverBenchmark.toLocaleString()})</span>
             </>
           )}
