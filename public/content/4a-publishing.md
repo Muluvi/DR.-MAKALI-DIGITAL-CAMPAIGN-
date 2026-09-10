@@ -104,7 +104,7 @@ four, and each carries one or more of the 2.2 pillars:
 │   ├── 2. Ksh 85/kg Ndengu Floor Price & Cold Hubs
 │   └── 3. Free Boda Boda Licenses & TVET Bursaries
 ├── 2. Ward Development Tracker (Enter Ward Name)
-├── 3. Volunteer as a Village Captain
+├── 3. Volunteer as a Ward Captain
 └── 4. Privacy Policy & Data Opt-Out
 ```
 
@@ -554,7 +554,7 @@ To guarantee uninhibited communication with all 532,758 registered voters across
 │                                │ • Broadcasts 90-second benga audio jingles, verified candidate policy      │
 │                                │   addresses, and live Q&A sessions directly to market crowds.              │
 ├────────────────────────────────┼────────────────────────────────────────────────────────────────────────────┤
-│ 4. Ward Captain Megaphone &    │ • 400 Village Ward Captains equipped with high-output portable megaphones  │
+│ 4. Ward Captain Megaphone &    │ • 400 Ward Captains equipped with high-output portable megaphones          │
 │    WhatsApp Audio Network      │   and pre-loaded USB memory sticks containing 45s Kikamba policy tracks.   │
 │                                │ • Direct dispatch of Kikamba audio notes across 180+ local WhatsApp groups │
 │                                │   for organic peer-to-peer sharing among teachers, youth, and traders.     │
@@ -675,7 +675,7 @@ top three issues
 | +5 min | First clip cut, subtitled in Kiswahili | Video editor |
 | +15 min | Published across Facebook, X, TikTok, Instagram | Community managers |
 | +30 min | Kikamba-subtitled version published | Content lead |
-| +45 min | WhatsApp-optimised version to ward champions | Volunteer coordinator |
+| +45 min | WhatsApp-optimised version to Ward Captains | Volunteer coordinator |
 | +60 min | Audio-only version for radio and voice-note distribution | Content lead |
 | +2 hours | SMS with a link, or a plain-text key line, to consented contacts in relevant wards | Paid media manager |
 | Next day | Long-form cut to YouTube; written summary to Tier A journalists | Content lead |

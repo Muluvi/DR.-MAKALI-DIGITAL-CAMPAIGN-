@@ -233,12 +233,12 @@ voters the ground team has confirmed as committed opponents. In a county of
 ```
 
 * **Field to digital synchronization:**
-  * **Capture:** ward champions log outcomes via a simple mobile form — four options, under thirty seconds per household. Complexity kills field data collection.
+  * **Capture:** Ward Captains log outcomes via a simple mobile form — four options, under thirty seconds per household. Complexity kills field data collection.
   * **Offline-first:** the form caches locally and syncs when signal returns. Non-negotiable in Ikutha and Mutitu.
   * **Latency target:** field outcomes reflected in digital targeting within **24 hours**.
   * **Suppression:** confirmed committed opponents are **removed from paid targeting**, not messaged harder. This saves money and is the correct practice.
 * **Digital to field routing:**
-  * **Warm-lead routing:** voters who engaged with content, opened an SMS, or completed a USSD session are routed to ward champions as priority doors.
+  * **Warm-lead routing:** voters who engaged with content, opened an SMS, or completed a USSD session are routed to Ward Captains as priority doors.
   * **Pre-briefing:** champions receive the issue the household engaged with — water, bursaries, market fees — so the conversation starts where the voter's interest already is.
   * **Event conversion:** digital sign-ups for barazas are handed to ground organisers with attendance follow-up.
 
@@ -257,8 +257,8 @@ honest: if the model and the doorstep disagree, the model is wrong.
 
 ### 4.3.1 Why this layer decides the race
 
-Kitui has **143,340 internet users out of a population of 1,136,187** — 13.6%.
-It has **452,948 mobile phone owners** — 42.9%. Nationally, smartphones are
+Kitui has **143,340 internet users out of a population of 1,053,991 aged 3 and
+above** — 13.6%. It has **452,948 mobile phone owners** — 42.9%. Nationally, smartphones are
 63.7% of connected devices, meaning feature phones remain a substantial share,
 and disproportionately so in rural, older and lower-income populations.
 

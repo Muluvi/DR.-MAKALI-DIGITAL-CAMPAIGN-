@@ -109,7 +109,7 @@ export const GENERAL_ELECTION_KPIS: Kpi[] = [
     title: "Pledged Voter Data Base Size",
     definition:
       "Individual registered voters with phone, ward, & polling station logged in campaign CRM.",
-    baseline: { kind: "measured", value: 45000, display: "45,000", note: "Central Baseline" },
+    baseline: { kind: "measured", value: 0, display: "0 pledged voters", note: "Section 9.1.2, Commitment 3" },
     target: "220,000 Pledged Voters (110% Win)",
     targetValue: 220000,
     unit: "count",
@@ -120,8 +120,8 @@ export const GENERAL_ELECTION_KPIS: Kpi[] = [
   {
     code: "GE-02",
     title: "Ward Captain Deployment Index",
-    definition: "Active, vetted Village Ward Captains operating across all 40 Wards (10 per ward).",
-    baseline: { kind: "measured", value: 120, display: "120 Captains", note: "Central only" },
+    definition: "Active, vetted Ward Captains operating across all 40 Wards (10 per ward).",
+    baseline: { kind: "measured", value: 0, display: "0 active Captains", note: "Section 9.1.2, Commitment 5" },
     target: "400 Captains (10 / Ward, 100% Coverage)",
     targetValue: 400,
     unit: "count",

@@ -37,7 +37,7 @@ The campaign monitors four complementary intelligence streams 24 hours a day, 7 
 1.  **Broadcast Vernacular Radio Triage (06:00–21:00 EAT):** Dedicated audio recording monitors tracking morning and evening talk shows across *Musyi FM, Mbaitu FM, Sang'u FM, County FM*, and *Athiani FM*. Immediate audio clipping of candidate mentions or political challenger assertions.
 2.  **Ward WhatsApp Ingestion Network:** 40 Constituency Monitoring Assistants monitoring ~180 major community, market, church, and clan WhatsApp groups across all 8 sub-counties.
 3.  **Social Listening Keyword Feeds:** Automated continuous tracking via Brand24 / Talkwalker of high-frequency keywords: *"Dr. Makali Mulu"*, *"Kitui Governor 2027"*, *"Kitui Central CDF"*, *"Ndengu price"*, and competitor candidate handles.
-4.  **Field Captain Rumor Logs:** Twice-daily SMS pulse reports from the 400 Village Ward Captains logging prevalent market-day and baraza whispers.
+4.  **Field Captain Rumor Logs:** Twice-daily SMS pulse reports from the 400 Ward Captains logging prevalent market-day and baraza whispers.
 
 ---
 
@@ -274,7 +274,7 @@ advisories in a single quarter.
 
 For this campaign specifically, the highest-consequence scenarios are:
 1. Compromise of the candidate's own social accounts
-2. A ward champion's WhatsApp account compromised and used to message a ward
+2. A Ward Captain's WhatsApp account compromised and used to message a ward
 3. Leaked internal strategy material — including, if mishandled, this document
 4. Fabricated audio or video of the candidate
 
@@ -350,7 +350,7 @@ civic-education content consistent with the campaign's brand
 
 **Detection:**
 * Monitoring for candidate-name mentions attached to video and audio across
-platforms and, critically, in WhatsApp groups where ward champions can report
+platforms and, critically, in WhatsApp groups where Ward Captains can report
 what monitoring tools cannot see
 * Ward champions briefed to report suspicious media immediately through a
 dedicated channel — **the human network is the primary detection layer** for

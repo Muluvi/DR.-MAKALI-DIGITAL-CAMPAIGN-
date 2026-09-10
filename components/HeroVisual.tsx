@@ -97,7 +97,7 @@ export function HeroVisual() {
         "Set up radio monitoring in the campaign war room"
       ],
       color: "var(--color-gold)",
-      statBadge: "77,764 Home Base"
+      statBadge: "77,764 registered voters — home base"
     },
     {
       id: "field",
@@ -117,7 +117,7 @@ export function HeroVisual() {
         "Deploy mobile-money agent offline materials"
       ],
       color: "var(--color-accent)",
-      statBadge: "40 Wards Deployed"
+      statBadge: "40 wards — full deployment"
     },
     {
       id: "digital",
@@ -137,7 +137,7 @@ export function HeroVisual() {
         "Enforce Fact-Check protocols on digital channels"
       ],
       color: "var(--color-accent)",
-      statBadge: "200,198 Mwingi Pivot"
+      statBadge: "200,198 registered voters — the Mwingi bloc"
     },
     {
       id: "gotv",
@@ -157,7 +157,7 @@ export function HeroVisual() {
         "Provide sign language interpretation on all flagship videos"
       ],
       color: "var(--color-gold)",
-      statBadge: "198,004 Win Baseline"
+      statBadge: "198,004 votes cast — what won in 2022"
     }
   ];
 
@@ -200,11 +200,11 @@ export function HeroVisual() {
           <div className="flex items-center gap-1.5">
             <span className="w-1.5 h-3.5 bg-accent rounded-full shrink-0" />
             <span className="t-micro uppercase tracking-[0.14em] font-extrabold text-accent">
-              Spatial Strategy Command
+              Where the votes are
             </span>
           </div>
           <h2 className="font-serif text-sm sm:text-base font-bold text-ink mt-0.5">
-            {selectedStage ? selectedStage.title : "Four-Stage Digital & Field Operating System"}
+            {selectedStage ? selectedStage.title : "The four stages, and what each has to deliver"}
           </h2>
         </div>
 

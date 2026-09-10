@@ -567,10 +567,10 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
       {/* Dynamic Faded Watermark Background */}
       <div className="decor-watermark absolute inset-0 pointer-events-none overflow-hidden select-none z-0 opacity-5">
         <div className="absolute top-[20%] right-[-10%] text-[8rem] font-black text-accent/5 rotate-[-12deg] font-serif uppercase">
-          Wiper Movement
+          Wiper Democratic
         </div>
         <div className="absolute bottom-[20%] left-[-15%] text-[8rem] font-black text-gold/5 rotate-[8deg] font-serif uppercase">
-          Democratic
+          Movement
         </div>
       </div>
 

@@ -26,10 +26,22 @@ import { STAGGER, drawPath } from "../../lib/motion";
  */
 
 const REGISTERED = 532758;
+const TURNOUT_RATE = 62.0;
 const EXPECTED_TURNOUT = 330310;
 const THRESHOLD = 200000;
 const WON_2022 = 198004;
-const TURNOUT_RATE = 62.0;
+
+/**
+ * The winning number as a share of the ballots this chart actually draws — derived, not typed.
+ *
+ * §8.2.3 puts 200,000 at "~53.4% of expected turnout", which only holds if expected turnout is
+ * about 374,500 (70.3% of the register). This document does not assume that anywhere: its
+ * stated countywide participation baseline is 62%, which is the figure the middle stage above
+ * is drawn from. Against that baseline the winning number is 60.5% of the ballots cast, and
+ * the chart cannot quote one while drawing the other. Computing it here means the label moves
+ * if the baseline ever does.
+ */
+const THRESHOLD_SHARE_OF_TURNOUT = Math.round((THRESHOLD / EXPECTED_TURNOUT) * 1000) / 10;
 
 const STAGES = [
   {
@@ -50,7 +62,7 @@ const STAGES = [
     key: "threshold",
     value: THRESHOLD,
     label: "Votes that win the seat",
-    note: "≈53.4% of expected turnout.",
+    note: `≈${THRESHOLD_SHARE_OF_TURNOUT}% of the ballots expected at that baseline.`,
     tone: "bg-accent-solid",
   },
 ] as const;

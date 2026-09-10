@@ -7,7 +7,7 @@ import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Coins, User
 
 import { useTheme } from "../lib/useTheme";
 import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
-import { MarqueeCarousel } from "./MarqueeCarousel";
+import { KeyFactsStrip } from "./KeyFactsStrip";
 import { LazyMount } from "./LazyMount";
 import { ScrollProgressBar } from "./ScrollProgressBar";
 import { SectionStickyBar } from "./SectionStickyBar";
@@ -543,12 +543,12 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
 
           <div className="fx-hero-seq max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 relative z-10">
             
-            {/* Wiper Patriotic Front (WPF) Brand Banner */}
+            {/* Wiper Democratic Movement brand banner */}
             <div style={{ "--fx-i": 0 } as React.CSSProperties} className="fx-in-left fx-glass fx-lift flex items-center gap-3 mb-4 sm:mb-6 select-none rounded-2xl p-2.5 sm:p-3.5 w-fit">
               <span className="fx-loop-float inline-flex"><WiperUmbrellaLogo /></span>
               <div>
                 <div className="t-small sm:text-sm tracking-[0.12em] uppercase text-accent font-black">
-                  Wiper Patriotic Front (WPF)
+                  Wiper Democratic Movement
                 </div>
                 <div className="t-micro sm:text-xs tracking-wider text-muted uppercase font-semibold mt-0.5">
                   Kitui 2027 Strategy Portal
@@ -559,7 +559,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
             <div style={{ "--fx-i": 1 } as React.CSSProperties} className="fx-in-fade confidentiality-marker mb-4 sm:mb-6 flex items-center gap-1.5 text-xs">
               <span className="fx-loop-blink w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
               <strong>Confidential</strong>
-              <span className="opacity-70 truncate sm:whitespace-normal">— prepared for Wiper Patriotic Front campaign leadership.</span>
+              <span className="opacity-70 truncate sm:whitespace-normal">— prepared for Wiper Democratic Movement campaign leadership.</span>
             </div>
 
             {/* The title and the candidate, together. The portrait is a cutout, so it stands on
@@ -624,7 +624,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
 
             <Dashboard />
 
-            <MarqueeCarousel />
+            <KeyFactsStrip />
 
             <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start print:hidden">
               {/* The verdict is the answer the whole document exists to give, so it gets the
@@ -674,7 +674,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                   <WiperUmbrellaLogo />
                 </div>
                 <div className="hidden sm:block">
-                  <div className="t-label tracking-wider font-black text-accent uppercase leading-none">Wiper Patriotic Front</div>
+                  <div className="t-label tracking-wider font-black text-accent uppercase leading-none">Wiper Democratic Movement</div>
                   <div className="t-micro font-bold text-muted uppercase mt-0.5 leading-none">Kitui 2027 Strategy</div>
                 </div>
               </div>
@@ -891,7 +891,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
         <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-4 sm:inset-x-6 top-0" />
         <div className="confidentiality-marker mb-3">
           <strong>Confidential</strong>
-          <span className="opacity-70"> — link-only proposal for Wiper Patriotic Front campaign leadership. Not for public distribution.</span>
+          <span className="opacity-70"> — link-only proposal for Wiper Democratic Movement campaign leadership. Not for public distribution.</span>
         </div>
         <p className="text-sm text-muted">Prepared by Firefly Management · August 2026 · Proposal for discussion.</p>
         <p className="mt-2 text-sm font-bold text-ink">Confidentiality / distribution:</p>

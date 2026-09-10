@@ -156,15 +156,15 @@ The general election phase focuses on systematic voter mobilization, ground netw
 │ KPI Code &  │ Operational Definition & │ Empirical │ Target    │ Measurement      │ KPI Owner │ Reporting   │
 │ Title       │ Mathematical Formula     │ Baseline  │ Objective │ Methodology      │ & Division│ Cadence     │
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
-│ **GE-01:**  │ Individual registered    │ 45,000    │**220,000**│ Verified opt-in  │ Field Ops │ Weekly      │
-│ Pledged     │ voters with phone, ward, │ (Central  │ Pledged   │ 2G SMS & Baraza  │ & Data    │ Progress    │
-│ Voter Data  │ & polling station logged │ Baseline) │ Voters    │ registration     │ Director  │ Audit       │
-│ Base Size   │ in campaign CRM.         │           │ (110% Win)│ ledger (Sec 8.2.2)│           │            │
+│ **GE-01:**  │ Individual registered    │ 0 pledged │**220,000**│ Verified opt-in  │ Field Ops │ Weekly      │
+│ Pledged     │ voters with phone, ward, │ voters    │ Pledged   │ 2G SMS & Baraza  │ & Data    │ Progress    │
+│ Voter Data  │ & polling station logged │ (Section  │ Voters    │ registration     │ Director  │ Audit       │
+│ Base Size   │ in campaign CRM.         │ 9.1.2)    │ (110% Win)│ ledger (Sec 8.2.2)│           │            │
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
-│ **GE-02:**  │ Active, vetted Village   │ 120       │ **400**   │ Biometric / ID   │ Groundgame│ Bi-Weekly   │
-│ Ward Captain│ Ward Captains operating  │ Captains  │ Captains  │ verification and │ Director  │ Field Audit │
-│ Deployment  │ across all 40 Wards      │ (Central  │ (10 / Ward│ monthly activity │           │             │
-│ Index       │ (10 per ward).           │ only)     │ 100% Cvrg)│ log confirmation │           │             │
+│ **GE-02:**  │ Active, vetted Ward      │ 0 active  │ **400**   │ Biometric / ID   │ Groundgame│ Bi-Weekly   │
+│ Ward Captain│ Captains operating across│ Captains  │ Captains  │ verification and │ Director  │ Field Audit │
+│ Deployment  │ all 40 Wards (10 per     │ (Section  │ (10 / Ward│ monthly activity │           │             │
+│ Index       │ ward).                   │ 9.1.2)    │ 100% Cvrg)│ log confirmation │           │             │
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
 │ **GE-03:**  │ Accredited, trained party│ 0         │ **1,578** │ IEBC official    │ Legal &   │ Weekly      │
 │ Polling     │ polling station agents   │ Station   │ Stations  │ accreditation    │ Polling   │ (Final 60   │
@@ -190,8 +190,8 @@ The general election phase focuses on systematic voter mobilization, ground netw
 In accordance with the foundational strategic doctrine established in **Section 1.2.3**, the campaign rejects vanity metrics—such as social media follower counts, video views, impressions, and post likes—as actionable indicators of political strength. In a county where ~86% of registered voters reside offline in rural agrarian settings, digital engagement metrics correlate weakly with ballot-box outcomes and create dangerous operational complacency.
 
 Every Key Performance Indicator (KPI) in this framework is strictly anchored to one of two decisive statutory milestones:
-1.  **The Nomination Window Threshold:** Achieving >55% Wiper Party primary delegate/voter preference share.
-2.  **The General Election Victory Threshold:** Securing **≥ 200,000 verified, counted votes** (representing ~53.4% of expected turnout across Kitui's 532,758 registered voters).
+1.  **The Nomination Window Threshold:** Achieving **≥ 55.0%** first-choice preference among sampled likely Wiper primary voters (NW-01).
+2.  **The General Election Victory Threshold:** Securing **≥ 200,000 verified, counted votes** — approximately **60.5%** of the ~330,310 ballots expected at the county's 62.0% participation baseline against 532,758 registered voters (Section 1.3.1).
 
 ```
 ═════════════════════════════════════════════════════════════════════
@@ -199,12 +199,12 @@ Every Key Performance Indicator (KPI) in this framework is strictly anchored to 
 ═════════════════════════════════════════════════════════════════════
 
   STAGE 1: NOMINATION WINDOW TARGETS
-  (Primary Delegate / Voter Preference)
+  (Preference among likely Wiper primary voters)
  ┌───────────────────────────────────────────────────────────────────┐
- │ • Wiper Primary Share (Target >55%)                               │
- │ • North Sub-County Name ID (>65%)                                 │
+ │ • Wiper Primary Share (Target ≥ 55.0%)                            │
+ │ • North Sub-County Name ID (≥ 70.0%)                              │
  │ • Integrity / Clean Audit Salience                                │
- │ • Delegate Endorsement Pledges (8/8)                              │
+ │ • Branch Executive Endorsement Pledges (8/8)                      │
  └───────────────────────────────────────────────────────────────────┘
                                  │
                                  ▼
@@ -554,7 +554,7 @@ Firefly is a **Kenya-based media and consulting company**. The proposal delibera
 **One honest qualification.** Remote delivery works for everything above. It
 does not replace the things it should not: the focus groups in Section 8.4
 require facilitation in Kitui, the Kikamba producer must be a native speaker,
-and the ward champion network is necessarily local. Those roles are budgeted as
+and the Ward Captain network is necessarily local. Those roles are budgeted as
 local appointments, not absorbed into a remote retainer. A proposal claiming
 that everything can be done from a laptop would be overselling, and this
 document's entire proposition is that it does not oversell.

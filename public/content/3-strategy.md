@@ -721,7 +721,7 @@ the least connectivity:**
               |
               v
    Campaign follows up: raises with the relevant authority,
-   or verifies status through the ward champion network
+   or verifies status through the Ward Captain network
               |
               v
    Outcome published against the original report
