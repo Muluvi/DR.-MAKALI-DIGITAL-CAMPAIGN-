@@ -6,7 +6,7 @@ import {
   BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, 
   Tooltip, Legend, ResponsiveContainer, Cell, AreaChart, Area 
 } from "recharts";
-import { Users, BarChart3, TrendingUp, Filter, Map, ChevronRight } from "lucide-react";
+import { BarChart3, TrendingUp, Filter, Map } from "lucide-react";
 
 interface SubCountyData {
   subCounty: string;
@@ -116,7 +116,6 @@ export function VoterProjectionsChart() {
  activeTab === "demographics" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
               }`}
             >
-              <Users size={14} aria-hidden="true" />
               <span>Sub-County</span>
             </button>
             <button
@@ -125,7 +124,6 @@ export function VoterProjectionsChart() {
  activeTab === "voters" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
               }`}
             >
-              <BarChart3 size={14} aria-hidden="true" />
               <span>Ward Registered</span>
             </button>
           </div>
@@ -154,7 +152,6 @@ export function VoterProjectionsChart() {
             </div>
           ) : (
             <div className="t-label font-bold text-muted flex items-center gap-1.5">
-              <ChevronRight size={14} className="text-accent" aria-hidden="true" />
               <span>Voter thresholds across major baseline wards (2022)</span>
             </div>
           )}

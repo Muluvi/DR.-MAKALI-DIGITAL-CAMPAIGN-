@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { Search, Database, Tag, ShieldCheck, FileText, CheckCircle2, ChevronDown, ChevronUp } from "lucide-react";
+import { Search, ChevronDown, ChevronUp } from "lucide-react";
 
 interface ModelVariable {
   variable: string;
@@ -78,9 +78,6 @@ export default function ModelVariablesDrawer() {
       <div className="p-3.5 sm:p-4 bg-paper/60 border-b border-line/60">
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-accent/10 text-accent shrink-0">
-              <Database size={16} aria-hidden="true" />
-            </div>
             <div>
               <div className="flex items-center gap-2 flex-wrap">
                 <h4 className="font-serif text-sm sm:text-base font-bold text-ink">
@@ -99,7 +96,6 @@ export default function ModelVariablesDrawer() {
 
         {/* Compliance Pill Banner */}
         <div className="mt-3 px-3 py-2 rounded-xl bg-accent/[0.04] border border-accent/20 flex items-center gap-2 text-ink t-label">
-          <ShieldCheck size={14} className="text-accent shrink-0" aria-hidden="true" />
           <span>
             Strict compliance gate: <strong className="font-bold">Zero non-consented psychographic attributes</strong>. All features auditable under DPA 2019.
           </span>

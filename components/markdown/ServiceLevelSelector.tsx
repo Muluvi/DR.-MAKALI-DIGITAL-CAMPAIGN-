@@ -2,7 +2,7 @@
 
 import { useId, useState } from "react";
 import { motion } from "motion/react";
-import { Check, Minus, Star } from "lucide-react";
+import { Check, Minus } from "lucide-react";
 
 import { TIER_ATTRIBUTES, TIER_COLUMNS, type Cell } from "../../data/tier-matrix";
 import { useMotionPreset } from "../../hooks/useMotionPreset";
@@ -118,7 +118,6 @@ export function ServiceLevelSelector() {
       >
         {column.recommended && (
           <p className="inline-flex items-center gap-1 rounded-full bg-accent/10 text-accent px-2 py-0.5 t-micro font-black mb-3">
-            <Star size={10} className="fill-current" aria-hidden="true" />
             Recommended in §9.2.6
           </p>
         )}

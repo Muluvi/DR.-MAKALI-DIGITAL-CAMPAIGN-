@@ -3,21 +3,7 @@
 import React, { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { DURATION, EASE_ENTRANCE, disclosure } from "../lib/motion";
-import {
-  X,
-  Search,
-  CheckCircle2,
-  ChevronRight,
-  HelpCircle,
-  Layers,
-  ChartColumn,
-  Compass,
-  Radio,
-  MapPin,
-  Shield,
-  Activity,
-  RotateCcw
-} from "lucide-react";
+import { X, CheckCircle2, Layers, ChartColumn, Compass } from "lucide-react";
 import { CONSTITUENCIES } from "../data/ward-register";
 
 interface StageDetail {
@@ -498,7 +484,6 @@ export function HeroVisual() {
                 transform: "translateZ(45px)"
               }}
             >
-              <Shield size={12} className="text-gold shrink-0" aria-hidden="true" />
               <span className="text-[10px] font-black text-ink">
                 532,758 Voters | 30,430 km²
               </span>
@@ -646,7 +631,6 @@ export function HeroVisual() {
                         key={idx}
                         className="inline-flex items-center gap-1 t-label px-2.5 py-1 rounded-lg border border-line bg-paper text-ink font-semibold"
                       >
-                        <ChevronRight size={10} className="text-accent" aria-hidden="true" />
                         {channel}
                       </span>
                     ))}

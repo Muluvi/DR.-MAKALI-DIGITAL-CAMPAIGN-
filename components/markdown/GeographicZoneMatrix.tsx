@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { MapPin, Radio, Compass, TrendingUp, Percent, Info } from "lucide-react";
+import { Info } from "lucide-react";
 
 import { CONSTITUENCIES, COUNTY_TOTAL_WARDS } from "../../data/ward-register";
 import { TierBadge } from "./TierBadge";
@@ -127,9 +127,6 @@ export function GeographicZoneMatrix() {
     <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-start justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0">
-            <Compass size={20} aria-hidden="true" />
-          </div>
           <div>
             <div className="flex items-center gap-2 flex-wrap">
               <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
@@ -221,7 +218,6 @@ export function GeographicZoneMatrix() {
 
             <div className="p-4 rounded-xl bg-paper border border-line space-y-1.5">
               <div className="t-label font-black text-accent flex items-center gap-1.5">
-                <TrendingUp size={13} aria-hidden="true" />
                 Zone strategic imperative
               </div>
               <p className="t-label text-ink leading-relaxed font-medium">{currentZone.primaryStrategicImperative}</p>
@@ -230,7 +226,6 @@ export function GeographicZoneMatrix() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
               <div className="p-3.5 rounded-xl bg-paper/60 border border-line space-y-1.5">
                 <div className="t-label font-black text-muted flex items-center gap-1">
-                  <Radio size={12} className="text-accent" aria-hidden="true" />
                   Connectivity &amp; delivery channels
                 </div>
                 <p className="t-label text-ink font-medium leading-relaxed">{currentZone.connectivityProfile}</p>
@@ -241,7 +236,6 @@ export function GeographicZoneMatrix() {
 
               <div className="p-3.5 rounded-xl bg-paper/60 border border-line space-y-1.5">
                 <div className="t-label font-black text-muted flex items-center gap-1">
-                  <MapPin size={12} className="text-accent" aria-hidden="true" />
                   Largest wards by register
                 </div>
                 <ul className="flex flex-col gap-1 mt-1">
@@ -263,7 +257,6 @@ export function GeographicZoneMatrix() {
 
       <div className="px-4 py-3 bg-paper/60 border-t border-line space-y-2">
         <p className="t-small text-muted font-medium flex items-start gap-1.5">
-          <Percent size={12} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
           <span>
             Phase −1 deliberately over-indexes on Mwingi and the arid belt relative to population share, because the
             nomination deficit is a recognition deficit concentrated outside the home base. A further{" "}

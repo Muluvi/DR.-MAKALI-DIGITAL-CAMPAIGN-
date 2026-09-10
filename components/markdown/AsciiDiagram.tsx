@@ -1,5 +1,4 @@
 import React from "react";
-import { Table2, ListTree, GitBranch } from "lucide-react";
 
 import { parseAsciiDiagram, type Diagram } from "../../lib/ascii-diagram";
 import { DiagramViewer } from "./DiagramViewer";
@@ -55,19 +54,16 @@ function isFigure(raw: string): boolean {
 
 function Frame({
   title,
-  icon: Icon,
   kind,
   children,
 }: {
   title?: string;
-  icon: typeof Table2;
   kind: string;
   children: React.ReactNode;
 }) {
   return (
     <figure className="bleed-narrow my-6 not-prose border border-line rounded-2xl bg-card overflow-hidden shadow-sm print:break-inside-avoid">
       <figcaption className="flex items-center gap-2 px-4 py-2.5 bg-paper/60 border-b border-line">
-        <Icon size={13} className="text-accent shrink-0" aria-hidden="true" />
         {title ? (
           <span className="t-small sm:t-label font-bold text-ink leading-tight">{title}</span>
         ) : (
@@ -83,7 +79,7 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
   const width = Math.max(...d.rows.map((r) => r.reduce((n, c) => n + c.spans, 0)), d.headers?.length ?? 0);
 
   return (
-    <Frame title={d.title} icon={Table2} kind="Matrix">
+    <Frame title={d.title} kind="Matrix">
       {/*
         ONE TABLE, TWO SHAPES.
 
@@ -154,7 +150,7 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
 
 function DiagramKeyValue({ d }: { d: Extract<Diagram, { kind: "keyvalue" }> }) {
   return (
-    <Frame title={d.title} icon={ListTree} kind="Summary">
+    <Frame title={d.title} kind="Summary">
       <dl className="divide-y divide-line/40">
         {d.items.map((item, i) => (
           <div key={i} className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-4 px-4 py-2.5">
@@ -214,7 +210,7 @@ function DiagramPanel({ d }: { d: Extract<Diagram, { kind: "panel" }> }) {
   if (d.title && !d.body.trim()) return <DiagramBanner title={d.title} />;
 
   return (
-    <Frame title={d.title} icon={GitBranch} kind="Diagram">
+    <Frame title={d.title} kind="Diagram">
       <DiagramViewer title={d.title} body={d.body} />
     </Frame>
   );

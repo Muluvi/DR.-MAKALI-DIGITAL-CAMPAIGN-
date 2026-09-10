@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { TrendingUp, Calendar, Target, CheckCircle2, AlertCircle, Sliders } from "lucide-react";
+import { CheckCircle2, AlertCircle } from "lucide-react";
 
 export function PollingTrajectorySimulator() {
   const [weeklyGainRate, setWeeklyGainRate] = useState<number>(1.2); // Percentage points per week
@@ -21,9 +21,6 @@ export function PollingTrajectorySimulator() {
       {/* Top Header */}
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <TrendingUp size={20} aria-hidden="true" />
-          </div>
           <div>
             <div className="flex items-center gap-2">
               <span className="t-label font-semibold text-accent bg-accent/10 px-2 py-0.5 rounded">
@@ -62,7 +59,6 @@ export function PollingTrajectorySimulator() {
         <div className="p-4 bg-paper rounded-2xl border border-line space-y-3">
           <div className="flex items-center justify-between">
             <label htmlFor="gain-rate-slider" className="t-label font-bold text-ink flex items-center gap-1.5">
-              <Sliders size={14} className="text-accent" aria-hidden="true" />
               <span>Target Weekly Growth Rate (Points / Week):</span>
             </label>
             <span className="font-mono text-sm font-black text-accent">

@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Search, ChevronRight, Layers, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, HandCoins } from "lucide-react";
+import { X, Search, ChevronRight, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, HandCoins } from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
 import { readingMinutes } from "../hooks/useReadingProgress";
 import type { SectionItem } from "../lib/section-index";
@@ -98,9 +98,6 @@ export function MobileTOCModal({
           {/* Header */}
           <div className="p-3.5 sm:p-5 border-b border-line flex items-center justify-between gap-3">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold">
-                <Layers size={18} aria-hidden="true" />
-              </div>
               <div>
                 <h3 className="font-serif text-base sm:text-lg font-bold text-ink leading-tight">
                   Full index

@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Flag, Trophy } from "lucide-react";
 
 import { STAGE_1_TARGETS, STAGE_2_TARGETS } from "../../data/kpis";
 import { useMotionPreset } from "../../hooks/useMotionPreset";
@@ -38,7 +37,6 @@ function Stage({
   const { variants, enter } = useMotionPreset();
   const accent = tone === "nomination" ? "text-accent" : "text-gold";
   const edge = tone === "nomination" ? "border-accent/35" : "border-gold/35";
-  const Icon = tone === "nomination" ? Flag : Trophy;
 
   return (
     <motion.div
@@ -49,8 +47,7 @@ function Stage({
       className={`flex-1 min-w-0 rounded-2xl border ${edge} bg-card p-4`}
       style={{ boxShadow: "var(--shadow-2)" }}
     >
-      <motion.div variants={fadeUp} className="flex items-start gap-2 mb-3">
-        <Icon size={16} className={`${accent} shrink-0 mt-0.5`} aria-hidden="true" />
+      <motion.div variants={fadeUp} className="mb-3">
         <div className="min-w-0">
           <div className="t-micro font-black text-muted">{kicker}</div>
           <h4 className="font-serif t-label font-black text-ink leading-snug">{title}</h4>

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Scale, Flag, CheckCircle2, ChevronRight, HelpCircle, ArrowRight, ShieldCheck, Building2, Users } from "lucide-react";
+import { Flag, CheckCircle2, HelpCircle } from "lucide-react";
 import { DURATION } from "../../lib/motion";
 
 export function ConstitutionalBranchNavigator() {
@@ -13,9 +13,6 @@ export function ConstitutionalBranchNavigator() {
       {/* Header */}
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <Scale size={20} aria-hidden="true" />
-          </div>
           <div>
             <div className="flex items-center gap-2">
               <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
@@ -84,7 +81,6 @@ export function ConstitutionalBranchNavigator() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
                   <div className="t-label font-black text-muted flex items-center gap-1.5">
-                    <Users size={12} className="text-accent" aria-hidden="true" />
                     Wiper Nomination Dynamics
                   </div>
                   <div className="t-label font-bold text-ink">
@@ -97,7 +93,6 @@ export function ConstitutionalBranchNavigator() {
 
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
                   <div className="t-label font-black text-muted flex items-center gap-1.5">
-                    <Building2 size={12} className="text-accent" aria-hidden="true" />
                     Kitui Central Anchor
                   </div>
                   <div className="t-label font-bold text-ink">
@@ -110,7 +105,6 @@ export function ConstitutionalBranchNavigator() {
 
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
                   <div className="t-label font-black text-muted flex items-center gap-1.5">
-                    <ShieldCheck size={12} className="text-accent" aria-hidden="true" />
                     Strategic Posture
                   </div>
                   <div className="t-label font-bold text-ink">
@@ -139,7 +133,6 @@ export function ConstitutionalBranchNavigator() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
                   <div className="t-label font-black text-muted flex items-center gap-1.5">
-                    <Users size={12} className="text-accent" aria-hidden="true" />
                     Nomination Mechanism
                   </div>
                   <div className="t-label font-bold text-ink">
@@ -152,7 +145,6 @@ export function ConstitutionalBranchNavigator() {
 
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
                   <div className="t-label font-black text-muted flex items-center gap-1.5">
-                    <Building2 size={12} className="text-accent" aria-hidden="true" />
                     Audit & Delivery Wedge
                   </div>
                   <div className="t-label font-bold text-ink">
@@ -165,7 +157,6 @@ export function ConstitutionalBranchNavigator() {
 
                 <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1.5">
                   <div className="t-label font-black text-muted flex items-center gap-1.5">
-                    <ShieldCheck size={12} className="text-accent" aria-hidden="true" />
                     Strategic Posture
                   </div>
                   <div className="t-label font-bold text-ink">
@@ -184,7 +175,6 @@ export function ConstitutionalBranchNavigator() {
       {/* Strategic Rule Footer */}
       <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
-          <ArrowRight size={12} className="text-accent" aria-hidden="true" />
           <span>Strategic Command Rule: Campaign operations must prepare simultaneously for both branches.</span>
         </span>
       </div>

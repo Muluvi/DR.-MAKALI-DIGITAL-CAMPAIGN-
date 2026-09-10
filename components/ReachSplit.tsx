@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
-import { Wifi, WifiOff, Radio, MessageSquare, Smartphone, Users } from "lucide-react";
+import { Wifi, WifiOff } from "lucide-react";
 
 import { DURATION, EASE_ENTRANCE, VIEWPORT } from "../lib/motion";
 import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
@@ -45,14 +45,14 @@ const USSD_MENU = [
 
 const CHANNELS = {
   connected: [
-    { icon: Smartphone, label: "Facebook, WhatsApp, TikTok" },
-    { icon: MessageSquare, label: "Targeted paid social" },
+    { label: "Facebook, WhatsApp, TikTok" },
+    { label: "Targeted paid social" },
   ],
   offline: [
-    { icon: Radio, label: "Kikamba vernacular radio" },
-    { icon: MessageSquare, label: "Bulk SMS in Kikamba" },
-    { icon: Smartphone, label: "USSD — works on any handset" },
-    { icon: Users, label: "Market barazas, ward champions" },
+    { label: "Kikamba vernacular radio" },
+    { label: "Bulk SMS in Kikamba" },
+    { label: "USSD — works on any handset" },
+    { label: "Market barazas, ward champions" },
   ],
 };
 
@@ -154,7 +154,6 @@ export function ReachSplit() {
           <ul className="space-y-2">
             {CHANNELS.connected.map((c) => (
               <li key={c.label} className="flex items-center gap-2 t-label text-ink">
-                <c.icon size={13} className="text-accent shrink-0" aria-hidden="true" />
                 {c.label}
               </li>
             ))}
@@ -167,7 +166,6 @@ export function ReachSplit() {
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {CHANNELS.offline.map((c) => (
               <li key={c.label} className="flex items-center gap-2 t-label text-ink">
-                <c.icon size={13} className="text-gold shrink-0" aria-hidden="true" />
                 {c.label}
               </li>
             ))}

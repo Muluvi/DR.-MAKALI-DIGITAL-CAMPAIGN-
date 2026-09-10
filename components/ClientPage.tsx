@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
-import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Coins, Users, Radio, ShieldCheck, Type, Eye, EyeOff, Map, MessageSquare, Megaphone, Shield, Database, Gauge, HandCoins } from "lucide-react";
+import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Users, Type, Eye, EyeOff, Map, MessageSquare, Megaphone, Shield, Database, Gauge, HandCoins } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
 import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
@@ -472,27 +472,21 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
             <h2 className="font-serif text-lg sm:text-xl font-semibold text-ink mb-1">What this proposal covers</h2>
             <p className="text-sm text-muted mb-5">Nine sections. Every one of them opens on what it is for.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
-              {navItems.slice(1).map((item) => {
-                const Icon = item.icon;
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => handleNavClick(item.id)}
-                    onPointerEnter={() => prefetchTab(item.id)}
-                    onFocus={() => prefetchTab(item.id)}
-                    className="group text-left bg-card border border-line/60 rounded-2xl p-4 hover:border-accent focus-visible:border-accent transition-colors cursor-pointer flex flex-col gap-2 min-h-[112px]"
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <Icon size={16} className="text-accent shrink-0" aria-hidden="true" />
-                      <span className="font-mono t-micro text-muted tabular-nums">{item.number}</span>
-                    </div>
-                    <span className="font-serif t-body font-semibold text-ink leading-snug group-hover:text-accent transition-colors text-balance">
-                      {item.label}
-                    </span>
-                    <span className="t-label text-muted leading-snug mt-auto">{item.blurb}</span>
-                  </button>
-                );
-              })}
+              {navItems.slice(1).map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavClick(item.id)}
+                  onPointerEnter={() => prefetchTab(item.id)}
+                  onFocus={() => prefetchTab(item.id)}
+                  className="group text-left bg-card border border-line/60 rounded-2xl p-4 hover:border-accent focus-visible:border-accent transition-colors cursor-pointer flex flex-col gap-2 min-h-[112px]"
+                >
+                  <span className="font-mono t-micro text-muted tabular-nums">{item.number}</span>
+                  <span className="font-serif t-body font-semibold text-ink leading-snug group-hover:text-accent transition-colors text-balance">
+                    {item.label}
+                  </span>
+                  <span className="t-label text-muted leading-snug mt-auto">{item.blurb}</span>
+                </button>
+              ))}
             </div>
           </nav>
         )}

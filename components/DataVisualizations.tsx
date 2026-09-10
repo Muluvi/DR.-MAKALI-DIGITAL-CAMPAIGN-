@@ -3,7 +3,6 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LabelList } from 'recharts';
-import { Sliders, HelpCircle } from "lucide-react";
 import { DURATION } from "../lib/motion";
 
 const CustomTooltip = ({ active, payload, label }: any) => {
@@ -178,7 +177,6 @@ export function DataVisualizations() {
             <p><strong className="text-ink font-semibold">Allocated ad budget:</strong> {tiers[activeTier].ad}</p>
             <p><strong className="text-ink font-semibold">Citizen reach scope:</strong> {tiers[activeTier].reach}</p>
             <p className="pt-2 border-t border-line/60 t-label italic leading-relaxed text-ink/80 flex items-start gap-1.5">
-              <HelpCircle size={13} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
               <span>{tiers[activeTier].team}. {tiers[activeTier].note}</span>
             </p>
           </div>

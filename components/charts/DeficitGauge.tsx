@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import {
   animate, motion, useInView, useMotionValue, useMotionValueEvent, useScroll, useSpring, useTransform,
 } from "motion/react";
-import { CalendarClock, TrendingDown, Vote } from "lucide-react";
 
 import {
   CONTEST_ROUNDS, CONTEST_SOURCE, DEFICIT_FIRST, DEFICIT_LATEST, DEFICIT_WIDENING,
@@ -193,7 +192,6 @@ export function DeficitGauge() {
             progress={reduce ? null : grow} reduce={reduce}
           />
           <div className="flex flex-col items-center gap-1 pb-16 sm:pb-24 shrink-0">
-            <TrendingDown size={16} className="text-danger" aria-hidden="true" />
             <div className="t-micro font-black text-muted whitespace-nowrap">
               gap
             </div>
@@ -251,7 +249,6 @@ export function DeficitGauge() {
         </p>
         <div className="mt-4 pt-4 border-t border-line/60 grid grid-cols-2 gap-4">
           <div className="flex items-start gap-2">
-            <CalendarClock size={15} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
             <div>
               <div className="t-micro font-black text-muted">Nomination window</div>
               <div className="t-label font-bold text-ink mt-0.5">29 Aug – 15 Nov 2026</div>
@@ -259,7 +256,6 @@ export function DeficitGauge() {
             </div>
           </div>
           <div className="flex items-start gap-2">
-            <Vote size={15} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
             <div>
               <div className="t-micro font-black text-muted">General election</div>
               <div className="t-label font-bold text-ink mt-0.5">10 August 2027</div>

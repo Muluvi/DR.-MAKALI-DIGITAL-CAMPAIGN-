@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { Info } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { CrossSectionLink } from "./CrossSectionLink";
 import { ClaimBadge } from "./ClaimBadge";
@@ -46,7 +45,7 @@ function InlineTooltip({ text, term }: { text: string; term: string }) {
             className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-paper border border-line rounded-xl shadow-lg t-label text-ink font-sans z-50 text-center leading-normal"
           >
             <span className="font-bold text-accent block mb-1 t-label flex items-center justify-center gap-1">
-              <Info size={11} aria-hidden="true" /> Strategy Definition
+              Strategy Definition
             </span>
             {definition}
             <span className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-paper" />

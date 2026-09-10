@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Users, Radio, MessageSquare, CircleDashed, Layers } from "lucide-react";
+import { CircleDashed } from "lucide-react";
 
 import { ClaimBadge } from "./ClaimBadge";
 import { TierBadge } from "./TierBadge";
@@ -145,9 +145,6 @@ export function AudienceSegmentationMatrix() {
     <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0">
-            <Layers size={20} aria-hidden="true" />
-          </div>
           <div>
             <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
               Audience architecture
@@ -220,14 +217,12 @@ export function AudienceSegmentationMatrix() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="p-3.5 rounded-xl bg-paper/60 border border-line">
               <div className="t-label font-black text-muted flex items-center gap-1 mb-1.5">
-                <Radio size={12} className="text-accent" aria-hidden="true" />
                 Connectivity &amp; media
               </div>
               <p className="t-label text-ink leading-relaxed">{active.connectivity}</p>
             </div>
             <div className="p-3.5 rounded-xl bg-paper/60 border border-line">
               <div className="t-label font-black text-muted flex items-center gap-1 mb-1.5">
-                <Users size={12} className="text-accent" aria-hidden="true" />
                 Geographic base
               </div>
               <p className="t-label text-ink leading-relaxed">{active.geographicBase}</p>
@@ -251,7 +246,6 @@ export function AudienceSegmentationMatrix() {
 
           <div>
             <div className="t-label font-black text-muted flex items-center gap-1 mb-2">
-              <MessageSquare size={12} className="text-accent" aria-hidden="true" />
               Reachable channels
             </div>
             <ul className="flex flex-wrap gap-1.5">

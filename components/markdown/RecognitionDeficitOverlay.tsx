@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Target, MapPin, TrendingDown, Info, Radio } from "lucide-react";
+import { Info } from "lucide-react";
 
 import { ALL_WARDS, CONSTITUENCIES, COUNTY_TOTAL_WARDS, MWINGI_BLOC_TOTAL } from "../../data/ward-register";
 import { TierBadge } from "./TierBadge";
@@ -83,9 +83,6 @@ export function RecognitionDeficitOverlay() {
     <div className="my-6 sm:my-8 bg-card border border-line rounded-2xl shadow-sm overflow-hidden not-prose">
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-start justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0">
-            <Target size={20} aria-hidden="true" />
-          </div>
           <div>
             <div className="flex items-center gap-2 flex-wrap">
               <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
@@ -159,7 +156,6 @@ export function RecognitionDeficitOverlay() {
                   <div className="min-w-0">
                     <div className="text-sm font-bold text-ink truncate">{w.name}</div>
                     <div className="t-small text-muted flex items-center gap-1 mt-0.5">
-                      <MapPin size={10} className="shrink-0" aria-hidden="true" />
                       <span className="truncate">{w.constituencyName}</span>
                     </div>
                   </div>
@@ -181,7 +177,6 @@ export function RecognitionDeficitOverlay() {
 
       <div className="px-4 py-3 bg-paper/60 border-t border-line space-y-2">
         <p className="t-small text-muted font-medium flex items-start gap-1.5">
-          <TrendingDown size={12} className="text-rose-500 shrink-0 mt-0.5" aria-hidden="true" />
           <span>
             {DEFICIT_IN_TOP_8.length} of the top 8 wards countywide —{" "}
             {DEFICIT_IN_TOP_8.map((w) => w.name).join(", ")} — sit in the deepest recognition deficit territory,{" "}
@@ -198,7 +193,6 @@ export function RecognitionDeficitOverlay() {
           </span>
         </p>
         <p className="t-small text-muted flex items-start gap-1.5">
-          <Radio size={12} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
           <span>
             Ward figures: IEBC 2022 register, all 40 wards. Ranking computed from that register, not asserted.
           </span>

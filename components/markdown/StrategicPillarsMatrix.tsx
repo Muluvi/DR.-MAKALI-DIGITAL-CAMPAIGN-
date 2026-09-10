@@ -2,14 +2,12 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Building2, BarChart3, Languages, CheckSquare, ShieldCheck, ArrowRight, FileText, FileCheck2 } from "lucide-react";
 
 interface StrategicPillar {
   id: string;
   num: string;
   title: string;
   subtitle: string;
-  icon: React.ElementType;
   corePremise: string;
   tangibleProofPoint: string;
   deliveryFormat: string;
@@ -22,7 +20,6 @@ const STRATEGIC_PILLARS: StrategicPillar[] = [
     num: "01",
     title: "Fiscal Accountability & Devolution",
     subtitle: "Public Finance Governance & Equitable Ward Share",
-    icon: Building2,
     corePremise: "Translates parliamentary leadership in national budget appropriations into a transparent manifesto for Kitui's 40 wards, showing line-by-line management of the KSh 13.79B county resource envelope.",
     tangibleProofPoint: "KSh 1.339B own-source revenue optimization model & published ward allocation formula.",
     deliveryFormat: "Ward-by-ward budget allocation sheets, Kikamba vernacular explainers, and open expenditure tables.",
@@ -33,7 +30,6 @@ const STRATEGIC_PILLARS: StrategicPillar[] = [
     num: "02",
     title: "Data-Driven Civic Engagement",
     subtitle: "Track Record Visualization & Evidence Maps",
-    icon: BarChart3,
     corePremise: "Transforms dense county documentation into clear visual graphics, ward maps, and before-and-after project comparisons that ordinary citizens can instantly understand and interrogate.",
     tangibleProofPoint: "12,573 bursary beneficiaries (KSh 47M) and evaluated NG-CDF projects certified as best in Eastern Region.",
     deliveryFormat: "Interactive infographics, mobile-first ward cartograms, and before/after project cards.",
@@ -44,7 +40,6 @@ const STRATEGIC_PILLARS: StrategicPillar[] = [
     num: "03",
     title: "Policy-to-People Translation",
     subtitle: "Linguistic & Cultural Vernacular Localization",
-    icon: Languages,
     corePremise: "Converts complex technical topics (climate adaptation, water pipeline financing, agricultural value chains) into culturally resonant Kikamba idioms, proverbs, and audio voice notes.",
     tangibleProofPoint: "Kikamba audio briefs ('Kĩla kĩndũ kĩ na thayũ, ĩtina nĩ kũmenya') and 60-second animated explainers.",
     deliveryFormat: "WhatsApp voice notes from Dr. Mulu, weekly radio barazas, and grassroots chama toolkits.",
@@ -55,7 +50,6 @@ const STRATEGIC_PILLARS: StrategicPillar[] = [
     num: "04",
     title: "Verification & Follow-Through",
     subtitle: "The M&E Signature Differentiator",
-    icon: CheckSquare,
     corePremise: "The single pillar separating Dr. Mulu from every rival: publishing what was promised, then systematically publishing whether it actually happened. An evaluator who measures outcomes.",
     tangibleProofPoint: "Public Service-Delivery Tracker (Section 8.5) operational on USSD, SMS, WhatsApp, and Web.",
     deliveryFormat: "Quarterly evidence scorecards, live issue resolution registers, and transparent ad-spend ledger.",
@@ -72,9 +66,6 @@ export function StrategicPillarsMatrix() {
       {/* Top Header */}
       <div className="p-4 sm:p-5 border-b border-line bg-paper/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold shrink-0">
-            <ShieldCheck size={20} aria-hidden="true" />
-          </div>
           <div>
             <div className="flex items-center gap-2">
               <span className="t-label font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded">
@@ -95,7 +86,6 @@ export function StrategicPillarsMatrix() {
       <div className="p-3 bg-paper/70 border-b border-line grid grid-cols-2 sm:grid-cols-4 gap-2">
         {STRATEGIC_PILLARS.map((pillar) => {
           const isSelected = pillar.id === selectedPillarId;
-          const IconComponent = pillar.icon;
           return (
             <button
               key={pillar.id}
@@ -106,12 +96,9 @@ export function StrategicPillarsMatrix() {
                   : "bg-paper/40 border-line hover:border-accent/40 text-muted hover:text-ink"
               }`}
             >
-              <div className="flex items-center justify-between w-full">
-                <span className={`t-label font-mono font-black ${isSelected ? "text-accent" : "text-muted"}`}>
-                  PILLAR {pillar.num}
-                </span>
-                <IconComponent size={14} className={isSelected ? "text-accent" : "text-muted"} />
-              </div>
+              <span className={`t-label font-mono font-black ${isSelected ? "text-accent" : "text-muted"}`}>
+                PILLAR {pillar.num}
+              </span>
               <div className="t-label font-bold text-ink mt-1.5 line-clamp-1">
                 {pillar.title}
               </div>
@@ -143,7 +130,6 @@ export function StrategicPillarsMatrix() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
           <div className="p-3.5 rounded-xl bg-paper/60 border border-line space-y-1">
             <div className="t-label font-black text-muted flex items-center gap-1">
-              <FileText size={12} className="text-accent" aria-hidden="true" />
               Tangible Evidence
             </div>
             <p className="t-label text-ink font-semibold leading-relaxed">
@@ -153,7 +139,6 @@ export function StrategicPillarsMatrix() {
 
           <div className="p-3.5 rounded-xl bg-paper/60 border border-line space-y-1">
             <div className="t-label font-black text-muted flex items-center gap-1">
-              <Languages size={12} className="text-accent" aria-hidden="true" />
               Operational Delivery
             </div>
             <p className="t-label text-muted font-medium leading-relaxed">
@@ -163,7 +148,6 @@ export function StrategicPillarsMatrix() {
 
           <div className="p-3.5 rounded-xl bg-accent/5 border border-accent/20 space-y-1">
             <div className="t-label font-black text-accent flex items-center gap-1">
-              <FileCheck2 size={12} aria-hidden="true" />
               M&E Verification Audit
             </div>
             <p className="t-label text-ink font-semibold leading-relaxed">
@@ -176,7 +160,6 @@ export function StrategicPillarsMatrix() {
       {/* Footer Rule */}
       <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
-          <ArrowRight size={12} className="text-accent" aria-hidden="true" />
           <span>Underlying Campaign Doctrine: &ldquo;Kitui has resources. What it has lacked is leadership that understands how to use them — and the discipline to prove it did.&rdquo;</span>
         </span>
       </div>

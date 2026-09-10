@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { ArrowRight, CalendarDays, UserRound, Route, AlertCircle } from "lucide-react";
+import { ArrowRight, AlertCircle } from "lucide-react";
 
 import { DURATION, EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
@@ -41,19 +41,16 @@ function Value({ children, tabId }: { children: React.ReactNode; tabId?: TabId }
 }
 
 function Chip({
-  icon: Icon,
   label,
   children,
   tabId,
 }: {
-  icon: typeof CalendarDays;
   label: string;
   children: React.ReactNode;
   tabId?: TabId;
 }) {
   return (
     <div className="flex items-start gap-2 rounded-xl border border-line/60 bg-paper px-3 py-2 flex-1 min-w-0">
-      <Icon size={13} className="text-muted shrink-0 mt-0.5" aria-hidden="true" />
       <div className="min-w-0">
         <div className="t-micro font-black text-muted leading-none mb-1">{label}</div>
         <div className="t-small font-bold text-ink leading-snug">
@@ -116,12 +113,12 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
       {(deadline || owner) && (
         <motion.div className="flex flex-col sm:flex-row gap-2" {...rise(1)}>
           {deadline && (
-            <Chip icon={CalendarDays} label={deadline.label} tabId={tabId}>
+            <Chip label={deadline.label} tabId={tabId}>
               {deadline.value}
             </Chip>
           )}
           {owner && (
-            <Chip icon={UserRound} label={owner.label} tabId={tabId}>
+            <Chip label={owner.label} tabId={tabId}>
               {owner.value}
             </Chip>
           )}
@@ -130,7 +127,6 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
 
       {traceability && (
         <motion.div className="flex items-start gap-2 px-1" {...rise(2)}>
-          <Route size={13} className="text-muted shrink-0 mt-1" aria-hidden="true" />
           <p className="t-small text-muted leading-relaxed">
             <span className="font-black t-micro text-muted mr-1.5">
               {traceability.label}

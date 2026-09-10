@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
-import { Check, Minus, Star } from "lucide-react";
+import { Check, Minus } from "lucide-react";
 
 import { TIER_ATTRIBUTES, TIER_COLUMNS, type Cell, type TierColumn } from "../../data/tier-matrix";
 import { useMotionPreset } from "../../hooks/useMotionPreset";
@@ -72,7 +72,6 @@ function TierCard({ column, index }: { column: TierColumn; index: number }) {
         </h4>
         {column.recommended && (
           <span className="inline-flex items-center gap-1 shrink-0 rounded-full bg-accent-solid text-on-accent px-2 py-0.5 t-micro font-black">
-            <Star size={10} className="fill-current" aria-hidden="true" />
             Recommended
           </span>
         )}
