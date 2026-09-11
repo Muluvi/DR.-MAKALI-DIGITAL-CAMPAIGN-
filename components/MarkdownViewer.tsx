@@ -21,6 +21,7 @@ import { TierComparisonCarousel } from "./charts/TierComparisonCarousel";
 import { FeaturePhoneSpecimen } from "./charts/FeaturePhoneSpecimen";
 import { OfflineWaterline } from "./charts/OfflineWaterline";
 import { VoteFunnel } from "./charts/VoteFunnel";
+import { WardRankedBars } from "./charts/WardRankedBars";
 import { KpiScorecards } from "./charts/KpiScorecards";
 import { GENERAL_ELECTION_KPIS, NOMINATION_KPIS } from "../data/kpis";
 import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
@@ -250,6 +251,11 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "situation-sec-3-3-9": <MuiBasinPanel />,
   "situation-sec-3-3-10": <CompetitorFieldPanel />,
   "situation-sec-3-4-1": <VoteFunnel />,
+  // §3.4.2 prints all 40 rows as a table and keeps them. What the ranked bars add is
+  // the shape: how steeply the register concentrates, and that twelve wards carry
+  // 37.78% of it. Replaces WardRegisterTicker, which scrolled the same figures past
+  // the reader — docs/TRIAGE.md §5.3.
+  "situation-sec-3-4-2": <WardRankedBars />,
   "situation-sec-3-4-3": <PathTo200kCalculator />,
   "situation-sec-3-4-5": <RecognitionDeficitOverlay />,
   "audiences-sec-5-1": <AudienceSegmentationMatrix />,
