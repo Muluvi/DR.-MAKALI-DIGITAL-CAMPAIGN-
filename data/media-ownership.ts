@@ -4,7 +4,7 @@
 //
 // No listenership or audience-reach figures were supplied by the research pass — "radio
 // listenership figures" is itself a named row in the Data Gaps Register (Appendix C). The
-// `reachTier` below is a qualitative 1–3 reading of Section 17A.1's own "Campaign posture"
+// `reachTier` below is a qualitative 1–3 reading of §3.7.1's own "Campaign posture"
 // column (Priority / party-sensitive / Secondary), the same treatment already used for the
 // competitive-field quadrant chart's qualitative credibility axis — it is not measured data and
 // is never rendered with the visual authority of a Tier 1 figure.

@@ -9,12 +9,12 @@ import { useMotionPreset } from "../../hooks/useMotionPreset";
 import { STAGGER, fadeUp, staggerContainer, VIEWPORT } from "../../lib/motion";
 
 /**
- * §9.2.6's nine-attribute matrix, as one card per tier.
+ * §10.1.2's nine-attribute matrix, as one card per tier.
  *
  * A four-column comparison table on a 390px phone stacks into nine cards — one per ATTRIBUTE,
  * each repeating all three tiers. That answers "what does row six say", which is not the question
- * §9.2.6 exists to answer. The reader is choosing between three tiers, so the card is the tier:
- * swipe left, swipe right, decide. Three cards, snap-aligned, in §9.2.6's own column order —
+ * §10.1.2 exists to answer. The reader is choosing between three tiers, so the card is the tier:
+ * swipe left, swipe right, decide. Three cards, snap-aligned, in §10.1.2's own column order —
  * Lean, Standard, Premium — with Tier 2 marked as recommended because the section's own next
  * paragraph recommends it. Reordering the columns to put the recommendation first would be the
  * interface disagreeing with the document, which is not a decision an interface gets to make.
@@ -23,7 +23,7 @@ import { STAGGER, fadeUp, staggerContainer, VIEWPORT } from "../../lib/motion";
  * three tiers, where three cards side by side drift out of alignment as their text wraps. The
  * table stays in the document at every width — it is the accessible equivalent and it is what a
  * reader quotes from; this is a second rendering of it, and every string in data/tier-matrix.ts
- * is the cell as §9.2.6 prints it.
+ * is the cell as §10.1.2 prints it.
  *
  * Motion contract: cards rise on entering the viewport, staggered. Swiping is the browser's own
  * scroll-snap — no drag handler, no library, so it works with a trackpad, a thumb, a keyboard and

@@ -8,7 +8,7 @@ import { TIER_ATTRIBUTES, TIER_COLUMNS, type Cell } from "../../data/tier-matrix
 import { useMotionPreset } from "../../hooks/useMotionPreset";
 
 /**
- * §9.2.5's three service levels, as one segmented control driving one panel.
+ * §10.1.1's three service levels, as one segmented control driving one panel.
  *
  * This replaces a budget modeller and a ceiling meter, and the replacement is the point. Those
  * two answered "how much of the statutory ceiling does this tier consume" — a question the
@@ -17,7 +17,7 @@ import { useMotionPreset } from "../../hooks/useMotionPreset";
  * between Lean, Standard and Premium?
  *
  * So the interface is a chooser, not a calculator. One control, one panel, no derived figures —
- * every string is the cell as §9.2.6 prints it, read from data/tier-matrix.ts.
+ * every string is the cell as §10.1.2 prints it, read from data/tier-matrix.ts.
  *
  * "Only what differs" is on by default, and that is the whole argument for this component over
  * the table below it. Of the eight attributes, three are identical between Standard and Premium;
@@ -119,7 +119,7 @@ export function ServiceLevelSelector() {
         {column.recommended && (
           <p className="inline-flex items-center gap-1 rounded-full bg-accent/10 text-accent px-2 py-0.5 t-micro font-black mb-3">
             <Star size={10} className="fill-current" aria-hidden="true" />
-            Recommended in §9.2.6
+            Recommended in §10.1.2
           </p>
         )}
         <dl className="space-y-3">

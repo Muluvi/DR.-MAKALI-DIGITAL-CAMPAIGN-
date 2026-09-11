@@ -29,7 +29,7 @@ import { OFFLINE_SHARE_PCT } from "../data/county-profile";
 
 const ENTRIES = [
   {
-    id: "decision-sec-0-1",
+    id: "summary-sec-2-2",
     icon: TrendingDown,
     label: "Deficit",
     value: `${DEFICIT_LATEST} pts`,
@@ -37,7 +37,7 @@ const ENTRIES = [
     describe: `Dr. Mulu trails by ${DEFICIT_LATEST} percentage points`,
   },
   {
-    id: "ground-sec-4-3",
+    id: "scope-ground-sec-8-10",
     icon: WifiOff,
     label: "Offline",
     value: `${OFFLINE_SHARE_PCT}%`,
@@ -45,7 +45,7 @@ const ENTRIES = [
     describe: `${OFFLINE_SHARE_PCT}% of residents are outside the internet-using population`,
   },
   {
-    id: "evidence-sec-1-3-1",
+    id: "situation-sec-3-4-1",
     icon: Vote,
     label: "To win",
     value: "≈200,000",

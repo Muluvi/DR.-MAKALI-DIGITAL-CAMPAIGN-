@@ -14,16 +14,16 @@ import { ClaimBadge } from "./markdown/ClaimBadge";
  * M3 — the county's central division, and the tool that addresses the larger side of it.
  *
  * "86.4% of your voters cannot see any of this" is the strongest argument in the document for
- * hiring a team that plans for both tiers, and it was a sentence in §4.5.
+ * hiring a team that plans for both tiers, and it was a sentence in §3.6.
  *
  * The split is the site's ONE masked reveal: a clip-path wipe, because a wipe divides. Spending
  * it here rather than scattering masked reveals across the site is what keeps it meaningful.
  *
- * The handset below it runs the real Kikamba menu from §3.1.2 — mimesis, not effect: a feature
+ * The handset below it runs the real Kikamba menu from §3.6.2 — mimesis, not effect: a feature
  * phone prints its menu line by line, so the mock does too. It is also the best proof-of-execution
  * artefact on the site, which is why the deliverable is demonstrated rather than described.
  *
- * Figures: §1.2.5 (KNBS 2019, Tier 1). Menu: §3.1.2, verbatim including the
+ * Figures: §3.3.5 (KNBS 2019, Tier 1). Menu: §3.6.2, verbatim including the
  * unallocated shortcode.
  */
 
@@ -32,7 +32,7 @@ const OFFLINE = 86.4;
 const INTERNET_USERS = 143_340;
 const BASE_POPULATION = 1_053_991;
 
-/** §3.1.2, verbatim. Kikamba first, English gloss second, exactly as written. */
+/** §3.6.2, verbatim. Kikamba first, English gloss second, exactly as written. */
 const USSD_MENU = [
   "KITUI NA MULU",
   "1. Sisemo sya Mulu / Mulu's plan for my ward",

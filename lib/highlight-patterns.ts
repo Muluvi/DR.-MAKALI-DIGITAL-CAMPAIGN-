@@ -33,8 +33,8 @@ export const STATUS_PHRASES: { pattern: string; status: ClaimStatus }[] = [
 // longer appear anywhere in the proposal ("a governance commitment…", "commence Phase −1 Week
 // 1."); they matched nothing and have been removed rather than repointed.
 export const BANNER_TRIGGERS: { pattern: string; tabIds: TabId[] }[] = [
-  { pattern: ws("the reason the campaign's own deepfake denials will be believed\\."), tabIds: ["defence"] },
-  { pattern: ws("Firefly Management is ready to build that operation\\."), tabIds: ["decision"] },
+  { pattern: ws("the reason the campaign's own deepfake denials will be believed\\."), tabIds: ["risk"] },
+  { pattern: ws("Firefly Management is ready to build that operation\\."), tabIds: ["nextsteps"] },
 ];
 
 // Dictionary of definitions for hover tooltips

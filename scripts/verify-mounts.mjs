@@ -22,15 +22,25 @@ const CONTENT = path.join(ROOT, "public", "content");
 
 // The tab id for each content file, mirroring FILES in app/page.tsx.
 const TABS = {
-  "1-decision.md": "decision",
-  "2-evidence.md": "evidence",
-  "3-strategy.md": "strategy",
-  "4a-publishing.md": "publishing",
-  "4b-ground.md": "ground",
-  "4c-defence.md": "defence",
-  "4d-technology.md": "technology",
-  "4e-team.md": "team",
-  "5-delivery.md": "delivery",
+  "cover.md": "cover",
+  "summary.md": "summary",
+  "situation.md": "situation",
+  "objectives.md": "objectives",
+  "audiences.md": "audiences",
+  "approach.md": "approach",
+  "messaging.md": "messaging",
+  "scope-platforms.md": "scope-platforms",
+  "scope-media.md": "scope-media",
+  "scope-ground.md": "scope-ground",
+  "scope-data.md": "scope-data",
+  "roadmap.md": "roadmap",
+  "deliverables.md": "deliverables",
+  "measurement.md": "measurement",
+  "governance.md": "governance",
+  "risk.md": "risk",
+  "structure.md": "structure",
+  "assumptions.md": "assumptions",
+  "nextsteps.md": "nextsteps",
 };
 
 const LEADING = /^(\d+(?:\.\d+)*)\.?\s/;
@@ -78,7 +88,7 @@ function mountKeys() {
     console.error("verify-mounts: could not find HEADING_INSERTS in components/MarkdownViewer.tsx");
     process.exit(1);
   }
-  return [...src.slice(start, end).matchAll(/^\s*"([a-z]+-sec-[\d-]+)":/gm)].map((m) => m[1]);
+  return [...src.slice(start, end).matchAll(/^\s*"([a-z][a-z-]*-sec-[\d-]+)":/gm)].map((m) => m[1]);
 }
 
 const ids = liveIds();

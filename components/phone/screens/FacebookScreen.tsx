@@ -11,7 +11,7 @@ import { useMotionPreset } from "../../../hooks/useMotionPreset";
 import { Avatar, ScreenShell, Slot } from "../primitives";
 
 /**
- * Facebook — §3.1.1's "broadest public social network in Kitui". The post is §2.6.1 Pillar 3's
+ * Facebook — §3.6.1's "broadest public social network in Kitui". The post is §7.1.1 Pillar 3's
  * narrative statement on the Ward Development Equalization Fund, with that pillar's own Tier 1
  * water-access proof point as the attached card.
  *

@@ -11,7 +11,7 @@ import { STAGGER, drawPath } from "../../lib/motion";
  * The register, the turnout, and the number that wins — as one narrowing flow.
  *
  * Three figures the document keeps in separate paragraphs, and the relationship between them is
- * the whole arithmetic of §1.3.1: 532,758 people are registered, about 330,310 of them will
+ * the whole arithmetic of §3.4.1: 532,758 people are registered, about 330,310 of them will
  * actually vote at the 62% countywide baseline, and roughly 200,000 of those votes wins the
  * seat. Stated as a list they are three big numbers. Drawn as a funnel they are one shrinking
  * quantity, and the last stage is most of what remains — which is the point.
@@ -34,7 +34,7 @@ const WON_2022 = 198004;
 /**
  * The winning number as a share of the ballots this chart actually draws — derived, not typed.
  *
- * §8.2.3 puts 200,000 at "~53.4% of expected turnout", which only holds if expected turnout is
+ * §11.1.3 puts 200,000 at "~53.4% of expected turnout", which only holds if expected turnout is
  * about 374,500 (70.3% of the register). This document does not assume that anywhere: its
  * stated countywide participation baseline is 62%, which is the figure the middle stage above
  * is drawn from. Against that baseline the winning number is 60.5% of the ballots cast, and

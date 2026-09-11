@@ -1,4 +1,4 @@
-// Phase 4d — the Mui Basin coal question. Feeds the new Section 4.9.
+// Phase 4d — the Mui Basin coal question. Feeds §3.3.9.
 //
 // The research hand-off supplied this as qualitative context (concessions exist, development
 // has stalled for roughly a decade, a legal challenge is on record, communities face

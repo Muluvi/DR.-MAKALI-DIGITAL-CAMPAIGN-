@@ -1,6 +1,6 @@
-// §9.2.6 "The service levels compared", transcribed exactly.
+// §10.1.2 "The service levels compared", transcribed exactly.
 //
-// Nine attributes across three tiers. Every string here is the cell as §9.2.6 prints it — the
+// Nine attributes across three tiers. Every string here is the cell as §10.1.2 prints it — the
 // table is the record and this is a second rendering of it, never a re-derivation. The prose's
 // ✓ and ✗ become `true`/`false` so the interface can render them as an icon with a screen-reader
 // word instead of a bare glyph, which is the one change of representation in this file.
@@ -11,12 +11,12 @@
 export type Cell = string | boolean;
 
 export interface TierAttribute {
-  /** The row label, as §9.2.6 prints it. */
+  /** The row label, as §10.1.2 prints it. */
   label: string;
   lean: Cell;
   standard: Cell;
   premium: Cell;
-  /** Rendered bold in §9.2.6 — the one cell in the matrix the source emphasises. */
+  /** Rendered bold in §10.1.2 — the one cell in the matrix the source emphasises. */
   emphasise?: ("lean" | "standard" | "premium")[];
 }
 
@@ -49,9 +49,9 @@ export const TIER_ATTRIBUTES: TierAttribute[] = [
 
 export interface TierColumn {
   id: "lean" | "standard" | "premium";
-  /** §9.2.5's tier number, so the carousel and the budget modeller name the same thing. */
+  /** §10.1.1's tier number, so the carousel and the budget modeller name the same thing. */
   number: string;
-  /** §9.2.6's column heading. */
+  /** §10.1.2's column heading. */
   label: string;
   recommended?: boolean;
 }

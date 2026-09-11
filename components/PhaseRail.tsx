@@ -30,7 +30,7 @@ interface PhaseDetail {
   highlights: string[];
 }
 
-/** Quoted from §8.3. */
+/** Quoted from §9.1. */
 const DETAIL: Record<string, PhaseDetail> = {
   neg1: {
     id: "neg1",

@@ -9,20 +9,20 @@ import { TierBadge } from "./TierBadge";
 import { DURATION } from "../../lib/motion";
 
 /**
- * §1.4 zone model, bound to the verified IEBC register.
+ * §3.5 zone model, bound to the verified IEBC register.
  *
  * Every registered-voter figure below is DERIVED from data/ward-register.json at module load,
  * never typed in. That register is Tier 1 and is checked for internal consistency both by
  * scripts/verify-ward-register.mjs (prebuild) and by data/ward-register.ts at import time, so
  * a figure shown here cannot drift from the source without failing the build.
  *
- * Population, density and household figures are quoted from §1.4.1–1.4.3, which
- * sources them to the 2019 KNBS census. Phase weightings are quoted from §1.4.4.
+ * Population, density and household figures are quoted from §3.5.1–1.4.3, which
+ * sources them to the 2019 KNBS census. Phase weightings are quoted from §3.5.4.
  *
- * One honest wrinkle the UI has to carry rather than smooth over: §1.4 groups the county by
+ * One honest wrinkle the UI has to carry rather than smooth over: §3.5 groups the county by
  * SUB-COUNTY (Kitui Central, Katulani, Migwani …) while the IEBC register is published by
  * CONSTITUENCY. The two do not nest. So the zones map onto whole constituencies here, and
- * Kitui Rural — which §1.4's three zones do not name at all — is surfaced as unassigned rather
+ * Kitui Rural — which §3.5's three zones do not name at all — is surfaced as unassigned rather
  * than quietly folded into a neighbour to make the totals look tidy.
  */
 
@@ -42,7 +42,7 @@ function zoneRegister(ids: string[]) {
 interface GeographicZone {
   id: string;
   name: string;
-  /** Sub-counties, exactly as §1.4 lists them. */
+  /** Sub-counties, exactly as §3.5 lists them. */
   subCounties: string;
   /** Constituencies the register figures are summed over. */
   constituencyIds: string[];
@@ -105,7 +105,7 @@ const GEOGRAPHIC_ZONES: GeographicZone[] = [
   },
 ];
 
-/** §7.4's fourth row: held back for testing rather than allocated to a zone. */
+/** §3.5.4's fourth row: held back for testing rather than allocated to a zone. */
 const ROTATING_WEIGHT = { nomination: 15, general: 15 };
 
 const ZONE_REGISTERS = Object.fromEntries(
@@ -275,7 +275,7 @@ export function GeographicZoneMatrix() {
           <p className="t-small text-muted flex items-start gap-1.5">
             <AlertTriangle size={12} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
             <span>
-              Section 1.4 groups the county by sub-county; the IEBC register is published by constituency, and the two do
+              Section 3.5 groups the county by sub-county; the IEBC register is published by constituency, and the two do
               not nest. Zone totals above sum whole constituencies.{" "}
               {UNASSIGNED.map((c) => `${c.name} (${fmt(c.voters)})`).join(", ")}{" "}
               {UNASSIGNED.length === 1 ? "is" : "are"} not named in any of the three zones and{" "}

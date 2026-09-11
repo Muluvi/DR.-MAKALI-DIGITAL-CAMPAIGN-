@@ -8,7 +8,7 @@ import { useMotionPreset } from "../../hooks/useMotionPreset";
 import { STAGGER, drawPath, fadeUp, staggerContainer, VIEWPORT_TALL } from "../../lib/motion";
 
 /**
- * §8.2.3's KPI architecture, as layout rather than as box-drawing characters.
+ * §11.1.3's KPI architecture, as layout rather than as box-drawing characters.
  *
  * The source is a fenced ASCII diagram 70 characters wide. At 390px that is either a horizontal
  * scroll or type shrunk past reading, and this reader is on a phone. It is the widest instance

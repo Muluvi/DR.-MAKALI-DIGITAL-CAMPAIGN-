@@ -176,9 +176,17 @@ function normalise(text) {
   return text
     // A box-drawing rule's width is cosmetic; the reflow changed it and carries no content.
     .replace(/^\u2550{50,}$/gm, "\u2550".repeat(84))
-    .replace(/(?:Sub)?sections?\s*\d+[A-Za-z]?(?:\.\d+)*/gi, "§#")
+    // The tail of a multi-target reference ("Sections 1.2.1 and 2.1.1") collapses with its head,
+    // or half the reference stays visible and a repoint reads as an edit.
+    .replace(
+      /(?:Sub)?sections?\s*\d+[A-Za-z]?(?:\.\d+)*(?:\s*(?:,|and|&)\s*\d+[A-Za-z]?(?:\.\d+)*)*/gi,
+      "§#"
+    )
     .replace(/Sec\s*\d+(?:\.\d+)*/gi, "§#")
     .replace(/§\s*\d+[A-Za-z]?(?:\.\d+)*/g, "§#")
+    // A bare three-part number in a table cell or an ASCII box is always a section reference in
+    // this document — no figure it carries has two decimal points — so it collapses too.
+    .replace(/(^|[^\w.§])\d{1,2}\.\d{1,2}\.\d{1,2}(?![\d.])/g, "$1§#")
     .replace(/[ \t]{2,}/g, " ")
     .replace(/[ \t]+$/gm, "");
 }

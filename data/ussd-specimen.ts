@@ -1,23 +1,23 @@
-// §4.3.3's USSD menu and §4.3.2's SMS layer, as data for the feature-phone specimen.
+// §8.10.3's USSD menu and §8.10.2's SMS layer, as data for the feature-phone specimen.
 //
 // Two rules govern this file, and they are the reason it is data rather than copy inside a
 // component.
 //
-// 1. THE MENU IS QUOTED, NOT WRITTEN. Every line below appears in §4.3.3 exactly as it is
+// 1. THE MENU IS QUOTED, NOT WRITTEN. Every line below appears in §8.10.3 exactly as it is
 //    printed there, Kikamba and English together, in that order. The document wrote a bilingual
 //    menu; the widget shows a bilingual menu.
 //
-// 2. THE SHORTCODE IS A PLACEHOLDER AND STAYS ONE. §4.3.3 prints `*[Insert shortcode]#`, and
+// 2. THE SHORTCODE IS A PLACEHOLDER AND STAYS ONE. §8.10.3 prints `*[Insert shortcode]#`, and
 //    Appendix A logs the vendor allocation as an open item owned by the campaign. Inventing a
 //    number here would be the exact failure the provenance system exists to prevent, so the
 //    widget renders the placeholder with the badge it deserves.
 //
-// The SMS side follows §3.6.3's four-stage approval chain rather than shipping vernacular copy
+// The SMS side follows §7.3.3's four-stage approval chain rather than shipping vernacular copy
 // as though it were finished. English is Stage 1 — a master source that can be checked against
 // the document. Kikamba and Kiswahili sit at Stage 2, and the chain names exactly who has to
 // clear them: a Lead Kikamba Writer drafts, an independent reviewer reverse-translates, and a
 // native Kamba elder or senior vernacular broadcaster holds mandatory sign-off. None of those
-// people has been appointed — §3.7 puts that in Phase −1 — so no Kikamba prose is presented here
+// people has been appointed — §8.5 puts that in Phase −1 — so no Kikamba prose is presented here
 // as final, and none is invented to fill the gap.
 
 export type SpecimenLanguage = "kikamba" | "kiswahili" | "english";
@@ -28,7 +28,7 @@ export const SPECIMEN_LANGUAGES: { id: SpecimenLanguage; label: string; note: st
   { id: "english", label: "English", note: "Master source for drafting." },
 ];
 
-/** §4.3.3, verbatim. The header line and six options as the document prints them. */
+/** §8.10.3, verbatim. The header line and six options as the document prints them. */
 export const USSD_HEADER = "KITUI NA MULU";
 
 export interface UssdOption {
@@ -36,33 +36,33 @@ export interface UssdOption {
   /** As printed: Kikamba first, English after the slash, where the document gives both. */
   kikamba: string | null;
   english: string;
-  /** §8.5's service-delivery tracker is reachable from this option. */
+  /** §8.2's service-delivery tracker is reachable from this option. */
   crossReference?: string;
 }
 
 export const USSD_MENU: UssdOption[] = [
   { key: "1", kikamba: "Sisemo sya Mulu", english: "Mulu's plan for my ward" },
   { key: "2", kikamba: "Andikithya kuvota", english: "Voter registration info" },
-  { key: "3", kikamba: "Ripoti wia", english: "Report a local issue", crossReference: "Section 8.5" },
+  { key: "3", kikamba: "Ripoti wia", english: "Report a local issue", crossReference: "Section 8.2" },
   { key: "4", kikamba: "Kuthukuma", english: "Volunteer" },
   { key: "5", kikamba: "Kwithukiisya", english: "Get updates (opt-in)" },
   { key: "6", kikamba: null, english: "Kiswahili / English" },
 ];
 
-/** §4.3.3 prints the shortcode as an unresolved placeholder. It stays one. */
+/** §8.10.3 prints the shortcode as an unresolved placeholder. It stays one. */
 export const USSD_SHORTCODE_PLACEHOLDER = "*[Insert shortcode]#";
 
 /**
  * A USSD session is a network round trip, and a menu that appears instantly is the one detail
- * that gives a mockup away. §4.3.3's own framing is that this works on every phone over 2G.
+ * that gives a mockup away. §8.10.3's own framing is that this works on every phone over 2G.
  */
 export const USSD_LATENCY_MS = 1400;
 
 // ---------------------------------------------------------------------------
-// The SMS layer — §4.3.2
+// The SMS layer — §8.10.2
 // ---------------------------------------------------------------------------
 
-/** §4.3.2: "Message architecture — 160 characters, three languages, ward-tagged". */
+/** §8.10.2: "Message architecture — 160 characters, three languages, ward-tagged". */
 export const SMS_LIMIT = 160;
 
 export type ApprovalStage = 1 | 2 | 3 | 4;
@@ -75,9 +75,9 @@ export const APPROVAL_CHAIN: { stage: ApprovalStage; title: string; who: string 
 ];
 
 export interface SmsSpecimen {
-  /** One of §4.3.2's six message types, named as the table names them. */
+  /** One of §8.10.2's six message types, named as the table names them. */
   type: string;
-  /** §4.3.2's own description of what that type contains. */
+  /** §8.10.2's own description of what that type contains. */
   structure: string;
   frequency: string;
   /**
@@ -86,9 +86,9 @@ export interface SmsSpecimen {
    */
   english: string;
   /**
-   * Vernacular versions are null on purpose. §3.6.3 requires a named drafter, an independent
+   * Vernacular versions are null on purpose. §7.3.3 requires a named drafter, an independent
    * reverse-translation audit and a native-speaker sign-off before Kikamba copy is released,
-   * and §3.7 places those appointments in Phase −1. Nothing here fills that in.
+   * and §8.5 places those appointments in Phase −1. Nothing here fills that in.
    */
   kikamba: null;
   kiswahili: null;
@@ -118,7 +118,7 @@ export const SMS_SPECIMENS: SmsSpecimen[] = [
   } as SmsSpecimen,
 ];
 
-/** §4.3.2's stated unit cost, used to price a send in the panel. */
+/** §8.10.2's stated unit cost, used to price a send in the panel. */
 export const SMS_COST_PER_MESSAGE = { from: 0.25, to: 0.6, unit: "KSh" };
-/** §4.3.2's consented-contact target at Phase 3. */
+/** §8.10.2's consented-contact target at Phase 3. */
 export const CONSENTED_CONTACTS = 120000;

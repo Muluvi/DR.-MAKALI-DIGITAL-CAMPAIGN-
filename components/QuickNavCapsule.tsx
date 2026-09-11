@@ -14,13 +14,13 @@ interface QuickNavCapsuleProps {
 }
 
 const QUICK_TARGETS = [
-  { id: "decision-sec-8-1", label: "The scorecards", icon: Gauge, tab: "decision" },
-  { id: "evidence-sec-1-3-1", label: "Votes needed to win", icon: Calculator, tab: "evidence" },
-  { id: "evidence-sec-1-3-2", label: "The 40 wards", icon: MapPin, tab: "evidence" },
-  { id: "decision-sec-9-2", label: "Budget tiers", icon: Coins, tab: "decision" },
-  { id: "evidence-sec-3-4-1", label: "Kikamba radio", icon: Radio, tab: "evidence" },
-  { id: "evidence-sec-1-2-7", label: "County money and audits", icon: Activity, tab: "evidence" },
-  { id: "defence-sec-5-2", label: "The war room", icon: Shield, tab: "defence" },
+  { id: "measurement-sec-11-1", label: "The scorecards", icon: Gauge, tab: "measurement" },
+  { id: "situation-sec-3-4-1", label: "Votes needed to win", icon: Calculator, tab: "situation" },
+  { id: "situation-sec-3-4-2", label: "The 40 wards", icon: MapPin, tab: "situation" },
+  { id: "deliverables-sec-10-1", label: "Scope levels", icon: Coins, tab: "deliverables" },
+  { id: "situation-sec-3-7-1", label: "Kikamba radio", icon: Radio, tab: "situation" },
+  { id: "situation-sec-3-3-7", label: "County money and audits", icon: Activity, tab: "situation" },
+  { id: "risk-sec-13-2", label: "The war room", icon: Shield, tab: "risk" },
 ];
 
 export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }: QuickNavCapsuleProps) {

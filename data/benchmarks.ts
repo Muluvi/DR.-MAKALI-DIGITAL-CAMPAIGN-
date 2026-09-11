@@ -1,4 +1,4 @@
-// §6.4.2's key metrics, as data.
+// §8.15.2's key metrics, as data.
 //
 // The table states a global benchmark and a campaign target side by side, and the thing it does
 // not show is the RELATIONSHIP between them: which targets sit above the industry band, which
@@ -7,7 +7,7 @@
 // conservative, or unexamined?
 //
 // Only the five metrics measured on a comparable percentage scale are plotted. The other three
-// in §6.4.2 are carried as text, because a cost in shillings, a cost in dollars and a shift in
+// in §8.15.2 are carried as text, because a cost in shillings, a cost in dollars and a shift in
 // survey points do not share an axis and forcing them onto one would invent a comparison the
 // document does not make.
 
@@ -65,7 +65,7 @@ export function targetPosition(b: Benchmark): "above" | "inside" | "below" {
   return "inside";
 }
 
-/** The three metrics in §6.4.2 that share no axis with the five above. */
+/** The three metrics in §8.15.2 that share no axis with the five above. */
 export const UNPLOTTED_BENCHMARKS = [
   {
     metric: "Measured preference shift",

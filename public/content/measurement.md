@@ -1,228 +1,118 @@
-The twelve-month plan phase by phase, what is measured and how performance is governed, and the message lab that tests it.
 
-## 8.3 The phased plan
+## 11.1 The headline scorecards
 
-Five phases: a new Phase −1 addressing the nomination contest, followed by the
-original four phases running to the General Election on **10 August 2027**.
+Two preference figures appear in this proposal, and they measure different populations rather than revising one another. Section 4.1's **40.0%+** is a share of the **countywide public**, as reported in the party-commissioned surveys. NW-01 below is **≥ 55.0%** of **sampled likely Wiper primary voters** — a narrower universe, which is why the threshold sits higher. Section 11.1.3 states that same primary-voter threshold.
 
-### 8.3.1 Phase −1: Nomination Sprint — August–September 2026
+### 11.1.1 Stage 1: the nomination-window scorecard
 
-**Objective:** close the measured preference deficit ahead of the Wiper
-flagbearer decision, which party sources indicate is intended to conclude
-before the final quarter of 2026.
+The nomination phase focuses on establishing unassailable party consensus and securing the Wiper Democratic Movement nomination ticket.
 
-**The strategic hypothesis being tested:** Dr. Mulu's deficit is a
-geography-of-recognition problem concentrated outside Kitui Central, not a
-credibility problem. If the Week 1 audit and the Phase −1 message lab confirm
-this, the response is reach into Mwingi and the arid belt. If they refute it —
-if the deficit is about perceived distance from ordinary voters rather than
-unfamiliarity — the response is different, and the campaign will know **before**
-significant budget is committed. This is the discipline the rest of the
-proposal claims to embody, applied to its own first assumption.
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                NOMINATION WINDOW KEY PERFORMANCE INDICATORS                                 │
+├─────────────┬──────────────────────────┬───────────┬───────────┬──────────────────┬───────────┬─────────────┤
+│ KPI Code &  │ Operational Definition & │ Empirical │ Target    │ Measurement      │ KPI Owner │ Reporting   │
+│ Title       │ Mathematical Formula     │ Baseline  │ Objective │ Methodology      │ & Division│ Cadence     │
+├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
+│ **NW-01:**  │ % of sampled likely      │ Not yet   │ **≥ 55.0%**│ Rolling 7-day    │ Head of   │ Weekly /    │
+│ Wiper Ballot│ Wiper primary voters     │ measured  │ Primary   │ Tracking Poll    │ Research  │ Fortnightly │
+│ Preference  │ naming Dr. Makali Mulu as│ (Week 1)  │ Preference│ (N = 400 CATI)   │ & Polling │             │
+│ Share       │ their 1st choice.        │           │           │ (Section 11.3)    │           │             │
+├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
+│ **NW-02:**  │ Spontaneous + aided name │ Not yet   │ **≥ 70.0%**│ Sub-County CATI  │ Comms     │ Fortnightly │
+│ Northern    │ recognition in Mwingi    │ measured  │ Name ID   │ Poll booster in  │ Director  │ Tracking    │
+│ Sub-County  │ North, Central & West    │ (Week 1)  │           │ Mwingi North &   │           │             │
+│ Name ID     │ sub-counties.            │           │           │ Central (N = 600)│           │             │
+├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
+│ **NW-03:**  │ Voter ranking of "Clean  │ Not yet   │ **≥ 60.0%**│ Issue Salience   │ Policy &  │ Fortnightly │
+│ Fiscal      │ Audit Record / Anti-     │ measured  │ Issue     │ Index in County  │ Strategy  │             │
+│ Integrity   │ Corruption" as the #1 or │ (Week 1)  │ Salience  │ Tracking Survey  │ Lead      │             │
+│ Salience    │ #2 voting criterion.     │           │           │ (Section 11.3)    │           │             │
+├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
+│ **NW-04:**  │ Verified, signed support │ Confirm   │ **8 / 8** │ Formal written   │ Political │ Weekly      │
+│ Branch Exec │ pledges from Sub-County  │ w/ party  │ Sub-Count.│ branch caucus    │ Affairs   │ Executive   │
+│ Endorsement │ Wiper Executive Branch   │ (Week 1)  │ Branches  │ endorsement      │ Director  │ Dashboard   │
+│ Rate        │ Committees.              │           │           │ resolutions      │           │             │
+└─────────────┴──────────────────────────┴───────────┴───────────┴──────────────────┴───────────┴─────────────┘
+```
 
-**Week 1 — audit and baseline (immediate):**
-- Full digital audit: every campaign-adjacent account, follower counts,
-  engagement rates, posting cadence, and the existing Kitui Central NG-CDF web
-  presence
-- **Competitive baseline against Dr. Kasalu and Sen. Wambua** across all
-  platforms — this is the number the whole phase is measured against
-  `[Insert baseline audit results — Week 1 deliverable]`
-- Meta Ad Library and Google Transparency Centre review of all rival activity
-- Rapid channel-mix assessment by zone against connectivity data
+### 11.1.2 Stage 2: the general election scorecard
 
-**Weeks 1–2 — foundations:**
-- Secure and harden all accounts: **hardware-key 2FA for the candidate and all
-  admins on day one** (Section 5.3.2)
-- Verify the Kitui expenditure ceiling from the gazette schedule
-- Commission the Section 6.5.5 compliance review — **start the clock early, it
-  is the long-lead item**
-- Appoint the Kikamba producer
+The general election phase focuses on systematic voter mobilization, ground network readiness, and polling station defense to cross the 200,000-vote winning threshold.
 
-**Weeks 2–6 — visibility offensive:**
-- Daily multilingual content, weighted 35% Mwingi / 30% arid belt / 20% anchor
-  / 15% testing
-- **Immediate SMS opt-in drive** — the consented list is the phase's most
-  durable asset and compounds into every later phase
-- Two flagship videos: the vision piece, and one built entirely around the
-  verification credential
-- Facebook Live town halls weekly from Week 3
-- Kikamba voice-note series from Dr. Mulu — one per week, distributed by
-  WhatsApp and ward networks
-- Earned media push: Tier C expert placements on county fiscal management
-  (Section 3.5.2), plus priority-station radio
-- **One message-lab round across all three zones** (Section 8.4) — mandatory
-- Publish the Digital Ethics & Data Charter — a differentiating news moment in
-  its own right during a nomination contest
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                       GENERAL ELECTION KEY PERFORMANCE INDICATORS (≥ 200,000 VOTES)                         │
+├─────────────┬──────────────────────────┬───────────┬───────────┬──────────────────┬───────────┬─────────────┤
+│ KPI Code &  │ Operational Definition & │ Empirical │ Target    │ Measurement      │ KPI Owner │ Reporting   │
+│ Title       │ Mathematical Formula     │ Baseline  │ Objective │ Methodology      │ & Division│ Cadence     │
+├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
+│ **GE-01:**  │ Individual registered    │ 0 pledged │**220,000**│ Verified opt-in  │ Field Ops │ Weekly      │
+│ Pledged     │ voters with phone, ward, │ voters    │ Pledged   │ 2G SMS & Baraza  │ & Data    │ Progress    │
+│ Voter Data  │ & polling station logged │ (Section  │ Voters    │ registration     │ Director  │ Audit       │
+│ Base Size   │ in campaign CRM.         │ 4.2)    │ (110% Win)│ ledger (Sec 11.2.2)│           │            │
+├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
+│ **GE-02:**  │ Active, vetted Ward      │ 0 active  │ **400**   │ Biometric / ID   │ Groundgame│ Bi-Weekly   │
+│ Ward Captain│ Captains operating across│ Captains  │ Captains  │ verification and │ Director  │ Field Audit │
+│ Deployment  │ all 40 Wards (10 per     │ (Section  │ (10 / Ward│ monthly activity │           │             │
+│ Index       │ ward).                   │ 4.2)    │ 100% Cvrg)│ log confirmation │           │             │
+├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
+│ **GE-03:**  │ Accredited, trained party│ 0         │ **1,578** │ IEBC official    │ Legal &   │ Weekly      │
+│ Polling     │ polling station agents   │ Station   │ Stations  │ accreditation    │ Polling   │ (Final 60   │
+│ Station     │ deployed across 100% of  │ Agents    │ (100% of  │ badges & signed  │ Station   │ Days)       │
+│ Agent Cvrg  │ Kitui polling stations.  │           │ stations) │ deployment forms │ Lead      │             │
+├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
+│ **GE-04:**  │ Ratio of pledged voters  │ 72.0%     │ **≥ 82.0%**│ IEBC Form 37A    │ Polling   │ Post-Day    │
+│ Turnout     │ who cast verified ballots│ (Historical│ Voter     │ audit vs. CRM    │ Day Ops   │ Real-Time   │
+│ Conversion  │ in target strongholds    │ Average)  │ Turnout   │ voter ledger by  │ Director  │ Tracking    │
+│ Efficiency  │ on polling day.          │           │ Conversion│ polling stream   │           │ (06:00-17:00│
+├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
+│ **GE-05:**  │ % of Form 37A result     │ 0%        │ **100%**  │ Encrypted field  │ Chief     │ Polling Day │
+│ Real-Time   │ sheets photographed and  │ Transmit  │ Transmit  │ agent WhatsApp / │ Technology│ Hourly      │
+│ Form 37A    │ transmitted to War Room  │ Rate      │ within    │ USSD photo upload│ Officer   │ Real-Time   │
+│ Capture     │ within 2 hours of count. │           │ 2 Hours   │ verification DB  │ (CTO)     │ (17:00-21:00│
+└─────────────┴──────────────────────────┴───────────┴───────────┴──────────────────┴───────────┴─────────────┘
+```
 
-**Weeks 6–8 — consolidation:**
-- Full-scale red-team drill before the nomination decision (Section 5.2.4)
-- Coalition roundtables with professional associations
-- Ward champion recruitment begins in the 15 highest-priority wards
+### 11.1.3 The indicator framework, anchored to the vote threshold
 
-**Phase −1 KPIs:**
+In accordance with the foundational strategic doctrine established in **Section 3.3.3**, the campaign rejects vanity metrics—such as social media follower counts, video views, impressions, and post likes—as actionable indicators of political strength. In a county where ~86% of registered voters reside offline in rural agrarian settings, digital engagement metrics correlate weakly with ballot-box outcomes and create dangerous operational complacency.
 
-| Metric | Target |
-|---|---|
-| Baseline audit completed | Week 1 |
-| Compliance review commissioned | Week 2 |
-| Hardware-key 2FA on all admin accounts | Week 1, 100% |
-| Consented SMS contacts | **15,000** |
-| Wards with active SMS presence | 15 |
-| Combined social reach | 400,000 |
-| Engaged followers | 20,000 |
-| Facebook Live town halls | 6 |
-| Kikamba voice notes published | 6 |
-| Earned media items | ≥ 10, including ≥ 4 radio |
-| Message-lab round completed | 1, all three zones |
-| Charter published in three languages | Week 4 |
-| **Measured preference movement** | **Deficit reduced to ≤10 points** |
+Every Key Performance Indicator (KPI) in this framework is strictly anchored to one of two decisive statutory milestones:
+1.  **The Nomination Window Threshold:** Achieving **≥ 55.0%** first-choice preference among sampled likely Wiper primary voters (NW-01).
+2.  **The General Election Victory Threshold:** Securing **≥ 200,000 verified, counted votes** — approximately **60.5%** of the ~330,310 ballots expected at the county's 62.0% participation baseline against 532,758 registered voters (Section 3.4.1).
 
----
+```
+═════════════════════════════════════════════════════════════════════
+            VICTORY-ANCHORED KPI MONITORING ARCHITECTURE
+═════════════════════════════════════════════════════════════════════
 
-### 8.3.2 Phase 0: Digital Audit and Infrastructure — September–October 2026
-
-*Runs concurrently with the tail of Phase −1 where the nomination timetable
-allows; sequential if the decision slips.*
-
-**Activities:**
-- Weeks 1–2: complete competitor analysis; identify structural gaps and
-  opportunities
-- Weeks 3–4: professional pages, website, analytics dashboards and donation
-  portal live; **USSD shared code commissioned** (5–7 working days for
-  set-up)
-- Weeks 5–6: brand guidelines, content library, 90-day content calendar;
-  **WCAG audit before public launch**
-- Weeks 7–8: recruit and train **40 ward digital champions**,
-  including mandatory data-handling training; establish WhatsApp reporting
-  structures. Recruitment priority: Mwingi Central, Mutomo, Kitui Central
-- Service-delivery tracker built and tested (Section 8.5)
-
-**KPIs:**
-- All platforms live and verified
-- Baseline metrics recorded across reach, engagement and sentiment
-- Website live, WCAG 2.1 AA audited, with donation and volunteer forms
-- USSD code live across all networks
-- 40 ward digital champions onboarded and data-trained
-- First 100 pieces of content approved and scheduled
-- **Section 6.5.5 compliance opinion received**
-
----
-
-### 8.3.3 Phase 1: Awareness and Community Building — October–December 2026
-
-**Activities:**
-- Daily multilingual content on a structured calendar
-- Weekly Facebook Live town halls (Thursdays, 19:00–20:00 EAT)
-- Official campaign hashtag **#MuluForKitui** plus a Kikamba equivalent
-  `[Insert — native-speaker developed]`
-- Paid campaigns begin with weekly A/B testing; zone allocation 25% Anchor /
-  25% Mwingi / 30% Arid Belt / 20% rotating
-- **SMS programme scales to all 40 wards**
-- **Service-delivery tracker launches publicly**
-- Online fundraising launch tied to a specific goal
-- First three "Dr. Mulu Explains" policy videos
-- Coalition programme: MSME associations, youth groups
-- Analytics maturity Stage 1 complete
-
-**KPIs:**
-
-| Metric | Target |
-|---|---|
-| Combined social reach | 1,000,000 |
-| Engaged followers | 50,000 |
-| **Consented SMS contacts** | **40,000** |
-| **USSD unique sessions** | **5,000** |
-| **Tracker reports received** | **500** |
-| Online donors | 500 |
-| Email/SMS subscribers | 5,000 |
-| Digital volunteer sign-ups | 1,000 |
-| Facebook engagement rate | ≥ 5% |
-| Earned media items/month | ≥ 8 |
-| Opt-out rate | < 2% |
+  STAGE 1: NOMINATION WINDOW TARGETS
+  (Preference among likely Wiper primary voters)
+ ┌───────────────────────────────────────────────────────────────────┐
+ │ • Wiper Primary Share (Target ≥ 55.0%)                            │
+ │ • North Sub-County Name ID (≥ 70.0%)                              │
+ │ • Integrity / Clean Audit Salience                                │
+ │ • Branch Executive Endorsement Pledges (8/8)                      │
+ └───────────────────────────────────────────────────────────────────┘
+                                 │
+                                 ▼
+  STAGE 2: GENERAL ELECTION TARGETS
+  (Victory Threshold: ≥200,000 Votes)
+ ┌───────────────────────────────────────────────────────────────────┐
+ │ • Verified Pledged Voter Database (Target: 220,000 Opt-In Voters) │
+ │ • Ward Captain Mobilization Index (400 Captains / 40 Wards)       │
+ │ • Polling Agent Station Coverage (100% of 1,578 Stations)         │
+ │ • Turnout Conversion Rate (≥82%)                                  │
+ └───────────────────────────────────────────────────────────────────┘
+═════════════════════════════════════════════════════════════════════
+```
 
 ---
 
-### 8.3.4 Phase 2: Engagement and Persuasion — January–March 2027
+## 11.2 Indicators, and why these
 
-**Activities:**
-- Ward-specific ads on local issues — water scarcity in Ikutha, mango prices in
-  Kitui West, market fees in Mwingi Central
-- Partnerships with Kitui influencers and community leaders, all disclosed
-- Diaspora webinars and fundraising every three weeks, targeting the expanded
-  26-country registration footprint
-- Candidate vision video and digital manifesto, with **KSL interpretation and
-  plain-language summaries in all three languages**
-- TikTok and Reels series for first-time voters
-- Live policy debates and Q&A on Facebook and X
-- Weekly sentiment reporting
-- **Quarterly red-team drill; quarterly message lab**
-- Analytics maturity Stages 2–3, subject to the compliance gate
-
-**KPIs:**
-
-| Metric | Target |
-|---|---|
-| Cumulative reach | 3,000,000 |
-| Engaged followers | 150,000 |
-| **Consented SMS contacts** | **80,000** |
-| **USSD unique sessions** | **25,000** |
-| **Tracker reports** | **3,000** |
-| Online donors | 2,000 |
-| Email/SMS subscribers | 15,000 |
-| Digital volunteer sign-ups | 5,000 |
-| Positive sentiment | ≥ 50% |
-| Viral content pieces (>100,000 views) | ≥ 10 |
-| Red-team response times meeting target | ≥ 90% |
-
----
-
-### 8.3.5 Phase 3: Mobilisation and GOTV — April–August 2027
-
-**Activities:**
-- Digital and SMS voter registration drives; pledge-to-vote cards
-- Ward-level WhatsApp command centres for real-time updates and verification
-- Daily live streams; continuous misinformation monitoring and rebuttal
-- **Full GOTV SMS sequence** to the consented list, segmented by turnout score
-- Targeted ads to registered voters and undecided segments
-- Final fundraising surge tied to GOTV logistics
-- Closing-argument video combining testimonials, county fiscal data and the
-  tracker record
-- Daily countdown content from 30 days out
-- **Full-scale red-team drill at 60 days**
-- Analytics maturity Stage 4
-
-**KPIs:**
-
-| Metric | Target |
-|---|---|
-| Cumulative reach | 5,000,000 |
-| Engaged followers | 250,000 |
-| **Consented SMS contacts** | **120,000** |
-| **USSD unique sessions** | **60,000** |
-| **Tracker reports** | **8,000** |
-| Online donors | 5,000 |
-| Digital pledges to vote | 30,000 |
-| Positive sentiment | ≥ 80% |
-| Voter registration lift in target wards | ≥ 10% |
-| GOTV contact rate | ≥ 70% |
-| **Contact share of the ~200,000 win threshold** | **≥ 75%** |
-| Misinformation incidents responded to within severity target | 100% |
-| Spend reconciled against IEBC ceiling | 100%, monthly |
-
----
-
-### 8.3.6 Post-election
-
-- Data deletion executed within **90 days** of the declaration of results, per
-  the charter, with public confirmation
-- Service-delivery tracker continues, per the Section 8.5.4 commitment
-- Full campaign post-mortem with performance against every KPI in this document
-
----
-
-## 8.2 What we measure, and why
-
-Political strategy without empirical measurement risks misallocating scarce campaign capital. To eliminate speculative assumptions, the campaign implements a two-part data architecture: **Section 8.2.1** establishes the research programme to test the recognition-deficit hypothesis and govern nomination polling, while **Section 8.2.2** operationalizes a public service-delivery tracker that bridges campaign credibility with day-one governance.
+Political strategy without empirical measurement risks misallocating scarce campaign capital. To eliminate speculative assumptions, the campaign implements a two-part data architecture: **Section 11.2.1** establishes the research programme to test the recognition-deficit hypothesis and govern nomination polling, while **Section 11.2.2** operationalizes a public service-delivery tracker that bridges campaign credibility with day-one governance.
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
@@ -240,9 +130,7 @@ Political strategy without empirical measurement risks misallocating scarce camp
 ════════════════════════════════════════════════════════════════════════════════════
 ```
 
----
-
-### 8.2.1 The research programme and the nomination tracking poll
+### 11.2.1 The research programme and the nomination tracking poll
 
 Before committing the campaign's broadcast and caravan effort to Northern and Southern Kitui, the campaign mandates a structured research sequence to empirically validate the **"Recognition-Deficit Hypothesis"** (the proposition that Dr. Makali Mulu's primary electoral vulnerability outside Kitui Central is name recognition rather than unfavorable perception).
 
@@ -290,9 +178,7 @@ During the critical **6-Week Wiper Nomination Window**, the research apparatus t
     3.  *Integrity Index:* "Which candidate do you trust most to protect public county funds without corruption?"
 *   **Escalation Trigger:** Any candidate drop >3.5% in a tracking wave triggers an immediate War Room emergency convening and 48-hour sub-county advertising reallocation.
 
----
-
-### 8.2.2 The service-delivery performance tracker
+### 11.2.2 The service-delivery performance tracker
 
 The campaign builds and maintains the **Kitui County Service-Delivery Performance Tracker**, a live analytical dashboard and open-data ledger that serves a dual purpose: during the campaign, it operates as an **irrefutable evidence asset** countering opposition claims; post-election, it transitions into the **Governor's Day-One Public Delivery Dashboard**.
 
@@ -305,7 +191,7 @@ The campaign builds and maintains the **Kitui County Service-Delivery Performanc
 │ 1. Ward Infrastructure & │ • Kitui Central NG-CDF Project Ledger     │ • **Monthly Sync**                   │
 │    School Laboratories   │ • Ministry of Education Infrastructure DB │ • On-site geotagged photo audit;     │
 │                          │ • Classroom & TVET counts pending the     │   certified contractor handovers.    │
-│                          │   project ledger (see 5.1.4)              │                                      │
+│                          │   project ledger (see 13.1.4)              │                                      │
 ├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
 │ 2. Solar Boreholes &     │ • National Water Resources Authority      │ • **Bi-Weekly Water Quality & Pump   │
 │    Water Access Points   │ • County Water Master Plan Baseline       │   Telemetry Feed**                   │
@@ -317,7 +203,7 @@ The campaign builds and maintains the **Kitui County Service-Delivery Performanc
 ├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
 │ 4. Secondary & Tertiary  │ • NG-CDF Bursary Disbursements Ledger     │ • **Termly Disbursement Audit**      │
 │    Bursary Distribution  │ • NG-CDF constituency records — not       │ • Receipt count pending the ledger;  │
-│                          │   HELB, which holds national loan data    │   1.2.1 gives 12,573 as Tier 1.      │
+│                          │   HELB, which holds national loan data    │   3.3.1 gives 12,573 as Tier 1.      │
 └──────────────────────────┴───────────────────────────────────────────┴──────────────────────────────────────┘
 ```
 
@@ -331,12 +217,12 @@ The campaign builds and maintains the **Kitui County Service-Delivery Performanc
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 8.2.2 STRATEGIC TAKEAWAY
+                          SECTION 11.2.2 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
- • Section 8.2.1 (Research):   Deploys N=1,600 CATI poll and 12 Kikamba FGDs to test
+ • Section 11.2.1 (Research):   Deploys N=1,600 CATI poll and 12 Kikamba FGDs to test
                                 name ID before committing major ad spend; integrates a
                                 6-week rolling tracking poll for the Wiper nomination.
- • Section 8.2.2 (Tracker):    Maintains open-data delivery ledger combining OAG audits,
+ • Section 11.2.2 (Tracker):    Maintains open-data delivery ledger combining OAG audits,
                                 84 solar boreholes, and the bursary and classroom counts
                                 pending the project ledger (Tier 1: 12,573 recipients).
  • Dual-Asset Function:         Operates as an irrefutable debate/media evidence weapon
@@ -344,9 +230,8 @@ The campaign builds and maintains the **Kitui County Service-Delivery Performanc
                                 Ksh 100M Ward Equalization governing dashboard post-election.
 ════════════════════════════════════════════════════════════════════════════════════
 ```
----
 
-### 8.2.4 Why we reject vanity metrics
+### 11.2.3 Why vanity metrics are excluded
 
 The campaign strictly excludes vanity metrics from all executive dashboards, reporting meetings, and vendor performance contracts based on the following empirical realities:
 
@@ -354,9 +239,7 @@ The campaign strictly excludes vanity metrics from all executive dashboards, rep
 *   **Geographic Skew:** Over 60% of social media interactions on Eastern Kenya political content originate from non-resident diaspora users in Nairobi, Mombasa, or abroad who are not registered to vote in Kitui's 40 wards.
 *   **Zero Correlation to Turnout:** A viral video does not transport an elderly voter in Ikutha or Nguni to their polling stream on election morning. Physical voter pledge collection, verified 2G SMS connectivity, and trained polling day agents directly generate counted votes.
 
----
-
-### 8.2.5 Performance governance and executive escalation
+### 11.2.4 Performance governance and executive escalation
 
 To ensure accountability across all divisions, the KPI framework is embedded in a rigid governance rhythm:
 
@@ -366,7 +249,7 @@ To ensure accountability across all divisions, the KPI framework is embedded in 
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 8.2.5 STRATEGIC TAKEAWAY
+                          SECTION 11.2.4 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Zero Vanity Metrics:         Explicitly bans social followers/likes; focuses 100% on
                                 voter pledges, name ID, agent coverage, and turnout.
@@ -379,13 +262,14 @@ To ensure accountability across all divisions, the KPI framework is embedded in 
                                 for any metric trailing target by >10%.
 ════════════════════════════════════════════════════════════════════════════════════
 ```
+
 ---
 
-## 8.4 The Kitui message lab
+## 11.3 The Kitui message lab
 
 *Digital engagement metrics measure the 13.6% who are online.*
 
-### 8.4.1 Rationale, structure and zone coverage
+### 11.3.1 Rationale, structure and zone coverage
 
 A campaign that optimises purely on engagement data optimises for the connected
 minority, in the wards with the best signal, among the people most inclined to
@@ -403,15 +287,15 @@ Anchor zone stays exactly where it is.
 | **Facilitation** | `[Insert — independent Kenyan qualitative research facilitator; Firefly to recommend, campaign to appoint]` |
 | **Ethics** | Participation voluntary; withdrawal at any time; no contact data retained for campaigning without separate explicit opt-in |
 
-### 8.4.2 Qualitative hypotheses, feedback loops and KPIs
+### 11.3.2 Qualitative hypotheses, feedback loops and KPIs
 
 To ensure offline reality shapes digital execution, the message lab systematically evaluates:
-* **Message framings** from Section 2.8 — does loss-aversion framing on water land, or does it read as pessimism about Kitui?
+* **Message framings** from Section 7.2 — does loss-aversion framing on water land, or does it read as pessimism about Kitui?
 * **The Economist Governor narrative** — does "economist" read as competent or as distant? This is the single highest-value question in the research programme, and it is not answerable from engagement data.
 * **Kikamba language and proverb use** — authentic or performative?
 * **Rival perception** — what specifically drives preference for the current front-runner? The answer determines whether the deficit is closeable by communication at all.
 * **Channel reality** — where do people in Mutha actually get political information?
-* **The tracker concept** (Section 8.5) — would people use it, and do they believe it would change anything?
+* **The tracker concept** (Section 8.2) — would people use it, and do they believe it would change anything?
 
 Findings are written up within **10 days** and feed directly into the next content cycle, the SMS message architecture and the paid-media creative brief. Where qualitative findings contradict engagement data, **the qualitative finding is treated as the signal about the offline majority and the quantitative data as the signal about the online minority** — neither overrides the other, and the disagreement itself is information.
 
@@ -421,30 +305,3 @@ Findings are written up within **10 days** and feed directly into the next conte
 | Zones covered per round | 3 of 3 |
 | Findings incorporated into content within 14 days | 100% |
 | Message framings tested before major spend | 100% of flagship campaigns |
-
----
-
-## 8.6 The decision in front of the campaign
-
-The strategic architecture set out above is engineered for a singular objective: to position
-Dr. Makali Mulu as the mathematically undeniable candidate — first for the Wiper gubernatorial
-nomination, and subsequently for the governorship of Kitui County. What that requires now is a
-decision, and a date.
-
-> ### 🗳️ CAMPAIGN DECISION PROTOCOL: PHASE -1 STRATEGIC APPROVAL
-> 
-> **I. Action Required from Leadership:**
-> *   **Immediate Strategic Realignment:** Formal approval to pivot the campaign's primary focus to **Phase -1 (Nomination Path)**, reallocating digital, analytical, and SMS campaign infrastructure to target the opinion-poll selection process.
-> *   **Deployment Authorisation:** Authorisation to begin Phase −1 deployment — localised, ward-level SMS micro-targeting, digital visibility campaigns in low-recognition sub-counties, and the initial deployment of the public service-delivery tracker.
-> *   **Operational Integration:** Integration of the digital operation with the ground campaign's regional and youth volunteer networks.
-> 
-> **II. Critical Operational Deadline:**
-> *   **Decision Target:** **15 September 2026** (to allow 45 days of concentrated digital, content, and SMS micro-targeting before the Wiper opinion polling window commences in late October 2026).
-> *   **Evaluation Window:** Late October – November 2026 (Q4 2026).
-> 
-> **III. Strategic Cost of Inaction (Missing the Q4 2026 Nomination Window):**
-> *   **Irreversible Campaign Termination:** Because the Wiper ticket is the definitive gateway to the Kitui Governorship, failing to secure the party nomination in Q4 2026 renders every downstream Phase 1–5 strategy entirely obsolete.
-> *   **Yielding the Visibility Monopoly:** Every day of delay allows the primary competitor (growing 3x faster) to monopolize countywide name recognition, consolidating a polling advantage that will become mathematically impossible to close within the party's selection window.
-> *   **Strategic Irrelevance:** Failing to narrow the current 15.3-point polling deficit before the party's evaluation period will result in a unilateral nomination decision based on existing name recognition, terminating the candidacy before the August 2027 general election.
-
----

@@ -2,21 +2,31 @@
 
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, HandCoins } from "lucide-react";
+import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, Route, CalendarClock, Workflow, ListChecks, Handshake, Radio } from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
 import { readingMinutes } from "../hooks/useReadingProgress";
 import type { SectionItem } from "../lib/section-index";
 
 const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
-  decision: HandCoins,
-  evidence: Map,
-  strategy: MessageSquare,
-  publishing: Megaphone,
-  ground: Users,
-  defence: Shield,
-  technology: Database,
-  team: Target,
-  delivery: Gauge,
+  cover: BookLock,
+  summary: FileText,
+  situation: Map,
+  objectives: Target,
+  audiences: Users,
+  approach: Compass,
+  messaging: MessageSquare,
+  "scope-platforms": Layers,
+  "scope-media": Megaphone,
+  "scope-ground": Radio,
+  "scope-data": Database,
+  roadmap: Route,
+  deliverables: CalendarClock,
+  measurement: Gauge,
+  governance: Workflow,
+  risk: Shield,
+  structure: ClipboardList,
+  assumptions: ListChecks,
+  nextsteps: Handshake,
 };
 
 interface MobileTOCModalProps {

@@ -80,7 +80,7 @@ import { ProseFold } from "./markdown/ProseFold";
 
 const kituiCentralPopulationDispute = DISPUTED_FIGURES.find((d) => d.id === "kitui-central-2019-population")!;
 
-// §0.3's "three governing realities" — matched by the start of each bolded lead
+// §6.3's three operating conditions — matched by the start of each bolded lead
 // sentence so the list item gets pull-quote emphasis without touching the wording.
 const GOVERNING_REALITY_TRIGGERS = [
   "Roughly 86% of Kitui residents are outside the internet-using population",
@@ -89,7 +89,7 @@ const GOVERNING_REALITY_TRIGGERS = [
 ];
 import { PHASES } from "../lib/phases";
 
-// §8.3's phase parts ("Phase −1: Nomination Sprint …", "Phase 0: …") don't start
+// §4.1's phase parts ("Phase −1: Nomination Sprint …", "Phase 0: …") don't start
 // with a digit, so they never pick up a heading id from headingSlug — but they should still get
 // the matching phase colour on their left border instead of the generic gold accent.
 const PHASE_HEADING_PATTERN = /^Phase\s+(−1|-1|0|1|2|3)\s*:/i;
@@ -200,113 +200,112 @@ const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
 // section. Every key below now resolves to a heading that exists; a build-time check would be
 // the next step if this map grows again.
 const HEADING_INSERTS: Record<string, React.ReactNode> = {
-  // ---- Situation and argument (§0–§2) -------------------------------------------------
-  "decision-sec-0-1": <PollingTrajectorySimulator />,
+  // ---- Cover, summary, situation and approach (§1-§7) ---------------------------------
+  "summary-sec-2-2": <PollingTrajectorySimulator />,
   // The scorecards are the objectives. What they do not carry is the eight indicator sets that
   // stayed with the work they measure — indexed beneath them rather than moved here.
-  "decision-sec-8-1": <ObjectivesIndex />,
-  "evidence-sec-1-1": <NominationPathPanel />,
-  // The core narrative is §3, ahead of the strategic context — its thesis opens the argument.
-  "strategy-sec-2-1": <EconomistGovernorThesis />,
-  "evidence-sec-1-2-2": (
+  "measurement-sec-11-1": <ObjectivesIndex />,
+  "situation-sec-3-1": <NominationPathPanel />,
+  // The governing claim opens §6, ahead of the pillars and themes that rest on it.
+  "approach-sec-6-1": <EconomistGovernorThesis />,
+  "situation-sec-3-3-2": (
     <>
       <ConstitutionalBranchNavigator />
       <CompetitiveQuadrantBlock />
     </>
   ),
-  "evidence-sec-1-2-1": (
-    <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §1.2.1">
+  "situation-sec-3-3-1": (
+    <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §3.3.1">
       One of Kenya&rsquo;s most consistent and authoritative voices on macroeconomic governance,
       fiscal discipline, and budget oversight.
     </SectionPortrait>
   ),
-  "evidence-sec-1-2-3": (
+  "situation-sec-3-3-3": (
     <>
       <WardCartogramBlock />
       <PathTo200kBlock />
       <ConstituencyWeightBlock />
     </>
   ),
-  "evidence-sec-1-2-4": <ResourceEnvelopeBlock />,
-  "evidence-sec-1-2-5": (
+  "situation-sec-3-3-4": <ResourceEnvelopeBlock />,
+  "situation-sec-3-3-5": (
     <>
       <OfflineWaterline />
       <DisputedFigure entry={kituiCentralPopulationDispute} />
     </>
   ),
-  "evidence-sec-1-2-6": (
+  "situation-sec-3-3-6": (
     <>
       <ElectoralHistoryPanel />
       <ElectoralTimelineBlock />
     </>
   ),
-  "evidence-sec-1-2-7": (
+  "situation-sec-3-3-7": (
     <>
       <FiscalAuditPanel />
       <FiscalAuditChartBlock />
     </>
   ),
-  "evidence-sec-1-2-8": <DroughtFoodSecurityPanel />,
-  "evidence-sec-1-2-9": <MuiBasinPanel />,
-  "evidence-sec-1-2-10": <CompetitorFieldPanel />,
-  "evidence-sec-1-3-1": <VoteFunnel />,
-  "evidence-sec-1-3-3": <PathTo200kCalculator />,
-  "evidence-sec-1-3-5": <RecognitionDeficitOverlay />,
-  "evidence-sec-2-4": <AudienceSegmentationMatrix />,
-  // §9 splits the electorate into a connected minority and an offline majority. The showcase is
+  "situation-sec-3-3-8": <DroughtFoodSecurityPanel />,
+  "situation-sec-3-3-9": <MuiBasinPanel />,
+  "situation-sec-3-3-10": <CompetitorFieldPanel />,
+  "situation-sec-3-4-1": <VoteFunnel />,
+  "situation-sec-3-4-3": <PathTo200kCalculator />,
+  "situation-sec-3-4-5": <RecognitionDeficitOverlay />,
+  "audiences-sec-5-1": <AudienceSegmentationMatrix />,
+  // §7.3 splits the electorate into a connected minority and an offline majority. The showcase is
   // that argument as an object: one handset, the campaign on all seven channels, ending on the
   // USSD dialog that reaches more voters than the six apps together.
-  "evidence-sec-3-1": <PhoneShowcase />,
-  "strategy-sec-2-6": (
+  "situation-sec-3-6": <PhoneShowcase />,
+  "messaging-sec-7-1": (
     <>
       <MessagingPlayground />
       <ToneVoiceSlider />
     </>
   ),
-  "publishing-sec-2-7-4": <CommunityScheduler />,
-  "defence-sec-5-1": <CounterMessagingGrid />,
-  // The ownership/alignment/tier table this chart plots, now §3.4.1 after paid and earned
-  // media were folded into one section.
-  "evidence-sec-3-4-1": <MediaOwnershipBlock />,
+  "scope-platforms-sec-8-3-4": <CommunityScheduler />,
+  "risk-sec-13-1": <CounterMessagingGrid />,
+  // The ownership/alignment/tier table this chart plots, now §8.5.1 in the situation analysis.
+  "situation-sec-3-7-1": <MediaOwnershipBlock />,
 
-  // ---- What we run, defend, measure and ask for (§3–§9) --------------------------------
-  "decision-sec-9-3": (
-    <SectionPortrait id="seated-grey-cropped" kicker="Working together — §9.3" flip>
+  // ---- Scope, roadmap, measurement, governance and risk (§8-§16) ----------------------
+  "governance-sec-12-1": (
+    <SectionPortrait id="seated-grey-cropped" kicker="The engagement model — §12.1" flip>
       Firefly reports to a single named campaign-side counterpart.
     </SectionPortrait>
   ),
-  "strategy-sec-2-2": <StrategicPillarsMatrix />,
-  "evidence-sec-1-4": <GeographicZoneMatrix />,
-  // §4D carried no anchored visualisation at all before this — the one section of nine that was
-  // a wall of text, and the one describing the technology stack, which is the part of the
-  // proposal this reader is most likely to test against the artifact itself.
-  "technology-sec-6-4-2": <BenchmarkLadder />,
-  "decision-sec-9-2-5": <ServiceLevelSelector />,
+  "approach-sec-6-2": <StrategicPillarsMatrix />,
+  "situation-sec-3-5": <GeographicZoneMatrix />,
+  // The technology workstreams carried no anchored visualisation at all before this — the one
+  // stretch of the document that was a wall of text, and the one describing the technology
+  // stack, which is the part this reader is most likely to test against the artifact itself.
+  "scope-data-sec-8-15-2": <BenchmarkLadder />,
+  "deliverables-sec-10-1-1": <ServiceLevelSelector />,
   // The four-column matrix below this heading stacks into nine attribute cards on a phone, which
   // answers "what does row six say" rather than "which tier should we buy". One card per tier,
   // swipeable, with the table left in place underneath as the accessible equivalent.
-  "decision-sec-9-2-6": <TierComparisonCarousel />,
-  "ground-sec-4-1": <TerminalShowcase />,
-  "ground-sec-4-2": <FlywheelSchematic />,
-  "ground-sec-4-3": (
+  "deliverables-sec-10-1-2": <TierComparisonCarousel />,
+  "scope-ground-sec-8-8": <TerminalShowcase />,
+  "scope-ground-sec-8-9": <FlywheelSchematic />,
+  "scope-ground-sec-8-10": (
     <>
       <FeaturePhoneSpecimen />
       <ReachSplit />
       <SMSFeedbackVisualizer />
     </>
   ),
-  "strategy-sec-2-8": <PersuasionFramingMatrix />,
-  "strategy-sec-6-5": <DataSecurityEthicsCharter />,
-  "publishing-sec-3-2": <MediaPlaybackMockup />,
-  "publishing-sec-3-5": (
+  "messaging-sec-7-2": <PersuasionFramingMatrix />,
+  "governance-sec-12-5": <DataSecurityEthicsCharter />,
+  "scope-media-sec-8-6": <MediaPlaybackMockup />,
+  "scope-media-sec-8-7": (
     <>
       <MediaRadioLandscapeCard />
       <RadioAircoverDial />
     </>
   ),
-  "strategy-sec-2-3": <SloganBuilder />,
-  "strategy-sec-8-5": <PublicServiceDeliveryTracker />,
-  "delivery-sec-8-3": (
+  "approach-sec-6-3": <SloganBuilder />,
+  "scope-platforms-sec-8-2": <PublicServiceDeliveryTracker />,
+  "roadmap-sec-9-1": (
     <>
       <PhaseRail />
       <KpiPhaseBlock />
@@ -331,23 +330,23 @@ function buildComponents(tabId: TabId): Components {
               const headers = getTableHeaderTexts(children).map((h) => h.toLowerCase());
               const has = (text: string) => headers.some((h) => h.includes(text));
 
-              // §1.2.5 "National platform sizing" — replaced by the sorted bar chart
+              // §3.3.5 "National platform sizing" — replaced by the sorted bar chart
               // (item 13), not kept alongside it.
-              if (tabId === "evidence" && has("platform") && has("kenya audience")) {
+              if (tabId === "situation" && has("platform") && has("kenya audience")) {
                 return <PlatformSizingBlock />;
               }
 
-              // §1.2.1 candidate-asset table — assertion/evidence/application becomes
+              // §3.3.1 candidate-asset table — assertion/evidence/application becomes
               // claim cards (item 21), replacing the table rather than sitting alongside it.
-              if (tabId === "evidence" && has("asset") && has("evidence") && has("digital application")) {
+              if (tabId === "situation" && has("asset") && has("evidence") && has("digital application")) {
                 return <ClaimCards>{children}</ClaimCards>;
               }
 
               const table = <InteractiveTable>{children}</InteractiveTable>;
 
-              // §0.1 Mizani survey table — table stays (item 14 says keep it with only
+              // §6.2 Mizani survey table — table stays (item 14 says keep it with only
               // two data points), slope chart added alongside it.
-              if (tabId === "decision" && has("kasalu") && has("wambua")) {
+              if (tabId === "summary" && has("kasalu") && has("wambua")) {
                 return (
                   <>
                     {table}
@@ -432,7 +431,7 @@ function buildComponents(tabId: TabId): Components {
               return <MarkdownParagraph tabId={tabId}>{children}</MarkdownParagraph>;
             },
             blockquote: ({ children }) => {
-              // The central narrative line (§2.1) gets the full pull-quote treatment;
+              // The central narrative line (§8.12) gets the full pull-quote treatment;
               // every other blockquote (the ethics charter, etc.) keeps the standard styling.
               if (getDeepText(children).includes("Kitui has resources")) {
                 return <PullQuote>{children}</PullQuote>;
@@ -444,7 +443,7 @@ function buildComponents(tabId: TabId): Components {
               );
             },
             ul: ({ children }) => {
-              // §9.1 writes each Operational Commitment as six bolded fields in a fixed order —
+              // §4 writes each operational commitment as six bolded fields in a fixed order —
               // a table written as prose. Where that exact shape appears, lay it out as one;
               // every other list in the document is untouched.
               const fields = parseLabelledList(children);
@@ -454,10 +453,10 @@ function buildComponents(tabId: TabId): Components {
               return <ul>{children}</ul>;
             },
             li: ({ children }) => {
-              // The three governing realities (§0.3) get a pull-quote-style emphasis
+              // The three operating conditions (§6.3) get a pull-quote-style emphasis
               // treatment instead of a plain bullet — every other list item is unaffected.
               const text = normalizeWhitespace(getDeepText(children));
-              const isGoverningReality = tabId === "decision" && GOVERNING_REALITY_TRIGGERS.some((t) => text.includes(t));
+              const isGoverningReality = tabId === "summary" && GOVERNING_REALITY_TRIGGERS.some((t) => text.includes(t));
               if (isGoverningReality) {
                 return <MarkdownListItem tabId={tabId} emphasis>{children}</MarkdownListItem>;
               }
@@ -531,7 +530,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
   // panel, so the reader gets the labels at a glance and the bodies on demand. Everything else
   // comes back as ordinary markdown and renders exactly as before.
   const markdownComponents = buildComponents(tabId);
-  const segments = segmentContent(content, { isClosingSection: tabId === "decision" });
+  const segments = segmentContent(content, { isClosingSection: tabId === "nextsteps" });
 
   const renderMarkdown = (text: string, key?: string) => (
     <ReactMarkdown
@@ -576,8 +575,8 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
 
         {/* The ask closes the document, inside the prose flow. It used to sit in the footer
             chrome below a rule, next to the print widget — which framed a vendor's closing
-            request as one more piece of page tooling. §9.3 builds to it; it belongs there. */}
-        {tabId === "decision" && <DecisionPanel />}
+            request as one more piece of page tooling. §16 builds to it; it belongs there. */}
+        {tabId === "nextsteps" && <DecisionPanel />}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-// Campaign stages from Section 20 (Phased Implementation Plan and KPIs), one colour per
+// Campaign stages from §9.1 (the implementation roadmap), one colour per
 // stage, reused across the timeline, phase-scoped charts and section headers.
 export interface Phase {
   id: string;

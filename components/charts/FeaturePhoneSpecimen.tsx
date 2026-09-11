@@ -15,7 +15,7 @@ import { useMotionPreset } from "../../hooks/useMotionPreset";
 /**
  * The channel that reaches the other 86.4%, as an object you can operate.
  *
- * §4.3 argues that a purely digital campaign in Kitui addresses roughly one resident in seven,
+ * §8.10 argues that a purely digital campaign in Kitui addresses roughly one resident in seven,
  * and that the six it misses are concentrated in exactly the wards where the recognition deficit
  * is largest. That argument is made in prose three times. It has never been made as a thing the
  * reader can hold: a 2G handset, a system dialog, six menu options in Kikamba, and a message
@@ -23,15 +23,15 @@ import { useMotionPreset } from "../../hooks/useMotionPreset";
  *
  * WHAT IS QUOTED AND WHAT IS NOT.
  *
- * The menu is §4.3.3 verbatim, Kikamba and English, in the order the document prints them. The
- * shortcode is `*[Insert shortcode]#`, because that is what §4.3.3 says and Appendix A logs the
+ * The menu is §8.10.3 verbatim, Kikamba and English, in the order the document prints them. The
+ * shortcode is `*[Insert shortcode]#`, because that is what §8.10.3 says and Appendix A logs the
  * vendor allocation as an open item — a plausible-looking number here would be exactly the kind
  * of invention the provenance system exists to stop, so it carries the awaiting badge instead.
  *
- * The vernacular SMS versions are deliberately absent rather than drafted. §3.6.3 sets a
+ * The vernacular SMS versions are deliberately absent rather than drafted. §7.3.3 sets a
  * four-stage approval chain in which a Lead Kikamba Writer drafts, an independent reviewer
  * reverse-translates to prove no commitment was distorted, and a native Kamba elder or senior
- * vernacular broadcaster holds mandatory sign-off. §3.7 puts those appointments in Phase −1.
+ * vernacular broadcaster holds mandatory sign-off. §8.5 puts those appointments in Phase −1.
  * None of them exists yet, so the widget shows where the copy WOULD be and who has to sign it,
  * which is a truer demonstration of the pipeline than inventing a sentence in a language nobody
  * on this side has reviewed. A half-translated interface would demonstrate the precise
@@ -179,7 +179,7 @@ export function FeaturePhoneSpecimen() {
         </h4>
         <p className="t-small text-muted leading-relaxed mt-1.5">
           USSD works on every phone, needs no internet, and costs the voter almost nothing. This is
-          §4.3.3&rsquo;s menu on a 2G handset, and §4.3.2&rsquo;s message beside it.
+          §8.10.3&rsquo;s menu on a 2G handset, and §8.10.2&rsquo;s message beside it.
         </p>
 
         {/* Language, scoped to this widget. The rest of the document stays in English. */}
@@ -250,7 +250,7 @@ export function FeaturePhoneSpecimen() {
               ))}
             </ol>
             <p className="t-micro text-muted mt-2 leading-snug">
-              §4.3.3, quoted. The shortcode is a vendor allocation the campaign has not made yet.
+              §8.10.3, quoted. The shortcode is a vendor allocation the campaign has not made yet.
             </p>
           </div>
         </div>
@@ -299,7 +299,7 @@ export function FeaturePhoneSpecimen() {
                   ))}
                 </ol>
                 <p className="t-micro text-muted mt-2.5 leading-snug">
-                  §3.7 places those appointments in Phase −1. Showing invented vernacular here
+                  §8.5 places those appointments in Phase −1. Showing invented vernacular here
                   would be the claim-versus-delivery gap this proposal argues against.
                 </p>
               </div>
@@ -314,7 +314,7 @@ export function FeaturePhoneSpecimen() {
                 </div>
                 <p className="t-micro text-muted mt-2 leading-snug">
                   <span className="font-bold text-ink">{specimen.structure}.</span> {specimen.frequency}.
-                  §4.3.2 sets the 160-character limit; it is a billing boundary, not a style rule.
+                  §8.10.2 sets the 160-character limit; it is a billing boundary, not a style rule.
                 </p>
               </>
             )}
@@ -344,7 +344,7 @@ export function FeaturePhoneSpecimen() {
             <span className="tabular-nums font-bold text-ink">
               {sendCost(SMS_COST_PER_MESSAGE.from)}–{sendCost(SMS_COST_PER_MESSAGE.to)}
             </span>
-            . §4.3.2.
+            . §8.10.2.
           </p>
         </div>
       </div>

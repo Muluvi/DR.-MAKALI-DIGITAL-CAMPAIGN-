@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
-import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Coins, Users, Radio, ShieldCheck, Type, Eye, EyeOff, Map, MessageSquare, Megaphone, Shield, Database, Gauge, HandCoins } from "lucide-react";
+import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Coins, Users, Radio, ShieldCheck, Type, Eye, EyeOff, Map, MessageSquare, Megaphone, Shield, Database, Gauge, HandCoins, BookLock, ClipboardList, Compass, Layers, Route, CalendarClock, Workflow, ListChecks, Handshake } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
 import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
@@ -103,15 +103,25 @@ interface ClientPageProps {
 
 // One icon per top-level section, keyed to what the section is about rather than to its position.
 const SECTION_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
-  decision: HandCoins,
-  evidence: Map,
-  strategy: MessageSquare,
-  publishing: Megaphone,
-  ground: Users,
-  defence: Shield,
-  technology: Database,
-  team: Target,
-  delivery: Gauge,
+  cover: BookLock,
+  summary: FileText,
+  situation: Map,
+  objectives: Target,
+  audiences: Users,
+  approach: Compass,
+  messaging: MessageSquare,
+  "scope-platforms": Layers,
+  "scope-media": Megaphone,
+  "scope-ground": Radio,
+  "scope-data": Database,
+  roadmap: Route,
+  deliverables: CalendarClock,
+  measurement: Gauge,
+  governance: Workflow,
+  risk: Shield,
+  structure: ClipboardList,
+  assumptions: ListChecks,
+  nextsteps: Handshake,
 };
 
 const WiperUmbrellaLogo = () => (
@@ -154,11 +164,11 @@ const PART_TINTS = ["from-accent/[0.025]", "from-gold/[0.025]"];
 // The five places a candidate looks for first. The scorecards lead, because they are the numbers
 // the brief asks to be reachable in one interaction from the landing view.
 const QUICK_LINKS = [
-  { id: "decision-sec-8-1", label: "The scorecards" },
-  { id: "evidence-sec-1-3-1", label: "Votes needed to win" },
-  { id: "evidence-sec-1-3-2", label: "The 40 wards" },
-  { id: "decision-sec-9-2", label: "Budget tiers" },
-  { id: "evidence-sec-3-4-1", label: "Kikamba radio" },
+  { id: "measurement-sec-11-1", label: "The scorecards" },
+  { id: "situation-sec-3-4-1", label: "Votes needed to win" },
+  { id: "situation-sec-3-4-2", label: "The 40 wards" },
+  { id: "deliverables-sec-10-1", label: "Budget tiers" },
+  { id: "situation-sec-3-7-1", label: "Kikamba radio" },
 ];
 
 interface LazySectionProps {
@@ -222,6 +232,9 @@ function LazySection({ id, content, renderSectionExtras, immediate = false }: La
 }
 
 const TAB_IDS: string[] = SECTIONS.map((s) => s.id);
+
+/** The route served at "/": the proposal's cover, and the only one that carries the hero. */
+const LANDING_TAB: TabId = "cover";
 
 export function ClientPage({ sections, documents, wordCounts, activeTab, expanded }: ClientPageProps) {
   // Always starts on the overview so server and client render the same tree on first paint — the
@@ -454,23 +467,23 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
   // Section extras.
   //
   // This used to be a two-column shelf of ~50 widgets appended BELOW each tab's entire prose —
-  // the chart explaining §9.2.5 sat 20,000 words downstream of the text it illustrated. Anything
+  // the chart explaining §10.1.1 sat 20,000 words downstream of the text it illustrated. Anything
   // that genuinely explains a section is now a heading insert in MarkdownViewer, mounted next to
   // the prose it belongs to. What remains here is the handful of surfaces that are about the
   // document as a whole rather than about one section, plus the closing ask.
   const renderSectionExtras = (sectionId: string) => {
-    // The overview is the landing view and closes on its own section cards, so it does not need
+    // The cover is the landing view and closes on its own section cards, so it does not need
     // the reading-mode strip beneath it.
-    const showFocusToggle = sectionId !== "decision";
+    const showFocusToggle = sectionId !== LANDING_TAB;
 
     return (
       <div className="mt-8 pt-8 border-t border-line/20 space-y-8">
-        {/* The landing closes on the offer itself: nine cards, in reading order, so the first
-            screen answers "what is being proposed" without opening a menu. */}
-        {sectionId === "decision" && !isExpanded && (
+        {/* The cover closes on the offer itself: one card per route, in reading order, so the
+            first screen answers "what is being proposed" without opening a menu. */}
+        {sectionId === LANDING_TAB && !isExpanded && (
           <nav aria-label="Proposal sections">
             <h2 className="font-serif text-lg sm:text-xl font-semibold text-ink mb-1">What this proposal covers</h2>
-            <p className="text-sm text-muted mb-5">Nine sections. Every one of them opens on what it is for.</p>
+            <p className="text-sm text-muted mb-5">Sixteen sections, in the order a proposal is read. Every one opens on what it is for.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
               {navItems.slice(1).map((item) => {
                 const Icon = item.icon;
@@ -506,7 +519,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
 
         {/* DecisionPanel moved into the document's own close (MarkdownViewer); what remains
             here is page tooling, which is what this footer strip is for. */}
-        {!isFocusMode && sectionId === "decision" && <PrintReportGenerator onPrint={printFullDocument} />}
+        {!isFocusMode && sectionId === LANDING_TAB && <PrintReportGenerator onPrint={printFullDocument} />}
       </div>
     );
   };
@@ -526,7 +539,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
       <ScrollProgressBar />
       
       {/* Hero Header */}
-      {(activeTab === "decision" || isExpanded) && (
+      {(activeTab === LANDING_TAB || isExpanded) && (
         <header className="cv-auto-hero fx-vignette relative pt-10 sm:pt-14 pb-8 sm:pb-12 overflow-hidden print:pt-4 print:pb-4">
           {/* The base plate stays: it is what guarantees contrast for the title. The ambient
               field — drifting colour wells, a masked grid, film grain — is layered over it and
@@ -640,7 +653,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
       )}
 
       {/* Data Strip */}
-      {(activeTab === "decision" || isExpanded) && (
+      {(activeTab === LANDING_TAB || isExpanded) && (
         <section className="cv-auto-strip max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 mb-8 print:hidden space-y-6">
           <LazyMount minHeight={420}>
             <DataVisualizations />
@@ -657,14 +670,14 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
         </div>
         
         {/* Responsive Toolbar */}
-        <div className={`fx-header fx-dir-header sticky top-0 z-40 fx-glass rounded-b-xl py-2 sm:py-3 ${(activeTab === "decision" || isExpanded) ? "mt-3 sm:mt-6" : "mt-0"} mb-3 sm:mb-6 flex items-center justify-between gap-2 print:hidden transition-all duration-300 ${
+        <div className={`fx-header fx-dir-header sticky top-0 z-40 fx-glass rounded-b-xl py-2 sm:py-3 ${(activeTab === LANDING_TAB || isExpanded) ? "mt-3 sm:mt-6" : "mt-0"} mb-3 sm:mb-6 flex items-center justify-between gap-2 print:hidden transition-all duration-300 ${
           (!chromeVisible && !isFocusMode) || isZeroChrome ? "-translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100"
         }`}>
           {/* The hairline under the bar is a gradient rather than a rule, so the toolbar reads as
               a lit edge over the document instead of a box drawn on top of it. */}
           <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-0 bottom-0" />
           <div className="flex items-center gap-1.5 sm:gap-4 flex-1 min-w-0 overflow-x-auto scrollbar-none py-0.5">
-            {activeTab !== "decision" && !isExpanded && (
+            {activeTab !== LANDING_TAB && !isExpanded && (
               <div className="flex items-center gap-1.5 mr-1 shrink-0">
                 <div className="scale-75 origin-left shrink-0">
                   <WiperUmbrellaLogo />

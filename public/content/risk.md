@@ -1,10 +1,9 @@
-Rapid response, the war room that runs it, the cybersecurity and manipulated-media protocols behind it, and how rivals are monitored from public sources.
 
-## 5.1 Rapid response and opposition handling
+## 13.1 Rapid-response protocol and opposition handling
 
 In a high-stakes gubernatorial campaign, unchecked misinformation and coordinated political attacks can erode voter trust within hours. In Kitui County, ground rumors and hostile talking points travel primarily through two high-velocity vectors: **morning vernacular radio talk shows (06:00–09:00 EAT)** and **hyper-local ward WhatsApp groups**.
 
-The campaign enforces a disciplined **Rapid Response & Opposition Handling System**. This framework is governed by strict **Defamation Law Safeguards (Section 6.1.2)**: all rebuttals focus exclusively on certified public records, legislative Hansard transcripts, and verifiable policy positions, completely eschewing personal invective or unsubstantiated allegations against political rivals.
+The campaign enforces a disciplined **Rapid Response & Opposition Handling System**. This framework is governed by strict **Defamation Law Safeguards (Section 3.2.1)**: all rebuttals focus exclusively on certified public records, legislative Hansard transcripts, and verifiable policy positions, completely eschewing personal invective or unsubstantiated allegations against political rivals.
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
@@ -28,9 +27,7 @@ The campaign enforces a disciplined **Rapid Response & Opposition Handling Syste
 ════════════════════════════════════════════════════════════════════════════════════
 ```
 
----
-
-### 5.1.1 What we monitor, and how threats reach us
+### 13.1.1 What we monitor, and how threats reach us
 
 The campaign monitors four complementary intelligence streams 24 hours a day, 7 days a week:
 
@@ -39,9 +36,7 @@ The campaign monitors four complementary intelligence streams 24 hours a day, 7 
 3.  **Social Listening Keyword Feeds:** Automated continuous tracking via Brand24 / Talkwalker of high-frequency keywords: *"Dr. Makali Mulu"*, *"Kitui Governor 2027"*, *"Kitui Central CDF"*, *"Ndengu price"*, and competitor candidate handles.
 4.  **Field Captain Rumor Logs:** Twice-daily SMS pulse reports from the 400 Ward Captains logging prevalent market-day and baraza whispers.
 
----
-
-### 5.1.2 The four-tier response decision tree
+### 13.1.2 The four-tier response decision tree
 
 To avoid elevating fringe attacks or wasting campaign capital, the campaign evaluates every incident against a standardized **Response Decision Tree**:
 
@@ -70,9 +65,7 @@ To avoid elevating fringe attacks or wasting campaign capital, the campaign eval
 └────────────┴─────────────────────────────┴─────────────────────────────────┴────────────────────────────────┘
 ```
 
----
-
-### 5.1.3 Response times, by channel
+### 13.1.3 Response times, by channel
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -97,9 +90,7 @@ To avoid elevating fringe attacks or wasting campaign capital, the campaign eval
 └────────────────────────────────┴────────────────────────────────────────────┘
 ```
 
----
-
-### 5.1.4 Holding positions, pre-drafted
+### 13.1.4 Holding positions, pre-drafted
 
 The campaign maintains ready-to-deploy holding positions, evidential citations, and Kikamba framing for the four primary lines of attack:
 
@@ -117,7 +108,7 @@ The campaign maintains ready-to-deploy holding positions, evidential citations, 
 │                     mbesa sya mwananchi."                                                                   │
 │ • Primary Source:  National Assembly Hansard; Kitui Central NG-CDF Project Inventory (84                    │
 │                     solar boreholes; classroom and bursary counts pending the inventory —                   │
-│                     the Tier 1 figure in 1.2.1 and 2.1.1 is 12,573 bursary recipients and                   │
+│                     the Tier 1 figure in 3.3.1 and 6.1.1 is 12,573 bursary recipients and                   │
 │                     KSh 47m, and only that figure should be used until it is reconciled).                   │
 ├─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
 │ 2. THE "NORTHERN & SOUTHERN RECOGNITION DEFICIT" QUESTION                                                   │
@@ -130,7 +121,7 @@ The campaign maintains ready-to-deploy holding positions, evidential citations, 
 │                     Mwingi North and Kitui South receives guaranteed, direct capital investment."           │
 │ • Kikamba Framing: "Mwanya wa maendeeo nĩ wa kĩla mũndũ. Mbesa sya Ward Fund syĩithiwa kwa kĩla kĩtheka     │
 │                     kũtetheesya mĩsyĩ yonthe ya Kitui ta ĩmwe."                                             │
-│ • Primary Source:  The ward allocation methodology, once drafted. Section 8.5 is the                        │
+│ • Primary Source:  The ward allocation methodology, once drafted. Section 8.2 is the                        │
 │                     delivery tracker and does not carry a schedule; Firefly would build                     │
 │                     the formula with the campaign before this line is used on air.                          │
 ├─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
@@ -158,9 +149,7 @@ The campaign maintains ready-to-deploy holding positions, evidential citations, 
 └─────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
----
-
-### 5.1.5 Staying inside defamation law
+### 13.1.5 Staying inside defamation law
 
 All campaign communicators, surrogates, and media buyers are strictly bound by the following **Three Defamation Safeguards**:
 
@@ -170,7 +159,7 @@ All campaign communicators, surrogates, and media buyers are strictly bound by t
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 5.1.5 STRATEGIC TAKEAWAY
+                          SECTION 13.1.5 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • 4-Tier Decision Matrix:      Prevents elevating fringe attacks while ensuring 
                                 <15 min radio rebuttals and <30 min WhatsApp containment.
@@ -180,11 +169,12 @@ All campaign communicators, surrogates, and media buyers are strictly bound by t
                                 prohibits private character attacks and unverified claims.
 ════════════════════════════════════════════════════════════════════════════════════
 ```
+
 ---
 
-## 5.2 The digital war room
+## 13.2 The digital war room
 
-### 5.2.1 War room operating model, shift coverage and dashboard view
+### 13.2.1 War room operating model, shift coverage and dashboard view
 
 The war room is the campaign's nerve centre for monitoring, response and
 rapid decision-making.
@@ -198,7 +188,7 @@ During peak periods (January–August 2027), the war room operates on a three-sh
 
 The command console centralises real-time metrics: live sentiment score; trending hashtags; competitor activity alerts; misinformation tracking log; response status tracker; hourly engagement; **SMS delivery and opt-out rates**; and **spend against ceiling**.
 
-### 5.2.2 Monitoring tools
+### 13.2.2 Monitoring tools
 
 | Tool class | Function |
 |---|---|
@@ -209,9 +199,9 @@ The command console centralises real-time metrics: live sentiment score; trendin
 | **Meta Ad Library** | Competitor ad spend, creative and targeting estimates |
 | **Google Ads Transparency Centre** | Competitor search advertising |
 | Custom BI dashboard | Centralised real-time metrics |
-| **Radio monitoring** | Kamba-language station tracking (Section 3.5) — critical, as most attacks on Dr. Mulu will originate on air, not online |
+| **Radio monitoring** | Kamba-language station tracking (Section 8.7) — critical, as most attacks on Dr. Mulu will originate on air, not online |
 
-### 5.2.3 Rapid-response protocol and pre-approved message library
+### 13.2.3 Rapid-response protocol and pre-approved message library
 
 | Severity | Definition | Response time | Approval |
 |---|---|---|---|
@@ -224,9 +214,9 @@ To execute rapid containment without awaiting ad-hoc legal drafting, a pre-appro
 * Kikamba, Kiswahili and English versions of key messages
 * Template statements for policy positions issued in response to attack
 * Fact-check cards linking to verified sources
-* **Deepfake first-response templates** (Section 5.3.5)
+* **Deepfake first-response templates** (Section 13.3.5)
 
-### 5.2.4 Red-team drills
+### 13.2.4 Red-team drills
 
 *Reactive protocols fail because they are first used under real pressure.*
 
@@ -237,16 +227,16 @@ before the general election.
 **Method:** a small red-team panel — Firefly's crisis lead, one campaign
 representative, and an external participant with no stake in the outcome — is
 briefed to attack. The response team is **not** told which scenario is coming
-or when. The drill runs in real time against the Section 5.2.3 clock.
+or when. The drill runs in real time against the Section 13.2.3 clock.
 
 **Standing scenario library:**
 | # | Scenario | Tests |
 |---|---|---|
 | 1 | Fabricated audio of Dr. Mulu making an inflammatory statement, seeded on WhatsApp | Deepfake protocol; 30-minute Level 3 clock |
 | 2 | Coordinated hashtag attack on his NG-CDF record | Fact-base readiness; rebuttal library |
-| 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval (Section 6.5.4) |
-| 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 3.5) |
-| 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section 5.3.4) |
+| 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval (Section 12.5.4) |
+| 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 8.7) |
+| 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section 13.3.4) |
 | 7 | Manufactured "grassroots" campaign attacking a rival, falsely attributed to Dr. Mulu | Charter defence; provenance evidence |
 
 **Output:** every drill produces a written report — actual response times
@@ -260,9 +250,9 @@ target**.
 
 ---
 
-## 5.3 Cybersecurity and manipulated media
+## 13.3 Cybersecurity and manipulated media
 
-### 5.3.1 The threat model
+### 13.3.1 The threat model
 
 Kenyan campaigns face account takeover, phishing of staff and volunteers,
 leaked internal material, and increasingly the fabrication of audio and video.
@@ -277,7 +267,7 @@ For this campaign specifically, the highest-consequence scenarios are:
 3. Leaked internal strategy material — including, if mishandled, this document
 4. Fabricated audio or video of the candidate
 
-### 5.3.2 Account security baseline
+### 13.3.2 Account security baseline
 
 | Control | Standard | Applies to |
 |---|---|---|
@@ -290,9 +280,9 @@ For this campaign specifically, the highest-consequence scenarios are:
 | Recovery contacts | Documented, verified, held by two named people | Candidate accounts |
 
 **Hardware keys for the candidate and admins are non-negotiable and cost very
-little.** `[Insert quoted cost — typically a modest per-key figure; two keys per critical account holder for redundancy]`
+little.** `[Insert specified hardware security key model — two keys per critical account holder for redundancy]`
 
-### 5.3.3 Phishing awareness
+### 13.3.3 Phishing awareness
 
 * Onboarding training for every staff member and Tier 3–4 volunteer before
 account access is granted
@@ -304,7 +294,7 @@ suspicion to report
 * Specific coverage of the patterns most likely here: fake platform security
 alerts, fake IEBC or party communications, and fake media interview requests
 
-### 5.3.4 The incident response plan
+### 13.3.4 The incident response plan
 
 | Phase | Action | Owner | Target |
 |---|---|---|---|
@@ -320,7 +310,7 @@ campaign confirms or denies authenticity accurately and quickly. It does not
 speculate about the source, and it does not deny the authenticity of genuine
 material — a denial later disproved is worse than the original leak.
 
-### 5.3.5 The deepfake and manipulated media protocol
+### 13.3.5 The deepfake and manipulated media protocol
 
 *The threat that most warrants specific preparation.*
 
@@ -354,7 +344,7 @@ what monitoring tools cannot see
 * Ward champions briefed to report suspicious media immediately through a
 dedicated channel — **the human network is the primary detection layer** for
 private-group circulation
-* Detection tooling at premium tier `[Insert vendor and cost at contracting]`
+* Detection tooling at premium tier `[Insert vendor — selected at contracting]`
 
 **Rapid rebuttal — Level 3, 30-minute clock:**
 | Minute | Action |
@@ -363,7 +353,7 @@ private-group circulation
 | 5–15 | Verify against the campaign's own archive: was Dr. Mulu there, on that date, saying that? Retrieve original footage if it exists |
 | 15–20 | Candidate and senior leadership briefed; response approved |
 | 20–30 | Publish: plain statement of falsity, the verified original where one exists, and provenance evidence. Simultaneously in Kikamba, Kiswahili and English, across all channels **including SMS to the affected wards** |
-| 30–120 | Platform reports filed; journalists briefed directly (Section 3.5); ward champions supplied with a forwarding-friendly correction card for WhatsApp |
+| 30–120 | Platform reports filed; journalists briefed directly (Section 8.7); ward champions supplied with a forwarding-friendly correction card for WhatsApp |
 | Same day | Legal options reviewed with counsel |
 
 **The SMS component is what makes this work in Kitui.** A rebuttal published
@@ -375,9 +365,11 @@ lie.
 This is stated in the charter, rehearsed in drills, and is the reason the
 campaign's own deepfake denials will be believed.
 
-## 5.4 Watching the other campaigns
+---
 
-### 5.4.1 Public sources only, and the line we do not cross
+## 13.4 Competitor monitoring
+
+### 13.4.1 Public sources only, and the line we do not cross
 
 Systematic, lawful, public-source tracking of rivals' digital activity to
 anticipate attacks, identify messaging vulnerabilities and find openings.
@@ -388,7 +380,7 @@ no infiltration of private groups, no purchase of private data, and no
 research into rivals' families or private lives.** Opposition research means
 knowing what opponents say publicly, not surveilling them.
 
-### 5.4.2 Monitoring tools
+### 13.4.2 Monitoring tools
 
 | Tool | Function |
 |---|---|
@@ -396,10 +388,10 @@ knowing what opponents say publicly, not surveilling them.
 | Google Ads Transparency Centre | Competitor search advertising and keywords |
 | Social listening (premium tier) | Mentions, supporter sentiment, emerging narratives |
 | X lists | Curated rival, surrogate and influencer accounts |
-| **Radio monitoring** | Kamba-station coverage and airtime share (Section 3.5) |
+| **Radio monitoring** | Kamba-station coverage and airtime share (Section 8.7) |
 | **Published polling tracker** | Mizani Africa and other published surveys, logged with dates and methodology notes |
 
-### 5.4.3 Competitive intelligence outputs and rapid alerts
+### 13.4.3 Competitive intelligence outputs and rapid alerts
 
 The competitive intelligence workflow produces two operational outputs:
 
@@ -412,7 +404,7 @@ The competitive intelligence workflow produces two operational outputs:
    * **Recommendations:** counter-messaging and proactive content
 2. **The rapid alert system:** New attacks or significant messaging shifts trigger real-time alerts to campaign leadership with recommended responses drawn from the pre-approved library.
 
-### 5.4.4 Reading the current field
+### 13.4.4 Reading the current field
 
 The August 2026 published survey shows Dr. Kasalu's strength built on
 countywide grassroots touring under a branded programme. The strategic
@@ -425,3 +417,95 @@ policy debate Dr. Mulu is better equipped to win than any candidate in the
 field.
 
 ---
+
+## 13.5 Statutory and regulatory compliance
+
+This compliance pack consolidates all statutory, constitutional, and regulatory requirements governing Dr. Makali Mulu’s 2027 Kitui County gubernatorial campaign. Operating with strict legal adherence is both an ethical mandate and an essential defense against administrative disqualification or election petition exposure.
+
+```
+════════════════════════════════════════════════════════════════════════════════════
+                        STATUTORY COMPLIANCE ARCHITECTURE
+════════════════════════════════════════════════════════════════════════════════════
+
+   1. IEBC NOMINATION & STATUTORY CLEARANCE REQUIREMENTS
+   • University Degree Recognition & Commission for University Education (CUE) Clearance
+   • EACC Chapter Six Integrity Clearance Self-Declaration
+   • Kenya Revenue Authority (KRA) Tax Compliance Certificate
+   • Directorate of Criminal Investigations (DCI) Police Clearance Certificate
+   • Higher Education Loans Board (HELB) Clearance Certificate
+   • 500 Registered Voter Nomination Endorsement Signatures per Sub-County
+                                      │
+                                      ▼
+   2. DATA PROTECTION ACT (DPA 2019) & TELCO PRIVACY COMPLIANCE
+   • Lawful Basis: Explicit Opt-In Consent for 2G SMS & USSD Registry
+   • Certificate of Registration with the Office of the Data Protection Commissioner (ODPC)
+   • 100% On-Premise Encrypted Storage (AES-256) within Kenyan Borders
+   • Direct "STOP" Opt-Out Mechanism via Africa's Talking API
+                                      │
+                                      ▼
+   3. ELECTION OFFENCES ACT (EOA 2016) DEFENSE & LIABILITY MATRIX
+   • Prohibition of Bribery, Treating & Undue Influence
+   • Defamation & Hate Speech Quarantine (NCIC / Penal Code Compliance)
+   • Strict Campaign Ad Blackout Window (48 Hours Prior to Polling Station Opening)
+════════════════════════════════════════════════════════════════════════════════════
+```
+
+### 13.5.1 The IEBC nomination and clearance checklist
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                 IEBC STATUTORY NOMINATION CLEARANCE CHECKLIST                               │
+├──────────────────────────┬───────────────────────────────────────────┬──────────────────────────────────────┤
+│ Clearance Dimension      │ Statutory Standard & Issuing Authority    │ Current Status & Legal Verification  │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 1. Academic Degree       │ • Bachelor's Degree from a recognized     │ • **Verified:** Ph.D. in Economics,  │
+│    Requirement           │   university (Article 180(2) & Elections  │   valid Master's and Bachelor's from │
+│                          │   Act Sec. 22). CUE Recognition Letter.   │   University of Nairobi.             │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 2. Chapter Six Integrity │ • Self-Declaration Form cleared by the    │ • **Pending Filing Window:** Formal  │
+│    Clearance             │   Ethics and Anti-Corruption Commission   │   clearance submitted during official│
+│                          │   (EACC). Zero pending corruption trials. │   statutory nomination window.       │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 3. Tax Compliance        │ • Valid Tax Compliance Certificate (TCC)  │ • **Active / Current:** Annual KRA   │
+│    Certificate (TCC)     │   issued by the Kenya Revenue Authority.  │   clearance renewed annually.        │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 4. Police Clearance      │ • Valid Certificate of Good Conduct from  │ • **Scheduled:** Application to be   │
+│    Certificate (CID/DCI) │   the Directorate of Criminal Invest.     │   filed 60 days prior to IEBC date.  │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 5. HELB Clearance        │ • Certificate of Compliance from Higher   │ • **Verified:** Clear record with no │
+│    Certificate           │   Education Loans Board (HELB).           │   outstanding student debt arrears.  │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 6. Voter Nomination      │ • 500 registered voter signatures from at │ • **Operationalized:** Field Ops     │
+│    Endorsement Roll      │   least 5 of the 8 Sub-Counties (Elections│   registering 250 signatures per     │
+│                          │   Act Regulations).                       │   ward (10,000 total buffer roll).   │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 7. Party Nomination /    │ • Certificate of Nomination issued by the │ • **[Requires Legal Confirmation]:** │
+│    Direct Ticket Seal    │   Wiper Democratic Movement NEC/NEB.      │   Exact internal party dispute filing│
+│                          │                                           │   timelines and gazette deadlines.   │
+└──────────────────────────┴───────────────────────────────────────────┴──────────────────────────────────────┘
+```
+
+### 13.5.2 Data protection and election offences liability
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                 DPA 2019 & ELECTION OFFENCES STATUTORY MATRIX                               │
+├──────────────────────────┬───────────────────────────────────────────┬──────────────────────────────────────┤
+│ Legal Dimension          │ Statutory Obligation / Exposure Risk      │ Campaign Risk Mitigation Protocol    │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 1. Data Protection Act   │ • Unlawful processing of personal voter   │ • Campaign registered with ODPC as a │
+│    (DPA 2019) Compliance │   phone numbers carries fines up to       │   Data Controller; all voter phone   │
+│                          │   **Ksh 5,000,000** or 2 years jail.      │   numbers sourced via opt-in barazas;│
+│                          │                                           │   mandatory "STOP" SMS opt-out.      │
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 2. Election Offences Act │ • Voter bribery, distribution of cash, or │ • Strict prohibition of direct cash  │
+│    (EOA 2016) - Bribery  │   free merchandise at rallies is an       │   handouts at rallies; all logistics │
+│                          │   electoral offence causing candidate     │   payments to agents made via audited│
+│                          │   disqualification and 5-year jail.       │   M-Pesa bulk business disbursements.│
+├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
+│ 3. 48-Hour Campaign      │ • All campaign advertising, broadcasts,   │ • All radio spots, SMS engines, and  │
+│    Blackout Window       │   and public rallies must cease **48 hours│   sound caravans terminate exactly   │
+│                          │   prior to polling station opening**.     │   at 18:00 EAT on the 2nd day prior  │
+│                          │                                           │   to polling day.                    │
+└──────────────────────────┴───────────────────────────────────────────┴──────────────────────────────────────┘
+```

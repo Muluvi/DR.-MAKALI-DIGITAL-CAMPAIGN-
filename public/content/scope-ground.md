@@ -1,6 +1,5 @@
-How field reporting and digital response feed each other, the SMS and USSD layer that reaches voters off the internet, and the volunteer and coalition programmes behind it.
 
-## 4.1 Field and digital, working as one
+## 8.8 Workstream 7 — Ground-digital integration
 
 A campaign that operates field organizing and digital messaging as isolated silos will fail in a county where 86.4% of voters are offline. Digital content created in an air-conditioned command center in Nairobi or Kitui Town is worthless if it does not address the live anxieties voiced at the morning livestock auction in Nguni or the wellhead in Mutha.
 
@@ -36,11 +35,9 @@ The campaign establishes a **Closed-Loop Ground-Digital Integration Engine**. Fi
 ════════════════════════════════════════════════════════════════════════════════════
 ```
 
----
+### 8.8.1 What the 40 ward coordinators report
 
-### 4.1.1 What the 40 ward coordinators report
-
-The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, who supervise the **400 Ward Captains** (10 per ward, Section 9.1.2). Each coordinator is equipped with a dual reporting channel: a **secure field WhatsApp bot** for smartphone-equipped coordinators in 3G/4G zones, and a **zero-rated USSD/SMS structured reporting tree** for offline/2G wards.
+The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, who supervise the **400 Ward Captains** (10 per ward, Section 4.2). Each coordinator is equipped with a dual reporting channel: a **secure field WhatsApp bot** for smartphone-equipped coordinators in 3G/4G zones, and a **zero-rated USSD/SMS structured reporting tree** for offline/2G wards.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -74,9 +71,7 @@ The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, w
 3.  **Ground Disinformation & Counter-Narratives:** E.g., *"Rumor circulating in Mutomo that Dr. Mulu's CDF bursary program excluded non-Kitui Central students."*
 4.  **Field Inventory & Collateral Levels:** Current stock of Kikamba manifesto summary leaflets, posters, audio flash drives, and volunteer T-shirts.
 
----
-
-### 4.1.2 From ground intel to a published response in four hours
+### 8.8.2 From ground intel to a published response in four hours
 
 When field intelligence reaches the War Room, it triggers an automated, standardized four-stage response cycle:
 
@@ -106,9 +101,7 @@ When field intelligence reaches the War Room, it triggers an automated, standard
                  • Talking point faxed/messaged to Musyi FM morning show panelists.
 ```
 
----
-
-### 4.1.3 Distribution beyond social media
+### 8.8.3 Distribution beyond social media
 
 To bypass digital connectivity barriers, the campaign turns physical transportation, trade, and civic networks into active information distribution conduits:
 
@@ -134,7 +127,7 @@ To bypass digital connectivity barriers, the campaign turns physical transportat
     *   Placement of seatback information cards in commuter vans detailing Dr. Mulu's 5-point Economic Charter.
 
 #### 3. Weekly Market Days & Caravan Circuits
-*   **Infrastructure:** The 40 major market centers rotating across the county weekly (Section 4.3.4).
+*   **Infrastructure:** The 40 major market centers rotating across the county weekly (Section 8.10.4).
 *   **Operational Role:** Concentrated voter aggregation points.
 *   **Execution:**
     *   Coordinated arrival of the *Mulu Economic Caravan* sound trucks at 10:00 AM on market days.
@@ -147,9 +140,7 @@ To bypass digital connectivity barriers, the campaign turns physical transportat
     *   Ward Captains attend barazas as active community citizens to listen to localized grievances (water, security, relief food).
     *   Post-baraza informal engagement: Engaging elders and attendees outside official proceedings, answering questions, and sharing Dr. Mulu's policy solutions for the specific community issues raised during the baraza.
 
----
-
-### 4.1.4 The operating rhythm
+### 8.8.4 The operating rhythm
 
 To maintain operational tempo across 8 constituencies and 40 wards, the campaign executes a strict, synchronized rhythm with assigned single-point-of-contact (SPOC) owners:
 
@@ -191,7 +182,7 @@ To maintain operational tempo across 8 constituencies and 40 wards, the campaign
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 4.1.4 STRATEGIC TAKEAWAY
+                          SECTION 8.8.4 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
  • Closed-Loop Engine:   Field intel from 40 Ward Coordinators feeds digital/radio
                          messaging within a 4-hour rapid response cycle.
@@ -206,9 +197,9 @@ To maintain operational tempo across 8 constituencies and 40 wards, the campaign
 
 ---
 
-## 4.2 The field-to-digital loop
+## 8.9 Workstream 8 — The field-to-digital loop
 
-### 4.2.1 Operating architecture and bidirectional sync
+### 8.9.1 Operating architecture and bidirectional sync
 
 Most campaigns run two separate operations: a ground team that knocks doors and
 a digital team that buys ads. Neither learns from the other. The ground team
@@ -224,7 +215,7 @@ voters the ground team has confirmed as committed opponents. In a county of
         ^                                        |
         |                                        v
    Priority route                        Voter score updated
-   delivered to                          (Section 6.2.4)
+   delivered to                          (Section 8.13.4)
    champion's phone                              |
         ^                                        v
         |                                Ad audiences and SMS
@@ -242,10 +233,10 @@ voters the ground team has confirmed as committed opponents. In a county of
   * **Pre-briefing:** champions receive the issue the household engaged with — water, bursaries, market fees — so the conversation starts where the voter's interest already is.
   * **Event conversion:** digital sign-ups for barazas are handed to ground organisers with attendance follow-up.
 
-### 4.2.2 Governance and data protection on the doorstep
+### 8.9.2 Governance and data protection on the doorstep
 
 * Field data is campaign first-party data, collected with notice, and governed
-by the same charter as all other personal data (Section 6.5.4).
+by the same charter as all other personal data (Section 12.5.4).
 * Ward champions receive data-handling training before being issued the form,
 and cannot export or retain contact data on personal devices.
 * **Field validation match rate ≥ 85%** is the joint KPI holding both sides
@@ -253,9 +244,9 @@ honest: if the model and the doorstep disagree, the model is wrong.
 
 ---
 
-## 4.3 SMS, USSD and the offline majority
+## 8.10 Workstream 9 — Offline reach: SMS, USSD and voice
 
-### 4.3.1 Why this layer decides the race
+### 8.10.1 Why this layer decides the race
 
 Kitui has **143,340 internet users out of a population of 1,053,991 aged 3 and
 above** — 13.6%. It has **452,948 mobile phone owners** — 42.9%. Nationally, smartphones are
@@ -272,15 +263,15 @@ campaigning in this county, and solving it is the clearest demonstration of the
 rather than where measurement is convenient.
 
 The critical constraint: the campaign can only message consented numbers
-(Section 6.5). List building is therefore a KPI in its own right from Phase −1,
+(Section 12.5). List building is therefore a KPI in its own right from Phase −1,
 not an afterthought — consented contacts are a campaign asset that compounds.
 
-### 4.3.2 The SMS layer
+### 8.10.2 The SMS layer
 
 **Consent-first architecture.** Every number in the campaign database arrives
 by opt-in: a USSD self-registration, a signed baraza sheet with a clear data
 notice, a WhatsApp opt-in confirmation, a website form, or a missed-call
-opt-in. **No purchased lists. Ever.** See Sections 3.6.4 and 6.5 for the
+opt-in. **No purchased lists. Ever.** See Sections 7.3.4 and 12.5 for the
 regulatory basis; the short version is that the industry code requires express
 opt-in for political messages and the ODPC has demonstrated willingness to
 penalise unsolicited messaging.
@@ -302,9 +293,9 @@ permanently
 * Ward-tagged segmentation so a message about mango prices reaches Kitui West
 and not Kyuso
 * Personalisation by first name where consent covers it
-* Per-send audit trail retained, per the charter (Section 6.5.4)
+* Per-send audit trail retained, per the charter (Section 12.5.4)
 
-### 4.3.3 The USSD layer
+### 8.10.3 The USSD layer
 
 USSD works on every phone, requires no internet, and costs the voter almost
 nothing. It is the single most under-used civic channel in Kenyan county
@@ -315,13 +306,13 @@ politics.
 KITUI NA MULU
 1. Sisemo sya Mulu / Mulu's plan for my ward
 2. Andikithya kuvota / Voter registration info
-3. Ripoti wia / Report a local issue      <-- Section 8.5
+3. Ripoti wia / Report a local issue      <-- Section 8.2
 4. Kuthukuma / Volunteer
 5. Kwithukiisya / Get updates (opt-in)
 6. Kiswahili / English
 ```
 
-**Why option 3 matters most.** The service-delivery tracker (Section 8.5) is
+**Why option 3 matters most.** The service-delivery tracker (Section 8.2) is
 reachable from a feature phone in Mutha. A constituent reports a broken water
 point by dialling a short code; the report enters a public register; the
 campaign follows up and publishes the outcome. That is the M&E credential
@@ -330,16 +321,16 @@ operating in public, before the election, on the cheapest possible technology.
 **Set-up:** 5–7 working days for a shared code; 2–4 weeks for a dedicated code
 pending operator approval.
 
-### 4.3.4 Voice and audio
+### 8.10.4 Voice and audio
 
 * **Kikamba voice notes from Dr. Mulu** distributed by WhatsApp and by ward
 champions to Bluetooth-share onward. Audio travels where text does not, and
 carries the candidate's actual voice — the highest-trust format available.
-* **Radio** — see Section 3.5.
+* **Radio** — see Section 8.7.
 * **Audio versions of all flagship policy content**, addressing both low
 literacy (13.0% of the population never attended school) and low bandwidth.
 
-### 4.3.5 The mobile-money agent network
+### 8.10.5 The mobile-money agent network
 
 Kenya's registered mobile-money agents grew from **480,216 in September 2025 to
 602,470 in March 2026** — expanding roughly four times faster than
@@ -356,7 +347,7 @@ transaction records, balances or customer identity enters this programme.
 material.
 * `[Confirm approach with campaign counsel — agent networks are regulated financial infrastructure and any commercial arrangement should be reviewed]`
 
-### 4.3.6 KPIs for the offline layer
+### 8.10.6 KPIs for the offline layer
 
 | Metric | Phase −1 | Phase 1 | Phase 2 | Phase 3 |
 |---|---|---|---|---|
@@ -373,26 +364,26 @@ a vanity one.
 
 ---
 
-## 4.4 Digital organising and volunteers
+## 8.11 Workstream 10 — Digital organising and volunteers
 
-### 4.4.1 Turning online supporters into offline organisers
+### 8.11.1 Turning online supporters into offline organisers
 
 A tiered volunteer programme converting passive online supporters into active
 offline organisers, with gamification driving sustained engagement.
 
-### 4.4.2 Volunteer tiers
+### 8.11.2 Volunteer tiers
 
 | Tier | Name | Entry requirement | Activities |
 |---|---|---|---|
 | **1** | Digital Advocate | Follow on 2+ platforms | Share, comment, amplify |
 | **2** | Ward Champion | Join ward WhatsApp group + data-handling briefing | Distribute content, report ground sentiment, recruit 5 advocates |
-| **3** | Community Organiser | Complete online training module | Host groups, coordinate local events, **log canvass outcomes (Section 4.2)** |
+| **3** | Community Organiser | Complete online training module | Host groups, coordinate local events, **log canvass outcomes (Section 8.9)** |
 | **4** | County Coordinator | Manage 3+ organisers | Oversee regional operations, attend weekly syncs |
 
 **Data-handling training is a gate, not an option.** No volunteer collects
-personal data before completing it (Section 6.5.4).
+personal data before completing it (Section 12.5.4).
 
-### 4.4.3 Gamification mechanics
+### 8.11.3 Gamification mechanics
 
 | Mechanic | Implementation | Reward |
 |---|---|---|
@@ -405,19 +396,19 @@ personal data before completing it (Section 6.5.4).
 voter, a canvassed household, a completed training — not raw posting volume.
 Reward systems that pay for volume produce spam and, at scale, look
 indistinguishable from inauthentic activity. That would breach both platform
-policy and the Section 6.5.4 charter, and it is designed out from the start.
+policy and the Section 12.5.4 charter, and it is designed out from the start.
 
-### 4.4.4 Management tooling
+### 8.11.4 Management tooling
 
 * **Custom WhatsApp bot** for low-cost volunteer management: registration,
 point tracking, content distribution, leaderboards
 * **USSD registration path** so volunteers without smartphones can join
-(Section 4.3.3) — a genuine differentiator in the arid belt
+(Section 8.10.3) — a genuine differentiator in the arid belt
 * Forms and spreadsheets for baseline collection
 * Task management via a shared board
 * Purpose-built volunteer platforms only at premium tier, if budget allows
 
-### 4.4.5 Volunteer KPIs
+### 8.11.5 Volunteer KPIs
 
 | Metric | Target |
 |---|---|
@@ -428,50 +419,3 @@ point tracking, content distribution, leaderboards
 | Average points per volunteer per month | ≥ 100 |
 | 90-day retention | ≥ 50% |
 | **Canvass returns logged per active Tier 3 organiser per week** | ≥ 25 households |
-
----
-
-## 4.5 The coalition and endorsement calendar
-
-### 4.5.1 The principle behind the sequence
-
-Coalitions are built around **shared economic and civic interests** — water,
-credit, market access, employment, transparency. They are never built around
-ethnic, clan or religious bloc identity. Faith and community networks are
-engaged as **civic institutions with legitimate service-delivery concerns**,
-which is both the ethical position and the effective one: a water commitment
-made to a congregation is a policy conversation, while a bloc appeal is a
-liability.
-
-### 4.5.2 The sequenced calendar
-
-| Phase | Target constituencies | Engagement | Digital output |
-|---|---|---|---|
-| **Phase −1** (Aug–Sep 2026) | Professional associations (economists, accountants, evaluators); Kitui teachers' networks; SEKU and MUT alumni | Roundtables on county fiscal management; leverage Evaluation Society of Kenya membership | Thought-leadership content; LinkedIn and X threads; earned media |
-| **Phase 0** (Sep–Oct 2026) | Ward-level women's cooperatives and table-banking groups | Listening sessions; identify chairladies as Tier 3 organisers | Kikamba voice notes; testimonial series |
-| **Phase 1** (Oct–Dec 2026) | MSME and market traders' associations (Kitui Town, Mwingi, Mutomo, Kabati, Kyuso) | Licensing, cess and market infrastructure forums | Policy briefs; Facebook Live Q&A |
-| **Phase 1–2** | Youth groups, boda boda SACCOs, TVET student bodies | Enterprise and licensing sessions | TikTok series; first-time-voter drive |
-| **Phase 2** (Jan–Mar 2027) | Farmer and livestock cooperatives; water user associations | Input supply, sand dams, drought and flood resilience | Ward-specific video; SMS policy drops |
-| **Phase 2** | Faith leaders across denominations | Service delivery, integrity, civic participation — **issue-based, never sectarian** | Community-programming content |
-| **Phase 2–3** | Diaspora chambers and associations | Investment, remittance, **the expansion of diaspora registration from 12 to 26 countries** | Webinars; diaspora fundraising |
-| **Phase 3** (Apr–Aug 2027) | Consolidation and public endorsement sequencing | Staged announcements for sustained news cycles | Endorsement content series |
-
-### 4.5.3 Managing endorsements
-
-* Every endorsement is **voluntary, documented and disclosed**. No paid
-endorsement is presented as organic — a breach of platform policy and of the
-Section 6.5.4 charter.
-* Influencer partnerships carry clear paid-partnership disclosure.
-* Endorsements are sequenced for cadence rather than clustered, sustaining
-momentum across the nomination and general-election windows.
-
-### 4.5.4 Coalition KPIs
-
-| Metric | Target |
-|---|---|
-| Institutional engagements completed by end of Phase 2 | ≥ 40 |
-| Tier 3 organisers recruited from cooperative networks | ≥ 80 |
-| Endorsements publicly announced by Phase 3 | `[Insert target]` |
-| Earned media items generated from coalition activity | ≥ 2/month |
-
----

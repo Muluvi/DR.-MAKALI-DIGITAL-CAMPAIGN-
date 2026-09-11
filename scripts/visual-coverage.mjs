@@ -20,15 +20,25 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CONTENT = path.join(ROOT, "public", "content");
 
 const TABS = {
-  "1-decision.md": "decision",
-  "2-evidence.md": "evidence",
-  "3-strategy.md": "strategy",
-  "4a-publishing.md": "publishing",
-  "4b-ground.md": "ground",
-  "4c-defence.md": "defence",
-  "4d-technology.md": "technology",
-  "4e-team.md": "team",
-  "5-delivery.md": "delivery",
+  "cover.md": "cover",
+  "summary.md": "summary",
+  "situation.md": "situation",
+  "objectives.md": "objectives",
+  "audiences.md": "audiences",
+  "approach.md": "approach",
+  "messaging.md": "messaging",
+  "scope-platforms.md": "scope-platforms",
+  "scope-media.md": "scope-media",
+  "scope-ground.md": "scope-ground",
+  "scope-data.md": "scope-data",
+  "roadmap.md": "roadmap",
+  "deliverables.md": "deliverables",
+  "measurement.md": "measurement",
+  "governance.md": "governance",
+  "risk.md": "risk",
+  "structure.md": "structure",
+  "assumptions.md": "assumptions",
+  "nextsteps.md": "nextsteps",
 };
 
 const HEADING = /^(#{2,3})\s+(.+?)\s*$/;
@@ -57,7 +67,7 @@ function headings() {
 function mountedIds() {
   const src = fs.readFileSync(path.join(ROOT, "components", "MarkdownViewer.tsx"), "utf8");
   const block = src.slice(src.indexOf("const HEADING_INSERTS"));
-  return new Set([...block.matchAll(/"([a-z]+-sec-[0-9a-z-]+)"/g)].map((m) => m[1]));
+  return new Set([...block.matchAll(/"([a-z][a-z-]*-sec-[0-9a-z-]+)"/g)].map((m) => m[1]));
 }
 
 /**

@@ -12,7 +12,7 @@ import { MIZANI_AFRICA } from "./sources";
 import type { Source } from "./types";
 
 export interface ContestRound {
-  /** As printed in §0.1. */
+  /** As printed in §2.2. */
   label: string;
   short: string;
   date: string;
