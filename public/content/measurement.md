@@ -1,4 +1,6 @@
 
+The headline scorecards, the indicator framework anchored to the vote threshold, what is deliberately not measured, and the research programme that tests the message.
+
 ## 11.1 The headline scorecards
 
 Two preference figures appear in this proposal, and they measure different populations rather than revising one another. Section 4.1's **40.0%+** is a share of the **countywide public**, as reported in the party-commissioned surveys. NW-01 below is **≥ 55.0%** of **sampled likely Wiper primary voters** — a narrower universe, which is why the threshold sits higher. Section 11.1.3 states that same primary-voter threshold.

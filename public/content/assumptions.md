@@ -1,4 +1,6 @@
 
+What this proposal needs from the campaign, the regulatory guidance still outstanding, and the seven assumptions the whole plan rests on.
+
 ## 15.1 What the campaign must provide
 
 Stated plainly, because these are the dependencies that determine delivery:

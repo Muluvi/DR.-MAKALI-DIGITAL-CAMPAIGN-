@@ -169,8 +169,9 @@ Every rename is in the map above. The resequencing reasons, grouped:
 
 ## 4. Additions
 
-Four passages were written for this restructure. Nothing else new entered the document. Each is
-quoted in full so it can be approved or struck.
+Five things were written for this restructure — four passages and one set of one-line section
+ledes. Nothing else new entered the document. Each is quoted in full so it can be approved or
+struck.
 
 ### 4.1 — §1.2 Confidentiality and use
 
@@ -308,6 +309,35 @@ is established. None asserts a new fact.
 >    structure under Section 12, not at arm's length from it, and the ground-digital integration in
 >    Section 8.8 assumes daily contact with the field operation.
 
+### 4.6 — Sixteen orientation ledes, one per route
+
+The old document carried a one-line lede at the head of each of its nine content files, styled as
+the section's opening statement. Those nine described the retired nine-part grouping and are
+removed (section 5.2). These replace them, one per route, and are what the cover's own promise —
+"every one opens on what it is for" — refers to.
+
+| Route | Lede |
+|---|---|
+| Cover | Who this proposal is for, who prepared it, the terms it is submitted under, and the order of the sixteen sections that follow. |
+| Executive summary | The mandate, the constraint that governs it, the conditions the work operates inside, and what Firefly commits to — readable on its own, without the fourteen sections beneath it. |
+| Situation analysis | The ground as it is: how the nomination will be decided, the evidence standard every figure here is held to, the candidate and the county, the ward arithmetic that sets the winning number, the three regions, what digital reach can and cannot deliver against it, and who controls the radio. |
+| Strategic approach | The claim at the centre of this campaign, the four pillars it rests on, and the six themes that carry it into the county. |
+| Messaging framework | The narrative spine, the message assigned to each segment and each channel, the answer to disinformation, the persuasion principles the campaign holds itself to, and the three languages every asset has to work in. |
+| Scope — platforms and content | The boundaries of the engagement, then the first four workstreams: the owned platforms and the service-delivery tracker, content production, AI-assisted creative, and the accessibility standard that applies across all fourteen. |
+| Scope — publishing and earned media | Two workstreams: paid media across the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely controlled by rivals. |
+| Scope — ground and offline reach | Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them. |
+| Scope — data and technology | Four workstreams that sit under the rest: the data model, the voter model built on it, the technology stack that runs both, and the analytics layer that measures what the other ten produce. |
+| Implementation roadmap | The plan phase by phase, from the nomination sprint through to the election period, and the coalition and endorsement sequence set against it. |
+| Deliverables schedule | What the campaign receives, at which scope level, how often, and in what form. |
+| Measurement framework | The headline scorecards, the indicator framework anchored to the vote threshold, what is deliberately not measured, and the research programme that tests the message. |
+| Engagement and governance | How Firefly and the campaign work together: the operating rhythm, the meeting cadence, who decides what, how a disagreement escalates, and the data charter that governs all of it. |
+| Risk management | What can go wrong and what happens when it does: rapid response, the war room that runs it, the cybersecurity and manipulated-media protocols, competitor monitoring from public sources, and the statutory ground all of it stands on. |
+| Assumptions and dependencies | What this proposal needs from the campaign, the regulatory guidance still outstanding, and the seven assumptions the whole plan rests on. |
+| Next steps | The decision in front of the campaign, and the specific action this proposal asks for. |
+
+Strategic objectives, Audience segmentation and Delivery structure carry no new lede: each already
+opens on a paragraph of the author's own, which now does that job.
+
 ---
 
 ## 5. Removals and placeholders
@@ -336,9 +366,9 @@ for the specification instead, with no commercial term left in the text:
 ### 5.2 Removals the restructure made redundant
 
 **Eight orientation lines**, one at the head of each of the eight non-landing content files.
-Each described the retired nine-part grouping and would now be inaccurate. Their job — telling
-the reader what a section is for before they enter it — is done by §1.3 and by the per-section
-blurbs the navigation renders. Quoted in full:
+Each described the retired nine-part grouping and would now be inaccurate. They are replaced by
+the sixteen route ledes in section 4.6, which do the same job for the new architecture. Quoted in
+full so the replacement is auditable:
 
 > The ground as it is: how the nomination will be decided, the candidate and the county, the ward arithmetic that sets the winning number, what digital reach can and cannot deliver against it, who the voters are, who controls the radio, and the law all of it runs inside.
 

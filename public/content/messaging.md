@@ -1,4 +1,6 @@
 
+The narrative spine, the message assigned to each segment and each channel, the answer to disinformation, the persuasion principles the campaign holds itself to, and the three languages every asset has to work in.
+
 ## 7.1 The narrative spine and message architecture
 
 Political messaging in Kitui County has historically relied on empty populist slogans that fail to withstand economic scrutiny. The campaign breaks decisively with this practice by constructing an **Evidence-Backed Message Hierarchy**.

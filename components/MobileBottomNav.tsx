@@ -133,7 +133,7 @@ export function MobileBottomNav({
               <ListTree size={16} className="shrink-0 text-accent" />
               <span className="min-w-0">
                 <span className="block t-micro font-semibold text-muted leading-none">
-                  {current ? `Section ${currentIndex + 1} of ${SECTIONS.length}` : "All sections"}
+                  {current ? `${currentIndex + 1} of ${SECTIONS.length}` : "All sections"}
                 </span>
                 <span className="block t-small font-semibold text-ink leading-tight truncate mt-0.5">
                   {current ? `${current.number}. ${current.label}` : "The whole proposal"}

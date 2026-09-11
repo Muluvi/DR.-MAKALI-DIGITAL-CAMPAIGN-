@@ -1,4 +1,6 @@
 
+How Firefly and the campaign work together: the operating rhythm, the meeting cadence, who decides what, how a disagreement escalates, and the data charter that governs all of it.
+
 ## 12.1 The engagement model and operating rhythm
 
 ### 12.1.1 Operating rhythm, tooling and reporting lines

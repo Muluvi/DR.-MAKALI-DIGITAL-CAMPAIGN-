@@ -2,7 +2,7 @@
 /**
  * Build guard: the restructure moved body text, it did not rewrite it.
  *
- * The current five-part content spine is the canonical document structure. The one thing that
+ * The sixteen-section content spine is the canonical document structure. The one thing that
  * must not happen after that migration is a quiet edit to the prose — so rather than asserting
  * that, this proves it by comparing the body of the document today against the migration snapshot.
  *
@@ -55,19 +55,62 @@ const CONTENT = path.join(ROOT, "public", "content");
  * What this file continues to guarantee is the part it can: that nothing since has changed the
  * body text.
  */
-const BASE = process.env.CONTENT_BASELINE ?? "5ff79ce";
-const CURRENT_SPINE = BASE === "5ff79ce" || BASE === "5470756";
-const OLD_FILES = [
-  "1-decision.md",
-  "2-evidence.md",
-  "3-strategy.md",
-  "4a-publishing.md",
-  "4b-ground.md",
-  "4c-defence.md",
-  "4d-technology.md",
-  "4e-team.md",
-  "5-delivery.md",
-];
+const BASE = process.env.CONTENT_BASELINE ?? "c1150a8";
+
+/**
+ * The baseline again, and why it moved a third time.
+ *
+ * `c1150a8` is the sixteen-section restructure: the document resequenced into the canonical
+ * proposal order, related material consolidated, headings put into proposal terminology, and the
+ * numbering rebuilt so sub-sections run 1..n with no gaps. Body text moved wholesale between
+ * files and the file names changed with it, so a line-for-line comparison against `5ff79ce` now
+ * reports every authored passage and every removal the brief required as a difference — which is
+ * exactly what CHANGE-LOG.md enumerates, quoting each addition in full.
+ *
+ * Earlier baselines still work and still diff: `CONTENT_BASELINE=5ff79ce` against the
+ * pre-restructure spine, `5470756` against the pre-excision text, `d1c1559` against the text as
+ * first written. The chain of custody is enumerated rather than lost.
+ *
+ * What this file continues to guarantee is the part it can: that nothing since the restructure
+ * has changed the body text.
+ */
+const RESTRUCTURED = BASE === "c1150a8";
+const CURRENT_SPINE = RESTRUCTURED || BASE === "5ff79ce" || BASE === "5470756";
+
+/** The content files as they were named at BASE. The restructure renamed all of them. */
+const OLD_FILES = RESTRUCTURED
+  ? [
+      "approach.md",
+      "assumptions.md",
+      "audiences.md",
+      "cover.md",
+      "deliverables.md",
+      "governance.md",
+      "measurement.md",
+      "messaging.md",
+      "nextsteps.md",
+      "objectives.md",
+      "risk.md",
+      "roadmap.md",
+      "scope-data.md",
+      "scope-ground.md",
+      "scope-media.md",
+      "scope-platforms.md",
+      "situation.md",
+      "structure.md",
+      "summary.md",
+    ]
+  : [
+      "1-decision.md",
+      "2-evidence.md",
+      "3-strategy.md",
+      "4a-publishing.md",
+      "4b-ground.md",
+      "4c-defence.md",
+      "4d-technology.md",
+      "4e-team.md",
+      "5-delivery.md",
+    ];
 const DELETED_SECTIONS = new Set(["34", "35", "37", "38", "39"]);
 
 /** The nine section-landing orientation lines, quoted in full so they can be audited here. */

@@ -1,4 +1,6 @@
 
+The boundaries of the engagement, then the first four workstreams: the owned platforms and the service-delivery tracker, content production, AI-assisted creative, and the accessibility standard that applies across all fourteen.
+
 ## 8.1 Scope summary and workstream boundaries
 
 ### 8.1.1 Digital infrastructure, brand and civic content

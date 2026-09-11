@@ -1,4 +1,6 @@
 
+The ground as it is: how the nomination will be decided, the evidence standard every figure here is held to, the candidate and the county, the ward arithmetic that sets the winning number, the three regions, what digital reach can and cannot deliver against it, and who controls the radio.
+
 ## 3.1 The nomination contest and its selection mechanism
 
 ### 3.1.1 How Wiper picks its candidate

@@ -1,4 +1,6 @@
 
+The claim at the centre of this campaign, the four pillars it rests on, and the six themes that carry it into the county.
+
 ## 6.1 The governing claim: the Economist Governor
 
 The core narrative of the campaign turns standard political promotion on its head: **Dr. Makali Mulu is the Economist Governor Kitui needs.** This narrative frames him not as a politician who merely promises, but as an expert economist who can show his working and enforce rigorous accountability.

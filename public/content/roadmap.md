@@ -1,4 +1,6 @@
 
+The plan phase by phase, from the nomination sprint through to the election period, and the coalition and endorsement sequence set against it.
+
 ## 9.1 Phasing, from engagement to the election period
 
 Five phases: a new Phase −1 addressing the nomination contest, followed by the

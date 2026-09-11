@@ -16,7 +16,7 @@ import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
 import { MobileTOCModal } from "./MobileTOCModal";
 import { MobileBottomNav } from "./MobileBottomNav";
 import { QuickNavCapsule } from "./QuickNavCapsule";
-import { resolveLegacySectionId, SECTIONS, type TabId } from "../lib/heading-slug";
+import { PARTS, resolveLegacySectionId, SECTIONS, type TabId } from "../lib/heading-slug";
 import type { SectionItem } from "../lib/section-index";
 
 import { FocusModeToggle, PrintReportGenerator } from "./StrategicAids";
@@ -785,7 +785,10 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
               <SpotlightCard className="fx-glass rounded-2xl p-4">
                 <div className="t-label font-semibold text-muted mb-3 flex items-center justify-between">
                   <span>The proposal</span>
-                  <span className="font-mono text-accent tabular-nums">{navItems.length} sections</span>
+                  {/* Sixteen canonical sections. The rail lists nineteen entries because the
+                      scope of work is served over four routes — counting the routes here would
+                      contradict the contents page the reader has just come from. */}
+                  <span className="font-mono text-accent tabular-nums">{PARTS.length} sections</span>
                 </div>
                 <nav className="flex flex-col gap-0.5 relative">
                   {/* The active-link marker is one element that slides, rather than a border that

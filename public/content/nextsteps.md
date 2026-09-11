@@ -1,4 +1,6 @@
 
+The decision in front of the campaign, and the specific action this proposal asks for.
+
 ## 16.1 The decision in front of the campaign
 
 The strategic architecture set out above is engineered for a singular objective: to position

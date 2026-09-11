@@ -1,4 +1,6 @@
 
+What can go wrong and what happens when it does: rapid response, the war room that runs it, the cybersecurity and manipulated-media protocols, competitor monitoring from public sources, and the statutory ground all of it stands on.
+
 ## 13.1 Rapid-response protocol and opposition handling
 
 In a high-stakes gubernatorial campaign, unchecked misinformation and coordinated political attacks can erode voter trust within hours. In Kitui County, ground rumors and hostile talking points travel primarily through two high-velocity vectors: **morning vernacular radio talk shows (06:00–09:00 EAT)** and **hyper-local ward WhatsApp groups**.

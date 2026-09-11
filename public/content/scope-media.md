@@ -1,4 +1,6 @@
 
+Two workstreams: paid media across the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely controlled by rivals.
+
 ## 8.6 Workstream 5 — Platform tactics and paid media
 
 #### Facebook

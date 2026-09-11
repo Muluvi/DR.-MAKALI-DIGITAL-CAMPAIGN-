@@ -1,4 +1,6 @@
 
+The mandate, the constraint that governs it, the conditions the work operates inside, and what Firefly commits to — readable on its own, without the fourteen sections beneath it.
+
 ## 2.1 The mandate
 
 The 2027 gubernatorial contest for Kitui County represents a decisive developmental inflection point. The next administration will either institutionalize systemic economic modernization or capitulate to another five-year cycle of sub-optimal execution and unfulfilled developmental targets. Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS, presents an extraordinary and highly technical alignment of advanced macroeconomic training, national-level public finance leadership within the Budget and Appropriations Committee, specialized monitoring and evaluation (M&E) expertise, and deep structural roots within the Kitui electorate.

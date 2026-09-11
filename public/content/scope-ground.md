@@ -1,4 +1,6 @@
 
+Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them.
+
 ## 8.8 Workstream 7 — Ground-digital integration
 
 A campaign that operates field organizing and digital messaging as isolated silos will fail in a county where 86.4% of voters are offline. Digital content created in an air-conditioned command center in Nairobi or Kitui Town is worthless if it does not address the live anxieties voiced at the morning livestock auction in Nguni or the wellhead in Mutha.

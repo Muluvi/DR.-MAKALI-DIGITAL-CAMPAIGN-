@@ -1,5 +1,7 @@
 # CAMPAIGN STRATEGY & DIGITAL ARCHITECTURE PROPOSAL
 
+Who this proposal is for, who prepared it, the terms it is submitted under, and the order of the sixteen sections that follow.
+
 ## 1.1 Proposal identification
 
 **Prepared for:**

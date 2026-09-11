@@ -1,4 +1,6 @@
 
+What the campaign receives, at which scope level, how often, and in what form.
+
 ## 10.1 Scope levels and what each carries
 
 ### 10.1.1 The three scope levels
