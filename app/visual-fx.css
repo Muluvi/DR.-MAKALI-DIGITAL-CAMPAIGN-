@@ -26,7 +26,7 @@
 
 /* Shared effect tokens. Kept here rather than in @theme because these are
    effect-layer concerns, not design tokens the components choose between. */
-:root {
+:root{
   --fx-ease-entrance: cubic-bezier(0.16, 1, 0.3, 1);
   --fx-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --fx-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -50,7 +50,7 @@
   --pointer-inside: 0;
 }
 
-.dark {
+.dark{
   --fx-aurora-opacity: 0.42;
   --fx-grain-opacity: 0.05;
   --fx-pattern-opacity: 0.07;
@@ -66,67 +66,38 @@
 @keyframes fx-slide-down { from { opacity: 0; transform: translate3d(0, calc(var(--fx-travel, 18px) * -1), 0); } to { opacity: 1; transform: none; } }
 @keyframes fx-slide-left { from { opacity: 0; transform: translate3d(var(--fx-travel, 24px), 0, 0); } to { opacity: 1; transform: none; } }
 @keyframes fx-slide-right{ from { opacity: 0; transform: translate3d(calc(var(--fx-travel, 24px) * -1), 0, 0); } to { opacity: 1; transform: none; } }
-@keyframes fx-slide-diagonal { from { opacity: 0; transform: translate3d(calc(var(--fx-travel, 20px) * -1), var(--fx-travel, 20px), 0); } to { opacity: 1; transform: none; } }
 
 /* Scale up with a deliberate overshoot, and its inverse — a settle-in that
    starts oversized. Two distinct signatures, so two surfaces can both "scale"
    without reading as the same animation twice. */
-@keyframes fx-pop-in {
-  0%   { opacity: 0; transform: scale(0.88); }
-  62%  { opacity: 1; transform: scale(1.028); }
-  100% { opacity: 1; transform: scale(1); }
-}
+
 @keyframes fx-settle-in {
   0%   { opacity: 0; transform: scale(1.10); }
   100% { opacity: 1; transform: scale(1); }
-}
-
-@keyframes fx-blur-in {
-  from { opacity: 0; filter: blur(12px); transform: translate3d(0, 8px, 0); }
-  to   { opacity: 1; filter: blur(0); transform: none; }
 }
 
 /* Clip-path wipes. Linear, circular (iris) and diagonal are separate
    signatures rather than one parameterised wipe, because the shape is the
    part the reader notices. */
 @keyframes fx-wipe-linear   { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
-@keyframes fx-wipe-up       { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
-@keyframes fx-wipe-diagonal { from { clip-path: polygon(0 0, 0 0, 0 0, 0 0); } to { clip-path: polygon(0 0, 140% 0, 100% 140%, 0 100%); } }
-@keyframes fx-iris-open     { from { clip-path: circle(0% at 50% 50%); } to { clip-path: circle(78% at 50% 50%); } }
 
 /* Curtain / shutter: two panels retreating to the edges. */
-@keyframes fx-flip-in-x { from { opacity: 0; transform: perspective(1200px) rotateX(22deg); } to { opacity: 1; transform: perspective(1200px) rotateX(0); } }
-@keyframes fx-flip-in-y { from { opacity: 0; transform: perspective(1200px) rotateY(-22deg); } to { opacity: 1; transform: perspective(1200px) rotateY(0); } }
-@keyframes fx-rotate-in { from { opacity: 0; transform: rotate(-7deg) scale(0.96); } to { opacity: 1; transform: none; } }
 
 /* Origami unfold — a fold opening away from its top edge. */
-@keyframes fx-unfold {
-  from { opacity: 0; transform: perspective(900px) rotateX(-88deg); transform-origin: top center; }
-  to   { opacity: 1; transform: perspective(900px) rotateX(0); transform-origin: top center; }
-}
-
 
 /* --- Applied entrance utilities ---------------------------------------- */
 
-[class*="fx-in-"] { animation-duration: var(--fx-dur, var(--fx-dur-entrance)); animation-timing-function: var(--fx-ease-entrance); animation-fill-mode: both; animation-delay: var(--fx-delay, 0ms); }
+[class*="fx-in-"]{ animation-duration: var(--fx-dur, var(--fx-dur-entrance)); animation-timing-function: var(--fx-ease-entrance); animation-fill-mode: both; animation-delay: var(--fx-delay, 0ms); }
 
-.fx-in-fade     { animation-name: fx-fade-in; }
-.fx-in-up       { animation-name: fx-slide-up; }
-.fx-in-down     { animation-name: fx-slide-down; }
-.fx-in-left     { animation-name: fx-slide-left; }
-.fx-in-right    { animation-name: fx-slide-right; }
-.fx-in-diagonal { animation-name: fx-slide-diagonal; }
-.fx-in-pop      { animation-name: fx-pop-in; animation-timing-function: var(--fx-ease-spring); }
-.fx-in-settle   { animation-name: fx-settle-in; }
-.fx-in-blur     { animation-name: fx-blur-in; }
-.fx-in-wipe     { animation-name: fx-wipe-linear; }
-.fx-in-wipe-up  { animation-name: fx-wipe-up; }
-.fx-in-wipe-diag{ animation-name: fx-wipe-diagonal; }
-.fx-in-iris     { animation-name: fx-iris-open; }
-.fx-in-flip-x   { animation-name: fx-flip-in-x; }
-.fx-in-flip-y   { animation-name: fx-flip-in-y; }
-.fx-in-rotate   { animation-name: fx-rotate-in; }
-.fx-in-unfold   { animation-name: fx-unfold; animation-duration: var(--fx-dur, var(--fx-dur-deliberate)); }
+.fx-in-fade{ animation-name: fx-fade-in; }
+.fx-in-up{ animation-name: fx-slide-up; }
+
+.fx-in-left{ animation-name: fx-slide-left; }
+.fx-in-right{ animation-name: fx-slide-right; }
+
+.fx-in-settle{ animation-name: fx-settle-in; }
+
+.fx-in-wipe{ animation-name: fx-wipe-linear; }
 
 /* The pre-reveal state.
    
@@ -138,16 +109,15 @@
    
    So the hold is a named class that both of those contexts override, and the visible state is
    the default rather than something an observer has to grant. */
-.fx-preveal { opacity: 0; }
-@media (prefers-reduced-motion: reduce) { .fx-preveal { opacity: 1; } }
-@media print { .fx-preveal { opacity: 1 !important; } }
+.fx-preveal{ opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .fx-preveal{ opacity: 1; } }
+@media print { .fx-preveal{ opacity: 1 !important; } }
 
 /* Stagger cascade. `--fx-i` is the sibling index; the ripple variant adds a
    radial term so delay propagates outward from a focal cell rather than
    left-to-right. Both are set inline by the component that owns the group. */
-.fx-stagger > * { animation-delay: calc(var(--fx-stagger) * var(--fx-i, 0) + var(--fx-delay, 0ms)); }
-.fx-ripple-stagger > * { animation-delay: calc(var(--fx-stagger) * var(--fx-r, 0) + var(--fx-delay, 0ms)); }
-
+.fx-stagger > *{ animation-delay: calc(var(--fx-stagger) * var(--fx-i, 0) + var(--fx-delay, 0ms)); }
+.fx-ripple-stagger > *{ animation-delay: calc(var(--fx-stagger) * var(--fx-r, 0) + var(--fx-delay, 0ms)); }
 
 /* ========================================================================== */
 /*  §2 — EXIT                                                                */
@@ -161,7 +131,6 @@
 /* ========================================================================== */
 
 @keyframes fx-fade-out { from { opacity: 1; } to { opacity: 0; } }
-
 
 /* ========================================================================== */
 /*  §3 — SCROLL-DRIVEN & SCROLL-TRIGGERED                                    */
@@ -177,41 +146,32 @@
   /* Viewport-triggered reveal, done by the compositor. `both` plus a range
      ending at cover 34% means the element is fully resolved a third of the
      way up the viewport and stays resolved. */
-  
-  
-  
+
   
 
   /* Opacity fade zones — content dims at both viewport edges, so the band the
      reader is actually in is the brightest thing on screen. */
-  
 
   /* Blur-out on exit. Applied only to decorative strips; never to a table. */
-  
 
   /* Parallax layers. Depth is a multiplier the element sets, so one keyframe
      serves every layer in a stack. */
-  
 
   /* Rotation and scroll-linked hue, for badges and ambient marks only. */
-  
 
   /* Scroll-scrubbed progress rail: a ring or bar whose fill IS the scroll
      position, not an animation of it. */
-  
-  
-}
 
+}
 
 /* Scroll-direction-aware header: the shell sets data-scroll-dir, the header
    reads it. Transform only, so nothing reflows at 60fps. */
-.fx-dir-header { transition: transform 320ms var(--fx-ease-entrance), opacity 240ms linear; will-change: transform; }
-[data-scroll-dir="down"] .fx-dir-header:not([data-pinned="true"]) { transform: translate3d(0, -102%, 0); opacity: 0; }
+.fx-dir-header{ transition: transform 320ms var(--fx-ease-entrance), opacity 240ms linear; will-change: transform; }
+[data-scroll-dir="down"] .fx-dir-header:not([data-pinned="true"]){ transform: translate3d(0, -102%, 0); opacity: 0; }
 /* Focus outranks scroll direction. A toolbar that hides itself while one of its own buttons is
    focused strands a keyboard user on a control they cannot see. */
-[data-scroll-dir="down"] .fx-dir-header:focus-within { transform: none; opacity: 1; }
-[data-scroll-dir="up"] .fx-dir-header { transform: none; opacity: 1; }
-
+[data-scroll-dir="down"] .fx-dir-header:focus-within{ transform: none; opacity: 1; }
+[data-scroll-dir="up"] .fx-dir-header{ transform: none; opacity: 1; }
 
 /* ========================================================================== */
 /*  §4 — CONTINUOUS & LOOPING                                                */
@@ -222,155 +182,33 @@
 /*  stay inside a decorative band that content never sits on.                */
 /* ========================================================================== */
 
-@keyframes fx-marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
-@keyframes fx-float { 0%, 100% { transform: translate3d(0, 0, 0); } 50% { transform: translate3d(0, -6px, 0); } }
-@keyframes fx-gradient-shift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 @keyframes fx-shimmer { from { transform: translate3d(-120%, 0, 0); } to { transform: translate3d(220%, 0, 0); } }
-@keyframes fx-live-blink { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(0.86); } }
-@keyframes fx-conveyor { from { background-position: 0 0; } to { background-position: 56px 0; } }
+
 /* Aurora / mesh-gradient drift. Three blurred colour wells on independent
    cycles; because they are transforms on a blurred layer the compositor keeps
    the whole field on the GPU. */
 /* Parallax shift, composited on top of an element's own drift via
    `animation-composition: add`. `--fx-depth` is the layer's rate. */
-@keyframes fx-parallax-shift {
-  from { transform: translate3d(0, calc(var(--fx-depth, 1) * 30px), 0); }
-  to   { transform: translate3d(0, calc(var(--fx-depth, 1) * -30px), 0); }
-}
-@keyframes fx-aurora-a { 0%, 100% { transform: translate3d(-6%, -4%, 0) scale(1); } 50% { transform: translate3d(8%, 6%, 0) scale(1.18); } }
-@keyframes fx-aurora-b { 0%, 100% { transform: translate3d(6%, 4%, 0) scale(1.12); } 50% { transform: translate3d(-8%, -6%, 0) scale(1); } }
-@keyframes fx-aurora-c { 0%, 100% { transform: translate3d(0, 6%, 0) scale(1.05); } 50% { transform: translate3d(4%, -8%, 0) scale(1.22); } }
-
-@keyframes fx-grain { 
-  0%   { transform: translate3d(0, 0, 0); }
-  25%  { transform: translate3d(-2%, 1%, 0); }
-  50%  { transform: translate3d(1%, -2%, 0); }
-  75%  { transform: translate3d(-1%, -1%, 0); }
-  100% { transform: translate3d(0, 0, 0); }
-}
 
 /* Weather field — drifting motes, used only behind the drought/food-security
    panel where "falling" is the subject rather than decoration. */
-@keyframes fx-fall { from { transform: translate3d(0, -12%, 0); opacity: 0; } 12% { opacity: 0.7; } 88% { opacity: 0.7; } to { transform: translate3d(var(--fx-sway, 12px), 112%, 0); opacity: 0; } }
-
-.fx-loop-marquee { animation: fx-marquee var(--fx-loop-dur, 38s) linear infinite; }
-
-
-.fx-loop-float   { animation: fx-float 4.2s ease-in-out infinite; animation-delay: var(--fx-delay, 0ms); }
-
-
-.fx-loop-blink   { animation: fx-live-blink 1.8s ease-in-out infinite; }
-
-
-/* Marquees stop when the pointer is on them — the brief's "loop with pause on
-   hover", and the reason a ticker can carry real content. */
-.fx-pause-on-hover:hover .fx-loop-marquee,
-.fx-pause-on-hover:hover .fx-loop-marquee-rev,
-.fx-pause-on-hover:focus-within .fx-loop-marquee,
-.fx-pause-on-hover:focus-within .fx-loop-marquee-rev { animation-play-state: paused; }
-
-/* Animated gradient fill, for rails and brand bands. */
-.fx-gradient-live {
-  background-size: 220% 220%;
-  animation: fx-gradient-shift var(--fx-loop-dur, 12s) ease infinite;
-}
 
 /* Shimmer sweep — a light bar crossing an element. Confined to its own
    ::after so it never affects the element's own paint. */
-.fx-shimmer { position: relative; overflow: hidden; isolation: isolate; }
-.fx-shimmer::after {
+.fx-shimmer{ position: relative; overflow: hidden; isolation: isolate; }
+.fx-shimmer::after{
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: linear-gradient(105deg, transparent 32%, color-mix(in srgb, white 22%, transparent) 50%, transparent 68%);
   animation: fx-shimmer var(--fx-loop-dur, 2.6s) var(--fx-ease-out) infinite;
 }
-.dark .fx-shimmer::after { background: linear-gradient(105deg, transparent 32%, color-mix(in srgb, white 12%, transparent) 50%, transparent 68%); }
-
-/* ========================================================================== */
-/*  §22 — BACKGROUND & ENVIRONMENTAL FIELDS                                  */
-/*                                                                           */
-/*  Placed before §5 because the hover effects composite over these.         */
-/* ========================================================================== */
-
-/* The aurora field. Sits behind the hero at low opacity; `contain: strict`
-   and a fixed height keep it from ever being asked to re-layout. */
-.fx-aurora {
-  position: absolute; inset: 0; overflow: hidden; pointer-events: none;
-  opacity: var(--fx-aurora-opacity);
-  contain: strict;
-  z-index: 0;
-}
-.fx-aurora span {
-  position: absolute; display: block; border-radius: 50%;
-  filter: blur(64px);
-  will-change: transform;
-}
-.fx-aurora span:nth-child(1) {
-  width: 46vw; height: 46vw; left: -8%; top: -18%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--color-accent) 55%, transparent), transparent 68%);
-  animation: fx-aurora-a 26s ease-in-out infinite;
-}
-.fx-aurora span:nth-child(2) {
-  width: 38vw; height: 38vw; right: -6%; top: -10%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--color-gold) 45%, transparent), transparent 68%);
-  animation: fx-aurora-b 32s ease-in-out infinite;
-}
-.fx-aurora span:nth-child(3) {
-  width: 52vw; height: 42vw; left: 22%; bottom: -30%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--color-phase-3) 34%, transparent), transparent 70%);
-  animation: fx-aurora-c 38s ease-in-out infinite;
-}
-
-/* Film grain. A single inline SVG feTurbulence, so no image request, and the
-   whole overlay is one composited layer that drifts by a couple of percent. */
-.fx-grain::before {
-  content: ""; position: absolute; inset: -6%; pointer-events: none; z-index: 1;
-  opacity: var(--fx-grain-opacity);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
-  /* Static. See the note in ClientPage on why the ambient loops above the fold stopped. */
-  mix-blend-mode: overlay;
-}
-
-/* Animated CSS pattern — diagonal brand hatching that creeps. Pure gradient,
-   no image, and the motion is a background-position shift on a layer nothing
-   is painted over. */
-.fx-pattern-diagonal {
-  background-image: repeating-linear-gradient(
-    45deg,
-    color-mix(in srgb, var(--color-accent) 18%, transparent) 0 1px,
-    transparent 1px 14px
-  );
-  opacity: var(--fx-pattern-opacity);
-  animation: fx-conveyor 2.4s linear infinite;
-}
-
-
-/* Mesh-gradient plate for cards that want a lit surface rather than a flat fill. */
-.fx-mesh {
-  background:
-    radial-gradient(at 18% 12%, color-mix(in srgb, var(--color-accent) 16%, transparent) 0px, transparent 52%),
-    radial-gradient(at 86% 8%,  color-mix(in srgb, var(--color-gold) 13%, transparent) 0px, transparent 50%),
-    radial-gradient(at 72% 92%, color-mix(in srgb, var(--color-phase-3) 12%, transparent) 0px, transparent 55%),
-    var(--color-card);
-}
-
-/* Particle / mote field. The motes are real elements the component emits, so
-   each can carry its own delay and drift without a canvas or a rAF loop. */
-.fx-motes { position: absolute; inset: 0; overflow: hidden; pointer-events: none; contain: strict; }
-.fx-motes i {
-  position: absolute; display: block; border-radius: 50%;
-  width: var(--fx-size, 3px); height: var(--fx-size, 3px);
-  background: color-mix(in srgb, var(--color-accent) 55%, transparent);
-  animation: fx-fall var(--fx-loop-dur, 14s) linear infinite;
-  animation-delay: var(--fx-delay, 0s);
-}
+.dark .fx-shimmer::after{ background: linear-gradient(105deg, transparent 32%, color-mix(in srgb, white 12%, transparent) 50%, transparent 68%); }
 
 /* Time-of-day ambient shift. The shell sets data-daypart from the reader's own
    clock; the whole change is two token overrides, so it costs one repaint. */
-[data-daypart="dawn"]  { --fx-ambient-warm: 18deg; }
-[data-daypart="day"]   { --fx-ambient-warm: 0deg; }
-[data-daypart="dusk"]  { --fx-ambient-warm: -14deg; }
-[data-daypart="night"] { --fx-ambient-warm: -6deg; }
-.fx-ambient-tint { filter: hue-rotate(var(--fx-ambient-warm, 0deg)); transition: filter 1.2s linear; }
+[data-daypart="dawn"]{ --fx-ambient-warm: 18deg; }
+[data-daypart="day"]{ --fx-ambient-warm: 0deg; }
+[data-daypart="dusk"]{ --fx-ambient-warm: -14deg; }
+[data-daypart="night"]{ --fx-ambient-warm: -6deg; }
 
 /* ========================================================================== */
 /*  §5 — INTERACTION-DRIVEN (HOVER, FOCUS, CURSOR)                           */
@@ -380,144 +218,51 @@
 /* ========================================================================== */
 
 /* Hover lift with a real shadow ramp. */
-.fx-lift {
+.fx-lift{
   transition: transform var(--fx-dur-medium) var(--fx-ease-entrance),
               box-shadow var(--fx-dur-medium) var(--fx-ease-entrance),
               border-color var(--fx-dur-fast) linear;
   will-change: transform;
 }
-.fx-lift:hover, .fx-lift:focus-visible {
+.fx-lift:hover, .fx-lift:focus-visible{
   transform: translate3d(0, -3px, 0);
   box-shadow: 0 12px 32px -12px color-mix(in srgb, var(--color-accent) 40%, transparent),
               0 2px 6px -2px rgba(8, 20, 40, 0.10);
 }
-.dark .fx-lift:hover, .dark .fx-lift:focus-visible {
+.dark .fx-lift:hover, .dark .fx-lift:focus-visible{
   box-shadow: 0 14px 36px -14px color-mix(in srgb, var(--color-accent) 55%, transparent),
               0 2px 8px -2px rgba(0, 0, 0, 0.6);
 }
-.fx-lift:active { transform: translate3d(0, -1px, 0) scale(0.994); }
+.fx-lift:active{ transform: translate3d(0, -1px, 0) scale(0.994); }
 
 /* Press feedback for anything tappable. */
-.fx-press { transition: transform var(--fx-dur-micro) var(--fx-ease-out); }
-.fx-press:active { transform: scale(0.96); }
+.fx-press{ transition: transform var(--fx-dur-micro) var(--fx-ease-out); }
+.fx-press:active{ transform: scale(0.96); }
 
 /* Underline draw — from left, from centre, and a marker-pen variant that
    sweeps a translucent highlight rather than a rule. */
 
-
-.fx-marker { position: relative; }
-.fx-marker::before {
+.fx-marker{ position: relative; }
+.fx-marker::before{
   content: ""; position: absolute; left: -0.15em; right: -0.15em; bottom: 0.02em; height: 0.52em;
   background: color-mix(in srgb, var(--color-gold) 26%, transparent);
   border-radius: 2px; z-index: -1;
   transform: scaleX(0); transform-origin: left;
   transition: transform 420ms var(--fx-ease-entrance);
 }
-.fx-marker:hover::before, .fx-marker.is-on::before { transform: scaleX(1); }
-
-
-/* Background slide-in from an edge. */
-.fx-bg-slide { position: relative; overflow: hidden; isolation: isolate; }
-.fx-bg-slide::before {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  background: var(--color-accent);
-  transform: translate3d(-101%, 0, 0);
-  transition: transform 360ms var(--fx-ease-entrance);
-}
-.fx-bg-slide:hover::before, .fx-bg-slide:focus-visible::before { transform: none; }
-
-
-/* Shine / sweep across a button or image on hover. */
-.fx-shine { position: relative; overflow: hidden; isolation: isolate; }
-.fx-shine::before {
-  content: ""; position: absolute; top: 0; bottom: 0; width: 42%; z-index: 2; pointer-events: none;
-  background: linear-gradient(100deg, transparent, color-mix(in srgb, white 40%, transparent), transparent);
-  transform: translate3d(-160%, 0, 0) skewX(-16deg);
-}
-.fx-shine:hover::before { transition: transform 720ms var(--fx-ease-out); transform: translate3d(340%, 0, 0) skewX(-16deg); }
-
-/* Pointer-tracked spotlight. --px/--py are written by use-pointer-fx.ts as
-   percentages, so the glow is a background-position change on one layer. */
-.fx-spotlight { position: relative; isolation: isolate; }
-.fx-spotlight::before {
-  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; border-radius: inherit;
-  background: radial-gradient(240px circle at var(--px) var(--py), color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 70%);
-  opacity: var(--pointer-inside, 0);
-  transition: opacity 260ms linear;
-}
-
-/* Border glow that follows the pointer around a card edge. */
-.fx-glow-border { position: relative; }
-.fx-glow-border::after {
-  content: ""; position: absolute; inset: -1px; border-radius: inherit; pointer-events: none;
-  padding: 1px;
-  background: radial-gradient(200px circle at var(--px) var(--py), var(--color-accent), transparent 62%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-          mask-composite: exclude;
-  opacity: var(--pointer-inside, 0);
-  transition: opacity 260ms linear;
-}
-
+.fx-marker:hover::before, .fx-marker.is-on::before{ transform: scaleX(1); }
 
 /* Material-style ripple from the click point. The component writes --rx/--ry. */
-@keyframes fx-ripple { to { transform: translate(-50%, -50%) scale(1); opacity: 0; } }
-.fx-ripple-host { position: relative; overflow: hidden; }
-.fx-ripple-host > .fx-ripple-ink {
-  position: absolute; left: var(--rx, 50%); top: var(--ry, 50%);
-  width: 220px; height: 220px; border-radius: 50%; pointer-events: none;
-  background: radial-gradient(circle, color-mix(in srgb, currentColor 26%, transparent), transparent 62%);
-  transform: translate(-50%, -50%) scale(0);
-  animation: fx-ripple 620ms var(--fx-ease-out) forwards;
-}
 
-/* Icon micro-interactions: rotate, float, nudge-forward arrow, swap. */
-
-
-.fx-icon-nudge { transition: transform var(--fx-dur-medium) var(--fx-ease-entrance); }
-.group:hover .fx-icon-nudge, .fx-icon-nudge:hover { transform: translate3d(3px, 0, 0); }
-.fx-icon-rise  { transition: transform var(--fx-dur-medium) var(--fx-ease-entrance); }
-.group:hover .fx-icon-rise { transform: translate3d(0, -2px, 0) scale(1.08); }
-
-/* Image zoom inside a fixed frame. */
-.fx-zoom-frame { overflow: hidden; }
-.fx-zoom-frame > * { transition: transform 620ms var(--fx-ease-entrance), filter 420ms linear; }
-.fx-zoom-frame:hover > * { transform: scale(1.06); }
-
-/* Reveal-on-hover overlay over an image or figure. */
-.fx-reveal-overlay { position: relative; overflow: hidden; }
-.fx-reveal-overlay > .fx-overlay-body {
-  position: absolute; inset: auto 0 0 0; padding: 0.75rem 0.9rem;
-  background: linear-gradient(180deg, transparent, rgba(4, 10, 24, 0.86));
-  color: white;
-  transform: translate3d(0, 100%, 0); opacity: 0;
-  transition: transform 380ms var(--fx-ease-entrance), opacity 280ms linear;
-}
-.fx-reveal-overlay:hover > .fx-overlay-body,
-.fx-reveal-overlay:focus-within > .fx-overlay-body { transform: none; opacity: 1; }
+.fx-ripple-host{ position: relative; overflow: hidden; }
 
 /* Animated focus ring. Branded, and it animates in even under reduced motion. */
 @keyframes fx-focus-ring { from { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 60%, transparent); } to { box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 22%, transparent); } }
-.fx-focus:focus-visible {
+.fx-focus:focus-visible{
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
   animation: fx-focus-ring 240ms var(--fx-ease-out) forwards;
 }
-
-
-/* Magnetic attraction. The hook writes --mx/--my in pixels, already clamped. */
-.fx-magnetic { transform: translate3d(var(--mx, 0px), var(--my, 0px), 0); transition: transform 260ms var(--fx-ease-out); will-change: transform; }
-.fx-magnetic[data-engaged="true"] { transition: transform 90ms linear; }
-
-/* ========================================================================== */
-/*  §6 — GESTURE                                                             */
-/* ========================================================================== */
-
-
-/* Rubber-band overscroll at the boundaries of a rail. */
-.fx-rubber { overscroll-behavior: contain; }
-
 
 /* Slider handles.
 
@@ -528,14 +273,14 @@
 
    The 44px hit area is kept by padding the track, not by growing the thumb: a 44px thumb on a
    3-stop budget slider looks broken. */
-input[type="range"] {
+input[type="range"]{
   -webkit-appearance: none;
   appearance: none;
   background-color: transparent;
   cursor: pointer;
   touch-action: pan-y;
 }
-input[type="range"]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb{
   -webkit-appearance: none;
   appearance: none;
   width: 18px; height: 18px; border-radius: 50%;
@@ -544,42 +289,41 @@ input[type="range"]::-webkit-slider-thumb {
   box-shadow: 0 1px 4px rgba(8, 20, 40, 0.3);
   transition: transform 180ms var(--fx-ease-spring), box-shadow 180ms linear;
 }
-input[type="range"]::-moz-range-thumb {
+input[type="range"]::-moz-range-thumb{
   width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--color-card);
   background: var(--color-accent);
   box-shadow: 0 1px 4px rgba(8, 20, 40, 0.3);
   transition: transform 180ms var(--fx-ease-spring), box-shadow 180ms linear;
 }
 input[type="range"]:hover::-webkit-slider-thumb,
-input[type="range"]:focus-visible::-webkit-slider-thumb {
+input[type="range"]:focus-visible::-webkit-slider-thumb{
   transform: scale(1.15);
   box-shadow: 0 0 0 7px color-mix(in srgb, var(--color-accent) 18%, transparent);
 }
 input[type="range"]:hover::-moz-range-thumb,
-input[type="range"]:focus-visible::-moz-range-thumb {
+input[type="range"]:focus-visible::-moz-range-thumb{
   transform: scale(1.15);
   box-shadow: 0 0 0 7px color-mix(in srgb, var(--color-accent) 18%, transparent);
 }
-input[type="range"]:active::-webkit-slider-thumb { transform: scale(1.28); }
-input[type="range"]:active::-moz-range-thumb { transform: scale(1.28); }
-input[type="range"]:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 6px; }
+input[type="range"]:active::-webkit-slider-thumb{ transform: scale(1.28); }
+input[type="range"]:active::-moz-range-thumb{ transform: scale(1.28); }
+input[type="range"]:focus-visible{ outline: 2px solid var(--color-accent); outline-offset: 6px; }
 
 /* Text and search fields get the focus glow without needing the class, for the same reason. */
-input[type="text"], input[type="search"], input[type="email"], input[type="number"], textarea, select {
+input[type="text"], input[type="search"], input[type="email"], input[type="number"], textarea, select{
   transition: box-shadow 220ms var(--fx-ease-out), border-color 180ms linear;
 }
 input[type="text"]:focus, input[type="search"]:focus, input[type="email"]:focus,
-input[type="number"]:focus, textarea:focus, select:focus {
+input[type="number"]:focus, textarea:focus, select:focus{
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 15%, transparent);
 }
 
 /* Checkboxes and radios take the brand colour and a press response. */
-input[type="checkbox"], input[type="radio"] {
+input[type="checkbox"], input[type="radio"]{
   accent-color: var(--color-accent);
   transition: transform 160ms var(--fx-ease-spring);
 }
-input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.88); }
-
+input[type="checkbox"]:active, input[type="radio"]:active{ transform: scale(0.88); }
 
 /* ========================================================================== */
 /*  §7 — LAYOUT & STATE TRANSITIONS                                          */
@@ -587,42 +331,37 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 
 /* Accordion / disclosure without animating height. `grid-template-rows`
    interpolates 0fr→1fr on the compositor; the child carries overflow:hidden. */
-.fx-collapse { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--fx-dur-medium) var(--fx-ease-entrance), opacity var(--fx-dur-fast) linear; opacity: 0; }
-.fx-collapse[data-open="true"] { grid-template-rows: 1fr; opacity: 1; }
-.fx-collapse > * { overflow: hidden; min-height: 0; }
-
+.fx-collapse{ display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--fx-dur-medium) var(--fx-ease-entrance), opacity var(--fx-dur-fast) linear; opacity: 0; }
+.fx-collapse[data-open="true"]{ grid-template-rows: 1fr; opacity: 1; }
+.fx-collapse > *{ overflow: hidden; min-height: 0; }
 
 /* Modal / dialog and its backdrop. */
 @keyframes fx-backdrop-in { from { opacity: 0; backdrop-filter: blur(0); } to { opacity: 1; backdrop-filter: blur(6px); } }
 @keyframes fx-modal-in { from { opacity: 0; transform: translate3d(0, 14px, 0) scale(0.97); } to { opacity: 1; transform: none; } }
-.fx-backdrop { animation: fx-backdrop-in var(--fx-dur-medium) var(--fx-ease-out) both; }
-.fx-modal    { animation: fx-modal-in var(--fx-dur-medium) var(--fx-ease-spring) both; }
+.fx-backdrop{ animation: fx-backdrop-in var(--fx-dur-medium) var(--fx-ease-out) both; }
+.fx-modal{ animation: fx-modal-in var(--fx-dur-medium) var(--fx-ease-spring) both; }
 
 /* Drawer / sheet / off-canvas, one keyframe per edge. */
 @keyframes fx-sheet-bottom { from { transform: translate3d(0, 100%, 0); } to { transform: none; } }
-.fx-sheet-bottom { animation: fx-sheet-bottom 380ms var(--fx-ease-entrance) both; }
-
+.fx-sheet-bottom{ animation: fx-sheet-bottom 380ms var(--fx-ease-entrance) both; }
 
 /* Dropdown / menu with a staggered item cascade. */
 @keyframes fx-menu-in { from { opacity: 0; transform: translate3d(0, -6px, 0) scale(0.98); transform-origin: top; } to { opacity: 1; transform: none; } }
-.fx-menu { animation: fx-menu-in 200ms var(--fx-ease-entrance) both; }
-.fx-menu > * { animation: fx-slide-down 260ms var(--fx-ease-entrance) both; animation-delay: calc(var(--fx-i, 0) * 34ms); --fx-travel: 6px; }
-
+.fx-menu{ animation: fx-menu-in 200ms var(--fx-ease-entrance) both; }
+.fx-menu > *{ animation: fx-slide-down 260ms var(--fx-ease-entrance) both; animation-delay: calc(var(--fx-i, 0) * 34ms); --fx-travel: 6px; }
 
 /* Filter / sort reflow and list insert-remove. FLIP is done in JS by the grid
    component; these are the entry and exit halves it hands off to. */
-.fx-flip-item { transition: transform 420ms var(--fx-ease-entrance); }
+.fx-flip-item{ transition: transform 420ms var(--fx-ease-entrance); }
 @keyframes fx-item-insert { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: none; } }
-.fx-item-insert { animation: fx-item-insert 320ms var(--fx-ease-spring) both; animation-delay: calc(var(--fx-i, 0) * 24ms); }
-
+.fx-item-insert{ animation: fx-item-insert 320ms var(--fx-ease-spring) both; animation-delay: calc(var(--fx-i, 0) * 24ms); }
 
 /* Route / view transition. Progressive: browsers without the API just cut. */
 @media (prefers-reduced-motion: no-preference) {
   @view-transition { navigation: auto; }
 }
-::view-transition-old(root) { animation: fx-fade-out 180ms var(--fx-ease-out) both; }
-::view-transition-new(root) { animation: fx-fade-in 260ms var(--fx-ease-entrance) both; }
-
+::view-transition-old(root){ animation: fx-fade-out 180ms var(--fx-ease-out) both; }
+::view-transition-new(root){ animation: fx-fade-in 260ms var(--fx-ease-entrance) both; }
 
 /* ========================================================================== */
 /*  §8 — DATA & CHART                                                        */
@@ -634,22 +373,20 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 
 @keyframes fx-bar-growx { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes fx-ring-fill { from { stroke-dashoffset: var(--fx-ring-len, 302); } to { stroke-dashoffset: var(--fx-ring-target, 0); } }
-.fx-bar-h { transform-origin: left;   animation: fx-bar-growx var(--fx-dur-deliberate) var(--fx-ease-entrance) both var(--fx-delay, 0ms); }
-.fx-ring  { animation: fx-ring-fill var(--fx-dur-deliberate) var(--fx-ease-entrance) both var(--fx-delay, 0ms); }
-
+.fx-bar-h{ transform-origin: left;   animation: fx-bar-growx var(--fx-dur-deliberate) var(--fx-ease-entrance) both var(--fx-delay, 0ms); }
+.fx-ring{ animation: fx-ring-fill var(--fx-dur-deliberate) var(--fx-ease-entrance) both var(--fx-delay, 0ms); }
 
 /* Odometer / vertical digit roll. The column holds 0-9 stacked; the wheel is
    translated to the target digit. */
-.fx-odometer { display: inline-flex; overflow: hidden; height: 1em; line-height: 1; vertical-align: baseline; }
-.fx-odometer-col { display: block; overflow: hidden; height: 1em; }
-.fx-odometer-wheel {
+.fx-odometer{ display: inline-flex; overflow: hidden; height: 1em; line-height: 1; vertical-align: baseline; }
+.fx-odometer-col{ display: block; overflow: hidden; height: 1em; }
+.fx-odometer-wheel{
   display: flex; flex-direction: column;
   transform: translate3d(0, calc(var(--fx-digit, 0) * -1em), 0);
   transition: transform 700ms var(--fx-ease-entrance);
   transition-delay: calc(var(--fx-i, 0) * 55ms);
 }
-.fx-odometer-wheel > span { height: 1em; line-height: 1; font-variant-numeric: tabular-nums; }
-
+.fx-odometer-wheel > span{ height: 1em; line-height: 1; font-variant-numeric: tabular-nums; }
 
 /* ========================================================================== */
 /*  §9 — MAP & GEOGRAPHY                                                     */
@@ -658,16 +395,14 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 @keyframes fx-region-fill { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: none; } }
 /* Regions fill outward from the centre of the county rather than in file
    order — `--fx-r` is the ring index the cartogram computes. */
-.fx-region { transform-origin: center; animation: fx-region-fill 380ms var(--fx-ease-out) both; animation-delay: calc(var(--fx-r, 0) * 42ms); }
-
+.fx-region{ transform-origin: center; animation: fx-region-fill 380ms var(--fx-ease-out) both; animation-delay: calc(var(--fx-r, 0) * 42ms); }
 
 /* ========================================================================== */
 /*  §10 — FEEDBACK & ATTENTION                                               */
 /* ========================================================================== */
 
 @keyframes fx-badge-pop { 0% { transform: scale(0.4); opacity: 0; } 62% { transform: scale(1.22); opacity: 1; } 100% { transform: scale(1); } }
-.fx-badge-pop  { animation: fx-badge-pop 420ms var(--fx-ease-spring); }
-
+.fx-badge-pop{ animation: fx-badge-pop 420ms var(--fx-ease-spring); }
 
 /* ========================================================================== */
 /*  §11 — LOADING & PROGRESS                                                 */
@@ -675,7 +410,7 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 
 @keyframes fx-skeleton-pulse { 0%, 100% { opacity: 0.55; } 50% { opacity: 0.9; } }
 @keyframes fx-skeleton-sweep { from { background-position: -180% 0; } to { background-position: 280% 0; } }
-.fx-skeleton {
+.fx-skeleton{
   background: linear-gradient(90deg,
     color-mix(in srgb, var(--color-line) 45%, transparent) 25%,
     color-mix(in srgb, var(--color-line) 80%, transparent) 42%,
@@ -684,151 +419,39 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
   animation: fx-skeleton-sweep 1.6s linear infinite;
   border-radius: 8px;
 }
-.fx-skeleton-pulse { animation: fx-skeleton-pulse 1.5s ease-in-out infinite; }
-
-
-/* ========================================================================== */
-/*  §12 — TYPOGRAPHIC EFFECTS                                                */
-/* ========================================================================== */
-
-
-/* Gradient text and image-clipped text.
-
-   Do not combine this with SplitText. `background-clip: text` clips the
-   background of the element it is set on; each split unit is an inline-block
-   with its own transform, which establishes a containing block, so the
-   ancestor's clipped background never reaches those glyphs and the text
-   renders fully transparent. Use it on a heading that is not split. */
-.fx-text-gradient {
-  background: linear-gradient(100deg, var(--color-ink) 8%, var(--color-accent) 46%, var(--color-gold) 88%);
-  background-size: 200% 100%;
-  -webkit-background-clip: text; background-clip: text;
-  color: transparent; -webkit-text-fill-color: transparent;
-}
-
+.fx-skeleton-pulse{ animation: fx-skeleton-pulse 1.5s ease-in-out infinite; }
 
 /* Line / word / character reveal. The splitter emits one span per unit and
    sets --fx-i; the mask is a per-unit overflow clip so the line rises out of
    nothing rather than fading in place. */
-.fx-split-line { display: block; overflow: hidden; }
+.fx-split-line{ display: block; overflow: hidden; }
 .fx-split-line > span,
 .fx-split-word > span,
-.fx-split-char > span {
+.fx-split-char > span{
   display: inline-block;
   animation: fx-slide-up var(--fx-dur-entrance) var(--fx-ease-entrance) both;
   animation-delay: calc(var(--fx-i, 0) * var(--fx-split-stagger, 42ms) + var(--fx-delay, 0ms));
   --fx-travel: 100%;
 }
-.fx-split-word > span { --fx-travel: 14px; }
-.fx-split-char > span { --fx-travel: 10px; animation-delay: calc(var(--fx-i, 0) * var(--fx-split-stagger, 22ms) + var(--fx-delay, 0ms)); }
-
+.fx-split-word > span{ --fx-travel: 14px; }
+.fx-split-char > span{ --fx-travel: 10px; animation-delay: calc(var(--fx-i, 0) * var(--fx-split-stagger, 22ms) + var(--fx-delay, 0ms)); }
 
 /* Typewriter — a steps() caret over a clipped inline block. */
-@keyframes fx-typewrite { from { width: 0; } to { width: 100%; } }
-@keyframes fx-caret { 50% { opacity: 0; } }
-.fx-typewriter {
-  display: inline-block; overflow: hidden; white-space: nowrap;
-  border-right: 2px solid var(--color-accent);
-  width: 0;
-  animation: fx-typewrite var(--fx-type-dur, 2.4s) steps(var(--fx-type-steps, 32), end) forwards,
-             fx-caret 780ms step-end infinite;
-  animation-delay: var(--fx-delay, 0ms), 0ms;
-}
-
-
-/* Cycling word swap — the outgoing word leaves upward, the incoming arrives
-   from below, inside a fixed-height clip so nothing reflows. */
-.fx-cycler { display: inline-grid; overflow: hidden; vertical-align: bottom; height: 1.16em; }
-.fx-cycler > span { grid-area: 1 / 1; transition: transform 420ms var(--fx-ease-entrance), opacity 300ms linear; }
-.fx-cycler > span[data-state="out"]  { transform: translate3d(0, -110%, 0); opacity: 0; }
-.fx-cycler > span[data-state="in"]   { transform: none; opacity: 1; }
-.fx-cycler > span[data-state="next"] { transform: translate3d(0, 110%, 0); opacity: 0; }
 
 /* ========================================================================== */
 /*  §13 — MEDIA (IMAGES & VIDEO)                                             */
 /* ========================================================================== */
 
 /* Ken Burns. Slow, and only on a portrait that is already the focal point. */
-@keyframes fx-kenburns {
-  0%   { transform: scale(1.02) translate3d(0, 0, 0); }
-  100% { transform: scale(1.11) translate3d(-1.5%, -2%, 0); }
-}
-.fx-kenburns { animation: fx-kenburns 22s var(--fx-ease-out) alternate infinite; will-change: transform; }
 
-
-/* Masked gradients — images and rails that fade out rather than stopping at a
-   hard edge. */
-
-.fx-mask-fade-x { mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent); }
-
-
-/* Glassmorphism and neumorphism. Both are surface treatments rather than
-   motion, and both are used sparingly: glass for floating chrome that sits
-   over content, neumorph for the two segmented controls. */
-.fx-glass {
-  background: color-mix(in srgb, var(--color-card) 72%, transparent);
-  backdrop-filter: blur(16px) saturate(1.6);
-  -webkit-backdrop-filter: blur(16px) saturate(1.6);
-  border: 1px solid color-mix(in srgb, var(--color-line) 70%, transparent);
-  box-shadow: 0 8px 32px -12px rgba(8, 20, 40, 0.22), inset 0 1px 0 color-mix(in srgb, white 40%, transparent);
-}
-.dark .fx-glass {
-  background: color-mix(in srgb, var(--color-card) 62%, transparent);
-  box-shadow: 0 8px 32px -12px rgba(0, 0, 0, 0.7), inset 0 1px 0 color-mix(in srgb, white 8%, transparent);
-}
-
-
-/* Gradient dividers and hairline rules in brand colour. */
-.fx-divider-gradient { height: 1px; border: 0; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--color-accent) 55%, transparent), color-mix(in srgb, var(--color-gold) 45%, transparent), transparent); }
-.fx-divider-soft { height: 1px; border: 0; background: linear-gradient(90deg, transparent, var(--color-line), transparent); }
-
-/* Photo-frame treatment for portraits. */
-.fx-photo-frame {
-  padding: 0.55rem 0.55rem 2.2rem;
-  background: var(--color-card);
-  border: 1px solid var(--color-line);
-  box-shadow: 0 10px 30px -14px rgba(8, 20, 40, 0.35);
-  transform: rotate(var(--fx-tilt-deg, -1.2deg));
-  transition: transform 420ms var(--fx-ease-entrance), box-shadow 420ms var(--fx-ease-entrance);
-}
-.fx-photo-frame:hover { transform: rotate(0deg) translate3d(0, -3px, 0); }
-
-
-/* ========================================================================== */
-/*  §14 — SPATIAL & 3D                                                       */
-/* ========================================================================== */
-
-.fx-tilt {
-  transform: perspective(var(--fx-persp, 900px))
-             rotateX(var(--fx-rx, 0deg)) rotateY(var(--fx-ry, 0deg))
-             translate3d(0, 0, var(--fx-tz, 0px));
-  transition: transform 420ms var(--fx-ease-entrance);
-  transform-style: preserve-3d;
-  will-change: transform;
-}
-.fx-tilt[data-engaged="true"] { transition: transform 90ms linear; }
-/* Layers inside a tilting card sit at real z-offsets, so the parallax between
-   them is a consequence of the rotation rather than a second animation. */
-.fx-z-1 { transform: translateZ(18px); }
-
-.fx-z-3 { transform: translateZ(58px); }
-
-
-/* Post-processing: bloom and vignette, as compositor filters over a band. */
-
-.fx-vignette::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
-  background: radial-gradient(ellipse 90% 80% at 50% 45%, transparent 55%, rgba(4, 10, 24, 0.28));
-}
-
+.fx-divider-soft{ height: 1px; border: 0; background: linear-gradient(90deg, transparent, var(--color-line), transparent); }
 
 /* ========================================================================== */
 /*  §15 — NAVIGATION                                                         */
 /* ========================================================================== */
 
-
 /* Active-link indicator that slides between items in a rail. */
-.fx-rail-indicator {
+.fx-rail-indicator{
   position: absolute; left: 0; width: 2px; border-radius: 2px; background: var(--color-accent);
   height: var(--fx-rail-h, 0px);
   transform: translate3d(0, var(--fx-rail-y, 0px), 0);
@@ -836,17 +459,16 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 }
 
 /* Scroll-spy dots. */
-.fx-navdot { transition: transform 260ms var(--fx-ease-spring), background-color 220ms linear, width 260ms var(--fx-ease-spring); }
-.fx-navdot[aria-current="true"] { transform: scale(1.35); }
+.fx-navdot{ transition: transform 260ms var(--fx-ease-spring), background-color 220ms linear, width 260ms var(--fx-ease-spring); }
+.fx-navdot[aria-current="true"]{ transform: scale(1.35); }
 
 /* Back-to-top reveal. */
-.fx-backtotop { opacity: 0; transform: translate3d(0, 12px, 0) scale(0.9); pointer-events: none; transition: opacity 260ms linear, transform 300ms var(--fx-ease-spring); }
-.fx-backtotop[data-visible="true"] { opacity: 1; transform: none; pointer-events: auto; }
+.fx-backtotop{ opacity: 0; transform: translate3d(0, 12px, 0) scale(0.9); pointer-events: none; transition: opacity 260ms linear, transform 300ms var(--fx-ease-spring); }
+.fx-backtotop[data-visible="true"]{ opacity: 1; transform: none; pointer-events: auto; }
 
 /* Sticky header state change. */
-.fx-header { transition: background-color 320ms linear, backdrop-filter 320ms linear, box-shadow 320ms linear, padding 320ms var(--fx-ease-entrance); }
-.fx-header[data-stuck="true"] { box-shadow: 0 4px 20px -12px rgba(8, 20, 40, 0.35); }
-
+.fx-header{ transition: background-color 320ms linear, backdrop-filter 320ms linear, box-shadow 320ms linear, padding 320ms var(--fx-ease-entrance); }
+.fx-header[data-stuck="true"]{ box-shadow: 0 4px 20px -12px rgba(8, 20, 40, 0.35); }
 
 /* ========================================================================== */
 /*  §16 — FORM INTERACTIONS                                                  */
@@ -857,68 +479,40 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 /*  later — without a per-call-site opt-in someone will forget.              */
 /* ========================================================================== */
 
-
-.fx-input-glow { transition: box-shadow 240ms var(--fx-ease-out), border-color 200ms linear; }
-.fx-input-glow:focus, .fx-input-glow:focus-within { box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 16%, transparent); border-color: var(--color-accent); }
-
+.fx-input-glow{ transition: box-shadow 240ms var(--fx-ease-out), border-color 200ms linear; }
+.fx-input-glow:focus, .fx-input-glow:focus-within{ box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 16%, transparent); border-color: var(--color-accent); }
 
 /* ========================================================================== */
 /*  §18 — ORCHESTRATION                                                      */
 /* ========================================================================== */
 
-
 /* Hero choreography: one named timeline the header's parts opt into by index,
    so the whole entrance can be retimed from a single custom property. */
-.fx-hero-seq { --fx-beat: 90ms; }
-.fx-hero-seq > * { animation-delay: calc(var(--fx-i, 0) * var(--fx-beat) + 120ms); }
+.fx-hero-seq{ --fx-beat: 90ms; }
+.fx-hero-seq > *{ animation-delay: calc(var(--fx-i, 0) * var(--fx-beat) + 120ms); }
 
 /* ========================================================================== */
 /*  §19 / §20 — ENABLING, BRAND & THEME                                      */
 /* ========================================================================== */
 
 /* Branded scrollbar. */
-* { scrollbar-color: color-mix(in srgb, var(--color-accent) 55%, transparent) transparent; scrollbar-width: thin; }
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb {
+*{ scrollbar-color: color-mix(in srgb, var(--color-accent) 55%, transparent) transparent; scrollbar-width: thin; }
+::-webkit-scrollbar{ width: 10px; height: 10px; }
+::-webkit-scrollbar-track{ background: transparent; }
+::-webkit-scrollbar-thumb{
   background: linear-gradient(180deg, color-mix(in srgb, var(--color-accent) 60%, transparent), color-mix(in srgb, var(--color-gold) 50%, transparent));
   border-radius: 999px;
   border: 2px solid transparent;
   background-clip: content-box;
 }
-::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, var(--color-accent), var(--color-gold)); background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover{ background: linear-gradient(180deg, var(--color-accent), var(--color-gold)); background-clip: content-box; }
 
 /* Selection in brand colour. */
-::selection { background: color-mix(in srgb, var(--color-accent) 26%, transparent); color: var(--color-ink); }
-
-
-/* Custom cursor. The native cursor is only hidden where a replacement is
-   actually painted, and never on a touch device or a form control. */
-@media (hover: hover) and (pointer: fine) {
-  .fx-cursor-host { cursor: none; }
-  .fx-cursor-host a, .fx-cursor-host button, .fx-cursor-host input,
-  .fx-cursor-host textarea, .fx-cursor-host select, .fx-cursor-host [role="button"] { cursor: none; }
-}
-.fx-cursor-dot, .fx-cursor-ring {
-  position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;
-  border-radius: 50%; mix-blend-mode: difference;
-  opacity: 0;
-  transition: opacity 160ms linear;
-}
-[data-cursor-live="true"] .fx-cursor-dot,
-[data-cursor-live="true"] .fx-cursor-ring { opacity: 1; }
-.fx-cursor-dot  { width: 7px; height: 7px; background: white; transform: translate3d(var(--cx, -50px), var(--cy, -50px), 0) translate(-50%, -50%); }
-.fx-cursor-ring {
-  width: 34px; height: 34px; border: 1.5px solid white;
-  transform: translate3d(var(--cx-lag, -50px), var(--cy-lag, -50px), 0) translate(-50%, -50%) scale(var(--c-scale, 1));
-  transition: width 200ms var(--fx-ease-out), height 200ms var(--fx-ease-out), opacity 200ms linear;
-}
-
+::selection{ background: color-mix(in srgb, var(--color-accent) 26%, transparent); color: var(--color-ink); }
 
 /* Seasonal / campaign-phase accent overrides, one attribute on the shell. */
-[data-campaign-phase="nomination"] { --color-accent: var(--phase-neg1); }
-[data-campaign-phase="gotv"]       { --color-accent: var(--phase-3); }
-
+[data-campaign-phase="nomination"]{ --color-accent: var(--phase-neg1); }
+[data-campaign-phase="gotv"]{ --color-accent: var(--phase-3); }
 
 /* ========================================================================== */
 /*  REDUCED MOTION                                                           */
@@ -935,37 +529,26 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 /* ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  /* 1. Ambient loops stop. */
-  .fx-loop-marquee, .fx-loop-marquee-rev, .fx-loop-breathe, .fx-loop-float,
-  .fx-loop-drift, .fx-loop-spin, .fx-loop-orbit, .fx-loop-conveyor, .fx-loop-wave,
-  .fx-gradient-live, .fx-text-gradient-live, .fx-kenburns, .fx-blob, .fx-cube,
-  .fx-caustics, .fx-ribbon, .fx-nudge, .fx-heartbeat, .fx-glow-pulse, .fx-datapoint,
-  .fx-catchment, .fx-pattern-diagonal, .fx-kinetic {
-    animation: none !important;
-  }
-  .fx-aurora span, .fx-motes i { animation: none !important; }
-  .fx-grain::before { animation: none !important; }
-  .fx-shimmer::after { animation: none !important; opacity: 0; }
-  .fx-skeleton { animation: none !important; background: color-mix(in srgb, var(--color-line) 55%, transparent); }
-  .fx-skeleton-pulse { animation: none !important; opacity: 0.7; }
+
   
-  
+  .fx-shimmer::after{ animation: none !important; opacity: 0; }
+  .fx-skeleton{ animation: none !important; background: color-mix(in srgb, var(--color-line) 55%, transparent); }
+  .fx-skeleton-pulse{ animation: none !important; opacity: 0.7; }
+
    /* a spinner that does not spin is a bug */
 
   /* 2. Charts render at the truth, not at a point on a growth curve. */
-  .fx-bar, .fx-bar-h, .fx-ring, .fx-sweep, .fx-needle, .fx-point, .fx-cell,
-  .fx-region, .fx-pin, .fx-draw, .fx-stroke-fill, .fx-check, .fx-cross, .fx-flap {
+  .fx-bar, .fx-bar-h, .fx-ring,
+  .fx-region{
     animation: none !important;
     transform: none !important;
     stroke-dashoffset: var(--fx-ring-target, 0) !important;
     opacity: 1 !important;
   }
-  .fx-odometer-wheel { transition: none !important; }
+  .fx-odometer-wheel{ transition: none !important; }
 
   /* 3. Entrances resolve instantly to their finished state. */
-  [class*="fx-in-"], .fx-split-line > span, .fx-split-word > span, .fx-split-char > span,
-  .fx-spring, .fx-damped, .fx-gravity, .fx-elastic, .fx-softbody,
-  .fx-highlight-text::before, .fx-tracking-in, .fx-weight-in, .fx-frame-draw {
+  [class*="fx-in-"], .fx-split-line > span, .fx-split-word > span, .fx-split-char > span{
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
@@ -973,24 +556,20 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
     filter: none !important;
     letter-spacing: inherit !important;
   }
-  .fx-typewriter { animation: none !important; width: auto !important; border-right-color: transparent !important; }
-  
+
   
 
   /* 4. Interaction feedback SURVIVES, shortened. A press state that never
         appears is a bug, not a preference. Hover travel is removed; the
         colour and shadow change that carries the meaning is kept. */
-  .fx-lift:hover, .fx-lift:focus-visible, .fx-press:active,
-  .fx-magnetic, .fx-tilt, .fx-photo-frame:hover, .fx-zoom-frame:hover > * {
+  .fx-lift:hover, .fx-lift:focus-visible, .fx-press:active{
     transform: none !important;
   }
-  .fx-lift, .fx-press, .fx-underline::after, .fx-marker::before, .fx-bg-slide::before,
-  .fx-field, .fx-input-glow, .fx-switch > .fx-switch-thumb, .fx-navdot, .fx-backtotop,
-  input[type="range"]::-webkit-slider-thumb, input[type="range"]::-moz-range-thumb {
+  .fx-lift, .fx-press, .fx-marker::before, .fx-input-glow, .fx-navdot, .fx-backtotop,
+  input[type="range"]::-webkit-slider-thumb, input[type="range"]::-moz-range-thumb{
     transition-duration: 0.09s !important;
   }
-  .fx-shine::before { display: none !important; }
-  .fx-spotlight::before, .fx-glow-border::after { transition: none !important; }
+
 }
 
 /* ========================================================================== */
@@ -1003,8 +582,8 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 @media print {
   [class*="fx-in-"], [class*="fx-out-"], [class*="fx-loop-"],
   .fx-split-line > span, .fx-split-word > span, .fx-split-char > span,
-  .fx-bar, .fx-bar-h, .fx-ring, .fx-sweep, .fx-needle, .fx-point, .fx-cell,
-  .fx-region, .fx-pin, .fx-draw, .fx-typewriter, .fx-tracking-in {
+  .fx-bar, .fx-bar-h, .fx-ring,
+  .fx-region{
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
@@ -1012,27 +591,15 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
     filter: none !important;
     width: auto !important;
   }
-  .fx-aurora, .fx-motes, .fx-caustics, .fx-grain::before, .fx-curtain,
-  .fx-cursor-dot, .fx-cursor-ring, .fx-preloader, .fx-pattern-diagonal,
-  .fx-pattern-grid, .fx-pattern-dots, .fx-vignette::after { display: none !important; }
-  .fx-glass, .fx-neumorph { background: white !important; box-shadow: none !important; backdrop-filter: none !important; }
-  .fx-text-gradient { -webkit-text-fill-color: currentColor; color: black !important; background: none !important; }
-  .fx-lift, .fx-tilt, .fx-photo-frame { transform: none !important; box-shadow: none !important; }
-}
 
-/* ========================================================================== */
-/*  DATA-SAVER / LOW-END DEVICE                                              */
-/* ========================================================================== */
-
-@media (prefers-reduced-data: reduce) {
-  .fx-aurora, .fx-motes, .fx-caustics, .fx-grain::before { display: none; }
-  .fx-glass { backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--color-card); }
+  
+  .fx-lift{ transform: none !important; box-shadow: none !important; }
 }
 
 /* Opt-out for rails that are scrolled by their own affordances (chip rows,
    card carousels) and would look wrong with a 10px branded thumb. */
-.scrollbar-none { scrollbar-width: none; -ms-overflow-style: none; }
-.scrollbar-none::-webkit-scrollbar { width: 0; height: 0; display: none; }
+.scrollbar-none{ scrollbar-width: none; -ms-overflow-style: none; }
+.scrollbar-none::-webkit-scrollbar{ width: 0; height: 0; display: none; }
 
 /* ========================================================================== */
 /*  DOCUMENT SURFACES                                                        */
@@ -1047,13 +614,13 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 /* ========================================================================== */
 
 /* Rules become brand gradients rather than flat lines. */
-.prose hr:not(.not-prose *) {
+.prose hr:not(.not-prose *){
   height: 1px; border: 0; margin-block: 2.5rem;
   background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--color-accent) 45%, transparent), color-mix(in srgb, var(--color-gold) 35%, transparent), transparent);
 }
 
 /* Links draw their underline rather than carrying one. */
-.prose a:not(.not-prose *) {
+.prose a:not(.not-prose *){
   text-decoration: none;
   background-image: linear-gradient(currentColor, currentColor);
   background-size: 0% 1.5px;
@@ -1062,13 +629,13 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
   transition: background-size 280ms var(--fx-ease-entrance), color 180ms linear;
 }
 .prose a:not(.not-prose *):hover,
-.prose a:not(.not-prose *):focus-visible { background-size: 100% 1.5px; color: var(--color-accent); }
+.prose a:not(.not-prose *):focus-visible{ background-size: 100% 1.5px; color: var(--color-accent); }
 
 /* The lead paragraph of a sub-section gets a raised initial. Only the first
    paragraph after an h2, and only at reading widths — a drop cap on a phone
    eats a third of the line. */
 @media (min-width: 768px) {
-  .prose h2:not(.not-prose *) + p:not(.not-prose *)::first-letter {
+  .prose h2:not(.not-prose *) + p:not(.not-prose *)::first-letter{
     float: left;
     font-size: 3em;
     line-height: 0.84;
@@ -1080,7 +647,7 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 
 /* Blockquotes: the bar becomes a gradient and the mark becomes a real glyph.
    No motion — a quote that animates is a quote that gets read twice. */
-.prose blockquote:not(.not-prose *) {
+.prose blockquote:not(.not-prose *){
   position: relative;
   border-left-color: transparent;
   background-image: linear-gradient(var(--color-accent), var(--color-gold));
@@ -1088,7 +655,7 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
   background-repeat: no-repeat;
   background-position: left top;
 }
-.prose blockquote:not(.not-prose *)::before {
+.prose blockquote:not(.not-prose *)::before{
   content: "\201C";
   position: absolute; top: -0.15em; right: 0.5rem;
   font-size: 3.4rem; line-height: 1; font-family: var(--font-serif);
@@ -1099,31 +666,31 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 /* Tables. A row lifts under the pointer and the header stays put while a long
    ward table scrolls under it — on a 40-row register that is the difference
    between reading a number and hunting for its column. */
-.prose thead th:not(.not-prose *) {
+.prose thead th:not(.not-prose *){
   position: sticky; top: 0; z-index: 1;
   background: linear-gradient(180deg, var(--th-bg), color-mix(in srgb, var(--th-bg) 80%, transparent));
   backdrop-filter: blur(6px);
 }
-.prose tbody tr:not(.not-prose *) { transition: background-color 160ms linear, box-shadow 160ms linear; }
-.prose tbody tr:not(.not-prose *):hover {
+.prose tbody tr:not(.not-prose *){ transition: background-color 160ms linear, box-shadow 160ms linear; }
+.prose tbody tr:not(.not-prose *):hover{
   background-color: color-mix(in srgb, var(--color-accent) 5%, transparent);
   box-shadow: inset 3px 0 0 var(--color-accent);
 }
-.prose tbody tr:nth-child(even):not(.not-prose *) { background-color: color-mix(in srgb, var(--color-line) 16%, transparent); }
-.prose tbody tr:nth-child(even):not(.not-prose *):hover { background-color: color-mix(in srgb, var(--color-accent) 7%, transparent); }
+.prose tbody tr:nth-child(even):not(.not-prose *){ background-color: color-mix(in srgb, var(--color-line) 16%, transparent); }
+.prose tbody tr:nth-child(even):not(.not-prose *):hover{ background-color: color-mix(in srgb, var(--color-accent) 7%, transparent); }
 
 /* Figures and images sit in a frame that lifts, and their contents zoom
    inside it rather than the whole card growing. */
-.prose figure:not(.not-prose *) { transition: transform 320ms var(--fx-ease-entrance), box-shadow 320ms var(--fx-ease-entrance); }
-.prose figure:not(.not-prose *):hover { transform: translate3d(0, -2px, 0); }
+.prose figure:not(.not-prose *){ transition: transform 320ms var(--fx-ease-entrance), box-shadow 320ms var(--fx-ease-entrance); }
+.prose figure:not(.not-prose *):hover{ transform: translate3d(0, -2px, 0); }
 
 /* Inline code gets a hairline so it reads as a token rather than as a
    highlight, which at 262 sections' worth of `KSh` and `§` matters. */
-.prose code:not(.not-prose *) { border: 1px solid color-mix(in srgb, var(--color-line) 70%, transparent); }
+.prose code:not(.not-prose *){ border: 1px solid color-mix(in srgb, var(--color-line) 70%, transparent); }
 
 /* Bold runs carry this document's load-bearing figures. A hairline underline
    in brand gold marks them without the shouting a background highlight does. */
-.prose strong:not(.not-prose *) {
+.prose strong:not(.not-prose *){
   background-image: linear-gradient(color-mix(in srgb, var(--color-gold) 42%, transparent), color-mix(in srgb, var(--color-gold) 42%, transparent));
   background-size: 100% 1px;
   background-position: 0 100%;
@@ -1131,35 +698,35 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 }
 
 /* The cards the renderer emits inside prose lift as a set. */
-.prose .card { transition: transform 300ms var(--fx-ease-entrance), box-shadow 300ms var(--fx-ease-entrance), border-color 200ms linear; }
-.prose .card:hover { transform: translate3d(0, -3px, 0); border-color: color-mix(in srgb, var(--color-accent) 45%, transparent); box-shadow: 0 14px 34px -18px color-mix(in srgb, var(--color-accent) 55%, transparent); }
+.prose .card{ transition: transform 300ms var(--fx-ease-entrance), box-shadow 300ms var(--fx-ease-entrance), border-color 200ms linear; }
+.prose .card:hover{ transform: translate3d(0, -3px, 0); border-color: color-mix(in srgb, var(--color-accent) 45%, transparent); box-shadow: 0 14px 34px -18px color-mix(in srgb, var(--color-accent) 55%, transparent); }
 
 /* Callouts get a lit left edge that matches their severity. */
-.callout { position: relative; overflow: hidden; }
-.callout::after {
+.callout{ position: relative; overflow: hidden; }
+.callout::after{
   content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
   background: linear-gradient(180deg, var(--color-accent), transparent);
 }
-.callout.warning::after { background: linear-gradient(180deg, var(--color-danger), transparent); }
+.callout.warning::after{ background: linear-gradient(180deg, var(--color-danger), transparent); }
 
 /* Claim and tier badges pop once when they mount, so a reader scanning for
    provenance sees the badge arrive rather than finding it already there. */
-.claim-badge, .tier-badge { transition: transform 180ms var(--fx-ease-spring), box-shadow 180ms linear; }
-.claim-badge:hover, .tier-badge:hover { transform: translate3d(0, -1px, 0) scale(1.04); }
+.claim-badge, .tier-badge{ transition: transform 180ms var(--fx-ease-spring), box-shadow 180ms linear; }
+.claim-badge:hover, .tier-badge:hover{ transform: translate3d(0, -1px, 0) scale(1.04); }
 
 @media (prefers-reduced-motion: reduce) {
   .prose a:not(.not-prose *), .prose tbody tr:not(.not-prose *),
-  .prose .card, .claim-badge, .tier-badge { transition-duration: 0.09s !important; }
+  .prose .card, .claim-badge, .tier-badge{ transition-duration: 0.09s !important; }
   .prose figure:not(.not-prose *):hover, .prose .card:hover,
-  .claim-badge:hover, .tier-badge:hover { transform: none !important; }
+  .claim-badge:hover, .tier-badge:hover{ transform: none !important; }
 }
 
 @media print {
   /* Folds print open. A briefing kit with a heading and nothing under it is worse than a long
      one, and the collapse is a reading convenience, not an editorial decision. */
-  .fx-collapse { grid-template-rows: 1fr !important; opacity: 1 !important; }
-  .prose thead th:not(.not-prose *) { position: static; backdrop-filter: none; }
-  .prose blockquote:not(.not-prose *)::before { display: none; }
+  .fx-collapse{ grid-template-rows: 1fr !important; opacity: 1 !important; }
+  .prose thead th:not(.not-prose *){ position: static; backdrop-filter: none; }
+  .prose blockquote:not(.not-prose *)::before{ display: none; }
 }
 
 /* The per-heading copy-link button.
@@ -1169,14 +736,14 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
    so the utility version would have hidden the control permanently on the device this proposal is
    most likely to be opened on. Keyboard focus and the copied state both force it visible. */
 @media (hover: hover) and (pointer: fine) {
-  .section-anchor-btn {
+  .section-anchor-btn{
     opacity: 0;
     transition: opacity 180ms var(--fx-ease-out), color 160ms linear, border-color 160ms linear;
   }
   h2:hover > .section-anchor-btn,
   h3:hover > .section-anchor-btn,
   .section-anchor-btn:focus-visible,
-  .section-anchor-btn[data-copied="true"] { opacity: 1; }
+  .section-anchor-btn[data-copied="true"]{ opacity: 1; }
 }
 
 /* ========================================================================== */
@@ -1196,34 +763,12 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
   @media (prefers-reduced-motion: no-preference) {
     .prose > figure:not(.not-prose *),
     .prose > .not-prose,
-    .prose > table:not(.not-prose *) {
+    .prose > table:not(.not-prose *){
       animation: fx-slide-up auto var(--fx-ease-entrance) both;
       animation-timeline: view();
       animation-range: entry 4% cover 26%;
       --fx-travel: 14px;
     }
-  }
-}
-
-/* The hero field drifts against the page as it scrolls, which is what makes
-   the header read as having depth rather than as a picture behind text. The
-   depth multiplier is per-layer, so the three aurora wells separate. */
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    /* Each well moves against the page at its own rate, which is what makes the header read
-       as having depth rather than as a picture sitting behind text. The drift keyframes keep
-       running; this rides on top of them via a second animation on the same element. */
-    .fx-aurora span {
-      animation-composition: add;
-      animation-timeline: auto, view();
-      animation-range: auto, cover 0% cover 100%;
-    }
-    .fx-aurora span:nth-child(1) { animation-name: fx-aurora-a, fx-parallax-shift; --fx-depth: 0.6; }
-    .fx-aurora span:nth-child(2) { animation-name: fx-aurora-b, fx-parallax-shift; --fx-depth: 1; }
-    .fx-aurora span:nth-child(3) { animation-name: fx-aurora-c, fx-parallax-shift; --fx-depth: 1.5; }
-    .fx-aurora span:nth-child(1) { animation-duration: 26s, auto; animation-iteration-count: infinite, 1; }
-    .fx-aurora span:nth-child(2) { animation-duration: 32s, auto; animation-iteration-count: infinite, 1; }
-    .fx-aurora span:nth-child(3) { animation-duration: 38s, auto; animation-iteration-count: infinite, 1; }
   }
 }
 
@@ -1234,7 +779,7 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
    reduced-motion reader who had scrolled down: chrome that hides itself and will not slide back
    is chrome that has gone. */
 @media (prefers-reduced-motion: reduce) {
-  [data-scroll-dir="down"] .fx-dir-header:not([data-pinned="true"]) {
+  [data-scroll-dir="down"] .fx-dir-header:not([data-pinned="true"]){
     transform: none;
     opacity: 1;
   }

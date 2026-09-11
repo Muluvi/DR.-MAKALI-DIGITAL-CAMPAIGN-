@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Link2, Check } from "lucide-react";
 import { useInView } from "../../hooks/use-in-view";
-import { useRipple } from "../../hooks/use-pointer-fx";
 
 /**
  * Every one of the document's 262 headings renders through this component, which makes it the
@@ -25,7 +24,6 @@ import { useRipple } from "../../hooks/use-pointer-fx";
 
 function CopyLinkButton({ id }: { id: string }) {
   const [copied, setCopied] = useState(false);
-  const ripple = useRipple<HTMLAnchorElement>();
 
   const handleCopy = async (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -44,7 +42,6 @@ function CopyLinkButton({ id }: { id: string }) {
     <a
       href={`#${id}`}
       onClick={handleCopy}
-      onPointerDown={ripple}
       aria-label="Copy link to this section"
       title={copied ? "Link copied" : "Copy link to this section"}
       // Visibility is handled in CSS, not here: the button hides until hover ONLY where there is

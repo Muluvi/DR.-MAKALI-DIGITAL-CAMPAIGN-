@@ -24,16 +24,10 @@ import { SectionNumberMapProvider } from "./markdown/SectionNumberMap";
 
 
 import {
-  AmbientField,
-  CustomCursor,
-  MagneticButton,
   NavDots,
-  RippleButton,
+  PressButton,
   Reveal,
   SplitText,
-  SpotlightCard,
-  TiltCard,
-  WordCycler,
 } from "./visual";
 import { useDaypart, useScrollShell } from "../hooks/use-scroll-shell";
 
@@ -146,9 +140,9 @@ function PartDivider({ number, label }: { number: string; label: string }) {
     <div className="relative left-1/2 -translate-x-1/2 w-screen print:hidden" aria-hidden="true">
       {/* The band is the seam between two parts of the argument, so it earns a little more than a
           rule: a slow gradient drift under a diagonal hatch, and one shimmer pass as it arrives. */}
-      <div className="fx-shimmer relative h-12 sm:h-14 flex items-center border-y border-line/40 overflow-hidden">
-        <div className="absolute inset-0 fx-gradient-live bg-[linear-gradient(100deg,var(--color-accent)_0%,transparent_35%,transparent_65%,var(--color-gold)_100%)] opacity-[0.07]" />
-        <div className="absolute inset-0 fx-pattern-diagonal" />
+      <div className="relative h-12 sm:h-14 flex items-center border-y border-line/40 overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(100deg,var(--color-accent)_0%,transparent_35%,transparent_65%,var(--color-gold)_100%)] opacity-[0.07]" />
+        <div className="absolute inset-0 " />
         <div className="max-w-7xl mx-auto px-3 sm:px-6 w-full flex items-center gap-3 relative z-10">
           <span className="font-mono t-label sm:t-small font-bold text-accent shrink-0 tabular-nums">{number}</span>
           <span className="h-px w-6 bg-gradient-to-r from-accent to-transparent shrink-0" />
@@ -540,17 +534,17 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
       
       {/* Hero Header */}
       {(activeTab === LANDING_TAB || isExpanded) && (
-        <header className="cv-auto-hero fx-vignette relative pt-10 sm:pt-14 pb-8 sm:pb-12 overflow-hidden print:pt-4 print:pb-4">
-          {/* The base plate stays: it is what guarantees contrast for the title. The ambient
-              field — drifting colour wells, a masked grid, film grain — is layered over it and
-              is switched off wholesale under reduced motion, reduced data and print. */}
+        <header className="cv-auto-hero relative pt-10 sm:pt-14 pb-8 sm:pb-12 overflow-hidden print:pt-4 print:pb-4">
+          {/* The base plate, and only the base plate. It guarantees contrast for the title,
+              and it is static. The ambient field that used to layer over it — drifting colour
+              wells, a masked grid, film grain, a particle drift — was four rejected techniques
+              in one component and absorbed no prose. docs/TRIAGE.md §5.3. */}
           <div className="absolute inset-0 pointer-events-none opacity-50 bg-[radial-gradient(circle_at_82%_10%,var(--color-glow),transparent_32%),linear-gradient(180deg,var(--color-card),var(--color-paper))]" />
-          <AmbientField intensity="full" pattern="grid" />
 
           <div className="fx-hero-seq max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 relative z-10">
             
             {/* Wiper Democratic Movement brand banner */}
-            <div style={{ "--fx-i": 0 } as React.CSSProperties} className="fx-in-left fx-glass fx-lift flex items-center gap-3 mb-4 sm:mb-6 select-none rounded-2xl p-2.5 sm:p-3.5 w-fit">
+            <div style={{ "--fx-i": 0 } as React.CSSProperties} className="fx-in-left fx-lift flex items-center gap-3 mb-4 sm:mb-6 select-none rounded-2xl p-2.5 sm:p-3.5 w-fit">
               <span className="inline-flex"><WiperUmbrellaLogo /></span>
               <div>
                 <div className="t-small sm:text-sm text-accent font-black">
@@ -588,11 +582,13 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
               <p style={{ "--fx-i": 3 } as React.CSSProperties} className="fx-in-up col-start-1 t-body md:t-lead text-muted max-w-3xl leading-relaxed text-pretty">
                 Campaign Strategy & Digital Architecture Proposal for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
               </p>
-              {/* The cycler's word list is the section index itself, so it can never drift out of
-                  step with the document the way a hand-written list would. */}
-              <p style={{ "--fx-i": 4 } as React.CSSProperties} className="fx-in-up col-start-1 mt-3 t-small font-semibold text-muted flex items-baseline gap-1.5">
-                <span>Covering</span>
-                <WordCycler words={navItems.map((n) => n.label)} className="text-accent font-black" />
+              {/* Was a WordCycler rotating one section label at a time. A cycler shows one peer
+                  of sixteen and hides the rest on a timer; the list is quicker to read than the
+                  cycle is to watch. Still derived from the section index, so it cannot drift out
+                  of step with the document. */}
+              <p style={{ "--fx-i": 4 } as React.CSSProperties} className="fx-in-up col-start-1 mt-3 t-small font-semibold text-muted">
+                <span>Covering </span>
+                <span className="text-accent font-black">{navItems.map((n) => n.label).join(" · ")}</span>
               </p>
               <div style={{ "--fx-i": 2 } as React.CSSProperties} className="fx-in-settle col-start-2 row-start-2 md:row-start-1 md:row-span-2 self-end w-[104px] md:w-[210px] lg:w-[260px] shrink-0 -mb-1 md:-mb-2">
                 {/* No Ken Burns. It was the last looping transform above the fold, and it was
@@ -611,21 +607,21 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
             {/* Quick-jump chips — the five places a candidate reads first, one tap from the top. */}
             <div style={{ "--fx-i": 4 } as React.CSSProperties} className="fx-in-up mt-5 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none lg:hidden select-none -mx-4 px-4">
               <span className="t-label font-semibold text-muted shrink-0">Jump to</span>
-              <RippleButton
+              <PressButton
                 onClick={() => setIsTOCModalOpen(true)}
-                className="fx-shine px-3 py-1.5 rounded-xl bg-accent-solid text-on-accent t-label font-bold shrink-0 flex items-center gap-1.5 shadow-sm shadow-accent/20 cursor-pointer tap-chip"
+                className="px-3 py-1.5 rounded-xl bg-accent-solid text-on-accent t-label font-bold shrink-0 flex items-center gap-1.5 shadow-sm shadow-accent/20 cursor-pointer tap-chip"
               >
                 <span>Full index</span>
-              </RippleButton>
+              </PressButton>
               {QUICK_LINKS.map((link, i) => (
-                <RippleButton
+                <PressButton
                   key={link.id}
                   onClick={() => navigateToSection(link.id)}
                   style={{ "--fx-i": i } as React.CSSProperties}
-                  className="fx-bg-slide px-3 py-1.5 rounded-xl bg-card border border-line text-ink t-label font-bold shrink-0 hover:border-accent hover:text-white cursor-pointer tap-chip"
+                  className="px-3 py-1.5 rounded-xl bg-card border border-line text-ink t-label font-bold shrink-0 hover:border-accent hover:text-white cursor-pointer tap-chip"
                 >
                   {link.label}
-                </RippleButton>
+                </PressButton>
               ))}
             </div>
 
@@ -634,18 +630,18 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
             <KeyFactsStrip />
 
             <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start print:hidden">
-              {/* The verdict is the answer the whole document exists to give, so it gets the
-                  pointer-tracked light. The illustration beside it gets the tilt — two distinct
-                  signatures rather than the same treatment applied twice. */}
+              {/* The verdict is the answer the whole document exists to give. It used to get a
+                  pointer-tracked light and the illustration beside it a 3D tilt; both are gone.
+                  The two still read as distinct because they enter from opposite sides. */}
               <Reveal variant="left" className="lg:col-span-2" amount={0.1}>
-                <SpotlightCard border className="rounded-2xl">
+                <div className="rounded-2xl">
                   <DeficitGauge />
-                </SpotlightCard>
+                </div>
               </Reveal>
               <Reveal variant="right" delay={120} className="lg:col-span-1" amount={0.1}>
-                <TiltCard max={6}>
+                <div>
                   <HeroVisual />
-                </TiltCard>
+                </div>
               </Reveal>
             </div>
           </div>
@@ -670,12 +666,12 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
         </div>
         
         {/* Responsive Toolbar */}
-        <div className={`fx-header fx-dir-header sticky top-0 z-40 fx-glass rounded-b-xl py-2 sm:py-3 ${(activeTab === LANDING_TAB || isExpanded) ? "mt-3 sm:mt-6" : "mt-0"} mb-3 sm:mb-6 flex items-center justify-between gap-2 print:hidden transition-all duration-300 ${
+        <div className={`fx-header fx-dir-header sticky top-0 z-40 rounded-b-xl py-2 sm:py-3 ${(activeTab === LANDING_TAB || isExpanded) ? "mt-3 sm:mt-6" : "mt-0"} mb-3 sm:mb-6 flex items-center justify-between gap-2 print:hidden transition-all duration-300 ${
           (!chromeVisible && !isFocusMode) || isZeroChrome ? "-translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100"
         }`}>
           {/* The hairline under the bar is a gradient rather than a rule, so the toolbar reads as
               a lit edge over the document instead of a box drawn on top of it. */}
-          <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-0 bottom-0" />
+          <span aria-hidden="true" className="absolute inset-x-0 bottom-0" />
           <div className="flex items-center gap-1.5 sm:gap-4 flex-1 min-w-0 overflow-x-auto scrollbar-none py-0.5">
             {activeTab !== LANDING_TAB && !isExpanded && (
               <div className="flex items-center gap-1.5 mr-1 shrink-0">
@@ -691,14 +687,14 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
 
             {/* Desktop & Mobile Responsive Control Buttons */}
             <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-              <RippleButton
+              <PressButton
                 onClick={() => setIsTOCModalOpen(true)}
-                className="group fx-shine flex items-center gap-1.5 px-3 py-2 bg-accent/10 border border-accent/20 rounded-xl t-label sm:t-small font-bold text-accent hover:bg-accent hover:text-white transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px]"
+                className="group flex items-center gap-1.5 px-3 py-2 bg-accent/10 border border-accent/20 rounded-xl t-label sm:t-small font-bold text-accent hover:bg-accent hover:text-white transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px]"
                 aria-label="Open Table of Contents"
               >
-                <FileText size={15} className="fx-icon-rise" />
+                <FileText size={15} className="" />
                 <span className="hidden xs:inline">Index</span>
-              </RippleButton>
+              </PressButton>
 
               <button 
                 onClick={cycleDensity}
@@ -747,14 +743,13 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                 <span className="sm:hidden">{isExpanded ? "Collapse" : "All"}</span>
               </button>
 
-              <MagneticButton
+              <PressButton
                 onClick={printFullDocument}
-                strength={0.22}
                 className="group hidden sm:flex items-center gap-2 px-3.5 py-2 bg-card border border-line/60 rounded-xl t-small font-bold text-ink hover:border-accent hover:text-accent transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center"
               >
-                <Printer size={15} className="fx-icon-rise" />
+                <Printer size={15} className="" />
                 <span>Print</span>
-              </MagneticButton>
+              </PressButton>
 
               <button 
                 onClick={toggleTheme}
@@ -782,7 +777,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
           {/* Desktop Sidebar Navigation */}
           <aside className={`toc-rail hidden ${isFocusMode ? "lg:hidden" : "lg:block"} w-72 flex-shrink-0 print:hidden`}>
             <div className="sticky top-24 space-y-4">
-              <SpotlightCard className="fx-glass rounded-2xl p-4">
+              <div className="rounded-2xl border border-line bg-card p-4">
                 <div className="t-label font-semibold text-muted mb-3 flex items-center justify-between">
                   <span>The proposal</span>
                   {/* Sixteen canonical sections. The rail lists nineteen entries because the
@@ -832,10 +827,10 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                     );
                   })}
                 </nav>
-              </SpotlightCard>
+              </div>
 
               {/* Minimalist Key Metric Summary Card */}
-              <div className="fx-glass fx-lift rounded-2xl p-3.5 t-label space-y-2">
+              <div className="fx-lift rounded-2xl p-3.5 t-label space-y-2">
                 <div className="flex items-center justify-between t-label font-extrabold text-muted">
                   <span>Target Victory</span>
                   <span className="text-accent font-black tabular-nums">200k Votes</span>
@@ -896,7 +891,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
       
       {/* Footer — visible on screen and repeated in print output */}
       <footer className="relative mt-8 pt-8 pb-28 lg:pb-10 px-4 sm:px-6 max-w-7xl mx-auto">
-        <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-4 sm:inset-x-6 top-0" />
+        <span aria-hidden="true" className="absolute inset-x-4 sm:inset-x-6 top-0" />
         <div className="confidentiality-marker mb-3">
           <strong>Confidential</strong>
           <span className="opacity-70"> — link-only proposal for Wiper Democratic Movement campaign leadership. Not for public distribution.</span>
@@ -959,7 +954,6 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
           onSelect={(id) => handleNavClick(id)}
         />
       )}
-      <CustomCursor />
     </div>
     </SectionNumberMapProvider>
   );

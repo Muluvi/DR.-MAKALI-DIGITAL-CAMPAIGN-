@@ -33,7 +33,7 @@ export function SectionPortrait({
  flip ? "sm:flex-row-reverse" : ""
         }`}
       >
-        <div className="fx-photo-frame w-[140px] sm:w-[168px] lg:w-[196px] shrink-0">
+        <div className="w-[140px] sm:w-[168px] lg:w-[196px] shrink-0">
           <Portrait id={id} sizes="(min-width: 1024px) 196px, (min-width: 640px) 168px, 140px" />
         </div>
         <div className={`min-w-0 ${flip ? "sm:pr-2" : "sm:pl-2"}`}>

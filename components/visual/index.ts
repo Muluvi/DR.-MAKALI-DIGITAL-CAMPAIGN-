@@ -9,9 +9,8 @@
  * Nothing here is imported by the markdown pipeline on the server; every module is "use client".
  */
 export { Reveal, Stagger, type RevealVariant } from "./Reveal";
-export { SplitText, Typewriter, Scramble, WordCycler } from "./SplitText";
+export { SplitText } from "./SplitText";
 export { CountUp, CountUpText, Odometer, ProgressRing } from "./Numerals";
 export { AnimatedNumber } from "./AnimatedNumber";
-export { TiltCard, SpotlightCard, MagneticButton, RippleButton } from "./Surfaces";
-export { AmbientField } from "./AmbientField";
-export { NavDots, CustomCursor } from "./Chrome";
+export { PressButton } from "./Surfaces";
+export { NavDots } from "./Chrome";

@@ -1,6 +1,6 @@
 "use client";
 
-import { CountUpText, Reveal, SpotlightCard, TiltCard } from "./visual";
+import { CountUpText, Reveal } from "./visual";
 import { TrendingUp, Coins, WifiOff, Vote } from "lucide-react";
 
 /*
@@ -65,43 +65,40 @@ export function Dashboard() {
         {/* Desktop / Tablet Table View */}
         <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-4">
           {metrics.map((m, i) => (
-            <Reveal key={i} variant="pop" delay={i * 90} amount={0.3}>
-              <TiltCard max={6} className="h-full">
-                <SpotlightCard
-                  border
-                  className={`group relative h-full overflow-hidden fx-mesh border rounded-xl p-4 sm:p-5 shadow-sm transition-all hover:border-accent/40 ${
+            <Reveal key={i} delay={i * 90} amount={0.3}>
+              {/* Was TiltCard > SpotlightCard: a 3D tilt toward the pointer, and a glow
+                  tracking it. Both need a fine pointer the likely reader does not have, both
+                  still shipped their hooks to every phone, and neither carried a word of the
+                  proposal. docs/TRIAGE.md §5.3. The card is a card. */}
+              <div
+                className={`group relative h-full overflow-hidden border rounded-xl p-4 sm:p-5 shadow-sm transition-colors hover:border-accent/40 ${
  m.warn ? "border-danger/30" : m.good ? "border-accent/40" : "border-line"
                   }`}
                 >
-                  <div className="absolute -bottom-10 -right-10 w-24 h-24 rounded-full blur-2xl bg-accent/10 pointer-events-none" />
-
-                  {/* The figure sits proudest in the card's own 3D space, so the tilt reads as
-                      depth rather than as the whole panel rocking. */}
-                  <div className="flex justify-between items-start mb-2 fx-z-1">
+                  <div className="flex justify-between items-start mb-2">
                     <div className={`font-sans font-bold text-2xl sm:text-3xl leading-none tabular-nums ${m.warn ? "text-danger" : m.good ? "text-accent" : "text-ink"}`}>
                       <CountUpText text={m.num} />
                     </div>
-                    <div className="p-1.5 rounded-lg bg-paper border border-line fx-icon-rise">
+                    <div className="p-1.5 rounded-lg bg-paper border border-line ">
                       {m.icon}
                     </div>
                   </div>
 
                   <div className="t-small font-bold text-ink mt-2 leading-tight">{m.label}</div>
                   <div className="t-micro text-muted mt-1">{m.sub}</div>
-                </SpotlightCard>
-              </TiltCard>
+              </div>
             </Reveal>
           ))}
         </div>
 
         {/* Mobile Automatic Horizontal Scroll Carousel */}
         <div className="block sm:hidden -mx-4">
-          <div className="fx-stagger fx-rubber flex gap-3 overflow-x-auto scrollbar-none px-4 pb-2 snap-x snap-mandatory">
+          <div className="fx-stagger flex gap-3 overflow-x-auto scrollbar-none px-4 pb-2 snap-x snap-mandatory">
             {metrics.map((m, i) => (
               <div
                 key={i}
                 style={{ "--fx-i": i } as React.CSSProperties}
-                className={`fx-in-right relative overflow-hidden fx-mesh border rounded-xl p-3.5 shadow-sm w-[230px] shrink-0 snap-center ${
+                className={`fx-in-right relative overflow-hidden border rounded-xl p-3.5 shadow-sm w-[230px] shrink-0 snap-center ${
  m.warn ? 'border-danger/30' : m.good ? 'border-accent/30' : 'border-line'
                 }`}
               >

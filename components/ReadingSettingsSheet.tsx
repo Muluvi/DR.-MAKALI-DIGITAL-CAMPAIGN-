@@ -70,7 +70,7 @@ export function ReadingSettingsSheet({
         animate={{ y: 0 }}
         exit={{ y: "100%" }}
         transition={{ type: "spring", damping: 28, stiffness: 300 }}
-        className="relative z-10 w-full fx-glass border-t border-line rounded-t-3xl shadow-2xl px-4 pt-3 pb-[max(1rem,env(safe-area-inset-bottom,1rem))]"
+        className="relative z-10 w-full border-t border-line rounded-t-3xl shadow-2xl px-4 pt-3 pb-[max(1rem,env(safe-area-inset-bottom,1rem))]"
       >
         <div className="flex justify-center pb-2">
           <div className="w-12 h-1.5 rounded-full bg-line/80" />

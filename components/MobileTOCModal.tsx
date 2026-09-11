@@ -98,7 +98,7 @@ export function MobileTOCModal({
           animate={{ y: 0 }}
           exit={{ y: "100%" }}
           transition={{ type: "spring", damping: 28, stiffness: 300 }}
-          className="fx-sheet-bottom sm:fx-modal relative w-full max-w-xl max-h-[88dvh] sm:max-h-[80dvh] fx-glass border-t sm:border border-line rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-10"
+          className="fx-sheet-bottom sm:fx-modal relative w-full max-w-xl max-h-[88dvh] sm:max-h-[80dvh]  border-t sm:border border-line rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-10"
         >
           {/* Top Grab Handle on Mobile */}
           <div className="sm:hidden pt-3 pb-1 flex justify-center cursor-grab active:cursor-grabbing">
@@ -267,7 +267,7 @@ export function MobileTOCModal({
                       </div>
                     </div>
 
-                    <div className="fx-icon-nudge w-7 h-7 rounded-full bg-paper border border-line flex items-center justify-center shrink-0 text-muted group-hover:text-accent group-hover:border-accent/50 transition-colors">
+                    <div className="w-7 h-7 rounded-full bg-paper border border-line flex items-center justify-center shrink-0 text-muted group-hover:text-accent group-hover:border-accent/50 transition-colors">
                       <ChevronRight size={14} />
                     </div>
                   </button>

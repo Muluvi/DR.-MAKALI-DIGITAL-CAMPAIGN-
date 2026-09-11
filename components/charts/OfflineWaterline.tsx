@@ -83,7 +83,7 @@ export function OfflineWaterline() {
           {/* --waterline-fill is defined with the palette, not here: see globals.css for why the
               stops are fixed rather than derived from the theme's ink and dark tokens. */}
           <div className="absolute inset-0" style={{ background: "var(--waterline-fill)" }} />
-          <div className="absolute inset-0 fx-pattern-diagonal opacity-[0.08]" />
+          <div className="absolute inset-0 opacity-[0.08]" />
           {/* The surface itself, so the line between the two states is a thing you can see. */}
           <div className="absolute inset-x-0 top-0 h-[2px] bg-accent/70" />
         </motion.div>

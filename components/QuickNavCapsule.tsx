@@ -62,7 +62,7 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 15 }}
             transition={{ duration: DURATION.quick, ease: "easeOut" }}
-            className="fx-glass shadow-2xl rounded-2xl p-4 w-[min(calc(100vw-2.5rem),20rem)] mb-2 overflow-hidden"
+            className="shadow-2xl rounded-2xl p-4 w-[min(calc(100vw-2.5rem),20rem)] mb-2 overflow-hidden"
           >
             <div className="flex items-center justify-between border-b border-line/40 pb-2 mb-2.5">
               <div className="flex items-center gap-2">
@@ -90,7 +90,7 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
                     className="fx-press fx-focus flex items-center justify-between p-2.5 rounded-xl text-left hover:bg-accent/10 hover:text-accent group transition-all cursor-pointer t-label font-bold text-ink min-h-[44px] min-w-[44px] justify-center"
                   >
                     <div className="flex items-center gap-2.5 truncate">
-                      <Icon size={14} className="fx-icon-rise text-muted group-hover:text-accent transition-colors shrink-0" />
+                      <Icon size={14} className="text-muted group-hover:text-accent transition-colors shrink-0" />
                       <span className="truncate">{item.label}</span>
                     </div>
                     <span className="t-micro font-extrabold px-1.5 py-0.5 rounded bg-line/30 text-muted group-hover:bg-accent group-hover:text-white transition-all shrink-0">
@@ -123,7 +123,7 @@ export function QuickNavCapsule({ onNavigate, activeTab, isZeroChrome = false }:
           data-visible={showScrollTop}
           aria-hidden={!showScrollTop}
           tabIndex={showScrollTop ? 0 : -1}
-          className="fx-backtotop fx-glass fx-press fx-focus w-11 h-11 rounded-full shadow-lg text-muted hover:text-accent hover:border-accent cursor-pointer hidden lg:flex items-center justify-center"
+          className="fx-backtotop fx-press fx-focus w-11 h-11 rounded-full shadow-lg text-muted hover:text-accent hover:border-accent cursor-pointer hidden lg:flex items-center justify-center"
           aria-label="Scroll to top"
           title="Scroll to top"
         >

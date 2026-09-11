@@ -382,7 +382,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                       >
                         <div className="flex items-center gap-1.5 justify-between">
                           <span>{th.props.children}</span>
-                          <ArrowUpDown size={10} className="fx-icon-rise text-muted group-hover:text-accent transition-colors shrink-0" />
+                          <ArrowUpDown size={10} className="text-muted group-hover:text-accent transition-colors shrink-0" />
                         </div>
                       </th>
                     ))}

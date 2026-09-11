@@ -1,15 +1,22 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useMagnetic, usePointerGlow, useRipple, useTilt } from "../../hooks/use-pointer-fx";
 
 /**
- * The pointer-reactive surfaces.
+ * The one interactive surface wrapper that survives.
  *
- * Each is a thin wrapper that attaches one hook and one class. They are separate components
- * rather than one `<Interactive tilt glow magnetic>` because combining all three on a single
- * element produces a surface that lurches — the tilt, the pull and the glow all chase the same
- * pointer and the reader cannot tell which one they are driving. One effect per surface.
+ * This file used to export four: TiltCard (3D tilt toward the pointer), SpotlightCard (a glow
+ * tracking the pointer), MagneticButton (a control drifting toward the pointer) and
+ * RippleButton (a Material ripple from the click point).
+ *
+ * All four were removed under docs/TRIAGE.md §5.3. Three of them require a fine pointer, which
+ * the reader this document is written for is unlikely to have — and each still shipped its
+ * JavaScript, its hook and its CSS to every phone that could never run it. None of them
+ * absorbed a sentence of the proposal. The fourth, the click ripple, duplicated the press
+ * feedback that `.fx-press` already gives on touch, where it actually matters.
+ *
+ * What is left is the feedback a tap needs and the focus ring a keyboard needs, which are the
+ * two things the reject list never touches.
  */
 
 interface BaseProps {
@@ -17,56 +24,14 @@ interface BaseProps {
   className?: string;
 }
 
-/** A card that lifts and rotates toward the pointer. Layers inside can use .fx-z-1 … .fx-z-3. */
-export function TiltCard({ children, className = "", max = 7 }: BaseProps & { max?: number }) {
-  const ref = useTilt<HTMLDivElement>(max);
-  return (
-    <div ref={ref} className={`fx-tilt ${className}`}>
-      {children}
-    </div>
-  );
-}
-
-/** A surface with a soft light that follows the pointer across it. */
-export function SpotlightCard({ children, className = "", border = false }: BaseProps & { border?: boolean }) {
-  const ref = usePointerGlow<HTMLDivElement>();
-  return (
-    <div ref={ref} className={`fx-spotlight ${border ? "fx-glow-border" : ""} ${className}`}>
-      {children}
-    </div>
-  );
-}
-
-/** A control that drifts toward the pointer as it approaches. Reserved for primary actions. */
-export function MagneticButton({
-  children,
-  className = "",
-  strength = 0.28,
-  ...rest
-}: BaseProps & { strength?: number } & React.ButtonHTMLAttributes<HTMLButtonElement>) {
-  const ref = useMagnetic<HTMLButtonElement>(strength);
-  const ripple = useRipple<HTMLButtonElement>();
-  return (
-    <button
-      ref={ref}
-      onPointerDown={ripple}
-      className={`fx-magnetic fx-ripple-host fx-press fx-focus ${className}`}
-      {...rest}
-    >
-      {children}
-    </button>
-  );
-}
-
-/** Any button, with a Material ripple from the click point. */
-export function RippleButton({
+/** A button that compresses on press and shows a visible focus ring. Nothing follows a pointer. */
+export function PressButton({
   children,
   className = "",
   ...rest
 }: BaseProps & React.ButtonHTMLAttributes<HTMLButtonElement>) {
-  const ripple = useRipple<HTMLButtonElement>();
   return (
-    <button onPointerDown={ripple} className={`fx-ripple-host fx-press fx-focus ${className}`} {...rest}>
+    <button className={`fx-press fx-focus ${className}`} {...rest}>
       {children}
     </button>
   );

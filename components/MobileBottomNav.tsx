@@ -120,7 +120,7 @@ export function MobileBottomNav({
       >
         <div
           ref={dockRef}
-          className="bottom-dock fx-glass border-t border-line shadow-2xl px-2 py-1.5 pb-[max(0.5rem,env(safe-area-inset-bottom,0.5rem))]"
+          className="bottom-dock border-t border-line shadow-2xl px-2 py-1.5 pb-[max(0.5rem,env(safe-area-inset-bottom,0.5rem))]"
         >
           <div className="flex items-center gap-2">
             {/* One control opens the index, and it doubles as the "you are here" readout —
