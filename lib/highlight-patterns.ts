@@ -49,15 +49,14 @@ export const DEFINITIONS: Record<string, string> = {
 
 const termsUnion = Object.keys(DEFINITIONS).join("|");
 export const datePatterns = "August 2026|December 2026|April 2027|August 2027|2026/27|KSh 1\\.339bn";
-// In-text cross-references to numbered sections. Every reference in the document is matched;
-// the section-number map resolves each one to the id it lives at today and yields nothing for
-// anything that is not a real section, so a stray figure never becomes a link to nowhere.
-export const crossRefPattern = "Section\\s+\\d+(?:\\.\\d+){1,2}";
 const statusPhrasePattern = STATUS_PHRASES.map((p) => p.pattern).join("|");
 const workingTriggerPattern = WORKING_TRIGGERS.map((p) => p.pattern).join("|");
 const bannerTriggerPattern = BANNER_TRIGGERS.map((p) => p.pattern).join("|");
 
-const MASTER_SOURCE = `(${termsUnion}|${datePatterns}|${crossRefPattern}|${statusPhrasePattern}|${workingTriggerPattern}|${bannerTriggerPattern})`;
+// No cross-reference alternative any more. In-text "Section N.N" pointers used to be matched
+// here and resolved into links; the numbering and the pointers are both gone, and the data a
+// pointer used to lead to is now shown where it is relevant.
+const MASTER_SOURCE = `(${termsUnion}|${datePatterns}|${statusPhrasePattern}|${workingTriggerPattern}|${bannerTriggerPattern})`;
 
 // Master regex to match definitions and key badges in a single native pass. Split on this and
 // every odd-indexed part is a match, because the whole source is one capturing group.

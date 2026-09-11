@@ -3,12 +3,10 @@
 import React, { useState } from "react";
 import { Info } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { CrossSectionLink } from "./CrossSectionLink";
 import { ClaimBadge } from "./ClaimBadge";
 import { DerivedFigureDrawer } from "./DerivedFigureDrawer";
 import { KeyTakeawayBanner } from "./KeyTakeawayBanner";
 import { type TabId } from "../../lib/heading-slug";
-import { useSectionNumberMap } from "./SectionNumberMap";
 
 // Every pattern this component matches now lives in lib/highlight-patterns, so the server can
 // ask `hasHighlight` whether a text node needs this component at all before shipping it to the
@@ -59,7 +57,6 @@ function InlineTooltip({ text, term }: { text: string; term: string }) {
 
 // Highly optimized memoized component to handle tooltip wrapping and badge highlights
 export const HighlightedText = React.memo(function HighlightedText({ text, tabId }: { text: string; tabId?: TabId }) {
-  const sectionNumberMap = useSectionNumberMap();
   const elements = React.useMemo(() => {
     if (!text) return null;
     const parts = text.split(masterRegex);
@@ -71,22 +68,9 @@ export const HighlightedText = React.memo(function HighlightedText({ text, tabId
       if (DEFINITIONS[lower]) {
         return <InlineTooltip key={idx} text={part} term={lower} />;
       }
-      // If it is a cross-reference to another numbered section, make it a working link
-      // Every "Section N.N" the author wrote, not a hand-listed handful. The previous list held
-      // four numbers (22.14, 29.1, 31.1, 31.7) left over from an earlier renumbering, none of
-      // which survive in the document — so all 173 references rendered as plain text.
-      const crossRefMatch = /^Section\s+(\d+(?:\.\d+){1,2})$/i.exec(part);
-      if (crossRefMatch) {
-        const targetId = sectionNumberMap[crossRefMatch[1]] ?? null;
-        if (targetId) {
-          return (
-            <CrossSectionLink key={idx} id={targetId}>
-              {part}
-            </CrossSectionLink>
-          );
-        }
-        return part;
-      }
+      // There used to be a branch here turning every "Section N.N" into a working link. Both
+      // the numbering and the references are gone: a reader is shown the data where it is
+      // relevant rather than told it lives somewhere else.
       // If this is a section's natural closing line, follow it with a key-takeaway banner
       const bannerMatch =
         tabId && BANNER_TRIGGERS.find((t) => t.tabIds.includes(tabId) && new RegExp(`^${t.pattern}$`, "i").test(part));
@@ -131,7 +115,7 @@ export const HighlightedText = React.memo(function HighlightedText({ text, tabId
       }
       return part;
     });
-  }, [text, tabId, sectionNumberMap]);
+  }, [text, tabId]);
 
   return <>{elements}</>;
 });

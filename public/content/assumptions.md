@@ -1,7 +1,7 @@
 
-What this proposal needs from the campaign, the regulatory guidance still outstanding, and the seven assumptions the whole plan rests on.
+What the campaign has to provide, the regulatory guidance still outstanding, and the seven assumptions the whole plan rests on.
 
-## 15.1 What the campaign must provide
+## What the campaign must provide
 
 Stated plainly, because these are the dependencies that determine delivery:
 
@@ -9,7 +9,7 @@ Stated plainly, because these are the dependencies that determine delivery:
 2. **Candidate time:** approximately 3 hours per week — one Facebook Live, one
    voice-note recording session, one interview or content block
 3. **Ground team asset uploads:** daily photographs and video from the trail
-4. **Appointment of the data-protection reviewer** (Section 12.5.5) — the
+4. **Appointment of the data-protection reviewer** — the
    long-lead item, needed in Phase −1
 5. **Current ward-level registration data** from the IEBC published file
 6. **Access to the existing NG-CDF project record** for verified proof points
@@ -36,7 +36,7 @@ baseline or by testing, and each is left open deliberately rather than filled wi
 
 ---
 
-## 15.2 Regulatory guidance still outstanding
+## Regulatory guidance still outstanding
 
 > [!WARNING]
 > **COMPLIANCE ACTION ITEM — ODPC DIRECTIVE CONFIRMATION REQUIRED:**
@@ -47,7 +47,7 @@ baseline or by testing, and each is left open deliberately rather than filled wi
 >
 > **Mandatory Action:** Prior to launching Phase −1 mass SMS/USSD broadcasting, the Campaign Legal Director MUST:
 > 1. Conduct a formal legal review with the ODPC registry to obtain the latest gazetted political campaigning guidelines and advisory notes.
-> 2. Formally register the campaign entity as a **Data Controller / Data Processor** with the ODPC if aggregate supporter records exceed statutory thresholds (Section 8.12.2 & Section 13.5.2).
+> 2. Formally register the campaign entity as a **Data Controller / Data Processor** with the ODPC if aggregate supporter records exceed statutory thresholds.
 > 3. Verify compliance of telecommunication aggregator contracts (Safaricom / Airtel bulk SMS gateways) with the latest ODPC direct marketing codes.
 
 ```
@@ -67,39 +67,38 @@ baseline or by testing, and each is left open deliberately rather than filled wi
 
 ---
 
-## 15.3 Assumptions this proposal rests on
+## Assumptions the plan rests on
 
-This proposal is built on the following assumptions. Each is stated so that if one fails, the
+The plan is built on the following assumptions. Each is stated so that if one fails, the
 campaign can see immediately what in the plan moves. None of them is a prediction, and none is
 presented as settled fact.
 
 1. **The Wiper ticket is decided by opinion poll, not a delegates' contest.** This is reported
-   and not confirmed by the party (Tier 3; Section 3.1.2). If it becomes a delegate primary, the
+   and not confirmed by the party (Tier 3). If it becomes a delegate primary, the
    targeting model changes from countywide name recognition to delegate arithmetic, and
-   Section 3.1.6 sets out what that would require.
+   The if it becomes a delegate primary work sets out what that would require.
 
-2. **The decision falls before the final quarter of 2026.** Every deadline in Section 4.1 and the
-   Phase −1 sprint in Section 9.1.1 are set by that window. A later date lengthens the sprint; an
-   earlier one compresses it and forces the reallocation triggers in Section 4.1 sooner.
+2. **The decision falls before the final quarter of 2026.** Every deadline in the "Objectives for the nomination window" work and the
+   Phase −1 sprint in the "Phase −1: Nomination Sprint — August–September 2026" work are set by that window. A later date lengthens the sprint; an
+   earlier one compresses it and forces the reallocation triggers in the "Objectives for the nomination window" work sooner.
 
 3. **The register and connectivity figures hold.** The 532,758 registered voters, the 86.4%
-   outside the internet-using population and the ward-level distribution in Section 3.4 are the
-   most recent published figures. The offline layer in Section 8.10 is sized against them.
+   outside the internet-using population and the ward-level distribution in the "The vote arithmetic" work are the
+   most recent published figures. The offline layer in the "Workstream 9 — Offline reach: SMS, USSD and voice" work is sized against them.
 
 4. **The campaign appoints the named roles.** The data-protection and electoral-law reviewer, the
    qualitative research facilitator and the sign-language provider are campaign appointments, not
-   Firefly's. Section 15.1 lists them.
+   Firefly's. The what the campaign must provide work lists them.
 
 5. **The candidate is available to the production cycle.** The weekly Facebook Live, the
-   explainer series and the debate preparation in Section 8.7 assume scheduled candidate time.
-   Without it, the earned-media and owned-video commitments in Section 10.2 cannot hold at the
+   explainer series and the debate preparation in the "Workstream 6 — Earned media, journalists and debates" work assume scheduled candidate time.
+   Without it, the earned-media and owned-video commitments in the "The deliverables schedule" work cannot hold at the
    stated cadence.
 
 6. **Telco and platform access is obtained on ordinary commercial terms.** The SMS aggregator,
    the shortcode and the advertising platforms are assumed available to a compliant political
-   advertiser. Section 13.5 covers the compliance conditions; Section 15.2 covers the regulatory
+   advertiser. The statutory and regulatory compliance work covers the compliance conditions; The regulatory guidance still outstanding work covers the regulatory
    guidance still outstanding.
 
 7. **The engagement is embedded with the campaign.** Firefly works alongside the campaign's own
-   structure under Section 12, not at arm's length from it, and the ground-digital integration in
-   Section 8.8 assumes daily contact with the field operation.
+   structure under the engagement and governance model, not at arm's length from it, and the ground-digital integration in the "Workstream 7 — Ground-digital integration" work assumes daily contact with the field operation.

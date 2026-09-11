@@ -1,9 +1,9 @@
 
 What the campaign receives, at which scope level, how often, and in what form.
 
-## 10.1 Scope levels and what each carries
+## Scope levels and what each carries
 
-### 10.1.1 The three scope levels
+### The three scope levels
 
 **One definition per number.** Four different quantities are in play and were previously
 quoted interchangeably:
@@ -24,7 +24,7 @@ the cadence of content and the frequency of research. What it costs is a convers
 meeting, not a page in a proposal.
 
 **Accessibility is not a service level.** Sign-language interpretation on flagship content, and
-every commitment in Section 8.5.3, applies in full at whichever level is chosen. Accessibility
+every commitment in the "The commitments" work, applies in full at whichever level is chosen. Accessibility
 is not something a campaign buys more of by paying more, and it is not a line to trade away.
 
 #### Level 1 — LEAN
@@ -53,7 +53,7 @@ election competitively.
 Facebook Live; weekly Kikamba voice note; monthly Kitui Economic Brief
 * **Analytics:** predictive voter scoring; multi-touch attribution;
 field-digital integration; weekly sentiment
-* **Research:** quarterly focus groups (Section 11.3)
+* **Research:** quarterly focus groups
 * **Crisis:** dedicated lead from Phase 2; quarterly red-team drills
 * **Trade-offs:** no premium social listening licences
 
@@ -71,7 +71,7 @@ full attribution; monthly message-lab research
 * **Trade-offs:** the largest standing commitment of the three, and the one that
 most depends on the campaign having internal capacity to absorb what it produces
 
-### 10.1.2 The scope levels compared
+### The scope levels compared
 
 | | Lean | Standard | Premium |
 |---|---|---|---|
@@ -94,11 +94,11 @@ USSD layer, and reaching the arid belt is the whole argument.
 
 ---
 
-## 10.2 The deliverables schedule
+## The deliverables schedule
 
-Every row below is set somewhere else in this proposal, in the workstream that produces it. This
+Every row below is owned by the workstream that produces it. This
 section consolidates them so the campaign can see the whole production commitment on one page
-rather than assembling it from nine sections. Where a cadence varies by scope level, Section 10.1
+rather than assembling it from nine sections. Where a cadence varies by scope level, The scope levels and what each carries work
 governs; the cadence shown here is the one Level 2 carries.
 
 | Deliverable | Cadence | Form | Where it is set |
@@ -126,4 +126,4 @@ governs; the cadence shown here is the one Level 2 carries.
 Three deliverables are gated on decisions the campaign has not yet made: the USSD menu cannot be
 provisioned until the shortcode is, the compliance review cannot start until the reviewer is
 appointed, and sign-language interpretation on flagship content depends on the interpreter or
-service named in Section 15.1. Each is listed there.
+service named in the "What the campaign must provide" work. Each is listed there.

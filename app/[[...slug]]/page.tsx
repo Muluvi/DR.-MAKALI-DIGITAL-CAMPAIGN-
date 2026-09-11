@@ -7,11 +7,8 @@ import { MarkdownViewer } from "@/components/MarkdownViewer";
 import { SECTIONS, type TabId } from "@/lib/heading-slug";
 import { buildSectionIndex } from "@/lib/section-index";
 
-// One file per route, named for the canonical section it serves, so the directory listing
-// reads as the proposal's own table of contents.
+// One file per route, named for the section it serves.
 const FILES: Record<TabId, string> = {
-  cover: "cover.md",
-  summary: "summary.md",
   situation: "situation.md",
   objectives: "objectives.md",
   audiences: "audiences.md",

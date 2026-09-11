@@ -1,7 +1,7 @@
 
 Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them.
 
-## 8.8 Workstream 7 — Ground-digital integration
+## Workstream 7 — Ground-digital integration
 
 A campaign that operates field organizing and digital messaging as isolated silos will fail in a county where 86.4% of voters are offline. Digital content created in an air-conditioned command center in Nairobi or Kitui Town is worthless if it does not address the live anxieties voiced at the morning livestock auction in Nguni or the wellhead in Mutha.
 
@@ -37,9 +37,9 @@ The campaign establishes a **Closed-Loop Ground-Digital Integration Engine**. Fi
 ════════════════════════════════════════════════════════════════════════════════════
 ```
 
-### 8.8.1 What the 40 ward coordinators report
+### What the 40 ward coordinators report
 
-The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, who supervise the **400 Ward Captains** (10 per ward, Section 4.2). Each coordinator is equipped with a dual reporting channel: a **secure field WhatsApp bot** for smartphone-equipped coordinators in 3G/4G zones, and a **zero-rated USSD/SMS structured reporting tree** for offline/2G wards.
+The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, who supervise the **400 Ward Captains** (10 per ward). Each coordinator is equipped with a dual reporting channel: a **secure field WhatsApp bot** for smartphone-equipped coordinators in 3G/4G zones, and a **zero-rated USSD/SMS structured reporting tree** for offline/2G wards.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -73,7 +73,7 @@ The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, w
 3.  **Ground Disinformation & Counter-Narratives:** E.g., *"Rumor circulating in Mutomo that Dr. Mulu's CDF bursary program excluded non-Kitui Central students."*
 4.  **Field Inventory & Collateral Levels:** Current stock of Kikamba manifesto summary leaflets, posters, audio flash drives, and volunteer T-shirts.
 
-### 8.8.2 From ground intel to a published response in four hours
+### From ground intel to a published response in four hours
 
 When field intelligence reaches the War Room, it triggers an automated, standardized four-stage response cycle:
 
@@ -103,7 +103,7 @@ When field intelligence reaches the War Room, it triggers an automated, standard
                  • Talking point faxed/messaged to Musyi FM morning show panelists.
 ```
 
-### 8.8.3 Distribution beyond social media
+### Distribution beyond social media
 
 To bypass digital connectivity barriers, the campaign turns physical transportation, trade, and civic networks into active information distribution conduits:
 
@@ -113,7 +113,7 @@ To bypass digital connectivity barriers, the campaign turns physical transportat
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-#### 1. The Boda Boda Stage Network (1,200 Stage Champions)
+#### The Boda Boda Stage Network (1,200 Stage Champions)
 *   **Infrastructure:** Over 12,000 youth in Kitui operate commercial motorcycles, organized into distinct stage associations (*masese*).
 *   **Operational Role:** The campaign identifies 1,200 "Stage Champions" (30 per ward) across all 40 wards.
 *   **Execution:**
@@ -121,28 +121,28 @@ To bypass digital connectivity barriers, the campaign turns physical transportat
     *   Equipped with mobile phone charging hubs at stages, playing looped Kikamba campaign audio podcasts and speeches to passengers awaiting transport.
     *   Act as rapid physical distributors of print materials to remote interior villages inaccessible by four-wheel vehicles.
 
-#### 2. Matatu & Sacco Commuter Transit Routes
+#### Matatu & Sacco Commuter Transit Routes
 *   **Infrastructure:** Matatu SACCOs connecting Kitui Town, Mwingi, Mutomo, Nairobi, and Mombasa (e.g., Kitui Classic, Mwingi Travelers, TSS, Buscar).
 *   **Operational Role:** Capturing passengers during long transit journeys (3–6 hours).
 *   **Execution:**
     *   Provision of branded onboard audio USB flash drives to matatu drivers featuring popular Kamba secular and gospel music interspersed with 60-second policy messages from Dr. Mulu.
     *   Placement of seatback information cards in commuter vans detailing Dr. Mulu's 5-point Economic Charter.
 
-#### 3. Weekly Market Days & Caravan Circuits
-*   **Infrastructure:** The 40 major market centers rotating across the county weekly (Section 8.10.4).
+#### Weekly Market Days & Caravan Circuits
+*   **Infrastructure:** The 40 major market centers rotating across the county weekly.
 *   **Operational Role:** Concentrated voter aggregation points.
 *   **Execution:**
     *   Coordinated arrival of the *Mulu Economic Caravan* sound trucks at 10:00 AM on market days.
     *   Ward Coordinators lead door-to-door merchant walk-throughs, distributing Kikamba business charters to shopkeepers, vegetable vendors (*mama mboga*), and hardware dealers.
 
-#### 4. Community Barazas & Chief's Gatherings (Protocol-Compliant)
+#### Community Barazas & Chief's Gatherings (Protocol-Compliant)
 *   **Infrastructure:** Monthly administrative barazas convened by National Government Administrative Officers (NGAO—Chiefs and Assistant Chiefs).
 *   **Operational Mandate & Civility:** Campaign teams respect that civil service barazas are strictly non-partisan by law.
 *   **Execution:**
     *   Ward Captains attend barazas as active community citizens to listen to localized grievances (water, security, relief food).
     *   Post-baraza informal engagement: Engaging elders and attendees outside official proceedings, answering questions, and sharing Dr. Mulu's policy solutions for the specific community issues raised during the baraza.
 
-### 8.8.4 The operating rhythm
+### The operating rhythm
 
 To maintain operational tempo across 8 constituencies and 40 wards, the campaign executes a strict, synchronized rhythm with assigned single-point-of-contact (SPOC) owners:
 
@@ -199,9 +199,9 @@ To maintain operational tempo across 8 constituencies and 40 wards, the campaign
 
 ---
 
-## 8.9 Workstream 8 — The field-to-digital loop
+## Workstream 8 — The field-to-digital loop
 
-### 8.9.1 Operating architecture and bidirectional sync
+### Operating architecture and bidirectional sync
 
 Most campaigns run two separate operations: a ground team that knocks doors and
 a digital team that buys ads. Neither learns from the other. The ground team
@@ -217,7 +217,7 @@ voters the ground team has confirmed as committed opponents. In a county of
         ^                                        |
         |                                        v
    Priority route                        Voter score updated
-   delivered to                          (Section 8.13.4)
+   delivered to
    champion's phone                              |
         ^                                        v
         |                                Ad audiences and SMS
@@ -235,10 +235,10 @@ voters the ground team has confirmed as committed opponents. In a county of
   * **Pre-briefing:** champions receive the issue the household engaged with — water, bursaries, market fees — so the conversation starts where the voter's interest already is.
   * **Event conversion:** digital sign-ups for barazas are handed to ground organisers with attendance follow-up.
 
-### 8.9.2 Governance and data protection on the doorstep
+### Governance and data protection on the doorstep
 
 * Field data is campaign first-party data, collected with notice, and governed
-by the same charter as all other personal data (Section 12.5.4).
+by the same charter as all other personal data.
 * Ward champions receive data-handling training before being issued the form,
 and cannot export or retain contact data on personal devices.
 * **Field validation match rate ≥ 85%** is the joint KPI holding both sides
@@ -246,9 +246,9 @@ honest: if the model and the doorstep disagree, the model is wrong.
 
 ---
 
-## 8.10 Workstream 9 — Offline reach: SMS, USSD and voice
+## Workstream 9 — Offline reach: SMS, USSD and voice
 
-### 8.10.1 Why this layer decides the race
+### Why this layer decides the race
 
 Kitui has **143,340 internet users out of a population of 1,053,991 aged 3 and
 above** — 13.6%. It has **452,948 mobile phone owners** — 42.9%. Nationally, smartphones are
@@ -264,11 +264,10 @@ campaigning in this county, and solving it is the clearest demonstration of the
 "Economist Governor" proposition: allocating resources to where the need is,
 rather than where measurement is convenient.
 
-The critical constraint: the campaign can only message consented numbers
-(Section 12.5). List building is therefore a KPI in its own right from Phase −1,
+The critical constraint: the campaign can only message consented numbers. List building is therefore a KPI in its own right from Phase −1,
 not an afterthought — consented contacts are a campaign asset that compounds.
 
-### 8.10.2 The SMS layer
+### The SMS layer
 
 **Consent-first architecture.** Every number in the campaign database arrives
 by opt-in: a USSD self-registration, a signed baraza sheet with a clear data
@@ -295,9 +294,9 @@ permanently
 * Ward-tagged segmentation so a message about mango prices reaches Kitui West
 and not Kyuso
 * Personalisation by first name where consent covers it
-* Per-send audit trail retained, per the charter (Section 12.5.4)
+* Per-send audit trail retained, per the charter
 
-### 8.10.3 The USSD layer
+### The USSD layer
 
 USSD works on every phone, requires no internet, and costs the voter almost
 nothing. It is the single most under-used civic channel in Kenyan county
@@ -308,13 +307,13 @@ politics.
 KITUI NA MULU
 1. Sisemo sya Mulu / Mulu's plan for my ward
 2. Andikithya kuvota / Voter registration info
-3. Ripoti wia / Report a local issue      <-- Section 8.2
+3. Ripoti wia / Report a local issue      <-- feeds the tracker
 4. Kuthukuma / Volunteer
 5. Kwithukiisya / Get updates (opt-in)
 6. Kiswahili / English
 ```
 
-**Why option 3 matters most.** The service-delivery tracker (Section 8.2) is
+**Why option 3 matters most.** The service-delivery tracker is
 reachable from a feature phone in Mutha. A constituent reports a broken water
 point by dialling a short code; the report enters a public register; the
 campaign follows up and publishes the outcome. That is the M&E credential
@@ -323,16 +322,16 @@ operating in public, before the election, on the cheapest possible technology.
 **Set-up:** 5–7 working days for a shared code; 2–4 weeks for a dedicated code
 pending operator approval.
 
-### 8.10.4 Voice and audio
+### Voice and audio
 
 * **Kikamba voice notes from Dr. Mulu** distributed by WhatsApp and by ward
 champions to Bluetooth-share onward. Audio travels where text does not, and
 carries the candidate's actual voice — the highest-trust format available.
-* **Radio** — see Section 8.7.
+* **Radio**.
 * **Audio versions of all flagship policy content**, addressing both low
 literacy (13.0% of the population never attended school) and low bandwidth.
 
-### 8.10.5 The mobile-money agent network
+### The mobile-money agent network
 
 Kenya's registered mobile-money agents grew from **480,216 in September 2025 to
 602,470 in March 2026** — expanding roughly four times faster than
@@ -349,7 +348,7 @@ transaction records, balances or customer identity enters this programme.
 material.
 * `[Confirm approach with campaign counsel — agent networks are regulated financial infrastructure and any commercial arrangement should be reviewed]`
 
-### 8.10.6 KPIs for the offline layer
+### KPIs for the offline layer
 
 | Metric | Phase −1 | Phase 1 | Phase 2 | Phase 3 |
 |---|---|---|---|---|
@@ -366,26 +365,26 @@ a vanity one.
 
 ---
 
-## 8.11 Workstream 10 — Digital organising and volunteers
+## Workstream 10 — Digital organising and volunteers
 
-### 8.11.1 Turning online supporters into offline organisers
+### Turning online supporters into offline organisers
 
 A tiered volunteer programme converting passive online supporters into active
 offline organisers, with gamification driving sustained engagement.
 
-### 8.11.2 Volunteer tiers
+### Volunteer tiers
 
 | Tier | Name | Entry requirement | Activities |
 |---|---|---|---|
 | **1** | Digital Advocate | Follow on 2+ platforms | Share, comment, amplify |
 | **2** | Ward Champion | Join ward WhatsApp group + data-handling briefing | Distribute content, report ground sentiment, recruit 5 advocates |
-| **3** | Community Organiser | Complete online training module | Host groups, coordinate local events, **log canvass outcomes (Section 8.9)** |
+| **3** | Community Organiser | Complete online training module | Host groups, coordinate local events, **log canvass outcomes** |
 | **4** | County Coordinator | Manage 3+ organisers | Oversee regional operations, attend weekly syncs |
 
 **Data-handling training is a gate, not an option.** No volunteer collects
-personal data before completing it (Section 12.5.4).
+personal data before completing it.
 
-### 8.11.3 Gamification mechanics
+### Gamification mechanics
 
 | Mechanic | Implementation | Reward |
 |---|---|---|
@@ -398,19 +397,18 @@ personal data before completing it (Section 12.5.4).
 voter, a canvassed household, a completed training — not raw posting volume.
 Reward systems that pay for volume produce spam and, at scale, look
 indistinguishable from inauthentic activity. That would breach both platform
-policy and the Section 12.5.4 charter, and it is designed out from the start.
+policy and the Digital Ethics and Data Charter, and it is designed out from the start.
 
-### 8.11.4 Management tooling
+### Management tooling
 
 * **Custom WhatsApp bot** for low-cost volunteer management: registration,
 point tracking, content distribution, leaderboards
-* **USSD registration path** so volunteers without smartphones can join
-(Section 8.10.3) — a genuine differentiator in the arid belt
+* **USSD registration path** so volunteers without smartphones can join — a genuine differentiator in the arid belt
 * Forms and spreadsheets for baseline collection
 * Task management via a shared board
 * Purpose-built volunteer platforms only at premium tier, if budget allows
 
-### 8.11.5 Volunteer KPIs
+### Volunteer KPIs
 
 | Metric | Target |
 |---|---|

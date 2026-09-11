@@ -2,14 +2,12 @@
 
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, Route, CalendarClock, Workflow, ListChecks, Handshake, Radio } from "lucide-react";
+import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, ClipboardList, Route, CalendarClock, Workflow, ListChecks, Handshake, Radio } from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
 import { readingMinutes } from "../hooks/useReadingProgress";
 import type { SectionItem } from "../lib/section-index";
 
 const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
-  cover: BookLock,
-  summary: FileText,
   situation: Map,
   objectives: Target,
   audiences: Users,
@@ -66,7 +64,6 @@ export function MobileTOCModal({
       const q = searchQuery.toLowerCase().trim();
       if (!q) return matchesTab;
       const matchesQuery =
-        item.number.toLowerCase().includes(q) ||
         item.title.toLowerCase().includes(q) ||
         item.tabLabel.toLowerCase().includes(q);
       return matchesTab && matchesQuery;
@@ -187,9 +184,6 @@ export function MobileTOCModal({
                         }`}
                       >
                         <Icon size={14} className={isHere ? "" : "text-accent"} aria-hidden="true" />
-                        <span className={`t-micro font-mono font-black shrink-0 ${isHere ? "" : "text-muted"}`}>
-                          {s.number}
-                        </span>
                         <span className={`t-small font-semibold flex-1 min-w-0 truncate ${isHere ? "" : "text-ink"}`}>
                           {s.label}
                         </span>
@@ -252,9 +246,6 @@ export function MobileTOCModal({
                     className="fx-press fx-focus w-full py-3 px-2 flex items-center justify-between text-left hover:bg-paper/70 active:bg-paper rounded-xl transition-all group cursor-pointer min-h-[50px]"
                   >
                     <div className={`flex items-start gap-2.5 sm:gap-3 min-w-0 pr-2 ${item.level === 3 ? "pl-3 sm:pl-5" : ""}`}>
-                      <span className="font-mono t-micro tabular-nums text-accent shrink-0 mt-0.5 min-w-[38px]">
-                        {item.number}
-                      </span>
                       <div className="min-w-0">
                         <span className={`block t-label text-ink group-hover:text-accent transition-colors truncate ${item.level === 2 ? "font-bold" : "font-medium"}`}>
                           {item.title}

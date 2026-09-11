@@ -38,7 +38,7 @@ The campaign adopts a **Lean Core Delivery Model**: an agile, tightly coordinate
 ════════════════════════════════════════════════════════════════════════════════════
 ```
 
-## 14.1 The lean core delivery model
+## The lean core delivery model
 
 Rather than justifying a lean team as a budgetary constraint, this operational architecture offers distinct strategic and competitive advantages over traditional sprawling campaign bureaucracies:
 
@@ -49,7 +49,7 @@ Rather than justifying a lean team as a budgetary constraint, this operational a
 
 ---
 
-## 14.2 A lean core with a defined surge
+## A lean core with a defined surge
 
 Firefly delivers this engagement through a small senior core team supplemented
 by named surge roles activated at specific phases and budget tiers. This is
@@ -57,17 +57,17 @@ stated plainly because a campaign is entitled to know exactly who is doing the
 work. A proposal claiming a large standing department it does not have will
 fail on the first question about it.
 
-The structure below scales with the service level selected in Section 10.1.
+The structure below scales with the service level selected in the "Scope levels and what each carries" work.
 
 ---
 
-## 14.3 The core team, retained throughout
+## The core team, retained throughout
 
 **What this section covers, and what it does not.** The roles below are **Firefly's** — the
-people this engagement pays for. Section 14.5 sets out the **campaign's own** leadership
-structure, which Firefly reports into and does not staff, and Section 11.1's KPI owners are
+people this engagement pays for. The leadership roles and who owns what work sets out the **campaign's own** leadership
+structure, which Firefly reports into and does not staff, and the scorecard's KPI owners are
 campaign-side roles unless the campaign asks Firefly to fill them. The boundary matters
-commercially: everything in 14.3 and 14.4 is in scope for the service levels in Section 10.1, and
+commercially: everything in 14.3 and 14.4 is in scope for the service levels in the "Scope levels and what each carries" work, and
 nothing in 14.5 is.
 
 | Role | Function | Decision rights |
@@ -78,16 +78,16 @@ nothing in 14.5 is.
 
 ---
 
-## 14.4 Surge roles, activated by phase and scope level
+## Surge roles, activated by phase and scope level
 
 | Role | Activated | Function |
 |---|---|---|
-| **Data Analyst / Modeller** | Phase 1 onward (standard and premium levels) | Predictive scoring, field-digital integration, attribution modelling. **Named data-governance owner** (Section 8.15.4) |
+| **Data Analyst / Modeller** | Phase 1 onward (standard and premium levels) | Predictive scoring, field-digital integration, attribution modelling. **Named data-governance owner** |
 | **Kikamba Content Producer (native speaker)** | Phase −1 onward — **mandatory at all levels** | Voice notes, proverb verification, cultural authenticity review. No Kikamba content publishes without this role |
 | **Community Managers (×2, platform-split)** | Phase 1 onward | Meta/WhatsApp cluster; TikTok/Instagram/X cluster. Front-line response within the 2-hour SLA |
-| **Volunteer & Ward Champion Coordinator** | Phase 1 onward | Tiered volunteer programme (Section 8.11); ward champion training and reporting |
+| **Volunteer & Ward Champion Coordinator** | Phase 1 onward | Tiered volunteer programme; ward champion training and reporting |
 | **Crisis Communications Lead** | Phase 2 onward, or immediately on trigger | Rapid response, red-team drills, deepfake rebuttal protocol |
-| **Earned Media / Press Officer** | Phase −1 onward (standard and premium levels) | Journalist relationships, debate clipping, radio placement (Section 8.7) |
+| **Earned Media / Press Officer** | Phase −1 onward (standard and premium levels) | Journalist relationships, debate clipping, radio placement |
 | **Video Editor / Motion Designer** | Phase 1 onward | Clipping, subtitling, sign-language integration |
 
 **Subcontract triggers are explicit.** Each surge role has a named activation
@@ -98,7 +98,7 @@ not added speculatively.
 
 ---
 
-## 14.5 Leadership roles and who owns what
+## Leadership roles and who owns what
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -131,7 +131,7 @@ not added speculatively.
 
 ---
 
-## 14.6 Reporting lines
+## Reporting lines
 
 ```
                         Dr. Makali Mulu
@@ -148,7 +148,7 @@ not added speculatively.
   Language Lead         Analytics Mgr         Lead (surge)
         |                     |                     |
    Kikamba              Data Analyst          Red-team panel
-   Producer             (surge)               (Section 13.2.4)
+   Producer             (surge)
    Video Editor         SMS/USSD ops
         |                     |
    Community Mgrs       Compliance log

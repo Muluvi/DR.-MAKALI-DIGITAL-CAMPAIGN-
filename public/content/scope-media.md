@@ -1,7 +1,7 @@
 
 Two workstreams: paid media across the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely controlled by rivals.
 
-## 8.6 Workstream 5 — Platform tactics and paid media
+## Workstream 5 — Platform tactics and paid media
 
 #### Facebook
 
@@ -58,7 +58,7 @@ uchumi aeleze."*
 * Search-optimised videos answering "What does the Kitui Governor do?" and
 "Kitui development 2027"
 * **Monthly "Kitui Economic Brief"** reviewing county budget execution
-* **Home for full sign-language-interpreted versions** (Section 8.5.1)
+* **Home for full sign-language-interpreted versions**
 
 #### Google Ads
 
@@ -70,12 +70,12 @@ Evaluator. Reformer. | Read the plan for your ward."*
 
 ---
 
-## 8.7 Workstream 6 — Earned media, journalists and debates
+## Workstream 6 — Earned media, journalists and debates
 
 *Paid and owned media reach the connected minority. Earned media —
 especially radio — reaches everyone else.*
 
-### 8.7.1 The radio problem, stated plainly
+### The radio problem, stated plainly
 
 Kamba-language radio is the dominant information channel for the roughly 86% of
 Kitui residents outside the internet-using population. **But the ownership map
@@ -97,12 +97,12 @@ is politically compromised, and any credible media plan must say so:**
 County FM and Wikwatyo, treats Athiani as party-sensitive, and treats
 Mbaitu/Syokimau as monitoring targets rather than placement targets. Attacks
 on Dr. Mulu are more likely to originate on air than online, which is why radio
-monitoring sits in the war room (Section 13.2.2) rather than in a media annex.
+monitoring sits in the war room rather than in a media annex.
 
 *This map is based on publicly reported ownership associations and should be
 verified and updated by the campaign; media ownership changes.*
 
-### 8.7.2 The journalist relationship programme
+### The journalist relationship programme
 
 | Tier | Who | Cadence | Offer |
 |---|---|---|---|
@@ -121,7 +121,7 @@ with sources, policy briefs by theme, verified county data with citations, and
 contact routes. The easier the campaign makes a journalist's job, the more
 often it is quoted.
 
-### 8.7.3 Candidate media training
+### Candidate media training
 
 Three sessions, plus refreshers:
 
@@ -139,7 +139,7 @@ prepared pivot, and handling direct attack without appearing rattled.
 **Refreshers** before each debate or major forum, plus a recorded mock with
 playback review.
 
-### 8.7.4 The debate and forum playbook
+### The debate and forum playbook
 
 **Preparation:**
 
@@ -165,7 +165,7 @@ top three issues
 **The rule: the clip is published before the coverage is written.** Whoever
 distributes the moment first defines what the debate was about.
 
-### 8.7.5 Pre-drafted response lines
+### Pre-drafted response lines
 
 Prepared, verified, and rehearsed in drills. Each is a structure, not a script —
 substance fixed, delivery natural.
@@ -178,10 +178,10 @@ substance fixed, delivery natural.
 | **"NG-CDF questions"** | Lead with the documented record — bursary numbers, project list, the Eastern region evaluation certification — and invite scrutiny. **Never defensive; an evaluator welcomes audit.** |
 | **"Too technical / not close to ordinary people"** | Answer in Kikamba, with a household example. The best rebuttal to "too technical" is a demonstration, not a denial |
 | **"Wiper insider / party establishment"** | Point to the independence of his parliamentary record on budget matters |
-| **Manipulated media** | Section 13.3.5 protocol — 30-minute clock |
+| **Manipulated media** | Manipulated-media protocol — 30-minute clock |
 | **Unsolicited SMS allegation** | Produce the consent audit trail; cite the published charter; correct publicly within the hour |
 
-### 8.7.6 Earned media KPIs
+### Earned media KPIs
 
 | Metric | Target |
 |---|---|
@@ -192,7 +192,7 @@ substance fixed, delivery natural.
 | Share of voice in Kitui gubernatorial coverage | ≥ 50% |
 | Fact-checker corrections secured on false claims | 100% of material false claims challenged |
 
-### 8.7.7 Getting on air around a hostile gatekeeper
+### Getting on air around a hostile gatekeeper
 
 To guarantee uninhibited communication with all 532,758 registered voters across the 40 wards, the campaign executes a four-pillar bypass strategy that operates entirely independently of captured Tier 1 commercial gatekeepers:
 
@@ -225,7 +225,7 @@ To guarantee uninhibited communication with all 532,758 registered voters across
 └────────────────────────────────┴────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 8.7.8 How we pitch: evidence first
+### How we pitch: evidence first
 
 To capture objective news coverage on mainstream national and regional platforms without paying extortionate broadcast gatekeeper fees, the press desk operates an **Evidence-First Pitch Engine**:
 
@@ -241,7 +241,7 @@ To capture objective news coverage on mainstream national and regional platforms
                                 aligned with rival factions or party gatekeepers.
  • Provenance Standard:         Listenership share figures are marked as Required Primary
                                 Research rather than speculatively estimated.
- • Section 8.7.7 Workaround:   Bypasses hostile gatekeepers via Church/Community radio
+ • Getting on air around a hostile gatekeeper Workaround:   Bypasses hostile gatekeepers via Church/Community radio
                                 (Wikwatyo/Mang'elete), 2G SMS, USSD, 8 PA sound trucks,
                                 and 400 village megaphone broadcast points.
  • Earned Media Discipline:     Focuses on evidence-backed national exclusives, on-site

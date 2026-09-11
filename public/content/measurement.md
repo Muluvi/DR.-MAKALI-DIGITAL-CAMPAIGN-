@@ -1,11 +1,11 @@
 
 The headline scorecards, the indicator framework anchored to the vote threshold, what is deliberately not measured, and the research programme that tests the message.
 
-## 11.1 The headline scorecards
+## The headline scorecards
 
-Two preference figures appear in this proposal, and they measure different populations rather than revising one another. Section 4.1's **40.0%+** is a share of the **countywide public**, as reported in the party-commissioned surveys. NW-01 below is **≥ 55.0%** of **sampled likely Wiper primary voters** — a narrower universe, which is why the threshold sits higher. Section 11.1.3 states that same primary-voter threshold.
+Two preference figures are in play, and they measure different populations rather than revising one another. The nomination-window objective's **40.0%+** is a share of the **countywide public**, as reported in the party-commissioned surveys. NW-01 below is **≥ 55.0%** of **sampled likely Wiper primary voters** — a narrower universe, which is why the threshold sits higher. The the indicator framework, anchored to the vote threshold work states that same primary-voter threshold.
 
-### 11.1.1 Stage 1: the nomination-window scorecard
+### Stage 1: the nomination-window scorecard
 
 The nomination phase focuses on establishing unassailable party consensus and securing the Wiper Democratic Movement nomination ticket.
 
@@ -19,7 +19,7 @@ The nomination phase focuses on establishing unassailable party consensus and se
 │ **NW-01:**  │ % of sampled likely      │ Not yet   │ **≥ 55.0%**│ Rolling 7-day    │ Head of   │ Weekly /    │
 │ Wiper Ballot│ Wiper primary voters     │ measured  │ Primary   │ Tracking Poll    │ Research  │ Fortnightly │
 │ Preference  │ naming Dr. Makali Mulu as│ (Week 1)  │ Preference│ (N = 400 CATI)   │ & Polling │             │
-│ Share       │ their 1st choice.        │           │           │ (Section 11.3)    │           │             │
+│ Share       │ their 1st choice.        │           │           │    │           │             │
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
 │ **NW-02:**  │ Spontaneous + aided name │ Not yet   │ **≥ 70.0%**│ Sub-County CATI  │ Comms     │ Fortnightly │
 │ Northern    │ recognition in Mwingi    │ measured  │ Name ID   │ Poll booster in  │ Director  │ Tracking    │
@@ -29,7 +29,7 @@ The nomination phase focuses on establishing unassailable party consensus and se
 │ **NW-03:**  │ Voter ranking of "Clean  │ Not yet   │ **≥ 60.0%**│ Issue Salience   │ Policy &  │ Fortnightly │
 │ Fiscal      │ Audit Record / Anti-     │ measured  │ Issue     │ Index in County  │ Strategy  │             │
 │ Integrity   │ Corruption" as the #1 or │ (Week 1)  │ Salience  │ Tracking Survey  │ Lead      │             │
-│ Salience    │ #2 voting criterion.     │           │           │ (Section 11.3)    │           │             │
+│ Salience    │ #2 voting criterion.     │           │           │    │           │             │
 ├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤
 │ **NW-04:**  │ Verified, signed support │ Confirm   │ **8 / 8** │ Formal written   │ Political │ Weekly      │
 │ Branch Exec │ pledges from Sub-County  │ w/ party  │ Sub-Count.│ branch caucus    │ Affairs   │ Executive   │
@@ -38,7 +38,7 @@ The nomination phase focuses on establishing unassailable party consensus and se
 └─────────────┴──────────────────────────┴───────────┴───────────┴──────────────────┴───────────┴─────────────┘
 ```
 
-### 11.1.2 Stage 2: the general election scorecard
+### Stage 2: the general election scorecard
 
 The general election phase focuses on systematic voter mobilization, ground network readiness, and polling station defense to cross the 200,000-vote winning threshold.
 
@@ -76,13 +76,13 @@ The general election phase focuses on systematic voter mobilization, ground netw
 └─────────────┴──────────────────────────┴───────────┴───────────┴──────────────────┴───────────┴─────────────┘
 ```
 
-### 11.1.3 The indicator framework, anchored to the vote threshold
+### The indicator framework, anchored to the vote threshold
 
-In accordance with the foundational strategic doctrine established in **Section 3.3.3**, the campaign rejects vanity metrics—such as social media follower counts, video views, impressions, and post likes—as actionable indicators of political strength. In a county where ~86% of registered voters reside offline in rural agrarian settings, digital engagement metrics correlate weakly with ballot-box outcomes and create dangerous operational complacency.
+In accordance with the foundational strategic doctrine established in the "The 2022 baseline, ward by ward" work, the campaign rejects vanity metrics—such as social media follower counts, video views, impressions, and post likes—as actionable indicators of political strength. In a county where ~86% of registered voters reside offline in rural agrarian settings, digital engagement metrics correlate weakly with ballot-box outcomes and create dangerous operational complacency.
 
 Every Key Performance Indicator (KPI) in this framework is strictly anchored to one of two decisive statutory milestones:
 1.  **The Nomination Window Threshold:** Achieving **≥ 55.0%** first-choice preference among sampled likely Wiper primary voters (NW-01).
-2.  **The General Election Victory Threshold:** Securing **≥ 200,000 verified, counted votes** — approximately **60.5%** of the ~330,310 ballots expected at the county's 62.0% participation baseline against 532,758 registered voters (Section 3.4.1).
+2.  **The General Election Victory Threshold:** Securing **≥ 200,000 verified, counted votes** — approximately **60.5%** of the ~330,310 ballots expected at the county's 62.0% participation baseline against 532,758 registered voters.
 
 ```
 ═════════════════════════════════════════════════════════════════════
@@ -112,9 +112,9 @@ Every Key Performance Indicator (KPI) in this framework is strictly anchored to 
 
 ---
 
-## 11.2 Indicators, and why these
+## Indicators, and why these
 
-Political strategy without empirical measurement risks misallocating scarce campaign capital. To eliminate speculative assumptions, the campaign implements a two-part data architecture: **Section 11.2.1** establishes the research programme to test the recognition-deficit hypothesis and govern nomination polling, while **Section 11.2.2** operationalizes a public service-delivery tracker that bridges campaign credibility with day-one governance.
+Political strategy without empirical measurement risks misallocating scarce campaign capital. To eliminate speculative assumptions, the campaign implements a two-part data architecture: The the research programme and the nomination tracking poll work establishes the research programme to test the recognition-deficit hypothesis and govern nomination polling, while The the service-delivery performance tracker work operationalizes a public service-delivery tracker that bridges campaign credibility with day-one governance.
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
@@ -132,7 +132,7 @@ Political strategy without empirical measurement risks misallocating scarce camp
 ════════════════════════════════════════════════════════════════════════════════════
 ```
 
-### 11.2.1 The research programme and the nomination tracking poll
+### The research programme and the nomination tracking poll
 
 Before committing the campaign's broadcast and caravan effort to Northern and Southern Kitui, the campaign mandates a structured research sequence to empirically validate the **"Recognition-Deficit Hypothesis"** (the proposition that Dr. Makali Mulu's primary electoral vulnerability outside Kitui Central is name recognition rather than unfavorable perception).
 
@@ -180,7 +180,7 @@ During the critical **6-Week Wiper Nomination Window**, the research apparatus t
     3.  *Integrity Index:* "Which candidate do you trust most to protect public county funds without corruption?"
 *   **Escalation Trigger:** Any candidate drop >3.5% in a tracking wave triggers an immediate War Room emergency convening and 48-hour sub-county advertising reallocation.
 
-### 11.2.2 The service-delivery performance tracker
+### The service-delivery performance tracker
 
 The campaign builds and maintains the **Kitui County Service-Delivery Performance Tracker**, a live analytical dashboard and open-data ledger that serves a dual purpose: during the campaign, it operates as an **irrefutable evidence asset** countering opposition claims; post-election, it transitions into the **Governor's Day-One Public Delivery Dashboard**.
 
@@ -221,10 +221,10 @@ The campaign builds and maintains the **Kitui County Service-Delivery Performanc
 ════════════════════════════════════════════════════════════════════════════════════
                           SECTION 11.2.2 STRATEGIC TAKEAWAY
 ════════════════════════════════════════════════════════════════════════════════════
- • Section 11.2.1 (Research):   Deploys N=1,600 CATI poll and 12 Kikamba FGDs to test
+ • Research:   Deploys N=1,600 CATI poll and 12 Kikamba FGDs to test
                                 name ID before committing major ad spend; integrates a
                                 6-week rolling tracking poll for the Wiper nomination.
- • Section 11.2.2 (Tracker):    Maintains open-data delivery ledger combining OAG audits,
+ • Tracker:    Maintains open-data delivery ledger combining OAG audits,
                                 84 solar boreholes, and the bursary and classroom counts
                                 pending the project ledger (Tier 1: 12,573 recipients).
  • Dual-Asset Function:         Operates as an irrefutable debate/media evidence weapon
@@ -233,7 +233,7 @@ The campaign builds and maintains the **Kitui County Service-Delivery Performanc
 ════════════════════════════════════════════════════════════════════════════════════
 ```
 
-### 11.2.3 Why vanity metrics are excluded
+### Why vanity metrics are excluded
 
 The campaign strictly excludes vanity metrics from all executive dashboards, reporting meetings, and vendor performance contracts based on the following empirical realities:
 
@@ -241,7 +241,7 @@ The campaign strictly excludes vanity metrics from all executive dashboards, rep
 *   **Geographic Skew:** Over 60% of social media interactions on Eastern Kenya political content originate from non-resident diaspora users in Nairobi, Mombasa, or abroad who are not registered to vote in Kitui's 40 wards.
 *   **Zero Correlation to Turnout:** A viral video does not transport an elderly voter in Ikutha or Nguni to their polling stream on election morning. Physical voter pledge collection, verified 2G SMS connectivity, and trained polling day agents directly generate counted votes.
 
-### 11.2.4 Performance governance and executive escalation
+### Performance governance and executive escalation
 
 To ensure accountability across all divisions, the KPI framework is embedded in a rigid governance rhythm:
 
@@ -267,11 +267,11 @@ To ensure accountability across all divisions, the KPI framework is embedded in 
 
 ---
 
-## 11.3 The Kitui message lab
+## The Kitui message lab
 
 *Digital engagement metrics measure the 13.6% who are online.*
 
-### 11.3.1 Rationale, structure and zone coverage
+### Rationale, structure and zone coverage
 
 A campaign that optimises purely on engagement data optimises for the connected
 minority, in the wards with the best signal, among the people most inclined to
@@ -289,15 +289,15 @@ Anchor zone stays exactly where it is.
 | **Facilitation** | `[Insert — independent Kenyan qualitative research facilitator; Firefly to recommend, campaign to appoint]` |
 | **Ethics** | Participation voluntary; withdrawal at any time; no contact data retained for campaigning without separate explicit opt-in |
 
-### 11.3.2 Qualitative hypotheses, feedback loops and KPIs
+### Qualitative hypotheses, feedback loops and KPIs
 
 To ensure offline reality shapes digital execution, the message lab systematically evaluates:
-* **Message framings** from Section 7.2 — does loss-aversion framing on water land, or does it read as pessimism about Kitui?
+* **Message framings** from the "Persuasion principles and message discipline" work — does loss-aversion framing on water land, or does it read as pessimism about Kitui?
 * **The Economist Governor narrative** — does "economist" read as competent or as distant? This is the single highest-value question in the research programme, and it is not answerable from engagement data.
 * **Kikamba language and proverb use** — authentic or performative?
 * **Rival perception** — what specifically drives preference for the current front-runner? The answer determines whether the deficit is closeable by communication at all.
 * **Channel reality** — where do people in Mutha actually get political information?
-* **The tracker concept** (Section 8.2) — would people use it, and do they believe it would change anything?
+* **The tracker concept** — would people use it, and do they believe it would change anything?
 
 Findings are written up within **10 days** and feed directly into the next content cycle, the SMS message architecture and the paid-media creative brief. Where qualitative findings contradict engagement data, **the qualitative finding is treated as the signal about the offline majority and the quantitative data as the signal about the online minority** — neither overrides the other, and the disagreement itself is information.
 

@@ -1,3 +1,12 @@
+
+
+declare global {
+  interface Window {
+    /** Installed by ClientPage. Jumps to a heading even when it lives in another section. */
+    __navigateToSection?: (id: string) => void;
+  }
+}
+
 // Scrolls to a section heading once it actually exists in the DOM. Content mounts
 // asynchronously (tab switch, lazy sections) and content-visibility:auto ancestors can still
 // shift layout as they're revealed, so this retries until the element appears and then makes

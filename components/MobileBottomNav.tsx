@@ -128,7 +128,7 @@ export function MobileBottomNav({
             <button
               onClick={onOpenTOC}
               className="flex min-w-0 grow items-center gap-2 rounded-xl border border-accent/20 bg-accent/10 px-3 min-h-[44px] text-left fx-press fx-focus transition-colors cursor-pointer"
-              aria-label={`Open the full index. Currently reading section ${current?.number ?? ""}, ${current?.label ?? ""}`}
+              aria-label={`Open the full index. Currently reading ${current?.label ?? ""}`}
             >
               <ListTree size={16} className="shrink-0 text-accent" />
               <span className="min-w-0">
@@ -136,7 +136,7 @@ export function MobileBottomNav({
                   {current ? `${currentIndex + 1} of ${SECTIONS.length}` : "All sections"}
                 </span>
                 <span className="block t-small font-semibold text-ink leading-tight truncate mt-0.5">
-                  {current ? `${current.number}. ${current.label}` : "The whole proposal"}
+                  {current ? current.label : "Everything, on one page"}
                 </span>
               </span>
             </button>

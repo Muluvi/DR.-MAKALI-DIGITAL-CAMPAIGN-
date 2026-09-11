@@ -202,116 +202,116 @@ const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
 // the next step if this map grows again.
 const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // ---- Cover, summary, situation and approach (§1-§7) ---------------------------------
-  "summary-sec-2-2": <PollingTrajectorySimulator />,
+  "situation-sec-the-polling-gap-as-sourced": <PollingTrajectorySimulator />,
   // The scorecards are the objectives. What they do not carry is the eight indicator sets that
   // stayed with the work they measure — indexed beneath them rather than moved here.
-  "measurement-sec-11-1": <ObjectivesIndex />,
-  "situation-sec-3-1": <NominationPathPanel />,
+  "measurement-sec-the-headline-scorecards": <ObjectivesIndex />,
+  "situation-sec-the-nomination-contest-and-its-selection-mechanism": <NominationPathPanel />,
   // The governing claim opens §6, ahead of the pillars and themes that rest on it.
-  "approach-sec-6-1": <EconomistGovernorThesis />,
-  "situation-sec-3-3-2": (
+  "approach-sec-the-governing-claim-the-economist-governor": <EconomistGovernorThesis />,
+  "situation-sec-the-field-he-is-running-against": (
     <>
       <ConstitutionalBranchNavigator />
       <CompetitiveQuadrantBlock />
     </>
   ),
-  "situation-sec-3-3-1": (
+  "situation-sec-the-candidate-s-record": (
     <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §3.3.1">
       One of Kenya&rsquo;s most consistent and authoritative voices on macroeconomic governance,
       fiscal discipline, and budget oversight.
     </SectionPortrait>
   ),
-  "situation-sec-3-3-3": (
+  "situation-sec-the-2022-baseline-ward-by-ward": (
     <>
       <WardCartogramBlock />
       <PathTo200kBlock />
       <ConstituencyWeightBlock />
     </>
   ),
-  "situation-sec-3-3-4": <ResourceEnvelopeBlock />,
-  "situation-sec-3-3-5": (
+  "situation-sec-what-the-governorship-controls-and-what-it-is-worth": <ResourceEnvelopeBlock />,
+  "situation-sec-who-lives-here-and-what-they-can-reach-online": (
     <>
       <OfflineWaterline />
       <DisputedFigure entry={kituiCentralPopulationDispute} />
     </>
   ),
-  "situation-sec-3-3-6": (
+  "situation-sec-three-election-cycles-and-the-results-in-dispute": (
     <>
       <ElectoralHistoryPanel />
       <ElectoralTimelineBlock />
     </>
   ),
-  "situation-sec-3-3-7": (
+  "situation-sec-county-money-and-the-audit-record": (
     <>
       <FiscalAuditPanel />
       <FiscalAuditChartBlock />
     </>
   ),
-  "situation-sec-3-3-8": <DroughtFoodSecurityPanel />,
-  "situation-sec-3-3-9": <MuiBasinPanel />,
-  "situation-sec-3-3-10": <CompetitorFieldPanel />,
-  "situation-sec-3-4-1": <VoteFunnel />,
+  "situation-sec-drought-food-security-and-climate-pressure": <DroughtFoodSecurityPanel />,
+  "situation-sec-mui-basin-coal-and-the-displaced-communities": <MuiBasinPanel />,
+  "situation-sec-each-rival-and-the-legal-ground-to-be-careful-on": <CompetitorFieldPanel />,
+  "situation-sec-the-number-of-votes-it-takes": <VoteFunnel />,
   // §3.4.2 prints all 40 rows as a table and keeps them. What the ranked bars add is
   // the shape: how steeply the register concentrates, and that twelve wards carry
   // 37.78% of it. Replaces WardRegisterTicker, which scrolled the same figures past
   // the reader — docs/TRIAGE.md §5.3.
-  "situation-sec-3-4-2": <WardRankedBars />,
-  "situation-sec-3-4-3": <PathTo200kCalculator />,
-  "situation-sec-3-4-5": <RecognitionDeficitOverlay />,
-  "audiences-sec-5-1": <AudienceSegmentationMatrix />,
+  "situation-sec-the-40-wards-ranked-and-the-12-that-carry-most": <WardRankedBars />,
+  "situation-sec-four-routes-to-the-threshold-with-the-working-shown": <PathTo200kCalculator />,
+  "situation-sec-where-he-is-not-yet-known-and-whether-it-matters": <RecognitionDeficitOverlay />,
+  "audiences-sec-the-six-voter-segments": <AudienceSegmentationMatrix />,
   // §7.3 splits the electorate into a connected minority and an offline majority. The showcase is
   // that argument as an object: one handset, the campaign on all seven channels, ending on the
   // USSD dialog that reaches more voters than the six apps together.
-  "situation-sec-3-6": <PhoneShowcase />,
-  "messaging-sec-7-1": (
+  "situation-sec-channel-reach-and-the-digital-ceiling": <PhoneShowcase />,
+  "messaging-sec-the-narrative-spine-and-message-architecture": (
     <>
       <MessagingPlayground />
       <ToneVoiceSlider />
     </>
   ),
-  "scope-platforms-sec-8-3-4": <CommunityScheduler />,
-  "risk-sec-13-1": <CounterMessagingGrid />,
+  "scope-platforms-sec-the-weekly-production-schedule": <CommunityScheduler />,
+  "risk-sec-rapid-response-protocol-and-opposition-handling": <CounterMessagingGrid />,
   // The ownership/alignment/tier table this chart plots, now §8.5.1 in the situation analysis.
-  "situation-sec-3-7-1": <MediaOwnershipBlock />,
+  "situation-sec-who-owns-the-kamba-language-stations-and-who-they-favour": <MediaOwnershipBlock />,
 
   // ---- Scope, roadmap, measurement, governance and risk (§8-§16) ----------------------
-  "governance-sec-12-1": (
+  "governance-sec-the-engagement-model-and-operating-rhythm": (
     <SectionPortrait id="seated-grey-cropped" kicker="The engagement model — §12.1" flip>
       Firefly reports to a single named campaign-side counterpart.
     </SectionPortrait>
   ),
-  "approach-sec-6-2": <StrategicPillarsMatrix />,
-  "situation-sec-3-5": <GeographicZoneMatrix />,
+  "approach-sec-the-four-strategic-pillars": <StrategicPillarsMatrix />,
+  "situation-sec-the-county-s-three-regions": <GeographicZoneMatrix />,
   // The technology workstreams carried no anchored visualisation at all before this — the one
   // stretch of the document that was a wall of text, and the one describing the technology
   // stack, which is the part this reader is most likely to test against the artifact itself.
-  "scope-data-sec-8-15-2": <BenchmarkLadder />,
-  "deliverables-sec-10-1-1": <ServiceLevelSelector />,
+  "scope-data-sec-key-metrics-and-benchmarks": <BenchmarkLadder />,
+  "deliverables-sec-the-three-scope-levels": <ServiceLevelSelector />,
   // The four-column matrix below this heading stacks into nine attribute cards on a phone, which
   // answers "what does row six say" rather than "which tier should we buy". One card per tier,
   // swipeable, with the table left in place underneath as the accessible equivalent.
-  "deliverables-sec-10-1-2": <TierComparisonCarousel />,
-  "scope-ground-sec-8-8": <TerminalShowcase />,
-  "scope-ground-sec-8-9": <FlywheelSchematic />,
-  "scope-ground-sec-8-10": (
+  "deliverables-sec-the-scope-levels-compared": <TierComparisonCarousel />,
+  "scope-ground-sec-workstream-7-ground-digital-integration": <TerminalShowcase />,
+  "scope-ground-sec-workstream-8-the-field-to-digital-loop": <FlywheelSchematic />,
+  "scope-ground-sec-workstream-9-offline-reach-sms-ussd-and-voice": (
     <>
       <FeaturePhoneSpecimen />
       <ReachSplit />
       <SMSFeedbackVisualizer />
     </>
   ),
-  "messaging-sec-7-2": <PersuasionFramingMatrix />,
-  "governance-sec-12-5": <DataSecurityEthicsCharter />,
-  "scope-media-sec-8-6": <MediaPlaybackMockup />,
-  "scope-media-sec-8-7": (
+  "messaging-sec-persuasion-principles-and-message-discipline": <PersuasionFramingMatrix />,
+  "governance-sec-data-ethics-privacy-and-the-data-charter": <DataSecurityEthicsCharter />,
+  "scope-media-sec-workstream-5-platform-tactics-and-paid-media": <MediaPlaybackMockup />,
+  "scope-media-sec-workstream-6-earned-media-journalists-and-debates": (
     <>
       <MediaRadioLandscapeCard />
       <RadioAircoverDial />
     </>
   ),
-  "approach-sec-6-3": <SloganBuilder />,
-  "scope-platforms-sec-8-2": <PublicServiceDeliveryTracker />,
-  "roadmap-sec-9-1": (
+  "approach-sec-the-six-campaign-themes": <SloganBuilder />,
+  "scope-platforms-sec-workstream-1-owned-platforms-and-the-service-delivery-tr": <PublicServiceDeliveryTracker />,
+  "roadmap-sec-phasing-from-engagement-to-the-election-period": (
     <>
       <PhaseRail />
       <KpiPhaseBlock />
@@ -350,9 +350,10 @@ function buildComponents(tabId: TabId): Components {
 
               const table = <InteractiveTable>{children}</InteractiveTable>;
 
-              // §6.2 Mizani survey table — table stays (item 14 says keep it with only
-              // two data points), slope chart added alongside it.
-              if (tabId === "summary" && has("kasalu") && has("wambua")) {
+              // The Mizani survey table — kept, with only two data points, and the slope chart
+              // added alongside it. It moved here from the executive summary when that was
+              // redistributed into the sections that own its claims.
+              if (tabId === "situation" && has("kasalu") && has("wambua")) {
                 return (
                   <>
                     {table}
@@ -459,10 +460,11 @@ function buildComponents(tabId: TabId): Components {
               return <ul>{children}</ul>;
             },
             li: ({ children }) => {
-              // The three operating conditions (§6.3) get a pull-quote-style emphasis
-              // treatment instead of a plain bullet — every other list item is unaffected.
+              // The governing operating conditions get a pull-quote-style emphasis treatment
+              // instead of a plain bullet — every other list item is unaffected. They now sit in
+              // the situation analysis, alongside the terrain they describe.
               const text = normalizeWhitespace(getDeepText(children));
-              const isGoverningReality = tabId === "summary" && GOVERNING_REALITY_TRIGGERS.some((t) => text.includes(t));
+              const isGoverningReality = tabId === "situation" && GOVERNING_REALITY_TRIGGERS.some((t) => text.includes(t));
               if (isGoverningReality) {
                 return <MarkdownListItem tabId={tabId} emphasis>{children}</MarkdownListItem>;
               }

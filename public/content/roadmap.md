@@ -1,12 +1,12 @@
 
 The plan phase by phase, from the nomination sprint through to the election period, and the coalition and endorsement sequence set against it.
 
-## 9.1 Phasing, from engagement to the election period
+## Phasing, from engagement to the election period
 
 Five phases: a new Phase −1 addressing the nomination contest, followed by the
 original four phases running to the General Election on **10 August 2027**.
 
-### 9.1.1 Phase −1: Nomination Sprint — August–September 2026
+### Phase −1: Nomination Sprint — August–September 2026
 
 **Objective:** close the measured preference deficit ahead of the Wiper
 flagbearer decision, which party sources indicate is intended to conclude
@@ -33,8 +33,8 @@ proposal claims to embody, applied to its own first assumption.
 
 **Weeks 1–2 — foundations:**
 - Secure and harden all accounts: **hardware-key 2FA for the candidate and all
-  admins on day one** (Section 13.3.2)
-- Commission the Section 12.5.5 compliance review — **start the clock early, it
+  admins on day one**
+- Commission the compliance review — **start the clock early, it
   is the long-lead item**
 - Appoint the Kikamba producer
 
@@ -48,14 +48,13 @@ proposal claims to embody, applied to its own first assumption.
 - Facebook Live town halls weekly from Week 3
 - Kikamba voice-note series from Dr. Mulu — one per week, distributed by
   WhatsApp and ward networks
-- Earned media push: Tier C expert placements on county fiscal management
-  (Section 8.7.2), plus priority-station radio
-- **One message-lab round across all three zones** (Section 11.3) — mandatory
+- Earned media push: Tier C expert placements on county fiscal management, plus priority-station radio
+- **One message-lab round across all three zones** — mandatory
 - Publish the Digital Ethics & Data Charter — a differentiating news moment in
   its own right during a nomination contest
 
 **Weeks 6–8 — consolidation:**
-- Full-scale red-team drill before the nomination decision (Section 13.2.4)
+- Full-scale red-team drill before the nomination decision
 - Coalition roundtables with professional associations
 - Ward champion recruitment begins in the 15 highest-priority wards
 
@@ -77,7 +76,7 @@ proposal claims to embody, applied to its own first assumption.
 | Charter published in three languages | Week 4 |
 | **Measured preference movement** | **Deficit reduced to ≤10 points** |
 
-### 9.1.2 Phase 0: Digital Audit and Infrastructure — September–October 2026
+### Phase 0: Digital Audit and Infrastructure — September–October 2026
 
 *Runs concurrently with the tail of Phase −1 where the nomination timetable
 allows; sequential if the decision slips.*
@@ -93,7 +92,7 @@ allows; sequential if the decision slips.*
 - Weeks 7–8: recruit and train **40 ward digital champions**,
   including mandatory data-handling training; establish WhatsApp reporting
   structures. Recruitment priority: Mwingi Central, Mutomo, Kitui Central
-- Service-delivery tracker built and tested (Section 8.2)
+- Service-delivery tracker built and tested
 
 **KPIs:**
 - All platforms live and verified
@@ -102,9 +101,9 @@ allows; sequential if the decision slips.*
 - USSD code live across all networks
 - 40 ward digital champions onboarded and data-trained
 - First 100 pieces of content approved and scheduled
-- **Section 12.5.5 compliance opinion received**
+- **Compliance opinion received**
 
-### 9.1.3 Phase 1: Awareness and Community Building — October–December 2026
+### Phase 1: Awareness and Community Building — October–December 2026
 
 **Activities:**
 - Daily multilingual content on a structured calendar
@@ -136,7 +135,7 @@ allows; sequential if the decision slips.*
 | Earned media items/month | ≥ 8 |
 | Opt-out rate | < 2% |
 
-### 9.1.4 Phase 2: Engagement and Persuasion — January–March 2027
+### Phase 2: Engagement and Persuasion — January–March 2027
 
 **Activities:**
 - Ward-specific ads on local issues — water scarcity in Ikutha, mango prices in
@@ -168,7 +167,7 @@ allows; sequential if the decision slips.*
 | Viral content pieces (>100,000 views) | ≥ 10 |
 | Red-team response times meeting target | ≥ 90% |
 
-### 9.1.5 Phase 3: Mobilisation and GOTV — April–August 2027
+### Phase 3: Mobilisation and GOTV — April–August 2027
 
 **Activities:**
 - Digital and SMS voter registration drives; pledge-to-vote cards
@@ -201,18 +200,18 @@ allows; sequential if the decision slips.*
 | Misinformation incidents responded to within severity target | 100% |
 | Spend reconciled against IEBC ceiling | 100%, monthly |
 
-### 9.1.6 Post-election
+### Post-election
 
 - Data deletion executed within **90 days** of the declaration of results, per
   the charter, with public confirmation
-- Service-delivery tracker continues, per the Section 8.2.4 commitment
-- Full campaign post-mortem with performance against every KPI in this document
+- Service-delivery tracker continues, per the tracker's design commitment
+- Full campaign post-mortem with performance against every KPI set here
 
 ---
 
-## 9.2 Coalition and endorsement sequencing
+## Coalition and endorsement sequencing
 
-### 9.2.1 The principle behind the sequence
+### The principle behind the sequence
 
 Coalitions are built around **shared economic and civic interests** — water,
 credit, market access, employment, transparency. They are never built around
@@ -222,7 +221,7 @@ which is both the ethical position and the effective one: a water commitment
 made to a congregation is a policy conversation, while a bloc appeal is a
 liability.
 
-### 9.2.2 The sequenced calendar
+### The sequenced calendar
 
 | Phase | Target constituencies | Engagement | Digital output |
 |---|---|---|---|
@@ -235,16 +234,16 @@ liability.
 | **Phase 2–3** | Diaspora chambers and associations | Investment, remittance, **the expansion of diaspora registration from 12 to 26 countries** | Webinars; diaspora fundraising |
 | **Phase 3** (Apr–Aug 2027) | Consolidation and public endorsement sequencing | Staged announcements for sustained news cycles | Endorsement content series |
 
-### 9.2.3 Managing endorsements
+### Managing endorsements
 
 * Every endorsement is **voluntary, documented and disclosed**. No paid
 endorsement is presented as organic — a breach of platform policy and of the
-Section 12.5.4 charter.
+Digital Ethics and Data Charter.
 * Influencer partnerships carry clear paid-partnership disclosure.
 * Endorsements are sequenced for cadence rather than clustered, sustaining
 momentum across the nomination and general-election windows.
 
-### 9.2.4 Coalition KPIs
+### Coalition KPIs
 
 | Metric | Target |
 |---|---|

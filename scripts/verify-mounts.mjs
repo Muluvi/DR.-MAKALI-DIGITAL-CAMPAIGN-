@@ -3,7 +3,7 @@
  * Build guard: every component mount point must name a heading that exists.
  *
  * MarkdownViewer mounts most of the document's visualisations from HEADING_INSERTS, a map keyed
- * by "<tab>-sec-<slug>". If a heading moves file or changes number and the key does not, the
+ * by "<tab>-sec-<slug>". If a heading moves file or is renamed and the key does not, the
  * component silently stops rendering — no error, no failed build, no missing import. That has
  * already happened once in this repo: HEADING_INSERTS' own comment records components keyed at
  * two or three ids at once, rendering the same chart up to three times in a section.
@@ -22,8 +22,6 @@ const CONTENT = path.join(ROOT, "public", "content");
 
 // The tab id for each content file, mirroring FILES in app/page.tsx.
 const TABS = {
-  "cover.md": "cover",
-  "summary.md": "summary",
   "situation.md": "situation",
   "objectives.md": "objectives",
   "audiences.md": "audiences",
@@ -43,7 +41,23 @@ const TABS = {
   "nextsteps.md": "nextsteps",
 };
 
+/**
+ * Mirrors headingSlug in lib/heading-slug.ts: a heading's id is a slug of its own name.
+ * Numbering is gone, so anything that still looks like a leading number is stripped first.
+ */
 const LEADING = /^(\d+(?:\.\d+)*)\.?\s/;
+function slugOf(title) {
+  const withoutNumber = title.trim().replace(LEADING, "").trim();
+  if (!withoutNumber) return null;
+  const slug = withoutNumber
+    .toLowerCase()
+    .replace(/[\u2018\u2019\u201c\u201d]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 56)
+    .replace(/-+$/g, "");
+  return slug || null;
+}
 const HEADING = /^(#{2,3})\s+(.+?)\s*$/;
 
 function cleanTitle(raw) {
@@ -52,7 +66,7 @@ function cleanTitle(raw) {
     .replace(/\*\*/g, "")
     .replace(/\*/g, "")
     .replace(/`/g, "")
-    .replace(/\s*\$?\\?ge\s*[\d,]+\$?/g, "")
+    .replace(/\s*\$?\\ge\s*[\d,]+\$?/g, "")
     .trim();
 }
 
@@ -71,9 +85,9 @@ function liveIds() {
       if (inFence) continue;
       const m = HEADING.exec(line);
       if (!m) continue;
-      const num = LEADING.exec(cleanTitle(m[2]).trim());
-      if (!num) continue;
-      ids.add(`${tab}-sec-${num[1].replace(/\./g, "-")}`);
+      const slug = slugOf(cleanTitle(m[2]));
+      if (!slug) continue;
+      ids.add(`${tab}-sec-${slug}`);
     }
   }
   return ids;
@@ -88,7 +102,7 @@ function mountKeys() {
     console.error("verify-mounts: could not find HEADING_INSERTS in components/MarkdownViewer.tsx");
     process.exit(1);
   }
-  return [...src.slice(start, end).matchAll(/^\s*"([a-z][a-z-]*-sec-[\d-]+)":/gm)].map((m) => m[1]);
+  return [...src.slice(start, end).matchAll(/^\s*"([a-z][a-z-]*-sec-[a-z0-9-]+)":/gm)].map((m) => m[1]);
 }
 
 const ids = liveIds();

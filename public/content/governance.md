@@ -1,16 +1,16 @@
 
 How Firefly and the campaign work together: the operating rhythm, the meeting cadence, who decides what, how a disagreement escalates, and the data charter that governs all of it.
 
-## 12.1 The engagement model and operating rhythm
+## The engagement model and operating rhythm
 
-### 12.1.1 Operating rhythm, tooling and reporting lines
+### Operating rhythm, tooling and reporting lines
 
-* **Weekly strategy syncs:** A scheduled weekly briefing aligns digital output with the candidate's physical itinerary: prior-week performance, next-week content calendar approval, emerging issues. Firefly reports to a single named campaign-side counterpart (Section 14.6).
-* **Asset centralisation:** A cloud repository for the ground team to upload photographs and video daily. Raw assets are professionally edited, captioned and distributed within hours. **Originals retained with metadata** to support the provenance requirement in Section 13.3.5 — a practice that costs nothing now and is invaluable under attack.
-* **Performance tracking:** Monthly analytics reports covering reach, engagement, sentiment and conversion, plus the competitive brief (Section 13.4.3) and progress against the analytics maturity roadmap (Section 8.15.3).
-* **Escalation:** The Section 12.3 decision matrix governs all approvals. The Section 13.2.3 severity matrix governs all crisis response. Both are rehearsed quarterly (Section 13.2.4) rather than read for the first time under pressure.
+* **Weekly strategy syncs:** A scheduled weekly briefing aligns digital output with the candidate's physical itinerary: prior-week performance, next-week content calendar approval, emerging issues. Firefly reports to a single named campaign-side counterpart.
+* **Asset centralisation:** A cloud repository for the ground team to upload photographs and video daily. Raw assets are professionally edited, captioned and distributed within hours. **Originals retained with metadata** to support the provenance requirement in the "The deepfake and manipulated media protocol" work — a practice that costs nothing now and is invaluable under attack.
+* **Performance tracking:** Monthly analytics reports covering reach, engagement, sentiment and conversion, plus the competitive brief and progress against the analytics maturity roadmap.
+* **Escalation:** The decision-rights matrix governs all approvals. The crisis severity matrix governs all crisis response. Both are rehearsed quarterly rather than read for the first time under pressure.
 
-### 12.1.2 What Firefly runs
+### What Firefly runs
 
 - Strategy and message architecture
 - Predictive modelling and analytics
@@ -23,9 +23,9 @@ How Firefly and the campaign work together: the operating rhythm, the meeting ca
 
 This allows the ground team to concentrate on direct voter contact, logistics
 and physical mobilisation — while the two operations feed a single voter model
-rather than running blind to each other (Section 8.9).
+rather than running blind to each other.
 
-**Kitui roles are staffed by Kitui people.** The focus groups in Section 11.3 are
+**Kitui roles are staffed by Kitui people.** The focus groups in the "The Kitui message lab" work are
 facilitated in Kitui, the Kikamba producer is a native speaker, and the ward
 champion network is local by design rather than by exception. These are local
 appointments, made locally — not a concession, but the reason the county-facing
@@ -35,11 +35,11 @@ half of this operation will sound like the county.
 
 Firefly is being proposed as the campaign's **outsourced digital function**, not as a single communications hire. The value is the operating system around the candidate: one accountable digital lead, a lean core, specialist surge capacity when the KPI or phase requires it, multilingual production, low-connectivity distribution and a measurable reporting cadence.
 
-Firefly is a **Kenya-based media and consulting company**. The proposal deliberately does not claim named clients or case studies; its proof is the specificity of the operating model, the governance architecture and the measurable deliverables set out in this document.
+Firefly is a **Kenya-based media and consulting company**. The proposal deliberately does not claim named clients or case studies; its proof is the specificity of the operating model, the governance architecture and the measurable deliverables set out here.
 
 ---
 
-## 12.2 Cadence and the meeting rhythm
+## Cadence and the meeting rhythm
 
 | Cadence | Meeting | Participants | Output |
 |---|---|---|---|
@@ -50,7 +50,7 @@ Firefly is a **Kenya-based media and consulting company**. The proposal delibera
 | **Fortnightly** | Ward champion call | Volunteer Coordinator + ward champions | Ground sentiment; content distribution; leaderboard |
 | **Monthly** | Performance review | Firefly Director + Campaign leadership + `[campaign counsel, where voter-file work is live]` | Analytics report; competitive brief |
 | **Monthly** | Consented-list review | Firefly Director + Volunteer Coordinator | Consented-list growth against the 8.10.6 target; opt-out rate; ward coverage |
-| **Quarterly** | Red-team simulation | Full team + external panel | Crisis drill report and matrix revision (Section 13.2.4) |
+| **Quarterly** | Red-team simulation | Full team + external panel | Crisis drill report and matrix revision |
 
 The campaign maintains operational synchronization through four structured leadership touchpoints:
 
@@ -93,7 +93,7 @@ The campaign maintains operational synchronization through four structured leade
 
 ---
 
-## 12.3 Decision rights and content approval
+## Decision rights and content approval
 
 | Content type | Approver | Turnaround |
 |---|---|---|
@@ -102,13 +102,13 @@ The campaign maintains operational synchronization through four structured leade
 | Response to attack, Level 1 | Digital Director | ≤4 hours |
 | Response to attack, Level 2 | Campaign Communications Director | ≤2 hours |
 | Response to attack, Level 3 | **Candidate + senior leadership** | ≤30 minutes |
-| Any voter-file-based targeting | **Compliance gate — see Section 12.5.5** | Before launch, no exceptions |
+| Any voter-file-based targeting | **Compliance gate | Before launch, no exceptions |
 | Paid spend reallocation within ceiling | Paid Media Manager | Immediate |
 | Paid spend exceeding ward ceiling | Digital Director | 24 hours |
 
 ---
 
-## 12.4 The escalation path
+## The escalation path
 
 To prevent decision bottlenecks and operational confusion during high-pressure field situations, the campaign enforces a strict **Three-Tier Escalation Hierarchy**:
 
@@ -140,9 +140,9 @@ To prevent decision bottlenecks and operational confusion during high-pressure f
 
 ---
 
-## 12.5 Data ethics, privacy and the data charter
+## Data ethics, privacy and the data charter
 
-### 12.5.1 The standard we hold ourselves to
+### The standard we hold ourselves to
 
 Voter data is handled in a manner intended to comply with Kenya's Data
 Protection Act 2019, the Communications Authority framework governing political
@@ -151,10 +151,10 @@ reinforces Dr. Mulu's brand as a trustworthy, accountable leader.
 
 **Important framing: this section describes the campaign's intended standard
 and control environment. It is not a legal opinion, and nothing here asserts
-that any specific processing is already lawful. Section 12.5.5 establishes the
+that any specific processing is already lawful. The the compliance sign-off gate work establishes the
 gate that answers that question properly.**
 
-### 12.5.2 The regulatory environment as it stands
+### The regulatory environment as it stands
 
 | Area | Requirement | Source |
 |---|---|---|
@@ -169,7 +169,7 @@ would give short-term reach and long-term exposure — regulatory, and
 reputational for a candidate whose entire proposition is rigour and
 accountability. The campaign will not.
 
-### 12.5.3 Compliance measures
+### Compliance measures
 
 | Area | Requirement | Implementation |
 |---|---|---|
@@ -181,7 +181,7 @@ accountability. The campaign will not.
 | Accuracy | Correction rights honoured | Documented request route with response SLA |
 | Misinformation | No false content | Fact-check protocol; pre-approval of sensitive claims |
 
-### 12.5.4 The Digital Ethics and Data Charter
+### The Digital Ethics and Data Charter
 
 *Published on the campaign website in all three languages, in plain
 language, at a permanent URL.*
@@ -265,17 +265,16 @@ by the data-governance owner (clause 5), the variable dictionary exclusions
 (clauses 6 and 7), the fact-check protocol (clause 2), and the correction log
 (clause 9). A charter without instrumentation is decoration.
 
-### 12.5.5 The compliance sign-off gate
+### The compliance sign-off gate
 
-*The single most important governance control in this document.*
+*The single most important governance control in the whole operation.*
 
 **Before any voter-file-based targeting, list-building beyond first-party
 consented data, or bulk political messaging goes live, a named Kenyan
 data-protection or electoral-law specialist must review and sign off the
 specific proposed processing in writing.**
 
-**This proposal does not assert that the micro-targeting programme described in
-Section 8.13 is legally clear. It may not be.** The questions below are genuinely
+**Firefly does not assert that the micro-targeting programme described in the "Workstream 12 — Predictive voter modelling" work is legally clear. It may not be.** The questions below are genuinely
 open, are questions of Kenyan law and regulatory interpretation, and are for
 the campaign's counsel to answer — not for a communications consultancy to
 assume:
@@ -303,5 +302,5 @@ at public events?
 
 **Until step 4 is complete, the campaign operates on first-party consented data
 and aggregate ward-level statistics only.** This fallback is fully costed in
-every budget tier (Section 8.13.7), so the campaign loses no time waiting and
+every budget tier, so the campaign loses no time waiting and
 carries no exposure if the answer is restrictive.

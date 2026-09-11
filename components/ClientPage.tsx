@@ -19,7 +19,7 @@ import { QuickNavCapsule } from "./QuickNavCapsule";
 import { PARTS, resolveLegacySectionId, SECTIONS, type TabId } from "../lib/heading-slug";
 import type { SectionItem } from "../lib/section-index";
 
-import { FocusModeToggle, PrintReportGenerator } from "./StrategicAids";
+import { FocusModeToggle } from "./StrategicAids";
 import { SectionNumberMapProvider } from "./markdown/SectionNumberMap";
 
 
@@ -97,8 +97,6 @@ interface ClientPageProps {
 
 // One icon per top-level section, keyed to what the section is about rather than to its position.
 const SECTION_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
-  cover: BookLock,
-  summary: FileText,
   situation: Map,
   objectives: Target,
   audiences: Users,
@@ -135,7 +133,7 @@ const WiperUmbrellaLogo = () => (
 
 // Full-bleed divider marking the start of a top-level section in Expand-All view — breaks out
 // of the max-w-7xl container to span the viewport edge-to-edge.
-function PartDivider({ number, label }: { number: string; label: string }) {
+function PartDivider({ label }: { label: string }) {
   return (
     <div className="relative left-1/2 -translate-x-1/2 w-screen print:hidden" aria-hidden="true">
       {/* The band is the seam between two parts of the argument, so it earns a little more than a
@@ -144,7 +142,6 @@ function PartDivider({ number, label }: { number: string; label: string }) {
         <div className="absolute inset-0 bg-[linear-gradient(100deg,var(--color-accent)_0%,transparent_35%,transparent_65%,var(--color-gold)_100%)] opacity-[0.07]" />
         <div className="absolute inset-0 " />
         <div className="max-w-7xl mx-auto px-3 sm:px-6 w-full flex items-center gap-3 relative z-10">
-          <span className="font-mono t-label sm:t-small font-bold text-accent shrink-0 tabular-nums">{number}</span>
           <span className="h-px w-6 bg-gradient-to-r from-accent to-transparent shrink-0" />
           <span className="text-sm sm:text-base font-semibold text-ink truncate">{label}</span>
         </div>
@@ -227,8 +224,10 @@ function LazySection({ id, content, renderSectionExtras, immediate = false }: La
 
 const TAB_IDS: string[] = SECTIONS.map((s) => s.id);
 
-/** The route served at "/": the proposal's cover, and the only one that carries the hero. */
-const LANDING_TAB: TabId = "cover";
+/** The route served at "/". The cover page and the executive summary are gone — both were
+ *  print-document conventions — so the site opens on the situation analysis, which is where the
+ *  argument actually starts. It is the only route that carries the hero. */
+const LANDING_TAB: TabId = "situation";
 
 export function ClientPage({ sections, documents, wordCounts, activeTab, expanded }: ClientPageProps) {
   // Always starts on the overview so server and client render the same tree on first paint — the
@@ -325,7 +324,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
     () =>
       SECTIONS.map((section) => ({
         id: section.id,
-        number: section.number,
+
         label: section.label,
         blurb: section.blurb,
         icon: SECTION_ICONS[section.id],
@@ -491,7 +490,6 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                   >
                     <div className="flex items-center gap-2.5">
                       <Icon size={16} className="text-accent shrink-0" />
-                      <span className="font-mono t-micro text-muted tabular-nums">{item.number}</span>
                     </div>
                     <span className="font-sans t-body font-bold text-ink leading-snug group-hover:text-accent transition-colors text-balance">
                       {item.label}
@@ -513,7 +511,6 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
 
         {/* DecisionPanel moved into the document's own close (MarkdownViewer); what remains
             here is page tooling, which is what this footer strip is for. */}
-        {!isFocusMode && sectionId === LANDING_TAB && <PrintReportGenerator onPrint={printFullDocument} />}
       </div>
     );
   };
@@ -854,7 +851,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
               <div className="space-y-16">
                 {navItems.map((item, index) => (
                   <div key={item.id}>
-                    <PartDivider number={item.number} label={item.label} />
+                    <PartDivider label={item.label} />
                     <div className={`bg-gradient-to-b ${PART_TINTS[index % PART_TINTS.length]} to-transparent rounded-b-3xl pt-8`}>
                       {/* Every section mounts at once on /full, rather than waiting to be
                           scrolled into view. This is the route Expand All and Export PDF lead

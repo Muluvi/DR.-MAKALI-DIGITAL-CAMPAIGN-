@@ -1,12 +1,23 @@
 
-The decision in front of the campaign, and the specific action this proposal asks for.
+The decision in front of the campaign, and the specific action being asked for.
 
-## 16.1 The decision in front of the campaign
+## The decision in front of the campaign
 
-The strategic architecture set out above is engineered for a singular objective: to position
-Dr. Makali Mulu as the mathematically undeniable candidate — first for the Wiper gubernatorial
-nomination, and subsequently for the governorship of Kitui County. What that requires now is a
-decision, and a date.
+Firefly commits to a scope, a cadence and a standard. It does not commit to an electoral
+outcome, and no figure anywhere in this work should be read as one.
+
+**The scope** is the fourteen workstreams, with their boundaries stated so that what is outside
+them is as clear as what is inside. **The cadence** is the deliverables schedule: what is
+produced, how often, and in what form, at whichever scope level the campaign selects. **The
+standard** is a set of indicators that trace to either the nomination poll share or the vote
+threshold, reported on a fixed cycle to a single named campaign counterpart, with an escalation
+path agreed before it is needed rather than improvised under pressure. **The conditions** are
+the decisions and appointments only the campaign can make; they are named rather than assumed.
+
+The architecture is engineered for a singular objective: to position Dr. Makali Mulu as the
+mathematically undeniable candidate — first for the Wiper gubernatorial nomination, and
+subsequently for the governorship of Kitui County. What that requires now is a decision, and a
+date.
 
 > ### 🗳️ CAMPAIGN DECISION PROTOCOL: PHASE -1 STRATEGIC APPROVAL
 > 
@@ -26,7 +37,7 @@ decision, and a date.
 
 ---
 
-## 16.2 The ask
+## The ask
 
 Dr. Makali Mulu has the credentials, the experience and the vision to be an
 outstanding Governor of Kitui County. He also has something no rival in this
@@ -42,12 +53,11 @@ deficit is a recognition problem concentrated outside his home constituency —
 the most solvable category of deficit there is, and the one that closes fastest
 through disciplined reach into Mwingi and the arid south.
 
-This proposal sets out a digital and low-connectivity operation that can be
+Firefly sets out a digital and low-connectivity operation that can be
 mobilised in weeks: a Phase −1 nomination sprint, an SMS and USSD layer built
 for the roughly 86% of Kitui residents no purely digital campaign will reach, a
-published ethics charter that turns careful data practice into a differentiator
-(Section 12.5.4), a data-protection gate that protects the candidate from the
-legal exposure others in this cycle will walk into (Section 12.5.5), and a public service-delivery tracker that puts his
+published ethics charter that turns careful data practice into a differentiator, a data-protection gate that protects the candidate from the
+legal exposure others in this cycle will walk into, and a public service-delivery tracker that puts his
 strongest credential to work in public before a single vote is cast.
 
 It is built on one premise: **Kitui voters are ready for a leader who

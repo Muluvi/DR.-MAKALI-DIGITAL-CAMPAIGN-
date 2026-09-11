@@ -1,11 +1,11 @@
 
 What can go wrong and what happens when it does: rapid response, the war room that runs it, the cybersecurity and manipulated-media protocols, competitor monitoring from public sources, and the statutory ground all of it stands on.
 
-## 13.1 Rapid-response protocol and opposition handling
+## Rapid-response protocol and opposition handling
 
 In a high-stakes gubernatorial campaign, unchecked misinformation and coordinated political attacks can erode voter trust within hours. In Kitui County, ground rumors and hostile talking points travel primarily through two high-velocity vectors: **morning vernacular radio talk shows (06:00–09:00 EAT)** and **hyper-local ward WhatsApp groups**.
 
-The campaign enforces a disciplined **Rapid Response & Opposition Handling System**. This framework is governed by strict **Defamation Law Safeguards (Section 3.2.1)**: all rebuttals focus exclusively on certified public records, legislative Hansard transcripts, and verifiable policy positions, completely eschewing personal invective or unsubstantiated allegations against political rivals.
+The campaign enforces a disciplined **Rapid Response & Opposition Handling System**. This framework is governed by strict **Defamation Law Safeguards**: all rebuttals focus exclusively on certified public records, legislative Hansard transcripts, and verifiable policy positions, completely eschewing personal invective or unsubstantiated allegations against political rivals.
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
@@ -29,7 +29,7 @@ The campaign enforces a disciplined **Rapid Response & Opposition Handling Syste
 ════════════════════════════════════════════════════════════════════════════════════
 ```
 
-### 13.1.1 What we monitor, and how threats reach us
+### What we monitor, and how threats reach us
 
 The campaign monitors four complementary intelligence streams 24 hours a day, 7 days a week:
 
@@ -38,7 +38,7 @@ The campaign monitors four complementary intelligence streams 24 hours a day, 7 
 3.  **Social Listening Keyword Feeds:** Automated continuous tracking via Brand24 / Talkwalker of high-frequency keywords: *"Dr. Makali Mulu"*, *"Kitui Governor 2027"*, *"Kitui Central CDF"*, *"Ndengu price"*, and competitor candidate handles.
 4.  **Field Captain Rumor Logs:** Twice-daily SMS pulse reports from the 400 Ward Captains logging prevalent market-day and baraza whispers.
 
-### 13.1.2 The four-tier response decision tree
+### The four-tier response decision tree
 
 To avoid elevating fringe attacks or wasting campaign capital, the campaign evaluates every incident against a standardized **Response Decision Tree**:
 
@@ -67,7 +67,7 @@ To avoid elevating fringe attacks or wasting campaign capital, the campaign eval
 └────────────┴─────────────────────────────┴─────────────────────────────────┴────────────────────────────────┘
 ```
 
-### 13.1.3 Response times, by channel
+### Response times, by channel
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -92,7 +92,7 @@ To avoid elevating fringe attacks or wasting campaign capital, the campaign eval
 └────────────────────────────────┴────────────────────────────────────────────┘
 ```
 
-### 13.1.4 Holding positions, pre-drafted
+### Holding positions, pre-drafted
 
 The campaign maintains ready-to-deploy holding positions, evidential citations, and Kikamba framing for the four primary lines of attack:
 
@@ -123,7 +123,7 @@ The campaign maintains ready-to-deploy holding positions, evidential citations, 
 │                     Mwingi North and Kitui South receives guaranteed, direct capital investment."           │
 │ • Kikamba Framing: "Mwanya wa maendeeo nĩ wa kĩla mũndũ. Mbesa sya Ward Fund syĩithiwa kwa kĩla kĩtheka     │
 │                     kũtetheesya mĩsyĩ yonthe ya Kitui ta ĩmwe."                                             │
-│ • Primary Source:  The ward allocation methodology, once drafted. Section 8.2 is the                        │
+│ • Primary Source:  The ward allocation methodology, once drafted. The tracker is the                        │
 │                     delivery tracker and does not carry a schedule; Firefly would build                     │
 │                     the formula with the campaign before this line is used on air.                          │
 ├─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
@@ -151,7 +151,7 @@ The campaign maintains ready-to-deploy holding positions, evidential citations, 
 └─────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 13.1.5 Staying inside defamation law
+### Staying inside defamation law
 
 All campaign communicators, surrogates, and media buyers are strictly bound by the following **Three Defamation Safeguards**:
 
@@ -174,9 +174,9 @@ All campaign communicators, surrogates, and media buyers are strictly bound by t
 
 ---
 
-## 13.2 The digital war room
+## The digital war room
 
-### 13.2.1 War room operating model, shift coverage and dashboard view
+### War room operating model, shift coverage and dashboard view
 
 The war room is the campaign's nerve centre for monitoring, response and
 rapid decision-making.
@@ -190,7 +190,7 @@ During peak periods (January–August 2027), the war room operates on a three-sh
 
 The command console centralises real-time metrics: live sentiment score; trending hashtags; competitor activity alerts; misinformation tracking log; response status tracker; hourly engagement; **SMS delivery and opt-out rates**; and **spend against ceiling**.
 
-### 13.2.2 Monitoring tools
+### War room monitoring tools
 
 | Tool class | Function |
 |---|---|
@@ -201,9 +201,9 @@ The command console centralises real-time metrics: live sentiment score; trendin
 | **Meta Ad Library** | Competitor ad spend, creative and targeting estimates |
 | **Google Ads Transparency Centre** | Competitor search advertising |
 | Custom BI dashboard | Centralised real-time metrics |
-| **Radio monitoring** | Kamba-language station tracking (Section 8.7) — critical, as most attacks on Dr. Mulu will originate on air, not online |
+| **Radio monitoring** | Kamba-language station tracking — critical, as most attacks on Dr. Mulu will originate on air, not online |
 
-### 13.2.3 Rapid-response protocol and pre-approved message library
+### Rapid-response protocol and pre-approved message library
 
 | Severity | Definition | Response time | Approval |
 |---|---|---|---|
@@ -216,9 +216,9 @@ To execute rapid containment without awaiting ad-hoc legal drafting, a pre-appro
 * Kikamba, Kiswahili and English versions of key messages
 * Template statements for policy positions issued in response to attack
 * Fact-check cards linking to verified sources
-* **Deepfake first-response templates** (Section 13.3.5)
+* **Deepfake first-response templates**
 
-### 13.2.4 Red-team drills
+### Red-team drills
 
 *Reactive protocols fail because they are first used under real pressure.*
 
@@ -229,16 +229,16 @@ before the general election.
 **Method:** a small red-team panel — Firefly's crisis lead, one campaign
 representative, and an external participant with no stake in the outcome — is
 briefed to attack. The response team is **not** told which scenario is coming
-or when. The drill runs in real time against the Section 13.2.3 clock.
+or when. The drill runs in real time against the rapid-response clock.
 
 **Standing scenario library:**
 | # | Scenario | Tests |
 |---|---|---|
 | 1 | Fabricated audio of Dr. Mulu making an inflammatory statement, seeded on WhatsApp | Deepfake protocol; 30-minute Level 3 clock |
 | 2 | Coordinated hashtag attack on his NG-CDF record | Fact-base readiness; rebuttal library |
-| 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval (Section 12.5.4) |
-| 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 8.7) |
-| 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section 13.3.4) |
+| 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval |
+| 4 | Hostile radio segment on a station associated with a rival | Radio response pathway |
+| 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response |
 | 7 | Manufactured "grassroots" campaign attacking a rival, falsely attributed to Dr. Mulu | Charter defence; provenance evidence |
 
 **Output:** every drill produces a written report — actual response times
@@ -252,9 +252,9 @@ target**.
 
 ---
 
-## 13.3 Cybersecurity and manipulated media
+## Cybersecurity and manipulated media
 
-### 13.3.1 The threat model
+### The threat model
 
 Kenyan campaigns face account takeover, phishing of staff and volunteers,
 leaked internal material, and increasingly the fabrication of audio and video.
@@ -266,10 +266,10 @@ advisories in a single quarter.
 For this campaign specifically, the highest-consequence scenarios are:
 1. Compromise of the candidate's own social accounts
 2. A ward champion's WhatsApp account compromised and used to message a ward
-3. Leaked internal strategy material — including, if mishandled, this document
+3. Leaked internal strategy material — including, if mishandled, the campaign plan itself
 4. Fabricated audio or video of the candidate
 
-### 13.3.2 Account security baseline
+### Account security baseline
 
 | Control | Standard | Applies to |
 |---|---|---|
@@ -284,7 +284,7 @@ For this campaign specifically, the highest-consequence scenarios are:
 **Hardware keys for the candidate and admins are non-negotiable and cost very
 little.** `[Insert specified hardware security key model — two keys per critical account holder for redundancy]`
 
-### 13.3.3 Phishing awareness
+### Phishing awareness
 
 * Onboarding training for every staff member and Tier 3–4 volunteer before
 account access is granted
@@ -296,7 +296,7 @@ suspicion to report
 * Specific coverage of the patterns most likely here: fake platform security
 alerts, fake IEBC or party communications, and fake media interview requests
 
-### 13.3.4 The incident response plan
+### The incident response plan
 
 | Phase | Action | Owner | Target |
 |---|---|---|---|
@@ -312,7 +312,7 @@ campaign confirms or denies authenticity accurately and quickly. It does not
 speculate about the source, and it does not deny the authenticity of genuine
 material — a denial later disproved is worse than the original leak.
 
-### 13.3.5 The deepfake and manipulated media protocol
+### The deepfake and manipulated media protocol
 
 *The threat that most warrants specific preparation.*
 
@@ -355,7 +355,7 @@ private-group circulation
 | 5–15 | Verify against the campaign's own archive: was Dr. Mulu there, on that date, saying that? Retrieve original footage if it exists |
 | 15–20 | Candidate and senior leadership briefed; response approved |
 | 20–30 | Publish: plain statement of falsity, the verified original where one exists, and provenance evidence. Simultaneously in Kikamba, Kiswahili and English, across all channels **including SMS to the affected wards** |
-| 30–120 | Platform reports filed; journalists briefed directly (Section 8.7); ward champions supplied with a forwarding-friendly correction card for WhatsApp |
+| 30–120 | Platform reports filed; journalists briefed directly; ward champions supplied with a forwarding-friendly correction card for WhatsApp |
 | Same day | Legal options reviewed with counsel |
 
 **The SMS component is what makes this work in Kitui.** A rebuttal published
@@ -369,9 +369,9 @@ campaign's own deepfake denials will be believed.
 
 ---
 
-## 13.4 Competitor monitoring
+## Competitor monitoring
 
-### 13.4.1 Public sources only, and the line we do not cross
+### Public sources only, and the line we do not cross
 
 Systematic, lawful, public-source tracking of rivals' digital activity to
 anticipate attacks, identify messaging vulnerabilities and find openings.
@@ -382,7 +382,7 @@ no infiltration of private groups, no purchase of private data, and no
 research into rivals' families or private lives.** Opposition research means
 knowing what opponents say publicly, not surveilling them.
 
-### 13.4.2 Monitoring tools
+### Competitor monitoring tools
 
 | Tool | Function |
 |---|---|
@@ -390,10 +390,10 @@ knowing what opponents say publicly, not surveilling them.
 | Google Ads Transparency Centre | Competitor search advertising and keywords |
 | Social listening (premium tier) | Mentions, supporter sentiment, emerging narratives |
 | X lists | Curated rival, surrogate and influencer accounts |
-| **Radio monitoring** | Kamba-station coverage and airtime share (Section 8.7) |
+| **Radio monitoring** | Kamba-station coverage and airtime share |
 | **Published polling tracker** | Mizani Africa and other published surveys, logged with dates and methodology notes |
 
-### 13.4.3 Competitive intelligence outputs and rapid alerts
+### Competitive intelligence outputs and rapid alerts
 
 The competitive intelligence workflow produces two operational outputs:
 
@@ -406,7 +406,7 @@ The competitive intelligence workflow produces two operational outputs:
    * **Recommendations:** counter-messaging and proactive content
 2. **The rapid alert system:** New attacks or significant messaging shifts trigger real-time alerts to campaign leadership with recommended responses drawn from the pre-approved library.
 
-### 13.4.4 Reading the current field
+### Reading the current field
 
 The August 2026 published survey shows Dr. Kasalu's strength built on
 countywide grassroots touring under a branded programme. The strategic
@@ -420,7 +420,7 @@ field.
 
 ---
 
-## 13.5 Statutory and regulatory compliance
+## Statutory and regulatory compliance
 
 This compliance pack consolidates all statutory, constitutional, and regulatory requirements governing Dr. Makali Mulu’s 2027 Kitui County gubernatorial campaign. Operating with strict legal adherence is both an ethical mandate and an essential defense against administrative disqualification or election petition exposure.
 
@@ -452,7 +452,7 @@ This compliance pack consolidates all statutory, constitutional, and regulatory 
 ════════════════════════════════════════════════════════════════════════════════════
 ```
 
-### 13.5.1 The IEBC nomination and clearance checklist
+### The IEBC nomination and clearance checklist
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -487,7 +487,7 @@ This compliance pack consolidates all statutory, constitutional, and regulatory 
 └──────────────────────────┴───────────────────────────────────────────┴──────────────────────────────────────┘
 ```
 
-### 13.5.2 Data protection and election offences liability
+### Data protection and election offences liability
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐

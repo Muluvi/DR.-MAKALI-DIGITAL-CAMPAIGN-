@@ -1,12 +1,14 @@
-import { headingNumber, headingSlug, sectionId, TAB_LABELS, type TabId } from "./heading-slug";
+import { headingSlug, sectionId, TAB_LABELS, type TabId } from "./heading-slug";
 
 /**
- * The document's section index, derived from the markdown at build time.
+ * The section index, derived from the markdown at build time.
  *
- * One file per top-level section, so a document's own headings are the only source of truth for
- * the index. Generating it means the index cannot disagree with the document — which matters
- * more since the restructure, because numbering is now section.sub-section.part and a
- * hand-written index would have 262 chances to drift.
+ * One file per top-level section, so the headings themselves are the only source of truth for the
+ * index. Generating it means the index cannot disagree with the content.
+ *
+ * Sections no longer carry printed numbers — that is a print-document convention and it is gone —
+ * so an entry is its name, its file and its depth. Ids are slugs of the name, which has the useful
+ * property that a section keeps its id when it moves, where the old numeric ids did not.
  *
  * Parsing happens on the server in app/page.tsx, so no markdown or parser reaches the client
  * bundle.
@@ -15,8 +17,6 @@ import { headingNumber, headingSlug, sectionId, TAB_LABELS, type TabId } from ".
 export interface SectionItem {
   /** Deep-link target, "<tab>-sec-<slug>". */
   id: string;
-  /** Section number as printed, e.g. "4.3" or "4.3.2". */
-  number: string;
   title: string;
   tabId: TabId;
   tabLabel: string;
@@ -33,14 +33,8 @@ function cleanTitle(raw: string): string {
     .replace(/\*\*/g, "")
     .replace(/\*/g, "")
     .replace(/`/g, "")
-    .replace(/\s*\$?\\?ge\s*[\d,]+\$?/g, "")
+    .replace(/\s*\$?\\ge\s*[\d,]+\$?/g, "")
     .trim();
-}
-
-/** Drop the leading number from the title, since the index shows it in its own column. */
-function titleWithoutNumber(title: string, number: string): string {
-  const withoutNum = title.replace(new RegExp(`^${number.replace(/\./g, "\\.")}\\.?\\s*`), "");
-  return withoutNum || title;
 }
 
 export function buildSectionIndex(documents: Record<TabId, string>): SectionItem[] {
@@ -62,9 +56,8 @@ export function buildSectionIndex(documents: Record<TabId, string>): SectionItem
 
       const level = match[1].length as 2 | 3;
       const title = cleanTitle(match[2]);
-      const number = headingNumber(title);
       const slug = headingSlug(title);
-      if (!number || !slug) continue;
+      if (!slug) continue;
 
       const id = sectionId(tab, slug);
       if (seen.has(id)) continue;
@@ -72,8 +65,7 @@ export function buildSectionIndex(documents: Record<TabId, string>): SectionItem
 
       items.push({
         id,
-        number,
-        title: titleWithoutNumber(title, number),
+        title,
         tabId: tab,
         tabLabel: TAB_LABELS[tab],
         level,

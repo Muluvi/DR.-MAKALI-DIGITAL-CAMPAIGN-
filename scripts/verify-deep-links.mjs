@@ -22,8 +22,6 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CONTENT = path.join(ROOT, "public", "content");
 
 const TABS = {
-  "cover.md": "cover",
-  "summary.md": "summary",
   "situation.md": "situation",
   "objectives.md": "objectives",
   "audiences.md": "audiences",
@@ -43,11 +41,27 @@ const TABS = {
   "nextsteps.md": "nextsteps",
 };
 
+/**
+ * Mirrors headingSlug in lib/heading-slug.ts: a heading's id is a slug of its own name.
+ * Numbering is gone, so anything that still looks like a leading number is stripped first.
+ */
 const LEADING = /^(\d+(?:\.\d+)*)\.?\s/;
+function slugOf(title) {
+  const withoutNumber = title.trim().replace(LEADING, "").trim();
+  if (!withoutNumber) return null;
+  const slug = withoutNumber
+    .toLowerCase()
+    .replace(/[\u2018\u2019\u201c\u201d]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 56)
+    .replace(/-+$/g, "");
+  return slug || null;
+}
 const HEADING = /^(#{2,3})\s+(.+?)\s*$/;
 const clean = (raw) =>
   raw.replace(/\*\((new|updated)\)\*/gi, "").replace(/\*\*/g, "").replace(/\*/g, "")
-     .replace(/`/g, "").replace(/\s*\$?\\?ge\s*[\d,]+\$?/g, "").trim();
+     .replace(/`/g, "").replace(/\s*\$?\\ge\s*[\d,]+\$?/g, "").trim();
 
 const liveIds = new Set();
 for (const [file, tab] of Object.entries(TABS)) {
@@ -57,8 +71,8 @@ for (const [file, tab] of Object.entries(TABS)) {
     if (inFence) continue;
     const m = HEADING.exec(line);
     if (!m) continue;
-    const num = LEADING.exec(clean(m[2]).trim());
-    if (num) liveIds.add(`${tab}-sec-${num[1].replace(/\./g, "-")}`);
+    const slug = slugOf(clean(m[2]));
+    if (slug) liveIds.add(`${tab}-sec-${slug}`);
   }
 }
 

@@ -3,7 +3,7 @@
  * Generates the per-section half of docs/VISUAL-FEATURE-LEDGER.md.
  *
  * The point of generating it rather than writing it is that the claim being made — "every one of
- * the 262 sections is covered" — is only worth anything if it is re-derived from the content and
+ * the sections is covered" — is only worth anything if it is re-derived from the content and
  * the components each time, instead of being a table someone typed once and stopped updating.
  *
  * It rebuilds the section index with the same rules as lib/section-index.ts and verify-mounts.mjs,
@@ -20,8 +20,6 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CONTENT = path.join(ROOT, "public", "content");
 
 const TABS = {
-  "cover.md": "cover",
-  "summary.md": "summary",
   "situation.md": "situation",
   "objectives.md": "objectives",
   "audiences.md": "audiences",
@@ -67,15 +65,15 @@ function headings() {
 function mountedIds() {
   const src = fs.readFileSync(path.join(ROOT, "components", "MarkdownViewer.tsx"), "utf8");
   const block = src.slice(src.indexOf("const HEADING_INSERTS"));
-  return new Set([...block.matchAll(/"([a-z][a-z-]*-sec-[0-9a-z-]+)"/g)].map((m) => m[1]));
+  return new Set([...block.matchAll(/"([a-z][a-z-]*-sec-[a-z0-9-]+)"/g)].map((m) => m[1]));
 }
 
 /**
  * What a heading gets, and why.
  *
  * The two entrance signatures are the whole point of the split: a sub-section opens a new
- * argument and wipes open; a part is a step inside one already open and rises. 190-odd of the 262
- * are parts, and anything stronger on those turns a long read into a strobe.
+ * argument and wipes open; a part is a step inside one already open and rises. Most headings are
+ * parts, and anything stronger on those turns a long read into a strobe.
  */
 function treatmentFor(h) {
   const shared = [

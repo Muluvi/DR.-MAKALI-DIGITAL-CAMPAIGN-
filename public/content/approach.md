@@ -1,11 +1,17 @@
 
 The claim at the centre of this campaign, the four pillars it rests on, and the six themes that carry it into the county.
 
-## 6.1 The governing claim: the Economist Governor
+## The governing claim: the Economist Governor
 
-The core narrative of the campaign turns standard political promotion on its head: **Dr. Makali Mulu is the Economist Governor Kitui needs.** This narrative frames him not as a politician who merely promises, but as an expert economist who can show his working and enforce rigorous accountability.
+Kitui's 2027 gubernatorial contest decides between two trajectories: an administration that institutionalises economic modernisation, or another five-year cycle of sub-optimal execution against unmet development targets. Dr. Benson Makali Mulu, PhD (Economics), CBS, brings an unusually technical alignment to that choice — advanced macroeconomic training, national public-finance leadership on the Budget and Appropriations Committee, specialist monitoring and evaluation expertise, and deep structural roots in the Kitui electorate.
 
-### 6.1.1 The evidence behind the claim
+Policy credentials do not convert themselves into votes, and the campaign's first obstacle is not the general election but the party nomination. What follows is the narrative built to close that gap.
+
+The core narrative turns standard political promotion on its head: **Dr. Makali Mulu is the Economist Governor Kitui needs.** This frames him not as a politician who promises, but as an expert economist who can show his working and enforce rigorous accountability.
+
+The sharper version of the claim, and the one that answers the specific scepticism Kitui voters hold, is this: **Dr. Mulu is not merely an economist. He is a specialist in verifying whether public money produced anything.** That is what the M&E record below establishes, and it is why the campaign's first owned platform is a public service-delivery tracker — every project, its budget, its stage and its slippage, published and updated. It converts a line on a CV into a daily, checkable demonstration of the thing he is claiming to be.
+
+### The evidence behind the claim
 
 Dr. Mulu's technocratic and delivery credentials are not abstract campaign claims; they are backed by verified, empirical milestones (Tier 1):
 *   **The National Budget Seat:** Sourced legislative records confirm Dr. Mulu's senior position on the National Assembly's **Budget and Appropriations Committee** (Tier 1). His tenure provides him with unparalleled authority and direct oversight of macroeconomic resource allocation.
@@ -13,7 +19,7 @@ Dr. Mulu's technocratic and delivery credentials are not abstract campaign claim
 *   **Certified Administrative Excellence:** Sourced Ministry of Finance performance audits officially certified Kitui Central as the **best-evaluated constituency in the Eastern region, FY2014/15**—ranking first out of all 71 constituencies in its peer group (Tier 1).
 *   **Professional Monitoring & Evaluation Credentials:** He is a certified consultant in project management, a member of the **Evaluation Society of Kenya (ESK)** (Tier 1), and was officially designated as an **M&E Champion by the Ministry of Finance** (Tier 1).
 
-### 6.1.2 The resource paradox
+### The resource paradox
 
 The campaign's primary argument is anchored in a documented, structural paradox: **Kitui has ample developmental resources; what it completely lacks is disciplined, accountable deployment.**
 
@@ -25,7 +31,7 @@ According to the approved Kitui County Fiscal Strategy Paper for FY2026/27, the 
 
 Furthermore, Controller of Budget reports reveal that the county carries an estimated **KSh 1.3 billion in outstanding pending bills** as of FY2020/21 (Tier 1). These metrics prove that Kitui's primary developmental obstacle is not a lack of funding, but a lack of fiscal discipline, project oversight, and structural monitoring and evaluation—the exact competencies that define Dr. Mulu's professional career.
 
-### 6.1.3 Answering the charge that discipline is cold
+### Answering the charge that discipline is cold
 
 Competitors will seek to weaponize Dr. Mulu's technocratic and economic credentials to paint him as politically detached:
 *   **The Rival Attack:** *"Dr. Mulu is a cold, distant, Nairobi-facing intellectual who spends his time in air-conditioned parliamentary offices, completely out of touch with the raw, daily struggles of rural Kitui households."*
@@ -33,24 +39,24 @@ Competitors will seek to weaponize Dr. Mulu's technocratic and economic credenti
 
 ---
 
-## 6.2 The four strategic pillars
+## The four strategic pillars
 
 Four pillars, extended from the original three. **These four are the campaign's pillars.**
 Two other groupings appear later in this section and are deliberately different things, not
-competing versions of this one: Section 7.1 sets out the three *message* pillars — how the
-claim is argued to a voter — and Section 8.3.1 the four *content* pillars, which are
+competing versions of this one: The the narrative spine and message architecture work sets out the three *message* pillars — how the
+claim is argued to a voter — and the four *content* pillars, which are
 production buckets for the studio. Each of those maps back to the four below.
 
-### 6.2.1 The four campaign pillars in practice
+### The four campaign pillars in practice
 
 * **Fiscal accountability and devolution:** Translate Dr. Mulu's parliamentary advocacy for equitable resource distribution into a clear, actionable manifesto for Kitui's 40 wards. Content will show, line by line, how the county's KSh13.79 billion should be allocated and audited — using his economics background to give voters confidence their money will be managed well.
 * **Data-driven civic engagement:** Infographic analyses breaking down Dr. Mulu's track record — including NG-CDF-funded projects in Kitui Central — so voters can visualise impact. Complex budget documents converted into simple charts, ward-level maps, and before-and-after comparisons.
 * **Policy, translated into what it changes:** Convert dense policy topics — climate investment in water infrastructure, agricultural revitalisation — into relatable, vernacular-friendly content. A 90-second video, a Kikamba voice note, or a shareable card makes every policy tangible and personal.
-* **Verification and follow-through:** The pillar that distinguishes Dr. Mulu from every rival: **publishing what was promised, then publishing whether it happened.** Operationalised through the public service-delivery tracker (Section 8.2), the quarterly evidence cadence in Section 8.15, and the transparent ad-spend disclosure in the Digital Ethics & Data Charter (Section 12.5.4). An M&E specialist who campaigns without a verification mechanism is wasting his strongest asset.
+* **Verification and follow-through:** The pillar that distinguishes Dr. Mulu from every rival: **publishing what was promised, then publishing whether it happened.** Operationalised through the public service-delivery tracker, the quarterly evidence cadence in the "Workstream 14 — Analytics and attribution" work, and the transparent ad-spend disclosure in the Digital Ethics & Data Charter. An M&E specialist who campaigns without a verification mechanism is wasting his strongest asset.
 
 ---
 
-## 6.3 The six campaign themes
+## The six campaign themes
 
 Six themes, each evidenced.
 

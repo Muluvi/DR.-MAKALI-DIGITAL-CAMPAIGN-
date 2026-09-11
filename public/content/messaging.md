@@ -1,11 +1,11 @@
 
 The narrative spine, the message assigned to each segment and each channel, the answer to disinformation, the persuasion principles the campaign holds itself to, and the three languages every asset has to work in.
 
-## 7.1 The narrative spine and message architecture
+## The narrative spine and message architecture
 
 Political messaging in Kitui County has historically relied on empty populist slogans that fail to withstand economic scrutiny. The campaign breaks decisively with this practice by constructing an **Evidence-Backed Message Hierarchy**.
 
-Under the campaign's Provenance Discipline (Section 3.2.1), **no claim is made without an attached primary empirical source**. Every message delivered—from a 160-character Kikamba SMS to a 2-hour radio debate—is grounded in certified parliamentary scorecards, Auditor-General reports, or KNBS economic data.
+Under the campaign's Provenance Discipline, **no claim is made without an attached primary empirical source**. Every message delivered—from a 160-character Kikamba SMS to a 2-hour radio debate—is grounded in certified parliamentary scorecards, Auditor-General reports, or KNBS economic data.
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
@@ -29,7 +29,7 @@ Under the campaign's Provenance Discipline (Section 3.2.1), **no claim is made w
 ════════════════════════════════════════════════════════════════════════════════════
 ```
 
-### 7.1.1 The central claim and its three pillars
+### The central claim and its three pillars
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -58,7 +58,7 @@ Under the campaign's Provenance Discipline (Section 3.2.1), **no claim is made w
     *   **Policy Intervention — one point to confirm with your office:** sessional papers are ordinarily Executive instruments rather than backbench sponsorships, so the precise role is worth stating exactly as the Hansard record has it. Firefly will describe it accordingly.
 
 > **What the two flagship commitments would cost, and what still has to be decided.**
-> Against the KSh 13.79 billion envelope in Section 3.3.4: a Ward Development Equalization
+> Against the KSh 13.79 billion envelope in the "What the governorship controls, and what it is worth" work: a Ward Development Equalization
 > Fund at KSh 100 million across 40 wards is **KSh 4.0 billion a year, or 29% of the
 > envelope** before salaries. A *ndengu* floor price at KSh 85/kg against the 45,000 tonnes
 > cited in Message Pillar 2 is **a further ~KSh 2.0 billion** if the county bridges from the
@@ -70,18 +70,18 @@ Under the campaign's Provenance Discipline (Section 3.2.1), **no claim is made w
 > scheme rather than a purchase guarantee, which changes the figure materially. Firefly's
 > recommendation is that both are sized and structured with the campaign's fiscal team before
 > they go into broadcast copy, since the figures already appear in the radio scripts, SMS
-> copy and USSD menu in Section 8.3. **This is the campaign's call, and one worth settling
+> copy and USSD menu in the "Workstream 2 — Content production and asset governance" work. **This is the campaign's call, and one worth settling
 > early rather than on air.**
 
 #### Message Pillar 3: Devolution Equity, Universal Water Access & Healthcare *(carries campaign pillars 2.2.1 and 2.2.2)*
 *   **Narrative Statement:** *"Development in Kitui must no longer depend on which ward voted for the Governor. Dr. Mulu guarantees an institutionalized Ward Development Equalization Fund of Ksh 100 Million per ward annually, prioritizing solar borehole reticulation and stocked village dispensaries."*
 *   **Primary Evidence & Source:**
-    *   **Proof Point — awaiting page reference:** **Kitui County Integrated Development Plan (CIDP III).** The 61% figure is not yet tiered. Section 3.3.5 carries a related Tier 1 statistic — approximately 400,000 residents relying on untreated surface water — which measures something different and is the one currently documented.
+    *   **Proof Point — awaiting page reference:** **Kitui County Integrated Development Plan (CIDP III).** The 61% figure is not yet tiered. The who lives here, and what they can reach online work carries a related Tier 1 statistic — approximately 400,000 residents relying on untreated surface water — which measures something different and is the one currently documented.
     *   **CDF Proof — a request to your constituency office:** 84 community solar boreholes and 142 school water-harvesting projects (Kitui Central Project Inventory 2013–2026). Sections 13.1.4 and 11.2.2 previously cited the same inventory for a classroom count, a different project category; both now defer to the ledger. The inventory's own line items would let Firefly use one consistent set of figures throughout.
 
-### 7.1.2 Message assignment by segment
+### Message assignment by segment
 
-Cross-referencing the demographic and livelihood segments established in **Section 5.1**:
+Cross-referencing the demographic and livelihood segments established in the "The six voter segments" work:
 
 > **These segments overlap, and the percentages are shares of the register, not a partition
 > of it.** A woman farming in Mwingi is in rows 1 and 4; a boda operator in Kitui Town is in
@@ -90,18 +90,18 @@ Cross-referencing the demographic and livelihood segments established in **Secti
 > thousand: they are shares applied to the 532,758 register, not measured headcounts, and
 > quoting them to the unit would imply a precision no source here supports.
 >
-> **This table and Section 5.2 are two different cuts of the same electorate**, and three
+> **This table and the segment sizing are two different cuts of the same electorate**, and three
 > rows carry similar names with deliberately different boundaries. Where they differ,
-> **Section 5.2 is the sizing authority** — it is built from census and register data — and
+> **The segment sizing is the authority** — it is built from census and register data — and
 > the shares below are message-reach targets, which is why they are wider:
 >
-> | Here (message target) | Section 5.2 (sized segment) | Why the numbers differ |
+> | Here (message target) | Sized segment | Why the numbers differ |
 > |---|---|---|
 > | Urban MSMEs, Traders & Market Stall Keepers — ~97,000 | Urban MSMEs & Informal Traders — ~26,000 | 5.2 counts the KNBS *urban* classification only. Trading centres in rural wards carry most of the county's market stalls, and this row reaches them too. |
 > | Agro-Pastoralists & Herders (Mwingi/South) — ~77,000 | Agro-Pastoralists (Arid Borderlands) — ~80,000–105,000 | 5.2's range awaits the primary survey in 5.3; this row's figure sits just under it and should be replaced by the surveyed number once it exists. |
 > | Teachers, Civil Servants & Elite Professionals — ~45,000 | Formal Professionals & Civil Servants — ~25,000–35,000 | This row adds private-sector professionals and clergy to the public-payroll base 5.2 counts. |
 >
-> None of the three is a measured figure. When the Phase −1 baseline survey (Section 5.3)
+> None of the three is a measured figure. When the Phase −1 baseline survey
 > returns, all six rows here should be restated against it and this reconciliation dropped.
 
 ```
@@ -149,7 +149,7 @@ interest, geography, life stage and issue salience only**. It is never by
 ethnicity, clan or religious affiliation. Cultural and linguistic localisation —
 Kikamba content, local idiom, proverbs, cultural imagery — is a matter of
 respect and reach and stays. Identity-based wedge targeting does not, is
-excluded by the Digital Ethics & Data Charter (Section 12.5.4), and is a
+excluded by the Digital Ethics & Data Charter, and is a
 documented driver of election-period tension in Kenya. This is a live risk in
 the 2027 cycle, not a theoretical one: EU-funded analysis of the 2025 digital
 ecosystem identified coordinated cross-platform operations explicitly
@@ -163,16 +163,16 @@ weaponising ethnicity.
 | **Women's Cooperatives & Table-Banking Groups** | CBOs and merry-go-rounds across all 40 wards; 587,151 women in 262,942 households | Domestic water proximity; maternal and household healthcare; market linkages for honey, mangoes, legumes; **poultry income (90%+ of households)** | **Message:** "Dignity at the Household Level." Reducing the distance walked for water; dedicated county empowerment revolving funds.<br>**Channels:** Church and cooperative networks, grassroots women leaders, **Kikamba voice notes**, WhatsApp, SMS |
 | **Diaspora Kitui Voters** | Nairobi, Mombasa and abroad; high out-migration from Kitui Central, Mutomo, Mwingi Central | Investment opportunities; transparent county budgeting; remittance links; home-county pride | **Message:** "Your Investment, Your County." **Newly actionable: IEBC is expanding diaspora voter registration from 12 to 26 countries.**<br>**Channels:** Facebook, X, YouTube, WhatsApp, LinkedIn, diaspora webinars |
 | **First-Time Voters** | 18–22; secondary and early tertiary | Hope, change, youth inclusion, digital opportunity, accountability | **Message:** "A New Kind of Leader." Integrity, economic expertise, youth digital empowerment.<br>**Channels:** TikTok, Instagram, WhatsApp, short-form video |
-| **Offline Majority** | Any ward with low connectivity; older voters; the ~86% outside internet use | The same priorities as above — but reached by no digital channel currently in the plan | **Message:** identical policy substance, adapted to 160 characters and to audio.<br>**Channels:** **SMS, USSD, radio, mobile-money agent networks, printed QR-linked materials** (Section 8.10) |
+| **Offline Majority** | Any ward with low connectivity; older voters; the ~86% outside internet use | The same priorities as above — but reached by no digital channel currently in the plan | **Message:** identical policy substance, adapted to 160 characters and to audio.<br>**Channels:** **SMS, USSD, radio, mobile-money agent networks, printed QR-linked materials** |
 
-The final row is the most commercially significant addition in this document.
+The final row is the most commercially significant addition of the set.
 Treating the offline majority as a segment with its own channel budget — rather
 than as a group the campaign regrets not reaching — is the difference between a
 digital plan and a communications plan.
 
-### 7.1.3 Message assignment by channel
+### Message assignment by channel
 
-Cross-referencing the channel reach realities established in **Section 3.6**:
+Cross-referencing the channel reach realities established in the "Channel reach and the digital ceiling" work:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -202,7 +202,7 @@ Cross-referencing the channel reach realities established in **Section 3.6**:
 └──────────────────────────────┴──────────────────────────────────────────┴───────────────────────────────────┘
 ```
 
-### 7.1.4 Counter-messaging against disinformation
+### Counter-messaging against disinformation
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -220,7 +220,7 @@ Cross-referencing the channel reach realities established in **Section 3.6**:
 │ *"Economists only care about   │ • **FACT:** 13 years of Kitui Central CDF  │
 │   numbers, not the poor."*     │   directed the majority of funds to needy  │
 │                                │   student bursaries — 12,573 recipients,   │
-│                                │   KSh 47m (Tier 1, §2.1.1) — and village   │
+│                                │   KSh 47m (Tier 1) — and village string    │
 │                                │   boreholes. Share pending the ledger.     │
 ├────────────────────────────────┼────────────────────────────────────────────┤
 │ *"He is not politically        │ • **FACT:** Dr. Mulu is a senior founding  │
@@ -240,15 +240,15 @@ Cross-referencing the channel reach realities established in **Section 3.6**:
  • Evidential Rigor:    Every demographic message (smallholder, youth, women, trader)
                         and channel delivery carries primary Tier 1/2 proof points.
  • Segment Alignment:   Tailored messages address the specific economic pain points
-                        of the 6 demographic cohorts mapped in Section 5.1.
+                        of the 6 demographic cohorts mapped in the "The six voter segments" work.
 ════════════════════════════════════════════════════════════════════════════════════
 ```
 
 ---
 
-## 7.2 Persuasion principles and message discipline
+## Persuasion principles and message discipline
 
-### 7.2.1 Framing true claims, transparently
+### Framing true claims, transparently
 
 The campaign applies behavioural economics to make every message
 psychologically effective — moving beyond "what to say" to "how to frame it so
@@ -257,9 +257,9 @@ voters act."
 **Boundary.** These are framing techniques applied to **true claims**, delivered
 transparently, at population level. They are not psychographic targeting, not
 personality-based manipulation, and not individualised emotional profiling.
-Section 12.5.4 makes this a published commitment.
+The Digital Ethics and Data Charter makes this a published commitment.
 
-### 7.2.2 The principles we apply
+### The principles we apply
 
 | Principle | Definition | Campaign application |
 |---|---|---|
@@ -275,7 +275,7 @@ Section 12.5.4 makes this a published commitment.
 The final row is the campaign's signature move. It converts Dr. Mulu's M&E
 credential into a persuasion technique available to no rival.
 
-### 7.2.3 Framing, worked through in examples
+### Framing, worked through in examples
 
 **Water scarcity**
 - *Loss aversion:* "Approximately 400,000 people in Kitui still depend on
@@ -319,11 +319,11 @@ credential into a persuasion technique available to no rival.
   poverty is economic poverty."
 
 *All figures drawn from KNBS and county sources; each is verified before
-publication under the Section 12.5.4 fact-check protocol.*
+publication under the charter's fact-check protocol.*
 
 ---
 
-## 7.3 Language, register and dialect
+## Language, register and dialect
 
 Kitui County is a deeply multilingual electoral ecosystem. While English functions as the language of statutory policy and constitutional governance, and Kiswahili serves as the commercial lingua franca of urban trading centers, **Kikamba is the primary language of emotional connection, rural trust, cultural authority, and grassroots electoral mobilization**.
 
@@ -350,7 +350,7 @@ A flawed translation—or an urban, anglicized phrasing of a traditional Kikamba
 ════════════════════════════════════════════════════════════════════════════════════
 ```
 
-### 7.3.1 Which language reaches which voters, on which channel
+### Which language reaches which voters, on which channel
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -379,7 +379,7 @@ A flawed translation—or an urban, anglicized phrasing of a traditional Kikamba
 └───────────────┴─────────────────────────────────────────┴─────────────────────────┴─────────────────────────┘
 ```
 
-### 7.3.2 Register, dialect and the discipline it takes
+### Register, dialect and the discipline it takes
 
 Translating political concepts from statutory English into vernacular Kikamba requires precise cultural calibration. Kikamba varies across sub-counties—from the *Kitui Central/South dialect* to the *Northern/Mwingi dialect*—and uses rich proverbial allegories that must be deployed correctly:
 
@@ -408,7 +408,7 @@ Translating political concepts from statutory English into vernacular Kikamba re
 2.  **No Direct Machine Translation:** Automated translation tools (e.g., Google Translate) are **strictly forbidden** for Kikamba and Kiswahili public collateral. Automated outputs fail to capture cultural nuance and produce unnatural syntax that destroys candidate credibility.
 3.  **Bilingual Print Packaging:** All major printed baraza flyers, photobooks, and summaries must be packaged bilingually (Kikamba on primary spread, Swahili/English summary on reverse).
 
-### 7.3.3 The production and quality-control pipeline
+### The production and quality-control pipeline
 
 Running a synchronized three-language communications operation introduces severe version-drift and contradiction risks. The campaign implements a rigid **Translation & Quality-Control Gateway**:
 
@@ -440,7 +440,7 @@ Running a synchronized three-language communications operation introduces severe
   • Final sign-off by Campaign Manager before release to audio studio/print.
 ```
 
-### 7.3.4 Channel-by-language deployment
+### Channel-by-language deployment
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
