@@ -50,14 +50,14 @@ export function DecisionPanel() {
         <div>
           <h2
             id="decision-panel-heading"
-            className="font-serif text-2xl sm:text-3xl font-semibold text-ink leading-tight tracking-tight"
+            className="font-sans text-2xl sm:text-3xl font-bold text-ink leading-tight tracking-tight"
           >
             What we are asking for
           </h2>
 
           <div className="mt-5 p-4 bg-card border border-accent/30 rounded-2xl">
             <div className="t-label font-black text-accent">The recommendation</div>
-            <div className="font-serif text-xl font-bold text-ink mt-1">Tier 2 — Standard</div>
+            <div className="font-sans text-xl font-bold text-ink mt-1">Tier 2 — Standard</div>
             <p className="t-label text-muted leading-relaxed mt-2">
               Tier 1 concentrates spend where Dr. Mulu is already strong and leaves the recognition
               deficit untouched. Tier 3 is defensible but presses against a statutory ceiling that must

@@ -23,7 +23,7 @@ function highlight(children: React.ReactNode, tabId?: TabId) {
 
 export function MarkdownParagraph({ children, tabId }: { children?: React.ReactNode; tabId?: TabId }) {
   return (
-    <p className="t-lead sm:t-lead text-ink/90 leading-[1.7] my-3 sm:my-4.5 text-pretty max-w-none lg:max-w-[72ch]">
+    <p className="t-body sm:t-body text-ink/90 leading-[1.65] my-2.5 sm:my-3.5 text-pretty max-w-none lg:max-w-[72ch]">
       {highlight(children, tabId)}
     </p>
   );
@@ -44,14 +44,14 @@ export function MarkdownListItem({
 
   if (emphasis) {
     return (
-      <li className="pull-quote not-prose my-3.5 sm:my-4.5 list-none pl-3 sm:pl-4 py-1 border-l-4 border-gold print-avoid-break">
-        <span className="block font-serif text-sm sm:text-base font-semibold text-ink leading-snug text-balance">{content}</span>
+      <li className="pull-quote not-prose my-3 sm:my-4 list-none pl-3 sm:pl-4 py-1 border-l-4 border-gold print-avoid-break">
+        <span className="block font-serif text-base sm:text-lg font-semibold text-ink leading-snug text-balance">{content}</span>
       </li>
     );
   }
 
   return (
-    <li className="flex items-start gap-2 my-2 sm:my-2.5 t-lead sm:t-lead text-ink/90 list-none">
+    <li className="flex items-start gap-2 my-1.5 sm:my-2 t-body sm:t-body text-ink/90 list-none">
       <span className="mt-1 text-accent shrink-0">
         <CheckCircle2 size={14} className="stroke-[2.5]" />
       </span>

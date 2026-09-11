@@ -94,8 +94,8 @@ export function SectionHeading({
   const Tag = level === 2 ? "h2" : "h3";
   const baseClass =
     level === 2
-      ? "font-serif font-semibold text-ink border-l-2 pl-3.5 leading-snug tracking-tight text-balance"
-      : "font-serif font-semibold text-accent leading-snug tracking-normal text-balance";
+      ? "font-sans font-bold text-ink border-l-2 pl-3.5 leading-snug tracking-tight text-balance"
+      : "font-sans font-semibold text-accent leading-snug tracking-normal text-balance";
   // A phase heading takes its own campaign-stage colour. This previously set a border colour on
   // an element with no border width, so it never showed; the width is now set alongside it.
   const phaseBorder = level === 3 && accentColor ? "border-l-2 pl-3" : "";

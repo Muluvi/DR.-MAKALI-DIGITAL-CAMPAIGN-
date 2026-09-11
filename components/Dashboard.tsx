@@ -57,7 +57,7 @@ export function Dashboard() {
         <Reveal variant="left" className="flex items-center justify-between gap-4 mb-4">
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-6 rounded-full bg-gradient-to-b from-accent to-gold" />
-            <h2 className="font-serif text-lg sm:text-xl font-semibold text-ink">Where the campaign stands today</h2>
+            <h2 className="font-sans text-lg sm:text-xl font-bold text-ink">Where the campaign stands today</h2>
             <span aria-hidden="true" className="fx-divider-soft flex-1 min-w-4 ml-2" />
           </div>
         </Reveal>
@@ -78,7 +78,7 @@ export function Dashboard() {
                   {/* The figure sits proudest in the card's own 3D space, so the tilt reads as
                       depth rather than as the whole panel rocking. */}
                   <div className="flex justify-between items-start mb-2 fx-z-1">
-                    <div className={`font-serif text-2xl sm:text-3xl font-semibold leading-none tabular-nums ${m.warn ? "text-danger" : m.good ? "text-accent" : "text-ink"}`}>
+                    <div className={`font-sans font-bold text-2xl sm:text-3xl leading-none tabular-nums ${m.warn ? "text-danger" : m.good ? "text-accent" : "text-ink"}`}>
                       <CountUpText text={m.num} />
                     </div>
                     <div className="p-1.5 rounded-lg bg-paper border border-line fx-icon-rise">
@@ -86,8 +86,8 @@ export function Dashboard() {
                     </div>
                   </div>
 
-                  <div className="text-sm font-semibold text-muted mt-2 leading-tight">{m.label}</div>
-                  <div className="t-label text-muted/70 mt-1.5">{m.sub}</div>
+                  <div className="t-small font-bold text-ink mt-2 leading-tight">{m.label}</div>
+                  <div className="t-micro text-muted mt-1">{m.sub}</div>
                 </SpotlightCard>
               </TiltCard>
             </Reveal>
@@ -108,7 +108,7 @@ export function Dashboard() {
                 <div className="absolute -bottom-10 -right-10 w-24 h-24 rounded-full blur-2xl bg-accent/10 pointer-events-none" />
                 
                 <div className="flex justify-between items-start mb-2">
-                  <div className={`font-serif text-2xl font-semibold leading-none ${m.warn ? 'text-danger' : m.good ? 'text-accent' : 'text-ink'}`}>
+                  <div className={`font-sans font-bold text-2xl leading-none tabular-nums ${m.warn ? 'text-danger' : m.good ? 'text-accent' : 'text-ink'}`}>
                     <CountUpText text={m.num} />
                   </div>
                   <div className="p-1.5 rounded-lg bg-paper border border-line">
@@ -116,8 +116,8 @@ export function Dashboard() {
                   </div>
                 </div>
                 
-                <div className="t-label font-semibold text-muted mt-2 leading-tight truncate">{m.label}</div>
-                <div className="t-small text-muted/70 mt-1 truncate">{m.sub}</div>
+                <div className="t-small font-bold text-ink mt-2 leading-tight truncate">{m.label}</div>
+                <div className="t-micro text-muted mt-1 truncate">{m.sub}</div>
               </div>
             ))}
           </div>

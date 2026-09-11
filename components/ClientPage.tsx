@@ -482,7 +482,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
             first screen answers "what is being proposed" without opening a menu. */}
         {sectionId === LANDING_TAB && !isExpanded && (
           <nav aria-label="Proposal sections">
-            <h2 className="font-serif text-lg sm:text-xl font-semibold text-ink mb-1">What this proposal covers</h2>
+            <h2 className="font-sans text-lg sm:text-xl font-bold text-ink mb-1">What this proposal covers</h2>
             <p className="text-sm text-muted mb-5">Sixteen sections, in the order a proposal is read. Every one opens on what it is for.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
               {navItems.slice(1).map((item) => {
@@ -499,7 +499,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                       <Icon size={16} className="text-accent shrink-0" />
                       <span className="font-mono t-micro text-muted tabular-nums">{item.number}</span>
                     </div>
-                    <span className="font-serif t-body font-semibold text-ink leading-snug group-hover:text-accent transition-colors text-balance">
+                    <span className="font-sans t-body font-bold text-ink leading-snug group-hover:text-accent transition-colors text-balance">
                       {item.label}
                     </span>
                     <span className="t-label text-muted leading-snug mt-auto">{item.blurb}</span>
@@ -580,7 +580,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                   thing the candidate reads and the only heading long enough for the effect to
                   register as deliberate rather than as a stutter. The accessible copy is a
                   single unsplit string inside SplitText — the spans are aria-hidden. */}
-              <h1 className="col-span-2 md:col-span-1 font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.12] sm:leading-[1.08] tracking-tight max-w-4xl text-ink mb-4 sm:mb-6 font-semibold text-balance">
+              <h1 className="col-span-2 md:col-span-1 font-sans text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.14] sm:leading-[1.08] tracking-tight max-w-4xl text-ink mb-4 sm:mb-6 font-bold text-balance">
                 <SplitText by="line" as="span" className="block" delay={180}>
                   {"Kitui 2027:\nthe operating system for an Economist Governor."}
                 </SplitText>

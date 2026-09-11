@@ -180,6 +180,49 @@
   --phase-3: oklch(0.78 0.17 145);
 }
 
+/* Archival / Warm Sandstone Theme */
+.sepia {
+  --ink: oklch(0.24 0.035 55);
+  --muted: oklch(0.48 0.045 60);
+  --paper: oklch(0.95 0.022 80); /* Warm archival parchment */
+  --card: oklch(0.97 0.015 80);
+  --line: oklch(0.87 0.03 75);
+  --accent: oklch(0.36 0.18 262);
+  --accent-solid: oklch(0.46 0.19 262);
+  --on-accent: oklch(1 0 0);
+  --rival: oklch(0.48 0.08 220);
+  --rival-solid: oklch(0.48 0.08 220);
+  --gold: oklch(0.44 0.16 42);
+  --dark: oklch(0.22 0.035 55);
+  --danger: oklch(0.55 0.20 27);
+  --glow: oklch(0.36 0.18 262 / 0.12);
+
+  --prose-body: oklch(0.32 0.035 60);
+  --prose-strong: oklch(0.18 0.035 55);
+  --prose-bg-nested: oklch(0.97 0.015 80);
+  --code-bg: oklch(0.91 0.025 80);
+  --th-bg: oklch(0.93 0.02 80);
+  --placeholder-bg: oklch(0.93 0.04 40);
+  --placeholder-border: oklch(0.82 0.08 40);
+  --placeholder-color: oklch(0.44 0.16 35);
+
+  --verified-bg: oklch(0.94 0.03 155);
+  --verified-border: oklch(0.84 0.07 155);
+  --verified-color: oklch(0.42 0.12 155);
+  --estimate-bg: oklch(0.94 0.04 85);
+  --estimate-border: oklch(0.83 0.09 85);
+  --estimate-color: oklch(0.48 0.14 85);
+  --unmeasured-bg: oklch(0.93 0.005 80);
+  --unmeasured-border: oklch(0.78 0.01 80);
+  --unmeasured-color: oklch(0.42 0.015 80);
+
+  --phase-neg1: oklch(0.45 0.20 295);
+  --phase-0: oklch(0.55 0.14 210);
+  --phase-1: oklch(0.45 0.18 255);
+  --phase-2: oklch(0.52 0.16 60);
+  --phase-3: oklch(0.48 0.16 145);
+}
+
 /* Wide-gamut display P3 layer for flagship Android AMOLED */
 @media (color-gamut: p3) {
   :root {
@@ -254,18 +297,18 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
      chart. A caption floor of 14px and a supporting-copy floor of 15px is the smallest this
      document has any business setting. Running prose is unchanged at 16px and is set by
      --fs-body, which no rule in this stylesheet is now allowed to override downwards. */
-  --fs-micro: clamp(0.8125rem, 0.79rem + 0.10vw, 0.875rem);  /* 13 → 14px */
-  --fs-label: clamp(0.875rem,  0.85rem + 0.11vw, 0.9375rem); /* 14 → 15px */
-  --fs-small: clamp(0.9375rem, 0.91rem + 0.13vw, 1rem);      /* 15 → 16px */
-  --fs-body:  clamp(1rem,      0.96rem + 0.18vw, 1.0625rem); /* 16 → 17px */
-  --fs-lead:  clamp(1.125rem,  1.08rem + 0.20vw, 1.25rem);   /* 18 → 20px */
+  --fs-micro: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);  /* 12 → 13px */
+  --fs-label: clamp(0.8125rem, 0.78rem + 0.15vw, 0.875rem); /* 13 → 14px */
+  --fs-small: clamp(0.875rem, 0.84rem + 0.18vw, 0.9375rem); /* 14 → 15px */
+  --fs-body:  clamp(0.9375rem, 0.91rem + 0.22vw, 1.0625rem); /* 15px mobile → 17px desktop */
+  --fs-lead:  clamp(1.0625rem, 1.02rem + 0.28vw, 1.25rem);   /* 17px mobile → 20px desktop */
 
   /* The display end. Hero statistics only — the deficit, the ceiling, the vote threshold —
      never body copy. Weight 800, tabular figures, and a viewport coefficient steep enough
      that a 15.3-point gap fills a 390px phone without a media query. */
   --fs-figure:   clamp(1.75rem, 1.35rem + 2.0vw,  2.5rem);   /* 28 → 40px */
-  --fs-headline: clamp(2.0rem,  1.30rem + 3.5vw,  3.25rem);  /* 32 → 52px */
-  --fs-display:  clamp(2.5rem,  1.20rem + 6.5vw,  5rem);     /* 40 → 80px */
+  --fs-headline: clamp(1.85rem, 1.40rem + 2.5vw,  3.0rem);   /* 30 → 48px */
+  --fs-display:  clamp(2.25rem, 1.50rem + 4.5vw,  4.5rem);   /* 36 → 72px */
 
   /* Page gutter and the gap between sections, both fluid on the same interval. */
   --gutter: clamp(0.875rem, 0.55rem + 1.5vw, 2.5rem);
@@ -361,6 +404,34 @@ table,
 .density-balanced { --rhythm-scale: 1; --prose-fs: var(--fs-body); --prose-lh: 1.7; }
 .density-generous { --rhythm-scale: 1.3; --prose-fs: calc(var(--fs-body) * 1.1); --prose-lh: 1.8; }
 
+/* Dynamic Reading Measure Scales (Refinement 17) */
+.measure-narrow { --measure: 60ch !important; }
+.measure-balanced { --measure: 68ch !important; }
+.measure-wide { --measure: 76ch !important; }
+
+/* Contextual Tabular Number Utility (Refinement 2) */
+.tnum, [data-tabular="true"] {
+  font-feature-settings: "tnum" 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Wide screen asymmetric marginalia (Refinement 5) */
+@media (min-width: 1440px) {
+  .marginalia-container {
+    position: relative;
+  }
+  .prose-sidenote {
+    position: absolute;
+    right: calc(-1 * (var(--measure-margin, 240px) + 2rem));
+    width: var(--measure-margin, 240px);
+    font-size: var(--fs-micro);
+    line-height: 1.5;
+    color: var(--color-muted);
+    border-left: 1px solid var(--color-line);
+    padding-left: 0.75rem;
+  }
+}
+
 .density-compact .prose p:not(.not-prose *),
 .density-compact .prose li:not(.not-prose *),
 .density-balanced .prose p:not(.not-prose *),
@@ -446,20 +517,20 @@ table,
 
 /* Fluid typography scale across 320px to 1280px viewports */
 .prose h1:not(.not-prose *) {
-  font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem);
+  font-size: clamp(1.5rem, 1.3rem + 1.2vw, 2.25rem);
   line-height: 1.2;
-  letter-spacing: -0.015em;
-  font-weight: 600;
+  letter-spacing: -0.018em;
+  font-weight: 700;
   margin-top: 1.75rem;
   margin-bottom: 0.75rem;
 }
 .prose h2:not(.not-prose *) {
-  font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.6rem);
-  line-height: 1.24;
-  letter-spacing: -0.012em;
-  font-weight: 600;
-  margin-top: calc(var(--rhythm) * 6 * var(--rhythm-scale));
-  margin-bottom: calc(var(--rhythm) * 2 * var(--rhythm-scale));
+  font-size: clamp(1.25rem, 1.15rem + 0.6vw, 1.75rem);
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+  margin-top: calc(var(--rhythm) * 5 * var(--rhythm-scale));
+  margin-bottom: calc(var(--rhythm) * 1.75 * var(--rhythm-scale));
   border-bottom: none;
   padding-bottom: 0;
 }
@@ -469,23 +540,23 @@ table,
   margin-top: calc(var(--rhythm) * 2 * var(--rhythm-scale));
 }
 .prose h3:not(.not-prose *) {
-  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.2rem);
-  line-height: 1.35;
-  letter-spacing: 0;
+  font-size: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
+  line-height: 1.32;
+  letter-spacing: -0.008em;
   font-weight: 600;
   margin-top: calc(var(--rhythm) * 3.5 * var(--rhythm-scale));
   margin-bottom: calc(var(--rhythm) * 1.25 * var(--rhythm-scale));
 }
 .prose h4:not(.not-prose *) {
-  font-size: clamp(0.875rem, 0.85rem + 0.15vw, 1rem);
-  line-height: 1.4;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
+  line-height: 1.38;
   letter-spacing: 0;
   font-weight: 600;
   margin-top: 1rem;
   margin-bottom: 0.375rem;
 }
 .prose h5:not(.not-prose *), .prose h6:not(.not-prose *) {
-  font-size: 0.875rem;
+  font-size: clamp(0.875rem, 0.85rem + 0.15vw, 0.9375rem);
   line-height: 1.4;
   letter-spacing: 0;
   font-weight: 600;
@@ -521,41 +592,43 @@ table,
   font-size: var(--fs-body);
 }
 .prose blockquote:not(.not-prose *) {
-  border-left: 4px solid var(--color-gold);
-  background: var(--prose-bg-nested);
-  padding: 0.75rem 0.875rem;
-  margin: 1rem 0;
-  border-radius: 0 12px 12px 0;
+  border-left: 2px solid var(--color-gold);
+  background: transparent;
+  padding: 0.85rem 1.25rem;
+  margin: 1.5rem 0;
   color: var(--prose-body);
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
-  line-height: 1.65;
-  font-size: clamp(0.875rem, 0.833rem + 0.21vw, 1rem);
+  font-style: italic;
+  hanging-punctuation: first last;
+  line-height: 1.68;
+  font-size: clamp(0.92rem, 0.88rem + 0.2vw, 1.05rem);
 }
 .prose table:not(.not-prose *) {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  margin: 1rem 0;
-  background: var(--prose-bg-nested);
-  border: 1px solid var(--color-line);
-  border-radius: 12px;
-  overflow: hidden;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: transparent;
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+  border-left: none;
+  border-right: none;
+  font-feature-settings: "tnum" 1;
 }
 .prose th:not(.not-prose *), .prose td:not(.not-prose *) {
-  padding: 0.5rem 0.625rem;
+  padding: 0.65rem 0.85rem;
   border-bottom: 1px solid var(--color-line);
   text-align: left;
-  min-width: 100px;
-  font-size: clamp(0.75rem, 0.71rem + 0.2vw, 0.875rem);
+  min-width: 90px;
+  font-size: clamp(0.76rem, 0.72rem + 0.18vw, 0.88rem);
+  font-variant-numeric: tabular-nums;
 }
 .prose th:not(.not-prose *) {
-  background: var(--th-bg);
-  font-size: clamp(0.7rem, 0.68rem + 0.1vw, 0.75rem);
+  background: transparent;
+  font-size: clamp(0.68rem, 0.66rem + 0.08vw, 0.74rem);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   color: var(--color-muted);
   font-weight: 700;
+  border-bottom: 2px solid var(--color-line);
 }
 .prose tr:last-child td:not(.not-prose *) {
   border-bottom: 0;
@@ -781,26 +854,28 @@ table,
    not restating a margin per element and re-opening the specificity fight. */
 @media (max-width: 639.98px) {
   .prose {
-    font-size: 0.875rem;
-    line-height: 1.62;
+    font-size: var(--fs-body);
+    line-height: 1.65;
     --rhythm: 0.375rem;
   }
   .prose h1:not(.not-prose *) {
-    margin-top: 1.125rem;
+    margin-top: 1.25rem;
     margin-bottom: 0.5rem;
   }
   .prose h2:not(.not-prose *) {
     padding-bottom: 0;
   }
   .prose p:not(.not-prose *) {
-    line-height: 1.62;
+    font-size: var(--fs-body);
+    line-height: 1.65;
   }
   .prose ul:not(.not-prose *), .prose ol:not(.not-prose *) {
     padding-left: 1rem;
   }
   .prose li:not(.not-prose *) {
-    margin-bottom: 0.1875rem;
-    line-height: 1.58;
+    font-size: var(--fs-body);
+    margin-bottom: 0.25rem;
+    line-height: 1.62;
   }
   .prose blockquote:not(.not-prose *) {
     padding: 0.5rem 0.625rem;
@@ -1087,16 +1162,16 @@ html {
 /* 2. Standard Smartphones: Android & iPhone (321px - 640px) */
 @media (min-width: 321px) and (max-width: 640px) {
   .clean-editorial-section h1 {
-    font-size: clamp(1.5rem, 6vw, 2rem);
+    font-size: clamp(1.5rem, 1.3rem + 1.2vw, 2.25rem);
     line-height: 1.2;
   }
   .clean-editorial-section h2 {
-    font-size: clamp(1.25rem, 5vw, 1.6rem);
-    line-height: 1.25;
+    font-size: clamp(1.25rem, 1.15rem + 0.6vw, 1.75rem);
+    line-height: 1.28;
   }
   .clean-editorial-section p {
-    font-size: 15px;
-    line-height: 1.62;
+    font-size: var(--fs-body);
+    line-height: 1.65;
   }
   /* The tap-target floor, and the reason it is 44 rather than 42.
      This rule is unlayered, and unlayered styles beat Tailwind's utilities whatever their
@@ -1690,4 +1765,41 @@ html {
   background: color-mix(in srgb, var(--color-card) 96%, transparent);
   backdrop-filter: blur(20px) saturate(1.4);
   -webkit-backdrop-filter: blur(20px) saturate(1.4);
+}
+
+/* Publication-Grade Print Stylesheet - Executive Briefing Mode (Refinement 20) */
+@media print {
+  @page {
+    margin: 2cm 1.8cm;
+    size: A4 portrait;
+  }
+
+  body {
+    background: #fff !important;
+    color: #111 !important;
+    font-size: 10pt !important;
+    line-height: 1.55 !important;
+  }
+
+  .print\:hidden,
+  .bottom-dock,
+  aside,
+  header {
+    display: none !important;
+  }
+
+  .prose h1, .prose h2, .prose h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  .prose table, figure, .clean-editorial-section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .prose a {
+    text-decoration: underline;
+    color: inherit !important;
+  }
 }

@@ -2,21 +2,24 @@
 
 import { useEffect, useState } from "react";
 
+export type ThemeMode = "light" | "dark" | "sepia";
+
 export function useTheme() {
-  const [theme, setTheme] = useState<"light" | "dark">("dark");
+  const [theme, setTheme] = useState<ThemeMode>("dark");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     // Access localStorage on initial client load - default to true-black OLED dark
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    const initialTheme = savedTheme || "dark";
+    const savedTheme = localStorage.getItem("theme") as ThemeMode | null;
+    const initialTheme: ThemeMode = savedTheme || "dark";
 
     // Apply root classes instantly to avoid flash of unstyled theme
     const root = window.document.documentElement;
+    root.classList.remove("dark", "sepia");
     if (initialTheme === "dark") {
       root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
+    } else if (initialTheme === "sepia") {
+      root.classList.add("sepia");
     }
 
     setTimeout(() => {
@@ -25,25 +28,30 @@ export function useTheme() {
     }, 0);
   }, []);
 
-  const toggleTheme = () => {
-    const nextTheme = theme === "light" ? "dark" : "light";
-    setTheme(nextTheme);
-
+  const setThemeMode = (mode: ThemeMode) => {
+    setTheme(mode);
     const root = window.document.documentElement;
-
-    // The colour-transition rule is scoped to .theme-switching rather than left on `*`, so it
-    // is switched on for the length of the crossfade and removed again. Steady-state scrolling
-    // then carries no transition work at all.
     root.classList.add("theme-switching");
     window.setTimeout(() => root.classList.remove("theme-switching"), 200);
 
-    if (nextTheme === "dark") {
+    root.classList.remove("dark", "sepia");
+    if (mode === "dark") {
       root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
+    } else if (mode === "sepia") {
+      root.classList.add("sepia");
     }
-    localStorage.setItem("theme", nextTheme);
+    localStorage.setItem("theme", mode);
   };
 
-  return { theme, toggleTheme, mounted };
+  const toggleTheme = () => {
+    const cycle: Record<ThemeMode, ThemeMode> = {
+      dark: "light",
+      light: "sepia",
+      sepia: "dark"
+    };
+    const nextTheme = cycle[theme] || "dark";
+    setThemeMode(nextTheme);
+  };
+
+  return { theme, setThemeMode, toggleTheme, mounted };
 }
