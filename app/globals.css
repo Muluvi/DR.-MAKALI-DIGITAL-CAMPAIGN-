@@ -1743,13 +1743,15 @@ html {
    ========================================================================== */
 
 /*
- * .fx-glass is tuned for panels that sit inside the reading column, where seeing a little of what
- * is behind them reads as depth. The bottom navigation dock is a different thing: it carries the
- * three figures the whole document turns on, and at 62% opacity the prose behind it came through
- * far enough that "KSh97.56m" was competing with a heading for the same pixels.
+ * The dock carries the three figures the whole document turns on, and it overlays the prose. At
+ * anything under full opacity the text behind it came through far enough that "KSh97.56m" was
+ * competing with a heading for the same pixels, so it is opaque enough to read against anything.
  *
- * Chrome that overlays content is opaque enough to read against anything. The blur stays, so it
- * still reads as a surface above the page rather than a slab cut out of it.
+ * This used to be written as `.bottom-dock.fx-glass`, specialising the shared glassmorphism
+ * class. That class is gone (docs/TRIAGE.md §3, category 13 — a blur behind a panel is GPU cost
+ * on a mid-range device for nothing it encodes), so the dock carries its own surface directly.
+ * The blur stays here alone, where it does a job: it keeps the dock reading as a surface above
+ * the page rather than a slab cut out of it.
  */
 /* The mobile dock's measured height, published by MobileBottomNav's ResizeObserver and read by
    the quick-nav capsule so it floats clear of the dock instead of guessing at its height. The
@@ -1760,8 +1762,8 @@ html {
   --dock-h: 11.875rem;
 }
 
-.bottom-dock.fx-glass,
-.dark .bottom-dock.fx-glass {
+.bottom-dock,
+.dark .bottom-dock {
   background: color-mix(in srgb, var(--color-card) 96%, transparent);
   backdrop-filter: blur(20px) saturate(1.4);
   -webkit-backdrop-filter: blur(20px) saturate(1.4);

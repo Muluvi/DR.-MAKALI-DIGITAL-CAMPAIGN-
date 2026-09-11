@@ -50,6 +50,8 @@ primary group, not the supporting one.**
 | §7 Performance budget | **AMENDED** — "0KB of new runtime dependencies" was false | Measured 289 KB of added runtime JS against a 150 KB budget. `TRIAGE.md` §5.1 |
 | §8 Anti-patterns | **EXTENDED** — twelve rows added | Techniques found live in the repository that this specification rejects |
 | §9 Build sequence | **REORDERED** | Group G first; the Recharts removal added as the budget-critical step |
+| F-29, F-30, F-31 | **BUILT** — 11 September 2026 | Added runtime JS 289 KB → 163 KB. See §7.1 for the measured before and after |
+| F-32 | **ADDED** | `motion/react`, 63 KB, is the whole remaining overrun |
 | §10 Acceptance | **EXTENDED** | Two criteria satisfied with the command that satisfies them; four added |
 
 ### 0.3 How to read the entries
@@ -903,6 +905,37 @@ economist starts checking whether the operation is real. This group closes that 
 - **Data required:** none.
 - **Effort:** M · **Priority:** P0
 
+
+#### F-32 — Remove `motion/react`
+- **Replaces:** the last runtime dependency standing between this project and its own weight
+  budget. 63 KB gzipped, measured with esbuild against the React-external build.
+- **Argument it carries:** the same one F-30 carries. A proposal that argues its reader is on
+  Kenyan mobile data, and then ships 63 KB of animation runtime to say so, is arguing against
+  itself. This is the step that takes added runtime JS from 163 KB to roughly 100 KB and puts
+  the project inside the 150 KB budget with headroom rather than on the line.
+- **Baseline (mobile/metered):** identical. Every entrance this library drives is already
+  specified as a CSS animation in `app/visual-fx.css`, and the CSS path is the one a reduced-
+  motion or JS-disabled reader already takes.
+- **Enhanced (capable device):** identical. `Reveal` and `Stagger` already do this work with
+  `fx-in-*` and `--fx-delay`; `AnimatePresence` is the only genuine gap and is covered by a
+  `@starting-style` enter plus a short exit timeout on the four surfaces that need it — the
+  tab switch, the TOC sheet, the reading-settings sheet and the quick-nav capsule.
+- **Implementation:** 54 files. The used surface is narrow and maps cleanly:
+  | Import | Uses | Replacement |
+  |---|---:|---|
+  | `motion.*` | 49 | `Reveal` / `Stagger`, or a bare element with an `fx-in-*` class |
+  | `AnimatePresence` | 19 | `@starting-style` + an exit timeout, per surface |
+  | `useInView` | 14 | `hooks/use-in-view.ts`, which already exists and is already used |
+  | `useTransform`, `useSpring`, `useMotionValue`, `useScroll` | 8 | `hooks/useSectionProgress.ts` and CSS custom properties written on pointer/scroll |
+  | `LayoutGroup` | 1 | the one shared-element case; drop it or use the View Transitions API already wired in |
+- **Dependencies:** **removes one, adds none.**
+- **Data required:** none.
+- **Risk:** the highest of any step in this document. It touches 54 files, and the failure mode
+  is silent — an entrance that no longer fires looks like a design choice rather than a bug.
+  Do it after the conversions, one surface at a time, checking each against the degradation
+  matrix rather than against how it looks on a laptop.
+- **Effort:** L · **Priority:** **P0 — this is the remaining 13 KB.**
+
 ---
 
 ## 6. Degradation matrix
@@ -934,6 +967,7 @@ economist starts checking whether the operation is real. This group closes that 
 | **F-29 Ward inspector** | static ranked bars | bars + tap | bars + inspect | final proportion | static ranked bars |
 | **F-30 Chart primitives** | static SVG | static SVG | grow / draw | final proportion | static SVG |
 | **F-31 Removals** | — | — | — | — | — |
+| **F-32 Removals** | — | — | — | — | — |
 
 **Cut, and therefore absent from every column:** F-11 (live ticker), F-14 (grain and vignette).
 
@@ -955,74 +989,75 @@ connection or preference can leave a word unreachable.
 ## 7. Performance budget — `AMENDED`
 
 The original text of this section read: *"Running total against the catalogue as specified: 0KB
-of new runtime dependencies."* That was written without sight of `package.json` and it is not
-true. The measured position follows. Full working in `docs/TRIAGE.md` §5.1.
+of new runtime dependencies."* That was written without sight of `package.json` and it was not
+true. F-30 and F-31 have since been built; both the before and after below are measured.
 
-### 7.1 Measured, 11 September 2026
+### 7.1 Measured
 
-`npm install && npm run build`, then `gzip -c .next/static/chunks/*.js | wc -c`. Next's
-reported "First Load JS" figures are gzipped — independently confirmed, since the gzipped
-chunk sum is 421 KB, matching Next's report exactly.
+`npm install && npm run build`, then `gzip -9c .next/static/chunks/*.js`. Next's reported
+"First Load JS" figures are gzipped — independently confirmed, since the gzipped chunk sum
+matched Next's report exactly.
 
-```
-Route (app)                     Size  First Load JS
-└ ● /[[...slug]]               319 kB         421 kB
-```
+| | Before (11 Sep, am) | After F-29/30/31 | Change |
+|---|---:|---:|---:|
+| First Load JS | 421 KB | **296 KB** | **−125 KB** |
+| — Next/React baseline | 132 KB | 133 KB | — |
+| — **added runtime JS** | **289 KB** | **163 KB** | **−126 KB** |
+| Stylesheet | 32.8 KB | **29.5 KB** | −3.3 KB |
+| `visual-fx.css` source | 65,013 B | **42,901 B** | −34% |
+| Unreachable `.fx-*` rules | 94 | **0** | −94 |
+| Orphan keyframes | 25 | **0** | −25 |
+| Runtime dependencies | 16 | **14** | −2 |
+| npm packages installed | 576 | **541** | −35 |
 
-| | gzipped | |
-|---|---:|---|
-| framework chunk (React + Next runtime) | 58 KB | baseline, not "added" |
-| main chunk | 36 KB | baseline |
-| polyfills | 38 KB | baseline |
-| — **baseline subtotal** | **132 KB** | |
-| app + library chunk `462-*` | 192 KB | |
-| shared chunk `4bd1b696-*` | 52 KB | |
-| shared chunk `255-*` | 45 KB | |
-| — **added runtime JS** | **289 KB** | 421 − 132 |
-| **Budget (Rule 4)** | **150 KB** | |
-| **Overrun** | **+139 KB** | **193% of budget** |
+**The budget is 150 KB. Added runtime JS is 163 KB. Still 13 KB over — see §7.3.**
 
 ### 7.2 Per-library, isolated
 
 esbuild, `--bundle --minify --format=esm --platform=browser`, React external:
 
-| Library | gzipped | Verdict |
+| Library | gzipped | Status |
 |---|---:|---|
-| `recharts`, full export surface | 158 KB | |
-| **`recharts`, as imported here** | **123 KB** | **remove — F-30** |
-| `framer-motion` | 63 KB | **remove — zero imports; all 54 files use `motion/react`** |
-| `react-markdown` + `remark-gfm` + `rehype-raw` | 35 KB | **keep** — the document is markdown; this is load-bearing |
-| `lucide-react`, 8 icons | 1 KB | **keep** — tree-shakes correctly |
+| `recharts`, as imported here | 123 KB | **removed — F-30** |
+| `framer-motion` | 63 KB | **removed — zero imports** |
+| `motion/react` | 63 KB | **kept — 54 files. The whole remaining overrun.** |
+| `react-markdown` + `remark-gfm` + `rehype-raw` | 35 KB | **kept** — the document is markdown; load-bearing |
+| `lucide-react`, 8 icons | 1 KB | **kept** — tree-shakes correctly |
 
-Recharts alone is **82% of the entire budget**, for charts this document's own §8 rejects it
-for. Every chart type it draws here is on the adopted technique list as a hand-rolled
-alternative.
+Recharts was 82% of the entire budget on its own, for charts this document's §8 rejects it for.
+Removing it took the eleven transitive `d3-*` packages with it.
 
-### 7.3 The route back inside budget
+### 7.3 What is left
 
 | Step | Saving | Running total |
 |---|---:|---:|
-| As shipped | — | **289 KB** |
-| F-30 — remove Recharts and its eleven `d3-*` packages | −123 KB | **166 KB** |
-| F-31 — remove `AmbientField`, cursor, pointer effects, carousel, typewriter | ~−10 KB JS | **~156 KB** |
-| F-31 — remove eighteen unreachable CSS rules | ~−4 KB CSS | (CSS, tracked separately) |
-| F-31 — drop the `framer-motion` declaration | 0 KB today | insurance against one accidental import costing 63 KB |
-| **Target** | | **≤ 150 KB** |
+| As shipped, 11 Sep am | — | 289 KB |
+| F-30 — Recharts out, hand-rolled primitives in | −123 KB | 166 KB |
+| F-31 — effects layer, dead rules, `framer-motion` | −3 KB JS, −3.3 KB CSS | **163 KB** ← here |
+| **F-32 — `motion/react` out** | **−63 KB** | **~100 KB** |
+| **Budget** | | **150 KB** |
 
-F-30 is the only step that matters arithmetically. The rest is hygiene, and the last line of
-it is the one that keeps the budget from silently breaking again.
+One item remains, and it is a real piece of work rather than a tidy-up: `motion/react` is
+imported by 54 files. The surface actually used is narrow — `motion` (49), `AnimatePresence`
+(19), `useInView` (14), and single-digit uses of `useTransform`, `useSpring`, `useMotionValue`,
+`useScroll` and `LayoutGroup` — and the repository already has a CSS-driven `Reveal` and its own
+`hooks/use-in-view.ts` covering most of it. Partial removal saves nothing: tree-shaking means the
+library is either in the bundle or it is not.
+
+**See F-32.** Until it ships, this document is 13 KB over its own budget and says so.
 
 ### 7.4 Other budget lines
 
 | Metric | Target | Measured | How to verify |
 |---|---|---|---|
-| Added JS (gzipped) | < 150 KB | **289 KB — FAIL** | `npm run build`; §7.1 |
-| CSS (gzipped) | < 30 KB | 32 KB | `gzip -c .next/static/css/*.css` |
+| Added JS (gzipped) | < 150 KB | **163 KB — over by 13 KB** | `npm run build`; §7.1 |
+| CSS (gzipped) | < 30 KB | **29.5 KB — passes** | `gzip -9c .next/static/css/*.css` |
+| Unreachable CSS rules | 0 | **0 — passes** | the audit in §7.1 |
 | LCP, simulated 3G | < 2.5s | not measured | Lighthouse mobile, throttled |
 | CLS | < 0.05 | not measured | reserve height on every SVG — F-27 does this |
 | Fonts | 3 families, subset latin | ✓ | `next/font`, `display: swap` |
 | Images | AVIF/WebP via `next/image` | ✓ | 4 portraits, two renditions each |
-| Total first load | < 500 KB | 421 KB JS + 32 KB CSS = 453 KB | Vercel deployment summary |
+| Total first load | < 500 KB | **326 KB** (296 JS + 30 CSS) | Vercel deployment summary |
 
 Set `prefers-reduced-data` handling alongside `prefers-reduced-motion`. It has thin support
 today but costs one media query.
@@ -1074,11 +1109,11 @@ is spending money it does not have.
 
 Each step leaves the site in a shippable state. Stop wherever the deadline lands.
 
-1. **F-31 — removals.** Delete before building. `AmbientField`, the custom cursor, the pointer
+1. ~~**F-31 — removals.**~~ **DONE.** Delete before building. `AmbientField`, the custom cursor, the pointer
    effects, the carousel, the ticker's marquee mode, the eighteen dead CSS rules, the
    `framer-motion` declaration. Nothing here needs design review, and the page gets faster and
    quieter the same afternoon.
-2. **F-30 — hand-rolled chart primitives.** The budget. Eleven components, `Bars` / `Line` /
+2. ~~**F-30 — hand-rolled chart primitives.**~~ **DONE — −123 KB gzipped.** The budget. Eleven components, `Bars` / `Line` /
    `Scatter` / `Axis` / `Ring`, then remove `recharts`. Largest single win in the document at
    −123 KB gzipped, and the one step that makes §7 true.
 3. **F-16 and F-20 — the disclosure scaffolding.** Build the containers for retained prose
@@ -1092,14 +1127,16 @@ Each step leaves the site in a shippable state. Stop wherever the deadline lands
    conversions-per-hour ratio in the document.
 7. **F-22 — click-stepped sequence diagrams.** The longest sequential prose blocks, and the
    honest replacement for the cut F-11.
-8. **F-29 — ranked ward inspector.** Replaces the ticker with something that holds still.
+8. ~~**F-29 — ranked ward inspector.**~~ **DONE.** Replaces the ticker with something that holds still. Brought forward because the ticker was actively damaging §3.4.2 and the component was dead code.
 9. **F-05 counters + F-06 bars** extended to §2.4, §4.1, §4.2, §5.2, §8.11, §8.13.
 10. **F-08 path draw** on §8.12, §12.4, §13.3, §14.6.
 11. **F-03 extension** — §11.3's message-lab zone coverage on the existing cartogram.
 12. **F-17, F-18, F-26.** The remaining text homes.
 13. **F-01, F-02, F-09, F-28.** Structural devices with arguments attached. **F-01 does not
     ship until the poll date is verified against IEBC.**
-14. **Conditionals**, only if their preconditions are confirmed: brush-and-zoom, zoom-to-region,
+14. **F-32 — remove `motion/react`.** The last 13 KB. Highest risk in the document: 54 files,
+    and a failure mode that looks like a design choice rather than a bug.
+15. **Conditionals**, only if their preconditions are confirmed: brush-and-zoom, zoom-to-region,
     variable-font axis, before/after slider, shape morph. Live-updating stream only if a real
     feed exists.
 
@@ -1140,13 +1177,15 @@ with the command that satisfies them.
 - [ ] **Poll date verified against IEBC** — still open. `roadmap.md` and `objectives.md` state
       10 August 2027 from copy, with **no build-time guard**, unlike the ward register. A wrong
       date on the hero of a pitch to a sitting MP is fatal.
-- [ ] **Total added runtime JS under 150 KB gzipped, arithmetic shown** — currently **289 KB,
-      failing**. §7.3 is the route back. Re-measure after F-30.
-- [ ] **Zero ambient loops running** — `grep` for `repeat: Infinity` and for CSS
+- [ ] **Total added runtime JS under 150 KB gzipped, arithmetic shown** — was 289 KB, now
+      **163 KB after F-30 and F-31**. Still 13 KB over. F-32 closes it; §7.3 shows the arithmetic.
+- [x] **Zero ambient loops running** — `AmbientField`, the marquee, the logo float and the
+      pulse loops are gone with F-31. Re-check with `grep -rn "repeat: Infinity"` and for CSS
       `animation-iteration-count: infinite` outside loading states.
-- [ ] **Zero unreachable CSS rules** — every `.fx-*` class in `visual-fx.css` reachable from a
-      component, either literally or through a variant actually passed.
-- [ ] **No declared dependency without an import** — `framer-motion` fails this today.
+- [x] **Zero unreachable CSS rules** — 94 removed with F-31; the audit in §7.1 now returns
+      zero. Re-run it after any change that drops a class from markup.
+- [x] **No declared dependency without an import** — `framer-motion` removed with F-31,
+      `recharts` with F-30.
 - [ ] Opened on an actual mid-range Android phone on actual mobile data before the link is sent
 
 That last one is not optional. Everything in this document assumes a reader whose conditions

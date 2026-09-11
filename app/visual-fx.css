@@ -147,8 +147,6 @@
      ending at cover 34% means the element is fully resolved a third of the
      way up the viewport and stays resolved. */
 
-  
-
   /* Opacity fade zones — content dims at both viewport edges, so the band the
      reader is actually in is the brightest thing on screen. */
 
@@ -543,7 +541,6 @@ input[type="checkbox"]:active, input[type="radio"]:active{ transform: scale(0.88
 
 @media (prefers-reduced-motion: reduce) {
 
-  
   .fx-shimmer::after{ animation: none !important; opacity: 0; }
   .fx-skeleton{ animation: none !important; background: color-mix(in srgb, var(--color-line) 55%, transparent); }
   .fx-skeleton-pulse{ animation: none !important; opacity: 0.7; }
@@ -569,8 +566,6 @@ input[type="checkbox"]:active, input[type="radio"]:active{ transform: scale(0.88
     filter: none !important;
     letter-spacing: inherit !important;
   }
-
-  
 
   /* 4. Interaction feedback SURVIVES, shortened. A press state that never
         appears is a bug, not a preference. Hover travel is removed; the
@@ -605,7 +600,6 @@ input[type="checkbox"]:active, input[type="radio"]:active{ transform: scale(0.88
     width: auto !important;
   }
 
-  
   .fx-lift{ transform: none !important; box-shadow: none !important; }
 }
 

@@ -9,6 +9,12 @@ Measurements in this document were taken on this branch with `npm install && npm
 on 11 September 2026. Every figure marked **measured** is reproducible by the commands named
 beside it. Figures marked `⚑` are assumptions and are listed together in §7.
 
+**Status.** The triage below was written first; F-29, F-30 and F-31 were then built against it
+the same day. Where a finding has been acted on, the outcome is recorded in a quoted block
+beneath it, with the measured result. The findings themselves are left as written — the record
+of what was wrong is worth as much as the record of the fix, and §7.2's open confirmations are
+all still open.
+
 ---
 
 ## 1. Normalisation report
@@ -668,8 +674,8 @@ text-housing feature; 1 HOLLOW is a copy question, not a design assignment.
 
 | Class | Count | Assignment |
 |---|---:|---|
-| CONVERTIBLE, already converted | 25 | keep the existing component (see §2.2 ✓) |
-| CONVERTIBLE, newly assigned | 23 | F-21 to F-31 (see `docs/VISUAL-FEATURES.md`) |
+| CONVERTIBLE, already converted | 26 | keep the existing component (see §2.2 ✓). §3.4.2 joined this set on 11 Sep when F-29 shipped |
+| CONVERTIBLE, newly assigned | 22 | F-21 to F-32 (see `docs/VISUAL-FEATURES.md`) |
 | RETAINED | 19 | F-16 annotation · F-20 progressive disclosure · F-18 margin notes |
 | HOLLOW | 1 | §14.2 — raised to Firefly, no design action |
 
@@ -757,6 +763,13 @@ external):
 anti-patterns table rejects it by name — "*~95KB gzipped… two-thirds of the budget for no
 capability gain*" — and understates it by 28 KB.
 
+> **Outcome, 11 September 2026.** Recharts was removed (F-30), along with the rejected effects
+> layer and 94 unreachable CSS rules (F-31). Measured after: First Load JS **296 KB**, added
+> runtime JS **163 KB**, stylesheet **29.5 KB**, unreachable rules **0**, dependencies 16 → 14,
+> npm packages 576 → 541. Against 289 KB before, that is **−126 KB of added runtime JS**.
+> It is still 13 KB over the 150 KB budget: `motion/react` is 63 KB across 54 files and is now
+> the entire overrun. It is specified as **F-32** in `docs/VISUAL-FEATURES.md`.
+
 **Argument.** The specification is right and the repository disagrees with it in code. Eleven
 components import Recharts to draw bar charts, line charts and a scatter quadrant — all of
 which are, as the specification says, forty lines of hand-rolled SVG. Recharts also drags in
@@ -837,6 +850,10 @@ most checkable dataset in the document and the one an economist will most want t
 Putting it on a 36px/s conveyor is the one place where a rejected technique actively damages
 the argument the site is making.
 
+> **Outcome, 11 September 2026.** All twenty-six were removed under F-31, and the ticker was
+> replaced by `WardRankedBars` under F-29 — which also converted §3.4.2, a section that had
+> carried no bespoke visualisation at all. Mount points 39 → 40.
+
 ### 5.4 Eighteen CSS rules are unreachable, including nine the ledger claims are live
 
 `VISUAL-FEATURE-LEDGER.md` §5 says the effects layer was trimmed of 181 unreachable classes
@@ -860,6 +877,11 @@ measurable, and it is the same defect the ledger already diagnosed once. The led
 marking Ken Burns, logo wall loop, live-status blink and gradient text as **Live** are
 inaccurate: those rules exist but nothing reaches them.
 
+> **Outcome, 11 September 2026.** The full audit found **94** unreachable classes rather than
+> the 18 the top-level scan caught, plus 25 orphan keyframes. All were removed under F-31.
+> `visual-fx.css` went 65,013 → 42,901 bytes and the stylesheet 32.8 → 29.5 KB gzipped. The
+> audit now returns zero, and it is written down as an acceptance criterion so it stays there.
+
 ### 5.5 `framer-motion` is a declared dependency with zero imports
 
 ```
@@ -871,6 +893,9 @@ grep -rl "from \"motion/react\""  components/ hooks/ lib/ app/   → 54 files
 successor package; `framer-motion` is dead weight at 63 KB gzipped if anything ever imports it
 by accident. Tree-shaking keeps it out of today's bundle, which is exactly what makes it
 dangerous: the cost is invisible until one import lands. Remove it.
+
+> **Outcome, 11 September 2026.** Removed under F-31. `motion/react` itself — the one that *is*
+> imported, also 63 KB — remains, and is the whole of the residual budget overrun. F-32.
 
 ### 5.6 The dark control-room palette does not exist and should not be built
 
@@ -943,7 +968,7 @@ The poll date, however, is **not** machine-verified. `public/content/roadmap.md`
 | Every phase-1 section assigned | **Pass** — 48 CONVERTIBLE, 19 RETAINED assigned in §4.5; 1 HOLLOW raised to Firefly as a copy question, per Rule 1. |
 | Every feature has a mobile baseline carrying the same argument | **Pass** — degradation matrix in `docs/VISUAL-FEATURES.md` §6, extended to F-31. |
 | Text-housing features degrade toward more text | **Pass** — all four in §4.2 fall back to fully expanded. |
-| Total dependency weight under 150 KB gzipped | **FAIL as shipped — 289 KB.** Arithmetic in §5.1. Passes at **~166 KB** once Recharts is removed (289 − 123), and at **~150 KB** once the eighteen dead CSS rules and the unused `framer-motion` declaration go with it. This is the one self-check the repository does not currently pass, and §5.1 is the route back inside it. |
+| Total dependency weight under 150 KB gzipped | **FAIL, but closing — 289 KB → 163 KB.** Arithmetic in §5.1. F-30 and F-31 are built and measured; the prediction of ~166 KB after Recharts landed at 163 KB. The remaining 13 KB is `motion/react` alone (63 KB, 54 files), specified as F-32. This is still the one self-check the repository does not pass, and it now has one named step left rather than three. |
 | No invented data | **Pass** — no figure in this document originates here. Every number is measured from the build, counted from the source, or quoted from a repository file named at the point of use. |
 | No cost, budget, fee or credentials content | **Pass** — no adopted feature requires any. §10.1's scope selector compares what each level *carries*, not what it costs. |
 | Nothing pre-judged adopted without an override argument | **Pass** — zero overrides. The pre-judged list is applied as written; §5.3 lists 26 pre-judged techniques currently live that this triage rejects. |
