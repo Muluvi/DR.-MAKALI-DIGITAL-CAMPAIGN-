@@ -1,6 +1,6 @@
 "use client";
 
-import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, ReferenceLine, Tooltip, ResponsiveContainer, Cell } from "recharts";
+import { ScatterQuadrant, type QuadrantMark } from "./primitives";
 
 export interface QuadrantPoint {
   name: string;
@@ -11,61 +11,39 @@ export interface QuadrantPoint {
   color: string;
 }
 
+/**
+ * The field, §3.3.2. Was a Recharts ScatterChart.
+ *
+ * One axis is measured and one is a judgement, and the axis labels say so — the x axis carries
+ * its source and its date, the y axis carries the word "qualitative". That distinction was in the
+ * original chart's labels and it survives the conversion intact, because it is the part an
+ * economist checks first.
+ */
 export default function CompetitiveQuadrantChart({ data }: { data: QuadrantPoint[] }) {
+  const marks: QuadrantMark[] = data.map((d) => ({
+    id: d.name,
+    label: d.name,
+    value: d.preference,
+    display: `${d.preference}% measured preference`,
+    x: d.preference,
+    y: d.credibility,
+    yLabel: `${d.credibilityLabel} perceived fiscal credibility`,
+    color: d.color,
+    note: d.note,
+  }));
+
   return (
-    <ResponsiveContainer width="100%" height="100%">
-      <ScatterChart margin={{ top: 20, right: 30, left: 10, bottom: 20 }}>
-        <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" opacity={0.4} />
-        <ReferenceLine x={26} stroke="var(--color-line)" strokeDasharray="4 4" />
-        <ReferenceLine y={2} stroke="var(--color-line)" strokeDasharray="4 4" />
-        <XAxis
-          type="number"
-          dataKey="preference"
-          name="Measured preference"
-          domain={[0, 45]}
-          unit="%"
-          tick={{ fill: "var(--color-muted)", fontSize: 10, fontWeight: 700 }}
-          tickLine={false}
-          axisLine={{ stroke: "var(--color-line)" }}
-          label={{ value: "Measured preference (Mizani Africa, 7 Aug 2026) →", position: "insideBottom", offset: -12, fill: "var(--color-muted)", fontSize: 10, fontWeight: 700 }}
-        />
-        <YAxis
-          type="number"
-          dataKey="credibility"
-          name="Fiscal credibility"
-          domain={[0, 4]}
-          ticks={[1, 2, 3]}
-          tickFormatter={(v) => (v === 1 ? "Low" : v === 2 ? "Medium" : v === 3 ? "High" : "")}
-          tick={{ fill: "var(--color-muted)", fontSize: 10, fontWeight: 700 }}
-          tickLine={false}
-          axisLine={{ stroke: "var(--color-line)" }}
-          width={70}
-          label={{ value: "Perceived fiscal credibility (qualitative) ↑", angle: -90, position: "insideLeft", fill: "var(--color-muted)", fontSize: 10, fontWeight: 700 }}
-        />
-        <ZAxis range={[260, 260]} />
-        <Tooltip
-          cursor={{ strokeDasharray: "3 3" }}
-          content={({ active, payload }) => {
-            if (active && payload && payload.length) {
-              const d = payload[0].payload as QuadrantPoint;
-              return (
-                <div className="bg-card border border-line p-3 shadow-md rounded-xl t-label font-bold text-ink max-w-[220px]">
-                  <p className="font-extrabold text-ink mb-1">{d.name}</p>
-                  <p className="text-accent">Preference: <span className="text-ink">{d.preference}%</span></p>
-                  <p className="text-gold">Credibility: <span className="text-ink">{d.credibilityLabel}</span></p>
-                  <p className="text-muted font-semibold mt-1 leading-snug normal-case">{d.note}</p>
-                </div>
-              );
-            }
-            return null;
-          }}
-        />
-        <Scatter data={data}>
-          {data.map((entry, idx) => (
-            <Cell key={idx} fill={entry.color} stroke="var(--color-card)" strokeWidth={2} />
-          ))}
-        </Scatter>
-      </ScatterChart>
-    </ResponsiveContainer>
+    <ScatterQuadrant
+      marks={marks}
+      domainX={[0, 45]}
+      domainY={[0, 4]}
+      xTicks={[0, 15, 30, 45]}
+      yTicks={[1, 2, 3]}
+      formatX={(v) => `${v}%`}
+      formatY={(v) => (v === 1 ? "Low" : v === 2 ? "Medium" : v === 3 ? "High" : "")}
+      divider={{ x: 26, y: 2 }}
+      xLabel="Measured preference (Mizani Africa, 7 Aug 2026) →"
+      yLabel="Perceived fiscal credibility (qualitative) ↑"
+    />
   );
 }

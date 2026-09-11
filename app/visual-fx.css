@@ -373,7 +373,20 @@ input[type="checkbox"]:active, input[type="radio"]:active{ transform: scale(0.88
 
 @keyframes fx-bar-growx { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes fx-ring-fill { from { stroke-dashoffset: var(--fx-ring-len, 302); } to { stroke-dashoffset: var(--fx-ring-target, 0); } }
+@keyframes fx-bar-growy { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes fx-path-draw { from { stroke-dashoffset: var(--fx-path-len, 260); } to { stroke-dashoffset: 0; } }
+@keyframes fx-dot-in    { from { opacity: 0; } to { opacity: 1; } }
+
+/* The growth classes carry the animation; the FINAL state is the CSS default.
+   That ordering is the whole point, and it is what makes these safe with JavaScript
+   disabled: the class is only ever added by an IntersectionObserver, so a reader whose
+   device never runs it sees the bar at its true proportion rather than at zero. Under
+   `prefers-reduced-motion` the global rule zeroes the duration and lands on the same
+   place. `MOTION-SYSTEM.md` rule 3: never animate to the truth. */
 .fx-bar-h{ transform-origin: left;   animation: fx-bar-growx var(--fx-dur-deliberate) var(--fx-ease-entrance) both var(--fx-delay, 0ms); }
+.fx-bar-v{ transform-origin: bottom; animation: fx-bar-growy var(--fx-dur-deliberate) var(--fx-ease-entrance) both var(--fx-delay, 0ms); }
+.fx-path{  animation: fx-path-draw 900ms var(--fx-ease-entrance) both var(--fx-delay, 0ms); }
+.fx-dot{   animation: fx-dot-in 260ms var(--fx-ease-out) both var(--fx-delay, 0ms); }
 .fx-ring{ animation: fx-ring-fill var(--fx-dur-deliberate) var(--fx-ease-entrance) both var(--fx-delay, 0ms); }
 
 /* Odometer / vertical digit roll. The column holds 0-9 stacked; the wheel is

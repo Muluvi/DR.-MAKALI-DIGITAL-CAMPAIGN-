@@ -2,11 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, 
-  Tooltip, Legend, ResponsiveContainer, Cell, AreaChart, Area 
-} from "recharts";
-import { Users, BarChart3, TrendingUp, Filter, Map, ChevronRight } from "lucide-react";
+import { BarColumns, LineSeries, type Mark } from "./charts/primitives";
+import { Users, BarChart3, TrendingUp, Filter, ChevronRight } from "lucide-react";
 
 interface SubCountyData {
   subCounty: string;
@@ -58,33 +55,56 @@ const wardVoterDataset: WardVoterData[] = [
 
 const formatNumber = (num: number) => num.toLocaleString();
 
-const CustomChartTooltip = ({ active, payload, label }: any) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="bg-card border border-line p-3.5 shadow-xl rounded-2xl t-label space-y-1 backdrop-blur-md">
-        <p className="font-bold text-ink text-sm border-b border-line pb-1 mb-1">{label}</p>
-        {payload.map((p: any, idx: number) => (
-          <p key={idx} style={{ color: p.color }} className="font-semibold flex justify-between gap-4">
-            <span className="capitalize">{p.name}:</span>
-            <span className="text-ink font-bold">{formatNumber(p.value)}</span>
-          </p>
-        ))}
-      </div>
-    );
-  }
-  return null;
-};
-
 export function VoterProjectionsChart() {
   const [activeTab, setActiveTab] = useState<"demographics" | "voters">("demographics");
   const [selectedRegion, setSelectedRegion] = useState<"All" | "Anchor" | "Mwingi Block" | "Arid Belt">("All");
   const [activeMetric, setActiveMetric] = useState<"population" | "density" | "households">("population");
-  const [chartType, setChartType] = useState<"bar" | "line" | "area">("bar");
+  const [chartType, setChartType] = useState<"bar" | "line">("bar");
 
   // Filtering sub-county demographics
   const filteredSubCounties = subCountyDataset.filter(
     item => selectedRegion === "All" || item.region === selectedRegion
   );
+
+  // One mark list, built from whichever dataset and metric are showing. The colour keys the
+  // region (demographics) or the constituency (wards), exactly as the Cell fills did before.
+  const seriesName =
+    activeTab === "voters"
+      ? "Registered voters"
+      : activeMetric === "density"
+        ? "Density per km²"
+        : activeMetric === "households"
+          ? "Households"
+          : "Population";
+
+  const marks: Mark[] =
+    activeTab === "demographics"
+      ? filteredSubCounties.map((d) => ({
+          id: d.subCounty,
+          label: d.subCounty,
+          value: d[activeMetric],
+          display: formatNumber(d[activeMetric]),
+          sub: seriesName,
+          note: d.region,
+          color:
+            d.region === "Anchor"
+              ? "var(--color-accent-solid)"
+              : d.region === "Mwingi Block"
+                ? "var(--color-gold)"
+                : "var(--color-danger)",
+        }))
+      : wardVoterDataset.map((d) => ({
+          id: d.ward,
+          label: d.ward,
+          value: d.voters,
+          display: formatNumber(d.voters),
+          sub: "Registered voters",
+          note: d.constituency,
+          color:
+            d.constituency === "Kitui Central"
+              ? "var(--color-accent-solid)"
+              : "var(--color-gold)",
+        }));
 
   return (
     <motion.div 
@@ -193,7 +213,11 @@ export function VoterProjectionsChart() {
 
         {/* Chart View Toggle (Line, Area, Bar) */}
         <div className="md:col-span-3 flex justify-end gap-1">
-          {(["bar", "line", "area"] as const).map((type) => (
+          {/* Was bar / line / area. Area went: over the same categorical series it is the line
+              with a shaded region beneath, which is the same reading twice — docs/TRIAGE.md §3,
+              category 8, rejected (e). Bar and line stay because they answer different
+              questions: how big is each, and what is the shape across them. */}
+          {(["bar", "line"] as const).map((type) => (
             <button
               key={type}
               onClick={() => setChartType(type)}
@@ -206,7 +230,6 @@ export function VoterProjectionsChart() {
             >
               {type === "bar" && <BarChart3 size={14} />}
               {type === "line" && <TrendingUp size={14} />}
-              {type === "area" && <Map size={14} />}
             </button>
           ))}
         </div>
@@ -214,72 +237,37 @@ export function VoterProjectionsChart() {
 
       {/* Chart Canvas Area */}
       <div className="p-4 sm:p-6 bg-card">
-        <div className="h-[260px] sm:h-[320px] w-full">
-          <ResponsiveContainer width="100%" height="100%">
-            {activeTab === "demographics" ? (
-              chartType === "bar" ? (
-                <BarChart data={filteredSubCounties} margin={{ top: 10, right: 10, left: 0, bottom: 5 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" opacity={0.5} />
-                  <XAxis dataKey="subCounty" tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} />
-                  <YAxis tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} width={45} tickFormatter={(val) => val >= 1000 ? `${(val/1000).toFixed(0)}k` : val} />
-                  <Tooltip content={<CustomChartTooltip />} cursor={{ fill: "var(--color-glow)" }} />
-                  <Bar dataKey={activeMetric} fill="var(--color-accent)" radius={[6, 6, 0, 0]} name={activeMetric === "density" ? "Density/km²" : activeMetric}>
-                    {filteredSubCounties.map((entry, idx) => {
-                      const color = entry.region === "Anchor" ? "var(--color-accent)" : entry.region === "Mwingi Block" ? "var(--color-gold)" : "var(--color-danger)";
-                      return <Cell key={`cell-${idx}`} fill={color} />;
-                    })}
-                  </Bar>
-                </BarChart>
-              ) : chartType === "line" ? (
-                <LineChart data={filteredSubCounties} margin={{ top: 10, right: 10, left: 0, bottom: 5 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" opacity={0.5} />
-                  <XAxis dataKey="subCounty" tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} />
-                  <YAxis tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} width={45} tickFormatter={(val) => val >= 1000 ? `${(val/1000).toFixed(0)}k` : val} />
-                  <Tooltip content={<CustomChartTooltip />} />
-                  <Line type="monotone" dataKey={activeMetric} stroke="var(--color-accent)" strokeWidth={3} dot={{ stroke: "var(--color-accent)", strokeWidth: 2, r: 4 }} name={activeMetric === "density" ? "Density/km²" : activeMetric} />
-                </LineChart>
-              ) : (
-                <AreaChart data={filteredSubCounties} margin={{ top: 10, right: 10, left: 0, bottom: 5 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" opacity={0.5} />
-                  <XAxis dataKey="subCounty" tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} />
-                  <YAxis tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} width={45} tickFormatter={(val) => val >= 1000 ? `${(val/1000).toFixed(0)}k` : val} />
-                  <Tooltip content={<CustomChartTooltip />} />
-                  <Area type="monotone" dataKey={activeMetric} stroke="var(--color-accent)" fill="var(--color-glow)" strokeWidth={2} name={activeMetric === "density" ? "Density/km²" : activeMetric} />
-                </AreaChart>
-              )
-            ) : (
-              chartType === "bar" ? (
-                <BarChart data={wardVoterDataset} margin={{ top: 10, right: 10, left: 0, bottom: 5 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" opacity={0.5} />
-                  <XAxis dataKey="ward" tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} />
-                  <YAxis tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} width={45} tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
-                  <Tooltip content={<CustomChartTooltip />} cursor={{ fill: "var(--color-glow)" }} />
-                  <Bar dataKey="voters" fill="var(--color-accent)" radius={[6, 6, 0, 0]} name="Registered Voters">
-                    {wardVoterDataset.map((entry, idx) => {
-                      const color = entry.constituency === "Kitui Central" ? "var(--color-accent)" : "var(--color-gold)";
-                      return <Cell key={`cell-${idx}`} fill={color} />;
-                    })}
-                  </Bar>
-                </BarChart>
-              ) : chartType === "line" ? (
-                <LineChart data={wardVoterDataset} margin={{ top: 10, right: 10, left: 0, bottom: 5 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" opacity={0.5} />
-                  <XAxis dataKey="ward" tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} />
-                  <YAxis tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} width={45} tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
-                  <Tooltip content={<CustomChartTooltip />} />
-                  <Line type="monotone" dataKey="voters" stroke="var(--color-gold)" strokeWidth={3} dot={{ stroke: "var(--color-gold)", strokeWidth: 2, r: 4 }} name="Registered Voters" />
-                </LineChart>
-              ) : (
-                <AreaChart data={wardVoterDataset} margin={{ top: 10, right: 10, left: 0, bottom: 5 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" opacity={0.5} />
-                  <XAxis dataKey="ward" tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} />
-                  <YAxis tick={{ fill: "var(--color-muted)", fontSize: 10 }} tickLine={false} axisLine={false} width={45} tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
-                  <Tooltip content={<CustomChartTooltip />} />
-                  <Area type="monotone" dataKey="voters" stroke="var(--color-gold)" fill="rgba(200, 148, 62, 0.2)" strokeWidth={2} name="Registered Voters" />
-                </AreaChart>
-              )
-            )}
-          </ResponsiveContainer>
+        {/* Was one ResponsiveContainer wrapping six Recharts trees. Two primitives now, chosen
+            by the same two pieces of state. Every mark is a button, so the detail behind a
+            sub-county or a ward is reachable by keyboard and by thumb, not only by hover. */}
+        <div className="w-full">
+          {chartType === "bar" ? (
+            <BarColumns
+              key={`${activeTab}-${activeMetric}`}
+              marks={marks}
+              height={240}
+              formatTick={(v) => (v >= 1000 ? `${(v / 1000).toFixed(0)}k` : String(Math.round(v)))}
+              abbreviate={(name) => (name.length > 7 ? name.slice(0, 6) + "." : name)}
+              listCaption={activeTab === "demographics" ? "All sub-counties, as a list" : "All wards, as a list"}
+            />
+          ) : (
+            <LineSeries
+              key={`${activeTab}-${activeMetric}-line`}
+              categories={marks.map((m) => m.label)}
+              series={[
+                {
+                  key: activeTab === "demographics" ? activeMetric : "voters",
+                  name: seriesName,
+                  color: activeTab === "demographics" ? "var(--color-accent)" : "var(--color-gold)",
+                  points: marks.map((m) => m.value),
+                },
+              ]}
+              domainY={[0, Math.max(...marks.map((m) => m.value), 1)]}
+              yTicks={[0, Math.max(...marks.map((m) => m.value), 1) / 2, Math.max(...marks.map((m) => m.value), 1)]}
+              formatY={(v) => (v >= 1000 ? `${(v / 1000).toFixed(0)}k` : String(Math.round(v)))}
+              height={240}
+            />
+          )}
         </div>
 
         {/* Legend / Key indicators summary */}

@@ -1,6 +1,6 @@
 "use client";
 
-import { BarChart, Bar, Cell, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts";
+import { BarRows, type Mark } from "./primitives";
 
 interface LedgerChartDatum {
   name: string;
@@ -8,45 +8,26 @@ interface LedgerChartDatum {
   formatted: string;
 }
 
+/**
+ * County budget lines, §3.3.4. Was a Recharts horizontal BarChart.
+ *
+ * The formatted figure is printed against every bar rather than held in a tooltip, because the
+ * figure is the point: a reader comparing allocations should not have to hover eight bars to
+ * read eight numbers.
+ */
 export default function ResourceLedgerBarChart({
   chartData,
-  colors
+  colors,
 }: {
   chartData: LedgerChartDatum[];
   colors: string[];
 }) {
-  return (
-    <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={chartData} layout="vertical" margin={{ top: 10, right: 10, left: 10, bottom: 5 }}>
-        <XAxis type="number" hide />
-        <YAxis
-          dataKey="name"
-          type="category"
-          tick={{ fill: "var(--color-muted)", fontSize: 8, fontWeight: 700 }}
-          tickLine={false}
-          axisLine={false}
-          width={85}
-        />
-        <Tooltip
-          content={({ active, payload }) => {
-            if (active && payload && payload.length) {
-              const data = payload[0].payload;
-              return (
-                <div className="bg-card border border-line p-2.5 shadow-md rounded-xl t-label font-bold text-ink">
-                  <p className="border-b border-line pb-1 mb-1 text-ink">{data.name}</p>
-                  <p className="text-accent">Budget: {data.formatted}</p>
-                </div>
-              );
-            }
-            return null;
-          }}
-        />
-        <Bar dataKey="budget" radius={[0, 4, 4, 0]}>
-          {chartData.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
-          ))}
-        </Bar>
-      </BarChart>
-    </ResponsiveContainer>
-  );
+  const marks: Mark[] = chartData.map((d, i) => ({
+    id: d.name,
+    label: d.name,
+    value: d.budget,
+    display: d.formatted,
+    color: colors[i % colors.length],
+  }));
+  return <BarRows marks={marks} listCaption="Every budget line, as a list" />;
 }

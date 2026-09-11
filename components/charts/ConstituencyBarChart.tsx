@@ -1,6 +1,6 @@
 "use client";
 
-import { BarChart, Bar, Cell, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
+import { BarColumns, type Mark } from "./primitives";
 
 interface ConstituencyChartDatum {
   id: string;
@@ -20,55 +20,42 @@ const ABBR: Record<string, string> = {
   "Kitui South": "Kt.S",
 };
 
+/**
+ * The eight constituencies by register size, §3.3.3. Was a Recharts BarChart.
+ *
+ * Selection is driven from outside as before, so this stays the control for the map beside it —
+ * but the columns are now buttons, which means the keyboard can drive that selection too.
+ */
 export default function ConstituencyBarChart({
   chartData,
   selectedID,
-  onSelect
+  onSelect,
 }: {
   chartData: ConstituencyChartDatum[];
   selectedID: string;
   onSelect: (id: string) => void;
 }) {
+  const max = Math.max(...chartData.map((d) => d.voters), 1);
+  const marks: Mark[] = chartData.map((d) => ({
+    id: d.id,
+    label: d.name,
+    value: d.voters,
+    display: d.voters.toLocaleString(),
+    sub: `${d.share} of the county register`,
+    color: "var(--color-accent-solid)",
+  }));
+
   return (
-    <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={chartData} margin={{ top: 10, right: 10, left: -15, bottom: 5 }}>
-        <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" opacity={0.3} />
-        <XAxis
-          dataKey="name"
-          tick={{ fill: "var(--color-muted)", fontSize: "var(--fs-chart-tick)", fontWeight: 700 }}
-          tickLine={false}
-          axisLine={false}
-          interval={0}
-          tickFormatter={(name: string) => ABBR[name] || (name.length > 5 ? name.slice(0, 4) + "." : name)}
-        />
-        <YAxis tick={{ fill: "var(--color-muted)", fontSize: "var(--fs-chart-tick)" }} tickLine={false} axisLine={false} width={35} tickFormatter={(val) => `${(val / 1000).toFixed(0)}k`} />
-        <Tooltip
-          content={({ active, payload }) => {
-            if (active && payload && payload.length) {
-              const dataEntry = payload[0].payload;
-              return (
-                <div className="bg-card border border-line p-2 shadow-md rounded-xl t-label font-bold text-ink">
-                  <p className="font-extrabold text-ink">{dataEntry.name}</p>
-                  <p className="text-accent">Registered: <span className="font-extrabold text-ink">{dataEntry.voters.toLocaleString()}</span></p>
-                  <p className="text-gold">Share: <span className="font-extrabold text-ink">{dataEntry.share}</span></p>
-                </div>
-              );
-            }
-            return null;
-          }}
-        />
-        <Bar dataKey="voters" fill="var(--color-accent)" radius={[4, 4, 0, 0]}>
-          {chartData.map((entry, idx) => (
-            <Cell
-              key={`cell-${idx}`}
-              fill={selectedID === entry.id ? "var(--color-accent)" : "var(--color-muted)"}
-              opacity={selectedID === entry.id ? 1 : 0.4}
-              className="cursor-pointer"
-              onClick={() => onSelect(entry.id)}
-            />
-          ))}
-        </Bar>
-      </BarChart>
-    </ResponsiveContainer>
+    <BarColumns
+      marks={marks}
+      max={max}
+      ticks={[0, max / 2, max]}
+      formatTick={(v) => `${(v / 1000).toFixed(0)}k`}
+      abbreviate={(name) => ABBR[name] || (name.length > 5 ? name.slice(0, 4) + "." : name)}
+      selectedId={selectedID}
+      onSelect={onSelect}
+      listCaption="All eight constituencies, with registered voters"
+      emptyHint="Select a constituency to see its share of the register."
+    />
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
+import { LineSeries, type Series } from "./primitives";
 
 export interface SlopeSeries {
   key: string;
@@ -8,52 +8,38 @@ export interface SlopeSeries {
   color: string;
 }
 
-export default function MizaniSlopeChart({ data, series }: { data: Record<string, string | number | null>[]; series: SlopeSeries[] }) {
+/**
+ * The nomination-preference trend, §3.1.5. Was a Recharts LineChart.
+ *
+ * `connectNulls` was false before and the replacement keeps that behaviour deliberately: a survey
+ * that did not name a contender is a gap, not a zero, and drawing through it would invent a
+ * reading the source does not support.
+ */
+export default function MizaniSlopeChart({
+  data,
+  series,
+}: {
+  data: Record<string, string | number | null>[];
+  series: SlopeSeries[];
+}) {
+  const categories = data.map((d) => String(d.survey ?? ""));
+  const lines: Series[] = series.map((s) => ({
+    key: s.key,
+    name: s.name,
+    color: s.color,
+    points: data.map((d) => {
+      const v = d[s.key];
+      return typeof v === "number" ? v : null;
+    }),
+  }));
+
   return (
-    <ResponsiveContainer width="100%" height="100%">
-      <LineChart data={data} margin={{ top: 10, right: 20, left: 0, bottom: 5 }}>
-        <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" opacity={0.3} />
-        <XAxis dataKey="survey" tick={{ fill: "var(--color-muted)", fontSize: 10, fontWeight: 700 }} tickLine={false} axisLine={{ stroke: "var(--color-line)" }} />
-        <YAxis
-          domain={[0, 45]}
-          unit="%"
-          tick={{ fill: "var(--color-muted)", fontSize: 10 }}
-          tickLine={false}
-          axisLine={false}
-          width={36}
-        />
-        <Tooltip
-          content={({ active, payload, label }) => {
-            if (active && payload && payload.length) {
-              return (
-                <div className="bg-card border border-line p-2.5 shadow-md rounded-xl t-label font-bold text-ink">
-                  <p className="border-b border-line pb-1 mb-1">{label}</p>
-                  {payload.map((p) => (
-                    <p key={p.dataKey as string} style={{ color: p.color }}>
-                      {p.name}: <span className="text-ink">{p.value}%</span>
-                    </p>
-                  ))}
-                </div>
-              );
-            }
-            return null;
-          }}
-        />
-        <Legend wrapperStyle={{ fontSize: 10, fontWeight: 700 }} />
-        {series.map((s) => (
-          <Line
-            key={s.key}
-            type="linear"
-            dataKey={s.key}
-            name={s.name}
-            stroke={s.color}
-            strokeWidth={2.5}
-            dot={{ r: 4, strokeWidth: 0, fill: s.color }}
-            activeDot={{ r: 6 }}
-            connectNulls={false}
-          />
-        ))}
-      </LineChart>
-    </ResponsiveContainer>
+    <LineSeries
+      categories={categories}
+      series={lines}
+      domainY={[0, 45]}
+      yTicks={[0, 15, 30, 45]}
+      formatY={(v) => `${v}%`}
+    />
   );
 }

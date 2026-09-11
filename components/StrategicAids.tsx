@@ -8,7 +8,6 @@ import { useIsMobile } from "../hooks/use-mobile";
 import { LazyMount } from "./LazyMount";
 import { Play, Pause, Volume2, ChevronDown, ChevronUp, Calendar, User, Check, AlertTriangle, Sparkles, Target, Zap, ArrowRight, Maximize2, Minimize2, Sliders, Radio, ShieldCheck, Users, Coins, FileText, TrendingUp, MessageSquare, CheckCircle2, CheckSquare, MapPin, Globe, BookOpen, Activity, Database, RefreshCw, HelpCircle, Layers, TrendingDown, Table, Filter } from "lucide-react";
 
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import ConstituencyBarChart from "./charts/ConstituencyBarChart";
 import ResourceLedgerBarChart from "./charts/ResourceLedgerBarChart";
 
@@ -557,4 +556,3 @@ export function PrintReportGenerator({ onPrint }: { onPrint?: () => void } = {})
 }
 
 // 11. Custom Campaign Performance Chart Component
-export { ChartComponent } from "./ChartComponent";

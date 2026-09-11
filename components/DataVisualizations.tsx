@@ -2,21 +2,9 @@
 
 import { motion } from "motion/react";
 import { useState } from "react";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LabelList } from 'recharts';
+import { BarRows, type Mark } from "./charts/primitives";
 import { Sliders, HelpCircle, CheckCircle2 } from "lucide-react";
 import { DURATION } from "../lib/motion";
-
-const CustomTooltip = ({ active, payload, label }: any) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="bg-card border border-line p-2 shadow-sm rounded-lg text-sm">
-        <p className="font-bold text-ink">{label}</p>
-        <p className="text-muted">{`${payload[0].value}%`}</p>
-      </div>
-    );
-  }
-  return null;
-};
 
 export function DataVisualizations() {
   const [activeTier, setActiveTier] = useState<"lean" | "standard" | "premium">("standard");
@@ -52,6 +40,15 @@ export function DataVisualizations() {
     { name: 'Mulu Aug', percent: 22.1, isRival: false },
   ];
 
+  const pollMarks: Mark[] = pollData.map((d) => ({
+    id: d.name,
+    label: d.name,
+    value: d.percent,
+    display: `${d.percent}%`,
+    color: d.isRival ? "var(--color-rival-solid)" : "var(--color-accent-solid)",
+    sub: d.isRival ? "Kasalu" : "Mulu",
+  }));
+
   // Helper mapping index to tier
   const tierArray: ("lean" | "standard" | "premium")[] = ["lean", "standard", "premium"];
   const currentSliderIndex = tierArray.indexOf(activeTier);
@@ -74,36 +71,17 @@ export function DataVisualizations() {
         <h3 className="font-serif text-2xl mb-1 text-dark">The immediate contest</h3>
         <p className="t-label text-muted mb-6">Published Mizani Africa trend used in the proposal.</p>
         
-        <div className="h-[250px] w-full relative z-10">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart
-              data={pollData}
-              layout="vertical"
-              margin={{ top: 0, right: 30, left: 10, bottom: 0 }}
-            >
-              <XAxis type="number" hide domain={[0, 45]} />
-              <YAxis 
-                type="category" 
-                dataKey="name" 
-                axisLine={false} 
-                tickLine={false} 
-                tick={{ fill: 'var(--muted)', fontSize: 13, fontWeight: 500 }}
-                width={85}
-              />
-              <Tooltip cursor={{ fill: 'var(--glow)' }} content={<CustomTooltip />} />
-              <Bar 
-                dataKey="percent" 
-                radius={[0, 10, 10, 0]}
-                animationDuration={1000}
-                barSize={20}
-              >
-                {pollData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.isRival ? 'var(--danger)' : 'var(--accent)'} />
-                ))}
-                <LabelList dataKey="percent" position="right" fill="var(--ink)" fontSize={13} fontWeight="bold" formatter={(val: any) => `${val}%`} />
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
+        {/* Was a Recharts horizontal BarChart with a hover tooltip and a LabelList. The figure
+            now sits against each bar rather than behind a hover, which is the reading a poll
+            trend is for; the rival's colour is `danger` and the campaign's is `accent`, as
+            before. */}
+        <div className="relative z-10">
+          <BarRows
+            marks={pollMarks}
+            max={45}
+            listCaption="Both readings, both contenders"
+            emptyHint="Select a reading for the survey behind it."
+          />
         </div>
       </motion.section>
 

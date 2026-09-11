@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
   },
   // Smaller client bundle: these two are import-heavy and tree-shake poorly by default.
   experimental: {
-    optimizePackageImports: ['lucide-react', 'recharts'],
+    optimizePackageImports: ['lucide-react'],
   },
   transpilePackages: ['motion'],
   // The document's own deep links are URL fragments on a single route, and a browser never sends
