@@ -55,26 +55,27 @@ const CONTENT = path.join(ROOT, "public", "content");
  * What this file continues to guarantee is the part it can: that nothing since has changed the
  * body text.
  */
-const BASE = process.env.CONTENT_BASELINE ?? "c1150a8";
+const BASE = process.env.CONTENT_BASELINE ?? "a275e00";
 
 /**
  * The baseline again, and why it moved a third time.
  *
- * `c1150a8` is the sixteen-section restructure: the document resequenced into the canonical
+ * `a275e00` is the sixteen-section restructure and the route ledes that finish it: the document
+ * resequenced into the canonical
  * proposal order, related material consolidated, headings put into proposal terminology, and the
  * numbering rebuilt so sub-sections run 1..n with no gaps. Body text moved wholesale between
  * files and the file names changed with it, so a line-for-line comparison against `5ff79ce` now
  * reports every authored passage and every removal the brief required as a difference — which is
  * exactly what CHANGE-LOG.md enumerates, quoting each addition in full.
  *
- * Earlier baselines still work and still diff: `CONTENT_BASELINE=5ff79ce` against the
- * pre-restructure spine, `5470756` against the pre-excision text, `d1c1559` against the text as
+ * Earlier baselines still work and still diff: `CONTENT_BASELINE=c1150a8` against the restructure before its
+ * ledes, `5ff79ce` against the pre-restructure spine, `5470756` against the pre-excision text, `d1c1559` against the text as
  * first written. The chain of custody is enumerated rather than lost.
  *
  * What this file continues to guarantee is the part it can: that nothing since the restructure
  * has changed the body text.
  */
-const RESTRUCTURED = BASE === "c1150a8";
+const RESTRUCTURED = BASE === "a275e00" || BASE === "c1150a8";
 const CURRENT_SPINE = RESTRUCTURED || BASE === "5ff79ce" || BASE === "5470756";
 
 /** The content files as they were named at BASE. The restructure renamed all of them. */
