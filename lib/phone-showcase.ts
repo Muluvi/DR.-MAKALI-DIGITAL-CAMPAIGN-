@@ -19,8 +19,8 @@
 export type ChannelId = "whatsapp" | "facebook" | "instagram" | "tiktok" | "youtube" | "x" | "ussd";
 
 /**
- * Rail order. Descending in-county reach per §3.6.1 — WhatsApp 65–80k down to X 8–12k — with USSD
- * last, because it reaches ~250,000 (§3.6.2) and is the point the whole module is making.
+ * Rail order. Descending in-county reach per the connected minority, and its limits section — WhatsApp 65–80k down to X 8–12k — with USSD
+ * last, because it reaches ~250,000 (the offline majority, and the infrastructure that reaches it section) and is the point the whole module is making.
  */
 export const CHANNEL_ORDER: ChannelId[] = [
   "whatsapp",
@@ -62,7 +62,7 @@ export const IDENTITY = {
   pageName: "Dr. Makali Mulu — Kitui 2027",
   channelName: "Dr. Makali Mulu",
   initials: "MM",
-  /** §8.3.3 radio script, the campaign's only slogan line. */
+  /** the copy samples: radio, SMS and USSD section radio script, the campaign's only slogan line. */
   slogan: "The Proven Economist, The Trusted Leader",
   sloganKikamba: "Muvisi Mũlũngalu, Mwĩkĩi wa Wathi",
 } as const;
@@ -74,7 +74,7 @@ export const IDENTITY = {
 /**
  * Interface chrome needs numbers to look like an interface. None of these describe anything the
  * campaign has achieved, because the campaign has not launched: the proposal deliberately
- * makes no performance claims, and §3.6.1 gives platform
+ * makes no performance claims, and the connected minority, and its limits section gives platform
  * reach as ranges, never as account metrics.
  *
  * They are held as strings so they can never be read back as data, kept deliberately small and
@@ -133,7 +133,7 @@ export const WHATSAPP = {
   contactStatus: "40 Ward Captains",
   dateDivider: "TODAY",
   /**
-   * §8.8.2's four-hour loop describes exactly this dispatch: a localized pledge, then a 45-second
+   * the from ground intel to a published response in four hours section's four-hour loop describes exactly this dispatch: a localized pledge, then a 45-second
    * audio note voiced by Dr. Mulu, pushed to Ward Captains for peer forwarding. The resident's
    * reply is the single character the SMS sample itself asks for.
    */
@@ -143,21 +143,21 @@ export const WHATSAPP = {
       kind: "text",
       text: "Kitui Rural / Mbitini: Dr. Makali Mulu guarantees Ksh 100M Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. STOP=22340",
       time: "07:12",
-      source: "§8.3.3 — Direct 2G Bulk SMS copy sample, verbatim",
+      source: "the copy samples: radio, SMS and USSD section — Direct 2G Bulk SMS copy sample, verbatim",
     },
     {
       from: "resident",
       kind: "text",
       text: "1",
       time: "07:14",
-      source: "§8.3.3 — the reply the message itself asks for",
+      source: "the copy samples: radio, SMS and USSD section — the reply the message itself asks for",
     },
     {
       from: "campaign",
       kind: "voice",
       duration: "0:45",
       time: "07:15",
-      source: "§8.8.2 — 45-second audio note voiced by Dr. Mulu, pushed via WhatsApp",
+      source: "the from ground intel to a published response in four hours section — 45-second audio note voiced by Dr. Mulu, pushed via WhatsApp",
     },
   ] satisfies WhatsAppMessage[],
   composerPlaceholder: "Message",
@@ -166,19 +166,19 @@ export const WHATSAPP = {
 export const FACEBOOK = {
   audience: "Public",
   timestamp: "2h",
-  /** §7.1.1 Pillar 3, narrative statement, cut to post length. */
+  /** the central claim and its three pillars section Pillar 3, narrative statement, cut to post length. */
   body: {
     value:
       "Development in Kitui must no longer depend on which ward voted for the Governor. Dr. Mulu guarantees an institutionalized Ward Development Equalization Fund of Ksh 100 Million per ward, every year.",
-    source: "§7.1.1 Pillar 3 — Devolution Equity, narrative statement",
+    source: "the central claim and its three pillars section Pillar 3 — Devolution Equity, narrative statement",
   } as Sourced<string>,
-  /** §7.1.1 Pillar 3, Tier 1 proof point — the card under the post. */
+  /** the central claim and its three pillars section Pillar 3, Tier 1 proof point — the card under the post. */
   card: {
     value: {
       kicker: "CIDP III — Tier 1",
       headline: "Over 61% of rural Kitui households still walk more than 5 km for water in dry seasons",
     },
-    source: "§7.1.1 Pillar 3 — Kitui County Integrated Development Plan proof point",
+    source: "the central claim and its three pillars section Pillar 3 — Kitui County Integrated Development Plan proof point",
   } as Sourced<{ kicker: string; headline: string }>,
   /** No comment copy exists anywhere in the proposal. */
   commentPreview: { gap: "Comment preview" } as Fillable<string>,
@@ -186,58 +186,58 @@ export const FACEBOOK = {
 
 export const X_POST = {
   timestamp: "4h",
-  /** §7.1.1 Pillar 1, evidence lines, cut to post length. */
+  /** the central claim and its three pillars section Pillar 1, evidence lines, cut to post length. */
   body: {
     value:
       "Kitui Central NG-CDF: unqualified clean audit opinions, 2013–2025 (Auditor-General).\n\nKitui County government accounts over the same period: more than Ksh 2.4 Billion in contested pending bills.\n\nThe difference is not luck. It is method.",
-    source: "§7.1.1 Pillar 1 — Fiscal Integrity, Tier 1 proof point and Tier 1 contrast",
+    source: "the central claim and its three pillars section Pillar 1 — Fiscal Integrity, Tier 1 proof point and Tier 1 contrast",
   } as Sourced<string>,
   mediaLabel: {
     value: "Auditor-General — Kitui Central NG-CDF audit opinions, 2013–2025",
-    source: "§7.1.1 Pillar 1 — Tier 1 proof point",
+    source: "the central claim and its three pillars section Pillar 1 — Tier 1 proof point",
   } as Sourced<string>,
 } as const;
 
 export const INSTAGRAM = {
   /**
-   * §7.1.2 specifies "1080x1080 square carousel cards" for social; it does not specify Reels or
+   * the message assignment by segment section specifies "1080x1080 square carousel cards" for social; it does not specify Reels or
    * Stories, and a Reel here would only duplicate the TikTok screen. So: a square feed carousel.
    */
   location: "Kitui County",
   timestamp: "6 hours ago",
   slideCount: 3,
-  /** §8.3.1 Pillar B, core theme, cut to caption length. */
+  /** the four content pillars section Pillar B, core theme, cut to caption length. */
   caption: {
     value:
       "Ksh 85 per kilo floor price for ndengu. County aggregation cold-storage hubs. Solar borehole irrigation. Livestock feed reserves.",
-    source: "§8.3.1 Pillar B — The Agrarian & Household Wealth Engine, core theme",
+    source: "the four content pillars section Pillar B — The Agrarian & Household Wealth Engine, core theme",
   } as Sourced<string>,
   captionTitle: {
     value: "Ũtonga wa Mĩsyĩ na Mĩũnda",
-    source: "§8.3.1 Pillar B — Kikamba pillar name, verbatim",
+    source: "the four content pillars section Pillar B — Kikamba pillar name, verbatim",
   } as Sourced<string>,
   cardHeadline: {
     value: "Ksh 85 / kg",
-    source: "§8.3.1 Pillar B — guaranteed minimum floor price for ndengu",
+    source: "the four content pillars section Pillar B — guaranteed minimum floor price for ndengu",
   } as Sourced<string>,
   cardSub: {
     value: "Guaranteed ndengu floor price",
-    source: "§8.3.1 Pillar B — core theme",
+    source: "the four content pillars section Pillar B — core theme",
   } as Sourced<string>,
 } as const;
 
 export const TIKTOK = {
   tabs: ["Following", "For You"],
   activeTab: "For You",
-  /** §8.3.1 Pillar D, core theme, cut to caption length. */
+  /** the four content pillars section Pillar D, core theme, cut to caption length. */
   caption: {
     value:
       "Zero-interest equipment loans. Fee waivers for artisan TVET courses. Boda boda dignity.",
-    source: "§8.3.1 Pillar D — The Youth Enterprise & TVET Frontier, core theme",
+    source: "the four content pillars section Pillar D — The Youth Enterprise & TVET Frontier, core theme",
   } as Sourced<string>,
   overlayTitle: {
     value: "Mwanya wa Mwanake na Wathi",
-    source: "§8.3.1 Pillar D — Kikamba pillar name, verbatim",
+    source: "the four content pillars section Pillar D — Kikamba pillar name, verbatim",
   } as Sourced<string>,
   /** A hashtag is new coinage, not a reshaping of existing copy. None exist in the proposal. */
   hashtags: { gap: "Hashtags" } as Fillable<string[]>,
@@ -246,23 +246,23 @@ export const TIKTOK = {
 } as const;
 
 export const YOUTUBE = {
-  /** §8.3.1 Pillar A, core theme, pulled into a title. */
+  /** the four content pillars section Pillar A, core theme, pulled into a title. */
   title: {
     value:
       "The Integrity & Stewardship Ledger: 13 years of Kitui Central NG-CDF audits, opened up",
-    source: "§8.3.1 Pillar A — core theme and primary formats (documentary video case studies)",
+    source: "the four content pillars section Pillar A — core theme and primary formats (documentary video case studies)",
   } as Sourced<string>,
-  /** §3.6.1 — YouTube's stated role in the channel mix. */
+  /** the connected minority, and its limits section — YouTube's stated role in the channel mix. */
   descriptionLine: {
     value: "Long-form debates, church sermons and rally livestreams.",
-    source: "§3.6.1 — YouTube strategic role",
+    source: "the connected minority, and its limits section — YouTube strategic role",
   } as Sourced<string>,
   duration: "18:24",
   publishedAgo: "2 days ago",
   subscribeLabel: "Subscribe",
   thumbnailKicker: {
     value: "Zero Auditor-General queries",
-    source: "§8.3.1 Pillar A — core theme",
+    source: "the four content pillars section Pillar A — core theme",
   } as Sourced<string>,
 } as const;
 
@@ -272,11 +272,11 @@ export interface UssdMenuItem {
 }
 
 /**
- * §8.3.3 carries this menu as a literal tree, including the short code. Nothing here is
+ * the copy samples: radio, SMS and USSD section carries this menu as a literal tree, including the short code. Nothing here is
  * reshaped — it is the proposal's own USSD structure rendered as a USSD dialog.
  *
- * NOTE FOR THE CAMPAIGN: the short code is written `*483*77#` in §8.3.3 but `*483*XX#` in both
- * §3.6.2.2 and §7.1.2, and the SMS opt-out is `STOP=22340` in §8.3.3 but `STOP to 22XXX` in §7.1.2.
+ * NOTE FOR THE CAMPAIGN: the short code is written `*483*77#` in the copy samples: radio, SMS and USSD section but `*483*XX#` in both
+ * the offline-infrastructure notes and the message assignment by segment, and the SMS opt-out is `STOP=22340` in the copy samples: radio, SMS and USSD section but `STOP to 22XXX` in the message assignment by segment section.
  * The concrete forms are used here because they are the only non-placeholder ones in the
  * document. Confirm both before anything is printed or dialled.
  */
@@ -300,7 +300,7 @@ export const USSD = {
   inputPlaceholder: "Reply",
   cancelLabel: "Cancel",
   sendLabel: "Send",
-  source: "§8.3.3 — USSD Interactive Menu Tree Structure, verbatim",
+  source: "the copy samples: radio, SMS and USSD section — USSD Interactive Menu Tree Structure, verbatim",
 } as const;
 
 /** The one quiet line the module carries. */

@@ -7,7 +7,7 @@ import { IEBC_WARD_REGISTER } from "../../data/sources";
 import type { Provenance } from "../../data/types";
 import PathTo200kChart, { type PathPoint } from "../charts/PathTo200kChart";
 
-const WIN_THRESHOLD = 200_000; // §3.3.3: 198,004 actual 2022 winning total, rounded for KPI-setting.
+const WIN_THRESHOLD = 200_000; // the 2022 baseline, ward by ward section: 198,004 actual 2022 winning total, rounded for KPI-setting.
 const PROVENANCE: Provenance = { source: IEBC_WARD_REGISTER, granularity: "ward" };
 
 const CONSTITUENCY_COLORS: Record<string, string> = {

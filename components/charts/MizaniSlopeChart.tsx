@@ -9,7 +9,7 @@ export interface SlopeSeries {
 }
 
 /**
- * The nomination-preference trend, §3.1.5. Was a Recharts LineChart.
+ * The nomination-preference trend, the polling gap, as sourced section. Was a Recharts LineChart.
  *
  * `connectNulls` was false before and the replacement keeps that behaviour deliberately: a survey
  * that did not name a contender is a gap, not a zero, and drawing through it would invent a

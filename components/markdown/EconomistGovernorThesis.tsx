@@ -9,18 +9,18 @@ import { useMotionPreset } from "../../hooks/useMotionPreset";
 import { Portrait } from "../Portrait";
 
 /**
- * §6.1 — the campaign's core narrative, set as the section's opening statement.
+ * the governing claim: the Economist Governor section — the campaign's core narrative, set as the section's opening statement.
  *
- * §6.1 opens the approach's argument rather than trailing the strategic context, and its
+ * the governing claim: the Economist Governor section opens the approach's argument rather than trailing the strategic context, and its
  * thesis is a single sentence carrying the whole positioning. In running prose that reads as one
  * more bolded clause; given room and a moment of motion it reads as the claim everything after
  * it has to earn.
  *
- * The words are quoted verbatim from §6.1's own first paragraph — the same discipline
+ * The words are quoted verbatim from the governing claim: the Economist Governor section's own first paragraph — the same discipline
  * KeyTakeawayBanner follows. No new copy is introduced here, and nothing is paraphrased.
  */
 
-/** §6.1, paragraph 1, verbatim. Split only so the operative phrase can carry emphasis. */
+/** the governing claim: the Economist Governor section, paragraph 1, verbatim. Split only so the operative phrase can carry emphasis. */
 const SEGMENTS: { text: string; accent?: boolean }[] = [
   { text: "Dr. Makali Mulu is the" },
   { text: "Economist Governor", accent: true },

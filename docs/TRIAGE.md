@@ -10,7 +10,9 @@ on 11 September 2026. Every figure marked **measured** is reproducible by the co
 beside it. Figures marked `⚑` are assumptions and are listed together in §7.
 
 **Status.** The triage below was written first; F-29, F-30 and F-31 were then built against it
-the same day. Where a finding has been acted on, the outcome is recorded in a quoted block
+the same day. On 12 September the client instructed a further change that overrides part of the
+governing rules — see §8 — so the inventory in §2 describes the document as it was triaged, not
+as it stands. Current counts: 17 content files, 234 headings, 61 sub-sections, 40 mounts. Where a finding has been acted on, the outcome is recorded in a quoted block
 beneath it, with the measured result. The findings themselves are left as written — the record
 of what was wrong is worth as much as the record of the fix, and §7.2's open confirmations are
 all still open.
@@ -1007,3 +1009,60 @@ This triage did not open the deployed site, did not run Lighthouse, and did not 
 physical device. The acceptance criterion that matters most — *"opened on an actual mid-range
 Android phone on actual mobile data before the link is sent"* — remains unmet and cannot be
 met from here.
+
+---
+
+## 8. Client override, 12 September 2026
+
+Firefly instructed two changes that supersede parts of the governing rules. Both were made.
+
+**"An executive summary is not necessary in a website."** The cover page, the confidentiality
+notice, the table of contents and the executive summary are removed. The summary's claims were
+redistributed into the sections that own them rather than deleted, so no argument was lost — but
+the *framing* went, and that is text no visual took over.
+
+**"Just show the data where it's relevant. Don't tell the user certain info is somewhere else."**
+Every internal pointer is gone: 177 in the prose, 254 more in components and data files. Where a
+pointer named a figure, the figure is printed; where it named a table or an argument, the relevant
+slice is stated at that spot. Section numbering went with them, because a number is only useful
+as something to point at. Ids are now slugs of the heading's own words.
+
+### 8.1 What this overrides
+
+**Rule 1, substitution not reduction**, no longer holds for print-document furniture. It holds
+unchanged for everything else, and the boundary is sharp: argument, evidence, figures, source
+lines and the evidence standard were all untouched. The one external citation that looks like a
+cross-reference — Section 8.5 of the Data Protection Act 2019 — was correctly left alone.
+
+**The word-for-word audit** now runs against the 12 September baseline rather than the original
+copy, with no allowances at all. Earlier baselines still diff, so the chain of custody is
+enumerated rather than lost.
+
+### 8.2 Two defects the change exposed
+
+Both were latent, and both would have stayed invisible under numbering.
+
+1. **`cleanTitle`'s threshold regex.** Written `/\s*\$?\\?ge\s*[\d,]+\$?/` to strip a LaTeX
+   `$\ge 200,000$` marker, the optional backslash meant it also ate a bare `ge` followed by a
+   digit or comma. "Language, register" became "Langua register"; "Stage 1:" became "Sta:". It
+   never mattered while ids came from section numbers. It broke 23 deep links the moment ids
+   came from words. The backslash is now required.
+
+2. **Two headings named "Monitoring tools"** — one in the war room, one on the competitor desk.
+   The old numbers kept them apart; names collided. Renamed to *War room monitoring tools* and
+   *Competitor monitoring tools* rather than machine-qualifying the slug, because they are
+   genuinely different subjects and the names should say so.
+
+### 8.3 Verification after the change
+
+```
+Ward register integrity check passed: 40 wards across 8 constituencies sum to 532758.
+Figure verification passed: every numeric literal in the UI traces to the source.
+Content integrity check passed: all 3970 body lines are unchanged since 3c3c0de, with no allowances.
+verify-mounts: 40 mount points all resolve (234 headings indexed).
+verify-deep-links: 1080 legacy ids and 234 live ids all resolve.
+visual-coverage: all 234 sections covered (61 sub-sections, 173 parts, 40 with a bespoke visualisation).
+```
+
+`tsc` and `eslint` clean. First Load JS 301 KB gzipped; the budget position is unchanged from
+§5.1 and F-32 is still the outstanding item.

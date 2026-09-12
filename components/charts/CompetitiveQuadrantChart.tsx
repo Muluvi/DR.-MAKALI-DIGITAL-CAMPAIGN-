@@ -12,7 +12,7 @@ export interface QuadrantPoint {
 }
 
 /**
- * The field, §3.3.2. Was a Recharts ScatterChart.
+ * The field, the field he is running against section. Was a Recharts ScatterChart.
  *
  * One axis is measured and one is a judgement, and the axis labels say so — the x axis carries
  * its source and its date, the y axis carries the word "qualitative". That distinction was in the

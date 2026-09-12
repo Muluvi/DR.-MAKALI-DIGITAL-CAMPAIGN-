@@ -460,7 +460,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
   // Section extras.
   //
   // This used to be a two-column shelf of ~50 widgets appended BELOW each tab's entire prose —
-  // the chart explaining §10.1.1 sat 20,000 words downstream of the text it illustrated. Anything
+  // the chart explaining the three scope levels section sat 20,000 words downstream of the text it illustrated. Anything
   // that genuinely explains a section is now a heading insert in MarkdownViewer, mounted next to
   // the prose it belongs to. What remains here is the handful of surfaces that are about the
   // document as a whole rather than about one section, plus the closing ask.

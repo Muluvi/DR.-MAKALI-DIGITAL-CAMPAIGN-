@@ -21,7 +21,7 @@ const ABBR: Record<string, string> = {
 };
 
 /**
- * The eight constituencies by register size, §3.3.3. Was a Recharts BarChart.
+ * The eight constituencies by register size, the 2022 baseline, ward by ward section. Was a Recharts BarChart.
  *
  * Selection is driven from outside as before, so this stays the control for the map beside it —
  * but the columns are now buttons, which means the keyboard can drive that selection too.

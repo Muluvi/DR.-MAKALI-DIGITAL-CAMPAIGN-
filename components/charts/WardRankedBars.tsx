@@ -5,7 +5,7 @@ import { ALL_WARDS, COUNTY_TOTAL_WARDS } from "../../data/ward-register";
 import { BarRows, type Mark } from "./primitives";
 
 /**
- * Every ward, ranked by register size — §3.4.2.
+ * Every ward, ranked by register size — the 40 wards, ranked, and the 12 that carry most section.
  *
  * This replaces WardRegisterTicker, which scrolled the same figures past the reader at 36px/s.
  * A ticker is on the pre-judged reject list for content that matters (docs/TRIAGE.md §5.3), and
@@ -14,7 +14,7 @@ import { BarRows, type Mark } from "./primitives";
  * to hold still long enough to be read.
  *
  * The section already prints all 40 rows as a table, and that table stays — nothing is removed
- * (§2.1, the substitution rule). What the chart adds is the shape the table cannot show at a
+ * (the mandate section, the substitution rule). What the chart adds is the shape the table cannot show at a
  * glance: how steeply the register concentrates, and where the cumulative line crosses.
  *
  * Every figure comes from data/ward-register.json, sourced to IEBC's "Registered Voters per

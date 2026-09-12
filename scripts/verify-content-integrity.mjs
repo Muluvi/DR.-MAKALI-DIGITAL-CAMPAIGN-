@@ -55,10 +55,36 @@ const CONTENT = path.join(ROOT, "public", "content");
  * What this file continues to guarantee is the part it can: that nothing since has changed the
  * body text.
  */
-const BASE = process.env.CONTENT_BASELINE ?? "a275e00";
+const BASE = process.env.CONTENT_BASELINE ?? "3c3c0de";
 
 /**
- * The baseline again, and why it moved a third time.
+ * The baseline again, and why it moved a fourth time.
+ *
+ * `3c3c0de` is the print-convention strip: the client's instruction that a website does not need
+ * an executive summary, and should show the reader the data rather than telling them it is
+ * somewhere else. The cover page and the executive summary came out — the summary's claims
+ * redistributed into the sections that own them — 177 in-prose cross-references were replaced by
+ * the thing they pointed at, 259 headings lost their numbers, and document voice became site
+ * voice throughout. That is a deliberate rewrite of body text by the document's author, which is
+ * precisely what this guard is not for.
+ *
+ * So it moves, as it has each time before, and for the same reason: this exists to stop a
+ * REDESIGN quietly editing a document of record, never to stop the author editing their own
+ * proposal. From `3c3c0de` forward there are no allowances at all — no removed registers, no
+ * orientation lines, no repointed cross-references to normalise away, because there are no
+ * cross-references left to repoint. A single differing line now fails the build.
+ *
+ * Every earlier baseline still works and still diffs, so the chain of custody is enumerated
+ * rather than lost: `CONTENT_BASELINE=a275e00` against the sixteen-section restructure,
+ * `c1150a8` against that restructure before its ledes, `5ff79ce` against the pre-restructure
+ * spine, `5470756` against the pre-excision text, `d1c1559` against the text as first written.
+ *
+ * What moved in this pass is recorded in the commit that introduced it, and the removed cover
+ * and summary are recoverable from git like any other deleted file.
+ */
+
+/**
+ * The previous baseline, and why it moved a third time.
  *
  * `a275e00` is the sixteen-section restructure and the route ledes that finish it: the document
  * resequenced into the canonical
@@ -75,11 +101,16 @@ const BASE = process.env.CONTENT_BASELINE ?? "a275e00";
  * What this file continues to guarantee is the part it can: that nothing since the restructure
  * has changed the body text.
  */
-const RESTRUCTURED = BASE === "a275e00" || BASE === "c1150a8";
+// `NAMED_SPINE` is the current state: headings carry names rather than numbers, and there is
+// nothing to forgive. Every allowance below belongs to an older baseline and is skipped for it.
+const NAMED_SPINE = BASE === "3c3c0de";
+const RESTRUCTURED = NAMED_SPINE || BASE === "a275e00" || BASE === "c1150a8";
 const CURRENT_SPINE = RESTRUCTURED || BASE === "5ff79ce" || BASE === "5470756";
 
 /** The content files as they were named at BASE. The restructure renamed all of them. */
-const OLD_FILES = RESTRUCTURED
+const OLD_FILES = NAMED_SPINE
+  ? fs.readdirSync(CONTENT).filter((f) => f.endsWith(".md")).sort()
+  : RESTRUCTURED
   ? [
       "approach.md",
       "assumptions.md",
@@ -513,6 +544,16 @@ if (process.env.CONTENT_DUMP) {
 }
 
 if (lost.length === 0 && added.length === 0) {
+  if (NAMED_SPINE) {
+    // Nothing is forgiven at this baseline. There are no cross-references left to normalise and
+    // no removed registers to drop, so this is the plain claim: not one body line has moved.
+    console.log(
+      `Content integrity check passed: all ${after.length} body lines are unchanged since ${BASE}, ` +
+        `with no allowances. Run with CONTENT_BASELINE=a275e00 to compare against the numbered ` +
+        `document, or d1c1559 against the text as first written.`
+    );
+    process.exit(0);
+  }
   if (CURRENT_SPINE) {
     // Against the current spine only two things are in play: cross-references, which normalise
     // to one token, and the quoted rewrites that still find their text. Claiming the whole

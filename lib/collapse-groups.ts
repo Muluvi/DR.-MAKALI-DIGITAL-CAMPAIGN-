@@ -2,8 +2,8 @@
  * Turns a long run of repeated `h4` blocks into a set of disclosures.
  *
  * The heaviest parts of this proposal are not dense arguments — they are matrices typed as
- * prose. §5.1 is six voter segments carrying the same seven fields each, 1,292 words of it;
- * §8.14.1 is five stack components each with a spec, a cost and a vendor. Read top to bottom
+ * prose. the six voter segments section is six voter segments carrying the same seven fields each, 1,292 words of it;
+ * the component by component, and what each does section is five stack components each with a spec, a cost and a vendor. Read top to bottom
  * that is a very long scroll on a phone, and the structure the author actually wrote — six
  * comparable things — is invisible until you have read all of it.
  *
@@ -31,8 +31,8 @@ const MIN_FOLD_HIDDEN = 150;
  * Sections that are never collapsed, whatever their shape, because the reader has to hold two of
  * their parts side by side to judge a trade-off — and an accordion shows one at a time.
  *
- * §10.1 is the whole of it: the scope levels and the cadence each carries
- * are §10.1.1, and choosing a tier means reading them together. Collapsing that section puts the
+ * the scope levels and what each carries section is the whole of it: the scope levels and the cadence each carries
+ * are the three scope levels section, and choosing a tier means reading them together. Collapsing that section puts the
  * ceiling and the tiers behind two different taps, which is the one thing an answer-first
  * document must not do to the section it is asking the reader to decide on.
  */

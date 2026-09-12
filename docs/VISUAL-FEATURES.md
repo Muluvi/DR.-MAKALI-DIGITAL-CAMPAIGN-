@@ -5,9 +5,9 @@
 **Stack:** Next.js App Router · TypeScript · Tailwind · bun · Vercel
 **Reader:** one person, on either a phone on mobile data or a laptop on wifi
 **Job:** make the complete case without a meeting
-**Scale:** 47,867 words · 19 content files · 241 indexed sections · 39 bespoke visualisations
+**Scale:** ~46,000 words · 17 content files · 234 indexed sections · 40 bespoke visualisations
 **Companion:** `docs/TRIAGE.md` — the triage this document's amendments come from
-**Last amended:** 11 September 2026
+**Last amended:** 12 September 2026
 
 ---
 
@@ -21,10 +21,11 @@ are preserved; where the triage contradicts one, the entry carries an **`AMENDED
 
 ### 0.1 What the repository turned out to be
 
-Not a short pitch page. A **47,867-word proposal document** across 19 markdown files in
-`public/content/`, rendered through one Next.js catch-all route as 19 tabs, with **241 indexed
-headings** (68 sub-sections, 173 parts) and **39 bespoke visualisation mount points** wired
-through `HEADING_INSERTS` in `components/MarkdownViewer.tsx`. Roughly 100 chart and panel
+Not a short pitch page. A **~46,000-word body of content** across 17 markdown files in
+`public/content/`, rendered through one Next.js catch-all route as 17 sections, with **234 indexed
+headings** (61 sub-sections, 173 parts) and **40 bespoke visualisation mount points** wired
+through `HEADING_INSERTS` in `components/MarkdownViewer.tsx`. It opens on the situation analysis;
+the cover page and executive summary were removed on 12 September as print conventions. Roughly 100 chart and panel
 components already exist. The §3 inventory this document once asked you to run has been run;
 its output is `docs/TRIAGE.md` §2.
 
@@ -52,6 +53,10 @@ primary group, not the supporting one.**
 | §9 Build sequence | **REORDERED** | Group G first; the Recharts removal added as the budget-critical step |
 | F-29, F-30, F-31 | **BUILT** — 11 September 2026 | Added runtime JS 289 KB → 163 KB. See §7.1 for the measured before and after |
 | F-32 | **ADDED** | `motion/react`, 63 KB, is the whole remaining overrun |
+| §2.1 Substitution rule | **AMENDED 12 Sep** — client override for print furniture only | A website needs no executive summary, and no pointers to elsewhere. Argument, evidence and figures are untouched |
+| §1 front matter, §2 executive summary | **REMOVED 12 Sep** | Cover, confidentiality notice and contents deleted; the summary's claims redistributed into their owning sections |
+| Section numbering | **REMOVED 12 Sep** | 259 headings de-numbered; ids are now slugs of the heading's own words, and survive a section moving |
+| Cross-references | **REMOVED 12 Sep** | 177 in-prose pointers and 254 in-component ones replaced by the thing they pointed at |
 | §10 Acceptance | **EXTENDED** | Two criteria satisfied with the command that satisfies them; four added |
 
 ### 0.3 How to read the entries
@@ -115,7 +120,23 @@ would read as padding.
 A feature passes if you can complete this sentence: *"This replaces the paragraph
 that would otherwise have to say ______."*
 
-### 2.1 The substitution rule
+### 2.1 The substitution rule — `AMENDED 12 September 2026`
+
+> **Client override, and its exact boundary.** Firefly instructed that a website does not need
+> an executive summary, and that the reader should be shown the data where it is relevant rather
+> than told it lives somewhere else. That removes text no visual takes over, so it overrides the
+> rule below — but only for **print-document furniture**: the cover page, the confidentiality
+> notice, the table of contents, the executive summary's framing, in-prose cross-references,
+> section numbering, and document voice.
+>
+> It does not touch argument, evidence or figures. The executive summary's *claims* were
+> redistributed into the sections that own them rather than deleted, source and provenance lines
+> stayed, and the evidence standard stayed. The substitution rule governs everything else
+> unchanged.
+>
+> The word-for-word audit in §10 is amended accordingly: it now runs against the 12 September
+> baseline, not against the original copy, and `scripts/verify-content-integrity.mjs` enforces
+> it with **no allowances at all** — one differing body line fails the build.
 
 **No text is removed without a visual taking over its job.**
 

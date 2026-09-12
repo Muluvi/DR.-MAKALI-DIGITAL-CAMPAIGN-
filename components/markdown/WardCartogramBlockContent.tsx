@@ -24,14 +24,14 @@ export function WardCartogramBlockContent() {
       {/*
         The register stream, mounted here and nowhere else.
 
-        It used to appear three times inside one section — twice at §3.3.3, where this block and
-        the path-to-200k block sit under the same heading, and again at §3.4.2, where
+        It used to appear three times inside one section — twice at the 2022 baseline, ward by ward section, where this block and
+        the path-to-200k block sit under the same heading, and again at the 40 wards, ranked, and the 12 that carry most section, where
         InteractiveTable detected the 40-row register table and prepended another. Each mount
         renders the forty wards twice (a real list plus an aria-hidden clone the seamless loop
         needs), so a reader was being served 240 ward cards to read 40 facts.
 
         One mount now. The path-to-200k block keeps its own accessible table of all 40 wards,
-        which is the right thing in that context, and §3.4.2's markdown table already IS the
+        which is the right thing in that context, and the 40 wards, ranked, and the 12 that carry most section's markdown table already IS the
         register. The presentational clone below remains: a marquee that loops without a visible
         seam needs two copies of the strip, and that copy is inert and hidden from assistive
         technology. It is the only duplication left.

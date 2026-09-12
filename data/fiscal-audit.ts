@@ -1,10 +1,10 @@
-// Phase 4b — county fiscal and audit record. Feeds §3.3.7 and the Phase 6d fiscal/audit
+// Phase 4b — county fiscal and audit record. Feeds the county money and the audit record section and the Phase 6d fiscal/audit
 // panel. The FY2025/26 Q1 absorption rate itself is disputed — see data/disputed-figures.ts,
 // id "kitui-fy2025-26-q1-absorption" — and is not duplicated here as a single number.
 import type { SourcedFigure } from "./types";
 import { AUDITOR_GENERAL_FY2023_24, CONTROLLER_OF_BUDGET, FISCAL_STRATEGY_PAPER_FY2026_27 } from "./sources";
 
-// §3.3.4's resource envelope, restated here as a typed figure so the Phase 6d chart can
+// the what the governorship controls, and what it is worth section's resource envelope, restated here as a typed figure so the Phase 6d chart can
 // plot it without a hardcoded number in the component file.
 export const RESOURCE_ENVELOPE_FY2026_27: SourcedFigure = {
   label: "Total resource envelope, FY2026/27",

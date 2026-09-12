@@ -6,7 +6,7 @@ import { useInView } from "../../hooks/use-in-view";
 /**
  * The entrance vocabulary, as one component.
  *
- * Every variant is a CSS keyframe from visual-fx.css §1 — nothing here runs on the main thread
+ * Every variant is a CSS keyframe in app/visual-fx.css — nothing here runs on the main thread
  * after the class lands, and the reduced-motion and print paths are handled in the stylesheet
  * rather than being re-decided per call site.
  *

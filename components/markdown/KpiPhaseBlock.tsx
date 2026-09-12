@@ -26,7 +26,7 @@ function points(values: Partial<Record<string, number>>): KpiRow["points"] {
   }));
 }
 
-// §9.1 phase KPI tables. Phases marked "Not live" in the source are omitted rather than
+// the phasing, from engagement to the election period section phase KPI tables. Phases marked "Not live" in the source are omitted rather than
 // plotted as zero. There is no "actual achieved" series in a forward-looking proposal — this
 // shows how each target ramps across phases, not actual-vs-target.
 const ROWS: KpiRow[] = [

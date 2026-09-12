@@ -2,7 +2,7 @@
 //
 // These four figures are the ones the chrome quotes most often — the hero strip, the dock, the
 // index sheet — and before this module each was typed where it was drawn. That is how the
-// header came to carry "1.3M+ Population Outreach" against a document whose §6.2 states
+// header came to carry "1.3M+ Population Outreach" against a document whose the four strategic pillars section states
 // 1,136,187 residents on the 2019 census, with the 2024 projection at approximately 1.2m and
 // explicitly tiered lower. A rounded-up figure in the chrome is the one place a sceptical
 // reader checks first, so the chrome now reads from the same place the body does.
@@ -20,7 +20,7 @@ export const COUNTY_POPULATION: SourcedFigure = {
     source: KNBS_CENSUS_2019,
     granularity: "county",
     note:
-      "549,003 males, 587,151 females, 33 intersex (§6.2). The 2024 projection of approximately " +
+      "549,003 males, 587,151 females, 33 intersex (the four strategic pillars section). The 2024 projection of approximately " +
       "1.2 million is Tier 2 and is not used in the chrome.",
   },
 };
@@ -32,15 +32,15 @@ export const COUNTY_WOMEN: SourcedFigure = {
   provenance: {
     source: KNBS_CENSUS_2019,
     granularity: "county",
-    note: "51.7% of the resident population. The register is not published by sex (§4.1).",
+    note: "51.7% of the resident population. The register is not published by sex (the objectives for the nomination window section).",
   },
 };
 
 /**
  * The denominator of the 13.6% is the population aged 3 and above, not the whole county.
  *
- * §6.2 states it that way and the arithmetic only works that way: 143,340 / 1,053,991 = 13.6%,
- * where 143,340 / 1,136,187 would be 12.6%. §8.10.1 had quoted the whole-county denominator
+ * the four strategic pillars section states it that way and the arithmetic only works that way: 143,340 / 1,053,991 = 13.6%,
+ * where 143,340 / 1,136,187 would be 12.6%. the why this layer decides the race section had quoted the whole-county denominator
  * against the aged-3+ percentage, which is the one sum in the document a reader can check in
  * their head. Both figures are kept here so the base can never be dropped again.
  */
@@ -51,7 +51,7 @@ export const INTERNET_USE_BASE: SourcedFigure = {
   provenance: {
     source: KNBS_CENSUS_2019,
     granularity: "county",
-    note: "The census reports internet use for this population, not for all residents (§6.2).",
+    note: "The census reports internet use for this population, not for all residents (the four strategic pillars section).",
   },
 };
 

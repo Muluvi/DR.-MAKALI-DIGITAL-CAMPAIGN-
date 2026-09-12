@@ -12,7 +12,7 @@
 // estimates, and the campaign should confirm them against a current NapoleonCat/DataReportal
 // pull before any of them is used for ad planning.
 //
-// OPEN ITEM for the campaign: restore the §3.3.5 platform-sizing table to the proposal text, or
+// OPEN ITEM for the campaign: restore the who lives here, and what they can reach online section platform-sizing table to the proposal text, or
 // confirm these figures should be dropped. Flagged in the audit rather than resolved silently.
 
 import type { Source } from "./types";
@@ -44,7 +44,7 @@ export interface PlatformAudience {
 
 /**
  * National (Kenya-wide) platform sizing, for ad planning only. These are national figures, not
- * Kitui figures — §9A.1 sizes in-county reach separately, and the two must not be confused.
+ * Kitui figures — in-county reach is sized separately, and the two must not be confused.
  *
  * WhatsApp is deliberately absent: the source describes it as "effectively universal among
  * connected users" and gives no audience figure, so it is not plotted rather than assigned an

@@ -76,6 +76,6 @@ export const ALL_WARDS: { constituencyId: string; constituencyName: string; name
 /** Constituencies sorted by register size, descending — Kitui Central (77,764) is largest. */
 export const CONSTITUENCIES_BY_SIZE = [...CONSTITUENCIES].sort((a, b) => b.voters - a.voters);
 
-/** The three Mwingi constituencies alone (§3.4.2 caption: they total 200,198 — the win
+/** The three Mwingi constituencies alone (the 40 wards, ranked, and the 12 that carry most section caption: they total 200,198 — the win
  * threshold is reachable from that bloc on its own). */
 export const MWINGI_BLOC_TOTAL = CONSTITUENCIES.filter((c) => c.id.startsWith("mwingi-")).reduce((sum, c) => sum + c.voters, 0);

@@ -1,4 +1,4 @@
-// The two scorecards, §11.1.1 and §11.1.2, as data.
+// The two scorecards, the stage 1: the nomination-window scorecard section and the stage 2: the general election scorecard section, as data.
 //
 // The one thing this file exists to encode is that a BASELINE IS NOT ALWAYS A NUMBER. The
 // document is scrupulous about it and the interface has to be too:
@@ -13,7 +13,7 @@
 //                   from. Only these five can be drawn as a starting position on a track.
 //
 // Note for review: the task brief lists all four nomination baselines as "Not yet measured".
-// §11.1.1 in this repository marks NW-04 as "Confirm w/ party" instead, which is the
+// the stage 1: the nomination-window scorecard section in this repository marks NW-04 as "Confirm w/ party" instead, which is the
 // awaiting-decision state rather than the unmeasured one. The repository is the source of truth,
 // so that is what is encoded here, and the difference is flagged rather than smoothed over.
 import type { ClaimStatus } from "../components/markdown/ClaimBadge";
@@ -58,7 +58,7 @@ export const NOMINATION_KPIS: Kpi[] = [
     target: "≥ 55.0% Primary Preference",
     targetValue: 55.0,
     unit: "percent",
-    method: "Rolling 7-day Tracking Poll (N = 400 CATI) (Section 11.3)",
+    method: "Rolling 7-day Tracking Poll (N = 400 CATI) (the Kitui message lab section)",
     owner: "Head of Research & Polling",
     cadence: "Weekly / Fortnightly",
   },
@@ -84,7 +84,7 @@ export const NOMINATION_KPIS: Kpi[] = [
     target: "≥ 60.0% Issue Salience",
     targetValue: 60.0,
     unit: "percent",
-    method: "Issue Salience Index in County Tracking Survey (Section 11.3)",
+    method: "Issue Salience Index in County Tracking Survey (the Kitui message lab section)",
     owner: "Policy & Strategy Lead",
     cadence: "Fortnightly",
   },
@@ -109,11 +109,11 @@ export const GENERAL_ELECTION_KPIS: Kpi[] = [
     title: "Pledged Voter Data Base Size",
     definition:
       "Individual registered voters with phone, ward, & polling station logged in campaign CRM.",
-    baseline: { kind: "measured", value: 0, display: "0 pledged voters", note: "Section 4.2, Commitment 3" },
+    baseline: { kind: "measured", value: 0, display: "0 pledged voters", note: "the objectives for the general election section, Commitment 3" },
     target: "220,000 Pledged Voters (110% Win)",
     targetValue: 220000,
     unit: "count",
-    method: "Verified opt-in 2G SMS & Baraza registration ledger (Section 11.2.2)",
+    method: "Verified opt-in 2G SMS & Baraza registration ledger (the service-delivery performance tracker section)",
     owner: "Field Ops & Data Director",
     cadence: "Weekly Progress Audit",
   },
@@ -121,7 +121,7 @@ export const GENERAL_ELECTION_KPIS: Kpi[] = [
     code: "GE-02",
     title: "Ward Captain Deployment Index",
     definition: "Active, vetted Ward Captains operating across all 40 Wards (10 per ward).",
-    baseline: { kind: "measured", value: 0, display: "0 active Captains", note: "Section 4.2, Commitment 5" },
+    baseline: { kind: "measured", value: 0, display: "0 active Captains", note: "the objectives for the general election section, Commitment 5" },
     target: "400 Captains (10 / Ward, 100% Coverage)",
     targetValue: 400,
     unit: "count",
@@ -170,7 +170,7 @@ export const GENERAL_ELECTION_KPIS: Kpi[] = [
   },
 ];
 
-/** The four Stage 1 headline targets, as §11.1.3's architecture diagram states them. */
+/** The four Stage 1 headline targets, as the indicator framework, anchored to the vote threshold section's architecture diagram states them. */
 export const STAGE_1_TARGETS = [
   "Wiper Primary Share (Target >55%)",
   "North Sub-County Name ID (>65%)",

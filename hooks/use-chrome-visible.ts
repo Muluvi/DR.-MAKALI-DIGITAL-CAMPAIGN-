@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react";
  * One model for every floating element, because they were each deciding for themselves and the
  * ones that never withdrew sat permanently over the document. Measured at 1440px, the
  * quick-nav capsule covered content in every section sampled — the ward register's "County Ward
- * Average" figure, §0.1's "Wiper Nomination threshold", §2.4's geographic base — which is the
+ * Average" figure, the "Wiper Nomination threshold", the what this proposal commits to section's geographic base — which is the
  * "figures are blocked" symptom rather than anything wrong with the figures.
  *
  * Thresholds match the behaviour MobileBottomNav already established, so the nav dock and the

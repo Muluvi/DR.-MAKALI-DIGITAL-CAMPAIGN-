@@ -17,7 +17,7 @@ export interface WaterfallStep {
 }
 
 /**
- * §3.3.4 — how the county resource envelope is built up.
+ * the what the governorship controls, and what it is worth section — how the county resource envelope is built up.
  *
  * The data type has been `WaterfallStep` all along, but it rendered through a plain column chart,
  * so the running total was invisible: three columns floating at different heights with nothing

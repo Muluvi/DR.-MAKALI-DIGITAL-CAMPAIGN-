@@ -171,7 +171,7 @@ export const staggerContainer = (gap: number = STAGGER.normal, delay = 0): Varia
 export const cascade = staggerContainer;
 
 /** Two faces of one decision — the poll/primary and nomination-path cards. Each axis is a
- *  distinct signature, so §1A and §2 can both flip without reading as a repeat. */
+ *  distinct signature, so two adjacent decision surfaces can both flip without repeating. */
 export const flipInY: Variants = {
   hidden: { opacity: 0, rotateY: -14 },
   visible: { opacity: 1, rotateY: 0, transition: entrance },

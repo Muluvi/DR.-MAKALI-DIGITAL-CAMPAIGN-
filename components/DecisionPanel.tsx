@@ -15,11 +15,11 @@ import { ClaimBadge } from "./markdown/ClaimBadge";
  * DELIBERATELY UNANIMATED. After 55,000 words and every animated surface before it, stillness is
  * the strongest effect left. The ask should not perform.
  *
- * Content is §15.1 (what Firefly needs) and §10.1.2 (the tier recommendation), with the owner
+ * Content is the what the campaign must provide section (what Firefly needs) and the scope levels compared section (the tier recommendation), with the owner
  * column. Nothing here is new.
  */
 
-/** §15.1, verbatim. The `owner` field is carried here; its register was retired. */
+/** the what the campaign must provide section, verbatim. The `owner` field is carried here; its register was retired. */
 const DEPENDENCIES: { icon: typeof UserCheck; text: string; longLead?: boolean }[] = [
   { icon: UserCheck, text: "One named counterpart with authority to approve content" },
   {
@@ -29,7 +29,7 @@ const DEPENDENCIES: { icon: typeof UserCheck; text: string; longLead?: boolean }
   { icon: Camera, text: "Ground team asset uploads: daily photographs and video from the trail" },
   {
     icon: Scale,
-    text: "Appointment of the compliance reviewer (§12.5.5) — the long-lead item, needed in Phase −1",
+    text: "Appointment of the compliance reviewer (the compliance sign-off gate section) — the long-lead item, needed in Phase −1",
     longLead: true,
   },
   { icon: FileText, text: "The verified expenditure ceiling from the gazette schedule" },
@@ -82,7 +82,7 @@ export function DecisionPanel() {
             <h3 className="t-label font-black text-muted">
               What Firefly needs from the campaign
             </h3>
-            <span className="t-label text-muted font-mono">§15.1</span>
+            <span className="t-label text-muted font-mono">the what the campaign must provide section</span>
           </div>
 
           <ol className="space-y-2.5">

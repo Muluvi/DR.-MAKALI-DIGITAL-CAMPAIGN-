@@ -12,7 +12,7 @@ function formatKSh(value: number): string {
 }
 
 /**
- * County fiscal and audit record (§3.3.7). Server component — the chart pairing this
+ * County fiscal and audit record (the county money and the audit record section). Server component — the chart pairing this
  * table against the resource envelope (Phase 6d) lives in FiscalAuditBlock, dynamically
  * imported alongside it.
  */

@@ -8,7 +8,7 @@ import { useSectionIndex } from "./SectionNumberMap";
 /**
  * Every measurement surface in the document, in one place, at the top of the measurement framework.
  *
- * The proposal's headline indicators are §11.1 and §11.1.3, and its objectives §4. But eight further KPI
+ * The proposal's headline indicators are the headline scorecards section and the indicator framework, anchored to the vote threshold section, and its objectives are the strategic-objectives section. But eight further KPI
  * blocks stay with the work they measure — earned media, accessibility, the offline layer,
  * volunteers, coalitions, analytics benchmarks, the message lab, the tracker — because a target
  * is only readable beside the thing it is a target for.
@@ -22,7 +22,7 @@ const KPI_HEADING = /\bKPIs?\b|^Key metrics/i;
 
 export function ObjectivesIndex() {
   const sections = useSectionIndex();
-  // §11.1.3, the indicator framework, sits in this section itself — an index of what is elsewhere
+  // the indicator framework, anchored to the vote threshold section, the indicator framework, sits in this section itself — an index of what is elsewhere
   // should not list the thing sitting three headings above it.
   const items = React.useMemo(
     () => sections.filter((s) => s.tabId !== "measurement" && KPI_HEADING.test(s.title)),

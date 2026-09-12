@@ -1,4 +1,4 @@
-// Campaign stages from §9.1 (the implementation roadmap), one colour per
+// Campaign stages from the phasing, from engagement to the election period section (the implementation roadmap), one colour per
 // stage, reused across the timeline, phase-scoped charts and section headers.
 export interface Phase {
   id: string;

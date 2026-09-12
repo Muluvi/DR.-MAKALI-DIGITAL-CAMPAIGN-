@@ -9,7 +9,7 @@ interface LedgerChartDatum {
 }
 
 /**
- * County budget lines, §3.3.4. Was a Recharts horizontal BarChart.
+ * County budget lines, the what the governorship controls, and what it is worth section. Was a Recharts horizontal BarChart.
  *
  * The formatted figure is printed against every bar rather than held in a tooltip, because the
  * figure is the point: a reader comparing allocations should not have to hover eight bars to

@@ -15,7 +15,7 @@ export interface PathPoint {
 }
 
 /**
- * The route to the win threshold, ward by ward — §3.4.3. Was a Recharts ComposedChart.
+ * The route to the win threshold, ward by ward — the four routes to the threshold, with the working shown section. Was a Recharts ComposedChart.
  *
  * Two readings on one plot, and they do different jobs: the columns are each ward's own register,
  * the line is the running total, and the dashed rule is the threshold the line has to cross. The

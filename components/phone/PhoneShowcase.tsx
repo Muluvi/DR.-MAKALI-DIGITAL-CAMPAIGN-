@@ -28,7 +28,7 @@ import { YouTubeScreen } from "./screens/YouTubeScreen";
 /**
  * Seven channels, one phone.
  *
- * §3.6 splits the electorate into a connected minority and an offline majority and argues the
+ * the channel reach and the digital ceiling section splits the electorate into a connected minority and an offline majority and argues the
  * campaign has to run on both. This is that argument as an object you can turn over: the same
  * handset, the campaign already on every screen the county actually uses — ending on the USSD
  * dialog, which reaches more voters than all six apps put together.

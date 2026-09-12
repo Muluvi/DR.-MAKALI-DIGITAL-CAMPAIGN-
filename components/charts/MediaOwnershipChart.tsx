@@ -16,7 +16,7 @@ export interface StationBar {
 }
 
 /**
- * §3.7.1 — the Kamba-language radio landscape, as position rather than length.
+ * the who owns the Kamba-language stations, and who they favour section — the Kamba-language radio landscape, as position rather than length.
  *
  * This was a horizontal bar chart whose own axis label read "Reach (qualitative read, not
  * measured)". Drawing a qualitative 1–3 tier as a continuous bar length asserts a precision the

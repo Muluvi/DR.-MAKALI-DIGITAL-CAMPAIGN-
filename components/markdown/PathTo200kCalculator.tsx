@@ -8,7 +8,7 @@ import { Calculator, CheckCircle2, AlertTriangle, TrendingUp, Compass, Layers, A
 import { ALL_WARDS, CONSTITUENCIES, COUNTY_TOTAL_WARDS } from "../../data/ward-register";
 
 /**
- * §3.4.3 — the four structural paths to ~200,000, showing the working.
+ * the four routes to the threshold, with the working shown section — the four structural paths to ~200,000, showing the working.
  *
  * Every figure is DERIVED from data/ward-register.json. Nothing is typed in, which matters
  * here more than anywhere else on the site: this component is the proposal's central
@@ -18,9 +18,9 @@ import { ALL_WARDS, CONSTITUENCIES, COUNTY_TOTAL_WARDS } from "../../data/ward-r
  * underneath them — which is exactly the failure mode "showing the working" exists to prevent.
  */
 
-/** 2022 winning total (Malombe), §8.12. The benchmark every path is measured against. */
+/** 2022 winning total (Malombe), the workstream 11 — The data layer section. The benchmark every path is measured against. */
 const WINNING_TOTAL_2022 = 198004;
-/** The round benchmark §3.4.3 states the paths against. */
+/** The round benchmark the four routes to the threshold, with the working shown section states the paths against. */
 const TARGET_THRESHOLD = 200000;
 
 const byId = (id: string) => {
@@ -61,7 +61,7 @@ const PATH_DEFS: CoalitionPath[] = [
     strategicVerdict:
       "Combining the home base with the county's largest southern constituency and the peri-urban west forms a contiguous coalition that clears the threshold with the widest margin of any path.",
     tacticalRequirement:
-      "Requires breaking into Kitui South, which §3.4.5 identifies as critical-deficit territory.",
+      "Requires breaking into Kitui South, which the where he is not yet known, and whether it matters section identifies as critical-deficit territory.",
   },
   {
     id: "pathC",

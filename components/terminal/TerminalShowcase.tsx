@@ -91,7 +91,7 @@ export function TerminalShowcase() {
             <div className="flex items-center gap-2 mb-1">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span className="t-label font-mono text-muted font-bold">
-                Section 8.8.1 Physical Hardware Model
+                Physical hardware model
               </span>
             </div>
             <h3 className="font-serif text-lg sm:text-xl font-bold text-ink">
@@ -104,7 +104,7 @@ export function TerminalShowcase() {
           </div>
         </div>
         <p className="text-sm text-ink/80 mt-3 leading-relaxed">
-          While §3.6 models the connected voter’s smartphone, this terminal models the operational hardware deployed across Kitui’s 40 wards. 
+          While the phone showcase models the connected voter’s smartphone, this terminal models the operational hardware deployed across Kitui’s 40 wards. 
           Each of the <strong>40 Ward Coordinators</strong> supervising <strong>400 Ward Captains</strong> uses this protocol tree to feed ground intelligence back into the central campaign war room.
         </p>
       </div>

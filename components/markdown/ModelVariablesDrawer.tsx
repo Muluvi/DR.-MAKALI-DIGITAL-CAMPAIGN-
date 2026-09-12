@@ -33,7 +33,7 @@ const MODEL_VARIABLES: ModelVariable[] = [
   { variable: "whatsapp_group_member", description: "Campaign group member", source: "Campaign", type: "Binary", format: "0/1" },
   { variable: "volunteer_status", description: "Sign-up status", source: "Campaign", type: "Categorical", format: "None/Inactive/Active" },
   { variable: "donor_status", description: "Donation history", source: "Campaign", type: "Categorical", format: "None/One-time/Recurring" },
-  { variable: "field_contact_outcome", description: "Canvass result (Section 8.9)", source: "Field team", type: "Categorical", format: "Support/Undecided/Oppose/No contact", highlight: true },
+  { variable: "field_contact_outcome", description: "Canvass result, from the field-to-digital loop", source: "Field team", type: "Categorical", format: "Support/Undecided/Oppose/No contact", highlight: true },
   { variable: "support_score", description: "Predicted support (output)", source: "Model", type: "Continuous", format: "0–1" },
   { variable: "turnout_score", description: "Predicted turnout (output)", source: "Model", type: "Continuous", format: "0–1" },
 ];
@@ -84,7 +84,7 @@ export default function ModelVariablesDrawer() {
             <div>
               <div className="flex items-center gap-2 flex-wrap">
                 <h4 className="font-serif text-sm sm:text-base font-bold text-ink">
-                  Model Variables Dictionary (§8.13.4)
+                  Model variables dictionary
                 </h4>
                 <span className="t-micro font-bold px-2 py-0.5 rounded-full bg-accent/10 text-accent">
                   23 Verified Features
@@ -241,7 +241,7 @@ export default function ModelVariablesDrawer() {
       {/* Footer info strip */}
       <div className="px-3.5 py-2.5 bg-paper/50 border-t border-line/60 flex items-center justify-between text-muted t-micro">
         <span>Showing {filtered.length} of 23 variables</span>
-        <span className="font-mono">Section 8.13.4 Tech Spec</span>
+        <span className="font-mono">Model variables — tech spec</span>
       </div>
     </div>
   );

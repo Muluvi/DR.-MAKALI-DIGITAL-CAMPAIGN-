@@ -9,9 +9,9 @@ const WORKINGS: Record<string, { title: string; inputs: string[]; result: string
   "win-threshold": {
     title: "How the ~200,000-vote threshold is derived",
     inputs: [
-      "2022 winning total, Kitui Governor (Malombe, Wiper) — Section 3.3.3: 198,004 votes",
-      "Registered voters, Kitui County, 2022 — Section 3.3.3: 532,758",
-      "Approximate 2022 turnout — Section 3.3.3: ~62%",
+      "2022 winning total, Kitui Governor (Malombe, Wiper) — the 2022 baseline, ward by ward section: 198,004 votes",
+      "Registered voters, Kitui County, 2022 — the 2022 baseline, ward by ward section: 532,758",
+      "Approximate 2022 turnout — the 2022 baseline, ward by ward section: ~62%",
     ],
     result: "198,004 actual winning votes, rounded up to an approximate working target of 200,000 for KPI-setting.",
   },

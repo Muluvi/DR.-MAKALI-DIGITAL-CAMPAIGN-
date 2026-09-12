@@ -8,7 +8,7 @@ function formatItemValue(value: string | number, unit: string): string {
   return typeof value === "number" ? `${value.toLocaleString()} ${unit}` : `${value}`;
 }
 
-/** Drought and food security (§3.3.8). Server component, no chart. */
+/** Drought and food security (the drought, food security and climate pressure section). Server component, no chart. */
 export function DroughtFoodSecurityPanel() {
   return (
     <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">

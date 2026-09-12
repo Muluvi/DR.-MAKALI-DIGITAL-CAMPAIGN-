@@ -11,7 +11,7 @@ export interface PlatformDatum {
 }
 
 /**
- * Platform reach, §8.6. Was a Recharts horizontal BarChart with a hover tooltip.
+ * Platform reach, the workstream 5 — Platform tactics and paid media section. Was a Recharts horizontal BarChart with a hover tooltip.
  *
  * The tooltip is now the stable inspect panel beneath the chart (F-17), bound to click and focus,
  * so the note behind each platform is reachable by tap and by keyboard rather than by hover — and

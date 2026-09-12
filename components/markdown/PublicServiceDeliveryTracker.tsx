@@ -123,7 +123,7 @@ export function PublicServiceDeliveryTracker() {
       <div className="px-4 py-2.5 bg-gold/[0.06] border-b border-gold/25 flex items-start gap-2">
         <Info size={13} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
         <p className="t-small text-ink leading-relaxed">
-          <strong>Interface preview.</strong> The tracker described in §8.2 has not been built &mdash; §8.2.6 sets out
+          <strong>Interface preview.</strong> The tracker described in the workstream 1 — Owned platforms and the service-delivery tracker section has not been built &mdash; the build section sets out
           its build and cost. Every entry below is illustrative, written to show the intake format and the
           verification protocol. No citizen report has been received and no query has been raised with the county.
         </p>

@@ -11,7 +11,7 @@ import { useMotionPreset } from "../../hooks/useMotionPreset";
 import { STAGGER } from "../../lib/motion";
 
 /**
- * §8.15.2's targets against the industry bands they are set relative to.
+ * the key metrics and benchmarks section's targets against the industry bands they are set relative to.
  *
  * The table gives a global benchmark and a campaign target in adjacent columns and leaves the
  * reader to hold eight pairs of numbers in their head. What it never shows is the relationship:

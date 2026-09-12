@@ -2,7 +2,7 @@ import { MUI_BASIN_FACTS } from "../../data/mui-basin";
 import { TierBadge } from "./TierBadge";
 import { ProvenanceLine } from "./ProvenanceLine";
 
-/** The Mui Basin coal question (§3.3.9). Server component, no chart — qualitative record. */
+/** The Mui Basin coal question (the mui Basin coal and the displaced communities section). Server component, no chart — qualitative record. */
 export function MuiBasinPanel() {
   return (
     <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">

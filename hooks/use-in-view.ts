@@ -18,7 +18,7 @@ interface Options {
  * that only wants to know whether it is on screen. This is the version for components that want
  * the answer and nothing else — count-ups, chart mounts, lazy figures.
  *
- * `once: false` is supported so a surface can deliberately re-fire on re-entry (§3 of the brief),
+ * `once: false` is supported so a surface can deliberately re-fire on re-entry,
  * but it is not the default: a counter that resets every time the reader scrolls back past it
  * reads as a glitch on the fourth pass, not as polish.
  */

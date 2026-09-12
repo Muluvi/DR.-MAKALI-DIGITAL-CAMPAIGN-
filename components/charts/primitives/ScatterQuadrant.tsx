@@ -20,7 +20,7 @@ export interface QuadrantMark extends Mark {
  * one of them and a tap works the same as a click. They are positioned in percentages over the
  * plot rather than drawn inside the SVG, which keeps the point label at a real font size.
  *
- * Where one axis is qualitative — as it is in §3.3.2, where fiscal credibility is a judgement and
+ * Where one axis is qualitative — as it is in the field he is running against section, where fiscal credibility is a judgement and
  * only the preference axis is measured — the axis says so in its own label. A chart that plots a
  * judgement against a measurement without saying which is which is the kind of thing an economist
  * catches, and it costs more than it buys.

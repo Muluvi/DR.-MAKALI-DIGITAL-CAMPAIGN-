@@ -214,7 +214,7 @@ const LEGACY_IDS: Record<string, string> = {
   "ask-sec-9-3-7": "assumptions-sec-what-the-campaign-must-provide",
   "assumptions-sec-15-1": "assumptions-sec-what-the-campaign-must-provide",
   "assumptions-sec-15-2": "assumptions-sec-regulatory-guidance-still-outstanding",
-  "assumptions-sec-15-3": "assumptions-sec-assumptions-this-proposal-rests-on",
+  "assumptions-sec-15-3": "assumptions-sec-assumptions-the-plan-rests-on",
   "audiences-sec-5-1": "audiences-sec-the-six-voter-segments",
   "audiences-sec-5-1-1": "audiences-sec-the-rural-agrarian-smallholder-baseline",
   "audiences-sec-5-1-2": "audiences-sec-the-agro-pastoralist-arid-zone-livestock-keepers",

@@ -36,7 +36,7 @@ const ETHICAL_COMMITMENTS: EthicalCommitment[] = [
   {
     id: "eth-3",
     category: "Data Storage & Privacy",
-    ruleName: "§12.5.5 compliance gate on voter-file processing",
+    ruleName: "the compliance sign-off gate section compliance gate on voter-file processing",
     statutoryBasis: "ODPC Voter Register Guidance 2026",
     campaignStandard: "No voter-file predictive modeling is deployed until independent Kenyan legal counsel certifies lawful basis. Operates on aggregate ward statistics as fallback.",
     penaltyForBreach: "Model frozen automatically by Data Governance Owner without commercial sign-off.",

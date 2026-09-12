@@ -15,7 +15,7 @@ export interface TimelinePoint {
 }
 
 /**
- * §3.3.6 — the winning total across election cycles, as a trajectory.
+ * the three election cycles, and the results in dispute section — the winning total across election cycles, as a trajectory.
  *
  * This was a bar chart with `year` on the x-axis. Bars compare magnitudes side by side; they
  * cannot show direction of travel, which is the entire point here. The bar Dr. Mulu has to clear

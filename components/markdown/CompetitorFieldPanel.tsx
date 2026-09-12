@@ -1,9 +1,9 @@
 import { CONTENDERS, MALOMBE_TERM_LIMIT_QUESTION } from "../../data/competitors";
 
 /**
- * The wider competitor field (§3.3.10) — highest legal-risk section in the document.
+ * The wider competitor field (the each rival, and the legal ground to be careful on section) — highest legal-risk section in the document.
  * Server component, deliberately plain: no adverse claim appears here that is not already
- * established, sourced, elsewhere in this document (electoral history, §3.3.6), and every
+ * established, sourced, elsewhere in this document (electoral history, the three election cycles, and the results in dispute section), and every
  * contender without additional sourced material says so explicitly rather than being padded
  * with unsourced biography. Malombe's term-limit status is stated as an open question with
  * both readings, never as a conclusion.

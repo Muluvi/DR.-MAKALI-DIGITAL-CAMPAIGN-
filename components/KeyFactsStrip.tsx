@@ -16,7 +16,7 @@ import { DEFICIT_LATEST, LATEST_ROUND } from "../data/nomination-contest";
  *
  * This replaces a marquee, and the replacement is the point rather than a side effect. The
  * strip that stood here scrolled forever and carried six items, of which one was a rounded-up
- * population ("1.3M+") the document's own §6.2 contradicts, and three — a completed digital
+ * population ("1.3M+") the document's own the four strategic pillars section contradicts, and three — a completed digital
  * pilot, synced radio aircover, established coalition networks — described work as finished
  * that no section of the proposal claims has begun. A reader who checks any of those stops
  * trusting the ones they cannot check.
@@ -60,7 +60,7 @@ const FACTS = [
     icon: MessageSquare,
     figure: "120,000",
     claim: "consented SMS contacts by Phase 3 — the asset that compounds",
-    source: "§8.10.6 KPI ladder",
+    source: "the KPIs for the offline layer section KPI ladder",
   },
   {
     icon: MapPin,

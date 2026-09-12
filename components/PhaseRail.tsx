@@ -30,7 +30,7 @@ interface PhaseDetail {
   highlights: string[];
 }
 
-/** Quoted from §9.1. */
+/** Quoted from the phasing, from engagement to the election period section. */
 const DETAIL: Record<string, PhaseDetail> = {
   neg1: {
     id: "neg1",

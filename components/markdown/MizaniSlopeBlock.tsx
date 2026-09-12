@@ -14,7 +14,7 @@ const MizaniSlopeChart = dynamic(() => import("../charts/MizaniSlopeChart"), {
   loading: () => <ChartFallback />,
 });
 
-// §2.2 table. Ngilu has no June 2026 figure (she wasn't in that round), so her line
+// the governing constraint section table. Ngilu has no June 2026 figure (she wasn't in that round), so her line
 // starts null rather than an invented June value — the chart draws no segment before August.
 const DATA = [
   { survey: "Mizani Africa, June 2026", kasalu: 31.3, mulu: 20.2, wambua: 16.3, ngilu: null },

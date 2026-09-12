@@ -75,7 +75,7 @@ export function SplitText({
  *
  * All three were removed under docs/TRIAGE.md §5.3. Typewriter and text-scramble are both on the
  * pre-judged reject list for register: simulated typing, and characters randomising before they
- * settle, are theatre — and this document's §3.2 is an evidence standard, which is the worst
+ * settle, are theatre — and this document's the evidence standard: provenance and source tiers section is an evidence standard, which is the worst
  * possible content to put behind a decode effect. WordCycler rotated the section labels one at a
  * time, which hides five peers of six on a timer and encodes nothing the index does not already
  * say in full.

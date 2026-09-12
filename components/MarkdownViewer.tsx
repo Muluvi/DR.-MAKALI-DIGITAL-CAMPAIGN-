@@ -81,7 +81,7 @@ import { ProseFold } from "./markdown/ProseFold";
 
 const kituiCentralPopulationDispute = DISPUTED_FIGURES.find((d) => d.id === "kitui-central-2019-population")!;
 
-// §6.3's three operating conditions — matched by the start of each bolded lead
+// the six campaign themes section's three operating conditions — matched by the start of each bolded lead
 // sentence so the list item gets pull-quote emphasis without touching the wording.
 const GOVERNING_REALITY_TRIGGERS = [
   "Roughly 86% of Kitui residents are outside the internet-using population",
@@ -90,7 +90,7 @@ const GOVERNING_REALITY_TRIGGERS = [
 ];
 import { PHASES } from "../lib/phases";
 
-// §4.1's phase parts ("Phase −1: Nomination Sprint …", "Phase 0: …") don't start
+// the objectives for the nomination window section's phase parts ("Phase −1: Nomination Sprint …", "Phase 0: …") don't start
 // with a digit, so they never pick up a heading id from headingSlug — but they should still get
 // the matching phase colour on their left border instead of the generic gold accent.
 const PHASE_HEADING_PATTERN = /^Phase\s+(−1|-1|0|1|2|3)\s*:/i;
@@ -201,13 +201,14 @@ const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
 // section. Every key below now resolves to a heading that exists; a build-time check would be
 // the next step if this map grows again.
 const HEADING_INSERTS: Record<string, React.ReactNode> = {
-  // ---- Cover, summary, situation and approach (§1-§7) ---------------------------------
+  // ---- Situation, objectives, audiences, approach and messaging ----------------------
   "situation-sec-the-polling-gap-as-sourced": <PollingTrajectorySimulator />,
   // The scorecards are the objectives. What they do not carry is the eight indicator sets that
   // stayed with the work they measure — indexed beneath them rather than moved here.
   "measurement-sec-the-headline-scorecards": <ObjectivesIndex />,
   "situation-sec-the-nomination-contest-and-its-selection-mechanism": <NominationPathPanel />,
-  // The governing claim opens §6, ahead of the pillars and themes that rest on it.
+  // The governing claim opens the strategic approach, ahead of the pillars and themes that
+  // rest on it.
   "approach-sec-the-governing-claim-the-economist-governor": <EconomistGovernorThesis />,
   "situation-sec-the-field-he-is-running-against": (
     <>
@@ -216,7 +217,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
     </>
   ),
   "situation-sec-the-candidate-s-record": (
-    <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §3.3.1">
+    <SectionPortrait id="gesture-explaining" kicker="Candidate profile — the candidate's record section">
       One of Kenya&rsquo;s most consistent and authoritative voices on macroeconomic governance,
       fiscal discipline, and budget oversight.
     </SectionPortrait>
@@ -251,7 +252,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "situation-sec-mui-basin-coal-and-the-displaced-communities": <MuiBasinPanel />,
   "situation-sec-each-rival-and-the-legal-ground-to-be-careful-on": <CompetitorFieldPanel />,
   "situation-sec-the-number-of-votes-it-takes": <VoteFunnel />,
-  // §3.4.2 prints all 40 rows as a table and keeps them. What the ranked bars add is
+  // the 40 wards, ranked, and the 12 that carry most section prints all 40 rows as a table and keeps them. What the ranked bars add is
   // the shape: how steeply the register concentrates, and that twelve wards carry
   // 37.78% of it. Replaces WardRegisterTicker, which scrolled the same figures past
   // the reader — docs/TRIAGE.md §5.3.
@@ -259,7 +260,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "situation-sec-four-routes-to-the-threshold-with-the-working-shown": <PathTo200kCalculator />,
   "situation-sec-where-he-is-not-yet-known-and-whether-it-matters": <RecognitionDeficitOverlay />,
   "audiences-sec-the-six-voter-segments": <AudienceSegmentationMatrix />,
-  // §7.3 splits the electorate into a connected minority and an offline majority. The showcase is
+  // the language, register and dialect section splits the electorate into a connected minority and an offline majority. The showcase is
   // that argument as an object: one handset, the campaign on all seven channels, ending on the
   // USSD dialog that reaches more voters than the six apps together.
   "situation-sec-channel-reach-and-the-digital-ceiling": <PhoneShowcase />,
@@ -271,12 +272,12 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   ),
   "scope-platforms-sec-the-weekly-production-schedule": <CommunityScheduler />,
   "risk-sec-rapid-response-protocol-and-opposition-handling": <CounterMessagingGrid />,
-  // The ownership/alignment/tier table this chart plots, now §8.5.1 in the situation analysis.
+  // The ownership/alignment/tier table this chart plots, now the what accessibility means here section in the situation analysis.
   "situation-sec-who-owns-the-kamba-language-stations-and-who-they-favour": <MediaOwnershipBlock />,
 
-  // ---- Scope, roadmap, measurement, governance and risk (§8-§16) ----------------------
+  // ---- Scope, roadmap, measurement, governance, risk and the ask ---------------------
   "governance-sec-the-engagement-model-and-operating-rhythm": (
-    <SectionPortrait id="seated-grey-cropped" kicker="The engagement model — §12.1" flip>
+    <SectionPortrait id="seated-grey-cropped" kicker="The engagement model — the engagement model and operating rhythm section" flip>
       Firefly reports to a single named campaign-side counterpart.
     </SectionPortrait>
   ),
@@ -336,13 +337,13 @@ function buildComponents(tabId: TabId): Components {
               const headers = getTableHeaderTexts(children).map((h) => h.toLowerCase());
               const has = (text: string) => headers.some((h) => h.includes(text));
 
-              // §3.3.5 "National platform sizing" — replaced by the sorted bar chart
+              // the who lives here, and what they can reach online section "National platform sizing" — replaced by the sorted bar chart
               // (item 13), not kept alongside it.
               if (tabId === "situation" && has("platform") && has("kenya audience")) {
                 return <PlatformSizingBlock />;
               }
 
-              // §3.3.1 candidate-asset table — assertion/evidence/application becomes
+              // the candidate's record section candidate-asset table — assertion/evidence/application becomes
               // claim cards (item 21), replacing the table rather than sitting alongside it.
               if (tabId === "situation" && has("asset") && has("evidence") && has("digital application")) {
                 return <ClaimCards>{children}</ClaimCards>;
@@ -438,7 +439,7 @@ function buildComponents(tabId: TabId): Components {
               return <MarkdownParagraph tabId={tabId}>{children}</MarkdownParagraph>;
             },
             blockquote: ({ children }) => {
-              // The central narrative line (§8.12) gets the full pull-quote treatment;
+              // The central narrative line (the workstream 11 — The data layer section) gets the full pull-quote treatment;
               // every other blockquote (the ethics charter, etc.) keeps the standard styling.
               if (getDeepText(children).includes("Kitui has resources")) {
                 return <PullQuote>{children}</PullQuote>;
@@ -450,7 +451,7 @@ function buildComponents(tabId: TabId): Components {
               );
             },
             ul: ({ children }) => {
-              // §4 writes each operational commitment as six bolded fields in a fixed order —
+              // Each operational commitment is written as six bolded fields in a fixed order —
               // a table written as prose. Where that exact shape appears, lay it out as one;
               // every other list in the document is untouched.
               const fields = parseLabelledList(children);
@@ -583,7 +584,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
 
         {/* The ask closes the document, inside the prose flow. It used to sit in the footer
             chrome below a rule, next to the print widget — which framed a vendor's closing
-            request as one more piece of page tooling. §16 builds to it; it belongs there. */}
+            request as one more piece of page tooling. The closing section builds to it. */}
         {tabId === "nextsteps" && <DecisionPanel />}
       </div>
     </div>

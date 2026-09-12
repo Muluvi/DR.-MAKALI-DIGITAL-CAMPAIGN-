@@ -45,7 +45,7 @@ const LANDING = "cover";
  * 2.49 MB response was payload for the sections the reader was not looking at, and the
  * response was the largest asset on the page — heavier than every script put together. First
  * Contentful Paint was transfer-bound at 3.0s on a throttled mobile connection, against a
- * proposal whose own §8.1.1 calls 3G loading non-negotiable.
+ * proposal whose own the digital infrastructure, brand and civic content section calls 3G loading non-negotiable.
  *
  * Now each section is its own statically generated route carrying its own content and nothing
  * else. The section INDEX is still built from every file, because it is only headings and it
