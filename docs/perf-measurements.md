@@ -39,7 +39,7 @@ genuine finding of its own.
 This is emulation in a container, and emulated 4× CPU is a stand-in for a
 mid-range Android, not the thing itself.
 
-## Three passes
+## Five passes
 
 ### Pass 1 — the charting runtime on every route
 
@@ -118,6 +118,42 @@ It does not move INP and is not claimed to. Five settled runs on `/summary` give
 without — the same number either side. What it removes is work the document was
 doing for an answer it could get more cheaply.
 
+### Pass 5 — one text family
+
+Newsreader is no longer loaded. Montserrat sets body, headings, and everything
+the `.font-serif` utility used to set in the serif. The change is one token:
+`--font-serif` now points at the Montserrat stack, which carries all 98 call
+sites across 63 files without editing any of them. The display register survives
+as a voice distinct from body copy, distinguished by weight and tracking rather
+than by a second typeface — 95 of those sites already set their own weight and
+the other three carry at size.
+
+JetBrains Mono stays, deliberately. The monospace register is reserved for live
+field instrumentation, the brief names it as a voice rather than chrome, and
+setting a terminal in the body face would regress the TAC-40 and USSD components
+that the brief forbids regressing. It is not preloaded, so it costs nothing
+before first paint and appears only on routes that render instrumentation —
+which is why four routes below still show more than 75 kB of font.
+
+Emitted font files 17 → 11; 469 → 246 kB on disk.
+
+| | Three families | One |
+|---|---|---|
+| Mean transferred | 527 kB | **463 kB** |
+| Mean font bytes | 149 kB | **86 kB** |
+| Routes with LCP > 2.5 s | 5 | **1** |
+| Mean LCP | 1965 ms | 1948 ms |
+| Mean CLS | 0.003 | 0.002 |
+
+`/` (2.53 → 2.29 s) and `/cover` (2.50 → 2.28 s) both cross under budget.
+`/situation` at 2.94 s is the only route still over. Per-route LCP moves of
+±100 ms are inside the noise documented above; the byte reductions are the solid
+signal.
+
+Verified after the change that `.font-serif` headings, prose emphasis and body
+all resolve to Montserrat, and that the mono register still resolves to
+JetBrains Mono.
+
 ## Variance, and what the per-route table is worth
 
 The per-route figures above are one run each. Repeating them shows that is fine
@@ -130,9 +166,10 @@ for most routes and misleading for the heaviest one.
 
 `/summary` is stable to within 24 ms. `/situation` is not stable at all: the
 same interaction on the same build costs anywhere from 336 to 1328 ms, because
-work from page load is sometimes still running six seconds later. **Its 432 ms
-in the table is a lucky draw, not a typical result.** Any future claim about
-`/situation` needs repeated runs; a single number from that route means nothing.
+work from page load is sometimes still running six seconds later. Its 1312 ms in
+the final table is one draw from that spread and is no more typical than the
+432 ms an earlier revision reported. **Any claim about `/situation`'s INP needs
+repeated runs; a single number from that route means nothing.**
 
 ## Three hypotheses that were wrong
 
@@ -155,39 +192,41 @@ reverted rather than kept for appearances.
 
 | | Start | Now | Budget |
 |---|---|---|---|
-| Transferred | 704 kB | **527 kB** | ≤ 1.5 MB |
+| Transferred | 704 kB | **463 kB** | ≤ 1.5 MB |
 | JS | 420 kB | **300 kB** | ≤ 300 KB |
-| Fonts | 206 kB | **149 kB** | — |
-| LCP | 2285 ms | **1965 ms** | ≤ 2.5 s |
-| TBT | 2604 ms | **2115 ms** | — |
+| Fonts | 206 kB | **86 kB** | — |
+| LCP | 2285 ms | **1948 ms** | ≤ 2.5 s |
+| TBT | 2604 ms | **2017 ms** | — |
 | INP, settled | ~810 ms | **287 ms** | ≤ 200 ms |
 
-All means across the same twenty routes.
+All means across the same twenty routes. The INP figure excludes `/situation`,
+which is not stable enough to average — see the variance section above. Including
+it the mean is 338 ms.
 
-| Route | Transferred | JS | LCP | INP (settled) | CLS | Pass |
-|---|---|---|---|---|---|---|
-| `/` | 495 kB | 293 kB | 2.53 s | 288 ms | 0.002 | fail: LCP, INP |
-| `/approach` | 487 kB | 293 kB | 1.66 s | 256 ms | 0.012 | fail: INP |
-| `/assumptions` | 548 kB | 293 kB | 1.72 s | 296 ms | 0.002 | fail: INP |
-| `/audiences` | 495 kB | 293 kB | 1.71 s | 264 ms | 0.002 | fail: INP |
-| `/cover` | 492 kB | 293 kB | 2.50 s | 312 ms | 0.002 | fail: INP |
-| `/deliverables` | 489 kB | 293 kB | 1.71 s | 280 ms | 0.002 | fail: INP |
-| `/governance` | 576 kB | 293 kB | 2.00 s | 264 ms | 0.002 | fail: INP |
-| `/measurement` | 502 kB | 293 kB | 1.93 s | 264 ms | 0.002 | fail: INP |
-| `/messaging` | 586 kB | 293 kB | 2.05 s | 264 ms | 0.002 | fail: INP |
-| `/nextsteps` | 483 kB | 293 kB | 1.60 s | 280 ms | 0.002 | fail: INP |
-| `/objectives` | 482 kB | 293 kB | 1.52 s | 280 ms | 0.002 | fail: INP |
-| `/risk` | 531 kB | 293 kB | 2.02 s | 280 ms | 0.002 | fail: INP |
-| `/roadmap` | 494 kB | 293 kB | 1.88 s | 272 ms | 0.002 | fail: INP |
-| `/scope-data` | 514 kB | 293 kB | 2.03 s | 280 ms | 0.002 | fail: INP |
-| `/scope-ground` | 513 kB | 293 kB | 2.22 s | 312 ms | 0.000 | fail: INP |
-| `/scope-media` | 497 kB | 293 kB | 1.79 s | 256 ms | 0.002 | fail: INP |
-| `/scope-platforms` | 580 kB | 293 kB | 2.14 s | 304 ms | 0.002 | fail: INP |
-| `/situation` | 796 kB | 429 kB | 3.03 s | 432 ms | 0.000 | fail: JS, LCP, INP |
-| `/structure` | 488 kB | 293 kB | 1.64 s | 288 ms | 0.002 | fail: INP |
-| `/summary` | 487 kB | 293 kB | 1.61 s | 272 ms | 0.002 | fail: INP |
+| Route | Transferred | JS | Fonts | LCP | INP | CLS | Pass |
+|---|---|---|---|---|---|---|---|
+| `/` | 438 kB | 293 kB | 75 kB | 2.29 s | 312 ms | 0.002 | fail: INP |
+| `/approach` | 430 kB | 293 kB | 75 kB | 1.60 s | 248 ms | 0.002 | fail: INP |
+| `/assumptions` | 427 kB | 293 kB | 75 kB | 1.58 s | 280 ms | 0.002 | fail: INP |
+| `/audiences` | 438 kB | 293 kB | 75 kB | 1.72 s | 288 ms | 0.002 | fail: INP |
+| `/cover` | 435 kB | 293 kB | 75 kB | 2.28 s | 320 ms | 0.002 | fail: INP |
+| `/deliverables` | 431 kB | 293 kB | 75 kB | 1.70 s | 272 ms | 0.002 | fail: INP |
+| `/governance` | 519 kB | 293 kB | 142 kB | 1.98 s | 256 ms | 0.002 | fail: INP |
+| `/measurement` | 445 kB | 293 kB | 75 kB | 1.92 s | 336 ms | 0.000 | fail: INP |
+| `/messaging` | 529 kB | 293 kB | 142 kB | 2.24 s | 248 ms | 0.002 | fail: INP |
+| `/nextsteps` | 426 kB | 293 kB | 75 kB | 1.59 s | 272 ms | 0.002 | fail: INP |
+| `/objectives` | 424 kB | 293 kB | 75 kB | 1.49 s | 272 ms | 0.002 | fail: INP |
+| `/risk` | 474 kB | 293 kB | 90 kB | 2.14 s | 280 ms | 0.002 | fail: INP |
+| `/roadmap` | 436 kB | 293 kB | 75 kB | 1.86 s | 344 ms | 0.002 | fail: INP |
+| `/scope-data` | 456 kB | 293 kB | 75 kB | 2.08 s | 280 ms | 0.002 | fail: INP |
+| `/scope-ground` | 456 kB | 293 kB | 75 kB | 2.30 s | 320 ms | 0.000 | fail: INP |
+| `/scope-media` | 440 kB | 293 kB | 75 kB | 1.82 s | 272 ms | 0.002 | fail: INP |
+| `/scope-platforms` | 523 kB | 293 kB | 142 kB | 2.10 s | 272 ms | 0.002 | fail: INP |
+| `/situation` | 676 kB | 429 kB | 75 kB | 2.94 s | 1312 ms | 0.000 | fail: JS, LCP, INP |
+| `/structure` | 431 kB | 293 kB | 75 kB | 1.65 s | 280 ms | 0.002 | fail: INP |
+| `/summary` | 429 kB | 293 kB | 75 kB | 1.68 s | 288 ms | 0.002 | fail: INP |
 
-Failing: transferred 0/20 · JS 1/20 · LCP 2/20 · CLS 0/20 · INP 20/20.
+Failing: transferred 0/20 · JS 1/20 · LCP 1/20 · CLS 0/20 · INP 20/20.
 
 ## What is still outstanding
 
@@ -209,8 +248,8 @@ correctly so: it has charts, so it loads the chart runtime. It is also the
 heaviest DOM in the document at 9,981 nodes, which is why its settled INP
 (432 ms) is half again the next worst.
 
-**LCP on `/` (2.53 s) and `/situation` (3.03 s).** Both marginal, both now
-stable run to run.
+**LCP on `/situation`, 2.94 s.** The only route left over budget. `/` and
+`/cover` crossed under it in pass 5. All three are stable run to run now.
 
 **Load-time INP.** With the tap landing the instant the page reaches
 `networkidle`, `/situation` still measures 3312 ms and `/scope-ground` 1504 ms —
@@ -218,10 +257,8 @@ everything else is 248–384 ms. That is React flushing queued work when a
 discrete input arrives, and it is worth fixing separately: a reader who taps
 while the page is still settling waits three seconds on the longest route.
 
-**Three font families where the brief specifies one.** 149 kB of font remains.
-Reducing to one family would take most of that, and it changes how every heading
-and paragraph in the document looks. That is a typographic decision for the
-author, not a mechanical one, so it is recorded rather than taken.
+**Done, in pass 5.** One text family plus the instrumentation register. 86 kB of
+font remains as a mean, 75 kB on routes without instrumentation.
 
 **`Save-Data` and `prefers-reduced-motion`.** Not measured — there is no Tier 2
 dynamic import for them to skip yet.
