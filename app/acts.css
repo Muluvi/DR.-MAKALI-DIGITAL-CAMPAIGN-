@@ -1,0 +1,227 @@
+/*
+ * The act surface.
+ *
+ * The document theme is a paper metaphor: --paper, --ink, --card, a light ground with a dark
+ * toggle bolted on. That metaphor is what makes the proposal read as a filed report, so the act
+ * does not inherit it. Everything below is scoped to `.act`, which means the document routes are
+ * untouched and the two surfaces can coexist while the remaining acts are built.
+ *
+ * Dark is the default here because the act is cinematic and because <html> already ships with
+ * class="dark" from the root layout, so there is no unstyled flash to design around. The light
+ * variant is a real design rather than an inversion — the reader who prefers light gets a warm
+ * near-white ground, not a bleached version of the dark one.
+ */
+
+.act {
+  /* Dark — the default. A blue-black that has depth in it rather than OLED zero, because
+     full-bleed portraits and pinned charts sit on this ground and pure black flattens them. */
+  --act-void: oklch(0.08 0.018 265);
+  --act-ground: oklch(0.128 0.026 264);
+  --act-raise: oklch(0.175 0.030 262);
+  --act-hair: oklch(0.30 0.032 262);
+  --act-text: oklch(0.95 0.008 250);
+  --act-body: oklch(0.82 0.016 250);
+  --act-dim: oklch(0.66 0.020 250);
+
+  /* Wiper royal blue and earth red, lifted to carry on a dark ground. Same hues as the
+     document tokens; only the lightness moves. */
+  --act-blue: oklch(0.72 0.152 258);
+  --act-blue-deep: oklch(0.46 0.20 264);
+  --act-ember: oklch(0.70 0.175 40);
+  --act-ember-deep: oklch(0.52 0.17 38);
+
+  --act-gutter: 1.25rem;
+  --act-measure: 38rem;
+
+  background: var(--act-ground);
+  color: var(--act-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* The light variant. Warm rather than clinical, so the portraits and the blue still read. */
+html:not(.dark) .act {
+  --act-void: oklch(0.955 0.006 255);
+  --act-ground: oklch(0.985 0.004 255);
+  --act-raise: oklch(1 0 0);
+  --act-hair: oklch(0.885 0.012 255);
+  --act-text: oklch(0.20 0.035 258);
+  --act-body: oklch(0.36 0.028 255);
+  --act-dim: oklch(0.50 0.024 255);
+  --act-blue: oklch(0.42 0.20 264);
+  --act-blue-deep: oklch(0.34 0.21 265);
+  --act-ember: oklch(0.50 0.17 38);
+  --act-ember-deep: oklch(0.44 0.17 36);
+}
+
+@media (min-width: 768px) {
+  .act { --act-gutter: 2.5rem; }
+}
+
+/* ---------------------------------------------------------------------------------------
+   Typography
+   --------------------------------------------------------------------------------------- */
+
+/* The reading measure, without the prose typography. Anything that needs to line up with the
+   text column but is not text — the evidence footer, a caption rail — uses this. */
+.act-measure {
+  max-width: var(--act-measure);
+  margin-inline: auto;
+  padding-inline: var(--act-gutter);
+}
+
+.act-prose {
+  max-width: var(--act-measure);
+  margin-inline: auto;
+  padding-inline: var(--act-gutter);
+}
+
+.act-prose > * + * { margin-top: 1.35em; }
+
+.act-prose p {
+  font-family: var(--font-serif);
+  font-size: clamp(1.0625rem, 0.98rem + 0.42vw, 1.25rem);
+  line-height: 1.72;
+  color: var(--act-body);
+}
+
+.act-prose strong {
+  color: var(--act-text);
+  font-weight: 600;
+}
+
+.act-prose em { font-style: italic; }
+
+/* The scene heading. No number, no rule, no anchor link — it is a title, not an entry in a
+   table of contents. */
+.act-h1 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  font-size: clamp(2rem, 1.35rem + 3.1vw, 3.75rem);
+  color: var(--act-text);
+  text-wrap: balance;
+}
+
+.act-h2 {
+  font-family: var(--font-sans);
+  font-weight: 650;
+  letter-spacing: -0.012em;
+  line-height: 1.2;
+  font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.6rem);
+  color: var(--act-text);
+  text-wrap: balance;
+  margin-top: 2.75em !important;
+}
+
+.act-kicker {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--act-blue);
+}
+
+.act-prose ul { list-style: none; padding: 0; }
+.act-prose li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.0625rem, 0.98rem + 0.42vw, 1.25rem);
+  line-height: 1.68;
+  color: var(--act-body);
+}
+.act-prose li + li { margin-top: 0.85em; }
+.act-prose li::before {
+  content: "";
+  position: absolute;
+  left: 0.15rem;
+  top: 0.72em;
+  width: 0.4rem;
+  height: 1px;
+  background: var(--act-blue);
+}
+
+/* ---------------------------------------------------------------------------------------
+   Tables — the two that survive. Scroll their own overflow; never the page.
+   --------------------------------------------------------------------------------------- */
+
+/*
+ * Tables break out of the reading measure.
+ *
+ * Both surviving tables have five columns. Squeezed into the 38rem prose measure the last column
+ * clipped at the container edge, which reads as broken rather than as scrollable — a reader sees
+ * a cut-off word, not an invitation to swipe. So the wrapper escapes its parent's width and
+ * centres on the viewport instead.
+ *
+ * The width is clamped against --act-vw rather than 100vw. On desktop 100vw includes the
+ * classic scrollbar, so a full-width breakout overflows the body by the scrollbar's width and
+ * puts a horizontal scroll on the whole page — the exact failure this act must not have.
+ * --act-vw is set from the real client width by ActShell.
+ */
+.act-tablewrap {
+  width: min(52rem, calc(var(--act-vw, 100vw) - 2 * var(--act-gutter)));
+  margin-inline: auto;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.act-tablescroll {
+  overflow-x: auto;
+  border: 1px solid var(--act-hair);
+  border-radius: 0.75rem;
+  background: var(--act-raise);
+  -webkit-overflow-scrolling: touch;
+  /* A fade on the trailing edge, so a table that does still scroll says so. */
+  mask-image: linear-gradient(to right, #000 calc(100% - 2rem), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 2rem), transparent 100%);
+}
+/* No fade once everything fits — the mask would dim a column for no reason. */
+@media (min-width: 900px) {
+  .act-tablescroll { mask-image: none; -webkit-mask-image: none; }
+}
+.act-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+}
+.act-table th {
+  text-align: left;
+  padding: 0.85rem 1rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--act-dim);
+  border-bottom: 1px solid var(--act-hair);
+  white-space: nowrap;
+}
+.act-table td {
+  padding: 0.85rem 1rem;
+  color: var(--act-body);
+  border-bottom: 1px solid color-mix(in oklch, var(--act-hair) 55%, transparent);
+  vertical-align: top;
+}
+.act-table tr:last-child td { border-bottom: 0; }
+.act-table td strong { color: var(--act-text); font-weight: 700; }
+
+/* ---------------------------------------------------------------------------------------
+   Motion — every entrance is opt-out, and the opt-out is the media query, not a prop.
+   --------------------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .act *,
+  .act *::before,
+  .act *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* A pinned panel with no scroll distance to travel is a panel the reader cannot leave.
+     Unpin it and let the page scroll normally. */
+  .act-pin { position: static !important; height: auto !important; }
+  .act-pin-track { height: auto !important; }
+}

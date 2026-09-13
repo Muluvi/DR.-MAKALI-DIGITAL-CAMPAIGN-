@@ -16,8 +16,8 @@ export function CompetitorFieldPanel() {
         <h4 className="font-serif text-sm font-bold text-ink">The Wider Field</h4>
       </div>
       <p className="t-small text-muted mb-4 leading-relaxed pl-3.5">
-        Every entry attributes what it states to a specific, already-cited part of this document. Nothing here asserts
-        wrongdoing; nothing here is sourced to a single partisan outlet.
+        Every entry attributes what it states to a named source. Nothing here asserts wrongdoing; nothing here
+        rests on a single partisan outlet.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">

@@ -275,7 +275,7 @@ export function GeographicZoneMatrix() {
           <p className="t-small text-muted flex items-start gap-1.5">
             <AlertTriangle size={12} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
             <span>
-              Section 3.5 groups the county by sub-county; the IEBC register is published by constituency, and the two do
+              The zones are grouped by sub-county; the IEBC register is published by constituency, and the two do
               not nest. Zone totals above sum whole constituencies.{" "}
               {UNASSIGNED.map((c) => `${c.name} (${fmt(c.voters)})`).join(", ")}{" "}
               {UNASSIGNED.length === 1 ? "is" : "are"} not named in any of the three zones and{" "}
