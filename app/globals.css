@@ -960,6 +960,17 @@ table,
   contain-intrinsic-size: auto 420px;
 }
 
+/* The full index mounts all 241 rows the moment it opens — about 4,600 nodes and 241 icons
+   into a document that then has to restyle and lay out every one of them. Measured on
+   /situation at 4x CPU that is the single most expensive interaction in the document. Six rows
+   are on screen; the rest are scrolled to. Containment lets the browser skip layout and paint
+   for the rest until they are, which costs nothing in JavaScript and changes nothing the reader
+   sees. 50px matches the row's own min-height, so the scrollbar is right before first measure. */
+.toc-row {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 50px;
+}
+
 
 /* ---------------------------------------------------------------------- */
 /* Focus                                                                  */
@@ -1058,7 +1069,8 @@ textarea:focus-visible {
 @media print {
   .cv-auto-section,
   .cv-auto-hero,
-  .cv-auto-strip {
+  .cv-auto-strip,
+  .toc-row {
     content-visibility: visible;
   }
 }

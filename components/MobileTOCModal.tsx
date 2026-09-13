@@ -1,11 +1,14 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, Route, CalendarClock, Workflow, ListChecks, Handshake, Radio } from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
 import { readingMinutes } from "../hooks/useReadingProgress";
 import type { SectionItem } from "../lib/section-index";
+
+/** Rows painted inside the opening tap; the rest arrive on the next frame. */
+const FIRST_PAINT_ROWS = 24;
 
 const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
   cover: BookLock,
@@ -77,6 +80,36 @@ export function MobileTOCModal({
   // so they never drift from the document again the way the old "26 Sections" figure did.
   const subSectionCount = useMemo(() => sections.filter((s) => s.level === 2).length, [sections]);
   const partCount = useMemo(() => sections.filter((s) => s.level === 3).length, [sections]);
+
+  // Progressive mount, not virtualisation.
+  //
+  // All 241 rows used to be created inside the tap that opens the sheet: about 4,600 nodes and
+  // 241 icons, styled and laid out before the browser could paint anything. Measured at 4x CPU
+  // that made this the most expensive interaction in the document — 5.4s on /situation, and
+  // most of a second everywhere else.
+  //
+  // About six rows fit the scroller, so a screenful is painted first and the remainder appended
+  // on the next frame. Nothing is hidden and nothing is dropped: the full index is mounted and
+  // searchable a frame later, long before a thumb reaches the bottom of the first screen. The
+  // budget resets whenever the visible set changes, so typing a query is as cheap as opening.
+  const [rowBudget, setRowBudget] = useState(FIRST_PAINT_ROWS);
+
+  // Adjusted during render rather than in an effect, which is React's own guidance for state
+  // that has to reset when its inputs change, and avoids the extra pass an effect would cost.
+  const budgetKey = `${isOpen}|${searchQuery}|${selectedTabFilter}`;
+  const [lastBudgetKey, setLastBudgetKey] = useState(budgetKey);
+  if (budgetKey !== lastBudgetKey) {
+    setLastBudgetKey(budgetKey);
+    setRowBudget(FIRST_PAINT_ROWS);
+  }
+
+  useEffect(() => {
+    if (!isOpen || rowBudget >= filteredSections.length) return;
+    const id = requestAnimationFrame(() => setRowBudget(filteredSections.length));
+    return () => cancelAnimationFrame(id);
+  }, [isOpen, rowBudget, filteredSections.length]);
+
+  const visibleSections = filteredSections.slice(0, rowBudget);
 
   if (!isOpen) return null;
 
@@ -238,7 +271,7 @@ export function MobileTOCModal({
           {/* Section List */}
           <div className="flex-1 overflow-y-auto p-2.5 sm:p-4 divide-y divide-line/40 overscroll-contain">
             {filteredSections.length > 0 ? (
-              filteredSections.map((item) => {
+              visibleSections.map((item) => {
                 const Icon = TAB_ICONS[item.tabId] ?? Compass;
                 const isCurrentTab = activeTab === item.tabId;
 
@@ -249,7 +282,7 @@ export function MobileTOCModal({
                       onSelectSection(item.id, item.tabId);
                       onClose();
                     }}
-                    className="fx-press fx-focus w-full py-3 px-2 flex items-center justify-between text-left hover:bg-paper/70 active:bg-paper rounded-xl transition-all group cursor-pointer min-h-[50px]"
+                    className="toc-row fx-press fx-focus w-full py-3 px-2 flex items-center justify-between text-left hover:bg-paper/70 active:bg-paper rounded-xl transition-all group cursor-pointer min-h-[50px]"
                   >
                     <div className={`flex items-start gap-2.5 sm:gap-3 min-w-0 pr-2 ${item.level === 3 ? "pl-3 sm:pl-5" : ""}`}>
                       <span className="font-mono t-micro tabular-nums text-accent shrink-0 mt-0.5 min-w-[38px]">
