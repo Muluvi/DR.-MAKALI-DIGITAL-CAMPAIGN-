@@ -1,4 +1,4 @@
-# Performance measurements — Phase 5, pass 1
+# Performance measurements — Phase 5
 
 Measured numbers only. Anything not measured says so.
 
@@ -15,125 +15,155 @@ Chromium through the Chrome DevTools Protocol.
 | Cache | disabled — every load is cold |
 | Bytes | `Network.loadingFinished.encodedDataLength`, i.e. over the wire |
 | LCP / CLS / FCP / TBT | `PerformanceObserver`, buffered |
-| INP | the longest `event` entry carrying an `interactionId`, after one real tap |
+| INP | longest `event` entry with an `interactionId`, after one real tap |
 
-The tap is on the first visible button, which is the same control before and
-after on all twenty routes — the index opener on eighteen, "Full index" on `/`
-and `/cover`. One run per route unless stated.
+The tap is on the index opener, the same control on every route and in every
+run.
 
-**Not measured:** a real handset, a real Kitui network, and any third-party
-lab. This is emulation on a container, and emulated CPU throttling is not a
-mid-range Android.
+### INP is measured twice, and the difference matters
 
-## Pass 1 — the charting runtime
+An earlier revision of this document reported INP between 768 and 3712 ms.
+Those numbers were taken by tapping the instant `networkidle` fired, so the tap
+landed while React still had queued work from page load. That measures the page
+still settling, not the cost of the interaction.
+
+On `/situation`: tapping immediately gives 3096 ms, with 2645 ms of it inside
+pointerdown dispatch. Tapping six seconds later gives 328 ms, with pointerdown
+processing at 7 ms. Both are real — a reader who taps during load does wait —
+but only the second is the interaction's own cost, and the budget is about
+interactions over the page's life. The table below reports the settled figure
+and says so. The load-time figure is kept separately, below, because it is a
+genuine finding of its own.
+
+**Not measured:** a real handset, a real Kitui network, or any third-party lab.
+This is emulation in a container, and emulated 4× CPU is a stand-in for a
+mid-range Android, not the thing itself.
+
+## Three passes
+
+### Pass 1 — the charting runtime on every route
 
 `components/StrategicAids.tsx` is imported by both `ClientPage` and
 `MarkdownViewer`, so it is in the first load on all nineteen routes. It carried
 a dead `recharts` import, two dead chart-component imports, and a dead
-`export { ChartComponent }` re-export. A re-export is a static import, so that
-one line alone put the charting runtime in the shared chunk and defeated the
+`export { ChartComponent }` re-export — a re-export being a static import, that
+line alone put the charting runtime in the shared chunk and defeated the
 `next/dynamic` boundary on all eleven chart blocks under `components/markdown`.
+`DataVisualizations` and `VoterProjectionsChart` do use recharts, render only on
+the landing tab, and already sat inside a `LazyMount`; both now load through the
+same dynamic boundary and `ChartFallback` the markdown blocks use.
 
-`DataVisualizations` and `VoterProjectionsChart` do use recharts, render only
-on the landing tab, and already sat inside a `LazyMount` — markup deferred,
-code not. Both now load through the same dynamic boundary and `ChartFallback`
-the markdown blocks use.
+First Load JS 421 → 292 kB gzipped. Over the wire, JS 420 → 300 kB as a mean.
+LCP, TBT and INP did not move: the bytes removed were never on the critical path
+for first paint.
 
-### From the build
+### Pass 2 — opening the full index
 
-| | Before | After |
+Opening the index created all 241 rows at once: about 4,600 nodes and 241 icons,
+styled and laid out before the browser could paint. A CPU profile put 3638 ms in
+browser style/layout/paint and ~1650 ms in React render. Two earlier hypotheses
+were wrong and are recorded so they are not retried: the ripple's
+`getBoundingClientRect` costs 0–1 ms during a real tap, and the modal's own
+render is about 200 ms.
+
+`content-visibility` containment on each row, plus painting 24 rows inside the
+tap and appending the rest on the next frame. Nothing hidden, nothing dropped;
+search still filters the full set.
+
+Settled INP, measured by reverting the two files, rebuilding, and re-running the
+same probe against this build:
+
+| Route | Before | After |
 |---|---|---|
-| First Load JS, gzipped | 421 kB | **292 kB** |
-| Route size | 319 kB | 189 kB |
-| recharts on the first-load path | yes | no |
+| `/` | 864 ms | 280 ms |
+| `/situation` | 808 ms | 320 ms |
+| `/messaging` | 832 ms | 256 ms |
+| `/scope-platforms` | 800 ms | 256 ms |
+| `/summary` | 808 ms | 280 ms |
 
-### Over the wire, mean of 20 routes
+### Pass 3 — four preloaded fonts
 
-| | Before | After | Budget |
+199 kB of font on the critical path before anything could paint, the largest
+single file the italic cut of the serif at 64.5 kB. Body text is Montserrat; the
+serif carries headings and the mono is reserved for field instrumentation. Only
+Montserrat is preloaded now. The other faces still load, still with
+`display: swap` and an adjusted fallback, and on routes that render no serif
+italic the italic face is no longer fetched at all.
+
+Mean font bytes 206 → 149 kB. Mean LCP 2285 → 1965 ms.
+
+This also explains the unstable LCP reported earlier. Five runs of `/` gave
+4084, 3912, 1900, 1920 and 4016 ms on identical bytes; they now give 2488, 2476,
+2472, 2536 and 2488. The LCP element was never changing — the fonts it waited on
+were arriving in a different order each time.
+
+Verified after the change that all four faces still load and resolve: serif
+headings in Newsreader, mono in JetBrains Mono, body in Montserrat, and the
+serif italic still present where the document uses it.
+
+## Where the document stands
+
+| | Start | Now | Budget |
 |---|---|---|---|
-| Transferred | 704 kB | **584 kB** | ≤ 1.5 MB |
+| Transferred | 704 kB | **527 kB** | ≤ 1.5 MB |
 | JS | 420 kB | **300 kB** | ≤ 300 KB |
-| Fonts | 206 kB | 206 kB | — |
-| LCP | 2285 ms | 2319 ms | ≤ 2.5 s |
-| FCP | 2142 ms | 2119 ms | — |
-| TBT | 2604 ms | 2400 ms | — |
-| INP | 1085 ms | 986 ms | ≤ 200 ms |
+| Fonts | 206 kB | **149 kB** | — |
+| LCP | 2285 ms | **1965 ms** | ≤ 2.5 s |
+| TBT | 2604 ms | **2115 ms** | — |
+| INP, settled | ~810 ms | **287 ms** | ≤ 200 ms |
 
-126 kB of JavaScript per route, on every route. LCP, TBT and INP did not
-meaningfully move: the bytes removed were never on the critical path for first
-paint, and the work that blocks the main thread is still there.
+All means across the same twenty routes.
 
-## Per-route, after pass 1
-
-| Route | Transferred | JS | LCP | INP | CLS | Pass |
+| Route | Transferred | JS | LCP | INP (settled) | CLS | Pass |
 |---|---|---|---|---|---|---|
-| `/` | 558 kB | 293 kB | 4.01 s | 832 ms | 0.002 | fail: LCP, INP |
-| `/approach` | 550 kB | 293 kB | 1.86 s | 848 ms | 0.002 | fail: INP |
-| `/assumptions` | 548 kB | 293 kB | 1.78 s | 816 ms | 0.002 | fail: INP |
-| `/audiences` | 559 kB | 293 kB | 1.96 s | 768 ms | 0.002 | fail: INP |
-| `/cover` | 556 kB | 293 kB | 3.97 s | 800 ms | 0.002 | fail: LCP, INP |
-| `/deliverables` | 552 kB | 293 kB | 1.88 s | 896 ms | 0.002 | fail: INP |
-| `/governance` | 639 kB | 293 kB | 2.36 s | 840 ms | 0.002 | fail: INP |
-| `/measurement` | 565 kB | 293 kB | 2.19 s | 904 ms | 0.002 | fail: INP |
-| `/messaging` | 649 kB | 293 kB | 2.54 s | 816 ms | 0.002 | fail: LCP, INP |
-| `/nextsteps` | 546 kB | 293 kB | 1.68 s | 840 ms | 0.002 | fail: INP |
-| `/objectives` | 545 kB | 293 kB | 1.66 s | 832 ms | 0.002 | fail: INP |
-| `/risk` | 594 kB | 293 kB | 2.22 s | 816 ms | 0.002 | fail: INP |
-| `/roadmap` | 557 kB | 293 kB | 2.31 s | 824 ms | 0.002 | fail: INP |
-| `/scope-data` | 577 kB | 293 kB | 2.33 s | 904 ms | 0.002 | fail: INP |
-| `/scope-ground` | 576 kB | 293 kB | 2.57 s | 848 ms | 0.002 | fail: LCP, INP |
-| `/scope-media` | 561 kB | 293 kB | 1.98 s | 952 ms | 0.002 | fail: INP |
-| `/scope-platforms` | 644 kB | 293 kB | 2.35 s | 808 ms | 0.002 | fail: INP |
-| `/situation` | 796 kB | 429 kB | 3.14 s | 3712 ms | 0.000 | fail: JS, LCP, INP |
-| `/structure` | 551 kB | 293 kB | 1.83 s | 864 ms | 0.002 | fail: INP |
-| `/summary` | 550 kB | 293 kB | 1.75 s | 792 ms | 0.002 | fail: INP |
+| `/` | 495 kB | 293 kB | 2.53 s | 288 ms | 0.002 | fail: LCP, INP |
+| `/approach` | 487 kB | 293 kB | 1.66 s | 256 ms | 0.012 | fail: INP |
+| `/assumptions` | 548 kB | 293 kB | 1.72 s | 296 ms | 0.002 | fail: INP |
+| `/audiences` | 495 kB | 293 kB | 1.71 s | 264 ms | 0.002 | fail: INP |
+| `/cover` | 492 kB | 293 kB | 2.50 s | 312 ms | 0.002 | fail: INP |
+| `/deliverables` | 489 kB | 293 kB | 1.71 s | 280 ms | 0.002 | fail: INP |
+| `/governance` | 576 kB | 293 kB | 2.00 s | 264 ms | 0.002 | fail: INP |
+| `/measurement` | 502 kB | 293 kB | 1.93 s | 264 ms | 0.002 | fail: INP |
+| `/messaging` | 586 kB | 293 kB | 2.05 s | 264 ms | 0.002 | fail: INP |
+| `/nextsteps` | 483 kB | 293 kB | 1.60 s | 280 ms | 0.002 | fail: INP |
+| `/objectives` | 482 kB | 293 kB | 1.52 s | 280 ms | 0.002 | fail: INP |
+| `/risk` | 531 kB | 293 kB | 2.02 s | 280 ms | 0.002 | fail: INP |
+| `/roadmap` | 494 kB | 293 kB | 1.88 s | 272 ms | 0.002 | fail: INP |
+| `/scope-data` | 514 kB | 293 kB | 2.03 s | 280 ms | 0.002 | fail: INP |
+| `/scope-ground` | 513 kB | 293 kB | 2.22 s | 312 ms | 0.000 | fail: INP |
+| `/scope-media` | 497 kB | 293 kB | 1.79 s | 256 ms | 0.002 | fail: INP |
+| `/scope-platforms` | 580 kB | 293 kB | 2.14 s | 304 ms | 0.002 | fail: INP |
+| `/situation` | 796 kB | 429 kB | 3.03 s | 432 ms | 0.000 | fail: JS, LCP, INP |
+| `/structure` | 488 kB | 293 kB | 1.64 s | 288 ms | 0.002 | fail: INP |
+| `/summary` | 487 kB | 293 kB | 1.61 s | 272 ms | 0.002 | fail: INP |
 
-Failing routes: transferred 0/20 · JS 1/20 · LCP 5/20 · CLS 0/20 · **INP 20/20**.
+Failing: transferred 0/20 · JS 1/20 · LCP 2/20 · CLS 0/20 · INP 20/20.
 
-`/situation` is the one route still over the JS budget, and correctly so — it
-has charts, so it loads the chart runtime. That is the boundary working.
+## What is still outstanding
 
-### LCP on `/` is bimodal, not regressed
+**INP, mean 287 ms against 200 ms.** Down from ~810, no longer the largest
+failure, and still over. The remaining cost is style and layout on a document
+that carries 4,200–10,000 nodes before the index is opened at all. Reducing it
+further means reducing what the page already holds, not how the index mounts.
 
-Five consecutive runs of `/` on the same build: 4084, 3912, 1900, 1920,
-4016 ms. Bytes were stable across all five (556–558 kB). Two clusters two
-seconds apart means the LCP element itself is changing between runs, not that
-the page got slower. The before/after difference on `/` and `/cover` is inside
-that spread and should not be read as a regression. It does mean **`/` has an
-unstable LCP element**, which is its own finding.
+**`/situation` at 429 kB of JS.** The one route over the JS budget, and
+correctly so: it has charts, so it loads the chart runtime. It is also the
+heaviest DOM in the document at 9,981 nodes, which is why its settled INP
+(432 ms) is half again the next worst.
 
-Route-level LCP differences under roughly 500 ms in the table above are not
-meaningful at one run per route.
+**LCP on `/` (2.53 s) and `/situation` (3.03 s).** Both marginal, both now
+stable run to run.
 
-## What is left, in order of size
+**Load-time INP.** With the tap landing the instant the page reaches
+`networkidle`, `/situation` still measures 3312 ms and `/scope-ground` 1504 ms —
+everything else is 248–384 ms. That is React flushing queued work when a
+discrete input arrives, and it is worth fixing separately: a reader who taps
+while the page is still settling waits three seconds on the longest route.
 
-**INP, 768–3712 ms against a 200 ms budget, on every route.** The largest
-failure in the document by a wide margin, and untouched by pass 1. One tap on
-the index opener costs the reader most of a second. On `/situation` it costs
-3.7 seconds. That route's tap also grows the document from 1,035,161 to
-1,488,292 characters — the index renders all 241 sections into the DOM on open.
+**Three font families where the brief specifies one.** 149 kB of font remains.
+Reducing to one family would take most of that, and it changes how every heading
+and paragraph in the document looks. That is a typographic decision for the
+author, not a mechanical one, so it is recorded rather than taken.
 
-**Fonts, 206 kB on every route, unchanged.** Four faces preloaded:
-
-| Face | Size | File |
-|---|---|---|
-| Newsreader italic | 64.5 kB | `4b9bb515ce6d026f-s.p.woff2` |
-| Newsreader normal | 58.2 kB | `5611c55482296524-s.p.woff2` |
-| JetBrains Mono | 40.5 kB | `bb3ef058b751a6ad-s.p.woff2` |
-| Montserrat | 35.5 kB | `904be59b21bd51cb-s.p.woff2` |
-
-The largest single file on the critical path is the **italic** cut of the
-serif, preloaded on all twenty routes for emphasis text that is never the LCP
-element. The brief specifies one variable family; there are three. Reducing
-that is a typographic decision, not a mechanical one, so it is recorded rather
-than taken.
-
-**TBT, mean 2400 ms.** 4× CPU, so divide by four for an unthrottled desktop —
-but the reader is on a phone, which is what 4× is standing in for.
-
-## Not done
-
-No fix for INP, fonts or the unstable LCP element. `/perf` takes one fix per
-turn and re-measures; this is pass 1 of several. No `Save-Data` or
-`prefers-reduced-motion` path was measured, because there is no Tier 2 import
-to skip yet.
+**`Save-Data` and `prefers-reduced-motion`.** Not measured — there is no Tier 2
+dynamic import for them to skip yet.
