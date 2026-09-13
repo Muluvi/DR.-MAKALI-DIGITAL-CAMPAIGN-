@@ -25,7 +25,7 @@ contributes Athi at 15,843 and Ikanga/Kyatune at 15,384, another 31,227. Mwingi 
 Central, Nguni and Nuu — a further 40,419 voters in deficit territory.
 
 Taken together, Mwingi's 200,198 and Kitui South's 75,372 make a deficit pool of **275,570
-registered voters: 51.72% of the entire county register.**
+registered voters: 51.7% of the entire county register.**
 
 ## What follows from it
 
