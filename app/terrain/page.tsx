@@ -22,7 +22,16 @@ import { FiscalAuditChartBlock } from "@/components/markdown/FiscalAuditChartBlo
 import { GeographicZoneMatrix } from "@/components/markdown/GeographicZoneMatrix";
 import { RecognitionDeficitOverlay } from "@/components/markdown/RecognitionDeficitOverlay";
 import { StagedCartogram, StagedPaths } from "@/components/act/StagedEvidence";
+import { RegisterTickerBand } from "@/components/act/RegisterTickerBand";
 import { OfflineWaterline } from "@/components/charts/OfflineWaterline";
+
+import { CeilingBar } from "@/components/act/figures/CeilingBar";
+import { ChannelReach } from "@/components/act/figures/ChannelReach";
+import { CredentialGrid } from "@/components/act/figures/CredentialGrid";
+import { ForkDiagram } from "@/components/act/figures/ForkDiagram";
+import { PathRace } from "@/components/act/figures/PathRace";
+import { PollGap } from "@/components/act/figures/PollGap";
+import { ThresholdFunnel } from "@/components/act/figures/ThresholdFunnel";
 
 /**
  * ACT ONE — THE TERRAIN.
@@ -165,6 +174,45 @@ export default async function TerrainAct() {
         <Scene>
           <ActProse markdown={scenes["01-contest"]} />
         </Scene>
+
+        <EvidenceMount minHeight={420}>
+          <PollGap />
+        </EvidenceMount>
+
+        <EvidenceMount minHeight={520}>
+          <ForkDiagram
+            question="How the ticket gets decided"
+            stem="Wiper has not confirmed the mechanism. The campaign runs against both."
+            branches={[
+              {
+                tag: "Reported — single source",
+                title: "A countywide opinion poll",
+                reading:
+                  "The assumption the whole nomination-phase strategy is built on: the ticket is settled on measured preference rather than a delegate vote.",
+                consequences: [
+                  "Recognition becomes the binding constraint, not organisation",
+                  "The pollster's terms of reference are the document to obtain",
+                  "Weighting to the IEBC sub-county distribution is worth fighting for",
+                ],
+                tone: "open",
+              },
+              {
+                tag: "Contingency",
+                title: "A delegate primary",
+                reading:
+                  "If the party reverts to delegates, the phasing changes and a whip operation replaces broad outreach.",
+                consequences: [
+                  "Map and profile the estimated 1,200–1,500 delegates",
+                  "Reassign 400 ward captains to peer-to-peer lobbying",
+                  "Stand up an encrypted SMS and USSD channel to delegates",
+                ],
+                tone: "contested",
+              },
+            ]}
+            footnote="Moving this from assumption to operating fact needs a signed Wiper NEC resolution, or the commissioned pollster's terms of reference — the second is the one the campaign can actually obtain."
+          />
+        </EvidenceMount>
+
         <EvidenceFooter citations={CITE.contest} />
       </Chapter>
 
@@ -181,6 +229,9 @@ export default async function TerrainAct() {
         <Scene>
           <ActProse markdown={scenes["02-candidate"]} />
         </Scene>
+        <EvidenceMount minHeight={560}>
+          <CredentialGrid />
+        </EvidenceMount>
         <EvidenceFooter citations={CITE.candidate} />
       </Chapter>
 
@@ -191,6 +242,41 @@ export default async function TerrainAct() {
         <EvidenceMount minHeight={520} className="pb-14 md:pb-20">
           <CompetitorFieldPanel />
         </EvidenceMount>
+
+        <EvidenceMount minHeight={520}>
+          <ForkDiagram
+            question="The incumbent's eligibility"
+            stem="Governor Malombe served 2013–2017, lost in 2017, and won again in 2022. Whether he may contest in 2027 turns on Article 180(7)."
+            branches={[
+              {
+                tag: "Branch A — interrupted terms count",
+                title: "He is barred, and the seat opens",
+                reading:
+                  "A two-term lifetime limit regardless of interruption. Having served 2013–2017 and 2022–2027, he cannot run again.",
+                consequences: [
+                  "An open-seat contest, with no incumbency advantage to overcome",
+                  "Intense factional realignment inside Wiper",
+                  "Conditions that favour a technocratic successor candidacy",
+                ],
+                tone: "open",
+              },
+              {
+                tag: "Branch B — only contiguous service counts",
+                title: "He is eligible, and defends",
+                reading:
+                  "The limit applies to consecutive terms, or an interrupted term resets the clock. He remains eligible for 2027.",
+                consequences: [
+                  "A direct anti-incumbency campaign is required",
+                  "Against county development resources and public funding distribution",
+                  "Against established grassroots patronage",
+                ],
+                tone: "contested",
+              },
+            ]}
+            footnote="The campaign takes no position on which reading is correct, and plans against both. The difference changes the message, not merely the target."
+          />
+        </EvidenceMount>
+
         <EvidenceFooter citations={CITE.field} />
       </Chapter>
 
@@ -198,6 +284,10 @@ export default async function TerrainAct() {
         <Scene>
           <ActProse markdown={scenes["04-arithmetic"]} />
         </Scene>
+
+        <EvidenceMount minHeight={460}>
+          <ThresholdFunnel />
+        </EvidenceMount>
 
         <StatBand
           stats={[
@@ -233,10 +323,16 @@ export default async function TerrainAct() {
         <EvidenceFooter citations={CITE.arithmetic} />
       </Chapter>
 
+      <RegisterTickerBand />
+
       <Chapter id="paths">
         <Scene>
           <ActProse markdown={scenes["05-paths"]} />
         </Scene>
+
+        <EvidenceMount minHeight={520}>
+          <PathRace />
+        </EvidenceMount>
 
         <PinnedStage
           kicker="Four routes to two hundred thousand"
@@ -289,6 +385,10 @@ export default async function TerrainAct() {
         <Scene>
           <ActProse markdown={scenes["08-ceiling"]} />
         </Scene>
+        <EvidenceMount minHeight={420}>
+          <CeilingBar />
+        </EvidenceMount>
+
         <PinnedStage
           kicker="The digital ceiling"
           beats={[
@@ -310,6 +410,10 @@ export default async function TerrainAct() {
             <OfflineWaterline />
           </EvidenceMount>
         </PinnedStage>
+        <EvidenceMount minHeight={620}>
+          <ChannelReach />
+        </EvidenceMount>
+
         <EvidenceFooter citations={CITE.ceiling} />
       </Chapter>
 
@@ -339,8 +443,8 @@ export default async function TerrainAct() {
       >
         <p className="act-kicker">End of act one</p>
         <p
-          className="mt-5 mx-auto max-w-xl font-serif leading-relaxed"
-          style={{ color: "var(--act-body)", fontSize: "clamp(1.0625rem, 1rem + 0.4vw, 1.25rem)" }}
+          className="act-gradient-text mt-5 mx-auto max-w-xl font-serif leading-relaxed"
+          style={{ fontSize: "clamp(1.0625rem, 1rem + 0.4vw, 1.25rem)" }}
         >
           The terrain sets the constraint. What follows is the argument built on it, the work
           proposed against it, and the terms it runs under.

@@ -31,7 +31,7 @@ export function StatBand({ stats }: { stats: Stat[] }) {
           {stats.map((s) => (
             <div key={s.label} className="p-6 lg:p-7" style={{ background: "var(--act-ground)" }}>
               <p
-                className="font-sans font-bold tabular-nums leading-none tracking-[-0.03em]"
+                className="font-sans font-bold leading-none tracking-[-0.03em]"
                 style={{ color: "var(--act-blue)", fontSize: "clamp(1.9rem, 1.4rem + 1.7vw, 2.6rem)" }}
               >
                 <CountUp value={s.value} prefix={s.prefix} suffix={s.suffix} decimals={s.decimals} />

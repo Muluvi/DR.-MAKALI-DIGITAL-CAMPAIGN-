@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { motion, useScroll, useSpring } from "motion/react";
-import { Moon, Sun } from "lucide-react";
+import { AnimatePresence, motion, useMotionTemplate, useScroll, useSpring, useTransform } from "motion/react";
+import { ArrowUp, Moon, Sun } from "lucide-react";
 
 import { useTheme } from "../../lib/useTheme";
+import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
 
 export interface ChapterMark {
   id: string;
@@ -34,6 +35,30 @@ export function ActShell({
   const progress = useSpring(scrollYProgress, { stiffness: 260, damping: 40, restDelta: 0.001 });
   const { theme, setThemeMode, mounted } = useTheme();
   const [active, setActive] = useState<string>(chapters[0]?.id ?? "");
+  const [showTop, setShowTop] = useState(false);
+  const reduce = useReducedMotionSafe();
+
+  // Scroll-linked ambience. The ground carries a faint wash that migrates from the party blue
+  // at the top of the act to the earth red by its end, and drifts across the viewport as it
+  // goes — so the closing evidence scenes do not sit on an identical black to the opening
+  // terrain ones. Hooks run unconditionally; reduced motion is handled by not painting the
+  // layer, never by skipping the hook.
+  const tintX = useTransform(scrollYProgress, [0, 1], ["18%", "78%"]);
+  const tintColor = useTransform(
+    scrollYProgress,
+    [0, 0.55, 1],
+    [
+      "color-mix(in oklch, var(--act-blue) 13%, transparent)",
+      "color-mix(in oklch, var(--act-blue) 8%, transparent)",
+      "color-mix(in oklch, var(--act-ember) 11%, transparent)",
+    ],
+  );
+  const tint = useMotionTemplate`radial-gradient(48rem 40rem at ${tintX} 42%, ${tintColor}, transparent 72%)`;
+
+  useEffect(() => {
+    const unsub = scrollYProgress.on("change", (v) => setShowTop(v > 0.08));
+    return () => unsub();
+  }, [scrollYProgress]);
 
   // The real client width, published as a custom property.
   //
@@ -77,12 +102,51 @@ export function ActShell({
   const isDark = theme === "dark";
 
   return (
-    <div className="act relative">
+    <div className="act act-grain relative">
+      {/* The scroll-linked environmental wash, beneath everything the reader looks at. */}
+      {reduce ? null : (
+        <motion.div
+          aria-hidden="true"
+          className="fixed inset-0 pointer-events-none z-0"
+          style={{ backgroundImage: tint }}
+        />
+      )}
+
       <motion.div
         aria-hidden="true"
         className="fixed top-0 left-0 right-0 h-[2px] origin-left z-50"
         style={{ scaleX: progress, background: "var(--act-blue)" }}
       />
+
+      {/* Phone navigation: dots rather than a labelled rail, because forty pixels of a 380px
+          viewport cannot carry ten words and the content at the same time. Each dot is a
+          44px touch target with a 6px visible mark inside it. */}
+      <nav
+        aria-label="Act contents"
+        className="lg:hidden fixed right-1 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center"
+      >
+        {chapters.map((c) => {
+          const on = c.id === active;
+          return (
+            <a
+              key={c.id}
+              href={`#${c.id}`}
+              aria-label={c.label}
+              aria-current={on ? "true" : undefined}
+              className="grid place-items-center w-11 h-7"
+            >
+              <span
+                className="rounded-full transition-all duration-300"
+                style={{
+                  width: on ? 7 : 5,
+                  height: on ? 7 : 5,
+                  background: on ? "var(--act-blue)" : "var(--act-hair)",
+                }}
+              />
+            </a>
+          );
+        })}
+      </nav>
 
       <nav
         aria-label="Act contents"
@@ -129,6 +193,28 @@ export function ActShell({
         {mounted && !isDark ? <Moon size={16} /> : <Sun size={16} />}
       </button>
 
+      <AnimatePresence>
+        {showTop ? (
+          <motion.a
+            href="#top"
+            initial={reduce ? false : { opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.85 }}
+            transition={{ duration: 0.25 }}
+            className="fixed right-4 bottom-5 z-40 grid place-items-center h-11 w-11 rounded-full backdrop-blur"
+            style={{
+              background: "color-mix(in oklch, var(--act-raise) 85%, transparent)",
+              border: "1px solid var(--act-hair)",
+              color: "var(--act-dim)",
+            }}
+            aria-label="Back to the top of the act"
+          >
+            <ArrowUp size={16} />
+          </motion.a>
+        ) : null}
+      </AnimatePresence>
+
+      <div id="top" />
       {children}
     </div>
   );
