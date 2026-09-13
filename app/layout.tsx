@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Montserrat, Newsreader, JetBrains_Mono } from 'next/font/google';
+import { Montserrat, JetBrains_Mono } from 'next/font/google';
 import './globals.css'; // Global styles
 
 // The variable axis, not a pair of static cuts.
@@ -14,24 +14,17 @@ const montserrat = Montserrat({
   fallback: ['ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
 });
 
-// Preloaded: Montserrat only.
+// One text family, and the instrumentation register.
 //
-// Four faces used to be preloaded on every route — 199 kB on the critical path before anything
-// could paint, of which the single largest file was the italic cut of the serif at 64.5 kB.
-// Body text is Montserrat, so that is the face first paint actually waits on. The serif carries
-// headings and the mono is reserved for field instrumentation; both still load, still with
-// display: swap and an adjusted fallback so the substitution does not shift layout — they are
-// simply no longer allowed to compete with body text for the first bytes on a 1.6 Mbit/s link.
-const newsreader = Newsreader({
-  subsets: ['latin'],
-  variable: '--font-newsreader',
-  display: 'swap',
-  style: ['normal', 'italic'],
-  preload: false,
-  adjustFontFallback: true,
-  fallback: ['Georgia', 'Charter', 'serif'],
-});
-
+// The brief asks for one variable family. Montserrat is it: body, headings, and everything the
+// .font-serif utility used to set in Newsreader, which is no longer loaded at all. That removes
+// two faces — the serif's roman and its italic, the largest single file the document fetched.
+//
+// JetBrains Mono stays, and is the one deliberate exception. The monospace register is reserved
+// for live field instrumentation — the TAC-40 terminal, the USSD handset, feed timestamps — and
+// the brief names it as a voice rather than as chrome. Setting a terminal in the body face
+// would regress those components, which is the one thing the brief forbids outright. It is not
+// preloaded, so it costs nothing before first paint and arrives when instrumentation renders.
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
@@ -73,7 +66,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="en" className={`dark ${montserrat.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`dark ${montserrat.variable} ${jetbrainsMono.variable}`}>
       <body suppressHydrationWarning className="font-sans antialiased bg-paper text-ink">{children}</body>
     </html>
   );
