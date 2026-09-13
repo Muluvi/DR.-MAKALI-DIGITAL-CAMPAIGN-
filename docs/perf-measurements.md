@@ -101,6 +101,56 @@ Verified after the change that all four faces still load and resolve: serif
 headings in Newsreader, mono in JetBrains Mono, body in Montserrat, and the
 serif italic still present where the document uses it.
 
+### Pass 4 — a forced layout per render
+
+`useIsMobile` answered with `window.innerWidth < 768`. Reading `innerWidth`
+flushes pending layout, and `useSyncExternalStore` calls `getSnapshot` on every
+render and again to check for tearing, so every render of every consumer forced
+a full layout of the document.
+
+Instrumented on `/situation` at 4× CPU: **nineteen reads, 1413 ms between them,
+74 ms each.** With a `MediaQueryList` answering instead: one read, 2 ms. Total
+long-task time after `networkidle` fell from 4349 ms to 3639 ms in the same
+sample.
+
+It does not move INP and is not claimed to. Five settled runs on `/summary` give
+264, 272, 248, 272, 272 ms with the change and 328, 264, 272, 240, 256 ms
+without — the same number either side. What it removes is work the document was
+doing for an answer it could get more cheaply.
+
+## Variance, and what the per-route table is worth
+
+The per-route figures above are one run each. Repeating them shows that is fine
+for most routes and misleading for the heaviest one.
+
+| Route | Five settled runs |
+|---|---|
+| `/summary` | 264, 272, 248, 272, 272 ms |
+| `/situation` | 1320, 1328, 1192, 336, 424 ms |
+
+`/summary` is stable to within 24 ms. `/situation` is not stable at all: the
+same interaction on the same build costs anywhere from 336 to 1328 ms, because
+work from page load is sometimes still running six seconds later. **Its 432 ms
+in the table is a lucky draw, not a typical result.** Any future claim about
+`/situation` needs repeated runs; a single number from that route means nothing.
+
+## Three hypotheses that were wrong
+
+Recorded so they are not retried.
+
+**The ripple.** `useRipple` calls `getBoundingClientRect` on pointerdown, which
+looks like a forced layout in a hot path. Measured during a real tap it costs
+0–1 ms: layout is clean at dispatch, because the browser had to hit-test to
+deliver the event.
+
+**The index modal's own render.** About 200 ms. The cost was mounting the rows,
+not the sheet.
+
+**Motion's layout pairing.** Every card row carries a `layoutId`, which enlists
+it in Motion's projection system. Gating that on visibility changed
+`measureScroll` not at all — 1813 ms before, 1813 ms after — so the change was
+reverted rather than kept for appearances.
+
 ## Where the document stands
 
 | | Start | Now | Budget |
@@ -143,8 +193,16 @@ Failing: transferred 0/20 · JS 1/20 · LCP 2/20 · CLS 0/20 · INP 20/20.
 
 **INP, mean 287 ms against 200 ms.** Down from ~810, no longer the largest
 failure, and still over. The remaining cost is style and layout on a document
-that carries 4,200–10,000 nodes before the index is opened at all. Reducing it
-further means reducing what the page already holds, not how the index mounts.
+carrying 4,200–10,000 nodes before the index is opened at all.
+
+**Motion's projection system, ~1800 ms on `/situation`.** After the four passes
+above, the largest single item left in a CPU profile of the seconds after load
+is `measureScroll` inside Motion's projection node — the measurement every
+mounted `motion.*` element pays. It is not driven by any one component, so there
+is no surgical fix: it comes down with the number of `motion.*` elements
+mounted, which is what `/motion` exists to reduce. It is also why `/situation`'s
+interaction cost is so unstable. **This is the next real lever, and it belongs
+to the motion phase rather than to another performance pass.**
 
 **`/situation` at 429 kB of JS.** The one route over the JS budget, and
 correctly so: it has charts, so it loads the chart runtime. It is also the
