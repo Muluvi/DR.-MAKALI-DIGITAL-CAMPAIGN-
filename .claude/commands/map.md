@@ -25,7 +25,7 @@ A second map component is a design failure.
   colour scale.
 - **Ships with no default data.** Passing nothing renders an unfilled map, not
   invented values.
-- Inline SVG. Themeable via `app/tokens.css`. No bitmap fallback.
+- Inline SVG. Themeable via the tokens in `app/globals.css`. No bitmap fallback.
 - Accessible: every ward keyboard-reachable, named, with its value announced.
   Render a text-equivalent list alongside — for a choropleth the list is not
   optional, it is the only way the data is readable non-visually.

@@ -2,10 +2,13 @@
 
 Confidential, link-only, `noindex` interactive proposal: *Campaign Strategy &
 Digital Architecture — Hon. Dr. Benson Makali Mulu, Kitui County*, prepared by
-Firefly Management. ~198 sections across routed pages.
+Firefly Management. 241 numbered sections — 68 sub-sections and 173 parts —
+across 19 routed pages, as counted by `scripts/verify-mounts.mjs`.
 
-Next.js App Router · TypeScript · Tailwind · Bun · Vercel. Content in
-`public/content`, UI in `app/`, `components/`, `hooks/`, `lib/`.
+Next.js App Router · TypeScript · Tailwind v4 · Bun · Vercel. Content in
+`public/content`, UI in `app/`, `components/`, `hooks/`, `lib/`. This file is
+the brief. `AGENTS.md` carries execution parameters only; where the two
+disagree on what to build, this file wins.
 
 ## Who reads this
 
@@ -85,7 +88,8 @@ unthrottled.
 
 ## Motion system
 
-Tokens live in `app/tokens.css`. Three durations, two easing curves. Two tiers:
+Tokens live in `app/globals.css` (~390 custom properties). Three durations,
+two easing curves. Two tiers:
 
 - **Tier 1** — structural, CSS-only, near-free: scroll progress spine, section
   position indicator, state feedback, navigation continuity.
@@ -112,9 +116,12 @@ Avoid these — they are the standard tells of generated design:
 Colour carries meaning in this document and is never decoration. Semantic
 accents: `--kt-ground` for inbound field intelligence, `--kt-digital` for
 outbound digital, `--kt-physical` for physical distribution channels,
-`--kt-hub` for the war room. The terminal/monospace register is reserved for
-live field instrumentation (TAC-40, USSD, feed timestamps) — it is a deliberate
-voice, not page chrome.
+`--kt-hub` for the war room. **None of the four is defined yet** — the existing
+layer names channels `--phase-0..3`. Define them in `app/globals.css`, or
+settle on the existing names, before the first conversion reads either.
+
+The terminal/monospace register is reserved for live field instrumentation
+(TAC-40, USSD, feed timestamps) — it is a deliberate voice, not page chrome.
 
 Spend boldness in one place per route. Everything around it stays quiet. A
 proposal whose entire pitch is bespoke rigour cannot look templated.
@@ -123,8 +130,10 @@ proposal whose entire pitch is bespoke rigour cannot look templated.
 
 - Server components by default. Add `"use client"` only when a component
   genuinely needs state or effects, and say why in a comment.
-- CSS Modules colocated with components. No hard-coded colours, sizes or
-  durations — read `app/tokens.css`.
+- Styling is Tailwind v4 utilities plus `app/globals.css`; the repo has no CSS
+  Modules. Follow that, or change it deliberately in one commit rather than one
+  component at a time. No hard-coded colours, sizes or durations — read the
+  tokens in `app/globals.css`.
 - Diagrams are built from real headings, lists and tables so the markup is its
   own text equivalent. Connectors are `aria-hidden`. No duplicated sr-only
   paragraphs.

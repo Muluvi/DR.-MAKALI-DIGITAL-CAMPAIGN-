@@ -21,13 +21,16 @@ diagram that also appears in the prose — those must match exactly.
   expressed twice), you may draw it once — say so explicitly in your report.
 - Real headings, lists or tables, so the markup is its own text equivalent.
   Connectors are `aria-hidden`. No duplicated sr-only paragraph.
-- Reads from `app/tokens.css` only. No hard-coded colours, sizes or durations.
+- Reads tokens from `app/globals.css` only. No hard-coded colours, sizes or
+  durations.
 - Reflows legibly at 360px with no horizontal scroll.
 - Server component. No `"use client"` unless it genuinely needs state.
 - **Static in this pass.** No animation. Correct and crisp first; motion is a
   later phase. If a future Tier 2 pass will need to drive something, give the
   relevant elements stable ids and note them in a comment.
-- Colocated CSS Module. Follow the semantic accent convention in CLAUDE.md.
+- Styled the way the repo is styled — Tailwind v4 utilities over the tokens in
+  `app/globals.css`, no CSS Modules. Follow the semantic accent convention in
+  CLAUDE.md.
 
 ## Then
 
