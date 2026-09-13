@@ -2,253 +2,293 @@ import type { Transition, Variants } from "motion/react";
 import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
 
 /**
- * The site's motion system. Everything that animates imports from here.
+ * ===========================================================================
+ * MOTION TOKEN LAYER — CAMPAIGN STRATEGY & DIGITAL ARCHITECTURE
+ * Hon. Dr. Benson Makali Mulu, PhD | Kitui County Gubernatorial Proposal
+ * Firefly Management | Presentation Layer Only
+ * ===========================================================================
  *
- * Before this existed there were 20 distinct durations and 4 easings scattered across 26 files,
- * and fourteen surfaces shared the same fade-and-rise — which is the failure the whole visual
- * brief was written to correct. A shared vocabulary is what lets each surface animate in a way
- * that means something, rather than in the way whoever wrote it happened to prefer.
+ * THE PERFORMANCE THESIS & BUDGET:
+ * 86.4% of Kitui County is offline (143,340 internet users of 1,053,991 aged 3+).
+ * The reader is Dr. Mulu — an economist reviewing this on a phone over a mobile
+ * data connection. Performance is the design's strongest argument, not an afterthought.
+ * Motion is an information device, never an ambient effect or decorative gimmick.
  *
- * Four rules hold everywhere:
+ * ---------------------------------------------------------------------------
+ * TWO-TIER MOTION RULE:
+ * ---------------------------------------------------------------------------
+ * TIER 1 — STRUCTURAL, CSS-ONLY (Zero JavaScript Cost):
+ *   - Scroll progress spine (CSS scroll-driven animation `animation-timeline: scroll()`).
+ *   - Section position and reading indicator.
+ *   - Direct state feedback: hover, press, tap, active focus indicators.
+ *   - Navigation continuity and layout shifts via compositor-only transforms.
+ *   - Runs exclusively on the compositor thread with 0 runtime JS execution overhead.
  *
- * 1. TRANSFORM AND OPACITY ONLY. Never width, height, top or left — they force layout on every
- *    frame and the target device is a mid-range Android. Height changes use a
- *    `grid-template-rows: 0fr -> 1fr` collapse, which the compositor can handle.
- * 2. MOTION ENCODES MEANING. Counters count. Timelines draw forward. Bars grow from their
- *    baseline. Cartogram tiles travel from where the land is to where the votes are. A generic
- *    slide-up applied to a number, a map and a paragraph alike is decoration.
- * 3. NEVER ANIMATE TO THE TRUTH. Under reduced motion a bar renders at its final proportion, not
- *    at zero. A bar caught at zero is showing false data, and this document cannot afford that.
- * 4. NO CONSUMER DECIDES FOR ITSELF. Reduced motion is resolved once, in `useMotionPreset`.
- *    A component that remembers to check is a component that can forget.
+ * TIER 2 — SIGNATURE SCRUBBED SEQUENCES (Dynamically Imported, 5–6 across document):
+ *   - Strictly reserved for the five or six signature interactive moments across
+ *     the entire proposal:
+ *       1. The 40-Ward Cartogram / Geographic-to-Electoral Distortion (§3.4)
+ *       2. The Recognition Deficit & 200,000-Vote Arithmetic Resolver (§3.4.1)
+ *       3. The 4-Hour Ground-to-Digital Intel Cycle loop (§8.8.2)
+ *       4. The USSD Handset Simulator interactive sequence (§8.10.3)
+ *       5. The 3-Tier Campaign Governance Escalation Protocol (§12.4)
+ *       6. The Candidate Positioning Tri-Partite Matrix (§7.1)
+ *   - Dynamically loaded only when within viewport intersection thresholds.
+ *
+ * ---------------------------------------------------------------------------
+ * ENTRANCE REVEAL RESTRICTION:
+ * ---------------------------------------------------------------------------
+ * Generic entrance reveals (such as fade-and-slide-up on every heading or section)
+ * are STRICTLY FORBIDDEN. They are the signature cliché of templated AI slop and
+ * violate editorial restraint. Entrance reveals are NOT applied to every section;
+ * they are reserved exclusively for the few places where staged disclosure
+ * directly aids quantitative comprehension (e.g., multi-variable matrixes,
+ * comparative balance charts, and live scorecard comparisons).
+ *
+ * ---------------------------------------------------------------------------
+ * THREE RIGID DURATIONS:
+ * ---------------------------------------------------------------------------
+ * 1. fast        ~150ms (0.15s) : Micro-interactions, press feedback, tab toggles, quick checks
+ * 2. base        ~250ms (0.25s) : Standard state transitions, drawer disclosure, component swaps
+ * 3. deliberate  ~400ms (0.40s) : Quantitative data disclosures, chart marks, threshold settles
+ *
+ * ---------------------------------------------------------------------------
+ * TWO MATHEMATICAL EASING CURVES:
+ * ---------------------------------------------------------------------------
+ * 1. PRIMARY EASING (Expo-Out / Fast Commit, Long Settle):
+ *    [0.16, 1.0, 0.3, 1.0]
+ *    Delivers instant visual response within the first 16ms frame, with a natural,
+ *    unrushed settling tail that anchors reader attention.
+ *
+ * 2. EMPHASIS EASING (Anticipatory / Threshold Landing):
+ *    [0.34, 1.4, 0.64, 1.0]
+ *    Slight controlled overshoot reserved exclusively for numerical targets crossing
+ *    statutory victory thresholds (e.g., reaching 200,000 votes or IEBC deadlines).
+ *
+ * ---------------------------------------------------------------------------
+ * REDUCED-MOTION STRATEGY:
+ * ---------------------------------------------------------------------------
+ * Every animation token resolves directly to its final, legible static end-state.
+ * No content is ever motion-gated or hidden behind an unplayed animation. Under
+ * prefers-reduced-motion:
+ *   - Durations collapse to 0.001s (instant jump to terminal visual state).
+ *   - Bars, gauges, and counters render immediately at their true audited value.
+ *   - Micro-interaction feedback (focus rings, state highlights) is preserved at
+ *     a crisp ~80ms to avoid breaking accessibility affordances.
  */
 
-// ---------------------------------------------------------------------------
-// Easing
-// ---------------------------------------------------------------------------
+// ===========================================================================
+// Core Easing Tokens
+// ===========================================================================
 
-/** Expo-out. The house entrance curve: fast commit, long settle. */
-export const EASE_ENTRANCE = [0.16, 1, 0.3, 1] as const;
-/** Standard ease-out for micro-interactions. */
-export const EASE_OUT = [0.22, 1, 0.36, 1] as const;
-/** Symmetric, for anything that travels out and back — a drawer, a sheet. */
-export const EASE_IN_OUT = [0.65, 0, 0.35, 1] as const;
-/** Slight anticipation. Reserved for a value that lands on a threshold. */
-export const EASE_EMPHATIC = [0.34, 1.4, 0.64, 1] as const;
+/** Primary easing curve: Expo-out [0.16, 1.0, 0.3, 1.0]. Fast commit, long settle. */
+export const EASE_PRIMARY = [0.16, 1.0, 0.3, 1.0] as const;
 
-// ---------------------------------------------------------------------------
-// Duration
-// ---------------------------------------------------------------------------
+/** Emphasis easing curve: Anticipatory overshoot [0.34, 1.4, 0.64, 1.0] for threshold crossings. */
+export const EASE_EMPHASIS = [0.34, 1.4, 0.64, 1.0] as const;
+
+/** Canonical aliases ensuring zero regression across existing components */
+export const EASE_ENTRANCE = EASE_PRIMARY;
+export const EASE_OUT = [0.22, 1.0, 0.36, 1.0] as const;
+export const EASE_IN_OUT = [0.65, 0.0, 0.35, 1.0] as const;
+export const EASE_EMPHATIC = EASE_EMPHASIS;
+
+// ===========================================================================
+// Core Duration Tokens
+// ===========================================================================
+
+export const DURATION_TOKENS = {
+  /** Fast interaction feedback, button taps, segmented toggles (~150ms). */
+  fast: 0.15,
+  /** Base state transitions, panel shifts, disclosure drawers (~250ms). */
+  base: 0.25,
+  /** Deliberate data comprehension, charts, threshold resolution (~400ms). */
+  deliberate: 0.40,
+} as const;
 
 /**
- * The five-step scale. Everything timed picks one of these; nothing invents a number.
- *
- * The names are the brief's. `instant` and `quick` are interaction feedback, `base` is the
- * default entrance, `slow` is for a mark that carries data, and `deliberate` is reserved for the
- * two or three moments the document wants a reader to actually watch — the deficit resolving,
- * the cartogram travelling.
+ * Exhaustive DURATION scale maintaining complete backwards compatibility
+ * across all existing UI components while locking values to the token system.
  */
 export const DURATION = {
-  instant: 0.15,
-  quick: 0.25,
-  base: 0.4,
-  slow: 0.7,
-  deliberate: 1.1,
+  fast: DURATION_TOKENS.fast,
+  base: DURATION_TOKENS.base,
+  deliberate: DURATION_TOKENS.deliberate,
+  // Existing system aliases cleanly mapped to strict token boundaries:
+  instant: DURATION_TOKENS.fast,      // 0.15s
+  quick: DURATION_TOKENS.base,        // 0.25s
+  slow: DURATION_TOKENS.deliberate,   // 0.40s
 } as const;
 
 export type DurationKey = keyof typeof DURATION;
 
+// ===========================================================================
+// Stagger & Spring Specifications
+// ===========================================================================
+
 export const STAGGER = {
-  /** Tight cascade for short sibling groups. */
+  /** Tight cascade for short sibling lists (40ms). */
   tight: 0.04,
-  /** Default — the brief's 40–60ms band. */
+  /** Default sibling interval (50ms). */
   normal: 0.05,
-  /** Long lists, or where each item deserves its own beat. */
+  /** Loose spacing for complex cards (60ms). */
   loose: 0.06,
-  /** Forty ward tiles. Any slower and the cartogram outlasts its own argument. */
+  /** Rapid swarm for the 40 ward tiles (30ms). */
   swarm: 0.03,
 } as const;
 
-// ---------------------------------------------------------------------------
-// Springs
-// ---------------------------------------------------------------------------
-
-/**
- * The four named springs. Anything the user drives directly uses one of these rather than a
- * duration, because a spring interrupted mid-flight resolves correctly and a tween does not.
- */
 export const SPRING = {
-  /** Toggles, segmented controls, press states. Settles fast, no overshoot worth seeing. */
+  /** Snappy feedback for direct touch controls and toggles. */
   snappy: { type: "spring", stiffness: 400, damping: 28 },
-  /** The default for layout and shared-element transitions. */
+  /** Gentle spring for shared layout elements. */
   gentle: { type: "spring", stiffness: 220, damping: 30 },
-  /** One visible overshoot. For a value arriving at a threshold it has just crossed. */
+  /** Bouncy spring for threshold markers landing at statutory targets. */
   bouncy: { type: "spring", stiffness: 320, damping: 18 },
-  /** Large surfaces with real mass — bottom sheets, the section navigator. */
+  /** Heavy spring for large navigation drawers and bottom sheets. */
   heavy: { type: "spring", stiffness: 140, damping: 26 },
 } as const satisfies Record<string, Transition>;
 
 export type SpringKey = keyof typeof SPRING;
 
-// ---------------------------------------------------------------------------
-// Viewport contracts
-// ---------------------------------------------------------------------------
+// ===========================================================================
+// Viewport Contracts (Fire-Once, No Motion Loops)
+// ===========================================================================
 
-/** The viewport contract for scroll-triggered reveals. Fires once; never re-fires on a long read. */
+/** Default scroll reveal contract: fires once, never re-fires on reverse scroll. */
 export const VIEWPORT = { once: true, amount: 0.35, margin: "-10% 0px" } as const;
 
-/** A narrower trigger for tall elements that would otherwise never reach 35% on a phone. */
+/** Narrower viewport trigger for tall editorial tables and full-height sections. */
 export const VIEWPORT_TALL = { once: true, amount: 0.15, margin: "-5% 0px" } as const;
 
-/** The count-up contract. Matches the brief: fire once, 80px before the element arrives. */
+/** Early count-up trigger firing 80px before entering viewport. */
 export const VIEWPORT_COUNT = { once: true, margin: "-80px" } as const;
 
-// ---------------------------------------------------------------------------
+// ===========================================================================
 // Transitions
-// ---------------------------------------------------------------------------
+// ===========================================================================
 
-export const entrance: Transition = { duration: DURATION.base, ease: EASE_ENTRANCE };
-export const deliberate: Transition = { duration: DURATION.deliberate, ease: EASE_ENTRANCE };
-export const slow: Transition = { duration: DURATION.slow, ease: EASE_ENTRANCE };
-export const micro: Transition = { duration: DURATION.instant, ease: EASE_OUT };
-export const crossfade: Transition = { duration: DURATION.quick, ease: "easeOut" };
-export const disclosure: Transition = { duration: DURATION.quick, ease: EASE_IN_OUT };
+export const entrance: Transition = { duration: DURATION_TOKENS.deliberate, ease: EASE_PRIMARY };
+export const deliberate: Transition = { duration: DURATION_TOKENS.deliberate, ease: EASE_PRIMARY };
+export const slow: Transition = { duration: DURATION_TOKENS.deliberate, ease: EASE_PRIMARY };
+export const micro: Transition = { duration: DURATION_TOKENS.fast, ease: EASE_OUT };
+export const crossfade: Transition = { duration: DURATION_TOKENS.base, ease: "easeOut" };
+export const disclosure: Transition = { duration: DURATION_TOKENS.base, ease: EASE_IN_OUT };
 
-/** Reduced-motion replacement for any of the above: present, but without traversal. */
+/** Reduced-motion transition: instant resolve (0.001s) to static end-state. */
 export const reduced: Transition = { duration: 0.001 };
-/** Interaction feedback survives reduced motion — a focus ring that never appears is a bug. */
+
+/** Micro interaction feedback preserved under reduced motion for visual affordance (~80ms). */
 export const microReduced: Transition = { duration: 0.08, ease: EASE_OUT };
 
-// ---------------------------------------------------------------------------
-// Variants
-// ---------------------------------------------------------------------------
+// ===========================================================================
+// Variants (Degrading to Pure End-State)
+// ===========================================================================
 
-/** The floor, and the reduced-motion fallback for nearly everything. */
+/** Static opacity floor; baseline fallback for all content. */
 export const fadeIn: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: entrance },
 };
 
-/**
- * Deliberately restrained: 8px, not 24. Used where a group is genuinely enumerable.
- *
- * `fadeUp` is the brief's name for it and `riseIn` the name the existing 22 call sites use, so
- * both are exported and they are the same object — not two variants that could drift apart.
- */
+/** Restrained vertical rise: strictly 8px (never 24px+ floating card clichés). */
 export const riseIn: Variants = {
   hidden: { opacity: 0, y: 8 },
   visible: { opacity: 1, y: 0, transition: entrance },
 };
 export const fadeUp = riseIn;
 
-/** Scale from 96%, never from 0 — a card that grows from nothing reads as a popup, not an entrance. */
+/** Restrained scale: 96% to 100% (never pops up from nothing). */
 export const scaleIn: Variants = {
   hidden: { opacity: 0, scale: 0.96 },
   visible: { opacity: 1, scale: 1, transition: entrance },
 };
 
-/** Panel changes only, on the axis of travel. Never as a generic entrance. */
+/** Lateral panel cross-transitions. */
 export const slideInX = (distance = 12): Variants => ({
   hidden: { opacity: 0, x: distance },
   visible: { opacity: 1, x: 0, transition: crossfade },
   exit: { opacity: 0, x: -distance, transition: crossfade },
 });
+
 export const slideInY = (distance = 12): Variants => ({
   hidden: { opacity: 0, y: distance },
   visible: { opacity: 1, y: 0, transition: crossfade },
   exit: { opacity: 0, y: -distance, transition: crossfade },
 });
-/** The brief's name, with the axis chosen by argument rather than by picking a function. */
+
 export const slideIn = (axis: "x" | "y" = "y", distance = 12): Variants =>
   axis === "x" ? slideInX(distance) : slideInY(distance);
 
-/** Parent for a stagger cascade. Children use `fadeUp`, `fadeIn` or `scaleIn`. */
+/** Parent stagger container. */
 export const staggerContainer = (gap: number = STAGGER.normal, delay = 0): Variants => ({
   hidden: {},
   visible: { transition: { staggerChildren: gap, delayChildren: delay } },
 });
-/** The name the existing call sites use. Same function, so the two cannot drift. */
 export const cascade = staggerContainer;
 
-/** Two faces of one decision — the poll/primary and nomination-path cards. Each axis is a
- *  distinct signature, so §1A and §2 can both flip without reading as a repeat. */
+/** Distinct rotation axes for two-sided strategic decisions. */
 export const flipInY: Variants = {
   hidden: { opacity: 0, rotateY: -14 },
   visible: { opacity: 1, rotateY: 0, transition: entrance },
 };
+
 export const flipInX: Variants = {
   hidden: { opacity: 0, rotateX: 14 },
   visible: { opacity: 1, rotateX: 0, transition: entrance },
 };
 
-/**
- * Bars, rings and gauges. Scales along one axis from the baseline, so the compositor handles it
- * and the origin carries the meaning — zero is the honest starting point for a poll share.
- *
- * Not for an unmeasured baseline. See `unmeasuredTrack` below.
- */
+/** Bar and gauge reveal originating strictly from quantitative baseline. */
 export const growFromBaseline = (origin: "left" | "bottom" = "left"): Variants => ({
   hidden: { scaleX: origin === "left" ? 0 : 1, scaleY: origin === "bottom" ? 0 : 1 },
-  visible: { scaleX: 1, scaleY: 1, transition: slow },
+  visible: { scaleX: 1, scaleY: 1, transition: deliberate },
 });
 
 /**
- * The four nomination KPIs have no baseline: the document says "Not yet measured", and the Week 1
- * instrument is what will establish one. Growing a bar from zero would assert a measurement of
- * nil, which is a different and false claim.
- *
- * So an unmeasured track does not grow. Its hatching drifts, once, to show the surface is live
- * and deliberately empty — and it never acquires a fill.
+ * Unmeasured metric baseline hatch drift.
+ * Specifically honors "Awaiting campaign decision" and unmeasured baselines
+ * by never asserting a false zero-bar.
  */
 export const unmeasuredTrack: Variants = {
   hidden: { opacity: 0, backgroundPositionX: 0 },
   visible: {
     opacity: 1,
     backgroundPositionX: 16,
-    transition: { opacity: entrance, backgroundPositionX: { duration: DURATION.deliberate, ease: EASE_OUT } },
+    transition: {
+      opacity: entrance,
+      backgroundPositionX: { duration: DURATION_TOKENS.deliberate, ease: EASE_OUT },
+    },
   },
 };
 
-/** SVG path draw. Pair with `pathLength`, never with a dash-array animation. */
+/** Inline SVG vector path draw using pathLength on compositor. */
 export const drawPath: Variants = {
   hidden: { pathLength: 0, opacity: 0 },
   visible: {
     pathLength: 1,
     opacity: 1,
-    transition: { pathLength: slow, opacity: { duration: DURATION.instant } },
+    transition: { pathLength: deliberate, opacity: { duration: DURATION_TOKENS.fast } },
   },
 };
 
-/**
- * A wipe that uncovers rather than fades. The element is fully opaque throughout — only the mask
- * moves — so text is never caught mid-transition at an unreadable opacity.
- *
- * Needs `mask-image: linear-gradient(90deg, #000 0 var(--reveal), transparent var(--reveal))`.
- */
+/** Clip-path mask reveal keeping typography fully opaque and legible during wipe. */
 export const revealMask: Variants = {
   hidden: { clipPath: "inset(0 100% 0 0)" },
-  visible: { clipPath: "inset(0 0% 0 0)", transition: slow },
+  visible: { clipPath: "inset(0 0% 0 0)", transition: deliberate },
 };
 
-/**
- * Height changes without touching height. `grid-template-rows` interpolates between 0fr and 1fr
- * on the compositor; the child needs `overflow: hidden` and `min-height: 0`.
- */
+/** Compositor-friendly height expansion using grid-template-rows (0fr -> 1fr). */
 export const collapse: Variants = {
   hidden: { gridTemplateRows: "0fr", opacity: 0, transition: disclosure },
   visible: { gridTemplateRows: "1fr", opacity: 1, transition: disclosure },
 };
 
-// ---------------------------------------------------------------------------
-// Reduced motion
-// ---------------------------------------------------------------------------
+// ===========================================================================
+// Reduced Motion Strategy
+// ===========================================================================
 
 /**
- * Collapse any variant set to its finished state.
- *
- * The reduced path is a different finished page, not a degraded one: every element arrives at the
- * value it would have animated to. Ambient loops stop; entrances become instant; interaction
- * feedback is kept and shortened rather than removed.
+ * Maps any variant object directly to its completed, fully legible end-state.
+ * Ensures zero content or data is motion-gated.
  */
 export function stillVariants(v: Variants): Variants {
   const out: Variants = {};
@@ -262,25 +302,24 @@ export function stillVariants(v: Variants): Variants {
   return out;
 }
 
-/** Pick between the full and reduced variant set. */
+/**
+ * Selects either standard or static reduced-motion variant sets based on client preference.
+ */
 export function variantsFor(v: Variants, reduce: boolean): Variants {
   return reduce ? stillVariants(v) : v;
 }
 
-// ---------------------------------------------------------------------------
-// Ambient loops
-// ---------------------------------------------------------------------------
+// ===========================================================================
+// Ambient & Pulse Limits
+// ===========================================================================
 
 /**
- * Repeating motion, kept off the entrance scale on purpose.
- *
- * An entrance is a one-off a reader watches; a loop is wallpaper they read over. Sharing one
- * scale between them would either make entrances languid or loops frantic. Both stop entirely
- * under reduced motion — a loop has no "finished state" to settle at, so it simply does not run.
+ * Controlled duration intervals for the rare live connection indicators.
+ * Under reduced motion, ambient loops are halted completely.
  */
 export const LOOP = {
-  /** A pulse, a ring sweep, a progress arc. */
+  /** Radio/USSD connectivity beacon pulse. */
   pulse: 1.8,
-  /** Slow drift: ambient fields, mesh gradients, the marquee handoff. */
-  drift: 6,
+  /** Subtle cartogram territory highlight drift. */
+  drift: 6.0,
 } as const;

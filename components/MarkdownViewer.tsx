@@ -71,6 +71,7 @@ import { PersuasionFramingMatrix } from "./markdown/PersuasionFramingMatrix";
 import { PublicServiceDeliveryTracker } from "./markdown/PublicServiceDeliveryTracker";
 import { MediaRadioLandscapeCard } from "./markdown/MediaRadioLandscapeCard";
 import { DataSecurityEthicsCharter } from "./markdown/DataSecurityEthicsCharter";
+import { RapidResponseFlowDiagram } from "./markdown/RapidResponseFlowDiagram";
 import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, type TabId } from "../lib/heading-slug";
 import { segmentContent } from "../lib/collapse-groups";
@@ -372,6 +373,9 @@ function buildComponents(tabId: TabId): Components {
               // marker.
               if (source.includes("VICTORY-ANCHORED KPI MONITORING ARCHITECTURE")) {
                 return <KpiArchitecture />;
+              }
+              if (source.includes("RAPID RESPONSE DECISION & ESCALATION FLOW")) {
+                return <RapidResponseFlowDiagram />;
               }
               if (source.includes("NOMINATION WINDOW KEY PERFORMANCE INDICATORS")) {
                 return (
