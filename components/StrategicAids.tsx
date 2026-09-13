@@ -8,9 +8,12 @@ import { useIsMobile } from "../hooks/use-mobile";
 import { LazyMount } from "./LazyMount";
 import { Play, Pause, Volume2, ChevronDown, ChevronUp, Calendar, User, Check, AlertTriangle, Sparkles, Target, Zap, ArrowRight, Maximize2, Minimize2, Sliders, Radio, ShieldCheck, Users, Coins, FileText, TrendingUp, MessageSquare, CheckCircle2, CheckSquare, MapPin, Globe, BookOpen, Activity, Database, RefreshCw, HelpCircle, Layers, TrendingDown, Table, Filter } from "lucide-react";
 
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
-import ConstituencyBarChart from "./charts/ConstituencyBarChart";
-import ResourceLedgerBarChart from "./charts/ResourceLedgerBarChart";
+// Nothing here imports a charting runtime, and nothing here may. This module is a barrel:
+// ClientPage takes FocusModeToggle and PrintReportGenerator from it, MarkdownViewer takes nine
+// more aids, and both are in the first load on every route. A charting import at this level is
+// therefore charged to all nineteen routes whether or not a chart is ever drawn — which is what
+// happened, and what put 192 kB of recharts in front of every reader. Charts go behind their own
+// next/dynamic boundary, as components/markdown/*Block.tsx does.
 
 // ==========================================
 // 1. EXECUTIVE SUMMARY VISUAL AIDS
@@ -556,5 +559,7 @@ export function PrintReportGenerator({ onPrint }: { onPrint?: () => void } = {})
   );
 }
 
-// 11. Custom Campaign Performance Chart Component
-export { ChartComponent } from "./ChartComponent";
+// ChartComponent used to be re-exported from here. Nothing imported it through this barrel —
+// or at all — and the re-export alone was enough to pull recharts into the first load, since a
+// re-export is a static import. Import it directly, behind a dynamic boundary, if it is ever
+// wanted again.

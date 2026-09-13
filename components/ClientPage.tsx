@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Coins, Users, Radio, ShieldCheck, Type, Eye, EyeOff, Map, MessageSquare, Megaphone, Shield, Database, Gauge, HandCoins, BookLock, ClipboardList, Compass, Layers, Route, CalendarClock, Workflow, ListChecks, Handshake } from "lucide-react";
@@ -10,6 +11,7 @@ import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress"
 import { useChromeVisible } from "../hooks/use-chrome-visible";
 import { KeyFactsStrip } from "./KeyFactsStrip";
 import { LazyMount } from "./LazyMount";
+import { ChartFallback } from "./ChartFallback";
 import { ScrollProgressBar } from "./ScrollProgressBar";
 import { SectionStickyBar } from "./SectionStickyBar";
 import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
@@ -41,10 +43,21 @@ import { Dashboard } from "./Dashboard";
 import { HeroVisual } from "./HeroVisual";
 import { Portrait } from "./Portrait";
 import { DeficitGauge } from "./charts/DeficitGauge";
-import { DataVisualizations } from "./DataVisualizations";
-import { VoterProjectionsChart } from "./VoterProjectionsChart";
 import { SectionSkeleton } from "./SectionSkeleton";
 import { DURATION } from "../lib/motion";
+
+// Both draw with recharts, both render only on the landing tab, and both already sit inside a
+// LazyMount — so their markup waits for the viewport while their code did not. Behind dynamic()
+// the runtime is fetched when the strip actually mounts, following the same boundary and the
+// same ChartFallback the chart blocks in components/markdown use.
+const DataVisualizations = dynamic(
+  () => import("./DataVisualizations").then((m) => m.DataVisualizations),
+  { ssr: false, loading: () => <ChartFallback height={420} /> },
+);
+const VoterProjectionsChart = dynamic(
+  () => import("./VoterProjectionsChart").then((m) => m.VoterProjectionsChart),
+  { ssr: false, loading: () => <ChartFallback height={500} /> },
+);
 
 /**
  * The crossfade between sections — on a tab CHANGE, never on first paint.
