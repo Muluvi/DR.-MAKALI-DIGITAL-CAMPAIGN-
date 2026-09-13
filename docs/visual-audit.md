@@ -1,10 +1,396 @@
-# Visual and Structural Audit: Campaign Strategy & Digital Architecture
+# Visual audit — Phase 0
 
-This audit inventories the character-art diagrams, tabular markup, design tokens, bespoke visual components, and high-friction mobile reading paths across the proposal repository.
+Read-only inventory. No code changed, no component created.
+
+> **Revision 2.** A revision 1 of this audit exists from an earlier session and
+> is retained in full as Appendix B. Where the two disagree, revision 2 is
+> measured and revision 1 was not — the differences are listed in
+> "Corrections to revision 1" below. Revision 1's block-by-block inventory,
+> with line ranges for all 83 blocks, is data this revision does not duplicate
+> and is the reason it is kept rather than replaced.
+
+## Corrections to revision 1
+
+| Revision 1 said | Measured |
+|---|---|
+| §3.4.3 is "105 columns wide, 820px min-width", overflowing horizontally and requiring blind panning | The block is **79 columns**. `DiagramViewer` scales it to fit the card — it does not overflow. The failure is type size, not panning |
+| All 83 blocks are character art needing conversion | **45 of the 83 already render as real tables and key/value cards** through `lib/ascii-diagram.ts`. 38 are still character art |
+| Tables need "the two-rendering treatment" | Both table paths already have it. The markdown path is JS-gated, which revision 1 did not catch |
+| *(no placeholder register)* | Section 6 below. 23 markers, and the document's own claim of 17 verified |
+
+Revision 1's mobile failure points 4 and 5 — the 694-word governance prose
+wall and the three-tier deliverables comparison — are real, are not diagram
+problems, and are not superseded by anything here. They are carried forward.
+
+
+## Method
+
+Every count here is produced by a script over the repo, not by reading and
+tallying. Blocks are classified by running the repo's own parser
+(`lib/ascii-diagram.ts`) over each fenced block in `public/content`, so the
+"upgraded / not upgraded" split is what actually ships, not an estimate.
+Widths are the longest line in the block. Anything not measured is marked as
+such.
+
+Reproduce with the scripts in `bun run verify`, plus:
+
+```
+grep -c '^```' public/content/*.md          # fenced blocks, ×2
+grep -rnoE "\[Insert[^]]*\]" public/content  # bracketed placeholders
+```
+
+## What this audit changes about the plan
+
+The phase commands were written for a repo with ~194 unconverted ASCII blocks
+and no token layer. Neither is true now, and three of the six inventory items
+this audit was asked to produce describe work that is already done:
+
+- **83 fenced blocks, not ~194.** 45 already render as real tables and
+  key/value cards. 38 are still character art.
+- **Wide tables already have the two-rendering treatment.** Markdown tables
+  card-stack on mobile (`InteractiveTable`); parser-derived tables stack
+  themselves in CSS with `data-label` column headers, one DOM, no JS.
+- **The token layer exists** — ~390 custom properties in `app/globals.css`.
+  The hard-coded-value problem is real but narrow, and it is not spacing.
+
+What is left is smaller than the plan assumed and differently shaped: 32 real
+diagrams still drawn in monospace, one payload problem, and one missing map.
 
 ---
 
-## 1. Fenced ASCII / <pre> Character-Art Diagrams
+## 1. Character-art blocks
+
+38 of 83 fenced blocks still reach the reader as fixed-width character art —
+34 parsed as `panel` (scaled to fit the card, or opened in a zoom-and-pan
+overlay) and 4 falling back to a raw `<pre>`. Neither path reflows.
+
+Sorted by argumentative value, not file order or size.
+
+| Route | Line | § | Depicts | W×H | Rating |
+|---|---|---|---|---|---|
+| `situation` | 788 | 3.6 | Electorate reachability audit — **the 86.4% offline split** | 90×14 | `structural` |
+| `scope-ground` | 10 | 8.8 | Closed-loop field & digital integration engine | 84×27 | `complex` |
+| `scope-ground` | 80 | 8.8.2 | The 4-hour ground-to-digital cycle | 84×23 | `structural` |
+| `situation` | 386 | 3.4 | Kitui electoral register, 532,758 voters | 90×36 | `complex` |
+| `situation` | 506 | 3.4.3 | Four structural paths to the 200,000 pool | 79×18 | `structural` |
+| `scope-ground` | 212 | 8.9.1 | Field↔digital bidirectional sync loop *(raw `<pre>`)* | 67×13 | `structural` |
+| `risk` | 10 | 13.1 | Rapid-response decision & escalation flow | 85×19 | `structural` |
+| `scope-platforms` | 55 | 8.2.3 | What happens to a report *(raw `<pre>`)* | 66×20 | `structural` |
+| `situation` | 997 | 3.7 | Kamba radio landscape & bypass architecture | 86×17 | `structural` |
+| `situation` | 602 | — | Recognition deficit × decisive voter concentration | 86×23 | `complex` |
+| `messaging` | 415 | 7.3.3 | Multilingual approval & sign-off chain | 80×25 | `complex` |
+| `scope-ground` | 307 | 8.10.3 | USSD menu tree, Kikamba *(raw `<pre>`)* | 57×7 | `structural` |
+| `scope-platforms` | 221 | — | USSD interactive menu tree `*483*77#` | 51×8 | `structural` |
+| `risk` | 99 | 13.1.4 | Pre-drafted holding positions & citations | 112×52 | `complex` |
+| `scope-ground` | 149 | 8.8.4 | Operational rhythm & governance cadence | 111×33 | `complex` |
+| `risk` | 427 | 13.5 | Statutory compliance architecture | 91×25 | `complex` |
+| `structure` | 6 | — | Lean core + specialist vendor model | 84×32 | `complex` |
+| `structure` | 136 | 14.6 | Reporting lines org chart *(raw `<pre>`)* | 62×23 | `structural` |
+| `scope-platforms` | 299 | 8.3.6 | Asset library directory tree | 66×26 | `complex` |
+| `situation` | 198 | — | Malombe 2027 constitutional status, dual branch | 91×16 | `structural` |
+| `situation` | 86 | 3.2.2 | Three-tier evidential classification | 79×20 | `simple` |
+| `situation` | 118 | 3.2.3 | Four-step conflict resolution protocol | 78×18 | `structural` |
+| `scope-data` | 10 | 8.12 | Campaign data layer architecture | 85×19 | `complex` |
+| `scope-data` | 225 | 8.14 | Technology stack architecture | 84×19 | `complex` |
+| `scope-platforms` | 134 | 8.3 | 360° content production pipeline | 84×19 | `structural` |
+| `scope-platforms` | 269 | 8.3.5 | 4-step content approval gateway | 81×23 | `structural` |
+| `messaging` | 10 | 7.1 | Message architecture hierarchy | 84×19 | `structural` |
+| `messaging` | 34 | 7.1.1 | Central campaign claim & slogan | 79×11 | `simple` |
+| `messaging` | 332 | 7.3 | Trilingual audience & channel matrix | 85×18 | `simple` |
+| `measurement` | 87 | 11.1.3 | Victory-anchored KPI monitoring architecture | 70×23 | `complex` |
+| `measurement` | 119 | 11.2 | Empirical research & service-delivery tracker | 85×13 | `simple` |
+| `audiences` | 8 | — | Audience architecture overview | 84×16 | `simple` |
+
+### The six that are not diagrams at all
+
+Six blocks contain nothing but a framed title restating the heading directly
+above them — `┌───┐ │ SECTION 3.6.1: CONNECTED MINORITY CHANNELS │ └───┘` sits
+immediately under `### 3.6.1 The connected minority, and its limits`.
+
+| Route | Line | § |
+|---|---|---|
+| `situation` | 814 | 3.6.1 |
+| `situation` | 860 | 3.6.2 |
+| `situation` | 935 | 3.6.3 |
+| `audiences` | 29 | 5.1 |
+| `scope-data` | 249 | 8.14.1 |
+| `scope-ground` | 110 | 8.8.3 |
+
+They carry no claim, figure or relationship that the heading does not already
+carry. Deleting them removes duplicated presentation, not prose — but that is
+a call for the author, not a conversion, and it is listed here rather than
+acted on.
+
+**Net: 32 real diagrams to convert.**
+
+---
+
+## 2. Tables
+
+89 tables in total, and the mobile treatment the command asks for already
+exists on both paths.
+
+| Kind | Count | Mobile rendering |
+|---|---|---|
+| Markdown tables in `public/content` | 60 | `InteractiveTable` — card stack on phones, filterable table above. **JS-gated**, see below |
+| Character-art tables parsed to real `<table>` | 29 | Stacks itself in CSS below `md`; each cell carries its column header in `data-label`. One DOM, no JS, a real `<table>` at every width |
+| Character art that is *not* a table | 38 | **None** — see section 1 |
+
+### More than four columns
+
+Nine markdown tables and five parsed tables. All fourteen already stack; they
+are listed because stacking a 7-column row produces a seven-line card, which
+is legible but long.
+
+| Cols | Location | § |
+|---|---|---|
+| 7 | `situation.md:454` | 40-ward registration ranking (IEBC 2022) |
+| 7 | `measurement.md:12` | Nomination window KPIs *(parsed)* |
+| 7 | `measurement.md:45` | General election KPIs, ≥200,000 votes *(parsed)* |
+| 6 | `summary.md:28` | 2.2 The governing constraint |
+| 6 | `situation.md:563` | Constituency structural power ranking *(parsed)* |
+| 5 | `scope-data.md:157` | 8.13.4 Model variables |
+| 5 | `scope-data.md:396` | 8.15.3 Analytics maturity roadmap |
+| 5 | `scope-ground.md:354` | 8.10.6 KPIs for the offline layer |
+| 5 | `situation.md:690` | 3.5.1 Urban and central anchor |
+| 5 | `situation.md:710` | 3.5.2 The northern block: Mwingi |
+| 5 | `situation.md:730` | 3.5.3 The arid and resource belt |
+| 5 | `situation.md:768` | 3.5.4 How the zones are weighted |
+| 5 | `audiences.md:124` | Audience segment comparative matrix *(parsed)* |
+| 5 | `measurement.md:139` | Recognition-deficit research architecture *(parsed)* |
+
+The 40-row × 7-column ward ranking at `situation.md:454` is the one worth
+attention: as 40 seven-line cards it is roughly 280 lines of scroll on a
+phone. It is also the table the ward map exists to replace.
+
+### The markdown card view needs JavaScript
+
+`InteractiveTable` selects its shape with `useIsMobile()`, whose
+`getServerSnapshot()` returns `false` (`hooks/use-mobile.ts:16`). The branch is
+`mounted && isMobile` (`InteractiveTable.tsx:323`), so **every server-rendered
+markdown table is the horizontal-scroll table**, and the card view appears only
+after hydration. With JS off, or on a slow connection before 421 kB of
+JavaScript arrives, all 60 of them are side-scrolling tables on a phone.
+
+The parsed character-art tables do not have this problem — they stack in CSS.
+The fix is the same technique, applied to the markdown path.
+
+---
+
+## 3. Hard-coded values
+
+180 arbitrary Tailwind values and 120 distinct hex literals. Grouped by what
+they are, because the frequency ranking is misleading on its own.
+
+| Value | Count | What it is | Verdict |
+|---|---|---|---|
+| `[44px]` | 80 | Touch-target minimum (commit `4be4c43`) | **Token it.** One number, 80 sites, a real design decision with no name |
+| `#fff` / `#ffffff` / `#000` / `#000000` | 55 | Device chrome inside phone/terminal simulators | Leave. Literal black and white in a simulated UI |
+| `#e31d2b` | 15 | Data red, in chart components | **Token it** — see below |
+| `#00209f` | 11 | Data blue, in chart components | **Token it** — see below |
+| `#0b1a30`, `#0056a8`, `#8295a9` | 26 | Terminal and chart surfaces | Review |
+| `#f2f2f2`, `#667781`, `#54656f`, `#e4e6eb`, `#ced0d4` | 19 | WhatsApp / Facebook / Instagram brand chrome | Leave. Brand fidelity is the point of the simulator |
+| `#b45309`, `#f59e0b`, `#d97706` | 8 | Amber warning states | **Token it.** `--estimate-*` already exists and means this |
+| `[3px]` `[2px]` `[1px]` `[10px]` `[7px]` `[11px]` | 26 | Hairlines and micro-type | Leave. Below the spacing scale on purpose |
+| `[220px]` `[190px]` `[150px]` `[240px]` `[260px]` `[480px]` | 15 | Chart and device heights | Leave |
+| `400ms` `250ms` `150ms` `80ms` | 10 | Durations outside the motion tokens | **Token it.** The brief specifies three durations; there are at least nine |
+
+### The one that matters
+
+`#e31d2b` and `#00209f` are the Kenyan flag's red and blue used as **data
+colours**, hard-coded across **15 files** — eight of them chart and data components
+(`MizaniSlopeBlock`, `FiscalAuditChartBlockContent`, `PlatformSizingBlock`,
+`ResourceEnvelopeBlock`, `MediaOwnershipBlockContent`, `PathTo200kBlockContent`,
+`ElectoralTimelineBlockContent`, `CompetitiveQuadrantBlock`), plus
+`ChartComponent`, `HeroVisual`, `StrategicAids` and `ClientPage`. The brief says colour in this document carries
+meaning and is never decoration — which is exactly right, and is exactly why
+those two values need names in `app/globals.css` before a sixteenth file
+copies them. This is also where the `--kt-ground` / `--kt-digital` /
+`--kt-physical` / `--kt-hub` decision gets settled, since none of the four is
+defined today and `--phase-0..3` occupies that role.
+
+Spacing, radii and type sizes are already tokenised and are **not** a problem.
+
+---
+
+## 4. Existing bespoke components
+
+63 components under `components/markdown/`, plus the device simulators. They
+establish four patterns the remaining work has to match:
+
+**The instrumentation register.** `TerminalFrame` + four screens
+(`GroundPulseScreen`, `IncidentScreen`, `MarketAuditScreen`, `TurnoutScreen`),
+and `PhoneFrame` + seven (`UssdScreen`, `WhatsAppScreen`, and five social).
+Monospace, device bezels, live-feed timestamps. The strongest work in the
+document and the reason the brief reserves mono for field instrumentation.
+
+**Sourced figures.** `TierBadge`, `ClaimBadge`, `ProvenanceLine`, `SourceLine`,
+`DisputedFigure`, `DerivedFigureDrawer`, `FootnotePopover`. Every displayed
+number can show where it came from and which evidential tier it sits in. This
+is the document's credibility machinery rendered as UI, and it is enforced by
+`scripts/verify-figures.mjs`.
+
+**Data blocks with a content twin.** Eleven `*Block` / `*BlockContent` pairs —
+`WardCartogram`, `PathTo200k`, `FiscalAuditChart`, `MediaOwnership`,
+`ConstituencyWeight`, `ElectoralTimeline`. A server block that reads from
+`data/` and a content component that renders it. This is the pattern a new
+diagram should follow.
+
+**Reading affordances.** `ProseFold`, `DisclosureGroup`, `InteractiveTable`,
+`CrossSectionLink`, `SectionNumberMap`, `KeyTakeawayBanner`. Progressive
+disclosure over a 241-section document.
+
+Also live and not to be regressed: `ScrollProgressBar` (already CSS
+`animation-timeline: scroll()` with a scroll-listener fallback),
+`SectionStickyBar`, `FocusModeToggle`, `ReadingSettingsSheet`, the
+`dark`/`sepia` theme.
+
+---
+
+## 5. Mobile failure points
+
+The arithmetic first, because it settles four of the five. At ≤380px
+`.ascii-pre` is 9px (`app/globals.css:1371`). JetBrains Mono advances 0.6em, so
+5.4px per character. Usable width inside the card at 360px is about 312px after
+the gutter and padding — **roughly 57 characters.** `DiagramViewer` scales
+anything wider to fit, so effective type size is `57/width × 9px`.
+
+| # | Where | Why a reader gives up |
+|---|---|---|
+| 1 | `risk.md:99` — holding positions, 112×52 | Scales to 0.51 → **4.6px type**. Below the size at which a glyph resolves at all. 52 lines deep, so the zoom overlay means pinch, drag, read four lines, drag again |
+| 2 | `scope-ground.md:149` — operational rhythm, 111×33 | 4.6px. The governance cadence — who meets when — is one of the few things a principal actually checks |
+| 3 | `situation.md:788` — reachability audit, 90×14 | 5.7px. **This is the 86.4% figure**, the strategic core of the proposal, rendered as an ASCII bar chart too small to read on the device the reader is holding |
+| 4 | `situation.md:454` — 40-ward table, 7 columns | Stacks correctly, but into ~280 lines of scroll. Right answer, wrong shape: this wants the map |
+| 5 | `situation.md:386` — electoral register, 90×36 | 5.7px, 36 lines. The vote arithmetic the entire strategy rests on |
+| 6 | All 60 markdown tables, pre-hydration | The card view is JS-gated. Until the bundle lands, every one of them side-scrolls on a phone |
+
+Six rather than five, because the sixth is the only one that fails with
+JavaScript on *and* off, and it fails hardest on exactly the connection the
+document is about.
+
+Three of the first five are the document's central quantitative claims. The
+proposal argues that campaigns fail when they are built for the connected
+minority; its own evidence is currently delivered at 5px to a reader on a
+phone.
+
+Not measured: no throttled-device session, no field testing. These are
+computed from the stylesheet and the source, and should be confirmed on a real
+handset.
+
+---
+
+## 6. Placeholder register
+
+23 marked placeholders in two classes. Both must survive every later phase
+visibly. `/drift` and `content-integrity` check against this table.
+
+### Class A — bracketed inserts (17)
+
+The document asserts in `assumptions.md:20` that there are 17. There are
+exactly 17. That claim currently holds.
+
+| # | Location | Placeholder |
+|---|---|---|
+| 1 | `governance.md` | `[Insert SLA — recommend 14 days]` |
+| 2 | `governance.md` | `[Insert named Kenyan data-protection / electoral-law specialist — to be appointed by the campaign]` |
+| 3 | `measurement.md` | `[Insert — independent Kenyan qualitative research facilitator; Firefly to recommend, campaign to appoint]` |
+| 4 | `messaging.md` | `[Insert verified number]` |
+| 5 | `risk.md` | `[Insert specified hardware security key model — two keys per critical account holder for redundancy]` |
+| 6 | `risk.md` | `[Insert vendor — selected at contracting]` |
+| 7 | `roadmap.md` | `[Insert baseline audit results — Week 1 deliverable]` |
+| 8 | `roadmap.md` | `[Insert target]` |
+| 9 | `roadmap.md` | `[Insert — native-speaker developed]` |
+| 10 | `scope-data.md` | `[Insert shortcode]` |
+| 11 | `scope-ground.md` | `[Insert shortcode]` |
+| 12–14 | `scope-platforms.md` | `[Insert shortcode]` ×2, `[Insert threshold — recommend 1.5% CTR]` |
+| 15 | `scope-platforms.md` | `[Insert additional authentic Kikamba proverbs and phrases — all to be reviewed and corrected by a native speaker before any publication. The examples above are working drafts, not verified copy.]` |
+| 16 | `scope-platforms.md` | `[Insert — Kenya National Association of the Deaf or an accredited interpreter service]` |
+| 17 | `structure.md` | `[Insert threshold — recommend 150/day]` |
+
+### Class B — "Awaiting campaign decision" (6)
+
+| # | Location | Decision pending |
+|---|---|---|
+| 1 | `scope-data.md:261` | Africa's Talking vs. Safaricom SDP Enterprise |
+| 2 | `scope-data.md:271` | Custom PostgreSQL vs. open-source CiviCRM |
+| 3 | `scope-data.md:283` | Monthly software subscription allocation |
+| 4 | `scope-data.md:293` | Technical hosting environment sign-off |
+| 5 | `scope-data.md:304` | Design mockups and domain registration |
+| 6 | `scope-data.md:348` | *(in-diagram reference to the marker itself)* |
+
+Occurrence 6 sits **inside** a fenced block. Any conversion of that block must
+carry the phrase through verbatim and visibly.
+
+---
+
+## 7. Vernacular register
+
+Not asked for, but `content-integrity` cannot do its job without it. Every
+Kikamba string in the repo, in full. Nothing outside this list may appear
+anywhere, and none of these may be altered by a byte.
+
+Canonical source: `data/ussd-specimen.ts`.
+
+| Key | Kikamba | English gloss |
+|---|---|---|
+| header | `KITUI NA MULU` | — |
+| 1 | `Sisemo sya Mulu` | Mulu's plan for my ward |
+| 2 | `Andikithya kuvota` | Voter registration info |
+| 3 | `Ripoti wia` | Report a local issue |
+| 4 | `Kuthukuma` | Volunteer |
+| 5 | `Kwithukiisya` | Get updates (opt-in) |
+| 6 | *(none — English label)* | Kiswahili / English |
+
+The same seven strings appear as character art at `scope-ground.md:307` and
+`scope-platforms.md:221`. Converting either block means reusing these exact
+bytes, not retyping them.
+
+The four-stage review chain the document claims for this copy is in
+`data/ussd-specimen.ts:71-74`. Placeholder 15 above states in the document's
+own words that the proverbs are working drafts, not verified copy — which is
+the claim a generated string would destroy.
+
+---
+
+## Appendix A — measured payload
+
+Not part of the six items, recorded because it outranks them.
+
+```
+next build, production, single route /[[...slug]]
+
+First Load JS          421 kB gzipped      budget 300 kB    FAIL  (+40%)
+Route size             319 kB
+All static JS          597 kB gzipped      (raw 1.99 MB)
+Largest chunk          197 kB gzipped
+Shared baseline        103 kB gzipped
+```
+
+`framer-motion`, `motion` and `recharts` are all in the dependency graph.
+Every later phase adds to this number, and no phase after this one can tell
+you which change moved it while the starting point is already failing.
+
+Not measured: LCP, INP, CLS, or anything on Slow 4G with 4× CPU throttling.
+Those need a served build against a throttled profile and belong to `/perf`.
+
+---
+
+## State
+
+Audit only. Nothing converted. 32 diagrams, one map, and one payload problem
+outstanding.
+
+
+---
+
+# Appendix B — revision 1, retained in full
+
+Written in an earlier session, before `lib/ascii-diagram.ts` and
+`DiagramViewer` were measured against the blocks they render. Its per-block
+inventory with line ranges is accurate and useful; its claims about how those
+blocks currently *render* are superseded by the corrections above.
+
+### 1. Fenced ASCII / <pre> Character-Art Diagrams
 
 Total fenced ASCII/character-art diagrams identified: **83 instances** across 19 markdown files.
 
@@ -96,9 +482,9 @@ Total fenced ASCII/character-art diagrams identified: **83 instances** across 19
 
 ---
 
-## 2. Table Inventory & Semantic Markup Analysis
+### 2. Table Inventory & Semantic Markup Analysis
 
-### A. Markdown Pipeline Tables (Content Files)
+#### A. Markdown Pipeline Tables (Content Files)
 Total Markdown pipe tables: **60 tables** across 14 content files.
 - **Rendering Mechanism:** Rendered via `InteractiveTable.tsx` (`components/markdown/InteractiveTable.tsx`).
 - **Semantic Status:** 
@@ -168,7 +554,7 @@ Total Markdown pipe tables: **60 tables** across 14 content files.
 | 59 | `public/content/structure.md` | 14.4 Surge roles, activated by phase and scope level | 9 | `/ Role / Activated / Function /` | Hybrid (Desktop `<table>` / Mobile `<div>` cards) |
 | 60 | `public/content/summary.md` | 2.2 The governing constraint | 4 | `/ Survey / Kasalu / **Mulu** / Ngilu / Wambua /...` | Hybrid (Desktop `<table>` / Mobile `<div>` cards) |
 
-### B. Component-Level Tables & Matrices
+#### B. Component-Level Tables & Matrices
 
 | Component Path | Structural Role | Markup Implementation | Analysis |
 |---|---|---|---|
@@ -192,9 +578,9 @@ Total Markdown pipe tables: **60 tables** across 14 content files.
 
 ---
 
-## 3. Hard-Coded Tokens & Recurrence Frequency
+### 3. Hard-Coded Tokens & Recurrence Frequency
 
-### A. Hard-Coded Colours
+#### A. Hard-Coded Colours
 Total unique hardcoded color values: **171 unique values**.
 
 #### High Recurrence (≥ 10 occurrences)
@@ -221,7 +607,7 @@ Total unique hardcoded color values: **171 unique values**.
 
 ---
 
-### B. Hard-Coded Font Sizes
+#### B. Hard-Coded Font Sizes
 Total unique hardcoded font size declarations: **35 unique sizes**.
 
 #### High Recurrence (≥ 10 occurrences)
@@ -241,7 +627,7 @@ Total unique hardcoded font size declarations: **35 unique sizes**.
 
 ---
 
-### C. Hard-Coded Spacing Values
+#### C. Hard-Coded Spacing Values
 Total unique arbitrary spacing classes: **75 unique values**.
 
 #### High Recurrence (≥ 10 occurrences)
@@ -262,7 +648,7 @@ Total unique arbitrary spacing classes: **75 unique values**.
 
 ---
 
-### D. Hard-Coded Durations
+#### D. Hard-Coded Durations
 Total unique transition/animation durations: **11 unique values**.
 
 #### High / Medium Recurrence
@@ -278,63 +664,63 @@ Total unique transition/animation durations: **11 unique values**.
 
 ---
 
-## 4. Bespoke Visual Components & Established Patterns
+### 4. Bespoke Visual Components & Established Patterns
 
 The codebase establishes distinct, reusable visual patterns across 39 mounted insertions and core application chrome:
 
-### 1. The TAC-40 Terminal Emulator (`TerminalFrame.tsx`, `TerminalShowcase.tsx`, `terminal/screens/*`)
+#### 1. The TAC-40 Terminal Emulator (`TerminalFrame.tsx`, `TerminalShowcase.tsx`, `terminal/screens/*`)
 - **Pattern:** Rigorous retro-tactical command interface. Monospace typography, CRT phosphor glow effects, live status tickers, command prompt cues, and tabular operational data feeds.
 - **Role:** Grounds the "ground operations" narrative (§8.8) in an authoritative, real-time command-and-control visual language.
 
-### 2. The Multi-Channel Handset & USSD Simulator (`PhoneFrame.tsx`, `PhoneShowcase.tsx`, `FeaturePhoneSpecimen.tsx`, `phone/screens/*`)
+#### 2. The Multi-Channel Handset & USSD Simulator (`PhoneFrame.tsx`, `PhoneShowcase.tsx`, `FeaturePhoneSpecimen.tsx`, `phone/screens/*`)
 - **Pattern:** True-to-scale mobile handset bezel with interactive channel tabs (USSD, WhatsApp, SMS, Radio Audio, Social feeds).
 - **Role:** Demonstrates how Dr. Mulu's message physically renders on both low-cost feature phones (monochrome USSD) and smartphones (§3.6).
 
-### 3. The Offline / Connected Waterline (`OfflineWaterline.tsx`, `ReachSplit.tsx`)
+#### 3. The Offline / Connected Waterline (`OfflineWaterline.tsx`, `ReachSplit.tsx`)
 - **Pattern:** High-contrast bifurcated progress bar and split visualizer separating the 86.4% offline population from the 13.6% connected minority.
 - **Role:** Serves as the central architectural proof of the core thesis (§3.3.5)—visually dramatizing why digital-only campaigns fail in Kitui.
 
-### 4. Interactive Ledger & Arithmetic Blocks (`PathTo200kBlock.tsx`, `PathTo200kCalculator.tsx`, `ConstituencyWeightBlock.tsx`)
+#### 4. Interactive Ledger & Arithmetic Blocks (`PathTo200kBlock.tsx`, `PathTo200kCalculator.tsx`, `ConstituencyWeightBlock.tsx`)
 - **Pattern:** Tabular arithmetic balance sheets with dynamic sliders, margin gap gauges, and instant formula re-calculation.
 - **Role:** Speaks directly to Dr. Mulu's economist background, replacing abstract political claims with verifiable electoral accounting (§3.4.3).
 
-### 5. Spatial Cartogram & Demographic Heatmaps (`WardCartogram.tsx`, `WardCartogramBlock.tsx`, `GeographicZoneMatrix.tsx`)
+#### 5. Spatial Cartogram & Demographic Heatmaps (`WardCartogram.tsx`, `WardCartogramBlock.tsx`, `GeographicZoneMatrix.tsx`)
 - **Pattern:** 40-ward topological grid colored by turnout potential and margin targets, featuring tap-to-inspect drawers and sync with IEBC baselines.
 - **Role:** Replaces standard geographic maps with voter-weighted geometric cells, illustrating strategic density rather than empty land area (§3.3.3).
 
-### 6. Interactive Table Engine with Viewport Adaptation (`InteractiveTable.tsx`, `MatrixMarks.tsx`)
+#### 6. Interactive Table Engine with Viewport Adaptation (`InteractiveTable.tsx`, `MatrixMarks.tsx`)
 - **Pattern:** Searchable, sortable tabular grid with statistical summary drawer (Avg, Max, Sum) and scatter-plot mark mode; automatically transforms into stacked paired cards on mobile.
 - **Role:** Standardizes all 60 markdown tables into interactive data exploration stations.
 
-### 7. Non-Occluding Reading & Theme Controls (`SectionStickyBar.tsx`, `ReadingSettingsSheet.tsx`, `MobileBottomNav.tsx`)
+#### 7. Non-Occluding Reading & Theme Controls (`SectionStickyBar.tsx`, `ReadingSettingsSheet.tsx`, `MobileBottomNav.tsx`)
 - **Pattern:** Ambient scroll-aware navigation chrome with "Zero Chrome" mode, font size adjusters, and dark/light/contrast toggles.
 - **Role:** Empowers the reader to strip away chrome for focused long-form reading on constrained mobile screens.
 
 ---
 
-## 5. Five Sections Where a Reader on a Phone Would Most Likely Give Up
+### 5. Five Sections Where a Reader on a Phone Would Most Likely Give Up
 
-### 1. §3.4.3: Four Structural Paths to the Threshold (`public/content/situation.md`, Lines 506–525)
+#### 1. §3.4.3: Four Structural Paths to the Threshold (`public/content/situation.md`, Lines 506–525)
 - **Failure Cause:** **Massive Monospace Table Overflow (105 columns wide, 820px min-width).**
 - **Mobile Experience:** Renders a huge ASCII box-drawing arithmetic table detailing the four turnout scenarios to 200,000 votes. On a 360px phone screen, this preformatted block triggers severe horizontal overflow, requiring the reader to pan back and forth blindly across 5 columns. The numbers dissociate from their constituency row headers.
 - **Economist Reader Impact:** Dr. Mulu cannot inspect the arithmetic coherence without extreme physical friction, undermining the campaign's central mathematical case.
 
-### 2. §8.15.2: Model Variables Dictionary & Feature Matrix (`public/content/scope-data.md`, Lines 140–280)
+#### 2. §8.15.2: Model Variables Dictionary & Feature Matrix (`public/content/scope-data.md`, Lines 140–280)
 - **Failure Cause:** **Vertical Card Fatigue (3,200px Continuous Scroll) or Extreme Column Pinching.**
 - **Mobile Experience:** Contains a 23-row by 5-column table of voter modeling variables (`Support/Undecided/Oppose/No (4-way)`, `cost-per-persuaded-voter`). When rendered through the mobile card unrolling pipeline, this produces 23 tall cards that consume over 3,000 vertical pixels. 
 - **Reader Impact:** Navigating past this section requires dozens of thumb flings. The reader loses narrative continuity and is likely to close the tab out of scroll exhaustion.
 
-### 3. §3.3.3: 40 Wards Register & Electoral Weight Ledger (`public/content/situation.md`, Lines 240–380)
+#### 3. §3.3.3: 40 Wards Register & Electoral Weight Ledger (`public/content/situation.md`, Lines 240–380)
 - **Failure Cause:** **Cognitive & DOM Overload on Low-Memory Mobile Browsers.**
 - **Mobile Experience:** Presents all 40 IEBC administrative wards with voter counts, target margins, and turnout ratios. Rendering 40 detailed cards or a wide table alongside the Ward Cartogram and Path to 200k Block creates high layout contention, stuttering scroll frames (dropping well below 60fps on 4G Android devices), and overwhelming density.
 - **Reader Impact:** On a mid-range phone over an 8 Mbps connection, the sudden surge in DOM nodes and paint complexity induces touch lag, tempting the reader to abandon the page.
 
-### 4. §12.5: Digital Ethics, Consent & Data Governance Charter (`public/content/governance.md`, Lines 180–310)
+#### 4. §12.5: Digital Ethics, Consent & Data Governance Charter (`public/content/governance.md`, Lines 180–310)
 - **Failure Cause:** **Monolithic 694-Word Unbroken Prose Wall.**
 - **Mobile Experience:** Represents the single longest uninterrupted text block in the entire document. On a 360–412px screen, 694 words equal approximately 8 to 10 full viewport heights of dense, uniform, legalistic typography without visual breaks, metric callouts, diagrams, or intermediate headings.
 - **Reader Impact:** A senior principal reading while distracted or on the move will experience immediate cognitive fatigue from the unbroken visual monotony.
 
-### 5. §10.1–§10.1.2: Deliverables, Service Level Selector & Tier Comparison (`public/content/deliverables.md`, Lines 50–190)
+#### 5. §10.1–§10.1.2: Deliverables, Service Level Selector & Tier Comparison (`public/content/deliverables.md`, Lines 50–190)
 - **Failure Cause:** **Horizontal Tier Squeeze & Sticky Chrome Viewport Occlusion.**
 - **Mobile Experience:** Compares three intricate operational service tiers (Lean, Standard, Premium) across multiple deliverables. Side-by-side columns on mobile compress into unreadable 65px-wide strips with severe single-word hyphenation. When switched to a tabbed or carousel view, comparing Tier 1 vs Tier 3 requires continuous toggling while pinned top bars (toolbar + sticky section bar) occlude up to 27% of the viewport.
 - **Reader Impact:** The decision-making comparison becomes frustrating to parse, obscuring the exact scope Firefly is proposing to deliver.
