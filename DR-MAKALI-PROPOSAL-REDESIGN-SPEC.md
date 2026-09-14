@@ -27,6 +27,97 @@ The audit's central diagnosis — *"the content is not necessarily the primary p
 
 ---
 
+## 0.1 Governing constraint — figures are load-bearing; prose is the cut surface
+
+**Client instruction, and it overrides every recommendation in this document: no figure may be removed. Length comes out of prose.**
+
+This is the correct instruction, and applying it exposed three errors in the first draft of this specification. Each is corrected below and carried through §9, §15, §17 and §20. The audit method that found them is reusable and is specified as a build guard in §17 (item 0).
+
+### The rule
+
+> A block may be **DELETED** only if every figure it contains is proven to survive elsewhere — in another content file, in `data/`, or in a component that renders **and prints**. Otherwise it is **MOVED**, **CONVERTED** or **COMPRESSED**, never cut.
+
+"Elsewhere" has a trap in it, and it is the reason for correction 2 below: a figure that lives only in a React component is **not** safe, because much of the landing route is `print:hidden`. The printed PDF and the markdown are the document of record. A figure visible only on a screen has already been half lost.
+
+### What I actually checked
+
+Every block marked DELETE in the first draft was extracted, its numeric tokens enumerated, and each token searched across all 19 content files, all of `data/`, and all of `components/`. Results:
+
+| Proposed deletion | Figures in block | Verdict |
+|---|---|---|
+| `cover.md` §1.3 structure explainer | 9, all cross-reference numbers | **Lossless — DELETE stands** |
+| `situation.md` §3.2.1 Tri-Partite Mandate | 5, all illustrative examples | **Lossless — DELETE stands** |
+| `Dashboard.tsx` poll metric card | 9 | **Lossless — DELETE stands** |
+| Landing `ObjectivesIndex` grid | section numbers only | **Lossless — DELETE stands** |
+| 10 of the 11 "STRATEGIC TAKEAWAY" boxes | 0–4 percentages each, all duplicated in adjacent prose | **Lossless — DELETE stands** |
+| **`situation.md` §3.6.3 takeaway box** | **8 percentages, one unique** | ⚠ **CORRECTION 1** |
+| **`summary.md` §2.2 polling table** | **11** | ⚠ **CORRECTION 2** |
+| **`DataVisualizations.tsx` tier panel** | **3 unique ad-budget bands** | ⚠ **CORRECTION 3** |
+| `governance.md` §12.2 ASCII cadence | meeting times + 200,000 | ⚠ **CORRECTION 4** (judgement, not arithmetic) |
+
+### Correction 1 — `situation.md` §3.6.3's takeaway box is not filler
+
+I recommended deleting all eleven "STRATEGIC TAKEAWAY" boxes as template artefacts. Ten are. **This one is data.** It carries the entire channel-weighting argument:
+
+> • The Digital Ceiling: Digital reaches ~72,000 voters (13.6%), capable of delivering only **36.2%** of the 200,000 threshold.
+> • The Offline Engine: Vernacular radio (~420k reach) and Direct 2G SMS (~320k reach) are mathematically essential to win.
+> • Budget Discipline: Rebalanced communications budget — **82% offline** (Radio 37%, SMS 20%, Caravans 18%, Church 7%) and **18% digital.**
+
+**`36.2%` appears nowhere else in the repository.** It is also the sharpest single number in the proposal — it converts "86.4% are offline" from a demographic fact into a strategic ceiling, and it is the quantitative justification for the entire offline layer in §8.10.
+
+**Revised action: CONVERT TO TABLE, do not delete.** Same figures, rendered as a real table via `InteractiveTable` instead of an 84-column ASCII box. And it should be **promoted**, not buried — this belongs on the contest route in §6, because it is the number that explains why a *digital* consultancy is proposing a radio-and-SMS-weighted plan. Deleting it would have removed the proposal's best argument for its own shape.
+
+### Correction 2 — deleting `summary.md` §2.2's polling table would break the PDF
+
+I recommended deleting it as duplicative of `DeficitGauge`. The figures do survive on screen. **They do not survive in print.**
+
+`components/ClientPage.tsx:636` wraps `DeficitGauge` in a container carrying **`print:hidden`**. Meanwhile `components/charts/DeficitGauge.tsx:272` documents its own accessible table as *"the version that prints. Never hidden."* The component was built to print; the parent element silently suppresses it.
+
+So the June and August rounds reach the printed proposal through **exactly one path: the markdown table in `summary.md` §2.2.** Deleting it would have removed the polling data from every PDF the campaign circulates — which, for a document whose §1.2 makes it a confidential, hand-shared instrument, is the copy that matters most.
+
+**Revised action: KEEP the table.** Cut the ~200 words of prose around it instead. And see the new P0 bug below.
+
+### Correction 3 — `DataVisualizations` holds three figures that exist nowhere else
+
+Verified by exhaustive search: `"15–20% of verified ceiling"`, `"30–40% of verified ceiling"` and `"45–55% of verified ceiling"` (`DataVisualizations.tsx:27,34,41`) are the **only** statement of ad-budget share by scope level anywhere in the repository. Deleting the component destroys them.
+
+**Revised action, in this order:**
+1. **Migrate first.** Move the three bands into `data/tier-matrix.ts` as a new `adBudgetShare` attribute, and add the row to `deliverables.md` §10.1.2's comparison table, where scope levels are canonically defined.
+2. **Then** remove the panel from the landing route — because a budget slider on the landing page still contradicts `cover.md` §1.2, and `data/tier-matrix.ts` is still the single source of truth for scope levels.
+3. **Separately**, resolve what "verified ceiling" refers to (§12(a)) — the figures are retained either way; what they are a percentage *of* is the open question.
+
+The commercial-framing problem and the data-retention problem are two different problems. The first draft solved the first by committing the second.
+
+### Correction 4 — the governance cadence block moves, it does not die
+
+No figure in it is unique, so the rule permits deletion. **I am withdrawing the recommendation anyway**, because the meeting schedule is operational data the campaign may want, and the real objection was never the figures — it was that Firefly should not be setting its client's board calendar and invoice cycle.
+
+**Revised action: MOVE to Annex A4 and reframe** from prescription to proposal ("a cadence the campaign may wish to adopt; Firefly's own rhythm is §12.2's table"). That fixes the scope overreach without discarding the schedule.
+
+### Consequential P0 bug: the print path drops the landing charts
+
+`ClientPage.tsx:636`'s `print:hidden` suppresses `DeficitGauge` **and** `HeroVisual` in print, against `DeficitGauge`'s explicit intent. `ClientPage.tsx:657` does the same to the whole Data Strip.
+
+`docs/FINAL-REPORT-redesign.md` records print output rising from 53,968 to 399,733 characters and treats print as a first-class path. This container contradicts that work.
+
+**Fix:** move `print:hidden` off the grid wrapper and onto `HeroVisual` alone, so the gauge's accessible table prints and the decorative illustration does not. **Roughly one line.** Until it is fixed, no figure whose only other home is a landing component may be removed from markdown — which is precisely the trap Correction 2 fell into.
+
+### What this does *not* change
+
+The length problem is unaffected. Of 52,144 words, the cuts that survive this constraint are still worth roughly **95% of the reduction** the first draft proposed, because the savings were never in the figures:
+
+| Lever | Words | Figures lost |
+|---|---|---|
+| Annexing (`risk`, `governance`, `messaging` grids, `situation` §3.2/§3.3.7–10) | ~14,500 relocated | **0 — moved, not cut** |
+| Prose compression (`summary`, `messaging` §7.3, narrative connective tissue) | ~3,000 | **0** |
+| 10 verified-lossless takeaway boxes | ~450 | **0** |
+| `cover.md` §1.3 + duplicate landing index | ~400 | **0** |
+| ASCII → component conversion | 0 net | **0 — `lib/ascii-diagram.ts` is gated on losslessness** |
+
+**No figure is cut to hit the target. Not one.** The Decision Layer works by *ordering and relocating* the evidence, not by thinning it — which was always the better argument anyway, because the evidence density is this proposal's strongest asset.
+
+---
+
 ## 1. Executive Verdict
 
 ### Current maturity level
@@ -61,7 +152,7 @@ That is the whole diagnosis. Everything in §2 follows from it.
 | Fenced ASCII box-drawing blocks | **83** |
 | Lines inside those blocks wider than 60 characters | **1,333** (max width **115 chars**) |
 | Markdown table rows | **556**, of which **172** exceed 90 characters |
-| "SECTION X STRATEGIC TAKEAWAY" summary boxes | **11**, across 11 files |
+| "SECTION X STRATEGIC TAKEAWAY" summary boxes | **11**, across 11 files (10 are filler; §3.6.3's carries unique data — §0.1) |
 
 The skip-link in `ClientPage.tsx:534` is commented *"skip 55,000 words of navigation chrome."* The codebase already knows.
 
@@ -415,7 +506,7 @@ This is the single highest-value *addition* available. A principal evaluating a 
 **Problem:** Four paragraphs of candidate biography precede the constraint. The §2.2 polling table duplicates `DeficitGauge`. Language is the densest in the document ("clinical policy credentials", "forensic strategic analysis of Dr. Mulu's record identifies a highly powerful, under-utilized asset") — register that reads as consultancy performance rather than advice.
 **Keep:** §2.2 governing constraint (the strongest passage). §2.3's three structural constraints. §2.4's commitments — especially *"It does not commit to an electoral outcome"*, which is exactly right.
 **Change:** Resequence to constraint → conditions → candidate asset → commitments. Compress the biography from 4 paragraphs to 1.
-**Move:** The polling table out (now `DeficitGauge`).
+**Keep the §2.2 polling table.** The first draft moved it out as duplicative of `DeficitGauge`; that was wrong. `ClientPage.tsx:636` wraps the gauge in `print:hidden`, so this table is the **only route by which the June and August rounds reach the printed PDF**. Cut the ~200 words of prose around it instead. See §0.1, Correction 2.
 **Delete:** §2.3's opening sentence — "predictive voter modeling, behavioral persuasion heuristics, AI-driven creative optimization, gamified volunteer networks... multi-touch attribution, competitive signal intelligence" — eleven capabilities in one sentence. This is the most jargon-dense line in the proposal and it sits in the executive summary. Replace with the three constraints, which are the actual content.
 **Add:** One line pointing to the Week 1 hypothesis test.
 **Visual:** Keep `PollingTrajectorySimulator` only if re-labelled per §6 note 2.
@@ -432,7 +523,8 @@ This is the single highest-value *addition* available. A principal evaluating a 
 **Keep:** §3.1 (nomination mechanism — excellent, especially §3.1.1's "that claim deserves to be stated plainly for what it is"). §3.3.1–3.3.2 (candidate and field, including the counter-evidence paragraph). §3.4 (ward arithmetic — the analytical core). §3.5 (three zones). §3.6 (channel reach). §3.7 (media ownership).
 **Change:** Split into three routes: `/situation` (§3.1, §3.3.1–3.3.6), `/arithmetic` (§3.4, §3.5), `/reach` (§3.6, §3.7).
 **Move to annex:** §3.2 entire (evidence standard → **Annex A1**); §3.3.7–3.3.10 (audit record, drought, Mui Basin, legal cautions → **Annex A2**).
-**Delete:** The §3.2 "STRATEGIC TAKEAWAY" box. The Tri-Partite Provenance Mandate ASCII (§3.2.1) — it is an internal working rule, not client-facing content.
+**Delete:** The §3.2 "STRATEGIC TAKEAWAY" box (verified lossless). The Tri-Partite Provenance Mandate ASCII (§3.2.1) — an internal working rule, not client-facing content, and it carries no unique figure.
+**Do NOT delete — convert and promote:** the **§3.6.3 "STRATEGIC TAKEAWAY" box.** Unlike the other ten it is data, not filler: the digital ceiling (~72,000 voters, 13.6%, **36.2%** of the 200,000 threshold — a figure that appears nowhere else), radio ~420k and SMS ~320k reach, and the 82%-offline / 18%-digital channel weighting. Render as a table and **promote it to the contest route** — it is the number that explains why a digital consultancy is proposing a radio-and-SMS-weighted plan. See §0.1, Correction 1.
 **Add:** A 5-line section lede on each of the three new routes.
 **Visual:** All existing mounts retain their anchors; `verify-mounts.mjs` will confirm.
 **Mobile:** 54m → three routes of ~8m, ~9m, ~5m.
@@ -574,11 +666,11 @@ Its takeaway box also says **"four-person core steering team"**, while `delivera
 §12.3 references *"Paid spend reallocation within ceiling"* and *"spend exceeding ward ceiling"* — see the orphan-ceiling finding in §12 below.
 
 **Keep:** §12.1.2 (what Firefly runs), §12.3 decision-rights table (clean, useful, correctly places the compliance gate), §12.5 entire — the Digital Ethics and Data Charter is a real differentiator and `nextsteps.md` correctly sells it as one.
-**Delete:** The "CAMPAIGN LEADERSHIP GOVERNANCE CADENCE" ASCII block **entirely**. The "STRATEGIC TAKEAWAY" box.
-**Move to Annex A4:** §12.2's remaining cadence table and §12.4's three-tier escalation protocol.
+**Delete:** The "STRATEGIC TAKEAWAY" box only (verified lossless).
+**Move to Annex A4 + reframe:** the "CAMPAIGN LEADERSHIP GOVERNANCE CADENCE" block, §12.2's cadence table and §12.4's escalation protocol. The first draft deleted the ASCII block outright; under §0.1 it moves instead, reframed from prescription to offer — *"a cadence the campaign may wish to adopt; Firefly's own operating rhythm is the table above."* That removes the overreach (Firefly setting its client's board calendar and invoice cycle) without discarding the schedule. See §0.1, Correction 4.
 **Change:** Resolve 3-vs-4 (see §13, contradiction C2).
 **Mobile:** 13m → 7m.
-**Priority: P0** for the overreach deletion and the team-size contradiction.
+**Priority: P0** for the reframe and the team-size contradiction.
 
 ---
 
@@ -638,9 +730,9 @@ Its takeaway box also says **"four-person core steering team"**, while `delivera
 | `nextsteps.md` §16.1 decision protocol | Decision route, screens 1–2 | Blockquote → ask headline + 3 cost-of-delay bullets | The ask must be first as well as last |
 | `cover.md` §1.3 structure explainer (300 w) | — | **DELETE** | Navigation already shows structure |
 | `ObjectivesIndex` grid on landing | — | **DELETE** | Second index on a page that already has one |
-| `Dashboard` poll card (22.1%) | — | **DELETE** | 1 of 4 renderings of the same figure |
+| `Dashboard` poll card (22.1%) | — | **DELETE** | 1 of 4 renderings; verified lossless (§0.1) |
 | `DataVisualizations` "The immediate contest" | — | **DELETE** | 2 of 4 renderings |
-| `DataVisualizations` "Budget scenario" slider | — | **DELETE** | Commercial framing on the landing page; see §12 |
+| `DataVisualizations` "Budget scenario" slider | `data/tier-matrix.ts` + `deliverables.md` §10.1.2 | **MIGRATE the 3 ad-budget bands, then delete the panel** | The bands exist nowhere else (§0.1, Correction 3) |
 | `situation.md` §3.2 evidence standard | Annex A1 | Route move, content unchanged | Methodology, not narrative |
 | `situation.md` §3.3.7–3.3.10 | Annex A2 | Route move | Background reference |
 | `situation.md` §3.4 ward arithmetic | New `/arithmetic` route | Split | 54-minute route is not readable |
@@ -650,10 +742,11 @@ Its takeaway box also says **"four-person core steering team"**, while `delivera
 | 14 workstreams across 4 routes | New `/scope` index | Four routes → one table + 4 detail routes | No consolidated view exists |
 | `measurement.md` §11.1.1/§11.1.2 ASCII | `charts/KpiScorecards` | 110-char ASCII → responsive cards | Decision-relevant content must be readable on a phone |
 | `measurement.md:6` 40/55 note | Also `objectives.md` §4.1 | Duplicate forward | Reconciliation must sit where the figure first appears |
-| `governance.md` §12.2 ASCII cadence | — | **DELETE** | Scope overreach into client governance |
+| `governance.md` §12.2 ASCII cadence | Annex A4 | **MOVE + reframe as proposed, not prescribed** | Retains the schedule; fixes the overreach (§0.1, Correction 4) |
 | `governance.md` §12.2 table + §12.4 | Annex A4 | Route move | Contract schedule material |
 | `risk.md` §13.1.2–13.1.4, §13.3.2–13.3.4, §13.4.2–13.4.3 | Annex A5 | Route move | Runbooks |
-| 11 × "STRATEGIC TAKEAWAY" boxes | — | **DELETE all** | Template filler; 84–115 chars wide; duplicates adjacent prose |
+| 10 × "STRATEGIC TAKEAWAY" boxes | — | **DELETE** | Template filler; verified lossless |
+| `situation.md` §3.6.3 takeaway box | Contest route (§6) | **CONVERT to table + PROMOTE** | Holds the digital-ceiling argument and the unique 36.2% (§0.1, Correction 1) |
 | 83 ASCII blocks (net ~70 after deletions) | `InteractiveTable` / `DisclosureGroup` / `DiagramViewer` | Lossless parse where possible | 1,333 lines exceed mobile width |
 | `audiences.md` §5.2 matrix | `AudienceSegmentationMatrix` + overlap note | ASCII → component + caveat | Sums to ~2× the register with no overlap statement |
 | Absent | New exclusions block on `/scope` | **ADD** | §2.4 promises boundaries that do not exist |
@@ -891,38 +984,43 @@ Correctly identified and correctly prioritised: DPA 2019 (§8.12.2), the ODPC op
 
 ## 15. Proposal Content Cut List
 
+**Every row below has been checked against §0.1's rule: no figure is removed.** Where the first draft proposed a deletion that would have orphaned a figure, the action is now MOVE, CONVERT or KEEP, and the row says so. Four rows changed.
+
 | Content | Action | Why |
 |---|---|---|
 | `nextsteps.md` §16.1 decision date "15 September 2026" | **REWRITE** | Expires tomorrow. A live proposal with a lapsed deadline reads as abandoned |
 | `DecisionPanel.tsx` — "verified expenditure ceiling" / "budget tier" items | **REWRITE** | Contradicts `cover.md` §1.2 and its own source §15.1 |
 | `ClientPage.tsx:170` "Budget tiers" | **REWRITE** → "Scope levels" | Same contradiction, most visible instance |
-| `DataVisualizations.tsx` "Budget scenario" panel | **DELETE** | Commercial framing on the landing page; cites an undefined ceiling; duplicates `data/tier-matrix.ts` divergently |
-| `DataVisualizations.tsx` "The immediate contest" chart | **DELETE** | 4th rendering of the same polling figures |
+| `DataVisualizations.tsx` "Budget scenario" panel | **MIGRATE, then DELETE** | ⚠ **Correction 3.** The three ad-budget bands (15–20 / 30–40 / 45–55%) exist **only here** — move them to `data/tier-matrix.ts` and `deliverables.md` §10.1.2 **first**, then remove the panel. Commercial framing does not belong on the landing route |
+| `DataVisualizations.tsx` "The immediate contest" chart | **DELETE** | 4th rendering of the same polling figures. **Verified lossless** — all four values are in `data/nomination-contest.ts` and `summary.md` §2.2 |
 | `Dashboard.tsx` poll metric card | **DELETE** | 3rd rendering |
 | `Dashboard.tsx` duplicate desktop+mobile markup | **MERGE** | Both ship to every phone |
 | `cover.md` §1.3 structure explainer | **DELETE** | Navigation is the structure |
 | Landing `ObjectivesIndex` grid | **DELETE** | Second index on a page with an index |
-| 11 × "SECTION X STRATEGIC TAKEAWAY" boxes | **DELETE** | Template filler. 84–115 chars wide. Every one restates adjacent prose |
+| 10 × "SECTION X STRATEGIC TAKEAWAY" boxes | **DELETE** | Template filler. 84–115 chars wide. Each restates adjacent prose. **Verified lossless** — every figure survives elsewhere (§0.1) |
+| **`situation.md` §3.6.3 takeaway box** (the 11th) | **CONVERT TO VISUAL — do not delete** | ⚠ **Correction 1.** Carries the digital-ceiling argument and **36.2%, which exists nowhere else**. Render as a table and promote to the contest route |
 | `situation.md` §3.2.1 Tri-Partite Mandate ASCII | **DELETE** | Internal working rule, not client content |
 | `situation.md` §3.2 (rest) | **MOVE** → A1 | Methodology |
 | `situation.md` §3.3.7–3.3.10 | **MOVE** → A2 | Background reference |
 | `situation.md` §3.4, §3.5 | **MOVE** → new `/arithmetic` | 54-minute route |
 | `messaging.md` §7.1.2, §7.1.3 | **MOVE** → A3 | Production reference |
 | `messaging.md` §7.3.2–7.3.4 | **COMPRESS** | Three sub-sections, one pipeline table |
-| `governance.md` §12.2 ASCII cadence block | **DELETE** | Scope overreach into client governance |
+| `governance.md` §12.2 ASCII cadence block | **MOVE → A4 + REFRAME** | ⚠ **Correction 4.** Schedule data retained; the real objection was Firefly prescribing the client's board and invoice cycle. Reframe as "a cadence the campaign may wish to adopt" |
 | `governance.md` §12.2 table, §12.4 | **MOVE** → A4 | Contract schedule |
 | `risk.md` §13.1.2–13.1.4, §13.2.2–13.2.3, §13.3.2–13.3.4, §13.4.2–13.4.3 | **MOVE** → A5 | Runbooks |
 | `summary.md` §2.3 opening jargon sentence | **REWRITE** | Eleven capabilities in one clause, in the executive summary |
-| `summary.md` biography paragraphs 1–4 | **COMPRESS** to 1 | The constraint must come first |
-| `summary.md` §2.2 polling table | **DELETE** | `DeficitGauge` does this better |
+| `summary.md` biography paragraphs 1–4 | **COMPRESS** to 1 | The constraint must come first. **Retain every credential figure** (FY2014/15, 1st of 71 constituencies, KSh47m to 12,573 students) — compress the connective prose around them |
+| `summary.md` §2.2 polling table | **KEEP** | ⚠ **Correction 2.** `DeficitGauge` is inside a `print:hidden` container (`ClientPage.tsx:636`), so this table is the **only path by which the polling rounds reach the printed PDF**. Cut the surrounding prose instead |
 | `measurement.md` §11.1.1/§11.1.2 ASCII scorecards | **CONVERT TO VISUAL** | Decision-relevant content at 3.5px/char on a phone |
 | `measurement.md` §11.1.3 "Section 3.3.3" | **REWRITE** → §11.2.3 | Broken reference |
-| `measurement.md` §11.2.3 "over 60% of social media interactions" | **REWRITE** or label | Unsourced, in the evidence-discipline section |
+| `measurement.md` §11.2.3 "over 60% of social media interactions" | **LABEL or SOURCE — do not delete** | Unsourced, in the evidence-discipline section. Under §0.1 the figure stays; what it needs is a tier and a citation, or an explicit `Evidence required` mark |
 | `approach.md` §6.3 seven unlabelled statistics | **REWRITE** with tiers | Unsourced figures in a source-disciplined document |
-| `roadmap.md` reach / followers / viral-views KPI rows | **REWRITE** as diagnostics | Contradicts §11.2.3 |
+| `roadmap.md` reach / followers / viral-views KPI rows | **RELABEL as diagnostics** | Contradicts §11.2.3. Under §0.1 the option to delete these rows is **withdrawn** — relabel them "tracked for optimisation, not reported as performance" and keep every target |
 | `structure.md` opening 40-line ASCII org chart | **MOVE** below §14.1 prose | A section should open on a sentence |
 | ~70 remaining ASCII blocks | **CONVERT TO VISUAL** | 1,333 lines exceed mobile width |
+| `ClientPage.tsx:636` `print:hidden` on the gauge wrapper | **REWRITE** | ⚠ New P0. Suppresses `DeficitGauge` in print against its own stated intent. Move the class onto `HeroVisual` alone |
 | `objectives.md`, `approach.md`, `assumptions.md`, `nextsteps.md` | **KEEP** | The four strongest files. Do not touch beyond the specific fixes named |
+| **Any figure, anywhere** | **NEVER DELETE** | §0.1. Length comes out of prose, annexing and deduplicated *renderings* — never out of the evidence base |
 
 ---
 
@@ -989,10 +1087,13 @@ The other five guards must stay green: `verify-ward-register.mjs` (register sums
 
 | # | Change | File / component | Action | Dependency | Effort | P |
 |---|---|---|---|---|---|---|
+| **0** | **Figure-retention guard** — enumerate every numeric token in `public/content/`, `data/` and printing components at baseline, and fail the build if any disappears. Makes §0.1 mechanical rather than a promise. Model it on `verify-figures.mjs`, which already does the inverse check (UI → source) | **new** `scripts/verify-figure-retention.mjs`; `package.json` `verify` + `prebuild` | **Add** | none — **do this before any content work** | 4 h | **P0** |
+| **0b** | **Fix the print path** — move `print:hidden` off the gauge wrapper onto `HeroVisual` alone, so `DeficitGauge`'s accessible table prints as its own code intends | `components/ClientPage.tsx:636` (and review `:657`) | Edit | none | 30 min | **P0** |
+| **0c** | **Migrate the 3 ad-budget bands** out of the component before anything deletes it | `components/DataVisualizations.tsx:27,34,41` → `data/tier-matrix.ts`, `public/content/deliverables.md` §10.1.2 | Move | **blocks item 4** | 2 h | **P0** |
 | 1 | Re-date the decision target | `public/content/nextsteps.md` | Edit | notation-rewrites entry | 15 min | **P0** |
 | 2 | Fix ceiling / budget-tier items in the ask | `components/DecisionPanel.tsx:31–37` | Edit | none | 20 min | **P0** |
 | 3 | "Budget tiers" → "Scope levels" | `components/ClientPage.tsx:170` | Edit | check `MobileTOCModal`, `QuickNavCapsule` | 15 min | **P0** |
-| 4 | Delete "Budget scenario" + "The immediate contest" | `components/DataVisualizations.tsx` | Delete component; remove from `ClientPage.tsx:657` | none | 30 min | **P0** |
+| 4 | Delete "Budget scenario" + "The immediate contest" | `components/DataVisualizations.tsx` | Delete component; remove from `ClientPage.tsx:657` | **0c must land first** | 30 min | **P0** |
 | 5 | Fix §3.3.3 → §11.2.3 | `public/content/measurement.md` §11.1.3 | Edit | notation-rewrites | 10 min | **P0** |
 | 6 | Resolve C1 (nomination timing) | `summary.md`, `assumptions.md`, `nextsteps.md`, `objectives.md` | Edit ×4 | **campaign decision on the canonical window** | 1 h | **P0** |
 | 7 | Resolve C2 (3 vs 4 core) | `governance.md`, `structure.md` | Edit | **Firefly decision** | 30 min | **P0** |
@@ -1001,14 +1102,15 @@ The other five guards must stay green: `verify-ward-register.mjs` (register sums
 | 10 | Move hero widgets off the landing route | `components/ClientPage.tsx:520–665` | Refactor | **9** | 4 h | **P0** |
 | 11 | Persistent CTA in sticky bar | `components/SectionStickyBar.tsx`, `components/MobileBottomNav.tsx` | Add | **9** | 3 h | **P0** |
 | 12 | `/scope` index + exclusions | `public/content/scope.md`; `SECTIONS`; reuse `DisclosureGroup` | Add | none | 1 day | **P0** |
-| 13 | Delete 11 takeaway boxes | 11 files in `public/content/` | Delete | baseline move | 1 h | **P1** |
+| 13 | Delete 10 takeaway boxes (verified lossless) | 10 files in `public/content/` | Delete | baseline move; **guard 0 green** | 1 h | **P1** |
+| 13b | Convert `situation.md` §3.6.3 takeaway to a table and promote to the contest route | `public/content/situation.md`; `InteractiveTable` | Convert | **not a deletion** — §0.1 Correction 1 | 3 h | **P1** |
 | 14 | Scorecards → `KpiScorecards` | `public/content/measurement.md`; verify `MarkdownViewer.tsx:382,392` | Convert | `data/kpis.ts` | 4 h | **P1** |
-| 15 | Delete §12.2 governance-overreach ASCII | `public/content/governance.md` | Delete | baseline move | 30 min | **P1** |
+| 15 | Move §12.2 cadence ASCII to A4 and reframe as proposed-not-prescribed | `public/content/governance.md` | Move + edit | baseline move | 1 h | **P1** |
 | 16 | Voter universe layer | `public/content/audiences.md`; `components/markdown/AudienceSegmentationMatrix.tsx` | Add | none | 6 h | **P1** |
 | 17 | Segment overlap note + base labels | `public/content/audiences.md` §5.2 | Add | none | 1 h | **P1** |
 | 18 | Risk register | `public/content/risk.md` head | Add | none | 3 h | **P1** |
 | 19 | Tier labels on `approach.md` §6.3 | `public/content/approach.md`; `data/sources.ts` | Edit | **source verification** | 4 h | **P1** |
-| 20 | Fix / remove the unsourced 60% claim | `public/content/measurement.md` §11.2.3 | Edit | source verification | 30 min | **P1** |
+| 20 | Label or source the 60% claim — **retain the figure** | `public/content/measurement.md` §11.2.3 | Edit | source verification | 30 min | **P1** |
 | 21 | Rewrite 5 orphan ceiling references | `governance.md`, `risk.md`, `roadmap.md`, `structure.md` | Edit | **7** | 1 h | **P1** |
 | 22 | Nav label shortening | `lib/heading-slug.ts` `SECTIONS` | Edit | check `verify-deep-links` | 1 h | **P1** |
 | 23 | Section-count reconciliation | `ClientPage.tsx`, `cover.md` | Edit | derive from `SECTIONS.length` | 1 h | **P1** |
@@ -1043,10 +1145,12 @@ Each is a place where the site can — and currently does — disagree with the 
 ## 18. Implementation Priority Matrix
 
 ### P0 — must change before the proposal is next presented
-Items 1–12 and 34. **Roughly 4–5 working days.**
+Items **0, 0b, 0c**, 1–12 and 34. **Roughly 5–6 working days.**
+
+**Items 0, 0b and 0c come first and are non-negotiable ordering.** The retention guard (0) makes §0.1 enforceable instead of aspirational; the print fix (0b) closes the hole that made Correction 2 necessary; the band migration (0c) must land before item 4 deletes the component holding those figures. Doing content work before these three is how figures get lost quietly.
 Rationale: an expired decision date, a contradicted confidentiality clause on the landing page, a self-contradicting measurement framework, and a proposal with no ask above the fold. Every one of these is visible to the reader most likely to notice it. Items 1–8 are individually small; together they remove every verified contradiction.
 
-**If only one day is available:** items 1, 2, 3, 4, 5 and 11. Six edits, under three hours, and they remove the expired deadline, the commercial contradiction, the broken reference, and the absence of any way to act. That is the highest return per hour available in this repository.
+**If only one day is available:** items 0b, 0c, 1, 2, 3, 4, 5 and 11. Under four hours, and they fix the print path, preserve the three orphan-risk figures, remove the expired deadline, the commercial contradiction and the broken reference, and give the reader a way to act. That is the highest return per hour available in this repository.
 
 ### P1 — high-value improvement
 Items 13–26. **Roughly 8–10 working days.**
@@ -1142,6 +1246,15 @@ PERSISTENT ON EVERY ROUTE:
 - [ ] No route exceeds 25 minutes.
 - [ ] Every annexed item is reachable in ≤ 2 taps from its parent section.
 - [ ] Section count is identical in every place it is stated, derived from `SECTIONS.length`.
+
+**Figure retention (§0.1 — the client's governing constraint)**
+- [ ] `scripts/verify-figure-retention.mjs` exists, runs in `verify` and `prebuild`, and is green.
+- [ ] Every numeric token present at baseline is still present somewhere in `public/content/`, `data/`, or a component that **prints**.
+- [ ] `36.2%` and the §3.6.3 channel-weighting figures survive, as a table.
+- [ ] The June/August polling rounds still appear in the printed PDF.
+- [ ] The three ad-budget bands appear in `data/tier-matrix.ts` and `deliverables.md` §10.1.2.
+- [ ] `ClientPage.tsx:636` no longer suppresses `DeficitGauge` in print.
+- [ ] Word count fell by ≥ 25% with **zero** figures removed.
 
 **Evidence**
 - [ ] Every figure in the Decision Layer carries T1 / T2 / T3 / Evidence-required.
@@ -1275,6 +1388,18 @@ Mounts:            39 mount points, 241 headings indexed
 | **Whether the spend ceiling stays excised** | §12(a) | Campaign — affects 6 locations |
 | **Equal-ward guarantee vs needs-weighted formula** | `situation.md` §3.3.2 | Campaign policy call. Firefly has recommended; the document correctly leaves it open |
 | **ODPC political-campaigning circular** | `assumptions.md` §15.2 | Campaign Legal Director, before Phase −1 SMS |
+
+### Second-pass verification (figure-retention round)
+
+Prompted by the client's instruction that no data be removed, every block marked DELETE in the first draft was re-checked mechanically: numeric tokens extracted per block, then searched across all 19 content files, all of `data/` and all of `components/`, with the block itself excluded from the search corpus.
+
+**Verified lossless** (deletion stands): `cover.md` §1.3 · `situation.md` §3.2.1 · `Dashboard.tsx` poll card · landing `ObjectivesIndex` · 10 of 11 takeaway boxes · `DataVisualizations` polling chart.
+
+**Verified lossy** (deletion withdrawn): `situation.md` §3.6.3 takeaway (`36.2%` unique) · `summary.md` §2.2 table (only print path) · `DataVisualizations` tier panel (3 unique bands). `governance.md` §12.2 was arithmetically lossless but withdrawn on judgement.
+
+**Confirmed by direct inspection:** `ClientPage.tsx:636` carries `print:hidden` on the wrapper containing `DeficitGauge`, while `DeficitGauge.tsx:272` states its table is "the version that prints. Never hidden." The container overrides the component.
+
+**Method limitation, stated plainly.** The token scan treats a figure as "surviving" if the same numeric string appears anywhere in the corpus. It cannot tell a genuine re-statement from a coincidental match (e.g. "40" as a ward count versus "40%" as a share). It is therefore a **screen, not a proof** — it reliably catches orphans, and may occasionally clear a figure whose surviving instance means something different. The guard specified as item 0 should tighten this by matching figure *and* unit, and by requiring the surviving instance to sit in the same semantic neighbourhood. Until it does, treat a "lossless" verdict on any figure a human considers load-bearing as needing one manual look.
 
 ### What I did not do
 
