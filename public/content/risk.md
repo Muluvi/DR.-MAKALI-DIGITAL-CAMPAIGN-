@@ -159,18 +159,6 @@ All campaign communicators, surrogates, and media buyers are strictly bound by t
 2.  **Rule 2: Accurate Linguistic Attribution:** When quoting rivals on Kikamba radio or social media, communicators must possess the original, unedited audio recording or verbatim Hansard/media link. Edited audio clips (*deepfakes or out-of-context splicing*) are strictly banned.
 3.  **Rule 3: Automatic Legal Pre-Clearance for Comparative Media:** Any advertising spot, leaflet, or press release naming an opposing candidate must receive written legal pre-clearance from the Campaign Legal Counsel prior to broadcast or circulation.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 13.1.5 STRATEGIC TAKEAWAY
-════════════════════════════════════════════════════════════════════════════════════
- • 4-Tier Decision Matrix:      Prevents elevating fringe attacks while ensuring 
-                                <15 min radio rebuttals and <30 min WhatsApp containment.
- • Pre-Drafted Holding Vault:   Full evidential counter-scripts ready for term-limit,
-                                regional familiarity, technocrat, and fiscal attacks.
- • Strict Defamation Law Gate:  Focuses 100% on certified Auditor-General/CRA records;
-                                prohibits private character attacks and unverified claims.
-════════════════════════════════════════════════════════════════════════════════════
-```
 
 ---
 

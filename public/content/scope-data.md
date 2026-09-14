@@ -336,18 +336,6 @@ To ensure 100% operational uptime and protect campaign systems from infiltration
 2.  **Daily Automated Off-Site Backups:** The PostgreSQL Supporter CRM executes automated hourly WAL archiving and daily encrypted snapshots stored in geographically isolated cloud buckets.
 3.  **Role-Based Data Redaction:** Ground field staff and Ward Captains see only voter data relevant to their specific assigned ward. Exporting full countywide voter lists is programmatically blocked and restricted exclusively to the Data Protection Officer and Campaign Manager.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 8.14.3 STRATEGIC TAKEAWAY
-════════════════════════════════════════════════════════════════════════════════════
- • Modular Architecture: 5 integrated components connecting offline 2G telecom 
-                         gateways to encrypted cloud CRMs and public web trackers.
- • Strict Data Security: AES-256 encryption at rest, role-based access, and African 
-                         data residency to ensure 100% DPA 2019 compliance.
- • Procurement Status:   All major software components formally structured with 
-                         costings and marked "Awaiting campaign decision" for sign-off.
-════════════════════════════════════════════════════════════════════════════════════
-```
 
 ---
 

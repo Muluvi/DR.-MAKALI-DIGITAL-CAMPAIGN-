@@ -50,20 +50,6 @@ baseline or by testing, and each is left open deliberately rather than filled wi
 > 2. Formally register the campaign entity as a **Data Controller / Data Processor** with the ODPC if aggregate supporter records exceed statutory thresholds (Section 8.12.2 & Section 13.5.2).
 > 3. Verify compliance of telecommunication aggregator contracts (Safaricom / Airtel bulk SMS gateways) with the latest ODPC direct marketing codes.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 15.2 STRATEGIC TAKEAWAY
-════════════════════════════════════════════════════════════════════════════════════
- • Architecture: Relational, AES-256 encrypted voter model mapped to 40 wards.
- • Provenance:   Tri-partite metadata standard (Source, Date, Geography) on every
-                 figure; 3-tier evidential hierarchy prevents data drift.
- • Ethics & Law: 100% compliant with DPA 2019—affirmative opt-ins, instant STOP
-                 opt-outs, zero purchased phone lists, and active DPO oversight.
- • Compliance:   ODPC political campaigning advisory flagged for mandatory formal
-                 legal confirmation before mass broadcasting.
-════════════════════════════════════════════════════════════════════════════════════
-```
-
 
 ---
 

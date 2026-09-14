@@ -325,19 +325,6 @@ All creative assets are stored in a centralized, cloud-backed Digital Asset Mana
 └── 07_RAW_FIELD_FOOTAGE_ARCHIVE/ (Organized by Date & Sub-County)
 ```
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 8.3.6 STRATEGIC TAKEAWAY
-════════════════════════════════════════════════════════════════════════════════════
- • Offline Broadcast Dominance: Content engine prioritizes 45s Kikamba radio spots,
-                                2G SMS, USSD menus, and printed baraza photobooks.
- • 4 Core Content Pillars:      Integrity Ledger, Agrarian Wealth, Devolution Equity,
-                                and Youth Enterprise.
- • Strict 4-Step Approval:      Drafter ──► Comms Lead ──► DPO Compliance ──► CM Sign.
- • Centralized DAM Vault:       Organized asset repository preserving high-res evidence,
-                                audio masters, and print-ready vector collateral.
-════════════════════════════════════════════════════════════════════════════════════
-```
 
 ---
 

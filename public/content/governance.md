@@ -78,18 +78,6 @@ The campaign maintains operational synchronization through four structured leade
 └───────────────────┴──────────────┴──────────────────────────────────────────┴───────────────────────────────┘
 ```
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 12.2 STRATEGIC TAKEAWAY
-════════════════════════════════════════════════════════════════════════════════════
- • Agile Architecture:  The campaign's four-person core steering team directing
-                        subcontractors (audio, video, ad buying, staging, SMS/USSD).
- • Operational Edge:    Maximizes decision velocity (<15 min response), guarantees 
-                        strict operational secrecy, and enables variable-cost scaling.
- • Clear Governance:    Rigorous 3-tier escalation hierarchy with structured daily, 
-                        weekly, and monthly touchpoints linked directly to candidate.
-════════════════════════════════════════════════════════════════════════════════════
-```
 
 ---
 

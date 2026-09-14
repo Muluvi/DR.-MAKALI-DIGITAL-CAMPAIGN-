@@ -233,18 +233,3 @@ To capture objective news coverage on mainstream national and regional platforms
 2.  **On-Site Project Media Tours:** Transporting accredited regional correspondents directly to Kitui Central model projects (solar boreholes, modern TVET workshops, secondary school laboratories) with on-camera beneficiary interviews.
 3.  **Rapid Studio Call-In Rights:** Enforcing statutory right-of-reply provisions under the Media Council of Kenya (MCK) Act whenever candidate record distortions are aired on rival stations.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 8.7.8 STRATEGIC TAKEAWAY
-════════════════════════════════════════════════════════════════════════════════════
- • Structural Vulnerability:    Tier 1 commercial Kamba radio stations are politically
-                                aligned with rival factions or party gatekeepers.
- • Provenance Standard:         Listenership share figures are marked as Required Primary
-                                Research rather than speculatively estimated.
- • Section 8.7.7 Workaround:   Bypasses hostile gatekeepers via Church/Community radio
-                                (Wikwatyo/Mang'elete), 2G SMS, USSD, 8 PA sound trucks,
-                                and 400 village megaphone broadcast points.
- • Earned Media Discipline:     Focuses on evidence-backed national exclusives, on-site
-                                project tours, and MCK statutory right-of-reply rules.
-════════════════════════════════════════════════════════════════════════════════════
-```

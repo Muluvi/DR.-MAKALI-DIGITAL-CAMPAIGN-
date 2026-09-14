@@ -231,18 +231,6 @@ Cross-referencing the channel reach realities established in **Section 3.6**:
 └────────────────────────────────┴────────────────────────────────────────────┘
 ```
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 7.1.4 STRATEGIC TAKEAWAY
-════════════════════════════════════════════════════════════════════════════════════
- • Central Proposition: "The Proven Economist for Kitui's Economy" — anchored on
-                        13 years of clean audit records and fiscal expertise.
- • Evidential Rigor:    Every demographic message (smallholder, youth, women, trader)
-                        and channel delivery carries primary Tier 1/2 proof points.
- • Segment Alignment:   Tailored messages address the specific economic pain points
-                        of the 6 demographic cohorts mapped in Section 5.1.
-════════════════════════════════════════════════════════════════════════════════════
-```
 
 ---
 
@@ -464,17 +452,3 @@ Running a synchronized three-language communications operation introduces severe
 └────────────────────────────┴─────────────────────────────┴──────────────────────────────────────────────────┘
 ```
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 7.3.4 STRATEGIC TAKEAWAY
-════════════════════════════════════════════════════════════════════════════════════
- • Trilingual Segmentation:     Kikamba drives grassroots trust (76% reach), Kiswahili
-                                energizes urban trade (16%), English governs policy (8%).
- • Cultural Framing:            Bans generic machine translations; mandates proverbial
-                                Kikamba idioms ("Kĩtĩo kya Kũthũkũma na Moko Matheũ").
- • Strict Sign-Off Authority:   All Kikamba broadcast, SMS, and print copy must receive
-                                written sign-off from the Lead Cultural Comms Advisor.
- • Reverse-Translation Audit:   Enforces double-blind checks to prevent policy drift
-                                between English manifesto briefs and vernacular delivery.
-════════════════════════════════════════════════════════════════════════════════════
-```

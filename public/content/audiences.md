@@ -121,6 +121,19 @@ This section defines the structural architecture of the Kitui electorate across 
 
 ## 5.2 Segment sizing, and the evidence for it
 
+**These six segments overlap, and the figures below are not additive.** A 26-year-old
+smallholder in Mwingi sits in segment 1 and segment 3; a trader who keeps goats sits in 2 and 4.
+Summed, the sizes come to roughly twice the **532,758**-voter register, which is what overlapping
+populations do — it is not a discrepancy to reconcile. Each figure is an order-of-magnitude
+planning size for the segment it names, used to weight channel effort, and none of them is a
+share of a partition.
+
+**Check the base before quoting any percentage here.** Two denominators are in play: the
+**register** (532,758 voters) and the **county population** (1,136,187 residents). "95.2% rural",
+for instance, is a population share; "~44% youth" is a share of the register. The column below
+states which applies to each row.
+
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
 │                               AUDIENCE SEGMENT COMPARATIVE SUMMARY MATRIX                                  │
@@ -157,15 +170,3 @@ To uphold the campaign's rigorous data integrity standard, the following empiric
 2.  **Formal Sector Civil Service Registry:** **Primary Research Required.** Exact voter registration counts for teachers (KNUT/KUPPET), county staff, and healthcare workers residing in Kitui County are not publicly disaggregated in IEBC reports.
 3.  **Diaspora Voter Registration Ratio:** **Primary Research Required.** The total volume of out-of-county Kamba residents originating from Kitui is large, but the precise percentage who remain registered to vote in Kitui (and travel home to vote) versus those registered in Nairobi/Mombasa has never been measured by an empirical survey.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 5.3 STRATEGIC TAKEAWAY
-════════════════════════════════════════════════════════════════════════════════════
- • Audience Architecture: 95.2% Rural, 4.8% Urban, ~44% Youth (18-35).
- • Channel Strategy:      Vernacular radio & offline SMS capture the 86.4% offline
-                          majority; digital ads activate the youth & diaspora.
- • Value Proposition:     Tailored economic messaging—Guaranteed crop returns for
-                          farmers, enterprise funds for youth, single permits for 
-                          traders, and fiscal governance for professionals/diaspora.
-════════════════════════════════════════════════════════════════════════════════════
-```

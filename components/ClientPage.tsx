@@ -901,10 +901,16 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
           <Dashboard />
           <KeyFactsStrip />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+            {/* Flat, and deliberately so.
+                This was a SpotlightCard: a pointer-tracked light that follows the cursor across
+                the panel. Applied to the candidate's 15.3-point deficit it read as showmanship
+                about a bad number — the interface celebrating the one figure on the page nobody
+                should enjoy. The treated surfaces are now reserved for the ask and the
+                commitments. Adverse figures are stated plainly and get out of the way. */}
             <Reveal variant="left" className="lg:col-span-2" amount={0.1}>
-              <SpotlightCard border className="rounded-2xl">
+              <div className="rounded-2xl border border-line bg-card">
                 <DeficitGauge />
-              </SpotlightCard>
+              </div>
             </Reveal>
             <Reveal variant="right" delay={120} className="lg:col-span-1 print:hidden" amount={0.1}>
               <TiltCard max={6}>

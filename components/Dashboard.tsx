@@ -71,15 +71,30 @@ export function Dashboard() {
           </div>
         </Reveal>
 
-        {/* Desktop / Tablet Table View */}
-        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* One list, not two.
+            This rendered the whole metric set twice — a `hidden sm:grid` table and a
+            `block sm:hidden` carousel — so every phone downloaded and parsed both, and assistive
+            technology met each figure twice. The proposal's own §2.3 names mobile data as a
+            structural constraint on this electorate; shipping a desktop grid to a phone that will
+            never display it is the site contradicting its own argument.
+
+            It is now one tree that changes shape: a snapping horizontal rail on a phone, a grid
+            from `sm` up. The mobile copy also truncated its label and source line, which cut
+            "Own-source revenue: KSh1.339bn" off mid-figure — the wrapping below restores them. */}
+        <div className="fx-stagger flex gap-3 overflow-x-auto scrollbar-none snap-x snap-mandatory -mx-4 px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
           {metrics.map((m, i) => (
-            <Reveal key={i} variant="pop" delay={i * 90} amount={0.3}>
+            <Reveal
+              key={i}
+              variant="pop"
+              delay={i * 90}
+              amount={0.3}
+              className="w-[230px] shrink-0 snap-center sm:w-auto sm:shrink"
+            >
               <TiltCard max={6} className="h-full">
                 <SpotlightCard
                   border
-                  className={`group relative h-full overflow-hidden fx-mesh border rounded-xl p-4 sm:p-5 shadow-sm transition-all hover:border-accent/40 ${
- m.warn ? "border-danger/30" : m.good ? "border-accent/40" : "border-line"
+                  className={`group relative h-full overflow-hidden fx-mesh border rounded-xl p-3.5 shadow-sm transition-all hover:border-accent/40 sm:p-5 ${
+                    m.warn ? "border-danger/30" : m.good ? "border-accent/40" : "border-line"
                   }`}
                 >
                   <div className="absolute -bottom-10 -right-10 w-24 h-24 rounded-full blur-2xl bg-accent/10 pointer-events-none" />
@@ -87,7 +102,7 @@ export function Dashboard() {
                   {/* The figure sits proudest in the card's own 3D space, so the tilt reads as
                       depth rather than as the whole panel rocking. */}
                   <div className="flex justify-between items-start mb-2 fx-z-1">
-                    <div className={`font-sans font-bold text-2xl sm:text-3xl leading-none tabular-nums ${m.warn ? "text-danger" : m.good ? "text-accent" : "text-ink"}`}>
+                    <div className={`font-sans font-bold text-3xl leading-none tabular-nums ${m.warn ? "text-danger" : m.good ? "text-accent" : "text-ink"}`}>
                       <CountUpText text={m.num} />
                     </div>
                     <div className="p-1.5 rounded-lg bg-paper border border-line fx-icon-rise">
@@ -95,41 +110,13 @@ export function Dashboard() {
                     </div>
                   </div>
 
+                  {/* No `truncate`. A figure worth printing is worth reading to the end. */}
                   <div className="t-small font-bold text-ink mt-2 leading-tight">{m.label}</div>
-                  <div className="t-micro text-muted mt-1">{m.sub}</div>
+                  <div className="t-micro text-muted mt-1 leading-snug">{m.sub}</div>
                 </SpotlightCard>
               </TiltCard>
             </Reveal>
           ))}
-        </div>
-
-        {/* Mobile Automatic Horizontal Scroll Carousel */}
-        <div className="block sm:hidden -mx-4">
-          <div className="fx-stagger fx-rubber flex gap-3 overflow-x-auto scrollbar-none px-4 pb-2 snap-x snap-mandatory">
-            {metrics.map((m, i) => (
-              <div
-                key={i}
-                style={{ "--fx-i": i } as React.CSSProperties}
-                className={`fx-in-right relative overflow-hidden fx-mesh border rounded-xl p-3.5 shadow-sm w-[230px] shrink-0 snap-center ${
- m.warn ? 'border-danger/30' : m.good ? 'border-accent/30' : 'border-line'
-                }`}
-              >
-                <div className="absolute -bottom-10 -right-10 w-24 h-24 rounded-full blur-2xl bg-accent/10 pointer-events-none" />
-                
-                <div className="flex justify-between items-start mb-2">
-                  <div className={`font-sans font-bold text-2xl leading-none tabular-nums ${m.warn ? 'text-danger' : m.good ? 'text-accent' : 'text-ink'}`}>
-                    <CountUpText text={m.num} />
-                  </div>
-                  <div className="p-1.5 rounded-lg bg-paper border border-line">
-                    {m.icon}
-                  </div>
-                </div>
-                
-                <div className="t-small font-bold text-ink mt-2 leading-tight truncate">{m.label}</div>
-                <div className="t-micro text-muted mt-1 truncate">{m.sub}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 

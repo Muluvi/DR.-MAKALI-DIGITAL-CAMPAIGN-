@@ -972,19 +972,16 @@ is a statement of where the campaign's weight goes, not a schedule of what anyth
 └──────────────────────────────┴───────────────────┴───────────────────┴──────────────────────────────────────┘
 ```
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 3.6.3 STRATEGIC TAKEAWAY
-════════════════════════════════════════════════════════════════════════════════════
- • The Digital Ceiling: Digital reaches ~72,000 voters (13.6%), capable of 
-                        delivering only 36.2% of the 200,000 threshold.
- • The Offline Engine:  Vernacular radio (~420k reach) and Direct 2G SMS (~320k 
-                        reach) are mathematically essential to win.
- • Budget Discipline:   Rebalanced communications budget—allocating 82% to offline
-                        channels (Radio 37%, SMS 20%, Caravans 18%, Church 7%)
-                        and 18% to digital to reflect the empirical media landscape.
-════════════════════════════════════════════════════════════════════════════════════
-```
+**§3.6.3 in one view.**
+
+| | Figure |
+|---|---|
+| Digital reach ceiling, in county | ~72,000 voters (13.6%) |
+| Share of the ~200,000 threshold digital alone can deliver | **36.2%** |
+| Vernacular radio reach | ~420,000 |
+| Direct 2G SMS reach | ~320,000 |
+| Communications weight, offline | **82%** — radio 37%, SMS 20%, caravans 18%, church 7% |
+| Communications weight, digital | **18%** |
 
 ---
 

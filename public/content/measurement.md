@@ -217,21 +217,6 @@ The campaign builds and maintains the **Kitui County Service-Delivery Performanc
     *   *Statutory Ward Equalization Tracking:* Establishes the operational framework for managing the **Ksh 100 Million/Ward Annual Fund**, tracking execution velocity and contractor payments across all 40 wards in real time.
     *   *Zero Pending Bills Enforcer:* Integrates directly into the County Treasury accounting system to ensure all ward projects are verified before invoice settlement, preventing the recurrence of county debt.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 11.2.2 STRATEGIC TAKEAWAY
-════════════════════════════════════════════════════════════════════════════════════
- • Section 11.2.1 (Research):   Deploys N=1,600 CATI poll and 12 Kikamba FGDs to test
-                                name ID before committing major ad spend; integrates a
-                                6-week rolling tracking poll for the Wiper nomination.
- • Section 11.2.2 (Tracker):    Maintains open-data delivery ledger combining OAG audits,
-                                84 solar boreholes, and the bursary and classroom counts
-                                pending the project ledger (Tier 1: 12,573 recipients).
- • Dual-Asset Function:         Operates as an irrefutable debate/media evidence weapon
-                                pre-election, and transitions into the Governor's Day-1
-                                Ksh 100M Ward Equalization governing dashboard post-election.
-════════════════════════════════════════════════════════════════════════════════════
-```
 
 ### 11.2.3 Why vanity metrics are excluded
 
@@ -249,21 +234,6 @@ To ensure accountability across all divisions, the KPI framework is embedded in 
 2.  **Monthly Resource Reallocation Trigger:** If voter pledge recruitment (GE-01) lags in any sub-county for two consecutive cycles, the Campaign Manager automatically reallocates 20% of digital/creative budget directly to ground sound truck caravans in that sub-county.
 3.  **Polling Day Real-Time Conversion Operations (GE-04 & GE-05):** On election day, the War Room monitors voter turnout conversion every hour from 06:00 to 17:00 EAT. Wards reporting $<40\%$ turnout by 12:00 EAT receive immediate boda boda mobilization squad dispatches.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                          SECTION 11.2.4 STRATEGIC TAKEAWAY
-════════════════════════════════════════════════════════════════════════════════════
- • Zero Vanity Metrics:         Explicitly bans social followers/likes; focuses 100% on
-                                voter pledges, name ID, agent coverage, and turnout.
- • Nomination Gate (NW-01):     Anchored to securing ≥55% Wiper primary preference share
-                                and 8/8 Sub-County branch endorsements.
- • General Election Threshold:  Indexed directly to delivering ≥200,000 counted votes
-                                through 220k pledged voters and 100% polling agent coverage
-                                across all 1,578 polling stations.
- • Rigid Governance Rhythm:     Weekly Monday standups with automated resource reallocation
-                                for any metric trailing target by >10%.
-════════════════════════════════════════════════════════════════════════════════════
-```
 
 ---
 

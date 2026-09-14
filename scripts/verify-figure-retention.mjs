@@ -31,6 +31,14 @@ import { execSync } from "child_process";
  * costs one JSON entry and a sentence saying where the figure went, which is the same bargain
  * scripts/notation-rewrites.json strikes for prose.
  *
+ * MAGNITUDE SUFFIXES ARE SCALED, NOT TREATED AS UNITS. `420k` and `420,000` are the same
+ * quantity written two ways, and an early version of this guard reported the first as lost when
+ * a summary box using it was deleted and the long form survived two sections away. So `k`, `m`,
+ * `bn`, `million` and `billion` fold into the value, and `%` is the only true unit left. The
+ * corpus makes that safe: `m` after a number in this document is always millions of shillings,
+ * never minutes or metres, because reading times are computed in components and never written
+ * into the content.
+ *
  * WHAT IT DELIBERATELY DOES NOT DO. It matches a quantity's digits and unit, not its meaning.
  * "40 wards" and "40%" are different figures here; "40 wards" and "40 captains" are not. It is a
  * screen against loss, not a proof of equivalence, and a figure it clears may have survived in a
@@ -96,6 +104,8 @@ const NOISE = new Set([
  * Thousands separators are stripped so 532,758 and 532758 are one figure. A unit is kept when it
  * is attached, because it is what distinguishes 40 wards from 40% of the register.
  */
+const SCALE = { k: 1e3, m: 1e6, bn: 1e9, million: 1e6, billion: 1e9 };
+
 function figures(text) {
   const found = new Map();
   const cleaned = stripReferences(text);
@@ -104,12 +114,19 @@ function figures(text) {
   while ((m = RE.exec(cleaned)) !== null) {
     const whole = m[1].replace(/,/g, "");
     const frac = m[2] ? `.${m[2]}` : "";
-    const unit = (m[3] ?? "").toLowerCase().trim();
-    const value = `${whole}${frac}`;
+    const suffix = (m[3] ?? "").toLowerCase().trim();
+    let value = Number(`${whole}${frac}`);
+    const scale = SCALE[suffix];
+    // `%` stays a unit; every other suffix is a magnitude and folds into the number, so the
+    // same quantity compares equal however it was written.
+    const unit = suffix === "%" ? "%" : "";
+    if (scale) value *= scale;
     // Single digits are list markers, table pipes and ordinals far more often than they are
     // evidence, and they are never the figure a reader would miss.
-    if (Number(value) < 10 && !frac && !unit) continue;
-    const key = `${value}|${unit}`;
+    if (value < 10 && !frac && !unit) continue;
+    // Float multiplication leaves 13.79e9 as 13789999999.999998; the document has no figure
+    // needing more than three decimals, so rounding there is lossless and makes forms compare.
+    const key = `${Number(value.toFixed(3))}|${unit}`;
     if (NOISE.has(key)) continue;
     found.set(key, (found.get(key) ?? 0) + 1);
   }

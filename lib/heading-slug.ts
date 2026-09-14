@@ -35,6 +35,13 @@ export function headingSlug(text: string): string | null {
 //
 // Part 4 is five parallel tracks rather than one part, because nothing in the defence track
 // depends on having read the ground track. The reader enters at the track they own.
+// Labels are the navigation, so they are sized for the narrowest place they appear.
+//
+// Four of them used to open "Scope of work — " and run to 43 characters. In the mobile dock's
+// current-section slot and in the sticky bar they truncate, so a reader in §8C saw
+// "Scope of work — ground and…" — the fifteen characters all four share, and none of the word
+// that tells them apart. The prefix now lives in the part label (PARTS, part 8) where it is
+// stated once, and each section keeps only what distinguishes it.
 export const SECTIONS = [
   { id: "decision", part: 0, number: "0", label: "The decision", blurb: "The ask, the deadline, and what waiting costs" },
   { id: "cover", part: 1, number: "1", label: "Title and confidentiality", blurb: "Identification, confidentiality, how to read this" },
@@ -43,19 +50,19 @@ export const SECTIONS = [
   { id: "objectives", part: 4, number: "4", label: "Strategic objectives", blurb: "What the digital function must achieve" },
   { id: "audiences", part: 5, number: "5", label: "Audience segmentation", blurb: "The segments the campaign must move" },
   { id: "approach", part: 6, number: "6", label: "Strategic approach", blurb: "The governing claim, the pillars, the themes" },
-  { id: "messaging", part: 7, number: "7", label: "Messaging and narrative framework", blurb: "Narrative spine, message discipline, language" },
+  { id: "messaging", part: 7, number: "7", label: "Messaging & narrative", blurb: "Narrative spine, message discipline, language" },
   { id: "scope", part: 8, number: "8", label: "What we will run", blurb: "All fourteen workstreams, and what is outside them" },
-  { id: "scope-platforms", part: 8, number: "8A", label: "Scope of work — platforms and content", blurb: "Workstreams 1-4 and the accessibility standard" },
-  { id: "scope-media", part: 8, number: "8B", label: "Scope of work — publishing and earned media", blurb: "Workstreams 5-6" },
-  { id: "scope-ground", part: 8, number: "8C", label: "Scope of work — ground and offline reach", blurb: "Workstreams 7-10" },
-  { id: "scope-data", part: 8, number: "8D", label: "Scope of work — data and technology", blurb: "Workstreams 11-14" },
+  { id: "scope-platforms", part: 8, number: "8A", label: "Platforms & content", blurb: "Workstreams 1-4 and the accessibility standard" },
+  { id: "scope-media", part: 8, number: "8B", label: "Publishing & earned media", blurb: "Workstreams 5-6" },
+  { id: "scope-ground", part: 8, number: "8C", label: "Ground & offline reach", blurb: "Workstreams 7-10" },
+  { id: "scope-data", part: 8, number: "8D", label: "Data & technology", blurb: "Workstreams 11-14" },
   { id: "roadmap", part: 9, number: "9", label: "Implementation roadmap", blurb: "Phasing from engagement to the election period" },
   { id: "deliverables", part: 10, number: "10", label: "Deliverables schedule", blurb: "What is produced, at what cadence, in what form" },
   { id: "measurement", part: 11, number: "11", label: "Measurement framework", blurb: "Indicators, reporting cadence, how performance is judged" },
-  { id: "governance", part: 12, number: "12", label: "Engagement and governance model", blurb: "Decision rights, approval paths, escalation, reporting" },
+  { id: "governance", part: 12, number: "12", label: "Governance & engagement", blurb: "Decision rights, approval paths, escalation, reporting" },
   { id: "risk", part: 13, number: "13", label: "Risk management", blurb: "Rapid response, misinformation, security, compliance" },
   { id: "structure", part: 14, number: "14", label: "Delivery structure", blurb: "The shape of the team, and how capacity scales" },
-  { id: "assumptions", part: 15, number: "15", label: "Assumptions and dependencies", blurb: "What this proposal assumes, and what it needs" },
+  { id: "assumptions", part: 15, number: "15", label: "Assumptions & dependencies", blurb: "What this proposal assumes, and what it needs" },
   { id: "nextsteps", part: 16, number: "16", label: "Next steps", blurb: "The decision, and the action requested" },
 ] as const;
 
@@ -72,15 +79,15 @@ export const PARTS = [
   { part: 4, label: "Strategic objectives", blurb: "What the digital function must achieve" },
   { part: 5, label: "Audience segmentation", blurb: "The segments the campaign must move" },
   { part: 6, label: "Strategic approach", blurb: "The governing campaign logic" },
-  { part: 7, label: "Messaging and narrative framework", blurb: "The narrative spine and its discipline" },
+  { part: 7, label: "Messaging & narrative", blurb: "The narrative spine and its discipline" },
   { part: 8, label: "Scope of work", blurb: "Fourteen workstreams, with defined boundaries" },
   { part: 9, label: "Implementation roadmap", blurb: "Phasing and sequencing" },
   { part: 10, label: "Deliverables schedule", blurb: "What is produced, and at what cadence" },
   { part: 11, label: "Measurement framework", blurb: "Indicators and reporting cadence" },
-  { part: 12, label: "Engagement and governance model", blurb: "Decision rights, approvals, escalation" },
+  { part: 12, label: "Governance & engagement", blurb: "Decision rights, approvals, escalation" },
   { part: 13, label: "Risk management", blurb: "Rapid response, security, compliance" },
   { part: 14, label: "Delivery structure", blurb: "Team shape and how capacity scales" },
-  { part: 15, label: "Assumptions and dependencies", blurb: "What this needs from the campaign" },
+  { part: 15, label: "Assumptions & dependencies", blurb: "What this needs from the campaign" },
   { part: 16, label: "Next steps", blurb: "The action being requested" },
 ] as const;
 
