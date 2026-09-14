@@ -240,6 +240,22 @@ export function AsciiDiagram({ source, children }: { source: string; children: R
     );
   }
 
+  if (parsed.kind === "banner") {
+    // A section plate, set as text. No frame, no zoom control, no scaling: it is a label, and it
+    // was only ever a drawing because it happened to be typed inside a box.
+    return (
+      <div className="not-prose my-5 border-l-2 border-accent pl-3.5">
+        <p className="t-small sm:t-label font-black uppercase tracking-wide text-accent leading-tight">
+          {withEmphasis(parsed.title)}
+        </p>
+        {parsed.lines.map((line, i) => (
+          <p key={i} className="t-micro sm:t-small text-muted leading-snug mt-1">
+            {withEmphasis(line)}
+          </p>
+        ))}
+      </div>
+    );
+  }
   if (parsed.kind === "table") return <DiagramTable d={parsed} />;
   if (parsed.kind === "keyvalue") return <DiagramKeyValue d={parsed} />;
   return <DiagramPanel d={parsed} />;

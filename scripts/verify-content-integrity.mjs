@@ -55,7 +55,18 @@ const CONTENT = path.join(ROOT, "public", "content");
  * What this file continues to guarantee is the part it can: that nothing since has changed the
  * body text.
  */
-const BASE = process.env.CONTENT_BASELINE ?? "6293c1c";
+const BASE = process.env.CONTENT_BASELINE ?? "6ffd6a9";
+
+/**
+ * The baseline again, and why it moved a sixth time.
+ *
+ * `6ffd6a9` is the annex restructure: §3.4/§3.5 to their own route, §3.6/§3.7 to another, and the
+ * evidence standard, county reference, message grids, cadence and runbooks into Annexes A-E.
+ * Seven new files, and the reason the diff against `6293c1c` is small: a multiset compare cannot
+ * see a line move between files, so relocation shows as nothing at all. That is the property
+ * being relied on, and it is also the proof the relocation lost nothing — 21 lines differ, every
+ * one a deliberate rewrite enumerated in CHANGE-LOG.md, and not one of them a moved line.
+ */
 
 /**
  * The baseline again, and why it moved a fifth time.
@@ -104,7 +115,7 @@ const BASE = process.env.CONTENT_BASELINE ?? "6293c1c";
  * What this file continues to guarantee is the part it can: that nothing since the restructure
  * has changed the body text.
  */
-const RESTRUCTURED = BASE === "6293c1c" || BASE === "e203287" || BASE === "a275e00" || BASE === "c1150a8";
+const RESTRUCTURED = BASE === "6ffd6a9" || BASE === "6293c1c" || BASE === "e203287" || BASE === "a275e00" || BASE === "c1150a8";
 const CURRENT_SPINE = RESTRUCTURED || BASE === "5ff79ce" || BASE === "5470756";
 
 /**
@@ -120,7 +131,8 @@ const OLD_FILES = RESTRUCTURED
       "assumptions.md",
       "audiences.md",
       "cover.md",
-      ...(BASE === "6293c1c" || BASE === "e203287" ? ["decision.md", "scope.md"] : []),
+      ...(BASE === "6ffd6a9" || BASE === "6293c1c" || BASE === "e203287" ? ["decision.md", "scope.md"] : []),
+      ...(BASE === "6ffd6a9" ? ["annex-cadence.md", "annex-county.md", "annex-evidence.md", "annex-messages.md", "annex-runbooks.md", "arithmetic.md", "reach.md"] : []),
       "deliverables.md",
       "governance.md",
       "measurement.md",

@@ -1,3 +1,89 @@
+# Change log — annexes, split routes, and the last of the spec (September 2026)
+
+Content baseline moves to `6ffd6a9`. This entry covers the annex restructure and the four
+content additions; the ASCII and spec-status work after it changed no content.
+
+## 1. Routes
+
+`situation.md` was a 59-minute route holding seven unrelated subjects. It is now three, and the
+material that supports the argument rather than making it is behind five annexes.
+
+| Route | Section numbers | From |
+|---|---|---|
+| `/situation` | §3.1, §3.3.1–3.3.6 | — (kept) |
+| `/arithmetic` | §3.4, §3.5 | `situation.md` |
+| `/reach` | §3.6, §3.7 | `situation.md` |
+| `/annex-evidence` — Annex A | §3.2 | `situation.md` |
+| `/annex-county` — Annex B | §3.3.7–3.3.10 | `situation.md` |
+| `/annex-messages` — Annex C | §7.1.2, §7.1.3 | `messaging.md` |
+| `/annex-cadence` — Annex D | §12.2, §12.4 | `governance.md` |
+| `/annex-runbooks` — Annex E | §13.1.2–13.1.4, §13.2.2–13.2.4, §13.3.1–13.3.4, §13.4.2–13.4.3 | `risk.md` |
+
+**Section numbers did not change.** A route is a container — which is how §8A–8D already worked —
+so §3.4 is still §3.4 wherever it is served from.
+
+**Every in-document cross-reference kept working with no edit.** `SectionNumberMap` resolves
+in-prose "Section N.N" by number against the generated index, so the 173 cross-references in the
+document followed their targets automatically. That design decision, made before this work, is
+what made a seven-route move cheap.
+
+**Deep links:** 43 new redirects, plus **152 existing redirect values repointed** — older entries
+still aimed at `risk-sec-13-3-2` and its neighbours, which are now in Annex E. The deep-link guard
+found every one. 880 legacy ids and 252 live ids resolve.
+
+Each section that lost content carries a pointer to where it went, so the gap between §13.1.1 and
+§13.1.5 reads as a move and not a hole.
+
+## 2. Content added
+
+| § | What | Why |
+|---|---|---|
+| **5.0** | The voter universes — voter, turnout, victory, base-hold, persuasion, mobilisation, soft opposition | Repairs the Objective → Audience break. §4's objectives are about universes; §5's segments are about people; nothing joined them |
+| **13.0** | A five-row risk register | Repairs the Risk → Decision break. 514 lines of risk content had no summary a principal could read |
+| **6.3** | Tier and source on all seven theme statistics | Three are established nowhere in the proposal and now say so |
+| **11.2.3** | "Over 60% of social media interactions" withdrawn | No source in this proposal supports it. The claim keeps its shape and is marked Evidence required |
+
+**Three universe sizes are deliberately left as `[VERIFIED FIGURE REQUIRED]`.** A register count is
+the ceiling on a universe, never its size. §3.4.6 already records ward-level recognition as a named
+data gap and §9.1.1 commits to measuring it in Week 1; estimating it here would be the exact
+failure §3.2.3 forbids.
+
+## 3. Other corrections
+
+- The five orphan "IEBC ceiling" references now read "the agreed envelope". The spend ceiling was
+  excised at the campaign's instruction; the referring sites had outlived it.
+- The chrome counts **16 sections · 5 annexes**, derived, rather than folding either into the
+  other. §1.3 now describes the annexes.
+
+## 4. ASCII blocks (no content change)
+
+`lib/ascii-diagram.ts` gained a banner parse. Six blocks were a single line of text inside a rule
+box; every other parse rejected them, so they rendered as drawings — scaled to fit a phone, which
+makes a heading about three pixels tall and puts a zoom control under it. They are now set as
+text. **38 of 66 box-drawing blocks now upgrade to real layout, up from 32.** The remaining 28 are
+genuine diagrams — flowcharts, architectures, an org chart — where scale-to-fit is correct.
+
+## 5. Content diff
+
+21 body lines removed, every one deliberately rewritten and listed in §2 and §3 above. 77 added.
+**The moves themselves are invisible to the multiset compare**, which is both the property that
+made this safe and the proof that no moved line was lost.
+
+## 6. Guard state
+
+```
+ward register      532,758 across 40 wards            ✓
+figures            every UI literal traces to source  ✓
+figure retention   1,047 figures, 551 in content      ✓
+content integrity  baseline 6ffd6a9                   ✓
+mounts             39 mount points, 252 headings      ✓
+deep links         880 legacy + 252 live ids          ✓
+visual coverage    252 sections                       ✓
+build / typecheck / lint                              ✓
+```
+
+---
+
 # Change log — the UX pass (September 2026)
 
 Applies §11 of `DR-MAKALI-PROPOSAL-REDESIGN-SPEC.md`. Content baseline moves to `6293c1c`.

@@ -24,6 +24,7 @@ export interface DiagramCell {
 export type Diagram =
   | { kind: "table"; title?: string; headers?: string[]; rows: DiagramCell[][] }
   | { kind: "keyvalue"; title?: string; items: { label: string; value: string }[]; notes: string[] }
+  | { kind: "banner"; title: string; lines: string[] }
   | { kind: "panel"; title?: string; body: string }
   | null;
 
@@ -267,6 +268,36 @@ function parsePanel(lines: string[]): Diagram {
  * Parse one fenced block. Order matters: a real grid beats the looser shapes, and the panel
  * fallback only runs when nothing structured was found.
  */
+/**
+ * A banner: a small box whose whole content is a title, with no internal columns.
+ *
+ * Six of these sit in the document as section plates — "EFFORT WEIGHTING VS. ELECTORAL REACH
+ * REALITY AUDIT" inside a rule box, and five like it. Every other parse rejects them, so they
+ * fell through to `panel` and were rendered as a drawing: scaled to fit a phone, which makes a
+ * single line of ordinary text about three pixels tall and puts a zoom control under a heading.
+ *
+ * They are not drawings. Nothing about the box carries meaning that the words do not, so the
+ * words are all that is kept.
+ */
+function parseBanner(lines: string[]): Diagram {
+  const body = lines.filter((l) => l.trim());
+  if (!body.length || body.length > 6) return null;
+
+  const text: string[] = [];
+  for (const line of body) {
+    const inner = line.trim();
+    // A pure rule contributes nothing but must not disqualify the block.
+    if (/^[\u250c\u2514\u251c\u2510\u2518\u2524\u252c\u2534\u253c\u2500\u2550\u2554\u255a\u2557\u255d\u2560\u2563\u256c\s]+$/.test(inner)) continue;
+    // More than the two edge bars means columns, which is a table's job and not this one's.
+    if ((inner.match(/[\u2502\u2551]/g) ?? []).length > 2) return null;
+    const stripped = inner.replace(/^[\u2502\u2551]\s*/, "").replace(/\s*[\u2502\u2551]$/, "").trim();
+    if (stripped) text.push(stripped);
+  }
+  if (!text.length) return null;
+
+  return { kind: "banner", title: text[0], lines: text.slice(1) };
+}
+
 /** Flatten a parsed diagram back to plain text, for the losslessness check. */
 function flatten(d: Exclude<Diagram, null>): string {
   if (d.kind === "table") {
@@ -274,6 +305,9 @@ function flatten(d: Exclude<Diagram, null>): string {
   }
   if (d.kind === "keyvalue") {
     return [d.title ?? "", ...d.items.flatMap((i) => [i.label, i.value]), ...d.notes].join(" ");
+  }
+  if (d.kind === "banner") {
+    return [d.title, ...d.lines].join(" ");
   }
   return [d.title ?? "", d.body].join(" ");
 }
@@ -306,7 +340,7 @@ export function parseAsciiDiagram(source: string): Diagram {
   // No box drawing at all — a code sample, a USSD menu, a script. Leave those alone.
   if (drawing < 2) return null;
 
-  for (const candidate of [parseTable(lines), parseKeyValue(lines), parsePanel(lines)]) {
+  for (const candidate of [parseTable(lines), parseKeyValue(lines), parseBanner(lines), parsePanel(lines)]) {
     if (candidate && isLossless(source, candidate)) return candidate;
   }
   return null;

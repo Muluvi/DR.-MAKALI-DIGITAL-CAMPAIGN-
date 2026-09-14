@@ -27,6 +27,76 @@ The audit's central diagnosis — *"the content is not necessarily the primary p
 
 ---
 
+## 0.05 Implementation status — September 2026
+
+**This specification has been implemented.** What follows is the record; the sections below are
+the specification as written, kept for the reasoning rather than as a to-do list.
+
+| Spec item | State |
+|---|---|
+| 0 · Figure-retention guard | **Done** — `scripts/verify-figure-retention.mjs`, in `bun run verify` |
+| 0b · Print-path fix | **Done** — `print:hidden` off the gauge wrapper |
+| 0c · Migrate ad-budget bands | **Done** — `data/tier-matrix.ts` + §10.1.2 |
+| 1 · Re-date the decision target | **Done** — 30 Sep 2026, with the compression stated. **Firefly to confirm** |
+| 2 · `DecisionPanel` resync | **Done** |
+| 3 · "Budget tiers" → "Scope levels" | **Done** |
+| 4 · Remove `DataVisualizations` | **Done**, after 0c |
+| 5 · §3.3.3 → §11.2.3 | **Done** |
+| 6 · C1 nomination window | **Done** — resolved to Q4, stays Tier 3. **Campaign to confirm** |
+| 7 · C2 three vs four core | **Done** — two teams, now named |
+| 8 · C3 vanity metrics | **Done** — relabelled diagnostics, every target kept |
+| 9 · Decision route | **Done** — `/` is §0 |
+| 10 · Figures below the document | **Done** |
+| 11 · Persistent CTA | **Done** — `AskButton` |
+| 12 · `/scope` index + exclusions | **Done** — §8.0 |
+| 13 · Takeaway boxes | **Done** — 12 deleted, §3.6.3 converted |
+| 14 · KPI scorecards → component | **Already built** before this work |
+| 16 · Voter universe layer | **Done** — §5.0, three sizes left as placeholders |
+| 17 · Segment overlap note | **Done** |
+| 18 · Risk register | **Done** — §13.0 |
+| 19 · Tier labels on §6.3 | **Done** — three marked Evidence required |
+| 20 · The unsourced 60% | **Done** — withdrawn, marked |
+| 21 · Orphan ceiling references | **Done** — all five |
+| 22 · Nav labels | **Done** — longest 26 chars, was 43 |
+| 23 · Section counts | **Done** — 16 sections · 5 annexes, derived |
+| 24 · `Dashboard` single markup | **Done** |
+| 25 · Nav grouping | **Already built** |
+| 26 · Split `situation.md` | **Done** — `/situation`, `/arithmetic`, `/reach` |
+| 27 · Annexes A–E | **Done** |
+| 28 · Compress `risk.md` | **Done** — 22m → 9m |
+| 29 · Compress `messaging.md` | **Done** — 24m → 15m |
+| 30 · ASCII conversion | **Partial** — 38 of 66 blocks upgrade losslessly, up from 32; the rest are genuine diagrams |
+| 31 · Tables → cards on mobile | **Already built** |
+| 32 · Evidence-required token | **Already built** — `ClaimBadge` `unmeasured` |
+| 33 · Flat surfaces for adverse figures | **Done** — the deficit gauge |
+| 34 · Baseline moves | **Done** ×3, each enumerated in `CHANGE-LOG.md` |
+
+### Measured outcome
+
+| | Before | After |
+|---|---|---|
+| Ask reachable from `/` | **not at all** — route 19 of 19 | character ~2,300 of the landing route |
+| Decision layer | none | **8 minutes** (§0 + §8.0) |
+| Longest single route | `situation.md`, **59 min** | `arithmetic.md`, **22 min** |
+| Routes | 19 | 33 (21 proposal + 5 annex + `/`, `/full`) |
+| Out of the main reading path | 0 | **29 min** into annexes A–E |
+| Main path | 260 min | **244 min** |
+| ASCII blocks upgraded to real layout | 32 of 66 | **38 of 66** |
+| Longest nav label | 43 chars | **26** |
+| Verified contradictions | 6 | **0** |
+| Build guards | 6 | **7** |
+| Figures | 1,047 | **1,047** — none removed |
+
+**Where this falls short of the specification.** §4 projected an evidence layer of ~130 minutes.
+The delivered figure is 236. That gap is an error in the original estimate, not in the execution:
+annexes A–E — the ones §4 itself lists — hold 29 minutes of material, and no arrangement of them
+reaches 130. Getting there would mean annexing the workstream detail in §8.1–8.15, which is 54
+minutes of what the campaign is actually buying and does not belong behind a tab. **The reading
+*path* is fixed; the document is still long.** A reader who wants the whole evidence base still
+has four hours of it, which is the correct trade and should have been stated that way in §4.
+
+---
+
 ## 0.1 Governing constraint — figures are load-bearing; prose is the cut surface
 
 **Client instruction, and it overrides every recommendation in this document: no figure may be removed. Length comes out of prose.**
