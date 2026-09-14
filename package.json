@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "clean": "next clean",
-    "verify": "node scripts/verify-ward-register.mjs && node scripts/verify-figures.mjs && node scripts/verify-content-integrity.mjs && node scripts/verify-mounts.mjs && node scripts/verify-deep-links.mjs && node scripts/visual-coverage.mjs --check"
+    "verify": "node scripts/verify-ward-register.mjs && node scripts/verify-figures.mjs && node scripts/verify-figure-retention.mjs && node scripts/verify-content-integrity.mjs && node scripts/verify-mounts.mjs && node scripts/verify-deep-links.mjs && node scripts/visual-coverage.mjs --check"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",

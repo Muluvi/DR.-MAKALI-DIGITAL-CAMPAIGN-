@@ -55,7 +55,27 @@ const CONTENT = path.join(ROOT, "public", "content");
  * What this file continues to guarantee is the part it can: that nothing since has changed the
  * body text.
  */
-const BASE = process.env.CONTENT_BASELINE ?? "a275e00";
+const BASE = process.env.CONTENT_BASELINE ?? "e203287";
+
+/**
+ * The baseline again, and why it moved a fourth time.
+ *
+ * `e203287` is the P0 redesign: the decision route at §0, the scope index at §8.0, the landing
+ * route moved off the cover, and twenty body lines edited to close four contradictions the
+ * September 2026 audit found — the nomination window, the two core teams, the vanity-metric
+ * targets, and a cross-reference pointing at the wrong section. Two content files were added.
+ *
+ * Every one of those twenty lines is enumerated in CHANGE-LOG.md with the reason for it, and the
+ * ledger was produced by this script rather than written by hand: `CONTENT_DUMP=… node
+ * scripts/verify-content-integrity.mjs` against `a275e00` lists them, and that is how they were
+ * reviewed before the baseline moved rather than after.
+ *
+ * The move is what makes this guard mean anything again. Left at `a275e00` it would fail on
+ * every build, and a guard that always fails is a guard someone deletes.
+ *
+ * Earlier baselines still work and still diff: `CONTENT_BASELINE=a275e00` against the document
+ * as the redesign audit found it, and the chain below that is unchanged.
+ */
 
 /**
  * The baseline again, and why it moved a third time.
@@ -75,16 +95,23 @@ const BASE = process.env.CONTENT_BASELINE ?? "a275e00";
  * What this file continues to guarantee is the part it can: that nothing since the restructure
  * has changed the body text.
  */
-const RESTRUCTURED = BASE === "a275e00" || BASE === "c1150a8";
+const RESTRUCTURED = BASE === "e203287" || BASE === "a275e00" || BASE === "c1150a8";
 const CURRENT_SPINE = RESTRUCTURED || BASE === "5ff79ce" || BASE === "5470756";
 
-/** The content files as they were named at BASE. The restructure renamed all of them. */
+/**
+ * The content files as they were named at BASE. The restructure renamed all of them.
+ *
+ * `decision.md` and `scope.md` are listed only for the current baseline. They did not exist
+ * before `e203287`, so against any earlier baseline the loop below would fail to read them and
+ * skip the whole check — which is why they are added to this arm rather than to both.
+ */
 const OLD_FILES = RESTRUCTURED
   ? [
       "approach.md",
       "assumptions.md",
       "audiences.md",
       "cover.md",
+      ...(BASE === "e203287" ? ["decision.md", "scope.md"] : []),
       "deliverables.md",
       "governance.md",
       "measurement.md",

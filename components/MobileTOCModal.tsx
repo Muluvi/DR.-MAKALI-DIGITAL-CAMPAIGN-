@@ -118,7 +118,7 @@ export function MobileTOCModal({
                   Full index
                 </h3>
                 <p className="t-label text-muted font-medium mt-0.5">
-                  {PARTS.length} sections, {subSectionCount} sub-sections, {partCount} parts
+                  {PARTS.filter((p) => p.part > 0).length} sections, {subSectionCount} sub-sections, {partCount} parts
                 </p>
               </div>
             </div>

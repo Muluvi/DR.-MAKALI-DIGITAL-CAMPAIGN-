@@ -235,7 +235,26 @@ function LazySection({ id, content, renderSectionExtras, immediate = false }: La
 const TAB_IDS: string[] = SECTIONS.map((s) => s.id);
 
 /** The route served at "/": the proposal's cover, and the only one that carries the hero. */
-const LANDING_TAB: TabId = "cover";
+/**
+ * The route "/" serves, and the one the hero belongs to.
+ *
+ * Must stay in step with LANDING in app/[[...slug]]/page.tsx — that constant decides which
+ * document "/" renders, and this one decides which route wears the hero and the figure strip.
+ * They disagreed for exactly one build: the landing document moved to the decision route while
+ * this still said "cover", so "/" rendered the ask with no hero above it and the cover page
+ * carried a hero introducing a document it no longer opened.
+ */
+/**
+ * The proposal is sixteen sections, and the decision route is not one of them.
+ *
+ * PARTS carries seventeen entries because §0 was added in front of §1-§16. §0 is front matter —
+ * the ask, stated before the document it asks about — and counting it would put "17 sections" in
+ * the chrome against "sixteen sections" in §1.3 and §0's own lede. The proposal's own count wins;
+ * the decision route is reached from "/" and from the index, not from this total.
+ */
+const PROPOSAL_SECTION_COUNT = PARTS.filter((p) => p.part > 0).length;
+
+const LANDING_TAB: TabId = "decision";
 
 export function ClientPage({ sections, documents, wordCounts, activeTab, expanded }: ClientPageProps) {
   // Always starts on the overview so server and client render the same tree on first paint — the
@@ -761,7 +780,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                   {/* Sixteen canonical sections. The rail lists nineteen entries because the
                       scope of work is served over four routes — counting the routes here would
                       contradict the contents page the reader has just come from. */}
-                  <span className="font-mono text-accent tabular-nums">{PARTS.length} sections</span>
+                  <span className="font-mono text-accent tabular-nums">{PROPOSAL_SECTION_COUNT} sections</span>
                 </div>
                 <nav className="flex flex-col gap-0.5 relative">
                   {/* The active-link marker is one element that slides, rather than a border that
