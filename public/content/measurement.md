@@ -78,7 +78,7 @@ The general election phase focuses on systematic voter mobilization, ground netw
 
 ### 11.1.3 The indicator framework, anchored to the vote threshold
 
-In accordance with the foundational strategic doctrine established in **Section 3.3.3**, the campaign rejects vanity metrics—such as social media follower counts, video views, impressions, and post likes—as actionable indicators of political strength. In a county where ~86% of registered voters reside offline in rural agrarian settings, digital engagement metrics correlate weakly with ballot-box outcomes and create dangerous operational complacency.
+In accordance with the foundational strategic doctrine established in **Section 11.2.3**, the campaign rejects vanity metrics—such as social media follower counts, video views, impressions, and post likes—as actionable indicators of political strength. In a county where ~86% of registered voters reside offline in rural agrarian settings, digital engagement metrics correlate weakly with ballot-box outcomes and create dangerous operational complacency.
 
 Every Key Performance Indicator (KPI) in this framework is strictly anchored to one of two decisive statutory milestones:
 1.  **The Nomination Window Threshold:** Achieving **≥ 55.0%** first-choice preference among sampled likely Wiper primary voters (NW-01).

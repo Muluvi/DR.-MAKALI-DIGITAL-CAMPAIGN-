@@ -6,11 +6,20 @@ The plan phase by phase, from the nomination sprint through to the election peri
 Five phases: a new Phase −1 addressing the nomination contest, followed by the
 original four phases running to the General Election on **10 August 2027**.
 
+**How to read the metric tables below.** Rows marked **°** are **operational diagnostics**, not
+performance indicators. Reach, follower and view counts are what the team steers ad delivery and
+creative by, and they are published here so the campaign can see what is being optimised. They are
+deliberately excluded from how performance is judged: Section 11.2.3 keeps them out of executive
+dashboards, reporting meetings and vendor performance contracts, and gives the reasons — an 86.4%
+offline electorate, diaspora-skewed interaction, and no demonstrated link to turnout. Performance
+is judged on the indicators in Section 11.1, every one of which traces either to nomination poll
+share or to the ~200,000-vote threshold. Where a row below is **bold**, it is one of those.
+
 ### 9.1.1 Phase −1: Nomination Sprint — August–September 2026
 
 **Objective:** close the measured preference deficit ahead of the Wiper
 flagbearer decision, which party sources indicate is intended to conclude
-before the final quarter of 2026.
+within the final quarter of 2026.
 
 **The strategic hypothesis being tested:** Dr. Mulu's deficit is a
 geography-of-recognition problem concentrated outside Kitui Central, not a
@@ -68,8 +77,8 @@ proposal claims to embody, applied to its own first assumption.
 | Hardware-key 2FA on all admin accounts | Week 1, 100% |
 | Consented SMS contacts | **15,000** |
 | Wards with active SMS presence | 15 |
-| Combined social reach | 400,000 |
-| Engaged followers | 20,000 |
+| Combined social reach ° | 400,000 |
+| Engaged followers ° | 20,000 |
 | Facebook Live town halls | 6 |
 | Kikamba voice notes published | 6 |
 | Earned media items | ≥ 10, including ≥ 4 radio |
@@ -124,8 +133,8 @@ allows; sequential if the decision slips.*
 
 | Metric | Target |
 |---|---|
-| Combined social reach | 1,000,000 |
-| Engaged followers | 50,000 |
+| Combined social reach ° | 1,000,000 |
+| Engaged followers ° | 50,000 |
 | **Consented SMS contacts** | **40,000** |
 | **USSD unique sessions** | **5,000** |
 | **Tracker reports received** | **500** |
@@ -156,8 +165,8 @@ allows; sequential if the decision slips.*
 
 | Metric | Target |
 |---|---|
-| Cumulative reach | 3,000,000 |
-| Engaged followers | 150,000 |
+| Cumulative reach ° | 3,000,000 |
+| Engaged followers ° | 150,000 |
 | **Consented SMS contacts** | **80,000** |
 | **USSD unique sessions** | **25,000** |
 | **Tracker reports** | **3,000** |
@@ -165,7 +174,7 @@ allows; sequential if the decision slips.*
 | Email/SMS subscribers | 15,000 |
 | Digital volunteer sign-ups | 5,000 |
 | Positive sentiment | ≥ 50% |
-| Viral content pieces (>100,000 views) | ≥ 10 |
+| Viral content pieces (>100,000 views) ° | ≥ 10 |
 | Red-team response times meeting target | ≥ 90% |
 
 ### 9.1.5 Phase 3: Mobilisation and GOTV — April–August 2027
@@ -187,8 +196,8 @@ allows; sequential if the decision slips.*
 
 | Metric | Target |
 |---|---|
-| Cumulative reach | 5,000,000 |
-| Engaged followers | 250,000 |
+| Cumulative reach ° | 5,000,000 |
+| Engaged followers ° | 250,000 |
 | **Consented SMS contacts** | **120,000** |
 | **USSD unique sessions** | **60,000** |
 | **Tracker reports** | **8,000** |

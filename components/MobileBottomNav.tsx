@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence } from "motion/react";
 import { ListTree, ChevronUp, Eye, SlidersHorizontal } from "lucide-react";
+import { AskButton } from "./AskButton";
 import { SECTIONS } from "../lib/heading-slug";
 import { useChromeVisible } from "../hooks/use-chrome-visible";
 import { ReadingSettingsSheet } from "./ReadingSettingsSheet";
@@ -158,6 +159,9 @@ export function MobileBottomNav({
             >
               <ChevronUp size={17} className="text-accent" />
             </button>
+
+            {/* The dock is where a phone reader's thumb already is, so the ask sits in it. */}
+            <AskButton compact />
           </div>
         </div>
       </aside>

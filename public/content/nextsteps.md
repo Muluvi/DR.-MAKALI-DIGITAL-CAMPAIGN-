@@ -16,7 +16,7 @@ decision, and a date.
 > *   **Operational Integration:** Integration of the digital operation with the ground campaign's regional and youth volunteer networks.
 > 
 > **II. Critical Operational Deadline:**
-> *   **Decision Target:** **15 September 2026** (to allow 45 days of concentrated digital, content, and SMS micro-targeting before the Wiper opinion polling window commences in late October 2026).
+> *   **Decision Target:** **30 September 2026 — and the runway is already shorter than the plan assumes.** Phase −1 was scoped against roughly 45 days of concentrated digital, content and SMS micro-targeting before the Wiper opinion polling window opens in late October 2026. A decision taken on 30 September leaves about 25 of those days. Each further week removes roughly a quarter of what remains of the sprint.
 > *   **Evaluation Window:** Late October – November 2026 (Q4 2026).
 > 
 > **III. Strategic Cost of Inaction (Missing the Q4 2026 Nomination Window):**

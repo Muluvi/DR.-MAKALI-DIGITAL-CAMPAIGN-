@@ -20,6 +20,13 @@ export function headingSlug(text: string): string | null {
 
 // The proposal's parts, in reading order.
 //
+// Two routes carry numbers that look like gaps and are not. The decision route is Section 0 and
+// the scope index is Section 8.0, because both were added to a document already numbered 1..16
+// with 241 headings hanging off it. Numbering the decision route "1" would have renumbered every
+// section after it, invalidated 837 legacy deep links and rewritten every cross-reference in
+// 52,000 words to move one page to the front. Section 0 costs nothing and reads correctly: it is
+// the page before the proposal starts. Section 8.0 is the index to 8.1-8.15 on the same logic.
+//
 // Two layers. `decision` is the decision layer — objectives, scope, budget and the ask, promoted
 // out of the old Parts 7-9 so a reader with fifteen minutes can stop there and still have the
 // whole offer. Everything after it is the audit layer, ordered the way the argument is actually
@@ -29,6 +36,7 @@ export function headingSlug(text: string): string | null {
 // Part 4 is five parallel tracks rather than one part, because nothing in the defence track
 // depends on having read the ground track. The reader enters at the track they own.
 export const SECTIONS = [
+  { id: "decision", part: 0, number: "0", label: "The decision", blurb: "The ask, the deadline, and what waiting costs" },
   { id: "cover", part: 1, number: "1", label: "Title and confidentiality", blurb: "Identification, confidentiality, how to read this" },
   { id: "summary", part: 2, number: "2", label: "Executive summary", blurb: "The mandate, the constraint, the approach" },
   { id: "situation", part: 3, number: "3", label: "Situation analysis", blurb: "Nomination, candidate, arithmetic, terrain, media" },
@@ -36,6 +44,7 @@ export const SECTIONS = [
   { id: "audiences", part: 5, number: "5", label: "Audience segmentation", blurb: "The segments the campaign must move" },
   { id: "approach", part: 6, number: "6", label: "Strategic approach", blurb: "The governing claim, the pillars, the themes" },
   { id: "messaging", part: 7, number: "7", label: "Messaging and narrative framework", blurb: "Narrative spine, message discipline, language" },
+  { id: "scope", part: 8, number: "8", label: "What we will run", blurb: "All fourteen workstreams, and what is outside them" },
   { id: "scope-platforms", part: 8, number: "8A", label: "Scope of work — platforms and content", blurb: "Workstreams 1-4 and the accessibility standard" },
   { id: "scope-media", part: 8, number: "8B", label: "Scope of work — publishing and earned media", blurb: "Workstreams 5-6" },
   { id: "scope-ground", part: 8, number: "8C", label: "Scope of work — ground and offline reach", blurb: "Workstreams 7-10" },
@@ -56,6 +65,7 @@ export type TabId = (typeof SECTIONS)[number]["id"];
 
 /** The five parts, for navigation that groups Part 4's five parallel tracks under one choice. */
 export const PARTS = [
+  { part: 0, label: "The decision", blurb: "The action being requested, and by when" },
   { part: 1, label: "Title and confidentiality", blurb: "Who this is for, and on what terms" },
   { part: 2, label: "Executive summary", blurb: "The mandate, the constraint, the commitment" },
   { part: 3, label: "Situation analysis", blurb: "The terrain the campaign enters" },
@@ -77,7 +87,7 @@ export const PARTS = [
 export type PartId = (typeof PARTS)[number]["part"];
 
 export function partOf(tabId: TabId): PartId {
-  return (SECTIONS.find((s) => s.id === tabId)?.part ?? 1) as PartId;
+  return (SECTIONS.find((s) => s.id === tabId)?.part ?? 0) as PartId;
 }
 
 export const TAB_LABELS: Record<TabId, string> = Object.fromEntries(

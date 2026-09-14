@@ -20,6 +20,7 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CONTENT = path.join(ROOT, "public", "content");
 
 const TABS = {
+  "decision.md": "decision",
   "cover.md": "cover",
   "summary.md": "summary",
   "situation.md": "situation",
@@ -27,6 +28,7 @@ const TABS = {
   "audiences.md": "audiences",
   "approach.md": "approach",
   "messaging.md": "messaging",
+  "scope.md": "scope",
   "scope-platforms.md": "scope-platforms",
   "scope-media.md": "scope-media",
   "scope-ground.md": "scope-ground",

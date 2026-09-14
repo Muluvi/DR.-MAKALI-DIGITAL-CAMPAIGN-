@@ -1,7 +1,7 @@
 "use client";
 
 import { CountUpText, Reveal, SpotlightCard, TiltCard } from "./visual";
-import { TrendingUp, Coins, WifiOff, Vote } from "lucide-react";
+import { Coins, WifiOff, Vote } from "lucide-react";
 
 /*
  * The counter and the tilt card that used to live here have moved to components/visual/.
@@ -19,15 +19,24 @@ import { TrendingUp, Coins, WifiOff, Vote } from "lucide-react";
 
 
 
+interface Metric {
+  num: string;
+  label: string;
+  sub: string;
+  /** Adverse figure — rendered in the danger colour. */
+  warn?: boolean;
+  /** Favourable figure — rendered in the accent colour. */
+  good?: boolean;
+  icon: React.ReactNode;
+}
+
 export function Dashboard() {
-  const metrics = [
-    { 
-      num: "22.1%", 
-      label: "Mulu — Aug 2026 poll", 
-      sub: "Kasalu 37.4%, a deficit of 15.3 points", 
-      warn: true,
-      icon: <TrendingUp size={16} className="text-danger" />
-    },
+  const metrics: Metric[] = [
+    // The poll card that stood here has gone, and its figures have not: DeficitGauge renders
+    // 22.1% against 37.4%, the 15.3-point gap and the June-to-August widening on this same page,
+    // with both published rounds as a table and a source line. Three cards away from a fuller
+    // treatment of the same number is repetition, and repetition of a figure reads as a template
+    // filled in twice rather than as emphasis.
     { 
       num: "KSh13.79bn", 
       label: "FY2026/27 Kitui resource", 

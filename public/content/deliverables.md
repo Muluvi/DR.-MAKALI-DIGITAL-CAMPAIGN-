@@ -29,7 +29,7 @@ is not something a campaign buys more of by paying more, and it is not a line to
 
 #### Level 1 — LEAN
 **Purpose:** win the nomination, hold the field, prove the model.
-* **Team:** 3-person core + Kikamba producer only
+* **Team:** 3-person Firefly core + Kikamba producer only
 * **Channels:** Facebook, WhatsApp, TikTok organic; limited paid on Meta;
 SMS to a consented list built organically
 * **SMS volume:** paced against the consented list in 8.10.6 (15,000 at Phase −1 rising to 40,000 by Phase 1) at roughly one touch a fortnight — order of 30,000–80,000 messages/month, confirmed at contracting
@@ -45,7 +45,7 @@ the central weakness of this level
 #### Level 2 — STANDARD *(recommended)*
 **Purpose:** close the recognition gap countywide and contest the general
 election competitively.
-* **Team:** lean Firefly core + activated surge bench (data, community, volunteer, earned media and video roles are activated by phase/KPI; they are not presented as a permanent standing department)
+* **Team:** 3-person Firefly core + activated surge bench (data, community, volunteer, earned media and video roles are activated by phase/KPI; they are not presented as a permanent standing department)
 * **Channels:** full platform mix; **SMS/USSD layer active across all 40 wards**
 * **SMS volume:** the full 8.10.6 trajectory to 120,000 consented contacts at a fortnightly touch — order of 240,000 messages/month at Phase 3, scaling to a GOTV surge
 * **USSD:** shared code, all networks
@@ -59,7 +59,7 @@ field-digital integration; weekly sentiment
 
 #### Level 3 — PREMIUM
 **Purpose:** dominate share of voice and run a fully instrumented operation.
-* **Team:** 3-person core + full surge bench activated against the agreed phase and KPI triggers
+* **Team:** 3-person Firefly core + full surge bench activated against the agreed phase and KPI triggers
 * **Channels:** everything in Standard, plus dedicated USSD short code,
 expanded WhatsApp Business API, and diaspora-targeted programming across the
 26 countries IEBC is opening to diaspora registration
@@ -75,7 +75,7 @@ most depends on the campaign having internal capacity to absorb what it produces
 
 | | Lean | Standard | Premium |
 |---|---|---|---|
-| Team model | 3-person core + mandatory Kikamba producer | 3-person core + activated surge roles | 3-person core + full surge bench |
+| Team model | 3-person Firefly core + mandatory Kikamba producer | 3-person Firefly core + activated surge roles | 3-person Firefly core + full surge bench |
 | Wards with active SMS/USSD | Partial | **All 40** | All 40 + diaspora |
 | Predictive voter scoring | ✗ | ✓ | ✓ |
 | Multi-touch attribution | ✗ | ✓ | ✓ |
@@ -83,6 +83,15 @@ most depends on the campaign having internal capacity to absorb what it produces
 | Red-team drills | On trigger | Quarterly | Monthly |
 | Arid-belt reach | Weak | Strong | Strong |
 | Realistic Phase 3 contact universe | ~60,000 | ~150,000 | ~250,000 |
+| Digital ad share of the agreed spend envelope | 15–20% | 30–40% | 45–55% |
+
+**On that last row.** These three shares were previously stated only inside the site's landing
+dashboard, as a percentage of a "verified ceiling" — a figure this proposal no longer carries,
+because campaign-finance content was removed at the campaign's instruction. The shares themselves
+are retained here, where the scope levels are defined and where they can be reviewed. What they
+are a share *of* is an open item: the spend envelope is agreed at contracting, and
+`[SPEND ENVELOPE — AGREED AT CONTRACTING]` is the figure these percentages attach to. They are
+planning ratios between the three levels, not a commitment to any absolute sum.
 
 **Recommendation: Level 2 (Standard).** Level 1 concentrates effort where Dr.
 Mulu is already strong and leaves the recognition deficit untouched — the one

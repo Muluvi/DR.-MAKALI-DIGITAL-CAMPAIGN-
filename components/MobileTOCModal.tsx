@@ -8,6 +8,7 @@ import { readingMinutes } from "../hooks/useReadingProgress";
 import type { SectionItem } from "../lib/section-index";
 
 const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
+  decision: Handshake,
   cover: BookLock,
   summary: FileText,
   situation: Map,
@@ -15,6 +16,7 @@ const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: 
   audiences: Users,
   approach: Compass,
   messaging: MessageSquare,
+  scope: ListChecks,
   "scope-platforms": Layers,
   "scope-media": Megaphone,
   "scope-ground": Radio,

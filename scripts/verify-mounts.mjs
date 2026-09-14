@@ -22,6 +22,7 @@ const CONTENT = path.join(ROOT, "public", "content");
 
 // The tab id for each content file, mirroring FILES in app/page.tsx.
 const TABS = {
+  "decision.md": "decision",
   "cover.md": "cover",
   "summary.md": "summary",
   "situation.md": "situation",
@@ -29,6 +30,7 @@ const TABS = {
   "audiences.md": "audiences",
   "approach.md": "approach",
   "messaging.md": "messaging",
+  "scope.md": "scope",
   "scope-platforms.md": "scope-platforms",
   "scope-media.md": "scope-media",
   "scope-ground.md": "scope-ground",

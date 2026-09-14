@@ -41,7 +41,6 @@ import { Dashboard } from "./Dashboard";
 import { HeroVisual } from "./HeroVisual";
 import { Portrait } from "./Portrait";
 import { DeficitGauge } from "./charts/DeficitGauge";
-import { DataVisualizations } from "./DataVisualizations";
 import { VoterProjectionsChart } from "./VoterProjectionsChart";
 import { SectionSkeleton } from "./SectionSkeleton";
 import { DURATION } from "../lib/motion";
@@ -103,6 +102,7 @@ interface ClientPageProps {
 
 // One icon per top-level section, keyed to what the section is about rather than to its position.
 const SECTION_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
+  decision: Handshake,
   cover: BookLock,
   summary: FileText,
   situation: Map,
@@ -110,6 +110,7 @@ const SECTION_ICONS: Record<TabId, React.ComponentType<{ size?: number; classNam
   audiences: Users,
   approach: Compass,
   messaging: MessageSquare,
+  scope: ListChecks,
   "scope-platforms": Layers,
   "scope-media": Megaphone,
   "scope-ground": Radio,
@@ -167,7 +168,7 @@ const QUICK_LINKS = [
   { id: "measurement-sec-11-1", label: "The scorecards" },
   { id: "situation-sec-3-4-1", label: "Votes needed to win" },
   { id: "situation-sec-3-4-2", label: "The 40 wards" },
-  { id: "deliverables-sec-10-1", label: "Budget tiers" },
+  { id: "deliverables-sec-10-1", label: "Scope levels" },
   { id: "situation-sec-3-7-1", label: "Kikamba radio" },
 ];
 
@@ -629,39 +630,8 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
               ))}
             </div>
 
-            <Dashboard />
-
-            <KeyFactsStrip />
-
-            <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start print:hidden">
-              {/* The verdict is the answer the whole document exists to give, so it gets the
-                  pointer-tracked light. The illustration beside it gets the tilt — two distinct
-                  signatures rather than the same treatment applied twice. */}
-              <Reveal variant="left" className="lg:col-span-2" amount={0.1}>
-                <SpotlightCard border className="rounded-2xl">
-                  <DeficitGauge />
-                </SpotlightCard>
-              </Reveal>
-              <Reveal variant="right" delay={120} className="lg:col-span-1" amount={0.1}>
-                <TiltCard max={6}>
-                  <HeroVisual />
-                </TiltCard>
-              </Reveal>
-            </div>
           </div>
         </header>
-      )}
-
-      {/* Data Strip */}
-      {(activeTab === LANDING_TAB || isExpanded) && (
-        <section className="cv-auto-strip max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 mb-8 print:hidden space-y-6">
-          <LazyMount minHeight={420}>
-            <DataVisualizations />
-          </LazyMount>
-          <LazyMount minHeight={500}>
-            <VoterProjectionsChart />
-          </LazyMount>
-        </section>
       )}
 
       {/* Main Content Layout */}
@@ -775,7 +745,10 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
 
         </div>
 
-        <SectionStickyBar sectionLabel={isExpanded ? undefined : activeItem.label} />
+        <SectionStickyBar
+          sectionLabel={isExpanded ? undefined : activeItem.label}
+          showAsk={isExpanded || activeTab !== LANDING_TAB}
+        />
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 relative mt-4 sm:mt-8">
           
@@ -893,7 +866,41 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
           
         </div>
       </main>
-      
+
+      {/* The evidence strip, and why it is down here rather than under the hero.
+          It used to sit between the hero and the document: four dashboard metrics, six key
+          facts, the deficit gauge and a ward projection — fourteen figures before a reader
+          reached a sentence. On the cover route that was merely dense. On a route whose first
+          job is to state an ask it would have been fatal, because the ask would have opened
+          below all of it. The figures are unchanged and none is dropped; they now answer the
+          question the document has just raised rather than preceding it. */}
+      {(activeTab === LANDING_TAB || isExpanded) && (
+        <section
+          aria-label="The figures behind the decision"
+          className="cv-auto-strip max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 mt-4 mb-8 space-y-6"
+        >
+          <Dashboard />
+          <KeyFactsStrip />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+            <Reveal variant="left" className="lg:col-span-2" amount={0.1}>
+              <SpotlightCard border className="rounded-2xl">
+                <DeficitGauge />
+              </SpotlightCard>
+            </Reveal>
+            <Reveal variant="right" delay={120} className="lg:col-span-1 print:hidden" amount={0.1}>
+              <TiltCard max={6}>
+                <HeroVisual />
+              </TiltCard>
+            </Reveal>
+          </div>
+          <LazyMount minHeight={500}>
+            <div className="print:hidden">
+              <VoterProjectionsChart />
+            </div>
+          </LazyMount>
+        </section>
+      )}
+
       {/* Footer — visible on screen and repeated in print output */}
       <footer className="relative mt-8 pt-8 pb-28 lg:pb-10 px-4 sm:px-6 max-w-7xl mx-auto">
         <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-4 sm:inset-x-6 top-0" />

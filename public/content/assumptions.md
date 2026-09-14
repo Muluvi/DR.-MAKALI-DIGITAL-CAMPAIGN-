@@ -78,9 +78,15 @@ presented as settled fact.
    targeting model changes from countywide name recognition to delegate arithmetic, and
    Section 3.1.6 sets out what that would require.
 
-2. **The decision falls before the final quarter of 2026.** Every deadline in Section 4.1 and the
-   Phase −1 sprint in Section 9.1.1 are set by that window. A later date lengthens the sprint; an
-   earlier one compresses it and forces the reallocation triggers in Section 4.1 sooner.
+2. **The decision falls in the final quarter of 2026 — late October to November.** That is the
+   window Section 16.1 states and the one Section 4.1's clock and Section 3.1.5 are built on.
+   Earlier drafts of this proposal said "before the final quarter" in four places while every
+   operational deadline in it assumed Q4; the wording is now the same throughout, and it remains
+   a **Tier 3** expectation rather than a date the party has published. Every deadline in
+   Section 4.1 and the Phase −1 sprint in Section 9.1.1 are set by that window. A later date
+   lengthens the sprint; an earlier one compresses it and forces the reallocation triggers in
+   Section 4.1 sooner. **The campaign should confirm the window against Section 3.1.2's
+   verification test before committing budget against it.**
 
 3. **The register and connectivity figures hold.** The 532,758 registered voters, the 86.4%
    outside the internet-using population and the ward-level distribution in Section 3.4 are the

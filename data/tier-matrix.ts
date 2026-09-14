@@ -1,4 +1,4 @@
-// §10.1.2 "The service levels compared", transcribed exactly.
+// §10.1.2 "The scope levels compared", transcribed exactly.
 //
 // Nine attributes across three tiers. Every string here is the cell as §10.1.2 prints it — the
 // table is the record and this is a second rendering of it, never a re-derivation. The prose's
@@ -23,9 +23,9 @@ export interface TierAttribute {
 export const TIER_ATTRIBUTES: TierAttribute[] = [
   {
     label: "Team model",
-    lean: "3-person core + mandatory Kikamba producer",
-    standard: "3-person core + activated surge roles",
-    premium: "3-person core + full surge bench",
+    lean: "3-person Firefly core + mandatory Kikamba producer",
+    standard: "3-person Firefly core + activated surge roles",
+    premium: "3-person Firefly core + full surge bench",
   },
   {
     label: "Wards with active SMS/USSD",
@@ -44,6 +44,17 @@ export const TIER_ATTRIBUTES: TierAttribute[] = [
     lean: "~60,000",
     standard: "~150,000",
     premium: "~250,000",
+  },
+  // Migrated out of components/DataVisualizations.tsx, which was the only place these three
+  // shares existed. They were hard-coded there as a percentage "of verified ceiling" — a figure
+  // the proposal no longer carries — so nothing could review them and the figure guard could not
+  // tell them from invented ones. §10.1.2 now prints them, and this is the second rendering of
+  // that row on the same terms as every other row in this file.
+  {
+    label: "Digital ad share of the agreed spend envelope",
+    lean: "15–20%",
+    standard: "30–40%",
+    premium: "45–55%",
   },
 ];
 

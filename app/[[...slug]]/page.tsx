@@ -10,6 +10,7 @@ import { buildSectionIndex } from "@/lib/section-index";
 // One file per route, named for the canonical section it serves, so the directory listing
 // reads as the proposal's own table of contents.
 const FILES: Record<TabId, string> = {
+  decision: "decision.md",
   cover: "cover.md",
   summary: "summary.md",
   situation: "situation.md",
@@ -17,6 +18,7 @@ const FILES: Record<TabId, string> = {
   audiences: "audiences.md",
   approach: "approach.md",
   messaging: "messaging.md",
+  scope: "scope.md",
   "scope-platforms": "scope-platforms.md",
   "scope-media": "scope-media.md",
   "scope-ground": "scope-ground.md",
@@ -36,8 +38,19 @@ const TAB_IDS = SECTIONS.map((s) => s.id) as TabId[];
 /** The whole document on one page, for Expand All and for print. */
 const FULL = "full";
 
-/** The route served at "/" — the proposal's cover. */
-const LANDING = "cover";
+/**
+ * The route served at "/".
+ *
+ * It was the cover. A cover page states who a document is for and on what terms, which is the
+ * right content for a printed front matter and the wrong content for the one screen every reader
+ * reaches. The proposal's ask — approve the Phase −1 sprint, meet inside fourteen days — sat at
+ * the far end of nineteen routes and roughly four hours of reading, where a decision-maker
+ * scanning on a phone would never reach it.
+ *
+ * So "/" is now the decision. The cover keeps its own route, its own section number and every
+ * link into it; it is simply no longer the thing standing in the doorway.
+ */
+const LANDING = "decision";
 
 /**
  * One route per section, and why.

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { useChromeVisible } from "../hooks/use-chrome-visible";
+import { AskButton } from "./AskButton";
 
 /**
  * Compact bar naming where the reader currently is: the top-level section they are in, and the
@@ -12,7 +13,7 @@ import { useChromeVisible } from "../hooks/use-chrome-visible";
  * The section name is always shown once the bar appears, so current position never depends on
  * having scrolled a heading into view.
  */
-export function SectionStickyBar({ sectionLabel }: { sectionLabel?: string }) {
+export function SectionStickyBar({ sectionLabel, showAsk = false }: { sectionLabel?: string; showAsk?: boolean }) {
   const visible = useChromeVisible();
   const sentinelRef = useRef<HTMLDivElement>(null);
   const [stuck, setStuck] = useState(false);
@@ -88,6 +89,14 @@ export function SectionStickyBar({ sectionLabel }: { sectionLabel?: string }) {
               )}
               {headingText && (
                 <span className="t-label font-medium text-muted truncate max-w-[42vw] sm:max-w-md">{headingText}</span>
+              )}
+              {/* Suppressed on the decision route itself — an ask pointing at the page you are
+                  already reading is noise, and it is the one place it is not needed. */}
+              {showAsk && (
+                <>
+                  <span className="w-px h-3 bg-line shrink-0" aria-hidden="true" />
+                  <AskButton />
+                </>
               )}
             </div>
           </div>

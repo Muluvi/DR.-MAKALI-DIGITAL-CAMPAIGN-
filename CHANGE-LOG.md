@@ -1,3 +1,109 @@
+# Change log — the P0 redesign (September 2026)
+
+This entry records the P0 items from `DR-MAKALI-PROPOSAL-REDESIGN-SPEC.md`. It is the audit
+trail the content-integrity baseline move depends on: every body line that differs from the
+previous baseline `a275e00` is enumerated below, and each is an edit made on purpose.
+
+**The governing constraint was that no figure may be removed.** Length comes out of prose. That
+is now enforced mechanically rather than promised — see §0 below.
+
+---
+
+## 0. New build guard: figure retention
+
+`scripts/verify-figure-retention.mjs` enumerates every quantity in `public/content/`, `data/`,
+`components/` and `lib/` at a baseline commit, and fails the build if one disappears. Two rules:
+
+1. **Retention** — a figure present at the baseline must still exist somewhere.
+2. **Print reach** — a figure that was in `public/content/` must still be in `public/content/`,
+   or be declared in `scripts/figure-migrations.json` with the place it went.
+
+Rule 2 exists because rule 1 is not enough. Much of the landing route is `print:hidden`, so a
+figure that moves from markdown into a component can satisfy rule 1 while vanishing from every
+printed copy. Baseline: **1,097 distinct figures, 576 of them in content.** Both counts hold.
+
+## 1. Content changes, enumerated
+
+Twenty body lines differ from `a275e00`. Each is listed with why.
+
+| # | File | Change | Why |
+|---|---|---|---|
+| 1 | `nextsteps.md` | Decision target `15 September 2026` → `30 September 2026`, with the compression stated | The date had all but lapsed; a live proposal carrying a spent deadline reads as abandoned |
+| 2 | `summary.md` §2.2 | "prior to the final quarter of 2026" → "within the final quarter of 2026 — late October to November" | Contradiction C1 |
+| 3 | `summary.md` §2.3 | "expected before the final quarter" → "expected in the final quarter … (Tier 3)" | Contradiction C1 |
+| 4 | `roadmap.md` §9.1.1 | "before the final quarter of 2026" → "within the final quarter of 2026" | Contradiction C1 |
+| 5 | `assumptions.md` §15.3(2) | Assumption restated as Q4, with the reconciliation and the Tier 3 flag recorded | Contradiction C1 |
+| 6–9 | `deliverables.md` §10.1.1–10.1.2 | "3-person core" → "3-person **Firefly** core" (×4) | Contradiction C2 |
+| 10 | `structure.md` §14.1 | New paragraph distinguishing the campaign's four-person command from Firefly's three-person delivery core | Contradiction C2 |
+| 11–18 | `roadmap.md` §9.1 | Reach, follower and viral-view rows marked `°`; a new note defines them as operational diagnostics, not performance indicators | Contradiction C3 |
+| 19 | `deliverables.md` §10.1.2 | New row: digital ad share of the agreed spend envelope, 15–20 / 30–40 / 45–55% | Figure rescue — see §2 |
+| 20 | `measurement.md` §11.1.3 | Cross-reference §3.3.3 → §11.2.3 | §3.3.3 is "The 2022 baseline, ward by ward"; the vanity-metric doctrine is §11.2.3 |
+
+**Every target figure in the roadmap tables is retained.** C3 was resolved by correcting what the
+document *claims* those numbers are, not by deleting them.
+
+### Two new content files
+
+| File | § | What it is |
+|---|---|---|
+| `decision.md` | §0 | The ask, the cost of delay, the scope in one paragraph, the dependencies, and the identification block. 815 words |
+| `scope.md` | §8.0 | All fourteen workstreams on one page, grouped by function, **and what is outside scope** — a boundary §2.4 promised and the document never drew. 779 words |
+
+**On the numbering.** These are §0 and §8.0 because the document was already numbered 1–16 with
+241 headings hanging off it. Numbering the decision route "1" would have renumbered every section
+after it, invalidated 837 legacy deep links, and rewritten every cross-reference in 52,000 words
+to move one page to the front. §0 reads correctly as the page before the proposal starts.
+
+## 2. Figures rescued rather than lost
+
+Three deletions proposed by the first draft of the spec would each have destroyed a figure. All
+three were caught by re-checking every DELETE against the whole repository, and all three were
+changed:
+
+| Figure | Was only in | Now |
+|---|---|---|
+| Ad-budget shares 15–20 / 30–40 / 45–55% | `DataVisualizations.tsx`, hard-coded as "% of verified ceiling" | `deliverables.md` §10.1.2 and `data/tier-matrix.ts`, migrated **before** the component was deleted |
+| June/August polling rounds, in print | `summary.md` §2.2's table — `DeficitGauge` was inside a `print:hidden` wrapper | Table kept; the wrapper fixed so the gauge prints too |
+| `36.2%` digital ceiling, and the 82/18 channel split | `situation.md` §3.6.3's "STRATEGIC TAKEAWAY" box | Untouched. The box is scheduled for conversion to a table (P1), not deletion |
+
+## 3. Code changes
+
+| File | Change |
+|---|---|
+| `app/[[...slug]]/page.tsx` | `LANDING` = `decision`; `decision.md` and `scope.md` registered |
+| `lib/heading-slug.ts` | `SECTIONS` gains `decision` (part 0) and `scope` (part 8); `PARTS` gains part 0 |
+| `components/ClientPage.tsx` | `print:hidden` moved off the gauge wrapper onto `HeroVisual`; the whole figure stack moved from above the document to below it; `"Budget tiers"` → `"Scope levels"`; `DataVisualizations` removed |
+| `components/DecisionPanel.tsx` | Resynced to `assumptions.md` §15.1: the excised expenditure-ceiling dependency dropped, "budget tier" → "service level", "compliance reviewer" → "data-protection reviewer" |
+| `components/Dashboard.tsx` | Poll card removed — third rendering of figures `DeficitGauge` carries in full on the same page |
+| `components/AskButton.tsx` | **New.** The ask, carried in the sticky bar and the mobile dock, on every route but its own |
+| `components/DataVisualizations.tsx` | **Deleted.** One panel duplicated the polling figures a fourth time; the other put a budget slider on the landing page of a document whose §1.2 says commercial terms appear nowhere |
+| `scripts/verify-figure-retention.mjs` | **New.** See §0 |
+| `scripts/verify-mounts.mjs`, `verify-deep-links.mjs`, `visual-coverage.mjs` | Two new routes registered |
+
+## 4. Guard state after the change
+
+```
+ward register      532,758 across 40 wards            ✓
+figures            every UI literal traces to source  ✓
+figure retention   1,097 figures, 576 in content      ✓  (new)
+content integrity  baseline moved to this commit      ✓
+mounts             39 mount points, 250 headings      ✓
+deep links         837 legacy + 250 live ids          ✓
+visual coverage    250 sections                       ✓
+typecheck / lint   clean                              ✓
+```
+
+## 5. Still open — these need a decision, not an edit
+
+| Item | Where | Who decides |
+|---|---|---|
+| **The 30 September decision date** is Firefly's to confirm against its own presentation plan | `nextsteps.md` §16.1 | Firefly |
+| **The nomination window** was resolved toward Q4 because the document's operational detail already said Q4. It remains **Tier 3** and unconfirmed by Wiper | `summary.md`, `assumptions.md`, `roadmap.md` | Campaign, against §3.1.2's verification test |
+| **The spend envelope** the ad shares attach to | `deliverables.md` §10.1.2 | Agreed at contracting |
+| **`[CAMPAIGN DECISION REQUIRED]`** in the exclusions list | `scope.md` §8.0.2 | Campaign, before contracting |
+
+---
+
 # Change log — the sixteen-section restructure
 
 The proposal's substance is unchanged. Its architecture is not.

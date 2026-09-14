@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { UserCheck, Clock, Camera, Scale, FileText, MapPin, Briefcase, CheckCircle2 } from "lucide-react";
+import { UserCheck, Clock, Camera, Scale, MapPin, Briefcase, CheckCircle2 } from "lucide-react";
 
 import { ClaimBadge } from "./markdown/ClaimBadge";
 
@@ -19,7 +19,18 @@ import { ClaimBadge } from "./markdown/ClaimBadge";
  * column. Nothing here is new.
  */
 
-/** §15.1, verbatim. The `owner` field is carried here; its register was retired. */
+/**
+ * §15.1, verbatim — and this comment is now load-bearing, because it stopped being true.
+ *
+ * Two entries had drifted from the section they claim to quote. One asked for "the verified
+ * expenditure ceiling from the gazette schedule", a dependency §15.1 no longer lists: the
+ * campaign-finance content was excised on the client's instruction and this was the last place
+ * still asking the campaign to supply it. The other asked for sign-off on "the budget tier",
+ * which §10.1.1 calls a scope level precisely because §1.2 puts commercial terms outside this
+ * document. Both are corrected against §15.1's seven items.
+ *
+ * The `owner` field is carried here; its register was retired.
+ */
 const DEPENDENCIES: { icon: typeof UserCheck; text: string; longLead?: boolean }[] = [
   { icon: UserCheck, text: "One named counterpart with authority to approve content" },
   {
@@ -29,13 +40,12 @@ const DEPENDENCIES: { icon: typeof UserCheck; text: string; longLead?: boolean }
   { icon: Camera, text: "Ground team asset uploads: daily photographs and video from the trail" },
   {
     icon: Scale,
-    text: "Appointment of the compliance reviewer (§12.5.5) — the long-lead item, needed in Phase −1",
+    text: "Appointment of the data-protection reviewer (§12.5.5) — the long-lead item, needed in Phase −1",
     longLead: true,
   },
-  { icon: FileText, text: "The verified expenditure ceiling from the gazette schedule" },
   { icon: MapPin, text: "Current ward-level registration data from the IEBC published file" },
   { icon: Briefcase, text: "Access to the existing NG-CDF project record for verified proof points" },
-  { icon: CheckCircle2, text: "Sign-off on the budget tier so the team can be assembled" },
+  { icon: CheckCircle2, text: "Sign-off on the service level so the team can be assembled" },
 ];
 
 export function DecisionPanel() {
