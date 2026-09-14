@@ -241,23 +241,23 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
       <ElectoralTimelineBlock />
     </>
   ),
-  "situation-sec-3-3-7": (
+  "annex-county-sec-3-3-7": (
     <>
       <FiscalAuditPanel />
       <FiscalAuditChartBlock />
     </>
   ),
-  "situation-sec-3-3-8": <DroughtFoodSecurityPanel />,
-  "situation-sec-3-3-9": <MuiBasinPanel />,
-  "situation-sec-3-3-10": <CompetitorFieldPanel />,
-  "situation-sec-3-4-1": <VoteFunnel />,
-  "situation-sec-3-4-3": <PathTo200kCalculator />,
-  "situation-sec-3-4-5": <RecognitionDeficitOverlay />,
+  "annex-county-sec-3-3-8": <DroughtFoodSecurityPanel />,
+  "annex-county-sec-3-3-9": <MuiBasinPanel />,
+  "annex-county-sec-3-3-10": <CompetitorFieldPanel />,
+  "arithmetic-sec-3-4-1": <VoteFunnel />,
+  "arithmetic-sec-3-4-3": <PathTo200kCalculator />,
+  "arithmetic-sec-3-4-5": <RecognitionDeficitOverlay />,
   "audiences-sec-5-1": <AudienceSegmentationMatrix />,
   // §7.3 splits the electorate into a connected minority and an offline majority. The showcase is
   // that argument as an object: one handset, the campaign on all seven channels, ending on the
   // USSD dialog that reaches more voters than the six apps together.
-  "situation-sec-3-6": <PhoneShowcase />,
+  "reach-sec-3-6": <PhoneShowcase />,
   "messaging-sec-7-1": (
     <>
       <MessagingPlayground />
@@ -267,7 +267,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "scope-platforms-sec-8-3-4": <CommunityScheduler />,
   "risk-sec-13-1": <CounterMessagingGrid />,
   // The ownership/alignment/tier table this chart plots, now §8.5.1 in the situation analysis.
-  "situation-sec-3-7-1": <MediaOwnershipBlock />,
+  "reach-sec-3-7-1": <MediaOwnershipBlock />,
 
   // ---- Scope, roadmap, measurement, governance and risk (§8-§16) ----------------------
   "governance-sec-12-1": (
@@ -276,7 +276,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
     </SectionPortrait>
   ),
   "approach-sec-6-2": <StrategicPillarsMatrix />,
-  "situation-sec-3-5": <GeographicZoneMatrix />,
+  "arithmetic-sec-3-5": <GeographicZoneMatrix />,
   // The technology workstreams carried no anchored visualisation at all before this — the one
   // stretch of the document that was a wall of text, and the one describing the technology
   // stack, which is the part this reader is most likely to test against the artifact itself.

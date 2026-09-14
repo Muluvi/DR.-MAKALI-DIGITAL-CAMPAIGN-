@@ -74,9 +74,9 @@ nothing in 14.5 is.
 
 | Role | Function | Decision rights |
 |---|---|---|
-| **Digital Director** (Firefly principal) | Owns strategy, campaign leadership relationship, weekly sync, final content sign-off, crisis Level 2 approval | Approves all published content; approves spend reallocation within an agreed monthly ceiling; escalates Level 3 to the candidate |
+| **Digital Director** (Firefly principal) | Owns strategy, campaign leadership relationship, weekly sync, final content sign-off, crisis Level 2 approval | Approves all published content; approves spend reallocation within the agreed monthly envelope; escalates Level 3 to the candidate |
 | **Content & Language Lead** | Owns the calendar across all three languages; commissions and edits; manages the Kikamba review process | Approves routine content within approved templates; cannot approve policy claims |
-| **Paid Media & Analytics Manager** | Ad buying across Meta, Google, TikTok; SMS/USSD dispatch; dashboards; A/B testing; **compliance logging for IEBC returns** | Executes within the approved budget envelope; cannot exceed ward-level ceilings without Director approval |
+| **Paid Media & Analytics Manager** | Ad buying across Meta, Google, TikTok; SMS/USSD dispatch; dashboards; A/B testing; **compliance logging for IEBC returns** | Executes within the approved budget envelope; cannot exceed a ward's agreed envelope without Director approval |
 
 ---
 

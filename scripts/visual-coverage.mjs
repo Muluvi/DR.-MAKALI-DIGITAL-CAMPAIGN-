@@ -41,6 +41,13 @@ const TABS = {
   "structure.md": "structure",
   "assumptions.md": "assumptions",
   "nextsteps.md": "nextsteps",
+  "arithmetic.md": "arithmetic",
+  "reach.md": "reach",
+  "annex-evidence.md": "annex-evidence",
+  "annex-county.md": "annex-county",
+  "annex-messages.md": "annex-messages",
+  "annex-cadence.md": "annex-cadence",
+  "annex-runbooks.md": "annex-runbooks",
 };
 
 const HEADING = /^(#{2,3})\s+(.+?)\s*$/;

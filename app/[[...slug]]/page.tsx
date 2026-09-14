@@ -31,6 +31,13 @@ const FILES: Record<TabId, string> = {
   structure: "structure.md",
   assumptions: "assumptions.md",
   nextsteps: "nextsteps.md",
+  "arithmetic": "arithmetic.md",
+  "reach": "reach.md",
+  "annex-evidence": "annex-evidence.md",
+  "annex-county": "annex-county.md",
+  "annex-messages": "annex-messages.md",
+  "annex-cadence": "annex-cadence.md",
+  "annex-runbooks": "annex-runbooks.md",
 };
 
 const TAB_IDS = SECTIONS.map((s) => s.id) as TabId[];

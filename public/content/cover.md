@@ -60,6 +60,10 @@ indicators performance is judged against.
 what can go wrong and how it is handled, the shape of the delivery team, what this proposal
 assumes and needs, and the decision being asked for.
 
+Five annexes sit behind Section 16 and carry the material the argument rests on rather than the
+argument itself: the evidence standard, county reference, the message-assignment grids, the
+meeting cadence, and the response runbooks. Each is reached from the section that points to it.
+
 Two conventions run throughout. Every factual claim carries a source and a confidence tier, set
 out in Section 3.2. Where a figure the campaign will need does not exist in any published source,
 it is marked as a named data gap rather than estimated, and Section 15.1 lists every open item in

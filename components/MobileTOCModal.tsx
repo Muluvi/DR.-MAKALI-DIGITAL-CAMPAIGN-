@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, Route, CalendarClock, Workflow, ListChecks, Handshake, Radio } from "lucide-react";
+import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, Route, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck } from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
 import { readingMinutes } from "../hooks/useReadingProgress";
 import type { SectionItem } from "../lib/section-index";
@@ -29,6 +29,13 @@ const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: 
   structure: ClipboardList,
   assumptions: ListChecks,
   nextsteps: Handshake,
+  "arithmetic": Target,
+  "reach": Radio,
+  "annex-evidence": ShieldCheck,
+  "annex-county": Map,
+  "annex-messages": MessageSquare,
+  "annex-cadence": CalendarClock,
+  "annex-runbooks": Shield,
 };
 
 interface MobileTOCModalProps {
@@ -118,7 +125,7 @@ export function MobileTOCModal({
                   Full index
                 </h3>
                 <p className="t-label text-muted font-medium mt-0.5">
-                  {PARTS.filter((p) => p.part > 0).length} sections, {subSectionCount} sub-sections, {partCount} parts
+                  {PARTS.filter((p) => p.part > 0 && p.part < 17).length} sections, {SECTIONS.filter((s) => s.part === 17).length} annexes, {subSectionCount} sub-sections, {partCount} parts
                 </p>
               </div>
             </div>

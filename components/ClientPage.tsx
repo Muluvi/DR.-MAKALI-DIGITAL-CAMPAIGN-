@@ -123,6 +123,13 @@ const SECTION_ICONS: Record<TabId, React.ComponentType<{ size?: number; classNam
   structure: ClipboardList,
   assumptions: ListChecks,
   nextsteps: Handshake,
+  "arithmetic": Target,
+  "reach": Radio,
+  "annex-evidence": ShieldCheck,
+  "annex-county": Map,
+  "annex-messages": MessageSquare,
+  "annex-cadence": CalendarClock,
+  "annex-runbooks": Shield,
 };
 
 const WiperUmbrellaLogo = () => (
@@ -166,10 +173,10 @@ const PART_TINTS = ["from-accent/[0.025]", "from-gold/[0.025]"];
 // the brief asks to be reachable in one interaction from the landing view.
 const QUICK_LINKS = [
   { id: "measurement-sec-11-1", label: "The scorecards" },
-  { id: "situation-sec-3-4-1", label: "Votes needed to win" },
-  { id: "situation-sec-3-4-2", label: "The 40 wards" },
+  { id: "arithmetic-sec-3-4-1", label: "Votes needed to win" },
+  { id: "arithmetic-sec-3-4-2", label: "The 40 wards" },
   { id: "deliverables-sec-10-1", label: "Scope levels" },
-  { id: "situation-sec-3-7-1", label: "Kikamba radio" },
+  { id: "reach-sec-3-7-1", label: "Kikamba radio" },
 ];
 
 interface LazySectionProps {
@@ -245,14 +252,18 @@ const TAB_IDS: string[] = SECTIONS.map((s) => s.id);
  * carried a hero introducing a document it no longer opened.
  */
 /**
- * The proposal is sixteen sections, and the decision route is not one of them.
+ * The proposal is sixteen sections. Neither the decision route nor the annexes is one of them.
  *
- * PARTS carries seventeen entries because §0 was added in front of §1-§16. §0 is front matter —
- * the ask, stated before the document it asks about — and counting it would put "17 sections" in
- * the chrome against "sixteen sections" in §1.3 and §0's own lede. The proposal's own count wins;
- * the decision route is reached from "/" and from the index, not from this total.
+ * PARTS carries eighteen entries: §0 in front, §1-§16, and the annexes behind. §0 is front matter
+ * — the ask, stated before the document it asks about — and the annexes are reference the
+ * document points at rather than parts of its argument. Counting either would put a number in the
+ * chrome that disagrees with "sixteen sections" in §1.3 and in §0's own lede, and the proposal's
+ * own count of itself has to win. Both are reachable: §0 from "/" and the annexes from the index
+ * and from the pointer at the head of every section that has one.
  */
-const PROPOSAL_SECTION_COUNT = PARTS.filter((p) => p.part > 0).length;
+const ANNEX_PART = 17;
+const PROPOSAL_SECTION_COUNT = PARTS.filter((p) => p.part > 0 && p.part < ANNEX_PART).length;
+const ANNEX_COUNT = SECTIONS.filter((s) => s.part === ANNEX_PART).length;
 
 const LANDING_TAB: TabId = "decision";
 
@@ -780,7 +791,9 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                   {/* Sixteen canonical sections. The rail lists nineteen entries because the
                       scope of work is served over four routes — counting the routes here would
                       contradict the contents page the reader has just come from. */}
-                  <span className="font-mono text-accent tabular-nums">{PROPOSAL_SECTION_COUNT} sections</span>
+                  <span className="font-mono text-accent tabular-nums">
+                    {PROPOSAL_SECTION_COUNT} sections · {ANNEX_COUNT} annexes
+                  </span>
                 </div>
                 <nav className="flex flex-col gap-0.5 relative">
                   {/* The active-link marker is one element that slides, rather than a border that

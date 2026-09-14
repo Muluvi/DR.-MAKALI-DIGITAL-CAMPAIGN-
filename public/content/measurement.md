@@ -223,7 +223,7 @@ The campaign builds and maintains the **Kitui County Service-Delivery Performanc
 The campaign strictly excludes vanity metrics from all executive dashboards, reporting meetings, and vendor performance contracts based on the following empirical realities:
 
 *   **Offline Reality:** 86.4% of Kitui registered voters do not maintain active social media profiles. Optimizing for digital likes misallocates resources away from village barazas and market PA caravans.
-*   **Geographic Skew:** Over 60% of social media interactions on Eastern Kenya political content originate from non-resident diaspora users in Nairobi, Mombasa, or abroad who are not registered to vote in Kitui's 40 wards.
+*   **Geographic Skew:** Political content from Eastern Kenya draws a large share of its social media interaction from non-resident users in Nairobi, Mombasa and abroad, who are not registered to vote in Kitui's 40 wards. **Evidence required:** an earlier draft of this section put that share at "over 60%", which no source in this proposal supports. The figure is withdrawn rather than restated; the ward-level split is obtainable from the campaign's own platform analytics in Week 1 (Section 9.1.1) and should replace this sentence once measured. The argument does not depend on the precise number.
 *   **Zero Correlation to Turnout:** A viral video does not transport an elderly voter in Ikutha or Nguni to their polling stream on election morning. Physical voter pledge collection, verified 2G SMS connectivity, and trained polling day agents directly generate counted votes.
 
 ### 11.2.4 Performance governance and executive escalation

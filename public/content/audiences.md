@@ -24,6 +24,31 @@ This section defines the structural architecture of the Kitui electorate across 
 ════════════════════════════════════════════════════════════════════════════════════
 ```
 
+## 5.0 The voter universes
+
+The six segments below describe **who** the voters are. This table describes **what the campaign
+needs each group to do**, which is a different question and the one the objectives in Section 4
+are written against. Segments say where to speak and in what language; universes say what
+success looks like there.
+
+| Universe | Definition | Size | Basis | What it owns |
+|---|---|---|---|---|
+| Voter universe | Every registered voter in Kitui County | **532,758** | IEBC ward register (Tier 1) | — |
+| Expected turnout universe | Ballots expected at the 62.0% participation baseline | **~330,310** | Derived, Section 3.4.1 (Tier 1) | — |
+| **Victory universe** | Votes required to win the general election | **~200,000** | Section 3.4.1; 198,004 won in 2022 (Tier 1) | GOTV |
+| **Base-hold universe** | The anchor: Kitui Central and Kitui West | `[VERIFIED FIGURE REQUIRED]` — Kitui Central holds **77,764** registered voters (Tier 1), but a register count is not a support estimate | Section 3.5.1 | Mobilisation |
+| **Persuasion universe** | The Mwingi bloc and the arid belt, where recognition is weakest | `[VERIFIED FIGURE REQUIRED]` — the Mwingi constituencies hold **200,198** registered voters (Tier 1), which is the ceiling on this universe and not its size | Section 3.4.5 | Recognition |
+| **Mobilisation universe** | Identified supporters needing a turnout contact | Target **200,000** verified supporters | Section 4.2.1 (Tier 1 target) | Field + SMS |
+| Soft opposition | Rival-leaning but movable | **Evidence required** | No instrument measures this today | Messaging |
+
+**Three of these sizes are deliberately not stated.** No published source reports ward-level
+recognition or support, Section 3.4.6 records that as a named data gap, and the Week 1 baseline
+instrument in Section 9.1.1 exists to measure it. A register count is the most a universe can
+contain, never what it does contain, and the two are not interchangeable. Estimating the
+difference would be the exact failure Section 3.2.3's ban on guesswork forbids.
+
+---
+
 ## 5.1 The six voter segments
 
 ```

@@ -208,7 +208,7 @@ allows; sequential if the decision slips.*
 | GOTV contact rate | ≥ 70% |
 | **Contact share of the ~200,000 win threshold** | **≥ 75%** |
 | Misinformation incidents responded to within severity target | 100% |
-| Spend reconciled against IEBC ceiling | 100%, monthly |
+| Spend reconciled against the agreed envelope and the campaign's IEBC return | 100%, monthly |
 
 ### 9.1.6 Post-election
 

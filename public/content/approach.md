@@ -52,33 +52,38 @@ production buckets for the studio. Each of those maps back to the four below.
 
 ## 6.3 The six campaign themes
 
-Six themes, each evidenced.
+Six themes, each evidenced. **Every figure below carries the tier it was established at, and where it was established.** Three of them are not established anywhere in this proposal and say so rather than borrowing authority from the ones beside them — the theme they support stands without them, and each is obtainable from the CIDP or a KNBS bulletin the campaign can pull.
 
 1. **Water Security and Climate Resilience** — sand dams, boreholes,
 irrigation, and adaptation to both drought and flood.
-**Evidence:** approximately **400,000 people rely on surface water** as
-their main drinking source; nine of 18 sub-counties sit below 50
-persons/km²; the county experienced drought pressure through 2025 and was
-affected by the March 2026 floods.
+**Evidence:** approximately **400,000 people rely on untreated surface water** as
+their main domestic source (Tier 1, Section 3.3.5); nine of 18 sub-counties sit below 50
+persons/km² (Tier 1, Section 3.3.5); the county experienced drought pressure through 2025 and was
+affected by the March 2026 floods (Tier 1, Annex B).
 2. **Economic Transformation** — agribusiness value chains, mango processing,
 livestock markets, county investment.
-**Evidence:** 37 persons/km² signals under-utilised potential; approximately
-613,000 cattle and 2,000,000 goats; **poultry in over 90% of households** —
-a household income stream county policy has largely ignored.
+**Evidence:** 37 persons/km² signals under-utilised potential (Tier 1, Section 3.3.5);
+approximately 613,000 cattle and 2,000,000 goats (Tier 1, Section 3.3.5); **poultry in over 90%
+of households** (Tier 1, Section 3.3.5) — a household income stream county policy has largely
+ignored.
 3. **Fiscal Discipline and Verified Delivery** — the flagship theme.
 **Evidence:** the KSh13.79bn FY2026/27 envelope; own-source revenue target of
 KSh1.339bn; and a candidate professionally certified in evaluation.
 4. **Youth Employment and Digital Skills** — vocational training, county
 innovation hubs, enterprise credit.
 **Evidence:** youth concentrated in Kitui Central, Mwingi Central and
-Mutomo; national smartphone adoption at 63.7% of devices creating real
-digital-economy access.
+Mutomo (Tier 1, Section 3.3.5); smartphones at 63.7% of connected devices (Tier 1,
+Section 3.3.5) creating real digital-economy access.
 5. **Healthcare Access** — hospital upgrades, maternal health, insurance
 coverage.
-**Evidence:** only 11.7% health insurance coverage; 25% child stunting.
+**Evidence:** only 11.7% health insurance coverage and 25% child stunting — **both Evidence
+required.** Neither is established at any tier in this proposal, and neither should be used in
+published content until it is sourced to a KNBS bulletin or the CIDP. The theme does not rest on
+them: Section 3.3.5 documents the poverty and water-access position at Tier 1.
 6. **Education** — ECDE, bursaries, school infrastructure.
-**Evidence:** 13.0% never attended school; 17.4% completed secondary; and
-**KSh47m already delivered to 12,573 students** in Kitui Central.
+**Evidence:** 13.0% never attended school and 17.4% completed secondary (both stated at
+Section 8.5.2 and **not yet tiered** — obtainable from the KNBS county bulletin); and
+**KSh47m already delivered to 12,573 students** in Kitui Central (Tier 1, Section 3.3.1).
 
 Underlying narrative throughout: **"Kitui has resources. What it has lacked is
 leadership that understands how to use them — and the discipline to prove it

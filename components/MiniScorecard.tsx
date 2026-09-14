@@ -45,7 +45,7 @@ const ENTRIES = [
     describe: `${OFFLINE_SHARE_PCT}% of residents are outside the internet-using population`,
   },
   {
-    id: "situation-sec-3-4-1",
+    id: "arithmetic-sec-3-4-1",
     icon: Vote,
     label: "To win",
     value: "≈200,000",
