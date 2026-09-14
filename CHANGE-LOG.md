@@ -1,3 +1,49 @@
+# Change log — the UX pass (September 2026)
+
+Applies §11 of `DR-MAKALI-PROPOSAL-REDESIGN-SPEC.md`. Content baseline moves to `6293c1c`.
+
+## Already built — checked, not redone
+
+| Spec item | State |
+|---|---|
+| 14 — ASCII KPI scorecards → component | Already done. `MarkdownViewer` intercepts the two banner blocks and renders `KpiScorecards` from `data/kpis.ts` |
+| 31 — wide tables → stacked cards under 768px | Already done. `InteractiveTable` renders a card-stacked key/value view on mobile, and deliberately renders only one of the two |
+| 32 — evidence-required token | Already done. `ClaimBadge` carries `unmeasured` — "Not yet measured" |
+| 25 — grouped navigation | Already done. `MobileTOCModal` filters by part |
+
+## Changed
+
+| Area | Before | After |
+|---|---|---|
+| `Dashboard` | Two full copies of the metric set (`hidden sm:grid` + `block sm:hidden`), both shipped to every phone; mobile copy truncated label and source line | One tree: snapping rail on a phone, grid from `sm`. No truncation. Figures `text-2xl` → `text-3xl` |
+| Nav labels | Four labels 35–43 chars, all opening `"Scope of work — "`, truncating to the shared prefix | Longest label 26 chars; the prefix lives once, in the part label |
+| `DeficitGauge` surface | `SpotlightCard` — pointer-tracked light across a 15.3-point deficit | Flat bordered card. Treated surfaces reserved for the ask and the commitments |
+| Takeaway boxes | 13 ASCII blocks, 84–93 chars wide, each restating adjacent prose | 12 deleted; §3.6.3's converted to a table — it carried the digital ceiling, radio/SMS reach and the 82/18 weighting |
+| `audiences.md` §5.2 | Six segments presented as a partition, summing to ~2× the register, with two denominators unlabelled | States that they overlap and do not sum, and names which base each percentage uses |
+
+## Content diff
+
+97 body lines removed — **every one a takeaway-box interior**. 18 added: the §5.2 note and the
+§3.6.3 table. Enumerated via `CONTENT_DUMP` before the baseline moved.
+
+## A defect the guard found in itself
+
+`verify-figure-retention.mjs` refused the takeaway deletions, reporting `220k` and `420k` lost.
+Both were notation, not loss: `220,000` and `420,000` are in content. The guard had been treating
+`k` as an opaque unit. Magnitude suffixes (`k`, `m`, `bn`, `million`, `billion`) now fold into the
+value; `%` is the only true unit left. Distinct-figure count falls 1,097 → **1,047** as forms
+merge, which is the more accurate count.
+
+Re-tested afterwards, because a guard that stops failing is worth checking:
+
+| Test | Result |
+|---|---|
+| Delete a figure unique to content (`191,317`) | **Caught** |
+| Move a content figure into a component (`186,132`) | **Caught** — the print-reach rule |
+| Delete a figure that exists in three other content files | Passed, correctly — the rule is corpus-wide, not per-file |
+
+---
+
 # Change log — the P0 redesign (September 2026)
 
 This entry records the P0 items from `DR-MAKALI-PROPOSAL-REDESIGN-SPEC.md`. It is the audit

@@ -55,7 +55,16 @@ const CONTENT = path.join(ROOT, "public", "content");
  * What this file continues to guarantee is the part it can: that nothing since has changed the
  * body text.
  */
-const BASE = process.env.CONTENT_BASELINE ?? "e203287";
+const BASE = process.env.CONTENT_BASELINE ?? "6293c1c";
+
+/**
+ * The baseline again, and why it moved a fifth time.
+ *
+ * `6293c1c` is the UX pass: twelve "STRATEGIC TAKEAWAY" boxes deleted, §3.6.3's converted to a
+ * table because it carried figures rather than summary, and §5.2 given the overlap and
+ * denominator note its matrix needed. 97 body lines out, 18 in, every removed line a takeaway-box
+ * interior — enumerated in CHANGE-LOG.md from this script's own CONTENT_DUMP.
+ */
 
 /**
  * The baseline again, and why it moved a fourth time.
@@ -95,7 +104,7 @@ const BASE = process.env.CONTENT_BASELINE ?? "e203287";
  * What this file continues to guarantee is the part it can: that nothing since the restructure
  * has changed the body text.
  */
-const RESTRUCTURED = BASE === "e203287" || BASE === "a275e00" || BASE === "c1150a8";
+const RESTRUCTURED = BASE === "6293c1c" || BASE === "e203287" || BASE === "a275e00" || BASE === "c1150a8";
 const CURRENT_SPINE = RESTRUCTURED || BASE === "5ff79ce" || BASE === "5470756";
 
 /**
@@ -111,7 +120,7 @@ const OLD_FILES = RESTRUCTURED
       "assumptions.md",
       "audiences.md",
       "cover.md",
-      ...(BASE === "e203287" ? ["decision.md", "scope.md"] : []),
+      ...(BASE === "6293c1c" || BASE === "e203287" ? ["decision.md", "scope.md"] : []),
       "deliverables.md",
       "governance.md",
       "measurement.md",
