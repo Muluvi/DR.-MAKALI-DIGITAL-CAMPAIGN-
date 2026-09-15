@@ -67,7 +67,6 @@ function ReactionPills({ show, reduce }: { show: boolean; reduce: boolean }) {
 
 export function FacebookScreen() {
   const reduce = useReducedMotionSafe();
-  const { enter } = useMotionPreset();
   const [settled, setSettled] = useState(false);
 
   useEffect(() => {

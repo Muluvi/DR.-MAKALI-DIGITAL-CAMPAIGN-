@@ -6,10 +6,7 @@ import {
 } from "motion/react";
 import { CalendarClock, TrendingDown, Vote } from "lucide-react";
 
-import {
-  CONTEST_ROUNDS, CONTEST_SOURCE, DEFICIT_FIRST, DEFICIT_LATEST, DEFICIT_WIDENING,
-  FIRST_ROUND, LATEST_ROUND, SHARE_AXIS_MAX,
-} from "../../data/nomination-contest";
+import { CONTEST_ROUNDS, CONTEST_SOURCE, DEFICIT_FIRST, DEFICIT_LATEST, DEFICIT_WIDENING, LATEST_ROUND, SHARE_AXIS_MAX } from "../../data/nomination-contest";
 import { TierBadge } from "../markdown/TierBadge";
 import { useMotionPreset } from "../../hooks/useMotionPreset";
 import { DURATION, EASE_ENTRANCE } from "../../lib/motion";

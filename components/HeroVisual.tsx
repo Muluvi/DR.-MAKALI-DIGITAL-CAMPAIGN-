@@ -3,21 +3,7 @@
 import React, { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { DURATION, EASE_ENTRANCE, disclosure } from "../lib/motion";
-import {
-  X,
-  Search,
-  CheckCircle2,
-  ChevronRight,
-  HelpCircle,
-  Layers,
-  Compass,
-  Radio,
-  Sparkles,
-  MapPin,
-  Shield,
-  Activity,
-  RotateCcw
-} from "lucide-react";
+import { X, CheckCircle2, ChevronRight, Layers, Compass, Sparkles, Shield } from "lucide-react";
 import { CONSTITUENCIES } from "../data/ward-register";
 
 interface StageDetail {

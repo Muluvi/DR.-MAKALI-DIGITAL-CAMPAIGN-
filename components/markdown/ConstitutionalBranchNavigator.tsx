@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Scale, AlertTriangle, CheckCircle2, ChevronRight, HelpCircle, ArrowRight, ShieldCheck, Building2, Users } from "lucide-react";
+import { Scale, AlertTriangle, CheckCircle2, HelpCircle, ArrowRight, ShieldCheck, Building2, Users } from "lucide-react";
 import { DURATION } from "../../lib/motion";
 
 export function ConstitutionalBranchNavigator() {

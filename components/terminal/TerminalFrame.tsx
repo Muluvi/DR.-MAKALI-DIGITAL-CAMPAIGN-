@@ -1,25 +1,10 @@
 "use client";
 
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { SPRING } from "@/lib/motion";
 import { useReducedMotionSafe } from "@/hooks/use-reduced-motion-safe";
-import {
-  BEZEL_BOTTOM,
-  BEZEL_TOP,
-  BEZEL_X,
-  BODY_H,
-  BODY_RADIUS,
-  BODY_W,
-  MAX_ROTATE_X,
-  MAX_ROTATE_Y,
-  PERSPECTIVE,
-  SCREEN_H,
-  SCREEN_RADIUS,
-  SCREEN_W,
-  STATUS_LEDS,
-  THICKNESS,
-} from "./device";
+import { BEZEL_BOTTOM, BEZEL_TOP, BODY_H, BODY_W, MAX_ROTATE_X, MAX_ROTATE_Y, PERSPECTIVE, SCREEN_H, SCREEN_W, STATUS_LEDS } from "./device";
 import { Sun, Wifi, BatteryCharging, Shield } from "lucide-react";
 
 /** Industrial hex bolt rivet for the rugged chassis */
@@ -67,7 +52,6 @@ export function TerminalFrame({
 }) {
   const reduce = useReducedMotionSafe();
   const ref = useRef<HTMLDivElement>(null);
-  const [pointerInside, setPointerInside] = useState(false);
 
   const rawY = useMotionValue(0);
   const rawX = useMotionValue(0);
@@ -97,7 +81,6 @@ export function TerminalFrame({
   );
 
   const reset = useCallback(() => {
-    setPointerInside(false);
     rawY.set(0);
     rawX.set(0);
   }, [rawX, rawY]);
@@ -108,7 +91,6 @@ export function TerminalFrame({
       className="select-none"
       style={{ perspective: `${PERSPECTIVE}px`, width: BODY_W, height: BODY_H }}
       onPointerMove={onPointerMove}
-      onPointerEnter={() => setPointerInside(true)}
       onPointerLeave={reset}
     >
       <motion.div

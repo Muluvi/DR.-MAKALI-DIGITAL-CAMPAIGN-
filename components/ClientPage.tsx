@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
-import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Coins, Users, Radio, ShieldCheck, Type, Eye, EyeOff, Map, MessageSquare, Megaphone, Shield, Database, Gauge, HandCoins, BookLock, ClipboardList, Compass, Layers, Route, CalendarClock, Workflow, ListChecks, Handshake } from "lucide-react";
+import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Users, Radio, ShieldCheck, Type, Eye, EyeOff, Map, MessageSquare, Megaphone, Shield, Database, Gauge, BookLock, ClipboardList, Compass, Layers, Route, CalendarClock, Workflow, ListChecks, Handshake } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
 import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
@@ -21,7 +21,6 @@ import type { SectionItem } from "../lib/section-index";
 
 import { FocusModeToggle, PrintReportGenerator } from "./StrategicAids";
 import { SectionNumberMapProvider } from "./markdown/SectionNumberMap";
-
 
 import {
   AmbientField,
@@ -69,21 +68,6 @@ function SectionTransition({ children, tabKey, animateEntrance }: { children: Re
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: DURATION.quick, ease: "easeOut" }}
       className="w-full print:block"
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-function SectionTabTransition({ children }: { children: React.ReactNode }) {
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -15 }}
-      transition={{ duration: DURATION.base, ease: "easeOut" }}
-      className="w-full"
     >
       {children}
     </motion.div>
@@ -329,7 +313,6 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
     const timer = window.setTimeout(fire, 1200);
     window.addEventListener("popstate", () => window.clearTimeout(timer), { once: true });
   }, [expanded, router]);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTOCModalOpen, setIsTOCModalOpen] = useState(false);
   // Expand All is the /full route: the whole document on one page, which is also what the print
   // path needs. It is the one route that pays for all nine sections, by design.
@@ -378,8 +361,6 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
   // number (leave it alone) — see the note on that function for why this matters.
   const validSectionIds = useMemo(() => new Set(sections.map((s) => s.id)), [sections]);
 
-
-
   // Premium dynamic category intersection observer to track active section while scrolling
   useEffect(() => {
     if (!isExpanded) return;
@@ -411,7 +392,6 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
 
   const handleNavClick = (itemId: string) => {
     setActiveTab(itemId);
-    setIsMobileMenuOpen(false);
 
     if (isExpanded) {
       setTimeout(() => {
@@ -442,7 +422,6 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
       if (isValidTab && !isExpanded && activeTab !== targetTab) {
         setActiveTab(targetTab, id);
       }
-      setIsMobileMenuOpen(false);
       // Polls for up to two seconds, which covers the route fetch as well as lazy mounting.
       scrollToSectionWhenReady(id, "smooth");
     },

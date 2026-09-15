@@ -1,16 +1,10 @@
 "use client";
 
-import { motion, AnimatePresence, useInView } from "motion/react";
+import { motion } from "motion/react";
 import { DURATION, SPRING } from "../lib/motion";
 import { useState, useEffect, useRef } from "react";
-import { useMarqueeActive } from "../hooks/use-marquee-active";
-import { useIsMobile } from "../hooks/use-mobile";
-import { LazyMount } from "./LazyMount";
-import { Play, Pause, Volume2, ChevronDown, ChevronUp, Calendar, User, Check, AlertTriangle, Sparkles, Target, Zap, ArrowRight, Maximize2, Minimize2, Sliders, Radio, ShieldCheck, Users, Coins, FileText, TrendingUp, MessageSquare, CheckCircle2, CheckSquare, MapPin, Globe, BookOpen, Activity, Database, RefreshCw, HelpCircle, Layers, TrendingDown, Table, Filter } from "lucide-react";
 
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
-import ConstituencyBarChart from "./charts/ConstituencyBarChart";
-import ResourceLedgerBarChart from "./charts/ResourceLedgerBarChart";
+import { Play, Pause, Volume2, Calendar, ArrowRight, Radio, FileText, BookOpen, RefreshCw } from "lucide-react";
 
 // ==========================================
 // 1. EXECUTIVE SUMMARY VISUAL AIDS

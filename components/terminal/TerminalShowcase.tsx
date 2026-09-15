@@ -16,7 +16,7 @@ import { GroundPulseScreen } from "./screens/GroundPulseScreen";
 import { MarketAuditScreen } from "./screens/MarketAuditScreen";
 import { IncidentScreen } from "./screens/IncidentScreen";
 import { TurnoutScreen } from "./screens/TurnoutScreen";
-import { MapPin, Radio, Shield, Users } from "lucide-react";
+import { MapPin, Radio } from "lucide-react";
 
 const SCREENS: Record<TerminalModeId, React.ComponentType<{ data: (typeof WARD_DATA)[string] }>> = {
   dgp: GroundPulseScreen,

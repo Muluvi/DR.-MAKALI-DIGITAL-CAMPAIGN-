@@ -1,11 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { 
-  BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, 
-  Tooltip, Legend, ResponsiveContainer, Cell, AreaChart, Area 
-} from "recharts";
+import { motion } from "motion/react";
+import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, AreaChart, Area } from "recharts";
 import { Users, BarChart3, TrendingUp, Filter, Map, ChevronRight } from "lucide-react";
 
 interface SubCountyData {

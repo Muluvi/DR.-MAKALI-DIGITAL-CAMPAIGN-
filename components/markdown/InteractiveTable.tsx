@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useId, useState, useEffect } from "react";
+import React, { useId, useState } from "react";
 import { Search, Sparkles, ArrowUpDown, BarChart3, Table, Download } from "lucide-react";
 import { LayoutGroup, motion } from "motion/react";
-import { LazyMount } from "../LazyMount";
+
 import { SourceLine, detectSources } from "./SourceLine";
 import { MatrixMarks } from "./MatrixMarks";
 import ModelVariablesDrawer from "./ModelVariablesDrawer";
@@ -296,7 +296,6 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
       (allText.includes("voter_id") || (allText.includes("source") && allText.includes("format") && allText.includes("type")))
     );
   }, [ths, parsedRows]);
-
 
   const isMobile = useIsMobile();
   const mounted = useMounted();

@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "motion/react";
-import { TrendingUp, Calendar, Target, CheckCircle2, AlertTriangle, Flame, Sparkles, Sliders } from "lucide-react";
+
+import { TrendingUp, CheckCircle2, AlertTriangle, Sparkles, Sliders } from "lucide-react";
 
 export function PollingTrajectorySimulator() {
   const [weeklyGainRate, setWeeklyGainRate] = useState<number>(1.2); // Percentage points per week
