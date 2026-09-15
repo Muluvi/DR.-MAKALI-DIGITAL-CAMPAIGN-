@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useId, useState, useEffect } from "react";
-import { Search, Sparkles, ArrowUpDown, BarChart3, Table } from "lucide-react";
+import { Search, Sparkles, ArrowUpDown, BarChart3, Table, Download } from "lucide-react";
 import { LayoutGroup, motion } from "motion/react";
 import { LazyMount } from "../LazyMount";
 import { SourceLine, detectSources } from "./SourceLine";
@@ -34,6 +34,20 @@ function findCells(node: any, types: string[]): any[] {
     return React.Children.toArray(node.props.children).flatMap(child => findCells(child, types));
   }
   return [];
+}
+
+/** RFC 4180 quoting: wrap when the cell contains a delimiter, and double any inner quote. */
+function csvCell(value: string): string {
+  const text = value.replace(/\s+/g, " ").trim();
+  return /[",\n]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
+}
+
+function slugForFile(text: string): string {
+  const slug = text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  return slug || "table";
 }
 
 export function InteractiveTable({ children }: { children: React.ReactNode }) {
@@ -103,6 +117,57 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
   // rendering all of them inline turns a section into a scroll. Show a readable first screen and
   // let the reader ask for the rest. Filtering shows every match: someone who has typed a query
   // is looking for a specific row, not browsing.
+  const tableSources = React.useMemo(() => {
+    const allText = [...ths, ...rowElements].map(getDeepText).join(" ");
+    return detectSources(allText);
+  }, [ths, rowElements]);
+
+  const downloadCsv = React.useCallback(() => {
+    const headers = ths.map((th: any) => getDeepText(th.props.children));
+    // Export what the reader is actually looking at: the current sort and the current
+    // filter, not the untouched source order. A file that disagrees with the screen it
+    // came from is worse than no file.
+    const body = filteredRows.map((row) => row.map((cell: any) => getDeepText(cell)));
+
+    // Provenance travels with the figures. Every other surface in this document refuses to
+    // show a number without naming where it came from, and a file leaving the page is the
+    // one place that rule matters most — once it is a spreadsheet on someone's laptop,
+    // the page's own source line is gone.
+    const preamble = [
+      ["# Dr. Makali campaign proposal — table export"],
+      [`# Retrieved: ${new Date().toISOString().slice(0, 10)}`],
+      [`# Source page: ${typeof window !== "undefined" ? window.location.href : ""}`],
+      ...(tableSources.length > 0 ? [[`# Source: ${tableSources.join(" | ")}`]] : []),
+      ...(filteredRows.length !== parsedRows.length
+        ? [[`# Filtered view: ${filteredRows.length} of ${parsedRows.length} rows`]]
+        : []),
+      [],
+    ];
+
+    const csv = [...preamble, headers, ...body]
+      .map((row) => row.map((cell) => csvCell(String(cell ?? ""))).join(","))
+      .join("\r\n");
+
+    // The BOM is what makes Excel read this as UTF-8; without it the document's en dashes,
+    // minus signs and Kikamba diacritics arrive as mojibake.
+    const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    // Five tables can share one page, and a first column headed "Rank" or "Ward" names none
+    // of them usefully on its own — prefix the route so a folder of exports stays readable.
+    const page =
+      typeof window !== "undefined"
+        ? slugForFile(window.location.pathname.replace(/^\/+|\/+$/g, "")) 
+        : "";
+    const stem = slugForFile(headers[0] ?? "table");
+    a.download = `makali-${page && page !== "table" ? `${page}-` : ""}${stem}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }, [ths, filteredRows, parsedRows.length, tableSources]);
+
   const ROW_PREVIEW = 10;
   const isCapped = !showAllRows && !searchTerm && filteredRows.length > ROW_PREVIEW + 2;
   const visibleRows = isCapped ? filteredRows.slice(0, ROW_PREVIEW) : filteredRows;
@@ -224,11 +289,6 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
     }).filter(item => item.name && !isNaN(item.value));
   }, [filteredRows, numericColumnIndex, labelColumnIndex]);
 
-  const tableSources = React.useMemo(() => {
-    const allText = [...ths, ...rowElements].map(getDeepText).join(" ");
-    return detectSources(allText);
-  }, [ths, rowElements]);
-
   const isModelVariables = React.useMemo(() => {
     const allText = [...ths, ...parsedRows.slice(0, 5).flat()].map(getDeepText).join(" ").toLowerCase();
     return (
@@ -288,6 +348,17 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
               <span>{showChart ? "Table" : "Chart"}</span>
             </button>
           )}
+
+          <button
+            type="button"
+            onClick={downloadCsv}
+            disabled={filteredRows.length === 0}
+            title="Download this table as CSV"
+            className="tap-chip flex items-center gap-1.5 px-3 py-2 rounded-xl border t-micro font-bold transition-all cursor-pointer min-h-[44px] bg-paper/80 border-line text-muted hover:border-accent/40 hover:text-ink disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            <Download size={14} aria-hidden="true" />
+            <span>CSV</span>
+          </button>
 
           <div className="relative flex-1 sm:w-44">
             <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-muted" />

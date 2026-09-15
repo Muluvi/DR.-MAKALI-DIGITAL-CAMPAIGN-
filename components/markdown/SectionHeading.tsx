@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Link2, Check } from "lucide-react";
+import { Link2, Check, Share2 } from "lucide-react";
 import { useInView } from "../../hooks/use-in-view";
 import { useRipple } from "../../hooks/use-pointer-fx";
+import { useMounted } from "../../hooks/use-mobile";
 
 /**
  * Every one of the document's 262 headings renders through this component, which makes it the
@@ -27,9 +28,32 @@ function CopyLinkButton({ id }: { id: string }) {
   const [copied, setCopied] = useState(false);
   const ripple = useRipple<HTMLAnchorElement>();
 
+  // Where the platform has a share sheet, use it. A copied URL still has to be pasted
+  // somewhere, and on the phone this document is most likely read on, "somewhere" is
+  // almost always WhatsApp — the share sheet is that path in one tap instead of three.
+  //
+  // Gated on `mounted` rather than read during render: the server and the first client
+  // render must agree, so both start on the clipboard affordance and the share icon
+  // appears only once the client has confirmed the capability.
+  const mounted = useMounted();
+  const canShare = mounted && typeof navigator !== "undefined" && typeof navigator.share === "function";
+
   const handleCopy = async (e: React.MouseEvent) => {
     e.stopPropagation();
     const url = `${window.location.origin}${window.location.pathname}#${id}`;
+
+    if (canShare) {
+      try {
+        await navigator.share({ url });
+        if (window.__navigateToSection) window.__navigateToSection(id);
+        return;
+      } catch {
+        // Dismissing the sheet rejects, and so does a platform that advertises share but
+        // refuses this payload. Neither is an error worth surfacing — fall through to the
+        // clipboard so the gesture still does something.
+      }
+    }
+
     try {
       await navigator.clipboard.writeText(url);
     } catch {
@@ -45,8 +69,10 @@ function CopyLinkButton({ id }: { id: string }) {
       href={`#${id}`}
       onClick={handleCopy}
       onPointerDown={ripple}
-      aria-label="Copy link to this section"
-      title={copied ? "Link copied" : "Copy link to this section"}
+      aria-label={canShare ? "Share this section" : "Copy link to this section"}
+      title={
+        copied ? "Link copied" : canShare ? "Share this section" : "Copy link to this section"
+      }
       // Visibility is handled in CSS, not here: the button hides until hover ONLY where there is
       // a real hover to reveal it with. On a touch screen there is none, so it stays visible —
       // a `group-hover` utility alone would have made it permanently invisible on a phone, which
@@ -62,7 +88,13 @@ function CopyLinkButton({ id }: { id: string }) {
       {/* The tick draws itself rather than appearing, and the button pops once — the whole
           confirmation is 400ms and needs no toast. */}
       <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg border border-line/60 transition-colors group-hover:border-accent/50 sm:h-6 sm:w-6 sm:rounded-md">
-        {copied ? <Check size={12} className="text-accent fx-badge-pop" /> : <Link2 size={12} />}
+        {copied ? (
+          <Check size={12} className="text-accent fx-badge-pop" />
+        ) : canShare ? (
+          <Share2 size={12} />
+        ) : (
+          <Link2 size={12} />
+        )}
       </span>
     </a>
   );
