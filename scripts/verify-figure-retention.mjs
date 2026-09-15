@@ -96,6 +96,12 @@ const NOISE = new Set([
   // Calendar years carry no campaign quantity of their own; the dates that matter are written
   // out ("7 August 2026") and survive as their day and year anyway.
   ...Array.from({ length: 121 }, (_, i) => `${1980 + i}|`),
+  // A bare 2 reached the baseline exactly once, as `const duration = 2.0` — an animation length
+  // in seconds inside components/AnimatedMetric.tsx, a component that was never mounted and has
+  // since been deleted. Single digits are already skipped as list markers; this one survived the
+  // filter only because it was written with a decimal point. It is a timing constant, not a
+  // quantity the proposal asserts, and the guard should not ask for it back.
+  "2|",
 ]);
 
 /**
