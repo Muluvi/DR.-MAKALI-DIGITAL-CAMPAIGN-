@@ -73,6 +73,38 @@ const SEARCH_DIRS = ["public/content", "data", "components", "lib"];
 const MIGRATIONS_FILE = path.join(ROOT, "scripts", "figure-migrations.json");
 
 /**
+ * Drop SVG path data before counting.
+ *
+ * A `d` attribute is geometry. scripts/verify-figures.mjs already exempts it, for the reason
+ * stated there: one icon set is roughly 150 coordinates, and a guard that reports them as
+ * campaign figures is a guard everyone learns to ignore. This one lacked the exemption, so the
+ * hand-drawn platform glyphs in components/phone/marks.tsx had every coordinate counted as a
+ * quantity the proposal asserts — and replacing those glyphs with real brand geometry was
+ * reported as 70 lost figures, none of which was ever a figure.
+ *
+ * Applied to the baseline and the working tree alike, so it can only ever remove coordinates
+ * from both sides of the comparison, never mask a content figure going missing from one.
+ */
+const SVG_PATH_LITERAL = /"[MmLlHhVvCcSsQqTtAaZz][\dMmLlHhVvCcSsQqTtAaZz\s,.\-eE]*"/g;
+
+/**
+ * The same exemption for geometry carried on attributes rather than in a `d` string —
+ * `r="4.1"`, `cx="17.2"`, `viewBox="0 0 24 24"`. verify-figures.mjs exempts this set by name
+ * under GEOMETRY_KEY; an icon drawn from primitives is no more a campaign figure than the same
+ * icon drawn as a path, and the Instagram mark is drawn both ways in this repo's history.
+ *
+ * Narrow on purpose: the attribute must be one of these names AND its value must be nothing but
+ * digits, separators and signs, so a displayed string that merely sits in an attribute is still
+ * counted.
+ */
+const SVG_GEOMETRY_ATTR =
+  /\b(cx|cy|r|rx|ry|x|y|x1|y1|x2|y2|width|height|viewBox|points|offset|strokeWidth|strokeDasharray|strokeDashoffset)\s*=\s*"[-\d\s.,%]*"/g;
+
+function stripSvgPaths(text) {
+  return text.replace(SVG_PATH_LITERAL, ' "" ').replace(SVG_GEOMETRY_ATTR, " ");
+}
+
+/**
  * Collapse section references before counting, so "Section 8.10.6" is a pointer and not the
  * figures 8, 10 and 6. Mirrors scripts/verify-content-integrity.mjs, deliberately — the two
  * guards must agree on what counts as a number.
@@ -114,7 +146,7 @@ const SCALE = { k: 1e3, m: 1e6, bn: 1e9, million: 1e6, billion: 1e9 };
 
 function figures(text) {
   const found = new Map();
-  const cleaned = stripReferences(text);
+  const cleaned = stripReferences(stripSvgPaths(text));
   const RE = /(?<![\w.,])(\d{1,3}(?:,\d{3})+|\d+)(?:\.(\d+))?\s*(%|bn|billion|million|k\b|m\b)?/gi;
   let m;
   while ((m = RE.exec(cleaned)) !== null) {

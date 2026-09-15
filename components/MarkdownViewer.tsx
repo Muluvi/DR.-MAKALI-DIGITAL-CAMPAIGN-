@@ -13,6 +13,8 @@ import { hasHighlight } from "../lib/highlight-patterns";
 import { CompetitiveQuadrantBlock } from "./markdown/CompetitiveQuadrantBlock";
 import { ResourceEnvelopeBlock } from "./markdown/ResourceEnvelopeBlock";
 import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
+import { PlatformStackBlock } from "./markdown/PlatformStackBlock";
+import { PaidChannelStrip } from "./markdown/PaidChannelStrip";
 import { MizaniSlopeBlock } from "./markdown/MizaniSlopeBlock";
 import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
 import { KpiArchitecture } from "./charts/KpiArchitecture";
@@ -264,6 +266,11 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
       <ToneVoiceSlider />
     </>
   ),
+  // §8.1.1 and §8.1.2 name the six owned platforms and the five paid surfaces in two run-on
+  // prose bullets — the one stretch of the scope chapter where the reader has to hold a list in
+  // their head to see that the platforms are wildly different sizes. Both now carry the mark.
+  "scope-platforms-sec-8-1-1": <PlatformStackBlock />,
+  "scope-platforms-sec-8-1-2": <PaidChannelStrip />,
   "scope-platforms-sec-8-3-4": <CommunityScheduler />,
   "risk-sec-13-1": <CounterMessagingGrid />,
   // The ownership/alignment/tier table this chart plots, now §8.5.1 in the situation analysis.

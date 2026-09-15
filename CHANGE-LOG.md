@@ -1,3 +1,118 @@
+# Change log — platform brand marks and the §8.1 platform panels (September 2026)
+
+No content changed. This entry covers three things: a real logo set, the two §8.1 panels that
+use it, and one build guard that had to learn the difference between a figure and a coordinate.
+
+## 1. The logo set
+
+`components/brand/PlatformLogos.tsx` holds the six platform marks the proposal commits the
+campaign to running — WhatsApp, Facebook, Instagram, TikTok, YouTube and X — as vector geometry.
+
+They are drawn rather than shipped as image files, for the reason `next.config.ts` already
+states: "The portraits are the only images that ship." Six raster logos would be six requests
+and a decode cost on the route §3.6 says is read on mobile data in a county at 13.6% internet
+use. Inline SVG costs nothing extra, stays sharp at any density, and carries no client JS.
+
+Three forms:
+
+| Export | Shape | Used by |
+|---|---|---|
+| `PlatformTile` | Mark on its brand-coloured tile | The §8.1 panels |
+| `PlatformGlyph` | Monochrome, takes the surrounding text colour | The phone-showcase channel rail |
+| `PlatformLogo` | Tile plus the platform name in the site's own sans | Available; not yet mounted |
+
+**The tile is what makes six logos read as one row.** WhatsApp's mark is a filled bubble,
+Instagram's a hairline outline, X's a bare glyph; at 28px with no shared container they sit at
+visibly different weights. The tile normalises them without altering any mark's geometry. It
+carries a hairline in the surrounding text colour, which is what keeps TikTok's #010101 from
+looking like a hole punched in the row against the dark theme's ground.
+
+**Two marks are theme-aware.** X's brand ground is near-black and disappears against `--dark`,
+so its tile takes `currentColor` and inverts — black tile with a white glyph on the light theme,
+white tile with a black glyph on the dark one.
+
+**No wordmarks.** The name beside each mark is set in the site's own sans. Six licensed
+wordmarks in six unrelated typefaces would fight the document's typography and each other; the
+mark is what carries recognition.
+
+## 2. What the marks are used for
+
+| Mount | Section | Panel |
+|---|---|---|
+| `scope-platforms-sec-8-1-1` | §8.1.1 | `PlatformStackBlock` — the six owned platforms |
+| `scope-platforms-sec-8-1-2` | §8.1.2 | `PaidChannelStrip` — the five paid surfaces |
+
+§8.1.1 and §8.1.2 were the one stretch of the scope chapter with no anchored visualisation and
+two run-on prose bullets carrying eleven named surfaces between them.
+
+**The stack panel exists to make a ratio visible.** Read as a list, "Facebook, X, Instagram,
+TikTok, YouTube and WhatsApp" looks like six equivalent commitments. §3.6.1 sizes WhatsApp at up
+to 80,000 in-county users and X at up to 12,000 — one is the organising backbone, the other is a
+room of journalists and county elites. Each row carries the §3.6.1 range verbatim, its share of
+the register, the §8.3.2 production format, and a bar scaled against WhatsApp.
+
+**Every figure is quoted, never derived.** The ranges are printed as ranges, never averaged into
+a midpoint. §3.6.1 sizes Facebook and Instagram as a single "Meta (FB/IG)" line, so both rows
+carry the same combined figure and the panel footnote says so rather than inventing a split. The
+panel closes on the §3.6 ceiling — ~72,000 reachable voters against the 198,004 benchmark — so
+it cannot be read as a claim that the election is won here. Badged Tier 2, the weaker of the two
+tiers §3.6.1 cites for itself.
+
+**The paid strip shows no allocation, because none exists.** §8.1.2 promises "a monthly
+allocation matrix based on ward-level registration and engagement data" and the campaign has not
+produced one, so the strip carries the targeting basis each surface is given and a line saying
+why there is no split. Google and retargeting are ad products rather than owned accounts and
+take a neutral tile, not a brand one.
+
+New figures in `data/platform-stack.ts`, beside their §3.6.1 citation, in the pattern
+`data/external-figures.ts` already sets.
+
+## 3. The channel rail
+
+`components/phone/marks.tsx` drew its own platform glyphs by hand — its header recorded why,
+which was that lucide-react had dropped its brand icons and no logo geometry existed in the
+repo. It now does, so that file draws nothing: it delegates the six marks and keeps only USSD,
+which has no brand to borrow.
+
+The rail takes the monochrome form, not the tile. Those chips invert to a solid accent ground
+when selected, and a fixed brand colour inside an inverting chip either vibrates against it or
+vanishes into it. Unchanged: no logo appears inside the mock screens themselves.
+
+## 4. One guard changed
+
+`scripts/verify-figure-retention.mjs` counted SVG path coordinates as campaign figures.
+Replacing the hand-drawn glyphs was therefore reported as **70 lost figures, none of which was
+ever a figure** — every one of them a coordinate from the old `marks.tsx`.
+
+`scripts/verify-figures.mjs` already exempts exactly this, and says why: one icon set is roughly
+150 coordinates, and a guard that reports them "would train everyone to ignore this script". The
+retention guard simply lacked the same exemption. It now strips SVG path literals and numeric
+geometry attributes (`d`, `cx`, `r`, `viewBox`, and the rest of the set `verify-figures.mjs`
+names) before counting, applied to the baseline and the working tree alike so it can only ever
+remove coordinates from both sides of the comparison.
+
+**The proof that it did not weaken the guard:** the distinct-figure baseline drops from 1,046 to
+895 — the ~150 icon coordinates `verify-figures.mjs` predicted — while the content-figure count
+stays at **551, unchanged**. No figure the proposal asserts was affected. Rule 2, print reach, is
+untouched.
+
+## 5. How this was verified
+
+- `npm run lint` — clean.
+- `npx tsc --noEmit` — clean.
+- `next build` — 33 routes generated, no type errors.
+- `scripts/verify-figures.mjs` — every numeric literal in the UI still traces to the source.
+- `scripts/verify-figure-retention.mjs` — all 895 baseline figures survive; all 551 content
+  figures still reach the print path.
+- `scripts/verify-content-integrity.mjs` — 4,011 body lines unchanged. No markdown was edited.
+- `scripts/verify-mounts.mjs` — 41 mount points resolve (was 39).
+- `scripts/visual-coverage.mjs --check` — all 252 sections covered, 41 with a bespoke
+  visualisation (was 39).
+- Rendered and read at 900px and 390px, on both themes: no horizontal overflow at 390px, and
+  each mark checked against its own ground in light and dark.
+
+---
+
 # Change log — annexes, split routes, and the last of the spec (September 2026)
 
 Content baseline moves to `6ffd6a9`. This entry covers the annex restructure and the four
