@@ -207,7 +207,7 @@ export function MobileTOCModal({
               <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted" />
               <input
                 type="text"
-                placeholder="Search sections (e.g., 200k, Radio, 40 Wards, DPA)..."
+                placeholder="Search sections (e.g., Nomination, Radio, 40 Wards, SMS)..."
                 aria-label="Search sections by number, title or part"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -356,7 +356,7 @@ export function MobileTOCModal({
             ) : (
               <div className="p-8 text-center t-label text-muted space-y-2">
                 <p className="font-bold text-ink">No matching sections found</p>
-                <p>Try searching by keyword like &quot;Ward&quot;, &quot;Radio&quot;, &quot;Nomination&quot;, or &quot;Budget&quot;.</p>
+                <p>Try searching by keyword like &quot;Ward&quot;, &quot;Radio&quot;, &quot;Nomination&quot;, or &quot;Turnout&quot;.</p>
               </div>
             )}
           </div>
