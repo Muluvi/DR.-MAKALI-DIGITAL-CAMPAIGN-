@@ -1832,3 +1832,19 @@ html {
     color: inherit !important;
   }
 }
+
+/*
+ * Inline platform marks (components/brand/PlatformLogos.tsx).
+ *
+ * Sized in `em` so one rule serves body copy, table cells and micro-labels alike. The negative
+ * vertical-align seats the glyph on the text baseline instead of the line box, which is what
+ * keeps a paragraph's leading identical whether or not it happens to name a platform.
+ */
+.fm-inline-mark {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.145em;
+  margin-inline-end: 0.22em;
+  flex-shrink: 0;
+}

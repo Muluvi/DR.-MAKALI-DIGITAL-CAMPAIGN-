@@ -1,7 +1,9 @@
 import React from "react";
 import { CheckCircle2 } from "lucide-react";
 import { HighlightedText } from "./HighlightedText";
+import { PlatformMentions } from "./PlatformMentions";
 import { hasHighlight } from "../../lib/highlight-patterns";
+import { hasPlatformMention } from "../../lib/platform-mentions";
 import type { TabId } from "../../lib/heading-slug";
 
 /**
@@ -12,12 +14,19 @@ import type { TabId } from "../../lib/heading-slug";
  * (lib/highlight-patterns is the single source), so a string only crosses into the client tree
  * when there is genuinely a tooltip, cross-reference, claim badge, working drawer or key-takeaway
  * banner in it. Everything else is plain server-rendered markup.
+ *
+ * Platform marks are the second pass and stay on the server entirely. A string that only names
+ * a platform never reaches the client tree — PlatformMentions draws SVG and nothing else. A
+ * string that needs both is handed to HighlightedText, which applies the marks itself to the
+ * plain runs it does not otherwise touch, so the two passes compose instead of one erasing the
+ * other.
  */
 function highlight(children: React.ReactNode, tabId?: TabId) {
   return React.Children.map(children, (child) => {
     if (typeof child !== "string") return child;
-    if (!hasHighlight(child)) return child;
-    return <HighlightedText text={child} tabId={tabId} />;
+    if (hasHighlight(child)) return <HighlightedText text={child} tabId={tabId} />;
+    if (hasPlatformMention(child)) return <PlatformMentions text={child} />;
+    return child;
   });
 }
 

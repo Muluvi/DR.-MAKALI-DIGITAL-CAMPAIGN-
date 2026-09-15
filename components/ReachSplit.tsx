@@ -9,6 +9,8 @@ import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
 import { useMotionPreset } from "../hooks/useMotionPreset";
 import { TierBadge } from "./markdown/TierBadge";
 import { ClaimBadge } from "./markdown/ClaimBadge";
+import { PlatformMentions } from "./markdown/PlatformMentions";
+import { hasPlatformMention } from "../lib/platform-mentions";
 
 /**
  * M3 — the county's central division, and the tool that addresses the larger side of it.
@@ -154,8 +156,13 @@ export function ReachSplit() {
           <ul className="space-y-2">
             {CHANNELS.connected.map((c) => (
               <li key={c.label} className="flex items-center gap-2 t-label text-ink">
-                <c.icon size={13} className="text-accent shrink-0" aria-hidden="true" />
-                {c.label}
+                {/* A row that names platforms carries their own marks, so the generic handset
+                    glyph in front of it would be a third icon saying nothing the three brand
+                    marks beside it are not already saying. */}
+                {!hasPlatformMention(c.label) && (
+                  <c.icon size={13} className="text-accent shrink-0" aria-hidden="true" />
+                )}
+                <PlatformMentions text={c.label} />
               </li>
             ))}
           </ul>

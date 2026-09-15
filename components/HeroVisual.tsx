@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { DURATION, EASE_ENTRANCE, disclosure } from "../lib/motion";
 import { X, CheckCircle2, ChevronRight, Layers, Compass, Sparkles, Shield } from "lucide-react";
 import { CONSTITUENCIES } from "../data/ward-register";
+import { PlatformMentions } from "./markdown/PlatformMentions";
 
 interface StageDetail {
   id: string;
@@ -631,7 +632,7 @@ export function HeroVisual() {
                         className="inline-flex items-center gap-1 t-label px-2.5 py-1 rounded-lg border border-line bg-paper text-ink font-semibold"
                       >
                         <ChevronRight size={10} className="text-accent" />
-                        {channel}
+                        <PlatformMentions text={channel} />
                       </span>
                     ))}
                   </div>

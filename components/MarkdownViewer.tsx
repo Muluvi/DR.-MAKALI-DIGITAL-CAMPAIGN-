@@ -10,6 +10,8 @@ import { SectionHeading } from "./markdown/SectionHeading";
 import { ClaimBadge } from "./markdown/ClaimBadge";
 import { HighlightedText } from "./markdown/HighlightedText";
 import { hasHighlight } from "../lib/highlight-patterns";
+import { hasPlatformMention } from "../lib/platform-mentions";
+import { PlatformMentions } from "./markdown/PlatformMentions";
 import { CompetitiveQuadrantBlock } from "./markdown/CompetitiveQuadrantBlock";
 import { ResourceEnvelopeBlock } from "./markdown/ResourceEnvelopeBlock";
 import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
@@ -478,13 +480,17 @@ function buildComponents(tabId: TabId): Components {
             // cross-refs, claim badges and "show the working" triggers work inside bold too.
             strong: ({ children }) => (
               <strong>
-                {React.Children.map(children, (child) =>
-                  typeof child === "string" && hasHighlight(child) ? (
-                    <HighlightedText text={child} tabId={tabId} />
-                  ) : (
-                    child
-                  )
-                )}
+                {React.Children.map(children, (child) => {
+                  if (typeof child !== "string") return child;
+                  // Same order as MarkdownTextComponents' `highlight`: the client highlighter
+                  // wins where a string needs it and applies the marks itself, otherwise the
+                  // marks are drawn here on the server. Bolded platform names are common in
+                  // this document — "**WhatsApp**" opens several list items — so a strong that
+                  // skipped this pass would be a visible hole in the coverage.
+                  if (hasHighlight(child)) return <HighlightedText text={child} tabId={tabId} />;
+                  if (hasPlatformMention(child)) return <PlatformMentions text={child} />;
+                  return child;
+                })}
               </strong>
             ),
             img: ({ src, alt }) => {

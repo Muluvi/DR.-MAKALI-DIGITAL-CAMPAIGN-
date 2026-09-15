@@ -7,6 +7,7 @@ import { Users, Radio, MessageSquare, AlertTriangle, Layers } from "lucide-react
 import { ClaimBadge } from "./ClaimBadge";
 import { TierBadge } from "./TierBadge";
 import { DURATION } from "../../lib/motion";
+import { PlatformMentions } from "./PlatformMentions";
 
 /**
  * §5.1–2.4.2 — the six structural segments.
@@ -223,7 +224,9 @@ export function AudienceSegmentationMatrix() {
                 <Radio size={12} className="text-accent" aria-hidden="true" />
                 Connectivity &amp; media
               </div>
-              <p className="t-label text-ink leading-relaxed">{active.connectivity}</p>
+              <p className="t-label text-ink leading-relaxed">
+                <PlatformMentions text={active.connectivity} />
+              </p>
             </div>
             <div className="p-3.5 rounded-xl bg-paper/60 border border-line">
               <div className="t-label font-black text-muted flex items-center gap-1 mb-1.5">
@@ -257,7 +260,7 @@ export function AudienceSegmentationMatrix() {
             <ul className="flex flex-wrap gap-1.5">
               {active.channels.map((c) => (
                 <li key={c} className="t-small px-2.5 py-1 rounded-lg bg-card border border-line text-ink">
-                  {c}
+                  <PlatformMentions text={c} />
                 </li>
               ))}
             </ul>

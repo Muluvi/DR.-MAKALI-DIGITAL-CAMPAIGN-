@@ -3,6 +3,7 @@ import { Table2, ListTree, GitBranch } from "lucide-react";
 
 import { parseAsciiDiagram, type Diagram } from "../../lib/ascii-diagram";
 import { DiagramViewer } from "./DiagramViewer";
+import { PlatformMentions } from "./PlatformMentions";
 
 /**
  * Renders the proposal's 102 ASCII box-drawing diagrams as real layout.
@@ -28,18 +29,18 @@ import { DiagramViewer } from "./DiagramViewer";
  * the delimiters drop out, exactly as they would anywhere else in the document.
  */
 function withEmphasis(text: string): React.ReactNode {
-  if (!text.includes("**")) return text;
+  if (!text.includes("**")) return <PlatformMentions text={text} />;
   const parts = text.split(/(\*\*[^*]+\*\*)/g);
   return parts.map((part, i) =>
     /^\*\*[^*]+\*\*$/.test(part) ? (
       <strong key={i} className="font-bold text-ink">
-        {part.slice(2, -2)}
+        <PlatformMentions text={part.slice(2, -2)} />
       </strong>
     ) : (
       // A run that opens on one line of the diagram and closes on the next leaves an unpaired
       // marker in each cell. The emphasis cannot span table rows, but the stray asterisks must
       // not survive into the page either.
-      part.replace(/\*\*/g, "")
+      <PlatformMentions key={i} text={part.replace(/\*\*/g, "")} />
     )
   );
 }
@@ -111,7 +112,7 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
                     scope="col"
                     className="text-left px-3 py-2 font-black t-micro text-muted border-b border-line align-bottom"
                   >
-                    {h}
+                    <PlatformMentions text={h} />
                   </th>
                 ))}
               </tr>

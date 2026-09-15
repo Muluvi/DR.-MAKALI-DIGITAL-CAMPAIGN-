@@ -1,3 +1,101 @@
+# Change log — platform marks across the whole document (September 2026)
+
+The marks added in the previous entry appeared in three places. The document names these
+platforms in twenty-two of its twenty-eight routes, so three places read as an oversight rather
+than a system. This entry makes the treatment document-wide: **284 marks now render across
+22 routes**, from one pattern definition.
+
+No content changed. The body text is untouched; every mark is drawn on top of the words the
+proposal already wrote.
+
+## 1. One pattern, not one call site at a time
+
+`lib/platform-mentions.ts` is the single place the document is matched against. Adding a
+platform is one line there; nothing else needs editing. It is server-safe by construction — no
+React, no hooks, no DOM — which is what lets a server component ask "is there a platform named
+in this string" before deciding what to render.
+
+LinkedIn joins the set. It was never in §8.1.1's daily-management list, but it appears in seven
+channel lists and in the national sizing data, and a channel row reading "LinkedIn & X Longform"
+with a mark on only one of the two looks broken.
+
+**On matching a bare "X".** A single capital X is the obvious trap in a corpus full of
+`1080x1920`, `*483*XX#` and `STOP to 22XXX`. It turns out not to be one, and the check was
+mechanical rather than hopeful: `\bX\b` finds **23 matches in public/content, and all 23 are the
+platform**. The near misses all fail the word boundary — `22XXX` has no boundary between its
+X's, and the pixel dimensions use a lowercase x. The commands to re-derive that are in the
+module header, because the answer depends on the content and the content can change.
+
+"Meta" is deliberately unmatched. It is the parent company, not one of the marks, and §3.6.1
+sizes "Meta (FB/IG)" as one line covering two of them — so stamping it with Facebook's glyph
+would assert a mapping the evidence base does not make.
+
+## 2. Five render paths, because the document has five
+
+A mention reaches the page through more routes than it looks:
+
+| Path | Where | Wired in |
+|---|---|---|
+| Paragraphs, list items | Most body copy | `MarkdownTextComponents` |
+| `<strong>` | Bolded platform names opening list items | `MarkdownViewer` |
+| Markdown tables | Sortable data tables | `InteractiveTable` (4 cell sites) |
+| Converted ASCII tables | Box-drawing diagrams parsed into real tables | `AsciiDiagram` |
+| Component-internal strings | Channel chips, audience connectivity lines | Call site |
+
+Missing any one of them leaves a visible hole. The ASCII path alone was worth 57 marks —
+`/messaging` went from zero to ten, `/reach` from 16 to 32.
+
+**`<pre>` blocks are deliberately excluded.** An unparsed ASCII diagram is monospace art whose
+alignment is load-bearing; a 1em glyph inserted into one would shear every box it touches.
+Those keep plain text, which is why `/measurement` still shows no marks.
+
+## 3. It costs no client JavaScript
+
+`PlatformMentions` is a server component that draws SVG and nothing else. The gate in
+`MarkdownTextComponents` runs the client highlighter only where a string genuinely needs it, and
+falls through to the server-rendered marks otherwise — so a paragraph that merely names a
+platform never crosses into the client tree. Where a string needs both, `HighlightedText`
+applies the marks itself to the runs it does not otherwise claim, so the two passes compose
+instead of one erasing the other.
+
+## 4. What the inline mark is, and what it is not
+
+Three decisions keep 284 marks readable rather than loud:
+
+1. **No tile.** A filled brand tile on every "WhatsApp" would turn 200 minutes of reading into a
+sticker album. Untiled, the glyph reads as a typographic ornament. The tiled form stays in §8.1,
+where a platform is named as a commitment rather than mentioned in passing.
+2. **Brand colour, except where it cannot be.** TikTok and X are near-black brands. Untiled that
+is invisible on the dark theme and indistinguishable from body text on the light one, so those
+two follow the reading colour. The other five carry their own.
+3. **The word is never replaced.** The mark is aria-hidden and additive, so the sentence is
+identical to a screen reader, in print, and with images off.
+
+Sized in `em` and seated with a negative `vertical-align`, so a paragraph's leading is the same
+whether or not it happens to name a platform.
+
+## 5. One finding, reported rather than fixed
+
+**`PlatformSizingBlock` is dead code and has been since the restructure.** It mounts on a table
+whose headers contain "Platform" and "Kenya audience"; no such table exists in `public/content/`
+any more, so the chart renders on no route. `data/external-figures.ts` already records this as
+an open item — "restore the §3.3.5 platform-sizing table to the proposal text, or confirm these
+figures should be dropped."
+
+The marked axis labels added to `PlatformSizingChart` in this entry are therefore written but
+unreachable. They were left in place rather than mounted somewhere: choosing where that chart
+reappears is an editorial decision the repo deliberately left open, and mounting it here would
+resolve that question silently. **It needs a decision from the campaign.**
+
+## 6. How this was verified
+
+- `npm run lint`, `npx tsc --noEmit` — clean.
+- `next build` — 33 routes, no type errors.
+- All seven guards pass. Content integrity confirms 4,011 body lines unchanged.
+- Mark counts read off the rendered HTML of all 28 routes, not inferred: 284 total.
+- Read at 920px in both themes: prose, a converted ASCII table, and the §8.1 panels.
+
+---
 # Change log — platform brand marks and the §8.1 platform panels (September 2026)
 
 No content changed. This entry covers three things: a real logo set, the two §8.1 panels that

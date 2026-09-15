@@ -1,7 +1,8 @@
 import React from "react";
 
 /**
- * The six platform brand marks the proposal actually commits the campaign to running.
+ * The seven platform brand marks the proposal names — the six under daily management in §8.1.1,
+ * plus LinkedIn, which §5.1 and §8.3 both carry in their channel lists.
  *
  * WHY THESE ARE DRAWN RATHER THAN SHIPPED AS IMAGE FILES
  * -----------------------------------------------------
@@ -23,21 +24,37 @@ import React from "react";
  * disappears against --dark in the dark theme, so its tile takes currentColor and inverts.
  */
 
-export type PlatformId = "whatsapp" | "facebook" | "instagram" | "tiktok" | "youtube" | "x";
+export type PlatformId =
+  | "whatsapp"
+  | "facebook"
+  | "instagram"
+  | "tiktok"
+  | "youtube"
+  | "x"
+  | "linkedin";
 
 export interface PlatformBrand {
   label: string;
   /** Brand ground the tile is filled with. `null` where the tile must follow the theme (X). */
   tile: string | null;
+  /**
+   * Colour for the untiled inline glyph that runs in body copy. `null` means follow the reading
+   * colour instead of a brand one — which is what TikTok and X both need, because their brand
+   * colour IS near-black: inline and untiled, #010101 is invisible on the dark theme and
+   * indistinguishable from the text on the light one. Tiled they are fine, because there the
+   * near-black is the ground and the glyph is knocked out of it.
+   */
+  inline: string | null;
 }
 
 export const PLATFORM_BRAND: Record<PlatformId, PlatformBrand> = {
-  whatsapp: { label: "WhatsApp", tile: "#25D366" },
-  facebook: { label: "Facebook", tile: "#1877F2" },
-  instagram: { label: "Instagram", tile: "#E4405F" },
-  tiktok: { label: "TikTok", tile: "#010101" },
-  youtube: { label: "YouTube", tile: "#FF0000" },
-  x: { label: "X", tile: null },
+  whatsapp: { label: "WhatsApp", tile: "#25D366", inline: "#25D366" },
+  facebook: { label: "Facebook", tile: "#1877F2", inline: "#1877F2" },
+  instagram: { label: "Instagram", tile: "#E4405F", inline: "#E4405F" },
+  tiktok: { label: "TikTok", tile: "#010101", inline: null },
+  youtube: { label: "YouTube", tile: "#FF0000", inline: "#FF0000" },
+  x: { label: "X", tile: null, inline: null },
+  linkedin: { label: "LinkedIn", tile: "#0A66C2", inline: "#0A66C2" },
 };
 
 // ---------------------------------------------------------------------------
@@ -62,6 +79,9 @@ const YOUTUBE_PLAY_PATH = "M9.545 15.568V8.432L15.818 12l-6.273 3.568z";
  *  rather than painting it. The tiled mark paints the triangle; the monochrome one voids it. */
 const YOUTUBE_MONO_PATH = `${YOUTUBE_BODY_PATH} ${YOUTUBE_PLAY_PATH}`;
 
+const LINKEDIN_PATH =
+  "M5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286z";
+
 const X_PATH =
   "M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z";
 
@@ -71,6 +91,7 @@ const SINGLE_PATH: Partial<Record<PlatformId, string>> = {
   facebook: FACEBOOK_PATH,
   tiktok: TIKTOK_PATH,
   x: X_PATH,
+  linkedin: LINKEDIN_PATH,
 };
 
 /**
@@ -193,10 +214,22 @@ export function PlatformTile({ id, size = 28, className = "" }: TileProps) {
  * ground when selected, and a fixed brand colour inside an inverting chip either vibrates
  * against it or vanishes into it.
  */
-export function PlatformGlyph({ id, size = 16 }: { id: PlatformId; size?: number }) {
+export function PlatformGlyph({
+  id,
+  size = 16,
+  x,
+  y,
+}: {
+  id: PlatformId;
+  size?: number;
+  /** Position, for embedding inside an existing SVG — a nested <svg> is valid and is the only
+   *  way a recharts custom axis tick can carry a mark. Omitted everywhere else. */
+  x?: number;
+  y?: number;
+}) {
   const single = SINGLE_PATH[id];
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
+    <svg x={x} y={y} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
       {id === "instagram" ? (
         <InstagramGlyph />
       ) : id === "youtube" ? (
@@ -227,5 +260,46 @@ export function PlatformLogo({
       <PlatformTile id={id} size={size} />
       <span className="t-small font-bold text-ink whitespace-nowrap">{PLATFORM_BRAND[id].label}</span>
     </span>
+  );
+}
+
+/**
+ * A mark set inline in running prose, immediately before the platform's name.
+ *
+ * This is the form that appears most often across the document, because the document names these
+ * platforms 189 times in body copy, bullets and table cells. Three decisions make that bearable
+ * rather than loud:
+ *
+ * 1. NO TILE. A filled brand tile every time the word "WhatsApp" appears would turn 200 minutes
+ *    of reading into a sticker album. Untiled, the glyph reads as a typographic ornament.
+ * 2. BRAND COLOUR, EXCEPT WHERE IT CANNOT BE. TikTok and X are near-black brands; untiled that
+ *    is either invisible on the dark theme or indistinguishable from the text on the light one,
+ *    so those two follow the reading colour (see PlatformBrand.inline).
+ * 3. THE WORD IS NEVER REPLACED. The mark is decoration on top of the name, not a substitute
+ *    for it, so it is aria-hidden and the sentence reads identically to a screen reader, in
+ *    print, and with images off.
+ *
+ * Sized in `em` so it tracks whatever type size it lands in — body copy, a table cell, or a
+ * micro-label — and nudged onto the baseline rather than sitting on it, which is what stops a
+ * line of prose from gaining a pixel of leading wherever a platform is mentioned.
+ */
+export function InlinePlatformMark({ id }: { id: PlatformId }) {
+  const themed = PLATFORM_BRAND[id].inline === null;
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+      className={themed ? "fm-inline-mark text-ink/80" : "fm-inline-mark"}
+      style={themed ? undefined : { color: PLATFORM_BRAND[id].inline! }}
+    >
+      {id === "instagram" ? (
+        <InstagramGlyph />
+      ) : id === "youtube" ? (
+        <path d={YOUTUBE_MONO_PATH} fill="currentColor" fillRule="evenodd" />
+      ) : (
+        <path d={SINGLE_PATH[id]!} fill="currentColor" />
+      )}
+    </svg>
   );
 }

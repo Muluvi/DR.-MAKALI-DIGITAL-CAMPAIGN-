@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useId, useState } from "react";
+
+import { withPlatformMentions } from "./PlatformMentions";
 import { Search, Sparkles, ArrowUpDown, BarChart3, Table, Download } from "lucide-react";
 import { LayoutGroup, motion } from "motion/react";
 
@@ -411,7 +413,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                     {/* Lead cell rendered as card header */}
                     <div className="font-bold text-ink t-small pb-1.5 border-b border-line/30 flex items-center justify-between">
                       <motion.div layoutId={`${matrixId}-label-${rIdx}`} className="min-w-0 break-words">
-                        {primaryCell ? primaryCell.props?.children : null}
+                        {primaryCell ? withPlatformMentions(primaryCell.props?.children) : null}
                       </motion.div>
                       {ths[0] && (
                         <span className="t-micro font-mono text-muted shrink-0 ml-2" aria-hidden="true">
@@ -435,7 +437,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                               {colLabel}
                             </span>
                             <div className="text-right t-small text-ink/90 leading-snug break-words max-w-[70%]">
-                              {cell ? cell.props?.children : null}
+                              {cell ? withPlatformMentions(cell.props?.children) : null}
                             </div>
                           </div>
                         );
@@ -469,7 +471,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                           onClick={() => toggleSort(idx)}
                           className="fx-focus group flex w-full min-h-[44px] items-center gap-1.5 justify-between p-2.5 sm:p-3 text-left cursor-pointer hover:bg-line/20 transition-colors"
                         >
-                          <span>{th.props.children}</span>
+                          <span>{withPlatformMentions(th.props.children)}</span>
                           <ArrowUpDown size={10} aria-hidden="true" className="fx-icon-rise text-muted group-hover:text-accent transition-colors shrink-0" />
                         </button>
                       </th>
@@ -494,7 +496,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                                 : "text-ink/90 whitespace-normal"
                             }`}
                           >
-                            {cell ? cell.props.children : null}
+                            {cell ? withPlatformMentions(cell.props.children) : null}
                           </td>
                         );
                       })}

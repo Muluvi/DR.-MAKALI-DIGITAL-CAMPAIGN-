@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Info } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { CrossSectionLink } from "./CrossSectionLink";
+import { PlatformMentions } from "./PlatformMentions";
 import { ClaimBadge } from "./ClaimBadge";
 import { DerivedFigureDrawer } from "./DerivedFigureDrawer";
 import { KeyTakeawayBanner } from "./KeyTakeawayBanner";
@@ -129,7 +130,10 @@ export const HighlightedText = React.memo(function HighlightedText({ text, tabId
           </span>
         );
       }
-      return part;
+      // Anything this component does not claim is still ordinary prose, and ordinary prose is
+      // where most platform names live. Without this the marks would silently vanish from any
+      // paragraph that also happened to contain a cross-reference or a badged figure.
+      return <PlatformMentions key={idx} text={part} />;
     });
   }, [text, tabId, sectionNumberMap]);
 
