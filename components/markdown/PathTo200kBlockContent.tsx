@@ -65,7 +65,12 @@ export function PathTo200kBlockContent() {
       </div>
 
       {/* Accessible table equivalent — all 40 wards */}
-      <div className="overflow-x-auto max-h-72 overflow-y-auto border border-line/40 rounded-xl">
+      <div
+        tabIndex={0}
+        role="region"
+        aria-label="All 40 wards ranked by register size"
+        className="fx-focus overflow-x-auto max-h-72 overflow-y-auto border border-line/40 rounded-xl"
+      >
         <table className="w-full text-left t-small">
           <caption className="sr-only">All 40 wards ranked by 2022 register size with cumulative running total</caption>
           <thead className="sticky top-0 bg-paper">

@@ -501,6 +501,35 @@ table,
   transition-duration: 150ms;
 }
 
+/* Bind the typography plugin's own variables to the theme.
+   Every rule below guards itself with `:not(.not-prose *)` so that components opting out keep
+   their own type. But a component that opts out and then re-enters prose for its body copy —
+   a panel wrapping `.not-prose` around a nested `.prose` — puts its headings inside a
+   `.not-prose` ancestor, so the guard skips them and the plugin's defaults win. Those defaults
+   are fixed light-mode greys: in dark mode the eight constituency headings in §2 rendered at
+   1.97:1 against the page, which is not a contrast miss so much as invisible text.
+
+   Setting the variables rather than adding another selector fixes the whole class of it —
+   every element the guard skips, not just the headings that were noticed. */
+.prose {
+  --tw-prose-body: var(--prose-body);
+  --tw-prose-headings: var(--color-ink);
+  --tw-prose-lead: var(--prose-body);
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-bold: var(--color-ink);
+  --tw-prose-counters: var(--color-muted);
+  --tw-prose-bullets: var(--color-line);
+  --tw-prose-hr: var(--color-line);
+  --tw-prose-quotes: var(--color-ink);
+  --tw-prose-quote-borders: var(--color-line);
+  --tw-prose-captions: var(--color-muted);
+  --tw-prose-code: var(--color-ink);
+  --tw-prose-pre-code: var(--color-ink);
+  --tw-prose-pre-bg: var(--color-paper);
+  --tw-prose-th-borders: var(--color-line);
+  --tw-prose-td-borders: var(--color-line);
+}
+
 .prose h1:not(.not-prose *), .prose h2:not(.not-prose *), .prose h3:not(.not-prose *), .prose h4:not(.not-prose *), .prose h5:not(.not-prose *), .prose h6:not(.not-prose *) {
   font-family: Montserrat, sans-serif;
   color: var(--color-ink);
