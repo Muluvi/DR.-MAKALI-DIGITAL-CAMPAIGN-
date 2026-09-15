@@ -449,6 +449,30 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
     [activeTab, isExpanded, navItems, validSectionIds, setActiveTab]
   );
 
+  // The index is the only way to search 262 sections, and reaching it meant finding a button.
+  // Ctrl/Cmd-K is the shortcut readers already try; "/" is the one long-document readers try.
+  // Both are ignored while the caret is in a field, so typing a slash into the index's own
+  // search box does not reopen it.
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null;
+      const typing =
+        !!target &&
+        (target.tagName === "INPUT" ||
+          target.tagName === "TEXTAREA" ||
+          target.tagName === "SELECT" ||
+          target.isContentEditable);
+      const isCommandK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+      const isSlash = e.key === "/" && !e.metaKey && !e.ctrlKey && !e.altKey;
+      if (isCommandK || (isSlash && !typing)) {
+        e.preventDefault();
+        setIsTOCModalOpen(true);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
   useEffect(() => {
     window.__navigateToSection = navigateToSection;
     return () => {
@@ -695,6 +719,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                 onClick={() => setIsTOCModalOpen(true)}
                 className="group fx-shine flex items-center gap-1.5 px-3 py-2 bg-accent/10 border border-accent/20 rounded-xl t-label sm:t-small font-bold text-accent hover:bg-accent hover:text-white transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px]"
                 aria-label="Open Table of Contents"
+                title="Open the full index (Ctrl+K)"
               >
                 <FileText size={15} className="fx-icon-rise" />
                 <span className="hidden xs:inline">Index</span>

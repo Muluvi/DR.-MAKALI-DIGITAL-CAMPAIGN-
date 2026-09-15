@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect, useRef, useId } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, Route, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck } from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
@@ -68,6 +68,63 @@ export function MobileTOCModal({
   // offer on a phone; the five parts are the shape of the document, and Part 4's five parallel
   // delivery tracks belong behind one choice rather than five.
   const [selectedTabFilter, setSelectedTabFilter] = useState<PartId | "all">("all");
+  const titleId = useId();
+  const restoreFocusTo = useRef<HTMLElement | null>(null);
+  const sheetRef = useRef<HTMLDivElement | null>(null);
+  const searchRef = useRef<HTMLInputElement | null>(null);
+
+  // `onClose` is passed as an inline arrow, so it is a new function on every render of the
+  // page. Holding it in a ref keeps the effects below keyed on `isOpen` alone — depending on
+  // the prop directly re-ran them on every render, and each re-run re-captured the focused
+  // element, so by the time the sheet actually closed the "trigger" it restored to was the
+  // body rather than the control the reader had opened it with.
+  const onCloseRef = useRef(onClose);
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
+
+  // A sheet that covers the document has to be dismissable from the keyboard, and has to give
+  // focus back to the control that opened it — otherwise closing it drops the reader at the top
+  // of a 262-section document with no idea where they were.
+  useEffect(() => {
+    if (!isOpen) return;
+    // Captured before the search field is focused below. `autoFocus` used to do that job, but
+    // React applies it during commit — by the time this effect ran, the "previously focused"
+    // element was already the search box, so closing the sheet restored focus to a field that
+    // no longer existed and the reader was dropped on the body.
+    restoreFocusTo.current = document.activeElement as HTMLElement | null;
+    searchRef.current?.focus();
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        onCloseRef.current();
+        return;
+      }
+      // aria-modal tells a screen reader to stay inside the sheet, but it does not hold the
+      // Tab key — without this, tabbing out lands on the document behind a sheet that is still
+      // covering it, which is the state the attribute promises cannot happen.
+      if (e.key !== "Tab" || !sheetRef.current) return;
+      const focusable = sheetRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+      if (e.shiftKey && (active === first || !sheetRef.current.contains(active))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      restoreFocusTo.current?.focus?.();
+    };
+  }, [isOpen]);
 
   const filteredSections = useMemo(() => {
     return sections.filter((item) => {
@@ -98,6 +155,7 @@ export function MobileTOCModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
+          aria-hidden="true"
           className="fx-backdrop absolute inset-0 bg-ink/70"
         />
 
@@ -107,6 +165,10 @@ export function MobileTOCModal({
           animate={{ y: 0 }}
           exit={{ y: "100%" }}
           transition={{ type: "spring", damping: 28, stiffness: 300 }}
+          ref={sheetRef}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={titleId}
           className="fx-sheet-bottom sm:fx-modal relative w-full max-w-xl max-h-[88dvh] sm:max-h-[80dvh] fx-glass border-t sm:border border-line rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-10"
         >
           {/* Top Grab Handle on Mobile */}
@@ -121,7 +183,7 @@ export function MobileTOCModal({
                 <Layers size={18} />
               </div>
               <div>
-                <h3 className="font-serif text-base sm:text-lg font-bold text-ink leading-tight">
+                <h3 id={titleId} className="font-serif text-base sm:text-lg font-bold text-ink leading-tight">
                   Full index
                 </h3>
                 <p className="t-label text-muted font-medium mt-0.5">
@@ -146,13 +208,16 @@ export function MobileTOCModal({
               <input
                 type="text"
                 placeholder="Search sections (e.g., 200k, Radio, 40 Wards, DPA)..."
+                aria-label="Search sections by number, title or part"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                ref={searchRef}
                 className="fx-input-glow w-full pl-10 pr-4 py-2 bg-card border border-line rounded-xl t-label font-semibold text-ink placeholder:text-muted focus:outline-none focus:border-accent min-h-[44px]"
-                autoFocus
               />
               {searchQuery && (
-                <button 
+                <button
+                  type="button"
+                  aria-label="Clear search"
                   onClick={() => setSearchQuery("")}
                   className="absolute right-3 top-1/2 -translate-y-1/2 t-label text-muted hover:text-ink px-2 py-1 bg-paper rounded-lg border border-line cursor-pointer"
                 >
@@ -160,6 +225,12 @@ export function MobileTOCModal({
                 </button>
               )}
             </div>
+
+            <p role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+              {searchQuery.trim()
+                ? `${filteredSections.length} ${filteredSections.length === 1 ? "section matches" : "sections match"} "${searchQuery.trim()}"`
+                : `${filteredSections.length} sections listed`}
+            </p>
 
             {/*
               The nine sections, with how long each takes and whether it has been opened.
