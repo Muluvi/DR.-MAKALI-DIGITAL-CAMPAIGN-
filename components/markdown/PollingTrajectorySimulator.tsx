@@ -77,6 +77,7 @@ export function PollingTrajectorySimulator() {
             max="2.5"
             step="0.1"
             value={weeklyGainRate}
+            aria-valuetext={`plus ${weeklyGainRate.toFixed(1)} percentage points per week`}
             onChange={(e) => setWeeklyGainRate(parseFloat(e.target.value))}
             className="w-full accent-accent cursor-pointer h-2 bg-line rounded-lg"
           />
@@ -87,6 +88,18 @@ export function PollingTrajectorySimulator() {
             <span>2.5% (High-Intensity Airwaves)</span>
           </div>
         </div>
+
+        <p role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+          {`At plus ${weeklyGainRate.toFixed(1)} points per week, projected standing after ${weeksToNomination} weeks is ${projectedPolling.toFixed(1)} percent, up ${pointsGained.toFixed(1)} points from ${initialPolling} percent. ${
+            isMeetingThreshold
+              ? `Meets the ${targetThreshold.toFixed(1)} percent nomination threshold.`
+              : `Below the ${targetThreshold.toFixed(1)} percent nomination threshold.`
+          } ${
+            isSurpassingKasalu
+              ? `Overtakes Irene Kasalu at ${kasaluBaseline} percent.`
+              : `Still behind Irene Kasalu at ${kasaluBaseline} percent.`
+          }`}
+        </p>
 
         {/* Trajectory Outcome Comparison */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">

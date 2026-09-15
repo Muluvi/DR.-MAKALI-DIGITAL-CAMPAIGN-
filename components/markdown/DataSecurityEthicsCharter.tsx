@@ -116,7 +116,9 @@ export function DataSecurityEthicsCharter() {
         {["All", "Consent & Messaging", "Data Storage & Privacy", "AI & Synthetic Media", "Campaign Finance"].map((cat) => (
           <button
             key={cat}
+            type="button"
             onClick={() => setSelectedFilter(cat)}
+            aria-pressed={selectedFilter === cat}
             className={`px-3 py-1.5 min-h-[44px] min-w-[44px] justify-center inline-flex items-center rounded-xl t-label font-bold transition-all cursor-pointer ${
  selectedFilter === cat
                 ? "bg-accent-solid text-on-accent shadow-sm"
@@ -142,8 +144,11 @@ export function DataSecurityEthicsCharter() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div className="flex items-center gap-3">
                   <button
+                    type="button"
                     onClick={() => toggleCheck(rule.id)}
-                    className="h-11 w-11 rounded-lg bg-card border border-line flex items-center justify-center text-accent hover:border-accent cursor-pointer shrink-0"
+                    aria-pressed={isChecked}
+                    aria-label={`Mark "${rule.ruleName}" as reviewed`}
+                    className="fx-focus h-11 w-11 rounded-lg bg-card border border-line flex items-center justify-center text-accent hover:border-accent cursor-pointer shrink-0"
                   >
                     {isChecked && <CheckSquare size={16} className="text-accent" />}
                   </button>

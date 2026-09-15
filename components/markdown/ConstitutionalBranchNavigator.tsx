@@ -32,9 +32,15 @@ export function ConstitutionalBranchNavigator() {
         </div>
 
         {/* Branch Selector Switch */}
-        <div className="flex items-center p-1 bg-paper border border-line rounded-xl w-full sm:w-auto">
+        <div
+          role="group"
+          aria-label="Nomination scenario"
+          className="flex items-center p-1 bg-paper border border-line rounded-xl w-full sm:w-auto"
+        >
           <button
+            type="button"
             onClick={() => setActiveBranch("branchA")}
+            aria-pressed={activeBranch === "branchA"}
             className={`flex-1 sm:flex-none px-3 py-1.5 rounded-lg t-label font-bold transition-all cursor-pointer ${
  activeBranch === "branchA"
                 ? "bg-accent-solid text-on-accent shadow-sm"
@@ -44,7 +50,9 @@ export function ConstitutionalBranchNavigator() {
             Scenario A: Disqualified
           </button>
           <button
+            type="button"
             onClick={() => setActiveBranch("branchB")}
+            aria-pressed={activeBranch === "branchB"}
             className={`flex-1 sm:flex-none px-3 py-1.5 rounded-lg t-label font-bold transition-all cursor-pointer ${
  activeBranch === "branchB"
                 ? "bg-accent-solid text-on-accent shadow-sm"

@@ -142,7 +142,9 @@ export function PersuasionFramingMatrix() {
           return (
             <button
               key={theme.id}
+              type="button"
               onClick={() => setActiveThemeId(theme.id)}
+              aria-pressed={isSelected}
               className={`p-2.5 sm:p-3 rounded-xl border text-left transition-all cursor-pointer flex items-center gap-2 ${
  isSelected 
                   ? "bg-card border-accent shadow-sm ring-2 ring-accent/15" 

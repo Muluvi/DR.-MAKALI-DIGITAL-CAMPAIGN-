@@ -100,9 +100,15 @@ export function WardRegisterTicker() {
 
         {/* Filter modes and playback controls */}
         <div className="flex items-center gap-1.5 flex-wrap max-w-full">
-          <div className="inline-flex p-0.5 bg-card border border-line/60 rounded-xl overflow-x-auto max-w-full">
+          <div
+            role="group"
+            aria-label="Ward filter"
+            className="inline-flex p-0.5 bg-card border border-line/60 rounded-xl overflow-x-auto max-w-full"
+          >
             <button
+              type="button"
               onClick={() => setFilterMode("all")}
+              aria-pressed={filterMode === "all"}
               className={`px-2.5 py-1.5 t-micro font-bold rounded-lg transition-all cursor-pointer whitespace-nowrap min-h-[44px] ${
  filterMode === "all"
                   ? "bg-accent-solid text-on-accent shadow-xs"
@@ -112,7 +118,9 @@ export function WardRegisterTicker() {
               All 40 Wards
             </button>
             <button
+              type="button"
               onClick={() => setFilterMode("top")}
+              aria-pressed={filterMode === "top"}
               className={`px-2.5 py-1.5 t-micro font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 whitespace-nowrap min-h-[44px] ${
  filterMode === "top"
                   ? "bg-gold text-ink shadow-xs"
@@ -123,7 +131,9 @@ export function WardRegisterTicker() {
               <span>Top 10</span>
             </button>
             <button
+              type="button"
               onClick={() => setFilterMode("bottom")}
+              aria-pressed={filterMode === "bottom"}
               className={`px-2.5 py-1.5 t-micro font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 whitespace-nowrap min-h-[44px] ${
  filterMode === "bottom"
                   ? "bg-line/90 text-ink shadow-xs"
@@ -136,9 +146,15 @@ export function WardRegisterTicker() {
           </div>
 
           {/* View Mode Switcher (Refinement 11: Static 40-Ward Tile Matrix Option) */}
-          <div className="inline-flex p-0.5 bg-card border border-line/60 rounded-xl">
+          <div
+            role="group"
+            aria-label="View mode"
+            className="inline-flex p-0.5 bg-card border border-line/60 rounded-xl"
+          >
             <button
+              type="button"
               onClick={() => setViewType("ticker")}
+              aria-pressed={viewType === "ticker"}
               className={`p-2 rounded-lg transition-all cursor-pointer min-h-[44px] min-w-[44px] flex items-center justify-center ${
                 viewType === "ticker" ? "bg-accent-solid text-on-accent shadow-xs" : "text-muted hover:text-ink"
               }`}
@@ -148,7 +164,9 @@ export function WardRegisterTicker() {
               <List size={14} />
             </button>
             <button
+              type="button"
               onClick={() => setViewType("matrix")}
+              aria-pressed={viewType === "matrix"}
               className={`p-2 rounded-lg transition-all cursor-pointer min-h-[44px] min-w-[44px] flex items-center justify-center ${
                 viewType === "matrix" ? "bg-accent-solid text-on-accent shadow-xs" : "text-muted hover:text-ink"
               }`}

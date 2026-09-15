@@ -128,7 +128,9 @@ export default function ModelVariablesDrawer() {
             {SOURCES.map((s) => (
               <button
                 key={s}
+                type="button"
                 onClick={() => setSourceFilter(s)}
+                aria-pressed={sourceFilter === s}
                 className={`px-2.5 py-1 rounded-lg t-micro font-bold transition-all shrink-0 cursor-pointer min-h-[44px] min-w-[44px] justify-center ${
  sourceFilter === s
                     ? "bg-accent-solid text-on-accent shadow-xs"
@@ -148,7 +150,9 @@ export default function ModelVariablesDrawer() {
             {TYPES.map((t) => (
               <button
                 key={t}
+                type="button"
                 onClick={() => setTypeFilter(t)}
+                aria-pressed={typeFilter === t}
                 className={`px-2.5 py-1 rounded-lg t-micro font-bold transition-all shrink-0 cursor-pointer min-h-[44px] min-w-[44px] justify-center ${
  typeFilter === t
                     ? "bg-gold text-ink shadow-xs"
@@ -174,8 +178,17 @@ export default function ModelVariablesDrawer() {
             return (
               <div
                 key={item.variable}
+                role="button"
+                tabIndex={0}
+                aria-expanded={isExpanded}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setExpandedVar(isExpanded ? null : item.variable);
+                  }
+                }}
                 onClick={() => setExpandedVar(isExpanded ? null : item.variable)}
-                className={`p-3 rounded-xl transition-all cursor-pointer ${
+                className={`fx-focus p-3 rounded-xl transition-all cursor-pointer ${
  item.highlight
                     ? "bg-accent/[0.04] border border-accent/30 my-1.5"
                     : "hover:bg-line/10"

@@ -261,7 +261,12 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
             <Sparkles size={13} />
           </div>
           <div>
-            <span className="t-label font-semibold text-ink block">
+            <span
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+              className="t-label font-semibold text-ink block"
+            >
               Showing {filteredRows.length} of {parsedRows.length} rows
             </span>
           </div>
@@ -272,6 +277,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
           {numericColumnIndex !== -1 && (
             <button
               onClick={() => setShowChart(!showChart)}
+              aria-pressed={showChart}
               className={`tap-chip flex items-center gap-1.5 px-3 py-2 rounded-xl border t-micro font-bold transition-all cursor-pointer min-h-[44px] ${
                 showChart
                   ? "bg-accent-solid border-accent-solid text-on-accent shadow-sm"
@@ -288,6 +294,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
             <input
               type="text"
               placeholder="Filter table..."
+              aria-label="Filter table rows"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="fx-input-glow w-full pl-8 pr-2.5 py-2 bg-paper/80 border border-line rounded-xl t-label font-normal text-ink placeholder:text-muted focus:outline-none focus:border-accent min-h-[44px]"
@@ -377,13 +384,24 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                     {ths.map((th: any, idx) => (
                       <th
                         key={idx}
-                        onClick={() => toggleSort(idx)}
-                        className="fx-focus sticky top-0 z-10 p-2.5 sm:p-3 font-semibold t-label sm:t-small text-muted cursor-pointer bg-paper/90 backdrop-blur-sm hover:bg-line/20 transition-colors select-none group whitespace-nowrap"
+                        scope="col"
+                        aria-sort={
+                          sortColumn === idx
+                            ? sortDirection === "asc"
+                              ? "ascending"
+                              : "descending"
+                            : "none"
+                        }
+                        className="sticky top-0 z-10 font-semibold t-label sm:t-small text-muted bg-paper/90 backdrop-blur-sm select-none whitespace-nowrap"
                       >
-                        <div className="flex items-center gap-1.5 justify-between">
+                        <button
+                          type="button"
+                          onClick={() => toggleSort(idx)}
+                          className="fx-focus group flex w-full min-h-[44px] items-center gap-1.5 justify-between p-2.5 sm:p-3 text-left cursor-pointer hover:bg-line/20 transition-colors"
+                        >
                           <span>{th.props.children}</span>
-                          <ArrowUpDown size={10} className="fx-icon-rise text-muted group-hover:text-accent transition-colors shrink-0" />
-                        </div>
+                          <ArrowUpDown size={10} aria-hidden="true" className="fx-icon-rise text-muted group-hover:text-accent transition-colors shrink-0" />
+                        </button>
                       </th>
                     ))}
                   </tr>

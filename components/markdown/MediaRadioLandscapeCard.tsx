@@ -119,9 +119,15 @@ export function MediaRadioLandscapeCard() {
         </div>
 
         {/* Filter Switch */}
-        <div className="flex items-center p-1 bg-paper border border-line rounded-xl">
+        <div
+          role="group"
+          aria-label="Network filter"
+          className="flex items-center p-1 bg-paper border border-line rounded-xl"
+        >
           <button
+            type="button"
             onClick={() => setSelectedFilter("all")}
+            aria-pressed={selectedFilter === "all"}
             className={`px-3 py-1.5 rounded-lg t-label font-bold transition-all cursor-pointer ${
  selectedFilter === "all" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
             }`}
@@ -129,7 +135,9 @@ export function MediaRadioLandscapeCard() {
             All 6 Networks
           </button>
           <button
+            type="button"
             onClick={() => setSelectedFilter("priorityOnly")}
+            aria-pressed={selectedFilter === "priorityOnly"}
             className={`px-3 py-1.5 rounded-lg t-label font-bold transition-all cursor-pointer ${
  selectedFilter === "priorityOnly" ? "bg-accent-solid text-on-accent shadow-sm" : "text-muted hover:text-ink"
             }`}
@@ -214,7 +222,10 @@ export function MediaRadioLandscapeCard() {
               </span>
 
               <button
+                type="button"
                 onClick={() => toggleSnippet(station.name)}
+                aria-pressed={playingSnippet === station.name}
+                aria-label={`Play sample script for ${station.name}`}
                 className="t-label font-bold text-accent hover:text-accent/80 flex items-center gap-1 cursor-pointer self-start sm:self-auto"
               >
                 {playingSnippet === station.name ? (

@@ -41,6 +41,7 @@ export default function WardCartogram() {
                     type="button"
                     onClick={() => setSelected({ constituency: c.id, ward: w })}
                     aria-label={`${w.name}, ${c.name}: ${w.voters.toLocaleString()} registered voters`}
+                    aria-pressed={isSelected}
                     style={{ background: tileBackground(w.voters), "--fx-r": wIdx } as React.CSSProperties}
                     className={`fx-region w-6 h-6 sm:w-7 sm:h-7 rounded-[5px] border border-line/40 transition-all cursor-pointer ${
  isSelected ? "ring-2 ring-accent ring-offset-1 ring-offset-paper" : "hover:scale-110 hover:z-10 hover:shadow-md"

@@ -99,7 +99,9 @@ export function StrategicPillarsMatrix() {
           return (
             <button
               key={pillar.id}
+              type="button"
               onClick={() => setSelectedPillarId(pillar.id)}
+              aria-pressed={isSelected}
               className={`p-3 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
  isSelected 
                   ? "bg-card border-accent shadow-sm ring-2 ring-accent/15"

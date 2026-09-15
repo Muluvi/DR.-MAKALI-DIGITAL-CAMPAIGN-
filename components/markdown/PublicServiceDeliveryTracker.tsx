@@ -164,7 +164,9 @@ export function PublicServiceDeliveryTracker() {
         {["All", "Water Infrastructure", "Feeder Roads", "Health Clinic", "Market Sanitation"].map((cat) => (
           <button
             key={cat}
+            type="button"
             onClick={() => setSelectedCategory(cat)}
+            aria-pressed={selectedCategory === cat}
             className={`px-3 py-1.5 min-h-[44px] min-w-[44px] justify-center inline-flex items-center rounded-xl t-label font-bold whitespace-nowrap transition-all cursor-pointer ${
  selectedCategory === cat
                 ? "bg-accent-solid text-on-accent shadow-sm"

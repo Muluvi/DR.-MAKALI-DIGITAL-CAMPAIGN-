@@ -174,13 +174,19 @@ export function PathTo200kCalculator() {
       </div>
 
       {/* Path Selector Tabs (Touch-friendly grid) */}
-      <div className="p-3 bg-paper/70 border-b border-line grid grid-cols-2 sm:grid-cols-4 gap-2">
+      <div
+        role="group"
+        aria-label="Coalition path"
+        className="p-3 bg-paper/70 border-b border-line grid grid-cols-2 sm:grid-cols-4 gap-2"
+      >
         {COALITION_PATHS.map((path) => {
           const isSelected = path.id === selectedPathId;
           return (
             <button
               key={path.id}
+              type="button"
               onClick={() => setSelectedPathId(path.id)}
+              aria-pressed={isSelected}
               className={`p-2.5 sm:p-3 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
  isSelected 
                   ? "bg-card border-accent shadow-sm ring-2 ring-accent/15"
@@ -206,6 +212,13 @@ export function PathTo200kCalculator() {
 
       {/* Main Path Analytics Area */}
       <div className="p-4 sm:p-6 space-y-5">
+        <p role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+          {`${selectedPath.name}. ${selectedPath.voterPool.toLocaleString()} registered voters across ${selectedPath.wardCount} wards, ${selectedPath.shareOfCounty.toFixed(2)} percent of the county register. ${
+            selectedPath.isViable
+              ? `Clears the 200,000 benchmark by ${selectedPath.marginOverBenchmark.toLocaleString()}.`
+              : `Short of the 200,000 benchmark by ${Math.abs(selectedPath.marginOverBenchmark).toLocaleString()}.`
+          }`}
+        </p>
         {/* Animated Progress Bar */}
         <div>
           <div className="flex items-center justify-between t-label mb-1.5 font-bold">
