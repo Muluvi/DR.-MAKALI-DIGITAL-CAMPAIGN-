@@ -5,35 +5,67 @@ How Firefly and the campaign work together: the operating rhythm, the meeting ca
 
 ### 12.1.1 Operating rhythm, tooling and reporting lines
 
-* **Weekly strategy syncs:** A scheduled weekly briefing aligns digital output with the candidate's physical itinerary: prior-week performance, next-week content calendar approval, emerging issues. Firefly reports to a single named campaign-side counterpart (Section 14.6).
-* **Asset centralisation:** A cloud repository for the ground team to upload photographs and video daily. Raw assets are professionally edited, captioned and distributed within hours. **Originals retained with metadata** to support the provenance requirement in Section 13.3.5 — a practice that costs nothing now and is invaluable under attack.
-* **Performance tracking:** Monthly analytics reports covering reach, engagement, sentiment and conversion, plus the competitive brief (Section 13.4.3) and progress against the analytics maturity roadmap (Section 8.15.3).
-* **Escalation:** The Section 12.3 decision matrix governs all approvals. The Section 13.2.3 severity matrix governs all crisis response. Both are rehearsed quarterly (Section 13.2.4) rather than read for the first time under pressure.
+**Firefly steers. Your team publishes. One brief a week holds it together.**
 
-### 12.1.2 What Firefly runs
+* **Thursday, 16:00 — the brief.** One page from Firefly: last week's reach in the deficit wards
+against the week before; this week's pillar weights; the three posts that must happen and the ward
+each is for; the language rule; one thing to stop doing.
+* **Friday — the calendar.** Your team returns the week's calendar in the shared sheet, mapped to
+the brief. Firefly comments; it does not rewrite.
+* **Monday, 09:00 — thirty minutes.** Approve, amend, flag. The only standing meeting in the
+engagement.
+* **Tuesday to Sunday — publishing.** Your team, on your accounts, with your credentials. Firefly
+publishes on one channel only: the SMS, USSD and WhatsApp layer it operates (Section 8.10).
+* **Wednesday — one number.** A mid-week reach check against the deficit wards, and at most one
+adjustment. If nothing needs adjusting, nothing is sent.
+* **Last Friday of the month — the review.** Recognition indicators (Section 11.2), the overrides
+log, and the brief re-based on what the month proved.
 
-- Strategy and message architecture
-- Predictive modelling and analytics
-- Content production and scheduling across three languages
-- Paid media management
-- SMS and USSD operations reaching the offline majority
-- Online fundraising optimisation
-- Reputation monitoring, crisis response and manipulated-media rebuttal
-- Earned media and debate distribution
+**Asset centralisation:** A cloud repository for the ground team to upload photographs and video
+daily. **Originals retained with metadata** to support the provenance requirement in Section 13.3.5
+— a practice that costs nothing now and is invaluable under attack.
 
-This allows the ground team to concentrate on direct voter contact, logistics
-and physical mobilisation — while the two operations feed a single voter model
-rather than running blind to each other (Section 8.9).
+**Performance tracking:** Monthly analytics reports covering reach, engagement, sentiment and
+conversion, plus the competitive brief (Section 13.4.3) and progress against the analytics maturity
+roadmap (Section 8.15.3). Firefly reports to a single named campaign-side counterpart (Section 14.6).
 
-**Kitui roles are staffed by Kitui people.** The focus groups in Section 11.3 are
-facilitated in Kitui, the Kikamba producer is a native speaker, and the ward
-champion network is local by design rather than by exception. These are local
-appointments, made locally — not a concession, but the reason the county-facing
-half of this operation will sound like the county.
+**Escalation:** The Section 12.3 decision matrix governs all approvals. The Section 13.2.3 severity
+matrix governs all crisis response. Both are rehearsed quarterly (Section 13.2.4) rather than read
+for the first time under pressure.
+
+### 12.1.2 Who does what, in one table
+
+R responsible · A accountable · C consulted · I informed.
+
+| Activity | Firefly | Your team | Dr. Mulu | Counterpart | Reviewer |
+|---|---|---|---|---|---|
+| Presence audit and analysis | **R/A** | C | I | I | — |
+| Pillar and segment strategy | **R/A** | C | C | C | — |
+| Weekly brief | **R/A** | C | I | I | — |
+| Content calendar | C | **R** | I | **A** | — |
+| Writing, filming, editing | C | **R/A** | C | I | — |
+| Kikamba language review | C | **R/A** | I | I | — |
+| Publishing to owned accounts | I | **R/A** | I | I | — |
+| Community replies and moderation | C | **R/A** | I | I | — |
+| Paid targeting plan | **R** | C | I | **A** | — |
+| Ad account operation | C | **R** | I | **A** | — |
+| SMS / USSD / WhatsApp dispatch | **R/A** | I | I | C | C |
+| Measurement and reporting | **R/A** | C | I | I | — |
+| Data-protection sign-off | C | I | I | **A** | **R** |
+| Crisis, Level 3 | **R** | C | **A** | C | I |
+
+**One row has Firefly publishing.** That asymmetry is the engagement, stated as a workflow: the
+offline layer is Firefly's to operate because Firefly holds the infrastructure, and everything on
+the owned accounts stays with the people who run it now.
+
+**Kitui roles are staffed by Kitui people.** The focus groups in Section 11.3 are facilitated in
+Kitui, the Kikamba reviewer is a native speaker, and the ward champion network is local by design
+rather than by exception. These are local appointments, made locally — not a concession, but the
+reason the county-facing half of this operation will sound like the county.
 
 #### The Firefly proposition
 
-Firefly is being proposed as the campaign's **outsourced digital function**, not as a single communications hire. The value is the operating system around the candidate: one accountable digital lead, a lean core, specialist surge capacity when the KPI or phase requires it, multilingual production, low-connectivity distribution and a measurable reporting cadence.
+Firefly is being proposed as the campaign's **intelligence and strategy layer**, not as a replacement for the team already publishing. The value is what sits above the output: an audit of what the existing channels are doing, a strategy derived from it, a weekly brief that turns the strategy into instructions, a measurement cycle that says whether it worked, and one operated channel — the offline SMS, USSD and WhatsApp layer — reaching the voters no owned account can.
 
 Firefly is a **Kenya-based media and consulting company**. The proposal deliberately does not claim named clients or case studies; its proof is the specificity of the operating model, the governance architecture and the measurable deliverables set out in this document.
 
@@ -45,16 +77,24 @@ Firefly is a **Kenya-based media and consulting company**. The proposal delibera
 
 ## 12.3 Decision rights and content approval
 
-| Content type | Approver | Turnaround |
-|---|---|---|
-| Routine content within approved templates | Content Lead | Same day |
-| New policy claim or figure | Digital Director + campaign counterpart | 24 hours |
-| Response to attack, Level 1 | Digital Director | ≤4 hours |
-| Response to attack, Level 2 | Campaign Communications Director | ≤2 hours |
-| Response to attack, Level 3 | **Candidate + senior leadership** | ≤30 minutes |
-| Any voter-file-based targeting | **Compliance gate — see Section 12.5.5** | Before launch, no exceptions |
-| Paid spend reallocation within the agreed envelope | Paid Media Manager | Immediate |
-| Paid spend exceeding a ward's agreed envelope | Digital Director | 24 hours |
+Three parties, not two. The column that matters is the last one.
+
+| Content type | Drafted by | Approved by | Published by | Turnaround |
+|---|---|---|---|---|
+| Routine post inside an approved brief | Your team | Your team lead | Your team | Same day |
+| New policy claim or figure | Your team | Firefly + campaign counterpart | Your team | 24 hours |
+| Kikamba voice note | Your team + Kikamba reviewer | Firefly | Your team | 48 hours |
+| Response to attack, Level 1 | Your team | Your team lead, Firefly notified | Your team | ≤4 hours |
+| Response to attack, Level 2 | Firefly drafts | Campaign Communications Director | Your team | ≤2 hours |
+| Response to attack, Level 3 | Firefly drafts | **Candidate + senior leadership** | Your team | ≤30 minutes |
+| SMS / USSD / WhatsApp broadcast | Firefly | Campaign counterpart | **Firefly** | 24 hours |
+| Any voter-file-based targeting | — | **Compliance gate — see Section 12.5.5** | — | Before launch, no exceptions |
+| Paid targeting plan and reallocation within the agreed weighting | Firefly proposes | Campaign counterpart | Your team executes | 24 hours |
+
+**Who holds the ad account is a decision for Dr. Mulu, not an assumption in this document.**
+Firefly's recommendation: the campaign holds it, Firefly takes Analyst and Advertiser access so it
+can plan and read, and your team places. That keeps the credential where the accountability is and
+still closes the loop. `[CAMPAIGN DECISION REQUIRED]`
 
 ---
 
@@ -71,6 +111,45 @@ reinforces Dr. Mulu's brand as a trustworthy, accountable leader.
 and control environment. It is not a legal opinion, and nothing here asserts
 that any specific processing is already lawful. Section 12.5.5 establishes the
 gate that answers that question properly.**
+
+**Who the controller is, channel by channel.** This engagement splits the answer, and the split
+must be settled in writing before the first dispatch, because registration duties, breach
+notification and liability all follow controllership rather than convenience:
+
+| Channel | Operated by | Controller position to be confirmed |
+|---|---|---|
+| Owned social accounts | Your team | The campaign. Firefly holds no credentials and processes only aggregate analytics. |
+| SMS, USSD and WhatsApp Business API | **Firefly** | Firefly is a controller, or a joint controller with the campaign — **not a processor acting on instructions.** `[CAMPAIGN DECISION REQUIRED — confirmed in the Section 12.5.5 scope memorandum]` |
+| Supporter CRM and voter model | Firefly, on the campaign's behalf | The campaign as controller, Firefly as processor, under a written processing agreement. |
+
+**NG-CDF and bursary beneficiary lists are off-limits for campaign contact.** ODPC's 2025 public
+sector guidance note bars the reuse of personal data collected through public programmes for
+**political mobilisation** without explicit, separate consent (Tier 1, ODPC). The campaign holds
+exactly such a dataset — the bursary record covering the 12,573 students in Section 6.1.1 — and it
+is the most tempting list in the county.
+
+**It is not used.** Not for SMS, not for WhatsApp, not for matching, not for lookalike targeting.
+The **project record** remains fully usable as a proof point, because a completed classroom is not
+personal data; the **people** in that record are not a contact list. Section 15.1 lists access to
+the project record for exactly that reason, and it should not be read as access to the beneficiaries.
+
+**The electoral guidance note applies on top of the general Act.** ODPC's *Guidance Note on
+Processing Personal Data for Electoral Purposes* governs anyone handling voter or party-member
+data, and the Data Protection Commissioner restated the consent standard publicly in **August
+2026**, specifically noting that parties are expanding supporter databases (Tier 1 / Tier 2). The
+Section 12.5.5 reviewer should be pointed at both documents by name.
+
+**Inherited lists are not used until their consent is evidenced.** Any SMS or WhatsApp contacts
+already held by the existing team arrive with unknown opt-in provenance. The rule this engagement
+operates under, stated before anyone asks: **a contact whose consent cannot be evidenced is not
+messaged**, and no inherited list is merged into the consented list in Section 8.10.6 until its
+origin is documented. This is the same standard Section 12.5.2 applies to purchased databases, and
+it applies to friendly sources for the same reason.
+
+**The presence audit processes personal data too.** The Section 1A analysis touches data subjects
+through commenter counts and demographic breakdowns. It is low-risk and aggregate — counts and
+shares, no named lists, no profile exports — but it sits inside the Section 12.5.5 scope
+memorandum rather than outside it, on the same terms as every other processing activity here.
 
 ### 12.5.2 The regulatory environment as it stands
 
@@ -220,6 +299,6 @@ at public events?
 | 5. Re-review on material change | Data-governance owner triggers | Updated sign-off |
 
 **Until step 4 is complete, the campaign operates on first-party consented data
-and aggregate ward-level statistics only.** This fallback is fully costed in
-every budget tier (Section 8.13.7), so the campaign loses no time waiting and
+and aggregate ward-level statistics only.** This fallback is carried at every
+engagement level (Section 8.13.7), so the campaign loses no time waiting and
 carries no exposure if the answer is restrictive.

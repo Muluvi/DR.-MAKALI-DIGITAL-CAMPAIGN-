@@ -15,17 +15,21 @@ Strategic Communications & Digital Campaign Consultancy
 6th Floor, Next Gen Mall, Mombasa Road, Nairobi
 fireflymanagement.ke@gmail.com · 0726 766 800
 
-**Date:** August 2026
+**Date:** September 2026
 
 **Status:** Proposal for discussion. Contains marked placeholders requiring
 internal campaign decisions or verification against primary documents.
+
+**Firefly holds no publishing credentials to any of Dr. Mulu's accounts, and asks for none.**
+The access this engagement needs is read-only: analytics, so the work can be measured. The one
+place Firefly publishes is the offline layer it already operates (Section 8.10).
 
 ---
 
 ## 1.2 Confidentiality and use
 
-This proposal is submitted in confidence to Hon. Dr. Benson Makali Mulu and to those he
-authorises to review it. It sets out Firefly Management's analysis, method and proposed scope of
+This proposal is for Dr. Mulu. It is not addressed to any party organ, and it should not be
+shared with one. It is submitted in confidence to him and to those he authorises to review it. It sets out Firefly Management's analysis, method and proposed scope of
 work for the Kitui gubernatorial campaign, and is provided for the purpose of evaluating this
 engagement.
 
@@ -41,7 +45,12 @@ settled separately and in person, and appear nowhere in these pages.
 ## 1.3 How this proposal is structured
 
 The proposal is in sixteen sections and is built to be read in order, but each section stands on
-its own.
+its own. It follows the shape of the engagement itself — **Analyse, then Strategise, then Direct** —
+and Section 0 states that shape before any of it is argued.
+
+**Section 1A is the analysis of Dr. Mulu's own presence** — ninety days of his existing channels,
+read against the race. It is the first evidence in the document because it is the first work of the
+engagement.
 
 **Sections 2 to 5 establish the mandate and the terrain.** The executive summary states what
 Firefly would run and under what constraint; the situation analysis sets out the nomination

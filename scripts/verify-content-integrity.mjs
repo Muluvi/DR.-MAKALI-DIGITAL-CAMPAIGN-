@@ -36,7 +36,15 @@ const CONTENT = path.join(ROOT, "public", "content");
  * sub-heading titles turned into bold lead-ins, a redirect logged in lib/heading-slug.ts for
  * every id retired, and roughly 130 lines of prose cut outright.
  *
- * It is now `5ff79ce`, the content excision: campaign finance, costs and remote-work framing
+ * It is now `90a1f32`, the repositioning: the proposal moved from "Firefly builds and runs your
+ * digital operation" to "Firefly analyses, strategises and directs the operation you already have",
+ * and the September 2026 public data pack was integrated on top of it. That is roughly 950 lines
+ * in and 420 out across 27 content files — two new routes (§1A the presence audit, §6A the content
+ * engine), §12.1.2 "What Firefly runs" deleted, the scope table re-owned, the phases re-dated, the
+ * party renamed to Wiper Patriotic Front, a second pollster added, and the bulk-SMS language rule
+ * applied. Every change is enumerated in CHANGE-LOG.md.
+ *
+ * Before that it was `5ff79ce`, the content excision: campaign finance, costs and remote-work framing
  * removed on the client's instruction. That is over 400 body lines out — the statutory ceiling,
  * the unit economics, the cost-per-contact model, the compliance instrumentation, §3.3 entire,
  * the ECFA obligations, and both defences of a remote operation. Four passages were salvaged
@@ -55,7 +63,7 @@ const CONTENT = path.join(ROOT, "public", "content");
  * What this file continues to guarantee is the part it can: that nothing since has changed the
  * body text.
  */
-const BASE = process.env.CONTENT_BASELINE ?? "6ffd6a9";
+const BASE = process.env.CONTENT_BASELINE ?? "90a1f32";
 
 /**
  * The baseline again, and why it moved a sixth time.
@@ -274,7 +282,7 @@ function normalise(text) {
       /(?:Sub)?sections?\s*\d+[A-Za-z]?(?:\.\d+)*(?:\s*(?:,|and|&)\s*\d+[A-Za-z]?(?:\.\d+)*)*/gi,
       "§#"
     )
-    .replace(/Sec\s*\d+(?:\.\d+)*/gi, "§#")
+    .replace(/Sec\s*\d+[A-Z]?(?:\.\d+)*/gi, "§#")
     .replace(/§\s*\d+[A-Za-z]?(?:\.\d+)*/g, "§#")
     // A bare three-part number in a table cell or an ASCII box is always a section reference in
     // this document — no figure it carries has two decimal points — so it collapses too.

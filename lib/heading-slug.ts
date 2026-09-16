@@ -4,7 +4,7 @@
 //
 // Numbering is section.sub-section.part across the whole document, and each top-level section
 // lives in its own file, so a slug is unique within its section and the id is unique globally.
-const LEADING_NUMBER = /^(\d+(?:\.\d+)*)\.?\s/;
+const LEADING_NUMBER = /^(\d+[A-Z]?(?:\.\d+)*)\.?\s/;
 
 export function headingNumber(text: string): string | null {
   const match = LEADING_NUMBER.exec(text.trim());
@@ -15,7 +15,9 @@ export function headingNumber(text: string): string | null {
 export function headingSlug(text: string): string | null {
   const num = headingNumber(text);
   if (!num) return null;
-  return num.replace(/\./g, "-");
+  // Lowercased so a lettered number ("1A.4") yields the same id shape as a plain one
+  // ("presence-sec-1a-4"). Purely numeric slugs are unaffected, so no existing id moves.
+  return num.replace(/\./g, "-").toLowerCase();
 }
 
 // The proposal's parts, in reading order.
@@ -45,6 +47,7 @@ export function headingSlug(text: string): string | null {
 export const SECTIONS = [
   { id: "decision", part: 0, number: "0", label: "The decision", blurb: "The ask, the deadline, and what waiting costs" },
   { id: "cover", part: 1, number: "1", label: "Title and confidentiality", blurb: "Identification, confidentiality, how to read this" },
+  { id: "presence", part: 1, number: "1A", label: "Your presence today", blurb: "Ninety days of the existing channels, measured — the first work of the engagement" },
   { id: "summary", part: 2, number: "2", label: "Executive summary", blurb: "The mandate, the constraint, the approach" },
   { id: "situation", part: 3, number: "3A", label: "Situation analysis", blurb: "How the nomination is decided, the candidate, and the field" },
   { id: "arithmetic", part: 3, number: "3B", label: "Vote arithmetic", blurb: "The winning number, the 40 wards ranked, and the three regions" },
@@ -52,6 +55,7 @@ export const SECTIONS = [
   { id: "objectives", part: 4, number: "4", label: "Strategic objectives", blurb: "What the digital function must achieve" },
   { id: "audiences", part: 5, number: "5", label: "Audience segmentation", blurb: "The segments the campaign must move" },
   { id: "approach", part: 6, number: "6", label: "Strategic approach", blurb: "The governing claim, the pillars, the themes" },
+  { id: "engine", part: 6, number: "6A", label: "The content engine", blurb: "Four production pillars, and one week before and after" },
   { id: "messaging", part: 7, number: "7", label: "Messaging & narrative", blurb: "Narrative spine, message discipline, language" },
   { id: "scope", part: 8, number: "8", label: "What we will run", blurb: "All fourteen workstreams, and what is outside them" },
   { id: "scope-platforms", part: 8, number: "8A", label: "Platforms & content", blurb: "Workstreams 1-4 and the accessibility standard" },

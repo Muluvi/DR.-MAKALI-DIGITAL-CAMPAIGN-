@@ -35,11 +35,16 @@ Competitors will seek to weaponize Dr. Mulu's technocratic and economic credenti
 
 ## 6.2 The four strategic pillars
 
-Four pillars, extended from the original three. **These four are the campaign's pillars.**
-Two other groupings appear later in this section and are deliberately different things, not
-competing versions of this one: Section 7.1 sets out the three *message* pillars — how the
-claim is argued to a voter — and Section 8.3.1 the four *content* pillars, which are
-production buckets for the studio. Each of those maps back to the four below.
+**"The mission is for Kitui to prosper. From Poverty to Wealth Creation."** That is Dr. Mulu's own
+cover line, and it is the frame these four pillars argue. It has carried no content so far; Section
+6A turns it into a weekly production cycle.
+
+Four pillars, extended from the original three. **These four are the campaign's pillars.** Three
+other groupings appear elsewhere and are deliberately different things, not competing versions of
+this one: Section 7.1 sets out the three *message* pillars — how the claim is argued to a voter;
+Section 8.3.1 the four thematic *content* buckets; and **Section 6A the four live production
+pillars**, which are the ones the weekly brief actually commissions against. Each maps back to the
+four below.
 
 ### 6.2.1 The four campaign pillars in practice
 
@@ -56,19 +61,38 @@ Six themes, each evidenced. **Every figure below carries the tier it was establi
 
 1. **Water Security and Climate Resilience** — sand dams, boreholes,
 irrigation, and adaptation to both drought and flood.
-**Evidence:** approximately **400,000 people rely on untreated surface water** as
-their main domestic source (Tier 1, Section 3.3.5); nine of 18 sub-counties sit below 50
-persons/km² (Tier 1, Section 3.3.5); the county experienced drought pressure through 2025 and was
-affected by the March 2026 floods (Tier 1, Annex B).
+**Evidence:** **Kitui has the lowest share of any county in Kenya with at least a basic
+drinking-water service — 21%** (KNBS, Kenya Demographic and Health Survey 2022, Tier 1). Nairobi,
+the highest, is at 99%. Approximately **400,000 people rely on untreated surface water** as their
+main domestic source (Tier 1, Section 3.3.5); nine of 18 sub-counties sit below 50 persons/km²
+(Tier 1, Section 3.3.5). In **February 2026** the average water trekking distance in Kitui was
+**7.2 km — the longest among Kenya's semi-arid counties** (NDMA National Drought Early Warning
+Bulletin, Tier 1). NDMA classed the county **Alert** from December 2025 through February 2026, and
+in the August 2026 bulletin classed it **Normal but worsening** (Tier 1).
+**Why this is the strongest theme in the document:** it is the only issue on which Kitui is
+measurably last in the country, and it is measured by a Tier 1 source with a monthly update
+cycle — so a claim made about it can be re-verified every month rather than argued.
 2. **Economic Transformation** — agribusiness value chains, mango processing,
 livestock markets, county investment.
-**Evidence:** 37 persons/km² signals under-utilised potential (Tier 1, Section 3.3.5);
+**Evidence:** **55.2% of Kitui residents — about 637,000 people — lived in poverty in 2021**, placing
+Kitui among the ten counties with the most poor people, and **food takes 72.5% of household
+spending**, one of the highest shares in the country (KNBS Kenya Poverty Report, Tier 1/Tier 2 via
+national reporting). That second figure is the whole argument for "From Poverty to Wealth Creation"
+stated as a number: a household spending seven shillings in ten on food has no margin to invest,
+and every pillar in Section 6A that raises household income is aimed at it.
+Also: 37 persons/km² signals under-utilised potential (Tier 1, Section 3.3.5);
 approximately 613,000 cattle and 2,000,000 goats (Tier 1, Section 3.3.5); **poultry in over 90%
 of households** (Tier 1, Section 3.3.5) — a household income stream county policy has largely
 ignored.
 3. **Fiscal Discipline and Verified Delivery** — the flagship theme.
-**Evidence:** the KSh13.79bn FY2026/27 envelope; own-source revenue target of
-KSh1.339bn; and a candidate professionally certified in evaluation.
+**Evidence:** the KSh13.79bn FY2026/27 envelope — **KSh11.64bn equitable share (84.3%)**,
+**KSh1.04bn grants (7.5%)**, and own-source revenue set at KSh1.12bn in the County Fiscal Strategy
+Paper and **raised to KSh1.339bn by the County Assembly** (Tier 1, CFSP FY2026/27). The county's
+own development theme for the year is **KESTA — Accelerating Kitui Economic and Social
+Transformation Agenda**, with a stated priority on raising household income (Tier 1). That is the
+incumbent administration naming Dr. Mulu's own frame, which makes the argument about *execution*
+rather than about direction — the ground an evaluator wins on.
+And a candidate professionally certified in evaluation.
 4. **Youth Employment and Digital Skills** — vocational training, county
 innovation hubs, enterprise credit.
 **Evidence:** youth concentrated in Kitui Central, Mwingi Central and

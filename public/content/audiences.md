@@ -51,6 +51,24 @@ difference would be the exact failure Section 3.2.3's ban on guesswork forbids.
 
 ## 5.1 The six voter segments
 
+**Each segment carries the production pillar that commissions for it** (Section 6A), so the
+segmentation has an output rather than only a description:
+
+| Segment | Primary pillar | Language | Lead channel |
+|---|---|---|---|
+| 5.1.1 Rural agrarian & smallholder baseline | **P2** — one household, one income stream | Kikamba on voice; Kiswahili on SMS | WhatsApp voice note, SMS |
+| 5.1.2 Agro-pastoralist & arid-zone livestock keepers | **P1** — where the money went | Kikamba on radio and USSD; Kiswahili on SMS | SMS, USSD, radio |
+| 5.1.3 Youth cohort, 18–35 | **P3** — the economist explains | Kiswahili / Sheng, Kikamba hooks | TikTok, Facebook |
+| 5.1.4 Urban & peri-urban informal sector | **P3** — the economist explains | Kiswahili | Facebook, WhatsApp |
+| 5.1.5 Formal sector professionals & educators | **P1** — the verification record | English, Kiswahili | Facebook, X, YouTube |
+| 5.1.6 Out-of-county Kamba diaspora | **P3** — the economist explains | English, Kikamba | Facebook, YouTube, WhatsApp |
+
+**P4 — *He came, and this is what he said he would do* — is not in the table because it is not
+segment-led.** It is ward-led: whichever ward Dr. Mulu visited that day, in that ward's own channels.
+It is the pillar that feeds P1 twelve weeks later.
+
+
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    ELECTORAL SEGMENTATION MASTER MATRIX                     │
@@ -63,7 +81,7 @@ difference would be the exact failure Section 3.2.3's ban on guesswork forbids.
 *   **Connectivity & Media Consumption:** **86.4% offline**; 2G/GSM feature phone dominance; high evening vernacular radio listenership; weekly open-air market gatherings.
 *   **Reachable Channels:**
     *   **Primary:** Kamba Vernacular Radio (Musyi FM, Mbaitu FM, Sang'u FM, Athiani FM, Syokimau FM) during morning (06:00–08:30) and evening drive (19:00–21:30).
-    *   **Secondary:** Direct localized bulk SMS in Kikamba via the 400 Ward Captain field network (Section 4.2).
+    *   **Secondary:** Direct localised bulk SMS in **Kiswahili** via the 400 Ward Captain field network (Section 4.2). Bulk political SMS is restricted to English or Kiswahili by the CA/NCIC guidelines; the Kikamba version of the same message travels as a WhatsApp voice note (Section 8.10.2).
     *   **Physical:** Open-air market day barazas (e.g., Kalundu, Kabati, Mbondoni, Nguni, Mutomo), church fellowships (AIC, Catholic, Redeemed), and agricultural cooperative/SACCO meetings.
 *   **Persuasion Lever (What It Takes to Move Them):**
     *   *Core Anxiety:* Persistent seasonal crop failure, unmitigated drought shocks, exploitative middlemen for green grams (*ndengu*) and pigeon peas (*nzuu*), and erratic subsidized seed/fertilizer distribution.

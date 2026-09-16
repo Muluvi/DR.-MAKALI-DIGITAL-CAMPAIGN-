@@ -3,6 +3,12 @@ Two workstreams: paid media across the platforms that reach the connected minori
 
 ## 8.6 Workstream 5 — Platform tactics and paid media
 
+> **Owner: your team, to a Firefly brief.** Read every platform block below as *what belongs on
+> this channel and why*, not as a list of things Firefly will post. Firefly writes the targeting
+> plan and reads the performance; your team places and publishes. Who holds the ad account is a
+> decision for Dr. Mulu — Section 12.3 states the recommendation and marks it open.
+
+
 #### Facebook
 
 * Daily posts in English, Kiswahili and Kikamba
@@ -30,8 +36,8 @@ As an economist, here are three things I would change on day one…"*
 * **Kikamba voice notes from Dr. Mulu** — the single highest-trust format
 available to this campaign
 * Shareable cards with key policy points, designed for forwarding
-* Ward-level group admins trained by Firefly to distribute content and report
-sentiment
+* Ward-level group admins, trained to the Firefly standard by your team, distributing
+content and reporting sentiment
 * Weekly "Kitui Updates" broadcast in Kikamba and Kiswahili
 * **Forwarding-friendly correction cards** during crisis response
 
@@ -71,6 +77,11 @@ Evaluator. Reformer. | Read the plan for your ward."*
 ---
 
 ## 8.7 Workstream 6 — Earned media, journalists and debates
+
+> **Owner: your team and the campaign, to a Firefly brief.** Placement is a relationship business
+> the campaign already has. Firefly supplies the briefing notes, the debate preparation and the
+> evidence pack behind each pitch.
+
 
 *Paid and owned media reach the connected minority. Earned media —
 especially radio — reaches everyone else.*
@@ -209,7 +220,7 @@ To guarantee uninhibited communication with all 532,758 registered voters across
 │                                │   to commercial political vetoes.                                          │
 ├────────────────────────────────┼────────────────────────────────────────────────────────────────────────────┤
 │ 2. Direct 2G Bulk SMS & USSD   │ • Deployment of the **2G SMS Engine (1.5M Messages)** and **Zero-Rated    │
-│    Push to 320,000 Voters      │   USSD Gateway (*483*77#)** via Africa's Talking.                          │
+│    Push to 320,000 Voters      │   USSD Gateway (*[shortcode]#)** via Africa's Talking.                          │
 │                                │ • Bypasses radio entirely by landing 160-character localized policy alerts │
 │                                │   directly onto voters' feature phones within minutes.                     │
 ├────────────────────────────────┼────────────────────────────────────────────────────────────────────────────┤

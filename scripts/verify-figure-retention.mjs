@@ -54,12 +54,21 @@ const CONTENT = path.join(ROOT, "public", "content");
 /**
  * The state this checks against.
  *
- * `f6b0af4` is the commit before the P0 redesign work began — the document as the September 2026
- * audit found it, with every figure the proposal had accumulated to that point. Moving this
- * forward is the same deliberate act as moving the content-integrity baseline, and carries the
- * same obligation: enumerate what changed in CHANGE-LOG.md first.
+ * `90a1f32` is the commit before the repositioning — the document as the September 2026
+ * repositioning audit found it, with every figure the proposal had accumulated to that point.
+ * Moving this forward is the same deliberate act as moving the content-integrity baseline, and
+ * carries the same obligation: enumerate what changed in CHANGE-LOG.md first.
+ *
+ * Five figures left public/content/ in that change and the change log names each one: the USSD
+ * shortcode and SMS sender ID digits (483, 77, 22340), which are not provisioned to this campaign
+ * and were printing as though they were; 20,000 "engaged followers", a vanity metric §11.2.3
+ * rejects two sections later; and 150, a surge threshold for a role that belongs to the
+ * candidate's own team. 14.3/14.4/14.5 were never figures — bare section numbers in prose, now
+ * written as references and normalised away as such.
+ *
+ * `FIGURE_BASELINE=f6b0af4` still diffs against the pre-redesign document.
  */
-const BASE = process.env.FIGURE_BASELINE ?? "f6b0af4";
+const BASE = process.env.FIGURE_BASELINE ?? "90a1f32";
 
 /** Where a figure may live and still count as retained (rule 1). */
 const SEARCH_DIRS = ["public/content", "data", "components", "lib"];
@@ -80,13 +89,13 @@ const MIGRATIONS_FILE = path.join(ROOT, "scripts", "figure-migrations.json");
 function stripReferences(text) {
   return text
     .replace(/(?:Sub)?sections?\s*\d+[A-Za-z]?(?:\.\d+)*(?:\s*(?:,|and|&)\s*\d+[A-Za-z]?(?:\.\d+)*)*/gi, " ")
-    .replace(/Sec\s*\d+(?:\.\d+)*/gi, " ")
+    .replace(/Sec\s*\d+[A-Z]?(?:\.\d+)*/gi, " ")
     .replace(/§\s*\d+[A-Za-z]?(?:\.\d+)*/g, " ")
     // A bare three-part number is always a section reference in this document; no figure it
     // carries has two decimal points.
     .replace(/(^|[^\w.§])\d{1,2}\.\d{1,2}\.\d{1,2}(?![\d.])/g, "$1 ")
     // Markdown heading numbers, e.g. "## 3.4 The vote arithmetic".
-    .replace(/^#{1,6}\s+\d+(?:\.\d+)*/gm, " ")
+    .replace(/^#{1,6}\s+\d+[A-Z]?(?:\.\d+)*/gm, " ")
     // Deep-link ids and slugs: "situation-sec-3-4-1".
     .replace(/[a-z-]+-sec-[\d-]+/gi, " ");
 }
@@ -102,6 +111,14 @@ const NOISE = new Set([
   // filter only because it was written with a decimal point. It is a timing constant, not a
   // quantity the proposal asserts, and the guard should not ask for it back.
   "2|",
+  // §14.3's lead paragraph used to read "everything in 14.3 and 14.4 is in scope ... and nothing
+  // in 14.5 is" — bare section numbers, which stripReferences only catches when they carry the
+  // word "Section". The repositioning rewrote that paragraph to say "Section 14.5", which is both
+  // more correct and now correctly normalised away as a reference. Nothing was lost; the guard was
+  // counting three cross-references as quantities. They are structure, not evidence.
+  "14.3|",
+  "14.4|",
+  "14.5|",
 ]);
 
 /**

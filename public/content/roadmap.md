@@ -15,7 +15,7 @@ offline electorate, diaspora-skewed interaction, and no demonstrated link to tur
 is judged on the indicators in Section 11.1, every one of which traces either to nomination poll
 share or to the ~200,000-vote threshold. Where a row below is **bold**, it is one of those.
 
-### 9.1.1 Phase −1: Nomination Sprint — August–September 2026
+### 9.1.1 Phase −1: Nomination Sprint — Weeks 1–6 from signature
 
 **Objective:** close the measured preference deficit ahead of the Wiper
 flagbearer decision, which party sources indicate is intended to conclude
@@ -30,26 +30,27 @@ unfamiliarity — the response is different, and the campaign will know **before
 significant budget is committed. This is the discipline the rest of the
 proposal claims to embody, applied to its own first assumption.
 
-**Week 1 — audit and baseline (immediate):**
-- Full digital audit: every campaign-adjacent account, follower counts,
-  engagement rates, posting cadence, and the existing Kitui Central NG-CDF web
-  presence
-- **Competitive baseline against Dr. Kasalu and Sen. Wambua** across all
-  platforms — this is the number the whole phase is measured against
+**Week 1 — the presence audit (immediate):**
+- **Section 1A in full** — ninety days of the existing channels: reach by ward, engagement on
+  reach, language mix, format mix, cadence, and the structural Page-or-profile question
   `[Insert baseline audit results — Week 1 deliverable]`
+- **Competitive baseline against Dr. Kasalu, Sen. Wambua and Hon. Ngilu** on public data — this
+  is the number the whole phase is measured against
 - Meta Ad Library and Google Transparency Centre review of all rival activity
 - Rapid channel-mix assessment by zone against connectivity data
 
 **Weeks 1–2 — foundations:**
-- Secure and harden all accounts: **hardware-key 2FA for the candidate and all
-  admins on day one** (Section 13.3.2)
+- **The account-security baseline, specified by Firefly and applied by your team**: hardware-key
+  2FA for the candidate and all admins in week one (Section 13.3.2). Firefly writes the standard;
+  the credentials never leave the campaign
+- The capability map and the written standard (Section 14.7)
 - Commission the Section 12.5.5 compliance review — **start the clock early, it
   is the long-lead item**
-- Appoint the Kikamba producer
+- Confirm the Kikamba reviewer
 
-**Weeks 2–6 — visibility offensive:**
-- Daily multilingual content, weighted 35% Mwingi / 30% arid belt / 20% anchor
-  / 15% testing
+**Weeks 2–6 — the first directed cycles:**
+- The weekly brief issued from Week 2; your team's daily multilingual output weighted
+  35% Mwingi / 30% arid belt / 20% anchor / 15% testing
 - **Immediate SMS opt-in drive** — the consented list is the phase's most
   durable asset and compounds into every later phase
 - Two flagship videos: the vision piece, and one built entirely around the
@@ -72,13 +73,12 @@ proposal claims to embody, applied to its own first assumption.
 
 | Metric | Target |
 |---|---|
-| Baseline audit completed | Week 1 |
+| Presence audit completed (Section 1A) | Week 1 |
 | Compliance review commissioned | Week 2 |
-| Hardware-key 2FA on all admin accounts | Week 1, 100% |
+| Hardware-key 2FA on all admin accounts, applied by your team | Week 1, 100% |
 | Consented SMS contacts | **15,000** |
 | Wards with active SMS presence | 15 |
-| Combined social reach ° | 400,000 |
-| Engaged followers ° | 20,000 |
+| Reach share landing in the deficit pool (R-02) | ≥ 51.7% by Week 6 |
 | Facebook Live town halls | 6 |
 | Kikamba voice notes published | 6 |
 | Earned media items | ≥ 10, including ≥ 4 radio |
@@ -86,17 +86,17 @@ proposal claims to embody, applied to its own first assumption.
 | Charter published in three languages | Week 4 |
 | **Measured preference movement** | **Deficit reduced to ≤10 points** |
 
-### 9.1.2 Phase 0: Digital Audit and Infrastructure — September–October 2026
+### 9.1.2 Phase 0: Instrumentation — Weeks 4–10 from signature
 
-*Runs concurrently with the tail of Phase −1 where the nomination timetable
-allows; sequential if the decision slips.*
+*Runs concurrently with the tail of Phase −1. Phases 1 to 3 below keep their calendar anchors,
+because they are set by the electoral calendar rather than by when this engagement starts.*
 
 **Activities:**
 - Weeks 1–2: complete competitor analysis; identify structural gaps and
   opportunities
-- Weeks 3–4: professional pages, website, analytics dashboards and donation
-  portal live; **USSD shared code commissioned** (5–7 working days for
-  set-up)
+- Weeks 3–4: **analytics access configured on the accounts you already hold**; reporting
+  dashboards and the donation portal live; **USSD shared code commissioned** (5–7 working days
+  for set-up)
 - Weeks 5–6: brand guidelines, content library, 90-day content calendar;
   **WCAG audit before public launch**
 - Weeks 7–8: recruit and train **40 ward digital champions**,
@@ -105,7 +105,7 @@ allows; sequential if the decision slips.*
 - Service-delivery tracker built and tested (Section 8.2)
 
 **KPIs:**
-- All platforms live and verified
+- Analytics access live on every existing channel, and the audit reproducible monthly
 - Baseline metrics recorded across reach, engagement and sentiment
 - Website live, WCAG 2.1 AA audited, with donation and volunteer forms
 - USSD code live across all networks

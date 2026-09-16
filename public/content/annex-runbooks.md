@@ -202,7 +202,7 @@ For this campaign specifically, the highest-consequence scenarios are:
 | Quarterly access review | Remove departed staff and volunteers within 24 hours of departure | Data-governance owner |
 | Recovery contacts | Documented, verified, held by two named people | Candidate accounts |
 
-**Hardware keys for the candidate and admins are non-negotiable and cost very
+**Hardware keys for the candidate and admins are non-negotiable and take very
 little.** `[Insert specified hardware security key model — two keys per critical account holder for redundancy]`
 
 ### 13.3.3 Phishing awareness

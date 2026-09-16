@@ -3,30 +3,43 @@ The campaign's objectives are structured across two separate timelines, each wit
 
 ## 4.1 Objectives for the nomination window
 
-*   **Active Period (Clock):** 29 August 2026 to 15 November 2026.
-*   **Success Definition:** Erase the current 15.3-point deficit and secure the Wiper Democratic Movement gubernatorial nomination by achieving a measured countywide public preference share of **40.0%+** in the official, party-commissioned surveys (Tier 2).
+*   **Active Period (Clock):** from signature to the close of the party's evaluation window — late
+    October to November 2026 on the reported timetable (Tier 3, Section 3.1.2).
+*   **Success Definition:** Erase the current 15.3-point deficit and secure the Wiper Patriotic Front gubernatorial nomination by achieving a measured countywide public preference share of **40.0%+** in the official, party-commissioned surveys (Tier 2).
 
 ### 4.1.1 Commitment 1 — Closing the Sub-County Recognition Gap
 *   **Traceability:** Traces directly to Wiper nomination poll share by elevating name recognition in the northern Mwingi and arid southern sub-counties where Dr. Mulu's constituency-bounded profile is weakest (Tier 1 constraint).
 *   **Baseline Figure:** 22.1% countywide poll preference share (Mizani Survey, 7 August 2026, Tier 2). Sub-county recognition in Mwingi is a **named data gap** (Section 3.4.6) — no published poll reports it, and the campaign does not estimate it. It is established by the Week 1 baseline instrument (Section 9.1.1) before this commitment is scored.
 *   **Target Figure:** 40.0%+ countywide poll preference share. The Mwingi recognition target is set against the Week 1 measured baseline once it exists, not against an assumed starting point.
-*   **Deadline:** 31 October 2026.
-*   **Named Owner:** Director of Digital Communications & Media.
+*   **Deadline:** the opening of the party's polling window (Section 3.1.2).
+*   **Named Owner:** campaign-side Director of Digital Communications & Media; Firefly reports against it.
 *   **Escalation Trigger:** If bi-weekly internal tracking surveys (Section 11.3) show regional recognition flat or falling across two consecutive waves, trigger immediate reallocation of paid-media weight to localised Kikamba voice-note broadcast and USSD push messaging.
 
 ### 4.1.2 Commitment 2 — Targeted Opinion-Poll Female Demographic Preference Lift
 *   **Traceability:** Traces directly to nomination poll share by targeting the county's largest demographic (women are 587,151 of 1,136,187 residents, 51.7%, Tier 1; the register is not published by sex) and addressing household economic security.
 *   **Baseline Figure:** **Named data gap.** The published Mizani rounds report countywide aggregates only (Section 3.4.6); no preference share by sex or age band exists in the public domain. Established by the Week 1 baseline instrument (Section 9.1.1).
 *   **Target Figure:** Set against the Week 1 measured baseline, as a stated point gain rather than an absolute share assumed in advance.
-*   **Deadline:** 31 October 2026.
-*   **Named Owner:** Demographic Outreach & Persuasion Lead.
+*   **Deadline:** the opening of the party's polling window (Section 3.1.2).
+*   **Named Owner:** campaign-side Demographic Outreach & Persuasion Lead; Firefly reports against it.
 *   **Escalation Trigger:** If mid-October focus groups (Section 11.3) find weak or negative policy association with Dr. Mulu's economic agenda among women in the target wards, immediately deploy targeted direct-to-WhatsApp audio explainers centering household poultry subsidies and water proximity financing.
+
+---
+
+**Commitments 1 and 2 are this engagement's.** They are measured by the indicators in Section 11.2.0,
+and both are re-anchored on the deficit sub-counties rather than on countywide aggregates: a
+countywide share can rise while Mwingi stays exactly where it was.
 
 ---
 
 ## 4.2 Objectives for the general election
 
-*   **Active Period (Clock):** 16 November 2026 to 10 August 2027.
+> **These three are the campaign's build targets, not Firefly's deliverables.** Commitments 3 to 5
+> are supporter, subscriber and captain numbers that the ground operation produces. Firefly's
+> contribution is the instrument — the CRM model, the consent ledger, the dispatch layer and the
+> measurement — not the recruitment. They are set out here because the instrument has to be built
+> against a number, and the number should be the campaign's own.
+
+*   **Active Period (Clock):** from the close of the nomination window to 10 August 2027.
 *   **Success Definition:** Mobilize and deliver a minimum of **200,000 verified votes** (Tier 1) at the ballot box, surpassing Governor Malombe's 2022 winning threshold (198,004 votes, Tier 1).
 
 ### 4.2.1 Commitment 3 — Decentralized Ward-Level Voter Turnout Database

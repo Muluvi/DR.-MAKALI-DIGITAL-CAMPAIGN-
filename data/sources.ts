@@ -65,7 +65,95 @@ export const COURT_OF_APPEAL_2018: Source = {
   // search using this citation rather than a guessed link — see Data Gaps Register.
 };
 
+export const ORPP_WPF_RENAME: Source = {
+  name: "ORPP — certificate of change of name, Wiper Democratic Movement to Wiper Patriotic Front",
+  url: "https://orpp.or.ke/certificate-of-change-of-name-to-wiper-patriotic-front-w-p-f-formerly-wiper-democratic-movement-w-d-m/",
+  publicationDate: "2025-08",
+  tier: 1,
+};
+
+export const IEBC_ECVR_2026: Source = {
+  name: "IEBC — Enhanced Continuous Voter Registration press release (drive closed 28 April 2026)",
+  url: "https://www.iebc.or.ke/uploads/resources/9AOpepKtL9.pdf",
+  publicationDate: "2026-04",
+  tier: 1,
+  // The county-by-county breakdown is annexed to this release and is the Tier 1 replacement for
+  // the 2022 ward file. Named as the highest-priority data request in §15.1.
+};
+
+export const PARLIAMENT_MEMBER_RECORD: Source = {
+  name: "Parliament of Kenya — Hon. Mulu Makali, member record",
+  url: "https://www.parliament.go.ke/the-national-assembly/hon-mulu-makali",
+  publicationDate: "2026",
+  tier: 1,
+};
+
+export const KDHS_2022: Source = {
+  name: "KNBS — Kenya Demographic and Health Survey 2022, Kitui county factsheet",
+  url: "https://www.knbs.or.ke/wp-content/uploads/2023/08/Kenya-Demographic-and-Health-Survey-2022-Factsheet-Kitui.pdf",
+  publicationDate: "2022",
+  tier: 1,
+};
+
+export const NDMA_BULLETIN_FEB_2026: Source = {
+  name: "NDMA — National Drought Early Warning Bulletin, February 2026",
+  url: "https://knowledgeweb.ndma.go.ke/Content/LibraryDocuments/National_Drought_Early_Warning_Bulletin_Feb_202620260311171955.pdf",
+  publicationDate: "2026-02",
+  tier: 1,
+};
+
+export const CA_POLITICAL_MESSAGING_GUIDELINES: Source = {
+  name: "Communications Authority — guidelines on political bulk messages and political social media content",
+  url: "https://www.ca.go.ke/sites/default/files/2023-06/Guidelines-on-Prevention-of-Dissemination-of-Undesirable-Bulk-and-Premium-Rate-Political-Messages-and-Political-Social-Media-Content-Via-Electronic-Networks-1.pdf",
+  publicationDate: "2017",
+  tier: 1,
+  // The source for the two rules that reshape the SMS layer in §8.10.2: English or Kiswahili only,
+  // and 48-hour advance lodging with the operator.
+};
+
+export const ODPC_ELECTORAL_GUIDANCE: Source = {
+  name: "ODPC — Guidance Note on Processing Personal Data for Electoral Purposes",
+  url: "https://www.odpc.go.ke/wp-content/uploads/2024/02/ODPC-Guidance-Notes-for-Electoral-Purposes.pdf",
+  publicationDate: "2024-02",
+  tier: 1,
+};
+
+export const ODPC_PUBLIC_SECTOR_GUIDANCE: Source = {
+  name: "ODPC — Guidance Note for the Public Sector (2025)",
+  url: "https://www.odpc.go.ke/wp-content/uploads/2025/11/ODPC-%E2%80%93-Guidance-Note-FOR-PUBLIC-SECTOR.pdf",
+  publicationDate: "2025-11",
+  tier: 1,
+  // Bars reuse of public-programme personal data for political mobilisation without explicit
+  // consent — the basis for the NG-CDF beneficiary prohibition in §12.5.2.
+};
+
 // ---- Tier 2 · Reported --------------------------------------------------------------------
+
+export const POLITRACK_AFRICA: Source = {
+  name: "Politrack Africa — Kitui County gubernatorial preference survey (n = 2,927)",
+  publicationDate: "2026-03-12",
+  tier: 2,
+  // A second pollster, reported via The County Diary. Never joined to the Mizani series as one
+  // trend line: different houses, different methods (§3.1.5).
+};
+
+export const KNBS_POVERTY_REPORT: Source = {
+  name: "KNBS — Kenya Poverty Report, via national press coverage",
+  url: "https://www.knbs.or.ke/wp-content/uploads/2024/10/The-Kenya-Poverty-Report-2022.pdf",
+  publicationDate: "2022",
+  tier: 2,
+  // Tier 2 because the Kitui rows quoted (55.2% poverty, 72.5% food share) reach this proposal
+  // through reporting rather than from the annex tables. §15.1 requests the annex.
+};
+
+export const IEBC_REGISTER_2026_REPORTED: Source = {
+  name: "Reported 2026 registered-voter totals for Kitui (aggregator coverage)",
+  publicationDate: "2026-07",
+  tier: 3,
+  // 605,703 county total and +61,839 new registrations. Tier 3 and explicitly unverified: used
+  // nowhere in a calculation, only to show that ~200,000 is likely a floor (§3.4.1).
+};
+
 
 export const THE_STAR: Source = {
   name: "The Star",

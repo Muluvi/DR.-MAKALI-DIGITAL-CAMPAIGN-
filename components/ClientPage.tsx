@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
-import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Users, Radio, ShieldCheck, Type, Eye, EyeOff, Map, MessageSquare, Megaphone, Shield, Database, Gauge, BookLock, ClipboardList, Compass, Layers, Route, CalendarClock, Workflow, ListChecks, Handshake } from "lucide-react";
+import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Users, Radio, ShieldCheck, Type, Eye, EyeOff, Map, MessageSquare, Megaphone, Shield, Database, Gauge, BookLock, ClipboardList, Compass, Layers, Route, CalendarClock, Workflow, ListChecks, Handshake, Activity, Repeat} from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
 import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
@@ -88,11 +88,13 @@ interface ClientPageProps {
 const SECTION_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
   decision: Handshake,
   cover: BookLock,
+  presence: Activity,
   summary: FileText,
   situation: Map,
   objectives: Target,
   audiences: Users,
   approach: Compass,
+  engine: Repeat,
   messaging: MessageSquare,
   scope: ListChecks,
   "scope-platforms": Layers,
@@ -583,15 +585,16 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
 
           <div className="fx-hero-seq max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 relative z-10">
             
-            {/* Wiper Democratic Movement brand banner */}
+            {/* Party brand banner — Wiper Patriotic Front (WPF), renamed from Wiper Democratic
+                Movement by ORPP certificate, August 2025. */}
             <div style={{ "--fx-i": 0 } as React.CSSProperties} className="fx-in-left fx-glass fx-lift flex items-center gap-3 mb-4 sm:mb-6 select-none rounded-2xl p-2.5 sm:p-3.5 w-fit">
               <span className="inline-flex"><WiperUmbrellaLogo /></span>
               <div>
                 <div className="t-small sm:text-sm text-accent font-black">
-                  Wiper Democratic Movement
+                  Hon. Dr. Benson Makali Mulu
                 </div>
                 <div className="t-micro sm:t-label text-muted font-semibold mt-0.5">
-                  Kitui 2027 Strategy Portal
+                  Kitui 2027 — strategy and direction
                 </div>
               </div>
             </div>
@@ -599,7 +602,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
             <div style={{ "--fx-i": 1 } as React.CSSProperties} className="fx-in-fade confidentiality-marker mb-4 sm:mb-6 flex items-baseline flex-wrap gap-x-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
               <strong>Confidential</strong>
-              <span className="opacity-70">— prepared for Wiper Democratic Movement campaign leadership.</span>
+              <span className="opacity-70">— prepared for Hon. Dr. Benson Makali Mulu, MP. Personal and confidential.</span>
             </div>
 
             {/* The title and the candidate, together. The portrait is a cutout, so it stands on
@@ -616,7 +619,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                   single unsplit string inside SplitText — the spans are aria-hidden. */}
               <h1 className="col-span-2 md:col-span-1 font-sans text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.14] sm:leading-[1.08] tracking-tight max-w-4xl text-ink mb-4 sm:mb-6 font-bold text-balance">
                 <SplitText by="line" as="span" className="block" delay={180}>
-                  {"Kitui 2027:\nthe operating system for an Economist Governor."}
+                  {"Kitui 2027:\nthe intelligence behind what you already publish."}
                 </SplitText>
               </h1>
               <p style={{ "--fx-i": 3 } as React.CSSProperties} className="fx-in-up col-start-1 t-body md:t-lead text-muted max-w-3xl leading-relaxed text-pretty">
@@ -686,7 +689,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                   <WiperUmbrellaLogo />
                 </div>
                 <div className="hidden sm:block">
-                  <div className="t-label font-black text-accent leading-none">Wiper Democratic Movement</div>
+                  <div className="t-label font-black text-accent leading-none">Wiper Patriotic Front</div>
                   <div className="t-micro font-bold text-muted uppercase mt-0.5 leading-none">Kitui 2027 Strategy</div>
                 </div>
               </div>
@@ -846,8 +849,11 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
               {/* Minimalist Key Metric Summary Card */}
               <div className="fx-glass fx-lift rounded-2xl p-3.5 t-label space-y-2">
                 <div className="flex items-center justify-between t-label font-extrabold text-muted">
-                  <span>Target Victory</span>
-                  <span className="text-accent font-black tabular-nums">200k Votes</span>
+                  {/* A floor, not a target: §3.4.1 now carries the 2026 register growth, and the
+                      same 37.2% winning ratio on the reported larger register lands near 225k. The
+                      2022 number stays on the chrome because it is the Tier 1 one. */}
+                  <span>Victory floor</span>
+                  <span className="text-accent font-black tabular-nums">200k+ Votes</span>
                 </div>
                 {/* The bar grows from its baseline on entry, and under reduced motion it renders
                     at its true proportion rather than at zero. */}
@@ -948,13 +954,13 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
         <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-4 sm:inset-x-6 top-0" />
         <div className="confidentiality-marker mb-3">
           <strong>Confidential</strong>
-          <span className="opacity-85"> — link-only proposal for Wiper Democratic Movement campaign leadership. Not for public distribution.</span>
+          <span className="opacity-85"> — link-only, prepared for Hon. Dr. Benson Makali Mulu personally. Not for circulation.</span>
         </div>
         <dl className="text-sm text-muted grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 max-w-md">
           <dt className="font-semibold text-ink">Prepared by</dt>
           <dd>Firefly Management</dd>
           <dt className="font-semibold text-ink">Date</dt>
-          <dd>August 2026</dd>
+          <dd>September 2026</dd>
           <dt className="font-semibold text-ink">Status</dt>
           <dd>Proposal for discussion</dd>
         </dl>

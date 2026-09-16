@@ -3,20 +3,27 @@ What can go wrong and what happens when it does: rapid response, the war room th
 
 ## 13.0 The risk register
 
-Five risks decide whether this plan survives contact. Everything after this section is how each
+Six risks decide whether this plan survives contact. Everything after this section is how each
 is handled; Annex E carries the runbooks.
 
 | # | Risk | Likelihood | Impact | Owner | Mitigation |
 |---|---|---|---|---|---|
 | R1 | **The nomination is decided by delegates, not an opinion poll.** The poll mechanism is Tier 3 and unconfirmed | Medium | Severe — the targeting model changes wholesale | Firefly Director + campaign | Section 3.1.6's delegate whip contingency; Section 3.1.2 states the verification test that would close this |
-| R2 | **The recognition hypothesis is wrong.** The deficit may be about perceived distance, not unfamiliarity | Medium | Severe — the Phase −1 channel mix is built on it | Head of Research | Tested in Week 1 by the baseline instrument and message lab, **before significant spend** (Section 9.1.1) |
+| R2 | **The recognition hypothesis is wrong.** The deficit may be about perceived distance, not unfamiliarity | Medium | Severe — the Phase −1 channel mix is built on it | Head of Research | Tested in Week 1 by the baseline instrument and message lab, **before anything is committed against it** (Section 1A.4) |
 | R3 | **The data-protection reviewer is not appointed in time.** The long-lead campaign appointment | Medium | High — gates the voter-file work in Section 8.13 and the mass SMS layer | Campaign | Section 12.5.5's compliance gate; named as dependency 4 in Section 15.1 |
 | R4 | **ODPC guidance prohibits the planned SMS approach.** The political-campaigning circular could not be retrieved | Low | High — Workstream 9 is the layer the race turns on | Campaign Legal Director | Section 15.2's three mandatory actions, before Phase −1 broadcasting |
 | R5 | **A manipulated-media attack lands inside the nomination window** | Medium | High — a compressed window leaves no time to recover | Digital Director | Section 13.3.5's protocol; hardware-key 2FA from day one (Section 9.1.1) |
+| R6 | **Firefly's brief and the team's judgement disagree.** The direction model puts an outside brief in front of people who know the ground better | High — it will happen, and should | Moderate if handled, severe if suppressed | Firefly Director + team lead | The brief states intent and the rule, never the caption. Where the team overrides, they log why in the calendar, and the monthly review reads the overrides as data rather than as non-compliance |
 
 **R1 and R2 are the two that change the plan rather than damage it**, and both are resolved by
 measurement rather than by contingency: one by obtaining the pollster's terms of reference, the
-other by the Week 1 test. Both resolve inside Phase −1, which is the argument for starting it.
+other by the Week 1 presence audit. Both resolve inside the first weeks, which is the argument for
+starting there.
+
+**R6 is the risk specific to this engagement's shape.** A direction model with no disagreement
+protocol fails on its first collision — and it fails quietly, because a team that is overruled once
+stops raising the objection rather than stopping the behaviour. The override log exists so that
+friction surfaces as evidence instead of as attrition.
 
 ---
 
@@ -135,7 +142,7 @@ private-group circulation
 | 0–5 | Ward champion or monitoring flags; crisis lead confirms receipt |
 | 5–15 | Verify against the campaign's own archive: was Dr. Mulu there, on that date, saying that? Retrieve original footage if it exists |
 | 15–20 | Candidate and senior leadership briefed; response approved |
-| 20–30 | Publish: plain statement of falsity, the verified original where one exists, and provenance evidence. Simultaneously in Kikamba, Kiswahili and English, across all channels **including SMS to the affected wards** |
+| 20–30 | Publish: plain statement of falsity, the verified original where one exists, and provenance evidence. Simultaneously in Kikamba, Kiswahili and English, across all channels **except bulk SMS, which the 48-hour lodging rule rules out of rapid response entirely** (Section 8.10.2) |
 | 30–120 | Platform reports filed; journalists briefed directly (Section 8.7); ward champions supplied with a forwarding-friendly correction card for WhatsApp |
 | Same day | Legal options reviewed with counsel |
 
@@ -239,7 +246,7 @@ This compliance pack consolidates all statutory, constitutional, and regulatory 
 │                          │   Act Regulations).                       │   ward (10,000 total buffer roll).   │
 ├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
 │ 7. Party Nomination /    │ • Certificate of Nomination issued by the │ • **[Requires Legal Confirmation]:** │
-│    Direct Ticket Seal    │   Wiper Democratic Movement NEC/NEB.      │   Exact internal party dispute filing│
+│    Direct Ticket Seal    │   Wiper Patriotic Front NEC/NEB.      │   Exact internal party dispute filing│
 │                          │                                           │   timelines and gazette deadlines.   │
 └──────────────────────────┴───────────────────────────────────────────┴──────────────────────────────────────┘
 ```

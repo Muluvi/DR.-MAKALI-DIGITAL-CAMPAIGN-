@@ -81,3 +81,25 @@ When multiple sources report conflicting metrics (e.g., voter registration count
 ```
 
 **Ban on Guesswork:** Under no circumstance will the analytics team interpolate, smooth, or invent numbers to fill gaps between conflicting datasets.
+
+---
+
+### 3.2.4 The standard applied to our own measurement
+
+The presence audit in Section 1A is held to the same rules as every figure in this document.
+
+*   **Provenance.** Every number carries its export date, its source system, and whether it came
+    from a Page Insights export or a manual public tally. The two are not interchangeable and are
+    never averaged.
+*   **Tier.** Platform-reported metrics are **Tier 2**: they are the platform's own measurement of
+    itself, they restate silently, and they are not audited. They are never presented as Tier 1
+    alongside IEBC or KNBS figures.
+*   **Coding, and its agreement rate.** Post coding is done twice, independently, with
+    disagreements resolved by a third pass. **The inter-coder agreement rate is published with the
+    findings.** A coding exercise that will not report its own agreement rate is an opinion wearing
+    a table.
+*   **Gaps.** A metric the export does not contain is marked `[DATA NEEDED]` with the method for
+    obtaining it, exactly as elsewhere. Estimated engagement rates and inferred follower
+    geographies are not used.
+*   **Competitive figures** are public-source only, gathered the same way for all four candidates,
+    in the same window.

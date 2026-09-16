@@ -127,8 +127,8 @@ The election will be won or lost across the **~460,000 offline voters** living i
 #### 3.1.2.2 Direct 2G Bulk SMS & USSD Service
 *   **Empirical Reach:** **~320,000 voters (60%+ of active register reachable on basic GSM handsets)**.
 *   **Operational Execution:**
-    *   *Zero-Rated USSD Portal (`*483*XX#`):* Allows feature phone users to dial a free code to read Dr. Mulu's 5-point manifesto in Kikamba, register as a volunteer, or locate their nearest Ward Captain.
-    *   *Hyper-Localized Bulk SMS:* Dispatching customized Kikamba messages to consented supporters within specific wards on the eve of market days and on election morning for Get-Out-The-Vote (GOTV) mobilization.
+    *   *Zero-Rated USSD Portal (`*[shortcode]#`):* Allows feature phone users to dial a free code to read Dr. Mulu's 5-point manifesto in Kikamba, register as a volunteer, or locate their nearest Ward Captain.
+    *   *Hyper-Localised Bulk SMS:* Dispatching customised **Kiswahili** messages to consented supporters within specific wards on the eve of market days and on election morning for Get-Out-The-Vote (GOTV) mobilisation. Bulk political SMS is restricted to English or Kiswahili (Section 8.10.2); the Kikamba version travels by voice note and radio.
 
 #### 3.1.2.3 Mobile-Money (M-Pesa) Agent Network Strategy
 *   **Empirical Reach:** **~180,000 unique monthly voter interactions across 1,800+ M-Pesa kiosks in Kitui County**.
@@ -225,7 +225,7 @@ To ensure uninterrupted, high-credibility communication with the electorate, the
    THE BYPASS WORKAROUND ARCHITECTURE (SECTION 8.7.7)
  ┌─────────────────────────────────────────────────────────────────────────────────┐
  │ 1. Neutral & Church-Owned Stations (Wikwatyo, Mang'elete, County FM)              │
- │ 2. Direct 2G SMS & Zero-Rated Interactive USSD Gateway (*483*77#)               │
+ │ 2. Direct 2G SMS & Zero-Rated Interactive USSD Gateway (*[shortcode]#)               │
  │ 3. 8-Sub-County Mobile PA Sound Trucks & High-Density Market Center Caravans    │
  │ 4. Grassroots Baraza Audio Distribution (Pre-loaded Megaphones & WhatsApp Voice)│
  └─────────────────────────────────────────────────────────────────────────────────┘

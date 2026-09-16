@@ -141,7 +141,7 @@ export const WHATSAPP = {
     {
       from: "campaign",
       kind: "text",
-      text: "Kitui Rural / Mbitini: Dr. Makali Mulu guarantees Ksh 100M Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. STOP=22340",
+      text: "Kitui Rural / Mbitini: Dr. Makali Mulu guarantees Ksh 100M Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. STOP=[Insert sender ID]",
       time: "07:12",
       source: "§8.3.3 — Direct 2G Bulk SMS copy sample, verbatim",
     },
@@ -275,13 +275,15 @@ export interface UssdMenuItem {
  * §8.3.3 carries this menu as a literal tree, including the short code. Nothing here is
  * reshaped — it is the proposal's own USSD structure rendered as a USSD dialog.
  *
- * NOTE FOR THE CAMPAIGN: the short code is written `*483*77#` in §8.3.3 but `*483*XX#` in both
- * §3.6.2.2 and §7.1.2, and the SMS opt-out is `STOP=22340` in §8.3.3 but `STOP to 22XXX` in §7.1.2.
+ * NOTE FOR THE CAMPAIGN: the short code and sender ID are now a single placeholder everywhere —
+ * `*[shortcode]#` and `[Insert sender ID]` — because neither is provisioned to this campaign yet
+ * (§15.1). They had been printed three ways (`*483*77#`, `*483*XX#`, `STOP=22340`, `STOP to
+ * 22XXX`), which is a live-looking identifier in a document whose whole argument is provenance.
  * The concrete forms are used here because they are the only non-placeholder ones in the
  * document. Confirm both before anything is printed or dialled.
  */
 export const USSD = {
-  shortCode: "*483*77#",
+  shortCode: "*[shortcode]#",
   gatewayLabel: "Zero-Rated Gateway",
   networkLabel: "USSD",
   dialingMessage: "Sending…",

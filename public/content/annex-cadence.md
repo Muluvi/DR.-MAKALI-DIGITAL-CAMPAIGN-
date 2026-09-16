@@ -13,32 +13,10 @@ ANNEX D. The meeting cadence and the escalation protocol, in full. Schedule mate
 | **Monthly** | Consented-list review | Firefly Director + Volunteer Coordinator | Consented-list growth against the 8.10.6 target; opt-out rate; ward coverage |
 | **Quarterly** | Red-team simulation | Full team + external panel | Crisis drill report and matrix revision (Section 13.2.4) |
 
-The campaign maintains operational synchronization through four structured leadership touchpoints:
-
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                               CAMPAIGN LEADERSHIP GOVERNANCE CADENCE                                        │
-├───────────────────┬──────────────┬──────────────────────────────────────────┬───────────────────────────────┤
-│ Meeting Forum     │ Frequency    │ Core Agenda & Decision Scope             │ Mandatory Attendees           │
-├───────────────────┼──────────────┼──────────────────────────────────────────┼───────────────────────────────┤
-│ 1. Morning Standup│ Daily        │ • 15-minute briefing on radio headlines, │ • Campaign Manager (Chair)    │
-│    & Triage       │ 07:15–07:30  │   social sentiment & field alerts.       │ • Comms Lead, Field Lead,     │
-│                   │ EAT          │ • Sign-off on daily rapid-response plan. │   Tech Lead                   │
-├───────────────────┼──────────────┼──────────────────────────────────────────┼───────────────────────────────┤
-│ 2. Weekly Strategy│ Monday       │ • Review 7-day field progress against the│ • Dr. Makali Mulu (Candidate) │
-│    War Room       │ 09:00–11:00  │   200,000 voter target by ward.          │ • Campaign Manager (Lead)     │
-│                   │ EAT          │ • Approve weekly budget & tour itinerary.│ • All Functional Leads        │
-├───────────────────┼──────────────┼──────────────────────────────────────────┼───────────────────────────────┤
-│ 3. Vendor Review  │ Wednesday    │ • Audit subcontractor deliverables: ad   │ • Relevant Functional Lead    │
-│    & SLA Check    │ 14:00–15:00  │   flight logs, audio delivery, SMS uptime│ • Subcontractor Account Leads │
-│                   │ EAT          │ • Authorize milestone invoice clearances.│ • Finance Officer             │
-├───────────────────┼──────────────┼──────────────────────────────────────────┼───────────────────────────────┤
-│ 4. Monthly Board  │ Last Friday  │ • Comprehensive strategic health check:  │ • Dr. Mulu, Advisory Board,   │
-│    & Audit Review │ of Month     │   fundraising totals, tracking polls,    │   Campaign Manager, Finance & │
-│                   │ 16:00–18:30  │   regulatory compliance & risk register. │   Compliance Lead             │
-└───────────────────┴──────────────┴──────────────────────────────────────────┴───────────────────────────────┘
-```
-
+The four-forum leadership cadence that stood here set the **campaign's own** internal meeting
+rhythm — the candidate's Monday war room, the Wednesday vendor review, the monthly board. None of
+that is Firefly's to schedule, and this annex now carries only the rhythm the engagement itself
+creates. The table above is that rhythm in full.
 
 ---
 
@@ -57,10 +35,10 @@ To prevent decision bottlenecks and operational confusion during high-pressure f
   • Resolution Authority: Respective Functional Lead (Comms, Field, or Tech).
   • Rule: Functional lead resolves and logs incident in the Daily Pulse Report.
 
-  LEVEL 2: STRATEGIC & BUDGETARY ESCALATION (<2 HOURS)
+  LEVEL 2: STRATEGIC & SCOPE ESCALATION (<2 HOURS)     
   ────────────────────────────────────────────────────
-  • Issues: Unexpected cost or scope overruns, competitor attack requiring
-            major media expenditure change, or constituency coordinator dispute.
+  • Issues: Unexpected scope overruns, a competitor attack requiring a major
+            change in media weighting, or a constituency coordinator dispute.
   • Resolution Authority: Campaign Manager & Chief of Operations.
   • Rule: Campaign Manager makes binding operational determination.
 

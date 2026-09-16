@@ -5,7 +5,7 @@ The narrative spine, the message assigned to each segment and each channel, the 
 
 Political messaging in Kitui County has historically relied on empty populist slogans that fail to withstand economic scrutiny. The campaign breaks decisively with this practice by constructing an **Evidence-Backed Message Hierarchy**.
 
-Under the campaign's Provenance Discipline (Section 3.2.1), **no claim is made without an attached primary empirical source**. Every message delivered—from a 160-character Kikamba SMS to a 2-hour radio debate—is grounded in certified parliamentary scorecards, Auditor-General reports, or KNBS economic data.
+Under the campaign's Provenance Discipline (Section 3.2.1), **no claim is made without an attached primary empirical source**. Every message delivered—from a 160-character Kiswahili SMS to a 2-hour Kikamba radio debate—is grounded in certified parliamentary scorecards, Auditor-General reports, or KNBS economic data.
 
 ```
 ════════════════════════════════════════════════════════════════════════════════════
@@ -319,7 +319,7 @@ Running a synchronized three-language communications operation introduces severe
 ├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
 │ 1. Vernacular Radio Spots  │ **100% Kikamba**            │ None (Zero English/Swahili intrusion on spots)  │
 ├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 2. Direct 2G Bulk SMS      │ **80% Kikamba** (Rural/Agro)│ **20% Kiswahili** (Urban Centers & Youth Boda)   │
+│ 2. Direct 2G Bulk SMS      │ **80% Kiswahili** (Rural)   │ **20% English** (Urban Centers & Youth Boda)     │
 ├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
 │ 3. USSD Menu System        │ **50% Kikamba**             │ **50% Kiswahili** (Toggle via Option 0 on USSD)  │
 ├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤

@@ -75,7 +75,7 @@ export const HighlightedText = React.memo(function HighlightedText({ text, tabId
       // Every "Section N.N" the author wrote, not a hand-listed handful. The previous list held
       // four numbers (22.14, 29.1, 31.1, 31.7) left over from an earlier renumbering, none of
       // which survive in the document — so all 173 references rendered as plain text.
-      const crossRefMatch = /^Section\s+(\d+(?:\.\d+){1,2})$/i.exec(part);
+      const crossRefMatch = /^Section\s+(\d+[A-Z]?(?:\.\d+){1,2})$/i.exec(part);
       if (crossRefMatch) {
         const targetId = sectionNumberMap[crossRefMatch[1]] ?? null;
         if (targetId) {

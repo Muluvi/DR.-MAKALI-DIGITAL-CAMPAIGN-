@@ -19,6 +19,12 @@ The boundaries of the engagement, then the first four workstreams: the owned pla
 
 ## 8.2 Workstream 1 — Owned platforms and the service-delivery tracker
 
+> **Split ownership, and the split matters.** The **service-delivery tracker is Firefly's to build
+> and operate** — it is new infrastructure nobody currently runs. **The owned platforms stay with
+> your team**, who run them now and will continue to; Firefly's contribution there is the brief,
+> the calendar and the approval gate.
+
+
 *The single clearest expression of the candidate's actual
 professional discipline.*
 
@@ -127,7 +133,13 @@ layer the campaign is building anyway; nothing comparable exists in this race.**
 
 ---
 
-## 8.3 Workstream 2 — Content production and asset governance
+## 8.3 Workstream 2 — The content brief and asset governance
+
+> **Owner: your team, to a Firefly brief.** Your producers write, film, edit and publish, as they
+> do today. What this workstream adds is the brief that tells them which pillar, which ward, which
+> language and which format — and the approval gate on new policy claims and Kikamba output.
+> Firefly holds no credentials and publishes nothing here.
+
 
 Campaign communications succeed when production is treated as a rigorous, industrial pipeline rather than ad-hoc creative posting. In a county where only ~14% of voters are active on digital social media (Section 3.6.1), the content production engine must be **predominantly focused on offline and broadcast formats**—vernacular radio scripts, 2G bulk SMS, USSD menu trees, printed baraza photobooks, and market PA audio jingles—while maintaining a high-fidelity digital and video pipeline for youth and the diaspora.
 
@@ -155,9 +167,13 @@ Campaign communications succeed when production is treated as a rigorous, indust
 
 ### 8.3.1 The four content pillars
 
-Production buckets for the studio, not a restatement of the campaign pillars in Section 6.2
-or the message pillars in Section 7.1. Every piece of creative output anchors to one of these
-four, and each carries one or more of the Section 6.2 pillars:
+> **Section 6A is the live version of this list.** The four pillars there are anchored on
+> Dr. Mulu's own cover line and are set by the Week 1 audit. The four below are the thematic
+> buckets they draw from, kept because the message grids in Annex C index against them.
+
+Production buckets, not a restatement of the campaign pillars in Section 6.2 or the message
+pillars in Section 7.1. Every piece of creative output anchors to one of these four, and each
+carries one or more of the Section 6.2 pillars:
 
 1.  **Pillar A: The Integrity & Stewardship Ledger (*Kĩtĩo kya Kũthũkũma*)**
     *   *Core Theme:* 13 years of spotless public financial management and zero Auditor-General queries in Kitui Central NG-CDF.
@@ -188,9 +204,9 @@ four, and each carries one or more of the Section 6.2 pillars:
 │    Radio Spots        │ • 15-second sponsor time-check bumpers    │ • Real farmer/elder voice testimonials; │
 │    (Musyi/Mbaitu)     │ • 60-second studio live-read endorsements │   zero abrasive partisan attacks.       │
 ├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
-│ 2. Direct 2G Bulk SMS │ • Single-part 160-character plain text    │ • Localized Kikamba & Swahili; includes │
+│ 2. Direct 2G Bulk SMS │ • Single-part 160-character plain text    │ • Kiswahili or English only (CA rule);  │
 │    & USSD Portal      │ • GSM-7 encoding (no accented unicode)    │   ward name, policy pledge, and free    │
-│                       │ • USSD: 4-option menu tree (see 8.3.3C)   │   opt-out footer (*"STOP to 22XXX"*).   │
+│                       │ • USSD: 4-option menu tree (see 8.3.3C)   │   opt-out footer (*"STOP to [sender ID]"*).│
 ├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
 │ 3. Open-Air Baraza &  │ • A5 full-color 4-page glossy fold-outs   │ • Bilingual Kikamba/Swahili; high visual│
 │    Market Print       │ • A1 weatherproof PVC caravan banners     │   density with real GPS project photos, │
@@ -215,11 +231,15 @@ four, and each carries one or more of the Section 6.2 pillars:
 > **Voiceover (Fast, Punchy):** *"Vota Dr. Makali Mulu – Gavana wa Kitui 2027. Muvisi Mũlũngalu, Mwĩkĩi wa Wathi! (Vote Dr. Makali Mulu – Governor Kitui 2027. The Proven Economist, The Trusted Leader!)"*
 
 #### B. Direct 2G Bulk SMS Copy Sample (Ward-Specific)
-> *"Kitui Rural / Mbitini: Dr. Makali Mulu guarantees Ksh 100M Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. STOP=22340"*
+> *"Kitui Rural / Mbitini: Dr. Makali Mulu guarantees Ksh 100M Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. STOP=[Insert sender ID]"*
 
-#### C. USSD Interactive Menu Tree Structure (`*483*77#`)
+#### C. USSD Interactive Menu Tree Structure
+
+> **The codes below are illustrative structure, not provisioned identifiers.** The live shortcode
+> and sender ID are `[Insert shortcode]` and `[Insert sender ID]` until the aggregator provisions
+> them (Section 15.1). Nothing here should be printed, dialled or published as a working number.
 ```
-*483*77# (Zero-Rated Gateway)
+*[Insert shortcode]# (Zero-Rated Gateway)
 ├── 1. Dr. Makali Mulu Manifesto Summary
 │   ├── 1. Ksh 100M Ward Equalization Fund
 │   ├── 2. Ksh 85/kg Ndengu Floor Price & Cold Hubs
@@ -328,7 +348,11 @@ All creative assets are stored in a centralized, cloud-backed Digital Asset Mana
 
 ---
 
-## 8.4 Workstream 3 — AI-assisted creative and testing
+## 8.4 Workstream 3 — Creative testing and AI assistance
+
+> **Owner: Firefly.** Test design, variant selection and the read on the result are analysis.
+> Your team produces the variants.
+
 
 ### 8.4.1 What AI is used for, and what it is never used for
 
@@ -379,6 +403,10 @@ after 5,000 impressions is paused
 
 ## 8.5 Workstream 4 — Accessibility and inclusion
 
+> **Owner: Firefly sets the standard; your team applies it.** Written into every weekly brief,
+> at every engagement level, and never traded away.
+
+
 Language is central to trust in Kitui.
 
 * **Kikamba** — deep local resonance, especially on WhatsApp, TikTok, Facebook,
@@ -398,7 +426,7 @@ the key is knowledge — framing his expertise
 
 | Language | Share | Primary use |
 |---|---|---|
-| **Kikamba** | **50%** | WhatsApp, TikTok, Facebook grassroots, SMS, voice notes, radio |
+| **Kikamba** | **50%** | WhatsApp, TikTok, Facebook grassroots, voice notes, radio, USSD — **not bulk SMS** (§8.10.2) |
 | **Kiswahili** | **30%** | General social, national reach, SMS |
 | **English** | **20%** | Policy documents, website, X, YouTube, national media |
 

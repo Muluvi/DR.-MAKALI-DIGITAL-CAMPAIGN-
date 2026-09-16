@@ -37,6 +37,14 @@ import {
   MediaPlaybackMockup,
   RadioAircoverDial,
 } from "./StrategicAids";
+import {
+  ReachVsVoteMap,
+  PresenceStrip,
+  LanguageBars,
+  FieldComparison,
+} from "./charts/PresenceAudit";
+import { WeekStrip, EngineLoop } from "./charts/WeekStrip";
+import { DirectionWeek, RecognitionLadder } from "./charts/DirectionModel";
 import { PhaseRail } from "./PhaseRail";
 import { PullQuote } from "./markdown/PullQuote";
 import { ClaimCards } from "./markdown/ClaimCards";
@@ -312,6 +320,28 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
       <KpiPhaseBlock />
     </>
   ),
+
+  // ---- The repositioning: analyse, strategise, direct ---------------------------------
+  // §1A is the analysis of his own channels, and it is the first evidence in the document.
+  // Its four figures render before their data exists — axes drawn, question printed, PENDING
+  // band shown — because the audit is Week 1 and the proposal is read before Week 1.
+  "presence-sec-1a-1": <ReachVsVoteMap />,
+  "presence-sec-1a-2": (
+    <>
+      <PresenceStrip />
+      <LanguageBars />
+    </>
+  ),
+  "presence-sec-1a-5": <FieldComparison />,
+  // §6A is the strategy the audit produces. The loop is the argument; the week is the proof
+  // that the change costs the team nothing.
+  "engine-sec-6a-1": <EngineLoop />,
+  "engine-sec-6a-2": <WeekStrip />,
+  // §12.1 is the direction model. The week replaces a bullet list, a meeting table and the
+  // governance chart cut from Annex D.
+  "governance-sec-12-1-1": <DirectionWeek />,
+  // §11.2.0 is the measurement re-anchor that replaces follower counts.
+  "measurement-sec-11-2": <RecognitionLadder />,
 };
 
 // A handful of headings still carry no leading digit (unnumbered platform names, phase

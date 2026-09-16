@@ -3,6 +3,10 @@ Four workstreams that sit under the rest: the data model, the voter model built 
 
 ## 8.12 Workstream 11 — The data layer
 
+> **Owner: Firefly**, as processor on the campaign's behalf, under a written processing agreement
+> (Section 12.5.1).
+
+
 A modern, high-precision political operation requires an infallible data layer. The campaign rejects arbitrary spreadsheets, unverified voter claims, and ad-hoc phone lists. In their place, the strategy establishes a centralized, structured database architecture governed by strict mathematical provenance, audit trails, and rigorous adherence to Kenyan privacy legislation.
 
 This section defines the voter and supporter data model and the legal compliance workflows under Kenya's **Data Protection Act (DPA) 2019** and the **Office of the Data Protection Commissioner (ODPC)**. The three-tier provenance standard that grades every figure in this proposal (Section 3.2.1) and the protocol for when two sources disagree (Section 3.2.3) are set out alongside the evidence they govern.
@@ -107,6 +111,11 @@ Political messaging, bulk SMS broadcasting, and voter profiling operate under st
 ---
 
 ## 8.13 Workstream 12 — Predictive voter modelling
+
+> **Owner: Firefly — gated on Section 12.5.5.** Until written sign-off, this runs as **ward-level
+> aggregate scoring only**, which delivers most of the targeting value at a fraction of the
+> exposure. Individual-level scoring waits for the opinion.
+
 
 ### 8.13.1 What the model scores, and why
 
@@ -218,6 +227,13 @@ tiers. The campaign is not exposed if the answer is no.
 
 ## 8.14 Workstream 13 — The technology stack
 
+> **Mostly outside this engagement.** Dr. Mulu already holds accounts, hosting and the tooling in
+> daily use, and procuring a stack the campaign already has is not a service. Firefly builds and
+> operates three components only: the **service-delivery tracker**, the **supporter CRM**, and the
+> **SMS/USSD/WhatsApp layer**. The rest of this section is the reference architecture the campaign
+> owns and Firefly integrates against.
+
+
 A data-driven political campaign requires robust, reliable, and compliant technical infrastructure. The technology stack must bridge the gap between digital command centers and offline rural wards, while adhering strictly to Kenya's **Data Protection Act (DPA) 2019** and cybersecurity best practices.
 
 This section specifies the six core software components of the campaign: the **SMS/USSD Telecommunications Gateway**, the **Supporter CRM & Voter Database**, **Social Media Publishing & Social Listening Systems**, **Analytics & Business Intelligence Dashboard**, and the **Section 8.2 Service-Delivery Tracker**.
@@ -254,7 +270,7 @@ This section specifies the six core software components of the campaign: the **S
 
 #### 1. SMS / USSD Telecommunications Gateway
 *   **Tooling Recommendation:** **Africa's Talking API Suite** (or Safaricom Direct Enterprise SDP Gateway).
-*   **Function & Purpose:** Powers the offline communications engine (Section 8.10). Dispatches targeted, opt-in bulk 2G SMS to registered voters across 40 wards, manages the zero-rated interactive USSD menu (`*483*XX#`), and handles inbound field report ingestion from the 400 Ward Captains.
+*   **Function & Purpose:** Powers the offline communications engine (Section 8.10). Dispatches targeted, opt-in bulk 2G SMS to registered voters across 40 wards, manages the zero-rated interactive USSD menu (`*[shortcode]#`), and handles inbound field report ingestion from the 400 Ward Captains.
 *   **Cost Structure:**
 *   **Data Held & Processed:** Voter mobile phone numbers (MSISDN), geolocation ward tags, inbound USSD survey responses, delivery receipt timestamps, and opt-out trigger logs.
 *   **DPA 2019 Exposure & Compliance:** **HIGH RISK.** Telecommunications data constitutes direct personal data (Section 8.11). Requires explicit opt-in confirmation logs, automated STOP opt-out processing within 15 seconds, and signed Data Processing Agreements (DPA) with the gateway aggregator.
@@ -340,6 +356,11 @@ To ensure 100% operational uptime and protect campaign systems from infiltration
 ---
 
 ## 8.15 Workstream 14 — Analytics and attribution
+
+> **Owner: Firefly. This is the engine room of the engagement.** It is numbered fourteenth because
+> that is where the original numbering put it; it is read first, in Section 1A, and it is the
+> workstream every other one is measured by.
+
 
 ### 8.15.1 Attribution model and offline conversion tracking
 
