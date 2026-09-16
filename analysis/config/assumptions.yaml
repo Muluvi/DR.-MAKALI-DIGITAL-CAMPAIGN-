@@ -67,6 +67,17 @@ register:
       Note 532,758 + 61,839 = 594,597, which does not reconcile to the 605,703 figure
       above — a gap of 11,106. The two T3 sources disagree; both are kept, neither is
       adjusted. Stage 1 reports this as a conflict.
+  y2026_uniform_scale_factor:
+    value: 1.1369
+    status: PLACEHOLDER
+    rationale: >-
+      605,703 / 532,758 = 1.1369. Used ONLY to project the 2022 ward register onto the
+      2026 county total so the simulation can report against both register figures.
+      It is known to be wrong in detail: the 2026 ECVR drive was ward-based, so growth
+      was uneven, and applying one factor to every ward assumes it was not. It is used
+      because the alternative — inventing a per-ward growth pattern — would be worse.
+      Every figure derived from it is labelled modelled and verify. Delete this the day
+      the IEBC ward annex arrives.
   by_ward_2026:
     value: null
     status: PLACEHOLDER
@@ -122,6 +133,17 @@ turnout:
     value: 0.72
     status: PLACEHOLDER
     rationale: Upper bound of the per-ward turnout draw. See ward_low.
+  ward_dispersion:
+    value: 0.06
+    status: PLACEHOLDER
+    rationale: >-
+      Plus or minus 6 percentage points of ward-level variation around the county turnout
+      drawn for each scenario. Turnout is drawn once per draw for the whole county and
+      then varied by ward, rather than independently per ward. Independent ward draws
+      average out across 40 wards and collapse the county distribution to a
+      near-certainty, which is a modelling artefact, not a finding: a high-turnout year
+      is high across the county. This structure keeps the county-level uncertainty the
+      ranges are meant to express.
   distribution:
     value: uniform
     status: PLACEHOLDER
@@ -142,6 +164,36 @@ support:
     value: 0.32
     status: PLACEHOLDER
     rationale: Upper bound. See mulu_ward_low.
+  # Two scenarios, because one range cannot answer both questions the brief asks.
+  # mulu_ward_low/high above describe his CURRENT measured preference, which is a
+  # four-way nomination share. The benchmarks are what a general-election winner took.
+  # Comparing the first against the second guarantees a shortfall and tells the reader
+  # nothing they did not already know. The competitive range below is anchored on what
+  # actually happened in 2022 so the comparison has meaning.
+  competitive_ward_low:
+    value: 0.40
+    status: PLACEHOLDER
+    rationale: >-
+      Lower bound for the competitive general-election scenario, as a share of ballots
+      cast in the ward. Anchored on 2022: Malombe took roughly 60% of the votes cast for
+      the four named governor candidates [CALC, pack section 2.3], and the runner-up took
+      about 35%. A candidate who consolidates the field but does not dominate it sits
+      near 40%. This is a scenario input, not a projection of his support.
+  competitive_ward_high:
+    value: 0.60
+    status: PLACEHOLDER
+    rationale: >-
+      Upper bound for the competitive scenario: the share the 2022 winner actually
+      achieved. Using the observed winning share as the ceiling keeps the scenario inside
+      what this county has been seen to do, rather than inventing a landslide.
+  ward_dispersion:
+    value: 0.05
+    status: PLACEHOLDER
+    rationale: >-
+      Plus or minus 5 percentage points of ward-level variation around the countywide
+      support drawn for each draw. Same reasoning as turnout.ward_dispersion: a
+      candidate's countywide standing moves together, and independent ward draws would
+      manufacture false precision in the county total.
   home_advantage_multiplier:
     value: 1.35
     applies_to: Kitui Central
