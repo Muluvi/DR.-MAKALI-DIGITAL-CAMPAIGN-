@@ -1,0 +1,285 @@
+"""Stage 1d — empty CSV templates for data the team will supply, plus a schema README.
+
+Each template is written with headers and no rows. Every downstream stage reads these
+paths, finds them empty, logs [DATA NEEDED] and continues (CLAUDE.md §7).
+
+Nothing here contains example rows. A worked example in a template is indistinguishable
+from real data once someone opens it in a spreadsheet, and this pipeline must never let
+invented numbers reach a result.
+"""
+from __future__ import annotations
+
+import csv
+from dataclasses import dataclass
+
+from src import config
+
+
+@dataclass(frozen=True)
+class Column:
+    name: str
+    description: str
+
+
+@dataclass(frozen=True)
+class Template:
+    name: str
+    purpose: str
+    stage: str
+    columns: tuple[Column, ...]
+    notes: tuple[str, ...] = ()
+
+
+TEMPLATES: tuple[Template, ...] = (
+    Template(
+        name="posts",
+        purpose="Every public post from the candidate's channels, for the Existing Presence Audit.",
+        stage="Stage 6",
+        columns=(
+            Column("post_id", "Stable unique id. Platform id where one exists."),
+            Column("platform", "facebook | x | tiktok | instagram | youtube | whatsapp"),
+            Column("posted_at", "ISO 8601 with timezone, e.g. 2026-09-01T14:30:00+03:00. Local time matters for the day/hour heatmap."),
+            Column("format", "photo | video | text | link | live | carousel"),
+            Column("language", "en | sw | kam | mixed"),
+            Column("pillar", "One of the pillar ids in config/assumptions.yaml. Leave blank to have Stage 6 label it."),
+            Column("text", "Post copy. No personal data about anyone other than the candidate."),
+            Column("impressions", "Integer, blank if unknown. Never zero for unknown."),
+            Column("reach", "Integer, blank if unknown."),
+            Column("reactions", "Integer."),
+            Column("comments", "Integer."),
+            Column("shares", "Integer."),
+            Column("followers_at_post", "Follower count when posted. The Stage 6 regression offset."),
+            Column("url", "Permalink."),
+        ),
+        notes=(
+            "Blank means unknown. Zero means measured as zero. The difference changes every rate.",
+            "followers_at_post drives log(followers) as the negative-binomial offset. Without it, "
+            "engagement counts cannot be compared across a growing account.",
+            "Under ~100 posts, Stage 6 reports regression effects as directional only.",
+        ),
+    ),
+    Template(
+        name="comments",
+        purpose="Public comments for theme and sentiment coding.",
+        stage="Stage 7",
+        columns=(
+            Column("post_id", "Foreign key to posts.post_id."),
+            Column("date", "ISO date. Date only — no timestamp, which can re-identify."),
+            Column("text", "Comment text with @handles removed."),
+        ),
+        notes=(
+            "THREE COLUMNS ONLY, BY DESIGN. Do not add commenter name, handle, profile id, "
+            "url, gender, location or follower count. Stage 7 strips these at load time even "
+            "if present, but they must not be collected in the first place.",
+            "Ward-level aggregates only. No comment is ever linked back to a person.",
+            "Kikamba comments are always routed to human review: off-the-shelf sentiment "
+            "models do not handle Kikamba and their output on it must not be trusted.",
+        ),
+    ),
+    Template(
+        name="competitors",
+        purpose="Rival channel benchmarks for Kasalu, Wambua and Ngilu.",
+        stage="Stage 8",
+        columns=(
+            Column("candidate", "Mulu | Kasalu | Wambua | Ngilu"),
+            Column("platform", "facebook | x | tiktok | instagram | youtube"),
+            Column("handle", "Public account handle."),
+            Column("followers", "Integer, as at measured_on."),
+            Column("posts_last_28d", "Integer. 28 days, not 'a month', so weeks divide evenly."),
+            Column("total_engagements_last_28d", "Reactions + comments + shares over the same window."),
+            Column("mentions_last_28d", "Public mentions, for share of voice."),
+            Column("meta_ads_active", "yes | no | unknown — from the Meta Ad Library."),
+            Column("meta_ads_count", "Active ads in the library. Blank if unknown."),
+            Column("measured_on", "ISO date the row was collected. Every figure is a snapshot."),
+            Column("source_note", "How it was collected, e.g. 'manual audit of public page'."),
+        ),
+        notes=(
+            "Public, observable metrics only. No private or scraped personal data.",
+            "Stage 8 output is internal: rival analysis is never copied to the public site.",
+        ),
+    ),
+    Template(
+        name="baseline_survey",
+        purpose="Ward-level survey aggregates: recognition, favourability, issue salience.",
+        stage="Stages 4, 10",
+        columns=(
+            Column("ward", "Ward name. Stage 1 normalises spelling on join."),
+            Column("constituency", "Constituency name."),
+            Column("n_respondents", "Integer. Printed beside every figure derived from this row."),
+            Column("aided_recognition_pct", "% who recognise Mulu from a prompted list."),
+            Column("unaided_recognition_pct", "% who name him spontaneously."),
+            Column("favourability_pct", "% favourable among those who recognise him."),
+            Column("vote_intention_pct", "% stating an intention to vote for him."),
+            Column("top_issue_1", "Most-cited issue. Use a pillar id from assumptions.yaml."),
+            Column("top_issue_2", "Second most-cited issue."),
+            Column("credibility_mulu_water", "0-10 score: his credibility on water."),
+            Column("credibility_mulu_poverty", "0-10 score: household economics."),
+            Column("credibility_mulu_fiscal", "0-10 score: county finance."),
+            Column("fieldwork_start", "ISO date."),
+            Column("fieldwork_end", "ISO date."),
+        ),
+        notes=(
+            "WARD-LEVEL AGGREGATES ONLY. Never supply respondent-level rows. No names, phone "
+            "numbers, ages or GPS points. This is a hard rule under the Data Protection Act 2019.",
+            "A ward with fewer than ~30 respondents should be reported as indicative only; "
+            "Stage 4 prints n beside every ward score.",
+            "This file unlocks the recognition-gap feature, which carries the second-highest "
+            "weight in the Stage 4 index. Without it that feature is dropped, not estimated.",
+        ),
+    ),
+    Template(
+        name="register_2026_by_ward",
+        purpose="The post-ECVR 2026 register, by ward — the IEBC annex figure.",
+        stage="Stages 1, 3, 4",
+        columns=(
+            Column("ward", "Ward name."),
+            Column("constituency", "Constituency name."),
+            Column("registered_voters_2026", "Integer, from the IEBC annex."),
+            Column("source_id", "Source id, e.g. S3 for the IEBC ECVR release annex."),
+            Column("tier", "1 for the IEBC annex. Only a T1 figure should replace the T3 605,703."),
+            Column("as_of", "ISO date of the register snapshot."),
+        ),
+        notes=(
+            "This is pack gap 6 and the single highest-value missing input. It settles the "
+            "605,703 vs 594,597 conflict and unlocks registration growth as a Stage 4 feature.",
+            "The 2026 drive was ward-based, so growth is uneven. Do not distribute a county "
+            "total across wards pro rata — that would be invented data.",
+        ),
+    ),
+    Template(
+        name="results_2022_by_ward",
+        purpose="2022 governor and Woman Rep results by ward, from IEBC Forms 37A/37B.",
+        stage="Stages 3, 4",
+        columns=(
+            Column("ward", "Ward name."),
+            Column("constituency", "Constituency name."),
+            Column("race", "governor | woman_rep | senator"),
+            Column("candidate", "Candidate name as declared."),
+            Column("party", "Party as declared in 2022 (WDM, not WPF — this is a 2022 record)."),
+            Column("votes", "Integer."),
+            Column("registered_voters", "Ward register at that election, for turnout."),
+            Column("valid_votes_cast", "Ward total valid votes, for share of ballots."),
+            Column("source_id", "S-number of the form or its transcription."),
+        ),
+        notes=(
+            "Pack gap 7. Unlocks 2022 party strength as a Stage 4 feature and lets Stage 3 "
+            "draw ward turnout from evidence instead of a placeholder range.",
+            "Presidential Forms 34A are public on the IEBC portal and serve as a turnout proxy "
+            "by polling station if 37A/37B are slow to obtain.",
+        ),
+    ),
+    Template(
+        name="issues",
+        purpose="Issue salience and candidate credibility, for the Stage 10 matrix.",
+        stage="Stage 10",
+        columns=(
+            Column("issue_id", "Pillar id from config/assumptions.yaml."),
+            Column("issue_label", "Human-readable issue name."),
+            Column("indicator_value", "The hard data indicator, e.g. 21 for basic water service."),
+            Column("indicator_unit", "Unit of the indicator."),
+            Column("indicator_source_id", "S-number."),
+            Column("indicator_tier", "1, 2 or 3."),
+            Column("comment_share_pct", "% of coded comments on this theme. From Stage 7."),
+            Column("survey_salience_pct", "% naming it a top issue. From baseline_survey."),
+            Column("credibility_score", "0-10, Mulu's credibility on this issue."),
+            Column("credibility_source", "survey | team — say which. A team score is a judgement."),
+        ),
+        notes=(
+            "Stage 10 fills indicator columns from the pack automatically. The credibility axis "
+            "cannot be derived from public data and must come from the survey or a team score.",
+            "A team score is an opinion. Stage 10 labels it as such on the chart.",
+        ),
+    ),
+)
+
+BOUNDARY_README = """# Ward boundary file — where it goes
+
+Stage 5 (maps) looks for a ward boundary file at:
+
+    analysis/data/raw/boundaries/kitui_wards.geojson
+
+Any of .geojson, .json, .shp (with its sidecars) or .gpkg will be read. If none is
+present, Stage 5 skips, logs the gap and the pipeline continues.
+
+## What is needed
+
+A polygon layer covering all 40 Kitui County Assembly wards, with at least:
+
+  - a ward name property (any of: `ward`, `WARD`, `name`, `NAME`, `ADM3_EN`)
+  - a constituency name property, if available
+  - a valid CRS. EPSG:4326 is expected; anything else is reprojected on load.
+
+## Where to get it
+
+  - IEBC published boundary shapefiles for the 2022 delimitation.
+  - The Kenya Open Data portal and humanitarian sources (OCHA/HDX) carry county
+    assembly ward boundaries as ADM3.
+
+## The join, and why it will need attention
+
+Ward names do not agree across sources. This pack alone contains two variants the site
+spells differently: `Kwavonza/Yatta` vs `Kwa Vonza/Yatta`, and `Mutito/Kaliku` vs
+`Mutitu/Kaliku`. Stage 5 normalises spacing and punctuation, then falls back to
+similarity matching, and it lists every ward that fails to match exactly rather than
+quietly dropping it from the map. A ward missing from a choropleth is a lie of omission,
+so unmatched wards are reported, not hidden.
+"""
+
+
+def write_all() -> list[str]:
+    """Write every template plus its README. Returns the paths written."""
+    config.ensure_dirs()
+    written: list[str] = []
+
+    for tpl in TEMPLATES:
+        path = config.DATA_TEMPLATES / f"{tpl.name}.csv"
+        with open(path, "w", newline="", encoding="utf-8") as fh:
+            csv.writer(fh).writerow([c.name for c in tpl.columns])
+        written.append(str(path.relative_to(config.ANALYSIS_ROOT)))
+
+    readme = ["# CSV templates — schemas\n"]
+    readme.append(
+        "Empty templates for data the campaign team will supply. Headers only: no example\n"
+        "rows, because a worked example is indistinguishable from real data once it is in a\n"
+        "spreadsheet.\n\n"
+        "Fill a file, drop it back in this folder, and re-run `python -m src.run_all`. Every\n"
+        "stage reads these paths, and a stage whose input is still empty logs [DATA NEEDED]\n"
+        "and continues.\n\n"
+        "**Blank means unknown. Zero means measured as zero.** Never use zero for unknown:\n"
+        "it silently becomes a real measurement in every rate and every mean.\n"
+    )
+    for tpl in TEMPLATES:
+        readme.append(f"\n---\n\n## `{tpl.name}.csv`\n")
+        readme.append(f"**{tpl.purpose}**  \nUsed by: {tpl.stage}\n")
+        readme.append("\n| Column | Meaning |\n|---|---|")
+        for col in tpl.columns:
+            readme.append(f"| `{col.name}` | {col.description} |")
+        if tpl.notes:
+            readme.append("\n**Notes**\n")
+            for note in tpl.notes:
+                readme.append(f"- {note}")
+        readme.append("")
+
+    (config.DATA_TEMPLATES / "README.md").write_text("\n".join(readme), encoding="utf-8")
+    written.append(str((config.DATA_TEMPLATES / "README.md").relative_to(config.ANALYSIS_ROOT)))
+
+    boundary_dir = config.DATA_RAW / "boundaries"
+    boundary_dir.mkdir(parents=True, exist_ok=True)
+    (boundary_dir / "README.md").write_text(BOUNDARY_README, encoding="utf-8")
+    written.append(str((boundary_dir / "README.md").relative_to(config.ANALYSIS_ROOT)))
+    return written
+
+
+def missing() -> list[str]:
+    """Template names that are still empty (headers only, no rows)."""
+    out: list[str] = []
+    for tpl in TEMPLATES:
+        path = config.DATA_TEMPLATES / f"{tpl.name}.csv"
+        if not path.exists():
+            out.append(tpl.name)
+            continue
+        with open(path, encoding="utf-8") as fh:
+            rows = sum(1 for _ in fh)
+        if rows <= 1:
+            out.append(tpl.name)
+    return out
