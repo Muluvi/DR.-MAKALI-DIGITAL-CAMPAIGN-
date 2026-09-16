@@ -1,0 +1,2 @@
+# The analysis pipeline is not part of the site build. Never deploy it.
+analysis/

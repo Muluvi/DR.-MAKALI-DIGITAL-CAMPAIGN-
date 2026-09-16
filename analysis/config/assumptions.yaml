@@ -1,0 +1,501 @@
+# Kitui 2027 — every assumption the pipeline makes.
+#
+# Rule: nothing numeric that is not a published figure may be hard-coded in a module.
+# It belongs here, with a rationale and a status.
+#
+#   status: CONFIRMED   — a published figure from a named source, or a definition that
+#                         follows from one. Carries source_id and tier.
+#   status: PLACEHOLDER — nobody has confirmed this. Firefly chose it to let a model run.
+#                         Every report states this beside the result.
+#
+# Compiled against the data pack of 16 September 2026.
+
+meta:
+  as_of: "2026-09-16"
+  pack_compiled: "2026-09-16"
+  currency: KES
+  language: en-GB
+
+# Fixed seed for every stochastic step in the pipeline. Never override in a module.
+seed: 20270809   # Kenya's 2027 general election date, used as an arbitrary fixed constant.
+
+# ---------------------------------------------------------------------------------------
+# 1. The register
+# ---------------------------------------------------------------------------------------
+register:
+  y2022:
+    value: 532758
+    unit: voters
+    source_id: S2
+    tier: 1
+    as_of: "2022"
+    status: CONFIRMED
+    rationale: >-
+      IEBC registered voters per county, 2022. Ward breakdown [S1] sums to this figure and
+      is independently reproduced by the site's own data/ward-register.json. This is the
+      only register figure in the pack with a T1 source.
+  y2022_with_prisons:
+    value: 532833
+    unit: voters
+    source_id: S1
+    tier: 1
+    as_of: "2022"
+    status: CONFIRMED
+    rationale: 532,758 ward register + 75 prison voters. Prison voters sit in no ward.
+  y2026_july:
+    value: 605703
+    unit: voters
+    source_id: S4
+    tier: 3
+    as_of: "2026-07"
+    status: PLACEHOLDER
+    verify: true
+    rationale: >-
+      Venas News, July 2026. T3 aggregator, not IEBC. The pack marks it [VERIFY] and says
+      the T1 figure is the county annex to IEBC's ECVR release [S3], which is not in hand.
+      Every output using this figure is labelled "verify". Never presented as official.
+  y2026_new_registrations:
+    value: 61839
+    unit: voters
+    source_id: S5
+    tier: 3
+    as_of: "2026-04"
+    status: PLACEHOLDER
+    verify: true
+    rationale: >-
+      BusinessThisDay, reporting the 2026 ECVR drive outcome for Kitui. T3, [VERIFY].
+      Note 532,758 + 61,839 = 594,597, which does not reconcile to the 605,703 figure
+      above — a gap of 11,106. The two T3 sources disagree; both are kept, neither is
+      adjusted. Stage 1 reports this as a conflict.
+  by_ward_2026:
+    value: null
+    status: PLACEHOLDER
+    rationale: >-
+      [DATA NEEDED] The 2026 register by ward. The ECVR drive was ward-based, so growth is
+      uneven and cannot be distributed pro rata without inventing data. Registration growth
+      is therefore dropped from the Stage 4 index until the IEBC annex arrives.
+
+# ---------------------------------------------------------------------------------------
+# 2. Election benchmarks (Stage 3). There is NO 50% threshold — most votes wins.
+# ---------------------------------------------------------------------------------------
+benchmarks:
+  winning_tally_2022:
+    value: 198004
+    unit: votes
+    source_id: S11
+    tier: 2
+    as_of: "2022-08"
+    status: CONFIRMED
+    rationale: Malombe's certified 2022 winning gubernatorial tally. Benchmark (a).
+  winner_share_of_register_2022:
+    value: 0.372
+    unit: share
+    source_id: S11
+    tier: 2
+    as_of: "2022-08"
+    status: CONFIRMED
+    method: calculated
+    rationale: >-
+      198,004 / 532,758 = 37.17%. Benchmark (b): applied to each register figure in turn.
+      On the 2022 register this reproduces 198,004; on 605,703 [VERIFY] it gives ~225,300.
+      This is a ratio carried forward, not a forecast of what a 2027 win requires.
+  no_fixed_threshold:
+    value: true
+    status: CONFIRMED
+    rationale: >-
+      Kenyan governor races are won by plurality. Modelling a fixed 50% win condition would
+      be wrong. The simulation reports benchmark comparisons only.
+
+# ---------------------------------------------------------------------------------------
+# 3. Turnout and support ranges (Stage 3B). All PLACEHOLDER — no ward-level data exists.
+# ---------------------------------------------------------------------------------------
+turnout:
+  ward_low:
+    value: 0.55
+    status: PLACEHOLDER
+    rationale: >-
+      Lower bound of the per-ward turnout draw. The site's §3.4.1 asserts a ~62% county
+      average; the pack supplies no turnout figure at all and no ward-level turnout exists
+      ([DATA NEEDED], pack §3.5 — Forms 34A are the route). This range brackets 62% widely
+      enough to carry the uncertainty rather than hide it.
+  ward_high:
+    value: 0.72
+    status: PLACEHOLDER
+    rationale: Upper bound of the per-ward turnout draw. See ward_low.
+  distribution:
+    value: uniform
+    status: PLACEHOLDER
+    rationale: >-
+      Uniform, not normal. With no ward-level turnout data there is no basis for claiming a
+      central tendency, and a uniform draw does not pretend to one.
+
+support:
+  mulu_ward_low:
+    value: 0.18
+    status: PLACEHOLDER
+    rationale: >-
+      Lower bound of Mulu's per-ward vote share draw. Anchored on his published countywide
+      nomination-poll range (20.2%–26.2%, three polls, Mar–Aug 2026) and widened downward
+      because those polls measure WPF nomination preference, not general-election support,
+      and are countywide, not per ward. This is a scenario input, not a projection.
+  mulu_ward_high:
+    value: 0.32
+    status: PLACEHOLDER
+    rationale: Upper bound. See mulu_ward_low.
+  home_advantage_multiplier:
+    value: 1.35
+    applies_to: Kitui Central
+    status: PLACEHOLDER
+    rationale: >-
+      Multiplier on the drawn share in his home constituency's five wards. He has been its
+      MP since 2013 [S18]. No measured home-ward support figure exists anywhere in the
+      pack, so this is a judgement number, not evidence. Stage 3's tornado chart shows how
+      much the result moves with it — treat that sensitivity as the real output.
+  mwingi_narrative_multiplier:
+    value: 1.00
+    applies_to: Mwingi bloc
+    status: PLACEHOLDER
+    rationale: >-
+      Set to 1.00 deliberately, i.e. no effect. The "Kavaa Makali" narrative is reported to
+      be gaining traction in Mwingi [S30], but that is a single T3 outlet with no measured
+      support figure. Encoding it as an uplift would convert an anecdote into arithmetic.
+      Left at parity until the baseline survey measures it.
+
+simulation:
+  n_draws:
+    value: 10000
+    status: CONFIRMED
+    rationale: Specified by the brief. With a fixed seed this is exactly reproducible.
+  label:
+    value: "Scenario model, not a forecast."
+    status: CONFIRMED
+    rationale: Required on every Stage 3 output.
+
+rivals:
+  model_rivals:
+    value: false
+    status: PLACEHOLDER
+    rationale: >-
+      No rival vote ranges have been supplied. While this is false, Stage 3 reports
+      benchmark comparisons and explicitly states it is NOT a win probability. To enable,
+      set true and add per-rival ranges below; the report then changes its own language.
+  ranges: {}
+
+# ---------------------------------------------------------------------------------------
+# 4. Nomination model (Stage 3A)
+# ---------------------------------------------------------------------------------------
+nomination:
+  poll_samples_proportional_to_register:
+    value: true
+    status: PLACEHOLDER
+    rationale: >-
+      UNCONFIRMED. The brief instructs this assumption for the leverage model. WPF has not
+      published the sample frame, and the pack lists the nomination-poll terms as
+      [DATA NEEDED] (gap 9). If the real poll over-samples urban wards, every leverage rank
+      below shifts. Stated on the chart, not just here.
+  method_is_opinion_poll:
+    value: true
+    source_id: S10
+    tier: 3
+    status: PLACEHOLDER
+    verify: true
+    rationale: >-
+      The County Diary, May 2026. T3, not confirmed by the party. The entire nomination
+      strategy rests on this. If WPF runs a delegate primary instead, Stage 3A is void.
+
+# ---------------------------------------------------------------------------------------
+# 5. Ward priority index (Stage 4)
+# ---------------------------------------------------------------------------------------
+# Weights must sum to 1.0 across features that are actually available. Features with no
+# data are dropped and listed — never imputed — and the remaining weights are renormalised,
+# with the renormalisation stated in the report.
+index_weights:
+  registered_voters:
+    value: 0.30
+    status: PLACEHOLDER
+    rationale: Raw electoral weight. The only feature with complete T1 data today.
+  registration_growth:
+    value: 0.15
+    status: PLACEHOLDER
+    rationale: Requires the 2026 register by ward. [DATA NEEDED] — currently dropped.
+  recognition_gap:
+    value: 0.25
+    status: PLACEHOLDER
+    rationale: >-
+      Highest weight after voter weight, because the campaign's own diagnosis is that his
+      deficit is a recognition problem. Requires the baseline survey. [DATA NEEDED].
+  connectivity:
+    value: 0.10
+    status: PLACEHOLDER
+    rationale: >-
+      Channel-mix proxy, not persuasion weight — it says how to reach a ward, not how much
+      the ward matters. Requires ward-level coverage data. [DATA NEEDED] (pack gap 20).
+  drought_exposure:
+    value: 0.10
+    status: PLACEHOLDER
+    rationale: >-
+      Issue-salience proxy. NDMA publishes at county level only in the pack; sub-county
+      detail is [DATA NEEDED]. A county-wide constant has zero variance across wards and
+      so cannot enter a ward ranking — currently dropped.
+  party_strength_2022:
+    value: 0.10
+    status: PLACEHOLDER
+    rationale: Requires 2022 Forms 37A/37B by ward. [DATA NEEDED] (pack gap 7).
+
+sensitivity:
+  n_weight_draws:
+    value: 1000
+    status: CONFIRMED
+    rationale: Specified by the brief. Dirichlet perturbation of the weight vector.
+  dirichlet_concentration:
+    value: 10.0
+    status: PLACEHOLDER
+    rationale: >-
+      Concentration for the Dirichlet draw around the stated weights. 10.0 gives meaningful
+      spread without producing degenerate weight vectors. Lower = more aggressive test.
+  unstable_rank_range:
+    value: 8
+    status: PLACEHOLDER
+    rationale: >-
+      A ward whose rank spans more than 8 places across the 1,000 draws is flagged unstable.
+      8 is one fifth of 40 wards — a judgement line, stated so it can be argued with.
+
+clustering:
+  min_segments:
+    value: 3
+    status: CONFIRMED
+    rationale: Brief specifies 3–5 segments.
+  max_segments:
+    value: 5
+    status: CONFIRMED
+    rationale: Brief specifies 3–5 segments.
+  linkage:
+    value: ward
+    status: CONFIRMED
+    rationale: Ward linkage on standardised features, as specified.
+  n_wards:
+    value: 40
+    status: CONFIRMED
+    rationale: >-
+      Stated beside every cluster result. n = 40 is a small sample: silhouette scores are
+      unstable at this size and segment membership should be read as indicative.
+
+# ---------------------------------------------------------------------------------------
+# 6. Content pillars (Stage 6 labelling, Stage 10 ranking)
+# ---------------------------------------------------------------------------------------
+# Derived from the issues the pack evidences, not from the site's messaging section, so that
+# Stage 10 ranks pillars against data rather than against the proposal's own prior.
+content_pillars:
+  status: PLACEHOLDER
+  rationale: >-
+    Pillar set for auto-labelling untagged posts and comments. Each is anchored to a pack
+    figure so Stage 10 can score salience from evidence. Revise once the baseline survey
+    and comment corpus exist.
+  values:
+    - id: water
+      label: Water and drought
+      evidence: "21% basic drinking water, lowest county in Kenya [S41]; 7.2 km trekking Feb 2026 [S43]"
+    - id: poverty
+      label: Household economics and poverty
+      evidence: "55.2% poverty rate; food is 72.5% of household spend [S40]"
+    - id: fiscal
+      label: County finance and accountability
+      evidence: "KSh 13.79bn FY2026/27 envelope [S47]; the Economist Governor frame"
+    - id: allocation
+      label: How county money is split between wards
+      evidence: "CLIDP equal-ward split vs needs-based allocation [S24]"
+    - id: record
+      label: Record and delivery
+      evidence: "NG-CDF projects [S20]; Budget & Appropriations [S18]. Project records only, never beneficiary lists"
+    - id: mui_coal
+      label: Mui Basin coal
+      evidence: "~400m tonnes; 2023 residents' petition [S52]; 2025 revival [S51]"
+    - id: agriculture
+      label: Farming and food security
+      evidence: "NDMA phases Dec 2025 – Aug 2026 [S43-S46]"
+    - id: youth
+      label: Youth, jobs and registration
+      evidence: "IEBC flagged lagging youth registration, Feb 2026 [S69]"
+    - id: campaign
+      label: Campaign activity and events
+      evidence: "Daily activity updates are the current posting pattern (pack §1.1)"
+    - id: other
+      label: Other or unclassifiable
+      evidence: "Residual. A post landing here is not a pillar failure, it is an untagged post."
+
+labelling:
+  in_session_limit:
+    value: 300
+    status: CONFIRMED
+    rationale: Up to ~300 items are labelled in-session in batches; beyond that, the API script.
+  low_confidence_threshold:
+    value: 0.70
+    status: PLACEHOLDER
+    rationale: Labels below this confidence are flagged for human review.
+  human_review_sample:
+    value: 0.20
+    status: CONFIRMED
+    rationale: >-
+      A random 20% of ALL labels goes to human review regardless of confidence, so review
+      coverage does not depend on the model's own self-assessment.
+  kikamba_always_review:
+    value: true
+    status: CONFIRMED
+    rationale: >-
+      Every Kikamba item goes to human review. Off-the-shelf sentiment models do not handle
+      Kikamba and their output on it must not be trusted.
+
+# ---------------------------------------------------------------------------------------
+# 7. Reach model (Stage 9). Every figure derived here is MODELLED.
+# ---------------------------------------------------------------------------------------
+reach:
+  county_internet_use:
+    value: 0.136
+    unit: share of residents aged 3+
+    source_id: S35
+    tier: 2
+    as_of: "2019"
+    status: CONFIRMED
+    rationale: >-
+      KNBS 2019 census: 143,340 of 1,053,991 aged 3+. The pack rounds this to 13% [S35];
+      the census arithmetic gives 13.6% and the site uses that. Seven years stale as of
+      Sep 2026 — the year is shown beside every figure derived from it.
+  county_phone_ownership:
+    value: 0.429
+    unit: share of residents aged 3+
+    source_id: S35
+    tier: 2
+    as_of: "2019"
+    status: CONFIRMED
+    rationale: >-
+      KNBS 2019 census: 452,948 owners. Pack rounds to 43%. County rate exists, so it is
+      used in preference to the national rural rate. Stale by seven years.
+  national_rural_phone_ownership:
+    value: 0.486
+    unit: share aged 3+
+    source_id: S36
+    tier: 2
+    as_of: "2023-24"
+    status: CONFIRMED
+    rationale: >-
+      KNBS Housing Survey 2023/24, rural. Used ONLY as the fallback where no county rate
+      exists, and reported alongside the county rate to show the direction of drift.
+  national_internet_use:
+    value: 0.35
+    unit: share
+    source_id: S36
+    tier: 2
+    as_of: "2023-24"
+    status: CONFIRMED
+    rationale: KNBS Housing Survey 2023/24, national. Fallback only.
+  smartphone_share_of_connections:
+    value: 0.597
+    unit: share of active SIMs
+    source_id: S34
+    tier: 2
+    as_of: "2025-26 Q3"
+    status: CONFIRMED
+    method: calculated
+    rationale: >-
+      CA Q3 FY2025/26: 50.2m smartphones / 84.1m active SIMs = 59.7%. A NATIONAL rate
+      applied to a rural county with below-average connectivity, so it almost certainly
+      overstates Kitui. Flagged as such on every output.
+  ward_uniformity:
+    value: true
+    status: PLACEHOLDER
+    rationale: >-
+      The model applies county rates uniformly across all 40 wards, because no ward-level
+      connectivity data exists ([DATA NEEDED], pack gap 20). This is known to be wrong:
+      the pack records USO coverage gains in Mwingi North, Mumoni, Ngomeni and Tharaka
+      [S35], so rural wards differ from Township. Ward reach figures are therefore a
+      county rate applied to a ward denominator, and the report says exactly that.
+
+# ---------------------------------------------------------------------------------------
+# 8. Messaging compliance (binds Stages 9-11)
+# ---------------------------------------------------------------------------------------
+compliance:
+  bulk_sms_languages:
+    value: [English, Kiswahili]
+    source_id: S54
+    tier: 2
+    status: CONFIRMED
+    rationale: >-
+      CA/NCIC guidelines limit bulk political SMS to English or Kiswahili. Kikamba is not
+      available on the bulk SMS layer — it belongs on radio, WhatsApp voice and in person.
+      Any Stage 11 test design proposing Kikamba SMS is non-compliant.
+  sms_lodging_hours:
+    value: 48
+    source_id: S53
+    tier: 1
+    status: CONFIRMED
+    rationale: Bulk political messages lodged with the operator 48 hours before sending.
+  send_window_draft:
+    value: "08:00-18:00"
+    source_id: S55
+    tier: 2
+    status: PLACEHOLDER
+    verify: true
+    rationale: A 2020 draft revision proposed this window. [VERIFY] whether it is in force.
+  ngcdf_beneficiary_data_usable:
+    value: false
+    source_id: S57
+    tier: 1
+    status: CONFIRMED
+    rationale: >-
+      ODPC 2025 public-sector guidance bars reusing public-programme personal data for
+      political mobilisation without explicit consent. Beneficiary lists are off-limits.
+      Project records remain usable as proof points.
+
+# ---------------------------------------------------------------------------------------
+# 9. Measurement design (Stage 11)
+# ---------------------------------------------------------------------------------------
+measurement:
+  alpha:
+    value: 0.05
+    status: CONFIRMED
+    rationale: Two-sided 95% confidence, matching the poll margins in Stage 2.
+  power:
+    value: 0.80
+    status: CONFIRMED
+    rationale: Conventional 80% power for the minimum detectable effect calculation.
+  baseline_rates:
+    value: [0.02, 0.05, 0.10]
+    status: PLACEHOLDER
+    rationale: >-
+      Illustrative baseline response rates for the two-proportion MDE grid. No campaign has
+      run yet, so there is no measured baseline. Replaced by the Week 1 audit.
+  list_sizes:
+    value: [1000, 5000, 10000, 25000, 50000, 100000]
+    status: PLACEHOLDER
+    rationale: Illustrative SMS list sizes spanning ward-level to countywide sends.
+  holdout_share:
+    value: 0.15
+    status: PLACEHOLDER
+    rationale: >-
+      Share of wards held out as untreated controls, stratified by constituency. 15% of 40
+      is 6 wards. Large enough to read an effect, small enough to cost little reach.
+  holdout_is_confidential:
+    value: true
+    status: CONFIRMED
+    rationale: >-
+      The holdout assignment must never be published to the site. If rivals or the campaign's
+      own team know which wards are controls, the experiment is dead.
+
+# ---------------------------------------------------------------------------------------
+# 10. Site export (Stage 12)
+# ---------------------------------------------------------------------------------------
+site_export:
+  never_publish:
+    value: [vulnerabilities, rival_analysis, holdout_assignments, nomination_leverage]
+    status: CONFIRMED
+    rationale: >-
+      Stripped before any copy to the site's content folder. The repo is public and the site
+      is a public URL. Nomination leverage rankings tell rivals where to defend; holdout
+      assignments destroy the experiment; rival analysis and vulnerability lines are
+      internal working material.
+  requires_approval:
+    value: true
+    status: CONFIRMED
+    rationale: >-
+      Nothing is copied into the site until reports/site_mapping.md is approved. The
+      pipeline never edits the site's files on its own.

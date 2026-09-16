@@ -8,3 +8,10 @@ coverage/
 *.tsbuildinfo
 bun.lock
 bun.lockb
+
+# Analysis pipeline — never commit data or outputs (see analysis/CLAUDE.md)
+analysis/data/
+analysis/outputs/
+analysis/.venv/
+analysis/**/__pycache__/
+analysis/.pytest_cache/

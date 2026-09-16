@@ -1,0 +1,19 @@
+# Kitui 2027 analysis pipeline — Python 3.11
+# Pinned. Install into analysis/.venv (see CLAUDE.md). Never move this file to the repo root:
+# the site's Vercel build must never see a Python dependency manifest.
+
+pandas==2.2.3
+numpy==1.26.4
+scipy==1.14.1
+statsmodels==0.14.4
+scikit-learn==1.5.2
+matplotlib==3.9.2
+PyYAML==6.0.2
+pytest==8.3.3
+
+# Stage 5 (maps) only. If this fails to build, skip Stage 5, log the gap and continue —
+# do not spend time fixing the install (addendum, ENVIRONMENT).
+geopandas==1.0.1
+
+# PyMC is deliberately absent. Stage 2 installs it only if 5+ published polls exist.
+# At 3 published polls the Bayesian average is skipped, so the dependency is not taken on.
