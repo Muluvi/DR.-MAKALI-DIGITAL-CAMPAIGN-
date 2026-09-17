@@ -3,6 +3,10 @@ Four workstreams that reach voters off the internet: ground-digital integration,
 
 ## 8.8 Workstream 7 — Ground-digital integration
 
+> **Owner: the campaign.** The 40 ward coordinators are the campaign's people. Firefly supplies
+> the reporting template and the analysis of what comes back.
+
+
 A campaign that operates field organizing and digital messaging as isolated silos will fail in a county where 86.4% of voters are offline. Digital content created in an air-conditioned command center in Nairobi or Kitui Town is worthless if it does not address the live anxieties voiced at the morning livestock auction in Nguni or the wellhead in Mutha.
 
 The campaign establishes a **Closed-Loop Ground-Digital Integration Engine**. Field intelligence captured by the 40 Ward Coordinators directly dictates the daily digital and radio advertising content; conversely, digital and radio narratives are converted by field captains into physical talking points, print flyers, and audio notes distributed through local transport and commercial networks.
@@ -93,7 +97,7 @@ When field intelligence reaches the War Room, it triggers an automated, standard
                  Digital team produces:
                  • 30-second Kikamba video for TikTok/Facebook.
                  • 45-second audio note voiced by Dr. Mulu or respected elder.
-                 • 160-character localized Kikamba SMS.
+                 • 160-character localised Kiswahili SMS.
 
    T + 04:00 ──► SYNCHRONIZED MULTI-CHANNEL DEPLOYMENT
                  • Meta & TikTok Ads geofenced strictly to Mwingi North.
@@ -187,6 +191,9 @@ To maintain operational tempo across 8 constituencies and 40 wards, the campaign
 
 ## 8.9 Workstream 8 — The field-to-digital loop
 
+> **Owner: the campaign.** Firefly supplies the instrument and its data governance.
+
+
 ### 8.9.1 Operating architecture and bidirectional sync
 
 Most campaigns run two separate operations: a ground team that knocks doors and
@@ -232,7 +239,16 @@ honest: if the model and the doorstep disagree, the model is wrong.
 
 ---
 
-## 8.10 Workstream 9 — Offline reach: SMS, USSD and voice
+## 8.10 Workstream 9 — What Firefly operates: SMS, USSD and voice
+
+> **Owner: Firefly, end to end.** Two pieces of infrastructure, held and run by Firefly: the
+> **WhatsApp Business API line** and the **USSD shortcode** `[CONFIRM/EDIT — confirm both are held,
+> and whether the shortcode is dedicated or shared]`. This is the one place in the engagement where
+> Firefly publishes. Everything on the owned social accounts stays with the team that runs them.
+>
+> It is also the one place where Firefly is a **data controller or joint controller** rather than a
+> processor — see Section 12.5.1, which must be settled in writing before the first dispatch.
+
 
 ### 8.10.1 Why this layer decides the race
 
@@ -264,17 +280,39 @@ regulatory basis; the short version is that the industry code requires express
 opt-in for political messages and the ODPC has demonstrated willingness to
 penalise unsolicited messaging.
 
-**Message architecture** — 160 characters, three languages, ward-tagged:
-| Type | Frequency | Example structure |
-|---|---|---|
-| **Policy drop** | Weekly | One issue, one commitment, one verification promise |
-| **Kikamba community message** | Fortnightly | Proverb or idiom + policy anchor |
-| **Registration drive** | Phase-specific | Deadline, nearest centre, what to bring |
-| **Event notice** | As scheduled | Ward-targeted baraza details |
-| **GOTV sequence** | Final 30 days | Countdown, polling station, time |
-| **Rapid rebuttal** | On trigger | Fact correction, plain language |
+> ### Bulk political SMS cannot be sent in Kikamba
+>
+> The CA/NCIC guidelines on political bulk messaging restrict political SMS to **English or
+> Kiswahili** (Tier 1, Communications Authority). They also require every bulk political message
+> to be **lodged with the mobile operator at least 48 hours before sending**, with the verbatim
+> text and a signed authorisation, and they allow the operator to **refuse** a non-compliant
+> message outright.
+>
+> **This changes the channel plan, not the language strategy.** Kikamba remains the campaign's
+> strongest register — it simply cannot ride the bulk SMS rail. It belongs on **radio, WhatsApp
+> voice notes, USSD menu text, barazas and person-to-person**, which is where the Section 6A
+> pillars already put it. SMS carries the Kiswahili and English versions of the same message.
+>
+> Two practical consequences the operating rhythm must absorb: a 48-hour lodging lead time makes
+> **same-day SMS rapid response impossible** — the rebuttal row below runs on WhatsApp and radio
+> instead — and a **2020 draft revision** proposed narrowing the sending window to 08:00–18:00
+> `[VERIFY whether in force]`.
+
+**Message architecture** — 160 characters, **English or Kiswahili only**, ward-tagged:
+| Type | Frequency | Language | Example structure |
+|---|---|---|---|
+| **Policy drop** | Weekly | Kiswahili / English | One issue, one commitment, one verification promise |
+| **Community message** | Fortnightly | Kiswahili | Policy anchor in plain register. *The Kikamba proverb version of this message goes out as a WhatsApp voice note, not as SMS* |
+| **Registration drive** | Phase-specific | Kiswahili / English | Deadline, nearest centre, what to bring |
+| **Event notice** | As scheduled | Kiswahili | Ward-targeted baraza details |
+| **GOTV sequence** | Final 30 days | Kiswahili / English | Countdown, polling station, time |
+| **Rapid rebuttal** | On trigger | — | **Not an SMS channel.** The 48-hour lodging rule rules it out; runs on WhatsApp, radio and the ward networks |
 
 **Operational discipline:**
+* **Every bulk send lodged with the operator 48 hours ahead**, verbatim text plus signed
+authorisation, logged against the dispatch record
+* **No attacks on individuals, families, ethnicity, religion or association** in any message —
+a guideline requirement, and already a charter commitment (Section 12.5.4, clauses 2 and 6)
 * Sending window **7am–7pm**, per market practice and DND norms
 * Every message carries a clear opt-out; opt-outs honoured immediately and
 permanently
@@ -353,6 +391,12 @@ a vanity one.
 ---
 
 ## 8.11 Workstream 10 — Digital organising and volunteers
+
+> **Outside this engagement.** Volunteer recruitment, tiers, gamification and ward-champion
+> management belong to the ground campaign, which already runs them. Firefly's contribution is
+> the metric definitions the leaderboard reports against, and nothing else. The material below is
+> retained as reference for the campaign's own coordinator, not as a Firefly deliverable.
+
 
 ### 8.11.1 Turning online supporters into offline organisers
 

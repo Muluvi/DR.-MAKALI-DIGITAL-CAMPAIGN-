@@ -7,7 +7,9 @@ The 2027 gubernatorial contest for Kitui County represents a decisive developmen
 
 However, clinical policy credentials and legislative accomplishments do not automatically translate into electoral victory. More critically, the immediate structural bottleneck is not the general election itself, but the highly competitive party nomination process. The campaign's current operational planning must adapt to this immediate threat.
 
-This document details a comprehensive digital campaign apparatus. The operational scope spans multi-channel social media governance, localized content development across English, Kiswahili, and Kikamba, micro-targeted digital advertising, real-time data analytics, secure web infrastructure, online fundraising systems, and an offline-compatible SMS/USSD communication gateway for voters lacking internet access. It further integrates earned-media optimization, debate preparation frameworks, defensive cybersecurity protocols, and a transparent digital ethics charter.
+Dr. Mulu is already in the conversation. A verified page, 745 posts, a team that publishes every day in three languages. What the record does not yet show is a reason behind any single post: which voter it was for, which of the 275,570 registered voters in his recognition-deficit wards it reached, and whether it moved anything.
+
+This document proposes the layer that supplies it. Firefly analyses the race, the electorate and Dr. Mulu's own digital performance; from that analysis it defines what to post, for whom, in which language, on which channel and why; and it directs the existing team through briefs, calendars, approvals and performance reviews. The team keeps publishing. Firefly operates one channel directly — the offline SMS, USSD and WhatsApp layer it already holds — and holds no publishing credentials to anything else.
 
 The campaign's core policy narrative remains mathematically and strategically sound: **Dr. Makali Mulu is the Economist Governor Kitui needs.** His PhD in Economics and extensive tenure on the National Assembly's Budget and Appropriations Committee uniquely qualify him to diagnose Kitui's structural fiscal constraints, optimize county resource allocation, and mobilize capital for critical water, agricultural, healthcare, and employment initiatives.
 
@@ -21,7 +23,7 @@ Dr. Mulu is not merely an economist; he is a specialist in **verifying whether p
 
 While standard digital campaign frameworks are designed for the August 2027 general election, this strategic proposal is constructed around the immediate, high-stakes nomination window. The decisive hurdle for Dr. Mulu's candidacy is occurring in the immediate term.
 
-The Wiper Democratic Movement has indicated an operational preference to determine its Kitui gubernatorial nominee via **opinion poll rather than competitive primaries** — *reported* by local digital media and **not yet confirmed by Wiper itself** (Tier 3; Section 3.1 sets out exactly what would confirm it) — establishing a direct, measured countywide popularity contest between Dr. Mulu, Woman Representative Dr. Irene Kasalu, and Senator Enoch Wambua. Senior party strategists intend to conclude this evaluation within the final quarter of 2026 — late October to November on the reported timetable (Section 16.1) — creating an extremely compressed operational window.
+The Wiper Patriotic Front has indicated an operational preference to determine its Kitui gubernatorial nominee via **opinion poll rather than competitive primaries** — *reported* by local digital media and **not yet confirmed by Wiper itself** (Tier 3; Section 3.1 sets out exactly what would confirm it) — establishing a direct, measured countywide popularity contest between Dr. Mulu, Woman Representative Dr. Irene Kasalu, and Senator Enoch Wambua. Senior party strategists intend to conclude this evaluation within the final quarter of 2026 — late October to November on the reported timetable (Section 16.1) — creating an extremely compressed operational window.
 
 The published polling data indicates a critical, widening deficit that requires immediate, aggressive intervention:
 
@@ -38,7 +40,7 @@ Consequently, this proposal initiates with an immediate **Phase −1: a high-int
 
 ## 2.3 The operating conditions
 
-Unlike standard social media administration, this framework integrates predictive voter modeling, behavioral persuasion heuristics, AI-driven creative optimization, gamified volunteer networks, and a digital war room executing structured red-team simulations. It operates with multi-touch attribution, competitive signal intelligence, advanced cybersecurity defense (including rapid deepfake rebuttal protocols), strict accessibility compliance, and a formalized Digital Ethics & Data Charter — optimized explicitly for Kitui's unique demographic, connectivity, and regulatory landscapes.
+The analytical layer this engagement supplies is predictive voter modelling, multi-touch attribution, competitive signal intelligence and structured red-team simulation, held to a strict accessibility standard and a published Digital Ethics & Data Charter — and calibrated to Kitui's demographic, connectivity and regulatory landscape rather than to a national template.
 
 Three structural constraints dictate the execution of this strategy:
 
@@ -53,11 +55,13 @@ Three structural constraints dictate the execution of this strategy:
 Firefly commits to a scope, a cadence and a standard. It does not commit to an electoral outcome,
 and no figure in this document should be read as one.
 
-**The scope** is the fourteen workstreams in Section 8, with their boundaries stated so that what
-is outside them is as clear as what is inside.
+**The scope** is the fourteen workstreams in Section 8, with an owner named against each — six
+Firefly operates, six the existing team runs to a Firefly brief, two are outside the engagement —
+and boundaries stated so that what is outside them is as clear as what is inside.
 
-**The cadence** is in Section 10: what is produced, how often, and in what form, at whichever
-scope level the campaign selects.
+**The cadence** is in Section 12.1.2: the weekly brief, the calendar, the approval path and the
+monthly review. Section 10 states what each engagement level carries, measured in depth of
+intelligence rather than in volume of Firefly's output.
 
 **The standard** is in Sections 11 and 12: indicators that trace to either the nomination poll
 share or the vote threshold, reported on a fixed cycle to a single named campaign counterpart,

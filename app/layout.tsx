@@ -41,21 +41,21 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Kitui 2027 — Campaign Strategy & Digital Architecture',
-  description: 'Campaign Strategy & Digital Architecture Proposal — Hon. Dr. Benson Makali Mulu, Kitui County. Prepared by Firefly Management, August 2026.',
+  title: 'Kitui 2027 — Analysis, Strategy and Direction',
+  description: 'Analysis, strategy and direction for the existing digital operation of Hon. Dr. Benson Makali Mulu, Kitui County. Prepared by Firefly Management, September 2026. Confidential.',
   robots: {
     index: false,
     follow: false,
   },
   openGraph: {
-    title: 'Kitui 2027 — Campaign Strategy & Digital Architecture',
-    description: 'Campaign Strategy & Digital Architecture Proposal — Hon. Dr. Benson Makali Mulu, Kitui County. Prepared by Firefly Management, August 2026.',
+    title: 'Kitui 2027 — Analysis, Strategy and Direction',
+    description: 'Analysis, strategy and direction for the existing digital operation of Hon. Dr. Benson Makali Mulu, Kitui County. Prepared by Firefly Management, September 2026. Confidential.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kitui 2027 — Campaign Strategy & Digital Architecture',
-    description: 'Campaign Strategy & Digital Architecture Proposal — Hon. Dr. Benson Makali Mulu, Kitui County. Prepared by Firefly Management, August 2026.',
+    title: 'Kitui 2027 — Analysis, Strategy and Direction',
+    description: 'Analysis, strategy and direction for the existing digital operation of Hon. Dr. Benson Makali Mulu, Kitui County. Prepared by Firefly Management, September 2026. Confidential.',
   },
 };
 

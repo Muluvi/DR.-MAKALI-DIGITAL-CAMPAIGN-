@@ -22,11 +22,13 @@ const CONTENT = path.join(ROOT, "public", "content");
 const TABS = {
   "decision.md": "decision",
   "cover.md": "cover",
+  "presence.md": "presence",
   "summary.md": "summary",
   "situation.md": "situation",
   "objectives.md": "objectives",
   "audiences.md": "audiences",
   "approach.md": "approach",
+  "engine.md": "engine",
   "messaging.md": "messaging",
   "scope.md": "scope",
   "scope-platforms.md": "scope-platforms",

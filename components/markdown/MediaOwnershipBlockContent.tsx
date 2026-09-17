@@ -51,6 +51,7 @@ export function MediaOwnershipBlockContent() {
           <thead>
             <tr className="t-micro font-bold text-muted">
               <th className="py-1 pr-3">Station</th>
+              <th className="py-1 pr-3">Frequency</th>
               <th className="py-1 pr-3">Reported alignment</th>
               <th className="py-1 pr-3">Reach (qualitative)</th>
               <th className="py-1">Tier</th>
@@ -60,6 +61,7 @@ export function MediaOwnershipBlockContent() {
             {RADIO_STATIONS.map((s, i) => (
               <tr key={i} className="border-t border-line/40">
                 <td className="py-1.5 pr-3 font-bold text-ink">{s.name}</td>
+                <td className="py-1.5 pr-3 text-ink/70 tabular-nums">{s.frequency ?? "—"}</td>
                 <td className="py-1.5 pr-3 text-ink/80">{s.alignment}</td>
                 <td className="py-1.5 pr-3 text-ink/80">{s.reachLabel.split(" (")[0]}</td>
                 <td className="py-1.5">

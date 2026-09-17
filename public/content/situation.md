@@ -18,7 +18,12 @@ re-check happens deliberately rather than by accident.
 
 ### 3.1.2 Where the opinion-poll mechanism stands
 
-The strategic assumption that the Wiper Democratic Movement will select its Kitui gubernatorial nominee via a countywide opinion poll is classified as **Tier 3 (single-sourced campaign report, not confirmed by party officials)**. This mechanism remains highly fluid and subject to internal party negotiations.
+> **The party's name changed in 2025.** The Office of the Registrar of Political Parties issued a
+> certificate of change of name from **Wiper Democratic Movement (WDM)** to **Wiper Patriotic Front
+> (WPF)** in August 2025 (Tier 1, ORPP). This document uses WPF throughout; WDM appears only where
+> a 2022 record is quoted as it was filed.
+
+The strategic assumption that the Wiper Patriotic Front will select its Kitui gubernatorial nominee via a countywide opinion poll is classified as **Tier 3 (single-sourced campaign report, not confirmed by party officials)**. This mechanism remains highly fluid and subject to internal party negotiations.
 
 To transition this selection mechanism from a Tier 3 strategic assumption to a **Tier 1 verified operational constraint**, the campaign requires:
 1.  An official, signed resolution by the **Wiper National Executive Council (NEC)**.
@@ -43,9 +48,53 @@ Any standard, scientifically weighted polling instrument represents a critical s
 
 ### 3.1.5 The polling gap, as sourced
 
-The campaign must operate with absolute, clinical objectivity regarding the current polling environment. There is no statistical basis to project a positive growth trend based on the two survey rounds completed to date:
-*   **The Polling Deficit (Tier 2):** Dr. Mulu remains in a substantial countywide deficit. The August 2026 Mizani survey places Dr. Irene Kasalu at **37.4%** preference share, while Dr. Mulu stands at **22.1%** (Tier 2).
-*   **Honest Deficit Assessment:** This represents a significant, flat **15.3-point countywide deficit**. The two data points available (June vs. August 2026) are statistically insufficient to project a positive trend or reliable trajectory. The campaign is currently trailing, and closing this 15.3-point gap before the mid-November evaluation window demands an immediate, aggressive, and highly localized deployment of the Phase −1 digital and SMS campaign.
+Three published rounds exist, from **two different pollsters**. They are set out together and are
+deliberately **not drawn as one trend line**: different houses use different samples, screens and
+question wording, and joining them would manufacture a trajectory nobody measured.
+
+| Pollster | Release | Sample | **Mulu** | Kasalu | Wambua | Ngilu | Undecided | Gap |
+|---|---|---|---|---|---|---|---|---|
+| **Politrack Africa** | 12 Mar 2026 | n = 2,927 | **26.2%** | 35.2% | 18.8% | 18.6% | 0.6% | **−9.0 pts** |
+| Mizani Africa | 23 Jun 2026 | `[DATA NEEDED]` | **20.2%** | 31.3% | 16.3% | not polled | `[DATA NEEDED]` | **−11.1 pts** |
+| Mizani Africa | 7 Aug 2026 | `[DATA NEEDED]` | **22.1%** | 37.4% | 14.3% | 17.0% | 6.0% | **−15.3 pts** |
+
+*All Tier 2. Politrack via The County Diary, 12 March 2026; Mizani via Mizani Africa and The County
+Diary. Sample sizes and method for both Mizani rounds are a named data gap — Section 15.1 lists the
+request.*
+
+*   **The deficit, within the Mizani series (Tier 2):** **15.3 points** at 7 August 2026, widened
+    from 11.1 points in June. Within one house's method, that widening is a real signal.
+*   **Across houses, the picture is less settled.** Politrack in March had the gap at 9.0 points
+    with Dr. Mulu on 26.2% — a *higher* share than either Mizani round records. That does not mean
+    his support fell; it means two houses measure this electorate differently, and the campaign
+    should say so rather than pick the flattering one.
+*   **Undecideds are the movable block.** Mizani's August round reports **6.0%** undecided;
+    Politrack reported **0.6%**. The difference is itself a methodological signal worth the
+    question in Section 15.1.
+*   **Honest deficit assessment:** whichever series is used, Dr. Mulu is second and the leader is
+    not fading. Closing that gap before the evaluation window demands localised reach into the
+    sub-counties where he is least known, which is what Section 1A measures and Section 6A
+    commissions.
+
+**One structural fact behind all three rounds: this is an open seat.** Governor Julius Malombe was
+elected in 2013 and again in 2022, and Article 180(7) of the Constitution limits a governor to two
+terms (Tier 1). No incumbent is defending. Every published share above is a contest for an empty
+chair, not a challenge to a sitting governor.
+
+### 3.1.5a Two things the home base cannot be assumed to do
+
+**Kitui Central will be fighting its own contest.** Stephen Kilonzo ("Kitundumo") has reportedly
+entered the Kitui Central MP race, and NLP leader Augustus Muli is weighing a bid there (Tier 3 and
+Tier 2 respectively). Dr. Mulu's home constituency — 77,764 voters, 14.6% of the register — will
+therefore have its own succession fight running through the same window as his gubernatorial bid.
+**Anchor-zone loyalty cannot be left on autopilot**, and the Section 6A pillar weights should not
+assume it.
+
+**Two constituencies will not carry party flow.** Kitui East returned a **UDA** MP and Kitui South a
+**Jubilee** MP in 2022 (Tier 3, constituency records). Together they hold **140,749 registered
+voters — 26.4% of the county**. Party structures do not reach those local networks, which means
+reach into them is a direct-contact problem rather than a party-mobilisation one. Both sit inside
+the recognition-deficit pool, so this compounds rather than offsets the Section 3.4.5 finding.
 
 ### 3.1.6 If it becomes a delegate primary
 
@@ -80,10 +129,10 @@ Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS, represents a highly refined t
 
 The 2027 gubernatorial race in Kitui features a highly competitive, multi-candidate field. The campaign's strategic and digital architecture must navigate a distinct, two-stage contest.
 
-#### Stage One: The Wiper Democratic Movement Nomination Window (Immediate Target)
+#### Stage One: The Wiper Patriotic Front Nomination Window (Immediate Target)
 
 *   **Dr. Irene Kasalu (Woman Representative, Kitui County):** Commands an expansive, countywide constituency base by virtue of her seat. It has been reported in regional media that she maintains active grassroots networks built through her extensive local development tours ("Ziara Mashinani") (Tier 2). Polling data as of August 2026 establishes her as the current frontrunner in public preference at 37.4% (Tier 2). However, critics allege a lack of structured financial governance or executive experience. Her public criticism of the incumbent's equal-ward funding allocation is a live policy argument, and one where the campaign's own position needs settling first: Section 7.1.1 currently proposes an equal-ward guarantee of its own. The two positions cannot both be run. Either the equal-ward guarantee is the platform, and this line of argument is not available to the campaign, or the argument is made and the guarantee is restated as a needs-weighted formula. **Firefly's recommendation is the second, because a published allocation methodology is the stronger fit with the verification pillar in Section 6.2.1 — but it is the campaign's policy call.**
-*   **Sen. Enoch Wambua (Senator, Kitui County):** Commands significant party influence and standing as a senior legislator within the Wiper Democratic Movement (Tier 1). He retains a highly loyal, traditional party delegate and voter base (Tier 1). However, published survey trends indicate a contraction in his countywide support, declining from 16.3% in June 2026 to 14.3% as of 7 August 2026 (Tier 2).
+*   **Sen. Enoch Wambua (Senator, Kitui County):** Commands significant party influence and standing as a senior legislator within the Wiper Patriotic Front (Tier 1). He retains a highly loyal, traditional party delegate and voter base (Tier 1). However, published survey trends indicate a contraction in his countywide support, declining from 16.3% in June 2026 to 14.3% as of 7 August 2026 (Tier 2).
 *   **Hon. Dr. Benson Makali Mulu (Member of Parliament, Kitui Central):** Possesses the most comprehensive macroeconomic, fiscal, and monitoring and evaluation credentials in the race (Tier 1). However, his primary structural challenge is constituency-bounded name recognition: a Kitui Central MP is inherently less visible in the Mwingi sub-counties and the arid southern belt than countywide office holders (Tier 1).
 
 **Strategic Diagnosis:** Dr. Mulu's polling deficit is substantially a
@@ -134,7 +183,7 @@ Because Governor Malombe served as Governor from 2013–2017, lost the 2017 elec
 ```
 
 *   **Scenario Branch A — Cumulative Disqualification:** Proponents of this reading argue that Article 180(7) imposes a lifetime limit of two terms of service, regardless of whether they were consecutive or interrupted. Under this reading, having served from 2013–2017 and 2022–2027, Governor Malombe is constitutionally barred from running in 2027.
-    *   *Strategic Consequence:* This scenario creates an "open-seat" election, dissolving Malombe's incumbency advantage. It will trigger intense factional realignment within the Wiper Democratic Movement and across independent coalitions, allowing Dr. Mulu to position himself as the natural, high-integrity successor to lead the county's economic transition.
+    *   *Strategic Consequence:* This scenario creates an "open-seat" election, dissolving Malombe's incumbency advantage. It will trigger intense factional realignment within the Wiper Patriotic Front and across independent coalitions, allowing Dr. Mulu to position himself as the natural, high-integrity successor to lead the county's economic transition.
 *   **Scenario Branch B — Eligibility Upheld:** Alternatively, a reading of the constitutional provisions may interpret the two-term limit as applying only to consecutive terms of service, or that an interrupted term resets the constitutional clock, rendering him eligible for the 2027 cycle.
     *   *Strategic Consequence:* Under this scenario, Governor Malombe remains eligible to defend his seat. The campaign must therefore execute a direct anti-incumbency strategy, overcoming a seated executive who commands county development resources, public-funding distribution systems, and established grassroots patronages.
 

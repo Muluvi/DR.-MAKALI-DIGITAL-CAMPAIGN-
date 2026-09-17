@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "figure": "483|",
+    "movedTo": "Removed, not moved. Part of the USSD shortcode `*483*77#`, which is NOT provisioned to this campaign (§15.1 lists it as pending at contracting). Printing it as a live code was a factual error in a document whose whole argument is provenance. Replaced by `*[shortcode]#` in §8.3.3, §3.6.2, §8.14 and §11.2.2, and in lib/phone-showcase.ts. Restore the digits when the aggregator provisions the code."
+  },
+  {
+    "figure": "77|",
+    "movedTo": "Removed, not moved. The second half of `*483*77#`. Same reason as 483 above."
+  },
+  {
+    "figure": "22340|",
+    "movedTo": "Removed, not moved. The SMS opt-out sender ID `STOP=22340`, likewise unprovisioned and printed three different ways across the document (22340, 22XXX). Now `[Insert sender ID]` in §8.3.3, §8.3.2 and lib/phone-showcase.ts."
+  },
+  {
+    "figure": "20000|",
+    "movedTo": "Removed on the document's own logic. It was the Phase −1 KPI \"engaged followers: 20,000\" in §9.1.1 — a follower count, which §11.2.3 rejects as a vanity metric two sections later. Replaced by R-02 (reach share landing in the 275,570-voter deficit pool) in §11.2.0, which measures the same phase against something a voter has to do."
+  },
+  {
+    "figure": "150|",
+    "movedTo": "Removed with the role it belonged to. It was the activation threshold for a second Community Manager (§14.4, \"150 inbound messages/day\"). Under the repositioning, community management is Dr. Mulu's existing team's work, not a Firefly surge hire, so the role and its trigger both leave §14.4."
+  }
+]

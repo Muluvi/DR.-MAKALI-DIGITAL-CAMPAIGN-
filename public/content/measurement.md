@@ -7,7 +7,7 @@ Two preference figures appear in this proposal, and they measure different popul
 
 ### 11.1.1 Stage 1: the nomination-window scorecard
 
-The nomination phase focuses on establishing unassailable party consensus and securing the Wiper Democratic Movement nomination ticket.
+The nomination phase focuses on establishing unassailable party consensus and securing the Wiper Patriotic Front nomination ticket.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -114,6 +114,34 @@ Every Key Performance Indicator (KPI) in this framework is strictly anchored to 
 
 ## 11.2 Indicators, and why these
 
+### 11.2.0 Re-anchored: recognition and persuasion where he is least known
+
+**Followers are not the target. Being known in Mwingi is.**
+
+Section 11.2.3 already rejects vanity metrics. These five indicators say what replaces them. Every
+one is measured where Dr. Mulu is least known, and four of the five can be read weekly rather than
+waiting on a survey wave.
+
+| Code | Indicator | Method | Baseline | Target |
+|---|---|---|---|---|
+| **R-01** | Aided name recognition, Mwingi North, Central and West | Sub-county CATI booster, N = 600 (NW-02 above) | `[DATA NEEDED — Week 1 instrument]` | ≥ 70.0% |
+| **R-02** | Share of total reach landing in the 275,570-voter deficit pool | Meta city breakdown mapped to sub-county, weekly | `[DATA NEEDED — Week 1 export]` | ≥ 51.7%, the pool's own share of the register |
+| **R-03** | Shares per 1,000 reached, deficit wards only | Post-level export, weekly | `[DATA NEEDED — Week 1 export]` | Set against the measured Week 1 figure, as a stated point gain |
+| **R-04** | Consented contacts in the 24 deficit wards, and their share of the list | Firefly's own dispatch logs | 0 | Deficit-ward share of the list ≥ deficit-ward share of the register |
+| **R-05** | First-choice preference among likely Wiper primary voters | Rolling tracking poll, N = 400 CATI (NW-01 above) | Not yet measured | ≥ 55.0% |
+
+**R-02 is the indicator this engagement lives or dies on.** It is the only one fully inside the
+direction layer's control, it moves weekly, and it is the direct test of the recognition thesis in
+Section 0.2. If reach share in the deficit pool does not rise, the briefs are wrong and the monthly
+review says so.
+
+**Excluded, and named so the exclusion is visible:** total followers, impressions, post likes, video
+views. They move without any voter moving. **R-03 replaces likes** because a share puts Dr. Mulu's
+name inside a network he does not own — which, in a ward where he is unknown, is the only thing a
+post can usefully do.
+
+
+
 Political strategy without empirical measurement risks misallocating scarce campaign capital. To eliminate speculative assumptions, the campaign implements a two-part data architecture: **Section 11.2.1** establishes the research programme to test the recognition-deficit hypothesis and govern nomination polling, while **Section 11.2.2** operationalizes a public service-delivery tracker that bridges campaign credibility with day-one governance.
 
 ```
@@ -123,7 +151,7 @@ Political strategy without empirical measurement risks misallocating scarce camp
 
    19A: RESEARCH PROGRAMME                        19B: SERVICE-DELIVERY TRACKER
  ┌──────────────────────────────────────┐       ┌───────────────────────────────────┐
- │ • Pre-Budget Recognition Testing     │       │ • Ward-by-Ward Baseline Metrics   │
+ │ • Pre-Cycle Recognition Testing      │       │ • Ward-by-Ward Baseline Metrics   │
  │   (Confirm/Refute Deficit)           │       │ • OAG / KNBS / CRA Data Feeds     │
  │ • Mixed Method (CATI + FGDs)         │ ────► │ • Monthly Public Web & USSD Sync │
  │ • Nomination Window Tracking Polling │       │ • Dual Asset: Campaign Evidence   │
@@ -211,7 +239,7 @@ The campaign builds and maintains the **Kitui County Service-Delivery Performanc
 
 #### Dual Operational Function:
 1.  **As a Campaign Credibility Asset (Pre-Election):**
-    *   *Public Web & USSD Transparency:* Voters can dial `*483*77#` or visit the web portal to query exact project GPS coordinates, contractor costs, and completion certificates in their own village.
+    *   *Public Web & USSD Transparency:* Voters can dial `*[shortcode]#` or visit the web portal to query exact project GPS coordinates, contractor costs, and completion certificates in their own village.
     *   *Debate & Media Weapon:* Equips candidate and spokespersons with instant, primary-sourced factual data to rebut rival exaggerations on live radio and television debates.
 2.  **As a Day-One Governing Tool (Post-Election):**
     *   *Statutory Ward Equalization Tracking:* Establishes the operational framework for managing the **Ksh 100 Million/Ward Annual Fund**, tracking execution velocity and contractor payments across all 40 wards in real time.
@@ -231,7 +259,7 @@ The campaign strictly excludes vanity metrics from all executive dashboards, rep
 To ensure accountability across all divisions, the KPI framework is embedded in a rigid governance rhythm:
 
 1.  **Weekly Monday KPI Standup (08:00 EAT):** Executive review of all Tier 1 metrics (NW-01 through NW-04 or GE-01 through GE-05). Any metric lagging behind target by $>10\%$ triggers a mandatory **Red Flag Action Plan** within 24 hours.
-2.  **Monthly Resource Reallocation Trigger:** If voter pledge recruitment (GE-01) lags in any sub-county for two consecutive cycles, the Campaign Manager automatically reallocates 20% of digital/creative budget directly to ground sound truck caravans in that sub-county.
+2.  **Monthly Reallocation Trigger:** If voter pledge recruitment (GE-01) lags in any sub-county for two consecutive cycles, the Campaign Manager shifts a fifth of that sub-county's communications weight from digital and creative output to ground sound-truck caravans, on the Section 3.6.3 weighting model.
 3.  **Polling Day Real-Time Conversion Operations (GE-04 & GE-05):** On election day, the War Room monitors voter turnout conversion every hour from 06:00 to 17:00 EAT. Wards reporting $<40\%$ turnout by 12:00 EAT receive immediate boda boda mobilization squad dispatches.
 
 

@@ -12,11 +12,13 @@ import { buildSectionIndex } from "@/lib/section-index";
 const FILES: Record<TabId, string> = {
   decision: "decision.md",
   cover: "cover.md",
+  presence: "presence.md",
   summary: "summary.md",
   situation: "situation.md",
   objectives: "objectives.md",
   audiences: "audiences.md",
   approach: "approach.md",
+  engine: "engine.md",
   messaging: "messaging.md",
   scope: "scope.md",
   "scope-platforms": "scope-platforms.md",

@@ -1,28 +1,26 @@
 
 The decision in front of the campaign, and the specific action this proposal asks for.
 
-## 16.1 The decision in front of the campaign
+## 16.1 Where the decision now sits
 
-The strategic architecture set out above is engineered for a singular objective: to position
-Dr. Makali Mulu as the mathematically undeniable candidate — first for the Wiper gubernatorial
-nomination, and subsequently for the governorship of Kitui County. What that requires now is a
-decision, and a date.
+The ask is stated once, in Section 0, and is not restated here. What this section adds is the
+clock behind it.
 
-> ### 🗳️ CAMPAIGN DECISION PROTOCOL: PHASE -1 STRATEGIC APPROVAL
-> 
-> **I. Action Required from Leadership:**
-> *   **Immediate Strategic Realignment:** Formal approval to pivot the campaign's primary focus to **Phase -1 (Nomination Path)**, reallocating digital, analytical, and SMS campaign infrastructure to target the opinion-poll selection process.
-> *   **Deployment Authorisation:** Authorisation to begin Phase −1 deployment — localised, ward-level SMS micro-targeting, digital visibility campaigns in low-recognition sub-counties, and the initial deployment of the public service-delivery tracker.
-> *   **Operational Integration:** Integration of the digital operation with the ground campaign's regional and youth volunteer networks.
-> 
-> **II. Critical Operational Deadline:**
-> *   **Decision Target:** **30 September 2026 — and the runway is already shorter than the plan assumes.** Phase −1 was scoped against roughly 45 days of concentrated digital, content and SMS micro-targeting before the Wiper opinion polling window opens in late October 2026. A decision taken on 30 September leaves about 25 of those days. Each further week removes roughly a quarter of what remains of the sprint.
-> *   **Evaluation Window:** Late October – November 2026 (Q4 2026).
-> 
-> **III. Strategic Cost of Inaction (Missing the Q4 2026 Nomination Window):**
-> *   **Irreversible Campaign Termination:** Because the Wiper ticket is the definitive gateway to the Kitui Governorship, failing to secure the party nomination in Q4 2026 renders every downstream Phase 1–5 strategy entirely obsolete.
-> *   **Yielding the Visibility Monopoly:** Every day of delay allows the primary competitor (growing 3x faster) to monopolize countywide name recognition, consolidating a polling advantage that will become mathematically impossible to close within the party's selection window.
-> *   **Strategic Irrelevance:** Failing to narrow the current 15.3-point polling deficit before the party's evaluation period will result in a unilateral nomination decision based on existing name recognition, terminating the candidacy before the August 2027 general election.
+> ### THE WINDOW, NOT THE DEADLINE
+>
+> **What sets the pace.** The Wiper flagbearer decision is expected to be settled by countywide
+> opinion poll in the final quarter of 2026 — late October to November on the reported timetable
+> (Tier 3, Section 3.1.2). That date is not in the campaign's gift, and every other date in this
+> document is derived from it rather than chosen.
+>
+> **What the work needs in front of it.** Roughly six weeks for a first directed cycle, and the
+> first of those six for the presence audit that sets its targets. Counting back from a window
+> that opens in late October is the arithmetic that matters; a fixed decision date printed in a
+> proposal only ages.
+>
+> **What is lost by waiting.** Between June and August 2026 the front-runner gained 6.1 points to
+> Dr. Mulu's 1.9. Each week of delay is a week of that compounding, and a week of the audit's
+> ninety-day window filling with output nobody briefed.
 
 ---
 
@@ -42,24 +40,20 @@ deficit is a recognition problem concentrated outside his home constituency —
 the most solvable category of deficit there is, and the one that closes fastest
 through disciplined reach into Mwingi and the arid south.
 
-This proposal sets out a digital and low-connectivity operation that can be
-mobilised in weeks: a Phase −1 nomination sprint, an SMS and USSD layer built
-for the roughly 86% of Kitui residents no purely digital campaign will reach, a
-published ethics charter that turns careful data practice into a differentiator
-(Section 12.5.4), a data-protection gate that protects the candidate from the
-legal exposure others in this cycle will walk into (Section 12.5.5), and a public service-delivery tracker that puts his
-strongest credential to work in public before a single vote is cast.
+This proposal sets out the layer that turns an active channel into a directed one: an audit of
+what the existing accounts are actually doing (Section 1A), a strategy derived from it, a weekly
+brief that carries it to the team already publishing, an SMS and USSD layer built for the roughly
+86% of Kitui residents no purely digital campaign will reach, a published ethics charter that turns
+careful data practice into a differentiator (Section 12.5.4), a data-protection gate that protects
+the candidate from the legal exposure others in this cycle will walk into (Section 12.5.5), and a
+public service-delivery tracker that puts his strongest credential to work before a single vote is
+cast.
 
 It is built on one premise: **Kitui voters are ready for a leader who
 understands economics, respects public money, communicates with clarity and
 respect — and is willing to be measured.**
 
-Firefly Management is ready to build that operation. We respectfully request a
-meeting to present this strategy, discuss adjustments against the
-campaign's internal priorities, and agree next steps.
-
-**Given the nomination timetable, we would suggest that meeting take place
-within the next fourteen days.**
+Firefly would like one week and one export. Everything after that is evidence.
 
 ---
 

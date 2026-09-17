@@ -36,7 +36,15 @@ const CONTENT = path.join(ROOT, "public", "content");
  * sub-heading titles turned into bold lead-ins, a redirect logged in lib/heading-slug.ts for
  * every id retired, and roughly 130 lines of prose cut outright.
  *
- * It is now `5ff79ce`, the content excision: campaign finance, costs and remote-work framing
+ * It is now `228eb02`, the repositioning: the proposal moved from "Firefly builds and runs your
+ * digital operation" to "Firefly analyses, strategises and directs the operation you already have",
+ * and the September 2026 public data pack was integrated on top of it. That is roughly 950 lines
+ * in and 420 out across 27 content files — two new routes (§1A the presence audit, §6A the content
+ * engine), §12.1.2 "What Firefly runs" deleted, the scope table re-owned, the phases re-dated, the
+ * party renamed to Wiper Patriotic Front, a second pollster added, and the bulk-SMS language rule
+ * applied. Every change is enumerated in CHANGE-LOG.md.
+ *
+ * Before that it was `5ff79ce`, the content excision: campaign finance, costs and remote-work framing
  * removed on the client's instruction. That is over 400 body lines out — the statutory ceiling,
  * the unit economics, the cost-per-contact model, the compliance instrumentation, §3.3 entire,
  * the ECFA obligations, and both defences of a remote operation. Four passages were salvaged
@@ -55,7 +63,7 @@ const CONTENT = path.join(ROOT, "public", "content");
  * What this file continues to guarantee is the part it can: that nothing since has changed the
  * body text.
  */
-const BASE = process.env.CONTENT_BASELINE ?? "6ffd6a9";
+const BASE = process.env.CONTENT_BASELINE ?? "228eb02";
 
 /**
  * The baseline again, and why it moved a sixth time.
@@ -115,7 +123,10 @@ const BASE = process.env.CONTENT_BASELINE ?? "6ffd6a9";
  * What this file continues to guarantee is the part it can: that nothing since the restructure
  * has changed the body text.
  */
-const RESTRUCTURED = BASE === "6ffd6a9" || BASE === "6293c1c" || BASE === "e203287" || BASE === "a275e00" || BASE === "c1150a8";
+// Baselines that carry the post-restructure filenames. "228eb02" is the repositioning, which
+// added two more files on top of them (presence.md, engine.md).
+const REPOSITIONED = BASE === "228eb02";
+const RESTRUCTURED = REPOSITIONED || BASE === "6ffd6a9" || BASE === "6293c1c" || BASE === "e203287" || BASE === "a275e00" || BASE === "c1150a8";
 const CURRENT_SPINE = RESTRUCTURED || BASE === "5ff79ce" || BASE === "5470756";
 
 /**
@@ -131,8 +142,10 @@ const OLD_FILES = RESTRUCTURED
       "assumptions.md",
       "audiences.md",
       "cover.md",
-      ...(BASE === "6ffd6a9" || BASE === "6293c1c" || BASE === "e203287" ? ["decision.md", "scope.md"] : []),
-      ...(BASE === "6ffd6a9" ? ["annex-cadence.md", "annex-county.md", "annex-evidence.md", "annex-messages.md", "annex-runbooks.md", "arithmetic.md", "reach.md"] : []),
+      ...(BASE === "6ffd6a9" || BASE === "6293c1c" || BASE === "e203287" || REPOSITIONED ? ["decision.md", "scope.md"] : []),
+      ...(BASE === "6ffd6a9" || REPOSITIONED ? ["annex-cadence.md", "annex-county.md", "annex-evidence.md", "annex-messages.md", "annex-runbooks.md", "arithmetic.md", "reach.md"] : []),
+      // The two routes the repositioning added: §1A the presence audit, §6A the content engine.
+      ...(REPOSITIONED ? ["presence.md", "engine.md"] : []),
       "deliverables.md",
       "governance.md",
       "measurement.md",
@@ -274,7 +287,7 @@ function normalise(text) {
       /(?:Sub)?sections?\s*\d+[A-Za-z]?(?:\.\d+)*(?:\s*(?:,|and|&)\s*\d+[A-Za-z]?(?:\.\d+)*)*/gi,
       "§#"
     )
-    .replace(/Sec\s*\d+(?:\.\d+)*/gi, "§#")
+    .replace(/Sec\s*\d+[A-Z]?(?:\.\d+)*/gi, "§#")
     .replace(/§\s*\d+[A-Za-z]?(?:\.\d+)*/g, "§#")
     // A bare three-part number in a table cell or an ASCII box is always a section reference in
     // this document — no figure it carries has two decimal points — so it collapses too.

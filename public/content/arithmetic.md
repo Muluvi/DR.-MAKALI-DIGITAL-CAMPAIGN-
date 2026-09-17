@@ -49,8 +49,31 @@ This section constructs the complete electoral arithmetic of the **~200,000 vote
 
 To eliminate subjective projections, the campaign's target metrics are anchored directly to official IEBC certified outcomes (Tier 1):
 
-*   **Total Registered Electorate:** **532,758 voters** across **40 County Assembly Wards** (plus **75 prison voters**, totaling **532,833 registered voters**, Tier 1).
-*   **The Baseline Victory Threshold:** **~200,000 votes** (Tier 1), established by Governor Julius Malombe's certified 2022 winning total of **198,004 votes** (Tier 1).
+*   **Total Registered Electorate (2022, Tier 1):** **532,758 voters** across **40 County Assembly
+    Wards** (plus **75 prison voters**, totalling **532,833 registered voters**).
+*   **The Baseline Victory Threshold:** **~200,000 votes** (Tier 1), established by Governor Julius
+    Malombe's certified 2022 winning total of **198,004 votes** (Tier 1).
+
+> ### The register has grown, and ~200,000 is probably an under-statement
+>
+> Every ward figure in this section is the **2022** register, because that is the most recent
+> **Tier 1** file IEBC has published per ward. Since then:
+>
+> *   IEBC began constituency-based continuous registration on **29 September 2025**, then ran a
+>     30-day **Enhanced Continuous Voter Registration** drive across all 1,450 wards, closing
+>     **28 April 2026** (Tier 1, IEBC release).
+> *   Local outlets report Kitui at **605,703** registered voters as of July 2026, on **+61,839**
+>     new registrations in the drive (**Tier 3 — [VERIFY]**). Neither figure is used in any
+>     calculation below.
+> *   **[CALC, not a forecast]** In 2022 the winning tally was **37.2%** of the register. Held
+>     against a register of 605,703, the equivalent tally would be **≈225,000 votes**.
+>
+> **What this changes today:** treat **≈200,000 as a floor rather than a target**, and read every
+> ward share below as a 2022 proportion that the 2026 drive has moved unevenly — the drive was
+> ward-based, so growth is not uniform. **The fix is one document:** IEBC's ECVR release carries a
+> county-by-county annex, and the ward-level file follows it. Section 15.1 lists it as the highest
+> priority data request in this proposal, because it re-bases the entire arithmetic in this
+> section.
 *   **Turnout Baseline Dynamics:**
     *   Kitui County historical turnout averages approximately **62.0%** (Tier 1).
     *   At a 62.0% countywide participation rate, total ballots cast will equal approximately **330,310 votes**.
@@ -60,11 +83,14 @@ To eliminate subjective projections, the campaign's target metrics are anchored 
   ┌───────────────────────────────────────────────────────────────────────────┐
   │                 THE 2027 VICTORY THRESHOLD ARITHMETIC                     │
   ├───────────────────────────────┬───────────────────────────────────────────┤
-  │ Total Registered Electorate   │ 532,758 voters (40 wards, Tier 1)         │
+  │ Total Registered Electorate   │ 532,758 voters (40 wards, 2022, Tier 1)   │
   │ Expected Voter Turnout (62%)  │ ~330,310 actual ballots cast              │
   │ Absolute Winning Threshold    │ 198,004 – 200,000 votes (Tier 1 baseline) │
   │ Required Share of Ballots     │ 60.0% – 60.5% of all votes cast           │
   │ Required Share of Register    │ 37.2% – 37.5% of total registered voters  │
+  ├───────────────────────────────┼───────────────────────────────────────────┤
+  │ Reported 2026 register        │ 605,703 (Tier 3, unverified)              │
+  │ Same 37.2% ratio on that base │ ≈225,000 votes  [CALC — not a forecast]   │
   └───────────────────────────────┴───────────────────────────────────────────┘
 ```
 
@@ -271,7 +297,7 @@ This represents **51.72% of the entire Kitui County voter register**.
 
 #### Strategic Operational Mandate:
 Because **over 51% of the county register sits in Dr. Mulu's primary recognition deficit zones**, the campaign cannot rely on organic voter spillover from Kitui Central. The digital and field apparatus must execute a targeted resource reallocation:
-*   **65% of all Phase −1 digital ad spend (Meta, Google, YouTube)** must be geofenced exclusively to Mwingi North, Mwingi Central, Mwingi West, and Kitui South.
+*   **65% of all Phase −1 digital reach effort (Meta, Google, YouTube)** must be geofenced exclusively to Mwingi North, Mwingi Central, Mwingi West, and Kitui South — the weighting is on output and targeting, measured by R-02 in Section 11.2.0.
 *   **70% of the offline SMS/USSD onboarding infrastructure** (Section 8.10) and **240 of the 400 Ward Captains** (Section 4.2) must be concentrated in these 24 northern and southern deficit wards.
 *   The "Economist Governor" messaging in these wards must emphasize countywide fiscal redistribution, showing how Dr. Mulu's public finance oversight will direct water and health infrastructure capital into historically neglected rural wards like Kyuso, Tseikuru, Athi, and Mutha.
 
@@ -346,7 +372,7 @@ methodology and then evaluate against it.
 
 **Nomination-window priority.** This zone represents nearly a quarter of the
 county and is where a Kitui Central MP is structurally least known. It carries
-disproportionate Phase −1 budget weighting.
+disproportionate Phase −1 weighting of effort and reach.
 
 ### 3.5.3 The arid and resource belt: Kitui South and East
 
@@ -379,11 +405,11 @@ Ikanga/Kyatune (15,384), Mutomo/Kibwea (12,637), Ikutha (12,066), Mutha (11,039)
 
 ### 3.5.4 How the zones are weighted
 
-Budget and content allocation across zones, by phase.
+Effort and content allocation across zones, by phase.
 
 **Coverage note.** The three zones above total 895,766 residents — **78.8% of the county's
 1,136,187**. They name 12 of the county's 18 sub-counties; the remaining six, about 240,000
-residents, are not in any zone. The weightings below therefore distribute 100% of budget
+residents, are not in any zone. The weightings below therefore distribute 100% of communications effort
 across zones covering under four-fifths of the population, and the missing sub-counties need
 either adding to a zone or an explicit statement of why they are out of scope before this
 table drives spend.

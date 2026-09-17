@@ -18,87 +18,79 @@ quoted interchangeably:
 They are nested, not alternatives: consented contacts ⊂ contact universe, and verified
 supporters ⊂ pledged voters.
 
-**These are levels of scope, not price lists.** What each level changes is the size of the
-team, the number of wards carrying an active SMS and USSD layer, the depth of the analytics,
-the cadence of content and the frequency of research. What it costs is a conversation for the
-meeting, not a page in a proposal.
+**These are levels of depth, not volume.** What each level changes is how often the presence audit
+is refreshed, how many wards carry reach reporting, how often creative is tested, how much research
+runs, how far the team upskilling goes, and how many wards carry an active SMS and USSD layer. What
+none of them changes is who publishes: your team does, at every level.
 
 **Accessibility is not a service level.** Sign-language interpretation on flagship content, and
-every commitment in Section 8.5.3, applies in full at whichever level is chosen. Accessibility
-is not something a campaign buys more of by paying more, and it is not a line to trade away.
+every commitment in Section 8.5.3, applies in full at whichever level is chosen. Accessibility is
+not something a campaign buys more of, and it is not a line to trade away.
 
 #### Level 1 — LEAN
-**Purpose:** win the nomination, hold the field, prove the model.
-* **Team:** 3-person Firefly core + Kikamba producer only
-* **Channels:** Facebook, WhatsApp, TikTok organic; limited paid on Meta;
-SMS to a consented list built organically
-* **SMS volume:** paced against the consented list in 8.10.6 (15,000 at Phase −1 rising to 40,000 by Phase 1) at roughly one touch a fortnight — order of 30,000–80,000 messages/month, confirmed at contracting
-* **USSD:** not activated
-* **Content:** 1 flagship video/week; daily social; weekly Kikamba voice note
-* **Analytics:** platform-native dashboards; monthly report
-* **Trade-offs:** no predictive modelling; no attribution beyond last-click; no
-dedicated crisis lead until triggered; arid-belt reach materially limited
-* **Expected reach:** strong in Anchor zone, moderate in Mwingi, weak in the
-arid belt — i.e. **strongest where Dr. Mulu is already strongest**, which is
-the central weakness of this level
+**Purpose:** win the nomination, prove the model, keep the analysis cheap.
+* **Firefly team:** Strategy Director + Analyst; offline-layer operator part-activated
+* **Presence audit:** once, at the start
+* **Reach reporting:** the 12 decisive wards in Section 3.4.2 only
+* **Weekly brief:** yes — the brief is the engagement and is never a level
+* **Creative testing:** monthly cycle
+* **Research:** none
+* **Team upskilling:** the written standard, delivered once
+* **Offline layer:** SMS to a consented list built organically; **USSD not activated**
+* **Trade-offs:** no predictive modelling; no attribution beyond last-click; the recognition
+deficit is measured at county level rather than ward level — **which is the one place this campaign
+cannot afford to be blind**
 
 #### Level 2 — STANDARD *(recommended)*
-**Purpose:** close the recognition gap countywide and contest the general
-election competitively.
-* **Team:** 3-person Firefly core + activated surge bench (data, community, volunteer, earned media and video roles are activated by phase/KPI; they are not presented as a permanent standing department)
-* **Channels:** full platform mix; **SMS/USSD layer active across all 40 wards**
-* **SMS volume:** the full 8.10.6 trajectory to 120,000 consented contacts at a fortnightly touch — order of 240,000 messages/month at Phase 3, scaling to a GOTV surge
-* **USSD:** shared code, all networks
-* **Content:** 2–3 flagship videos/week; daily multilingual social; weekly
-Facebook Live; weekly Kikamba voice note; monthly Kitui Economic Brief
-* **Analytics:** predictive voter scoring; multi-touch attribution;
-field-digital integration; weekly sentiment
+**Purpose:** find the recognition gap ward by ward, and direct against it weekly.
+* **Firefly team:** the full 3-person core, plus surge roles activated by phase or KPI
+* **Presence audit:** refreshed monthly, against the same ninety-day rolling window
+* **Reach reporting:** **all 40 wards**
+* **Weekly brief:** yes, plus the mid-week reach check
+* **Creative testing:** weekly cycle
 * **Research:** quarterly focus groups (Section 11.3)
+* **Team upskilling:** the standard, plus paired brief-writing to Month 3 (Section 14.7)
+* **Offline layer:** **SMS and USSD active across all 40 wards**; shared code, all networks
 * **Crisis:** dedicated lead from Phase 2; quarterly red-team drills
 * **Trade-offs:** no premium social listening licences
 
 #### Level 3 — PREMIUM
-**Purpose:** dominate share of voice and run a fully instrumented operation.
-* **Team:** 3-person Firefly core + full surge bench activated against the agreed phase and KPI triggers
-* **Channels:** everything in Standard, plus dedicated USSD short code,
-expanded WhatsApp Business API, and diaspora-targeted programming across the
-26 countries IEBC is opening to diaspora registration
-* **Content:** daily video; documentary series; full plain-language versioning
-across all flagship output
-* **Analytics:** licensed social listening (Brandwatch/Meltwater class);
-full attribution; monthly message-lab research
+**Purpose:** instrument everything, and refresh the read faster than the field can move.
+* **Firefly team:** 3-person core + full surge bench against agreed triggers
+* **Presence audit:** refreshed fortnightly
+* **Reach reporting:** all 40 wards + diaspora geographies
+* **Creative testing:** weekly, plus a standing message lab
+* **Research:** monthly message-lab rounds
+* **Team upskilling:** the standard, plus embedded coaching through the cycle
+* **Offline layer:** everything in Standard, plus a dedicated USSD short code and expanded
+WhatsApp Business API capacity
+* **Analytics:** licensed social listening (Brandwatch/Meltwater class); full attribution
 * **Crisis:** monthly red-team drills; retained deepfake detection capability
-* **Trade-offs:** the largest standing commitment of the three, and the one that
-most depends on the campaign having internal capacity to absorb what it produces
+* **Trade-offs:** it refreshes the analysis faster than a nomination sprint has capacity to act on,
+and that is a real cost rather than a disclaimer
 
 ### 10.1.2 The scope levels compared
 
 | | Lean | Standard | Premium |
 |---|---|---|---|
-| Team model | 3-person Firefly core + mandatory Kikamba producer | 3-person Firefly core + activated surge roles | 3-person Firefly core + full surge bench |
+| Presence audit | Once, at start | **Refreshed monthly** | Refreshed fortnightly |
+| Wards with reach reporting | 12 decisive | **All 40** | All 40 + diaspora |
 | Wards with active SMS/USSD | Partial | **All 40** | All 40 + diaspora |
+| Weekly brief | ✓ | ✓ | ✓ |
+| Creative testing | Monthly | **Weekly** | Weekly + message lab |
 | Predictive voter scoring | ✗ | ✓ | ✓ |
 | Multi-touch attribution | ✗ | ✓ | ✓ |
 | Focus groups | ✗ | Quarterly | Monthly |
+| Team upskilling | Standard, once | **Standard + pairing to Month 3** | Standard + embedded coaching |
 | Red-team drills | On trigger | Quarterly | Monthly |
 | Arid-belt reach | Weak | Strong | Strong |
 | Realistic Phase 3 contact universe | ~60,000 | ~150,000 | ~250,000 |
-| Digital ad share of the agreed spend envelope | 15–20% | 30–40% | 45–55% |
 
-**On that last row.** These three shares were previously stated only inside the site's landing
-dashboard, as a percentage of a "verified ceiling" — a figure this proposal no longer carries,
-because campaign-finance content was removed at the campaign's instruction. The shares themselves
-are retained here, where the scope levels are defined and where they can be reviewed. What they
-are a share *of* is an open item: the spend envelope is agreed at contracting, and
-`[SPEND ENVELOPE — AGREED AT CONTRACTING]` is the figure these percentages attach to. They are
-planning ratios between the three levels, not a commitment to any absolute sum.
-
-**Recommendation: Level 2 (Standard).** Level 1 concentrates effort where Dr.
-Mulu is already strong and leaves the recognition deficit untouched — the one
-thing this campaign cannot afford. Level 3 is defensible, but it asks the
-campaign to absorb a volume of output a nomination sprint has no capacity to
-review. Standard is the level at which all 40 wards carry an active SMS and
-USSD layer, and reaching the arid belt is the whole argument.
+**Recommendation: Level 2 (Standard).** Level 1 instruments only the twelve decisive wards, which
+leaves the recognition deficit measured at county level — the one place this campaign cannot afford
+to be blind. Level 3 is defensible, but it refreshes the read faster than a nomination sprint can
+act on it. Standard is the level at which all 40 wards carry both reach reporting and an active SMS
+and USSD layer, and reaching the arid belt is the whole argument.
 
 
 ---
@@ -106,33 +98,39 @@ USSD layer, and reaching the arid belt is the whole argument.
 ## 10.2 The deliverables schedule
 
 Every row below is set somewhere else in this proposal, in the workstream that produces it. This
-section consolidates them so the campaign can see the whole production commitment on one page
-rather than assembling it from nine sections. Where a cadence varies by scope level, Section 10.1
-governs; the cadence shown here is the one Level 2 carries.
+section consolidates them so the campaign can see the whole commitment on one page rather than
+assembling it from nine sections. Where a cadence varies by level, Section 10.1 governs; the cadence
+shown here is the one Level 2 carries.
 
-| Deliverable | Cadence | Form | Where it is set |
-|---|---|---|---|
-| Flagship video | 2–3 per week | Subtitled video, platform-native cuts | 10.1.1 |
-| Daily multilingual social | Daily | Post, graphic or short video in English, Kiswahili and Kikamba | 10.1.1, 8.3.4 |
-| Kikamba voice note | Weekly | Audio for WhatsApp and community networks | 10.1.1, 8.3.2 |
-| Facebook Live | Weekly | Live broadcast with moderated comments | 10.1.1 |
-| Kitui Economic Brief | Monthly | Plain-language explainer, print and digital | 10.1.1 |
-| "Dr. Mulu Explains" | Weekly | Explainer video or audio on county finance | 8.1.1 |
-| Production schedule | Weekly | Approved content calendar for the week ahead | 8.3.4 |
-| SMS touch to the consented list | Fortnightly, rising to a GOTV surge | 160-character Kikamba, Kiswahili or English SMS | 8.10.2, 10.1.1 |
-| USSD menu availability | Continuous once provisioned | Zero-rated interactive menu across all networks | 8.10.3 |
-| Ward coordinator field report | Daily | Structured report from all 40 wards into the CRM | 8.8.1 |
-| Creative test cycle | Weekly | A/B test results and the decisions taken from them | 8.4.3 |
-| Performance report | Monthly | Reach, engagement, sentiment, conversion, spend-weighting | 12.1.1 |
-| Sentiment report to leadership | Monthly | Written brief with ward-level detail | 8.1.2 |
-| Competitive brief | Monthly | Public-source summary of rival activity | 13.4.3 |
-| Tracking survey wave | Bi-weekly through the nomination window | Internal instrument, countywide and by zone | 4.1.1, 11.2.1 |
-| Focus groups | Quarterly | Facilitated sessions across the three zones | 11.3.1 |
-| Red-team drill | Quarterly | Simulated attack and a written after-action note | 13.2.4 |
-| Compliance review | Once, early, then on material change | Written opinion from the campaign's appointed reviewer | 12.5.5 |
-| Asset library deposit | Continuous | Originals with metadata retained, catalogued | 8.3.6, 12.1.1 |
+**The "Produced by" column is the point.** Most of this schedule is your team's existing output,
+now directed. Firefly's own deliverables are the brief, the analysis and the offline dispatch.
 
-Three deliverables are gated on decisions the campaign has not yet made: the USSD menu cannot be
-provisioned until the shortcode is, the compliance review cannot start until the reviewer is
-appointed, and sign-language interpretation on flagship content depends on the interpreter or
-service named in Section 15.1. Each is listed there.
+| Deliverable | Cadence | Produced by | Form | Where it is set |
+|---|---|---|---|---|
+| Flagship video | 2–3 per week | Your team | Subtitled video, platform-native cuts | 8.3.4 |
+| Daily multilingual social | Daily | Your team | Post, graphic or short video in English, Kiswahili and Kikamba | 8.3.4 |
+| Kikamba voice note | Weekly | Your team, Kikamba reviewer signs off | Audio for WhatsApp and community networks | 8.3.2 |
+| Facebook Live | Weekly | Your team | Live broadcast with moderated comments | 8.3.4 |
+| Kitui Economic Brief | Monthly | Your team | Plain-language explainer, print and digital | 8.3.4 |
+| "Dr. Mulu Explains" | Weekly | Your team | Explainer video or audio on county finance | 8.1.1 |
+| **The weekly brief** | **Weekly, Thursday** | **Firefly** | One page: pillar weights, must-post items, ward priority, language rule | 12.1.1 |
+| Content calendar | Weekly, Friday | Your team, Firefly approves | Approved calendar for the week ahead | 8.3.4 |
+| SMS touch to the consented list | Fortnightly, rising to a GOTV surge | **Firefly** | 160-character Kiswahili or English SMS — Kikamba is not permitted on the bulk SMS rail (§8.10.2) | 8.10.2 |
+| USSD menu availability | Continuous once provisioned | **Firefly** | Zero-rated interactive menu across all networks | 8.10.3 |
+| Ward coordinator field report | Daily | Campaign ground team | Structured report from all 40 wards into the CRM | 8.8.1 |
+| Creative test cycle | Weekly | **Firefly** designs and reads; your team produces variants | A/B test results and the decisions taken from them | 8.4.3 |
+| **Presence audit refresh** | **Monthly** | **Firefly** | Ninety-day rolling read: reach by ward, language, format, field comparison | 1A.5 |
+| Performance report | Monthly | **Firefly** | Reach in the deficit pool, engagement, sentiment, conversion | 12.1.1 |
+| Sentiment report to leadership | Monthly | **Firefly** | Written brief with ward-level detail | 8.1.2 |
+| Competitive brief | Monthly | **Firefly** | Public-source summary of rival activity | 13.4.3 |
+| Tracking survey wave | Bi-weekly through the nomination window | **Firefly** commissions the instrument | Internal instrument, countywide and by zone | 4.1.1, 11.2.1 |
+| Focus groups | Quarterly | Independent facilitator, Kitui-based | Facilitated sessions across the three zones | 11.3.1 |
+| Red-team drill | Quarterly | **Firefly** + your team | Simulated attack and a written after-action note | 13.2.4 |
+| Compliance review | Once, early, then on material change | Campaign's appointed reviewer | Written opinion | 12.5.5 |
+| Asset library deposit | Continuous | Your team | Originals with metadata retained, catalogued | 8.3.6, 12.1.1 |
+
+Four deliverables are gated on decisions the campaign has not yet made: **the presence audit cannot
+start until read-only analytics access is granted**, the USSD menu cannot be provisioned until the
+shortcode is, the compliance review cannot start until the reviewer is appointed, and sign-language
+interpretation on flagship content depends on the interpreter or service named in Section 15.1.
+Each is listed there.

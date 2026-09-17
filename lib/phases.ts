@@ -8,8 +8,8 @@ export interface Phase {
 }
 
 export const PHASES: Phase[] = [
-  { id: "neg1", label: "Phase −1", window: "Aug–Sep 2026 · Nomination Sprint", colorVar: "--phase-neg1" },
-  { id: "0", label: "Phase 0", window: "Sep–Oct 2026 · Audit & Infrastructure", colorVar: "--phase-0" },
+  { id: "neg1", label: "Phase −1", window: "Weeks 1–6 · Nomination Sprint", colorVar: "--phase-neg1" },
+  { id: "0", label: "Phase 0", window: "Weeks 4–10 · Instrumentation", colorVar: "--phase-0" },
   { id: "1", label: "Phase 1", window: "Oct–Dec 2026 · Awareness & Community", colorVar: "--phase-1" },
   { id: "2", label: "Phase 2", window: "Jan–Mar 2027 · Engagement & Persuasion", colorVar: "--phase-2" },
   { id: "3", label: "Phase 3", window: "Apr–Aug 2027 · Mobilisation & GOTV", colorVar: "--phase-3" },

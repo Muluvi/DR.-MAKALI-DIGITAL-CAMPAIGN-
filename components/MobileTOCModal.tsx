@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useEffect, useRef, useId } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, Route, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck } from "lucide-react";
+import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, Route, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck, Activity, Repeat} from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
 import { readingMinutes } from "../hooks/useReadingProgress";
 import type { SectionItem } from "../lib/section-index";
@@ -10,11 +10,13 @@ import type { SectionItem } from "../lib/section-index";
 const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
   decision: Handshake,
   cover: BookLock,
+  presence: Activity,
   summary: FileText,
   situation: Map,
   objectives: Target,
   audiences: Users,
   approach: Compass,
+  engine: Repeat,
   messaging: MessageSquare,
   scope: ListChecks,
   "scope-platforms": Layers,

@@ -24,11 +24,13 @@ const CONTENT = path.join(ROOT, "public", "content");
 const TABS = {
   "decision.md": "decision",
   "cover.md": "cover",
+  "presence.md": "presence",
   "summary.md": "summary",
   "situation.md": "situation",
   "objectives.md": "objectives",
   "audiences.md": "audiences",
   "approach.md": "approach",
+  "engine.md": "engine",
   "messaging.md": "messaging",
   "scope.md": "scope",
   "scope-platforms.md": "scope-platforms",
@@ -52,7 +54,7 @@ const TABS = {
   "annex-runbooks.md": "annex-runbooks",
 };
 
-const LEADING = /^(\d+(?:\.\d+)*)\.?\s/;
+const LEADING = /^(\d+[A-Z]?(?:\.\d+)*)\.?\s/;
 const HEADING = /^(#{2,3})\s+(.+?)\s*$/;
 const clean = (raw) =>
   raw.replace(/\*\((new|updated)\)\*/gi, "").replace(/\*\*/g, "").replace(/\*/g, "")
@@ -67,7 +69,7 @@ for (const [file, tab] of Object.entries(TABS)) {
     const m = HEADING.exec(line);
     if (!m) continue;
     const num = LEADING.exec(clean(m[2]).trim());
-    if (num) liveIds.add(`${tab}-sec-${num[1].replace(/\./g, "-")}`);
+    if (num) liveIds.add(`${tab}-sec-${num[1].replace(/\./g, "-").toLowerCase()}`);
   }
 }
 

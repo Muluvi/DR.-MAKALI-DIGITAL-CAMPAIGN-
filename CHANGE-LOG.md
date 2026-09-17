@@ -1,3 +1,104 @@
+# Change log — the repositioning, and the public data pack (September 2026)
+
+**Both baselines move to `90a1f32`.** This is a client-instructed content change, the same class of
+event as the `5470756` consolidation and the `5ff79ce` excision already recorded below — the
+document's author changing their own proposal, not a redesign quietly editing a document of record.
+Every change is enumerated here first, which is the obligation that comes with moving a baseline.
+
+To diff against earlier states: `CONTENT_BASELINE=6ffd6a9` for the pre-repositioning text,
+`5470756` for pre-excision, `d1c1559` for the text as first written. `FIGURE_BASELINE=f6b0af4`
+likewise.
+
+## 1. What changed, and why
+
+The site pitched Firefly as the team that would **build and run** the whole digital operation —
+fourteen workstreams, an org chart placing the Firefly director above content, paid media and 40
+ward champions. Dr. Mulu already has a verified page, 745 posts and a team publishing daily, so
+that pitch misread his situation. The engagement is now **Analyse → Strategise → Direct**: Firefly
+analyses, defines and directs; his team keeps publishing; Firefly operates only the offline layer
+it already holds.
+
+## 2. Routes added
+
+| Route | Section | Content |
+|---|---|---|
+| `/presence` | **§1A** | The Existing Presence Audit — ninety days of his own channels: metrics, window, method, decision rules, the channels already found, and six profile-hygiene fixes |
+| `/engine` | **§6A** | The content engine — four production pillars anchored on his own cover line, and one week of output before and after |
+
+Section numbering now admits a letter suffix (`1A.2.1`, `6A.1.1`), matching the route labels the
+document already used (3A, 8A). Seven regexes were extended in lockstep — `lib/heading-slug.ts`,
+`lib/collapse-groups.ts`, `components/markdown/HighlightedText.tsx`, and four guards — and slugs
+are now lowercased so `1A.4` yields `presence-sec-1a-4`. No existing id moves.
+
+## 3. Sections materially rewritten
+
+| § | Change |
+|---|---|
+| **0** | New ask: one week and one export, not a fourteen-workstream sprint. §0.3 now states the 6 / 6 / 2 ownership split |
+| **1.1–1.2** | Re-dated to September 2026; addressed to Dr. Mulu personally; states that Firefly holds no publishing credentials |
+| **2.1** | The "comprehensive digital campaign apparatus" paragraph replaced with the three-step engagement |
+| **8.0** | Retitled; "What Firefly runs" column replaced with **Owner** — six Firefly, six team-directed, two out of scope. Publishing to owned accounts, team replacement, volunteer organising and the existing tech estate added to what is outside scope |
+| **8.2–8.15** | Owner note at the head of every workstream. §8.10 becomes "What Firefly operates"; §8.11 and most of §8.14 move out of scope |
+| **9.1.1–9.1.2** | Phases re-cut as weeks from signature; the Week 1 audit promoted out to §1A; account hardening reframed as a Firefly-specified standard your team applies |
+| **10.1** | Levels re-denominated in **depth of intelligence**, not volume of output |
+| **10.2** | **Produced by** column added to every deliverable row |
+| **11.2.0** | New: indicators R-01 to R-05, anchored on recognition and persuasion in the deficit sub-counties |
+| **12.1** | §12.1.2 "What Firefly runs" deleted; replaced with the weekly direction model and a RACI table. §12.3 approvals now name three parties and a publisher |
+| **12.5** | Controllership stated channel by channel; inherited lists barred until consent is evidenced; NG-CDF beneficiary data barred outright; the audit's own processing brought inside the §12.5.5 gate |
+| **13.0** | R6 added: what happens when Firefly's brief and the team's judgement disagree |
+| **14.1–14.7** | Two-column team model replaces the org chart; community-manager and video-editor surge roles removed; **§14.7 added** — how the existing team is assessed and upskilled |
+| **15.1–15.3** | Read-only analytics access added as a gating dependency; four assumptions added about the existing team and accounts; eight data requests added |
+| **16** | Second ask removed; the fixed 30 September date replaced with the window that actually sets the pace |
+| **Annex A** | §3.2.4 added: the evidence standard applied to the audit's own measurement |
+| **Annex D** | The campaign's four-forum governance chart cut — it scheduled the candidate's war room and a finance officer's invoice clearances, neither of which is Firefly's to set |
+
+## 4. The public data pack, integrated
+
+| Finding | Where it landed |
+|---|---|
+| **Party renamed to Wiper Patriotic Front (WPF)** by ORPP certificate, August 2025 (T1) | Site-wide; note at §3.1.1; chrome in `ClientPage.tsx` |
+| **Politrack Africa, 12 Mar 2026** (n = 2,927): Mulu 26.2%, Kasalu 35.2%, gap 9.0 pts | §3.1.5 — a three-row table across two houses, explicitly **not** drawn as one trend line |
+| **The seat is open** — Malombe term-limited under Art. 180(7) | §3.1.5 |
+| **Register grew**: +61,839 in the 2026 ECVR drive; 605,703 reported (T3, unverified) | §3.4.1 — `≈200,000` restated as a **floor**; `≈225,000` shown as [CALC] |
+| **Bulk political SMS is English or Kiswahili only**, with 48-hour operator lodging (CA/NCIC, T1) | §8.10.2 rewritten; propagated to eight other files. Kikamba moves to radio, WhatsApp voice, USSD and in person. Same-day SMS rapid response removed as impossible |
+| **ODPC bars reuse of public-programme data** for political mobilisation (T1, 2025) | §12.5.2 — NG-CDF bursary and beneficiary lists ruled off-limits; §15.1 narrowed to the *project record* |
+| **Kitui is last in Kenya for basic drinking water — 21%** (KDHS 2022, T1); 7.2 km trekking, Feb 2026 (NDMA, T1) | §6.3 theme 1 |
+| **55.2% poverty (~637,000 people); food is 72.5% of household spending** | §6.3 theme 2 — the number behind "From Poverty to Wealth Creation" |
+| **KESTA**, the county's own FY2026/27 theme, prioritises household income; envelope split 84.3% / 8.1% / 7.5% | §6.3 theme 3 |
+| **Radio frequencies and two missing stations** (County FM, KBC Mwatu FM) | `data/media-ownership.ts` + a frequency column in the rendered table |
+| **@MakaliMulu confirmed; NG-CDF site is a proof-point library** | §1A.2.4 |
+| **Six profile-hygiene fixes** — wrong MP start date, two garbled employer entries, Nairobi as current city, missing PhD, "Incoming Governor" | §1A.2.5 |
+| **Home base is contested; Kitui East and South have non-WPF MPs** (140,749 voters, 26.4%) | §3.1.5a |
+| Eleven sources added, tiered | `data/sources.ts` |
+
+## 5. Figures that left public/content/, and why
+
+Five deliberate removals, none of them a loss of evidence:
+
+| Figure | Why it went |
+|---|---|
+| `483`, `77`, `22,340` | The USSD shortcode and SMS sender ID. **Neither is provisioned to this campaign** (§15.1), so printing them as live was a factual error in a document whose argument is provenance. Now `*[shortcode]#` and `[Insert sender ID]` everywhere, including `lib/phone-showcase.ts` |
+| `20,000` | "Engaged followers" — a Phase −1 KPI that §11.2.3 rejects as a vanity metric two sections later. Replaced by R-02, reach share in the deficit pool |
+| `150` | The second community manager's surge threshold. That role is your team's, not Firefly's (§14.4) |
+| `14.3`, `14.4`, `14.5` | Never figures. Bare section numbers in §14.3's prose, now written as "Section 14.x" and correctly normalised away as references |
+
+## 6. Figures added
+
+The Politrack round (26.2 / 35.2 / 18.8 / 18.6 / 0.6, n = 2,927), the Mizani August undecided
+(6.0%), the 2026 register (605,703 and +61,839, both T3), the [CALC] threshold (≈225,000), water
+(21%, 7.2 km), poverty (55.2%, ~637,000, 72.5%), the fiscal split (11.64bn / 1.12bn / 1.04bn /
+84.3% / 8.1% / 7.5%), radio frequencies, and 140,749 non-WPF-MP voters.
+
+## 7. Guards
+
+`verify-mounts`, `verify-deep-links`, `visual-coverage` and `verify-figures` all pass unchanged in
+intent; their TABS maps gained the two new routes and their id builders were lowercased to match
+`lib/heading-slug.ts`. `verify-figures` caught the sender ID left stranded in
+`lib/phone-showcase.ts` after the content placeholder went in — which is the guard doing exactly
+its job.
+
+---
+
 # Change log — annexes, split routes, and the last of the spec (September 2026)
 
 Content baseline moves to `6ffd6a9`. This entry covers the annex restructure and the four
