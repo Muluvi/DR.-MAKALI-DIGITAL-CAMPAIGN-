@@ -51,10 +51,10 @@ register:
     status: CONFIRMED
     verify: false
     rationale: >-
-      Kitui's total registered voters, confirmed against the IEBC ECVR county annex [S3] and
-      supplied by the campaign on 17 September 2026. It matches exactly the figure the T3
+      Kitui's total registered voters, read directly off the IEBC ECVR county annex PDF [S3]
+      by the campaign and confirmed on 17 September 2026. It matches exactly the figure the T3
       aggregator [S4] had reported, which corroborates that source rather than undermining
-      this one. Supersedes the earlier PLACEHOLDER/verify treatment: this is now the register
+      this one; the tier rests on the document it was read from, not on the value. Supersedes the earlier PLACEHOLDER/verify treatment: this is now the register
       Stage 3's 37.2% benchmark is computed against.
   y2026_new_registrations:
     value: 61839

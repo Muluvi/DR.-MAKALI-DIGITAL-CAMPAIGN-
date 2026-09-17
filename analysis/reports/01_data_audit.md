@@ -40,7 +40,7 @@ What the pack contains, what the site claims, and where the two disagree.
 
 ## Problems found
 
-3 high, 3 medium, 7 checks passed. Full list in `data/processed/audit_findings.csv`.
+3 high, 3 medium, 8 checks passed. Full list in `data/processed/audit_findings.csv`.
 
 
 ### High severity
@@ -76,8 +76,9 @@ Bare 'Wiper' without 'Patriotic Front' appears in 16 files.
 ### Checks that passed
 
 - 2026 register: CONFIRMED against the IEBC annex [S3, T1]. Kitui stands at 605,703 registered voters as at July 2026, up 72,945 on the 2022 register of 532,758.
-- 2026 register: The apparent 11,106-voter discrepancy is resolved, and was never a discrepancy. Of the 72,945 growth, 61,839 came from the 30-day ECVR drive that ended 28 April 2026; the remaining 11,106 is ordinary continuous registration outside that window, which opened on 29 September 2025 and continued after the drive closed. The July total post-dates the drive by three months.
 - Kitui County: 40 wards sum to 532,758, matching the IEBC 2022 county register exactly.
+- 2026 register: The apparent 11,106-voter discrepancy is resolved, and was never a discrepancy. Of the 72,945 growth, 61,839 came from the 30-day ECVR drive that ended 28 April 2026; the remaining 11,106 is ordinary continuous registration outside that window, which opened on 29 September 2025 and continued after the drive closed. The July total post-dates the drive by three months.
+- 2026 register: Both figures match the T3 reports [S4, S5] exactly, which corroborates those outlets rather than casting doubt on the annex. Because the values are identical, the Tier 1 claim rests on provenance rather than on the number: the campaign confirmed on 17 September 2026 that both were read directly off the IEBC annex PDF, not copied from the aggregators.
 - All 40 wards: Every ward's voter count in the pack matches the site's ward-register.json.
 - polls: All 8 T3 rows in polls.csv carry status 'verify'.
 - county_finance: All 2 T3 rows in county_finance.csv carry status 'verify'.

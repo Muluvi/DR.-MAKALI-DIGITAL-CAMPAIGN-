@@ -344,12 +344,16 @@ def test_the_correction_to_the_earlier_reading_is_recorded():
     assert "wrong" in text.lower()
 
 
-def test_the_match_with_the_t3_reports_is_flagged_not_hidden():
-    """Both figures equal the T3 reports exactly, so value alone cannot distinguish them."""
-    findings = checks.register_conflict()
-    info = [f for f in findings if f["severity"] == "info"]
-    assert info, "the coincidence with the T3 figures should be surfaced"
-    assert "match the T3 reports" in info[0]["detail"]
+def test_the_match_with_the_t3_reports_is_recorded_with_its_provenance():
+    """Both figures equal the T3 reports exactly, so value alone cannot distinguish them.
+
+    The tier therefore has to rest on the document, and the audit must say so — otherwise a
+    later reader cannot tell a figure read off the annex from one copied off an aggregator.
+    """
+    text = " ".join(f["detail"] for f in checks.register_conflict())
+    assert "match the T3 reports" in text
+    assert "read directly off the IEBC annex PDF" in text
+    assert "17 September 2026" in text
 
 
 def test_the_annex_row_carries_a_document_url():

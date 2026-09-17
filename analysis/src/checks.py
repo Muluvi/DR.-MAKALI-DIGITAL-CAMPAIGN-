@@ -226,13 +226,14 @@ def register_conflict() -> list[dict]:
 
     if total == 605703 and added == 61839:
         out.append(_finding(
-            "register-2026", "info", "2026 register",
-            "Both figures match the T3 reports [S4, S5] exactly. That corroborates those "
-            "outlets rather than casting doubt on the annex — but it also means the two are "
-            "indistinguishable by value alone, so the T1 claim rests on the annex having been "
-            "read directly.",
-            "Keep the document URL on the row in register_2026_by_county.csv so the figure "
-            "can be checked at source.",
+            "register-2026", "ok", "2026 register",
+            "Both figures match the T3 reports [S4, S5] exactly, which corroborates those "
+            "outlets rather than casting doubt on the annex. Because the values are identical, "
+            "the Tier 1 claim rests on provenance rather than on the number: the campaign "
+            "confirmed on 17 September 2026 that both were read directly off the IEBC annex "
+            "PDF, not copied from the aggregators.",
+            "None. The document URL is on the row in register_2026_by_county.csv for anyone "
+            "who wants to check at source.",
         ))
     return out
 
