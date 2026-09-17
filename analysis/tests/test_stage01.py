@@ -261,3 +261,55 @@ def test_year_labelled_register_is_not_flagged_as_presented_current(tmp_path, mo
         "**Total Registered Electorate:** **532,758 voters** — the current electorate.",
         encoding="utf-8")
     assert [f for f in checks.stale_site_content() if f["check"] == "stale-register"]
+
+
+# --- the IEBC annex drop-in -----------------------------------------------------------
+
+def _write_county_row(tier: int, total: int = 599123) -> None:
+    """SYNTHETIC annex row. Never exported; the file is restored by the fixture."""
+    path = config.DATA_TEMPLATES / "register_2026_by_county.csv"
+    header = path.read_text(encoding="utf-8").splitlines()[0]
+    path.write_text(
+        f"{header}\nKitui,{total},66365,S3,{tier},2026-04-28,https://example.invalid/SYNTHETIC\n",
+        encoding="utf-8",
+    )
+
+
+@pytest.fixture
+def clean_county_template():
+    from src import templates
+    yield
+    templates.write_all()  # rewrite headers-only, discarding any synthetic row
+
+
+def test_conflict_stands_while_the_annex_is_missing(clean_county_template):
+    from src import templates
+    templates.write_all()
+    findings = checks.register_conflict()
+    assert any(f["severity"] == "high" for f in findings)
+    assert any("do not reconcile" in f["detail"] or "disagree" in f["detail"] for f in findings)
+
+
+def test_a_tier_one_annex_row_resolves_the_conflict(clean_county_template):
+    _write_county_row(tier=1)
+    findings = checks.register_conflict()
+    assert all(f["severity"] != "high" for f in findings)
+    resolved = findings[0]
+    assert "RESOLVED" in resolved["detail"]
+    # It must state the difference against BOTH superseded figures, not silently replace them.
+    assert "-6,580" in resolved["detail"]      # vs the reported 605,703
+    assert "+4,526" in resolved["detail"]      # vs the implied 594,597
+
+
+def test_a_tier_three_row_does_not_resolve_anything(clean_county_template):
+    """A figure from an aggregator is the same tier as the ones it would replace."""
+    _write_county_row(tier=3)
+    findings = checks.register_conflict()
+    assert any(f["severity"] == "high" for f in findings)
+
+
+def test_the_county_template_ships_empty(clean_county_template):
+    from src import templates
+    templates.write_all()
+    path = config.DATA_TEMPLATES / "register_2026_by_county.csv"
+    assert len(path.read_text(encoding="utf-8").strip().splitlines()) == 1

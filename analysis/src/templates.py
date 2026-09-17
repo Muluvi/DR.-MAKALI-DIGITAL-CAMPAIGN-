@@ -147,6 +147,32 @@ TEMPLATES: tuple[Template, ...] = (
         ),
     ),
     Template(
+        name="register_2026_by_county",
+        purpose="The post-ECVR 2026 register at COUNTY level — the IEBC annex row for Kitui.",
+        stage="Stages 1, 3",
+        columns=(
+            Column("county", "County name, e.g. Kitui."),
+            Column("registered_voters_2026", "Total registered voters, from the IEBC annex."),
+            Column("new_registrations_2026", "New voters added in the ECVR drive. Blank if the annex gives only a total."),
+            Column("source_id", "S3 for the IEBC ECVR release annex. Use the real S-number of whichever release you take it from."),
+            Column("tier", "1. Anything that is not the IEBC's own document does not belong in this file."),
+            Column("as_of", "ISO date the register was counted, e.g. 2026-04-28."),
+            Column("document_url", "Direct URL of the PDF the figure was read from, so the next person can check it."),
+        ),
+        notes=(
+            "This is the one file that settles the register conflict. The pack carries two T3 "
+            "figures that disagree by 11,106 voters: 605,703 reported for July 2026 [S4], "
+            "against 594,597 implied by 532,758 + 61,839 new [S5]. One T1 row here replaces both.",
+            "County level is what the IEBC annex actually publishes. The ward-level file is "
+            "better still and unlocks more, but it is harder to obtain — fill whichever you can "
+            "get, and this one first.",
+            "ONLY the IEBC's own document. A figure copied from a news site or an aggregator is "
+            "the same tier as what it would be replacing, so it settles nothing.",
+            "Once this file has a row, Stage 1 promotes it over the T3 figures automatically and "
+            "reports the difference against each.",
+        ),
+    ),
+    Template(
         name="results_2022_by_ward",
         purpose="2022 governor and Woman Rep results by ward, from IEBC Forms 37A/37B.",
         stage="Stages 3, 4",

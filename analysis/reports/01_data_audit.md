@@ -47,7 +47,7 @@ What the pack contains, what the site claims, and where the two disagree.
 
 **2026 register — register-2026**  
 The two T3 figures disagree: 532,758 (2022) + 61,839 new [S5] = 594,597, but Kitui's July 2026 total is reported as 605,703 [S4]. Gap of 11,106.  
-*Action:* Both are kept, neither adjusted. Obtain the IEBC ECVR county annex [S3] — it is the T1 figure and settles this.
+*Action:* Both are kept, neither adjusted. Obtain the IEBC ECVR county annex [S3] — it is the T1 figure and settles this. Drop one row into data/templates/register_2026_by_county.csv and this resolves itself on the next run.
 
 **2026 register — register-2026**  
 605,703 is a T3 aggregator figure. It carries status 'verify' in every output.  
@@ -117,6 +117,7 @@ Seven templates and a schema README are in `data/templates/`. Headers only, no e
 - `data/templates/competitors.csv`
 - `data/templates/baseline_survey.csv`
 - `data/templates/register_2026_by_ward.csv`
+- `data/templates/register_2026_by_county.csv`
 - `data/templates/results_2022_by_ward.csv`
 - `data/templates/issues.csv`
 - `data/templates/README.md`
@@ -130,6 +131,7 @@ Seven templates and a schema README are in `data/templates/`. Headers only, no e
 - **[DATA NEEDED]** `competitors.csv` is empty — Rival channel benchmarks for Kasalu, Wambua and Ngilu.
 - **[DATA NEEDED]** `baseline_survey.csv` is empty — Ward-level survey aggregates: recognition, favourability, issue salience.
 - **[DATA NEEDED]** `register_2026_by_ward.csv` is empty — The post-ECVR 2026 register, by ward — the IEBC annex figure.
+- **[DATA NEEDED]** `register_2026_by_county.csv` is empty — The post-ECVR 2026 register at COUNTY level — the IEBC annex row for Kitui.
 - **[DATA NEEDED]** `results_2022_by_ward.csv` is empty — 2022 governor and Woman Rep results by ward, from IEBC Forms 37A/37B.
 - **[DATA NEEDED]** `issues.csv` is empty — Issue salience and candidate credibility, for the Stage 10 matrix.
 - **[DATA NEEDED]** The IEBC ECVR county annex [S3] — the T1 2026 register. It settles the 605,703 vs 594,597 conflict and is the highest-value missing input.

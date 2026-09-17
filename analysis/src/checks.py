@@ -153,18 +153,64 @@ def against_site_register(wards: pd.DataFrame) -> list[dict]:
     return out
 
 
+def official_2026_register() -> tuple[int, dict] | None:
+    """The IEBC annex figure, if the team has supplied it.
+
+    Returns (total, row) or None. Only Tier 1 rows count: a figure copied from a news site
+    is the same tier as the ones it would be replacing, so it settles nothing.
+    """
+    path = config.DATA_TEMPLATES / "register_2026_by_county.csv"
+    if not path.exists():
+        return None
+    df = pd.read_csv(path)
+    if df.empty:
+        return None
+    kitui = df[df["county"].astype(str).str.strip().str.casefold() == "kitui"]
+    if kitui.empty:
+        return None
+    row = kitui.iloc[0]
+    if int(row.get("tier", 0)) != 1:
+        return None
+    total = row.get("registered_voters_2026")
+    if pd.isna(total):
+        return None
+    return int(total), row.to_dict()
+
+
 def register_conflict() -> list[dict]:
-    """The two T3 2026 register figures do not reconcile with each other."""
+    """The two T3 2026 register figures do not reconcile — unless the T1 annex has landed."""
     base = int(config.value("register.y2022"))
     added = int(config.value("register.y2026_new_registrations"))
     total = int(config.value("register.y2026_july"))
     implied = base + added
+
+    official = official_2026_register()
+    if official is not None:
+        confirmed, row = official
+        return [
+            _finding(
+                "register-2026", "ok", "2026 register",
+                f"RESOLVED. The IEBC annex gives Kitui {confirmed:,} registered voters as at "
+                f"{row.get('as_of', 'an unstated date')} ({row.get('source_id', 'source not stated')}, T1). "
+                f"This supersedes both T3 figures: it differs from the reported {total:,} [S4] by "
+                f"{confirmed - total:+,} and from the implied {implied:,} [S5] by {confirmed - implied:+,}.",
+                "Set register.y2026_july to this value in assumptions.yaml with status CONFIRMED, "
+                "tier 1 and verify false, then re-run. Stage 3's benchmark moves with it.",
+            ),
+            _finding(
+                "register-2026", "info", "2026 register",
+                f"Read from {row.get('document_url', 'no URL recorded')}.",
+                "Keep the URL on the row so the next person can check the figure at source.",
+            ),
+        ]
+
     out = [_finding(
         "register-2026", "high", "2026 register",
         f"The two T3 figures disagree: {base:,} (2022) + {added:,} new [S5] = {implied:,}, "
         f"but Kitui's July 2026 total is reported as {total:,} [S4]. Gap of {total - implied:,}.",
         "Both are kept, neither adjusted. Obtain the IEBC ECVR county annex [S3] — it is the "
-        "T1 figure and settles this.",
+        "T1 figure and settles this. Drop one row into "
+        "data/templates/register_2026_by_county.csv and this resolves itself on the next run.",
     )]
     out.append(_finding(
         "register-2026", "high", "2026 register",
