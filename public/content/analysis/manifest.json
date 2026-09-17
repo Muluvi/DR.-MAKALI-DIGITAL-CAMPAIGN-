@@ -1,0 +1,38 @@
+{
+  "generated": "2026-09-17",
+  "data_as_of": "2026-09-16",
+  "source": "analysis pipeline, python -m src.run_all",
+  "approved_mapping": "analysis/reports/site_mapping.md",
+  "files": [
+    "channel-reach.json",
+    "county-finance-2026-27.json",
+    "issue-evidence.json",
+    "published-polls-2026.json",
+    "register-comparison.json",
+    "results-2022-governor.json",
+    "scenario-benchmarks.json",
+    "ward-register-2022.json",
+    "water-and-drought.json"
+  ],
+  "excluded": [
+    "holdout_assignments",
+    "nomination_leverage",
+    "rival_analysis",
+    "vulnerabilities"
+  ],
+  "field_contract": [
+    "as_of",
+    "method",
+    "source_id",
+    "status",
+    "tier",
+    "unit",
+    "value"
+  ],
+  "rules": [
+    "Every value renders its source_id, tier, as_of, method and status, not just the number.",
+    "Any value with status 'verify' must show a visible unconfirmed marker.",
+    "Any chart with a non-empty scenario_label must display it.",
+    "A 'modelled' figure must never be styled with the authority of an 'official' one."
+  ]
+}
