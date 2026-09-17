@@ -418,24 +418,74 @@ def write_findings(charts: list[Chart]) -> str:
                      "Why it is a placeholder": a.rationale[:150]})
     rep.table(pd.DataFrame(rows))
 
-    rep.h2("Every data gap")
+    rep.h2("What to collect next, in order")
+    rep.p(
+        "Ranked by what each unlocks against how hard it is to get. The first three are the "
+        "ones worth chasing; below those, the return falls off sharply."
+    )
     gaps = [
-        ("IEBC ECVR county/ward annex", "Settles the 605,703 conflict; unlocks registration growth", "Stages 1, 3, 4"),
-        ("Mizani sample sizes and method", "Makes the June-to-August comparison testable", "Stage 2"),
-        ("2022 Forms 37A/37B by ward", "Ward-level party strength and turnout", "Stages 3, 4"),
-        ("Baseline survey (ward aggregates)", "Recognition gap and the whole credibility axis", "Stages 4, 10"),
-        ("posts.csv", "The entire Existing Presence Audit", "Stage 6"),
-        ("comments.csv", "Themes, sentiment and behavioural salience", "Stage 7"),
-        ("competitors.csv", "Any rival benchmark at all", "Stage 8"),
-        ("KNBS Housing Survey 2023/24, Kitui ICT row", "Replaces seven-year-old reach rates", "Stage 9"),
-        ("Ward boundary file", "All maps", "Stage 5"),
-        ("Ward-level 2G/3G/4G coverage", "Connectivity feature and real ward reach variation", "Stages 4, 9"),
-        ("Kikamba radio audience by sub-county", "Converts the offline segment into a radio audience", "Stage 9"),
-        ("WPF nomination-poll terms", "The premise the whole nomination strategy rests on", "Stage 3"),
-        ("Rival vote ranges", "Required before any win probability", "Stage 3"),
-        ("A Kikamba-speaking reviewer", "Staffing, not data — blocks Kikamba sentiment coding", "Stage 7"),
+        ("1", "Baseline survey — ward aggregates",
+         "Recognition gap (the highest-weighted feature in the ward index) AND the entire "
+         "credibility axis of the issue matrix. Two stages, no substitute.",
+         "Commission it. Ward-level aggregates only — never respondent rows.",
+         "Stages 4, 10"),
+        ("2", "posts.csv — 90 days of public posts",
+         "The whole Existing Presence Audit: engagement by pillar, format and language, the "
+         "day-and-hour heatmap, cadence, and what actually drives engagement.",
+         "Manual log from the public page, or a Professional Dashboard export if the account "
+         "is a Page. Confirm which it is first — a personal profile has no export. Over ~300 "
+         "posts, set ANTHROPIC_API_KEY and the labelling script runs.",
+         "Stage 6"),
+        ("3", "2022 Forms 37A/37B by ward",
+         "Ward-level party strength and turnout. Replaces two placeholder ranges in the "
+         "simulation with measured values and adds a fourth feature to the ward index.",
+         "IEBC, or party agents' copies. Presidential Forms 34A are already public and serve "
+         "as a turnout proxy by polling station if 37A/37B are slow.",
+         "Stages 3, 4"),
+        ("4", "Ward boundary file",
+         "Five choropleth maps. geopandas is installed, the name-matching is written and "
+         "tested, and two known spelling variants are already handled.",
+         "IEBC 2022 delimitation shapefiles, or ADM3 boundaries from Kenya Open Data or "
+         "OCHA/HDX. Drop it in data/raw/boundaries/.",
+         "Stage 5"),
+        ("5", "Ward-level 2G/3G/4G coverage",
+         "The binding constraint on reach now that the county rates are confirmed. The same "
+         "survey shows 56.6% urban against 25.0% rural, so one county rate across Township and "
+         "Tharaka is the largest remaining error in Stage 9.",
+         "Safaricom and Airtel coverage maps; CA universal-service studies.",
+         "Stages 4, 9"),
+        ("6", "comments.csv — public comments",
+         "Theme and sentiment coding, and a behavioural read on issue salience to sit "
+         "alongside the survey.",
+         "Export with names and handles already removed. Three columns only. A "
+         "Kikamba-speaking reviewer is a staffing dependency, not a data one.",
+         "Stages 7, 10"),
+        ("7", "competitors.csv",
+         "Any rival benchmark at all. Currently there is none.",
+         "Manual audit of public pages plus Meta Ad Library. Internal only — never published.",
+         "Stage 8"),
+        ("8", "The 2026 register by ward",
+         "Removes the last modelled distribution: ward figures currently scale the confirmed "
+         "county total on 2022 shares.",
+         "IEBC, if a ward-level annex exists. Lower priority than it was — the county figure "
+         "is confirmed and carries the county-level conclusions.",
+         "Stages 3, 4, 9"),
+        ("9", "Kikamba radio audience by sub-county",
+         "Converts the 338,588 no-phone voters into an addressable radio audience. Until then "
+         "that segment is a population count, not a reach estimate.",
+         "GeoPoll, Ipsos or KARF releases, or a question in the baseline survey — which is the "
+         "cheaper route if the survey is commissioned anyway.",
+         "Stage 9"),
     ]
-    rep.table(pd.DataFrame(gaps, columns=["Missing", "What it unlocks", "Stages blocked"]))
+    rep.table(pd.DataFrame(gaps, columns=["#", "What", "What it unlocks", "How to get it",
+                                          "Stages"]))
+    rep.p(
+        "Two things are deliberately absent from this list. **Rival vote ranges** would be "
+        "needed for a win probability, and are not being sought: any range supplied today "
+        "would be a guess, and the benchmark comparisons are the honest output. **WPF's "
+        "nomination-poll terms** cannot be obtained by research — only the party can confirm "
+        "the method, and the whole nomination strategy rests on a single T3 report until it does."
+    )
 
     if findings is not None:
         high = findings[findings["severity"] == "high"]

@@ -208,7 +208,11 @@ def test_findings_and_mapping_exist_and_list_exclusions():
     findings = (config.REPORTS / "findings.md").read_text(encoding="utf-8")
     mapping = (config.REPORTS / "site_mapping.md").read_text(encoding="utf-8")
     assert findings.count("**") > 20
-    assert "Every data gap" in findings and "Every assumption" in findings
+    assert "What to collect next, in order" in findings and "Every assumption" in findings
+    # The plan must say how to get each item, not just name it.
+    assert "How to get it" in findings
+    # And it must be honest about what research cannot supply.
+    assert "only the party can confirm" in findings.lower()
     for excluded in ("Nomination leverage", "Holdout assignment", "Competitor benchmark"):
         assert excluded in mapping, f"{excluded} must be listed as excluded"
 
