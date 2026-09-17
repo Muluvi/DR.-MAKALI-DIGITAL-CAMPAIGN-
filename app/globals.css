@@ -848,6 +848,70 @@ table,
   color: var(--tier3-color);
 }
 
+/* Analysis-pipeline figures — a third semantic axis alongside claim-badge (what kind of
+   claim) and tier-badge (how reliable the source): how much confidence the figure itself
+   carries. Deliberately built from the existing verified/estimate/placeholder tokens rather
+   than new colours, so it inherits the document's dark mode and reads as the same system.
+
+   "verify" reuses the placeholder treatment, dashed border and all, because an unconfirmed
+   figure and an unfilled one warrant the same visual caution. */
+.analysis-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border-width: 1px;
+  padding: 1px 0.5em;
+  font-size: var(--fs-micro);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.analysis-chip-confirmed {
+  background: var(--verified-bg);
+  border-color: var(--verified-border);
+  color: var(--verified-color);
+}
+.analysis-chip-verify {
+  background: var(--placeholder-bg);
+  border-color: var(--placeholder-border);
+  color: var(--placeholder-color);
+  border-style: dashed;
+}
+.analysis-chip-placeholder {
+  background: var(--estimate-bg);
+  border-color: var(--estimate-border);
+  color: var(--estimate-color);
+}
+
+/* Block-level warnings. These are never dismissible and never hover-only: a simulation shown
+   without its label reads as a forecast, and an unconfirmed figure shown without a marker
+   reads as a fact. */
+.analysis-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45em;
+  margin: 0 0 0.75rem 0;
+  padding: 0.5em 0.7em;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-style: solid;
+  font-size: var(--fs-label);
+  line-height: 1.45;
+}
+.analysis-banner-scenario {
+  background: var(--estimate-bg);
+  border-color: var(--estimate-border);
+  color: var(--estimate-color);
+}
+.analysis-banner-verify {
+  background: var(--placeholder-bg);
+  border-color: var(--placeholder-border);
+  color: var(--placeholder-color);
+  border-style: dashed;
+}
+
 /* Eyebrow label — a short kicker line above a major heading. It keeps an explicit reset of
    the drop-cap properties: the lede treatment is now scoped to the document's own first
    paragraph, but an eyebrow that opens the document would still land on it. */

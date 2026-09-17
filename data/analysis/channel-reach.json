@@ -1,0 +1,61 @@
+{
+  "id": "channel-reach",
+  "title": "How many voters each channel can reach",
+  "description": "The register split into three mutually exclusive reach segments, modelled from published rates.",
+  "chart_type": "stacked-bar",
+  "generated": "2026-09-17",
+  "data_as_of": "2026-09-16",
+  "scenario_label": "",
+  "notes": [
+    "MODELLED. Published rates multiplied by ward registers — not a measurement.",
+    "Rates are applied uniformly to all 40 wards because no ward-level connectivity data exists. Township and Tharaka get the same rate, which is certainly wrong.",
+    "The rates were measured on residents aged 3+ and are applied here to registered voters, who are all adults. This probably understates the digital and SMS layers.",
+    "Bulk political SMS is English or Kiswahili only under CA/NCIC guidelines, and must be lodged with the operator 48 hours ahead."
+  ],
+  "values": [
+    {
+      "label": "Reachable by smartphone or data",
+      "value": 72453,
+      "unit": "voters",
+      "source_id": "S35",
+      "tier": 2,
+      "as_of": "2019",
+      "method": "modelled",
+      "status": "placeholder",
+      "note": "13.6% internet use, KNBS 2019 — seven years old"
+    },
+    {
+      "label": "Reachable by SMS only (phone, no data)",
+      "value": 156098,
+      "unit": "voters",
+      "source_id": "S35",
+      "tier": 2,
+      "as_of": "2019",
+      "method": "modelled",
+      "status": "placeholder",
+      "note": "42.9% phone ownership minus 13.6% internet use, KNBS 2019"
+    },
+    {
+      "label": "No phone — radio or in person only",
+      "value": 304207,
+      "unit": "voters",
+      "source_id": "S35",
+      "tier": 2,
+      "as_of": "2019",
+      "method": "modelled",
+      "status": "placeholder",
+      "note": "Not a radio audience estimate: no Kitui listenership data exists"
+    },
+    {
+      "label": "Total 2022 register",
+      "value": 532758,
+      "unit": "voters",
+      "source_id": "S1",
+      "tier": 1,
+      "as_of": "2022",
+      "method": "official",
+      "status": "confirmed",
+      "note": ""
+    }
+  ]
+}

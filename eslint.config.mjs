@@ -7,6 +7,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default defineConfig([{
+    // The analysis pipeline is Python, and its virtualenv contains vendored JavaScript
+    // (matplotlib ships a web backend). Linting that is noise about third-party code nobody
+    // here wrote or can fix, so the whole directory is out of scope for eslint. Its own
+    // quality gate is pytest, run from /analysis.
+    ignores: ["analysis/**"],
+}, {
     extends: [...next],
     rules: {
         // One animation import path.

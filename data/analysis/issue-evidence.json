@@ -1,0 +1,103 @@
+{
+  "id": "issue-evidence",
+  "title": "Issues ranked by the evidence behind them",
+  "description": "How strong the public evidence is for each issue — not a measure of what voters say they care about.",
+  "chart_type": "bar",
+  "generated": "2026-09-17",
+  "data_as_of": "2026-09-16",
+  "scenario_label": "",
+  "notes": [
+    "Ranks evidence strength: source tier, whether the indicator is quantified, and whether it is county-wide or localised.",
+    "This is NOT measured salience. Measuring what voters care about needs the baseline survey, which has not been run."
+  ],
+  "values": [
+    {
+      "label": "Water and drought",
+      "value": 1.0,
+      "unit": "score 0-1",
+      "source_id": "S41",
+      "tier": 1,
+      "as_of": "2022",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "21% with at least basic drinking-water service — the lowest of any county in Kenya"
+    },
+    {
+      "label": "County finance and accountability",
+      "value": 1.0,
+      "unit": "score 0-1",
+      "source_id": "S47",
+      "tier": 1,
+      "as_of": "2026",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "KSh 13.79bn FY2026/27 resource envelope; own-source revenue raised from 1.12bn to 1.339bn by the Assembly"
+    },
+    {
+      "label": "Farming and food security",
+      "value": 0.875,
+      "unit": "score 0-1",
+      "source_id": "S43",
+      "tier": 1,
+      "as_of": "2026-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "NDMA drought phase Alert from Dec 2025 through Feb 2026; Normal but worsening by Aug 2026"
+    },
+    {
+      "label": "Household economics and poverty",
+      "value": 0.84,
+      "unit": "score 0-1",
+      "source_id": "S40",
+      "tier": 2,
+      "as_of": "2021",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "55.2% of residents in poverty, about 637,000 people"
+    },
+    {
+      "label": "How county money is split between wards",
+      "value": 0.715,
+      "unit": "score 0-1",
+      "source_id": "S24",
+      "tier": 2,
+      "as_of": "2025-10",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "CLIDP splits county resources equally across all 40 wards; the leading rival attacks it as entrenching inequality"
+    },
+    {
+      "label": "Youth, jobs and registration",
+      "value": 0.715,
+      "unit": "score 0-1",
+      "source_id": "S69",
+      "tier": 2,
+      "as_of": "2026-02",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "IEBC flagged youth registration as lagging and planned a digital pre-registration route"
+    },
+    {
+      "label": "Mui Basin coal",
+      "value": 0.63,
+      "unit": "score 0-1",
+      "source_id": "S52",
+      "tier": 2,
+      "as_of": "2025-10",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "~400 million tonnes of deposits; residents petitioned against mining in 2023; revival announced Oct 2025"
+    },
+    {
+      "label": "Record and delivery",
+      "value": 0.385,
+      "unit": "score 0-1",
+      "source_id": "S20",
+      "tier": 3,
+      "as_of": "2026",
+      "method": "calculated",
+      "status": "verify",
+      "note": "NG-CDF project record and Budget & Appropriations service"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "id": "scenario-benchmarks",
+  "title": "Scenario model: votes against the 2022 benchmark",
+  "description": "Two support scenarios, 10,000 draws each, compared against the 2022 winning tally.",
+  "chart_type": "distribution",
+  "generated": "2026-09-17",
+  "data_as_of": "2026-09-16",
+  "scenario_label": "Scenario model, not a forecast.",
+  "notes": [
+    "Scenario model, not a forecast.",
+    "Governor races are won by plurality. There is no threshold and these are not win probabilities.",
+    "A win probability would require rival vote ranges, which have not been supplied.",
+    "Every input is a placeholder assumption from config/assumptions.yaml."
+  ],
+  "values": [
+    {
+      "label": "Current measured preference — median",
+      "value": 88154,
+      "unit": "votes",
+      "source_id": "S1",
+      "tier": 1,
+      "as_of": "2026-09",
+      "method": "modelled",
+      "status": "placeholder",
+      "note": "his published nomination-poll share, 20.2–26.2%, widened to 18–32%"
+    },
+    {
+      "label": "Current measured preference — 5th percentile",
+      "value": 64152,
+      "unit": "votes",
+      "source_id": "S1",
+      "tier": 1,
+      "as_of": "2026-09",
+      "method": "modelled",
+      "status": "placeholder",
+      "note": ""
+    },
+    {
+      "label": "Current measured preference — 95th percentile",
+      "value": 116047,
+      "unit": "votes",
+      "source_id": "S1",
+      "tier": 1,
+      "as_of": "2026-09",
+      "method": "modelled",
+      "status": "placeholder",
+      "note": ""
+    },
+    {
+      "label": "Current measured preference — draws above 198,004",
+      "value": 0.0,
+      "unit": "%",
+      "source_id": "S11",
+      "tier": 2,
+      "as_of": "2026-09",
+      "method": "modelled",
+      "status": "placeholder",
+      "note": "NOT a win probability — no rival is modelled"
+    },
+    {
+      "label": "Competitive general election — median",
+      "value": 176055,
+      "unit": "votes",
+      "source_id": "S1",
+      "tier": 1,
+      "as_of": "2026-09",
+      "method": "modelled",
+      "status": "placeholder",
+      "note": "40–60% of ballots cast, anchored on the 2022 winner's ~60%"
+    },
+    {
+      "label": "Competitive general election — 5th percentile",
+      "value": 139047,
+      "unit": "votes",
+      "source_id": "S1",
+      "tier": 1,
+      "as_of": "2026-09",
+      "method": "modelled",
+      "status": "placeholder",
+      "note": ""
+    },
+    {
+      "label": "Competitive general election — 95th percentile",
+      "value": 220591,
+      "unit": "votes",
+      "source_id": "S1",
+      "tier": 1,
+      "as_of": "2026-09",
+      "method": "modelled",
+      "status": "placeholder",
+      "note": ""
+    },
+    {
+      "label": "Competitive general election — draws above 198,004",
+      "value": 21.3,
+      "unit": "%",
+      "source_id": "S11",
+      "tier": 2,
+      "as_of": "2026-09",
+      "method": "modelled",
+      "status": "placeholder",
+      "note": "NOT a win probability — no rival is modelled"
+    },
+    {
+      "label": "2022 winning tally (benchmark)",
+      "value": 198004,
+      "unit": "votes",
+      "source_id": "S11",
+      "tier": 2,
+      "as_of": "2022-08",
+      "method": "official",
+      "status": "confirmed",
+      "note": ""
+    }
+  ]
+}

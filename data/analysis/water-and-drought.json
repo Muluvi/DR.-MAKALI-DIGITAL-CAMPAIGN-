@@ -1,0 +1,81 @@
+{
+  "id": "water-and-drought",
+  "title": "Water and drought in Kitui",
+  "description": "Kitui has the lowest share of any county in Kenya with at least basic drinking-water service.",
+  "chart_type": "timeline",
+  "generated": "2026-09-17",
+  "data_as_of": "2026-09-16",
+  "scenario_label": "",
+  "notes": [
+    "21% basic drinking-water service is the lowest of any county (KDHS 2022).",
+    "NDMA moved Kitui from Alert to Normal by August 2026, while listing it among counties where conditions are getting worse."
+  ],
+  "values": [
+    {
+      "label": "NDMA drought phase · Dec 2025",
+      "value": "Alert",
+      "unit": "phase",
+      "source_id": "S45",
+      "tier": 1,
+      "as_of": "Dec 2025",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Alert"
+    },
+    {
+      "label": "NDMA drought phase · Jan 2026",
+      "value": "Alert",
+      "unit": "phase",
+      "source_id": "S44",
+      "tier": 1,
+      "as_of": "Jan 2026",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Alert"
+    },
+    {
+      "label": "NDMA drought phase · Feb 2026",
+      "value": "Alert",
+      "unit": "phase",
+      "source_id": "S43",
+      "tier": 1,
+      "as_of": "Feb 2026",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Alert. Average water trekking distance in Kitui was 7.2 km, the longest among semi-arid counties, tied with Lamu ."
+    },
+    {
+      "label": "NDMA drought phase · Aug 2026",
+      "value": "Normal",
+      "unit": "phase",
+      "source_id": "S46",
+      "tier": 2,
+      "as_of": "Aug 2026",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Kitui classed Normal, but listed among counties where conditions are getting worse, with El Niño rains expected ."
+    },
+    {
+      "label": "Basic drinking-water service · 2022",
+      "value": 21.0,
+      "unit": "% of households",
+      "source_id": "S41",
+      "tier": 1,
+      "as_of": "2022",
+      "method": "official",
+      "status": "confirmed",
+      "note": "21% — lowest share of any county in Kenya"
+    },
+    {
+      "label": "Water trekking distance · Feb 2026",
+      "value": 7.2,
+      "unit": "km",
+      "source_id": "S43",
+      "tier": 1,
+      "as_of": "2026-02",
+      "method": "official",
+      "status": "confirmed",
+      "note": "7.2 km — longest among semi-arid counties, tied with Lamu"
+    }
+  ]
+}

@@ -12,6 +12,13 @@ import { HighlightedText } from "./markdown/HighlightedText";
 import { hasHighlight } from "../lib/highlight-patterns";
 import { CompetitiveQuadrantBlock } from "./markdown/CompetitiveQuadrantBlock";
 import { ResourceEnvelopeBlock } from "./markdown/ResourceEnvelopeBlock";
+import {
+  ChannelReachBlock,
+  IssueEvidenceBlock,
+  PollMarginsBlock,
+  RegisterComparisonBlock,
+  ScenarioBenchmarkBlock,
+} from "./markdown/AnalysisBlocks";
 import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
 import { MizaniSlopeBlock } from "./markdown/MizaniSlopeBlock";
 import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
@@ -215,6 +222,9 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // stayed with the work they measure — indexed beneath them rather than moved here.
   "measurement-sec-11-1": <ObjectivesIndex />,
   "situation-sec-3-1": <NominationPathPanel />,
+  // The pipeline's poll margins land in the section that states the gap, because the gap is
+  // the thing the margins qualify: one of these three polls can be tested and two cannot.
+  "situation-sec-3-1-5": <PollMarginsBlock />,
   // The governing claim opens §6, ahead of the pillars and themes that rest on it.
   "approach-sec-6-1": <EconomistGovernorThesis />,
   "situation-sec-3-3-2": (
@@ -258,7 +268,15 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "annex-county-sec-3-3-8": <DroughtFoodSecurityPanel />,
   "annex-county-sec-3-3-9": <MuiBasinPanel />,
   "annex-county-sec-3-3-10": <CompetitorFieldPanel />,
-  "arithmetic-sec-3-4-1": <VoteFunnel />,
+  // The funnel shows how the threshold is built; the register block shows which register it
+  // is built on, which is now a live question rather than a settled one.
+  "arithmetic-sec-3-4-1": (
+    <>
+      <VoteFunnel />
+      <RegisterComparisonBlock />
+    </>
+  ),
+  "arithmetic-sec-3-4-2": <ScenarioBenchmarkBlock />,
   "arithmetic-sec-3-4-3": <PathTo200kCalculator />,
   "arithmetic-sec-3-4-5": <RecognitionDeficitOverlay />,
   "audiences-sec-5-1": <AudienceSegmentationMatrix />,
@@ -266,6 +284,10 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // that argument as an object: one handset, the campaign on all seven channels, ending on the
   // USSD dialog that reaches more voters than the six apps together.
   "reach-sec-3-6": <PhoneShowcase />,
+  // The showcase makes the argument; this puts the modelled numbers under it, including the
+  // one the showcase cannot show — that the largest addressable layer cannot carry Kikamba.
+  "reach-sec-3-6-1": <ChannelReachBlock />,
+  "messaging-sec-7-1-1": <IssueEvidenceBlock />,
   "messaging-sec-7-1": (
     <>
       <MessagingPlayground />

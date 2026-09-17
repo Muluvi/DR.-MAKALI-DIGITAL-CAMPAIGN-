@@ -1,0 +1,70 @@
+{
+  "id": "results-2022-governor",
+  "title": "The 2022 governor result",
+  "description": "The benchmark every 2027 projection is measured against.",
+  "chart_type": "bar",
+  "generated": "2026-09-17",
+  "data_as_of": "2026-09-16",
+  "scenario_label": "",
+  "notes": [
+    "Musila's runner-up total is disputed: The Star reports 114,606, the Nation and Standard 117,606. Both are shown; neither is preferred.",
+    "Kenyan governor races are won by plurality. 198,004 is a benchmark, not a threshold."
+  ],
+  "values": [
+    {
+      "label": "Julius Malombe (winner)",
+      "value": 198004,
+      "unit": "votes",
+      "source_id": "S11,S12",
+      "tier": 2,
+      "as_of": "2022-08",
+      "method": "official",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "label": "David Musila (runner-up)",
+      "value": 117606,
+      "unit": "votes",
+      "source_id": "S12,S13",
+      "tier": 2,
+      "as_of": "2022-08",
+      "method": "official",
+      "status": "verify",
+      "note": "Disputed: two published totals, both kept"
+    },
+    {
+      "label": "David Musila (runner-up)",
+      "value": 114606,
+      "unit": "votes",
+      "source_id": "S11",
+      "tier": 2,
+      "as_of": "2022-08",
+      "method": "official",
+      "status": "verify",
+      "note": "Disputed: two published totals, both kept"
+    },
+    {
+      "label": "Mueke (also-ran)",
+      "value": 10639,
+      "unit": "votes",
+      "source_id": "S11",
+      "tier": 2,
+      "as_of": "2022-08",
+      "method": "official",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "label": "Charity Ngilu (also-ran)",
+      "value": 2026,
+      "unit": "votes",
+      "source_id": "S11",
+      "tier": 2,
+      "as_of": "2022-08",
+      "method": "official",
+      "status": "confirmed",
+      "note": ""
+    }
+  ]
+}

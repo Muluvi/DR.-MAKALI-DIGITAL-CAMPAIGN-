@@ -1,0 +1,69 @@
+{
+  "id": "county-finance-2026-27",
+  "title": "Kitui County finances, FY2026/27",
+  "description": "The resource envelope behind the Economist Governor argument.",
+  "chart_type": "bar",
+  "generated": "2026-09-17",
+  "data_as_of": "2026-09-16",
+  "scenario_label": "",
+  "notes": [
+    "From the County Fiscal Strategy Paper FY2026/27 [S47], approved by the County Assembly, which raised own-source revenue to KSh 1.339bn [S48]."
+  ],
+  "values": [
+    {
+      "label": "Total resource envelope",
+      "value": 13.79,
+      "unit": "KSh bn",
+      "source_id": "S47,S48",
+      "tier": 3,
+      "as_of": "2026",
+      "method": "official",
+      "status": "verify",
+      "note": "KSh 13.79 bn"
+    },
+    {
+      "label": "Equitable share",
+      "value": 11.64,
+      "unit": "KSh bn",
+      "source_id": "S47",
+      "tier": 1,
+      "as_of": "2026",
+      "method": "official",
+      "status": "confirmed",
+      "note": "KSh 11.64 bn (84.3%)"
+    },
+    {
+      "label": "Own-source revenue (OSR)",
+      "value": 1.12,
+      "unit": "KSh bn",
+      "source_id": "S47,S48",
+      "tier": 3,
+      "as_of": "2026",
+      "method": "official",
+      "status": "verify",
+      "note": "KSh 1.12 bn in the CFSP (8.1%); raised to KSh 1.339 bn by the County Assembly"
+    },
+    {
+      "label": "Grants",
+      "value": 1.04,
+      "unit": "KSh bn",
+      "source_id": "S47",
+      "tier": 1,
+      "as_of": "2026",
+      "method": "official",
+      "status": "confirmed",
+      "note": "KSh 1.04 bn (7.5%)"
+    },
+    {
+      "label": "Comparison: FY2023/24 budget",
+      "value": 14.26,
+      "unit": "KSh bn",
+      "source_id": "S50",
+      "tier": 1,
+      "as_of": "2026",
+      "method": "official",
+      "status": "confirmed",
+      "note": "KSh 14.26 bn total; 38% development; OSR projected at KSh 585 m"
+    }
+  ]
+}
