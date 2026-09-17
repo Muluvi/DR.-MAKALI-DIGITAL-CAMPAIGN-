@@ -11,6 +11,28 @@ CURRENT_PARTY = "Wiper Patriotic Front"
 STALE_PARTY = "Wiper Democratic Movement"
 
 
+def _stale_party_uses(text: str) -> int:
+    """Count uses of the old party name that are genuinely stale.
+
+    An occurrence is NOT stale when the surrounding text is explaining the rename or
+    quoting a 2022-era record — "change of name from Wiper Democratic Movement to Wiper
+    Patriotic Front" is correct writing, and flagging it would send someone to "fix"
+    accurate text. A check that cries wolf on correct content devalues the findings that
+    are real.
+    """
+    stale = 0
+    for m in re.finditer(re.escape(STALE_PARTY), text):
+        window = text[max(0, m.start() - 220):m.start() + 220]
+        explains_rename = (
+            CURRENT_PARTY in window
+            or re.search(r"\b(formerly|change of name|renamed|as it was filed|in 2022)\b",
+                         window, re.I)
+        )
+        if not explains_rename:
+            stale += 1
+    return stale
+
+
 def _finding(
     check: str, severity: str, subject: str, detail: str, action: str
 ) -> dict:
@@ -158,9 +180,9 @@ def stale_site_content() -> list[dict]:
     hits: dict[str, list[str]] = {}
     for path in sorted(config.SITE_CONTENT.glob("*.md")):
         text = path.read_text(encoding="utf-8")
-        if STALE_PARTY in text:
-            count = text.count(STALE_PARTY)
-            hits.setdefault("party", []).append(f"{path.name} ({count})")
+        stale_uses = _stale_party_uses(text)
+        if stale_uses:
+            hits.setdefault("party", []).append(f"{path.name} ({stale_uses})")
     if hits.get("party"):
         out.append(_finding(
             "stale-party-name", "high", "Site content",
@@ -182,13 +204,19 @@ def stale_site_content() -> list[dict]:
             "Acceptable as shorthand after the full name is used once per page; check first use.",
         ))
 
-    # The 2022 register presented as current.
+    # The 2022 register presented as current, without a year label.
     current_register = []
     for path in sorted(config.SITE_CONTENT.glob("*.md")):
         text = path.read_text(encoding="utf-8")
         for m in re.finditer(r"532,758", text):
             window = text[max(0, m.start() - 160):m.start() + 160]
-            if re.search(r"\b(current|today|now|2027|Total Registered Electorate)\b", window, re.I):
+            presented_as_current = re.search(
+                r"\b(current|today|now|2027|Total Registered Electorate)\b", window, re.I)
+            # A figure labelled with its year is not being passed off as current. This is the
+            # difference between "Total Registered Electorate: 532,758" and
+            # "Total Registered Electorate (2022, Tier 1): 532,758" — only the first is a fault.
+            year_labelled = re.search(r"\b2022\b", window)
+            if presented_as_current and not year_labelled:
                 current_register.append(path.name)
                 break
     if current_register:

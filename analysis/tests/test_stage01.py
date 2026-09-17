@@ -147,12 +147,20 @@ def test_poll_shares_match_the_published_figures(frames):
 
 # --- checks --------------------------------------------------------------------------------
 
-def test_checks_find_the_stale_party_name(frames):
+def test_checks_run_and_find_the_register_conflict(frames):
+    """Assert the checks that do not depend on today's site content.
+
+    The party-name and missing-poll checks are deliberately NOT asserted here: the site has
+    since fixed both, and a test that requires the content to stay broken would fail the
+    moment someone does the right thing. Those checks are proved at unit level below
+    instead, where the input is fixed.
+    """
     found = checks.run_all(frames, claims.build())
     subjects = found["check"].tolist()
-    assert "stale-party-name" in subjects
     assert "register-2026" in subjects
-    assert "missing-poll" in subjects
+    assert "t3-dependency" in subjects
+    assert "constituency-to-county" in subjects
+    assert not found.empty
 
 
 def test_reconciliation_check_passes_on_real_data(frames):
@@ -210,3 +218,46 @@ def test_exports_land_in_processed(frames):
         path = config.DATA_PROCESSED / f"{name}.csv"
         assert path.exists() and path.stat().st_size > 0
         assert not pd.read_csv(path).empty
+
+
+# --- stale-content checks must not cry wolf on correct text ---------------------------
+
+def test_explaining_the_rename_is_not_flagged_as_stale():
+    """A line describing the WDM -> WPF change is correct writing, not a stale name."""
+    from src.checks import _stale_party_uses
+    correct = (
+        "The Office of the Registrar of Political Parties issued a certificate of change of "
+        "name from **Wiper Democratic Movement (WDM)** to **Wiper Patriotic Front (WPF)** in "
+        "August 2025. This document uses WPF throughout."
+    )
+    assert _stale_party_uses(correct) == 0
+
+
+def test_a_genuinely_stale_party_name_is_still_flagged():
+    from src.checks import _stale_party_uses
+    stale = "Sen. Wambua commands significant standing within the Wiper Democratic Movement today."
+    assert _stale_party_uses(stale) == 1
+
+
+def test_quoting_a_2022_record_is_not_flagged():
+    from src.checks import _stale_party_uses
+    quoted = "Julius Malombe (Wiper Democratic Movement) won in 2022 with 198,004 votes."
+    assert _stale_party_uses(quoted) == 0
+
+
+def test_year_labelled_register_is_not_flagged_as_presented_current(tmp_path, monkeypatch):
+    """"Total Registered Electorate (2022): 532,758" is correct; without the year it is not."""
+    from src import checks, config as cfg
+
+    labelled = tmp_path / "labelled.md"
+    labelled.write_text(
+        "**Total Registered Electorate (2022, Tier 1):** **532,758 voters** across 40 wards.",
+        encoding="utf-8")
+    monkeypatch.setattr(cfg, "SITE_CONTENT", tmp_path)
+    monkeypatch.setattr(checks.config, "SITE_CONTENT", tmp_path)
+    assert not [f for f in checks.stale_site_content() if f["check"] == "stale-register"]
+
+    labelled.write_text(
+        "**Total Registered Electorate:** **532,758 voters** — the current electorate.",
+        encoding="utf-8")
+    assert [f for f in checks.stale_site_content() if f["check"] == "stale-register"]

@@ -17,7 +17,7 @@ What the pack contains, what the site claims, and where the two disagree.
 | `channels.csv` | 25 |
 | `county_finance.csv` | 6 |
 | `drought.csv` | 6 |
-| `claims_register.csv` | 1007 |
+| `claims_register.csv` | 1093 |
 
 14 markdown tables and 69 sources parsed from the pack. Sources split T1/T2/T3 as 19/22/28.
 
@@ -40,7 +40,7 @@ What the pack contains, what the site claims, and where the two disagree.
 
 ## Problems found
 
-8 high, 3 medium, 5 checks passed. Full list in `data/processed/audit_findings.csv`.
+5 high, 3 medium, 5 checks passed. Full list in `data/processed/audit_findings.csv`.
 
 
 ### High severity
@@ -49,75 +49,63 @@ What the pack contains, what the site claims, and where the two disagree.
 The two T3 figures disagree: 532,758 (2022) + 61,839 new [S5] = 594,597, but Kitui's July 2026 total is reported as 605,703 [S4]. Gap of 11,106.  
 *Action:* Both are kept, neither adjusted. Obtain the IEBC ECVR county annex [S3] — it is the T1 figure and settles this.
 
-**Site content — stale-register**  
-532,758 (the 2022 register) is presented as the current electorate in: arithmetic.md. As of 16 Sep 2026 the register has been through the 2026 ECVR drive [S3].  
-*Action:* Relabel as 'IEBC 2022 register' and show the 2026 figure separately, marked verify.
-
-**Site content — stale-party-name**  
-'Wiper Democratic Movement' appears in: measurement.md (1), objectives.md (1), risk.md (1), situation.md (4), summary.md (1). ORPP certified the change to 'Wiper Patriotic Front' in August 2025 [S6].  
-*Action:* Replace with 'Wiper Patriotic Front' except where describing 2022, where 'WDM (now WPF)' is correct.
-
 **2026 register — register-2026**  
 605,703 is a T3 aggregator figure. It carries status 'verify' in every output.  
 *Action:* Never present it as official. Replace with the IEBC annex.
-
-**Nomination method — t3-dependency**  
-The opinion-poll nomination method is T3, single-sourced to The County Diary [S10], and the whole nomination strategy rests on it.  
-*Action:* Obtain official WPF communication on the method, pollster, timing and sample design.
-
-**Site content — claim-sourcing**  
-850 of 1,007 numeric claims (84%) carry no visible tier marker within 70 characters.  
-*Action:* Most are restatements of figures tiered elsewhere on the page. Prioritise the ones that state a figure for the first time.
 
 **Malombe eligibility — pack-vs-site**  
 The pack states the seat is open: Malombe was elected in 2013 and 2022, and Article 180(7) limits governors to two terms [S63]. The site treats his eligibility as an unresolved two-branch question in situation.md.  
 *Action:* Resolve. If the pack is right, the branching scenario is dead content and the framing should change to an open-seat race.
 
-**Site content — missing-poll**  
-The site shows only the Mizani rounds. Politrack Africa (12 Mar 2026, n = 2,927) is a second published pollster and is absent [S9].  
-*Action:* Add Politrack as a separate series. Never join it to Mizani as one trend line.
+**Site content — claim-sourcing**  
+917 of 1,093 numeric claims (84%) carry no visible tier marker within 70 characters.  
+*Action:* Most are restatements of figures tiered elsewhere on the page. Prioritise the ones that state a figure for the first time.
+
+**Nomination method — t3-dependency**  
+The opinion-poll nomination method is T3, single-sourced to The County Diary [S10], and the whole nomination strategy rests on it.  
+*Action:* Obtain official WPF communication on the method, pollster, timing and sample design.
 
 
 ### Medium severity
 
 **Site content — claim-sourcing**  
-1 site claims are explicitly marked Tier 3.  
+6 site claims are explicitly marked Tier 3.  
 *Action:* Each must render with a visible unconfirmed marker.
+
+**Site content — stale-party-name**  
+Bare 'Wiper' without 'Patriotic Front' appears in 16 files.  
+*Action:* Acceptable as shorthand after the full name is used once per page; check first use.
 
 **Mutito/Kaliku — ward-name-variant**  
 The pack spells this 'Mutito/Kaliku'; the site spells it 'Mutitu/Kaliku' (similarity 0.923). Matched by similarity, not exactly.  
 *Action:* Confirm against the IEBC ward list and fix one spelling. This will break a boundary-file join at Stage 5 if left.
 
-**Site content — stale-party-name**  
-Bare 'Wiper' without 'Patriotic Front' appears in 17 files.  
-*Action:* Acceptable as shorthand after the full name is used once per page; check first use.
-
 
 ### Checks that passed
 
+- polls: All 8 T3 rows in polls.csv carry status 'verify'.
 - All 40 wards: Every ward's voter count in the pack matches the site's ward-register.json.
 - Kitui County: 40 wards sum to 532,758, matching the IEBC 2022 county register exactly.
-- polls: All 8 T3 rows in polls.csv carry status 'verify'.
-- channels: All 13 T3 rows in channels.csv carry status 'verify'.
 - county_finance: All 2 T3 rows in county_finance.csv carry status 'verify'.
+- channels: All 13 T3 rows in channels.csv carry status 'verify'.
 
 
 ## The claims register
 
-1,007 numeric claims across 27 content files. 850 (84%) carry no tier marker within 70 characters of the figure.
+1,093 numeric claims across 28 content files. 917 (84%) carry no tier marker within 70 characters of the figure.
 
 That percentage overstates the problem and should not be quoted on its own. The site tiers a figure where it is introduced and then restates it in summaries, tables and callouts without repeating the marker. The register is a worklist, not a verdict: sort it by file and look for figures that appear for the first time without a tier.
 
 | File | Claims | Unsourced |
 |---|---|---|
-| arithmetic.md | 394 | 383 |
-| situation.md | 166 | 81 |
+| arithmetic.md | 410 | 397 |
+| situation.md | 194 | 104 |
 | audiences.md | 41 | 27 |
-| roadmap.md | 41 | 41 |
-| reach.md | 39 | 36 |
-| scope-data.md | 32 | 32 |
-| objectives.md | 31 | 21 |
-| scope-ground.md | 31 | 31 |
+| roadmap.md | 40 | 40 |
+| reach.md | 38 | 35 |
+| approach.md | 36 | 21 |
+| scope-ground.md | 32 | 32 |
+| scope-data.md | 31 | 31 |
 
 
 ## Templates written

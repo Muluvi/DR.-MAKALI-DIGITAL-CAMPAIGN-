@@ -118,4 +118,4 @@ The leading rival attacks equal-ward CLIDP as entrenching inequality [S24]. The 
 
 ## Audit findings still open
 
-8 high-severity findings from Stage 1. Full list in `data/processed/audit_findings.csv`.
+5 high-severity findings from Stage 1. Full list in `data/processed/audit_findings.csv`.
