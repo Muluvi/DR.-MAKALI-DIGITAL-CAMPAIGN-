@@ -16,7 +16,7 @@
 
 const PILLARS = {
   P1: { label: "P1 · Where the money went", cls: "bg-accent text-paper border-accent" },
-  P2: { label: "P2 · From poverty to wealth", cls: "bg-gold text-ink border-gold" },
+  P2: { label: "P2 · From poverty to wealth", cls: "bg-gold-solid text-white border-gold-solid" },
   P3: { label: "P3 · The economist explains", cls: "bg-ink text-paper border-ink" },
   P4: { label: "P4 · He came, and said he would", cls: "bg-accent/25 text-ink border-accent" },
   NONE: { label: "Unpillared", cls: "bg-ink/[0.06] text-muted border-line" },
@@ -66,11 +66,14 @@ function Strip({ rows, heading }: { rows: DayCell[]; heading: string }) {
                   d.deficitWard ? "ring-2 ring-offset-1 ring-gold ring-offset-card" : ""
                 }`}
               >
+                {/* The three lines rank by weight, not by transparency. Fading t-micro text
+                    onto a saturated pillar fill cost it the 4.5:1 floor — the language line
+                    measured 2.36:1 — and black/bold/regular already separates them. */}
                 <span className="t-micro font-black leading-none">{d.day}</span>
-                <span className="t-micro font-bold leading-none opacity-90">
+                <span className="t-micro font-bold leading-none">
                   {d.pillar === "NONE" ? "—" : d.pillar}
                 </span>
-                <span className="t-micro leading-none opacity-75">{d.lang}</span>
+                <span className="t-micro leading-none">{d.lang}</span>
               </div>
             </li>
           );

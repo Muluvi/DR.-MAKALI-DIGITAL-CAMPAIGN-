@@ -103,7 +103,7 @@ export function ServiceLevelSelector() {
               />
             )}
             <span className="relative flex flex-col items-center leading-tight">
-              <span className="t-micro font-black opacity-70">{c.number}</span>
+              <span className="t-micro font-black">{c.number}</span>
               {c.label}
             </span>
           </button>
@@ -143,7 +143,7 @@ export function ServiceLevelSelector() {
         />
         Show only what differs from the other levels
         {diffOnly && hidden > 0 && (
-          <span className="t-micro text-muted/80">({hidden} identical row{hidden === 1 ? "" : "s"} hidden)</span>
+          <span className="t-micro text-muted">({hidden} identical row{hidden === 1 ? "" : "s"} hidden)</span>
         )}
       </label>
     </figure>

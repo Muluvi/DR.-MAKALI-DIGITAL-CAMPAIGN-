@@ -60,7 +60,7 @@ export function AudioSummaryPlayer() {
         <button
           onClick={() => setLanguage("kik")}
           className={`flex-1 t-small font-bold py-1.5 rounded-lg border transition-all ${
- language === "kik" ? "bg-gold text-white border-gold" : "bg-card text-muted border-line"
+ language === "kik" ? "bg-gold-solid text-white border-gold-solid" : "bg-card text-muted border-line"
           }`}
         >
           Kikamba Summary
@@ -219,7 +219,7 @@ export function MessagingPlayground() {
       <div className="p-4 bg-paper border border-line rounded-xl">
         <span className="t-micro font-black text-accent leading-none">Aligned Brand Slogan</span>
         <h5 className="font-serif text-sm font-black text-ink mt-0.5">{messages[lang].slogan}</h5>
-        <p className="t-label text-muted/90 mt-1.5 leading-relaxed">{messages[lang].copy}</p>
+        <p className="t-label text-muted mt-1.5 leading-relaxed">{messages[lang].copy}</p>
       </div>
     </div>
   );
@@ -249,7 +249,7 @@ export function CounterMessagingGrid() {
       <h4 className="font-serif text-sm font-bold text-ink">Opposition Counter-Narrative Matrix</h4>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="p-4 bg-red-500/[0.03] border border-red-500/20 rounded-xl">
-          <span className="t-micro font-black text-red-600">Opposition Claim</span>
+          <span className="t-micro font-black text-danger">Opposition Claim</span>
           <p className="t-small text-muted mt-1.5 leading-relaxed">
             &ldquo;Wiper&apos;s offline model fails to match digitized investment and high-tech corporate frameworks.&rdquo;
           </p>
@@ -276,9 +276,11 @@ export function MediaPlaybackMockup() {
         <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-gold/10" />
         <button
           onClick={() => setPlaying(!playing)}
+          aria-label={playing ? "Pause the Kikamba radio commercial spot" : "Play the Kikamba radio commercial spot"}
+          aria-pressed={playing}
           className="p-4 rounded-full bg-accent-solid text-on-accent hover:bg-accent/90 transition-all shadow-md relative z-10 cursor-pointer"
         >
-          {playing ? <Pause size={20} /> : <Play size={20} className="ml-0.5" />}
+          {playing ? <Pause size={20} aria-hidden="true" /> : <Play size={20} aria-hidden="true" className="ml-0.5" />}
         </button>
         <span className="absolute bottom-2 left-3 t-micro font-black uppercase text-accent bg-card px-2 py-0.5 rounded border border-line">
           Vernacular Radio Broadcast Player
@@ -343,16 +345,18 @@ export function ToneVoiceSlider() {
             <span>Empathetic Grassroots</span>
           </div>
           <div className="relative w-full flex items-center">
-            <input 
+            <input
               type="range"
               min="0"
               max="100"
               value={sliderVal}
               onChange={(e) => setSliderVal(parseInt(e.target.value))}
+              aria-label="Campaign voice balance, authoritative technical to empathetic grassroots"
+              aria-valuetext={`${sliderVal} percent grassroots weight`}
               className="w-full accent-accent h-2 bg-line/60 rounded-full cursor-pointer appearance-none"
             />
           </div>
-          <div className="flex justify-between t-micro font-bold text-muted/80 mt-1.5">
+          <div className="flex justify-between t-micro font-bold text-muted mt-1.5">
             <span>0% Technical</span>
             <span className="font-black text-accent">{sliderVal}% Grassroots Weight</span>
             <span>100% Grassroots</span>
@@ -415,7 +419,7 @@ export function SloganBuilder() {
               key={pill}
               onClick={() => handleToggle(pill)}
               className={`t-label font-extrabold uppercase py-1 px-2.5 rounded-full border transition-all cursor-pointer ${
- isSelected ? "bg-gold border-gold text-white" : "bg-paper border-line text-muted hover:border-gold/30"
+ isSelected ? "bg-gold-solid border-gold-solid text-white" : "bg-paper border-line text-muted hover:border-gold/30"
               }`}
             >
               {pill}

@@ -156,8 +156,8 @@ export function PathTo200kCalculator() {
         {/* Victory Status Pill */}
         <div className={`px-3 py-1.5 rounded-xl border t-label font-black flex items-center gap-1.5 self-start sm:self-auto ${
  selectedPath.isViable 
-            ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20"
-            : "bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/20"
+            ? "bg-emerald-500/10 text-emerald-800 dark:text-emerald-400 border-emerald-500/20"
+            : "bg-rose-500/10 text-rose-800 dark:text-rose-400 border-rose-500/20"
         }`}>
           {selectedPath.isViable ? (
             <>

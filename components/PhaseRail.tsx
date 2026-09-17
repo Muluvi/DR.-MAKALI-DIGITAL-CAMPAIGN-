@@ -236,7 +236,7 @@ export function PhaseRail() {
                     <span
                       className="t-label font-black px-2 py-0.5 rounded"
                       style={{
-                        color: `var(${phase.colorVar})`,
+                        color: `color-mix(in srgb, var(${phase.colorVar}) 72%, var(--ink))`,
                         backgroundColor: `color-mix(in srgb, var(${phase.colorVar}) 12%, transparent)`,
                       }}
                     >

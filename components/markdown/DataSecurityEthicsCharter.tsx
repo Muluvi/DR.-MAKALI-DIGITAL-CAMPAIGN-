@@ -104,8 +104,8 @@ export function DataSecurityEthicsCharter() {
         </div>
 
         {/* ODPC Status Pill */}
-        <div className="flex items-center gap-2 px-3 py-1.5 bg-card border border-emerald-500/30 rounded-xl t-label font-semibold text-emerald-700 dark:text-emerald-300">
-          <ShieldCheck size={14} className="text-emerald-600 dark:text-emerald-400" />
+        <div className="flex items-center gap-2 px-3 py-1.5 bg-card border border-emerald-500/30 rounded-xl t-label font-semibold text-emerald-800 dark:text-emerald-300">
+          <ShieldCheck size={14} className="text-emerald-800 dark:text-emerald-400" />
           <span>ODPC & IEBC Pre-Audited Standards</span>
         </div>
       </div>
@@ -180,9 +180,9 @@ export function DataSecurityEthicsCharter() {
 
               <div className="mt-2.5 pt-2 border-t border-line/60 flex flex-col sm:flex-row sm:items-center justify-between gap-1 t-small">
                 <span className="text-muted">
-                  <strong className="text-rose-600 dark:text-rose-400">Statutory Exposure / Penalty:</strong> {rule.penaltyForBreach}
+                  <strong className="text-rose-800 dark:text-rose-400">Statutory Exposure / Penalty:</strong> {rule.penaltyForBreach}
                 </span>
-                <span className="t-label font-mono text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
+                <span className="t-label font-mono text-emerald-800 dark:text-emerald-400 font-bold flex items-center gap-1">
                   <ShieldCheck size={12} /> Active Campaign Standard
                 </span>
               </div>

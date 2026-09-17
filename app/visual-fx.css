@@ -1199,7 +1199,15 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
     .prose > table:not(.not-prose *) {
       animation: fx-slide-up auto var(--fx-ease-entrance) both;
       animation-timeline: view();
-      animation-range: entry 4% cover 26%;
+      /* The range must END inside `entry`, not in `cover`.
+         `cover 26%` is 26% of the figure's whole pass across the scrollport, which the
+         last figures on a page never reach: the document runs out of scroll first, the
+         reveal stops part-way, and `both` holds that partial frame forever. Measured, it
+         left 8 of 37 figures permanently dimmed — one at 0.299 opacity — which also put
+         their muted body text under the 4.5:1 contrast floor.
+         `entry 100%` is the moment the figure has finished entering the viewport, so it
+         is reached for every figure at any document position, including the last. */
+      animation-range: entry 4% entry 100%;
       --fx-travel: 14px;
     }
   }

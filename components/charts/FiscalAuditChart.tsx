@@ -96,7 +96,7 @@ export default function FiscalAuditChart({ data }: { data: FiscalBar[] }) {
             />
             <span className="text-ink flex-1 min-w-0">{s.name}</span>
             <span className="font-mono text-muted tabular-nums shrink-0">{fmt(s.value)}</span>
-            <span className="font-mono text-muted/70 tabular-nums shrink-0 w-10 text-right">
+            <span className="font-mono text-muted tabular-nums shrink-0 w-10 text-right">
               {s.pct.toFixed(1)}%
             </span>
           </li>

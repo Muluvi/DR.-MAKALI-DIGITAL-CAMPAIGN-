@@ -133,7 +133,7 @@ export function RecognitionDeficitOverlay() {
         </div>
         <div className="p-3.5 sm:p-4">
           <div className="t-label font-black text-muted">Countywide polling deficit</div>
-          <div className="font-serif text-xl sm:text-2xl font-bold text-rose-600 dark:text-rose-400 mt-0.5 tabular-nums">
+          <div className="font-serif text-xl sm:text-2xl font-bold text-rose-800 dark:text-rose-400 mt-0.5 tabular-nums">
             −15.3 points
           </div>
           <div className="t-small text-muted mt-0.5">Kasalu 37.4%, Mulu 22.1%</div>

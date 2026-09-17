@@ -187,7 +187,7 @@ export function MediaRadioLandscapeCard() {
                       {station.frequency}
                     </span>
                     {station.isPriority && (
-                      <span className="t-micro font-black uppercase px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                      <span className="t-micro font-black uppercase px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-800 dark:text-emerald-400 border border-emerald-500/20">
                         Priority Placement
                       </span>
                     )}
@@ -202,9 +202,9 @@ export function MediaRadioLandscapeCard() {
               <div className="self-start sm:self-auto">
                 <span className={`t-label font-bold px-2.5 py-1 rounded-lg border ${
  station.politicalAllegiance.includes("Independent")
-                    ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/20"
+                    ? "bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border-emerald-500/20"
                     : station.politicalAllegiance.includes("Rival")
-                    ? "bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/20"
+                    ? "bg-rose-500/10 text-rose-800 dark:text-rose-300 border-rose-500/20"
                     : "bg-paper text-ink border-line"
                 }`}>
                   {station.politicalAllegiance}

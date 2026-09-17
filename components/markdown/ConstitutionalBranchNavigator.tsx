@@ -84,7 +84,7 @@ export function ConstitutionalBranchNavigator() {
               transition={{ duration: DURATION.quick }}
               className="space-y-4"
             >
-              <div className="flex items-center gap-2 t-label font-extrabold text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 p-2.5 rounded-xl border border-emerald-500/20">
+              <div className="flex items-center gap-2 t-label font-extrabold text-emerald-800 dark:text-emerald-400 bg-emerald-500/10 p-2.5 rounded-xl border border-emerald-500/20">
                 <CheckCircle2 size={16} className="shrink-0" />
                 <span>Supreme Court / High Court Rules Malombe INELIGIBLE (Two-Term Absolute Bar)</span>
               </div>
@@ -139,7 +139,7 @@ export function ConstitutionalBranchNavigator() {
               transition={{ duration: DURATION.quick }}
               className="space-y-4"
             >
-              <div className="flex items-center gap-2 t-label font-extrabold text-amber-700 dark:text-amber-400 bg-amber-500/10 p-2.5 rounded-xl border border-amber-500/20">
+              <div className="flex items-center gap-2 t-label font-extrabold text-amber-800 dark:text-amber-400 bg-amber-500/10 p-2.5 rounded-xl border border-amber-500/20">
                 <AlertTriangle size={16} className="shrink-0" />
                 <span>Court Rules Interregnum Permits Re-Election (Malombe Contests 2027)</span>
               </div>

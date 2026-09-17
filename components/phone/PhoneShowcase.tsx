@@ -191,7 +191,7 @@ export function PhoneShowcase() {
       <p className="mt-4 text-center t-label text-muted leading-relaxed max-w-md mx-auto">
         {CHANNEL_SUMMARY[channel]}
       </p>
-      <p className="mt-2 text-center t-micro text-muted/75 leading-relaxed max-w-lg mx-auto">
+      <p className="mt-2 text-center t-micro text-muted leading-relaxed max-w-lg mx-auto">
         {DISCLOSURE}
       </p>
     </div>

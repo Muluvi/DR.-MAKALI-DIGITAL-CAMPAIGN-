@@ -236,7 +236,7 @@ export function AudienceSegmentationMatrix() {
 
           <div className="p-4 rounded-xl bg-paper border border-line space-y-3">
             <div>
-              <div className="t-label font-black text-rose-600 dark:text-rose-400 mb-1">
+              <div className="t-label font-black text-rose-800 dark:text-rose-400 mb-1">
                 Core anxiety
               </div>
               <p className="t-label text-ink leading-relaxed">{active.coreAnxiety}</p>

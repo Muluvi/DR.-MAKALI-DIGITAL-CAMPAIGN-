@@ -39,8 +39,8 @@ export function PollingTrajectorySimulator() {
         {/* Status Pill */}
         <div className={`px-3 py-1.5 rounded-xl border t-label font-black flex items-center gap-1.5 self-start sm:self-auto ${
  isMeetingThreshold 
-            ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20"
-            : "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20"
+            ? "bg-emerald-500/10 text-emerald-800 dark:text-emerald-400 border-emerald-500/20"
+            : "bg-amber-500/10 text-amber-800 dark:text-amber-400 border-amber-500/20"
         }`}>
           {isMeetingThreshold ? (
             <>
@@ -114,7 +114,7 @@ export function PollingTrajectorySimulator() {
             <div className="font-serif text-2xl font-bold text-ink">
               {projectedPolling.toFixed(1)}%
             </div>
-            <div className="t-small text-emerald-600 dark:text-emerald-400 font-bold">
+            <div className="t-small text-emerald-800 dark:text-emerald-400 font-bold">
               +{pointsGained.toFixed(1)}% Total Improvement
             </div>
           </div>

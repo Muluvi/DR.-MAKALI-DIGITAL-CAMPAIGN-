@@ -125,7 +125,7 @@ export function FigureRow({
         </span>
       </div>
       {value.note ? (
-        <p className="mt-1 t-label text-muted/90 leading-normal italic">{value.note}</p>
+        <p className="mt-1 t-label text-muted leading-normal italic">{value.note}</p>
       ) : null}
     </li>
   );
@@ -194,7 +194,7 @@ export function AnalysisFigure({
       {chart.notes.length > 0 ? (
         <ul className="mt-3 pt-2 border-t border-line/40 list-none pl-0 space-y-1">
           {chart.notes.map((note) => (
-            <li key={note} className="t-label text-muted/90 leading-normal">
+            <li key={note} className="t-label text-muted leading-normal">
               {note}
             </li>
           ))}

@@ -43,7 +43,7 @@ export function PlatformSizingBlock() {
           <PlatformSizingChart data={DATA} />
         </LazyMount>
       </div>
-      <p className="t-label text-muted/80 leading-normal mt-3 pt-2 border-t border-line/40 font-medium">
+      <p className="t-label text-muted leading-normal mt-3 pt-2 border-t border-line/40 font-medium">
         <span className="italic">Not sized:</span> WhatsApp — the source describes it as {"“"}effectively universal among connected users{"”"} with no audience figure given, so it isn{"'"}t plotted here rather than assigned an invented number.
       </p>
       <SourceLine sources={["NapoleonCat, May 2026", "DataReportal Digital 2026 Kenya"]} />

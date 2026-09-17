@@ -43,6 +43,10 @@
   --color-on-accent: var(--on-accent);
   --color-rival: var(--rival);
   --color-rival-solid: var(--rival-solid);
+  /* `gold` had no `-solid` counterpart, so the fills that carry white text reached for the
+     text token and reproduced exactly the defect described above: in the dark theme
+     white-on-#ff515a measured 3.19:1. */
+  --color-gold-solid: var(--gold-solid);
   --color-unmeasured: var(--unmeasured-color);
 
   --font-serif: var(--font-newsreader, 'Newsreader', 'Charter', 'Bitstream Charter', 'Sitka Text', 'Cambria', Georgia, serif);
@@ -84,6 +88,7 @@
   --rival: oklch(0.48 0.09 220);
   --rival-solid: oklch(0.48 0.08 220); /* 6.36:1 against white */
   --gold: oklch(0.46 0.16 48);    /* Wiper Official Earth Red — refined for >4.6:1 text contrast */
+  --gold-solid: oklch(0.46 0.16 48); /* as a fill: 7.57:1 against white */
   --dark: oklch(0.18 0.04 252);
   --danger: oklch(0.55 0.22 27);
   --glow: oklch(0.35 0.22 265 / 0.15);
@@ -149,7 +154,8 @@
   --on-accent: oklch(1 0 0);
   --rival: oklch(0.74 0.07 220);
   --rival-solid: oklch(0.48 0.08 220);
-  --gold: oklch(0.68 0.21 22);    /* Vivid crimson red */
+  --gold: oklch(0.68 0.21 22);    /* Vivid crimson red — text and stroke only */
+  --gold-solid: oklch(0.58 0.21 22); /* as a fill: 4.77:1 against white */
   --dark: oklch(1 0 0);
   --danger: oklch(0.68 0.21 22);
   --glow: oklch(0.70 0.16 255 / 0.15);
@@ -193,8 +199,9 @@
   --rival: oklch(0.48 0.08 220);
   --rival-solid: oklch(0.48 0.08 220);
   --gold: oklch(0.44 0.16 42);
+  --gold-solid: oklch(0.44 0.16 42); /* as a fill: 8.31:1 against white */
   --dark: oklch(0.22 0.035 55);
-  --danger: oklch(0.55 0.20 27);
+  --danger: oklch(0.52 0.20 27); /* sepia's warm paper is lighter than white; 0.55 fell to 4.36:1 on it */
   --glow: oklch(0.36 0.18 262 / 0.12);
 
   --prose-body: oklch(0.32 0.035 60);
@@ -1357,6 +1364,7 @@ html {
     --line: #c9d5e2;
     --accent: #0056a8;
     --gold: #a9151f;
+    --gold-solid: #a9151f;
     --prose-body: #263241;
     --prose-strong: #0a172c;
     --prose-bg-nested: #ffffff;

@@ -467,6 +467,11 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                         <button
                           type="button"
                           onClick={() => toggleSort(idx)}
+                          /* A blank header cell leaves this button with no text at all, so the
+                             control announces as an unnamed button. Name it from the header where
+                             there is one, and by position where there is not; the `th` carries
+                             aria-sort, so the label only has to say what the button does. */
+                          aria-label={`Sort by ${getDeepText(th.props.children).trim() || `column ${idx + 1}`}`}
                           className="fx-focus group flex w-full min-h-[44px] items-center gap-1.5 justify-between p-2.5 sm:p-3 text-left cursor-pointer hover:bg-line/20 transition-colors"
                         >
                           <span>{th.props.children}</span>
@@ -525,7 +530,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
             </button>
           )}
           {filteredRows.length === 0 && (
-            <div className="p-6 text-center t-label font-mono text-muted/70">
+            <div className="p-6 text-center t-label font-mono text-muted">
               No matching strategic metrics found.
             </div>
           )}

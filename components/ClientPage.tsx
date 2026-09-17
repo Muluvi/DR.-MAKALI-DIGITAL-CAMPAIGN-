@@ -954,7 +954,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
         <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-4 sm:inset-x-6 top-0" />
         <div className="confidentiality-marker mb-3">
           <strong>Confidential</strong>
-          <span className="opacity-85"> — link-only, prepared for Hon. Dr. Benson Makali Mulu personally. Not for circulation.</span>
+          <span> — link-only, prepared for Hon. Dr. Benson Makali Mulu personally. Not for circulation.</span>
         </div>
         <dl className="text-sm text-muted grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 max-w-md">
           <dt className="font-semibold text-ink">Prepared by</dt>

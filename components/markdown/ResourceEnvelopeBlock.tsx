@@ -47,7 +47,7 @@ export function ResourceEnvelopeBlock() {
           <ResourceEnvelopeChart data={DATA} />
         </LazyMount>
       </div>
-      <p className="t-label text-muted/80 leading-normal mt-3 italic border-t border-line/40 pt-2 font-medium">
+      <p className="t-label text-muted leading-normal mt-3 italic border-t border-line/40 pt-2 font-medium">
         The three components are each stated as approximate figures ({"“"}roughly{"”"}, {"“"}around{"”"}) and sum to{" "}
         ≈KSh{COMPONENT_SUM.toFixed(2)}bn — about KSh{(COMPONENT_SUM - STATED_TOTAL).toFixed(2)}bn above the stated KSh{STATED_TOTAL}bn total.
         That gap is rounding in the source document, shown here rather than reconciled.
