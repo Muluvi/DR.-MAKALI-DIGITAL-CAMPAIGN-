@@ -2,7 +2,7 @@
 
 Three polls, two pollsters, one published sample size.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-16*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-17*
 
 ![Published shares with 95% margins of error, by poll](../outputs/charts/02_poll_shares.svg)
 

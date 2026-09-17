@@ -2,7 +2,7 @@
 
 One of six features has data. This is the honest state of the index.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-16*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-17*
 
 ![Ward priority index, top 20](../outputs/charts/04_ward_priority.svg)
 

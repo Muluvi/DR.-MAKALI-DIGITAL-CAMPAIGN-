@@ -2,7 +2,7 @@
 
 What the pack contains, what the site claims, and where the two disagree.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-16*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-17*
 
 
 ## What was parsed

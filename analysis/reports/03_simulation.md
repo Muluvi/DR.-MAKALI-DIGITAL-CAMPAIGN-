@@ -2,7 +2,7 @@
 
 Two models: where a nomination-poll gain is worth most, and what the ward arithmetic yields under stated assumptions.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-16*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-17*
 
 > **Scenario model, not a forecast.**
 
