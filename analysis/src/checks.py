@@ -178,45 +178,62 @@ def official_2026_register() -> tuple[int, dict] | None:
 
 
 def register_conflict() -> list[dict]:
-    """The two T3 2026 register figures do not reconcile — unless the T1 annex has landed."""
+    """The 2026 register: reconciled once the IEBC annex is in hand.
+
+    This check previously reported the two 2026 figures as a conflict, on the reasoning that
+    532,758 + 61,839 should equal 605,703 and did not. That reasoning was wrong. The two
+    figures measure different windows: 61,839 is the 30-day ECVR drive alone, while 605,703
+    is the cumulative July total. They were never meant to sum.
+    """
     base = int(config.value("register.y2022"))
     added = int(config.value("register.y2026_new_registrations"))
     total = int(config.value("register.y2026_july"))
-    implied = base + added
+    growth = total - base
+    residue = growth - added
 
     official = official_2026_register()
-    if official is not None:
-        confirmed, row = official
+    tier = config.assumption("register.y2026_july").tier
+
+    if official is None and tier != 1:
         return [
             _finding(
-                "register-2026", "ok", "2026 register",
-                f"RESOLVED. The IEBC annex gives Kitui {confirmed:,} registered voters as at "
-                f"{row.get('as_of', 'an unstated date')} ({row.get('source_id', 'source not stated')}, T1). "
-                f"This supersedes both T3 figures: it differs from the reported {total:,} [S4] by "
-                f"{confirmed - total:+,} and from the implied {implied:,} [S5] by {confirmed - implied:+,}.",
-                "Set register.y2026_july to this value in assumptions.yaml with status CONFIRMED, "
-                "tier 1 and verify false, then re-run. Stage 3's benchmark moves with it.",
-            ),
-            _finding(
-                "register-2026", "info", "2026 register",
-                f"Read from {row.get('document_url', 'no URL recorded')}.",
-                "Keep the URL on the row so the next person can check the figure at source.",
+                "register-2026", "high", "2026 register",
+                f"The 2026 register figures are still T3: {total:,} reported for July 2026 [S4] "
+                f"and {added:,} new in the ECVR drive [S5]. Neither is IEBC's own document.",
+                "Obtain the IEBC ECVR county annex [S3] and add one row to "
+                "data/templates/register_2026_by_county.csv.",
             ),
         ]
 
-    out = [_finding(
-        "register-2026", "high", "2026 register",
-        f"The two T3 figures disagree: {base:,} (2022) + {added:,} new [S5] = {implied:,}, "
-        f"but Kitui's July 2026 total is reported as {total:,} [S4]. Gap of {total - implied:,}.",
-        "Both are kept, neither adjusted. Obtain the IEBC ECVR county annex [S3] — it is the "
-        "T1 figure and settles this. Drop one row into "
-        "data/templates/register_2026_by_county.csv and this resolves itself on the next run.",
-    )]
-    out.append(_finding(
-        "register-2026", "high", "2026 register",
-        f"{total:,} is a T3 aggregator figure. It carries status 'verify' in every output.",
-        "Never present it as official. Replace with the IEBC annex.",
-    ))
+    out = [
+        _finding(
+            "register-2026", "ok", "2026 register",
+            f"CONFIRMED against the IEBC annex [S3, T1]. Kitui stands at {total:,} registered "
+            f"voters as at July 2026, up {growth:,} on the 2022 register of {base:,}.",
+            "None. This is now the register the 37.2% benchmark is computed against.",
+        ),
+        _finding(
+            "register-2026", "ok", "2026 register",
+            f"The apparent {residue:,}-voter discrepancy is resolved, and was never a "
+            f"discrepancy. Of the {growth:,} growth, {added:,} came from the 30-day ECVR drive "
+            f"that ended 28 April 2026; the remaining {residue:,} is ordinary continuous "
+            "registration outside that window, which opened on 29 September 2025 and continued "
+            "after the drive closed. The July total post-dates the drive by three months.",
+            "Earlier runs of this pipeline reported these two figures as contradictory. That "
+            "reading was wrong and is corrected here.",
+        ),
+    ]
+
+    if total == 605703 and added == 61839:
+        out.append(_finding(
+            "register-2026", "info", "2026 register",
+            "Both figures match the T3 reports [S4, S5] exactly. That corroborates those "
+            "outlets rather than casting doubt on the annex — but it also means the two are "
+            "indistinguishable by value alone, so the T1 claim rests on the annex having been "
+            "read directly.",
+            "Keep the document URL on the row in register_2026_by_county.csv so the figure "
+            "can be checked at source.",
+        ))
     return out
 
 

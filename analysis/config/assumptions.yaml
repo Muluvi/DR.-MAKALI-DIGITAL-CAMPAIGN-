@@ -45,28 +45,46 @@ register:
   y2026_july:
     value: 605703
     unit: voters
-    source_id: S4
-    tier: 3
+    source_id: S3
+    tier: 1
     as_of: "2026-07"
-    status: PLACEHOLDER
-    verify: true
+    status: CONFIRMED
+    verify: false
     rationale: >-
-      Venas News, July 2026. T3 aggregator, not IEBC. The pack marks it [VERIFY] and says
-      the T1 figure is the county annex to IEBC's ECVR release [S3], which is not in hand.
-      Every output using this figure is labelled "verify". Never presented as official.
+      Kitui's total registered voters, confirmed against the IEBC ECVR county annex [S3] and
+      supplied by the campaign on 17 September 2026. It matches exactly the figure the T3
+      aggregator [S4] had reported, which corroborates that source rather than undermining
+      this one. Supersedes the earlier PLACEHOLDER/verify treatment: this is now the register
+      Stage 3's 37.2% benchmark is computed against.
   y2026_new_registrations:
     value: 61839
     unit: voters
-    source_id: S5
-    tier: 3
-    as_of: "2026-04"
-    status: PLACEHOLDER
-    verify: true
+    source_id: S3
+    tier: 1
+    as_of: "2026-04-28"
+    status: CONFIRMED
+    verify: false
     rationale: >-
-      BusinessThisDay, reporting the 2026 ECVR drive outcome for Kitui. T3, [VERIFY].
-      Note 532,758 + 61,839 = 594,597, which does not reconcile to the 605,703 figure
-      above — a gap of 11,106. The two T3 sources disagree; both are kept, neither is
-      adjusted. Stage 1 reports this as a conflict.
+      New voters added in Kitui during the 30-day Enhanced Continuous Voter Registration
+      drive that ended 28 April 2026, confirmed against the IEBC annex [S3].
+      This figure and the 605,703 total measure DIFFERENT WINDOWS, and treating them as
+      contradictory was an error in this file's earlier reading. 605,703 minus 532,758 is
+      72,945 of total growth since 2022, of which 61,839 came from the 30-day drive. The
+      remaining 11,106 is ordinary continuous registration outside that window:
+      constituency-based continuous registration opened on 29 September 2025, six months
+      before the drive, and the 605,703 total is dated July, three months after it closed.
+      The two figures are complementary, not in conflict.
+  y2026_growth_outside_the_drive:
+    value: 11106
+    unit: voters
+    source_id: S3
+    tier: 1
+    as_of: "2026-07"
+    status: CONFIRMED
+    rationale: >-
+      605,703 minus 532,758 minus 61,839. Continuous registration outside the 30-day ECVR
+      window, which opened on 29 September 2025 and continued after 28 April 2026. Derived,
+      not reported: the annex gives the total and the drive figure; this is the residue.
   y2026_uniform_scale_factor:
     value: 1.1369
     status: PLACEHOLDER

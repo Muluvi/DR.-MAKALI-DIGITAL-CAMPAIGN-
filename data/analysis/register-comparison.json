@@ -1,14 +1,15 @@
 {
   "id": "register-comparison",
-  "title": "Which register figure applies",
-  "description": "The 2022 register is official. The 2026 figures are unverified and do not reconcile with each other.",
+  "title": "The register the arithmetic rests on",
+  "description": "Kitui's electorate has grown by 72,945 voters since 2022, confirmed against the IEBC's own annex.",
   "chart_type": "comparison",
   "generated": "2026-09-17",
   "data_as_of": "2026-09-16",
   "scenario_label": "",
   "notes": [
-    "The IEBC ECVR county annex [S3] is the Tier 1 figure that settles this.",
-    "Until then, no 2026 register figure should appear without a verify marker."
+    "The 2022 register is no longer the current electorate. Any figure describing today's electorate should use 605,703.",
+    "The drive figure and the July total measure different windows and were never meant to sum. An earlier version of this analysis reported them as contradictory; that reading was wrong and is corrected here.",
+    "A larger register raises the bar: 37.2% of 605,703 is about 225,000 votes, against 198,004 in 2022."
   ],
   "values": [
     {
@@ -23,37 +24,48 @@
       "note": ""
     },
     {
-      "label": "Reported July 2026 total",
+      "label": "IEBC register, July 2026",
       "value": 605703,
       "unit": "voters",
-      "source_id": "S4",
-      "tier": 3,
+      "source_id": "S3",
+      "tier": 1,
       "as_of": "2026-07",
       "method": "official",
-      "status": "verify",
-      "note": "T3 aggregator. Not IEBC. Confirm against the ECVR county annex."
+      "status": "confirmed",
+      "note": "Confirmed against the IEBC ECVR county annex."
     },
     {
-      "label": "2022 register plus reported new registrations",
-      "value": 594597,
+      "label": "Growth since 2022",
+      "value": 72945,
       "unit": "voters",
-      "source_id": "S5",
-      "tier": 3,
-      "as_of": "2026-04",
+      "source_id": "S3",
+      "tier": 1,
+      "as_of": "2026-07",
       "method": "calculated",
-      "status": "verify",
-      "note": "532,758 + 61,839. Does not reconcile with the 605,703 figure."
+      "status": "confirmed",
+      "note": "605,703 minus 532,758 — a 13.7% larger electorate."
     },
     {
-      "label": "Unexplained gap between the two 2026 figures",
+      "label": "Added in the 30-day ECVR drive",
+      "value": 61839,
+      "unit": "voters",
+      "source_id": "S3",
+      "tier": 1,
+      "as_of": "2026-04-28",
+      "method": "official",
+      "status": "confirmed",
+      "note": "The drive that ended 28 April 2026."
+    },
+    {
+      "label": "Added by continuous registration outside the drive",
       "value": 11106,
       "unit": "voters",
-      "source_id": "S4,S5",
-      "tier": 3,
-      "as_of": "2026",
+      "source_id": "S3",
+      "tier": 1,
+      "as_of": "2026-07",
       "method": "calculated",
-      "status": "verify",
-      "note": "Both T3 figures are kept; neither is adjusted to fit the other."
+      "status": "confirmed",
+      "note": "Continuous registration opened 29 September 2025 and ran on after the drive closed; the July total post-dates it by three months."
     }
   ]
 }

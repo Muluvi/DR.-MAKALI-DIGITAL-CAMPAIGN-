@@ -252,16 +252,46 @@ so unmatched wards are reported, not hidden.
 """
 
 
+def _display(path) -> str:
+    """Path relative to the analysis root where possible, absolute otherwise.
+
+    Tests point DATA_TEMPLATES at a temporary directory outside the tree, and a reporting
+    helper should not be the thing that raises when they do.
+    """
+    try:
+        return str(path.relative_to(config.ANALYSIS_ROOT))
+    except ValueError:
+        return str(path)
+
+
 def write_all() -> list[str]:
-    """Write every template plus its README. Returns the paths written."""
+    """Write any missing or empty template, plus the README. Returns the paths written.
+
+    Templates that already contain data are left untouched — see the guard below.
+    """
     config.ensure_dirs()
     written: list[str] = []
+    preserved: list[str] = []
 
     for tpl in TEMPLATES:
         path = config.DATA_TEMPLATES / f"{tpl.name}.csv"
+
+        # NEVER overwrite a template that has data in it.
+        #
+        # write_all() runs on every `python -m src.run_all`, and it used to open each file
+        # with "w", which truncates. While every template was empty that was harmless; the
+        # moment the team fills one in, the next pipeline run would silently delete their
+        # work. A tool that destroys the data it was built to collect is worse than no tool.
+        if path.exists():
+            with open(path, encoding="utf-8") as fh:
+                rows = sum(1 for line in fh if line.strip())
+            if rows > 1:
+                preserved.append(_display(path))
+                continue
+
         with open(path, "w", newline="", encoding="utf-8") as fh:
             csv.writer(fh).writerow([c.name for c in tpl.columns])
-        written.append(str(path.relative_to(config.ANALYSIS_ROOT)))
+        written.append(_display(path))
 
     readme = ["# CSV templates — schemas\n"]
     readme.append(
@@ -287,12 +317,12 @@ def write_all() -> list[str]:
         readme.append("")
 
     (config.DATA_TEMPLATES / "README.md").write_text("\n".join(readme), encoding="utf-8")
-    written.append(str((config.DATA_TEMPLATES / "README.md").relative_to(config.ANALYSIS_ROOT)))
+    written.append(_display(config.DATA_TEMPLATES / "README.md"))
 
     boundary_dir = config.DATA_RAW / "boundaries"
     boundary_dir.mkdir(parents=True, exist_ok=True)
     (boundary_dir / "README.md").write_text(BOUNDARY_README, encoding="utf-8")
-    written.append(str((boundary_dir / "README.md").relative_to(config.ANALYSIS_ROOT)))
+    written.append(_display(boundary_dir / "README.md"))
     return written
 
 

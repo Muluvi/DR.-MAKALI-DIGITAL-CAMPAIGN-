@@ -58,7 +58,7 @@ The leading rival attacks equal-ward CLIDP as entrenching inequality [S24]. The 
 
 ## Every assumption
 
-33 entries in `config/assumptions.yaml` are marked PLACEHOLDER — nobody has confirmed them. Each carries a rationale in the file.
+31 entries in `config/assumptions.yaml` are marked PLACEHOLDER — nobody has confirmed them. Each carries a rationale in the file.
 
 | Assumption | Value | Why it is a placeholder |
 |---|---|---|
@@ -77,8 +77,6 @@ The leading rival attacks equal-ward CLIDP as entrenching inequality [S24]. The 
 | nomination.poll_samples_proportional_to_register | True | UNCONFIRMED. The brief instructs this assumption for the leverage model. WPF has not published the sample frame, and the pack lists the nomination-pol |
 | reach.ward_uniformity | True | The model applies county rates uniformly across all 40 wards, because no ward-level connectivity data exists ([DATA NEEDED], pack gap 20). This is kno |
 | register.by_ward_2026 | None | [DATA NEEDED] The 2026 register by ward. The ECVR drive was ward-based, so growth is uneven and cannot be distributed pro rata without inventing data. |
-| register.y2026_july | 605703 | Venas News, July 2026. T3 aggregator, not IEBC. The pack marks it [VERIFY] and says the T1 figure is the county annex to IEBC's ECVR release [S3], whi |
-| register.y2026_new_registrations | 61839 | BusinessThisDay, reporting the 2026 ECVR drive outcome for Kitui. T3, [VERIFY]. Note 532,758 + 61,839 = 594,597, which does not reconcile to the 605,7 |
 | register.y2026_uniform_scale_factor | 1.1369 | 605,703 / 532,758 = 1.1369. Used ONLY to project the 2022 ward register onto the 2026 county total so the simulation can report against both register  |
 | rivals.model_rivals | False | No rival vote ranges have been supplied. While this is false, Stage 3 reports benchmark comparisons and explicitly states it is NOT a win probability. |
 | sensitivity.dirichlet_concentration | 10.0 | Concentration for the Dirichlet draw around the stated weights. 10.0 gives meaningful spread without producing degenerate weight vectors. Lower = more |
@@ -118,4 +116,4 @@ The leading rival attacks equal-ward CLIDP as entrenching inequality [S24]. The 
 
 ## Audit findings still open
 
-5 high-severity findings from Stage 1. Full list in `data/processed/audit_findings.csv`.
+3 high-severity findings from Stage 1. Full list in `data/processed/audit_findings.csv`.

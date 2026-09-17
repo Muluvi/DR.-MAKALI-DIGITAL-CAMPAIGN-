@@ -194,13 +194,51 @@ def test_claims_register_has_the_required_columns():
     ]
 
 
-def test_templates_are_written_with_headers_and_no_rows():
+def test_unfilled_templates_have_headers_and_no_example_rows():
     templates.write_all()
     for tpl in templates.TEMPLATES:
         path = config.DATA_TEMPLATES / f"{tpl.name}.csv"
-        lines = path.read_text(encoding="utf-8").strip().splitlines()
-        assert len(lines) == 1, f"{tpl.name}.csv must have headers only, no example rows"
+        lines = [l for l in path.read_text(encoding="utf-8").strip().splitlines() if l.strip()]
         assert lines[0].split(",") == [c.name for c in tpl.columns]
+        if len(lines) > 1:
+            # A filled template is the team's data, not an example row. Only files the team
+            # has actually supplied may have rows.
+            assert tpl.name in {"register_2026_by_county"}, (
+                f"{tpl.name}.csv has rows but is not a template the team has filled"
+            )
+
+
+def test_write_all_never_destroys_supplied_data(tmp_path, monkeypatch):
+    """write_all() runs on every pipeline run. It must not truncate filled templates.
+
+    This is a regression test for a real bug: write_all opened every file with "w", so the
+    first pipeline run after the team filled a template would silently delete their work.
+    """
+    monkeypatch.setattr(templates.config, "DATA_TEMPLATES", tmp_path)
+    monkeypatch.setattr(templates.config, "DATA_RAW", tmp_path)
+
+    templates.write_all()
+    filled = tmp_path / "posts.csv"
+    header = filled.read_text(encoding="utf-8").strip()
+    filled.write_text(header + "\nSYNTHETIC-1,facebook,2026-09-01T10:00:00+03:00,photo,en,,x,,,1,2,3,15000,http://x\n",
+                      encoding="utf-8")
+    before = filled.read_text(encoding="utf-8")
+
+    for _ in range(3):
+        templates.write_all()
+
+    assert filled.read_text(encoding="utf-8") == before, "supplied data was overwritten"
+    # An untouched template is still (re)written with headers.
+    assert (tmp_path / "comments.csv").read_text(encoding="utf-8").strip().splitlines()[0] == "post_id,date,text"
+
+
+def test_a_header_only_template_is_still_rewritten(tmp_path, monkeypatch):
+    monkeypatch.setattr(templates.config, "DATA_TEMPLATES", tmp_path)
+    monkeypatch.setattr(templates.config, "DATA_RAW", tmp_path)
+    templates.write_all()
+    (tmp_path / "issues.csv").write_text("garbage\n", encoding="utf-8")
+    templates.write_all()
+    assert (tmp_path / "issues.csv").read_text(encoding="utf-8").startswith("issue_id,")
 
 
 def test_comments_template_collects_no_personal_data():
@@ -263,53 +301,76 @@ def test_year_labelled_register_is_not_flagged_as_presented_current(tmp_path, mo
     assert [f for f in checks.stale_site_content() if f["check"] == "stale-register"]
 
 
-# --- the IEBC annex drop-in -----------------------------------------------------------
+# --- the 2026 register, once the IEBC annex is in hand --------------------------------
 
-def _write_county_row(tier: int, total: int = 599123) -> None:
-    """SYNTHETIC annex row. Never exported; the file is restored by the fixture."""
+def test_the_2026_register_figures_are_tier_one_and_confirmed():
+    """Supplied from the IEBC annex, so they no longer carry verify."""
+    for key in ("register.y2026_july", "register.y2026_new_registrations"):
+        a = config.assumption(key)
+        assert a.tier == 1, f"{key} should be T1"
+        assert a.status == "CONFIRMED", f"{key} should be CONFIRMED"
+        assert not a.verify, f"{key} should not be marked verify"
+
+
+def test_the_register_arithmetic_reconciles():
+    """The figures were never meant to sum; this is the relationship that does hold.
+
+    total growth = drive registrations + continuous registration outside the drive window.
+    """
+    base = config.value("register.y2022")
+    total = config.value("register.y2026_july")
+    drive = config.value("register.y2026_new_registrations")
+    residue = config.value("register.y2026_growth_outside_the_drive")
+    assert total - base == drive + residue
+    assert residue == 11106
+    assert total - base == 72945
+
+
+def test_the_check_reports_the_register_as_reconciled_not_conflicting():
+    findings = checks.register_conflict()
+    assert findings, "the register check must still say something"
+    assert all(f["severity"] != "high" for f in findings), (
+        "a confirmed T1 register must not be reported as a high-severity conflict"
+    )
+    text = " ".join(f["detail"] for f in findings)
+    assert "was never a discrepancy" in text
+    assert "605,703" in text and "61,839" in text
+
+
+def test_the_correction_to_the_earlier_reading_is_recorded():
+    """The pipeline previously called these two figures contradictory. That must not be
+    quietly dropped — a reader of an earlier report deserves to see it withdrawn."""
+    text = " ".join(f["action"] + f["detail"] for f in checks.register_conflict())
+    assert "wrong" in text.lower()
+
+
+def test_the_match_with_the_t3_reports_is_flagged_not_hidden():
+    """Both figures equal the T3 reports exactly, so value alone cannot distinguish them."""
+    findings = checks.register_conflict()
+    info = [f for f in findings if f["severity"] == "info"]
+    assert info, "the coincidence with the T3 figures should be surfaced"
+    assert "match the T3 reports" in info[0]["detail"]
+
+
+def test_the_annex_row_carries_a_document_url():
+    """The figure must be checkable at source."""
     path = config.DATA_TEMPLATES / "register_2026_by_county.csv"
-    header = path.read_text(encoding="utf-8").splitlines()[0]
-    path.write_text(
-        f"{header}\nKitui,{total},66365,S3,{tier},2026-04-28,https://example.invalid/SYNTHETIC\n",
+    df = pd.read_csv(path)
+    kitui = df[df["county"].str.strip().str.casefold() == "kitui"]
+    assert len(kitui) == 1
+    row = kitui.iloc[0]
+    assert int(row["tier"]) == 1
+    assert int(row["registered_voters_2026"]) == 605703
+    assert str(row["document_url"]).startswith("https://")
+
+
+def test_official_2026_register_ignores_a_non_tier_one_row(tmp_path, monkeypatch):
+    """A figure from an aggregator is the same tier as the ones it would replace."""
+    fake = tmp_path / "register_2026_by_county.csv"
+    fake.write_text(
+        "county,registered_voters_2026,new_registrations_2026,source_id,tier,as_of,document_url\n"
+        "Kitui,605703,61839,S4,3,2026-07,https://example.invalid/SYNTHETIC\n",
         encoding="utf-8",
     )
-
-
-@pytest.fixture
-def clean_county_template():
-    from src import templates
-    yield
-    templates.write_all()  # rewrite headers-only, discarding any synthetic row
-
-
-def test_conflict_stands_while_the_annex_is_missing(clean_county_template):
-    from src import templates
-    templates.write_all()
-    findings = checks.register_conflict()
-    assert any(f["severity"] == "high" for f in findings)
-    assert any("do not reconcile" in f["detail"] or "disagree" in f["detail"] for f in findings)
-
-
-def test_a_tier_one_annex_row_resolves_the_conflict(clean_county_template):
-    _write_county_row(tier=1)
-    findings = checks.register_conflict()
-    assert all(f["severity"] != "high" for f in findings)
-    resolved = findings[0]
-    assert "RESOLVED" in resolved["detail"]
-    # It must state the difference against BOTH superseded figures, not silently replace them.
-    assert "-6,580" in resolved["detail"]      # vs the reported 605,703
-    assert "+4,526" in resolved["detail"]      # vs the implied 594,597
-
-
-def test_a_tier_three_row_does_not_resolve_anything(clean_county_template):
-    """A figure from an aggregator is the same tier as the ones it would replace."""
-    _write_county_row(tier=3)
-    findings = checks.register_conflict()
-    assert any(f["severity"] == "high" for f in findings)
-
-
-def test_the_county_template_ships_empty(clean_county_template):
-    from src import templates
-    templates.write_all()
-    path = config.DATA_TEMPLATES / "register_2026_by_county.csv"
-    assert len(path.read_text(encoding="utf-8").strip().splitlines()) == 1
+    monkeypatch.setattr(checks.config, "DATA_TEMPLATES", tmp_path)
+    assert checks.official_2026_register() is None

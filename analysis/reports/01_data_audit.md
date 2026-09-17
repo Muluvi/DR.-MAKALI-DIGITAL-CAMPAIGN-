@@ -40,52 +40,46 @@ What the pack contains, what the site claims, and where the two disagree.
 
 ## Problems found
 
-5 high, 3 medium, 5 checks passed. Full list in `data/processed/audit_findings.csv`.
+3 high, 3 medium, 7 checks passed. Full list in `data/processed/audit_findings.csv`.
 
 
 ### High severity
-
-**2026 register — register-2026**  
-The two T3 figures disagree: 532,758 (2022) + 61,839 new [S5] = 594,597, but Kitui's July 2026 total is reported as 605,703 [S4]. Gap of 11,106.  
-*Action:* Both are kept, neither adjusted. Obtain the IEBC ECVR county annex [S3] — it is the T1 figure and settles this. Drop one row into data/templates/register_2026_by_county.csv and this resolves itself on the next run.
-
-**2026 register — register-2026**  
-605,703 is a T3 aggregator figure. It carries status 'verify' in every output.  
-*Action:* Never present it as official. Replace with the IEBC annex.
 
 **Malombe eligibility — pack-vs-site**  
 The pack states the seat is open: Malombe was elected in 2013 and 2022, and Article 180(7) limits governors to two terms [S63]. The site treats his eligibility as an unresolved two-branch question in situation.md.  
 *Action:* Resolve. If the pack is right, the branching scenario is dead content and the framing should change to an open-seat race.
 
-**Site content — claim-sourcing**  
-917 of 1,093 numeric claims (84%) carry no visible tier marker within 70 characters.  
-*Action:* Most are restatements of figures tiered elsewhere on the page. Prioritise the ones that state a figure for the first time.
-
 **Nomination method — t3-dependency**  
 The opinion-poll nomination method is T3, single-sourced to The County Diary [S10], and the whole nomination strategy rests on it.  
 *Action:* Obtain official WPF communication on the method, pollster, timing and sample design.
 
+**Site content — claim-sourcing**  
+917 of 1,093 numeric claims (84%) carry no visible tier marker within 70 characters.  
+*Action:* Most are restatements of figures tiered elsewhere on the page. Prioritise the ones that state a figure for the first time.
+
 
 ### Medium severity
-
-**Site content — claim-sourcing**  
-6 site claims are explicitly marked Tier 3.  
-*Action:* Each must render with a visible unconfirmed marker.
-
-**Site content — stale-party-name**  
-Bare 'Wiper' without 'Patriotic Front' appears in 16 files.  
-*Action:* Acceptable as shorthand after the full name is used once per page; check first use.
 
 **Mutito/Kaliku — ward-name-variant**  
 The pack spells this 'Mutito/Kaliku'; the site spells it 'Mutitu/Kaliku' (similarity 0.923). Matched by similarity, not exactly.  
 *Action:* Confirm against the IEBC ward list and fix one spelling. This will break a boundary-file join at Stage 5 if left.
 
+**Site content — stale-party-name**  
+Bare 'Wiper' without 'Patriotic Front' appears in 16 files.  
+*Action:* Acceptable as shorthand after the full name is used once per page; check first use.
+
+**Site content — claim-sourcing**  
+6 site claims are explicitly marked Tier 3.  
+*Action:* Each must render with a visible unconfirmed marker.
+
 
 ### Checks that passed
 
-- polls: All 8 T3 rows in polls.csv carry status 'verify'.
-- All 40 wards: Every ward's voter count in the pack matches the site's ward-register.json.
+- 2026 register: CONFIRMED against the IEBC annex [S3, T1]. Kitui stands at 605,703 registered voters as at July 2026, up 72,945 on the 2022 register of 532,758.
+- 2026 register: The apparent 11,106-voter discrepancy is resolved, and was never a discrepancy. Of the 72,945 growth, 61,839 came from the 30-day ECVR drive that ended 28 April 2026; the remaining 11,106 is ordinary continuous registration outside that window, which opened on 29 September 2025 and continued after the drive closed. The July total post-dates the drive by three months.
 - Kitui County: 40 wards sum to 532,758, matching the IEBC 2022 county register exactly.
+- All 40 wards: Every ward's voter count in the pack matches the site's ward-register.json.
+- polls: All 8 T3 rows in polls.csv carry status 'verify'.
 - county_finance: All 2 T3 rows in county_finance.csv carry status 'verify'.
 - channels: All 13 T3 rows in channels.csv carry status 'verify'.
 
@@ -117,7 +111,6 @@ Seven templates and a schema README are in `data/templates/`. Headers only, no e
 - `data/templates/competitors.csv`
 - `data/templates/baseline_survey.csv`
 - `data/templates/register_2026_by_ward.csv`
-- `data/templates/register_2026_by_county.csv`
 - `data/templates/results_2022_by_ward.csv`
 - `data/templates/issues.csv`
 - `data/templates/README.md`
@@ -131,7 +124,6 @@ Seven templates and a schema README are in `data/templates/`. Headers only, no e
 - **[DATA NEEDED]** `competitors.csv` is empty — Rival channel benchmarks for Kasalu, Wambua and Ngilu.
 - **[DATA NEEDED]** `baseline_survey.csv` is empty — Ward-level survey aggregates: recognition, favourability, issue salience.
 - **[DATA NEEDED]** `register_2026_by_ward.csv` is empty — The post-ECVR 2026 register, by ward — the IEBC annex figure.
-- **[DATA NEEDED]** `register_2026_by_county.csv` is empty — The post-ECVR 2026 register at COUNTY level — the IEBC annex row for Kitui.
 - **[DATA NEEDED]** `results_2022_by_ward.csv` is empty — 2022 governor and Woman Rep results by ward, from IEBC Forms 37A/37B.
 - **[DATA NEEDED]** `issues.csv` is empty — Issue salience and candidate credibility, for the Stage 10 matrix.
 - **[DATA NEEDED]** The IEBC ECVR county annex [S3] — the T1 2026 register. It settles the 605,703 vs 594,597 conflict and is the highest-value missing input.
