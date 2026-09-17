@@ -7,32 +7,32 @@ The ten things this analysis establishes, what every one of them rests on, and w
 
 ## The ten findings
 
-**1. The party's name on the site is wrong.**  
-ORPP certified the change from Wiper Democratic Movement to Wiper Patriotic Front in August 2025 [S6, T1]. The site still uses the old name across multiple content files. This is a one-line fix and the cheapest credibility repair available.  
-*Source: Stage 1.*
-
-**2. The 'widening deficit' cannot be substantiated.**  
-The site reads 11.1 → 15.3 points as a trend. Neither Mizani round published a sample size, so the change returns cannot determine. June also excluded Ngilu while August included her at 17.0%, so part of the movement is a changed field, not changed opinion. The deficit is real in each round; its direction is not measurable.  
+**1. The 'widening deficit' cannot be substantiated.**  
+The site reads 11.1 to 15.3 points as a trend. Neither Mizani round published a sample size, so the change returns cannot determine. June also excluded Ngilu while August included her at 17.0%, so part of the movement is a changed field rather than changed opinion. The deficit is real in each round; its direction is not measurable.  
 *Source: Stage 2.*
 
-**3. A second pollster exists and is missing from the site.**  
-Politrack Africa, 12 March 2026, n = 2,927: Mulu 26.2%, Kasalu 35.2% [S9]. It is the only poll with a published sample size, and at that n the 9.0-point gap carries a margin of ±2.82 points — the one poll finding that is statistically solid.  
+**2. The SMS layer is half the size the proposal assumes.**  
+On the confirmed 2023/24 rates, 108,419 voters own a phone but no data, against 177,473 on the 2019 rates the proposal was built on. Phone ownership rose 1.2 points in five years while internet use rose 12.6 — almost nobody new got a phone, people who had one got online. The 82/18 offline-digital weighting was set against superseded numbers, and SMS is carrying weight its audience no longer supports.  
+*Source: Stage 9.*
+
+**3. The bar for 2027 is about 27,000 votes higher than 2022's winning tally.**  
+The register has grown from 532,758 to 605,703, confirmed against the IEBC annex. The 2022 winner took 37.2% of the register; the same share of today's register is about 225,322 votes, against the 198,004 the proposal measures everything against. Every target built on ~200,000 is set too low.  
+*Source: Stage 3.*
+
+**4. Only one of the three published polls can be tested, and its gap is real.**  
+Politrack (12 March 2026, n = 2,927) is the sole poll with a published sample size. At that n its 9.0-point gap carries a margin of ±2.82 points and clears zero comfortably. Neither Mizani round published n, so nothing about their movement can be established.  
 *Source: Stage 2.*
 
-**4. The register on the site is four years out of date, and its replacement is unverified.**  
-532,758 is the 2022 figure [S2, T1] and is presented as current. The 2026 figures are both T3 and do not reconcile: 605,703 reported for July 2026 [S4] against 594,597 implied by the reported new registrations [S5], a gap of 11,106.  
-*Source: Stage 1.*
+**5. The digital ceiling is roughly one voter in four, not one in seven.**  
+158,696 voters are reachable by smartphone or data on current rates. That is the second-largest of the three segments. It does not make the case for a digital-first campaign — the no-phone segment is still larger than the other two combined — but it does remove the basis for capping digital at 18%.  
+*Source: Stage 9.*
 
-**5. The ward arithmetic is sound.**  
-All 40 wards sum to each constituency total and to 532,758, and the site's own ward-register.json matches ward for ward. Two independent copies agree, so the foundation of every ward-level claim holds.  
-*Source: Stage 1.*
-
-**6. A purely digital campaign reaches about one voter in seven.**  
-Modelled at 158,696 voters on KNBS 2019 county rates, against 108,419 reachable by SMS only and 338,588 with no phone at all. The rates are seven years old and are the single highest-value thing to refresh.  
+**6. The offline majority survives every update, and remains the strategic core.**  
+338,588 voters own no phone at all — larger than the digital and SMS segments together. No ad budget, SMS send or USSD flow reaches them. This is the one structural claim in the proposal that has strengthened rather than weakened as the data improved.  
 *Source: Stage 9.*
 
 **7. The SMS layer cannot carry Kikamba.**  
-CA/NCIC guidelines limit bulk political SMS to English or Kiswahili, with 48-hour advance lodging and an operator veto [S53, S54]. The SMS-only segment is the most rural and most likely to prefer Kikamba, so the language the campaign most needs is unavailable on the channel that reaches them.  
+CA/NCIC guidelines limit bulk political SMS to English or Kiswahili, with 48-hour advance lodging and an operator veto [S53, S54]. The SMS-only segment is the most rural and most likely to prefer Kikamba, so the language the campaign most needs is unavailable on the channel that reaches them — and that channel is now smaller than the proposal assumes.  
 *Source: Stage 9.*
 
 **8. NG-CDF beneficiary lists cannot become a campaign list.**  
@@ -40,12 +40,24 @@ ODPC's 2025 public-sector guidance bars reusing public-programme personal data f
 *Source: Constraint.*
 
 **9. Water is the strongest evidenced argument available.**  
-Kitui has the lowest share of any county in Kenya with at least basic drinking-water service, at 21% [S41, T1], and the longest water trekking distance among semi-arid counties at 7.2 km in February 2026 [S43, T1]. Both are Tier 1, current and county-wide.  
+Kitui has the lowest share of any county in Kenya with at least basic drinking-water service, at 21% [S41, T1], and the longest water trekking distance among semi-arid counties at 7.2 km in February 2026 [S43, T1]. Both are Tier 1, current and county-wide — a rare combination in this evidence base.  
 *Source: Stage 10.*
 
-**10. The campaign's own allocation policy contradicts its best line of attack.**  
-The leading rival attacks equal-ward CLIDP as entrenching inequality [S24]. The site's §7.1.1 proposes an equal-ward guarantee — the same policy. Both cannot be run. This is a policy decision the analysis cannot make, and the content plan waits on it.  
-*Source: Stage 10.*
+**10. The site's prose now contradicts its own data blocks.**  
+Several sections still state 13.6% internet use and an 86.4% offline majority, and size the channel mix against them, while the mounted data blocks show 26.2%. The fix is not a find-and-replace: 86.4% is the rhetorical spine of Section 3.6 and the justification for the 82/18 split, so the rate cannot be updated without revisiting the argument it supports.  
+*Source: Stage 9.*
+
+
+## Closed since the first audit
+
+Four findings from earlier runs of this pipeline are no longer open. Three were fixed on the site; one was my own error.
+
+| Finding | How it closed |
+|---|---|
+| The party name was wrong on the site | Corrected to Wiper Patriotic Front throughout |
+| Politrack was missing from the site | Added alongside Mizani, on a separate series |
+| The 2026 register was unverified | Confirmed against the IEBC annex: 605,703, Tier 1 |
+| The two 2026 register figures 'did not reconcile' | WITHDRAWN — my error. They measure different windows and were never meant to sum. See Stage 1. |
 
 
 ## What the models do and do not say

@@ -63,17 +63,18 @@ The top 12 wards hold 37.8% of the register. Concentration is the practical argu
 
 | Register | Scenario | Median | 90% interval | Above 198,004 | Above 37.2% of register |
 |---|---|---|---|---|---|
-| IEBC 2022 (532,758) | Current measured preference | 88,154 | 64,152 – 116,047 | 0.0% | 0.0% |
-| IEBC 2022 (532,758) | Competitive general election | 176,056 | 139,048 – 220,591 | 21.3% | 21.2% |
-| T3 July 2026 (605,703) [VERIFY] | Current measured preference | 100,222 | 72,935 – 131,934 | 0.0% | 0.0% |
-| T3 July 2026 (605,703) [VERIFY] | Competitive general election | 200,158 | 158,083 – 250,790 | 53.0% | 21.2% |
+| IEBC July 2026 (605,703) — current | Current measured preference | 100,222 | 72,935 – 131,934 | 0.0% | 0.0% |
+| IEBC July 2026 (605,703) — current | Competitive general election | 200,158 | 158,083 – 250,790 | 53.0% | 21.2% |
+| IEBC 2022 (532,758) — for comparison | Current measured preference | 88,154 | 64,152 – 116,047 | 0.0% | 0.0% |
+| IEBC 2022 (532,758) — for comparison | Competitive general election | 176,056 | 139,048 – 220,591 | 21.3% | 21.2% |
 
 
 ### What this says
 
-- **Under his current measured preference, the arithmetic does not reach the benchmark.** Median 88,154 votes, and no draw in 10,000 reaches 198,004. That is not a prediction of defeat. It is the gap between a 20–26% nomination-poll share and what winning a general election in this county took in 2022.
-- **Under a competitive scenario the benchmark is reachable but not comfortable.** Median 176,056, with 21.3% of draws above 198,004. The competitive range is anchored on the 2022 winner's own ~60% of ballots cast.
-- **The register choice moves the target, not the result.** On the T3 2026 register the 37.2% benchmark rises to about 225,000, so the same performance clears a higher bar. The 605,703 figure is unverified and every figure derived from it carries 'verify'.
+- **Under his current measured preference, the arithmetic does not reach the benchmark.** Median 100,222 votes, and no draw in 10,000 reaches 198,004. That is not a prediction of defeat. It is the gap between a 20–26% nomination-poll share and what winning a general election in this county took in 2022.
+- **Under a competitive scenario the benchmark is reachable but not comfortable.** Median 200,158, with 53.0% of draws above 198,004. The competitive range is anchored on the 2022 winner's own ~60% of ballots cast.
+- **The register grew, so the bar rose.** On the confirmed July 2026 register of 605,703 the 37.2% benchmark is about 225,300 votes, against the 198,004 the proposal measures against. The same performance now clears a higher bar, and every target expressed as '~200,000' is set roughly 27,000 votes too low.
+- **Which benchmark you choose changes the answer more than the model does.** In the competitive scenario the simulated total clears the 2022 tally of 198,004 in 53% of draws, but clears 37.2% of today's register — about 225,300 — in only 21%. Same model, same draws; a 32-point swing from the choice of yardstick alone. Measuring a 2027 campaign against a 2022 tally on a register 13.7% larger flatters it, and that is exactly what every '~200,000' target in the proposal does.
 - **The two scenarios answer different questions.** The first asks what today's measured standing is worth. The second asks what winning looks like. The distance between them is the campaign's actual task.
 
 
@@ -96,18 +97,18 @@ Support dominates turnout, and both dominate the home-advantage multiplier. That
 
 | Ward | Mean votes | SD | Share of county total |
 |---|---|---|---|
-| Township | 8,350 | 1,334 | 4.7% |
-| Kyangwithya West | 6,809 | 1,083 | 3.8% |
-| Kyangwithya East | 6,592 | 1,053 | 3.7% |
-| Mulango | 6,472 | 1,032 | 3.6% |
-| Kyuso | 6,305 | 1,007 | 3.6% |
-| Kwavonza/Yatta | 5,712 | 909 | 3.2% |
-| Mutonguni | 5,689 | 904 | 3.2% |
-| Tseikuru | 5,212 | 838 | 2.9% |
-| Mumoni | 5,030 | 800 | 2.8% |
-| Miambani | 5,027 | 801 | 2.8% |
-| Athi | 5,022 | 791 | 2.8% |
-| Kauwi | 4,999 | 797 | 2.8% |
+| Township | 9,494 | 1,517 | 4.7% |
+| Kyangwithya West | 7,741 | 1,231 | 3.8% |
+| Kyangwithya East | 7,495 | 1,197 | 3.7% |
+| Mulango | 7,358 | 1,173 | 3.6% |
+| Kyuso | 7,168 | 1,144 | 3.6% |
+| Kwavonza/Yatta | 6,494 | 1,033 | 3.2% |
+| Mutonguni | 6,467 | 1,028 | 3.2% |
+| Tseikuru | 5,926 | 952 | 2.9% |
+| Mumoni | 5,719 | 910 | 2.8% |
+| Miambani | 5,716 | 911 | 2.8% |
+| Athi | 5,709 | 899 | 2.8% |
+| Kauwi | 5,683 | 906 | 2.8% |
 
 
 ## Method and limits
@@ -115,7 +116,7 @@ Support dominates turnout, and both dominate the home-advantage multiplier. That
 - 10,000 draws per scenario, seed 20270809, fully reproducible.
 - Turnout and support are drawn once per draw at county level, then varied by ward. Independent per-ward draws would average out across 40 wards and collapse the county distribution to false precision.
 - Ward shares are capped at 1.0. The cap binds only in the home wards at the top of the competitive range.
-- The 2026 register run scales every ward by the same factor. The registration drive was ward-based and growth was uneven, so this is known to be wrong in detail. It is used because inventing a per-ward growth pattern would be worse.
+- The county register is confirmed at 605,703, but it is published at county level only. Ward figures scale every 2022 ward by the same factor, which is known to be wrong in detail because the drive was ward-based and growth was uneven. County totals are not affected; ward totals are indicative.
 - No rival is modelled, so nothing here is a win probability.
 - Every parameter is a PLACEHOLDER. The tornado chart ranks the assumptions, not the world.
 

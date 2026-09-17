@@ -66,8 +66,13 @@ def chart_distribution(results: dict[str, sim.SimulationResult]) -> str:
         ax.axvline(median, color=charts.INK, lw=1.4, zorder=6)
         ax.text(median, ax.get_ylim()[1] * 0.97, f" median {median:,.0f}", fontsize=8,
                 color=charts.INK, ha="left", va="top")
-        pct = res.share_exceeding(config.value("benchmarks.winning_tally_2022"))
-        ax.set_title(f"{SCENARIOS[key]['label']}\n{pct:.1%} of draws above 198,004", fontsize=9.5)
+        marks_list = list(marks.values())
+        pct_old = res.share_exceeding(marks_list[0])
+        pct_now = res.share_exceeding(marks_list[1])
+        ax.set_title(
+            f"{SCENARIOS[key]['label']}\n"
+            f"{pct_old:.0%} above the 2022 tally · {pct_now:.0%} above today's equivalent",
+            fontsize=9.5)
         ax.set_xlabel("Mulu's simulated county total (votes)")
         ax.grid(axis="x", visible=False)
         charts.strip_spines(ax, keep=("bottom",))
@@ -78,11 +83,12 @@ def chart_distribution(results: dict[str, sim.SimulationResult]) -> str:
     fig.tight_layout()
     return charts.save(
         fig, "03_vote_distribution.svg",
-        "Scenario model, not a forecast. The red line marks the benchmarks. On the 2022 "
-        "register the two coincide almost exactly — 198,004 and 198,186 — because 37.2% is "
-        "derived from that tally on that register, so only one line is visible here. They "
-        "separate on the 2026 register, where 37.2% is about 225,000. Governor races are won "
-        "by plurality, so neither is a threshold: exceeding one is not a win probability.",
+        "Scenario model, not a forecast. Solid red is the 2022 winning tally of 198,004, which "
+        "the proposal measures against. Dashed red is 37.2% of the confirmed July 2026 "
+        "register, about 225,300 — the same share of a 13.7% larger electorate, and the "
+        "like-for-like bar. The gap between the two lines is what a growing register costs. "
+        "Governor races are won by plurality, so neither is a threshold: exceeding one is not "
+        "a win probability.",
     )
 
 
@@ -136,14 +142,17 @@ def run() -> dict:
     c_lev = chart_leverage(lev)
 
     # --- Model B ------------------------------------------------------------------------
+    # The confirmed July 2026 register is the primary basis: it is the electorate that will
+    # actually vote. The 2022 run is kept for comparison, because every target in the proposal
+    # is still expressed against it.
     results = {
-        key: sim.simulate(wards, support_range=_support_range(key))
+        key: sim.simulate(wards, register_col="registered_voters_2026_scaled",
+                          register_label="IEBC July 2026 register (605,703)",
+                          support_range=_support_range(key))
         for key in SCENARIOS
     }
-    results_2026 = {
-        key: sim.simulate(wards, register_col="registered_voters_2026_scaled",
-                          register_label="T3 July 2026 register (605,703) [VERIFY]",
-                          support_range=_support_range(key))
+    results_2022 = {
+        key: sim.simulate(wards, support_range=_support_range(key))
         for key in SCENARIOS
     }
     c_dist = chart_distribution(results)
@@ -213,8 +222,8 @@ def run() -> dict:
     )
 
     rows = []
-    for register_label, group in (("IEBC 2022 (532,758)", results),
-                                  ("T3 July 2026 (605,703) [VERIFY]", results_2026)):
+    for register_label, group in (("IEBC July 2026 (605,703) — current", results),
+                                  ("IEBC 2022 (532,758) — for comparison", results_2022)):
         for key, res in group.items():
             s = res.summary()
             marks = sim.benchmarks(res.register_total)
@@ -239,9 +248,16 @@ def run() -> dict:
         f"Median {np.median(comp.totals):,.0f}, with "
         f"{comp.share_exceeding(198004):.1%} of draws above 198,004. The competitive range is "
         "anchored on the 2022 winner's own ~60% of ballots cast.",
-        "**The register choice moves the target, not the result.** On the T3 2026 register the "
-        "37.2% benchmark rises to about 225,000, so the same performance clears a higher bar. "
-        "The 605,703 figure is unverified and every figure derived from it carries 'verify'.",
+        "**The register grew, so the bar rose.** On the confirmed July 2026 register of "
+        "605,703 the 37.2% benchmark is about 225,300 votes, against the 198,004 the proposal "
+        "measures against. The same performance now clears a higher bar, and every target "
+        "expressed as '~200,000' is set roughly 27,000 votes too low.",
+        "**Which benchmark you choose changes the answer more than the model does.** In the "
+        "competitive scenario the simulated total clears the 2022 tally of 198,004 in 53% of "
+        "draws, but clears 37.2% of today's register — about 225,300 — in only 21%. Same model, "
+        "same draws; a 32-point swing from the choice of yardstick alone. Measuring a 2027 "
+        "campaign against a 2022 tally on a register 13.7% larger flatters it, and that is "
+        "exactly what every '~200,000' target in the proposal does.",
         "**The two scenarios answer different questions.** The first asks what today's measured "
         "standing is worth. The second asks what winning looks like. The distance between them "
         "is the campaign's actual task.",
@@ -279,9 +295,10 @@ def run() -> dict:
         "distribution to false precision.",
         "Ward shares are capped at 1.0. The cap binds only in the home wards at the top of the "
         "competitive range.",
-        "The 2026 register run scales every ward by the same factor. The registration drive was "
-        "ward-based and growth was uneven, so this is known to be wrong in detail. It is used "
-        "because inventing a per-ward growth pattern would be worse.",
+        "The county register is confirmed at 605,703, but it is published at county level only. "
+        "Ward figures scale every 2022 ward by the same factor, which is known to be wrong in "
+        "detail because the drive was ward-based and growth was uneven. County totals are not "
+        "affected; ward totals are indicative.",
         "No rival is modelled, so nothing here is a win probability.",
         "Every parameter is a PLACEHOLDER. The tornado chart ranks the assumptions, not the world.",
     ])

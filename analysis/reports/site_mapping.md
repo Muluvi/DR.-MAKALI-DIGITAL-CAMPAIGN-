@@ -17,7 +17,7 @@ Which exported JSON file belongs in which site section. Nothing is copied into t
 | `water-and-drought.json` | §3.3.8 — drought and food security | Adds the 21% water figure, the strongest Tier 1 line available. | 6 |
 | `county-finance-2026-27.json` | §3.3.4 — the resource envelope | Updates to the FY2026/27 CFSP figures. | 5 |
 | `issue-evidence.json` | §7 — messaging pillars | Evidence behind each pillar. Labelled as evidence strength, not salience. | 8 |
-| `scenario-benchmarks.json` | §3.4.1 — the path to the threshold | Scenario model only. Must render with its scenario label visible. | 9 |
+| `scenario-benchmarks.json` | §3.4.1 — the path to the threshold | Scenario model only. Must render with its scenario label visible. | 12 |
 
 
 ## Deliberately excluded

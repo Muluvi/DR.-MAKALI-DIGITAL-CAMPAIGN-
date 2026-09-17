@@ -233,9 +233,13 @@ def build_charts() -> list[Chart]:
     # 9. Simulation benchmarks -----------------------------------------------------------
     if wards is not None:
         from src.stage03_simulation import SCENARIOS, _support_range
+        scale = float(config.value("register.y2026_uniform_scale_factor"))
+        wards_2026 = wards.assign(
+            registered_voters_2026_scaled=wards["registered_voters_2022"] * scale)
         vals = []
         for key in SCENARIOS:
-            res = sim.simulate(wards, support_range=_support_range(key))
+            res = sim.simulate(wards_2026, register_col="registered_voters_2026_scaled",
+                               support_range=_support_range(key))
             s = res.summary()
             label = SCENARIOS[key]["label"]
             vals += [
@@ -245,17 +249,27 @@ def build_charts() -> list[Chart]:
                       MODELLED, PLACEHOLDER),
                 Value(f"{label} — 95th percentile", int(s["p95"]), "votes", "S1", 1, "2026-09",
                       MODELLED, PLACEHOLDER),
-                Value(f"{label} — draws above 198,004", round(res.share_exceeding(198004) * 100, 1),
+                Value(f"{label} — draws above 198,004 (2022 tally)",
+                      round(res.share_exceeding(198004) * 100, 1),
                       "%", "S11", 2, "2026-09", MODELLED, PLACEHOLDER,
                       note="NOT a win probability — no rival is modelled"),
+                Value(f"{label} — draws above 225,322 (37.2% of today's register)",
+                      round(res.share_exceeding(225322) * 100, 1),
+                      "%", "S3", 1, "2026-09", MODELLED, PLACEHOLDER,
+                      note="The like-for-like benchmark on the current register. NOT a win "
+                           "probability."),
             ]
-        vals.append(Value("2022 winning tally (benchmark)", 198004, "votes", "S11", 2, "2022-08",
-                          OFFICIAL, CONFIRMED))
+        vals.append(Value("2022 winning tally", 198004, "votes", "S11", 2, "2022-08",
+                          OFFICIAL, CONFIRMED,
+                          note="What the proposal measures against — set on a register 13.7% smaller."))
+        vals.append(Value("37.2% of the July 2026 register", 225322, "votes", "S3", 1, "2026-07",
+                          CALCULATED, CONFIRMED,
+                          note="The like-for-like bar on today's electorate."))
         charts.append(Chart(
             id="scenario-benchmarks",
             title="Scenario model: votes against the 2022 benchmark",
-            description="Two support scenarios, 10,000 draws each, compared against the 2022 "
-                        "winning tally.",
+            description="Two support scenarios, 10,000 draws each on the confirmed July 2026 "
+                        "register, against both benchmarks.",
             chart_type="distribution",
             values=vals,
             scenario_label=config.SCENARIO_LABEL,
@@ -264,6 +278,9 @@ def build_charts() -> list[Chart]:
                    "not win probabilities.",
                    "A win probability would require rival vote ranges, which have not been "
                    "supplied.",
+                   "The choice of benchmark moves the result more than the model does: the "
+                   "competitive scenario clears the 2022 tally far more often than it clears "
+                   "the same share of today's larger register.",
                    "Every input is a placeholder assumption from config/assumptions.yaml."],
         ))
     return charts
@@ -281,56 +298,97 @@ def write_findings(charts: list[Chart]) -> str:
     )
     rep.h2("The ten findings")
 
+    reg22 = int(config.value("register.y2022"))
+    reg26 = int(config.value("register.y2026_july"))
+    bench26 = reg26 * float(config.value("benchmarks.winner_share_of_register_2022"))
+    tally22 = int(config.value("benchmarks.winning_tally_2022"))
+
     items = [
-        ("The party's name on the site is wrong.",
-         "ORPP certified the change from Wiper Democratic Movement to Wiper Patriotic Front in "
-         "August 2025 [S6, T1]. The site still uses the old name across multiple content files. "
-         "This is a one-line fix and the cheapest credibility repair available.", "Stage 1"),
         ("The 'widening deficit' cannot be substantiated.",
-         "The site reads 11.1 → 15.3 points as a trend. Neither Mizani round published a sample "
-         "size, so the change returns cannot determine. June also excluded Ngilu while August "
-         "included her at 17.0%, so part of the movement is a changed field, not changed opinion. "
-         "The deficit is real in each round; its direction is not measurable.", "Stage 2"),
-        ("A second pollster exists and is missing from the site.",
-         "Politrack Africa, 12 March 2026, n = 2,927: Mulu 26.2%, Kasalu 35.2% [S9]. It is the "
-         "only poll with a published sample size, and at that n the 9.0-point gap carries a "
-         "margin of ±2.82 points — the one poll finding that is statistically solid.", "Stage 2"),
-        ("The register on the site is four years out of date, and its replacement is unverified.",
-         "532,758 is the 2022 figure [S2, T1] and is presented as current. The 2026 figures are "
-         "both T3 and do not reconcile: 605,703 reported for July 2026 [S4] against 594,597 "
-         "implied by the reported new registrations [S5], a gap of 11,106.", "Stage 1"),
-        ("The ward arithmetic is sound.",
-         "All 40 wards sum to each constituency total and to 532,758, and the site's own "
-         "ward-register.json matches ward for ward. Two independent copies agree, so the "
-         "foundation of every ward-level claim holds.", "Stage 1"),
-        ("A purely digital campaign reaches about one voter in seven.",
-         f"Modelled at {int(reach['digital'].sum()):,} voters on KNBS 2019 county rates, against "
-         f"{int(reach['sms_only'].sum()):,} reachable by SMS only and "
-         f"{int(reach['offline'].sum()):,} with no phone at all. The rates are seven years old "
-         "and are the single highest-value thing to refresh.", "Stage 9"),
+         "The site reads 11.1 to 15.3 points as a trend. Neither Mizani round published a "
+         "sample size, so the change returns cannot determine. June also excluded Ngilu while "
+         "August included her at 17.0%, so part of the movement is a changed field rather than "
+         "changed opinion. The deficit is real in each round; its direction is not measurable.",
+         "Stage 2"),
+        ("The SMS layer is half the size the proposal assumes.",
+         f"On the confirmed 2023/24 rates, {int(reach['sms_only'].sum()):,} voters own a phone "
+         "but no data, against 177,473 on the 2019 rates the proposal was built on. Phone "
+         "ownership rose 1.2 points in five years while internet use rose 12.6 — almost nobody "
+         "new got a phone, people who had one got online. The 82/18 offline-digital weighting "
+         "was set against superseded numbers, and SMS is carrying weight its audience no longer "
+         "supports.",
+         "Stage 9"),
+        ("The bar for 2027 is about 27,000 votes higher than 2022's winning tally.",
+         f"The register has grown from {reg22:,} to {reg26:,}, confirmed against the IEBC "
+         f"annex. The 2022 winner took 37.2% of the register; the same share of today's "
+         f"register is about {bench26:,.0f} votes, against the {tally22:,} the proposal "
+         "measures everything against. Every target built on ~200,000 is set too low.",
+         "Stage 3"),
+        ("Only one of the three published polls can be tested, and its gap is real.",
+         "Politrack (12 March 2026, n = 2,927) is the sole poll with a published sample size. "
+         "At that n its 9.0-point gap carries a margin of ±2.82 points and clears zero "
+         "comfortably. Neither Mizani round published n, so nothing about their movement can be "
+         "established.",
+         "Stage 2"),
+        ("The digital ceiling is roughly one voter in four, not one in seven.",
+         f"{int(reach['digital'].sum()):,} voters are reachable by smartphone or data on "
+         "current rates. That is the second-largest of the three segments. It does not make the "
+         "case for a digital-first campaign — the no-phone segment is still larger than the "
+         "other two combined — but it does remove the basis for capping digital at 18%.",
+         "Stage 9"),
+        ("The offline majority survives every update, and remains the strategic core.",
+         f"{int(reach['offline'].sum()):,} voters own no phone at all — larger than the digital "
+         "and SMS segments together. No ad budget, SMS send or USSD flow reaches them. This is "
+         "the one structural claim in the proposal that has strengthened rather than weakened "
+         "as the data improved.",
+         "Stage 9"),
         ("The SMS layer cannot carry Kikamba.",
          "CA/NCIC guidelines limit bulk political SMS to English or Kiswahili, with 48-hour "
          "advance lodging and an operator veto [S53, S54]. The SMS-only segment is the most "
          "rural and most likely to prefer Kikamba, so the language the campaign most needs is "
-         "unavailable on the channel that reaches them.", "Stage 9"),
+         "unavailable on the channel that reaches them — and that channel is now smaller than "
+         "the proposal assumes.",
+         "Stage 9"),
         ("NG-CDF beneficiary lists cannot become a campaign list.",
          "ODPC's 2025 public-sector guidance bars reusing public-programme personal data for "
          "political mobilisation without explicit consent [S57, T1]. Project records remain "
          "usable as proof points. Consented opt-in is the only lawful route, which makes list "
-         "building an objective rather than an assumption.", "Constraint"),
+         "building an objective rather than an assumption.",
+         "Constraint"),
         ("Water is the strongest evidenced argument available.",
          "Kitui has the lowest share of any county in Kenya with at least basic drinking-water "
          "service, at 21% [S41, T1], and the longest water trekking distance among semi-arid "
          "counties at 7.2 km in February 2026 [S43, T1]. Both are Tier 1, current and "
-         "county-wide.", "Stage 10"),
-        ("The campaign's own allocation policy contradicts its best line of attack.",
-         "The leading rival attacks equal-ward CLIDP as entrenching inequality [S24]. The site's "
-         "§7.1.1 proposes an equal-ward guarantee — the same policy. Both cannot be run. This is "
-         "a policy decision the analysis cannot make, and the content plan waits on it.",
+         "county-wide — a rare combination in this evidence base.",
          "Stage 10"),
+        ("The site's prose now contradicts its own data blocks.",
+         "Several sections still state 13.6% internet use and an 86.4% offline majority, and "
+         "size the channel mix against them, while the mounted data blocks show 26.2%. The fix "
+         "is not a find-and-replace: 86.4% is the rhetorical spine of Section 3.6 and the "
+         "justification for the 82/18 split, so the rate cannot be updated without revisiting "
+         "the argument it supports.",
+         "Stage 9"),
     ]
+
     for i, (headline, evidence, stage) in enumerate(items, 1):
         rep.raw(f"**{i}. {headline}**  \n{evidence}  \n*Source: {stage}.*")
+
+    rep.h2("Closed since the first audit")
+    rep.p(
+        "Four findings from earlier runs of this pipeline are no longer open. Three were fixed "
+        "on the site; one was my own error."
+    )
+    rep.table(pd.DataFrame([
+        {"Finding": "The party name was wrong on the site",
+         "How it closed": "Corrected to Wiper Patriotic Front throughout"},
+        {"Finding": "Politrack was missing from the site",
+         "How it closed": "Added alongside Mizani, on a separate series"},
+        {"Finding": "The 2026 register was unverified",
+         "How it closed": "Confirmed against the IEBC annex: 605,703, Tier 1"},
+        {"Finding": "The two 2026 register figures 'did not reconcile'",
+         "How it closed": "WITHDRAWN — my error. They measure different windows and were "
+                          "never meant to sum. See Stage 1."},
+    ]))
 
     rep.h2("What the models do and do not say")
     rep.bullets([
