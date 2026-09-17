@@ -34,10 +34,43 @@ def test_requirements_is_inside_analysis_not_repo_root():
     assert not (config.REPO_ROOT / "requirements.txt").exists()
 
 
-def test_analysis_is_vercelignored():
-    """Addendum: the pipeline must never deploy with the site."""
-    text = (config.REPO_ROOT / ".vercelignore").read_text(encoding="utf-8")
-    assert any(line.strip() == "analysis/" for line in text.splitlines())
+def test_analysis_is_vercelignored_but_anchored_to_the_root():
+    """The pipeline must never deploy — without taking the site's data with it.
+
+    .vercelignore uses .gitignore syntax, so a bare "analysis/" matches a directory of that
+    name at ANY depth. That silently excluded data/analysis/ and public/content/analysis/
+    from the upload and broke the production build with a module-not-found on the very JSON
+    the site imports, while the local build passed because the files were simply on disk.
+    The leading slash is load-bearing.
+    """
+    lines = [
+        line.strip()
+        for line in (config.REPO_ROOT / ".vercelignore").read_text(encoding="utf-8").splitlines()
+        if line.strip() and not line.strip().startswith("#")
+    ]
+    assert "/analysis/" in lines, "the pipeline must be excluded from deployment"
+    assert "analysis/" not in lines, (
+        "an unanchored 'analysis/' also excludes data/analysis/ and "
+        "public/content/analysis/, which the site needs"
+    )
+
+
+def test_site_facing_analysis_data_is_not_excluded_from_deployment():
+    """The published figures must survive the deploy, in both locations."""
+    patterns = [
+        line.strip()
+        for line in (config.REPO_ROOT / ".vercelignore").read_text(encoding="utf-8").splitlines()
+        if line.strip() and not line.strip().startswith("#")
+    ]
+    for needed in ("data/analysis", "public/content/analysis"):
+        assert (config.REPO_ROOT / needed).is_dir(), f"{needed} is missing"
+        for pattern in patterns:
+            bare = pattern.strip("/")
+            # An unanchored pattern matches at any depth; an anchored one only at the root.
+            if not pattern.startswith("/") and bare in needed.split("/"):
+                raise AssertionError(
+                    f".vercelignore pattern {pattern!r} would exclude {needed}"
+                )
 
 
 def test_no_tracked_files_under_analysis_data_or_outputs():

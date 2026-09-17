@@ -1,2 +1,8 @@
-# The analysis pipeline is not part of the site build. Never deploy it.
-analysis/
+# The Python analysis pipeline is not part of the site build, so it never deploys.
+#
+# The leading slash matters and is not cosmetic. A bare "analysis/" matches a directory of
+# that name at ANY depth, which also excluded data/analysis/ and public/content/analysis/ —
+# the published figures the site imports and serves. That broke the production build with
+# "Module not found: ./analysis/register-comparison.json" while the local build passed,
+# because locally the files were simply there. Anchor the pattern to the repo root.
+/analysis/
