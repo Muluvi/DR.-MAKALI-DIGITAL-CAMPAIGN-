@@ -51,6 +51,24 @@ Nothing in this stage is a measurement. It is a published rate multiplied by a w
 - **NG-CDF and bursary beneficiary lists cannot become an SMS list** [S57]. Consented opt-in is the only lawful route to this segment, which makes list building a campaign objective in its own right rather than an assumption.
 
 
+## The base rate is stale, and probably by about half
+
+**The 13.6% internet-use rate above is from the 2019 census. The 2023/24 Kenya Housing Survey puts Kitui at 26.2%** — nearly double. On that rate the digital layer is about 139,583 voters rather than 72,453, a difference of 67,130.
+
+**It is not used above, and the figures in this report are unchanged by it.** The 26.2% has not been read from the report itself — it comes from two independent media accounts of it, which agree with each other and sit sensibly inside the same survey's range of 64.7% in Nairobi to 9.1% in West Pokot, against a rural mean of 25.0%. That is good enough to act on as a warning and not good enough to publish as a measurement.
+
+**Kitui's phone-ownership cell from the same survey is still missing, and one rate without the other is worse than neither.** The SMS-only segment is phone ownership minus internet use. Raising internet use while holding phone ownership at the 2019 figure would shrink the SMS layer by arithmetic alone, producing a fall that no one measured. Both Kitui cells are needed before any of this moves.
+
+**What it would change if confirmed.** A digital ceiling near 139,583 rather than 72,453 weakens the proposal's central claim that digital reaches roughly one voter in seven — it would be closer to one in four. The offline majority argument survives either way, because the SMS and no-phone segments still dominate, but the budget split between digital and offline is exactly the decision this rate governs.
+
+| Rate | Value | Year | Source | Used here |
+|---|---|---|---|---|
+| Internet use, Kitui | 13.6% | 2019 | KNBS census [S35], T2 | yes — the headline rate |
+| Internet use, Kitui | 26.2% | 2023/24 | CA/KNBS ICT report, T2 | no — unverified, shown as a warning |
+| Phone ownership, Kitui | 42.9% | 2019 | KNBS census [S35], T2 | yes — the headline rate |
+| Phone ownership, Kitui | [DATA NEEDED] | 2023/24 | CA/KNBS ICT report | not obtained |
+
+
 ## Limits
 
 - **The rates are seven years old.** KNBS 2019 is the only Kitui-specific source in the pack. The pack itself records that coverage has since improved under USO in Mwingi North, so 13.6% almost certainly understates today.
@@ -79,3 +97,4 @@ Nothing in this stage is a measurement. It is a published rate multiplied by a w
 - **[DATA NEEDED]** Kitui's row in the KNBS Kenya Housing Survey 2023/24 ICT tables (pack gap 10). This is the single highest-value input for this stage: it replaces a seven-year-old rate with a current one and would materially move every figure above.
 - **[DATA NEEDED]** Ward-level 2G/3G/4G coverage (pack gap 20), which would replace the uniform rate with real ward variation.
 - **[DATA NEEDED]** Kikamba radio audience by sub-county (pack gap 16), without which the offline segment cannot be converted into a reachable radio audience.
+- **[DATA NEEDED]** Kitui's two ICT cells — internet use AND mobile-phone ownership — from the CA/KNBS ICT Analytical Report on the 2023/24 Kenya Housing Survey. The internet figure is provisionally 26.2% against the 13.6% used here; the phone figure is unknown. Both are needed together, and reading them from the report would move every figure in this stage.

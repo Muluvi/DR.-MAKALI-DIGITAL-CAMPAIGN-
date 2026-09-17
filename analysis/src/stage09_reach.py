@@ -208,6 +208,50 @@ def run() -> dict:
         "objective in its own right rather than an assumption.",
     ])
 
+    rep.h2("The base rate is stale, and probably by about half")
+    newer = config.assumption("reach.county_internet_use_2023_24")
+    digital_now = int(est["digital"].sum())
+    digital_newer = int(round(total * newer.value))
+    rep.p(
+        f"**The 13.6% internet-use rate above is from the 2019 census. The 2023/24 Kenya "
+        f"Housing Survey puts Kitui at {newer.value:.1%}** — nearly double. On that rate the "
+        f"digital layer is about {digital_newer:,} voters rather than {digital_now:,}, a "
+        f"difference of {digital_newer - digital_now:,}."
+    )
+    rep.p(
+        "**It is not used above, and the figures in this report are unchanged by it.** The "
+        f"{newer.value:.1%} has not been read from the report itself — it comes from two "
+        "independent media accounts of it, which agree with each other and sit sensibly inside "
+        "the same survey's range of 64.7% in Nairobi to 9.1% in West Pokot, against a rural "
+        "mean of 25.0%. That is good enough to act on as a warning and not good enough to "
+        "publish as a measurement."
+    )
+    rep.p(
+        "**Kitui's phone-ownership cell from the same survey is still missing, and one rate "
+        "without the other is worse than neither.** The SMS-only segment is phone ownership "
+        "minus internet use. Raising internet use while holding phone ownership at the 2019 "
+        "figure would shrink the SMS layer by arithmetic alone, producing a fall that no one "
+        "measured. Both Kitui cells are needed before any of this moves."
+    )
+    rep.p(
+        "**What it would change if confirmed.** A digital ceiling near "
+        f"{digital_newer:,} rather than {digital_now:,} weakens the proposal's central claim "
+        "that digital reaches roughly one voter in seven — it would be closer to one in four. "
+        "The offline majority argument survives either way, because the SMS and no-phone "
+        "segments still dominate, but the budget split between digital and offline is exactly "
+        "the decision this rate governs."
+    )
+    rep.table(pd.DataFrame([
+        {"Rate": "Internet use, Kitui", "Value": "13.6%", "Year": "2019",
+         "Source": "KNBS census [S35], T2", "Used here": "yes — the headline rate"},
+        {"Rate": "Internet use, Kitui", "Value": f"{newer.value:.1%}", "Year": "2023/24",
+         "Source": "CA/KNBS ICT report, T2", "Used here": "no — unverified, shown as a warning"},
+        {"Rate": "Phone ownership, Kitui", "Value": "42.9%", "Year": "2019",
+         "Source": "KNBS census [S35], T2", "Used here": "yes — the headline rate"},
+        {"Rate": "Phone ownership, Kitui", "Value": "[DATA NEEDED]", "Year": "2023/24",
+         "Source": "CA/KNBS ICT report", "Used here": "not obtained"},
+    ]))
+
     rep.h2("Limits")
     rep.bullets([
         "**The rates are seven years old.** KNBS 2019 is the only Kitui-specific source in the "
@@ -244,6 +288,11 @@ def run() -> dict:
         "real ward variation.",
         "Kikamba radio audience by sub-county (pack gap 16), without which the offline segment "
         "cannot be converted into a reachable radio audience.",
+        "Kitui's two ICT cells — internet use AND mobile-phone ownership — from the CA/KNBS "
+        "ICT Analytical Report on the 2023/24 Kenya Housing Survey. The internet figure is "
+        "provisionally 26.2% against the 13.6% used here; the phone figure is unknown. Both "
+        "are needed together, and reading them from the report would move every figure in "
+        "this stage.",
     ])
     path_out = rep.write()
     return {
