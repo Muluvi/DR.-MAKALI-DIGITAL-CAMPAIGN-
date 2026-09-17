@@ -420,6 +420,33 @@ labelling:
 # ---------------------------------------------------------------------------------------
 reach:
   county_internet_use:
+    value: 0.262
+    unit: share of persons aged 3+
+    source_id: CA-ICT-KHS-2024
+    tier: 1
+    as_of: "2023-24"
+    status: CONFIRMED
+    rationale: >-
+      Kitui's internet-use rate, read from the ICT Analytical Report on the 2023/24 Kenya
+      Housing Survey (Communications Authority with KNBS) and supplied by the campaign on
+      17 September 2026. Supersedes the 2019 census rate of 13.6%, which is retained below
+      for comparison because the change between them is itself a finding.
+      Source: https://www.ca.go.ke/sites/default/files/2025-08/ICT%20Analytical%20Report%20Based%20on%202023-2024%20Kenya%20Housing%20Survey_0.pdf
+  county_phone_ownership:
+    value: 0.441
+    unit: share of persons aged 3+
+    source_id: CA-ICT-KHS-2024
+    tier: 1
+    as_of: "2023-24"
+    status: CONFIRMED
+    rationale: >-
+      Kitui's mobile-phone ownership rate from the same report and the same reading.
+      Supersedes the 2019 census rate of 42.9%.
+      Note how little it moved: +1.2 points in five years, against +12.6 points for internet
+      use. Nearly all the growth in connectivity came from people who already owned a phone
+      getting online, not from new phone owners. That is why the SMS-only segment shrinks
+      rather than holds.
+  county_internet_use_2019:
     value: 0.136
     unit: share of residents aged 3+
     source_id: S35
@@ -427,10 +454,10 @@ reach:
     as_of: "2019"
     status: CONFIRMED
     rationale: >-
-      KNBS 2019 census: 143,340 of 1,053,991 aged 3+. The pack rounds this to 13% [S35];
-      the census arithmetic gives 13.6% and the site uses that. Seven years stale as of
-      Sep 2026 — the year is shown beside every figure derived from it.
-  county_phone_ownership:
+      KNBS 2019 census: 143,340 of 1,053,991 aged 3+. Superseded as the working rate, kept
+      because the proposal's prose is built on it and the gap between the two is a finding
+      the campaign needs to see.
+  county_phone_ownership_2019:
     value: 0.429
     unit: share of residents aged 3+
     source_id: S35
@@ -438,35 +465,7 @@ reach:
     as_of: "2019"
     status: CONFIRMED
     rationale: >-
-      KNBS 2019 census: 452,948 owners. Pack rounds to 43%. County rate exists, so it is
-      used in preference to the national rural rate. Stale by seven years.
-  county_internet_use_2023_24:
-    value: 0.262
-    unit: share of persons aged 3+
-    source_id: CA-ICT-KHS-2024
-    tier: 2
-    as_of: "2023-24"
-    status: PLACEHOLDER
-    verify: true
-    rationale: >-
-      Kitui's internet-use rate from the ICT Analytical Report on the 2023/24 Kenya Housing
-      Survey (Communications Authority with KNBS). NOT yet read from the report itself: this
-      comes from two independent media reports of it, which agree, and it is consistent with
-      the same survey's 25.0% rural mean and its range of 64.7% (Nairobi) to 9.1% (West Pokot).
-      It is nearly double the 13.6% the 2019 census gives, so it is the difference between a
-      digital layer of about 72,000 voters and one of about 140,000.
-      NOT used as the headline rate. Stage 9 reports it as a labelled alternative until the
-      PDF confirms it. Promote to the primary rate, tier 1, once the county table is read.
-      Source: https://www.ca.go.ke/sites/default/files/2025-08/ICT%20Analytical%20Report%20Based%20on%202023-2024%20Kenya%20Housing%20Survey_0.pdf
-  county_phone_ownership_2023_24:
-    value: null
-    status: PLACEHOLDER
-    rationale: >-
-      [DATA NEEDED] Kitui's mobile-phone ownership rate in the same report. Without it the
-      three-way reach split cannot be recomputed on current rates: the SMS-only segment is
-      phone ownership minus internet use, so a new internet rate on its own would shrink that
-      segment by arithmetic alone rather than by measurement. The national rural rate is
-      48.6%. Both Kitui cells are needed, not one.
+      KNBS 2019 census: 452,948 owners. Superseded as the working rate, kept for comparison.
   national_rural_phone_ownership:
     value: 0.486
     unit: share aged 3+
@@ -475,8 +474,9 @@ reach:
     as_of: "2023-24"
     status: CONFIRMED
     rationale: >-
-      KNBS Housing Survey 2023/24, rural. Used ONLY as the fallback where no county rate
-      exists, and reported alongside the county rate to show the direction of drift.
+      KNBS Housing Survey 2023/24, rural. No longer needed as a fallback now that Kitui's own
+      rates are in hand, and retained only as context: Kitui at 44.1% sits 4.5 points below
+      the rural mean.
   national_internet_use:
     value: 0.35
     unit: share
@@ -484,7 +484,9 @@ reach:
     tier: 2
     as_of: "2023-24"
     status: CONFIRMED
-    rationale: KNBS Housing Survey 2023/24, national. Fallback only.
+    rationale: >-
+      KNBS Housing Survey 2023/24, national. Context only. Kitui's 26.2% sits above the 25.0%
+      rural mean and well below the 35.0% national rate.
   smartphone_share_of_connections:
     value: 0.597
     unit: share of active SIMs
@@ -497,6 +499,19 @@ reach:
       CA Q3 FY2025/26: 50.2m smartphones / 84.1m active SIMs = 59.7%. A NATIONAL rate
       applied to a rural county with below-average connectivity, so it almost certainly
       overstates Kitui. Flagged as such on every output.
+  denominator_register:
+    value: 605703
+    unit: voters
+    source_id: S3
+    tier: 1
+    as_of: "2026-07"
+    status: CONFIRMED
+    rationale: >-
+      Reach is a statement about today's electorate, so the county totals are computed on the
+      confirmed July 2026 register, not the 2022 one. Ward-level figures still distribute that
+      total using 2022 ward shares, because no ward-level 2026 breakdown exists - see
+      register.y2026_uniform_scale_factor for why that distribution is known to be wrong in
+      detail and used anyway.
   ward_uniformity:
     value: true
     status: PLACEHOLDER

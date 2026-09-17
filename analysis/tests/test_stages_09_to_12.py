@@ -19,48 +19,76 @@ def wards():
 
 # --- Stage 9: reach -------------------------------------------------------------------
 
-def test_reach_segments_sum_to_the_register_exactly(wards):
-    est = s9.estimate(wards, 0.136, 0.429)
+def test_reach_segments_sum_to_the_electorate_exactly(wards):
+    denoms = s9.ward_denominators(wards)
+    est = s9.estimate(denoms, 0.262, 0.441)
     total = est[["digital", "sms_only", "offline"]].sum(axis=1)
-    assert (total == est["registered_voters_2022"]).all(), "segments must partition the register"
+    assert (total == est["voters"]).all(), "segments must partition the electorate"
 
 
 def test_reach_segments_are_never_negative(wards):
-    est = s9.estimate(wards, 0.136, 0.429)
+    denoms = s9.ward_denominators(wards)
+    est = s9.estimate(denoms, 0.262, 0.441)
     for col in ("digital", "sms_only", "offline"):
         assert (est[col] >= 0).all()
 
 
 def test_impossible_rates_are_rejected(wards):
     """Phone ownership below internet use would make the SMS-only segment negative."""
+    denoms = s9.ward_denominators(wards)
     with pytest.raises(ValueError):
-        s9.estimate(wards, 0.50, 0.40)
+        s9.estimate(denoms, 0.50, 0.40)
 
 
-def test_county_digital_reach_matches_the_sites_own_figure(wards):
-    """Independent arithmetic should land on the site's ~72,000 claim."""
-    est = s9.estimate(wards, config.value("reach.county_internet_use"),
-                      config.value("reach.county_phone_ownership"))
-    assert 71000 <= est["digital"].sum() <= 74000
+def test_ward_denominators_sum_to_the_confirmed_2026_register(wards):
+    denoms = s9.ward_denominators(wards)
+    assert len(denoms) == 40
+    assert denoms["voters"].sum() == config.value("reach.denominator_register") == 605703
+
+
+def test_reach_uses_the_current_rates_not_the_2019_ones(wards):
+    """The headline must move with the confirmed 2023/24 rates."""
+    denoms = s9.ward_denominators(wards)
+    r = s9.rates()
+    assert r["internet"].value == 0.262 and r["internet"].tier == 1
+    assert r["phone"].value == 0.441 and r["phone"].tier == 1
+    est = s9.estimate(denoms, r["internet"].value, r["phone"].value)
+    assert 155_000 <= est["digital"].sum() <= 162_000
+
+
+def test_the_sms_layer_shrinks_under_the_newer_rates(wards):
+    """The substantive finding: growth came out of SMS-only, not from new phone owners."""
+    denoms = s9.ward_denominators(wards)
+    r = s9.rates()
+    old = s9.estimate(denoms, r["internet_2019"].value, r["phone_2019"].value)
+    new = s9.estimate(denoms, r["internet"].value, r["phone"].value)
+    assert new["digital"].sum() > old["digital"].sum() * 1.8
+    assert new["sms_only"].sum() < old["sms_only"].sum() * 0.75
+    # The offline segment should be near-unchanged: phone ownership barely moved.
+    assert abs(new["offline"].sum() - old["offline"].sum()) / old["offline"].sum() < 0.05
 
 
 def test_every_reach_rate_carries_a_year_and_source():
-    for key in ("county_internet_use", "county_phone_ownership",
-                "national_rural_phone_ownership", "national_internet_use",
-                "smartphone_share_of_connections"):
+    for key in ("county_internet_use", "county_phone_ownership", "county_internet_use_2019",
+                "county_phone_ownership_2019", "national_rural_phone_ownership",
+                "national_internet_use", "smartphone_share_of_connections"):
         a = config.assumption(f"reach.{key}")
         assert a.as_of, f"{key} has no year"
         assert a.source_id, f"{key} has no source"
         assert a.tier in (1, 2, 3)
 
 
-def test_reach_report_labels_every_figure_modelled():
+def test_reach_report_states_the_finding_and_the_contradiction():
     s9.run()
     text = (config.REPORTS / "09_reach.md").read_text(encoding="utf-8")
-    assert "Every figure here is modelled" in text
+    assert "MODELLED" in text.upper()
     assert "not a radio audience estimate" in text.lower()
-    # The compliance constraint must ride with the SMS layer.
     assert "English or Kiswahili" in text
+    # The reason behind the shift is the point, not just the new numbers.
+    assert "1.2 points" in text and "12.6 points" in text
+    # The prose on the site now disagrees with these figures; that must be stated.
+    assert "contradiction" in text.lower()
+    assert "86.4%" in text
 
 
 # --- Stage 11: measurement ------------------------------------------------------------

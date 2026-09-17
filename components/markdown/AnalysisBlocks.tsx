@@ -79,12 +79,19 @@ export function ChannelReachBlock() {
       heading="How many voters each channel can physically reach"
     >
       <p className="mt-3 pt-2 border-t border-line/40 t-small text-muted leading-relaxed">
-        <strong className="text-ink">The SMS layer is larger than the digital one, and it cannot
-        carry Kikamba.</strong> More voters own a phone without using the internet than use the
-        internet at all, and more again own no phone whatsoever. The CA and NCIC guidelines limit
-        bulk political SMS to English or Kiswahili, with messages lodged with the operator two days
-        ahead and subject to refusal — so the channel that reaches the largest addressable group is
-        also the one that cannot speak its first language, and cannot respond quickly.
+        <strong className="text-ink">These figures supersede the 13.6% used in the surrounding
+        text.</strong> That rate is from the 2019 census. The 2023/24 Kenya Housing Survey puts
+        Kitui internet use at 26.2% and phone ownership at 44.1%, so the digital layer is roughly
+        double what this section describes and the SMS-only layer is roughly half. Where the
+        prose and this panel disagree, the panel carries the later measurement.
+      </p>
+      <p className="mt-2 t-small text-muted leading-relaxed">
+        <strong className="text-ink">The reason matters more than the numbers.</strong> Phone
+        ownership rose just 1.2 points in five years while internet use rose 12.6. Almost nobody
+        new acquired a phone; people who already had one got online. The SMS-only group did not
+        disappear, it moved to the digital layer — which is why weighting SMS against a
+        13.6%-internet county overstates the audience that layer can still reach. The offline
+        majority is untouched by this and remains the largest segment by a wide margin.
       </p>
     </AnalysisFigure>
   );

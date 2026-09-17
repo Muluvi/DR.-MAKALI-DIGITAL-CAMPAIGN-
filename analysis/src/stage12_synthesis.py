@@ -129,32 +129,38 @@ def build_charts() -> list[Chart]:
                    "threshold."],
         ))
 
-    # 5. Reach ---------------------------------------------------------------------------
+    # 5. Reach -----------------------------------------------------------------------------
     if reach is not None:
-        total = int(reach["registered_voters_2022"].sum())
+        total = int(reach["voters"].sum())
         charts.append(Chart(
             id="channel-reach",
             title="How many voters each channel can reach",
-            description="The register split into three mutually exclusive reach segments, "
-                        "modelled from published rates.",
+            description="The electorate split into three mutually exclusive reach segments, "
+                        "modelled from the 2023/24 CA/KNBS rates.",
             chart_type="stacked-bar",
             values=[
                 Value("Reachable by smartphone or data", int(reach["digital"].sum()), "voters",
-                      "S35", 2, "2019", MODELLED, PLACEHOLDER,
-                      note="13.6% internet use, KNBS 2019 — seven years old"),
+                      "CA-ICT-KHS-2024", 1, "2023-24", MODELLED, PLACEHOLDER,
+                      note="26.2% internet use, CA/KNBS 2023/24 — up from 13.6% in 2019"),
                 Value("Reachable by SMS only (phone, no data)", int(reach["sms_only"].sum()),
-                      "voters", "S35", 2, "2019", MODELLED, PLACEHOLDER,
-                      note="42.9% phone ownership minus 13.6% internet use, KNBS 2019"),
+                      "voters", "CA-ICT-KHS-2024", 1, "2023-24", MODELLED, PLACEHOLDER,
+                      note="44.1% phone ownership minus 26.2% internet use"),
                 Value("No phone — radio or in person only", int(reach["offline"].sum()), "voters",
-                      "S35", 2, "2019", MODELLED, PLACEHOLDER,
+                      "CA-ICT-KHS-2024", 1, "2023-24", MODELLED, PLACEHOLDER,
                       note="Not a radio audience estimate: no Kitui listenership data exists"),
-                Value("Total 2022 register", total, "voters", "S1", 1, "2022", OFFICIAL, CONFIRMED),
+                Value("Total electorate, July 2026", total, "voters", "S3", 1, "2026-07",
+                      OFFICIAL, CONFIRMED),
             ],
             notes=[
-                "MODELLED. Published rates multiplied by ward registers — not a measurement.",
+                "MODELLED. Published rates multiplied by ward electorates — not a measurement.",
+                "Phone ownership rose just 1.2 points between 2019 and 2023/24 while internet "
+                "use rose 12.6. The digital layer grew almost entirely at the expense of the "
+                "SMS-only layer, not by adding new phone owners.",
+                "The offline majority is unchanged by this update and remains the largest "
+                "single segment.",
                 "Rates are applied uniformly to all 40 wards because no ward-level connectivity "
                 "data exists. Township and Tharaka get the same rate, which is certainly wrong.",
-                "The rates were measured on residents aged 3+ and are applied here to registered "
+                "The rates were measured on persons aged 3+ and are applied here to registered "
                 "voters, who are all adults. This probably understates the digital and SMS layers.",
                 "Bulk political SMS is English or Kiswahili only under CA/NCIC guidelines, and "
                 "must be lodged with the operator 48 hours ahead.",

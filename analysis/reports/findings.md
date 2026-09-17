@@ -28,7 +28,7 @@ All 40 wards sum to each constituency total and to 532,758, and the site's own w
 *Source: Stage 1.*
 
 **6. A purely digital campaign reaches about one voter in seven.**  
-Modelled at 72,453 voters on KNBS 2019 county rates, against 156,098 reachable by SMS only and 304,207 with no phone at all. The rates are seven years old and are the single highest-value thing to refresh.  
+Modelled at 158,696 voters on KNBS 2019 county rates, against 108,419 reachable by SMS only and 338,588 with no phone at all. The rates are seven years old and are the single highest-value thing to refresh.  
 *Source: Stage 9.*
 
 **7. The SMS layer cannot carry Kikamba.**  
@@ -58,7 +58,7 @@ The leading rival attacks equal-ward CLIDP as entrenching inequality [S24]. The 
 
 ## Every assumption
 
-33 entries in `config/assumptions.yaml` are marked PLACEHOLDER — nobody has confirmed them. Each carries a rationale in the file.
+31 entries in `config/assumptions.yaml` are marked PLACEHOLDER — nobody has confirmed them. Each carries a rationale in the file.
 
 | Assumption | Value | Why it is a placeholder |
 |---|---|---|
@@ -75,8 +75,6 @@ The leading rival attacks equal-ward CLIDP as entrenching inequality [S24]. The 
 | measurement.list_sizes | [1000, 5000, 10000, 25000, 50000, 100000] | Illustrative SMS list sizes spanning ward-level to countywide sends. |
 | nomination.method_is_opinion_poll | True | The County Diary, May 2026. T3, not confirmed by the party. The entire nomination strategy rests on this. If WPF runs a delegate primary instead, Stag |
 | nomination.poll_samples_proportional_to_register | True | UNCONFIRMED. The brief instructs this assumption for the leverage model. WPF has not published the sample frame, and the pack lists the nomination-pol |
-| reach.county_internet_use_2023_24 | 0.262 | Kitui's internet-use rate from the ICT Analytical Report on the 2023/24 Kenya Housing Survey (Communications Authority with KNBS). NOT yet read from t |
-| reach.county_phone_ownership_2023_24 | None | [DATA NEEDED] Kitui's mobile-phone ownership rate in the same report. Without it the three-way reach split cannot be recomputed on current rates: the  |
 | reach.ward_uniformity | True | The model applies county rates uniformly across all 40 wards, because no ward-level connectivity data exists ([DATA NEEDED], pack gap 20). This is kno |
 | register.by_ward_2026 | None | [DATA NEEDED] The 2026 register by ward. The ECVR drive was ward-based, so growth is uneven and cannot be distributed pro rata without inventing data. |
 | register.y2026_uniform_scale_factor | 1.1369 | 605,703 / 532,758 = 1.1369. Used ONLY to project the 2022 ward register onto the 2026 county total so the simulation can report against both register  |
