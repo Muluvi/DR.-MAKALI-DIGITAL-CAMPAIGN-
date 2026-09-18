@@ -291,7 +291,15 @@
 /* --------------------------------------------------------------- quadrant */
 
 .pv-quad { display: flex; flex-direction: column; gap: 0.625rem; }
-.pv-quad__plot { position: relative; aspect-ratio: 1.45; border: 1px solid color-mix(in oklab, var(--color-line) 60%, transparent); border-radius: 0.75rem; margin: 0 0.75rem 0.75rem 1.25rem; }
+/* Taller on a phone than on a desktop, deliberately: the plot is ~325px wide there, and at the
+   desktop ratio that left 224px of height for markers that are 26px tall plus their spread ring.
+   A square-ish field is also the honest shape for two scales of equal weight. */
+.pv-quad__plot { position: relative; aspect-ratio: 1.02; border: 1px solid color-mix(in oklab, var(--color-line) 60%, transparent); border-radius: 0.75rem; margin: 0 0.75rem 0.75rem 1.25rem; }
+@container (min-width: 520px) { .pv-quad__plot { aspect-ratio: 1.45; } }
+
+/* Where the markers actually live: inset from the border by half a marker, so one scored at the
+   top of both scales lands against the corner instead of hanging over it. */
+.pv-quad__field { position: absolute; inset: 16px 18px; }
 .pv-quad__axis { position: absolute; background: color-mix(in oklab, var(--color-line) 55%, transparent); }
 .pv-quad__axis--x { left: 0; right: 0; top: 50%; height: 1px; }
 .pv-quad__axis--y { top: 0; bottom: 0; left: 50%; width: 1px; }
@@ -307,6 +315,14 @@
   color: var(--color-accent); border: 1px solid color-mix(in oklab, var(--color-accent) 45%, transparent);
   transition: background 160ms ease-out, color 160ms ease-out;
 }
+/* The MARK is 26px so six of them fit a phone-sized plot without collision; the TARGET stays
+   44px, drawn by the pseudo-element below, which is what WCAG 2.5.8 and a thumb both measure.
+   The selector is doubled up on purpose: globals.css carries an unlayered
+   `button, input, select { min-height: 44px }` under (max-width: 640px), which is right for every
+   other control on the site and wrong for a plotted point — at 44px tall the markers were a fifth
+   of the plot's height and hung outside its frame. */
+.pv-quad__plot .pv-quad__pt { min-height: 26px; height: 26px; }
+.pv-quad__pt::after { content: ""; position: absolute; left: 50%; top: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%); }
 .pv-quad__pt[data-sel="true"] { background: var(--color-accent-solid); color: var(--color-on-accent); border-color: var(--color-accent-solid); }
 .pv-quad__xlab, .pv-quad__ylab { position: absolute; font-size: 9px; color: var(--color-muted); font-weight: 600; }
 .pv-quad__xlab { bottom: -1.05rem; right: 0; }
@@ -431,7 +447,13 @@
 
 @keyframes pv-grow { from { transform: scaleX(0); transform-origin: left; } to { transform: scaleX(1); transform-origin: left; } }
 @keyframes pv-rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-@keyframes pv-pop { from { opacity: 0; transform: scale(0.72); } to { opacity: 1; transform: none; } }
+/* Animates `scale`, not `transform`.
+   As a transform keyframe this ended on `transform: none`, which is not "no animation transform"
+   — it replaces whatever transform the element was positioned with. The quadrant's markers are
+   centred on their point by `translate(-50%, 50%)`, so every one of them jumped half a marker up
+   and left the moment its entrance finished, and a risk scored at the top of both scales ended up
+   outside the plot. The `scale` property composes with `transform` instead of replacing it. */
+@keyframes pv-pop { from { opacity: 0; scale: 0.72; } to { opacity: 1; scale: 1; } }
 
 /* ------------------------------------------------------------------ print */
 
