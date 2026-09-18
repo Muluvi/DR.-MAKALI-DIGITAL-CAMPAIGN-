@@ -119,6 +119,14 @@ const NOISE = new Set([
   "14.3|",
   "14.4|",
   "14.5|",
+  // Two Tailwind opacity steps that left with the elements they styled, when the tabbed reader
+  // became one continuous scroll. 0.07 was the wash behind the part divider's diagonal hatch and
+  // 0.025 was PART_TINTS, the alternating gradient behind each part in Expand-All view. Neither
+  // element exists in a flow that is punctuated by seven act seams instead of nineteen dividers,
+  // and neither number was ever a quantity the proposal asserts — they are opacity, in a file
+  // this guard reads because components are also where figures can hide.
+  "0.07|",
+  "0.025|",
 ]);
 
 /**

@@ -4,6 +4,7 @@ import React, { useState, useMemo, useEffect, useRef, useId } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, Route, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck, Activity, Repeat} from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
+import { FLOW_SECTIONS } from "../lib/flow";
 import { readingMinutes } from "../hooks/useReadingProgress";
 import type { SectionItem } from "../lib/section-index";
 
@@ -235,24 +236,29 @@ export function MobileTOCModal({
             </p>
 
             {/*
-              The nine sections, with how long each takes and whether it has been opened.
+              The thirty sections, in the order the page scrolls, with how long each takes and
+              whether it has been reached.
 
-              The index below this lists 262 headings, which answers "where is X" and cannot
-              answer the question a reader of a 200-minute document actually has between
+              The index below this lists 272 headings, which answers "where is X" and cannot
+              answer the question a reader of a 290-minute document actually has between
               sittings: which parts have I already been through, and what am I taking on if I
-              start this one? Nine rows, a minute count, and a state.
+              start this one? Thirty rows, a minute count, and a state.
+
+              IN FLOW ORDER, not file order. The page is one scroll now (lib/flow.ts), and an
+              index that lists the sections in a different sequence from the one the reader is
+              travelling through is a second, contradictory map of the same document.
             */}
             <div className="mb-3">
               <div className="flex items-baseline justify-between gap-2 mb-1.5">
                 <span className="t-micro font-black text-muted">
-                  The nine sections
+                  In reading order
                 </span>
                 <span className="t-micro tabular-nums text-muted">
                   {visited.size}/{SECTIONS.length} opened
                 </span>
               </div>
               <ul className="grid grid-cols-1 gap-1">
-                {SECTIONS.map((s) => {
+                {FLOW_SECTIONS.map((s) => {
                   const Icon = TAB_ICONS[s.id] ?? Compass;
                   const isRead = visited.has(s.id);
                   const isHere = activeTab === s.id;

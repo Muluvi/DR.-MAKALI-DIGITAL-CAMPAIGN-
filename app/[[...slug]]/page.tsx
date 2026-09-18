@@ -5,47 +5,28 @@ import { notFound } from "next/navigation";
 import { ClientPage } from "@/components/ClientPage";
 import { MarkdownViewer } from "@/components/MarkdownViewer";
 import { SECTIONS, type TabId } from "@/lib/heading-slug";
+import { FLOW_ORDER } from "@/lib/flow";
+import { CONTENT_FILES } from "@/lib/content-files";
 import { buildSectionIndex } from "@/lib/section-index";
-
-// One file per route, named for the canonical section it serves, so the directory listing
-// reads as the proposal's own table of contents.
-const FILES: Record<TabId, string> = {
-  decision: "decision.md",
-  cover: "cover.md",
-  presence: "presence.md",
-  summary: "summary.md",
-  situation: "situation.md",
-  objectives: "objectives.md",
-  audiences: "audiences.md",
-  approach: "approach.md",
-  engine: "engine.md",
-  messaging: "messaging.md",
-  scope: "scope.md",
-  "scope-platforms": "scope-platforms.md",
-  "scope-media": "scope-media.md",
-  "scope-ground": "scope-ground.md",
-  "scope-data": "scope-data.md",
-  roadmap: "roadmap.md",
-  deliverables: "deliverables.md",
-  measurement: "measurement.md",
-  governance: "governance.md",
-  risk: "risk.md",
-  structure: "structure.md",
-  assumptions: "assumptions.md",
-  nextsteps: "nextsteps.md",
-  "arithmetic": "arithmetic.md",
-  "reach": "reach.md",
-  "annex-evidence": "annex-evidence.md",
-  "annex-county": "annex-county.md",
-  "annex-messages": "annex-messages.md",
-  "annex-cadence": "annex-cadence.md",
-  "annex-runbooks": "annex-runbooks.md",
-};
 
 const TAB_IDS = SECTIONS.map((s) => s.id) as TabId[];
 
-/** The whole document on one page, for Expand All and for print. */
+/**
+ * The whole document on one page.
+ *
+ * It used to be the exception — the route Expand All and the print path led to, described in this
+ * file as "the expensive route by design". It is now what "/" serves, because a proposal read on
+ * a phone is read by scrolling and a reader should never have to choose a destination before
+ * they have seen the argument. "/full" is kept as an alias so every existing link to it lands in
+ * the same place.
+ */
 const FULL = "full";
+
+/** The route "/" serves: the same document, streamed a section at a time. */
+const FLOW = "flow";
+
+/** How many sections of the flow are rendered into the HTML before streaming takes over. */
+const PRERENDERED = 2;
 
 /**
  * The route served at "/".
@@ -59,7 +40,9 @@ const FULL = "full";
  * So "/" is now the decision. The cover keeps its own route, its own section number and every
  * link into it; it is simply no longer the thing standing in the doorway.
  */
-const LANDING = "decision";
+// The flow's first section, kept as the name the rest of this file used for "where the reader
+// starts". It is §0, the ask — unchanged — but reaching it is now scrolling to the top rather
+// than choosing a route.
 
 /**
  * One route per section, and why.
@@ -94,7 +77,7 @@ async function readAll(): Promise<Record<TabId, string>> {
   const entries = await Promise.all(
     SECTIONS.map(async (section) => {
       const raw = await fs
-        .readFile(path.join(contentDir, FILES[section.id]), "utf-8")
+        .readFile(path.join(contentDir, CONTENT_FILES[section.id]), "utf-8")
         .catch(() => "");
       return [section.id, raw] as const;
     })
@@ -108,11 +91,17 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
   const { slug } = await params;
 
   if (slug && slug.length > 1) notFound();
-  const requested = slug?.[0] ?? LANDING;
-  const expanded = requested === FULL;
+  // "/" is the flow: the whole document, in reading order, in one scroll. A bare section route
+  // still serves that section alone — it is what a shared deep link lands on, and it stays the
+  // cheap way to read one part — but nothing in the interface navigates to one any more.
+  const requested = slug?.[0] ?? FLOW;
+  const expanded = requested === FLOW || requested === FULL;
   if (!expanded && !TAB_IDS.includes(requested as TabId)) notFound();
+  // "/full" is the same document with every section rendered on the server: it is what print,
+  // Save as PDF and a reader with JavaScript off get. "/" is the same order, streamed.
+  const streamed = requested === FLOW;
 
-  const activeTab = (expanded ? LANDING : requested) as TabId;
+  const activeTab = (expanded ? FLOW_ORDER[0] : requested) as TabId;
   const documents = await readAll();
 
   // Derived from the same markdown, here on the server, so the table of contents can never
@@ -125,9 +114,18 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
     SECTIONS.map((s) => [s.id, countWords(documents[s.id])])
   ) as Record<TabId, number>;
 
-  // Markdown parsing happens here, on the server, so react-markdown and its remark/rehype
-  // plugins never ship to the client bundle. Only the section this route serves is rendered.
-  const served = expanded ? TAB_IDS : [activeTab];
+  /**
+   * What this route renders on the server.
+   *
+   * The flow renders its opening sections and lets the rest arrive as the reader reaches them
+   * (components/flow/StreamedSection.tsx). Rendering all thirty produced a 4.9 MB page — 660 KB
+   * on the wire — which is the wrong bill to hand a reader who has not yet read a sentence. Two
+   * sections is the ask and the executive summary: enough that the page is complete and useful
+   * the moment it paints, and enough runway for the third to arrive before it is scrolled to.
+   *
+   * /full still renders all thirty, because print does not scroll.
+   */
+  const served = expanded ? (streamed ? FLOW_ORDER.slice(0, PRERENDERED) : FLOW_ORDER) : [activeTab];
   const rendered = Object.fromEntries(
     served.map((id) => [id, <MarkdownViewer key={id} content={documents[id]} tabId={id} />])
   ) as Partial<Record<TabId, React.ReactNode>>;
@@ -139,6 +137,7 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
       wordCounts={wordCounts}
       activeTab={activeTab}
       expanded={expanded}
+      streamed={streamed}
     />
   );
 }

@@ -74,6 +74,20 @@ function headings() {
   return out;
 }
 
+/** The derived figure each heading carries, read out of the generated specification. */
+function derivedKinds() {
+  const file = path.join(ROOT, "data", "section-visuals.generated.json");
+  if (!fs.existsSync(file)) return new Map();
+  const specs = JSON.parse(fs.readFileSync(file, "utf8"));
+  return new Map(Object.entries(specs).map(([id, spec]) => [id, spec.kind]));
+}
+
+const LEADING = /^(\d+[A-Z]?(?:\.\d+)*)\.?\s/;
+const idFor = (h) => {
+  const m = LEADING.exec(h.title.trim());
+  return m ? `${h.tab}-sec-${m[1].replace(/\./g, "-").toLowerCase()}` : null;
+};
+
 /** The ids that carry a bespoke visualisation, read out of the renderer's own mount table. */
 function mountedIds() {
   const src = fs.readFileSync(path.join(ROOT, "components", "MarkdownViewer.tsx"), "utf8");
@@ -100,25 +114,59 @@ function treatmentFor(h) {
 
 const all = headings();
 const mounted = mountedIds();
+const derived = derivedKinds();
 const check = process.argv.includes("--check");
+
+/**
+ * What figure this heading carries.
+ *
+ * Every numbered heading now carries one: the hand-built component where MarkdownViewer names
+ * one, and otherwise the figure derived from the heading's own prose. That is the difference
+ * this check exists to hold — "covered" used to mean "has an entrance animation", which is a
+ * statement about motion and not about whether the reader can see what the part says.
+ */
+function figureFor(h) {
+  const id = idFor(h);
+  if (!id) return { kind: "—", source: "unnumbered" };
+  if (mounted.has(id)) return { kind: "bespoke component", source: "MarkdownViewer" };
+  const kind = derived.get(id);
+  if (!kind) return { kind: "—", source: "none" };
+  // A part whose figure IS its table carries no separate derived figure by design: InteractiveTable
+  // already gives it search, sorting, CSV and a card layout on phones.
+  if (kind === "table") return { kind: "interactive table", source: "table" };
+  return { kind, source: "derived" };
+}
 
 if (check) {
   const uncovered = all.filter((h) => treatmentFor(h).length === 0);
+  const figureless = all.filter((h) => figureFor(h).source === "none");
   if (uncovered.length) {
     console.error(`visual-coverage: ${uncovered.length} section(s) with no treatment`);
     process.exit(1);
   }
+  if (figureless.length) {
+    console.error(`visual-coverage: ${figureless.length} numbered section(s) carry no figure:`);
+    for (const h of figureless.slice(0, 12)) console.error(`  ${h.tab} · ${h.title}`);
+    console.error("Run `node scripts/build-section-visuals.mjs` to regenerate the derived figures.");
+    process.exit(1);
+  }
+  const bespoke = all.filter((h) => figureFor(h).source === "MarkdownViewer").length;
+  const derivedCount = all.filter((h) => figureFor(h).source === "derived").length;
+  const tables = all.filter((h) => figureFor(h).source === "table").length;
   console.log(
     `visual-coverage: all ${all.length} sections covered ` +
-      `(${all.filter((h) => h.level === 2).length} sub-sections, ${all.filter((h) => h.level === 3).length} parts, ` +
-      `${mounted.size} with a bespoke visualisation).`
+      `(${all.filter((h) => h.level === 2).length} sub-sections, ${all.filter((h) => h.level === 3).length} parts) — ` +
+      `${bespoke} hand-built, ${derivedCount} derived from their own content, ${tables} carried by their own interactive table.`
   );
   process.exit(0);
 }
 
-console.log(`| # | Part | Lvl | Section | Entrance | Bespoke figure |`);
+console.log(`| # | Part | Lvl | Section | Entrance | Figure |`);
 console.log(`|---:|---|---|---|---|---|`);
 all.forEach((h, i) => {
   const entrance = h.level === 2 ? "clip wipe ←" : "rise 6px";
-  console.log(`| ${i + 1} | ${h.tab} | h${h.level} | ${h.title.replace(/\|/g, "\\|")} | ${entrance} | |`);
+  const fig = figureFor(h);
+  console.log(
+    `| ${i + 1} | ${h.tab} | h${h.level} | ${h.title.replace(/\|/g, "\\|")} | ${entrance} | ${fig.kind}${fig.source === "derived" ? "" : fig.source === "none" ? " (none)" : " ·"} |`
+  );
 });
