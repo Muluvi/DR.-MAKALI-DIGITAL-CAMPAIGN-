@@ -377,36 +377,87 @@ const level = (s: string) => {
   return k ? SCALE[k] : 0.5;
 };
 
+/**
+ * Nudge markers that landed on the same square apart.
+ *
+ * A risk register scores on three words — low, medium, high — so a six-risk register routinely
+ * puts two or three risks on one point. Plotted faithfully, the ones underneath are invisible:
+ * the §13.0 register drew R2 over R1 and R5 over R3, so a reader counted four risks in a figure
+ * captioned "six". Co-located markers are spread around a ring, in a fixed order, so the
+ * arrangement is identical on every render and no marker is ever hidden.
+ *
+ * The radius is 0.11 of the field — wide enough to clear a marker at the plot's mobile height,
+ * and still less than the 0.12 gap between "high" and "severe", so a risk can never be nudged
+ * into a quadrant it does not belong to.
+ */
+function spread(points: { x: number; y: number }[]): { x: number; y: number }[] {
+  const groups = new Map<string, number[]>();
+  points.forEach((p, i) => {
+    const key = `${p.x.toFixed(3)}|${p.y.toFixed(3)}`;
+    groups.set(key, [...(groups.get(key) ?? []), i]);
+  });
+  const out = points.map((p) => ({ ...p }));
+  for (const idx of groups.values()) {
+    if (idx.length < 2) continue;
+    const r = 0.11;
+    idx.forEach((pointIndex, k) => {
+      const angle = (2 * Math.PI * k) / idx.length - Math.PI / 2;
+      out[pointIndex] = {
+        x: points[pointIndex].x + Math.cos(angle) * r,
+        y: points[pointIndex].y + Math.sin(angle) * r,
+      };
+    });
+  }
+  // The field the markers are positioned in is already inset from the plot's border by half a
+  // marker (see .pv-quad__field), so 0 and 1 are both legal here and a clamp only has to keep a
+  // spread point from running past the ends.
+  return out.map((p) => ({ x: Math.min(1, Math.max(0, p.x)), y: Math.min(1, Math.max(0, p.y)) }));
+}
+
 export function Quadrant({ data }: { data: D }) {
   const items = arr<{ id: string; label: string; likelihood: string; impact: string; owner: string }>(data.items);
   const [sel, setSel] = useState<number | null>(null);
+  const positions = useMemo(
+    () => spread(items.map((it) => ({ x: level(it.likelihood), y: level(it.impact) }))),
+    [items]
+  );
   if (!items.length) return null;
   return (
-    <VizFrame caption={KIND_CAPTION.quadrant} note="Top right is where the plan changes. Tap a marker." wide>
+    <VizFrame caption={KIND_CAPTION.quadrant} note="Top right is where the plan changes. Tap a marker to read it.">
       <div className="pv-quad">
         <div className="pv-quad__plot">
           <span className="pv-quad__axis pv-quad__axis--x" aria-hidden="true" />
           <span className="pv-quad__axis pv-quad__axis--y" aria-hidden="true" />
           <span className="pv-quad__tag" data-pos="tr">act now</span>
           <span className="pv-quad__tag" data-pos="bl">monitor</span>
-          {items.map((it, i) => (
-            <button
-              key={i}
-              type="button"
-              className="pv-quad__pt"
-              data-sel={sel === i}
-              style={{ left: `${level(it.likelihood) * 100}%`, bottom: `${level(it.impact) * 100}%`, "--pv-d": `${i * 60}ms` } as React.CSSProperties}
-              onClick={() => setSel((s) => (s === i ? null : i))}
-              aria-label={`${it.id}: ${it.label}`}
-            >
-              {it.id}
-            </button>
-          ))}
+          {/* Markers are positioned inside a field inset from the border by half a marker, so a
+              risk scored at the top of both scales sits against the corner rather than over it. */}
+          <div className="pv-quad__field">
+            {items.map((it, i) => (
+              <button
+                key={i}
+                type="button"
+                className="pv-quad__pt"
+                data-sel={sel === i}
+                style={{ left: `${positions[i].x * 100}%`, bottom: `${positions[i].y * 100}%`, "--pv-d": `${i * 60}ms` } as React.CSSProperties}
+                onClick={() => setSel((s) => (s === i ? null : i))}
+                aria-label={`${it.id}: ${it.label}`}
+              >
+                {it.id}
+              </button>
+            ))}
+          </div>
           <span className="pv-quad__xlab">likelihood →</span>
           <span className="pv-quad__ylab">impact →</span>
         </div>
+        {/* The frame's note already says to tap. What this line carries is the risk itself, so it
+            holds the count until one is chosen rather than repeating the instruction. */}
         <p className="pv-quad__read">
-          {sel === null ? "Tap a marker to read the risk." : <><b>{items[sel].id}</b> — {items[sel].label} <i>{items[sel].owner}</i></>}
+          {sel === null ? (
+            `${items.length} risks, scored on likelihood and impact.`
+          ) : (
+            <><b>{items[sel].id}</b> — {items[sel].label} <i>{items[sel].owner}</i></>
+          )}
         </p>
       </div>
     </VizFrame>
