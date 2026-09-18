@@ -550,5 +550,8 @@ export function PrintReportGenerator({ onPrint }: { onPrint?: () => void } = {})
   );
 }
 
-// 11. Custom Campaign Performance Chart Component
-export { ChartComponent } from "./ChartComponent";
+// ChartComponent used to be re-exported from here. Nothing imported it through this module — but
+// the re-export pulled the charting runtime into StrategicAids, which MarkdownViewer imports
+// statically, which put ~90 KB of recharts into the first load of a page that may never draw a
+// recharts chart. Every chart that does need it already sits behind its own next/dynamic
+// boundary; import it from ./ChartComponent directly if it is ever wanted again.

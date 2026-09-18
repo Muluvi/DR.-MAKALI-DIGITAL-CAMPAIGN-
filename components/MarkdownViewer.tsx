@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import ReactMarkdown, { type Components } from "react-markdown";
@@ -7,6 +9,8 @@ import rehypeRaw from "rehype-raw";
 import { InteractiveTable } from "./markdown/InteractiveTable";
 import { MarkdownParagraph, MarkdownListItem } from "./markdown/MarkdownTextComponents";
 import { SectionHeading } from "./markdown/SectionHeading";
+import { PartVisual } from "./partviz/PartVisual";
+import { partVisual } from "../lib/part-visuals";
 import { ClaimBadge } from "./markdown/ClaimBadge";
 import { HighlightedText } from "./markdown/HighlightedText";
 import { hasHighlight } from "../lib/highlight-patterns";
@@ -562,7 +566,10 @@ function buildComponents(tabId: TabId): Components {
               return (
                 <>
                   <SectionHeading id={id} level={2}>{children}</SectionHeading>
-                  {insert}
+                  {/* The hand-built visualisation where one exists, and the figure derived from
+                      this heading's own content where one does not. Never both: 50 sub-sections
+                      were designed, and the other 222 are covered rather than decorated. */}
+                  {insert ?? <PartVisual spec={partVisual(id)} />}
                 </>
               );
             },
@@ -573,7 +580,7 @@ function buildComponents(tabId: TabId): Components {
               return (
                 <>
                   <SectionHeading id={id} level={3} accentColor={phaseAccentFor(text)}>{children}</SectionHeading>
-                  {id && HEADING_INSERTS[id]}
+                  {(id && HEADING_INSERTS[id]) ?? <PartVisual spec={partVisual(id)} />}
                 </>
               );
             }

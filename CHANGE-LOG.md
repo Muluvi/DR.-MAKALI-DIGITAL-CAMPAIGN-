@@ -1,3 +1,24 @@
+# Change log — the vertical flow (September 2026)
+
+**Presentation only.** No line of `public/content/*.md` changed; `verify-content-integrity` still
+passes against `228eb02` and `verify-figure-retention` against `90a1f32`. Both baselines stay where
+they are.
+
+The site was nineteen destinations behind a menu, with five simultaneous ways to reach a section
+and no visualisation at all under 222 of its 273 headings. It is now one continuous scroll, in the
+order the argument is built, with a figure under every heading. `docs/VERTICAL-FLOW-REDESIGN.md`
+sets out the whole of it; the short version:
+
+| | |
+|---|---|
+| **Reading order** | `lib/flow.ts` — seven acts, §1 moved to the colophon, §2 promoted behind the ask. No section renumbered; all 880 legacy deep links still resolve |
+| **Chrome** | One capsule (position, section, index) plus brightness. The sidebar, the dock, the quick-nav capsule, the sticky bar and the seven-button toolbar are gone |
+| **Figures** | 50 hand-built, 191 derived from each heading's own prose, 31 carried by their own interactive table |
+| **Weight** | `/` is 276 KB, 41.7 KB gzipped — the same document server-rendered whole was 4.9 MB |
+| **Print** | `/full` still renders every section on the server, and is where print and `<noscript>` lead |
+
+---
+
 # Change log — the repositioning, and the public data pack (September 2026)
 
 **Both baselines move to `90a1f32`.** This is a client-instructed content change, the same class of
