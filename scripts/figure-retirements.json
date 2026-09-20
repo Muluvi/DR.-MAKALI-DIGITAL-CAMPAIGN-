@@ -1495,6 +1495,251 @@
         "│   └── WhatsApp_Status_Infographic_Cards/",
         "└── 07_RAW_FIELD_FOOTAGE_ARCHIVE/ (Organized by Date & Sub-County)"
       ]
+    },
+    {
+      "id": "measurement-11-1-1-scorecard",
+      "section": "§11.1.1",
+      "was": "A seven-column pseudo-table headed NOMINATION WINDOW KEY PERFORMANCE INDICATORS — four KPIs with code, operational definition, empirical baseline, target, measurement methodology, owner and reporting cadence.",
+      "replacedBy": [
+        "nomination-scorecard"
+      ],
+      "facts": [
+        "NW-01 Wiper Ballot Preference Share: % of sampled likely Wiper primary voters naming Dr. Makali Mulu first; baseline not yet measured (Week 1); target ≥ 55.0%; rolling 7-day tracking poll, N = 400 CATI (§11.3); Head of Research & Polling; weekly/fortnightly",
+        "NW-02 Northern Sub-County Name ID: spontaneous + aided recognition in Mwingi North, Central and West; baseline not yet measured (Week 1); target ≥ 70.0%; sub-county CATI booster in Mwingi North & Central, N = 600; Comms Director; fortnightly tracking",
+        "NW-03 Fiscal Integrity Salience: voter ranking of clean audit record / anti-corruption as the #1 or #2 criterion; baseline not yet measured (Week 1); target ≥ 60.0%; issue salience index in the county tracking survey (§11.3); Policy & Strategy Lead; fortnightly",
+        "NW-04 Branch Exec Endorsement Rate: verified signed pledges from sub-county Wiper executive branch committees; baseline confirm w/ party (Week 1); target 8/8 branches; formal written branch caucus endorsement resolutions; Political Affairs Director; weekly executive dashboard"
+      ],
+      "note": "THE COMPONENT WAS ALREADY DOING THIS WORK, from the wrong side. KpiScorecards has rendered in place of this block since an earlier pass, matched on the block's own banner text inside MarkdownViewer — a substitution that depended on a banner nobody could rename, and that left the seven-column ASCII in the markdown carrying the words anyway. Rule 1a authorises retiring the block, so it is now a ```figure fence resolved by the registry and the string matching is deleted. The baselines are the reason this data lives in data/kpis.ts as a tagged union rather than as numbers: 'Not yet measured' is drawn as an absence, never as a bar at zero, because an unmeasured quantity reported at nil is a different and false claim.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                                NOMINATION WINDOW KEY PERFORMANCE INDICATORS                                 │",
+        "├─────────────┬──────────────────────────┬───────────┬───────────┬──────────────────┬───────────┬─────────────┤",
+        "│ KPI Code &  │ Operational Definition & │ Empirical │ Target    │ Measurement      │ KPI Owner │ Reporting   │",
+        "│ Title       │ Mathematical Formula     │ Baseline  │ Objective │ Methodology      │ & Division│ Cadence     │",
+        "├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤",
+        "│ **NW-01:**  │ % of sampled likely      │ Not yet   │ **≥ 55.0%**│ Rolling 7-day    │ Head of   │ Weekly /    │",
+        "│ Wiper Ballot│ Wiper primary voters     │ measured  │ Primary   │ Tracking Poll    │ Research  │ Fortnightly │",
+        "│ Preference  │ naming Dr. Makali Mulu as│ (Week 1)  │ Preference│ (N = 400 CATI)   │ & Polling │             │",
+        "│ Share       │ their 1st choice.        │           │           │ (Section 11.3)    │           │             │",
+        "├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤",
+        "│ **NW-02:**  │ Spontaneous + aided name │ Not yet   │ **≥ 70.0%**│ Sub-County CATI  │ Comms     │ Fortnightly │",
+        "│ Northern    │ recognition in Mwingi    │ measured  │ Name ID   │ Poll booster in  │ Director  │ Tracking    │",
+        "│ Sub-County  │ North, Central & West    │ (Week 1)  │           │ Mwingi North &   │           │             │",
+        "│ Name ID     │ sub-counties.            │           │           │ Central (N = 600)│           │             │",
+        "├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤",
+        "│ **NW-03:**  │ Voter ranking of \"Clean  │ Not yet   │ **≥ 60.0%**│ Issue Salience   │ Policy &  │ Fortnightly │",
+        "│ Fiscal      │ Audit Record / Anti-     │ measured  │ Issue     │ Index in County  │ Strategy  │             │",
+        "│ Integrity   │ Corruption\" as the #1 or │ (Week 1)  │ Salience  │ Tracking Survey  │ Lead      │             │",
+        "│ Salience    │ #2 voting criterion.     │           │           │ (Section 11.3)    │           │             │",
+        "├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤",
+        "│ **NW-04:**  │ Verified, signed support │ Confirm   │ **8 / 8** │ Formal written   │ Political │ Weekly      │",
+        "│ Branch Exec │ pledges from Sub-County  │ w/ party  │ Sub-Count.│ branch caucus    │ Affairs   │ Executive   │",
+        "│ Endorsement │ Wiper Executive Branch   │ (Week 1)  │ Branches  │ endorsement      │ Director  │ Dashboard   │",
+        "│ Rate        │ Committees.              │           │           │ resolutions      │           │             │",
+        "└─────────────┴──────────────────────────┴───────────┴───────────┴──────────────────┴───────────┴─────────────┘"
+      ]
+    },
+    {
+      "id": "measurement-11-1-2-scorecard",
+      "section": "§11.1.2",
+      "was": "A seven-column pseudo-table headed GENERAL ELECTION KEY PERFORMANCE INDICATORS (≥ 200,000 VOTES) — five KPIs with the same columns.",
+      "replacedBy": [
+        "ge-scorecard"
+      ],
+      "facts": [
+        "GE-01 Pledged Voter Data Base Size: registered voters with phone, ward and polling station in the CRM; baseline 0 pledged voters (§4.2); target 220,000 (110% win); verified opt-in 2G SMS and baraza registration ledger (§11.2.2); Field Ops & Data Director; weekly progress audit",
+        "GE-02 Ward Captain Deployment Index: active vetted captains across all 40 wards, 10 per ward; baseline 0 active captains (§4.2); target 400 captains, 100% coverage; biometric/ID verification and monthly activity log; Groundgame Director; bi-weekly field audit",
+        "GE-03 Polling Station Agent Coverage: accredited trained agents across 100% of Kitui polling stations; baseline 0 station agents; target 1,578 stations; IEBC accreditation badges and signed deployment forms; Legal & Polling Station Lead; weekly in the final 60 days",
+        "GE-04 Turnout Conversion Efficiency: ratio of pledged voters casting verified ballots in target strongholds; baseline 72.0% historical average; target ≥ 82.0%; IEBC Form 37A audit against the CRM ledger by polling stream; Polling Day Ops Director; post-day real-time tracking 06:00–17:00",
+        "GE-05 Real-Time Form 37A Capture: % of Form 37A sheets photographed and transmitted to the war room within 2 hours of count; baseline 0% transmit rate; target 100% within 2 hours; encrypted field agent WhatsApp/USSD photo upload verification DB; Chief Technology Officer; polling day hourly 17:00–21:00"
+      ],
+      "note": "Same reason and same mechanism as §11.1.1. GE-04 is the only baseline in either scorecard that is a real prior reading (72.0% historical average), and it is the only one drawn as a starting position on a track; the other eight are absences or zeros stated as zeros.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                       GENERAL ELECTION KEY PERFORMANCE INDICATORS (≥ 200,000 VOTES)                         │",
+        "├─────────────┬──────────────────────────┬───────────┬───────────┬──────────────────┬───────────┬─────────────┤",
+        "│ KPI Code &  │ Operational Definition & │ Empirical │ Target    │ Measurement      │ KPI Owner │ Reporting   │",
+        "│ Title       │ Mathematical Formula     │ Baseline  │ Objective │ Methodology      │ & Division│ Cadence     │",
+        "├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤",
+        "│ **GE-01:**  │ Individual registered    │ 0 pledged │**220,000**│ Verified opt-in  │ Field Ops │ Weekly      │",
+        "│ Pledged     │ voters with phone, ward, │ voters    │ Pledged   │ 2G SMS & Baraza  │ & Data    │ Progress    │",
+        "│ Voter Data  │ & polling station logged │ (Section  │ Voters    │ registration     │ Director  │ Audit       │",
+        "│ Base Size   │ in campaign CRM.         │ 4.2)    │ (110% Win)│ ledger (Sec 11.2.2)│           │            │",
+        "├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤",
+        "│ **GE-02:**  │ Active, vetted Ward      │ 0 active  │ **400**   │ Biometric / ID   │ Groundgame│ Bi-Weekly   │",
+        "│ Ward Captain│ Captains operating across│ Captains  │ Captains  │ verification and │ Director  │ Field Audit │",
+        "│ Deployment  │ all 40 Wards (10 per     │ (Section  │ (10 / Ward│ monthly activity │           │             │",
+        "│ Index       │ ward).                   │ 4.2)    │ 100% Cvrg)│ log confirmation │           │             │",
+        "├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤",
+        "│ **GE-03:**  │ Accredited, trained party│ 0         │ **1,578** │ IEBC official    │ Legal &   │ Weekly      │",
+        "│ Polling     │ polling station agents   │ Station   │ Stations  │ accreditation    │ Polling   │ (Final 60   │",
+        "│ Station     │ deployed across 100% of  │ Agents    │ (100% of  │ badges & signed  │ Station   │ Days)       │",
+        "│ Agent Cvrg  │ Kitui polling stations.  │           │ stations) │ deployment forms │ Lead      │             │",
+        "├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤",
+        "│ **GE-04:**  │ Ratio of pledged voters  │ 72.0%     │ **≥ 82.0%**│ IEBC Form 37A    │ Polling   │ Post-Day    │",
+        "│ Turnout     │ who cast verified ballots│ (Historical│ Voter     │ audit vs. CRM    │ Day Ops   │ Real-Time   │",
+        "│ Conversion  │ in target strongholds    │ Average)  │ Turnout   │ voter ledger by  │ Director  │ Tracking    │",
+        "│ Efficiency  │ on polling day.          │           │ Conversion│ polling stream   │           │ (06:00-17:00│",
+        "├─────────────┼──────────────────────────┼───────────┼───────────┼──────────────────┼───────────┼─────────────┤",
+        "│ **GE-05:**  │ % of Form 37A result     │ 0%        │ **100%**  │ Encrypted field  │ Chief     │ Polling Day │",
+        "│ Real-Time   │ sheets photographed and  │ Transmit  │ Transmit  │ agent WhatsApp / │ Technology│ Hourly      │",
+        "│ Form 37A    │ transmitted to War Room  │ Rate      │ within    │ USSD photo upload│ Officer   │ Real-Time   │",
+        "│ Capture     │ within 2 hours of count. │           │ 2 Hours   │ verification DB  │ (CTO)     │ (17:00-21:00│",
+        "└─────────────┴──────────────────────────┴───────────┴───────────┴──────────────────┴───────────┴─────────────┘"
+      ]
+    },
+    {
+      "id": "measurement-11-1-3-architecture",
+      "section": "§11.1.3",
+      "was": "A box-drawing diagram headed VICTORY-ANCHORED KPI MONITORING ARCHITECTURE — stage 1 nomination targets above stage 2 general election targets, joined by an arrow.",
+      "replacedBy": [
+        "kpi-architecture"
+      ],
+      "facts": [
+        "Stage 1, preference among likely Wiper primary voters: Wiper primary share (target ≥ 55.0%), north sub-county name ID (≥ 70.0%), integrity / clean audit salience, branch executive endorsement pledges (8/8)",
+        "Stage 2, victory threshold ≥ 200,000 votes: verified pledged voter database (220,000 opt-in voters), ward captain mobilization index (400 captains / 40 wards), polling agent station coverage (100% of 1,578 stations), turnout conversion rate (≥82%)"
+      ],
+      "note": "RETIRING THIS BLOCK IS WHAT FOUND D-14. Checking KpiArchitecture against the block's four stage-1 lines showed the component rendering 'North Sub-County Name ID (>65%)' where the block and §11.1.1's NW-02 row both say ≥ 70.0%, and 'Delegate Endorsement Pledges' where both say 'Branch Executive' — a stale hand-typed summary of data the same file already held correctly. The site was showing a target five points below the one the proposal states. data/kpis.ts is corrected, figures.test.ts asserts every line of both stage summaries against the KPI it summarises, and no content was changed.",
+      "lines": [
+        "═════════════════════════════════════════════════════════════════════",
+        "            VICTORY-ANCHORED KPI MONITORING ARCHITECTURE",
+        "═════════════════════════════════════════════════════════════════════",
+        "",
+        "  STAGE 1: NOMINATION WINDOW TARGETS",
+        "  (Preference among likely Wiper primary voters)",
+        " ┌───────────────────────────────────────────────────────────────────┐",
+        " │ • Wiper Primary Share (Target ≥ 55.0%)                            │",
+        " │ • North Sub-County Name ID (≥ 70.0%)                              │",
+        " │ • Integrity / Clean Audit Salience                                │",
+        " │ • Branch Executive Endorsement Pledges (8/8)                      │",
+        " └───────────────────────────────────────────────────────────────────┘",
+        "                                 │",
+        "                                 ▼",
+        "  STAGE 2: GENERAL ELECTION TARGETS",
+        "  (Victory Threshold: ≥200,000 Votes)",
+        " ┌───────────────────────────────────────────────────────────────────┐",
+        " │ • Verified Pledged Voter Database (Target: 220,000 Opt-In Voters) │",
+        " │ • Ward Captain Mobilization Index (400 Captains / 40 Wards)       │",
+        " │ • Polling Agent Station Coverage (100% of 1,578 Stations)         │",
+        " │ • Turnout Conversion Rate (≥82%)                                  │",
+        " └───────────────────────────────────────────────────────────────────┘",
+        "═════════════════════════════════════════════════════════════════════"
+      ]
+    },
+    {
+      "id": "measurement-11-2-0-split",
+      "section": "§11.2.0",
+      "was": "A box-drawing panel headed EMPIRICAL RESEARCH & SERVICE-DELIVERY TRACKER — 19A's research programme beside 19B's tracker, joined by an arrow.",
+      "replacedBy": [
+        "research-and-tracker"
+      ],
+      "facts": [
+        "19A research programme: pre-cycle recognition testing to confirm or refute the deficit, mixed method (CATI + FGDs), nomination window tracking polling, gatekeeper decision triggers",
+        "19B service-delivery tracker: ward-by-ward baseline metrics, OAG/KNBS/CRA data feeds, monthly public web and USSD sync, dual asset as campaign evidence and a day-one governing dashboard"
+      ],
+      "note": "Same TierGrid as the other architecture diagrams, with the arrow's meaning stated in words above the tiers: what the polling establishes about a ward becomes a baseline the tracker publishes against.",
+      "lines": [
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "                  EMPIRICAL RESEARCH & SERVICE-DELIVERY TRACKER",
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "",
+        "   19A: RESEARCH PROGRAMME                        19B: SERVICE-DELIVERY TRACKER",
+        " ┌──────────────────────────────────────┐       ┌───────────────────────────────────┐",
+        " │ • Pre-Cycle Recognition Testing      │       │ • Ward-by-Ward Baseline Metrics   │",
+        " │   (Confirm/Refute Deficit)           │       │ • OAG / KNBS / CRA Data Feeds     │",
+        " │ • Mixed Method (CATI + FGDs)         │ ────► │ • Monthly Public Web & USSD Sync │",
+        " │ • Nomination Window Tracking Polling │       │ • Dual Asset: Campaign Evidence   │",
+        " │ • Gatekeeper Decision Triggers       │       │   & Day-1 Governing Dashboard     │",
+        " └──────────────────────────────────────┘       └───────────────────────────────────┘",
+        "════════════════════════════════════════════════════════════════════════════════════"
+      ]
+    },
+    {
+      "id": "measurement-11-2-1-modules",
+      "section": "§11.2.1",
+      "was": "A five-column pseudo-table headed RECOGNITION-DEFICIT RESEARCH ARCHITECTURE — three research modules with method, sample and stratification, timing, and the strategic decision each unlocks.",
+      "replacedBy": [
+        "research-modules"
+      ],
+      "facts": [
+        "Module 1, baseline countywide quantitative poll: CATI + F2F CAPI boosters, spontaneous and aided name ID, favourability and issue salience index; N = 1,600 across all 8 sub-counties, stratified by ward and gender (52% F, 48% M), boost in Mwingi North and South; month 1; if name ID <45% in the north trigger an 8-truck PA blitz, if >65% shift to policy ads",
+        "Module 2, deep-dive qualitative focus groups: 12 in-person FGDs audio-recorded in vernacular Kikamba, concept testing the Ksh 100M ward fund and the ndengu floor price; 12 groups of 8–10 — 4× rural women chamas, 4× youth boda/MSMEs, 4× village elders and smallholder farmers — in Tseikuru, Nguni, Mutomo and Ikutha; month 2, post-quantitative; decides vernacular dialect framing and identifies fatal cultural sensitivities",
+        "Module 3, SMS pulse ward-level barometer: two-way interactive SMS micro-surveys in a three-question structured loop, direct feedback on market-day rumours; N = 5,000 opt-in 2G feature phone users across 40 wards, aggregated via the Africa's Talking API; fortnightly ongoing; rapid pivots for weekly radio and SMS copy"
+      ],
+      "note": "THE DECISION COLUMN IS EMPHASISED because it is what makes this a decision instrument rather than a survey: the baseline poll's result routes to either an 8-truck PA blitz or a shift to policy ads, at thresholds stated in advance. A figure that dropped that column would have kept every sample size and lost the point of the block.",
+      "lines": [
+        "┌───────────────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                                RECOGNITION-DEFICIT RESEARCH ARCHITECTURE                      │",
+        "├───────────────┬──────────────────────────┬──────────────────────────┬───────────┬─────────────┤",
+        "│ Research      │ Method & Instrument      │ Sample Size & Geographic │ Timing &  │ Strategic   │",
+        "│ Module        │                          │ Stratification           │ Window    │ Decision    │",
+        "│               │                          │                          │           │ Unlocked    │",
+        "├───────────────┼──────────────────────────┼──────────────────────────┼───────────┼─────────────┤",
+        "│ 1. Baseline   │ • Computer-Assisted      │ • N = 1,600 Registered   │ • Month 1 │ • If Name ID│",
+        "│    Countywide │   Telephone Interviews   │   Voters across all 8    │   (Early  │   <45% in   │",
+        "│    Quantitative│  (CATI) + Face-to-Face   │   Sub-Counties.          │   Cycle)  │   North:    │",
+        "│    Poll       │   (F2F) CAPI Boosters.   │ • Stratified by Ward &   │           │   Trigger 8-│",
+        "│               │ • Spontaneous & Aided    │   Gender (52% F, 48% M). │           │   truck PA  │",
+        "│               │   Candidate Name ID.     │ • Sub-County boost in    │           │   blitz;    │",
+        "│               │ • Favorability & Primary │   Mwingi North & South.  │           │   If >65%:  │",
+        "│               │   Issue Salience Index.  │                          │           │   Shift to  │",
+        "│               │                          │                          │           │   Policy Ads│",
+        "├───────────────┼──────────────────────────┼──────────────────────────┼───────────┼─────────────┤",
+        "│ 2. Deep-Dive  │ • 12 In-Person Focus     │ • 12 Groups (8–10 pax)   │ • Month 2 │ • Decides   │",
+        "│    Qualitative│   Group Discussions (FGD)│   stratified by cohort:  │   (Post-  │   vernacular│",
+        "│    Focus      │ • Audio-recorded in      │   - 4x Rural Women Chamas│   Quant)  │   dialect   │",
+        "│    Groups     │   vernacular Kikamba.    │   - 4x Youth Boda/MSMEs  │           │   framing & │",
+        "│               │ • Concept testing of     │   - 4x Village Elders &  │           │   identifies│",
+        "│               │   Ksh 100M Ward Fund &   │      Smallholder Farmers │           │   fatal     │",
+        "│               │   Ndengu floor price.    │ • Geographies: Tseikuru, │           │   cultural  │",
+        "│               │                          │   Nguni, Mutomo, Ikutha. │           │   sensitivities│",
+        "├───────────────┼──────────────────────────┼──────────────────────────┼───────────┼─────────────┤",
+        "│ 3. SMS Pulse  │ • 2-Way Interactive SMS  │ • N = 5,000 Opt-In 2G    │ • Fort-   │ • Rapid     │",
+        "│    Ward-Level │   micro-surveys (3-qtn   │   Feature Phone Users    │   nightly │   pivots for│",
+        "│    Barometer  │   structured loop).      │   across 40 Wards.       │   Ongoing │   weekly    │",
+        "│               │ • Direct feedback on     │ • Aggregated via         │           │   radio &   │",
+        "│               │   market-day rumors.     │   Africa's Talking API.  │           │   SMS copy. │",
+        "└───────────────┴──────────────────────────┴──────────────────────────┴───────────┴─────────────┘"
+      ]
+    },
+    {
+      "id": "measurement-11-2-2-tracker",
+      "section": "§11.2.2",
+      "was": "A pseudo-table headed PUBLIC SERVICE-DELIVERY TRACKER ARCHITECTURE — four delivery dimensions with their primary statutory data sources and their update cadence and verification.",
+      "replacedBy": [
+        "delivery-tracker"
+      ],
+      "facts": [
+        "Ward infrastructure & school laboratories: Kitui Central NG-CDF project ledger, Ministry of Education infrastructure DB, classroom and TVET counts pending the project ledger (§13.1.4); monthly sync, on-site geotagged photo audit, certified contractor handovers",
+        "Solar boreholes & water access points: National Water Resources Authority, county water master plan baseline, 84 operational solar borehole sites; bi-weekly water quality and pump telemetry feed, real-time GPS and yield logs",
+        "Public financial stewardship ledger: Office of the Auditor-General certified reports 2013–2025, Controller of Budget reports; annual/statutory audit cycle, zero adverse audit queries verified against National Assembly Hansard",
+        "Secondary & tertiary bursary distribution: NG-CDF bursary disbursements ledger, NG-CDF constituency records — not HELB, which holds national loan data; termly disbursement audit, receipt count pending the ledger, §3.3.1 gives 12,573 as Tier 1"
+      ],
+      "note": "THE PENDING COUNTS ARE PRINTED AS PENDING. Two cells state a number the campaign does not have — the classroom and TVET counts, and the bursary receipt count — and both say so in the cell where the number would go, with §3.3.1's 12,573 given as the Tier 1 figure that does exist. The brief forbids filling an empty data state with an estimate, and this block is the document already obeying that rule; the figure keeps it.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                               PUBLIC SERVICE-DELIVERY TRACKER ARCHITECTURE                                  │",
+        "├──────────────────────────┬───────────────────────────────────────────┬──────────────────────────────────────┤",
+        "│ Core Delivery Dimension  │ Primary Statutory Data Sources            │ Update Cadence & Verification        │",
+        "├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤",
+        "│ 1. Ward Infrastructure & │ • Kitui Central NG-CDF Project Ledger     │ • **Monthly Sync**                   │",
+        "│    School Laboratories   │ • Ministry of Education Infrastructure DB │ • On-site geotagged photo audit;     │",
+        "│                          │ • Classroom & TVET counts pending the     │   certified contractor handovers.    │",
+        "│                          │   project ledger (see 13.1.4)              │                                      │",
+        "├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤",
+        "│ 2. Solar Boreholes &     │ • National Water Resources Authority      │ • **Bi-Weekly Water Quality & Pump   │",
+        "│    Water Access Points   │ • County Water Master Plan Baseline       │   Telemetry Feed**                   │",
+        "│                          │ • 84 operational solar borehole sites     │ • Real-time GPS & yield logs.        │",
+        "├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤",
+        "│ 3. Public Financial      │ • Office of the Auditor-General (OAG)     │ • **Annual / Statutory Audit Cycle** │",
+        "│    Stewardship Ledger    │   Certified Reports (2013–2025)           │ • Zero adverse audit queries verified│",
+        "│                          │ • Controller of Budget (OCOB) Reports     │   against National Assembly Hansard. │",
+        "├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤",
+        "│ 4. Secondary & Tertiary  │ • NG-CDF Bursary Disbursements Ledger     │ • **Termly Disbursement Audit**      │",
+        "│    Bursary Distribution  │ • NG-CDF constituency records — not       │ • Receipt count pending the ledger;  │",
+        "│                          │   HELB, which holds national loan data    │   3.3.1 gives 12,573 as Tier 1.      │",
+        "└──────────────────────────┴───────────────────────────────────────────┴──────────────────────────────────────┘"
+      ]
     }
   ]
 }

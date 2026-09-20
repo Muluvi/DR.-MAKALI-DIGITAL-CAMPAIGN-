@@ -24,7 +24,7 @@ currently tells Dr. Mulu he wins.
 | **Wrong table aggregates** | "Combined 68.7%" and three more, shipped | **none** | opt-in, per table, by name |
 | **Figures reading zero with JS off** | `KSh0.00bn`, `0.0%`, `≈0k` | **none** | |
 | **Duplicated text nodes** | headline ×2, every counter ×3 | **removed at source** | |
-| **ASCII blocks** | 67 | **26** | 41 retired, 6,035 words · chapters 3, 7 and §8 have none left |
+| **ASCII blocks** | 67 | **20** | 47 retired, 7,595 words · chapters 3, 7, 8 and 11 have none left |
 | **`og:image`** | absent, with `summary_large_image` | **1200×630 typographic card** | |
 | Third-party requests | none | **none** | held |
 | Sideways scroll at 390 px | none | **none** | held |
@@ -60,8 +60,8 @@ a deep link would otherwise have no way back to the whole text.
 
 ### 2.2 Figures replace the repeats
 
-Forty-one box-drawing blocks are now figures — **every one in chapters 3, 7 and 8**. **6,035
-words**, each declared in `scripts/figure-retirements.json` with the checklist of facts its
+Forty-seven box-drawing blocks are now figures — **every one in chapters 3, 7, 8 and 11**.
+**7,595 words**, each declared in `scripts/figure-retirements.json` with the checklist of facts its
 figure is held to. The word counts are the declared blocks' own, so this table cannot drift from
 the file that authorises them:
 
@@ -106,6 +106,12 @@ the file that authorises them:
 | §8.14 | `CAMPAIGN TECHNOLOGY STACK ARCHITECTURE` — four tiers | 123 | `tech-stack` |
 | §8.14.1 | A banner with nothing inside it | 8 | none needed |
 | §8.14.2 | `TECHNOLOGY STACK MASTER PROCUREMENT MATRIX` — five components, none decided | 158 | `procurement-matrix` |
+| §11.1.1 | `NOMINATION WINDOW KEY PERFORMANCE INDICATORS` — four KPIs, seven columns | 339 | `nomination-scorecard` |
+| §11.1.2 | `GENERAL ELECTION KEY PERFORMANCE INDICATORS` — five KPIs, seven columns | 423 | `ge-scorecard` |
+| §11.1.3 | `VICTORY-ANCHORED KPI MONITORING ARCHITECTURE` — two stages of targets | 108 | `kpi-architecture` |
+| §11.2.0 | `EMPIRICAL RESEARCH & SERVICE-DELIVERY TRACKER` — 19A beside 19B | 88 | `research-and-tracker` |
+| §11.2.1 | `RECOGNITION-DEFICIT RESEARCH ARCHITECTURE` — three instruments, five columns | 370 | `research-modules` |
+| §11.2.2 | `PUBLIC SERVICE-DELIVERY TRACKER ARCHITECTURE` — four dimensions | 232 | `delivery-tracker` |
 
 Checking the replacements against those checklists is what made them better than the blocks:
 
@@ -139,6 +145,22 @@ Checking the replacements against those checklists is what made them better than
 - §3.3.2's branch tree is the **only block retired without a new figure or a checklist gap**: the
   two prose bullets directly beneath it state every fact it carried, in fuller words, and the
   branch navigator at that heading draws the fork. It was a third copy between the other two.
+- **Retiring §11.1.3 found a live figure on the site five points below the one the proposal
+  states.** `data/kpis.ts` held the Stage 1 headline targets twice — correctly inside the
+  scorecard data, and again in a hand-typed summary feeding the architecture figure, where
+  "≥ 70.0%" had become ">65%" and "Branch Executive" had become "Delegate". The stale copy is
+  corrected, `figures.test.ts` now asserts every line of both stage summaries against the KPI it
+  summarises, and **no content was changed** — this was a transcription in the repository
+  disagreeing with the source it transcribes. **D-14** has the working.
+- **§11's two scorecards were already being substituted, from the wrong side.** `KpiScorecards`
+  has rendered in place of those blocks since an earlier pass, matched on the block's own banner
+  text inside `MarkdownViewer` — a substitution that depended on a banner nobody could rename, and
+  that left the seven-column ASCII in the markdown carrying the words anyway. Both are now
+  `figure` fences resolved by the registry, and the string matching is deleted.
+- **Nine KPI baselines, and only one of them is a number.** "Not yet measured (Week 1)" is drawn
+  as an absence rather than a bar at zero, because an unmeasured quantity reported at nil is a
+  different and false claim. The test now pins the three kinds so a later edit cannot quietly turn
+  an absence into a figure.
 - **Two §8.3 blocks were trees, and a tree drawn in characters is only a picture of one.** The
   USSD menu and the asset repository are now nested lists: the nesting *is* the structure and is
   announced as such, each path wraps inside its own indent instead of running into the next
@@ -303,8 +325,8 @@ it names (C-4).
 
 Stated plainly, because a report that implies otherwise is worth less than no report.
 
-- **26 of 67 ASCII blocks remain.** Chapters 3, 7 and 8 are clear — no box-drawing blocks left in
-  any of them. The remaining 26 are in §11, §13, §14, §5 and the annexes: every one is
+- **20 of 67 ASCII blocks remain.** Chapters 3, 7, 8 and 11 are clear — no box-drawing blocks
+  left in any of them. The remaining 20 are in §5, §6A, §13, §14 and the annexes: every one is
   inventoried with a named target component in `INVENTORY.md`, and the mechanism — the `figure`
   fence, the registry, the retirement declaration with its facts checklist, the migration
   declaration for a figure leaving the markdown, and now a guard that fails the build if a fence
@@ -321,28 +343,28 @@ Stated plainly, because a report that implies otherwise is worth less than no re
 - **Phases 4 P2/P3** — §4–§16 and the annexes — are mapped in the conversion map and the inventory,
   and untouched in the markdown.
 
-The inventory's headline count of "5,835 words retired" is the **plan**, not the state. The state
-is **6,035 words**, itemised in §2.2 above and in `figure-retirements.json`.
+The inventory's headline count of "4,275 words retired" is the **plan**, not the state. The state
+is **7,595 words**, itemised in §2.2 above and in `figure-retirements.json`.
 
 ---
 
 ## 6. Verification
 
-`npm run verify` — ten guards and 36 arithmetic assertions, all passing:
+`npm run verify` — ten guards and 38 arithmetic assertions, all passing:
 
 ```
 Ward register integrity ... 40 wards across 8 constituencies sum to 532,758
 Analysis exports ......... 9 exports, 96 values, all carrying source, tier, date, method, status
 Figure verification ...... every numeric literal in the UI traces to the source
-Figure fences ............ all 33 ```figure fences resolve to one of 35 registered figures
+Figure fences ............ all 39 ```figure fences resolve to one of 41 registered figures
 Figure retention ......... all 1,055 figures present at the baseline survive; all 552 content
-                           figures still reach the print path (47 declared migrations)
-Content integrity ........ all 3,773 body lines unchanged since 228eb02, apart from 39 entries
-                           covering 41 blocks retired under rule 1a and declared
+                           figures still reach the print path (52 declared migrations)
+Content integrity ........ all 3,616 body lines unchanged since 228eb02, apart from 45 entries
+                           covering 47 blocks retired under rule 1a and declared
 verify-mounts ............ 50 mount points resolve
 verify-deep-links ........ 880 legacy ids and 272 live ids resolve
 visual-coverage .......... no retired figure kind has returned
-figures.test.ts .......... 36 passed
+figures.test.ts .......... 38 passed
 ```
 
 Three guards were improved by the work rather than worked around, and a fourth was written:

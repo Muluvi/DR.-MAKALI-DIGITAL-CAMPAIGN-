@@ -26,14 +26,11 @@ import {
 import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
 import { MizaniSlopeBlock } from "./markdown/MizaniSlopeBlock";
 import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
-import { KpiArchitecture } from "./charts/KpiArchitecture";
 import { BenchmarkLadder } from "./charts/BenchmarkLadder";
 import { TierComparisonCarousel } from "./charts/TierComparisonCarousel";
 import { FeaturePhoneSpecimen } from "./charts/FeaturePhoneSpecimen";
 import { OfflineWaterline } from "./charts/OfflineWaterline";
 import { VoteFunnel } from "./charts/VoteFunnel";
-import { KpiScorecards } from "./charts/KpiScorecards";
-import { GENERAL_ELECTION_KPIS, NOMINATION_KPIS } from "../data/kpis";
 import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
 import { AsciiDiagram } from "./markdown/AsciiDiagram";
 import { Figure } from "./figures/registry";
@@ -457,41 +454,17 @@ function buildComponents(tabId: TabId): Components {
                 );
               }
 
-              // Three of these blocks are not diagrams to be parsed, they are the two scorecards
-              // and the architecture that anchors them — the widest ASCII in the document, and
-              // the tables whose seven columns cannot survive a 390px screen. Each is replaced by
-              // a purpose-built component reading from data/kpis.ts, so the figures come from one
-              // place and the "Not yet measured" baselines can be drawn as the absence they are
-              // rather than as a bar at zero.
+              // §11's two scorecards and the architecture that anchors them used to be matched
+              // HERE, on their own banner text, because the markdown was under a content-integrity
+              // guard and could not be edited to carry a marker. Rule 1a now authorises retiring
+              // the blocks outright, so all three are ```figure fences resolved by the registry,
+              // declared in scripts/figure-retirements.json, and this string matching is gone
+              // with them — a substitution that depended on a banner nobody could rename.
               //
-              // Matched on the block's own banner text rather than on a section id, because the
-              // markdown is under a content-integrity guard and must not be edited to carry a
-              // marker.
-              if (source.includes("VICTORY-ANCHORED KPI MONITORING ARCHITECTURE")) {
-                return <KpiArchitecture />;
-              }
+              // The rapid-response flow is still matched this way, because §13.1's block has not
+              // been retired yet.
               if (source.includes("RAPID RESPONSE DECISION & ESCALATION FLOW")) {
                 return <RapidResponseFlowDiagram />;
-              }
-              if (source.includes("NOMINATION WINDOW KEY PERFORMANCE INDICATORS")) {
-                return (
-                  <KpiScorecards
-                    stage={1}
-                    kpis={NOMINATION_KPIS}
-                    title="Stage 1 — nomination window scorecard"
-                    note="Four indicators, measured against the Wiper primary-voter universe rather than the countywide public."
-                  />
-                );
-              }
-              if (source.includes("GENERAL ELECTION KEY PERFORMANCE INDICATORS")) {
-                return (
-                  <KpiScorecards
-                    stage={2}
-                    kpis={GENERAL_ELECTION_KPIS}
-                    title="Stage 2 — general election scorecard"
-                    note="Five indicators, every one anchored to the ~200,000-vote winning threshold."
-                  />
-                );
               }
 
               // 102 of these are box-drawing diagrams, not code. AsciiDiagram parses them into

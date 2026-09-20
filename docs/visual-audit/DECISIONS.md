@@ -301,3 +301,37 @@ The audit kept the text and recorded why; all three are reversible if Firefly di
 One correction in the other direction: the map described **§8.11** as "out of scope except metrics".
 Checked — §8.11 is **Workstream 10, digital organising and volunteers**, and is in scope. The figure
 must not say otherwise.
+
+---
+
+## D-14 — A live figure on the site was five points below the one the proposal states
+
+**Found by retiring §11.1.3's block, and fixed in the repository. No content was changed.**
+
+`data/kpis.ts` held the Stage 1 headline targets twice: once inside `NOMINATION_KPIS`, where the
+scorecard reads them, and once in `STAGE_1_TARGETS`, a hand-typed summary that `KpiArchitecture`
+renders. The second copy had drifted:
+
+| Line | `STAGE_1_TARGETS` said | §11.1.1 NW-02 and §11.1.3 both say |
+|---|---|---|
+| North sub-county name ID | `(>65%)` | **≥ 70.0%** |
+| Endorsement pledges | `Delegate Endorsement Pledges` | **Branch Executive** Endorsement Pledges |
+
+So the site was publishing a name-recognition target **five points below** the one the document
+states, in a figure sitting a few hundred pixels from the scorecard that states it correctly.
+
+**Why this is a repository fix and not a rule 2 violation.** Hard rule 2 forbids changing a number,
+claim or tier **in `public/content/`**. Nothing in the content was touched. `data/kpis.ts` is a
+transcription of §11.1.1 and §11.1.3 into typed form, and it had transcribed two fields wrongly —
+the two places that were retyped rather than derived. Correcting a transcription to match the
+source it transcribes is the opposite of changing the source.
+
+**Why it happened, and what stops it recurring.** The file already held both figures correctly ten
+lines above the stale copy. Duplication is what drifted, so `figures.test.ts` now asserts every
+line of both stage summaries against the KPI it summarises, along with the three baseline kinds:
+three `unmeasured`, one `awaiting`, none `measured` in Stage 1. A future edit that reintroduces the
+drift fails the build.
+
+**What is still Firefly's to decide:** nothing here. Both corrected values are what §11.1.1 and
+§11.1.3 already say, and they agree with each other. This entry exists so the change is on the
+record rather than buried in a diff.

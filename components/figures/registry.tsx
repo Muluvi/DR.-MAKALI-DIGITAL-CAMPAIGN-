@@ -38,6 +38,17 @@ import { TARGETING_SERIES, TARGETING_SUMMARY } from "../../lib/figures/targeting
 import { BYPASS_PILLARS, BYPASS_STATIONS, RADIO_GATEKEEPERS } from "../../lib/figures/media";
 import { LANGUAGES, LANGUAGE_DEPLOYMENT, LANGUAGE_SPLIT } from "../../lib/figures/language";
 import {
+  MODULES_SERIES,
+  RESEARCH_MODULES,
+  RESEARCH_SPLIT,
+  RESEARCH_TIERS,
+  TRACKER_DIMENSIONS,
+  TRACKER_SERIES,
+} from "../../lib/figures/research";
+import { GENERAL_ELECTION_KPIS, NOMINATION_KPIS } from "../../data/kpis";
+import { KpiArchitecture } from "../charts/KpiArchitecture";
+import { KpiScorecards } from "../charts/KpiScorecards";
+import {
   APPROVAL_SERIES,
   APPROVAL_STEPS,
   ASSET_LIBRARY,
@@ -315,6 +326,74 @@ export const FIGURES: Record<string, FigureEntry> = {
           rows={EFFORT_REBALANCE.map((r) => ({ label: r.label, from: r.from, to: r.to, note: r.note ?? undefined }))}
           fromLabel="Traditional pitch"
           toLabel="Rebalanced — §3.6.3"
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "nomination-scorecard": {
+    note: "§11.1.1 — the four nomination-window indicators, with their unmeasured baselines shown as absences.",
+    render: () => (
+      <KpiScorecards
+        stage={1}
+        kpis={NOMINATION_KPIS}
+        title="Stage 1 — nomination window scorecard"
+        note="Four indicators, measured against the Wiper primary-voter universe rather than the countywide public."
+      />
+    ),
+  },
+
+  "ge-scorecard": {
+    note: "§11.1.2 — the five general-election indicators, anchored to the winning threshold.",
+    render: () => (
+      <KpiScorecards
+        stage={2}
+        kpis={GENERAL_ELECTION_KPIS}
+        title="Stage 2 — general election scorecard"
+        note="Five indicators, every one anchored to the ~200,000-vote winning threshold."
+      />
+    ),
+  },
+
+  "kpi-architecture": {
+    note: "§11.1.3 — the two stages of targets, anchored to the vote threshold.",
+    render: () => <KpiArchitecture />,
+  },
+
+  "research-and-tracker": {
+    note: "§11.2.0 — the research programme and the service-delivery tracker.",
+    render: () => (
+      <FigureFrame series={RESEARCH_SPLIT}>
+        <TierGrid
+          tiers={RESEARCH_TIERS}
+          flow="The research programme feeds the tracker: what the polling establishes about a ward becomes a baseline the tracker publishes against."
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "research-modules": {
+    note: "§11.2.1 — three research instruments and the decision each unlocks.",
+    render: () => (
+      <FigureFrame series={MODULES_SERIES}>
+        <SpecTable
+          caption="§11.2.1 recognition-deficit research architecture"
+          columns={["Research module", "Method & instrument", "Sample & stratification", "Timing", "Decision unlocked"]}
+          rows={RESEARCH_MODULES}
+          emphasise={4}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "delivery-tracker": {
+    note: "§11.2.2 — four delivery dimensions, their statutory sources and cadence.",
+    render: () => (
+      <FigureFrame series={TRACKER_SERIES}>
+        <SpecTable
+          caption="§11.2.2 public service-delivery tracker architecture"
+          columns={["Core delivery dimension", "Primary statutory data sources", "Update cadence & verification"]}
+          rows={TRACKER_DIMENSIONS}
         />
       </FigureFrame>
     ),

@@ -2805,20 +2805,11 @@
   "level": 3,
   "number": "11.1.3",
   "title": "The indicator framework, anchored to the vote threshold",
-  "kind": "stepper",
+  "kind": "donut",
   "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "The Nomination Window Threshold",
-     "body": "Achieving ≥ 55.0% first-choice preference among sampled likely Wiper primary voters (NW-01)."
-    },
-    {
-     "n": 2,
-     "label": "The General Election Victory Threshold",
-     "body": "Securing ≥ 200,000 verified, counted votes — approximately 60.5% of the ~330,310 ballots expected at the county's 62.0%…"
-    }
-   ]
+   "value": 55,
+   "label": "first-choice preference among samp",
+   "rest": "In accordance with the foundational strategic doctrine established in Section 11.2.3, the campaign rejects…"
   }
  },
  "measurement-sec-11-2-1": {

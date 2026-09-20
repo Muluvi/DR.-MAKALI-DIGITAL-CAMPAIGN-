@@ -15,18 +15,18 @@ FIX — a defect, not a conversion.
 
 ## Totals
 
-- Blocks: **856**, carrying **54,788** words.
-- Words retired outright, under rule 1a: **5,835** (10.7% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
+- Blocks: **856**, carrying **53,240** words.
+- Words retired outright, under rule 1a: **4,275** (8.0% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
 - Words collapsed to a `CrossRef` under rule 1b, still on the page, pending Firefly's answer to D-1: **718**.
 
 | Action | Blocks | | Type | Blocks |
 |---|---|---|---|---|
-| KEEP-PROSE | 710 | | prose | 514 |
+| KEEP-PROSE | 716 | | prose | 514 |
 | COLLAPSE | 95 | | list | 171 |
-| CONVERT | 40 | | table | 74 |
-| DEDUPE | 11 | | callout | 35 |
-|  |  | | figure | 33 |
-|  |  | | ascii | 26 |
+| CONVERT | 34 | | table | 74 |
+| DEDUPE | 11 | | figure | 39 |
+|  |  | | callout | 35 |
+|  |  | | ascii | 20 |
 |  |  | | code | 3 |
 
 
@@ -710,20 +710,20 @@ FIX — a defect, not a conversion.
 | `deliverables:10.2:02` | table | 467 | time/plan | COLLAPSE | Cadence ScheduleGrid |  |  |
 | `deliverables:10.2:03` | prose | 63 | argument | KEEP-PROSE | — |  |  |
 
-## measurement — 37 blocks, 3,325 words, 1,560 retired
+## measurement — 37 blocks, 1,777 words, 0 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
 | `measurement:—:00` | prose | 24 | argument | KEEP-PROSE | — |  |  |
 | `measurement:11.1:00` | prose | 62 | argument | KEEP-PROSE | — |  |  |
 | `measurement:11.1.1:00` | prose | 17 | argument | KEEP-PROSE | — |  |  |
-| `measurement:11.1.1:01` | ascii | 339 | magnitude | CONVERT | BulletChart scorecards with honest 'pending' states (existing KpiScorecards) | 339 | Rule 1a. D-6: the heading reads 'Sta: the nomination-window scorecard'. |
+| `measurement:11.1.1:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `measurement:11.1.2:00` | prose | 22 | argument | KEEP-PROSE | — |  |  |
-| `measurement:11.1.2:01` | ascii | 423 | magnitude | CONVERT | BulletChart scorecards with honest 'pending' states (existing KpiScorecards) | 423 | Rule 1a. D-6: the heading reads 'Sta: the general election scorecard'. |
+| `measurement:11.1.2:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `measurement:11.1.3:00` | prose | 59 | argument | KEEP-PROSE | — |  |  |
 | `measurement:11.1.3:01` | prose | 18 | argument | KEEP-PROSE | — |  |  |
 | `measurement:11.1.3:02` | list | 49 | argument | KEEP-PROSE | — |  |  |
-| `measurement:11.1.3:03` | ascii | 108 | hierarchy | CONVERT | Indicator tree hanging from the vote threshold (existing KpiArchitecture) | 108 | Rule 1a. |
+| `measurement:11.1.3:03` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `measurement:11.1.3:04` | prose | 1 | argument | KEEP-PROSE | — |  |  |
 | `measurement:11.2.0:00` | prose | 10 | argument | KEEP-PROSE | — |  |  |
 | `measurement:11.2.0:01` | prose | 39 | argument | KEEP-PROSE | — |  |  |
@@ -731,13 +731,13 @@ FIX — a defect, not a conversion.
 | `measurement:11.2.0:03` | prose | 57 | argument | KEEP-PROSE | — |  |  |
 | `measurement:11.2.0:04` | prose | 56 | argument | KEEP-PROSE | — |  |  |
 | `measurement:11.2.0:05` | prose | 51 | argument | KEEP-PROSE | — |  |  |
-| `measurement:11.2.0:06` | ascii | 88 | hierarchy | CONVERT | Recognition ladder | 88 | Rule 1a. |
+| `measurement:11.2.0:06` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `measurement:11.2.1:00` | prose | 45 | argument | KEEP-PROSE | — |  |  |
-| `measurement:11.2.1:01` | ascii | 370 | time/plan | CONVERT | Poll-wave Timeline | 370 | Rule 1a. |
+| `measurement:11.2.1:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `measurement:11.2.1:02` | prose | 15 | argument | KEEP-PROSE | — |  |  |
 | `measurement:11.2.1:03` | list | 109 | argument | KEEP-PROSE | — |  |  |
 | `measurement:11.2.2:00` | prose | 46 | argument | KEEP-PROSE | — |  |  |
-| `measurement:11.2.2:01` | ascii | 232 | flow | CONVERT | Service-delivery tracker flow | 232 | Rule 1a. |
+| `measurement:11.2.2:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `measurement:11.2.2:02` | list | 127 | argument | KEEP-PROSE | — |  |  |
 | `measurement:11.2.3:00` | prose | 22 | argument | KEEP-PROSE | — |  |  |
 | `measurement:11.2.3:01` | list | 166 | comparison | COLLAPSE | CompareColumns — measured / not measured |  |  |

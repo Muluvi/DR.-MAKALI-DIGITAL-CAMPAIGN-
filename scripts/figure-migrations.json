@@ -189,5 +189,25 @@
   {
     "figure": "4000|",
     "movedTo": "Moved from the §8.3.4 WEEKLY 7-DAY CONTENT PRODUCTION CYCLE into the `weekly-cycle` figure (scripts/figure-retirements.json, scope-platforms-8-3-4-cycle). It is the “raw 4K video” of Friday's output deliverables, which the guard normalises to 4,000; the phrase is transcribed intact in lib/figures/production.ts. PRINT REACH VERIFIED, not assumed: emulating print on /scope-platforms finds it in the rendered text."
+  },
+  {
+    "figure": "110|%",
+    "movedTo": "Moved from the §11.1.2 GENERAL ELECTION KEY PERFORMANCE INDICATORS table into data/kpis.ts, which the `ge-scorecard` figure renders (scripts/figure-retirements.json, measurement-11-1-2-scorecard). It is GE-01's target qualifier, “220,000 Pledged Voters (110% Win)” — 220,000 being about 110% of the ~200,000 winning threshold, not a percentage of anything measured. PRINT REACH VERIFIED, not assumed: emulating print on /measurement finds it in the rendered text — including the scorecard drawers, which open under @media print."
+  },
+  {
+    "figure": "72|%",
+    "movedTo": "Moved from the same §11.1.2 table into data/kpis.ts. It is GE-04's baseline, “72.0% (Historical Average)”, and it is the ONLY baseline in either scorecard that is a real prior reading — which is why it is the only one drawn as a starting position on a track while the other eight are absences or zeros. PRINT REACH VERIFIED, not assumed: emulating print on /measurement finds it in the rendered text — including the scorecard drawers, which open under @media print."
+  },
+  {
+    "figure": "1600|",
+    "movedTo": "Moved from the §11.2.1 RECOGNITION-DEFICIT RESEARCH ARCHITECTURE into the `research-modules` figure (scripts/figure-retirements.json, measurement-11-2-1-modules). It is module 1's sample, “N = 1,600 registered voters across all 8 sub-counties”, transcribed in lib/figures/research.ts. PRINT REACH VERIFIED, not assumed: emulating print on /measurement finds it in the rendered text — including the scorecard drawers, which open under @media print."
+  },
+  {
+    "figure": "52|%",
+    "movedTo": "The gender stratification of the same §11.2.1 module 1 sample — “stratified by ward and gender (52% F, 48% M)” — moved into `research-modules` with it. PRINT REACH VERIFIED, not assumed: emulating print on /measurement finds it in the rendered text — including the scorecard drawers, which open under @media print."
+  },
+  {
+    "figure": "48|%",
+    "movedTo": "The other half of that stratification, 48% M. PRINT REACH VERIFIED, not assumed: emulating print on /measurement finds it in the rendered text — including the scorecard drawers, which open under @media print."
   }
 ]

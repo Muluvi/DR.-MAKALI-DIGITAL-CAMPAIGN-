@@ -333,6 +333,57 @@ test("13.6% of the 2019 census population is 143,340 internet users", () => {
   assert.equal(Number(((143_340 / 1_053_991) * 100).toFixed(1)), 13.6);
 });
 
+/* ------------------------------------------------------------------ the KPI scorecards (§11) */
+
+test("§11.1.3's stage summaries agree with the scorecards they summarise (D-14)", () => {
+  /**
+   * The assertion that would have caught the bug this test was written for.
+   *
+   * data/kpis.ts held the stage-1 headline targets twice: once inside NOMINATION_KPIS, where they
+   * were right, and once in STAGE_1_TARGETS, a hand-typed summary feeding KpiArchitecture, where
+   * "≥ 70.0%" had become ">65%" and "Branch Executive" had become "Delegate". The site rendered
+   * a target five points below the one §11.1.1 and §11.1.3 both state.
+   *
+   * Read as TEXT rather than imported, for this file's usual reason: data/kpis.ts imports a
+   * component type, which plain Node cannot resolve. Asserting the two lists against each other in
+   * the same file is what makes the duplication safe rather than just tidy.
+   */
+  const kpis = fs.readFileSync(path.join(ROOT, "data", "kpis.ts"), "utf8");
+  const stage1 = kpis.slice(kpis.indexOf("export const STAGE_1_TARGETS"), kpis.indexOf("export const STAGE_2_TARGETS"));
+  const stage2 = kpis.slice(kpis.indexOf("export const STAGE_2_TARGETS"));
+
+  // Each headline figure, exactly as §11.1.1 and §11.1.2 print it.
+  assert.match(stage1, /Wiper Primary Share \(Target ≥ 55\.0%\)/, "NW-01");
+  assert.match(stage1, /North Sub-County Name ID \(≥ 70\.0%\)/, "NW-02 — not 65%, which is what drifted");
+  assert.match(stage1, /Branch Executive Endorsement Pledges \(8\/8\)/, "NW-04 — branch executive, not delegate");
+
+  assert.match(stage2, /220,000 Opt-In Voters/, "GE-01");
+  assert.match(stage2, /400 Captains \/ 40 Wards/, "GE-02");
+  assert.match(stage2, /100% of 1,578 Stations/, "GE-03");
+  assert.match(stage2, /Turnout Conversion Rate \(≥82%\)/, "GE-04");
+
+  // And the scorecard rows they summarise still carry the same figures.
+  assert.match(kpis, /targetValue: 55\.0,/);
+  assert.match(kpis, /targetValue: 70\.0,/);
+  assert.match(kpis, /targetValue: 1578,/);
+  assert.match(kpis, /targetValue: 220_?000,|targetValue: 220000,/);
+});
+
+test("no nomination baseline is drawn as a measured zero", () => {
+  /**
+   * §11.1.1 says "Not yet measured (Week 1)" for NW-01 to NW-03 and "Confirm w/ party" for NW-04.
+   * The brief forbids filling an empty data state with an estimate, and drawing an unmeasured
+   * quantity at zero reports it as measured at nil — a different and false claim. This pins the
+   * three kinds so a later edit cannot quietly turn an absence into a number.
+   */
+  const kpis = fs.readFileSync(path.join(ROOT, "data", "kpis.ts"), "utf8");
+  const nomination = kpis.slice(kpis.indexOf("export const NOMINATION_KPIS"), kpis.indexOf("export const GENERAL_ELECTION_KPIS"));
+
+  assert.equal((nomination.match(/kind: "unmeasured"/g) ?? []).length, 3, "NW-01 to NW-03");
+  assert.equal((nomination.match(/kind: "awaiting"/g) ?? []).length, 1, "NW-04 awaits a party decision");
+  assert.equal((nomination.match(/kind: "measured"/g) ?? []).length, 0, "nothing in stage 1 is measured yet");
+});
+
 /* ------------------------------------------------------------------ the language map (§7.3) */
 
 test("§7.3's three language reach shares sum to 100%", () => {
