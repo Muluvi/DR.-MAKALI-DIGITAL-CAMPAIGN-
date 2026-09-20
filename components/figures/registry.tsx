@@ -1,5 +1,5 @@
 import { FigureFrame } from "./FigureFrame";
-import { BarList, BuildUp, GapBar, RegisterGroups, ShareBar } from "./marks";
+import { BarList, BuildUp, GapBar, RangeBars, RegisterGroups, ShareBar, SlopeChart } from "./marks";
 import { CONSTITUENCIES } from "../../data/ward-register";
 import {
   COALITION_PATHS,
@@ -18,6 +18,14 @@ import {
   WINNING_TOTAL_2022,
 } from "../../lib/figures/register";
 import { REGISTER_GROWTH_SERIES, THRESHOLD_SERIES } from "../../lib/figures/threshold";
+import {
+  DIGITAL_REACH,
+  DIGITAL_SHORTFALL,
+  EFFORT_REBALANCE,
+  OFFLINE_CHANNELS,
+  PLATFORM_SIZING,
+  REACH_SPLIT,
+} from "../../lib/figures/reach";
 import { IEBC_WARD_REGISTER } from "../../data/sources";
 import type { FigurePoint, FigureSeries } from "../../lib/figures/types";
 
@@ -130,11 +138,80 @@ const CONSTITUENCY_SERIES: FigureSeries = {
   })),
 };
 
+/* ------------------------------------------------------------------ §3.6.3 the rebalance */
+
+const REBALANCE_SERIES: FigureSeries = {
+  id: "effort-rebalance",
+  headline: "The rebalance moves effort out of digital and into radio, SMS and USSD",
+  measure: "Share of campaign effort per channel, as a traditional pitch would weight it and as §3.6.3 weights it",
+  points: EFFORT_REBALANCE.map<FigurePoint>((row) => ({
+    label: row.label,
+    value: row.to,
+    unit: "%",
+    source: IEBC_WARD_REGISTER,
+    tier: 3,
+    asOf: "2026",
+    kind: "illustrative",
+    granularity: "county",
+    note: `${row.from}% → ${row.to}%${row.note ? ` · ${row.note}` : ""}`,
+  })),
+  note:
+    "Effort, not money. The weighting is on output and targeting; no budget figure is stated " +
+    "anywhere in this pass (D-11). Both columns sum to 100%.",
+};
+
 /* ------------------------------------------------------------------ the registry */
 
 type FigureEntry = { render: () => React.ReactNode; note: string };
 
 export const FIGURES: Record<string, FigureEntry> = {
+  "reach-split": {
+    note: "§3.6 — the register split by connectivity, and the digital ceiling.",
+    render: () => (
+      <FigureFrame series={REACH_SPLIT}>
+        <ShareBar series={REACH_SPLIT} />
+        <p className="mt-3 rounded-lg border border-gold/40 bg-gold/[0.06] px-3 py-2 t-micro leading-snug text-ink">
+          <strong className="font-bold text-gold">The digital ceiling.</strong> Capturing every
+          connected voter in the county assembles about {DIGITAL_REACH.toLocaleString("en-KE")}{" "}
+          reachable people — and reach is not votes — leaving the campaign{" "}
+          <strong className="font-bold">{DIGITAL_SHORTFALL.toLocaleString("en-KE")} short</strong> of
+          the 198,004 benchmark.
+        </p>
+      </FigureFrame>
+    ),
+  },
+
+  "platform-sizing": {
+    note: "§3.6.1 — five platforms, each as a range, against the register.",
+    render: () => (
+      <FigureFrame series={PLATFORM_SIZING}>
+        <RangeBars series={PLATFORM_SIZING} />
+      </FigureFrame>
+    ),
+  },
+
+  "offline-channels": {
+    note: "§3.6.2 — six offline channels, three of them unsourced.",
+    render: () => (
+      <FigureFrame series={OFFLINE_CHANNELS}>
+        <BarList series={OFFLINE_CHANNELS} />
+      </FigureFrame>
+    ),
+  },
+
+  "effort-rebalance": {
+    note: "§3.6.3 — the traditional pitch against the rebalanced weighting.",
+    render: () => (
+      <FigureFrame series={REBALANCE_SERIES}>
+        <SlopeChart
+          rows={EFFORT_REBALANCE.map((r) => ({ label: r.label, from: r.from, to: r.to, note: r.note ?? undefined }))}
+          fromLabel="Traditional pitch"
+          toLabel="Rebalanced — §3.6.3"
+        />
+      </FigureFrame>
+    ),
+  },
+
   "register-map": {
     note: "§3.4 — the whole register, grouped by constituency.",
     render: () => (

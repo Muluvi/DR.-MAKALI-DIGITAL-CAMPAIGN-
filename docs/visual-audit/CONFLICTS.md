@@ -353,6 +353,80 @@ of this chart would claim a reach larger than the county's population.
 
 ---
 
+## C-18 — The same 35,000 is printed as two different shares of the same register · §3.1.1.1
+
+**Status: Confirmed. Found by the figure's own arithmetic, not by the brief.**
+
+The digital platform sizing matrix states each platform's range as a "% of 532k Register". Two rows
+of that table quote **35,000** against the same denominator and print two different answers:
+
+| Row | Figure | Printed share | 35,000 ÷ 532,758 |
+| --- | --- | --- | --- |
+| 3. TikTok — low end | ~35,000 | **6.5%** | 6.5695% → **6.6%** |
+| 4. YouTube — high end | ~35,000 | **6.6%** | 6.5695% → **6.6%** |
+
+Every other cell in that column is correctly rounded: WhatsApp 12.2%/15.0%, Meta 9.4%/12.2%, TikTok's
+high end 8.4%, YouTube's low end 4.7%, X 1.5%/2.3%. The TikTok low end is the single cell that is
+truncated rather than rounded, and the row directly beneath it prints the right answer for the same
+number — so the table disagrees with itself in adjacent rows.
+
+**Scale of the error:** 0.1 of a percentage point, about 500 voters. It changes no argument. It is
+logged because a reader who checks one cell of this table with a calculator will check the rest, and
+because the figure that replaces the table computes its labels rather than transcribing them — it
+would have silently printed 6.6% and quietly disagreed with a document nobody had been told was
+wrong.
+
+**What the figure does:** `platform-sizing` prints the shares it computes, and carries the **Under
+review** flag on the TikTok band pointing here. Neither number in `public/content/reach.md` has been
+changed. `figures.test.ts` asserts both: that the computed share is 6.6%, and that §3.1.1.1 printed
+6.5%, so the discrepancy cannot be closed by accident in either direction.
+
+**For Firefly:** correcting the content cell to 6.6% resolves it and moves nothing else. The
+alternative — that the low end was meant to be 34,600 or similar — would contradict the "~35,000"
+stated twice more in the same section.
+
+---
+
+## C-19 — Eight subsection numbers in §3.6 belong to a chapter that no longer exists · §3.6.1, §3.6.2
+
+**Status: Confirmed. Found while citing §3.6 in the reach figures.**
+
+`public/content/reach.md` numbers its chapter **3.6** and its sections **3.6.1**, **3.6.2**, **3.6.3**
+— and then numbers every subsection beneath them **3.1.x**:
+
+| Heading in the file | Its parent section |
+| --- | --- |
+| `#### 3.1.1.1 Platform Sizing & Realistic In-County Reach` | 3.6.1 |
+| `#### 3.1.1.2 What Digital CAN Do` | 3.6.1 |
+| `#### 3.1.1.3 What Digital CANNOT Do` | 3.6.1 |
+| `#### 3.1.2.1 Kikamba Vernacular Radio` | 3.6.2 |
+| `#### 3.1.2.2 Direct 2G Bulk SMS & USSD Service` | 3.6.2 |
+| `#### 3.1.2.3 Mobile-Money (M-Pesa) Agent Network Strategy` | 3.6.2 |
+| `#### 3.1.2.4 Open-Air Market Day Barazas & Caravan Circuits` | 3.6.2 |
+| `#### 3.1.2.5 Church Fellowships & Clergy Engagement` | 3.6.2 |
+
+The chapter was renumbered from 3.1 to 3.6 at the `##` and `###` levels and the `####` level was
+left behind. It reads as a survivor of an earlier structure, not as a deliberate cross-reference.
+
+**It is the only place in the document this happens.** Every heading in all 30 chapters was checked
+against its parent: these eight are the entire set. That is what makes it safe to call an artefact
+rather than a convention.
+
+**Consequence:** anything citing this material by its printed number cites a section that does not
+exist. A reader looking up "§3.1.2.1" finds §3.1, *The strategic situation*, which is about the
+nomination contest and says nothing about radio.
+
+**What the figures do:** cite the section that actually contains the material — §3.6.1 for platform
+sizing, §3.6.2 for the offline channels, §3.6.3 for the rebalance — and carry the **Under review**
+flag pointing here, because the printed subsection numbers and the cited ones do not match and a
+reader comparing them deserves to know which is which. No heading in `public/content/` has been
+renumbered.
+
+**For Firefly:** renumbering the eight to 3.6.1.1–3.6.1.3 and 3.6.2.1–3.6.2.5 resolves it. Nothing
+elsewhere in the document links to the 3.1.x forms — checked — so the change is local to this file.
+
+---
+
 ## Standing figure rules that come out of this file
 
 1. No figure prints a disputed number alone. It shows every stated version, dated and attributed.

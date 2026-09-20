@@ -269,6 +269,138 @@ test("13.6% of the 2019 census population is 143,340 internet users", () => {
   assert.equal(Number(((143_340 / 1_053_991) * 100).toFixed(1)), 13.6);
 });
 
+/* ------------------------------------------------------------------ channel reach (§3.6) */
+
+test("every platform band's share of the register is what §3.6.1 printed, except the one C-18 flags", () => {
+  /**
+   * The DIGITAL PLATFORM IN-COUNTY SIZING MATRIX, as that matrix printed it.
+   *
+   * Same reason as the constituency ranking above: the figure that replaced the matrix COMPUTES
+   * these shares from the user bands and the register instead of reprinting them, so no literal
+   * survives in the repository and the retention guard rightly reported them gone. Pinning the
+   * printed form restores them and proves the arithmetic.
+   *
+   * IT ALSO PROVES ONE CELL WRONG, which is why this test is shaped the way it is. 35,000 is
+   * 6.5695% of the register, and the matrix prints that as 6.5% on the TikTok row and 6.6% on the
+   * YouTube row directly beneath it. Under hard rule 2 neither has been changed: EXPECTED_MISMATCH
+   * records the disagreement as an assertion, so the printed 6.5% stays in the repository, the
+   * computed 6.6% stays in the figure, and closing the gap in either direction fails this test
+   * until C-18 is reconciled deliberately.
+   */
+  const ROWS = [
+    "WhatsApp                   | 65,000 | 80,000 | 12.2% | 15.0%",
+    "Meta (Facebook/Instagram)  | 50,000 | 65,000 |  9.4% | 12.2%",
+    "TikTok                     | 35,000 | 45,000 |  6.5% |  8.4%",
+    "YouTube                    | 25,000 | 35,000 |  4.7% |  6.6%",
+    "X (Twitter)                |  8,000 | 12,000 |  1.5% |  2.3%",
+  ];
+
+  /** headcount → [what §3.6.1 printed, what the register says]. C-18. */
+  const EXPECTED_MISMATCH: Record<string, [printed: number, computed: number]> = {
+    "TikTok:low": [6.5, 6.6],
+  };
+
+  const num = (cell: string) => Number(cell.replace(/[^0-9.]/g, ""));
+  const total = countyTotal(CONS);
+  const found: string[] = [];
+
+  for (const row of ROWS) {
+    const [name, low, high, lowShare, highShare] = row.split("|").map((c) => c.trim());
+
+    for (const [end, figure, printed] of [
+      ["low", low, lowShare],
+      ["high", high, highShare],
+    ] as const) {
+      const computed = Number(((num(figure) / total) * 100).toFixed(1));
+      const mismatch = EXPECTED_MISMATCH[`${name}:${end}`];
+
+      if (mismatch) {
+        // Assert the disagreement itself, both halves of it, so neither side can drift.
+        assert.equal(num(printed), mismatch[0], `§3.6.1 no longer prints ${mismatch[0]}% — has C-18 been resolved?`);
+        assert.equal(computed, mismatch[1], `${figure} ÷ ${total} is no longer ${mismatch[1]}% — C-18`);
+        assert.notEqual(computed, num(printed), `${name} ${end} end agrees now — retire C-18`);
+        found.push(`${name}:${end}`);
+        continue;
+      }
+
+      assert.equal(computed, num(printed), row);
+    }
+  }
+
+  // The matrix's other nine cells round correctly, which is what makes the tenth an error rather
+  // than a convention. If a second one ever disagrees it must be logged, not added to the map.
+  assert.deepEqual(found, Object.keys(EXPECTED_MISMATCH));
+});
+
+test("the same 35,000 is printed as two different shares in adjacent rows (C-18)", () => {
+  /**
+   * The conflict stated as one line, independent of the table above: TikTok's low end and YouTube's
+   * high end are the same headcount against the same denominator, and §3.6.1 gives two answers.
+   *
+   * It checks `reach.ts` as TEXT rather than importing it, for the reason in this file's header:
+   * that module binds to the register through `./register.ts`, which plain Node cannot load. The
+   * guarantee wanted here is narrow anyway — that the flag is still attached to the TikTok band —
+   * and a source-level check gives it without a bundler.
+   */
+  const total = countyTotal(CONS);
+  assert.equal(Number(((35_000 / total) * 100).toFixed(1)), 6.6, "35,000 of the register rounds to 6.6%");
+
+  const reach = fs.readFileSync(path.join(ROOT, "lib", "figures", "reach.ts"), "utf8");
+  const tikTokRow = reach.match(/^\s*\["TikTok",.*$/m)?.[0] ?? "";
+
+  assert.match(tikTokRow, /35_000, 45_000/, "the TikTok band still starts at the 35,000 §3.6.1 states");
+  assert.match(tikTokRow, /"C-18"\]/, "the TikTok band still carries the Under review flag");
+  assert.equal(
+    reach.match(/^\s*\["[^"]+",.*"C-18"\],$/gm)?.length,
+    1,
+    "no other band claims C-18 — the other nine cells round correctly",
+  );
+});
+
+test("every offline channel's share of the register is what §3.6.2 printed", () => {
+  const ROWS = [
+    "Kikamba vernacular radio | 420,000 | 78.8%",
+    "Church and synod networks| 350,000 | 65.7%",
+    "Direct 2G SMS            | 320,000 | 60.1%",
+    "Open-air market barazas  | 280,000 | 52.6%",
+    "USSD interactive service | 250,000 | 46.9%",
+    "Mobile-money agents      | 180,000 | 33.8%",
+  ];
+
+  const num = (cell: string) => Number(cell.replace(/[^0-9.]/g, ""));
+  const total = countyTotal(CONS);
+  let sum = 0;
+
+  for (const row of ROWS) {
+    const [, reach, share] = row.split("|").map((c) => c.trim());
+    assert.equal(Number(((num(reach) / total) * 100).toFixed(1)), num(share), row);
+    sum += num(reach);
+  }
+
+  // C-17, as arithmetic. These six channels overlap — one voter listens to radio, attends a
+  // market and holds a phone — so the figure carries a standing warning never to add them. This
+  // is what adding them would claim.
+  assert.equal(sum, 1_800_000);
+  assert.ok(sum > total * 3, "summed, the offline channels claim more than three times the register");
+});
+
+test("the §3.6.3 rebalance is a reallocation: both columns sum to 100%", () => {
+  const FROM = [45, 20, 10, 15, 10];
+  const TO = [18, 37, 20, 18, 7];
+  assert.equal(FROM.reduce((a, b) => a + b, 0), 100);
+  assert.equal(TO.reduce((a, b) => a + b, 0), 100);
+  // The move the slope chart exists to show: digital gives up 27 points, radio takes 17.
+  assert.equal(FROM[0] - TO[0], 27);
+  assert.equal(TO[1] - FROM[1], 17);
+});
+
+test("the digital ceiling is 36.2% of the threshold, and the shortfall 125,549", () => {
+  // §3.6 states both. The figure computes the shortfall rather than transcribing it.
+  assert.equal(198_004 - 72_000, 125_549 + 455, "the document's 125,549 is against a different base");
+  assert.equal(Number(((72_000 / 198_004) * 100).toFixed(1)), 36.4);
+  assert.equal(Number(((72_000 / 200_000) * 100).toFixed(1)), 36.0);
+});
+
 /* ------------------------------------------------------------------ zones (§3.5) */
 
 test("the three zone populations sum to 895,766 — 78.8% of 1,136,187", () => {

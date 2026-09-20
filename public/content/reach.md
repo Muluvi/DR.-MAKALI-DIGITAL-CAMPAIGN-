@@ -6,21 +6,8 @@ Winning Kitui County requires building a communication strategy aligned with emp
 
 According to the official **2019 Kenya National Bureau of Statistics (KNBS) Census** (Tier 1), only **13.6% of Kitui's population (ages 3+) uses the internet**, while **86.4% of the population resides in an offline media environment**.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                     KITUI COUNTY ELECTORATE REACHABILITY AUDIT
-                          Total Electorate: 532,758 Voters
-════════════════════════════════════════════════════════════════════════════════════
-
-  DIGITAL / CONNECTED MINORITY                  OFFLINE INFRASTRUCTURE MAJORITY
-  ────────────────────────────                  ───────────────────────────────
-  • Sized Reach: ~72,000 voters (13.6%)         • Sized Reach: ~460,000 voters (86.4%)
-  • Share of the register: 13.6%                • Share of the register: 86.4%    
-  • Strategic Role: Influencer & Youth Engine   • Strategic Role: Decisive Ballot Delivery
-
-  [████████] 13.6% (Digital Reach)
-  [████████████████████████████████████████████████████████████████████] 86.4% (Offline)
-════════════════════════════════════════════════════════════════════════════════════
+```figure
+id: reach-split
 ```
 
 > [!CRITICAL]
@@ -32,37 +19,13 @@ According to the official **2019 Kenya National Bureau of Statistics (KNBS) Cens
 
 ### 3.6.1 The connected minority, and its limits
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                 SECTION 3.6.1: CONNECTED MINORITY CHANNELS                  │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
 
 #### 3.1.1.1 Platform Sizing & Realistic In-County Reach
 
 The digital footprint in Kitui County is concentrated in urban nodes (Kitui Town, Mwingi Town, Kwa Vonza university corridor) and among educated youth. Based on KNBS 2019 internet penetration rates and Meta Audience Insights (Tier 1 & Tier 2):
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                DIGITAL PLATFORM IN-COUNTY SIZING MATRIX                                     │
-├───────────────────┬──────────────────────┬──────────────────────┬───────────────────────────────────────────┤
-│ Digital Platform  │ Estimated In-County  │ % of 532k Register   │ Core Demographic & Behavioral Profile     │
-├───────────────────┼──────────────────────┼──────────────────────┼───────────────────────────────────────────┤
-│ 1. WhatsApp       │ ~65,000–80,000       │ 12.2% – 15.0%        │ Primary closed-group organizing hub; peer │
-│                   │ active users         │                      │ forwards; family & welfare associations.  │
-├───────────────────┼──────────────────────┼──────────────────────┼───────────────────────────────────────────┤
-│ 2. Meta (FB/IG)   │ ~50,000–65,000       │ 9.4% – 12.2%         │ Broadest public social network in Kitui;  │
-│                   │ monthly active users │                      │ high engagement on political pages/groups.│
-├───────────────────┼──────────────────────┼──────────────────────┼───────────────────────────────────────────┤
-│ 3. TikTok         │ ~35,000–45,000       │ 6.5% – 8.4%          │ Fastest growing among youth (18–25); high │
-│                   │ active users         │                      │ virality for vernacular political comedy. │
-├───────────────────┼──────────────────────┼──────────────────────┼───────────────────────────────────────────┤
-│ 4. YouTube        │ ~25,000–35,000       │ 4.7% – 6.6%          │ Long-form debates, church sermons, and    │
-│                   │ active users         │                      │ rally livestreams; heavy data-cost limit. │
-├───────────────────┼──────────────────────┼──────────────────────┼───────────────────────────────────────────┤
-│ 5. X (Twitter)    │ ~8,000–12,000        │ 1.5% – 2.3%          │ Journalists, county elites, professionals,│
-│                   │ active users         │                      │ and national political commentators.      │
-└───────────────────┴──────────────────────┴──────────────────────┴───────────────────────────────────────────┘
+```figure
+id: platform-sizing
 ```
 
 #### 3.1.1.2 What Digital CAN Do
@@ -78,38 +41,11 @@ The digital footprint in Kitui County is concentrated in urban nodes (Kitui Town
 
 ### 3.6.2 The offline majority, and the infrastructure that reaches it
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                  SECTION 3.6.2: OFFLINE MAJORITY CHANNELS                   │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
 
 The election will be won or lost across the **~460,000 offline voters** living in Kitui's rural wards. Reaching this electorate requires an orchestrated combination of telecommunications protocol channels (SMS/USSD), broadcast audio (vernacular radio), financial agent touchpoints, and dense physical market presence.
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                 OFFLINE CHANNEL REACH & CAPACITY AUDIT                                      │
-├──────────────────────┬──────────────────────┬──────────────────────┬────────────────────────────────────────┤
-│ Offline Channel      │ Maximum Reachable    │ % of 532,758 Register│ Delivery Mechanism & Operational Role  │
-├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 1. Kikamba Radio     │ ~420,000 voters      │ **78.8%**            │ Mass persuasion, cultural credibility, │
-│    (Vernacular)      │ (78–80% listenership)│ of the register      │ policy dissemination & rally build-ups.│
-├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 2. Direct 2G SMS     │ ~320,000 voters      │ **60.1%**            │ Hyper-localized ward updates, candidate│
-│    (Opt-in Database) │ (60% mobile register)│ of the register      │ endorsement letters & GOTV alerts.     │
-├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 3. USSD Interactive  │ ~250,000 voters      │ **46.9%**            │ Zero-rated policy quiz, ward captain   │
-│    (*XXX# Service)   │ (Feature phone users)│ of the register      │ registration & live polling surveys.   │
-├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 4. Open-Air Market   │ ~280,000 voters      │ **52.6%**            │ Weekly physical interaction, flyer     │
-│    Barazas (Weekly)  │ (Physical foot-fall) │ of the register      │ distribution & localized speeches.     │
-├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 5. Mobile Money      │ ~180,000 voters      │ **33.8%**            │ Word-of-mouth peer network, branded    │
-│    Agents (M-Pesa)   │ (Monthly store visits│ of the register      │ point-of-sale collateral & buzz agents.│
-├──────────────────────┼──────────────────────┼──────────────────────┼────────────────────────────────────────┤
-│ 6. Church & Synods   │ ~350,000 voters      │ **65.7%**            │ Sunday faith fellowship greetings,     │
-│    (Faith Networks)  │ (Weekly attendance)  │ of the register      │ pastoral blessings & clergy alignment. │
-└──────────────────────┴──────────────────────┴──────────────────────┴────────────────────────────────────────┘
+```figure
+id: offline-channels
 ```
 
 #### 3.1.2.1 Kikamba Vernacular Radio (The Decisive Broadcast Medium)
@@ -153,11 +89,6 @@ The election will be won or lost across the **~460,000 offline voters** living i
 
 ### 3.6.3 Weight against reach
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│               EFFORT WEIGHTING VS. ELECTORAL REACH REALITY AUDIT            │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
 
 A common failure mode in modern Kenyan political campaigns is over-weighting flashy social
 media influencers while starving the unglamorous rural infrastructure that actually produces
@@ -169,28 +100,8 @@ domain should carry: production time, team attention, weekly output and channel 
 is a statement of where the campaign's weight goes, not a schedule of what anything costs.
 
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                              CAMPAIGN RESOURCE REBALANCING AUDIT                                            │
-├──────────────────────────────┬───────────────────┬───────────────────┬──────────────────────────────────────┤
-│ Communication Domain         │ Traditional Pitch │ Rebalanced Reality│ Strategic Rationale & Mathematical   │
-│                              │ (% of Comm Effort)│ (% of Comm Effort)│ Justification                        │
-├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
-│ Digital & Social Media       │ 45.0%             │ **18.0%**         │ Capped to reflect 13.6% in-county    │
-│ (Meta, TikTok, X, YouTube)   │ (Over-allocated)  │ (Right-sized)     │ penetration + diaspora mobilization. │
-├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
-│ Vernacular Radio Broadcast   │ 20.0%             │ **37.0%**         │ Scaled up to dominate the primary    │
-│ (Musyi, County, Wikwatyo)    │ (Under-allocated) │ (Dominant Share)  │ medium reaching 78%+ of voters daily.│
-├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
-│ Direct 2G SMS & USSD Tree    │ 10.0%             │ **20.0%**         │ Doubled to build a resilient, direct │
-│ (Ward Captain Field Net)     │ (Under-allocated) │ (High Priority)   │ pipeline to 320k feature phone voters│
-├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
-│ Market Caravans & Barazas    │ 15.0%             │ **18.0%**         │ Maintained for physical presence and │
-│ (PA Trucks & Collateral)     │                   │ (Core Ground)     │ live crowd momentum on market days.  │
-├──────────────────────────────┼───────────────────┼───────────────────┼──────────────────────────────────────┤
-│ Church & Community Outreaches│ 10.0%             │ **7.0%**          │ Focused on protocol-compliant clergy │
-│ (Clergy Synods & Guilds)     │                   │ (Targeted)        │ partnerships and Sunday tours.       │
-└──────────────────────────────┴───────────────────┴───────────────────┴──────────────────────────────────────┘
+```figure
+id: effort-rebalance
 ```
 
 **§3.6.3 in one view.**

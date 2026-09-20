@@ -15,18 +15,18 @@ FIX — a defect, not a conversion.
 
 ## Totals
 
-- Blocks: **865**, carrying **60,057** words.
-- Words retired outright, under rule 1a: **11,275** (18.8% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
+- Blocks: **862**, carrying **59,374** words.
+- Words retired outright, under rule 1a: **10,584** (17.8% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
 - Words collapsed to a `CrossRef` under rule 1b, still on the page, pending Firefly's answer to D-1: **718**.
 
 | Action | Blocks | | Type | Blocks |
 |---|---|---|---|---|
-| KEEP-PROSE | 683 | | prose | 514 |
+| KEEP-PROSE | 687 | | prose | 514 |
 | COLLAPSE | 94 | | list | 171 |
-| CONVERT | 77 | | table | 74 |
-| DEDUPE | 11 | | ascii | 63 |
+| CONVERT | 70 | | table | 74 |
+| DEDUPE | 11 | | ascii | 56 |
 |  |  | | callout | 35 |
-|  |  | | figure | 5 |
+|  |  | | figure | 9 |
 |  |  | | code | 3 |
 
 
@@ -233,35 +233,32 @@ FIX — a defect, not a conversion.
 | `arithmetic:3.5.4:02` | table | 70 | part-to-whole | COLLAPSE | Small-multiple ShareBars 'View the data' |  |  |
 | `arithmetic:3.5.4:03` | prose | 36 | argument | KEEP-PROSE | — |  |  |
 
-## reach — 35 blocks, 2,306 words, 783 retired
+## reach — 32 blocks, 1,623 words, 92 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
 | `reach:—:00` | prose | 24 | argument | KEEP-PROSE | — |  |  |
 | `reach:3.6:00` | prose | 17 | argument | KEEP-PROSE | — |  |  |
 | `reach:3.6:01` | prose | 35 | argument | KEEP-PROSE | — |  |  |
-| `reach:3.6:02` | ascii | 65 | part-to-whole | CONVERT | ShareBar / Waffle — smartphone or data 158,696 · SMS-only 108,419 · no phone 338,588 = 605,703, with a 2019 ↔ 2023/24 toggle | 65 | Rule 1a: the reachability ASCII bar, and the four reach cards it duplicates. |
+| `reach:3.6:02` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `reach:3.6:03` | callout | 91 | argument | KEEP-PROSE | — |  |  |
-| `reach:3.6.1:00` | ascii | 9 | part-to-whole | CONVERT | Section banner — retired with its block | 9 | Rule 1a: a box-drawn banner carrying no data. |
 | `reach:3.1.1.1:00` | prose | 39 | argument | KEEP-PROSE | — |  |  |
-| `reach:3.1.1.1:01` | ascii | 174 | ranking | CONVERT | Range bars (low–high active users) per platform with % of register; profiles as short cards | 174 | Rule 1a: the platform sizing matrix, an ASCII table with wrapped cells. |
+| `reach:3.1.1.1:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `reach:3.1.1.2:00` | list | 130 | comparison | COLLAPSE | CompareColumns — what digital can / cannot do |  |  |
 | `reach:3.1.1.3:00` | list | 81 | comparison | COLLAPSE | CompareColumns — what digital can / cannot do |  |  |
-| `reach:3.6.2:00` | ascii | 9 | ranking | CONVERT | BarList — radio ~420k, church ~350k, SMS ~320k, markets ~280k, USSD ~250k, agents ~180k, with a visible 'channels overlap — do not add' note and tiers shown | 9 | Rule 1a: the offline channel audit, drawn in characters. |
-| `reach:3.6.2:01` | prose | 41 | argument | KEEP-PROSE | — |  |  |
-| `reach:3.6.2:02` | ascii | 223 | ranking | CONVERT | BarList — radio ~420k, church ~350k, SMS ~320k, markets ~280k, USSD ~250k, agents ~180k, with a visible 'channels overlap — do not add' note and tiers shown | 223 | Rule 1a: the offline channel audit, drawn in characters. |
+| `reach:3.6.2:00` | prose | 41 | argument | KEEP-PROSE | — |  |  |
+| `reach:3.6.2:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `reach:3.1.2.1:00` | list | 177 | hierarchy | COLLAPSE | Station cards with posture (Priority placement / Monitoring target), shared with §3.7.1 |  |  |
 | `reach:3.1.2.2:00` | list | 97 | argument | KEEP-PROSE | — |  |  |
 | `reach:3.1.2.3:00` | list | 101 | argument | KEEP-PROSE | — |  |  |
 | `reach:3.1.2.4:00` | list | 98 | time/plan | COLLAPSE | ScheduleGrid — Mon–Sat × market, coloured by constituency, with text labels |  |  |
 | `reach:3.1.2.5:00` | list | 38 | argument | KEEP-PROSE | — |  |  |
-| `reach:3.6.3:00` | ascii | 11 | change over time | CONVERT | SlopeChart 'Traditional pitch → Rebalanced' — digital 45→18, radio 20→37, SMS/USSD 10→20, markets 15→18, church 10→7 | 11 | Rule 1a: the rebalancing table, drawn in characters. |
-| `reach:3.6.3:01` | prose | 25 | argument | KEEP-PROSE | — |  |  |
-| `reach:3.6.3:02` | prose | 57 | argument | KEEP-PROSE | — |  |  |
-| `reach:3.6.3:03` | ascii | 200 | change over time | CONVERT | SlopeChart 'Traditional pitch → Rebalanced' — digital 45→18, radio 20→37, SMS/USSD 10→20, markets 15→18, church 10→7 | 200 | Rule 1a: the rebalancing table, drawn in characters. |
-| `reach:3.6.3:04` | prose | 4 | argument | KEEP-PROSE | — |  |  |
-| `reach:3.6.3:05` | table | 67 | change over time | COLLAPSE | '§3.6.3 in one view' becomes the SlopeChart's 'View the data' |  |  |
-| `reach:3.6.3:06` | prose | 1 | argument | KEEP-PROSE | — |  |  |
+| `reach:3.6.3:00` | prose | 25 | argument | KEEP-PROSE | — |  |  |
+| `reach:3.6.3:01` | prose | 57 | argument | KEEP-PROSE | — |  |  |
+| `reach:3.6.3:02` | figure | 2 | argument | KEEP-PROSE | — |  |  |
+| `reach:3.6.3:03` | prose | 4 | argument | KEEP-PROSE | — |  |  |
+| `reach:3.6.3:04` | table | 67 | change over time | COLLAPSE | '§3.6.3 in one view' becomes the SlopeChart's 'View the data' |  |  |
+| `reach:3.6.3:05` | prose | 1 | argument | KEEP-PROSE | — |  |  |
 | `reach:3.7:00` | prose | 53 | argument | KEEP-PROSE | — |  |  |
 | `reach:3.7:01` | prose | 34 | argument | KEEP-PROSE | — |  |  |
 | `reach:3.7:02` | ascii | 92 | hierarchy | CONVERT | Ownership grid of stations × owner × alignment (canonical; §8.7.1 reuses it) | 92 | Rule 1a. |

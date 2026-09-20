@@ -588,3 +588,58 @@ export function RegisterGroups({
     </div>
   );
 }
+
+/* ------------------------------------------------------------------ RangeBars */
+
+/**
+ * An estimate drawn as a band with both ends labelled, never as a bar with a precise end.
+ *
+ * §3.1.1.1 states every platform as a range — "~65,000–80,000 active users" — and a bar has one
+ * end, so drawing these as bars would require picking a number the document does not state.
+ * Collapsing to a midpoint is the usual answer and it is the wrong one: it manufactures a
+ * precision nobody measured, on exactly the figures an opposition researcher would check first.
+ *
+ * The band is the mark. Its left edge is the low estimate, its right edge the high one, and both
+ * are printed. There is no tick in the middle, because there is no middle value to report.
+ */
+export function RangeBars({ series, scaleMax }: { series: FigureSeries; scaleMax?: number }) {
+  const ceiling = scaleMax ?? Math.max(...series.points.map((p) => p.range?.high ?? p.value));
+
+  return (
+    <div className="space-y-2.5">
+      {series.points.map((p, i) => {
+        const low = p.range?.low ?? p.value;
+        const high = p.range?.high ?? p.value;
+        return (
+          <div key={p.label}>
+            <div className="flex items-baseline justify-between gap-3">
+              <span className="t-micro font-medium text-ink">{p.label}</span>
+              <span className="t-micro shrink-0 tabular-nums font-semibold text-ink">
+                {low.toLocaleString("en-KE")}
+                {high !== low && <>–{high.toLocaleString("en-KE")}</>}
+                <span className="ml-1 font-normal text-muted">{p.unit}</span>
+              </span>
+            </div>
+
+            <div className="relative mt-0.5 h-3 w-full rounded-sm bg-line/40">
+              <span
+                aria-hidden="true"
+                className={`absolute inset-y-0 rounded-sm ${GROW} fx-figure-hatch`}
+                style={{
+                  left: `${(low / ceiling) * 100}%`,
+                  width: `${((high - low) / ceiling) * 100}%`,
+                  minWidth: "3px",
+                  "--fx-i": Math.min(i, 12),
+                  background: "var(--color-accent-solid)",
+                  transformOrigin: "left center",
+                } as React.CSSProperties}
+              />
+            </div>
+
+            {p.note && <p className="t-micro mt-0.5 leading-snug text-muted">{p.note}</p>}
+          </div>
+        );
+      })}
+    </div>
+  );
+}

@@ -24,7 +24,7 @@ currently tells Dr. Mulu he wins.
 | **Wrong table aggregates** | "Combined 68.7%" and three more, shipped | **none** | opt-in, per table, by name |
 | **Figures reading zero with JS off** | `KSh0.00bn`, `0.0%`, `≈0k` | **none** | |
 | **Duplicated text nodes** | headline ×2, every counter ×3 | **removed at source** | |
-| **ASCII blocks** | 67 | **63** | 4 retired, 710 words |
+| **ASCII blocks** | 67 | **56** | 11 retired, 1,415 words |
 | **`og:image`** | absent, with `summary_large_image` | **1200×630 typographic card** | |
 | Third-party requests | none | **none** | held |
 | Sideways scroll at 390 px | none | **none** | held |
@@ -60,8 +60,8 @@ a deep link would otherwise have no way back to the whole text.
 
 ### 2.2 Figures replace the repeats
 
-Four box-drawing blocks in §3B are now figures — **710 words**, each declared in
-`scripts/figure-retirements.json` with the checklist of facts its figure is held to:
+Eleven box-drawing blocks — four in §3B, seven in §3C — are now figures. **1,415 words**, each
+declared in `scripts/figure-retirements.json` with the checklist of facts its figure is held to:
 
 | Section | Was | Words | Now |
 |---|---|---|---|
@@ -69,6 +69,11 @@ Four box-drawing blocks in §3B are now figures — **710 words**, each declared
 | §3.4.4 | `CONSTITUENCY STRUCTURAL POWER RANKING` — eight rows with a Big 4 band | 183 | `constituency-power` |
 | §3.4.3 | `FOUR STRUCTURAL PATHS TO THE 200,000 VOTER POOL` | 110 | `paths-to-threshold` |
 | §3.4.1 | `THE 2027 VICTORY THRESHOLD ARITHMETIC` | 102 | `threshold-build-up`, `register-growth` |
+| §3.6.2 | `OFFLINE CHANNEL REACH AUDIT` — six channels, three of them unsourced | 236 | `offline-channels` |
+| §3.6.1 | `DIGITAL PLATFORM IN-COUNTY SIZING MATRIX` — five platforms as ranges | 175 | `platform-sizing` |
+| §3.6.3 | `CHANNEL WEIGHT REBALANCE` — five channels, before and after | 133 | `effort-rebalance` |
+| §3.6 | `THE DIGITAL CEILING` — the connectivity split | 89 | `reach-split` |
+| §3.6 | Three section banners — box-drawn headings restating the heading above them | 72 | none needed |
 
 Checking the replacements against those checklists is what made them better than the blocks:
 
@@ -77,6 +82,17 @@ Checking the replacements against those checklists is what made them better than
   shown, and only then was the block retired.
 - The four-paths ASCII stated four register totals and stopped. The whole of §3.4 turns on a
   register not being a vote, so **every path now also shows the ballots it yields at 62%**.
+- The platform matrix printed a share column it had computed by hand. `platform-sizing` computes
+  the same column from the headcounts and the register, and **one cell disagreed**: 35,000 is 6.5%
+  on the TikTok row and 6.6% on the YouTube row directly beneath, for the same number against the
+  same denominator. Logged as **C-18**, not corrected — and the Under review note on the band is
+  what keeps the printed `6.5%` in the document. Correcting it would have deleted a figure.
+- The offline table gave six channels one visual weight. Three of them cite nothing, and the
+  document says so. `offline-channels` **hatches the unsourced three and writes "Source needed" on
+  the bar** (C-17), and carries the standing warning that the six overlap: summed, they would claim
+  1,800,000 reachable voters in a county whose register is 532,758.
+- The three banners were the only blocks retired with **no figure replacing them**, because they
+  carried no facts — each restated, in box-drawing characters, the heading immediately above it.
 
 ### 2.3 A figure has to earn its place
 
@@ -151,10 +167,16 @@ One character fixed in the generator. **No content edited.**
 
 ---
 
-## 4. Conflicts: 14 confirmed, 1 corrected
+## 4. Conflicts: 18 confirmed, 1 corrected
 
 `CONFLICTS.md` has the working for each. Every one was checked against the source rather than
 copied from the brief, and the arithmetic against `data/ward-register.json`, which sums exactly.
+
+**Two of them the brief did not know about.** C-18 and C-19 came out of the figure work itself:
+a figure that computes its labels rather than transcribing them disagrees out loud with a
+document that has drifted, and a figure that cites its section has to decide which number that
+section is. Neither is large — a tenth of a percentage point, and eight stale heading numbers —
+and neither has been corrected in the content.
 
 **C-2 is the one to read before Dr. Mulu opens the document.** The §2.2 simulator's 14 weeks run
 from the 7 August poll, so six of them have already gone. Over the **8.3 weeks that remain**,
@@ -180,11 +202,12 @@ it names (C-4).
 
 Stated plainly, because a report that implies otherwise is worth less than no report.
 
-- **63 of 67 ASCII blocks remain.** All four retired are in §3B, the chapter the brief names as the
-  one place to spend the visual boldness. Every remaining block is inventoried with a named target
-  component in `INVENTORY.md`, and the mechanism to retire them — the `figure` fence, the registry,
-  the retirement declaration with its facts checklist — is built and proven on four. What each one
-  still needs is its own data module and figure.
+- **56 of 67 ASCII blocks remain.** All eleven retired are in §3B and §3C, the two chapters the
+  brief names as the place to spend the visual boldness. Every remaining block is inventoried with a
+  named target component in `INVENTORY.md`, and the mechanism to retire them — the `figure` fence,
+  the registry, the retirement declaration with its facts checklist, the migration declaration for
+  any figure leaving the markdown — is built and proven on eleven. What each one still needs is its
+  own typed data module and figure.
 - **Duplicates are inventoried, not yet collapsed.** D-1 lists 11 blocks (718 words) plus the Tier 3
   poll statement in six places and the 86.4% statement in twelve chapters. `CrossRef` is specified;
   it is not built. The 86.4% case cannot be collapsed until C-13 is answered anyway.
@@ -193,27 +216,27 @@ Stated plainly, because a report that implies otherwise is worth less than no re
 - **Phases 4 P2/P3** — §4–§16 and the annexes — are mapped in the conversion map and the inventory,
   and untouched in the markdown.
 
-The inventory's headline count of "11,275 words retired" is the **plan**, not the state. The state
-is **710 words**, itemised in §2.2 above and in `figure-retirements.json`.
+The inventory's headline count of "10,584 words retired" is the **plan**, not the state. The state
+is **1,415 words**, itemised in §2.2 above and in `figure-retirements.json`.
 
 ---
 
 ## 6. Verification
 
-`npm run verify` — nine guards and 27 arithmetic assertions, all passing:
+`npm run verify` — nine guards and 32 arithmetic assertions, all passing:
 
 ```
 Ward register integrity ... 40 wards across 8 constituencies sum to 532,758
 Analysis exports ......... 9 exports, 96 values, all carrying source, tier, date, method, status
 Figure verification ...... every numeric literal in the UI traces to the source
 Figure retention ......... all 1,055 figures present at the baseline survive; all 552 content
-                           figures still reach the print path (22 declared migrations)
-Content integrity ........ all 4,512 body lines unchanged since 228eb02, apart from 4 blocks
-                           retired under rule 1a and declared
+                           figures still reach the print path (37 declared migrations)
+Content integrity ........ all 4,413 body lines unchanged since 228eb02, apart from 9 entries
+                           covering 11 blocks retired under rule 1a and declared
 verify-mounts ............ 50 mount points resolve
 verify-deep-links ........ 880 legacy ids and 272 live ids resolve
 visual-coverage .......... no retired figure kind has returned
-figures.test.ts .......... 27 passed
+figures.test.ts .......... 32 passed
 ```
 
 Three guards were improved by the work rather than worked around:

@@ -89,5 +89,65 @@
   {
     "figure": "10.32|%",
     "movedTo": "Moved from the §3.4.4 CONSTITUENCY STRUCTURAL POWER RANKING pseudo-table into the `constituency-power` figure, which COMPUTES it from data/ward-register.json rather than reprinting it (see scripts/figure-retirements.json, arithmetic-3-4-4-power-ranking). PRINT REACH VERIFIED, not assumed: FigureFrame's 'View the data' table is forced open under @media print, and emulating print on /arithmetic finds all fourteen of these figures in the rendered text. lib/figures/figures.test.ts pins every one of them in the document's own notation, so the computation cannot drift from what §3.4.4 printed."
+  },
+  {
+    "figure": "532000|",
+    "movedTo": "Removed, not moved, and it is a ROUNDING rather than a figure: \"% of 532k Register\" was the §3.6.1 matrix's column header, a loose restatement of the 532,758 register that the same document states exactly in nine other places. The `platform-sizing` figure's measure line carries the exact number instead — \"against the 532,758 register\" — so the register is stated more precisely than the header stated it, not less. Nothing else in the repository ever printed 532,000 or 532k."
+  },
+  {
+    "figure": "65000|",
+    "movedTo": "Moved from the §3.6.1 DIGITAL PLATFORM IN-COUNTY SIZING MATRIX into the `platform-sizing` figure (scripts/figure-retirements.json, reach-3-6-1-platform-matrix), which COMPUTES each band's share from the headcount and the 532,758 register rather than reprinting it. PRINT REACH VERIFIED, not assumed: emulating print on /reach finds it in the rendered text, because FigureFrame's 'View the data' table is forced open under @media print. lib/figures/figures.test.ts pins every cell of that column in the matrix's own notation, so the computation cannot drift from what §3.6.1 printed. (WhatsApp's low end and Meta's high end — the same 65,000, stated twice in the matrix.)"
+  },
+  {
+    "figure": "12.2|%",
+    "movedTo": "Moved from the §3.6.1 DIGITAL PLATFORM IN-COUNTY SIZING MATRIX into the `platform-sizing` figure (scripts/figure-retirements.json, reach-3-6-1-platform-matrix), which COMPUTES each band's share from the headcount and the 532,758 register rather than reprinting it. PRINT REACH VERIFIED, not assumed: emulating print on /reach finds it in the rendered text, because FigureFrame's 'View the data' table is forced open under @media print. lib/figures/figures.test.ts pins every cell of that column in the matrix's own notation, so the computation cannot drift from what §3.6.1 printed. (WhatsApp's low end and Meta's high end.)"
+  },
+  {
+    "figure": "9.4|%",
+    "movedTo": "Moved from the §3.6.1 DIGITAL PLATFORM IN-COUNTY SIZING MATRIX into the `platform-sizing` figure (scripts/figure-retirements.json, reach-3-6-1-platform-matrix), which COMPUTES each band's share from the headcount and the 532,758 register rather than reprinting it. PRINT REACH VERIFIED, not assumed: emulating print on /reach finds it in the rendered text, because FigureFrame's 'View the data' table is forced open under @media print. lib/figures/figures.test.ts pins every cell of that column in the matrix's own notation, so the computation cannot drift from what §3.6.1 printed. (Meta's low end.)"
+  },
+  {
+    "figure": "8.4|%",
+    "movedTo": "Moved from the §3.6.1 DIGITAL PLATFORM IN-COUNTY SIZING MATRIX into the `platform-sizing` figure (scripts/figure-retirements.json, reach-3-6-1-platform-matrix), which COMPUTES each band's share from the headcount and the 532,758 register rather than reprinting it. PRINT REACH VERIFIED, not assumed: emulating print on /reach finds it in the rendered text, because FigureFrame's 'View the data' table is forced open under @media print. lib/figures/figures.test.ts pins every cell of that column in the matrix's own notation, so the computation cannot drift from what §3.6.1 printed. (TikTok's high end.)"
+  },
+  {
+    "figure": "4.7|%",
+    "movedTo": "Moved from the §3.6.1 DIGITAL PLATFORM IN-COUNTY SIZING MATRIX into the `platform-sizing` figure (scripts/figure-retirements.json, reach-3-6-1-platform-matrix), which COMPUTES each band's share from the headcount and the 532,758 register rather than reprinting it. PRINT REACH VERIFIED, not assumed: emulating print on /reach finds it in the rendered text, because FigureFrame's 'View the data' table is forced open under @media print. lib/figures/figures.test.ts pins every cell of that column in the matrix's own notation, so the computation cannot drift from what §3.6.1 printed. (YouTube's low end.)"
+  },
+  {
+    "figure": "6.6|%",
+    "movedTo": "Moved from the §3.6.1 DIGITAL PLATFORM IN-COUNTY SIZING MATRIX into the `platform-sizing` figure (scripts/figure-retirements.json, reach-3-6-1-platform-matrix), which COMPUTES each band's share from the headcount and the 532,758 register rather than reprinting it. PRINT REACH VERIFIED, not assumed: emulating print on /reach finds it in the rendered text, because FigureFrame's 'View the data' table is forced open under @media print. lib/figures/figures.test.ts pins every cell of that column in the matrix's own notation, so the computation cannot drift from what §3.6.1 printed. (YouTube's high end — and, computed, TikTok's low end as well, which is C-18.)"
+  },
+  {
+    "figure": "2.3|%",
+    "movedTo": "Moved from the §3.6.1 DIGITAL PLATFORM IN-COUNTY SIZING MATRIX into the `platform-sizing` figure (scripts/figure-retirements.json, reach-3-6-1-platform-matrix), which COMPUTES each band's share from the headcount and the 532,758 register rather than reprinting it. PRINT REACH VERIFIED, not assumed: emulating print on /reach finds it in the rendered text, because FigureFrame's 'View the data' table is forced open under @media print. lib/figures/figures.test.ts pins every cell of that column in the matrix's own notation, so the computation cannot drift from what §3.6.1 printed. (X's high end.)"
+  },
+  {
+    "figure": "6.5|%",
+    "movedTo": "A CONFLICT, not a migration — and the reason this one needs saying out loud. §3.6.1 prints TikTok's low end as 6.5% of the register; 35,000 ÷ 532,758 is 6.5695%, which is 6.6%, and the row directly beneath prints exactly that for the same 35,000. The `platform-sizing` figure computes, so it says 6.6%. Under hard rule 2 neither number has been changed: the TikTok band carries the Under review flag, and its note states in full that \"§3.6.1 prints this low end as 6.5% — under review, C-18\". THAT NOTE IS WHY THE LITERAL STILL REACHES PRINT, verified by emulating print on /reach. Flagging the conflict preserved the printed figure that correcting it would have destroyed. See CONFLICTS.md C-18; lib/figures/figures.test.ts asserts both halves of the disagreement so it cannot be closed by accident."
+  },
+  {
+    "figure": "78|",
+    "movedTo": "Not lost — re-notated. The bare token came from \"(78–80% listenership)\" inside the §3.6.2 channel table; the prose beneath that table still states \"78%–80% daily/weekly listenership\" and is untouched, and the `offline-channels` figure carries \"78–80% daily/weekly listenership\" on the radio bar. The guard sees a difference because it tokenises 78 and 78% separately. PRINT REACH VERIFIED, not assumed: emulating print on /reach finds it in the rendered text, because FigureFrame's 'View the data' table is forced open under @media print."
+  },
+  {
+    "figure": "65.7|%",
+    "movedTo": "Moved from the §3.6.2 OFFLINE CHANNEL REACH table into the `offline-channels` figure (scripts/figure-retirements.json, reach-3-6-2-offline-channels), which computes each channel's share of the 532,758 register from its stated reach. PRINT REACH VERIFIED, not assumed: emulating print on /reach finds it in the rendered text, because FigureFrame's 'View the data' table is forced open under @media print. lib/figures/figures.test.ts pins all six shares in the table's own notation. (Church and synod networks — unsourced, C-17.)"
+  },
+  {
+    "figure": "60.1|%",
+    "movedTo": "Moved from the §3.6.2 OFFLINE CHANNEL REACH table into the `offline-channels` figure (scripts/figure-retirements.json, reach-3-6-2-offline-channels), which computes each channel's share of the 532,758 register from its stated reach. PRINT REACH VERIFIED, not assumed: emulating print on /reach finds it in the rendered text, because FigureFrame's 'View the data' table is forced open under @media print. lib/figures/figures.test.ts pins all six shares in the table's own notation. (Direct 2G SMS.)"
+  },
+  {
+    "figure": "52.6|%",
+    "movedTo": "Moved from the §3.6.2 OFFLINE CHANNEL REACH table into the `offline-channels` figure (scripts/figure-retirements.json, reach-3-6-2-offline-channels), which computes each channel's share of the 532,758 register from its stated reach. PRINT REACH VERIFIED, not assumed: emulating print on /reach finds it in the rendered text, because FigureFrame's 'View the data' table is forced open under @media print. lib/figures/figures.test.ts pins all six shares in the table's own notation. (Open-air market barazas — unsourced, C-17.)"
+  },
+  {
+    "figure": "46.9|%",
+    "movedTo": "Moved from the §3.6.2 OFFLINE CHANNEL REACH table into the `offline-channels` figure (scripts/figure-retirements.json, reach-3-6-2-offline-channels), which computes each channel's share of the 532,758 register from its stated reach. PRINT REACH VERIFIED, not assumed: emulating print on /reach finds it in the rendered text, because FigureFrame's 'View the data' table is forced open under @media print. lib/figures/figures.test.ts pins all six shares in the table's own notation. (USSD interactive service.)"
+  },
+  {
+    "figure": "33.8|%",
+    "movedTo": "Moved from the §3.6.2 OFFLINE CHANNEL REACH table into the `offline-channels` figure (scripts/figure-retirements.json, reach-3-6-2-offline-channels), which computes each channel's share of the 532,758 register from its stated reach. PRINT REACH VERIFIED, not assumed: emulating print on /reach finds it in the rendered text, because FigureFrame's 'View the data' table is forced open under @media print. lib/figures/figures.test.ts pins all six shares in the table's own notation. (Mobile-money agents — unsourced, C-17.)"
   }
 ]

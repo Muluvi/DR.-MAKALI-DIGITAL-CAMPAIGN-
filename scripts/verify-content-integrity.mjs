@@ -612,11 +612,16 @@ const allowance = CURRENT_SPINE ? new Map() : new Map(REMOVED_SCAFFOLDING);
 for (const [line, count] of RETIRED_LINES) {
   allowance.set(line, (allowance.get(line) ?? 0) + count);
 }
-// Each retired block took its own opening and closing ``` with it. The replacement fences are
+// Each retired BLOCK took its own opening and closing ``` with it. The replacement fences are
 // dropped from the other side whole, so those two delimiters have to be allowed for here or they
 // read as lost lines.
+//
+// Counted per block and not per entry: one entry may retire several blocks at once. The three
+// §3.6 section banners are a single entry — they are the same defect three times, a heading drawn
+// in box characters directly beneath the real heading — and they took six delimiters with them.
 const BARE_FENCE = "```";
-allowance.set(BARE_FENCE, (allowance.get(BARE_FENCE) ?? 0) + RETIREMENTS.length * 2);
+const retiredBlocks = RETIREMENTS.reduce((n, entry) => n + (entry.blocks ?? 1), 0);
+allowance.set(BARE_FENCE, (allowance.get(BARE_FENCE) ?? 0) + retiredBlocks * 2);
 const beforeBody = before.filter((line) => {
   const left = allowance.get(line.trim());
   if (!left) return true;
