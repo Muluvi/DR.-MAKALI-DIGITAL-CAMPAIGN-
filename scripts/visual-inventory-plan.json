@@ -355,7 +355,7 @@
       "blocks": {
         "ascii": { "relationship": "comparison", "action": "CONVERT", "target": "Language × channel Matrix (canonical for §7.3.1 and §7.3.4)", "note": "Rule 1a." }
       },
-      "note": "Heading typo: 'Langua register and dialect' → 'Language register and dialect'. This is the one text fix the brief authorises (Phase 2 item 8)."
+      "note": "The 'Langua register and dialect' typo is not in this heading. The markdown reads '7.3 Language, register and dialect' and always did — the corruption happened in scripts/build-section-visuals.mjs, where an optional backslash let a LaTeX guard eat the letters 'ge' inside ordinary words. Fixed in the generator; no content edit. See D-6."
     },
     "messaging:7.3.1": {
       "blocks": {

@@ -139,14 +139,50 @@ async function pageMetrics(route, viewport) {
 
   await page.goto(BASE + route, { waitUntil: "networkidle", timeout: 180_000 });
   await page.waitForTimeout(1200);
-  const m = await page.evaluate(() => ({
-    scrollHeight: document.documentElement.scrollHeight,
-    domWords: (document.body.textContent.match(/\S+/g) ?? []).length,
-    renderedWords: (document.body.innerText.match(/\S+/g) ?? []).length,
-    domNodes: document.getElementsByTagName("*").length,
-    // A page that scrolls sideways on a phone has failed before anything else is judged.
-    horizontalScroll: document.documentElement.scrollWidth > document.documentElement.clientWidth,
-  }));
+  const m = await page.evaluate(() => {
+    /**
+     * Words the document actually contains, which is not the same as `body.textContent`.
+     *
+     * `textContent` includes the contents of every <script>, and a React Server Components page
+     * carries its whole flight payload inline in script tags — tens of thousands of "words" of
+     * serialised JSON that no reader will ever see. Counting those made /full look like a
+     * 124,000-word document against 63,433 words of markdown, and made a duplicated-text-node
+     * problem look four times larger than it was. A TreeWalker over text nodes, skipping script,
+     * style and template, counts what is in the document and nothing else.
+     *
+     * This is still a superset of the prose: it includes figure labels, chapter chrome and any
+     * visually hidden duplicate. That is the point — it is the number that falls when duplication
+     * is removed.
+     */
+    const SKIP = new Set(["SCRIPT", "STYLE", "TEMPLATE", "NOSCRIPT"]);
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode: (node) =>
+        node.parentElement && SKIP.has(node.parentElement.tagName)
+          ? NodeFilter.FILTER_REJECT
+          : NodeFilter.FILTER_ACCEPT,
+    });
+    let domWords = 0;
+    for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+      domWords += (n.nodeValue.match(/\S+/g) ?? []).length;
+    }
+
+    // Text that is in the document twice: once for assistive technology and once for the eye.
+    // Both halves are real text to copy-paste, reader mode and find-in-page.
+    const hiddenTwins = [...document.querySelectorAll('.sr-only, [aria-hidden="true"]')].reduce(
+      (a, el) => a + ((el.textContent.match(/\S+/g) ?? []).length),
+      0
+    );
+
+    return {
+      scrollHeight: document.documentElement.scrollHeight,
+      domWords,
+      hiddenTwins,
+      renderedWords: (document.body.innerText.match(/\S+/g) ?? []).length,
+      domNodes: document.getElementsByTagName("*").length,
+      // A page that scrolls sideways on a phone has failed before anything else is judged.
+      horizontalScroll: document.documentElement.scrollWidth > document.documentElement.clientWidth,
+    };
+  });
   await ctx.close();
   return { ...m, requests, transferBytes: bytes, thirdParty: [...thirdParty] };
 }

@@ -25,7 +25,7 @@ import { ChapterMarker } from "./flow/ChapterMarker";
 import { FlowChrome } from "./flow/FlowChrome";
 import { FlowRail } from "./flow/FlowRail";
 
-import { AmbientField, Reveal, SplitText } from "./visual";
+import { AmbientField, Reveal } from "./visual";
 import { useDaypart, useScrollShell } from "../hooks/use-scroll-shell";
 
 import { Dashboard } from "./Dashboard";
@@ -326,10 +326,23 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
               </div>
 
               <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 items-end">
+                {/* The headline is text, and it is text once.
+
+                    It used to be a line-split reveal, which meant two copies in the DOM: the real
+                    string in a visually hidden node for assistive technology, and a stack of
+                    aria-hidden spans to animate. aria-hidden hides a node from a screen reader and
+                    from nothing else, so the page read "Kitui 2027: the intelligence behind what
+                    you already publish." twice — to copy-paste, to reader mode, to find-in-page,
+                    and to anyone who opened it with JavaScript off.
+
+                    The split bought a staggered rise on the one element a reader is guaranteed to
+                    be looking at before anything else has loaded. That is the definition of an
+                    animation that delays reading, and kinetic headlines are on the deny list for
+                    exactly this reason. The line break stays, because it is how the sentence
+                    should break. */}
                 <h1 className="col-span-2 sm:col-span-1 font-sans text-[1.7rem] sm:text-4xl lg:text-5xl leading-[1.14] sm:leading-[1.08] tracking-tight text-ink mb-4 font-bold text-balance">
-                  <SplitText by="line" as="span" className="block" delay={180}>
-                    {"Kitui 2027:\nthe intelligence behind what you already publish."}
-                  </SplitText>
+                  <span className="block">Kitui 2027:</span>
+                  <span className="block">the intelligence behind what you already publish.</span>
                 </h1>
                 <p style={{ "--fx-i": 3 } as React.CSSProperties} className="fx-in-up col-start-1 t-body text-muted leading-relaxed text-pretty">
                   Campaign strategy and digital architecture for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.

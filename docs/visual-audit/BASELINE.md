@@ -98,11 +98,21 @@ clean and must stay that way. INP was not measured directly; TBT is dominated by
 Counted from `public/content/*.md` (source), and from the rendered DOM.
 
 - **Words in source: 63,433** across 30 chapters. The hero's "289 minutes" is this figure.
-- Words in the `/full` DOM: **124,284** at 390 px (123,750 at 1440 px) — 1.96× the source. Chrome, labels and figure text account
-  for some of it; duplicated text nodes (§6.2) account for a large share.
+- Words in the `/full` DOM: **71,291** at 390 px — 1.12× the source. The overhead is figure labels,
+  chapter chrome, table headers and the visually hidden duplicates in §6.2.
+- Of those, **2,836 words are in the document twice** — inside `.sr-only` or `aria-hidden` nodes.
+  That is the duplication §6.2 describes, measured.
 - Words rendered visibly at first paint on `/`: **1,462** at 390 px, 1,586 at 1440 px. (Measured by
   `innerText`, which excludes subtrees skipped by `content-visibility: auto` — this is a measure of
   what the browser has laid out, not of a reading mode. There is no reading mode yet.)
+
+> **Correction.** The first version of this file reported 124,284 DOM words for `/full` — 1.96× the
+> source — and attributed "a large share" of the gap to duplicated text nodes. Both were wrong, and
+> for the same reason: the count came from `document.body.textContent`, which includes the contents
+> of every `<script>`. A React Server Components page carries its entire flight payload inline in
+> script tags, so roughly 53,000 "words" of serialised JSON were being counted as document text.
+> `scripts/measure-visual-baseline.mjs` now walks text nodes and skips `script`, `style`,
+> `template` and `noscript`. The duplication in §6.2 is real, and it is 2,836 words, not 60,000.
 
 | Chapter | Words | | Chapter | Words |
 |---|---|---|---|---|
@@ -212,7 +222,9 @@ the intelligence behind what you already publish.
 `15.315.315.3`, `532,758532,758532,758` and `330,310330,310330,310` strings. `Odometer`,
 `Typewriter` and `Scramble` in the same folder share the pattern.
 
-This is the main reason the `/full` DOM carries 124,284 words against 63,433 in the source.
+Measured: **2,836 words** of the `/full` DOM are inside `.sr-only` or `aria-hidden` nodes — text
+that is in the document twice. (An earlier draft of this file put the figure far higher; see the
+correction in §4.)
 
 ### 6.3 DataTable auto-stats are wrong
 

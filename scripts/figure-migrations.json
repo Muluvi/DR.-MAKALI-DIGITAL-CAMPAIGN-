@@ -18,5 +18,10 @@
   {
     "figure": "150|",
     "movedTo": "Removed with the role it belonged to. It was the activation threshold for a second Community Manager (§14.4, \"150 inbound messages/day\"). Under the repositioning, community management is Dr. Mulu's existing team's work, not a Firefly surge hire, so the role and its trigger both leave §14.4."
+  },
+  {
+    "figure": "6.2|",
+    "movedTo": "Not a figure of the proposal. It was \"6.2s\" — a First Contentful Paint measurement in a ClientPage.tsx doc comment describing the tabbed architecture that the one-page flow replaced. The comment went with the architecture it described, in the flow redesign. It surfaced here only now because the guard used to count data/section-visuals.generated.json as evidence, and that generated file carries a `\"number\": \"6.2\"` field holding the SECTION number of §6.2 — a section that still exists, still has its heading, and now carries the StrategicPillarsMatrix. The generated file is excluded from the corpus (it is derived from public/content, so indexing it made this guard circular), which re-exposed the older removal.",
+    "scope": "repository"
   }
 ]

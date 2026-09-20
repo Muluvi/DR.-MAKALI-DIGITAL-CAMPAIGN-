@@ -1,43 +1,43 @@
 {
   "cover-sec-1-1": {
-    "kind": "statement",
-    "note": "Front matter \u2014 who prepared it, for whom, on what date. The derivation read the date's digits as a quantity and printed a stat tile saying '0726'. There is no figure here; there is one sentence of identification."
+    "kind": "none",
+    "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
   "presence-sec-1a-2-3": {
-    "kind": "statement",
-    "note": "A date range, not a measurement. '18 June to 16 September' read as the figures 18 and 16."
+    "kind": "none",
+    "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
   "presence-sec-1a-4": {
     "kind": "playbook",
     "note": "Seven decision rules, written in advance as a two-column 'if the audit finds / the strategy changes to' table. It is a response playbook and should be drawn as one."
   },
   "messaging-sec-7-3-2": {
-    "kind": "statement",
-    "note": "Register and dialect discipline. The only number in it is the count of print languages, which is not what the part is about."
+    "kind": "none",
+    "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
   "scope-platforms-sec-8-2-2": {
-    "kind": "statement",
-    "note": "A definition of the tracker. '3' was the number of things it does, read as a magnitude."
+    "kind": "none",
+    "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
   "scope-platforms-sec-8-3-3": {
-    "kind": "statement",
-    "note": "Radio, SMS and USSD copy samples. The figures in them are a speaker's age and a ward fund amount inside quoted script \u2014 dialogue, not evidence to chart."
+    "kind": "none",
+    "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
   "scope-platforms-sec-8-5-3": {
-    "kind": "statement",
-    "note": "The accessibility standard. 'WCAG 2.1 AA' is a standard's version number, not a quantity, and an arc under it asserts a scale that does not exist."
+    "kind": "none",
+    "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
   "governance-sec-12-5-4": {
-    "kind": "statement",
-    "note": "The charter itself is a published blockquote handled by the ethics-charter component at 12.5. What this part adds is the argument for publishing it, which is one claim."
+    "kind": "none",
+    "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
   "structure-sec-14-7": {
-    "kind": "statement",
-    "note": "How the team is assessed. '4' and '8' were a team size and a pairing count inside prose about neither."
+    "kind": "none",
+    "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
   "reach-sec-3-7-2": {
-    "kind": "statement",
-    "note": "Morning talk shows run 06:00-09:00 EAT. A clock, read as the figures 6 and 9."
+    "kind": "none",
+    "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
   "audiences-sec-5-1-2": {
     "kind": "donut",

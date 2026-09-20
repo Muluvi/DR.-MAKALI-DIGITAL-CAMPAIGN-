@@ -6,19 +6,14 @@ import type { PartVisualSpec } from "../../lib/part-visuals";
 import {
   BarRank,
   BulletTarget,
-  ChapterMap,
   ChecklistGrid,
   ContrastBar,
   DonutSplit,
   GaugeArc,
-  HubDiagram,
   MatrixGrid,
   Playbook,
   Quadrant,
-  QuoteMark,
-  ShapeMap,
   StatRail,
-  StatementPanel,
   Stepper,
   TimelineRail,
   Waffle,
@@ -26,17 +21,29 @@ import {
 } from "./kinds";
 
 /**
- * The figure that belongs to one heading.
+ * The figure that belongs to one heading, where one is warranted.
  *
- * Every numbered heading in the proposal has one. Which figure it is comes from the heading's own
- * content (see scripts/build-section-visuals.mjs), so there is no mount table to drift out of
- * step with the document, and a part that is rewritten gets a figure that matches the rewrite.
+ * NOT EVERY HEADING HAS ONE, and that is the change. There used to be 272 of these, one under
+ * every numbered heading, because PR #10 promised "a figure under every heading" — and 99 of them
+ * measured nothing at all. They restated the heading (`statement`, 51), listed the subsections
+ * about to be scrolled past (`chapter`, 23), redrew the heading's own bullets as a wheel (`hub`,
+ * 11), quoted a truncated fragment of the prose beneath (`quote`, 6) or drew an abstract diagram
+ * from an empty array (`shape`, 8). A further 37 (`table`) were derived, serialised and shipped
+ * only to render null, because the part's real figure is its own interactive table.
+ *
+ * There are now 152, every one of which draws a measurable relationship, and 120 headings carry
+ * no figure — which is a complete answer, and on a document 468,000 pixels tall it is a kinder
+ * one than a panel that repeats the sentence beside it.
+ *
+ * Which figure it is comes from the heading's own content (see scripts/build-section-visuals.mjs),
+ * so there is no mount table to drift out of step with the document, and a part that is rewritten
+ * gets a figure that matches the rewrite.
  *
  * Where a heading already carries a hand-built visualisation in MarkdownViewer's HEADING_INSERTS,
  * that one wins and this renders nothing: the derived figure exists to cover the 220 parts that
  * had nothing, not to sit underneath the 50 that were designed.
  *
- * MOUNTING IS DEFERRED. The whole document is one continuous scroll now, so all 272 of these are
+ * MOUNTING IS DEFERRED. The whole document is one continuous scroll now, so all of these are
  * on the page at once. Each mounts when it is within a screen and a half of the viewport and
  * reserves its height before then, which is what keeps the flow's scroll cheap and its layout
  * stable.
@@ -92,17 +99,12 @@ function PartVisualBody({ spec }: { spec: PartVisualSpec }) {
     case "timeline": return <TimelineRail data={d} />;
     case "playbook": return <Playbook data={d} />;
     case "matrix": return <MatrixGrid data={d} />;
-    // The part's figure is the table in its own prose — searchable, sortable, exportable and
-    // already laid out as cards on a phone. Drawing a second reading of the same rows above it
-    // is duplication, not coverage. See scripts/build-section-visuals.mjs.
-    case "table": return null;
     case "quadrant": return <Quadrant data={d} />;
-    case "hub": return <HubDiagram data={d} />;
     case "checklist": return <ChecklistGrid data={d} />;
-    case "chapter": return <ChapterMap data={d} spec={spec} />;
-    case "quote": return <QuoteMark data={d} />;
     case "contrast": return <ContrastBar data={d} />;
-    case "statement": return <StatementPanel data={d} spec={spec} />;
-    default: return <ShapeMap data={d} spec={spec} />;
+    // No default panel. A kind this component does not know how to draw is a generator change
+    // that has not landed here yet, and drawing something decorative in its place is how the 99
+    // empty figures got onto the page in the first place.
+    default: return null;
   }
 }

@@ -74,6 +74,24 @@ const BASE = process.env.FIGURE_BASELINE ?? "90a1f32";
 const SEARCH_DIRS = ["public/content", "data", "components", "lib"];
 
 /**
+ * Files that are DERIVED from the corpus and so must not be part of it.
+ *
+ * data/section-visuals.generated.json is written by scripts/build-section-visuals.mjs out of
+ * public/content/. Every number in it is an echo of a number already in the markdown — including
+ * the `"number"` field, which holds the SECTION number ("6.2", "16.2") and is not a figure at all.
+ *
+ * Indexing a generated file as evidence makes this guard circular: regenerating it can report the
+ * loss of figures whose source is untouched. That is exactly what happened when 120 headings
+ * stopped carrying a derived figure — the guard reported "6.2" as a lost figure, when 6.2 is the
+ * number of a section that still exists, still has that heading, and now carries a hand-built
+ * matrix instead of a derived panel.
+ *
+ * The baseline side is filtered too, so the corpus is the same shape on both sides of the
+ * comparison.
+ */
+const DERIVED_FILES = new Set(["data/section-visuals.generated.json"]);
+
+/**
  * Declared migrations out of public/content/ (rule 2).
  *
  * Each entry names a figure that left the markdown on purpose and says where it went, so the
@@ -174,6 +192,7 @@ function readTreeAtBase(dir) {
   const out = new Map();
   for (const file of listing.split("\n").filter(Boolean)) {
     if (!/\.(md|ts|tsx|json)$/.test(file)) continue;
+    if (DERIVED_FILES.has(file)) continue;
     try {
       out.set(
         file,
@@ -195,7 +214,8 @@ function readTreeNow(dir) {
       const full = path.join(d, entry.name);
       if (entry.isDirectory()) walk(full);
       else if (/\.(md|ts|tsx|json)$/.test(entry.name)) {
-        out.set(path.relative(ROOT, full), fs.readFileSync(full, "utf8"));
+        const rel = path.relative(ROOT, full);
+        if (!DERIVED_FILES.has(rel)) out.set(rel, fs.readFileSync(full, "utf8"));
       }
     }
   };
@@ -239,20 +259,47 @@ let migrations = [];
 if (fs.existsSync(MIGRATIONS_FILE)) {
   migrations = JSON.parse(fs.readFileSync(MIGRATIONS_FILE, "utf8"));
 }
+/**
+ * A declaration answers one of the two rules, and says which.
+ *
+ *   scope "content"     (the default) — rule 2. The figure left public/content/ and this says
+ *                        where it went, so it can still be found even if it no longer prints.
+ *   scope "repository"  — rule 1. The figure left the repository altogether, deliberately, and
+ *                        this says why. Rarer, and held to a higher bar.
+ *
+ * They are distinguished because the staleness check has to ask a different question of each. A
+ * content declaration is stale once the figure is back in the markdown; a repository declaration
+ * is stale once the figure is back anywhere at all. Judging both by the content corpus reported
+ * every repository declaration as stale the moment it was written.
+ */
 const declared = new Map();
 for (const entry of migrations) {
   if (!entry.figure || !entry.movedTo) {
     console.error("figure-migrations.json: every entry needs `figure` and `movedTo`.");
     process.exit(1);
   }
-  declared.set(entry.figure, entry);
+  const scope = entry.scope ?? "content";
+  if (scope !== "content" && scope !== "repository") {
+    console.error(`figure-migrations.json: ${entry.figure} has an unknown scope "${scope}".`);
+    process.exit(1);
+  }
+  declared.set(entry.figure, { ...entry, scope });
 }
 
 // ---- Rule 1: retention --------------------------------------------------------------------
 
+/**
+ * A declared entry satisfies rule 1 as well as rule 2.
+ *
+ * It did not, which made the two rules disagree about what a declaration means. figure-migrations
+ * .json already carries entries reading "Removed, not moved" with the reason — the unprovisioned
+ * USSD shortcode, the vanity-metric KPI — and each of those survived rule 1 only by accident,
+ * because its digits happened to appear inside some other number elsewhere in the corpus. A
+ * declaration that is honest about a removal should not have to get lucky to be accepted.
+ */
 const vanished = [];
 for (const key of baseAll.keys()) {
-  if (!nowAll.has(key)) vanished.push(key);
+  if (!nowAll.has(key) && !declared.has(key)) vanished.push(key);
 }
 
 // ---- Rule 2: print reach ------------------------------------------------------------------
@@ -260,15 +307,19 @@ for (const key of baseAll.keys()) {
 const leftContent = [];
 for (const key of baseContent.keys()) {
   if (nowContent.has(key)) continue;
-  if (declared.has(key)) continue;
+  if (declared.get(key)?.scope === "content") continue;
   leftContent.push(key);
 }
 
 // A declared migration that is no longer needed is stale bookkeeping, and stale bookkeeping is
 // how an allowlist quietly stops meaning anything.
 const staleDeclarations = [];
-for (const key of declared.keys()) {
-  if (nowContent.has(key) || !baseContent.has(key)) staleDeclarations.push(key);
+for (const [key, entry] of declared) {
+  const stale =
+    entry.scope === "repository"
+      ? nowAll.has(key)                            // it came back somewhere; the note is spent
+      : nowContent.has(key) || !baseContent.has(key);
+  if (stale) staleDeclarations.push(key);
 }
 
 // ---- Report -------------------------------------------------------------------------------

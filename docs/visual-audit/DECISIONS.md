@@ -104,23 +104,47 @@ Three reasons, in order of weight:
 
 ## D-6 — Heading fixes
 
-**One fix applied** (the brief authorises it as an obvious typo):
+**Nothing to fix in the content. The headings were never wrong.**
 
-| Where | From | To |
+The brief listed three heading defects to be corrected or proposed:
+
+| Where | Rendered as | Recorded as |
 |---|---|---|
-| §7.3 | "Langua register and dialect" | "Language register and dialect" |
+| §7.3 | "Langua register and dialect" | a typo to fix |
+| §11.1.1 | "**Sta:** the nomination-window scorecard" | a truncation to propose |
+| §11.1.2 | "**Sta:** the general election scorecard" | a truncation to propose |
 
-**Proposed, not applied** — these need Firefly's wording, because the audit will not guess at
-content:
+Checked against `public/content/`. The markdown reads **"7.3 Language, register and dialect"**,
+**"11.1.1 Stage 1: the nomination-window scorecard"** and **"11.1.2 Stage 2: the general election
+scorecard"** — all three correct, and always were.
 
-| Where | Currently | Proposed |
-|---|---|---|
-| §11.1.1 | "**Sta:** the nomination-window scorecard" | "**Stage 1:** the nomination-window scorecard" |
-| §11.1.2 | "**Sta:** the general election scorecard" | "**Stage 2:** the general election scorecard" |
+All three were corrupted **on the way into `data/section-visuals.generated.json`** by one
+character in `scripts/build-section-visuals.mjs`:
 
-`components/MarkdownViewer.tsx` already renders these two blocks as "Stage 1 —" and "Stage 2 —"
-scorecards, so the component and the heading disagree in the reader's view. The truncation looks
-like a copy-paste casualty rather than an intention.
+```js
+.replace(/\s*\$?\\?ge\s*[\d,]+\$?/g, "")
+//              ^^ the backslash was optional
+```
+
+The line exists to strip LaTeX `\ge 55` left over from the source document's display math. With
+the backslash optional it also matched the letters **"ge" inside any ordinary word** whenever a
+comma or a number followed:
+
+```
+"Language, register and dialect"        ->  "Langua register and dialect"
+"Stage 1: the nomination-window..."     ->  "Sta: the nomination-window..."
+```
+
+and was waiting for more — `"Percentage 40"` → `"Percenta"`, `"Coverage 78.8%"` → `"Covera.8%"`,
+`"Large 12 wards"` → `"Lar wards"`.
+
+**Applied: the backslash is now required.** Regenerating the file restores all three titles, and
+no content was touched. There is nothing here for Firefly to approve, and nothing to fix by hand —
+which is the useful part, because hand-editing the headings would have left the generator free to
+corrupt the next one.
+
+(No `\ge` notation currently survives anywhere in `public/content/` — `scripts/notation-rewrites.json`
+converted the display math during the restructure — so the guard is now inert as well as correct.)
 
 **Stale numbering inside §3.6** — the subsections are numbered as though they still sat in §3.1:
 

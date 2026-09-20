@@ -21,10 +21,24 @@ interface CountUpProps {
  *
  * The honesty rules this file exists to enforce:
  *
- *   - The accessible name is the FINAL value from the first frame. A screen reader must never be
- *     handed 43,912 when the figure is 532,758.
- *   - Under reduced motion the count does not happen at all — the number renders final. Rule 3:
- *     never animate to the truth.
+ *   - THE SERVER RENDERS THE FINAL VALUE. This is the rule the component used to break. State was
+ *     seeded with `useState(0)`, so the server HTML — and therefore a reader with JavaScript
+ *     blocked, a slow phone before hydration, a printed page and reader mode — carried
+ *     `KSh0.00bn`, `0.0%` and `≈0k`. Measured on the built site before this change: all three
+ *     were literally in the response body. A figure that reads zero is not a loading state to a
+ *     monitoring-and-evaluation specialist; it is a wrong measurement. The count now starts from
+ *     the real figure and only drops to zero at the moment it is about to animate, on the client,
+ *     inside a reduced-motion check.
+ *   - THE ACCESSIBLE NAME IS ALWAYS THE FIGURE. A screen reader must never be handed 43,912
+ *     when the figure is 532,758, and at rest the one node below reads exactly the published
+ *     value.
+ *   - ONE TEXT NODE. There is no visually hidden second copy. `aria-hidden` removes a node from
+ *     the accessibility tree and from nothing else, so the old sr-only sibling was still picked
+ *     up by copy-paste, find-in-page, reader mode and `textContent` — which is how the /full DOM
+ *     came to carry 124,284 words against 63,433 in the source. The single node is exact at rest
+ *     and only differs from the final value during the count itself.
+ *   - Under reduced motion the count does not happen at all — the number renders final and never
+ *     moves. Rule 3: never animate to the truth.
  *   - The last frame is set from `value`, not from the eased interpolation, so floating-point
  *     drift can never leave the display one unit short of the real figure.
  */
@@ -39,12 +53,12 @@ export function CountUp({
 }: CountUpProps) {
   const [ref, inView] = useInView<HTMLSpanElement>({ once: !repeat, amount: 0.5 });
   const reduce = useReducedMotion();
-  const [counted, setCounted] = useState(0);
+  // Seeded with the truth. `null` means "nothing has animated", and the figure renders final —
+  // which is the state the server, a no-JS reader and reduced motion all stay in permanently.
+  const [counted, setCounted] = useState<number | null>(null);
   const raf = useRef(0);
 
-  // Rule 3, in one line: under reduced motion the figure is the value, not a point on the way to
-  // it. Deriving rather than setting state also keeps the effect free of a synchronous setState.
-  const shown = reduce ? value : counted;
+  const shown = counted ?? value;
 
   useEffect(() => {
     if (!inView || reduce) return;
@@ -64,19 +78,22 @@ export function CountUp({
     return () => cancelAnimationFrame(raf.current);
   }, [inView, value, duration, reduce]);
 
-  const formatted = `${prefix}${shown.toLocaleString(undefined, {
-    minimumFractionDigits: decimals,
-    maximumFractionDigits: decimals,
-  })}${suffix}`;
-  const final = `${prefix}${value.toLocaleString(undefined, {
-    minimumFractionDigits: decimals,
-    maximumFractionDigits: decimals,
-  })}${suffix}`;
+  const format = (n: number) =>
+    `${prefix}${n.toLocaleString(undefined, {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    })}${suffix}`;
 
   return (
-    <span ref={ref} className={`tabular-nums ${className}`}>
-      <span className="sr-only">{final}</span>
-      <span aria-hidden="true">{formatted}</span>
+    // The width of the FINAL string is reserved in `ch`, so a figure counting up cannot nudge the
+    // line it sits on — the same CLS guarantee the old hidden sizer node bought, without putting
+    // a second copy of the number into the document's text.
+    <span
+      ref={ref}
+      className={`tabular-nums inline-block text-left ${className}`}
+      style={{ minWidth: `${format(value).length}ch` }}
+    >
+      {format(shown)}
     </span>
   );
 }

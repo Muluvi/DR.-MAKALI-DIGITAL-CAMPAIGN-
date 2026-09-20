@@ -3,13 +3,19 @@
 import { useMemo, useState } from "react";
 
 import { AnimatedNumber } from "../visual/AnimatedNumber";
-import { Disclose, KindGlyph, VizFrame, fmt, share } from "./primitives";
-import { KIND_CAPTION, type PartVisualSpec } from "../../lib/part-visuals";
+import { Disclose, VizFrame, fmt, share } from "./primitives";
+import { KIND_CAPTION } from "../../lib/part-visuals";
 
 /*
- * Nineteen figures, one per relationship the document expresses.
+ * Fourteen figures, one per relationship the document expresses.
  *
- * Every one of them is SVG and CSS. Nothing here imports a charting runtime, because 272 of these
+ * It was nineteen. Five of them — StatementPanel, ChapterMap, HubDiagram, QuoteMark and ShapeMap —
+ * drew no relationship at all: they re-typeset the heading, listed the subsections below it,
+ * redrew its own bullets as a wheel, quoted a truncated fragment of the prose beneath it, or drew
+ * an abstract diagram from an empty node array. They existed to satisfy "a figure under every
+ * heading", and they have gone with it. A heading with nothing to measure now carries nothing.
+ *
+ * Every one of them is SVG and CSS. Nothing here imports a charting runtime, because these
  * render down one continuous page and a chart library mounted 272 times is the whole performance
  * budget spent on decoration. The interaction in each is the one the handbook asks for — a tap
  * that reveals the value, a row that opens onto its own sentence — and never an animation that
@@ -51,6 +57,9 @@ export function StatRail({ data }: { data: D }) {
 
 /* -------------------------------------------------------------------- bars */
 
+
+/* -------------------------------------------------------------------- bars */
+
 export function BarRank({ data }: { data: D }) {
   const items = arr<Fig>(data.items).filter((i) => Number.isFinite(i.value));
   const [focus, setFocus] = useState<number | null>(null);
@@ -81,6 +90,19 @@ export function BarRank({ data }: { data: D }) {
     </VizFrame>
   );
 }
+
+/* ------------------------------------------------------------------- gauge */
+
+/**
+ * One figure.
+ *
+ * A PERCENTAGE GETS AN ARC, because a percentage has a ceiling and the arc shows how much of it
+ * is used. A COUNT DOES NOT. There is no honest arc for "3 hours" or "400 captains" — any arc
+ * drawn under them encodes a maximum the document never states, which is the handbook's rule
+ * about not drawing estimates as measurements, one level down. A count gets the big-number
+ * treatment instead: the value, what it measures, and nothing pretending to be a scale.
+ */
+
 
 /* ------------------------------------------------------------------- gauge */
 
@@ -139,6 +161,9 @@ export function GaugeArc({ data }: { data: D }) {
 
 /* ------------------------------------------------------------------- donut */
 
+
+/* ------------------------------------------------------------------- donut */
+
 export function DonutSplit({ data }: { data: D }) {
   const value = Math.min(100, Math.max(0, num(data.value)));
   const label = str(data.label, "Share");
@@ -167,6 +192,9 @@ export function DonutSplit({ data }: { data: D }) {
     </VizFrame>
   );
 }
+
+/* ------------------------------------------------------------------ waffle */
+
 
 /* ------------------------------------------------------------------ waffle */
 
@@ -202,6 +230,9 @@ export function Waffle({ data }: { data: D }) {
 
 /* --------------------------------------------------------------- waterfall */
 
+
+/* --------------------------------------------------------------- waterfall */
+
 export function Waterfall({ data }: { data: D }) {
   const steps = arr<Fig>(data.steps).slice(0, 5);
   if (steps.length < 2) return null;
@@ -225,6 +256,9 @@ export function Waterfall({ data }: { data: D }) {
     </VizFrame>
   );
 }
+
+/* ------------------------------------------------------------ bullet chart */
+
 
 /* ------------------------------------------------------------ bullet chart */
 
@@ -269,6 +303,9 @@ export function BulletTarget({ data }: { data: D }) {
 
 /* ----------------------------------------------------------------- stepper */
 
+
+/* ----------------------------------------------------------------- stepper */
+
 export function Stepper({ data }: { data: D }) {
   const steps = arr<{ n: number; label: string; body: string }>(data.steps).slice(0, 8);
   if (!steps.length) return null;
@@ -290,6 +327,9 @@ export function Stepper({ data }: { data: D }) {
     </VizFrame>
   );
 }
+
+/* ---------------------------------------------------------------- timeline */
+
 
 /* ---------------------------------------------------------------- timeline */
 
@@ -315,6 +355,9 @@ export function TimelineRail({ data }: { data: D }) {
 
 /* ---------------------------------------------------------------- playbook */
 
+
+/* ---------------------------------------------------------------- playbook */
+
 export function Playbook({ data }: { data: D }) {
   const pairs = arr<{ when: string; then: string }>(data.pairs).slice(0, 8);
   const heads = arr<string>(data.heads);
@@ -336,6 +379,9 @@ export function Playbook({ data }: { data: D }) {
     </VizFrame>
   );
 }
+
+/* ------------------------------------------------------------------ matrix */
+
 
 /* ------------------------------------------------------------------ matrix */
 
@@ -390,6 +436,21 @@ const level = (s: string) => {
  * and still less than the 0.12 gap between "high" and "severe", so a risk can never be nudged
  * into a quadrant it does not belong to.
  */
+
+
+/**
+ * Nudge markers that landed on the same square apart.
+ *
+ * A risk register scores on three words — low, medium, high — so a six-risk register routinely
+ * puts two or three risks on one point. Plotted faithfully, the ones underneath are invisible:
+ * the §13.0 register drew R2 over R1 and R5 over R3, so a reader counted four risks in a figure
+ * captioned "six". Co-located markers are spread around a ring, in a fixed order, so the
+ * arrangement is identical on every render and no marker is ever hidden.
+ *
+ * The radius is 0.11 of the field — wide enough to clear a marker at the plot's mobile height,
+ * and still less than the 0.12 gap between "high" and "severe", so a risk can never be nudged
+ * into a quadrant it does not belong to.
+ */
 function spread(points: { x: number; y: number }[]): { x: number; y: number }[] {
   const groups = new Map<string, number[]>();
   points.forEach((p, i) => {
@@ -413,6 +474,7 @@ function spread(points: { x: number; y: number }[]): { x: number; y: number }[] 
   // spread point from running past the ends.
   return out.map((p) => ({ x: Math.min(1, Math.max(0, p.x)), y: Math.min(1, Math.max(0, p.y)) }));
 }
+
 
 export function Quadrant({ data }: { data: D }) {
   const items = arr<{ id: string; label: string; likelihood: string; impact: string; owner: string }>(data.items);
@@ -466,26 +528,6 @@ export function Quadrant({ data }: { data: D }) {
 
 /* --------------------------------------------------------------------- hub */
 
-export function HubDiagram({ data }: { data: D }) {
-  const spokes = arr<{ label: string; body: string }>(data.spokes).slice(0, 7);
-  const [sel, setSel] = useState(0);
-  if (!spokes.length) return null;
-  const n = spokes.length;
-  return (
-    <VizFrame caption={KIND_CAPTION.hub} note="Tap a node to read it.">
-      <div className="pv-hub">
-        <div className="pv-hub__nodes" style={{ "--pv-n": n } as React.CSSProperties}>
-          {spokes.map((s, i) => (
-            <button key={i} type="button" className="pv-hub__node" data-sel={sel === i} onClick={() => setSel(i)}>
-              {s.label}
-            </button>
-          ))}
-        </div>
-        <p className="pv-hub__read">{spokes[sel]?.body || spokes[sel]?.label}</p>
-      </div>
-    </VizFrame>
-  );
-}
 
 /* --------------------------------------------------------------- checklist */
 
@@ -510,46 +552,6 @@ export function ChecklistGrid({ data }: { data: D }) {
 
 /* ----------------------------------------------------------------- chapter */
 
-export function ChapterMap({ data, spec }: { data: D; spec: PartVisualSpec }) {
-  const parts = arr<{ id: string; number: string; title: string; kind: string }>(data.parts);
-  if (!parts.length) return null;
-  const jump = (id: string) => {
-    if (typeof window !== "undefined" && window.__navigateToSection) window.__navigateToSection(id);
-  };
-  return (
-    <VizFrame caption={`${parts.length} parts in §${spec.number}`} note={str(data.lead) || undefined} wide>
-      <ul className="pv-chap">
-        {parts.map((p, i) => (
-          <li key={p.id} style={{ "--pv-d": `${i * 45}ms` } as React.CSSProperties}>
-            <button type="button" className="pv-chap__row" onClick={() => jump(p.id)}>
-              <span className="pv-chap__n">{p.number}</span>
-              <span className="pv-chap__title">{p.title}</span>
-              <span className="pv-chap__kind">
-                <KindGlyph kind={p.kind} />
-                <span>{KIND_CAPTION[p.kind as keyof typeof KIND_CAPTION] ?? ""}</span>
-              </span>
-            </button>
-          </li>
-        ))}
-      </ul>
-    </VizFrame>
-  );
-}
-
-/* ------------------------------------------------------------------- quote */
-
-export function QuoteMark({ data }: { data: D }) {
-  const quote = str(data.quote);
-  if (!quote) return null;
-  return (
-    <VizFrame caption={KIND_CAPTION.quote} note={str(data.support) || undefined}>
-      <blockquote className="pv-quote">
-        <span className="pv-quote__mark" aria-hidden="true">&ldquo;</span>
-        <p>{quote}</p>
-      </blockquote>
-    </VizFrame>
-  );
-}
 
 /* ---------------------------------------------------------------- contrast */
 
@@ -571,39 +573,4 @@ export function ContrastBar({ data }: { data: D }) {
 
 /* --------------------------------------------------------------- statement */
 
-export function StatementPanel({ data, spec }: { data: D; spec: PartVisualSpec }) {
-  const statement = str(data.statement) || spec.title;
-  return (
-    <VizFrame caption={KIND_CAPTION.statement} note={str(data.support) || undefined}>
-      <p className="pv-statement">
-        <span className="pv-statement__rule" aria-hidden="true" />
-        {statement}
-      </p>
-    </VizFrame>
-  );
-}
 
-/* ------------------------------------------------------------------- shape */
-
-export function ShapeMap({ data, spec }: { data: D; spec: PartVisualSpec }) {
-  const nodes = arr<string>(data.nodes).filter(Boolean);
-  const lead = str(data.lead) || spec.title;
-  const words = num(data.words);
-  return (
-    <VizFrame caption={KIND_CAPTION.shape} note={words ? `${words.toLocaleString("en-KE")} words in this part.` : undefined}>
-      <div className="pv-shape">
-        <p className="pv-shape__lead">{lead}</p>
-        {nodes.length > 0 && (
-          <ul className="pv-shape__nodes">
-            {nodes.map((n, i) => (
-              <li key={i} style={{ "--pv-d": `${i * 60}ms` } as React.CSSProperties}>
-                <span className="pv-shape__dot" aria-hidden="true" />
-                {n}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-    </VizFrame>
-  );
-}

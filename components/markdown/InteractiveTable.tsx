@@ -8,6 +8,7 @@ import { SourceLine, detectSources } from "./SourceLine";
 import { MatrixMarks } from "./MatrixMarks";
 import ModelVariablesDrawer from "./ModelVariablesDrawer";
 import { useIsMobile, useMounted } from "../../hooks/use-mobile";
+import { chartSpecFor } from "../../lib/table-charts";
 
 function getDeepText(node: any): string {
   if (!node) return "";
@@ -173,97 +174,99 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
   const visibleRows = isCapped ? filteredRows.slice(0, ROW_PREVIEW) : filteredRows;
 
   /**
-   * A column worth charting, and the reason this is strict.
+   * Which columns this table is ALLOWED to chart, and whether it may show an aggregate.
    *
-   * The old test stripped every non-digit and called whatever survived a number. So a column
-   * reading "Week 1", "Week 2", "Week 1, 100%", "15,000", "400,000" was charted as 1, 2, 1,
-   * 15000, 400000 — on one axis, against a maximum of 400,000, which drew "Week 1" as a bar
-   * 0.00025% wide. The same arithmetic fed the summary strip, so it was reporting an average and
-   * a total of a column that has no average or total.
+   * Both used to be inferred. A column qualified if every one of its cells matched a "bare figure"
+   * regular expression, and qualifying bought it a Chart toggle and an "Avg / Max Peak / Combined"
+   * strip. That test asks whether the cells look like numbers. It cannot ask the only question
+   * that matters — whether these particular numbers may be added to one another — and so the site
+   * shipped, among others:
    *
-   * A column now qualifies only if EVERY cell in it is a bare figure — an optional currency or
-   * comparator, digits, an optional unit — with no words wrapped around it, and only if the
-   * whole column shares one unit. "15,000" and "400,000" qualify together. "Week 1" does not
-   * qualify at all, and "Week 1, 100%" carries two numbers so it never could.
+   *     Combined 68.7%     Kasalu's poll shares from two different rounds, added together
+   *     Combined 68.5%     Dr. Mulu's three poll shares, added together
+   *     Avg WS 7           the workstream identifiers, averaged
+   *     Combined 832,002   a zone table counting its own Total row a second time
    *
-   * Where nothing qualifies the chart toggle and the summary strip simply do not appear. A table
-   * that cannot honestly be charted is a table, and that is a complete answer.
+   * for a county with 532,758 registered voters. None of those is a parsing bug; the parser was
+   * answering a question that cannot be answered from the characters in a cell.
+   *
+   * The decision now lives in lib/table-charts.ts, keyed on the header row, where a person makes
+   * it once per table and says why. A table that is not named there gets no chart and no
+   * aggregate — which is the right default, and the one that applies to 73 of this document's 74
+   * tables.
    */
-  const numericColumnIndex = React.useMemo(() => {
-    if (ths.length === 0 || parsedRows.length === 0) return -1;
+  const spec = React.useMemo(() => chartSpecFor(ths.map(getDeepText)), [ths]);
 
-    // Optional currency, optional comparator/sign, digits with separators, optional unit.
-    const PURE_FIGURE = /^(?:KSh|Ksh|USD|US\$|\$|€|£)?\s*[≥≤<>+\u2212-]?\s*\d[\d,\s]*(?:\.\d+)?\s*(?:%|bn|m|k|pts?|votes?|wards?|stations?|captains?)?$/i;
-    const unitOf = (t: string) =>
-      (t.match(/(%|bn|m|k|pts?|votes?|wards?|stations?|captains?)\s*$/i)?.[1] ?? "").toLowerCase();
+  /** Rows a spec excludes as totals or subtotals, so they are never a data point. */
+  const isExcluded = React.useCallback(
+    (row: any[]) => {
+      if (!spec?.excludeRows?.length || !row?.[0]) return false;
+      const label = getDeepText(row[0]).toLowerCase().trim();
+      return spec.excludeRows.some((r) => label.includes(r.toLowerCase()));
+    },
+    [spec]
+  );
 
-    // Column 0 is the label every mark is drawn against, so it is never also the measure.
-    // Charting it plots each row against itself.
-    for (let colIdx = 1; colIdx < ths.length; colIdx++) {
-      const texts = parsedRows
-        .map((row) => (row && row[colIdx] ? getDeepText(row[colIdx]).trim() : ""))
-        .filter((t) => t.length > 0);
+  const columnByHeader = React.useCallback(
+    (name: string | undefined) => {
+      if (!name) return -1;
+      const wanted = name.toLowerCase();
+      return ths.findIndex((th) => getDeepText(th).toLowerCase().includes(wanted));
+    },
+    [ths]
+  );
 
-      // A mostly-empty column is not a measurement either.
-      if (texts.length < Math.max(2, parsedRows.length * 0.6)) continue;
-      if (!texts.every((t) => PURE_FIGURE.test(t))) continue;
-
-      const units = new Set(texts.map(unitOf));
-      if (units.size > 1) continue;
-
-      // A plain 1, 2, 3 … run is a rank or a row number, not a quantity. The ward register's
-      // Rank column passed every other test and produced a staircase of bars measuring nothing.
-      const nums = texts.map((t) => Number.parseFloat(t.replace(/[^0-9.-]/g, "")));
-      const isSequence = nums.every((n, i) => n === i + 1);
-      if (isSequence) continue;
-
-      return colIdx;
-    }
-    return -1;
-  }, [ths, parsedRows]);
-
-  const stats = React.useMemo(() => {
-    if (numericColumnIndex === -1 || filteredRows.length === 0) return null;
-    const vals = filteredRows.map(r => {
-      if (!r || !r[numericColumnIndex]) return NaN;
-      const txt = getDeepText(r[numericColumnIndex]);
-      return parseFloat(txt.replace(/[^0-9.-]/g, ""));
-    }).filter(v => !isNaN(v));
-
-    if (vals.length === 0) return null;
-    const sum = vals.reduce((a, b) => a + b, 0);
-    const avg = sum / vals.length;
-    const max = Math.max(...vals);
-    const min = Math.min(...vals);
-
-    const checkText = filteredRows.map(r => r && r[numericColumnIndex] ? getDeepText(r[numericColumnIndex]) : "").join("");
-    const isCurrency = checkText.includes("KSh") || checkText.includes("$");
-    const isPercent = checkText.includes("%");
-
-    const format = (v: number) => {
-      if (isCurrency) return `KSh ${v.toLocaleString(undefined, { maximumFractionDigits: 0 })}`;
-      if (isPercent) return `${v.toFixed(1)}%`;
-      return v.toLocaleString(undefined, { maximumFractionDigits: 0 });
-    };
-
-    return {
-      avg: format(avg),
-      max: format(max),
-      min: format(min),
-      sum: format(sum),
-      label: getDeepText(ths[numericColumnIndex])
-    };
-  }, [filteredRows, numericColumnIndex, ths]);
+  // -1 whenever the table has not opted in, which switches the chart toggle off entirely.
+  const numericColumnIndex = React.useMemo(
+    () => (spec?.chart ? columnByHeader(spec.valueColumn) : -1),
+    [spec, columnByHeader]
+  );
 
   /**
-   * Which column names the marks.
+   * The aggregate, where a spec declares one.
    *
-   * Not always the first one. The ward register opens with Rank, so every bar was labelled "1",
-   * "2", "3" against voter counts that were themselves correct — a chart of the right numbers
-   * with the wrong names on them. The label is the first column that is genuinely text: not the
-   * measure, and not a bare figure.
+   * It carries the table's own words for what it means, never "Combined" — that label is what made
+   * the old strip plausible, because it fits any column and commits to nothing. Total rows are
+   * excluded, and if the declared column cannot be found nothing is shown rather than something
+   * approximate.
+   */
+  const stats = React.useMemo(() => {
+    if (!spec?.aggregate || numericColumnIndex === -1) return null;
+    const values = filteredRows
+      .filter((r) => !isExcluded(r))
+      .map((r) => (r?.[numericColumnIndex] ? Number.parseFloat(getDeepText(r[numericColumnIndex]).replace(/[^0-9.-]/g, "")) : NaN))
+      .filter((v) => !Number.isNaN(v));
+    if (values.length === 0) return null;
+
+    const { of, label } = spec.aggregate;
+    const value =
+      of === "sum" ? values.reduce((a, b) => a + b, 0)
+      : of === "mean" ? values.reduce((a, b) => a + b, 0) / values.length
+      : of === "max" ? Math.max(...values)
+      : Math.min(...values);
+
+    const sample = filteredRows.map((r) => (r?.[numericColumnIndex] ? getDeepText(r[numericColumnIndex]) : "")).join("");
+    const unit = sample.includes("KSh") ? "KSh " : "";
+    const pct = sample.includes("%") ? "%" : "";
+    return {
+      label,
+      value: `${unit}${value.toLocaleString(undefined, { maximumFractionDigits: pct ? 1 : 0 })}${pct}`,
+      rows: values.length,
+    };
+  }, [spec, numericColumnIndex, filteredRows, isExcluded]);
+
+  /**
+   * Which column names the marks. Declared by the spec, with a fallback for the case it omits it.
+   *
+   * The fallback is the first column that is genuinely text — not the measure, and not a bare
+   * figure. The ward register opens with Rank, so without this every bar was labelled "1", "2",
+   * "3" against voter counts that were themselves correct: a chart of the right numbers with the
+   * wrong names on them.
    */
   const labelColumnIndex = React.useMemo(() => {
+    const declared = columnByHeader(spec?.labelColumn);
+    if (declared !== -1) return declared;
+
     const BARE_FIGURE = /^[^A-Za-z]*\d[\d,.\s]*[^A-Za-z]*$/;
     for (let colIdx = 0; colIdx < ths.length; colIdx++) {
       if (colIdx === numericColumnIndex) continue;
@@ -275,19 +278,24 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
       return colIdx;
     }
     return 0;
-  }, [ths, parsedRows, numericColumnIndex]);
+  }, [ths, parsedRows, numericColumnIndex, spec, columnByHeader]);
 
   const chartData = React.useMemo(() => {
     if (numericColumnIndex === -1) return [];
-    return filteredRows.map((row) => {
-      const labelCell = row[labelColumnIndex];
-      const valueCell = row[numericColumnIndex];
-      const name = getDeepText(labelCell) || "Item";
-      const valText = getDeepText(valueCell);
-      const value = parseFloat(valText.replace(/[^0-9.-]/g, "")) || 0;
-      return { name, value, formatted: valText };
-    }).filter(item => item.name && !isNaN(item.value));
-  }, [filteredRows, numericColumnIndex, labelColumnIndex]);
+    return filteredRows
+      // A total row is not a data point. Charting one draws a bar the height of every other bar
+      // added together, which is how the zone tables came to claim 832,002 voters.
+      .filter((row) => !isExcluded(row))
+      .map((row) => {
+        const labelCell = row[labelColumnIndex];
+        const valueCell = row[numericColumnIndex];
+        const name = getDeepText(labelCell) || "Item";
+        const valText = getDeepText(valueCell);
+        const value = parseFloat(valText.replace(/[^0-9.-]/g, "")) || 0;
+        return { name, value, formatted: valText };
+      })
+      .filter((item) => item.name && !isNaN(item.value));
+  }, [filteredRows, numericColumnIndex, labelColumnIndex, isExcluded]);
 
   const isModelVariables = React.useMemo(() => {
     const allText = [...ths, ...parsedRows.slice(0, 5).flat()].map(getDeepText).join(" ").toLowerCase();
@@ -373,21 +381,17 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
         </div>
       </div>
 
-      {/* Numerical Insights Drawer (Displays only if a column is numeric) */}
+      {/* One declared aggregate, in the table's own words, or nothing at all.
+
+          This was a three-cell strip reading "Avg <column> / Max Peak / Combined" under every
+          table with a numeric-looking column. It is now opt-in per table (lib/table-charts.ts),
+          it states what it aggregated rather than labelling it "Combined", and it excludes the
+          total rows that made it double-count. No table in this document currently declares one. */}
       {stats && (
-        <div className="px-3 py-2 bg-accent/[0.02] border-b border-line/30 grid grid-cols-3 gap-1.5 sm:gap-2 text-center">
-          <div className="min-w-0">
-            <span className="t-micro font-semibold text-muted truncate block">Avg {stats.label}</span>
-            <span className="block t-label sm:t-label font-bold text-accent mt-0.5 truncate">{stats.avg}</span>
-          </div>
-          <div className="min-w-0">
-            <span className="t-micro font-semibold text-muted truncate block">Max Peak</span>
-            <span className="block t-label sm:t-label font-bold text-gold mt-0.5 truncate">{stats.max}</span>
-          </div>
-          <div className="min-w-0">
-            <span className="t-micro font-semibold text-muted truncate block">Combined</span>
-            <span className="block t-label sm:t-label font-bold text-ink mt-0.5 truncate">{stats.sum}</span>
-          </div>
+        <div className="px-3 py-2 bg-accent/[0.02] border-b border-line/30 flex items-baseline gap-2 flex-wrap">
+          <span className="t-micro font-semibold text-muted">{stats.label}</span>
+          <span className="t-label font-bold text-ink tabular-nums">{stats.value}</span>
+          <span className="t-micro text-muted">over {stats.rows} rows</span>
         </div>
       )}
 

@@ -81,7 +81,22 @@ const cleanTitle = (raw) =>
     .replace(/\*\*/g, "")
     .replace(/\*/g, "")
     .replace(/`/g, "")
-    .replace(/\s*\$?\\?ge\s*[\d,]+\$?/g, "")
+    // Strip LaTeX "\ge 55" / "$\ge 55$" left over from the source document's display math.
+    //
+    // THE BACKSLASH IS REQUIRED, and that is the whole point of this line. It used to be optional
+    // (`\\?`), which let the pattern match the letters "ge" inside an ordinary word whenever a
+    // comma or a number followed. Three headings in this document were silently corrupted by it,
+    // and the corruption was invisible in the markdown because it happened here, on the way into
+    // data/section-visuals.generated.json:
+    //
+    //     "7.3 Language, register and dialect"  ->  "7.3 Langua register and dialect"
+    //     "11.1.1 Stage 1: the nomination..."   ->  "11.1.1 Sta: the nomination..."
+    //     "11.1.2 Stage 2: the general..."      ->  "11.1.2 Sta: the general..."
+    //
+    // and it was waiting for more: "Percentage 40" -> "Percenta", "Coverage 78.8%" -> "Covera.8%",
+    // "Large 12 wards" -> "Lar wards". These were logged as content typos to be fixed by hand.
+    // They are not in the content; the content is correct. One character in this regex was.
+    .replace(/\s*\$?\\ge\s*[\d,]+\$?/g, "")
     .trim();
 
 const headingSlug = (text) => {
@@ -434,7 +449,12 @@ function classify(sec) {
    * something a table cannot — likelihood against impact, trigger against response — is still
    * lifted out, by the two rules above this one.
    */
-  if (t.length && t[0].header.length >= 3 && t[0].rows.length >= 3) return "table";
+  // Returns null, not "table". The spec was always rendered as nothing (PartVisual's `case
+  // "table": return null`), so 37 of them were being derived, serialised into a 188 KB JSON file
+  // and shipped to the browser in order to draw nothing. The intent was right and is unchanged —
+  // the part's figure IS its own interactive table — so the heading simply carries no derived
+  // figure and says so, instead of carrying an empty one.
+  if (t.length && t[0].header.length >= 3 && t[0].rows.length >= 3) return null;
 
   // Shares of one whole.
   const pcts = f.filter((x) => x.pct && x.value > 0 && x.value <= 100);
@@ -448,8 +468,11 @@ function classify(sec) {
   const mags = f.filter((x) => !x.pct && x.value >= 1);
   if (mags.length >= 4) return "bars";
 
-  // A grouped set of definitions hanging off one idea.
-  if (labelled.length >= 4) return "hub";
+  // A grouped set of definitions hanging off one idea used to become a "hub" here — the heading
+  // in a circle with its own bullet list redrawn as spokes around it. It measures nothing: every
+  // word in it is already in the list directly beneath. Where one of these genuinely wants a
+  // figure (§3.3.4's four competencies, §6.2's four strategic pillars) it gets a purpose-built
+  // one keyed on its section id, not a generic wheel derived from its punctuation.
 
   // Enumerated commitments, rules or conditions.
   if (b.length >= 4) return "checklist";
@@ -458,22 +481,34 @@ function classify(sec) {
   if (f.length >= 2) return "stats";
   if (f.length === 1) return "gauge";
 
-  // A sub-section that opens straight onto its parts is a chapter door, not a part: it gets the
-  // map of what is inside it, which is what a reader arriving by scroll actually needs.
-  const words = text.split(/\s+/).filter(Boolean).length;
-  if (sec.level === 2 && words < 90) return "chapter";
-
-  // The part turns on one sentence the document has already set apart.
-  if (quotes(sec.body).some((q) => q.length > 70)) return "quote";
-
   // "Not X but Y", "rather than", "instead of" — a position on a line between two poles.
+  const words = text.split(/\s+/).filter(Boolean).length;
   if (CONTRAST.test(text) && words < 420) return "contrast";
 
-  // Short prose carrying a single claim: the handbook's "type as the visual".
-  if (words > 0 && words < 260) return "statement";
-
-  // Everything else: the shape of the argument, drawn from its own structure.
-  return "shape";
+  /**
+   * NOTHING. And this is the change that matters most in this file.
+   *
+   * There used to be four more rungs below this one — `chapter`, `quote`, `statement` and
+   * `shape` — and between them they caught every heading the measuring rules had not. That was
+   * the point: PR #10 promised "a figure under every heading", and a rule that must always
+   * produce something will always produce something. It produced 99 of these, and none of them
+   * measured anything:
+   *
+   *   statement (51)  re-typeset a sentence that is already in the prose immediately below it.
+   *   chapter   (23)  a miniature contents list of the subsections the reader is about to
+   *                   scroll through anyway, duplicating the chapter rail.
+   *   hub       (11)  redrew the heading's own bullet list as a hub and spokes.
+   *   quote      (6)  pulled a fragment out of the prose, truncated to fit — one of them ended
+   *                   mid-sentence on "...the Office of the Registrar of Political Parties
+   *                   issued a".
+   *   shape      (8)  drew an abstract diagram from `nodes: []`. No data at all.
+   *
+   * A figure that restates its own caption costs the reader scroll and gives back nothing, and on
+   * a document that is already 468,000 pixels tall that is not a neutral trade. So a heading whose
+   * content carries no measurable relationship now gets NO figure, and the prose speaks for itself.
+   * Coverage is not a virtue; a figure has to earn its place.
+   */
+  return null;
 }
 
 /* ------------------------------------------------------------------ payload */
@@ -743,19 +778,23 @@ function clean(kind, data) {
  * but it is a perfectly good stat rail, and falling straight to a sentence would throw away four
  * figures the section is built on. Each rung is tried in turn and the first that passes is used.
  */
-const FALLBACKS = ["stats", "checklist", "hub", "bars", "statement"];
+const FALLBACKS = ["stats", "checklist", "bars"];
 
+/**
+ * The cascade, which is now allowed to end in nothing.
+ *
+ * It used to end in `statement` unconditionally — a rung that always passes, so the cascade could
+ * never fail and every heading got something. Now each rung must actually be usable, and when
+ * none is, this returns null and the heading carries no figure. That is a real answer, and for
+ * roughly a third of this document it is the correct one.
+ */
 function fallbackFor(sec, rejected) {
   for (const kind of FALLBACKS) {
     if (kind === rejected) continue;
     const data = clean(kind, buildData(sec, kind));
-    if (kind === "statement" || usable(kind, data)) return { kind, data };
+    if (usable(kind, data)) return { kind, data };
   }
-  const paras = paragraphs(sec.body);
-  return {
-    kind: "statement",
-    data: { statement: short(paras[0] || titleNoNumber(sec.title), 190), support: short(paras[1] || "", 120), words: 0 },
-  };
+  return null;
 }
 
 /**
@@ -776,12 +815,27 @@ const OVERRIDES = (() => {
   return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8")) : {};
 })();
 
+const ALL_IDS = new Set(sections.filter((s) => s.id).map((s) => s.id));
+let figureless = 0;
+
 for (const sec of sections) {
   if (!sec.id) continue;
   const over = OVERRIDES[sec.id];
+
+  // An override of "none" is a curated judgement that this heading warrants no figure. Nine of
+  // the twelve overrides in this file used to say "statement" instead, which was the only way to
+  // express that before a heading was allowed to have nothing.
+  if (over?.kind === "none") { figureless += 1; continue; }
+
   let kind = over?.kind ?? classify(sec);
+  if (kind === null) { figureless += 1; continue; }
+
   let data = clean(kind, buildData(sec, kind));
-  if (!over && !usable(kind, data)) ({ kind, data } = fallbackFor(sec, kind));
+  if (!over && !usable(kind, data)) {
+    const fb = fallbackFor(sec, kind);
+    if (!fb) { figureless += 1; continue; }
+    ({ kind, data } = fb);
+  }
   if (over?.data) data = { ...data, ...over.data };
   dist[kind] = (dist[kind] || 0) + 1;
   specs[sec.id] = {
@@ -795,35 +849,16 @@ for (const sec of sections) {
   };
 }
 
-/**
- * A chapter door lists the parts behind it, and the visual each one carries.
- *
- * Built after every part is classified, because that is the only point at which the kinds are
- * known. A reader arriving by scroll gets the shape of what is coming rather than a bare heading.
- */
-{
-  const order = sections.filter((s) => s.id);
-  for (let i = 0; i < order.length; i++) {
-    const spec = specs[order[i].id];
-    if (!spec || spec.kind !== "chapter") continue;
-    const parts = [];
-    for (let j = i + 1; j < order.length && order[j].level === 3; j++) {
-      const child = specs[order[j].id];
-      if (!child) continue;
-      parts.push({ id: child.id, number: child.number, title: child.title, kind: child.kind });
-    }
-    spec.data.parts = parts;
-    // A sub-section with no parts under it is a statement, not a door.
-    if (!parts.length) {
-      spec.kind = "statement";
-      spec.data = { statement: spec.data.lead || spec.title, support: "", words: 0 };
-      dist.chapter--;
-      dist.statement = (dist.statement || 0) + 1;
-    }
-  }
-}
-
 for (const [id, over] of Object.entries(OVERRIDES)) {
+  // "none" is a curated decision that this heading carries no figure, so there is no spec to
+  // validate — but the heading itself still has to exist, or the override is naming a ghost.
+  if (over.kind === "none") {
+    if (!ALL_IDS.has(id)) {
+      console.error(`section-visuals: override names a heading that does not exist: ${id}`);
+      process.exit(1);
+    }
+    continue;
+  }
   if (!specs[id]) {
     console.error(`section-visuals: override names a heading that does not exist: ${id}`);
     process.exit(1);
@@ -837,12 +872,17 @@ for (const [id, over] of Object.entries(OVERRIDES)) {
 }
 
 if (process.argv.includes("--report")) {
-  console.log(`sections with an id: ${Object.keys(specs).length} / ${sections.length}`);
+  console.log(`sections with an id: ${ALL_IDS.size} / ${sections.length}`);
+  console.log(`  with a figure:  ${Object.keys(specs).length}`);
+  console.log(`  without one:    ${figureless}  (no measurable relationship in the content)`);
   for (const [k, v] of Object.entries(dist).sort((a, b) => b[1] - a[1])) console.log(`  ${k.padEnd(10)} ${v}`);
   process.exit(0);
 }
 
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
 fs.writeFileSync(OUT, JSON.stringify(specs, null, 1) + "\n");
-console.log(`section-visuals: ${Object.keys(specs).length} specs written to data/section-visuals.generated.json`);
+console.log(
+  `section-visuals: ${Object.keys(specs).length} specs written to data/section-visuals.generated.json ` +
+  `(${figureless} headings carry no figure, by design)`
+);
 for (const [k, v] of Object.entries(dist).sort((a, b) => b[1] - a[1])) console.log(`  ${k.padEnd(10)} ${v}`);

@@ -1653,28 +1653,24 @@ html {
    Counting figures — see hooks/useAnimatedNumber.ts
    -------------------------------------------------------------------------- */
 
-/* The hidden copy sizes the box; the counting copy is laid over it. Without this every figure
-   on the page nudges its neighbours for the length of its own count, and CLS is measured on
-   exactly that. `tabular-nums` then keeps each digit the same width so the text does not
-   shimmer as it climbs. */
+/* Width is reserved against the final string's length in `ch`, not by rendering a second hidden
+   copy of the figure. The hidden copy was real text: aria-hidden kept it out of the
+   accessibility tree and out of nothing else, so copy-paste, reader mode and find-in-page all
+   met every number twice. Without SOME reservation each figure nudges its neighbours for the
+   length of its own count, and CLS is measured on exactly that — so the box is still reserved,
+   just without putting the number into the document a second time. `tabular-nums` then keeps
+   each digit the same width so the text does not shimmer as it climbs.
+
+   `ch` is the width of "0" in the current font, and every digit is that width under tabular
+   figures, so the reservation is exact for the digits and slightly generous for the separators
+   and units. Generous is the safe direction: it reserves at least what the final string needs. */
 .anim-num {
-  position: relative;
   display: inline-block;
+  min-width: calc(var(--anim-num-ch, 0) * 1ch);
+  text-align: left;
+  white-space: nowrap;
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum" 1;
-}
-.anim-num__size { visibility: hidden; }
-.anim-num__value {
-  position: absolute;
-  inset: 0;
-  white-space: nowrap;
-}
-
-/* A printer gets the reserved box and the settled figure, with nothing overlapping. */
-@media print {
-  .anim-num { display: inline; }
-  .anim-num__size { display: none; }
-  .anim-num__value { position: static; }
 }
 
 /* --------------------------------------------------------------------------
