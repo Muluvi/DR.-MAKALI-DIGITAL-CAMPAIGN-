@@ -366,7 +366,11 @@ test("§11.1.3's stage summaries agree with the scorecards they summarise (D-14)
   assert.match(kpis, /targetValue: 55\.0,/);
   assert.match(kpis, /targetValue: 70\.0,/);
   assert.match(kpis, /targetValue: 1578,/);
-  assert.match(kpis, /targetValue: 220_?000,|targetValue: 220000,/);
+  // Written without a numeric-separator alternation. An earlier draft matched both spellings of
+  // the literal, and the guard read the alternation's digits as a separate figure that
+  // figure-migrations.json records as retired — so the assertion silently un-retired it. A test
+  // that asserts one spelling of one number cannot do that.
+  assert.match(kpis, /targetValue: 220000,/);
 });
 
 test("no nomination baseline is drawn as a measured zero", () => {

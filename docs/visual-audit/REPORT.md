@@ -14,17 +14,18 @@ currently tells Dr. Mulu he wins.
 
 | | Before | After | |
 |---|---|---|---|
-| **LCP on `/`**, mid-range Android, slow 4G | 5,164 ms | **1,932 ms** | −63%, inside the 2,500 ms budget |
+| **LCP on `/`**, mid-range Android, slow 4G | 5,164 ms | **2,044 ms** | −60%, inside the 2,500 ms budget |
 | **CLS** | 0 | **0** | held |
-| **Page height** at 390 px | 467,728 px | **362,319 px** | −22.5% |
-| **Reading time offered** | 289 min, take it or leave it | **Brief 121 min · Full 288 min** | a choice, both measured |
-| **Words shown on a first read** | 63,337 (all of them) | **26,438 (41.7%)** | nothing deleted |
+| **Page height** at 390 px | 467,728 px | **325,938 px** | −30.3% |
+| **Reading time offered** | 289 min, take it or leave it | **Brief 109 min · Full 237 min** | a choice, both measured |
+| **Words shown on a first read** | 63,337 (all of them) | **~23,900 (Brief, 109 of 237 min)** | nothing deleted |
 | **First-load JS** | 458 kB | **453 kB** | ≤ baseline, as required |
 | **Figures under headings** | 272, of which 99 measured nothing | **152, all measuring something** | 102 headings now carry none |
 | **Wrong table aggregates** | "Combined 68.7%" and three more, shipped | **none** | opt-in, per table, by name |
 | **Figures reading zero with JS off** | `KSh0.00bn`, `0.0%`, `≈0k` | **none** | |
-| **Duplicated text nodes** | headline ×2, every counter ×3 | **removed at source** | |
+| **Duplicated text nodes** on `/full` | headline ×2, every counter ×3 | **131 words, all single labels** | measured, not assumed — see below |
 | **ASCII blocks** | 67 | **0** | all 67 retired, 11,433 words |
+| **Words in the `/full` DOM** | 71,291 | **79,048** | **up 10.9% — see §2.5** |
 | **`og:image`** | absent, with `summary_large_image` | **1200×630 typographic card** | |
 | Third-party requests | none | **none** | held |
 | Sideways scroll at 390 px | none | **none** | held |
@@ -44,7 +45,9 @@ Brief does not shorten the document — it shortens the **first read**. Every su
 lead paragraph, its callouts and its figures; the rest sits behind one control that says how many
 words are behind it.
 
-- **26,438 of 63,337 words — 41.7%. 121 minutes against 288.**
+- **109 minutes against 237**, both computed from the same segmentation. (At the time this
+  section was first written the figures were 121 and 288, over a document that still carried
+  11,433 words of box-drawing; retiring those blocks moved both.)
 - Both figures are computed **on the server from the segmentation the renderer actually uses**, so
   neither can drift from what the page does.
 - Nothing is deleted and nothing is summarised. The folded prose stays in the DOM, clipped by a
@@ -237,6 +240,43 @@ build when a heading has no figure, it fails when a retired kind comes back.
   sideways on a phone and clipped its own labels — are one server-rendered strip.
 - 14 components implementing denied effects were deleted outright, with their four files.
 
+### 2.5 One number went the wrong way, and it should have
+
+**The `/full` DOM carries 79,048 words, up from 71,291 at baseline — 10.9% more.** That is the
+honest result of retiring 67 ASCII blocks, and it is worth stating rather than leaving for someone
+to find.
+
+A box-drawing block is mostly not words. `│`, `├──` and a row of `═` cost pixels and cost a screen
+reader dearly, but they cost few words. What replaces them carries **more** text than they did,
+deliberately: each figure has a headline, a measure line naming what is being counted, a source and
+tier, a note explaining what the reader should take from it, and a "View the data" table holding
+every number. §8.12.1's schema went from an unreadable 19-row picture of a table to a real table
+with a caption; §3.6.2's six channels gained "Source needed" on three bars and a standing warning
+that they must not be summed. None of that existed in the fence.
+
+**So three other numbers are the ones to read against it:**
+
+- **Page height fell 30.3%**, 467,728 px to 325,938 px. The words are more numerous and take far
+  less room, because a table is not 90 characters wide on a 390 px screen.
+- **Reading time fell**: Brief 121 → **109 minutes**, Full 288 → **237 minutes**. Those are computed
+  on the server from the segmentation the renderer uses, over the markdown — which is genuinely
+  shorter by 11,433 words.
+- **Sideways scroll is still zero at 390 px**, on every route, which the retired blocks could not
+  manage.
+
+The trade is: fewer words in the document, more words on the page, and every added word doing
+something a box-drawing character could not — naming a source, flagging a conflict, or telling a
+screen reader what a column is.
+
+**And the duplication number is now measured rather than asserted.** The baseline said 2,836 words
+were "in the document twice"; the script counted every `.sr-only` word and called them all
+duplicates, which was wrong — a table caption or a "Stage 2:" ordinal is not a twin of anything,
+and removing it would make the page worse. The script now reports `hiddenWords` and
+`duplicatedWords` separately, the second checking each hidden string against the visible rendering.
+On the finished site `/full` at 390 px has **3,581 hidden words of which 131 are duplicates**, all
+single labels — "Kasalu", "Mulu", "Status" — where a chart's accessible name coincides with its
+visible one. `BASELINE.md` carries the correction.
+
 ---
 
 ## 3. The defects that were fixed first
@@ -286,7 +326,7 @@ One character fixed in the generator. **No content edited.**
 - **`og:image`** — a typographic card, no photograph (D-8), built by a committed script, so a
   link-only proposal shared on WhatsApp stops previewing as a broken large-image card.
 - **Reserved page heights** were measured before Brief mode existed, so the page claimed
-  467,728 px while rendering far less. Re-measured: −22.8%.
+  467,728 px while rendering far less. Re-measured after every retirement: **325,938 px, −30.3%**.
 
 ---
 
@@ -331,19 +371,18 @@ it names (C-4).
 
 Stated plainly, because a report that implies otherwise is worth less than no report.
 
-- **The ASCII blocks are done.** All 67 are retired, 11,433 words, every one declared. This item
-  used to be the largest thing outstanding and is now closed. Every remaining block is inventoried with a
-  named target component in `INVENTORY.md`, and the mechanism to retire them — the `figure` fence,
-  the registry, the retirement declaration with its facts checklist, the migration declaration for
-  any figure leaving the markdown — is built and proven on eleven. What each one still needs is its
-  own typed data module and figure.
+**The ASCII blocks are done — all 67 of them.** That was the largest item on this list through
+most of this pass, and it is closed. What remains:
+
 - **Duplicates are inventoried, not yet collapsed.** D-1 lists 11 blocks (718 words) plus the Tier 3
   poll statement in six places and the 86.4% statement in twelve chapters. `CrossRef` is specified;
-  it is not built. The 86.4% case cannot be collapsed until C-13 is answered anyway.
+  it is not built. The 86.4% case cannot be collapsed until C-13 is answered anyway. This is now the
+  largest thing outstanding.
 - **The desktop figure rail** (Phase 5 item 5) is not built. Figures stack on all widths.
 - **INP** was not measured directly; LCP, CLS and FCP were.
-- **Phases 4 P2/P3** — §4–§16 and the annexes — are mapped in the conversion map and the inventory,
-  and untouched in the markdown.
+- **Twenty-two conflicts are logged and none is resolved**, which is correct — hard rule 2 puts
+  reconciliation with Firefly — but it is not the same as the document being consistent. C-2, C-21
+  and C-22 have dates attached and should be read first.
 
 The inventory's remaining "437 words retired" is the **plan** for the last DEDUPE blocks, not
 box-drawing ones; every CONVERT block in it is done. The state is **11,433 words**, summarised in
@@ -409,7 +448,7 @@ no horizontal scroll.
 
 The clearest pair is `root-390`. Before: three counters mid-count at `KSh13.49bn` and `84.5%`,
 clipping sideways. After: the gap — 22.1% against 37.4%, **15.3 points behind** — drawn as one
-distance, above a Brief/Full control offering 121 minutes or 288.
+distance, above a Brief/Full control offering 109 minutes or 237.
 
 ---
 

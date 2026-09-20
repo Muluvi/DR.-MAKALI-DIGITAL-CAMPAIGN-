@@ -100,8 +100,8 @@ Counted from `public/content/*.md` (source), and from the rendered DOM.
 - **Words in source: 63,433** across 30 chapters. The hero's "289 minutes" is this figure.
 - Words in the `/full` DOM: **71,291** at 390 px — 1.12× the source. The overhead is figure labels,
   chapter chrome, table headers and the visually hidden duplicates in §6.2.
-- Of those, **2,836 words are in the document twice** — inside `.sr-only` or `aria-hidden` nodes.
-  That is the duplication §6.2 describes, measured.
+- Of those, **2,836 words sit inside `.sr-only` or `aria-hidden` nodes** — see the second
+  correction below, which narrows what that number means.
 - Words rendered visibly at first paint on `/`: **1,462** at 390 px, 1,586 at 1440 px. (Measured by
   `innerText`, which excludes subtrees skipped by `content-visibility: auto` — this is a measure of
   what the browser has laid out, not of a reading mode. There is no reading mode yet.)
@@ -113,6 +113,19 @@ Counted from `public/content/*.md` (source), and from the rendered DOM.
 > script tags, so roughly 53,000 "words" of serialised JSON were being counted as document text.
 > `scripts/measure-visual-baseline.mjs` now walks text nodes and skips `script`, `style`,
 > `template` and `noscript`. The duplication in §6.2 is real, and it is 2,836 words, not 60,000.
+
+> **Second correction, made at the end of the pass.** *2,836* is the count of words inside
+> `.sr-only` or `aria-hidden` nodes, and this file called all of them duplicates. They are not.
+> Most hidden text is not a twin of anything: a table's `<caption class="sr-only">` names the
+> table for a screen reader and appears nowhere visibly, and a `<span class="sr-only">Stage 2: </span>`
+> supplies an ordinal the eye takes from position. Removing either would make the page worse.
+> The defect §6.2 describes — the same string rendered twice, once for assistive technology and
+> once for the eye, both halves real to copy-paste and find-in-page — is a **subset** of that
+> figure, and the script did not measure it. It does now: `hiddenWords` and `duplicatedWords` are
+> reported separately, the second checking each hidden string against the visible rendering.
+> On the finished site, `/full` at 390 px carries **3,581 hidden words of which 131 are
+> duplicates** — single labels like "Kasalu", "Mulu" and "Status" where a chart's accessible name
+> coincides with its visible one. The AnimatedNumber and Odometer triples §6.2 names are gone.
 
 | Chapter | Words | | Chapter | Words |
 |---|---|---|---|---|
@@ -222,9 +235,10 @@ the intelligence behind what you already publish.
 `15.315.315.3`, `532,758532,758532,758` and `330,310330,310330,310` strings. `Odometer`,
 `Typewriter` and `Scramble` in the same folder share the pattern.
 
-Measured: **2,836 words** of the `/full` DOM are inside `.sr-only` or `aria-hidden` nodes — text
-that is in the document twice. (An earlier draft of this file put the figure far higher; see the
-correction in §4.)
+Measured: **2,836 words** of the `/full` DOM are inside `.sr-only` or `aria-hidden` nodes. Not all
+of that is duplication — see the second correction in §4, which is the honest version of this
+sentence — but the triples described above are, and they are the reason the strings
+`15.315.315.3` and `532,758532,758532,758` appear in a copy-paste of the page.
 
 ### 6.3 DataTable auto-stats are wrong
 

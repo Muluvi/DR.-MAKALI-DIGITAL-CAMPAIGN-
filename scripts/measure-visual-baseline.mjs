@@ -166,17 +166,38 @@ async function pageMetrics(route, viewport) {
       domWords += (n.nodeValue.match(/\S+/g) ?? []).length;
     }
 
-    // Text that is in the document twice: once for assistive technology and once for the eye.
-    // Both halves are real text to copy-paste, reader mode and find-in-page.
-    const hiddenTwins = [...document.querySelectorAll('.sr-only, [aria-hidden="true"]')].reduce(
-      (a, el) => a + ((el.textContent.match(/\S+/g) ?? []).length),
-      0
-    );
+    /**
+     * Hidden text, and the part of it that is genuinely a SECOND COPY.
+     *
+     * An earlier version of this script reported every `.sr-only` word as a duplicate, and the
+     * baseline write-up repeated the claim. That was wrong and it overstated the defect: most
+     * hidden text is not a twin of anything. A table's `<caption class="sr-only">` names the
+     * table for a screen reader and appears nowhere visibly; a `<span class="sr-only">Stage 2: </span>`
+     * supplies an ordinal the eye gets from position. Neither is a duplicate, and removing them
+     * would make the page worse.
+     *
+     * The defect worth counting is text that is in the document TWICE — once for assistive
+     * technology and once for the eye — because both halves are real to copy-paste, reader mode
+     * and find-in-page. So `duplicatedWords` checks each hidden string against the visible
+     * rendering, and `hiddenWords` is reported separately and named for what it is.
+     */
+    const visibleText = document.body.innerText;
+    let hiddenWords = 0;
+    let duplicatedWords = 0;
+    for (const el of document.querySelectorAll('.sr-only, [aria-hidden="true"]')) {
+      const text = (el.textContent ?? "").trim();
+      if (!text) continue;
+      const words = (text.match(/\S+/g) ?? []).length;
+      hiddenWords += words;
+      // Three characters or fewer matches too much to mean anything.
+      if (text.length > 3 && visibleText.includes(text)) duplicatedWords += words;
+    }
 
     return {
       scrollHeight: document.documentElement.scrollHeight,
       domWords,
-      hiddenTwins,
+      hiddenWords,
+      duplicatedWords,
       renderedWords: (document.body.innerText.match(/\S+/g) ?? []).length,
       domNodes: document.getElementsByTagName("*").length,
       // A page that scrolls sideways on a phone has failed before anything else is judged.

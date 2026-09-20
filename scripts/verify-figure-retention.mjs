@@ -92,10 +92,21 @@ const SEARCH_DIRS = ["public/content", "data", "components", "lib", "hooks"];
  * number of a section that still exists, still has that heading, and now carries a hand-built
  * matrix instead of a derived panel.
  *
+ * data/section-heights.json is the other one, for a different reason: it holds MEASURED PIXEL
+ * HEIGHTS, re-recorded by scripts/measure-section-heights.mjs whenever a lot of prose moves.
+ * Nothing in it is a figure of the proposal, and the numbers change every time the layout does.
+ * Leaving it in the corpus means a pixel height can silently satisfy — or invalidate — a claim
+ * about a campaign figure, which is what happened: a re-measure put §annex-messages at 2,200 px,
+ * and that un-stale'd the declaration recording the retirement of a 2,200 MILLISECOND typewriter
+ * duration. Two unrelated numbers, one guard, one false report.
+ *
  * The baseline side is filtered too, so the corpus is the same shape on both sides of the
  * comparison.
  */
-const DERIVED_FILES = new Set(["data/section-visuals.generated.json"]);
+const DERIVED_FILES = new Set([
+  "data/section-visuals.generated.json",
+  "data/section-heights.json",
+]);
 
 /**
  * Declared migrations out of public/content/ (rule 2).
