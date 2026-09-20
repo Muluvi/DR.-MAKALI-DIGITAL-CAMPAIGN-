@@ -135,6 +135,70 @@ test("Ikanga/Kyatune ranks 11th, so the summary line's 'top 8' is wrong (C-5)", 
   assert.equal(rankOf("Ikanga/Kyatune"), 11);
 });
 
+test("the retired §3.4.5 cross-match was right: 5 of the top 11 deficit wards hold 83,496", () => {
+  /**
+   * The block's own closing claim, which is the version that survives contact with the register.
+   *
+   * Three statements of one overlap exist — the §3.4.5 prose ("3 of the top 7", "2 of the top
+   * 11"), this block ("5 of the Top 11 … 83,496 Voters") and the §3.4.6 summary ("5 of top 8").
+   * The first two agree with each other and with the register; only the third does not. Pinning
+   * the block's arithmetic is what authorised retiring it, and it keeps 83,496 — a figure that now
+   * lives only as a computation — asserted in the document's own notation.
+   */
+  const ranked = rankWards(CONS);
+  const DEFICIT = ["Mwingi North", "Mwingi West", "Mwingi Central", "Kitui South"];
+  const inTop = (n: number) =>
+    ranked.filter((w) => w.rank <= n && DEFICIT.includes(w.constituency));
+
+  const top11 = inTop(11);
+  assert.deepEqual(
+    top11.map((w) => w.name),
+    ["Kyuso", "Tseikuru", "Mumoni", "Athi", "Ikanga/Kyatune"],
+    "the five wards the block named",
+  );
+  assert.equal(top11.reduce((n, w) => n + w.voters, 0).toLocaleString("en-KE"), "83,496");
+
+  // And the same five, windowed at 8 as §3.4.6 windows them, are four — which is the conflict.
+  const top8 = inTop(8);
+  assert.equal(top8.length, 4, "C-5: the summary's 'top 8' window holds four of the five");
+  assert.equal(top8.reduce((n, w) => n + w.voters, 0).toLocaleString("en-KE"), "68,112");
+});
+
+test("every line of the retired §3.4.6 summary is what the register says", () => {
+  /**
+   * The eight findings of the STRATEGIC TARGETING SUMMARY banner, in its own notation.
+   *
+   * The banner was a restated summary table and rule 1a allows retiring one; what rule 1a does not
+   * allow is losing what it stated. Five of its lines are reproduced exactly by the register. The
+   * other three are C-5, C-6 and C-7, asserted as disagreements in the tests above and beside them
+   * here, so the figure that replaced the banner can print both versions without either drifting.
+   */
+  const total = countyTotal(CONS);
+  assert.equal(total.toLocaleString("en-KE"), "532,758");
+  assert.equal(wardCount(CONS), 40);
+  assert.equal((total + 75).toLocaleString("en-KE"), "532,833", "with prisons");
+
+  assert.equal(topWards(CONS, 12).toLocaleString("en-KE"), "201,267");
+  assert.equal(((topWards(CONS, 12) / total) * 100).toFixed(2), "37.78");
+
+  const mwingi = blocTotal(CONS, ["Mwingi North", "Mwingi West", "Mwingi Central"]);
+  assert.equal(mwingi.toLocaleString("en-KE"), "200,198");
+  // "~124,100 ballots" — the banner rounded to the nearest hundred and said so.
+  assert.equal(Math.round(ballotsAt(mwingi, 0.62) / 100) * 100, 124_100);
+
+  assert.equal(
+    blocTotal(CONS, ["Kitui Central", "Kitui West", "Kitui Rural"]).toLocaleString("en-KE"),
+    "191,811",
+    "the home-belt ceiling trap",
+  );
+
+  const pool = mwingi + blocTotal(CONS, ["Kitui South"]);
+  assert.equal(pool.toLocaleString("en-KE"), "275,570");
+  assert.equal(blocTotal(CONS, ["Kitui South"]).toLocaleString("en-KE"), "75,372");
+  // C-6: the banner prints 51.72%; 275,570 / 532,758 is 51.7252%, which rounds to 51.73%.
+  assert.equal(((pool / total) * 100).toFixed(2), "51.73");
+});
+
 /* ------------------------------------------------------------------ the four paths (§3.4.3) */
 
 test("the four coalition paths total 200,198 / 212,183 / 201,267 / 191,811", () => {

@@ -348,7 +348,7 @@
       "facts": [
         "No data. Each banner restates the section heading immediately above it."
       ],
-      "note": "Removed rather than replaced, and listed here so the removal is on the record. They carry no figure, no tier and no source — they are §3.6.1's own title set in box-drawing characters, directly beneath §3.6.1's own title. The stale numbering they carry (SECTION 3.6.1 inside a chapter whose subsections are numbered 3.1.1.1) is D-6, which stays open.",
+      "note": "Removed rather than replaced, and listed here so the removal is on the record. They carry no figure, no tier and no source — they are §3.6.1's own title set in box-drawing characters, directly beneath §3.6.1's own title. The stale numbering they carry — SECTION 3.6.1 drawn above a chapter whose own #### subsections are numbered 3.1.1.1 — is C-19, which stays open.",
       "lines": [
         "┌─────────────────────────────────────────────────────────────────────────────┐",
         "│                 SECTION 3.6.1: CONNECTED MINORITY CHANNELS                  │",
@@ -361,6 +361,115 @@
         "└─────────────────────────────────────────────────────────────────────────────┘"
       ],
       "blocks": 3
+    },
+    {
+      "id": "arithmetic-3-4-5-cross-match",
+      "section": "§3.4.5",
+      "was": "A box-drawing cross-match headed CROSS-MATCHING RECOGNITION DEFICITS WITH DECISIVE VOTER CONCENTRATIONS — the twelve largest wards in one column, a recognition status for each in the other, and a DIRECT OVERLAP conclusion beneath.",
+      "replacedBy": [
+        "RecognitionDeficitOverlay (mounted at arithmetic-sec-3-4-5)"
+      ],
+      "facts": [
+        "All twelve wards in rank order with their register figures: Kyuso 19,921, Township 19,538, Kwa Vonza/Yatta 18,020, Mutonguni 17,979, Tseikuru 16,471, Kyangwithya West 15,931, Mumoni 15,877, Athi 15,843, Kauwi 15,767, Kyangwithya East 15,401, Ikanga/Kyatune 15,384, Mulango 15,135",
+        "The constituency each ward belongs to",
+        "All four recognition grades the table used: CRITICAL DEFICIT, HOME ANCHOR, MODERATE/HIGH (neighbouring belt) and MODERATE (university/peri-urban)",
+        "The per-ward qualifier where the table gave one more specific than its constituency's: out-of-constituency (Kyuso, Mumoni), party base/north (Tseikuru), deep south belt (Athi, Ikanga/Kyatune), high brand saturation (the Kitui Central four)",
+        "The overlap conclusion: 5 of the top 11 wards — Kyuso, Tseikuru, Mumoni, Athi, Ikanga — sit in the deepest deficit territory, 83,496 voters between them"
+      ],
+      "note": "The panel was ALREADY MOUNTED at this heading and already drew the same twelve wards, computed from data/ward-register.json rather than typed. It could not carry the retirement as it stood, and checking it against the list above is what found the two gaps: it collapsed the table's four recognition grades into three — losing the distinction between Kwa Vonza/Yatta's campus-town recall and Kitui West's border-belt recall — and it stated the overlap only in the top-8 window, where the count is 4 and 68,112. The block's own claim is the top-11 window, 5 wards and 83,496, and against the register that claim is exactly right; it is §3.4.6's summary that is wrong (C-5). Both windows are now computed and shown, and the C-5 flag sits under them. The retirement was authorised only after that.",
+      "lines": [
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "      CROSS-MATCHING RECOGNITION DEFICITS WITH DECISIVE VOTER CONCENTRATIONS",
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "",
+        "  STRUCTURALLY DECISIVE WARDS                 CANDIDATE RECOGNITION STATUS",
+        " ┌──────────────────────────────────────┐    ┌──────────────────────────────────────┐",
+        " │ 1. Kyuso Ward (19,921) - MW NORTH   │ ── │ CRITICAL DEFICIT (Out-of-constituency)│",
+        " │ 2. Township Ward (19,538) - CENTRAL  │ ── │ HOME ANCHOR (High Brand Saturation)  │",
+        " │ 3. Kwa Vonza/Yatta (18,020) - RURAL  │ ── │ MODERATE (University/Peri-urban)    │",
+        " │ 4. Mutonguni Ward (17,979) - WEST    │ ── │ MODERATE/HIGH (Neighboring belt)     │",
+        " │ 5. Tseikuru Ward (16,471) - MW NORTH │ ── │ CRITICAL DEFICIT (Party base/North)  │",
+        " │ 6. Kyangwithya West (15,931) - CENTR │ ── │ HOME ANCHOR (High Brand Saturation)  │",
+        " │ 7. Mumoni Ward (15,877) - MW NORTH   │ ── │ CRITICAL DEFICIT (Out-of-constituency)│",
+        " │ 8. Athi Ward (15,843) - SOUTH        │ ── │ CRITICAL DEFICIT (Deep South belt)   │",
+        " │ 9. Kauwi Ward (15,767) - WEST        │ ── │ MODERATE/HIGH (Neighboring belt)     │",
+        " │ 10. Kyangwithya East (15,401)- CENTR │ ── │ HOME ANCHOR (High Brand Saturation)  │",
+        " │ 11. Ikanga/Kyatune (15,384) - SOUTH  │ ── │ CRITICAL DEFICIT (Deep South belt)   │",
+        " │ 12. Mulango Ward (15,135) - CENTRAL  │ ── │ HOME ANCHOR (High Brand Saturation)  │",
+        " └──────────────────────────────────────┘    └──────────────────────────────────────┘",
+        "   ▲                                            ▲",
+        "   └─────────────────── DIRECT OVERLAP ─────────┘",
+        "   5 of the Top 11 Wards (Kyuso, Tseikuru, Mumoni, Athi, Ikanga) Sit Directly in ",
+        "   the Candidate's Deepest Recognition Deficit Territories (83,496 Voters)."
+      ]
+    },
+    {
+      "id": "arithmetic-3-4-6-targeting-summary",
+      "section": "§3.4.6",
+      "was": "A box-drawing banner headed SECTION 3.4.6 STRATEGIC TARGETING SUMMARY — eight bullet lines restating findings established between two and nine subsections earlier.",
+      "replacedBy": [
+        "targeting-summary"
+      ],
+      "facts": [
+        "Registered electorate: 532,758 voters across 40 wards, 532,833 with prisons",
+        "Victory threshold: 198,004 – 200,000 votes, ~37.5% of the register",
+        "12 megawards density: top 12 wards hold 201,267 voters, 37.78% of the county",
+        "Mwingi triad proof: Mwingi's 3 sub-counties = 200,198 registered, about 124,100 ballots",
+        "Home-belt ceiling trap: Central + West + Rural = 191,811, cannot win alone",
+        "Primary deficit zones: Mwingi 200,198 + Kitui South 75,372 = 275,570, printed as 51.72%",
+        "Overlap finding: direct 1:1 overlap, printed as 5 of top 8 wards",
+        "Operational mandate: 65% of digital and 70% of offline SMS to Mwingi and Kitui South, to close the 15.3-point gap"
+      ],
+      "note": "The textbook case of the 'restated summary table' rule 1a names. Every figure in it had already been established and every one is now COMPUTED from data/ward-register.json rather than transcribed, so the summary cannot drift from what it summarises. Three of the eight lines are in dispute and the banner stated all eight in one voice: the deficit share is printed 51.72% where the register gives 51.73% (C-6), the overlap is printed '5 of top 8' where the fifth ward ranks 11th (C-5), and the mandate names 24 wards for a pool spanning 21 (C-7). The figure shows what §3.4.6 printed beside what the register says, on those three rows only, and each row names the subsection that established it — which is what makes it a way back into §3.4 rather than a second copy of it. No number in the content has been changed.",
+      "lines": [
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "                     SECTION 3.4.6 STRATEGIC TARGETING SUMMARY",
+        "════════════════════════════════════════════════════════════════════════════════════",
+        " • Registered Electorate:    532,758 voters across 40 wards (532,833 with prisons).",
+        " • Victory Threshold:        198,004 – 200,000 votes (~37.5% of total register).",
+        " • 12 Megawards Density:     Top 12 wards hold 201,267 voters (37.78% of county).",
+        " • Mwingi Triad Proof:       Mwingi 3 sub-counties = 200,198 registered (~124,100 ballots).",
+        " • Home-Belt Ceiling Trap:   Central + West + Rural = 191,811 (cannot win alone).",
+        " • Primary Deficit Zones:    Mwingi (200,198) + Kitui South (75,372) = 275,570 (51.72%).",
+        " • Overlap Finding:          Direct 1:1 overlap; 5 of top 8 wards sit in deficit zones.",
+        " • Operational Mandate:      65% of digital ads & 70% of offline SMS directed to ",
+        "                             Mwingi and Kitui South to close the 15.3-point gap.",
+        "════════════════════════════════════════════════════════════════════════════════════"
+      ]
+    },
+    {
+      "id": "situation-3-3-2-branch-tree",
+      "section": "§3.3.2",
+      "was": "A box-drawing branch tree headed GOVERNOR MALOMBE'S 2027 CONSTITUTIONAL STATUS — one question forking into Branch A (disqualification) and Branch B (eligibility), each with a reading of Article 180(7) and a list of strategic consequences.",
+      "replacedBy": [
+        "ConstitutionalBranchNavigator (mounted at situation-sec-3-3-2)"
+      ],
+      "facts": [
+        "The question: Governor Malombe's 2027 constitutional status under Article 180(7)",
+        "Branch A's reading: interrupted terms count toward the cumulative limit of two terms",
+        "Branch B's reading: only contiguous terms or uninterrupted service triggers the lifetime limit",
+        "Branch A's consequences: open-seat contest; intense factional realignment in Wiper; rapid shift in voter blocs and alliances; an environment for technocratic change",
+        "Branch B's consequences: Malombe defends incumbency; the campaign executes a direct anti-incumbency strategy; it must overcome active executive patronage"
+      ],
+      "note": "THE ONLY BLOCK IN THIS FILE WHOSE FACTS WERE ALREADY STATED TWICE ELSEWHERE, which is why it retires without a new figure being built. The interactive branch navigator sits at this heading and draws the fork; the two prose bullets immediately beneath the block — Scenario Branch A and Scenario Branch B, both untouched — state every one of the facts above in fuller words than the tree could fit: 'a lifetime limit of two terms … regardless of whether they were consecutive or interrupted', 'an \"open-seat\" election, dissolving Malombe's incumbency advantage … intense factional realignment within the Wiper Patriotic Front and across independent coalitions', and 'a direct anti-incumbency strategy, overcoming a seated executive who commands county development resources, public-funding distribution systems, and established grassroots patronages'. The tree was a third copy, set in characters, between the two. Print reach is unaffected because the prose carries it, not the panel — which matters here, since a toggle shows one branch at a time.",
+      "lines": [
+        "                  ┌────────────────────────────────────────────────────────┐",
+        "                  │      GOVERNOR MALOMBE'S 2027 CONSTITUTIONAL STATUS     │",
+        "                  └───────────────────────────┬────────────────────────────┘",
+        "                                              │",
+        "                      ┌───────────────────────┴───────────────────────┐",
+        "                      ▼                                               ▼",
+        "         [BRANCH A: DISQUALIFICATION]                     [BRANCH B: ELIGIBILITY]",
+        "   Interrupted terms count toward cumulative        Only contiguous terms or uninterrupted",
+        "   limit of two terms.                              service triggers lifetime limit.",
+        "                      │                                               │",
+        "                      ▼                                               ▼",
+        "         [STRATEGIC CONSEQUENCES]                        [STRATEGIC CONSEQUENCES]",
+        "   • Open-seat contest.                             • Malombe defends incumbency.",
+        "   • Intense factional realignment in Wiper.        • Campaign executes direct anti-",
+        "   • Rapid shift in voter blocs and alliances.        incumbency strategy.",
+        "   • Ideal environment for technocratic change.     • Overcomes active executive patronage."
+      ]
     }
   ]
 }

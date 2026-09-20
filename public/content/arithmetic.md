@@ -171,32 +171,6 @@ To formulate a targeted intervention, the campaign maps Dr. Mulu's structural pr
     2.  **Kitui South (6 Wards):** Total **75,372 registered voters** (**14.15%** of the county register). Geographically remote, separated by long transit corridors, and traditionally influenced by local southern leadership dynamics.
     3.  **Kitui East Border Wards:** Total **65,377 registered voters** (particularly Endau/Malalani, Voo/Kyamatu, and Mutitu/Kaliku).
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-      CROSS-MATCHING RECOGNITION DEFICITS WITH DECISIVE VOTER CONCENTRATIONS
-════════════════════════════════════════════════════════════════════════════════════
-
-  STRUCTURALLY DECISIVE WARDS                 CANDIDATE RECOGNITION STATUS
- ┌──────────────────────────────────────┐    ┌──────────────────────────────────────┐
- │ 1. Kyuso Ward (19,921) - MW NORTH   │ ── │ CRITICAL DEFICIT (Out-of-constituency)│
- │ 2. Township Ward (19,538) - CENTRAL  │ ── │ HOME ANCHOR (High Brand Saturation)  │
- │ 3. Kwa Vonza/Yatta (18,020) - RURAL  │ ── │ MODERATE (University/Peri-urban)    │
- │ 4. Mutonguni Ward (17,979) - WEST    │ ── │ MODERATE/HIGH (Neighboring belt)     │
- │ 5. Tseikuru Ward (16,471) - MW NORTH │ ── │ CRITICAL DEFICIT (Party base/North)  │
- │ 6. Kyangwithya West (15,931) - CENTR │ ── │ HOME ANCHOR (High Brand Saturation)  │
- │ 7. Mumoni Ward (15,877) - MW NORTH   │ ── │ CRITICAL DEFICIT (Out-of-constituency)│
- │ 8. Athi Ward (15,843) - SOUTH        │ ── │ CRITICAL DEFICIT (Deep South belt)   │
- │ 9. Kauwi Ward (15,767) - WEST        │ ── │ MODERATE/HIGH (Neighboring belt)     │
- │ 10. Kyangwithya East (15,401)- CENTR │ ── │ HOME ANCHOR (High Brand Saturation)  │
- │ 11. Ikanga/Kyatune (15,384) - SOUTH  │ ── │ CRITICAL DEFICIT (Deep South belt)   │
- │ 12. Mulango Ward (15,135) - CENTRAL  │ ── │ HOME ANCHOR (High Brand Saturation)  │
- └──────────────────────────────────────┘    └──────────────────────────────────────┘
-   ▲                                            ▲
-   └─────────────────── DIRECT OVERLAP ─────────┘
-   5 of the Top 11 Wards (Kyuso, Tseikuru, Mumoni, Athi, Ikanga) Sit Directly in 
-   the Candidate's Deepest Recognition Deficit Territories (83,496 Voters).
-```
-
 #### Do the Deficit Wards Overlap the Decisive Ones?
 **YES. THERE IS AN ABSOLUTE, DIRECT 1:1 OVERLAP.**
 
@@ -233,20 +207,8 @@ In strict adherence to the campaign's data provenance standards, the analytical 
 3.  **Historical 2017 Gubernatorial Ward-by-Ward Tallies:** **Named Data Gap (Tier 1 Gap).** While the countywide certified totals are established (Ngilu 169,990 vs. Musila 114,827 vs. Malombe 74,681, Tier 1), individual ward breakdown sheets are treated as unverified pending physical retrieval from the IEBC registry.
 4.  **Ward-Level Mobile Broadband Penetration Data:** **Named Data Gap (Tier 1 Gap).** The 2019 KNBS Census and Communications Authority provide sub-county and countywide connectivity figures (13.6% active internet penetration, 86.4% offline), but disaggregated ward-by-ward cellular data coverage maps remain an internal operational estimate.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                     SECTION 3.4.6 STRATEGIC TARGETING SUMMARY
-════════════════════════════════════════════════════════════════════════════════════
- • Registered Electorate:    532,758 voters across 40 wards (532,833 with prisons).
- • Victory Threshold:        198,004 – 200,000 votes (~37.5% of total register).
- • 12 Megawards Density:     Top 12 wards hold 201,267 voters (37.78% of county).
- • Mwingi Triad Proof:       Mwingi 3 sub-counties = 200,198 registered (~124,100 ballots).
- • Home-Belt Ceiling Trap:   Central + West + Rural = 191,811 (cannot win alone).
- • Primary Deficit Zones:    Mwingi (200,198) + Kitui South (75,372) = 275,570 (51.72%).
- • Overlap Finding:          Direct 1:1 overlap; 5 of top 8 wards sit in deficit zones.
- • Operational Mandate:      65% of digital ads & 70% of offline SMS directed to 
-                             Mwingi and Kitui South to close the 15.3-point gap.
-════════════════════════════════════════════════════════════════════════════════════
+```figure
+targeting-summary
 ```
 
 ---

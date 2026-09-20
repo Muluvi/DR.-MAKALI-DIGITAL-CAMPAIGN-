@@ -149,5 +149,9 @@
   {
     "figure": "33.8|%",
     "movedTo": "Moved from the §3.6.2 OFFLINE CHANNEL REACH table into the `offline-channels` figure (scripts/figure-retirements.json, reach-3-6-2-offline-channels), which computes each channel's share of the 532,758 register from its stated reach. PRINT REACH VERIFIED, not assumed: emulating print on /reach finds it in the rendered text, because FigureFrame's 'View the data' table is forced open under @media print. lib/figures/figures.test.ts pins all six shares in the table's own notation. (Mobile-money agents — unsourced, C-17.)"
+  },
+  {
+    "figure": "83496|",
+    "movedTo": "Moved from the §3.4.5 cross-match block into the RecognitionDeficitOverlay panel mounted at that heading (scripts/figure-retirements.json, arithmetic-3-4-5-cross-match), which COMPUTES it as the sum of the deficit wards inside the top 11 — Kyuso 19,921, Tseikuru 16,471, Mumoni 15,877, Athi 15,843, Ikanga/Kyatune 15,384 — from data/ward-register.json rather than reprinting it. The panel had stated the overlap only in the top-8 window (4 wards, 68,112) before this pass; both windows are now shown, which is what makes the §3.4.6 summary's \"5 of top 8\" legible as the conflict it is (C-5). PRINT REACH VERIFIED, not assumed: emulating print on /arithmetic finds 83,496 in the rendered text, along with every other fact on that block's retirement checklist."
   }
 ]

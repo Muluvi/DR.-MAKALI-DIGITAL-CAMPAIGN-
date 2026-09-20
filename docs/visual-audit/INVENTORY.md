@@ -15,18 +15,18 @@ FIX — a defect, not a conversion.
 
 ## Totals
 
-- Blocks: **862**, carrying **59,374** words.
-- Words retired outright, under rule 1a: **10,584** (17.8% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
+- Blocks: **860**, carrying **58,945** words.
+- Words retired outright, under rule 1a: **10,039** (17.0% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
 - Words collapsed to a `CrossRef` under rule 1b, still on the page, pending Firefly's answer to D-1: **718**.
 
 | Action | Blocks | | Type | Blocks |
 |---|---|---|---|---|
 | KEEP-PROSE | 687 | | prose | 514 |
-| COLLAPSE | 94 | | list | 171 |
-| CONVERT | 70 | | table | 74 |
-| DEDUPE | 11 | | ascii | 56 |
+| COLLAPSE | 95 | | list | 171 |
+| CONVERT | 67 | | table | 74 |
+| DEDUPE | 11 | | ascii | 53 |
 |  |  | | callout | 35 |
-|  |  | | figure | 9 |
+|  |  | | figure | 10 |
 |  |  | | code | 3 |
 
 
@@ -114,7 +114,7 @@ FIX — a defect, not a conversion.
 | `presence:1A.5:02` | prose | 45 | argument | KEEP-PROSE | — |  |  |
 | `presence:1A.6:00` | prose | 62 | argument | KEEP-PROSE | — |  |  |
 
-## situation — 58 blocks, 4,125 words, 387 retired
+## situation — 57 blocks, 4,041 words, 303 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
@@ -150,8 +150,7 @@ FIX — a defect, not a conversion.
 | `situation:3.3.2:04` | prose | 26 | argument | KEEP-PROSE | — |  |  |
 | `situation:3.3.2:05` | list | 346 | comparison | COLLAPSE | Candidate cards — stage one (Kasalu, Wambua, Mulu), stage two (Ngilu, Musila, Malonza, Mulila, Kauta, Malombe) |  |  |
 | `situation:3.3.2:06` | prose | 61 | argument | KEEP-PROSE | — |  |  |
-| `situation:3.3.2:07` | ascii | 84 | decision | CONVERT | ScenarioFork — the existing interactive panel is canonical | 84 | Rule 1a: the ASCII branch tree duplicates the panel. Branch A/B prose stays, in the Brief-mode disclosure. |
-| `situation:3.3.2:08` | list | 177 | comparison | COLLAPSE | Candidate cards — stage one (Kasalu, Wambua, Mulu), stage two (Ngilu, Musila, Malonza, Mulila, Kauta, Malombe) |  |  |
+| `situation:3.3.2:07` | list | 177 | comparison | COLLAPSE | Candidate cards — stage one (Kasalu, Wambua, Mulu), stage two (Ngilu, Musila, Malonza, Mulila, Kauta, Malombe) |  |  |
 | `situation:3.3.3:00` | prose | 26 | argument | KEEP-PROSE | — |  |  |
 | `situation:3.3.3:01` | list | 67 | magnitude | CONVERT | BigStat row — 532,758 · 40 wards · 1,578 polling stations · ~200,000 · 62% | 67 | Rule 1a, CONDITIONAL: the row must also carry the parenthetical this list is the only place that states — 'plus 75 prison-registered voters, totalling 532,833' — and the Tier 1 badge on every one of the five. If the figure cannot carry all of it, this block stays. |
 | `situation:3.3.3:02` | list | 25 | ranking | CONVERT | Treemap + TileMap (canonical); the §3.4.2 ranking table is the single data table | 25 | Rule 1a: the eight constituency ward lists restate the §3.4.2 ranking table row for row — all 40 wards, same registers. |
@@ -177,7 +176,7 @@ FIX — a defect, not a conversion.
 | `situation:3.3.5:06` | prose | 36 | argument | KEEP-PROSE | — |  |  |
 | `situation:3.3.6:00` | list | 180 | change over time | COLLAPSE | Small multiples of results bars per race, 'Disputed' marker on Musila 2022, explicit empty 2013 panel |  |  |
 
-## arithmetic — 51 blocks, 3,790 words, 595 retired
+## arithmetic — 50 blocks, 3,445 words, 134 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
@@ -205,17 +204,16 @@ FIX — a defect, not a conversion.
 | `arithmetic:3.4.4:02` | list | 125 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4.5:00` | prose | 17 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4.5:01` | list | 137 | spatial | COLLAPSE | Deficit panel — anchor zone and the three deficit zones |  | Not a restatement: the zone entries carry the reason each zone is a deficit zone ('his identity as a Kitui Central MP limits spontaneous recall compared to countywide office holders'; 'separated by long transit corridors, and traditionally influenced by local southern leadership dynamics'). The panel draws the wards and the numbers, not the explanation. |
-| `arithmetic:3.4.5:02` | ascii | 226 | spatial | CONVERT | Deficit panel (existing RecognitionDeficitOverlay, canonical) | 226 | Rule 1a: the ASCII cross-match and the 'YES. ABSOLUTE 1:1 OVERLAP' lists, retired once the panel shows every ward and number. |
-| `arithmetic:3.4.5:03` | prose | 8 | argument | KEEP-PROSE | — |  |  |
-| `arithmetic:3.4.5:04` | prose | 18 | argument | KEEP-PROSE | — |  |  |
-| `arithmetic:3.4.5:05` | list | 125 | spatial | CONVERT | Deficit panel — every overlapping ward with its countywide rank, register and Severe Deficit marker | 125 | Rule 1a: a pure restatement of ward ranks and registers the panel draws. The panel must carry Kyuso #1 19,921, Tseikuru #5 16,471, Mumoni #7 15,877 (sub-total 52,269, 9.81%), Athi #8 15,843, Ikanga/Kyatune #11 15,384 (sub-total 31,227, 5.86%), and Central 14,525 / Nguni 13,165 / Nuu 12,729 (40,419), or nothing is retired. |
-| `arithmetic:3.4.5:06` | list | 17 | arithmetic | CONVERT | BuildUp — 200,198 (Mwingi) + 75,372 (Kitui South) = 275,570 | 17 | Rule 1a: one arithmetic line the build-up draws. |
-| `arithmetic:3.4.5:07` | prose | 10 | argument | KEEP-PROSE | — |  |  |
-| `arithmetic:3.4.5:08` | prose | 37 | argument | KEEP-PROSE | — |  |  |
-| `arithmetic:3.4.5:09` | list | 108 | spatial | COLLAPSE | Deficit panel (canonical) |  |  |
+| `arithmetic:3.4.5:02` | prose | 8 | argument | KEEP-PROSE | — |  |  |
+| `arithmetic:3.4.5:03` | prose | 18 | argument | KEEP-PROSE | — |  |  |
+| `arithmetic:3.4.5:04` | list | 125 | spatial | COLLAPSE | Deficit panel (canonical) |  |  |
+| `arithmetic:3.4.5:05` | list | 17 | spatial | CONVERT | Deficit panel — every overlapping ward with its countywide rank, register and Severe Deficit marker | 17 | Rule 1a: a pure restatement of ward ranks and registers the panel draws. The panel must carry Kyuso #1 19,921, Tseikuru #5 16,471, Mumoni #7 15,877 (sub-total 52,269, 9.81%), Athi #8 15,843, Ikanga/Kyatune #11 15,384 (sub-total 31,227, 5.86%), and Central 14,525 / Nguni 13,165 / Nuu 12,729 (40,419), or nothing is retired. |
+| `arithmetic:3.4.5:06` | prose | 10 | arithmetic | CONVERT | BuildUp — 200,198 (Mwingi) + 75,372 (Kitui South) = 275,570 | 10 | Rule 1a: one arithmetic line the build-up draws. |
+| `arithmetic:3.4.5:07` | prose | 37 | argument | KEEP-PROSE | — |  |  |
+| `arithmetic:3.4.5:08` | list | 108 | spatial | COLLAPSE | Deficit panel (canonical) |  |  |
 | `arithmetic:3.4.6:00` | prose | 22 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4.6:01` | list | 181 | argument | KEEP-PROSE | — |  |  |
-| `arithmetic:3.4.6:02` | ascii | 120 | comparison | CONVERT | Gap chips with tier | 120 | Rule 1a. |
+| `arithmetic:3.4.6:02` | figure | 1 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4.6:03` | prose | 1 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.5:00` | prose | 28 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.5.1:00` | table | 70 | argument | KEEP-PROSE | — |  |  |

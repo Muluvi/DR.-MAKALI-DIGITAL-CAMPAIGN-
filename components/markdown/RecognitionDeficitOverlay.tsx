@@ -5,6 +5,7 @@ import { Target, MapPin, TrendingDown, AlertTriangle, Radio } from "lucide-react
 
 import { ALL_WARDS, CONSTITUENCIES, COUNTY_TOTAL_WARDS, MWINGI_BLOC_TOTAL } from "../../data/ward-register";
 import { TierBadge } from "./TierBadge";
+import { UnderReview } from "../figures/UnderReview";
 
 /**
  * §3.4.5 — recognition deficit mapped against voter concentration.
@@ -22,18 +23,33 @@ import { TierBadge } from "./TierBadge";
  * top 12, so the two cannot drift apart.
  */
 
-type RecognitionStatus = "anchor" | "adjacent" | "deficit";
+type RecognitionStatus = "anchor" | "belt" | "moderate" | "deficit";
 
+/**
+ * FOUR grades, not three, because §3.4.5's cross-match table used four.
+ *
+ * The block this panel retired distinguished MODERATE/HIGH (Neighboring belt) — Mutonguni and
+ * Kauwi in Kitui West — from a plain MODERATE (University/Peri-urban) for Kwa Vonza/Yatta in
+ * Kitui Rural. An earlier version of this panel called both of them "Neighbouring belt", which
+ * would have made the retirement a quiet loss of a distinction the document drew deliberately:
+ * Kwa Vonza/Yatta's recall is a campus-town effect, not a border effect.
+ */
 const STATUS_META: Record<RecognitionStatus, { label: string; note: string; className: string; dot: string }> = {
   anchor: {
     label: "Home anchor",
-    note: "13 consecutive years as MP. High spontaneous recall.",
+    note: "13 consecutive years as MP. High brand saturation.",
     className: "border-emerald-500/25 bg-emerald-500/[0.04]",
     dot: "bg-emerald-500",
   },
-  adjacent: {
-    label: "Neighbouring belt",
-    note: "Contiguous with the home constituency. Moderate recall.",
+  belt: {
+    label: "Moderate / high",
+    note: "Neighbouring belt — contiguous with the home constituency.",
+    className: "border-lime-600/25 bg-lime-600/[0.04]",
+    dot: "bg-lime-600",
+  },
+  moderate: {
+    label: "Moderate",
+    note: "University and peri-urban population, not a border effect.",
     className: "border-amber-500/25 bg-amber-500/[0.04]",
     dot: "bg-amber-500",
   },
@@ -45,17 +61,33 @@ const STATUS_META: Record<RecognitionStatus, { label: string; note: string; clas
   },
 };
 
-/** Per §3.4.5: the anchor is Kitui Central, with Kitui West and Kitui Rural as the adjacent belt;
- *  Mwingi (all three), Kitui South and Kitui East are the named deficit zones. */
+/** Per §3.4.5: the anchor is Kitui Central, Kitui West is the neighbouring belt and Kitui Rural
+ *  the peri-urban moderate; Mwingi (all three), Kitui South and Kitui East are the deficit zones. */
 const STATUS_BY_CONSTITUENCY: Record<string, RecognitionStatus> = {
   "kitui-central": "anchor",
-  "kitui-west": "adjacent",
-  "kitui-rural": "adjacent",
+  "kitui-west": "belt",
+  "kitui-rural": "moderate",
   "mwingi-north": "deficit",
   "mwingi-central": "deficit",
   "mwingi-west": "deficit",
   "kitui-south": "deficit",
   "kitui-east": "deficit",
+};
+
+/**
+ * The qualifier §3.4.5 printed against each ward, where it printed one more specific than its
+ * constituency's.
+ *
+ * Tseikuru and Kyuso are both Mwingi North and both critical deficits, and the table gave them
+ * different reasons — Tseikuru is the party's own base in the north, Kyuso simply out of
+ * constituency. A grade per constituency cannot carry that, so the ward carries it.
+ */
+const WARD_QUALIFIER: Record<string, string> = {
+  Kyuso: "Out-of-constituency.",
+  Tseikuru: "Party base, north.",
+  Mumoni: "Out-of-constituency.",
+  Athi: "Deep south belt.",
+  "Ikanga/Kyatune": "Deep south belt.",
 };
 
 const KITUI_SOUTH_TOTAL = CONSTITUENCIES.find((c) => c.id === "kitui-south")?.voters ?? 0;
@@ -71,6 +103,17 @@ const DECISIVE_WARDS = [...ALL_WARDS]
 
 const DEFICIT_IN_TOP_8 = DECISIVE_WARDS.filter((w) => w.rank <= 8 && w.status === "deficit");
 const DEFICIT_IN_TOP_8_VOTERS = DEFICIT_IN_TOP_8.reduce((sum, w) => sum + w.voters, 0);
+
+/**
+ * The overlap §3.4.5 actually claimed, which is not the one §3.4.6 summarised.
+ *
+ * The retired cross-match block closed on "5 of the Top 11 Wards (Kyuso, Tseikuru, Mumoni, Athi,
+ * Ikanga) … 83,496 Voters", and against the register that is exactly right. The §3.4.6 summary
+ * table says "5 of top 8", which is not: Ikanga/Kyatune ranks 11th. Both windows are computed here
+ * so the panel can show where the two claims part company instead of picking one — C-5.
+ */
+const DEFICIT_IN_TOP_11 = DECISIVE_WARDS.filter((w) => w.rank <= 11 && w.status === "deficit");
+const DEFICIT_IN_TOP_11_VOTERS = DEFICIT_IN_TOP_11.reduce((sum, w) => sum + w.voters, 0);
 
 const fmt = (n: number) => n.toLocaleString("en-KE");
 
@@ -169,10 +212,15 @@ export function RecognitionDeficitOverlay() {
                   <div className="t-label text-muted tabular-nums">{share.toFixed(2)}% of register</div>
                 </div>
               </div>
-              <div className="flex items-center gap-1.5 mt-2.5 pt-2.5 border-t border-line/40">
-                <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${meta.dot}`} aria-hidden="true" />
-                <span className="t-label font-black text-ink">{meta.label}</span>
-                <span className="t-label text-muted truncate">— {meta.note}</span>
+              <div className="flex items-start gap-1.5 mt-2.5 pt-2.5 border-t border-line/40">
+                <span className={`w-1.5 h-1.5 rounded-full shrink-0 mt-1.5 ${meta.dot}`} aria-hidden="true" />
+                <span className="t-label font-black text-ink shrink-0">{meta.label}</span>
+                {/* No truncation on the qualifier: it is the reason, and §3.4.5 gave a different one
+                    to two wards in the same constituency. Clipping it would erase the distinction. */}
+                <span className="t-label text-muted">
+                  — {WARD_QUALIFIER[w.name] ? `${WARD_QUALIFIER[w.name]} ` : ""}
+                  {meta.note}
+                </span>
               </div>
             </div>
           );
@@ -185,10 +233,23 @@ export function RecognitionDeficitOverlay() {
           <span>
             {DEFICIT_IN_TOP_8.length} of the top 8 wards countywide —{" "}
             {DEFICIT_IN_TOP_8.map((w) => w.name).join(", ")} — sit in the deepest recognition deficit territory,{" "}
-            <span className="tabular-nums">{fmt(DEFICIT_IN_TOP_8_VOTERS)}</span> voters between them. The wards that
+            <span className="tabular-nums">{fmt(DEFICIT_IN_TOP_8_VOTERS)}</span> voters between them. Widen the window
+            by three places and it is{" "}
+            <strong className="font-semibold text-ink">
+              {DEFICIT_IN_TOP_11.length} of the top 11 — {DEFICIT_IN_TOP_11.map((w) => w.name).join(", ")}
+            </strong>
+            , <span className="tabular-nums">{fmt(DEFICIT_IN_TOP_11_VOTERS)}</span> voters. Either way, the wards that
             decide the election are the wards where Dr. Mulu is least known.
           </span>
         </p>
+        {/* §3.4.6's summary table reads "5 of top 8 wards", which is the top-11 count printed
+            against the top-8 window. Both figures above are computed from the register; neither
+            sentence in the content has been changed. */}
+        <UnderReview ids={["C-5"]}>
+          §3.4.6 summarises this overlap as “5 of top 8 wards”. Ranked on the register,
+          Ikanga/Kyatune is 11th — so the five named wards are 5 of the top 11, as §3.4.5 itself
+          states, and 4 of them are in the top 8. Both counts are shown; neither has been changed.
+        </UnderReview>
         <p className="t-small text-muted flex items-start gap-1.5">
           <AlertTriangle size={12} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
           <span>

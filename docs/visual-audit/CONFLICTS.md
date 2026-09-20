@@ -137,11 +137,15 @@ that a register is not a vote, Path B reads stronger than its own arithmetic sup
 
 **Status: Confirmed.** Three different counts of the same overlap appear:
 
-| Where | Claim |
-|---|---|
-| §3.4.5 prose | "Mwingi North … **3 of the top 7**"; "Kitui South … **2 of the top 11**" |
-| Deficit panel | "4 of the top 8 wards … 68,112" |
-| Summary table | "**5 of top 8 wards**" |
+| Where | Claim | Against the register |
+|---|---|---|
+| §3.4.5 prose | "Mwingi North … **3 of the top 7**"; "Kitui South … **2 of the top 11**" | correct |
+| §3.4.5 cross-match block | "**5 of the Top 11 Wards** (Kyuso, Tseikuru, Mumoni, Athi, Ikanga) … **83,496 Voters**" | correct |
+| Deficit panel | "4 of the top 8 wards … 68,112" | correct — a narrower window |
+| §3.4.6 summary table | "**5 of top 8 wards**" | **wrong** |
+
+Three of the four are right. The summary line is the only one that is not, and it reads as the
+cross-match block's count (5) printed against the prose's other window (top 8).
 
 Ranked from the register, the wards in question sit at:
 
@@ -156,6 +160,12 @@ Ranked from the register, the wards in question sit at:
 
 **Ikanga/Kyatune is #11, not top 8.** The summary line's "5 of top 8" is wrong; the §3.4.5 prose
 ("3 of the top 7" and "2 of the top 11") is the version that matches the register.
+
+**What the figures do:** the deficit panel now computes and shows **both** windows — 4 of the top 8
+(68,112) and 5 of the top 11 (83,496) — and carries this flag beneath them, so a reader meets the
+two counts together rather than one at a time. The `targeting-summary` figure that replaced the
+§3.4.6 banner prints what that banner stated, "5 of top 8 wards", beside the computed version.
+Neither sentence in `public/content/` has been changed.
 
 ---
 
@@ -424,6 +434,51 @@ renumbered.
 
 **For Firefly:** renumbering the eight to 3.6.1.1–3.6.1.3 and 3.6.2.1–3.6.2.5 resolves it. Nothing
 elsewhere in the document links to the 3.1.x forms — checked — so the change is local to this file.
+
+---
+
+## C-20 — Musyi FM is a hostile gatekeeper and a priority placement, in the same section · §3.7, §3.7.1, §3.6.3
+
+**Status: Confirmed. Found while reading §3.7 for the ownership figure.**
+
+§3.7's bypass-architecture diagram opens with a list headed **"TIER 1: HOSTILE / GATEKEEPER
+COMMERCIAL STATIONS"**, and the first station in it is **Musyi FM**. Twelve lines later, §3.7.1
+says the opposite:
+
+| Where | Musyi FM is |
+| --- | --- |
+| §3.7 diagram | a **Tier 1 hostile / gatekeeper** station — "politically aligned ownership & editorial vetoes", to be bypassed |
+| §3.7.1 prose | "**open to the campaign** … commercially or institutionally independent (Royal Media Services)". "These carry the placement budget." |
+| `data/media-ownership.ts` | `posture: "Priority — commercially independent, broad Ukambani reach."` |
+| §3.6.3 rebalance | "Vernacular radio (**Musyi**, County, Wikwatyo)" — the row effort is scaled *up* into, from 20% to 37% |
+
+Three of the four agree, and they are the three the campaign acts on: the placement budget, the
+effort rebalance and the station data the site renders. The diagram is the outlier.
+
+**Athiani FM is a milder version of the same thing.** The diagram files it under the same hostile
+heading; §3.7.1 says it is "**party-sensitive rather than hostile**", and the data reads
+"Party-aligned, not neutral." Hostile and party-sensitive are different postures with different
+instructions, and the document gives both.
+
+**This one is operational, not arithmetical.** §3.7's own opening sentence says the highest-reach
+Kikamba stations "are owned, financed, or editorially steered by active political rivals" — if
+Musyi FM is one of them, the placement budget in §3.7.1 is going to a station the campaign has
+already called hostile. If it is not, the bypass architecture is being built around a station that
+was available all along. A reader cannot tell which from the document.
+
+**Two stations named in the diagram are not in the station data at all:** **Sang'u FM** (listed as
+hostile) and **Mang'elete** (listed as a neutral bypass route). Both appear in the prose of six
+other chapters. `data/media-ownership.ts` carries eight stations and neither is among them, so
+nothing renders an ownership, a frequency or a posture for either.
+
+**What the figure does:** the ownership grid draws the posture from `data/media-ownership.ts` —
+the reconciled version §3.7.1 points to and §8.7.1 governs — and carries the **Under review** flag
+naming the diagram's contrary reading, rather than choosing between them. Stations the data does
+not cover are shown as **not in the ownership map** rather than omitted, because an absence a
+reader cannot see is the one kind this audit will not produce.
+
+**For Firefly:** this needs answering before any placement is booked, which §3.7.1 already says is
+a standing instruction. It is the only conflict in this file with a spending decision attached.
 
 ---
 

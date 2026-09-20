@@ -1,5 +1,5 @@
 import { FigureFrame } from "./FigureFrame";
-import { BarList, BuildUp, GapBar, RangeBars, RegisterGroups, ShareBar, SlopeChart } from "./marks";
+import { BarList, BuildUp, GapBar, Ledger, RangeBars, RegisterGroups, ShareBar, SlopeChart } from "./marks";
 import { CONSTITUENCIES } from "../../data/ward-register";
 import {
   COALITION_PATHS,
@@ -18,6 +18,7 @@ import {
   WINNING_TOTAL_2022,
 } from "../../lib/figures/register";
 import { REGISTER_GROWTH_SERIES, THRESHOLD_SERIES } from "../../lib/figures/threshold";
+import { TARGETING_SERIES, TARGETING_SUMMARY } from "../../lib/figures/targeting";
 import {
   DIGITAL_REACH,
   DIGITAL_SHORTFALL,
@@ -208,6 +209,15 @@ export const FIGURES: Record<string, FigureEntry> = {
           fromLabel="Traditional pitch"
           toLabel="Rebalanced — §3.6.3"
         />
+      </FigureFrame>
+    ),
+  },
+
+  "targeting-summary": {
+    note: "§3.4.6 — the eight findings of §3.4, computed, with the three that are in dispute flagged.",
+    render: () => (
+      <FigureFrame series={TARGETING_SERIES}>
+        <Ledger rows={TARGETING_SUMMARY} />
       </FigureFrame>
     ),
   },

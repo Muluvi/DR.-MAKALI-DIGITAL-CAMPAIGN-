@@ -643,3 +643,62 @@ export function RangeBars({ series, scaleMax }: { series: FigureSeries; scaleMax
     </div>
   );
 }
+
+/**
+ * A ledger: rows of findings, each a statement rather than a magnitude.
+ *
+ * THE FIFTH RULE, WHICH ONLY THIS MARK NEEDS: a figure may decline to be a chart. §3.4.6's
+ * summary is eight conclusions of different kinds — a headcount, a range, a share, a ratio, an
+ * operational instruction — and there is no axis all eight belong on. Drawing them as bars would
+ * put the register and a 65% effort weighting on one scale and imply a relationship that does not
+ * exist. So this draws no scale at all, and earns its place a different way: every row names the
+ * subsection that established it, and any row whose printed figure this audit disputes shows the
+ * printed one beside the computed one instead of quietly preferring either.
+ */
+export function Ledger({
+  rows,
+}: {
+  rows: {
+    label: string;
+    value: string;
+    detail: string;
+    section: string;
+    stated?: string;
+    conflicts?: string[];
+  }[];
+}) {
+  return (
+    <ol className="not-prose m-0 list-none space-y-1.5 p-0">
+      {rows.map((row) => (
+        <li
+          key={row.label}
+          className={`rounded-lg border px-3 py-2.5 ${
+            row.stated ? "border-gold/40 bg-gold/[0.05]" : "border-line bg-paper/60"
+          }`}
+        >
+          <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+            <span className="t-micro font-bold uppercase tracking-wide text-muted">{row.label}</span>
+            {/* The section is the point of the row, not a footnote: it is what makes this a way
+                back into §3.4 rather than a second copy of it. */}
+            <span className="t-micro shrink-0 font-semibold tabular-nums text-muted">{row.section}</span>
+          </div>
+
+          <p className="m-0 mt-0.5 font-serif text-base font-bold leading-tight tabular-nums text-ink">
+            {row.value}
+          </p>
+          <p className="m-0 mt-1 t-micro leading-snug text-muted">{row.detail}</p>
+
+          {row.stated && (
+            <p className="m-0 mt-1.5 border-t border-gold/30 pt-1.5 t-micro leading-snug text-ink">
+              <strong className="font-bold text-gold">§3.4.6 prints</strong>{" "}
+              <span className="font-semibold">{row.stated}</span>
+              {row.conflicts?.length ? (
+                <span className="text-muted"> — under review, {row.conflicts.join(", ")}.</span>
+              ) : null}
+            </p>
+          )}
+        </li>
+      ))}
+    </ol>
+  );
+}

@@ -163,25 +163,6 @@ Beyond the immediate Wiper party nomination, the broader general election field 
 
 Because Governor Malombe served as Governor from 2013–2017, lost the 2017 election to Charity Ngilu (court-confirmed, Tier 1), and won again in 2022, his eligibility to contest the 2027 election is a major legal issue under Article 180(7) of the Constitution of Kenya, which limits governors to a maximum of two terms. This campaign analyzes this issue through two distinct scenarios:
 
-```
-                  ┌────────────────────────────────────────────────────────┐
-                  │      GOVERNOR MALOMBE'S 2027 CONSTITUTIONAL STATUS     │
-                  └───────────────────────────┬────────────────────────────┘
-                                              │
-                      ┌───────────────────────┴───────────────────────┐
-                      ▼                                               ▼
-         [BRANCH A: DISQUALIFICATION]                     [BRANCH B: ELIGIBILITY]
-   Interrupted terms count toward cumulative        Only contiguous terms or uninterrupted
-   limit of two terms.                              service triggers lifetime limit.
-                      │                                               │
-                      ▼                                               ▼
-         [STRATEGIC CONSEQUENCES]                        [STRATEGIC CONSEQUENCES]
-   • Open-seat contest.                             • Malombe defends incumbency.
-   • Intense factional realignment in Wiper.        • Campaign executes direct anti-
-   • Rapid shift in voter blocs and alliances.        incumbency strategy.
-   • Ideal environment for technocratic change.     • Overcomes active executive patronage.
-```
-
 *   **Scenario Branch A — Cumulative Disqualification:** Proponents of this reading argue that Article 180(7) imposes a lifetime limit of two terms of service, regardless of whether they were consecutive or interrupted. Under this reading, having served from 2013–2017 and 2022–2027, Governor Malombe is constitutionally barred from running in 2027.
     *   *Strategic Consequence:* This scenario creates an "open-seat" election, dissolving Malombe's incumbency advantage. It will trigger intense factional realignment within the Wiper Patriotic Front and across independent coalitions, allowing Dr. Mulu to position himself as the natural, high-integrity successor to lead the county's economic transition.
 *   **Scenario Branch B — Eligibility Upheld:** Alternatively, a reading of the constitutional provisions may interpret the two-term limit as applying only to consecutive terms of service, or that an interrupted term resets the constitutional clock, rendering him eligible for the 2027 cycle.
