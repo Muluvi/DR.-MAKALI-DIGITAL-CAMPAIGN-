@@ -98,6 +98,7 @@ import { segmentContent } from "../lib/collapse-groups";
 import { DisclosureGroup } from "./markdown/DisclosureGroup";
 import { ObjectivesIndex } from "./markdown/ObjectivesIndex";
 import { ProseFold } from "./markdown/ProseFold";
+import { BriefFold } from "./markdown/BriefFold";
 
 const kituiCentralPopulationDispute = DISPUTED_FIGURES.find((d) => d.id === "kitui-central-2019-population")!;
 
@@ -663,6 +664,12 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
               <ProseFold key={`fold-${i}`} label={segment.id}>
                 {renderMarkdown(segment.text, `fold-body-${i}`)}
               </ProseFold>
+            );
+          if (segment.kind === "brief")
+            return (
+              <BriefFold key={`brief-${i}`} label={segment.number} words={segment.hiddenWords}>
+                {renderMarkdown(segment.hidden, `brief-body-${i}`)}
+              </BriefFold>
             );
           return (
             <DisclosureGroup

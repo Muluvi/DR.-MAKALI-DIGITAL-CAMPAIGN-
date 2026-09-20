@@ -55,8 +55,22 @@ Nothing is removed in either mode — this is the mechanism that lets the docume
 breaking the no-text-removed rule. Anchor links, search hits and print **always** open their target
 in full, so a shared deep link never lands on a collapsed paragraph.
 
-The choice persists in `localStorage`, guarded, and the hero line becomes
-"Brief: ~N min · Full: 289 min", both computed from rendered words rather than typed in.
+The choice persists in `localStorage`, guarded, and the hero carries both reading times, computed
+from the segmentation the renderer actually uses rather than typed in:
+
+> **Brief 121 min · Full 288 min**
+
+Measured: Brief shows **26,438 of 63,337 words — 41.7%**. Nothing is deleted to get there.
+
+**One honest compromise, which is Firefly's to overturn.** The brief asks for *one* "Read the full
+section" disclosure per subsection. Where a folded block sat between two blocks Brief keeps — a
+paragraph between two callouts, say — it moves below them, because one disclosure cannot hold
+blocks interleaved with visible ones without either reordering them or splitting into several
+controls. Several controls is worse: it turns a section into a row of drawers, which is the exact
+failure the existing `DisclosureGroup` was written to avoid. Within the kept blocks and within the
+folded blocks the document's order is untouched, and **Full restores the document's own order
+exactly**. If Firefly would rather have strict order at the cost of several controls per
+subsection, that is a change to one function (`splitBrief` in `lib/collapse-groups.ts`).
 
 **The argument for Brief as the default:** this proposal is opened from a WhatsApp link, on a phone,
 possibly on mobile data, by a reader deciding whether to spend an hour on it. 289 minutes is not an

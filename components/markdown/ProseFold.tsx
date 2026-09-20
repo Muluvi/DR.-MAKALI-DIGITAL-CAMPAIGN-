@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
+import { useReadingMode, type ReadingMode } from "../../lib/reading-mode";
+
 /**
  * A long unbroken run of prose, folded after its opening paragraph.
  *
@@ -14,7 +16,15 @@ import { ChevronDown } from "lucide-react";
  * bundle for it.
  */
 export function ProseFold({ label, children }: { label: string; children: React.ReactNode }) {
-  const [open, setOpen] = useState(false);
+  // The reading mode sets the default; a manual tap wins until the mode changes again. Without
+  // this, "Full" would leave these folds shut and would not mean what it says. The override
+  // records the mode it was made under, so a mode change retires it by derivation rather than by
+  // an effect resetting state after render.
+  const { mode } = useReadingMode();
+  const [override, setOverride] = useState<{ mode: ReadingMode; open: boolean } | null>(null);
+  const open = override?.mode === mode ? override.open : mode === "full";
+  const setOpen = (next: boolean | ((o: boolean) => boolean)) =>
+    setOverride({ mode, open: typeof next === "function" ? next(open) : next });
 
   return (
     <div className="not-prose my-4">

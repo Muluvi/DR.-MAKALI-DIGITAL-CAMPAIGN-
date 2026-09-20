@@ -9,6 +9,8 @@ import { Printer, Search } from "lucide-react";
 import { useTheme } from "../lib/useTheme";
 import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
 import { KeyFactsStrip } from "./KeyFactsStrip";
+import { ReadingModeToggle } from "./ReadingModeToggle";
+import { ReadingModeProvider } from "../lib/reading-mode";
 import { LazyMount } from "./LazyMount";
 import { ScrollProgressBar } from "./ScrollProgressBar";
 import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
@@ -70,6 +72,8 @@ interface ClientPageProps {
   /** Rendered prose, keyed by section — every section on the flow, one on a deep-link route. */
   documents: Partial<Record<TabId, React.ReactNode>>;
   wordCounts: Record<TabId, number>;
+  /** The same counts for Brief mode, measured from the segmentation the renderer uses. */
+  briefWordCounts: Record<TabId, number>;
   activeTab: TabId;
   /** True on "/" and "/full": the whole document in one scroll. */
   expanded: boolean;
@@ -90,7 +94,7 @@ const WiperUmbrellaLogo = () => (
 const TAB_IDS: string[] = SECTIONS.map((s) => s.id);
 const LANDING_TAB: TabId = FLOW_ORDER[0];
 
-export function ClientPage({ sections, documents, wordCounts, activeTab, expanded, streamed = false }: ClientPageProps) {
+export function ClientPage({ sections, documents, wordCounts, briefWordCounts, activeTab, expanded, streamed = false }: ClientPageProps) {
   const router = useRouter();
   const [isTOCModalOpen, setIsTOCModalOpen] = useState(false);
   const { theme, toggleTheme, mounted } = useTheme();
@@ -288,6 +292,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
 
   return (
     <SectionNumberMapProvider sections={sections}>
+      <ReadingModeProvider>
       <div className="min-h-screen bg-paper text-ink font-sans selection:bg-accent/20">
         <a href="#content-area" className="skip-link">Skip to the document</a>
 
@@ -352,13 +357,26 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                 </div>
               </div>
 
-              {/* One instruction, and it is the only one the reader needs: keep going. */}
-              <p style={{ "--fx-i": 4 } as React.CSSProperties} className="fx-in-up mt-7 flex items-center gap-2.5 t-micro font-semibold text-muted">
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-line/70">
-                  <span className="fx-scroll-cue" aria-hidden="true" />
-                </span>
-                <span>Scroll. The whole proposal is on this page, in order — {navItems.length} sections, {readingMinutes(Object.values(wordCounts).reduce((a, b) => a + b, 0))} minutes.</span>
-              </p>
+              {/* One instruction, and one choice.
+
+                  The instruction is the only one the reader needs: keep going. The choice is the
+                  honest form of the old line, which said "30 sections, 289 minutes" and left it
+                  there. 289 minutes is a true number and a closed door — it is the first thing a
+                  reader learns about a document they were sent on WhatsApp. Both reading times
+                  are measured from the rendered segmentation rather than typed, so neither can
+                  drift from what the page actually does. */}
+              <div style={{ "--fx-i": 4 } as React.CSSProperties} className="fx-in-up mt-7 space-y-3">
+                <p className="flex items-center gap-2.5 t-micro font-semibold text-muted">
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-line/70">
+                    <span className="fx-scroll-cue" aria-hidden="true" />
+                  </span>
+                  <span>Scroll. The whole proposal is on this page, in order — {navItems.length} sections.</span>
+                </p>
+                <ReadingModeToggle
+                  briefMinutes={readingMinutes(Object.values(briefWordCounts).reduce((a, b) => a + b, 0))}
+                  fullMinutes={readingMinutes(Object.values(wordCounts).reduce((a, b) => a + b, 0))}
+                />
+              </div>
             </div>
           </header>
         )}
@@ -498,6 +516,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
           }}
         />
       </div>
+      </ReadingModeProvider>
     </SectionNumberMapProvider>
   );
 }
