@@ -24,7 +24,7 @@ currently tells Dr. Mulu he wins.
 | **Wrong table aggregates** | "Combined 68.7%" and three more, shipped | **none** | opt-in, per table, by name |
 | **Figures reading zero with JS off** | `KSh0.00bn`, `0.0%`, `≈0k` | **none** | |
 | **Duplicated text nodes** | headline ×2, every counter ×3 | **removed at source** | |
-| **ASCII blocks** | 67 | **53** | 14 retired, 1,831 words |
+| **ASCII blocks** | 67 | **52** | 15 retired, 1,923 words · chapter 3 has none left |
 | **`og:image`** | absent, with `summary_large_image` | **1200×630 typographic card** | |
 | Third-party requests | none | **none** | held |
 | Sideways scroll at 390 px | none | **none** | held |
@@ -75,6 +75,7 @@ cannot drift from the file that authorises them:
 | §3.4.6 | `SECTION 3.4.6 STRATEGIC TARGETING SUMMARY` — eight restated bullet lines | 120 | `targeting-summary` |
 | §3.4.3 | `FOUR STRUCTURAL PATHS TO THE 200,000 VOTER POOL` | 110 | `paths-to-threshold` |
 | §3.4.1 | `THE 2027 VICTORY THRESHOLD ARITHMETIC` | 102 | `threshold-build-up`, `register-growth` |
+| §3.7 | `KAMBA RADIO LANDSCAPE & BYPASS ARCHITECTURE` — four hostile stations and four bypass routes | 92 | `radio-gatekeepers` |
 | §3.3.2 | `GOVERNOR MALOMBE'S 2027 CONSTITUTIONAL STATUS` — a two-branch tree | 84 | `ConstitutionalBranchNavigator` |
 | §3.6 | `THE DIGITAL CEILING` — the connectivity split | 65 | `reach-split` |
 | §3.6 | Three section banners — box-drawn headings restating the heading above them | 29 | none needed |
@@ -111,6 +112,13 @@ Checking the replacements against those checklists is what made them better than
 - §3.3.2's branch tree is the **only block retired without a new figure or a checklist gap**: the
   two prose bullets directly beneath it state every fact it carried, in fuller words, and the
   branch navigator at that heading draws the fork. It was a third copy between the other two.
+- §3.7's radio landscape is the block that **found C-20**. Its hostile tier opens with Musyi FM;
+  twelve lines later §3.7.1 gives Musyi FM the placement budget, the station data reads "Priority
+  — commercially independent", and §3.6.3 scales radio effort up into it. `radio-gatekeepers`
+  draws each station's posture from the ownership map §3.7.1 says governs and prints what the
+  diagram said beside it, on the two rows where they differ. **Sang'u FM and Mang'elete, both named
+  in the diagram, are in none of the eight rows of that map**; they render as "Not in the ownership
+  map" rather than being dropped, because an omission a reader cannot see is the worse failure.
 
 ### 2.3 A figure has to earn its place
 
@@ -223,9 +231,13 @@ it names (C-4).
 
 Stated plainly, because a report that implies otherwise is worth less than no report.
 
-- **53 of 67 ASCII blocks remain.** All fourteen retired are in chapter 3 — §3A, §3B and §3C —
-  the chapters the brief names as the place to spend the visual boldness, and chapter 3 now has
-  one box-drawing block left in it. Every remaining block is inventoried with a
+- **52 of 67 ASCII blocks remain.** All fifteen retired are in chapter 3 — §3A, §3B and §3C —
+  which the brief names as the place to spend the visual boldness, and **chapter 3 now has no
+  box-drawing blocks left in it at all**. The remaining 52 are in §7 onwards: every one is
+  inventoried with a named target component in `INVENTORY.md`, and the mechanism — the `figure`
+  fence, the registry, the retirement declaration with its facts checklist, the migration
+  declaration for a figure leaving the markdown, and now a guard that fails the build if a fence
+  does not resolve — is built and proven on fifteen. Every remaining block is inventoried with a
   named target component in `INVENTORY.md`, and the mechanism to retire them — the `figure` fence,
   the registry, the retirement declaration with its facts checklist, the migration declaration for
   any figure leaving the markdown — is built and proven on eleven. What each one still needs is its
@@ -238,30 +250,31 @@ Stated plainly, because a report that implies otherwise is worth less than no re
 - **Phases 4 P2/P3** — §4–§16 and the annexes — are mapped in the conversion map and the inventory,
   and untouched in the markdown.
 
-The inventory's headline count of "10,039 words retired" is the **plan**, not the state. The state
-is **1,831 words**, itemised in §2.2 above and in `figure-retirements.json`.
+The inventory's headline count of "9,947 words retired" is the **plan**, not the state. The state
+is **1,923 words**, itemised in §2.2 above and in `figure-retirements.json`.
 
 ---
 
 ## 6. Verification
 
-`npm run verify` — nine guards and 34 arithmetic assertions, all passing:
+`npm run verify` — ten guards and 34 arithmetic assertions, all passing:
 
 ```
 Ward register integrity ... 40 wards across 8 constituencies sum to 532,758
 Analysis exports ......... 9 exports, 96 values, all carrying source, tier, date, method, status
 Figure verification ...... every numeric literal in the UI traces to the source
+Figure fences ............ all 11 ```figure fences resolve to one of 13 registered figures
 Figure retention ......... all 1,055 figures present at the baseline survive; all 552 content
                            figures still reach the print path (38 declared migrations)
-Content integrity ........ all 4,356 body lines unchanged since 228eb02, apart from 12 entries
-                           covering 14 blocks retired under rule 1a and declared
+Content integrity ........ all 4,338 body lines unchanged since 228eb02, apart from 13 entries
+                           covering 15 blocks retired under rule 1a and declared
 verify-mounts ............ 50 mount points resolve
 verify-deep-links ........ 880 legacy ids and 272 live ids resolve
 visual-coverage .......... no retired figure kind has returned
 figures.test.ts .......... 34 passed
 ```
 
-Three guards were improved by the work rather than worked around:
+Three guards were improved by the work rather than worked around, and a fourth was written:
 
 - `verify-figure-retention` indexed `section-visuals.generated.json`, a file **derived from**
   `public/content`, which made it circular: regenerating it reported section 6.2 as a lost figure.
@@ -272,9 +285,24 @@ Three guards were improved by the work rather than worked around:
   point `NODE_PATH` at playwright, and ESM resolution does not consult `NODE_PATH`. That is why the
   heights were stale.
 
+`verify-figure-fences.mjs` is the new one, and it exists because the bug it catches **shipped**. A
+```figure fence body must read `id: some-figure-id`; two of them were written as a bare id, which
+renders a visible "Malformed figure fence" banner exactly where the retired ASCII block used to be.
+Neither existing guard could see it: retention passed because the figures still lived in the test
+file and the data modules — it asks whether a number survives somewhere, not whether the figure
+meant to show it renders — and content integrity passed because the retirements were properly
+declared, which authorises removing the block but cannot know the replacement is broken. So a block
+could be retired, its retirement correctly declared, and the figure that justified the retirement
+silently replaced by an error banner: rule 1a's exact failure mode, arriving through a typo. The
+guard parses every fence and checks the id against the registry, and it was tested against both
+forms of the bug before being added to `npm run verify`.
+
 **Print reach was verified, not assumed.** Retiring the power-ranking table moved 14 literals into a
 figure that computes them. Emulating print on `/arithmetic` finds all 14 in the rendered text, and
-`figures.test.ts` pins every one in the document's own notation so the computation cannot drift.
+`figures.test.ts` pins every one in the document's own notation so the computation cannot drift. The
+same check was run for every later batch: `/reach` for the §3.6 and §3.7 figures, `/arithmetic` for
+§3.4.5's 83,496 and every fact on its retirement checklist. All render in print, and at 390px with
+no horizontal scroll.
 
 ---
 

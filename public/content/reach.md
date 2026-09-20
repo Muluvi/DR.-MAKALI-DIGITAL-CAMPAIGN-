@@ -123,24 +123,8 @@ Vernacular radio is the primary medium of political consciousness and daily news
 
 To ensure uninterrupted, high-credibility communication with the electorate, the campaign constructs a dual strategy: a disciplined operational engagement model for Tier 1 commercial networks, coupled with an aggressive bypass architecture detailed in **Section 8.7.7**.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                  KAMBA RADIO LANDSCAPE & BYPASS ARCHITECTURE
-════════════════════════════════════════════════════════════════════════════════════
-
-   TIER 1: HOSTILE / GATEKEEPER COMMERCIAL STATIONS
-   (Musyi FM, Mbaitu FM, Sang'u FM, Athiani FM)
-   • High frequency coverage | Politically aligned ownership & editorial vetoes
-                                      │
-                                      ▼
-   THE BYPASS WORKAROUND ARCHITECTURE (SECTION 8.7.7)
- ┌─────────────────────────────────────────────────────────────────────────────────┐
- │ 1. Neutral & Church-Owned Stations (Wikwatyo, Mang'elete, County FM)              │
- │ 2. Direct 2G SMS & Zero-Rated Interactive USSD Gateway (*[shortcode]#)               │
- │ 3. 8-Sub-County Mobile PA Sound Trucks & High-Density Market Center Caravans    │
- │ 4. Grassroots Baraza Audio Distribution (Pre-loaded Megaphones & WhatsApp Voice)│
- └─────────────────────────────────────────────────────────────────────────────────┘
-════════════════════════════════════════════════════════════════════════════════════
+```figure
+id: radio-gatekeepers
 ```
 
 ### 3.7.1 Who owns the Kamba-language stations, and who they favour

@@ -15,18 +15,18 @@ FIX — a defect, not a conversion.
 
 ## Totals
 
-- Blocks: **860**, carrying **58,945** words.
-- Words retired outright, under rule 1a: **10,039** (17.0% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
+- Blocks: **860**, carrying **58,856** words.
+- Words retired outright, under rule 1a: **9,947** (16.9% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
 - Words collapsed to a `CrossRef` under rule 1b, still on the page, pending Firefly's answer to D-1: **718**.
 
 | Action | Blocks | | Type | Blocks |
 |---|---|---|---|---|
-| KEEP-PROSE | 687 | | prose | 514 |
+| KEEP-PROSE | 688 | | prose | 514 |
 | COLLAPSE | 95 | | list | 171 |
-| CONVERT | 67 | | table | 74 |
-| DEDUPE | 11 | | ascii | 53 |
+| CONVERT | 66 | | table | 74 |
+| DEDUPE | 11 | | ascii | 52 |
 |  |  | | callout | 35 |
-|  |  | | figure | 10 |
+|  |  | | figure | 11 |
 |  |  | | code | 3 |
 
 
@@ -176,7 +176,7 @@ FIX — a defect, not a conversion.
 | `situation:3.3.5:06` | prose | 36 | argument | KEEP-PROSE | — |  |  |
 | `situation:3.3.6:00` | list | 180 | change over time | COLLAPSE | Small multiples of results bars per race, 'Disputed' marker on Musila 2022, explicit empty 2013 panel |  |  |
 
-## arithmetic — 50 blocks, 3,445 words, 134 retired
+## arithmetic — 50 blocks, 3,446 words, 134 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
@@ -213,7 +213,7 @@ FIX — a defect, not a conversion.
 | `arithmetic:3.4.5:08` | list | 108 | spatial | COLLAPSE | Deficit panel (canonical) |  |  |
 | `arithmetic:3.4.6:00` | prose | 22 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4.6:01` | list | 181 | argument | KEEP-PROSE | — |  |  |
-| `arithmetic:3.4.6:02` | figure | 1 | argument | KEEP-PROSE | — |  |  |
+| `arithmetic:3.4.6:02` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4.6:03` | prose | 1 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.5:00` | prose | 28 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.5.1:00` | table | 70 | argument | KEEP-PROSE | — |  |  |
@@ -231,7 +231,7 @@ FIX — a defect, not a conversion.
 | `arithmetic:3.5.4:02` | table | 70 | part-to-whole | COLLAPSE | Small-multiple ShareBars 'View the data' |  |  |
 | `arithmetic:3.5.4:03` | prose | 36 | argument | KEEP-PROSE | — |  |  |
 
-## reach — 32 blocks, 1,623 words, 92 retired
+## reach — 32 blocks, 1,533 words, 0 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
@@ -259,7 +259,7 @@ FIX — a defect, not a conversion.
 | `reach:3.6.3:05` | prose | 1 | argument | KEEP-PROSE | — |  |  |
 | `reach:3.7:00` | prose | 53 | argument | KEEP-PROSE | — |  |  |
 | `reach:3.7:01` | prose | 34 | argument | KEEP-PROSE | — |  |  |
-| `reach:3.7:02` | ascii | 92 | hierarchy | CONVERT | Ownership grid of stations × owner × alignment (canonical; §8.7.1 reuses it) | 92 | Rule 1a. |
+| `reach:3.7:02` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `reach:3.7.1:00` | prose | 37 | argument | KEEP-PROSE | — |  |  |
 | `reach:3.7.1:01` | callout | 50 | argument | KEEP-PROSE | — |  |  |
 | `reach:3.7.1:02` | prose | 11 | argument | KEEP-PROSE | — |  |  |

@@ -657,6 +657,8 @@ export function RangeBars({ series, scaleMax }: { series: FigureSeries; scaleMax
  */
 export function Ledger({
   rows,
+  statedLabel = "§3.4.6 prints",
+  nameFirst = false,
 }: {
   rows: {
     label: string;
@@ -666,6 +668,16 @@ export function Ledger({
     stated?: string;
     conflicts?: string[];
   }[];
+  /** Who says the contrary thing. Named per figure, because more than one section does. */
+  statedLabel?: string;
+  /**
+   * Put the label in the prominent line instead of the value.
+   *
+   * A findings ledger leads on the finding, so the figure is the big line and its name the
+   * caption. A roster of stations leads on the station: nobody scans a media list looking for
+   * "Royal Media Services (commercial)" and reads off which station it belongs to.
+   */
+  nameFirst?: boolean;
 }) {
   return (
     <ol className="not-prose m-0 list-none space-y-1.5 p-0">
@@ -677,20 +689,22 @@ export function Ledger({
           }`}
         >
           <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-            <span className="t-micro font-bold uppercase tracking-wide text-muted">{row.label}</span>
+            <span className="t-micro font-bold uppercase tracking-wide text-muted">
+              {nameFirst ? row.value : row.label}
+            </span>
             {/* The section is the point of the row, not a footnote: it is what makes this a way
-                back into §3.4 rather than a second copy of it. */}
+                back into the chapter rather than a second copy of it. */}
             <span className="t-micro shrink-0 font-semibold tabular-nums text-muted">{row.section}</span>
           </div>
 
           <p className="m-0 mt-0.5 font-serif text-base font-bold leading-tight tabular-nums text-ink">
-            {row.value}
+            {nameFirst ? row.label : row.value}
           </p>
           <p className="m-0 mt-1 t-micro leading-snug text-muted">{row.detail}</p>
 
           {row.stated && (
             <p className="m-0 mt-1.5 border-t border-gold/30 pt-1.5 t-micro leading-snug text-ink">
-              <strong className="font-bold text-gold">§3.4.6 prints</strong>{" "}
+              <strong className="font-bold text-gold">{statedLabel}</strong>{" "}
               <span className="font-semibold">{row.stated}</span>
               {row.conflicts?.length ? (
                 <span className="text-muted"> — under review, {row.conflicts.join(", ")}.</span>

@@ -19,6 +19,7 @@ import {
 } from "../../lib/figures/register";
 import { REGISTER_GROWTH_SERIES, THRESHOLD_SERIES } from "../../lib/figures/threshold";
 import { TARGETING_SERIES, TARGETING_SUMMARY } from "../../lib/figures/targeting";
+import { BYPASS_PILLARS, BYPASS_STATIONS, RADIO_GATEKEEPERS } from "../../lib/figures/media";
 import {
   DIGITAL_REACH,
   DIGITAL_SHORTFALL,
@@ -161,6 +162,21 @@ const REBALANCE_SERIES: FigureSeries = {
     "anywhere in this pass (D-11). Both columns sum to 100%.",
 };
 
+/* ------------------------------------------------------------------ §3.7 who owns the air */
+
+const GATEKEEPER_SERIES: FigureSeries = {
+  id: "radio-gatekeepers",
+  headline: "The document names four hostile stations, and disagrees with itself about two of them",
+  measure:
+    "§3.7's Tier 1 hostile tier, read against data/media-ownership.ts — the reconciled map §3.7.1 says governs",
+  points: [],
+  conflicts: ["C-20"],
+  note:
+    "Ownership associations are publicly reported, not certified, and §3.7.1 carries the standing " +
+    "instruction to verify this map before any placement is booked. The bypass architecture these " +
+    "four are routed around is stated in full in §8.7.7.",
+};
+
 /* ------------------------------------------------------------------ the registry */
 
 type FigureEntry = { render: () => React.ReactNode; note: string };
@@ -209,6 +225,39 @@ export const FIGURES: Record<string, FigureEntry> = {
           fromLabel="Traditional pitch"
           toLabel="Rebalanced — §3.6.3"
         />
+      </FigureFrame>
+    ),
+  },
+
+  "radio-gatekeepers": {
+    note: "§3.7 — the four stations the diagram called hostile, and what the ownership map says.",
+    render: () => (
+      <FigureFrame series={GATEKEEPER_SERIES}>
+        <p className="mb-2 t-micro font-bold uppercase tracking-wide text-muted">
+          §3.7: Tier 1 hostile / gatekeeper commercial stations
+        </p>
+        <Ledger rows={RADIO_GATEKEEPERS} statedLabel="§3.7's diagram calls this" nameFirst />
+        <p className="mb-2 mt-4 t-micro font-bold uppercase tracking-wide text-muted">
+          §3.7: the stations it routes around them to
+        </p>
+        <Ledger rows={BYPASS_STATIONS} statedLabel="§3.7's diagram calls this" nameFirst />
+        <p className="mb-2 mt-4 t-micro font-bold uppercase tracking-wide text-muted">
+          And the four routes that need no station at all — §8.7.7
+        </p>
+        <ol className="not-prose m-0 list-none space-y-1.5 p-0">
+          {BYPASS_PILLARS.map((pillar, i) => (
+            <li key={pillar.label} className="rounded-lg border border-line bg-paper/60 px-3 py-2.5">
+              <p className="m-0 t-micro font-bold text-ink">
+                {/* Numbered because §8.7.7 numbers them and because four routes executed in
+                    parallel still have an order of deployment. */}
+                <span className="mr-1.5 tabular-nums text-muted">{i + 1}.</span>
+                {pillar.label}
+              </p>
+              <p className="m-0 mt-0.5 t-micro font-medium leading-snug text-ink/80">{pillar.summary}</p>
+              <p className="m-0 mt-1 t-micro leading-snug text-muted">{pillar.detail}</p>
+            </li>
+          ))}
+        </ol>
       </FigureFrame>
     ),
   },

@@ -470,6 +470,43 @@
         "   • Rapid shift in voter blocs and alliances.        incumbency strategy.",
         "   • Ideal environment for technocratic change.     • Overcomes active executive patronage."
       ]
+    },
+    {
+      "id": "reach-3-7-radio-landscape",
+      "section": "§3.7",
+      "was": "A box-drawing block headed KAMBA RADIO LANDSCAPE & BYPASS ARCHITECTURE — a list of four Tier 1 hostile/gatekeeper stations above a four-route bypass workaround pointing at §8.7.7.",
+      "replacedBy": [
+        "radio-gatekeepers"
+      ],
+      "facts": [
+        "The four stations it grouped as Tier 1 hostile / gatekeeper: Musyi FM, Mbaitu FM, Sang'u FM, Athiani FM",
+        "What it asserted about that group: high frequency coverage, politically aligned ownership and editorial vetoes",
+        "Bypass route 1: neutral and church-owned stations — Wikwatyo, Mang'elete, County FM",
+        "Bypass route 2: direct 2G SMS and the zero-rated interactive USSD gateway",
+        "Bypass route 3: 8-sub-county mobile PA sound trucks and high-density market centre caravans",
+        "Bypass route 4: grassroots baraza audio — pre-loaded megaphones and WhatsApp voice",
+        "That the bypass architecture is stated in full in §8.7.7"
+      ],
+      "note": "THIS BLOCK IS WHERE C-20 CAME FROM, and the figure exists to show the conflict rather than resolve it. The diagram files Musyi FM under hostile gatekeepers; §3.7.1 twelve lines later calls it open to the campaign and gives it the placement budget, data/media-ownership.ts reads 'Priority — commercially independent', and §3.6.3 scales vernacular radio effort up into it. Athiani FM is the same disagreement at lower volume — 'hostile' here, 'party-sensitive rather than hostile' in §3.7.1. The figure draws each station's posture from the ownership map §3.7.1 says governs and prints what this diagram said beside it, on the two rows where they differ. Sang'u FM and Mang'elete, both named here, are in none of the eight rows of that map; they are rendered as explicit unknowns rather than dropped. The four bypass routes keep this block's own names as labels and carry §8.7.7's fuller operational detail beneath them, which is what the block's own pointer to §8.7.7 asked a reader to do.",
+      "lines": [
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "                  KAMBA RADIO LANDSCAPE & BYPASS ARCHITECTURE",
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "",
+        "   TIER 1: HOSTILE / GATEKEEPER COMMERCIAL STATIONS",
+        "   (Musyi FM, Mbaitu FM, Sang'u FM, Athiani FM)",
+        "   • High frequency coverage | Politically aligned ownership & editorial vetoes",
+        "                                      │",
+        "                                      ▼",
+        "   THE BYPASS WORKAROUND ARCHITECTURE (SECTION 8.7.7)",
+        " ┌─────────────────────────────────────────────────────────────────────────────────┐",
+        " │ 1. Neutral & Church-Owned Stations (Wikwatyo, Mang'elete, County FM)              │",
+        " │ 2. Direct 2G SMS & Zero-Rated Interactive USSD Gateway (*[shortcode]#)               │",
+        " │ 3. 8-Sub-County Mobile PA Sound Trucks & High-Density Market Center Caravans    │",
+        " │ 4. Grassroots Baraza Audio Distribution (Pre-loaded Megaphones & WhatsApp Voice)│",
+        " └─────────────────────────────────────────────────────────────────────────────────┘",
+        "════════════════════════════════════════════════════════════════════════════════════"
+      ]
     }
   ]
 }

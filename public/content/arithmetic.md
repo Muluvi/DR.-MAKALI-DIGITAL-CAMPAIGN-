@@ -208,7 +208,7 @@ In strict adherence to the campaign's data provenance standards, the analytical 
 4.  **Ward-Level Mobile Broadband Penetration Data:** **Named Data Gap (Tier 1 Gap).** The 2019 KNBS Census and Communications Authority provide sub-county and countywide connectivity figures (13.6% active internet penetration, 86.4% offline), but disaggregated ward-by-ward cellular data coverage maps remain an internal operational estimate.
 
 ```figure
-targeting-summary
+id: targeting-summary
 ```
 
 ---
