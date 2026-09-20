@@ -2185,20 +2185,20 @@
   "level": 3,
   "number": "8.12.1",
   "title": "The voter and supporter data model",
-  "kind": "playbook",
+  "kind": "stats",
   "data": {
-   "pairs": [
+   "figures": [
     {
-     "when": "Strict Anonymization & Encryption at Rest",
-     "then": "PII (Personally Identifiable Information), including mobile MSISDNs, is encrypted using AES-256-GCM.…"
+     "label": "AES GCM",
+     "value": -256,
+     "display": "AES-256-GCM",
+     "pct": false
     },
     {
-     "when": "Granular Geographic Tagging",
-     "then": "No supporter entry exists in a vacuum; every record MUST map to an explicit Constituency, Ward, and Polling…"
-    },
-    {
-     "when": "Audit Trail Logging",
-     "then": "Every modification to a voter's support_status or contact detail logs the modifying user ID, timestamp, and…"
+     "label": "Audit Trail Logging",
+     "value": 3,
+     "display": "3",
+     "pct": false
     }
    ]
   }
@@ -2292,28 +2292,6 @@
      "n": 4,
      "label": "Volunteer routing",
      "body": "ground teams directed to highest-persuasion-potential"
-    }
-   ]
-  }
- },
- "scope-data-sec-8-14": {
-  "id": "scope-data-sec-8-14",
-  "tab": "scope-data",
-  "level": 2,
-  "number": "8.14",
-  "title": "Workstream 13 — The technology stack",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "OFFLINE TELECOM GATEWAY TIER 2: CORE…",
-     "body": ""
-    },
-    {
-     "n": 2,
-     "label": "BROADCAST & LISTENING TIER 4: ANALYTICS &…",
-     "body": ""
     }
    ]
   }

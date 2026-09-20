@@ -82,38 +82,46 @@ export const BYPASS_STATIONS: RosterRow[] = [
 ];
 
 /**
- * §8.7.7's four bypass pillars, which §3.7's diagram summarised in four lines and pointed at.
+ * §8.7.7's four bypass pillars, at both the levels the document states them.
  *
- * The detail is §8.7.7's, not the summary's: it is the canonical statement and the one that
- * carries the operational protocol. The summary's four route names are kept as the labels.
+ * §3.7 named the four routes in four lines and pointed at §8.7.7 for the protocol; §8.7.7 gave the
+ * protocol in a table of its own. Both blocks are retired, so both levels live here: `summary` is
+ * §3.7's line and `detail` is §8.7.7's cell, transcribed. The §3.7 figure prints the summary and
+ * says where the full version is, exactly as the block it replaced did; the §8.7.7 figure prints
+ * the protocol. Flattening them into one would either lose §8.7.7's operational detail or move it
+ * four chapters earlier than the document puts it.
  */
 export const BYPASS_PILLARS = [
   {
     label: "Faith-based, diocesan and community radio",
-    summary: "Neutral and church-owned stations — Wikwatyo, Mang'elete, County FM",
+    summary: "Neutral and church-owned stations \u2014 Wikwatyo, Mang'elete, County FM",
     detail:
-      "Direct media buying and civic issue programming. Highest qualitative credibility among rural women, " +
+      "Direct media buying and civic issue programming on Radio Wikwatyo (Seventh-Day Adventist, Kitui), " +
+      "County FM and Mang'elete. These stations hold the highest qualitative credibility among rural women, " +
       "church elders and farming chamas; strictly neutral and immune to commercial political vetoes.",
   },
   {
-    label: "Direct 2G bulk SMS and USSD",
-    summary: "Zero-rated interactive USSD gateway, to 320,000 voters",
+    label: "Direct 2G bulk SMS and USSD, to 320,000 voters",
+    summary: "Zero-rated interactive USSD gateway (*[shortcode]#)",
     detail:
-      "The 2G SMS engine and the zero-rated USSD gateway via Africa's Talking. Bypasses radio entirely, landing " +
-      "160-character localised policy alerts on feature phones within minutes.",
+      "Deployment of the 2G SMS Engine (1.5M messages) and the zero-rated USSD gateway (*[shortcode]#) via " +
+      "Africa's Talking. Bypasses radio entirely by landing 160-character localised policy alerts directly " +
+      "onto voters' feature phones within minutes.",
   },
   {
-    label: "Mobile PA sound trucks and market caravans",
-    summary: "Eight sub-counties, high-density market centres",
+    label: "8-sub-county mobile PA sound truck and caravan fleet",
+    summary: "High-density market centre caravans",
     detail:
-      "Eight branded sound PA caravans deployed daily across the major market centres — Nguni, Tseikuru, Mutomo, " +
-      "Kabati, Migwani, Ikutha. 90-second benga jingles, verified policy addresses and live Q&A to market crowds.",
+      "Daily deployment of 8 branded sound PA caravans across all major market centres \u2014 Nguni, Tseikuru, " +
+      "Mutomo, Kabati, Migwani, Ikutha. Broadcasts 90-second benga audio jingles, verified candidate policy " +
+      "addresses and live Q&A sessions directly to market crowds.",
   },
   {
-    label: "Ward captain megaphone and WhatsApp audio",
-    summary: "Grassroots baraza audio — pre-loaded megaphones and WhatsApp voice",
+    label: "Ward captain megaphone and WhatsApp audio network",
+    summary: "Grassroots baraza audio \u2014 pre-loaded megaphones and WhatsApp voice",
     detail:
-      "400 ward captains with high-output portable megaphones and pre-loaded USB sticks carrying 45-second Kikamba " +
-      "policy tracks, plus Kikamba audio notes dispatched across 180+ local WhatsApp groups.",
+      "400 ward captains equipped with high-output portable megaphones and pre-loaded USB memory sticks " +
+      "containing 45-second Kikamba policy tracks. Direct dispatch of Kikamba audio notes across 180+ local " +
+      "WhatsApp groups for organic peer-to-peer sharing among teachers, youth and traders.",
   },
 ];

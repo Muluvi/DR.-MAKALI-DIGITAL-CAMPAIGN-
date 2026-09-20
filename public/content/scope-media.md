@@ -207,33 +207,8 @@ substance fixed, delivery natural.
 
 To guarantee uninhibited communication with all 532,758 registered voters across the 40 wards, the campaign executes a four-pillar bypass strategy that operates entirely independently of captured Tier 1 commercial gatekeepers:
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                          THE GATEKEEPER BYPASS & DIRECT REACH ARCHITECTURE                                  │
-├────────────────────────────────┬────────────────────────────────────────────────────────────────────────────┤
-│ Workaround Pillar              │ Operational Strategy & Deployment Protocol                                 │
-├────────────────────────────────┼────────────────────────────────────────────────────────────────────────────┤
-│ 1. Faith-Based, Diocesan &     │ • Direct media buying and civic issue programming on **Radio Wikwatyo      │
-│    Community Radio Dominance   │   (Seventh-Day Adventist, Kitui)**, **County FM**, **Mang'elete**.         │
-│                                │ • These stations possess the highest qualitative credibility among rural   │
-│                                │   women, church elders, and farming chamas; strictly neutral and immune    │
-│                                │   to commercial political vetoes.                                          │
-├────────────────────────────────┼────────────────────────────────────────────────────────────────────────────┤
-│ 2. Direct 2G Bulk SMS & USSD   │ • Deployment of the **2G SMS Engine (1.5M Messages)** and **Zero-Rated    │
-│    Push to 320,000 Voters      │   USSD Gateway (*[shortcode]#)** via Africa's Talking.                          │
-│                                │ • Bypasses radio entirely by landing 160-character localized policy alerts │
-│                                │   directly onto voters' feature phones within minutes.                     │
-├────────────────────────────────┼────────────────────────────────────────────────────────────────────────────┤
-│ 3. 8-Sub-County Mobile PA      │ • Daily deployment of **8 branded Sound PA Caravans** across all major     │
-│    Sound Truck & Caravan Fleet │   market centers (e.g., Nguni, Tseikuru, Mutomo, Kabati, Migwani, Ikutha). │
-│                                │ • Broadcasts 90-second benga audio jingles, verified candidate policy      │
-│                                │   addresses, and live Q&A sessions directly to market crowds.              │
-├────────────────────────────────┼────────────────────────────────────────────────────────────────────────────┤
-│ 4. Ward Captain Megaphone &    │ • 400 Ward Captains equipped with high-output portable megaphones          │
-│    WhatsApp Audio Network      │   and pre-loaded USB memory sticks containing 45s Kikamba policy tracks.   │
-│                                │ • Direct dispatch of Kikamba audio notes across 180+ local WhatsApp groups │
-│                                │   for organic peer-to-peer sharing among teachers, youth, and traders.     │
-└────────────────────────────────┴────────────────────────────────────────────────────────────────────────────┘
+```figure
+id: bypass-architecture
 ```
 
 ### 8.7.8 How we pitch: evidence first

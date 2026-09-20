@@ -945,3 +945,129 @@ export function Stepper({
     </ol>
   );
 }
+
+/**
+ * A real table, where the block it replaced was a table drawn in characters.
+ *
+ * Not every ASCII block wants to become a chart. §8.12.1's supporter schema is eighteen fields with
+ * a type and a constraint each; there is nothing to plot and nothing to rank. What it needed was to
+ * stop being an image of a table: inside a code fence it could not wrap, could not be searched
+ * word by word, could not be read in order by a screen reader, and scrolled sideways on a phone.
+ *
+ * So this is a `<table>`, with a caption and scoped headers, and at narrow widths each row becomes
+ * a labelled block — the header repeated per cell — rather than a horizontal scroll. The content
+ * is identical to the fence's; only its form changes, which is the whole of the improvement.
+ */
+export function SpecTable({
+  columns,
+  rows,
+  caption,
+  emphasise,
+}: {
+  columns: string[];
+  rows: string[][];
+  caption: string;
+  /** Column index whose value is set in bold — a risk level, a status. */
+  emphasise?: number;
+}) {
+  return (
+    <div className="not-prose">
+      <table className="w-full border-collapse text-left">
+        <caption className="sr-only">{caption}</caption>
+        <thead className="hidden sm:table-header-group">
+          <tr>
+            {columns.map((c) => (
+              <th
+                key={c}
+                scope="col"
+                className="border-b border-line px-2 py-1.5 t-micro font-bold uppercase tracking-wide text-muted"
+              >
+                {c}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr key={row[0]} className="block border-b border-line/60 py-1.5 sm:table-row sm:py-0">
+              {row.map((cell, i) => (
+                <td
+                  key={columns[i]}
+                  className={`block px-2 py-0.5 t-micro leading-snug sm:table-cell sm:py-1.5 ${
+                    i === 0 ? "font-semibold text-ink" : emphasise === i ? "font-bold text-ink" : "text-muted"
+                  }`}
+                >
+                  {/* The header travels with the cell below the breakpoint, so a stacked row is
+                      still self-describing rather than a column of unlabelled strings. */}
+                  {i > 0 && (
+                    <span className="mr-1 font-bold uppercase tracking-wide text-muted sm:hidden">
+                      {columns[i]}:{" "}
+                    </span>
+                  )}
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+/**
+ * Named tiers, each holding a few components: the shape of an architecture diagram without the
+ * arrows.
+ *
+ * §8.12 and §8.14 both drew boxes joined by ASCII arrows. The arrows are the part that cannot
+ * survive: an SVG connector between two boxes breaks the moment the boxes reflow, and at 320px
+ * they have to stack. What the arrows carried — that ingestion feeds processing, which feeds
+ * output — is carried here by ORDER and by a named relationship printed between the tiers, which
+ * reflows, prints and reads aloud.
+ */
+export function TierGrid({
+  tiers,
+  flow,
+  terminal,
+}: {
+  tiers: { label: string; items: string[] }[];
+  /** What the arrows meant, said in words. Printed once, above the tiers. */
+  flow?: string;
+  /** The box the diagram hung beneath everything else — §8.12's encrypted core database. */
+  terminal?: { label: string; items: string[] };
+}) {
+  return (
+    <div>
+      {flow && <p className="m-0 mb-2 t-micro font-semibold leading-snug text-muted">{flow}</p>}
+      <ol className="not-prose m-0 grid list-none grid-cols-1 gap-2 p-0 sm:grid-cols-2">
+        {tiers.map((tier, i) => (
+          <li key={tier.label} className="rounded-lg border border-line bg-paper/60 px-3 py-2.5">
+            <p className="m-0 t-micro font-bold uppercase tracking-wide text-muted">
+              <span className="mr-1 tabular-nums">{i + 1}.</span>
+              {tier.label}
+            </p>
+            <ul className="m-0 mt-1 list-none space-y-0.5 p-0">
+              {tier.items.map((item) => (
+                <li key={item} className="t-micro leading-snug text-ink">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ol>
+      {terminal && (
+        <div className="mt-2 rounded-lg border border-accent/30 bg-accent/[0.05] px-3 py-2.5">
+          <p className="m-0 t-micro font-bold uppercase tracking-wide text-accent">{terminal.label}</p>
+          <ul className="m-0 mt-1 list-none space-y-0.5 p-0">
+            {terminal.items.map((item) => (
+              <li key={item} className="t-micro leading-snug text-ink">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}

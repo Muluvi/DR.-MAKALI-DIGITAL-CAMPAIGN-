@@ -806,6 +806,264 @@
         "    Senior Vernacular Broadcaster)*.",
         "  • Final sign-off by Campaign Manager before release to audio studio/print."
       ]
+    },
+    {
+      "id": "scope-media-8-7-7-bypass",
+      "section": "§8.7.7",
+      "was": "A box-drawing table headed THE GATEKEEPER BYPASS & DIRECT REACH ARCHITECTURE — four workaround pillars, each with its operational strategy and deployment protocol.",
+      "replacedBy": [
+        "bypass-architecture"
+      ],
+      "facts": [
+        "Pillar 1: direct media buying and civic issue programming on Radio Wikwatyo (Seventh-Day Adventist, Kitui), County FM and Mang'elete; highest qualitative credibility among rural women, church elders and farming chamas; strictly neutral and immune to commercial political vetoes",
+        "Pillar 2: the 2G SMS Engine (1.5M messages) and the zero-rated USSD gateway (*[shortcode]#) via Africa's Talking, to 320,000 voters; 160-character localised policy alerts onto feature phones within minutes",
+        "Pillar 3: 8 branded sound PA caravans deployed daily across the major market centres — Nguni, Tseikuru, Mutomo, Kabati, Migwani, Ikutha; 90-second benga audio jingles, verified policy addresses and live Q&A to market crowds",
+        "Pillar 4: 400 ward captains with high-output portable megaphones and pre-loaded USB memory sticks containing 45-second Kikamba policy tracks; Kikamba audio notes across 180+ local WhatsApp groups among teachers, youth and traders"
+      ],
+      "note": "THE PAIR TO §3.7's BLOCK, and the reason lib/figures/media.ts carries each pillar at two levels. §3.7 named these four routes in four lines and pointed here for the protocol; this table is the protocol. Flattening them into one figure would either lose this detail or move it four chapters earlier than the document puts it, so the §3.7 figure prints the four route names and says the full version is here — exactly what the block it replaced did — and this figure prints the protocol. Mang'elete, named in pillar 1, is in no ownership map: C-20.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                          THE GATEKEEPER BYPASS & DIRECT REACH ARCHITECTURE                                  │",
+        "├────────────────────────────────┬────────────────────────────────────────────────────────────────────────────┤",
+        "│ Workaround Pillar              │ Operational Strategy & Deployment Protocol                                 │",
+        "├────────────────────────────────┼────────────────────────────────────────────────────────────────────────────┤",
+        "│ 1. Faith-Based, Diocesan &     │ • Direct media buying and civic issue programming on **Radio Wikwatyo      │",
+        "│    Community Radio Dominance   │   (Seventh-Day Adventist, Kitui)**, **County FM**, **Mang'elete**.         │",
+        "│                                │ • These stations possess the highest qualitative credibility among rural   │",
+        "│                                │   women, church elders, and farming chamas; strictly neutral and immune    │",
+        "│                                │   to commercial political vetoes.                                          │",
+        "├────────────────────────────────┼────────────────────────────────────────────────────────────────────────────┤",
+        "│ 2. Direct 2G Bulk SMS & USSD   │ • Deployment of the **2G SMS Engine (1.5M Messages)** and **Zero-Rated    │",
+        "│    Push to 320,000 Voters      │   USSD Gateway (*[shortcode]#)** via Africa's Talking.                          │",
+        "│                                │ • Bypasses radio entirely by landing 160-character localized policy alerts │",
+        "│                                │   directly onto voters' feature phones within minutes.                     │",
+        "├────────────────────────────────┼────────────────────────────────────────────────────────────────────────────┤",
+        "│ 3. 8-Sub-County Mobile PA      │ • Daily deployment of **8 branded Sound PA Caravans** across all major     │",
+        "│    Sound Truck & Caravan Fleet │   market centers (e.g., Nguni, Tseikuru, Mutomo, Kabati, Migwani, Ikutha). │",
+        "│                                │ • Broadcasts 90-second benga audio jingles, verified candidate policy      │",
+        "│                                │   addresses, and live Q&A sessions directly to market crowds.              │",
+        "├────────────────────────────────┼────────────────────────────────────────────────────────────────────────────┤",
+        "│ 4. Ward Captain Megaphone &    │ • 400 Ward Captains equipped with high-output portable megaphones          │",
+        "│    WhatsApp Audio Network      │   and pre-loaded USB memory sticks containing 45s Kikamba policy tracks.   │",
+        "│                                │ • Direct dispatch of Kikamba audio notes across 180+ local WhatsApp groups │",
+        "│                                │   for organic peer-to-peer sharing among teachers, youth, and traders.     │",
+        "└────────────────────────────────┴────────────────────────────────────────────────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "scope-data-8-12-layer",
+      "section": "§8.12",
+      "was": "A box-drawing diagram headed CAMPAIGN DATA LAYER ARCHITECTURE — three column groups joined by arrows, over an encrypted core database.",
+      "replacedBy": [
+        "data-layer"
+      ],
+      "facts": [
+        "Ingestion & capture: offline SMS/USSD, 400 ward captains, WhatsApp/webforms, event registration",
+        "Processing & validation: provenance tagger, DPA consent engine, duplicate scrubber, tier classifier (1–3)",
+        "Output & channels: target SMS/IVR, geofenced ads, polling samples, field logistics",
+        "Encrypted core database with row-level security and an audit provenance log, beneath all three"
+      ],
+      "note": "The arrows are the part that cannot survive: an SVG connector between two boxes breaks the moment they reflow, and at 320px they must stack. What the arrows carried is carried by ORDER and by one line above the tiers saying it in words — which reflows, prints and reads aloud.",
+      "lines": [
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "                        CAMPAIGN DATA LAYER ARCHITECTURE",
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "",
+        "  INGESTION & CAPTURE               PROCESSING & VALIDATION         OUTPUT & CHANNELS",
+        " ┌──────────────────────┐         ┌────────────────────────┐      ┌─────────────────┐",
+        " │ Offline SMS / USSD   │ ──────► │ • Provenance Tagger    │ ───► │ Target SMS / IVR│",
+        " │ 400 Ward Captains    │         │ • DPA Consent Engine   │      │ Geofenced Ads   │",
+        " │ WhatsApp / Webforms  │ ──────► │ • Duplicate Scrubber   │ ───► │ Polling Samples │",
+        " │ Event Registration   │         │ • Tier Classifier (1-3)│      │ Field Logistics │",
+        " └──────────────────────┘         └────────────────────────┘      └─────────────────┘",
+        "                                              │",
+        "                                              ▼",
+        "                                 ┌─────────────────────────┐",
+        "                                 │ Encrypted Core Database │",
+        "                                 │ (Row-Level Security &   │",
+        "                                 │  Audit Provenance Log)  │",
+        "                                 └─────────────────────────┘",
+        "════════════════════════════════════════════════════════════════════════════════════"
+      ]
+    },
+    {
+      "id": "scope-data-8-12-1-schema",
+      "section": "§8.12.1",
+      "was": "A pseudo-table headed SUPPORTER RECORD SCHEMA SPECIFICATION — nineteen fields with a data type and a description or constraint each.",
+      "replacedBy": [
+        "supporter-schema"
+      ],
+      "facts": [
+        "All nineteen field names in order, from supporter_id to data_tier_source",
+        "Each field's data type: UUIDv4, SHA-256, AES-256-GCM, String(35), String(80), Enum (1..8), Enum (1..40), Enum, Boolean, ISO-8601, Enum (1..3)",
+        "That msisdn_hash is a one-way SHA-256 identifier and phone_encrypted is reversibly encrypted (AES-256-GCM) for authorised SMS",
+        "Every enum's members in the order stated — age cohorts, gender, livelihood group, language preference, support status, acquisition source, consent channel",
+        "That language_pref defaults to Kikamba, and that consent_status cites DPA 2019"
+      ],
+      "note": "NOT EVERY ASCII BLOCK WANTS TO BECOME A CHART. There is nothing here to plot and nothing to rank; what this needed was to stop being an IMAGE of a table. Inside a code fence it could not wrap, could not be searched word by word, could not be read in order by a screen reader and scrolled sideways on a phone. It is now a real <table> with a caption and scoped headers, and at narrow widths each row becomes a labelled block with the header repeated per cell. The content is identical; only its form changed, and that is the whole of the improvement. Every field name, type and enum member is transcribed exactly — a schema paraphrased is a schema wrong.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────┐",
+        "│                    SUPPORTER RECORD SCHEMA SPECIFICATION                    │",
+        "├───────────────────┬──────────────┬──────────────────────────────────────────┤",
+        "│ Field Name        │ Data Type    │ Description & Constraints                │",
+        "├───────────────────┼──────────────┼──────────────────────────────────────────┤",
+        "│ supporter_id      │ UUIDv4       │ Unique, anonymized internal primary key  │",
+        "│ msisdn_hash       │ SHA-256      │ One-way hashed phone identifier          │",
+        "│ phone_encrypted   │ AES-256-GCM  │ Reversibly encrypted for authorized SMS  │",
+        "│ first_name        │ String (35)  │ First name (for personalized SMS)        │",
+        "│ last_name         │ String (35)  │ Last name                                │",
+        "│ constituency_id   │ Enum (1..8)  │ 1 of 8 Kitui constituencies              │",
+        "│ ward_id           │ Enum (1..40) │ 1 of 40 County Assembly wards            │",
+        "│ polling_station   │ String (80)  │ IEBC Polling Station Name / Code         │",
+        "│ age_cohort        │ Enum         │ 18-24 | 25-34 | 35-49 | 50+ | Unknown    │",
+        "│ gender            │ Enum         │ Male | Female | Unknown                  │",
+        "│ livelihood_group  │ Enum         │ Smallholder | Pastoralist | Bodaboda |   │",
+        "│                   │              │ MSME Trader | Professional | Student     │",
+        "│ language_pref     │ Enum         │ Kikamba (Default) | Kiswahili | English  │",
+        "│ support_status    │ Enum         │ Hard Supporter | Soft Supporter | Lean   │",
+        "│                   │              │ Mulu | Undecided | Opposed | Inactive    │",
+        "│ acquisition_source│ Enum         │ SMS_Inbound | Ward_Captain | USSD_Tree | │",
+        "│                   │              │ Web_Signup | Town_Hall | WhatsApp_Bot    │",
+        "│ consent_status    │ Boolean      │ Explicit Opt-In Confirmation (DPA 2019)  │",
+        "│ consent_timestamp │ ISO-8601     │ UTC timestamp of explicit consent        │",
+        "│ consent_channel   │ Enum         │ SMS_CONFIRM | FORM_CHECKBOX | PAPER_SIGN │",
+        "│ opt_out_status    │ Boolean      │ True if user texted STOP / requested del │",
+        "│ data_tier_source  │ Enum (1..3)  │ Provenance rating of record verification │",
+        "└───────────────────┴──────────────┴──────────────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "scope-data-8-12-2-dpa",
+      "section": "§8.12.2",
+      "was": "A box-drawing table headed DPA 2019 STATUTORY COMPLIANCE CHECKLIST — six legal requirements, each with its operational campaign implementation.",
+      "replacedBy": [
+        "dpa-compliance"
+      ],
+      "facts": [
+        "Lawful basis for processing (Sec 30): explicit affirmative opt-in before any bulk political SMS",
+        "Purpose limitation (Sec 25): contact details will NEVER be sold, shared or repurposed",
+        "Data minimisation (Sec 25): only necessary operational fields; no unnecessary biometric or sensitive data",
+        "Mandatory opt-out (Sec 34): EVERY broadcast message must carry an immediate, free opt-out — 'Reply STOP to OptOut'",
+        "Data security and encryption (Sec 41): RBAC, end-to-end AES-256 encryption, local cloud hosting",
+        "Right to rectify / erasure (Sec 40): a direct automated USSD/SMS command for complete profile deletion"
+      ],
+      "note": "Each requirement cites its section of the Act and each pairing is the content, so each is drawn as one card rather than two grid columns that could shear apart at a narrow width and put a section number beside the wrong obligation. Same PairedRows mark as §7.1.4 and §7.3.2.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────┐",
+        "│                    DPA 2019 STATUTORY COMPLIANCE CHECKLIST                  │",
+        "├─────────────────────────┬───────────────────────────────────────────────────┤",
+        "│ Legal Requirement       │ Operational Campaign Implementation               │",
+        "├─────────────────────────┼───────────────────────────────────────────────────┤",
+        "│ 1. Lawful Basis for     │ Explicit, affirmative opt-in consent captured     │",
+        "│    Processing (Sec 30)  │ before any voter receives bulk political SMS.     │",
+        "├─────────────────────────┼───────────────────────────────────────────────────┤",
+        "│ 2. Purpose Limitation   │ Supporter contact details collected for campaign  │",
+        "│    (Sec 25)             │ updates will NEVER be sold, shared, or repurposed.│",
+        "├─────────────────────────┼───────────────────────────────────────────────────┤",
+        "│ 3. Data Minimization    │ Collect only necessary operational fields; avoid  │",
+        "│    (Sec 25)             │ harvesting unnecessary biometric/sensitive data.  │",
+        "├─────────────────────────┼───────────────────────────────────────────────────┤",
+        "│ 4. Mandatory Opt-Out    │ EVERY broadcast message MUST include an immediate,│",
+        "│    (Sec 34)             │ free opt-out mechanism (e.g., \"Reply STOP to OptOut\").│",
+        "├─────────────────────────┼───────────────────────────────────────────────────┤",
+        "│ 5. Data Security &      │ Role-based access control (RBAC), end-to-end      │",
+        "│    Encryption (Sec 41)  │ encryption (AES-256), and local cloud hosting.    │",
+        "├─────────────────────────┼───────────────────────────────────────────────────┤",
+        "│ 6. Right to Rectify /   │ Direct automated USSD/SMS command to allow users  │",
+        "│    Erasure (Sec 40)     │ to request complete deletion of their profile.    │",
+        "└─────────────────────────┴───────────────────────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "scope-data-8-14-stack",
+      "section": "§8.14",
+      "was": "A box-drawing diagram headed CAMPAIGN TECHNOLOGY STACK ARCHITECTURE — four tiers in a 2×2 grid joined by arrows.",
+      "replacedBy": [
+        "tech-stack"
+      ],
+      "facts": [
+        "Tier 1, offline telecom gateway: Africa's Talking / Safaricom, dedicated shortcode and USSD, two-way inbound/outbound SMS",
+        "Tier 2, core supporter CRM: PostgreSQL (AWS/GCP Cape Town), AES-256 encrypted PII fields, RBAC and audit access logging",
+        "Tier 3, broadcast and listening: Buffer / Hootsuite Enterprise, Brand24 / Talkwalker monitor, Meta Business Suite and TikTok",
+        "Tier 4, analytics and ward tracker: Metabase / Apache Superset, the §8.2 service-delivery public policy tracker (web)"
+      ],
+      "note": "Same TierGrid as §8.12, same reason. The figure adds one sentence the diagram left implicit and §8.14.2 depends on: the personal data lives in tiers 1 and 2 only, which is why the procurement matrix rates those two HIGH RISK and CRITICAL and the other three LOW to MINIMAL.",
+      "lines": [
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "                     CAMPAIGN TECHNOLOGY STACK ARCHITECTURE",
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "",
+        "  TIER 1: OFFLINE TELECOM GATEWAY           TIER 2: CORE SUPPORTER CRM",
+        " ┌─────────────────────────────────┐       ┌─────────────────────────────────┐",
+        " │ • Africa's Talking / Safaricom  │ ────► │ • PostgreSQL (AWS/GCP Cape Town)│",
+        " │ • Dedicated Shortcode & USSD    │       │ • AES-256 Encrypted PII Fields  │",
+        " │ • Two-Way Inbound/Outbound SMS  │       │ • RBAC & Audit Access Logging   │",
+        " └────────────────┬────────────────┘       └────────────────┬────────────────┘",
+        "                  │                                         │",
+        "                  ▼                                         ▼",
+        "  TIER 3: BROADCAST & LISTENING             TIER 4: ANALYTICS & WARD TRACKER",
+        " ┌─────────────────────────────────┐       ┌─────────────────────────────────┐",
+        " │ • Buffer / Hootsuite Enterprise │       │ • Metabase / Apache Superset    │",
+        " │ • Brand24 / Talkwalker Monitor  │       │ • Section 8.2 Service-Delivery  │",
+        " │ • Meta Business Suite & TikTok  │       │   Public Policy Tracker (Web)   │",
+        " └─────────────────────────────────┘       └─────────────────────────────────┘",
+        "════════════════════════════════════════════════════════════════════════════════════"
+      ]
+    },
+    {
+      "id": "scope-data-8-14-1-banner",
+      "section": "§8.14.1",
+      "was": "A box-drawing banner reading TECHNOLOGY STACK DETAILED SPECIFICATION, empty apart from its own title.",
+      "replacedBy": [
+        "tech-stack"
+      ],
+      "facts": [
+        "No data. It restates the heading immediately above it."
+      ],
+      "note": "Removed rather than replaced, and listed here so the removal is on the record. It is §8.14.1's own title set in box-drawing characters, directly beneath §8.14.1's own title, with nothing inside it.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────┐",
+        "│                    TECHNOLOGY STACK DETAILED SPECIFICATION                  │",
+        "└─────────────────────────────────────────────────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "scope-data-8-14-2-procurement",
+      "section": "§8.14.2",
+      "was": "A pseudo-table headed TECHNOLOGY STACK MASTER PROCUREMENT MATRIX — five system components with a recommended vendor, a DPA risk level and a decision status.",
+      "replacedBy": [
+        "procurement-matrix"
+      ],
+      "facts": [
+        "SMS/USSD gateway — Africa's Talking / Safaricom Enterprise — HIGH RISK (direct PII) — awaiting campaign decision",
+        "Supporter CRM database — PostgreSQL + Hasura (Cape Town region) — CRITICAL (encrypted PII) — awaiting campaign decision",
+        "Social publishing & listening — Buffer / Hootsuite + Brand24 monitoring — LOW-MODERATE (public data) — awaiting campaign decision",
+        "BI analytics dashboard — Metabase open source (self-hosted cloud) — MINIMAL (anonymised) — awaiting campaign decision",
+        "Public service tracker (19B) — Next.js web platform + Cloudflare edge — LOW RISK (public policy) — awaiting campaign decision"
+      ],
+      "note": "ALL FIVE ROWS READ 'AWAITING CAMPAIGN DECISION' IN THE SOURCE AND ALL FIVE READ IT HERE. The brief forbids inventing anything, and a figure that rendered a pending procurement as settled would be inventing the most consequential kind of thing in this chapter. The risk level is the emphasised column because it is what the decision turns on.",
+      "lines": [
+        "┌──────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                                TECHNOLOGY STACK MASTER PROCUREMENT MATRIX            │",
+        "├─────────────────────┬──────────────────────┬──────────────────┬──────────────────────┤",
+        "│ System Component    │ Recommended Vendor   │ DPA Risk Level   │ Decision Status      │",
+        "├─────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤",
+        "│ 1. SMS/USSD Gateway │ Africa's Talking /   │ **HIGH RISK**    │ **Awaiting campaign  │",
+        "│                     │ Safaricom Enterprise │ (Direct PII)     │ decision**           │",
+        "├─────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤",
+        "│ 2. Supporter CRM    │ PostgreSQL + Hasura  │ **CRITICAL**     │ **Awaiting campaign  │",
+        "│    Database         │ (Cape Town Region)   │ (Encrypted PII)  │ decision**           │",
+        "├─────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤",
+        "│ 3. Social Publishing│ Buffer / Hootsuite + │ **LOW-MODERATE** │ **Awaiting campaign  │",
+        "│    & Listening      │ Brand24 Monitoring   │ (Public Data)    │ decision**           │",
+        "├─────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤",
+        "│ 4. BI Analytics     │ Metabase Open Source │ **MINIMAL**      │ **Awaiting campaign  │",
+        "│    Dashboard        │ (Self-Hosted Cloud)  │ (Anonymized)     │ decision**           │",
+        "├─────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤",
+        "│ 5. Public Service   │ Next.js Web Platform │ **LOW RISK**     │ **Awaiting campaign  │",
+        "│    Tracker (19B)    │ + Cloudflare Edge    │ (Public Policy)  │ decision**           │",
+        "└─────────────────────┴──────────────────────┴──────────────────┴──────────────────────┘"
+      ]
     }
   ]
 }

@@ -15,18 +15,18 @@ FIX — a defect, not a conversion.
 
 ## Totals
 
-- Blocks: **858**, carrying **57,626** words.
-- Words retired outright, under rule 1a: **8,705** (15.1% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
+- Blocks: **857**, carrying **56,535** words.
+- Words retired outright, under rule 1a: **7,602** (13.4% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
 - Words collapsed to a `CrossRef` under rule 1b, still on the page, pending Firefly's answer to D-1: **718**.
 
 | Action | Blocks | | Type | Blocks |
 |---|---|---|---|---|
-| KEEP-PROSE | 694 | | prose | 514 |
+| KEEP-PROSE | 700 | | prose | 514 |
 | COLLAPSE | 95 | | list | 171 |
-| CONVERT | 58 | | table | 74 |
-| DEDUPE | 11 | | ascii | 44 |
+| CONVERT | 51 | | table | 74 |
+| DEDUPE | 11 | | ascii | 37 |
 |  |  | | callout | 35 |
-|  |  | | figure | 17 |
+|  |  | | figure | 23 |
 |  |  | | code | 3 |
 
 
@@ -484,7 +484,7 @@ FIX — a defect, not a conversion.
 | `scope-platforms:8.5.4:00` | prose | 67 | argument | KEEP-PROSE | — |  |  |
 | `scope-platforms:8.5.5:00` | table | 65 | magnitude | COLLAPSE | KPI progress cards |  |  |
 
-## scope-media — 34 blocks, 2,106 words, 266 retired
+## scope-media — 34 blocks, 1,842 words, 0 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
@@ -519,7 +519,7 @@ FIX — a defect, not a conversion.
 | `scope-media:8.7.5:01` | table | 252 | comparison | COLLAPSE | Accordion of pre-drafted line cards |  |  |
 | `scope-media:8.7.6:00` | table | 79 | argument | KEEP-PROSE | — |  |  |
 | `scope-media:8.7.7:00` | prose | 30 | argument | KEEP-PROSE | — |  |  |
-| `scope-media:8.7.7:01` | ascii | 266 | flow | CONVERT | Route-around flow — getting on air past a hostile gatekeeper | 266 | Rule 1a. |
+| `scope-media:8.7.7:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `scope-media:8.7.8:00` | prose | 25 | argument | KEEP-PROSE | — |  |  |
 | `scope-media:8.7.8:01` | list | 86 | process | COLLAPSE | Stepper — how we pitch, evidence first |  |  |
 
@@ -584,7 +584,7 @@ FIX — a defect, not a conversion.
 | `scope-ground:8.11.4:00` | list | 59 | argument | KEEP-PROSE | — |  |  |
 | `scope-ground:8.11.5:00` | table | 81 | argument | KEEP-PROSE | — |  |  |
 
-## scope-data — 56 blocks, 3,775 words, 837 retired
+## scope-data — 55 blocks, 2,948 words, 0 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
@@ -592,12 +592,12 @@ FIX — a defect, not a conversion.
 | `scope-data:8.12:00` | callout | 17 | argument | KEEP-PROSE | — |  |  |
 | `scope-data:8.12:01` | prose | 47 | argument | KEEP-PROSE | — |  |  |
 | `scope-data:8.12:02` | prose | 61 | argument | KEEP-PROSE | — |  |  |
-| `scope-data:8.12:03` | ascii | 103 | flow | CONVERT | Entity diagram — the data layer | 103 | Rule 1a. |
+| `scope-data:8.12:03` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `scope-data:8.12.1:00` | prose | 33 | argument | KEEP-PROSE | — |  |  |
-| `scope-data:8.12.1:01` | ascii | 275 | hierarchy | CONVERT | Entity diagram — the voter and supporter data model | 275 | Rule 1a. |
+| `scope-data:8.12.1:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `scope-data:8.12.1:02` | list | 80 | argument | KEEP-PROSE | — |  |  |
 | `scope-data:8.12.2:00` | prose | 31 | argument | KEEP-PROSE | — |  |  |
-| `scope-data:8.12.2:01` | ascii | 170 | comparison | CONVERT | Principle → control Matrix — the Data Protection Act 2019 applied | 170 | Rule 1a. |
+| `scope-data:8.12.2:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `scope-data:8.12.2:02` | list | 99 | argument | KEEP-PROSE | — |  |  |
 | `scope-data:8.12.2:03` | prose | 1 | argument | KEEP-PROSE | — |  |  |
 | `scope-data:8.13:00` | callout | 39 | argument | KEEP-PROSE | — |  |  |
@@ -616,18 +616,17 @@ FIX — a defect, not a conversion.
 | `scope-data:8.14:00` | callout | 66 | argument | KEEP-PROSE | — |  |  |
 | `scope-data:8.14:01` | prose | 40 | argument | KEEP-PROSE | — |  |  |
 | `scope-data:8.14:02` | prose | 39 | argument | KEEP-PROSE | — |  |  |
-| `scope-data:8.14:03` | ascii | 123 | hierarchy | CONVERT | Block diagram separating what Firefly builds (tracker, CRM, offline layer) from the existing estate | 123 | Rule 1a. |
-| `scope-data:8.14.1:00` | ascii | 8 | hierarchy | CONVERT | Block diagram — component by component | 8 | Rule 1a: a box-drawn banner. |
-| `scope-data:8.14.1:01` | list | 134 | argument | KEEP-PROSE | — |  |  |
-| `scope-data:8.14.1:02` | prose | 1 | argument | KEEP-PROSE | — |  |  |
-| `scope-data:8.14.1:03` | list | 129 | argument | KEEP-PROSE | — |  |  |
-| `scope-data:8.14.1:04` | prose | 1 | argument | KEEP-PROSE | — |  |  |
-| `scope-data:8.14.1:05` | list | 144 | argument | KEEP-PROSE | — |  |  |
-| `scope-data:8.14.1:06` | prose | 1 | argument | KEEP-PROSE | — |  |  |
-| `scope-data:8.14.1:07` | list | 120 | argument | KEEP-PROSE | — |  |  |
-| `scope-data:8.14.1:08` | prose | 1 | argument | KEEP-PROSE | — |  |  |
-| `scope-data:8.14.1:09` | list | 144 | argument | KEEP-PROSE | — |  |  |
-| `scope-data:8.14.2:00` | ascii | 158 | comparison | CONVERT | Procurement comparison Matrix | 158 | Rule 1a. |
+| `scope-data:8.14:03` | figure | 2 | argument | KEEP-PROSE | — |  |  |
+| `scope-data:8.14.1:00` | list | 134 | argument | KEEP-PROSE | — |  |  |
+| `scope-data:8.14.1:01` | prose | 1 | argument | KEEP-PROSE | — |  |  |
+| `scope-data:8.14.1:02` | list | 129 | argument | KEEP-PROSE | — |  |  |
+| `scope-data:8.14.1:03` | prose | 1 | argument | KEEP-PROSE | — |  |  |
+| `scope-data:8.14.1:04` | list | 144 | argument | KEEP-PROSE | — |  |  |
+| `scope-data:8.14.1:05` | prose | 1 | argument | KEEP-PROSE | — |  |  |
+| `scope-data:8.14.1:06` | list | 120 | argument | KEEP-PROSE | — |  |  |
+| `scope-data:8.14.1:07` | prose | 1 | argument | KEEP-PROSE | — |  |  |
+| `scope-data:8.14.1:08` | list | 144 | argument | KEEP-PROSE | — |  |  |
+| `scope-data:8.14.2:00` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `scope-data:8.14.3:00` | prose | 14 | argument | KEEP-PROSE | — |  |  |
 | `scope-data:8.14.3:01` | list | 91 | argument | KEEP-PROSE | — |  |  |
 | `scope-data:8.14.3:02` | prose | 1 | argument | KEEP-PROSE | — |  |  |

@@ -11,7 +11,9 @@ import {
   RegisterGroups,
   ShareBar,
   SlopeChart,
+  SpecTable,
   Stepper,
+  TierGrid,
 } from "./marks";
 import { CONSTITUENCIES } from "../../data/ward-register";
 import {
@@ -34,6 +36,19 @@ import { REGISTER_GROWTH_SERIES, THRESHOLD_SERIES } from "../../lib/figures/thre
 import { TARGETING_SERIES, TARGETING_SUMMARY } from "../../lib/figures/targeting";
 import { BYPASS_PILLARS, BYPASS_STATIONS, RADIO_GATEKEEPERS } from "../../lib/figures/media";
 import { LANGUAGES, LANGUAGE_DEPLOYMENT, LANGUAGE_SPLIT } from "../../lib/figures/language";
+import {
+  DATA_LAYER,
+  DATA_LAYER_CORE,
+  DATA_LAYER_TIERS,
+  DPA_COMPLIANCE,
+  DPA_SERIES,
+  PROCUREMENT,
+  PROCUREMENT_SERIES,
+  STACK_SERIES,
+  STACK_TIERS,
+  SUPPORTER_SCHEMA,
+  SUPPORTER_SCHEMA_SERIES,
+} from "../../lib/figures/data-layer";
 import {
   CENTRAL_CLAIM,
   CLAIM_EVIDENCE,
@@ -217,6 +232,17 @@ const DEPLOYMENT_SERIES: FigureSeries = {
     "§7.3.1's channel list contradicts. USSD is not restricted, and takes 50% Kikamba here.",
 };
 
+const BYPASS_SERIES: FigureSeries = {
+  id: "bypass-architecture",
+  headline: "Four ways to reach 532,758 voters without a commercial gatekeeper's permission",
+  measure: "§8.7.7's gatekeeper bypass and direct reach architecture — the operational protocol for each pillar",
+  points: [],
+  note:
+    "Numbered because §8.7.7 numbers them, and because four routes run in parallel but are stood " +
+    "up in order. The station list in pillar 1 is §8.7.7's; two of the three stations it names, " +
+    "Mang'elete among them, are in no ownership map — see §3.7 and C-20.",
+};
+
 /* ------------------------------------------------------------------ the registry */
 
 type FigureEntry = { render: () => React.ReactNode; note: string };
@@ -264,6 +290,82 @@ export const FIGURES: Record<string, FigureEntry> = {
           rows={EFFORT_REBALANCE.map((r) => ({ label: r.label, from: r.from, to: r.to, note: r.note ?? undefined }))}
           fromLabel="Traditional pitch"
           toLabel="Rebalanced — §3.6.3"
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "data-layer": {
+    note: "§8.12 — capture, validation, output, and the encrypted core beneath them.",
+    render: () => (
+      <FigureFrame series={DATA_LAYER}>
+        <TierGrid
+          tiers={DATA_LAYER_TIERS}
+          flow="Capture feeds validation; validation feeds the channels; everything passes through the encrypted core."
+          terminal={DATA_LAYER_CORE}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "supporter-schema": {
+    note: "§8.12.1 — the supporter record, field by field.",
+    render: () => (
+      <FigureFrame series={SUPPORTER_SCHEMA_SERIES}>
+        <SpecTable
+          caption="§8.12.1 supporter record schema specification"
+          columns={["Field name", "Data type", "Description & constraints"]}
+          rows={SUPPORTER_SCHEMA}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "dpa-compliance": {
+    note: "§8.12.2 — six sections of the Data Protection Act 2019, and what each obliges.",
+    render: () => (
+      <FigureFrame series={DPA_SERIES}>
+        <PairedRows
+          leftLabel="Legal requirement"
+          rightLabel="Operational campaign implementation"
+          rows={DPA_COMPLIANCE.map((r) => ({ left: r.requirement, right: r.implementation }))}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "tech-stack": {
+    note: "§8.14 — the four tiers of the campaign technology stack.",
+    render: () => (
+      <FigureFrame series={STACK_SERIES}>
+        <TierGrid
+          tiers={STACK_TIERS}
+          flow="The gateway collects, the CRM holds it encrypted, and tiers 3 and 4 work on public and anonymised data."
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "procurement-matrix": {
+    note: "§8.14.2 — five components, their DPA risk level, and their decision status.",
+    render: () => (
+      <FigureFrame series={PROCUREMENT_SERIES}>
+        <SpecTable
+          caption="§8.14.2 technology stack master procurement matrix"
+          columns={["System component", "Recommended vendor", "DPA risk level", "Decision status"]}
+          rows={PROCUREMENT}
+          emphasise={2}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "bypass-architecture": {
+    note: "§8.7.7 — the four bypass pillars and the protocol for each.",
+    render: () => (
+      <FigureFrame series={BYPASS_SERIES}>
+        <Stepper
+          stages={BYPASS_PILLARS.map((p) => ({ title: p.label, steps: [p.detail] }))}
         />
       </FigureFrame>
     ),
@@ -383,7 +485,7 @@ export const FIGURES: Record<string, FigureEntry> = {
         </p>
         <Ledger rows={BYPASS_STATIONS} statedLabel="§3.7's diagram calls this" nameFirst />
         <p className="mb-2 mt-4 t-micro font-bold uppercase tracking-wide text-muted">
-          And the four routes that need no station at all — §8.7.7
+          And the four routes that need no station at all — stated in full in §8.7.7
         </p>
         <ol className="not-prose m-0 list-none space-y-1.5 p-0">
           {BYPASS_PILLARS.map((pillar, i) => (
@@ -394,8 +496,7 @@ export const FIGURES: Record<string, FigureEntry> = {
                 <span className="mr-1.5 tabular-nums text-muted">{i + 1}.</span>
                 {pillar.label}
               </p>
-              <p className="m-0 mt-0.5 t-micro font-medium leading-snug text-ink/80">{pillar.summary}</p>
-              <p className="m-0 mt-1 t-micro leading-snug text-muted">{pillar.detail}</p>
+              <p className="m-0 mt-0.5 t-micro leading-snug text-muted">{pillar.summary}</p>
             </li>
           ))}
         </ol>

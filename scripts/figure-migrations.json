@@ -157,5 +157,17 @@
   {
     "figure": "47|",
     "movedTo": "Moved from the §7.1.4 GROUND RUMOR VS. FACTUAL COUNTER-FIRE table into the `counter-fire` figure (scripts/figure-retirements.json, messaging-7-1-4-counter-fire). It is the 47 of “all 47 counties” in the Hansard rebuttal — the number of counties in Kenya, not a campaign figure — and the rebuttal is transcribed word for word, so the phrase is intact in lib/figures/messaging.ts. PRINT REACH VERIFIED, not assumed: emulating print on /messaging finds “all 47 counties” in the rendered text, along with 12,573, KSh 47m and the “Share pending the ledger” line that ends the same rebuttal."
+  },
+  {
+    "figure": "1500000|",
+    "movedTo": "Moved from the §8.7.7 GATEKEEPER BYPASS & DIRECT REACH ARCHITECTURE table into the `bypass-architecture` figure (scripts/figure-retirements.json, scope-media-8-7-7-bypass). It is the “2G SMS Engine (1.5M Messages)” capacity, transcribed into lib/figures/media.ts as “1.5M messages” — the guard normalises 1.5M to 1,500,000, which is why it reads as a distinct figure. PRINT REACH VERIFIED, not assumed: emulating print on /scope-media finds “1.5M messages” in the rendered text, together with *[shortcode]#, Africa's Talking and every other fact on that block's retirement checklist."
+  },
+  {
+    "figure": "49|",
+    "movedTo": "Moved from the §8.12.1 SUPPORTER RECORD SCHEMA SPECIFICATION into the `supporter-schema` figure (scripts/figure-retirements.json, scope-data-8-12-1-schema), which renders the same nineteen rows as a real <table>. It is NOT A FIGURE OF THE PROPOSAL: it is the upper bound of the age cohort “18-24 | 25-34 | 35-49 | 50+ | Unknown”, which the guard tokenises as a bare 49. The enum is transcribed member for member in lib/figures/data-layer.ts. PRINT REACH VERIFIED, not assumed: emulating print on /scope-data finds it in the rendered text, along with every field name, type and enum member on that block's checklist."
+  },
+  {
+    "figure": "8601|",
+    "movedTo": "Moved from the §8.12.1 SUPPORTER RECORD SCHEMA SPECIFICATION into the `supporter-schema` figure (scripts/figure-retirements.json, scope-data-8-12-1-schema), which renders the same nineteen rows as a real <table>. It is NOT A FIGURE AT ALL: it is “ISO-8601”, the timestamp format of `consent_timestamp`, which the guard tokenises as 8,601. The type string is transcribed exactly. PRINT REACH VERIFIED, not assumed: emulating print on /scope-data finds it in the rendered text, along with every field name, type and enum member on that block's checklist."
   }
 ]

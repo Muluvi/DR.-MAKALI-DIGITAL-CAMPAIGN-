@@ -11,61 +11,16 @@ A modern, high-precision political operation requires an infallible data layer. 
 
 This section defines the voter and supporter data model and the legal compliance workflows under Kenya's **Data Protection Act (DPA) 2019** and the **Office of the Data Protection Commissioner (ODPC)**. The three-tier provenance standard that grades every figure in this proposal (Section 3.2.1) and the protocol for when two sources disagree (Section 3.2.3) are set out alongside the evidence they govern.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                        CAMPAIGN DATA LAYER ARCHITECTURE
-════════════════════════════════════════════════════════════════════════════════════
-
-  INGESTION & CAPTURE               PROCESSING & VALIDATION         OUTPUT & CHANNELS
- ┌──────────────────────┐         ┌────────────────────────┐      ┌─────────────────┐
- │ Offline SMS / USSD   │ ──────► │ • Provenance Tagger    │ ───► │ Target SMS / IVR│
- │ 400 Ward Captains    │         │ • DPA Consent Engine   │      │ Geofenced Ads   │
- │ WhatsApp / Webforms  │ ──────► │ • Duplicate Scrubber   │ ───► │ Polling Samples │
- │ Event Registration   │         │ • Tier Classifier (1-3)│      │ Field Logistics │
- └──────────────────────┘         └────────────────────────┘      └─────────────────┘
-                                              │
-                                              ▼
-                                 ┌─────────────────────────┐
-                                 │ Encrypted Core Database │
-                                 │ (Row-Level Security &   │
-                                 │  Audit Provenance Log)  │
-                                 └─────────────────────────┘
-════════════════════════════════════════════════════════════════════════════════════
+```figure
+id: data-layer
 ```
 
 ### 8.12.1 The voter and supporter data model
 
 The campaign database is organized around a relational, entity-attribute-value schema optimized for speed, geographic aggregation, and privacy segmentation. Every supporter record is linked to an exact geographic locus and carries timestamped consent metadata:
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                    SUPPORTER RECORD SCHEMA SPECIFICATION                    │
-├───────────────────┬──────────────┬──────────────────────────────────────────┤
-│ Field Name        │ Data Type    │ Description & Constraints                │
-├───────────────────┼──────────────┼──────────────────────────────────────────┤
-│ supporter_id      │ UUIDv4       │ Unique, anonymized internal primary key  │
-│ msisdn_hash       │ SHA-256      │ One-way hashed phone identifier          │
-│ phone_encrypted   │ AES-256-GCM  │ Reversibly encrypted for authorized SMS  │
-│ first_name        │ String (35)  │ First name (for personalized SMS)        │
-│ last_name         │ String (35)  │ Last name                                │
-│ constituency_id   │ Enum (1..8)  │ 1 of 8 Kitui constituencies              │
-│ ward_id           │ Enum (1..40) │ 1 of 40 County Assembly wards            │
-│ polling_station   │ String (80)  │ IEBC Polling Station Name / Code         │
-│ age_cohort        │ Enum         │ 18-24 | 25-34 | 35-49 | 50+ | Unknown    │
-│ gender            │ Enum         │ Male | Female | Unknown                  │
-│ livelihood_group  │ Enum         │ Smallholder | Pastoralist | Bodaboda |   │
-│                   │              │ MSME Trader | Professional | Student     │
-│ language_pref     │ Enum         │ Kikamba (Default) | Kiswahili | English  │
-│ support_status    │ Enum         │ Hard Supporter | Soft Supporter | Lean   │
-│                   │              │ Mulu | Undecided | Opposed | Inactive    │
-│ acquisition_source│ Enum         │ SMS_Inbound | Ward_Captain | USSD_Tree | │
-│                   │              │ Web_Signup | Town_Hall | WhatsApp_Bot    │
-│ consent_status    │ Boolean      │ Explicit Opt-In Confirmation (DPA 2019)  │
-│ consent_timestamp │ ISO-8601     │ UTC timestamp of explicit consent        │
-│ consent_channel   │ Enum         │ SMS_CONFIRM | FORM_CHECKBOX | PAPER_SIGN │
-│ opt_out_status    │ Boolean      │ True if user texted STOP / requested del │
-│ data_tier_source  │ Enum (1..3)  │ Provenance rating of record verification │
-└───────────────────┴──────────────┴──────────────────────────────────────────┘
+```figure
+id: supporter-schema
 ```
 
 #### Key Architecture Principles:
@@ -77,30 +32,8 @@ The campaign database is organized around a relational, entity-attribute-value s
 
 Political messaging, bulk SMS broadcasting, and voter profiling operate under strict statutory oversight in Kenya. Non-compliance risks severe criminal penalties, regulatory injunctions, and catastrophic brand damage to Dr. Mulu's integrity-driven platform.
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                    DPA 2019 STATUTORY COMPLIANCE CHECKLIST                  │
-├─────────────────────────┬───────────────────────────────────────────────────┤
-│ Legal Requirement       │ Operational Campaign Implementation               │
-├─────────────────────────┼───────────────────────────────────────────────────┤
-│ 1. Lawful Basis for     │ Explicit, affirmative opt-in consent captured     │
-│    Processing (Sec 30)  │ before any voter receives bulk political SMS.     │
-├─────────────────────────┼───────────────────────────────────────────────────┤
-│ 2. Purpose Limitation   │ Supporter contact details collected for campaign  │
-│    (Sec 25)             │ updates will NEVER be sold, shared, or repurposed.│
-├─────────────────────────┼───────────────────────────────────────────────────┤
-│ 3. Data Minimization    │ Collect only necessary operational fields; avoid  │
-│    (Sec 25)             │ harvesting unnecessary biometric/sensitive data.  │
-├─────────────────────────┼───────────────────────────────────────────────────┤
-│ 4. Mandatory Opt-Out    │ EVERY broadcast message MUST include an immediate,│
-│    (Sec 34)             │ free opt-out mechanism (e.g., "Reply STOP to OptOut").│
-├─────────────────────────┼───────────────────────────────────────────────────┤
-│ 5. Data Security &      │ Role-based access control (RBAC), end-to-end      │
-│    Encryption (Sec 41)  │ encryption (AES-256), and local cloud hosting.    │
-├─────────────────────────┼───────────────────────────────────────────────────┤
-│ 6. Right to Rectify /   │ Direct automated USSD/SMS command to allow users  │
-│    Erasure (Sec 40)     │ to request complete deletion of their profile.    │
-└─────────────────────────┴───────────────────────────────────────────────────┘
+```figure
+id: dpa-compliance
 ```
 
 #### Mandatory Compliance Safeguards:
@@ -238,35 +171,11 @@ A data-driven political campaign requires robust, reliable, and compliant techni
 
 This section specifies the six core software components of the campaign: the **SMS/USSD Telecommunications Gateway**, the **Supporter CRM & Voter Database**, **Social Media Publishing & Social Listening Systems**, **Analytics & Business Intelligence Dashboard**, and the **Section 8.2 Service-Delivery Tracker**.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                     CAMPAIGN TECHNOLOGY STACK ARCHITECTURE
-════════════════════════════════════════════════════════════════════════════════════
-
-  TIER 1: OFFLINE TELECOM GATEWAY           TIER 2: CORE SUPPORTER CRM
- ┌─────────────────────────────────┐       ┌─────────────────────────────────┐
- │ • Africa's Talking / Safaricom  │ ────► │ • PostgreSQL (AWS/GCP Cape Town)│
- │ • Dedicated Shortcode & USSD    │       │ • AES-256 Encrypted PII Fields  │
- │ • Two-Way Inbound/Outbound SMS  │       │ • RBAC & Audit Access Logging   │
- └────────────────┬────────────────┘       └────────────────┬────────────────┘
-                  │                                         │
-                  ▼                                         ▼
-  TIER 3: BROADCAST & LISTENING             TIER 4: ANALYTICS & WARD TRACKER
- ┌─────────────────────────────────┐       ┌─────────────────────────────────┐
- │ • Buffer / Hootsuite Enterprise │       │ • Metabase / Apache Superset    │
- │ • Brand24 / Talkwalker Monitor  │       │ • Section 8.2 Service-Delivery  │
- │ • Meta Business Suite & TikTok  │       │   Public Policy Tracker (Web)   │
- └─────────────────────────────────┘       └─────────────────────────────────┘
-════════════════════════════════════════════════════════════════════════════════════
+```figure
+id: tech-stack
 ```
 
 ### 8.14.1 Component by component, and what each does
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                    TECHNOLOGY STACK DETAILED SPECIFICATION                  │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
 
 #### 1. SMS / USSD Telecommunications Gateway
 *   **Tooling Recommendation:** **Africa's Talking API Suite** (or Safaricom Direct Enterprise SDP Gateway).
@@ -321,27 +230,8 @@ This section specifies the six core software components of the campaign: the **S
 
 ### 8.14.2 The procurement matrix
 
-```
-┌──────────────────────────────────────────────────────────────────────────────────────┐
-│                                TECHNOLOGY STACK MASTER PROCUREMENT MATRIX            │
-├─────────────────────┬──────────────────────┬──────────────────┬──────────────────────┤
-│ System Component    │ Recommended Vendor   │ DPA Risk Level   │ Decision Status      │
-├─────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤
-│ 1. SMS/USSD Gateway │ Africa's Talking /   │ **HIGH RISK**    │ **Awaiting campaign  │
-│                     │ Safaricom Enterprise │ (Direct PII)     │ decision**           │
-├─────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤
-│ 2. Supporter CRM    │ PostgreSQL + Hasura  │ **CRITICAL**     │ **Awaiting campaign  │
-│    Database         │ (Cape Town Region)   │ (Encrypted PII)  │ decision**           │
-├─────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤
-│ 3. Social Publishing│ Buffer / Hootsuite + │ **LOW-MODERATE** │ **Awaiting campaign  │
-│    & Listening      │ Brand24 Monitoring   │ (Public Data)    │ decision**           │
-├─────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤
-│ 4. BI Analytics     │ Metabase Open Source │ **MINIMAL**      │ **Awaiting campaign  │
-│    Dashboard        │ (Self-Hosted Cloud)  │ (Anonymized)     │ decision**           │
-├─────────────────────┼──────────────────────┼──────────────────┼──────────────────────┤
-│ 5. Public Service   │ Next.js Web Platform │ **LOW RISK**     │ **Awaiting campaign  │
-│    Tracker (19B)    │ + Cloudflare Edge    │ (Public Policy)  │ decision**           │
-└─────────────────────┴──────────────────────┴──────────────────┴──────────────────────┘
+```figure
+id: procurement-matrix
 ```
 
 ### 8.14.3 Technical risk and security protocols

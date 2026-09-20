@@ -24,7 +24,7 @@ currently tells Dr. Mulu he wins.
 | **Wrong table aggregates** | "Combined 68.7%" and three more, shipped | **none** | opt-in, per table, by name |
 | **Figures reading zero with JS off** | `KSh0.00bn`, `0.0%`, `≈0k` | **none** | |
 | **Duplicated text nodes** | headline ×2, every counter ×3 | **removed at source** | |
-| **ASCII blocks** | 67 | **44** | 23 retired, 3,165 words · chapters 3 and 7 have none left |
+| **ASCII blocks** | 67 | **37** | 30 retired, 4,268 words · chapters 3 and 7 have none left |
 | **`og:image`** | absent, with `summary_large_image` | **1200×630 typographic card** | |
 | Third-party requests | none | **none** | held |
 | Sideways scroll at 390 px | none | **none** | held |
@@ -60,8 +60,8 @@ a deep link would otherwise have no way back to the whole text.
 
 ### 2.2 Figures replace the repeats
 
-Twenty-three box-drawing blocks are now figures — **every one in chapter 3 and every one in §7**.
-**3,165 words**, each declared in `scripts/figure-retirements.json` with the checklist of facts its
+Thirty box-drawing blocks are now figures — **every one in chapter 3, every one in §7**, §8.7.7's
+bypass architecture and the whole of §8.12 and §8.14. **4,268 words**, each declared in `scripts/figure-retirements.json` with the checklist of facts its
 figure is held to. The word counts are the declared blocks' own, so this table cannot drift from
 the file that authorises them:
 
@@ -88,6 +88,13 @@ the file that authorises them:
 | §7.3.2 | `CULTURAL REGISTERS & PROVERBIAL FRAMING PROTOCOL` — four terms, three framings each | 161 | `cultural-registers` |
 | §7.3.3 | `MULTILINGUAL APPROVAL & SIGN-OFF CHAIN` — four gates | 129 | `qc-gateway` |
 | §7.3.4 | `CHANNEL-BY-LANGUAGE DEPLOYMENT MATRIX` — seven media, each allocated | 151 | `language-deployment` |
+| §8.7.7 | `THE GATEKEEPER BYPASS & DIRECT REACH ARCHITECTURE` — four pillars and their protocol | 266 | `bypass-architecture` |
+| §8.12 | `CAMPAIGN DATA LAYER ARCHITECTURE` — three stages over an encrypted core | 103 | `data-layer` |
+| §8.12.1 | `SUPPORTER RECORD SCHEMA SPECIFICATION` — nineteen fields, typed | 275 | `supporter-schema` |
+| §8.12.2 | `DPA 2019 STATUTORY COMPLIANCE CHECKLIST` — six sections, six obligations | 170 | `dpa-compliance` |
+| §8.14 | `CAMPAIGN TECHNOLOGY STACK ARCHITECTURE` — four tiers | 123 | `tech-stack` |
+| §8.14.1 | A banner with nothing inside it | 8 | none needed |
+| §8.14.2 | `TECHNOLOGY STACK MASTER PROCUREMENT MATRIX` — five components, none decided | 158 | `procurement-matrix` |
 
 Checking the replacements against those checklists is what made them better than the blocks:
 
@@ -121,6 +128,16 @@ Checking the replacements against those checklists is what made them better than
 - §3.3.2's branch tree is the **only block retired without a new figure or a checklist gap**: the
   two prose bullets directly beneath it state every fact it carried, in fuller words, and the
   branch navigator at that heading draws the fork. It was a third copy between the other two.
+- **§8.12.1's schema is the block that proves not every diagram wants to be a chart.** Nineteen
+  typed fields with nothing to plot and nothing to rank: what it needed was to stop being an
+  *image* of a table. Inside a code fence it could not wrap, could not be searched word by word,
+  could not be read in order by a screen reader, and scrolled sideways on a phone. It is now a real
+  `<table>` whose rows become labelled blocks at narrow widths. The content is identical — every
+  field name, type and enum member transcribed, because a schema paraphrased is a schema wrong —
+  and only its form changed. That is the whole of the improvement, and it is a large one.
+- **§8.14.2's five procurement rows all read "Awaiting campaign decision", and all five still do.**
+  A figure that rendered a pending procurement as settled would be inventing the most consequential
+  kind of thing in that chapter.
 - §7's other five blocks are the message house, the counter-fire table, the cultural registers
   and the QC gateway. Two things in them were worth protecting and are now protected by the
   figures rather than by luck. The **Kikamba orthography** in §7.3.2 — ĩ and ũ are distinct
@@ -259,8 +276,8 @@ it names (C-4).
 
 Stated plainly, because a report that implies otherwise is worth less than no report.
 
-- **44 of 67 ASCII blocks remain.** Chapters 3 and 7 are clear — no box-drawing blocks left in
-  either. The remaining 44 are in §8 onwards and in the annexes: every one is
+- **37 of 67 ASCII blocks remain.** Chapters 3 and 7 are clear, and so are §8.12, §8.14 and
+  §8.7.7. The remaining 37 are in §8.3, §8.8, §11, §13, §14 and the annexes: every one is
   inventoried with a named target component in `INVENTORY.md`, and the mechanism — the `figure`
   fence, the registry, the retirement declaration with its facts checklist, the migration
   declaration for a figure leaving the markdown, and now a guard that fails the build if a fence
@@ -277,8 +294,8 @@ Stated plainly, because a report that implies otherwise is worth less than no re
 - **Phases 4 P2/P3** — §4–§16 and the annexes — are mapped in the conversion map and the inventory,
   and untouched in the markdown.
 
-The inventory's headline count of "8,705 words retired" is the **plan**, not the state. The state
-is **3,165 words**, itemised in §2.2 above and in `figure-retirements.json`.
+The inventory's headline count of "7,602 words retired" is the **plan**, not the state. The state
+is **4,268 words**, itemised in §2.2 above and in `figure-retirements.json`.
 
 ---
 
@@ -290,11 +307,11 @@ is **3,165 words**, itemised in §2.2 above and in `figure-retirements.json`.
 Ward register integrity ... 40 wards across 8 constituencies sum to 532,758
 Analysis exports ......... 9 exports, 96 values, all carrying source, tier, date, method, status
 Figure verification ...... every numeric literal in the UI traces to the source
-Figure fences ............ all 17 ```figure fences resolve to one of 19 registered figures
+Figure fences ............ all 23 ```figure fences resolve to one of 25 registered figures
 Figure retention ......... all 1,055 figures present at the baseline survive; all 552 content
-                           figures still reach the print path (39 declared migrations)
-Content integrity ........ all 4,171 body lines unchanged since 228eb02, apart from 21 entries
-                           covering 23 blocks retired under rule 1a and declared
+                           figures still reach the print path (42 declared migrations)
+Content integrity ........ all 4,021 body lines unchanged since 228eb02, apart from 28 entries
+                           covering 30 blocks retired under rule 1a and declared
 verify-mounts ............ 50 mount points resolve
 verify-deep-links ........ 880 legacy ids and 272 live ids resolve
 visual-coverage .......... no retired figure kind has returned
