@@ -209,5 +209,9 @@
   {
     "figure": "48|%",
     "movedTo": "The other half of that stratification, 48% M. PRINT REACH VERIFIED, not assumed: emulating print on /measurement finds it in the rendered text — including the scorecard drawers, which open under @media print."
+  },
+  {
+    "figure": "250|",
+    "movedTo": "Moved from the §13.5.1 IEBC STATUTORY NOMINATION CLEARANCE CHECKLIST into the `iebc-clearance` figure (scripts/figure-retirements.json, risk-13-5-1-clearance). It is row 6's status — “Field Ops registering 250 signatures per ward (10,000 total buffer roll)” — transcribed in lib/figures/governance.ts, where 250 × 40 wards gives the 10,000 the same cell states. It is the third signature figure in C-22's orbit and is flagged there rather than reconciled here. PRINT REACH VERIFIED, not assumed: emulating print on /risk finds “250 signatures per ward” and “10,000 total buffer roll” in the rendered text."
   }
 ]

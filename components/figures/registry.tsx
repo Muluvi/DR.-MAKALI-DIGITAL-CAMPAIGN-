@@ -4,6 +4,7 @@ import {
   BarList,
   BuildUp,
   GapBar,
+  Hierarchy,
   Ledger,
   MessageHouse,
   PairedRows,
@@ -37,6 +38,23 @@ import { REGISTER_GROWTH_SERIES, THRESHOLD_SERIES } from "../../lib/figures/thre
 import { TARGETING_SERIES, TARGETING_SUMMARY } from "../../lib/figures/targeting";
 import { BYPASS_PILLARS, BYPASS_STATIONS, RADIO_GATEKEEPERS } from "../../lib/figures/media";
 import { LANGUAGES, LANGUAGE_DEPLOYMENT, LANGUAGE_SPLIT } from "../../lib/figures/language";
+import {
+  CLEARANCE_SERIES,
+  COMPLIANCE_SERIES,
+  COMPLIANCE_TIERS,
+  IEBC_CLEARANCES,
+  LIABILITY_MATRIX,
+  LIABILITY_SERIES,
+  ORG_BRANCHES,
+  ORG_CHAIN,
+  ORG_SERIES,
+  REPORTING_CHAIN,
+  REPORTING_SERIES,
+  REPORTING_TEAMS,
+  ROLES_SERIES,
+  ROLE_OWNERSHIP,
+} from "../../lib/figures/governance";
+import { RapidResponseFlowDiagram } from "../markdown/RapidResponseFlowDiagram";
 import {
   MODULES_SERIES,
   RESEARCH_MODULES,
@@ -327,6 +345,85 @@ export const FIGURES: Record<string, FigureEntry> = {
           fromLabel="Traditional pitch"
           toLabel="Rebalanced — §3.6.3"
         />
+      </FigureFrame>
+    ),
+  },
+
+  "rapid-response-flow": {
+    note: "§13.1 — monitoring feeds through the decision tree and the legal gateway to the response channels.",
+    render: () => <RapidResponseFlowDiagram />,
+  },
+
+  "compliance-architecture": {
+    note: "§13.5 — the three statutes the campaign operates under.",
+    render: () => (
+      <FigureFrame series={COMPLIANCE_SERIES}>
+        <TierGrid
+          tiers={COMPLIANCE_TIERS}
+          flow="Nomination clearance first, then the data-protection regime the voter database sits under, then the offences that govern what may be said and when."
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "iebc-clearance": {
+    note: "§13.5.1 — seven clearances, their statutory standard and their current status.",
+    render: () => (
+      <FigureFrame series={CLEARANCE_SERIES}>
+        <SpecTable
+          caption="§13.5.1 IEBC statutory nomination clearance checklist"
+          columns={["Clearance dimension", "Statutory standard & issuing authority", "Current status & legal verification"]}
+          rows={IEBC_CLEARANCES}
+          emphasise={2}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "liability-matrix": {
+    note: "§13.5.2 — three statutory exposures and the mitigation against each.",
+    render: () => (
+      <FigureFrame series={LIABILITY_SERIES}>
+        <SpecTable
+          caption="§13.5.2 DPA 2019 and Election Offences statutory matrix"
+          columns={["Legal dimension", "Statutory obligation / exposure risk", "Campaign risk mitigation protocol"]}
+          rows={LIABILITY_MATRIX}
+          emphasise={1}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "org-chart": {
+    note: "§14 — the lean core and the specialists each lead directs.",
+    render: () => (
+      <FigureFrame series={ORG_SERIES}>
+        <Hierarchy chain={ORG_CHAIN} branches={ORG_BRANCHES} />
+      </FigureFrame>
+    ),
+  },
+
+  "role-ownership": {
+    note: "§14.5 — four core roles, what each owns and which specialists each directs.",
+    render: () => (
+      <FigureFrame series={ROLES_SERIES}>
+        <SpecTable
+          caption="§14.5 core campaign roles and ownership matrix"
+          columns={["Core role", "Primary strategic & operational ownership", "Specialist subcontractors directed"]}
+          rows={ROLE_OWNERSHIP}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "reporting-lines": {
+    note: "§14.6 — the two teams, the weekly brief and the line upward.",
+    render: () => (
+      <FigureFrame series={REPORTING_SERIES}>
+        <TierGrid tiers={REPORTING_TEAMS} flow="Both teams meet at the weekly brief." />
+        <div className="mt-2">
+          <Hierarchy chain={REPORTING_CHAIN} />
+        </div>
       </FigureFrame>
     ),
   },

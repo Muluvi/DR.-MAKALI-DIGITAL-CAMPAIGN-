@@ -88,7 +88,6 @@ import { PersuasionFramingMatrix } from "./markdown/PersuasionFramingMatrix";
 import { PublicServiceDeliveryTracker } from "./markdown/PublicServiceDeliveryTracker";
 import { MediaRadioLandscapeCard } from "./markdown/MediaRadioLandscapeCard";
 import { DataSecurityEthicsCharter } from "./markdown/DataSecurityEthicsCharter";
-import { RapidResponseFlowDiagram } from "./markdown/RapidResponseFlowDiagram";
 import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, type TabId } from "../lib/heading-slug";
 import { segmentContent } from "../lib/collapse-groups";
@@ -454,18 +453,14 @@ function buildComponents(tabId: TabId): Components {
                 );
               }
 
-              // §11's two scorecards and the architecture that anchors them used to be matched
-              // HERE, on their own banner text, because the markdown was under a content-integrity
-              // guard and could not be edited to carry a marker. Rule 1a now authorises retiring
-              // the blocks outright, so all three are ```figure fences resolved by the registry,
-              // declared in scripts/figure-retirements.json, and this string matching is gone
-              // with them — a substitution that depended on a banner nobody could rename.
-              //
-              // The rapid-response flow is still matched this way, because §13.1's block has not
-              // been retired yet.
-              if (source.includes("RAPID RESPONSE DECISION & ESCALATION FLOW")) {
-                return <RapidResponseFlowDiagram />;
-              }
+              // FOUR BLOCKS USED TO BE MATCHED HERE, on their own banner text — §11's two
+              // scorecards, the architecture that anchors them, and §13.1's rapid-response flow.
+              // The markdown was under a content-integrity guard and could not be edited to carry
+              // a marker, so the substitution had to key on a banner nobody could rename, and the
+              // ASCII stayed in the markdown carrying the words anyway. Rule 1a now authorises
+              // retiring those blocks outright: all four are ```figure fences resolved by the
+              // registry and declared in scripts/figure-retirements.json, and this matching is
+              // gone with them.
 
               // 102 of these are box-drawing diagrams, not code. AsciiDiagram parses them into
               // real tables and summaries, gated on losslessness — anything it cannot read with

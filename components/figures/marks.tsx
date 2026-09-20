@@ -1117,3 +1117,63 @@ export function Tree({
     </div>
   );
 }
+
+/**
+ * A reporting hierarchy: levels down the page, then branches across it.
+ *
+ * §14's org chart is two shapes in one — a chain of command (candidate, campaign manager) and a
+ * fan of three leads, each with its own subcontractors. Drawing it with SVG connectors would mean
+ * redrawing them at every breakpoint; drawing it as one flat list would lose which of the two
+ * shapes each row belongs to.
+ *
+ * So the chain is a column of rows in order, the fan is a grid beneath it, and the relationship is
+ * stated in the heading rather than implied by a line. At 320px the grid stacks and the order is
+ * still the reporting order, which is the one property the diagram had to keep.
+ */
+export function Hierarchy({
+  chain,
+  branches,
+}: {
+  chain: { role: string; note?: string }[];
+  branches?: { label: string; items: string[] }[];
+}) {
+  return (
+    <div>
+      <ol className="not-prose m-0 list-none space-y-1.5 p-0">
+        {chain.map((step, i) => (
+          <li
+            key={step.role}
+            className={`rounded-lg border px-3 py-2.5 ${
+              i === 0 ? "border-accent/30 bg-accent/[0.05]" : "border-line bg-paper/60"
+            }`}
+          >
+            <p className="m-0 t-micro font-bold leading-snug text-ink">
+              {/* Reports-to is stated, not drawn. A caret between two boxes is a line an SVG has
+                  to redraw at every breakpoint; these words survive a reflow and a screen reader. */}
+              {i > 0 && <span className="mr-1.5 font-normal text-muted">reports to ↑ </span>}
+              {step.role}
+            </p>
+            {step.note && <p className="m-0 mt-0.5 t-micro leading-snug text-muted">{step.note}</p>}
+          </li>
+        ))}
+      </ol>
+
+      {branches && branches.length > 0 && (
+        <ol className="not-prose m-0 mt-2 grid list-none grid-cols-1 gap-2 p-0 sm:grid-cols-3">
+          {branches.map((branch) => (
+            <li key={branch.label} className="rounded-lg border border-line bg-paper/60 px-3 py-2.5">
+              <p className="m-0 t-micro font-bold leading-snug text-ink">{branch.label}</p>
+              <ul className="m-0 mt-1 list-none space-y-0.5 p-0">
+                {branch.items.map((item) => (
+                  <li key={item} className="t-micro leading-snug text-muted">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ol>
+      )}
+    </div>
+  );
+}

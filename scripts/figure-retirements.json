@@ -1740,6 +1740,295 @@
         "│                          │   HELB, which holds national loan data    │   3.3.1 gives 12,573 as Tier 1.      │",
         "└──────────────────────────┴───────────────────────────────────────────┴──────────────────────────────────────┘"
       ]
+    },
+    {
+      "id": "risk-13-1-rapid-flow",
+      "section": "§13.1",
+      "was": "A box-drawing diagram headed RAPID RESPONSE DECISION & ESCALATION FLOW — monitoring feeds into a response decision tree, through a legal gateway, out to the response channels.",
+      "replacedBy": [
+        "rapid-response-flow"
+      ],
+      "facts": [
+        "Monitoring feeds: morning radio, WhatsApp groups, social listening, 400 ward captains",
+        "Response decision tree, checking reach, source and virality",
+        "Legal / defamation gateway verifying against OAG, Hansard and KNBS",
+        "Response channels: radio live call, ward SMS alert, WhatsApp audio, fact-check card",
+        "That the legal gateway sits between the decision tree and the response channels, not beside them"
+      ],
+      "note": "Like §11's scorecards, this block was ALREADY being substituted from the wrong side: RapidResponseFlowDiagram has rendered in its place since an earlier pass, matched on the banner text inside MarkdownViewer, while the ASCII stayed in the markdown carrying the words anyway. It is now a fence resolved by the registry, and the last of that string matching is deleted with it.",
+      "lines": [
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "                  RAPID RESPONSE DECISION & ESCALATION FLOW",
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "",
+        "   MONITORING FEEDS                                                RESPONSE CHANNELS",
+        " ┌──────────────────┐                                             ┌─────────────────┐",
+        " │• Morning Radio   │                                             │• Radio Live Call│",
+        " │• WhatsApp Groups │                                             │• Ward SMS Alert │",
+        " │• Social Listening│ ──► ┌─────────────────────────────────┐ ──► │• WhatsApp Audio │",
+        " │• 400 Ward Capts  │    │     RESPONSE DECISION TREE       │     │• Fact-Check Card│",
+        " └──────────────────┘    │ (Reach, Source, Virality Check)  │     └─────────────────┘",
+        "                         └─────────────────────────────────┘               ▲",
+        "                                          │                                │",
+        "                                          ▼                                │",
+        "                         ┌──────────────────────────────────┐              │",
+        "                         │   LEGAL / DEFAMATION GATEWAY     │ ─────────────┘",
+        "                         │ (OAG, Hansard, KNBS Verification)│",
+        "                         └──────────────────────────────────┘",
+        "════════════════════════════════════════════════════════════════════════════════════"
+      ]
+    },
+    {
+      "id": "risk-13-5-compliance",
+      "section": "§13.5",
+      "was": "A box-drawing diagram headed STATUTORY COMPLIANCE ARCHITECTURE — three numbered statutory regimes in sequence.",
+      "replacedBy": [
+        "compliance-architecture"
+      ],
+      "facts": [
+        "IEBC nomination and statutory clearance: CUE degree recognition, EACC Chapter Six self-declaration, KRA tax compliance certificate, DCI police clearance, HELB clearance, 500 registered voter nomination endorsement signatures per sub-county",
+        "DPA 2019 and telco privacy: explicit opt-in consent for the 2G SMS and USSD registry, ODPC certificate of registration, 100% on-premise AES-256 encrypted storage within Kenyan borders, direct STOP opt-out via the Africa's Talking API",
+        "EOA 2016 defence and liability: prohibition of bribery, treating and undue influence; defamation and hate speech quarantine under NCIC and the Penal Code; strict 48-hour campaign ad blackout before polling station opening"
+      ],
+      "note": "C-22 STARTS HERE. This block says ‘500 … signatures PER SUB-COUNTY’ — 4,000 across eight — and §13.5.1 fifty lines later says ‘500 … from at least 5 of the 8 Sub-Counties’, which is 500 in total. They differ by a factor of eight and a nomination paper short of the statutory count is rejected. Both wordings are transcribed exactly, both figures carry the flag, and neither resolves it — reading the Elections Act regulation is not a thing a figure should do on Firefly's behalf.",
+      "lines": [
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "                        STATUTORY COMPLIANCE ARCHITECTURE",
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "",
+        "   1. IEBC NOMINATION & STATUTORY CLEARANCE REQUIREMENTS",
+        "   • University Degree Recognition & Commission for University Education (CUE) Clearance",
+        "   • EACC Chapter Six Integrity Clearance Self-Declaration",
+        "   • Kenya Revenue Authority (KRA) Tax Compliance Certificate",
+        "   • Directorate of Criminal Investigations (DCI) Police Clearance Certificate",
+        "   • Higher Education Loans Board (HELB) Clearance Certificate",
+        "   • 500 Registered Voter Nomination Endorsement Signatures per Sub-County",
+        "                                      │",
+        "                                      ▼",
+        "   2. DATA PROTECTION ACT (DPA 2019) & TELCO PRIVACY COMPLIANCE",
+        "   • Lawful Basis: Explicit Opt-In Consent for 2G SMS & USSD Registry",
+        "   • Certificate of Registration with the Office of the Data Protection Commissioner (ODPC)",
+        "   • 100% On-Premise Encrypted Storage (AES-256) within Kenyan Borders",
+        "   • Direct \"STOP\" Opt-Out Mechanism via Africa's Talking API",
+        "                                      │",
+        "                                      ▼",
+        "   3. ELECTION OFFENCES ACT (EOA 2016) DEFENSE & LIABILITY MATRIX",
+        "   • Prohibition of Bribery, Treating & Undue Influence",
+        "   • Defamation & Hate Speech Quarantine (NCIC / Penal Code Compliance)",
+        "   • Strict Campaign Ad Blackout Window (48 Hours Prior to Polling Station Opening)",
+        "════════════════════════════════════════════════════════════════════════════════════"
+      ]
+    },
+    {
+      "id": "risk-13-5-1-clearance",
+      "section": "§13.5.1",
+      "was": "A pseudo-table headed IEBC STATUTORY NOMINATION CLEARANCE CHECKLIST — seven clearance dimensions with their statutory standard and issuing authority and their current status.",
+      "replacedBy": [
+        "iebc-clearance"
+      ],
+      "facts": [
+        "Academic degree (Article 180(2), Elections Act s.22, CUE recognition letter) — Verified: Ph.D. in Economics, valid Master's and Bachelor's from the University of Nairobi",
+        "Chapter Six integrity, EACC self-declaration, zero pending corruption trials — Pending filing window",
+        "Tax compliance certificate from KRA — Active / current, renewed annually",
+        "Police clearance from the DCI — Scheduled, to be filed 60 days prior to the IEBC date",
+        "HELB clearance — Verified: clear record, no outstanding student debt arrears",
+        "Voter nomination endorsement roll: 500 registered voter signatures from at least 5 of the 8 sub-counties — Operationalized: 250 signatures per ward, a 10,000 total buffer roll",
+        "Party nomination / direct ticket seal from the Wiper Patriotic Front NEC/NEB — [Requires legal confirmation]: exact internal party dispute filing timelines and gazette deadlines"
+      ],
+      "note": "THE STATUS COLUMN IS EMPHASISED BECAUSE IT IS THE BLOCK. Seven clearances at five different stages, and one that reads '[Requires legal confirmation]' — the document declining to claim a deadline it has not confirmed, which prints as it stands. Row 6's signature count is the other half of C-22.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                                 IEBC STATUTORY NOMINATION CLEARANCE CHECKLIST                               │",
+        "├──────────────────────────┬───────────────────────────────────────────┬──────────────────────────────────────┤",
+        "│ Clearance Dimension      │ Statutory Standard & Issuing Authority    │ Current Status & Legal Verification  │",
+        "├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤",
+        "│ 1. Academic Degree       │ • Bachelor's Degree from a recognized     │ • **Verified:** Ph.D. in Economics,  │",
+        "│    Requirement           │   university (Article 180(2) & Elections  │   valid Master's and Bachelor's from │",
+        "│                          │   Act Sec. 22). CUE Recognition Letter.   │   University of Nairobi.             │",
+        "├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤",
+        "│ 2. Chapter Six Integrity │ • Self-Declaration Form cleared by the    │ • **Pending Filing Window:** Formal  │",
+        "│    Clearance             │   Ethics and Anti-Corruption Commission   │   clearance submitted during official│",
+        "│                          │   (EACC). Zero pending corruption trials. │   statutory nomination window.       │",
+        "├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤",
+        "│ 3. Tax Compliance        │ • Valid Tax Compliance Certificate (TCC)  │ • **Active / Current:** Annual KRA   │",
+        "│    Certificate (TCC)     │   issued by the Kenya Revenue Authority.  │   clearance renewed annually.        │",
+        "├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤",
+        "│ 4. Police Clearance      │ • Valid Certificate of Good Conduct from  │ • **Scheduled:** Application to be   │",
+        "│    Certificate (CID/DCI) │   the Directorate of Criminal Invest.     │   filed 60 days prior to IEBC date.  │",
+        "├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤",
+        "│ 5. HELB Clearance        │ • Certificate of Compliance from Higher   │ • **Verified:** Clear record with no │",
+        "│    Certificate           │   Education Loans Board (HELB).           │   outstanding student debt arrears.  │",
+        "├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤",
+        "│ 6. Voter Nomination      │ • 500 registered voter signatures from at │ • **Operationalized:** Field Ops     │",
+        "│    Endorsement Roll      │   least 5 of the 8 Sub-Counties (Elections│   registering 250 signatures per     │",
+        "│                          │   Act Regulations).                       │   ward (10,000 total buffer roll).   │",
+        "├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤",
+        "│ 7. Party Nomination /    │ • Certificate of Nomination issued by the │ • **[Requires Legal Confirmation]:** │",
+        "│    Direct Ticket Seal    │   Wiper Patriotic Front NEC/NEB.      │   Exact internal party dispute filing│",
+        "│                          │                                           │   timelines and gazette deadlines.   │",
+        "└──────────────────────────┴───────────────────────────────────────────┴──────────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "risk-13-5-2-liability",
+      "section": "§13.5.2",
+      "was": "A pseudo-table headed DPA 2019 & ELECTION OFFENCES STATUTORY MATRIX — three legal dimensions with their statutory obligation or exposure and the campaign's mitigation protocol.",
+      "replacedBy": [
+        "liability-matrix"
+      ],
+      "facts": [
+        "DPA 2019: unlawful processing of voter phone numbers carries fines up to Ksh 5,000,000 or 2 years jail; mitigated by ODPC registration as Data Controller, opt-in baraza sourcing and a mandatory STOP opt-out",
+        "EOA 2016 bribery: cash or free merchandise at rallies causes disqualification and 5-year jail; mitigated by prohibiting direct cash handouts and paying agents via audited M-Pesa bulk business disbursements",
+        "48-hour blackout: all advertising, broadcasts and rallies cease 48 hours before polling stations open; mitigated by terminating radio spots, SMS engines and sound caravans at 18:00 EAT on the 2nd day prior"
+      ],
+      "note": "The exposure column is emphasised because a mitigation protocol read without its exposure is a procedure rather than a reason. Two of the three penalties are custodial and the figure says so.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                                 DPA 2019 & ELECTION OFFENCES STATUTORY MATRIX                               │",
+        "├──────────────────────────┬───────────────────────────────────────────┬──────────────────────────────────────┤",
+        "│ Legal Dimension          │ Statutory Obligation / Exposure Risk      │ Campaign Risk Mitigation Protocol    │",
+        "├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤",
+        "│ 1. Data Protection Act   │ • Unlawful processing of personal voter   │ • Campaign registered with ODPC as a │",
+        "│    (DPA 2019) Compliance │   phone numbers carries fines up to       │   Data Controller; all voter phone   │",
+        "│                          │   **Ksh 5,000,000** or 2 years jail.      │   numbers sourced via opt-in barazas;│",
+        "│                          │                                           │   mandatory \"STOP\" SMS opt-out.      │",
+        "├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤",
+        "│ 2. Election Offences Act │ • Voter bribery, distribution of cash, or │ • Strict prohibition of direct cash  │",
+        "│    (EOA 2016) - Bribery  │   free merchandise at rallies is an       │   handouts at rallies; all logistics │",
+        "│                          │   electoral offence causing candidate     │   payments to agents made via audited│",
+        "│                          │   disqualification and 5-year jail.       │   M-Pesa bulk business disbursements.│",
+        "├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤",
+        "│ 3. 48-Hour Campaign      │ • All campaign advertising, broadcasts,   │ • All radio spots, SMS engines, and  │",
+        "│    Blackout Window       │   and public rallies must cease **48 hours│   sound caravans terminate exactly   │",
+        "│                          │   prior to polling station opening**.     │   at 18:00 EAT on the 2nd day prior  │",
+        "│                          │                                           │   to polling day.                    │",
+        "└──────────────────────────┴───────────────────────────────────────────┴──────────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "structure-14-org-chart",
+      "section": "§14",
+      "was": "A box-drawing org chart headed LEAN CORE + SPECIALIST VENDOR MODEL — the candidate and advisory board over the campaign manager, over three leads, each with subcontracted specialists.",
+      "replacedBy": [
+        "org-chart"
+      ],
+      "facts": [
+        "Dr. Makali Mulu (candidate) and the strategic advisory board at the top",
+        "Campaign Manager & Chief of Operations as lead operator beneath them",
+        "Three leads: Communications & Media, Field Ops & Logistics, Data/Tech & Compliance",
+        "Communications specialists: Kikamba audio production, video crews, graphic design, radio buying",
+        "Field ops specialists: PA sound rig crews, tent/staging providers, fuel/transport",
+        "Data specialists: SMS/USSD development (Africa's Talking), cloud host, DPA legal"
+      ],
+      "note": "NO ROLE OR HEADCOUNT HAS BEEN ADDED, which the conversion map singles out for this block. The figure names exactly the set the ASCII named. The connectors do not survive — an SVG line between two boxes has to be redrawn at every breakpoint and the boxes must stack at 320px — so the chain is an ordered column that says 'reports to' in words, and the three leads are a grid beneath it.",
+      "lines": [
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "                      LEAN CORE + SPECIALIST VENDOR MODEL",
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "",
+        "                      ┌───────────────────────────────┐",
+        "                      │    DR. MAKALI MULU (CANDIDATE)│",
+        "                      │    & STRATEGIC ADVISORY BOARD │",
+        "                      └───────────────┬───────────────┘",
+        "                                      │",
+        "                                      ▼",
+        "                      ┌───────────────────────────────┐",
+        "                      │   CAMPAIGN MANAGER & CHIEF OF │",
+        "                      │   OPERATIONS (LEAD OPERATOR)  │",
+        "                      └───────────────┬───────────────┘",
+        "                                      │",
+        "         ┌────────────────────────────┼────────────────────────────┐",
+        "         ▼                            ▼                            ▼",
+        " ┌───────────────┐            ┌───────────────┐            ┌───────────────┐",
+        " │COMMUNICATIONS │            │FIELD OPS &    │            │DATA, TECH &   │",
+        " │& MEDIA LEAD   │            │LOGISTICS LEAD │            │COMPLIANCE LEAD│",
+        " └───────┬───────┘            └───────┬───────┘            └───────┬───────┘",
+        "         │                            │                            │",
+        " ┌───────┴───────┐            ┌───────┴───────┐            ┌───────┴───────┐",
+        " │ SUBCONTRACTED │            │ SUBCONTRACTED │            │ SUBCONTRACTED │",
+        " │ SPECIALISTS:  │            │ SPECIALISTS:  │            │ SPECIALISTS:  │",
+        " │• Kikamba Audio│            │• PA Sound     │            │• SMS/USSD Dev │",
+        " │  Production   │            │  Rig Crews    │            │  (Africa's    │",
+        " │• Video Crews  │            │• Tent/Staging │            │   Talking)    │",
+        " │• Graphic Des. │            │  Providers    │            │• Cloud Host   │",
+        " │• Radio Buying │            │• Fuel/Transport│           │• DPA Legal    │",
+        " └───────────────┘            └───────────────┘            └───────────────┘",
+        "════════════════════════════════════════════════════════════════════════════════════"
+      ]
+    },
+    {
+      "id": "structure-14-5-roles",
+      "section": "§14.5",
+      "was": "A pseudo-table headed CORE CAMPAIGN ROLES & OWNERSHIP MATRIX — four core roles with their strategic and operational ownership and the specialist subcontractors each directs.",
+      "replacedBy": [
+        "role-ownership"
+      ],
+      "facts": [
+        "Campaign Manager & Chief of Operations: overall execution, budget allocation, strategic schedule, coalition alignment, direct liaison with Dr. Mulu and the advisory board, primary escalation authority — directing general logistics vendors, a security coordination firm and a strategic polling firm",
+        "Communications & Media Lead: narrative framing, press relations, crisis communications, message discipline, vernacular radio briefing notes, the social publishing calendar — directing a vernacular audio studio, a video production crew, a digital ad buying agency and a vernacular radio media buyer",
+        "Field Operations & Ground Logistics Lead: 8 constituency leads and 40 ward coordinators, market day caravan routes, baraza scheduling, volunteer deployment — directing sound truck and PA rig rentals, event staging and marquee company, boda boda stage champions, transport and fuel fleet SACCOs",
+        "Data, Technology & Compliance Lead (DPO): CRM database, analytics BI dashboards, voter registration targets, DPA 2019 compliance, consent logging, cyber incident management — directing the SMS/USSD gateway vendor (selected at contracting), cloud infrastructure and legal data protection counsel"
+      ],
+      "note": "No role, headcount or vendor has been added. The SMS/USSD gateway vendor is stated as 'selected at contracting', the same pending state §8.14.2's procurement matrix records for all five of its rows, and the figure keeps it rather than naming a supplier the document does not.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                                CORE CAMPAIGN ROLES & OWNERSHIP MATRIX                                       │",
+        "├──────────────────────────┬─────────────────────────────────────────────────┬────────────────────────────────┤",
+        "│ Core Role                │ Primary Strategic & Operational Ownership       │ Specialist Subcontractors      │",
+        "│                          │                                                 │ Managed & Directed             │",
+        "├──────────────────────────┼─────────────────────────────────────────────────┼────────────────────────────────┤",
+        "│ 1. Campaign Manager &    │ • Overall campaign execution, budget allocation,│ • General Logistics Vendors    │",
+        "│    Chief of Operations   │   strategic schedule, and coalition alignment.  │ • Security Coordination Firm   │",
+        "│                          │ • Direct liaison with Dr. Mulu & Advisory Board.│ • Strategic Polling Firm       │",
+        "│                          │ • Primary escalation authority for all domains. │                                │",
+        "├──────────────────────────┼─────────────────────────────────────────────────┼────────────────────────────────┤",
+        "│ 2. Communications &      │ • Narrative framing, press relations, crisis    │ • Vernacular Audio Studio      │",
+        "│    Media Lead            │   communications, and message discipline.       │ • Video Production Crew        │",
+        "│                          │ • Vernacular radio interview briefing notes and │ • Digital Ad Buying Agency     │",
+        "│                          │   social media publishing calendar.             │ • Vernacular Radio Media Buyer │",
+        "├──────────────────────────┼─────────────────────────────────────────────────┼────────────────────────────────┤",
+        "│ 3. Field Operations &    │ • Operational leadership of 8 Constituency Leads│ • Sound Truck & PA Rig Rentals │",
+        "│    Ground Logistics Lead │   and 40 Ward Coordinators.                     │ • Event Staging & Marquee Co.  │",
+        "│                          │ • Market day caravan routes, baraza scheduling, │ • Boda Boda Stage Champions    │",
+        "│                          │   and volunteer deployment logistics.           │ • Transport & Fuel Fleet SACCOs│",
+        "├──────────────────────────┼─────────────────────────────────────────────────┼────────────────────────────────┤",
+        "│ 4. Data, Technology &    │ • Management of CRM database, analytics BI      │ • SMS/USSD Gateway Vendor      │",
+        "│    Compliance Lead (DPO) │   dashboards, and voter registration targets.   │   (selected at contracting)    │",
+        "│                          │ • Statutory compliance with DPA 2019, consent   │ • Cloud Infrastructure         │",
+        "│                          │   logging, and cyber incident management.       │ • Legal Data Protection Counsel│",
+        "└──────────────────────────┴─────────────────────────────────────────────────┴────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "structure-14-6-reporting",
+      "section": "§14.6",
+      "was": "A two-column diagram of reporting lines — the existing team beside Firefly's three people, joined at the weekly brief and running up through a campaign counterpart to the candidate.",
+      "replacedBy": [
+        "reporting-lines"
+      ],
+      "facts": [
+        "Your team (existing): team lead / publisher, content producers, Kikamba producer, community responders",
+        "Firefly (three people): Strategy Director, Analyst, Offline-layer operator",
+        "The two meet at the weekly brief",
+        "Above it: campaign counterpart (one named person), then Campaign Manager, then Dr. Makali Mulu"
+      ],
+      "note": "The join is the content — two teams that meet at one weekly brief and report upward through one named person — so the figure draws the teams as a pair and the line above them as an ordered chain, with the brief named between the two. Firefly is three people and the figure says three people.",
+      "lines": [
+        "   YOUR TEAM (existing)                      FIREFLY (three people)",
+        "   ─────────────────────                     ──────────────────────",
+        "   Team lead / publisher                     Strategy Director",
+        "   Content producers                         Analyst",
+        "   Kikamba producer                          Offline-layer operator",
+        "   Community responders                            │",
+        "          │                                        │",
+        "          └──────────── the weekly brief ──────────┘",
+        "                              │",
+        "                 Campaign counterpart (one named person)",
+        "                              │",
+        "                        Campaign Manager",
+        "                              │",
+        "                        Dr. Makali Mulu"
+      ]
     }
   ]
 }

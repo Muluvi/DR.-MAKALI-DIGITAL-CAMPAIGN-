@@ -24,7 +24,7 @@ currently tells Dr. Mulu he wins.
 | **Wrong table aggregates** | "Combined 68.7%" and three more, shipped | **none** | opt-in, per table, by name |
 | **Figures reading zero with JS off** | `KSh0.00bn`, `0.0%`, `≈0k` | **none** | |
 | **Duplicated text nodes** | headline ×2, every counter ×3 | **removed at source** | |
-| **ASCII blocks** | 67 | **20** | 47 retired, 7,595 words · chapters 3, 7, 8 and 11 have none left |
+| **ASCII blocks** | 67 | **13** | 54 retired, 8,843 words · only §5, §6A and the annexes still have any |
 | **`og:image`** | absent, with `summary_large_image` | **1200×630 typographic card** | |
 | Third-party requests | none | **none** | held |
 | Sideways scroll at 390 px | none | **none** | held |
@@ -60,8 +60,8 @@ a deep link would otherwise have no way back to the whole text.
 
 ### 2.2 Figures replace the repeats
 
-Forty-seven box-drawing blocks are now figures — **every one in chapters 3, 7, 8 and 11**.
-**7,595 words**, each declared in `scripts/figure-retirements.json` with the checklist of facts its
+Fifty-four box-drawing blocks are now figures — **every one in chapters 3, 7, 8, 11, 13 and 14**.
+**8,843 words**, each declared in `scripts/figure-retirements.json` with the checklist of facts its
 figure is held to. The word counts are the declared blocks' own, so this table cannot drift from
 the file that authorises them:
 
@@ -112,6 +112,13 @@ the file that authorises them:
 | §11.2.0 | `EMPIRICAL RESEARCH & SERVICE-DELIVERY TRACKER` — 19A beside 19B | 88 | `research-and-tracker` |
 | §11.2.1 | `RECOGNITION-DEFICIT RESEARCH ARCHITECTURE` — three instruments, five columns | 370 | `research-modules` |
 | §11.2.2 | `PUBLIC SERVICE-DELIVERY TRACKER ARCHITECTURE` — four dimensions | 232 | `delivery-tracker` |
+| §13.1 | `RAPID RESPONSE DECISION & ESCALATION FLOW` — feeds, decision tree, legal gate | 84 | `rapid-response-flow` |
+| §13.5 | `STATUTORY COMPLIANCE ARCHITECTURE` — three statutory regimes | 164 | `compliance-architecture` |
+| §13.5.1 | `IEBC STATUTORY NOMINATION CLEARANCE CHECKLIST` — seven clearances | 312 | `iebc-clearance` |
+| §13.5.2 | `DPA 2019 & ELECTION OFFENCES STATUTORY MATRIX` — three exposures | 214 | `liability-matrix` |
+| §14 | `LEAN CORE + SPECIALIST VENDOR MODEL` — the org chart | 147 | `org-chart` |
+| §14.5 | `CORE CAMPAIGN ROLES & OWNERSHIP MATRIX` — four roles, what each owns | 283 | `role-ownership` |
+| §14.6 | The reporting lines — two teams, one weekly brief | 44 | `reporting-lines` |
 
 Checking the replacements against those checklists is what made them better than the blocks:
 
@@ -145,6 +152,14 @@ Checking the replacements against those checklists is what made them better than
 - §3.3.2's branch tree is the **only block retired without a new figure or a checklist gap**: the
   two prose bullets directly beneath it state every fact it carried, in fuller words, and the
   branch navigator at that heading draws the fork. It was a third copy between the other two.
+- **§13.5 and §13.5.1 ask for two different numbers of signatures**, fifty lines apart: 500 per
+  sub-county (4,000 across eight) and 500 in total across at least five. A nomination paper short
+  of the statutory count is rejected. Both figures print their own wording with the C-22 flag, and
+  neither resolves it — reading the Elections Act regulation is not a thing a figure should do on
+  Firefly's behalf.
+- **§13.5.1's status column includes one entry the campaign will not yet claim**: "[Requires legal
+  confirmation]" against the party nomination timelines. It prints as it stands, next to two
+  Verified, one Active, one Scheduled, one Pending and one Operationalized.
 - **Retiring §11.1.3 found a live figure on the site five points below the one the proposal
   states.** `data/kpis.ts` held the Stage 1 headline targets twice — correctly inside the
   scorecard data, and again in a hand-typed summary feeding the architecture figure, where
@@ -285,7 +300,7 @@ One character fixed in the generator. **No content edited.**
 
 ---
 
-## 4. Conflicts: 20 confirmed, 1 corrected
+## 4. Conflicts: 21 confirmed, 1 corrected
 
 `CONFLICTS.md` has the working for each. Every one was checked against the source rather than
 copied from the brief, and the arithmetic against `data/ward-register.json`, which sums exactly.
@@ -296,10 +311,11 @@ that has drifted (**C-18**, a tenth of a percentage point); a figure that cites 
 decide which number that section is (**C-19**, eight stale heading numbers); and a figure that
 draws a station's posture from the station data has to notice when the prose above it says the
 opposite (**C-20**, which is the one with a spending decision attached — §3.7 files Musyi FM under
-hostile gatekeepers while §3.7.1 gives it the placement budget). **C-21** is the fourth and the
-most serious of them: §7.3.1 puts Kikamba on the bulk SMS rail that the Communications Authority
-closes to it, against six other places in the document and a Tier 1 source. None has been
-corrected in the content.
+hostile gatekeepers while §3.7.1 gives it the placement budget). **C-21** and **C-22** are the last two, and the two with deadlines on them: §7.3.1 puts Kikamba on the bulk SMS rail that the Communications Authority
+closes to it, against six other places in the document and a Tier 1 source; and §13.5 asks for 500
+nomination signatures **per sub-county** where §13.5.1 asks for 500 **in total** across at least
+five — a factor of eight, on a filing whose rejection is not appealable. None has been corrected
+in the content.
 
 **C-2 is the one to read before Dr. Mulu opens the document.** The §2.2 simulator's 14 weeks run
 from the 7 August poll, so six of them have already gone. Over the **8.3 weeks that remain**,
@@ -325,8 +341,8 @@ it names (C-4).
 
 Stated plainly, because a report that implies otherwise is worth less than no report.
 
-- **20 of 67 ASCII blocks remain.** Chapters 3, 7, 8 and 11 are clear — no box-drawing blocks
-  left in any of them. The remaining 20 are in §5, §6A, §13, §14 and the annexes: every one is
+- **13 of 67 ASCII blocks remain.** Chapters 3, 7, 8, 11, 13 and 14 are clear — no box-drawing
+  blocks left in any of them. The remaining 13 are in §5, §6A and the annexes: every one is
   inventoried with a named target component in `INVENTORY.md`, and the mechanism — the `figure`
   fence, the registry, the retirement declaration with its facts checklist, the migration
   declaration for a figure leaving the markdown, and now a guard that fails the build if a fence
@@ -343,8 +359,8 @@ Stated plainly, because a report that implies otherwise is worth less than no re
 - **Phases 4 P2/P3** — §4–§16 and the annexes — are mapped in the conversion map and the inventory,
   and untouched in the markdown.
 
-The inventory's headline count of "4,275 words retired" is the **plan**, not the state. The state
-is **7,595 words**, itemised in §2.2 above and in `figure-retirements.json`.
+The inventory's headline count of "3,027 words retired" is the **plan**, not the state. The state
+is **8,843 words**, itemised in §2.2 above and in `figure-retirements.json`.
 
 ---
 
@@ -356,11 +372,11 @@ is **7,595 words**, itemised in §2.2 above and in `figure-retirements.json`.
 Ward register integrity ... 40 wards across 8 constituencies sum to 532,758
 Analysis exports ......... 9 exports, 96 values, all carrying source, tier, date, method, status
 Figure verification ...... every numeric literal in the UI traces to the source
-Figure fences ............ all 39 ```figure fences resolve to one of 41 registered figures
+Figure fences ............ all 46 ```figure fences resolve to one of 48 registered figures
 Figure retention ......... all 1,055 figures present at the baseline survive; all 552 content
-                           figures still reach the print path (52 declared migrations)
-Content integrity ........ all 3,616 body lines unchanged since 228eb02, apart from 45 entries
-                           covering 47 blocks retired under rule 1a and declared
+                           figures still reach the print path (53 declared migrations)
+Content integrity ........ all 3,439 body lines unchanged since 228eb02, apart from 52 entries
+                           covering 54 blocks retired under rule 1a and declared
 verify-mounts ............ 50 mount points resolve
 verify-deep-links ........ 880 legacy ids and 272 live ids resolve
 visual-coverage .......... no retired figure kind has returned

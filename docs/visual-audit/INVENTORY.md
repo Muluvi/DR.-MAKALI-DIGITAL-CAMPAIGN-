@@ -15,18 +15,18 @@ FIX — a defect, not a conversion.
 
 ## Totals
 
-- Blocks: **856**, carrying **53,240** words.
-- Words retired outright, under rule 1a: **4,275** (8.0% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
+- Blocks: **856**, carrying **52,006** words.
+- Words retired outright, under rule 1a: **3,027** (5.8% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
 - Words collapsed to a `CrossRef` under rule 1b, still on the page, pending Firefly's answer to D-1: **718**.
 
 | Action | Blocks | | Type | Blocks |
 |---|---|---|---|---|
-| KEEP-PROSE | 716 | | prose | 514 |
+| KEEP-PROSE | 723 | | prose | 514 |
 | COLLAPSE | 95 | | list | 171 |
-| CONVERT | 34 | | table | 74 |
-| DEDUPE | 11 | | figure | 39 |
+| CONVERT | 27 | | table | 74 |
+| DEDUPE | 11 | | figure | 46 |
 |  |  | | callout | 35 |
-|  |  | | ascii | 20 |
+|  |  | | ascii | 13 |
 |  |  | | code | 3 |
 
 
@@ -798,7 +798,7 @@ FIX — a defect, not a conversion.
 | `governance:12.5.5:05` | table | 95 | argument | KEEP-PROSE | — |  |  |
 | `governance:12.5.5:06` | prose | 43 | argument | KEEP-PROSE | — |  |  |
 
-## risk — 39 blocks, 2,503 words, 774 retired
+## risk — 39 blocks, 1,737 words, 0 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
@@ -811,7 +811,7 @@ FIX — a defect, not a conversion.
 | `risk:13.0:05` | callout | 82 | argument | KEEP-PROSE | — |  |  |
 | `risk:13.1:00` | prose | 44 | argument | KEEP-PROSE | — |  |  |
 | `risk:13.1:01` | prose | 47 | argument | KEEP-PROSE | — |  |  |
-| `risk:13.1:02` | ascii | 84 | flow | CONVERT | Source → triage flow | 84 | Rule 1a. |
+| `risk:13.1:02` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `risk:13.1.1:00` | prose | 15 | argument | KEEP-PROSE | — |  |  |
 | `risk:13.1.1:01` | list | 112 | flow | COLLAPSE | Source → triage flow |  |  |
 | `risk:13.1.5:00` | prose | 16 | argument | KEEP-PROSE | — |  |  |
@@ -838,17 +838,17 @@ FIX — a defect, not a conversion.
 | `risk:13.4.4:00` | prose | 94 | argument | KEEP-PROSE | — |  |  |
 | `risk:13.4.4:01` | prose | 1 | argument | KEEP-PROSE | — |  |  |
 | `risk:13.5:00` | prose | 40 | argument | KEEP-PROSE | — |  |  |
-| `risk:13.5:01` | ascii | 164 | decision | CONVERT | Dated compliance checklist | 164 | Rule 1a. |
-| `risk:13.5.1:00` | ascii | 312 | decision | CONVERT | Dated IEBC nomination and clearance checklist | 312 | Rule 1a. |
-| `risk:13.5.2:00` | ascii | 214 | comparison | CONVERT | Liability Matrix — data protection and election offences | 214 | Rule 1a. |
+| `risk:13.5:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
+| `risk:13.5.1:00` | figure | 2 | argument | KEEP-PROSE | — |  |  |
+| `risk:13.5.2:00` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 
-## structure — 31 blocks, 1,595 words, 474 retired
+## structure — 31 blocks, 1,127 words, 0 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
 | `structure:—:00` | prose | 24 | argument | KEEP-PROSE | — |  |  |
 | `structure:—:01` | prose | 69 | argument | KEEP-PROSE | — |  |  |
-| `structure:—:02` | ascii | 147 | hierarchy | CONVERT | OrgChart — three teams and the boundary between them | 147 | Rule 1a. |
+| `structure:—:02` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `structure:14.1:00` | prose | 9 | argument | KEEP-PROSE | — |  |  |
 | `structure:14.1:01` | list | 82 | argument | KEEP-PROSE | — |  |  |
 | `structure:14.1:02` | prose | 31 | argument | KEEP-PROSE | — |  |  |
@@ -864,10 +864,10 @@ FIX — a defect, not a conversion.
 | `structure:14.4:01` | prose | 34 | argument | KEEP-PROSE | — |  |  |
 | `structure:14.4:02` | prose | 29 | argument | KEEP-PROSE | — |  |  |
 | `structure:14.4:03` | prose | 1 | argument | KEEP-PROSE | — |  |  |
-| `structure:14.5:00` | ascii | 283 | hierarchy | CONVERT | OrgChart — leadership roles and who owns what. Invent no roles or headcounts. | 283 | Rule 1a. |
+| `structure:14.5:00` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `structure:14.5:01` | prose | 1 | argument | KEEP-PROSE | — |  |  |
 | `structure:14.6:00` | prose | 9 | argument | KEEP-PROSE | — |  |  |
-| `structure:14.6:01` | ascii | 44 | hierarchy | CONVERT | OrgChart — reporting lines | 44 | Rule 1a. |
+| `structure:14.6:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `structure:14.6:02` | prose | 7 | argument | KEEP-PROSE | — |  |  |
 | `structure:14.6:03` | prose | 43 | argument | KEEP-PROSE | — |  |  |
 | `structure:14.6:04` | prose | 1 | argument | KEEP-PROSE | — |  |  |

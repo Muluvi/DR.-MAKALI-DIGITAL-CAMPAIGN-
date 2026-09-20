@@ -538,6 +538,42 @@ Kikamba channel lists, leaving USSD, reconciles all eight places and moves nothi
 
 ---
 
+## C-22 — 500 signatures per sub-county, or 500 in total? · §13.5 vs §13.5.1
+
+**Status: Confirmed, and the two readings differ by a factor of eight.**
+
+Two blocks fifty lines apart state the IEBC nomination endorsement requirement, and they do not
+state the same requirement:
+
+| Where | What it says | What that means |
+| --- | --- | --- |
+| §13.5, statutory compliance architecture | "**500** Registered Voter Nomination Endorsement Signatures **per Sub-County**" | 500 × 8 = **4,000 signatures**, in every sub-county |
+| §13.5.1, IEBC clearance checklist | "**500** registered voter signatures **from at least 5 of the 8 Sub-Counties**" | **500 signatures in total**, spread across a minimum of five |
+
+One is a per-sub-county quota. The other is a countywide total with a geographic spread condition.
+They cannot both be the requirement.
+
+**The status column implies a third figure again.** §13.5.1's own status cell reads "Field Ops
+registering **250 signatures per ward** (10,000 total buffer roll)" — 250 × 40 wards = 10,000, which
+checks out as arithmetic and is 20× the 500 total or 2.5× the 4,000 quota. As a deliberate buffer
+that is defensible under either reading; it is noted here only because a reader reconciling the two
+statements above will reach it next and find a third number.
+
+**This is a filing requirement, which is what makes it worth flagging.** A nomination paper short of
+the statutory endorsement count is rejected, and the rejection is not appealable on the basis that
+the campaign's own brief said 500. The correct figure is in the Elections Act regulations the
+checklist cites; this audit does not assert which reading is right, because reading the regulation
+is not something a figure should do on Firefly's behalf.
+
+**What the figures do:** `compliance-architecture` prints §13.5's wording and `iebc-clearance`
+prints §13.5.1's, each with the **Under review** flag pointing here. Neither has been changed, and
+neither figure resolves them into one number.
+
+**For Firefly:** this needs the regulation checked and one of the two lines corrected before the
+nomination window. It is the second conflict in this file with a deadline attached, after C-21.
+
+---
+
 ## Standing figure rules that come out of this file
 
 1. No figure prints a disputed number alone. It shows every stated version, dated and attributed.

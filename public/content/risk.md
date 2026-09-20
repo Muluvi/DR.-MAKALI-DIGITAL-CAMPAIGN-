@@ -40,26 +40,8 @@ In a high-stakes gubernatorial campaign, unchecked misinformation and coordinate
 
 The campaign enforces a disciplined **Rapid Response & Opposition Handling System**. This framework is governed by strict **Defamation Law Safeguards (Section 3.2.1)**: all rebuttals focus exclusively on certified public records, legislative Hansard transcripts, and verifiable policy positions, completely eschewing personal invective or unsubstantiated allegations against political rivals.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                  RAPID RESPONSE DECISION & ESCALATION FLOW
-════════════════════════════════════════════════════════════════════════════════════
-
-   MONITORING FEEDS                                                RESPONSE CHANNELS
- ┌──────────────────┐                                             ┌─────────────────┐
- │• Morning Radio   │                                             │• Radio Live Call│
- │• WhatsApp Groups │                                             │• Ward SMS Alert │
- │• Social Listening│ ──► ┌─────────────────────────────────┐ ──► │• WhatsApp Audio │
- │• 400 Ward Capts  │    │     RESPONSE DECISION TREE       │     │• Fact-Check Card│
- └──────────────────┘    │ (Reach, Source, Virality Check)  │     └─────────────────┘
-                         └─────────────────────────────────┘               ▲
-                                          │                                │
-                                          ▼                                │
-                         ┌──────────────────────────────────┐              │
-                         │   LEGAL / DEFAMATION GATEWAY     │ ─────────────┘
-                         │ (OAG, Hansard, KNBS Verification)│
-                         └──────────────────────────────────┘
-════════════════════════════════════════════════════════════════════════════════════
+```figure
+id: rapid-response-flow
 ```
 
 ### 13.1.1 What we monitor, and how threats reach us
@@ -188,90 +170,18 @@ field.
 
 This compliance pack consolidates all statutory, constitutional, and regulatory requirements governing Dr. Makali Mulu’s 2027 Kitui County gubernatorial campaign. Operating with strict legal adherence is both an ethical mandate and an essential defense against administrative disqualification or election petition exposure.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                        STATUTORY COMPLIANCE ARCHITECTURE
-════════════════════════════════════════════════════════════════════════════════════
-
-   1. IEBC NOMINATION & STATUTORY CLEARANCE REQUIREMENTS
-   • University Degree Recognition & Commission for University Education (CUE) Clearance
-   • EACC Chapter Six Integrity Clearance Self-Declaration
-   • Kenya Revenue Authority (KRA) Tax Compliance Certificate
-   • Directorate of Criminal Investigations (DCI) Police Clearance Certificate
-   • Higher Education Loans Board (HELB) Clearance Certificate
-   • 500 Registered Voter Nomination Endorsement Signatures per Sub-County
-                                      │
-                                      ▼
-   2. DATA PROTECTION ACT (DPA 2019) & TELCO PRIVACY COMPLIANCE
-   • Lawful Basis: Explicit Opt-In Consent for 2G SMS & USSD Registry
-   • Certificate of Registration with the Office of the Data Protection Commissioner (ODPC)
-   • 100% On-Premise Encrypted Storage (AES-256) within Kenyan Borders
-   • Direct "STOP" Opt-Out Mechanism via Africa's Talking API
-                                      │
-                                      ▼
-   3. ELECTION OFFENCES ACT (EOA 2016) DEFENSE & LIABILITY MATRIX
-   • Prohibition of Bribery, Treating & Undue Influence
-   • Defamation & Hate Speech Quarantine (NCIC / Penal Code Compliance)
-   • Strict Campaign Ad Blackout Window (48 Hours Prior to Polling Station Opening)
-════════════════════════════════════════════════════════════════════════════════════
+```figure
+id: compliance-architecture
 ```
 
 ### 13.5.1 The IEBC nomination and clearance checklist
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                 IEBC STATUTORY NOMINATION CLEARANCE CHECKLIST                               │
-├──────────────────────────┬───────────────────────────────────────────┬──────────────────────────────────────┤
-│ Clearance Dimension      │ Statutory Standard & Issuing Authority    │ Current Status & Legal Verification  │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 1. Academic Degree       │ • Bachelor's Degree from a recognized     │ • **Verified:** Ph.D. in Economics,  │
-│    Requirement           │   university (Article 180(2) & Elections  │   valid Master's and Bachelor's from │
-│                          │   Act Sec. 22). CUE Recognition Letter.   │   University of Nairobi.             │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 2. Chapter Six Integrity │ • Self-Declaration Form cleared by the    │ • **Pending Filing Window:** Formal  │
-│    Clearance             │   Ethics and Anti-Corruption Commission   │   clearance submitted during official│
-│                          │   (EACC). Zero pending corruption trials. │   statutory nomination window.       │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 3. Tax Compliance        │ • Valid Tax Compliance Certificate (TCC)  │ • **Active / Current:** Annual KRA   │
-│    Certificate (TCC)     │   issued by the Kenya Revenue Authority.  │   clearance renewed annually.        │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 4. Police Clearance      │ • Valid Certificate of Good Conduct from  │ • **Scheduled:** Application to be   │
-│    Certificate (CID/DCI) │   the Directorate of Criminal Invest.     │   filed 60 days prior to IEBC date.  │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 5. HELB Clearance        │ • Certificate of Compliance from Higher   │ • **Verified:** Clear record with no │
-│    Certificate           │   Education Loans Board (HELB).           │   outstanding student debt arrears.  │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 6. Voter Nomination      │ • 500 registered voter signatures from at │ • **Operationalized:** Field Ops     │
-│    Endorsement Roll      │   least 5 of the 8 Sub-Counties (Elections│   registering 250 signatures per     │
-│                          │   Act Regulations).                       │   ward (10,000 total buffer roll).   │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 7. Party Nomination /    │ • Certificate of Nomination issued by the │ • **[Requires Legal Confirmation]:** │
-│    Direct Ticket Seal    │   Wiper Patriotic Front NEC/NEB.      │   Exact internal party dispute filing│
-│                          │                                           │   timelines and gazette deadlines.   │
-└──────────────────────────┴───────────────────────────────────────────┴──────────────────────────────────────┘
+```figure
+id: iebc-clearance
 ```
 
 ### 13.5.2 Data protection and election offences liability
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                 DPA 2019 & ELECTION OFFENCES STATUTORY MATRIX                               │
-├──────────────────────────┬───────────────────────────────────────────┬──────────────────────────────────────┤
-│ Legal Dimension          │ Statutory Obligation / Exposure Risk      │ Campaign Risk Mitigation Protocol    │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 1. Data Protection Act   │ • Unlawful processing of personal voter   │ • Campaign registered with ODPC as a │
-│    (DPA 2019) Compliance │   phone numbers carries fines up to       │   Data Controller; all voter phone   │
-│                          │   **Ksh 5,000,000** or 2 years jail.      │   numbers sourced via opt-in barazas;│
-│                          │                                           │   mandatory "STOP" SMS opt-out.      │
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 2. Election Offences Act │ • Voter bribery, distribution of cash, or │ • Strict prohibition of direct cash  │
-│    (EOA 2016) - Bribery  │   free merchandise at rallies is an       │   handouts at rallies; all logistics │
-│                          │   electoral offence causing candidate     │   payments to agents made via audited│
-│                          │   disqualification and 5-year jail.       │   M-Pesa bulk business disbursements.│
-├──────────────────────────┼───────────────────────────────────────────┼──────────────────────────────────────┤
-│ 3. 48-Hour Campaign      │ • All campaign advertising, broadcasts,   │ • All radio spots, SMS engines, and  │
-│    Blackout Window       │   and public rallies must cease **48 hours│   sound caravans terminate exactly   │
-│                          │   prior to polling station opening**.     │   at 18:00 EAT on the 2nd day prior  │
-│                          │                                           │   to polling day.                    │
-└──────────────────────────┴───────────────────────────────────────────┴──────────────────────────────────────┘
+```figure
+id: liability-matrix
 ```

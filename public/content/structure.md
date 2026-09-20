@@ -3,39 +3,8 @@ Dr. Mulu already has a team that publishes every day. This section is about how 
 
 The campaign runs a **Lean Core Delivery Model**: a tightly coordinated core steering team that owns campaign strategy, narrative discipline and data integrity, while **subcontracting specialised execution packages** (video production, audio jingles, media buying, USSD gateway infrastructure and event staging) to proven specialist vendors. Firefly joins that structure as its intelligence layer — it is not one of the execution packages, and it does not replace the publishing team.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                      LEAN CORE + SPECIALIST VENDOR MODEL
-════════════════════════════════════════════════════════════════════════════════════
-
-                      ┌───────────────────────────────┐
-                      │    DR. MAKALI MULU (CANDIDATE)│
-                      │    & STRATEGIC ADVISORY BOARD │
-                      └───────────────┬───────────────┘
-                                      │
-                                      ▼
-                      ┌───────────────────────────────┐
-                      │   CAMPAIGN MANAGER & CHIEF OF │
-                      │   OPERATIONS (LEAD OPERATOR)  │
-                      └───────────────┬───────────────┘
-                                      │
-         ┌────────────────────────────┼────────────────────────────┐
-         ▼                            ▼                            ▼
- ┌───────────────┐            ┌───────────────┐            ┌───────────────┐
- │COMMUNICATIONS │            │FIELD OPS &    │            │DATA, TECH &   │
- │& MEDIA LEAD   │            │LOGISTICS LEAD │            │COMPLIANCE LEAD│
- └───────┬───────┘            └───────┬───────┘            └───────┬───────┘
-         │                            │                            │
- ┌───────┴───────┐            ┌───────┴───────┐            ┌───────┴───────┐
- │ SUBCONTRACTED │            │ SUBCONTRACTED │            │ SUBCONTRACTED │
- │ SPECIALISTS:  │            │ SPECIALISTS:  │            │ SPECIALISTS:  │
- │• Kikamba Audio│            │• PA Sound     │            │• SMS/USSD Dev │
- │  Production   │            │  Rig Crews    │            │  (Africa's    │
- │• Video Crews  │            │• Tent/Staging │            │   Talking)    │
- │• Graphic Des. │            │  Providers    │            │• Cloud Host   │
- │• Radio Buying │            │• Fuel/Transport│           │• DPA Legal    │
- └───────────────┘            └───────────────┘            └───────────────┘
-════════════════════════════════════════════════════════════════════════════════════
+```figure
+id: org-chart
 ```
 
 ## 14.1 Three teams, and the boundary between them
@@ -115,33 +84,8 @@ phase date, an engagement level, or a KPI threshold. Roles are not added specula
 
 ## 14.5 Leadership roles and who owns what
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                CORE CAMPAIGN ROLES & OWNERSHIP MATRIX                                       │
-├──────────────────────────┬─────────────────────────────────────────────────┬────────────────────────────────┤
-│ Core Role                │ Primary Strategic & Operational Ownership       │ Specialist Subcontractors      │
-│                          │                                                 │ Managed & Directed             │
-├──────────────────────────┼─────────────────────────────────────────────────┼────────────────────────────────┤
-│ 1. Campaign Manager &    │ • Overall campaign execution, budget allocation,│ • General Logistics Vendors    │
-│    Chief of Operations   │   strategic schedule, and coalition alignment.  │ • Security Coordination Firm   │
-│                          │ • Direct liaison with Dr. Mulu & Advisory Board.│ • Strategic Polling Firm       │
-│                          │ • Primary escalation authority for all domains. │                                │
-├──────────────────────────┼─────────────────────────────────────────────────┼────────────────────────────────┤
-│ 2. Communications &      │ • Narrative framing, press relations, crisis    │ • Vernacular Audio Studio      │
-│    Media Lead            │   communications, and message discipline.       │ • Video Production Crew        │
-│                          │ • Vernacular radio interview briefing notes and │ • Digital Ad Buying Agency     │
-│                          │   social media publishing calendar.             │ • Vernacular Radio Media Buyer │
-├──────────────────────────┼─────────────────────────────────────────────────┼────────────────────────────────┤
-│ 3. Field Operations &    │ • Operational leadership of 8 Constituency Leads│ • Sound Truck & PA Rig Rentals │
-│    Ground Logistics Lead │   and 40 Ward Coordinators.                     │ • Event Staging & Marquee Co.  │
-│                          │ • Market day caravan routes, baraza scheduling, │ • Boda Boda Stage Champions    │
-│                          │   and volunteer deployment logistics.           │ • Transport & Fuel Fleet SACCOs│
-├──────────────────────────┼─────────────────────────────────────────────────┼────────────────────────────────┤
-│ 4. Data, Technology &    │ • Management of CRM database, analytics BI      │ • SMS/USSD Gateway Vendor      │
-│    Compliance Lead (DPO) │   dashboards, and voter registration targets.   │   (selected at contracting)    │
-│                          │ • Statutory compliance with DPA 2019, consent   │ • Cloud Infrastructure         │
-│                          │   logging, and cyber incident management.       │ • Legal Data Protection Counsel│
-└──────────────────────────┴─────────────────────────────────────────────────┴────────────────────────────────┘
+```figure
+id: role-ownership
 ```
 
 ---
@@ -150,21 +94,8 @@ phase date, an engagement level, or a KPI threshold. Roles are not added specula
 
 Two teams, one interface. The brief is the interface.
 
-```
-   YOUR TEAM (existing)                      FIREFLY (three people)
-   ─────────────────────                     ──────────────────────
-   Team lead / publisher                     Strategy Director
-   Content producers                         Analyst
-   Kikamba producer                          Offline-layer operator
-   Community responders                            │
-          │                                        │
-          └──────────── the weekly brief ──────────┘
-                              │
-                 Campaign counterpart (one named person)
-                              │
-                        Campaign Manager
-                              │
-                        Dr. Makali Mulu
+```figure
+id: reporting-lines
 ```
 
 **Firefly adds three people. It removes none.**
