@@ -8,7 +8,7 @@ import { Printer, Search } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
 import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
-import { KeyFactsStrip } from "./KeyFactsStrip";
+import { StateOfTheRace } from "./StateOfTheRace";
 import { ReadingModeToggle } from "./ReadingModeToggle";
 import { ReadingModeProvider } from "../lib/reading-mode";
 import { LazyMount } from "./LazyMount";
@@ -30,7 +30,6 @@ import { FlowRail } from "./flow/FlowRail";
 import { AmbientField, Reveal } from "./visual";
 import { useDaypart, useScrollShell } from "../hooks/use-scroll-shell";
 
-import { Dashboard } from "./Dashboard";
 import { HeroVisual } from "./HeroVisual";
 import { Portrait } from "./Portrait";
 import { DeficitGauge } from "./charts/DeficitGauge";
@@ -313,7 +312,11 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
         {expanded && (
           <header className="cv-auto-hero relative pt-12 sm:pt-16 pb-6 sm:pb-10 overflow-hidden print:pt-4 print:pb-4">
             <div className="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(circle_at_82%_8%,var(--color-glow),transparent_34%),linear-gradient(180deg,var(--color-card),var(--color-paper))]" />
-            <AmbientField intensity="full" pattern="grid" />
+            {/* Grain and a masked grid, and no motion. It was intensity="full", which adds drifting
+                aurora wells — an animated background behind the one screen every reader sees, and
+                on the deny list for exactly that. The static texture stays: it is a surface, not
+                an effect. */}
+            <AmbientField intensity="quiet" pattern="grid" />
 
             <div className="fx-hero-seq mx-auto w-full max-w-3xl px-4 sm:px-6 relative z-10">
               <div style={{ "--fx-i": 0 } as React.CSSProperties} className="fx-in-left flex items-center gap-2.5 mb-5 select-none">
@@ -384,8 +387,7 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
         {/* ------------------------------------------------ evidence preface */}
         {expanded && (
           <section aria-label="The figures behind the decision" className="cv-auto-strip mx-auto w-full max-w-5xl px-4 sm:px-6 mt-2 mb-4 space-y-5">
-            <Dashboard />
-            <KeyFactsStrip />
+            <StateOfTheRace />
           </section>
         )}
 

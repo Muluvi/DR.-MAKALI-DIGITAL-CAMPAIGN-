@@ -70,8 +70,14 @@ const CONTENT = path.join(ROOT, "public", "content");
  */
 const BASE = process.env.FIGURE_BASELINE ?? "90a1f32";
 
-/** Where a figure may live and still count as retained (rule 1). */
-const SEARCH_DIRS = ["public/content", "data", "components", "lib"];
+/**
+ * Where a figure may live and still count as retained (rule 1).
+ *
+ * `hooks` is here because figures genuinely live there — hooks/useAnimatedNumber.ts carries the
+ * worked example the counter's contract is written around — and because leaving it out made the
+ * guard report a figure as lost when it had simply moved from a component into the hook beside it.
+ */
+const SEARCH_DIRS = ["public/content", "data", "components", "lib", "hooks"];
 
 /**
  * Files that are DERIVED from the corpus and so must not be part of it.

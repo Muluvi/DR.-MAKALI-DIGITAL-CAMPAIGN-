@@ -7,11 +7,14 @@
  *   - this directory     — the components and hooks that drive them
  *
  * Nothing here is imported by the markdown pipeline on the server; every module is "use client".
+ *
+ * WHAT LEFT, AND WHY. SplitText, Typewriter, Scramble, WordCycler, CountUp, Odometer,
+ * ProgressRing, TiltCard, SpotlightCard, MagneticButton, RippleButton, NavDots and CustomCursor
+ * have all gone. Every one of them implements an effect on this audit's deny list — kinetic
+ * headlines, text scramble, 3D tilt, cursor spotlight, custom cursors — and by the end of the
+ * compaction pass not one of them had a single call site left. Dead code that implements a
+ * forbidden effect is the easiest kind to delete and the most likely to come back if it stays.
  */
 export { Reveal, Stagger, type RevealVariant } from "./Reveal";
-export { SplitText, Typewriter, Scramble, WordCycler } from "./SplitText";
-export { CountUp, CountUpText, Odometer, ProgressRing } from "./Numerals";
 export { AnimatedNumber } from "./AnimatedNumber";
-export { TiltCard, SpotlightCard, MagneticButton, RippleButton } from "./Surfaces";
 export { AmbientField } from "./AmbientField";
-export { NavDots, CustomCursor } from "./Chrome";
