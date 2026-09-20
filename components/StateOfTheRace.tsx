@@ -129,22 +129,31 @@ function Stat({
   note: string;
   conflicts?: string[];
 }) {
+  /**
+   * The value is the term and the label is its definition, which is the right way round here and
+   * is also the only way round that states each of them once.
+   *
+   * An earlier draft put the label in a visually hidden `dt` and again, visibly, inside the `dd`.
+   * That is the precise defect this pass removed from AnimatedNumber and SplitText — `sr-only`
+   * hides a node from the eye and from nothing else, so copy-paste, reader mode and find-in-page
+   * would have met every label twice. A definition list whose `dt` is the figure needs no second
+   * copy of anything.
+   */
   return (
     <div className="min-w-0">
-      <dt className="sr-only">{label}</dt>
-      <dd className="m-0">
-        <span className="block font-serif text-xl font-bold leading-none tabular-nums text-ink sm:text-2xl">
-          {value}
-          {conflicts && (
-            <span className="ml-1 align-super t-micro font-bold text-gold" title={`Under review — ${conflicts.join(", ")}`}>
-              *
-            </span>
-          )}
-        </span>
-        {/* No truncation. A figure worth printing is worth reading to the end — the cards this
-            replaced cut "Own-source revenue: KSh1.339bn" off mid-figure on a phone. */}
-        <span className="mt-1 block t-micro font-semibold leading-snug text-ink">{label}</span>
-        <span className="mt-0.5 block t-micro leading-snug text-muted">{note}</span>
+      <dt className="font-serif text-xl font-bold leading-none tabular-nums text-ink sm:text-2xl">
+        {value}
+        {conflicts && (
+          <span className="ml-1 align-super t-micro font-bold text-gold" title={`Under review — ${conflicts.join(", ")}`}>
+            *
+          </span>
+        )}
+      </dt>
+      {/* No truncation. A figure worth printing is worth reading to the end — the cards this
+          replaced cut "Own-source revenue: KSh1.339bn" off mid-figure on a phone. */}
+      <dd className="m-0 mt-1 t-micro font-semibold leading-snug text-ink">
+        {label}
+        <span className="mt-0.5 block font-normal text-muted">{note}</span>
       </dd>
     </div>
   );
