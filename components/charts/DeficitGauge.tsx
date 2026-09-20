@@ -266,9 +266,10 @@ export function DeficitGauge() {
         </div>
       </div>
 
-      {/* The accessible equivalent, and the version that prints. Never hidden. */}
+      {/* The accessible equivalent, and the version that prints — which it did not, until it
+          shipped open. See PrintSafeDisclosures. */}
       <div className="px-4 sm:px-6 py-5">
-        <details className="group">
+        <details open className="print-open group">
           <summary className="t-label font-bold text-accent cursor-pointer list-none inline-flex items-center gap-1.5 min-h-[44px] min-w-[44px] justify-center">
             <span className="underline underline-offset-4 decoration-dotted">
               Both published rounds, as a table

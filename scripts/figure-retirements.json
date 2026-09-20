@@ -6,7 +6,7 @@
     "RULE 1a, IN FULL: an ASCII or box-drawing diagram, a pseudo-table inside a code block, a stack",
     "of near-identical cards or a restated 'summary' table may be deleted ONCE a figure renders the",
     "same facts. A visual takes over the job only when it shows every fact, number, tier label and",
-    "source the text it replaces carried — and every figure keeps a 'View the data' disclosure",
+    "source the text it replaces carried — and every figure keeps a 'View the data' disclosure, which ships OPEN and is closed by script (see components/PrintSafeDisclosures.tsx),",
     "generated from its data file, so the numbers stay on the page and stay in the printed PDF.",
     "",
     "WHY THIS FILE EXISTS. scripts/verify-content-integrity.mjs compares every body line against the",

@@ -21,7 +21,7 @@ import { ChevronDown, CornerDownRight } from "lucide-react";
  *
  * A collapsed duplicate that vanishes from the PDF is a deletion Firefly never approved. So the
  * SERVER-RENDERED state is the complete one — `open`, the whole paragraph, no JavaScript needed —
- * and `CrossRefCollapse` closes them once on mount and reopens them for `beforeprint`. With
+ * and `PrintSafeDisclosures` closes them once on mount and reopens them for `beforeprint`. With
  * JavaScript off, or in any printing path that does not run scripts, the document is whole.
  *
  * TWO THINGS IT DELIBERATELY DOES NOT DO:
@@ -49,7 +49,7 @@ export function CrossRef({
   return (
     <details
       open
-      className="crossref not-prose group my-4 rounded-xl border border-line bg-paper/60"
+      className="crossref print-open not-prose group my-4 rounded-xl border border-line bg-paper/60"
     >
       <summary className="flex cursor-pointer list-none flex-wrap items-center gap-x-2 gap-y-1 px-3 py-2.5 [&::-webkit-details-marker]:hidden">
         <CornerDownRight size={13} className="shrink-0 text-muted" aria-hidden="true" />

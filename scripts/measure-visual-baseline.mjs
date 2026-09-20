@@ -10,6 +10,9 @@
  * It reports four things:
  *
  *   1. Page metrics per route and viewport — scroll height, requests, bytes, sideways scroll.
+ *      Vitals include INP, measured by clicking the controls this redesign added rather than
+ *      inferred: an unclicked page has no INP at all, and reporting its absence as a pass would
+ *      be the same class of mistake as drawing an unmeasured baseline at zero.
  *   2. Core Web Vitals on a mid-range Android profile (4x CPU throttle, slow 4G), because the
  *      reader this document is written for opens it on a phone on mobile data.
  *   3. Word counts three ways — the source markdown, the whole DOM, and what is actually laid
@@ -230,21 +233,83 @@ async function vitals(route) {
   await page.addInitScript(() => {
     window.__lcp = 0;
     window.__cls = 0;
+    window.__inp = [];
     new PerformanceObserver((l) => { for (const e of l.getEntries()) window.__lcp = e.startTime; })
       .observe({ type: "largest-contentful-paint", buffered: true });
     new PerformanceObserver((l) => { for (const e of l.getEntries()) if (!e.hadRecentInput) window.__cls += e.value; })
       .observe({ type: "layout-shift", buffered: true });
+    /**
+     * INP is the WORST interaction on the page, not the average, so every one is recorded and the
+     * maximum reported. `interactionId` is what distinguishes a real interaction from an
+     * incidental event, and `duration` is the full input-to-next-paint span.
+     */
+    new PerformanceObserver((l) => {
+      for (const e of l.getEntries()) if (e.interactionId) window.__inp.push({ name: e.name, dur: e.duration });
+    }).observe({ type: "event", buffered: true, durationThreshold: 16 });
   });
   const started = Date.now();
   await page.goto(BASE + route, { waitUntil: "load", timeout: 240_000 });
   await page.waitForTimeout(5000);
+  const loadMs = Date.now() - started;
+
+  /**
+   * CLS is read BEFORE anything is clicked, and that is not a convenience.
+   *
+   * Cumulative Layout Shift measures instability the reader did not ask for. Switching Brief to
+   * Full reflows the document because the reader asked it to, and the API only discounts shifts
+   * within 500ms of the input — so a script that clicks and then waits records a deliberate
+   * reflow as instability. Measured across the load, `/` is 0; measured across the load plus a
+   * Brief/Full toggle, it reads 0.0061, and that number would be a lie about the page.
+   */
+  const clsAtLoad = await page.evaluate(() => Number(window.__cls.toFixed(4)));
+
+  /**
+   * Then actually interact with it, because an unclicked page has no INP.
+   *
+   * The controls below are the ones this redesign added or kept: the Brief/Full switch, a
+   * subsection disclosure, a figure's data table, a rule 1b cross-reference and a table control.
+   * Anything that is not on this route is skipped rather than failing the run — `/` and `/full`
+   * do not carry the same set.
+   */
+  const CONTROLS = [
+    ["brief-full", "text=Full"],
+    ["brief-full-back", "text=Brief"],
+    ["subsection-disclosure", "summary"],
+    ["figure-data-table", "figure summary"],
+    ["cross-reference", "details.crossref > summary"],
+    ["table-control", "button"],
+  ];
+  const clicked = [];
+  for (const [label, selector] of CONTROLS) {
+    try {
+      const el = page.locator(selector).first();
+      await el.scrollIntoViewIfNeeded({ timeout: 5000 });
+      await el.click({ timeout: 5000, force: true });
+      await page.waitForTimeout(900);
+      clicked.push(label);
+    } catch {
+      // Not on this route.
+    }
+  }
+  for (let i = 0; i < 6; i++) {
+    await page.mouse.wheel(0, 900);
+    await page.waitForTimeout(250);
+  }
+  await page.waitForTimeout(1200);
+
   const m = await page.evaluate(() => ({
     fcp: Math.round(performance.getEntriesByName("first-contentful-paint")[0]?.startTime ?? 0),
     lcp: Math.round(window.__lcp),
-    cls: Number(window.__cls.toFixed(4)),
+    clsIncludingInteraction: Number(window.__cls.toFixed(4)),
+    inp: window.__inp.length ? Math.round(Math.max(...window.__inp.map((e) => e.dur))) : null,
+    /** The worst interaction, named. A bare INP number says nothing about what to fix. */
+    worst: window.__inp.length
+      ? window.__inp.reduce((a, b) => (b.dur > a.dur ? b : a)).name
+      : null,
+    interactions: window.__inp.length,
   }));
   await ctx.close();
-  return { ...m, loadMs: Date.now() - started };
+  return { ...m, cls: clsAtLoad, clicked, loadMs };
 }
 
 /**

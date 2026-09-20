@@ -92,7 +92,7 @@ import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, type TabId } from "../lib/heading-slug";
 import { crossRefFor, segmentContent } from "../lib/collapse-groups";
 import { CrossRef } from "./CrossRef";
-import { CrossRefCollapse } from "./CrossRefCollapse";
+import { PrintSafeDisclosures } from "./PrintSafeDisclosures";
 import { DisclosureGroup } from "./markdown/DisclosureGroup";
 import { ObjectivesIndex } from "./markdown/ObjectivesIndex";
 import { ProseFold } from "./markdown/ProseFold";
@@ -673,8 +673,9 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
           );
         })}
 
-        {/* Rule 1b's cross-references ship open and are closed by script — see CrossRefCollapse. */}
-        <CrossRefCollapse />
+        {/* Every disclosure holding CONTENT ships open and is closed by script, so the printed
+            kit is complete whether or not scripts run. See PrintSafeDisclosures. */}
+        <PrintSafeDisclosures />
 
         {/* The ask closes the document, inside the prose flow. It used to sit in the footer
             chrome below a rule, next to the print widget — which framed a vendor's closing

@@ -1386,14 +1386,6 @@ html {
     word-break: break-all;
   }
 
-  /* Rule 1b: a collapsed duplicate is collapsed on screen and OPEN in the printed kit.
-     Firefly has not approved a deletion, so the printed proposal carries every word the
-     document carries. `details:not([open])` above already reveals the body; this drops the
-     control, which would otherwise print as a dead "Read it here". */
-  .crossref > summary .crossref-toggle {
-    display: none !important;
-  }
-
   /* Section collapse only exists as a client-side view mode; print always
      shows every section regardless of which tab was active on screen. */
   .cv-auto-section,
@@ -1760,8 +1752,13 @@ html {
     display: none !important;
   }
 
-  /* Collapsed disclosures print open — a folded section is a screen affordance, and a reader
-     holding the PDF cannot unfold it. */
+  /* THIS RULE CANNOT DO WHAT IT SAYS, and is kept only so nobody writes it again.
+     Chrome hides a closed `details`'s contents through content-visibility on a UA slot that
+     author CSS does not reach, so reverting `display` on the children reveals nothing. Measured:
+     /reach rendered to PDF with the disclosures shut is 21 pages; with every `details` opened
+     first it is 24. Every disclosure in this document that holds CONTENT rather than controls now
+     ships with the `open` attribute and is closed by PrintSafeDisclosures, which reopens it on
+     `beforeprint` — the only arrangement that survives a printing path with no script at all. */
   details:not([open]) > *:not(summary) {
     display: revert !important;
   }
@@ -1960,8 +1957,11 @@ html {
   to   { stroke-dashoffset: 0; }
 }
 
-/* A figure's data table is open when printing, because a PDF cannot be tapped. */
+/* A figure's data table is open when printing, because a PDF cannot be tapped — opened by
+   PrintSafeDisclosures, not by CSS, for the reason recorded above. The summary is dropped here
+   because a printed "View the data" is a dead control above a table that is already visible. */
 @media print {
   figure details { display: block; }
   figure details > summary { display: none; }
+  details.print-open > summary .crossref-toggle { display: none !important; }
 }

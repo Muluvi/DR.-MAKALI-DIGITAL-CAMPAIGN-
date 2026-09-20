@@ -104,8 +104,12 @@ export function FigureFrame({
           <p className="t-micro mt-1.5 leading-snug text-muted">{series.note}</p>
         )}
 
-        {/* Open by default when printing: a PDF cannot be tapped. */}
-        <details className="mt-2 group print:open">
+        {/* SHIPS OPEN, closed by PrintSafeDisclosures once a script is there to reopen it.
+            This carried `print:open` before, which styles nothing — `open` is an attribute, not a
+            CSS property — and the table did not print. Rendering /reach to PDF gave 21 pages with
+            these shut and 24 with them open: three pages of figure data missing from the printed
+            proposal, which is the retired ASCII blocks' numbers leaving the document. */}
+        <details open className="print-open mt-2 group">
           <summary className="t-micro cursor-pointer font-semibold text-accent marker:text-accent">
             View the data
           </summary>

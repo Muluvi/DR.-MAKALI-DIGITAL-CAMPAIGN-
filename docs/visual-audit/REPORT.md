@@ -14,8 +14,10 @@ currently tells Dr. Mulu he wins.
 
 | | Before | After | |
 |---|---|---|---|
-| **LCP on `/`**, mid-range Android, slow 4G | 5,164 ms | **2,044 ms** | −60%, inside the 2,500 ms budget |
-| **CLS** | 0 | **0** | held |
+| **LCP on `/`**, mid-range Android, slow 4G | 5,164 ms | **2,088 ms** | −60%, inside the 2,500 ms budget |
+| **INP on `/`**, 4× CPU throttle | not measured | **120 ms** | inside the 200 ms budget |
+| **INP on `/full`** | not measured | **304 ms** | **over budget — see §6** |
+| **CLS** at load | 0 | **0** | held — 0.02 including a Brief/Full toggle, which is a reflow the reader asked for |
 | **Page height** at 390 px | 467,728 px | **325,938 px** | −30.3% |
 | **Reading time offered** | 289 min, take it or leave it | **Brief 109 min · Full 237 min** | a choice, both measured |
 | **Words shown on a first read** | 63,337 (all of them) | **~23,900 (Brief, 109 of 237 min)** | nothing deleted |
@@ -407,7 +409,12 @@ most of this pass, and it is closed. What remains:
   C-13 is unanswered anyway — a cross-reference pointing at one of two contradictory numbers would
   settle the conflict by sleight of hand.
 - **The desktop figure rail** (Phase 5 item 5) is not built. Figures stack on all widths.
-- **INP** was not measured directly; LCP, CLS and FCP were.
+- **INP on `/full` is 304 ms**, over the 200 ms budget. `/` — the route a reader arrives on — is
+  120 ms. The worst control on `/full` is opening a figure's data table at **272 ms**, on a page
+  holding all 30 chapters and all 60 figures at once; the Brief/Full toggle is 200 ms there. Not
+  fixed: the remedies are a CSS-driven reading mode or virtualising `/full`, and neither is a
+  change to make in the last hour of a pass whose Brief/Full correctness took three attempts to
+  get right. Measured and stated rather than left unmeasured.
 - **Twenty-two conflicts are logged and none is resolved**, which is correct — hard rule 2 puts
   reconciliation with Firefly — but it is not the same as the document being consistent. C-2, C-21
   and C-22 have dates attached and should be read first.
@@ -461,12 +468,51 @@ silently replaced by an error banner: rule 1a's exact failure mode, arriving thr
 guard parses every fence and checks the id against the registry, and it was tested against both
 forms of the bug before being added to `npm run verify`.
 
-**Print reach was verified, not assumed.** Retiring the power-ranking table moved 14 literals into a
-figure that computes them. Emulating print on `/arithmetic` finds all 14 in the rendered text, and
-`figures.test.ts` pins every one in the document's own notation so the computation cannot drift. The
-same check was run for every later batch: `/reach` for the §3.6 and §3.7 figures, `/arithmetic` for
-§3.4.5's 83,496 and every fact on its retirement checklist. All render in print, and at 390px with
-no horizontal scroll.
+**INP, the one Core Web Vital this audit had never measured, is now measured.** At 4× CPU
+throttle, clicking every control this redesign added or kept:
+
+| Control | `/full` |
+|---|---:|
+| Open a figure's data table | **272 ms** |
+| Brief → Full | 200 ms |
+| Full → Brief | 160 ms |
+| Open a cross-reference | 104 ms |
+| Open a subsection disclosure | 88 ms |
+| A table toolbar control | 80 ms |
+
+`/` is **120 ms** and inside the 200 ms budget; `/full` is **304 ms** and is not. `/full` is the
+whole-document route — 30 chapters and 60 figures in one DOM — and every one of those controls
+costs more there than where a reader actually meets it. It is stated rather than fixed: see §5.
+
+**CLS is measured before anything is clicked**, and that is not a convenience. Switching Brief to
+Full reflows the document because the reader asked it to, and the API only discounts shifts within
+500 ms of the input — so a script that clicks and then waits records a deliberate reflow as
+instability. At load, both routes are **0**. Including a Brief/Full toggle, `/` reads 0.02, and
+that number would be a lie about the page.
+
+**Print reach was verified, then the verification was found wanting, then it was fixed.**
+
+Every retirement batch was checked by emulating print and looking for the block's facts in
+`document.body.innerText`. All of them passed. **The probe was wrong**: `innerText` skips the
+contents of a closed `<details>` whatever the CSS says, and the facts it found were the ones that
+also appear in a figure's headline, note or labels — not the ones that live only in its data table.
+
+The underlying belief was wrong too. `FigureFrame` carried a `print:open` class, and `open` is an
+attribute, not a CSS property, so it styled nothing; `globals.css` carried
+`details:not([open]) > *:not(summary) { display: revert }` under `@media print`, and Chrome hides a
+closed disclosure's contents through content-visibility on a UA slot author CSS cannot reach.
+
+**Measured instead of argued, by rendering to PDF: `/reach` was 21 pages with the disclosures as
+they were, and 24 with every `details` opened first.** Three pages of figure data tables were
+missing from the printed proposal — which is the retired ASCII blocks' numbers leaving the printed
+document when the blocks did, the exact failure rule 2 exists to prevent.
+
+Fixed the way the cross-references were: every disclosure holding **content** — a figure's data
+table, the polling gauge's table, a rule 1b cross-reference — now ships with the `open` attribute
+and is closed by `PrintSafeDisclosures`, which reopens them on `beforeprint`. The overflow menu in
+`InteractiveTable` is deliberately excluded: it holds controls, and controls should not print.
+Re-measured: **24 pages either way**, and with JavaScript disabled all five disclosures on `/reach`
+are open. All 60 migration declarations carry the corrected account.
 
 ---
 
