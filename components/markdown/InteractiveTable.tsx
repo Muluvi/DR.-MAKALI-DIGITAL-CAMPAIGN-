@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useId, useState } from "react";
-import { Search, Sparkles, ArrowUpDown, BarChart3, Table, Download } from "lucide-react";
+import { Search, ArrowUpDown, BarChart3, Table, Download, MoreHorizontal } from "lucide-react";
 import { LayoutGroup, motion } from "motion/react";
 
 import { SourceLine, detectSources } from "./SourceLine";
@@ -169,6 +169,15 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
     URL.revokeObjectURL(url);
   }, [ths, filteredRows, parsedRows.length, tableSources]);
 
+  /**
+   * A filter earns its place above ten rows and not below.
+   *
+   * Under ten, scrolling to the row is faster than reaching for a keyboard — and on a phone the
+   * box costs a 44px band plus the keyboard it summons. Most of this document's 74 tables are
+   * four or five rows.
+   */
+  const showFilter = parsedRows.length > 10;
+
   const ROW_PREVIEW = 10;
   const isCapped = !showAllRows && !searchTerm && filteredRows.length > ROW_PREVIEW + 2;
   const visibleRows = isCapped ? filteredRows.slice(0, ROW_PREVIEW) : filteredRows;
@@ -321,63 +330,76 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
     // matched globally, and two matrices open on the same page would trade rows.
     <LayoutGroup id={matrixId}>
       <div className="border-y sm:border border-line/40 sm:rounded-xl my-5 overflow-hidden bg-card/30">
-      {/* Interactive Controls & Analytics Header */}
-      <div className="print:hidden p-2.5 sm:p-3.5 border-b border-line/40 bg-paper/40 flex flex-wrap items-center justify-between gap-2">
-        <div className="flex items-center gap-2">
-          <div className="p-1 rounded-md bg-accent/10 text-accent">
-            <Sparkles size={13} />
-          </div>
-          <div>
-            <span
-              role="status"
-              aria-live="polite"
-              aria-atomic="true"
-              className="t-label font-semibold text-ink block"
-            >
-              Showing {filteredRows.length} of {parsedRows.length} rows
-            </span>
-          </div>
-        </div>
+      {/* The toolbar, on a diet.
 
-        {/* Actions & Filters */}
-        <div className="flex items-center gap-2 grow sm:grow-0 justify-end">
-          {numericColumnIndex !== -1 && (
-            <button
-              onClick={() => setShowChart(!showChart)}
-              aria-pressed={showChart}
-              className={`tap-chip flex items-center gap-1.5 px-3 py-2 rounded-xl border t-micro font-bold transition-all cursor-pointer min-h-[44px] ${
-                showChart
-                  ? "bg-accent-solid border-accent-solid text-on-accent shadow-sm"
-                  : "bg-paper/80 border-line text-muted hover:border-accent/40 hover:text-ink"
-              }`}
-            >
-              {showChart ? <Table size={14} /> : <BarChart3 size={14} />}
-              <span>{showChart ? "Table" : "Chart"}</span>
-            </button>
+          It carried four controls on every one of this document's 74 tables: a row count, a Chart
+          toggle, a CSV button and an always-present filter box. On a 390px screen that is a band
+          of chrome as tall as three rows of the table it introduces, repeated 74 times, most of it
+          for tables of four rows that nobody will filter and that could not honestly be charted.
+
+          What is left: the row count, because a filtered table must say so; a filter ONLY above
+          ten rows, because below that scrolling is faster than typing; and CSV and Chart behind
+          one overflow control, because they are occasional and the table is not. */}
+      <div className="print:hidden flex flex-wrap items-center justify-between gap-2 border-b border-line/40 bg-paper/40 px-2.5 py-2 sm:px-3.5">
+        <span
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          className="t-micro font-semibold text-muted"
+        >
+          {filteredRows.length === parsedRows.length
+            ? `${parsedRows.length} rows`
+            : `Showing ${filteredRows.length} of ${parsedRows.length} rows`}
+        </span>
+
+        <div className="flex items-center gap-2">
+          {showFilter && (
+            <div className="relative w-40 sm:w-44">
+              <Search size={13} aria-hidden="true" className="absolute left-2.5 top-1/2 -translate-y-1/2 text-muted" />
+              <input
+                type="text"
+                placeholder="Filter rows"
+                aria-label="Filter table rows"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="min-h-[44px] w-full rounded-xl border border-line bg-paper/80 py-2 pl-8 pr-2.5 t-micro font-normal text-ink placeholder:text-muted focus:border-accent focus:outline-none"
+              />
+            </div>
           )}
 
-          <button
-            type="button"
-            onClick={downloadCsv}
-            disabled={filteredRows.length === 0}
-            title="Download this table as CSV"
-            className="tap-chip flex items-center gap-1.5 px-3 py-2 rounded-xl border t-micro font-bold transition-all cursor-pointer min-h-[44px] bg-paper/80 border-line text-muted hover:border-accent/40 hover:text-ink disabled:opacity-40 disabled:cursor-not-allowed"
-          >
-            <Download size={14} aria-hidden="true" />
-            <span>CSV</span>
-          </button>
-
-          <div className="relative flex-1 sm:w-44">
-            <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-muted" />
-            <input
-              type="text"
-              placeholder="Filter table..."
-              aria-label="Filter table rows"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="fx-input-glow w-full pl-8 pr-2.5 py-2 bg-paper/80 border border-line rounded-xl t-label font-normal text-ink placeholder:text-muted focus:outline-none focus:border-accent min-h-[44px]"
-            />
-          </div>
+          {/* One control for the occasional actions. `details` rather than a button and a state
+              flag: it closes on Escape and on a click outside for free, and it works before
+              hydration. */}
+          <details className="relative">
+            <summary
+              className="tap-chip flex min-h-[44px] min-w-[44px] cursor-pointer list-none items-center justify-center rounded-xl border border-line bg-paper/80 px-3 text-muted transition-colors hover:border-accent/40 hover:text-ink"
+              aria-label="More actions for this table"
+            >
+              <MoreHorizontal size={16} aria-hidden="true" />
+            </summary>
+            <div className="absolute right-0 z-20 mt-1 min-w-[10rem] rounded-xl border border-line bg-card p-1 shadow-lg">
+              {numericColumnIndex !== -1 && (
+                <button
+                  type="button"
+                  onClick={() => setShowChart(!showChart)}
+                  aria-pressed={showChart}
+                  className="flex w-full min-h-[44px] cursor-pointer items-center gap-2 rounded-lg px-3 t-micro font-semibold text-ink hover:bg-accent/[0.08]"
+                >
+                  {showChart ? <Table size={14} aria-hidden="true" /> : <BarChart3 size={14} aria-hidden="true" />}
+                  <span>{showChart ? "Show as table" : "Show as chart"}</span>
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={downloadCsv}
+                disabled={filteredRows.length === 0}
+                className="flex w-full min-h-[44px] cursor-pointer items-center gap-2 rounded-lg px-3 t-micro font-semibold text-ink hover:bg-accent/[0.08] disabled:cursor-not-allowed disabled:opacity-40"
+              >
+                <Download size={14} aria-hidden="true" />
+                <span>Download CSV</span>
+              </button>
+            </div>
+          </details>
         </div>
       </div>
 
