@@ -15,18 +15,19 @@ FIX — a defect, not a conversion.
 
 ## Totals
 
-- Blocks: **864**, carrying **60,757** words.
-- Words retired outright, under rule 1a: **11,985** (19.7% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
+- Blocks: **865**, carrying **60,659** words.
+- Words retired outright, under rule 1a: **11,883** (19.6% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
 - Words collapsed to a `CrossRef` under rule 1b, still on the page, pending Firefly's answer to D-1: **718**.
 
 | Action | Blocks | | Type | Blocks |
 |---|---|---|---|---|
-| KEEP-PROSE | 678 | | prose | 514 |
+| KEEP-PROSE | 680 | | prose | 514 |
 | COLLAPSE | 94 | | list | 171 |
-| CONVERT | 81 | | table | 74 |
-| DEDUPE | 11 | | ascii | 67 |
+| CONVERT | 80 | | table | 74 |
+| DEDUPE | 11 | | ascii | 66 |
 |  |  | | callout | 35 |
 |  |  | | code | 3 |
+|  |  | | figure | 2 |
 
 
 ## decision — 21 blocks, 1,032 words, 0 retired
@@ -176,7 +177,7 @@ FIX — a defect, not a conversion.
 | `situation:3.3.5:06` | prose | 36 | argument | KEEP-PROSE | — |  |  |
 | `situation:3.3.6:00` | list | 180 | change over time | COLLAPSE | Small multiples of results bars per race, 'Disputed' marker on Musila 2022, explicit empty 2013 panel |  |  |
 
-## arithmetic — 50 blocks, 4,490 words, 1,305 retired
+## arithmetic — 51 blocks, 4,392 words, 1,203 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
@@ -188,7 +189,8 @@ FIX — a defect, not a conversion.
 | `arithmetic:3.4.1:01` | list | 45 | arithmetic | CONVERT | BuildUp — 532,758 + 61,839 + 11,106 = 605,703, with the ≈225,000 like-for-like bar | 45 | Rule 1a: the five register cards are the build-up. 'Read the rest' prose stays. |
 | `arithmetic:3.4.1:02` | callout | 228 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4.1:03` | list | 62 | arithmetic | CONVERT | BuildUp — 532,758 + 61,839 + 11,106 = 605,703, with the ≈225,000 like-for-like bar | 62 | Rule 1a: the five register cards are the build-up. 'Read the rest' prose stays. |
-| `arithmetic:3.4.1:04` | ascii | 102 | arithmetic | CONVERT | BuildUp — steps 1–4 of the §3B sequence | 102 | Rule 1a: the '2027 victory threshold arithmetic' pseudo-table is the waterfall written as characters. |
+| `arithmetic:3.4.1:04` | figure | 2 | argument | KEEP-PROSE | — |  |  |
+| `arithmetic:3.4.1:05` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4.2:00` | prose | 39 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4.2:01` | table | 666 | ranking | COLLAPSE | BarList with cumulative line — top 12 = 37.78%, top 20 = 59.13%, bottom 10 = 18.10%; table in 'View the data' |  |  |
 | `arithmetic:3.4.2:02` | list | 108 | ranking | COLLAPSE | BarList bracket annotations — top 12, top 20, bottom 10 |  | DEVIATION from the conversion map, which asked to retire 'the concentration bullets' restated numbers only'. Retiring only part of a block means rewriting the block, and the negative constraints forbid rewriting prose. The third bullet ends on an argument the bars cannot draw — the bottom ten wards 'cover vast geographic areas with severe logistical transit costs' — so the whole block is collapsed rather than half-deleted. |

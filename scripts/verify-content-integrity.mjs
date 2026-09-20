@@ -527,6 +527,16 @@ for (const file of OLD_FILES) {
   before = before.concat(bodyLines(normalised, { dropDeletedSections: !CURRENT_SPINE }));
 }
 
+/**
+ * The two line shapes a figure fence adds, and nothing else.
+ *
+ * NOT the bare ``` delimiters. A retired ASCII block took its own opening and closing fence with
+ * it and the replacement fences bring their own, so the count of bare ``` lines is unchanged —
+ * and a pattern that matched them would strip all 140 code fences in the document from one side
+ * of the comparison, which is how this check first reported 140 lost lines that had not moved.
+ */
+const FIGURE_FENCE = /^(?:```figure|id:\s*[a-z0-9-]+)$/;
+
 let after = [];
 for (const file of fs.readdirSync(CONTENT).sort()) {
   if (!file.endsWith(".md")) continue;
@@ -550,12 +560,47 @@ for (const file of fs.readdirSync(CONTENT).sort()) {
         addedAllowance.set(trimmed, left - 1);
         return false;
       }
+      // A ```figure fence is a pointer to a built figure, not body text. It carries no prose and
+      // replaces a block declared in figure-retirements.json.
+      if (FIGURE_FENCE.test(trimmed)) return false;
       return true;
     }),
   );
 }
 
+/**
+ * Blocks retired under hard rule 1a of the visual compaction brief.
+ *
+ * A retirement is the one authorised deletion this guard cannot tell apart from a quiet one: the
+ * brief permits an ASCII diagram, a pseudo-table in a code block, a stack of near-identical cards
+ * or a restated summary table to go, ONCE a figure renders the same facts and keeps them in a
+ * "View the data" disclosure. So it is declared, in scripts/figure-retirements.json, with the
+ * figure that took the job and the checklist of facts that figure is held to.
+ *
+ * Every declared line must still be MISSING for the entry to apply. A stale entry — one whose
+ * block is back in the markdown — is reported, because an allowlist that quietly stops matching
+ * is an allowlist that has stopped meaning anything.
+ */
+const RETIREMENTS = JSON.parse(
+  fs.readFileSync(new URL("./figure-retirements.json", import.meta.url), "utf8"),
+).retirements;
+
+const RETIRED_LINES = new Map();
+for (const entry of RETIREMENTS) {
+  if (!entry.replacedBy?.length || !entry.facts?.length) {
+    console.error(`figure-retirements.json: ${entry.id} needs both \`replacedBy\` and \`facts\`.`);
+    process.exit(1);
+  }
+  for (const line of entry.lines) {
+    const key = normalise(line).trim();
+    RETIRED_LINES.set(key, (RETIRED_LINES.get(key) ?? 0) + 1);
+  }
+}
+
 const allowance = CURRENT_SPINE ? new Map() : new Map(REMOVED_SCAFFOLDING);
+for (const [line, count] of RETIRED_LINES) {
+  allowance.set(line, (allowance.get(line) ?? 0) + count);
+}
 const beforeBody = before.filter((line) => {
   const left = allowance.get(line.trim());
   if (!left) return true;
@@ -580,7 +625,8 @@ if (lost.length === 0 && added.length === 0) {
     // ledger of pre-restructure allowances here would be claiming work this run did not do.
     console.log(
       `Content integrity check passed: all ${after.length} body lines are unchanged since ${BASE}, ` +
-        `apart from repointed cross-references and the quoted rewrites in notation-rewrites.json. ` +
+        `apart from repointed cross-references, the quoted rewrites in notation-rewrites.json, ` +
+        `and ${RETIREMENTS.length} block(s) retired under rule 1a and declared in figure-retirements.json. ` +
         `Run with CONTENT_BASELINE=d1c1559 to compare against the pre-restructure text instead.`
     );
     process.exit(0);

@@ -79,19 +79,12 @@ To eliminate subjective projections, the campaign's target metrics are anchored 
     *   At a 62.0% countywide participation rate, total ballots cast will equal approximately **330,310 votes**.
     *   To achieve the **198,004 to 200,000 vote threshold**, a winning gubernatorial candidate must capture **60.0% to 60.5% of all valid ballots cast**, representing **37.2% to 37.5% of the total registered county electorate**.
 
+```figure
+id: threshold-build-up
 ```
-  ┌───────────────────────────────────────────────────────────────────────────┐
-  │                 THE 2027 VICTORY THRESHOLD ARITHMETIC                     │
-  ├───────────────────────────────┬───────────────────────────────────────────┤
-  │ Total Registered Electorate   │ 532,758 voters (40 wards, 2022, Tier 1)   │
-  │ Expected Voter Turnout (62%)  │ ~330,310 actual ballots cast              │
-  │ Absolute Winning Threshold    │ 198,004 – 200,000 votes (Tier 1 baseline) │
-  │ Required Share of Ballots     │ 60.0% – 60.5% of all votes cast           │
-  │ Required Share of Register    │ 37.2% – 37.5% of total registered voters  │
-  ├───────────────────────────────┼───────────────────────────────────────────┤
-  │ Reported 2026 register        │ 605,703 (Tier 3, unverified)              │
-  │ Same 37.2% ratio on that base │ ≈225,000 votes  [CALC — not a forecast]   │
-  └───────────────────────────────┴───────────────────────────────────────────┘
+
+```figure
+id: register-growth
 ```
 
 ### 3.4.2 The 40 wards, ranked, and the 12 that carry most

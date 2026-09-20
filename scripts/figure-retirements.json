@@ -1,0 +1,56 @@
+{
+  "$comment": [
+    "Blocks retired from public/content/ under hard rule 1a of the visual compaction brief, and the",
+    "figure that took over each one's job.",
+    "",
+    "RULE 1a, IN FULL: an ASCII or box-drawing diagram, a pseudo-table inside a code block, a stack",
+    "of near-identical cards or a restated 'summary' table may be deleted ONCE a figure renders the",
+    "same facts. A visual takes over the job only when it shows every fact, number, tier label and",
+    "source the text it replaces carried — and every figure keeps a 'View the data' disclosure",
+    "generated from its data file, so the numbers stay on the page and stay in the printed PDF.",
+    "",
+    "WHY THIS FILE EXISTS. scripts/verify-content-integrity.mjs compares every body line against the",
+    "baseline and fails the build on anything that moved, which is exactly right: the restructure",
+    "moved body text, it did not rewrite it. A retirement is the one thing this brief authorises",
+    "that the guard cannot tell apart from a quiet deletion. Declaring it costs one entry and a",
+    "sentence saying which figure carries the facts — the same bargain notation-rewrites.json",
+    "strikes for prose, and scripts/figure-migrations.json for figures leaving the markdown.",
+    "",
+    "`facts` is not decoration. It is the checklist the figure is held to, and Phase 8's report",
+    "itemises the words retired against it. If a fact listed here is not visible in the figure or in",
+    "its 'View the data' table, the retirement is not authorised and the block goes back."
+  ],
+
+  "retirements": [
+    {
+      "id": "arithmetic-3-4-1-threshold-table",
+      "section": "§3.4.1",
+      "was": "A box-drawing pseudo-table headed THE 2027 VICTORY THRESHOLD ARITHMETIC — seven rows of label-and-value inside a code fence.",
+      "replacedBy": ["threshold-build-up", "register-growth"],
+      "facts": [
+        "532,758 registered voters, 40 wards, 2022, Tier 1",
+        "~330,310 ballots cast at the 62% turnout baseline",
+        "198,004 – 200,000 votes, the Tier 1 winning threshold band",
+        "60.0% – 60.5% of all ballots cast",
+        "37.2% – 37.5% of the total registered electorate",
+        "605,703 reported 2026 register, Tier 3, unverified",
+        "≈225,000 votes on the same 37.2% ratio, marked [CALC — not a forecast]"
+      ],
+      "note": "The two figures carry every row. The threshold band appears as two bars (198,004 and 200,000) plus the required-share sentence computed in lib/figures/threshold.ts; the 2026 register and the like-for-like figure are the second figure, which carries C-9 because the document states that register's tier two ways.",
+      "lines": [
+        "┌───────────────────────────────────────────────────────────────────────────┐",
+        "│                 THE 2027 VICTORY THRESHOLD ARITHMETIC                     │",
+        "├───────────────────────────────┬───────────────────────────────────────────┤",
+        "│ Total Registered Electorate   │ 532,758 voters (40 wards, 2022, Tier 1)   │",
+        "│ Expected Voter Turnout (62%)  │ ~330,310 actual ballots cast              │",
+        "│ Absolute Winning Threshold    │ 198,004 – 200,000 votes (Tier 1 baseline) │",
+        "│ Required Share of Ballots     │ 60.0% – 60.5% of all votes cast           │",
+        "│ Required Share of Register    │ 37.2% – 37.5% of total registered voters  │",
+        "├───────────────────────────────┼───────────────────────────────────────────┤",
+        "│ Reported 2026 register        │ 605,703 (Tier 3, unverified)              │",
+        "│ Same 37.2% ratio on that base │ ≈225,000 votes  [CALC — not a forecast]   │",
+        "└───────────────────────────────┴───────────────────────────────────────────┘"
+      ]
+    }
+  ]
+}

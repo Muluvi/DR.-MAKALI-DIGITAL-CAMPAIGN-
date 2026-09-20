@@ -1,0 +1,185 @@
+import { FigureFrame } from "./FigureFrame";
+import { BarList, BuildUp, GapBar, ShareBar } from "./marks";
+import {
+  COALITION_PATHS,
+  COUNTY_REGISTER,
+  DEFICIT_POOL,
+  DEFICIT_POOL_SHARE,
+  DEFICIT_WARD_COUNT,
+  THRESHOLD_ROUNDED,
+  TOP_12,
+  TOP_20,
+  BOTTOM_10,
+  WARD_RANKING,
+  WINNING_TOTAL_2022,
+} from "../../lib/figures/register";
+import { REGISTER_GROWTH_SERIES, THRESHOLD_SERIES } from "../../lib/figures/threshold";
+import { IEBC_WARD_REGISTER } from "../../data/sources";
+import type { FigurePoint, FigureSeries } from "../../lib/figures/types";
+
+/**
+ * One figure per id, resolved by name from the markdown.
+ *
+ * WHY A REGISTRY AND NOT A HEADING MAP. HEADING_INSERTS in MarkdownViewer keys a component to a
+ * heading id, which puts every figure at the top of its subsection whether or not that is where
+ * the argument needs it. A ```figure fence puts the figure exactly where the prose reaches it —
+ * which is what lets an ASCII diagram be replaced IN PLACE rather than lifted to the heading and
+ * leaving a hole behind.
+ *
+ * An id that is not in this table renders a visible, honest placeholder rather than nothing.
+ * Silence would mean a fence typo removes a figure and no one finds out until a reader does.
+ */
+
+const officialRegister = {
+  unit: "voters",
+  source: IEBC_WARD_REGISTER,
+  tier: 1 as const,
+  asOf: "2022",
+  kind: "official" as const,
+  granularity: "ward" as const,
+};
+
+/* ------------------------------------------------------------------ §3.4.2 concentration */
+
+const WARD_RANKING_SERIES: FigureSeries = {
+  id: "ward-ranking",
+  headline: `Twelve of the forty wards hold ${TOP_12.toLocaleString("en-KE")} voters — ${((TOP_12 / COUNTY_REGISTER) * 100).toFixed(2)}% of the register`,
+  measure: "Registered voters per ward, 2022 IEBC register, largest first",
+  points: WARD_RANKING.map<FigurePoint>((w) => ({
+    label: `${w.name} (${w.constituency})`,
+    value: w.voters,
+    ...officialRegister,
+  })),
+  note: "Registration is concentrated, not evenly spread: a flat distribution would put 13,319 voters in each ward.",
+};
+
+/* ------------------------------------------------------------------ §3.4.3 the four paths */
+
+const PATHS_SERIES: FigureSeries = {
+  id: "paths-to-threshold",
+  headline: `Three of the four routes clear ${THRESHOLD_ROUNDED.toLocaleString("en-KE")} on the register, and none of them clears it on ballots`,
+  measure: `Registered voters per coalition, and the ballots each yields at the 62% turnout baseline`,
+  points: COALITION_PATHS.map<FigurePoint>((p) => ({
+    label: `Path ${p.id} — ${p.name}`,
+    value: p.registered,
+    ...officialRegister,
+    note:
+      `${p.wards} wards · ${p.share.toFixed(2)}% of the register · about ${p.ballots.toLocaleString("en-KE")} ballots at 62%` +
+      ` · ${p.marginOverRounded >= 0 ? "+" : "−"}${Math.abs(p.marginOverRounded).toLocaleString("en-KE")} against 200,000` +
+      ` · ${p.marginOver2022 >= 0 ? "+" : "−"}${Math.abs(p.marginOver2022).toLocaleString("en-KE")} against 198,004`,
+    conflicts: p.id === "B" ? ["C-4"] : undefined,
+  })),
+  note:
+    "Both margins are shown on every path because §3.4.3 mixes them: Path B's prose quotes the margin over 198,004 " +
+    "while naming the 200,000 threshold. Neither number has been changed.",
+};
+
+/* ------------------------------------------------------------------ §3.4.5 the deficit pool */
+
+const DEFICIT_SERIES: FigureSeries = {
+  id: "deficit-pool",
+  headline: `${DEFICIT_POOL.toLocaleString("en-KE")} registered voters — ${DEFICIT_POOL_SHARE.toFixed(2)}% of the county — sit in the constituencies where he is least known`,
+  measure: "Registered voters in the Mwingi bloc and Kitui South, against the rest of the county",
+  points: [
+    { label: "Mwingi North, West and Central", value: 200_198, ...officialRegister, note: "15 wards" },
+    { label: "Kitui South", value: 75_372, ...officialRegister, note: "6 wards" },
+    {
+      label: "The rest of the county",
+      value: COUNTY_REGISTER - DEFICIT_POOL,
+      ...officialRegister,
+      note: "Kitui Central, West, Rural and East — 19 wards",
+    },
+  ],
+  conflicts: ["C-6", "C-7"],
+  note:
+    `The pool spans ${DEFICIT_WARD_COUNT} wards, not the 24 the operational mandate directs effort into — ` +
+    `the mandate's count includes three Kitui East border wards that this pool excludes. The share computes to ` +
+    `${DEFICIT_POOL_SHARE.toFixed(4)}%, which rounds to ${DEFICIT_POOL_SHARE.toFixed(2)}%; the prose prints 51.72%.`,
+};
+
+/* ------------------------------------------------------------------ the registry */
+
+type FigureEntry = { render: () => React.ReactNode; note: string };
+
+export const FIGURES: Record<string, FigureEntry> = {
+  "threshold-build-up": {
+    note: "§3.4.1 — register → ballots → the votes that win.",
+    render: () => (
+      <FigureFrame series={THRESHOLD_SERIES}>
+        <BuildUp
+          series={THRESHOLD_SERIES}
+          threshold={{ value: WINNING_TOTAL_2022, label: "What won the seat in 2022" }}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "register-growth": {
+    note: "§3.4.1 — the 2026 register and the like-for-like threshold on it.",
+    render: () => (
+      <FigureFrame series={REGISTER_GROWTH_SERIES}>
+        <BuildUp series={REGISTER_GROWTH_SERIES} />
+      </FigureFrame>
+    ),
+  },
+
+  "ward-ranking": {
+    note: "§3.4.2 — the forty wards, ranked, with the concentration brackets.",
+    render: () => (
+      <FigureFrame series={WARD_RANKING_SERIES}>
+        <BarList
+          series={WARD_RANKING_SERIES}
+          cumulative
+          limit={12}
+          brackets={[
+            { through: 12, label: `Top 12 wards: ${TOP_12.toLocaleString("en-KE")} voters, ${((TOP_12 / COUNTY_REGISTER) * 100).toFixed(2)}% of the register` },
+            { through: 20, label: `Top 20 wards: ${TOP_20.toLocaleString("en-KE")}, ${((TOP_20 / COUNTY_REGISTER) * 100).toFixed(2)}%` },
+            { through: 40, label: `Bottom 10 wards: ${BOTTOM_10.toLocaleString("en-KE")}, ${((BOTTOM_10 / COUNTY_REGISTER) * 100).toFixed(2)}% — across a quarter of the wards and most of the distance` },
+          ]}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "paths-to-threshold": {
+    note: "§3.4.3 — the four coalition routes, on the register and on ballots.",
+    render: () => (
+      <FigureFrame series={PATHS_SERIES}>
+        <BuildUp
+          series={PATHS_SERIES}
+          threshold={{ value: THRESHOLD_ROUNDED, label: "The ~200,000 threshold" }}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "deficit-pool": {
+    note: "§3.4.5 — where the recognition deficit sits, as a share of the register.",
+    render: () => (
+      <FigureFrame series={DEFICIT_SERIES}>
+        <ShareBar series={DEFICIT_SERIES} />
+      </FigureFrame>
+    ),
+  },
+};
+
+/**
+ * The fence's renderer.
+ *
+ * An unknown id is drawn as a visible gap rather than silently dropped: a typo in a fence would
+ * otherwise remove a figure from the document and nobody would find out until a reader did.
+ */
+export function Figure({ id }: { id: string }) {
+  const entry = FIGURES[id];
+  if (!entry) {
+    return (
+      <p className="not-prose my-4 rounded-lg border border-dashed border-gold/60 bg-gold/[0.06] px-3 py-2 t-micro text-ink">
+        <strong className="font-bold text-gold">Figure not found:</strong>{" "}
+        <code>{id}</code> is not in the figure registry (components/figures/registry.tsx).
+      </p>
+    );
+  }
+  return <>{entry.render()}</>;
+}
+
+export { GapBar };

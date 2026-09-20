@@ -36,6 +36,7 @@ import { KpiScorecards } from "./charts/KpiScorecards";
 import { GENERAL_ELECTION_KPIS, NOMINATION_KPIS } from "../data/kpis";
 import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
 import { AsciiDiagram } from "./markdown/AsciiDiagram";
+import { Figure } from "./figures/registry";
 import { ReachSplit } from "./ReachSplit";
 import {
   FlywheelSchematic,
@@ -191,6 +192,23 @@ function parseLabelledList(children: React.ReactNode): CommitmentField[] | null 
     fields.push({ key: commitmentFieldKey(label), label, value: body.slice(1) });
   }
   return fields;
+}
+
+/**
+ * The language tag on a fenced block — "figure" for ```figure, null for a bare fence.
+ *
+ * Matched on the tag rather than on the block's contents. An ASCII diagram that happened to
+ * contain a line reading "id: something" would otherwise be swallowed and replaced by a figure,
+ * which is a silent content change and exactly what hard rule 2 forbids.
+ */
+function fenceLanguage(children: React.ReactNode): string | null {
+  for (const child of React.Children.toArray(children)) {
+    if (!React.isValidElement(child)) continue;
+    const className = (child.props as { className?: string }).className ?? "";
+    const match = className.match(/language-([A-Za-z0-9_-]+)/);
+    if (match) return match[1].toLowerCase();
+  }
+  return null;
 }
 
 function getTableHeaderTexts(children: React.ReactNode): string[] {
@@ -416,6 +434,27 @@ function buildComponents(tabId: TabId): Components {
             },
             pre: ({ children }) => {
               const source = getDeepText(children);
+
+              /**
+               * A ```figure fence places a built figure exactly where the prose reaches it.
+               *
+               * This is what lets rule 1a retire an ASCII diagram IN PLACE. The alternative —
+               * keying every figure to a heading id, as HEADING_INSERTS does — lifts the figure to
+               * the top of its subsection and leaves a hole where the diagram was, which reads as
+               * a deletion rather than a replacement. The fence body is `id: <figure-id>`; the
+               * registry resolves it, and an unknown id renders a visible gap rather than nothing.
+               */
+              if (fenceLanguage(children) === "figure") {
+                const id = source.match(/^\s*id:\s*([a-z0-9-]+)\s*$/im)?.[1];
+                return id ? (
+                  <Figure id={id} />
+                ) : (
+                  <p className="not-prose my-4 rounded-lg border border-dashed border-gold/60 bg-gold/[0.06] px-3 py-2 t-micro text-ink">
+                    <strong className="font-bold text-gold">Malformed figure fence:</strong> expected a line reading
+                    {" "}<code>id: some-figure-id</code>.
+                  </p>
+                );
+              }
 
               // Three of these blocks are not diagrams to be parsed, they are the two scorecards
               // and the architecture that anchors them — the widest ASCII in the document, and

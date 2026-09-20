@@ -1894,3 +1894,66 @@ html {
     color: inherit !important;
   }
 }
+
+/* ==========================================================================
+   Figures — the marks built for the visual compaction pass
+   ==========================================================================
+
+   THE RULE THIS SECTION EXISTS TO ENFORCE: the final value is in the HTML, and the animation is
+   a transform laid over it. Every bar is server-rendered at its true width. `fx-figure-bar`
+   scales it from nothing to that width, so the animation can only ever be ABSENT — it can never
+   show a figure that is not the figure. A reader with JavaScript off, a reader who asked for
+   reduced motion, and a printed page all get the chart drawn correctly on the first frame.
+
+   Compare the counters this pass fixed, which seeded their state with zero and therefore
+   server-rendered KSh0.00bn. The difference is that these start from the truth. */
+
+.fx-figure-bar {
+  transform-origin: left center;
+}
+
+.fx-figure-line {
+  /* Drawn by dash offset rather than by width, so the slope's end points never move. */
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+/* Hatching marks a value that is modelled or illustrative. It is a TEXTURE, not a colour, so it
+   survives greyscale printing and reaches a reader who cannot use the colour difference. The
+   figure's caption says the same thing in words — this is the redundant second channel, never
+   the only one. */
+.fx-figure-hatch {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0 3px,
+    color-mix(in oklch, var(--color-paper) 55%, transparent) 3px 6px
+  );
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fx-figure-bar {
+    animation: fx-figure-grow 520ms cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+    animation-delay: calc(var(--fx-i, 0) * 45ms);
+  }
+
+  .fx-figure-line {
+    animation: fx-figure-draw 620ms cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+    animation-delay: calc(var(--fx-i, 0) * 70ms);
+  }
+}
+
+@keyframes fx-figure-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes fx-figure-draw {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* A figure's data table is open when printing, because a PDF cannot be tapped. */
+@media print {
+  figure details { display: block; }
+  figure details > summary { display: none; }
+}
