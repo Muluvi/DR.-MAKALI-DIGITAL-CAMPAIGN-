@@ -528,14 +528,28 @@ for (const file of OLD_FILES) {
 }
 
 /**
- * The two line shapes a figure fence adds, and nothing else.
+ * Drop a ```figure block whole — its opening tag, its `id:` line and its closing delimiter.
  *
- * NOT the bare ``` delimiters. A retired ASCII block took its own opening and closing fence with
- * it and the replacement fences bring their own, so the count of bare ``` lines is unchanged —
- * and a pattern that matched them would strip all 140 code fences in the document from one side
- * of the comparison, which is how this check first reported 140 lost lines that had not moved.
+ * Statefully, and not with a per-line pattern. A pattern that matched a bare ``` would strip all
+ * 140 code fences in the document from one side of the comparison; a pattern that matched only
+ * "```figure" and "id: …" would leave the closing delimiter behind and report it as an addition.
+ * The block is a pointer to a built figure and carries no body text, so none of its three lines
+ * belongs in a prose comparison.
  */
-const FIGURE_FENCE = /^(?:```figure|id:\s*[a-z0-9-]+)$/;
+function stripFigureFences(lines) {
+  const out = [];
+  let inFigure = false;
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!inFigure && /^```figure$/.test(trimmed)) { inFigure = true; continue; }
+    if (inFigure) {
+      if (/^```$/.test(trimmed)) inFigure = false;
+      continue;
+    }
+    out.push(line);
+  }
+  return out;
+}
 
 let after = [];
 for (const file of fs.readdirSync(CONTENT).sort()) {
@@ -549,7 +563,7 @@ for (const file of fs.readdirSync(CONTENT).sort()) {
     addedAllowance.set(key, (addedAllowance.get(key) ?? 0) + 1);
   }
   after = after.concat(
-    bodyLines(text).filter((line) => {
+    stripFigureFences(bodyLines(text)).filter((line) => {
       const trimmed = line.trim();
       if (!CURRENT_SPINE && ORIENTATION_LINES.has(trimmed)) return false;
       if (!CURRENT_SPINE && SPINE_ORIENTATION_LINES.has(trimmed)) return false;
@@ -560,9 +574,6 @@ for (const file of fs.readdirSync(CONTENT).sort()) {
         addedAllowance.set(trimmed, left - 1);
         return false;
       }
-      // A ```figure fence is a pointer to a built figure, not body text. It carries no prose and
-      // replaces a block declared in figure-retirements.json.
-      if (FIGURE_FENCE.test(trimmed)) return false;
       return true;
     }),
   );
@@ -601,6 +612,11 @@ const allowance = CURRENT_SPINE ? new Map() : new Map(REMOVED_SCAFFOLDING);
 for (const [line, count] of RETIRED_LINES) {
   allowance.set(line, (allowance.get(line) ?? 0) + count);
 }
+// Each retired block took its own opening and closing ``` with it. The replacement fences are
+// dropped from the other side whole, so those two delimiters have to be allowed for here or they
+// read as lost lines.
+const BARE_FENCE = "```";
+allowance.set(BARE_FENCE, (allowance.get(BARE_FENCE) ?? 0) + RETIREMENTS.length * 2);
 const beforeBody = before.filter((line) => {
   const left = allowance.get(line.trim());
   if (!left) return true;

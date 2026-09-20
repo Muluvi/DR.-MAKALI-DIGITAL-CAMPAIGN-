@@ -33,5 +33,61 @@
     "figure": "1.16|",
     "scope": "repository",
     "movedTo": "Not a figure of the proposal. It was the WordCycler's clip height in EM (\"a fixed 1.16em\"), described in a comment in components/visual/SplitText.tsx. Deleted with that file for the same reason as 2200 above."
+  },
+  {
+    "figure": "15553|",
+    "movedTo": "Moved from the §3.4.4 CONSTITUENCY STRUCTURAL POWER RANKING pseudo-table into the `constituency-power` figure, which COMPUTES it from data/ward-register.json rather than reprinting it (see scripts/figure-retirements.json, arithmetic-3-4-4-power-ranking). PRINT REACH VERIFIED, not assumed: FigureFrame's 'View the data' table is forced open under @media print, and emulating print on /arithmetic finds all fourteen of these figures in the rendered text. lib/figures/figures.test.ts pins every one of them in the document's own notation, so the computation cannot drift from what §3.4.4 printed."
+  },
+  {
+    "figure": "12562|",
+    "movedTo": "Moved from the §3.4.4 CONSTITUENCY STRUCTURAL POWER RANKING pseudo-table into the `constituency-power` figure, which COMPUTES it from data/ward-register.json rather than reprinting it (see scripts/figure-retirements.json, arithmetic-3-4-4-power-ranking). PRINT REACH VERIFIED, not assumed: FigureFrame's 'View the data' table is forced open under @media print, and emulating print on /arithmetic finds all fourteen of these figures in the rendered text. lib/figures/figures.test.ts pins every one of them in the document's own notation, so the computation cannot drift from what §3.4.4 printed."
+  },
+  {
+    "figure": "12372|",
+    "movedTo": "Moved from the §3.4.4 CONSTITUENCY STRUCTURAL POWER RANKING pseudo-table into the `constituency-power` figure, which COMPUTES it from data/ward-register.json rather than reprinting it (see scripts/figure-retirements.json, arithmetic-3-4-4-power-ranking). PRINT REACH VERIFIED, not assumed: FigureFrame's 'View the data' table is forced open under @media print, and emulating print on /arithmetic finds all fourteen of these figures in the rendered text. lib/figures/figures.test.ts pins every one of them in the document's own notation, so the computation cannot drift from what §3.4.4 printed."
+  },
+  {
+    "figure": "13766|",
+    "movedTo": "Moved from the §3.4.4 CONSTITUENCY STRUCTURAL POWER RANKING pseudo-table into the `constituency-power` figure, which COMPUTES it from data/ward-register.json rather than reprinting it (see scripts/figure-retirements.json, arithmetic-3-4-4-power-ranking). PRINT REACH VERIFIED, not assumed: FigureFrame's 'View the data' table is forced open under @media print, and emulating print on /arithmetic finds all fourteen of these figures in the rendered text. lib/figures/figures.test.ts pins every one of them in the document's own notation, so the computation cannot drift from what §3.4.4 printed."
+  },
+  {
+    "figure": "10896|",
+    "movedTo": "Moved from the §3.4.4 CONSTITUENCY STRUCTURAL POWER RANKING pseudo-table into the `constituency-power` figure, which COMPUTES it from data/ward-register.json rather than reprinting it (see scripts/figure-retirements.json, arithmetic-3-4-4-power-ranking). PRINT REACH VERIFIED, not assumed: FigureFrame's 'View the data' table is forced open under @media print, and emulating print on /arithmetic finds all fourteen of these figures in the rendered text. lib/figures/figures.test.ts pins every one of them in the document's own notation, so the computation cannot drift from what §3.4.4 printed."
+  },
+  {
+    "figure": "14762|",
+    "movedTo": "Moved from the §3.4.4 CONSTITUENCY STRUCTURAL POWER RANKING pseudo-table into the `constituency-power` figure, which COMPUTES it from data/ward-register.json rather than reprinting it (see scripts/figure-retirements.json, arithmetic-3-4-4-power-ranking). PRINT REACH VERIFIED, not assumed: FigureFrame's 'View the data' table is forced open under @media print, and emulating print on /arithmetic finds all fourteen of these figures in the rendered text. lib/figures/figures.test.ts pins every one of them in the document's own notation, so the computation cannot drift from what §3.4.4 printed."
+  },
+  {
+    "figure": "14285|",
+    "movedTo": "Moved from the §3.4.4 CONSTITUENCY STRUCTURAL POWER RANKING pseudo-table into the `constituency-power` figure, which COMPUTES it from data/ward-register.json rather than reprinting it (see scripts/figure-retirements.json, arithmetic-3-4-4-power-ranking). PRINT REACH VERIFIED, not assumed: FigureFrame's 'View the data' table is forced open under @media print, and emulating print on /arithmetic finds all fourteen of these figures in the rendered text. lib/figures/figures.test.ts pins every one of them in the document's own notation, so the computation cannot drift from what §3.4.4 printed."
+  },
+  {
+    "figure": "13750|",
+    "movedTo": "Moved from the §3.4.4 CONSTITUENCY STRUCTURAL POWER RANKING pseudo-table into the `constituency-power` figure, which COMPUTES it from data/ward-register.json rather than reprinting it (see scripts/figure-retirements.json, arithmetic-3-4-4-power-ranking). PRINT REACH VERIFIED, not assumed: FigureFrame's 'View the data' table is forced open under @media print, and emulating print on /arithmetic finds all fourteen of these figures in the rendered text. lib/figures/figures.test.ts pins every one of them in the document's own notation, so the computation cannot drift from what §3.4.4 printed."
+  },
+  {
+    "figure": "13.93|%",
+    "movedTo": "Moved from the §3.4.4 CONSTITUENCY STRUCTURAL POWER RANKING pseudo-table into the `constituency-power` figure, which COMPUTES it from data/ward-register.json rather than reprinting it (see scripts/figure-retirements.json, arithmetic-3-4-4-power-ranking). PRINT REACH VERIFIED, not assumed: FigureFrame's 'View the data' table is forced open under @media print, and emulating print on /arithmetic finds all fourteen of these figures in the rendered text. lib/figures/figures.test.ts pins every one of them in the document's own notation, so the computation cannot drift from what §3.4.4 printed."
+  },
+  {
+    "figure": "12.92|%",
+    "movedTo": "Moved from the §3.4.4 CONSTITUENCY STRUCTURAL POWER RANKING pseudo-table into the `constituency-power` figure, which COMPUTES it from data/ward-register.json rather than reprinting it (see scripts/figure-retirements.json, arithmetic-3-4-4-power-ranking). PRINT REACH VERIFIED, not assumed: FigureFrame's 'View the data' table is forced open under @media print, and emulating print on /arithmetic finds all fourteen of these figures in the rendered text. lib/figures/figures.test.ts pins every one of them in the document's own notation, so the computation cannot drift from what §3.4.4 printed."
+  },
+  {
+    "figure": "12.27|%",
+    "movedTo": "Moved from the §3.4.4 CONSTITUENCY STRUCTURAL POWER RANKING pseudo-table into the `constituency-power` figure, which COMPUTES it from data/ward-register.json rather than reprinting it (see scripts/figure-retirements.json, arithmetic-3-4-4-power-ranking). PRINT REACH VERIFIED, not assumed: FigureFrame's 'View the data' table is forced open under @media print, and emulating print on /arithmetic finds all fourteen of these figures in the rendered text. lib/figures/figures.test.ts pins every one of them in the document's own notation, so the computation cannot drift from what §3.4.4 printed."
+  },
+  {
+    "figure": "11.08|%",
+    "movedTo": "Moved from the §3.4.4 CONSTITUENCY STRUCTURAL POWER RANKING pseudo-table into the `constituency-power` figure, which COMPUTES it from data/ward-register.json rather than reprinting it (see scripts/figure-retirements.json, arithmetic-3-4-4-power-ranking). PRINT REACH VERIFIED, not assumed: FigureFrame's 'View the data' table is forced open under @media print, and emulating print on /arithmetic finds all fourteen of these figures in the rendered text. lib/figures/figures.test.ts pins every one of them in the document's own notation, so the computation cannot drift from what §3.4.4 printed."
+  },
+  {
+    "figure": "10.72|%",
+    "movedTo": "Moved from the §3.4.4 CONSTITUENCY STRUCTURAL POWER RANKING pseudo-table into the `constituency-power` figure, which COMPUTES it from data/ward-register.json rather than reprinting it (see scripts/figure-retirements.json, arithmetic-3-4-4-power-ranking). PRINT REACH VERIFIED, not assumed: FigureFrame's 'View the data' table is forced open under @media print, and emulating print on /arithmetic finds all fourteen of these figures in the rendered text. lib/figures/figures.test.ts pins every one of them in the document's own notation, so the computation cannot drift from what §3.4.4 printed."
+  },
+  {
+    "figure": "10.32|%",
+    "movedTo": "Moved from the §3.4.4 CONSTITUENCY STRUCTURAL POWER RANKING pseudo-table into the `constituency-power` figure, which COMPUTES it from data/ward-register.json rather than reprinting it (see scripts/figure-retirements.json, arithmetic-3-4-4-power-ranking). PRINT REACH VERIFIED, not assumed: FigureFrame's 'View the data' table is forced open under @media print, and emulating print on /arithmetic finds all fourteen of these figures in the rendered text. lib/figures/figures.test.ts pins every one of them in the document's own notation, so the computation cannot drift from what §3.4.4 printed."
   }
 ]

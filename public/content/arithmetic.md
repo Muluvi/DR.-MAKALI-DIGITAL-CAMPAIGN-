@@ -6,43 +6,8 @@ The path to the Kitui County governorship is governed by strict spatial and demo
 
 This section constructs the complete electoral arithmetic of the **~200,000 vote victory threshold** from the official **40-ward IEBC voter register** (Tier 1), identifies the decisive geographic concentrations and structural coalitions, and maps the critical intersection between the candidate's recognition deficit and the county's decisive voting blocs.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                        KITUI COUNTY ELECTORAL REGISTER (532,758 VOTERS)
-════════════════════════════════════════════════════════════════════════════════════
- ┌─────────────────────────────────────────┐   ┌─────────────────────────────────────────┐
- │     MWINGI NORTH CONSTITUENCY (68,829)  │   │     MWINGI CENTRAL CONSTITUENCY (74,231)│
- │ • Kyuso Ward:                   19,921  │   │ • Central Ward:                 14,525  │
- │ • Tseikuru Ward:                16,471  │   │ • Nguni Ward:                   13,165  │
- │ • Mumoni Ward:                  15,877  │   │ • Nuu Ward:                     12,729  │
- │ • Ngomeni Ward:                  9,131  │   │ • Kivou Ward:                   12,301  │
- │ • Tharaka Ward:                  7,429  │   │ • Mui Ward:                     11,039  │
- └─────────────────────────────────────────┘   │ • Waita Ward:                   10,472  │
- ┌─────────────────────────────────────────┐   └─────────────────────────────────────────┘
- │     MWINGI WEST CONSTITUENCY (57,138)   │   ┌─────────────────────────────────────────┐
- │ • Nguutani Ward:                15,121  │   │     KITUI WEST CONSTITUENCY (59,047)    │
- │ • Kyome/Thaana Ward:            14,979  │   │ • Mutonguni Ward:               17,979  │
- │ • Migwani Ward:                 14,678  │   │ • Kauwi Ward:                   15,767  │
- │ • Kiomo/Kyethani Ward:          12,360  │   │ • Matinyani Ward:               14,279  │
- └─────────────────────────────────────────┘   │ • Kwa Mutonga/Kithumula:        11,022  │
- ┌─────────────────────────────────────────┐   └─────────────────────────────────────────┘
- │     KITUI CENTRAL CONSTITUENCY (77,764) │   ┌─────────────────────────────────────────┐
- │ • Township Ward:                19,538  │   │     KITUI RURAL CONSTITUENCY (55,000)   │
- │ • Kyangwithya West Ward:        15,931  │   │ • Kwa Vonza/Yatta Ward:         18,020  │
- │ • Kyangwithya East Ward:        15,401  │   │ • Kisasi Ward:                  13,840  │
- │ • Mulango Ward:                 15,135  │   │ • Mbitini Ward:                 12,048  │
- │ • Miambani Ward:                11,759  │   │ • Kanyangi Ward:                11,092  │
- └─────────────────────────────────────────┘   └─────────────────────────────────────────┘
- ┌─────────────────────────────────────────┐   ┌─────────────────────────────────────────┐
- │     KITUI EAST CONSTITUENCY (65,377)    │   │     KITUI SOUTH CONSTITUENCY (75,372)   │
- │ • Zombe/Mwitika Ward:           13,152  │   │ • Athi Ward:                    15,843  │
- │ • Chuluni Ward:                 12,622  │   │ • Ikanga/Kyatune Ward:          15,384  │
- │ • Nzambani Ward:                11,723  │   │ • Mutomo Ward:                  12,637  │
- │ • Voo/Kyamatu Ward:             10,003  │   │ • Ikutha Ward:                  12,066  │
- │ • Mutitu/Kaliku Ward:            9,980  │   │ • Mutha Ward:                   11,039  │
- │ • Endau/Malalani Ward:           7,897  │   │ • Kanziko Ward:                  8,403  │
- └─────────────────────────────────────────┘   └─────────────────────────────────────────┘
-════════════════════════════════════════════════════════════════════════════════════
+```figure
+id: register-map
 ```
 
 ### 3.4.1 The number of votes it takes
@@ -145,25 +110,8 @@ Voter registration in Kitui County is highly concentrated. Rather than a flat ge
 
 To establish an unshakeable mathematical path to victory, the campaign evaluates specific ward combinations against the ~200,000 registered voter benchmark:
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│              FOUR STRUCTURAL PATHS TO THE 200,000 VOTER POOL                │
-└─────────────────────────────────────────────────────────────────────────────┘
-
- [PATH A: THE MWINGI TRIAD]            [PATH B: THE CENTRAL-SOUTH-WEST AXIS]
- • Mwingi Central:    74,231            • Kitui Central:     77,764
- • Mwingi North:      68,829            • Kitui South:       75,372
- • Mwingi West:       57,138            • Kitui West:        59,047
- ───────────────────────────            ───────────────────────────
- TOTAL (15 Wards):   200,198 (37.58%)   TOTAL (15 Wards):   212,183 (39.83%)
-
- [PATH C: THE 12 MEGAWARDS]            [PATH D: THE HOME-BELT CEILING (TRAP)]
- • Kyuso to Mulango: 201,267            • Kitui Central:     77,764
-   (Top 12 dense wards across            • Kitui West:        59,047
-    6 constituencies)                   • Kitui Rural:       55,000
- ───────────────────────────            ───────────────────────────
- TOTAL (12 Wards):   201,267 (37.78%)   TOTAL (13 Wards):   191,811 (36.00%)
-                                        [CANNOT REACH 200K REGISTER THRESHOLD]
+```figure
+id: paths-to-threshold
 ```
 
 #### Path A: The Northern Mwingi Triad (The "Mwingi Bloc")
@@ -202,26 +150,8 @@ To establish an unshakeable mathematical path to victory, the campaign evaluates
 
 A constituency's structural importance is determined by its total voter weight, the density of its wards, and its historical role in party nominating conventions:
 
-```
-  ┌───────────────────────────────────────────────────────────────────────────┐
-  │                 CONSTITUENCY STRUCTURAL POWER RANKING                     │
-  ├──────┬─────────────────┬──────────┬──────────┬───────────┬────────────────┤
-  │ Rank │ Constituency    │ Voters   │ % County │ Wards     │ Avg Ward Size  │
-  ├──────┼─────────────────┼──────────┼──────────┼───────────┼────────────────┤
-  │ 1    │ Kitui Central   │ 77,764   │ 14.60%   │ 5 wards   │ 15,553 voters  │
-  │ 2    │ Kitui South     │ 75,372   │ 14.15%   │ 6 wards   │ 12,562 voters  │
-  │ 3    │ Mwingi Central  │ 74,231   │ 13.93%   │ 6 wards   │ 12,372 voters  │
-  │ 4    │ Mwingi North    │ 68,829   │ 12.92%   │ 5 wards   │ 13,766 voters  │
-  ├──────┴─────────────────┴──────────┴──────────┴───────────┴────────────────┤
-  │  THE "BIG 4" SUB-TOTAL: 296,196 voters (55.60% of County across 22 Wards) │
-  ├──────┬─────────────────┬──────────┬──────────┬───────────┬────────────────┤
-  │ 5    │ Kitui East      │ 65,377   │ 12.27%   │ 6 wards   │ 10,896 voters  │
-  │ 6    │ Kitui West      │ 59,047   │ 11.08%   │ 4 wards   │ 14,762 voters  │
-  │ 7    │ Mwingi West     │ 57,138   │ 10.72%   │ 4 wards   │ 14,285 voters  │
-  │ 8    │ Kitui Rural     │ 55,000   │ 10.32%   │ 4 wards   │ 13,750 voters  │
-  ├──────┴─────────────────┴──────────┴──────────┴───────────┴────────────────┤
-  │  COUNTY TOTAL:          532,758 voters (100.00% across 40 Wards, Tier 1)  │
-  └───────────────────────────────────────────────────────────────────────────┘
+```figure
+id: constituency-power
 ```
 
 #### Analytical Hierarchy:

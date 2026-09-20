@@ -20,13 +20,15 @@
     "itemises the words retired against it. If a fact listed here is not visible in the figure or in",
     "its 'View the data' table, the retirement is not authorised and the block goes back."
   ],
-
   "retirements": [
     {
       "id": "arithmetic-3-4-1-threshold-table",
       "section": "§3.4.1",
       "was": "A box-drawing pseudo-table headed THE 2027 VICTORY THRESHOLD ARITHMETIC — seven rows of label-and-value inside a code fence.",
-      "replacedBy": ["threshold-build-up", "register-growth"],
+      "replacedBy": [
+        "threshold-build-up",
+        "register-growth"
+      ],
       "facts": [
         "532,758 registered voters, 40 wards, 2022, Tier 1",
         "~330,310 ballots cast at the 62% turnout baseline",
@@ -50,6 +52,134 @@
         "│ Reported 2026 register        │ 605,703 (Tier 3, unverified)              │",
         "│ Same 37.2% ratio on that base │ ≈225,000 votes  [CALC — not a forecast]   │",
         "└───────────────────────────────┴───────────────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "arithmetic-3-4-register-grid",
+      "section": "§3.4",
+      "was": "A box-drawing grid drawing all forty wards in two columns of ASCII panels, one panel per constituency, headed KITUI COUNTY ELECTORAL REGISTER (532,758 VOTERS).",
+      "replacedBy": [
+        "register-map"
+      ],
+      "facts": [
+        "All 40 ward names with their registered voters, grouped by constituency",
+        "Mwingi North 68,829 · Mwingi West 57,138 · Mwingi Central 74,231 · Kitui West 59,047",
+        "Kitui Rural 55,000 · Kitui Central 77,764 · Kitui East 65,377 · Kitui South 75,372",
+        "County total 532,758 registered voters"
+      ],
+      "note": "register-map draws every ward from data/ward-register.json — the same file the integrity check sums — so the figure cannot drift from the register. It adds each ward drawn to a shared scale, which is what makes the concentration visible rather than arithmetic, and each constituency's share of the county, which the ASCII left to be summed.",
+      "lines": [
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "                        KITUI COUNTY ELECTORAL REGISTER (532,758 VOTERS)",
+        "════════════════════════════════════════════════════════════════════════════════════",
+        " ┌─────────────────────────────────────────┐   ┌─────────────────────────────────────────┐",
+        " │     MWINGI NORTH CONSTITUENCY (68,829)  │   │     MWINGI CENTRAL CONSTITUENCY (74,231)│",
+        " │ • Kyuso Ward:                   19,921  │   │ • Central Ward:                 14,525  │",
+        " │ • Tseikuru Ward:                16,471  │   │ • Nguni Ward:                   13,165  │",
+        " │ • Mumoni Ward:                  15,877  │   │ • Nuu Ward:                     12,729  │",
+        " │ • Ngomeni Ward:                  9,131  │   │ • Kivou Ward:                   12,301  │",
+        " │ • Tharaka Ward:                  7,429  │   │ • Mui Ward:                     11,039  │",
+        " └─────────────────────────────────────────┘   │ • Waita Ward:                   10,472  │",
+        " ┌─────────────────────────────────────────┐   └─────────────────────────────────────────┘",
+        " │     MWINGI WEST CONSTITUENCY (57,138)   │   ┌─────────────────────────────────────────┐",
+        " │ • Nguutani Ward:                15,121  │   │     KITUI WEST CONSTITUENCY (59,047)    │",
+        " │ • Kyome/Thaana Ward:            14,979  │   │ • Mutonguni Ward:               17,979  │",
+        " │ • Migwani Ward:                 14,678  │   │ • Kauwi Ward:                   15,767  │",
+        " │ • Kiomo/Kyethani Ward:          12,360  │   │ • Matinyani Ward:               14,279  │",
+        " └─────────────────────────────────────────┘   │ • Kwa Mutonga/Kithumula:        11,022  │",
+        " ┌─────────────────────────────────────────┐   └─────────────────────────────────────────┘",
+        " │     KITUI CENTRAL CONSTITUENCY (77,764) │   ┌─────────────────────────────────────────┐",
+        " │ • Township Ward:                19,538  │   │     KITUI RURAL CONSTITUENCY (55,000)   │",
+        " │ • Kyangwithya West Ward:        15,931  │   │ • Kwa Vonza/Yatta Ward:         18,020  │",
+        " │ • Kyangwithya East Ward:        15,401  │   │ • Kisasi Ward:                  13,840  │",
+        " │ • Mulango Ward:                 15,135  │   │ • Mbitini Ward:                 12,048  │",
+        " │ • Miambani Ward:                11,759  │   │ • Kanyangi Ward:                11,092  │",
+        " └─────────────────────────────────────────┘   └─────────────────────────────────────────┘",
+        " ┌─────────────────────────────────────────┐   ┌─────────────────────────────────────────┐",
+        " │     KITUI EAST CONSTITUENCY (65,377)    │   │     KITUI SOUTH CONSTITUENCY (75,372)   │",
+        " │ • Zombe/Mwitika Ward:           13,152  │   │ • Athi Ward:                    15,843  │",
+        " │ • Chuluni Ward:                 12,622  │   │ • Ikanga/Kyatune Ward:          15,384  │",
+        " │ • Nzambani Ward:                11,723  │   │ • Mutomo Ward:                  12,637  │",
+        " │ • Voo/Kyamatu Ward:             10,003  │   │ • Ikutha Ward:                  12,066  │",
+        " │ • Mutitu/Kaliku Ward:            9,980  │   │ • Mutha Ward:                   11,039  │",
+        " │ • Endau/Malalani Ward:           7,897  │   │ • Kanziko Ward:                  8,403  │",
+        " └─────────────────────────────────────────┘   └─────────────────────────────────────────┘",
+        "════════════════════════════════════════════════════════════════════════════════════"
+      ]
+    },
+    {
+      "id": "arithmetic-3-4-3-four-paths",
+      "section": "§3.4.3",
+      "was": "A box-drawing block headed FOUR STRUCTURAL PATHS TO THE 200,000 VOTER POOL, laying the four coalitions out as four ASCII panels.",
+      "replacedBy": [
+        "paths-to-threshold"
+      ],
+      "facts": [
+        "Path A — Mwingi Central 74,231 + Mwingi North 68,829 + Mwingi West 57,138 = 200,198 (37.58%), 15 wards",
+        "Path B — Kitui Central 77,764 + Kitui South 75,372 + Kitui West 59,047 = 212,183 (39.83%), 15 wards",
+        "Path C — top 12 dense wards, Kyuso to Mulango = 201,267 (37.78%), 12 wards",
+        "Path D — Kitui Central 77,764 + Kitui West 59,047 + Kitui Rural 55,000 = 191,811 (36.00%), 13 wards, CANNOT REACH 200K"
+      ],
+      "note": "Every total is computed from the register rather than transcribed, and each path additionally shows the ballots it yields at the 62% turnout baseline — the distinction the ASCII could not draw and on which the whole of §3.4 turns. Path B carries C-4, because its prose margin is measured against 198,004 while naming 200,000.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────┐",
+        "│              FOUR STRUCTURAL PATHS TO THE 200,000 VOTER POOL                │",
+        "└─────────────────────────────────────────────────────────────────────────────┘",
+        " [PATH A: THE MWINGI TRIAD]            [PATH B: THE CENTRAL-SOUTH-WEST AXIS]",
+        " • Mwingi Central:    74,231            • Kitui Central:     77,764",
+        " • Mwingi North:      68,829            • Kitui South:       75,372",
+        " • Mwingi West:       57,138            • Kitui West:        59,047",
+        " ───────────────────────────            ───────────────────────────",
+        " TOTAL (15 Wards):   200,198 (37.58%)   TOTAL (15 Wards):   212,183 (39.83%)",
+        " [PATH C: THE 12 MEGAWARDS]            [PATH D: THE HOME-BELT CEILING (TRAP)]",
+        " • Kyuso to Mulango: 201,267            • Kitui Central:     77,764",
+        "   (Top 12 dense wards across            • Kitui West:        59,047",
+        "    6 constituencies)                   • Kitui Rural:       55,000",
+        " ───────────────────────────            ───────────────────────────",
+        " TOTAL (12 Wards):   201,267 (37.78%)   TOTAL (13 Wards):   191,811 (36.00%)",
+        "                                        [CANNOT REACH 200K REGISTER THRESHOLD]"
+      ]
+    },
+    {
+      "id": "arithmetic-3-4-4-power-ranking",
+      "section": "§3.4.4",
+      "was": "A box-drawing table headed CONSTITUENCY STRUCTURAL POWER RANKING — eight rows of rank, constituency, voters, share, wards and average ward size, with a Big 4 subtotal band.",
+      "replacedBy": [
+        "constituency-power"
+      ],
+      "facts": [
+        "1 Kitui Central 77,764 · 14.60% · 5 wards · 15,553 average",
+        "2 Kitui South 75,372 · 14.15% · 6 wards · 12,562 average",
+        "3 Mwingi Central 74,231 · 13.93% · 6 wards · 12,372 average",
+        "4 Mwingi North 68,829 · 12.92% · 5 wards · 13,766 average",
+        "Big 4 subtotal 296,196 voters, 55.60% of the county, across 22 wards",
+        "5 Kitui East 65,377 · 12.27% · 6 wards · 10,896 average",
+        "6 Kitui West 59,047 · 11.08% · 4 wards · 14,762 average",
+        "7 Mwingi West 57,138 · 10.72% · 4 wards · 14,285 average",
+        "8 Kitui Rural 55,000 · 10.32% · 4 wards · 13,750 average",
+        "County total 532,758 voters, 100.00%, 40 wards, Tier 1"
+      ],
+      "note": "Ranks, shares and averages are all computed from the register. The Big 4 subtotal becomes a bracket annotation over the first four bars, and the cumulative share is shown per row, so the 55.60% claim is legible without adding four numbers.",
+      "lines": [
+        "  ┌───────────────────────────────────────────────────────────────────────────┐",
+        "  │                 CONSTITUENCY STRUCTURAL POWER RANKING                     │",
+        "  ├──────┬─────────────────┬──────────┬──────────┬───────────┬────────────────┤",
+        "  │ Rank │ Constituency    │ Voters   │ % County │ Wards     │ Avg Ward Size  │",
+        "  ├──────┼─────────────────┼──────────┼──────────┼───────────┼────────────────┤",
+        "  │ 1    │ Kitui Central   │ 77,764   │ 14.60%   │ 5 wards   │ 15,553 voters  │",
+        "  │ 2    │ Kitui South     │ 75,372   │ 14.15%   │ 6 wards   │ 12,562 voters  │",
+        "  │ 3    │ Mwingi Central  │ 74,231   │ 13.93%   │ 6 wards   │ 12,372 voters  │",
+        "  │ 4    │ Mwingi North    │ 68,829   │ 12.92%   │ 5 wards   │ 13,766 voters  │",
+        "  ├──────┴─────────────────┴──────────┴──────────┴───────────┴────────────────┤",
+        "  │  THE \"BIG 4\" SUB-TOTAL: 296,196 voters (55.60% of County across 22 Wards) │",
+        "  ├──────┬─────────────────┬──────────┬──────────┬───────────┬────────────────┤",
+        "  │ 5    │ Kitui East      │ 65,377   │ 12.27%   │ 6 wards   │ 10,896 voters  │",
+        "  │ 6    │ Kitui West      │ 59,047   │ 11.08%   │ 4 wards   │ 14,762 voters  │",
+        "  │ 7    │ Mwingi West     │ 57,138   │ 10.72%   │ 4 wards   │ 14,285 voters  │",
+        "  │ 8    │ Kitui Rural     │ 55,000   │ 10.32%   │ 4 wards   │ 13,750 voters  │",
+        "  ├──────┴─────────────────┴──────────┴──────────┴───────────┴────────────────┤",
+        "  │  COUNTY TOTAL:          532,758 voters (100.00% across 40 Wards, Tier 1)  │",
+        "  └───────────────────────────────────────────────────────────────────────────┘"
       ]
     }
   ]

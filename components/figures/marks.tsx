@@ -519,3 +519,72 @@ export function CompareColumns({
     </div>
   );
 }
+
+/* ------------------------------------------------------------------ RegisterGroups */
+
+/**
+ * The whole register, grouped the way the county is actually organised.
+ *
+ * This replaces a box-drawing grid that drew all forty wards in two columns of ASCII panels. It
+ * carries exactly the same numbers — every ward, every constituency total, the county total —
+ * and adds the two things characters could not: each ward drawn to scale against the largest in
+ * the county, so concentration is visible rather than arithmetic, and each constituency's share
+ * stated rather than left to be summed.
+ *
+ * Grouped, not ranked. §3.4.2 ranks the same forty wards and that figure is the right place for
+ * a ranking; this one answers "what is in Mwingi North", which is the question the ASCII grid was
+ * laid out to answer and the one a reader planning a ground operation actually asks.
+ */
+export function RegisterGroups({
+  groups,
+  countyTotal,
+  scaleMax,
+}: {
+  groups: { name: string; voters: number; wards: { name: string; voters: number }[] }[];
+  countyTotal: number;
+  /** Shared across every group, so a ward in Mwingi is comparable to a ward in Kitui South. */
+  scaleMax: number;
+}) {
+  return (
+    <div className="space-y-4">
+      {groups.map((group, gi) => (
+        <div key={group.name}>
+          <div className="flex items-baseline justify-between gap-3 border-b border-line/60 pb-1">
+            <h5 className="t-micro font-bold uppercase tracking-wide text-ink">{group.name}</h5>
+            <span className="t-micro shrink-0 tabular-nums text-muted">
+              <strong className="font-bold text-ink">{group.voters.toLocaleString("en-KE")}</strong>
+              {" · "}
+              {((group.voters / countyTotal) * 100).toFixed(1)}% · {group.wards.length} wards
+            </span>
+          </div>
+
+          <ul className="mt-1.5 space-y-1">
+            {group.wards.map((ward, wi) => (
+              <li key={ward.name} className="grid grid-cols-[1fr_auto] items-baseline gap-x-3">
+                <span className="t-micro truncate text-ink">{ward.name}</span>
+                <span className="t-micro shrink-0 tabular-nums font-semibold text-ink">
+                  {ward.voters.toLocaleString("en-KE")}
+                </span>
+                <span className="col-span-2 mt-0.5 h-1.5 w-full overflow-hidden rounded-sm bg-line/40">
+                  <span
+                    className={`block h-full rounded-sm ${GROW}`}
+                    style={{
+                      width: `${(ward.voters / scaleMax) * 100}%`,
+                      "--fx-i": Math.min(gi * 2 + wi, 12),
+                      background: "var(--color-accent-solid)",
+                    } as React.CSSProperties}
+                  />
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      <p className="t-micro border-t border-line/60 pt-2 font-semibold text-ink">
+        County total: {countyTotal.toLocaleString("en-KE")} registered voters across{" "}
+        {groups.reduce((n, g) => n + g.wards.length, 0)} wards and {groups.length} constituencies.
+      </p>
+    </div>
+  );
+}

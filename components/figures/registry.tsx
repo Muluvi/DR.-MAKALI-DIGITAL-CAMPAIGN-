@@ -1,7 +1,11 @@
 import { FigureFrame } from "./FigureFrame";
-import { BarList, BuildUp, GapBar, ShareBar } from "./marks";
+import { BarList, BuildUp, GapBar, RegisterGroups, ShareBar } from "./marks";
+import { CONSTITUENCIES } from "../../data/ward-register";
 import {
   COALITION_PATHS,
+  CONSTITUENCY_RANKING,
+  BIG_FOUR_TOTAL,
+  BIG_FOUR_WARDS,
   COUNTY_REGISTER,
   DEFICIT_POOL,
   DEFICIT_POOL_SHARE,
@@ -97,11 +101,71 @@ const DEFICIT_SERIES: FigureSeries = {
     `${DEFICIT_POOL_SHARE.toFixed(4)}%, which rounds to ${DEFICIT_POOL_SHARE.toFixed(2)}%; the prose prints 51.72%.`,
 };
 
+/* ------------------------------------------------------------------ §3.4 the register itself */
+
+const REGISTER_SERIES: FigureSeries = {
+  id: "register-map",
+  headline: `${COUNTY_REGISTER.toLocaleString("en-KE")} registered voters across 40 wards, and they are not evenly spread`,
+  measure: "Registered voters per ward, grouped by constituency — 2022 IEBC register",
+  points: WARD_RANKING.map<FigurePoint>((w) => ({
+    label: `${w.name} (${w.constituency})`,
+    value: w.voters,
+    ...officialRegister,
+  })),
+  note: "A flat distribution would put 13,319 voters in every ward. The largest holds 19,921 and the smallest 7,429.",
+};
+
+/* ------------------------------------------------------------------ §3.4.4 constituency power */
+
+const CONSTITUENCY_SERIES: FigureSeries = {
+  id: "constituency-power",
+  headline: `Four of the eight constituencies hold ${BIG_FOUR_TOTAL.toLocaleString("en-KE")} voters — ${((BIG_FOUR_TOTAL / COUNTY_REGISTER) * 100).toFixed(2)}% of the county across ${BIG_FOUR_WARDS} wards`,
+  measure: "Registered voters per constituency, largest first, with ward count and average ward size",
+  points: CONSTITUENCY_RANKING.map<FigurePoint>((c) => ({
+    label: c.name,
+    value: c.voters,
+    ...officialRegister,
+    granularity: "constituency",
+    note: `${c.share.toFixed(2)}% of the county · ${c.wards} wards · ${c.averageWard.toLocaleString("en-KE")} voters per ward on average`,
+  })),
+};
+
 /* ------------------------------------------------------------------ the registry */
 
 type FigureEntry = { render: () => React.ReactNode; note: string };
 
 export const FIGURES: Record<string, FigureEntry> = {
+  "register-map": {
+    note: "§3.4 — the whole register, grouped by constituency.",
+    render: () => (
+      <FigureFrame series={REGISTER_SERIES}>
+        <RegisterGroups
+          groups={CONSTITUENCIES.map((c) => ({ name: c.name, voters: c.voters, wards: c.wards }))}
+          countyTotal={COUNTY_REGISTER}
+          scaleMax={Math.max(...WARD_RANKING.map((w) => w.voters))}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "constituency-power": {
+    note: "§3.4.4 — the eight constituencies, ranked, with the Big 4 bracket.",
+    render: () => (
+      <FigureFrame series={CONSTITUENCY_SERIES}>
+        <BarList
+          series={CONSTITUENCY_SERIES}
+          cumulative
+          brackets={[
+            {
+              through: 4,
+              label: `The "Big 4" — Kitui Central, Kitui South, Mwingi Central and Mwingi North — hold ${BIG_FOUR_TOTAL.toLocaleString("en-KE")} voters (${((BIG_FOUR_TOTAL / COUNTY_REGISTER) * 100).toFixed(2)}%) across ${BIG_FOUR_WARDS} wards`,
+            },
+          ]}
+        />
+      </FigureFrame>
+    ),
+  },
+
   "threshold-build-up": {
     note: "§3.4.1 — register → ballots → the votes that win.",
     render: () => (

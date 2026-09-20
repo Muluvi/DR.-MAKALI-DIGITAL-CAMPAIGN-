@@ -172,6 +172,48 @@ test('the "Big 4" hold 296,196 voters — 55.60% across 22 wards', () => {
   assert.equal(wards, 22);
 });
 
+test("every constituency's share and average ward size are what §3.4.4 printed", () => {
+  /**
+   * The rows of the CONSTITUENCY STRUCTURAL POWER RANKING table, as that table printed them.
+   *
+   * Written in the document's own notation — thousands separated, shares to two places — rather
+   * than as numeric literals, for two reasons. It is the form a reader sees, so the assertion is
+   * about the rendered figure and not about an intermediate. And the figure that replaced the
+   * table COMPUTES all of this from the register instead of reprinting it, which is the right way
+   * round but leaves no literal in the repository: the figure-retention guard correctly reported
+   * fourteen figures as vanished. Pinning the printed form here restores them and proves the
+   * arithmetic at the same time, which a declaration alone could not do.
+   */
+  const ROWS = [
+    "1 | Kitui Central  | 77,764 | 14.60% | 5 wards | 15,553 voters",
+    "2 | Kitui South    | 75,372 | 14.15% | 6 wards | 12,562 voters",
+    "3 | Mwingi Central | 74,231 | 13.93% | 6 wards | 12,372 voters",
+    "4 | Mwingi North   | 68,829 | 12.92% | 5 wards | 13,766 voters",
+    "5 | Kitui East     | 65,377 | 12.27% | 6 wards | 10,896 voters",
+    "6 | Kitui West     | 59,047 | 11.08% | 4 wards | 14,762 voters",
+    "7 | Mwingi West    | 57,138 | 10.72% | 4 wards | 14,285 voters",
+    "8 | Kitui Rural    | 55,000 | 10.32% | 4 wards | 13,750 voters",
+  ];
+
+  const num = (cell: string) => Number(cell.replace(/[^0-9.]/g, ""));
+  const total = countyTotal(CONS);
+  const ranked = [...CONS].sort(
+    (a: { voters: number; name: string }, b: { voters: number; name: string }) =>
+      b.voters - a.voters || a.name.localeCompare(b.name),
+  );
+
+  ROWS.forEach((row, i) => {
+    const [rank, name, voters, share, wards, averageWard] = row.split("|").map((c) => c.trim());
+    const c = ranked[i];
+    assert.equal(Number(rank), i + 1);
+    assert.equal(c.name, name);
+    assert.equal(c.voters, num(voters));
+    assert.equal(c.wards.length, num(wards));
+    assert.equal(Number(((c.voters / total) * 100).toFixed(2)), num(share));
+    assert.equal(Math.round(c.voters / c.wards.length), num(averageWard));
+  });
+});
+
 /* ------------------------------------------------------------------ turnout and threshold (§3.4.1) */
 
 test("the county casts about 330,310 ballots at the 62% baseline", () => {

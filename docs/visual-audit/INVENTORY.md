@@ -15,19 +15,19 @@ FIX — a defect, not a conversion.
 
 ## Totals
 
-- Blocks: **865**, carrying **60,659** words.
-- Words retired outright, under rule 1a: **11,883** (19.6% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
+- Blocks: **865**, carrying **60,057** words.
+- Words retired outright, under rule 1a: **11,275** (18.8% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
 - Words collapsed to a `CrossRef` under rule 1b, still on the page, pending Firefly's answer to D-1: **718**.
 
 | Action | Blocks | | Type | Blocks |
 |---|---|---|---|---|
-| KEEP-PROSE | 680 | | prose | 514 |
+| KEEP-PROSE | 683 | | prose | 514 |
 | COLLAPSE | 94 | | list | 171 |
-| CONVERT | 80 | | table | 74 |
-| DEDUPE | 11 | | ascii | 66 |
+| CONVERT | 77 | | table | 74 |
+| DEDUPE | 11 | | ascii | 63 |
 |  |  | | callout | 35 |
+|  |  | | figure | 5 |
 |  |  | | code | 3 |
-|  |  | | figure | 2 |
 
 
 ## decision — 21 blocks, 1,032 words, 0 retired
@@ -177,14 +177,14 @@ FIX — a defect, not a conversion.
 | `situation:3.3.5:06` | prose | 36 | argument | KEEP-PROSE | — |  |  |
 | `situation:3.3.6:00` | list | 180 | change over time | COLLAPSE | Small multiples of results bars per race, 'Disputed' marker on Musila 2022, explicit empty 2013 panel |  |  |
 
-## arithmetic — 51 blocks, 4,392 words, 1,203 retired
+## arithmetic — 51 blocks, 3,790 words, 595 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
 | `arithmetic:—:00` | prose | 29 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4:00` | prose | 51 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4:01` | prose | 46 | argument | KEEP-PROSE | — |  |  |
-| `arithmetic:3.4:02` | ascii | 315 | spatial | CONVERT | Treemap (canonical, §3.3.3) | 315 | Rule 1a: the intro ASCII register grid is the treemap drawn in characters. |
+| `arithmetic:3.4:02` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4.1:00` | prose | 18 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4.1:01` | list | 45 | arithmetic | CONVERT | BuildUp — 532,758 + 61,839 + 11,106 = 605,703, with the ≈225,000 like-for-like bar | 45 | Rule 1a: the five register cards are the build-up. 'Read the rest' prose stays. |
 | `arithmetic:3.4.1:02` | callout | 228 | argument | KEEP-PROSE | — |  |  |
@@ -195,13 +195,13 @@ FIX — a defect, not a conversion.
 | `arithmetic:3.4.2:01` | table | 666 | ranking | COLLAPSE | BarList with cumulative line — top 12 = 37.78%, top 20 = 59.13%, bottom 10 = 18.10%; table in 'View the data' |  |  |
 | `arithmetic:3.4.2:02` | list | 108 | ranking | COLLAPSE | BarList bracket annotations — top 12, top 20, bottom 10 |  | DEVIATION from the conversion map, which asked to retire 'the concentration bullets' restated numbers only'. Retiring only part of a block means rewriting the block, and the negative constraints forbid rewriting prose. The third bullet ends on an argument the bars cannot draw — the bottom ten wards 'cover vast geographic areas with severe logistical transit costs' — so the whole block is collapsed rather than half-deleted. |
 | `arithmetic:3.4.3:00` | prose | 20 | argument | KEEP-PROSE | — |  |  |
-| `arithmetic:3.4.3:01` | ascii | 110 | arithmetic | CONVERT | Coalition engine (existing PathTo200kCalculator, canonical) — a registered bar and a ballots-at-62% bar per path against the threshold | 110 | Rule 1a: the ASCII four-paths block and the 'Mathematical proof' sums are what the engine computes. Strategic-implication sentences stay. |
+| `arithmetic:3.4.3:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4.3:02` | list | 145 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4.3:03` | list | 81 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4.3:04` | list | 111 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4.3:05` | list | 146 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4.4:00` | prose | 24 | argument | KEEP-PROSE | — |  |  |
-| `arithmetic:3.4.4:01` | ascii | 183 | ranking | CONVERT | BarList with ward count and average ward size; 'Big 4 = 296,196 (55.60%)' bracket | 183 | Rule 1a: the power-ranking pseudo-table. |
+| `arithmetic:3.4.4:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4.4:02` | list | 125 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4.5:00` | prose | 17 | argument | KEEP-PROSE | — |  |  |
 | `arithmetic:3.4.5:01` | list | 137 | spatial | COLLAPSE | Deficit panel — anchor zone and the three deficit zones |  | Not a restatement: the zone entries carry the reason each zone is a deficit zone ('his identity as a Kitui Central MP limits spontaneous recall compared to countywide office holders'; 'separated by long transit corridors, and traditionally influenced by local southern leadership dynamics'). The panel draws the wards and the numbers, not the explanation. |
