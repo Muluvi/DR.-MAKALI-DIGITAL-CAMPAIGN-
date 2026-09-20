@@ -15,18 +15,18 @@ FIX — a defect, not a conversion.
 
 ## Totals
 
-- Blocks: **856**, carrying **55,719** words.
-- Words retired outright, under rule 1a: **6,778** (12.2% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
+- Blocks: **856**, carrying **54,788** words.
+- Words retired outright, under rule 1a: **5,835** (10.7% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
 - Words collapsed to a `CrossRef` under rule 1b, still on the page, pending Firefly's answer to D-1: **718**.
 
 | Action | Blocks | | Type | Blocks |
 |---|---|---|---|---|
-| KEEP-PROSE | 704 | | prose | 514 |
+| KEEP-PROSE | 710 | | prose | 514 |
 | COLLAPSE | 95 | | list | 171 |
-| CONVERT | 46 | | table | 74 |
+| CONVERT | 40 | | table | 74 |
 | DEDUPE | 11 | | callout | 35 |
-|  |  | | ascii | 32 |
-|  |  | | figure | 27 |
+|  |  | | figure | 33 |
+|  |  | | ascii | 26 |
 |  |  | | code | 3 |
 
 
@@ -424,7 +424,7 @@ FIX — a defect, not a conversion.
 | `scope:8.0.3:00` | prose | 89 | argument | DEDUPE | CrossRef → §10.1.2 |  | D-3: the Level 2 paragraph duplicates §0.3. |
 | `scope:8.0.3:01` | prose | 78 | argument | DEDUPE | CrossRef → §10.1.2 |  | D-3: the Level 2 paragraph duplicates §0.3. |
 
-## scope-platforms — 55 blocks, 3,841 words, 943 retired
+## scope-platforms — 55 blocks, 2,910 words, 0 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
@@ -447,21 +447,21 @@ FIX — a defect, not a conversion.
 | `scope-platforms:8.2.7:01` | prose | 1 | argument | KEEP-PROSE | — |  |  |
 | `scope-platforms:8.3:00` | callout | 61 | argument | KEEP-PROSE | — |  |  |
 | `scope-platforms:8.3:01` | prose | 74 | argument | KEEP-PROSE | — |  |  |
-| `scope-platforms:8.3:02` | ascii | 110 | hierarchy | CONVERT | Content-pillar cards | 110 | Rule 1a. |
+| `scope-platforms:8.3:02` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `scope-platforms:8.3.1:00` | callout | 53 | argument | KEEP-PROSE | — |  |  |
 | `scope-platforms:8.3.1:01` | prose | 41 | argument | KEEP-PROSE | — |  |  |
 | `scope-platforms:8.3.1:02` | list | 227 | argument | KEEP-PROSE | — |  |  |
-| `scope-platforms:8.3.2:00` | ascii | 280 | comparison | CONVERT | Formats-by-channel Matrix | 280 | Rule 1a. |
+| `scope-platforms:8.3.2:00` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `scope-platforms:8.3.3:00` | callout | 153 | argument | KEEP-PROSE | — |  |  |
 | `scope-platforms:8.3.3:01` | callout | 32 | argument | KEEP-PROSE | — |  |  |
 | `scope-platforms:8.3.3:02` | callout | 44 | argument | KEEP-PROSE | — |  |  |
-| `scope-platforms:8.3.3:03` | ascii | 62 | comparison | CONVERT | DeviceMock — SMS with a 160-character counter, USSD menu, radio script with a timing bar | 62 | Rule 1a. |
+| `scope-platforms:8.3.3:03` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `scope-platforms:8.3.4:00` | prose | 10 | argument | KEEP-PROSE | — |  |  |
-| `scope-platforms:8.3.4:01` | ascii | 291 | time/plan | CONVERT | ScheduleGrid — the weekly production schedule | 291 | Rule 1a. |
+| `scope-platforms:8.3.4:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `scope-platforms:8.3.5:00` | prose | 29 | argument | KEEP-PROSE | — |  |  |
-| `scope-platforms:8.3.5:01` | ascii | 117 | flow | CONVERT | Swimlane — team drafts → Firefly reviews → counterpart approves → team publishes | 117 | Rule 1a. |
+| `scope-platforms:8.3.5:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `scope-platforms:8.3.6:00` | prose | 16 | argument | KEEP-PROSE | — |  |  |
-| `scope-platforms:8.3.6:01` | ascii | 83 | hierarchy | CONVERT | Folder tree — the asset library | 83 | Rule 1a. |
+| `scope-platforms:8.3.6:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `scope-platforms:8.3.6:02` | prose | 1 | argument | KEEP-PROSE | — |  |  |
 | `scope-platforms:8.4:00` | callout | 21 | argument | KEEP-PROSE | — |  |  |
 | `scope-platforms:8.4.1:00` | prose | 20 | argument | KEEP-PROSE | — |  |  |

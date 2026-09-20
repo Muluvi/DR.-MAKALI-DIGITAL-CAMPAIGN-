@@ -1478,38 +1478,6 @@
    ]
   }
  },
- "scope-platforms-sec-8-3-5": {
-  "id": "scope-platforms-sec-8-3-5",
-  "tab": "scope-platforms",
-  "level": 3,
-  "number": "8.3.5",
-  "title": "Who approves what, and when",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "CREATIVE DRAFTING & SOURCING",
-     "body": ""
-    },
-    {
-     "n": 2,
-     "label": "COMMUNICATIONS & MESSAGE INTEGRITY REVIEW",
-     "body": ""
-    },
-    {
-     "n": 3,
-     "label": "LEGAL, ELECTORAL & DPA COMPLIANCE CHECK",
-     "body": ""
-    },
-    {
-     "n": 4,
-     "label": "EXECUTIVE AUTHORIZATION & DISPATCH SIGN-OFF",
-     "body": ""
-    }
-   ]
-  }
- },
  "scope-platforms-sec-8-4-3": {
   "id": "scope-platforms-sec-8-4-3",
   "tab": "scope-platforms",

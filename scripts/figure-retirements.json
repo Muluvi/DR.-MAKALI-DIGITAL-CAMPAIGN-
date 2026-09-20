@@ -1258,6 +1258,243 @@
         "│           │              │ acquisition cost; DPA compliance audit   │                      │                │",
         "└───────────┴──────────────┴──────────────────────────────────────────┴──────────────────────┴────────────────┘"
       ]
+    },
+    {
+      "id": "scope-platforms-8-3-pipeline",
+      "section": "§8.3",
+      "was": "A box-drawing diagram headed CAMPAIGN 360° CONTENT PRODUCTION PIPELINE — a strategic core feeding an offline broadcast engine and a digital engine, both converging on an approval gateway.",
+      "replacedBy": [
+        "production-pipeline"
+      ],
+      "facts": [
+        "Strategic core: 4 core content pillars, evidence-led",
+        "Offline broadcast engine: Kikamba radio audio, 160-character 2G bulk SMS, USSD interactive menus, baraza leaflets and books, boda and market PA jingles",
+        "Digital engine: TikTok clips, WhatsApp infographics, Meta video, web tracker",
+        "Rigid 4-step approval & DPA gateway: drafter → Comms Lead → DPO → Campaign Manager sign-off"
+      ],
+      "note": "The convergence is the diagram's one argument and the figure states it in words above the tiers: both engines leave through the gateway, so no asset reaches a voter without the four-step sign-off §8.3.5 specifies. Same TierGrid as §8.8, §8.12 and §8.14.",
+      "lines": [
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "                  CAMPAIGN 360° CONTENT PRODUCTION PIPELINE",
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "",
+        "   STRATEGIC CORE                 OFFLINE BROADCAST ENGINE           DIGITAL ENGINE",
+        " ┌────────────────┐              ┌──────────────────────────┐      ┌───────────────┐",
+        " │ 4 Core Content │ ───────────► │ • Kikamba Radio Audio    │      │ • TikTok Clips│",
+        " │ Pillars        │              │ • 160-char 2G Bulk SMS   │      │ • WhatsApp    │",
+        " │ (Evidence-Led) │              │ • USSD Interactive Menus │      │   Infographics│",
+        " └────────────────┘              │ • Baraza Leaflets & Books│      │ • Meta Video  │",
+        "                                 │ • Boda & Market PA Jingles│     │ • Web Tracker │",
+        "                                 └──────────────────────────┘      └───────────────┘",
+        "                                               │                           │",
+        "                                               ▼                           ▼",
+        "                                 ┌─────────────────────────────────────────────────┐",
+        "                                 │       RIGID 4-STEP APPROVAL & DPA GATEWAY       │",
+        "                                 │   (Drafter ──► Comms Lead ──► DPO ──► CM Sign)  │",
+        "                                 └─────────────────────────────────────────────────┘",
+        "════════════════════════════════════════════════════════════════════════════════════"
+      ]
+    },
+    {
+      "id": "scope-platforms-8-3-2-formats",
+      "section": "§8.3.2",
+      "was": "A pseudo-table headed PRODUCTION FORMAT SPECIFICATIONS BY CHANNEL — five channels with their technical specification and their language and creative treatment.",
+      "replacedBy": [
+        "format-specs"
+      ],
+      "facts": [
+        "Kikamba vernacular radio (Musyi/Mbaitu): 45-second spots, 15-second bumpers, 60-second live-read endorsements; pure Kikamba in Kitui and Mwingi dialects, real farmer and elder testimonials, zero abrasive partisan attacks",
+        "Direct 2G bulk SMS & USSD portal: single-part 160-character plain text, GSM-7 encoding with no accented unicode, a 4-option USSD menu tree; Kiswahili or English only (CA rule), ward name, policy pledge and a free opt-out footer",
+        "Open-air baraza & market print: A5 4-page glossy fold-outs, A1 weatherproof PVC caravan banners, a 12-page pocket manifesto summary; bilingual Kikamba/Swahili with GPS project photos, auditor stamps and ward maps",
+        "Market caravans & PA sound rigs: 90-second studio jingles, a 3-minute pre-recorded candidate address, megaphone clips for boda marshals; traditional Kamba rhythm and benga beat",
+        "Digital & social: 1080×1920 vertical video, 1080×1080 carousel cards, 1920×1080 YouTube features; first-three-seconds hook, hard-coded captions, English/Sheng with Kikamba hooks"
+      ],
+      "note": "C-21 AGAIN, AND HERE THE DOCUMENT GETS IT RIGHT. The SMS row states the constraint twice over: 'Kiswahili or English only (CA rule)', and GSM-7 encoding with no accented unicode — which independently rules out the ĩ and ũ Kikamba orthography needs. §7.3.1 nonetheless lists 2G bulk SMS among Kikamba's dominant channels. The figure carries the flag; neither line has been changed.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                                PRODUCTION FORMAT SPECIFICATIONS BY CHANNEL                                  │",
+        "├───────────────────────┬───────────────────────────────────────────┬─────────────────────────────────────────┤",
+        "│ Channel & Medium      │ Technical Specification & Format          │ Language & Creative Treatment           │",
+        "├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤",
+        "│ 1. Kikamba Vernacular │ • 45-second pre-recorded audio spots      │ • Pure Kikamba (Kitui/Mwingi dialects)  │",
+        "│    Radio Spots        │ • 15-second sponsor time-check bumpers    │ • Real farmer/elder voice testimonials; │",
+        "│    (Musyi/Mbaitu)     │ • 60-second studio live-read endorsements │   zero abrasive partisan attacks.       │",
+        "├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤",
+        "│ 2. Direct 2G Bulk SMS │ • Single-part 160-character plain text    │ • Kiswahili or English only (CA rule);  │",
+        "│    & USSD Portal      │ • GSM-7 encoding (no accented unicode)    │   ward name, policy pledge, and free    │",
+        "│                       │ • USSD: 4-option menu tree (see 8.3.3C)   │   opt-out footer (*\"STOP to [sender ID]\"*).│",
+        "├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤",
+        "│ 3. Open-Air Baraza &  │ • A5 full-color 4-page glossy fold-outs   │ • Bilingual Kikamba/Swahili; high visual│",
+        "│    Market Print       │ • A1 weatherproof PVC caravan banners     │   density with real GPS project photos, │",
+        "│                       │ • Pocket-sized 12-page Manifesto Summary  │   auditor stamps, and ward maps.        │",
+        "├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤",
+        "│ 4. Market Caravans &  │ • High-energy 90-second studio jingles    │ • Catchy traditional Kamba rhythm &     │",
+        "│    PA Sound Rigs      │ • Pre-recorded 3-minute candidate address │   benga beat; easily memorized chorus   │",
+        "│                       │ • Megaphone audio clips for Boda marshals │   reinforcing \"Dr. Makali Mulu 2027\".   │",
+        "├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤",
+        "│ 5. Digital & Social   │ • 1080x1920 vertical video (Reels/TikTok) │ • Fast-paced (first 3s hook); hard-coded│",
+        "│    Media (Youth/Diasp)│ • 1080x1080 square carousel cards         │   captions; dynamic motion graphics;    │",
+        "│                       │ • 1920x1080 horizontal YouTube features   │   English/Sheng with Kikamba hooks.     │",
+        "└───────────────────────┴───────────────────────────────────────────┴─────────────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "scope-platforms-8-3-3-ussd",
+      "section": "§8.3.3",
+      "was": "A tree drawn with ├── and └── showing the USSD interactive menu — four top-level options, three sub-options under the manifesto summary.",
+      "replacedBy": [
+        "ussd-menu"
+      ],
+      "facts": [
+        "Root: *[Insert shortcode]# (zero-rated gateway)",
+        "1. Dr. Makali Mulu manifesto summary — 1. Ksh 100M ward equalization fund, 2. Ksh 85/kg ndengu floor price & cold hubs, 3. free boda boda licenses & TVET bursaries",
+        "2. Ward development tracker (enter ward name)",
+        "3. Volunteer as a ward captain",
+        "4. Privacy policy & data opt-out"
+      ],
+      "note": "THE WARNING TRAVELS WITH IT. The block sits directly beneath an untouched blockquote saying the shortcode is not provisioned (§15.1) and that nothing here should be printed, dialled or published as a working number; the figure's note repeats it, because a menu tree lifted into a slide or a screenshot is exactly how an unprovisioned shortcode ends up on a flyer. The root reads *[Insert shortcode]# with no digits, as the source does. Drawn as a nested list rather than box-drawing elbows: a screen reader announces ├── as punctuation, and a long line wraps into the next branch's indent and stops being readable at all.",
+      "lines": [
+        "*[Insert shortcode]# (Zero-Rated Gateway)",
+        "├── 1. Dr. Makali Mulu Manifesto Summary",
+        "│   ├── 1. Ksh 100M Ward Equalization Fund",
+        "│   ├── 2. Ksh 85/kg Ndengu Floor Price & Cold Hubs",
+        "│   └── 3. Free Boda Boda Licenses & TVET Bursaries",
+        "├── 2. Ward Development Tracker (Enter Ward Name)",
+        "├── 3. Volunteer as a Ward Captain",
+        "└── 4. Privacy Policy & Data Opt-Out"
+      ]
+    },
+    {
+      "id": "scope-platforms-8-3-4-cycle",
+      "section": "§8.3.4",
+      "was": "A pseudo-table headed WEEKLY 7-DAY CONTENT PRODUCTION CYCLE — each day's production focus and its output deliverables.",
+      "replacedBy": [
+        "weekly-cycle"
+      ],
+      "facts": [
+        "Monday: war room briefing and theme setting, scriptwriting — weekly creative master brief, draft radio and video scripts",
+        "Tuesday: studio recording and graphics design — master audio WAVs and 2G voice clips, social static cards and baraza sheets",
+        "Wednesday: multi-tier approval gateway review, SMS scheduling and USSD updates — signed-off creative package, Africa's Talking staging upload",
+        "Thursday: print dispatch to 8 sub-counties, early flighting of market-day radio — printed packages on the morning courier, radio ads live for Friday markets",
+        "Friday: market day caravan deployment, real-time SMS broadcast — live field photos and raw 4K video, 100,000 ward SMS delivered",
+        "Saturday: rally and baraza coverage, audio snippet extraction — 60-second summary reel within 3 hours, radio soundbites sent to stations",
+        "Sunday: church fellowship photos, weekly analytics audit — recap carousel and podcast clip, BI dashboard weekly content report"
+      ],
+      "note": "The week is built backwards from Friday's markets, which is what the day column makes visible once it is a real table: scripts Monday, studio Tuesday, the approval gateway Wednesday, dispatch Thursday. Friday's row states 100,000 ward SMS delivered.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                                   WEEKLY 7-DAY CONTENT PRODUCTION CYCLE                                     │",
+        "├───────────┬─────────────────────────────────────────────────────────┬───────────────────────────────────────┤",
+        "│ Day       │ Production Focus & Milestones                           │ Output Deliverables                   │",
+        "├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤",
+        "│ Monday    │ • Strategic War Room briefing & narrative theme setting │ • Weekly Creative Master Brief        │",
+        "│           │ • Scriptwriting for radio, SMS copy & WhatsApp cards    │ • Draft radio & video scripts         │",
+        "├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤",
+        "│ Tuesday   │ • Studio recording for Kikamba audio spots & jingles    │ • Master audio WAVs & 2G voice clips  │",
+        "│           │ • Graphics design for social carousels & print flyers   │ • Social static cards & baraza sheets │",
+        "├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤",
+        "│ Wednesday │ • Multi-tier approval gateway review (Comms, DPO, CM)   │ • Fully signed-off creative package   │",
+        "│           │ • SMS gateway scheduling & USSD menu updates            │ • Africa's Talking staging upload     │",
+        "├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤",
+        "│ Thursday  │ • Dispatch of physical print collateral to 8 sub-counties│ • Printed packages on morning courier │",
+        "│           │ • Early flighting of market-day radio spots (Musyi/Mbaitu│ • Radio ads live for Friday markets   │",
+        "├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤",
+        "│ Friday    │ • Market day caravan deployment & live content capture  │ • Live field photos & raw 4K video    │",
+        "│           │ • Real-time SMS broadcast to Friday market wards        │ • 100,000 ward SMS delivered          │",
+        "├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤",
+        "│ Saturday  │ • Major rally/baraza coverage & rapid-turnaround video  │ • 60s summary reel within 3 hours     │",
+        "│           │ • Audio snippet extraction for Sunday radio morning news│ • Radio soundbites sent to stations   │",
+        "├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤",
+        "│ Sunday    │ • Church fellowship photos & message distribution       │ • Weekly recap carousel & podcast clip│",
+        "│           │ • Weekly analytics & reach performance audit            │ • BI dashboard weekly content report  │",
+        "└───────────┴─────────────────────────────────────────────────────────┴───────────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "scope-platforms-8-3-5-gateway",
+      "section": "§8.3.5",
+      "was": "A box-drawing chain headed 4-STEP CONTENT APPROVAL GATEWAY — drafting, communications review, legal and DPA check, executive authorisation.",
+      "replacedBy": [
+        "approval-gateway"
+      ],
+      "facts": [
+        "Step 1: a specialist vendor or in-house creator drafts; mandatory primary citation attached — Hansard, OAG report, KNBS",
+        "Step 2: the Communications Lead verifies narrative alignment, Kikamba dialect accuracy and visual brand guidelines",
+        "Step 3: the Data Protection Officer audits the audience list, verifies explicit consent tags, ensures mandatory opt-out footers and checks electoral libel laws",
+        "Step 4: the Campaign Manager or Chief of Operations signs electronically; the release authorisation code is logged in the campaign audit register"
+      ],
+      "note": "Numbered because the order is the control: the citation attached at step 1 is what steps 2 and 3 have to check, and the audit register entry at step 4 is what makes the chain reviewable afterwards. Same Stepper as §7.3.3 and §8.8.2.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────┐",
+        "│                       4-STEP CONTENT APPROVAL GATEWAY                       │",
+        "└─────────────────────────────────────────────────────────────────────────────┘",
+        "",
+        "  STEP 1: CREATIVE DRAFTING & SOURCING",
+        "  ────────────────────────────────────",
+        "  • Specialist vendor or in-house creator drafts script, video, or SMS copy.",
+        "  • Mandatory: Creator must attach primary citation (Hansard, OAG report, KNBS).",
+        "",
+        "  STEP 2: COMMUNICATIONS & MESSAGE INTEGRITY REVIEW",
+        "  ─────────────────────────────────────────────────",
+        "  • Communications Lead verifies narrative alignment, Kikamba dialect accuracy,",
+        "    and visual brand guidelines.",
+        "",
+        "  STEP 3: LEGAL, ELECTORAL & DPA COMPLIANCE CHECK",
+        "  ───────────────────────────────────────────────",
+        "  • Data Protection Officer (DPO) audits audience list, verifies explicit consent",
+        "    tags, ensures mandatory opt-out footers, and checks electoral libel laws.",
+        "",
+        "  STEP 4: EXECUTIVE AUTHORIZATION & DISPATCH SIGN-OFF",
+        "  ───────────────────────────────────────────────────",
+        "  • Campaign Manager / Chief of Operations gives final electronic signature.",
+        "  • Release authorization code logged in campaign audit register."
+      ]
+    },
+    {
+      "id": "scope-platforms-8-3-6-library",
+      "section": "§8.3.6",
+      "was": "A folder tree drawn with ├── and └── showing /CAMPAIGN_ASSET_REPOSITORY_2027/ — seven vaults and their contents.",
+      "replacedBy": [
+        "asset-library"
+      ],
+      "facts": [
+        "01_BRAND_GUIDELINES_&_FONTS: typography (Plus_Jakarta_Sans, Playfair_Display, Inter), colour palettes (Kitui_Blue, Earth_Gold, Clean_White), official candidate logos and emblems",
+        "02_PRIMARY_EVIDENCE_VAULT: OAG clean audit certificates 2013–2025, parliamentary Hansard records from the Finance Committee, KNBS census and agricultural baseline reports",
+        "03_AUDIO_BROADCAST_VAULT: 45-second radio spot master WAVs (Musyi, Mbaitu, Sang'u), sound truck jingles and benga anthems, megaphone clips for boda marshals",
+        "04_SMS_USSD_COPY_VAULT: 40 ward-localised SMS pledges, crisis rapid-response SMS templates, USSD interactive menu scripts",
+        "05_PRINT_COLLATERAL_VAULT: A5 baraza 4-page fold-outs print-ready PDF, the 12-page manifesto executive summary in Kikamba and Swahili, PVC caravan banners and boda shed signage",
+        "06_DIGITAL_VIDEO_VAULT: TikTok/Reels vertical 1080x1920, longform YouTube documentaries, WhatsApp status infographic cards",
+        "07_RAW_FIELD_FOOTAGE_ARCHIVE, organised by date and sub-county"
+      ],
+      "note": "A nested list rather than box-drawing elbows, same reason as §8.3.3: the nesting IS the structure and is announced as such, each path wraps inside its own indent, and the guides are borders rather than characters so they never end up in a copy-paste. The figure names what 02_PRIMARY_EVIDENCE_VAULT is for — it is what makes §8.3.5 step 1's mandatory citation workable.",
+      "lines": [
+        "/CAMPAIGN_ASSET_REPOSITORY_2027/",
+        "├── 01_BRAND_GUIDELINES_&_FONTS/",
+        "│   ├── Typography/ (Plus_Jakarta_Sans, Playfair_Display, Inter)",
+        "│   ├── Color_Palettes/ (Kitui_Blue, Earth_Gold, Clean_White)",
+        "│   └── Official_Candidate_Logos_&_Emblems/",
+        "├── 02_PRIMARY_EVIDENCE_VAULT/",
+        "│   ├── OAG_Clean_Audit_Certificates_2013_2025/",
+        "│   ├── Parliamentary_Hansard_Records_Finance_Committee/",
+        "│   └── KNBS_Census_&_Agricultural_Baseline_Reports/",
+        "├── 03_AUDIO_BROADCAST_VAULT/",
+        "│   ├── Radio_45s_Spots_Master_WAV/ (Musyi, Mbaitu, Sang'u)",
+        "│   ├── Sound_Truck_Jingles_&_Benga_Anthems/",
+        "│   └── Megaphone_Audio_Clips_for_Boda_Marshals/",
+        "├── 04_SMS_USSD_COPY_VAULT/",
+        "│   ├── 40_Ward_Localized_SMS_Pledges/",
+        "│   ├── Crisis_Rapid_Response_SMS_Templates/",
+        "│   └── USSD_Interactive_Menu_Scripts/",
+        "├── 05_PRINT_COLLATERAL_VAULT/",
+        "│   ├── A5_Baraza_4Page_Foldouts_PrintReady_PDF/",
+        "│   ├── 12Page_Manifesto_Executive_Summary_Kikamba_Swahili/",
+        "│   └── PVC_Caravan_Banners_&_Boda_Shed_Signage/",
+        "├── 06_DIGITAL_VIDEO_VAULT/",
+        "│   ├── TikTok_Reels_Vertical_1080x1920/",
+        "│   ├── Longform_YouTube_Documentaries/",
+        "│   └── WhatsApp_Status_Infographic_Cards/",
+        "└── 07_RAW_FIELD_FOOTAGE_ARCHIVE/ (Organized by Date & Sub-County)"
+      ]
     }
   ]
 }

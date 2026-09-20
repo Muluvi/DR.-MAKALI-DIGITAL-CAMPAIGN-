@@ -173,5 +173,21 @@
   {
     "figure": "14000|",
     "movedTo": "Moved from the §8.8.2 4-HOUR GROUND-TO-DIGITAL CYCLE into the `four-hour-cycle` figure (scripts/figure-retirements.json, scope-ground-8-8-2-cycle). It is the T+04:00 step's “bulk SMS pushed to 14,000 consented voters in Tseikuru/Kyuso”, transcribed as stated — consented, at a moment when §9's KPI ladder is still building towards 120,000 by Phase 3. Whether that list exists yet is §9's question and not this figure's, so the number is neither qualified nor changed. PRINT REACH VERIFIED, not assumed: emulating print on /scope-ground finds it in the rendered text with the rest of the T+04:00 step."
+  },
+  {
+    "figure": "360|",
+    "movedTo": "Moved from the §8.3 block's own title, “CAMPAIGN 360° CONTENT PRODUCTION PIPELINE”, into the `production-pipeline` figure's measure line, which reads “§8.3's 360° content production pipeline” (scripts/figure-retirements.json, scope-platforms-8-3-pipeline). It is a rhetorical 360°, not a quantity. PRINT REACH VERIFIED, not assumed: emulating print on /scope-platforms finds it in the rendered text."
+  },
+  {
+    "figure": "1080|",
+    "movedTo": "Moved from the §8.3.2 PRODUCTION FORMAT SPECIFICATIONS table into the `format-specs` figure (scripts/figure-retirements.json, scope-platforms-8-3-2-formats). It is a video dimension, appearing twice — 1080x1920 vertical and 1080x1080 square — transcribed with the source's lowercase x rather than a multiplication sign, so the spec a producer reads is character for character what the document gave. 1080x1920 also appears in the §8.3.6 asset library path TikTok_Reels_Vertical_1080x1920/. PRINT REACH VERIFIED, not assumed: emulating print on /scope-platforms finds it in the rendered text."
+  },
+  {
+    "figure": "1920|",
+    "movedTo": "The other half of the same §8.3.2 dimensions — 1080x1920 vertical and 1920x1080 horizontal YouTube features — moved into `format-specs` with them. PRINT REACH VERIFIED, not assumed: emulating print on /scope-platforms finds it in the rendered text."
+  },
+  {
+    "figure": "4000|",
+    "movedTo": "Moved from the §8.3.4 WEEKLY 7-DAY CONTENT PRODUCTION CYCLE into the `weekly-cycle` figure (scripts/figure-retirements.json, scope-platforms-8-3-4-cycle). It is the “raw 4K video” of Friday's output deliverables, which the guard normalises to 4,000; the phrase is transcribed intact in lib/figures/production.ts. PRINT REACH VERIFIED, not assumed: emulating print on /scope-platforms finds it in the rendered text."
   }
 ]

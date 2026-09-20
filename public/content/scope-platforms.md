@@ -143,26 +143,8 @@ layer the campaign is building anyway; nothing comparable exists in this race.**
 
 Campaign communications succeed when production is treated as a rigorous, industrial pipeline rather than ad-hoc creative posting. In a county where only ~14% of voters are active on digital social media (Section 3.6.1), the content production engine must be **predominantly focused on offline and broadcast formats**—vernacular radio scripts, 2G bulk SMS, USSD menu trees, printed baraza photobooks, and market PA audio jingles—while maintaining a high-fidelity digital and video pipeline for youth and the diaspora.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                  CAMPAIGN 360° CONTENT PRODUCTION PIPELINE
-════════════════════════════════════════════════════════════════════════════════════
-
-   STRATEGIC CORE                 OFFLINE BROADCAST ENGINE           DIGITAL ENGINE
- ┌────────────────┐              ┌──────────────────────────┐      ┌───────────────┐
- │ 4 Core Content │ ───────────► │ • Kikamba Radio Audio    │      │ • TikTok Clips│
- │ Pillars        │              │ • 160-char 2G Bulk SMS   │      │ • WhatsApp    │
- │ (Evidence-Led) │              │ • USSD Interactive Menus │      │   Infographics│
- └────────────────┘              │ • Baraza Leaflets & Books│      │ • Meta Video  │
-                                 │ • Boda & Market PA Jingles│     │ • Web Tracker │
-                                 └──────────────────────────┘      └───────────────┘
-                                               │                           │
-                                               ▼                           ▼
-                                 ┌─────────────────────────────────────────────────┐
-                                 │       RIGID 4-STEP APPROVAL & DPA GATEWAY       │
-                                 │   (Drafter ──► Comms Lead ──► DPO ──► CM Sign)  │
-                                 └─────────────────────────────────────────────────┘
-════════════════════════════════════════════════════════════════════════════════════
+```figure
+id: production-pipeline
 ```
 
 ### 8.3.1 The four content pillars
@@ -194,32 +176,8 @@ carries one or more of the Section 6.2 pillars:
 
 ### 8.3.2 Formats, by channel
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                PRODUCTION FORMAT SPECIFICATIONS BY CHANNEL                                  │
-├───────────────────────┬───────────────────────────────────────────┬─────────────────────────────────────────┤
-│ Channel & Medium      │ Technical Specification & Format          │ Language & Creative Treatment           │
-├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
-│ 1. Kikamba Vernacular │ • 45-second pre-recorded audio spots      │ • Pure Kikamba (Kitui/Mwingi dialects)  │
-│    Radio Spots        │ • 15-second sponsor time-check bumpers    │ • Real farmer/elder voice testimonials; │
-│    (Musyi/Mbaitu)     │ • 60-second studio live-read endorsements │   zero abrasive partisan attacks.       │
-├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
-│ 2. Direct 2G Bulk SMS │ • Single-part 160-character plain text    │ • Kiswahili or English only (CA rule);  │
-│    & USSD Portal      │ • GSM-7 encoding (no accented unicode)    │   ward name, policy pledge, and free    │
-│                       │ • USSD: 4-option menu tree (see 8.3.3C)   │   opt-out footer (*"STOP to [sender ID]"*).│
-├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
-│ 3. Open-Air Baraza &  │ • A5 full-color 4-page glossy fold-outs   │ • Bilingual Kikamba/Swahili; high visual│
-│    Market Print       │ • A1 weatherproof PVC caravan banners     │   density with real GPS project photos, │
-│                       │ • Pocket-sized 12-page Manifesto Summary  │   auditor stamps, and ward maps.        │
-├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
-│ 4. Market Caravans &  │ • High-energy 90-second studio jingles    │ • Catchy traditional Kamba rhythm &     │
-│    PA Sound Rigs      │ • Pre-recorded 3-minute candidate address │   benga beat; easily memorized chorus   │
-│                       │ • Megaphone audio clips for Boda marshals │   reinforcing "Dr. Makali Mulu 2027".   │
-├───────────────────────┼───────────────────────────────────────────┼─────────────────────────────────────────┤
-│ 5. Digital & Social   │ • 1080x1920 vertical video (Reels/TikTok) │ • Fast-paced (first 3s hook); hard-coded│
-│    Media (Youth/Diasp)│ • 1080x1080 square carousel cards         │   captions; dynamic motion graphics;    │
-│                       │ • 1920x1080 horizontal YouTube features   │   English/Sheng with Kikamba hooks.     │
-└───────────────────────┴───────────────────────────────────────────┴─────────────────────────────────────────┘
+```figure
+id: format-specs
 ```
 
 ### 8.3.3 Copy samples: radio, SMS and USSD
@@ -238,111 +196,32 @@ carries one or more of the Section 6.2 pillars:
 > **The codes below are illustrative structure, not provisioned identifiers.** The live shortcode
 > and sender ID are `[Insert shortcode]` and `[Insert sender ID]` until the aggregator provisions
 > them (Section 15.1). Nothing here should be printed, dialled or published as a working number.
-```
-*[Insert shortcode]# (Zero-Rated Gateway)
-├── 1. Dr. Makali Mulu Manifesto Summary
-│   ├── 1. Ksh 100M Ward Equalization Fund
-│   ├── 2. Ksh 85/kg Ndengu Floor Price & Cold Hubs
-│   └── 3. Free Boda Boda Licenses & TVET Bursaries
-├── 2. Ward Development Tracker (Enter Ward Name)
-├── 3. Volunteer as a Ward Captain
-└── 4. Privacy Policy & Data Opt-Out
+```figure
+id: ussd-menu
 ```
 
 ### 8.3.4 The weekly production schedule
 
 The creative studio operates on a synchronized **7-Day Production Cadence**:
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                   WEEKLY 7-DAY CONTENT PRODUCTION CYCLE                                     │
-├───────────┬─────────────────────────────────────────────────────────┬───────────────────────────────────────┤
-│ Day       │ Production Focus & Milestones                           │ Output Deliverables                   │
-├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ Monday    │ • Strategic War Room briefing & narrative theme setting │ • Weekly Creative Master Brief        │
-│           │ • Scriptwriting for radio, SMS copy & WhatsApp cards    │ • Draft radio & video scripts         │
-├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ Tuesday   │ • Studio recording for Kikamba audio spots & jingles    │ • Master audio WAVs & 2G voice clips  │
-│           │ • Graphics design for social carousels & print flyers   │ • Social static cards & baraza sheets │
-├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ Wednesday │ • Multi-tier approval gateway review (Comms, DPO, CM)   │ • Fully signed-off creative package   │
-│           │ • SMS gateway scheduling & USSD menu updates            │ • Africa's Talking staging upload     │
-├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ Thursday  │ • Dispatch of physical print collateral to 8 sub-counties│ • Printed packages on morning courier │
-│           │ • Early flighting of market-day radio spots (Musyi/Mbaitu│ • Radio ads live for Friday markets   │
-├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ Friday    │ • Market day caravan deployment & live content capture  │ • Live field photos & raw 4K video    │
-│           │ • Real-time SMS broadcast to Friday market wards        │ • 100,000 ward SMS delivered          │
-├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ Saturday  │ • Major rally/baraza coverage & rapid-turnaround video  │ • 60s summary reel within 3 hours     │
-│           │ • Audio snippet extraction for Sunday radio morning news│ • Radio soundbites sent to stations   │
-├───────────┼─────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ Sunday    │ • Church fellowship photos & message distribution       │ • Weekly recap carousel & podcast clip│
-│           │ • Weekly analytics & reach performance audit            │ • BI dashboard weekly content report  │
-└───────────┴─────────────────────────────────────────────────────────┴───────────────────────────────────────┘
+```figure
+id: weekly-cycle
 ```
 
 ### 8.3.5 Who approves what, and when
 
 To prevent defamatory statements, policy contradictions, electoral code infractions, or Data Protection Act (DPA) violations, **no asset may be broadcast or printed without passing through the 4-Step Governance Gateway**:
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                       4-STEP CONTENT APPROVAL GATEWAY                       │
-└─────────────────────────────────────────────────────────────────────────────┘
-
-  STEP 1: CREATIVE DRAFTING & SOURCING
-  ────────────────────────────────────
-  • Specialist vendor or in-house creator drafts script, video, or SMS copy.
-  • Mandatory: Creator must attach primary citation (Hansard, OAG report, KNBS).
-
-  STEP 2: COMMUNICATIONS & MESSAGE INTEGRITY REVIEW
-  ─────────────────────────────────────────────────
-  • Communications Lead verifies narrative alignment, Kikamba dialect accuracy,
-    and visual brand guidelines.
-
-  STEP 3: LEGAL, ELECTORAL & DPA COMPLIANCE CHECK
-  ───────────────────────────────────────────────
-  • Data Protection Officer (DPO) audits audience list, verifies explicit consent
-    tags, ensures mandatory opt-out footers, and checks electoral libel laws.
-
-  STEP 4: EXECUTIVE AUTHORIZATION & DISPATCH SIGN-OFF
-  ───────────────────────────────────────────────────
-  • Campaign Manager / Chief of Operations gives final electronic signature.
-  • Release authorization code logged in campaign audit register.
+```figure
+id: approval-gateway
 ```
 
 ### 8.3.6 The asset library
 
 All creative assets are stored in a centralized, cloud-backed Digital Asset Management repository structured as follows:
 
-```
-/CAMPAIGN_ASSET_REPOSITORY_2027/
-├── 01_BRAND_GUIDELINES_&_FONTS/
-│   ├── Typography/ (Plus_Jakarta_Sans, Playfair_Display, Inter)
-│   ├── Color_Palettes/ (Kitui_Blue, Earth_Gold, Clean_White)
-│   └── Official_Candidate_Logos_&_Emblems/
-├── 02_PRIMARY_EVIDENCE_VAULT/
-│   ├── OAG_Clean_Audit_Certificates_2013_2025/
-│   ├── Parliamentary_Hansard_Records_Finance_Committee/
-│   └── KNBS_Census_&_Agricultural_Baseline_Reports/
-├── 03_AUDIO_BROADCAST_VAULT/
-│   ├── Radio_45s_Spots_Master_WAV/ (Musyi, Mbaitu, Sang'u)
-│   ├── Sound_Truck_Jingles_&_Benga_Anthems/
-│   └── Megaphone_Audio_Clips_for_Boda_Marshals/
-├── 04_SMS_USSD_COPY_VAULT/
-│   ├── 40_Ward_Localized_SMS_Pledges/
-│   ├── Crisis_Rapid_Response_SMS_Templates/
-│   └── USSD_Interactive_Menu_Scripts/
-├── 05_PRINT_COLLATERAL_VAULT/
-│   ├── A5_Baraza_4Page_Foldouts_PrintReady_PDF/
-│   ├── 12Page_Manifesto_Executive_Summary_Kikamba_Swahili/
-│   └── PVC_Caravan_Banners_&_Boda_Shed_Signage/
-├── 06_DIGITAL_VIDEO_VAULT/
-│   ├── TikTok_Reels_Vertical_1080x1920/
-│   ├── Longform_YouTube_Documentaries/
-│   └── WhatsApp_Status_Infographic_Cards/
-└── 07_RAW_FIELD_FOOTAGE_ARCHIVE/ (Organized by Date & Sub-County)
+```figure
+id: asset-library
 ```
 
 

@@ -14,6 +14,7 @@ import {
   SpecTable,
   Stepper,
   TierGrid,
+  Tree,
 } from "./marks";
 import { CONSTITUENCIES } from "../../data/ward-register";
 import {
@@ -36,6 +37,20 @@ import { REGISTER_GROWTH_SERIES, THRESHOLD_SERIES } from "../../lib/figures/thre
 import { TARGETING_SERIES, TARGETING_SUMMARY } from "../../lib/figures/targeting";
 import { BYPASS_PILLARS, BYPASS_STATIONS, RADIO_GATEKEEPERS } from "../../lib/figures/media";
 import { LANGUAGES, LANGUAGE_DEPLOYMENT, LANGUAGE_SPLIT } from "../../lib/figures/language";
+import {
+  APPROVAL_SERIES,
+  APPROVAL_STEPS,
+  ASSET_LIBRARY,
+  FORMAT_SERIES,
+  FORMAT_SPECS,
+  LIBRARY_SERIES,
+  PRODUCTION_SERIES,
+  PRODUCTION_TIERS,
+  USSD_MENU,
+  USSD_SERIES,
+  WEEKLY_CYCLE,
+  WEEKLY_SERIES,
+} from "../../lib/figures/production";
 import {
   CYCLE_SERIES,
   FIELD_LOOP,
@@ -301,6 +316,71 @@ export const FIGURES: Record<string, FigureEntry> = {
           fromLabel="Traditional pitch"
           toLabel="Rebalanced — §3.6.3"
         />
+      </FigureFrame>
+    ),
+  },
+
+  "production-pipeline": {
+    note: "§8.3 — four pillars, two engines, one approval gateway.",
+    render: () => (
+      <FigureFrame series={PRODUCTION_SERIES}>
+        <TierGrid
+          tiers={PRODUCTION_TIERS}
+          flow="The pillars feed both engines, and both engines leave through the gateway — nothing routes around it."
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "format-specs": {
+    note: "§8.3.2 — five channels, their technical specification and creative treatment.",
+    render: () => (
+      <FigureFrame series={FORMAT_SERIES}>
+        <SpecTable
+          caption="§8.3.2 production format specifications by channel"
+          columns={["Channel & medium", "Technical specification", "Language & creative treatment"]}
+          rows={FORMAT_SPECS}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "ussd-menu": {
+    note: "§8.3.3 — the USSD menu tree, with the shortcode still unprovisioned.",
+    render: () => (
+      <FigureFrame series={USSD_SERIES}>
+        <Tree root={USSD_MENU.root} nodes={USSD_MENU.nodes} />
+      </FigureFrame>
+    ),
+  },
+
+  "weekly-cycle": {
+    note: "§8.3.4 — the seven-day production cycle, focus and outputs per day.",
+    render: () => (
+      <FigureFrame series={WEEKLY_SERIES}>
+        <SpecTable
+          caption="§8.3.4 weekly 7-day content production cycle"
+          columns={["Day", "Production focus & milestones", "Output deliverables"]}
+          rows={WEEKLY_CYCLE}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "approval-gateway": {
+    note: "§8.3.5 — the four steps every asset passes before dispatch.",
+    render: () => (
+      <FigureFrame series={APPROVAL_SERIES}>
+        <Stepper stages={APPROVAL_STEPS} />
+      </FigureFrame>
+    ),
+  },
+
+  "asset-library": {
+    note: "§8.3.6 — the seven vaults of the campaign asset repository.",
+    render: () => (
+      <FigureFrame series={LIBRARY_SERIES}>
+        <Tree root={ASSET_LIBRARY.root} nodes={ASSET_LIBRARY.nodes} />
       </FigureFrame>
     ),
   },

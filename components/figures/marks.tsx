@@ -1075,3 +1075,45 @@ export function TierGrid({
     </div>
   );
 }
+
+/**
+ * A hierarchy as a nested list, where the block drew it with ├── and └──.
+ *
+ * Two blocks in §8.3 are trees: a USSD menu and an asset repository. Box-drawing elbows are a
+ * convincing picture of a tree and nothing else — a screen reader announces them as punctuation,
+ * a phone scrolls them sideways, and a line that runs long wraps into the next branch's indent and
+ * stops being readable at all.
+ *
+ * A nested `<ul>` IS a tree: the nesting is the structure, announced as such, and each node wraps
+ * inside its own indent. The guides are drawn with a border rather than characters, so they never
+ * end up in a copy-paste or a find-in-page.
+ */
+export function Tree({
+  root,
+  nodes,
+}: {
+  root: string;
+  nodes: { label: string; children?: string[] }[];
+}) {
+  return (
+    <div className="not-prose">
+      <p className="m-0 t-micro font-bold text-ink">{root}</p>
+      <ul className="m-0 mt-1 list-none space-y-1 border-l border-line pl-3">
+        {nodes.map((node) => (
+          <li key={node.label}>
+            <p className="m-0 t-micro font-semibold leading-snug text-ink">{node.label}</p>
+            {node.children && node.children.length > 0 && (
+              <ul className="m-0 mt-0.5 list-none space-y-0.5 border-l border-line/70 pl-3">
+                {node.children.map((child) => (
+                  <li key={child} className="t-micro leading-snug text-muted">
+                    {child}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
