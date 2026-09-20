@@ -39,6 +39,32 @@ import { TARGETING_SERIES, TARGETING_SUMMARY } from "../../lib/figures/targeting
 import { BYPASS_PILLARS, BYPASS_STATIONS, RADIO_GATEKEEPERS } from "../../lib/figures/media";
 import { LANGUAGES, LANGUAGE_DEPLOYMENT, LANGUAGE_SPLIT } from "../../lib/figures/language";
 import {
+  AUDIENCE_FACETS,
+  AUDIENCE_SEGMENTS,
+  AUDIENCE_SERIES,
+  CHANNEL_MESSAGE_SERIES,
+  CONFLICT_PROTOCOL,
+  ESCALATION_LADDER,
+  ESCALATION_SERIES,
+  HOLDING_POSITIONS,
+  HOLDING_SERIES,
+  MANDATE_SERIES,
+  MATRIX_SERIES,
+  MESSAGE_BY_CHANNEL,
+  MESSAGE_BY_SEGMENT,
+  PROTOCOL_SERIES,
+  PROVENANCE_MANDATE,
+  RESPONSE_MATRIX,
+  RESPONSE_SLA,
+  SEGMENTS_SERIES,
+  SEGMENT_MESSAGE_SERIES,
+  SLA_SERIES,
+  TIERS_SERIES,
+  TIER_CLASSIFICATION,
+  VISIT_LOOP,
+  VISIT_SERIES,
+} from "../../lib/figures/annex";
+import {
   CLEARANCE_SERIES,
   COMPLIANCE_SERIES,
   COMPLIANCE_TIERS,
@@ -345,6 +371,173 @@ export const FIGURES: Record<string, FigureEntry> = {
           fromLabel="Traditional pitch"
           toLabel="Rebalanced — §3.6.3"
         />
+      </FigureFrame>
+    ),
+  },
+
+  "audience-overview": {
+    note: "§5.0 — six ways of cutting the electorate.",
+    render: () => (
+      <FigureFrame series={AUDIENCE_SERIES}>
+        <TierGrid
+          tiers={AUDIENCE_FACETS}
+          flow="Connectivity and language are the two facets the rest of the proposal turns on."
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "audience-segments": {
+    note: "§5.2 — six segments, their size, tier, channel and hook.",
+    render: () => (
+      <FigureFrame series={SEGMENTS_SERIES}>
+        <SpecTable
+          caption="§5.2 audience segment comparative summary"
+          columns={["Segment", "Sized electorate", "Data tier", "Primary channel", "Decisive persuasion hook"]}
+          rows={AUDIENCE_SEGMENTS}
+          emphasise={2}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "visit-loop": {
+    note: "§6A.1.4 — visit, commitment, twelve weeks, verification, published either way.",
+    render: () => (
+      <FigureFrame series={VISIT_SERIES}>
+        <Stepper stages={VISIT_LOOP} />
+      </FigureFrame>
+    ),
+  },
+
+  "provenance-mandate": {
+    note: "§3.2.1 — the three things every figure has to carry.",
+    render: () => (
+      <FigureFrame series={MANDATE_SERIES}>
+        <SpecTable
+          caption="§3.2.1 tri-partite provenance mandate"
+          columns={["Requirement", "What it means", "Example"]}
+          rows={PROVENANCE_MANDATE}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "tier-classification": {
+    note: "§3.2.2 — three evidential tiers and what each may be used for.",
+    render: () => (
+      <FigureFrame series={TIERS_SERIES}>
+        <SpecTable
+          caption="§3.2.2 three-tier evidential classification"
+          columns={["Tier", "Source types", "Authorised strategic use"]}
+          rows={TIER_CLASSIFICATION}
+          emphasise={2}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "conflict-protocol": {
+    note: "§3.2.3 — four steps for when two sources disagree.",
+    render: () => (
+      <FigureFrame series={PROTOCOL_SERIES}>
+        <Stepper stages={CONFLICT_PROTOCOL} />
+      </FigureFrame>
+    ),
+  },
+
+  "message-by-segment": {
+    note: "§7.1.2 — six segments, their message and the evidence behind it.",
+    render: () => (
+      <FigureFrame series={SEGMENT_MESSAGE_SERIES}>
+        <SpecTable
+          caption="§7.1.2 message-by-demographic-segment matrix"
+          columns={["Target segment", "Tailored message & Kikamba framing", "Verifiable evidence & data source"]}
+          rows={MESSAGE_BY_SEGMENT}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "message-by-channel": {
+    note: "§7.1.3 — five channels, their register and their proof points.",
+    render: () => (
+      <FigureFrame series={CHANNEL_MESSAGE_SERIES}>
+        <SpecTable
+          caption="§7.1.3 message-by-channel matrix and evidence deployment"
+          columns={["Channel & reach", "Format, tone & linguistic style", "Evidential proof points"]}
+          rows={MESSAGE_BY_CHANNEL}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "escalation-ladder": {
+    note: "§12.4 — three escalation levels and who decides at each.",
+    render: () => (
+      <FigureFrame series={ESCALATION_SERIES}>
+        <Stepper stages={ESCALATION_LADDER} />
+      </FigureFrame>
+    ),
+  },
+
+  "response-matrix": {
+    note: "§13.1.2 — four threat severities, their protocol and SLA.",
+    render: () => (
+      <FigureFrame series={MATRIX_SERIES}>
+        <SpecTable
+          caption="§13.1.2 rapid response decision matrix"
+          columns={["Threat severity", "Definition & impact threshold", "Strategic response protocol", "Turnaround target (SLA)"]}
+          rows={RESPONSE_MATRIX}
+          emphasise={3}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "response-sla": {
+    note: "§13.1.3 — mandatory response time per channel.",
+    render: () => (
+      <FigureFrame series={SLA_SERIES}>
+        <SpecTable
+          caption="§13.1.3 rapid response SLA by channel"
+          columns={["Channel & platform", "Mandatory response time target"]}
+          rows={RESPONSE_SLA}
+          emphasise={1}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "holding-positions": {
+    note: "§13.1.4 — four attack lines with their pre-drafted answers and sources.",
+    render: () => (
+      <FigureFrame series={HOLDING_SERIES}>
+        <ol className="not-prose m-0 list-none space-y-2 p-0">
+          {HOLDING_POSITIONS.map((pos) => (
+            <li key={pos.question} className="overflow-hidden rounded-lg border border-line">
+              <p className="m-0 border-b border-line bg-paper/70 px-3 py-2 t-micro font-bold uppercase tracking-wide text-muted">
+                {pos.question}
+              </p>
+              <dl className="m-0 bg-card px-3 py-2">
+                {[
+                  ["Attack line", pos.attack],
+                  ["Holding message", pos.holding],
+                  ["Kikamba framing", pos.kikamba],
+                  ["Primary source", pos.source],
+                ].map(([term, desc]) => (
+                  <div key={term} className="mt-1 first:mt-0">
+                    <dt className="t-micro font-bold text-accent">{term}</dt>
+                    {/* Every line transcribed, diacritics included: §7.3.2 forbids machine
+                        translation of exactly this material, and a normalised vowel is what
+                        that rule exists to prevent. */}
+                    <dd className="m-0 t-micro leading-snug text-ink">{desc}</dd>
+                  </div>
+                ))}
+              </dl>
+            </li>
+          ))}
+        </ol>
       </FigureFrame>
     ),
   },

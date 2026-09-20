@@ -2029,6 +2029,508 @@
         "                              │",
         "                        Dr. Makali Mulu"
       ]
+    },
+    {
+      "id": "audiences-5-0-overview",
+      "section": "§5.0",
+      "was": "A box-drawing panel headed KITUI COUNTY AUDIENCE ARCHITECTURE OVERVIEW — six facet cards covering geography, age, connectivity, language, livelihood and diaspora.",
+      "replacedBy": [
+        "audience-overview"
+      ],
+      "facts": [
+        "Geographic locus: rural 95.2%, urban 4.8%",
+        "Age demographic: youth 18–35 ~44%, mid/senior 36+ 56%",
+        "Connectivity status: offline (2G) 86.4%, online (smart) 13.6%",
+        "Primary language: Kikamba ~76% (§7.3), Kiswahili ~16%, English ~8%",
+        "Livelihood clusters: dryland agrarian, pastoral/livestock, informal/bodaboda",
+        "Diaspora matrix: Nairobi/Mombasa, remittance leverage, family opinion shapers"
+      ],
+      "note": "The 86.4%/13.6% connectivity split is the 2019 census rate that §3.6.1 says the 2023/24 Kenya Housing Survey supersedes, so the figure carries C-13. Neither rate has been changed.",
+      "lines": [
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "                     KITUI COUNTY AUDIENCE ARCHITECTURE OVERVIEW",
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "",
+        " ┌────────────────────────┐  ┌────────────────────────┐  ┌────────────────────────┐",
+        " │   GEOGRAPHIC LOCUS     │  │     AGE DEMOGRAPHIC    │  │   CONNECTIVITY STATUS  │",
+        " │ • Rural: 95.2%         │  │ • Youth (18-35): ~44%  │  │ • Offline (2G): 86.4%  │",
+        " │ • Urban: 4.8%          │  │ • Mid/Senior (36+): 56%│  │ • Online (Smart): 13.6%│",
+        " └────────────────────────┘  └────────────────────────┘  └────────────────────────┘",
+        " ┌────────────────────────┐  ┌────────────────────────┐  ┌────────────────────────┐",
+        " │   PRIMARY LANGUAGE     │  │   LIVELIHOOD CLUSTERS  │  │   DIASPORA MATRIX      │",
+        " │ • Kikamba: ~76% (7.3)  │  │ • Dryland Agrarian     │  │ • Nairobi / Mombasa    │",
+        " │ • Kiswahili: ~16%      │  │ • Pastoral / Livestock │  │ • Remittance Leverage  │",
+        " │ • English: ~8%         │  │ • Informal / Bodaboda  │  │ • Family Opinion Shprs │",
+        " └────────────────────────┘  └────────────────────────┘  └────────────────────────┘",
+        "════════════════════════════════════════════════════════════════════════════════════"
+      ]
+    },
+    {
+      "id": "audiences-5-1-banner",
+      "section": "§5.1",
+      "was": "A box-drawing banner reading ELECTORAL SEGMENTATION MASTER MATRIX, empty apart from its own title.",
+      "replacedBy": [
+        "audience-segments"
+      ],
+      "facts": [
+        "No data. It restates the heading above it."
+      ],
+      "note": "Removed rather than replaced, and listed here so the removal is on the record. It is a title in box-drawing characters above the segmentation the section then gives in prose.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────┐",
+        "│                    ELECTORAL SEGMENTATION MASTER MATRIX                     │",
+        "└─────────────────────────────────────────────────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "audiences-5-2-segments",
+      "section": "§5.2",
+      "was": "A pseudo-table headed AUDIENCE SEGMENT COMPARATIVE SUMMARY MATRIX — six segments with sized electorate, data tier, primary channel and decisive persuasion hook.",
+      "replacedBy": [
+        "audience-segments"
+      ],
+      "facts": [
+        "Rural smallholders ~507,000 derived (95.2% of county), Tier 1 KNBS/IEBC, Kamba radio & offline SMS, guaranteed minimum returns & sand dams",
+        "Agro-pastoralists ~80,000–105,000 (requires survey), primary research needed, vernacular radio & market days, livestock off-take & border security",
+        "Youth cohort ~234,000 (~44% of register), Tier 1 KNBS/IEBC, TikTok/Meta/WhatsApp & sports, youth enterprise fund, TVET grants, no harassment",
+        "Urban MSMEs ~26,000 derived (4.8% of county), Tier 1 KNBS 2019, geofenced digital & trader barazas, single business permit, 24-hour lit market stalls",
+        "Formal professionals ~25,000–35,000 (requires survey), primary research needed, X/TV/LinkedIn/union synods, meritocracy, reliable medicine & pension flow",
+        "Out-of-county Kamba diaspora 150k+ influencers (requires survey), primary research needed, Nairobi/coast ads & town halls, remittance relief & audited fiscal prudence"
+      ],
+      "note": "THE DATA TIER COLUMN IS EMPHASISED because it is the honest half of the table: three segments are Tier 1 and sized from the census and the register, and three say 'primary research needed' and carry a range instead of a number. The ranges print as ranges and the gaps as gaps — §11.2.1's research programme is what closes them.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                               AUDIENCE SEGMENT COMPARATIVE SUMMARY MATRIX                                  │",
+        "├──────────────────────────┬──────────────────────┬─────────────┬───────────────────┬─────────────────────────┤",
+        "│ Segment                  │ Sized Electorate     │ Data Tier   │ Primary Channel   │ Decisive Persuasion Hook│",
+        "├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤",
+        "│ 1. Rural Smallholders    │ ~507,000 (derived)   │ Tier 1      │ Kamba Radio &     │ Guaranteed Minimum      │",
+        "│    (Agrarian Core)       │ (95.2% of county)    │ KNBS/IEBC   │ Offline SMS       │ Returns & Sand Dams     │",
+        "├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤",
+        "│ 2. Agro-Pastoralists     │ ~80,000–105,000      │ Primary Res │ Vernacular Radio  │ Livestock Off-take &    │",
+        "│    (Arid Borderlands)    │ (Requires Survey)    │ Needed      │ & Market Days     │ Border Security Support │",
+        "├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤",
+        "│ 3. Youth Cohort          │ ~234,000 voters      │ Tier 1      │ TikTok, Meta,     │ Youth Enterprise Fund,  │",
+        "│    (Ages 18–35)          │ (~44% of register)   │ KNBS/IEBC   │ WhatsApp & Sports │ TVET Grants, No Harass  │",
+        "├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤",
+        "│ 4. Urban MSMEs &         │ ~26,000 (derived)    │ Tier 1      │ Geofenced Digital │ Single Business Permit, │",
+        "│    Informal Traders      │ (4.8% of county)     │ KNBS 2019   │ & Trader Barazas  │ 24-Hr Lit Market Stalls │",
+        "├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤",
+        "│ 5. Formal Professionals  │ ~25,000–35,000       │ Primary Res │ X, TV, LinkedIn,  │ Meritocracy, Reliable   │",
+        "│    & Civil Servants      │ (Requires Survey)    │ Needed      │ Union Synods      │ Medicine & Pension Flow │",
+        "├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤",
+        "│ 6. Out-of-County         │ 150k+ influencers    │ Primary Res │ Nairobi/Coast Ads │ Remittance Relief &     │",
+        "│    Kamba Diaspora        │ (Requires Survey)    │ Needed      │ & Town Halls      │ Audited Fiscal Prudence │",
+        "└──────────────────────────┴──────────────────────┴─────────────┴───────────────────┴─────────────────────────┘"
+      ]
+    },
+    {
+      "id": "engine-6a-1-4-loop",
+      "section": "§6A.1.4",
+      "was": "A box-drawing loop showing visit → commitment logged → ~12 weeks elapse → verification, publishing to the service-delivery tracker either way and feeding back to the visit.",
+      "replacedBy": [
+        "visit-loop"
+      ],
+      "facts": [
+        "Visit (P4): ward named, photo taken",
+        "Commitment logged with a date and a named ward",
+        "~12 weeks elapse",
+        "Verification (P1): delivered / delayed / not done",
+        "Published either way to the service-delivery tracker (§8.2)",
+        "That the loop returns from verification to the next visit"
+      ],
+      "note": "'Published either way' is the block's own phrase and the whole of its argument, so it is the line the figure ends on. The twelve-week interval is a stage of the sequence rather than an annotation, which is why Stepper's timed variant carries it.",
+      "lines": [
+        "     ┌──────────────────────────────────────────────────────────┐",
+        "     │                                                          │",
+        "     ▼                                                          │",
+        "  VISIT (P4)  ──►  COMMITMENT LOGGED  ──►  ~12 WEEKS  ──►  VERIFICATION (P1)",
+        "  ward named       with a date and a          elapse         delivered /",
+        "  photo taken      named ward                                delayed / not done",
+        "                          │                                          │",
+        "                          ▼                                          ▼",
+        "                   SERVICE-DELIVERY TRACKER (§8.2) ◄────────── published either way"
+      ]
+    },
+    {
+      "id": "annex-evidence-3-2-1-mandate",
+      "section": "§3.2.1",
+      "was": "A pseudo-table headed TRI-PARTITE PROVENANCE MANDATE — the three attributes every figure must carry, with an example of each.",
+      "replacedBy": [
+        "provenance-mandate"
+      ],
+      "facts": [
+        "Primary source: exact institutional publishing entity, e.g. 'IEBC Certified Register', 'KNBS 2019 Census'",
+        "Timestamp date: exact date or year of survey or official gazettement, e.g. 'August 2022', '7 August 2026'",
+        "Geographic unit: exact administrative boundary the data applies to, e.g. 'Countywide', 'Mwingi North', 'Kyuso Ward'"
+      ],
+      "note": "This is the rule every figure in this pass obeys: source, date and geographic unit in each figure's 'View the data' disclosure. Retiring it into a figure that states it plainly is the document's own standard applied to the document's own charts.",
+      "lines": [
+        "  ┌───────────────────────────────────────────────────────────────────────────┐",
+        "  │                    TRI-PARTITE PROVENANCE MANDATE                         │",
+        "  ├───────────────────┬───────────────────────────────────────────────────────┤",
+        "  │ 1. Primary Source │ Exact institutional publishing entity                 │",
+        "  │                   │ (e.g., \"IEBC Certified Register\", \"KNBS 2019 Census\") │",
+        "  ├───────────────────┼───────────────────────────────────────────────────────┤",
+        "  │ 2. Timestamp Date │ Exact date/year of survey or official gazettement     │",
+        "  │                   │ (e.g., \"August 2022\", \"7 August 2026\")                │",
+        "  ├───────────────────┼───────────────────────────────────────────────────────┤",
+        "  │ 3. Geographic Unit│ Exact administrative boundary to which data applies   │",
+        "  │                   │ (e.g., \"Countywide\", \"Mwingi North\", \"Kyuso Ward\")    │",
+        "  └───────────────────┴───────────────────────────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "annex-evidence-3-2-2-tiers",
+      "section": "§3.2.2",
+      "was": "A pseudo-table headed THE THREE-TIER EVIDENTIAL CLASSIFICATION — three tiers with their source types and authorised strategic use.",
+      "replacedBy": [
+        "tier-classification"
+      ],
+      "facts": [
+        "Tier 1, certified official records — IEBC gazetted registers, KNBS census bulletins, Auditor-General reports: unconditional baseline for target mathematics, ward quotas, budgets and statutory compliance; absolute authority",
+        "Tier 2, independent field research — reputable public polls, commissioned survey waves, academic demographic data: directional tracking of popularity, issue salience and message resonance, used with stated confidence intervals and error bars",
+        "Tier 3, internal/unverified intel — single-source field notes, campaign hearsay and rumours, self-reported crowd counts: hypothesis generation and field lead tracking ONLY, strictly prohibited from driving financial or resource reallocation without escalation"
+      ],
+      "note": "The authorised-use column is emphasised because it is what makes the tiers operational rather than descriptive. Every figure in this pass carries the tier its section states and flags disagreement rather than resolving it — which is exactly what C-8 and C-9 record.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────┐",
+        "│                    THE THREE-TIER EVIDENTIAL CLASSIFICATION                 │",
+        "├────────┬─────────────────────────────┬──────────────────────────────────────┤",
+        "│ Tier   │ Source Types                │ Authorized Strategic Use             │",
+        "├────────┼─────────────────────────────┼──────────────────────────────────────┤",
+        "│ TIER 1 │ Certified Official Records: │ Unconditional baseline for all       │",
+        "│        │ • IEBC Gazetted Registers   │ target mathematics, ward quotas,     │",
+        "│        │ • KNBS Census Bulletins     │ budgets, and statutory compliance.   │",
+        "│        │ • Auditor-General Reports   │ Absolute authority.                  │",
+        "├────────┼─────────────────────────────┼──────────────────────────────────────┤",
+        "│ TIER 2 │ Independent Field Research: │ Directional tracking of candidate    │",
+        "│        │ • Reputable Public Polls    │ popularity, issue salience, and      │",
+        "│        │ • Commissioned Survey Waves │ message resonance. Used with stated  │",
+        "│        │ • Academic Demographic Data │ confidence intervals and error bars. │",
+        "├────────┼─────────────────────────────┼──────────────────────────────────────┤",
+        "│ TIER 3 │ Internal / Unverified Intel:│ Hypothesis generation and field lead │",
+        "│        │ • Single-source field notes │ tracking ONLY. Strictly prohibited   │",
+        "│        │ • Campaign hearsay/rumors   │ from driving financial or resource   │",
+        "│        │ • Self-reported crowd counts│ reallocation without escalation.     │",
+        "└────────┴─────────────────────────────┴──────────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "annex-evidence-3-2-3-protocol",
+      "section": "§3.2.3",
+      "was": "A box-drawing chain headed FOUR-STEP CONFLICT RESOLUTION PROTOCOL — tier hierarchy test, methodological audit, conservative baseline selection, explicit dual-labelling.",
+      "replacedBy": [
+        "conflict-protocol"
+      ],
+      "facts": [
+        "Step 1: Tier 1 always overrides Tier 2; Tier 2 always overrides Tier 3",
+        "Step 2, for tier-equivalent conflicts: audit sample sizes, sampling frame (IEBC register vs random dial), fieldwork dates and non-response bias",
+        "Step 3: in electoral modelling, adopt the lower, more demanding performance assumption to prevent operational complacency",
+        "Step 4: if unreconciled, report both numbers explicitly side-by-side with their respective sources rather than calculating an artificial average"
+      ],
+      "note": "STEP 4 IS THE RULE THIS WHOLE AUDIT FOLLOWS. CONFLICTS.md reports both numbers with their sources for all twenty-two entries and averages none of them, because §3.2.3 says to. The figure says so on the step itself. Numbered because the steps are tried in order: the methodological audit only applies once the tier test comes back equal.",
+      "lines": [
+        " ┌───────────────────────────────────────────────────────────────────────────┐",
+        " │                   FOUR-STEP CONFLICT RESOLUTION PROTOCOL                  │",
+        " └───────────────────────────────────────────────────────────────────────────┘",
+        "",
+        "   STEP 1: TIER HIERARCHY TEST",
+        "   └── Tier 1 always overrides Tier 2; Tier 2 always overrides Tier 3.",
+        "",
+        "   STEP 2: METHODOLOGICAL AUDIT (FOR TIER-EQUIVALENT CONFLICTS)",
+        "   └── Audit sample sizes, sampling frame (IEBC register vs. random dial),",
+        "       fieldwork dates, and non-response bias.",
+        "",
+        "   STEP 3: CONSERVATIVE BASELINE SELECTION",
+        "   └── In electoral modeling, adopt the lower, more demanding performance",
+        "       assumption to prevent operational complacency.",
+        "",
+        "   STEP 4: EXPLICIT DUAL-LABELING",
+        "   └── If unreconciled, report both numbers explicitly side-by-side with ",
+        "       their respective sources rather than calculating an artificial average."
+      ]
+    },
+    {
+      "id": "annex-messages-7-1-2-segment",
+      "section": "§7.1.2",
+      "was": "A pseudo-table headed MESSAGE-BY-DEMOGRAPHIC SEGMENT MATRIX — six segments with their tailored message and Kikamba framing and the verifiable evidence behind each.",
+      "replacedBy": [
+        "message-by-segment"
+      ],
+      "facts": [
+        "Smallholder crop farmers (32.8%, ~175,000): Ksh 85/kg ndengu floor price, 'Uithio wa Ndengu na Mbemba'; KNBS agrarian data, ~68% of value lost to middlemen",
+        "Agro-pastoralists & herders (14.5%, ~77,000): water pans and veterinary cold-chain, 'Kithima kya Kyalo na Syana'; NDMA reports, livestock mortality drops 45%",
+        "Youth hustlers & boda operators (43.9%, ~234,000): youth innovation & enterprise fund, 'Wathi wa Mwanya kwa Mwanake'; NG-CDF data, over 4,200 youth sponsored",
+        "Rural women, caregivers & chamas (52.1%, ~278,000): water within 1 km, Ksh 50,000 table-banking seed capital, 'Mumo kwa Aka na Syana'; 84 solar boreholes, Ksh 120M to women CBOs",
+        "Urban MSMEs & traders (18.2%, ~97,000): single business permit reform, 'Biashara Nzeo na Kazi'; Hansard, MSME tax relief in the Finance Bill 2024",
+        "Teachers, civil servants & professionals (8.5%, ~45,000): timely salaries, SRC codes, NHIF/SHIF cover; Auditor-General & CRA data"
+      ],
+      "note": "Every Kikamba framing transcribed exactly. The evidence column is not decoration: §8.3.5's approval gateway makes a primary citation mandatory at drafting, and this matrix is where each segment's citation is named — which is why it is a column of the figure rather than a footnote.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                                  MESSAGE-BY-DEMOGRAPHIC SEGMENT MATRIX                                      │",
+        "├──────────────────────────────┬──────────────────────────────────────────┬───────────────────────────────────┤",
+        "│ Target Demographic Segment   │ Tailored Message & Kikamba Framing       │ Verifiable Evidence & Data Source │",
+        "├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤",
+        "│ 1. Smallholder Crop Farmers  │ • *\"Never sell Ndengu at Ksh 40 again.\"* │ • **KNBS Agrarian Data:**         │",
+        "│    (32.8% of Electorate /    │ • County guaranteed aggregation minimum  │   Kitui farmers lose ~68% of value│",
+        "│    ~175,000 Voters)          │   floor price (Ksh 85/kg) + local storage│   to middlemen during peak harvest│",
+        "│                              │ • Kikamba: *\"Uithio wa Ndengu na Mbemba\"*│ • Pilot Kitui Central Farmers SACCO│",
+        "├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤",
+        "│ 2. Agro-Pastoralists &       │ • *\"Water pans, livestock feed reserves, │ • **National Drought Management   │",
+        "│    Herders (Mwingi/South)    │   and border security lighting.\"*        │   Authority (NDMA) Reports:**     │",
+        "│    (14.5% / ~77,000 Voters)  │ • Decentralized veterinary cold-chain.   │   Livestock mortality drops 45%   │",
+        "│                              │ • Kikamba: *\"Kithima kya Kyalo na Syana\"*│   with localized water points.    │",
+        "├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤",
+        "│ 3. Youth Hustlers & Boda     │ • *\"The Youth Innovation & Enterprise   │ • **Kitui Central NG-CDF Data:**  │",
+        "│    Operators (18–35 Years)   │   Fund: Zero-interest equipment loans.\"* │   Over 4,200 youth sponsored with │",
+        "│    (43.9% / ~234,000 Voters) │ • Free driving licenses & digital hubs.  │   NITA/TVET technical bursaries.  │",
+        "│                              │ • Kikamba: *\"Wathi wa Mwanya kwa Mwanake\"*│                                  │",
+        "├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤",
+        "│ 4. Rural Women, Caregivers & │ • *\"Clean water within 1 km and stocked  │ • **Kitui Central Project Log:**  │",
+        "│    Chamas (52.1% Electorate /│   maternity dispensaries in every sub-loc\"│   84 functional solar boreholes   │",
+        "│    ~278,000 Voters)          │ • Ksh 50,000 table-banking seed capital. │   built with clean water tariffs. │",
+        "│                              │ • Kikamba: *\"Mumo kwa Aka na Syana\"*     │ • Ksh 120M disbursed to women CBOs│",
+        "├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤",
+        "│ 5. Urban MSMEs, Traders &    │ • *\"Single Business Permit reform and 0% │ • **Parliamentary Hansard:**      │",
+        "│    Market Stall Keepers      │   harassment of mama mbogas.\"*           │   Dr. Mulu's defense of MSME tax  │",
+        "│    (18.2% / ~97,000 Voters)  │ • Modern solar market shades & drainage. │   relief in the Finance Bill 2024.│",
+        "│                              │ • Kikamba: *\"Biashara Nzeo na Kazi\"*     │ • Kitui Market Vendor Council Log │",
+        "├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤",
+        "│ 6. Teachers, Civil Servants  │ • *\"Timely county salaries, meritocratic │ • **Auditor-General & CRA Data:** │",
+        "│    & Elite Professionals     │   promotions, and NHIF/SHIF hospital cover\"│ Dr. Mulu's published fiscal     │",
+        "│    (8.5% / ~45,000 Voters)   │ • Strict adherence to SRC salary codes.  │   blueprints on county debt relief│",
+        "└──────────────────────────────┴──────────────────────────────────────────┴───────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "annex-messages-7-1-3-channel",
+      "section": "§7.1.3",
+      "was": "A pseudo-table headed MESSAGE-BY-CHANNEL MATRIX & EVIDENCE DEPLOYMENT — five channels with reach, format and linguistic style, and the evidential proof points deployed on each.",
+      "replacedBy": [
+        "message-by-channel"
+      ],
+      "facts": [
+        "Kikamba vernacular radio (Musyi, Mbaitu, Sang'u), ~420,000: 45s testimonials and live studio debates; Auditor-General certificates, CDF case studies with GPS location names",
+        "Direct 2G bulk SMS & USSD, ~320,000: 160-character hyper-local alerts; the Ksh 100M/ward fund pledge, free USSD manifesto code",
+        "Market caravans & barazas, ~280,000: high-energy PA speeches and jingles; project photobooks, contractor logs, live beneficiary testimony",
+        "WhatsApp & social video (Meta, TikTok, X), ~72,000: 30s TikTok clips and infographic cards; CDF budgets against county wastage, Hansard clips",
+        "Church synods & pastoral, ~350,000: reverent 3-minute fellowship speech, Luke 16:10; servant leadership, integrity, non-violent politics, youth moral mentorship"
+      ],
+      "note": "The per-channel reach figures restate §3.6.1's and §3.6.2's, and the figure carries §3.6.2's own warning with them: these channels overlap and must not be added. Summed they exceed the county register.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                                   MESSAGE-BY-CHANNEL MATRIX & EVIDENCE DEPLOYMENT                           │",
+        "├──────────────────────────────┬──────────────────────────────────────────┬───────────────────────────────────┤",
+        "│ Communication Channel        │ Message Format, Tone & Linguistic Style  │ Evidential Proof Points Deployed  │",
+        "├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤",
+        "│ 1. Kikamba Vernacular Radio  │ • **45s Testimonials & Live Studio Debates**│ • Auditor-General clean audit certs│",
+        "│    (Musyi, Mbaitu, Sang'u)   │ • Conversational, authentic, culturally   │ • Concrete CDF school/water case  │",
+        "│    [Reach: ~420,000 Voters]  │   grounded Kikamba with elder idioms.    │   studies (with GPS location name)│",
+        "├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤",
+        "│ 2. Direct 2G Bulk SMS & USSD │ • **160-Character Hyper-Local Alerts**   │ • Specific ward development budget│",
+        "│    [Reach: ~320,000 Voters]  │ • *\"Tseikuru: Dr. Mulu guarantees Ksh 100M│   pledge (Ksh 100M/ward fund)     │",
+        "│                              │   Equalization Fund for local water pans\"*│ • Free USSD code to read manifesto│",
+        "├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤",
+        "│ 3. Market Caravans & Barazas │ • **High-Energy PA Speeches & Jingles**   │ • Physical display of project     │",
+        "│    [Reach: ~280,000 Voters]  │ • Rhythmic Kikamba music, local merchant  │   photobooks and contractor logs  │",
+        "│                              │   endorsements, and candidate Q&A.       │ • Live testimony from beneficiaries│",
+        "├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤",
+        "│ 4. WhatsApp & Social Video   │ • **30s TikTok Clips & Infographic Cards**│ • Side-by-side graphical comparison│",
+        "│    (Meta, TikTok, X)         │ • Visual, fast-paced, urban Sheng/English│   of CDF budgets vs County wastage│",
+        "│    [Reach: ~72,000 voters]   │   highlighting national economic policy. │ • National Assembly hansard clips │",
+        "├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤",
+        "│ 5. Church Synods & Pastoral  │ • **Reverent 3-Minute Fellowship Speech** │ • Values of servant leadership,   │",
+        "│    [Reach: ~350,000 Voters]  │ • Biblical stewardship themes (Luke 16:10│   integrity, non-violent politics,│",
+        "│                              │   - 'Faithful in small, faithful in much')│   and youth moral mentorship.     │",
+        "└──────────────────────────────┴──────────────────────────────────────────┴───────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "annex-cadence-12-4-escalation",
+      "section": "§12.4",
+      "was": "A box-drawing chain headed THREE-TIER ESCALATION PROTOCOL — three levels with their issues, resolution authority and rule.",
+      "replacedBy": [
+        "escalation-ladder"
+      ],
+      "facts": [
+        "Level 1, operational resolution under 1 hour: logistics delays, vendor equipment failure, routine social rumours; the respective functional lead resolves and logs in the Daily Pulse Report",
+        "Level 2, strategic & scope escalation under 2 hours: scope overruns, a competitor attack requiring a major change in media weighting, a constituency coordinator dispute; the Campaign Manager makes a binding operational determination",
+        "Level 3, governance, coalition & red-line escalation under 4 hours: Wiper leadership alignments, major endorsements or defections, litigation and legal threats, fundamental manifesto revisions; Dr. Makali Mulu and the Strategic Advisory Board, candidate delivers the final executive directive"
+      ],
+      "note": "Numbered because escalation is ordered: a level 1 issue unresolved inside the hour becomes a level 2 issue and the authority changes with it. Each level names who decides and what they must do, which is what makes it a protocol rather than a list.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────┐",
+        "│                       THREE-TIER ESCALATION PROTOCOL                        │",
+        "└─────────────────────────────────────────────────────────────────────────────┘",
+        "",
+        "  LEVEL 1: OPERATIONAL RESOLUTION (<1 HOUR)",
+        "  ──────────────────────────────────────────",
+        "  • Issues: Logistics delays, vendor equipment failure, routine social rumors.",
+        "  • Resolution Authority: Respective Functional Lead (Comms, Field, or Tech).",
+        "  • Rule: Functional lead resolves and logs incident in the Daily Pulse Report.",
+        "",
+        "  LEVEL 2: STRATEGIC & SCOPE ESCALATION (<2 HOURS)     ",
+        "  ────────────────────────────────────────────────────",
+        "  • Issues: Unexpected scope overruns, a competitor attack requiring a major",
+        "            change in media weighting, or a constituency coordinator dispute.",
+        "  • Resolution Authority: Campaign Manager & Chief of Operations.",
+        "  • Rule: Campaign Manager makes binding operational determination.",
+        "",
+        "  LEVEL 3: GOVERNANCE, COALITION & RED-LINE ESCALATION (<4 HOURS)",
+        "  ───────────────────────────────────────────────────────────────",
+        "  • Issues: Wiper Party leadership alignments, major endorsements/defections,",
+        "            litigation/legal threats, or fundamental policy manifesto revisions.",
+        "  • Resolution Authority: Dr. Makali Mulu & Strategic Advisory Board.",
+        "  • Rule: Candidate delivers final executive directive."
+      ]
+    },
+    {
+      "id": "annex-runbooks-13-1-2-matrix",
+      "section": "§13.1.2",
+      "was": "A pseudo-table headed RAPID RESPONSE DECISION MATRIX — four threat severities with definition and impact threshold, strategic response protocol and turnaround SLA.",
+      "replacedBy": [
+        "response-matrix"
+      ],
+      "facts": [
+        "Level 1 negligible: isolated comment under 50 views, fringe blog or anonymous — IGNORE / PASSIVE MONITOR, log to the intelligence feed, do NOT amplify or refute; no public response, continued observation for velocity changes",
+        "Level 2 moderate: rumour active in 3+ ward WhatsApp groups or one market centre baraza — CONTAIN AT WARD LEVEL with a 45s WhatsApp Kikamba voice note and fact-check card; under 30 minutes",
+        "Level 3 high: morning vernacular radio mention, prominent rival press conference — HIGH-VELOCITY REBUTTAL, live studio call-in or signed media card; under 15 minutes call-in, under 45 minutes fact-check infographic",
+        "Level 4 critical: coordinated county-wide smear, national TV story, legal or regulatory threat — EXECUTIVE CRISIS COUNTER, candidate live broadcast or constituency lead joint press; under 15 minutes war room, under 1 hour official press, under 2 hours 2G ward SMS"
+      ],
+      "note": "LEVEL 1'S PROTOCOL IS TO DO NOTHING, with an explicit instruction not to amplify or refute. It is the most easily lost line in the runbook and the one that decides whether a fringe post stays fringe, so the figure keeps it first and in full. The SLA column is emphasised because the matrix has to be usable at speed.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                                   RAPID RESPONSE DECISION MATRIX                                            │",
+        "├────────────┬─────────────────────────────┬─────────────────────────────────┬────────────────────────────────┤",
+        "│ Threat     │ Threat Definition & Impact  │ Strategic Response Protocol     │ Turnaround Time Target         │",
+        "│ Severity   │ Threshold                   │                                 │ (SLA)                          │",
+        "├────────────┼─────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤",
+        "│ LEVEL 1:   │ • Isolated comment or post  │ • **IGNORE / PASSIVE MONITOR**  │ • No public response.          │",
+        "│ NEGLIGIBLE │   with <50 views.           │ • Log into intelligence feed;   │ • Continued observation for    │",
+        "│            │ • Fringe blog / anonymous.  │   do NOT amplify or refute.     │   velocity changes.            │",
+        "├────────────┼─────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤",
+        "│ LEVEL 2:   │ • Rumor active in 3+ Ward   │ • **CONTAIN AT WARD LEVEL**     │ • **< 30 Minutes:**            │",
+        "│ MODERATE   │   WhatsApp groups or one    │ • Deploy 45s WhatsApp Kikamba   │   Deploy audio voice note to   │",
+        "│            │   market center baraza.     │   voice note & fact-check card. │   affected Ward groups.        │",
+        "├────────────┼─────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤",
+        "│ LEVEL 3:   │ • Morning vernacular radio  │ • **HIGH-VELOCITY REBUTTAL**    │ • **< 15 Minutes:** Call-in    │",
+        "│ HIGH       │   on-air mention; prominent │ • Authorize live studio call-in │ • **< 45 Minutes:** Fact-check │",
+        "│            │   rival press conference.   │   or release signed media card. │   infographic on social media. │",
+        "├────────────┼─────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤",
+        "│ LEVEL 4:   │ • Coordinated county-wide   │ • **EXECUTIVE CRISIS COUNTER**  │ • **< 15 Minutes:** War Room   │",
+        "│ CRITICAL   │   smear; national TV story; │ • Candidate live broadcast or   │ • **< 1 Hour:** Official Press │",
+        "│            │   legal/regulatory threat.  │   Constituency Lead joint press.│ • **< 2 Hours:** 2G Ward SMS.  │",
+        "└────────────┴─────────────────────────────┴─────────────────────────────────┴────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "annex-runbooks-13-1-3-sla",
+      "section": "§13.1.3",
+      "was": "A pseudo-table headed RAPID RESPONSE SLA BY CHANNEL — five channels with their mandatory response time target.",
+      "replacedBy": [
+        "response-sla"
+      ],
+      "facts": [
+        "Live vernacular radio (Musyi, Mbaitu, Sang'u): under 15 minutes, studio call-in by the authorised spokesperson or lead",
+        "WhatsApp community groups (40-ward network): under 30 minutes, a 45s debunking Kikamba audio clip by the ward captain",
+        "Digital platforms (X, Meta): under 45 minutes, verified evidence card with a primary document citation",
+        "Direct 2G bulk SMS push (targeted wards only): under 2 hours, corrective 160-character SMS to registered voters in the affected sub-county",
+        "Printed baraza fact sheets: under 24 hours, overnight print and courier to market centre distribution champions"
+      ],
+      "note": "The ladder runs fastest to slowest, which is also the order a rebuttal travels. §8.10.2's 48-hour lodging rule is why the SMS rung sits at two hours rather than minutes, and the figure says so.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────┐",
+        "│                    RAPID RESPONSE SLA BY CHANNEL                            │",
+        "├────────────────────────────────┬────────────────────────────────────────────┤",
+        "│ Channel & Platform             │ Mandatory Response Time Target             │",
+        "├────────────────────────────────┼────────────────────────────────────────────┤",
+        "│ 1. Live Vernacular Radio       │ • **< 15 Minutes:** Studio call-in by      │",
+        "│    (Musyi, Mbaitu, Sang'u)     │   authorized Campaign Spokesperson / Lead. │",
+        "├────────────────────────────────┼────────────────────────────────────────────┤",
+        "│ 2. WhatsApp Community Groups   │ • **< 30 Minutes:** Dispatch of 45s        │",
+        "│    (40-Ward Network)           │   debunking Kikamba audio clip by Ward Cap.│",
+        "├────────────────────────────────┼────────────────────────────────────────────┤",
+        "│ 3. Digital Platforms (X, Meta) │ • **< 45 Minutes:** Verified evidence card │",
+        "│                                │   with primary document citation.          │",
+        "├────────────────────────────────┼────────────────────────────────────────────┤",
+        "│ 4. Direct 2G Bulk SMS Push     │ • **< 2 Hours:** Corrective 160-char SMS to│",
+        "│    (Targeted Wards Only)       │   registered voters in affected sub-county.│",
+        "├────────────────────────────────┼────────────────────────────────────────────┤",
+        "│ 5. Printed Baraza Fact Sheets  │ • **< 24 Hours:** Overnight print & courier│",
+        "│                                │   to market center distribution champions. │",
+        "└────────────────────────────────┴────────────────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "annex-runbooks-13-1-4-holding",
+      "section": "§13.1.4",
+      "was": "A box-drawing accordion headed PRE-DRAFTED HOLDING POSITIONS & EVIDENCE CITATIONS — four attack lines with a holding message, a Kikamba framing and a primary source each.",
+      "replacedBy": [
+        "holding-positions"
+      ],
+      "facts": [
+        "The term-limit / career politician question — attack, holding message on 13 years and the top-ranked CDF infrastructure, Kikamba framing, and a source noting the classroom and bursary counts are pending the inventory with §3.3.1's 12,573 and KSh 47m the only figures to use",
+        "The northern & southern recognition deficit question — attack, holding message on the statutory Ksh 100 Million/Ward Annual Equalization Fund, Kikamba framing, and a source stating the ward allocation methodology does not exist yet",
+        "The Nairobi technocrat question — attack, holding message on the floor of the National Assembly, Kikamba framing, and CRA county allocation defences plus Hansard Division of Revenue Bills 2017–2024",
+        "The county government debt & pending bills comparison — attack, holding message on 13 consecutive unqualified clean audit certificates against over Ksh 2.4 Billion in pending bills, Kikamba framing, and OAG certified audit reports 2013–2025 plus FY 2021/22 and FY 2022/23 county executive reports"
+      ],
+      "note": "THE LONGEST BLOCK IN THE DOCUMENT AND THE ONE WITH THE MOST TO LOSE. Every Kikamba framing is transcribed character for character, diacritics included — ĩ, ũ and the apostrophe in kũtelemw'a — because §7.3.2 forbids machine translation of exactly this material and a normalised vowel is what that rule exists to prevent. TWO OF THE FOUR SOURCE CELLS DECLINE TO CLAIM SOMETHING and both are kept: position 1 says only §3.3.1's 12,573 recipients and KSh 47m may be used until the inventory is reconciled, and position 2 says the ward allocation methodology has not been drafted and the line must not go on air before it is. A runbook that hid either would send a spokesperson on air with an unverified figure.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                     PRE-DRAFTED HOLDING POSITIONS & EVIDENCE CITATIONS                                      │",
+        "├─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤",
+        "│ 1. THE \"TERM-LIMIT / CAREER POLITICIAN\" QUESTION                                                            │",
+        "├─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤",
+        "│ • Attack Line:     \"He has been in Parliament for three terms (15 years); it is time for new blood.\"        │",
+        "│ • Holding Message: \"Service is measured by verifiable results and integrity, not turnover. Dr. Makali Mulu │",
+        "│                     used his 13 years in Parliament to build the top-ranked CDF infrastructure in Kenya,     │",
+        "│                     serve as Ranking Member on Finance, and maintain a spotless anti-corruption record.\"    │",
+        "│ • Kikamba Framing: \"Kũthũkũma nĩ wĩtĩkĩlo na wathi mũseo. Nĩ mũthũkũmi mũmanya meko, ũte na kambĩ sya kũya │",
+        "│                     mbesa sya mwananchi.\"                                                                   │",
+        "│ • Primary Source:  National Assembly Hansard; Kitui Central NG-CDF Project Inventory (84                    │",
+        "│                     solar boreholes; classroom and bursary counts pending the inventory —                   │",
+        "│                     the Tier 1 figure in 3.3.1 and 6.1.1 is 12,573 bursary recipients and                   │",
+        "│                     KSh 47m, and only that figure should be used until it is reconciled).                   │",
+        "├─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤",
+        "│ 2. THE \"NORTHERN & SOUTHERN RECOGNITION DEFICIT\" QUESTION                                                   │",
+        "├─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤",
+        "│ • Attack Line:     \"He is a Kitui Central leader who does not understand the challenges of Mwingi North,   │",
+        "│                     Mwingi Central, or Kitui South.\"                                                        │",
+        "│ • Holding Message: \"Kitui's economic challenges—water scarcity, unpaved feeder roads, and broker cartels—do │",
+        "│                     not carry a sub-county boundary. As an economist, Dr. Mulu's 2027 Blueprint establishes │",
+        "│                     a statutory Ksh 100 Million/Ward Annual Equalization Fund ensuring every single ward in │",
+        "│                     Mwingi North and Kitui South receives guaranteed, direct capital investment.\"           │",
+        "│ • Kikamba Framing: \"Mwanya wa maendeeo nĩ wa kĩla mũndũ. Mbesa sya Ward Fund syĩithiwa kwa kĩla kĩtheka     │",
+        "│                     kũtetheesya mĩsyĩ yonthe ya Kitui ta ĩmwe.\"                                             │",
+        "│ • Primary Source:  The ward allocation methodology, once drafted. Section 8.2 is the                        │",
+        "│                     delivery tracker and does not carry a schedule; Firefly would build                     │",
+        "│                     the formula with the campaign before this line is used on air.                          │",
+        "├─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤",
+        "│ 3. THE \"NAIROBI TECHNOCRAT\" QUESTION                                                                        │",
+        "├─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤",
+        "│ • Attack Line:     \"He is a bookish technocrat who spends his time in Nairobi committees rather than on the│",
+        "│                     ground with ordinary wananchi.\"                                                         │",
+        "│ • Holding Message: \"Dr. Mulu's presence in Nairobi was spent on the floor of the National Assembly fighting │",
+        "│                     punitive taxes, defending devolved county revenue allocations, and bringing national    │",
+        "│                     treasury resources directly home to build schools and water pans across the county.\"    │",
+        "│ • Kikamba Framing: \"Nĩwe wĩkalaa mbungene akĩsũngĩĩa mwananchi mbesa itie kũtelemw'a. Meko make me mĩũndanĩ.\"│",
+        "│ • Primary Source:  Commission on Revenue Allocation (CRA) County Allocation Defenses; Parliamentary Hansard│",
+        "│                     Division of Revenue Bills 2017–2024.                                                    │",
+        "├─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤",
+        "│ 4. THE \"COUNTY GOVERNMENT DEBT & PENDING BILLS COLLAPSE\" COMPARISON                                         │",
+        "├─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤",
+        "│ • Attack Line:     \"All politicians make promises, but once in office, public funds disappear.\"            │",
+        "│ • Holding Message: \"Look at the record, not the rhetoric. In 13 years managing public funds in Kitui        │",
+        "│                     Central, Dr. Makali Mulu achieved 13 consecutive unqualified clean audit certificates   │",
+        "│                     from the Auditor-General. By contrast, Kitui County executive accounts accumulated over │",
+        "│                     Ksh 2.4 Billion in pending bills and audit queries under previous administrations.\"     │",
+        "│ • Kikamba Framing: \"Tala meko, ndũkatale ndeto. Kĩtĩo kya Kũthũkũma nĩ kĩũ kĩtheu kĩte na ũkĩlyo wa ũkũli.\" │",
+        "│ • Primary Source:  Office of the Auditor-General (OAG) Certified Audit Reports 2013–2025; OAG County         │",
+        "│                     Executive Audit Reports FY 2021/22 and FY 2022/23.                                      │",
+        "└─────────────────────────────────────────────────────────────────────────────────────────────────────────────┘"
+      ]
     }
   ]
 }

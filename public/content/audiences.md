@@ -5,23 +5,8 @@ A generic countywide message fails because an offline smallholder farmer in Tsei
 
 This section defines the structural architecture of the Kitui electorate across six empirical dimensions: **Rural/Urban Split**, **Youth Cohort**, **Connectivity Infrastructure**, **Language Hierarchy**, **Livelihood Clusters**, and the **Out-of-County Diaspora Matrix**.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                     KITUI COUNTY AUDIENCE ARCHITECTURE OVERVIEW
-════════════════════════════════════════════════════════════════════════════════════
-
- ┌────────────────────────┐  ┌────────────────────────┐  ┌────────────────────────┐
- │   GEOGRAPHIC LOCUS     │  │     AGE DEMOGRAPHIC    │  │   CONNECTIVITY STATUS  │
- │ • Rural: 95.2%         │  │ • Youth (18-35): ~44%  │  │ • Offline (2G): 86.4%  │
- │ • Urban: 4.8%          │  │ • Mid/Senior (36+): 56%│  │ • Online (Smart): 13.6%│
- └────────────────────────┘  └────────────────────────┘  └────────────────────────┘
- ┌────────────────────────┐  ┌────────────────────────┐  ┌────────────────────────┐
- │   PRIMARY LANGUAGE     │  │   LIVELIHOOD CLUSTERS  │  │   DIASPORA MATRIX      │
- │ • Kikamba: ~76% (7.3)  │  │ • Dryland Agrarian     │  │ • Nairobi / Mombasa    │
- │ • Kiswahili: ~16%      │  │ • Pastoral / Livestock │  │ • Remittance Leverage  │
- │ • English: ~8%         │  │ • Informal / Bodaboda  │  │ • Family Opinion Shprs │
- └────────────────────────┘  └────────────────────────┘  └────────────────────────┘
-════════════════════════════════════════════════════════════════════════════════════
+```figure
+id: audience-overview
 ```
 
 ## 5.0 The voter universes
@@ -68,12 +53,6 @@ segment-led.** It is ward-led: whichever ward Dr. Mulu visited that day, in that
 It is the pillar that feeds P1 twelve weeks later.
 
 
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                    ELECTORAL SEGMENTATION MASTER MATRIX                     │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
 
 ### 5.1.1 The Rural Agrarian & Smallholder Baseline
 *   **Empirical Sizing:** **1,082,168 rural residents — 95.2% of the county population** (2019 KNBS Census, Tier 1; see Section 3.3.5). The register is not published by rural/urban split, so applying that share to the 532,758 register gives approximately **507,000 rural registered voters** across 36 non-urban wards — a **derived estimate, not a measured figure**.
@@ -177,30 +156,8 @@ for instance, is a population share; "~44% youth" is a share of the register. Th
 states which applies to each row.
 
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                               AUDIENCE SEGMENT COMPARATIVE SUMMARY MATRIX                                  │
-├──────────────────────────┬──────────────────────┬─────────────┬───────────────────┬─────────────────────────┤
-│ Segment                  │ Sized Electorate     │ Data Tier   │ Primary Channel   │ Decisive Persuasion Hook│
-├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
-│ 1. Rural Smallholders    │ ~507,000 (derived)   │ Tier 1      │ Kamba Radio &     │ Guaranteed Minimum      │
-│    (Agrarian Core)       │ (95.2% of county)    │ KNBS/IEBC   │ Offline SMS       │ Returns & Sand Dams     │
-├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
-│ 2. Agro-Pastoralists     │ ~80,000–105,000      │ Primary Res │ Vernacular Radio  │ Livestock Off-take &    │
-│    (Arid Borderlands)    │ (Requires Survey)    │ Needed      │ & Market Days     │ Border Security Support │
-├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
-│ 3. Youth Cohort          │ ~234,000 voters      │ Tier 1      │ TikTok, Meta,     │ Youth Enterprise Fund,  │
-│    (Ages 18–35)          │ (~44% of register)   │ KNBS/IEBC   │ WhatsApp & Sports │ TVET Grants, No Harass  │
-├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
-│ 4. Urban MSMEs &         │ ~26,000 (derived)    │ Tier 1      │ Geofenced Digital │ Single Business Permit, │
-│    Informal Traders      │ (4.8% of county)     │ KNBS 2019   │ & Trader Barazas  │ 24-Hr Lit Market Stalls │
-├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
-│ 5. Formal Professionals  │ ~25,000–35,000       │ Primary Res │ X, TV, LinkedIn,  │ Meritocracy, Reliable   │
-│    & Civil Servants      │ (Requires Survey)    │ Needed      │ Union Synods      │ Medicine & Pension Flow │
-├──────────────────────────┼──────────────────────┼─────────────┼───────────────────┼─────────────────────────┤
-│ 6. Out-of-County         │ 150k+ influencers    │ Primary Res │ Nairobi/Coast Ads │ Remittance Relief &     │
-│    Kamba Diaspora        │ (Requires Survey)    │ Needed      │ & Town Halls      │ Audited Fiscal Prudence │
-└──────────────────────────┴──────────────────────┴─────────────┴───────────────────┴─────────────────────────┘
+```figure
+id: audience-segments
 ```
 
 ---

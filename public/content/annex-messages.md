@@ -31,41 +31,8 @@ Cross-referencing the demographic and livelihood segments established in **Secti
 > None of the three is a measured figure. When the Phase −1 baseline survey (Section 5.3)
 > returns, all six rows here should be restated against it and this reconciliation dropped.
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                  MESSAGE-BY-DEMOGRAPHIC SEGMENT MATRIX                                      │
-├──────────────────────────────┬──────────────────────────────────────────┬───────────────────────────────────┤
-│ Target Demographic Segment   │ Tailored Message & Kikamba Framing       │ Verifiable Evidence & Data Source │
-├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
-│ 1. Smallholder Crop Farmers  │ • *"Never sell Ndengu at Ksh 40 again."* │ • **KNBS Agrarian Data:**         │
-│    (32.8% of Electorate /    │ • County guaranteed aggregation minimum  │   Kitui farmers lose ~68% of value│
-│    ~175,000 Voters)          │   floor price (Ksh 85/kg) + local storage│   to middlemen during peak harvest│
-│                              │ • Kikamba: *"Uithio wa Ndengu na Mbemba"*│ • Pilot Kitui Central Farmers SACCO│
-├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
-│ 2. Agro-Pastoralists &       │ • *"Water pans, livestock feed reserves, │ • **National Drought Management   │
-│    Herders (Mwingi/South)    │   and border security lighting."*        │   Authority (NDMA) Reports:**     │
-│    (14.5% / ~77,000 Voters)  │ • Decentralized veterinary cold-chain.   │   Livestock mortality drops 45%   │
-│                              │ • Kikamba: *"Kithima kya Kyalo na Syana"*│   with localized water points.    │
-├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
-│ 3. Youth Hustlers & Boda     │ • *"The Youth Innovation & Enterprise   │ • **Kitui Central NG-CDF Data:**  │
-│    Operators (18–35 Years)   │   Fund: Zero-interest equipment loans."* │   Over 4,200 youth sponsored with │
-│    (43.9% / ~234,000 Voters) │ • Free driving licenses & digital hubs.  │   NITA/TVET technical bursaries.  │
-│                              │ • Kikamba: *"Wathi wa Mwanya kwa Mwanake"*│                                  │
-├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
-│ 4. Rural Women, Caregivers & │ • *"Clean water within 1 km and stocked  │ • **Kitui Central Project Log:**  │
-│    Chamas (52.1% Electorate /│   maternity dispensaries in every sub-loc"│   84 functional solar boreholes   │
-│    ~278,000 Voters)          │ • Ksh 50,000 table-banking seed capital. │   built with clean water tariffs. │
-│                              │ • Kikamba: *"Mumo kwa Aka na Syana"*     │ • Ksh 120M disbursed to women CBOs│
-├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
-│ 5. Urban MSMEs, Traders &    │ • *"Single Business Permit reform and 0% │ • **Parliamentary Hansard:**      │
-│    Market Stall Keepers      │   harassment of mama mbogas."*           │   Dr. Mulu's defense of MSME tax  │
-│    (18.2% / ~97,000 Voters)  │ • Modern solar market shades & drainage. │   relief in the Finance Bill 2024.│
-│                              │ • Kikamba: *"Biashara Nzeo na Kazi"*     │ • Kitui Market Vendor Council Log │
-├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
-│ 6. Teachers, Civil Servants  │ • *"Timely county salaries, meritocratic │ • **Auditor-General & CRA Data:** │
-│    & Elite Professionals     │   promotions, and NHIF/SHIF hospital cover"│ Dr. Mulu's published fiscal     │
-│    (8.5% / ~45,000 Voters)   │ • Strict adherence to SRC salary codes.  │   blueprints on county debt relief│
-└──────────────────────────────┴──────────────────────────────────────────┴───────────────────────────────────┘
+```figure
+id: message-by-segment
 ```
 
 Messaging is tailored to distinct economic realities, geographic interests and
@@ -101,30 +68,6 @@ digital plan and a communications plan.
 
 Cross-referencing the channel reach realities established in **Section 3.6**:
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                   MESSAGE-BY-CHANNEL MATRIX & EVIDENCE DEPLOYMENT                           │
-├──────────────────────────────┬──────────────────────────────────────────┬───────────────────────────────────┤
-│ Communication Channel        │ Message Format, Tone & Linguistic Style  │ Evidential Proof Points Deployed  │
-├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
-│ 1. Kikamba Vernacular Radio  │ • **45s Testimonials & Live Studio Debates**│ • Auditor-General clean audit certs│
-│    (Musyi, Mbaitu, Sang'u)   │ • Conversational, authentic, culturally   │ • Concrete CDF school/water case  │
-│    [Reach: ~420,000 Voters]  │   grounded Kikamba with elder idioms.    │   studies (with GPS location name)│
-├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
-│ 2. Direct 2G Bulk SMS & USSD │ • **160-Character Hyper-Local Alerts**   │ • Specific ward development budget│
-│    [Reach: ~320,000 Voters]  │ • *"Tseikuru: Dr. Mulu guarantees Ksh 100M│   pledge (Ksh 100M/ward fund)     │
-│                              │   Equalization Fund for local water pans"*│ • Free USSD code to read manifesto│
-├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
-│ 3. Market Caravans & Barazas │ • **High-Energy PA Speeches & Jingles**   │ • Physical display of project     │
-│    [Reach: ~280,000 Voters]  │ • Rhythmic Kikamba music, local merchant  │   photobooks and contractor logs  │
-│                              │   endorsements, and candidate Q&A.       │ • Live testimony from beneficiaries│
-├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
-│ 4. WhatsApp & Social Video   │ • **30s TikTok Clips & Infographic Cards**│ • Side-by-side graphical comparison│
-│    (Meta, TikTok, X)         │ • Visual, fast-paced, urban Sheng/English│   of CDF budgets vs County wastage│
-│    [Reach: ~72,000 voters]   │   highlighting national economic policy. │ • National Assembly hansard clips │
-├──────────────────────────────┼──────────────────────────────────────────┼───────────────────────────────────┤
-│ 5. Church Synods & Pastoral  │ • **Reverent 3-Minute Fellowship Speech** │ • Values of servant leadership,   │
-│    [Reach: ~350,000 Voters]  │ • Biblical stewardship themes (Luke 16:10│   integrity, non-violent politics,│
-│                              │   - 'Faithful in small, faithful in much')│   and youth moral mentorship.     │
-└──────────────────────────────┴──────────────────────────────────────────┴───────────────────────────────────┘
+```figure
+id: message-by-channel
 ```

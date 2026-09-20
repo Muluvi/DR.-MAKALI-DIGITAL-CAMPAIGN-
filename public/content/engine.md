@@ -61,16 +61,8 @@ in Section 15.1. None is invented here, and none should be published until that 
 **The engine is the loop between pillar four and pillar one**, and nothing else on this page matters
 as much:
 
-```
-     ┌──────────────────────────────────────────────────────────┐
-     │                                                          │
-     ▼                                                          │
-  VISIT (P4)  ──►  COMMITMENT LOGGED  ──►  ~12 WEEKS  ──►  VERIFICATION (P1)
-  ward named       with a date and a          elapse         delivered /
-  photo taken      named ward                                delayed / not done
-                          │                                          │
-                          ▼                                          ▼
-                   SERVICE-DELIVERY TRACKER (§8.2) ◄────────── published either way
+```figure
+id: visit-loop
 ```
 
 A commitment with no date is not logged. A date that passes with no verification post is a gap the

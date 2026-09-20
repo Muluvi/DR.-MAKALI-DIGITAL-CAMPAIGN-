@@ -15,18 +15,17 @@ FIX — a defect, not a conversion.
 
 ## Totals
 
-- Blocks: **856**, carrying **52,006** words.
-- Words retired outright, under rule 1a: **3,027** (5.8% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
+- Blocks: **855**, carrying **49,440** words.
+- Words retired outright, under rule 1a: **437** (0.9% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
 - Words collapsed to a `CrossRef` under rule 1b, still on the page, pending Firefly's answer to D-1: **718**.
 
 | Action | Blocks | | Type | Blocks |
 |---|---|---|---|---|
-| KEEP-PROSE | 723 | | prose | 514 |
+| KEEP-PROSE | 735 | | prose | 514 |
 | COLLAPSE | 95 | | list | 171 |
-| CONVERT | 27 | | table | 74 |
-| DEDUPE | 11 | | figure | 46 |
+| CONVERT | 14 | | table | 74 |
+| DEDUPE | 11 | | figure | 58 |
 |  |  | | callout | 35 |
-|  |  | | ascii | 13 |
 |  |  | | code | 3 |
 
 
@@ -285,14 +284,14 @@ FIX — a defect, not a conversion.
 | `objectives:4.2.2:00` | list | 89 | argument | KEEP-PROSE | — |  |  |
 | `objectives:4.2.3:00` | list | 95 | argument | KEEP-PROSE | — |  |  |
 
-## audiences — 30 blocks, 2,722 words, 379 retired
+## audiences — 29 blocks, 2,347 words, 0 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
 | `audiences:—:00` | prose | 47 | argument | KEEP-PROSE | — |  |  |
 | `audiences:—:01` | prose | 41 | argument | KEEP-PROSE | — |  |  |
 | `audiences:—:02` | prose | 29 | argument | KEEP-PROSE | — |  |  |
-| `audiences:—:03` | ascii | 126 | part-to-whole | CONVERT | Voter-universe ShareBar (§5.0) | 126 | Rule 1a. |
+| `audiences:—:03` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `audiences:5.0:00` | prose | 52 | argument | KEEP-PROSE | — |  |  |
 | `audiences:5.0:01` | table | 213 | argument | KEEP-PROSE | — |  |  |
 | `audiences:5.0:02` | prose | 73 | argument | KEEP-PROSE | — |  |  |
@@ -300,7 +299,6 @@ FIX — a defect, not a conversion.
 | `audiences:5.1:00` | prose | 23 | argument | KEEP-PROSE | — |  |  |
 | `audiences:5.1:01` | table | 148 | argument | KEEP-PROSE | — |  |  |
 | `audiences:5.1:02` | prose | 49 | argument | KEEP-PROSE | — |  |  |
-| `audiences:5.1:03` | ascii | 8 | comparison | CONVERT | Segmentation Matrix — segment × size × reachable channels × priority zone (existing AudienceSegmentationMatrix, canonical) | 8 | Rule 1a. |
 | `audiences:5.1.1:00` | list | 285 | argument | KEEP-PROSE | — |  |  |
 | `audiences:5.1.1:01` | prose | 1 | argument | KEEP-PROSE | — |  |  |
 | `audiences:5.1.2:00` | list | 196 | argument | KEEP-PROSE | — |  |  |
@@ -315,7 +313,7 @@ FIX — a defect, not a conversion.
 | `audiences:5.1.6:01` | prose | 1 | argument | KEEP-PROSE | — |  |  |
 | `audiences:5.2:00` | prose | 84 | argument | KEEP-PROSE | — |  |  |
 | `audiences:5.2:01` | prose | 48 | argument | KEEP-PROSE | — |  |  |
-| `audiences:5.2:02` | ascii | 245 | ranking | CONVERT | BarList with tiers | 245 | Rule 1a: segment sizing as an ASCII table. |
+| `audiences:5.2:02` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `audiences:5.2:03` | prose | 1 | argument | KEEP-PROSE | — |  |  |
 | `audiences:5.3:00` | prose | 23 | argument | KEEP-PROSE | — |  |  |
 | `audiences:5.3:01` | list | 121 | comparison | COLLAPSE | Gap chips with tier, linked to the §15.1 open-items register |  |  |
@@ -343,7 +341,7 @@ FIX — a defect, not a conversion.
 | `approach:6.3:01` | list | 602 | comparison | COLLAPSE | Icon grid — six campaign themes |  |  |
 | `approach:6.3:02` | prose | 26 | argument | KEEP-PROSE | — |  |  |
 
-## engine — 16 blocks, 956 words, 45 retired
+## engine — 16 blocks, 913 words, 0 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
@@ -356,7 +354,7 @@ FIX — a defect, not a conversion.
 | `engine:6A.1.3:00` | list | 85 | argument | KEEP-PROSE | — |  |  |
 | `engine:6A.1.4:00` | list | 74 | argument | KEEP-PROSE | — |  |  |
 | `engine:6A.1.4:01` | prose | 20 | argument | KEEP-PROSE | — |  |  |
-| `engine:6A.1.4:02` | ascii | 45 | hierarchy | CONVERT | Pillar cards | 45 | Rule 1a. |
+| `engine:6A.1.4:02` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `engine:6A.1.4:03` | prose | 31 | argument | KEEP-PROSE | — |  |  |
 | `engine:6A.2:00` | prose | 8 | argument | KEEP-PROSE | — |  |  |
 | `engine:6A.2:01` | prose | 63 | argument | KEEP-PROSE | — |  |  |
@@ -944,19 +942,19 @@ FIX — a defect, not a conversion.
 | `cover:1.3:06` | prose | 44 | argument | KEEP-PROSE | — |  |  |
 | `cover:1.3:07` | prose | 54 | argument | KEEP-PROSE | — |  |  |
 
-## annex-evidence — 13 blocks, 745 words, 331 retired
+## annex-evidence — 13 blocks, 420 words, 0 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
 | `annex-evidence:—:00` | prose | 39 | argument | KEEP-PROSE | — |  |  |
 | `annex-evidence:3.2.1:00` | prose | 28 | argument | KEEP-PROSE | — |  |  |
-| `annex-evidence:3.2.1:01` | ascii | 73 | process | CONVERT | Provenance line diagram | 73 | Rule 1a. |
+| `annex-evidence:3.2.1:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `annex-evidence:3.2.1:02` | prose | 27 | argument | KEEP-PROSE | — |  |  |
 | `annex-evidence:3.2.2:00` | prose | 10 | argument | KEEP-PROSE | — |  |  |
-| `annex-evidence:3.2.2:01` | ascii | 167 | hierarchy | CONVERT | TierBadge legend, used site-wide | 167 | Rule 1a. |
+| `annex-evidence:3.2.2:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `annex-evidence:3.2.2:02` | list | 81 | argument | KEEP-PROSE | — |  |  |
 | `annex-evidence:3.2.3:00` | prose | 25 | argument | KEEP-PROSE | — |  |  |
-| `annex-evidence:3.2.3:01` | ascii | 91 | decision | CONVERT | DecisionTree — when two sources disagree | 91 | Rule 1a. |
+| `annex-evidence:3.2.3:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `annex-evidence:3.2.3:02` | prose | 21 | argument | KEEP-PROSE | — |  |  |
 | `annex-evidence:3.2.3:03` | prose | 1 | argument | KEEP-PROSE | — |  |  |
 | `annex-evidence:3.2.4:00` | prose | 18 | argument | KEEP-PROSE | — |  |  |
@@ -975,7 +973,7 @@ FIX — a defect, not a conversion.
 | `annex-county:3.3.10:00` | prose | 58 | argument | KEEP-PROSE | — |  |  |
 | `annex-county:3.3.10:01` | list | 166 | comparison | COLLAPSE | Rival legal-ground caution cards |  |  |
 
-## annex-messages — 11 blocks, 1,764 words, 697 retired
+## annex-messages — 11 blocks, 1,071 words, 0 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
@@ -983,15 +981,15 @@ FIX — a defect, not a conversion.
 | `annex-messages:—:01` | callout | 88 | argument | KEEP-PROSE | — |  |  |
 | `annex-messages:7.1.2:00` | prose | 10 | argument | KEEP-PROSE | — |  |  |
 | `annex-messages:7.1.2:01` | callout | 331 | argument | KEEP-PROSE | — |  |  |
-| `annex-messages:7.1.2:02` | ascii | 419 | comparison | CONVERT | Message × segment heat Matrix | 419 | Rule 1a. Check for overlap with the §7.3 language matrix before drawing. |
+| `annex-messages:7.1.2:02` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `annex-messages:7.1.2:03` | prose | 20 | argument | KEEP-PROSE | — |  |  |
 | `annex-messages:7.1.2:04` | prose | 101 | argument | KEEP-PROSE | — |  |  |
 | `annex-messages:7.1.2:05` | table | 436 | argument | KEEP-PROSE | — |  |  |
 | `annex-messages:7.1.2:06` | prose | 47 | argument | KEEP-PROSE | — |  |  |
 | `annex-messages:7.1.3:00` | prose | 9 | argument | KEEP-PROSE | — |  |  |
-| `annex-messages:7.1.3:01` | ascii | 278 | comparison | CONVERT | Message × channel heat Matrix | 278 | Rule 1a. |
+| `annex-messages:7.1.3:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 
-## annex-cadence — 6 blocks, 414 words, 135 retired
+## annex-cadence — 6 blocks, 281 words, 0 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
@@ -1000,18 +998,18 @@ FIX — a defect, not a conversion.
 | `annex-cadence:12.2:01` | prose | 54 | argument | KEEP-PROSE | — |  |  |
 | `annex-cadence:12.2:02` | prose | 1 | argument | KEEP-PROSE | — |  |  |
 | `annex-cadence:12.4:00` | prose | 19 | argument | KEEP-PROSE | — |  |  |
-| `annex-cadence:12.4:01` | ascii | 135 | hierarchy | CONVERT | Escalation ladder | 135 | Rule 1a. |
+| `annex-cadence:12.4:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 
-## annex-runbooks — 29 blocks, 2,301 words, 1,003 retired
+## annex-runbooks — 29 blocks, 1,304 words, 0 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
 | `annex-runbooks:—:00` | prose | 40 | argument | KEEP-PROSE | — |  |  |
 | `annex-runbooks:13.1.2:00` | prose | 20 | argument | KEEP-PROSE | — |  |  |
-| `annex-runbooks:13.1.2:01` | ascii | 264 | decision | CONVERT | Four-tier DecisionTree (canonical; §13.1 references it) | 264 | Rule 1a. |
-| `annex-runbooks:13.1.3:00` | ascii | 146 | ranking | CONVERT | BarList — response times by channel | 146 | Rule 1a. |
+| `annex-runbooks:13.1.2:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
+| `annex-runbooks:13.1.3:00` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `annex-runbooks:13.1.4:00` | prose | 18 | argument | KEEP-PROSE | — |  |  |
-| `annex-runbooks:13.1.4:01` | ascii | 593 | comparison | CONVERT | Accordion of pre-drafted holding positions | 593 | Rule 1a. |
+| `annex-runbooks:13.1.4:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `annex-runbooks:13.2.2:00` | table | 114 | comparison | COLLAPSE | One tool Matrix shared with §13.4.2, which is the same list |  |  |
 | `annex-runbooks:13.2.3:00` | table | 73 | argument | KEEP-PROSE | — |  |  |
 | `annex-runbooks:13.2.3:01` | prose | 15 | argument | KEEP-PROSE | — |  |  |

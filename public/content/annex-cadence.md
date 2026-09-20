@@ -24,28 +24,6 @@ creates. The table above is that rhythm in full.
 
 To prevent decision bottlenecks and operational confusion during high-pressure field situations, the campaign enforces a strict **Three-Tier Escalation Hierarchy**:
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                       THREE-TIER ESCALATION PROTOCOL                        │
-└─────────────────────────────────────────────────────────────────────────────┘
-
-  LEVEL 1: OPERATIONAL RESOLUTION (<1 HOUR)
-  ──────────────────────────────────────────
-  • Issues: Logistics delays, vendor equipment failure, routine social rumors.
-  • Resolution Authority: Respective Functional Lead (Comms, Field, or Tech).
-  • Rule: Functional lead resolves and logs incident in the Daily Pulse Report.
-
-  LEVEL 2: STRATEGIC & SCOPE ESCALATION (<2 HOURS)     
-  ────────────────────────────────────────────────────
-  • Issues: Unexpected scope overruns, a competitor attack requiring a major
-            change in media weighting, or a constituency coordinator dispute.
-  • Resolution Authority: Campaign Manager & Chief of Operations.
-  • Rule: Campaign Manager makes binding operational determination.
-
-  LEVEL 3: GOVERNANCE, COALITION & RED-LINE ESCALATION (<4 HOURS)
-  ───────────────────────────────────────────────────────────────
-  • Issues: Wiper Party leadership alignments, major endorsements/defections,
-            litigation/legal threats, or fundamental policy manifesto revisions.
-  • Resolution Authority: Dr. Makali Mulu & Strategic Advisory Board.
-  • Rule: Candidate delivers final executive directive.
+```figure
+id: escalation-ladder
 ```

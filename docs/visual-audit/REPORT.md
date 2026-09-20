@@ -24,7 +24,7 @@ currently tells Dr. Mulu he wins.
 | **Wrong table aggregates** | "Combined 68.7%" and three more, shipped | **none** | opt-in, per table, by name |
 | **Figures reading zero with JS off** | `KSh0.00bn`, `0.0%`, `≈0k` | **none** | |
 | **Duplicated text nodes** | headline ×2, every counter ×3 | **removed at source** | |
-| **ASCII blocks** | 67 | **13** | 54 retired, 8,843 words · only §5, §6A and the annexes still have any |
+| **ASCII blocks** | 67 | **0** | all 67 retired, 11,433 words |
 | **`og:image`** | absent, with `summary_large_image` | **1200×630 typographic card** | |
 | Third-party requests | none | **none** | held |
 | Sideways scroll at 390 px | none | **none** | held |
@@ -60,65 +60,36 @@ a deep link would otherwise have no way back to the whole text.
 
 ### 2.2 Figures replace the repeats
 
-Fifty-four box-drawing blocks are now figures — **every one in chapters 3, 7, 8, 11, 13 and 14**.
-**8,843 words**, each declared in `scripts/figure-retirements.json` with the checklist of facts its
-figure is held to. The word counts are the declared blocks' own, so this table cannot drift from
-the file that authorises them:
+**All sixty-seven box-drawing blocks are retired.** Not one is left in `public/content/`: every
+ASCII diagram, pseudo-table, card stack and restated summary in the document is now a figure,
+**11,433 words**, each declared in `scripts/figure-retirements.json` with the checklist of facts
+its figure is held to and the block's own lines kept verbatim in the declaration.
 
-| Section | Was | Words | Now |
-|---|---|---|---|
-| §3.3.2 | `GOVERNOR MALOMBE'S 2027 CONSTITUTIONAL STATUS` — a two-branch tree | 84 | `ConstitutionalBranchNavigator` |
-| §3.4 | `KITUI COUNTY ELECTORAL REGISTER` — all 40 wards in two columns of panels | 315 | `register-map` |
-| §3.4.1 | `THE 2027 VICTORY THRESHOLD ARITHMETIC` | 102 | `threshold-build-up`, `register-growth` |
-| §3.4.3 | `FOUR STRUCTURAL PATHS TO THE 200,000 VOTER POOL` | 110 | `paths-to-threshold` |
-| §3.4.4 | `CONSTITUENCY STRUCTURAL POWER RANKING` — eight rows with a Big 4 band | 183 | `constituency-power` |
-| §3.4.5 | `CROSS-MATCHING RECOGNITION DEFICITS WITH DECISIVE VOTER CONCENTRATIONS` | 226 | `RecognitionDeficitOverlay` |
-| §3.4.6 | `SECTION 3.4.6 STRATEGIC TARGETING SUMMARY` — eight restated bullet lines | 120 | `targeting-summary` |
-| §3.6 | `THE DIGITAL CEILING` — the connectivity split | 65 | `reach-split` |
-| §3.6.1 | `DIGITAL PLATFORM IN-COUNTY SIZING MATRIX` — five platforms as ranges | 174 | `platform-sizing` |
-| §3.6.2 | `OFFLINE CHANNEL REACH & CAPACITY AUDIT` — six channels, three unsourced | 223 | `offline-channels` |
-| §3.6.3 | `CAMPAIGN RESOURCE REBALANCING AUDIT` — five channels, before and after | 200 | `effort-rebalance` |
-| §3.6 × 3 | Three section banners — headings drawn above the headings they restate | 29 | none needed |
-| §3.7 | `KAMBA RADIO LANDSCAPE & BYPASS ARCHITECTURE` — four hostile stations, four bypass routes | 92 | `radio-gatekeepers` |
-| §7.1 | `CAMPAIGN MESSAGE ARCHITECTURE HIERARCHY` — the claim over three pillars | 103 | `message-house` |
-| §7.1.1 | `CENTRAL CAMPAIGN CLAIM & SLOGAN` — the claim in three languages | 86 | `message-house` |
-| §7.1.4 | `GROUND RUMOR VS. FACTUAL COUNTER-FIRE PROTOCOL` — three rumours, three answers | 194 | `counter-fire` |
-| §7.3 | `TRILINGUAL AUDIENCE & CHANNEL MATRIX` — a compressed copy of the matrix below it | 127 | `language-map` |
-| §7.3.1 | `TRILINGUAL AUDIENCE & CHANNEL MAPPING MATRIX` — three languages × audience × channel | 291 | `language-map` |
-| §7.3.2 | `CULTURAL REGISTERS & PROVERBIAL FRAMING PROTOCOL` — four terms, three framings each | 161 | `cultural-registers` |
-| §7.3.3 | `MULTILINGUAL APPROVAL & SIGN-OFF CHAIN` — four gates | 129 | `qc-gateway` |
-| §7.3.4 | `CHANNEL-BY-LANGUAGE DEPLOYMENT MATRIX` — seven media, each allocated | 151 | `language-deployment` |
-| §8.3 | `CAMPAIGN 360° CONTENT PRODUCTION PIPELINE` — a core, two engines, one gateway | 110 | `production-pipeline` |
-| §8.3.2 | `PRODUCTION FORMAT SPECIFICATIONS BY CHANNEL` — five channels, specified | 280 | `format-specs` |
-| §8.3.3 | The USSD menu tree — four options under an unprovisioned shortcode | 62 | `ussd-menu` |
-| §8.3.4 | `WEEKLY 7-DAY CONTENT PRODUCTION CYCLE` — focus and outputs per day | 291 | `weekly-cycle` |
-| §8.3.5 | `4-STEP CONTENT APPROVAL GATEWAY` — draft, review, DPA check, sign-off | 117 | `approval-gateway` |
-| §8.3.6 | The asset repository tree — seven vaults | 83 | `asset-library` |
-| §8.7.7 | `THE GATEKEEPER BYPASS & DIRECT REACH ARCHITECTURE` — four pillars and their protocol | 266 | `bypass-architecture` |
-| §8.8 | `CLOSED-LOOP FIELD & DIGITAL INTEGRATION ENGINE` — two pipelines and a war room | 138 | `field-loop` |
-| §8.8.1 | `WARD COORDINATOR FIELD REPORTING PROTOCOL` — four report types | 208 | `field-reports` |
-| §8.8.2 | `THE 4-HOUR GROUND-TO-DIGITAL CYCLE` — four timestamped stages | 137 | `four-hour-cycle` |
-| §8.8.3 | A banner with nothing inside it | 9 | none needed |
-| §8.8.4 | `CAMPAIGN OPERATIONAL RHYTHM & GOVERNANCE CADENCE` — seven standing forums | 332 | `operating-rhythm` |
-| §8.12 | `CAMPAIGN DATA LAYER ARCHITECTURE` — three stages over an encrypted core | 103 | `data-layer` |
-| §8.12.1 | `SUPPORTER RECORD SCHEMA SPECIFICATION` — nineteen fields, typed | 275 | `supporter-schema` |
-| §8.12.2 | `DPA 2019 STATUTORY COMPLIANCE CHECKLIST` — six sections, six obligations | 170 | `dpa-compliance` |
-| §8.14 | `CAMPAIGN TECHNOLOGY STACK ARCHITECTURE` — four tiers | 123 | `tech-stack` |
-| §8.14.1 | A banner with nothing inside it | 8 | none needed |
-| §8.14.2 | `TECHNOLOGY STACK MASTER PROCUREMENT MATRIX` — five components, none decided | 158 | `procurement-matrix` |
-| §11.1.1 | `NOMINATION WINDOW KEY PERFORMANCE INDICATORS` — four KPIs, seven columns | 339 | `nomination-scorecard` |
-| §11.1.2 | `GENERAL ELECTION KEY PERFORMANCE INDICATORS` — five KPIs, seven columns | 423 | `ge-scorecard` |
-| §11.1.3 | `VICTORY-ANCHORED KPI MONITORING ARCHITECTURE` — two stages of targets | 108 | `kpi-architecture` |
-| §11.2.0 | `EMPIRICAL RESEARCH & SERVICE-DELIVERY TRACKER` — 19A beside 19B | 88 | `research-and-tracker` |
-| §11.2.1 | `RECOGNITION-DEFICIT RESEARCH ARCHITECTURE` — three instruments, five columns | 370 | `research-modules` |
-| §11.2.2 | `PUBLIC SERVICE-DELIVERY TRACKER ARCHITECTURE` — four dimensions | 232 | `delivery-tracker` |
-| §13.1 | `RAPID RESPONSE DECISION & ESCALATION FLOW` — feeds, decision tree, legal gate | 84 | `rapid-response-flow` |
-| §13.5 | `STATUTORY COMPLIANCE ARCHITECTURE` — three statutory regimes | 164 | `compliance-architecture` |
-| §13.5.1 | `IEBC STATUTORY NOMINATION CLEARANCE CHECKLIST` — seven clearances | 312 | `iebc-clearance` |
-| §13.5.2 | `DPA 2019 & ELECTION OFFENCES STATUTORY MATRIX` — three exposures | 214 | `liability-matrix` |
-| §14 | `LEAN CORE + SPECIALIST VENDOR MODEL` — the org chart | 147 | `org-chart` |
-| §14.5 | `CORE CAMPAIGN ROLES & OWNERSHIP MATRIX` — four roles, what each owns | 283 | `role-ownership` |
-| §14.6 | The reporting lines — two teams, one weekly brief | 44 | `reporting-lines` |
+| Chapter | Blocks | Words | Figures |
+|---|---:|---:|---:|
+| §3 — the situation, the arithmetic, reach and the air | 18 | 2,254 | 16 |
+| §5 — the voter universes | 3 | 379 | 2 |
+| §6A — the engine | 1 | 45 | 1 |
+| §7 — messaging and language | 10 | 1,939 | 8 |
+| §8 — the workstreams | 18 | 2,870 | 16 |
+| §11 — measurement | 6 | 1,560 | 6 |
+| §12 — governance cadence | 1 | 135 | 1 |
+| §13 — risk and compliance | 7 | 1,777 | 7 |
+| §14 — team and structure | 3 | 474 | 3 |
+| **Total** | **67** | **11,433** | **60 registered figures** |
+
+`figure-retirements.json` is the itemisation, block by block: what each one was, the facts its
+figure is held to, why the replacement is better than the block, and the original lines. It is the
+file to read if you want to check any single retirement rather than the shape of the whole.
+
+**Six marks carry all sixty.** `SpecTable` (a real table where a table was drawn in characters),
+`Stepper` (an ordered sequence, with an optional clock), `TierGrid` (an architecture diagram
+without the arrows), `PairedRows` (two things that must be read together), `Tree` (a nested list
+where box-drawing elbows were), and `Ledger` (findings that share no axis). The rest — `BarList`,
+`ShareBar`, `RangeBars`, `Allocation`, `MessageHouse`, `Hierarchy`, `GapBar`, `BuildUp`,
+`SlopeChart`, `RegisterGroups` — draw the quantities. **No connector lines anywhere**: an SVG
+elbow between two boxes has to be redrawn at every breakpoint and the boxes must stack at 320px,
+so order carries the sequence and a sentence carries the relationship.
 
 Checking the replacements against those checklists is what made them better than the blocks:
 
@@ -176,6 +147,25 @@ Checking the replacements against those checklists is what made them better than
   as an absence rather than a bar at zero, because an unmeasured quantity reported at nil is a
   different and false claim. The test now pins the three kinds so a later edit cannot quietly turn
   an absence into a figure.
+- **The annexes' provenance blocks are the rules this audit has been applying.** §3.2.3 step 4
+  reads: *"if unreconciled, report both numbers explicitly side-by-side with their respective
+  sources rather than calculating an artificial average."* That is, word for word, what
+  `CONFLICTS.md` does with all twenty-two entries, and what every Under review flag on every figure
+  does. The figure says so on the step itself.
+- **§13.1.2's first instruction is to do nothing**, and it is the most easily lost line in the
+  runbook: a level 1 threat gets IGNORE / PASSIVE MONITOR, with an explicit instruction not to
+  amplify or refute. It decides whether a fringe post stays fringe, so the figure keeps it first
+  and in full.
+- **Two of §13.1.4's four source cells decline to claim something, and both are kept.** Position 1
+  says the classroom and bursary counts are pending the inventory and that only §3.3.1's **12,573
+  recipients and KSh 47m** may be used until reconciled; position 2 says the ward allocation
+  methodology has not been drafted and the line must not go on air before it is. A runbook that hid
+  either would send a spokesperson on air with an unverified figure. Every Kikamba framing in that
+  block is transcribed character for character — ĩ, ũ, and the apostrophe in *kũtelemw'a* —
+  because §7.3.2 forbids machine translation of exactly this material.
+- **§5.2's data tier column is the honest half of that table.** Three of the six segments are Tier
+  1 and sized from the census and the register; the other three say "primary research needed" and
+  carry a **range** rather than a number. The ranges print as ranges and the gaps as gaps.
 - **Two §8.3 blocks were trees, and a tree drawn in characters is only a picture of one.** The
   USSD menu and the asset repository are now nested lists: the nesting *is* the structure and is
   announced as such, each path wraps inside its own indent instead of running into the next
@@ -341,12 +331,8 @@ it names (C-4).
 
 Stated plainly, because a report that implies otherwise is worth less than no report.
 
-- **13 of 67 ASCII blocks remain.** Chapters 3, 7, 8, 11, 13 and 14 are clear — no box-drawing
-  blocks left in any of them. The remaining 13 are in §5, §6A and the annexes: every one is
-  inventoried with a named target component in `INVENTORY.md`, and the mechanism — the `figure`
-  fence, the registry, the retirement declaration with its facts checklist, the migration
-  declaration for a figure leaving the markdown, and now a guard that fails the build if a fence
-  does not resolve — is built and proven on fifteen. Every remaining block is inventoried with a
+- **The ASCII blocks are done.** All 67 are retired, 11,433 words, every one declared. This item
+  used to be the largest thing outstanding and is now closed. Every remaining block is inventoried with a
   named target component in `INVENTORY.md`, and the mechanism to retire them — the `figure` fence,
   the registry, the retirement declaration with its facts checklist, the migration declaration for
   any figure leaving the markdown — is built and proven on eleven. What each one still needs is its
@@ -359,8 +345,9 @@ Stated plainly, because a report that implies otherwise is worth less than no re
 - **Phases 4 P2/P3** — §4–§16 and the annexes — are mapped in the conversion map and the inventory,
   and untouched in the markdown.
 
-The inventory's headline count of "3,027 words retired" is the **plan**, not the state. The state
-is **8,843 words**, itemised in §2.2 above and in `figure-retirements.json`.
+The inventory's remaining "437 words retired" is the **plan** for the last DEDUPE blocks, not
+box-drawing ones; every CONVERT block in it is done. The state is **11,433 words**, summarised in
+§2.2 above and itemised in `figure-retirements.json`.
 
 ---
 
@@ -372,11 +359,11 @@ is **8,843 words**, itemised in §2.2 above and in `figure-retirements.json`.
 Ward register integrity ... 40 wards across 8 constituencies sum to 532,758
 Analysis exports ......... 9 exports, 96 values, all carrying source, tier, date, method, status
 Figure verification ...... every numeric literal in the UI traces to the source
-Figure fences ............ all 46 ```figure fences resolve to one of 48 registered figures
+Figure fences ............ all 58 ```figure fences resolve to one of 60 registered figures
 Figure retention ......... all 1,055 figures present at the baseline survive; all 552 content
-                           figures still reach the print path (53 declared migrations)
-Content integrity ........ all 3,439 body lines unchanged since 228eb02, apart from 52 entries
-                           covering 54 blocks retired under rule 1a and declared
+                           figures still reach the print path (70 declared migrations)
+Content integrity ........ all 3,144 body lines unchanged since 228eb02, apart from 65 entries
+                           covering 67 blocks retired under rule 1a and declared
 verify-mounts ............ 50 mount points resolve
 verify-deep-links ........ 880 legacy ids and 272 live ids resolve
 visual-coverage .......... no retired figure kind has returned

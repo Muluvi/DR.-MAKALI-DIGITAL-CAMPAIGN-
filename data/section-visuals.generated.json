@@ -3793,38 +3793,6 @@
    ]
   }
  },
- "annex-evidence-sec-3-2-3": {
-  "id": "annex-evidence-sec-3-2-3",
-  "tab": "annex-evidence",
-  "level": 3,
-  "number": "3.2.3",
-  "title": "When two sources disagree",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "TIER HIERARCHY TEST",
-     "body": ""
-    },
-    {
-     "n": 2,
-     "label": "METHODOLOGICAL AUDIT (FOR TIER-EQUIVALENT…",
-     "body": ""
-    },
-    {
-     "n": 3,
-     "label": "CONSERVATIVE BASELINE SELECTION",
-     "body": ""
-    },
-    {
-     "n": 4,
-     "label": "EXPLICIT DUAL-LABELING",
-     "body": ""
-    }
-   ]
-  }
- },
  "annex-evidence-sec-3-2-4": {
   "id": "annex-evidence-sec-3-2-4",
   "tab": "annex-evidence",
@@ -3943,65 +3911,6 @@
     {
      "label": "Julius Malombe (Incumbent Governor)",
      "body": "Official records confirm his administrative oversight of county departments (Tier 1). Sourced legal…"
-    }
-   ]
-  }
- },
- "annex-cadence-sec-12-4": {
-  "id": "annex-cadence-sec-12-4",
-  "tab": "annex-cadence",
-  "level": 2,
-  "number": "12.4",
-  "title": "The escalation path",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "OPERATIONAL RESOLUTION (<1 HOUR)",
-     "body": ""
-    },
-    {
-     "n": 2,
-     "label": "STRATEGIC & SCOPE ESCALATION (<2 HOURS)",
-     "body": ""
-    },
-    {
-     "n": 3,
-     "label": "GOVERNANCE, COALITION & RED-LINE…",
-     "body": ""
-    }
-   ]
-  }
- },
- "annex-runbooks-sec-13-1-2": {
-  "id": "annex-runbooks-sec-13-1-2",
-  "tab": "annex-runbooks",
-  "level": 3,
-  "number": "13.1.2",
-  "title": "The four-tier response decision tree",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "│ • Isolated comment or post │ • IGNORE /…",
-     "body": ""
-    },
-    {
-     "n": 2,
-     "label": "│ • Rumor active in 3+ Ward │ • CONTAIN AT…",
-     "body": ""
-    },
-    {
-     "n": 3,
-     "label": "│ • Morning vernacular radio │ •…",
-     "body": ""
-    },
-    {
-     "n": 4,
-     "label": "│ • Coordinated county-wide │ • EXECUTIVE…",
-     "body": ""
     }
    ]
   }
