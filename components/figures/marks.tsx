@@ -785,3 +785,163 @@ export function Allocation({
     </div>
   );
 }
+
+/**
+ * A message house: one claim over the pillars that hold it up.
+ *
+ * The one mark here whose shape is load-bearing rather than illustrative. A message house is a
+ * hierarchy — everything below supports the line above — and drawing it as a list would lose the
+ * only thing the diagram was for. So the claim spans the full width and the pillars sit beneath it
+ * in equal columns, which is also how it degrades: at 320px the columns stack, still beneath the
+ * claim, still in order.
+ *
+ * NO CONNECTOR LINES. The ASCII original drew box-drawing elbows from the claim down to each
+ * pillar; SVG connectors would reproduce them and break at every reflow. Position carries the
+ * relationship, and the heading says it in words for anyone who cannot see the position.
+ */
+export function MessageHouse({
+  claim,
+  evidence,
+  pillars,
+}: {
+  claim: { language: string; text: string }[];
+  evidence: string;
+  pillars: { short: string; full: string; carries: string; proofPoint: string; proofSource: string }[];
+}) {
+  return (
+    <div>
+      <div className="rounded-xl border border-accent/30 bg-accent/[0.05] px-3 py-3">
+        <p className="m-0 t-micro font-bold uppercase tracking-wide text-accent">The central claim</p>
+        <dl className="m-0 mt-2 space-y-2">
+          {claim.map((line) => (
+            <div key={line.language}>
+              {/* Equal weight on all three. §7.3.1 puts 76% of primary reach in Kikamba, so the
+                  English line is not the claim — it is one of three. */}
+              <dt className="t-micro font-bold text-muted">{line.language}</dt>
+              <dd className="m-0 font-serif text-sm font-bold leading-snug text-ink">
+                &ldquo;{line.text}&rdquo;
+              </dd>
+            </div>
+          ))}
+        </dl>
+        <p className="m-0 mt-2.5 border-t border-accent/20 pt-2 t-micro leading-snug text-muted">
+          <span className="font-semibold text-ink">Primary evidence.</span> {evidence}
+        </p>
+      </div>
+
+      <ol className="not-prose m-0 mt-2 grid list-none grid-cols-1 gap-2 p-0 sm:grid-cols-3">
+        {pillars.map((p, i) => (
+          <li key={p.short} className="rounded-lg border border-line bg-paper/60 px-3 py-2.5">
+            <p className="m-0 t-micro font-bold uppercase tracking-wide text-muted">
+              <span className="tabular-nums">Pillar {i + 1}</span>
+            </p>
+            <p className="m-0 mt-0.5 font-serif text-sm font-bold leading-tight text-ink">{p.short}</p>
+            <p className="m-0 mt-1 t-micro leading-snug text-ink/80">{p.full}</p>
+            <p className="m-0 mt-1.5 border-t border-line/60 pt-1.5 t-micro leading-snug text-muted">
+              <span className="font-semibold text-ink">Proof point.</span> {p.proofPoint}
+              <span className="block"> — {p.proofSource}</span>
+              <span className="mt-1 block">{p.carries}</span>
+            </p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
+/**
+ * Two columns that must be read as pairs: a claim and what answers it.
+ *
+ * §7.1.4's rumour table and §7.3.2's translation table are the same shape — something wrong on the
+ * left, what to say instead on the right — and the pairing is the whole content. A stacked list
+ * would put a rumour next to the wrong rebuttal the moment one cell grew taller than another.
+ *
+ * SO THE PAIR IS ONE CARD, not two columns of a grid. At any width, the left side is directly above
+ * or beside its own right side, and nothing can shear. The left is marked with a label rather than
+ * only with colour, because “the red column is the wrong one” is not information a printed page
+ * or a colour-blind reader can use.
+ */
+export function PairedRows({
+  rows,
+  leftLabel,
+  rightLabel,
+}: {
+  rows: { left: string; leftSub?: string; right: string[]; note?: string }[];
+  leftLabel: string;
+  rightLabel: string;
+}) {
+  return (
+    <ol className="not-prose m-0 list-none space-y-2 p-0">
+      {rows.map((row) => (
+        <li key={row.left} className="overflow-hidden rounded-lg border border-line">
+          <div className="border-b border-line bg-paper/70 px-3 py-2">
+            <p className="m-0 t-micro font-bold uppercase tracking-wide text-muted">{leftLabel}</p>
+            <p className="m-0 mt-0.5 t-micro font-semibold italic leading-snug text-ink">{row.left}</p>
+            {row.leftSub && <p className="m-0 mt-0.5 t-micro leading-snug text-muted">{row.leftSub}</p>}
+          </div>
+          <div className="bg-card px-3 py-2">
+            <p className="m-0 t-micro font-bold uppercase tracking-wide text-accent">{rightLabel}</p>
+            <ul className="m-0 mt-1 list-none space-y-1 p-0">
+              {row.right.map((line) => (
+                <li key={line} className="t-micro leading-snug text-ink">
+                  {line}
+                </li>
+              ))}
+            </ul>
+            {row.note && <p className="m-0 mt-1 t-micro leading-snug text-muted">{row.note}</p>}
+          </div>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+/**
+ * Numbered stages in a sequence that has to happen in order.
+ *
+ * The brief forbids numbered markers "unless a real sequence". §7.3.3's approval chain is one: the
+ * reverse-translation audit cannot run before the adaptation it audits exists, and the cultural
+ * sign-off is the last gate before release. So the numbers stay, and they are the content.
+ *
+ * Each stage carries its own steps rather than a summary, because the document's own point is that
+ * a three-language operation drifts unless each gate is specified — a stepper that said only
+ * "Stage 3: audit" would be the drift.
+ */
+export function Stepper({
+  stages,
+}: {
+  stages: { title: string; steps: string[]; emphasis?: string }[];
+}) {
+  return (
+    <ol className="not-prose m-0 list-none space-y-2 p-0">
+      {stages.map((stage, i) => (
+        <li key={stage.title} className="flex gap-3 rounded-lg border border-line bg-paper/60 px-3 py-2.5">
+          <span
+            className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent-solid t-micro font-bold tabular-nums text-on-accent"
+            aria-hidden="true"
+          >
+            {i + 1}
+          </span>
+          <div className="min-w-0">
+            <p className="m-0 t-micro font-bold text-ink">
+              <span className="sr-only">Stage {i + 1}: </span>
+              {stage.title}
+            </p>
+            <ul className="m-0 mt-1 list-none space-y-0.5 p-0">
+              {stage.steps.map((step) => (
+                <li key={step} className="t-micro leading-snug text-muted">
+                  {step}
+                </li>
+              ))}
+            </ul>
+            {stage.emphasis && (
+              <p className="m-0 mt-1.5 rounded border border-accent/30 bg-accent/[0.05] px-2 py-1 t-micro leading-snug text-ink">
+                {stage.emphasis}
+              </p>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+  );
+}

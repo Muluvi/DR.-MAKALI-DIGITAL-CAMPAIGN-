@@ -7,43 +7,11 @@ Political messaging in Kitui County has historically relied on empty populist sl
 
 Under the campaign's Provenance Discipline (Section 3.2.1), **no claim is made without an attached primary empirical source**. Every message delivered—from a 160-character Kiswahili SMS to a 2-hour Kikamba radio debate—is grounded in certified parliamentary scorecards, Auditor-General reports, or KNBS economic data.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                     CAMPAIGN MESSAGE ARCHITECTURE HIERARCHY
-════════════════════════════════════════════════════════════════════════════════════
-
-                               THE CENTRAL CLAIM
-                  "The Proven Economist for Kitui's Economy:
-            Clean Hands, Real Jobs, and Lasting Wealth"    
-                                      │
-         ┌────────────────────────────┼────────────────────────────┐
-         ▼                            ▼                            ▼
-   MESSAGE PILLAR 1:            MESSAGE PILLAR 2:            MESSAGE PILLAR 3:
-   INTEGRITY & PRUDENCE         JOBS & WEALTH                DEVOLUTION & WATER
- ┌──────────────────────┐     ┌──────────────────────┐     ┌──────────────────────┐
- │ Proof Point:         │     │ Proof Point:         │     │ Proof Point:         │
- │ 13 Years Clean CDF   │     │ KNBS Census &        │     │ Equal Ward Fund      │
- │ Audit Certificates   │     │ Sub-County Value-Add │     │ Allocation (Ksh 100M/│
- │ (Auditor-General)    │     │ Investment Model     │     │ Ward Guarantee)      │
- └──────────────────────┘     └──────────────────────┘     └──────────────────────┘
-════════════════════════════════════════════════════════════════════════════════════
+```figure
+id: message-house
 ```
 
 ### 7.1.1 The central claim and its three pillars
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                       CENTRAL CAMPAIGN CLAIM & SLOGAN                       │
-├─────────────────────────────────────────────────────────────────────────────┤
-│ English:  "The Proven Economist for Kitui's Economy: Clean Hands, Real Jobs,│
-│            and Lasting Wealth."                                             │
-│ Kikamba:  "Muvisi wa Mbee wa Utonga na Kazi: Mbee wa Mbee na Wathi Mumo."   │
-│ Swahili:  "Uchumi Bora na Kazi: Uongozi wa Uwazi na Maendeleo ya Kweli."    │
-│ Primary Evidence: 13-year legislative record as Vice-Chair/Ranking Member of│
-│                   the National Assembly Departmental Committee on Finance & │
-│                   National Planning and Public Debt & Privatization.        │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
 
 #### Message Pillar 1: Fiscal Integrity & Transparent Public Finance *(carries campaign pillars 2.2.1 and 2.2.4)*
 *   **Narrative Statement:** *"Kitui's Ksh 12+ Billion annual budget has been crippled by pending bills, procurement inflation, and ghost projects. Dr. Makali Mulu is the only candidate with a verified track record of managing public funds with zero financial audit queries."*
@@ -85,31 +53,8 @@ Under the campaign's Provenance Discipline (Section 3.2.1), **no claim is made w
 
 ### 7.1.4 Counter-messaging against disinformation
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                 GROUND RUMOR VS. FACTUAL COUNTER-FIRE PROTOCOL              │
-├────────────────────────────────┬────────────────────────────────────────────┤
-│ Competitor Ground Rumor        │ Factual Evidence-Backed Counter-Fire       │
-├────────────────────────────────┼────────────────────────────────────────────┤
-│ *"Dr. Mulu is only interested  │ • **FACT:** As MP, Dr. Mulu defended       │
-│   in Kitui Central and will    │   equal revenue allocation for all 47      │
-│   neglect Northern/Southern    │   counties and sponsored national water    │
-│   wards."*                     │   subsidies for ASAL regions (Hansard).    │
-│                                │ • **COMMITMENT:** Legally binding Ward     │
-│                                │   Equalization Fund guarantee (Ksh 100M/yr)│
-├────────────────────────────────┼────────────────────────────────────────────┤
-│ *"Economists only care about   │ • **FACT:** 13 years of Kitui Central CDF  │
-│   numbers, not the poor."*     │   directed the majority of funds to needy  │
-│                                │   student bursaries — 12,573 recipients,   │
-│                                │   KSh 47m (Tier 1, §2.1.1) — and village   │
-│                                │   boreholes. Share pending the ledger.     │
-├────────────────────────────────┼────────────────────────────────────────────┤
-│ *"He is not politically        │ • **FACT:** Dr. Mulu is a senior founding  │
-│   aligned with Kalonzo         │   parliamentary stalwart of the Wiper      │
-│   Musyoka / Azimio."*          │   Democratic Movement, trusted by Party    │
-│                                │   Leader Kalonzo Musyoka on national budget│
-│                                │   and economic coalition planning.         │
-└────────────────────────────────┴────────────────────────────────────────────┘
+```figure
+id: counter-fire
 ```
 
 
@@ -208,24 +153,8 @@ id: language-map
 
 Translating political concepts from statutory English into vernacular Kikamba requires precise cultural calibration. Kikamba varies across sub-counties—from the *Kitui Central/South dialect* to the *Northern/Mwingi dialect*—and uses rich proverbial allegories that must be deployed correctly:
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                             CULTURAL REGISTERS & PROVERBIAL FRAMING PROTOCOL                                │
-├──────────────────────────┬─────────────────────────────┬────────────────────────────────────────────────────┤
-│ English Technical Term   │ Literal / Bad Translation   │ Approved Cultural Kikamba Framing & Idiom          │
-├──────────────────────────┼─────────────────────────────┼────────────────────────────────────────────────────┤
-│ 1. "Fiscal Prudence &    │ "Kũũsũvĩa mbesa nesa"       │ **"Kĩtĩo kya Kũthũkũma na Moko Matheũ"**           │
-│    Integrity"            │ (Too generic/bureaucratic)  │ (*"The Honor of Public Service with Clean Hands"*) │
-├──────────────────────────┼─────────────────────────────┼────────────────────────────────────────────────────┤
-│ 2. "Household Economic   │ "Kũnenga andũ mbesa"        │ **"Ũtonga wa Mĩsyĩ na Mbũi Mĩĩtĩ"**               │
-│    Empowerment"          │ (Sounds like handouts)      │ (*"Sustainable Wealth Rooted in Household Farms"*)  │
-├──────────────────────────┼─────────────────────────────┼────────────────────────────────────────────────────┤
-│ 3. "Devolution Equity &  │ "Kũgawanya mbesa sya ward"  │ **"Kĩla Kĩtheka na Mwanya Wayo: Mumo kwa Onthe"**  │
-│    Ward Equalization"    │ (Mechanical division)       │ (*"Every Ridge its Equal Share: Prosperity for All"│
-├──────────────────────────┼─────────────────────────────┼────────────────────────────────────────────────────┤
-│ 4. "Youth Technical &    │ "Masomo ma amwanake"        │ **"Wathi wa Mwanake: Moko ma Kũseũvya Wĩa"**       │
-│    Vocational Training"  │ (Schooling only)            │ (*"Youth Mastery: Practical Hands that Build Work"*)│
-└──────────────────────────┴─────────────────────────────┴────────────────────────────────────────────────────┘
+```figure
+id: cultural-registers
 ```
 
 #### Linguistic Rules of Engagement:
@@ -237,32 +166,8 @@ Translating political concepts from statutory English into vernacular Kikamba re
 
 Running a synchronized three-language communications operation introduces severe version-drift and contradiction risks. The campaign implements a rigid **Translation & Quality-Control Gateway**:
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                    MULTILINGUAL APPROVAL & SIGN-OFF CHAIN                   │
-└─────────────────────────────────────────────────────────────────────────────┘
-
-  STAGE 1: ENGLISH MASTER SOURCE DRAFTING
-  ───────────────────────────────────────
-  • Policy Team crafts core English policy brief, Hansard citation, or release.
-  • Verified by Legal & Economic Lead for empirical accuracy.
-
-  STAGE 2: PARALLEL ADAPTATION (NOT LITERAL TRANSLATION)
-  ──────────────────────────────────────────────────────
-  • Lead Kikamba Writer drafts culturally resonant vernacular version.
-  • Swahili/Sheng Specialist drafts street-smart and market versions.
-
-  STAGE 3: REVERSE-TRANSLATION INTEGRITY AUDIT
-  ───────────────────────────────────────────
-  • Independent reviewer translates vernacular draft back into English to verify
-    that no policy commitments were distorted, inflated, or omitted.
-
-  STAGE 4: KIKAMBA CULTURAL SIGN-OFF & EXECUTIVE CLEARANCE
-  ────────────────────────────────────────────────────────
-  • **Mandatory Sign-Off Authority for Kikamba Copy:**
-    *Lead Cultural & Vernacular Communications Advisor (Native Kamba Elder /
-    Senior Vernacular Broadcaster)*.
-  • Final sign-off by Campaign Manager before release to audio studio/print.
+```figure
+id: qc-gateway
 ```
 
 ### 7.3.4 Channel-by-language deployment

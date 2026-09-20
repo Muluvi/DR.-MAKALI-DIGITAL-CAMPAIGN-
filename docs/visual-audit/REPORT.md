@@ -24,7 +24,7 @@ currently tells Dr. Mulu he wins.
 | **Wrong table aggregates** | "Combined 68.7%" and three more, shipped | **none** | opt-in, per table, by name |
 | **Figures reading zero with JS off** | `KSh0.00bn`, `0.0%`, `≈0k` | **none** | |
 | **Duplicated text nodes** | headline ×2, every counter ×3 | **removed at source** | |
-| **ASCII blocks** | 67 | **49** | 18 retired, 2,492 words · chapter 3 has none left |
+| **ASCII blocks** | 67 | **44** | 23 retired, 3,165 words · chapters 3 and 7 have none left |
 | **`og:image`** | absent, with `summary_large_image` | **1200×630 typographic card** | |
 | Third-party requests | none | **none** | held |
 | Sideways scroll at 390 px | none | **none** | held |
@@ -60,28 +60,34 @@ a deep link would otherwise have no way back to the whole text.
 
 ### 2.2 Figures replace the repeats
 
-Fourteen box-drawing blocks — one in §3A, six in §3B and seven in §3C — are now figures. **1,831 words**, each declared in `scripts/figure-retirements.json` with the checklist
-of facts its figure is held to. The word counts below are the declared blocks' own, so this table
-cannot drift from the file that authorises them:
+Twenty-three box-drawing blocks are now figures — **every one in chapter 3 and every one in §7**.
+**3,165 words**, each declared in `scripts/figure-retirements.json` with the checklist of facts its
+figure is held to. The word counts are the declared blocks' own, so this table cannot drift from
+the file that authorises them:
 
 | Section | Was | Words | Now |
 |---|---|---|---|
-| §7.3.1 | `TRILINGUAL AUDIENCE & CHANNEL MAPPING MATRIX` — three languages × audience × channel × objective | 291 | `language-map` |
-| §3.4 | `KITUI COUNTY ELECTORAL REGISTER` — all 40 wards in two columns of ASCII panels | 315 | `register-map` |
-| §3.4.5 | `CROSS-MATCHING RECOGNITION DEFICITS WITH DECISIVE VOTER CONCENTRATIONS` | 226 | `RecognitionDeficitOverlay` |
-| §3.6.2 | `OFFLINE CHANNEL REACH AUDIT` — six channels, three of them unsourced | 223 | `offline-channels` |
-| §3.6.3 | `EFFORT WEIGHTING VS. ELECTORAL REACH REALITY AUDIT` — five channels, before and after | 200 | `effort-rebalance` |
-| §3.4.4 | `CONSTITUENCY STRUCTURAL POWER RANKING` — eight rows with a Big 4 band | 183 | `constituency-power` |
-| §7.3.4 | `CHANNEL-BY-LANGUAGE DEPLOYMENT MATRIX` — seven media, each allocated across languages | 151 | `language-deployment` |
-| §7.3 | `TRILINGUAL AUDIENCE & CHANNEL MATRIX` — a compressed copy of the matrix eleven lines below it | 127 | `language-map` |
-| §3.6.1 | `DIGITAL PLATFORM IN-COUNTY SIZING MATRIX` — five platforms as ranges | 174 | `platform-sizing` |
-| §3.4.6 | `SECTION 3.4.6 STRATEGIC TARGETING SUMMARY` — eight restated bullet lines | 120 | `targeting-summary` |
-| §3.4.3 | `FOUR STRUCTURAL PATHS TO THE 200,000 VOTER POOL` | 110 | `paths-to-threshold` |
-| §3.4.1 | `THE 2027 VICTORY THRESHOLD ARITHMETIC` | 102 | `threshold-build-up`, `register-growth` |
-| §3.7 | `KAMBA RADIO LANDSCAPE & BYPASS ARCHITECTURE` — four hostile stations and four bypass routes | 92 | `radio-gatekeepers` |
 | §3.3.2 | `GOVERNOR MALOMBE'S 2027 CONSTITUTIONAL STATUS` — a two-branch tree | 84 | `ConstitutionalBranchNavigator` |
+| §3.4 | `KITUI COUNTY ELECTORAL REGISTER` — all 40 wards in two columns of panels | 315 | `register-map` |
+| §3.4.1 | `THE 2027 VICTORY THRESHOLD ARITHMETIC` | 102 | `threshold-build-up`, `register-growth` |
+| §3.4.3 | `FOUR STRUCTURAL PATHS TO THE 200,000 VOTER POOL` | 110 | `paths-to-threshold` |
+| §3.4.4 | `CONSTITUENCY STRUCTURAL POWER RANKING` — eight rows with a Big 4 band | 183 | `constituency-power` |
+| §3.4.5 | `CROSS-MATCHING RECOGNITION DEFICITS WITH DECISIVE VOTER CONCENTRATIONS` | 226 | `RecognitionDeficitOverlay` |
+| §3.4.6 | `SECTION 3.4.6 STRATEGIC TARGETING SUMMARY` — eight restated bullet lines | 120 | `targeting-summary` |
 | §3.6 | `THE DIGITAL CEILING` — the connectivity split | 65 | `reach-split` |
-| §3.6 | Three section banners — box-drawn headings restating the heading above them | 29 | none needed |
+| §3.6.1 | `DIGITAL PLATFORM IN-COUNTY SIZING MATRIX` — five platforms as ranges | 174 | `platform-sizing` |
+| §3.6.2 | `OFFLINE CHANNEL REACH & CAPACITY AUDIT` — six channels, three unsourced | 223 | `offline-channels` |
+| §3.6.3 | `CAMPAIGN RESOURCE REBALANCING AUDIT` — five channels, before and after | 200 | `effort-rebalance` |
+| §3.6 × 3 | Three section banners — headings drawn above the headings they restate | 29 | none needed |
+| §3.7 | `KAMBA RADIO LANDSCAPE & BYPASS ARCHITECTURE` — four hostile stations, four bypass routes | 92 | `radio-gatekeepers` |
+| §7.1 | `CAMPAIGN MESSAGE ARCHITECTURE HIERARCHY` — the claim over three pillars | 103 | `message-house` |
+| §7.1.1 | `CENTRAL CAMPAIGN CLAIM & SLOGAN` — the claim in three languages | 86 | `message-house` |
+| §7.1.4 | `GROUND RUMOR VS. FACTUAL COUNTER-FIRE PROTOCOL` — three rumours, three answers | 194 | `counter-fire` |
+| §7.3 | `TRILINGUAL AUDIENCE & CHANNEL MATRIX` — a compressed copy of the matrix below it | 127 | `language-map` |
+| §7.3.1 | `TRILINGUAL AUDIENCE & CHANNEL MAPPING MATRIX` — three languages × audience × channel | 291 | `language-map` |
+| §7.3.2 | `CULTURAL REGISTERS & PROVERBIAL FRAMING PROTOCOL` — four terms, three framings each | 161 | `cultural-registers` |
+| §7.3.3 | `MULTILINGUAL APPROVAL & SIGN-OFF CHAIN` — four gates | 129 | `qc-gateway` |
+| §7.3.4 | `CHANNEL-BY-LANGUAGE DEPLOYMENT MATRIX` — seven media, each allocated | 151 | `language-deployment` |
 
 Checking the replacements against those checklists is what made them better than the blocks:
 
@@ -115,6 +121,14 @@ Checking the replacements against those checklists is what made them better than
 - §3.3.2's branch tree is the **only block retired without a new figure or a checklist gap**: the
   two prose bullets directly beneath it state every fact it carried, in fuller words, and the
   branch navigator at that heading draws the fork. It was a third copy between the other two.
+- §7's other five blocks are the message house, the counter-fire table, the cultural registers
+  and the QC gateway. Two things in them were worth protecting and are now protected by the
+  figures rather than by luck. The **Kikamba orthography** in §7.3.2 — ĩ and ũ are distinct
+  letters, not decorated vowels — is transcribed character for character, which is what §7.3.2's
+  own ban on machine translation exists to insist on. And §7.1.4's bursary rebuttal ends
+  **"Share pending the ledger"**: the document declining to claim a proportion it has not verified,
+  inside its own counter-messaging table. It is the most creditable sentence in the block and it is
+  kept exactly.
 - §7.3's three blocks found **C-21, the one conflict here with a regulator attached.** §7.3.1
   lists "2G Bulk SMS & USSD" among Kikamba's dominant channels; §8.10.2 states, citing the
   Communications Authority at Tier 1, that political bulk SMS is restricted to English or Kiswahili
@@ -245,8 +259,8 @@ it names (C-4).
 
 Stated plainly, because a report that implies otherwise is worth less than no report.
 
-- **49 of 67 ASCII blocks remain.** Chapter 3 is clear — no box-drawing blocks left in it at all —
-  and §7.3's language map is done. The remaining 49 are in the rest of §7 and in §8 onwards: every one is
+- **44 of 67 ASCII blocks remain.** Chapters 3 and 7 are clear — no box-drawing blocks left in
+  either. The remaining 44 are in §8 onwards and in the annexes: every one is
   inventoried with a named target component in `INVENTORY.md`, and the mechanism — the `figure`
   fence, the registry, the retirement declaration with its facts checklist, the migration
   declaration for a figure leaving the markdown, and now a guard that fails the build if a fence
@@ -263,8 +277,8 @@ Stated plainly, because a report that implies otherwise is worth less than no re
 - **Phases 4 P2/P3** — §4–§16 and the annexes — are mapped in the conversion map and the inventory,
   and untouched in the markdown.
 
-The inventory's headline count of "9,378 words retired" is the **plan**, not the state. The state
-is **2,492 words**, itemised in §2.2 above and in `figure-retirements.json`.
+The inventory's headline count of "8,705 words retired" is the **plan**, not the state. The state
+is **3,165 words**, itemised in §2.2 above and in `figure-retirements.json`.
 
 ---
 
@@ -276,11 +290,11 @@ is **2,492 words**, itemised in §2.2 above and in `figure-retirements.json`.
 Ward register integrity ... 40 wards across 8 constituencies sum to 532,758
 Analysis exports ......... 9 exports, 96 values, all carrying source, tier, date, method, status
 Figure verification ...... every numeric literal in the UI traces to the source
-Figure fences ............ all 13 ```figure fences resolve to one of 15 registered figures
+Figure fences ............ all 17 ```figure fences resolve to one of 19 registered figures
 Figure retention ......... all 1,055 figures present at the baseline survive; all 552 content
-                           figures still reach the print path (38 declared migrations)
-Content integrity ........ all 4,272 body lines unchanged since 228eb02, apart from 16 entries
-                           covering 18 blocks retired under rule 1a and declared
+                           figures still reach the print path (39 declared migrations)
+Content integrity ........ all 4,171 body lines unchanged since 228eb02, apart from 21 entries
+                           covering 23 blocks retired under rule 1a and declared
 verify-mounts ............ 50 mount points resolve
 verify-deep-links ........ 880 legacy ids and 272 live ids resolve
 visual-coverage .......... no retired figure kind has returned

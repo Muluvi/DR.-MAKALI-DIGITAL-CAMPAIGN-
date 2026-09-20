@@ -15,18 +15,18 @@ FIX — a defect, not a conversion.
 
 ## Totals
 
-- Blocks: **859**, carrying **58,291** words.
-- Words retired outright, under rule 1a: **9,378** (16.1% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
+- Blocks: **858**, carrying **57,626** words.
+- Words retired outright, under rule 1a: **8,705** (15.1% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
 - Words collapsed to a `CrossRef` under rule 1b, still on the page, pending Firefly's answer to D-1: **718**.
 
 | Action | Blocks | | Type | Blocks |
 |---|---|---|---|---|
-| KEEP-PROSE | 690 | | prose | 514 |
+| KEEP-PROSE | 694 | | prose | 514 |
 | COLLAPSE | 95 | | list | 171 |
-| CONVERT | 63 | | table | 74 |
-| DEDUPE | 11 | | ascii | 49 |
+| CONVERT | 58 | | table | 74 |
+| DEDUPE | 11 | | ascii | 44 |
 |  |  | | callout | 35 |
-|  |  | | figure | 13 |
+|  |  | | figure | 17 |
 |  |  | | code | 3 |
 
 
@@ -364,21 +364,20 @@ FIX — a defect, not a conversion.
 | `engine:6A.2:03` | prose | 44 | argument | KEEP-PROSE | — |  |  |
 | `engine:6A.2:04` | prose | 28 | argument | KEEP-PROSE | — |  |  |
 
-## messaging — 41 blocks, 2,389 words, 673 retired
+## messaging — 40 blocks, 1,724 words, 0 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
 | `messaging:—:00` | prose | 34 | argument | KEEP-PROSE | — |  |  |
 | `messaging:7.1:00` | prose | 31 | argument | KEEP-PROSE | — |  |  |
 | `messaging:7.1:01` | prose | 41 | argument | KEEP-PROSE | — |  |  |
-| `messaging:7.1:02` | ascii | 103 | hierarchy | CONVERT | MessageHouse | 103 | Rule 1a. |
-| `messaging:7.1.1:00` | ascii | 86 | hierarchy | CONVERT | MessageHouse — the central claim and its three message pillars | 86 | Rule 1a. D-10: name them distinctly from the four strategic and four production pillars. |
-| `messaging:7.1.1:01` | list | 226 | argument | KEEP-PROSE | — |  |  |
-| `messaging:7.1.1:02` | list | 152 | argument | KEEP-PROSE | — |  |  |
-| `messaging:7.1.1:03` | callout | 211 | argument | KEEP-PROSE | — |  |  |
-| `messaging:7.1.1:04` | list | 157 | argument | KEEP-PROSE | — |  |  |
-| `messaging:7.1.1:05` | callout | 40 | argument | KEEP-PROSE | — |  |  |
-| `messaging:7.1.4:00` | ascii | 194 | decision | CONVERT | Response playbook — DecisionTree | 194 | Rule 1a. |
+| `messaging:7.1:02` | figure | 2 | argument | KEEP-PROSE | — |  |  |
+| `messaging:7.1.1:00` | list | 226 | argument | KEEP-PROSE | — |  |  |
+| `messaging:7.1.1:01` | list | 152 | argument | KEEP-PROSE | — |  |  |
+| `messaging:7.1.1:02` | callout | 211 | argument | KEEP-PROSE | — |  |  |
+| `messaging:7.1.1:03` | list | 157 | argument | KEEP-PROSE | — |  |  |
+| `messaging:7.1.1:04` | callout | 40 | argument | KEEP-PROSE | — |  |  |
+| `messaging:7.1.4:00` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `messaging:7.1.4:01` | prose | 1 | argument | KEEP-PROSE | — |  |  |
 | `messaging:7.2.1:00` | prose | 25 | argument | KEEP-PROSE | — |  |  |
 | `messaging:7.2.1:01` | prose | 34 | argument | KEEP-PROSE | — |  |  |
@@ -404,10 +403,10 @@ FIX — a defect, not a conversion.
 | `messaging:7.3:01` | prose | 45 | argument | KEEP-PROSE | — |  |  |
 | `messaging:7.3.1:00` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `messaging:7.3.2:00` | prose | 34 | argument | KEEP-PROSE | — |  |  |
-| `messaging:7.3.2:01` | ascii | 161 | comparison | CONVERT | Register and dialect Matrix | 161 | Rule 1a. |
+| `messaging:7.3.2:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `messaging:7.3.2:02` | list | 95 | argument | KEEP-PROSE | — |  |  |
 | `messaging:7.3.3:00` | prose | 21 | argument | KEEP-PROSE | — |  |  |
-| `messaging:7.3.3:01` | ascii | 129 | process | CONVERT | Stepper — the production and QC pipeline | 129 | Rule 1a. |
+| `messaging:7.3.3:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `messaging:7.3.4:00` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 
 ## scope — 10 blocks, 1,065 words, 0 retired

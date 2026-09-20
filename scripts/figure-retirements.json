@@ -624,6 +624,188 @@
         "│ 7. Formal Policy Manifesto │ **100% English**            │ Abridged 12-page summaries in Kikamba & Swahili  │",
         "└────────────────────────────┴─────────────────────────────┴──────────────────────────────────────────────────┘"
       ]
+    },
+    {
+      "id": "messaging-7-1-hierarchy",
+      "section": "§7.1",
+      "was": "A box-drawing hierarchy headed CAMPAIGN MESSAGE ARCHITECTURE HIERARCHY — the central claim over three message pillars, each with a proof point.",
+      "replacedBy": [
+        "message-house"
+      ],
+      "facts": [
+        "The central claim: \"The Proven Economist for Kitui's Economy: Clean Hands, Real Jobs, and Lasting Wealth\"",
+        "Message pillar 1, Integrity & Prudence — proof point: 13 years clean CDF audit certificates (Auditor-General)",
+        "Message pillar 2, Jobs & Wealth — proof point: KNBS census and sub-county value-add investment model",
+        "Message pillar 3, Devolution & Water — proof point: equal ward fund allocation, Ksh 100M per ward guarantee",
+        "That the three pillars hang from the one claim"
+      ],
+      "note": "Retired together with the §7.1.1 slogan box eleven lines below it, because the two are halves of one message house: this block states the pillars without the translations, that one states the translations without the pillars. The figure is the only mark in this pass whose SHAPE is load-bearing — a message house is a hierarchy, and drawing it as a list would lose the thing the diagram was for. It draws no connector lines: position carries the relationship and the heading says it in words, where the ASCII elbows would have to be redrawn at every reflow.",
+      "lines": [
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "                     CAMPAIGN MESSAGE ARCHITECTURE HIERARCHY",
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "",
+        "                               THE CENTRAL CLAIM",
+        "                  \"The Proven Economist for Kitui's Economy:",
+        "            Clean Hands, Real Jobs, and Lasting Wealth\"    ",
+        "                                      │",
+        "         ┌────────────────────────────┼────────────────────────────┐",
+        "         ▼                            ▼                            ▼",
+        "   MESSAGE PILLAR 1:            MESSAGE PILLAR 2:            MESSAGE PILLAR 3:",
+        "   INTEGRITY & PRUDENCE         JOBS & WEALTH                DEVOLUTION & WATER",
+        " ┌──────────────────────┐     ┌──────────────────────┐     ┌──────────────────────┐",
+        " │ Proof Point:         │     │ Proof Point:         │     │ Proof Point:         │",
+        " │ 13 Years Clean CDF   │     │ KNBS Census &        │     │ Equal Ward Fund      │",
+        " │ Audit Certificates   │     │ Sub-County Value-Add │     │ Allocation (Ksh 100M/│",
+        " │ (Auditor-General)    │     │ Investment Model     │     │ Ward Guarantee)      │",
+        " └──────────────────────┘     └──────────────────────┘     └──────────────────────┘",
+        "════════════════════════════════════════════════════════════════════════════════════"
+      ]
+    },
+    {
+      "id": "messaging-7-1-1-claim",
+      "section": "§7.1.1",
+      "was": "A box headed CENTRAL CAMPAIGN CLAIM & SLOGAN — the claim in English, Kikamba and Kiswahili, with the primary evidence beneath it.",
+      "replacedBy": [
+        "message-house"
+      ],
+      "facts": [
+        "English: \"The Proven Economist for Kitui's Economy: Clean Hands, Real Jobs, and Lasting Wealth.\"",
+        "Kikamba: \"Muvisi wa Mbee wa Utonga na Kazi: Mbee wa Mbee na Wathi Mumo.\"",
+        "Kiswahili: \"Uchumi Bora na Kazi: Uongozi wa Uwazi na Maendeleo ya Kweli.\"",
+        "Primary evidence: 13-year legislative record as Vice-Chair / Ranking Member of the National Assembly Departmental Committee on Finance & National Planning and Public Debt & Privatization"
+      ],
+      "note": "THE THREE LANGUAGE VERSIONS ARE TRANSCRIBED CHARACTER FOR CHARACTER, including the Kikamba orthography, and printed at equal weight rather than with English first and large. §7.3.1 puts 76% of the county's primary reach in Kikamba and §7.3.2 forbids machine translation of it outright, requiring a named cultural sign-off for every vernacular line — so a figure that treated the Kikamba slogan as a footnote to the English one would invert the document's own argument about which version does the work. The figure sits at §7.1 rather than §7.1.1 because that is where the hierarchy it completes was.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────┐",
+        "│                       CENTRAL CAMPAIGN CLAIM & SLOGAN                       │",
+        "├─────────────────────────────────────────────────────────────────────────────┤",
+        "│ English:  \"The Proven Economist for Kitui's Economy: Clean Hands, Real Jobs,│",
+        "│            and Lasting Wealth.\"                                             │",
+        "│ Kikamba:  \"Muvisi wa Mbee wa Utonga na Kazi: Mbee wa Mbee na Wathi Mumo.\"   │",
+        "│ Swahili:  \"Uchumi Bora na Kazi: Uongozi wa Uwazi na Maendeleo ya Kweli.\"    │",
+        "│ Primary Evidence: 13-year legislative record as Vice-Chair/Ranking Member of│",
+        "│                   the National Assembly Departmental Committee on Finance & │",
+        "│                   National Planning and Public Debt & Privatization.        │",
+        "└─────────────────────────────────────────────────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "messaging-7-1-4-counter-fire",
+      "section": "§7.1.4",
+      "was": "A box-drawing table headed GROUND RUMOR VS. FACTUAL COUNTER-FIRE PROTOCOL — three competitor rumours paired with the factual, evidence-backed answer to each.",
+      "replacedBy": [
+        "counter-fire"
+      ],
+      "facts": [
+        "Rumour 1: Dr. Mulu is only interested in Kitui Central and will neglect Northern/Southern wards — answered with the Hansard record on equal revenue allocation for all 47 counties and national water subsidies for ASAL regions, plus the legally binding Ward Equalization Fund guarantee (Ksh 100M/yr)",
+        "Rumour 2: economists only care about numbers, not the poor — answered with 13 years of Kitui Central CDF, 12,573 bursary recipients and KSh 47m (Tier 1, §2.1.1), and village boreholes",
+        "That the bursary answer ends 'Share pending the ledger'",
+        "Rumour 3: he is not politically aligned with Kalonzo Musyoka / Azimio — answered with his standing as a senior founding parliamentary stalwart of the Wiper Democratic Movement"
+      ],
+      "note": "Drawn as PAIRS rather than two columns, because the pairing is the whole content and a two-column grid shears the moment one cell grows taller than its partner — which would put a rumour beside the wrong rebuttal. The 'Share pending the ledger' line is kept exactly: it is the document declining to claim a proportion it has not verified, inside its own counter-messaging table, and it is the most creditable sentence in the block.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────┐",
+        "│                 GROUND RUMOR VS. FACTUAL COUNTER-FIRE PROTOCOL              │",
+        "├────────────────────────────────┬────────────────────────────────────────────┤",
+        "│ Competitor Ground Rumor        │ Factual Evidence-Backed Counter-Fire       │",
+        "├────────────────────────────────┼────────────────────────────────────────────┤",
+        "│ *\"Dr. Mulu is only interested  │ • **FACT:** As MP, Dr. Mulu defended       │",
+        "│   in Kitui Central and will    │   equal revenue allocation for all 47      │",
+        "│   neglect Northern/Southern    │   counties and sponsored national water    │",
+        "│   wards.\"*                     │   subsidies for ASAL regions (Hansard).    │",
+        "│                                │ • **COMMITMENT:** Legally binding Ward     │",
+        "│                                │   Equalization Fund guarantee (Ksh 100M/yr)│",
+        "├────────────────────────────────┼────────────────────────────────────────────┤",
+        "│ *\"Economists only care about   │ • **FACT:** 13 years of Kitui Central CDF  │",
+        "│   numbers, not the poor.\"*     │   directed the majority of funds to needy  │",
+        "│                                │   student bursaries — 12,573 recipients,   │",
+        "│                                │   KSh 47m (Tier 1, §2.1.1) — and village   │",
+        "│                                │   boreholes. Share pending the ledger.     │",
+        "├────────────────────────────────┼────────────────────────────────────────────┤",
+        "│ *\"He is not politically        │ • **FACT:** Dr. Mulu is a senior founding  │",
+        "│   aligned with Kalonzo         │   parliamentary stalwart of the Wiper      │",
+        "│   Musyoka / Azimio.\"*          │   Democratic Movement, trusted by Party    │",
+        "│                                │   Leader Kalonzo Musyoka on national budget│",
+        "│                                │   and economic coalition planning.         │",
+        "└────────────────────────────────┴────────────────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "messaging-7-3-2-registers",
+      "section": "§7.3.2",
+      "was": "A box-drawing table headed CULTURAL REGISTERS & PROVERBIAL FRAMING PROTOCOL — four English technical terms, the literal translation that fails, and the approved Kikamba framing with its gloss.",
+      "replacedBy": [
+        "cultural-registers"
+      ],
+      "facts": [
+        "Fiscal Prudence & Integrity — bad: Kũũsũvĩa mbesa nesa (too generic/bureaucratic); approved: Kĩtĩo kya Kũthũkũma na Moko Matheũ (The Honor of Public Service with Clean Hands)",
+        "Household Economic Empowerment — bad: Kũnenga andũ mbesa (sounds like handouts); approved: Ũtonga wa Mĩsyĩ na Mbũi Mĩĩtĩ (Sustainable Wealth Rooted in Household Farms)",
+        "Devolution Equity & Ward Equalization — bad: Kũgawanya mbesa sya ward (mechanical division); approved: Kĩla Kĩtheka na Mwanya Wayo: Mumo kwa Onthe (Every Ridge its Equal Share: Prosperity for All)",
+        "Youth Technical & Vocational Training — bad: Masomo ma amwanake (schooling only); approved: Wathi wa Mwanake: Moko ma Kũseũvya Wĩa (Youth Mastery: Practical Hands that Build Work)"
+      ],
+      "note": "THE ORTHOGRAPHY IS THE DATA. Every Kikamba string is transcribed with its diacritics exactly as §7.3.2 prints them: ĩ and ũ are distinct letters, not decorated vowels. §7.3.2's own second rule of engagement forbids machine translation of Kikamba precisely because automated handling destroys this, so a figure that normalised them would be committing the failure the section warns about. Same PairedRows mark as §7.1.4 — both tables are the same shape: something wrong on the left, what to say instead on the right.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                             CULTURAL REGISTERS & PROVERBIAL FRAMING PROTOCOL                                │",
+        "├──────────────────────────┬─────────────────────────────┬────────────────────────────────────────────────────┤",
+        "│ English Technical Term   │ Literal / Bad Translation   │ Approved Cultural Kikamba Framing & Idiom          │",
+        "├──────────────────────────┼─────────────────────────────┼────────────────────────────────────────────────────┤",
+        "│ 1. \"Fiscal Prudence &    │ \"Kũũsũvĩa mbesa nesa\"       │ **\"Kĩtĩo kya Kũthũkũma na Moko Matheũ\"**           │",
+        "│    Integrity\"            │ (Too generic/bureaucratic)  │ (*\"The Honor of Public Service with Clean Hands\"*) │",
+        "├──────────────────────────┼─────────────────────────────┼────────────────────────────────────────────────────┤",
+        "│ 2. \"Household Economic   │ \"Kũnenga andũ mbesa\"        │ **\"Ũtonga wa Mĩsyĩ na Mbũi Mĩĩtĩ\"**               │",
+        "│    Empowerment\"          │ (Sounds like handouts)      │ (*\"Sustainable Wealth Rooted in Household Farms\"*)  │",
+        "├──────────────────────────┼─────────────────────────────┼────────────────────────────────────────────────────┤",
+        "│ 3. \"Devolution Equity &  │ \"Kũgawanya mbesa sya ward\"  │ **\"Kĩla Kĩtheka na Mwanya Wayo: Mumo kwa Onthe\"**  │",
+        "│    Ward Equalization\"    │ (Mechanical division)       │ (*\"Every Ridge its Equal Share: Prosperity for All\"│",
+        "├──────────────────────────┼─────────────────────────────┼────────────────────────────────────────────────────┤",
+        "│ 4. \"Youth Technical &    │ \"Masomo ma amwanake\"        │ **\"Wathi wa Mwanake: Moko ma Kũseũvya Wĩa\"**       │",
+        "│    Vocational Training\"  │ (Schooling only)            │ (*\"Youth Mastery: Practical Hands that Build Work\"*)│",
+        "└──────────────────────────┴─────────────────────────────┴────────────────────────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "messaging-7-3-3-qc",
+      "section": "§7.3.3",
+      "was": "A box-drawing chain headed MULTILINGUAL APPROVAL & SIGN-OFF CHAIN — four stages from English master draft to executive clearance.",
+      "replacedBy": [
+        "qc-gateway"
+      ],
+      "facts": [
+        "Stage 1: policy team drafts the English master; verified by the Legal & Economic Lead for empirical accuracy",
+        "Stage 2: parallel adaptation, not literal translation — lead Kikamba writer and Swahili/Sheng specialist draft in parallel",
+        "Stage 3: reverse-translation integrity audit — an independent reviewer translates back into English to verify no policy commitment was distorted, inflated or omitted",
+        "Stage 4: mandatory Kikamba cultural sign-off by the Lead Cultural & Vernacular Communications Advisor (native Kamba elder / senior vernacular broadcaster), then final sign-off by the Campaign Manager before release"
+      ],
+      "note": "The numbers stay. The brief forbids numbered markers unless there is a real sequence, and this is one: the reverse-translation audit cannot run before the adaptation it audits exists, and the cultural sign-off is the last gate before release. Each stage carries its own steps rather than a summary, because the section's own point is that a three-language operation drifts unless every gate is specified.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────┐",
+        "│                    MULTILINGUAL APPROVAL & SIGN-OFF CHAIN                   │",
+        "└─────────────────────────────────────────────────────────────────────────────┘",
+        "",
+        "  STAGE 1: ENGLISH MASTER SOURCE DRAFTING",
+        "  ───────────────────────────────────────",
+        "  • Policy Team crafts core English policy brief, Hansard citation, or release.",
+        "  • Verified by Legal & Economic Lead for empirical accuracy.",
+        "",
+        "  STAGE 2: PARALLEL ADAPTATION (NOT LITERAL TRANSLATION)",
+        "  ──────────────────────────────────────────────────────",
+        "  • Lead Kikamba Writer drafts culturally resonant vernacular version.",
+        "  • Swahili/Sheng Specialist drafts street-smart and market versions.",
+        "",
+        "  STAGE 3: REVERSE-TRANSLATION INTEGRITY AUDIT",
+        "  ───────────────────────────────────────────",
+        "  • Independent reviewer translates vernacular draft back into English to verify",
+        "    that no policy commitments were distorted, inflated, or omitted.",
+        "",
+        "  STAGE 4: KIKAMBA CULTURAL SIGN-OFF & EXECUTIVE CLEARANCE",
+        "  ────────────────────────────────────────────────────────",
+        "  • **Mandatory Sign-Off Authority for Kikamba Copy:**",
+        "    *Lead Cultural & Vernacular Communications Advisor (Native Kamba Elder /",
+        "    Senior Vernacular Broadcaster)*.",
+        "  • Final sign-off by Campaign Manager before release to audio studio/print."
+      ]
     }
   ]
 }

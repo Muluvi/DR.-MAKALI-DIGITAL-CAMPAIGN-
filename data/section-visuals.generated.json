@@ -1202,38 +1202,6 @@
    ]
   }
  },
- "messaging-sec-7-3-3": {
-  "id": "messaging-sec-7-3-3",
-  "tab": "messaging",
-  "level": 3,
-  "number": "7.3.3",
-  "title": "The production and quality-control pipeline",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "ENGLISH MASTER SOURCE DRAFTING",
-     "body": ""
-    },
-    {
-     "n": 2,
-     "label": "PARALLEL ADAPTATION (NOT LITERAL…",
-     "body": ""
-    },
-    {
-     "n": 3,
-     "label": "REVERSE-TRANSLATION INTEGRITY AUDIT",
-     "body": ""
-    },
-    {
-     "n": 4,
-     "label": "KIKAMBA CULTURAL SIGN-OFF & EXECUTIVE…",
-     "body": ""
-    }
-   ]
-  }
- },
  "scope-sec-8-0-2": {
   "id": "scope-sec-8-0-2",
   "tab": "scope",

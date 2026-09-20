@@ -153,5 +153,9 @@
   {
     "figure": "83496|",
     "movedTo": "Moved from the §3.4.5 cross-match block into the RecognitionDeficitOverlay panel mounted at that heading (scripts/figure-retirements.json, arithmetic-3-4-5-cross-match), which COMPUTES it as the sum of the deficit wards inside the top 11 — Kyuso 19,921, Tseikuru 16,471, Mumoni 15,877, Athi 15,843, Ikanga/Kyatune 15,384 — from data/ward-register.json rather than reprinting it. The panel had stated the overlap only in the top-8 window (4 wards, 68,112) before this pass; both windows are now shown, which is what makes the §3.4.6 summary's \"5 of top 8\" legible as the conflict it is (C-5). PRINT REACH VERIFIED, not assumed: emulating print on /arithmetic finds 83,496 in the rendered text, along with every other fact on that block's retirement checklist."
+  },
+  {
+    "figure": "47|",
+    "movedTo": "Moved from the §7.1.4 GROUND RUMOR VS. FACTUAL COUNTER-FIRE table into the `counter-fire` figure (scripts/figure-retirements.json, messaging-7-1-4-counter-fire). It is the 47 of “all 47 counties” in the Hansard rebuttal — the number of counties in Kenya, not a campaign figure — and the rebuttal is transcribed word for word, so the phrase is intact in lib/figures/messaging.ts. PRINT REACH VERIFIED, not assumed: emulating print on /messaging finds “all 47 counties” in the rendered text, along with 12,573, KSh 47m and the “Share pending the ledger” line that ends the same rebuttal."
   }
 ]

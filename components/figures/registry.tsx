@@ -1,5 +1,18 @@
 import { FigureFrame } from "./FigureFrame";
-import { Allocation, BarList, BuildUp, GapBar, Ledger, RangeBars, RegisterGroups, ShareBar, SlopeChart } from "./marks";
+import {
+  Allocation,
+  BarList,
+  BuildUp,
+  GapBar,
+  Ledger,
+  MessageHouse,
+  PairedRows,
+  RangeBars,
+  RegisterGroups,
+  ShareBar,
+  SlopeChart,
+  Stepper,
+} from "./marks";
 import { CONSTITUENCIES } from "../../data/ward-register";
 import {
   COALITION_PATHS,
@@ -21,6 +34,18 @@ import { REGISTER_GROWTH_SERIES, THRESHOLD_SERIES } from "../../lib/figures/thre
 import { TARGETING_SERIES, TARGETING_SUMMARY } from "../../lib/figures/targeting";
 import { BYPASS_PILLARS, BYPASS_STATIONS, RADIO_GATEKEEPERS } from "../../lib/figures/media";
 import { LANGUAGES, LANGUAGE_DEPLOYMENT, LANGUAGE_SPLIT } from "../../lib/figures/language";
+import {
+  CENTRAL_CLAIM,
+  CLAIM_EVIDENCE,
+  COUNTER_FIRE,
+  COUNTER_FIRE_SERIES,
+  CULTURAL_REGISTERS,
+  MESSAGE_HOUSE,
+  MESSAGE_PILLARS,
+  QC_SERIES,
+  QC_STAGES,
+  REGISTERS_SERIES,
+} from "../../lib/figures/messaging";
 import {
   DIGITAL_REACH,
   DIGITAL_SHORTFALL,
@@ -240,6 +265,54 @@ export const FIGURES: Record<string, FigureEntry> = {
           fromLabel="Traditional pitch"
           toLabel="Rebalanced — §3.6.3"
         />
+      </FigureFrame>
+    ),
+  },
+
+  "counter-fire": {
+    note: "§7.1.4 — three ground rumours paired with the evidence that answers each.",
+    render: () => (
+      <FigureFrame series={COUNTER_FIRE_SERIES}>
+        <PairedRows
+          leftLabel="Competitor ground rumour"
+          rightLabel="Factual evidence-backed counter-fire"
+          rows={COUNTER_FIRE.map((r) => ({ left: r.rumour, right: r.answers, note: r.note }))}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "cultural-registers": {
+    note: "§7.3.2 — four terms, the literal translation that fails, and the approved Kikamba idiom.",
+    render: () => (
+      <FigureFrame series={REGISTERS_SERIES}>
+        <PairedRows
+          leftLabel="Literal / bad translation"
+          rightLabel="Approved cultural Kikamba framing"
+          rows={CULTURAL_REGISTERS.map((r) => ({
+            left: r.literal,
+            leftSub: `${r.literalWhy} — for “${r.term}”`,
+            right: [r.approved, `“${r.gloss}”`],
+          }))}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "qc-gateway": {
+    note: "§7.3.3 — the four gates between an English draft and a Kikamba broadcast.",
+    render: () => (
+      <FigureFrame series={QC_SERIES}>
+        <Stepper stages={QC_STAGES} />
+      </FigureFrame>
+    ),
+  },
+
+  "message-house": {
+    note: "§7.1 — the central claim in three languages over its three pillars.",
+    render: () => (
+      <FigureFrame series={MESSAGE_HOUSE}>
+        <MessageHouse claim={CENTRAL_CLAIM} evidence={CLAIM_EVIDENCE} pillars={MESSAGE_PILLARS} />
       </FigureFrame>
     ),
   },
