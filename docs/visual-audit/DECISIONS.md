@@ -12,34 +12,56 @@ collapses text, every word is still on the page, one tap away.
 
 ## D-1 — Duplicates: delete, or leave collapsed?
 
-**Default applied: collapse to a `CrossRef`.** One line, a section link, and an expandable excerpt.
-Nothing is deleted until Firefly says so, because rule 1b says a duplicate is collapsed and not cut.
+**Built and shipped: collapsed to a `CrossRef`.** One line naming where the reader met the
+paragraph first, and the paragraph itself one tap away. Nothing is deleted, so nothing here waits
+on Firefly.
 
-The measured cost of leaving them: **718 words** across 11 blocks, all still rendered, plus the
-component-level repetitions below which are not counted in that figure.
+**Three repetitions, not eleven.** This entry originally tabled eleven. Re-derived from the content
+by `scripts/find-duplicates.mjs`, three survive — the restructure and the retirement of 67 ASCII
+blocks removed the rest. A hand-kept list of duplicates in a document being restructured is a list
+of things that used to be true, so the list is now derived on every build and the guard fails if it
+disagrees with the content in either direction.
 
-| # | Where | What | How close |
-|---|---|---|---|
-| 1 | §0.1 → §2.1 ¶3 | "Dr. Mulu is already in the conversation…" | **Verbatim** |
-| 2 | §0.1 → §2.1 ¶4 | "Firefly supplies that layer…" | Near-verbatim |
-| 3 | §0.1 → §2.4 opening | "What Firefly does not ask you to believe" | Near-verbatim |
-| 4 | §0.2 → §3.3.2 | The counter-evidence the diagnosis must survive | Near-verbatim |
-| 5 | §0.3 → §8.0.3 last ¶ | The Level 2 paragraph | Near-verbatim (also **D-3**) |
-| 6 | §0.3, §2.4, §8.0 | six / six / two | Restated three times (also **C-12**) |
-| 7 | §2.3 constraint 2 → §2.2 | The governing constraint | Restated |
-| 8 | §3.3.3 → §3.4.3 Path A | "Mwingi bloc pivot" | Same finding, same numbers |
-| 9 | §3.5 panel → §3.5.2 ¶1 | "Zone strategic imperative" | **Verbatim** |
-| 10 | §13.2.2 → §13.4.2 | Both headed "Monitoring tools" | Same list, twice |
-| 11 | §3.7.1 → §8.7.1 | Station ownership | Same table, twice |
+| # | Reader meets it first | Collapsed copy | Overlap | What it is |
+|---|---|---|---|---|
+| 1 | §0.1 The ask | §2.1 The mandate | **1.00** | "Dr. Mulu is already in the conversation…", 59 words, word for word |
+| 2 | §0.1 The ask | §2.4 What this proposal commits to | 0.70 | The method-not-outcome commitment, said twice in different words |
+| 3 | §8.0 What Firefly owns | §10.1 Scope levels | 0.81 | The Level 2 recommendation with the same reasoning on both sides (also **D-3**) |
 
-Two statements repeat far more widely than the table shows, and both are load-bearing:
+**Which side collapses is a reading-order judgement**, made in `data/duplicates.json` rather than
+by the detector, which walks the chapters alphabetically. The duplicate is the copy the reader
+reaches *second*: collapsing the first would point them forward at something they have not read,
+which is worse than the repetition.
 
-- **The Tier 3 "opinion poll, unconfirmed" statement — six places**: §0.1, §2.2, §2.3, §3.1, §3.1.1,
-  §3.1.2. §3.1 becomes the canonical status card; the other five become a badge and a link.
-- **The 86.4% / 13.6% statement — twelve chapters**, listed in **C-13**. This one cannot simply be
-  collapsed, because the rate itself is disputed. It needs C-13 answered first.
+**The mechanism took three attempts, and the first two failed the same test.** A collapsed
+duplicate that vanishes from the printed kit is a deletion Firefly never approved, so each was
+measured under print emulation rather than assumed:
 
-**If you want deletion rather than collapse,** say which numbers above and it is one commit.
+1. *grid-rows 0fr→1fr with a print override.* The override worked — `grid-template-rows` resolved
+   to `1fr` under `@media print` — and the element still measured zero. The paragraph did not print.
+2. *A plain closed `<details>`.* `globals.css` already carries
+   `details:not([open]) > *:not(summary) { display: revert }` for print. Measured: 39px of
+   disclosure against a 37px summary. The body was absent. Chrome hides a closed `details`'s
+   contents through content-visibility on a UA slot, which no author CSS reaches.
+3. **Ships open, closed by script.** The server renders `<details open>` with the whole paragraph.
+   `CrossRefCollapse` closes them once on mount and reopens them on `beforeprint`, restoring the
+   reader's own choices on `afterprint`.
+
+So the complete document is the default and the collapse is the enhancement, which is the right way
+round for a rule that says *nothing is deleted*. Verified: after hydration both cross-references on
+`/summary` are shut; on `beforeprint` both reopen and their text is in the rendered page; with
+JavaScript disabled entirely, both are open and the text is there.
+
+**Two statements repeat more widely than paragraph matching can see**, and both are still open:
+
+- **The Tier 3 "opinion poll, unconfirmed" statement.** §3.1 is the canonical status card; the
+  other places should become a badge and a link. Not built — it is a phrase-level repetition
+  inside differently-worded paragraphs, which this mechanism does not reach.
+- **The 86.4% / 13.6% statement, twelve chapters**, listed in **C-13**. It cannot be collapsed
+  while the rate itself is disputed: a cross-reference pointing at one of two contradictory
+  numbers would settle C-13 by sleight of hand.
+
+**If you want deletion rather than collapse,** say which of the three and it is one commit.
 
 ---
 

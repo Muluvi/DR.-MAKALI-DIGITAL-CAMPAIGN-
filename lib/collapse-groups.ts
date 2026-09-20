@@ -326,3 +326,60 @@ export function segmentContent(markdown: string, { isClosingSection = false } = 
   flush();
   return segments;
 }
+
+/* ------------------------------------------------------------------ rule 1b: cross-references */
+
+import duplicatesFile from "../data/duplicates.json";
+
+/**
+ * A paragraph the reader has already read, folded behind a line naming where they read it.
+ *
+ * RULE 1b SAYS A DUPLICATE IS COLLAPSED, NOT CUT, and this is the whole of the mechanism. The
+ * second copy stays in the markdown, stays in the DOM and stays in the printed kit; what changes
+ * is that it arrives as one line — "§2.1 restates §0.1" — with the text itself one tap away.
+ * Nothing is deleted, so nothing needs Firefly's approval before it ships.
+ *
+ * It is keyed on the paragraph's opening 60 characters rather than a marker in the markdown,
+ * because the content is under an integrity guard and must not be edited to carry one. That makes
+ * the match fragile by construction, which is why `scripts/find-duplicates.mjs --check` re-derives
+ * the whole set on every build: a declaration whose paragraph has moved or been reworded fails
+ * there rather than silently collapsing nothing, or the wrong thing.
+ */
+export type DuplicateDeclaration = {
+  id: string;
+  score: number;
+  note: string;
+  canonical: { chapter: string; section: string; href: string; opening: string; words: number };
+  duplicate: { chapter: string; section: string; opening: string; words: number };
+};
+
+const DUPLICATES = (duplicatesFile as { duplicates: DuplicateDeclaration[] }).duplicates;
+
+/** The declarations whose second copy lives in this chapter. */
+export function duplicatesIn(chapter: string): DuplicateDeclaration[] {
+  return DUPLICATES.filter((d) => d.duplicate.chapter === chapter);
+}
+
+/**
+ * The declaration whose duplicate paragraph starts with this text, if any.
+ *
+ * MATCHED AT RENDER, NOT AT SEGMENTATION, and the difference matters. A first attempt split the
+ * `markdown` segments and found nothing: almost every paragraph in this document lives inside a
+ * `brief` segment, because Brief mode splits every subsection into a lead and the rest. Matching
+ * in the paragraph renderer instead reaches the text wherever segmentation put it — markdown,
+ * brief, fold or disclosure panel — and leaves reading order exactly as the author wrote it,
+ * which lifting a paragraph out of a fold would not.
+ *
+ * The comparison folds whitespace, because markdown paragraphs wrap in the source and arrive
+ * unwrapped, and strips the emphasis markers ReactMarkdown has already turned into elements.
+ */
+const foldForMatch = (s: string) => s.replace(/\s+/g, " ").replace(/[*_`]/g, "").trim();
+
+export function crossRefFor(chapter: string, paragraphText: string): DuplicateDeclaration | null {
+  const text = foldForMatch(paragraphText);
+  for (const d of DUPLICATES) {
+    if (d.duplicate.chapter !== chapter) continue;
+    if (text.startsWith(foldForMatch(d.duplicate.opening))) return d;
+  }
+  return null;
+}

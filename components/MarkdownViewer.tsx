@@ -90,7 +90,9 @@ import { MediaRadioLandscapeCard } from "./markdown/MediaRadioLandscapeCard";
 import { DataSecurityEthicsCharter } from "./markdown/DataSecurityEthicsCharter";
 import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, type TabId } from "../lib/heading-slug";
-import { segmentContent } from "../lib/collapse-groups";
+import { crossRefFor, segmentContent } from "../lib/collapse-groups";
+import { CrossRef } from "./CrossRef";
+import { CrossRefCollapse } from "./CrossRefCollapse";
 import { DisclosureGroup } from "./markdown/DisclosureGroup";
 import { ObjectivesIndex } from "./markdown/ObjectivesIndex";
 import { ProseFold } from "./markdown/ProseFold";
@@ -496,6 +498,27 @@ function buildComponents(tabId: TabId): Components {
               if (className === "section-kicker") {
                 return <p className="eyebrow-label not-prose">{children}</p>;
               }
+              /**
+               * Rule 1b: a paragraph the reader has already read arrives as one line.
+               *
+               * Matched here rather than during segmentation because almost every paragraph in
+               * this document lives inside a Brief fold, and splitting the markdown segments
+               * found none of them. Nothing is deleted — the paragraph is the child, in full,
+               * and CrossRef forces itself open for print and with JavaScript off.
+               */
+              const repeat = crossRefFor(tabId, getDeepText(children));
+              if (repeat) {
+                return (
+                  <CrossRef
+                    section={repeat.canonical.section}
+                    href={repeat.canonical.href}
+                    words={repeat.duplicate.words}
+                    verbatim={repeat.score >= 0.99}
+                  >
+                    <MarkdownParagraph tabId={tabId}>{children}</MarkdownParagraph>
+                  </CrossRef>
+                );
+              }
               return <MarkdownParagraph tabId={tabId}>{children}</MarkdownParagraph>;
             },
             blockquote: ({ children }) => {
@@ -649,6 +672,9 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
             </DisclosureGroup>
           );
         })}
+
+        {/* Rule 1b's cross-references ship open and are closed by script — see CrossRefCollapse. */}
+        <CrossRefCollapse />
 
         {/* The ask closes the document, inside the prose flow. It used to sit in the footer
             chrome below a rule, next to the print widget — which framed a vendor's closing

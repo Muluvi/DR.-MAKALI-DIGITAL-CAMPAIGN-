@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "clean": "next clean",
-    "verify": "node scripts/build-section-visuals.mjs && node scripts/verify-ward-register.mjs && node scripts/verify-analysis-exports.mjs && node scripts/verify-figures.mjs && node scripts/verify-figure-fences.mjs && node scripts/verify-figure-retention.mjs && node scripts/verify-content-integrity.mjs && node scripts/verify-mounts.mjs && node scripts/verify-deep-links.mjs && node scripts/visual-coverage.mjs --check && npm run test:figures",
+    "verify": "node scripts/build-section-visuals.mjs && node scripts/verify-ward-register.mjs && node scripts/verify-analysis-exports.mjs && node scripts/verify-figures.mjs && node scripts/verify-figure-fences.mjs && node scripts/find-duplicates.mjs --check && node scripts/verify-figure-retention.mjs && node scripts/verify-content-integrity.mjs && node scripts/verify-mounts.mjs && node scripts/verify-deep-links.mjs && node scripts/visual-coverage.mjs --check && npm run test:figures",
     "prebuild": "node scripts/build-section-visuals.mjs",
     "test:figures": "node --experimental-strip-types --test lib/figures/figures.test.ts"
   },

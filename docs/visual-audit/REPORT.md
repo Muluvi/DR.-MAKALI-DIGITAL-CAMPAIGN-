@@ -240,6 +240,33 @@ build when a heading has no figure, it fails when a retired kind comes back.
   sideways on a phone and clipped its own labels — are one server-rendered strip.
 - 14 components implementing denied effects were deleted outright, with their four files.
 
+### 2.6 Duplicates are collapsed, not deleted
+
+**Three paragraphs now arrive as one line each**, naming the section the reader met them in first,
+with the text itself one tap away. Nothing is removed, so nothing waits on Firefly.
+
+| Reader meets it first | Collapsed copy | Overlap |
+|---|---|---|
+| §0.1 The ask | §2.1 The mandate | **1.00** — 59 words, word for word |
+| §0.1 The ask | §2.4 What this proposal commits to | 0.70 |
+| §8.0 What Firefly owns | §10.1 Scope levels | 0.81 |
+
+**D-1 tabled eleven of these; three survive.** The restructure and the retirement of 67 ASCII
+blocks removed the rest, and the hand-written list had quietly gone stale. It is derived now:
+`scripts/find-duplicates.mjs` re-runs the detection on every build and fails if `duplicates.json`
+declares a repetition that is gone or misses one that is there.
+
+**The mechanism took three attempts**, because a collapsed duplicate that vanishes from the printed
+kit is a deletion nobody approved, and the first two did exactly that — measured under print
+emulation, not assumed. The grid-rows technique computed its print override correctly and still
+measured zero; a plain closed `details` measured 39px against a 37px summary, its body absent,
+because Chrome hides closed-disclosure content through a UA slot no author CSS reaches. What ships
+renders `<details open>` from the server and closes it with script, reopening on `beforeprint`. The
+complete document is the default; the collapse is the enhancement. **With JavaScript off, every
+cross-reference is open.**
+
+---
+
 ### 2.5 One number went the wrong way, and it should have
 
 **The `/full` DOM carries 79,048 words, up from 71,291 at baseline — 10.9% more.** That is the
@@ -374,10 +401,11 @@ Stated plainly, because a report that implies otherwise is worth less than no re
 **The ASCII blocks are done — all 67 of them.** That was the largest item on this list through
 most of this pass, and it is closed. What remains:
 
-- **Duplicates are inventoried, not yet collapsed.** D-1 lists 11 blocks (718 words) plus the Tier 3
-  poll statement in six places and the 86.4% statement in twelve chapters. `CrossRef` is specified;
-  it is not built. The 86.4% case cannot be collapsed until C-13 is answered anyway. This is now the
-  largest thing outstanding.
+- **Two phrase-level repetitions are still open.** The paragraph-level ones are collapsed (§2.6
+  below); the Tier 3 poll statement and the 86.4% statement repeat as phrases inside differently
+  worded paragraphs, which the matcher does not reach. The 86.4% case cannot be collapsed while
+  C-13 is unanswered anyway — a cross-reference pointing at one of two contradictory numbers would
+  settle the conflict by sleight of hand.
 - **The desktop figure rail** (Phase 5 item 5) is not built. Figures stack on all widths.
 - **INP** was not measured directly; LCP, CLS and FCP were.
 - **Twenty-two conflicts are logged and none is resolved**, which is correct — hard rule 2 puts
@@ -392,13 +420,14 @@ box-drawing ones; every CONVERT block in it is done. The state is **11,433 words
 
 ## 6. Verification
 
-`npm run verify` — ten guards and 38 arithmetic assertions, all passing:
+`npm run verify` — eleven guards and 38 arithmetic assertions, all passing:
 
 ```
 Ward register integrity ... 40 wards across 8 constituencies sum to 532,758
 Analysis exports ......... 9 exports, 96 values, all carrying source, tier, date, method, status
 Figure verification ...... every numeric literal in the UI traces to the source
 Figure fences ............ all 58 ```figure fences resolve to one of 60 registered figures
+Duplicates ............... 3 declared repetitions, all present, none undeclared
 Figure retention ......... all 1,055 figures present at the baseline survive; all 552 content
                            figures still reach the print path (70 declared migrations)
 Content integrity ........ all 3,144 body lines unchanged since 228eb02, apart from 65 entries

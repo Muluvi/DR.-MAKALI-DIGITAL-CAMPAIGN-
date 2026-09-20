@@ -1386,6 +1386,14 @@ html {
     word-break: break-all;
   }
 
+  /* Rule 1b: a collapsed duplicate is collapsed on screen and OPEN in the printed kit.
+     Firefly has not approved a deletion, so the printed proposal carries every word the
+     document carries. `details:not([open])` above already reveals the body; this drops the
+     control, which would otherwise print as a dead "Read it here". */
+  .crossref > summary .crossref-toggle {
+    display: none !important;
+  }
+
   /* Section collapse only exists as a client-side view mode; print always
      shows every section regardless of which tab was active on screen. */
   .cv-auto-section,
