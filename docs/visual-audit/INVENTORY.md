@@ -15,18 +15,18 @@ FIX — a defect, not a conversion.
 
 ## Totals
 
-- Blocks: **857**, carrying **56,535** words.
-- Words retired outright, under rule 1a: **7,602** (13.4% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
+- Blocks: **856**, carrying **55,719** words.
+- Words retired outright, under rule 1a: **6,778** (12.2% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
 - Words collapsed to a `CrossRef` under rule 1b, still on the page, pending Firefly's answer to D-1: **718**.
 
 | Action | Blocks | | Type | Blocks |
 |---|---|---|---|---|
-| KEEP-PROSE | 700 | | prose | 514 |
+| KEEP-PROSE | 704 | | prose | 514 |
 | COLLAPSE | 95 | | list | 171 |
-| CONVERT | 51 | | table | 74 |
-| DEDUPE | 11 | | ascii | 37 |
-|  |  | | callout | 35 |
-|  |  | | figure | 23 |
+| CONVERT | 46 | | table | 74 |
+| DEDUPE | 11 | | callout | 35 |
+|  |  | | ascii | 32 |
+|  |  | | figure | 27 |
 |  |  | | code | 3 |
 
 
@@ -523,7 +523,7 @@ FIX — a defect, not a conversion.
 | `scope-media:8.7.8:00` | prose | 25 | argument | KEEP-PROSE | — |  |  |
 | `scope-media:8.7.8:01` | list | 86 | process | COLLAPSE | Stepper — how we pitch, evidence first |  |  |
 
-## scope-ground — 56 blocks, 3,515 words, 824 retired
+## scope-ground — 55 blocks, 2,699 words, 0 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
@@ -531,20 +531,19 @@ FIX — a defect, not a conversion.
 | `scope-ground:8.8:00` | callout | 25 | argument | KEEP-PROSE | — |  |  |
 | `scope-ground:8.8:01` | prose | 59 | argument | KEEP-PROSE | — |  |  |
 | `scope-ground:8.8:02` | prose | 51 | argument | KEEP-PROSE | — |  |  |
-| `scope-ground:8.8:03` | ascii | 138 | flow | CONVERT | Ground-digital integration flow | 138 | Rule 1a. |
+| `scope-ground:8.8:03` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `scope-ground:8.8.1:00` | prose | 53 | argument | KEEP-PROSE | — |  |  |
-| `scope-ground:8.8.1:01` | ascii | 208 | comparison | CONVERT | What the 40 ward coordinators report — Matrix | 208 | Rule 1a. |
+| `scope-ground:8.8.1:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `scope-ground:8.8.1:02` | list | 88 | argument | KEEP-PROSE | — |  |  |
 | `scope-ground:8.8.2:00` | prose | 15 | argument | KEEP-PROSE | — |  |  |
-| `scope-ground:8.8.2:01` | ascii | 137 | process | CONVERT | 0–4 h time bar with steps | 137 | Rule 1a. |
+| `scope-ground:8.8.2:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `scope-ground:8.8.3:00` | prose | 19 | argument | KEEP-PROSE | — |  |  |
-| `scope-ground:8.8.3:01` | ascii | 9 | flow | CONVERT | Distribution flow beyond social media | 9 | Rule 1a: a box-drawn banner. |
-| `scope-ground:8.8.3:02` | list | 87 | argument | KEEP-PROSE | — |  |  |
-| `scope-ground:8.8.3:03` | list | 74 | argument | KEEP-PROSE | — |  |  |
-| `scope-ground:8.8.3:04` | list | 59 | argument | KEEP-PROSE | — |  |  |
-| `scope-ground:8.8.3:05` | list | 80 | argument | KEEP-PROSE | — |  |  |
+| `scope-ground:8.8.3:01` | list | 87 | argument | KEEP-PROSE | — |  |  |
+| `scope-ground:8.8.3:02` | list | 74 | argument | KEEP-PROSE | — |  |  |
+| `scope-ground:8.8.3:03` | list | 59 | argument | KEEP-PROSE | — |  |  |
+| `scope-ground:8.8.3:04` | list | 80 | argument | KEEP-PROSE | — |  |  |
 | `scope-ground:8.8.4:00` | prose | 22 | argument | KEEP-PROSE | — |  |  |
-| `scope-ground:8.8.4:01` | ascii | 332 | time/plan | CONVERT | ScheduleGrid — the operating rhythm | 332 | Rule 1a. |
+| `scope-ground:8.8.4:01` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `scope-ground:8.8.4:02` | prose | 1 | argument | KEEP-PROSE | — |  |  |
 | `scope-ground:8.9:00` | callout | 12 | argument | KEEP-PROSE | — |  |  |
 | `scope-ground:8.9.1:00` | prose | 56 | argument | KEEP-PROSE | — |  |  |

@@ -37,6 +37,16 @@ import { TARGETING_SERIES, TARGETING_SUMMARY } from "../../lib/figures/targeting
 import { BYPASS_PILLARS, BYPASS_STATIONS, RADIO_GATEKEEPERS } from "../../lib/figures/media";
 import { LANGUAGES, LANGUAGE_DEPLOYMENT, LANGUAGE_SPLIT } from "../../lib/figures/language";
 import {
+  CYCLE_SERIES,
+  FIELD_LOOP,
+  FIELD_LOOP_TIERS,
+  FIELD_REPORTS,
+  FIELD_REPORTS_SERIES,
+  FOUR_HOUR_CYCLE,
+  OPERATING_RHYTHM,
+  RHYTHM_SERIES,
+} from "../../lib/figures/ground";
+import {
   DATA_LAYER,
   DATA_LAYER_CORE,
   DATA_LAYER_TIERS,
@@ -290,6 +300,54 @@ export const FIGURES: Record<string, FigureEntry> = {
           rows={EFFORT_REBALANCE.map((r) => ({ label: r.label, from: r.from, to: r.to, note: r.note ?? undefined }))}
           fromLabel="Traditional pitch"
           toLabel="Rebalanced — §3.6.3"
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "field-loop": {
+    note: "§8.8 — the closed loop between field intelligence and published response.",
+    render: () => (
+      <FigureFrame series={FIELD_LOOP}>
+        <TierGrid
+          tiers={FIELD_LOOP_TIERS}
+          flow="Inbound feeds the war room; the war room feeds the outbound pipeline and the physical channels; what those produce comes back as field intelligence."
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "field-reports": {
+    note: "§8.8.1 — four report types, their frequency, channel and captured fields.",
+    render: () => (
+      <FigureFrame series={FIELD_REPORTS_SERIES}>
+        <SpecTable
+          caption="§8.8.1 ward coordinator field reporting protocol"
+          columns={["Report type", "Frequency", "Channel", "Data captured"]}
+          rows={FIELD_REPORTS}
+          emphasise={1}
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "four-hour-cycle": {
+    note: "§8.8.2 — ground report to synchronised deployment, on the clock.",
+    render: () => (
+      <FigureFrame series={CYCLE_SERIES}>
+        <Stepper stages={FOUR_HOUR_CYCLE} />
+      </FigureFrame>
+    ),
+  },
+
+  "operating-rhythm": {
+    note: "§8.8.4 — seven standing forums, their owners and participants.",
+    render: () => (
+      <FigureFrame series={RHYTHM_SERIES}>
+        <SpecTable
+          caption="§8.8.4 campaign operational rhythm and governance cadence"
+          columns={["Cadence & time (EAT)", "Forum", "Agenda", "Primary owner", "Participants"]}
+          rows={OPERATING_RHYTHM}
         />
       </FigureFrame>
     ),

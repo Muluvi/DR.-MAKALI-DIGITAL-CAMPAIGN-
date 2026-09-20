@@ -11,64 +11,16 @@ A campaign that operates field organizing and digital messaging as isolated silo
 
 The campaign establishes a **Closed-Loop Ground-Digital Integration Engine**. Field intelligence captured by the 40 Ward Coordinators directly dictates the daily digital and radio advertising content; conversely, digital and radio narratives are converted by field captains into physical talking points, print flyers, and audio notes distributed through local transport and commercial networks.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                  CLOSED-LOOP FIELD & DIGITAL INTEGRATION ENGINE
-════════════════════════════════════════════════════════════════════════════════════
-
-   INBOUND INTELLIGENCE PIPELINE              OUTBOUND AMPLIFICATION PIPELINE
- ┌───────────────────────────────┐          ┌───────────────────────────────┐
- │ 40 Ward Coordinators          │          │ Targeted Meta & TikTok Video  │
- │ 400 Ward Captains             │ ───────► │ Kikamba Radio Ads & Jingles   │
- │ Market Day Pulse Reports      │          │ Localized Direct 2G SMS       │
- │ Competitor Tracking Logs      │          │ WhatsApp Audio Bulletins      │
- └──────────────┬────────────────┘          └───────────────▲───────────────┘
-                │                                           │
-                ▼                                           │
- ┌──────────────────────────────────────────────────────────┴───────────────┐
- │                     WAR ROOM SYNCHRONIZATION HUB                         │
- │ • Incident Classification (Tiers 1-3) & Narrative Response               │
- │ • Rapid-Response Message Production & Fact-Checking                      │
- │ • Micro-Geofenced Ad Deployment (<4-Hour Turnaround)                     │
- └──────────────────────────────┬───────────────────────────────────────────┘
-                                │
-                                ▼
- ┌──────────────────────────────────────────────────────────────────────────┐
- │                     PHYSICAL DISTRIBUTION CHANNELS                       │
- │ • 1,200 Bodaboda Stage Champions  • Matatu / Sacco Commuter Routes      │
- │ • M-Pesa Kiosk Economic Desks     • Weekly Open-Air Market Caravans      │
- └──────────────────────────────────────────────────────────────────────────┘
-════════════════════════════════════════════════════════════════════════════════════
+```figure
+id: field-loop
 ```
 
 ### 8.8.1 What the 40 ward coordinators report
 
 The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, who supervise the **400 Ward Captains** (10 per ward, Section 4.2). Each coordinator is equipped with a dual reporting channel: a **secure field WhatsApp bot** for smartphone-equipped coordinators in 3G/4G zones, and a **zero-rated USSD/SMS structured reporting tree** for offline/2G wards.
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                   WARD COORDINATOR FIELD REPORTING PROTOCOL                 │
-├─────────────────────┬──────────────┬───────────────┬────────────────────────┤
-│ Report Type         │ Frequency    │ Channel       │ Data Captured & Fields │
-├─────────────────────┼──────────────┼───────────────┼────────────────────────┤
-│ 1. Daily Ground     │ Daily        │ Encrypted SMS │ • Ward ID & Polling Stn│
-│    Pulse (DGP)      │ by 18:00 EAT │ / USSD Tree   │ • Dominant Issue/Rumor │
-│                     │              │               │ • Competitor Activity  │
-│                     │              │               │ • Opt-in Supporter Cnt │
-├─────────────────────┼──────────────┼───────────────┼────────────────────────┤
-│ 2. Market Day Event │ Weekly on    │ WhatsApp Field│ • Crowd size estimates │
-│    Audit (MEA)      │ Market Day   │ Bot / Voice   │ • Audio/video clips    │
-│                     │ by 16:00 EAT │ Note Dispatch │ • Leaflet distribution │
-│                     │              │               │ • Local leader feedback│
-├─────────────────────┼──────────────┼───────────────┼────────────────────────┤
-│ 3. Critical Threat  │ Real-Time    │ Direct Phone  │ • Opponent disinformation│
-│    Flash (CTF)      │ (<30 mins)   │ / Red-Alert   │ • Security/clash alert │
-│                     │              │ SMS Trigger   │ • Local defection risk │
-├─────────────────────┼──────────────┼───────────────┼────────────────────────┤
-│ 4. Weekly Ward Log  │ Weekly       │ Structured Web│ • Polling station grid │
-│    & Supporter Roster│ (Sundays)   │ / Paper Sheet │ • Verified sign-up logs│
-│                     │ by 20:00 EAT │ Ingestion     │ • Delegate loyalty map │
-└─────────────────────┴──────────────┴───────────────┴────────────────────────┘
+```figure
+id: field-reports
 ```
 
 #### What Ward Coordinators Report:
@@ -81,41 +33,13 @@ The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, w
 
 When field intelligence reaches the War Room, it triggers an automated, standardized four-stage response cycle:
 
-```
-  ┌───────────────────────────────────────────────────────────────────────────┐
-  │                    THE 4-HOUR GROUND-TO-DIGITAL CYCLE                     │
-  └───────────────────────────────────────────────────────────────────────────┘
-
-   T + 00:00 ──► GROUND REPORT INGESTED
-                 Ward Coordinator in Tseikuru logs competitor rumor via USSD.
-
-   T + 01:00 ──► RAPID RESPONSE WAR ROOM TRIAGE
-                 Comms Director assesses severity; verifies facts from Parliamentary
-                 records (Tier 1 proof of CDF parity).
-
-   T + 02:30 ──► CONTENT ASSET CREATION
-                 Digital team produces:
-                 • 30-second Kikamba video for TikTok/Facebook.
-                 • 45-second audio note voiced by Dr. Mulu or respected elder.
-                 • 160-character localised Kiswahili SMS.
-
-   T + 04:00 ──► SYNCHRONIZED MULTI-CHANNEL DEPLOYMENT
-                 • Meta & TikTok Ads geofenced strictly to Mwingi North.
-                 • Bulk SMS pushed to 14,000 consented voters in Tseikuru/Kyuso.
-                 • Audio note pushed via WhatsApp to 40 Ward Captains for peer
-                   forwarding at local tea kiosks and bodaboda stages.
-                 • Talking point faxed/messaged to Musyi FM morning show panelists.
+```figure
+id: four-hour-cycle
 ```
 
 ### 8.8.3 Distribution beyond social media
 
 To bypass digital connectivity barriers, the campaign turns physical transportation, trade, and civic networks into active information distribution conduits:
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                 PHYSICAL & CIVIC DISTRIBUTION INFRASTRUCTURE                │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
 
 #### 1. The Boda Boda Stage Network (1,200 Stage Champions)
 *   **Infrastructure:** Over 12,000 youth in Kitui operate commercial motorcycles, organized into distinct stage associations (*masese*).
@@ -150,40 +74,8 @@ To bypass digital connectivity barriers, the campaign turns physical transportat
 
 To maintain operational tempo across 8 constituencies and 40 wards, the campaign executes a strict, synchronized rhythm with assigned single-point-of-contact (SPOC) owners:
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                               CAMPAIGN OPERATIONAL RHYTHM & GOVERNANCE CADENCE                              │
-├───────────┬──────────────┬──────────────────────────────────────────┬──────────────────────┬────────────────┤
-│ Cadence   │ Time (EAT)   │ Forum / Operational Agenda               │ Primary Owner        │ Participants   │
-├───────────┼──────────────┼──────────────────────────────────────────┼──────────────────────┼────────────────┤
-│ **DAILY** │ 07:00–07:30  │ **Morning Radio & Rapid Response Triage**│ Communications Lead  │ Digital Team,  │
-│           │              │ Review morning radio bulletins, overnight│                      │ Media Monitor, │
-│           │              │ social trends, and assign rapid responses│                      │ Legal Advisor  │
-│           ├──────────────┼──────────────────────────────────────────┼──────────────────────┼────────────────┤
-│           │ 18:00–18:45  │ **Daily Field Pulse Ingestion**          │ Field Operations     │ 8 Constituency │
-│           │              │ Aggregate 40 Ward Coordinator reports,   │ Director             │ Coordinators,  │
-│           │              │ flag hot-spots, evaluate SMS quotas      │                      │ Data Analyst   │
-├───────────┼──────────────┼──────────────────────────────────────────┼──────────────────────┼────────────────┤
-│ **WEEKLY**│ Monday       │ **Strategic Command War Room**           │ Campaign Manager /   │ Candidate, All │
-│           │ 09:00–11:30  │ Review 7-day tracking poll, approve weekly│ Dr. Makali Mulu     │ Departmental   │
-│           │              │ radio/digital ad spend, set tour route   │                      │ Directors      │
-│           ├──────────────┼──────────────────────────────────────────┼──────────────────────┼────────────────┤
-│           │ Thursday     │ **Market Day Logistics Briefing**        │ Ground Logistics     │ Caravan Teams, │
-│           │ 16:00–17:00  │ Finalize weekend caravan routes, collateral│ Lead               │ Sound Ops,     │
-│           │              │ dispatch, sound truck maintenance        │                      │ Security Team  │
-│           ├──────────────┼──────────────────────────────────────────┼──────────────────────┼────────────────┤
-│           │ Sunday       │ **Faith & Community Review**             │ Religious Affairs    │ Church Liaison │
-│           │ 17:00–18:00  │ Review Sunday church visits, clergy synod│ Director             │ Officers       │
-│           │              │ feedback, prayer network alignment       │                      │                │
-├───────────┼──────────────┼──────────────────────────────────────────┼──────────────────────┼────────────────┤
-│**MONTHLY**│ 1st Saturday │ **All-Wards Field Leadership Baraza**    │ Campaign Manager     │ 40 Ward Coords,│
-│           │ 10:00–14:00  │ In-person strategic review, voter sign-up│                      │ 8 Constituency │
-│           │              │ audit, training, and stipend disbursement│                      │ Leads, DPO     │
-│           ├──────────────┼──────────────────────────────────────────┼──────────────────────┼────────────────┤
-│           │ Last Day     │ **Audited Budget & Provenance Review**   │ Finance Director &   │ Candidate,     │
-│           │ of Month     │ Reconciliation of ad spend against voter │ Analytics Director   │ Compliance DPO │
-│           │              │ acquisition cost; DPA compliance audit   │                      │                │
-└───────────┴──────────────┴──────────────────────────────────────────┴──────────────────────┴────────────────┘
+```figure
+id: operating-rhythm
 ```
 
 

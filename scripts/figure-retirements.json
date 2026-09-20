@@ -1064,6 +1064,200 @@
         "│    Tracker (19B)    │ + Cloudflare Edge    │ (Public Policy)  │ decision**           │",
         "└─────────────────────┴──────────────────────┴──────────────────┴──────────────────────┘"
       ]
+    },
+    {
+      "id": "scope-ground-8-8-loop",
+      "section": "§8.8",
+      "was": "A box-drawing diagram headed CLOSED-LOOP FIELD & DIGITAL INTEGRATION ENGINE — an inbound and an outbound pipeline joined through a war room hub, over a physical distribution layer.",
+      "replacedBy": [
+        "field-loop"
+      ],
+      "facts": [
+        "Inbound: 40 ward coordinators, 400 ward captains, market day pulse reports, competitor tracking logs",
+        "Outbound: targeted Meta and TikTok video, Kikamba radio ads and jingles, localised direct 2G SMS, WhatsApp audio bulletins",
+        "War room synchronisation hub: incident classification (tiers 1–3) and narrative response, rapid-response message production and fact-checking, micro-geofenced ad deployment under a 4-hour turnaround",
+        "Physical distribution: 1,200 bodaboda stage champions, matatu/sacco commuter routes, M-Pesa kiosk economic desks, weekly open-air market caravans"
+      ],
+      "note": "It is a LOOP and the figure says so in words: the ASCII's one distinctive stroke was an arrow returning from the outbound pipeline to the hub, and that is the only thing in the diagram a reader could not infer from the four labels. Same TierGrid as §8.12 and §8.14 — order carries the sequence, one line carries the relationship, and neither breaks at 320px the way a connector would.",
+      "lines": [
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "                  CLOSED-LOOP FIELD & DIGITAL INTEGRATION ENGINE",
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "",
+        "   INBOUND INTELLIGENCE PIPELINE              OUTBOUND AMPLIFICATION PIPELINE",
+        " ┌───────────────────────────────┐          ┌───────────────────────────────┐",
+        " │ 40 Ward Coordinators          │          │ Targeted Meta & TikTok Video  │",
+        " │ 400 Ward Captains             │ ───────► │ Kikamba Radio Ads & Jingles   │",
+        " │ Market Day Pulse Reports      │          │ Localized Direct 2G SMS       │",
+        " │ Competitor Tracking Logs      │          │ WhatsApp Audio Bulletins      │",
+        " └──────────────┬────────────────┘          └───────────────▲───────────────┘",
+        "                │                                           │",
+        "                ▼                                           │",
+        " ┌──────────────────────────────────────────────────────────┴───────────────┐",
+        " │                     WAR ROOM SYNCHRONIZATION HUB                         │",
+        " │ • Incident Classification (Tiers 1-3) & Narrative Response               │",
+        " │ • Rapid-Response Message Production & Fact-Checking                      │",
+        " │ • Micro-Geofenced Ad Deployment (<4-Hour Turnaround)                     │",
+        " └──────────────────────────────┬───────────────────────────────────────────┘",
+        "                                │",
+        "                                ▼",
+        " ┌──────────────────────────────────────────────────────────────────────────┐",
+        " │                     PHYSICAL DISTRIBUTION CHANNELS                       │",
+        " │ • 1,200 Bodaboda Stage Champions  • Matatu / Sacco Commuter Routes      │",
+        " │ • M-Pesa Kiosk Economic Desks     • Weekly Open-Air Market Caravans      │",
+        " └──────────────────────────────────────────────────────────────────────────┘",
+        "════════════════════════════════════════════════════════════════════════════════════"
+      ]
+    },
+    {
+      "id": "scope-ground-8-8-1-reports",
+      "section": "§8.8.1",
+      "was": "A pseudo-table headed WARD COORDINATOR FIELD REPORTING PROTOCOL — four report types with frequency, channel and the fields each captures.",
+      "replacedBy": [
+        "field-reports"
+      ],
+      "facts": [
+        "Daily Ground Pulse (DGP): daily by 18:00 EAT, encrypted SMS / USSD tree — ward ID and polling station, dominant issue or rumour, competitor activity, opt-in supporter count",
+        "Market Day Event Audit (MEA): weekly on market day by 16:00 EAT, WhatsApp field bot / voice note dispatch — crowd size estimates, audio and video clips, leaflet distribution, local leader feedback",
+        "Critical Threat Flash (CTF): real-time, under 30 minutes, direct phone / red-alert SMS trigger — opponent disinformation, security or clash alert, local defection risk",
+        "Weekly Ward Log & Supporter Roster: weekly on Sundays by 20:00 EAT, structured web / paper sheet ingestion — polling station grid, verified sign-up logs, delegate loyalty map"
+      ],
+      "note": "A real table, for the same reason as §8.12.1's schema: there is nothing here to plot, and what it needed was to stop being an image of a table. The frequency column is emphasised because the Critical Threat Flash is the only one of the four with a deadline in minutes and the only one routed to a direct phone rather than a queue — the operational point of the block, which the ASCII left the reader to notice.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────┐",
+        "│                   WARD COORDINATOR FIELD REPORTING PROTOCOL                 │",
+        "├─────────────────────┬──────────────┬───────────────┬────────────────────────┤",
+        "│ Report Type         │ Frequency    │ Channel       │ Data Captured & Fields │",
+        "├─────────────────────┼──────────────┼───────────────┼────────────────────────┤",
+        "│ 1. Daily Ground     │ Daily        │ Encrypted SMS │ • Ward ID & Polling Stn│",
+        "│    Pulse (DGP)      │ by 18:00 EAT │ / USSD Tree   │ • Dominant Issue/Rumor │",
+        "│                     │              │               │ • Competitor Activity  │",
+        "│                     │              │               │ • Opt-in Supporter Cnt │",
+        "├─────────────────────┼──────────────┼───────────────┼────────────────────────┤",
+        "│ 2. Market Day Event │ Weekly on    │ WhatsApp Field│ • Crowd size estimates │",
+        "│    Audit (MEA)      │ Market Day   │ Bot / Voice   │ • Audio/video clips    │",
+        "│                     │ by 16:00 EAT │ Note Dispatch │ • Leaflet distribution │",
+        "│                     │              │               │ • Local leader feedback│",
+        "├─────────────────────┼──────────────┼───────────────┼────────────────────────┤",
+        "│ 3. Critical Threat  │ Real-Time    │ Direct Phone  │ • Opponent disinformation│",
+        "│    Flash (CTF)      │ (<30 mins)   │ / Red-Alert   │ • Security/clash alert │",
+        "│                     │              │ SMS Trigger   │ • Local defection risk │",
+        "├─────────────────────┼──────────────┼───────────────┼────────────────────────┤",
+        "│ 4. Weekly Ward Log  │ Weekly       │ Structured Web│ • Polling station grid │",
+        "│    & Supporter Roster│ (Sundays)   │ / Paper Sheet │ • Verified sign-up logs│",
+        "│                     │ by 20:00 EAT │ Ingestion     │ • Delegate loyalty map │",
+        "└─────────────────────┴──────────────┴───────────────┴────────────────────────┘"
+      ]
+    },
+    {
+      "id": "scope-ground-8-8-2-cycle",
+      "section": "§8.8.2",
+      "was": "A box-drawing timeline headed THE 4-HOUR GROUND-TO-DIGITAL CYCLE — four timestamped stages from ingested ground report to synchronised deployment.",
+      "replacedBy": [
+        "four-hour-cycle"
+      ],
+      "facts": [
+        "T+00:00 — a ward coordinator in Tseikuru logs a competitor rumour via USSD",
+        "T+01:00 — the Comms Director assesses severity and verifies facts from parliamentary records, Tier 1 proof of CDF parity",
+        "T+02:30 — 30-second Kikamba video for TikTok/Facebook, 45-second audio note voiced by Dr. Mulu or a respected elder, 160-character localised Kiswahili SMS",
+        "T+04:00 — Meta and TikTok ads geofenced to Mwingi North; bulk SMS to 14,000 consented voters in Tseikuru/Kyuso; audio note via WhatsApp to 40 ward captains for peer forwarding at tea kiosks and bodaboda stages; talking point to Musyi FM morning show panellists"
+      ],
+      "note": "THE CLOCK IS THE CLAIM, so it runs down the margin as a monospaced offset in front of each stage rather than sitting in a caption — the one thing the ASCII did well, and the only reason a reader can see that the whole loop fits inside a morning. Stepper grew an optional `at` for this. The T+04:00 row names 14,000 consented voters and is transcribed as stated; whether that list exists yet is §9's KPI ladder to answer, not this figure's.",
+      "lines": [
+        "  ┌───────────────────────────────────────────────────────────────────────────┐",
+        "  │                    THE 4-HOUR GROUND-TO-DIGITAL CYCLE                     │",
+        "  └───────────────────────────────────────────────────────────────────────────┘",
+        "",
+        "   T + 00:00 ──► GROUND REPORT INGESTED",
+        "                 Ward Coordinator in Tseikuru logs competitor rumor via USSD.",
+        "",
+        "   T + 01:00 ──► RAPID RESPONSE WAR ROOM TRIAGE",
+        "                 Comms Director assesses severity; verifies facts from Parliamentary",
+        "                 records (Tier 1 proof of CDF parity).",
+        "",
+        "   T + 02:30 ──► CONTENT ASSET CREATION",
+        "                 Digital team produces:",
+        "                 • 30-second Kikamba video for TikTok/Facebook.",
+        "                 • 45-second audio note voiced by Dr. Mulu or respected elder.",
+        "                 • 160-character localised Kiswahili SMS.",
+        "",
+        "   T + 04:00 ──► SYNCHRONIZED MULTI-CHANNEL DEPLOYMENT",
+        "                 • Meta & TikTok Ads geofenced strictly to Mwingi North.",
+        "                 • Bulk SMS pushed to 14,000 consented voters in Tseikuru/Kyuso.",
+        "                 • Audio note pushed via WhatsApp to 40 Ward Captains for peer",
+        "                   forwarding at local tea kiosks and bodaboda stages.",
+        "                 • Talking point faxed/messaged to Musyi FM morning show panelists."
+      ]
+    },
+    {
+      "id": "scope-ground-8-8-3-banner",
+      "section": "§8.8.3",
+      "was": "A box-drawing banner reading PHYSICAL & CIVIC DISTRIBUTION INFRASTRUCTURE, empty apart from its own title.",
+      "replacedBy": [
+        "field-loop"
+      ],
+      "facts": [
+        "No data. It restates the heading immediately above it."
+      ],
+      "note": "Removed rather than replaced, and listed here so the removal is on the record. The four distribution channels it introduces are stated in full in the numbered prose beneath it, which is untouched, and again in the §8.8 field-loop figure's physical distribution tier.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────┐",
+        "│                 PHYSICAL & CIVIC DISTRIBUTION INFRASTRUCTURE                │",
+        "└─────────────────────────────────────────────────────────────────────────────┘"
+      ]
+    },
+    {
+      "id": "scope-ground-8-8-4-rhythm",
+      "section": "§8.8.4",
+      "was": "A pseudo-table headed CAMPAIGN OPERATIONAL RHYTHM & GOVERNANCE CADENCE — seven standing forums across daily, weekly and monthly cadences, with time, agenda, owner and participants.",
+      "replacedBy": [
+        "operating-rhythm"
+      ],
+      "facts": [
+        "Daily 07:00–07:30 morning radio & rapid response triage — Communications Lead; digital team, media monitor, legal advisor",
+        "Daily 18:00–18:45 field pulse ingestion, aggregating 40 ward coordinator reports — Field Operations Director; 8 constituency coordinators, data analyst",
+        "Weekly Monday 09:00–11:30 strategic command war room, 7-day tracking poll and weekly ad spend — Campaign Manager / Dr. Makali Mulu; candidate, all departmental directors",
+        "Weekly Thursday 16:00–17:00 market day logistics briefing — Ground Logistics Lead; caravan teams, sound ops, security team",
+        "Weekly Sunday 17:00–18:00 faith & community review — Religious Affairs Director; church liaison officers",
+        "Monthly 1st Saturday 10:00–14:00 all-wards field leadership baraza — Campaign Manager; 40 ward coordinators, 8 constituency leads, DPO",
+        "Monthly last day audited budget & provenance review — Finance Director & Analytics Director; candidate, compliance DPO"
+      ],
+      "note": "The cadence is repeated on every row rather than merged down a column the way the ASCII merged it. A merged cell is a thing a screen reader announces once and a stacked phone layout loses entirely, and the cost of repeating it is two words per row.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                               CAMPAIGN OPERATIONAL RHYTHM & GOVERNANCE CADENCE                              │",
+        "├───────────┬──────────────┬──────────────────────────────────────────┬──────────────────────┬────────────────┤",
+        "│ Cadence   │ Time (EAT)   │ Forum / Operational Agenda               │ Primary Owner        │ Participants   │",
+        "├───────────┼──────────────┼──────────────────────────────────────────┼──────────────────────┼────────────────┤",
+        "│ **DAILY** │ 07:00–07:30  │ **Morning Radio & Rapid Response Triage**│ Communications Lead  │ Digital Team,  │",
+        "│           │              │ Review morning radio bulletins, overnight│                      │ Media Monitor, │",
+        "│           │              │ social trends, and assign rapid responses│                      │ Legal Advisor  │",
+        "│           ├──────────────┼──────────────────────────────────────────┼──────────────────────┼────────────────┤",
+        "│           │ 18:00–18:45  │ **Daily Field Pulse Ingestion**          │ Field Operations     │ 8 Constituency │",
+        "│           │              │ Aggregate 40 Ward Coordinator reports,   │ Director             │ Coordinators,  │",
+        "│           │              │ flag hot-spots, evaluate SMS quotas      │                      │ Data Analyst   │",
+        "├───────────┼──────────────┼──────────────────────────────────────────┼──────────────────────┼────────────────┤",
+        "│ **WEEKLY**│ Monday       │ **Strategic Command War Room**           │ Campaign Manager /   │ Candidate, All │",
+        "│           │ 09:00–11:30  │ Review 7-day tracking poll, approve weekly│ Dr. Makali Mulu     │ Departmental   │",
+        "│           │              │ radio/digital ad spend, set tour route   │                      │ Directors      │",
+        "│           ├──────────────┼──────────────────────────────────────────┼──────────────────────┼────────────────┤",
+        "│           │ Thursday     │ **Market Day Logistics Briefing**        │ Ground Logistics     │ Caravan Teams, │",
+        "│           │ 16:00–17:00  │ Finalize weekend caravan routes, collateral│ Lead               │ Sound Ops,     │",
+        "│           │              │ dispatch, sound truck maintenance        │                      │ Security Team  │",
+        "│           ├──────────────┼──────────────────────────────────────────┼──────────────────────┼────────────────┤",
+        "│           │ Sunday       │ **Faith & Community Review**             │ Religious Affairs    │ Church Liaison │",
+        "│           │ 17:00–18:00  │ Review Sunday church visits, clergy synod│ Director             │ Officers       │",
+        "│           │              │ feedback, prayer network alignment       │                      │                │",
+        "├───────────┼──────────────┼──────────────────────────────────────────┼──────────────────────┼────────────────┤",
+        "│**MONTHLY**│ 1st Saturday │ **All-Wards Field Leadership Baraza**    │ Campaign Manager     │ 40 Ward Coords,│",
+        "│           │ 10:00–14:00  │ In-person strategic review, voter sign-up│                      │ 8 Constituency │",
+        "│           │              │ audit, training, and stipend disbursement│                      │ Leads, DPO     │",
+        "│           ├──────────────┼──────────────────────────────────────────┼──────────────────────┼────────────────┤",
+        "│           │ Last Day     │ **Audited Budget & Provenance Review**   │ Finance Director &   │ Candidate,     │",
+        "│           │ of Month     │ Reconciliation of ad spend against voter │ Analytics Director   │ Compliance DPO │",
+        "│           │              │ acquisition cost; DPA compliance audit   │                      │                │",
+        "└───────────┴──────────────┴──────────────────────────────────────────┴──────────────────────┴────────────────┘"
+      ]
     }
   ]
 }

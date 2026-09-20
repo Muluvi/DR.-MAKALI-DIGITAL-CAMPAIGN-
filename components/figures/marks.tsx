@@ -910,7 +910,8 @@ export function PairedRows({
 export function Stepper({
   stages,
 }: {
-  stages: { title: string; steps: string[]; emphasis?: string }[];
+  /** `at` is a clock offset where the sequence is timed — §8.8.2's four-hour cycle. */
+  stages: { title: string; steps: string[]; emphasis?: string; at?: string }[];
 }) {
   return (
     <ol className="not-prose m-0 list-none space-y-2 p-0">
@@ -925,6 +926,9 @@ export function Stepper({
           <div className="min-w-0">
             <p className="m-0 t-micro font-bold text-ink">
               <span className="sr-only">Stage {i + 1}: </span>
+              {/* The offset, where there is one, is the point of the row and not an annotation:
+                  §8.8.2's claim is four hours, and it is only legible as a running clock. */}
+              {stage.at && <span className="mr-1.5 font-mono tabular-nums text-accent">{stage.at}</span>}
               {stage.title}
             </p>
             <ul className="m-0 mt-1 list-none space-y-0.5 p-0">

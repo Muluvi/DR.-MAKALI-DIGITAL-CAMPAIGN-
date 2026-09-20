@@ -169,5 +169,9 @@
   {
     "figure": "8601|",
     "movedTo": "Moved from the §8.12.1 SUPPORTER RECORD SCHEMA SPECIFICATION into the `supporter-schema` figure (scripts/figure-retirements.json, scope-data-8-12-1-schema), which renders the same nineteen rows as a real <table>. It is NOT A FIGURE AT ALL: it is “ISO-8601”, the timestamp format of `consent_timestamp`, which the guard tokenises as 8,601. The type string is transcribed exactly. PRINT REACH VERIFIED, not assumed: emulating print on /scope-data finds it in the rendered text, along with every field name, type and enum member on that block's checklist."
+  },
+  {
+    "figure": "14000|",
+    "movedTo": "Moved from the §8.8.2 4-HOUR GROUND-TO-DIGITAL CYCLE into the `four-hour-cycle` figure (scripts/figure-retirements.json, scope-ground-8-8-2-cycle). It is the T+04:00 step's “bulk SMS pushed to 14,000 consented voters in Tseikuru/Kyuso”, transcribed as stated — consented, at a moment when §9's KPI ladder is still building towards 120,000 by Phase 3. Whether that list exists yet is §9's question and not this figure's, so the number is neither qualified nor changed. PRINT REACH VERIFIED, not assumed: emulating print on /scope-ground finds it in the rendered text with the rest of the T+04:00 step."
   }
 ]
