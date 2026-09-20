@@ -507,6 +507,123 @@
         " └─────────────────────────────────────────────────────────────────────────────────┘",
         "════════════════════════════════════════════════════════════════════════════════════"
       ]
+    },
+    {
+      "id": "messaging-7-3-1-matrix",
+      "section": "§7.3.1",
+      "was": "A box-drawing matrix headed TRILINGUAL AUDIENCE & CHANNEL MAPPING MATRIX — three languages with their primary demographic targets and electorate shares, dominant media channels and formats, and emotional and strategic objective.",
+      "replacedBy": [
+        "language-map"
+      ],
+      "facts": [
+        "Kikamba: rural smallholder farmers (32.8%), women chamas and rural mothers (52.1%), village elders and clan leaders, agro-pastoralists (Mwingi/South); estimated primary reach ~76%",
+        "Kikamba's channels as stated: vernacular radio (Musyi, Wikwatyo), 2G bulk SMS and USSD, baraza PA addresses, megaphone audio clips",
+        "Kikamba's objective: emotional affinity, cultural authenticity and community stewardship trust",
+        "Kiswahili and Sheng: urban MSMEs, mama mbogas and traders, boda boda riders and hustlers (43.9%), inter-county commuters and transporters, semi-urban youth; ~16%",
+        "Kiswahili's channels: market PA sound trucks, TikTok and Reels video, WhatsApp group flyers, open-air town rallies",
+        "Kiswahili's objective: everyday economic solidarity, commercial dynamism and hustle dignity",
+        "English: teachers, doctors and civil servants, national press bureau chiefs, professional and corporate diaspora, judicial, EACC and regulatory bodies; ~8%",
+        "English's channels: 60-page main manifesto, statutory IEBC filings, LinkedIn and X longform, national TV interviews (Citizen, KTN, NTV)",
+        "English's objective: technocratic competence, statutory legal precision and national economic policy leadership"
+      ],
+      "note": "THE CHANNEL LIST IS TRANSCRIBED, NOT CORRECTED. '2G Bulk SMS & USSD' under Kikamba is C-21: §8.10.2 states, citing the Communications Authority at Tier 1, that political bulk SMS is restricted to English or Kiswahili and that an operator may refuse a non-compliant message outright — and six other places in the document agree with §8.10.2, including §7.3.4 in this same subsection, which gives the SMS rail 80% Kiswahili and 20% English and allocates Kikamba none of it. The figure prints the list as §7.3.1 gives it and carries the flag beneath it. Dropping the words quietly would have hidden the one conflict in this audit that could have a message refused by an operator after the campaign had committed a 48-hour lodging lead time. The three reach shares are stated without a citation and are rendered Tier 3, as a language map rather than a measurement.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                                TRILINGUAL AUDIENCE & CHANNEL MAPPING MATRIX                                 │",
+        "├───────────────┬─────────────────────────────────────────┬─────────────────────────┬─────────────────────────┤",
+        "│ Language      │ Primary Demographic Target              │ Dominant Media Channels │ Emotional & Strategic   │",
+        "│               │ & Electorate Share                      │ & Formats               │ Objective               │",
+        "├───────────────┼─────────────────────────────────────────┼─────────────────────────┼─────────────────────────┤",
+        "│ 1. Kikamba    │ • Rural Smallholder Farmers (32.8%)     │ • Vernacular Radio      │ • Establish emotional   │",
+        "│    (*Kĩkamba*)│ • Women Chamas & Rural Mothers (52.1%)  │   (Musyi, Wikwatyo)     │   affinity, cultural    │",
+        "│               │ • Village Elders & Clan Leaders         │ • 2G Bulk SMS & USSD    │   authenticity, and     │",
+        "│               │ • Agro-Pastoralists (Mwingi/South)      │ • Baraza PA Addresses   │   unshakeable community │",
+        "│               │ • **Estimated Primary Reach: ~76%**     │ • Megaphone audio clips │   stewardship trust.    │",
+        "├───────────────┼─────────────────────────────────────────┼─────────────────────────┼─────────────────────────┤",
+        "│ 2. Kiswahili  │ • Urban MSMEs, Mama Mbogas & Traders    │ • Market PA Sound Trucks│ • Communicate everyday  │",
+        "│    (*Swahili  │ • Boda Boda Riders & Hustlers (43.9%)   │ • TikTok & Reels video  │   economic solidarity,  │",
+        "│    & Sheng*)  │ • Inter-County Commuters & Transporters │ • WhatsApp group flyers │   commercial dynamism,  │",
+        "│               │ • Semi-Urban Youth Cohorts              │ • Open-air town rallies │   and hustle dignity.   │",
+        "│               │ • **Estimated Primary Reach: ~16%**     │                         │                         │",
+        "├───────────────┼─────────────────────────────────────────┼─────────────────────────┼─────────────────────────┤",
+        "│ 3. English    │ • Teachers, Doctors & Civil Servants    │ • 60-Page Main Manifesto│ • Project technocratic  │",
+        "│               │ • National Press Bureau Chiefs          │ • Statutory IEBC Filings│   competence, statutory │",
+        "│               │ • Professional & Corporate Diaspora     │ • LinkedIn & X Longform │   legal precision, and  │",
+        "│               │ • Judicial, EACC & Regulatory Bodies    │ • National TV Interviews│   national economic     │",
+        "│               │ • **Estimated Primary Reach: ~8%**      │   (Citizen, KTN, NTV)   │   policy leadership.    │",
+        "└───────────────┴─────────────────────────────────────────┴─────────────────────────┴─────────────────────────┘"
+      ]
+    },
+    {
+      "id": "messaging-7-3-banner",
+      "section": "§7.3",
+      "was": "A box-drawing banner headed TRILINGUAL AUDIENCE & CHANNEL MATRIX — the same three languages, the same 76/16/8 shares, a shortened audience list and a shortened channel list.",
+      "replacedBy": [
+        "language-map"
+      ],
+      "facts": [
+        "No fact of its own. Every audience, channel and share it names is stated more fully in the §7.3.1 matrix eleven lines below it."
+      ],
+      "note": "Removed rather than replaced, and listed here so the removal is on the record. It is a compressed copy of the matrix in the next subsection: same three languages, same 76%/16%/8%, same audiences in fewer words, same channels in fewer words — including the same '2G SMS' under Kikamba that C-21 points at. The language-map figure carries §7.3.1's fuller version, which is the one that governs.",
+      "lines": [
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "                  TRILINGUAL AUDIENCE & CHANNEL MATRIX",
+        "════════════════════════════════════════════════════════════════════════════════════",
+        "",
+        "   KIKAMBA (76% Dominance)       KISWAHILI (16% Reach)         ENGLISH (8% Reach)",
+        " ┌──────────────────────────┐  ┌──────────────────────────┐  ┌──────────────────────┐",
+        " │ • Rural Smallholders     │  │ • Urban MSMEs & Traders  │  │ • Civil Servants     │",
+        " │ • Women Chamas & Elders  │  │ • Boda Boda & Urban Youth│  │ • Legal & Regulators │",
+        " │ • Agro-Pastoralists      │  │ • Inter-County Transporters││ • Professional Elite │",
+        " └──────────────────────────┘  └──────────────────────────┘  └──────────────────────┘",
+        "               │                             │                           │",
+        "               ▼                             ▼                           ▼",
+        " ┌──────────────────────────┐  ┌──────────────────────────┐  ┌──────────────────────┐",
+        " │ Vernacular Radio Spots,  │  │ Market PA Sound Caravans,│  │ Formal Manifesto,   │",
+        " │ Baraza Speeches, 2G SMS, │  │ TikTok/Reels Sheng Blend,│  │ Court & IEBC Filings,│",
+        " │ Megaphone Audio & USSD   │  │ WhatsApp Infographics    │  │ National Press Briefs│",
+        " └──────────────────────────┘  └──────────────────────────┘  └──────────────────────┘",
+        "════════════════════════════════════════════════════════════════════════════════════"
+      ]
+    },
+    {
+      "id": "messaging-7-3-4-deployment",
+      "section": "§7.3.4",
+      "was": "A box-drawing matrix headed CHANNEL-BY-LANGUAGE DEPLOYMENT MATRIX — seven campaign output media with a primary language allocation and a secondary or supplementary one.",
+      "replacedBy": [
+        "language-deployment"
+      ],
+      "facts": [
+        "Vernacular radio spots: 100% Kikamba, none secondary — zero English/Swahili intrusion on spots",
+        "Direct 2G bulk SMS: 80% Kiswahili (rural), 20% English (urban centres and youth boda)",
+        "USSD menu system: 50% Kikamba, 50% Kiswahili — toggle via option 0",
+        "Baraza print collateral: 70% Kikamba, 30% Kiswahili and English (executive summaries)",
+        "Sound PA truck jingles: 85% Kikamba, 15% Swahili/Sheng (urban market stops)",
+        "TikTok and Reels video: 50% Swahili/Sheng, 35% English, 15% Kikamba punchlines",
+        "Formal policy manifesto: 100% English, abridged 12-page summaries in Kikamba and Swahili"
+      ],
+      "note": "Drawn as seven separate 100% allocations rather than a grouped bar chart, because these rows do not share a scale: 100% of radio and 100% of the manifesto are two different totals, and one axis across them would invite a comparison the table never made. figures.test.ts asserts that every row allocates exactly 100%. The SMS row is the version C-21 says is right and §7.3.1 contradicts, and it carries the flag.",
+      "lines": [
+        "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐",
+        "│                                CHANNEL-BY-LANGUAGE DEPLOYMENT MATRIX                                        │",
+        "├────────────────────────────┬─────────────────────────────┬──────────────────────────────────────────────────┤",
+        "│ Campaign Output Medium     │ Primary Language Allocation │ Secondary / Supplementary Language               │",
+        "├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤",
+        "│ 1. Vernacular Radio Spots  │ **100% Kikamba**            │ None (Zero English/Swahili intrusion on spots)  │",
+        "├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤",
+        "│ 2. Direct 2G Bulk SMS      │ **80% Kiswahili** (Rural)   │ **20% English** (Urban Centers & Youth Boda)     │",
+        "├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤",
+        "│ 3. USSD Menu System        │ **50% Kikamba**             │ **50% Kiswahili** (Toggle via Option 0 on USSD)  │",
+        "├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤",
+        "│ 4. Baraza Print Collateral │ **70% Kikamba**             │ **30% Kiswahili & English** (Executive Summaries)│",
+        "├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤",
+        "│ 5. Sound PA Truck Jingles  │ **85% Kikamba**             │ **15% Swahili / Sheng** (Urban Market Stops)     │",
+        "├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤",
+        "│ 6. TikTok & Reels Video    │ **50% Swahili / Sheng**     │ **35% English** / **15% Kikamba Punchlines**     │",
+        "├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤",
+        "│ 7. Formal Policy Manifesto │ **100% English**            │ Abridged 12-page summaries in Kikamba & Swahili  │",
+        "└────────────────────────────┴─────────────────────────────┴──────────────────────────────────────────────────┘"
+      ]
     }
   ]
 }

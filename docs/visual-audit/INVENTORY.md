@@ -15,18 +15,18 @@ FIX — a defect, not a conversion.
 
 ## Totals
 
-- Blocks: **860**, carrying **58,856** words.
-- Words retired outright, under rule 1a: **9,947** (16.9% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
+- Blocks: **859**, carrying **58,291** words.
+- Words retired outright, under rule 1a: **9,378** (16.1% of the document). Every one is an ASCII diagram, a card stack or a table a figure now renders.
 - Words collapsed to a `CrossRef` under rule 1b, still on the page, pending Firefly's answer to D-1: **718**.
 
 | Action | Blocks | | Type | Blocks |
 |---|---|---|---|---|
-| KEEP-PROSE | 688 | | prose | 514 |
+| KEEP-PROSE | 690 | | prose | 514 |
 | COLLAPSE | 95 | | list | 171 |
-| CONVERT | 66 | | table | 74 |
-| DEDUPE | 11 | | ascii | 52 |
+| CONVERT | 63 | | table | 74 |
+| DEDUPE | 11 | | ascii | 49 |
 |  |  | | callout | 35 |
-|  |  | | figure | 11 |
+|  |  | | figure | 13 |
 |  |  | | code | 3 |
 
 
@@ -364,7 +364,7 @@ FIX — a defect, not a conversion.
 | `engine:6A.2:03` | prose | 44 | argument | KEEP-PROSE | — |  |  |
 | `engine:6A.2:04` | prose | 28 | argument | KEEP-PROSE | — |  |  |
 
-## messaging — 42 blocks, 2,954 words, 1,242 retired
+## messaging — 41 blocks, 2,389 words, 673 retired
 
 | id | type | words | relationship | action | target | retires | note |
 |---|---|---|---|---|---|---|---|
@@ -402,14 +402,13 @@ FIX — a defect, not a conversion.
 | `messaging:7.2.3:15` | prose | 1 | argument | KEEP-PROSE | — |  |  |
 | `messaging:7.3:00` | prose | 48 | argument | KEEP-PROSE | — |  |  |
 | `messaging:7.3:01` | prose | 45 | argument | KEEP-PROSE | — |  |  |
-| `messaging:7.3:02` | ascii | 127 | comparison | CONVERT | Language × channel Matrix (canonical for §7.3.1 and §7.3.4) | 127 | Rule 1a. |
-| `messaging:7.3.1:00` | ascii | 291 | comparison | CONVERT | Matrix — Kikamba / Kiswahili / English × radio / SMS / USSD / WhatsApp / Facebook / TikTok / X, marking the 'bulk political SMS: English or Kiswahili only, lodged 48h ahead' rule | 291 | Rule 1a. |
+| `messaging:7.3.1:00` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 | `messaging:7.3.2:00` | prose | 34 | argument | KEEP-PROSE | — |  |  |
 | `messaging:7.3.2:01` | ascii | 161 | comparison | CONVERT | Register and dialect Matrix | 161 | Rule 1a. |
 | `messaging:7.3.2:02` | list | 95 | argument | KEEP-PROSE | — |  |  |
 | `messaging:7.3.3:00` | prose | 21 | argument | KEEP-PROSE | — |  |  |
 | `messaging:7.3.3:01` | ascii | 129 | process | CONVERT | Stepper — the production and QC pipeline | 129 | Rule 1a. |
-| `messaging:7.3.4:00` | ascii | 151 | comparison | CONVERT | Matrix (canonical, §7.3.1) | 151 | Rule 1a. |
+| `messaging:7.3.4:00` | figure | 2 | argument | KEEP-PROSE | — |  |  |
 
 ## scope — 10 blocks, 1,065 words, 0 retired
 

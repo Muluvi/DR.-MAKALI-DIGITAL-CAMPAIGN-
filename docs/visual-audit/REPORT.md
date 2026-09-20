@@ -24,7 +24,7 @@ currently tells Dr. Mulu he wins.
 | **Wrong table aggregates** | "Combined 68.7%" and three more, shipped | **none** | opt-in, per table, by name |
 | **Figures reading zero with JS off** | `KSh0.00bn`, `0.0%`, `≈0k` | **none** | |
 | **Duplicated text nodes** | headline ×2, every counter ×3 | **removed at source** | |
-| **ASCII blocks** | 67 | **52** | 15 retired, 1,923 words · chapter 3 has none left |
+| **ASCII blocks** | 67 | **49** | 18 retired, 2,492 words · chapter 3 has none left |
 | **`og:image`** | absent, with `summary_large_image` | **1200×630 typographic card** | |
 | Third-party requests | none | **none** | held |
 | Sideways scroll at 390 px | none | **none** | held |
@@ -66,11 +66,14 @@ cannot drift from the file that authorises them:
 
 | Section | Was | Words | Now |
 |---|---|---|---|
+| §7.3.1 | `TRILINGUAL AUDIENCE & CHANNEL MAPPING MATRIX` — three languages × audience × channel × objective | 291 | `language-map` |
 | §3.4 | `KITUI COUNTY ELECTORAL REGISTER` — all 40 wards in two columns of ASCII panels | 315 | `register-map` |
 | §3.4.5 | `CROSS-MATCHING RECOGNITION DEFICITS WITH DECISIVE VOTER CONCENTRATIONS` | 226 | `RecognitionDeficitOverlay` |
 | §3.6.2 | `OFFLINE CHANNEL REACH AUDIT` — six channels, three of them unsourced | 223 | `offline-channels` |
 | §3.6.3 | `EFFORT WEIGHTING VS. ELECTORAL REACH REALITY AUDIT` — five channels, before and after | 200 | `effort-rebalance` |
 | §3.4.4 | `CONSTITUENCY STRUCTURAL POWER RANKING` — eight rows with a Big 4 band | 183 | `constituency-power` |
+| §7.3.4 | `CHANNEL-BY-LANGUAGE DEPLOYMENT MATRIX` — seven media, each allocated across languages | 151 | `language-deployment` |
+| §7.3 | `TRILINGUAL AUDIENCE & CHANNEL MATRIX` — a compressed copy of the matrix eleven lines below it | 127 | `language-map` |
 | §3.6.1 | `DIGITAL PLATFORM IN-COUNTY SIZING MATRIX` — five platforms as ranges | 174 | `platform-sizing` |
 | §3.4.6 | `SECTION 3.4.6 STRATEGIC TARGETING SUMMARY` — eight restated bullet lines | 120 | `targeting-summary` |
 | §3.4.3 | `FOUR STRUCTURAL PATHS TO THE 200,000 VOTER POOL` | 110 | `paths-to-threshold` |
@@ -112,6 +115,15 @@ Checking the replacements against those checklists is what made them better than
 - §3.3.2's branch tree is the **only block retired without a new figure or a checklist gap**: the
   two prose bullets directly beneath it state every fact it carried, in fuller words, and the
   branch navigator at that heading draws the fork. It was a third copy between the other two.
+- §7.3's three blocks found **C-21, the one conflict here with a regulator attached.** §7.3.1
+  lists "2G Bulk SMS & USSD" among Kikamba's dominant channels; §8.10.2 states, citing the
+  Communications Authority at Tier 1, that political bulk SMS is restricted to English or Kiswahili
+  and that an operator may **refuse** a non-compliant message. Six other places agree with
+  §8.10.2 — including §7.3.4, in the same subsection, which gives the SMS rail 80% Kiswahili and
+  20% English and allocates Kikamba none of it. `language-map` prints §7.3.1's channel list
+  verbatim, bulk SMS included, and carries the flag: dropping the words quietly would have hidden a
+  conflict that can have a message refused after the campaign has committed a 48-hour lodging lead
+  time. The SMS rail is the channel §3.6.2 sizes at 320,000 voters.
 - §3.7's radio landscape is the block that **found C-20**. Its hostile tier opens with Musyi FM;
   twelve lines later §3.7.1 gives Musyi FM the placement budget, the station data reads "Priority
   — commercially independent", and §3.6.3 scales radio effort up into it. `radio-gatekeepers`
@@ -193,19 +205,21 @@ One character fixed in the generator. **No content edited.**
 
 ---
 
-## 4. Conflicts: 19 confirmed, 1 corrected
+## 4. Conflicts: 20 confirmed, 1 corrected
 
 `CONFLICTS.md` has the working for each. Every one was checked against the source rather than
 copied from the brief, and the arithmetic against `data/ward-register.json`, which sums exactly.
 
-**Three of them the brief did not know about**, and all three came out of the figure work itself.
+**Four of them the brief did not know about**, and all three came out of the figure work itself.
 A figure that computes its labels rather than transcribing them disagrees out loud with a document
 that has drifted (**C-18**, a tenth of a percentage point); a figure that cites its section has to
 decide which number that section is (**C-19**, eight stale heading numbers); and a figure that
 draws a station's posture from the station data has to notice when the prose above it says the
 opposite (**C-20**, which is the one with a spending decision attached — §3.7 files Musyi FM under
-hostile gatekeepers while §3.7.1 gives it the placement budget). None has been corrected in the
-content.
+hostile gatekeepers while §3.7.1 gives it the placement budget). **C-21** is the fourth and the
+most serious of them: §7.3.1 puts Kikamba on the bulk SMS rail that the Communications Authority
+closes to it, against six other places in the document and a Tier 1 source. None has been
+corrected in the content.
 
 **C-2 is the one to read before Dr. Mulu opens the document.** The §2.2 simulator's 14 weeks run
 from the 7 August poll, so six of them have already gone. Over the **8.3 weeks that remain**,
@@ -231,9 +245,8 @@ it names (C-4).
 
 Stated plainly, because a report that implies otherwise is worth less than no report.
 
-- **52 of 67 ASCII blocks remain.** All fifteen retired are in chapter 3 — §3A, §3B and §3C —
-  which the brief names as the place to spend the visual boldness, and **chapter 3 now has no
-  box-drawing blocks left in it at all**. The remaining 52 are in §7 onwards: every one is
+- **49 of 67 ASCII blocks remain.** Chapter 3 is clear — no box-drawing blocks left in it at all —
+  and §7.3's language map is done. The remaining 49 are in the rest of §7 and in §8 onwards: every one is
   inventoried with a named target component in `INVENTORY.md`, and the mechanism — the `figure`
   fence, the registry, the retirement declaration with its facts checklist, the migration
   declaration for a figure leaving the markdown, and now a guard that fails the build if a fence
@@ -250,28 +263,28 @@ Stated plainly, because a report that implies otherwise is worth less than no re
 - **Phases 4 P2/P3** — §4–§16 and the annexes — are mapped in the conversion map and the inventory,
   and untouched in the markdown.
 
-The inventory's headline count of "9,947 words retired" is the **plan**, not the state. The state
-is **1,923 words**, itemised in §2.2 above and in `figure-retirements.json`.
+The inventory's headline count of "9,378 words retired" is the **plan**, not the state. The state
+is **2,492 words**, itemised in §2.2 above and in `figure-retirements.json`.
 
 ---
 
 ## 6. Verification
 
-`npm run verify` — ten guards and 34 arithmetic assertions, all passing:
+`npm run verify` — ten guards and 36 arithmetic assertions, all passing:
 
 ```
 Ward register integrity ... 40 wards across 8 constituencies sum to 532,758
 Analysis exports ......... 9 exports, 96 values, all carrying source, tier, date, method, status
 Figure verification ...... every numeric literal in the UI traces to the source
-Figure fences ............ all 11 ```figure fences resolve to one of 13 registered figures
+Figure fences ............ all 13 ```figure fences resolve to one of 15 registered figures
 Figure retention ......... all 1,055 figures present at the baseline survive; all 552 content
                            figures still reach the print path (38 declared migrations)
-Content integrity ........ all 4,338 body lines unchanged since 228eb02, apart from 13 entries
-                           covering 15 blocks retired under rule 1a and declared
+Content integrity ........ all 4,272 body lines unchanged since 228eb02, apart from 16 entries
+                           covering 18 blocks retired under rule 1a and declared
 verify-mounts ............ 50 mount points resolve
 verify-deep-links ........ 880 legacy ids and 272 live ids resolve
 visual-coverage .......... no retired figure kind has returned
-figures.test.ts .......... 34 passed
+figures.test.ts .......... 36 passed
 ```
 
 Three guards were improved by the work rather than worked around, and a fourth was written:

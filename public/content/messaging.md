@@ -198,54 +198,10 @@ Kitui County is a deeply multilingual electoral ecosystem. While English functio
 
 A flawed translation—or an urban, anglicized phrasing of a traditional Kikamba idiom—can alienate rural elders and smallholder farmers. The campaign therefore establishes a **Trilingual Content Architecture** that maps each language to its demographic audience, dominant communication channel, cultural register, and dedicated linguistic quality-control sign-off protocol.
 
-```
-════════════════════════════════════════════════════════════════════════════════════
-                  TRILINGUAL AUDIENCE & CHANNEL MATRIX
-════════════════════════════════════════════════════════════════════════════════════
-
-   KIKAMBA (76% Dominance)       KISWAHILI (16% Reach)         ENGLISH (8% Reach)
- ┌──────────────────────────┐  ┌──────────────────────────┐  ┌──────────────────────┐
- │ • Rural Smallholders     │  │ • Urban MSMEs & Traders  │  │ • Civil Servants     │
- │ • Women Chamas & Elders  │  │ • Boda Boda & Urban Youth│  │ • Legal & Regulators │
- │ • Agro-Pastoralists      │  │ • Inter-County Transporters││ • Professional Elite │
- └──────────────────────────┘  └──────────────────────────┘  └──────────────────────┘
-               │                             │                           │
-               ▼                             ▼                           ▼
- ┌──────────────────────────┐  ┌──────────────────────────┐  ┌──────────────────────┐
- │ Vernacular Radio Spots,  │  │ Market PA Sound Caravans,│  │ Formal Manifesto,   │
- │ Baraza Speeches, 2G SMS, │  │ TikTok/Reels Sheng Blend,│  │ Court & IEBC Filings,│
- │ Megaphone Audio & USSD   │  │ WhatsApp Infographics    │  │ National Press Briefs│
- └──────────────────────────┘  └──────────────────────────┘  └──────────────────────┘
-════════════════════════════════════════════════════════════════════════════════════
-```
-
 ### 7.3.1 Which language reaches which voters, on which channel
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                TRILINGUAL AUDIENCE & CHANNEL MAPPING MATRIX                                 │
-├───────────────┬─────────────────────────────────────────┬─────────────────────────┬─────────────────────────┤
-│ Language      │ Primary Demographic Target              │ Dominant Media Channels │ Emotional & Strategic   │
-│               │ & Electorate Share                      │ & Formats               │ Objective               │
-├───────────────┼─────────────────────────────────────────┼─────────────────────────┼─────────────────────────┤
-│ 1. Kikamba    │ • Rural Smallholder Farmers (32.8%)     │ • Vernacular Radio      │ • Establish emotional   │
-│    (*Kĩkamba*)│ • Women Chamas & Rural Mothers (52.1%)  │   (Musyi, Wikwatyo)     │   affinity, cultural    │
-│               │ • Village Elders & Clan Leaders         │ • 2G Bulk SMS & USSD    │   authenticity, and     │
-│               │ • Agro-Pastoralists (Mwingi/South)      │ • Baraza PA Addresses   │   unshakeable community │
-│               │ • **Estimated Primary Reach: ~76%**     │ • Megaphone audio clips │   stewardship trust.    │
-├───────────────┼─────────────────────────────────────────┼─────────────────────────┼─────────────────────────┤
-│ 2. Kiswahili  │ • Urban MSMEs, Mama Mbogas & Traders    │ • Market PA Sound Trucks│ • Communicate everyday  │
-│    (*Swahili  │ • Boda Boda Riders & Hustlers (43.9%)   │ • TikTok & Reels video  │   economic solidarity,  │
-│    & Sheng*)  │ • Inter-County Commuters & Transporters │ • WhatsApp group flyers │   commercial dynamism,  │
-│               │ • Semi-Urban Youth Cohorts              │ • Open-air town rallies │   and hustle dignity.   │
-│               │ • **Estimated Primary Reach: ~16%**     │                         │                         │
-├───────────────┼─────────────────────────────────────────┼─────────────────────────┼─────────────────────────┤
-│ 3. English    │ • Teachers, Doctors & Civil Servants    │ • 60-Page Main Manifesto│ • Project technocratic  │
-│               │ • National Press Bureau Chiefs          │ • Statutory IEBC Filings│   competence, statutory │
-│               │ • Professional & Corporate Diaspora     │ • LinkedIn & X Longform │   legal precision, and  │
-│               │ • Judicial, EACC & Regulatory Bodies    │ • National TV Interviews│   national economic     │
-│               │ • **Estimated Primary Reach: ~8%**      │   (Citizen, KTN, NTV)   │   policy leadership.    │
-└───────────────┴─────────────────────────────────────────┴─────────────────────────┴─────────────────────────┘
+```figure
+id: language-map
 ```
 
 ### 7.3.2 Register, dialect and the discipline it takes
@@ -311,24 +267,6 @@ Running a synchronized three-language communications operation introduces severe
 
 ### 7.3.4 Channel-by-language deployment
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                CHANNEL-BY-LANGUAGE DEPLOYMENT MATRIX                                        │
-├────────────────────────────┬─────────────────────────────┬──────────────────────────────────────────────────┤
-│ Campaign Output Medium     │ Primary Language Allocation │ Secondary / Supplementary Language               │
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 1. Vernacular Radio Spots  │ **100% Kikamba**            │ None (Zero English/Swahili intrusion on spots)  │
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 2. Direct 2G Bulk SMS      │ **80% Kiswahili** (Rural)   │ **20% English** (Urban Centers & Youth Boda)     │
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 3. USSD Menu System        │ **50% Kikamba**             │ **50% Kiswahili** (Toggle via Option 0 on USSD)  │
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 4. Baraza Print Collateral │ **70% Kikamba**             │ **30% Kiswahili & English** (Executive Summaries)│
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 5. Sound PA Truck Jingles  │ **85% Kikamba**             │ **15% Swahili / Sheng** (Urban Market Stops)     │
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 6. TikTok & Reels Video    │ **50% Swahili / Sheng**     │ **35% English** / **15% Kikamba Punchlines**     │
-├────────────────────────────┼─────────────────────────────┼──────────────────────────────────────────────────┤
-│ 7. Formal Policy Manifesto │ **100% English**            │ Abridged 12-page summaries in Kikamba & Swahili  │
-└────────────────────────────┴─────────────────────────────┴──────────────────────────────────────────────────┘
+```figure
+id: language-deployment
 ```

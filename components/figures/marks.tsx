@@ -716,3 +716,72 @@ export function Ledger({
     </ol>
   );
 }
+
+/**
+ * An allocation: one row per medium, each row a 100% bar split between languages.
+ *
+ * A grouped bar chart would have been the obvious reach for §7.3.4, and it would have been wrong.
+ * These seven rows do not share a scale — 100% of radio and 100% of the manifesto are not
+ * comparable quantities, they are two different totals — so a chart that put them on one axis
+ * would invite exactly the comparison the table never made. Each row is its own whole, and the
+ * only number that means anything across rows is the share, which is what the segments carry.
+ *
+ * Segments are labelled inside where they fit and beneath where they do not, because a 15% segment
+ * at 320px is narrower than the word "Kikamba".
+ */
+export function Allocation({
+  rows,
+}: {
+  rows: {
+    medium: string;
+    segments: { language: string; share: number }[];
+    note?: string;
+    conflicts?: string[];
+  }[];
+}) {
+  const shades = [
+    "var(--color-accent-solid)",
+    "color-mix(in oklch, var(--color-accent-solid) 50%, var(--color-paper))",
+    "var(--color-muted)",
+  ];
+
+  return (
+    <div className="space-y-3.5">
+      {rows.map((row) => (
+        <div key={row.medium}>
+          <div className="flex flex-wrap items-baseline justify-between gap-x-3">
+            <span className="t-micro font-semibold text-ink">{row.medium}</span>
+            {row.conflicts?.length ? (
+              <span className="t-micro font-bold text-gold">Under review — {row.conflicts.join(", ")}</span>
+            ) : null}
+          </div>
+
+          <div className="mt-1 flex h-5 w-full overflow-hidden rounded-sm bg-line/50" role="presentation">
+            {row.segments.map((seg, i) => (
+              <div
+                key={seg.language}
+                className={`${GROW} flex items-center justify-center overflow-hidden`}
+                style={{ width: `${seg.share}%`, background: shades[i % shades.length] }}
+              >
+                {/* Only where it fits. The text is repeated in full beneath, so nothing is
+                    carried by a label that a narrow screen clips. */}
+                {seg.share >= 35 && (
+                  <span className="truncate px-1 t-micro font-bold tabular-nums text-on-accent">
+                    {seg.share}% {seg.language}
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <p className="m-0 mt-1 t-micro leading-snug text-muted">
+            <span className="font-semibold text-ink">
+              {row.segments.map((s) => `${s.share}% ${s.language}`).join(" · ")}
+            </span>
+            {row.note ? ` — ${row.note}` : ""}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}

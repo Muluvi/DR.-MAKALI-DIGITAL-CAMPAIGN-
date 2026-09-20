@@ -333,6 +333,51 @@ test("13.6% of the 2019 census population is 143,340 internet users", () => {
   assert.equal(Number(((143_340 / 1_053_991) * 100).toFixed(1)), 13.6);
 });
 
+/* ------------------------------------------------------------------ the language map (§7.3) */
+
+test("§7.3's three language reach shares sum to 100%", () => {
+  /**
+   * They are stated without a citation and they are a map rather than a measurement, so the only
+   * check that means anything is internal consistency — and it holds. Pinned because the retired
+   * §7.3 banner and the retired §7.3.1 matrix both printed them and neither is in the markdown now.
+   */
+  const SHARES = [
+    ["Kikamba", 76],
+    ["Kiswahili (and Sheng)", 16],
+    ["English", 8],
+  ] as const;
+  assert.equal(SHARES.reduce((n, [, v]) => n + v, 0), 100);
+});
+
+test("every row of §7.3.4's deployment matrix allocates exactly 100%", () => {
+  /**
+   * The matrix's own claim, which the figure that replaced it draws as seven separate wholes.
+   *
+   * Written out here in §7.3.4's notation rather than imported, for the reason in this file's
+   * header: lib/figures/language.ts is bundler-resolved and this test runs under plain Node. The
+   * rows are the ones the retirement declaration lists, so a drift between them fails here.
+   */
+  const ROWS: [string, number[]][] = [
+    ["Vernacular radio spots", [100]],
+    ["Direct 2G bulk SMS", [80, 20]],
+    ["USSD menu system", [50, 50]],
+    ["Baraza print collateral", [70, 30]],
+    ["Sound PA truck jingles", [85, 15]],
+    ["TikTok and Reels video", [50, 35, 15]],
+    ["Formal policy manifesto", [100]],
+  ];
+  for (const [medium, shares] of ROWS) {
+    assert.equal(shares.reduce((n, v) => n + v, 0), 100, medium);
+  }
+
+  // C-21, stated as an assertion: the bulk SMS rail allocates Kikamba nothing, which is what
+  // §8.10.2 requires and what §7.3.1's channel list — "2G Bulk SMS & USSD" under Kikamba —
+  // contradicts. If a Kikamba share ever appears on this row, the conflict has been resolved one
+  // way and this test should be the thing that says so.
+  const sms = ROWS.find(([m]) => m === "Direct 2G bulk SMS")?.[1] ?? [];
+  assert.deepEqual(sms, [80, 20], "80% Kiswahili and 20% English — no Kikamba on the SMS rail");
+});
+
 /* ------------------------------------------------------------------ channel reach (§3.6) */
 
 test("every platform band's share of the register is what §3.6.1 printed, except the one C-18 flags", () => {

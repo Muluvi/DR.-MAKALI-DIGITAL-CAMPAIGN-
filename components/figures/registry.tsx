@@ -1,5 +1,5 @@
 import { FigureFrame } from "./FigureFrame";
-import { BarList, BuildUp, GapBar, Ledger, RangeBars, RegisterGroups, ShareBar, SlopeChart } from "./marks";
+import { Allocation, BarList, BuildUp, GapBar, Ledger, RangeBars, RegisterGroups, ShareBar, SlopeChart } from "./marks";
 import { CONSTITUENCIES } from "../../data/ward-register";
 import {
   COALITION_PATHS,
@@ -20,6 +20,7 @@ import {
 import { REGISTER_GROWTH_SERIES, THRESHOLD_SERIES } from "../../lib/figures/threshold";
 import { TARGETING_SERIES, TARGETING_SUMMARY } from "../../lib/figures/targeting";
 import { BYPASS_PILLARS, BYPASS_STATIONS, RADIO_GATEKEEPERS } from "../../lib/figures/media";
+import { LANGUAGES, LANGUAGE_DEPLOYMENT, LANGUAGE_SPLIT } from "../../lib/figures/language";
 import {
   DIGITAL_REACH,
   DIGITAL_SHORTFALL,
@@ -177,6 +178,20 @@ const GATEKEEPER_SERIES: FigureSeries = {
     "four are routed around is stated in full in §8.7.7.",
 };
 
+/* ------------------------------------------------------------------ §7.3 the language map */
+
+const DEPLOYMENT_SERIES: FigureSeries = {
+  id: "language-deployment",
+  headline: "Every medium is allocated to the whole, and only one of them is allocated to Kikamba alone",
+  measure: "§7.3.4's language allocation per campaign output medium. Each row totals 100%.",
+  points: [],
+  conflicts: ["C-21"],
+  note:
+    "The bulk SMS row gives Kikamba no allocation, which is what §8.10.2 requires — the " +
+    "Communications Authority restricts political bulk SMS to English or Kiswahili — and what " +
+    "§7.3.1's channel list contradicts. USSD is not restricted, and takes 50% Kikamba here.",
+};
+
 /* ------------------------------------------------------------------ the registry */
 
 type FigureEntry = { render: () => React.ReactNode; note: string };
@@ -224,6 +239,59 @@ export const FIGURES: Record<string, FigureEntry> = {
           rows={EFFORT_REBALANCE.map((r) => ({ label: r.label, from: r.from, to: r.to, note: r.note ?? undefined }))}
           fromLabel="Traditional pitch"
           toLabel="Rebalanced — §3.6.3"
+        />
+      </FigureFrame>
+    ),
+  },
+
+  "language-map": {
+    note: "§7.3.1 — the three languages, their reach, their audiences and their channels.",
+    render: () => (
+      <FigureFrame series={LANGUAGE_SPLIT}>
+        <ShareBar series={LANGUAGE_SPLIT} />
+        <dl className="mt-4 space-y-2.5">
+          {LANGUAGES.map((l) => (
+            <div key={l.name} className="rounded-lg border border-line bg-paper/60 px-3 py-2.5">
+              <dt className="t-micro font-bold text-ink">
+                {l.name}
+                <span className="ml-1.5 font-normal tabular-nums text-muted">
+                  estimated primary reach ~{l.share}%
+                </span>
+              </dt>
+              <dd className="m-0 mt-1 t-micro leading-snug text-muted">
+                <span className="font-semibold text-ink">Audiences.</span> {l.audiences.join(" · ")}
+                <span className="mt-1 block">
+                  <span className="font-semibold text-ink">Channels.</span> {l.channels.join(" · ")}
+                  {/* The channel list is §7.3.1's, transcribed. The flag is the audit's. */}
+                  {l.conflicts?.includes("C-21") && (
+                    <span className="mt-1 block rounded border border-gold/40 bg-gold/[0.06] px-2 py-1 text-ink">
+                      <strong className="font-bold text-gold">Under review — C-21.</strong> §8.10.2 states
+                      that the Communications Authority restricts political bulk SMS to English or
+                      Kiswahili, and that an operator may refuse a non-compliant message. §7.3.4
+                      allocates this rail 80% Kiswahili and 20% English. USSD is not restricted.
+                    </span>
+                  )}
+                </span>
+                <span className="mt-1 block">{l.objective}</span>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </FigureFrame>
+    ),
+  },
+
+  "language-deployment": {
+    note: "§7.3.4 — seven output media, each allocated across languages.",
+    render: () => (
+      <FigureFrame series={DEPLOYMENT_SERIES}>
+        <Allocation
+          rows={LANGUAGE_DEPLOYMENT.map((r) => ({
+            medium: r.medium,
+            segments: [{ language: r.primary.language, share: r.primary.share }, ...r.secondary],
+            note: r.note,
+            conflicts: r.conflicts,
+          }))}
         />
       </FigureFrame>
     ),

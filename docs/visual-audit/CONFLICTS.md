@@ -482,6 +482,62 @@ a standing instruction. It is the only conflict in this file with a spending dec
 
 ---
 
+## C-21 — §7.3.1 puts Kikamba on a rail the Communications Authority closes to it · §7.3, §7.3.1 vs §8.10.2
+
+**Status: Confirmed, and it is a compliance conflict rather than an arithmetical one.** It is the
+most consequential entry in this file after C-2.
+
+§7.3.1's trilingual matrix lists Kikamba's dominant media channels as:
+
+> • Vernacular Radio (Musyi, Wikwatyo) • **2G Bulk SMS & USSD** • Baraza PA Addresses • Megaphone
+> audio clips
+
+§7.3's banner above it says the same: "Vernacular Radio Spots, Baraza Speeches, **2G SMS**,
+Megaphone Audio & USSD".
+
+§8.10.2 says the opposite, and cites a Tier 1 source for it:
+
+> The CA/NCIC guidelines on political bulk messaging restrict political SMS to **English or
+> Kiswahili** (Tier 1, Communications Authority). … they allow the operator to **refuse** a
+> non-compliant message outright.
+>
+> **This changes the channel plan, not the language strategy.** Kikamba … simply cannot ride the
+> bulk SMS rail.
+
+**The rest of the document is on §8.10.2's side, in six places**, which is what makes this a
+drafting survival rather than an open question:
+
+| Where | What it says |
+| --- | --- |
+| §7.3.4 | "Direct 2G Bulk SMS — **80% Kiswahili** (Rural), 20% English". Kikamba gets no allocation. |
+| §5.1.1 / §5.1.2 | "Kikamba on voice; **Kiswahili on SMS**" |
+| §5.1 | "Bulk political SMS is restricted to English or Kiswahili by the CA/NCIC guidelines" |
+| §3.6.2 | "Dispatching customised **Kiswahili** messages … the Kikamba version travels by voice note" |
+| §9 deliverables | "**Kikamba is not permitted on the bulk SMS rail** (§8.10.2)" |
+| §13 rapid response | rebuttals run "across all channels **except bulk SMS**" |
+| §7.1 | "a 160-character **Kiswahili** SMS" |
+
+**USSD is not affected.** §7.3.4 allocates the USSD menu 50% Kikamba, and §8.10.2 explicitly lists
+"USSD menu text" among the places Kikamba belongs. It is the **bulk SMS** half of §7.3.1's "2G Bulk
+SMS & USSD" that the guideline closes.
+
+**Why it matters operationally.** The SMS rail is the channel §3.6.2 sizes at **320,000 reachable
+voters**, the largest in the plan after radio, and §8.10.2 adds that every bulk political message
+must be lodged with the operator 48 hours in advance with verbatim text — so a Kikamba SMS is not
+merely off-strategy, it is a message an operator may refuse after the campaign has committed the
+lead time. A field team working from §7.3.1's matrix alone would draft one.
+
+**What the figure does:** `language-map` prints Kikamba's channel list exactly as §7.3.1 states it,
+including 2G Bulk SMS, and carries the **Under review** flag naming §8.10.2 against it. The
+`language-deployment` figure beside it shows §7.3.4's allocation, where the same channel is 80%
+Kiswahili and 20% English. Neither line has been changed.
+
+**For Firefly:** §8.10.2's own wording — "this changes the channel plan, not the language strategy"
+— reads as the resolution already written down. Striking "2G Bulk SMS" from §7.3.1's and §7.3's
+Kikamba channel lists, leaving USSD, reconciles all eight places and moves nothing else.
+
+---
+
 ## Standing figure rules that come out of this file
 
 1. No figure prints a disputed number alone. It shows every stated version, dated and attributed.
