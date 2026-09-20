@@ -357,3 +357,41 @@ drift fails the build.
 **What is still Firefly's to decide:** nothing here. Both corrected values are what §11.1.1 and
 §11.1.3 already say, and they agree with each other. This entry exists so the change is on the
 record rather than buried in a diff.
+
+---
+
+## D-15 — The desktop figure rail, and why it is not built
+
+**Not built, and it should not be. Measured, not judged by eye.**
+
+Phase 5 item 5 asks for a desktop figure rail: on a wide screen, figures sit beside the prose
+rather than interrupting it. It is a good pattern, and it was specified when the figures were
+expected to be small charts.
+
+They are not. Measured on `/full` at 1440 px, over all 71 rendered figures:
+
+| | Count | Mean width its content needs |
+|---|---:|---:|
+| Figures carrying a data table | 54 | **665 px** |
+| Figures without one | 17 | **577 px** |
+| Narrow enough for a rail (≤ 380 px) | **0** | — |
+
+The prose measure is 768 px. A rail would give a figure roughly half of that, and **not one figure
+in the document would fit**. Fifty-four of the seventy-one carry a table of between two and seven
+columns — §8.12.1's schema is nineteen rows of field, type and constraint; §8.8.4's operating
+rhythm is five columns of forum, agenda, owner and participants. At 380 px those either wrap into
+unreadable columns or scroll sideways, and sideways scroll on a figure is the defect this pass
+spent its first day removing.
+
+**The reason the figures are wide is the reason they are good.** Each one replaced a box-drawing
+block 90 to 110 characters across, and carries the same facts plus a source, a tier, a note and a
+data table. That is a full-measure object. Putting it in a margin would undo the retirement.
+
+**What a wide screen gets instead**, already built: the figure sits in the prose at full measure,
+the data table opens inline beneath it rather than in a modal, and the layout is identical to the
+one that prints. One document, one shape, at every width.
+
+**If a rail is still wanted**, the change that makes it possible is upstream of the layout: a
+second, deliberately narrow rendering of each figure — the headline, the mark, and a link to the
+table — which is a design decision about what a figure is for, not a CSS change. It is not
+something to add in the last hour of a pass.

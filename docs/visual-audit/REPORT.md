@@ -408,7 +408,12 @@ most of this pass, and it is closed. What remains:
   worded paragraphs, which the matcher does not reach. The 86.4% case cannot be collapsed while
   C-13 is unanswered anyway — a cross-reference pointing at one of two contradictory numbers would
   settle the conflict by sleight of hand.
-- **The desktop figure rail** (Phase 5 item 5) is not built. Figures stack on all widths.
+- **The desktop figure rail** (Phase 5 item 5) is not built, and **should not be**. Measured on
+  `/full` at 1440 px across all 71 figures: those with a data table need a mean of **665 px** of
+  content width, those without **577 px**, and **not one is narrow enough for a rail** (≤ 380 px)
+  against a 768 px prose measure. Fifty-four carry a table of two to seven columns. A rail would
+  give every one of them half the width its content needs, which is the sideways scroll this pass
+  spent its first day removing. **D-15** has the measurement and what would have to change first.
 - **INP on `/full` is 304 ms**, over the 200 ms budget. `/` — the route a reader arrives on — is
   120 ms. The worst control on `/full` is opening a figure's data table at **272 ms**, on a page
   holding all 30 chapters and all 60 figures at once; the Brief/Full toggle is 200 ms there. Not
@@ -467,6 +472,15 @@ could be retired, its retirement correctly declared, and the figure that justifi
 silently replaced by an error banner: rule 1a's exact failure mode, arriving through a typo. The
 guard parses every fence and checks the id against the registry, and it was tested against both
 forms of the bug before being added to `npm run verify`.
+
+**A final sweep of all 23 routes**, at 390 px: every one returns 200, none scrolls sideways, none
+renders a figure placeholder or an unresolved fence, none throws a page error, and none shows a
+figure reading zero because JavaScript has not run.
+
+One apparent exception was checked by hand and is not one. §3.4's scenario panel reports **0.0% of
+draws above 198,004** under the current measured preference, and that zero is the finding, not a
+loading state: the same scenario's 95th percentile is 131,934, so none of the 10,000 draws reaches
+the 2022 tally. It renders with its PROVISIONAL and Modelled badges, as a modelled zero should.
 
 **INP, the one Core Web Vital this audit had never measured, is now measured.** At 4× CPU
 throttle, clicking every control this redesign added or kept:
