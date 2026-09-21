@@ -238,126 +238,126 @@ const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
 // the next step if this map grows again.
 const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // ---- Cover, summary, situation and approach (§1-§7) ---------------------------------
-  "summary-sec-2-2": <PollingTrajectorySimulator />,
+  "objectives-sec-1-2": <PollingTrajectorySimulator />,
   // The scorecards are the objectives. What they do not carry is the eight indicator sets that
   // stayed with the work they measure — indexed beneath them rather than moved here.
-  "measurement-sec-11-1": <ObjectivesIndex />,
-  "situation-sec-3-1": <NominationPathPanel />,
+  "delivery-sec-5-6": <ObjectivesIndex />,
+  "data-sec-2-3": <NominationPathPanel />,
   // The pipeline's poll margins land in the section that states the gap, because the gap is
   // the thing the margins qualify: one of these three polls can be tested and two cannot.
-  "situation-sec-3-1-5": <PollMarginsBlock />,
+  "annex-polls-sec-c-1": <PollMarginsBlock />,
   // The governing claim opens §6, ahead of the pillars and themes that rest on it.
-  "approach-sec-6-1": <EconomistGovernorThesis />,
-  "situation-sec-3-3-2": (
+  "strategy-sec-4-1": <EconomistGovernorThesis />,
+  "analysis-sec-3-5": (
     <>
       <ConstitutionalBranchNavigator />
       <CompetitiveQuadrantBlock />
     </>
   ),
-  "situation-sec-3-3-1": (
+  "data-sec-2-8": (
     <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §3.3.1">
       One of Kenya&rsquo;s most consistent and authoritative voices on macroeconomic governance,
       fiscal discipline, and budget oversight.
     </SectionPortrait>
   ),
-  "situation-sec-3-3-3": (
+  "data-sec-2-1": (
     <>
       <WardCartogramBlock />
       <PathTo200kBlock />
       <ConstituencyWeightBlock />
     </>
   ),
-  "situation-sec-3-3-4": <ResourceEnvelopeBlock />,
-  "situation-sec-3-3-5": (
+  "data-sec-2-5": <ResourceEnvelopeBlock />,
+  "data-sec-2-4": (
     <>
       <OfflineWaterline />
       <DisputedFigure entry={kituiCentralPopulationDispute} />
     </>
   ),
-  "situation-sec-3-3-6": (
+  "data-sec-2-2": (
     <>
       <ElectoralHistoryPanel />
       <ElectoralTimelineBlock />
     </>
   ),
-  "annex-county-sec-3-3-7": (
+  "annex-county-sec-b-2": (
     <>
       <FiscalAuditPanel />
       <FiscalAuditChartBlock />
     </>
   ),
-  "annex-county-sec-3-3-8": <DroughtFoodSecurityPanel />,
-  "annex-county-sec-3-3-9": <MuiBasinPanel />,
-  "annex-county-sec-3-3-10": <CompetitorFieldPanel />,
+  "annex-county-sec-b-3": <DroughtFoodSecurityPanel />,
+  "annex-county-sec-b-4": <MuiBasinPanel />,
+  "annex-county-sec-b-5": <CompetitorFieldPanel />,
   // The funnel shows how the threshold is built; the register block shows which register it
   // is built on, which is now a live question rather than a settled one.
-  "arithmetic-sec-3-4-1": (
+  "analysis-sec-3-1": (
     <>
       <VoteFunnel />
       <RegisterComparisonBlock />
     </>
   ),
-  "arithmetic-sec-3-4-2": <ScenarioBenchmarkBlock />,
-  "arithmetic-sec-3-4-3": <PathTo200kCalculator />,
-  "arithmetic-sec-3-4-5": <RecognitionDeficitOverlay />,
-  "audiences-sec-5-1": <AudienceSegmentationMatrix />,
+  "analysis-sec-3-2": <ScenarioBenchmarkBlock />,
+  "analysis-sec-3-3": <PathTo200kCalculator />,
+  "analysis-sec-3-4": <RecognitionDeficitOverlay />,
+  "strategy-sec-4-3-1": <AudienceSegmentationMatrix />,
   // §7.3 splits the electorate into a connected minority and an offline majority. The showcase is
   // that argument as an object: one handset, the campaign on all seven channels, ending on the
   // USSD dialog that reaches more voters than the six apps together.
-  "reach-sec-3-6": <PhoneShowcase />,
+  "analysis-sec-3-8": <PhoneShowcase />,
   // The showcase makes the argument; this puts the modelled numbers under it, including the
   // one the showcase cannot show — that the largest addressable layer cannot carry Kikamba.
-  "reach-sec-3-6-1": <ChannelReachBlock />,
-  "messaging-sec-7-1-1": <IssueEvidenceBlock />,
-  "messaging-sec-7-1": (
+  "data-sec-2-6": <ChannelReachBlock />,
+  "strategy-sec-4-4-1": <IssueEvidenceBlock />,
+  "strategy-sec-4-4": (
     <>
       <MessagingPlayground />
       <ToneVoiceSlider />
     </>
   ),
-  "scope-platforms-sec-8-3-4": <CommunityScheduler />,
-  "risk-sec-13-1": <CounterMessagingGrid />,
+  "workstreams-platforms-sec-5-2-2-4": <CommunityScheduler />,
+  "delivery-sec-5-8-1": <CounterMessagingGrid />,
   // The ownership/alignment/tier table this chart plots, now §8.5.1 in the situation analysis.
-  "reach-sec-3-7-1": <MediaOwnershipBlock />,
+  "data-sec-2-7-1": <MediaOwnershipBlock />,
 
   // ---- Scope, roadmap, measurement, governance and risk (§8-§16) ----------------------
-  "governance-sec-12-1": (
+  "delivery-sec-5-7": (
     <SectionPortrait id="seated-grey-cropped" kicker="The engagement model — §12.1" flip>
       Firefly reports to a single named campaign-side counterpart.
     </SectionPortrait>
   ),
-  "approach-sec-6-2": <StrategicPillarsMatrix />,
-  "arithmetic-sec-3-5": <GeographicZoneMatrix />,
+  "strategy-sec-4-1-4": <StrategicPillarsMatrix />,
+  "analysis-sec-3-7": <GeographicZoneMatrix />,
   // The technology workstreams carried no anchored visualisation at all before this — the one
   // stretch of the document that was a wall of text, and the one describing the technology
   // stack, which is the part this reader is most likely to test against the artifact itself.
-  "scope-data-sec-8-15-2": <BenchmarkLadder />,
-  "deliverables-sec-10-1-1": <ServiceLevelSelector />,
+  "workstreams-data-sec-5-2-14-2": <BenchmarkLadder />,
+  "delivery-sec-5-5-1": <ServiceLevelSelector />,
   // The four-column matrix below this heading stacks into nine attribute cards on a phone, which
   // answers "what does row six say" rather than "which tier should we buy". One card per tier,
   // swipeable, with the table left in place underneath as the accessible equivalent.
-  "deliverables-sec-10-1-2": <TierComparisonCarousel />,
-  "scope-ground-sec-8-8": <TerminalShowcase />,
-  "scope-ground-sec-8-9": <FlywheelSchematic />,
-  "scope-ground-sec-8-10": (
+  "delivery-sec-5-5-2": <TierComparisonCarousel />,
+  "workstreams-ground-sec-5-2-7": <TerminalShowcase />,
+  "workstreams-ground-sec-5-2-8": <FlywheelSchematic />,
+  "workstreams-ground-sec-5-2-9": (
     <>
       <FeaturePhoneSpecimen />
       <ReachSplit />
       <SMSFeedbackVisualizer />
     </>
   ),
-  "messaging-sec-7-2": <PersuasionFramingMatrix />,
-  "governance-sec-12-5": <DataSecurityEthicsCharter />,
-  "scope-media-sec-8-6": <MediaPlaybackMockup />,
-  "scope-media-sec-8-7": (
+  "strategy-sec-4-4-3": <PersuasionFramingMatrix />,
+  "delivery-sec-5-7-4": <DataSecurityEthicsCharter />,
+  "workstreams-media-sec-5-2-5": <MediaPlaybackMockup />,
+  "workstreams-media-sec-5-2-6": (
     <>
       <MediaRadioLandscapeCard />
       <RadioAircoverDial />
     </>
   ),
-  "approach-sec-6-3": <SloganBuilder />,
-  "scope-platforms-sec-8-2": <PublicServiceDeliveryTracker />,
-  "roadmap-sec-9-1": (
+  "strategy-sec-4-1-6": <SloganBuilder />,
+  "workstreams-platforms-sec-5-2-1": <PublicServiceDeliveryTracker />,
+  "implementation-sec-5-4": (
     <>
       <PhaseRail />
       <KpiPhaseBlock />
@@ -368,23 +368,23 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // §1A is the analysis of his own channels, and it is the first evidence in the document.
   // Its four figures render before their data exists — axes drawn, question printed, PENDING
   // band shown — because the audit is Week 1 and the proposal is read before Week 1.
-  "presence-sec-1a-1": <ReachVsVoteMap />,
-  "presence-sec-1a-2": (
+  "implementation-sec-5-3-4": <ReachVsVoteMap />,
+  "implementation-sec-5-3-3": (
     <>
       <PresenceStrip />
       <LanguageBars />
     </>
   ),
-  "presence-sec-1a-5": <FieldComparison />,
+  "analysis-sec-3-9-1": <FieldComparison />,
   // §6A is the strategy the audit produces. The loop is the argument; the week is the proof
   // that the change costs the team nothing.
-  "engine-sec-6a-1": <EngineLoop />,
-  "engine-sec-6a-2": <WeekStrip />,
+  "strategy-sec-4-5": <EngineLoop />,
+  "strategy-sec-4-5-5": <WeekStrip />,
   // §12.1 is the direction model. The week replaces a bullet list, a meeting table and the
   // governance chart cut from Annex D.
-  "governance-sec-12-1-1": <DirectionWeek />,
+  "delivery-sec-5-7-1": <DirectionWeek />,
   // §11.2.0 is the measurement re-anchor that replaces follower counts.
-  "measurement-sec-11-2": <RecognitionLadder />,
+  "delivery-sec-5-6-3": <RecognitionLadder />,
 };
 
 // A handful of headings still carry no leading digit (unnumbered platform names, phase
@@ -404,15 +404,15 @@ function buildComponents(tabId: TabId): Components {
               const headers = getTableHeaderTexts(children).map((h) => h.toLowerCase());
               const has = (text: string) => headers.some((h) => h.includes(text));
 
-              // §3.3.5 "National platform sizing" — replaced by the sorted bar chart
+              // §2.6 "National platform sizing" — replaced by the sorted bar chart
               // (item 13), not kept alongside it.
-              if (tabId === "situation" && has("platform") && has("kenya audience")) {
+              if (tabId === "data" && has("platform") && has("kenya audience")) {
                 return <PlatformSizingBlock />;
               }
 
-              // §3.3.1 candidate-asset table — assertion/evidence/application becomes
+              // §2.8 candidate-asset table — assertion/evidence/application becomes
               // claim cards (item 21), replacing the table rather than sitting alongside it.
-              if (tabId === "situation" && has("asset") && has("evidence") && has("digital application")) {
+              if (tabId === "data" && has("asset") && has("evidence") && has("digital application")) {
                 return <ClaimCards>{children}</ClaimCards>;
               }
 
@@ -420,7 +420,7 @@ function buildComponents(tabId: TabId): Components {
 
               // §6.2 Mizani survey table — table stays (item 14 says keep it with only
               // two data points), slope chart added alongside it.
-              if (tabId === "summary" && has("kasalu") && has("wambua")) {
+              if (tabId === "objectives" && has("kasalu") && has("wambua")) {
                 return (
                   <>
                     {table}
@@ -547,7 +547,7 @@ function buildComponents(tabId: TabId): Components {
               // The three operating conditions (§6.3) get a pull-quote-style emphasis
               // treatment instead of a plain bullet — every other list item is unaffected.
               const text = normalizeWhitespace(getDeepText(children));
-              const isGoverningReality = tabId === "summary" && GOVERNING_REALITY_TRIGGERS.some((t) => text.includes(t));
+              const isGoverningReality = tabId === "analysis" && GOVERNING_REALITY_TRIGGERS.some((t) => text.includes(t));
               if (isGoverningReality) {
                 return <MarkdownListItem tabId={tabId} emphasis>{children}</MarkdownListItem>;
               }

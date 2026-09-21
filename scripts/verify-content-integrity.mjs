@@ -14,6 +14,8 @@
  *   2. Nine orientation lines were added, one per content section, so the new side drops them.
  *   3. Cross-references were repointed to the new numbering, which is the only permitted body
  *      edit — so a "Section 4.3.2" token is normalised away on both sides before comparing.
+ *      Since the 2026 restructure that includes LETTER addresses ("Annex F", "F.12", "G.1"),
+ *      because the annexes are now lettered and the polls annex displaced three of them.
  *
  * Anything else that differs is a content change, and this script fails the build for it.
  *
@@ -283,12 +285,27 @@ function normalise(text) {
     .replace(/^\u2550{50,}$/gm, "\u2550".repeat(84))
     // The tail of a multi-target reference ("Sections 1.2.1 and 2.1.1") collapses with its head,
     // or half the reference stays visible and a repoint reads as an edit.
+    // The 2026 restructure gave the annexes letter addresses (A.1, C.2, F.12, G.1), so a
+    // reference head is now a number OR a letter. Without this every repointed annex reference
+    // reads as a prose edit — thirty-four of them did, on the first run of this guard after it.
     .replace(
-      /(?:Sub)?sections?\s*\d+[A-Za-z]?(?:\.\d+)*(?:\s*(?:,|and|&)\s*\d+[A-Za-z]?(?:\.\d+)*)*/gi,
+      /(?:Sub)?sections?\s*(?:\d+[A-Za-z]?|[A-G])(?:\.\d+)*(?:\s*(?:,|and|&)\s*(?:\d+[A-Za-z]?|[A-G])(?:\.\d+)*)*/gi,
       "§#"
     )
-    .replace(/Sec\s*\d+[A-Z]?(?:\.\d+)*/gi, "§#")
-    .replace(/§\s*\d+[A-Za-z]?(?:\.\d+)*/g, "§#")
+    .replace(/Sec\s*(?:\d+[A-Z]?|[A-G])(?:\.\d+)*/gi, "§#")
+    .replace(/§\s*(?:\d+[A-Za-z]?|[A-G])(?:\.\d+)*/g, "§#")
+    // A standalone letter address — "F.12", "(F.4, F.11)", "(F.7–F.10)". Masked one at a time
+    // rather than as a list, so a two-address bracket still reads as two tokens and matches the
+    // "(13.2.2, 13.4.2)" it replaced.
+    .replace(/(^|[^\w.§])[A-G]\.\d+(?:\.\d+)*(?![\d.])/g, "$1§#")
+    // A parenthesised two-part number. Bare three-part numbers are already taken as addresses
+    // below; two-part ones are ambiguous in general and are not, EXCEPT inside brackets, which in
+    // this document is how a pointer is written. Four exist in the whole document — (3.2), (12.2),
+    // (12.4) and a Data Protection Act clause — so the ambiguity is theoretical here.
+    .replace(/\((\d{1,2}\.\d{1,2})\)/g, "(§#)")
+    // Which annex a pointer names is an address like any other: the polls took C, so what used
+    // to be Annex C is Annex D.
+    .replace(/\bAnnex(es)?\s+[A-G]\b/g, "Annex #")
     // A bare three-part number in a table cell or an ASCII box is always a section reference in
     // this document — no figure it carries has two decimal points — so it collapses too.
     .replace(/(^|[^\w.§])\d{1,2}\.\d{1,2}\.\d{1,2}(?![\d.])/g, "$1§#")

@@ -27,43 +27,28 @@ import { SECTIONS, type TabId } from "./heading-slug";
  * links depend on them; this is a reading order laid over them, not a replacement for them.
  */
 export const FLOW_ORDER: TabId[] = [
-  // Act I — the ask
-  "decision",
-  "summary",
-  // Act II — what we know
-  "presence",
-  "situation",
-  "arithmetic",
-  "reach",
-  // Act III — what it implies
+  // The engagement's own order, which is also the brief's: objectives, then the data, then what
+  // the data implies, then what we will therefore do, then how it runs, then the decision.
   "objectives",
-  "audiences",
-  "approach",
-  "engine",
-  "messaging",
-  // Act IV — what we will run
-  "scope",
-  "scope-platforms",
-  "scope-media",
-  "scope-ground",
-  "scope-data",
-  // Act V — how it is delivered and proved
-  "roadmap",
-  "deliverables",
-  "measurement",
-  "governance",
-  "risk",
-  "structure",
-  // Act VI — the close
-  "assumptions",
+  "data",
+  "analysis",
+  "strategy",
+  "implementation",
+  "workstreams-platforms",
+  "workstreams-media",
+  "workstreams-ground",
+  "workstreams-data",
+  "delivery",
   "nextsteps",
-  // Act VII — terms and reference
+  // Terms and reference, after the offer is made.
   "cover",
   "annex-evidence",
   "annex-county",
+  "annex-polls",
   "annex-messages",
   "annex-cadence",
   "annex-runbooks",
+  "annex-terms",
 ];
 
 /** The seven movements of the scroll, so the reader can feel where they are without a menu. */
@@ -76,12 +61,12 @@ export interface FlowAct {
 }
 
 export const FLOW_ACTS: FlowAct[] = [
-  { id: "ask", label: "The ask", blurb: "What is being requested, and by when", opensOn: "decision" },
-  { id: "evidence", label: "What we know", blurb: "Your channels, the contest, the number, the reach", opensOn: "presence" },
-  { id: "strategy", label: "What it implies", blurb: "Objectives, audiences, the approach and the words", opensOn: "objectives" },
-  { id: "work", label: "What we will run", blurb: "Fourteen workstreams, and their boundaries", opensOn: "scope" },
-  { id: "delivery", label: "How it is delivered", blurb: "Phasing, deliverables, measurement, governance, risk", opensOn: "roadmap" },
-  { id: "close", label: "The close", blurb: "What this needs, and the decision", opensOn: "assumptions" },
+  { id: "objectives", label: "Objectives", blurb: "What this engagement is for, and how success will be judged", opensOn: "objectives" },
+  { id: "data", label: "The Data", blurb: "What the official record shows, graded by source", opensOn: "data" },
+  { id: "analysis", label: "The Analysis", blurb: "The winning number, where it lives, and why he isn't yet reaching it", opensOn: "analysis" },
+  { id: "strategy", label: "The Strategy", blurb: "Each choice tied to the finding it answers", opensOn: "strategy" },
+  { id: "implementation", label: "Implementation", blurb: "Who does what, when, and how it's checked", opensOn: "implementation" },
+  { id: "close", label: "Next Steps", blurb: "What the campaign provides, and the decision requested", opensOn: "nextsteps" },
   { id: "reference", label: "Terms and reference", blurb: "Confidentiality, method, annexes", opensOn: "cover" },
 ];
 

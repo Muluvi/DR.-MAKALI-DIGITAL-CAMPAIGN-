@@ -1,7 +1,9 @@
+## Ground and offline reach
+
 
 Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them.
 
-## 8.8 Workstream 7 — Ground-digital integration
+## 5.2.7 Workstream 7 — Ground-digital integration
 
 > **Owner: the campaign.** The 40 ward coordinators are the campaign's people. Firefly supplies
 > the reporting template and the analysis of what comes back.
@@ -15,9 +17,9 @@ The campaign establishes a **Closed-Loop Ground-Digital Integration Engine**. Fi
 id: field-loop
 ```
 
-### 8.8.1 What the 40 ward coordinators report
+### 5.2.7.1 What the 40 ward coordinators report
 
-The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, who supervise the **400 Ward Captains** (10 per ward, Section 4.2). Each coordinator is equipped with a dual reporting channel: a **secure field WhatsApp bot** for smartphone-equipped coordinators in 3G/4G zones, and a **zero-rated USSD/SMS structured reporting tree** for offline/2G wards.
+The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, who supervise the **400 Ward Captains** (10 per ward, Section 1.3). Each coordinator is equipped with a dual reporting channel: a **secure field WhatsApp bot** for smartphone-equipped coordinators in 3G/4G zones, and a **zero-rated USSD/SMS structured reporting tree** for offline/2G wards.
 
 ```figure
 id: field-reports
@@ -29,7 +31,7 @@ id: field-reports
 3.  **Ground Disinformation & Counter-Narratives:** E.g., *"Rumor circulating in Mutomo that Dr. Mulu's CDF bursary program excluded non-Kitui Central students."*
 4.  **Field Inventory & Collateral Levels:** Current stock of Kikamba manifesto summary leaflets, posters, audio flash drives, and volunteer T-shirts.
 
-### 8.8.2 From ground intel to a published response in four hours
+### 5.2.7.2 From ground intel to a published response in four hours
 
 When field intelligence reaches the War Room, it triggers an automated, standardized four-stage response cycle:
 
@@ -37,7 +39,7 @@ When field intelligence reaches the War Room, it triggers an automated, standard
 id: four-hour-cycle
 ```
 
-### 8.8.3 Distribution beyond social media
+### 5.2.7.3 Distribution beyond social media
 
 To bypass digital connectivity barriers, the campaign turns physical transportation, trade, and civic networks into active information distribution conduits:
 
@@ -57,7 +59,7 @@ To bypass digital connectivity barriers, the campaign turns physical transportat
     *   Placement of seatback information cards in commuter vans detailing Dr. Mulu's 5-point Economic Charter.
 
 #### 3. Weekly Market Days & Caravan Circuits
-*   **Infrastructure:** The 40 major market centers rotating across the county weekly (Section 8.10.4).
+*   **Infrastructure:** The 40 major market centers rotating across the county weekly (Section 5.2.9.4).
 *   **Operational Role:** Concentrated voter aggregation points.
 *   **Execution:**
     *   Coordinated arrival of the *Mulu Economic Caravan* sound trucks at 10:00 AM on market days.
@@ -70,7 +72,7 @@ To bypass digital connectivity barriers, the campaign turns physical transportat
     *   Ward Captains attend barazas as active community citizens to listen to localized grievances (water, security, relief food).
     *   Post-baraza informal engagement: Engaging elders and attendees outside official proceedings, answering questions, and sharing Dr. Mulu's policy solutions for the specific community issues raised during the baraza.
 
-### 8.8.4 The operating rhythm
+### 5.2.7.4 The operating rhythm
 
 To maintain operational tempo across 8 constituencies and 40 wards, the campaign executes a strict, synchronized rhythm with assigned single-point-of-contact (SPOC) owners:
 
@@ -81,12 +83,12 @@ id: operating-rhythm
 
 ---
 
-## 8.9 Workstream 8 — The field-to-digital loop
+## 5.2.8 Workstream 8 — The field-to-digital loop
 
 > **Owner: the campaign.** Firefly supplies the instrument and its data governance.
 
 
-### 8.9.1 Operating architecture and bidirectional sync
+### 5.2.8.1 Operating architecture and bidirectional sync
 
 Most campaigns run two separate operations: a ground team that knocks doors and
 a digital team that buys ads. Neither learns from the other. The ground team
@@ -102,7 +104,7 @@ voters the ground team has confirmed as committed opponents. In a county of
         ^                                        |
         |                                        v
    Priority route                        Voter score updated
-   delivered to                          (Section 8.13.4)
+   delivered to                          (Section 5.2.12.4)
    champion's phone                              |
         ^                                        v
         |                                Ad audiences and SMS
@@ -120,10 +122,10 @@ voters the ground team has confirmed as committed opponents. In a county of
   * **Pre-briefing:** champions receive the issue the household engaged with — water, bursaries, market fees — so the conversation starts where the voter's interest already is.
   * **Event conversion:** digital sign-ups for barazas are handed to ground organisers with attendance follow-up.
 
-### 8.9.2 Governance and data protection on the doorstep
+### 5.2.8.2 Governance and data protection on the doorstep
 
 * Field data is campaign first-party data, collected with notice, and governed
-by the same charter as all other personal data (Section 12.5.4).
+by the same charter as all other personal data (Section 5.7.8).
 * Ward champions receive data-handling training before being issued the form,
 and cannot export or retain contact data on personal devices.
 * **Field validation match rate ≥ 85%** is the joint KPI holding both sides
@@ -131,7 +133,7 @@ honest: if the model and the doorstep disagree, the model is wrong.
 
 ---
 
-## 8.10 Workstream 9 — What Firefly operates: SMS, USSD and voice
+## 5.2.9 Workstream 9 — What Firefly operates: SMS, USSD and voice
 
 > **Owner: Firefly, end to end.** Two pieces of infrastructure, held and run by Firefly: the
 > **WhatsApp Business API line** and the **USSD shortcode** `[CONFIRM/EDIT — confirm both are held,
@@ -139,10 +141,10 @@ honest: if the model and the doorstep disagree, the model is wrong.
 > Firefly publishes. Everything on the owned social accounts stays with the team that runs them.
 >
 > It is also the one place where Firefly is a **data controller or joint controller** rather than a
-> processor — see Section 12.5.1, which must be settled in writing before the first dispatch.
+> processor — see Section 5.7.5, which must be settled in writing before the first dispatch.
 
 
-### 8.10.1 Why this layer decides the race
+### 5.2.9.1 Why this layer decides the race
 
 Kitui has **143,340 internet users out of a population of 1,053,991 aged 3 and
 above** — 13.6%. It has **452,948 mobile phone owners** — 42.9%. Nationally, smartphones are
@@ -159,15 +161,15 @@ campaigning in this county, and solving it is the clearest demonstration of the
 rather than where measurement is convenient.
 
 The critical constraint: the campaign can only message consented numbers
-(Section 12.5). List building is therefore a KPI in its own right from Phase −1,
+(Section 5.7.4). List building is therefore a KPI in its own right from Phase −1,
 not an afterthought — consented contacts are a campaign asset that compounds.
 
-### 8.10.2 The SMS layer
+### 5.2.9.2 The SMS layer
 
 **Consent-first architecture.** Every number in the campaign database arrives
 by opt-in: a USSD self-registration, a signed baraza sheet with a clear data
 notice, a WhatsApp opt-in confirmation, a website form, or a missed-call
-opt-in. **No purchased lists. Ever.** See Sections 7.3.4 and 12.5 for the
+opt-in. **No purchased lists. Ever.** See Sections 4.4.11 and 5.7.4 for the
 regulatory basis; the short version is that the industry code requires express
 opt-in for political messages and the ODPC has demonstrated willingness to
 penalise unsolicited messaging.
@@ -204,16 +206,16 @@ penalise unsolicited messaging.
 * **Every bulk send lodged with the operator 48 hours ahead**, verbatim text plus signed
 authorisation, logged against the dispatch record
 * **No attacks on individuals, families, ethnicity, religion or association** in any message —
-a guideline requirement, and already a charter commitment (Section 12.5.4, clauses 2 and 6)
+a guideline requirement, and already a charter commitment (Section 5.7.8, clauses 2 and 6)
 * Sending window **7am–7pm**, per market practice and DND norms
 * Every message carries a clear opt-out; opt-outs honoured immediately and
 permanently
 * Ward-tagged segmentation so a message about mango prices reaches Kitui West
 and not Kyuso
 * Personalisation by first name where consent covers it
-* Per-send audit trail retained, per the charter (Section 12.5.4)
+* Per-send audit trail retained, per the charter (Section 5.7.8)
 
-### 8.10.3 The USSD layer
+### 5.2.9.3 The USSD layer
 
 USSD works on every phone, requires no internet, and costs the voter almost
 nothing. It is the single most under-used civic channel in Kenyan county
@@ -224,13 +226,13 @@ politics.
 KITUI NA MULU
 1. Sisemo sya Mulu / Mulu's plan for my ward
 2. Andikithya kuvota / Voter registration info
-3. Ripoti wia / Report a local issue      <-- Section 8.2
+3. Ripoti wia / Report a local issue      <-- Section 5.2.1
 4. Kuthukuma / Volunteer
 5. Kwithukiisya / Get updates (opt-in)
 6. Kiswahili / English
 ```
 
-**Why option 3 matters most.** The service-delivery tracker (Section 8.2) is
+**Why option 3 matters most.** The service-delivery tracker (Section 5.2.1) is
 reachable from a feature phone in Mutha. A constituent reports a broken water
 point by dialling a short code; the report enters a public register; the
 campaign follows up and publishes the outcome. That is the M&E credential
@@ -239,16 +241,16 @@ operating in public, before the election, on the cheapest possible technology.
 **Set-up:** 5–7 working days for a shared code; 2–4 weeks for a dedicated code
 pending operator approval.
 
-### 8.10.4 Voice and audio
+### 5.2.9.4 Voice and audio
 
 * **Kikamba voice notes from Dr. Mulu** distributed by WhatsApp and by ward
 champions to Bluetooth-share onward. Audio travels where text does not, and
 carries the candidate's actual voice — the highest-trust format available.
-* **Radio** — see Section 8.7.
+* **Radio** — see Section 5.2.6.
 * **Audio versions of all flagship policy content**, addressing both low
 literacy (13.0% of the population never attended school) and low bandwidth.
 
-### 8.10.5 The mobile-money agent network
+### 5.2.9.5 The mobile-money agent network
 
 Kenya's registered mobile-money agents grew from **480,216 in September 2025 to
 602,470 in March 2026** — expanding roughly four times faster than
@@ -265,7 +267,7 @@ transaction records, balances or customer identity enters this programme.
 material.
 * `[Confirm approach with campaign counsel — agent networks are regulated financial infrastructure and any commercial arrangement should be reviewed]`
 
-### 8.10.6 KPIs for the offline layer
+### 5.2.9.6 KPIs for the offline layer
 
 | Metric | Phase −1 | Phase 1 | Phase 2 | Phase 3 |
 |---|---|---|---|---|
@@ -282,7 +284,7 @@ a vanity one.
 
 ---
 
-## 8.11 Workstream 10 — Digital organising and volunteers
+## 5.2.10 Workstream 10 — Digital organising and volunteers
 
 > **Outside this engagement.** Volunteer recruitment, tiers, gamification and ward-champion
 > management belong to the ground campaign, which already runs them. Firefly's contribution is
@@ -290,24 +292,24 @@ a vanity one.
 > retained as reference for the campaign's own coordinator, not as a Firefly deliverable.
 
 
-### 8.11.1 Turning online supporters into offline organisers
+### 5.2.10.1 Turning online supporters into offline organisers
 
 A tiered volunteer programme converting passive online supporters into active
 offline organisers, with gamification driving sustained engagement.
 
-### 8.11.2 Volunteer tiers
+### 5.2.10.2 Volunteer tiers
 
 | Tier | Name | Entry requirement | Activities |
 |---|---|---|---|
 | **1** | Digital Advocate | Follow on 2+ platforms | Share, comment, amplify |
 | **2** | Ward Champion | Join ward WhatsApp group + data-handling briefing | Distribute content, report ground sentiment, recruit 5 advocates |
-| **3** | Community Organiser | Complete online training module | Host groups, coordinate local events, **log canvass outcomes (Section 8.9)** |
+| **3** | Community Organiser | Complete online training module | Host groups, coordinate local events, **log canvass outcomes (Section 5.2.8)** |
 | **4** | County Coordinator | Manage 3+ organisers | Oversee regional operations, attend weekly syncs |
 
 **Data-handling training is a gate, not an option.** No volunteer collects
-personal data before completing it (Section 12.5.4).
+personal data before completing it (Section 5.7.8).
 
-### 8.11.3 Gamification mechanics
+### 5.2.10.3 Gamification mechanics
 
 | Mechanic | Implementation | Reward |
 |---|---|---|
@@ -320,19 +322,19 @@ personal data before completing it (Section 12.5.4).
 voter, a canvassed household, a completed training — not raw posting volume.
 Reward systems that pay for volume produce spam and, at scale, look
 indistinguishable from inauthentic activity. That would breach both platform
-policy and the Section 12.5.4 charter, and it is designed out from the start.
+policy and the Section 5.7.8 charter, and it is designed out from the start.
 
-### 8.11.4 Management tooling
+### 5.2.10.4 Management tooling
 
 * **Custom WhatsApp bot** for low-cost volunteer management: registration,
 point tracking, content distribution, leaderboards
 * **USSD registration path** so volunteers without smartphones can join
-(Section 8.10.3) — a genuine differentiator in the arid belt
+(Section 5.2.9.3) — a genuine differentiator in the arid belt
 * Forms and spreadsheets for baseline collection
 * Task management via a shared board
 * Purpose-built volunteer platforms only at premium tier, if budget allows
 
-### 8.11.5 Volunteer KPIs
+### 5.2.10.5 Volunteer KPIs
 
 | Metric | Target |
 |---|---|
@@ -343,3 +345,4 @@ point tracking, content distribution, leaderboards
 | Average points per volunteer per month | ≥ 100 |
 | 90-day retention | ≥ 50% |
 | **Canvass returns logged per active Tier 3 organiser per week** | ≥ 25 households |
+

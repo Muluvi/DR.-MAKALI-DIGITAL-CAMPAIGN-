@@ -17,44 +17,14 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { contentTabs } from "./content-routes.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CONTENT = path.join(ROOT, "public", "content");
 
-const TABS = {
-  "decision.md": "decision",
-  "cover.md": "cover",
-  "presence.md": "presence",
-  "summary.md": "summary",
-  "situation.md": "situation",
-  "objectives.md": "objectives",
-  "audiences.md": "audiences",
-  "approach.md": "approach",
-  "engine.md": "engine",
-  "messaging.md": "messaging",
-  "scope.md": "scope",
-  "scope-platforms.md": "scope-platforms",
-  "scope-media.md": "scope-media",
-  "scope-ground.md": "scope-ground",
-  "scope-data.md": "scope-data",
-  "roadmap.md": "roadmap",
-  "deliverables.md": "deliverables",
-  "measurement.md": "measurement",
-  "governance.md": "governance",
-  "risk.md": "risk",
-  "structure.md": "structure",
-  "assumptions.md": "assumptions",
-  "nextsteps.md": "nextsteps",
-  "arithmetic.md": "arithmetic",
-  "reach.md": "reach",
-  "annex-evidence.md": "annex-evidence",
-  "annex-county.md": "annex-county",
-  "annex-messages.md": "annex-messages",
-  "annex-cadence.md": "annex-cadence",
-  "annex-runbooks.md": "annex-runbooks",
-};
+const TABS = contentTabs();
 
-const LEADING = /^(\d+[A-Z]?(?:\.\d+)*)\.?\s/;
+const LEADING = /^((?:\d+[A-Z]?(?:\.\d+)*|[A-G](?:\.\d+)+))\.?\s/;
 const HEADING = /^(#{2,3})\s+(.+?)\s*$/;
 const clean = (raw) =>
   raw.replace(/\*\((new|updated)\)\*/gi, "").replace(/\*\*/g, "").replace(/\*/g, "")
@@ -73,15 +43,22 @@ for (const [file, tab] of Object.entries(TABS)) {
   }
 }
 
-// Read the two maps straight out of the source, so this guard cannot drift from what ships.
+// Read the maps from exactly what ships, so this guard cannot drift from it.
+//
+// LEGACY_IDS outgrew the source file at the 2026 restructure — composing three earlier
+// generations through a fourth renumbering took it past a thousand entries — and it now lives in
+// lib/legacy-ids.json, imported by lib/heading-slug.ts. TAB_ALIASES is still read out of the
+// source, and is now empty: it keyed on an id's old TAB, which stopped carrying information the
+// moment section numbers themselves moved.
 const src = fs.readFileSync(path.join(ROOT, "lib", "heading-slug.ts"), "utf8");
 const slice = (name) => {
   const start = src.indexOf(`const ${name}`);
   const end = src.indexOf("\n};", start);
+  if (start === -1 || end === -1) return {};
   return Object.fromEntries([...src.slice(start, end).matchAll(/"([^"]+)":\s*"([^"]+)"/g)].map((m) => [m[1], m[2]]));
 };
 const ALIASES = slice("TAB_ALIASES");
-const LEGACY = slice("LEGACY_IDS");
+const LEGACY = JSON.parse(fs.readFileSync(path.join(ROOT, "lib", "legacy-ids.json"), "utf8"));
 
 /** Mirrors resolveLegacySectionId in lib/heading-slug.ts. */
 function resolve(id) {

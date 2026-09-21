@@ -45,6 +45,7 @@ const { chromium } = await (async () => {
     const req = createRequire(import.meta.url);
     for (const dir of (process.env.NODE_PATH ?? "").split(path.delimiter).filter(Boolean)) {
       try { return req(path.join(dir, "playwright")); } catch { /* try the next one */ }
+      try { return req(path.join(dir, "playwright-core")); } catch { /* try the next one */ }
     }
     console.error("measure-section-heights: playwright is not installed. See the note at the top of this file.");
     process.exit(1);
@@ -54,7 +55,9 @@ const { chromium } = await (async () => {
 // The container ships Chromium at a fixed path with PLAYWRIGHT_BROWSERS_PATH pointing at it;
 // honour an explicit override so this runs wherever the browser actually is.
 const browser = await chromium.launch(
-  process.env.PLAYWRIGHT_CHROMIUM ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM } : {}
+  process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE ?? process.env.PLAYWRIGHT_CHROMIUM
+    ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE ?? process.env.PLAYWRIGHT_CHROMIUM }
+    : {}
 );
 // 390px is the reference phone width the flow is designed against — the reservation only has to
 // be right for the readers it protects, and they are on phones.

@@ -16,45 +16,15 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { contentTabs } from "./content-routes.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CONTENT = path.join(ROOT, "public", "content");
 
 // The tab id for each content file, mirroring FILES in app/page.tsx.
-const TABS = {
-  "decision.md": "decision",
-  "cover.md": "cover",
-  "presence.md": "presence",
-  "summary.md": "summary",
-  "situation.md": "situation",
-  "objectives.md": "objectives",
-  "audiences.md": "audiences",
-  "approach.md": "approach",
-  "engine.md": "engine",
-  "messaging.md": "messaging",
-  "scope.md": "scope",
-  "scope-platforms.md": "scope-platforms",
-  "scope-media.md": "scope-media",
-  "scope-ground.md": "scope-ground",
-  "scope-data.md": "scope-data",
-  "roadmap.md": "roadmap",
-  "deliverables.md": "deliverables",
-  "measurement.md": "measurement",
-  "governance.md": "governance",
-  "risk.md": "risk",
-  "structure.md": "structure",
-  "assumptions.md": "assumptions",
-  "nextsteps.md": "nextsteps",
-  "arithmetic.md": "arithmetic",
-  "reach.md": "reach",
-  "annex-evidence.md": "annex-evidence",
-  "annex-county.md": "annex-county",
-  "annex-messages.md": "annex-messages",
-  "annex-cadence.md": "annex-cadence",
-  "annex-runbooks.md": "annex-runbooks",
-};
+const TABS = contentTabs();
 
-const LEADING = /^(\d+[A-Z]?(?:\.\d+)*)\.?\s/;
+const LEADING = /^((?:\d+[A-Z]?(?:\.\d+)*|[A-G](?:\.\d+)+))\.?\s/;
 const HEADING = /^(#{2,3})\s+(.+?)\s*$/;
 
 function cleanTitle(raw) {

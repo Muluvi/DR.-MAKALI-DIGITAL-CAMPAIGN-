@@ -26,6 +26,7 @@
  * scripts/measure-section-heights.mjs. Without them this exits 0 with a note, so a contributor
  * without the browser installed is told rather than blocked; CI installs both and gets the checks.
  */
+import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -55,13 +56,20 @@ if (!pw) {
 const axeModule = await optional("@axe-core/playwright");
 const AxeBuilder = axeModule?.default ?? axeModule?.AxeBuilder ?? null;
 
-const ROUTES = [
-  "/", "/full", "/decision", "/cover", "/presence", "/summary", "/situation", "/arithmetic",
-  "/reach", "/objectives", "/audiences", "/approach", "/engine", "/messaging", "/scope",
-  "/scope-platforms", "/scope-media", "/scope-ground", "/scope-data", "/roadmap", "/deliverables",
-  "/measurement", "/governance", "/risk", "/structure", "/assumptions", "/nextsteps",
-  "/annex-evidence", "/annex-county", "/annex-messages", "/annex-cadence", "/annex-runbooks",
-];
+/**
+ * Every route, derived from the content directory rather than listed here.
+ *
+ * The list used to be typed out, which was fine for three years and wrong for one commit: the
+ * 2026 restructure replaced thirty routes with nineteen, and a hand-kept list would have gone on
+ * auditing routes that no longer exist while missing every one that does.
+ */
+const ROUTES = ["/", "/full"].concat(
+  fs
+    .readdirSync(path.join(ROOT, "public", "content"))
+    .filter((f) => f.endsWith(".md"))
+    .sort()
+    .map((f) => "/" + f.replace(/\.md$/, ""))
+);
 
 const browser = await pw.chromium.launch(
   process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE

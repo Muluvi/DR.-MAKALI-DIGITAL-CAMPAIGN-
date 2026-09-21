@@ -41,7 +41,8 @@ async function loadPlaywright() {
     const { createRequire } = await import("node:module");
     const req = createRequire(import.meta.url);
     for (const dir of (process.env.NODE_PATH ?? "").split(path.delimiter).filter(Boolean)) {
-      try { return req(path.join(dir, "playwright")); } catch { /* next */ }
+      try { return req(path.join(dir, "playwright")); } catch { /* try the next one */ }
+      try { return req(path.join(dir, "playwright-core")); } catch { /* next */ }
     }
     console.error("build-og-image: playwright is not installed. See the note at the top of this file.");
     process.exit(1);

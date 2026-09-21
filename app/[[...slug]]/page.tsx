@@ -26,8 +26,16 @@ const FULL = "full";
 /** The route "/" serves: the same document, streamed a section at a time. */
 const FLOW = "flow";
 
-/** How many sections of the flow are rendered into the HTML before streaming takes over. */
-const PRERENDERED = 2;
+/**
+ * How many sections of the flow are rendered into the HTML before streaming takes over.
+ *
+ * It was two, when the flow opened with the ask (1,053 words) and the executive summary (1,283).
+ * The restructure put Objectives and The Data in those slots — 5,024 words between them — and the
+ * first paint went from 41 kB gzipped to 69. One section is now the same bargain two used to be:
+ * §1 is the whole of what this engagement is for, so the page is complete and useful the moment it
+ * paints, and at a measured 10,547px it is three phone screens of runway before §2 is needed.
+ */
+const PRERENDERED = 1;
 
 /**
  * The route served at "/".

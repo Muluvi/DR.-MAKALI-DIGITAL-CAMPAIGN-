@@ -1,8 +1,8 @@
 ANNEX A. The provenance rules every figure in this proposal is held to, the three source tiers, and the protocol for when two sources disagree. Referenced throughout; collected here so the method can be checked without interrupting the argument.
 
-## 3.2 Evidence standard: provenance and source tiers
+## A.1 Evidence standard: provenance and source tiers
 
-### 3.2.1 Every figure carries its provenance
+### A.1.1 Every figure carries its provenance
 
 To ensure zero "data drift" across the strategic command, every figure cited in memos, ad targeting budgets, field operations, and executive briefings must satisfy the **Tri-Partite Metadata Mandate**:
 
@@ -12,7 +12,7 @@ id: provenance-mandate
 
 **Rule of Implementation:** Any metric presented without all three parameters is classified as **Unverified Draft Data** and is strictly prohibited from informing field allocations or financial expenditures.
 
-### 3.2.2 The three source tiers
+### A.1.2 The three source tiers
 
 The campaign classifies all intelligence into three immutable evidential tiers:
 
@@ -25,7 +25,7 @@ id: tier-classification
 *   *Tier 2 Data* (e.g., Mizani Africa 7 August 2026 survey: Kasalu 37.4%, Mulu 22.1%) is treated as empirical snapshots carrying declared margins of error (±2.53%).
 *   *Tier 3 Data* (e.g., informal reports that Wiper party primaries will use polling rather than delegates) is explicitly watermarked as single-source until validated by formal party communiques.
 
-### 3.2.3 When two sources disagree
+### A.1.3 When two sources disagree
 
 When multiple sources report conflicting metrics (e.g., voter registration counts, polling leads, or demographic proportions), the analytical unit applies a standardized **Four-Step Conflict Resolution Protocol**:
 
@@ -37,7 +37,7 @@ id: conflict-protocol
 
 ---
 
-### 3.2.4 The standard applied to our own measurement
+### A.1.4 The standard applied to our own measurement
 
 The presence audit in Section 1A is held to the same rules as every figure in this document.
 
@@ -56,3 +56,4 @@ The presence audit in Section 1A is held to the same rules as every figure in th
     geographies are not used.
 *   **Competitive figures** are public-source only, gathered the same way for all four candidates,
     in the same window.
+

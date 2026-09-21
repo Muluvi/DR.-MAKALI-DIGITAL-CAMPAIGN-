@@ -1,12 +1,14 @@
+## Publishing and earned media
+
 
 Two workstreams: paid media across the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely controlled by rivals.
 
-## 8.6 Workstream 5 — Platform tactics and paid media
+## 5.2.5 Workstream 5 — Platform tactics and paid media
 
 > **Owner: your team, to a Firefly brief.** Read every platform block below as *what belongs on
 > this channel and why*, not as a list of things Firefly will post. Firefly writes the targeting
 > plan and reads the performance; your team places and publishes. Who holds the ad account is a
-> decision for Dr. Mulu — Section 12.3 states the recommendation and marks it open.
+> decision for Dr. Mulu — Section 5.7.3 states the recommendation and marks it open.
 
 
 #### Facebook
@@ -64,7 +66,7 @@ uchumi aeleze."*
 * Search-optimised videos answering "What does the Kitui Governor do?" and
 "Kitui development 2027"
 * **Monthly "Kitui Economic Brief"** reviewing county budget execution
-* **Home for full sign-language-interpreted versions** (Section 8.5.1)
+* **Home for full sign-language-interpreted versions** (Section 5.2.4.1)
 
 #### Google Ads
 
@@ -76,7 +78,7 @@ Evaluator. Reformer. | Read the plan for your ward."*
 
 ---
 
-## 8.7 Workstream 6 — Earned media, journalists and debates
+## 5.2.6 Workstream 6 — Earned media, journalists and debates
 
 > **Owner: your team and the campaign, to a Firefly brief.** Placement is a relationship business
 > the campaign already has. Firefly supplies the briefing notes, the debate preparation and the
@@ -86,7 +88,7 @@ Evaluator. Reformer. | Read the plan for your ward."*
 *Paid and owned media reach the connected minority. Earned media —
 especially radio — reaches everyone else.*
 
-### 8.7.1 The radio problem, stated plainly
+### 5.2.6.1 The radio problem, stated plainly
 
 Kamba-language radio is the dominant information channel for the roughly 86% of
 Kitui residents outside the internet-using population. **But the ownership map
@@ -108,12 +110,12 @@ is politically compromised, and any credible media plan must say so:**
 County FM and Wikwatyo, treats Athiani as party-sensitive, and treats
 Mbaitu/Syokimau as monitoring targets rather than placement targets. Attacks
 on Dr. Mulu are more likely to originate on air than online, which is why radio
-monitoring sits in the war room (Section 13.2.2) rather than in a media annex.
+monitoring sits in the war room (Section F.4) rather than in a media annex.
 
 *This map is based on publicly reported ownership associations and should be
 verified and updated by the campaign; media ownership changes.*
 
-### 8.7.2 The journalist relationship programme
+### 5.2.6.2 The journalist relationship programme
 
 | Tier | Who | Cadence | Offer |
 |---|---|---|---|
@@ -132,7 +134,7 @@ with sources, policy briefs by theme, verified county data with citations, and
 contact routes. The easier the campaign makes a journalist's job, the more
 often it is quoted.
 
-### 8.7.3 Candidate media training
+### 5.2.6.3 Candidate media training
 
 Three sessions, plus refreshers:
 
@@ -150,7 +152,7 @@ prepared pivot, and handling direct attack without appearing rattled.
 **Refreshers** before each debate or major forum, plus a recorded mock with
 playback review.
 
-### 8.7.4 The debate and forum playbook
+### 5.2.6.4 The debate and forum playbook
 
 **Preparation:**
 
@@ -176,7 +178,7 @@ top three issues
 **The rule: the clip is published before the coverage is written.** Whoever
 distributes the moment first defines what the debate was about.
 
-### 8.7.5 Pre-drafted response lines
+### 5.2.6.5 Pre-drafted response lines
 
 Prepared, verified, and rehearsed in drills. Each is a structure, not a script —
 substance fixed, delivery natural.
@@ -189,10 +191,10 @@ substance fixed, delivery natural.
 | **"NG-CDF questions"** | Lead with the documented record — bursary numbers, project list, the Eastern region evaluation certification — and invite scrutiny. **Never defensive; an evaluator welcomes audit.** |
 | **"Too technical / not close to ordinary people"** | Answer in Kikamba, with a household example. The best rebuttal to "too technical" is a demonstration, not a denial |
 | **"Wiper insider / party establishment"** | Point to the independence of his parliamentary record on budget matters |
-| **Manipulated media** | Section 13.3.5 protocol — 30-minute clock |
+| **Manipulated media** | Section 5.8.7 protocol — 30-minute clock |
 | **Unsolicited SMS allegation** | Produce the consent audit trail; cite the published charter; correct publicly within the hour |
 
-### 8.7.6 Earned media KPIs
+### 5.2.6.6 Earned media KPIs
 
 | Metric | Target |
 |---|---|
@@ -203,7 +205,7 @@ substance fixed, delivery natural.
 | Share of voice in Kitui gubernatorial coverage | ≥ 50% |
 | Fact-checker corrections secured on false claims | 100% of material false claims challenged |
 
-### 8.7.7 Getting on air around a hostile gatekeeper
+### 5.2.6.7 Getting on air around a hostile gatekeeper
 
 To guarantee uninhibited communication with all 532,758 registered voters across the 40 wards, the campaign executes a four-pillar bypass strategy that operates entirely independently of captured Tier 1 commercial gatekeepers:
 
@@ -211,11 +213,12 @@ To guarantee uninhibited communication with all 532,758 registered voters across
 id: bypass-architecture
 ```
 
-### 8.7.8 How we pitch: evidence first
+### 5.2.6.8 How we pitch: evidence first
 
 To capture objective news coverage on mainstream national and regional platforms without paying extortionate broadcast gatekeeper fees, the press desk operates an **Evidence-First Pitch Engine**:
 
 1.  **Hansard & Audit Exclusives:** Providing national media bureau chiefs (*Daily Nation, Standard, Citizen TV, KTN News*) with verified, data-dense policy briefs on national debt, equalization fund legislation, and local county pending bills.
 2.  **On-Site Project Media Tours:** Transporting accredited regional correspondents directly to Kitui Central model projects (solar boreholes, modern TVET workshops, secondary school laboratories) with on-camera beneficiary interviews.
 3.  **Rapid Studio Call-In Rights:** Enforcing statutory right-of-reply provisions under the Media Council of Kenya (MCK) Act whenever candidate record distortions are aired on rival stations.
+
 

@@ -1,63 +1,1634 @@
 {
- "decision-sec-0-1": {
-  "id": "decision-sec-0-1",
-  "tab": "decision",
+ "analysis-sec-3-1": {
+  "id": "analysis-sec-3-1",
+  "tab": "analysis",
   "level": 2,
-  "number": "0.1",
-  "title": "The ask",
+  "number": "3.1",
+  "title": "The number it takes",
   "kind": "stepper",
   "data": {
    "steps": [
     {
      "n": 1,
-     "label": "Analyse — Week 1.",
-     "body": "Firefly audits the existing presence: ninety days of reach, engagement, language and geography on Dr. Mulu's own channels, read…"
+     "label": "Total Registered Electorate (2022, Tier 1)",
+     "body": "532,758 voters across 40 County Assembly Wards (plus 75 prison voters, totalling 532,833 registered voters)."
     },
     {
      "n": 2,
-     "label": "Strategise — Weeks 2–3.",
-     "body": "From that audit, Firefly defines what to post, for whom, in which language, on which channel, and why. Four pillars, six…"
+     "label": "The Baseline Victory Threshold",
+     "body": "~200,000 votes (Tier 1), established by Governor Julius Malombe's certified 2022 winning total of 198,004 votes (Tier 1)."
     },
     {
      "n": 3,
-     "label": "Direct — Week 4 onward.",
-     "body": "The existing team keeps publishing. Firefly issues the weekly brief, approves the calendar, and reviews performance against…"
+     "label": "Turnout Baseline Dynamics",
+     "body": ""
+    },
+    {
+     "n": 4,
+     "label": "Kitui County historical turnout averages…",
+     "body": "Kitui County historical turnout averages approximately 62.0% (Tier 1)."
+    },
+    {
+     "n": 5,
+     "label": "To achieve the 198,004 to 200,000 vote…",
+     "body": "To achieve the 198,004 to 200,000 vote threshold, a winning gubernatorial candidate must capture 60.0% to 60.5% of all valid…"
     }
    ]
   }
  },
- "decision-sec-0-2": {
-  "id": "decision-sec-0-2",
-  "tab": "decision",
+ "analysis-sec-3-2-1": {
+  "id": "analysis-sec-3-2-1",
+  "tab": "analysis",
+  "level": 3,
+  "number": "3.2.1",
+  "title": "The constituencies that decide it",
+  "kind": "bars",
+  "data": {
+   "items": [
+    {
+     "label": "Kyuso",
+     "value": 19921,
+     "display": "Kyuso, 19,921 voters"
+    },
+    {
+     "label": "Mumoni voters",
+     "value": 15877,
+     "display": "Mumoni (15,877 voters)"
+    }
+   ]
+  }
+ },
+ "analysis-sec-3-3": {
+  "id": "analysis-sec-3-3",
+  "tab": "analysis",
   "level": 2,
-  "number": "0.2",
-  "title": "Why the answer cannot be \"later\"",
+  "number": "3.3",
+  "title": "Four routes to the number",
+  "kind": "bars",
+  "data": {
+   "items": [
+    {
+     "label": "voters",
+     "value": 200198,
+     "display": "200,198 voters"
+    },
+    {
+     "label": "wards",
+     "value": 15,
+     "display": "15 wards"
+    },
+    {
+     "label": "votes short",
+     "value": 99000,
+     "display": "99,000 votes short"
+    }
+   ]
+  }
+ },
+ "analysis-sec-3-4": {
+  "id": "analysis-sec-3-4",
+  "tab": "analysis",
+  "level": 2,
+  "number": "3.4",
+  "title": "Where he is known and where he isn't",
+  "kind": "timeline",
+  "data": {
+   "events": [
+    {
+     "label": "Candidate Profile",
+     "body": "Dr. Benson Makali Mulu has served as Member of Parliament for Kitui Central for 13 consecutive years (since 2013, Tier…"
+    },
+    {
+     "label": "High-Recognition / Core Anchor Zone",
+     "body": "Kitui Central (77,764 voters) and immediate adjacent wards in Kitui West (Matinyani, Kauwi) and Kitui Rural (Kisasi,…"
+    },
+    {
+     "label": "Steep Recognition Deficit Zones",
+     "body": ""
+    },
+    {
+     "label": "Kitui South (6 Wards)",
+     "body": "Total 75,372 registered voters (14.15% of the county register). Geographically remote, separated by long transit…"
+    },
+    {
+     "label": "Kitui East Border Wards",
+     "body": "Total 65,377 registered voters (particularly Endau/Malalani, Voo/Kyamatu, and Mutitu/Kaliku)."
+    },
+    {
+     "label": "Mwingi North Overlap",
+     "body": "Contains 3 of the top 7 largest wards in Kitui County:"
+    },
+    {
+     "label": "Kitui South Overlap",
+     "body": "Contains 2 of the top 11 largest wards:"
+    },
+    {
+     "label": "Mwingi Central Overlap",
+     "body": "Contains Central (14,525), Nguni (13,165), and Nuu (12,729)—a combined 40,419 registered voters in the candidate's…"
+    }
+   ]
+  }
+ },
+ "analysis-sec-3-5": {
+  "id": "analysis-sec-3-5",
+  "tab": "analysis",
+  "level": 2,
+  "number": "3.5",
+  "title": "What his rivals have already proven",
+  "kind": "timeline",
+  "data": {
+   "events": [
+    {
+     "label": "Sen. Enoch Wambua (Senator, Kitui…",
+     "body": "Commands significant party influence and standing as a senior legislator within the Wiper Patriotic Front (Tier 1). He…"
+    },
+    {
+     "label": "David Musila (Former Senator, Kitui…",
+     "body": "A formidable regional contender who finished as the runner-up in both the 2017 and 2022 gubernatorial elections (Tier…"
+    },
+    {
+     "label": "Nicholas Mulila (Safaricom PLC…",
+     "body": "A highly regarded corporate leader with extensive technical and operational credentials in digital infrastructure,…"
+    },
+    {
+     "label": "Francis Musili Kauta (Governance…",
+     "body": "A prominent legal professional and civil society advocate in Kitui (Tier 2). Sourced activist reports note his active…"
+    },
+    {
+     "label": "Scenario Branch B — Eligibility Upheld",
+     "body": "Alternatively, a reading of the constitutional provisions may interpret the two-term limit as applying only to…"
+    }
+   ]
+  }
+ },
+ "analysis-sec-3-6": {
+  "id": "analysis-sec-3-6",
+  "tab": "analysis",
+  "level": 2,
+  "number": "3.6",
+  "title": "Where party loyalty won't carry him",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "voters",
+     "value": 77764,
+     "display": "77,764",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "analysis-sec-3-7": {
+  "id": "analysis-sec-3-7",
+  "tab": "analysis",
+  "level": 2,
+  "number": "3.7",
+  "title": "The three regions",
+  "kind": "gauge",
+  "data": {
+   "value": 18,
+   "display": "18",
+   "label": "sub-counties have distinct economi",
+   "pct": false,
+   "long": false
+  }
+ },
+ "analysis-sec-3-7-2": {
+  "id": "analysis-sec-3-7-2",
+  "tab": "analysis",
+  "level": 3,
+  "number": "3.7.2",
+  "title": "The northern block: Mwingi",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "Pastoral agricultural…",
+     "value": 255795,
+     "display": "255,795",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "analysis-sec-3-8": {
+  "id": "analysis-sec-3-8",
+  "tab": "analysis",
+  "level": 2,
+  "number": "3.8",
+  "title": "What each channel can physically reach",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "votes short",
+     "value": 125549,
+     "display": "125,549 votes short",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "analysis-sec-3-8-1": {
+  "id": "analysis-sec-3-8-1",
+  "tab": "analysis",
+  "level": 3,
+  "number": "3.8.1",
+  "title": "The offline majority, and the infrastructure that reaches it",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "Empirical Reach",
+     "body": "~420,000 voters (78%–80% daily/weekly listenership in rural Kitui) (GeoPoll / KARF Industry Data, Tier 2)."
+    },
+    {
+     "label": "Station Hierarchy & Reach",
+     "body": ""
+    },
+    {
+     "label": "Musyi FM (Royal Media Services)",
+     "body": ""
+    },
+    {
+     "label": "County FM (Kitui-based independent)",
+     "body": ""
+    },
+    {
+     "label": "Wikwatyo FM (Seventh-Day Adventist Church,…",
+     "body": ""
+    },
+    {
+     "label": "Mbaitu FM, Syokimau FM (Ngilu-associated)…",
+     "body": ""
+    },
+    {
+     "label": "Operational Execution",
+     "body": ""
+    },
+    {
+     "label": "Prime-Time Strategic Bookings",
+     "body": ""
+    }
+   ]
+  }
+ },
+ "analysis-sec-3-8-2": {
+  "id": "analysis-sec-3-8-2",
+  "tab": "analysis",
+  "level": 3,
+  "number": "3.8.2",
+  "title": "The operating conditions",
+  "kind": "timeline",
+  "data": {
+   "events": [
+    {
+     "label": "Broadband Exclusion Boundaries",
+     "body": "Approximately 86% of the Kitui electorate remains outside the active internet-using population. Any digital strategy…"
+    },
+    {
+     "label": "Political Capture of Local Radio",
+     "body": "Kamba-language broadcast media — the primary information source for offline rural voters — is highly compromised by…"
+    }
+   ]
+  }
+ },
+ "analysis-sec-3-9-1": {
+  "id": "analysis-sec-3-9-1",
+  "tab": "analysis",
+  "level": 3,
+  "number": "3.9.1",
+  "title": "What the audit produces",
   "kind": "stepper",
   "data": {
    "steps": [
     {
      "n": 1,
-     "label": "The ticket is the race.",
-     "body": "In Kitui the Wiper nomination has been the decisive gateway to the governorship. Failing to secure it makes every downstream…"
+     "label": "The reach map against the vote map",
+     "body": "— reach by ward beside register share by ward, and the difference between them."
     },
     {
      "n": 2,
-     "label": "The gap is opening, not closing.",
-     "body": "Between June and August 2026 Dr. Mulu gained 1.9 points; the front-runner gained 6.1 — more than three times faster (Section…"
+     "label": "Ninety days, coded",
+     "body": "— every day in the window, coloured by content pillar, sized by reach."
     },
     {
      "n": 3,
-     "label": "The runway is set by the polling window,…",
-     "body": "The runway is set by the polling window, not by this document. The window opens in late October 2026 on the reported timetable.…"
+     "label": "Which language travels",
+     "body": "— engagement rate by post language."
+    },
+    {
+     "n": 4,
+     "label": "Him against the field",
+     "body": "— posts per week, median shares per post, and ads live, for all four candidates."
     }
    ]
   }
  },
- "decision-sec-0-3": {
-  "id": "decision-sec-0-3",
-  "tab": "decision",
+ "analysis-sec-3-10": {
+  "id": "analysis-sec-3-10",
+  "tab": "analysis",
   "level": 2,
-  "number": "0.3",
+  "number": "3.10",
+  "title": "What the data can't yet tell us",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "Ward-by-Ward Public Opinion Polling Data",
+     "body": "Named Data Gap (Tier 2 Gap). Published public polls (such as the Mizani Africa surveys of June 2026 and 7…"
+    },
+    {
+     "label": "Historical 2013 Gubernatorial Ward-by-Ward…",
+     "body": ""
+    },
+    {
+     "label": "Historical 2017 Gubernatorial Ward-by-Ward…",
+     "body": ""
+    },
+    {
+     "label": "Ward-Level Mobile Broadband Penetration Data",
+     "body": "Named Data Gap (Tier 1 Gap). The 2019 KNBS Census and Communications Authority provide sub-county and…"
+    }
+   ]
+  }
+ },
+ "analysis-sec-3-10-1": {
+  "id": "analysis-sec-3-10-1",
+  "tab": "analysis",
+  "level": 3,
+  "number": "3.10.1",
+  "title": "Segment research still outstanding",
+  "kind": "timeline",
+  "data": {
+   "events": [
+    {
+     "label": "Agro-Pastoral Electorate Sizing",
+     "body": "Primary Research Required. While census population counts exist for arid sub-counties (Mwingi North, Kitui South), the…"
+    },
+    {
+     "label": "Formal Sector Civil Service Registry",
+     "body": "Primary Research Required. Exact voter registration counts for teachers (KNUT/KUPPET), county staff, and healthcare…"
+    },
+    {
+     "label": "Diaspora Voter Registration Ratio",
+     "body": "Primary Research Required. The total volume of out-of-county Kamba residents originating from Kitui is large, but the…"
+    }
+   ]
+  }
+ },
+ "analysis-sec-3-11": {
+  "id": "analysis-sec-3-11",
+  "tab": "analysis",
+  "level": 2,
+  "number": "3.11",
+  "title": "The diagnosis, and the evidence that could overturn it",
+  "kind": "playbook",
+  "data": {
+   "pairs": [
+    {
+     "when": "Follower and reach geography concentrated in Kitui Central and Nairobi",
+     "then": "The recognition thesis is confirmed on his own data. Output weight shifts to Mwingi and the arid belt, and the headline…"
+    },
+    {
+     "when": "Material reach in Mwingi but flat engagement there",
+     "then": "The problem is message, not reach. The answer is the message lab (Section 5.6.9), not geofenced advertising — and the Phase −1…"
+    },
+    {
+     "when": "Kikamba posts out-engaging English by a wide margin",
+     "then": "Language stops being a preference and becomes a rule in the weekly brief (Section 4.4.7)."
+    },
+    {
+     "when": "Video watch time collapsing before 10 seconds",
+     "then": "Long flagship video is the wrong format. Short vertical and Kikamba voice notes replace it, and the deliverables cadence in…"
+    },
+    {
+     "when": "Most engagement produced by a few hundred repeat accounts",
+     "then": "The follower base is a shell. Priority moves from page growth to consented WhatsApp and SMS list building (Section 5.2.9)."
+    },
+    {
+     "when": "Rivals running Meta ads while Dr. Mulu is not",
+     "then": "Part of the gap is bought reach. The ad-account question in Section 5.7.3 becomes urgent."
+    },
+    {
+     "when": "It is a personal profile, not a Page",
+     "then": "No Insights, no ads, no delegated access, nothing to direct against. A structural finding that changes what can be directed at…"
+    }
+   ],
+   "heads": [
+    "If the audit finds",
+    "The strategy changes to"
+   ]
+  }
+ },
+ "annex-county-sec-b-2": {
+  "id": "annex-county-sec-b-2",
+  "tab": "annex-county",
+  "level": 2,
+  "number": "B.2",
+  "title": "County money and the audit record",
+  "kind": "donut",
+  "data": {
+   "value": 18,
+   "label": "absorption rate is recorded",
+   "rest": "According to the Office of the Auditor-General's FY2023/24 audit report, four critical financial queries…"
+  }
+ },
+ "annex-county-sec-b-3": {
+  "id": "annex-county-sec-b-3",
+  "tab": "annex-county",
+  "level": 2,
+  "number": "B.3",
+  "title": "Drought, food security and climate pressure",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "households",
+     "value": 28000,
+     "display": "28,000 households",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "annex-county-sec-b-4": {
+  "id": "annex-county-sec-b-4",
+  "tab": "annex-county",
+  "level": 2,
+  "number": "B.4",
+  "title": "Mui Basin coal and the displaced communities",
+  "kind": "gauge",
+  "data": {
+   "value": 12,
+   "display": "Petition 12 of 2014",
+   "label": "Petition",
+   "pct": false,
+   "long": false
+  }
+ },
+ "annex-county-sec-b-5": {
+  "id": "annex-county-sec-b-5",
+  "tab": "annex-county",
+  "level": 2,
+  "number": "B.5",
+  "title": "Each rival, and the legal ground to be careful on",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "Dr. Irene Kasalu (Woman Representative)",
+     "body": "It is reported in local media that her platform leverages a wide countywide network built through her office…"
+    },
+    {
+     "label": "Sen. Enoch Wambua (Senator)",
+     "body": "Legislative records establish his role in senior Senate committee positions (Tier 1)."
+    },
+    {
+     "label": "Charity Ngilu (Former Governor)",
+     "body": "Court records in the 2018 appeal (Malombe v Ngilu) confirm her 2017 electoral victory (Tier 1)."
+    },
+    {
+     "label": "David Musila (Former Senator)",
+     "body": "Sourced election declarations confirm his high runner-up voting totals across two cycles (Tier 1)."
+    },
+    {
+     "label": "Peninah Malonza (Former Cabinet Secretary)",
+     "body": "Official records confirm her appointments as Deputy Governor and Cabinet Minister (Tier 1)."
+    },
+    {
+     "label": "Nicholas Mulila (Corporate Executive)",
+     "body": "Sourced business reports note his executive roles at Safaricom PLC (Tier 2)."
+    },
+    {
+     "label": "Francis Musili Kauta (Activist)",
+     "body": "Regional civic profiles document his litigation and advocacy on public land use (Tier 2)."
+    },
+    {
+     "label": "Julius Malombe (Incumbent Governor)",
+     "body": "Official records confirm his administrative oversight of county departments (Tier 1). Sourced legal…"
+    }
+   ]
+  }
+ },
+ "annex-evidence-sec-a-1-2": {
+  "id": "annex-evidence-sec-a-1-2",
+  "tab": "annex-evidence",
+  "level": 3,
+  "number": "A.1.2",
+  "title": "The three source tiers",
+  "kind": "bars",
+  "data": {
+   "items": [
+    {
+     "label": "registered voters",
+     "value": 532758,
+     "display": "532,758"
+    },
+    {
+     "label": "wards",
+     "value": 40,
+     "display": "40"
+    },
+    {
+     "label": "winning vote baseline",
+     "value": 198004,
+     "display": "198,004"
+    },
+    {
+     "label": "August survey",
+     "value": 7,
+     "display": "7"
+    },
+    {
+     "label": "% is treated",
+     "value": 22.1,
+     "display": "22.1"
+    }
+   ]
+  }
+ },
+ "annex-evidence-sec-a-1-4": {
+  "id": "annex-evidence-sec-a-1-4",
+  "tab": "annex-evidence",
+  "level": 3,
+  "number": "A.1.4",
+  "title": "The standard applied to our own measurement",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "Provenance.",
+     "body": "Every number carries its export date, its source system, and whether it came from a Page Insights export or a…"
+    },
+    {
+     "label": "Tier.",
+     "body": "Platform-reported metrics are Tier 2: they are the platform's own measurement of itself, they restate…"
+    },
+    {
+     "label": "Coding, and its agreement rate.",
+     "body": "Post coding is done twice, independently, with disagreements resolved by a third pass. The inter-coder…"
+    },
+    {
+     "label": "Gaps.",
+     "body": "A metric the export does not contain is marked [DATA NEEDED] with the method for obtaining it, exactly as…"
+    },
+    {
+     "label": "Competitive figures",
+     "body": "are public-source only, gathered the same way for all four candidates, in the same window."
+    }
+   ]
+  }
+ },
+ "annex-polls-sec-c-2": {
+  "id": "annex-polls-sec-c-2",
+  "tab": "annex-polls",
+  "level": 2,
+  "number": "C.2",
+  "title": "What the poll would measure",
+  "kind": "bars",
+  "data": {
+   "items": [
+    {
+     "label": "respondents",
+     "value": 175,
+     "display": "175 to 220 respondents"
+    },
+    {
+     "label": "sub-counties",
+     "value": 8,
+     "display": "8"
+    },
+    {
+     "label": "registered voters",
+     "value": 1500,
+     "display": "1,500"
+    },
+    {
+     "label": "% confidence interval",
+     "value": 95,
+     "display": "95"
+    }
+   ]
+  }
+ },
+ "annex-polls-sec-c-3": {
+  "id": "annex-polls-sec-c-3",
+  "tab": "annex-polls",
+  "level": 2,
+  "number": "C.3",
+  "title": "Kitui Central's weight in the vote",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "Kitui Central's Demographic Weight",
+     "body": "Command of exactly 77,764 registered voters (Tier 1) makes Kitui Central the single largest and most…"
+    },
+    {
+     "label": "The Weighting Argument",
+     "body": "The campaign must forcefully advocate to party pollsters that Kitui Central's immense voter density represents…"
+    }
+   ]
+  }
+ },
+ "annex-runbooks-sec-f-5": {
+  "id": "annex-runbooks-sec-f-5",
+  "tab": "annex-runbooks",
+  "level": 2,
+  "number": "F.5",
+  "title": "Rapid-response protocol and pre-approved message library",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "Standard rebuttals for false claims about Dr",
+     "body": "Standard rebuttals for false claims about Dr. Mulu's record"
+    },
+    {
+     "n": 2,
+     "label": "Kikamba, Kiswahili and English versions of…",
+     "body": "Kikamba, Kiswahili and English versions of key messages"
+    },
+    {
+     "n": 3,
+     "label": "Template statements for policy positions…",
+     "body": "Template statements for policy positions issued in response to attack"
+    },
+    {
+     "n": 4,
+     "label": "Fact-check cards linking to verified sources",
+     "body": "Fact-check cards linking to verified sources"
+    },
+    {
+     "n": 5,
+     "label": "Deepfake first-response templates",
+     "body": "(Section 5.8.7)"
+    }
+   ]
+  }
+ },
+ "annex-runbooks-sec-f-6": {
+  "id": "annex-runbooks-sec-f-6",
+  "tab": "annex-runbooks",
+  "level": 2,
+  "number": "F.6",
+  "title": "Red-team drills",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "days before the general",
+     "value": 60,
+     "display": "60",
+     "pct": false
+    },
+    {
+     "label": "minute Level clock…",
+     "value": 30,
+     "display": "30",
+     "pct": false
+    },
+    {
+     "label": "clock Coordinated…",
+     "value": 3,
+     "display": "3",
+     "pct": false
+    },
+    {
+     "label": "Hostile radio segment",
+     "value": 4,
+     "display": "4",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "annex-runbooks-sec-f-7": {
+  "id": "annex-runbooks-sec-f-7",
+  "tab": "annex-runbooks",
+  "level": 2,
+  "number": "F.7",
+  "title": "The threat model",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "Compromise of the candidate's own social…",
+     "body": ""
+    },
+    {
+     "label": "A ward champion's WhatsApp account…",
+     "body": ""
+    },
+    {
+     "label": "Leaked internal strategy material ",
+     "body": ""
+    },
+    {
+     "label": "Fabricated audio or video of the candidate",
+     "body": ""
+    }
+   ]
+  }
+ },
+ "annex-runbooks-sec-f-9": {
+  "id": "annex-runbooks-sec-f-9",
+  "tab": "annex-runbooks",
+  "level": 2,
+  "number": "F.9",
+  "title": "Phishing awareness",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "Onboarding training for every staff member…",
+     "body": ""
+    },
+    {
+     "label": "Simulated phishing exercises quarterly",
+     "body": ", with results used for coaching,"
+    },
+    {
+     "label": "A no-blame reporting channel with a target…",
+     "body": ""
+    },
+    {
+     "label": "Specific coverage of the patterns most…",
+     "body": ""
+    }
+   ]
+  }
+ },
+ "annex-runbooks-sec-f-12": {
+  "id": "annex-runbooks-sec-f-12",
+  "tab": "annex-runbooks",
+  "level": 2,
+  "number": "F.12",
+  "title": "Competitive intelligence outputs and rapid alerts",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "The monthly competitive brief",
+     "body": ""
+    },
+    {
+     "label": "Rival digital activity",
+     "body": "platforms, posting frequency, engagement rates, follower growth"
+    },
+    {
+     "label": "Ad spend estimates",
+     "body": "from ad libraries and transparency data"
+    },
+    {
+     "label": "Messaging analysis",
+     "body": "themes, framing, target audiences"
+    },
+    {
+     "label": "Vulnerability assessment",
+     "body": "gaps, policy inconsistencies, negative sentiment trends"
+    },
+    {
+     "label": "Polling movement",
+     "body": "changes in published surveys with sub-county detail where available"
+    },
+    {
+     "label": "Recommendations",
+     "body": "counter-messaging and proactive content"
+    },
+    {
+     "label": "The rapid alert system",
+     "body": "New attacks or significant messaging shifts trigger real-time alerts to campaign leadership with recommended…"
+    }
+   ]
+  }
+ },
+ "data-sec-2-1": {
+  "id": "data-sec-2-1",
+  "tab": "data",
+  "level": 2,
+  "number": "2.1",
+  "title": "The electorate",
+  "kind": "bars",
+  "data": {
+   "items": [
+    {
+     "label": "ward-registered voters plus…",
+     "value": 532758,
+     "display": "532,758"
+    },
+    {
+     "label": "prison-registered voters",
+     "value": 75,
+     "display": "75"
+    },
+    {
+     "label": "totalling",
+     "value": 532833,
+     "display": "532,833"
+    },
+    {
+     "label": "across constituencies",
+     "value": 40,
+     "display": "40"
+    },
+    {
+     "label": "constituencies",
+     "value": 8,
+     "display": "8"
+    },
+    {
+     "label": "votes",
+     "value": 200000,
+     "display": "200,000 votes"
+    }
+   ]
+  }
+ },
+ "data-sec-2-2": {
+  "id": "data-sec-2-2",
+  "tab": "data",
+  "level": 2,
+  "number": "2.2",
+  "title": "How Kitui has voted",
+  "kind": "timeline",
+  "data": {
+   "events": [
+    {
+     "label": "2013 General Election (Kitui Governor)",
+     "body": "This cycle represents a named data gap in the official campaign records (Tier 1 gap). The research did not supply…"
+    },
+    {
+     "label": "2017 General Election (Kitui Governor)",
+     "body": "Won by Charity Ngilu (NARC) with 169,990 votes (Tier 1), following a highly contested election confirmed by the Court…"
+    },
+    {
+     "label": "2022 General Election (Kitui Governor)",
+     "body": "Won by Julius Malombe (Wiper) with 198,004 votes (Tier 1). David Musila (Jubilee) finished as the runner-up with a…"
+    }
+   ]
+  }
+ },
+ "data-sec-2-4": {
+  "id": "data-sec-2-4",
+  "tab": "data",
+  "level": 2,
+  "number": "2.4",
+  "title": "The county's people and economy",
+  "kind": "timeline",
+  "data": {
+   "events": [
+    {
+     "label": "Demographic Base",
+     "body": "Sourced from the official 2019 Kenya Population and Housing Census, the county population is 1,136,187 (comprising…"
+    },
+    {
+     "label": "Total Households",
+     "body": "262,942 (Tier 1), with an average household size of 4.3 persons (Tier 1)."
+    },
+    {
+     "label": "Vast Land Area",
+     "body": "30,430 km² (Tier 1), establishing Kitui as Kenya's sixth-largest county, with a low population density of 37…"
+    },
+    {
+     "label": "Rural-Urban Split",
+     "body": "95.2% rural (1,082,168 residents) vs 4.8% urban (54,019 residents) (Tier 1)."
+    },
+    {
+     "label": "Socio-Economic Vulnerability",
+     "body": "60.4% of Kitui residents live below the poverty line (Tier 1) (KNBS, via the NDMA Long Rains Food Security…"
+    },
+    {
+     "label": "Livestock Economy",
+     "body": "Anchored by approximately 613,000 cattle, 2,000,000 goats, 4,000,000 poultry, and 326,000 donkeys (Tier 1). Poultry…"
+    }
+   ]
+  }
+ },
+ "data-sec-2-5": {
+  "id": "data-sec-2-5",
+  "tab": "data",
+  "level": 2,
+  "number": "2.5",
+  "title": "The budget the next governor runs",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "Agriculture and Water Infrastructure",
+     "body": "Developing drought-resilient food production, sand dams, irrigation, and livestock markets."
+    },
+    {
+     "label": "County Health Services",
+     "body": "Managing health facilities, personnel, pharmaceutical procurement, and sanitation."
+    },
+    {
+     "label": "Economic Devolution and Infrastructure",
+     "body": "Constructing county road networks, market facilities, and trade support systems."
+    },
+    {
+     "label": "Financial Administration",
+     "body": "Accountably managing public revenue allocations and local own-source collections."
+    },
+    {
+     "label": "Equitable Share",
+     "body": "KSh 11.64 billion (representing approximately 84.5% of total revenue) (Tier 1)."
+    },
+    {
+     "label": "Conditional Grants",
+     "body": "KSh 1.03 billion (Tier 1)."
+    },
+    {
+     "label": "Revised Own-Source Revenue Target",
+     "body": "KSh 1.339 billion (Tier 1)."
+    }
+   ]
+  }
+ },
+ "data-sec-2-6": {
+  "id": "data-sec-2-6",
+  "tab": "data",
+  "level": 2,
+  "number": "2.6",
+  "title": "How people get information",
+  "kind": "bars",
+  "data": {
+   "items": [
+    {
+     "label": "hours later",
+     "value": 6,
+     "display": "6"
+    },
+    {
+     "label": "Kamba diaspora living",
+     "value": 150000,
+     "display": "150,000"
+    },
+    {
+     "label": "Youth Mobilization Field…",
+     "value": 3,
+     "display": "3"
+    },
+    {
+     "label": "youth cohort via TikTok",
+     "value": 234000,
+     "display": "234,000"
+    },
+    {
+     "label": "Cost-Effective Micro-Targeting",
+     "value": 4,
+     "display": "4"
+    },
+    {
+     "label": "reachable voters inside Kitui",
+     "value": 72000,
+     "display": "72,000"
+    }
+   ]
+  }
+ },
+ "data-sec-2-7-1": {
+  "id": "data-sec-2-7-1",
+  "tab": "data",
+  "level": 3,
+  "number": "2.7.1",
+  "title": "Who owns the Kamba-language stations, and who they favour",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "Two stations are associated with Charity…",
+     "body": ""
+    },
+    {
+     "label": "One station is associated with Kalonzo…",
+     "body": ""
+    },
+    {
+     "label": "The stations open to the campaign are…",
+     "body": ""
+    }
+   ]
+  }
+ },
+ "delivery-sec-5-5-1": {
+  "id": "delivery-sec-5-5-1",
+  "tab": "delivery",
+  "level": 3,
+  "number": "5.5.1",
+  "title": "The three scope levels",
+  "kind": "timeline",
+  "data": {
+   "events": [
+    {
+     "label": "Firefly team",
+     "body": "Strategy Director + Analyst; offline-layer operator part-activated"
+    },
+    {
+     "label": "Presence audit",
+     "body": "once, at the start"
+    },
+    {
+     "label": "Reach reporting",
+     "body": "the 12 decisive wards in Section 3.2 only"
+    },
+    {
+     "label": "Weekly brief",
+     "body": "yes — the brief is the engagement and is never a level"
+    },
+    {
+     "label": "Creative testing",
+     "body": "monthly cycle"
+    },
+    {
+     "label": "Research",
+     "body": "none"
+    },
+    {
+     "label": "Team upskilling",
+     "body": "the written standard, delivered once"
+    },
+    {
+     "label": "Offline layer",
+     "body": "SMS to a consented list built organically; USSD not activated"
+    }
+   ]
+  }
+ },
+ "delivery-sec-5-5-2": {
+  "id": "delivery-sec-5-5-2",
+  "tab": "delivery",
+  "level": 3,
+  "number": "5.5.2",
+  "title": "The scope levels compared",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "diaspora Wards",
+     "value": 40,
+     "display": "All 40",
+     "pct": false
+    },
+    {
+     "label": "diaspora Weekly brief…",
+     "value": 40,
+     "display": "All 40",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "delivery-sec-5-5-4": {
+  "id": "delivery-sec-5-5-4",
+  "tab": "delivery",
+  "level": 3,
+  "number": "5.5.4",
+  "title": "What this proposal commits to",
+  "kind": "contrast",
+  "data": {
+   "left": "measured in depth of intelligence",
+   "right": "in volume of Firefly's output",
+   "lead": "Firefly commits to a scope, a cadence and a standard. It does not commit to an electoral outcome, and no figure in this document should be read as one."
+  }
+ },
+ "delivery-sec-5-6": {
+  "id": "delivery-sec-5-6",
+  "tab": "delivery",
+  "level": 2,
+  "number": "5.6",
+  "title": "How progress is measured",
+  "kind": "waffle",
+  "data": {
+   "parts": [
+    {
+     "label": "share",
+     "value": 40
+    },
+    {
+     "label": "sampled likely Wiper primary",
+     "value": 55
+    }
+   ]
+  }
+ },
+ "delivery-sec-5-6-2": {
+  "id": "delivery-sec-5-6-2",
+  "tab": "delivery",
+  "level": 3,
+  "number": "5.6.2",
+  "title": "Stage 2: the general election scorecard",
+  "kind": "gauge",
+  "data": {
+   "value": 200000,
+   "display": "200,000",
+   "label": "vote winning threshold",
+   "pct": false,
+   "long": false
+  }
+ },
+ "delivery-sec-5-6-5": {
+  "id": "delivery-sec-5-6-5",
+  "tab": "delivery",
+  "level": 3,
+  "number": "5.6.5",
+  "title": "The research programme",
+  "kind": "bars",
+  "data": {
+   "items": [
+    {
+     "label": "day tracking poll",
+     "value": 7,
+     "display": "7"
+    },
+    {
+     "label": "likely party delegates primary",
+     "value": 400,
+     "display": "400"
+    },
+    {
+     "label": "aggregate",
+     "value": 2400,
+     "display": "2,400"
+    },
+    {
+     "label": "Integrity Index",
+     "value": 3,
+     "display": "3"
+    },
+    {
+     "label": "hour sub-county advertising…",
+     "value": 48,
+     "display": "48"
+    }
+   ]
+  }
+ },
+ "delivery-sec-5-6-6": {
+  "id": "delivery-sec-5-6-6",
+  "tab": "delivery",
+  "level": 3,
+  "number": "5.6.6",
+  "title": "The service-delivery performance tracker",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "As a Campaign Credibility Asset (Pre-Election)",
+     "body": ""
+    },
+    {
+     "label": "Public Web & USSD Transparency",
+     "body": ""
+    },
+    {
+     "label": "Debate & Media Weapon",
+     "body": ""
+    },
+    {
+     "label": "As a Day-One Governing Tool (Post-Election)",
+     "body": ""
+    },
+    {
+     "label": "Statutory Ward Equalization Tracking",
+     "body": ""
+    },
+    {
+     "label": "Zero Pending Bills Enforcer",
+     "body": ""
+    }
+   ]
+  }
+ },
+ "delivery-sec-5-6-7": {
+  "id": "delivery-sec-5-6-7",
+  "tab": "delivery",
+  "level": 3,
+  "number": "5.6.7",
+  "title": "Why vanity metrics are excluded",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "Offline Reality",
+     "body": "86.4% of Kitui registered voters do not maintain active social media profiles. Optimizing for digital likes misallocates…"
+    },
+    {
+     "n": 2,
+     "label": "Geographic Skew",
+     "body": "Political content from Eastern Kenya draws a large share of its social media interaction from non-resident users in Nairobi,…"
+    },
+    {
+     "n": 3,
+     "label": "Zero Correlation to Turnout",
+     "body": "A viral video does not transport an elderly voter in Ikutha or Nguni to their polling stream on election morning. Physical voter…"
+    }
+   ]
+  }
+ },
+ "delivery-sec-5-6-8": {
+  "id": "delivery-sec-5-6-8",
+  "tab": "delivery",
+  "level": 3,
+  "number": "5.6.8",
+  "title": "Performance governance and executive escalation",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "Weekly Monday KPI Standup (08:00 EAT)",
+     "body": "Executive review of all Tier 1 metrics (NW-01 through NW-04 or GE-01 through GE-05). Any metric lagging behind…"
+    },
+    {
+     "label": "Monthly Reallocation Trigger",
+     "body": "If voter pledge recruitment (GE-01) lags in any sub-county for two consecutive cycles, the Campaign Manager…"
+    },
+    {
+     "label": "Polling Day Real-Time Conversion Operations…",
+     "body": ""
+    }
+   ]
+  }
+ },
+ "delivery-sec-5-6-10": {
+  "id": "delivery-sec-5-6-10",
+  "tab": "delivery",
+  "level": 3,
+  "number": "5.6.10",
+  "title": "Rationale, structure and zone coverage",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "participants",
+     "value": 8,
+     "display": "8",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "delivery-sec-5-6-11": {
+  "id": "delivery-sec-5-6-11",
+  "tab": "delivery",
+  "level": 3,
+  "number": "5.6.11",
+  "title": "Qualitative hypotheses, feedback loops and KPIs",
+  "kind": "timeline",
+  "data": {
+   "events": [
+    {
+     "label": "Message framings",
+     "body": "from Section 4.4.3 — does loss-aversion framing on water land, or does it read as pessimism about Kitui?"
+    },
+    {
+     "label": "The Economist Governor narrative",
+     "body": "— does \"economist\" read as competent or as distant? This is the single highest-value question in the research…"
+    },
+    {
+     "label": "Kikamba language and proverb use",
+     "body": "— authentic or performative?"
+    },
+    {
+     "label": "Rival perception",
+     "body": "— what specifically drives preference for the current front-runner? The answer determines whether the deficit is…"
+    },
+    {
+     "label": "Channel reality",
+     "body": "— where do people in Mutha actually get political information?"
+    },
+    {
+     "label": "The tracker concept",
+     "body": "(Section 5.2.1) — would people use it, and do they believe it would change anything?"
+    }
+   ]
+  }
+ },
+ "delivery-sec-5-7-1": {
+  "id": "delivery-sec-5-7-1",
+  "tab": "delivery",
+  "level": 3,
+  "number": "5.7.1",
+  "title": "Operating rhythm, tooling and reporting lines",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "Thursday, 16:00 — the brief.",
+     "body": "One page from Firefly: last week's reach in the deficit wards"
+    },
+    {
+     "n": 2,
+     "label": "Friday — the calendar.",
+     "body": "Your team returns the week's calendar in the shared sheet, mapped to"
+    },
+    {
+     "n": 3,
+     "label": "Monday, 09:00 — thirty minutes.",
+     "body": "Approve, amend, flag. The only standing meeting in the"
+    },
+    {
+     "n": 4,
+     "label": "Tuesday to Sunday — publishing.",
+     "body": "Your team, on your accounts, with your credentials. Firefly"
+    },
+    {
+     "n": 5,
+     "label": "Wednesday — one number.",
+     "body": "A mid-week reach check against the deficit wards, and at most one"
+    },
+    {
+     "n": 6,
+     "label": "Last Friday of the month — the review.",
+     "body": "Recognition indicators (Section 5.6.3), the overrides"
+    }
+   ]
+  }
+ },
+ "delivery-sec-5-7-9": {
+  "id": "delivery-sec-5-7-9",
+  "tab": "delivery",
+  "level": 3,
+  "number": "5.7.9",
+  "title": "The compliance sign-off gate",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "On what lawful basis, if any, may a…",
+     "body": "On what lawful basis, if any, may a campaign process the IEBC voter register"
+    },
+    {
+     "n": 2,
+     "label": "Does the campaign or its vendors require…",
+     "body": "Does the campaign or its vendors require registration as a data controller"
+    },
+    {
+     "n": 3,
+     "label": "Do the consent mechanisms proposed here…",
+     "body": "Do the consent mechanisms proposed here meet the express, free, specific,"
+    },
+    {
+     "n": 4,
+     "label": "Does matching first-party consented data…",
+     "body": "Does matching first-party consented data against the register constitute"
+    },
+    {
+     "n": 5,
+     "label": "What is the correct handling of data…",
+     "body": "What is the correct handling of data collected from minors who may sign up"
+    }
+   ]
+  }
+ },
+ "delivery-sec-5-8": {
+  "id": "delivery-sec-5-8",
+  "tab": "delivery",
+  "level": 2,
+  "number": "5.8",
+  "title": "Risks and responses",
+  "kind": "quadrant",
+  "data": {
+   "items": [
+    {
+     "id": "R1",
+     "label": "The nomination is decided by delegates, not an opinion poll. The…",
+     "x": null,
+     "likelihood": "Medium",
+     "impact": "Severe — the targeting model changes wholesale",
+     "owner": "Firefly Director + campaign"
+    },
+    {
+     "id": "R2",
+     "label": "The recognition hypothesis is wrong. The deficit may be about…",
+     "x": null,
+     "likelihood": "Medium",
+     "impact": "Severe — the Phase −1 channel mix is built on it",
+     "owner": "Head of Research"
+    },
+    {
+     "id": "R3",
+     "label": "The data-protection reviewer is not appointed in time. The long-lead…",
+     "x": null,
+     "likelihood": "Medium",
+     "impact": "High — gates the voter-file work in Section 5.2.12 and the mass SMS layer",
+     "owner": "Campaign"
+    },
+    {
+     "id": "R4",
+     "label": "ODPC guidance prohibits the planned SMS approach. The…",
+     "x": null,
+     "likelihood": "Low",
+     "impact": "High — Workstream 9 is the layer the race turns on",
+     "owner": "Campaign Legal Director"
+    },
+    {
+     "id": "R5",
+     "label": "A manipulated-media attack lands inside the nomination window",
+     "x": null,
+     "likelihood": "Medium",
+     "impact": "High — a compressed window leaves no time to recover",
+     "owner": "Digital Director"
+    },
+    {
+     "id": "R6",
+     "label": "Firefly's brief and the team's judgement disagree. The direction…",
+     "x": null,
+     "likelihood": "High — it will happen, and should",
+     "impact": "Moderate if handled, severe if suppressed",
+     "owner": "Firefly Director + team lead"
+    }
+   ]
+  }
+ },
+ "delivery-sec-5-8-2": {
+  "id": "delivery-sec-5-8-2",
+  "tab": "delivery",
+  "level": 3,
+  "number": "5.8.2",
+  "title": "What we monitor, and how threats reach us",
+  "kind": "bars",
+  "data": {
+   "items": [
+    {
+     "label": "hours a day",
+     "value": 24,
+     "display": "24"
+    },
+    {
+     "label": "days a week",
+     "value": 7,
+     "display": "7"
+    },
+    {
+     "label": "Constituency Monitoring…",
+     "value": 40,
+     "display": "40"
+    },
+    {
+     "label": "major community",
+     "value": 180,
+     "display": "180"
+    },
+    {
+     "label": "sub-counties",
+     "value": 8,
+     "display": "8"
+    },
+    {
+     "label": "Social Listening Keyword Feeds",
+     "value": 3,
+     "display": "3"
+    }
+   ]
+  }
+ },
+ "delivery-sec-5-8-3": {
+  "id": "delivery-sec-5-8-3",
+  "tab": "delivery",
+  "level": 3,
+  "number": "5.8.3",
+  "title": "Staying inside defamation law",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "Rule 1",
+     "body": ""
+    },
+    {
+     "label": "Rule 2: Accurate Linguistic Attribution",
+     "body": "When quoting rivals on Kikamba radio or social media, communicators must possess the original, unedited audio…"
+    },
+    {
+     "label": "Rule 3",
+     "body": ""
+    }
+   ]
+  }
+ },
+ "delivery-sec-5-8-7": {
+  "id": "delivery-sec-5-8-7",
+  "tab": "delivery",
+  "level": 3,
+  "number": "5.8.7",
+  "title": "The deepfake and manipulated media protocol",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "All official video and audio published…",
+     "body": "All official video and audio published from verified campaign channels first,"
+    },
+    {
+     "n": 2,
+     "label": "Original files retained with timestamps…",
+     "body": "Original files retained with timestamps and device metadata, so"
+    },
+    {
+     "n": 3,
+     "label": "Public education content, in all three…",
+     "body": "Public education content, in all three languages, teaching supporters how to"
+    },
+    {
+     "n": 4,
+     "label": "A single canonical location where every…",
+     "body": "A single canonical location where every genuine speech and clip is listed"
+    },
+    {
+     "n": 5,
+     "label": "Monitoring for candidate-name mentions…",
+     "body": "Monitoring for candidate-name mentions attached to video and audio across"
+    },
+    {
+     "n": 6,
+     "label": "Ward champions briefed to report…",
+     "body": "Ward champions briefed to report suspicious media immediately through a"
+    },
+    {
+     "n": 7,
+     "label": "Detection tooling at premium tier [Insert…",
+     "body": "Detection tooling at premium tier [Insert vendor — selected at contracting]"
+    }
+   ]
+  }
+ },
+ "delivery-sec-5-8-14": {
+  "id": "delivery-sec-5-8-14",
+  "tab": "delivery",
+  "level": 3,
+  "number": "5.8.14",
+  "title": "If it becomes a delegate primary",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "Map the Delegate Registry",
+     "body": "Instantly map and profile the estimated 1,200 to 1,500 official delegates (comprising constituency executives,…"
+    },
+    {
+     "label": "Targeted Whip Operations",
+     "body": "Reallocate the 400 Ward Captains from general voter outreach to peer-to-peer lobbying and direct, physical…"
+    },
+    {
+     "label": "Encrypted SMS Delegate Channel",
+     "body": "Establish a secure, dedicated SMS/USSD communications loop directly targeting the delegates, pushing policy…"
+    }
+   ]
+  }
+ },
+ "delivery-sec-5-9": {
+  "id": "delivery-sec-5-9",
+  "tab": "delivery",
+  "level": 2,
+  "number": "5.9",
+  "title": "How the work is staffed",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "The campaign's command structure",
+     "body": "— the Campaign Manager and three functional leads in the chart above. Four roles. Firefly works to it and…"
+    },
+    {
+     "label": "Dr. Mulu's existing digital team",
+     "body": "— the people producing and publishing the daily record today. This engagement adds a brief to their week. It…"
+    },
+    {
+     "label": "The 3-person Firefly core",
+     "body": "named at every engagement level in Section 5.5 — strategy, analysis, and the offline layer."
+    },
+    {
+     "label": "Decisions in one place.",
+     "body": "A single named campaign-side counterpart approves, and a single Firefly director briefs. Campaigns fail…"
+    },
+    {
+     "label": "Operational security by compartment.",
+     "body": "External vendors work under NDAs that expose the specific creative brief, not the overarching strategy."
+    },
+    {
+     "label": "Capacity that scales without a standing…",
+     "body": ""
+    },
+    {
+     "label": "Specialist quality where it is measurable.",
+     "body": "Vernacular recording and telecom infrastructure are bought from people who do only that."
+    }
+   ]
+  }
+ },
+ "implementation-sec-5-1-1": {
+  "id": "implementation-sec-5-1-1",
+  "tab": "implementation",
+  "level": 3,
+  "number": "5.1.1",
   "title": "Who owns what",
   "kind": "stats",
   "data": {
@@ -71,26 +1642,154 @@
    ]
   }
  },
- "decision-sec-0-4": {
-  "id": "decision-sec-0-4",
-  "tab": "decision",
-  "level": 2,
-  "number": "0.4",
-  "title": "What this asks of the campaign",
-  "kind": "gauge",
+ "implementation-sec-5-1-3": {
+  "id": "implementation-sec-5-1-3",
+  "tab": "implementation",
+  "level": 3,
+  "number": "5.1.3",
+  "title": "What is outside this scope",
+  "kind": "checklist",
   "data": {
-   "value": 3,
-   "display": "3 hours",
-   "label": "hours",
-   "pct": false,
-   "long": false
+   "items": [
+    {
+     "label": "Publishing to Dr. Mulu's owned accounts.",
+     "body": "Firefly briefs, approves and measures. It does not post, and does not hold credentials. The single exception…"
+    },
+    {
+     "label": "Replacing or restaffing the existing team.",
+     "body": "Section 5.9.6 sets out how Firefly assesses and upskills it. Where a capability gap cannot be closed by…"
+    },
+    {
+     "label": "Volunteer organising",
+     "body": "— recruitment, tiers, gamification and ward-champion management (Workstream 10). Firefly defines the metrics…"
+    },
+    {
+     "label": "The existing technology estate",
+     "body": "— accounts, hosting, devices and the tooling already in use (Workstream 13, in part). Procuring a stack the…"
+    },
+    {
+     "label": "Physical event logistics",
+     "body": "— staging, PA systems, tents, transport and fuel. Section 14 names these as subcontracted vendor classes…"
+    },
+    {
+     "label": "Campaign finance administration",
+     "body": "— expenditure returns, IEBC financial compliance filing and the reconciliation behind them."
+    },
+    {
+     "label": "Legal representation",
+     "body": "— election petitions, litigation, and the data-protection and electoral-law review itself. Section 5.7.9 has…"
+    },
+    {
+     "label": "Candidate scheduling",
+     "body": "— tour management, diary and constituency office operations."
+    }
+   ]
   }
  },
- "presence-sec-1a-1": {
-  "id": "presence-sec-1a-1",
-  "tab": "presence",
+ "implementation-sec-5-1-4": {
+  "id": "implementation-sec-5-1-4",
+  "tab": "implementation",
+  "level": 3,
+  "number": "5.1.4",
+  "title": "How the levels change what runs",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "refreshes the analysis…",
+     "value": 3,
+     "display": "3",
+     "pct": false
+    },
+    {
+     "label": "wards carry both reach",
+     "value": 40,
+     "display": "40",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "implementation-sec-5-1-6": {
+  "id": "implementation-sec-5-1-6",
+  "tab": "implementation",
+  "level": 3,
+  "number": "5.1.6",
+  "title": "Digital infrastructure, brand and civic content",
+  "kind": "timeline",
+  "data": {
+   "events": [
+    {
+     "label": "Web management and digital architecture",
+     "body": "Development and deployment of a high-performance campaign web portal hosting the manifesto, tracking media…"
+    },
+    {
+     "label": "Brand management",
+     "body": "Core messaging matrix ensuring consistency across broadcast, print and digital. Dynamic digital press kits for media…"
+    },
+    {
+     "label": "Civic content and visual data",
+     "body": "Infographic analyses highlighting Kitui's economic challenges and Dr. Mulu's proposed solutions, anchored to the…"
+    }
+   ]
+  }
+ },
+ "implementation-sec-5-1-7": {
+  "id": "implementation-sec-5-1-7",
+  "tab": "implementation",
+  "level": 3,
+  "number": "5.1.7",
+  "title": "Growth, field advertising and reputation operations",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "Online fundraising and data analytics",
+     "body": "Secure donation page integrated with M-Pesa and other mobile money options. Email, SMS and WhatsApp fundraising to diaspora and…"
+    },
+    {
+     "n": 2,
+     "label": "Digital advertising",
+     "body": "Targeted Meta ads by ward, age, gender and interest. Google Search and Display to capture high-intent voters. YouTube pre-roll…"
+    },
+    {
+     "n": 3,
+     "label": "Crisis and reputation management",
+     "body": "Continuous sentiment monitoring across platforms. Rapid-response statements managing emerging narratives or opponent claims.…"
+    }
+   ]
+  }
+ },
+ "implementation-sec-5-3": {
+  "id": "implementation-sec-5-3",
+  "tab": "implementation",
   "level": 2,
-  "number": "1A.1",
+  "number": "5.3",
+  "title": "The first four weeks",
+  "kind": "timeline",
+  "data": {
+   "events": [
+    {
+     "label": "Section 1A in full",
+     "body": "— ninety days of the existing channels: reach by ward, engagement on reach, language mix, format mix, cadence, and the…"
+    },
+    {
+     "label": "Immediate SMS opt-in drive",
+     "body": "— the consented list is the phase's most durable asset and compounds into every later phase"
+    },
+    {
+     "label": "One message-lab round across all three…",
+     "body": "(Section 5.6.9) — mandatory"
+    }
+   ]
+  }
+ },
+ "implementation-sec-5-3-4": {
+  "id": "implementation-sec-5-3-4",
+  "tab": "implementation",
+  "level": 3,
+  "number": "5.3.4",
   "title": "Why this comes first",
   "kind": "bars",
   "data": {
@@ -113,11 +1812,11 @@
    ]
   }
  },
- "presence-sec-1a-3": {
-  "id": "presence-sec-1a-3",
-  "tab": "presence",
-  "level": 2,
-  "number": "1A.3",
+ "implementation-sec-5-3-5": {
+  "id": "implementation-sec-5-3-5",
+  "tab": "implementation",
+  "level": 3,
+  "number": "5.3.5",
   "title": "Method",
   "kind": "bars",
   "data": {
@@ -155,2302 +1854,11 @@
    ]
   }
  },
- "presence-sec-1a-4": {
-  "id": "presence-sec-1a-4",
-  "tab": "presence",
-  "level": 2,
-  "number": "1A.4",
-  "title": "The findings that would change the strategy",
-  "kind": "playbook",
-  "data": {
-   "pairs": [
-    {
-     "when": "Follower and reach geography concentrated in Kitui Central and Nairobi",
-     "then": "The recognition thesis is confirmed on his own data. Output weight shifts to Mwingi and the arid belt, and the headline…"
-    },
-    {
-     "when": "Material reach in Mwingi but flat engagement there",
-     "then": "The problem is message, not reach. The answer is the message lab (Section 11.3), not geofenced advertising — and the Phase −1…"
-    },
-    {
-     "when": "Kikamba posts out-engaging English by a wide margin",
-     "then": "Language stops being a preference and becomes a rule in the weekly brief (Section 7.3)."
-    },
-    {
-     "when": "Video watch time collapsing before 10 seconds",
-     "then": "Long flagship video is the wrong format. Short vertical and Kikamba voice notes replace it, and the deliverables cadence in…"
-    },
-    {
-     "when": "Most engagement produced by a few hundred repeat accounts",
-     "then": "The follower base is a shell. Priority moves from page growth to consented WhatsApp and SMS list building (Section 8.10)."
-    },
-    {
-     "when": "Rivals running Meta ads while Dr. Mulu is not",
-     "then": "Part of the gap is bought reach. The ad-account question in Section 12.3 becomes urgent."
-    },
-    {
-     "when": "It is a personal profile, not a Page",
-     "then": "No Insights, no ads, no delegated access, nothing to direct against. A structural finding that changes what can be directed at…"
-    }
-   ],
-   "heads": [
-    "If the audit finds",
-    "The strategy changes to"
-   ]
-  }
- },
- "presence-sec-1a-5": {
-  "id": "presence-sec-1a-5",
-  "tab": "presence",
-  "level": 2,
-  "number": "1A.5",
-  "title": "What the audit produces",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "The reach map against the vote map",
-     "body": "— reach by ward beside register share by ward, and the difference between them."
-    },
-    {
-     "n": 2,
-     "label": "Ninety days, coded",
-     "body": "— every day in the window, coloured by content pillar, sized by reach."
-    },
-    {
-     "n": 3,
-     "label": "Which language travels",
-     "body": "— engagement rate by post language."
-    },
-    {
-     "n": 4,
-     "label": "Him against the field",
-     "body": "— posts per week, median shares per post, and ads live, for all four candidates."
-    }
-   ]
-  }
- },
- "summary-sec-2-1": {
-  "id": "summary-sec-2-1",
-  "tab": "summary",
-  "level": 2,
-  "number": "2.1",
-  "title": "The mandate",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "posts",
-     "value": 745,
-     "display": "745",
-     "pct": false
-    },
-    {
-     "label": "registered voters",
-     "value": 275570,
-     "display": "275,570",
-     "pct": false
-    }
-   ]
-  }
- },
- "summary-sec-2-2": {
-  "id": "summary-sec-2-2",
-  "tab": "summary",
-  "level": 2,
-  "number": "2.2",
-  "title": "The governing constraint",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "Mizani Africa",
-     "value": 11.1,
-     "display": "−11.1 points",
-     "pct": false
-    },
-    {
-     "label": "objective diagnostic",
-     "value": 15.3,
-     "display": "−15.3 points",
-     "pct": false
-    }
-   ]
-  }
- },
- "summary-sec-2-3": {
-  "id": "summary-sec-2-3",
-  "tab": "summary",
-  "level": 2,
-  "number": "2.3",
-  "title": "The operating conditions",
-  "kind": "timeline",
-  "data": {
-   "events": [
-    {
-     "label": "Broadband Exclusion Boundaries",
-     "body": "Approximately 86% of the Kitui electorate remains outside the active internet-using population. Any digital strategy…"
-    },
-    {
-     "label": "Political Capture of Local Radio",
-     "body": "Kamba-language broadcast media — the primary information source for offline rural voters — is highly compromised by…"
-    }
-   ]
-  }
- },
- "summary-sec-2-4": {
-  "id": "summary-sec-2-4",
-  "tab": "summary",
-  "level": 2,
-  "number": "2.4",
-  "title": "What this proposal commits to",
-  "kind": "contrast",
-  "data": {
-   "left": "measured in depth of intelligence",
-   "right": "in volume of Firefly's output",
-   "lead": "Firefly commits to a scope, a cadence and a standard. It does not commit to an electoral outcome, and no figure in this document should be read as one."
-  }
- },
- "situation-sec-3-1-3": {
-  "id": "situation-sec-3-1-3",
-  "tab": "situation",
-  "level": 3,
-  "number": "3.1.3",
-  "title": "What the poll would measure",
-  "kind": "bars",
-  "data": {
-   "items": [
-    {
-     "label": "respondents",
-     "value": 175,
-     "display": "175 to 220 respondents"
-    },
-    {
-     "label": "sub-counties",
-     "value": 8,
-     "display": "8"
-    },
-    {
-     "label": "registered voters",
-     "value": 1500,
-     "display": "1,500"
-    },
-    {
-     "label": "% confidence interval",
-     "value": 95,
-     "display": "95"
-    }
-   ]
-  }
- },
- "situation-sec-3-1-4": {
-  "id": "situation-sec-3-1-4",
-  "tab": "situation",
-  "level": 3,
-  "number": "3.1.4",
-  "title": "Kitui Central's weight in the vote",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Kitui Central's Demographic Weight",
-     "body": "Command of exactly 77,764 registered voters (Tier 1) makes Kitui Central the single largest and most…"
-    },
-    {
-     "label": "The Weighting Argument",
-     "body": "The campaign must forcefully advocate to party pollsters that Kitui Central's immense voter density represents…"
-    }
-   ]
-  }
- },
- "situation-sec-3-1-6": {
-  "id": "situation-sec-3-1-6",
-  "tab": "situation",
-  "level": 3,
-  "number": "3.1.6",
-  "title": "If it becomes a delegate primary",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Map the Delegate Registry",
-     "body": "Instantly map and profile the estimated 1,200 to 1,500 official delegates (comprising constituency executives,…"
-    },
-    {
-     "label": "Targeted Whip Operations",
-     "body": "Reallocate the 400 Ward Captains from general voter outreach to peer-to-peer lobbying and direct, physical…"
-    },
-    {
-     "label": "Encrypted SMS Delegate Channel",
-     "body": "Establish a secure, dedicated SMS/USSD communications loop directly targeting the delegates, pushing policy…"
-    }
-   ]
-  }
- },
- "situation-sec-3-3-2": {
-  "id": "situation-sec-3-3-2",
-  "tab": "situation",
-  "level": 3,
-  "number": "3.3.2",
-  "title": "The field he is running against",
-  "kind": "timeline",
-  "data": {
-   "events": [
-    {
-     "label": "Sen. Enoch Wambua (Senator, Kitui…",
-     "body": "Commands significant party influence and standing as a senior legislator within the Wiper Patriotic Front (Tier 1). He…"
-    },
-    {
-     "label": "David Musila (Former Senator, Kitui…",
-     "body": "A formidable regional contender who finished as the runner-up in both the 2017 and 2022 gubernatorial elections (Tier…"
-    },
-    {
-     "label": "Nicholas Mulila (Safaricom PLC…",
-     "body": "A highly regarded corporate leader with extensive technical and operational credentials in digital infrastructure,…"
-    },
-    {
-     "label": "Francis Musili Kauta (Governance…",
-     "body": "A prominent legal professional and civil society advocate in Kitui (Tier 2). Sourced activist reports note his active…"
-    },
-    {
-     "label": "Scenario Branch B — Eligibility Upheld",
-     "body": "Alternatively, a reading of the constitutional provisions may interpret the two-term limit as applying only to…"
-    }
-   ]
-  }
- },
- "situation-sec-3-3-3": {
-  "id": "situation-sec-3-3-3",
-  "tab": "situation",
-  "level": 3,
-  "number": "3.3.3",
-  "title": "The 2022 baseline, ward by ward",
-  "kind": "bars",
-  "data": {
-   "items": [
-    {
-     "label": "ward-registered voters plus…",
-     "value": 532758,
-     "display": "532,758"
-    },
-    {
-     "label": "prison-registered voters",
-     "value": 75,
-     "display": "75"
-    },
-    {
-     "label": "totalling",
-     "value": 532833,
-     "display": "532,833"
-    },
-    {
-     "label": "across constituencies",
-     "value": 40,
-     "display": "40"
-    },
-    {
-     "label": "constituencies",
-     "value": 8,
-     "display": "8"
-    },
-    {
-     "label": "votes",
-     "value": 200000,
-     "display": "200,000 votes"
-    }
-   ]
-  }
- },
- "situation-sec-3-3-4": {
-  "id": "situation-sec-3-3-4",
-  "tab": "situation",
-  "level": 3,
-  "number": "3.3.4",
-  "title": "What the governorship controls, and what it is worth",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Agriculture and Water Infrastructure",
-     "body": "Developing drought-resilient food production, sand dams, irrigation, and livestock markets."
-    },
-    {
-     "label": "County Health Services",
-     "body": "Managing health facilities, personnel, pharmaceutical procurement, and sanitation."
-    },
-    {
-     "label": "Economic Devolution and Infrastructure",
-     "body": "Constructing county road networks, market facilities, and trade support systems."
-    },
-    {
-     "label": "Financial Administration",
-     "body": "Accountably managing public revenue allocations and local own-source collections."
-    },
-    {
-     "label": "Equitable Share",
-     "body": "KSh 11.64 billion (representing approximately 84.5% of total revenue) (Tier 1)."
-    },
-    {
-     "label": "Conditional Grants",
-     "body": "KSh 1.03 billion (Tier 1)."
-    },
-    {
-     "label": "Revised Own-Source Revenue Target",
-     "body": "KSh 1.339 billion (Tier 1)."
-    }
-   ]
-  }
- },
- "situation-sec-3-3-5": {
-  "id": "situation-sec-3-3-5",
-  "tab": "situation",
-  "level": 3,
-  "number": "3.3.5",
-  "title": "Who lives here, and what they can reach online",
-  "kind": "timeline",
-  "data": {
-   "events": [
-    {
-     "label": "Demographic Base",
-     "body": "Sourced from the official 2019 Kenya Population and Housing Census, the county population is 1,136,187 (comprising…"
-    },
-    {
-     "label": "Total Households",
-     "body": "262,942 (Tier 1), with an average household size of 4.3 persons (Tier 1)."
-    },
-    {
-     "label": "Vast Land Area",
-     "body": "30,430 km² (Tier 1), establishing Kitui as Kenya's sixth-largest county, with a low population density of 37…"
-    },
-    {
-     "label": "Rural-Urban Split",
-     "body": "95.2% rural (1,082,168 residents) vs 4.8% urban (54,019 residents) (Tier 1)."
-    },
-    {
-     "label": "Socio-Economic Vulnerability",
-     "body": "60.4% of Kitui residents live below the poverty line (Tier 1) (KNBS, via the NDMA Long Rains Food Security…"
-    },
-    {
-     "label": "Livestock Economy",
-     "body": "Anchored by approximately 613,000 cattle, 2,000,000 goats, 4,000,000 poultry, and 326,000 donkeys (Tier 1). Poultry…"
-    }
-   ]
-  }
- },
- "situation-sec-3-3-6": {
-  "id": "situation-sec-3-3-6",
-  "tab": "situation",
-  "level": 3,
-  "number": "3.3.6",
-  "title": "Three election cycles, and the results in dispute",
-  "kind": "timeline",
-  "data": {
-   "events": [
-    {
-     "label": "2013 General Election (Kitui Governor)",
-     "body": "This cycle represents a named data gap in the official campaign records (Tier 1 gap). The research did not supply…"
-    },
-    {
-     "label": "2017 General Election (Kitui Governor)",
-     "body": "Won by Charity Ngilu (NARC) with 169,990 votes (Tier 1), following a highly contested election confirmed by the Court…"
-    },
-    {
-     "label": "2022 General Election (Kitui Governor)",
-     "body": "Won by Julius Malombe (Wiper) with 198,004 votes (Tier 1). David Musila (Jubilee) finished as the runner-up with a…"
-    }
-   ]
-  }
- },
- "objectives-sec-4-1": {
-  "id": "objectives-sec-4-1",
-  "tab": "objectives",
-  "level": 2,
-  "number": "4.1",
-  "title": "Objectives for the nomination window",
-  "kind": "donut",
-  "data": {
-   "value": 40,
-   "label": "poll preference share required to take the nomination",
-   "rest": ""
-  }
- },
- "objectives-sec-4-1-1": {
-  "id": "objectives-sec-4-1-1",
-  "tab": "objectives",
-  "level": 3,
-  "number": "4.1.1",
-  "title": "Commitment 1 — Closing the Sub-County Recognition Gap",
-  "kind": "bullet",
-  "data": {
-   "baselineLabel": "22.1% countywide poll preference share (Mizani Survey, 7 August 2026, Tier 2).…",
-   "targetLabel": "40.0%+ countywide poll preference share. The Mwingi recognition target is set…",
-   "baseline": 22.1,
-   "target": 40,
-   "unit": "%",
-   "deadline": "the opening of the party's polling window (Section 3.1.2).",
-   "owner": "campaign-side Director of Digital Communications &…",
-   "trigger": "If bi-weekly internal tracking surveys (Section 11.3) show regional recognition flat or falling across two consecutive waves, trigger immediate…"
-  }
- },
- "objectives-sec-4-1-2": {
-  "id": "objectives-sec-4-1-2",
-  "tab": "objectives",
-  "level": 3,
-  "number": "4.1.2",
-  "title": "Commitment 2 — Targeted Opinion-Poll Female Demographic Preference Lift",
-  "kind": "bullet",
-  "data": {
-   "baselineLabel": "Named data gap. The published Mizani rounds report countywide aggregates only…",
-   "targetLabel": "Set against the Week 1 measured baseline, as a stated point gain rather than an…",
-   "baseline": 3.4,
-   "target": 1,
-   "unit": "",
-   "deadline": "the opening of the party's polling window (Section 3.1.2).",
-   "owner": "campaign-side Demographic Outreach & Persuasion Lead;…",
-   "trigger": "If mid-October focus groups (Section 11.3) find weak or negative policy association with Dr. Mulu's economic agenda among women in the target wards,…"
-  }
- },
- "objectives-sec-4-2": {
-  "id": "objectives-sec-4-2",
-  "tab": "objectives",
-  "level": 2,
-  "number": "4.2",
-  "title": "Objectives for the general election",
-  "kind": "bars",
-  "data": {
-   "items": [
-    {
-     "label": "verified votes",
-     "value": 200000,
-     "display": "200,000 verified votes"
-    },
-    {
-     "label": "supporter",
-     "value": 3,
-     "display": "3"
-    },
-    {
-     "label": "August",
-     "value": 10,
-     "display": "10"
-    },
-    {
-     "label": "votes",
-     "value": 198004,
-     "display": "198,004"
-    }
-   ]
-  }
- },
- "objectives-sec-4-2-1": {
-  "id": "objectives-sec-4-2-1",
-  "tab": "objectives",
-  "level": 3,
-  "number": "4.2.1",
-  "title": "Commitment 3 — Decentralized Ward-Level Voter Turnout Database",
-  "kind": "bullet",
-  "data": {
-   "baselineLabel": "0 registered, verified supporters in the campaign’s centralized database.",
-   "targetLabel": "200,000 registered, verified supporters in the central database (Tier 1).",
-   "baseline": 0,
-   "target": 200000,
-   "unit": "",
-   "deadline": "31 May 2027.",
-   "owner": "Director of Field Operations & Database Management.",
-   "trigger": "If database registration milestones drop below 15% of the monthly target trajectory (e.g., failing to reach 80,000 by 15 February 2027), activate…"
-  }
- },
- "objectives-sec-4-2-2": {
-  "id": "objectives-sec-4-2-2",
-  "tab": "objectives",
-  "level": 3,
-  "number": "4.2.2",
-  "title": "Commitment 4 — Offline Rural Electorate Network (SMS/USSD Enrollment)",
-  "kind": "bullet",
-  "data": {
-   "baselineLabel": "0 active offline rural subscribers.",
-   "targetLabel": "120,000 active, verified SMS/USSD offline subscribers across non-urban wards (Tier…",
-   "baseline": 0,
-   "target": 120000,
-   "unit": "",
-   "deadline": "30 June 2027.",
-   "owner": "SMS Infrastructure & Offline Network Engineer.",
-   "trigger": "If weekly offline subscriber enrollment falls below 5,000 new entries, deploy physical QR and USSD sign-up sheets to agricultural markets, cattle…"
-  }
- },
- "objectives-sec-4-2-3": {
-  "id": "objectives-sec-4-2-3",
-  "tab": "objectives",
-  "level": 3,
-  "number": "4.2.3",
-  "title": "Commitment 5 — Ward-Level Captain Mobilization Network",
-  "kind": "bullet",
-  "data": {
-   "baselineLabel": "0 active Ward Captains.",
-   "targetLabel": "400 active, trained Ward Captains (exactly 10 captains per ward across all 40…",
-   "baseline": 0,
-   "target": 400,
-   "unit": "",
-   "deadline": "31 January 2027.",
-   "owner": "Grassroots Operations Coordinator.",
-   "trigger": "If any of the 40 wards has fewer than 8 verified and active captains by 15 January 2027, automatically trigger targeted SMS recruitment and deploy…"
-  }
- },
- "audiences-sec-5-1-1": {
-  "id": "audiences-sec-5-1-1",
-  "tab": "audiences",
-  "level": 3,
-  "number": "5.1.1",
-  "title": "The Rural Agrarian & Smallholder Baseline",
-  "kind": "donut",
-  "data": {
-   "value": 86.4,
-   "label": "offline",
-   "rest": ""
-  }
- },
- "audiences-sec-5-1-2": {
-  "id": "audiences-sec-5-1-2",
-  "tab": "audiences",
-  "level": 3,
-  "number": "5.1.2",
-  "title": "The Agro-Pastoralist & Arid-Zone Livestock Keepers",
-  "kind": "donut",
-  "data": {
-   "value": 15,
-   "label": "of the county's land is arid or semi-arid",
-   "rest": ""
-  }
- },
- "audiences-sec-5-1-3": {
-  "id": "audiences-sec-5-1-3",
-  "tab": "audiences",
-  "level": 3,
-  "number": "5.1.3",
-  "title": "The Youth Cohort (Ages 18–35: Students, Bodaboda, Unemployed Graduates & Creatives)",
-  "kind": "donut",
-  "data": {
-   "value": 44,
-   "label": "active voter register",
-   "rest": ""
-  }
- },
- "audiences-sec-5-1-4": {
-  "id": "audiences-sec-5-1-4",
-  "tab": "audiences",
-  "level": 3,
-  "number": "5.1.4",
-  "title": "The Urban & Peri-Urban Commercial Informal Sector (MSMEs & Traders)",
-  "kind": "donut",
-  "data": {
-   "value": 45,
-   "label": "High mobile internet penetration",
-   "rest": ""
-  }
- },
- "audiences-sec-5-1-5": {
-  "id": "audiences-sec-5-1-5",
-  "tab": "audiences",
-  "level": 3,
-  "number": "5.1.5",
-  "title": "The Formal Sector Professionals, Civil Servants & Educators",
-  "kind": "donut",
-  "data": {
-   "value": 90,
-   "label": "smartphone and laptop connectivity",
-   "rest": ""
-  }
- },
- "audiences-sec-5-1-6": {
-  "id": "audiences-sec-5-1-6",
-  "tab": "audiences",
-  "level": 3,
-  "number": "5.1.6",
-  "title": "The Out-of-County Kamba Diaspora Matrix (Nairobi, Coast & Nationwide)",
-  "kind": "donut",
-  "data": {
-   "value": 95,
-   "label": "internet smartphone connected",
-   "rest": ""
-  }
- },
- "audiences-sec-5-2": {
-  "id": "audiences-sec-5-2",
-  "tab": "audiences",
-  "level": 2,
-  "number": "5.2",
-  "title": "Segment sizing, and the evidence for it",
-  "kind": "bars",
-  "data": {
-   "items": [
-    {
-     "label": "voter register",
-     "value": 532758,
-     "display": "532,758"
-    },
-    {
-     "label": "year-old smallholder",
-     "value": 26,
-     "display": "26"
-    },
-    {
-     "label": "trader",
-     "value": 3,
-     "display": "3"
-    },
-    {
-     "label": "Summed",
-     "value": 4,
-     "display": "4"
-    },
-    {
-     "label": "residents",
-     "value": 1136187,
-     "display": "1,136,187"
-    },
-    {
-     "label": "% rural",
-     "value": 95.2,
-     "display": "95.2"
-    }
-   ]
-  }
- },
- "audiences-sec-5-3": {
-  "id": "audiences-sec-5-3",
-  "tab": "audiences",
-  "level": 2,
-  "number": "5.3",
-  "title": "Segment research still outstanding",
-  "kind": "timeline",
-  "data": {
-   "events": [
-    {
-     "label": "Agro-Pastoral Electorate Sizing",
-     "body": "Primary Research Required. While census population counts exist for arid sub-counties (Mwingi North, Kitui South), the…"
-    },
-    {
-     "label": "Formal Sector Civil Service Registry",
-     "body": "Primary Research Required. Exact voter registration counts for teachers (KNUT/KUPPET), county staff, and healthcare…"
-    },
-    {
-     "label": "Diaspora Voter Registration Ratio",
-     "body": "Primary Research Required. The total volume of out-of-county Kamba residents originating from Kitui is large, but the…"
-    }
-   ]
-  }
- },
- "approach-sec-6-1": {
-  "id": "approach-sec-6-1",
-  "tab": "approach",
-  "level": 2,
-  "number": "6.1",
-  "title": "The governing claim: the Economist Governor",
-  "kind": "contrast",
-  "data": {
-   "left": "the assumption",
-   "right": "the finding",
-   "lead": "The core narrative of the campaign turns standard political promotion on its head: Dr. Makali Mulu is the Economist Governor Kitui needs. This narrative frames him not…"
-  }
- },
- "approach-sec-6-1-1": {
-  "id": "approach-sec-6-1-1",
-  "tab": "approach",
-  "level": 3,
-  "number": "6.1.1",
-  "title": "The evidence behind the claim",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "The National Budget Seat",
-     "body": "Sourced legislative records confirm Dr. Mulu's senior position on the National Assembly's Budget and Appropriations Committee…"
-    },
-    {
-     "n": 2,
-     "label": "Direct Local Investment (Educational…",
-     "body": "Direct Local Investment (Educational Bursaries): Dr. Mulu has successfully directed KSh 47 million in educational bursaries to…"
-    },
-    {
-     "n": 3,
-     "label": "Certified Administrative Excellence",
-     "body": "Sourced Ministry of Finance performance audits officially certified Kitui Central as the best-evaluated constituency in the…"
-    },
-    {
-     "n": 4,
-     "label": "Professional Monitoring & Evaluation…",
-     "body": "Professional Monitoring & Evaluation Credentials: He is a certified consultant in project management, a member of the Evaluation…"
-    }
-   ]
-  }
- },
- "approach-sec-6-1-2": {
-  "id": "approach-sec-6-1-2",
-  "tab": "approach",
-  "level": 3,
-  "number": "6.1.2",
-  "title": "The resource paradox",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "KSh billion",
-     "value": 13790000000,
-     "display": "KSh 13.79 billion",
-     "pct": false
-    }
-   ]
-  }
- },
- "approach-sec-6-1-3": {
-  "id": "approach-sec-6-1-3",
-  "tab": "approach",
-  "level": 3,
-  "number": "6.1.3",
-  "title": "Answering the charge that discipline is cold",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "unconfirmed cash balances",
-     "value": 670000000,
-     "display": "670 million",
-     "pct": false
-    },
-    {
-     "label": "billion",
-     "value": 1300000000,
-     "display": "1.3 billion",
-     "pct": false
-    },
-    {
-     "label": "% offline",
-     "value": 86.4,
-     "display": "86.4",
-     "pct": false
-    }
-   ]
-  }
- },
- "approach-sec-6-2-1": {
-  "id": "approach-sec-6-2-1",
-  "tab": "approach",
-  "level": 3,
-  "number": "6.2.1",
-  "title": "The four campaign pillars in practice",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "Fiscal accountability and devolution",
-     "body": "Translate Dr. Mulu's parliamentary advocacy for equitable resource distribution into a clear, actionable manifesto for Kitui's…"
-    },
-    {
-     "n": 2,
-     "label": "Data-driven civic engagement",
-     "body": "Infographic analyses breaking down Dr. Mulu's track record — including NG-CDF-funded projects in Kitui Central — so voters can…"
-    },
-    {
-     "n": 3,
-     "label": "Policy, translated into what it changes",
-     "body": "Convert dense policy topics — climate investment in water infrastructure, agricultural revitalisation — into relatable,…"
-    },
-    {
-     "n": 4,
-     "label": "Verification and follow-through",
-     "body": "The pillar that distinguishes Dr. Mulu from every rival: publishing what was promised, then publishing whether it happened.…"
-    }
-   ]
-  }
- },
- "approach-sec-6-3": {
-  "id": "approach-sec-6-3",
-  "tab": "approach",
-  "level": 2,
-  "number": "6.3",
-  "title": "The six campaign themes",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Water Security and Climate Resilience",
-     "body": "— sand dams, boreholes,"
-    },
-    {
-     "label": "Economic Transformation",
-     "body": "— agribusiness value chains, mango processing,"
-    },
-    {
-     "label": "Fiscal Discipline and Verified Delivery",
-     "body": "— the flagship theme."
-    },
-    {
-     "label": "Youth Employment and Digital Skills",
-     "body": "— vocational training, county"
-    },
-    {
-     "label": "Healthcare Access",
-     "body": "— hospital upgrades, maternal health, insurance"
-    },
-    {
-     "label": "Education",
-     "body": "— ECDE, bursaries, school infrastructure."
-    }
-   ]
-  }
- },
- "engine-sec-6a-1": {
-  "id": "engine-sec-6a-1",
-  "tab": "engine",
-  "level": 2,
-  "number": "6A.1",
-  "title": "Four pillars, anchored on his own words",
-  "kind": "contrast",
-  "data": {
-   "left": "so the campaign compounds",
-   "right": "repeating",
-   "lead": "\"The mission is for Kitui to prosper. From Poverty to Wealth Creation.\" That line is already on Dr. Mulu's cover. Nothing published so far argues it. These four pillars…"
-  }
- },
- "engine-sec-6a-1-1": {
-  "id": "engine-sec-6a-1-1",
-  "tab": "engine",
-  "level": 3,
-  "number": "6A.1.1",
-  "title": "Pillar 1 — Where the money went",
-  "kind": "bars",
-  "data": {
-   "items": [
-    {
-     "label": "registered voters",
-     "value": 275570,
-     "display": "275,570"
-    },
-    {
-     "label": "seconds",
-     "value": 45,
-     "display": "45"
-    },
-    {
-     "label": "Eastern region",
-     "value": 15,
-     "display": "15"
-    }
-   ]
-  }
- },
- "engine-sec-6a-1-2": {
-  "id": "engine-sec-6a-1-2",
-  "tab": "engine",
-  "level": 3,
-  "number": "6A.1.2",
-  "title": "Pillar 2 — From poverty to wealth creation, one household",
-  "kind": "donut",
-  "data": {
-   "value": 90,
-   "label": "Kitui households",
-   "rest": ""
-  }
- },
- "engine-sec-6a-1-3": {
-  "id": "engine-sec-6a-1-3",
-  "tab": "engine",
-  "level": 3,
-  "number": "6A.1.3",
-  "title": "Pillar 3 — The economist explains",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Segment",
-     "body": "youth 18–35, traders, professionals, and the out-of-county Kamba diaspora."
-    },
-    {
-     "label": "Language",
-     "body": "Kiswahili and Sheng with Kikamba hooks; English for diaspora and national press."
-    },
-    {
-     "label": "Channel",
-     "body": "TikTok, Facebook, X, YouTube."
-    },
-    {
-     "label": "Format",
-     "body": "45-second vertical video. One county figure made physical — the KSh13.79bn envelope, or the KSh670m in…"
-    },
-    {
-     "label": "Why it exists",
-     "body": "it converts \"PhD in Economics\" from a title into a demonstrated skill, and it is the only pillar that travels…"
-    }
-   ]
-  }
- },
- "engine-sec-6a-1-4": {
-  "id": "engine-sec-6a-1-4",
-  "tab": "engine",
-  "level": 3,
-  "number": "6A.1.4",
-  "title": "Pillar 4 — He came, and this is what he said he would do",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Segment",
-     "body": "the specific ward visited, that day."
-    },
-    {
-     "label": "Language",
-     "body": "Kikamba and Kiswahili."
-    },
-    {
-     "label": "Channel",
-     "body": "Facebook, the ward's WhatsApp group, SMS to that ward's consented list."
-    },
-    {
-     "label": "Format",
-     "body": "the photograph the team already takes — plus one commitment and one date."
-    },
-    {
-     "label": "Why it exists",
-     "body": "this is not new work. It is the current daily activity post with two fields added. Twelve weeks later, that…"
-    }
-   ]
-  }
- },
- "messaging-sec-7-1": {
-  "id": "messaging-sec-7-1",
-  "tab": "messaging",
-  "level": 2,
-  "number": "7.1",
-  "title": "The narrative spine and message architecture",
-  "kind": "gauge",
-  "data": {
-   "value": 160,
-   "display": "160",
-   "label": "character Kiswahili SMS",
-   "pct": false,
-   "long": false
-  }
- },
- "messaging-sec-7-1-1": {
-  "id": "messaging-sec-7-1-1",
-  "tab": "messaging",
-  "level": 3,
-  "number": "7.1.1",
-  "title": "The central claim and its three pillars",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Narrative Statement",
-     "body": "\"Kitui's Ksh 12+ Billion annual budget has been crippled by pending bills, procurement inflation, and ghost…"
-    },
-    {
-     "label": "Primary Evidence & Source",
-     "body": ""
-    },
-    {
-     "label": "Proof Point — awaiting primary documents",
-     "body": "Office of the Auditor-General (OAG) NG-CDF audit reports, 2013–2025. Firefly has not yet retrieved the…"
-    },
-    {
-     "label": "Contrast — awaiting primary documents",
-     "body": "Kitui County Government audited accounts under both predecessor regimes are reported to have accumulated over…"
-    },
-    {
-     "label": "Proof Point — awaiting page references",
-     "body": "KNBS 2019 Census & Agricultural Sector Transformation Strategy (ASTGS). The 45,000 tonne output and the…"
-    },
-    {
-     "label": "Policy Intervention ",
-     "body": ""
-    }
-   ]
-  }
- },
- "messaging-sec-7-2-3": {
-  "id": "messaging-sec-7-2-3",
-  "tab": "messaging",
-  "level": 3,
-  "number": "7.2.3",
-  "title": "Framing, worked through in examples",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Loss aversion",
-     "body": ""
-    },
-    {
-     "label": "Social proof",
-     "body": ""
-    },
-    {
-     "label": "Verification",
-     "body": ""
-    },
-    {
-     "label": "Anchoring",
-     "body": ""
-    },
-    {
-     "label": "Commitment device",
-     "body": ""
-    }
-   ]
-  }
- },
- "scope-sec-8-0-2": {
-  "id": "scope-sec-8-0-2",
-  "tab": "scope",
-  "level": 3,
-  "number": "8.0.2",
-  "title": "What is outside this scope",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Publishing to Dr. Mulu's owned accounts.",
-     "body": "Firefly briefs, approves and measures. It does not post, and does not hold credentials. The single exception…"
-    },
-    {
-     "label": "Replacing or restaffing the existing team.",
-     "body": "Section 14.7 sets out how Firefly assesses and upskills it. Where a capability gap cannot be closed by…"
-    },
-    {
-     "label": "Volunteer organising",
-     "body": "— recruitment, tiers, gamification and ward-champion management (Workstream 10). Firefly defines the metrics…"
-    },
-    {
-     "label": "The existing technology estate",
-     "body": "— accounts, hosting, devices and the tooling already in use (Workstream 13, in part). Procuring a stack the…"
-    },
-    {
-     "label": "Physical event logistics",
-     "body": "— staging, PA systems, tents, transport and fuel. Section 14 names these as subcontracted vendor classes…"
-    },
-    {
-     "label": "Campaign finance administration",
-     "body": "— expenditure returns, IEBC financial compliance filing and the reconciliation behind them."
-    },
-    {
-     "label": "Legal representation",
-     "body": "— election petitions, litigation, and the data-protection and electoral-law review itself. Section 12.5.5 has…"
-    },
-    {
-     "label": "Candidate scheduling",
-     "body": "— tour management, diary and constituency office operations."
-    }
-   ]
-  }
- },
- "scope-sec-8-0-3": {
-  "id": "scope-sec-8-0-3",
-  "tab": "scope",
-  "level": 3,
-  "number": "8.0.3",
-  "title": "How the levels change what runs",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "refreshes the analysis…",
-     "value": 3,
-     "display": "3",
-     "pct": false
-    },
-    {
-     "label": "wards carry both reach",
-     "value": 40,
-     "display": "40",
-     "pct": false
-    }
-   ]
-  }
- },
- "scope-platforms-sec-8-1-1": {
-  "id": "scope-platforms-sec-8-1-1",
-  "tab": "scope-platforms",
-  "level": 3,
-  "number": "8.1.1",
-  "title": "Digital infrastructure, brand and civic content",
-  "kind": "timeline",
-  "data": {
-   "events": [
-    {
-     "label": "Web management and digital architecture",
-     "body": "Development and deployment of a high-performance campaign web portal hosting the manifesto, tracking media…"
-    },
-    {
-     "label": "Brand management",
-     "body": "Core messaging matrix ensuring consistency across broadcast, print and digital. Dynamic digital press kits for media…"
-    },
-    {
-     "label": "Civic content and visual data",
-     "body": "Infographic analyses highlighting Kitui's economic challenges and Dr. Mulu's proposed solutions, anchored to the…"
-    }
-   ]
-  }
- },
- "scope-platforms-sec-8-1-2": {
-  "id": "scope-platforms-sec-8-1-2",
-  "tab": "scope-platforms",
-  "level": 3,
-  "number": "8.1.2",
-  "title": "Growth, field advertising and reputation operations",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "Online fundraising and data analytics",
-     "body": "Secure donation page integrated with M-Pesa and other mobile money options. Email, SMS and WhatsApp fundraising to diaspora and…"
-    },
-    {
-     "n": 2,
-     "label": "Digital advertising",
-     "body": "Targeted Meta ads by ward, age, gender and interest. Google Search and Display to capture high-intent voters. YouTube pre-roll…"
-    },
-    {
-     "n": 3,
-     "label": "Crisis and reputation management",
-     "body": "Continuous sentiment monitoring across platforms. Rapid-response statements managing emerging narratives or opponent claims.…"
-    }
-   ]
-  }
- },
- "scope-platforms-sec-8-2-1": {
-  "id": "scope-platforms-sec-8-2-1",
-  "tab": "scope-platforms",
-  "level": 3,
-  "number": "8.2.1",
-  "title": "Why it exists",
-  "kind": "contrast",
-  "data": {
-   "left": "before the election",
-   "right": "after it",
-   "lead": "Dr. Mulu is a monitoring and evaluation specialist — a member of the Evaluation Society of Kenya and an M&amp;E Champion recognised by the Ministry of Finance, whose…"
-  }
- },
- "scope-platforms-sec-8-2-4": {
-  "id": "scope-platforms-sec-8-2-4",
-  "tab": "scope-platforms",
-  "level": 3,
-  "number": "8.2.4",
-  "title": "Design principles",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Public by default.",
-     "body": "The register is visible to anyone, mapped by ward,"
-    },
-    {
-     "label": "No personal data published.",
-     "body": "Reports appear with ward, category and"
-    },
-    {
-     "label": "Outcomes published honestly ",
-     "body": ""
-    },
-    {
-     "label": "No false authority.",
-     "body": "Dr. Mulu is not the county government. The tracker"
-    },
-    {
-     "label": "Continues after the election.",
-     "body": "Stated up front. A tracker that closes on"
-    }
-   ]
-  }
- },
- "scope-platforms-sec-8-2-5": {
-  "id": "scope-platforms-sec-8-2-5",
-  "tab": "scope-platforms",
-  "level": 3,
-  "number": "8.2.5",
-  "title": "What it is worth to the campaign",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Narrative",
-     "body": "the strongest possible proof of the Verification pillar"
-    },
-    {
-     "label": "Data",
-     "body": "ward-level issue salience derived from citizens' own priorities"
-    },
-    {
-     "label": "Organising",
-     "body": "every report is a consented contact and a warm lead for ward"
-    },
-    {
-     "label": "Earned media",
-     "body": "a public register of county service-delivery failures is a"
-    },
-    {
-     "label": "Defensive",
-     "body": "it makes \"he is not close to ordinary people\" a difficult"
-    }
-   ]
-  }
- },
- "scope-platforms-sec-8-2-7": {
-  "id": "scope-platforms-sec-8-2-7",
-  "tab": "scope-platforms",
-  "level": 3,
-  "number": "8.2.7",
-  "title": "Tracker KPIs",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "Metric Reports received",
-     "value": 500,
-     "display": "500",
-     "pct": false
-    },
-    {
-     "label": "Wards",
-     "value": 8000,
-     "display": "8,000",
-     "pct": false
-    },
-    {
-     "label": "Reports",
-     "value": 25,
-     "display": "25",
-     "pct": false
-    }
-   ]
-  }
- },
- "scope-platforms-sec-8-3": {
-  "id": "scope-platforms-sec-8-3",
-  "tab": "scope-platforms",
-  "level": 2,
-  "number": "8.3",
-  "title": "Workstream 2 — The content brief and asset governance",
-  "kind": "contrast",
-  "data": {
-   "left": "industrial pipeline",
-   "right": "ad-hoc creative posting",
-   "lead": "Campaign communications succeed when production is treated as a rigorous, industrial pipeline rather than ad-hoc creative posting. In a county where only ~14% of voters…"
-  }
- },
- "scope-platforms-sec-8-3-1": {
-  "id": "scope-platforms-sec-8-3-1",
-  "tab": "scope-platforms",
-  "level": 3,
-  "number": "8.3.1",
-  "title": "The four content pillars",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "Pillar A",
-     "body": "Pillar A: The Integrity & Stewardship Ledger (Kĩtĩo kya Kũthũkũma)"
-    },
-    {
-     "n": 2,
-     "label": "Core Theme",
-     "body": "Core Theme: 13 years of spotless public financial management and zero Auditor-General queries in Kitui Central NG-CDF."
-    },
-    {
-     "n": 3,
-     "label": "Tone",
-     "body": "Tone: Authoritative, calm, legally certified, transparent."
-    },
-    {
-     "n": 4,
-     "label": "Primary Formats",
-     "body": "Primary Formats: Radio debate evidence cards, documentary video case studies, audit certificate infographics, press statements."
-    },
-    {
-     "n": 5,
-     "label": "Pillar B",
-     "body": "Pillar B: The Agrarian & Household Wealth Engine (Ũtonga wa Mĩsyĩ na Mĩũnda)"
-    }
-   ]
-  }
- },
- "scope-platforms-sec-8-4-3": {
-  "id": "scope-platforms-sec-8-4-3",
-  "tab": "scope-platforms",
-  "level": 3,
-  "number": "8.4.3",
-  "title": "The weekly testing cycle",
-  "kind": "bars",
-  "data": {
-   "items": [
-    {
-     "label": "ad variations",
-     "value": 5,
-     "display": "5"
-    },
-    {
-     "label": "headline and visual variations",
-     "value": 3,
-     "display": "3"
-    },
-    {
-     "label": "% proven performers Automatic",
-     "value": 70,
-     "display": "70"
-    },
-    {
-     "label": "impressions is paused",
-     "value": 5000,
-     "display": "5,000"
-    }
-   ]
-  }
- },
- "scope-platforms-sec-8-5-2": {
-  "id": "scope-platforms-sec-8-5-2",
-  "tab": "scope-platforms",
-  "level": 3,
-  "number": "8.5.2",
-  "title": "The case",
-  "kind": "waffle",
-  "data": {
-   "parts": [
-    {
-     "label": "Kitui residents have never",
-     "value": 13
-    },
-    {
-     "label": "outside the internet-using…",
-     "value": 86
-    }
-   ]
-  }
- },
- "scope-platforms-sec-8-5-5": {
-  "id": "scope-platforms-sec-8-5-5",
-  "tab": "scope-platforms",
-  "level": 3,
-  "number": "8.5.5",
-  "title": "Accessibility KPIs",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "% Video",
-     "value": 100,
-     "display": "100",
-     "pct": false
-    },
-    {
-     "label": "seconds",
-     "value": 3,
-     "display": "3",
-     "pct": false
-    }
-   ]
-  }
- },
- "scope-media-sec-8-6": {
-  "id": "scope-media-sec-8-6",
-  "tab": "scope-media",
-  "level": 2,
-  "number": "8.6",
-  "title": "Workstream 5 — Platform tactics and paid media",
-  "kind": "bars",
-  "data": {
-   "items": [
-    {
-     "label": "wards and diaspora hubs",
-     "value": 40,
-     "display": "40"
-    },
-    {
-     "label": "Sample content",
-     "value": 18,
-     "display": "18"
-    },
-    {
-     "label": "second video explaining county",
-     "value": 30,
-     "display": "30"
-    }
-   ]
-  }
- },
- "scope-media-sec-8-7-3": {
-  "id": "scope-media-sec-8-7-3",
-  "tab": "scope-media",
-  "level": 3,
-  "number": "8.7.3",
-  "title": "Candidate media training",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "seconds without losing…",
-     "value": 30,
-     "display": "30",
-     "pct": false
-    },
-    {
-     "label": "Debate performance",
-     "value": 3,
-     "display": "3",
-     "pct": false
-    },
-    {
-     "label": "second answer",
-     "value": 60,
-     "display": "60",
-     "pct": false
-    }
-   ]
-  }
- },
- "scope-media-sec-8-7-4": {
-  "id": "scope-media-sec-8-7-4",
-  "tab": "scope-media",
-  "level": 3,
-  "number": "8.7.4",
-  "title": "The debate and forum playbook",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "Full briefing pack",
-     "body": "Full briefing pack: rival positions, likely lines of attack, verified"
-    },
-    {
-     "n": 2,
-     "label": "Mock debate with a stand-in playing the…",
-     "body": "Mock debate with a stand-in playing the leading rival"
-    },
-    {
-     "n": 3,
-     "label": "Three prepared \"moments\" ",
-     "body": "Three prepared \"moments\" — a memorable, quotable formulation for each of the"
-    }
-   ]
-  }
- },
- "scope-media-sec-8-7-5": {
-  "id": "scope-media-sec-8-7-5",
-  "tab": "scope-media",
-  "level": 3,
-  "number": "8.7.5",
-  "title": "Pre-drafted response lines",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "wards",
-     "value": 40,
-     "display": "40",
-     "pct": false
-    },
-    {
-     "label": "minute clock Unsolicited…",
-     "value": 30,
-     "display": "30",
-     "pct": false
-    }
-   ]
-  }
- },
- "scope-media-sec-8-7-6": {
-  "id": "scope-media-sec-8-7-6",
-  "tab": "scope-media",
-  "level": 3,
-  "number": "8.7.6",
-  "title": "Earned media KPIs",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "C expert-source placements",
-     "value": 4,
-     "display": "4",
-     "pct": false
-    },
-    {
-     "label": "minutes Share",
-     "value": 60,
-     "display": "60",
-     "pct": false
-    },
-    {
-     "label": "% Share",
-     "value": 100,
-     "display": "100",
-     "pct": false
-    },
-    {
-     "label": "% Fact-checker…",
-     "value": 50,
-     "display": "50",
-     "pct": false
-    }
-   ]
-  }
- },
- "scope-media-sec-8-7-7": {
-  "id": "scope-media-sec-8-7-7",
-  "tab": "scope-media",
-  "level": 3,
-  "number": "8.7.7",
-  "title": "Getting on air around a hostile gatekeeper",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "registered voters",
-     "value": 532758,
-     "display": "532,758",
-     "pct": false
-    },
-    {
-     "label": "wards",
-     "value": 40,
-     "display": "40",
-     "pct": false
-    }
-   ]
-  }
- },
- "scope-media-sec-8-7-8": {
-  "id": "scope-media-sec-8-7-8",
-  "tab": "scope-media",
-  "level": 3,
-  "number": "8.7.8",
-  "title": "How we pitch: evidence first",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "Hansard & Audit Exclusives",
-     "body": "Providing national media bureau chiefs (Daily Nation, Standard, Citizen TV, KTN News) with verified, data-dense policy briefs on…"
-    },
-    {
-     "n": 2,
-     "label": "On-Site Project Media Tours",
-     "body": "Transporting accredited regional correspondents directly to Kitui Central model projects (solar boreholes, modern TVET…"
-    },
-    {
-     "n": 3,
-     "label": "Rapid Studio Call-In Rights",
-     "body": "Enforcing statutory right-of-reply provisions under the Media Council of Kenya (MCK) Act whenever candidate record distortions…"
-    }
-   ]
-  }
- },
- "scope-ground-sec-8-8": {
-  "id": "scope-ground-sec-8-8",
-  "tab": "scope-ground",
-  "level": 2,
-  "number": "8.8",
-  "title": "Workstream 7 — Ground-digital integration",
-  "kind": "gauge",
-  "data": {
-   "value": 40,
-   "display": "40",
-   "label": "ward coordinators",
-   "pct": false,
-   "long": false
-  }
- },
- "scope-ground-sec-8-8-1": {
-  "id": "scope-ground-sec-8-8-1",
-  "tab": "scope-ground",
-  "level": 3,
-  "number": "8.8.1",
-  "title": "What the 40 ward coordinators report",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Voter Sentiment & Dominant Anxieties",
-     "body": "E.g., \"Farmers in Kyuso are angry about uncollected green grams; opponents are claiming Dr. Mulu will…"
-    },
-    {
-     "label": "Competitor Movement & Expenditure",
-     "body": "E.g., \"Opponent convoy visited Migwani market; distributed Ksh 500 notes to youth groups; promised new market…"
-    },
-    {
-     "label": "Ground Disinformation & Counter-Narratives",
-     "body": "E.g., \"Rumor circulating in Mutomo that Dr. Mulu's CDF bursary program excluded non-Kitui Central students.\""
-    },
-    {
-     "label": "Field Inventory & Collateral Levels",
-     "body": "Current stock of Kikamba manifesto summary leaflets, posters, audio flash drives, and volunteer T-shirts."
-    }
-   ]
-  }
- },
- "scope-ground-sec-8-8-3": {
-  "id": "scope-ground-sec-8-8-3",
-  "tab": "scope-ground",
-  "level": 3,
-  "number": "8.8.3",
-  "title": "Distribution beyond social media",
-  "kind": "bars",
-  "data": {
-   "items": [
-    {
-     "label": "Stage Champions Infrastructure",
-     "value": 1200,
-     "display": "1,200"
-    },
-    {
-     "label": "youth",
-     "value": 12000,
-     "display": "12,000"
-    },
-    {
-     "label": "ward",
-     "value": 30,
-     "display": "30"
-    },
-    {
-     "label": "wards",
-     "value": 40,
-     "display": "40"
-    },
-    {
-     "label": "hours",
-     "value": 3,
-     "display": "3"
-    }
-   ]
-  }
- },
- "scope-ground-sec-8-8-4": {
-  "id": "scope-ground-sec-8-8-4",
-  "tab": "scope-ground",
-  "level": 3,
-  "number": "8.8.4",
-  "title": "The operating rhythm",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "constituencies and wards",
-     "value": 8,
-     "display": "8",
-     "pct": false
-    },
-    {
-     "label": "wards",
-     "value": 40,
-     "display": "40",
-     "pct": false
-    }
-   ]
-  }
- },
- "scope-ground-sec-8-9-1": {
-  "id": "scope-ground-sec-8-9-1",
-  "tab": "scope-ground",
-  "level": 3,
-  "number": "8.9.1",
-  "title": "Operating architecture and bidirectional sync",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "Field to digital synchronization",
-     "body": ""
-    },
-    {
-     "n": 2,
-     "label": "Capture",
-     "body": "ward champions log outcomes via a simple mobile form — four options, under thirty seconds per household. Complexity kills field…"
-    },
-    {
-     "n": 3,
-     "label": "Offline-first",
-     "body": "the form caches locally and syncs when signal returns. Non-negotiable in Ikutha and Mutitu."
-    },
-    {
-     "n": 4,
-     "label": "Latency target",
-     "body": "field outcomes reflected in digital targeting within 24 hours."
-    },
-    {
-     "n": 5,
-     "label": "Suppression",
-     "body": "confirmed committed opponents are removed from paid targeting, not messaged harder. This saves money and is the correct practice."
-    },
-    {
-     "n": 6,
-     "label": "Digital to field routing",
-     "body": ""
-    },
-    {
-     "n": 7,
-     "label": "Warm-lead routing",
-     "body": "voters who engaged with content, opened an SMS, or completed a USSD session are routed to ward champions as priority doors."
-    },
-    {
-     "n": 8,
-     "label": "Pre-briefing",
-     "body": "champions receive the issue the household engaged with — water, bursaries, market fees — so the conversation starts where the…"
-    }
-   ]
-  }
- },
- "scope-ground-sec-8-9-2": {
-  "id": "scope-ground-sec-8-9-2",
-  "tab": "scope-ground",
-  "level": 3,
-  "number": "8.9.2",
-  "title": "Governance and data protection on the doorstep",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "Field data is campaign first-party data,…",
-     "body": "Field data is campaign first-party data, collected with notice, and governed"
-    },
-    {
-     "n": 2,
-     "label": "Ward champions receive data-handling…",
-     "body": "Ward champions receive data-handling training before being issued the form,"
-    },
-    {
-     "n": 3,
-     "label": "Field validation match rate ≥ 85%",
-     "body": "is the joint KPI holding both sides"
-    }
-   ]
-  }
- },
- "scope-ground-sec-8-10": {
-  "id": "scope-ground-sec-8-10",
-  "tab": "scope-ground",
-  "level": 2,
-  "number": "8.10",
-  "title": "Workstream 9 — What Firefly operates: SMS, USSD and voice",
-  "kind": "contrast",
-  "data": {
-   "left": "the assumption",
-   "right": "the finding",
-   "lead": ""
-  }
- },
- "scope-ground-sec-8-10-2": {
-  "id": "scope-ground-sec-8-10-2",
-  "tab": "scope-ground",
-  "level": 3,
-  "number": "8.10.2",
-  "title": "The SMS layer",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "Every bulk send lodged with the operator…",
-     "body": "Every bulk send lodged with the operator 48 hours ahead, verbatim text plus signed"
-    },
-    {
-     "n": 2,
-     "label": "No attacks on individuals, families,…",
-     "body": "No attacks on individuals, families, ethnicity, religion or association in any message —"
-    },
-    {
-     "n": 3,
-     "label": "Sending window 7am",
-     "body": "Sending window 7am–7pm, per market practice and DND norms"
-    },
-    {
-     "n": 4,
-     "label": "Every message carries a clear opt-out;…",
-     "body": "Every message carries a clear opt-out; opt-outs honoured immediately and"
-    },
-    {
-     "n": 5,
-     "label": "Ward-tagged segmentation so a message…",
-     "body": "Ward-tagged segmentation so a message about mango prices reaches Kitui West"
-    },
-    {
-     "n": 6,
-     "label": "Personalisation by first name where…",
-     "body": "Personalisation by first name where consent covers it"
-    },
-    {
-     "n": 7,
-     "label": "Per-send audit trail retained, per the…",
-     "body": "Per-send audit trail retained, per the charter (Section 12.5.4)"
-    }
-   ]
-  }
- },
- "scope-ground-sec-8-10-3": {
-  "id": "scope-ground-sec-8-10-3",
-  "tab": "scope-ground",
-  "level": 3,
-  "number": "8.10.3",
-  "title": "The USSD layer",
-  "kind": "bars",
-  "data": {
-   "items": [
-    {
-     "label": "matters",
-     "value": 3,
-     "display": "3"
-    },
-    {
-     "label": "working days",
-     "value": 5,
-     "display": "5"
-    },
-    {
-     "label": "weeks",
-     "value": 4,
-     "display": "4"
-    }
-   ]
-  }
- },
- "scope-ground-sec-8-10-5": {
-  "id": "scope-ground-sec-8-10-5",
-  "tab": "scope-ground",
-  "level": 3,
-  "number": "8.10.5",
-  "title": "The mobile-money agent network",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "March",
-     "value": 602470,
-     "display": "602,470",
-     "pct": false
-    }
-   ]
-  }
- },
- "scope-ground-sec-8-10-6": {
-  "id": "scope-ground-sec-8-10-6",
-  "tab": "scope-ground",
-  "level": 3,
-  "number": "8.10.6",
-  "title": "KPIs for the offline layer",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "USSD unique sessions",
-     "value": 120000,
-     "display": "120,000",
-     "pct": false
-    },
-    {
-     "label": "Metric Consented SMS…",
-     "value": 15000,
-     "display": "15,000",
-     "pct": false
-    },
-    {
-     "label": "unique sessions Not live",
-     "value": 5000,
-     "display": "5,000",
-     "pct": false
-    },
-    {
-     "label": "Issue reports via tracker",
-     "value": 60000,
-     "display": "60,000",
-     "pct": false
-    }
-   ]
-  }
- },
- "scope-ground-sec-8-11-4": {
-  "id": "scope-ground-sec-8-11-4",
-  "tab": "scope-ground",
-  "level": 3,
-  "number": "8.11.4",
-  "title": "Management tooling",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Custom WhatsApp bot",
-     "body": "for low-cost volunteer management: registration,"
-    },
-    {
-     "label": "USSD registration path",
-     "body": "so volunteers without smartphones can join"
-    },
-    {
-     "label": "Forms and spreadsheets for baseline collection",
-     "body": ""
-    },
-    {
-     "label": "Task management via a shared board",
-     "body": ""
-    },
-    {
-     "label": "Purpose-built volunteer platforms only at…",
-     "body": ""
-    }
-   ]
-  }
- },
- "scope-ground-sec-8-11-5": {
-  "id": "scope-ground-sec-8-11-5",
-  "tab": "scope-ground",
-  "level": 3,
-  "number": "8.11.5",
-  "title": "Volunteer KPIs",
-  "kind": "bars",
-  "data": {
-   "items": [
-    {
-     "label": "% Active rate engaged",
-     "value": 5,
-     "display": "5"
-    },
-    {
-     "label": "days advancement",
-     "value": 30,
-     "display": "30"
-    },
-    {
-     "label": "% advancement",
-     "value": 40,
-     "display": "40"
-    },
-    {
-     "label": "% Average points",
-     "value": 60,
-     "display": "60"
-    },
-    {
-     "label": "retention Canvass returns…",
-     "value": 100,
-     "display": "100"
-    },
-    {
-     "label": "day retention Canvass returns",
-     "value": 90,
-     "display": "90"
-    }
-   ]
-  }
- },
- "scope-data-sec-8-12-1": {
-  "id": "scope-data-sec-8-12-1",
-  "tab": "scope-data",
-  "level": 3,
-  "number": "8.12.1",
-  "title": "The voter and supporter data model",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "AES GCM",
-     "value": -256,
-     "display": "AES-256-GCM",
-     "pct": false
-    },
-    {
-     "label": "Audit Trail Logging",
-     "value": 3,
-     "display": "3",
-     "pct": false
-    }
-   ]
-  }
- },
- "scope-data-sec-8-12-2": {
-  "id": "scope-data-sec-8-12-2",
-  "tab": "scope-data",
-  "level": 3,
-  "number": "8.12.2",
-  "title": "The Data Protection Act 2019, applied",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "seconds",
-     "value": 15,
-     "display": "15",
-     "pct": false
-    },
-    {
-     "label": "Data Protection Officer…",
-     "value": 3,
-     "display": "3",
-     "pct": false
-    }
-   ]
-  }
- },
- "scope-data-sec-8-13-2": {
-  "id": "scope-data-sec-8-13-2",
-  "tab": "scope-data",
-  "level": 3,
-  "number": "8.13.2",
-  "title": "Data sources",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "IEBC Voter Register",
-     "body": "name, gender, age bracket, polling station, ward,"
-    },
-    {
-     "n": 2,
-     "label": "KNBS Census and county statistics",
-     "body": "ward-level demographics, education,"
-    },
-    {
-     "n": 3,
-     "label": "Historical results",
-     "body": "ward and polling-station results from 2017 and 2022"
-    },
-    {
-     "n": 4,
-     "label": "Campaign first-party data",
-     "body": "interactions with campaign content, WhatsApp"
-    },
-    {
-     "n": 5,
-     "label": "Field canvass returns",
-     "body": "(Section 8.9)"
-    }
-   ]
-  }
- },
- "scope-data-sec-8-13-6": {
-  "id": "scope-data-sec-8-13-6",
-  "tab": "scope-data",
-  "level": 3,
-  "number": "8.13.6",
-  "title": "Putting the model to work",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "Ad targeting",
-     "body": "scored segments as custom audiences on Meta, Google, TikTok"
-    },
-    {
-     "n": 2,
-     "label": "SMS/USSD segmentation",
-     "body": "priority broadcast lists for high-support,"
-    },
-    {
-     "n": 3,
-     "label": "Content personalisation",
-     "body": "different messages to persuadable voters,"
-    },
-    {
-     "n": 4,
-     "label": "Volunteer routing",
-     "body": "ground teams directed to highest-persuasion-potential"
-    }
-   ]
-  }
- },
- "scope-data-sec-8-14-1": {
-  "id": "scope-data-sec-8-14-1",
-  "tab": "scope-data",
-  "level": 3,
-  "number": "8.14.1",
-  "title": "Component by component, and what each does",
-  "kind": "timeline",
-  "data": {
-   "events": [
-    {
-     "label": "Tooling Recommendation",
-     "body": "Africa's Talking API Suite (or Safaricom Direct Enterprise SDP Gateway)."
-    },
-    {
-     "label": "Function & Purpose",
-     "body": "Powers the offline communications engine (Section 8.10). Dispatches targeted, opt-in bulk 2G SMS to registered voters…"
-    },
-    {
-     "label": "Cost Structure",
-     "body": ""
-    },
-    {
-     "label": "Data Held & Processed",
-     "body": "Voter mobile phone numbers (MSISDN), geolocation ward tags, inbound USSD survey responses, delivery receipt…"
-    },
-    {
-     "label": "DPA 2019 Exposure & Compliance",
-     "body": "HIGH RISK. Telecommunications data constitutes direct personal data (Section 8.11). Requires explicit opt-in…"
-    },
-    {
-     "label": "Procurement Status",
-     "body": "Awaiting campaign decision (Vendor selection between Africa's Talking vs. Safaricom SDP Enterprise)."
-    }
-   ]
-  }
- },
- "scope-data-sec-8-14-3": {
-  "id": "scope-data-sec-8-14-3",
-  "tab": "scope-data",
-  "level": 3,
-  "number": "8.14.3",
-  "title": "Technical risk and security protocols",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "% operational uptime",
-     "value": 100,
-     "display": "100",
-     "pct": false
-    },
-    {
-     "label": "Role-Based Data Redaction",
-     "value": 3,
-     "display": "3",
-     "pct": false
-    }
-   ]
-  }
- },
- "scope-data-sec-8-15-3": {
-  "id": "scope-data-sec-8-15-3",
-  "tab": "scope-data",
-  "level": 3,
-  "number": "8.15.3",
-  "title": "The analytics maturity roadmap",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "Baseline",
-     "value": 0,
-     "display": "0 — Baseline",
-     "pct": false
-    },
-    {
-     "label": "Integrated",
-     "value": 1,
-     "display": "1 — Integrated",
-     "pct": false
-    },
-    {
-     "label": "Predictive",
-     "value": 2,
-     "display": "2 — Predictive",
-     "pct": false
-    },
-    {
-     "label": "Attributed",
-     "value": 3,
-     "display": "3 — Attributed",
-     "pct": false
-    }
-   ]
-  }
- },
- "scope-data-sec-8-15-4": {
-  "id": "scope-data-sec-8-15-4",
-  "tab": "scope-data",
-  "level": 3,
-  "number": "8.15.4",
-  "title": "Who owns the data",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Maintains the data inventory",
-     "body": ""
-    },
-    {
-     "label": "Owns the consent audit trail and can produce…",
-     "body": ""
-    },
-    {
-     "label": "Owns the deletion schedule and executes it…",
-     "body": ""
-    },
-    {
-     "label": "Is the campaign's standing point of contact…",
-     "body": ""
-    },
-    {
-     "label": "Holds authority to suspend any targeting…",
-     "body": ""
-    }
-   ]
-  }
- },
- "roadmap-sec-9-1": {
-  "id": "roadmap-sec-9-1",
-  "tab": "roadmap",
-  "level": 2,
-  "number": "9.1",
-  "title": "Phasing, from engagement to the election period",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "August",
-     "value": 10,
-     "display": "10 August 2027",
-     "pct": false
-    },
-    {
-     "label": "% offline electorate",
-     "value": 86.4,
-     "display": "86.4",
-     "pct": false
-    },
-    {
-     "label": "vote threshold",
-     "value": 200000,
-     "display": "200,000",
-     "pct": false
-    }
-   ]
-  }
- },
- "roadmap-sec-9-1-1": {
-  "id": "roadmap-sec-9-1-1",
-  "tab": "roadmap",
-  "level": 3,
-  "number": "9.1.1",
-  "title": "Phase −1: Nomination Sprint — Weeks 1–6 from signature",
-  "kind": "timeline",
-  "data": {
-   "events": [
-    {
-     "label": "Section 1A in full",
-     "body": "— ninety days of the existing channels: reach by ward, engagement on reach, language mix, format mix, cadence, and the…"
-    },
-    {
-     "label": "Immediate SMS opt-in drive",
-     "body": "— the consented list is the phase's most durable asset and compounds into every later phase"
-    },
-    {
-     "label": "One message-lab round across all three…",
-     "body": "(Section 11.3) — mandatory"
-    }
-   ]
-  }
- },
- "roadmap-sec-9-1-2": {
-  "id": "roadmap-sec-9-1-2",
-  "tab": "roadmap",
-  "level": 3,
-  "number": "9.1.2",
+ "implementation-sec-5-3-7": {
+  "id": "implementation-sec-5-3-7",
+  "tab": "implementation",
+  "level": 3,
+  "number": "5.3.7",
   "title": "Phase 0: Instrumentation — Weeks 4–10 from signature",
   "kind": "stats",
   "data": {
@@ -2476,11 +1884,41 @@
    ]
   }
  },
- "roadmap-sec-9-1-3": {
-  "id": "roadmap-sec-9-1-3",
-  "tab": "roadmap",
+ "implementation-sec-5-4": {
+  "id": "implementation-sec-5-4",
+  "tab": "implementation",
+  "level": 2,
+  "number": "5.4",
+  "title": "The phases to August 2027",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "August",
+     "value": 10,
+     "display": "10 August 2027",
+     "pct": false
+    },
+    {
+     "label": "% offline electorate",
+     "value": 86.4,
+     "display": "86.4",
+     "pct": false
+    },
+    {
+     "label": "vote threshold",
+     "value": 200000,
+     "display": "200,000",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "implementation-sec-5-4-1": {
+  "id": "implementation-sec-5-4-1",
+  "tab": "implementation",
   "level": 3,
-  "number": "9.1.3",
+  "number": "5.4.1",
   "title": "Phase 1: Awareness and Community Building — October–December 2026",
   "kind": "stepper",
   "data": {
@@ -2528,11 +1966,11 @@
    ]
   }
  },
- "roadmap-sec-9-1-4": {
-  "id": "roadmap-sec-9-1-4",
-  "tab": "roadmap",
+ "implementation-sec-5-4-2": {
+  "id": "implementation-sec-5-4-2",
+  "tab": "implementation",
   "level": 3,
-  "number": "9.1.4",
+  "number": "5.4.2",
   "title": "Phase 2: Engagement and Persuasion — January–March 2027",
   "kind": "stepper",
   "data": {
@@ -2580,11 +2018,11 @@
    ]
   }
  },
- "roadmap-sec-9-1-5": {
-  "id": "roadmap-sec-9-1-5",
-  "tab": "roadmap",
+ "implementation-sec-5-4-3": {
+  "id": "implementation-sec-5-4-3",
+  "tab": "implementation",
   "level": 3,
-  "number": "9.1.5",
+  "number": "5.4.3",
   "title": "Phase 3: Mobilisation and GOTV — April–August 2027",
   "kind": "stepper",
   "data": {
@@ -2632,11 +2070,11 @@
    ]
   }
  },
- "roadmap-sec-9-1-6": {
-  "id": "roadmap-sec-9-1-6",
-  "tab": "roadmap",
+ "implementation-sec-5-4-4": {
+  "id": "implementation-sec-5-4-4",
+  "tab": "implementation",
   "level": 3,
-  "number": "9.1.6",
+  "number": "5.4.4",
   "title": "Post-election",
   "kind": "gauge",
   "data": {
@@ -2647,11 +2085,11 @@
    "long": false
   }
  },
- "roadmap-sec-9-2-2": {
-  "id": "roadmap-sec-9-2-2",
-  "tab": "roadmap",
+ "implementation-sec-5-4-7": {
+  "id": "implementation-sec-5-4-7",
+  "tab": "implementation",
   "level": 3,
-  "number": "9.2.2",
+  "number": "5.4.7",
   "title": "The sequenced calendar",
   "kind": "stats",
   "data": {
@@ -2665,11 +2103,11 @@
    ]
   }
  },
- "roadmap-sec-9-2-3": {
-  "id": "roadmap-sec-9-2-3",
-  "tab": "roadmap",
+ "implementation-sec-5-4-8": {
+  "id": "implementation-sec-5-4-8",
+  "tab": "implementation",
   "level": 3,
-  "number": "9.2.3",
+  "number": "5.4.8",
   "title": "Managing endorsements",
   "kind": "contrast",
   "data": {
@@ -2678,11 +2116,11 @@
    "lead": ""
   }
  },
- "roadmap-sec-9-2-4": {
-  "id": "roadmap-sec-9-2-4",
-  "tab": "roadmap",
+ "implementation-sec-5-4-9": {
+  "id": "implementation-sec-5-4-9",
+  "tab": "implementation",
   "level": 3,
-  "number": "9.2.4",
+  "number": "5.4.9",
   "title": "Coalition KPIs",
   "kind": "stats",
   "data": {
@@ -2696,598 +2134,12 @@
    ]
   }
  },
- "deliverables-sec-10-1-1": {
-  "id": "deliverables-sec-10-1-1",
-  "tab": "deliverables",
-  "level": 3,
-  "number": "10.1.1",
-  "title": "The three scope levels",
-  "kind": "timeline",
-  "data": {
-   "events": [
-    {
-     "label": "Firefly team",
-     "body": "Strategy Director + Analyst; offline-layer operator part-activated"
-    },
-    {
-     "label": "Presence audit",
-     "body": "once, at the start"
-    },
-    {
-     "label": "Reach reporting",
-     "body": "the 12 decisive wards in Section 3.4.2 only"
-    },
-    {
-     "label": "Weekly brief",
-     "body": "yes — the brief is the engagement and is never a level"
-    },
-    {
-     "label": "Creative testing",
-     "body": "monthly cycle"
-    },
-    {
-     "label": "Research",
-     "body": "none"
-    },
-    {
-     "label": "Team upskilling",
-     "body": "the written standard, delivered once"
-    },
-    {
-     "label": "Offline layer",
-     "body": "SMS to a consented list built organically; USSD not activated"
-    }
-   ]
-  }
- },
- "deliverables-sec-10-1-2": {
-  "id": "deliverables-sec-10-1-2",
-  "tab": "deliverables",
-  "level": 3,
-  "number": "10.1.2",
-  "title": "The scope levels compared",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "diaspora Wards",
-     "value": 40,
-     "display": "All 40",
-     "pct": false
-    },
-    {
-     "label": "diaspora Weekly brief…",
-     "value": 40,
-     "display": "All 40",
-     "pct": false
-    }
-   ]
-  }
- },
- "measurement-sec-11-1": {
-  "id": "measurement-sec-11-1",
-  "tab": "measurement",
+ "nextsteps-sec-6-1": {
+  "id": "nextsteps-sec-6-1",
+  "tab": "nextsteps",
   "level": 2,
-  "number": "11.1",
-  "title": "The headline scorecards",
-  "kind": "waffle",
-  "data": {
-   "parts": [
-    {
-     "label": "share",
-     "value": 40
-    },
-    {
-     "label": "sampled likely Wiper primary",
-     "value": 55
-    }
-   ]
-  }
- },
- "measurement-sec-11-1-2": {
-  "id": "measurement-sec-11-1-2",
-  "tab": "measurement",
-  "level": 3,
-  "number": "11.1.2",
-  "title": "Stage 2: the general election scorecard",
-  "kind": "gauge",
-  "data": {
-   "value": 200000,
-   "display": "200,000",
-   "label": "vote winning threshold",
-   "pct": false,
-   "long": false
-  }
- },
- "measurement-sec-11-1-3": {
-  "id": "measurement-sec-11-1-3",
-  "tab": "measurement",
-  "level": 3,
-  "number": "11.1.3",
-  "title": "The indicator framework, anchored to the vote threshold",
-  "kind": "donut",
-  "data": {
-   "value": 55,
-   "label": "first-choice preference among samp",
-   "rest": "In accordance with the foundational strategic doctrine established in Section 11.2.3, the campaign rejects…"
-  }
- },
- "measurement-sec-11-2-1": {
-  "id": "measurement-sec-11-2-1",
-  "tab": "measurement",
-  "level": 3,
-  "number": "11.2.1",
-  "title": "The research programme and the nomination tracking poll",
-  "kind": "bars",
-  "data": {
-   "items": [
-    {
-     "label": "day tracking poll",
-     "value": 7,
-     "display": "7"
-    },
-    {
-     "label": "likely party delegates primary",
-     "value": 400,
-     "display": "400"
-    },
-    {
-     "label": "aggregate",
-     "value": 2400,
-     "display": "2,400"
-    },
-    {
-     "label": "Integrity Index",
-     "value": 3,
-     "display": "3"
-    },
-    {
-     "label": "hour sub-county advertising…",
-     "value": 48,
-     "display": "48"
-    }
-   ]
-  }
- },
- "measurement-sec-11-2-2": {
-  "id": "measurement-sec-11-2-2",
-  "tab": "measurement",
-  "level": 3,
-  "number": "11.2.2",
-  "title": "The service-delivery performance tracker",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "As a Campaign Credibility Asset (Pre-Election)",
-     "body": ""
-    },
-    {
-     "label": "Public Web & USSD Transparency",
-     "body": ""
-    },
-    {
-     "label": "Debate & Media Weapon",
-     "body": ""
-    },
-    {
-     "label": "As a Day-One Governing Tool (Post-Election)",
-     "body": ""
-    },
-    {
-     "label": "Statutory Ward Equalization Tracking",
-     "body": ""
-    },
-    {
-     "label": "Zero Pending Bills Enforcer",
-     "body": ""
-    }
-   ]
-  }
- },
- "measurement-sec-11-2-3": {
-  "id": "measurement-sec-11-2-3",
-  "tab": "measurement",
-  "level": 3,
-  "number": "11.2.3",
-  "title": "Why vanity metrics are excluded",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "Offline Reality",
-     "body": "86.4% of Kitui registered voters do not maintain active social media profiles. Optimizing for digital likes misallocates…"
-    },
-    {
-     "n": 2,
-     "label": "Geographic Skew",
-     "body": "Political content from Eastern Kenya draws a large share of its social media interaction from non-resident users in Nairobi,…"
-    },
-    {
-     "n": 3,
-     "label": "Zero Correlation to Turnout",
-     "body": "A viral video does not transport an elderly voter in Ikutha or Nguni to their polling stream on election morning. Physical voter…"
-    }
-   ]
-  }
- },
- "measurement-sec-11-2-4": {
-  "id": "measurement-sec-11-2-4",
-  "tab": "measurement",
-  "level": 3,
-  "number": "11.2.4",
-  "title": "Performance governance and executive escalation",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Weekly Monday KPI Standup (08:00 EAT)",
-     "body": "Executive review of all Tier 1 metrics (NW-01 through NW-04 or GE-01 through GE-05). Any metric lagging behind…"
-    },
-    {
-     "label": "Monthly Reallocation Trigger",
-     "body": "If voter pledge recruitment (GE-01) lags in any sub-county for two consecutive cycles, the Campaign Manager…"
-    },
-    {
-     "label": "Polling Day Real-Time Conversion Operations…",
-     "body": ""
-    }
-   ]
-  }
- },
- "measurement-sec-11-3-1": {
-  "id": "measurement-sec-11-3-1",
-  "tab": "measurement",
-  "level": 3,
-  "number": "11.3.1",
-  "title": "Rationale, structure and zone coverage",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "participants",
-     "value": 8,
-     "display": "8",
-     "pct": false
-    }
-   ]
-  }
- },
- "measurement-sec-11-3-2": {
-  "id": "measurement-sec-11-3-2",
-  "tab": "measurement",
-  "level": 3,
-  "number": "11.3.2",
-  "title": "Qualitative hypotheses, feedback loops and KPIs",
-  "kind": "timeline",
-  "data": {
-   "events": [
-    {
-     "label": "Message framings",
-     "body": "from Section 7.2 — does loss-aversion framing on water land, or does it read as pessimism about Kitui?"
-    },
-    {
-     "label": "The Economist Governor narrative",
-     "body": "— does \"economist\" read as competent or as distant? This is the single highest-value question in the research…"
-    },
-    {
-     "label": "Kikamba language and proverb use",
-     "body": "— authentic or performative?"
-    },
-    {
-     "label": "Rival perception",
-     "body": "— what specifically drives preference for the current front-runner? The answer determines whether the deficit is…"
-    },
-    {
-     "label": "Channel reality",
-     "body": "— where do people in Mutha actually get political information?"
-    },
-    {
-     "label": "The tracker concept",
-     "body": "(Section 8.2) — would people use it, and do they believe it would change anything?"
-    }
-   ]
-  }
- },
- "governance-sec-12-1-1": {
-  "id": "governance-sec-12-1-1",
-  "tab": "governance",
-  "level": 3,
-  "number": "12.1.1",
-  "title": "Operating rhythm, tooling and reporting lines",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "Thursday, 16:00 — the brief.",
-     "body": "One page from Firefly: last week's reach in the deficit wards"
-    },
-    {
-     "n": 2,
-     "label": "Friday — the calendar.",
-     "body": "Your team returns the week's calendar in the shared sheet, mapped to"
-    },
-    {
-     "n": 3,
-     "label": "Monday, 09:00 — thirty minutes.",
-     "body": "Approve, amend, flag. The only standing meeting in the"
-    },
-    {
-     "n": 4,
-     "label": "Tuesday to Sunday — publishing.",
-     "body": "Your team, on your accounts, with your credentials. Firefly"
-    },
-    {
-     "n": 5,
-     "label": "Wednesday — one number.",
-     "body": "A mid-week reach check against the deficit wards, and at most one"
-    },
-    {
-     "n": 6,
-     "label": "Last Friday of the month — the review.",
-     "body": "Recognition indicators (Section 11.2), the overrides"
-    }
-   ]
-  }
- },
- "governance-sec-12-5-5": {
-  "id": "governance-sec-12-5-5",
-  "tab": "governance",
-  "level": 3,
-  "number": "12.5.5",
-  "title": "The compliance sign-off gate",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "On what lawful basis, if any, may a…",
-     "body": "On what lawful basis, if any, may a campaign process the IEBC voter register"
-    },
-    {
-     "n": 2,
-     "label": "Does the campaign or its vendors require…",
-     "body": "Does the campaign or its vendors require registration as a data controller"
-    },
-    {
-     "n": 3,
-     "label": "Do the consent mechanisms proposed here…",
-     "body": "Do the consent mechanisms proposed here meet the express, free, specific,"
-    },
-    {
-     "n": 4,
-     "label": "Does matching first-party consented data…",
-     "body": "Does matching first-party consented data against the register constitute"
-    },
-    {
-     "n": 5,
-     "label": "What is the correct handling of data…",
-     "body": "What is the correct handling of data collected from minors who may sign up"
-    }
-   ]
-  }
- },
- "risk-sec-13-0": {
-  "id": "risk-sec-13-0",
-  "tab": "risk",
-  "level": 2,
-  "number": "13.0",
-  "title": "The risk register",
-  "kind": "quadrant",
-  "data": {
-   "items": [
-    {
-     "id": "R1",
-     "label": "The nomination is decided by delegates, not an opinion poll. The…",
-     "x": null,
-     "likelihood": "Medium",
-     "impact": "Severe — the targeting model changes wholesale",
-     "owner": "Firefly Director + campaign"
-    },
-    {
-     "id": "R2",
-     "label": "The recognition hypothesis is wrong. The deficit may be about…",
-     "x": null,
-     "likelihood": "Medium",
-     "impact": "Severe — the Phase −1 channel mix is built on it",
-     "owner": "Head of Research"
-    },
-    {
-     "id": "R3",
-     "label": "The data-protection reviewer is not appointed in time. The long-lead…",
-     "x": null,
-     "likelihood": "Medium",
-     "impact": "High — gates the voter-file work in Section 8.13 and the mass SMS layer",
-     "owner": "Campaign"
-    },
-    {
-     "id": "R4",
-     "label": "ODPC guidance prohibits the planned SMS approach. The…",
-     "x": null,
-     "likelihood": "Low",
-     "impact": "High — Workstream 9 is the layer the race turns on",
-     "owner": "Campaign Legal Director"
-    },
-    {
-     "id": "R5",
-     "label": "A manipulated-media attack lands inside the nomination window",
-     "x": null,
-     "likelihood": "Medium",
-     "impact": "High — a compressed window leaves no time to recover",
-     "owner": "Digital Director"
-    },
-    {
-     "id": "R6",
-     "label": "Firefly's brief and the team's judgement disagree. The direction…",
-     "x": null,
-     "likelihood": "High — it will happen, and should",
-     "impact": "Moderate if handled, severe if suppressed",
-     "owner": "Firefly Director + team lead"
-    }
-   ]
-  }
- },
- "risk-sec-13-1-1": {
-  "id": "risk-sec-13-1-1",
-  "tab": "risk",
-  "level": 3,
-  "number": "13.1.1",
-  "title": "What we monitor, and how threats reach us",
-  "kind": "bars",
-  "data": {
-   "items": [
-    {
-     "label": "hours a day",
-     "value": 24,
-     "display": "24"
-    },
-    {
-     "label": "days a week",
-     "value": 7,
-     "display": "7"
-    },
-    {
-     "label": "Constituency Monitoring…",
-     "value": 40,
-     "display": "40"
-    },
-    {
-     "label": "major community",
-     "value": 180,
-     "display": "180"
-    },
-    {
-     "label": "sub-counties",
-     "value": 8,
-     "display": "8"
-    },
-    {
-     "label": "Social Listening Keyword Feeds",
-     "value": 3,
-     "display": "3"
-    }
-   ]
-  }
- },
- "risk-sec-13-1-5": {
-  "id": "risk-sec-13-1-5",
-  "tab": "risk",
-  "level": 3,
-  "number": "13.1.5",
-  "title": "Staying inside defamation law",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Rule 1",
-     "body": ""
-    },
-    {
-     "label": "Rule 2: Accurate Linguistic Attribution",
-     "body": "When quoting rivals on Kikamba radio or social media, communicators must possess the original, unedited audio…"
-    },
-    {
-     "label": "Rule 3",
-     "body": ""
-    }
-   ]
-  }
- },
- "risk-sec-13-3-5": {
-  "id": "risk-sec-13-3-5",
-  "tab": "risk",
-  "level": 3,
-  "number": "13.3.5",
-  "title": "The deepfake and manipulated media protocol",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "All official video and audio published…",
-     "body": "All official video and audio published from verified campaign channels first,"
-    },
-    {
-     "n": 2,
-     "label": "Original files retained with timestamps…",
-     "body": "Original files retained with timestamps and device metadata, so"
-    },
-    {
-     "n": 3,
-     "label": "Public education content, in all three…",
-     "body": "Public education content, in all three languages, teaching supporters how to"
-    },
-    {
-     "n": 4,
-     "label": "A single canonical location where every…",
-     "body": "A single canonical location where every genuine speech and clip is listed"
-    },
-    {
-     "n": 5,
-     "label": "Monitoring for candidate-name mentions…",
-     "body": "Monitoring for candidate-name mentions attached to video and audio across"
-    },
-    {
-     "n": 6,
-     "label": "Ward champions briefed to report…",
-     "body": "Ward champions briefed to report suspicious media immediately through a"
-    },
-    {
-     "n": 7,
-     "label": "Detection tooling at premium tier [Insert…",
-     "body": "Detection tooling at premium tier [Insert vendor — selected at contracting]"
-    }
-   ]
-  }
- },
- "structure-sec-14-1": {
-  "id": "structure-sec-14-1",
-  "tab": "structure",
-  "level": 2,
-  "number": "14.1",
-  "title": "Three teams, and the boundary between them",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "The campaign's command structure",
-     "body": "— the Campaign Manager and three functional leads in the chart above. Four roles. Firefly works to it and…"
-    },
-    {
-     "label": "Dr. Mulu's existing digital team",
-     "body": "— the people producing and publishing the daily record today. This engagement adds a brief to their week. It…"
-    },
-    {
-     "label": "The 3-person Firefly core",
-     "body": "named at every engagement level in Section 10.1 — strategy, analysis, and the offline layer."
-    },
-    {
-     "label": "Decisions in one place.",
-     "body": "A single named campaign-side counterpart approves, and a single Firefly director briefs. Campaigns fail…"
-    },
-    {
-     "label": "Operational security by compartment.",
-     "body": "External vendors work under NDAs that expose the specific creative brief, not the overarching strategy."
-    },
-    {
-     "label": "Capacity that scales without a standing…",
-     "body": ""
-    },
-    {
-     "label": "Specialist quality where it is measurable.",
-     "body": "Vernacular recording and telecom infrastructure are bought from people who do only that."
-    }
-   ]
-  }
- },
- "assumptions-sec-15-1": {
-  "id": "assumptions-sec-15-1",
-  "tab": "assumptions",
-  "level": 2,
-  "number": "15.1",
-  "title": "What the campaign must provide",
+  "number": "6.1",
+  "title": "What this needs from the campaign",
   "kind": "timeline",
   "data": {
    "events": [
@@ -3309,7 +2161,7 @@
     },
     {
      "label": "Appointment of the data-protection…",
-     "body": "(Section 12.5.5) — the long-lead item, needed in Phase −1"
+     "body": "(Section 5.7.9) — the long-lead item, needed in Phase −1"
     },
     {
      "label": "The IEBC 2026 register annex",
@@ -3326,12 +2178,27 @@
    ]
   }
  },
- "assumptions-sec-15-2": {
-  "id": "assumptions-sec-15-2",
-  "tab": "assumptions",
+ "nextsteps-sec-6-1-1": {
+  "id": "nextsteps-sec-6-1-1",
+  "tab": "nextsteps",
+  "level": 3,
+  "number": "6.1.1",
+  "title": "What this asks of the campaign",
+  "kind": "gauge",
+  "data": {
+   "value": 3,
+   "display": "3 hours",
+   "label": "hours",
+   "pct": false,
+   "long": false
+  }
+ },
+ "nextsteps-sec-6-2": {
+  "id": "nextsteps-sec-6-2",
+  "tab": "nextsteps",
   "level": 2,
-  "number": "15.2",
-  "title": "Regulatory guidance still outstanding",
+  "number": "6.2",
+  "title": "Open items",
   "kind": "stats",
   "data": {
    "figures": [
@@ -3350,11 +2217,11 @@
    ]
   }
  },
- "assumptions-sec-15-3": {
-  "id": "assumptions-sec-15-3",
-  "tab": "assumptions",
-  "level": 2,
-  "number": "15.3",
+ "nextsteps-sec-6-2-1": {
+  "id": "nextsteps-sec-6-2-1",
+  "tab": "nextsteps",
+  "level": 3,
+  "number": "6.2.1",
   "title": "Assumptions this proposal rests on",
   "kind": "timeline",
   "data": {
@@ -3370,12 +2237,12 @@
    ]
   }
  },
- "nextsteps-sec-16-1": {
-  "id": "nextsteps-sec-16-1",
+ "nextsteps-sec-6-3": {
+  "id": "nextsteps-sec-6-3",
   "tab": "nextsteps",
   "level": 2,
-  "number": "16.1",
-  "title": "Where the decision now sits",
+  "number": "6.3",
+  "title": "The decision: one week and one export",
   "kind": "contrast",
   "data": {
    "left": "the assumption",
@@ -3383,203 +2250,423 @@
    "lead": "The ask is stated once, in Section 0, and is not restated here. What this section adds is the clock behind it."
   }
  },
- "arithmetic-sec-3-4-1": {
-  "id": "arithmetic-sec-3-4-1",
-  "tab": "arithmetic",
+ "nextsteps-sec-6-3-2": {
+  "id": "nextsteps-sec-6-3-2",
+  "tab": "nextsteps",
   "level": 3,
-  "number": "3.4.1",
-  "title": "The number of votes it takes",
+  "number": "6.3.2",
+  "title": "The ask, in full",
   "kind": "stepper",
   "data": {
    "steps": [
     {
      "n": 1,
-     "label": "Total Registered Electorate (2022, Tier 1)",
-     "body": "532,758 voters across 40 County Assembly Wards (plus 75 prison voters, totalling 532,833 registered voters)."
+     "label": "Analyse — Week 1.",
+     "body": "Firefly audits the existing presence: ninety days of reach, engagement, language and geography on Dr. Mulu's own channels, read…"
     },
     {
      "n": 2,
-     "label": "The Baseline Victory Threshold",
-     "body": "~200,000 votes (Tier 1), established by Governor Julius Malombe's certified 2022 winning total of 198,004 votes (Tier 1)."
+     "label": "Strategise — Weeks 2–3.",
+     "body": "From that audit, Firefly defines what to post, for whom, in which language, on which channel, and why. Four pillars, six…"
     },
     {
      "n": 3,
-     "label": "Turnout Baseline Dynamics",
-     "body": ""
-    },
-    {
-     "n": 4,
-     "label": "Kitui County historical turnout averages…",
-     "body": "Kitui County historical turnout averages approximately 62.0% (Tier 1)."
-    },
-    {
-     "n": 5,
-     "label": "To achieve the 198,004 to 200,000 vote…",
-     "body": "To achieve the 198,004 to 200,000 vote threshold, a winning gubernatorial candidate must capture 60.0% to 60.5% of all valid…"
+     "label": "Direct — Week 4 onward.",
+     "body": "The existing team keeps publishing. Firefly issues the weekly brief, approves the calendar, and reviews performance against…"
     }
    ]
   }
  },
- "arithmetic-sec-3-4-3": {
-  "id": "arithmetic-sec-3-4-3",
-  "tab": "arithmetic",
-  "level": 3,
-  "number": "3.4.3",
-  "title": "Four routes to the threshold, with the working shown",
-  "kind": "bars",
-  "data": {
-   "items": [
-    {
-     "label": "voters",
-     "value": 200198,
-     "display": "200,198 voters"
-    },
-    {
-     "label": "wards",
-     "value": 15,
-     "display": "15 wards"
-    },
-    {
-     "label": "votes short",
-     "value": 99000,
-     "display": "99,000 votes short"
-    }
-   ]
-  }
- },
- "arithmetic-sec-3-4-4": {
-  "id": "arithmetic-sec-3-4-4",
-  "tab": "arithmetic",
-  "level": 3,
-  "number": "3.4.4",
-  "title": "The constituencies that decide it",
-  "kind": "bars",
-  "data": {
-   "items": [
-    {
-     "label": "Kyuso",
-     "value": 19921,
-     "display": "Kyuso, 19,921 voters"
-    },
-    {
-     "label": "Mumoni voters",
-     "value": 15877,
-     "display": "Mumoni (15,877 voters)"
-    }
-   ]
-  }
- },
- "arithmetic-sec-3-4-5": {
-  "id": "arithmetic-sec-3-4-5",
-  "tab": "arithmetic",
-  "level": 3,
-  "number": "3.4.5",
-  "title": "Where he is not yet known, and whether it matters",
-  "kind": "timeline",
-  "data": {
-   "events": [
-    {
-     "label": "Candidate Profile",
-     "body": "Dr. Benson Makali Mulu has served as Member of Parliament for Kitui Central for 13 consecutive years (since 2013, Tier…"
-    },
-    {
-     "label": "High-Recognition / Core Anchor Zone",
-     "body": "Kitui Central (77,764 voters) and immediate adjacent wards in Kitui West (Matinyani, Kauwi) and Kitui Rural (Kisasi,…"
-    },
-    {
-     "label": "Steep Recognition Deficit Zones",
-     "body": ""
-    },
-    {
-     "label": "Kitui South (6 Wards)",
-     "body": "Total 75,372 registered voters (14.15% of the county register). Geographically remote, separated by long transit…"
-    },
-    {
-     "label": "Kitui East Border Wards",
-     "body": "Total 65,377 registered voters (particularly Endau/Malalani, Voo/Kyamatu, and Mutitu/Kaliku)."
-    },
-    {
-     "label": "Mwingi North Overlap",
-     "body": "Contains 3 of the top 7 largest wards in Kitui County:"
-    },
-    {
-     "label": "Kitui South Overlap",
-     "body": "Contains 2 of the top 11 largest wards:"
-    },
-    {
-     "label": "Mwingi Central Overlap",
-     "body": "Contains Central (14,525), Nguni (13,165), and Nuu (12,729)—a combined 40,419 registered voters in the candidate's…"
-    }
-   ]
-  }
- },
- "arithmetic-sec-3-4-6": {
-  "id": "arithmetic-sec-3-4-6",
-  "tab": "arithmetic",
-  "level": 3,
-  "number": "3.4.6",
-  "title": "What ward-level data we still do not have",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Ward-by-Ward Public Opinion Polling Data",
-     "body": "Named Data Gap (Tier 2 Gap). Published public polls (such as the Mizani Africa surveys of June 2026 and 7…"
-    },
-    {
-     "label": "Historical 2013 Gubernatorial Ward-by-Ward…",
-     "body": ""
-    },
-    {
-     "label": "Historical 2017 Gubernatorial Ward-by-Ward…",
-     "body": ""
-    },
-    {
-     "label": "Ward-Level Mobile Broadband Penetration Data",
-     "body": "Named Data Gap (Tier 1 Gap). The 2019 KNBS Census and Communications Authority provide sub-county and…"
-    }
-   ]
-  }
- },
- "arithmetic-sec-3-5": {
-  "id": "arithmetic-sec-3-5",
-  "tab": "arithmetic",
+ "objectives-sec-1-1": {
+  "id": "objectives-sec-1-1",
+  "tab": "objectives",
   "level": 2,
-  "number": "3.5",
-  "title": "The county's three regions",
-  "kind": "gauge",
+  "number": "1.1",
+  "title": "The goal: the Wiper ticket first, the county second",
+  "kind": "donut",
   "data": {
-   "value": 18,
-   "display": "18",
-   "label": "sub-counties have distinct economi",
-   "pct": false,
-   "long": false
+   "value": 40,
+   "label": "poll preference share required to take the nomination",
+   "rest": ""
   }
  },
- "arithmetic-sec-3-5-2": {
-  "id": "arithmetic-sec-3-5-2",
-  "tab": "arithmetic",
-  "level": 3,
-  "number": "3.5.2",
-  "title": "The northern block: Mwingi",
+ "objectives-sec-1-2": {
+  "id": "objectives-sec-1-2",
+  "tab": "objectives",
+  "level": 2,
+  "number": "1.2",
+  "title": "The two deadlines",
   "kind": "stats",
   "data": {
    "figures": [
     {
-     "label": "Pastoral agricultural…",
-     "value": 255795,
-     "display": "255,795",
+     "label": "Mizani Africa",
+     "value": 11.1,
+     "display": "−11.1 points",
+     "pct": false
+    },
+    {
+     "label": "objective diagnostic",
+     "value": 15.3,
+     "display": "−15.3 points",
      "pct": false
     }
    ]
   }
  },
- "arithmetic-sec-3-5-4": {
-  "id": "arithmetic-sec-3-5-4",
-  "tab": "arithmetic",
+ "objectives-sec-1-2-1": {
+  "id": "objectives-sec-1-2-1",
+  "tab": "objectives",
   "level": 3,
-  "number": "3.5.4",
-  "title": "How the zones are weighted",
+  "number": "1.2.1",
+  "title": "Why the answer cannot be \"later\"",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "The ticket is the race.",
+     "body": "In Kitui the Wiper nomination has been the decisive gateway to the governorship. Failing to secure it makes every downstream…"
+    },
+    {
+     "n": 2,
+     "label": "The gap is opening, not closing.",
+     "body": "Between June and August 2026 Dr. Mulu gained 1.9 points; the front-runner gained 6.1 — more than three times faster (Section…"
+    },
+    {
+     "n": 3,
+     "label": "The runway is set by the polling window,…",
+     "body": "The runway is set by the polling window, not by this document. The window opens in late October 2026 on the reported timetable.…"
+    }
+   ]
+  }
+ },
+ "objectives-sec-1-3": {
+  "id": "objectives-sec-1-3",
+  "tab": "objectives",
+  "level": 2,
+  "number": "1.3",
+  "title": "Five objectives for the digital operation",
+  "kind": "bars",
+  "data": {
+   "items": [
+    {
+     "label": "verified votes",
+     "value": 200000,
+     "display": "200,000 verified votes"
+    },
+    {
+     "label": "supporter",
+     "value": 3,
+     "display": "3"
+    },
+    {
+     "label": "August",
+     "value": 10,
+     "display": "10"
+    },
+    {
+     "label": "votes",
+     "value": 198004,
+     "display": "198,004"
+    }
+   ]
+  }
+ },
+ "objectives-sec-1-3-1": {
+  "id": "objectives-sec-1-3-1",
+  "tab": "objectives",
+  "level": 3,
+  "number": "1.3.1",
+  "title": "Be known where he isn't yet",
+  "kind": "bullet",
+  "data": {
+   "baselineLabel": "22.1% countywide poll preference share (Mizani Survey, 7 August 2026, Tier 2).…",
+   "targetLabel": "40.0%+ countywide poll preference share. The Mwingi recognition target is set…",
+   "baseline": 22.1,
+   "target": 40,
+   "unit": "%",
+   "deadline": "the opening of the party's polling window (Section 2.3.2).",
+   "owner": "campaign-side Director of Digital Communications &…",
+   "trigger": "If bi-weekly internal tracking surveys (Section 5.6.9) show regional recognition flat or falling across two consecutive waves, trigger immediate…"
+  }
+ },
+ "objectives-sec-1-3-2": {
+  "id": "objectives-sec-1-3-2",
+  "tab": "objectives",
+  "level": 3,
+  "number": "1.3.2",
+  "title": "Turn his record into visible proof",
+  "kind": "bullet",
+  "data": {
+   "baselineLabel": "Named data gap. The published Mizani rounds report countywide aggregates only…",
+   "targetLabel": "Set against the Week 1 measured baseline, as a stated point gain rather than an…",
+   "baseline": 3.1,
+   "target": 1,
+   "unit": "",
+   "deadline": "the opening of the party's polling window (Section 2.3.2).",
+   "owner": "campaign-side Demographic Outreach & Persuasion Lead;…",
+   "trigger": "If mid-October focus groups (Section 5.6.9) find weak or negative policy association with Dr. Mulu's economic agenda among women in the target…"
+  }
+ },
+ "objectives-sec-1-3-3": {
+  "id": "objectives-sec-1-3-3",
+  "tab": "objectives",
+  "level": 3,
+  "number": "1.3.3",
+  "title": "Build a direct line to the voters the internet doesn't reach",
+  "kind": "bullet",
+  "data": {
+   "baselineLabel": "0 active offline rural subscribers.",
+   "targetLabel": "120,000 active, verified SMS/USSD offline subscribers across non-urban wards (Tier…",
+   "baseline": 0,
+   "target": 120000,
+   "unit": "",
+   "deadline": "30 June 2027.",
+   "owner": "SMS Infrastructure & Offline Network Engineer.",
+   "trigger": "If weekly offline subscriber enrollment falls below 5,000 new entries, deploy physical QR and USSD sign-up sheets to agricultural markets, cattle…"
+  }
+ },
+ "objectives-sec-1-3-4": {
+  "id": "objectives-sec-1-3-4",
+  "tab": "objectives",
+  "level": 3,
+  "number": "1.3.4",
+  "title": "Give every post a voter, a ward and a reason",
+  "kind": "bullet",
+  "data": {
+   "baselineLabel": "0 registered, verified supporters in the campaign’s centralized database.",
+   "targetLabel": "200,000 registered, verified supporters in the central database (Tier 1).",
+   "baseline": 0,
+   "target": 200000,
+   "unit": "",
+   "deadline": "31 May 2027.",
+   "owner": "Director of Field Operations & Database Management.",
+   "trigger": "If database registration milestones drop below 15% of the monthly target trajectory (e.g., failing to reach 80,000 by 15 February 2027), activate…"
+  }
+ },
+ "objectives-sec-1-3-5": {
+  "id": "objectives-sec-1-3-5",
+  "tab": "objectives",
+  "level": 3,
+  "number": "1.3.5",
+  "title": "Hold the home base while Kitui Central runs its own race",
+  "kind": "bullet",
+  "data": {
+   "baselineLabel": "0 active Ward Captains.",
+   "targetLabel": "400 active, trained Ward Captains (exactly 10 captains per ward across all 40…",
+   "baseline": 0,
+   "target": 400,
+   "unit": "",
+   "deadline": "31 January 2027.",
+   "owner": "Grassroots Operations Coordinator.",
+   "trigger": "If any of the 40 wards has fewer than 8 verified and active captains by 15 January 2027, automatically trigger targeted SMS recruitment and deploy…"
+  }
+ },
+ "objectives-sec-1-5": {
+  "id": "objectives-sec-1-5",
+  "tab": "objectives",
+  "level": 2,
+  "number": "1.5",
+  "title": "How success will be judged",
+  "kind": "donut",
+  "data": {
+   "value": 55,
+   "label": "first-choice preference among samp",
+   "rest": "In accordance with the foundational strategic doctrine established in Section 5.6.7, the campaign rejects…"
+  }
+ },
+ "strategy-sec-4-1": {
+  "id": "strategy-sec-4-1",
+  "tab": "strategy",
+  "level": 2,
+  "number": "4.1",
+  "title": "The position",
+  "kind": "contrast",
+  "data": {
+   "left": "the assumption",
+   "right": "the finding",
+   "lead": "The core narrative of the campaign turns standard political promotion on its head: Dr. Makali Mulu is the Economist Governor Kitui needs. This narrative frames him not…"
+  }
+ },
+ "strategy-sec-4-1-0": {
+  "id": "strategy-sec-4-1-0",
+  "tab": "strategy",
+  "level": 3,
+  "number": "4.1.0",
+  "title": "The mandate",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "posts",
+     "value": 745,
+     "display": "745",
+     "pct": false
+    },
+    {
+     "label": "registered voters",
+     "value": 275570,
+     "display": "275,570",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "strategy-sec-4-1-1": {
+  "id": "strategy-sec-4-1-1",
+  "tab": "strategy",
+  "level": 3,
+  "number": "4.1.1",
+  "title": "The evidence behind the claim",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "The National Budget Seat",
+     "body": "Sourced legislative records confirm Dr. Mulu's senior position on the National Assembly's Budget and Appropriations Committee…"
+    },
+    {
+     "n": 2,
+     "label": "Direct Local Investment (Educational…",
+     "body": "Direct Local Investment (Educational Bursaries): Dr. Mulu has successfully directed KSh 47 million in educational bursaries to…"
+    },
+    {
+     "n": 3,
+     "label": "Certified Administrative Excellence",
+     "body": "Sourced Ministry of Finance performance audits officially certified Kitui Central as the best-evaluated constituency in the…"
+    },
+    {
+     "n": 4,
+     "label": "Professional Monitoring & Evaluation…",
+     "body": "Professional Monitoring & Evaluation Credentials: He is a certified consultant in project management, a member of the Evaluation…"
+    }
+   ]
+  }
+ },
+ "strategy-sec-4-1-2": {
+  "id": "strategy-sec-4-1-2",
+  "tab": "strategy",
+  "level": 3,
+  "number": "4.1.2",
+  "title": "The resource paradox",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "KSh billion",
+     "value": 13790000000,
+     "display": "KSh 13.79 billion",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "strategy-sec-4-1-3": {
+  "id": "strategy-sec-4-1-3",
+  "tab": "strategy",
+  "level": 3,
+  "number": "4.1.3",
+  "title": "Answering the charge that discipline is cold",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "unconfirmed cash balances",
+     "value": 670000000,
+     "display": "670 million",
+     "pct": false
+    },
+    {
+     "label": "billion",
+     "value": 1300000000,
+     "display": "1.3 billion",
+     "pct": false
+    },
+    {
+     "label": "% offline",
+     "value": 86.4,
+     "display": "86.4",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "strategy-sec-4-1-5": {
+  "id": "strategy-sec-4-1-5",
+  "tab": "strategy",
+  "level": 3,
+  "number": "4.1.5",
+  "title": "The four campaign pillars in practice",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "Fiscal accountability and devolution",
+     "body": "Translate Dr. Mulu's parliamentary advocacy for equitable resource distribution into a clear, actionable manifesto for Kitui's…"
+    },
+    {
+     "n": 2,
+     "label": "Data-driven civic engagement",
+     "body": "Infographic analyses breaking down Dr. Mulu's track record — including NG-CDF-funded projects in Kitui Central — so voters can…"
+    },
+    {
+     "n": 3,
+     "label": "Policy, translated into what it changes",
+     "body": "Convert dense policy topics — climate investment in water infrastructure, agricultural revitalisation — into relatable,…"
+    },
+    {
+     "n": 4,
+     "label": "Verification and follow-through",
+     "body": "The pillar that distinguishes Dr. Mulu from every rival: publishing what was promised, then publishing whether it happened.…"
+    }
+   ]
+  }
+ },
+ "strategy-sec-4-1-6": {
+  "id": "strategy-sec-4-1-6",
+  "tab": "strategy",
+  "level": 3,
+  "number": "4.1.6",
+  "title": "The six campaign themes",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "Water Security and Climate Resilience",
+     "body": "— sand dams, boreholes,"
+    },
+    {
+     "label": "Economic Transformation",
+     "body": "— agribusiness value chains, mango processing,"
+    },
+    {
+     "label": "Fiscal Discipline and Verified Delivery",
+     "body": "— the flagship theme."
+    },
+    {
+     "label": "Youth Employment and Digital Skills",
+     "body": "— vocational training, county"
+    },
+    {
+     "label": "Healthcare Access",
+     "body": "— hospital upgrades, maternal health, insurance"
+    },
+    {
+     "label": "Education",
+     "body": "— ECDE, bursaries, school infrastructure."
+    }
+   ]
+  }
+ },
+ "strategy-sec-4-2": {
+  "id": "strategy-sec-4-2",
+  "tab": "strategy",
+  "level": 2,
+  "number": "4.2",
+  "title": "Where the effort goes",
   "kind": "stats",
   "data": {
    "figures": [
@@ -3598,116 +2685,332 @@
    ]
   }
  },
- "reach-sec-3-6": {
-  "id": "reach-sec-3-6",
-  "tab": "reach",
-  "level": 2,
-  "number": "3.6",
-  "title": "Channel reach and the digital ceiling",
-  "kind": "stats",
+ "strategy-sec-4-3-2": {
+  "id": "strategy-sec-4-3-2",
+  "tab": "strategy",
+  "level": 3,
+  "number": "4.3.2",
+  "title": "The Rural Agrarian & Smallholder Baseline",
+  "kind": "donut",
   "data": {
-   "figures": [
-    {
-     "label": "votes short",
-     "value": 125549,
-     "display": "125,549 votes short",
-     "pct": false
-    }
-   ]
+   "value": 86.4,
+   "label": "offline",
+   "rest": ""
   }
  },
- "reach-sec-3-6-1": {
-  "id": "reach-sec-3-6-1",
-  "tab": "reach",
+ "strategy-sec-4-3-3": {
+  "id": "strategy-sec-4-3-3",
+  "tab": "strategy",
   "level": 3,
-  "number": "3.6.1",
-  "title": "The connected minority, and its limits",
+  "number": "4.3.3",
+  "title": "The Agro-Pastoralist & Arid-Zone Livestock Keepers",
+  "kind": "donut",
+  "data": {
+   "value": 15,
+   "label": "of the county's land is arid or semi-arid",
+   "rest": ""
+  }
+ },
+ "strategy-sec-4-3-4": {
+  "id": "strategy-sec-4-3-4",
+  "tab": "strategy",
+  "level": 3,
+  "number": "4.3.4",
+  "title": "The Youth Cohort (Ages 18–35: Students, Bodaboda, Unemployed Graduates & Creatives)",
+  "kind": "donut",
+  "data": {
+   "value": 44,
+   "label": "active voter register",
+   "rest": ""
+  }
+ },
+ "strategy-sec-4-3-5": {
+  "id": "strategy-sec-4-3-5",
+  "tab": "strategy",
+  "level": 3,
+  "number": "4.3.5",
+  "title": "The Urban & Peri-Urban Commercial Informal Sector (MSMEs & Traders)",
+  "kind": "donut",
+  "data": {
+   "value": 45,
+   "label": "High mobile internet penetration",
+   "rest": ""
+  }
+ },
+ "strategy-sec-4-3-6": {
+  "id": "strategy-sec-4-3-6",
+  "tab": "strategy",
+  "level": 3,
+  "number": "4.3.6",
+  "title": "The Formal Sector Professionals, Civil Servants & Educators",
+  "kind": "donut",
+  "data": {
+   "value": 90,
+   "label": "smartphone and laptop connectivity",
+   "rest": ""
+  }
+ },
+ "strategy-sec-4-3-7": {
+  "id": "strategy-sec-4-3-7",
+  "tab": "strategy",
+  "level": 3,
+  "number": "4.3.7",
+  "title": "The Out-of-County Kamba Diaspora Matrix (Nairobi, Coast & Nationwide)",
+  "kind": "donut",
+  "data": {
+   "value": 95,
+   "label": "internet smartphone connected",
+   "rest": ""
+  }
+ },
+ "strategy-sec-4-3-8": {
+  "id": "strategy-sec-4-3-8",
+  "tab": "strategy",
+  "level": 3,
+  "number": "4.3.8",
+  "title": "Segment sizing, and the evidence for it",
   "kind": "bars",
   "data": {
    "items": [
     {
-     "label": "hours later",
-     "value": 6,
-     "display": "6"
+     "label": "voter register",
+     "value": 532758,
+     "display": "532,758"
     },
     {
-     "label": "Kamba diaspora living",
-     "value": 150000,
-     "display": "150,000"
+     "label": "year-old smallholder",
+     "value": 26,
+     "display": "26"
     },
     {
-     "label": "Youth Mobilization Field…",
+     "label": "trader",
      "value": 3,
      "display": "3"
     },
     {
-     "label": "youth cohort via TikTok",
-     "value": 234000,
-     "display": "234,000"
-    },
-    {
-     "label": "Cost-Effective Micro-Targeting",
+     "label": "Summed",
      "value": 4,
      "display": "4"
     },
     {
-     "label": "reachable voters inside Kitui",
-     "value": 72000,
-     "display": "72,000"
+     "label": "residents",
+     "value": 1136187,
+     "display": "1,136,187"
+    },
+    {
+     "label": "% rural",
+     "value": 95.2,
+     "display": "95.2"
     }
    ]
   }
  },
- "reach-sec-3-6-2": {
-  "id": "reach-sec-3-6-2",
-  "tab": "reach",
+ "strategy-sec-4-4": {
+  "id": "strategy-sec-4-4",
+  "tab": "strategy",
+  "level": 2,
+  "number": "4.4",
+  "title": "What we say, and in which language",
+  "kind": "gauge",
+  "data": {
+   "value": 160,
+   "display": "160",
+   "label": "character Kiswahili SMS",
+   "pct": false,
+   "long": false
+  }
+ },
+ "strategy-sec-4-4-1": {
+  "id": "strategy-sec-4-4-1",
+  "tab": "strategy",
   "level": 3,
-  "number": "3.6.2",
-  "title": "The offline majority, and the infrastructure that reaches it",
+  "number": "4.4.1",
+  "title": "The central claim and its three pillars",
   "kind": "checklist",
   "data": {
    "items": [
     {
-     "label": "Empirical Reach",
-     "body": "~420,000 voters (78%–80% daily/weekly listenership in rural Kitui) (GeoPoll / KARF Industry Data, Tier 2)."
+     "label": "Narrative Statement",
+     "body": "\"Kitui's Ksh 12+ Billion annual budget has been crippled by pending bills, procurement inflation, and ghost…"
     },
     {
-     "label": "Station Hierarchy & Reach",
+     "label": "Primary Evidence & Source",
      "body": ""
     },
     {
-     "label": "Musyi FM (Royal Media Services)",
-     "body": ""
+     "label": "Proof Point — awaiting primary documents",
+     "body": "Office of the Auditor-General (OAG) NG-CDF audit reports, 2013–2025. Firefly has not yet retrieved the…"
     },
     {
-     "label": "County FM (Kitui-based independent)",
-     "body": ""
+     "label": "Contrast — awaiting primary documents",
+     "body": "Kitui County Government audited accounts under both predecessor regimes are reported to have accumulated over…"
     },
     {
-     "label": "Wikwatyo FM (Seventh-Day Adventist Church,…",
-     "body": ""
+     "label": "Proof Point — awaiting page references",
+     "body": "KNBS 2019 Census & Agricultural Sector Transformation Strategy (ASTGS). The 45,000 tonne output and the…"
     },
     {
-     "label": "Mbaitu FM, Syokimau FM (Ngilu-associated)…",
-     "body": ""
-    },
-    {
-     "label": "Operational Execution",
-     "body": ""
-    },
-    {
-     "label": "Prime-Time Strategic Bookings",
+     "label": "Policy Intervention ",
      "body": ""
     }
    ]
   }
  },
- "reach-sec-3-6-3": {
-  "id": "reach-sec-3-6-3",
-  "tab": "reach",
+ "strategy-sec-4-4-6": {
+  "id": "strategy-sec-4-4-6",
+  "tab": "strategy",
   "level": 3,
-  "number": "3.6.3",
-  "title": "Weight against reach",
+  "number": "4.4.6",
+  "title": "Framing, worked through in examples",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "Loss aversion",
+     "body": ""
+    },
+    {
+     "label": "Social proof",
+     "body": ""
+    },
+    {
+     "label": "Verification",
+     "body": ""
+    },
+    {
+     "label": "Anchoring",
+     "body": ""
+    },
+    {
+     "label": "Commitment device",
+     "body": ""
+    }
+   ]
+  }
+ },
+ "strategy-sec-4-5": {
+  "id": "strategy-sec-4-5",
+  "tab": "strategy",
+  "level": 2,
+  "number": "4.5",
+  "title": "What gets published",
+  "kind": "contrast",
+  "data": {
+   "left": "so the campaign compounds",
+   "right": "repeating",
+   "lead": "\"The mission is for Kitui to prosper. From Poverty to Wealth Creation.\" That line is already on Dr. Mulu's cover. Nothing published so far argues it. These four pillars…"
+  }
+ },
+ "strategy-sec-4-5-1": {
+  "id": "strategy-sec-4-5-1",
+  "tab": "strategy",
+  "level": 3,
+  "number": "4.5.1",
+  "title": "Pillar 1 — Where the money went",
+  "kind": "bars",
+  "data": {
+   "items": [
+    {
+     "label": "registered voters",
+     "value": 275570,
+     "display": "275,570"
+    },
+    {
+     "label": "seconds",
+     "value": 45,
+     "display": "45"
+    },
+    {
+     "label": "Eastern region",
+     "value": 15,
+     "display": "15"
+    }
+   ]
+  }
+ },
+ "strategy-sec-4-5-2": {
+  "id": "strategy-sec-4-5-2",
+  "tab": "strategy",
+  "level": 3,
+  "number": "4.5.2",
+  "title": "Pillar 2 — From poverty to wealth creation, one household",
+  "kind": "donut",
+  "data": {
+   "value": 90,
+   "label": "Kitui households",
+   "rest": ""
+  }
+ },
+ "strategy-sec-4-5-3": {
+  "id": "strategy-sec-4-5-3",
+  "tab": "strategy",
+  "level": 3,
+  "number": "4.5.3",
+  "title": "Pillar 3 — The economist explains",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "Segment",
+     "body": "youth 18–35, traders, professionals, and the out-of-county Kamba diaspora."
+    },
+    {
+     "label": "Language",
+     "body": "Kiswahili and Sheng with Kikamba hooks; English for diaspora and national press."
+    },
+    {
+     "label": "Channel",
+     "body": "TikTok, Facebook, X, YouTube."
+    },
+    {
+     "label": "Format",
+     "body": "45-second vertical video. One county figure made physical — the KSh13.79bn envelope, or the KSh670m in…"
+    },
+    {
+     "label": "Why it exists",
+     "body": "it converts \"PhD in Economics\" from a title into a demonstrated skill, and it is the only pillar that travels…"
+    }
+   ]
+  }
+ },
+ "strategy-sec-4-5-4": {
+  "id": "strategy-sec-4-5-4",
+  "tab": "strategy",
+  "level": 3,
+  "number": "4.5.4",
+  "title": "Pillar 4 — He came, and this is what he said he would do",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "Segment",
+     "body": "the specific ward visited, that day."
+    },
+    {
+     "label": "Language",
+     "body": "Kikamba and Kiswahili."
+    },
+    {
+     "label": "Channel",
+     "body": "Facebook, the ward's WhatsApp group, SMS to that ward's consented list."
+    },
+    {
+     "label": "Format",
+     "body": "the photograph the team already takes — plus one commitment and one date."
+    },
+    {
+     "label": "Why it exists",
+     "body": "this is not new work. It is the current daily activity post with two fields added. Twelve weeks later, that…"
+    }
+   ]
+  }
+ },
+ "strategy-sec-4-6": {
+  "id": "strategy-sec-4-6",
+  "tab": "strategy",
+  "level": 2,
+  "number": "4.6",
+  "title": "Which channel does which job",
   "kind": "stats",
   "data": {
    "figures": [
@@ -3732,43 +3035,317 @@
    ]
   }
  },
- "reach-sec-3-7-1": {
-  "id": "reach-sec-3-7-1",
-  "tab": "reach",
+ "workstreams-data-sec-5-2-11-1": {
+  "id": "workstreams-data-sec-5-2-11-1",
+  "tab": "workstreams-data",
   "level": 3,
-  "number": "3.7.1",
-  "title": "Who owns the Kamba-language stations, and who they favour",
+  "number": "5.2.11.1",
+  "title": "The voter and supporter data model",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "AES GCM",
+     "value": -256,
+     "display": "AES-256-GCM",
+     "pct": false
+    },
+    {
+     "label": "Audit Trail Logging",
+     "value": 3,
+     "display": "3",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "workstreams-data-sec-5-2-11-2": {
+  "id": "workstreams-data-sec-5-2-11-2",
+  "tab": "workstreams-data",
+  "level": 3,
+  "number": "5.2.11.2",
+  "title": "The Data Protection Act 2019, applied",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "seconds",
+     "value": 15,
+     "display": "15",
+     "pct": false
+    },
+    {
+     "label": "Data Protection Officer…",
+     "value": 3,
+     "display": "3",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "workstreams-data-sec-5-2-12-2": {
+  "id": "workstreams-data-sec-5-2-12-2",
+  "tab": "workstreams-data",
+  "level": 3,
+  "number": "5.2.12.2",
+  "title": "Data sources",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "IEBC Voter Register",
+     "body": "name, gender, age bracket, polling station, ward,"
+    },
+    {
+     "n": 2,
+     "label": "KNBS Census and county statistics",
+     "body": "ward-level demographics, education,"
+    },
+    {
+     "n": 3,
+     "label": "Historical results",
+     "body": "ward and polling-station results from 2017 and 2022"
+    },
+    {
+     "n": 4,
+     "label": "Campaign first-party data",
+     "body": "interactions with campaign content, WhatsApp"
+    },
+    {
+     "n": 5,
+     "label": "Field canvass returns",
+     "body": "(Section 5.2.8)"
+    }
+   ]
+  }
+ },
+ "workstreams-data-sec-5-2-12-6": {
+  "id": "workstreams-data-sec-5-2-12-6",
+  "tab": "workstreams-data",
+  "level": 3,
+  "number": "5.2.12.6",
+  "title": "Putting the model to work",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "Ad targeting",
+     "body": "scored segments as custom audiences on Meta, Google, TikTok"
+    },
+    {
+     "n": 2,
+     "label": "SMS/USSD segmentation",
+     "body": "priority broadcast lists for high-support,"
+    },
+    {
+     "n": 3,
+     "label": "Content personalisation",
+     "body": "different messages to persuadable voters,"
+    },
+    {
+     "n": 4,
+     "label": "Volunteer routing",
+     "body": "ground teams directed to highest-persuasion-potential"
+    }
+   ]
+  }
+ },
+ "workstreams-data-sec-5-2-13-1": {
+  "id": "workstreams-data-sec-5-2-13-1",
+  "tab": "workstreams-data",
+  "level": 3,
+  "number": "5.2.13.1",
+  "title": "Component by component, and what each does",
+  "kind": "timeline",
+  "data": {
+   "events": [
+    {
+     "label": "Tooling Recommendation",
+     "body": "Africa's Talking API Suite (or Safaricom Direct Enterprise SDP Gateway)."
+    },
+    {
+     "label": "Function & Purpose",
+     "body": "Powers the offline communications engine (Section 5.2.9). Dispatches targeted, opt-in bulk 2G SMS to registered voters…"
+    },
+    {
+     "label": "Cost Structure",
+     "body": ""
+    },
+    {
+     "label": "Data Held & Processed",
+     "body": "Voter mobile phone numbers (MSISDN), geolocation ward tags, inbound USSD survey responses, delivery receipt…"
+    },
+    {
+     "label": "DPA 2019 Exposure & Compliance",
+     "body": "HIGH RISK. Telecommunications data constitutes direct personal data (Section 5.2.10). Requires explicit opt-in…"
+    },
+    {
+     "label": "Procurement Status",
+     "body": "Awaiting campaign decision (Vendor selection between Africa's Talking vs. Safaricom SDP Enterprise)."
+    }
+   ]
+  }
+ },
+ "workstreams-data-sec-5-2-13-3": {
+  "id": "workstreams-data-sec-5-2-13-3",
+  "tab": "workstreams-data",
+  "level": 3,
+  "number": "5.2.13.3",
+  "title": "Technical risk and security protocols",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "% operational uptime",
+     "value": 100,
+     "display": "100",
+     "pct": false
+    },
+    {
+     "label": "Role-Based Data Redaction",
+     "value": 3,
+     "display": "3",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "workstreams-data-sec-5-2-14-3": {
+  "id": "workstreams-data-sec-5-2-14-3",
+  "tab": "workstreams-data",
+  "level": 3,
+  "number": "5.2.14.3",
+  "title": "The analytics maturity roadmap",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "Baseline",
+     "value": 0,
+     "display": "0 — Baseline",
+     "pct": false
+    },
+    {
+     "label": "Integrated",
+     "value": 1,
+     "display": "1 — Integrated",
+     "pct": false
+    },
+    {
+     "label": "Predictive",
+     "value": 2,
+     "display": "2 — Predictive",
+     "pct": false
+    },
+    {
+     "label": "Attributed",
+     "value": 3,
+     "display": "3 — Attributed",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "workstreams-data-sec-5-2-14-4": {
+  "id": "workstreams-data-sec-5-2-14-4",
+  "tab": "workstreams-data",
+  "level": 3,
+  "number": "5.2.14.4",
+  "title": "Who owns the data",
   "kind": "checklist",
   "data": {
    "items": [
     {
-     "label": "Two stations are associated with Charity…",
+     "label": "Maintains the data inventory",
      "body": ""
     },
     {
-     "label": "One station is associated with Kalonzo…",
+     "label": "Owns the consent audit trail and can produce…",
      "body": ""
     },
     {
-     "label": "The stations open to the campaign are…",
+     "label": "Owns the deletion schedule and executes it…",
+     "body": ""
+    },
+    {
+     "label": "Is the campaign's standing point of contact…",
+     "body": ""
+    },
+    {
+     "label": "Holds authority to suspend any targeting…",
      "body": ""
     }
    ]
   }
  },
- "annex-evidence-sec-3-2-2": {
-  "id": "annex-evidence-sec-3-2-2",
-  "tab": "annex-evidence",
+ "workstreams-ground-sec-5-2-7": {
+  "id": "workstreams-ground-sec-5-2-7",
+  "tab": "workstreams-ground",
+  "level": 2,
+  "number": "5.2.7",
+  "title": "Workstream 7 — Ground-digital integration",
+  "kind": "gauge",
+  "data": {
+   "value": 40,
+   "display": "40",
+   "label": "ward coordinators",
+   "pct": false,
+   "long": false
+  }
+ },
+ "workstreams-ground-sec-5-2-7-1": {
+  "id": "workstreams-ground-sec-5-2-7-1",
+  "tab": "workstreams-ground",
   "level": 3,
-  "number": "3.2.2",
-  "title": "The three source tiers",
+  "number": "5.2.7.1",
+  "title": "What the 40 ward coordinators report",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "Voter Sentiment & Dominant Anxieties",
+     "body": "E.g., \"Farmers in Kyuso are angry about uncollected green grams; opponents are claiming Dr. Mulu will…"
+    },
+    {
+     "label": "Competitor Movement & Expenditure",
+     "body": "E.g., \"Opponent convoy visited Migwani market; distributed Ksh 500 notes to youth groups; promised new market…"
+    },
+    {
+     "label": "Ground Disinformation & Counter-Narratives",
+     "body": "E.g., \"Rumor circulating in Mutomo that Dr. Mulu's CDF bursary program excluded non-Kitui Central students.\""
+    },
+    {
+     "label": "Field Inventory & Collateral Levels",
+     "body": "Current stock of Kikamba manifesto summary leaflets, posters, audio flash drives, and volunteer T-shirts."
+    }
+   ]
+  }
+ },
+ "workstreams-ground-sec-5-2-7-3": {
+  "id": "workstreams-ground-sec-5-2-7-3",
+  "tab": "workstreams-ground",
+  "level": 3,
+  "number": "5.2.7.3",
+  "title": "Distribution beyond social media",
   "kind": "bars",
   "data": {
    "items": [
     {
-     "label": "registered voters",
-     "value": 532758,
-     "display": "532,758"
+     "label": "Stage Champions Infrastructure",
+     "value": 1200,
+     "display": "1,200"
+    },
+    {
+     "label": "youth",
+     "value": 12000,
+     "display": "12,000"
+    },
+    {
+     "label": "ward",
+     "value": 30,
+     "display": "30"
     },
     {
      "label": "wards",
@@ -3776,314 +3353,755 @@
      "display": "40"
     },
     {
-     "label": "winning vote baseline",
-     "value": 198004,
-     "display": "198,004"
-    },
-    {
-     "label": "August survey",
-     "value": 7,
-     "display": "7"
-    },
-    {
-     "label": "% is treated",
-     "value": 22.1,
-     "display": "22.1"
+     "label": "hours",
+     "value": 3,
+     "display": "3"
     }
    ]
   }
  },
- "annex-evidence-sec-3-2-4": {
-  "id": "annex-evidence-sec-3-2-4",
-  "tab": "annex-evidence",
+ "workstreams-ground-sec-5-2-7-4": {
+  "id": "workstreams-ground-sec-5-2-7-4",
+  "tab": "workstreams-ground",
   "level": 3,
-  "number": "3.2.4",
-  "title": "The standard applied to our own measurement",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Provenance.",
-     "body": "Every number carries its export date, its source system, and whether it came from a Page Insights export or a…"
-    },
-    {
-     "label": "Tier.",
-     "body": "Platform-reported metrics are Tier 2: they are the platform's own measurement of itself, they restate…"
-    },
-    {
-     "label": "Coding, and its agreement rate.",
-     "body": "Post coding is done twice, independently, with disagreements resolved by a third pass. The inter-coder…"
-    },
-    {
-     "label": "Gaps.",
-     "body": "A metric the export does not contain is marked [DATA NEEDED] with the method for obtaining it, exactly as…"
-    },
-    {
-     "label": "Competitive figures",
-     "body": "are public-source only, gathered the same way for all four candidates, in the same window."
-    }
-   ]
-  }
- },
- "annex-county-sec-3-3-7": {
-  "id": "annex-county-sec-3-3-7",
-  "tab": "annex-county",
-  "level": 3,
-  "number": "3.3.7",
-  "title": "County money and the audit record",
-  "kind": "donut",
-  "data": {
-   "value": 18,
-   "label": "absorption rate is recorded",
-   "rest": "According to the Office of the Auditor-General's FY2023/24 audit report, four critical financial queries…"
-  }
- },
- "annex-county-sec-3-3-8": {
-  "id": "annex-county-sec-3-3-8",
-  "tab": "annex-county",
-  "level": 3,
-  "number": "3.3.8",
-  "title": "Drought, food security and climate pressure",
+  "number": "5.2.7.4",
+  "title": "The operating rhythm",
   "kind": "stats",
   "data": {
    "figures": [
     {
-     "label": "households",
-     "value": 28000,
-     "display": "28,000 households",
+     "label": "constituencies and wards",
+     "value": 8,
+     "display": "8",
+     "pct": false
+    },
+    {
+     "label": "wards",
+     "value": 40,
+     "display": "40",
      "pct": false
     }
    ]
   }
  },
- "annex-county-sec-3-3-9": {
-  "id": "annex-county-sec-3-3-9",
-  "tab": "annex-county",
+ "workstreams-ground-sec-5-2-8-1": {
+  "id": "workstreams-ground-sec-5-2-8-1",
+  "tab": "workstreams-ground",
   "level": 3,
-  "number": "3.3.9",
-  "title": "Mui Basin coal and the displaced communities",
-  "kind": "gauge",
-  "data": {
-   "value": 12,
-   "display": "Petition 12 of 2014",
-   "label": "Petition",
-   "pct": false,
-   "long": false
-  }
- },
- "annex-county-sec-3-3-10": {
-  "id": "annex-county-sec-3-3-10",
-  "tab": "annex-county",
-  "level": 3,
-  "number": "3.3.10",
-  "title": "Each rival, and the legal ground to be careful on",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Dr. Irene Kasalu (Woman Representative)",
-     "body": "It is reported in local media that her platform leverages a wide countywide network built through her office…"
-    },
-    {
-     "label": "Sen. Enoch Wambua (Senator)",
-     "body": "Legislative records establish his role in senior Senate committee positions (Tier 1)."
-    },
-    {
-     "label": "Charity Ngilu (Former Governor)",
-     "body": "Court records in the 2018 appeal (Malombe v Ngilu) confirm her 2017 electoral victory (Tier 1)."
-    },
-    {
-     "label": "David Musila (Former Senator)",
-     "body": "Sourced election declarations confirm his high runner-up voting totals across two cycles (Tier 1)."
-    },
-    {
-     "label": "Peninah Malonza (Former Cabinet Secretary)",
-     "body": "Official records confirm her appointments as Deputy Governor and Cabinet Minister (Tier 1)."
-    },
-    {
-     "label": "Nicholas Mulila (Corporate Executive)",
-     "body": "Sourced business reports note his executive roles at Safaricom PLC (Tier 2)."
-    },
-    {
-     "label": "Francis Musili Kauta (Activist)",
-     "body": "Regional civic profiles document his litigation and advocacy on public land use (Tier 2)."
-    },
-    {
-     "label": "Julius Malombe (Incumbent Governor)",
-     "body": "Official records confirm his administrative oversight of county departments (Tier 1). Sourced legal…"
-    }
-   ]
-  }
- },
- "annex-runbooks-sec-13-2-3": {
-  "id": "annex-runbooks-sec-13-2-3",
-  "tab": "annex-runbooks",
-  "level": 3,
-  "number": "13.2.3",
-  "title": "Rapid-response protocol and pre-approved message library",
+  "number": "5.2.8.1",
+  "title": "Operating architecture and bidirectional sync",
   "kind": "stepper",
   "data": {
    "steps": [
     {
      "n": 1,
-     "label": "Standard rebuttals for false claims about Dr",
-     "body": "Standard rebuttals for false claims about Dr. Mulu's record"
+     "label": "Field to digital synchronization",
+     "body": ""
     },
     {
      "n": 2,
-     "label": "Kikamba, Kiswahili and English versions of…",
-     "body": "Kikamba, Kiswahili and English versions of key messages"
+     "label": "Capture",
+     "body": "ward champions log outcomes via a simple mobile form — four options, under thirty seconds per household. Complexity kills field…"
     },
     {
      "n": 3,
-     "label": "Template statements for policy positions…",
-     "body": "Template statements for policy positions issued in response to attack"
+     "label": "Offline-first",
+     "body": "the form caches locally and syncs when signal returns. Non-negotiable in Ikutha and Mutitu."
     },
     {
      "n": 4,
-     "label": "Fact-check cards linking to verified sources",
-     "body": "Fact-check cards linking to verified sources"
+     "label": "Latency target",
+     "body": "field outcomes reflected in digital targeting within 24 hours."
     },
     {
      "n": 5,
-     "label": "Deepfake first-response templates",
-     "body": "(Section 13.3.5)"
+     "label": "Suppression",
+     "body": "confirmed committed opponents are removed from paid targeting, not messaged harder. This saves money and is the correct practice."
+    },
+    {
+     "n": 6,
+     "label": "Digital to field routing",
+     "body": ""
+    },
+    {
+     "n": 7,
+     "label": "Warm-lead routing",
+     "body": "voters who engaged with content, opened an SMS, or completed a USSD session are routed to ward champions as priority doors."
+    },
+    {
+     "n": 8,
+     "label": "Pre-briefing",
+     "body": "champions receive the issue the household engaged with — water, bursaries, market fees — so the conversation starts where the…"
     }
    ]
   }
  },
- "annex-runbooks-sec-13-2-4": {
-  "id": "annex-runbooks-sec-13-2-4",
-  "tab": "annex-runbooks",
+ "workstreams-ground-sec-5-2-8-2": {
+  "id": "workstreams-ground-sec-5-2-8-2",
+  "tab": "workstreams-ground",
   "level": 3,
-  "number": "13.2.4",
-  "title": "Red-team drills",
+  "number": "5.2.8.2",
+  "title": "Governance and data protection on the doorstep",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "Field data is campaign first-party data,…",
+     "body": "Field data is campaign first-party data, collected with notice, and governed"
+    },
+    {
+     "n": 2,
+     "label": "Ward champions receive data-handling…",
+     "body": "Ward champions receive data-handling training before being issued the form,"
+    },
+    {
+     "n": 3,
+     "label": "Field validation match rate ≥ 85%",
+     "body": "is the joint KPI holding both sides"
+    }
+   ]
+  }
+ },
+ "workstreams-ground-sec-5-2-9": {
+  "id": "workstreams-ground-sec-5-2-9",
+  "tab": "workstreams-ground",
+  "level": 2,
+  "number": "5.2.9",
+  "title": "Workstream 9 — What Firefly operates: SMS, USSD and voice",
+  "kind": "contrast",
+  "data": {
+   "left": "the assumption",
+   "right": "the finding",
+   "lead": ""
+  }
+ },
+ "workstreams-ground-sec-5-2-9-2": {
+  "id": "workstreams-ground-sec-5-2-9-2",
+  "tab": "workstreams-ground",
+  "level": 3,
+  "number": "5.2.9.2",
+  "title": "The SMS layer",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "Every bulk send lodged with the operator…",
+     "body": "Every bulk send lodged with the operator 48 hours ahead, verbatim text plus signed"
+    },
+    {
+     "n": 2,
+     "label": "No attacks on individuals, families,…",
+     "body": "No attacks on individuals, families, ethnicity, religion or association in any message —"
+    },
+    {
+     "n": 3,
+     "label": "Sending window 7am",
+     "body": "Sending window 7am–7pm, per market practice and DND norms"
+    },
+    {
+     "n": 4,
+     "label": "Every message carries a clear opt-out;…",
+     "body": "Every message carries a clear opt-out; opt-outs honoured immediately and"
+    },
+    {
+     "n": 5,
+     "label": "Ward-tagged segmentation so a message…",
+     "body": "Ward-tagged segmentation so a message about mango prices reaches Kitui West"
+    },
+    {
+     "n": 6,
+     "label": "Personalisation by first name where…",
+     "body": "Personalisation by first name where consent covers it"
+    },
+    {
+     "n": 7,
+     "label": "Per-send audit trail retained, per the…",
+     "body": "Per-send audit trail retained, per the charter (Section 5.7.8)"
+    }
+   ]
+  }
+ },
+ "workstreams-ground-sec-5-2-9-3": {
+  "id": "workstreams-ground-sec-5-2-9-3",
+  "tab": "workstreams-ground",
+  "level": 3,
+  "number": "5.2.9.3",
+  "title": "The USSD layer",
+  "kind": "bars",
+  "data": {
+   "items": [
+    {
+     "label": "matters",
+     "value": 3,
+     "display": "3"
+    },
+    {
+     "label": "working days",
+     "value": 5,
+     "display": "5"
+    },
+    {
+     "label": "weeks",
+     "value": 4,
+     "display": "4"
+    }
+   ]
+  }
+ },
+ "workstreams-ground-sec-5-2-9-5": {
+  "id": "workstreams-ground-sec-5-2-9-5",
+  "tab": "workstreams-ground",
+  "level": 3,
+  "number": "5.2.9.5",
+  "title": "The mobile-money agent network",
   "kind": "stats",
   "data": {
    "figures": [
     {
-     "label": "days before the general",
-     "value": 60,
-     "display": "60",
+     "label": "March",
+     "value": 602470,
+     "display": "602,470",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "workstreams-ground-sec-5-2-9-6": {
+  "id": "workstreams-ground-sec-5-2-9-6",
+  "tab": "workstreams-ground",
+  "level": 3,
+  "number": "5.2.9.6",
+  "title": "KPIs for the offline layer",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "USSD unique sessions",
+     "value": 120000,
+     "display": "120,000",
      "pct": false
     },
     {
-     "label": "minute Level clock…",
+     "label": "Metric Consented SMS…",
+     "value": 15000,
+     "display": "15,000",
+     "pct": false
+    },
+    {
+     "label": "unique sessions Not live",
+     "value": 5000,
+     "display": "5,000",
+     "pct": false
+    },
+    {
+     "label": "Issue reports via tracker",
+     "value": 60000,
+     "display": "60,000",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "workstreams-ground-sec-5-2-10-4": {
+  "id": "workstreams-ground-sec-5-2-10-4",
+  "tab": "workstreams-ground",
+  "level": 3,
+  "number": "5.2.10.4",
+  "title": "Management tooling",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "Custom WhatsApp bot",
+     "body": "for low-cost volunteer management: registration,"
+    },
+    {
+     "label": "USSD registration path",
+     "body": "so volunteers without smartphones can join"
+    },
+    {
+     "label": "Forms and spreadsheets for baseline collection",
+     "body": ""
+    },
+    {
+     "label": "Task management via a shared board",
+     "body": ""
+    },
+    {
+     "label": "Purpose-built volunteer platforms only at…",
+     "body": ""
+    }
+   ]
+  }
+ },
+ "workstreams-ground-sec-5-2-10-5": {
+  "id": "workstreams-ground-sec-5-2-10-5",
+  "tab": "workstreams-ground",
+  "level": 3,
+  "number": "5.2.10.5",
+  "title": "Volunteer KPIs",
+  "kind": "bars",
+  "data": {
+   "items": [
+    {
+     "label": "% Active rate engaged",
+     "value": 5,
+     "display": "5"
+    },
+    {
+     "label": "days advancement",
+     "value": 30,
+     "display": "30"
+    },
+    {
+     "label": "% advancement",
+     "value": 40,
+     "display": "40"
+    },
+    {
+     "label": "% Average points",
+     "value": 60,
+     "display": "60"
+    },
+    {
+     "label": "retention Canvass returns…",
+     "value": 100,
+     "display": "100"
+    },
+    {
+     "label": "day retention Canvass returns",
+     "value": 90,
+     "display": "90"
+    }
+   ]
+  }
+ },
+ "workstreams-media-sec-5-2-5": {
+  "id": "workstreams-media-sec-5-2-5",
+  "tab": "workstreams-media",
+  "level": 2,
+  "number": "5.2.5",
+  "title": "Workstream 5 — Platform tactics and paid media",
+  "kind": "bars",
+  "data": {
+   "items": [
+    {
+     "label": "wards and diaspora hubs",
+     "value": 40,
+     "display": "40"
+    },
+    {
+     "label": "Sample content",
+     "value": 18,
+     "display": "18"
+    },
+    {
+     "label": "second video explaining county",
+     "value": 30,
+     "display": "30"
+    }
+   ]
+  }
+ },
+ "workstreams-media-sec-5-2-6-3": {
+  "id": "workstreams-media-sec-5-2-6-3",
+  "tab": "workstreams-media",
+  "level": 3,
+  "number": "5.2.6.3",
+  "title": "Candidate media training",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "seconds without losing…",
      "value": 30,
      "display": "30",
      "pct": false
     },
     {
-     "label": "clock Coordinated…",
+     "label": "Debate performance",
      "value": 3,
      "display": "3",
      "pct": false
     },
     {
-     "label": "Hostile radio segment",
-     "value": 4,
-     "display": "4",
+     "label": "second answer",
+     "value": 60,
+     "display": "60",
      "pct": false
     }
    ]
   }
  },
- "annex-runbooks-sec-13-3-1": {
-  "id": "annex-runbooks-sec-13-3-1",
-  "tab": "annex-runbooks",
+ "workstreams-media-sec-5-2-6-4": {
+  "id": "workstreams-media-sec-5-2-6-4",
+  "tab": "workstreams-media",
   "level": 3,
-  "number": "13.3.1",
-  "title": "The threat model",
-  "kind": "checklist",
+  "number": "5.2.6.4",
+  "title": "The debate and forum playbook",
+  "kind": "stepper",
   "data": {
-   "items": [
+   "steps": [
     {
-     "label": "Compromise of the candidate's own social…",
-     "body": ""
+     "n": 1,
+     "label": "Full briefing pack",
+     "body": "Full briefing pack: rival positions, likely lines of attack, verified"
     },
     {
-     "label": "A ward champion's WhatsApp account…",
-     "body": ""
+     "n": 2,
+     "label": "Mock debate with a stand-in playing the…",
+     "body": "Mock debate with a stand-in playing the leading rival"
     },
     {
-     "label": "Leaked internal strategy material ",
-     "body": ""
-    },
-    {
-     "label": "Fabricated audio or video of the candidate",
-     "body": ""
+     "n": 3,
+     "label": "Three prepared \"moments\" ",
+     "body": "Three prepared \"moments\" — a memorable, quotable formulation for each of the"
     }
    ]
   }
  },
- "annex-runbooks-sec-13-3-3": {
-  "id": "annex-runbooks-sec-13-3-3",
-  "tab": "annex-runbooks",
+ "workstreams-media-sec-5-2-6-5": {
+  "id": "workstreams-media-sec-5-2-6-5",
+  "tab": "workstreams-media",
   "level": 3,
-  "number": "13.3.3",
-  "title": "Phishing awareness",
-  "kind": "checklist",
+  "number": "5.2.6.5",
+  "title": "Pre-drafted response lines",
+  "kind": "stats",
   "data": {
-   "items": [
+   "figures": [
     {
-     "label": "Onboarding training for every staff member…",
-     "body": ""
+     "label": "wards",
+     "value": 40,
+     "display": "40",
+     "pct": false
     },
     {
-     "label": "Simulated phishing exercises quarterly",
-     "body": ", with results used for coaching,"
-    },
-    {
-     "label": "A no-blame reporting channel with a target…",
-     "body": ""
-    },
-    {
-     "label": "Specific coverage of the patterns most…",
-     "body": ""
+     "label": "minute clock Unsolicited…",
+     "value": 30,
+     "display": "30",
+     "pct": false
     }
    ]
   }
  },
- "annex-runbooks-sec-13-4-3": {
-  "id": "annex-runbooks-sec-13-4-3",
-  "tab": "annex-runbooks",
+ "workstreams-media-sec-5-2-6-6": {
+  "id": "workstreams-media-sec-5-2-6-6",
+  "tab": "workstreams-media",
   "level": 3,
-  "number": "13.4.3",
-  "title": "Competitive intelligence outputs and rapid alerts",
+  "number": "5.2.6.6",
+  "title": "Earned media KPIs",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "C expert-source placements",
+     "value": 4,
+     "display": "4",
+     "pct": false
+    },
+    {
+     "label": "minutes Share",
+     "value": 60,
+     "display": "60",
+     "pct": false
+    },
+    {
+     "label": "% Share",
+     "value": 100,
+     "display": "100",
+     "pct": false
+    },
+    {
+     "label": "% Fact-checker…",
+     "value": 50,
+     "display": "50",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "workstreams-media-sec-5-2-6-7": {
+  "id": "workstreams-media-sec-5-2-6-7",
+  "tab": "workstreams-media",
+  "level": 3,
+  "number": "5.2.6.7",
+  "title": "Getting on air around a hostile gatekeeper",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "registered voters",
+     "value": 532758,
+     "display": "532,758",
+     "pct": false
+    },
+    {
+     "label": "wards",
+     "value": 40,
+     "display": "40",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "workstreams-media-sec-5-2-6-8": {
+  "id": "workstreams-media-sec-5-2-6-8",
+  "tab": "workstreams-media",
+  "level": 3,
+  "number": "5.2.6.8",
+  "title": "How we pitch: evidence first",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "Hansard & Audit Exclusives",
+     "body": "Providing national media bureau chiefs (Daily Nation, Standard, Citizen TV, KTN News) with verified, data-dense policy briefs on…"
+    },
+    {
+     "n": 2,
+     "label": "On-Site Project Media Tours",
+     "body": "Transporting accredited regional correspondents directly to Kitui Central model projects (solar boreholes, modern TVET…"
+    },
+    {
+     "n": 3,
+     "label": "Rapid Studio Call-In Rights",
+     "body": "Enforcing statutory right-of-reply provisions under the Media Council of Kenya (MCK) Act whenever candidate record distortions…"
+    }
+   ]
+  }
+ },
+ "workstreams-platforms-sec-5-2-1-1": {
+  "id": "workstreams-platforms-sec-5-2-1-1",
+  "tab": "workstreams-platforms",
+  "level": 3,
+  "number": "5.2.1.1",
+  "title": "Why it exists",
+  "kind": "contrast",
+  "data": {
+   "left": "before the election",
+   "right": "after it",
+   "lead": "Dr. Mulu is a monitoring and evaluation specialist — a member of the Evaluation Society of Kenya and an M&amp;E Champion recognised by the Ministry of Finance, whose…"
+  }
+ },
+ "workstreams-platforms-sec-5-2-1-4": {
+  "id": "workstreams-platforms-sec-5-2-1-4",
+  "tab": "workstreams-platforms",
+  "level": 3,
+  "number": "5.2.1.4",
+  "title": "Design principles",
   "kind": "checklist",
   "data": {
    "items": [
     {
-     "label": "The monthly competitive brief",
+     "label": "Public by default.",
+     "body": "The register is visible to anyone, mapped by ward,"
+    },
+    {
+     "label": "No personal data published.",
+     "body": "Reports appear with ward, category and"
+    },
+    {
+     "label": "Outcomes published honestly ",
      "body": ""
     },
     {
-     "label": "Rival digital activity",
-     "body": "platforms, posting frequency, engagement rates, follower growth"
+     "label": "No false authority.",
+     "body": "Dr. Mulu is not the county government. The tracker"
     },
     {
-     "label": "Ad spend estimates",
-     "body": "from ad libraries and transparency data"
+     "label": "Continues after the election.",
+     "body": "Stated up front. A tracker that closes on"
+    }
+   ]
+  }
+ },
+ "workstreams-platforms-sec-5-2-1-5": {
+  "id": "workstreams-platforms-sec-5-2-1-5",
+  "tab": "workstreams-platforms",
+  "level": 3,
+  "number": "5.2.1.5",
+  "title": "What it is worth to the campaign",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "Narrative",
+     "body": "the strongest possible proof of the Verification pillar"
     },
     {
-     "label": "Messaging analysis",
-     "body": "themes, framing, target audiences"
+     "label": "Data",
+     "body": "ward-level issue salience derived from citizens' own priorities"
     },
     {
-     "label": "Vulnerability assessment",
-     "body": "gaps, policy inconsistencies, negative sentiment trends"
+     "label": "Organising",
+     "body": "every report is a consented contact and a warm lead for ward"
     },
     {
-     "label": "Polling movement",
-     "body": "changes in published surveys with sub-county detail where available"
+     "label": "Earned media",
+     "body": "a public register of county service-delivery failures is a"
     },
     {
-     "label": "Recommendations",
-     "body": "counter-messaging and proactive content"
+     "label": "Defensive",
+     "body": "it makes \"he is not close to ordinary people\" a difficult"
+    }
+   ]
+  }
+ },
+ "workstreams-platforms-sec-5-2-1-7": {
+  "id": "workstreams-platforms-sec-5-2-1-7",
+  "tab": "workstreams-platforms",
+  "level": 3,
+  "number": "5.2.1.7",
+  "title": "Tracker KPIs",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "Metric Reports received",
+     "value": 500,
+     "display": "500",
+     "pct": false
     },
     {
-     "label": "The rapid alert system",
-     "body": "New attacks or significant messaging shifts trigger real-time alerts to campaign leadership with recommended…"
+     "label": "Wards",
+     "value": 8000,
+     "display": "8,000",
+     "pct": false
+    },
+    {
+     "label": "Reports",
+     "value": 25,
+     "display": "25",
+     "pct": false
+    }
+   ]
+  }
+ },
+ "workstreams-platforms-sec-5-2-2": {
+  "id": "workstreams-platforms-sec-5-2-2",
+  "tab": "workstreams-platforms",
+  "level": 2,
+  "number": "5.2.2",
+  "title": "Workstream 2 — The content brief and asset governance",
+  "kind": "contrast",
+  "data": {
+   "left": "industrial pipeline",
+   "right": "ad-hoc creative posting",
+   "lead": "Campaign communications succeed when production is treated as a rigorous, industrial pipeline rather than ad-hoc creative posting. In a county where only ~14% of voters…"
+  }
+ },
+ "workstreams-platforms-sec-5-2-2-1": {
+  "id": "workstreams-platforms-sec-5-2-2-1",
+  "tab": "workstreams-platforms",
+  "level": 3,
+  "number": "5.2.2.1",
+  "title": "The four content pillars",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "Pillar A",
+     "body": "Pillar A: The Integrity & Stewardship Ledger (Kĩtĩo kya Kũthũkũma)"
+    },
+    {
+     "n": 2,
+     "label": "Core Theme",
+     "body": "Core Theme: 13 years of spotless public financial management and zero Auditor-General queries in Kitui Central NG-CDF."
+    },
+    {
+     "n": 3,
+     "label": "Tone",
+     "body": "Tone: Authoritative, calm, legally certified, transparent."
+    },
+    {
+     "n": 4,
+     "label": "Primary Formats",
+     "body": "Primary Formats: Radio debate evidence cards, documentary video case studies, audit certificate infographics, press statements."
+    },
+    {
+     "n": 5,
+     "label": "Pillar B",
+     "body": "Pillar B: The Agrarian & Household Wealth Engine (Ũtonga wa Mĩsyĩ na Mĩũnda)"
+    }
+   ]
+  }
+ },
+ "workstreams-platforms-sec-5-2-3-3": {
+  "id": "workstreams-platforms-sec-5-2-3-3",
+  "tab": "workstreams-platforms",
+  "level": 3,
+  "number": "5.2.3.3",
+  "title": "The weekly testing cycle",
+  "kind": "bars",
+  "data": {
+   "items": [
+    {
+     "label": "ad variations",
+     "value": 5,
+     "display": "5"
+    },
+    {
+     "label": "headline and visual variations",
+     "value": 3,
+     "display": "3"
+    },
+    {
+     "label": "% proven performers Automatic",
+     "value": 70,
+     "display": "70"
+    },
+    {
+     "label": "impressions is paused",
+     "value": 5000,
+     "display": "5,000"
+    }
+   ]
+  }
+ },
+ "workstreams-platforms-sec-5-2-4-2": {
+  "id": "workstreams-platforms-sec-5-2-4-2",
+  "tab": "workstreams-platforms",
+  "level": 3,
+  "number": "5.2.4.2",
+  "title": "The case",
+  "kind": "waffle",
+  "data": {
+   "parts": [
+    {
+     "label": "Kitui residents have never",
+     "value": 13
+    },
+    {
+     "label": "outside the internet-using…",
+     "value": 86
+    }
+   ]
+  }
+ },
+ "workstreams-platforms-sec-5-2-4-5": {
+  "id": "workstreams-platforms-sec-5-2-4-5",
+  "tab": "workstreams-platforms",
+  "level": 3,
+  "number": "5.2.4.5",
+  "title": "Accessibility KPIs",
+  "kind": "stats",
+  "data": {
+   "figures": [
+    {
+     "label": "% Video",
+     "value": 100,
+     "display": "100",
+     "pct": false
+    },
+    {
+     "label": "seconds",
+     "value": 3,
+     "display": "3",
+     "pct": false
     }
    ]
   }

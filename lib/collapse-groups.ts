@@ -52,7 +52,7 @@ export function hasUnresolvedFigure(text: string): boolean {
   return UNRESOLVED.test(text);
 }
 
-const LEADING_NUMBER = /^(\d+[A-Z]?(?:\.\d+)*)/;
+const LEADING_NUMBER = /^((?:\d+[A-Z]?(?:\.\d+)*|[A-G](?:\.\d+)+))/;
 
 export type Segment =
   | { kind: "markdown"; text: string }

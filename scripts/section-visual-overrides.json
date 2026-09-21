@@ -1,52 +1,48 @@
 {
-  "cover-sec-1-1": {
+  "implementation-sec-5-3-2": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "presence-sec-1a-2-3": {
-    "kind": "none",
-    "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
-  },
-  "presence-sec-1a-4": {
+  "analysis-sec-3-11": {
     "kind": "playbook",
     "note": "Seven decision rules, written in advance as a two-column 'if the audit finds / the strategy changes to' table. It is a response playbook and should be drawn as one."
   },
-  "messaging-sec-7-3-2": {
+  "strategy-sec-4-4-9": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "scope-platforms-sec-8-2-2": {
+  "workstreams-platforms-sec-5-2-1-2": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "scope-platforms-sec-8-3-3": {
+  "workstreams-platforms-sec-5-2-2-3": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "scope-platforms-sec-8-5-3": {
+  "workstreams-platforms-sec-5-2-4-3": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "governance-sec-12-5-4": {
+  "delivery-sec-5-7-8": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "structure-sec-14-7": {
+  "delivery-sec-5-9-6": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "reach-sec-3-7-2": {
+  "strategy-sec-4-6-1": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "audiences-sec-5-1-2": {
+  "strategy-sec-4-3-3": {
     "kind": "donut",
     "data": {
       "label": "of the county's land is arid or semi-arid"
     },
     "note": "The share is right; the label the derivation found for it ('estimated') named the qualifier rather than the thing measured."
   },
-  "objectives-sec-4-1": {
+  "objectives-sec-1-1": {
     "kind": "donut",
     "data": {
       "label": "poll preference share required to take the nomination"

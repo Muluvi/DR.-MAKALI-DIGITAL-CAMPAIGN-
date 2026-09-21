@@ -1,6 +1,6 @@
 ANNEX E. The runbooks: the rapid-response decision tree and its response times, the pre-drafted holding positions, monitoring tooling, the security baseline and incident response, and competitor-monitoring outputs. Operational detail a campaign runs on and a principal approves the existence of.
 
-### 13.1.2 The four-tier response decision tree
+## F.1 The four-tier response decision tree
 
 To avoid elevating fringe attacks or wasting campaign capital, the campaign evaluates every incident against a standardized **Response Decision Tree**:
 
@@ -8,13 +8,13 @@ To avoid elevating fringe attacks or wasting campaign capital, the campaign eval
 id: response-matrix
 ```
 
-### 13.1.3 Response times, by channel
+## F.2 Response times, by channel
 
 ```figure
 id: response-sla
 ```
 
-### 13.1.4 Holding positions, pre-drafted
+## F.3 Holding positions, pre-drafted
 
 The campaign maintains ready-to-deploy holding positions, evidential citations, and Kikamba framing for the four primary lines of attack:
 
@@ -22,7 +22,7 @@ The campaign maintains ready-to-deploy holding positions, evidential citations, 
 id: holding-positions
 ```
 
-### 13.2.2 Monitoring tools
+## F.4 Monitoring tools
 
 | Tool class | Function |
 |---|---|
@@ -33,9 +33,9 @@ id: holding-positions
 | **Meta Ad Library** | Competitor ad spend, creative and targeting estimates |
 | **Google Ads Transparency Centre** | Competitor search advertising |
 | Custom BI dashboard | Centralised real-time metrics |
-| **Radio monitoring** | Kamba-language station tracking (Section 8.7) — critical, as most attacks on Dr. Mulu will originate on air, not online |
+| **Radio monitoring** | Kamba-language station tracking (Section 5.2.6) — critical, as most attacks on Dr. Mulu will originate on air, not online |
 
-### 13.2.3 Rapid-response protocol and pre-approved message library
+## F.5 Rapid-response protocol and pre-approved message library
 
 | Severity | Definition | Response time | Approval |
 |---|---|---|---|
@@ -48,9 +48,9 @@ To execute rapid containment without awaiting ad-hoc legal drafting, a pre-appro
 * Kikamba, Kiswahili and English versions of key messages
 * Template statements for policy positions issued in response to attack
 * Fact-check cards linking to verified sources
-* **Deepfake first-response templates** (Section 13.3.5)
+* **Deepfake first-response templates** (Section 5.8.7)
 
-### 13.2.4 Red-team drills
+## F.6 Red-team drills
 
 *Reactive protocols fail because they are first used under real pressure.*
 
@@ -61,16 +61,16 @@ before the general election.
 **Method:** a small red-team panel — Firefly's crisis lead, one campaign
 representative, and an external participant with no stake in the outcome — is
 briefed to attack. The response team is **not** told which scenario is coming
-or when. The drill runs in real time against the Section 13.2.3 clock.
+or when. The drill runs in real time against the Section F.5 clock.
 
 **Standing scenario library:**
 | # | Scenario | Tests |
 |---|---|---|
 | 1 | Fabricated audio of Dr. Mulu making an inflammatory statement, seeded on WhatsApp | Deepfake protocol; 30-minute Level 3 clock |
 | 2 | Coordinated hashtag attack on his NG-CDF record | Fact-base readiness; rebuttal library |
-| 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval (Section 12.5.4) |
-| 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 8.7) |
-| 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section 13.3.4) |
+| 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval (Section 5.7.8) |
+| 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 5.2.6) |
+| 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section F.10) |
 | 7 | Manufactured "grassroots" campaign attacking a rival, falsely attributed to Dr. Mulu | Charter defence; provenance evidence |
 
 **Output:** every drill produces a written report — actual response times
@@ -84,7 +84,7 @@ target**.
 
 ---
 
-### 13.3.1 The threat model
+## F.7 The threat model
 
 Kenyan campaigns face account takeover, phishing of staff and volunteers,
 leaked internal material, and increasingly the fabrication of audio and video.
@@ -99,7 +99,7 @@ For this campaign specifically, the highest-consequence scenarios are:
 3. Leaked internal strategy material — including, if mishandled, this document
 4. Fabricated audio or video of the candidate
 
-### 13.3.2 Account security baseline
+## F.8 Account security baseline
 
 | Control | Standard | Applies to |
 |---|---|---|
@@ -114,7 +114,7 @@ For this campaign specifically, the highest-consequence scenarios are:
 **Hardware keys for the candidate and admins are non-negotiable and take very
 little.** `[Insert specified hardware security key model — two keys per critical account holder for redundancy]`
 
-### 13.3.3 Phishing awareness
+## F.9 Phishing awareness
 
 * Onboarding training for every staff member and Tier 3–4 volunteer before
 account access is granted
@@ -126,7 +126,7 @@ suspicion to report
 * Specific coverage of the patterns most likely here: fake platform security
 alerts, fake IEBC or party communications, and fake media interview requests
 
-### 13.3.4 The incident response plan
+## F.10 The incident response plan
 
 | Phase | Action | Owner | Target |
 |---|---|---|---|
@@ -142,7 +142,7 @@ campaign confirms or denies authenticity accurately and quickly. It does not
 speculate about the source, and it does not deny the authenticity of genuine
 material — a denial later disproved is worse than the original leak.
 
-### 13.4.2 Monitoring tools
+## F.11 Competitor monitoring tools
 
 | Tool | Function |
 |---|---|
@@ -150,10 +150,10 @@ material — a denial later disproved is worse than the original leak.
 | Google Ads Transparency Centre | Competitor search advertising and keywords |
 | Social listening (premium tier) | Mentions, supporter sentiment, emerging narratives |
 | X lists | Curated rival, surrogate and influencer accounts |
-| **Radio monitoring** | Kamba-station coverage and airtime share (Section 8.7) |
+| **Radio monitoring** | Kamba-station coverage and airtime share (Section 5.2.6) |
 | **Published polling tracker** | Mizani Africa and other published surveys, logged with dates and methodology notes |
 
-### 13.4.3 Competitive intelligence outputs and rapid alerts
+## F.12 Competitive intelligence outputs and rapid alerts
 
 The competitive intelligence workflow produces two operational outputs:
 
@@ -165,3 +165,4 @@ The competitive intelligence workflow produces two operational outputs:
    * **Polling movement:** changes in published surveys with sub-county detail where available
    * **Recommendations:** counter-messaging and proactive content
 2. **The rapid alert system:** New attacks or significant messaging shifts trigger real-time alerts to campaign leadership with recommended responses drawn from the pre-approved library.
+

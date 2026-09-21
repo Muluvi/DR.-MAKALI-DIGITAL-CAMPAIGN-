@@ -1,21 +1,23 @@
+## Data and technology
+
 
 Four workstreams that sit under the rest: the data model, the voter model built on it, the technology stack that runs both, and the analytics layer that measures what the other ten produce.
 
-## 8.12 Workstream 11 — The data layer
+## 5.2.11 Workstream 11 — The data layer
 
 > **Owner: Firefly**, as processor on the campaign's behalf, under a written processing agreement
-> (Section 12.5.1).
+> (Section 5.7.5).
 
 
 A modern, high-precision political operation requires an infallible data layer. The campaign rejects arbitrary spreadsheets, unverified voter claims, and ad-hoc phone lists. In their place, the strategy establishes a centralized, structured database architecture governed by strict mathematical provenance, audit trails, and rigorous adherence to Kenyan privacy legislation.
 
-This section defines the voter and supporter data model and the legal compliance workflows under Kenya's **Data Protection Act (DPA) 2019** and the **Office of the Data Protection Commissioner (ODPC)**. The three-tier provenance standard that grades every figure in this proposal (Section 3.2.1) and the protocol for when two sources disagree (Section 3.2.3) are set out alongside the evidence they govern.
+This section defines the voter and supporter data model and the legal compliance workflows under Kenya's **Data Protection Act (DPA) 2019** and the **Office of the Data Protection Commissioner (ODPC)**. The three-tier provenance standard that grades every figure in this proposal (Section A.1.1) and the protocol for when two sources disagree (Section A.1.3) are set out alongside the evidence they govern.
 
 ```figure
 id: data-layer
 ```
 
-### 8.12.1 The voter and supporter data model
+### 5.2.11.1 The voter and supporter data model
 
 The campaign database is organized around a relational, entity-attribute-value schema optimized for speed, geographic aggregation, and privacy segmentation. Every supporter record is linked to an exact geographic locus and carries timestamped consent metadata:
 
@@ -28,7 +30,7 @@ id: supporter-schema
 2.  **Granular Geographic Tagging:** No supporter entry exists in a vacuum; every record MUST map to an explicit Constituency, Ward, and Polling Station.
 3.  **Audit Trail Logging:** Every modification to a voter's `support_status` or contact detail logs the modifying user ID, timestamp, and field collection source.
 
-### 8.12.2 The Data Protection Act 2019, applied
+### 5.2.11.2 The Data Protection Act 2019, applied
 
 Political messaging, bulk SMS broadcasting, and voter profiling operate under strict statutory oversight in Kenya. Non-compliance risks severe criminal penalties, regulatory injunctions, and catastrophic brand damage to Dr. Mulu's integrity-driven platform.
 
@@ -37,37 +39,37 @@ id: dpa-compliance
 ```
 
 #### Mandatory Compliance Safeguards:
-1.  **Ban on Commercial Database Ingestion:** The campaign strictly forbids purchasing or scraping phone directories, bank lists, student registers, or church rosters. Ingesting non-consented bulk phone numbers is a direct violation of Section 8.5 of the DPA 2019.
+1.  **Ban on Commercial Database Ingestion:** The campaign strictly forbids purchasing or scraping phone directories, bank lists, student registers, or church rosters. Ingesting non-consented bulk phone numbers is a direct violation of Section 5.2.4 of the DPA 2019.
 2.  **Automated Opt-Out Processing:** Any inbound SMS containing "STOP", "SIMAMA", "ONDOKA", or "CANCEL" is automatically processed by a webhook within 15 seconds, toggling `opt_out_status = True` and permanently halting outbound SMS transmissions.
 3.  **Data Protection Officer (DPO):** The Campaign Secretariat will formally designate a certified Legal & Data Protection Officer to supervise all database access logs, consent registries, and vendor contracts.
 
 ---
 
-## 8.13 Workstream 12 — Predictive voter modelling
+## 5.2.12 Workstream 12 — Predictive voter modelling
 
-> **Owner: Firefly — gated on Section 12.5.5.** Until written sign-off, this runs as **ward-level
+> **Owner: Firefly — gated on Section 5.7.9.** Until written sign-off, this runs as **ward-level
 > aggregate scoring only**, which delivers most of the targeting value at a fraction of the
 > exposure. Individual-level scoring waits for the opinion.
 
 
-### 8.13.1 What the model scores, and why
+### 5.2.12.1 What the model scores, and why
 
 The campaign will build a model scoring registered voters in Kitui County on
 two dimensions: likelihood to support Dr. Mulu and likelihood to turn out. This
 moves the campaign from broad messaging to disciplined prioritisation of
 persuasion and mobilisation effort.
 
-**This entire section is conditional on the compliance gate in Section 12.5.5.**
+**This entire section is conditional on the compliance gate in Section 5.7.9.**
 No voter-file-based targeting is deployed until a Kenyan data-protection or
 electoral-law specialist has reviewed and signed off the specific proposed
 processing. Nothing in this section should be read as a claim that such
 processing is already permissible.
 
-### 8.13.2 Data sources
+### 5.2.12.2 Data sources
 
 * **IEBC Voter Register:** name, gender, age bracket, polling station, ward,
 constituency, historical turnout flags — **subject to lawful access and the
-Section 12.5.5 gate**
+Section 5.7.9 gate**
 * **KNBS Census and county statistics:** ward-level demographics, education,
 household characteristics, economic activity
 * **Historical results:** ward and polling-station results from 2017 and 2022
@@ -75,14 +77,14 @@ to identify patterns and swing areas
 * **Campaign first-party data:** interactions with campaign content, WhatsApp
 membership, **SMS/USSD opt-ins**, volunteer sign-ups, donor status — all
 consent-based
-* **Field canvass returns** (Section 8.9)
+* **Field canvass returns** (Section 5.2.8)
 
 **Explicitly excluded:** purchased third-party contact lists, scraped number
 databases, and any inferred psychographic or personality attributes. Vendors
 openly market bulk Kenyan mobile-number databases; the campaign will not buy
-them. See Section 12.5.4.
+them. See Section 5.7.8.
 
-### 8.13.3 Modelling methodology
+### 5.2.12.3 Modelling methodology
 
 | Model | Purpose | Strength |
 |---|---|---|
@@ -94,7 +96,7 @@ them. See Section 12.5.4.
 Final output: an ensemble probability score (0–1) for support likelihood and
 turnout likelihood.
 
-### 8.13.4 Model variables
+### 5.2.12.4 Model variables
 
 | Variable | Description | Source | Type | Format |
 |---|---|---|---|---|
@@ -118,7 +120,7 @@ turnout likelihood.
 | `whatsapp_group_member` | Campaign group member | Campaign | Binary | 0/1 |
 | `volunteer_status` | Sign-up status | Campaign | Categorical | None/Inactive/Active |
 | `donor_status` | Donation history | Campaign | Categorical | None/One-time/Recurring |
-| `field_contact_outcome` | **Canvass result (Section 8.9)** | Field team | Categorical | Support/Undecided/Oppose/No contact |
+| `field_contact_outcome` | **Canvass result (Section 5.2.8)** | Field team | Categorical | Support/Undecided/Oppose/No contact |
 | `support_score` | Predicted support (output) | Model | Continuous | 0–1 |
 | `turnout_score` | Predicted turnout (output) | Model | Continuous | 0–1 |
 
@@ -127,7 +129,7 @@ this dictionary, and none may be added.** The `ward_connectivity_index` is the
 most operationally important addition — it determines whether a scored voter is
 reachable digitally or must be reached by SMS, USSD or radio.
 
-### 8.13.5 How the model is evaluated
+### 5.2.12.5 How the model is evaluated
 
 | Metric | Target | Frequency |
 |---|---|---|
@@ -138,7 +140,7 @@ reachable digitally or must be reached by SMS, USSD or radio.
 | Cross-validation stability | Variance < 5% across folds | Quarterly |
 | Field validation match rate | ≥ 85% against ground canvass outcomes | Monthly |
 
-### 8.13.6 Putting the model to work
+### 5.2.12.6 Putting the model to work
 
 * **Ad targeting:** scored segments as custom audiences on Meta, Google, TikTok
 * **SMS/USSD segmentation:** priority broadcast lists for high-support,
@@ -146,11 +148,11 @@ low-turnout voters — the single most valuable GOTV segment
 * **Content personalisation:** different messages to persuadable voters,
 strong supporters and low-propensity voters
 * **Volunteer routing:** ground teams directed to highest-persuasion-potential
-households first (Section 8.9)
+households first (Section 5.2.8)
 
-### 8.13.7 The compliance gate this depends on
+### 5.2.12.7 The compliance gate this depends on
 
-Model deployment is gated. If the Section 12.5.5 review does not clear
+Model deployment is gated. If the Section 5.7.9 review does not clear
 voter-file-based processing, the campaign operates the model on **first-party
 consented data and aggregate ward-level statistics only** — a materially
 weaker but fully lawful fallback that has been costed into all three budget
@@ -158,7 +160,7 @@ tiers. The campaign is not exposed if the answer is no.
 
 ---
 
-## 8.14 Workstream 13 — The technology stack
+## 5.2.13 Workstream 13 — The technology stack
 
 > **Mostly outside this engagement.** Dr. Mulu already holds accounts, hosting and the tooling in
 > daily use, and procuring a stack the campaign already has is not a service. Firefly builds and
@@ -169,27 +171,27 @@ tiers. The campaign is not exposed if the answer is no.
 
 A data-driven political campaign requires robust, reliable, and compliant technical infrastructure. The technology stack must bridge the gap between digital command centers and offline rural wards, while adhering strictly to Kenya's **Data Protection Act (DPA) 2019** and cybersecurity best practices.
 
-This section specifies the six core software components of the campaign: the **SMS/USSD Telecommunications Gateway**, the **Supporter CRM & Voter Database**, **Social Media Publishing & Social Listening Systems**, **Analytics & Business Intelligence Dashboard**, and the **Section 8.2 Service-Delivery Tracker**.
+This section specifies the six core software components of the campaign: the **SMS/USSD Telecommunications Gateway**, the **Supporter CRM & Voter Database**, **Social Media Publishing & Social Listening Systems**, **Analytics & Business Intelligence Dashboard**, and the **Section 5.2.1 Service-Delivery Tracker**.
 
 ```figure
 id: tech-stack
 ```
 
-### 8.14.1 Component by component, and what each does
+### 5.2.13.1 Component by component, and what each does
 
 #### 1. SMS / USSD Telecommunications Gateway
 *   **Tooling Recommendation:** **Africa's Talking API Suite** (or Safaricom Direct Enterprise SDP Gateway).
-*   **Function & Purpose:** Powers the offline communications engine (Section 8.10). Dispatches targeted, opt-in bulk 2G SMS to registered voters across 40 wards, manages the zero-rated interactive USSD menu (`*[shortcode]#`), and handles inbound field report ingestion from the 400 Ward Captains.
+*   **Function & Purpose:** Powers the offline communications engine (Section 5.2.9). Dispatches targeted, opt-in bulk 2G SMS to registered voters across 40 wards, manages the zero-rated interactive USSD menu (`*[shortcode]#`), and handles inbound field report ingestion from the 400 Ward Captains.
 *   **Cost Structure:**
 *   **Data Held & Processed:** Voter mobile phone numbers (MSISDN), geolocation ward tags, inbound USSD survey responses, delivery receipt timestamps, and opt-out trigger logs.
-*   **DPA 2019 Exposure & Compliance:** **HIGH RISK.** Telecommunications data constitutes direct personal data (Section 8.11). Requires explicit opt-in confirmation logs, automated STOP opt-out processing within 15 seconds, and signed Data Processing Agreements (DPA) with the gateway aggregator.
+*   **DPA 2019 Exposure & Compliance:** **HIGH RISK.** Telecommunications data constitutes direct personal data (Section 5.2.10). Requires explicit opt-in confirmation logs, automated STOP opt-out processing within 15 seconds, and signed Data Processing Agreements (DPA) with the gateway aggregator.
 *   **Procurement Status:** **Awaiting campaign decision** *(Vendor selection between Africa's Talking vs. Safaricom SDP Enterprise)*.
 
 ---
 
 #### 2. Supporter Relationship Management (CRM) & Voter Database
 *   **Tooling Recommendation:** **Custom PostgreSQL Database with Hasura / Directus Headless Admin UI** (or CiviCRM instance).
-*   **Function & Purpose:** The centralized single-source-of-truth supporter data warehouse (Section 8.12.1). Stores supporter profiles, 40-ward geographic linkages, demographic classifications, volunteer skills, delegate tracking status, and contact history.
+*   **Function & Purpose:** The centralized single-source-of-truth supporter data warehouse (Section 5.2.11.1). Stores supporter profiles, 40-ward geographic linkages, demographic classifications, volunteer skills, delegate tracking status, and contact history.
 *   **Cost Structure:**
 *   **Data Held & Processed:** Encrypted voter names, phone numbers (AES-256), constituency/ward/polling station IDs, gender, age cohort, livelihood classification, consent timestamps, and interaction logs.
 *   **DPA 2019 Exposure & Compliance:** **CRITICAL RISK.** Core repository of sensitive and personal supporter data. Requires strict Row-Level Security (RLS), multi-factor authentication (MFA) for all campaign operators, role-based access control (RBAC), daily encrypted off-site backups, and full audit logging of every query.
@@ -204,7 +206,7 @@ id: tech-stack
     *   *Listening:* 24/7 automated monitoring of Kamba and national political keywords (e.g., "Dr. Makali Mulu", "Kitui Governor 2027", "Kitui Central CDF", "Wiper Primaries", "Kalonzo Musyoka"). Flags emerging viral rumors, competitor attacks, and trending local issues in real time.
 *   **Cost Structure:**
 *   **Data Held & Processed:** Public social media posts, comments, engagement metrics, sentiment scores, influencer handles, and public reach metrics.
-*   **DPA 2019 Exposure & Compliance:** **LOW TO MODERATE RISK.** Processes only publicly accessible posts and aggregated sentiment metadata. Compliant with Section 8.11 provided individual user profiles are not scraped or merged into private voter records without consent.
+*   **DPA 2019 Exposure & Compliance:** **LOW TO MODERATE RISK.** Processes only publicly accessible posts and aggregated sentiment metadata. Compliant with Section 5.2.10 provided individual user profiles are not scraped or merged into private voter records without consent.
 *   **Procurement Status:** **Awaiting campaign decision** *(Approval of monthly software subscription allocation)*.
 
 ---
@@ -219,7 +221,7 @@ id: tech-stack
 
 ---
 
-#### 5. Public Service-Delivery Tracker (Section 8.5 Digital Charter Platform)
+#### 5. Public Service-Delivery Tracker (Section 5.2.4 Digital Charter Platform)
 *   **Tooling Recommendation:** **Next.js App Router Web Platform with Interactive GIS Ward Map (Vercel / Cloudflare Edge Hosting)**.
 *   **Function & Purpose:** The public-facing evidence engine supporting Dr. Mulu's good-governance brand. Displays verifiable records of 13 years of Kitui Central NG-CDF projects (schools, boreholes, dispensaries, bursary audits) and provides an interactive "Kitui Economic Blueprint" where citizens can track proposed ward-level investments for the 2027–2032 gubernatorial term.
 *   **Cost Structure:**
@@ -228,13 +230,13 @@ id: tech-stack
 *   **DPA 2019 Exposure & Compliance:** **LOW RISK.** Public government and campaign policy data. Feedback forms collect standard consented contact details governed by an explicit privacy policy.
 *   **Procurement Status:** **Awaiting campaign decision** *(Approval of digital design mockups and public domain registration)*.
 
-### 8.14.2 The procurement matrix
+### 5.2.13.2 The procurement matrix
 
 ```figure
 id: procurement-matrix
 ```
 
-### 8.14.3 Technical risk and security protocols
+### 5.2.13.3 Technical risk and security protocols
 
 To ensure 100% operational uptime and protect campaign systems from infiltration or cyber disruption:
 
@@ -245,14 +247,14 @@ To ensure 100% operational uptime and protect campaign systems from infiltration
 
 ---
 
-## 8.15 Workstream 14 — Analytics and attribution
+## 5.2.14 Workstream 14 — Analytics and attribution
 
 > **Owner: Firefly. This is the engine room of the engagement.** It is numbered fourteenth because
 > that is where the original numbering put it; it is read first, in Section 1A, and it is the
 > workstream every other one is measured by.
 
 
-### 8.15.1 Attribution model and offline conversion tracking
+### 5.2.14.1 Attribution model and offline conversion tracking
 
 Measurement moves beyond vanity metrics to what drives votes: multi-touch
 attribution, offline conversion tracking and cost-per-vote analysis, all
@@ -268,7 +270,7 @@ anchored to the ~200,000-vote threshold.
 | YouTube view | View-through | Google Ads |
 | Website visit | Multi-touch weighted | GA4 |
 | Email open | Position-based | Email platform |
-| **Field canvass contact** | Direct event | Ward champion form (Section 8.9) |
+| **Field canvass contact** | Direct event | Ward champion form (Section 5.2.8) |
 
 To track offline-to-digital and physical engagement, four mechanisms bridge the gap:
 * **Unique QR codes** on printed materials and at barazas, tracking which content drove physical attendance
@@ -276,7 +278,7 @@ To track offline-to-digital and physical engagement, four mechanisms bridge the 
 * **USSD completions** as a direct offline-to-digital bridge
 * **Volunteer-reported contact outcomes** recording prior campaign awareness
 
-### 8.15.2 Key metrics and benchmarks
+### 5.2.14.2 Key metrics and benchmarks
 
 | Metric | Definition | Global benchmark | Campaign target |
 |---|---|---|---|
@@ -288,7 +290,7 @@ To track offline-to-digital and physical engagement, four mechanisms bridge the 
 | GOTV contact rate | % of target voters reached | 60–80% | ≥ 70% |
 | **Contact share of win threshold** | Contacted voters ÷ 200,000 | — | **≥ 75% by election week** |
 
-### 8.15.3 The analytics maturity roadmap
+### 5.2.14.3 The analytics maturity roadmap
 
 *A staged path, so the campaign is never blocked waiting on capability.*
 
@@ -296,7 +298,7 @@ To track offline-to-digital and physical engagement, four mechanisms bridge the 
 |---|---|---|---|---|
 | **0 — Baseline** | Phase −1 | Platform-native dashboards; manual weekly report; SMS delivery reporting; single source of truth established | Accounts and pixel installed | Paid Media & Analytics Manager |
 | **1 — Integrated** | Phase 0–1 | Unified BI dashboard across paid, organic, SMS, USSD, web; ward-level segmentation; A/B testing discipline | Consistent tagging taxonomy | Paid Media & Analytics Manager |
-| **2 — Predictive** | Phase 1–2 | Voter scoring live; field-digital loop operating; audience segments driven by score | **Section 12.5.5 compliance gate cleared** | Data Analyst (surge) |
+| **2 — Predictive** | Phase 1–2 | Voter scoring live; field-digital loop operating; audience segments driven by score | **Section 5.7.9 compliance gate cleared** | Data Analyst (surge) |
 | **3 — Attributed** | Phase 2–3 | Multi-touch attribution; offline conversion tracking; cost-per-persuaded-voter reported against actuals | Stage 2 stable ≥ 6 weeks | Data Analyst |
 | **4 — Optimised** | Phase 3 | Continuous reallocation against modelled marginal return; GOTV list prioritisation | Stage 3 validated against field returns | Data Analyst + Director |
 
@@ -304,7 +306,7 @@ To track offline-to-digital and physical engagement, four mechanisms bridge the 
 tagging is consistent produces confident nonsense, and a campaign that attempts
 it before the compliance gate produces legal exposure.
 
-### 8.15.4 Who owns the data
+### 5.2.14.4 Who owns the data
 
 A **single named data-governance owner** is accountable for both analytics
 performance and data compliance — deliberately one role, because splitting them
@@ -314,12 +316,13 @@ Responsibilities:
 * Maintains the data inventory: what is held, lawful basis, retention period,
 who has access
 * Owns the consent audit trail and can produce it on demand within
-**24 hours** — the standard the Section 13.2.4 drill tests
-* Owns the deletion schedule and executes it (Section 12.5.4)
-* Is the campaign's standing point of contact for the Section 12.5.5 compliance
+**24 hours** — the standard the Section F.6 drill tests
+* Owns the deletion schedule and executes it (Section 5.7.8)
+* Is the campaign's standing point of contact for the Section 5.7.9 compliance
 reviewer
 * Holds authority to **suspend any targeting activity** pending review, without
 requiring commercial sign-off
 
 At lean tier this role sits with the Digital Director; from standard tier it
 sits with the Data Analyst. It is named in writing either way.
+

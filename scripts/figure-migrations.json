@@ -281,5 +281,17 @@
   {
     "figure": "7.3|",
     "movedTo": "Moved from the §5.0 KITUI COUNTY AUDIENCE ARCHITECTURE OVERVIEW into the `audience-overview` figure (scripts/figure-retirements.json, audiences-5-0-overview). It is NOT A FIGURE AT ALL: it is the cross-reference in “Kikamba: ~76% (7.3)”, pointing at §7.3, which the guard tokenises as the number 7.3. It is transcribed with the source's bare form rather than a § prefix so the reference reads as the block wrote it. PRINT REACH VERIFIED, not assumed: emulating print on /audiences finds “~76% (7.3)” in the rendered text. — RE-VERIFIED after the disclosure fix: the earlier check used document.body.innerText, which skips a closed <details> whatever the CSS says, and the “forced open under @media print” it relied on did not work. Every content disclosure now ships with the `open` attribute and is closed by PrintSafeDisclosures, so the printed kit carries the data tables. See the note at the top of components/PrintSafeDisclosures.tsx."
+  },
+  {
+    "figure": "12.2|",
+    "movedTo": "Not a figure of the proposal — a SECTION ADDRESS the 2026 restructure renumbered. §12.2 is now §E.1, and the string disappeared from the corpus because every cross-reference to it was rewritten by scripts/rebuild/migrate.mjs along with the heading itself. The 352 addresses it rewrote are listed by that script; this guard sees three of them because those three happened to be spelled as bare parenthesised numbers (“(12.2)”) rather than “Section 12.2”, which is the form the baseline scan indexes as a figure."
+  },
+  {
+    "figure": "12.4|",
+    "movedTo": "Not a figure of the proposal — a SECTION ADDRESS the 2026 restructure renumbered. §12.4 is now §E.2, and the string disappeared from the corpus because every cross-reference to it was rewritten by scripts/rebuild/migrate.mjs along with the heading itself. The 352 addresses it rewrote are listed by that script; this guard sees three of them because those three happened to be spelled as bare parenthesised numbers (“(12.2)”) rather than “Section 12.2”, which is the form the baseline scan indexes as a figure."
+  },
+  {
+    "figure": "3.2|",
+    "movedTo": "Not a figure of the proposal — a SECTION ADDRESS the 2026 restructure renumbered. §3.2 is now §A.1, and the string disappeared from the corpus because every cross-reference to it was rewritten by scripts/rebuild/migrate.mjs along with the heading itself. The 352 addresses it rewrote are listed by that script; this guard sees three of them because those three happened to be spelled as bare parenthesised numbers (“(12.2)”) rather than “Section 12.2”, which is the form the baseline scan indexes as a figure."
   }
 ]
