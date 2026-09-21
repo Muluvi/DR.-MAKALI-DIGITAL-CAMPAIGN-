@@ -212,7 +212,12 @@ export function DiagramViewer({ title, body }: { title?: string; body: string })
     <>
       <div
         ref={outerRef}
-        className={actualSize ? "scroll-x px-3 py-3" : "overflow-hidden px-3 py-3"}
+        className={actualSize ? "fx-focus scroll-x px-3 py-3" : "overflow-hidden px-3 py-3"}
+        // A horizontally scrolling region has to be reachable from the keyboard, or its right-hand
+        // half exists only for a mouse. Only the actual-size view scrolls; the fitted one does not.
+        tabIndex={actualSize ? 0 : undefined}
+        role={actualSize ? "group" : undefined}
+        aria-label={actualSize ? "Diagram at actual size, scrollable" : undefined}
       >
         {/* A scaled element keeps its unscaled box in flow, so the height is set explicitly on a
             sizer; without it every fitted drawing trails a band of dead space below it. */}

@@ -33,7 +33,7 @@ import { OfflineWaterline } from "./charts/OfflineWaterline";
 import { VoteFunnel } from "./charts/VoteFunnel";
 import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
 import { AsciiDiagram } from "./markdown/AsciiDiagram";
-import { Figure } from "./figures/registry";
+import { Figure } from "./figures/FigureBoundary";
 import { ReachSplit } from "./ReachSplit";
 import {
   FlywheelSchematic,

@@ -275,7 +275,7 @@ export function DeficitGauge() {
               Both published rounds, as a table
             </span>
           </summary>
-          <div className="overflow-x-auto mt-3">
+          <div className="fx-focus overflow-x-auto mt-3" tabIndex={0} role="group" aria-label="Recognition deficit data table, scrollable">
             <table className="w-full t-small border-collapse">
               <caption className="sr-only">
                 Kitui County gubernatorial preference, {CONTEST_ROUNDS.map((r) => r.label).join(" and ")}.

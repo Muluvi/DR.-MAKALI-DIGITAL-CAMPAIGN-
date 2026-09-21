@@ -70,13 +70,24 @@ const OG_IMAGE = {
  * The origin relative metadata URLs resolve against.
  *
  * WhatsApp, Slack and Twitter fetch `og:image` as an absolute URL and ignore a relative one, so
- * without this the card would be declared and never fetched. `VERCEL_URL` is read where the
- * platform provides it, so a preview deployment previews its own card rather than production's;
- * the production hostname is the fallback. No new environment variable is introduced.
+ * without this the card would be declared and never fetched.
+ *
+ * THE ORDER MATTERS, and it was wrong. `VERCEL_URL` is the DEPLOYMENT hostname
+ * (`…-a1b2c3.vercel.app`), not the production domain — so on a custom domain every share card
+ * pointed at a per-deployment URL that is not the one the reader has, and that changes on every
+ * push. `NEXT_PUBLIC_SITE_ORIGIN` is read first for that reason: set it to the canonical domain
+ * in the Vercel project and the card is stable and correct. `VERCEL_URL` stays as the fallback so
+ * a preview deployment still previews its own card, and the production hostname behind that so a
+ * local build has something absolute to resolve against.
+ *
+ * Whatever you set, send the link to yourself on WhatsApp once and look at the card. It is a
+ * thirty-second test that catches a class of bug nothing else does.
  */
-const SITE_ORIGIN = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : 'https://dr-makali-digital-campaign.vercel.app';
+const SITE_ORIGIN =
+  process.env.NEXT_PUBLIC_SITE_ORIGIN ??
+  (process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : 'https://dr-makali-digital-campaign.vercel.app');
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),

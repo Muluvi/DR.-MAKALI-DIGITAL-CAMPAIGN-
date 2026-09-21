@@ -322,7 +322,16 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
   }
 
   if (ths.length === 0) {
-    return <div className="overflow-x-auto border border-line rounded-2xl my-4">{children}</div>;
+    return (
+      <div
+        className="fx-focus overflow-x-auto border border-line rounded-2xl my-4"
+        tabIndex={0}
+        role="group"
+        aria-label="Table, scrollable"
+      >
+        {children}
+      </div>
+    );
   }
 
   return (
@@ -473,7 +482,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
             </div>
           ) : (
             /* Desktop Tabular Grid View (>= md or SSR) */
-            <div className="overflow-x-auto w-full scrollbar-thin">
+            <div className="fx-focus overflow-x-auto w-full scrollbar-thin" tabIndex={0} role="group" aria-label="Table, scrollable">
               <table className="w-full text-left border-collapse t-small">
                 <thead className="table-header-group">
                   <tr className="border-b border-line/50 bg-paper/50">

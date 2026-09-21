@@ -41,7 +41,7 @@ export function ConstituencyWeightBlockContent() {
       </div>
 
       {/* Accessible table equivalent */}
-      <div className="overflow-x-auto">
+      <div className="not-prose fx-focus overflow-x-auto" tabIndex={0} role="group" aria-label="Constituency weight table, scrollable">
         <table className="w-full text-left t-small">
           <thead>
             <tr className="t-micro font-bold text-muted">

@@ -14,7 +14,16 @@ export function ClaimCards({ children }: { children: React.ReactNode }) {
   const thead = top.find((c) => c?.type === "thead");
   const tbody = top.find((c) => c?.type === "tbody");
   if (!thead || !tbody) {
-    return <div className="overflow-x-auto border border-line rounded-2xl my-4">{children}</div>;
+    return (
+      <div
+        className="fx-focus overflow-x-auto border border-line rounded-2xl my-4"
+        tabIndex={0}
+        role="group"
+        aria-label="Table, scrollable"
+      >
+        {children}
+      </div>
+    );
   }
 
   const headerRow = cellsOfType((thead.props as { children?: React.ReactNode }).children, "tr")[0];

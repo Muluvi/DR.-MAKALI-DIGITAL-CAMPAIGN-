@@ -158,7 +158,9 @@ export function TierComparisonCarousel() {
         variants={preset.variants(staggerContainer(preset.stagger(STAGGER.normal)))}
         initial={preset.enter("hidden")}
         animate={inView ? "visible" : undefined}
-        className="flex gap-3 overflow-x-auto scrollbar-none snap-x snap-mandatory -mx-4 px-4 pb-2"
+        tabIndex={0}
+        aria-label="Engagement levels, scrollable"
+        className="fx-focus flex gap-3 overflow-x-auto scrollbar-none snap-x snap-mandatory -mx-4 px-4 pb-2"
       >
         {TIER_COLUMNS.map((column, i) => (
           <TierCard key={column.id} column={column} index={i} />

@@ -215,7 +215,14 @@ export function PhaseRail() {
           aria-hidden="true"
         />
 
-        <ol ref={trackRef} className="phase-track flex md:block gap-3 md:gap-0 md:space-y-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-none -mx-4 px-4 md:mx-0 md:px-0 pb-2 md:pb-0">
+        <ol
+          ref={trackRef}
+          // Horizontal and snapping below 768px, which makes it a scrollable region a keyboard has
+          // to be able to reach; above it the list is vertical and the tab stop is harmless.
+          tabIndex={0}
+          aria-label="Campaign phases"
+          className="fx-focus phase-track flex md:block gap-3 md:gap-0 md:space-y-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-none -mx-4 px-4 md:mx-0 md:px-0 pb-2 md:pb-0"
+        >
           {PHASES.map((phase, i) => {
             const detail = DETAIL[phase.id];
             const anchor = ANCHORS.find((a) => Math.round(a.at * (PHASES.length - 1)) === i);

@@ -31,6 +31,14 @@ import { ChevronDown, CornerDownRight } from "lucide-react";
  *      the document already says twice.
  *   2. It does not move the paragraph. The text stays exactly where the author put it, in its
  *      own section, in reading order.
+ *
+ * WHY THE ANCHOR SITS IN THE PANEL AND NOT IN THE SUMMARY. It used to be in the summary line,
+ * which read better and failed axe-core's `nested-interactive`: a `<summary>` is itself the
+ * disclosure's control, and a focusable element inside one is unreachable in the browse modes of
+ * several screen readers — the link was there for a mouse and absent for the readers who most
+ * need a way out of a repeated paragraph. The summary is now the toggle and nothing else, and the
+ * anchor is the first thing in the panel. Both are in the server HTML, the panel ships open, so
+ * with JavaScript off the link is simply visible; nothing was removed, it moved one line down.
  */
 export function CrossRef({
   section,
@@ -55,10 +63,7 @@ export function CrossRef({
         <CornerDownRight size={13} className="shrink-0 text-muted" aria-hidden="true" />
         <span className="t-micro leading-snug text-muted">
           {verbatim ? "Repeats" : "Restates"}{" "}
-          {/* A real anchor: it works with JavaScript off, and it is the point of the control. */}
-          <a href={href} className="font-semibold text-accent underline underline-offset-2">
-            {section}
-          </a>{" "}
+          <span className="font-semibold text-ink">{section}</span>{" "}
           <span className="tabular-nums">· {words} words</span>
         </span>
         <span className="crossref-toggle ml-auto inline-flex items-center gap-1 t-micro font-bold text-muted group-hover:text-ink">
@@ -71,7 +76,15 @@ export function CrossRef({
           />
         </span>
       </summary>
-      <div className="border-t border-line/60 px-3 py-2.5 text-ink">{children}</div>
+      <div className="border-t border-line/60 px-3 py-2.5 text-ink">
+        {/* A real anchor: it works with JavaScript off, and it is the point of the control. */}
+        <p className="t-micro mb-2 leading-snug text-muted">
+          <a href={href} className="font-semibold text-accent underline underline-offset-2">
+            Read it in context in {section}
+          </a>
+        </p>
+        {children}
+      </div>
     </details>
   );
 }

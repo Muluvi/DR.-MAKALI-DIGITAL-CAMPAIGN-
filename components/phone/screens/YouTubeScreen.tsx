@@ -118,7 +118,13 @@ export function YouTubeScreen() {
         </div>
 
         {/* Action pills */}
-        <div className="flex items-center gap-2 px-3 pt-2.5 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
+        <div
+          className="flex items-center gap-2 px-3 pt-2.5 overflow-x-auto"
+          tabIndex={0}
+          role="group"
+          aria-label="Video action pills, scrollable"
+          style={{ scrollbarWidth: "none" }}
+        >
           <span
             className="flex items-center rounded-full shrink-0"
             style={{ background: "#f2f2f2", fontSize: "0.78125em", fontWeight: 500, color: FG }}

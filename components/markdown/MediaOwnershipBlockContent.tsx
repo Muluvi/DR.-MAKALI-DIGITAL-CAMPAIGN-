@@ -6,10 +6,18 @@ import { TierBadge } from "./TierBadge";
 import { RADIO_STATIONS } from "../../data/media-ownership";
 import MediaOwnershipChart, { type StationBar } from "../charts/MediaOwnershipChart";
 
+/**
+ * The three reported-alignment categories, as theme tokens rather than fixed hexes.
+ *
+ * These were the light-theme party colours, painted straight onto station labels in both themes.
+ * On the dark ground #0056a8 measured 2.63:1 and #b45309 3.74:1 — the label said which owner a
+ * station answers to, in a colour that could not be read. The tokens keep the hues and let each
+ * theme set the lightness. See --align-a/b/c in app/globals.css.
+ */
 function alignmentColor(alignment: string): string {
-  if (alignment.includes("Ngilu")) return "#e31d2b";
-  if (alignment.includes("Kalonzo")) return "#b45309";
-  return "#0056a8";
+  if (alignment.includes("Ngilu")) return "var(--align-a)";
+  if (alignment.includes("Kalonzo")) return "var(--align-b)";
+  return "var(--align-c)";
 }
 
 const CHART_DATA: StationBar[] = RADIO_STATIONS.map((s) => ({
@@ -46,7 +54,7 @@ export function MediaOwnershipBlockContent() {
       </div>
 
       {/* Accessible table equivalent */}
-      <div className="overflow-x-auto">
+      <div className="not-prose fx-focus overflow-x-auto" tabIndex={0} role="group" aria-label="Media ownership table, scrollable">
         <table className="data-table text-left t-small">
           <thead>
             <tr className="t-micro font-bold text-muted">

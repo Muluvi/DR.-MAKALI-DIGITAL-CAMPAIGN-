@@ -43,6 +43,20 @@
      Using one token for both is what put white-on-#348ff9 at 3.25:1 in the audit. */
   --color-accent-solid: var(--accent-solid);
   --color-on-accent: var(--on-accent);
+  /* The same split for the party's second colour. `gold` is TEXT and STROKE; `gold-solid` is the
+     FILL that `on-gold` sits on. The dark theme's --gold is a vivid crimson chosen to read on
+     black, and white on it measures 3.19:1 — so a badge, a pill or a calendar cell filled with
+     it needs its own token, exactly as accent did. */
+  --color-gold-solid: var(--gold-solid);
+  --color-on-gold: var(--on-gold);
+
+  /* Reported owner alignment, as used by the media-ownership figure. Three categories, each
+     readable AS TEXT on this theme's card: the labels were hard-coded light-theme party hexes,
+     and #0056a8 on the dark ground measured 2.63:1. Hue is preserved per theme, lightness is
+     not — a category colour has to be legible before it can mean anything. */
+  --color-align-a: var(--align-a);
+  --color-align-b: var(--align-b);
+  --color-align-c: var(--align-c);
   --color-rival: var(--rival);
   --color-rival-solid: var(--rival-solid);
   --color-unmeasured: var(--unmeasured-color);
@@ -86,6 +100,11 @@
   --rival: oklch(0.48 0.09 220);
   --rival-solid: oklch(0.48 0.08 220); /* 6.36:1 against white */
   --gold: oklch(0.46 0.16 48);    /* Wiper Official Earth Red — refined for >4.6:1 text contrast */
+  --gold-solid: oklch(0.46 0.17 38); /* as a fill: white sits on it, in every theme */
+  --on-gold: oklch(1 0 0);
+  --align-a: #b3121e;   /* alignment category A — 7.1:1 on white */
+  --align-b: #8a4a06;   /* alignment category B — 7.0:1 on white */
+  --align-c: #0056a8;   /* alignment category C — 7.1:1 on white */
   --dark: oklch(0.18 0.04 252);
   --danger: oklch(0.55 0.22 27);
   --glow: oklch(0.35 0.22 265 / 0.15);
@@ -151,7 +170,12 @@
   --on-accent: oklch(1 0 0);
   --rival: oklch(0.74 0.07 220);
   --rival-solid: oklch(0.48 0.08 220);
-  --gold: oklch(0.68 0.21 22);    /* Vivid crimson red */
+  --gold: oklch(0.68 0.21 22);    /* Vivid crimson red — text and stroke only */
+  --gold-solid: oklch(0.46 0.17 38); /* the fill stays dark in both themes; white sits on it */
+  --on-gold: oklch(1 0 0);
+  --align-a: #ff6b73;   /* the same three categories, lifted to read on the dark ground */
+  --align-b: #f0a742;
+  --align-c: #7bb3ff;
   --dark: oklch(1 0 0);
   --danger: oklch(0.68 0.21 22);
   --glow: oklch(0.70 0.16 255 / 0.15);
@@ -195,6 +219,11 @@
   --rival: oklch(0.48 0.08 220);
   --rival-solid: oklch(0.48 0.08 220);
   --gold: oklch(0.44 0.16 42);
+  --gold-solid: oklch(0.44 0.16 42);
+  --on-gold: oklch(1 0 0);
+  --align-a: #a3131f;
+  --align-b: #7d4407;
+  --align-c: #0b4f95;
   --dark: oklch(0.22 0.035 55);
   --danger: oklch(0.55 0.20 27);
   --glow: oklch(0.36 0.18 262 / 0.12);
@@ -1359,6 +1388,11 @@ html {
     --line: #c9d5e2;
     --accent: #0056a8;
     --gold: #a9151f;
+    --gold-solid: #a9151f;
+    --on-gold: #ffffff;
+    --align-a: #b3121e;
+    --align-b: #8a4a06;
+    --align-c: #0056a8;
     --prose-body: #263241;
     --prose-strong: #0a172c;
     --prose-bg-nested: #ffffff;

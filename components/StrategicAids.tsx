@@ -60,7 +60,7 @@ export function AudioSummaryPlayer() {
         <button
           onClick={() => setLanguage("kik")}
           className={`flex-1 t-small font-bold py-1.5 rounded-lg border transition-all ${
- language === "kik" ? "bg-gold text-white border-gold" : "bg-card text-muted border-line"
+ language === "kik" ? "bg-gold-solid text-on-gold border-gold-solid" : "bg-card text-muted border-line"
           }`}
         >
           Kikamba Summary
@@ -90,10 +90,20 @@ export function AudioSummaryPlayer() {
 
       <div className="flex items-center gap-4">
         <button
+          type="button"
+          // The icon IS the whole button, so without this the control announces as "button" and
+          // nothing else. The label carries the language too, because the pair of buttons above
+          // changes what this one plays and a screen reader user cannot see which is selected.
+          aria-label={
+            isPlaying
+              ? `Pause the ${language === "en" ? "English" : "Kikamba"} strategy brief`
+              : `Play the ${language === "en" ? "English" : "Kikamba"} strategy brief`
+          }
+          aria-pressed={isPlaying}
           onClick={() => setIsPlaying(!isPlaying)}
           className="p-3 rounded-full bg-accent-solid text-on-accent hover:bg-accent/90 transition-all shadow-md shrink-0 flex items-center justify-center cursor-pointer"
         >
-          {isPlaying ? <Pause size={16} /> : <Play size={16} className="ml-0.5" />}
+          {isPlaying ? <Pause size={16} aria-hidden="true" /> : <Play size={16} aria-hidden="true" className="ml-0.5" />}
         </button>
         <div className="flex-1">
           <div className="relative w-full h-1.5 bg-line rounded-full overflow-hidden">
@@ -249,7 +259,7 @@ export function CounterMessagingGrid() {
       <h4 className="font-serif text-sm font-bold text-ink">Opposition Counter-Narrative Matrix</h4>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="p-4 bg-red-500/[0.03] border border-red-500/20 rounded-xl">
-          <span className="t-micro font-black text-red-600">Opposition Claim</span>
+          <span className="t-micro font-black text-danger">Opposition Claim</span>
           <p className="t-small text-muted mt-1.5 leading-relaxed">
             &ldquo;Wiper&apos;s offline model fails to match digitized investment and high-tech corporate frameworks.&rdquo;
           </p>
@@ -275,10 +285,13 @@ export function MediaPlaybackMockup() {
         {/* Soft background visual glow pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-gold/10" />
         <button
+          type="button"
+          aria-label={playing ? "Pause the Kikamba radio commercial spot" : "Play the Kikamba radio commercial spot"}
+          aria-pressed={playing}
           onClick={() => setPlaying(!playing)}
           className="p-4 rounded-full bg-accent-solid text-on-accent hover:bg-accent/90 transition-all shadow-md relative z-10 cursor-pointer"
         >
-          {playing ? <Pause size={20} /> : <Play size={20} className="ml-0.5" />}
+          {playing ? <Pause size={20} aria-hidden="true" /> : <Play size={20} aria-hidden="true" className="ml-0.5" />}
         </button>
         <span className="absolute bottom-2 left-3 t-micro font-black uppercase text-accent bg-card px-2 py-0.5 rounded border border-line">
           Vernacular Radio Broadcast Player
@@ -343,11 +356,18 @@ export function ToneVoiceSlider() {
             <span>Empathetic Grassroots</span>
           </div>
           <div className="relative w-full flex items-center">
-            <input 
+            <input
+              id="tone-voice-slider"
               type="range"
               min="0"
               max="100"
               value={sliderVal}
+              // The two headings above the track are the visible label, but they are two separate
+              // spans at either end of a flex row — there is no single element a <label for> could
+              // point at that reads as one name. aria-valuetext replaces the bare percentage the
+              // screen reader would otherwise announce with the thing the number means.
+              aria-label="Campaign voice balance, from authoritative technical to empathetic grassroots"
+              aria-valuetext={`${sliderVal} percent grassroots weight — ${tone.type}`}
               onChange={(e) => setSliderVal(parseInt(e.target.value))}
               className="w-full accent-accent h-2 bg-line/60 rounded-full cursor-pointer appearance-none"
             />
@@ -415,7 +435,7 @@ export function SloganBuilder() {
               key={pill}
               onClick={() => handleToggle(pill)}
               className={`t-label font-extrabold uppercase py-1 px-2.5 rounded-full border transition-all cursor-pointer ${
- isSelected ? "bg-gold border-gold text-white" : "bg-paper border-line text-muted hover:border-gold/30"
+ isSelected ? "bg-gold-solid border-gold-solid text-on-gold" : "bg-paper border-line text-muted hover:border-gold/30"
               }`}
             >
               {pill}

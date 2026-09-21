@@ -21,7 +21,7 @@ currently tells Dr. Mulu he wins.
 | **Page height** at 390 px | 467,728 px | **325,938 px** | −30.3% |
 | **Reading time offered** | 289 min, take it or leave it | **Brief 109 min · Full 237 min** | a choice, both measured |
 | **Words shown on a first read** | 63,337 (all of them) | **~23,900 (Brief, 109 of 237 min)** | nothing deleted |
-| **First-load JS** | 458 kB | **491 kB** | **+33 kB over baseline — a regression, see §2.7** |
+| **First-load JS** | 458 kB | **447 kB** | **11 kB under baseline — see §2.7 for the regression that got there** |
 | **Figures under headings** | 272, of which 99 measured nothing | **152, all measuring something** | 102 headings now carry none |
 | **Wrong table aggregates** | "Combined 68.7%" and three more, shipped | **none** | opt-in, per table, by name |
 | **Figures reading zero with JS off** | `KSh0.00bn`, `0.0%`, `≈0k` | **none** | |
@@ -242,12 +242,13 @@ build when a heading has no figure, it fails when a retired kind comes back.
   sideways on a phone and clipped its own labels — are one server-rendered strip.
 - 14 components implementing denied effects were deleted outright, with their four files.
 
-### 2.7 First-load JS went over budget, and this is the one promise this pass broke
+### 2.7 First-load JS went over budget, and the fix is now in
 
-**458 kB at baseline, 453 kB when §7 was written, 491 kB now.** The budget was “not above
-baseline”, and the finished branch is **33 kB above it**. It went over between that measurement and
-the last of the 67 retirements, and nothing re-measured it until the work was done. Stated here
-rather than left in a build log.
+**458 kB at baseline, 453 kB when §7 was written, 491 kB at the end of the retirements, 447 kB
+now.** The budget was “not above baseline”. It went **33 kB above it** between that second
+measurement and the last of the 67 retirements, and nothing re-measured it until the work was
+done — which is the part worth recording. The fix described below has since been applied, and the
+branch lands **11 kB under baseline**. Stated here rather than left in a build log.
 
 **The cause is one import edge.** `MarkdownViewer` is a client component — it has to be, it carries
 the Brief/Full switch and the disclosures — and it imports `Figure` from
@@ -261,11 +262,16 @@ identically on the server; nothing in a figure is interactive except the `detail
 `PrintSafeDisclosures` toggles. The data is shipped to the browser to render something the browser
 never changes.
 
-**The fix is a prop, not a rewrite:** render the figures on the server and pass them into
-`MarkdownViewer` as a map of ready React nodes, the way a client component is meant to receive
-server-rendered children. It is a contained change with a clear test — the build's First Load JS
-line — and it is recommended rather than attempted here, because it touches the render path of
-every page at the end of a long pass. `LAUNCH.md` carries it as the first engineering item.
+**The fix was a boundary, not a rewrite.** `components/figures/FigureBoundary.tsx` puts the
+registry behind `next/dynamic` so the eight data modules leave the first-load chunk, and it keeps
+`ssr: true` — which is the whole subtlety, and the opposite of the `ssr: false` this repo uses for
+the charting runtime. A chart with no JavaScript is no chart; a figure with no JavaScript is the
+thing that made retiring 67 ASCII blocks defensible. The final values stay in the server HTML,
+the printed kit renders from that same HTML, and rule 4 holds.
+
+**Measured: 491 kB → 447 kB**, against a 458 kB baseline. Verified alongside it: figures still
+render with JavaScript disabled on `/reach`, `/arithmetic`, `/measurement` and `/scope-data`, and
+the printed `/reach` is 24 pages either way.
 
 ---
 

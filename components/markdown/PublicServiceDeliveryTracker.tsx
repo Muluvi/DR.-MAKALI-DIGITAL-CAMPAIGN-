@@ -230,6 +230,9 @@ export function PublicServiceDeliveryTracker() {
         <form onSubmit={handleSubmitSim} className="space-y-2">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
             <select
+              // The form's heading names the whole simulation, not this control, so a screen
+              // reader reached "combo box" with no indication of what it selects.
+              aria-label="Ward the simulated issue is submitted from"
               value={wardInput}
               onChange={(e) => setWardInput(e.target.value)}
               className="p-2 bg-card border border-line rounded-lg t-label font-semibold text-ink"
@@ -243,6 +246,7 @@ export function PublicServiceDeliveryTracker() {
 
             <input
               type="text"
+              aria-label="The ward issue being reported"
               placeholder="e.g. Broken solar borehole pump at Kavuvwani market"
               value={issueInput}
               onChange={(e) => setIssueInput(e.target.value)}

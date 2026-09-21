@@ -113,7 +113,7 @@ export function FigureFrame({
           <summary className="t-micro cursor-pointer font-semibold text-accent marker:text-accent">
             View the data
           </summary>
-          <div className="mt-2 overflow-x-auto">
+          <div className="fx-focus mt-2 overflow-x-auto" tabIndex={0} role="group" aria-label="Figure data table, scrollable">
             {data ?? <SeriesTable series={series} />}
           </div>
         </details>
