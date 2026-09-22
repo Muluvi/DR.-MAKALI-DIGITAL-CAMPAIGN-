@@ -52,12 +52,18 @@ export function hasUnresolvedFigure(text: string): boolean {
   return UNRESOLVED.test(text);
 }
 
-const LEADING_NUMBER = /^(\d+[A-Z]?(?:\.\d+)*)/;
+const LEADING_NUMBER = /^((?:\d+[A-Z]?(?:\.\d+)*|[A-G](?:\.\d+)+))/;
 
 export type Segment =
   | { kind: "markdown"; text: string }
   | { kind: "group"; id: string; panels: { label: string; text: string; unresolved: boolean }[] }
-  | { kind: "fold"; id: string; text: string };
+  | { kind: "fold"; id: string; text: string }
+  /**
+   * A subsection split for Brief mode: what a first read needs, and everything else behind one
+   * control. `shown` and `hidden` together are the whole body, in order within each part — no
+   * word of it is dropped.
+   */
+  | { kind: "brief"; id: string; number: string; shown: string; hidden: string; hiddenWords: number };
 
 const FENCE = /^\s*```/;
 const SECTION_HEADING = /^(#{2,3})\s+(.+?)\s*$/;
@@ -147,6 +153,83 @@ function splitLead(body: string[]): { lead: string[]; rest: string[] } {
   return { lead: body, rest: [] };
 }
 
+/** Below this, folding costs the reader a tap to save less scroll than the tap was worth. */
+const MIN_BRIEF_HIDDEN = 120;
+
+/**
+ * What a first read of a subsection needs, and what can wait.
+ *
+ * KEPT: the lead paragraph, because a subsection has to say what it is; every callout, because
+ * the document uses blockquotes for decisions, caveats and tier status and those are exactly the
+ * things a skimming reader must not miss; every figure, because the whole point of this pass is
+ * that figures carry the argument; and any paragraph that is wholly bold, because this document
+ * writes its findings that way.
+ *
+ * FOLDED: the remaining prose, the lists and the tables.
+ *
+ * ORDER, AND THE ONE HONEST COMPROMISE. The kept blocks stay in document order and the folded
+ * blocks stay in document order, but a folded block that sat between two kept ones moves below
+ * them. The brief asks for ONE disclosure per subsection, and one disclosure cannot hold blocks
+ * that are interleaved with visible ones without either reordering or splitting into several
+ * controls. Several controls is worse: it turns a section into a row of drawers, which is the
+ * failure the existing DisclosureGroup comment already warns about. Nothing is lost either way,
+ * and Full restores the document's own order exactly.
+ */
+function splitBrief(body: string[]): { shown: string[]; hidden: string[] } {
+  const shown: string[] = [];
+  const hidden: string[] = [];
+
+  let inFence = false;
+  let fenceIsFigure = false;
+  let leadTaken = false;
+  let block: string[] = [];
+  let blockIsFence = false;
+
+  const isBrief = (lines: string[], wasFigureFence: boolean): boolean => {
+    const text = lines.join("\n").trim();
+    if (!text) return true;
+    if (wasFigureFence) return true;                       // a figure always shows
+    if (/^\s*>/.test(lines[0])) return true;                // a callout always shows
+    // A finding written as a whole bold paragraph.
+    if (/^\*\*[\s\S]+\*\*$/.test(text)) return true;
+    if (!leadTaken && !/^\s*(?:[*\-+]|\d+\.)\s/.test(lines[0]) && !/^\s*\|/.test(lines[0])) {
+      leadTaken = true;                                    // the lead paragraph
+      return true;
+    }
+    return false;
+  };
+
+  const emit = () => {
+    if (block.length === 0) return;
+    (isBrief(block, blockIsFence && fenceIsFigure) ? shown : hidden).push(...block, "");
+    block = [];
+    blockIsFence = false;
+  };
+
+  for (const line of body) {
+    if (FENCE.test(line)) {
+      if (!inFence) {
+        emit();
+        inFence = true;
+        blockIsFence = true;
+        fenceIsFigure = /^\s*```figure\s*$/.test(line);
+        block.push(line);
+        continue;
+      }
+      inFence = false;
+      block.push(line);
+      emit();
+      continue;
+    }
+    if (inFence) { block.push(line); continue; }
+    if (line.trim() === "") { emit(); continue; }
+    block.push(line);
+  }
+  emit();
+
+  return { shown, hidden };
+}
+
 /**
  * @param isClosingSection the section the proposal ends on. Its final block is the ask, and the
  * ask is never folded — a proposal that hides what it wants behind a "read more" does not close,
@@ -217,11 +300,86 @@ export function segmentContent(markdown: string, { isClosingSection = false } = 
         pending.push(line, ...body);
       }
     } else {
-      pending.push(line, ...body);
+      // Brief mode: every remaining subsection opens on what a first read needs, with the rest
+      // one tap away. The group and fold branches above already collapse the heaviest sections,
+      // so this is what turns the other two hundred from a wall into a scannable document.
+      const { shown, hidden } = splitBrief(body);
+      const hiddenWords = wordCount(hidden);
+      if (hiddenWords >= MIN_BRIEF_HIDDEN && !(isClosingSection && j >= lines.length)) {
+        pending.push(line, ...shown);
+        flush();
+        segments.push({
+          kind: "brief",
+          id: cleanLabel(heading[2]),
+          number: number ?? "",
+          shown: "",
+          hidden: hidden.join("\n"),
+          hiddenWords,
+        });
+      } else {
+        pending.push(line, ...body);
+      }
     }
     i = j;
   }
 
   flush();
   return segments;
+}
+
+/* ------------------------------------------------------------------ rule 1b: cross-references */
+
+import duplicatesFile from "../data/duplicates.json";
+
+/**
+ * A paragraph the reader has already read, folded behind a line naming where they read it.
+ *
+ * RULE 1b SAYS A DUPLICATE IS COLLAPSED, NOT CUT, and this is the whole of the mechanism. The
+ * second copy stays in the markdown, stays in the DOM and stays in the printed kit; what changes
+ * is that it arrives as one line — "§2.1 restates §0.1" — with the text itself one tap away.
+ * Nothing is deleted, so nothing needs Firefly's approval before it ships.
+ *
+ * It is keyed on the paragraph's opening 60 characters rather than a marker in the markdown,
+ * because the content is under an integrity guard and must not be edited to carry one. That makes
+ * the match fragile by construction, which is why `scripts/find-duplicates.mjs --check` re-derives
+ * the whole set on every build: a declaration whose paragraph has moved or been reworded fails
+ * there rather than silently collapsing nothing, or the wrong thing.
+ */
+export type DuplicateDeclaration = {
+  id: string;
+  score: number;
+  note: string;
+  canonical: { chapter: string; section: string; href: string; opening: string; words: number };
+  duplicate: { chapter: string; section: string; opening: string; words: number };
+};
+
+const DUPLICATES = (duplicatesFile as { duplicates: DuplicateDeclaration[] }).duplicates;
+
+/** The declarations whose second copy lives in this chapter. */
+export function duplicatesIn(chapter: string): DuplicateDeclaration[] {
+  return DUPLICATES.filter((d) => d.duplicate.chapter === chapter);
+}
+
+/**
+ * The declaration whose duplicate paragraph starts with this text, if any.
+ *
+ * MATCHED AT RENDER, NOT AT SEGMENTATION, and the difference matters. A first attempt split the
+ * `markdown` segments and found nothing: almost every paragraph in this document lives inside a
+ * `brief` segment, because Brief mode splits every subsection into a lead and the rest. Matching
+ * in the paragraph renderer instead reaches the text wherever segmentation put it — markdown,
+ * brief, fold or disclosure panel — and leaves reading order exactly as the author wrote it,
+ * which lifting a paragraph out of a fold would not.
+ *
+ * The comparison folds whitespace, because markdown paragraphs wrap in the source and arrive
+ * unwrapped, and strips the emphasis markers ReactMarkdown has already turned into elements.
+ */
+const foldForMatch = (s: string) => s.replace(/\s+/g, " ").replace(/[*_`]/g, "").trim();
+
+export function crossRefFor(chapter: string, paragraphText: string): DuplicateDeclaration | null {
+  const text = foldForMatch(paragraphText);
+  for (const d of DUPLICATES) {
+    if (d.duplicate.chapter !== chapter) continue;
+    if (text.startsWith(foldForMatch(d.duplicate.opening))) return d;
+  }
+  return null;
 }

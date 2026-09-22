@@ -56,7 +56,7 @@ export default function MediaOwnershipChart({ data }: { data: StationBar[] }) {
   let order = 0;
 
   return (
-    <div ref={ref} className="w-full overflow-x-auto">
+    <div ref={ref} className="fx-focus w-full overflow-x-auto" tabIndex={0} role="group" aria-label="Media ownership chart, scrollable">
       <div className="min-w-[26rem]">
         {/* Column heads — the alignment axis. */}
         <div className="grid grid-cols-[5.5rem_repeat(3,minmax(0,1fr))] gap-1.5 mb-1.5">

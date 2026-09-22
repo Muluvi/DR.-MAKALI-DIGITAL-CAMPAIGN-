@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Kitui 2027">
+  <!--
+    The tab icon. Typographic for the same reason the share card is (D-8): a confidential proposal
+    should not paint the candidate's face into every browser tab and phone home screen it is
+    forwarded to. The two colours are the party's, in the same order the site's progress bar and
+    the share card use them — accent (royal blue) to gold (earth red).
+
+    Drawn as one path per glyph rather than as text, so it needs no font to be present. At 16px
+    only the bar and the K read, which is the intent: a mark, not a legend.
+  -->
+  <rect width="64" height="64" rx="12" fill="#f3f5f9"/>
+  <rect y="0" width="64" height="7" rx="3.5" fill="url(#edge)"/>
+  <defs>
+    <linearGradient id="edge" x1="0" y1="0" x2="64" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2b3ea8"/>
+      <stop offset="1" stop-color="#a9151f"/>
+    </linearGradient>
+  </defs>
+  <!-- K -->
+  <path d="M14 20h7v10.4L31.2 20H40L28.6 31.9 40.6 46h-8.7l-8-9.9-2.9 3V46h-7z" fill="#2b3ea8"/>
+  <!-- 27, set small and low, the way the card sets its year -->
+  <text x="44" y="46" font-family="Georgia, 'DejaVu Serif', serif" font-size="15" font-weight="700" fill="#a9151f">27</text>
+</svg>

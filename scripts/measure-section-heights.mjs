@@ -30,15 +30,34 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = path.join(ROOT, "data", "section-heights.json");
 const BASE = process.argv[2] ?? "http://localhost:3000";
 
-const { chromium } = await import("playwright").catch(() => {
-  console.error("measure-section-heights: playwright is not installed. See the note at the top of this file.");
-  process.exit(1);
-});
+/**
+ * Resolve playwright from wherever it happens to be.
+ *
+ * A bare `import("playwright")` ignores NODE_PATH — ESM resolution does not consult it — so the
+ * instruction at the top of this file was a lie for anyone who followed it. Fall back to
+ * CommonJS resolution, which does honour NODE_PATH, before giving up.
+ */
+const { chromium } = await (async () => {
+  try {
+    return await import("playwright");
+  } catch {
+    const { createRequire } = await import("node:module");
+    const req = createRequire(import.meta.url);
+    for (const dir of (process.env.NODE_PATH ?? "").split(path.delimiter).filter(Boolean)) {
+      try { return req(path.join(dir, "playwright")); } catch { /* try the next one */ }
+      try { return req(path.join(dir, "playwright-core")); } catch { /* try the next one */ }
+    }
+    console.error("measure-section-heights: playwright is not installed. See the note at the top of this file.");
+    process.exit(1);
+  }
+})();
 
 // The container ships Chromium at a fixed path with PLAYWRIGHT_BROWSERS_PATH pointing at it;
 // honour an explicit override so this runs wherever the browser actually is.
 const browser = await chromium.launch(
-  process.env.PLAYWRIGHT_CHROMIUM ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM } : {}
+  process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE ?? process.env.PLAYWRIGHT_CHROMIUM
+    ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE ?? process.env.PLAYWRIGHT_CHROMIUM }
+    : {}
 );
 // 390px is the reference phone width the flow is designed against — the reservation only has to
 // be right for the readers it protects, and they are on phones.

@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
+import { useReadingMode, type ReadingMode } from "../../lib/reading-mode";
+
 /**
  * A run of comparable blocks, one open at a time.
  *
@@ -13,6 +15,11 @@ import { ChevronDown } from "lucide-react";
  *
  * The panels are rendered on the server and passed in as children — this component only owns
  * which one is showing, so no markdown or parser reaches the client bundle for them.
+ *
+ * IN FULL MODE, EVERY PANEL IS OPEN. "Full" has to mean the whole document in the document's own
+ * order, or the control is lying: a reader who asks for everything and is handed a row of closed
+ * drawers with one open has not been given everything. Brief keeps the accordion, which is what
+ * makes a six-segment matrix legible at a glance in the first place.
  */
 export function DisclosureGroup({
   labels,
@@ -24,18 +31,25 @@ export function DisclosureGroup({
   unresolved?: boolean[];
   children: React.ReactNode[];
 }) {
-  const [open, setOpen] = useState(0);
+  const { mode } = useReadingMode();
+
+  // The mode sets the default; a manual tap wins until the mode changes again. The override
+  // records which mode it was made under, so a change of mode retires it by derivation rather
+  // than by an effect resetting state after render.
+  const [override, setOverride] = useState<{ mode: ReadingMode; index: number } | null>(null);
+  const openIndex = override?.mode === mode ? override.index : 0;
+  const allOpen = mode === "full" && override?.mode !== mode;
 
   return (
     <div className="not-prose my-6 border border-line/70 rounded-2xl overflow-hidden bg-card/40">
       {labels.map((label, i) => {
-        const isOpen = i === open;
+        const isOpen = allOpen || i === openIndex;
         return (
           <div key={label} className={i > 0 ? "border-t border-line/70" : undefined}>
             <h4 className="m-0">
               <button
                 type="button"
-                onClick={() => setOpen(isOpen ? -1 : i)}
+                onClick={() => setOverride({ mode, index: isOpen ? -1 : i })}
                 aria-expanded={isOpen}
                 className={`w-full flex items-center gap-3 text-left px-4 py-3.5 sm:px-5 cursor-pointer transition-colors min-h-[52px] ${
  isOpen ? "bg-accent/[0.06] text-ink" : "text-muted hover:bg-ink/[0.03] hover:text-ink"

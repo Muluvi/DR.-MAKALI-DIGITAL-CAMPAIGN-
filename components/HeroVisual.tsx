@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "motion/react";
 import { DURATION, EASE_ENTRANCE, disclosure } from "../lib/motion";
 import { X, CheckCircle2, ChevronRight, Layers, Compass, Sparkles, Shield } from "lucide-react";
 import { CONSTITUENCIES } from "../data/ward-register";
+import { useFinePointer, useMediaQuery, useReducedMotion, useSaveData } from "../hooks/use-media-query";
+import { UnderReview } from "./figures/UnderReview";
 
 interface StageDetail {
   id: string;
@@ -60,9 +62,35 @@ export function HeroVisual() {
   const [selectedStage, setSelectedStage] = useState<StageDetail | null>(null);
   const [selectedConstituency, setSelectedConstituency] = useState<VolumetricConstituency | null>(null);
   const [showPillars, setShowPillars] = useState(true);
-  const [viewMode, setViewMode] = useState<"3d" | "flow">("3d");
+  /**
+   * 2D is the default, and 3D is something a desktop reader asks for.
+   *
+   * This opened in "3d": an isometric terrain of eight extruded constituency pillars, rendered
+   * above the fold, tilting under the pointer. It is the heaviest thing on the first screen, and
+   * the reader this document is written for meets that screen on a phone, quite possibly on
+   * mobile data. The pipeline view carries the same four stages and the same figures.
+   *
+   * So the terrain is now opt-in, and only where it can be operated and afforded: a fine pointer
+   * (the tilt is a pointer gesture and does nothing on a touchscreen), a viewport wide enough to
+   * read it, no Data Saver, and no reduced-motion request. Where any of those fails the toggle is
+   * not rendered at all, rather than offered and then disappointing.
+   */
+  const [wants3D, setWants3D] = useState(false);
   const [tilt, setTilt] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const finePointer = useFinePointer();
+  const saveData = useSaveData();
+  const reduceMotion = useReducedMotion();
+  const wideViewport = useMediaQuery("(min-width: 1024px)");
+  const canOffer3D = finePointer && wideViewport && !saveData && !reduceMotion;
+
+  // Derived, not stored and corrected. The reader's request and the device's capability are two
+  // separate facts, and the view is a function of both — so a reader who reaches 3D and then
+  // narrows the window, enables Data Saver or picks up a touchscreen falls back to the view that
+  // works, on the same render, without an effect reaching in to fix state after the fact.
+  const viewMode: "3d" | "flow" = wants3D && canOffer3D ? "3d" : "flow";
+  const setViewMode = (mode: "3d" | "flow") => setWants3D(mode === "3d");
 
   const stages: StageDetail[] = [
     {
@@ -150,9 +178,10 @@ export function HeroVisual() {
   // Mouse & Touch 3D tilt calculations with RAF throttling and reduced-motion support
   const rafRef = useRef<number | null>(null);
   const handlePointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
-    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
-    }
+    // Tilt belongs to the 3D terrain and to nothing else. It used to run in both views and on
+    // touch, where a drag across the panel rocked a flat diagram for no reason and cost a frame
+    // on every pointer event.
+    if (viewMode !== "3d" || !canOffer3D) return;
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
@@ -165,7 +194,7 @@ export function HeroVisual() {
         y: x * 8
       });
     });
-  }, []);
+  }, [viewMode, canOffer3D]);
 
   const handlePointerLeave = useCallback(() => {
     if (rafRef.current) cancelAnimationFrame(rafRef.current);
@@ -205,6 +234,7 @@ export function HeroVisual() {
         {/* Action buttons & View Mode Switcher */}
         <div className="flex items-center gap-1.5 self-start xs:self-center">
           <div className="inline-flex p-0.5 bg-paper border border-line/60 rounded-xl">
+            {canOffer3D && (
             <button
               onClick={() => setViewMode("3d")}
               className={`px-2.5 py-1 min-h-[44px] min-w-[44px] justify-center t-micro font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 ${
@@ -217,6 +247,7 @@ export function HeroVisual() {
               <Layers size={11} />
               <span>3D Terrain</span>
             </button>
+            )}
             <button
               onClick={() => setViewMode("flow")}
               className={`px-2.5 py-1 min-h-[44px] min-w-[44px] justify-center t-micro font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1 ${
@@ -259,6 +290,20 @@ export function HeroVisual() {
             </button>
           )}
         </div>
+      </div>
+
+      {/* Hard rule 2: the figure shows that it is disputed rather than quietly picking a side.
+
+          This panel labels its DIGITAL stage "200,198 registered voters — the Mwingi bloc", while
+          §3.6 argues the Mwingi bloc is reached offline and §3.6.3 rebalances effort away from
+          digital (45 -> 18) and towards Kikamba radio (20 -> 37) for exactly that reason. The
+          label is content, so it stays as written and is flagged here for Firefly. */}
+      <div className="px-3.5 pt-3 sm:px-4.5">
+        <UnderReview ids={["C-15"]}>
+          This figure labels its digital stage with the Mwingi bloc&rsquo;s 200,198 registered
+          voters, while §3.6 argues that bloc is reached offline. The stage labels have not been
+          changed.
+        </UnderReview>
       </div>
 
       {/* Main Canvas Area */}

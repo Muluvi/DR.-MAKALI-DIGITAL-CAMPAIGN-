@@ -14,6 +14,8 @@
  *   2. Nine orientation lines were added, one per content section, so the new side drops them.
  *   3. Cross-references were repointed to the new numbering, which is the only permitted body
  *      edit — so a "Section 4.3.2" token is normalised away on both sides before comparing.
+ *      Since the 2026 restructure that includes LETTER addresses ("Annex F", "F.12", "G.1"),
+ *      because the annexes are now lettered and the polls annex displaced three of them.
  *
  * Anything else that differs is a content change, and this script fails the build for it.
  *
@@ -283,12 +285,27 @@ function normalise(text) {
     .replace(/^\u2550{50,}$/gm, "\u2550".repeat(84))
     // The tail of a multi-target reference ("Sections 1.2.1 and 2.1.1") collapses with its head,
     // or half the reference stays visible and a repoint reads as an edit.
+    // The 2026 restructure gave the annexes letter addresses (A.1, C.2, F.12, G.1), so a
+    // reference head is now a number OR a letter. Without this every repointed annex reference
+    // reads as a prose edit — thirty-four of them did, on the first run of this guard after it.
     .replace(
-      /(?:Sub)?sections?\s*\d+[A-Za-z]?(?:\.\d+)*(?:\s*(?:,|and|&)\s*\d+[A-Za-z]?(?:\.\d+)*)*/gi,
+      /(?:Sub)?sections?\s*(?:\d+[A-Za-z]?|[A-G])(?:\.\d+)*(?:\s*(?:,|and|&)\s*(?:\d+[A-Za-z]?|[A-G])(?:\.\d+)*)*/gi,
       "§#"
     )
-    .replace(/Sec\s*\d+[A-Z]?(?:\.\d+)*/gi, "§#")
-    .replace(/§\s*\d+[A-Za-z]?(?:\.\d+)*/g, "§#")
+    .replace(/Sec\s*(?:\d+[A-Z]?|[A-G])(?:\.\d+)*/gi, "§#")
+    .replace(/§\s*(?:\d+[A-Za-z]?|[A-G])(?:\.\d+)*/g, "§#")
+    // A standalone letter address — "F.12", "(F.4, F.11)", "(F.7–F.10)". Masked one at a time
+    // rather than as a list, so a two-address bracket still reads as two tokens and matches the
+    // "(13.2.2, 13.4.2)" it replaced.
+    .replace(/(^|[^\w.§])[A-G]\.\d+(?:\.\d+)*(?![\d.])/g, "$1§#")
+    // A parenthesised two-part number. Bare three-part numbers are already taken as addresses
+    // below; two-part ones are ambiguous in general and are not, EXCEPT inside brackets, which in
+    // this document is how a pointer is written. Four exist in the whole document — (3.2), (12.2),
+    // (12.4) and a Data Protection Act clause — so the ambiguity is theoretical here.
+    .replace(/\((\d{1,2}\.\d{1,2})\)/g, "(§#)")
+    // Which annex a pointer names is an address like any other: the polls took C, so what used
+    // to be Annex C is Annex D.
+    .replace(/\bAnnex(es)?\s+[A-G]\b/g, "Annex #")
     // A bare three-part number in a table cell or an ASCII box is always a section reference in
     // this document — no figure it carries has two decimal points — so it collapses too.
     .replace(/(^|[^\w.§])\d{1,2}\.\d{1,2}\.\d{1,2}(?![\d.])/g, "$1§#")
@@ -527,6 +544,30 @@ for (const file of OLD_FILES) {
   before = before.concat(bodyLines(normalised, { dropDeletedSections: !CURRENT_SPINE }));
 }
 
+/**
+ * Drop a ```figure block whole — its opening tag, its `id:` line and its closing delimiter.
+ *
+ * Statefully, and not with a per-line pattern. A pattern that matched a bare ``` would strip all
+ * 140 code fences in the document from one side of the comparison; a pattern that matched only
+ * "```figure" and "id: …" would leave the closing delimiter behind and report it as an addition.
+ * The block is a pointer to a built figure and carries no body text, so none of its three lines
+ * belongs in a prose comparison.
+ */
+function stripFigureFences(lines) {
+  const out = [];
+  let inFigure = false;
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!inFigure && /^```figure$/.test(trimmed)) { inFigure = true; continue; }
+    if (inFigure) {
+      if (/^```$/.test(trimmed)) inFigure = false;
+      continue;
+    }
+    out.push(line);
+  }
+  return out;
+}
+
 let after = [];
 for (const file of fs.readdirSync(CONTENT).sort()) {
   if (!file.endsWith(".md")) continue;
@@ -539,7 +580,7 @@ for (const file of fs.readdirSync(CONTENT).sort()) {
     addedAllowance.set(key, (addedAllowance.get(key) ?? 0) + 1);
   }
   after = after.concat(
-    bodyLines(text).filter((line) => {
+    stripFigureFences(bodyLines(text)).filter((line) => {
       const trimmed = line.trim();
       if (!CURRENT_SPINE && ORIENTATION_LINES.has(trimmed)) return false;
       if (!CURRENT_SPINE && SPINE_ORIENTATION_LINES.has(trimmed)) return false;
@@ -555,7 +596,49 @@ for (const file of fs.readdirSync(CONTENT).sort()) {
   );
 }
 
+/**
+ * Blocks retired under hard rule 1a of the visual compaction brief.
+ *
+ * A retirement is the one authorised deletion this guard cannot tell apart from a quiet one: the
+ * brief permits an ASCII diagram, a pseudo-table in a code block, a stack of near-identical cards
+ * or a restated summary table to go, ONCE a figure renders the same facts and keeps them in a
+ * "View the data" disclosure. So it is declared, in scripts/figure-retirements.json, with the
+ * figure that took the job and the checklist of facts that figure is held to.
+ *
+ * Every declared line must still be MISSING for the entry to apply. A stale entry — one whose
+ * block is back in the markdown — is reported, because an allowlist that quietly stops matching
+ * is an allowlist that has stopped meaning anything.
+ */
+const RETIREMENTS = JSON.parse(
+  fs.readFileSync(new URL("./figure-retirements.json", import.meta.url), "utf8"),
+).retirements;
+
+const RETIRED_LINES = new Map();
+for (const entry of RETIREMENTS) {
+  if (!entry.replacedBy?.length || !entry.facts?.length) {
+    console.error(`figure-retirements.json: ${entry.id} needs both \`replacedBy\` and \`facts\`.`);
+    process.exit(1);
+  }
+  for (const line of entry.lines) {
+    const key = normalise(line).trim();
+    RETIRED_LINES.set(key, (RETIRED_LINES.get(key) ?? 0) + 1);
+  }
+}
+
 const allowance = CURRENT_SPINE ? new Map() : new Map(REMOVED_SCAFFOLDING);
+for (const [line, count] of RETIRED_LINES) {
+  allowance.set(line, (allowance.get(line) ?? 0) + count);
+}
+// Each retired BLOCK took its own opening and closing ``` with it. The replacement fences are
+// dropped from the other side whole, so those two delimiters have to be allowed for here or they
+// read as lost lines.
+//
+// Counted per block and not per entry: one entry may retire several blocks at once. The three
+// §3.6 section banners are a single entry — they are the same defect three times, a heading drawn
+// in box characters directly beneath the real heading — and they took six delimiters with them.
+const BARE_FENCE = "```";
+const retiredBlocks = RETIREMENTS.reduce((n, entry) => n + (entry.blocks ?? 1), 0);
+allowance.set(BARE_FENCE, (allowance.get(BARE_FENCE) ?? 0) + retiredBlocks * 2);
 const beforeBody = before.filter((line) => {
   const left = allowance.get(line.trim());
   if (!left) return true;
@@ -580,7 +663,8 @@ if (lost.length === 0 && added.length === 0) {
     // ledger of pre-restructure allowances here would be claiming work this run did not do.
     console.log(
       `Content integrity check passed: all ${after.length} body lines are unchanged since ${BASE}, ` +
-        `apart from repointed cross-references and the quoted rewrites in notation-rewrites.json. ` +
+        `apart from repointed cross-references, the quoted rewrites in notation-rewrites.json, ` +
+        `and ${RETIREMENTS.length} block(s) retired under rule 1a and declared in figure-retirements.json. ` +
         `Run with CONTENT_BASELINE=d1c1559 to compare against the pre-restructure text instead.`
     );
     process.exit(0);

@@ -8,7 +8,9 @@ import { Printer, Search } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
 import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
-import { KeyFactsStrip } from "./KeyFactsStrip";
+import { StateOfTheRace } from "./StateOfTheRace";
+import { ReadingModeToggle } from "./ReadingModeToggle";
+import { ReadingModeProvider } from "../lib/reading-mode";
 import { LazyMount } from "./LazyMount";
 import { ScrollProgressBar } from "./ScrollProgressBar";
 import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
@@ -25,10 +27,9 @@ import { ChapterMarker } from "./flow/ChapterMarker";
 import { FlowChrome } from "./flow/FlowChrome";
 import { FlowRail } from "./flow/FlowRail";
 
-import { AmbientField, Reveal, SplitText } from "./visual";
+import { AmbientField, Reveal } from "./visual";
 import { useDaypart, useScrollShell } from "../hooks/use-scroll-shell";
 
-import { Dashboard } from "./Dashboard";
 import { HeroVisual } from "./HeroVisual";
 import { Portrait } from "./Portrait";
 import { DeficitGauge } from "./charts/DeficitGauge";
@@ -70,6 +71,8 @@ interface ClientPageProps {
   /** Rendered prose, keyed by section — every section on the flow, one on a deep-link route. */
   documents: Partial<Record<TabId, React.ReactNode>>;
   wordCounts: Record<TabId, number>;
+  /** The same counts for Brief mode, measured from the segmentation the renderer uses. */
+  briefWordCounts: Record<TabId, number>;
   activeTab: TabId;
   /** True on "/" and "/full": the whole document in one scroll. */
   expanded: boolean;
@@ -90,7 +93,7 @@ const WiperUmbrellaLogo = () => (
 const TAB_IDS: string[] = SECTIONS.map((s) => s.id);
 const LANDING_TAB: TabId = FLOW_ORDER[0];
 
-export function ClientPage({ sections, documents, wordCounts, activeTab, expanded, streamed = false }: ClientPageProps) {
+export function ClientPage({ sections, documents, wordCounts, briefWordCounts, activeTab, expanded, streamed = false }: ClientPageProps) {
   const router = useRouter();
   const [isTOCModalOpen, setIsTOCModalOpen] = useState(false);
   const { theme, toggleTheme, mounted } = useTheme();
@@ -288,6 +291,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
 
   return (
     <SectionNumberMapProvider sections={sections}>
+      <ReadingModeProvider>
       <div className="min-h-screen bg-paper text-ink font-sans selection:bg-accent/20">
         <a href="#content-area" className="skip-link">Skip to the document</a>
 
@@ -308,7 +312,11 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
         {expanded && (
           <header className="cv-auto-hero relative pt-12 sm:pt-16 pb-6 sm:pb-10 overflow-hidden print:pt-4 print:pb-4">
             <div className="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(circle_at_82%_8%,var(--color-glow),transparent_34%),linear-gradient(180deg,var(--color-card),var(--color-paper))]" />
-            <AmbientField intensity="full" pattern="grid" />
+            {/* Grain and a masked grid, and no motion. It was intensity="full", which adds drifting
+                aurora wells — an animated background behind the one screen every reader sees, and
+                on the deny list for exactly that. The static texture stays: it is a surface, not
+                an effect. */}
+            <AmbientField intensity="quiet" pattern="grid" />
 
             <div className="fx-hero-seq mx-auto w-full max-w-3xl px-4 sm:px-6 relative z-10">
               <div style={{ "--fx-i": 0 } as React.CSSProperties} className="fx-in-left flex items-center gap-2.5 mb-5 select-none">
@@ -326,10 +334,23 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
               </div>
 
               <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 items-end">
+                {/* The headline is text, and it is text once.
+
+                    It used to be a line-split reveal, which meant two copies in the DOM: the real
+                    string in a visually hidden node for assistive technology, and a stack of
+                    aria-hidden spans to animate. aria-hidden hides a node from a screen reader and
+                    from nothing else, so the page read "Kitui 2027: the intelligence behind what
+                    you already publish." twice — to copy-paste, to reader mode, to find-in-page,
+                    and to anyone who opened it with JavaScript off.
+
+                    The split bought a staggered rise on the one element a reader is guaranteed to
+                    be looking at before anything else has loaded. That is the definition of an
+                    animation that delays reading, and kinetic headlines are on the deny list for
+                    exactly this reason. The line break stays, because it is how the sentence
+                    should break. */}
                 <h1 className="col-span-2 sm:col-span-1 font-sans text-[1.7rem] sm:text-4xl lg:text-5xl leading-[1.14] sm:leading-[1.08] tracking-tight text-ink mb-4 font-bold text-balance">
-                  <SplitText by="line" as="span" className="block" delay={180}>
-                    {"Kitui 2027:\nthe intelligence behind what you already publish."}
-                  </SplitText>
+                  <span className="block">Kitui 2027:</span>
+                  <span className="block">the intelligence behind what you already publish.</span>
                 </h1>
                 <p style={{ "--fx-i": 3 } as React.CSSProperties} className="fx-in-up col-start-1 t-body text-muted leading-relaxed text-pretty">
                   Campaign strategy and digital architecture for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
@@ -339,13 +360,26 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
                 </div>
               </div>
 
-              {/* One instruction, and it is the only one the reader needs: keep going. */}
-              <p style={{ "--fx-i": 4 } as React.CSSProperties} className="fx-in-up mt-7 flex items-center gap-2.5 t-micro font-semibold text-muted">
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-line/70">
-                  <span className="fx-scroll-cue" aria-hidden="true" />
-                </span>
-                <span>Scroll. The whole proposal is on this page, in order — {navItems.length} sections, {readingMinutes(Object.values(wordCounts).reduce((a, b) => a + b, 0))} minutes.</span>
-              </p>
+              {/* One instruction, and one choice.
+
+                  The instruction is the only one the reader needs: keep going. The choice is the
+                  honest form of the old line, which said "30 sections, 289 minutes" and left it
+                  there. 289 minutes is a true number and a closed door — it is the first thing a
+                  reader learns about a document they were sent on WhatsApp. Both reading times
+                  are measured from the rendered segmentation rather than typed, so neither can
+                  drift from what the page actually does. */}
+              <div style={{ "--fx-i": 4 } as React.CSSProperties} className="fx-in-up mt-7 space-y-3">
+                <p className="flex items-center gap-2.5 t-micro font-semibold text-muted">
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-line/70">
+                    <span className="fx-scroll-cue" aria-hidden="true" />
+                  </span>
+                  <span>Scroll. The whole proposal is on this page, in order — {navItems.length} sections.</span>
+                </p>
+                <ReadingModeToggle
+                  briefMinutes={readingMinutes(Object.values(briefWordCounts).reduce((a, b) => a + b, 0))}
+                  fullMinutes={readingMinutes(Object.values(wordCounts).reduce((a, b) => a + b, 0))}
+                />
+              </div>
             </div>
           </header>
         )}
@@ -353,8 +387,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
         {/* ------------------------------------------------ evidence preface */}
         {expanded && (
           <section aria-label="The figures behind the decision" className="cv-auto-strip mx-auto w-full max-w-5xl px-4 sm:px-6 mt-2 mb-4 space-y-5">
-            <Dashboard />
-            <KeyFactsStrip />
+            <StateOfTheRace />
           </section>
         )}
 
@@ -485,6 +518,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
           }}
         />
       </div>
+      </ReadingModeProvider>
     </SectionNumberMapProvider>
   );
 }

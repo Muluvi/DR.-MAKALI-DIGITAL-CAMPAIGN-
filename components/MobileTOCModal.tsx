@@ -2,43 +2,32 @@
 
 import React, { useState, useMemo, useEffect, useRef, useId } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Users, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, Route, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck, Activity, Repeat} from "lucide-react";
+import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck, Activity} from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
 import { FLOW_SECTIONS } from "../lib/flow";
 import { readingMinutes } from "../hooks/useReadingProgress";
 import type { SectionItem } from "../lib/section-index";
 
 const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
-  decision: Handshake,
   cover: BookLock,
-  presence: Activity,
-  summary: FileText,
-  situation: Map,
   objectives: Target,
-  audiences: Users,
-  approach: Compass,
-  engine: Repeat,
-  messaging: MessageSquare,
-  scope: ListChecks,
-  "scope-platforms": Layers,
-  "scope-media": Megaphone,
-  "scope-ground": Radio,
-  "scope-data": Database,
-  roadmap: Route,
-  deliverables: CalendarClock,
-  measurement: Gauge,
-  governance: Workflow,
-  risk: Shield,
-  structure: ClipboardList,
-  assumptions: ListChecks,
+  data: Database,
+  analysis: Map,
+  strategy: Compass,
+  implementation: ListChecks,
+  "workstreams-platforms": Layers,
+  "workstreams-media": Megaphone,
+  "workstreams-ground": Radio,
+  "workstreams-data": Workflow,
+  delivery: Gauge,
   nextsteps: Handshake,
-  "arithmetic": Target,
-  "reach": Radio,
-  "annex-evidence": ShieldCheck,
-  "annex-county": Map,
+  "annex-evidence": ClipboardList,
+  "annex-county": FileText,
+  "annex-polls": Activity,
   "annex-messages": MessageSquare,
   "annex-cadence": CalendarClock,
-  "annex-runbooks": Shield,
+  "annex-runbooks": ShieldCheck,
+  "annex-terms": Shield,
 };
 
 interface MobileTOCModalProps {
@@ -190,7 +179,7 @@ export function MobileTOCModal({
                   Full index
                 </h3>
                 <p className="t-label text-muted font-medium mt-0.5">
-                  {PARTS.filter((p) => p.part > 0 && p.part < 17).length} sections, {SECTIONS.filter((s) => s.part === 17).length} annexes, {subSectionCount} sub-sections, {partCount} parts
+                  {PARTS.filter((p) => p.part > 0 && p.part < 7).length} sections, {SECTIONS.filter((s) => s.part === 7).length} annexes, {subSectionCount} sub-sections, {partCount} parts
                 </p>
               </div>
             </div>

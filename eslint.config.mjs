@@ -15,6 +15,28 @@ export default defineConfig([{
 }, {
     extends: [...next],
     rules: {
+        /**
+         * Accessibility, checked rather than reasoned about.
+         *
+         * `eslint-config-next` already registers eslint-plugin-jsx-a11y and turns on a handful of
+         * its rules as warnings; no new dependency is needed, only a decision about which of them
+         * are allowed to fail the build. These are errors because each corresponds to a defect
+         * this document actually had: a figure labelled only by colour, an `aria-hidden` wrapper
+         * around something focusable, a role without the props that make it mean anything.
+         *
+         * The rest of the accessibility work — scoped table headers, 44px targets, the reading
+         * order of a disclosure — is not lintable and is checked by the axe sweep in CI instead.
+         */
+        "jsx-a11y/alt-text": "error",
+        "jsx-a11y/aria-props": "error",
+        "jsx-a11y/aria-proptypes": "error",
+        "jsx-a11y/aria-unsupported-elements": "error",
+        "jsx-a11y/role-has-required-aria-props": "error",
+        "jsx-a11y/role-supports-aria-props": "error",
+        "jsx-a11y/anchor-has-content": "error",
+        "jsx-a11y/heading-has-content": "error",
+
+
         // One animation import path.
         //
         // `motion` and `framer-motion` are the same library under its new and old names, and

@@ -4,7 +4,7 @@ import React, { createContext, useContext, useMemo } from "react";
 import type { SectionItem } from "../../lib/section-index";
 
 /**
- * Maps a printed section number ("6.5.4") to the deep-link id it lives at today
+ * Maps a printed section number ("6.5.4") to the deep-link id it lives at today  verify-figures-ignore
  * ("governance-sec-12-5-4").
  *
  * The document's 173 in-prose "Section N.N" references were previously resolved by reading the

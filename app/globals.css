@@ -43,6 +43,20 @@
      Using one token for both is what put white-on-#348ff9 at 3.25:1 in the audit. */
   --color-accent-solid: var(--accent-solid);
   --color-on-accent: var(--on-accent);
+  /* The same split for the party's second colour. `gold` is TEXT and STROKE; `gold-solid` is the
+     FILL that `on-gold` sits on. The dark theme's --gold is a vivid crimson chosen to read on
+     black, and white on it measures 3.19:1 — so a badge, a pill or a calendar cell filled with
+     it needs its own token, exactly as accent did. */
+  --color-gold-solid: var(--gold-solid);
+  --color-on-gold: var(--on-gold);
+
+  /* Reported owner alignment, as used by the media-ownership figure. Three categories, each
+     readable AS TEXT on this theme's card: the labels were hard-coded light-theme party hexes,
+     and #0056a8 on the dark ground measured 2.63:1. Hue is preserved per theme, lightness is
+     not — a category colour has to be legible before it can mean anything. */
+  --color-align-a: var(--align-a);
+  --color-align-b: var(--align-b);
+  --color-align-c: var(--align-c);
   --color-rival: var(--rival);
   --color-rival-solid: var(--rival-solid);
   --color-unmeasured: var(--unmeasured-color);
@@ -86,6 +100,11 @@
   --rival: oklch(0.48 0.09 220);
   --rival-solid: oklch(0.48 0.08 220); /* 6.36:1 against white */
   --gold: oklch(0.46 0.16 48);    /* Wiper Official Earth Red — refined for >4.6:1 text contrast */
+  --gold-solid: oklch(0.46 0.17 38); /* as a fill: white sits on it, in every theme */
+  --on-gold: oklch(1 0 0);
+  --align-a: #b3121e;   /* alignment category A — 7.1:1 on white */
+  --align-b: #8a4a06;   /* alignment category B — 7.0:1 on white */
+  --align-c: #0056a8;   /* alignment category C — 7.1:1 on white */
   --dark: oklch(0.18 0.04 252);
   --danger: oklch(0.55 0.22 27);
   --glow: oklch(0.35 0.22 265 / 0.15);
@@ -151,7 +170,12 @@
   --on-accent: oklch(1 0 0);
   --rival: oklch(0.74 0.07 220);
   --rival-solid: oklch(0.48 0.08 220);
-  --gold: oklch(0.68 0.21 22);    /* Vivid crimson red */
+  --gold: oklch(0.68 0.21 22);    /* Vivid crimson red — text and stroke only */
+  --gold-solid: oklch(0.46 0.17 38); /* the fill stays dark in both themes; white sits on it */
+  --on-gold: oklch(1 0 0);
+  --align-a: #ff6b73;   /* the same three categories, lifted to read on the dark ground */
+  --align-b: #f0a742;
+  --align-c: #7bb3ff;
   --dark: oklch(1 0 0);
   --danger: oklch(0.68 0.21 22);
   --glow: oklch(0.70 0.16 255 / 0.15);
@@ -195,6 +219,11 @@
   --rival: oklch(0.48 0.08 220);
   --rival-solid: oklch(0.48 0.08 220);
   --gold: oklch(0.44 0.16 42);
+  --gold-solid: oklch(0.44 0.16 42);
+  --on-gold: oklch(1 0 0);
+  --align-a: #a3131f;
+  --align-b: #7d4407;
+  --align-c: #0b4f95;
   --dark: oklch(0.22 0.035 55);
   --danger: oklch(0.55 0.20 27);
   --glow: oklch(0.36 0.18 262 / 0.12);
@@ -1359,6 +1388,11 @@ html {
     --line: #c9d5e2;
     --accent: #0056a8;
     --gold: #a9151f;
+    --gold-solid: #a9151f;
+    --on-gold: #ffffff;
+    --align-a: #b3121e;
+    --align-b: #8a4a06;
+    --align-c: #0056a8;
     --prose-body: #263241;
     --prose-strong: #0a172c;
     --prose-bg-nested: #ffffff;
@@ -1653,28 +1687,24 @@ html {
    Counting figures — see hooks/useAnimatedNumber.ts
    -------------------------------------------------------------------------- */
 
-/* The hidden copy sizes the box; the counting copy is laid over it. Without this every figure
-   on the page nudges its neighbours for the length of its own count, and CLS is measured on
-   exactly that. `tabular-nums` then keeps each digit the same width so the text does not
-   shimmer as it climbs. */
+/* Width is reserved against the final string's length in `ch`, not by rendering a second hidden
+   copy of the figure. The hidden copy was real text: aria-hidden kept it out of the
+   accessibility tree and out of nothing else, so copy-paste, reader mode and find-in-page all
+   met every number twice. Without SOME reservation each figure nudges its neighbours for the
+   length of its own count, and CLS is measured on exactly that — so the box is still reserved,
+   just without putting the number into the document a second time. `tabular-nums` then keeps
+   each digit the same width so the text does not shimmer as it climbs.
+
+   `ch` is the width of "0" in the current font, and every digit is that width under tabular
+   figures, so the reservation is exact for the digits and slightly generous for the separators
+   and units. Generous is the safe direction: it reserves at least what the final string needs. */
 .anim-num {
-  position: relative;
   display: inline-block;
+  min-width: calc(var(--anim-num-ch, 0) * 1ch);
+  text-align: left;
+  white-space: nowrap;
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum" 1;
-}
-.anim-num__size { visibility: hidden; }
-.anim-num__value {
-  position: absolute;
-  inset: 0;
-  white-space: nowrap;
-}
-
-/* A printer gets the reserved box and the settled figure, with nothing overlapping. */
-@media print {
-  .anim-num { display: inline; }
-  .anim-num__size { display: none; }
-  .anim-num__value { position: static; }
 }
 
 /* --------------------------------------------------------------------------
@@ -1756,8 +1786,13 @@ html {
     display: none !important;
   }
 
-  /* Collapsed disclosures print open — a folded section is a screen affordance, and a reader
-     holding the PDF cannot unfold it. */
+  /* THIS RULE CANNOT DO WHAT IT SAYS, and is kept only so nobody writes it again.
+     Chrome hides a closed `details`'s contents through content-visibility on a UA slot that
+     author CSS does not reach, so reverting `display` on the children reveals nothing. Measured:
+     /reach rendered to PDF with the disclosures shut is 21 pages; with every `details` opened
+     first it is 24. Every disclosure in this document that holds CONTENT rather than controls now
+     ships with the `open` attribute and is closed by PrintSafeDisclosures, which reopens it on
+     `beforeprint` — the only arrangement that survives a printing path with no script at all. */
   details:not([open]) > *:not(summary) {
     display: revert !important;
   }
@@ -1897,4 +1932,70 @@ html {
     text-decoration: underline;
     color: inherit !important;
   }
+}
+
+/* ==========================================================================
+   Figures — the marks built for the visual compaction pass
+   ==========================================================================
+
+   THE RULE THIS SECTION EXISTS TO ENFORCE: the final value is in the HTML, and the animation is
+   a transform laid over it. Every bar is server-rendered at its true width. `fx-figure-bar`
+   scales it from nothing to that width, so the animation can only ever be ABSENT — it can never
+   show a figure that is not the figure. A reader with JavaScript off, a reader who asked for
+   reduced motion, and a printed page all get the chart drawn correctly on the first frame.
+
+   Compare the counters this pass fixed, which seeded their state with zero and therefore
+   server-rendered KSh0.00bn. The difference is that these start from the truth. */
+
+.fx-figure-bar {
+  transform-origin: left center;
+}
+
+.fx-figure-line {
+  /* Drawn by dash offset rather than by width, so the slope's end points never move. */
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+/* Hatching marks a value that is modelled or illustrative. It is a TEXTURE, not a colour, so it
+   survives greyscale printing and reaches a reader who cannot use the colour difference. The
+   figure's caption says the same thing in words — this is the redundant second channel, never
+   the only one. */
+.fx-figure-hatch {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0 3px,
+    color-mix(in oklch, var(--color-paper) 55%, transparent) 3px 6px
+  );
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fx-figure-bar {
+    animation: fx-figure-grow 520ms cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+    animation-delay: calc(var(--fx-i, 0) * 45ms);
+  }
+
+  .fx-figure-line {
+    animation: fx-figure-draw 620ms cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+    animation-delay: calc(var(--fx-i, 0) * 70ms);
+  }
+}
+
+@keyframes fx-figure-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes fx-figure-draw {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* A figure's data table is open when printing, because a PDF cannot be tapped — opened by
+   PrintSafeDisclosures, not by CSS, for the reason recorded above. The summary is dropped here
+   because a printed "View the data" is a dead control above a table that is already visible. */
+@media print {
+  figure details { display: block; }
+  figure details > summary { display: none; }
+  details.print-open > summary .crossref-toggle { display: none !important; }
 }

@@ -1,0 +1,74 @@
+{
+  "$comment": [
+    "Paragraphs that say the same thing twice, and which copy the reader meets second.",
+    "",
+    "RULE 1b, IN FULL: a duplicate is COLLAPSED, not cut. Until Firefly approves deletion, the",
+    "second copy stays in the document and stays in the printed kit; it is folded behind a one-line",
+    "cross-reference naming the section that said it first. Nothing here removes a word.",
+    "",
+    "WHICH SIDE IS THE DUPLICATE is a reading-order judgement, made here rather than by the detector,",
+    "which walks the chapters alphabetically. The duplicate is the copy the reader reaches SECOND in",
+    "lib/flow.ts's FLOW_ORDER — collapsing the first would point a reader forward at something they",
+    "have not read, which is worse than the repetition.",
+    "",
+    "TWO OF THE THREE FLIPPED in the 2026 restructure. The ask moved from the front of the document",
+    "to the end of it, so the paragraphs it used to state first it now states last, and the copy in",
+    "§4.1 and §5.5 became the one the reader meets first."
+  ],
+  "duplicates": [
+    {
+      "id": "mulu-already-in-the-conversation",
+      "score": 1.0,
+      "note": "Verbatim, 59 words, identical in both places. §4.1 opens the position by stating the problem the proposal answers; §6.3.2 states it again in the ask. The only exact repetition left in the document.",
+      "canonical": {
+        "chapter": "strategy",
+        "section": "§4.1 The position",
+        "href": "#strategy-sec-4-1-0",
+        "opening": "Dr. Mulu is already in the conversation. A verified page, 74",
+        "words": 59
+      },
+      "duplicate": {
+        "chapter": "nextsteps",
+        "section": "§6.3.2 The ask, in full",
+        "opening": "Dr. Mulu is already in the conversation. A verified page, 74",
+        "words": 59
+      }
+    },
+    {
+      "id": "no-electoral-outcome",
+      "score": 0.7,
+      "note": "The same commitment in different words: a method, a cadence and a standard, and no electoral outcome. §0.1 states it under a heading that names it as such; §2.4 restates it as the section's own closing line.",
+      "canonical": {
+        "chapter": "delivery",
+        "section": "§5.5.4 What this proposal commits to",
+        "href": "#delivery-sec-5-5-4",
+        "opening": "Firefly commits to a scope, a cadence and a standard. It doe",
+        "words": 29
+      },
+      "duplicate": {
+        "chapter": "nextsteps",
+        "section": "§6.3.2 The ask, in full",
+        "opening": "**What Firefly does not ask you to believe.** This proposal ",
+        "words": 40
+      }
+    },
+    {
+      "id": "level-2-recommendation",
+      "score": 0.81,
+      "note": "The Level 2 recommendation with the same reasoning on both sides — Level 1 leaves the recognition deficit measured at county level, Level 3 refreshes faster than a nomination sprint can act. §8.0 makes the recommendation where the scope is set; §10.1 makes it again where the levels are listed. Also D-3.",
+      "canonical": {
+        "chapter": "implementation",
+        "section": "§5.1 Who owns what: fourteen workstreams",
+        "href": "#implementation-sec-5-1",
+        "opening": "**Firefly recommends Level 2 (Standard).** Level 1 instrumen",
+        "words": 77
+      },
+      "duplicate": {
+        "chapter": "delivery",
+        "section": "§5.5 What Dr. Mulu receives, and how often",
+        "opening": "**Recommendation: Level 2 (Standard).** Level 1 instruments ",
+        "words": 78
+      }
+    }
+  ]
+}

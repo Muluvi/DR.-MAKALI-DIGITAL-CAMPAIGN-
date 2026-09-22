@@ -37,3 +37,36 @@ export function useMediaQuery(query: string): boolean {
 /** The two queries this codebase asks about constantly. */
 export const useReducedMotion = () => useMediaQuery("(prefers-reduced-motion: reduce)");
 export const useFinePointer = () => useMediaQuery("(hover: hover) and (pointer: fine)");
+
+/**
+ * Has the reader asked their browser to use less data?
+ *
+ * `prefers-reduced-data` is the standards-track media query and is still not widely implemented,
+ * so `navigator.connection.saveData` — the Data Saver flag, which Chrome on Android exposes and
+ * which is the one a reader in Kitui is most likely to have switched on — is checked alongside it.
+ * Either is taken as a yes.
+ *
+ * The server snapshot is `false`, matching the rest of this file: the markup ships without the
+ * heavy thing, and the client decides whether to offer it. Guessing the other way would serve the
+ * expensive version to precisely the reader who asked not to receive it.
+ */
+export function useSaveData(): boolean {
+  const prefersReducedData = useMediaQuery("(prefers-reduced-data: reduce)");
+
+  const subscribe = useCallback((onChange: () => void) => {
+    if (typeof navigator === "undefined") return () => {};
+    const connection = (navigator as Navigator & { connection?: EventTarget }).connection;
+    connection?.addEventListener("change", onChange);
+    return () => connection?.removeEventListener("change", onChange);
+  }, []);
+
+  const saveDataFlag = useSyncExternalStore(
+    subscribe,
+    () =>
+      typeof navigator !== "undefined" &&
+      Boolean((navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData),
+    () => false
+  );
+
+  return prefersReducedData || saveDataFlag;
+}

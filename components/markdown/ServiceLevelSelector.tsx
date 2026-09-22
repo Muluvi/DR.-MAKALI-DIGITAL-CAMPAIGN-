@@ -103,7 +103,7 @@ export function ServiceLevelSelector() {
               />
             )}
             <span className="relative flex flex-col items-center leading-tight">
-              <span className="t-micro font-black opacity-70">{c.number}</span>
+              <span className="t-micro font-black opacity-85">{c.number}</span>
               {c.label}
             </span>
           </button>

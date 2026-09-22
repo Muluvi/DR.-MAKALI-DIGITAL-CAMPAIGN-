@@ -2,55 +2,37 @@
 /**
  * Generates the per-section half of docs/VISUAL-FEATURE-LEDGER.md.
  *
- * The point of generating it rather than writing it is that the claim being made — "every one of
- * the 262 sections is covered" — is only worth anything if it is re-derived from the content and
- * the components each time, instead of being a table someone typed once and stopped updating.
+ * The point of generating it rather than writing it is that the claim being made is only worth
+ * anything if it is re-derived from the content and the components each time, instead of being a
+ * table someone typed once and stopped updating.
+ *
+ * WHAT THIS CHECK NOW ASSERTS, AND WHY IT IS THE OPPOSITE OF WHAT IT USED TO.
+ *
+ * It used to fail the build if any numbered heading carried no figure. That is what produced the
+ * 99 figures that measured nothing — a rule that must always find something will always find
+ * something, and what it found was the heading restated, the subsection list redrawn, and in
+ * eight cases an abstract diagram built from an empty array.
+ *
+ * So the assertion is inverted. A heading carrying NO figure is now a valid and common outcome,
+ * reported rather than punished. What fails the build is a heading carrying a figure of a RETIRED
+ * kind — one of the five that drew nothing — because that means the generator has started
+ * manufacturing coverage again.
  *
  * It rebuilds the section index with the same rules as lib/section-index.ts and verify-mounts.mjs,
  * then reports the visual treatment each heading receives. Run with:
  *
  *     node scripts/visual-coverage.mjs            # print the table
- *     node scripts/visual-coverage.mjs --check    # exit non-zero if any section is uncovered
+ *     node scripts/visual-coverage.mjs --check    # exit non-zero if a retired figure kind is back
  */
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { contentTabs } from "./content-routes.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CONTENT = path.join(ROOT, "public", "content");
 
-const TABS = {
-  "decision.md": "decision",
-  "cover.md": "cover",
-  "presence.md": "presence",
-  "summary.md": "summary",
-  "situation.md": "situation",
-  "objectives.md": "objectives",
-  "audiences.md": "audiences",
-  "approach.md": "approach",
-  "engine.md": "engine",
-  "messaging.md": "messaging",
-  "scope.md": "scope",
-  "scope-platforms.md": "scope-platforms",
-  "scope-media.md": "scope-media",
-  "scope-ground.md": "scope-ground",
-  "scope-data.md": "scope-data",
-  "roadmap.md": "roadmap",
-  "deliverables.md": "deliverables",
-  "measurement.md": "measurement",
-  "governance.md": "governance",
-  "risk.md": "risk",
-  "structure.md": "structure",
-  "assumptions.md": "assumptions",
-  "nextsteps.md": "nextsteps",
-  "arithmetic.md": "arithmetic",
-  "reach.md": "reach",
-  "annex-evidence.md": "annex-evidence",
-  "annex-county.md": "annex-county",
-  "annex-messages.md": "annex-messages",
-  "annex-cadence.md": "annex-cadence",
-  "annex-runbooks.md": "annex-runbooks",
-};
+const TABS = contentTabs();
 
 const HEADING = /^(#{2,3})\s+(.+?)\s*$/;
 
@@ -82,7 +64,7 @@ function derivedKinds() {
   return new Map(Object.entries(specs).map(([id, spec]) => [id, spec.kind]));
 }
 
-const LEADING = /^(\d+[A-Z]?(?:\.\d+)*)\.?\s/;
+const LEADING = /^((?:\d+[A-Z]?(?:\.\d+)*|[A-G](?:\.\d+)+))\.?\s/;
 const idFor = (h) => {
   const m = LEADING.exec(h.title.trim());
   return m ? `${h.tab}-sec-${m[1].replace(/\./g, "-").toLowerCase()}` : null;
@@ -118,45 +100,47 @@ const derived = derivedKinds();
 const check = process.argv.includes("--check");
 
 /**
- * What figure this heading carries.
+ * What figure this heading carries, if any.
  *
- * Every numbered heading now carries one: the hand-built component where MarkdownViewer names
- * one, and otherwise the figure derived from the heading's own prose. That is the difference
- * this check exists to hold — "covered" used to mean "has an entrance animation", which is a
- * statement about motion and not about whether the reader can see what the part says.
+ * The hand-built component where MarkdownViewer names one; otherwise the figure derived from the
+ * heading's own prose; otherwise nothing, which is now a real and frequent answer rather than a
+ * gap to be filled.
  */
 function figureFor(h) {
   const id = idFor(h);
   if (!id) return { kind: "—", source: "unnumbered" };
   if (mounted.has(id)) return { kind: "bespoke component", source: "MarkdownViewer" };
   const kind = derived.get(id);
+  // No figure is a legitimate answer, and for about a third of this document it is the right one.
+  // A part whose figure IS its own interactive table lands here too: the table already gives it
+  // search, sorting, CSV and a card layout on phones, so nothing is drawn above it.
   if (!kind) return { kind: "—", source: "none" };
-  // A part whose figure IS its table carries no separate derived figure by design: InteractiveTable
-  // already gives it search, sorting, CSV and a card layout on phones.
-  if (kind === "table") return { kind: "interactive table", source: "table" };
   return { kind, source: "derived" };
 }
 
+/**
+ * Figure kinds that were removed because they measured nothing. If one reappears in the generated
+ * specs, the "cover every heading" instinct has crept back in and the build should say so.
+ */
+const RETIRED_KINDS = new Set(["statement", "chapter", "hub", "quote", "shape", "table"]);
+
 if (check) {
-  const uncovered = all.filter((h) => treatmentFor(h).length === 0);
-  const figureless = all.filter((h) => figureFor(h).source === "none");
-  if (uncovered.length) {
-    console.error(`visual-coverage: ${uncovered.length} section(s) with no treatment`);
+  const revived = [...derived.entries()].filter(([, kind]) => RETIRED_KINDS.has(kind));
+  if (revived.length) {
+    console.error(`visual-coverage: ${revived.length} heading(s) carry a retired figure kind:`);
+    for (const [id, kind] of revived.slice(0, 12)) console.error(`  ${id} -> ${kind}`);
+    console.error("These kinds drew no measurable relationship and were removed. See scripts/build-section-visuals.mjs.");
     process.exit(1);
   }
-  if (figureless.length) {
-    console.error(`visual-coverage: ${figureless.length} numbered section(s) carry no figure:`);
-    for (const h of figureless.slice(0, 12)) console.error(`  ${h.tab} · ${h.title}`);
-    console.error("Run `node scripts/build-section-visuals.mjs` to regenerate the derived figures.");
-    process.exit(1);
-  }
+
   const bespoke = all.filter((h) => figureFor(h).source === "MarkdownViewer").length;
   const derivedCount = all.filter((h) => figureFor(h).source === "derived").length;
-  const tables = all.filter((h) => figureFor(h).source === "table").length;
+  const figureless = all.filter((h) => figureFor(h).source === "none").length;
   console.log(
-    `visual-coverage: all ${all.length} sections covered ` +
+    `visual-coverage: ${all.length} sections ` +
       `(${all.filter((h) => h.level === 2).length} sub-sections, ${all.filter((h) => h.level === 3).length} parts) — ` +
-      `${bespoke} hand-built, ${derivedCount} derived from their own content, ${tables} carried by their own interactive table.`
+      `${bespoke} hand-built, ${derivedCount} derived from their own content, ` +
+      `${figureless} carrying no figure because their content measures nothing.`
   );
   process.exit(0);
 }

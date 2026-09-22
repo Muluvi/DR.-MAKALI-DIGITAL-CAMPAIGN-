@@ -36,7 +36,7 @@ export function ElectoralTimelineBlockContent() {
       </div>
 
       {/* Accessible table equivalent */}
-      <div className="overflow-x-auto">
+      <div className="not-prose fx-focus overflow-x-auto" tabIndex={0} role="group" aria-label="Electoral timeline table, scrollable">
         <table className="data-table text-left t-small">
           <thead>
             <tr className="t-micro font-bold text-muted">

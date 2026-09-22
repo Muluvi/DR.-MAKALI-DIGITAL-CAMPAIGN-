@@ -34,6 +34,20 @@ const STRUCTURAL = new Set([
   "640", "700", "720", "768", "800", "900", "1000", "1024", "1200", "1440",
 ]);
 
+/**
+ * Files that are DERIVED from the corpus and so must not be part of it.
+ *
+ * data/section-visuals.generated.json is written out of public/content/ by
+ * scripts/build-section-visuals.mjs. Every number in it is an echo of a number already in the
+ * markdown — including the `number` field, which holds SECTION numbers like "6.5.4".
+ *
+ * Counting it as source makes this guard circular: a literal can be vouched for by a file that
+ * only knows it because the markdown said it, and regenerating that file can then "unsource" a
+ * literal nothing touched. That is how removing §6.5.4's derived figure caused a doc comment
+ * elsewhere to fail, having quoted "6.5.4" as an example of a section number.
+ */
+const DERIVED = new Set(["section-visuals.generated.json"]);
+
 function readCorpus() {
   const parts = [];
   for (const f of fs.readdirSync(CONTENT_DIR)) {
@@ -43,10 +57,21 @@ function readCorpus() {
     for (const f of fs.readdirSync(dir)) {
       const p = path.join(dir, f);
       if (fs.statSync(p).isDirectory()) walkData(p);
-      else if (/\.(ts|json)$/.test(f)) parts.push(fs.readFileSync(p, "utf8"));
+      else if (/\.(ts|json)$/.test(f) && !DERIVED.has(f)) parts.push(fs.readFileSync(p, "utf8"));
     }
   };
   walkData(DATA_DIR);
+
+  // lib/figures/ is a typed data layer in the same sense data/ is: every value in it carries a
+  // source, a tier, a date and a kind, and the figures draw from it rather than from literals in
+  // a component. A figure whose numbers live there is sourced, and the guard has to be able to
+  // see that or the only way to satisfy it would be to duplicate the values into data/.
+  const FIGURES_DIR = path.join(ROOT, "lib", "figures");
+  if (fs.existsSync(FIGURES_DIR)) {
+    for (const f of fs.readdirSync(FIGURES_DIR)) {
+      if (/\.ts$/.test(f)) parts.push(fs.readFileSync(path.join(FIGURES_DIR, f), "utf8"));
+    }
+  }
   // Strip separators so "532,758" in prose matches "532758" in code, and vice versa.
   return parts.join("\n").replace(/[\s,]/g, "");
 }

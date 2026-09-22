@@ -155,7 +155,7 @@ export default function ModelVariablesDrawer() {
                 aria-pressed={typeFilter === t}
                 className={`px-2.5 py-1 rounded-lg t-micro font-bold transition-all shrink-0 cursor-pointer min-h-[44px] min-w-[44px] justify-center ${
  typeFilter === t
-                    ? "bg-gold text-ink shadow-xs"
+                    ? "bg-gold-solid text-on-gold shadow-xs"
                     : "bg-card border border-line/60 text-muted hover:text-ink"
                 }`}
               >
@@ -206,7 +206,7 @@ export default function ModelVariablesDrawer() {
                       via {item.source}
                     </span>
                     {item.highlight && (
-                      <span className="t-micro font-black px-1.5 py-0.2 bg-gold/15 text-gold-dark rounded">
+                      <span className="t-micro font-black px-1.5 py-0.2 bg-gold/15 text-gold rounded">
                         Key Driver
                       </span>
                     )}

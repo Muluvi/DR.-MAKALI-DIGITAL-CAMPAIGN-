@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { useChromeVisible } from "../../hooks/use-chrome-visible";
+import { useReadingMode } from "../../lib/reading-mode";
 
 /**
  * The only navigation chrome on the page.
@@ -41,6 +42,7 @@ export function FlowChrome({
   hidden?: boolean;
 }) {
   const visible = useChromeVisible();
+  const { mode, setMode } = useReadingMode();
   const ringRef = useRef<SVGCircleElement>(null);
   const [pct, setPct] = useState(0);
 
@@ -88,6 +90,25 @@ export function FlowChrome({
             <rect x="1" y="7.15" width="14" height="1.7" rx="0.85" />
             <rect x="1" y="12.1" width="9" height="1.7" rx="0.85" />
           </svg>
+        </span>
+      </button>
+
+      {/* Brief or Full, wherever the reader is.
+
+          The hero carries the full segmented control with both reading times, but the hero only
+          exists on "/" and "/full". A reader who followed a deep link into §13.4.3 lands on that
+          chapter's own route, in Brief, with no way back to the whole text — so the choice lives
+          here too, in the one piece of chrome that follows the reader down every page. */}
+      <button
+        type="button"
+        className="flow-chrome__theme"
+        onClick={() => setMode(mode === "brief" ? "full" : "brief")}
+        aria-pressed={mode === "full"}
+        aria-label={mode === "brief" ? "Show every section in full" : "Show each section in brief"}
+        title={mode === "brief" ? "Reading in Brief — show full sections" : "Reading in Full — show brief sections"}
+      >
+        <span className="t-micro font-black leading-none" aria-hidden="true">
+          {mode === "brief" ? "B" : "F"}
         </span>
       </button>
 

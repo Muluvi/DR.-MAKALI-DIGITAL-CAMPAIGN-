@@ -100,7 +100,7 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
         "Item 2" / "Item 3", which put invented column names on screen — visible in the one block
         in 3-strategy.md whose columns the parser cannot name.
       */}
-      <div className="w-full md:overflow-x-auto">
+      <div className="fx-focus w-full md:overflow-x-auto" tabIndex={0} role="group" aria-label="Table, scrollable at wide widths">
         <table className="diagram-table w-full t-small border-collapse">
           {d.headers && (
             <thead>
@@ -231,7 +231,7 @@ export function AsciiDiagram({ source, children }: { source: string; children: R
           <span>Architecture &amp; process model</span>
           <span className="hidden sm:inline">Diagram / script</span>
         </div>
-        <div className="scroll-x max-w-full">
+        <div className="fx-focus scroll-x max-w-full" tabIndex={0} role="group" aria-label="Architecture and process model, scrollable">
           <pre className="ascii-pre font-mono text-ink leading-snug m-0 p-0 whitespace-pre">
             {children}
           </pre>
