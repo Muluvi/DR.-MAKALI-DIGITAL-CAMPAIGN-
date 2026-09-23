@@ -141,7 +141,8 @@ id: paths-to-threshold
 *   **Total Registered Voters:** **212,183 voters** across **15 wards** (**39.83%** of county total).
 *   **Mathematical Proof:**
     *   `Total (Central-South-West) = 77,764 + 75,372 + 59,047 = 212,183 registered voters`
-*   **Strategic Implication:** Combining the candidate's home base (Kitui Central) with the county's largest southern constituency (Kitui South) and the peri-urban west (Kitui West) forms a powerful contiguous southern/central coalition that exceeds the 200,000 threshold by 14,179 voters.
+    *   `Margin over 200,000 victory threshold = 212,183 − 200,000 = +12,183 voters`
+*   **Strategic Implication:** Combining the candidate's home base (Kitui Central) with the county's largest southern constituency (Kitui South) and the peri-urban west (Kitui West) forms a contiguous southern/central coalition that exceeds the 200,000 threshold by **+12,183 voters**.
 
 #### Path C: The "Top 12 Megawards" Coalition
 *   **Ward Composition (12 Wards):** Kyuso (19,921) + Township (19,538) + Kwa Vonza/Yatta (18,020) + Mutonguni (17,979) + Tseikuru (16,471) + Kyangwithya West (15,931) + Mumoni (15,877) + Athi (15,843) + Kauwi (15,767) + Kyangwithya East (15,401) + Ikanga/Kyatune (15,384) + Mulango (15,135).
@@ -230,16 +231,7 @@ Beyond the immediate Wiper party nomination, the broader general election field 
 *   **Peninah Malonza (Former Deputy Governor & Former Cabinet Secretary):** Served as Deputy Governor from 2013–2017 (Tier 1) and subsequently as Cabinet Secretary for Tourism, Wildlife, and Heritage (Tier 1). Sourced campaign profiles indicate she possesses strong national-level executive credentials and represents a significant general-election competitor, though her local campaign structures are reported to be in the early phases of deployment.
 *   **Nicholas Mulila (Safaricom PLC Executive):** A highly regarded corporate leader with extensive technical and operational credentials in digital infrastructure, telecommunications, and corporate risk governance (Tier 2). Local news outlets have reported his prospective candidacy for the gubernatorial seat (Tier 2), framing him as an expert technocratic reformer, though commentators allege he lacks a traditional grassroots political mobilization network.
 *   **Francis Musili Kauta (Governance Activist):** A prominent legal professional and civil society advocate in Kitui (Tier 2). Sourced activist reports note his active campaign for local community rights and municipal accountability, though analysts allege his support base remains structurally bounded by urban civic networks.
-*   **Julius Malombe (Incumbent Governor, Kitui County):** Won the 2022 general election with 198,004 votes (Tier 1). He currently commands the complete administrative machinery of the county executive. However, his future candidacy is constrained by a complex constitutional debate regarding his eligibility, which represents a critical strategic fork.
-
-#### The Incumbent Term-Limit Constitutional Question: A Dual-Branch Strategic Scenario
-
-Because Governor Malombe served as Governor from 2013–2017, lost the 2017 election to Charity Ngilu (court-confirmed, Tier 1), and won again in 2022, his eligibility to contest the 2027 election is a major legal issue under Article 180(7) of the Constitution of Kenya, which limits governors to a maximum of two terms. This campaign analyzes this issue through two distinct scenarios:
-
-*   **Scenario Branch A — Cumulative Disqualification:** Proponents of this reading argue that Article 180(7) imposes a lifetime limit of two terms of service, regardless of whether they were consecutive or interrupted. Under this reading, having served from 2013–2017 and 2022–2027, Governor Malombe is constitutionally barred from running in 2027.
-    *   *Strategic Consequence:* This scenario creates an "open-seat" election, dissolving Malombe's incumbency advantage. It will trigger intense factional realignment within the Wiper Patriotic Front and across independent coalitions, allowing Dr. Mulu to position himself as the natural, high-integrity successor to lead the county's economic transition.
-*   **Scenario Branch B — Eligibility Upheld:** Alternatively, a reading of the constitutional provisions may interpret the two-term limit as applying only to consecutive terms of service, or that an interrupted term resets the constitutional clock, rendering him eligible for the 2027 cycle.
-    *   *Strategic Consequence:* Under this scenario, Governor Malombe remains eligible to defend his seat. The campaign must therefore execute a direct anti-incumbency strategy, overcoming a seated executive who commands county development resources, public-funding distribution systems, and established grassroots patronages.
+*   **Julius Malombe (Incumbent Governor, Kitui County):** Won the 2022 general election with 198,004 votes (Tier 1) after serving his first term from 2013–2017. Under the official constitutional record, Article 180(7) of the Constitution of Kenya limits a governor to two terms of service (Tier 1), establishing an open-seat election. Active litigation risk regarding non-consecutive term interpretation is monitored exclusively as an operational risk in Section 5.8 (Risk Matrix).
 
 ## 3.6 Where party loyalty won't carry him
 
@@ -337,7 +329,7 @@ What digital reach can and cannot deliver against the winning number, the infras
 
 Winning Kitui County requires building a communication strategy aligned with empirical reality rather than digital wishful thinking. 
 
-According to the official **2019 Kenya National Bureau of Statistics (KNBS) Census** (Tier 1), only **13.6% of Kitui's population (ages 3+) uses the internet**, while **86.4% of the population resides in an offline media environment**.
+According to the official **CA/KNBS 2023/24 continuous surveys** (Tier 1), **26.2% of Kitui's population uses the internet** (up from 13.6% in the 2019 KNBS Census), while **73.8% of the population resides in an offline media environment**, with mobile phone ownership at **44.1%**.
 
 ```figure
 id: reach-split

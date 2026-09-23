@@ -41,12 +41,5 @@
       "label": "of the county's land is arid or semi-arid"
     },
     "note": "The share is right; the label the derivation found for it ('estimated') named the qualifier rather than the thing measured."
-  },
-  "objectives-sec-4-1": {
-    "kind": "donut",
-    "data": {
-      "label": "poll preference share required to take the nomination"
-    },
-    "note": "40.0% is the nomination target. The derived label read the adjacent word ('official') rather than what the share is of."
   }
 }

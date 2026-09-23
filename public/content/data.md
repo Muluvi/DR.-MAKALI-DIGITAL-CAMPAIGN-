@@ -124,18 +124,18 @@ Kitui County's vast physical and demographic characteristics define its developm
 #### Natural Hazards and NDMA Early-Warning Context:
 The county experienced severe, chronic drought pressure throughout 2025 (Tier 1). Sourced from the National Drought Management Authority (NDMA) January 2026 bulletin, the county's drought early-warning status was designated as **Alert Phase** (Tier 1), and its food security was classified under **IPC Phase 2 ("Stressed")** as of September 2025 (Tier 1). This drought pressure was immediately followed by the **March 2026 national flooding** (Tier 2), which disrupted infrastructure across multiple sub-counties.
 
-#### The Defining Digital and Telecommunications Constraints (KNBS & CA Sourced):
+#### The Defining Digital and Telecommunications Constraints (CA/KNBS Sourced):
 
-To maintain absolute data integrity, the campaign reconciles all previously conflicting connectivity statistics:
+To maintain absolute data integrity, the campaign anchors on current Communications Authority and KNBS 2023/24 data as ground truth, while tracking the historical 2019 census:
 
-Sourced from the official 2019 KNBS Census (Tier 1), Kitui has exactly **143,340 active internet users out of a demographic base of 1,053,991 aged 3 and above**, representing an internet penetration rate of **13.6%** (Tier 1). This leaves exactly **86.4% of the Kitui population offline (the "Broadband Exclusion Majority") (Tier 1).**
+According to the **2023/24 Kenya Continuous Household Survey & Communications Authority reports** (Tier 1), Kitui County has an active internet penetration rate of **26.2%** (up from 13.6% in the 2019 KNBS Census), leaving **73.8% of the population offline**. Mobile phone ownership stands at **44.1%** (up from 42.9% in 2019).
 
-| Connectivity Metric | Sourced Kitui County Value | Sourced National Context |
-|---|---|---|
-| Mobile Device Ownership | 452,948 individuals (representing **42.9%** of the population aged 3+) (Tier 1) | 84.1 million active SIM cards; 157.7% penetration (CA, Q3 FY2025/26) (Tier 1) |
-| Active Internet Usage | 143,340 individuals (**13.6%** of population aged 3+; **86.4% offline**) (Tier 1) | 62.6 million mobile broadband subscriptions (Tier 1) |
-| Core Device Profile | Feature-phone and USSD-compatible devices remain dominant (Tier 1) | Smartphone penetration represents 63.7% of connected devices (Tier 1) |
-| Mobile Financial Services | Near-universal reliance on mobile transactions (Tier 1) | 53.4 million subscriptions (100.1% penetration); **602,470 registered agents** as of March 2026 (Tier 1) |
+| Connectivity Metric | Current Sourced Value (2023/24) | 2019 Historical Baseline | Sourced National Context |
+|---|---|---|---|
+| Mobile Device Ownership | **44.1%** of residents (CA/KNBS 2023/24) (Tier 1) | 452,948 individuals (42.9%) (Tier 1) | 84.1 million active SIM cards; 157.7% penetration (CA, Q3 FY2025/26) |
+| Active Internet Usage | **26.2%** (73.8% offline majority) (Tier 1) | 143,340 individuals (13.6%) (Tier 1) | 62.6 million mobile broadband subscriptions (Tier 1) |
+| Core Device Profile | Feature-phone and USSD-compatible devices dominant | Feature-phone dominance (Tier 1) | Smartphone penetration represents 63.7% of connected devices |
+| Mobile Financial Services | Near-universal reliance on mobile transactions | Dominant mobile-money footprint | 53.4 million subscriptions (100.1%); **602,470 registered agents** (March 2026) |
 
 The **602,470 mobile-money agent network** (representing a rapid expansion from 480,216 in late 2025, Tier 1) is a vital offline asset. These agents represent trusted, commercially motivated local touchpoints in settlements where broadband access is unavailable.
 
@@ -149,12 +149,12 @@ The Governor of Kitui is the supreme executive authority of the county, responsi
 *   **Financial Administration:** Accountably managing public revenue allocations and local own-source collections.
 
 #### Sourced Revenue Envelope, FY2026/27 (Approved Fiscal Strategy Paper, Tier 1):
-The county budget represents a significant administrative responsibility. According to the approved Kitui County Fiscal Strategy Paper for FY2026/27, the total projected resource envelope is **KSh 13.79 billion** (Tier 1), comprising:
-*   **Equitable Share:** KSh 11.64 billion (representing approximately 84.5% of total revenue) (Tier 1).
-*   **Conditional Grants:** KSh 1.03 billion (Tier 1).
-*   **Revised Own-Source Revenue Target:** **KSh 1.339 billion** (Tier 1).
+The county budget represents a significant administrative responsibility. According to the approved Kitui County Fiscal Strategy Paper for FY2026/27, the total projected resource envelope is **KSh 12.38 billion** (Tier 1), comprising:
+*   **Equitable Share:** KSh 10.44 billion (representing approximately 84.3% of total revenue) (Tier 1).
+*   **Conditional Grants:** KSh 1.00 billion (representing 8.1%) (Tier 1).
+*   **Approved Own-Source Revenue Target:** **KSh 0.94 billion** (representing 7.5%) (Tier 1).
 
-**The Strategic Opportunity:** This KSh 13.79 billion envelope (Tier 1) represents a substantial development fund. The campaign will translate this complex budget into clear, ward-level policy targets, demonstrating how an expert economist will optimize this capital to address the county's developmental priorities.
+**The Strategic Opportunity:** This KSh 12.38 billion envelope (Tier 1) represents the actual fiscal ceiling of devolved governance. The campaign will translate this budget into clear, ward-level policy targets, demonstrating how an expert economist will optimize public resource allocation across the 40 wards.
 
 ## 2.6 How people get information
 

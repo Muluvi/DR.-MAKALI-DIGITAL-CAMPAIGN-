@@ -28,7 +28,7 @@ import { useDaypart, useScrollShell } from "../hooks/use-scroll-shell";
 
 import { HeroVisual } from "./HeroVisual";
 import { Portrait } from "./Portrait";
-import { DeficitGauge } from "./charts/DeficitGauge";
+import { WardTileMap } from "./charts/WardTileMap";
 import { VoterProjectionsChart } from "./VoterProjectionsChart";
 import { SectionSkeleton } from "./SectionSkeleton";
 import { DURATION } from "../lib/motion";
@@ -913,9 +913,7 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
           <StateOfTheRace />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
             <Reveal variant="left" className="lg:col-span-2" amount={0.1}>
-              <div className="rounded-2xl border border-line bg-card">
-                <DeficitGauge />
-              </div>
+              <WardTileMap />
             </Reveal>
             <Reveal variant="right" delay={120} className="lg:col-span-1 print:hidden" amount={0.1}>
               <div>

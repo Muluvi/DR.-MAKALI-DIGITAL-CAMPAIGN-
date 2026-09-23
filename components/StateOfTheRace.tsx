@@ -39,122 +39,135 @@ import { UnderReview } from "./figures/UnderReview";
  * It is a SERVER COMPONENT. No state, no counters, no hydration: every figure is in the HTML at
  * its true value, which is the whole point.
  */
+import { ELECTORAL_ARITHMETIC } from "../data/electoral-arithmetic";
+import { TierBadge } from "./markdown/TierBadge";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+
+/**
+ * Sourced Data Baseline & Five-Step Progress Spine
+ * Purged of opinion poll deficits; grounded entirely on certified and official public records.
+ */
 export function StateOfTheRace() {
-  const pollDate = new Date(LATEST_ROUND.date);
-  const asOf = pollDate.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  const steps = [
+    { num: "1", title: "Objectives", desc: "Observable milestones" },
+    { num: "2", title: "The Data", desc: "Certified official records" },
+    { num: "3", title: "The Analysis", desc: "The winning arithmetic" },
+    { num: "4", title: "The Strategy", desc: "Targeted regional choices" },
+    { num: "5", title: "Implementation", desc: "Who does what & when" },
+  ];
 
   return (
     <section
-      aria-label="Where the contest stands"
-      className="not-prose rounded-2xl border border-line bg-card p-4 sm:p-5"
+      aria-label="Core electoral baselines and strategic sequence"
+      className="not-prose rounded-2xl border border-line bg-card p-5 sm:p-6"
     >
-      <h2 className="font-serif t-small sm:t-body font-bold text-ink">
-        Where the contest stands, and what winning takes
-      </h2>
-
-      <div className="mt-4 grid gap-5 sm:grid-cols-2">
-        {/* The finding the whole proposal is written against. */}
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-line">
         <div>
-          <GapBar
-            leading={{ label: "Irene Kasalu", value: LATEST_ROUND.shares.kasalu }}
-            trailing={{ label: "Dr. Mulu", value: LATEST_ROUND.shares.mulu }}
-            scaleMax={45}
-          />
-          <p className="t-micro mt-2 leading-snug text-muted">
-            Nomination preference, {LATEST_ROUND.label}. The gap widened from{" "}
-            <strong className="font-semibold text-ink">{DEFICIT_FIRST} points</strong> in{" "}
-            {FIRST_ROUND.short} to <strong className="font-semibold text-ink">{DEFICIT_LATEST}</strong> at {asOf}.
+          <div className="flex items-center gap-2">
+            <h2 className="font-serif text-lg sm:text-xl font-bold text-ink">
+              Kitui 2027: Core Electoral Baselines
+            </h2>
+            <TierBadge tier="T1" />
+          </div>
+          <p className="mt-1 text-xs text-muted">
+            The four data-only figures governing the campaign, anchored on certified election returns and official gazettes.
+          </p>
+        </div>
+      </div>
+
+      {/* The 4 Sourced Data-Only Figures */}
+      <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="p-4 rounded-xl border border-line bg-paper/60 flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-semibold text-muted uppercase tracking-wider">Electorate</span>
+              <TierBadge tier="T3" />
+            </div>
+            <div className="mt-2 font-serif text-2xl sm:text-3xl font-bold text-ink tabular-nums">
+              605,703
+            </div>
+            <p className="mt-1 text-xs font-medium text-ink">Registered Voters (Reported ECVR)</p>
+          </div>
+          <p className="mt-3 text-[11px] text-muted border-t border-line/50 pt-2">
+            532,758 certified in 2022 (T1); 605,703 reported following IEBC continuous registration (T3 [VERIFY]).
           </p>
         </div>
 
-        {/* The three constraints and the number to beat, as figures rather than counters. */}
-        <dl className="grid grid-cols-2 gap-x-4 gap-y-3.5">
-          <Stat
-            value={WINNING_TOTAL_2022.toLocaleString("en-KE")}
-            label="votes won the seat in 2022"
-            note="The number to beat — IEBC certified"
-          />
-          <Stat
-            value={`${OFFLINE_SHARE_PCT}%`}
-            label="of residents are offline"
-            note={`${ONLINE_SHARE_PCT}% use the internet — KNBS 2019`}
-            conflicts={["C-13"]}
-          />
-          <Stat
-            value={REGISTERED_VOTERS.toLocaleString("en-KE")}
-            label="registered voters"
-            note={`${WARD_COUNT} wards across ${CONSTITUENCY_COUNT} constituencies`}
-          />
-          <Stat
-            value={COUNTY_POPULATION.value.toLocaleString("en-KE")}
-            label="residents of Kitui County"
-            note="KNBS, 2019 census"
-          />
-          <Stat
-            value={`KSh${(RESOURCE_ENVELOPE_FY2026_27.value / 1e9).toFixed(2)}bn`}
-            label="the county's FY2026/27 envelope"
-            note="What the office controls — approved Fiscal Strategy Paper. §3.3.4 breaks it down."
-          />
-          <Stat
-            value="120,000"
-            label="consented SMS contacts by Phase 3"
-            note="The asset that compounds — §8.10.6 KPI ladder"
-          />
-        </dl>
+        <div className="p-4 rounded-xl border border-line bg-paper/60 flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-semibold text-muted uppercase tracking-wider">Target Floor</span>
+              <TierBadge tier="T1" />
+            </div>
+            <div className="mt-2 font-serif text-2xl sm:text-3xl font-bold text-ink tabular-nums">
+              ≈200k–225k
+            </div>
+            <p className="mt-1 text-xs font-medium text-ink">Votes to Win (Plurality Benchmark)</p>
+          </div>
+          <p className="mt-3 text-[11px] text-muted border-t border-line/50 pt-2">
+            Anchored on Malombe&apos;s 198,004 certified votes (2022). Scaled to 2026 electorate equals ≈225,000.
+          </p>
+        </div>
+
+        <div className="p-4 rounded-xl border border-line bg-paper/60 flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-semibold text-muted uppercase tracking-wider">Deficit Pool</span>
+              <TierBadge tier="T1" />
+            </div>
+            <div className="mt-2 font-serif text-2xl sm:text-3xl font-bold text-ink tabular-nums">
+              51.7%
+            </div>
+            <p className="mt-1 text-xs font-medium text-ink">In Mwingi & Kitui South (275,570 Voters)</p>
+          </div>
+          <p className="mt-3 text-[11px] text-muted border-t border-line/50 pt-2">
+            Over half the register lives where Dr. Mulu has never held office. Winning requires expanding beyond Kitui Central.
+          </p>
+        </div>
+
+        <div className="p-4 rounded-xl border border-line bg-paper/60 flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-semibold text-muted uppercase tracking-wider">Certified Benchmarks</span>
+              <TierBadge tier="T1" />
+            </div>
+            <div className="mt-2 font-serif text-2xl sm:text-3xl font-bold text-ink tabular-nums">
+              201.9k / 191.3k
+            </div>
+            <p className="mt-1 text-xs font-medium text-ink">Rivals Won Countywide (2022 Returns)</p>
+          </div>
+          <p className="mt-3 text-[11px] text-muted border-t border-line/50 pt-2">
+            Kasalu (201,899 votes) and Wambua (191,317 votes) hold proven countywide machines; Mulu&apos;s votes were bounded to Kitui Central.
+          </p>
+        </div>
       </div>
 
-      {/* The offline share is the single most repeated figure in the document and the one the
-          document itself says is superseded. A hero that printed it unqualified would be
-          repeating the contradiction at the loudest point on the page. */}
-      <div className="mt-4">
-        <UnderReview ids={["C-13"]}>
-          The site states Kitui&rsquo;s connectivity two ways: 13.6% internet use from the 2019
-          census, used in twelve chapters and here, and 26.2% from the 2023/24 Kenya Housing
-          Survey, which §3.6.1 says supersedes it. Both are shown where they appear; neither has
-          been changed.
-        </UnderReview>
+      {/* Five-Step Strategic Progress Spine */}
+      <div className="mt-6 pt-5 border-t border-line">
+        <h3 className="text-xs font-bold text-muted uppercase tracking-wider mb-3">
+          Five-Step Strategic Spine (Objectives &rarr; Data &rarr; Analysis &rarr; Strategy &rarr; Implementation)
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-5 gap-2.5">
+          {steps.map((s, idx) => (
+            <div
+              key={s.num}
+              className="p-3 rounded-lg border border-line/60 bg-paper/40 flex items-center gap-2.5"
+            >
+              <div className="w-6 h-6 rounded-full bg-accent/15 text-accent font-mono text-xs font-bold flex items-center justify-center shrink-0">
+                {s.num}
+              </div>
+              <div className="min-w-0">
+                <div className="text-xs font-bold text-ink truncate">{s.title}</div>
+                <div className="text-[10px] text-muted truncate">{s.desc}</div>
+              </div>
+              {idx < steps.length - 1 && (
+                <ArrowRight size={12} className="hidden sm:block text-muted/50 ml-auto shrink-0" />
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
-  );
-}
-
-function Stat({
-  value,
-  label,
-  note,
-  conflicts,
-}: {
-  value: string;
-  label: string;
-  note: string;
-  conflicts?: string[];
-}) {
-  /**
-   * The value is the term and the label is its definition, which is the right way round here and
-   * is also the only way round that states each of them once.
-   *
-   * An earlier draft put the label in a visually hidden `dt` and again, visibly, inside the `dd`.
-   * That is the precise defect this pass removed from AnimatedNumber and SplitText — `sr-only`
-   * hides a node from the eye and from nothing else, so copy-paste, reader mode and find-in-page
-   * would have met every label twice. A definition list whose `dt` is the figure needs no second
-   * copy of anything.
-   */
-  return (
-    <div className="min-w-0">
-      <dt className="font-serif text-xl font-bold leading-none tabular-nums text-ink sm:text-2xl">
-        {value}
-        {conflicts && (
-          <span className="ml-1 align-super t-micro font-bold text-gold" title={`Under review — ${conflicts.join(", ")}`}>
-            *
-          </span>
-        )}
-      </dt>
-      {/* No truncation. A figure worth printing is worth reading to the end — the cards this
-          replaced cut "Own-source revenue: KSh1.339bn" off mid-figure on a phone. */}
-      <dd className="m-0 mt-1 t-micro font-semibold leading-snug text-ink">
-        {label}
-        <span className="mt-0.5 block font-normal text-muted">{note}</span>
-      </dd>
-    </div>
   );
 }

@@ -86,7 +86,6 @@ import { ConstitutionalBranchNavigator } from "./markdown/ConstitutionalBranchNa
 import { PathTo200kCalculator } from "./markdown/PathTo200kCalculator";
 import { RecognitionDeficitOverlay } from "./markdown/RecognitionDeficitOverlay";
 import { AudienceSegmentationMatrix } from "./markdown/AudienceSegmentationMatrix";
-import { PollingTrajectorySimulator } from "./markdown/PollingTrajectorySimulator";
 import { StrategicPillarsMatrix } from "./markdown/StrategicPillarsMatrix";
 import { GeographicZoneMatrix } from "./markdown/GeographicZoneMatrix";
 import { PersuasionFramingMatrix } from "./markdown/PersuasionFramingMatrix";
@@ -225,7 +224,6 @@ const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
 // the next step if this map grows again.
 const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // ---- Cover, summary, situation and approach (§1-§7) ---------------------------------
-  "summary-sec-2-2": <PollingTrajectorySimulator />,
   // The scorecards are the objectives. What they do not carry is the eight indicator sets that
   // stayed with the work they measure — indexed beneath them rather than moved here.
   "measurement-sec-11-1": <ObjectivesIndex />,
