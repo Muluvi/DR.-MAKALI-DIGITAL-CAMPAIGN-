@@ -1,4 +1,6 @@
 import { FigureFrame } from "./FigureFrame";
+import { RegisterFigure } from "../register/Figure";
+import { REGISTER } from "../../lib/register/specs";
 import {
   Allocation,
   BarList,
@@ -1119,12 +1121,16 @@ export const FIGURES: Record<string, FigureEntry> = {
  * otherwise remove a figure from the document and nobody would find out until a reader did.
  */
 export function Figure({ id }: { id: string }) {
+  // The brief's figure register (lib/register/specs) is looked up first: one spec draws the chart,
+  // the table view and the CSV.
+  const spec = REGISTER[id];
+  if (spec) return <RegisterFigure spec={spec} />;
   const entry = FIGURES[id];
   if (!entry) {
     return (
       <p className="not-prose my-4 rounded-lg border border-dashed border-gold/60 bg-gold/[0.06] px-3 py-2 t-micro text-ink">
         <strong className="font-bold text-gold">Figure not found:</strong>{" "}
-        <code>{id}</code> is not in the figure registry (components/figures/registry.tsx).
+        <code>{id}</code> is not in the figure register (lib/register/specs) or the figure registry (components/figures/registry.tsx).
       </p>
     );
   }

@@ -48,7 +48,15 @@ function registeredIds() {
   return new Set([...body.matchAll(/^\s{2}"([a-z0-9-]+)":\s*\{$/gm)].map((m) => m[1]));
 }
 
+/** The register's ids (lib/register/specs), as scripts/build-csv.ts lists them. */
+function registerIds() {
+  const index = path.join(ROOT, "public", "data", "index.json");
+  if (!fs.existsSync(index)) return [];
+  return JSON.parse(fs.readFileSync(index, "utf8")).map((f) => f.id);
+}
+
 const ids = registeredIds();
+for (const id of registerIds()) ids.add(id);
 if (ids.size === 0) {
   console.error("verify-figure-fences: no figure ids found in registry.tsx — has FIGURES changed shape?");
   process.exit(1);

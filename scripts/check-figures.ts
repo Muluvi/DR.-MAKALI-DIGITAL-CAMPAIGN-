@@ -46,9 +46,16 @@ for (const file of fs.readdirSync(SRC).filter((f) => f.endsWith(".md")).sort()) 
     if (/^\s*```/.test(line)) { fence = !fence; return; }
     if (fence) return;
     for (const m of line.matchAll(LITERAL)) {
+      // Allowed only when an allow-list match covers this literal itself: a year elsewhere on the
+      // line must not excuse the count beside it.
       const at = m.index ?? 0;
-      const around = line.slice(Math.max(0, at - 12), at + m[0].length + 12);
-      if (ALLOW.some((re) => re.test(around))) continue;
+      const end = at + m[0].length;
+      const covered = ALLOW.some((re) =>
+        [...line.matchAll(new RegExp(re.source, re.flags.includes("g") ? re.flags : re.flags + "g"))].some(
+          (a) => (a.index ?? 0) <= at && (a.index ?? 0) + a[0].length >= end,
+        ),
+      );
+      if (covered) continue;
       errors.push(`content/${file}:${i + 1}: numeric literal "${m[0]}" — use a {{figure}} token`);
     }
   });

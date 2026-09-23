@@ -7,9 +7,13 @@ To achieve absolute mathematical certainty, the campaign's success metrics are a
 *   **Total Registered County Voters:** **532,758** ward-registered voters (plus **75** prison-registered voters, totalling **532,833**) (Tier 1).
 *   **Total Registered County Assembly Wards:** **40** across **8** constituencies (Tier 1).
 *   **Total Polling Stations:** 1,578 (Tier 1).
-*   **Registered voters, July 2026:** **605,703** (Tier 1, IEBC Enhanced Continuous Voter Registration county annex). Of the **72,945** added since 2022, **61,839** registered in the 30-day ECVR drive that closed on 28 April 2026 and **11,106** through continuous registration outside it (Tier 1). The 2026 register is not yet published by ward `[DATA NEEDED — IEBC ECVR ward annex]`.
+*   **Registered voters, July 2026:** **605,703** (Tier 1, IEBC Enhanced Continuous Voter Registration county annex). Of the **72,945** added since 2022, **61,839** registered in the 30-day ECVR drive that closed on 28 April 2026 and **11,106** through continuous registration outside it (modelled: the growth less the drive). The 2026 register is not yet published by ward `[DATA NEEDED — IEBC ECVR ward annex]`.
 *   **Winning benchmark:** Governor Malombe won in 2022 with **198,004 votes** (Section 2.2). Section 3.1 derives the working benchmark of 200,000 from it.
 *   **Turnout:** about 62%, used as a modelling constant. No certified county turnout figure is in the evidence pack `[DATA NEEDED — IEBC Form 37C, Kitui governor 2022]`.
+
+```figure
+id: fig-2-1-register
+```
 
 The full 40-ward register, by constituency, is in Annex B.1.
 

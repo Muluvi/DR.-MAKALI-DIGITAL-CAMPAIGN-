@@ -1,0 +1,14 @@
+Item,Registered voters,Source,Basis
+"Registered, 2022 (ward-registered)",532758,"IEBC ward register, 2022 (T1)",Sourced
+"ECVR drive, to 28 April 2026",61839,"IEBC ECVR county annex, July 2026 (T1)",Sourced
+Continuous registration outside the drive,11106,Derived: July 2026 less 2022 less the drive,Modelled
+"Registered, July 2026",605703,"IEBC ECVR county annex, July 2026 (T1)",Sourced
+"Kitui Central, 2022",77764,"IEBC ward register, 2022 (T1)",Sourced
+"Kitui South, 2022",75372,"IEBC ward register, 2022 (T1)",Sourced
+"Mwingi Central, 2022",74231,"IEBC ward register, 2022 (T1)",Sourced
+"Mwingi North, 2022",68829,"IEBC ward register, 2022 (T1)",Sourced
+"Kitui East, 2022",65377,"IEBC ward register, 2022 (T1)",Sourced
+"Kitui West, 2022",59047,"IEBC ward register, 2022 (T1)",Sourced
+"Mwingi West, 2022",57138,"IEBC ward register, 2022 (T1)",Sourced
+"Kitui Rural, 2022",55000,"IEBC ward register, 2022 (T1)",Sourced
+"By constituency or ward, July 2026",[DATA NEEDED — IEBC ECVR ward annex],—,Data needed

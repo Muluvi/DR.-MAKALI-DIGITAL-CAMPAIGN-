@@ -327,6 +327,21 @@ target("target.stage-champions", 1_200, "count", "Boda-boda Stage Champions, 30 
 target("target.volunteer-points", 100, "count", "Average points per volunteer per month: the campaign-owned volunteer programme's target.", { source: T_CAMPAIGN });
 target("target.whatsapp-groups", 180, "count", "Community WhatsApp groups monitored by the 40 constituency monitoring assistants.", { source: T_FIREFLY });
 
+// ---- Firefly's effort weighting by zone (Section 4.2): shares of communications effort, by phase
+const EFFORT: [string, number, number, number, number][] = [
+  ["p-1", 20, 35, 30, 15],
+  ["p12", 25, 25, 30, 20],
+  ["p3", 25, 25, 35, 15],
+];
+for (const [phase, anchor, mwingi, arid, rotating] of EFFORT) {
+  target(`effort.${phase}.anchor`, anchor, "percent", "Share of communications effort to the anchor zone.", { source: T_FIREFLY, decimals: 0 });
+  target(`effort.${phase}.mwingi`, mwingi, "percent", "Share of communications effort to the Mwingi block.", { source: T_FIREFLY, decimals: 0 });
+  target(`effort.${phase}.arid`, arid, "percent", "Share of communications effort to the arid and resource belt.", { source: T_FIREFLY, decimals: 0 });
+  target(`effort.${phase}.rotating`, rotating, "percent", "Share of communications effort rotating across wards as testing.", { source: T_FIREFLY, decimals: 0 });
+}
+target("effort.digital.pool", 65, "percent", "Share of Phase −1 digital reach effort geofenced to the pool.", { source: T_FIREFLY, decimals: 0 });
+target("effort.sms.pool", 70, "percent", "Share of SMS/USSD onboarding effort to the pool's 21 wards.", { source: T_FIREFLY, decimals: 0 });
+
 // ---- county-policy parameters the campaign is still to size (Section 4.4)
 target("policy.ward-fund", 100_000_000, "ksh", "The proposed Ward Development Equalization Fund, per ward per year: a campaign policy proposal, not yet sized.", { source: "Campaign policy proposal, this proposal" });
 sourced("policy.ndengu-output", 45_000, "count", "T3", "KNBS 2019 Census and ASTGS, as cited; page reference pending", { note: "Tonnes of ndengu output, not yet tiered to a page." });

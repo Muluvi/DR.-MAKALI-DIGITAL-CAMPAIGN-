@@ -125,8 +125,8 @@ did."**
 
 #### The weighting, and the finding it answers
 Because **{{pool.share}}% of the county register sits where he has never held office** (Section 3.4), the campaign cannot rely on organic spillover from Kitui Central. Output and targeting are weighted accordingly:
-*   **65% of all Phase −1 digital reach effort (Meta, Google, YouTube)** must be geofenced exclusively to Mwingi North, Mwingi Central, Mwingi West, and Kitui South — the weighting is on output and targeting, measured by R-02 in Section 5.6.4.
-*   **70% of the offline SMS/USSD onboarding effort** (Section 5.2.3.3) goes to the 21 wards of the pool: the 15 Mwingi wards and the 6 of Kitui South. The campaign's own ward-captain network ({{target.captains.pool}} of {{target.captains}} captains, recommended for the same wards) is campaign-owned and outside this engagement (Section 5.1.3).
+*   **{{effort.digital.pool}}% of all Phase −1 digital reach effort (Meta, Google, YouTube)** must be geofenced exclusively to Mwingi North, Mwingi Central, Mwingi West, and Kitui South — the weighting is on output and targeting, measured by R-02 in Section 5.6.4.
+*   **{{effort.sms.pool}}% of the offline SMS/USSD onboarding effort** (Section 5.2.3.3) goes to the 21 wards of the pool: the 15 Mwingi wards and the 6 of Kitui South. The campaign's own ward-captain network ({{target.captains.pool}} of {{target.captains}} captains, recommended for the same wards) is campaign-owned and outside this engagement (Section 5.1.3).
 *   The "Economist Governor" messaging in these wards must emphasize countywide fiscal redistribution, showing how Dr. Mulu's public finance oversight will direct water and health infrastructure investment into historically neglected rural wards like Kyuso, Tseikuru, Athi, and Mutha.
 
 Effort and content allocation across zones, by phase.
@@ -140,10 +140,10 @@ table drives effort.
 
 | Zone | Share of population | Phase −1 (nomination) | Phase 1–2 | Phase 3 (GOTV) |
 |---|---|---|---|---|
-| Anchor (Central/West) | {{zone.anchor.share}}% | 20% | 25% | 25% |
-| Mwingi Block | {{zone.mwingi.share}}% | **35%** | 25% | 25% |
-| Arid & Resource Belt | {{zone.arid.share}}% | **30%** | 30% | 35% |
-| Rotating / testing | — | 15% | 20% | 15% |
+| Anchor (Central/West) | {{zone.anchor.share}}% | {{effort.p-1.anchor}}% | {{effort.p12.anchor}}% | {{effort.p3.anchor}}% |
+| Mwingi Block | {{zone.mwingi.share}}% | **{{effort.p-1.mwingi}}%** | {{effort.p12.mwingi}}% | {{effort.p3.mwingi}}% |
+| Arid & Resource Belt | {{zone.arid.share}}% | **{{effort.p-1.arid}}%** | {{effort.p12.arid}}% | {{effort.p3.arid}}% |
+| Rotating / testing | — | {{effort.p-1.rotating}}% | {{effort.p12.rotating}}% | {{effort.p3.rotating}}% |
 
 Phase −1 deliberately over-indexes on Mwingi and the arid belt relative to
 population share, because the nomination deficit is a recognition deficit
@@ -174,7 +174,7 @@ success looks like there.
 |---|---|---|---|---|
 | Voter universe | Every registered voter in Kitui County | **{{register.2022}}** | IEBC ward register (Tier 1) | — |
 | Expected turnout universe | Ballots expected at the 62% turnout constant | **~{{ballots.2022}}** | Derived at the modelling constant, Section 3.1 | — |
-| **Victory universe** | Votes required to win the general election | **~{{benchmark}}** | Section 3.1; 198,004 won in 2022 (Tier 2) | GOTV |
+| **Victory universe** | Votes required to win the general election | **~{{benchmark}}** | Section 3.1; {{result.2022.gov.malombe}} won in 2022 (Tier 2) | GOTV |
 | **Base-hold universe** | The anchor: Kitui Central and Kitui West | `[VERIFIED FIGURE REQUIRED]` — Kitui Central holds **{{con.kitui-central}}** registered voters (Tier 1), but a register count is not a support estimate | Section 3.7.1 | Mobilisation |
 | **Persuasion universe** | The Mwingi bloc and the arid belt, where recognition is weakest | `[VERIFIED FIGURE REQUIRED]` — the Mwingi constituencies hold **{{bloc.mwingi}}** registered voters (Tier 1), which is the ceiling on this universe and not its size | Section 3.4 | Recognition |
 | **Mobilisation universe** | Identified supporters needing a turnout contact | Target **{{target.supporters}}** verified supporters | Section 1.3.4 (target) | Field + SMS |

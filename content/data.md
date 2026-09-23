@@ -4,12 +4,16 @@ What the official record shows, graded by source: the IEBC register, certified r
 
 To achieve absolute mathematical certainty, the campaign's success metrics are anchored strictly to the official 2022 IEBC register (Tier 1), rather than volatile digital vanity metrics:
 
-*   **Total Registered County Voters:** **{{register.2022}}** ward-registered voters (plus **75** prison-registered voters, totalling **{{register.2022.with-prisons}}**) (Tier 1).
+*   **Total Registered County Voters:** **{{register.2022}}** ward-registered voters (plus **{{register.2022.prisons}}** prison-registered voters, totalling **{{register.2022.with-prisons}}**) (Tier 1).
 *   **Total Registered County Assembly Wards:** **40** across **8** constituencies (Tier 1).
 *   **Total Polling Stations:** {{register.polling-stations}} (Tier 1).
-*   **Registered voters, July 2026:** **605,703** (Tier 1, IEBC Enhanced Continuous Voter Registration county annex). Of the **{{register.2026.growth}}** added since 2022, **61,839** registered in the 30-day ECVR drive that closed on 28 April 2026 and **11,106** through continuous registration outside it (Tier 1). The 2026 register is not yet published by ward `[DATA NEEDED — IEBC ECVR ward annex]`.
-*   **Winning benchmark:** Governor Malombe won in 2022 with **198,004 votes** (Section 2.2). Section 3.1 derives the working benchmark of {{benchmark}} from it.
+*   **Registered voters, July 2026:** **{{register.2026}}** (Tier 1, IEBC Enhanced Continuous Voter Registration county annex). Of the **{{register.2026.growth}}** added since 2022, **{{register.2026.ecvr-drive}}** registered in the 30-day ECVR drive that closed on 28 April 2026 and **{{register.2026.continuous}}** through continuous registration outside it (modelled: the growth less the drive). The 2026 register is not yet published by ward `[DATA NEEDED — IEBC ECVR ward annex]`.
+*   **Winning benchmark:** Governor Malombe won in 2022 with **{{result.2022.gov.malombe}} votes** (Section 2.2). Section 3.1 derives the working benchmark of {{benchmark}} from it.
 *   **Turnout:** about 62%, used as a modelling constant. No certified county turnout figure is in the evidence pack `[DATA NEEDED — IEBC Form 37C, Kitui governor 2022]`.
+
+```figure
+id: fig-2-1-register
+```
 
 The full 40-ward register, by constituency, is in Annex B.1.
 

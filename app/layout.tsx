@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Montserrat, Newsreader, JetBrains_Mono } from 'next/font/google';
 import './globals.css'; // Global styles
+import './register.css'; // The figure register's visual system
 
 // The variable axis, not a pair of static cuts.
 //
