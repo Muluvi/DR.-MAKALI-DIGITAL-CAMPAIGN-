@@ -77,12 +77,12 @@ the existing NG-CDF project record.
 > and the ***Guidance Note for the Public Sector (2025)***, the second of which bars reuse of
 > public-programme data for political mobilisation (Section 5.7.6). What remains unretrieved is
 > any circular issued after these. Separately, the **CA/NCIC political bulk-messaging guidelines**
-> are now applied in full at Section 5.2.9.2: English or Kiswahili only, and 48-hour advance lodging
+> are now applied in full at Section 5.2.3.3: English or Kiswahili only, and 48-hour advance lodging
 > with the operator.
 >
 > **Mandatory Action:** Prior to any mass SMS/USSD broadcasting — which Firefly operates, and for which Firefly is a controller or joint controller (Section 5.7.5) — the Campaign Legal Director MUST:
 > 1. Conduct a formal legal review with the ODPC registry to obtain the latest gazetted political campaigning guidelines and advisory notes.
-> 2. Formally register the campaign entity as a **Data Controller / Data Processor** with the ODPC if aggregate supporter records exceed statutory thresholds (Section 5.2.11.2 & Section 5.8.13).
+> 2. Formally register the campaign entity as a **Data Controller / Data Processor** with the ODPC if aggregate supporter records exceed statutory thresholds (Section 5.2.4.1 & Section 5.8.13).
 > 3. Verify compliance of telecommunication aggregator contracts (Safaricom / Airtel bulk SMS gateways) with the latest ODPC direct marketing codes.
 
 
@@ -111,7 +111,7 @@ presented as settled fact.
 
 3. **The register and connectivity figures hold.** The 532,758 registered voters, the 86.4%
    outside the internet-using population and the ward-level distribution in Section 3.0 are the
-   most recent published figures. The offline layer in Section 5.2.9 is sized against them.
+   most recent published figures. The offline layer in Section 5.2.3.3 is sized against them.
 
 4. **The campaign appoints the named roles.** The data-protection and electoral-law reviewer, the
    qualitative research facilitator and the sign-language provider are campaign appointments, not
@@ -134,7 +134,7 @@ presented as settled fact.
    not merged and not messaged (Section 5.7.6).
 
 5. **The candidate is available to the production cycle.** The weekly Facebook Live, the
-   explainer series and the debate preparation in Section 5.2.6 assume scheduled candidate time.
+   explainer series and the debate preparation in Section 5.2.2.2 assume scheduled candidate time.
    Without it, the earned-media and owned-video commitments in Section 5.5.3 cannot hold at the
    stated cadence.
 
@@ -145,7 +145,7 @@ presented as settled fact.
 
 7. **The engagement is embedded with the campaign.** Firefly works alongside the campaign's own
    structure under Section 12, not at arm's length from it, and the ground-digital integration in
-   Section 5.2.7 assumes daily contact with the field operation.
+   Section 5.2.3.1 assumes daily contact with the field operation.
 
 
 The decision in front of the campaign, and the specific action this proposal asks for.

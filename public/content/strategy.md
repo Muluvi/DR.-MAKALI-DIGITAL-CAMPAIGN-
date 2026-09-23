@@ -21,7 +21,7 @@ The campaign's core policy narrative remains mathematically and strategically so
 
 However, forensic strategic analysis of Dr. Mulu's record identifies a highly powerful, under-utilized asset. Parliamentary and professional records document his extensive credentials as a specialist in project management, strategic planning, and **monitoring and evaluation (M&E)**, his membership in the Evaluation Society of Kenya, and his designation as an **M&E Champion by the Ministry of Finance**, following distinguished service with the United Nations in financial advisory and project management capacities. Notably, under his stewardship, Kitui Central was certified as the best evaluated constituency in the Eastern region for FY2014/15.
 
-Dr. Mulu is not merely an economist; he is a specialist in **verifying whether public expenditure yields tangible developmental returns** — addressing the precise point of skepticism held by the Kitui electorate. This proposal translates this distinctive qualification into a public-facing, interactive service-delivery tracker (detailed in Section 5.2.1), transforming a resume asset into a live, daily demonstration of administrative accountability.
+Dr. Mulu is not merely an economist; he is a specialist in **verifying whether public expenditure yields tangible developmental returns** — addressing the precise point of skepticism held by the Kitui electorate. This proposal translates this distinctive qualification into a public-facing, interactive service-delivery tracker (detailed in Section 5.2.1.1), transforming a resume asset into a live, daily demonstration of administrative accountability.
 
 ---
 
@@ -62,7 +62,7 @@ cover line, and it is the frame these four pillars argue. It has carried no cont
 Four pillars, extended from the original three. **These four are the campaign's pillars.** Three
 other groupings appear elsewhere and are deliberately different things, not competing versions of
 this one: Section 4.4 sets out the three *message* pillars — how the claim is argued to a voter;
-Section 5.2.2.1 the four thematic *content* buckets; and **Section 6A the four live production
+Section 5.2.1.2 the four thematic *content* buckets; and **Section 6A the four live production
 pillars**, which are the ones the weekly brief actually commissions against. Each maps back to the
 four below.
 
@@ -71,7 +71,7 @@ four below.
 * **Fiscal accountability and devolution:** Translate Dr. Mulu's parliamentary advocacy for equitable resource distribution into a clear, actionable manifesto for Kitui's 40 wards. Content will show, line by line, how the county's KSh13.79 billion should be allocated and audited — using his economics background to give voters confidence their money will be managed well.
 * **Data-driven civic engagement:** Infographic analyses breaking down Dr. Mulu's track record — including NG-CDF-funded projects in Kitui Central — so voters can visualise impact. Complex budget documents converted into simple charts, ward-level maps, and before-and-after comparisons.
 * **Policy, translated into what it changes:** Convert dense policy topics — climate investment in water infrastructure, agricultural revitalisation — into relatable, vernacular-friendly content. A 90-second video, a Kikamba voice note, or a shareable card makes every policy tangible and personal.
-* **Verification and follow-through:** The pillar that distinguishes Dr. Mulu from every rival: **publishing what was promised, then publishing whether it happened.** Operationalised through the public service-delivery tracker (Section 5.2.1), the quarterly evidence cadence in Section 5.2.14, and the transparent ad-spend disclosure in the Digital Ethics & Data Charter (Section 5.7.8). An M&E specialist who campaigns without a verification mechanism is wasting his strongest asset.
+* **Verification and follow-through:** The pillar that distinguishes Dr. Mulu from every rival: **publishing what was promised, then publishing whether it happened.** Operationalised through the public service-delivery tracker (Section 5.2.1.1), the quarterly evidence cadence in Section 5.2.4.4, and the transparent ad-spend disclosure in the Digital Ethics & Data Charter (Section 5.7.8). An M&E specialist who campaigns without a verification mechanism is wasting his strongest asset.
 
 ---
 
@@ -126,7 +126,7 @@ published content until it is sourced to a KNBS bulletin or the CIDP. The theme 
 them: Section 2.4 documents the poverty and water-access position at Tier 1.
 6. **Education** — ECDE, bursaries, school infrastructure.
 **Evidence:** 13.0% never attended school and 17.4% completed secondary (both stated at
-Section 5.2.4.2 and **not yet tiered** — obtainable from the KNBS county bulletin); and
+Section 5.2.1.4 and **not yet tiered** — obtainable from the KNBS county bulletin); and
 **KSh47m already delivered to 12,573 students** in Kitui Central (Tier 1, Section 2.8).
 
 Underlying narrative throughout: **"Kitui has resources. What it has lacked is
@@ -217,7 +217,7 @@ It is the pillar that feeds P1 twelve weeks later.
 *   **Connectivity & Media Consumption:** **86.4% offline**; 2G/GSM feature phone dominance; high evening vernacular radio listenership; weekly open-air market gatherings.
 *   **Reachable Channels:**
     *   **Primary:** Kamba Vernacular Radio (Musyi FM, Mbaitu FM, Sang'u FM, Athiani FM, Syokimau FM) during morning (06:00–08:30) and evening drive (19:00–21:30).
-    *   **Secondary:** Direct localised bulk SMS in **Kiswahili** via the 400 Ward Captain field network (Section 1.3). Bulk political SMS is restricted to English or Kiswahili by the CA/NCIC guidelines; the Kikamba version of the same message travels as a WhatsApp voice note (Section 5.2.9.2).
+    *   **Secondary:** Direct localised bulk SMS in **Kiswahili** via the 400 Ward Captain field network (Section 1.3). Bulk political SMS is restricted to English or Kiswahili by the CA/NCIC guidelines; the Kikamba version of the same message travels as a WhatsApp voice note (Section 5.2.3.3).
     *   **Physical:** Open-air market day barazas (e.g., Kalundu, Kabati, Mbondoni, Nguni, Mutomo), church fellowships (AIC, Catholic, Redeemed), and agricultural cooperative/SACCO meetings.
 *   **Persuasion Lever (What It Takes to Move Them):**
     *   *Core Anxiety:* Persistent seasonal crop failure, unmitigated drought shocks, exploitative middlemen for green grams (*ndengu*) and pigeon peas (*nzuu*), and erratic subsidized seed/fertilizer distribution.
@@ -359,7 +359,7 @@ id: message-house
 > scheme rather than a purchase guarantee, which changes the figure materially. Firefly's
 > recommendation is that both are sized and structured with the campaign's fiscal team before
 > they go into broadcast copy, since the figures already appear in the radio scripts, SMS
-> copy and USSD menu in Section 5.2.2. **This is the campaign's call, and one worth settling
+> copy and USSD menu in Section 5.2.1.2. **This is the campaign's call, and one worth settling
 > early rather than on air.**
 
 #### Message Pillar 3: Devolution Equity, Universal Water Access & Healthcare *(carries campaign pillars 2.2.1 and 2.2.2)*
@@ -642,3 +642,17 @@ anything else is decided.
 `[DATA NEEDED — one screenshot of Meta Business Suite, or of the Professional dashboard, settles
 this. It takes five minutes and it gates the rest of the audit.]`
 
+## 4.8 When the plan changes
+
+Stated as decision rules in advance, so the audit cannot be read backwards into whatever was already
+planned.
+
+| If the audit finds | The strategy changes to |
+|---|---|
+| Follower and reach geography concentrated in Kitui Central and Nairobi | The recognition thesis is confirmed on his own data. Output weight shifts to Mwingi and the arid belt, and the headline indicator becomes reach share in the deficit pool (R-02, Section 5.6.3). |
+| Material reach in Mwingi but flat engagement there | The problem is message, not reach. The answer is the message lab (Section 5.6.9), not geofenced advertising — and the Phase −1 weighting in Section 3.4 is wrong. |
+| Kikamba posts out-engaging English by a wide margin | Language stops being a preference and becomes a rule in the weekly brief (Section 4.4.7). |
+| Video watch time collapsing before 10 seconds | Long flagship video is the wrong format. Short vertical and Kikamba voice notes replace it, and the deliverables cadence in Section 5.5.3 is re-cut. |
+| Most engagement produced by a few hundred repeat accounts | The follower base is a shell. Priority moves from page growth to consented WhatsApp and SMS list building (Section 5.2.3.3). |
+| Rivals running Meta ads while Dr. Mulu is not | Part of the gap is bought reach. The ad-account question in Section 5.7.3 becomes urgent. |
+| It is a personal profile, not a Page | No Insights, no ads, no delegated access, nothing to direct against. A structural finding that changes what can be directed at all, and it is settled in the first hour. |

@@ -1,32 +1,20 @@
 import { SECTIONS, type TabId } from "./heading-slug";
 
 /**
- * The document as one continuous scroll.
+ * The document as one continuous scroll, in the engagement's own order.
  *
- * The proposal used to be nineteen destinations behind a menu. On a phone that meant the reader's
- * first act was a navigation decision about a document they had not read — and the ask, the
- * evidence and the price sat behind three different taps. It is now one page in one direction:
- * the reader scrolls, and the argument arrives in the order it is built.
+ * Cover, then Objectives, The Data, The Analysis, The Strategy, Implementation and Next Steps,
+ * then the seven annexes. Section 5 is one section across six routes: a section is a unit of
+ * argument and a route is a unit of transfer, and §5 is the longest part of the document.
  *
- * ORDER IS NOT FILE ORDER. The numbered order is the order a proposal is FILED — cover sheet,
- * confidentiality, summary, analysis, scope, annexes. The order below is the order it is READ
- * when nobody can skip: what is being asked, the short version of why, the evidence, what the
- * evidence implies, what we will therefore do, how it runs, what it costs, what could go wrong,
- * and the ask again at the end where a decision is actually made.
- *
- * Two moves are deliberate:
- *
- *   - §1 (title, confidentiality, how to read this) leaves the front. It is front matter for a
- *     printed document and a closed door on a scrolling one: nobody arrives wanting to read the
- *     terms of a document they have not seen. It keeps its number, its route and every link into
- *     it, and it sits with the annexes as the colophon, where terms belong once the offer is made.
- *   - §2 (executive summary) moves up behind the ask, because a reader who stops after ninety
- *     seconds should still have the whole offer.
- *
- * Nothing is renumbered. Section numbers are the document's own addressing system and 837 deep
- * links depend on them; this is a reading order laid over them, not a replacement for them.
+ * Section numbers are the document's addressing system. When the 2026 rebuild renumbered it,
+ * every old id was given a generated redirect (lib/anchors/redirects.ts), so a link already
+ * shared still lands on the heading it named.
  */
 export const FLOW_ORDER: TabId[] = [
+  // The cover opens the document: who it is for, who prepared it, and one line of terms. The full
+  // terms are Annex G.
+  "cover",
   // The engagement's own order, which is also the brief's: objectives, then the data, then what
   // the data implies, then what we will therefore do, then how it runs, then the decision.
   "objectives",
@@ -40,8 +28,7 @@ export const FLOW_ORDER: TabId[] = [
   "workstreams-data",
   "delivery",
   "nextsteps",
-  // Terms and reference, after the offer is made.
-  "cover",
+  // Reference, after the offer is made.
   "annex-evidence",
   "annex-county",
   "annex-polls",
@@ -67,7 +54,7 @@ export const FLOW_ACTS: FlowAct[] = [
   { id: "strategy", label: "The Strategy", blurb: "Each choice tied to the finding it answers", opensOn: "strategy" },
   { id: "implementation", label: "Implementation", blurb: "Who does what, when, and how it's checked", opensOn: "implementation" },
   { id: "close", label: "Next Steps", blurb: "What the campaign provides, and the decision requested", opensOn: "nextsteps" },
-  { id: "reference", label: "Terms and reference", blurb: "Confidentiality, method, annexes", opensOn: "cover" },
+  { id: "reference", label: "Annexes", blurb: "Method, reference, polls for reference only, and terms", opensOn: "annex-evidence" },
 ];
 
 const ACT_BY_OPENER = new Map(FLOW_ACTS.map((a) => [a.opensOn as string, a]));

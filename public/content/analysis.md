@@ -196,7 +196,7 @@ This represents **51.72% of the entire Kitui County voter register**.
 #### Strategic Operational Mandate:
 Because **over 51% of the county register sits in Dr. Mulu's primary recognition deficit zones**, the campaign cannot rely on organic voter spillover from Kitui Central. The digital and field apparatus must execute a targeted resource reallocation:
 *   **65% of all Phase −1 digital reach effort (Meta, Google, YouTube)** must be geofenced exclusively to Mwingi North, Mwingi Central, Mwingi West, and Kitui South — the weighting is on output and targeting, measured by R-02 in Section 5.6.4.
-*   **70% of the offline SMS/USSD onboarding infrastructure** (Section 5.2.9) and **240 of the 400 Ward Captains** (Section 1.3) must be concentrated in these 24 northern and southern deficit wards.
+*   **70% of the offline SMS/USSD onboarding infrastructure** (Section 5.2.3.3) and **240 of the 400 Ward Captains** (Section 1.3) must be concentrated in these 24 northern and southern deficit wards.
 *   The "Economist Governor" messaging in these wards must emphasize countywide fiscal redistribution, showing how Dr. Mulu's public finance oversight will direct water and health infrastructure capital into historically neglected rural wards like Kyuso, Tseikuru, Athi, and Mutha.
 
 ## 3.5 What his rivals have already proven
@@ -340,7 +340,7 @@ id: reach-split
 >
 > If the campaign captures **100% of every single internet-connected voter in Kitui County**, it would assemble only about **72,000 reachable voters** — and reach is not votes—leaving the candidate **125,549 votes short** of the 198,004 benchmark.
 >
-> Therefore, digital channels alone **cannot mathematically win this election**. Victory depends on dominating the offline media and field infrastructure (Section 5.2.9), while using digital channels (Section 5.2.8) with surgical precision to shape elite opinion, organize youth volunteers, and mobilize the out-of-county diaspora.
+> Therefore, digital channels alone **cannot mathematically win this election**. Victory depends on dominating the offline media and field infrastructure (Section 5.2.3.3), while using digital channels (Section 5.2.3.2) with surgical precision to shape elite opinion, organize youth volunteers, and mobilize the out-of-county diaspora.
 
 ### 3.8.1 The offline majority, and the infrastructure that reaches it
 
@@ -351,31 +351,31 @@ The election will be won or lost across the **~460,000 offline voters** living i
 id: offline-channels
 ```
 
-#### 3.1.2.1 Kikamba Vernacular Radio (The Decisive Broadcast Medium)
+#### Kikamba Vernacular Radio (The Decisive Broadcast Medium)
 *   **Empirical Reach:** **~420,000 voters (78%–80% daily/weekly listenership in rural Kitui)** (GeoPoll / KARF Industry Data, Tier 2).
 *   **Station Hierarchy & Reach:**
     *   *Musyi FM (Royal Media Services):* Dominant market leader in Ukambani; commercially independent. **Priority placement.**
     *   *County FM (Kitui-based independent):* Local ward news and debates, strong in Kitui Town, Kabati and Kwa Vonza. **Priority placement.**
     *   *Wikwatyo FM (Seventh-Day Adventist Church, Kitui):* Broad rural community trust. **Priority for community and service-delivery programming.**
-    *   *Mbaitu FM, Syokimau FM (Ngilu-associated) and Athiani FM (Wiper leadership):* **monitoring targets, not placement targets** — see Section 5.2.6.1 for the ownership map and the posture each one carries.
+    *   *Mbaitu FM, Syokimau FM (Ngilu-associated) and Athiani FM (Wiper leadership):* **monitoring targets, not placement targets** — see Section 5.2.2.2 for the ownership map and the posture each one carries.
 *   **Operational Execution:**
     *   *Prime-Time Strategic Bookings:* Secure weekly 2-hour interactive morning studio interviews (06:30–08:30) with Dr. Mulu during key policy rollout weeks.
     *   *Kikamba Voice Jingles & Audio Testimonials:* 45-second micro-stories featuring real farmers from Mwingi North, Kitui South, and Kitui Rural explaining how Dr. Mulu's economic model protects their harvest prices.
     *   *Live Event Feeds:* Sponsoring live outside broadcasting (OB) vans at major market rallies in Kalundu, Kabati, and Mutomo.
 
-#### 3.1.2.2 Direct 2G Bulk SMS & USSD Service
+#### Direct 2G Bulk SMS & USSD Service
 *   **Empirical Reach:** **~320,000 voters (60%+ of active register reachable on basic GSM handsets)**.
 *   **Operational Execution:**
     *   *Zero-Rated USSD Portal (`*[shortcode]#`):* Allows feature phone users to dial a free code to read Dr. Mulu's 5-point manifesto in Kikamba, register as a volunteer, or locate their nearest Ward Captain.
-    *   *Hyper-Localised Bulk SMS:* Dispatching customised **Kiswahili** messages to consented supporters within specific wards on the eve of market days and on election morning for Get-Out-The-Vote (GOTV) mobilisation. Bulk political SMS is restricted to English or Kiswahili (Section 5.2.9.2); the Kikamba version travels by voice note and radio.
+    *   *Hyper-Localised Bulk SMS:* Dispatching customised **Kiswahili** messages to consented supporters within specific wards on the eve of market days and on election morning for Get-Out-The-Vote (GOTV) mobilisation. Bulk political SMS is restricted to English or Kiswahili (Section 5.2.3.3); the Kikamba version travels by voice note and radio.
 
-#### 3.1.2.3 Mobile-Money (M-Pesa) Agent Network Strategy
+#### Mobile-Money (M-Pesa) Agent Network Strategy
 *   **Empirical Reach:** **~180,000 unique monthly voter interactions across 1,800+ M-Pesa kiosks in Kitui County**.
 *   **Operational Execution:**
-    *   M-Pesa agents are trusted community hubs where residents deposit funds, buy airtime, and discuss local news. **Agent networks are regulated financial infrastructure**; Section 5.2.9.5 flags that any commercial arrangement with them must be reviewed by campaign counsel before recruitment begins. The 1,800 kiosk and 800 ambassador counts are also untiered and need a source.
+    *   M-Pesa agents are trusted community hubs where residents deposit funds, buy airtime, and discuss local news. **Agent networks are regulated financial infrastructure**; Section 5.2.3.3 flags that any commercial arrangement with them must be reviewed by campaign counsel before recruitment begins. The 1,800 kiosk and 800 ambassador counts are also untiered and need a source.
     *   The campaign will recruit 800+ shopkeepers and M-Pesa agents as "Economic Ambassadors," providing them with branded business ledgers, counter pens, calendar posters, and daily economic talking points.
 
-#### 3.1.2.4 Open-Air Market Day Barazas & Caravan Circuits
+#### Open-Air Market Day Barazas & Caravan Circuits
 *   **Empirical Reach:** **~280,000 voters attend weekly market rotations**.
 *   **Market Rotation Map:**
     *   *Mondays:* Nguni Livestock Market (Mwingi Central), Kabati (Kitui West).
@@ -386,7 +386,7 @@ id: offline-channels
     *   *Saturdays:* Kitui Town Central Market, Mwingi Town Main Market.
 *   **Operational Execution:** Deploying two high-output mobile sound trucks (*The Mulu Economic Caravans*) equipped with live PA systems, Kikamba music, and local youth speakers to dominate market entrances on their designated days.
 
-#### 3.1.2.5 Church Fellowships & Clergy Engagement
+#### Church Fellowships & Clergy Engagement
 *   **Empirical Reach:** **~350,000 weekly attendees across Catholic, AIC, Redeemed Gospel, Anglican, and Baptist congregations**.
 *   **Operational Execution:** Sunday morning worship visits across all 8 constituencies, respecting liturgical decorum, requesting pastoral prayers, and engaging parish development committees post-service.
 
@@ -396,9 +396,9 @@ The analytical layer this engagement supplies is predictive voter modelling, mul
 
 Three structural constraints dictate the execution of this strategy:
 
-1. **Broadband Exclusion Boundaries:** **Approximately 86% of the Kitui electorate remains outside the active internet-using population.** Any digital strategy confined to online platforms will systematically fail to reach a constituency that is 95.2% rural. Section 5.2.9 resolves this limitation via integration with offline SMS and USSD infrastructures.
+1. **Broadband Exclusion Boundaries:** **Approximately 86% of the Kitui electorate remains outside the active internet-using population.** Any digital strategy confined to online platforms will systematically fail to reach a constituency that is 95.2% rural. Section 5.2.3.3 resolves this limitation via integration with offline SMS and USSD infrastructures.
 2. **The Selection Method and the Compressed Window:** **The Wiper ticket will be decided by opinion poll rather than a delegates' contest, and the decision is expected in the final quarter of 2026 — late October to November on the reported timetable (Tier 3).** That converts the nomination from an exercise in delegate arithmetic into a countywide name-recognition problem, measured on a date the campaign does not control. Every deadline in this document is set by that window; Section 1.2 establishes it and the Phase −1 sprint in Section 5.3 exists to answer it.
-3. **Political Capture of Local Radio:** **Kamba-language broadcast media — the primary information source for offline rural voters — is highly compromised by rival interests.** Two major regional stations are directly aligned with a primary gubernatorial competitor, and a third is controlled by party leadership. Section 5.2.6 bypasses this broadcast bottleneck through direct, decentralized communication channels.
+3. **Political Capture of Local Radio:** **Kamba-language broadcast media — the primary information source for offline rural voters — is highly compromised by rival interests.** Two major regional stations are directly aligned with a primary gubernatorial competitor, and a third is controlled by party leadership. Section 5.2.2.2 bypasses this broadcast bottleneck through direct, decentralized communication channels.
 
 ---
 
@@ -462,16 +462,14 @@ To uphold the campaign's rigorous data integrity standard, the following empiric
 
 ## 3.11 The diagnosis, and the evidence that could overturn it
 
-Stated as decision rules in advance, so the audit cannot be read backwards into whatever was already
-planned.
+**The honest caveat, stated before the sell.** Firefly's diagnosis is that the deficit is a
+*geography-of-recognition* problem concentrated outside Kitui Central, not a credibility problem —
+and that this is the most solvable kind of deficit. That diagnosis has counter-evidence against it:
+Dr. Kasalu won the 2022 Woman Representative race with **201,899 votes**, more than the **198,004**
+that won the governorship the same year (Section 2.2). She has already demonstrated countywide
+vote-getting capacity above the winning threshold.
 
-| If the audit finds | The strategy changes to |
-|---|---|
-| Follower and reach geography concentrated in Kitui Central and Nairobi | The recognition thesis is confirmed on his own data. Output weight shifts to Mwingi and the arid belt, and the headline indicator becomes reach share in the deficit pool (R-02, Section 5.6.3). |
-| Material reach in Mwingi but flat engagement there | The problem is message, not reach. The answer is the message lab (Section 5.6.9), not geofenced advertising — and the Phase −1 weighting in Section 3.4 is wrong. |
-| Kikamba posts out-engaging English by a wide margin | Language stops being a preference and becomes a rule in the weekly brief (Section 4.4.7). |
-| Video watch time collapsing before 10 seconds | Long flagship video is the wrong format. Short vertical and Kikamba voice notes replace it, and the deliverables cadence in Section 5.5.3 is re-cut. |
-| Most engagement produced by a few hundred repeat accounts | The follower base is a shell. Priority moves from page growth to consented WhatsApp and SMS list building (Section 5.2.9). |
-| Rivals running Meta ads while Dr. Mulu is not | Part of the gap is bought reach. The ad-account question in Section 5.7.3 becomes urgent. |
-| It is a personal profile, not a Page | No Insights, no ads, no delegated access, nothing to direct against. A structural finding that changes what can be directed at all, and it is settled in the first hour. |
-
+So Week 1 tests the hypothesis against Dr. Mulu's own data before anything is committed against it.
+If his reach is already landing in Mwingi and failing to convert, the problem is message rather than
+reach, and the response changes (Section 3.11). That test is not a formality; it is the first
+deliverable.

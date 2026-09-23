@@ -33,7 +33,7 @@ id: holding-positions
 | **Meta Ad Library** | Competitor ad spend, creative and targeting estimates |
 | **Google Ads Transparency Centre** | Competitor search advertising |
 | Custom BI dashboard | Centralised real-time metrics |
-| **Radio monitoring** | Kamba-language station tracking (Section 5.2.6) — critical, as most attacks on Dr. Mulu will originate on air, not online |
+| **Radio monitoring** | Kamba-language station tracking (Section 5.2.2.2) — critical, as most attacks on Dr. Mulu will originate on air, not online |
 
 ## F.5 Rapid-response protocol and pre-approved message library
 
@@ -69,7 +69,7 @@ or when. The drill runs in real time against the Section F.5 clock.
 | 1 | Fabricated audio of Dr. Mulu making an inflammatory statement, seeded on WhatsApp | Deepfake protocol; 30-minute Level 3 clock |
 | 2 | Coordinated hashtag attack on his NG-CDF record | Fact-base readiness; rebuttal library |
 | 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval (Section 5.7.8) |
-| 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 5.2.6) |
+| 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 5.2.2.2) |
 | 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section F.10) |
 | 7 | Manufactured "grassroots" campaign attacking a rival, falsely attributed to Dr. Mulu | Charter defence; provenance evidence |
 
@@ -150,7 +150,7 @@ material — a denial later disproved is worse than the original leak.
 | Google Ads Transparency Centre | Competitor search advertising and keywords |
 | Social listening (premium tier) | Mentions, supporter sentiment, emerging narratives |
 | X lists | Curated rival, surrogate and influencer accounts |
-| **Radio monitoring** | Kamba-station coverage and airtime share (Section 5.2.6) |
+| **Radio monitoring** | Kamba-station coverage and airtime share (Section 5.2.2.2) |
 | **Published polling tracker** | Mizani Africa and other published surveys, logged with dates and methodology notes |
 
 ## F.12 Competitive intelligence outputs and rapid alerts

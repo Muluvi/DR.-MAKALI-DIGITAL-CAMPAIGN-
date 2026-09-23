@@ -16,7 +16,7 @@ import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
 import { useMotionPreset } from "../../hooks/useMotionPreset";
 import { BODY_H, BODY_W } from "./device";
 import { ChannelMark } from "./marks";
-import { PhoneFrame, type PhoneVariant, type PhoneLightingMode } from "./PhoneFrame";
+import { PhoneFrame } from "./PhoneFrame";
 import { FacebookScreen } from "./screens/FacebookScreen";
 import { InstagramScreen } from "./screens/InstagramScreen";
 import { TikTokScreen } from "./screens/TikTokScreen";
@@ -53,8 +53,6 @@ export function PhoneShowcase() {
   const reduce = useReducedMotionSafe();
   const { enter } = useMotionPreset();
   const [channel, setChannel] = useState<ChannelId>(DEFAULT_CHANNEL);
-  const [variant, setVariant] = useState<PhoneVariant>("flagship");
-  const [lightingMode, setLightingMode] = useState<PhoneLightingMode>("studio");
   const tabRefs = useRef<Partial<Record<ChannelId, HTMLButtonElement | null>>>({});
 
   // The device is drawn once at true phone size and scaled as a single transform, so nothing
@@ -144,59 +142,6 @@ export function PhoneShowcase() {
         })}
       </div>
 
-      {/* Hardware & Environment Variation Controls */}
-      <div className="flex flex-wrap items-center justify-center gap-3 mt-3 px-2">
-        {/* Handset Variant */}
-        <div className="inline-flex items-center gap-1 p-1 rounded-lg bg-surface border border-line text-muted">
-          <span className="text-[10px] font-mono uppercase tracking-wider px-1.5 text-muted/70">Handset:</span>
-          {(
-            [
-              { id: "flagship", label: "Flagship (OLED)" },
-              { id: "affordable-android", label: "Android Go (Tecno)" },
-              { id: "feature-phone", label: "Kabambe (2G)" },
-            ] as const
-          ).map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => setVariant(item.id)}
-              className={`px-2 py-1 rounded text-xs font-medium transition-colors ${
-                variant === item.id
-                  ? "bg-accent-solid text-on-accent shadow-xs"
-                  : "hover:text-ink hover:bg-card"
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Environment / Lighting Mode */}
-        <div className="inline-flex items-center gap-1 p-1 rounded-lg bg-surface border border-line text-muted">
-          <span className="text-[10px] font-mono uppercase tracking-wider px-1.5 text-muted/70">Mode:</span>
-          {(
-            [
-              { id: "studio", label: "Studio" },
-              { id: "sunlight", label: "Direct Sun (Kitui)" },
-              { id: "low-bandwidth", label: "2G Edge (Low-Data)" },
-            ] as const
-          ).map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => setLightingMode(item.id)}
-              className={`px-2 py-1 rounded text-xs font-medium transition-colors ${
-                lightingMode === item.id
-                  ? "bg-accent-solid text-on-accent shadow-xs"
-                  : "hover:text-ink hover:bg-card"
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
       {/* Stage */}
       <div className="flex justify-center mt-4">
         <div
@@ -216,11 +161,7 @@ export function PhoneShowcase() {
               else if (info.offset.x > SWIPE_THRESHOLD) move(-1);
             }}
           >
-            <PhoneFrame
-              label={CHANNEL_SUMMARY[channel]}
-              variant={variant}
-              lightingMode={lightingMode}
-            >
+            <PhoneFrame label={CHANNEL_SUMMARY[channel]}>
               {/* The screen switch reads like an OS launching an app: the outgoing screen
                   recedes and fades, the incoming one comes up from just under full size. */}
               <AnimatePresence mode="popLayout" initial={false}>

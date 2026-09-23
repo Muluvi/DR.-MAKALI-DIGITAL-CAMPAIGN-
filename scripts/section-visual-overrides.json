@@ -1,9 +1,9 @@
 {
-  "implementation-sec-5-3-2": {
+  "delivery-sec-5-3-2": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "analysis-sec-3-11": {
+  "strategy-sec-4-8": {
     "kind": "playbook",
     "note": "Seven decision rules, written in advance as a two-column 'if the audit finds / the strategy changes to' table. It is a response playbook and should be drawn as one."
   },
@@ -15,11 +15,11 @@
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "workstreams-platforms-sec-5-2-2-3": {
+  "workstreams-platforms-sec-5-2-1-2": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "workstreams-platforms-sec-5-2-4-3": {
+  "workstreams-platforms-sec-5-2-1-4": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },

@@ -131,7 +131,7 @@ function stripReferences(text) {
     .replace(/(^|[^\w.§])\d{1,2}\.\d{1,2}\.\d{1,2}(?![\d.])/g, "$1 ")
     // Markdown heading numbers, e.g. "## 3.4 The vote arithmetic".
     .replace(/^#{1,6}\s+\d+[A-Z]?(?:\.\d+)*/gm, " ")
-    // Deep-link ids and slugs: "situation-sec-3-4-1".
+    // Deep-link ids and slugs: "analysis-sec-3-1".
     .replace(/[a-z-]+-sec-[\d-]+/gi, " ");
 }
 

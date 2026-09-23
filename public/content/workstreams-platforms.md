@@ -1,6 +1,6 @@
-## Platforms and content
+## 5.2.1 Platforms and content
 
-## 5.2.1 Workstream 1 — Owned platforms and the service-delivery tracker
+### 5.2.1.1 Workstream 1 — Owned platforms and the service-delivery tracker
 
 > **Split ownership, and the split matters.** The **service-delivery tracker is Firefly's to build
 > and operate** — it is new infrastructure nobody currently runs. **The owned platforms stay with
@@ -11,7 +11,7 @@
 *The single clearest expression of the candidate's actual
 professional discipline.*
 
-### 5.2.1.1 Why it exists
+#### Why it exists
 
 Dr. Mulu is a monitoring and evaluation specialist — a member of the Evaluation
 Society of Kenya and an M&amp;E Champion recognised by the Ministry of Finance,
@@ -22,7 +22,7 @@ one is professionally qualified in **verifying whether promises were kept**. A
 public service-delivery tracker is not a campaign gadget; it is that
 qualification, running in public, before the election rather than after it.
 
-### 5.2.1.2 What it is
+#### What it is
 
 A simple public tool through which any Kitui resident can report and follow up
 on a local service-delivery issue — a broken water point, an impassable feeder
@@ -39,7 +39,7 @@ the least connectivity:**
 | **Web** | Simple mobile-first form, WCAG compliant |
 | **Ward champion** | Report in person; champion logs it |
 
-### 5.2.1.3 What happens to a report
+#### What happens to a report
 
 ```
    Report submitted (any channel)
@@ -64,7 +64,7 @@ the least connectivity:**
    Reporter notified by SMS
 ```
 
-### 5.2.1.4 Design principles
+#### Design principles
 
 1. **Public by default.** The register is visible to anyone, mapped by ward,
 with counts by category. Transparency is the point.
@@ -83,7 +83,7 @@ attack the tool exists to pre-empt.
 polling day was a campaign tactic; one that continues is a governance
 commitment — and the commitment is the persuasive element.
 
-### 5.2.1.5 What it is worth to the campaign
+#### What it is worth to the campaign
 
 * **Narrative:** the strongest possible proof of the Verification pillar
 (Section 4.1.5) — evidence rather than assertion
@@ -93,17 +93,17 @@ message-lab design
 * **Organising:** every report is a consented contact and a warm lead for ward
 champions
 * **Earned media:** a public register of county service-delivery failures is a
-standing story for county correspondents (Section 5.2.6)
+standing story for county correspondents (Section 5.2.2.2)
 * **Defensive:** it makes "he is not close to ordinary people" a difficult
 attack to sustain against a candidate publishing their reported problems
 
-### 5.2.1.6 Build
+#### Build
 
 Built on the USSD/SMS infrastructure the campaign is already deploying (Section
 4.3), plus a lightweight public register on the campaign site. **It reuses a
 layer the campaign is building anyway; nothing comparable exists in this race.**
 
-### 5.2.1.7 Tracker KPIs
+#### Tracker KPIs
 
 | Metric | Phase 1 | Phase 2 | Phase 3 |
 |---|---|---|---|
@@ -116,7 +116,7 @@ layer the campaign is building anyway; nothing comparable exists in this race.**
 
 ---
 
-## 5.2.2 Workstream 2 — The content brief and asset governance
+### 5.2.1.2 Workstream 2 — The content brief and asset governance
 
 > **Owner: your team, to a Firefly brief.** Your producers write, film, edit and publish, as they
 > do today. What this workstream adds is the brief that tells them which pillar, which ward, which
@@ -130,7 +130,7 @@ Campaign communications succeed when production is treated as a rigorous, indust
 id: production-pipeline
 ```
 
-### 5.2.2.1 The four content pillars
+#### The four content pillars
 
 > **Section 6A is the live version of this list.** The four pillars there are anchored on
 > Dr. Mulu's own cover line and are set by the Week 1 audit. The four below are the thematic
@@ -157,24 +157,24 @@ carries one or more of the Section 4.1.4 pillars:
     *   *Tone:* Energetic, aspirational, street-smart Sheng/Kikamba blend, action-oriented.
     *   *Primary Formats:* Vertical TikTok/Reels clips, sound truck music tracks, boda boda shed sticker banners, WhatsApp voice notes.
 
-### 5.2.2.2 Formats, by channel
+#### Formats, by channel
 
 ```figure
 id: format-specs
 ```
 
-### 5.2.2.3 Copy samples: radio, SMS and USSD
+#### Copy samples: radio, SMS and USSD
 
-#### A. Vernacular Radio 45-Second Script Sample (Kikamba)
+##### A. Vernacular Radio 45-Second Script Sample (Kikamba)
 > **SFX:** Ambient sounds of a busy grain market (*ndengu* bags being loaded, tractor engine idling).  
 > **Elder Farmer (Male, 50s):** *"Mwaĩĩ, nĩtwamĩnyie kũthoozya ndengu ya mĩio mĩtheke kwa mbesa nini nũndũ wa makuli? (My brother, are we tired of selling our hard-earned green grams for pennies to exploitative middlemen?)"*  
 > **Candidate (Dr. Makali Mulu, Calm & Authoritative):** *"Nĩ Mwanya Mweũ. Serikalĩ yitũ ya Kitui ĩkese kũũnganĩsya ndengu yonthe na kũthoozya kĩla kilo kĩvĩndĩ kĩla kĩũ (Ksh 85). Wathi witũ nĩ ũtonga wa mĩsyĩ. Nĩ ngwenda twĩthĩwe na mbesa mĩkonĩ yitũ. (A new dawn is here. Our Kitui government will aggregate all produce and guarantee a floor price of Ksh 85/kg. Our priority is household wealth. Real money in your hands.)"*  
 > **Voiceover (Fast, Punchy):** *"Vota Dr. Makali Mulu – Gavana wa Kitui 2027. Muvisi Mũlũngalu, Mwĩkĩi wa Wathi! (Vote Dr. Makali Mulu – Governor Kitui 2027. The Proven Economist, The Trusted Leader!)"*
 
-#### B. Direct 2G Bulk SMS Copy Sample (Ward-Specific)
+##### B. Direct 2G Bulk SMS Copy Sample (Ward-Specific)
 > *"Kitui Rural / Mbitini: Dr. Makali Mulu guarantees Ksh 100M Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. STOP=[Insert sender ID]"*
 
-#### C. USSD Interactive Menu Tree Structure
+##### C. USSD Interactive Menu Tree Structure
 
 > **The codes below are illustrative structure, not provisioned identifiers.** The live shortcode
 > and sender ID are `[Insert shortcode]` and `[Insert sender ID]` until the aggregator provisions
@@ -183,7 +183,7 @@ id: format-specs
 id: ussd-menu
 ```
 
-### 5.2.2.4 The weekly production schedule
+#### The weekly production schedule
 
 The creative studio operates on a synchronized **7-Day Production Cadence**:
 
@@ -191,7 +191,7 @@ The creative studio operates on a synchronized **7-Day Production Cadence**:
 id: weekly-cycle
 ```
 
-### 5.2.2.5 Who approves what, and when
+#### Who approves what, and when
 
 To prevent defamatory statements, policy contradictions, electoral code infractions, or Data Protection Act (DPA) violations, **no asset may be broadcast or printed without passing through the 4-Step Governance Gateway**:
 
@@ -199,7 +199,7 @@ To prevent defamatory statements, policy contradictions, electoral code infracti
 id: approval-gateway
 ```
 
-### 5.2.2.6 The asset library
+#### The asset library
 
 All creative assets are stored in a centralized, cloud-backed Digital Asset Management repository structured as follows:
 
@@ -210,13 +210,13 @@ id: asset-library
 
 ---
 
-## 5.2.3 Workstream 3 — Creative testing and AI assistance
+### 5.2.1.3 Workstream 3 — Creative testing and AI assistance
 
 > **Owner: Firefly.** Test design, variant selection and the read on the result are analysis.
 > Your team produces the variants.
 
 
-### 5.2.3.1 What AI is used for, and what it is never used for
+#### What AI is used for, and what it is never used for
 
 AI is used to test and optimise content so that every shilling of regulated ad
 spend delivers maximum persuasive impact.
@@ -228,7 +228,7 @@ AI-generated illustration appears in published material, it is labelled. This
 is a published commitment (Section 5.7.8) and a defensive necessity in an
 environment where opponents may deploy manipulated media (Section 5.8.7).
 
-### 5.2.3.2 Tools and platforms
+#### Tools and platforms
 
 | Tool | Function | Management |
 |---|---|---|
@@ -240,7 +240,7 @@ environment where opponents may deploy manipulated media (Section 5.8.7).
 
 *Specific vendor selection at contracting; no tool is presented as retained.*
 
-### 5.2.3.3 The weekly testing cycle
+#### The weekly testing cycle
 
 * Minimum 5 ad variations per objective per platform
 * Minimum 3 headline and 3 visual variations per ad set
@@ -249,7 +249,7 @@ environment where opponents may deploy manipulated media (Section 5.8.7).
 * Automatic kill rule: any ad below `[Insert threshold — recommend 1.5% CTR]`
 after 5,000 impressions is paused
 
-### 5.2.3.4 Performance benchmarks
+#### Performance benchmarks
 
 | Metric | Global standard | Campaign target |
 |---|---|---|
@@ -263,7 +263,7 @@ after 5,000 impressions is paused
 
 ---
 
-## 5.2.4 Workstream 4 — Accessibility and inclusion
+### 5.2.1.4 Workstream 4 — Accessibility and inclusion
 
 > **Owner: Firefly sets the standard; your team applies it.** Written into every weekly brief,
 > at every engagement level, and never traded away.
@@ -288,7 +288,7 @@ the key is knowledge — framing his expertise
 
 | Language | Share | Primary use |
 |---|---|---|
-| **Kikamba** | **50%** | WhatsApp, TikTok, Facebook grassroots, voice notes, radio, USSD — **not bulk SMS** (§5.2.9.2) |
+| **Kikamba** | **50%** | WhatsApp, TikTok, Facebook grassroots, voice notes, radio, USSD — **not bulk SMS** (§5.2.3.3) |
 | **Kiswahili** | **30%** | General social, national reach, SMS |
 | **English** | **20%** | Policy documents, website, X, YouTube, national media |
 
@@ -298,12 +298,12 @@ without their sign-off. Proverbs carry cultural weight and misused proverbs
 carry cultural cost — in a campaign built on rigour, a mangled idiom is a
 substantive error, not a cosmetic one.
 
-### 5.2.4.1 What accessibility means here
+#### What accessibility means here
 
 *In a county where 13.0% of the population never attended school,
 accessibility is reach, not compliance theatre.*
 
-### 5.2.4.2 The case
+#### The case
 
 * **13.0% of Kitui residents have never attended school**; only 17.4% completed
 secondary education
@@ -315,7 +315,7 @@ under-served by campaign communication in every cycle
 A campaign built on transparency that publishes only in dense written English
 is not transparent. It is legible to the people who already had access.
 
-### 5.2.4.3 The commitments
+#### The commitments
 
 | Area | Commitment |
 |---|---|
@@ -324,10 +324,10 @@ is not transparent. It is legible to the people who already had access.
 | **Website** | **WCAG 2.1 AA** — semantic structure, keyboard navigation, contrast ratios, alt text on every image and infographic, no information conveyed by colour alone |
 | **Plain language** | Every policy document paired with a **one-page plain-language summary** in all three languages, written to be read aloud |
 | **Audio versions** | Every flagship policy item available as audio, distributable by WhatsApp, voice note and radio |
-| **Low bandwidth** | Text-first fallbacks; compressed images; a site that loads on 3G; SMS and USSD paths to the same information (Section 5.2.9) |
+| **Low bandwidth** | Text-first fallbacks; compressed images; a site that loads on 3G; SMS and USSD paths to the same information (Section 5.2.3.3) |
 | **Print** | Ward-level materials in large print with QR and USSD codes |
 
-### 5.2.4.4 Why this is scope, not an annex
+#### Why this is scope, not an annex
 
 The plain-language and audio versions are not a parallel accessibility track —
 they are the **primary format for the largest segment of the electorate**. A
@@ -336,7 +336,7 @@ voice note, and broadcast on County FM is the most-used asset the campaign will
 produce. Building it as an afterthought means building the campaign's most
 important content last.
 
-### 5.2.4.5 Accessibility KPIs
+#### Accessibility KPIs
 
 | Metric | Target |
 |---|---|
@@ -346,4 +346,3 @@ important content last.
 | Policy documents with plain-language summary | 100% |
 | Flagship content with audio version | 100% |
 | Site load time on simulated 3G | &lt; 3 seconds |
-

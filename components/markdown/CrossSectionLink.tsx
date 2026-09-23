@@ -19,7 +19,6 @@ export function CrossSectionLink({ id, children }: { id: string; children: React
           window.__navigateToSection(id);
         }
       }}
-      suppressHydrationWarning
       className="font-bold text-accent underline decoration-accent/40 decoration-2 underline-offset-2 hover:decoration-accent transition-colors"
     >
       {children}

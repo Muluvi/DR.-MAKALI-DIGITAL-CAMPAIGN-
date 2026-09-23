@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import ReactMarkdown, { type Components } from "react-markdown";
@@ -7,6 +9,8 @@ import rehypeRaw from "rehype-raw";
 import { InteractiveTable } from "./markdown/InteractiveTable";
 import { MarkdownParagraph, MarkdownListItem } from "./markdown/MarkdownTextComponents";
 import { SectionHeading } from "./markdown/SectionHeading";
+import { PartVisual } from "./partviz/PartVisual";
+import { partVisual } from "../lib/part-visuals";
 import { ClaimBadge } from "./markdown/ClaimBadge";
 import { HighlightedText } from "./markdown/HighlightedText";
 import { hasHighlight } from "../lib/highlight-patterns";
@@ -22,16 +26,14 @@ import {
 import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
 import { MizaniSlopeBlock } from "./markdown/MizaniSlopeBlock";
 import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
-import { KpiArchitecture } from "./charts/KpiArchitecture";
 import { BenchmarkLadder } from "./charts/BenchmarkLadder";
 import { TierComparisonCarousel } from "./charts/TierComparisonCarousel";
 import { FeaturePhoneSpecimen } from "./charts/FeaturePhoneSpecimen";
 import { OfflineWaterline } from "./charts/OfflineWaterline";
 import { VoteFunnel } from "./charts/VoteFunnel";
-import { KpiScorecards } from "./charts/KpiScorecards";
-import { GENERAL_ELECTION_KPIS, NOMINATION_KPIS } from "../data/kpis";
 import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
 import { AsciiDiagram } from "./markdown/AsciiDiagram";
+import { Figure } from "./figures/FigureBoundary";
 import { ReachSplit } from "./ReachSplit";
 import {
   FlywheelSchematic,
@@ -67,13 +69,6 @@ import { DecisionPanel } from "./DecisionPanel";
 import { CommitmentFields } from "./markdown/CommitmentFields";
 import { ServiceLevelSelector } from "./markdown/ServiceLevelSelector";
 import { PhoneShowcase } from "./phone/PhoneShowcase";
-import { FundraisingPhoneMockup } from "./phone/FundraisingPhoneMockup";
-import { ServiceTrackerPhoneMockup } from "./phone/ServiceTrackerPhoneMockup";
-import { RapidResponsePhoneMockup } from "./phone/RapidResponsePhoneMockup";
-import { OptInConsentPhoneMockup } from "./phone/OptInConsentPhoneMockup";
-import { RadioTunerConsole } from "./tools/RadioTunerConsole";
-import { KiemsTabletInspector } from "./tools/KiemsTabletInspector";
-import { SoundTruckConsole } from "./tools/SoundTruckConsole";
 import { TerminalShowcase } from "./terminal/TerminalShowcase";
 import { SectionPortrait } from "./markdown/SectionPortrait";
 import { commitmentFieldKey, isCommitmentFieldList, type CommitmentField } from "../lib/commitment-fields";
@@ -92,10 +87,11 @@ import { PersuasionFramingMatrix } from "./markdown/PersuasionFramingMatrix";
 import { PublicServiceDeliveryTracker } from "./markdown/PublicServiceDeliveryTracker";
 import { MediaRadioLandscapeCard } from "./markdown/MediaRadioLandscapeCard";
 import { DataSecurityEthicsCharter } from "./markdown/DataSecurityEthicsCharter";
-import { RapidResponseFlowDiagram } from "./markdown/RapidResponseFlowDiagram";
 import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, type TabId } from "../lib/heading-slug";
-import { segmentContent } from "../lib/collapse-groups";
+import { crossRefFor, segmentContent } from "../lib/collapse-groups";
+import { CrossRef } from "./CrossRef";
+import { PrintSafeDisclosures } from "./PrintSafeDisclosures";
 import { DisclosureGroup } from "./markdown/DisclosureGroup";
 import { ObjectivesIndex } from "./markdown/ObjectivesIndex";
 import { ProseFold } from "./markdown/ProseFold";
@@ -196,6 +192,23 @@ function parseLabelledList(children: React.ReactNode): CommitmentField[] | null 
   return fields;
 }
 
+/**
+ * The language tag on a fenced block — "figure" for ```figure, null for a bare fence.
+ *
+ * Matched on the tag rather than on the block's contents. An ASCII diagram that happened to
+ * contain a line reading "id: something" would otherwise be swallowed and replaced by a figure,
+ * which is a silent content change and exactly what hard rule 2 forbids.
+ */
+function fenceLanguage(children: React.ReactNode): string | null {
+  for (const child of React.Children.toArray(children)) {
+    if (!React.isValidElement(child)) continue;
+    const className = (child.props as { className?: string }).className ?? "";
+    const match = className.match(/language-([A-Za-z0-9_-]+)/);
+    if (match) return match[1].toLowerCase();
+  }
+  return null;
+}
+
 function getTableHeaderTexts(children: React.ReactNode): string[] {
   const top = React.Children.toArray(children) as React.ReactElement[];
   const thead = top.find((c) => c?.type === "thead");
@@ -226,139 +239,123 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // ---- Cover, summary, situation and approach (§1-§7) ---------------------------------
   // The scorecards are the objectives. What they do not carry is the eight indicator sets that
   // stayed with the work they measure — indexed beneath them rather than moved here.
-  "measurement-sec-11-1": <ObjectivesIndex />,
-  "situation-sec-3-1": <NominationPathPanel />,
+  "delivery-sec-5-6": <ObjectivesIndex />,
+  "data-sec-2-3": <NominationPathPanel />,
   // The pipeline's poll margins land in the section that states the gap, because the gap is
   // the thing the margins qualify: one of these three polls can be tested and two cannot.
-  "situation-sec-3-1-4": <PollMarginsBlock />,
+  "annex-polls-sec-c-1": <PollMarginsBlock />,
   // The governing claim opens §6, ahead of the pillars and themes that rest on it.
-  "approach-sec-6-1": <EconomistGovernorThesis />,
-  "situation-sec-3-3-2": (
+  "strategy-sec-4-1": <EconomistGovernorThesis />,
+  "analysis-sec-3-5": (
     <>
       <ConstitutionalBranchNavigator />
       <CompetitiveQuadrantBlock />
     </>
   ),
-  "situation-sec-3-3-1": (
+  "data-sec-2-8": (
     <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §3.3.1">
       One of Kenya&rsquo;s most consistent and authoritative voices on macroeconomic governance,
       fiscal discipline, and budget oversight.
     </SectionPortrait>
   ),
-  "situation-sec-3-3-3": (
+  "data-sec-2-1": (
     <>
       <WardCartogramBlock />
       <PathTo200kBlock />
       <ConstituencyWeightBlock />
     </>
   ),
-  "situation-sec-3-3-4": (
+  "data-sec-2-5": <ResourceEnvelopeBlock />,
+  "data-sec-2-4": (
     <>
-      <ResourceEnvelopeBlock />
       <OfflineWaterline />
       <DisputedFigure entry={kituiCentralPopulationDispute} />
     </>
   ),
-  "situation-sec-3-3-6": (
+  "data-sec-2-2": (
     <>
       <ElectoralHistoryPanel />
       <ElectoralTimelineBlock />
     </>
   ),
-  "annex-county-sec-3-3-7": (
+  "annex-county-sec-b-2": (
     <>
       <FiscalAuditPanel />
       <FiscalAuditChartBlock />
     </>
   ),
-  "annex-county-sec-3-3-8": (
-    <>
-      <DroughtFoodSecurityPanel />
-      <MuiBasinPanel />
-    </>
-  ),
-  "annex-county-sec-3-3-10": <CompetitorFieldPanel />,
+  "annex-county-sec-b-3": <DroughtFoodSecurityPanel />,
+  "annex-county-sec-b-4": <MuiBasinPanel />,
+  "annex-county-sec-b-5": <CompetitorFieldPanel />,
   // The funnel shows how the threshold is built; the register block shows which register it
   // is built on, which is now a live question rather than a settled one.
-  "arithmetic-sec-3-4-1": (
+  "analysis-sec-3-1": (
     <>
       <VoteFunnel />
       <RegisterComparisonBlock />
     </>
   ),
-  "arithmetic-sec-3-4-2": <ScenarioBenchmarkBlock />,
-  "arithmetic-sec-3-4-3": (
-    <>
-      <PathTo200kCalculator />
-      <KiemsTabletInspector />
-    </>
-  ),
-  "arithmetic-sec-3-4-5": <RecognitionDeficitOverlay />,
-  "audiences-sec-5-1": <AudienceSegmentationMatrix />,
+  "analysis-sec-3-2": <ScenarioBenchmarkBlock />,
+  "analysis-sec-3-3": <PathTo200kCalculator />,
+  "analysis-sec-3-4": <RecognitionDeficitOverlay />,
+  "strategy-sec-4-3-1": <AudienceSegmentationMatrix />,
   // §7.3 splits the electorate into a connected minority and an offline majority. The showcase is
   // that argument as an object: one handset, the campaign on all seven channels, ending on the
   // USSD dialog that reaches more voters than the six apps together.
-  "reach-sec-3-6": <PhoneShowcase />,
+  "analysis-sec-3-8": <PhoneShowcase />,
   // The showcase makes the argument; this puts the modelled numbers under it, including the
   // one the showcase cannot show — that the largest addressable layer cannot carry Kikamba.
-  "reach-sec-3-6-1": <ChannelReachBlock />,
-  "messaging-sec-7-1-1": <IssueEvidenceBlock />,
-  "messaging-sec-7-1": (
+  "data-sec-2-6": <ChannelReachBlock />,
+  "strategy-sec-4-4-1": <IssueEvidenceBlock />,
+  "strategy-sec-4-4": (
     <>
       <MessagingPlayground />
       <ToneVoiceSlider />
     </>
   ),
-  "scope-platforms-sec-8-1-1": <FundraisingPhoneMockup />,
-  "scope-platforms-sec-8-2-1": <ServiceTrackerPhoneMockup />,
-  "scope-platforms-sec-8-3-4": <CommunityScheduler />,
-  "risk-sec-13-1": <CounterMessagingGrid />,
-  "risk-sec-13-3-5": <RapidResponsePhoneMockup />,
+  "workstreams-platforms-sec-5-2-1-2": <CommunityScheduler />,
+  "delivery-sec-5-8-1": <CounterMessagingGrid />,
   // The ownership/alignment/tier table this chart plots, now §8.5.1 in the situation analysis.
-  "reach-sec-3-7-1": <MediaOwnershipBlock />,
+  "data-sec-2-7-1": <MediaOwnershipBlock />,
 
   // ---- Scope, roadmap, measurement, governance and risk (§8-§16) ----------------------
-  "governance-sec-12-1": (
+  "delivery-sec-5-7": (
     <SectionPortrait id="seated-grey-cropped" kicker="The engagement model — §12.1" flip>
       Firefly reports to a single named campaign-side counterpart.
     </SectionPortrait>
   ),
-  "approach-sec-6-2": <StrategicPillarsMatrix />,
-  "arithmetic-sec-3-5": <GeographicZoneMatrix />,
+  "strategy-sec-4-1-4": <StrategicPillarsMatrix />,
+  "analysis-sec-3-7": <GeographicZoneMatrix />,
   // The technology workstreams carried no anchored visualisation at all before this — the one
   // stretch of the document that was a wall of text, and the one describing the technology
   // stack, which is the part this reader is most likely to test against the artifact itself.
-  "scope-data-sec-8-15-1": <BenchmarkLadder />,
-  "deliverables-sec-10-1-1": (
-    <>
-      <ServiceLevelSelector />
-      <TierComparisonCarousel />
-    </>
-  ),
-  "scope-ground-sec-8-8": <TerminalShowcase />,
-  "scope-ground-sec-8-8-1": <SoundTruckConsole />,
-  "scope-ground-sec-8-9": <FlywheelSchematic />,
-  "scope-ground-sec-8-10": (
+  "workstreams-data-sec-5-2-4-4": <BenchmarkLadder />,
+  "delivery-sec-5-5-1": <ServiceLevelSelector />,
+  // The four-column matrix below this heading stacks into nine attribute cards on a phone, which
+  // answers "what does row six say" rather than "which tier should we buy". One card per tier,
+  // swipeable, with the table left in place underneath as the accessible equivalent.
+  "delivery-sec-5-5-2": <TierComparisonCarousel />,
+  "workstreams-ground-sec-5-2-3-1": <TerminalShowcase />,
+  "workstreams-ground-sec-5-2-3-2": <FlywheelSchematic />,
+  "workstreams-ground-sec-5-2-3-3": (
     <>
       <FeaturePhoneSpecimen />
       <ReachSplit />
       <SMSFeedbackVisualizer />
     </>
   ),
-  "messaging-sec-7-2": <PersuasionFramingMatrix />,
-  "governance-sec-12-5": <DataSecurityEthicsCharter />,
-  "governance-sec-12-5-4": <OptInConsentPhoneMockup />,
-  "scope-media-sec-8-6": <MediaPlaybackMockup />,
-  "scope-media-sec-8-7": (
+  "strategy-sec-4-4-3": <PersuasionFramingMatrix />,
+  "delivery-sec-5-7-4": <DataSecurityEthicsCharter />,
+  "workstreams-media-sec-5-2-2-1": <MediaPlaybackMockup />,
+  "workstreams-media-sec-5-2-2-2": (
     <>
       <MediaRadioLandscapeCard />
       <RadioAircoverDial />
     </>
   ),
-  "scope-media-sec-8-7-1": <RadioTunerConsole />,
-  "approach-sec-6-3": <SloganBuilder />,
-  "scope-platforms-sec-8-2": <PublicServiceDeliveryTracker />,
-  "roadmap-sec-9-1": (
+  "strategy-sec-4-1-6": <SloganBuilder />,
+  "workstreams-platforms-sec-5-2-1": <PublicServiceDeliveryTracker />,
+  "delivery-sec-5-4": (
     <>
       <PhaseRail />
       <KpiPhaseBlock />
@@ -369,23 +366,23 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // §1A is the analysis of his own channels, and it is the first evidence in the document.
   // Its four figures render before their data exists — axes drawn, question printed, PENDING
   // band shown — because the audit is Week 1 and the proposal is read before Week 1.
-  "presence-sec-1a-1": <ReachVsVoteMap />,
-  "presence-sec-1a-2": (
+  "delivery-sec-5-3-4": <ReachVsVoteMap />,
+  "delivery-sec-5-3-3": (
     <>
       <PresenceStrip />
       <LanguageBars />
     </>
   ),
-  "presence-sec-1a-5": <FieldComparison />,
+  "analysis-sec-3-9-1": <FieldComparison />,
   // §6A is the strategy the audit produces. The loop is the argument; the week is the proof
   // that the change costs the team nothing.
-  "engine-sec-6a-1": <EngineLoop />,
-  "engine-sec-6a-2": <WeekStrip />,
+  "strategy-sec-4-5": <EngineLoop />,
+  "strategy-sec-4-5-5": <WeekStrip />,
   // §12.1 is the direction model. The week replaces a bullet list, a meeting table and the
   // governance chart cut from Annex D.
-  "governance-sec-12-1-1": <DirectionWeek />,
+  "delivery-sec-5-7-1": <DirectionWeek />,
   // §11.2.0 is the measurement re-anchor that replaces follower counts.
-  "measurement-sec-11-2": <RecognitionLadder />,
+  "delivery-sec-5-6-3": <RecognitionLadder />,
 };
 
 // A handful of headings still carry no leading digit (unnumbered platform names, phase
@@ -405,15 +402,15 @@ function buildComponents(tabId: TabId): Components {
               const headers = getTableHeaderTexts(children).map((h) => h.toLowerCase());
               const has = (text: string) => headers.some((h) => h.includes(text));
 
-              // §3.3.5 "National platform sizing" — replaced by the sorted bar chart
+              // §2.6 "National platform sizing" — replaced by the sorted bar chart
               // (item 13), not kept alongside it.
-              if (tabId === "situation" && has("platform") && has("kenya audience")) {
+              if (tabId === "data" && has("platform") && has("kenya audience")) {
                 return <PlatformSizingBlock />;
               }
 
-              // §3.3.1 candidate-asset table — assertion/evidence/application becomes
+              // §2.8 candidate-asset table — assertion/evidence/application becomes
               // claim cards (item 21), replacing the table rather than sitting alongside it.
-              if (tabId === "situation" && has("asset") && has("evidence") && has("digital application")) {
+              if (tabId === "data" && has("asset") && has("evidence") && has("digital application")) {
                 return <ClaimCards>{children}</ClaimCards>;
               }
 
@@ -421,7 +418,7 @@ function buildComponents(tabId: TabId): Components {
 
               // §6.2 Mizani survey table — table stays (item 14 says keep it with only
               // two data points), slope chart added alongside it.
-              if (tabId === "summary" && has("kasalu") && has("wambua")) {
+              if (tabId === "objectives" && has("kasalu") && has("wambua")) {
                 return (
                   <>
                     {table}
@@ -435,42 +432,35 @@ function buildComponents(tabId: TabId): Components {
             pre: ({ children }) => {
               const source = getDeepText(children);
 
-              // Three of these blocks are not diagrams to be parsed, they are the two scorecards
-              // and the architecture that anchors them — the widest ASCII in the document, and
-              // the tables whose seven columns cannot survive a 390px screen. Each is replaced by
-              // a purpose-built component reading from data/kpis.ts, so the figures come from one
-              // place and the "Not yet measured" baselines can be drawn as the absence they are
-              // rather than as a bar at zero.
-              //
-              // Matched on the block's own banner text rather than on a section id, because the
-              // markdown is under a content-integrity guard and must not be edited to carry a
-              // marker.
-              if (source.includes("VICTORY-ANCHORED KPI MONITORING ARCHITECTURE")) {
-                return <KpiArchitecture />;
-              }
-              if (source.includes("RAPID RESPONSE DECISION & ESCALATION FLOW")) {
-                return <RapidResponseFlowDiagram />;
-              }
-              if (source.includes("NOMINATION WINDOW KEY PERFORMANCE INDICATORS")) {
-                return (
-                  <KpiScorecards
-                    stage={1}
-                    kpis={NOMINATION_KPIS}
-                    title="Stage 1 — nomination window scorecard"
-                    note="Four indicators, measured against the Wiper primary-voter universe rather than the countywide public."
-                  />
+              /**
+               * A ```figure fence places a built figure exactly where the prose reaches it.
+               *
+               * This is what lets rule 1a retire an ASCII diagram IN PLACE. The alternative —
+               * keying every figure to a heading id, as HEADING_INSERTS does — lifts the figure to
+               * the top of its subsection and leaves a hole where the diagram was, which reads as
+               * a deletion rather than a replacement. The fence body is `id: <figure-id>`; the
+               * registry resolves it, and an unknown id renders a visible gap rather than nothing.
+               */
+              if (fenceLanguage(children) === "figure") {
+                const id = source.match(/^\s*id:\s*([a-z0-9-]+)\s*$/im)?.[1];
+                return id ? (
+                  <Figure id={id} />
+                ) : (
+                  <p className="not-prose my-4 rounded-lg border border-dashed border-gold/60 bg-gold/[0.06] px-3 py-2 t-micro text-ink">
+                    <strong className="font-bold text-gold">Malformed figure fence:</strong> expected a line reading
+                    {" "}<code>id: some-figure-id</code>.
+                  </p>
                 );
               }
-              if (source.includes("GENERAL ELECTION KEY PERFORMANCE INDICATORS")) {
-                return (
-                  <KpiScorecards
-                    stage={2}
-                    kpis={GENERAL_ELECTION_KPIS}
-                    title="Stage 2 — general election scorecard"
-                    note="Five indicators, every one anchored to the ~200,000-vote winning threshold."
-                  />
-                );
-              }
+
+              // FOUR BLOCKS USED TO BE MATCHED HERE, on their own banner text — §11's two
+              // scorecards, the architecture that anchors them, and §13.1's rapid-response flow.
+              // The markdown was under a content-integrity guard and could not be edited to carry
+              // a marker, so the substitution had to key on a banner nobody could rename, and the
+              // ASCII stayed in the markdown carrying the words anyway. Rule 1a now authorises
+              // retiring those blocks outright: all four are ```figure fences resolved by the
+              // registry and declared in scripts/figure-retirements.json, and this matching is
+              // gone with them.
 
               // 102 of these are box-drawing diagrams, not code. AsciiDiagram parses them into
               // real tables and summaries, gated on losslessness — anything it cannot read with
@@ -506,6 +496,27 @@ function buildComponents(tabId: TabId): Components {
               if (className === "section-kicker") {
                 return <p className="eyebrow-label not-prose">{children}</p>;
               }
+              /**
+               * Rule 1b: a paragraph the reader has already read arrives as one line.
+               *
+               * Matched here rather than during segmentation because almost every paragraph in
+               * this document lives inside a Brief fold, and splitting the markdown segments
+               * found none of them. Nothing is deleted — the paragraph is the child, in full,
+               * and CrossRef forces itself open for print and with JavaScript off.
+               */
+              const repeat = crossRefFor(tabId, getDeepText(children));
+              if (repeat) {
+                return (
+                  <CrossRef
+                    section={repeat.canonical.section}
+                    href={repeat.canonical.href}
+                    words={repeat.duplicate.words}
+                    verbatim={repeat.score >= 0.99}
+                  >
+                    <MarkdownParagraph tabId={tabId}>{children}</MarkdownParagraph>
+                  </CrossRef>
+                );
+              }
               return <MarkdownParagraph tabId={tabId}>{children}</MarkdownParagraph>;
             },
             blockquote: ({ children }) => {
@@ -534,7 +545,7 @@ function buildComponents(tabId: TabId): Components {
               // The three operating conditions (§6.3) get a pull-quote-style emphasis
               // treatment instead of a plain bullet — every other list item is unaffected.
               const text = normalizeWhitespace(getDeepText(children));
-              const isGoverningReality = tabId === "summary" && GOVERNING_REALITY_TRIGGERS.some((t) => text.includes(t));
+              const isGoverningReality = tabId === "analysis" && GOVERNING_REALITY_TRIGGERS.some((t) => text.includes(t));
               if (isGoverningReality) {
                 return <MarkdownListItem tabId={tabId} emphasis>{children}</MarkdownListItem>;
               }
@@ -576,11 +587,6 @@ function buildComponents(tabId: TabId): Components {
                 </span>
               );
             },
-            a: ({ href, children, ...props }) => (
-              <a href={href} suppressHydrationWarning {...props}>
-                {children}
-              </a>
-            ),
             h2: ({ children }) => {
               const text = getHeadingText(children);
               const slug = headingSlug(text);
@@ -589,7 +595,10 @@ function buildComponents(tabId: TabId): Components {
               return (
                 <>
                   <SectionHeading id={id} level={2}>{children}</SectionHeading>
-                  {insert}
+                  {/* The hand-built visualisation where one exists, and the figure derived from
+                      this heading's own content where one does not. Never both: 50 sub-sections
+                      were designed, and the other 222 are covered rather than decorated. */}
+                  {insert ?? <PartVisual spec={partVisual(id)} />}
                 </>
               );
             },
@@ -600,7 +609,7 @@ function buildComponents(tabId: TabId): Components {
               return (
                 <>
                   <SectionHeading id={id} level={3} accentColor={phaseAccentFor(text)}>{children}</SectionHeading>
-                  {id && HEADING_INSERTS[id]}
+                  {(id && HEADING_INSERTS[id]) ?? <PartVisual spec={partVisual(id)} />}
                 </>
               );
             }
@@ -647,14 +656,9 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
             );
           if (segment.kind === "brief")
             return (
-              <React.Fragment key={`brief-${i}`}>
-                {renderMarkdown(segment.shown, `brief-shown-${i}`)}
-                {segment.hidden ? (
-                  <BriefFold label={segment.number} words={segment.hiddenWords}>
-                    {renderMarkdown(segment.hidden, `brief-hidden-${i}`)}
-                  </BriefFold>
-                ) : null}
-              </React.Fragment>
+              <BriefFold key={`brief-${i}`} label={segment.number} words={segment.hiddenWords}>
+                {renderMarkdown(segment.hidden, `brief-body-${i}`)}
+              </BriefFold>
             );
           return (
             <DisclosureGroup
@@ -666,6 +670,10 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
             </DisclosureGroup>
           );
         })}
+
+        {/* Every disclosure holding CONTENT ships open and is closed by script, so the printed
+            kit is complete whether or not scripts run. See PrintSafeDisclosures. */}
+        <PrintSafeDisclosures />
 
         {/* The ask closes the document, inside the prose flow. It used to sit in the footer
             chrome below a rule, next to the print widget — which framed a vendor's closing

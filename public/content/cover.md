@@ -1,6 +1,6 @@
-# CAMPAIGN STRATEGY & DIGITAL ARCHITECTURE PROPOSAL
+# Kitui 2027: Analysis, Strategy and Direction for Dr. Mulu's Digital Operation
 
-Who this proposal is for, who prepared it, the terms it is submitted under, and the order of the sixteen sections that follow.
+Who this proposal is for, who prepared it, the terms it is submitted under, and the order of the six sections and seven annexes that follow.
 
 ## Prepared for, prepared by, and on what terms
 
@@ -22,7 +22,6 @@ internal campaign decisions or verification against primary documents.
 
 **Firefly holds no publishing credentials to any of Dr. Mulu's accounts, and asks for none.**
 The access this engagement needs is read-only: analytics, so the work can be measured. The one
-place Firefly publishes is the offline layer it already operates (Section 5.2.9).
+place Firefly publishes is the offline layer it already operates (Section 5.2.3.3).
 
 ---
-

@@ -159,7 +159,7 @@ The county budget represents a significant administrative responsibility. Accord
 ## 2.6 How people get information
 
 
-#### 3.1.1.1 Platform Sizing & Realistic In-County Reach
+#### Platform Sizing & Realistic In-County Reach
 
 The digital footprint in Kitui County is concentrated in urban nodes (Kitui Town, Mwingi Town, Kwa Vonza university corridor) and among educated youth. Based on KNBS 2019 internet penetration rates and Meta Audience Insights (Tier 1 & Tier 2):
 
@@ -167,13 +167,13 @@ The digital footprint in Kitui County is concentrated in urban nodes (Kitui Town
 id: platform-sizing
 ```
 
-#### 3.1.1.2 What Digital CAN Do
+#### What Digital CAN Do
 1.  **Elite Agenda Setting & Narrative Defense:** X and Facebook dominate the information diet of local radio producers, vernacular talk-show hosts, church leaders, and county assembly members. Establishing rapid-response dominance on these platforms shapes the stories broadcast over radio 6 hours later.
 2.  **Diaspora Financial & Opinion Mobilization:** Reaching the 150,000+ Kamba diaspora living in Nairobi and Mombasa via geofenced Meta, YouTube, and WhatsApp campaigns transforms them into active campaign donors and remote family influencers.
 3.  **Youth Mobilization & Field Volunteer Recruitment:** Engaging the ~234,000 youth cohort via TikTok and WhatsApp generates high-energy field activists who operate the ground logistics and serve as polling agents.
 4.  **Cost-Effective Micro-Targeting of Urban MSMEs:** Hyper-geofencing commercial centers (Kitui CBD, Mwingi Central) allows testing policy messages ("The Economist's Single Business Permit") with minimal waste.
 
-#### 3.1.1.3 What Digital CANNOT Do
+#### What Digital CANNOT Do
 1.  **It Cannot Deliver the 200,000 Vote Benchmark Alone:** Capped at roughly 72,000 reachable voters inside Kitui County.
 2.  **It Cannot Penetrate the Rural Agrarian Base:** 86.4% of rural smallholders do not consume political content via social algorithms due to lack of smartphones, high data costs, and weak 3G/4G coverage in rural wards (e.g., Tharaka, Tseikuru, Voo/Kyamatu, Endau, Mutha).
 3.  **It Cannot Counteract Ground Rumors Directly:** WhatsApp and Facebook echo chambers rarely cross over into dryland farming communities without physical intermediaries.
@@ -182,7 +182,7 @@ id: platform-sizing
 
 Vernacular radio is the primary medium of political consciousness and daily news in rural and peri-urban Kitui County. However, the media environment in Eastern Kenya is characterized by severe political concentration: **the highest-reach commercial radio stations broadcasting in Kikamba are owned, financed, or editorially steered by active political rivals or entrenched party gatekeepers**.
 
-To ensure uninterrupted, high-credibility communication with the electorate, the campaign constructs a dual strategy: a disciplined operational engagement model for Tier 1 commercial networks, coupled with an aggressive bypass architecture detailed in **Section 5.2.6.7**.
+To ensure uninterrupted, high-credibility communication with the electorate, the campaign constructs a dual strategy: a disciplined operational engagement model for Tier 1 commercial networks, coupled with an aggressive bypass architecture detailed in **Section 5.2.2.2**.
 
 ```figure
 id: radio-gatekeepers
@@ -191,7 +191,7 @@ id: radio-gatekeepers
 ### 2.7.1 Who owns the Kamba-language stations, and who they favour
 
 The ownership map, the frequencies and the resulting campaign posture for every
-Kikamba-language station are set out once, in **Section 5.2.6.1**, and that table
+Kikamba-language station are set out once, in **Section 5.2.2.2**, and that table
 governs. It is the version reconciled against `data/media-ownership.ts`, which
 the site renders directly.
 
@@ -205,7 +205,7 @@ The three structural facts that drive the rest of this section:
 *   **The stations open to the campaign are commercially or institutionally independent**: **Musyi FM** (Royal Media Services), **County FM** (Kitui-based independent) and **Wikwatyo FM** (Seventh-Day Adventist Church, Kitui). These carry the placement budget.
 
 Ownership associations are publicly reported rather than certified, and media
-ownership changes. Section 5.2.6.1 carries the standing instruction to verify and
+ownership changes. Section 5.2.2.2 carries the standing instruction to verify and
 update this map before any placement is booked.
 
 ## 2.8 Dr. Mulu's public record
@@ -217,7 +217,7 @@ Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS, represents a highly refined t
 | Asset | Sourced Empirical Evidence | Strategic Digital Application |
 |---|---|---|
 | Macroeconomic Leadership | PhD (Economics) (Tier 1); Budget and Appropriations Committee Leadership (Tier 1) | Weekly "Dr. Mulu on Public Finance" explainer series |
-| **Monitoring & Evaluation Expertise** | Certified Consultant in Project Management & M&E (Tier 1); Member, Evaluation Society of Kenya (ESK) (Tier 1); **Designated M&E Champion by the Ministry of Finance** (Tier 1) | Launch of the interactive service-delivery tracker (Section 5.2.1) |
+| **Monitoring & Evaluation Expertise** | Certified Consultant in Project Management & M&E (Tier 1); Member, Evaluation Society of Kenya (ESK) (Tier 1); **Designated M&E Champion by the Ministry of Finance** (Tier 1) | Launch of the interactive service-delivery tracker (Section 5.2.1.1) |
 | International Executive Standing | United Nations — Project Management and Financial Advisory Roles (Tier 1) | Professional and diaspora network engagement and credibility |
 | Legislative Delivery Record | KSh 47 million in educational bursaries allocated directly to 12,573 constituents (Tier 1); **Kitui Central certified as the best-evaluated constituency in the Eastern region, FY2014/15** (ranking first out of 71 constituencies in its national peer group) (Tier 1) | Micro-targeted, ward-level visual proof points |
 | Administrative Longevity | 17 years in active political leadership, 13 years as Member of Parliament for Kitui Central (Tier 1); Commander of the Order of the Burning Spear (CBS) (Tier 1) | Steady, low-risk leadership framing contrasted with less-experienced candidates |
@@ -237,4 +237,3 @@ Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS, represents a highly refined t
 record of completed projects, and Pillar 1 exists to put exactly that record in front of voters who
 have never heard of him. Note the boundary in Section 5.7.6: the **project record** is usable;
 the **beneficiary personal data** behind it is not.
-
