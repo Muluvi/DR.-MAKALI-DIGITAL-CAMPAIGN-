@@ -1,0 +1,6 @@
+{
+  "name": "Dr. Makali Mulu Campaign Operations Platform",
+  "description": "Comprehensive digital and ground campaign operations platform, vote arithmetic models, ward intelligence dashboards, and field tools for Dr. Makali Mulu's Kitui gubernatorial campaign.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

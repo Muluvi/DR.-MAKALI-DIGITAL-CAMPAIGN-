@@ -85,8 +85,12 @@ async function readAll(): Promise<Record<TabId, string>> {
   const contentDir = path.join(process.cwd(), "public", "content");
   const entries = await Promise.all(
     SECTIONS.map(async (section) => {
+      const fileName = CONTENT_FILES[section.id];
+      if (!fileName) {
+        return [section.id, ""] as const;
+      }
       const raw = await fs
-        .readFile(path.join(contentDir, CONTENT_FILES[section.id]), "utf-8")
+        .readFile(path.join(contentDir, fileName), "utf-8")
         .catch(() => "");
       return [section.id, raw] as const;
     })

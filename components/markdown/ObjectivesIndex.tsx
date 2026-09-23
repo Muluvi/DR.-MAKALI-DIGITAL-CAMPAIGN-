@@ -25,7 +25,7 @@ export function ObjectivesIndex() {
   // §5.6, the indicator framework, sits in this section itself — an index of what is elsewhere
   // should not list the thing sitting three headings above it.
   const items = React.useMemo(
-    () => sections.filter((s) => s.tabId !== "delivery" && KPI_HEADING.test(s.title)),
+    () => sections.filter((s) => (s.tabId as string) !== "delivery" && (s.tabId as string) !== "measurement" && KPI_HEADING.test(s.title)),
     [sections]
   );
 
@@ -55,6 +55,7 @@ export function ObjectivesIndex() {
                   window.__navigateToSection(item.id);
                 }
               }}
+              suppressHydrationWarning
               className="flex min-h-[44px] min-w-[44px] justify-center items-baseline gap-2 rounded-lg px-2 py-2.5 -mx-2 hover:bg-accent/[0.06] transition-colors"
             >
               <span className="t-micro font-extrabold tabular-nums text-accent shrink-0">

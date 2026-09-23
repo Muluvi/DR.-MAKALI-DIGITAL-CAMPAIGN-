@@ -78,6 +78,7 @@ function CopyLinkButton({ id }: { id: string }) {
       // a `group-hover` utility alone would have made it permanently invisible on a phone, which
       // is the device this document is most likely to be read on.
       data-copied={copied ? "true" : undefined}
+      suppressHydrationWarning
       // The target is 44×44 and the chip inside it is 28. Padding grows the box and an equal
       // negative margin gives the space back to the layout, so the heading line is unchanged
       // and the thumb still gets a full target. A ::after overlay was tried first and does not
