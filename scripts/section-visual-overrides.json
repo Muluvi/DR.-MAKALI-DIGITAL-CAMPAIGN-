@@ -15,10 +15,6 @@
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "workstreams-platforms-sec-5-2-1-2": {
-    "kind": "none",
-    "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
-  },
   "workstreams-platforms-sec-5-2-1-4": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
@@ -36,10 +32,7 @@
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
   "strategy-sec-4-3-3": {
-    "kind": "donut",
-    "data": {
-      "label": "of the county's land is arid or semi-arid"
-    },
-    "note": "The share is right; the label the derivation found for it ('estimated') named the qualifier rather than the thing measured."
+    "kind": "none",
+    "note": "The segment's size is [DATA NEEDED] (Section 3.10.1). The donut this carried drew the removed estimate, and a figure of an unsourced share would be the estimate by another route."
   }
 }

@@ -207,7 +207,7 @@ substance fixed, delivery natural.
 
 #### Getting on air around a hostile gatekeeper
 
-To guarantee uninhibited communication with all 532,758 registered voters across the 40 wards, the campaign executes a four-pillar bypass strategy that operates entirely independently of captured Tier 1 commercial gatekeepers:
+To guarantee uninhibited communication with all {{register.2022}} registered voters across the 40 wards, the campaign executes a four-pillar bypass strategy that operates entirely independently of captured Tier 1 commercial gatekeepers:
 
 ```figure
 id: bypass-architecture

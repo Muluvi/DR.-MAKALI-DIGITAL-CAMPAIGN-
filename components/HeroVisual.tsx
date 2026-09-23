@@ -146,7 +146,7 @@ export function HeroVisual() {
       objective: "Deploy segmented multimedia content to digital natives, diaspora investors, and WhatsApp groups.",
       channels: ["TikTok explainer videos", "Kikamba voice notes", "Facebook live"],
       checklist: [
-        "Leverage 63.7% national smartphone adoption",
+        "Leverage 59.7% national smartphone share of active SIMs",
         "Incorporate unscripted weekly town-hall answers",
         "Enforce Fact-Check protocols on digital channels"
       ],

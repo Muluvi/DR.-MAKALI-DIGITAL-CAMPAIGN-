@@ -1,15 +1,15 @@
-The campaign's objectives are structured across two separate timelines, each with its own clocks, success parameters, and strictly traceable targets. Every objective traces directly either to securing the Wiper nomination or delivering the ~200,000 vote threshold at the general election. All non-traceable, purely digital vanity metrics have been eliminated.
+The campaign's objectives are structured across two separate timelines, each with its own clocks, success parameters, and strictly traceable targets. Every objective traces directly either to securing the Wiper nomination or delivering the ~{{benchmark}} vote threshold at the general election. All non-traceable, purely digital vanity metrics have been eliminated.
 
 ## 1.1 The goal: the Wiper ticket first, the county second
 
 *   **Active Period (Clock):** From signature to the close of the party's evaluation window in late 2026, leading into the 10 August 2027 general election.
-*   **Success Definition:** Secure the Wiper Patriotic Front gubernatorial nomination by establishing verifiable name recognition and organized ground reach across all eight constituencies, followed by mobilizing a minimum of **200,000 votes** at the ballot box, the benchmark Section 3.1 sets from Governor Malombe's 2022 winning total of 198,004.
+*   **Success Definition:** Secure the Wiper Patriotic Front gubernatorial nomination by establishing verifiable name recognition and organized ground reach across all eight constituencies, followed by mobilizing a minimum of **{{benchmark}} votes** at the ballot box, the benchmark Section 3.1 sets from Governor Malombe's 2022 winning total of {{result.2022.gov.malombe}}.
 
 ## 1.2 The two deadlines
 
 The campaign operates against two non-negotiable temporal milestones:
-1.  **Q4 2026 Nomination Window (reported):** Wiper Patriotic Front party consensus and selection window, reported for late October to November and not confirmed by the party (Tier 3, Section 2.3). Success requires demonstrating organized geographic reach in the 275,570-voter deficit pool (Mwingi North, Mwingi West, Mwingi Central, and Kitui South) where Dr. Mulu has never held office.
-2.  **10 August 2027 General Election:** Mobilizing and turning out the 200,000-vote coalition required for a plurality victory in a multi-candidate field.
+1.  **Q4 2026 Nomination Window (reported):** Wiper Patriotic Front party consensus and selection window, reported for late October to November and not confirmed by the party (Tier 3, Section 2.3). Success requires demonstrating organized geographic reach in the {{pool}}-voter deficit pool (Mwingi North, Mwingi West, Mwingi Central, and Kitui South) where Dr. Mulu has never held office.
+2.  **10 August 2027 General Election:** Mobilizing and turning out the {{benchmark}}-vote coalition required for a plurality victory in a multi-candidate field.
 
 ```figure
 id: election-timeline
@@ -20,15 +20,15 @@ id: election-timeline
 ### 1.3.1 Be known where he isn't yet
 
 *   **Traceability:** Traces directly to nomination viability by elevating name recognition and operational visibility in northern Mwingi and southern wards where Dr. Mulu's profile has historically been constituency-bounded to Kitui Central.
-*   **Finding it answers:** 51.7% of the register, 275,570 voters, lives in Mwingi and Kitui South, where he has never held office (Section 3.4).
+*   **Finding it answers:** {{pool.share}}% of the register, {{pool}} voters, lives in Mwingi and Kitui South, where he has never held office (Section 3.4).
 *   **Baseline:** Not yet measured `[DATA NEEDED — Week 1 export]`. The hypothesis is that his reach concentrates in Kitui Central (Section 3.11); Week 1 tests it.
-*   **Target:** At least 51.7% of his reach landing in the pool, the pool's own share of the register, and a verified subscriber footprint across all 15 Mwingi wards and 6 Kitui South wards before the opening of the party nomination window.
+*   **Target:** At least {{pool.share}}% of his reach landing in the pool, the pool's own share of the register, and a verified subscriber footprint across all 15 Mwingi wards and 6 Kitui South wards before the opening of the party nomination window.
 *   **Served by:** Section 4.2 (where the effort goes) and Section 4.5 (what gets published). **Measured by:** NW-01 and R-02 (Section 5.6).
 *   **Named Owner:** Director of Communications; Firefly provides the messaging infrastructure and delivery ledger.
 
 ### 1.3.2 Turn his record into visible proof
 
-*   **Traceability:** Converts Dr. Mulu's 13-year parliamentary record (12,573 bursary recipients, KSh 47m allocated, Kitui Central certified the best-evaluated constituency in the Eastern region, FY2014/15) into verifiable, shareable digital case studies tailored to voter priorities in dryland pastoralist and agricultural zones.
+*   **Traceability:** Converts Dr. Mulu's 13-year parliamentary record ({{record.bursary.recipients}} bursary recipients, KSh 47m allocated, Kitui Central certified the best-evaluated constituency in the Eastern region, FY2014/15) into verifiable, shareable digital case studies tailored to voter priorities in dryland pastoralist and agricultural zones.
 *   **Finding it answers:** both Wiper rivals have already won countywide; his distinguishing proof is his record (Sections 2.8 and 3.5).
 *   **Baseline:** Accomplishments are recognized primarily inside Kitui Central.
 *   **Target:** 40 ward-specific achievement briefs detailing economic and devolved governance models distributed via localized WhatsApp networks and audio digests.
@@ -37,10 +37,10 @@ id: election-timeline
 
 ### 1.3.3 Build a direct line to the voters the internet doesn't reach
 
-*   **Traceability:** Directly addresses the county's digital connectivity ceiling (26.2% internet use, 44.1% mobile phone ownership per CA/KNBS 2023/24) by creating an offline broadcast asset.
-*   **Finding it answers:** digital alone reaches about 158,696 voters at most, short of the 200,000 benchmark (Section 3.8).
+*   **Traceability:** Directly addresses the county's digital connectivity ceiling ({{ict.internet}}% internet use, {{ict.phone}}% mobile phone ownership per CA/KNBS 2023/24) by creating an offline broadcast asset.
+*   **Finding it answers:** digital alone reaches about {{reach.smartphone}} voters at most, short of the {{benchmark}} benchmark (Section 3.8).
 *   **Baseline:** 0 consented offline rural subscribers in centralized campaign registry.
-*   **Target:** **120,000 active, verified SMS/USSD offline subscribers** across rural wards.
+*   **Target:** **{{target.sms}} active, verified SMS/USSD offline subscribers** across rural wards.
 *   **Deadline:** 30 June 2027.
 *   **Served by:** Section 4.6 (which channel does which job) and Workstream 9 (Section 5.2.3.3). **Measured by:** NW-03 and R-04 (Section 5.6).
 *   **Named Owner:** Campaign Field Operations Lead; Firefly operates the USSD/SMS dispatch engine.
@@ -52,14 +52,14 @@ id: election-timeline
 *   **Baseline:** Not yet measured `[DATA NEEDED — Week 1 post coding]`.
 *   **Target:** Every briefed post coded with segment, ward and pillar, checked in the Monday review.
 *   **Served by:** Sections 4.3 to 4.5. **Measured by:** R-05 and the weekly post coding (Sections 5.3.5 and 5.6).
-*   **Campaign build target it supports:** **200,000 registered, verified supporters** in the central database mapped across all 1,578 polling stations by 31 May 2027. The database is Firefly's instrument (Section 5.2.4.1); the recruitment is the campaign's.
+*   **Campaign build target it supports:** **{{target.supporters}} registered, verified supporters** in the central database mapped across all {{register.polling-stations}} polling stations by 31 May 2027. The database is Firefly's instrument (Section 5.2.4.1); the recruitment is the campaign's.
 *   **Named Owner:** Database and Ground Mobilization Coordinator.
 
 ### 1.3.5 Hold the home base while Kitui Central runs its own race
 
 *   **Traceability:** Prevents the "Central Isolation Trap" (Path D in the electoral analysis) by maintaining Dr. Mulu's anchor in Kitui Central while candidate succession dynamics unfold.
 *   **Finding it answers:** Kitui Central will have its own MP succession contest through the same window (Section 3.6).
-*   **Baseline:** 77,764 registered voters in Kitui Central. His own 2022 vote total there `[DATA NEEDED — IEBC Form 35B, Kitui Central MP 2022]`.
+*   **Baseline:** {{con.kitui-central}} registered voters in Kitui Central. His own 2022 vote total there `[DATA NEEDED — IEBC Form 35B, Kitui Central MP 2022]`.
 *   **Target:** Reach and engagement in Kitui Central held at or above the Week 1 baseline while output weight moves to Mwingi and the arid belt.
 *   **Served by:** Section 4.2 (the anchor zone's weighting). **Measured by:** reach by constituency in the monthly performance report (Section 5.5.3).
 *   **Named Owner:** Kitui Central Constituency Campaign Committee.
@@ -84,8 +84,8 @@ Success is judged on measures Firefly can observe on his channels and on the SMS
 
 | Objective | Observable measure | Target | Finding (Section 3) | Indicator (Section 5.6) |
 |:---|:---|:---:|:---:|:---:|
-| 1. Be known where he isn't yet | Share of his reach landing in the 275,570-voter pool | ≥ 51.7% | 3.4 | NW-01, R-02 |
+| 1. Be known where he isn't yet | Share of his reach landing in the {{pool}}-voter pool | ≥ {{pool.share}}% | 3.4 | NW-01, R-02 |
 | 2. Turn his record into visible proof | Ward-specific achievement briefs distributed; shares per 1,000 reached in the deficit wards | 40 wards | 3.5 | R-03 |
-| 3. A direct line to the offline majority | Consented SMS/USSD subscribers | 120,000 | 3.8 | NW-03, R-04 |
+| 3. A direct line to the offline majority | Consented SMS/USSD subscribers | {{target.sms}} | 3.8 | NW-03, R-04 |
 | 4. Every post a voter, a ward and a reason | Briefed posts coded with segment, ward and pillar | Every briefed post | 3.2 | R-05 |
 | 5. Hold the home base | Reach and engagement in Kitui Central against the Week 1 baseline | At or above baseline | 3.6 | Monthly report |

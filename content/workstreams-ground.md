@@ -9,7 +9,7 @@ Four workstreams that reach voters off the internet: ground-digital integration,
 > the reporting template and the analysis of what comes back.
 
 
-A campaign that operates field organizing and digital messaging as isolated silos will fail in a county where 73.8% of residents are offline (CA/KNBS 2023/24). Digital content created in an air-conditioned command center in Nairobi or Kitui Town is worthless if it does not address the live anxieties voiced at the morning livestock auction in Nguni or the wellhead in Mutha.
+A campaign that operates field organizing and digital messaging as isolated silos will fail in a county where {{ict.offline}}% of residents are offline (CA/KNBS 2023/24). Digital content created in an air-conditioned command center in Nairobi or Kitui Town is worthless if it does not address the live anxieties voiced at the morning livestock auction in Nguni or the wellhead in Mutha.
 
 The campaign establishes a **Closed-Loop Ground-Digital Integration Engine**. Field intelligence captured by the 40 Ward Coordinators directly dictates the daily digital and radio advertising content; conversely, digital and radio narratives are converted by field captains into physical talking points, print flyers, and audio notes distributed through local transport and commercial networks.
 
@@ -19,7 +19,7 @@ id: field-loop
 
 #### What the 40 ward coordinators report
 
-The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, who supervise the campaign's ward captains (400 recommended, 10 per ward; campaign-owned, Section 5.1.3). Each coordinator is equipped with a dual reporting channel: a **secure field WhatsApp bot** for smartphone-equipped coordinators in 3G/4G zones, and a **zero-rated USSD/SMS structured reporting tree** for offline/2G wards.
+The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, who supervise the campaign's ward captains ({{target.captains}} recommended, 10 per ward; campaign-owned, Section 5.1.3). Each coordinator is equipped with a dual reporting channel: a **secure field WhatsApp bot** for smartphone-equipped coordinators in 3G/4G zones, and a **zero-rated USSD/SMS structured reporting tree** for offline/2G wards.
 
 ```figure
 id: field-reports
@@ -46,9 +46,9 @@ id: four-hour-cycle
 
 To bypass digital connectivity barriers, the campaign turns physical transportation, trade, and civic networks into active information distribution conduits:
 
-##### 1. The Boda Boda Stage Network (1,200 Stage Champions)
+##### 1. The Boda Boda Stage Network ({{target.stage-champions}} Stage Champions)
 *   **Infrastructure:** Commercial motorcycle operators in Kitui, organized into distinct stage associations (*masese*). Operator count `[DATA NEEDED — county transport department or NTSA registration by county]`.
-*   **Operational Role:** The campaign identifies 1,200 "Stage Champions" (30 per ward) across all 40 wards.
+*   **Operational Role:** The campaign identifies {{target.stage-champions}} "Stage Champions" (30 per ward) across all 40 wards.
 *   **Execution:**
     *   Champions receive high-visibility reflective campaign vests branded with "Uchumi na Kazi" and safety helmets.
     *   Equipped with mobile phone charging hubs at stages, playing looped Kikamba campaign audio podcasts and speeches to passengers awaiting transport.
@@ -97,7 +97,7 @@ Most campaigns run two separate operations: a ground team that knocks doors and
 a digital team that buys ads. Neither learns from the other. The ground team
 re-canvasses households digital already converted; digital keeps advertising to
 voters the ground team has confirmed as committed opponents. In a county of
-30,430 square kilometres, that duplication is unaffordable.
+{{census.area}} square kilometres, that duplication is unaffordable.
 
 ```
    FIELD                                    DIGITAL
@@ -149,8 +149,8 @@ honest: if the model and the doorstep disagree, the model is wrong.
 
 #### Why this layer decides the race
 
-**26.2%** of Kitui's residents use the internet and **44.1%** own a mobile phone (CA/KNBS
-2023/24, Tier 1). Nationally, smartphones are 59.7% of active SIMs (CA Q3 FY2025/26, Tier 2),
+**{{ict.internet}}%** of Kitui's residents use the internet and **{{ict.phone}}%** own a mobile phone (CA/KNBS
+2023/24, Tier 1). Nationally, smartphones are {{ict.smartphone-share}}% of active SIMs (CA Q3 FY2025/26, Tier 2),
 meaning feature phones remain a substantial share, and disproportionately so in rural, older and
 lower-income populations.
 
@@ -255,8 +255,8 @@ literacy (13.0% of the population never attended school) and low bandwidth.
 
 #### The mobile-money agent network
 
-Kenya's registered mobile-money agents grew from **480,216 in September 2025 to
-602,470 in March 2026** — expanding roughly four times faster than
+Kenya's registered mobile-money agents grew from **{{ict.agents.2025}} in September 2025 to
+{{ict.agents}} in March 2026** — expanding roughly four times faster than
 subscriptions. In rural Kitui, the agent kiosk is often the most reliable
 commercial touchpoint in a settlement.
 
@@ -274,9 +274,9 @@ material.
 
 | Metric | Phase −1 | Phase 1 | Phase 2 | Phase 3 |
 |---|---|---|---|---|
-| Consented SMS contacts | 15,000 | 40,000 | 80,000 | **120,000** |
-| USSD unique sessions | Not live | 5,000 | 25,000 | 60,000 |
-| Issue reports via tracker | Not live | 500 | 3,000 | 8,000 |
+| Consented SMS contacts | {{target.sms.phase-1}} | {{target.sms.phase-1b}} | {{target.sms.phase-2}} | **{{target.sms}}** |
+| USSD unique sessions | Not live | {{target.ussd.phase-1}} | {{target.ussd.phase-2}} | {{target.ussd.phase-3}} |
+| Issue reports via tracker | Not live | {{target.tracker.phase-1}} | {{target.tracker.phase-2}} | {{target.tracker.phase-3}} |
 | Opt-out rate | <2% | <2% | <2% | <2% |
 | Wards with active SMS presence | 15 | 40 | 40 | 40 |
 
@@ -345,6 +345,6 @@ point tracking, content distribution, leaderboards
 | Active rate (engaged in last 30 days) | ≥ 40% |
 | Tier 2 advancement | ≥ 20% of Tier 1 |
 | Offline action completion | ≥ 60% |
-| Average points per volunteer per month | ≥ 100 |
+| Average points per volunteer per month | ≥ {{target.volunteer-points}} |
 | 90-day retention | ≥ 50% |
 | **Canvass returns logged per active Tier 3 organiser per week** | ≥ 25 households |

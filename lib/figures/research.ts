@@ -10,10 +10,12 @@
  * have. The brief forbids filling an empty data state with an estimate; these figures print the
  * absence in the cell where the number would go, which is what the source does.
  *
- * §11.2.1's decision triggers are the other thing worth preserving exactly. Each research module
- * names the decision it unlocks — "if Name ID <45% in North: trigger 8-truck PA blitz; if >65%:
- * shift to policy ads" — so the poll is not a measurement for its own sake. A figure that dropped
- * that column would turn a decision instrument into a survey.
+ * The decision column is the other thing worth preserving exactly. Each module names the decision
+ * it unlocks, so the research is not a measurement for its own sake.
+ *
+ * 2026 REBUILD. Module 1 was a baseline countywide poll and module 3 an SMS micro-survey. The brief
+ * (non-negotiable 1) commissions no polling or survey, so module 1 is now the Week 1 channel audit
+ * and module 3 the log of what arrives unprompted on the line Firefly operates.
  */
 import type { FigureSeries } from "./types";
 
@@ -23,9 +25,9 @@ export const RESEARCH_TIERS = [
   {
     label: "19A: research programme",
     items: [
-      "Pre-cycle recognition testing (confirm or refute the deficit)",
-      "Mixed method — CATI plus focus group discussions",
-      "Nomination window tracking polling",
+      "The Week 1 channel audit (confirm or refute the recognition thesis on his own data)",
+      "Qualitative focus groups: the message lab",
+      "Inbound feedback on the Firefly-operated SMS and USSD line",
       "Gatekeeper decision triggers",
     ],
   },
@@ -46,7 +48,7 @@ export const RESEARCH_SPLIT: FigureSeries = {
   measure: "§11.2.0's empirical research programme and service-delivery tracker",
   points: [],
   note:
-    "The research programme feeds the tracker: what the polling establishes about a ward becomes " +
+    "The research programme feeds the tracker: what the audit establishes about a ward becomes " +
     "a baseline the tracker publishes against. 19B is stated as a dual asset — campaign evidence " +
     "now, and a governing dashboard from day one.",
 };
@@ -55,24 +57,24 @@ export const RESEARCH_SPLIT: FigureSeries = {
 
 export const RESEARCH_MODULES: string[][] = [
   [
-    "1. Baseline countywide quantitative poll",
-    "CATI plus face-to-face CAPI boosters · spontaneous and aided candidate name ID · favourability and primary issue salience index",
-    "N = 1,600 registered voters across all 8 sub-counties · stratified by ward and gender (52% F, 48% M) · sub-county boost in Mwingi North and South",
-    "Month 1 (early cycle)",
-    "If name ID is under 45% in the north: trigger an 8-truck PA blitz. If over 65%: shift to policy ads.",
+    "1. The Week 1 channel audit",
+    "Ninety days of his own channels, exported and coded twice · reach by city mapped to sub-county · engagement on reach · language and format mix · the four-candidate public comparison",
+    "Every post in the window · his Meta Insights export · public posts of three rivals · no survey, no personal data",
+    "Week 1",
+    "If reach concentrates in Kitui Central, output weight shifts to Mwingi and the arid belt. If it lands in Mwingi but does not convert, the problem is message, not reach (Section 4.8).",
   ],
   [
     "2. Deep-dive qualitative focus groups",
     "12 in-person focus group discussions · audio-recorded in vernacular Kikamba · concept testing of the Ksh 100M ward fund and the ndengu floor price",
     "12 groups of 8–10 · 4× rural women chamas, 4× youth boda and MSMEs, 4× village elders and smallholder farmers · Tseikuru, Nguni, Mutomo, Ikutha",
-    "Month 2 (post-quantitative)",
+    "Month 2",
     "Decides vernacular dialect framing and identifies fatal cultural sensitivities.",
   ],
   [
-    "3. SMS pulse ward-level barometer",
-    "Two-way interactive SMS micro-surveys, a three-question structured loop · direct feedback on market-day rumours",
-    "N = 5,000 opt-in 2G feature phone users across 40 wards · aggregated via the Africa's Talking API",
-    "Fortnightly, ongoing",
+    "3. Inbound feedback log",
+    "What arrives unprompted on the SMS/USSD line and the tracker · reports, questions and market-day rumours · counted and coded, never solicited as a survey",
+    "Every inbound message from consented contacts across 40 wards · aggregated via the Africa's Talking API",
+    "Weekly, ongoing",
     "Rapid pivots for weekly radio and SMS copy.",
   ],
 ];
@@ -83,10 +85,9 @@ export const MODULES_SERIES: FigureSeries = {
   measure: "§11.2.1's recognition-deficit research architecture — module, method, sample, timing and the decision it unlocks",
   points: [],
   note:
-    "The last column is what makes this a decision instrument rather than a survey: the baseline " +
-    "poll's result routes directly to either an 8-truck PA blitz or a shift to policy ads, at " +
-    "thresholds stated in advance. A figure that dropped it would have kept the sample sizes and " +
-    "lost the point.",
+    "The last column is what makes this a decision instrument: the audit's result routes directly " +
+    "to a stated change of plan, set out in advance in Section 4.8. None of the three is a poll " +
+    "or a survey, and none is commissioned from a pollster.",
 };
 
 /* ------------------------------------------------------------------ §11.2.2 the tracker */

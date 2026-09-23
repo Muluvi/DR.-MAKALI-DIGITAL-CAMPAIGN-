@@ -48,45 +48,53 @@ export function baselineStatus(b: Baseline): ClaimStatus {
   return "verified";
 }
 
+/**
+ * The nomination-window scorecard, rebuilt for the 2026 rebuild brief (non-negotiable 1).
+ *
+ * NW-01 to NW-03 used to be a tracking-poll ballot share, a CATI name-ID booster and a survey
+ * salience index. The brief keeps polls out of every KPI and commissions no survey, so each is now
+ * a measure Firefly can observe on his own channels or on the SMS list it operates. The targets
+ * that can be stated before Week 1 are stated; the ones that depend on the Week 1 baseline say so.
+ */
 export const NOMINATION_KPIS: Kpi[] = [
   {
     code: "NW-01",
-    title: "Wiper Ballot Preference Share",
+    title: "Reach share in the deficit pool",
     definition:
-      "% of sampled likely Wiper primary voters naming Dr. Makali Mulu as their 1st choice.",
-    baseline: { kind: "unmeasured", note: "Not yet measured (Week 1)" },
-    target: "≥ 55.0% Primary Preference",
-    targetValue: 55.0,
+      "Share of his total reach landing in Mwingi North, West, Central and Kitui South, the four constituencies where he has never held office.",
+    baseline: { kind: "unmeasured", note: "Not yet measured (Week 1 export)" },
+    target: "≥ 51.7%, the pool's share of the register",
+    targetValue: 51.7,
     unit: "percent",
-    method: "Rolling 7-day Tracking Poll (N = 400 CATI) (Section 11.3)",
-    owner: "Head of Research & Polling",
-    cadence: "Weekly / Fortnightly",
+    method: "Meta Insights reach by city, mapped to sub-county (Section 5.3)",
+    owner: "Firefly analyst",
+    cadence: "Weekly",
   },
   {
     code: "NW-02",
-    title: "Northern Sub-County Name ID",
+    title: "Followers located in Mwingi",
     definition:
-      "Spontaneous + aided name recognition in Mwingi North, Central & West sub-counties.",
-    baseline: { kind: "unmeasured", note: "Not yet measured (Week 1)" },
-    target: "≥ 70.0% Name ID",
-    targetValue: 70.0,
+      "Share of his followers whose location is in Mwingi North, Central or West, the proxy for being known where he is not yet known.",
+    baseline: { kind: "unmeasured", note: "Not yet measured (Week 1 export)" },
+    target: "A stated monthly gain on the Week 1 baseline",
+    targetValue: null,
     unit: "percent",
-    method: "Sub-County CATI Poll booster in Mwingi North & Central (N = 600)",
-    owner: "Comms Director",
-    cadence: "Fortnightly Tracking",
+    method: "Meta follower city breakdown, mapped to sub-county",
+    owner: "Firefly analyst",
+    cadence: "Monthly",
   },
   {
     code: "NW-03",
-    title: "Fiscal Integrity Salience",
+    title: "Consented contacts in the pool",
     definition:
-      "Voter ranking of “Clean Audit Record / Anti-Corruption” as the #1 or #2 voting criterion.",
-    baseline: { kind: "unmeasured", note: "Not yet measured (Week 1)" },
-    target: "≥ 60.0% Issue Salience",
-    targetValue: 60.0,
+      "Share of the consented SMS/USSD list registered in the 21 wards of the deficit pool.",
+    baseline: { kind: "unmeasured", note: "Not yet measured (the list starts at Week 2)" },
+    target: "≥ 51.7%, the pool's share of the register",
+    targetValue: 51.7,
     unit: "percent",
-    method: "Issue Salience Index in County Tracking Survey (Section 11.3)",
-    owner: "Policy & Strategy Lead",
-    cadence: "Fortnightly",
+    method: "Firefly's own dispatch and consent logs (Section 5.2.3.3)",
+    owner: "Firefly offline-layer operator",
+    cadence: "Weekly",
   },
   {
     code: "NW-04",
@@ -119,14 +127,14 @@ export const GENERAL_ELECTION_KPIS: Kpi[] = [
   },
   {
     code: "GE-02",
-    title: "Ward Captain Deployment Index",
+    title: "Ward Captain Deployment Index (campaign-owned)",
     definition: "Active, vetted Ward Captains operating across all 40 Wards (10 per ward).",
     baseline: { kind: "measured", value: 0, display: "0 active Captains", note: "Section 4.2, Commitment 5" },
     target: "400 Captains (10 / Ward, 100% Coverage)",
     targetValue: 400,
     unit: "count",
     method: "Biometric / ID verification and monthly activity log confirmation",
-    owner: "Groundgame Director",
+    owner: "Campaign ground team — outside this engagement (Section 5.1.3)",
     cadence: "Bi-Weekly Field Audit",
   },
   {
@@ -147,7 +155,7 @@ export const GENERAL_ELECTION_KPIS: Kpi[] = [
     title: "Turnout Conversion Efficiency",
     definition:
       "Ratio of pledged voters who cast verified ballots in target strongholds on polling day.",
-    baseline: { kind: "measured", value: 72.0, display: "72.0%", note: "Historical Average" },
+    baseline: { kind: "unmeasured", note: "No sourced historical conversion rate; set from the CRM once pledges exist" },
     target: "≥ 82.0% Voter Turnout Conversion",
     targetValue: 82.0,
     unit: "percent",
@@ -185,16 +193,16 @@ export const GENERAL_ELECTION_KPIS: Kpi[] = [
  * labels. Only the two wrong figures were corrected. No content was changed: see DECISIONS.md D-14.
  */
 export const STAGE_1_TARGETS = [
-  "Wiper Primary Share (Target ≥ 55.0%)",
-  "North Sub-County Name ID (≥ 70.0%)",
-  "Integrity / Clean Audit Salience",
+  "Reach Share in the Deficit Pool (≥ 51.7%)",
+  "Followers Located in Mwingi (monthly gain on Week 1)",
+  "Consented Contacts in the Pool (≥ 51.7%)",
   "Branch Executive Endorsement Pledges (8/8)",
 ];
 
 /** The four Stage 2 headline targets, likewise. */
 export const STAGE_2_TARGETS = [
   "Verified Pledged Voter Database (Target: 220,000 Opt-In Voters)",
-  "Ward Captain Mobilization Index (400 Captains / 40 Wards)",
+  "Ward Captain Mobilization Index, campaign-owned (400 Captains / 40 Wards)",
   "Polling Agent Station Coverage (100% of 1,578 Stations)",
   "Turnout Conversion Rate (≥82%)",
 ];

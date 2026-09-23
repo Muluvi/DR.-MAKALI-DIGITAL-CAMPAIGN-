@@ -48,9 +48,9 @@ separately and appear nowhere in this document.
 | **Out of scope** | 13 | The technology stack (§5.2.4.3) | Only the tracker, the CRM and the offline layer. The rest Dr. Mulu already holds | — |
 | **Firefly** | 14 | Analytics and attribution (§5.2.4.4) | The engine room of this engagement — measurement, attribution, the weekly read | Standard+ |
 
-**Workstream 9 is the one Firefly operates and the one that decides the race.** **73.8%** of Kitui
+**Workstream 9 is the one Firefly operates and the one that decides the race.** **{{ict.offline}}%** of Kitui
 residents are outside the internet-using population (CA/KNBS 2023/24, Tier 1), and Section 4.6 puts
-the reach of a purely digital operation at about **158,696 voters**, short of the 200,000 benchmark
+the reach of a purely digital operation at about **{{reach.smartphone}} voters**, short of the {{benchmark}} benchmark
 even before reach is turned into votes. Every other workstream is built on the assumption that this one works.
 
 **Workstream 14 is the one that makes the rest legible.** Without it the other thirteen are activity.
@@ -80,9 +80,9 @@ campaign discovers later:
 *   **Party-level negotiation** with Wiper organs, branch committees and the national executive.
 *   **Polling agent recruitment, accreditation and payment.** Firefly builds the tracking behind
     indicator GE-03; the campaign supplies and accredits the agents.
-*   **Campaign-owned field recommendations.** The ward-captain network (240 of 400 captains
-    recommended for the deficit wards, Section 4.2), the 800 M-Pesa "Economic Ambassadors", the
-    1,200 boda-boda Stage Champions (Section 5.2.3.1), radio studio bookings and sponsored outside
+*   **Campaign-owned field recommendations.** The ward-captain network ({{target.captains.pool}} of {{target.captains}} captains
+    recommended for the deficit wards, Section 4.2), the {{target.ambassadors}} M-Pesa "Economic Ambassadors", the
+    {{target.stage-champions}} boda-boda Stage Champions (Section 5.2.3.1), radio studio bookings and sponsored outside
     broadcasts, and the market-day sound-truck caravans (Section 3.8.1). Each appears in this
     document as a recommendation to the campaign. Firefly writes the brief each one carries; the
     campaign recruits, pays and runs them.
@@ -109,7 +109,7 @@ layer — and reaching the arid belt is the whole argument.
 
 ### 5.1.6 Digital infrastructure, brand and civic content
 
-* **Web management and digital architecture:** Development and deployment of a high-performance campaign web portal hosting the manifesto, tracking media appearances, and capturing volunteer data. Lightweight, rapid-loading frameworks so the site is usable on 3G and on feature-phone browsers — non-negotiable in a county at 26.2% internet use (CA/KNBS 2023/24). **WCAG 2.1 AA compliance from build, not retrofitted** (Section 5.2.1.4). Search engine optimisation for "Kitui Governor 2027", "Kitui development" and related terms. A "Meet Dr. Mulu" page with biography, parliamentary record, M&E credentials and vision for Kitui. **Audit before build:** an existing Kitui Central NG-CDF web presence is already live. Phase 0 audits and integrates it rather than duplicating it.
+* **Web management and digital architecture:** Development and deployment of a high-performance campaign web portal hosting the manifesto, tracking media appearances, and capturing volunteer data. Lightweight, rapid-loading frameworks so the site is usable on 3G and on feature-phone browsers — non-negotiable in a county at {{ict.internet}}% internet use (CA/KNBS 2023/24). **WCAG 2.1 AA compliance from build, not retrofitted** (Section 5.2.1.4). Search engine optimisation for "Kitui Governor 2027", "Kitui development" and related terms. A "Meet Dr. Mulu" page with biography, parliamentary record, M&E credentials and vision for Kitui. **Audit before build:** an existing Kitui Central NG-CDF web presence is already live. Phase 0 audits and integrates it rather than duplicating it.
 * **Brand management:** Core messaging matrix ensuring consistency across broadcast, print and digital. Dynamic digital press kits for media houses and influencers — approved biographies, high-resolution assets, policy briefs (Section 5.2.2.2). Daily management of Facebook, X, Instagram, TikTok, YouTube and WhatsApp. Community management: responses to comments, DMs and mentions within **2 hours** during peak periods.
 * **Civic content and visual data:** Infographic analyses highlighting Kitui's economic challenges and Dr. Mulu's proposed solutions, anchored to the KSh13.79bn county envelope. Content calendars tailored to each segment in Section D.1. Graphics, short video, motion graphics and policy explainers in English, Kiswahili and Kikamba. Human-interest storytelling: constituent testimonials, verified project outcomes, vision-driven narratives. A weekly **"Dr. Mulu Explains"** series breaking down county budgets, revenue sources and development economics in plain language.
 

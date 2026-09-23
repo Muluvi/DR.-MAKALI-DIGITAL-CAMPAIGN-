@@ -113,7 +113,7 @@ turnout likelihood.
 | `ward_literacy_rate` | Adult literacy | KNBS | Continuous | 0–100 |
 | `ward_water_access` | % households, improved water | KNBS | Continuous | 0–100 |
 | `ward_connectivity_index` | **Internet/mobile use proxy — drives channel selection** | KNBS/CA | Continuous | 0–100 |
-| `population_density` | Persons per km² | Census | Continuous | 9–251 |
+| `population_density` | Persons per km² | Census | Continuous | 9–{{sub.kitui-central.density}} |
 | `household_size` | Average household size | Census | Continuous | 3.6–4.9 |
 | `digital_engagement_score` | Composite of interactions | Campaign (consented) | Continuous | 0–100 |
 | `sms_optin_status` | **Consented to SMS contact** | Campaign | Binary | 0/1 |
@@ -209,7 +209,7 @@ id: tech-stack
 
 ##### 4. Campaign Analytics & Business Intelligence Dashboard
 *   **Tooling Recommendation:** **Metabase Open Source** (Self-Hosted on private cloud) or **Apache Superset**.
-*   **Function & Purpose:** Delivers real-time analytical dashboards to the Campaign Manager and Dr. Mulu. Tracks the 200,000 vote threshold progress across all 40 wards, monitors SMS delivery rates, maps daily field pulse reports, and tracks effort per ward.
+*   **Function & Purpose:** Delivers real-time analytical dashboards to the Campaign Manager and Dr. Mulu. Tracks the {{benchmark}} vote threshold progress across all 40 wards, monitors SMS delivery rates, maps daily field pulse reports, and tracks effort per ward.
 *   **Data Held & Processed:** Aggregated, fully anonymized statistical data: voter counts, ward completion percentages and reach cross-tabulations. No raw unencrypted PII displayed.
 *   **DPA 2019 Exposure & Compliance:** **MINIMAL RISK.** Operates on aggregated, anonymized analytical views. Restricted to authorized War Room IP addresses via VPN and MFA.
 *   **Procurement Status:** **Awaiting campaign decision** *(Sign-off on technical hosting environment)*.
@@ -251,7 +251,7 @@ To ensure 100% operational uptime and protect campaign systems from infiltration
 
 Measurement moves beyond vanity metrics to what drives votes: multi-touch
 attribution, offline conversion tracking and effort-per-vote analysis, all
-anchored to the ~200,000-vote threshold.
+anchored to the ~{{benchmark}}-vote threshold.
 
 | Touchpoint | Attribution method | Source |
 |---|---|---|
@@ -277,11 +277,11 @@ To track offline-to-digital and physical engagement, four mechanisms bridge the 
 |---|---|---|---|
 | Share of voice | % of Kitui gubernatorial mentions about Dr. Mulu | 30–40% for leader | ≥ 50% |
 | Net sentiment | (Positive − negative) / total | +20 to +30 | ≥ +40 |
-| **Reach share in the deficit pool** | Share of his reach landing in Mwingi and Kitui South (R-02, Section 5.6.4) | — | **≥ 51.7%, the pool's share of the register** |
+| **Reach share in the deficit pool** | Share of his reach landing in Mwingi and Kitui South (R-02, Section 5.6.4) | — | **≥ {{pool.share}}%, the pool's share of the register** |
 | Voter registration lift | Increase in target wards from campaign drives | 5–10% | ≥ 10% |
 | Digital-to-offline conversion | % of engagers attending or volunteering | 5–15% | ≥ 10% |
 | GOTV contact rate | % of target voters reached | 60–80% | ≥ 70% |
-| **Contact share of win threshold** | Contacted voters ÷ 200,000 | — | **≥ 75% by election week** |
+| **Contact share of win threshold** | Contacted voters ÷ {{benchmark}} | — | **≥ 75% by election week** |
 
 #### The analytics maturity roadmap
 

@@ -107,7 +107,7 @@ layer the campaign is building anyway; nothing comparable exists in this race.**
 
 | Metric | Phase 1 | Phase 2 | Phase 3 |
 |---|---|---|---|
-| Reports received | 500 | 3,000 | 8,000 |
+| Reports received | {{target.tracker.phase-1}} | {{target.tracker.phase-2}} | {{target.tracker.phase-3}} |
 | Wards with at least one report | 25 | 40 | 40 |
 | Reports with published status update | ≥ 80% | ≥ 85% | ≥ 90% |
 | Median time to first status update | 14 days | 10 days | 7 days |
@@ -149,7 +149,7 @@ carries one or more of the Section 4.1.4 pillars:
     *   *Tone:* Pragmatic, empathetic, farmer-centric, culturally resonant Kikamba.
     *   *Primary Formats:* Vernacular morning radio skits, 2G market day SMS alerts, printed agricultural policy fold-outs.
 3.  **Pillar C: Devolution Equity & Universal Basic Services (*Kĩla Kĩtheka na Mwanya Wayo*)**
-    *   *Core Theme:* The statutory Ksh 100 Million/year Ward Equalization Fund, solar water within 1 km, functional maternity dispensaries, and bursary equity.
+    *   *Core Theme:* The statutory Ksh {{policy.ward-fund|m}} Million/year Ward Equalization Fund, solar water within 1 km, functional maternity dispensaries, and bursary equity.
     *   *Tone:* Inclusive, forward-looking, accountable, grassroots-empowering.
     *   *Primary Formats:* Ward-by-ward budget pledge cards, USSD interactive budget explorer, market caravan speeches.
 4.  **Pillar D: The Youth Enterprise & TVET Frontier (*Mwanya wa Mwanake na Wathi*)**
@@ -172,7 +172,7 @@ id: format-specs
 > **Voiceover (Fast, Punchy):** *"Vota Dr. Makali Mulu – Gavana wa Kitui 2027. Muvisi Mũlũngalu, Mwĩkĩi wa Wathi! (Vote Dr. Makali Mulu – Governor Kitui 2027. The Proven Economist, The Trusted Leader!)"*
 
 ##### B. Direct 2G Bulk SMS Copy Sample (Ward-Specific)
-> *"Kitui Rural / Mbitini: Dr. Makali Mulu guarantees Ksh 100M Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. STOP=[Insert sender ID]"*
+> *"Kitui Rural / Mbitini: Dr. Makali Mulu guarantees Ksh {{policy.ward-fund|m}}M Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. STOP=[Insert sender ID]"*
 
 ##### C. USSD Interactive Menu Tree Structure
 

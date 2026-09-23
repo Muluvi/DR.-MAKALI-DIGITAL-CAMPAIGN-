@@ -22,7 +22,7 @@ export function RapidResponsePhoneMockup() {
     <div className="not-prose my-8 rounded-2xl border border-line bg-surface p-4 sm:p-6 shadow-xs">
       <div className="max-w-xl mx-auto text-center mb-6">
         <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-700 dark:text-rose-400 text-xs font-semibold mb-2">
-          <span>§13.3.5 & Annex E Protocol</span>
+          <span>§5.8.7 & Annex F Protocol</span>
           <span>•</span>
           <span>Level 3 Manipulated Media Protocol (30-Min Clock)</span>
         </div>
@@ -228,7 +228,7 @@ export function RapidResponsePhoneMockup() {
       <div className="mt-6 pt-4 border-t border-line text-xs text-muted flex flex-col sm:flex-row items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-rose-500" />
-          <span>Prevents Liar&apos;s Dividend through strict provenance metadata (§13.3.5)</span>
+          <span>Prevents Liar&apos;s Dividend through strict provenance metadata (§5.8.7)</span>
         </div>
         <span className="font-mono text-[11px] text-muted/80">War Room Hash: #DEBUNK-MN-042</span>
       </div>

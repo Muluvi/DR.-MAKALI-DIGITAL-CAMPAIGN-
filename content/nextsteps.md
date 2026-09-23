@@ -16,7 +16,7 @@ Stated plainly, because these are the dependencies that determine delivery:
    long-lead item, needed in Phase −1
 6. **The IEBC 2026 register annex** — county-level first, ward-level when published. **This is
    the highest-priority data request in this proposal**: the ward file re-bases every ward figure in
-   Section 3. The county total, 605,703, is confirmed (Tier 1, Section 2.1)
+   Section 3. The county total, {{register.2026}}, is confirmed (Tier 1, Section 2.1)
 7. **Access to the existing NG-CDF project record** for verified proof points — **the project
    record, not the beneficiary list.** Bursary and beneficiary personal data is off-limits for
    campaign contact under ODPC's 2025 public-sector guidance (Section 5.7.6)
@@ -108,8 +108,8 @@ presented as settled fact.
    Section 4.8 sooner. **The campaign should confirm the window against Section 2.3.2's
    verification test before committing effort against it.**
 
-3. **The register and connectivity figures hold.** The 605,703 registered voters (July 2026), the
-   73.8% of residents offline (CA/KNBS 2023/24) and the 2022 ward distribution in Section 3.2 are
+3. **The register and connectivity figures hold.** The {{register.2026}} registered voters (July 2026), the
+   {{ict.offline}}% of residents offline (CA/KNBS 2023/24) and the 2022 ward distribution in Section 3.2 are
    the most recent published figures. The offline layer in Section 5.2.3.3 is sized against them.
 
 4. **The campaign appoints the named roles.** The data-protection and electoral-law reviewer, the
@@ -178,7 +178,7 @@ with, and it is currently the campaign's most under-used asset.
 
 **But the timeline is not the one the planning cycle assumes.** The Wiper
 flagbearer decision is expected to be settled by opinion poll in the final
-quarter of 2026 (reported, Tier 3). Half the register, 51.7%, lives in the four
+quarter of 2026 (reported, Tier 3). Half the register, {{pool.share}}%, lives in the four
 constituencies where he has never held office. That gap is a recognition problem concentrated outside his home constituency —
 the most solvable category of deficit there is, and the one that closes fastest
 through disciplined reach into Mwingi and the arid south.
@@ -186,7 +186,7 @@ through disciplined reach into Mwingi and the arid south.
 This proposal sets out the layer that turns an active channel into a directed one: an audit of
 what the existing accounts are actually doing (Section 5.3), a strategy derived from it, a weekly
 brief that carries it to the team already publishing, an SMS and USSD layer built for the
-73.8% of Kitui residents who are offline, a published ethics charter that turns
+{{ict.offline}}% of Kitui residents who are offline, a published ethics charter that turns
 careful data practice into a differentiator (Section 5.7.8), a data-protection gate that protects
 the candidate from the legal exposure others in this cycle will walk into (Section 5.7.9), and a
 public service-delivery tracker that puts his strongest credential to work before a single vote is
@@ -210,9 +210,9 @@ fireflymanagement.ke@gmail.com · 0726 766 800
 
 > **Firefly Management asks for one week and one export.**
 
-Dr. Mulu is already in the conversation. A verified page, 745 posts, a team that publishes every
+Dr. Mulu is already in the conversation. A verified page, {{channel.fb.posts}} posts, a team that publishes every
 day in three languages. What the record does not yet show is a reason behind any single post: which
-voter it was for, which of the **275,570** registered voters in his recognition-deficit wards it
+voter it was for, which of the **{{pool}}** registered voters in his recognition-deficit wards it
 reached, and whether it moved anything.
 
 Firefly supplies that layer in the three steps Section 1.4 sets out: analyse in Week 1, strategise in
@@ -225,7 +225,7 @@ USSD shortcode `[CONFIRM/EDIT]`. Everything else on the owned channels stays whe
 people who run it now.
 
 **Where the contest stands.** Both Wiper rivals have already won a countywide election: Dr. Kasalu
-with **201,899** votes as Woman Representative and Sen. Wambua with **191,317** as Senator, both in
+with **{{result.2022.womanrep.kasalu}}** votes as Woman Representative and Sen. Wambua with **{{result.2022.senate.wambua}}** as Senator, both in
 2022 (Section 3.5). Dr. Mulu has not yet stood countywide. The ticket is expected to be settled by countywide opinion poll in the final
 quarter of 2026 — reported, and **not confirmed by the party** (Tier 3; Section 2.3.2 sets out what
 would confirm it).

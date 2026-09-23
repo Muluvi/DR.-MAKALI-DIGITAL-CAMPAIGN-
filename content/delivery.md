@@ -61,9 +61,9 @@ proposal claims to embody, applied to its own first assumption.
 | Presence audit completed (Section 5.3) | Week 1 |
 | Compliance review commissioned | Week 2 |
 | Hardware-key 2FA on all admin accounts, applied by your team | Week 1, 100% |
-| Consented SMS contacts | **15,000** |
+| Consented SMS contacts | **{{target.sms.phase-1}}** |
 | Wards with active SMS presence | 15 |
-| Reach share landing in the deficit pool (R-02) | ≥ 51.7% by Week 6 |
+| Reach share landing in the deficit pool (R-02) | ≥ {{pool.share}}% by Week 6 |
 | Facebook Live town halls | 6 |
 | Kikamba voice notes published | 6 |
 | Earned media items | ≥ 10, including ≥ 4 radio |
@@ -78,7 +78,7 @@ proposal claims to embody, applied to its own first assumption.
 | **Audience** | Followers by city and country; by age band and sex; growth curve over 12 months | The decisive test. Follower geography checks the recognition thesis against his own asset rather than against a poll. |
 | **Reach** | Daily reach, organic against paid; reach by city mapped to sub-county; reach per post; reach as a share of followers | Reach by city is the only routinely available proxy for ward-level penetration. |
 | **Engagement** | Reactions, comments and shares per post; engagement rate **on reach, not on followers**; shares per 1,000 reached; distinct commenting accounts, and the share of all comments from the top 50 | Rate on reach is the honest denominator. Share rate is the persuasion proxy — a share puts his name inside a network he does not own. |
-| **Content** | Every post coded on four axes: pillar, language, format, and whether it carries a commitment, a date, a ward name or a call to action | Turns 745 posts from an archive into a distribution. Without coding there is nothing to compare. |
+| **Content** | Every post coded on four axes: pillar, language, format, and whether it carries a commitment, a date, a ward name or a call to action | Turns {{channel.fb.posts}} posts from an archive into a distribution. Without coding there is nothing to compare. |
 | **Video** | 3-second and 30-second views, average watch time, completion rate | Decides whether long flagship video is the right commitment or the wrong one. |
 | **Cadence** | Posts per day, hour of day, day of week | Establishes what the team's current capacity actually is, before any brief assumes more of it. |
 | **Paid** | Meta Ad Library and Google Ads Transparency Centre, for Dr. Mulu and all three rivals | Public, needs no access from anyone, and is the only competitive advertising signal that exists. |
@@ -104,14 +104,14 @@ The first work of the engagement: ninety days of Dr. Mulu's own channels, measur
 Every other analysis in this document is about Kitui — the register, the census, the results, the
 audit record. This one is about the only communications asset Dr. Mulu actually controls.
 
-A verified Facebook presence, roughly 15,000 followers and 745 posts is not a standing start. It is
+A verified Facebook presence, roughly {{channel.fb.followers}} followers and {{channel.fb.posts}} posts is not a standing start. It is
 an operating channel with a record, and that record can be read. What it has never been asked is the
 only question that matters in a countywide name-recognition contest: **how much of this reach lands
 where he is not yet known?**
 
-Section 3.4 establishes that **275,570 registered voters — 51.7% of the county register** — sit
+Section 3.4 establishes that **{{pool}} registered voters — {{pool.share}}% of the county register** — sit
 where he has never held office. Section 3.8 establishes that in-county digital reach has a
-ceiling of about 158,696 voters. Put together, those two figures make one measurement decisive:
+ceiling of about {{reach.smartphone}} voters. Put together, those two figures make one measurement decisive:
 the share of existing reach that lands inside the deficit pool. Nothing in the public record answers
 it. The Week 1 audit does.
 
@@ -129,7 +129,7 @@ it. The Week 1 audit does.
     Hon. Ngilu. Public posts only.
 6.  **Ad libraries** for all four.
 7.  **Overlay.** Reach-by-city onto the twelve decisive wards in Section 3.2 and the
-    275,570-voter deficit pool in Section 3.4.
+    {{pool}}-voter deficit pool in Section 3.4.
 8.  **Aggregate only.** No named commenter lists, no export of individual profiles, no retention of
     personal data. Counts and shares. The audit is scoped in the Section 5.7.9 memorandum before it
     begins, on the same terms as every other processing activity in this engagement.
@@ -165,7 +165,7 @@ because they are set by the electoral calendar rather than by when this engageme
 - Website live, WCAG 2.1 AA audited, with volunteer forms
 - USSD code live across all networks
 - 40 ward digital champions onboarded and data-trained
-- First 100 pieces of content approved and scheduled
+- First {{target.content.first}} pieces of content approved and scheduled
 - **Section 5.7.9 compliance opinion received**
 
 
@@ -178,10 +178,10 @@ original four phases running to the General Election on **10 August 2027**.
 performance indicators. Reach, follower and view counts are what the team steers ad delivery and
 creative by, and they are published here so the campaign can see what is being optimised. They are
 deliberately excluded from how performance is judged: Section 5.6.7 keeps them out of executive
-dashboards, reporting meetings and vendor performance contracts, and gives the reasons — a 73.8%
+dashboards, reporting meetings and vendor performance contracts, and gives the reasons — a {{ict.offline}}%
 offline population, diaspora-skewed interaction, and no demonstrated link to turnout. Performance
 is judged on the indicators in Section 5.6, every one of which traces either to the nomination
-objectives in Section 1.3 or to the ~200,000-vote benchmark. Where a row below is **bold**, it is one of those.
+objectives in Section 1.3 or to the ~{{benchmark}}-vote benchmark. Where a row below is **bold**, it is one of those.
 
 ### 5.4.1 Phase 1: Awareness and Community Building — October–December 2026
 
@@ -202,13 +202,13 @@ objectives in Section 1.3 or to the ~200,000-vote benchmark. Where a row below i
 
 | Metric | Target |
 |---|---|
-| Combined social reach ° | 1,000,000 |
-| Engaged followers ° | 50,000 |
-| **Consented SMS contacts** | **40,000** |
-| **USSD unique sessions** | **5,000** |
-| **Tracker reports received** | **500** |
-| Email/SMS subscribers | 5,000 |
-| Digital volunteer sign-ups | 1,000 |
+| Combined social reach ° | {{target.reach.phase-1}} |
+| Engaged followers ° | {{target.followers.phase-1}} |
+| **Consented SMS contacts** | **{{target.sms.phase-1b}}** |
+| **USSD unique sessions** | **{{target.ussd.phase-1}}** |
+| **Tracker reports received** | **{{target.tracker.phase-1}}** |
+| Email/SMS subscribers | {{target.subscribers.phase-1}} |
+| Digital volunteer sign-ups | {{target.volunteers.phase-1}} |
 | Facebook engagement rate | ≥ 5% |
 | Earned media items/month | ≥ 8 |
 | Opt-out rate | < 2% |
@@ -233,13 +233,13 @@ objectives in Section 1.3 or to the ~200,000-vote benchmark. Where a row below i
 
 | Metric | Target |
 |---|---|
-| Cumulative reach ° | 3,000,000 |
-| Engaged followers ° | 150,000 |
-| **Consented SMS contacts** | **80,000** |
-| **USSD unique sessions** | **25,000** |
-| **Tracker reports** | **3,000** |
-| Email/SMS subscribers | 15,000 |
-| Digital volunteer sign-ups | 5,000 |
+| Cumulative reach ° | {{target.reach.phase-2}} |
+| Engaged followers ° | {{target.followers.phase-2}} |
+| **Consented SMS contacts** | **{{target.sms.phase-2}}** |
+| **USSD unique sessions** | **{{target.ussd.phase-2}}** |
+| **Tracker reports** | **{{target.tracker.phase-2}}** |
+| Email/SMS subscribers | {{target.subscribers.phase-2}} |
+| Digital volunteer sign-ups | {{target.volunteers.phase-2}} |
 | Positive sentiment | ≥ 50% |
 | Viral content pieces (>100,000 views) ° | ≥ 10 |
 | Red-team response times meeting target | ≥ 90% |
@@ -262,16 +262,16 @@ objectives in Section 1.3 or to the ~200,000-vote benchmark. Where a row below i
 
 | Metric | Target |
 |---|---|
-| Cumulative reach ° | 5,000,000 |
-| Engaged followers ° | 250,000 |
-| **Consented SMS contacts** | **120,000** |
-| **USSD unique sessions** | **60,000** |
-| **Tracker reports** | **8,000** |
-| Digital pledges to vote | 30,000 |
+| Cumulative reach ° | {{target.reach.phase-3}} |
+| Engaged followers ° | {{target.followers.phase-3}} |
+| **Consented SMS contacts** | **{{target.sms}}** |
+| **USSD unique sessions** | **{{target.ussd.phase-3}}** |
+| **Tracker reports** | **{{target.tracker.phase-3}}** |
+| Digital pledges to vote | {{target.pledges}} |
 | Positive sentiment | ≥ 80% |
 | Voter registration lift in target wards | ≥ 10% |
 | GOTV contact rate | ≥ 70% |
-| **Contact share of the ~200,000 win threshold** | **≥ 75%** |
+| **Contact share of the ~{{benchmark}} win threshold** | **≥ 75%** |
 | Misinformation incidents responded to within severity target | 100% |
 
 ### 5.4.4 Post-election
@@ -335,10 +335,10 @@ quoted interchangeably:
 
 | Term | Means | Where it is set |
 |---|---|---|
-| **Consented SMS contacts** | Phone numbers held with opt-in, reachable by SMS | 5.2.3.3: 120,000 by Phase 3 |
-| **Contact universe** | Everyone reachable by any owned channel, SMS or otherwise | 5.5.2: ~60k / ~150k / ~250k by level |
-| **Pledged voters** | CRM records with phone, ward and polling station logged | 5.6.2 GE-01: 220,000 target |
-| **Verified supporters** | Pledged voters confirmed by a second touch | 1.3.4: 200,000 target |
+| **Consented SMS contacts** | Phone numbers held with opt-in, reachable by SMS | 5.2.3.3: {{target.sms}} by Phase 3 |
+| **Contact universe** | Everyone reachable by any owned channel, SMS or otherwise | 5.5.2: ~{{target.contact-universe.lean|k}}k / ~{{target.contact-universe.standard|k}}k / ~{{target.contact-universe.premium|k}}k by level |
+| **Pledged voters** | CRM records with phone, ward and polling station logged | 5.6.2 GE-01: {{target.pledged-voters}} target |
+| **Verified supporters** | Pledged voters confirmed by a second touch | 1.3.4: {{target.supporters}} target |
 
 They are nested, not alternatives: consented contacts ⊂ contact universe, and verified
 supporters ⊂ pledged voters.
@@ -409,7 +409,7 @@ and that is a real drawback rather than a disclaimer
 | Team upskilling | Standard, once | **Standard + pairing to Month 3** | Standard + embedded coaching |
 | Red-team drills | On trigger | Quarterly | Monthly |
 | Arid-belt reach | Weak | Strong | Strong |
-| Realistic Phase 3 contact universe | ~60,000 | ~150,000 | ~250,000 |
+| Realistic Phase 3 contact universe | ~{{target.contact-universe.lean}} | ~{{target.contact-universe.standard}} | ~{{target.contact-universe.premium}} |
 
 **Recommendation: Level 2 (Standard).** Level 1 instruments only the twelve decisive wards, which
 leaves the recognition deficit measured at county level — the one place this campaign cannot afford
@@ -494,7 +494,7 @@ id: nomination-scorecard
 
 ### 5.6.2 Stage 2: the general election scorecard
 
-The general election phase focuses on systematic voter mobilization, ground network readiness, and polling station defense to cross the 200,000-vote winning threshold.
+The general election phase focuses on systematic voter mobilization, ground network readiness, and polling station defense to cross the {{benchmark}}-vote winning threshold.
 
 ```figure
 id: ge-scorecard
@@ -513,7 +513,7 @@ Firefly's dispatch logs.
 | Code | Indicator | Method | Baseline | Target |
 |---|---|---|---|---|
 | **R-01** | Followers located in Mwingi North, Central and West | Meta follower city breakdown mapped to sub-county, monthly (NW-02 above) | `[DATA NEEDED — Week 1 export]` | A stated monthly gain on the Week 1 baseline |
-| **R-02** | Share of total reach landing in the 275,570-voter deficit pool | Meta city breakdown mapped to sub-county, weekly | `[DATA NEEDED — Week 1 export]` | ≥ 51.7%, the pool's own share of the register |
+| **R-02** | Share of total reach landing in the {{pool}}-voter deficit pool | Meta city breakdown mapped to sub-county, weekly | `[DATA NEEDED — Week 1 export]` | ≥ {{pool.share}}%, the pool's own share of the register |
 | **R-03** | Shares per 1,000 reached, deficit wards only | Post-level export, weekly | `[DATA NEEDED — Week 1 export]` | Set against the measured Week 1 figure, as a stated point gain |
 | **R-04** | Consented contacts in the 21 wards of the deficit pool, and their share of the list | Firefly's own dispatch logs | 0 | Deficit-ward share of the list ≥ deficit-ward share of the register |
 | **R-05** | Kikamba-first share of weekly output, and its engagement on reach | Post coding, weekly (Section 5.3.5) | `[DATA NEEDED — Week 1 export]` | ≥ 4 of 7 weekly posts Kikamba-first (Section 4.5.5) |
@@ -556,7 +556,7 @@ id: delivery-tracker
     *   *Public Web & USSD Transparency:* Voters can dial `*[shortcode]#` or visit the web portal to query exact project GPS coordinates, contract values, and completion certificates in their own village.
     *   *Debate & Media Weapon:* Equips candidate and spokespersons with instant, primary-sourced factual data to rebut rival exaggerations on live radio and television debates.
 2.  **As a Day-One Governing Tool (Post-Election):**
-    *   *Statutory Ward Equalization Tracking:* Establishes the operational framework for managing the **Ksh 100 Million/Ward Annual Fund**, tracking execution velocity and contractor payments across all 40 wards in real time.
+    *   *Statutory Ward Equalization Tracking:* Establishes the operational framework for managing the **Ksh {{policy.ward-fund|m}} Million/Ward Annual Fund**, tracking execution velocity and contractor payments across all 40 wards in real time.
     *   *Zero Pending Bills Enforcer:* Integrates directly into the County Treasury accounting system to ensure all ward projects are verified before invoice settlement, preventing the recurrence of county debt.
 
 
@@ -564,7 +564,7 @@ id: delivery-tracker
 
 The campaign strictly excludes vanity metrics from all executive dashboards, reporting meetings, and vendor performance contracts based on the following empirical realities:
 
-*   **Offline Reality:** 73.8% of Kitui's residents are offline (CA/KNBS 2023/24, Tier 1). Optimizing for digital likes misallocates effort away from village barazas and market PA caravans.
+*   **Offline Reality:** {{ict.offline}}% of Kitui's residents are offline (CA/KNBS 2023/24, Tier 1). Optimizing for digital likes misallocates effort away from village barazas and market PA caravans.
 *   **Geographic Skew:** Political content from Eastern Kenya draws a large share of its social media interaction from non-resident users in Nairobi, Mombasa and abroad, who are not registered to vote in Kitui's 40 wards. **Evidence required:** an earlier draft of this section put that share at "over 60%", which no source in this proposal supports. The figure is withdrawn rather than restated; the ward-level split is obtainable from the campaign's own platform analytics in Week 1 (Section 5.3) and should replace this sentence once measured. The argument does not depend on the precise number.
 *   **Zero Correlation to Turnout:** A viral video does not transport an elderly voter in Ikutha or Nguni to their polling stream on election morning. Physical voter pledge collection, verified 2G SMS connectivity, and trained polling day agents directly generate counted votes.
 
@@ -581,7 +581,7 @@ To ensure accountability across all divisions, the KPI framework is embedded in 
 
 ### 5.6.9 The Kitui message lab
 
-*Digital engagement metrics measure the 26.2% who are online.*
+*Digital engagement metrics measure the {{ict.internet}}% who are online.*
 
 ### 5.6.10 Rationale, structure and zone coverage
 
@@ -745,7 +745,7 @@ notification and liability all follow controllership rather than convenience:
 **NG-CDF and bursary beneficiary lists are off-limits for campaign contact.** ODPC's 2025 public
 sector guidance note bars the reuse of personal data collected through public programmes for
 **political mobilisation** without explicit, separate consent (Tier 1, ODPC). The campaign holds
-exactly such a dataset — the bursary record covering the 12,573 students in Section 4.1.1 — and it
+exactly such a dataset — the bursary record covering the {{record.bursary.recipients}} students in Section 4.1.1 — and it
 is the most tempting list in the county.
 
 **It is not used.** Not for SMS, not for WhatsApp, not for matching, not for lookalike targeting.
@@ -973,7 +973,7 @@ id: rapid-response-flow
 The campaign monitors four complementary intelligence streams 24 hours a day, 7 days a week:
 
 1.  **Broadcast Vernacular Radio Triage (06:00–21:00 EAT):** Dedicated audio recording monitors tracking morning and evening talk shows across *Musyi FM, Mbaitu FM, Sang'u FM, County FM*, and *Athiani FM*. Immediate audio clipping of candidate mentions or political challenger assertions.
-2.  **Ward WhatsApp Ingestion Network:** 40 Constituency Monitoring Assistants monitoring ~180 major community, market, church, and clan WhatsApp groups across all 8 sub-counties.
+2.  **Ward WhatsApp Ingestion Network:** 40 Constituency Monitoring Assistants monitoring ~{{target.whatsapp-groups}} major community, market, church, and clan WhatsApp groups across all 8 sub-counties.
 3.  **Social Listening Keyword Feeds:** Automated continuous tracking via Brand24 / Talkwalker of high-frequency keywords: *"Dr. Makali Mulu"*, *"Kitui Governor 2027"*, *"Kitui Central CDF"*, *"Ndengu price"*, and competitor candidate handles.
 4.  **Field Captain Rumor Logs:** Twice-daily SMS pulse reports from the campaign's ward captains (campaign-owned, Section 5.1.3) logging prevalent market-day and baraza whispers.
 
