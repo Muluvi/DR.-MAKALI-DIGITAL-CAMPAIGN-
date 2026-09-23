@@ -4,10 +4,6 @@ The path to the Kitui County governorship is governed by strict spatial and demo
 
 This section constructs the complete electoral arithmetic of the **~200,000 vote victory threshold** from the official **40-ward IEBC voter register** (Tier 1), identifies the decisive geographic concentrations and structural coalitions, and maps the critical intersection between the candidate's recognition deficit and the county's decisive voting blocs.
 
-```figure
-id: register-map
-```
-
 ## 3.1 The number it takes
 
 To eliminate subjective projections, the campaign's target metrics are anchored directly to official IEBC outcomes:
@@ -34,11 +30,7 @@ To eliminate subjective projections, the campaign's target metrics are anchored 
         **37.5% of the registered electorate**.
 
 ```figure
-id: threshold-build-up
-```
-
-```figure
-id: register-growth
+id: fig-3-1-funnel
 ```
 
 ## 3.2 Where the votes are
@@ -46,7 +38,7 @@ id: register-growth
 Voter registration in Kitui County is highly concentrated. Rather than a flat geographic distribution across all 40 wards (which would average 13,319 voters per ward), the electorate exhibits extreme density clustering in urban corridors, agricultural belts, and sub-county headquarters.
 
 ```figure
-id: ward-ranking
+id: fig-3-2-register-map
 ```
 
 #### Critical Concentration Insights:
@@ -76,7 +68,7 @@ A key strategic finding emerges from this integrated database: **Mwingi North, M
 Each route below is a combination of constituencies or wards, measured the same way: registered voters, then the ballots they would cast at the 62% turnout constant, then that ballot count against the 200,000 benchmark from Section 3.1. The ballot count is the ceiling, since it assumes every ballot in the route goes to one candidate. **No route clears 200,000 on its own ballots.** A route is where the margin is built, not where the whole number lives.
 
 ```figure
-id: paths-to-threshold
+id: fig-3-3-paths
 ```
 
 #### Path A: The Northern Mwingi Triad (The "Mwingi Bloc")
@@ -144,9 +136,17 @@ Together the five hold **83,496 registered voters**, **15.7%** of the county reg
 
 This represents **51.7% of the entire Kitui County voter register**. The pool is structural: it is derived from where he has held office, not from a survey.
 
+```figure
+id: fig-3-4-footprint
+```
+
 ## 3.5 What his rivals have already proven
 
 The 2027 gubernatorial race in Kitui features a highly competitive, multi-candidate field. The campaign's strategic and digital architecture must navigate a distinct, two-stage contest.
+
+```figure
+id: fig-3-5-field
+```
 
 #### Stage One: the Wiper nomination
 
@@ -180,11 +180,19 @@ voters — 26.4% of the county**. Party structures do not reach those local netw
 reach into them is a direct-contact problem rather than a party-mobilisation one. Both sit inside
 the recognition-deficit pool, so this compounds rather than offsets the Section 3.4 finding.
 
+```figure
+id: fig-3-6-party-flow
+```
+
 ## 3.7 The three regions
 
 Kitui is not a monolith. Its eight constituencies and 18 sub-counties have
 distinct economic bases, infrastructure needs and political histories. Digital
 and SMS messaging is calibrated to each.
+
+```figure
+id: fig-3-7-zones
+```
 
 ### 3.7.1 The urban and central anchor: Kitui Central and Kitui West
 
@@ -264,7 +272,7 @@ Winning Kitui County requires building a communication strategy aligned with emp
 According to the official **CA/KNBS ICT report on the 2023/24 Kenya Housing Survey** (Tier 1), **26.2% of Kitui's population uses the internet** (up from 13.6% in the 2019 KNBS Census), while **73.8% of the population resides in an offline media environment**, with mobile phone ownership at **44.1%**.
 
 ```figure
-id: reach-split
+id: fig-3-8-ceiling
 ```
 
 > [!CRITICAL]
@@ -288,10 +296,6 @@ id: reach-split
 
 
 The election will be won or lost across the **447,007 registered voters not reachable online** (modelled: the July 2026 register less the 158,696 reachable by smartphone or data). Reaching this electorate requires an orchestrated combination of telecommunications protocol channels (SMS/USSD), broadcast audio (vernacular radio), financial agent touchpoints, and dense physical market presence.
-
-```figure
-id: offline-channels
-```
 
 #### Kikamba Vernacular Radio (The Decisive Broadcast Medium)
 *   **Reach:** `[DATA NEEDED — Kitui listenership by station; GeoPoll or KARF county release]`. Section 2.7 records that no county-level listenership figure is published, so none is estimated here.
@@ -338,14 +342,9 @@ These come from the profile as displayed, and finding them took an afternoon. Th
 because a brief written over a profile that contradicts the parliamentary record inherits the
 contradiction. The corrections are strategy, and are in Section 4.7.
 
-| # | As displayed | The issue |
-|---|---|---|
-| 1 | MP start date "Aug 2012" | The Parliament record shows **2013** (Tier 1). A date that disagrees with Hansard is the kind of detail an opposition researcher opens with |
-| 2 | "Programmer Officer — CDTF" | Typo. Parliament lists the role as **M&E Officer, CDTF, 1997–2004** (Tier 1) |
-| 3 | "Forms of government — Economist" | An autofill error. The actual role was **Economist, Ministry of Planning & Finance, 1991–1997** (Tier 1) |
-| 4 | Current city: **Nairobi** | For a county aspirant this is a ready-made "absentee" attack line, and it sits on the profile permanently rather than in a single post |
-| 5 | Education lists Kenyatta University, **but not the PhD** | The **PhD in Economics (Kenyatta University, 2009–2014)** is the single credential the entire "Economist Governor" positioning rests on, and it is missing from the one field a voter checks |
-| 6 | Bio: "**Incoming** Governor Kitui County 2027" | This presumes the outcome of a party nomination that has not happened |
+```figure
+id: fig-3-9-audit
+```
 
 ### 3.9.1 What the audit produces
 
@@ -372,7 +371,7 @@ In strict adherence to the campaign's data provenance standards, the analytical 
 4.  **Ward-Level Mobile Broadband Penetration Data:** **Named Data Gap (Tier 1 Gap).** CA/KNBS publish countywide connectivity (26.2% internet use, 44.1% phone ownership, 2023/24), but no ward-by-ward coverage figure is published `[DATA NEEDED — Communications Authority coverage maps by ward]`.
 
 ```figure
-id: targeting-summary
+id: fig-3-10-gaps
 ```
 
 ---
@@ -405,3 +404,7 @@ profile of a candidate leading on passive name recognition alone.
 committed against it. If his reach is already landing in Mwingi and failing to convert, the
 problem is message rather than reach, and the response changes: Section 4.8 sets out, in advance,
 what each finding changes. That test is not a formality; it is the first deliverable.
+
+```figure
+id: fig-3-11-evidence
+```

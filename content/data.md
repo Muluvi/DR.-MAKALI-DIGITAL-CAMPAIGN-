@@ -24,7 +24,15 @@ The full 40-ward register, by constituency, is in Annex B.1.
 *   **2022 General Election (Kitui Governor):** Won by Julius Malombe (Wiper) with **{{result.2022.gov.malombe}} votes** (Tier 2: the IEBC declaration as reported; Tier 1 once Form 37C is cited). David Musila (Jubilee) finished as the runner-up; two totals are published, **{{result.2022.gov.musila}}** (The Star) and **{{result.2022.gov.musila.alt}}** (Nation, Standard), both Tier 2, and neither is preferred. Jonathan Mueke (UDA) finished third with **{{result.2022.gov.mueke}} votes** (Tier 2).
 *   **2022 Senate and Woman Representative Elections:** Senator Enoch Wambua (Wiper) secured his seat with **{{result.2022.senate.wambua}} votes** (Tier 2), and Woman Representative Irene Kasalu (Wiper) won with **{{result.2022.womanrep.kasalu}} votes** (Tier 2).
 
+```figure
+id: fig-2-2-results
+```
+
 ## 2.3 The nomination rules and the calendar
+
+```figure
+id: fig-2-3-nomination
+```
 
 ### 2.3.1 How Wiper picks its candidate
 
@@ -63,6 +71,10 @@ Kitui County's vast physical and demographic characteristics define its developm
 *   **Socio-Economic Vulnerability:** two published poverty rates disagree, and both are shown. The **KNBS Kenya Poverty Report** puts **{{poverty.2021}}% of Kitui residents, about {{poverty.2021.people}} people, in poverty in 2021** (Tier 1). The **NDMA Long Rains Food Security Assessment**, citing KNBS, gives **60.4%** against a national 45.2% (Tier 2). The KNBS report is the later primary source and is the one this proposal uses as current. Approximately **{{water.surface}} residents rely on untreated surface water** as their primary domestic source (Tier 1).
 *   **Livestock Economy:** Anchored by approximately {{livestock.cattle}} cattle, {{livestock.goats}} goats, {{livestock.poultry}} poultry, and {{livestock.donkeys}} donkeys (Tier 1). **Poultry farming is practiced by over 90% of households** (Tier 1), serving as a highly inclusive, gender-focused entry point for economic empowerment messaging.
 
+```figure
+id: fig-2-4-people
+```
+
 #### Natural Hazards and NDMA Early-Warning Context:
 The county experienced severe, chronic drought pressure throughout 2025 (Tier 1). Sourced from the National Drought Management Authority (NDMA) January 2026 bulletin, the county's drought early-warning status was designated as **Alert Phase** (Tier 1), and its food security was classified under **IPC Phase 2 ("Stressed")** as of September 2025 (Tier 1). This drought pressure was immediately followed by the **March 2026 national flooding** (Tier 2), which disrupted infrastructure across multiple sub-counties.
 
@@ -80,6 +92,10 @@ The county budget represents a significant administrative responsibility. Accord
 *   **Equitable Share:** KSh 11.64 billion ({{budget.equitable.share}}% of the envelope) (Tier 1).
 *   **Own-Source Revenue:** KSh 1.12 billion in the Fiscal Strategy Paper ({{budget.osr.share}}%), raised to **KSh 1.339 billion** by the County Assembly. Both figures are published; neither is preferred (Tier 3, verify).
 *   **Conditional Grants:** KSh 1.04 billion ({{budget.grants.share}}%) (Tier 1).
+
+```figure
+id: fig-2-5-budget
+```
 
 The three parts sum to KSh 13.80 billion against a published total of 13.79: the KSh 0.01 billion difference is rounding in the source, and is shown as its own segment rather than absorbed. The total itself is cited through secondary reporting of the Paper (Tier 3) until the Paper is cited directly.
 
@@ -100,15 +116,15 @@ According to the **2023/24 Kenya Continuous Household Survey & Communications Au
 | Core Device Profile | Feature-phone and USSD-compatible devices dominant | Feature-phone dominance (Tier 1) | Smartphones are {{ict.smartphone-share}}% of active SIMs nationally (50.2 million of 84.1 million, CA Q3 FY2025/26, Tier 2); a national rate, which overstates Kitui |
 | Mobile Financial Services | Near-universal reliance on mobile transactions | Dominant mobile-money footprint | 53.4 million subscriptions ({{ict.momo-penetration}}%); **{{ict.agents}} registered agents** (March 2026) |
 
+```figure
+id: fig-2-6-connectivity
+```
+
 The **{{ict.agents}} mobile-money agent network** (representing a rapid expansion from {{ict.agents.2025}} in late 2025, Tier 1) is a vital offline asset. These agents represent trusted, commercially motivated local touchpoints in settlements where broadband access is unavailable.
 
 #### Platform Sizing & Realistic In-County Reach
 
-The digital footprint in Kitui County is concentrated in urban nodes (Kitui Town, Mwingi Town, Kwa Vonza university corridor) and among educated youth. Based on published internet penetration rates and Meta Audience Insights (Tier 1 & Tier 2):
-
-```figure
-id: platform-sizing
-```
+The digital footprint in Kitui County is concentrated in urban nodes (Kitui Town, Mwingi Town, Kwa Vonza university corridor) and among educated youth. In-county active users per platform are not published: they are `[DATA NEEDED — Meta Audience Insights export, Week 1]`, and Section 3.8 sizes what digital can reach from the published rates alone.
 
 ## 2.7 Who owns the airwaves
 
@@ -117,7 +133,7 @@ Vernacular radio is the primary medium of political consciousness and daily news
 To ensure uninterrupted, high-credibility communication with the electorate, the campaign constructs a dual strategy: a disciplined operational engagement model for Tier 1 commercial networks, coupled with an aggressive bypass architecture detailed in **Section 5.2.2.2**.
 
 ```figure
-id: radio-gatekeepers
+id: fig-2-7-media
 ```
 
 ### 2.7.1 Who owns the Kamba-language stations, and who they favour
@@ -144,6 +160,10 @@ update this map before any placement is booked.
 
 Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS, represents a highly refined technocratic option for the Kitui County gubernatorial seat (Tier 1). In his extensive tenure in the National Assembly, he has established an unassailable reputation as one of Kenya's most consistent and authoritative voices on macroeconomic governance, fiscal discipline, and budget oversight. His long-standing membership on the critical Budget and Appropriations Committee provides him with an intimate, operational understanding of public finance systems and the optimization of county resource allocation frameworks.
 
+```figure
+id: fig-2-8-record
+```
+
 **Forensic Assets for Systematic Digital Projection:**
 
 | Asset | Sourced Empirical Evidence | Strategic Digital Application |
@@ -157,13 +177,9 @@ Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS, represents a highly refined t
 
 ## 2.9 His channels today, and his rivals'
 
-| Channel | Handle or URL | Status |
-|---|---|---|
-| Facebook | "Hon Makali Mulu", verified | ~{{channel.fb.followers}} followers, {{channel.fb.posts}} posts. Page-or-profile status unresolved — see Section 4.7 |
-| X | **@MakaliMulu** — confirmed live | Bio still frames him as MP for Kitui Central rather than as a gubernatorial aspirant. Follower count `[DATA NEEDED]` |
-| Kitui Central NG-CDF site | **kituicentralcdf.co.ke** — constituency-run, active in 2026 | **A ready-made proof-point library.** It already carries project hand-overs and his profile, which is the raw material Pillar 1 runs on (Section 4.5.1) |
-| NG-CDF Board constituency page | **kitui-central.ngcdf.go.ke** | Official, Tier 1 |
-| TikTok, Instagram, YouTube, WhatsApp Channel | — | `[DATA NEEDED — none surfaced in search. Confirm with the team whether any exist before the audit assumes they do not.]` |
+```figure
+id: fig-2-9-channels
+```
 
 **The NG-CDF site is the most under-used asset in this list.** It is a public, constituency-run
 record of completed projects, and Pillar 1 exists to put exactly that record in front of voters who

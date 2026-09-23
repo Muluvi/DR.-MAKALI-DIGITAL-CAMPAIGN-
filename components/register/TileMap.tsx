@@ -21,7 +21,7 @@ const T = 44; // tile size, in SVG units
 const GAP = 3;
 const ROW = T + 12; // room above each row for a constituency label
 
-export function TileMap({ id, layers, initial, showWardList = true }: { id: string; layers: TileLayerId[]; initial: TileLayerId; showWardList?: boolean }) {
+export function TileMap({ id, layers, initial, showWardList = false }: { id: string; layers: TileLayerId[]; initial: TileLayerId; showWardList?: boolean }) {
   const W = GRID.cols * (T + GAP);
   const H = GRID.rows * ROW + 12;
   const pos = (r: number, c: number) => ({ x: c * (T + GAP), y: r * ROW + 12 });

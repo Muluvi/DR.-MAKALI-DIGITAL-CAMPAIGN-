@@ -115,6 +115,12 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" className={`dark ${montserrat.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}>
+      <head>
+        {/* With scripts off, no accordion can open, so every panel ships open (brief §Q: JS-off). */}
+        <noscript>
+          <style>{`.dg-panel{display:block!important}`}</style>
+        </noscript>
+      </head>
       <body suppressHydrationWarning className="font-sans antialiased bg-paper text-ink">{children}</body>
     </html>
   );

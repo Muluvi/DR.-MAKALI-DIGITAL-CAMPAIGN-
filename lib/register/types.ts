@@ -58,20 +58,24 @@ export type Chart =
   | { type: "slope"; left: string; right: string; lines: { label: string; a: number; b: number; tone?: "accent" | "neutral" }[]; unit: string }
   | { type: "funnel"; stages: { label: string; value: number | null; state: CellState; note?: string; display?: string }[]; toggle?: { label: string; stages: { label: string; value: number | null; state: CellState; note?: string; display?: string }[] }; ref?: Ref }
   | { type: "tilemap"; layers: TileLayerId[]; initial: TileLayerId; showWardList?: boolean }
-  | { type: "timeline"; events: { date: string; end?: string; label: string; state: CellState; note?: string }[]; from: string; to: string; today?: string }
+  | { type: "timeline"; events: { date: string; end?: string; label: string; state: CellState; note?: string; whenText?: string; reported?: boolean }[]; from: string; to: string; today?: string }
   | { type: "steps"; steps: { title: string; body: string; when?: string; lane?: string; current?: boolean }[]; lanes?: string[]; horizontal?: boolean }
-  | { type: "cards"; cards: { kicker?: string; title: string; body: string; meta?: string; tone?: "accent" | "outside" }[]; columns?: 2 | 3 | 4 }
+  | { type: "cards"; cards: { kicker?: string; title: string; body: string; meta?: string; tone?: "accent" | "outside"; links?: { label: string; href: string }[] }[]; columns?: 2 | 3 | 4 }
   | { type: "matrix"; header: string[]; rows: { head: string; cells: string[] }[]; cards?: boolean }
   | { type: "decision"; question: string; rules: { if: string; then: string }[] }
   | { type: "dumbbell"; aLabel: string; bLabel: string; items: { label: string; a: number | null; b: number | null; note?: string }[]; unit: string; max: number }
   | { type: "icons"; items: { label: string; share: number; state: CellState }[] }
   | { type: "gauges"; items: { code: string; title: string; target: string; baseline: string; share?: number | null }[] }
-  | { type: "network"; owners: { id: string; name: string }[]; stations: { name: string; owner: string; posture: "placement" | "monitoring" }[] }
+  | { type: "network"; owners: { id: string; name: string }[]; stations: { name: string; owner: string; posture: "placement" | "secondary" | "monitoring" }[] }
   | { type: "house"; roof: string; pillars: { title: string; body: string }[]; foundation: string[] }
   | { type: "balance"; hypothesis: string; supporting: string[]; counter: string[]; test: string[] }
   | { type: "risk"; items: { code: string; label: string; likelihood: 1 | 2 | 3; impact: 1 | 2 | 3 }[]; branches?: { title: string; question: string; rules: { if: string; then: string }[] }[] }
   | { type: "heatmap"; rowLabels: string[]; colLabels: string[]; values: (number | null)[][]; unit: string; state: CellState }
   | { type: "spine"; steps: { label: string; href: string }[]; current?: number }
+  | { type: "pareto"; items: { label: string; share: number; top?: boolean; mark?: boolean }[]; cutAt: number; cutLabel: string; markLabel: string; topLabel: string }
+  | { type: "paths"; groups: { title: string; tag?: string; rows: { label: string; segments: Bar[] }[] }[]; ref: Ref; max: number }
+  | { type: "mock"; header: string; fields: { n: number; label: string; shown: string; issue: string }[] }
+  | { type: "stats"; items: { value: string; label: string; state: CellState; countTo?: number }[] }
   | { type: "composite"; parts: { heading: string; chart: Chart }[] };
 
 export type TileLayerId = "register" | "footprint" | "party-flow" | "zones" | "effort" | "reach-targets";

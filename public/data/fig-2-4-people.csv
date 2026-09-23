@@ -1,0 +1,11 @@
+Measure,Value,Unit,Source,Basis
+Population (2019),1136187,people,KNBS 2019 Census (T1),Sourced
+Rural share,95.2,%,KNBS 2019 Census (T1),Sourced
+Poverty rate (2021),55.2,%,KNBS Kenya Poverty Report 2021 (T1),Sourced
+"Poverty rate, other published value",60.4,%,"NDMA, citing KNBS (T2)",Sourced
+Poultry,4000000,head,"Kitui County livestock statistics, as cited in the evidence pack (T1)",Sourced
+Goats,2000000,head,"Kitui County livestock statistics, as cited in the evidence pack (T1)",Sourced
+Cattle,613000,head,"Kitui County livestock statistics, as cited in the evidence pack (T1)",Sourced
+Donkeys,326000,head,"Kitui County livestock statistics, as cited in the evidence pack (T1)",Sourced
+"Drought status, January 2026",Alert Phase,—,NDMA bulletin (T1),Sourced
+"Food security, September 2025",IPC Phase 2,—,IPC (T1),Sourced

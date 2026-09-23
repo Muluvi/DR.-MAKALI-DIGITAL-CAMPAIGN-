@@ -1,5 +1,3 @@
-# Kitui 2027: Analysis, Strategy and Direction for Dr. Mulu's Digital Operation
-
 Who this proposal is for, who prepared it, the terms it is submitted under, and the order of the six sections and seven annexes that follow.
 
 ## Prepared for, prepared by, and on what terms

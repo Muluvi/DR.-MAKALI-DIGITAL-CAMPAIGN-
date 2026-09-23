@@ -9,7 +9,7 @@
 // competitive-field quadrant chart's qualitative credibility axis — it is not measured data and
 // is never rendered with the visual authority of a Tier 1 figure.
 import type { Source } from "./types";
-import { LOCAL_DIGITAL_MEDIA_OWNERSHIP } from "./sources";
+import { LOCAL_DIGITAL_MEDIA_OWNERSHIP } from "./sources.ts";
 
 const ROYAL_MEDIA: Source = { name: "Royal Media Services corporate ownership (public record)", publicationDate: "2026", tier: 2 };
 const SDA_CHURCH: Source = { name: "Seventh-Day Adventist Church, Kitui (publicly known denominational ownership)", publicationDate: "2026", tier: 2 };

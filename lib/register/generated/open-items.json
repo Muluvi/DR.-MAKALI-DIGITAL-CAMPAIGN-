@@ -1,0 +1,462 @@
+[
+  {
+    "kind": "data",
+    "gap": "The number it takes",
+    "closes": "IEBC ECVR ward annex",
+    "holder": "IEBC",
+    "status": "Open",
+    "where": [
+      "Section 3.1",
+      "Section 2.1",
+      "Data layer: register.2026.by-ward",
+      "Figure fig-2-1-register"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "The number it takes",
+    "closes": "IEBC Form 37C, Kitui governor 2022",
+    "holder": "IEBC",
+    "status": "Open",
+    "where": [
+      "Section 3.1",
+      "Section 2.1"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "His largest electorate to date is Kitui Central's 77,764 registered voters: he has not yet stood for a countywide office, so his proof…",
+    "closes": "IEBC Form 35B, Kitui Central MP 2022, his vote total",
+    "holder": "IEBC",
+    "status": "Open",
+    "where": [
+      "Section 3.5"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Kitui listenership by station",
+    "closes": "GeoPoll or KARF county release",
+    "holder": "Audience-research publishers",
+    "status": "Open",
+    "where": [
+      "Section 3.8.1"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Handset ownership by ward",
+    "closes": "CA/KNBS",
+    "holder": "Communications Authority",
+    "status": "Open",
+    "where": [
+      "Section 3.8.1"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Agent count for Kitui",
+    "closes": "Central Bank of Kenya or Safaricom agent register",
+    "holder": "Central Bank of Kenya or Safaricom",
+    "status": "Open",
+    "where": [
+      "Section 3.8.1"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Market-day attendance",
+    "closes": "county trade department",
+    "holder": "County government or church offices",
+    "status": "Open",
+    "where": [
+      "Section 3.8.1"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Congregation sizes",
+    "closes": "diocesan and denominational offices",
+    "holder": "County government or church offices",
+    "status": "Open",
+    "where": [
+      "Section 3.8.1"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "What the audit produces",
+    "closes": "Week 1 export",
+    "holder": "His team: the Week 1 export",
+    "status": "Open",
+    "where": [
+      "Section 3.9.1",
+      "Section 5.6.4",
+      "Section 1.3.1",
+      "Figure fig-1-5-scorecard"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "CA/KNBS publish countywide connectivity (26.2% internet use, 44.1% phone ownership, 2023/24), but no ward-by-ward coverage figure is…",
+    "closes": "Communications Authority coverage maps by ward",
+    "holder": "Communications Authority",
+    "status": "Open",
+    "where": [
+      "Section 3.10"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "The published rounds, and what each one measured",
+    "closes": "not published",
+    "holder": "To be named",
+    "status": "Open",
+    "where": [
+      "Section C.1"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "In-county active users per platform are not published: they are , and Section 3.8 sizes what digital can reach from the published rates…",
+    "closes": "Meta Audience Insights export, Week 1",
+    "holder": "His team: the Week 1 export",
+    "status": "Open",
+    "where": [
+      "Section 2.6"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "The measurement set",
+    "closes": "handles and follower counts for X, TikTok, Instagram, YouTube, and any WhatsApp Channel or Business number. Not estimated",
+    "holder": "To be named",
+    "status": "Open",
+    "where": [
+      "Section 5.3.1"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Wiper delegate register for Kitui",
+    "closes": "party secretariat",
+    "holder": "Wiper Patriotic Front secretariat",
+    "status": "Open",
+    "where": [
+      "Section 5.8.14"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Give every post a voter, a ward and a reason",
+    "closes": "Week 1 post coding",
+    "holder": "His team: the Week 1 export",
+    "status": "Open",
+    "where": [
+      "Section 1.3.4"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "His own 2022 vote total there",
+    "closes": "IEBC Form 35B, Kitui Central MP 2022",
+    "holder": "IEBC",
+    "status": "Open",
+    "where": [
+      "Section 1.3.5",
+      "Data layer: result.2022.mp.mulu",
+      "Figure fig-2-2-results",
+      "Figure fig-3-5-field"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "The Agro-Pastoralist & Arid-Zone Livestock Keepers",
+    "closes": "KNBS 2019 Census, Volume IV: households keeping livestock, by sub-county",
+    "holder": "KNBS",
+    "status": "Open",
+    "where": [
+      "Section 4.3.3"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "High smartphone and feature-phone social media usage (smartphone adoption by age ); active on WhatsApp groups, TikTok, Facebook Mobile,…",
+    "closes": "CA/KNBS by age band",
+    "holder": "Communications Authority",
+    "status": "Open",
+    "where": [
+      "Section 4.3.4"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Higher mobile internet use than the county (urban smartphone share ); constant WhatsApp business use; daily interaction with county…",
+    "closes": "CA/KNBS urban/rural split",
+    "holder": "Communications Authority",
+    "status": "Open",
+    "where": [
+      "Section 4.3.5"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "TSC establishment for Kitui",
+    "closes": "County Public Service Board staff return; Ministry of Health workforce data",
+    "holder": "Public-sector employers",
+    "status": "Open",
+    "where": [
+      "Section 4.3.6"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Internet use by education level",
+    "closes": "CA/KNBS 2023/24 tables",
+    "holder": "Communications Authority",
+    "status": "Open",
+    "where": [
+      "Section 4.3.6"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "The Out-of-County Kamba Diaspora Matrix (Nairobi, Coast & Nationwide)",
+    "closes": "KNBS 2019 Census migration tables, set against the IEBC register by polling station",
+    "holder": "IEBC",
+    "status": "Open",
+    "where": [
+      "Section 4.3.7"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Internet use in Nairobi and Mombasa",
+    "closes": "CA/KNBS 2023/24 county tables",
+    "holder": "Communications Authority",
+    "status": "Open",
+    "where": [
+      "Section 4.3.7"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Health insurance coverage",
+    "closes": "KNBS county bulletin",
+    "holder": "KNBS",
+    "status": "Open",
+    "where": [
+      "Section 4.4.6"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Child stunting",
+    "closes": "KNBS Demographic and Health Survey",
+    "holder": "KNBS",
+    "status": "Open",
+    "where": [
+      "Section 4.4.6"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Solid-fuel use",
+    "closes": "KNBS 2019 Census, Volume IV",
+    "holder": "KNBS",
+    "status": "Open",
+    "where": [
+      "Section 4.4.6"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Which channel does which job",
+    "closes": "Kitui listenership by station",
+    "holder": "Audience-research publishers",
+    "status": "Open",
+    "where": [
+      "Section 4.6"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Fix first: six profile corrections",
+    "closes": "one screenshot of Meta Business Suite, or of the Professional dashboard, settles this. It takes five minutes and it gates the rest of the audit",
+    "holder": "His team: the Week 1 export",
+    "status": "Open",
+    "where": [
+      "Section 4.7"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Workstream 7 — Ground-digital integration",
+    "closes": "county transport department or NTSA registration by county",
+    "holder": "NTSA or the county transport department",
+    "status": "Open",
+    "where": [
+      "Section 5.2.3.1"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Wiper NEC signed resolution: status",
+    "closes": "Wiper NEC resolution",
+    "holder": "Wiper Patriotic Front secretariat",
+    "status": "Open",
+    "where": [
+      "Figure fig-2-3-nomination"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Pollster's terms of reference: status",
+    "closes": "pollster's terms of reference",
+    "holder": "Wiper Patriotic Front secretariat",
+    "status": "Open",
+    "where": [
+      "Figure fig-2-3-nomination"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Ward-by-ward project record: value",
+    "closes": "NG-CDF project inventory, verified",
+    "holder": "NG-CDF Kitui Central",
+    "status": "Open",
+    "where": [
+      "Figure fig-2-8-record"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Dr. Mulu: posts per week, median shares, ads live",
+    "closes": "public pages, Week 1 audit",
+    "holder": "His team: the Week 1 export",
+    "status": "Open",
+    "where": [
+      "Figure fig-2-9-channels"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Irene Kasalu: posts per week, median shares, ads live",
+    "closes": "public pages, Week 1 audit",
+    "holder": "His team: the Week 1 export",
+    "status": "Open",
+    "where": [
+      "Figure fig-2-9-channels"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Enoch Wambua: posts per week, median shares, ads live",
+    "closes": "public pages, Week 1 audit",
+    "holder": "His team: the Week 1 export",
+    "status": "Open",
+    "where": [
+      "Figure fig-2-9-channels"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Julius Malombe: posts per week, median shares, ads live",
+    "closes": "public pages, Week 1 audit",
+    "holder": "His team: the Week 1 export",
+    "status": "Open",
+    "where": [
+      "Figure fig-2-9-channels"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Reach against the vote map: as displayed, or the figure",
+    "closes": "Meta Insights export, Week 1",
+    "holder": "His team: the Week 1 export",
+    "status": "Open",
+    "where": [
+      "Figure fig-3-9-audit"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Ninety days, coded: as displayed, or the figure",
+    "closes": "Meta Insights export, Week 1",
+    "holder": "His team: the Week 1 export",
+    "status": "Open",
+    "where": [
+      "Figure fig-3-9-audit"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Which language travels: as displayed, or the figure",
+    "closes": "Meta Insights export, Week 1",
+    "holder": "His team: the Week 1 export",
+    "status": "Open",
+    "where": [
+      "Figure fig-3-9-audit"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Him against the field: as displayed, or the figure",
+    "closes": "Meta Insights export, Week 1",
+    "holder": "His team: the Week 1 export",
+    "status": "Open",
+    "where": [
+      "Figure fig-3-9-audit"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Test",
+    "closes": "Meta Insights export, Week 1",
+    "holder": "His team: the Week 1 export",
+    "status": "Open",
+    "where": [
+      "Figure fig-3-11-evidence"
+    ]
+  },
+  {
+    "kind": "confirm",
+    "gap": "whether the endorsement signature count applies per sub-county or in total",
+    "closes": "Campaign decision",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 6.1"
+    ]
+  },
+  {
+    "kind": "confirm",
+    "gap": "USSD shortcode",
+    "closes": "Campaign decision",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 6.3.2"
+    ]
+  },
+  {
+    "kind": "confirm",
+    "gap": "the 82/18 weighting was set when digital reach was put at 13.6% of residents (the 2019 census rate). On the 2023/24 rate it is 26.2%. Firefly to confirm…",
+    "closes": "Campaign decision",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 4.6"
+    ]
+  },
+  {
+    "kind": "confirm",
+    "gap": "confirm both are held, and whether the shortcode is dedicated or shared",
+    "closes": "Campaign decision",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 5.2.3.3"
+    ]
+  }
+]

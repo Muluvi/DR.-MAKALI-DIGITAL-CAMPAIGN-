@@ -137,6 +137,8 @@ modelled("benchmark.2026-equivalent.share", pct(v("result.2022.gov.malombe"), v(
 target("turnout.constant", 62, "percent", "The turnout constant used in every calculation. Not a measurement: no certified county turnout is in the evidence pack, and the scenario model brackets it at 55–72%.", { decimals: 0 });
 const TURNOUT = v("turnout.constant") / 100;
 modelled("ballots.2022", Math.round(v("register.2022") * TURNOUT), "votes", "2022 register × 62% turnout constant.");
+modelled("ballots.2026", Math.round(v("register.2026") * TURNOUT), "votes", "July 2026 register × 62% turnout constant.");
+modelled("benchmark.share-of-ballots.2026", pct(v("benchmark"), v("register.2026") * TURNOUT), "percent", "200,000 / ballots at 62% on the July 2026 register.");
 modelled("benchmark.share-of-ballots", pct(v("benchmark"), v("register.2022") * TURNOUT), "percent", "200,000 / ballots at 62%.");
 modelled("benchmark.share-of-register", pct(v("benchmark"), v("register.2022")), "percent", "200,000 / 2022 register.");
 modelled("gap.wambua-to-benchmark-2022", v("result.2022.gov.malombe") - v("result.2022.senate.wambua"), "votes", "198,004 less 191,317.");
@@ -219,6 +221,13 @@ for (const [zone, ids] of ZONES) {
 modelled("zones.population", ZONES.reduce((n, [, ids]) => n + zoneSum(ids, "population"), 0), "people", "The three zones together.");
 modelled("zones.share", pct(v("zones.population"), v("census.population")), "percent", "The three zones / county.");
 modelled("zones.excluded", Math.round((v("census.population") - v("zones.population")) / 1e4) * 1e4, "people", "Residents in no zone, rounded to the nearest 10,000.");
+modelled("zones.excluded.share", 100 - v("zones.share"), "percent", "Residents in no zone / county: 100 less the three zones' share.");
+// The zones' share of the register, read from the constituencies that make each zone up. Sub-counties
+// and constituencies are different units (Section 3.7.3), so this is the nearest register match.
+modelled("zone.anchor.register.share", pct(sumCons("kitui-central", "kitui-west"), v("register.2022")), "percent", "Kitui Central + Kitui West / 2022 register.");
+modelled("zone.mwingi.register.share", pct(v("bloc.mwingi"), v("register.2022")), "percent", "Mwingi North + West + Central / 2022 register.");
+modelled("zone.arid.register.share", pct(sumCons("kitui-south", "kitui-east"), v("register.2022")), "percent", "Kitui South + Kitui East / 2022 register.");
+modelled("con.kitui-rural.share", pct(v("con.kitui-rural"), v("register.2022")), "percent", "Kitui Rural / 2022 register.");
 
 // ---- connectivity (Section 2.6). CA/KNBS 2023/24 is current (consistency fix 2); 2019 is comparison only.
 const CA_2024 = "Communications Authority / KNBS, ICT Analytical Report on the 2023/24 Kenya Housing Survey";

@@ -1,9 +1,184 @@
 [
   {
+    "id": "fig-cover-map",
+    "section": "Cover",
+    "title": "Half the register, 51.7%, lives where he has never held office",
+    "question": "Where does the electorate sit, and where has he held office?",
+    "takeaway": "The 275,570-voter pool in Mwingi and Kitui South is the ground the nomination is won or lost on; Kitui Central, which he has represented since 2013, is 14.6% of the register."
+  },
+  {
+    "id": "fig-cover-spine",
+    "section": "Cover",
+    "title": "The argument runs in five steps, from what the campaign must achieve to who does the work",
+    "question": "What is the shape of the argument?",
+    "takeaway": "Each section answers the one before it; Section 6 is the decision the five lead to, not a sixth step."
+  },
+  {
+    "id": "fig-1-1-timeline",
+    "section": "1.1–1.2",
+    "title": "There are about eleven months to the election, and the nomination window comes first, within weeks",
+    "question": "How long is there?",
+    "takeaway": "The Wiper ticket is settled in a window reported for late October to November 2026; everything the engagement does before then is aimed at it."
+  },
+  {
+    "id": "fig-1-3-objectives",
+    "section": "1.3",
+    "title": "Each of the five objectives answers one finding and is judged by one observable measure",
+    "question": "What are the five objectives, and what does each serve?",
+    "takeaway": "No objective stands on its own: each starts from a finding in Section 3 and ends in an indicator in Section 5.6."
+  },
+  {
+    "id": "fig-1-4-flow",
+    "section": "1.4",
+    "title": "Firefly analyses, sets the strategy and directs; his team keeps publishing throughout",
+    "question": "How does the engagement run?",
+    "takeaway": "Firefly publishes nothing on his accounts: the only channel it operates directly is the WhatsApp and USSD line it already holds."
+  },
+  {
+    "id": "fig-1-5-scorecard",
+    "section": "1.5",
+    "title": "Every measure of success is observable on his channels or the SMS list, and none is measured yet",
+    "question": "How will success be judged?",
+    "takeaway": "The scorecard is empty by design until the Week 1 export sets each baseline; no measure is a poll share."
+  },
+  {
     "id": "fig-2-1-register",
     "section": "2.1",
     "title": "The register grew by 72,945 voters since 2022, most of them in one thirty-day drive",
     "question": "How big is the register, and how did it get there?",
     "takeaway": "Kitui has 605,703 registered voters as of July 2026; the 2022 split by constituency is the latest published, because the 2026 register is not yet out by ward."
+  },
+  {
+    "id": "fig-2-2-results",
+    "section": "2.2",
+    "title": "Every countywide seat in 2022 was won with about 200,000 votes, and one winner beat the governor's total",
+    "question": "What does it take to win a countywide seat in Kitui?",
+    "takeaway": "The 198,004 line is the working bar: the Woman Representative cleared it, the Senator came within 6,687, and both are Wiper rivals for the ticket."
+  },
+  {
+    "id": "fig-2-3-nomination",
+    "section": "2.3",
+    "title": "The nomination method is reported, not confirmed, and two documents would settle it",
+    "question": "What is the nomination method, and how confident are we?",
+    "takeaway": "Until the party's resolution or the pollster's terms are in hand, every phase that leans on a poll-based nomination is a plan against a Tier 3 report."
+  },
+  {
+    "id": "fig-2-4-people",
+    "section": "2.4",
+    "title": "Kitui is 95.2% rural, and more than half its residents are poor",
+    "question": "Who lives in Kitui?",
+    "takeaway": "A county of 1,136,187 people across 30,430 km², with livestock at the centre of its economy, and at Alert Phase in the NDMA's January 2026 drought bulletin."
+  },
+  {
+    "id": "fig-2-5-budget",
+    "section": "2.5",
+    "title": "The next governor runs a KSh 13.79bn envelope, and 84.3% of it arrives from the national government",
+    "question": "What does the next governor actually control?",
+    "takeaway": "Own-source revenue is the one part the county raises itself, and its size is disputed: KSh 1.12bn in the Fiscal Strategy Paper, KSh 1.339bn after the Assembly's revision."
+  },
+  {
+    "id": "fig-2-6-connectivity",
+    "section": "2.6",
+    "title": "Internet use nearly doubled since 2019, while phone ownership barely moved",
+    "question": "How do people get online, and has that changed?",
+    "takeaway": "Even after the rise, 73.8% of Kitui is offline, and fewer than half of residents own a phone."
+  },
+  {
+    "id": "fig-2-7-media",
+    "section": "2.7",
+    "title": "Three of the Kikamba stations are tied to political figures, so placement goes to the independents",
+    "question": "Who owns the airwaves, and where do we place vs monitor?",
+    "takeaway": "Musyi, County FM and Wikwatyo carry the campaign's placements; the Ngilu-linked stations and the party leader's station are watched, not relied on."
+  },
+  {
+    "id": "fig-2-8-record",
+    "section": "2.8",
+    "title": "Thirteen years as MP have left a checkable record: 12,573 bursaries and the best-evaluated constituency in the Eastern region",
+    "question": "What has he actually done?",
+    "takeaway": "His distinguishing proof is delivery on the record, and most of it is already published on the constituency's own NG-CDF site."
+  },
+  {
+    "id": "fig-2-9-channels",
+    "section": "2.9",
+    "title": "His presence is one Facebook page and a quiet X account, and the field's is not yet counted",
+    "question": "What does his presence look like against the field?",
+    "takeaway": "The comparison fills from public pages in the Week 1 audit; until then the field's cells stay named gaps rather than estimates."
+  },
+  {
+    "id": "fig-3-1-funnel",
+    "section": "3.1",
+    "title": "To win, he needs about 60.5% of the ballots cast, on the 2022 register",
+    "question": "What is the winning number?",
+    "takeaway": "200,000 votes is the 2022 winner's total rounded; the same share of the larger July 2026 register is ≈225,000."
+  },
+  {
+    "id": "fig-3-2-register-map",
+    "section": "3.2",
+    "title": "The twelve largest wards hold 37.78% of the register, and half the wards hold 59.13%",
+    "question": "Where are the votes?",
+    "takeaway": "Registration is concentrated: the ten smallest wards together hold only 18.10% of voters, across some of the county's widest ground."
+  },
+  {
+    "id": "fig-3-3-paths",
+    "section": "3.3",
+    "title": "No route clears 200,000 on its own ballots, and the home belt falls furthest short",
+    "question": "Which route to the number is real, and which is a trap?",
+    "takeaway": "Even every ballot in the home belt leaves him 81,077 short: a route is where the margin is built, and Mwingi is part of any route that works."
+  },
+  {
+    "id": "fig-3-4-footprint",
+    "section": "3.4",
+    "title": "51.7% of the register lives in the four constituencies where he has never held office",
+    "question": "Where has he held office, and what does that leave untouched?",
+    "takeaway": "The 275,570-voter pool is structural, derived from where he has held office, not from a survey; 5 of the twelve largest wards are in it."
+  },
+  {
+    "id": "fig-3-5-field",
+    "section": "3.5",
+    "title": "Four of the field have already won a countywide race, and he has not yet stood for one",
+    "question": "What has each contender already proven at the ballot?",
+    "takeaway": "Kasalu's 201,899 beat the winning governor's total; his own proof at the ballot is constituency-bounded."
+  },
+  {
+    "id": "fig-3-6-party-flow",
+    "section": "3.6",
+    "title": "Two constituencies with 26.4% of the register returned non-Wiper MPs, and his own seat has its own race",
+    "question": "Where will party loyalty not carry him?",
+    "takeaway": "Kitui East and Kitui South are a direct-contact problem, not a party-mobilisation one, and Kitui Central cannot be left on autopilot."
+  },
+  {
+    "id": "fig-3-7-zones",
+    "section": "3.7",
+    "title": "The three zones hold 78.8% of residents, and Kitui Rural falls in none of them",
+    "question": "How do the three zones differ, and who is left out?",
+    "takeaway": "About 240,000 residents and 10.3% of the register sit outside the zoning; Kitui Rural needs a zone or a stated reason it is out."
+  },
+  {
+    "id": "fig-3-8-ceiling",
+    "section": "3.8",
+    "title": "Digital reaches at most 158,696 voters, 41,304 short of the benchmark before a single one is persuaded",
+    "question": "What can digital physically reach?",
+    "takeaway": "447,007 registered voters are not reachable online: SMS, USSD, radio and the ground carry the rest."
+  },
+  {
+    "id": "fig-3-9-audit",
+    "section": "3.9",
+    "title": "His profile carries six errors a researcher would find in an afternoon, and his reach data is not yet in hand",
+    "question": "What does his current presence actually show?",
+    "takeaway": "The six fixes are Section 4.7; the four audit figures fill from the Week 1 export and are drawn with their gaps until then."
+  },
+  {
+    "id": "fig-3-10-gaps",
+    "section": "3.10",
+    "title": "41 facts the analysis needs are not yet in hand, and each has a named document that closes it",
+    "question": "What can't the data tell us yet, and what closes each gap?",
+    "takeaway": "None of these is estimated and none is closed by new polling: each waits on a document that already exists or an export only he can grant."
+  },
+  {
+    "id": "fig-3-11-evidence",
+    "section": "3.11",
+    "title": "The diagnosis is a recognition gap outside Kitui Central, and one rival's result is the strongest evidence against it",
+    "question": "How strong is the diagnosis, and what would overturn it?",
+    "takeaway": "Week 1 tests it against his own channel data before anything is committed: if his reach already lands in Mwingi, the problem is message, not reach."
   }
 ]

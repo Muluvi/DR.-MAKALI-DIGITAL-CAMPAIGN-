@@ -12,10 +12,14 @@ The campaign operates against two non-negotiable temporal milestones:
 2.  **10 August 2027 General Election:** Mobilizing and turning out the 200,000-vote coalition required for a plurality victory in a multi-candidate field.
 
 ```figure
-id: election-timeline
+id: fig-1-1-timeline
 ```
 
 ## 1.3 Five objectives for the digital operation
+
+```figure
+id: fig-1-3-objectives
+```
 
 ### 1.3.1 Be known where he isn't yet
 
@@ -71,7 +75,7 @@ This proposal is built in the same order as the engagement: the data (Section 2)
 The digital operation separates operational software, messaging infrastructure, and data science (provided by Firefly) from voter mobilization, ground staffing, broadcast advertising, and logistics (owned and executed by the Campaign Team). **Firefly publishes nothing on Dr. Mulu's accounts and holds no credentials to them.** The only channel it operates directly is the offline layer it already holds: a WhatsApp Business API line and a USSD shortcode.
 
 ```figure
-id: operational-swimlanes
+id: fig-1-4-flow
 ```
 
 *   **Analyse (Week 1).** Firefly audits his channels against the race: ninety days of reach, engagement, language and geography, against the same window for the three rivals (Section 5.3).
@@ -82,10 +86,6 @@ id: operational-swimlanes
 
 Success is judged on measures Firefly can observe on his channels and on the SMS list it operates, not on poll shares.
 
-| Objective | Observable measure | Target | Finding (Section 3) | Indicator (Section 5.6) |
-|:---|:---|:---:|:---:|:---:|
-| 1. Be known where he isn't yet | Share of his reach landing in the 275,570-voter pool | ≥ 51.7% | 3.4 | NW-01, R-02 |
-| 2. Turn his record into visible proof | Ward-specific achievement briefs distributed; shares per 1,000 reached in the deficit wards | 40 wards | 3.5 | R-03 |
-| 3. A direct line to the offline majority | Consented SMS/USSD subscribers | 120,000 | 3.8 | NW-03, R-04 |
-| 4. Every post a voter, a ward and a reason | Briefed posts coded with segment, ward and pillar | Every briefed post | 3.2 | R-05 |
-| 5. Hold the home base | Reach and engagement in Kitui Central against the Week 1 baseline | At or above baseline | 3.6 | Monthly report |
+```figure
+id: fig-1-5-scorecard
+```

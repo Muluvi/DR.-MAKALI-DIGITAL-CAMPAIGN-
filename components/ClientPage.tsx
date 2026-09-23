@@ -1,17 +1,15 @@
 "use client";
 
 import { useState, useEffect, useMemo, useCallback } from "react";
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Printer, Search } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
 import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
-import { StateOfTheRace } from "./StateOfTheRace";
+import { Figure } from "./figures/FigureBoundary";
 import { ReadingModeToggle } from "./ReadingModeToggle";
 import { ReadingModeProvider } from "../lib/reading-mode";
-import { LazyMount } from "./LazyMount";
 import { ScrollProgressBar } from "./ScrollProgressBar";
 import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
 import { MobileTOCModal } from "./MobileTOCModal";
@@ -27,20 +25,11 @@ import { ChapterMarker } from "./flow/ChapterMarker";
 import { FlowChrome } from "./flow/FlowChrome";
 import { FlowRail } from "./flow/FlowRail";
 
-import { AmbientField, Reveal } from "./visual";
+import { AmbientField } from "./visual";
 import { useDaypart, useScrollShell } from "../hooks/use-scroll-shell";
 
-import { HeroVisual } from "./HeroVisual";
 import { Portrait } from "./Portrait";
-import { ChartFallback } from "./ChartFallback";
 
-// Dynamic boundary: the projection chart is the last figure on a 55,000-word page and it is the
-// only thing on the flow that needs the charting runtime. Downloading it with the hero would put
-// it in front of every reader, including the one who stops at the executive summary.
-const VoterProjectionsChart = dynamic(() => import("./VoterProjectionsChart").then((m) => m.VoterProjectionsChart), {
-  ssr: false,
-  loading: () => <ChartFallback height={460} />,
-});
 
 /**
  * The proposal as one continuous scroll.
@@ -349,7 +338,7 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
                     should break. */}
                 <h1 className="col-span-2 sm:col-span-1 font-sans text-[1.7rem] sm:text-4xl lg:text-5xl leading-[1.14] sm:leading-[1.08] tracking-tight text-ink mb-4 font-bold text-balance">
                   <span className="block">Kitui 2027:</span>
-                  <span className="block">the intelligence behind what you already publish.</span>
+                  <span className="block">Analysis, Strategy and Direction for Dr. Mulu&rsquo;s Digital Operation</span>
                 </h1>
                 <p style={{ "--fx-i": 3 } as React.CSSProperties} className="fx-in-up col-start-1 t-body text-muted leading-relaxed text-pretty">
                   Campaign strategy and digital architecture for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
@@ -386,7 +375,11 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
         {/* ------------------------------------------------ evidence preface */}
         {expanded && (
           <section aria-label="The figures behind the decision" className="cv-auto-strip mx-auto w-full max-w-5xl px-4 sm:px-6 mt-2 mb-4 space-y-5">
-            <StateOfTheRace />
+            {/* The cover figures (brief §F.1): the tile map shaded for the pool, the four data-only
+                figures, and the spine of the argument. The poll-share strip that stood here is cut
+                (docs/rebuild/REPLACEMENTS.md): no poll share appears outside Annex C. */}
+            <Figure id="fig-cover-map" />
+            <Figure id="fig-cover-spine" />
           </section>
         )}
 
@@ -436,17 +429,6 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
             })}
           </div>
 
-          {/* The figures that answer the document rather than precede it. */}
-          {expanded && (
-            <div className="mt-12 space-y-6 print:hidden">
-              <Reveal variant="up" delay={100} amount={0.1}>
-                <HeroVisual />
-              </Reveal>
-              <LazyMount minHeight={460}>
-                <VoterProjectionsChart />
-              </LazyMount>
-            </div>
-          )}
         </main>
 
         <footer className="relative mt-10 pt-8 pb-32 lg:pb-16 px-4 sm:px-6 mx-auto w-full max-w-3xl">

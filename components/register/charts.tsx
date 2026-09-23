@@ -50,6 +50,10 @@ function Part({ c, spec }: { c: ChartSpec; spec: FigureSpec }) {
     case "risk": return <Risk chart={c} />;
     case "heatmap": return <Heatmap chart={c} caption={spec.question} />;
     case "spine": return <Spine chart={c} />;
+    case "stats": return <Stats chart={c} />;
+    case "pareto": return <Pareto chart={c} title={spec.title} />;
+    case "paths": return <Paths chart={c} />;
+    case "mock": return <Mock chart={c} />;
   }
 }
 
@@ -66,12 +70,12 @@ function valueText(b: Bar, unit?: string) {
 
 /* ------------------------------------------------------------------ ordered bars */
 
-function Bars({ bars, max, ref_, unit }: { bars: Bar[]; max?: number; ref_?: Ref; unit?: string }) {
+function Bars({ bars, max, ref_, unit, refLabel = true }: { bars: Bar[]; max?: number; ref_?: Ref; unit?: string; refLabel?: boolean }) {
   const ceiling = max ?? Math.max(...bars.map((b) => b.value ?? 0), ref_?.value ?? 0);
   const pct = (v: number) => `${Math.max(0, Math.min(100, (v / ceiling) * 100))}%`;
   return (
     <div>
-      {ref_ && <p className="rb-ref-label">Vertical line: {ref_.label}</p>}
+      {ref_ && refLabel && <p className="rb-ref-label">Vertical line: {ref_.label}</p>}
       <ol className="rb-list">
         {bars.map((b) => (
           <li key={b.label} className="rb-row">
@@ -96,15 +100,18 @@ function Bars({ bars, max, ref_, unit }: { bars: Bar[]; max?: number; ref_?: Ref
 
 function Multiples({ chart }: { chart: Extract<ChartSpec, { type: "multiples" }> }) {
   return (
+    <div>
+    {chart.ref && <p className="rb-ref-label">Vertical line in every panel: {chart.ref.label}</p>}
     <div className="rc-grid cols-2">
       {chart.panels.map((p) => (
         <div key={p.title} className="rc-card">
           <h5>{p.title}</h5>
           <div className="mt-2">
-            <Bars bars={p.bars} max={chart.max} ref_={chart.ref} unit={chart.unit} />
+            <Bars bars={p.bars} max={chart.max} ref_={chart.ref} unit={chart.unit} refLabel={false} />
           </div>
         </div>
       ))}
+    </div>
     </div>
   );
 }
@@ -140,6 +147,14 @@ function Stack({ chart }: { chart: Extract<ChartSpec, { type: "stack" }> }) {
       </ul>
     </div>
   );
+}
+
+/** Cumulative sums, computed outside render. */
+function runningTotal(values: number[]): number[] {
+  const out: number[] = [];
+  let run = 0;
+  for (const v of values) out.push((run += v));
+  return out;
 }
 
 /** Each step's start and end on the running total, computed outside render. */
@@ -259,11 +274,20 @@ function Timeline({ chart }: { chart: Extract<ChartSpec, { type: "timeline" }> }
     <div>
       {/* Horizontal on a wide screen: one date axis, milestones labelled. */}
       <div className="relative hidden h-24 sm:block" aria-hidden="true">
+        {chart.events.map((e, i) => {
+          const x = (Date.parse(e.date) - t0) / (t1 - t0);
+          const align = x < 0.15 ? "" : x > 0.85 ? "-translate-x-full" : "-translate-x-1/2";
+          return (
+            <span key={`${e.label}-l`} className={`absolute whitespace-nowrap text-[0.6875rem] font-semibold text-[var(--ink)] ${align}`} style={{ left: at(e.date), top: e.end || i % 2 ? "3.75rem" : "0.25rem" }}>
+              {e.label}
+            </span>
+          );
+        })}
         <div className="absolute left-0 right-0 top-10 h-[2px] bg-[var(--line)]" />
         {chart.today && <span className="absolute top-6 h-10 border-l-2 border-dotted border-[var(--muted)]" style={{ left: at(chart.today) }} />}
         {chart.events.map((e, i) =>
           e.end ? (
-            <span key={e.label} className={`absolute top-8 h-4 rounded ${e.state === "sourced" ? "bg-[var(--accent-solid)]" : "border-2 border-dashed border-[var(--muted)] bg-transparent"}`} style={{ left: at(e.date), width: `calc(${at(e.end)} - ${at(e.date)})` }} />
+            <span key={e.label} className={`absolute top-8 h-4 rounded ${e.reported || e.state === "needed" ? "border-2 border-dashed border-[var(--muted)] bg-transparent" : e.state === "target" ? "bg-[var(--neutral-strong)]" : "bg-[var(--accent-solid)]"}`} style={{ left: at(e.date), width: `calc(${at(e.end)} - ${at(e.date)})` }} />
           ) : (
             <span key={e.label} className="absolute top-8 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-[var(--card)] bg-[var(--accent-solid)]" style={{ left: at(e.date), top: i % 2 ? "2.25rem" : "2rem" }} />
           ),
@@ -272,8 +296,8 @@ function Timeline({ chart }: { chart: Extract<ChartSpec, { type: "timeline" }> }
       {/* The list is the timeline on a phone, and the labels for it on a wide screen. */}
       <ol className="rs-steps sm:grid-cols-2">
         {chart.events.map((e) => (
-          <li key={e.label} className={`rs-step ${e.state !== "sourced" ? "!border-dashed" : ""}`}>
-            <p className="when">{e.end ? `${fmtDate(e.date)} – ${fmtDate(e.end)}` : fmtDate(e.date)}{e.state !== "sourced" ? ` · ${e.state === "needed" ? "data needed" : "reported, not confirmed"}` : ""}</p>
+          <li key={e.label} className={`rs-step ${e.reported || e.state === "needed" ? "!border-dashed" : ""}`}>
+            <p className="when">{e.whenText ?? (e.end ? `${fmtDate(e.date)} – ${fmtDate(e.end)}` : fmtDate(e.date))}{e.reported ? " · reported, not confirmed (T3)" : e.state === "needed" ? " · data needed" : e.state === "target" ? " · planned" : ""}</p>
             <h5>{e.label}</h5>
             {e.note && <p>{e.note}</p>}
           </li>
@@ -321,6 +345,13 @@ function Cards({ chart }: { chart: Extract<ChartSpec, { type: "cards" }> }) {
           <h5>{c.title}</h5>
           <p>{c.body}</p>
           {c.meta && <p className="meta">{c.meta}</p>}
+          {c.links && (
+            <p className="meta">
+              {c.links.map((l, i) => (
+                <span key={l.href}>{i > 0 ? " · " : ""}<a href={l.href}>{l.label}</a></span>
+              ))}
+            </p>
+          )}
         </div>
       ))}
     </div>
@@ -424,6 +455,127 @@ function Icons({ chart }: { chart: Extract<ChartSpec, { type: "icons" }> }) {
   );
 }
 
+/* ------------------------------------------------------------------ ranking and routes */
+
+/**
+ * Pareto on ONE axis (brief §N fig-3-2, §Q): each ward's bar is its share of the register, so the
+ * bars and the cumulative line are both read against the same 0–100% scale. No second axis.
+ */
+function Pareto({ chart, title }: { chart: Extract<ChartSpec, { type: "pareto" }>; title: string }) {
+  const W = 340, H = 196, L = 30, R = 6, T = 10, B = 30;
+  const pw = W - L - R, ph = H - T - B;
+  const n = chart.items.length;
+  const bw = pw / n;
+  const y = (v: number) => T + ph - (v / 100) * ph;
+  const cum = runningTotal(chart.items.map((it) => it.share));
+  const cutX = L + chart.cutAt * bw;
+  const cutY = y(cum[chart.cutAt - 1]);
+  const line = cum.map((c, i) => `${i === 0 ? "M" : "L"}${(L + (i + 1) * bw).toFixed(1)},${y(c).toFixed(1)}`).join(" ");
+  return (
+    <div>
+      <svg className="rf-svg" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={title}>
+        {[0, 25, 50, 75, 100].map((t) => (
+          <g key={t}>
+            <line x1={L} x2={W - R} y1={y(t)} y2={y(t)} stroke="var(--line)" strokeWidth={t === 0 ? 1 : 0.5} />
+            <text x={L - 4} y={y(t) + 3} textAnchor="end" fontSize="8" className="muted">{t}%</text>
+          </g>
+        ))}
+        {chart.items.map((it, i) => (
+          <g key={it.label}>
+            <rect x={L + i * bw + 0.5} y={y(it.share)} width={bw - 1} height={Math.max(0.5, T + ph - y(it.share))} rx={1} fill={it.top ? "var(--seq-4)" : "var(--neutral-strong)"} />
+            {it.mark && <rect x={L + i * bw + bw / 2 - 1.75} y={T + ph + 4} width={3.5} height={3.5} fill="var(--ink)" />}
+          </g>
+        ))}
+        <path d={line} fill="none" stroke="var(--accent-solid)" strokeWidth="2" />
+        <line x1={cutX} x2={cutX} y1={T} y2={T + ph} stroke="var(--ref-line)" strokeDasharray="3 2" />
+        <circle cx={cutX} cy={cutY} r="3.5" fill="var(--accent-solid)" stroke="var(--card)" strokeWidth="1.5" />
+        <text x={cutX + 5} y={cutY - 5} fontSize="9" fontWeight="700">{chart.cutLabel}</text>
+        <text x={L} y={H - 6} fontSize="8" className="muted">Wards, largest to smallest (40)</text>
+      </svg>
+      <ul className="tm-legend">
+        <li><span className="tm-swatch" style={{ background: "var(--seq-4)" }} aria-hidden="true" />{chart.topLabel}</li>
+        <li><span className="tm-swatch" style={{ background: "var(--neutral-strong)" }} aria-hidden="true" />The other wards</li>
+        <li><span className="inline-block h-[2px] w-4 bg-[var(--accent-solid)] align-middle" aria-hidden="true" /> Running total, share of the register</li>
+        <li><span className="inline-block h-2 w-2 bg-[var(--ink)]" aria-hidden="true" /> {chart.markLabel}</li>
+      </ul>
+    </div>
+  );
+}
+
+/** Each route as two stacked bars, registered voters and ballots at the constant, against one line. */
+function Paths({ chart }: { chart: Extract<ChartSpec, { type: "paths" }> }) {
+  const w = (v: number) => `${(Math.abs(v) / chart.max) * 100}%`;
+  return (
+    <div>
+      <p className="rb-ref-label">Vertical line on all eight bars: {chart.ref.label}</p>
+      <div className="grid gap-4">
+        {chart.groups.map((g) => (
+          <section key={g.title} className={`rc-card ${g.tag ? "is-outside" : ""}`}>
+            <h5>{g.title}{g.tag && <span className="ml-2 rounded border border-[var(--div-neg)] px-1.5 py-0.5 text-[0.6875rem] font-bold uppercase tracking-wide text-[var(--ink)]">{g.tag}</span>}</h5>
+            {g.rows.map((r) => {
+              const total = r.segments.reduce((n, s) => n + (s.value ?? 0), 0);
+              return (
+                <div key={r.label} className="mt-2">
+                  <div className="rb-label"><span>{r.label}</span><span className="v">{group(total)}</span></div>
+                  <div className="relative" aria-hidden="true">
+                    <div className="flex h-3.5 gap-[2px]">
+                      {r.segments.map((s, i) => (
+                        <span key={s.label} className={`${barClass(s)} !static ${i === r.segments.length - 1 ? "!rounded-r" : "!rounded-none"}`} style={{ width: w(s.value ?? 0), opacity: 1 - i * 0.18 }} />
+                      ))}
+                    </div>
+                    <span className="rb-ref" style={{ left: w(chart.ref.value), top: "-0.25rem", bottom: "-0.25rem" }} />
+                  </div>
+                  {r.segments.length > 1 && <p className="rb-note">{r.segments.map((s) => `${s.label} ${group(s.value ?? 0)}`).join(" + ")}</p>}
+                </div>
+              );
+            })}
+          </section>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/** The profile as displayed, with each problem numbered where it sits. */
+function Mock({ chart }: { chart: Extract<ChartSpec, { type: "mock" }> }) {
+  return (
+    <div className="grid gap-3 sm:grid-cols-2">
+      <div className="rounded-xl border border-[var(--line)] p-3" aria-label="The profile, as displayed">
+        <p className="rc-kicker">{chart.header}</p>
+        <dl className="grid gap-1.5 text-[0.8125rem]">
+          {chart.fields.map((f) => (
+            <div key={f.n} className="flex items-start gap-2">
+              <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-[var(--div-neg)] text-[0.6875rem] font-bold text-[var(--ink)]">{f.n}</span>
+              <div><dt className="text-[var(--muted)]">{f.label}</dt><dd className="m-0 font-semibold text-[var(--ink)]">{f.shown}</dd></div>
+            </div>
+          ))}
+        </dl>
+      </div>
+      <ol className="grid gap-1.5 text-[0.8125rem] text-[var(--ink)]">
+        {chart.fields.map((f) => (
+          <li key={f.n} className="flex gap-2"><span className="font-bold">{f.n}.</span><span>{f.issue}</span></li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
+/** Numbers with context, never naked (brief §F). The final value is in the HTML; a count-up, where
+ *  motion is allowed, animates from it rather than to it. */
+function Stats({ chart }: { chart: Extract<ChartSpec, { type: "stats" }> }) {
+  return (
+    <ul className="rc-grid cols-4 rc-stats">
+      {chart.items.map((it) => (
+        <li key={it.label} className={`rc-card ${it.state === "modelled" || it.state === "target" ? "is-modelled" : ""}`}>
+          <p className="rc-stat tabular-nums" data-count-to={it.countTo}>{it.value}</p>
+          <p>{it.label}</p>
+          {it.state !== "sourced" && <p className="meta">{STATE_WORD[it.state]}</p>}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 function Gauges({ chart }: { chart: Extract<ChartSpec, { type: "gauges" }> }) {
   return (
     <ol className="rb-list">
@@ -442,7 +594,7 @@ function Gauges({ chart }: { chart: Extract<ChartSpec, { type: "gauges" }> }) {
 }
 
 function Network({ chart, title }: { chart: Extract<ChartSpec, { type: "network" }>; title: string }) {
-  const W = 320, rowH = 30, top = 16;
+  const W = 344, rowH = 30, top = 16;
   const H = top + chart.stations.length * rowH + 8;
   const ownerY = (id: string) => {
     const mine = chart.stations.map((s, i) => ({ s, i })).filter((x) => x.s.owner === id);
@@ -454,12 +606,13 @@ function Network({ chart, title }: { chart: Extract<ChartSpec, { type: "network"
       {chart.stations.map((s, i) => {
         const y = top + i * rowH + rowH / 2;
         const placement = s.posture === "placement";
+        const monitor = s.posture === "monitoring";
         return (
           <g key={s.name}>
-            <line x1={118} y1={ownerY(s.owner)} x2={190} y2={y} stroke="var(--neutral-strong)" strokeWidth="1.5" strokeDasharray={placement ? undefined : "4 3"} />
-            <rect x={190} y={y - 11} width={126} height={22} rx={11} fill={placement ? "var(--seq-4)" : "var(--card)"} stroke={placement ? "var(--seq-4)" : "var(--neutral-strong)"} strokeDasharray={placement ? undefined : "4 3"} />
-            <text x={200} y={y + 4} fontSize="10" fontWeight="700" style={{ fill: placement ? "var(--seq-ink-dark)" : "var(--ink)" }}>{s.name}</text>
-            <text x={308} y={y + 4} fontSize="8.5" textAnchor="end" style={{ fill: placement ? "var(--seq-ink-dark)" : "var(--muted)" }}>{placement ? "place" : "monitor"}</text>
+            <line x1={118} y1={ownerY(s.owner)} x2={176} y2={y} stroke="var(--neutral-strong)" strokeWidth="1.5" strokeDasharray={monitor ? "4 3" : undefined} />
+            <rect x={176} y={y - 11} width={164} height={22} rx={11} fill={placement ? "var(--seq-4)" : "var(--card)"} stroke={placement ? "var(--seq-4)" : "var(--neutral-strong)"} strokeDasharray={monitor ? "4 3" : undefined} />
+            <text x={186} y={y + 4} fontSize="10" fontWeight="700" style={{ fill: placement ? "var(--seq-ink-dark)" : "var(--ink)" }}>{s.name}</text>
+            <text x={332} y={y + 4} fontSize="8.5" textAnchor="end" style={{ fill: placement ? "var(--seq-ink-dark)" : "var(--muted)" }}>{placement ? "place" : monitor ? "monitor" : "secondary"}</text>
           </g>
         );
       })}

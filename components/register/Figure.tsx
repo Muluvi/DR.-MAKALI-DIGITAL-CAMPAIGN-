@@ -79,7 +79,7 @@ export function cellText(v: Cell, closesWith?: string): string {
 function DataTable({ spec }: { spec: FigureSpec }) {
   const hasState = spec.rows.some((r) => r.state && r.state !== "sourced");
   return (
-    <table className="rf-table">
+    <table className={`rf-table ${spec.rows.length > 12 ? "is-long" : ""}`}>
       <caption className="sr-only">{spec.question}</caption>
       <thead>
         <tr>

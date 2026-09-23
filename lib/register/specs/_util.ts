@@ -41,3 +41,17 @@ export function bar(id: string, label: string, extra: Partial<Bar> = {}): Bar {
 
 /** Sort bars by value, largest first (brief §M: sort unless the order is the point). */
 export const byValue = (bars: Bar[]): Bar[] => [...bars].sort((a, b) => (b.value ?? -1) - (a.value ?? -1));
+
+/** The live deep link to a numbered section: "3.4" -> "/analysis#analysis-sec-3-4". */
+export function secHref(num: string): string {
+  const ws: Record<string, string> = { "5.2.1": "workstreams-platforms", "5.2.2": "workstreams-media", "5.2.3": "workstreams-ground", "5.2.4": "workstreams-data" };
+  const top: Record<string, string> = { "1": "objectives", "2": "data", "3": "analysis", "4": "strategy", "6": "nextsteps" };
+  const parts = num.split(".");
+  let tab = top[parts[0]];
+  if (parts[0] === "5") {
+    const key = parts.slice(0, 3).join(".");
+    tab = ws[key] ?? (parts[1] === "1" || parts[1] === "2" ? "implementation" : "delivery");
+  }
+  if (!tab) throw new Error(`secHref: no route for ${num}`);
+  return `/${tab}#${tab}-sec-${parts.join("-")}`;
+}

@@ -79,3 +79,41 @@ recorded in `docs/rebuild/CONFLICTS-RESOLVED.md` instead.
 | Annex C.3 | "Kitui Central's weight in the vote", whole section | Cut table: §3.1.3–3.1.4 | — |
 | Annex D | The segment-size reconciliation (~97,000 / ~77,000 / ~45,000) and "When the Phase −1 baseline survey returns…" | NN5; NN1 | One note: the grids assign messages and carry no sizes |
 | Annex F.12 | "Polling movement: changes in published surveys…" | NN1 | — |
+
+## Phase 3: visuals
+
+Each figure below is built from a spec in `lib/register/specs/`; its table view and
+`public/data/<id>.csv` carry every value the replaced passage held.
+
+| Where it was | What was removed | Ground | Replaced by |
+|---|---|---|---|
+| Cover, hero | The headline "the intelligence behind what you already publish" | Brief §C (cover title) | The brief's title, as the page's one H1 |
+| Cover | `content/cover.md` H1, a second copy of the same title | Duplicate H1 on /full | The hero H1 |
+| Cover, preface | The "state of the race" strip: poll shares Kasalu v Mulu, "15.3 points behind", the offline share | NN1; cut table: hero stat strip | `fig-cover-map` (tile map, pool shaded, four data-only figures) and `fig-cover-spine` |
+| After §6 | The closing hero visual and the voter projections chart | NN1 (poll-derived projection); cut table: hero stat strip | — (the four cover figures carry the data-only framing) |
+| §1.2 | `election-timeline` figure | Visual | `fig-1-1-timeline` (nomination window drawn T3) |
+| §1.3 | — (added, nothing removed) | Visual | `fig-1-3-objectives`, linking each objective to its finding, strategy and measure |
+| §1.4 | `operational-swimlanes` figure | Visual | `fig-1-4-flow` |
+| §1.5 | The five-row objectives table (objective, measure, target, finding, indicator) | Visual | `fig-1-5-scorecard`: empty gauges; its table carries objective, baseline, target, indicator. Finding references move to `fig-1-3-objectives`. |
+| §2.1 | — (added) | Visual | `fig-2-1-register` |
+| §2.2 | — (added) | Visual | `fig-2-2-results` |
+| §2.3 | — (added) | Visual | `fig-2-3-nomination` |
+| §2.4 | — (added) | Visual | `fig-2-4-people` |
+| §2.5 | — (added) | Visual | `fig-2-5-budget` |
+| §2.6 | `platform-sizing` figure: five platforms as ranges (Meta Audience Insights, no dated export cited) and the sentence introducing it | NN5 | The named gap `[DATA NEEDED — Meta Audience Insights export, Week 1]`, and `fig-2-6-connectivity` |
+| §2.7 | `radio-gatekeepers` figure | Visual (C-20) | `fig-2-7-media`: owners, stations, placement or monitoring |
+| §2.8 | — (added; the asset table stays, it carries the strategic application) | Visual | `fig-2-8-record` |
+| §2.9 | The channel table (channel, handle, status) | Visual | `fig-2-9-channels`: the same five rows, plus the four-candidate comparison as named gaps |
+| §3 opening | `register-map` figure (the register grouped by constituency) | Visual | `fig-3-2-register-map`, in §3.2 |
+| §3.1 | `threshold-build-up` and `register-growth` figures | Visual | `fig-3-1-funnel`: register → ballots at the constant → benchmark, with the 2022/2026 register toggle |
+| §3.2 | `ward-ranking` figure (the 40 wards ranked; the table itself moved to Annex B.1 in Phase 2) | Visual | `fig-3-2-register-map`: tile map and a one-axis Pareto; its table carries rank, voters, share and running total for all 40 |
+| §3.3 | `paths-to-threshold` figure | Visual | `fig-3-3-paths`: two stacked bars per route against one 200,000 line; Path D labelled the trap |
+| §3.4 | — (added) | Visual | `fig-3-4-footprint` |
+| §3.5 | — (added) | Visual | `fig-3-5-field` |
+| §3.6 | — (added) | Visual | `fig-3-6-party-flow` |
+| §3.7 | — (added) | Visual | `fig-3-7-zones` |
+| §3.8 | `reach-split` figure | Visual | `fig-3-8-ceiling`: one stacked bar of the July 2026 register, all three segments modelled and hatched |
+| §3.8.1 | `offline-channels` figure: six channel reach counts (420,000 radio, 350,000 church, 320,000 SMS, 280,000 markets, 250,000 USSD, 180,000 agents), three with no source and none sourced to a Kitui figure | NN5 (C-17) | The `[DATA NEEDED — …]` lines already in §3.8.1, one per channel |
+| §3.9 | The six-row profile-issues table (#, as displayed, the issue) | Visual | `fig-3-9-audit`: the profile mock numbered 1–6, with the same six rows in its table, and the four audit figures as named gaps |
+| §3.10 | `targeting-summary` figure: eight §3.4 findings recomputed, including the stale "5 of the top 11 wards" | Visual; stale figure | `fig-3-10-gaps`, generated from every `[DATA NEEDED]` in the document; the findings it summarised are each drawn in §3.1–3.4 |
+| §3.11 | — (added) | Visual | `fig-3-11-evidence` |

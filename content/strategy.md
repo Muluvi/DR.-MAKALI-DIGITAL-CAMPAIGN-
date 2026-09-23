@@ -269,7 +269,7 @@ It is the pillar that feeds P1 twelve weeks later.
 ### 4.3.6 The Formal Sector Professionals, Civil Servants & Educators
 *   **Empirical Sizing:** `[DATA NEEDED — TSC establishment for Kitui; County Public Service Board staff return; Ministry of Health workforce data]` (Section 3.10.1). Comprises teachers under KNUT/KUPPET, healthcare workers, county and national civil servants, bank staff and clergy; no size is estimated.
 *   **Geographic Base:** Administrative hubs (Kitui Town, Mwingi Town, sub-county headquarters) and public schools/hospitals throughout all 40 wards.
-*   **Connectivity & Media Consumption:** Predominantly smartphone and laptop connected (share `[DATA NEEDED]`); active on X (Twitter), Facebook, LinkedIn, professional WhatsApp groups; readers of national daily newspapers and policy analyses.
+*   **Connectivity & Media Consumption:** Predominantly smartphone and laptop connected (share `[DATA NEEDED — internet use by education level; CA/KNBS 2023/24 tables]`); active on X (Twitter), Facebook, LinkedIn, professional WhatsApp groups; readers of national daily newspapers and policy analyses.
 *   **Reachable Channels:**
     *   **Direct & Digital:** Thought-leadership policy whitepapers, LinkedIn/X executive briefs, structured appearances on national/regional television (Citizen TV, TV47, KTN) and prime-time radio talk shows.
     *   **Institutional:** Union delegate barazas (KNUT Kitui Branch, KUPPET, KMPDU, KNUMLO), Kenya Primary School Heads Association (KEPSHA), and clergy synods.
@@ -284,7 +284,7 @@ It is the pillar that feeds P1 twelve weeks later.
 *   **Empirical Sizing:** `[DATA NEEDED — KNBS 2019 Census migration tables, set against the IEBC register by polling station]` (Section 3.10.1). Neither the diaspora's size nor the share still registered in Kitui is published; no size is estimated.
 *   **Geographic Concentration:** Nairobi (Embakasi, Kasarani, Kibra, Starehe, Eastleigh, Westlands), Mombasa/Coast (Changamwe, Likoni, Kisauni, Malindi), Machakos/Makueni urban centers.
 *   **Strategic Role:** Even those registered to vote in Nairobi/Mombasa act as **critical opinion shapers and financial remitters**. They pay school fees, medical bills, and funeral costs for rural relatives; their political endorsements carry immense weight during family decision-making.
-*   **Connectivity & Media Consumption:** Predominantly internet connected (share `[DATA NEEDED]`); active on X, Facebook, WhatsApp, YouTube, and national podcasts.
+*   **Connectivity & Media Consumption:** Predominantly internet connected (share `[DATA NEEDED — internet use in Nairobi and Mombasa; CA/KNBS 2023/24 county tables]`); active on X, Facebook, WhatsApp, YouTube, and national podcasts.
 *   **Reachable Channels:**
     *   **Digital:** Targeted geofenced Meta/Google/YouTube digital ad campaigns focused on Nairobi and Mombasa IP addresses targeting Kamba language speakers and Kitui interest groups.
     *   **Town Halls:** Physical diaspora engagement dinners and business breakfast town halls in Nairobi and Mombasa.
