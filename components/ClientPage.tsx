@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Printer, Search } from "lucide-react";
@@ -11,7 +11,6 @@ import { Figure } from "./figures/FigureBoundary";
 import { RegisterMotion } from "./register/RegisterMotion";
 import { ReadingModeToggle } from "./ReadingModeToggle";
 import { ReadingModeProvider } from "../lib/reading-mode";
-import { ScrollProgressBar } from "./ScrollProgressBar";
 import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
 import { MobileTOCModal } from "./MobileTOCModal";
 import { resolveLegacySectionId, SECTIONS, type TabId } from "../lib/heading-slug";
@@ -20,16 +19,16 @@ import { sectionHeight } from "../lib/section-heights";
 import type { SectionItem } from "../lib/section-index";
 
 import { SectionNumberMapProvider } from "./markdown/SectionNumberMap";
-import { ActMarker } from "./flow/ActMarker";
 import { StreamedSection } from "./flow/StreamedSection";
 import { ChapterMarker } from "./flow/ChapterMarker";
-import { FlowChrome } from "./flow/FlowChrome";
-import { FlowRail } from "./flow/FlowRail";
 
-import { AmbientField } from "./visual";
 import { useDaypart, useScrollShell } from "../hooks/use-scroll-shell";
 
-import { Portrait } from "./Portrait";
+import { ACT_PORTRAITS } from "../lib/premium/acts";
+import { CoverHero } from "./premium/CoverHero";
+import { ActOpener } from "./premium/ActOpener";
+import { Dock, Spine } from "./premium/Chrome";
+import { Story } from "./premium/Story";
 
 
 /**
@@ -80,6 +79,7 @@ const WiperUmbrellaLogo = () => (
 );
 
 const TAB_IDS: string[] = SECTIONS.map((s) => s.id);
+
 const LANDING_TAB: TabId = FLOW_ORDER[0];
 
 export function ClientPage({ sections, documents, wordCounts, briefWordCounts, activeTab, expanded, streamed = false }: ClientPageProps) {
@@ -123,7 +123,7 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
   /**
    * The section a deep link is aimed at, which must mount whether or not it is near the viewport.
    *
-   * A link to §13.4.3 lands 48,000 words down the flow. Without this the observer would not have
+   * A link to §F.12 lands 48,000 words down the flow. Without this the observer would not have
    * fired for it, the scroll helper would find nothing, and the reader would be left at the top of
    * a document they arrived in the middle of.
    */
@@ -182,7 +182,7 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
   /* ----------------------------------------------------------- deep linking */
 
   // A shared link, on arrival. The fragment is only readable client-side, so this cannot happen
-  // in initial state; `auto` rather than `smooth`, because a reader who followed a link to §3.3.1
+  // in initial state; `auto` rather than `smooth`, because a reader who followed a link to §2.8
   // should land on it, not watch the page travel there.
   useEffect(() => {
     const raw = window.location.hash.replace(/^#/, "");
@@ -216,24 +216,35 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
 
   /* ------------------------------------------------------- current section */
 
+  // A probe, not an observer (D-08). The observer set the label only when a section ENTERED a
+  // band a quarter of the way down the screen, so above the first section (the hero) nothing was
+  // ever in the band and the label kept whatever it last held: after a jump from the index, the
+  // cover read "§5B Publishing & earned media" indefinitely. Now every scroll frame asks which
+  // section holds a line 30% down the viewport, and above the first, the answer is the first.
   useEffect(() => {
     if (!expanded) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            const id = entry.target.id.replace("section-", "") as TabId;
-            setCurrentTab(id);
-          }
-        }
-      },
-      { rootMargin: "-25% 0px -65% 0px", threshold: 0 }
-    );
-    for (const item of navItems) {
-      const el = document.getElementById(`section-${item.id}`);
-      if (el) observer.observe(el);
-    }
-    return () => observer.disconnect();
+    let frame = 0;
+    const read = () => {
+      frame = 0;
+      const probe = window.innerHeight * 0.3;
+      let current: TabId = navItems[0].id;
+      for (const item of navItems) {
+        const el = document.getElementById(`section-${item.id}`);
+        if (el && el.getBoundingClientRect().top <= probe) current = item.id;
+      }
+      setCurrentTab((prev) => (prev === current ? prev : current));
+    };
+    const on = () => {
+      if (!frame) frame = requestAnimationFrame(read);
+    };
+    read();
+    window.addEventListener("scroll", on, { passive: true });
+    window.addEventListener("resize", on, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", on);
+      window.removeEventListener("resize", on);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, [expanded, navItems]);
 
   /* ------------------------------------------------------------- shortcuts */
@@ -276,12 +287,11 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
     () => navItems.find((t) => t.id === (expanded ? currentTab : activeTab)) ?? navItems[0],
     [navItems, currentTab, activeTab, expanded]
   );
-  const activeIndex = flowIndex(activeItem.id);
 
   return (
     <SectionNumberMapProvider sections={sections}>
       <ReadingModeProvider>
-      <div className="min-h-screen bg-paper text-ink font-sans selection:bg-accent/20">
+      <div className="pf-page min-h-screen bg-paper text-ink font-sans selection:bg-accent/20">
         <a href="#content-area" className="skip-link">Skip to the document</a>
 
         {/* The flow streams its later sections, so the complete server-rendered document lives at
@@ -294,107 +304,50 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
           </noscript>
         )}
 
-        <div className="h-1 bg-gradient-to-r from-accent to-gold fixed top-0 left-0 right-0 z-50 print:hidden" />
-        <ScrollProgressBar />
         <RegisterMotion />
+        <div className="pf-grain print:hidden" aria-hidden="true" />
 
         {/* ----------------------------------------------------------- hero */}
+        {/* The cover (brief G-2, §10 Cover): the county in 3D behind, the portrait large in
+            front, the title in the display face. It scrolls through the county's story and ends
+            on the tile map with the pool resolved; the four figures follow as big numbers. The
+            static county is in the HTML for print, reduced motion and scripts off. */}
         {expanded && (
-          <header className="cv-auto-hero relative pt-12 sm:pt-16 pb-6 sm:pb-10 overflow-hidden print:pt-4 print:pb-4">
-            <div className="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(circle_at_82%_8%,var(--color-glow),transparent_34%),linear-gradient(180deg,var(--color-card),var(--color-paper))]" />
-            {/* Grain and a masked grid, and no motion. It was intensity="full", which adds drifting
-                aurora wells — an animated background behind the one screen every reader sees, and
-                on the deny list for exactly that. The static texture stays: it is a surface, not
-                an effect. */}
-            <AmbientField intensity="quiet" pattern="grid" />
-
-            <div className="fx-hero-seq mx-auto w-full max-w-3xl px-4 sm:px-6 relative z-10">
-              <div style={{ "--fx-i": 0 } as React.CSSProperties} className="fx-in-left flex items-center gap-2.5 mb-5 select-none">
+          <CoverHero
+            theme={theme === "light" ? "light" : "dark"}
+            byline={
+              <p className="pf-byline">
                 <WiperUmbrellaLogo />
-                <div>
-                  <div className="t-small text-accent font-black leading-tight">Hon. Dr. Benson Makali Mulu</div>
-                  <div className="t-micro text-muted font-semibold mt-0.5">Kitui 2027 — strategy and direction</div>
-                </div>
-              </div>
-
-              <div style={{ "--fx-i": 1 } as React.CSSProperties} className="fx-in-fade confidentiality-marker mb-5 flex items-baseline flex-wrap gap-x-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
-                <strong>Confidential</strong>
-                <span className="opacity-70">— personal, link-only.</span>
-              </div>
-
-              <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 items-end">
-                {/* The headline is text, and it is text once.
-
-                    It used to be a line-split reveal, which meant two copies in the DOM: the real
-                    string in a visually hidden node for assistive technology, and a stack of
-                    aria-hidden spans to animate. aria-hidden hides a node from a screen reader and
-                    from nothing else, so the page read "Kitui 2027: the intelligence behind what
-                    you already publish." twice — to copy-paste, to reader mode, to find-in-page,
-                    and to anyone who opened it with JavaScript off.
-
-                    The split bought a staggered rise on the one element a reader is guaranteed to
-                    be looking at before anything else has loaded. That is the definition of an
-                    animation that delays reading, and kinetic headlines are on the deny list for
-                    exactly this reason. The line break stays, because it is how the sentence
-                    should break. */}
-                <h1 className="col-span-2 sm:col-span-1 font-sans text-[1.7rem] sm:text-4xl lg:text-5xl leading-[1.14] sm:leading-[1.08] tracking-tight text-ink mb-4 font-bold text-balance">
-                  <span className="block">Kitui 2027:</span>
-                  <span className="block">Analysis, Strategy and Direction for Dr. Mulu&rsquo;s Digital Operation</span>
-                </h1>
-                <p style={{ "--fx-i": 3 } as React.CSSProperties} className="fx-in-up col-start-1 t-body text-muted leading-relaxed text-pretty">
-                  Campaign strategy and digital architecture for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
-                </p>
-                <div style={{ "--fx-i": 2 } as React.CSSProperties} className="fx-in-settle col-start-2 row-start-2 sm:row-start-1 sm:row-span-2 self-end w-[104px] sm:w-[150px] shrink-0 -mb-1 lg:hidden">
-                  <Portrait id="hero-clasped-hands" sizes="(min-width: 1024px) 210px, (min-width: 640px) 150px, 104px" priority />
-                </div>
-              </div>
-
-              {/* One instruction, and one choice.
-
-                  The instruction is the only one the reader needs: keep going. The choice is the
-                  honest form of the old line, which said "30 sections, 289 minutes" and left it
-                  there. 289 minutes is a true number and a closed door — it is the first thing a
-                  reader learns about a document they were sent on WhatsApp. Both reading times
-                  are measured from the rendered segmentation rather than typed, so neither can
-                  drift from what the page actually does. */}
-              <div style={{ "--fx-i": 4 } as React.CSSProperties} className="fx-in-up mt-7 space-y-3">
-                <p className="flex items-center gap-2.5 t-micro font-semibold text-muted">
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-line/70">
-                    <span className="fx-scroll-cue" aria-hidden="true" />
-                  </span>
-                  <span>Scroll. The whole proposal is on this page, in order — {navItems.length} sections.</span>
-                </p>
-                <ReadingModeToggle
-                  briefMinutes={readingMinutes(Object.values(briefWordCounts).reduce((a, b) => a + b, 0))}
-                  fullMinutes={readingMinutes(Object.values(wordCounts).reduce((a, b) => a + b, 0))}
-                />
-              </div>
-            </div>
-          </header>
+                <span>
+                  <strong>Hon. Dr. Benson Makali Mulu</strong>
+                  <span>Kitui 2027 — strategy and direction</span>
+                </span>
+              </p>
+            }
+          />
         )}
 
         {/* ------------------------------------------------ evidence preface */}
         {expanded && (
-          <section aria-label="The figures behind the decision" className="cv-auto-strip mx-auto w-full max-w-5xl px-4 sm:px-6 mt-2 mb-4 space-y-5">
-            {/* The cover figures (brief §F.1): the tile map shaded for the pool, the four data-only
-                figures, and the spine of the argument. They sit here, under the portrait, on the
-                flow, and open the section on the /cover route, never both. The poll-share strip
-                that stood here is cut (docs/rebuild/REPLACEMENTS.md). */}
-            {/* On a wide screen the portrait sits beside the map (brief §F.1); on a phone it stays
-                beside the title, where there is room for it. */}
-            <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_220px] lg:items-start lg:gap-6">
-              <Figure id="fig-cover-map" />
-              <div className="hidden lg:block lg:sticky lg:top-24 lg:mt-6">
-                <Portrait id="hero-clasped-hands" sizes="220px" />
-              </div>
+          <section aria-label="The figures behind the decision" className="cv-auto-strip pf-shell pf-preface">
+            {/* One instruction, and one choice. Both reading times are measured from the rendered
+                segmentation rather than typed, so neither can drift from what the page does. */}
+            <div className="pf-reading">
+              <ReadingModeToggle
+                briefMinutes={readingMinutes(Object.values(briefWordCounts).reduce((a, b) => a + b, 0))}
+                fullMinutes={readingMinutes(Object.values(wordCounts).reduce((a, b) => a + b, 0))}
+              />
+              <p className="pf-reading__hint">Scroll. The whole proposal is on this page, in order — {navItems.length} sections.</p>
             </div>
+            {/* The cover figures (brief §F.1), with their tables and CSVs: the tile map shaded for
+                the pool and the spine of the argument. The hero above tells the same map's story. */}
+            <Figure id="fig-cover-map" />
             <Figure id="fig-cover-spine" />
           </section>
         )}
 
         {/* ------------------------------------------------------ the document */}
-        <main className="mx-auto w-full max-w-3xl px-4 sm:px-6 pb-28 lg:pb-24">
+        <main className="pf-shell pf-main">
           {/* There is no toolbar.
 
               There used to be seven buttons in a bar that followed the reader down the page, and
@@ -409,8 +362,20 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
               const act = expanded ? opensAct(item.id) : null;
               const position = flowIndex(item.id);
               return (
+                <React.Fragment key={item.id}>
+                  {/* The act opener sits before its section, not inside it: a section is
+                      `content-visibility: auto`, which contains paint, and a full-bleed opener
+                      inside one was clipped to the reading column. */}
+                  {act && (
+                    <ActOpener
+                      act={act}
+                      index={FLOW_ACTS.indexOf(act)}
+                      total={FLOW_ACTS.length}
+                      portrait={ACT_PORTRAITS[FLOW_ACTS.indexOf(act)]}
+                      id={`act-${act.id}`}
+                    />
+                  )}
                 <section
-                  key={item.id}
                   id={`section-${item.id}`}
                   className="flow-section print:break-inside-auto"
                   aria-labelledby={`chap-${item.id}`}
@@ -420,7 +385,6 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
                   // and every deep link past the third section landed in the wrong place.
                   style={{ containIntrinsicSize: `auto ${sectionHeight(item.id, item.wordCount)}px` }}
                 >
-                  {act && <ActMarker act={act} index={FLOW_ACTS.indexOf(act)} total={FLOW_ACTS.length} />}
                   <div id={`chap-${item.id}`}>
                     <ChapterMarker
                       number={item.number}
@@ -432,6 +396,8 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
                       asTitle={!expanded}
                     />
                   </div>
+                  {/* §3's argument, told once over a pinned county before the section's detail. */}
+                  {item.id === "analysis" && <Story theme={theme === "light" ? "light" : "dark"} />}
                   {/* On the /cover route there is no hero, so the cover figures open the section. */}
                   {!expanded && item.id === "cover" && (
                     <>
@@ -443,13 +409,14 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
                     <StreamedSection tabId={item.id} words={item.wordCount} force={forced.has(item.id)} />
                   )}
                 </section>
+                </React.Fragment>
               );
             })}
           </div>
 
         </main>
 
-        <footer className="relative mt-10 pt-8 pb-32 lg:pb-16 px-4 sm:px-6 mx-auto w-full max-w-3xl">
+        <footer className="pf-shell pf-footer relative mt-10 pt-8">
           <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-4 sm:inset-x-6 top-0" />
           <div className="confidentiality-marker mb-3">
             <strong>Confidential</strong>
@@ -481,17 +448,12 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
           </dl>
         </footer>
 
-        <FlowRail
-          items={navItems.map((n) => ({ id: n.id, number: n.number, label: n.label }))}
-          activeIndex={activeIndex}
-          onSelect={goToSection}
-        />
+        {expanded && <Spine onSelect={goToSection} />}
 
-        <FlowChrome
+        <Dock
           label={activeItem.label}
           number={activeItem.number}
-          position={activeIndex}
-          total={FLOW_ORDER.length}
+          tab={activeItem.id}
           onOpenIndex={() => setIsTOCModalOpen(true)}
           onToggleTheme={toggleTheme}
           theme={theme}

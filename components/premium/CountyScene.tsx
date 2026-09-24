@@ -202,10 +202,38 @@ const smooth = (a: number, b: number, x: number) => {
   return t * t * (3 - 2 * t);
 };
 
-/** How far through the story the scroll is, split into the three movements and the pool. */
+/** How far through the cover's story the scroll is, split into the three movements and the pool. */
 export function phases(p: number) {
   return { cam: smooth(0.04, 0.36, p), morph: smooth(0.4, 0.74, p), pool: smooth(0.78, 0.94, p) };
 }
+
+export { smooth };
+
+/**
+ * What a scene shows at a scroll value: the camera (0 relief, 1 overhead), the morph (0 true
+ * outlines, 1 tiles), and each ward's colour and weave. The cover and the §3 story drive the same
+ * scene with different drivers; the scene itself carries no narrative.
+ */
+export interface SceneDriver {
+  pose(p: number): { cam: number; morph: number };
+  /** Writes the ward's fill into `out` and returns the weave's opacity on it (0 for none). */
+  paint(w: CountyWard, p: number, c: SceneColors, out: THREE.Color): number;
+}
+
+/** The cover: relief to overhead, then the tile map, then the pool resolves in laterite. */
+export const COVER_DRIVER: SceneDriver = {
+  pose: (p) => {
+    const { cam, morph } = phases(p);
+    return { cam, morph };
+  },
+  paint: (w, p, c, out) => {
+    const { pool } = phases(p);
+    if (w.role === "held") out.copy(c.held);
+    else if (w.role === "pool") out.copy(c.other).lerp(c.pool, pool);
+    else out.copy(c.other);
+    return w.role === "pool" ? pool * 0.3 : 0;
+  },
+};
 
 /**
  * Everything the scene mutates per frame lives here, behind methods: geometry, materials, the
@@ -230,8 +258,8 @@ class CountyRig {
     o?.updateMorphTargets();
   }
 
-  frame(camera: THREE.Camera, size: { width: number; height: number }, p: number, orbit: number, colors: SceneColors) {
-    const { cam, morph, pool } = phases(p);
+  frame(camera: THREE.Camera, size: { width: number; height: number }, p: number, orbit: number, colors: SceneColors, driver: SceneDriver) {
+    const { cam, morph } = driver.pose(p);
 
     // Camera: relief (tilted, from the south-west) to overhead, north up.
     const pc = camera as THREE.PerspectiveCamera;
@@ -258,13 +286,11 @@ class CountyRig {
       for (const o of [this.meshes[i], this.caps[i], this.lines[i]]) {
         if (o?.morphTargetInfluences) o.morphTargetInfluences[0] = morph;
       }
-      const mat = this.solidMats[i];
-      if (w.ward.role === "held") mat.color.copy(colors.held);
-      else if (w.ward.role === "pool") mat.color.copy(this.tmp.copy(colors.other).lerp(colors.pool, pool));
-      else mat.color.copy(colors.other);
+      const weave = driver.paint(w.ward, p, colors, this.tmp);
+      this.solidMats[i].color.copy(this.tmp);
       const cm = this.capMats[i];
       cm.color.copy(colors.weave);
-      cm.opacity = w.ward.role === "pool" ? pool * 0.3 : 0;
+      cm.opacity = weave;
       cm.visible = cm.opacity > 0.001;
     });
   }
@@ -273,12 +299,14 @@ class CountyRig {
 function Wards({
   progress,
   theme,
+  driver,
   orbit,
   onPick,
   visible,
 }: {
   progress: MutableRefObject<number>;
   theme: SceneTheme;
+  driver: SceneDriver;
   orbit: MutableRefObject<number>;
   onPick: (w: CountyWard | null) => void;
   visible: MutableRefObject<boolean>;
@@ -309,7 +337,7 @@ function Wards({
     };
   }, [invalidate, visible]);
 
-  useFrame((state) => rig.frame(state.camera, state.size, progress.current, orbit.current, colors));
+  useFrame((state) => rig.frame(state.camera, state.size, progress.current, orbit.current, colors, driver));
 
   const pick = (w: CountyWard) => (e: ThreeEvent<MouseEvent>) => {
     // A drag that ends over a ward is an orbit, not a tap.
@@ -343,11 +371,13 @@ function Wards({
 export default function CountyScene({
   progress,
   theme,
+  driver = COVER_DRIVER,
   onPick,
   className = "",
 }: {
   progress: MutableRefObject<number>;
   theme: SceneTheme;
+  driver?: SceneDriver;
   onPick: (w: CountyWard | null) => void;
   className?: string;
 }) {
@@ -412,7 +442,7 @@ export default function CountyScene({
         }}
         onPointerMissed={() => onPick(null)}
       >
-        <Wards progress={progress} theme={theme} orbit={orbit} onPick={onPick} visible={visible} />
+        <Wards progress={progress} theme={theme} driver={driver} orbit={orbit} onPick={onPick} visible={visible} />
       </Canvas>
     </div>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { IllustrativeTag } from "../premium/IllustrativeTag";
 
 type TabletView = "bvr" | "form37a" | "threshold";
 
@@ -21,6 +22,7 @@ export function KiemsTabletInspector() {
     <div className="not-prose my-8 rounded-2xl border border-line bg-surface p-4 sm:p-6 shadow-xs">
       {/* Header */}
       <div className="max-w-xl mx-auto text-center mb-6">
+        <IllustrativeTag />
         <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-700 dark:text-indigo-400 text-xs font-semibold mb-2">
           <span>§3.4 & §3.4.4 Electoral Integrity Tool</span>
           <span>•</span>

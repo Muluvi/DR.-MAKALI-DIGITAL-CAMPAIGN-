@@ -8,7 +8,7 @@ import { useSectionIndex } from "./SectionNumberMap";
 /**
  * Every measurement surface in the document, in one place, at the top of the measurement framework.
  *
- * The proposal's headline indicators are §11.1 and §11.1.3, and its objectives §4. But eight further KPI
+ * The proposal's headline indicators are §11.1 and §1.5, and its objectives §4. But eight further KPI
  * blocks stay with the work they measure — earned media, accessibility, the offline layer,
  * volunteers, coalitions, analytics benchmarks, the message lab, the tracker — because a target
  * is only readable beside the thing it is a target for.

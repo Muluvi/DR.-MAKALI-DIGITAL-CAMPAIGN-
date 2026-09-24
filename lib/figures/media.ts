@@ -1,5 +1,5 @@
 /**
- * §3.7 and §8.7.7 — who owns the air in Kitui, and the four ways the campaign gets on it anyway.
+ * §3.7 and §5.2.2.2 — who owns the air in Kitui, and the four ways the campaign gets on it anyway.
  *
  * ONE FACT SHAPES THIS WHOLE FILE: §3.7 and §3.7.1 disagree about which stations are hostile, and
  * the disagreement is not cosmetic. §3.7's diagram files **Musyi FM** under "TIER 1: HOSTILE /
@@ -77,18 +77,18 @@ export const RADIO_GATEKEEPERS: RosterRow[] = DIAGRAM_HOSTILE.map(stationRow);
 /** The stations §3.7's diagram routed around them to, and what the map says about those. */
 export const BYPASS_STATIONS: RosterRow[] = [
   stationRow("Wikwatyo FM"),
-  NOT_IN_MAP("Mang'elete", "Named in §3.7 and §8.7.7 as a neutral, church-owned bypass route."),
+  NOT_IN_MAP("Mang'elete", "Named in §3.7 and §5.2.2.2 as a neutral, church-owned bypass route."),
   stationRow("County FM"),
 ];
 
 /**
- * §8.7.7's four bypass pillars, at both the levels the document states them.
+ * §5.2.2.2's four bypass pillars, at both the levels the document states them.
  *
- * §3.7 named the four routes in four lines and pointed at §8.7.7 for the protocol; §8.7.7 gave the
+ * §3.7 named the four routes in four lines and pointed at §5.2.2.2 for the protocol; §5.2.2.2 gave the
  * protocol in a table of its own. Both blocks are retired, so both levels live here: `summary` is
- * §3.7's line and `detail` is §8.7.7's cell, transcribed. The §3.7 figure prints the summary and
- * says where the full version is, exactly as the block it replaced did; the §8.7.7 figure prints
- * the protocol. Flattening them into one would either lose §8.7.7's operational detail or move it
+ * §3.7's line and `detail` is §5.2.2.2's cell, transcribed. The §3.7 figure prints the summary and
+ * says where the full version is, exactly as the block it replaced did; the §5.2.2.2 figure prints
+ * the protocol. Flattening them into one would either lose §5.2.2.2's operational detail or move it
  * four chapters earlier than the document puts it.
  */
 export const BYPASS_PILLARS = [

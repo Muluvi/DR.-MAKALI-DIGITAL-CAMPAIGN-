@@ -8,25 +8,25 @@ import { TierBadge } from "./TierBadge";
 import { UnderReview } from "../figures/UnderReview";
 
 /**
- * §3.4.5 — recognition deficit mapped against voter concentration.
+ * §3.4 — recognition deficit mapped against voter concentration.
  *
  * WHAT THIS DELIBERATELY DOES NOT SHOW: ward-level polling. No ward-level poll of this race
- * exists. Only two countywide Mizani data points are available (§2.2), and §3.4.6 lists
+ * exists. Only two countywide Mizani data points are available (§2.2), and §3.10 lists
  * ward-level recognition data as a named Tier 1 gap. An earlier version of this component
  * carried per-ward `muluPollingBaseline` / `kasaluPollingBaseline` percentages; they were
  * invented, and they are gone.
  *
- * What replaces them is what §3.4.5 actually asserts: a STRUCTURAL recognition status per
+ * What replaces them is what §3.4 actually asserts: a STRUCTURAL recognition status per
  * constituency — home anchor, neighbouring belt, or critical deficit — derived from where
  * Dr. Mulu has held office, not from any survey. The ward list is the top 12 by register,
- * computed from data/ward-register.json rather than typed in; §3.4.5's own table is that same
+ * computed from data/ward-register.json rather than typed in; §3.4's own table is that same
  * top 12, so the two cannot drift apart.
  */
 
 type RecognitionStatus = "anchor" | "belt" | "moderate" | "deficit";
 
 /**
- * FOUR grades, not three, because §3.4.5's cross-match table used four.
+ * FOUR grades, not three, because §3.4's cross-match table used four.
  *
  * The block this panel retired distinguished MODERATE/HIGH (Neighboring belt) — Mutonguni and
  * Kauwi in Kitui West — from a plain MODERATE (University/Peri-urban) for Kwa Vonza/Yatta in
@@ -61,7 +61,7 @@ const STATUS_META: Record<RecognitionStatus, { label: string; note: string; clas
   },
 };
 
-/** Per §3.4.5: the anchor is Kitui Central, Kitui West is the neighbouring belt and Kitui Rural
+/** Per §3.4: the anchor is Kitui Central, Kitui West is the neighbouring belt and Kitui Rural
  *  the peri-urban moderate; Mwingi (all three), Kitui South and Kitui East are the deficit zones. */
 const STATUS_BY_CONSTITUENCY: Record<string, RecognitionStatus> = {
   "kitui-central": "anchor",
@@ -75,7 +75,7 @@ const STATUS_BY_CONSTITUENCY: Record<string, RecognitionStatus> = {
 };
 
 /**
- * The qualifier §3.4.5 printed against each ward, where it printed one more specific than its
+ * The qualifier §3.4 printed against each ward, where it printed one more specific than its
  * constituency's.
  *
  * Tseikuru and Kyuso are both Mwingi North and both critical deficits, and the table gave them
@@ -92,7 +92,7 @@ const WARD_QUALIFIER: Record<string, string> = {
 
 const KITUI_SOUTH_TOTAL = CONSTITUENCIES.find((c) => c.id === "kitui-south")?.voters ?? 0;
 
-/** §3.4.5's "Total Decisive Deficit Pool" — Mwingi bloc plus Kitui South, both from the register. */
+/** §3.4's "Total Decisive Deficit Pool" — Mwingi bloc plus Kitui South, both from the register. */
 const DEFICIT_POOL = MWINGI_BLOC_TOTAL + KITUI_SOUTH_TOTAL;
 const DEFICIT_POOL_SHARE = (DEFICIT_POOL / COUNTY_TOTAL_WARDS) * 100;
 
@@ -105,10 +105,10 @@ const DEFICIT_IN_TOP_8 = DECISIVE_WARDS.filter((w) => w.rank <= 8 && w.status ==
 const DEFICIT_IN_TOP_8_VOTERS = DEFICIT_IN_TOP_8.reduce((sum, w) => sum + w.voters, 0);
 
 /**
- * The overlap §3.4.5 actually claimed, which is not the one §3.4.6 summarised.
+ * The overlap §3.4 actually claimed, which is not the one §3.10 summarised.
  *
  * The retired cross-match block closed on "5 of the Top 11 Wards (Kyuso, Tseikuru, Mumoni, Athi,
- * Ikanga) … 83,496 Voters", and against the register that is exactly right. The §3.4.6 summary
+ * Ikanga) … 83,496 Voters", and against the register that is exactly right. The §3.10 summary
  * table says "5 of top 8", which is not: Ikanga/Kyatune ranks 11th. Both windows are computed here
  * so the panel can show where the two claims part company instead of picking one — C-5.
  */
@@ -215,7 +215,7 @@ export function RecognitionDeficitOverlay() {
               <div className="flex items-start gap-1.5 mt-2.5 pt-2.5 border-t border-line/40">
                 <span className={`w-1.5 h-1.5 rounded-full shrink-0 mt-1.5 ${meta.dot}`} aria-hidden="true" />
                 <span className="t-label font-black text-ink shrink-0">{meta.label}</span>
-                {/* No truncation on the qualifier: it is the reason, and §3.4.5 gave a different one
+                {/* No truncation on the qualifier: it is the reason, and §3.4 gave a different one
                     to two wards in the same constituency. Clipping it would erase the distinction. */}
                 <span className="t-label text-muted">
                   — {WARD_QUALIFIER[w.name] ? `${WARD_QUALIFIER[w.name]} ` : ""}
@@ -242,19 +242,19 @@ export function RecognitionDeficitOverlay() {
             decide the election are the wards where Dr. Mulu is least known.
           </span>
         </p>
-        {/* §3.4.6's summary table reads "5 of top 8 wards", which is the top-11 count printed
+        {/* §3.10's summary table reads "5 of top 8 wards", which is the top-11 count printed
             against the top-8 window. Both figures above are computed from the register; neither
             sentence in the content has been changed. */}
         <UnderReview ids={["C-5"]}>
-          §3.4.6 summarises this overlap as “5 of top 8 wards”. Ranked on the register,
-          Ikanga/Kyatune is 11th — so the five named wards are 5 of the top 11, as §3.4.5 itself
+          §3.10 summarises this overlap as “5 of top 8 wards”. Ranked on the register,
+          Ikanga/Kyatune is 11th — so the five named wards are 5 of the top 11, as §3.4 itself
           states, and 4 of them are in the top 8. Both counts are shown; neither has been changed.
         </UnderReview>
         <p className="t-small text-muted flex items-start gap-1.5">
           <AlertTriangle size={12} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
           <span>
             Recognition status here is <strong>structural</strong> — derived from where Dr. Mulu has held office, not
-            from any survey. No ward-level poll of this race exists; §3.4.6 lists ward-level recognition data as a named
+            from any survey. No ward-level poll of this race exists; §3.10 lists ward-level recognition data as a named
             Tier 1 gap, and commissioning it is a Phase −1 research priority.
           </span>
         </p>

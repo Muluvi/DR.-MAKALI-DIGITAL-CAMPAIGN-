@@ -12,7 +12,7 @@ import { AnalysisFigure } from "./AnalysisFigure";
  * pipeline writes and re-writes; to change what this renders, re-run the pipeline.
  */
 
-/** §3.1.5 — the polling gap, as sourced. */
+/** §C.1 — the polling gap, as sourced. */
 export function PollMarginsBlock() {
   return (
     <AnalysisFigure
@@ -71,7 +71,7 @@ export function ScenarioBenchmarkBlock() {
   );
 }
 
-/** §3.6.1 — the connected minority, and its limits. */
+/** §2.6 — the connected minority, and its limits. */
 export function ChannelReachBlock() {
   return (
     <AnalysisFigure

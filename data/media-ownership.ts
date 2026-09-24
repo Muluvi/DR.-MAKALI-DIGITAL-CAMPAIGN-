@@ -22,7 +22,7 @@ export interface RadioStation {
    * Frequency as publicly listed for the Kitui/Mwingi service area, or null where the Kitui
    * frequency is not published and only a Nairobi/Machakos one is. Tier 3 (aggregator listings);
    * the Communications Authority broadcast frequency register is the Tier 1 confirmation and is
-   * a named data request in §15.1.
+   * a named data request in §6.1.
    */
   frequency: string | null;
   alignment: string;

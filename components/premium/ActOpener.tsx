@@ -57,7 +57,7 @@ export function ActOpener({ act, index, total, portrait, id }: { act: FlowAct; i
   const answers = act.blurb.charAt(0).toLowerCase() + act.blurb.slice(1);
 
   return (
-    <section ref={ref} className="pf-act print:break-before-page" data-armed={armed ? "true" : undefined} data-in-view={inView ? "true" : undefined} aria-labelledby={`${id}-title`}>
+    <section ref={ref} className="pf-act print:break-before-page" aria-label={`Act ${roman}: ${act.label}`} data-armed={armed ? "true" : undefined} data-in-view={inView ? "true" : undefined}>
       <div className="pf-act__weave" aria-hidden="true" />
       <div className="pf-act__county" aria-hidden="true">
         <CountyStatic id={`${id}-county`} quiet />
@@ -70,9 +70,10 @@ export function ActOpener({ act, index, total, portrait, id }: { act: FlowAct; i
         <p className="pf-act__count">
           Act {roman} <span aria-hidden="true">·</span> {index + 1} of {total}
         </p>
-        <h2 id={`${id}-title`} className="pf-act__title">
+        {/* Text, not a heading: the chapter marker beneath carries the section's heading. */}
+        <p id={`${id}-title`} className="pf-act__title">
           <span className="pf-line"><span>{act.label}</span></span>
-        </h2>
+        </p>
         <p className="pf-act__answers">
           <span className="pf-act__answers-k">This act answers</span>
           <span className="pf-line"><span>{answers}.</span></span>

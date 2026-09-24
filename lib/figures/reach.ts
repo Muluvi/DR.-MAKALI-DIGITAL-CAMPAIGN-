@@ -67,7 +67,7 @@ const censusRate = {
   asOf: "2019",
   kind: "calculated" as const,
   granularity: "county" as const,
-  // Every figure derived from the 2019 rate inherits C-13: §3.6.1 states that the 2023/24 Kenya
+  // Every figure derived from the 2019 rate inherits C-13: §2.6 states that the 2023/24 Kenya
   // Housing Survey supersedes it, and the rest of the document does not.
   conflicts: ["C-13"],
 };
@@ -92,7 +92,7 @@ export const REACH_SPLIT: FigureSeries = {
   ],
   conflicts: ["C-13"],
   note:
-    "§3.6.1 states that the 2023/24 Kenya Housing Survey supersedes the 2019 rate, putting internet " +
+    "§2.6 states that the 2023/24 Kenya Housing Survey supersedes the 2019 rate, putting internet " +
     "use at 26.2% and phone ownership at 44.1% — which would roughly double the connected layer. " +
     "Both rates are stated in the document and neither has been changed.",
 };
@@ -154,7 +154,7 @@ export const PLATFORM_SIZING: FigureSeries = {
     "four of them — so these must never be added together.",
 };
 
-/* ------------------------------------------------------------------ §3.6.2 offline channels */
+/* ------------------------------------------------------------------ §3.8.1 offline channels */
 
 /**
  * Six offline channels, three of which the document sources and three of which it does not.
@@ -194,14 +194,14 @@ export const OFFLINE_CHANNELS: FigureSeries = {
     conflicts: provenance === "none" ? ["C-17"] : undefined,
     note:
       `${shareOfRegister(value)} of the register · ${basis}. ${role}` +
-      (provenance === "none" ? " SOURCE NEEDED — stated in §3.6.2 without a citation." : ""),
+      (provenance === "none" ? " SOURCE NEEDED — stated in §3.8.1 without a citation." : ""),
   })),
   conflicts: ["C-17"],
   note:
     "THESE CHANNELS OVERLAP AND MUST NOT BE ADDED. One voter listens to radio, attends a market and " +
     "holds a phone. Summed, the six would claim 1,800,000 reachable voters in a county with a " +
     "register of 532,758. Three of them — church, markets and mobile-money agents — are stated in " +
-    "§3.6.2 with no source, and the document says so.",
+    "§3.8.1 with no source, and the document says so.",
 };
 
 /* ------------------------------------------------------------------ §3.6.3 the rebalance */
@@ -209,7 +209,7 @@ export const OFFLINE_CHANNELS: FigureSeries = {
 /**
  * Where effort goes, before and after.
  *
- * Shares, not money. The source sentence in §3.4.5 describes its own weighting as being "on output
+ * Shares, not money. The source sentence in §3.4 describes its own weighting as being "on output
  * and targeting", and D-11 records that every figure label in this pass says "effort" rather than
  * "spend" for that reason — hard rule 3 forbids introducing budget material, and these are not it.
  */

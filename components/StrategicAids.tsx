@@ -5,6 +5,8 @@ import { DURATION, SPRING } from "../lib/motion";
 import { useState, useEffect, useRef } from "react";
 
 import { Play, Pause, Volume2, Calendar, ArrowRight, Radio, FileText, BookOpen, RefreshCw } from "lucide-react";
+import { IllustrativeTag } from "./premium/IllustrativeTag";
+
 
 // ==========================================
 // 1. EXECUTIVE SUMMARY VISUAL AIDS
@@ -211,6 +213,7 @@ export function MessagingPlayground() {
 
   return (
     <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6">
+      <IllustrativeTag />
       <h4 className="font-serif text-sm font-bold text-ink mb-3">Multilingual Campaign Slogan Selector</h4>
       <div className="flex gap-1.5 mb-4">
         {Object.keys(messages).map((l) => (
@@ -281,6 +284,7 @@ export function MediaPlaybackMockup() {
 
   return (
     <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm max-w-sm my-6 select-none">
+      <IllustrativeTag />
       <div className="bg-paper border border-line rounded-xl aspect-video relative overflow-hidden flex items-center justify-center">
         {/* Soft background visual glow pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-gold/10" />
@@ -426,6 +430,7 @@ export function SloganBuilder() {
 
   return (
     <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6">
+      <IllustrativeTag />
       <h4 className="font-serif text-sm font-bold text-ink mb-3">Modular Slogan Sandbox</h4>
       <div className="flex flex-wrap gap-2 mb-4">
         {pillars.map((pill) => {

@@ -13,7 +13,7 @@ export function OptInConsentPhoneMockup() {
     <div className="not-prose my-8 rounded-2xl border border-line bg-surface p-4 sm:p-6 shadow-xs">
       <div className="max-w-xl mx-auto text-center mb-6">
         <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs font-semibold mb-2">
-          <span>§12.5.4 & Digital Ethics Charter</span>
+          <span>§5.7.8 & Digital Ethics Charter</span>
           <span>•</span>
           <span>Kenya Data Protection Act 2019 Compliance</span>
         </div>

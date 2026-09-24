@@ -462,14 +462,13 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                         const thNode = ths[colIdx];
                         const colLabel = thNode ? getDeepText(thNode) : `Col ${colIdx + 1}`;
                         return (
-                          <div
-                            key={colIdx}
-                            className="flex items-start justify-between gap-2.5 py-1 border-b border-line/15 last:border-b-0"
-                          >
-                            <span className="t-micro font-semibold text-muted shrink-0 pt-0.5" aria-hidden="true">
+                          // Label above value, both left-aligned (brief G-6, D-04). A value set
+                          // right-aligned in 70% of a phone's width wrapped into a ragged column.
+                          <div key={colIdx} className="pf-kv py-1.5 border-b border-line/15 last:border-b-0">
+                            <span className="block t-micro font-semibold text-muted" aria-hidden="true">
                               {colLabel}
                             </span>
-                            <div className="text-right t-small text-ink/90 leading-snug break-words max-w-[70%]">
+                            <div className="t-small text-ink/90 leading-snug break-words">
                               {cell ? cell.props?.children : null}
                             </div>
                           </div>

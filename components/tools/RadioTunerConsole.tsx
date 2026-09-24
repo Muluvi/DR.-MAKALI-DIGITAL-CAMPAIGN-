@@ -122,7 +122,7 @@ export function RadioTunerConsole() {
       {/* Header */}
       <div className="max-w-xl mx-auto text-center mb-6">
         <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-xs font-semibold mb-2">
-          <span>§8.7 & §8.7.1 Vernacular Acoustic Console</span>
+          <span>§5.2.2.2 & §5.2.2.2 Vernacular Acoustic Console</span>
           <span>•</span>
           <span>Kitui Radio Matrix</span>
         </div>

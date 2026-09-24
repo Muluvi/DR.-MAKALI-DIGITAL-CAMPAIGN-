@@ -1,11 +1,11 @@
 /**
- * §8.12 and §8.14 — the data layer, the record it keeps, the law it keeps it under, and the stack.
+ * §5.2.4.1 and §5.2.4.3 — the data layer, the record it keeps, the law it keeps it under, and the stack.
  *
  * WHAT THESE REPLACE. Six box-drawing blocks: two architecture diagrams joined by ASCII arrows, a
  * supporter record schema, a Data Protection Act checklist, a procurement matrix, and one banner
  * that was a title drawn in characters above the title beneath it.
  *
- * THE SCHEMA IS THE REASON THIS FILE IS CAREFUL. §8.12.1's eighteen fields are a specification a
+ * THE SCHEMA IS THE REASON THIS FILE IS CAREFUL. §5.2.4.1's eighteen fields are a specification a
  * developer would implement from: `msisdn_hash` is SHA-256 and `phone_encrypted` is AES-256-GCM,
  * and those are not interchangeable — one is a one-way identifier and the other is reversible for
  * authorised SMS. Every field name, type and constraint below is transcribed exactly, including
@@ -17,7 +17,7 @@
  */
 import type { FigureSeries } from "./types";
 
-/* ------------------------------------------------------------------ §8.12 the data layer */
+/* ------------------------------------------------------------------ §5.2.4.1 the data layer */
 
 export const DATA_LAYER_TIERS = [
   {
@@ -42,7 +42,7 @@ export const DATA_LAYER_CORE = {
 export const DATA_LAYER: FigureSeries = {
   id: "data-layer",
   headline: "Everything captured is tagged, consented and tiered before it reaches a channel",
-  measure: "§8.12's campaign data layer architecture — capture, validation, output, and the core beneath them",
+  measure: "§5.2.4.1's campaign data layer architecture — capture, validation, output, and the core beneath them",
   points: [],
   note:
     "The ASCII original joined these with arrows. Arrows are the part that cannot survive a reflow, " +
@@ -50,9 +50,9 @@ export const DATA_LAYER: FigureSeries = {
     "feeds validation, validation feeds the channels, and everything passes through the encrypted core.",
 };
 
-/* ------------------------------------------------------------------ §8.12.1 the supporter record */
+/* ------------------------------------------------------------------ §5.2.4.1 the supporter record */
 
-/** §8.12.1's SUPPORTER RECORD SCHEMA SPECIFICATION, field for field. */
+/** §5.2.4.1's SUPPORTER RECORD SCHEMA SPECIFICATION, field for field. */
 export const SUPPORTER_SCHEMA: string[][] = [
   ["supporter_id", "UUIDv4", "Unique, anonymised internal primary key"],
   ["msisdn_hash", "SHA-256", "One-way hashed phone identifier"],
@@ -78,7 +78,7 @@ export const SUPPORTER_SCHEMA: string[][] = [
 export const SUPPORTER_SCHEMA_SERIES: FigureSeries = {
   id: "supporter-schema",
   headline: "Nineteen fields, four of them about consent and one that can never be reversed",
-  measure: "§8.12.1's supporter record schema — field, type, and the constraint on each",
+  measure: "§5.2.4.1's supporter record schema — field, type, and the constraint on each",
   points: [],
   note:
     "Transcribed field for field, including the enum members and their order: msisdn_hash is a " +
@@ -87,7 +87,7 @@ export const SUPPORTER_SCHEMA_SERIES: FigureSeries = {
     "a screen reader, and wrapping rather than scrolling sideways on a phone.",
 };
 
-/* ------------------------------------------------------------------ §8.12.2 the DPA applied */
+/* ------------------------------------------------------------------ §5.2.4.1 the DPA applied */
 
 export const DPA_COMPLIANCE = [
   {
@@ -131,14 +131,14 @@ export const DPA_COMPLIANCE = [
 export const DPA_SERIES: FigureSeries = {
   id: "dpa-compliance",
   headline: "Six sections of the Data Protection Act 2019, and what each one obliges the campaign to build",
-  measure: "§8.12.2's statutory compliance checklist — the legal requirement against the operational implementation",
+  measure: "§5.2.4.1's statutory compliance checklist — the legal requirement against the operational implementation",
   points: [],
   note:
     "Each requirement cites its section of the Act. The pairing is the content, so each is drawn " +
     "as one card rather than two columns that could shear apart at a narrow width.",
 };
 
-/* ------------------------------------------------------------------ §8.14 the stack */
+/* ------------------------------------------------------------------ §5.2.4.3 the stack */
 
 export const STACK_TIERS = [
   {
@@ -155,24 +155,24 @@ export const STACK_TIERS = [
   },
   {
     label: "Tier 4: analytics & ward tracker",
-    items: ["Metabase / Apache Superset", "§8.2 service-delivery public policy tracker (web)"],
+    items: ["Metabase / Apache Superset", "§5.2.1 service-delivery public policy tracker (web)"],
   },
 ];
 
 export const STACK_SERIES: FigureSeries = {
   id: "tech-stack",
   headline: "Four tiers, and the personal data lives in exactly one of them",
-  measure: "§8.14's campaign technology stack architecture",
+  measure: "§5.2.4.3's campaign technology stack architecture",
   points: [],
   note:
     "Tier 1 collects the phone numbers and tier 2 holds them encrypted; tiers 3 and 4 work on " +
-    "public and anonymised data. §8.14.2's procurement matrix rates the DPA risk of each " +
+    "public and anonymised data. §5.2.4.3's procurement matrix rates the DPA risk of each " +
     "accordingly, and every one of its five rows is still awaiting a campaign decision.",
 };
 
-/* ------------------------------------------------------------------ §8.14.2 procurement */
+/* ------------------------------------------------------------------ §5.2.4.3 procurement */
 
-/** §8.14.2's matrix. Every decision status reads "Awaiting campaign decision", and stays that way. */
+/** §5.2.4.3's matrix. Every decision status reads "Awaiting campaign decision", and stays that way. */
 export const PROCUREMENT: string[][] = [
   ["1. SMS/USSD gateway", "Africa's Talking / Safaricom Enterprise", "HIGH RISK (direct PII)", "Awaiting campaign decision"],
   ["2. Supporter CRM database", "PostgreSQL + Hasura (Cape Town region)", "CRITICAL (encrypted PII)", "Awaiting campaign decision"],
@@ -184,7 +184,7 @@ export const PROCUREMENT: string[][] = [
 export const PROCUREMENT_SERIES: FigureSeries = {
   id: "procurement-matrix",
   headline: "Five components, rated for data-protection risk, and not one of them decided",
-  measure: "§8.14.2's technology stack master procurement matrix",
+  measure: "§5.2.4.3's technology stack master procurement matrix",
   points: [],
   note:
     "All five rows read “Awaiting campaign decision” in the source and all five read it here. A " +

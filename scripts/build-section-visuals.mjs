@@ -748,7 +748,35 @@ function clean(kind, data) {
  * but it is a perfectly good stat rail, and falling straight to a sentence would throw away four
  * figures the section is built on. Each rung is tried in turn and the first that passes is used.
  */
-const FALLBACKS = ["stats", "checklist", "bars"];
+const FALLBACKS = ["checklist"];
+
+/**
+ * Kinds that plot quantities. Retired from derivation (2026 premium pass, brief §11).
+ *
+ * A regex over prose cannot tell a ward's voter count from a section number, a clock time or a
+ * path total, and it drew them on one scale: §3.2.1 barred a 123,522-ballot path total against
+ * single-ward counts, §1.3.1 invented a "1% now" baseline the text says does not exist yet. A
+ * visual that misstates data is worse than none. Quantitative figures now come only from the
+ * register (lib/register/specs, numbers from lib/data/figures.ts); derivation may still draw the
+ * shapes prose genuinely has — a list, a sequence, a dated series. scripts/visual-coverage.mjs
+ * fails the build if one of these kinds reappears in the generated specs.
+ */
+const QUANTITATIVE = new Set(["stats", "bars", "gauge", "bullet", "donut", "waterfall", "contrast"]);
+
+/**
+ * A timeline is kept only when its events are actually in time. A list of facts, principles or
+ * tools drawn on a time axis implies an order that is not there (§2.1's register facts, §5.2.4.3's
+ * technology stack were), so at least four in five events must carry a year, a week, a quarter, a
+ * month or a phase.
+ */
+const TEMPORAL = /\b(19|20)\d\d\b|\bweeks?\s*\d|\bq[1-4]\b|\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\b|\bphase\s*[−-]?\d|\bday\s*\d/i;
+function inTime(data) {
+  const ev = data?.events ?? [];
+  if (ev.length < 2) return false;
+  const dated = ev.filter((e) => TEMPORAL.test(`${e.label ?? ""} ${e.body ?? ""} ${e.when ?? ""}`)).length;
+  return dated / ev.length >= 0.8;
+}
+let retired = 0;
 
 /**
  * The cascade, which is now allowed to end in nothing.
@@ -799,6 +827,9 @@ for (const sec of sections) {
 
   let kind = over?.kind ?? classify(sec);
   if (kind === null) { figureless += 1; continue; }
+  // Retired, not substituted: a list drawn from the same bullets the reader is about to read
+  // repeats the prose rather than doing a job, so a retired heading carries nothing.
+  if (QUANTITATIVE.has(kind)) { figureless += 1; retired += 1; continue; }
 
   let data = clean(kind, buildData(sec, kind));
   if (!over && !usable(kind, data)) {
@@ -806,7 +837,9 @@ for (const sec of sections) {
     if (!fb) { figureless += 1; continue; }
     ({ kind, data } = fb);
   }
+  if (QUANTITATIVE.has(kind)) { figureless += 1; retired += 1; continue; }
   if (over?.data) data = { ...data, ...over.data };
+  if (kind === "timeline" && !inTime(data)) { figureless += 1; retired += 1; continue; }
   dist[kind] = (dist[kind] || 0) + 1;
   specs[sec.id] = {
     id: sec.id,
@@ -853,6 +886,6 @@ fs.mkdirSync(path.dirname(OUT), { recursive: true });
 fs.writeFileSync(OUT, JSON.stringify(specs, null, 1) + "\n");
 console.log(
   `section-visuals: ${Object.keys(specs).length} specs written to data/section-visuals.generated.json ` +
-  `(${figureless} headings carry no figure, by design)`
+  `(${figureless} headings carry no figure, by design; ${retired} derivations retired: quantitative, or a timeline not in time)`
 );
 for (const [k, v] of Object.entries(dist).sort((a, b) => b[1] - a[1])) console.log(`  ${k.padEnd(10)} ${v}`);

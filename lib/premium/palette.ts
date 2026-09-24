@@ -38,6 +38,9 @@ export interface SceneColors {
   sky: Color;
   groundLight: Color;
   sun: Color;
+  /** A ward the story is pointing at, and one it is not (the §3 story). */
+  highlight: Color;
+  dim: Color;
 }
 
 export const SCENE_COLORS: Record<SceneTheme, SceneColors> = {
@@ -50,6 +53,8 @@ export const SCENE_COLORS: Record<SceneTheme, SceneColors> = {
     sky: col([0.95, 0.02, 250]),
     groundLight: col([0.3, 0.03, 262]),
     sun: col([0.98, 0.02, 85]),
+    highlight: col([0.86, 0.06, 85]),
+    dim: col([0.32, 0.025, 262]),
   },
   light: {
     held: col([0.5, 0.21, 265]),
@@ -60,5 +65,7 @@ export const SCENE_COLORS: Record<SceneTheme, SceneColors> = {
     sky: col([1, 0, 0]),
     groundLight: col([0.7, 0.02, 85]),
     sun: col([1, 0.01, 85]),
+    highlight: col([0.4, 0.06, 262]),
+    dim: col([0.9, 0.012, 85]),
   },
 };

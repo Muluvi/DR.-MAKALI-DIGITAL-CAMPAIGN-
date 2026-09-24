@@ -4,9 +4,9 @@
  * WHAT THESE REPLACE. Three box-drawing blocks: a two-column research-and-tracker panel, a
  * research architecture table of three modules, and a service-delivery tracker architecture.
  *
- * THE HONEST GAPS ARE THE SUBSTANCE HERE and they are transcribed as gaps. §11.2.2's tracker names
+ * THE HONEST GAPS ARE THE SUBSTANCE HERE and they are transcribed as gaps. §5.6.6's tracker names
  * two counts it does not have — classroom and TVET counts "pending the project ledger", and a
- * bursary receipt count likewise pending, with §3.3.1's 12,573 given as the Tier 1 figure it does
+ * bursary receipt count likewise pending, with §2.8's 12,573 given as the Tier 1 figure it does
  * have. The brief forbids filling an empty data state with an estimate; these figures print the
  * absence in the cell where the number would go, which is what the source does.
  *
@@ -19,7 +19,7 @@
  */
 import type { FigureSeries } from "./types";
 
-/* ------------------------------------------------------------------ §11.2.0 the two programmes */
+/* ------------------------------------------------------------------ §5.6.4 the two programmes */
 
 export const RESEARCH_TIERS = [
   {
@@ -45,7 +45,7 @@ export const RESEARCH_TIERS = [
 export const RESEARCH_SPLIT: FigureSeries = {
   id: "research-and-tracker",
   headline: "One programme tests whether the deficit is real; the other is the evidence it argues with",
-  measure: "§11.2.0's empirical research programme and service-delivery tracker",
+  measure: "§5.6.4's empirical research programme and service-delivery tracker",
   points: [],
   note:
     "The research programme feeds the tracker: what the audit establishes about a ward becomes " +
@@ -53,7 +53,7 @@ export const RESEARCH_SPLIT: FigureSeries = {
     "now, and a governing dashboard from day one.",
 };
 
-/* ------------------------------------------------------------------ §11.2.1 the research modules */
+/* ------------------------------------------------------------------ §5.6.5 the research modules */
 
 export const RESEARCH_MODULES: string[][] = [
   [
@@ -82,7 +82,7 @@ export const RESEARCH_MODULES: string[][] = [
 export const MODULES_SERIES: FigureSeries = {
   id: "research-modules",
   headline: "Three instruments, and each one names the decision it unlocks",
-  measure: "§11.2.1's recognition-deficit research architecture — module, method, sample, timing and the decision it unlocks",
+  measure: "§5.6.5's recognition-deficit research architecture — module, method, sample, timing and the decision it unlocks",
   points: [],
   note:
     "The last column is what makes this a decision instrument: the audit's result routes directly " +
@@ -90,12 +90,12 @@ export const MODULES_SERIES: FigureSeries = {
     "or a survey, and none is commissioned from a pollster.",
 };
 
-/* ------------------------------------------------------------------ §11.2.2 the tracker */
+/* ------------------------------------------------------------------ §5.6.6 the tracker */
 
 export const TRACKER_DIMENSIONS: string[][] = [
   [
     "1. Ward infrastructure & school laboratories",
-    "Kitui Central NG-CDF project ledger · Ministry of Education infrastructure DB · classroom and TVET counts pending the project ledger (see §13.1.4)",
+    "Kitui Central NG-CDF project ledger · Ministry of Education infrastructure DB · classroom and TVET counts pending the project ledger (see §F.3)",
     "Monthly sync · on-site geotagged photo audit; certified contractor handovers",
   ],
   [
@@ -111,17 +111,17 @@ export const TRACKER_DIMENSIONS: string[][] = [
   [
     "4. Secondary & tertiary bursary distribution",
     "NG-CDF bursary disbursements ledger · NG-CDF constituency records — not HELB, which holds national loan data",
-    "Termly disbursement audit · receipt count pending the ledger; §3.3.1 gives 12,573 as Tier 1",
+    "Termly disbursement audit · receipt count pending the ledger; §2.8 gives 12,573 as Tier 1",
   ],
 ];
 
 export const TRACKER_SERIES: FigureSeries = {
   id: "delivery-tracker",
   headline: "Four delivery dimensions, two of which are still waiting on a ledger",
-  measure: "§11.2.2's public service-delivery tracker — dimension, statutory sources, update cadence and verification",
+  measure: "§5.6.6's public service-delivery tracker — dimension, statutory sources, update cadence and verification",
   points: [],
   note:
     "The classroom and TVET counts and the bursary receipt count are stated as pending the project " +
-    "ledger, and they are printed that way rather than filled with an estimate. §3.3.1's 12,573 " +
+    "ledger, and they are printed that way rather than filled with an estimate. §2.8's 12,573 " +
     "bursary recipients is the Tier 1 figure the document does have, and the row says so.",
 };

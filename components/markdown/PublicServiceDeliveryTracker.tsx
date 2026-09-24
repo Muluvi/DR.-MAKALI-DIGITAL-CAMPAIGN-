@@ -11,7 +11,6 @@ interface ServiceReport {
   issue: string;
   channel: "USSD" | "SMS" | "WhatsApp" | "Ward Champion";
   status: "Under Verification" | "Raised with County" | "Resolved / Audited" | "Escalated";
-  date: string;
   outcomeNote: string;
 }
 
@@ -24,7 +23,6 @@ const SAMPLE_REPORTS: ServiceReport[] = [
     issue: "Kyuso Solar-powered borehole pump failed; 1,200 households walking 8km to Tana River basin.",
     channel: "USSD",
     status: "Raised with County",
-    date: "28 Aug 2026",
     outcomeNote: "Formal query submitted to County Water Chief Officer; Ward Coordinator verifying solar inverter warranty."
   },
   {
@@ -35,7 +33,6 @@ const SAMPLE_REPORTS: ServiceReport[] = [
     issue: "Mutomo Sub-County Hospital maternity wing lacks standby generator during frequent grid blackouts.",
     channel: "SMS",
     status: "Escalated",
-    date: "25 Aug 2026",
     outcomeNote: "Dr. Mulu raised on parliamentary committee record regarding unspent county emergency health reserves."
   },
   {
@@ -46,7 +43,6 @@ const SAMPLE_REPORTS: ServiceReport[] = [
     issue: "Kalundu Market solid waste accumulation blocking drainage channels before onset of short rains.",
     channel: "WhatsApp",
     status: "Resolved / Audited",
-    date: "19 Aug 2026",
     outcomeNote: "Municipal cleanup completed following public petition; audited by volunteer youth champions."
   },
   {
@@ -57,7 +53,6 @@ const SAMPLE_REPORTS: ServiceReport[] = [
     issue: "Waita-Kavuvwani culvert washed away during March 2026 floods; agricultural produce trucks cut off.",
     channel: "Ward Champion",
     status: "Under Verification",
-    date: "14 Aug 2026",
     outcomeNote: "GPS coordinates and photo verification logged into citizen evidence register."
   }
 ];
@@ -122,8 +117,8 @@ export function PublicServiceDeliveryTracker() {
       <div className="px-4 py-2.5 bg-gold/[0.06] border-b border-gold/25 flex items-start gap-2">
         <Info size={13} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
         <p className="t-small text-ink leading-relaxed">
-          <strong>Interface preview.</strong> The tracker described in §8.2 has not been built &mdash; §8.2.6 sets out
-          its build and cost. Every entry below is illustrative, written to show the intake format and the
+          <strong>Interface preview.</strong> The tracker described in Section 5.2.1.1 has not been built. Every entry below is
+          illustrative, written to show the intake format and the
           verification protocol. No citizen report has been received and no query has been raised with the county.
         </p>
       </div>
@@ -137,36 +132,36 @@ export function PublicServiceDeliveryTracker() {
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center">
           <div className="p-2 bg-card rounded-lg border border-line">
             <div className="t-label font-mono font-bold text-accent">1. INTAKE</div>
-            <div className="t-small font-bold text-ink truncate mt-0.5">USSD / SMS / Baraza</div>
+            <div className="t-small font-bold text-ink mt-0.5 leading-snug text-balance">USSD / SMS / Baraza</div>
           </div>
           <div className="p-2 bg-card rounded-lg border border-line">
             <div className="t-label font-mono font-bold text-accent">2. LOGGING</div>
-            <div className="t-small font-bold text-ink truncate mt-0.5">Auto Reference ID</div>
+            <div className="t-small font-bold text-ink mt-0.5 leading-snug text-balance">Auto Reference ID</div>
           </div>
           <div className="p-2 bg-card rounded-lg border border-line">
             <div className="t-label font-mono font-bold text-accent">3. AUDIT</div>
-            <div className="t-small font-bold text-ink truncate mt-0.5">Ward Field Check</div>
+            <div className="t-small font-bold text-ink mt-0.5 leading-snug text-balance">Ward Field Check</div>
           </div>
           <div className="p-2 bg-card rounded-lg border border-line">
             <div className="t-label font-mono font-bold text-accent">4. ESCALATION</div>
-            <div className="t-small font-bold text-ink truncate mt-0.5">County / Assembly</div>
+            <div className="t-small font-bold text-ink mt-0.5 leading-snug text-balance">County / Assembly</div>
           </div>
           <div className="p-2 bg-accent/10 rounded-lg border border-accent/20 col-span-2 sm:col-span-1">
             <div className="t-label font-mono font-bold text-accent">5. OUTCOME</div>
-            <div className="t-small font-bold text-accent truncate mt-0.5">SMS Notification</div>
+            <div className="t-small font-bold text-accent mt-0.5 leading-snug text-balance">SMS Notification</div>
           </div>
         </div>
       </div>
 
       {/* Category Filter Chips */}
-      <div className="p-3 bg-card border-b border-line flex items-center gap-1.5 overflow-x-auto scrollbar-none">
+      <div className="p-3 bg-card border-b border-line flex flex-wrap items-center gap-1.5">
         {["All", "Water Infrastructure", "Feeder Roads", "Health Clinic", "Market Sanitation"].map((cat) => (
           <button
             key={cat}
             type="button"
             onClick={() => setSelectedCategory(cat)}
             aria-pressed={selectedCategory === cat}
-            className={`px-3 py-1.5 min-h-[44px] min-w-[44px] justify-center inline-flex items-center rounded-xl t-label font-bold whitespace-nowrap transition-all cursor-pointer ${
+            className={`shrink-0 px-3 py-1.5 min-h-[44px] min-w-[44px] justify-center inline-flex items-center rounded-xl t-label font-bold whitespace-nowrap transition-all cursor-pointer ${
  selectedCategory === cat
                 ? "bg-accent-solid text-on-accent shadow-sm"
                 : "bg-paper border border-line text-muted hover:text-ink"
@@ -191,7 +186,6 @@ export function PublicServiceDeliveryTracker() {
               </div>
 
               <div className="flex items-center gap-2 self-start sm:self-auto">
-                <span className="t-label font-mono text-muted">{report.date}</span>
                 <span className={`t-label font-bold px-2 py-0.5 rounded-full border ${
  report.status === "Resolved / Audited"
                     ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20"

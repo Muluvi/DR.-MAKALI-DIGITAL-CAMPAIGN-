@@ -428,7 +428,7 @@ const level = (s: string) => {
  *
  * A risk register scores on three words — low, medium, high — so a six-risk register routinely
  * puts two or three risks on one point. Plotted faithfully, the ones underneath are invisible:
- * the §13.0 register drew R2 over R1 and R5 over R3, so a reader counted four risks in a figure
+ * the §5.8 register drew R2 over R1 and R5 over R3, so a reader counted four risks in a figure
  * captioned "six". Co-located markers are spread around a ring, in a fixed order, so the
  * arrangement is identical on every render and no marker is ever hidden.
  *
@@ -443,7 +443,7 @@ const level = (s: string) => {
  *
  * A risk register scores on three words — low, medium, high — so a six-risk register routinely
  * puts two or three risks on one point. Plotted faithfully, the ones underneath are invisible:
- * the §13.0 register drew R2 over R1 and R5 over R3, so a reader counted four risks in a figure
+ * the §5.8 register drew R2 over R1 and R5 over R3, so a reader counted four risks in a figure
  * captioned "six". Co-located markers are spread around a ring, in a fixed order, so the
  * arrangement is identical on every render and no marker is ever hidden.
  *

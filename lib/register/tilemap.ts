@@ -17,6 +17,8 @@ export interface TileStyle {
   label: string;
   hatch?: boolean;
   dashed?: boolean;
+  /** The kiondo weave: reserved for "the pool", in laterite. */
+  weave?: boolean;
 }
 
 export interface TileLayer {
@@ -26,7 +28,7 @@ export interface TileLayer {
   source: string;
   tier: "T1" | "T2" | "T3" | null;
   state: "sourced" | "modelled" | "needed" | "target";
-  legend: { label: string; fill: string; hatch?: boolean; dashed?: boolean }[];
+  legend: { label: string; fill: string; hatch?: boolean; dashed?: boolean; weave?: boolean }[];
   style: (t: WardTile) => TileStyle;
 }
 
@@ -80,14 +82,14 @@ export const LAYERS: Record<TileLayerId, TileLayer> = {
     state: "sourced",
     legend: [
       { label: "Held office: Kitui Central", fill: "var(--accent-solid)" },
-      { label: "Never held office: the pool", fill: "var(--neutral-strong)", hatch: true },
+      { label: "Never held office: the pool", fill: "var(--gold-solid)", weave: true },
       { label: "Never held office, outside the pool", fill: "var(--neutral-fill)" },
     ],
     style: (t) =>
       t.constituency === "kitui-central"
         ? { fill: "var(--accent-solid)", ink: "var(--on-accent)", label: "Held" }
         : POOL.has(t.constituency)
-          ? { fill: "var(--neutral-strong)", ink: "var(--card)", label: "Pool", hatch: true }
+          ? { fill: "var(--gold-solid)", ink: "#ffffff", label: "Pool", weave: true }
           : { fill: "var(--neutral-fill)", ink: INK, label: "—" },
   },
   "party-flow": {
@@ -155,7 +157,9 @@ export const LAYERS: Record<TileLayerId, TileLayer> = {
     tier: null,
     state: "target",
     legend: [{ label: "Set in Week 1", fill: "transparent", dashed: true }],
-    style: () => ({ fill: "transparent", ink: "var(--muted)", label: "—", dashed: true }),
+    // A named gap, not a blank: every tile says when its value arrives (D-12). A map of forty
+    // dashes read as broken rather than as data that does not exist yet.
+    style: () => ({ fill: "transparent", ink: "var(--muted)", label: "Week 1", dashed: true }),
   },
 };
 

@@ -34,7 +34,7 @@ const WON_2022 = 198004;
 /**
  * The winning number as a share of the ballots this chart actually draws — derived, not typed.
  *
- * §11.1.3 puts 200,000 at "~53.4% of expected turnout", which only holds if expected turnout is
+ * §1.5 puts 200,000 at "~53.4% of expected turnout", which only holds if expected turnout is
  * about 374,500 (70.3% of the register). This document does not assume that anywhere: its
  * stated countywide participation baseline is 62%, which is the figure the middle stage above
  * is drawn from. Against that baseline the winning number is 60.5% of the ballots cast, and

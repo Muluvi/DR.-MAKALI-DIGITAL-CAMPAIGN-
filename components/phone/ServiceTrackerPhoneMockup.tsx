@@ -16,7 +16,7 @@ export function ServiceTrackerPhoneMockup() {
     <div className="not-prose my-8 rounded-2xl border border-line bg-surface p-4 sm:p-6 shadow-xs">
       <div className="max-w-xl mx-auto text-center mb-6">
         <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-700 dark:text-sky-400 text-xs font-semibold mb-2">
-          <span>§8.2 & §8.2.2 Citizen Grievance Architecture</span>
+          <span>§5.2.1 & §8.2.2 Citizen Grievance Architecture</span>
           <span>•</span>
           <span>Multi-Channel Ingestion</span>
         </div>
@@ -331,7 +331,7 @@ export function ServiceTrackerPhoneMockup() {
       <div className="mt-6 pt-4 border-t border-line text-xs text-muted flex flex-col sm:flex-row items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-sky-500" />
-          <span>Integrated with 40 Ward Coordinator Terminals (§8.8.1)</span>
+          <span>Integrated with 40 Ward Coordinator Terminals (§5.2.3.1)</span>
         </div>
         <span className="font-mono text-[11px] text-muted/80">Average response SLA: &lt; 4 Hours</span>
       </div>

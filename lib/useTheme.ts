@@ -2,26 +2,37 @@
 
 import { useEffect, useState } from "react";
 
-export type ThemeMode = "light" | "dark" | "sepia";
+/**
+ * Two themes: dark (the default, a deep indigo-black ground) and light (warm paper).
+ *
+ * The third, "sepia", was retired in the 2026 premium pass: the palette is measured for two
+ * grounds, and a reader who had chosen sepia is carried to light, its nearest neighbour.
+ */
+export type ThemeMode = "light" | "dark";
+
+function readStored(): ThemeMode {
+  try {
+    const saved = localStorage.getItem("theme");
+    if (saved === "light" || saved === "sepia") return "light";
+  } catch {
+    // Blocked storage is not a reason to fail: the default stands.
+  }
+  return "dark";
+}
+
+function apply(mode: ThemeMode) {
+  const root = window.document.documentElement;
+  root.classList.remove("dark", "sepia");
+  if (mode === "dark") root.classList.add("dark");
+}
 
 export function useTheme() {
   const [theme, setTheme] = useState<ThemeMode>("dark");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Access localStorage on initial client load - default to true-black OLED dark
-    const savedTheme = localStorage.getItem("theme") as ThemeMode | null;
-    const initialTheme: ThemeMode = savedTheme || "dark";
-
-    // Apply root classes instantly to avoid flash of unstyled theme
-    const root = window.document.documentElement;
-    root.classList.remove("dark", "sepia");
-    if (initialTheme === "dark") {
-      root.classList.add("dark");
-    } else if (initialTheme === "sepia") {
-      root.classList.add("sepia");
-    }
-
+    const initialTheme = readStored();
+    apply(initialTheme);
     setTimeout(() => {
       setTheme(initialTheme);
       setMounted(true);
@@ -33,25 +44,15 @@ export function useTheme() {
     const root = window.document.documentElement;
     root.classList.add("theme-switching");
     window.setTimeout(() => root.classList.remove("theme-switching"), 200);
-
-    root.classList.remove("dark", "sepia");
-    if (mode === "dark") {
-      root.classList.add("dark");
-    } else if (mode === "sepia") {
-      root.classList.add("sepia");
+    apply(mode);
+    try {
+      localStorage.setItem("theme", mode);
+    } catch {
+      // As above.
     }
-    localStorage.setItem("theme", mode);
   };
 
-  const toggleTheme = () => {
-    const cycle: Record<ThemeMode, ThemeMode> = {
-      dark: "light",
-      light: "sepia",
-      sepia: "dark"
-    };
-    const nextTheme = cycle[theme] || "dark";
-    setThemeMode(nextTheme);
-  };
+  const toggleTheme = () => setThemeMode(theme === "dark" ? "light" : "dark");
 
   return { theme, setThemeMode, toggleTheme, mounted };
 }

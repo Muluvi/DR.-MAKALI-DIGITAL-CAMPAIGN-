@@ -96,7 +96,7 @@ export function FlowChrome({
       {/* Brief or Full, wherever the reader is.
 
           The hero carries the full segmented control with both reading times, but the hero only
-          exists on "/" and "/full". A reader who followed a deep link into §13.4.3 lands on that
+          exists on "/" and "/full". A reader who followed a deep link into §F.12 lands on that
           chapter's own route, in Brief, with no way back to the whole text — so the choice lives
           here too, in the one piece of chrome that follows the reader down every page. */}
       <button

@@ -62,7 +62,7 @@ export const KITUI_SOUTH = blocTotal(CONSTITUENCIES, ["Kitui South"]);
 /**
  * The recognition-deficit pool: Mwingi plus Kitui South.
  *
- * Note what it does NOT include. §3.4.5 names three Kitui East border wards among the deficit
+ * Note what it does NOT include. §3.4 names three Kitui East border wards among the deficit
  * zones and then directs effort into "these 24 northern and southern deficit wards" — but the
  * pool it quotes, 275,570, is Mwingi (200,198) + Kitui South (75,372) and excludes Kitui East
  * entirely. Mwingi's 15 wards plus Kitui South's 6 is 21, not 24. That is conflict C-7, and the

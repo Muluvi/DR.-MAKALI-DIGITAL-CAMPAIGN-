@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
 import { FIGURES } from "../../lib/data/figures";
@@ -12,8 +12,8 @@ import { FIG_COVER_MAP } from "../../lib/register/specs/s0-cover";
 import { Portrait } from "../Portrait";
 import { BigNumber } from "./BigNumber";
 import { CountyStatic } from "./CountyStatic";
-import { useFrames } from "./FramesShell";
 import { provenanceOf } from "./ProvPill";
+import type { SceneTheme } from "../../lib/premium/palette";
 
 const CountyScene = dynamic(() => import("./CountyScene"), { ssr: false });
 
@@ -60,8 +60,7 @@ function probeWebgl(): boolean {
   }
 }
 
-export function CoverHero() {
-  const { theme } = useFrames();
+export function CoverHero({ theme, byline, children }: { theme: SceneTheme; byline?: ReactNode; children?: ReactNode }) {
   const reduce = useReducedMotionSafe();
   const section = useRef<HTMLElement>(null);
   const progress = useRef(0);
@@ -83,6 +82,7 @@ export function CoverHero() {
       const p = span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 0;
       progress.current = p;
       el.style.setProperty("--p", p.toFixed(4));
+      el.dataset.late = p > 0.22 ? "true" : "false";
     };
     const on = () => {
       if (!frame) frame = requestAnimationFrame(read);
@@ -113,6 +113,7 @@ export function CoverHero() {
           </div>
 
           <div className="pf-hero__copy">
+            {byline}
             <p className="pf-seal">
               <span className="pf-seal__mark" aria-hidden="true" />
               <strong>Confidential</strong> — personal, link-only.
@@ -124,6 +125,7 @@ export function CoverHero() {
             <p className="pf-hero__sub">
               Campaign strategy and digital architecture for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
             </p>
+            {children && <div className="pf-hero__controls">{children}</div>}
           </div>
 
           {story && (

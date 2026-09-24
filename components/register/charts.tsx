@@ -1,6 +1,8 @@
 import type { Bar, CellState, Chart as ChartSpec, FigureSpec, Ref } from "../../lib/register/types";
 import { group } from "../../lib/data/format";
 import { TileMap } from "./TileMap";
+import { FunnelV2 } from "../premium/FunnelV2";
+import { Reveal } from "../premium/Reveal";
 
 /**
  * The register's marks. Server-rendered HTML and SVG; nothing here needs JavaScript to be read.
@@ -34,7 +36,7 @@ function Part({ c, spec }: { c: ChartSpec; spec: FigureSpec }) {
     case "stack": return <Stack chart={c} />;
     case "waterfall": return <Waterfall chart={c} />;
     case "slope": return <Slope chart={c} title={spec.title} />;
-    case "funnel": return <Funnel chart={c} id={spec.id} />;
+    case "funnel": return <Reveal><FunnelV2 chart={c} id={spec.id} /></Reveal>;
     case "tilemap": return <TileMap id={spec.id} layers={c.layers} initial={c.initial} showWardList={c.showWardList} />;
     case "timeline": return <Timeline chart={c} />;
     case "steps": return <Steps chart={c} />;
@@ -237,43 +239,6 @@ function Slope({ chart, title }: { chart: Extract<ChartSpec, { type: "slope" }>;
 }
 
 /* ------------------------------------------------------------------ explanatory arithmetic */
-
-function FunnelStages({ stages, ref_ }: { stages: Extract<ChartSpec, { type: "funnel" }>["stages"]; ref_?: Ref }) {
-  const top = Math.max(...stages.map((s) => s.value ?? 0));
-  return (
-    <ol className="rb-list">
-      {stages.map((s, i) => (
-        <li key={s.label} className="rb-row">
-          <div className="rb-label">
-            <span>{i > 0 ? "→ " : ""}{s.label}{s.state !== "sourced" && <span className="rb-note"> · {STATE_WORD[s.state]}</span>}</span>
-            <span className="v">{s.value === null ? "Data needed" : s.display ?? group(s.value)}</span>
-          </div>
-          <div className="rb-track" aria-hidden="true">
-            <span className={barClass({ state: s.state, tone: i === stages.length - 1 ? "accent" : "neutral" })} style={{ width: `${((s.value ?? 0) / top) * 100}%` }} />
-            {ref_ && <span className="rb-ref" style={{ left: `${(ref_.value / top) * 100}%` }} />}
-          </div>
-          {s.note && <p className="rb-note">{s.note}</p>}
-        </li>
-      ))}
-    </ol>
-  );
-}
-
-function Funnel({ chart, id }: { chart: Extract<ChartSpec, { type: "funnel" }>; id: string }) {
-  if (!chart.toggle) return <FunnelStages stages={chart.stages} ref_={chart.ref} />;
-  // A two-state toggle that needs no script: a pair of radios, and CSS shows the checked one.
-  return (
-    <div className="tm">
-      <fieldset className="tm-layers">
-        <legend>Register</legend>
-        <label><input type="radio" name={`${id}-toggle`} value="register" defaultChecked /><span>2022 register</span></label>
-        <label><input type="radio" name={`${id}-toggle`} value="zones" /><span>{chart.toggle.label}</span></label>
-      </fieldset>
-      <div className="tm-panel is-default" data-l="register"><FunnelStages stages={chart.stages} ref_={chart.ref} /></div>
-      <div className="tm-panel" data-l="zones"><FunnelStages stages={chart.toggle.stages} ref_={chart.ref} /></div>
-    </div>
-  );
-}
 
 /* ------------------------------------------------------------------ time and process */
 
