@@ -1,0 +1,6 @@
+Step,Side,What happens,Detail,Basis
+1,Field,Canvass,"A ward champion canvasses a household: four options, under thirty seconds.",Sourced
+2,Digital,Log the outcome,"Support, undecided or oppose, synced when signal returns.",Sourced
+3,Digital,Update the score,The voter score moves (Section 5.2.4.2).,Sourced
+4,Digital,Re-segment within 24 hours,Ad audiences and SMS lists; committed opponents are removed from paid targeting.,Sourced
+5,Field,Route the highest-value doors,"Warm leads go to the champion's phone as priority doors, with the issue each household engaged with.",Sourced

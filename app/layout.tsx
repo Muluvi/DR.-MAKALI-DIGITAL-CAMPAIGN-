@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Montserrat, Newsreader, JetBrains_Mono } from 'next/font/google';
 import './globals.css'; // Global styles
+import './register.css'; // The figure register's visual system
 
 // The variable axis, not a pair of static cuts.
 //
@@ -113,7 +114,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="en" suppressHydrationWarning className={`dark ${montserrat.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`dark ${montserrat.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}>
+      <head>
+        {/* With scripts off, no accordion can open, so every panel ships open (brief §Q: JS-off). */}
+        <noscript>
+          <style>{`.dg-panel{display:block!important}`}</style>
+        </noscript>
+      </head>
       <body suppressHydrationWarning className="font-sans antialiased bg-paper text-ink">{children}</body>
     </html>
   );

@@ -19,6 +19,7 @@ export function ChapterMarker({
   position,
   total,
   minutes,
+  asTitle = false,
 }: {
   number: string;
   label: string;
@@ -26,7 +27,10 @@ export function ChapterMarker({
   position: number;
   total: number;
   minutes: number;
+  /** On a single-section route there is no hero, so the section's name is the page's one H1. */
+  asTitle?: boolean;
 }) {
+  const Heading = asTitle ? "h1" : "h2";
   const [ref, inView] = useInView<HTMLElement>({ amount: 0.3, margin: "-8% 0px" });
   const pct = Math.round(((position + 1) / total) * 100);
 
@@ -40,7 +44,7 @@ export function ChapterMarker({
           <span className="flow-chap__time">{minutes} min</span>
         </span>
       </div>
-      <h2 className="flow-chap__label">{label}</h2>
+      <Heading className="flow-chap__label">{label}</Heading>
       <p className="flow-chap__blurb">{blurb}</p>
       <span className="flow-chap__rail" aria-hidden="true">
         <span className="flow-chap__railfill" style={{ "--flow-pct": `${pct}%` } as React.CSSProperties} />

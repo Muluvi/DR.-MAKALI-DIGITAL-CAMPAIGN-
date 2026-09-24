@@ -1,4 +1,338 @@
-What the campaign receives, at which scope level, how often, and in what form.
+The first four weeks, the phases to August 2027, what the campaign receives, how progress is measured and decided, what could go wrong, and how the work is staffed.
+
+## 5.3 The first four weeks
+
+**Objective:** close the recognition gap outside Kitui Central ahead of the Wiper
+flagbearer decision, which party sources indicate is intended to conclude
+within the final quarter of 2026.
+
+**The strategic hypothesis being tested:** Dr. Mulu's deficit is a
+geography-of-recognition problem concentrated outside Kitui Central, not a
+credibility problem. If the Week 1 audit and the Phase −1 message lab confirm
+this, the response is reach into Mwingi and the arid belt. If they refute it —
+if the deficit is about perceived distance from ordinary voters rather than
+unfamiliarity — the response is different, and the campaign will know **before**
+significant effort is committed. This is the discipline the rest of the
+proposal claims to embody, applied to its own first assumption.
+
+```figure
+id: fig-5-3-four-weeks
+```
+
+**Week 1 — the presence audit (immediate):**
+- **The presence audit (Sections 5.3.1–5.3.5)** — ninety days of the existing channels: reach by ward, engagement on
+  reach, language mix, format mix, cadence, and the structural Page-or-profile question
+  `[Insert baseline audit results — Week 1 deliverable]`
+- **Competitive baseline against Dr. Kasalu, Sen. Wambua and Hon. Ngilu** on public data — this
+  is the number the whole phase is measured against
+- Meta Ad Library and Google Transparency Centre review of all rival activity
+- Rapid channel-mix assessment by zone against connectivity data
+
+**Weeks 1–2 — foundations:**
+- **The account-security baseline, specified by Firefly and applied by your team**: hardware-key
+  2FA for the candidate and all admins in week one (Section F.8). Firefly writes the standard;
+  the credentials never leave the campaign
+- The capability map and the written standard (Section 5.9.6)
+- Commission the Section 5.7.9 compliance review — **start the clock early, it
+  is the long-lead item**
+- Confirm the Kikamba reviewer
+
+**Weeks 2–6 — the first directed cycles:**
+- The weekly brief issued from Week 2; your team's daily multilingual output weighted
+  35% Mwingi / 30% arid belt / 20% anchor / 15% testing
+- **Immediate SMS opt-in drive** — the consented list is the phase's most
+  durable asset and compounds into every later phase
+- Two flagship videos: the vision piece, and one built entirely around the
+  verification credential
+- Facebook Live town halls weekly from Week 3
+- Kikamba voice-note series from Dr. Mulu — one per week, distributed by
+  WhatsApp and ward networks
+- Earned media push: Tier C expert placements on county fiscal management
+  (Section 5.2.2.2), plus priority-station radio
+- **One message-lab round across all three zones** (Section 5.6.9) — mandatory
+- Publish the Digital Ethics & Data Charter — a differentiating news moment in
+  its own right during a nomination contest
+
+**Weeks 6–8 — consolidation:**
+- Full-scale red-team drill before the nomination decision (Section F.6)
+- Coalition roundtables with professional associations
+- Ward champion recruitment begins in the 15 highest-priority wards
+
+**Phase −1 KPIs:**
+
+| Metric | Target |
+|---|---|
+| Presence audit completed (Section 5.3) | Week 1 |
+| Compliance review commissioned | Week 2 |
+| Hardware-key 2FA on all admin accounts, applied by your team | Week 1, 100% |
+| Consented SMS contacts | **15,000** |
+| Wards with active SMS presence | 15 |
+| Reach share landing in the deficit pool (R-02) | ≥ 51.7% by Week 6 |
+| Facebook Live town halls | 6 |
+| Kikamba voice notes published | 6 |
+| Earned media items | ≥ 10, including ≥ 4 radio |
+| Message-lab round completed | 1, all three zones |
+| Charter published in three languages | Week 4 |
+| **Profile corrections shipped (Section 4.7)** | **6 of 6 by Week 2** |
+
+### 5.3.1 The measurement set
+
+| Group | Measured | Why this one |
+|---|---|---|
+| **Audience** | Followers by city and country; by age band and sex; growth curve over 12 months | The decisive test. Follower geography checks the recognition thesis against his own asset rather than against a poll. |
+| **Reach** | Daily reach, organic against paid; reach by city mapped to sub-county; reach per post; reach as a share of followers | Reach by city is the only routinely available proxy for ward-level penetration. |
+| **Engagement** | Reactions, comments and shares per post; engagement rate **on reach, not on followers**; shares per 1,000 reached; distinct commenting accounts, and the share of all comments from the top 50 | Rate on reach is the honest denominator. Share rate is the persuasion proxy — a share puts his name inside a network he does not own. |
+| **Content** | Every post coded on four axes: pillar, language, format, and whether it carries a commitment, a date, a ward name or a call to action | Turns 745 posts from an archive into a distribution. Without coding there is nothing to compare. |
+| **Video** | 3-second and 30-second views, average watch time, completion rate | Decides whether long flagship video is the right commitment or the wrong one. |
+| **Cadence** | Posts per day, hour of day, day of week | Establishes what the team's current capacity actually is, before any brief assumes more of it. |
+| **Paid** | Meta Ad Library and Google Ads Transparency Centre, for Dr. Mulu and all three rivals | Public, needs no access from anyone, and is the only competitive advertising signal that exists. |
+| **Other platforms** | `[DATA NEEDED — handles and follower counts for X, TikTok, Instagram, YouTube, and any WhatsApp Channel or Business number. Not estimated.]` | Named as a gap rather than filled with an assumption, per Annex A. |
+
+### 5.3.2 The window
+
+**Ninety days: 18 June to 16 September 2026.** Two reasons, and neither of them is convenience.
+
+1.  It is the longest window Meta exports at post level without gaps.
+2.  It is long enough to show cadence and short enough to describe the team working today rather
+    than a team that has changed since.
+
+The follower-growth curve is pulled over twelve months instead, for seasonality. That series is
+cheap and stable, and a ninety-day slice of it says nothing.
+
+### 5.3.3 What is measured
+
+The first work of the engagement: ninety days of Dr. Mulu's own channels, measured, coded and read against the race. Everything after this section is built on what it finds.
+
+### 5.3.4 Why this comes first
+
+Every other analysis in this document is about Kitui — the register, the census, the results, the
+audit record. This one is about the only communications asset Dr. Mulu actually controls.
+
+A verified Facebook presence, roughly 15,000 followers and 745 posts is not a standing start. It is
+an operating channel with a record, and that record can be read. What it has never been asked is the
+only question that matters in a countywide name-recognition contest: **how much of this reach lands
+where he is not yet known?**
+
+Section 3.4 establishes that **275,570 registered voters — 51.7% of the county register** — sit
+where he has never held office. Section 3.8 establishes that in-county digital reach has a
+ceiling of about 158,696 voters. Put together, those two figures make one measurement decisive:
+the share of existing reach that lands inside the deficit pool. Nothing in the public record answers
+it. The Week 1 audit does.
+
+### 5.3.5 Method
+
+1.  **Confirm Page or profile.** Record the answer before anything else is touched.
+2.  **Export.** Meta Business Suite → Insights → 90 days: reach, engagement, followers,
+    demographics, city breakdown, as CSV. If it is a profile, substitute a manual tally of public
+    counts and say so on every chart that results.
+3.  **Post-level export**, every post in the window.
+4.  **Code it twice.** Two coders score each post on the four axes independently; disagreements go
+    to a third pass; the inter-coder agreement rate is reported alongside the findings. A coding
+    exercise that does not report its own agreement rate is an opinion.
+5.  **Competitive baseline.** The same public post-level coding for Dr. Kasalu, Sen. Wambua and
+    Hon. Ngilu. Public posts only.
+6.  **Ad libraries** for all four.
+7.  **Overlay.** Reach-by-city onto the twelve decisive wards in Section 3.2 and the
+    275,570-voter deficit pool in Section 3.4.
+8.  **Aggregate only.** No named commenter lists, no export of individual profiles, no retention of
+    personal data. Counts and shares. The audit is scoped in the Section 5.7.9 memorandum before it
+    begins, on the same terms as every other processing activity in this engagement.
+
+### 5.3.6 What this section is not
+
+It is not an appraisal of the people doing the work. Section 5.9.6 sets out how the team is assessed
+and upskilled, and that assessment is done with them in the room. This section reads the output, not
+the operators — and the distinction is kept deliberately, because a measurement exercise that
+doubles as a performance review will be resisted, and rightly.
+
+### 5.3.7 Phase 0: Instrumentation — Weeks 4–10 from signature
+
+*Runs concurrently with the tail of Phase −1. Phases 1 to 3 below keep their calendar anchors,
+because they are set by the electoral calendar rather than by when this engagement starts.*
+
+**Activities:**
+- Weeks 1–2: complete competitor analysis; identify structural gaps and
+  opportunities
+- Weeks 3–4: **analytics access configured on the accounts you already hold**; reporting
+  dashboards live; **USSD shared code commissioned** (5–7 working days
+  for set-up)
+- Weeks 5–6: brand guidelines, content library, 90-day content calendar;
+  **WCAG audit before public launch**
+- Weeks 7–8: the campaign recruits **40 ward digital champions** (campaign-owned, Section 5.1.3);
+  Firefly delivers the mandatory data-handling training; establish WhatsApp reporting
+  structures. Recruitment priority: Mwingi Central, Mutomo, Kitui Central
+- Service-delivery tracker built and tested (Section 5.2.1.1)
+
+**KPIs:**
+- Analytics access live on every existing channel, and the audit reproducible monthly
+- Baseline metrics recorded across reach, engagement and sentiment
+- Website live, WCAG 2.1 AA audited, with volunteer forms
+- USSD code live across all networks
+- 40 ward digital champions onboarded and data-trained
+- First 100 pieces of content approved and scheduled
+- **Section 5.7.9 compliance opinion received**
+
+
+## 5.4 The phases to August 2027
+
+Five phases: a new Phase −1 addressing the nomination contest, followed by the
+original four phases running to the General Election on **10 August 2027**.
+
+```figure
+id: fig-5-4-phases
+```
+
+**How to read the metric tables below.** Rows marked **°** are **operational diagnostics**, not
+performance indicators. Reach, follower and view counts are what the team steers ad delivery and
+creative by, and they are published here so the campaign can see what is being optimised. They are
+deliberately excluded from how performance is judged: Section 5.6.7 keeps them out of executive
+dashboards, reporting meetings and vendor performance contracts, and gives the reasons — a 73.8%
+offline population, diaspora-skewed interaction, and no demonstrated link to turnout. Performance
+is judged on the indicators in Section 5.6, every one of which traces either to the nomination
+objectives in Section 1.3 or to the ~200,000-vote benchmark. Where a row below is **bold**, it is one of those.
+
+### 5.4.1 Phase 1: Awareness and Community Building — October–December 2026
+
+**Activities:**
+- Daily multilingual content on a structured calendar
+- Weekly Facebook Live town halls (Thursdays, 19:00–20:00 EAT)
+- Official campaign hashtag **#MuluForKitui** plus a Kikamba equivalent
+  `[Insert — native-speaker developed]`
+- Paid campaigns begin with weekly A/B testing; zone allocation 25% Anchor /
+  25% Mwingi / 30% Arid Belt / 20% rotating
+- **SMS programme scales to all 40 wards**
+- **Service-delivery tracker launches publicly**
+- First three "Dr. Mulu Explains" policy videos
+- Coalition programme: MSME associations, youth groups
+- Analytics maturity Stage 1 complete
+
+**KPIs:**
+
+| Metric | Target |
+|---|---|
+| Combined social reach ° | 1,000,000 |
+| Engaged followers ° | 50,000 |
+| **Consented SMS contacts** | **40,000** |
+| **USSD unique sessions** | **5,000** |
+| **Tracker reports received** | **500** |
+| Email/SMS subscribers | 5,000 |
+| Digital volunteer sign-ups | 1,000 |
+| Facebook engagement rate | ≥ 5% |
+| Earned media items/month | ≥ 8 |
+| Opt-out rate | < 2% |
+
+### 5.4.2 Phase 2: Engagement and Persuasion — January–March 2027
+
+**Activities:**
+- Ward-specific ads on local issues — water scarcity in Ikutha, mango prices in
+  Kitui West, market fees in Mwingi Central
+- Partnerships with Kitui influencers and community leaders, all disclosed
+- Diaspora webinars every three weeks, targeting the expanded
+  26-country registration footprint
+- Candidate vision video and digital manifesto, with **KSL interpretation and
+  plain-language summaries in all three languages**
+- TikTok and Reels series for first-time voters
+- Live policy debates and Q&A on Facebook and X
+- Weekly sentiment reporting
+- **Quarterly red-team drill; quarterly message lab**
+- Analytics maturity Stages 2–3, subject to the compliance gate
+
+**KPIs:**
+
+| Metric | Target |
+|---|---|
+| Cumulative reach ° | 3,000,000 |
+| Engaged followers ° | 150,000 |
+| **Consented SMS contacts** | **80,000** |
+| **USSD unique sessions** | **25,000** |
+| **Tracker reports** | **3,000** |
+| Email/SMS subscribers | 15,000 |
+| Digital volunteer sign-ups | 5,000 |
+| Positive sentiment | ≥ 50% |
+| Viral content pieces (>100,000 views) ° | ≥ 10 |
+| Red-team response times meeting target | ≥ 90% |
+
+### 5.4.3 Phase 3: Mobilisation and GOTV — April–August 2027
+
+**Activities:**
+- Digital and SMS voter registration drives; pledge-to-vote cards
+- Ward-level WhatsApp command centres for real-time updates and verification
+- Daily live streams; continuous misinformation monitoring and rebuttal
+- **Full GOTV SMS sequence** to the consented list, segmented by turnout score
+- Targeted ads to registered voters and undecided segments
+- Closing-argument video combining testimonials, county fiscal data and the
+  tracker record
+- Daily countdown content from 30 days out
+- **Full-scale red-team drill at 60 days**
+- Analytics maturity Stage 4
+
+**KPIs:**
+
+| Metric | Target |
+|---|---|
+| Cumulative reach ° | 5,000,000 |
+| Engaged followers ° | 250,000 |
+| **Consented SMS contacts** | **120,000** |
+| **USSD unique sessions** | **60,000** |
+| **Tracker reports** | **8,000** |
+| Digital pledges to vote | 30,000 |
+| Positive sentiment | ≥ 80% |
+| Voter registration lift in target wards | ≥ 10% |
+| GOTV contact rate | ≥ 70% |
+| **Contact share of the ~200,000 win threshold** | **≥ 75%** |
+| Misinformation incidents responded to within severity target | 100% |
+
+### 5.4.4 Post-election
+
+- Data deletion executed within **90 days** of the declaration of results, per
+  the charter, with public confirmation
+- Service-delivery tracker continues, per the Section 5.2.1.1 commitment
+- Full campaign post-mortem with performance against every KPI in this document
+
+---
+
+### 5.4.5 Coalition and endorsement sequencing
+
+### 5.4.6 The principle behind the sequence
+
+Coalitions are built around **shared economic and civic interests** — water,
+credit, market access, employment, transparency. They are never built around
+ethnic, clan or religious bloc identity. Faith and community networks are
+engaged as **civic institutions with legitimate service-delivery concerns**,
+which is both the ethical position and the effective one: a water commitment
+made to a congregation is a policy conversation, while a bloc appeal is a
+liability.
+
+### 5.4.7 The sequenced calendar
+
+| Phase | Target constituencies | Engagement | Digital output |
+|---|---|---|---|
+| **Phase −1** (Aug–Sep 2026) | Professional associations (economists, accountants, evaluators); Kitui teachers' networks; SEKU and MUT alumni | Roundtables on county fiscal management; leverage Evaluation Society of Kenya membership | Thought-leadership content; LinkedIn and X threads; earned media |
+| **Phase 0** (Sep–Oct 2026) | Ward-level women's cooperatives and table-banking groups | Listening sessions; identify chairladies as Tier 3 organisers | Kikamba voice notes; testimonial series |
+| **Phase 1** (Oct–Dec 2026) | MSME and market traders' associations (Kitui Town, Mwingi, Mutomo, Kabati, Kyuso) | Licensing, cess and market infrastructure forums | Policy briefs; Facebook Live Q&A |
+| **Phase 1–2** | Youth groups, boda boda SACCOs, TVET student bodies | Enterprise and licensing sessions | TikTok series; first-time-voter drive |
+| **Phase 2** (Jan–Mar 2027) | Farmer and livestock cooperatives; water user associations | Input supply, sand dams, drought and flood resilience | Ward-specific video; SMS policy drops |
+| **Phase 2** | Faith leaders across denominations | Service delivery, integrity, civic participation — **issue-based, never sectarian** | Community-programming content |
+| **Phase 2–3** | Diaspora chambers and associations | Investment, remittance, **the expansion of diaspora registration from 12 to 26 countries** | Webinars |
+| **Phase 3** (Apr–Aug 2027) | Consolidation and public endorsement sequencing | Staged announcements for sustained news cycles | Endorsement content series |
+
+### 5.4.8 Managing endorsements
+
+* Every endorsement is **voluntary, documented and disclosed**. No paid
+endorsement is presented as organic — a breach of platform policy and of the
+Section 5.7.8 charter.
+* Influencer partnerships carry clear paid-partnership disclosure.
+* Endorsements are sequenced for cadence rather than clustered, sustaining
+momentum across the nomination and general-election windows.
+
+### 5.4.9 Coalition KPIs
+
+| Metric | Target |
+|---|---|
+| Institutional engagements completed by end of Phase 2 | ≥ 40 |
+| Tier 3 organisers recruited from cooperative networks | ≥ 80 |
+| Endorsements publicly announced by Phase 3 | `[Insert target]` |
+| Earned media items generated from coalition activity | ≥ 2/month |
 
 ## 5.5 What Dr. Mulu receives, and how often
 
@@ -9,10 +343,10 @@ quoted interchangeably:
 
 | Term | Means | Where it is set |
 |---|---|---|
-| **Consented SMS contacts** | Phone numbers held with opt-in, reachable by SMS | 8.10.6: 120,000 by Phase 3 |
-| **Contact universe** | Everyone reachable by any owned channel, SMS or otherwise | 10.1.2: ~60k / ~150k / ~250k by level |
-| **Pledged voters** | CRM records with phone, ward and polling station logged | 11.1.2 GE-01: 220,000 target |
-| **Verified supporters** | Pledged voters confirmed by a second touch | 4.2: 200,000 target |
+| **Consented SMS contacts** | Phone numbers held with opt-in, reachable by SMS | 5.2.3.3: 120,000 by Phase 3 |
+| **Contact universe** | Everyone reachable by any owned channel, SMS or otherwise | 5.5.2: ~60k / ~150k / ~250k by level |
+| **Pledged voters** | CRM records with phone, ward and polling station logged | 5.6.2 GE-01: 220,000 target |
+| **Verified supporters** | Pledged voters confirmed by a second touch | 1.3.4: 200,000 target |
 
 They are nested, not alternatives: consented contacts ⊂ contact universe, and verified
 supporters ⊂ pledged voters.
@@ -23,11 +357,11 @@ runs, how far the team upskilling goes, and how many wards carry an active SMS a
 none of them changes is who publishes: your team does, at every level.
 
 **Accessibility is not a service level.** Sign-language interpretation on flagship content, and
-every commitment in Section 5.2.4.3, applies in full at whichever level is chosen. Accessibility is
+every commitment in Section 5.2.1.4, applies in full at whichever level is chosen. Accessibility is
 not something a campaign buys more of, and it is not a line to trade away.
 
 #### Level 1 — LEAN
-**Purpose:** win the nomination, prove the model, keep the analysis cheap.
+**Purpose:** win the nomination, prove the model, keep the analysis light.
 * **Firefly team:** Strategy Director + Analyst; offline-layer operator part-activated
 * **Presence audit:** once, at the start
 * **Reach reporting:** the 12 decisive wards in Section 3.2 only
@@ -66,24 +400,13 @@ WhatsApp Business API capacity
 * **Analytics:** licensed social listening (Brandwatch/Meltwater class); full attribution
 * **Crisis:** monthly red-team drills; retained deepfake detection capability
 * **Trade-offs:** it refreshes the analysis faster than a nomination sprint has capacity to act on,
-and that is a real cost rather than a disclaimer
+and that is a real drawback rather than a disclaimer
 
 ### 5.5.2 The scope levels compared
 
-| | Lean | Standard | Premium |
-|---|---|---|---|
-| Presence audit | Once, at start | **Refreshed monthly** | Refreshed fortnightly |
-| Wards with reach reporting | 12 decisive | **All 40** | All 40 + diaspora |
-| Wards with active SMS/USSD | Partial | **All 40** | All 40 + diaspora |
-| Weekly brief | ✓ | ✓ | ✓ |
-| Creative testing | Monthly | **Weekly** | Weekly + message lab |
-| Predictive voter scoring | ✗ | ✓ | ✓ |
-| Multi-touch attribution | ✗ | ✓ | ✓ |
-| Focus groups | ✗ | Quarterly | Monthly |
-| Team upskilling | Standard, once | **Standard + pairing to Month 3** | Standard + embedded coaching |
-| Red-team drills | On trigger | Quarterly | Monthly |
-| Arid-belt reach | Weak | Strong | Strong |
-| Realistic Phase 3 contact universe | ~60,000 | ~150,000 | ~250,000 |
+```figure
+id: fig-5-5-cadence
+```
 
 **Recommendation: Level 2 (Standard).** Level 1 instruments only the twelve decisive wards, which
 leaves the recognition deficit measured at county level — the one place this campaign cannot afford
@@ -106,27 +429,26 @@ now directed. Firefly's own deliverables are the brief, the analysis and the off
 
 | Deliverable | Cadence | Produced by | Form | Where it is set |
 |---|---|---|---|---|
-| Flagship video | 2–3 per week | Your team | Subtitled video, platform-native cuts | 8.3.4 |
-| Daily multilingual social | Daily | Your team | Post, graphic or short video in English, Kiswahili and Kikamba | 8.3.4 |
-| Kikamba voice note | Weekly | Your team, Kikamba reviewer signs off | Audio for WhatsApp and community networks | 8.3.2 |
-| Facebook Live | Weekly | Your team | Live broadcast with moderated comments | 8.3.4 |
-| Kitui Economic Brief | Monthly | Your team | Plain-language explainer, print and digital | 8.3.4 |
-| "Dr. Mulu Explains" | Weekly | Your team | Explainer video or audio on county finance | 8.1.1 |
-| **The weekly brief** | **Weekly, Thursday** | **Firefly** | One page: pillar weights, must-post items, ward priority, language rule | 12.1.1 |
-| Content calendar | Weekly, Friday | Your team, Firefly approves | Approved calendar for the week ahead | 8.3.4 |
-| SMS touch to the consented list | Fortnightly, rising to a GOTV surge | **Firefly** | 160-character Kiswahili or English SMS — Kikamba is not permitted on the bulk SMS rail (§5.2.9.2) | 8.10.2 |
-| USSD menu availability | Continuous once provisioned | **Firefly** | Zero-rated interactive menu across all networks | 8.10.3 |
-| Ward coordinator field report | Daily | Campaign ground team | Structured report from all 40 wards into the CRM | 8.8.1 |
-| Creative test cycle | Weekly | **Firefly** designs and reads; your team produces variants | A/B test results and the decisions taken from them | 8.4.3 |
-| **Presence audit refresh** | **Monthly** | **Firefly** | Ninety-day rolling read: reach by ward, language, format, field comparison | 1A.5 |
-| Performance report | Monthly | **Firefly** | Reach in the deficit pool, engagement, sentiment, conversion | 12.1.1 |
-| Sentiment report to leadership | Monthly | **Firefly** | Written brief with ward-level detail | 8.1.2 |
-| Competitive brief | Monthly | **Firefly** | Public-source summary of rival activity | 13.4.3 |
-| Tracking survey wave | Bi-weekly through the nomination window | **Firefly** commissions the instrument | Internal instrument, countywide and by zone | 4.1.1, 11.2.1 |
-| Focus groups | Quarterly | Independent facilitator, Kitui-based | Facilitated sessions across the three zones | 11.3.1 |
-| Red-team drill | Quarterly | **Firefly** + your team | Simulated attack and a written after-action note | 13.2.4 |
-| Compliance review | Once, early, then on material change | Campaign's appointed reviewer | Written opinion | 12.5.5 |
-| Asset library deposit | Continuous | Your team | Originals with metadata retained, catalogued | 8.3.6, 12.1.1 |
+| Flagship video | 2–3 per week | Your team | Subtitled video, platform-native cuts | 5.2.1.2 |
+| Daily multilingual social | Daily | Your team | Post, graphic or short video in English, Kiswahili and Kikamba | 5.2.1.2 |
+| Kikamba voice note | Weekly | Your team, Kikamba reviewer signs off | Audio for WhatsApp and community networks | 5.2.1.2 |
+| Facebook Live | Weekly | Your team | Live broadcast with moderated comments | 5.2.1.2 |
+| Kitui Economic Brief | Monthly | Your team | Plain-language explainer, print and digital | 5.2.1.2 |
+| "Dr. Mulu Explains" | Weekly | Your team | Explainer video or audio on county finance | 5.1.6 |
+| **The weekly brief** | **Weekly, Thursday** | **Firefly** | One page: pillar weights, must-post items, ward priority, language rule | 5.7.1 |
+| Content calendar | Weekly, Friday | Your team, Firefly approves | Approved calendar for the week ahead | 5.2.1.2 |
+| SMS touch to the consented list | Fortnightly, rising to a GOTV surge | **Firefly** | 160-character Kiswahili or English SMS — Kikamba is not permitted on the bulk SMS rail (§5.2.3.3) | 5.2.3.3 |
+| USSD menu availability | Continuous once provisioned | **Firefly** | Zero-rated interactive menu across all networks | 5.2.3.3 |
+| Ward coordinator field report | Daily | Campaign ground team | Structured report from all 40 wards into the CRM | 5.2.3.1 |
+| Creative test cycle | Weekly | **Firefly** designs and reads; your team produces variants | A/B test results and the decisions taken from them | 5.2.1.3 |
+| **Presence audit refresh** | **Monthly** | **Firefly** | Ninety-day rolling read: reach by ward, language, format, field comparison | 5.3 |
+| Performance report | Monthly | **Firefly** | Reach in the deficit pool, engagement, sentiment, conversion | 5.7.1 |
+| Sentiment report to leadership | Monthly | **Firefly** | Written brief with ward-level detail | 5.1.7 |
+| Competitive brief | Monthly | **Firefly** | Public-source summary of rival activity | F.12 |
+| Focus groups | Quarterly | Independent facilitator, Kitui-based | Facilitated sessions across the three zones | 5.6.10 |
+| Red-team drill | Quarterly | **Firefly** + your team | Simulated attack and a written after-action note | F.6 |
+| Compliance review | Once, early, then on material change | Campaign's appointed reviewer | Written opinion | 5.7.9 |
+| Asset library deposit | Continuous | Your team | Originals with metadata retained, catalogued | 5.2.1.2, 5.7.1 |
 
 Four deliverables are gated on decisions the campaign has not yet made: **the presence audit cannot
 start until read-only analytics access is granted**, the USSD menu cannot be provisioned until the
@@ -139,27 +461,29 @@ Each is listed there.
 Firefly commits to a scope, a cadence and a standard. It does not commit to an electoral outcome,
 and no figure in this document should be read as one.
 
-**The scope** is the fourteen workstreams in Section 8, with an owner named against each — six
+**The scope** is the fourteen workstreams in Section 5.1, with an owner named against each — six
 Firefly operates, six the existing team runs to a Firefly brief, two are outside the engagement —
 and boundaries stated so that what is outside them is as clear as what is inside.
 
 **The cadence** is in Section 5.7.2: the weekly brief, the calendar, the approval path and the
-monthly review. Section 10 states what each engagement level carries, measured in depth of
+monthly review. Section 5.5 states what each engagement level carries, measured in depth of
 intelligence rather than in volume of Firefly's output.
 
-**The standard** is in Sections 11 and 12: indicators that trace to either the nomination poll
-share or the vote threshold, reported on a fixed cycle to a single named campaign counterpart,
+**The standard** is in Sections 5.6 and 5.7: indicators that trace to either the nomination
+objectives in Section 1.3 or the vote benchmark, reported on a fixed cycle to a single named campaign counterpart,
 with an escalation path that is agreed before it is needed rather than improvised under pressure.
 
-**The conditions** are in Section 15. This proposal depends on decisions and appointments that
+**The conditions** are in Section 6. This proposal depends on decisions and appointments that
 only the campaign can make, and it names them rather than assuming them.
 
 
-The headline scorecards, the indicator framework anchored to the vote threshold, what is deliberately not measured, and the research programme that tests the message.
-
 ## 5.6 How progress is measured
 
-Two preference figures appear in this proposal, and they measure different populations rather than revising one another. Section 1.1's **40.0%+** is a share of the **countywide public**, as reported in the party-commissioned surveys. NW-01 below is **≥ 55.0%** of **sampled likely Wiper primary voters** — a narrower universe, which is why the threshold sits higher. Section 1.5 states that same primary-voter threshold.
+Every indicator here is one Firefly can observe on his own channels or on the SMS list it operates. None is a poll share, and none waits on a survey. Section 1.5 states the principle; this section states the measures.
+
+```figure
+id: fig-5-6-kpis
+```
 
 ### 5.6.1 Stage 1: the nomination-window scorecard
 
@@ -184,20 +508,20 @@ id: ge-scorecard
 **Followers are not the target. Being known in Mwingi is.**
 
 Section 5.6.7 already rejects vanity metrics. These five indicators say what replaces them. Every
-one is measured where Dr. Mulu is least known, and four of the five can be read weekly rather than
-waiting on a survey wave.
+one is measured where Dr. Mulu is least known, and every one is read from his own channels or from
+Firefly's dispatch logs.
 
 | Code | Indicator | Method | Baseline | Target |
 |---|---|---|---|---|
-| **R-01** | Aided name recognition, Mwingi North, Central and West | Sub-county CATI booster, N = 600 (NW-02 above) | `[DATA NEEDED — Week 1 instrument]` | ≥ 70.0% |
+| **R-01** | Followers located in Mwingi North, Central and West | Meta follower city breakdown mapped to sub-county, monthly (NW-02 above) | `[DATA NEEDED — Week 1 export]` | A stated monthly gain on the Week 1 baseline |
 | **R-02** | Share of total reach landing in the 275,570-voter deficit pool | Meta city breakdown mapped to sub-county, weekly | `[DATA NEEDED — Week 1 export]` | ≥ 51.7%, the pool's own share of the register |
 | **R-03** | Shares per 1,000 reached, deficit wards only | Post-level export, weekly | `[DATA NEEDED — Week 1 export]` | Set against the measured Week 1 figure, as a stated point gain |
-| **R-04** | Consented contacts in the 24 deficit wards, and their share of the list | Firefly's own dispatch logs | 0 | Deficit-ward share of the list ≥ deficit-ward share of the register |
-| **R-05** | First-choice preference among likely Wiper primary voters | Rolling tracking poll, N = 400 CATI (NW-01 above) | Not yet measured | ≥ 55.0% |
+| **R-04** | Consented contacts in the 21 wards of the deficit pool, and their share of the list | Firefly's own dispatch logs | 0 | Deficit-ward share of the list ≥ deficit-ward share of the register |
+| **R-05** | Kikamba-first share of weekly output, and its engagement on reach | Post coding, weekly (Section 5.3.5) | `[DATA NEEDED — Week 1 export]` | ≥ 4 of 7 weekly posts Kikamba-first (Section 4.5.5) |
 
 **R-02 is the indicator this engagement lives or dies on.** It is the only one fully inside the
 direction layer's control, it moves weekly, and it is the direct test of the recognition thesis in
-Section 1.2.1. If reach share in the deficit pool does not rise, the briefs are wrong and the monthly
+Section 3.11. If reach share in the deficit pool does not rise, the briefs are wrong and the monthly
 review says so.
 
 **Excluded, and named so the exclusion is visible:** total followers, impressions, post likes, video
@@ -206,7 +530,7 @@ name inside a network he does not own — which, in a ward where he is unknown, 
 post can usefully do.
 
 
-Political strategy without empirical measurement risks misallocating scarce campaign capital. To eliminate speculative assumptions, the campaign implements a two-part data architecture: **Section 5.6.5** establishes the research programme to test the recognition-deficit hypothesis and govern nomination polling, while **Section 5.6.6** operationalizes a public service-delivery tracker that bridges campaign credibility with day-one governance.
+Political strategy without empirical measurement risks misallocating scarce campaign effort. To eliminate speculative assumptions, the campaign implements a two-part data architecture: **Section 5.6.5** establishes the research programme to test the recognition-deficit hypothesis, while **Section 5.6.6** operationalizes a public service-delivery tracker that bridges campaign credibility with day-one governance.
 
 ```figure
 id: research-and-tracker
@@ -214,20 +538,11 @@ id: research-and-tracker
 
 ### 5.6.5 The research programme
 
-Before committing the campaign's broadcast and caravan effort to Northern and Southern Kitui, the campaign mandates a structured research sequence to empirically validate the **"Recognition-Deficit Hypothesis"** (the proposition that Dr. Makali Mulu's primary electoral vulnerability outside Kitui Central is name recognition rather than unfavorable perception).
+Before committing the campaign's broadcast and caravan effort to Northern and Southern Kitui, the campaign runs a structured research sequence, with no polling and no survey, to empirically validate the **"Recognition-Deficit Hypothesis"** (the proposition that Dr. Makali Mulu's primary electoral vulnerability outside Kitui Central is name recognition rather than unfavorable perception).
 
 ```figure
 id: research-modules
 ```
-
-#### Nomination Window Tracking Poll Design (The 6-Week Squeeze)
-During the critical **6-Week Wiper Nomination Window**, the research apparatus transitions into high-frequency tracking mode:
-*   **Sample Design:** Rolling 7-day tracking poll of N = 400 likely party delegates / primary voters per wave (N = 2,400 aggregate over 6 weeks).
-*   **Core Question Battery:**
-    1.  *Ballot Test:* "If the Wiper gubernatorial nomination were held today, which candidate would you vote for?"
-    2.  *Electability Metric:* "Regardless of who you support, which candidate is best positioned to defeat rival party candidates in the August general election?"
-    3.  *Integrity Index:* "Which candidate do you trust most to protect public county funds without corruption?"
-*   **Escalation Trigger:** Any candidate drop >3.5% in a tracking wave triggers an immediate War Room emergency convening and 48-hour sub-county advertising reallocation.
 
 ### 5.6.6 The service-delivery performance tracker
 
@@ -239,7 +554,7 @@ id: delivery-tracker
 
 #### Dual Operational Function:
 1.  **As a Campaign Credibility Asset (Pre-Election):**
-    *   *Public Web & USSD Transparency:* Voters can dial `*[shortcode]#` or visit the web portal to query exact project GPS coordinates, contractor costs, and completion certificates in their own village.
+    *   *Public Web & USSD Transparency:* Voters can dial `*[shortcode]#` or visit the web portal to query exact project GPS coordinates, contract values, and completion certificates in their own village.
     *   *Debate & Media Weapon:* Equips candidate and spokespersons with instant, primary-sourced factual data to rebut rival exaggerations on live radio and television debates.
 2.  **As a Day-One Governing Tool (Post-Election):**
     *   *Statutory Ward Equalization Tracking:* Establishes the operational framework for managing the **Ksh 100 Million/Ward Annual Fund**, tracking execution velocity and contractor payments across all 40 wards in real time.
@@ -250,7 +565,7 @@ id: delivery-tracker
 
 The campaign strictly excludes vanity metrics from all executive dashboards, reporting meetings, and vendor performance contracts based on the following empirical realities:
 
-*   **Offline Reality:** 86.4% of Kitui registered voters do not maintain active social media profiles. Optimizing for digital likes misallocates resources away from village barazas and market PA caravans.
+*   **Offline Reality:** 73.8% of Kitui's residents are offline (CA/KNBS 2023/24, Tier 1). Optimizing for digital likes misallocates effort away from village barazas and market PA caravans.
 *   **Geographic Skew:** Political content from Eastern Kenya draws a large share of its social media interaction from non-resident users in Nairobi, Mombasa and abroad, who are not registered to vote in Kitui's 40 wards. **Evidence required:** an earlier draft of this section put that share at "over 60%", which no source in this proposal supports. The figure is withdrawn rather than restated; the ward-level split is obtainable from the campaign's own platform analytics in Week 1 (Section 5.3) and should replace this sentence once measured. The argument does not depend on the precise number.
 *   **Zero Correlation to Turnout:** A viral video does not transport an elderly voter in Ikutha or Nguni to their polling stream on election morning. Physical voter pledge collection, verified 2G SMS connectivity, and trained polling day agents directly generate counted votes.
 
@@ -267,7 +582,7 @@ To ensure accountability across all divisions, the KPI framework is embedded in 
 
 ### 5.6.9 The Kitui message lab
 
-*Digital engagement metrics measure the 13.6% who are online.*
+*Digital engagement metrics measure the 26.2% who are online.*
 
 ### 5.6.10 Rationale, structure and zone coverage
 
@@ -295,7 +610,7 @@ To ensure offline reality shapes digital execution, the message lab systematical
 * **Kikamba language and proverb use** — authentic or performative?
 * **Rival perception** — what specifically drives preference for the current front-runner? The answer determines whether the deficit is closeable by communication at all.
 * **Channel reality** — where do people in Mutha actually get political information?
-* **The tracker concept** (Section 5.2.1) — would people use it, and do they believe it would change anything?
+* **The tracker concept** (Section 5.2.1.1) — would people use it, and do they believe it would change anything?
 
 Findings are written up within **10 days** and feed directly into the next content cycle, the SMS message architecture and the paid-media creative brief. Where qualitative findings contradict engagement data, **the qualitative finding is treated as the signal about the offline majority and the quantitative data as the signal about the online minority** — neither overrides the other, and the disagreement itself is information.
 
@@ -304,10 +619,8 @@ Findings are written up within **10 days** and feed directly into the next conte
 | Research rounds completed by Phase 3 | ≥ 4 (standard tier) |
 | Zones covered per round | 3 of 3 |
 | Findings incorporated into content within 14 days | 100% |
-| Message framings tested before major spend | 100% of flagship campaigns |
+| Message framings tested before major output | 100% of flagship campaigns |
 
-
-How Firefly and the campaign work together: the operating rhythm, the meeting cadence, who decides what, how a disagreement escalates, and the data charter that governs all of it.
 
 ## 5.7 How decisions are made
 
@@ -323,7 +636,7 @@ the brief. Firefly comments; it does not rewrite.
 * **Monday, 09:00 — thirty minutes.** Approve, amend, flag. The only standing meeting in the
 engagement.
 * **Tuesday to Sunday — publishing.** Your team, on your accounts, with your credentials. Firefly
-publishes on one channel only: the SMS, USSD and WhatsApp layer it operates (Section 5.2.9).
+publishes on one channel only: the SMS, USSD and WhatsApp layer it operates (Section 5.2.3.3).
 * **Wednesday — one number.** A mid-week reach check against the deficit wards, and at most one
 adjustment. If nothing needs adjusting, nothing is sent.
 * **Last Friday of the month — the review.** Recognition indicators (Section 5.6.3), the overrides
@@ -331,11 +644,11 @@ log, and the brief re-based on what the month proved.
 
 **Asset centralisation:** A cloud repository for the ground team to upload photographs and video
 daily. **Originals retained with metadata** to support the provenance requirement in Section 5.8.7
-— a practice that costs nothing now and is invaluable under attack.
+— a practice that is effortless now and invaluable under attack.
 
 **Performance tracking:** Monthly analytics reports covering reach, engagement, sentiment and
 conversion, plus the competitive brief (Section F.12) and progress against the analytics maturity
-roadmap (Section 5.2.14.3). Firefly reports to a single named campaign-side counterpart (Section 5.9.5).
+roadmap (Section 5.2.4.4). Firefly reports to a single named campaign-side counterpart (Section 5.9.5).
 
 **Escalation:** The Section 5.7.3 decision matrix governs all approvals. The Section F.5 severity
 matrix governs all crisis response. Both are rehearsed quarterly (Section F.6) rather than read
@@ -387,17 +700,9 @@ Firefly is a **Kenya-based media and consulting company**. The proposal delibera
 
 Three parties, not two. The column that matters is the last one.
 
-| Content type | Drafted by | Approved by | Published by | Turnaround |
-|---|---|---|---|---|
-| Routine post inside an approved brief | Your team | Your team lead | Your team | Same day |
-| New policy claim or figure | Your team | Firefly + campaign counterpart | Your team | 24 hours |
-| Kikamba voice note | Your team + Kikamba reviewer | Firefly | Your team | 48 hours |
-| Response to attack, Level 1 | Your team | Your team lead, Firefly notified | Your team | ≤4 hours |
-| Response to attack, Level 2 | Firefly drafts | Campaign Communications Director | Your team | ≤2 hours |
-| Response to attack, Level 3 | Firefly drafts | **Candidate + senior leadership** | Your team | ≤30 minutes |
-| SMS / USSD / WhatsApp broadcast | Firefly | Campaign counterpart | **Firefly** | 24 hours |
-| Any voter-file-based targeting | — | **Compliance gate — see Section 5.7.9** | — | Before launch, no exceptions |
-| Paid targeting plan and reallocation within the agreed weighting | Firefly proposes | Campaign counterpart | Your team executes | 24 hours |
+```figure
+id: fig-5-7-approval
+```
 
 **Who holds the ad account is a decision for Dr. Mulu, not an assumption in this document.**
 Firefly's recommendation: the campaign holds it, Firefly takes Analyst and Advertiser access so it
@@ -450,11 +755,11 @@ Section 5.7.9 reviewer should be pointed at both documents by name.
 **Inherited lists are not used until their consent is evidenced.** Any SMS or WhatsApp contacts
 already held by the existing team arrive with unknown opt-in provenance. The rule this engagement
 operates under, stated before anyone asks: **a contact whose consent cannot be evidenced is not
-messaged**, and no inherited list is merged into the consented list in Section 5.2.9.6 until its
+messaged**, and no inherited list is merged into the consented list in Section 5.2.3.3 until its
 origin is documented. This is the same standard Section 5.7.6 applies to purchased databases, and
 it applies to friendly sources for the same reason.
 
-**The presence audit processes personal data too.** The Section 1A analysis touches data subjects
+**The presence audit processes personal data too.** The Section 5.3 audit touches data subjects
 through commenter counts and demographic breakdowns. It is low-risk and aggregate — counts and
 shares, no named lists, no profile exports — but it sits inside the Section 5.7.9 scope
 memorandum rather than outside it, on the same terms as every other processing activity here.
@@ -518,8 +823,7 @@ denial.
 > Every paid advertisement is run from a publicly identified campaign account
 > with the required disclaimers, and is therefore visible in the platform ad
 > libraries any citizen or journalist can search. We will additionally publish
-> a **monthly digital advertising spend summary** on the campaign website,
-> reconciled to the returns we file.
+> a **monthly summary of every paid placement** on the campaign website.
 >
 > **4. Consent-based contact only.**
 > We do not buy voter contact lists. Every phone number and email address we
@@ -580,7 +884,7 @@ data-protection or electoral-law specialist must review and sign off the
 specific proposed processing in writing.**
 
 **This proposal does not assert that the micro-targeting programme described in
-Section 5.2.12 is legally clear. It may not be.** The questions below are genuinely
+Section 5.2.4.2 is legally clear. It may not be.** The questions below are genuinely
 open, are questions of Kenyan law and regulatory interpretation, and are for
 the campaign's counsel to answer — not for a communications consultancy to
 assume:
@@ -600,7 +904,7 @@ at public events?
 **Process:**
 | Step | Owner | Output |
 |---|---|---|
-| 1. Scope memorandum: exactly what data, from where, for what | Data-governance owner | Written scope, before any counsel time is spent |
+| 1. Scope memorandum: exactly what data, from where, for what | Data-governance owner | Written scope, before any counsel time is used |
 | 2. Independent review | `[Insert named Kenyan data-protection / electoral-law specialist — to be appointed by the campaign]` | Written opinion |
 | 3. Remediation of any gaps | Firefly + campaign | Revised processing design |
 | 4. Written sign-off | Reviewer | Dated authorisation, scope-limited |
@@ -608,7 +912,7 @@ at public events?
 
 **Until step 4 is complete, the campaign operates on first-party consented data
 and aggregate ward-level statistics only.** This fallback is carried at every
-engagement level (Section 5.2.12.7), so the campaign loses no time waiting and
+engagement level (Section 5.2.4.2), so the campaign loses no time waiting and
 carries no exposure if the answer is restrictive.
 
 
@@ -619,14 +923,9 @@ What can go wrong and what happens when it does: rapid response, the war room th
 Six risks decide whether this plan survives contact. Everything after this section is how each
 is handled; Annex F carries the runbooks.
 
-| # | Risk | Likelihood | Impact | Owner | Mitigation |
-|---|---|---|---|---|---|
-| R1 | **The nomination is decided by delegates, not an opinion poll.** The poll mechanism is Tier 3 and unconfirmed | Medium | Severe — the targeting model changes wholesale | Firefly Director + campaign | Section 5.8.14's delegate whip contingency; Section 2.3.2 states the verification test that would close this |
-| R2 | **The recognition hypothesis is wrong.** The deficit may be about perceived distance, not unfamiliarity | Medium | Severe — the Phase −1 channel mix is built on it | Head of Research | Tested in Week 1 by the baseline instrument and message lab, **before anything is committed against it** (Section 3.11) |
-| R3 | **The data-protection reviewer is not appointed in time.** The long-lead campaign appointment | Medium | High — gates the voter-file work in Section 5.2.12 and the mass SMS layer | Campaign | Section 5.7.9's compliance gate; named as dependency 4 in Section 6.1 |
-| R4 | **ODPC guidance prohibits the planned SMS approach.** The political-campaigning circular could not be retrieved | Low | High — Workstream 9 is the layer the race turns on | Campaign Legal Director | Section 6.2's three mandatory actions, before Phase −1 broadcasting |
-| R5 | **A manipulated-media attack lands inside the nomination window** | Medium | High — a compressed window leaves no time to recover | Digital Director | Section 5.8.7's protocol; hardware-key 2FA from day one (Section 5.3) |
-| R6 | **Firefly's brief and the team's judgement disagree.** The direction model puts an outside brief in front of people who know the ground better | High — it will happen, and should | Moderate if handled, severe if suppressed | Firefly Director + team lead | The brief states intent and the rule, never the caption. Where the team overrides, they log why in the calendar, and the monthly review reads the overrides as data rather than as non-compliance |
+```figure
+id: fig-5-8-risk
+```
 
 **R1 and R2 are the two that change the plan rather than damage it**, and both are resolved by
 measurement rather than by contingency: one by obtaining the pollster's terms of reference, the
@@ -664,7 +963,7 @@ The campaign monitors four complementary intelligence streams 24 hours a day, 7 
 1.  **Broadcast Vernacular Radio Triage (06:00–21:00 EAT):** Dedicated audio recording monitors tracking morning and evening talk shows across *Musyi FM, Mbaitu FM, Sang'u FM, County FM*, and *Athiani FM*. Immediate audio clipping of candidate mentions or political challenger assertions.
 2.  **Ward WhatsApp Ingestion Network:** 40 Constituency Monitoring Assistants monitoring ~180 major community, market, church, and clan WhatsApp groups across all 8 sub-counties.
 3.  **Social Listening Keyword Feeds:** Automated continuous tracking via Brand24 / Talkwalker of high-frequency keywords: *"Dr. Makali Mulu"*, *"Kitui Governor 2027"*, *"Kitui Central CDF"*, *"Ndengu price"*, and competitor candidate handles.
-4.  **Field Captain Rumor Logs:** Twice-daily SMS pulse reports from the 400 Ward Captains logging prevalent market-day and baraza whispers.
+4.  **Field Captain Rumor Logs:** Twice-daily SMS pulse reports from the campaign's ward captains (campaign-owned, Section 5.1.3) logging prevalent market-day and baraza whispers.
 
 ### 5.8.3 Staying inside defamation law
 
@@ -691,7 +990,7 @@ During peak periods (January–August 2027), the war room operates on a three-sh
 | Afternoon | 14:00–22:00 | Live coverage, engagement, rapid response |
 | Night | 22:00–06:00 | Monitoring only; escalation to on-call strategist at crisis threshold |
 
-The command console centralises real-time metrics: live sentiment score; trending hashtags; competitor activity alerts; misinformation tracking log; response status tracker; hourly engagement; **SMS delivery and opt-out rates**; and **spend against the agreed envelope**.
+The command console centralises real-time metrics: live sentiment score; trending hashtags; competitor activity alerts; misinformation tracking log; response status tracker; hourly engagement; and **SMS delivery and opt-out rates**.
 
 ### 5.8.6 Cybersecurity and manipulated media
 
@@ -737,8 +1036,8 @@ private-group circulation
 | 0–5 | Ward champion or monitoring flags; crisis lead confirms receipt |
 | 5–15 | Verify against the campaign's own archive: was Dr. Mulu there, on that date, saying that? Retrieve original footage if it exists |
 | 15–20 | Candidate and senior leadership briefed; response approved |
-| 20–30 | Publish: plain statement of falsity, the verified original where one exists, and provenance evidence. Simultaneously in Kikamba, Kiswahili and English, across all channels **except bulk SMS, which the 48-hour lodging rule rules out of rapid response entirely** (Section 5.2.9.2) |
-| 30–120 | Platform reports filed; journalists briefed directly (Section 5.2.6); ward champions supplied with a forwarding-friendly correction card for WhatsApp |
+| 20–30 | Publish: plain statement of falsity, the verified original where one exists, and provenance evidence. Simultaneously in Kikamba, Kiswahili and English, across all channels **except bulk SMS, which the 48-hour lodging rule rules out of rapid response entirely** (Section 5.2.3.3) |
+| 30–120 | Platform reports filed; journalists briefed directly (Section 5.2.2.2); ward champions supplied with a forwarding-friendly correction card for WhatsApp |
 | Same day | Legal options reviewed with counsel |
 
 **The SMS component is what makes this work in Kitui.** A rebuttal published
@@ -767,8 +1066,9 @@ knowing what opponents say publicly, not surveilling them.
 
 ### 5.8.10 Reading the current field
 
-The August 2026 published survey shows Dr. Kasalu's strength built on
-countywide grassroots touring under a branded programme. The strategic
+Dr. Kasalu's strength is built on countywide grassroots touring under a
+branded programme (Section 3.5), and on a certified 2022 result above the
+governor's winning tally. The strategic
 implication is not to replicate her method — the campaign cannot out-tour a
 Woman Representative in the time available — but to **compete on a dimension
 she is not occupying**: verifiable fiscal and delivery competence, distributed
@@ -802,8 +1102,8 @@ id: liability-matrix
 ### 5.8.14 If it becomes a delegate primary
 
 If Wiper party leadership departs from the opinion-poll mechanism and reverts to a delegate-based nomination primary, the campaign will immediately trigger its **Delegate Whip Contingency Plan**:
-1.  **Map the Delegate Registry:** Instantly map and profile the estimated **1,200 to 1,500 official delegates** (comprising constituency executives, sub-branch officials, and ward-level party committee members).
-2.  **Targeted Whip Operations:** Reallocate the 400 Ward Captains from general voter outreach to peer-to-peer lobbying and direct, physical whip operations. Each captain will be assigned specific delegates residing in their ward.
+1.  **Map the Delegate Registry:** Instantly map and profile the official delegates `[DATA NEEDED — Wiper delegate register for Kitui; party secretariat]` (comprising constituency executives, sub-branch officials, and ward-level party committee members).
+2.  **Targeted Whip Operations:** The campaign reallocates its ward captains (campaign-owned, Section 5.1.3) from general voter outreach to peer-to-peer lobbying and direct, physical whip operations. Each captain will be assigned specific delegates residing in their ward.
 3.  **Encrypted SMS Delegate Channel:** Establish a secure, dedicated SMS/USSD communications loop directly targeting the delegates, pushing policy briefs on Dr. Mulu's "Economist Governor" platform to reinforce party loyalty and administrative competence.
 
 ---
@@ -820,6 +1120,17 @@ The campaign runs a **Lean Core Delivery Model**: a tightly coordinated core ste
 id: org-chart
 ```
 
+### 5.8.15 If the incumbent's eligibility is contested
+
+The sourced record does not settle whether Governor Malombe may stand in 2027: published commentary reads Article 180(7) both ways and no court has ruled. It is therefore carried here, as a risk with two branches, and not asserted as fact anywhere else in this document (Section 3.5).
+
+Because Governor Malombe served as Governor from 2013–2017, lost the 2017 election to Charity Ngilu (court-confirmed, Tier 1), and won again in 2022, his eligibility to contest the 2027 election is an open legal question under Article 180(7) of the Constitution of Kenya, which limits governors to a maximum of two terms. This campaign analyzes this issue through two distinct scenarios:
+
+*   **Scenario Branch A — Cumulative Disqualification:** Proponents of this reading argue that Article 180(7) imposes a lifetime limit of two terms of service, regardless of whether they were consecutive or interrupted. Under this reading, having served from 2013–2017 and 2022–2027, Governor Malombe is constitutionally barred from running in 2027.
+    *   *Strategic Consequence:* This scenario creates an "open-seat" election, dissolving Malombe's incumbency advantage. It will trigger intense factional realignment within the Wiper Patriotic Front and across independent coalitions, allowing Dr. Mulu to position himself as the natural, high-integrity successor to lead the county's economic transition.
+*   **Scenario Branch B — Eligibility Upheld:** Alternatively, a reading of the constitutional provisions may interpret the two-term limit as applying only to consecutive terms of service, or that an interrupted term resets the constitutional clock, rendering him eligible for the 2027 cycle.
+    *   *Strategic Consequence:* Under this scenario, Governor Malombe remains eligible to defend his seat. The campaign must therefore execute a direct anti-incumbency strategy, overcoming a seated executive who commands county development resources, public-funding distribution systems, and established grassroots patronages.
+
 ## 5.9 How the work is staffed
 
 **Three cores, and they are not the same team.**
@@ -830,6 +1141,10 @@ id: org-chart
     today. This engagement adds a brief to their week. It does not add a manager to their line.
 *   **The 3-person Firefly core** named at every engagement level in Section 5.5 — strategy,
     analysis, and the offline layer.
+
+```figure
+id: fig-5-9-team
+```
 
 Where this section says "four-person core" it means the campaign's; where Section 5.5 says
 "3-person core" it means Firefly's; where it says "your team" it means the one already in post.
@@ -850,7 +1165,7 @@ What the arrangement buys, stated without the usual claims about bloat:
 ### 5.9.1 A lean core with a defined surge
 
 Firefly delivers this engagement through a small senior core team supplemented
-by named surge roles activated at specific phases and budget tiers. This is
+by named surge roles activated at specific phases and engagement levels. This is
 stated plainly because a campaign is entitled to know exactly who is doing the
 work. A proposal claiming a large standing department it does not have will
 fail on the first question about it.
@@ -880,11 +1195,11 @@ fill them.
 
 | Role | Activated | Function |
 |---|---|---|
-| **Data Analyst / Modeller** | Phase 1 onward (standard and premium levels) | Predictive scoring, field-digital integration, attribution modelling. **Named data-governance owner** (Section 5.2.14.4) |
+| **Data Analyst / Modeller** | Phase 1 onward (standard and premium levels) | Predictive scoring, field-digital integration, attribution modelling. **Named data-governance owner** (Section 5.2.4.4) |
 | **Kikamba Reviewer (native speaker)** | Week 1 onward — **mandatory at all levels** | Proverb and idiom verification, cultural register review. No Kikamba content publishes without this review. Your team produces; this role signs off |
-| **Volunteer & Ward Champion Coordinator** | Phase 1 onward | Tiered volunteer programme (Section 5.2.10); ward champion training and reporting |
+| **Volunteer & Ward Champion Coordinator** | Phase 1 onward | Tiered volunteer programme (Section 5.2.3.4); ward champion training and reporting |
 | **Crisis Communications Lead** | Phase 2 onward, or immediately on trigger | Rapid response, red-team drills, deepfake rebuttal protocol |
-| **Earned Media / Press Officer** | Phase −1 onward (standard and premium levels) | Journalist relationships, debate clipping, radio placement (Section 5.2.6) |
+| **Earned Media / Press Officer** | Phase −1 onward (standard and premium levels) | Journalist relationships, debate clipping, radio placement (Section 5.2.2.2) |
 
 **Community management and video editing are not on this list, and that is deliberate.** Both are
 roles your team already fills. Adding them here would have been Firefly selling back capability the
@@ -930,7 +1245,7 @@ time. Nobody is graded in private.
 
 **Week 2 — one written standard.** The brief template, the caption pattern, the
 commitment-and-date rule, the language rule, the escalation line, and the accessibility floor from
-Section 5.2.4.3. Six pages. It belongs to the team from the day it is written.
+Section 5.2.1.4. Six pages. It belongs to the team from the day it is written.
 
 **Weeks 3–8 — pairing, not training.** Firefly and the team write the first three briefs together.
 Then Firefly writes and the team marks it up. Then the team drafts and Firefly reviews.
@@ -942,4 +1257,3 @@ An intelligence layer that makes itself permanently necessary has failed at the 
 **Where a gap cannot be closed by upskilling** — no native Kikamba producer, nobody who can cut
 vertical video — Firefly names the gap in the capability map and the campaign decides whether to
 fill it. Firefly does not fill it by default, and does not propose itself for the role.
-

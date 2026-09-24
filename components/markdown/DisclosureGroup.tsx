@@ -88,7 +88,7 @@ export function DisclosureGroup({
                 the tree, so the printed briefing kit carries every panel instead of a row of
                 labels with nothing under them. */}
             <div
-              className={`prose max-w-none px-4 pb-5 pt-1 sm:px-5 border-t border-line/40 ${
+              className={`dg-panel prose max-w-none px-4 pb-5 pt-1 sm:px-5 border-t border-line/40 ${
  isOpen ? "" : "hidden print:block"
               }`}
             >

@@ -5,7 +5,7 @@ import type { SectionItem } from "../../lib/section-index";
 
 /**
  * Maps a printed section number ("6.5.4") to the deep-link id it lives at today  verify-figures-ignore
- * ("governance-sec-12-5-4").
+ * ("delivery-sec-5-7-8").
  *
  * The document's 173 in-prose "Section N.N" references were previously resolved by reading the
  * leading digit and looking up a hardcoded number -> file table. That assumed a section's number

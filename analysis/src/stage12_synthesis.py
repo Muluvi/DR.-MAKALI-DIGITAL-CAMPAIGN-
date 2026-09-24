@@ -237,7 +237,11 @@ def build_charts() -> list[Chart]:
         wards_2026 = wards.assign(
             registered_voters_2026_scaled=wards["registered_voters_2022"] * scale)
         vals = []
-        for key in SCENARIOS:
+        # Only the competitive scenario is published. The "current" scenario is anchored on
+        # nomination-poll shares, and the rebuild brief keeps polls out of every model the site
+        # shows (non-negotiable 1). Share-of-draws rows are dropped for the same reason a
+        # win probability is: they read as one.
+        for key in ("competitive",):
             res = sim.simulate(wards_2026, register_col="registered_voters_2026_scaled",
                                support_range=_support_range(key))
             s = res.summary()
@@ -249,15 +253,6 @@ def build_charts() -> list[Chart]:
                       MODELLED, PLACEHOLDER),
                 Value(f"{label} — 95th percentile", int(s["p95"]), "votes", "S1", 1, "2026-09",
                       MODELLED, PLACEHOLDER),
-                Value(f"{label} — draws above 198,004 (2022 tally)",
-                      round(res.share_exceeding(198004) * 100, 1),
-                      "%", "S11", 2, "2026-09", MODELLED, PLACEHOLDER,
-                      note="NOT a win probability — no rival is modelled"),
-                Value(f"{label} — draws above 225,322 (37.2% of today's register)",
-                      round(res.share_exceeding(225322) * 100, 1),
-                      "%", "S3", 1, "2026-09", MODELLED, PLACEHOLDER,
-                      note="The like-for-like benchmark on the current register. NOT a win "
-                           "probability."),
             ]
         vals.append(Value("2022 winning tally", 198004, "votes", "S11", 2, "2022-08",
                           OFFICIAL, CONFIRMED,
@@ -268,8 +263,8 @@ def build_charts() -> list[Chart]:
         charts.append(Chart(
             id="scenario-benchmarks",
             title="Scenario model: votes against the 2022 benchmark",
-            description="Two support scenarios, 10,000 draws each on the confirmed July 2026 "
-                        "register, against both benchmarks.",
+            description="The competitive general-election scenario, 10,000 draws on the confirmed "
+                        "July 2026 register, against both benchmarks.",
             chart_type="distribution",
             values=vals,
             scenario_label=config.SCENARIO_LABEL,
@@ -278,10 +273,7 @@ def build_charts() -> list[Chart]:
                    "not win probabilities.",
                    "A win probability would require rival vote ranges, which have not been "
                    "supplied.",
-                   "The choice of benchmark moves the result more than the model does: the "
-                   "competitive scenario clears the 2022 tally far more often than it clears "
-                   "the same share of today's larger register.",
-                   "Every input is a placeholder assumption from config/assumptions.yaml."],
+                   "Every input is a stated modelling assumption, listed in Section 6.2.1; none is a measurement."],
         ))
     return charts
 

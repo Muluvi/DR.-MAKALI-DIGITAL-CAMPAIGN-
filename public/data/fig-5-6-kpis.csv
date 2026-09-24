@@ -1,0 +1,10 @@
+Code,Indicator,Baseline,Target,Cadence,Basis
+NW-01,Reach share in the deficit pool,Not yet measured (Week 1 export),"≥ 51.7%, the pool's share of the register",Weekly,Data needed
+NW-02,Followers located in Mwingi,Not yet measured (Week 1 export),A stated monthly gain on the Week 1 baseline,Monthly,Data needed
+NW-03,Consented contacts in the pool,Not yet measured (the list starts at Week 2),"≥ 51.7%, the pool's share of the register",Weekly,Data needed
+NW-04,Branch Exec Endorsement Rate,Confirm w/ party (Week 1),8 / 8 Sub-County Branches,Weekly Executive Dashboard,Target
+GE-01,Pledged Voter Data Base Size,0 pledged voters,"220,000 Pledged Voters (110% Win)",Weekly Progress Audit,Target
+GE-02,Ward Captain Deployment Index (campaign-owned),0 active Captains,"400 Captains (10 / Ward, 100% Coverage)",Bi-Weekly Field Audit,Target
+GE-03,Polling Station Agent Coverage,0 Station Agents,"1,578 Stations (100% of stations)",Weekly (Final 60 Days),Target
+GE-04,Turnout Conversion Efficiency,No sourced historical conversion rate; set from the CRM once pledges exist,≥ 82.0% Voter Turnout Conversion,Post-Day Real-Time Tracking (06:00–17:00),Data needed
+GE-05,Real-Time Form 37A Capture,0% Transmit Rate,100% Transmit within 2 Hours,Polling Day Hourly Real-Time (17:00–21:00),Target

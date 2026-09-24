@@ -1,7 +1,7 @@
 {
   "id": "scenario-benchmarks",
   "title": "Scenario model: votes against the 2022 benchmark",
-  "description": "Two support scenarios, 10,000 draws each on the confirmed July 2026 register, against both benchmarks.",
+  "description": "The competitive general-election scenario, 10,000 draws on the confirmed July 2026 register, against both benchmarks.",
   "chart_type": "distribution",
   "generated": "2026-09-17",
   "data_as_of": "2026-09-16",
@@ -10,65 +10,9 @@
     "Scenario model, not a forecast.",
     "Governor races are won by plurality. There is no threshold and these are not win probabilities.",
     "A win probability would require rival vote ranges, which have not been supplied.",
-    "The choice of benchmark moves the result more than the model does: the competitive scenario clears the 2022 tally far more often than it clears the same share of today's larger register.",
-    "Every input is a placeholder assumption from config/assumptions.yaml."
+    "Every input is a stated modelling assumption, listed in Section 6.2.1; none is a measurement."
   ],
   "values": [
-    {
-      "label": "Current measured preference — median",
-      "value": 100222,
-      "unit": "votes",
-      "source_id": "S1",
-      "tier": 1,
-      "as_of": "2026-09",
-      "method": "modelled",
-      "status": "placeholder",
-      "note": "his published nomination-poll share, 20.2–26.2%, widened to 18–32%"
-    },
-    {
-      "label": "Current measured preference — 5th percentile",
-      "value": 72934,
-      "unit": "votes",
-      "source_id": "S1",
-      "tier": 1,
-      "as_of": "2026-09",
-      "method": "modelled",
-      "status": "placeholder",
-      "note": ""
-    },
-    {
-      "label": "Current measured preference — 95th percentile",
-      "value": 131934,
-      "unit": "votes",
-      "source_id": "S1",
-      "tier": 1,
-      "as_of": "2026-09",
-      "method": "modelled",
-      "status": "placeholder",
-      "note": ""
-    },
-    {
-      "label": "Current measured preference — draws above 198,004 (2022 tally)",
-      "value": 0.0,
-      "unit": "%",
-      "source_id": "S11",
-      "tier": 2,
-      "as_of": "2026-09",
-      "method": "modelled",
-      "status": "placeholder",
-      "note": "NOT a win probability — no rival is modelled"
-    },
-    {
-      "label": "Current measured preference — draws above 225,322 (37.2% of today's register)",
-      "value": 0.0,
-      "unit": "%",
-      "source_id": "S3",
-      "tier": 1,
-      "as_of": "2026-09",
-      "method": "modelled",
-      "status": "placeholder",
-      "note": "The like-for-like benchmark on the current register. NOT a win probability."
-    },
     {
       "label": "Competitive general election — median",
       "value": 200157,
@@ -101,28 +45,6 @@
       "method": "modelled",
       "status": "placeholder",
       "note": ""
-    },
-    {
-      "label": "Competitive general election — draws above 198,004 (2022 tally)",
-      "value": 53.0,
-      "unit": "%",
-      "source_id": "S11",
-      "tier": 2,
-      "as_of": "2026-09",
-      "method": "modelled",
-      "status": "placeholder",
-      "note": "NOT a win probability — no rival is modelled"
-    },
-    {
-      "label": "Competitive general election — draws above 225,322 (37.2% of today's register)",
-      "value": 21.2,
-      "unit": "%",
-      "source_id": "S3",
-      "tier": 1,
-      "as_of": "2026-09",
-      "method": "modelled",
-      "status": "placeholder",
-      "note": "The like-for-like benchmark on the current register. NOT a win probability."
     },
     {
       "label": "2022 winning tally",

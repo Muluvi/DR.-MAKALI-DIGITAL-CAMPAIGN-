@@ -1,9 +1,9 @@
-## Publishing and earned media
+## 5.2.2 Publishing and earned media
 
 
 Two workstreams: paid media across the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely controlled by rivals.
 
-## 5.2.5 Workstream 5 — Platform tactics and paid media
+### 5.2.2.1 Workstream 5 — Platform tactics and paid media
 
 > **Owner: your team, to a Firefly brief.** Read every platform block below as *what belongs on
 > this channel and why*, not as a list of things Firefly will post. Firefly writes the targeting
@@ -11,7 +11,7 @@ Two workstreams: paid media across the platforms that reach the connected minori
 > decision for Dr. Mulu — Section 5.7.3 states the recommendation and marks it open.
 
 
-#### Facebook
+##### Facebook
 
 * Daily posts in English, Kiswahili and Kikamba
 * **Weekly Facebook Live town halls** where Dr. Mulu answers constituent
@@ -23,7 +23,7 @@ competence is his strongest asset
 Makali Mulu is an economist and an evaluator — he knows how to allocate it and
 how to prove it was spent. #MuluForKitui"*
 
-#### X
+##### X
 
 * Policy commentary on national and county budget matters
 * Threads breaking down county issues into shareable explanations
@@ -32,7 +32,7 @@ how to prove it was spent. #MuluForKitui"*
 2026/27 is KSh13.79 billion, of which KSh1.339 billion is own-source revenue.
 As an economist, here are three things I would change on day one…"*
 
-#### WhatsApp
+##### WhatsApp
 
 * Broadcast lists segmented by ward and interest group — **opt-in only**
 * **Kikamba voice notes from Dr. Mulu** — the single highest-trust format
@@ -43,7 +43,7 @@ content and reporting sentiment
 * Weekly "Kitui Updates" broadcast in Kikamba and Kiswahili
 * **Forwarding-friendly correction cards** during crisis response
 
-#### TikTok
+##### TikTok
 
 * Short, energetic videos on youth issues, campaign moments and Kikamba
 cultural content
@@ -53,22 +53,22 @@ cultural content
 using common objects — *"Hii pesa ya county inatumika aje? Mchukue mwana
 uchumi aeleze."*
 
-#### Instagram
+##### Instagram
 
 * Visual storytelling: events, community projects, aspirational imagery
 * Reels and Stories for daily relevance
 * Infographics summarising budget priorities and development plans
-* Polls and question stickers for younger voters
+* Question and quiz stickers for younger voters
 
-#### YouTube
+##### YouTube
 
 * Long-form policy speeches, town halls and documentary-style Kitui stories
 * Search-optimised videos answering "What does the Kitui Governor do?" and
 "Kitui development 2027"
 * **Monthly "Kitui Economic Brief"** reviewing county budget execution
-* **Home for full sign-language-interpreted versions** (Section 5.2.4.1)
+* **Home for full sign-language-interpreted versions** (Section 5.2.1.4)
 
-#### Google Ads
+##### Google Ads
 
 * Search ads on the candidate's name and related terms
 * Display on Kenyan news sites and local blogs
@@ -78,7 +78,7 @@ Evaluator. Reformer. | Read the plan for your ward."*
 
 ---
 
-## 5.2.6 Workstream 6 — Earned media, journalists and debates
+### 5.2.2.2 Workstream 6 — Earned media, journalists and debates
 
 > **Owner: your team and the campaign, to a Firefly brief.** Placement is a relationship business
 > the campaign already has. Firefly supplies the briefing notes, the debate preparation and the
@@ -88,7 +88,7 @@ Evaluator. Reformer. | Read the plan for your ward."*
 *Paid and owned media reach the connected minority. Earned media —
 especially radio — reaches everyone else.*
 
-### 5.2.6.1 The radio problem, stated plainly
+#### The radio problem, stated plainly
 
 Kamba-language radio is the dominant information channel for the roughly 86% of
 Kitui residents outside the internet-using population. **But the ownership map
@@ -115,7 +115,7 @@ monitoring sits in the war room (Section F.4) rather than in a media annex.
 *This map is based on publicly reported ownership associations and should be
 verified and updated by the campaign; media ownership changes.*
 
-### 5.2.6.2 The journalist relationship programme
+#### The journalist relationship programme
 
 | Tier | Who | Cadence | Offer |
 |---|---|---|---|
@@ -134,7 +134,7 @@ with sources, policy briefs by theme, verified county data with citations, and
 contact routes. The easier the campaign makes a journalist's job, the more
 often it is quoted.
 
-### 5.2.6.3 Candidate media training
+#### Candidate media training
 
 Three sessions, plus refreshers:
 
@@ -152,7 +152,7 @@ prepared pivot, and handling direct attack without appearing rattled.
 **Refreshers** before each debate or major forum, plus a recorded mock with
 playback review.
 
-### 5.2.6.4 The debate and forum playbook
+#### The debate and forum playbook
 
 **Preparation:**
 
@@ -178,7 +178,7 @@ top three issues
 **The rule: the clip is published before the coverage is written.** Whoever
 distributes the moment first defines what the debate was about.
 
-### 5.2.6.5 Pre-drafted response lines
+#### Pre-drafted response lines
 
 Prepared, verified, and rehearsed in drills. Each is a structure, not a script —
 substance fixed, delivery natural.
@@ -194,7 +194,7 @@ substance fixed, delivery natural.
 | **Manipulated media** | Section 5.8.7 protocol — 30-minute clock |
 | **Unsolicited SMS allegation** | Produce the consent audit trail; cite the published charter; correct publicly within the hour |
 
-### 5.2.6.6 Earned media KPIs
+#### Earned media KPIs
 
 | Metric | Target |
 |---|---|
@@ -205,7 +205,7 @@ substance fixed, delivery natural.
 | Share of voice in Kitui gubernatorial coverage | ≥ 50% |
 | Fact-checker corrections secured on false claims | 100% of material false claims challenged |
 
-### 5.2.6.7 Getting on air around a hostile gatekeeper
+#### Getting on air around a hostile gatekeeper
 
 To guarantee uninhibited communication with all 532,758 registered voters across the 40 wards, the campaign executes a four-pillar bypass strategy that operates entirely independently of captured Tier 1 commercial gatekeepers:
 
@@ -213,12 +213,10 @@ To guarantee uninhibited communication with all 532,758 registered voters across
 id: bypass-architecture
 ```
 
-### 5.2.6.8 How we pitch: evidence first
+#### How we pitch: evidence first
 
-To capture objective news coverage on mainstream national and regional platforms without paying extortionate broadcast gatekeeper fees, the press desk operates an **Evidence-First Pitch Engine**:
+To capture objective news coverage on mainstream national and regional platforms without depending on paid access to broadcast gatekeepers, the press desk operates an **Evidence-First Pitch Engine**:
 
 1.  **Hansard & Audit Exclusives:** Providing national media bureau chiefs (*Daily Nation, Standard, Citizen TV, KTN News*) with verified, data-dense policy briefs on national debt, equalization fund legislation, and local county pending bills.
 2.  **On-Site Project Media Tours:** Transporting accredited regional correspondents directly to Kitui Central model projects (solar boreholes, modern TVET workshops, secondary school laboratories) with on-camera beneficiary interviews.
 3.  **Rapid Studio Call-In Rights:** Enforcing statutory right-of-reply provisions under the Media Council of Kenya (MCK) Act whenever candidate record distortions are aired on rival stations.
-
-

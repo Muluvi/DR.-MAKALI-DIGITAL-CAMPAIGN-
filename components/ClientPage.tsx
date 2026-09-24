@@ -1,450 +1,249 @@
 "use client";
 
-import { useState, useEffect, useMemo, useRef, useCallback } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { AnimatePresence, motion } from "motion/react";
-import { FileText, Target, Printer, Maximize2, Minimize2, Sun, Moon, Users, Radio, ShieldCheck, Type, Eye, EyeOff, Map, MessageSquare, Megaphone, Shield, Database, Gauge, BookLock, ClipboardList, Compass, Layers, Route, CalendarClock, Workflow, ListChecks, Handshake, Activity, Repeat} from "lucide-react";
+import { Printer, Search } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
 import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
-import { useChromeVisible } from "../hooks/use-chrome-visible";
-import { LazyMount } from "./LazyMount";
+import { Figure } from "./figures/FigureBoundary";
+import { RegisterMotion } from "./register/RegisterMotion";
+import { ReadingModeToggle } from "./ReadingModeToggle";
+import { ReadingModeProvider } from "../lib/reading-mode";
 import { ScrollProgressBar } from "./ScrollProgressBar";
 import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
 import { MobileTOCModal } from "./MobileTOCModal";
-import { FlowChrome } from "./flow/FlowChrome";
-import { StateOfTheRace } from "./StateOfTheRace";
-import { PARTS, resolveLegacySectionId, SECTIONS, type TabId } from "../lib/heading-slug";
+import { resolveLegacySectionId, SECTIONS, type TabId } from "../lib/heading-slug";
+import { FLOW_ORDER, FLOW_SECTIONS, FLOW_ACTS, flowIndex, opensAct } from "../lib/flow";
+import { sectionHeight } from "../lib/section-heights";
 import type { SectionItem } from "../lib/section-index";
 
-import { FocusModeToggle, PrintReportGenerator } from "./StrategicAids";
 import { SectionNumberMapProvider } from "./markdown/SectionNumberMap";
+import { ActMarker } from "./flow/ActMarker";
+import { StreamedSection } from "./flow/StreamedSection";
+import { ChapterMarker } from "./flow/ChapterMarker";
+import { FlowChrome } from "./flow/FlowChrome";
+import { FlowRail } from "./flow/FlowRail";
 
-import {
-  AmbientField,
-  Reveal,
-} from "./visual";
+import { AmbientField } from "./visual";
 import { useDaypart, useScrollShell } from "../hooks/use-scroll-shell";
 
-import { HeroVisual } from "./HeroVisual";
 import { Portrait } from "./Portrait";
-import { WardTileMap } from "./charts/WardTileMap";
-import { VoterProjectionsChart } from "./VoterProjectionsChart";
-import { SectionSkeleton } from "./SectionSkeleton";
-import { DURATION } from "../lib/motion";
+
 
 /**
- * The crossfade between sections — on a tab CHANGE, never on first paint.
+ * The proposal as one continuous scroll.
  *
- * This used to carry `initial={{ opacity: 0 }}` unconditionally, which meant the server sent the
- * entire document body at `opacity: 0` and it stayed invisible until React had hydrated. Largest
- * Contentful Paint therefore could not fire until hydration finished, which measured at 6.2s on a
- * mid-range Android; the page also reported a perfect CLS of 0.000, for the unhelpful reason that
- * nothing was visible to shift. A reader whose JavaScript failed got a blank page carrying 55,500
- * words of markup.
+ * WHAT CHANGED, AND WHY.
  *
- * `initial={false}` until the reader has actually changed tab means Motion writes no starting
- * style, so the body ships legible and paints as soon as the HTML arrives. Every subsequent tab
- * change still animates. Server and first client render agree, so there is no hydration mismatch
- * to repair.
+ * This was a tabbed reader. Nineteen routes, a nineteen-item sidebar, a five-icon mobile dock, a
+ * floating quick-nav capsule, a sticky section bar, a seven-button toolbar and a full-screen
+ * index — five simultaneous ways to reach a section, on a document whose reader is one person
+ * holding a phone. The first thing that reader had to do was make a navigation decision about a
+ * document they had not read yet, and the ask, the evidence and the price were each behind a
+ * different tap.
+ *
+ * It is now one page, top to bottom, in the order the argument is built (lib/flow.ts). All 55,500
+ * words of it, in one direction, with nothing to open. The index still exists — a long document should be searchable — but it is
+ * an accelerator for the second read, not the door to the first.
+ *
+ * WHAT MAKES THE SCROLL AFFORDABLE. Every section is wrapped in `content-visibility: auto` with a
+ * reserved intrinsic size, so the browser skips layout and paint for everything off screen; and
+ * every derived figure inside them mounts only within ~700px of the viewport. The document ships
+ * complete — a reader with JavaScript off, a printer and a screen reader all get all of it — but
+ * the browser only ever renders the screenful in front of the reader.
  */
-function SectionTransition({ children, tabKey, animateEntrance }: { children: React.ReactNode; tabKey?: string; animateEntrance: boolean }) {
-  return (
-    <motion.div
-      key={tabKey}
-      initial={animateEntrance ? { opacity: 0, y: 10 } : false}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: DURATION.quick, ease: "easeOut" }}
-      className="w-full print:block"
-    >
-      {children}
-    </motion.div>
-  );
-}
 
 interface ClientPageProps {
   sections: SectionItem[];
-  /** Rendered prose for the section this route serves — or all nine, on /full. */
+  /** Rendered prose, keyed by section — every section on the flow, one on a deep-link route. */
   documents: Partial<Record<TabId, React.ReactNode>>;
-  /** Every section's length, for reading time in the navigator. Nine integers, not nine trees. */
   wordCounts: Record<TabId, number>;
-  briefWordCounts?: Record<TabId, number>;
+  /** The same counts for Brief mode, measured from the segmentation the renderer uses. */
+  briefWordCounts: Record<TabId, number>;
   activeTab: TabId;
+  /** True on "/" and "/full": the whole document in one scroll. */
   expanded: boolean;
+  /** True on "/": sections past the opening pair arrive as the reader reaches them. */
   streamed?: boolean;
 }
 
-// One icon per top-level section, keyed to what the section is about rather than to its position.
-const SECTION_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
-  decision: Handshake,
-  cover: BookLock,
-  presence: Activity,
-  summary: FileText,
-  situation: Map,
-  objectives: Target,
-  audiences: Users,
-  approach: Compass,
-  engine: Repeat,
-  messaging: MessageSquare,
-  scope: ListChecks,
-  "scope-platforms": Layers,
-  "scope-media": Megaphone,
-  "scope-ground": Radio,
-  "scope-data": Database,
-  roadmap: Route,
-  deliverables: CalendarClock,
-  measurement: Gauge,
-  governance: Workflow,
-  risk: Shield,
-  structure: ClipboardList,
-  assumptions: ListChecks,
-  nextsteps: Handshake,
-  "arithmetic": Target,
-  "reach": Radio,
-  "annex-evidence": ShieldCheck,
-  "annex-county": Map,
-  "annex-messages": MessageSquare,
-  "annex-cadence": CalendarClock,
-  "annex-runbooks": Shield,
-  data: Database,
-  analysis: Target,
-  strategy: Compass,
-  implementation: ListChecks,
-  delivery: ClipboardList,
-  "workstreams-platforms": Layers,
-  "workstreams-media": Megaphone,
-  "workstreams-ground": Radio,
-  "workstreams-data": Database,
-  "annex-polls": Gauge,
-  "annex-terms": BookLock,
-};
-
 const WiperUmbrellaLogo = () => (
-  <svg width="42" height="42" viewBox="0 0 120 120" fill="none" className="shrink-0 select-none drop-shadow-sm filter">
-    {/* Left Canopy Segment (Royal Blue) */}
+  <svg width="38" height="38" viewBox="0 0 120 120" fill="none" className="shrink-0 select-none">
     <path d="M60 20 C30 20 16 42 12 58 C24 53 42 53 60 58 Z" fill="#00209f" />
-    {/* Right Canopy Segment (Bright Red) */}
     <path d="M60 20 C90 20 104 42 108 58 C96 53 78 53 60 58 Z" fill="#e31d2b" />
-    {/* Center Division Line */}
     <path d="M60 20 V58" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
-    {/* Top Pinnacle Pointer (Bright Red, as on PDF page 1) */}
     <path d="M57 11 H63 L60 20 Z" fill="#e31d2b" />
-    {/* J-Hook handle (Royal Blue) */}
     <path d="M60 58 V92 C60 99 51 99 51 92" stroke="#00209f" strokeWidth="6" strokeLinecap="round" fill="none" />
   </svg>
 );
 
-// Full-bleed divider marking the start of a top-level section in Expand-All view — breaks out
-// of the max-w-7xl container to span the viewport edge-to-edge.
-function PartDivider({ number, label }: { number: string; label: string }) {
-  return (
-    <div className="relative left-1/2 -translate-x-1/2 w-screen print:hidden" aria-hidden="true">
-      {/* The band is the seam between two parts of the argument, so it earns a little more than a
-          rule: a slow gradient drift under a diagonal hatch, and one shimmer pass as it arrives. */}
-      <div className="fx-shimmer relative h-12 sm:h-14 flex items-center border-y border-line/40 overflow-hidden">
-        <div className="absolute inset-0 fx-gradient-live bg-[linear-gradient(100deg,var(--color-accent)_0%,transparent_35%,transparent_65%,var(--color-gold)_100%)] opacity-[0.07]" />
-        <div className="absolute inset-0 fx-pattern-diagonal" />
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 w-full flex items-center gap-3 relative z-10">
-          <span className="font-mono t-label sm:t-small font-bold text-accent shrink-0 tabular-nums">{number}</span>
-          <span className="h-px w-6 bg-gradient-to-r from-accent to-transparent shrink-0" />
-          <span className="text-sm sm:text-base font-semibold text-ink truncate">{label}</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-const PART_TINTS = ["from-accent/[0.025]", "from-gold/[0.025]"];
-
-// The five places a candidate looks for first. The scorecards lead, because they are the numbers
-// the brief asks to be reachable in one interaction from the landing view.
-const QUICK_LINKS = [
-  { id: "measurement-sec-11-1", label: "The scorecards" },
-  { id: "arithmetic-sec-3-4-1", label: "Votes needed to win" },
-  { id: "arithmetic-sec-3-4-2", label: "The 40 wards" },
-  { id: "deliverables-sec-10-1", label: "Scope levels" },
-  { id: "reach-sec-3-7-1", label: "Kikamba radio" },
-];
-
-interface LazySectionProps {
-  id: string;
-  content: React.ReactNode;
-  renderSectionExtras: (sectionId: string) => React.ReactNode;
-  immediate?: boolean;
-}
-
-function LazySection({ id, content, renderSectionExtras, immediate = false }: LazySectionProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [hasBeenVisible, setHasBeenVisible] = useState(immediate);
-
-  useEffect(() => {
-    if (immediate) {
-      return;
-    }
-    
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHasBeenVisible(true);
-          observer.disconnect();
-        }
-      },
-      {
-        rootMargin: "350px 0px", // Pre-renders when 350px close to the viewport
-        threshold: 0.01,
-      }
-    );
-
-    const el = containerRef.current;
-    if (el) {
-      observer.observe(el);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [immediate]);
-
-  return (
-    <div ref={containerRef} id={`section-${id}`} className="cv-auto-section clean-editorial-section py-4 sm:py-8 px-0 sm:px-2 print:break-inside-avoid min-h-[150px] snap-start scroll-mt-24 transition-all duration-500 ease-out">
-      {hasBeenVisible ? (
-        <motion.div
-          // No starting state in the server HTML. This wraps a whole section's prose, so
-          // `initial={{ opacity: 0 }}` here means the document ships invisible and waits on
-          // hydration — the same defect the section crossfade above had, one level down.
-          initial={false}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: DURATION.slow, ease: [0.16, 1, 0.3, 1] }}
-        >
-          {content}
-          {renderSectionExtras(id)}
-        </motion.div>
-      ) : (
-        <SectionSkeleton />
-      )}
-    </div>
-  );
-}
-
 const TAB_IDS: string[] = SECTIONS.map((s) => s.id);
+const LANDING_TAB: TabId = FLOW_ORDER[0];
 
-/** The route served at "/": the proposal's cover, and the only one that carries the hero. */
-/**
- * The route "/" serves, and the one the hero belongs to.
- *
- * Must stay in step with LANDING in app/[[...slug]]/page.tsx — that constant decides which
- * document "/" renders, and this one decides which route wears the hero and the figure strip.
- * They disagreed for exactly one build: the landing document moved to the decision route while
- * this still said "cover", so "/" rendered the ask with no hero above it and the cover page
- * carried a hero introducing a document it no longer opened.
- */
-/**
- * The proposal is sixteen sections. Neither the decision route nor the annexes is one of them.
- *
- * PARTS carries eighteen entries: §0 in front, §1-§16, and the annexes behind. §0 is front matter
- * — the ask, stated before the document it asks about — and the annexes are reference the
- * document points at rather than parts of its argument. Counting either would put a number in the
- * chrome that disagrees with "sixteen sections" in §1.3 and in §0's own lede, and the proposal's
- * own count of itself has to win. Both are reachable: §0 from "/" and the annexes from the index
- * and from the pointer at the head of every section that has one.
- */
-const ANNEX_PART = 17;
-const PROPOSAL_SECTION_COUNT = PARTS.filter((p) => p.part > 0 && p.part < ANNEX_PART).length;
-const ANNEX_COUNT = SECTIONS.filter((s) => s.part === ANNEX_PART).length;
-
-const LANDING_TAB: TabId = "decision";
-
-export function ClientPage({ sections, documents, wordCounts, activeTab, expanded, briefWordCounts, streamed }: ClientPageProps) {
-  // Always starts on the overview so server and client render the same tree on first paint — the
-  // URL fragment is only readable client-side, so a shared deep link switches section in a mount
-  // effect below rather than in the initial state (see the useEffect reading window.location.hash).
-  // The URL is the source of truth for which section is open.
-  //
-  // Every section is its own statically generated route, so `activeTab` arrives as a prop and
-  // changing it is a navigation. That makes each section independently shareable and gives the
-  // reader a working back button through a 200-minute document — and it is what stops the server
-  // sending eight sections nobody is reading.
-  //
-  // `setActiveTab` keeps the name the seven existing call sites use, so the navigation, the
-  // observers and the deep-link handlers below are unchanged.
+export function ClientPage({ sections, documents, wordCounts, briefWordCounts, activeTab, expanded, streamed = false }: ClientPageProps) {
   const router = useRouter();
-
-  // Whether the reader has navigated yet, so the section crossfade applies no `opacity: 0`
-  // starting state on first paint — see SectionTransition.
-  const [navigated, setNavigated] = useState(false);
-
-  const setActiveTab = useCallback(
-    (tab: string, hash?: string) => {
-      if (tab === activeTab && !hash) return;
-      setNavigated(true);
-      router.push(`/${tab}${hash ? `#${hash}` : ""}`, { scroll: false });
-    },
-    [activeTab, router],
-  );
-
-  // Which of the nine this reader has already opened, for the navigator's overview strip.
+  const [isTOCModalOpen, setIsTOCModalOpen] = useState(false);
+  const { theme, toggleTheme, mounted } = useTheme();
   const { visited } = useReadingProgress(activeTab);
 
-  // Prefetching a section on hover or focus means the tap that follows resolves from cache.
-  // Nine routes prefetched eagerly would cost more than the split saves, so it is intent-driven.
-  const prefetchTab = useCallback((tab: string) => router.prefetch(`/${tab}`), [router]);
-
-  /**
-   * Print the whole proposal, not whichever section happens to be open.
-   *
-   * Before the route split there was no way to express "all of it" as a destination, so Export
-   * PDF printed the current tab — a reader who pressed it on the opening section got one ninth
-   * of a document of record and no indication that anything was missing. /full is that
-   * destination, so printing now routes there first and prints once the page has painted.
-   */
-  const printFullDocument = useCallback(() => {
-    if (expanded) {
-      window.print();
-      return;
-    }
-    setNavigated(true);
-    router.push("/full", { scroll: false });
-    // The navigation is a fetch; print once the new route has actually painted, rather than
-    // guessing at a delay. Two frames is enough for layout, and the flag stops a second press
-    // queueing a second dialog.
-    let done = false;
-    const fire = () => {
-      if (done) return;
-      done = true;
-      requestAnimationFrame(() => requestAnimationFrame(() => window.print()));
-    };
-    const timer = window.setTimeout(fire, 1200);
-    window.addEventListener("popstate", () => window.clearTimeout(timer), { once: true });
-  }, [expanded, router]);
-  const [isTOCModalOpen, setIsTOCModalOpen] = useState(false);
-  // Expand All is the /full route: the whole document on one page, which is also what the print
-  // path needs. It is the one route that pays for all nine sections, by design.
-  const isExpanded = expanded;
-  const setIsExpanded = useCallback(
-    (want: boolean) => {
-      setNavigated(true);
-      router.push(want ? "/full" : `/${activeTab}`, { scroll: false });
-    },
-    [activeTab, router],
-  );
-  const [isFocusMode, setIsFocusMode] = useState(false);
-  const [isZeroChrome, setIsZeroChrome] = useState(false);
-  const chromeVisible = useChromeVisible();
-  const [readingDensity, setReadingDensity] = useState<"compact" | "balanced" | "generous">("balanced");
-
-  // Page-level scroll state (direction, stuck, velocity skew) and the reader's local time of day,
-  // both written onto <html> as data attributes and custom properties that CSS reads. Neither
-  // triggers a React render; see hooks/use-scroll-shell.ts.
   useScrollShell();
   useDaypart();
 
-  const cycleDensity = () => {
-    setReadingDensity((prev) => (prev === "compact" ? "balanced" : prev === "balanced" ? "generous" : "compact"));
-  };
-
-  const { theme, toggleTheme, mounted } = useTheme();
+  /**
+   * Which section the reader is in.
+   *
+   * On the flow this is observed, not navigated: there is no route change and no history entry
+   * per section, because scrolling through a document is not nineteen acts of navigation. It
+   * drives the capsule, the edge rail and nothing else, so it is allowed to be approximate.
+   */
+  const [currentTab, setCurrentTab] = useState<TabId>(expanded ? LANDING_TAB : activeTab);
 
   const navItems = useMemo(
     () =>
-      SECTIONS.map((section) => ({
-        id: section.id,
+      FLOW_SECTIONS.map((section) => ({
+        id: section.id as TabId,
         number: section.number,
         label: section.label,
         blurb: section.blurb,
-        icon: SECTION_ICONS[section.id],
-        // Only the served section carries prose; the rest are nav entries until visited.
-        content: documents[section.id] ?? null,
-        wordCount: wordCounts[section.id],
+        content: documents[section.id as TabId] ?? null,
+        wordCount: wordCounts[section.id as TabId],
       })),
     [documents, wordCounts]
   );
 
-  // The set of ids that actually exist today, so resolveLegacySectionId can tell a retired
-  // section number (redirect it) apart from a current one that just happens to reuse an old
-  // number (leave it alone) — see the note on that function for why this matters.
+  // On the flow, every section has a slot: the ones the server rendered carry their prose, and
+  // the rest carry a StreamedSection that fetches it. On a single-section route there is one.
+  const served = useMemo(
+    () => (expanded ? navItems : navItems.filter((n) => n.content !== null)),
+    [navItems, expanded]
+  );
+
+  /**
+   * The section a deep link is aimed at, which must mount whether or not it is near the viewport.
+   *
+   * A link to §13.4.3 lands 48,000 words down the flow. Without this the observer would not have
+   * fired for it, the scroll helper would find nothing, and the reader would be left at the top of
+   * a document they arrived in the middle of.
+   */
+  const [forced, setForced] = useState<Set<string>>(() => new Set());
+  const forceFor = useCallback((rawId: string) => {
+    const tab = rawId.replace(/^section-/, "").split("-sec-")[0];
+    if (TAB_IDS.includes(tab)) setForced((prev) => (prev.has(tab) ? prev : new Set(prev).add(tab)));
+  }, []);
+
   const validSectionIds = useMemo(() => new Set(sections.map((s) => s.id)), [sections]);
 
-  // Premium dynamic category intersection observer to track active section while scrolling
-  useEffect(() => {
-    if (!isExpanded) return;
+  /* ------------------------------------------------------------- navigation */
 
-    const observerOptions = {
-      root: null,
-      rootMargin: "-20% 0px -60% 0px", // Trigger active focus as section scrolls into viewport focus
-      threshold: 0.05,
-    };
+  /**
+   * Going to a section is scrolling to it.
+   *
+   * On the flow, every destination is already on the page, so this is a scroll and never a route
+   * change. On a deep-link route where the target is not present, it falls back to navigating —
+   * which is also how a link into an annex from a single-section page still works.
+   */
+  const goToSection = useCallback(
+    (tabId: string) => {
+      forceFor(tabId);
+      const el = typeof document !== "undefined" ? document.getElementById(`section-${tabId}`) : null;
+      if (el) {
+        const y = el.getBoundingClientRect().top + window.scrollY - 72;
+        window.scrollTo({ top: y, behavior: "smooth" });
+        return;
+      }
+      router.push(`/#section-${tabId}`, { scroll: false });
+    },
+    [router, forceFor]
+  );
 
-    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const sectionId = entry.target.id.replace("section-", "");
-          setActiveTab(sectionId);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(handleIntersection, observerOptions);
-
-    navItems.forEach((item) => {
-      const el = document.getElementById(`section-${item.id}`);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, [isExpanded, navItems, setActiveTab]);
-
-  const handleNavClick = (itemId: string) => {
-    setActiveTab(itemId);
-
-    if (isExpanded) {
-      setTimeout(() => {
-        const el = document.getElementById(`section-${itemId}`);
-        if (el) {
-          // Align section perfectly to the sticky header offset
-          const yOffset = -96;
-          const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
-          window.scrollTo({ top: y, behavior: "smooth" });
-        }
-      }, 50);
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
-
-  // Deep-link navigation to a specific numbered section (id format "<tab>-sec-<slug>"),
-  // used by in-text cross-references and the per-section copy-link buttons. Switches tab
-  // if needed, waits for the target to mount, then scrolls to it and sets :target via the hash.
   const navigateToSection = useCallback(
     (rawId: string) => {
       const id = resolveLegacySectionId(rawId, validSectionIds);
       const targetTab = id.split("-sec-")[0];
-      const isValidTab = navItems.some((item) => item.id === targetTab);
-
-      // Carry the fragment into the navigation, so the destination URL is shareable the moment
-      // it lands rather than after the scroll helper catches up.
-      if (isValidTab && !isExpanded && activeTab !== targetTab) {
-        setActiveTab(targetTab, id);
+      forceFor(id);
+      const onPage = typeof document !== "undefined" && document.getElementById(`section-${targetTab}`);
+      if (!onPage && TAB_IDS.includes(targetTab)) {
+        router.push(`/#${id}`, { scroll: false });
       }
-      // Polls for up to two seconds, which covers the route fetch as well as lazy mounting.
       scrollToSectionWhenReady(id, "smooth");
     },
-    [activeTab, isExpanded, navItems, validSectionIds, setActiveTab]
+    [router, validSectionIds, forceFor]
   );
 
-  // The index is the only way to search 262 sections, and reaching it meant finding a button.
-  // Ctrl/Cmd-K is the shortcut readers already try; "/" is the one long-document readers try.
-  // Both are ignored while the caret is in a field, so typing a slash into the index's own
-  // search box does not reopen it.
+  useEffect(() => {
+    window.__navigateToSection = navigateToSection;
+    return () => {
+      delete window.__navigateToSection;
+    };
+  }, [navigateToSection]);
+
+  /* ----------------------------------------------------------- deep linking */
+
+  // A shared link, on arrival. The fragment is only readable client-side, so this cannot happen
+  // in initial state; `auto` rather than `smooth`, because a reader who followed a link to §3.3.1
+  // should land on it, not watch the page travel there.
+  useEffect(() => {
+    const raw = window.location.hash.replace(/^#/, "");
+    if (!raw) return;
+    // After the first paint, deliberately. The server never saw the fragment, so forcing a
+    // section to mount during hydration would make the client's first render disagree with the
+    // HTML it is hydrating.
+    const frame = requestAnimationFrame(() => {
+      const id = raw.startsWith("section-") ? raw : resolveLegacySectionId(raw, validSectionIds);
+      forceFor(id);
+      scrollToSectionWhenReady(id, "auto");
+    });
+    return () => cancelAnimationFrame(frame);
+    // Mount only.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // A fragment that changes while the page is open — the back button, or a legacy link clicked
+  // from another tab.
+  useEffect(() => {
+    const onHashChange = () => {
+      const raw = window.location.hash.replace(/^#/, "");
+      if (!raw) return;
+      const id = raw.startsWith("section-") ? raw : resolveLegacySectionId(raw, validSectionIds);
+      forceFor(id);
+      scrollToSectionWhenReady(id, "smooth");
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, [validSectionIds, forceFor]);
+
+  /* ------------------------------------------------------- current section */
+
+  useEffect(() => {
+    if (!expanded) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const id = entry.target.id.replace("section-", "") as TabId;
+            setCurrentTab(id);
+          }
+        }
+      },
+      { rootMargin: "-25% 0px -65% 0px", threshold: 0 }
+    );
+    for (const item of navItems) {
+      const el = document.getElementById(`section-${item.id}`);
+      if (el) observer.observe(el);
+    }
+    return () => observer.disconnect();
+  }, [expanded, navItems]);
+
+  /* ------------------------------------------------------------- shortcuts */
+
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement | null;
       const typing =
         !!target &&
-        (target.tagName === "INPUT" ||
-          target.tagName === "TEXTAREA" ||
-          target.tagName === "SELECT" ||
-          target.isContentEditable);
+        (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.tagName === "SELECT" || target.isContentEditable);
       const isCommandK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
       const isSlash = e.key === "/" && !e.metaKey && !e.ctrlKey && !e.altKey;
       if (isCommandK || (isSlash && !typing)) {
@@ -456,528 +255,264 @@ export function ClientPage({ sections, documents, wordCounts, activeTab, expande
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  useEffect(() => {
-    window.__navigateToSection = navigateToSection;
-    return () => {
-      delete window.__navigateToSection;
-    };
-  }, [navigateToSection]);
+  /* ----------------------------------------------------------------- print */
 
-  // On first load with a URL fragment already present (a shared deep link), switch to the
-  // right tab — the fragment only exists client-side, so this can't happen in initial state —
-  // then land on the section once its content has mounted.
-  useEffect(() => {
-    const hash = resolveLegacySectionId(window.location.hash.replace(/^#/, ""), validSectionIds);
-    if (!hash) return;
-    const targetTab = hash.split("-sec-")[0];
-    // `replace`, not `push`: arriving on a shared deep link should not leave the landing route
-    // behind in history for the back button to return to. And deliberately not through
-    // setActiveTab — this is the first paint, so the section must not animate in as though the
-    // reader had navigated to it.
-    if (TAB_IDS.includes(targetTab) && targetTab !== activeTab) {
-      router.replace(`/${targetTab}#${hash}`, { scroll: false });
+  const printDocument = useCallback(() => {
+    if (expanded) {
+      window.print();
+      return;
     }
-    scrollToSectionWhenReady(hash, "auto");
-    // Runs once, on mount only — validSectionIds is available synchronously from the sections
-    // prop by the time this fires, so it doesn't need to be a dependency.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // The same resolution, for a hash that changes while the page is already open — a legacy link
-  // opened from another tab, or the back button after an in-document jump. Without this the
-  // effect above only ever fires on a cold load, so a shared link from an earlier generation of
-  // this document worked when pasted into a fresh tab and silently did nothing when clicked by
-  // someone already reading.
-  useEffect(() => {
-    const onHashChange = () => {
-      const raw = window.location.hash.replace(/^#/, "");
-      if (!raw) return;
-      const id = resolveLegacySectionId(raw, validSectionIds);
-      const targetTab = id.split("-sec-")[0];
-      if (!TAB_IDS.includes(targetTab)) return;
-      setActiveTab(targetTab, id);
-      scrollToSectionWhenReady(id, "smooth");
+    router.push("/", { scroll: false });
+    let done = false;
+    const fire = () => {
+      if (done) return;
+      done = true;
+      requestAnimationFrame(() => requestAnimationFrame(() => window.print()));
     };
-    window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
-  }, [validSectionIds, setActiveTab]);
+    window.setTimeout(fire, 1400);
+  }, [expanded, router]);
 
-  // Section extras.
-  //
-  // This used to be a two-column shelf of ~50 widgets appended BELOW each tab's entire prose —
-  // the chart explaining §10.1.1 sat 20,000 words downstream of the text it illustrated. Anything
-  // that genuinely explains a section is now a heading insert in MarkdownViewer, mounted next to
-  // the prose it belongs to. What remains here is the handful of surfaces that are about the
-  // document as a whole rather than about one section, plus the closing ask.
-  const renderSectionExtras = (sectionId: string) => {
-    // The cover is the landing view and closes on its own section cards, so it does not need
-    // the reading-mode strip beneath it.
-    const showFocusToggle = sectionId !== LANDING_TAB;
-
-    return (
-      <div className="mt-8 pt-8 border-t border-line/20 space-y-8">
-        {/* The cover closes on the offer itself: one card per route, in reading order, so the
-            first screen answers "what is being proposed" without opening a menu. */}
-        {sectionId === LANDING_TAB && !isExpanded && (
-          <nav aria-label="Proposal sections">
-            <h2 className="font-sans text-lg sm:text-xl font-bold text-ink mb-1">What this proposal covers</h2>
-            <p className="text-sm text-muted mb-5">Sixteen sections, in the order a proposal is read. Every one opens on what it is for.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
-              {navItems.slice(1).map((item) => {
-                const Icon = item.icon;
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => handleNavClick(item.id)}
-                    onPointerEnter={() => prefetchTab(item.id)}
-                    onFocus={() => prefetchTab(item.id)}
-                    className="group text-left bg-card border border-line/60 rounded-2xl p-4 hover:border-accent focus-visible:border-accent transition-colors cursor-pointer flex flex-col gap-2 min-h-[112px]"
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <Icon size={16} className="text-accent shrink-0" />
-                      <span className="font-mono t-micro text-muted tabular-nums">{item.number}</span>
-                    </div>
-                    <span className="font-sans t-body font-bold text-ink leading-snug group-hover:text-accent transition-colors text-balance">
-                      {item.label}
-                    </span>
-                    <span className="t-label text-muted leading-snug mt-auto">{item.blurb}</span>
-                  </button>
-                );
-              })}
-            </div>
-          </nav>
-        )}
-
-        {showFocusToggle && (
-          <FocusModeToggle
-            isActive={isFocusMode}
-            onToggle={() => setIsFocusMode(!isFocusMode)}
-          />
-        )}
-
-        {/* DecisionPanel moved into the document's own close (MarkdownViewer); what remains
-            here is page tooling, which is what this footer strip is for. */}
-        {!isFocusMode && sectionId === LANDING_TAB && <PrintReportGenerator onPrint={printFullDocument} />}
-      </div>
-    );
-  };
-
-  const activeItem = useMemo(() => navItems.find((t) => t.id === activeTab) || navItems[0], [navItems, activeTab]);
+  const activeItem = useMemo(
+    () => navItems.find((t) => t.id === (expanded ? currentTab : activeTab)) ?? navItems[0],
+    [navItems, currentTab, activeTab, expanded]
+  );
+  const activeIndex = flowIndex(activeItem.id);
 
   return (
     <SectionNumberMapProvider sections={sections}>
-    <div className="min-h-screen bg-paper text-ink font-sans selection:bg-accent/20">
-      {/* First tab stop: skip 55,000 words of navigation chrome. */}
-      <a href="#content-area" className="skip-link" suppressHydrationWarning>Skip to content</a>
+      <ReadingModeProvider>
+      <div className="min-h-screen bg-paper text-ink font-sans selection:bg-accent/20">
+        <a href="#content-area" className="skip-link">Skip to the document</a>
 
-      {/* Top Gradient Line */}
-      <div className="h-1.5 bg-gradient-to-r from-accent to-gold fixed top-0 left-0 right-0 z-50 print:hidden" />
+        {/* The flow streams its later sections, so the complete server-rendered document lives at
+            /full. That is what print leads to, and it is what a reader without JavaScript gets. */}
+        {streamed && (
+          <noscript>
+            <p style={{ padding: "1rem", textAlign: "center" }}>
+              <Link href="/full">Open the complete proposal on one page</Link>
+            </p>
+          </noscript>
+        )}
 
-      {/* Scroll Progress Indicator — CSS scroll-driven animation, JS fallback only */}
-      <ScrollProgressBar />
-      
-      {/* Hero Header */}
-      {(activeTab === LANDING_TAB || isExpanded) && (
-        <header className="cv-auto-hero fx-vignette relative pt-10 sm:pt-14 pb-8 sm:pb-12 overflow-hidden print:pt-4 print:pb-4">
-          {/* The base plate stays: it is what guarantees contrast for the title. The ambient
-              field — drifting colour wells, a masked grid, film grain — is layered over it and
-              is switched off wholesale under reduced motion, reduced data and print. */}
-          <div className="absolute inset-0 pointer-events-none opacity-50 bg-[radial-gradient(circle_at_82%_10%,var(--color-glow),transparent_32%),linear-gradient(180deg,var(--color-card),var(--color-paper))]" />
-          <AmbientField intensity="full" pattern="grid" />
+        <div className="h-1 bg-gradient-to-r from-accent to-gold fixed top-0 left-0 right-0 z-50 print:hidden" />
+        <ScrollProgressBar />
+        <RegisterMotion />
 
-          <div className="fx-hero-seq max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 relative z-10">
-            
-            {/* Party brand banner — Wiper Patriotic Front (WPF), renamed from Wiper Democratic
-                Movement by ORPP certificate, August 2025. */}
-            <div style={{ "--fx-i": 0 } as React.CSSProperties} className="fx-in-left fx-glass fx-lift flex items-center gap-3 mb-4 sm:mb-6 select-none rounded-2xl p-2.5 sm:p-3.5 w-fit">
-              <span className="inline-flex"><WiperUmbrellaLogo /></span>
-              <div>
-                <div className="t-small sm:text-sm text-accent font-black">
-                  Hon. Dr. Benson Makali Mulu
-                </div>
-                <div className="t-micro sm:t-label text-muted font-semibold mt-0.5">
-                  Kitui 2027 — strategy and direction
-                </div>
-              </div>
-            </div>
+        {/* ----------------------------------------------------------- hero */}
+        {expanded && (
+          <header className="cv-auto-hero relative pt-12 sm:pt-16 pb-6 sm:pb-10 overflow-hidden print:pt-4 print:pb-4">
+            <div className="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(circle_at_82%_8%,var(--color-glow),transparent_34%),linear-gradient(180deg,var(--color-card),var(--color-paper))]" />
+            {/* Grain and a masked grid, and no motion. It was intensity="full", which adds drifting
+                aurora wells — an animated background behind the one screen every reader sees, and
+                on the deny list for exactly that. The static texture stays: it is a surface, not
+                an effect. */}
+            <AmbientField intensity="quiet" pattern="grid" />
 
-            <div style={{ "--fx-i": 1 } as React.CSSProperties} className="fx-in-fade confidentiality-marker mb-4 sm:mb-6 flex items-baseline flex-wrap gap-x-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
-              <strong>Confidential</strong>
-              <span className="opacity-70">— prepared for Hon. Dr. Benson Makali Mulu, MP. Personal and confidential.</span>
-            </div>
-
-            {/* The title and the candidate, together. The portrait is a cutout, so it stands on
-                the page rather than sitting in a frame; on a phone it goes under the text at a
-                size that reads as a portrait rather than a thumbnail. */}
-            {/* One portrait element, repositioned by grid rather than duplicated.
-                Two elements with `hidden md:block` would look right and cost double: a browser
-                downloads a `priority` image even when it is display:none, so a phone would pay
-                for the 260px desktop rendition it never shows. `sizes` picks the rendition. */}
-            <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 md:gap-x-8 items-end">
-              {/* The one place on the site that gets a per-line masked reveal. It is the first
-                  thing the candidate reads and the only heading long enough for the effect to
-                  register as deliberate rather than as a stutter. The accessible copy is a
-                  single unsplit string inside SplitText — the spans are aria-hidden. */}
-              <h1 className="col-span-2 md:col-span-1 font-sans text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.14] sm:leading-[1.08] tracking-tight max-w-4xl text-ink mb-4 sm:mb-6 font-bold text-balance">
-                Kitui 2027: the intelligence behind what you already publish.
-              </h1>
-              <p style={{ "--fx-i": 3 } as React.CSSProperties} className="fx-in-up col-start-1 t-body md:t-lead text-muted max-w-3xl leading-relaxed text-pretty">
-                Campaign Strategy & Digital Architecture Proposal for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
-              </p>
-              <p style={{ "--fx-i": 4 } as React.CSSProperties} className="fx-in-up col-start-1 mt-3 t-small font-semibold text-muted flex items-baseline gap-1.5">
-                <span>Covering</span>
-                <span className="text-accent font-black">{activeItem.label}</span>
-              </p>
-              <div style={{ "--fx-i": 2 } as React.CSSProperties} className="fx-in-settle col-start-2 row-start-2 md:row-start-1 md:row-span-2 self-end w-[104px] md:w-[210px] lg:w-[260px] shrink-0 -mb-1 md:-mb-2">
+            <div className="fx-hero-seq mx-auto w-full max-w-3xl px-4 sm:px-6 relative z-10">
+              <div style={{ "--fx-i": 0 } as React.CSSProperties} className="fx-in-left flex items-center gap-2.5 mb-5 select-none">
+                <WiperUmbrellaLogo />
                 <div>
-                  <Portrait
-                    id="hero-clasped-hands"
-                    sizes="(min-width: 1024px) 260px, (min-width: 768px) 210px, 104px"
-                    priority
-                  />
+                  <div className="t-small text-accent font-black leading-tight">Hon. Dr. Benson Makali Mulu</div>
+                  <div className="t-micro text-muted font-semibold mt-0.5">Kitui 2027 — strategy and direction</div>
                 </div>
               </div>
-            </div>
 
-            {/* Quick-jump chips — the five places a candidate reads first, one tap from the top. */}
-            <div style={{ "--fx-i": 4 } as React.CSSProperties} className="fx-in-up mt-5 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none lg:hidden select-none -mx-4 px-4">
-              <span className="t-label font-semibold text-muted shrink-0">Jump to</span>
-              <button
-                onClick={() => setIsTOCModalOpen(true)}
-                className="fx-shine px-3 py-1.5 rounded-xl bg-accent-solid text-on-accent t-label font-bold shrink-0 flex items-center gap-1.5 shadow-sm shadow-accent/20 cursor-pointer tap-chip"
-              >
-                <span>Full index</span>
-              </button>
-              {QUICK_LINKS.map((link, i) => (
-                <button
-                  key={link.id}
-                  onClick={() => navigateToSection(link.id)}
-                  style={{ "--fx-i": i } as React.CSSProperties}
-                  className="fx-bg-slide px-3 py-1.5 rounded-xl bg-card border border-line text-ink t-label font-bold shrink-0 hover:border-accent hover:text-white cursor-pointer tap-chip"
-                >
-                  {link.label}
-                </button>
-              ))}
-            </div>
+              <div style={{ "--fx-i": 1 } as React.CSSProperties} className="fx-in-fade confidentiality-marker mb-5 flex items-baseline flex-wrap gap-x-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
+                <strong>Confidential</strong>
+                <span className="opacity-70">— personal, link-only.</span>
+              </div>
 
-          </div>
-        </header>
-      )}
+              <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 items-end">
+                {/* The headline is text, and it is text once.
 
-      {/* Main Content Layout */}
-      <main className={`max-w-7xl mx-auto px-3.5 sm:px-5 lg:px-6 transition-all duration-300 ${isZeroChrome ? "pb-12 lg:pb-24" : "pb-48 lg:pb-24"} ${isFocusMode ? "max-w-3xl" : ""}`}>
-        <div className="print:hidden">
-        </div>
-        
-        {/* Responsive Toolbar */}
-        <div className={`fx-header fx-dir-header sticky top-0 z-40 fx-glass rounded-b-xl py-2 sm:py-3 ${(activeTab === LANDING_TAB || isExpanded) ? "mt-3 sm:mt-6" : "mt-0"} mb-3 sm:mb-6 flex items-center justify-between gap-2 print:hidden transition-all duration-300 ${
-          (!chromeVisible && !isFocusMode) || isZeroChrome ? "-translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100"
-        }`}>
-          {/* The hairline under the bar is a gradient rather than a rule, so the toolbar reads as
-              a lit edge over the document instead of a box drawn on top of it. */}
-          <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-0 bottom-0" />
-          <div className="flex items-center gap-1.5 sm:gap-4 flex-1 min-w-0 overflow-x-auto scrollbar-none py-0.5">
-            {activeTab !== LANDING_TAB && !isExpanded && (
-              <div className="flex items-center gap-1.5 mr-1 shrink-0">
-                <div className="scale-75 origin-left shrink-0">
-                  <WiperUmbrellaLogo />
-                </div>
-                <div className="hidden sm:block">
-                  <div className="t-label font-black text-accent leading-none">Wiper Patriotic Front</div>
-                  <div className="t-micro font-bold text-muted uppercase mt-0.5 leading-none">Kitui 2027 Strategy</div>
+                    It used to be a line-split reveal, which meant two copies in the DOM: the real
+                    string in a visually hidden node for assistive technology, and a stack of
+                    aria-hidden spans to animate. aria-hidden hides a node from a screen reader and
+                    from nothing else, so the page read "Kitui 2027: the intelligence behind what
+                    you already publish." twice — to copy-paste, to reader mode, to find-in-page,
+                    and to anyone who opened it with JavaScript off.
+
+                    The split bought a staggered rise on the one element a reader is guaranteed to
+                    be looking at before anything else has loaded. That is the definition of an
+                    animation that delays reading, and kinetic headlines are on the deny list for
+                    exactly this reason. The line break stays, because it is how the sentence
+                    should break. */}
+                <h1 className="col-span-2 sm:col-span-1 font-sans text-[1.7rem] sm:text-4xl lg:text-5xl leading-[1.14] sm:leading-[1.08] tracking-tight text-ink mb-4 font-bold text-balance">
+                  <span className="block">Kitui 2027:</span>
+                  <span className="block">Analysis, Strategy and Direction for Dr. Mulu&rsquo;s Digital Operation</span>
+                </h1>
+                <p style={{ "--fx-i": 3 } as React.CSSProperties} className="fx-in-up col-start-1 t-body text-muted leading-relaxed text-pretty">
+                  Campaign strategy and digital architecture for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
+                </p>
+                <div style={{ "--fx-i": 2 } as React.CSSProperties} className="fx-in-settle col-start-2 row-start-2 sm:row-start-1 sm:row-span-2 self-end w-[104px] sm:w-[150px] shrink-0 -mb-1 lg:hidden">
+                  <Portrait id="hero-clasped-hands" sizes="(min-width: 1024px) 210px, (min-width: 640px) 150px, 104px" priority />
                 </div>
               </div>
-            )}
 
-            {/* Desktop & Mobile Responsive Control Buttons */}
-            <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-              <button
-                onClick={() => setIsTOCModalOpen(true)}
-                className="group fx-shine flex items-center gap-1.5 px-3 py-2 bg-accent/10 border border-accent/20 rounded-xl t-label sm:t-small font-bold text-accent hover:bg-accent hover:text-white transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px]"
-                aria-label="Open Table of Contents"
-                title="Open the full index (Ctrl+K)"
-              >
-                <FileText size={15} className="fx-icon-rise" />
-                <span className="hidden xs:inline">Index</span>
-              </button>
+              {/* One instruction, and one choice.
 
-              <button 
-                onClick={cycleDensity}
-                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-2 bg-card border border-line/60 rounded-xl t-label sm:t-small font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px]"
-                title={`Reading Density: ${readingDensity}`}
-                aria-label="Toggle Reading Density"
-              >
-                <Type size={14} />
-                <span className="capitalize t-small sm:t-label hidden xs:inline">{readingDensity}</span>
-              </button>
-
-              <button 
-                onClick={() => setIsFocusMode(!isFocusMode)}
-                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl t-label sm:t-small font-bold fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px] ${
- isFocusMode 
-                    ? "bg-accent-solid border-accent-solid text-on-accent shadow-sm" 
-                    : "bg-card border-line/60 text-ink hover:border-accent hover:text-accent"
-                }`}
-                title={isFocusMode ? "Exit Focus Mode" : "Enter Distraction-Free Focus Mode"}
-                aria-label="Toggle Focus Mode"
-              >
-                {isFocusMode ? <EyeOff size={14} /> : <Eye size={14} />}
-                <span className="hidden md:inline">{isFocusMode ? "Focus" : "Focus"}</span>
-              </button>
-
-              <button 
-                onClick={() => setIsZeroChrome(!isZeroChrome)}
-                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border rounded-xl t-label sm:t-small font-bold fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px] ${
- isZeroChrome 
-                    ? "bg-accent-solid border-accent-solid text-on-accent shadow-sm" 
-                    : "bg-card border-line/60 text-ink hover:border-accent hover:text-accent"
-                }`}
-                title={isZeroChrome ? "Leave reading view" : "Enter reading view"}
-                aria-label="Toggle reading view"
-              >
-                <EyeOff size={14} className={isZeroChrome ? "text-white" : "text-accent"} />
-                <span className="hidden sm:inline">Reading view</span>
-              </button>
-
-              <button 
-                onClick={() => setIsExpanded(!isExpanded)}
-                className="flex items-center gap-1.5 px-3 py-2 bg-card border border-line/60 rounded-xl t-label sm:t-small font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px]"
-              >
-                {isExpanded ? <Minimize2 size={15} /> : <Maximize2 size={15} />}
-                <span className="hidden sm:inline">{isExpanded ? "Close every section" : "Open every section"}</span>
-                <span className="sm:hidden">{isExpanded ? "Collapse" : "All"}</span>
-              </button>
-
-              <button
-                onClick={printFullDocument}
-                className="group hidden sm:flex items-center gap-2 px-3.5 py-2 bg-card border border-line/60 rounded-xl t-small font-bold text-ink hover:border-accent hover:text-accent transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center"
-              >
-                <Printer size={15} className="fx-icon-rise" />
-                <span>Print</span>
-              </button>
-
-              <button 
-                onClick={toggleTheme}
-                className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 bg-card border border-line/60 rounded-xl t-label sm:t-small font-bold text-ink hover:border-accent hover:text-accent fx-press fx-focus transition-all cursor-pointer min-h-[44px] min-w-[44px] justify-center sm:min-h-[44px]"
-                aria-label="Toggle theme"
-              >
-                {mounted ? (
-                  theme === "light" ? <Moon size={15} className="text-gold" /> : <Sun size={15} className="text-gold" />
-                ) : (
-                  <div className="w-4 h-4 rounded-full border border-line/40 animate-pulse" />
-                )}
-                <span className="hidden sm:inline">
-                  {!mounted ? "Theme" : theme === "light" ? "Dark" : "Light"}
-                </span>
-              </button>
-            </div>
-          </div>
-
-        </div>
-
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 relative mt-4 sm:mt-8">
-          
-          {/* Desktop Sidebar Navigation */}
-          <aside className={`toc-rail hidden ${isFocusMode ? "lg:hidden" : "lg:block"} w-72 flex-shrink-0 print:hidden`}>
-            <div className="sticky top-24 space-y-4">
-              <div className="fx-glass rounded-2xl p-4 border border-line/60">
-                <div className="t-label font-semibold text-muted mb-3 flex items-center justify-between">
-                  <span>The proposal</span>
-                  {/* Sixteen canonical sections. The rail lists nineteen entries because the
-                      scope of work is served over four routes — counting the routes here would
-                      contradict the contents page the reader has just come from. */}
-                  <span className="font-mono text-accent tabular-nums">
-                    {PROPOSAL_SECTION_COUNT} sections · {ANNEX_COUNT} annexes
+                  The instruction is the only one the reader needs: keep going. The choice is the
+                  honest form of the old line, which said "30 sections, 289 minutes" and left it
+                  there. 289 minutes is a true number and a closed door — it is the first thing a
+                  reader learns about a document they were sent on WhatsApp. Both reading times
+                  are measured from the rendered segmentation rather than typed, so neither can
+                  drift from what the page actually does. */}
+              <div style={{ "--fx-i": 4 } as React.CSSProperties} className="fx-in-up mt-7 space-y-3">
+                <p className="flex items-center gap-2.5 t-micro font-semibold text-muted">
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-line/70">
+                    <span className="fx-scroll-cue" aria-hidden="true" />
                   </span>
-                </div>
-                <nav className="flex flex-col gap-0.5 relative">
-                  {/* The active-link marker is one element that slides, rather than a border that
-                      appears on whichever item is current. --fx-rail-y/-h are written from the
-                      active index, so the travel is a transform and never a layout read. */}
-                  <span
-                    aria-hidden="true"
-                    className="fx-rail-indicator"
-                    style={{
-                      "--fx-rail-y": `${Math.max(0, navItems.findIndex((n) => n.id === activeTab)) * 36 + 6}px`,
-                      "--fx-rail-h": "24px",
-                    } as React.CSSProperties}
-                  />
-                  {navItems.map((item) => {
-                    const Icon = item.icon;
-                    const isActive = activeTab === item.id;
-                    const sectionReadMin = readingMinutes(item.wordCount);
-                    return (
-                      <button
-                        key={item.id}
-                        onClick={() => handleNavClick(item.id)}
-                    onPointerEnter={() => prefetchTab(item.id)}
-                    onFocus={() => prefetchTab(item.id)}
-                        aria-current={isActive ? "true" : undefined}
-                        className={`group relative flex items-center justify-between gap-2 px-2.5 py-2 rounded-xl t-label transition-colors text-left ${
- isActive
-                            ? "bg-accent-solid text-on-accent shadow-sm shadow-accent/20 font-semibold"
-                            : "text-muted hover:bg-ink/5 hover:text-ink cursor-pointer font-medium"
-                        }`}
-                      >
-                        <div className="flex items-center gap-2.5 min-w-0">
-                          <Icon size={15} className={`shrink-0 ${isActive ? "text-white" : "text-muted group-hover:text-accent transition-colors"}`} />
-                          <span className="truncate leading-snug">{item.label}</span>
-                        </div>
-                        <span className={`font-mono t-micro shrink-0 tabular-nums ${
-                          isActive ? "text-white/90" : "text-muted"
-                        }`}>
-                          {sectionReadMin}m
-                        </span>
-                      </button>
-                    );
-                  })}
-                </nav>
-              </div>
-
-              {/* Minimalist Key Metric Summary Card */}
-              <div className="fx-glass fx-lift rounded-2xl p-3.5 t-label space-y-2">
-                <div className="flex items-center justify-between t-label font-extrabold text-muted">
-                  {/* A floor, not a target: §3.4.1 now carries the 2026 register growth, and the
-                      same 37.2% winning ratio on the reported larger register lands near 225k. The
-                      2022 number stays on the chrome because it is the Tier 1 one. */}
-                  <span>Victory floor</span>
-                  <span className="text-accent font-black tabular-nums">200k+ Votes</span>
-                </div>
-                {/* The bar grows from its baseline on entry, and under reduced motion it renders
-                    at its true proportion rather than at zero. */}
-                <div className="w-full bg-line/40 h-1.5 rounded-full overflow-hidden">
-                  <div className="fx-bar-h bg-gradient-to-r from-accent to-gold h-full w-[68%] origin-left" />
-                </div>
-                <div className="flex justify-between t-micro font-bold text-muted">
-                  <span>Kitui Central Core</span>
-                  <span>40 Wards Field</span>
-                </div>
+                  <span>Scroll. The whole proposal is on this page, in order — {navItems.length} sections.</span>
+                </p>
+                <ReadingModeToggle
+                  briefMinutes={readingMinutes(Object.values(briefWordCounts).reduce((a, b) => a + b, 0))}
+                  fullMinutes={readingMinutes(Object.values(wordCounts).reduce((a, b) => a + b, 0))}
+                />
               </div>
             </div>
-          </aside>
+          </header>
+        )}
 
-          {/* Content Area */}
-          <div id="content-area" className={`flex-1 min-w-0 scroll-mt-24 density-${readingDensity} ${isFocusMode ? "focus-reading-mode" : ""}`}>
-            {isExpanded ? (
-              <div className="space-y-16">
-                {navItems.map((item, index) => (
-                  <div key={item.id}>
-                    <PartDivider number={item.number} label={item.label} />
-                    <div className={`bg-gradient-to-b ${PART_TINTS[index % PART_TINTS.length]} to-transparent rounded-b-3xl pt-8`}>
-                      {/* Every section mounts at once on /full, rather than waiting to be
-                          scrolled into view. This is the route Expand All and Export PDF lead
-                          to, and a print job does not scroll: lazy-mounting here is what made
-                          the old PDF come out as one section of prose followed by eight
-                          skeletons. /full is the expensive route by design; this is the expense. */}
-                      <LazySection
-                        id={item.id}
-                        content={item.content}
-                        renderSectionExtras={renderSectionExtras}
-                        immediate
-                      />
-                    </div>
+        {/* ------------------------------------------------ evidence preface */}
+        {expanded && (
+          <section aria-label="The figures behind the decision" className="cv-auto-strip mx-auto w-full max-w-5xl px-4 sm:px-6 mt-2 mb-4 space-y-5">
+            {/* The cover figures (brief §F.1): the tile map shaded for the pool, the four data-only
+                figures, and the spine of the argument. They sit here, under the portrait, on the
+                flow, and open the section on the /cover route, never both. The poll-share strip
+                that stood here is cut (docs/rebuild/REPLACEMENTS.md). */}
+            {/* On a wide screen the portrait sits beside the map (brief §F.1); on a phone it stays
+                beside the title, where there is room for it. */}
+            <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_220px] lg:items-start lg:gap-6">
+              <Figure id="fig-cover-map" />
+              <div className="hidden lg:block lg:sticky lg:top-24 lg:mt-6">
+                <Portrait id="hero-clasped-hands" sizes="220px" />
+              </div>
+            </div>
+            <Figure id="fig-cover-spine" />
+          </section>
+        )}
+
+        {/* ------------------------------------------------------ the document */}
+        <main className="mx-auto w-full max-w-3xl px-4 sm:px-6 pb-28 lg:pb-24">
+          {/* There is no toolbar.
+
+              There used to be seven buttons in a bar that followed the reader down the page, and
+              on a 390px screen it sat over the figures it was scrolling past. Density, focus
+              mode, reading view and Expand All were all ways of undoing the tab layout, and the
+              tab layout is gone. Search and brightness moved into the flow capsule at the foot of
+              the screen, which is one element instead of a band; print is at the end of the
+              document, where a reader who wants a PDF has just arrived. */}
+
+          <div id="content-area" className="flow-body">
+            {served.map((item) => {
+              const act = expanded ? opensAct(item.id) : null;
+              const position = flowIndex(item.id);
+              return (
+                <section
+                  key={item.id}
+                  id={`section-${item.id}`}
+                  className="flow-section print:break-inside-auto"
+                  aria-labelledby={`chap-${item.id}`}
+                  // The real measured height of this section, so `content-visibility: auto` can
+                  // skip laying it out without misreporting the document's length. One flat
+                  // placeholder for all thirty made a 480,000px document claim to be 42,000px,
+                  // and every deep link past the third section landed in the wrong place.
+                  style={{ containIntrinsicSize: `auto ${sectionHeight(item.id, item.wordCount)}px` }}
+                >
+                  {act && <ActMarker act={act} index={FLOW_ACTS.indexOf(act)} total={FLOW_ACTS.length} />}
+                  <div id={`chap-${item.id}`}>
+                    <ChapterMarker
+                      number={item.number}
+                      label={item.label}
+                      blurb={item.blurb}
+                      position={position}
+                      total={FLOW_ORDER.length}
+                      minutes={readingMinutes(item.wordCount)}
+                      asTitle={!expanded}
+                    />
                   </div>
-                ))}
-              </div>
-            ) : (
-              <AnimatePresence mode="wait">
-                <SectionTransition tabKey={activeTab} animateEntrance={navigated}>
-                  <LazySection 
-                    id={activeItem.id}
-                    content={activeItem.content}
-                    renderSectionExtras={renderSectionExtras}
-                    immediate={true}
-                  />
-                </SectionTransition>
-              </AnimatePresence>
-
-            )}
+                  {/* On the /cover route there is no hero, so the cover figures open the section. */}
+                  {!expanded && item.id === "cover" && (
+                    <>
+                      <Figure id="fig-cover-map" />
+                      <Figure id="fig-cover-spine" />
+                    </>
+                  )}
+                  {item.content ?? (
+                    <StreamedSection tabId={item.id} words={item.wordCount} force={forced.has(item.id)} />
+                  )}
+                </section>
+              );
+            })}
           </div>
-          
-        </div>
-      </main>
 
-      {/* The evidence strip, and why it is down here rather than under the hero.
-          It used to sit between the hero and the document: four dashboard metrics, six key
-          facts, the deficit gauge and a ward projection — fourteen figures before a reader
-          reached a sentence. On the cover route that was merely dense. On a route whose first
-          job is to state an ask it would have been fatal, because the ask would have opened
-          below all of it. The figures are unchanged and none is dropped; they now answer the
-          question the document has just raised rather than preceding it. */}
-      {(activeTab === LANDING_TAB || isExpanded) && (
-        <section
-          aria-label="The figures behind the decision"
-          className="cv-auto-strip max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 mt-4 mb-8 space-y-6"
-        >
-          <StateOfTheRace />
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-            <Reveal variant="left" className="lg:col-span-2" amount={0.1}>
-              <WardTileMap />
-            </Reveal>
-            <Reveal variant="right" delay={120} className="lg:col-span-1 print:hidden" amount={0.1}>
-              <div>
-                <HeroVisual />
-              </div>
-            </Reveal>
+        </main>
+
+        <footer className="relative mt-10 pt-8 pb-32 lg:pb-16 px-4 sm:px-6 mx-auto w-full max-w-3xl">
+          <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-4 sm:inset-x-6 top-0" />
+          <div className="confidentiality-marker mb-3">
+            <strong>Confidential</strong>
+            <span className="opacity-85"> — link-only, prepared for Hon. Dr. Benson Makali Mulu personally. Not for circulation.</span>
           </div>
-          <LazyMount minHeight={500}>
-            <div className="print:hidden">
-              <VoterProjectionsChart />
-            </div>
-          </LazyMount>
-        </section>
-      )}
+          <div className="mb-5 flex flex-wrap gap-2 print:hidden">
+            <button
+              onClick={printDocument}
+              className="inline-flex items-center gap-2 rounded-full border border-line/60 bg-card/70 px-4 py-2 t-micro font-bold text-ink hover:border-accent hover:text-accent transition-colors cursor-pointer min-h-[40px]"
+            >
+              <Printer size={14} />
+              <span>Print, or save as PDF</span>
+            </button>
+            <button
+              onClick={() => setIsTOCModalOpen(true)}
+              className="inline-flex items-center gap-2 rounded-full border border-line/60 bg-card/70 px-4 py-2 t-micro font-bold text-muted hover:border-accent hover:text-accent transition-colors cursor-pointer min-h-[40px]"
+            >
+              <Search size={14} />
+              <span>Search the document</span>
+            </button>
+          </div>
+          <dl className="t-micro text-muted grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 max-w-md">
+            <dt className="font-semibold text-ink">Prepared by</dt>
+            <dd>Firefly Management</dd>
+            <dt className="font-semibold text-ink">Date</dt>
+            <dd>September 2026</dd>
+            <dt className="font-semibold text-ink">Status</dt>
+            <dd>Proposal for discussion</dd>
+          </dl>
+        </footer>
 
-      {/* Footer — visible on screen and repeated in print output */}
-      <footer className="relative mt-8 pt-8 pb-28 lg:pb-10 px-4 sm:px-6 max-w-7xl mx-auto">
-        <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-4 sm:inset-x-6 top-0" />
-        <div className="confidentiality-marker mb-3">
-          <strong>Confidential</strong>
-          <span className="opacity-85"> — link-only, prepared for Hon. Dr. Benson Makali Mulu personally. Not for circulation.</span>
-        </div>
-        <dl className="text-sm text-muted grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 max-w-md">
-          <dt className="font-semibold text-ink">Prepared by</dt>
-          <dd>Firefly Management</dd>
-          <dt className="font-semibold text-ink">Date</dt>
-          <dd>September 2026</dd>
-          <dt className="font-semibold text-ink">Status</dt>
-          <dd>Proposal for discussion</dd>
-        </dl>
-        <p className="mt-2 text-sm font-bold text-ink">Confidentiality / distribution:</p>
-        <p className="text-sm text-muted">This proposal is designed as a personally shared, link-only document. It is configured as noindex, nofollow and contains deliberate placeholders where primary documents or campaign decisions are still required.</p>
-      </footer>
+        <FlowRail
+          items={navItems.map((n) => ({ id: n.id, number: n.number, label: n.label }))}
+          activeIndex={activeIndex}
+          onSelect={goToSection}
+        />
 
-      {/* Streamlined Flow Navigation Dock */}
-      <FlowChrome
-        label={activeItem.label}
-        number={activeItem.number}
-        position={Math.max(1, navItems.findIndex((t) => t.id === activeTab) + 1)}
-        total={navItems.length}
-        onOpenIndex={() => setIsTOCModalOpen(true)}
-        onToggleTheme={toggleTheme}
-        theme={theme}
-        themeReady={mounted}
-        hidden={isZeroChrome || isFocusMode}
-      />
+        <FlowChrome
+          label={activeItem.label}
+          number={activeItem.number}
+          position={activeIndex}
+          total={FLOW_ORDER.length}
+          onOpenIndex={() => setIsTOCModalOpen(true)}
+          onToggleTheme={toggleTheme}
+          theme={theme}
+          themeReady={mounted}
+        />
 
-      {/* Mobile Table of Contents Full Modal Sheet */}
-      <MobileTOCModal
-        sections={sections}
-        wordCounts={wordCounts}
-        visited={visited}
-        onSelectTab={(tabId) => handleNavClick(tabId)}
-        isOpen={isTOCModalOpen}
-        onClose={() => setIsTOCModalOpen(false)}
-        activeTab={activeTab}
-        onSelectSection={(secId, tabId) => {
-          if (!isExpanded && activeTab !== tabId) {
-            setActiveTab(tabId);
-          }
-          scrollToSectionWhenReady(secId, "smooth");
-        }}
-      />
-    </div>
+        <MobileTOCModal
+          sections={sections}
+          wordCounts={wordCounts}
+          visited={visited}
+          onSelectTab={goToSection}
+          isOpen={isTOCModalOpen}
+          onClose={() => setIsTOCModalOpen(false)}
+          activeTab={activeItem.id}
+          onSelectSection={(secId) => {
+            setIsTOCModalOpen(false);
+            navigateToSection(secId);
+          }}
+        />
+      </div>
+      </ReadingModeProvider>
     </SectionNumberMapProvider>
   );
 }

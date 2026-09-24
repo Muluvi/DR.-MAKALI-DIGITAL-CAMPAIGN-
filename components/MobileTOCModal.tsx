@@ -2,54 +2,32 @@
 
 import React, { useState, useMemo, useEffect, useRef, useId } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck, Activity, Users, Route, Repeat } from "lucide-react";
+import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck, Activity} from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
 import { FLOW_SECTIONS } from "../lib/flow";
 import { readingMinutes } from "../hooks/useReadingProgress";
 import type { SectionItem } from "../lib/section-index";
 
 const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
-  decision: Handshake,
   cover: BookLock,
-  presence: Activity,
-  summary: FileText,
-  situation: Map,
-  arithmetic: Target,
-  reach: Radio,
   objectives: Target,
-  audiences: Users,
-  approach: Compass,
-  engine: Repeat,
-  messaging: MessageSquare,
-  scope: ListChecks,
-  "scope-platforms": Layers,
-  "scope-media": Megaphone,
-  "scope-ground": Radio,
-  "scope-data": Database,
-  roadmap: Route,
-  deliverables: CalendarClock,
-  measurement: Gauge,
-  governance: Workflow,
-  risk: Shield,
-  structure: ClipboardList,
-  assumptions: ListChecks,
-  nextsteps: Handshake,
-  "annex-evidence": ShieldCheck,
-  "annex-county": Map,
-  "annex-messages": MessageSquare,
-  "annex-cadence": CalendarClock,
-  "annex-runbooks": Shield,
   data: Database,
-  analysis: Target,
+  analysis: Map,
   strategy: Compass,
   implementation: ListChecks,
-  delivery: ClipboardList,
   "workstreams-platforms": Layers,
   "workstreams-media": Megaphone,
   "workstreams-ground": Radio,
-  "workstreams-data": Database,
-  "annex-polls": Gauge,
-  "annex-terms": BookLock,
+  "workstreams-data": Workflow,
+  delivery: Gauge,
+  nextsteps: Handshake,
+  "annex-evidence": ClipboardList,
+  "annex-county": FileText,
+  "annex-polls": Activity,
+  "annex-messages": MessageSquare,
+  "annex-cadence": CalendarClock,
+  "annex-runbooks": ShieldCheck,
+  "annex-terms": Shield,
 };
 
 interface MobileTOCModalProps {
@@ -148,7 +126,8 @@ export function MobileTOCModal({
       const matchesQuery =
         item.number.toLowerCase().includes(q) ||
         item.title.toLowerCase().includes(q) ||
-        item.tabLabel.toLowerCase().includes(q);
+        item.tabLabel.toLowerCase().includes(q) ||
+        (item.figures ?? []).some((f) => f.title.toLowerCase().includes(q) || f.takeaway.toLowerCase().includes(q));
       return matchesTab && matchesQuery;
     });
   }, [sections, searchQuery, selectedTabFilter]);
@@ -358,6 +337,14 @@ export function MobileTOCModal({
                         <span className={`block t-label text-ink group-hover:text-accent transition-colors truncate ${item.level === 2 ? "font-bold" : "font-medium"}`}>
                           {item.title}
                         </span>
+                        {searchQuery.trim() &&
+                          (item.figures ?? [])
+                            .filter((f) => `${f.title} ${f.takeaway}`.toLowerCase().includes(searchQuery.toLowerCase().trim()))
+                            .map((f) => (
+                              <span key={f.id} className="block t-micro text-ink/80 mt-0.5">
+                                Figure: {f.title}
+                              </span>
+                            ))}
                         <div className="flex items-center gap-1.5 mt-0.5 t-micro text-muted">
                           <Icon size={11} className="shrink-0" />
                           <span className="font-medium truncate">{item.tabLabel}</span>

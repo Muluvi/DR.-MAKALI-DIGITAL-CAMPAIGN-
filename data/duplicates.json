@@ -13,27 +13,11 @@
     "",
     "TWO OF THE THREE FLIPPED in the 2026 restructure. The ask moved from the front of the document",
     "to the end of it, so the paragraphs it used to state first it now states last, and the copy in",
-    "§4.1 and §5.5 became the one the reader meets first."
+    "§4.1 and §5.5 became the one the reader meets first.",
+    "",
+    "2026 REBUILD. 'mulu-already-in-the-conversation' is gone: §4.1.0 The mandate was cut as prose by the brief's cut table, so §6.3.2 is now the only copy."
   ],
   "duplicates": [
-    {
-      "id": "mulu-already-in-the-conversation",
-      "score": 1.0,
-      "note": "Verbatim, 59 words, identical in both places. §4.1 opens the position by stating the problem the proposal answers; §6.3.2 states it again in the ask. The only exact repetition left in the document.",
-      "canonical": {
-        "chapter": "strategy",
-        "section": "§4.1 The position",
-        "href": "#strategy-sec-4-1-0",
-        "opening": "Dr. Mulu is already in the conversation. A verified page, 74",
-        "words": 59
-      },
-      "duplicate": {
-        "chapter": "nextsteps",
-        "section": "§6.3.2 The ask, in full",
-        "opening": "Dr. Mulu is already in the conversation. A verified page, 74",
-        "words": 59
-      }
-    },
     {
       "id": "no-electoral-outcome",
       "score": 0.7,
