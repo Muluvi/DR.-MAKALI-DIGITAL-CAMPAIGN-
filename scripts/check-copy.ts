@@ -35,6 +35,7 @@ const POLL_OK = [
   /no survey|no polling|commissions no (polling|survey)|none is commissioned from a pollster|not a poll|never solicited as a survey|without a survey|None of the three is a poll or a survey|no poll share|not on poll shares|none is closed by new polling|commissions no survey|with no polling and no survey|None is a poll share|waits on a survey|not poll shares|nomination KPI rests on a poll/gi, // stating the absence
   /published polls? (log|round)/gi, // monitoring, logged for Annex C
   /Annex C/g,
+  /used opinion surveys of selected delegates/gi, // the 2022 nomination method as a court record states it (Section 2.3.1)
   /published polling, public records/gi, // the public sources competitor monitoring may read
   /not from a survey|rather than against a poll|No new polling|published opinion polls report countywide aggregates/gi, // stating what the evidence is not
   /nomination-poll|via a countywide opinion poll|use polling rather than delegates|opinion poll in the final quarter|method, pollster, timing/gi, // the party's nomination method

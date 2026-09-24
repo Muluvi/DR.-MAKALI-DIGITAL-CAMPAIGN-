@@ -107,7 +107,7 @@
   {
     "id": "fig-3-1-funnel",
     "section": "3.1",
-    "title": "To win, he needs about 60.5% of the ballots cast, on the 2022 register",
+    "title": "To win, he needs about 60.8% of the ballots cast, on the 2022 register",
     "question": "What is the winning number?",
     "takeaway": "200,000 votes is the 2022 winner's total rounded; the same share of the larger July 2026 register is ≈225,000."
   },
@@ -123,7 +123,7 @@
     "section": "3.3",
     "title": "No route clears 200,000 on its own ballots, and the home belt falls furthest short",
     "question": "Which route to the number is real, and which is a trap?",
-    "takeaway": "Even every ballot in the home belt leaves him 81,077 short: a route is where the margin is built, and Mwingi is part of any route that works."
+    "takeaway": "Even every ballot in the home belt leaves him 81,653 short: a route is where the margin is built, and Mwingi is part of any route that works."
   },
   {
     "id": "fig-3-4-footprint",
@@ -170,7 +170,7 @@
   {
     "id": "fig-3-10-gaps",
     "section": "3.10",
-    "title": "42 facts the analysis needs are not yet in hand, and each has a named document that closes it",
+    "title": "33 facts the analysis needs are not yet in hand, and each has a named document that closes it",
     "question": "What can't the data tell us yet, and what closes each gap?",
     "takeaway": "None of these is estimated and none is closed by new polling: each waits on a document that already exists or an export only he can grant."
   },
@@ -198,7 +198,7 @@
   {
     "id": "fig-4-3-segments",
     "section": "4.3",
-    "title": "Six segments, three of them sized from the census and three that no published source sizes yet",
+    "title": "Six segments, three sized in voters from the census and three with context but no published voter count",
     "question": "Who are we trying to move, and how much do they matter?",
     "takeaway": "Sizes overlap and are not additive; where no source exists the cell names the document that would close it rather than guessing."
   },
@@ -331,7 +331,7 @@
   {
     "id": "fig-6-2-open-items",
     "section": "6.2",
-    "title": "62 items are still open: 42 data gaps, 3 to confirm and 17 placeholders",
+    "title": "53 items are still open: 33 data gaps, 3 to confirm and 17 placeholders",
     "question": "What is still open?",
     "takeaway": "Every one is named with who holds the answer; none is filled with an estimate."
   },

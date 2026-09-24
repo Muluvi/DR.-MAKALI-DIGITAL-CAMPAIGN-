@@ -86,7 +86,7 @@ id: fig-5-3-four-weeks
 | **Video** | 3-second and 30-second views, average watch time, completion rate | Decides whether long flagship video is the right commitment or the wrong one. |
 | **Cadence** | Posts per day, hour of day, day of week | Establishes what the team's current capacity actually is, before any brief assumes more of it. |
 | **Paid** | Meta Ad Library and Google Ads Transparency Centre, for Dr. Mulu and all three rivals | Public, needs no access from anyone, and is the only competitive advertising signal that exists. |
-| **Other platforms** | `[DATA NEEDED — handles and follower counts for X, TikTok, Instagram, YouTube, and any WhatsApp Channel or Business number. Not estimated.]` | Named as a gap rather than filled with an assumption, per Annex A. |
+| **Other platforms** | X: **@MakaliMulu**, about {{channel.x.followers}} followers in a September 2026 snapshot (Tier 3, a dated baseline). TikTok, Instagram, YouTube and any WhatsApp Channel or Business number: `[DATA NEEDED — handles and follower counts from the team; none verified publicly. Not estimated.]` | Named as a gap rather than filled with an assumption, per Annex A. |
 
 ### 5.3.2 The window
 
@@ -1028,7 +1028,7 @@ what monitoring tools cannot see
 * Ward champions briefed to report suspicious media immediately through a
 dedicated channel — **the human network is the primary detection layer** for
 private-group circulation
-* Detection tooling at premium tier `[Insert vendor — selected at contracting]`
+* Detection tooling at premium tier `[Insert vendor — selected at contracting]`. The shortlist to test against a sample of real Kikamba and Kiswahili media: Deeptrack (Nairobi), Phan0s by CADMUS Cyber Solutions (built to the Data Protection Act 2019) and Sumsub's deepfake detector for Africa.
 
 **Rapid rebuttal — Level 3, 30-minute clock:**
 | Minute | Action |

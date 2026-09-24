@@ -47,7 +47,7 @@ id: four-hour-cycle
 To bypass digital connectivity barriers, the campaign turns physical transportation, trade, and civic networks into active information distribution conduits:
 
 ##### 1. The Boda Boda Stage Network (1,200 Stage Champions)
-*   **Infrastructure:** Commercial motorcycle operators in Kitui, organized into distinct stage associations (*masese*). Operator count `[DATA NEEDED — county transport department or NTSA registration by county]`.
+*   **Infrastructure:** Commercial motorcycle operators in Kitui, organized into distinct stage associations (*masese*). About **14,000 riders** by a 2026 estimate, of whom 10,921 were reported riding without a valid licence (Tier 3; an estimate, not an NTSA register). In August 2026 the county and NTSA issued smart licences to 783 operators drawn from all 40 wards (Tier 2).
 *   **Operational Role:** The campaign identifies 1,200 "Stage Champions" (30 per ward) across all 40 wards.
 *   **Execution:**
     *   Champions receive high-visibility reflective campaign vests branded with "Uchumi na Kazi" and safety helmets.

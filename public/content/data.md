@@ -7,9 +7,9 @@ To achieve absolute mathematical certainty, the campaign's success metrics are a
 *   **Total Registered County Voters:** **532,758** ward-registered voters (plus **75** prison-registered voters, totalling **532,833**) (Tier 1).
 *   **Total Registered County Assembly Wards:** **40** across **8** constituencies (Tier 1).
 *   **Total Polling Stations:** 1,578 (Tier 1).
-*   **Registered voters, July 2026:** **605,703** (Tier 1, IEBC Enhanced Continuous Voter Registration county annex). Of the **72,945** added since 2022, **61,839** registered in the 30-day ECVR drive that closed on 28 April 2026 and **11,106** through continuous registration outside it (modelled: the growth less the drive). The 2026 register is not yet published by ward `[DATA NEEDED — IEBC ECVR ward annex]`.
+*   **Registered voters, July 2026:** **605,703** (Tier 1, IEBC Enhanced Continuous Voter Registration county annex). Of the **72,945** added since 2022, **61,839** registered in ECVR Phase 1, the 30-day drive that closed on 28 April 2026 and **11,106** through continuous registration outside it (modelled: the growth less the drive). A second ECVR phase ran from 25 June to 25 July 2026 (IEBC gazette notice, 24 June 2026); whether the July annex includes it is not stated, so the remainder may carry some of it. The 2026 register is not yet published by ward `[DATA NEEDED — IEBC ECVR ward annex]`.
 *   **Winning benchmark:** Governor Malombe won in 2022 with **198,004 votes** (Section 2.2). Section 3.1 derives the working benchmark of 200,000 from it.
-*   **Turnout:** about 62%, used as a modelling constant. No certified county turnout figure is in the evidence pack `[DATA NEEDED — IEBC Form 37C, Kitui governor 2022]`.
+*   **Turnout, 2022:** **61.7%** certified: 328,760 valid votes of 532,758 registered (Tier 1, IEBC Form 37C). Section 3 carries this rate forward to 2027 as a stated assumption.
 
 ```figure
 id: fig-2-1-register
@@ -21,7 +21,8 @@ The full 40-ward register, by constituency, is in Annex B.1.
 
 *   **2013 General Election (Kitui Governor):** This cycle represents a **named data gap** in the official campaign records (Tier 1 gap). The research did not supply certified results, and the campaign does not use unverified recollections.
 *   **2017 General Election (Kitui Governor):** Won by Charity Ngilu (NARC) with **169,990 votes** (Tier 1), following a highly contested election confirmed by the Court of Appeal (*Malombe v Ngilu* [2018] KECA 460) (Tier 1). The certified runner-up was David Musila with **114,827 votes** (Tier 1), and the incumbent Julius Malombe finished third with **74,681 votes** (Tier 1).
-*   **2022 General Election (Kitui Governor):** Won by Julius Malombe (Wiper) with **198,004 votes** (Tier 2: the IEBC declaration as reported; Tier 1 once Form 37C is cited). David Musila (Jubilee) finished as the runner-up; two totals are published, **114,606** (The Star) and **117,606** (Nation, Standard), both Tier 2, and neither is preferred. Jonathan Mueke (UDA) finished third with **10,639 votes** (Tier 2).
+*   **2022 General Election (Kitui Governor):** Won by Julius Malombe (Wiper) with **198,004 votes** on a certified turnout of **61.7%**, 328,760 valid votes of 532,758 registered (Tier 1, IEBC Form 37C). David Musila (Jubilee) was runner-up with **117,606 votes** (Tier 1); The Star's early total of 114,606 is a media variant, and the certified share (35.77%) matches 117,606. Jonathan Mueke (UDA) finished third with **10,639 votes** (Tier 2).
+*   **2022 Kitui Central MP:** Dr. Mulu was re-elected on the Wiper ticket with **30,954 votes** (Tier 1, IEBC declaration as gazetted); Boniface Musambi was second with 9,866. Early media totals differ from the gazetted figure and are not used.
 *   **2022 Senate and Woman Representative Elections:** Senator Enoch Wambua (Wiper) secured his seat with **191,317 votes** (Tier 2), and Woman Representative Irene Kasalu (Wiper) won with **201,899 votes** (Tier 2).
 
 ```figure
@@ -46,6 +47,13 @@ If it turns out to be wrong — if Wiper instead runs a competitive primary, or
 delegate vote, or some hybrid — the phasing in Section 1.5 needs to be revised
 before further effort commits against it. This section exists so that
 re-check happens deliberately rather than by accident.
+
+**What the 2022 record shows, and what it does not.** The High Court judgment in *Kilonzo v Wiper
+Democratic Movement* (2022) records that Wiper's rules allowed nomination by consensus, and by
+direct or indirect methods, with the National Executive Council deciding the mode; and that for
+the 2022 Kitui gubernatorial ticket the party's board used opinion surveys of selected delegates
+and panels in reaching its decision (Tier 1, Kenya Law). That is the 2022 precedent. It is not the
+2027 procedure, which rests on the resolution and the terms of reference in Section 2.3.2.
 
 ### 2.3.2 Where the opinion-poll mechanism stands
 
@@ -97,7 +105,7 @@ The county budget represents a significant administrative responsibility. Accord
 id: fig-2-5-budget
 ```
 
-The three parts sum to KSh 13.80 billion against a published total of 13.79: the KSh 0.01 billion difference is rounding in the source, and is shown as its own segment rather than absorbed. The total itself is cited through secondary reporting of the Paper (Tier 3) until the Paper is cited directly.
+The three parts sum to KSh 13.80 billion against a published total of 13.79: the KSh 0.01 billion difference is rounding in the source, and is shown as its own segment rather than absorbed. The total itself is cited through secondary reporting of the Paper (Tier 3) until the Paper is cited directly. A second reading of the same Paper gives the total as KSh 13.78 billion and conditional grants as KSh 1.03 billion (Tier 3); both readings are shown and neither is preferred.
 
 **The Strategic Opportunity:** This KSh 13.79 billion envelope represents the actual fiscal ceiling of devolved governance. The campaign will translate this budget into clear, ward-level policy targets, demonstrating how an expert economist will optimize public resource allocation across the 40 wards.
 
@@ -144,7 +152,7 @@ governs. It is the version reconciled against `data/media-ownership.ts`, which
 the site renders directly.
 
 > **Research Integrity Note on Listenership Data:**  
-> Precise, disaggregated county-level listenership figures (GeoPoll / KARF audience share percentages for Kitui) are **not published in the underlying empirical research**. In accordance with the campaign's provenance standards (Section A.1.1), **listenership share is marked as Required Primary Research** rather than estimated speculatively.
+> The published audience share is regional: the CA/KARF report for **Lower Eastern** (Kitui, Machakos and Makueni together) puts Musyi FM at 17.3%, Athiani FM at 10.9%, Mbaitu FM at 5.7% and County FM at 4.4% of listeners (Tier 2, an earlier measurement). It ranks the stations; it does not size Kitui's own audience, which stays `[DATA NEEDED — Kitui listenership by station, current CA audience report]`.
 
 The three structural facts that drive the rest of this section:
 
@@ -174,6 +182,13 @@ id: fig-2-8-record
 | Legislative Delivery Record | KSh 47 million in educational bursaries allocated directly to 12,573 constituents (Tier 1); **Kitui Central certified as the best-evaluated constituency in the Eastern region, FY2014/15** (ranking first out of 71 constituencies in its national peer group) (Tier 1) | Micro-targeted, ward-level visual proof points |
 | Administrative Longevity | 17 years in active political leadership, 13 years as Member of Parliament for Kitui Central (Tier 1); Commander of the Order of the Burning Spear (CBS) (Tier 1) | Steady, low-risk leadership framing contrasted with less-experienced candidates |
 | Existing Web Footprint | Active, established Kitui Central NG-CDF digital portal (Tier 1) | Integration and leveraging of existing assets to avoid duplicated effort |
+
+**The NG-CDF record, and its limits.** The constituency's NG-CDF site publishes project records,
+proposals, allocations and Project Implementation Status reports across its five wards: Mulango,
+Kyangwithya East, Kyangwithya West, Township and Miambani. The FY2026/27 allocation is
+**KSh 192,613,000** (Tier 1). A project is described as completed only where its
+implementation-status report says so; the ward-by-ward table is built from those reports
+`[DATA NEEDED — Kitui Central NG-CDF Project Implementation Status reports, compiled by ward]`.
 
 ## 2.9 His channels today, and his rivals'
 

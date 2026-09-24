@@ -31,7 +31,7 @@ export const FIG_2_1: FigureSpec = {
           type: "waterfall",
           steps: [
             { label: "Registered, 2022", value: num("register.2022"), kind: "start", state: stateOf("register.2022") },
-            { label: "ECVR drive, to 28 April 2026", value: num("register.2026.ecvr-drive"), kind: "delta", state: stateOf("register.2026.ecvr-drive") },
+            { label: "ECVR Phase 1, to 28 April 2026", value: num("register.2026.ecvr-drive"), kind: "delta", state: stateOf("register.2026.ecvr-drive") },
             { label: "Continuous registration outside the drive", value: num("register.2026.continuous"), kind: "delta", state: stateOf("register.2026.continuous") },
             { label: "Registered, July 2026", value: num("register.2026"), kind: "total", state: stateOf("register.2026") },
           ],
@@ -57,7 +57,7 @@ export const FIG_2_1: FigureSpec = {
   ],
   rows: [
     { cells: { item: "Registered, 2022 (ward-registered)", voters: num("register.2022"), source: W22 } },
-    { cells: { item: "ECVR drive, to 28 April 2026", voters: num("register.2026.ecvr-drive"), source: ECVR } },
+    { cells: { item: "ECVR Phase 1, to 28 April 2026", voters: num("register.2026.ecvr-drive"), source: ECVR } },
     { cells: { item: "Continuous registration outside the drive", voters: num("register.2026.continuous"), source: "Derived: July 2026 less 2022 less the drive" }, state: "modelled" },
     { cells: { item: "Registered, July 2026", voters: num("register.2026"), source: ECVR } },
     ...conBars.map((b) => ({ cells: { item: `${b.label}, 2022`, voters: b.value, source: W22 } })),
@@ -70,10 +70,10 @@ export const FIG_2_1: FigureSpec = {
 const WIN = { value: num("result.2022.gov.malombe"), label: `${fmt("result.2022.gov.malombe")}, the 2022 governor's winning total` };
 const PANELS = [
   { title: "Governor, 2017 (T1, Court of Appeal)", bars: [bar("result.2017.gov.ngilu", "Charity Ngilu, winner"), bar("result.2017.gov.musila", "David Musila"), bar("result.2017.gov.malombe", "Julius Malombe")] },
-  { title: "Governor, 2022 (T2, as reported)", bars: [bar("result.2022.gov.malombe", "Julius Malombe, winner"), bar("result.2022.gov.musila.alt", "David Musila, per Nation and Standard"), bar("result.2022.gov.musila", "David Musila, per The Star"), bar("result.2022.gov.mueke", "Jonathan Mueke")] },
+  { title: "Governor, 2022 (T1, Form 37C)", bars: [bar("result.2022.gov.malombe", "Julius Malombe, winner"), bar("result.2022.gov.musila", "David Musila", { note: `The Star's early total was ${fmt("result.2022.gov.musila.media")}; the certified share matches ${fmt("result.2022.gov.musila")}.` }), bar("result.2022.gov.mueke", "Jonathan Mueke")] },
   { title: "Senator, 2022 (T2)", bars: [bar("result.2022.senate.wambua", "Enoch Wambua, winner")] },
   { title: "Woman Representative, 2022 (T2)", bars: [bar("result.2022.womanrep.kasalu", "Irene Kasalu, winner")] },
-  { title: "Kitui Central MP, 2022", bars: [bar("result.2022.mp.mulu", "Dr. Mulu, winner", { tone: "accent", note: `Closes with ${F("result.2022.mp.mulu").closesWith}.` })] },
+  { title: "Kitui Central MP, 2022 (T1)", bars: [bar("result.2022.mp.mulu", "Dr. Mulu, winner", { tone: "accent" }), bar("result.2022.mp.musambi", "Boniface Musambi")] },
 ];
 const RESULT_ROWS = PANELS.flatMap((p) => p.bars.map((b) => ({ cells: { race: p.title.replace(/ \(.*\)$/, ""), candidate: b.label, votes: b.value }, state: b.state, closesWith: b.state === "needed" ? F("result.2022.mp.mulu").closesWith : undefined })));
 
@@ -83,7 +83,7 @@ export const FIG_2_2: FigureSpec = {
   title: `Every countywide seat in 2022 was won with about ${fmt("benchmark")} votes, and one winner beat the governor's total`,
   question: "What does it take to win a countywide seat in Kitui?",
   takeaway: `The ${fmt("result.2022.gov.malombe")} line is the working bar: the Woman Representative cleared it, the Senator came within ${fmt("gap.wambua-to-benchmark-2022")}, and both are Wiper rivals for the ticket.`,
-  sources: [src("result.2017.gov.ngilu"), src("result.2022.gov.malombe"), { name: "David Musila's 2022 total: two published values, neither preferred", tier: "T2" }, src("result.2022.mp.mulu")],
+  sources: [src("result.2017.gov.ngilu"), src("result.2022.gov.malombe"), src("result.2022.mp.mulu"), { name: "Senator and Woman Representative 2022: media reporting of the IEBC declaration", tier: "T2" }],
   chart: { type: "multiples", panels: PANELS, max: Math.max(...PANELS.flatMap((p) => p.bars.map((b) => b.value ?? 0))), ref: WIN },
   notes: ["One scale for all five panels, so bar lengths compare across races. The vertical line is the same value in every panel."],
   columns: [{ key: "race", label: "Race" }, { key: "candidate", label: "Candidate" }, { key: "votes", label: "Votes", numeric: true }],
@@ -211,7 +211,10 @@ export const FIG_2_5: FigureSpec = {
     { name: "County Assembly revision of the Paper: own-source revenue", tier: "T3" },
   ],
   chart: { type: "stack", segments: BUDGET, total: num("budget.total"), totalLabel: `Total envelope, FY2026/27: ${bn("budget.total")} (T3, secondary reporting of the Paper)` },
-  notes: ["The three parts sum to KSh 0.01bn more than the published total; the difference is drawn as its own segment rather than absorbed."],
+  notes: [
+    "The three parts sum to KSh 0.01bn more than the published total; the difference is drawn as its own segment rather than absorbed.",
+    `A second reading of the Paper gives the total as ${bn("budget.total.audit")} and grants as ${bn("budget.grants.audit")} (T3). Neither is preferred until the Paper itself is cited.`,
+  ],
   columns: [{ key: "part", label: "Part" }, { key: "ksh", label: "KSh", numeric: true }, { key: "share", label: "Share of envelope, %", numeric: true }, { key: "tier", label: "Tier" }],
   rows: [
     { cells: { part: "Equitable share", ksh: num("budget.equitable"), share: num("budget.equitable.share"), tier: "T1" } },
@@ -269,11 +272,37 @@ export const FIG_2_7: FigureSpec = {
   title: "Three of the Kikamba stations are tied to political figures, so placement goes to the independents",
   question: "Who owns the airwaves, and where do we place vs monitor?",
   takeaway: "Musyi, County FM and Wikwatyo carry the campaign's placements; the Ngilu-linked stations and the party leader's station are watched, not relied on.",
-  sources: [{ name: "Local media ownership reporting (publicly reported, not certified)", tier: "T3" }, { name: "Corporate and denominational ownership records", tier: "T2" }],
-  chart: { type: "network", owners: OWNERS, stations: STATIONS.map((s) => ({ name: s.name, owner: OWNER_OF(s.alignment).id, posture: postureOf(s.posture) })) },
-  notes: ["Solid link: placement or secondary placement. Dashed link and outline: monitoring only. Listenership share is not published for Kitui and is not estimated."],
-  columns: [{ key: "station", label: "Station" }, { key: "owner", label: "Owner or association" }, { key: "posture", label: "Posture" }, { key: "frequency", label: "Frequency" }],
-  rows: STATIONS.map((s) => ({ cells: { station: s.name, owner: s.alignment, posture: s.posture, frequency: s.frequency ?? "Not published" } })),
+  sources: [{ name: "Local media ownership reporting (publicly reported, not certified)", tier: "T3" }, { name: "Corporate and denominational ownership records", tier: "T2" }, src("radio.musyi")],
+  chart: {
+    type: "composite",
+    parts: [
+      { heading: "Owners, stations and posture", chart: { type: "network", owners: OWNERS, stations: STATIONS.map((s) => ({ name: s.name, owner: OWNER_OF(s.alignment).id, posture: postureOf(s.posture) })) } },
+      {
+        heading: "Share of listeners, Lower Eastern (Kitui, Machakos, Makueni), earlier measurement",
+        chart: {
+          type: "bars",
+          unit: "%",
+          bars: byValue([
+            bar("radio.musyi", "Musyi FM · place", { display: `${fmt("radio.musyi")}%` }),
+            bar("radio.citizen", "Citizen Radio · Kiswahili, national", { display: `${fmt("radio.citizen")}%` }),
+            bar("radio.athiani", "Athiani FM · monitor", { display: `${fmt("radio.athiani")}%` }),
+            bar("radio.mbaitu", "Mbaitu FM · monitor", { display: `${fmt("radio.mbaitu")}%` }),
+            bar("radio.county", "County FM · place", { display: `${fmt("radio.county")}%` }),
+            bar("radio.mwatu", "KBC Mwatu FM · secondary", { display: `${fmt("radio.mwatu")}%` }),
+          ]),
+        },
+      },
+    ],
+  },
+  notes: [
+    "Solid link: placement or secondary placement. Dashed link and outline: monitoring only.",
+    "Listener shares are for Lower Eastern as a whole and from an earlier measurement: they rank the stations and do not size Kitui's audience. Syokimau, Wikwatyo and Akamba FM are not reported in it.",
+  ],
+  columns: [{ key: "station", label: "Station" }, { key: "owner", label: "Owner or association" }, { key: "posture", label: "Posture" }, { key: "share", label: "Lower Eastern share, %", numeric: true }, { key: "frequency", label: "Frequency" }],
+  rows: STATIONS.map((s) => {
+    const key = ({ "Musyi FM": "radio.musyi", "Athiani FM": "radio.athiani", "Mbaitu FM": "radio.mbaitu", "County FM": "radio.county", "KBC Mwatu FM": "radio.mwatu" } as Record<string, string>)[s.name];
+    return { cells: { station: s.name, owner: s.alignment, posture: s.posture, share: key ? num(key) : "Not reported", frequency: s.frequency ?? "Not published" } };
+  }),
 };
 
 /* ------------------------------------------------------------------ fig-2-8-record */
@@ -298,7 +327,7 @@ export const FIG_2_8: FigureSpec = {
             { date: "2013-03", label: "Elected MP, Kitui Central", state: "sourced", whenText: "2013" },
             { date: "2015-06", label: "Best-evaluated constituency, Eastern region", state: "sourced", whenText: "FY2014/15", note: "First of 71 constituencies in its national peer group." },
             { date: "2017-08", label: "Re-elected MP", state: "sourced", whenText: "2017" },
-            { date: "2022-08", label: "Re-elected MP", state: "sourced", whenText: "2022", note: `His vote total: [DATA NEEDED — ${F("result.2022.mp.mulu").closesWith}].` },
+            { date: "2022-08", label: "Re-elected MP", state: "sourced", whenText: "2022", note: `${fmt("result.2022.mp.mulu")} votes, against ${fmt("result.2022.mp.musambi")} for the runner-up (IEBC, T1).` },
           ],
         },
       },
@@ -349,7 +378,7 @@ export const FIG_2_9: FigureSpec = {
           header: ["Channel", "Status", "Tier"],
           rows: [
             { head: "Facebook, verified", cells: [`About ${fmt("channel.fb.followers")} followers, ${fmt("channel.fb.posts")} posts; page-or-profile status unresolved`, "T3"] },
-            { head: "X, @MakaliMulu", cells: ["Live; bio still frames him as MP. Followers: [DATA NEEDED]", "T3"] },
+            { head: "X, @MakaliMulu", cells: [`Live; bio still frames him as MP. About ${fmt("channel.x.followers")} followers, September 2026 snapshot`, "T3"] },
             { head: "kituicentralcdf.co.ke", cells: ["Constituency-run, active in 2026: a ready proof-point library", "T1"] },
             { head: "NG-CDF Board constituency page", cells: ["Official", "T1"] },
             { head: "TikTok, Instagram, YouTube, WhatsApp Channel", cells: ["None surfaced in search: confirm with the team", "[DATA NEEDED]"] },
