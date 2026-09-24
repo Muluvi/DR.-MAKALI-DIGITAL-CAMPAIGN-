@@ -8,6 +8,7 @@ import { Printer, Search } from "lucide-react";
 import { useTheme } from "../lib/useTheme";
 import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
 import { Figure } from "./figures/FigureBoundary";
+import { RegisterMotion } from "./register/RegisterMotion";
 import { ReadingModeToggle } from "./ReadingModeToggle";
 import { ReadingModeProvider } from "../lib/reading-mode";
 import { ScrollProgressBar } from "./ScrollProgressBar";
@@ -295,6 +296,7 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
 
         <div className="h-1 bg-gradient-to-r from-accent to-gold fixed top-0 left-0 right-0 z-50 print:hidden" />
         <ScrollProgressBar />
+        <RegisterMotion />
 
         {/* ----------------------------------------------------------- hero */}
         {expanded && (
@@ -376,8 +378,9 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
         {expanded && (
           <section aria-label="The figures behind the decision" className="cv-auto-strip mx-auto w-full max-w-5xl px-4 sm:px-6 mt-2 mb-4 space-y-5">
             {/* The cover figures (brief §F.1): the tile map shaded for the pool, the four data-only
-                figures, and the spine of the argument. The poll-share strip that stood here is cut
-                (docs/rebuild/REPLACEMENTS.md): no poll share appears outside Annex C. */}
+                figures, and the spine of the argument. They sit here, under the portrait, on the
+                flow, and open the section on the /cover route, never both. The poll-share strip
+                that stood here is cut (docs/rebuild/REPLACEMENTS.md). */}
             <Figure id="fig-cover-map" />
             <Figure id="fig-cover-spine" />
           </section>
@@ -419,8 +422,16 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
                       position={position}
                       total={FLOW_ORDER.length}
                       minutes={readingMinutes(item.wordCount)}
+                      asTitle={!expanded}
                     />
                   </div>
+                  {/* On the /cover route there is no hero, so the cover figures open the section. */}
+                  {!expanded && item.id === "cover" && (
+                    <>
+                      <Figure id="fig-cover-map" />
+                      <Figure id="fig-cover-spine" />
+                    </>
+                  )}
                   {item.content ?? (
                     <StreamedSection tabId={item.id} words={item.wordCount} force={forced.has(item.id)} />
                   )}

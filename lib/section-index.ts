@@ -1,4 +1,5 @@
 import { headingNumber, headingSlug, sectionId, TAB_LABELS, type TabId } from "./heading-slug";
+import { REGISTER } from "./register/specs";
 
 /**
  * The document's section index, derived from the markdown at build time.
@@ -22,6 +23,8 @@ export interface SectionItem {
   tabLabel: string;
   /** 2 for a sub-section, 3 for one of its parts. */
   level: 2 | 3;
+  /** The register figures placed in this section, so search finds a figure by its finding. */
+  figures?: { id: string; title: string; takeaway: string }[];
 }
 
 const HEADING = /^(#{2,3})\s+(.+?)\s*$/;
@@ -49,13 +52,22 @@ export function buildSectionIndex(documents: Record<TabId, string>): SectionItem
 
   for (const [tab, source] of Object.entries(documents) as [TabId, string][]) {
     let inFence = false;
+    let fenceIsFigure = false;
     for (const line of source.split("\n")) {
       // Headings inside fenced code blocks are ASCII diagrams, not sections.
       if (/^\s*```/.test(line)) {
         inFence = !inFence;
+        fenceIsFigure = inFence && line.trim() === "```figure";
         continue;
       }
-      if (inFence) continue;
+      if (inFence) {
+        // A figure fence attaches its register figure to the section it sits in.
+        const fid = fenceIsFigure ? line.match(/^\s*id:\s*([a-z0-9-]+)\s*$/)?.[1] : undefined;
+        const spec = fid ? REGISTER[fid] : undefined;
+        const host = items[items.length - 1];
+        if (spec && host && host.tabId === tab) (host.figures ??= []).push({ id: spec.id, title: spec.title, takeaway: spec.takeaway });
+        continue;
+      }
 
       const match = HEADING.exec(line);
       if (!match) continue;

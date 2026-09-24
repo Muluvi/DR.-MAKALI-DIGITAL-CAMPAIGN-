@@ -174,7 +174,7 @@ export const FIG_5_5: FigureSpec = {
     type: "composite",
     parts: [
       { heading: "The cadence, at Level 2", chart: { type: "matrix", header: ["Cadence", "What arrives"], rows: CADENCE.map(([c, items]) => ({ head: c, cells: [items.join(" · ")] })) } },
-      { heading: "Depth, by level", chart: { type: "matrix", header: ["", "Lean", "Standard (recommended)", "Premium"], rows: LEVELS.map(([h, ...c]) => ({ head: h, cells: c })) } },
+      { heading: "Depth, by level", chart: { type: "matrix", header: ["Item", "Lean", "Standard (recommended)", "Premium"], rows: LEVELS.map(([h, ...c]) => ({ head: h, cells: c })) } },
     ],
   },
   notes: ["Levels differ in the depth of the intelligence, not the volume of output. Commercial terms appear nowhere in this document."],

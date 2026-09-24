@@ -61,11 +61,11 @@ export const FIG_COVER_MAP: FigureSpec = {
 };
 
 export const SPINE_STEPS = [
-  { label: "1 Objectives", href: "/objectives" },
-  { label: "2 Data", href: "/data" },
-  { label: "3 Analysis", href: "/analysis" },
-  { label: "4 Strategy", href: "/strategy" },
-  { label: "5 Implementation", href: "/implementation" },
+  { label: "Objectives", href: "/objectives" },
+  { label: "Data", href: "/data" },
+  { label: "Analysis", href: "/analysis" },
+  { label: "Strategy", href: "/strategy" },
+  { label: "Implementation", href: "/implementation" },
 ];
 
 export const FIG_COVER_SPINE: FigureSpec = {

@@ -546,14 +546,14 @@ function Mock({ chart }: { chart: Extract<ChartSpec, { type: "mock" }> }) {
     <div className="grid gap-3 sm:grid-cols-2">
       <div className="rounded-xl border border-[var(--line)] p-3" aria-label="The profile, as displayed">
         <p className="rc-kicker">{chart.header}</p>
-        <dl className="grid gap-1.5 text-[0.8125rem]">
+        <ol className="grid gap-1.5 text-[0.8125rem]">
           {chart.fields.map((f) => (
-            <div key={f.n} className="flex items-start gap-2">
-              <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-[var(--div-neg)] text-[0.6875rem] font-bold text-[var(--ink)]">{f.n}</span>
-              <div><dt className="text-[var(--muted)]">{f.label}</dt><dd className="m-0 font-semibold text-[var(--ink)]">{f.shown}</dd></div>
-            </div>
+            <li key={f.n} className="flex items-start gap-2">
+              <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-[var(--div-neg)] text-[0.6875rem] font-bold text-[var(--ink)]" aria-hidden="true">{f.n}</span>
+              <span><span className="block text-[var(--muted)]">{f.label}</span><span className="block font-semibold text-[var(--ink)]">{f.shown}</span></span>
+            </li>
           ))}
-        </dl>
+        </ol>
       </div>
       <ol className="grid gap-1.5 text-[0.8125rem] text-[var(--ink)]">
         {chart.fields.map((f) => (
@@ -747,7 +747,7 @@ function Heatmap({ chart, caption }: { chart: Extract<ChartSpec, { type: "heatma
     <div className="rm-scroll">
       <table className="rm-table">
         <caption className="sr-only">{caption}</caption>
-        <thead><tr><th scope="col" /> {chart.colLabels.map((c) => <th key={c} scope="col">{c}</th>)}</tr></thead>
+        <thead><tr><th scope="col"><span className="sr-only">Row</span></th> {chart.colLabels.map((c) => <th key={c} scope="col">{c}</th>)}</tr></thead>
         <tbody>
           {chart.rowLabels.map((r, i) => (
             <tr key={r}>

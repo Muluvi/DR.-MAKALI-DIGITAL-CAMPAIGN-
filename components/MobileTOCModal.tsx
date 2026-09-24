@@ -126,7 +126,8 @@ export function MobileTOCModal({
       const matchesQuery =
         item.number.toLowerCase().includes(q) ||
         item.title.toLowerCase().includes(q) ||
-        item.tabLabel.toLowerCase().includes(q);
+        item.tabLabel.toLowerCase().includes(q) ||
+        (item.figures ?? []).some((f) => f.title.toLowerCase().includes(q) || f.takeaway.toLowerCase().includes(q));
       return matchesTab && matchesQuery;
     });
   }, [sections, searchQuery, selectedTabFilter]);
@@ -336,6 +337,14 @@ export function MobileTOCModal({
                         <span className={`block t-label text-ink group-hover:text-accent transition-colors truncate ${item.level === 2 ? "font-bold" : "font-medium"}`}>
                           {item.title}
                         </span>
+                        {searchQuery.trim() &&
+                          (item.figures ?? [])
+                            .filter((f) => `${f.title} ${f.takeaway}`.toLowerCase().includes(searchQuery.toLowerCase().trim()))
+                            .map((f) => (
+                              <span key={f.id} className="block t-micro text-ink/80 mt-0.5">
+                                Figure: {f.title}
+                              </span>
+                            ))}
                         <div className="flex items-center gap-1.5 mt-0.5 t-micro text-muted">
                           <Icon size={11} className="shrink-0" />
                           <span className="font-medium truncate">{item.tabLabel}</span>
