@@ -5,17 +5,18 @@ import { motion } from "motion/react";
 import { MessageSquare, Phone, Signal, BatteryMedium } from "lucide-react";
 
 import {
-  APPROVAL_CHAIN, CONSENTED_CONTACTS, SMS_COST_PER_MESSAGE, SMS_LIMIT, SMS_SPECIMENS,
+  APPROVAL_CHAIN, SMS_LIMIT, SMS_SPECIMENS,
   SPECIMEN_LANGUAGES, USSD_HEADER, USSD_LATENCY_MS, USSD_MENU, USSD_SHORTCODE_PLACEHOLDER,
   type SpecimenLanguage,
 } from "../../data/ussd-specimen";
 import { ClaimBadge } from "../markdown/ClaimBadge";
 import { useMotionPreset } from "../../hooks/useMotionPreset";
+import { IllustrativeTag } from "../premium/IllustrativeTag";
 
 /**
  * The channel that reaches the other 86.4%, as an object you can operate.
  *
- * §8.10 argues that a purely digital campaign in Kitui addresses roughly one resident in seven,
+ * §5.2.3.3 argues that a purely digital campaign in Kitui addresses roughly one resident in seven,
  * and that the six it misses are concentrated in exactly the wards where the recognition deficit
  * is largest. That argument is made in prose three times. It has never been made as a thing the
  * reader can hold: a 2G handset, a system dialog, six menu options in Kikamba, and a message
@@ -23,12 +24,12 @@ import { useMotionPreset } from "../../hooks/useMotionPreset";
  *
  * WHAT IS QUOTED AND WHAT IS NOT.
  *
- * The menu is §8.10.3 verbatim, Kikamba and English, in the order the document prints them. The
- * shortcode is `*[Insert shortcode]#`, because that is what §8.10.3 says and Appendix A logs the
+ * The menu is §5.2.3.3 verbatim, Kikamba and English, in the order the document prints them. The
+ * shortcode is `*[Insert shortcode]#`, because that is what §5.2.3.3 says and Appendix A logs the
  * vendor allocation as an open item — a plausible-looking number here would be exactly the kind
  * of invention the provenance system exists to stop, so it carries the awaiting badge instead.
  *
- * The vernacular SMS versions are deliberately absent rather than drafted. §7.3.3 sets a
+ * The vernacular SMS versions are deliberately absent rather than drafted. §4.4.10 sets a
  * four-stage approval chain in which a Lead Kikamba Writer drafts, an independent reviewer
  * reverse-translates to prove no commitment was distorted, and a native Kamba elder or senior
  * vernacular broadcaster holds mandatory sign-off. §8.5 puts those appointments in Phase −1.
@@ -164,7 +165,6 @@ export function FeaturePhoneSpecimen() {
   const body = specimen.english;
   const chars = body.length;
   const vernacularPending = lang !== "english";
-  const sendCost = (n: number) => `KSh${(CONSENTED_CONTACTS * n).toLocaleString()}`;
 
   return (
     <section
@@ -173,13 +173,14 @@ export function FeaturePhoneSpecimen() {
       aria-labelledby="feature-phone-title"
     >
       <div className="p-4 sm:p-5">
+        <IllustrativeTag />
         <p className="eyebrow-label">The offline layer, as an object</p>
         <h4 id="feature-phone-title" className="font-serif t-label font-black text-ink">
           What a voter without the internet actually sees
         </h4>
         <p className="t-small text-muted leading-relaxed mt-1.5">
           USSD works on every phone, needs no internet, and costs the voter almost nothing. This is
-          §8.10.3&rsquo;s menu on a 2G handset, and §8.10.2&rsquo;s message beside it.
+          §5.2.3.3&rsquo;s menu on a 2G handset, and §5.2.3.3&rsquo;s message beside it.
         </p>
 
         {/* Language, scoped to this widget. The rest of the document stays in English. */}
@@ -247,7 +248,7 @@ export function FeaturePhoneSpecimen() {
               ))}
             </ol>
             <p className="t-micro text-muted mt-2 leading-snug">
-              §8.10.3, quoted. The shortcode is a vendor allocation the campaign has not made yet.
+              §5.2.3.3, quoted. The shortcode is a vendor allocation the campaign has not made yet.
             </p>
           </div>
         </div>
@@ -311,7 +312,7 @@ export function FeaturePhoneSpecimen() {
                 </div>
                 <p className="t-micro text-muted mt-2 leading-snug">
                   <span className="font-bold text-ink">{specimen.structure}.</span> {specimen.frequency}.
-                  §8.10.2 sets the 160-character limit; it is a billing boundary, not a style rule.
+                  §5.2.3.3 sets the 160-character limit; it is a billing boundary, not a style rule.
                 </p>
               </>
             )}
@@ -335,14 +336,6 @@ export function FeaturePhoneSpecimen() {
             </div>
           </div>
 
-          <p className="t-micro text-muted mt-3 leading-snug">
-            At {SMS_COST_PER_MESSAGE.unit}{SMS_COST_PER_MESSAGE.from}–{SMS_COST_PER_MESSAGE.to} a
-            message, one send to {CONSENTED_CONTACTS.toLocaleString()} consented contacts costs{" "}
-            <span className="tabular-nums font-bold text-ink">
-              {sendCost(SMS_COST_PER_MESSAGE.from)}–{sendCost(SMS_COST_PER_MESSAGE.to)}
-            </span>
-            . §8.10.2.
-          </p>
         </div>
       </div>
     </section>

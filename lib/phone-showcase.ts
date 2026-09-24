@@ -19,8 +19,8 @@
 export type ChannelId = "whatsapp" | "facebook" | "instagram" | "tiktok" | "youtube" | "x" | "ussd";
 
 /**
- * Rail order. Descending in-county reach per §3.6.1 — WhatsApp 65–80k down to X 8–12k — with USSD
- * last, because it reaches ~250,000 (§3.6.2) and is the point the whole module is making.
+ * Rail order. Descending in-county reach per §2.6 — WhatsApp 65–80k down to X 8–12k — with USSD
+ * last, because it reaches ~250,000 (§3.8.1) and is the point the whole module is making.
  */
 export const CHANNEL_ORDER: ChannelId[] = [
   "whatsapp",
@@ -62,7 +62,7 @@ export const IDENTITY = {
   pageName: "Dr. Makali Mulu — Kitui 2027",
   channelName: "Dr. Makali Mulu",
   initials: "MM",
-  /** §8.3.3 radio script, the campaign's only slogan line. */
+  /** §5.2.1.2 radio script, the campaign's only slogan line. */
   slogan: "The Proven Economist, The Trusted Leader",
   sloganKikamba: "Muvisi Mũlũngalu, Mwĩkĩi wa Wathi",
 } as const;
@@ -74,7 +74,7 @@ export const IDENTITY = {
 /**
  * Interface chrome needs numbers to look like an interface. None of these describe anything the
  * campaign has achieved, because the campaign has not launched: the proposal deliberately
- * makes no performance claims, and §3.6.1 gives platform
+ * makes no performance claims, and §2.6 gives platform
  * reach as ranges, never as account metrics.
  *
  * They are held as strings so they can never be read back as data, kept deliberately small and
@@ -143,14 +143,14 @@ export const WHATSAPP = {
       kind: "text",
       text: "Kitui Rural / Mbitini: Dr. Makali Mulu guarantees Ksh 100M Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. Reply STOP to opt out.",
       time: "07:12",
-      source: "§8.3.3 — Direct 2G Bulk SMS copy sample, verbatim",
+      source: "§5.2.1.2 — Direct 2G Bulk SMS copy sample, verbatim",
     },
     {
       from: "resident",
       kind: "text",
       text: "1",
       time: "07:14",
-      source: "§8.3.3 — the reply the message itself asks for",
+      source: "§5.2.1.2 — the reply the message itself asks for",
     },
     {
       from: "campaign",
@@ -200,7 +200,7 @@ export const X_POST = {
 
 export const INSTAGRAM = {
   /**
-   * §7.1.2 specifies "1080x1080 square carousel cards" for social; it does not specify Reels or
+   * §D.1 specifies "1080x1080 square carousel cards" for social; it does not specify Reels or
    * Stories, and a Reel here would only duplicate the TikTok screen. So: a square feed carousel.
    */
   location: "Kitui County",
@@ -252,10 +252,10 @@ export const YOUTUBE = {
       "The Integrity & Stewardship Ledger: 13 years of Kitui Central NG-CDF audits, opened up",
     source: "§8.3.1 Pillar A — core theme and primary formats (documentary video case studies)",
   } as Sourced<string>,
-  /** §3.6.1 — YouTube's stated role in the channel mix. */
+  /** §2.6 — YouTube's stated role in the channel mix. */
   descriptionLine: {
     value: "Long-form debates, church sermons and rally livestreams.",
-    source: "§3.6.1 — YouTube strategic role",
+    source: "§2.6 — YouTube strategic role",
   } as Sourced<string>,
   duration: "18:24",
   publishedAgo: "2 days ago",
@@ -272,12 +272,12 @@ export interface UssdMenuItem {
 }
 
 /**
- * §8.3.3 carries this menu as a literal tree, including the short code. Nothing here is
+ * §5.2.1.2 carries this menu as a literal tree, including the short code. Nothing here is
  * reshaped — it is the proposal's own USSD structure rendered as a USSD dialog.
  *
  * NOTE FOR THE CAMPAIGN: the short code and sender ID are now a single placeholder everywhere —
  * `*[shortcode]#` and `[Insert sender ID]` — because neither is provisioned to this campaign yet
- * (§15.1). They had been printed three ways (`*483*77#`, `*483*XX#`, `STOP=22340`, `STOP to
+ * (§6.1). They had been printed three ways (`*483*77#`, `*483*XX#`, `STOP=22340`, `STOP to
  * 22XXX`), which is a live-looking identifier in a document whose whole argument is provenance.
  * The concrete forms are used here because they are the only non-placeholder ones in the
  * document. Confirm both before anything is printed or dialled.
@@ -302,7 +302,7 @@ export const USSD = {
   inputPlaceholder: "Reply",
   cancelLabel: "Cancel",
   sendLabel: "Send",
-  source: "§8.3.3 — USSD Interactive Menu Tree Structure, verbatim",
+  source: "§5.2.1.2 — USSD Interactive Menu Tree Structure, verbatim",
 } as const;
 
 /** The one quiet line the module carries. */

@@ -6,7 +6,7 @@ import { Brain, CheckCircle2, Droplet, Coins, HeartHandshake, GraduationCap } fr
 interface PersuasionTheme {
   id: string;
   themeTitle: string;
-  icon: React.ElementType;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
   principles: {
     name: string;
     description: string;

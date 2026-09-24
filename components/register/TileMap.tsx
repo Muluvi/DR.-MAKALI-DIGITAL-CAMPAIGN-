@@ -3,6 +3,7 @@ import type { TileLayerId } from "../../lib/register/types";
 import { CONSTITUENCY_BLOCKS, GRID } from "../../lib/geo/wards";
 import { TierPill } from "./Figure";
 import { group } from "../../lib/data/format";
+import { WeaveDefs } from "../premium/weave";
 
 /**
  * The signature figure: 40 wards as equal tiles (brief §E.7). A server component.
@@ -20,6 +21,15 @@ import { group } from "../../lib/data/format";
 const T = 44; // tile size, in SVG units
 const GAP = 3;
 const ROW = T + 12; // room above each row for a constituency label
+
+/** A ward name as one line, or two when it will not fit a tile: split after a slash, else at the last space. */
+function nameLines(name: string): string[] {
+  if (name.length <= 11) return [name];
+  const slash = name.indexOf("/");
+  if (slash > 0) return [name.slice(0, slash + 1), name.slice(slash + 1)];
+  const space = name.lastIndexOf(" ");
+  return space > 0 ? [name.slice(0, space), name.slice(space + 1)] : [name];
+}
 
 export function TileMap({ id, layers, initial, showWardList = false }: { id: string; layers: TileLayerId[]; initial: TileLayerId; showWardList?: boolean }) {
   const W = GRID.cols * (T + GAP);
@@ -44,6 +54,7 @@ export function TileMap({ id, layers, initial, showWardList = false }: { id: str
 
       <svg className="rf-svg mx-auto max-w-[22rem]" viewBox={`-2 0 ${W + 4} ${H}`} role="img" aria-label={`Tile map of Kitui's 40 wards, schematic, not to scale. ${init.name}: ${init.description}`}>
         <defs>
+          <WeaveDefs id={`${id}-weave`} color="#ffffff" opacity={0.32} size={7} />
           <pattern id={`${id}-hatch`} patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
             <rect width="6" height="6" fill="transparent" />
             <line x1="0" y1="0" x2="0" y2="6" stroke="var(--card)" strokeWidth="2.2" strokeOpacity="0.65" /> {/* verify-figures-ignore: hatch opacity */}
@@ -73,13 +84,18 @@ export function TileMap({ id, layers, initial, showWardList = false }: { id: str
                 return (
                   <g key={l}>
                     {s.hatch && <rect className={`tm-hatch ${cls}`} data-l={l} width={T} height={T} rx={4} fill={`url(#${id}-hatch)`} />}
+                    {s.weave && <rect className={`tm-hatch ${cls}`} data-l={l} width={T} height={T} rx={4} fill={`url(#${id}-weave)`} />}
                     {s.dashed && <rect className={`tm-hatch ${cls}`} data-l={l} x={1} y={1} width={T - 2} height={T - 2} rx={3.5} fill="none" stroke="var(--muted)" strokeWidth={1.5} strokeDasharray="3 2.5" />}
                     <text className={`tm-lab tm-v ${cls}`} data-l={l} x={T / 2} y={T / 2 + 1} textAnchor="middle" style={{ fill: s.ink }}>{s.label}</text>
                   </g>
                 );
               })}
-              <text x={T / 2} y={T - 5} textAnchor="middle" style={{ fill: "var(--ink)", fontSize: 6, paintOrder: "stroke", stroke: "var(--card)", strokeWidth: 2 }}>
-                {t.name.length > 11 ? `${t.name.slice(0, 10)}…` : t.name}
+              {/* The full name, never cut (D-11): long names break at their slash or last space
+                  onto a second line, and the tile's <title> carries name, constituency and register. */}
+              <text x={T / 2} y={T - (nameLines(t.name).length > 1 ? 10.5 : 5)} textAnchor="middle" style={{ fill: "var(--ink)", fontSize: 5.6, paintOrder: "stroke", stroke: "var(--card)", strokeWidth: 2 }}>
+                {nameLines(t.name).map((line, i) => (
+                  <tspan key={i} x={T / 2} dy={i === 0 ? 0 : 5.8}>{line}</tspan>
+                ))}
               </text>
             </g>
           );
@@ -94,7 +110,7 @@ export function TileMap({ id, layers, initial, showWardList = false }: { id: str
             <ul className="tm-legend">
               {L.legend.map((g) => (
                 <li key={g.label}>
-                  <span className="tm-swatch" aria-hidden="true" style={{ background: g.fill, borderStyle: g.dashed ? "dashed" : "solid", borderColor: g.dashed ? "var(--muted)" : undefined, backgroundImage: g.hatch ? "repeating-linear-gradient(45deg, transparent 0 3px, rgba(255,255,255,0.6) 3px 4.5px)" : undefined }} />
+                  <span className={`tm-swatch ${g.weave ? "tm-swatch--weave" : ""}`} aria-hidden="true" style={{ background: g.fill, borderStyle: g.dashed ? "dashed" : "solid", borderColor: g.dashed ? "var(--muted)" : undefined, backgroundImage: g.hatch ? "repeating-linear-gradient(45deg, transparent 0 3px, rgba(255,255,255,0.6) 3px 4.5px)" : undefined }} />
                   {g.label}
                 </li>
               ))}

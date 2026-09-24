@@ -2,8 +2,8 @@
 
 import { LazyMount } from "../LazyMount";
 import { ProvenanceLine } from "./ProvenanceLine";
-import { TierBadge } from "./TierBadge";
 import { RADIO_STATIONS } from "../../data/media-ownership";
+import { StationTable } from "../premium/StationTable";
 import MediaOwnershipChart, { type StationBar } from "../charts/MediaOwnershipChart";
 
 /**
@@ -53,33 +53,10 @@ export function MediaOwnershipBlockContent() {
         </LazyMount>
       </div>
 
-      {/* Accessible table equivalent */}
-      <div className="not-prose fx-focus overflow-x-auto" tabIndex={0} role="group" aria-label="Media ownership table, scrollable">
-        <table className="data-table text-left t-small">
-          <thead>
-            <tr className="t-micro font-bold text-muted">
-              <th className="py-1 pr-3">Station</th>
-              <th className="py-1 pr-3">Frequency</th>
-              <th className="py-1 pr-3">Reported alignment</th>
-              <th className="py-1 pr-3">Reach (qualitative)</th>
-              <th className="py-1">Tier</th>
-            </tr>
-          </thead>
-          <tbody>
-            {RADIO_STATIONS.map((s, i) => (
-              <tr key={i} className="border-t border-line/40">
-                <td className="py-1.5 pr-3 font-bold text-ink">{s.name}</td>
-                <td className="py-1.5 pr-3 text-ink/70 tabular-nums">{s.frequency ?? "—"}</td>
-                <td className="py-1.5 pr-3 text-ink/80">{s.alignment}</td>
-                <td className="py-1.5 pr-3 text-ink/80">{s.reachLabel.split(" (")[0]}</td>
-                <td className="py-1.5">
-                  <TierBadge tier={s.source.tier} compact />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      {/* The table equivalent, in the G-6 system: a real table on wide screens, label-above-value
+          cards on a phone. It replaced a five-column table that collapsed to one character per
+          line at 390 px (D-03). */}
+      <StationTable />
 
       <ProvenanceLine provenance={RADIO_STATIONS.map((s) => ({ source: s.source, granularity: "county" as const }))} />
     </div>

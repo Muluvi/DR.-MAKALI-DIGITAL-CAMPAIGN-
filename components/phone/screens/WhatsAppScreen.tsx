@@ -11,7 +11,7 @@ import { useMotionPreset } from "../../../hooks/useMotionPreset";
 import { ScreenShell } from "../primitives";
 
 /**
- * WhatsApp — §3.6.1's "primary closed-group organizing hub", carrying the dispatch §8.8.2
+ * WhatsApp — §2.6's "primary closed-group organizing hub", carrying the dispatch §5.2.3.1
  * describes: a localized ward pledge, then a voice note from Dr. Mulu, out to the ward captains
  * for peer forwarding.
  *
@@ -172,7 +172,7 @@ export function WhatsAppScreen() {
           </div>
         </div>
 
-        {/* Outgoing voice note — §8.8.2's 45-second audio note. No words to invent. */}
+        {/* Outgoing voice note — §5.2.3.1's 45-second audio note. No words to invent. */}
         <div className="relative self-end max-w-[85%] w-[80%]">
           <Tail side="out" />
           <div

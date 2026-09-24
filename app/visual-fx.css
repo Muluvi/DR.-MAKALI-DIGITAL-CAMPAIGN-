@@ -1064,17 +1064,21 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 .prose a:not(.not-prose *):hover,
 .prose a:not(.not-prose *):focus-visible { background-size: 100% 1.5px; color: var(--color-accent); }
 
-/* The lead paragraph of a sub-section gets a raised initial. Only the first
-   paragraph after an h2, and only at reading widths — a drop cap on a phone
-   eats a third of the line. */
-@media (min-width: 768px) {
-  .prose h2:not(.not-prose *) + p:not(.not-prose *)::first-letter {
-    float: left;
-    font-size: 3em;
-    line-height: 0.84;
-    padding: 0.08em 0.09em 0 0;
-    font-weight: 800;
-    color: var(--color-accent);
+/* The lead paragraph of a sub-section gets a sunk initial. It used to be a floated first-letter,
+   which left the first line indented under a detached capital ("T  he number…", D-10). The
+   `initial-letter` property sinks the capital into exactly two lines and aligns its baseline with
+   the second, which a float cannot do; where it is unsupported the paragraph simply opens plain.
+   Only at reading widths — a drop cap on a phone eats a third of the line. */
+@supports (initial-letter: 2) or (-webkit-initial-letter: 2) {
+  @media (min-width: 768px) {
+    .prose h2:not(.not-prose *) + p:not(.not-prose *)::first-letter {
+      -webkit-initial-letter: 2;
+      initial-letter: 2;
+      margin-right: 0.12em;
+      font-family: var(--font-display), sans-serif;
+      font-weight: 700;
+      color: var(--color-gold);
+    }
   }
 }
 

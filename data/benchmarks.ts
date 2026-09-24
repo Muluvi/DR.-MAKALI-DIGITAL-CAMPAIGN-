@@ -1,4 +1,4 @@
-// §8.15.2's key metrics, as data.
+// §5.2.4.4's key metrics, as data.
 //
 // The table states a global benchmark and a campaign target side by side, and the thing it does
 // not show is the RELATIONSHIP between them: which targets sit above the industry band, which
@@ -7,7 +7,7 @@
 // conservative, or unexamined?
 //
 // Only the five metrics measured on a comparable percentage scale are plotted. The other three
-// in §8.15.2 are carried as text, because a cost in shillings, a cost in dollars and a shift in
+// in §5.2.4.4 are carried as text, because a cost in shillings, a cost in dollars and a shift in
 // survey points do not share an axis and forcing them onto one would invent a comparison the
 // document does not make.
 
@@ -65,24 +65,12 @@ export function targetPosition(b: Benchmark): "above" | "inside" | "below" {
   return "inside";
 }
 
-/** The three metrics in §8.15.2 that share no axis with the five above. */
+/** The three metrics in §5.2.4.4 that share no axis with the five above. */
 export const UNPLOTTED_BENCHMARKS = [
   {
     metric: "Measured preference shift",
     definition: "Change in published survey share",
     benchmarkLabel: "—",
     targetLabel: "Close the deficit to ≤ 5 points by nomination window",
-  },
-  {
-    metric: "Cost per persuaded voter",
-    definition: "Total spend ÷ estimated persuaded",
-    benchmarkLabel: "$1–$5",
-    targetLabel: "≤ KSh200",
-  },
-  {
-    metric: "Cost per consented contact",
-    definition: "Total channel spend ÷ consented contacts",
-    benchmarkLabel: "—",
-    targetLabel: "≤ KSh0.60 falling to KSh0.35",
   },
 ];

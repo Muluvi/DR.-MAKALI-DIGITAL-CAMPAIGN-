@@ -78,7 +78,7 @@ export const IEBC_ECVR_2026: Source = {
   publicationDate: "2026-04",
   tier: 1,
   // The county-by-county breakdown is annexed to this release and is the Tier 1 replacement for
-  // the 2022 ward file. Named as the highest-priority data request in §15.1.
+  // the 2022 ward file. Named as the highest-priority data request in §6.1.
 };
 
 export const PARLIAMENT_MEMBER_RECORD: Source = {
@@ -107,7 +107,7 @@ export const CA_POLITICAL_MESSAGING_GUIDELINES: Source = {
   url: "https://www.ca.go.ke/sites/default/files/2023-06/Guidelines-on-Prevention-of-Dissemination-of-Undesirable-Bulk-and-Premium-Rate-Political-Messages-and-Political-Social-Media-Content-Via-Electronic-Networks-1.pdf",
   publicationDate: "2017",
   tier: 1,
-  // The source for the two rules that reshape the SMS layer in §8.10.2: English or Kiswahili only,
+  // The source for the two rules that reshape the SMS layer in §5.2.3.3: English or Kiswahili only,
   // and 48-hour advance lodging with the operator.
 };
 
@@ -124,7 +124,7 @@ export const ODPC_PUBLIC_SECTOR_GUIDANCE: Source = {
   publicationDate: "2025-11",
   tier: 1,
   // Bars reuse of public-programme personal data for political mobilisation without explicit
-  // consent — the basis for the NG-CDF beneficiary prohibition in §12.5.2.
+  // consent — the basis for the NG-CDF beneficiary prohibition in §5.7.6.
 };
 
 // ---- Tier 2 · Reported --------------------------------------------------------------------
@@ -134,7 +134,7 @@ export const POLITRACK_AFRICA: Source = {
   publicationDate: "2026-03-12",
   tier: 2,
   // A second pollster, reported via The County Diary. Never joined to the Mizani series as one
-  // trend line: different houses, different methods (§3.1.5).
+  // trend line: different houses, different methods (§C.1).
 };
 
 export const KNBS_POVERTY_REPORT: Source = {
@@ -143,7 +143,7 @@ export const KNBS_POVERTY_REPORT: Source = {
   publicationDate: "2022",
   tier: 2,
   // Tier 2 because the Kitui rows quoted (55.2% poverty, 72.5% food share) reach this proposal
-  // through reporting rather than from the annex tables. §15.1 requests the annex.
+  // through reporting rather than from the annex tables. §6.1 requests the annex.
 };
 
 export const IEBC_REGISTER_2026_REPORTED: Source = {

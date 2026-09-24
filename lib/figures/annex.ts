@@ -6,24 +6,24 @@
  * rapid-response runbooks.
  *
  * THE PROVENANCE BLOCKS ARE THE DOCUMENT'S OWN RULES ABOUT EVIDENCE, and they are the rules this
- * entire audit has been applying. §3.2.3's step 4 — "if unreconciled, report both numbers
+ * entire audit has been applying. §A.1.3's step 4 — "if unreconciled, report both numbers
  * explicitly side-by-side with their respective sources rather than calculating an artificial
  * average" — is, word for word, what CONFLICTS.md does with all twenty-two entries. Retiring these
  * blocks into figures that state the rules plainly is the closest thing to a self-portrait this
  * pass produces, and the reason they are transcribed rather than paraphrased.
  *
- * THE KIKAMBA IN THE RUNBOOKS IS LOAD-BEARING. §13.1.4's four holding positions each carry a
- * Kikamba framing with full diacritics — ĩ, ũ, w' — and §7.3.2 forbids machine translation of
+ * THE KIKAMBA IN THE RUNBOOKS IS LOAD-BEARING. §F.3's four holding positions each carry a
+ * Kikamba framing with full diacritics — ĩ, ũ, w' — and §4.4.9 forbids machine translation of
  * exactly this material. Every string is transcribed character for character.
  *
- * TWO OF THE SOURCE CELLS DECLINE TO CLAIM SOMETHING, and both are kept: §13.1.4's first position
- * says the classroom and bursary counts are pending the inventory and that only §3.3.1's 12,573
+ * TWO OF THE SOURCE CELLS DECLINE TO CLAIM SOMETHING, and both are kept: §F.3's first position
+ * says the classroom and bursary counts are pending the inventory and that only §2.8's 12,573
  * and KSh 47m should be used until reconciled, and its second says the ward allocation methodology
  * does not exist yet and the line should not go on air before it does.
  */
 import type { FigureSeries } from "./types";
 
-/* ------------------------------------------------------------------ §5.0 the audience overview */
+/* ------------------------------------------------------------------ §4.3 the audience overview */
 
 export const AUDIENCE_FACETS = [
   { label: "Geographic locus", items: ["Rural: 95.2%", "Urban: 4.8%"] },
@@ -37,13 +37,13 @@ export const AUDIENCE_FACETS = [
 export const AUDIENCE_SERIES: FigureSeries = {
   id: "audience-overview",
   headline: "Six ways of cutting the same electorate, and two of them decide the channel plan",
-  measure: "§5.0's Kitui County audience architecture overview",
+  measure: "§4.3's Kitui County audience architecture overview",
   points: [],
   conflicts: ["C-13"],
   note:
     "Connectivity and language are the two facets the rest of the proposal turns on: 86.4% offline " +
     "sets the channel mix, ~76% Kikamba sets the language mix. The 86.4% / 13.6% split is the 2019 " +
-    "census rate, which §3.6.1 says the 2023/24 Kenya Housing Survey supersedes — C-13. Neither " +
+    "census rate, which §2.6 says the 2023/24 Kenya Housing Survey supersedes — C-13. Neither " +
     "rate has been changed anywhere.",
 };
 
@@ -102,11 +102,11 @@ export const SEGMENTS_SERIES: FigureSeries = {
   note:
     "The data tier column is the one to read first. Three segments are Tier 1 and sized from the " +
     "census and the register; the other three say “primary research needed” and carry a range " +
-    "rather than a number. The ranges are printed as ranges and the gaps as gaps — §11.2.1's " +
+    "rather than a number. The ranges are printed as ranges and the gaps as gaps — §5.6.5's " +
     "research programme is what closes them.",
 };
 
-/* ------------------------------------------------------------------ §6A.1.4 the visit loop */
+/* ------------------------------------------------------------------ §4.5.4 the visit loop */
 
 export const VISIT_LOOP = [
   { at: "P4", title: "Visit", steps: ["Ward named, photo taken."] },
@@ -117,7 +117,7 @@ export const VISIT_LOOP = [
     title: "Verification",
     steps: [
       "Delivered, delayed or not done.",
-      "Published either way to the service-delivery tracker (§8.2) — and the result feeds the next visit.",
+      "Published either way to the service-delivery tracker (§5.2.1) — and the result feeds the next visit.",
     ],
   },
 ];
@@ -125,7 +125,7 @@ export const VISIT_LOOP = [
 export const VISIT_SERIES: FigureSeries = {
   id: "visit-loop",
   headline: "Every visit logs a commitment, and twelve weeks later the tracker says what happened to it",
-  measure: "§6A.1.4's visit-to-verification loop",
+  measure: "§4.5.4's visit-to-verification loop",
   points: [],
   note:
     "It is a loop: the verification publishes to the tracker whether the commitment was kept or " +
@@ -164,7 +164,7 @@ export const MANDATE_SERIES: FigureSeries = {
     "charts.",
 };
 
-/* ------------------------------------------------------------------ §3.2.2 the three tiers */
+/* ------------------------------------------------------------------ §A.1.2 the three tiers */
 
 export const TIER_CLASSIFICATION: string[][] = [
   [
@@ -187,7 +187,7 @@ export const TIER_CLASSIFICATION: string[][] = [
 export const TIERS_SERIES: FigureSeries = {
   id: "tier-classification",
   headline: "Three tiers, and only one of them may move money",
-  measure: "§3.2.2's three-tier evidential classification — tier, source types, authorised strategic use",
+  measure: "§A.1.2's three-tier evidential classification — tier, source types, authorised strategic use",
   points: [],
   note:
     "The authorised-use column is what makes the tiers operational rather than descriptive: Tier 3 " +
@@ -196,7 +196,7 @@ export const TIERS_SERIES: FigureSeries = {
     "than resolving it — which is C-8 and C-9.",
 };
 
-/* ------------------------------------------------------------------ §3.2.3 conflict resolution */
+/* ------------------------------------------------------------------ §A.1.3 conflict resolution */
 
 export const CONFLICT_PROTOCOL = [
   {
@@ -228,7 +228,7 @@ export const CONFLICT_PROTOCOL = [
 export const PROTOCOL_SERIES: FigureSeries = {
   id: "conflict-protocol",
   headline: "What to do when two sources disagree, in four steps the document wrote for itself",
-  measure: "§3.2.3's conflict resolution protocol, in order",
+  measure: "§A.1.3's conflict resolution protocol, in order",
   points: [],
   note:
     "Step 4 is the one this audit has been applying throughout: where the document disagrees with " +
@@ -237,7 +237,7 @@ export const PROTOCOL_SERIES: FigureSeries = {
     "tier test comes back equal.",
 };
 
-/* ------------------------------------------------------------------ §7.1.2 message by segment */
+/* ------------------------------------------------------------------ §D.1 message by segment */
 
 export const MESSAGE_BY_SEGMENT: string[][] = [
   [
@@ -275,15 +275,15 @@ export const MESSAGE_BY_SEGMENT: string[][] = [
 export const SEGMENT_MESSAGE_SERIES: FigureSeries = {
   id: "message-by-segment",
   headline: "Six segments, six messages, and a named evidence source behind every one",
-  measure: "§7.1.2's message-by-demographic-segment matrix — segment, tailored message and Kikamba framing, verifiable evidence",
+  measure: "§D.1's message-by-demographic-segment matrix — segment, tailored message and Kikamba framing, verifiable evidence",
   points: [],
   note:
-    "The evidence column is not decoration: §8.3.5's approval gateway makes a primary citation " +
+    "The evidence column is not decoration: §5.2.1.2's approval gateway makes a primary citation " +
     "mandatory at drafting, and this matrix is where each segment's citation is named. The Kikamba " +
     "framings are transcribed exactly, diacritics included.",
 };
 
-/* ------------------------------------------------------------------ §7.1.3 message by channel */
+/* ------------------------------------------------------------------ §D.2 message by channel */
 
 export const MESSAGE_BY_CHANNEL: string[][] = [
   [
@@ -316,15 +316,15 @@ export const MESSAGE_BY_CHANNEL: string[][] = [
 export const CHANNEL_MESSAGE_SERIES: FigureSeries = {
   id: "message-by-channel",
   headline: "Five channels, each with its own register and its own proof",
-  measure: "§7.1.3's message-by-channel matrix — channel and reach, format and linguistic style, evidential proof points",
+  measure: "§D.2's message-by-channel matrix — channel and reach, format and linguistic style, evidential proof points",
   points: [],
   note:
-    "The reach figures are §3.6.2's and §3.6.1's, restated here per channel: radio ~420,000, SMS " +
+    "The reach figures are §3.8.1's and §2.6's, restated here per channel: radio ~420,000, SMS " +
     "~320,000, caravans ~280,000, church ~350,000, social ~72,000. They must not be added — the " +
-    "channels overlap, as §3.6.2's own warning says.",
+    "channels overlap, as §3.8.1's own warning says.",
 };
 
-/* ------------------------------------------------------------------ §12.4 the escalation ladder */
+/* ------------------------------------------------------------------ §E.2 the escalation ladder */
 
 export const ESCALATION_LADDER = [
   {
@@ -356,7 +356,7 @@ export const ESCALATION_LADDER = [
 export const ESCALATION_SERIES: FigureSeries = {
   id: "escalation-ladder",
   headline: "Three levels, three authorities, and the candidate is only in the third",
-  measure: "§12.4's three-tier escalation protocol — issues, resolution authority and the rule at each level",
+  measure: "§E.2's three-tier escalation protocol — issues, resolution authority and the rule at each level",
   points: [],
   note:
     "The levels are numbered because escalation is ordered: a level 1 issue that is not resolved " +
@@ -364,7 +364,7 @@ export const ESCALATION_SERIES: FigureSeries = {
     "who decides and what they must do, which is what makes it a protocol rather than a list.",
 };
 
-/* ------------------------------------------------------------------ §13.1.2 the decision matrix */
+/* ------------------------------------------------------------------ §F.1 the decision matrix */
 
 export const RESPONSE_MATRIX: string[][] = [
   [
@@ -396,7 +396,7 @@ export const RESPONSE_MATRIX: string[][] = [
 export const MATRIX_SERIES: FigureSeries = {
   id: "response-matrix",
   headline: "Four severities, and the first instruction is to do nothing",
-  measure: "§13.1.2's rapid response decision matrix — severity, threshold, protocol and turnaround SLA",
+  measure: "§F.1's rapid response decision matrix — severity, threshold, protocol and turnaround SLA",
   points: [],
   note:
     "Level 1's protocol is IGNORE / PASSIVE MONITOR, with an explicit instruction not to amplify " +
@@ -405,7 +405,7 @@ export const MATRIX_SERIES: FigureSeries = {
     "matrix usable at speed.",
 };
 
-/* ------------------------------------------------------------------ §13.1.3 the SLA ladder */
+/* ------------------------------------------------------------------ §F.2 the SLA ladder */
 
 export const RESPONSE_SLA: string[][] = [
   [
@@ -430,15 +430,15 @@ export const RESPONSE_SLA: string[][] = [
 export const SLA_SERIES: FigureSeries = {
   id: "response-sla",
   headline: "From fifteen minutes on air to twenty-four hours in print",
-  measure: "§13.1.3's rapid response SLA by channel",
+  measure: "§F.2's rapid response SLA by channel",
   points: [],
   note:
     "The ladder runs from the fastest channel to the slowest, which is also the order a rebuttal " +
-    "travels: radio first, then WhatsApp, then digital, then SMS, then print. §8.10.2's 48-hour " +
+    "travels: radio first, then WhatsApp, then digital, then SMS, then print. §5.2.3.3's 48-hour " +
     "lodging rule is why the SMS rung sits at two hours rather than minutes.",
 };
 
-/* ------------------------------------------------------------------ §13.1.4 holding positions */
+/* ------------------------------------------------------------------ §F.3 holding positions */
 
 export const HOLDING_POSITIONS = [
   {
@@ -449,7 +449,7 @@ export const HOLDING_POSITIONS = [
     kikamba:
       "Kũthũkũma nĩ wĩtĩkĩlo na wathi mũseo. Nĩ mũthũkũmi mũmanya meko, ũte na kambĩ sya kũya mbesa sya mwananchi.",
     source:
-      "National Assembly Hansard; Kitui Central NG-CDF project inventory (84 solar boreholes; classroom and bursary counts pending the inventory — the Tier 1 figure in §3.3.1 and §6.1.1 is 12,573 bursary recipients and KSh 47m, and only that figure should be used until it is reconciled).",
+      "National Assembly Hansard; Kitui Central NG-CDF project inventory (84 solar boreholes; classroom and bursary counts pending the inventory — the Tier 1 figure in §2.8 and §6.1.1 is 12,573 bursary recipients and KSh 47m, and only that figure should be used until it is reconciled).",
   },
   {
     question: '2. The "northern & southern recognition deficit" question',
@@ -460,7 +460,7 @@ export const HOLDING_POSITIONS = [
     kikamba:
       "Mwanya wa maendeeo nĩ wa kĩla mũndũ. Mbesa sya Ward Fund syĩithiwa kwa kĩla kĩtheka kũtetheesya mĩsyĩ yonthe ya Kitui ta ĩmwe.",
     source:
-      "The ward allocation methodology, once drafted. §8.2 is the delivery tracker and does not carry a schedule; Firefly would build the formula with the campaign before this line is used on air.",
+      "The ward allocation methodology, once drafted. §5.2.1 is the delivery tracker and does not carry a schedule; Firefly would build the formula with the campaign before this line is used on air.",
   },
   {
     question: '3. The "Nairobi technocrat" question',
@@ -488,11 +488,11 @@ export const HOLDING_POSITIONS = [
 export const HOLDING_SERIES: FigureSeries = {
   id: "holding-positions",
   headline: "Four attack lines, four answers, and two sources that say the answer is not ready yet",
-  measure: "§13.1.4's pre-drafted holding positions — attack line, holding message, Kikamba framing and primary source",
+  measure: "§F.3's pre-drafted holding positions — attack line, holding message, Kikamba framing and primary source",
   points: [],
   note:
     "TWO OF THE FOUR SOURCE CELLS DECLINE TO CLAIM SOMETHING, and both are kept exactly. Position 1 " +
-    "says the classroom and bursary counts are pending the inventory and that only §3.3.1's 12,573 " +
+    "says the classroom and bursary counts are pending the inventory and that only §2.8's 12,573 " +
     "recipients and KSh 47m should be used until reconciled. Position 2 says the ward allocation " +
     "methodology does not exist yet and the line should not go on air before it does. A runbook " +
     "that hid either would be a runbook that sends a spokesperson on air with an unverified figure.",

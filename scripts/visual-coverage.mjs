@@ -122,7 +122,12 @@ function figureFor(h) {
  * Figure kinds that were removed because they measured nothing. If one reappears in the generated
  * specs, the "cover every heading" instinct has crept back in and the build should say so.
  */
-const RETIRED_KINDS = new Set(["statement", "chapter", "hub", "quote", "shape", "table"]);
+const RETIRED_KINDS = new Set([
+  "statement", "chapter", "hub", "quote", "shape", "table",
+  // 2026: every quantitative kind. Numbers are drawn from the register, never from a regex over
+  // prose (scripts/build-section-visuals.mjs, QUANTITATIVE; docs/visual-premium/PART-VISUALS.md).
+  "stats", "bars", "gauge", "bullet", "donut", "waterfall", "contrast",
+]);
 
 if (check) {
   const revived = [...derived.entries()].filter(([, kind]) => RETIRED_KINDS.has(kind));

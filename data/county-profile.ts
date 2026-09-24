@@ -40,7 +40,7 @@ export const COUNTY_WOMEN: SourcedFigure = {
  * The denominator of the 13.6% is the population aged 3 and above, not the whole county.
  *
  * §6.2 states it that way and the arithmetic only works that way: 143,340 / 1,053,991 = 13.6%,
- * where 143,340 / 1,136,187 would be 12.6%. §8.10.1 had quoted the whole-county denominator
+ * where 143,340 / 1,136,187 would be 12.6%. §5.2.3.3 had quoted the whole-county denominator
  * against the aged-3+ percentage, which is the one sum in the document a reader can check in
  * their head. Both figures are kept here so the base can never be dropped again.
  */

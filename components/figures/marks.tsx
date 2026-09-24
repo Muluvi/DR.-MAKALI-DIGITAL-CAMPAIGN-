@@ -300,7 +300,7 @@ export function ShareBar({ series }: { series: FigureSeries }) {
 /**
  * Two time points per series, joined.
  *
- * Deliberately limited to two, and deliberately NOT a trend line across houses. §3.1.5 is
+ * Deliberately limited to two, and deliberately NOT a trend line across houses. §C.1 is
  * explicit that the three published rounds come from two pollsters and are "deliberately not
  * drawn as one trend line", because different houses use different samples and screens, and
  * joining them would manufacture a trajectory nobody measured. This component draws one house at
@@ -383,7 +383,7 @@ export function SlopeChart({
  * Dots with whiskers: a value and the uncertainty around it.
  *
  * For published poll shares with a margin, and for modelled intervals. A point with no published
- * sample gets a hatched marker and says so — §3.1.5 records that both Mizani rounds published no
+ * sample gets a hatched marker and says so — §C.1 records that both Mizani rounds published no
  * sample size, and drawing them with the same confident dot as Politrack's n = 2,927 would be
  * asserting a precision nobody published.
  */
@@ -647,7 +647,7 @@ export function RangeBars({ series, scaleMax }: { series: FigureSeries; scaleMax
 /**
  * A ledger: rows of findings, each a statement rather than a magnitude.
  *
- * THE FIFTH RULE, WHICH ONLY THIS MARK NEEDS: a figure may decline to be a chart. §3.4.6's
+ * THE FIFTH RULE, WHICH ONLY THIS MARK NEEDS: a figure may decline to be a chart. §3.10's
  * summary is eight conclusions of different kinds — a headcount, a range, a share, a ratio, an
  * operational instruction — and there is no axis all eight belong on. Drawing them as bars would
  * put the register and a 65% effort weighting on one scale and imply a relationship that does not
@@ -657,7 +657,7 @@ export function RangeBars({ series, scaleMax }: { series: FigureSeries; scaleMax
  */
 export function Ledger({
   rows,
-  statedLabel = "§3.4.6 prints",
+  statedLabel = "§3.10 prints",
   nameFirst = false,
 }: {
   rows: {
@@ -720,7 +720,7 @@ export function Ledger({
 /**
  * An allocation: one row per medium, each row a 100% bar split between languages.
  *
- * A grouped bar chart would have been the obvious reach for §7.3.4, and it would have been wrong.
+ * A grouped bar chart would have been the obvious reach for §4.4.11, and it would have been wrong.
  * These seven rows do not share a scale — 100% of radio and 100% of the manifesto are not
  * comparable quantities, they are two different totals — so a chart that put them on one axis
  * would invite exactly the comparison the table never made. Each row is its own whole, and the
@@ -739,9 +739,11 @@ export function Allocation({
     conflicts?: string[];
   }[];
 }) {
+  // The middle shade carries white text, so it darkens toward black rather than paling toward the
+  // paper: the paper mix measured 2.35:1 under white in the light theme.
   const shades = [
     "var(--color-accent-solid)",
-    "color-mix(in oklch, var(--color-accent-solid) 50%, var(--color-paper))",
+    "color-mix(in oklch, var(--color-accent-solid) 62%, black)",
     "var(--color-muted)",
   ];
 
@@ -815,7 +817,7 @@ export function MessageHouse({
         <dl className="m-0 mt-2 space-y-2">
           {claim.map((line) => (
             <div key={line.language}>
-              {/* Equal weight on all three. §7.3.1 puts 76% of primary reach in Kikamba, so the
+              {/* Equal weight on all three. §4.4.8 puts 76% of primary reach in Kikamba, so the
                   English line is not the claim — it is one of three. */}
               <dt className="t-micro font-bold text-muted">{line.language}</dt>
               <dd className="m-0 font-serif text-sm font-bold leading-snug text-ink">
@@ -852,7 +854,7 @@ export function MessageHouse({
 /**
  * Two columns that must be read as pairs: a claim and what answers it.
  *
- * §7.1.4's rumour table and §7.3.2's translation table are the same shape — something wrong on the
+ * §4.4.2's rumour table and §4.4.9's translation table are the same shape — something wrong on the
  * left, what to say instead on the right — and the pairing is the whole content. A stacked list
  * would put a rumour next to the wrong rebuttal the moment one cell grew taller than another.
  *
@@ -899,7 +901,7 @@ export function PairedRows({
 /**
  * Numbered stages in a sequence that has to happen in order.
  *
- * The brief forbids numbered markers "unless a real sequence". §7.3.3's approval chain is one: the
+ * The brief forbids numbered markers "unless a real sequence". §4.4.10's approval chain is one: the
  * reverse-translation audit cannot run before the adaptation it audits exists, and the cultural
  * sign-off is the last gate before release. So the numbers stay, and they are the content.
  *
@@ -910,7 +912,7 @@ export function PairedRows({
 export function Stepper({
   stages,
 }: {
-  /** `at` is a clock offset where the sequence is timed — §8.8.2's four-hour cycle. */
+  /** `at` is a clock offset where the sequence is timed — §5.2.3.1's four-hour cycle. */
   stages: { title: string; steps: string[]; emphasis?: string; at?: string }[];
 }) {
   return (
@@ -927,7 +929,7 @@ export function Stepper({
             <p className="m-0 t-micro font-bold text-ink">
               <span className="sr-only">Stage {i + 1}: </span>
               {/* The offset, where there is one, is the point of the row and not an annotation:
-                  §8.8.2's claim is four hours, and it is only legible as a running clock. */}
+                  §5.2.3.1's claim is four hours, and it is only legible as a running clock. */}
               {stage.at && <span className="mr-1.5 font-mono tabular-nums text-accent">{stage.at}</span>}
               {stage.title}
             </p>
@@ -953,7 +955,7 @@ export function Stepper({
 /**
  * A real table, where the block it replaced was a table drawn in characters.
  *
- * Not every ASCII block wants to become a chart. §8.12.1's supporter schema is eighteen fields with
+ * Not every ASCII block wants to become a chart. §5.2.4.1's supporter schema is eighteen fields with
  * a type and a constraint each; there is nothing to plot and nothing to rank. What it needed was to
  * stop being an image of a table: inside a code fence it could not wrap, could not be searched
  * word by word, could not be read in order by a screen reader, and scrolled sideways on a phone.
@@ -1023,7 +1025,7 @@ export function SpecTable({
  * Named tiers, each holding a few components: the shape of an architecture diagram without the
  * arrows.
  *
- * §8.12 and §8.14 both drew boxes joined by ASCII arrows. The arrows are the part that cannot
+ * §5.2.4.1 and §5.2.4.3 both drew boxes joined by ASCII arrows. The arrows are the part that cannot
  * survive: an SVG connector between two boxes breaks the moment the boxes reflow, and at 320px
  * they have to stack. What the arrows carried — that ingestion feeds processing, which feeds
  * output — is carried here by ORDER and by a named relationship printed between the tiers, which
@@ -1037,7 +1039,7 @@ export function TierGrid({
   tiers: { label: string; items: string[] }[];
   /** What the arrows meant, said in words. Printed once, above the tiers. */
   flow?: string;
-  /** The box the diagram hung beneath everything else — §8.12's encrypted core database. */
+  /** The box the diagram hung beneath everything else — §5.2.4.1's encrypted core database. */
   terminal?: { label: string; items: string[] };
 }) {
   return (
@@ -1079,7 +1081,7 @@ export function TierGrid({
 /**
  * A hierarchy as a nested list, where the block drew it with ├── and └──.
  *
- * Two blocks in §8.3 are trees: a USSD menu and an asset repository. Box-drawing elbows are a
+ * Two blocks in §5.2.1.2 are trees: a USSD menu and an asset repository. Box-drawing elbows are a
  * convincing picture of a tree and nothing else — a screen reader announces them as punctuation,
  * a phone scrolls them sideways, and a line that runs long wraps into the next branch's indent and
  * stops being readable at all.
@@ -1121,7 +1123,7 @@ export function Tree({
 /**
  * A reporting hierarchy: levels down the page, then branches across it.
  *
- * §14's org chart is two shapes in one — a chain of command (candidate, campaign manager) and a
+ * §5.9's org chart is two shapes in one — a chain of command (candidate, campaign manager) and a
  * fan of three leads, each with its own subcontractors. Drawing it with SVG connectors would mean
  * redrawing them at every breakpoint; drawing it as one flat list would lose which of the two
  * shapes each row belongs to.

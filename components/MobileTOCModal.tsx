@@ -4,7 +4,9 @@ import React, { useState, useMemo, useEffect, useRef, useId } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck, Activity} from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
-import { FLOW_SECTIONS } from "../lib/flow";
+import { FLOW_ACTS, FLOW_SECTIONS, actOf } from "../lib/flow";
+import { ACT_PORTRAITS, ACT_ROMAN } from "../lib/premium/acts";
+import { Portrait } from "./Portrait";
 import { readingMinutes } from "../hooks/useReadingProgress";
 import type { SectionItem } from "../lib/section-index";
 
@@ -238,6 +240,32 @@ export function MobileTOCModal({
               index that lists the sections in a different sequence from the one the reader is
               travelling through is a second, contradictory map of the same document.
             */}
+            {/* The seven acts (brief G-7): each with its numeral, its portrait and how long it
+                takes, one tap to its opener. This is the phone's version of the desktop spine. */}
+            <ol className="pf-index-acts" aria-label="The seven acts">
+              {FLOW_ACTS.map((a, i) => {
+                const mins = readingMinutes(
+                  FLOW_SECTIONS.filter((s) => actOf(s.id as TabId).id === a.id).reduce((n, s) => n + (wordCounts[s.id as TabId] ?? 0), 0)
+                );
+                return (
+                  <li key={a.id}>
+                    <button
+                      type="button"
+                      onClick={() => { onSelectTab(a.opensOn); onClose(); }}
+                      aria-current={actOf(activeTab as TabId).id === a.id ? "true" : undefined}
+                    >
+                      <span className="pf-index-acts__img" aria-hidden="true">
+                        <Portrait id={ACT_PORTRAITS[i]} sizes="56px" fade={false} />
+                      </span>
+                      <span className="pf-index-acts__n" aria-hidden="true">{ACT_ROMAN[i]}</span>
+                      <span className="pf-index-acts__label">{a.label}</span>
+                      <span className="pf-index-acts__min">{mins} min</span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ol>
+
             <div className="mb-3">
               <div className="flex items-baseline justify-between gap-2 mb-1.5">
                 <span className="t-micro font-black text-muted">

@@ -18,7 +18,7 @@
   --zone-c: #4a3aa7;
   --seq-1: #86bcb7;
   --seq-2: #5f9f9a;
-  --seq-3: #428580;
+  --seq-3: #3a7772; /* was #428580: 4.28:1 under white; now 5.17:1 */
   --seq-4: #2b6a65;
   --seq-5: #1a4c48;
   --seq-ink-light: #0b1f1d;

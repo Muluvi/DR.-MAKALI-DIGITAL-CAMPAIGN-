@@ -15,11 +15,35 @@ import { Chart } from "./charts";
  *   table      inside a native <details>: keyboard-reachable, no script, opened for print
  *   CSV        a real link to public/data/<id>.csv, written at build from the same rows
  */
+/**
+ * The one lead figure of each section (brief G-5 "hero", G-1 "wide or bleed"): full shell width,
+ * a larger title and a soft inner glow. Every other figure is standard, and the text-shaped ones
+ * (cards, steps, matrices, decisions) open into a ruled block rather than a card (D-16).
+ */
+export const HERO_FIGURES = new Set([
+  "fig-cover-map",
+  "fig-1-1-timeline",
+  "fig-2-1-register",
+  "fig-3-1-funnel",
+  "fig-3-11-evidence",
+  "fig-4-1-message-house",
+  "fig-5-1-workstreams",
+  "fig-5-4-phases",
+  "fig-6-3-decision",
+]);
+const OPEN_KINDS = new Set(["cards", "steps", "matrix", "decision", "spine"]);
+
+function variantOf(spec: FigureSpec): string {
+  if (HERO_FIGURES.has(spec.id)) return "rf--hero";
+  const kind = spec.chart.type === "composite" ? spec.chart.parts[0]?.chart.type : spec.chart.type;
+  return kind && OPEN_KINDS.has(kind) ? "rf--open" : "";
+}
+
 export function RegisterFigure({ spec }: { spec: FigureSpec }) {
   const titleId = `${spec.id}-title`;
   const takeawayId = `${spec.id}-takeaway`;
   return (
-    <figure id={spec.id} className="rf not-prose" role="figure" aria-labelledby={titleId} aria-describedby={takeawayId} data-figure={spec.id}>
+    <figure id={spec.id} className={`rf not-prose ${variantOf(spec)}`} role="figure" aria-labelledby={titleId} aria-describedby={takeawayId} data-figure={spec.id}>
       <div className="rf-head">
         <h4 id={titleId} className="rf-title">{spec.title}</h4>
         <p className="rf-question">{spec.question}</p>

@@ -111,11 +111,13 @@ export default function MediaOwnershipChart({ data }: { data: StationBar[] }) {
           </div>
         ))}
 
-        <p className="t-label text-muted leading-relaxed mt-2.5">
-          Position carries the reading — nothing here is drawn to scale, and an empty cell means no station in
-          this landscape occupies that combination.
-        </p>
       </div>
+      {/* Outside the minimum-width grid, so the note wraps to the card rather than being cut at
+          its right edge on a phone (D-20). */}
+      <p className="t-label text-muted leading-relaxed mt-2.5">
+        Position carries the reading — nothing here is drawn to scale, and an empty cell means no station in
+        this landscape occupies that combination.
+      </p>
     </div>
   );
 }

@@ -41,8 +41,6 @@ import {
   CounterMessagingGrid,
   ToneVoiceSlider,
   SloganBuilder,
-  SMSFeedbackVisualizer,
-  CommunityScheduler,
   MediaPlaybackMockup,
   RadioAircoverDial,
 } from "./StrategicAids";
@@ -246,7 +244,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
     </>
   ),
   "data-sec-2-8": (
-    <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §3.3.1">
+    <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §2.8">
       One of Kenya&rsquo;s most consistent and authoritative voices on macroeconomic governance,
       fiscal discipline, and budget oversight.
     </SectionPortrait>
@@ -306,14 +304,15 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
       <ToneVoiceSlider />
     </>
   ),
-  "workstreams-platforms-sec-5-2-1-2": <CommunityScheduler />,
+  // O-6 (approved 24 September 2026): the "Upcoming" market-assembly scheduler is removed. Its
+  // two events were invented and already past.
   "delivery-sec-5-8-1": <CounterMessagingGrid />,
   // The ownership/alignment/tier table this chart plots, now §8.5.1 in the situation analysis.
   "data-sec-2-7-1": <MediaOwnershipBlock />,
 
   // ---- Scope, roadmap, measurement, governance and risk (§8-§16) ----------------------
   "delivery-sec-5-7": (
-    <SectionPortrait id="seated-grey-cropped" kicker="The engagement model — §12.1" flip>
+    <SectionPortrait id="seated-grey-cropped" kicker="The engagement model — §5.7" flip>
       Firefly reports to a single named campaign-side counterpart.
     </SectionPortrait>
   ),
@@ -334,7 +333,8 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
     <>
       <FeaturePhoneSpecimen />
       <ReachSplit />
-      <SMSFeedbackVisualizer />
+      {/* O-5 (approved): the "Verified Ingestion Feed" of invented voter messages is removed. It
+          presented illustration as evidence, against the proposal's own ethics commitments. */}
     </>
   ),
   "strategy-sec-4-4-3": <PersuasionFramingMatrix />,
@@ -358,7 +358,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // ---- The repositioning: analyse, strategise, direct ---------------------------------
   // The audit's four figures, the week and the visit loop are drawn by the register
   // (fig-3-9-audit, fig-4-5-calendar) and the visit-loop figure; their earlier inserts are retired.
-  // §12.1 is the direction model. The week replaces a bullet list, a meeting table and the
+  // §5.7 is the direction model. The week replaces a bullet list, a meeting table and the
   // governance chart cut from Annex D.
   "delivery-sec-5-7-1": <DirectionWeek />,
 };
@@ -374,7 +374,25 @@ const HEADING_TEXT_INSERTS: Record<string, React.ReactNode> = {};
 // Every ReactMarkdown pass shares one components map — the document body, and each
 // disclosure panel split out of it — so a table, badge or cross-reference renders the
 // same wherever it happens to sit.
+// Three callouts, chosen by what the quote is for (brief G-9, D-15). Every word of the quote is
+// kept; only its frame changes.
+//   Rule     the owner/Firefly split lines ("Owner: the campaign.", "Outside this engagement."),
+//            headed by a two-part badge
+//   Aside    pointers and notes ("…is in Annex F", "Research Integrity Note")
+//   Finding  the one claim a section leans on: the first other quote in the section, once
+const RULE_PATTERN = /^(owner:|split ownership|mostly outside this engagement|outside this engagement|campaign-owned recommendations)/i;
+const ASIDE_PATTERN = /(is in annex|are in annex|research integrity note|^note\b|segments overlap|re-cut against|name changed|live version of this list|^sfx:|^"|^\[!)/i;
+
+function ruleOwner(text: string): string | null {
+  const m = /^owner:\s*([^.—]+)/i.exec(text);
+  if (m) return m[1].trim();
+  if (/outside this engagement|campaign-owned/i.test(text)) return "the campaign, outside this engagement";
+  if (/split ownership/i.test(text)) return "split";
+  return null;
+}
+
 function buildComponents(tabId: TabId): Components {
+  let findingUsed = false;
   return {
             table: ({ children }) => {
               const headers = getTableHeaderTexts(children).map((h) => h.toLowerCase());
@@ -498,16 +516,31 @@ function buildComponents(tabId: TabId): Components {
               return <MarkdownParagraph tabId={tabId}>{children}</MarkdownParagraph>;
             },
             blockquote: ({ children }) => {
-              // The central narrative line (§8.12) gets the full pull-quote treatment;
+              // The central narrative line (§5.2.4.1) gets the full pull-quote treatment;
               // every other blockquote (the ethics charter, etc.) keeps the standard styling.
               if (getDeepText(children).includes("Kitui has resources")) {
                 return <PullQuote>{children}</PullQuote>;
               }
-              return (
-                <blockquote className="fx-lift border-l-4 border-accent bg-accent/[0.03] px-5 py-4 rounded-r-2xl my-6 t-label sm:t-small font-semibold text-ink leading-relaxed shadow-sm italic relative text-pretty">
-                  {children}
-                </blockquote>
-              );
+              const text = normalizeWhitespace(getDeepText(children)).trim();
+              if (RULE_PATTERN.test(text)) {
+                const owner = ruleOwner(text);
+                return (
+                  <blockquote className="pf-callout pf-callout--rule">
+                    {owner && (
+                      <span className="pf-split" aria-hidden="true">
+                        <span>Owner</span>
+                        <span>{owner}</span>
+                      </span>
+                    )}
+                    {children}
+                  </blockquote>
+                );
+              }
+              if (!findingUsed && !ASIDE_PATTERN.test(text)) {
+                findingUsed = true;
+                return <blockquote className="pf-callout pf-callout--finding">{children}</blockquote>;
+              }
+              return <blockquote className="pf-callout pf-callout--aside">{children}</blockquote>;
             },
             ul: ({ children }) => {
               // §4 writes each operational commitment as six bolded fields in a fixed order —
@@ -622,7 +655,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
           A direct-child selector reaches the document's opening paragraph and nothing else. */}
       <div className="prose max-w-none relative z-10 px-0
  [&>p:first-of-type]:text-base [&>p:first-of-type]:sm:text-lg [&>p:first-of-type]:font-semibold [&>p:first-of-type]:text-ink [&>p:first-of-type]:leading-relaxed [&>p:first-of-type]:border-b [&>p:first-of-type]:border-line/40 [&>p:first-of-type]:pb-4 [&>p:first-of-type]:mb-6
- [&>p:first-of-type::first-letter]:text-3xl [&>p:first-of-type::first-letter]:font-semibold [&>p:first-of-type::first-letter]:text-gold [&>p:first-of-type::first-letter]:mr-2 [&>p:first-of-type::first-letter]:float-left [&>p:first-of-type::first-letter]:leading-none
+
 ">
         {segments.map((segment, i) => {
           if (segment.kind === "markdown") return renderMarkdown(segment.text, `md-${i}`);

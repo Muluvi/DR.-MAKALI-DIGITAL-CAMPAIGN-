@@ -19,11 +19,11 @@ import { ClaimBadge } from "./markdown/ClaimBadge";
  * The split is the site's ONE masked reveal: a clip-path wipe, because a wipe divides. Spending
  * it here rather than scattering masked reveals across the site is what keeps it meaningful.
  *
- * The handset below it runs the real Kikamba menu from §3.6.2 — mimesis, not effect: a feature
+ * The handset below it runs the real Kikamba menu from §3.8.1 — mimesis, not effect: a feature
  * phone prints its menu line by line, so the mock does too. It is also the best proof-of-execution
  * artefact on the site, which is why the deliverable is demonstrated rather than described.
  *
- * Figures: §3.3.5 (KNBS 2019, Tier 1). Menu: §3.6.2, verbatim including the
+ * Figures: §2.4 (KNBS 2019, Tier 1). Menu: §3.8.1, verbatim including the
  * unallocated shortcode.
  */
 
@@ -32,7 +32,7 @@ const OFFLINE = 86.4;
 const INTERNET_USERS = 143_340;
 const BASE_POPULATION = 1_053_991;
 
-/** §3.6.2, verbatim. Kikamba first, English gloss second, exactly as written. */
+/** §3.8.1, verbatim. Kikamba first, English gloss second, exactly as written. */
 const USSD_MENU = [
   "KITUI NA MULU",
   "1. Sisemo sya Mulu / Mulu's plan for my ward",
@@ -220,7 +220,7 @@ export function ReachSplit() {
             publishes the outcome. That is the M&amp;E credential operating in public, before the
             election, on the cheapest possible technology.
           </p>
-          <dl className="grid grid-cols-3 gap-2 t-small">
+          <dl className="grid grid-cols-2 gap-2 t-small">
             <div className="p-2.5 rounded-lg bg-paper border border-line">
               <dt className="text-muted">Shared code</dt>
               <dd className="font-mono font-bold text-ink mt-0.5 tabular-nums">5–7</dd>
@@ -230,11 +230,6 @@ export function ReachSplit() {
               <dt className="text-muted">Dedicated code</dt>
               <dd className="font-mono font-bold text-ink mt-0.5 tabular-nums">2–4</dd>
               <dd className="t-label text-muted">weeks, operator pending</dd>
-            </div>
-            <div className="p-2.5 rounded-lg bg-paper border border-line">
-              <dt className="text-muted">Hosting</dt>
-              <dd className="font-mono font-bold text-ink mt-0.5 tabular-nums">~KSh5,000</dd>
-              <dd className="t-label text-muted">per month</dd>
             </div>
           </dl>
           <p className="t-small text-muted mt-2.5">

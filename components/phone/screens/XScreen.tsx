@@ -22,7 +22,7 @@ import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
 import { Avatar, ScreenShell } from "../primitives";
 
 /**
- * X — §3.6.1's "elite agenda setting and narrative defense" channel, reaching the journalists and
+ * X — §2.6's "elite agenda setting and narrative defense" channel, reaching the journalists and
  * county elites who set what local radio talks about. The post is §7.1.1 Pillar 1's evidence
  * lines cut to post length: the clean NG-CDF audit record against the county's pending bills.
  *

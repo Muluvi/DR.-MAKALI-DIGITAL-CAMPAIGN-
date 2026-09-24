@@ -24,6 +24,7 @@ import { UssdScreen } from "./screens/UssdScreen";
 import { WhatsAppScreen } from "./screens/WhatsAppScreen";
 import { XScreen } from "./screens/XScreen";
 import { YouTubeScreen } from "./screens/YouTubeScreen";
+import { IllustrativeTag } from "../premium/IllustrativeTag";
 
 /**
  * Seven channels, one phone.
@@ -108,6 +109,7 @@ export function PhoneShowcase() {
 
   return (
     <div className="not-prose my-6 sm:my-8 print-avoid-break">
+      <IllustrativeTag />
       {/* Selector. A real tab pattern: roving tabindex, arrow keys, aria-selected. */}
       <div
         role="tablist"

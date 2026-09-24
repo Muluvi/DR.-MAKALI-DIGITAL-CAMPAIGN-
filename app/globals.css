@@ -62,7 +62,7 @@
   --color-unmeasured: var(--unmeasured-color);
 
   --font-serif: var(--font-newsreader, 'Newsreader', 'Charter', 'Bitstream Charter', 'Sitka Text', 'Cambria', Georgia, serif);
-  --font-sans: var(--font-montserrat), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: var(--font-display), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Domain A - Reading Token Ramp */
   --text-micro: var(--fs-micro);
@@ -86,34 +86,34 @@
 
 :root {
   /* OKLCH wide-gamut compatible palette */
-  --ink: oklch(0.21 0.045 250);
-  --muted: oklch(0.44 0.038 245);
-  --paper: oklch(0.97 0.012 250);
+  --ink: oklch(0.25 0.06 268); /* deep indigo */
+  --muted: oklch(0.46 0.035 262); /* 6.6:1 on paper */
+  --paper: oklch(0.972 0.012 85); /* warm paper, a faint sisal tint */
   --card: oklch(1 0 0);
-  --line: oklch(0.89 0.02 245);
-  --accent: oklch(0.35 0.22 265); /* Wiper Official Royal Blue — as text and stroke */
-  --accent-solid: oklch(0.50 0.20 265); /* as a fill: 6.31:1 against --on-accent */
+  --line: oklch(0.88 0.015 85);
+  --accent: oklch(0.43 0.20 265); /* Wiper royal blue, deep: text and stroke, 7.9:1 on paper */
+  --accent-solid: oklch(0.47 0.21 265); /* as a fill: 7.3:1 against --on-accent */
   --on-accent: oklch(1 0 0);
   /* The field. Cooler hue, a third of the chroma: a rival's 37.4% must never look more
      energetic than the campaign's own 22.1%. Distinct from accent for a deuteranope too,
      because the separation is lightness and chroma, not just hue. */
-  --rival: oklch(0.48 0.09 220);
-  --rival-solid: oklch(0.48 0.08 220); /* 6.36:1 against white */
-  --gold: oklch(0.46 0.16 48);    /* Wiper Official Earth Red — refined for >4.6:1 text contrast */
-  --gold-solid: oklch(0.46 0.17 38); /* as a fill: white sits on it, in every theme */
+  --rival: oklch(0.49 0.045 205);
+  --rival-solid: oklch(0.50 0.04 205); /* 5.9:1 against white */
+  --gold: oklch(0.50 0.15 40);    /* laterite, darker: the pool, the gap. 5.9:1 on paper */
+  --gold-solid: oklch(0.53 0.15 40); /* as a fill: white sits on it at 5.7:1 */
   --on-gold: oklch(1 0 0);
   --align-a: #b3121e;   /* alignment category A — 7.1:1 on white */
   --align-b: #8a4a06;   /* alignment category B — 7.0:1 on white */
   --align-c: #0056a8;   /* alignment category C — 7.1:1 on white */
-  --dark: oklch(0.18 0.04 252);
+  --dark: oklch(0.22 0.05 266);
   --danger: oklch(0.55 0.22 27);
-  --glow: oklch(0.35 0.22 265 / 0.15);
+  --glow: oklch(0.47 0.21 265 / 0.12);
 
-  --prose-body: oklch(0.38 0.035 245);
-  --prose-strong: oklch(0.20 0.045 250);
+  --prose-body: oklch(0.32 0.05 266);
+  --prose-strong: oklch(0.22 0.06 268);
   --prose-bg-nested: oklch(1 0 0);
-  --code-bg: oklch(0.93 0.018 245);
-  --th-bg: oklch(0.95 0.015 245);
+  --code-bg: oklch(0.94 0.014 85);
+  --th-bg: oklch(0.95 0.014 85);
   --placeholder-bg: oklch(0.95 0.04 25);
   --placeholder-border: oklch(0.82 0.09 25);
   --placeholder-color: oklch(0.44 0.18 27);
@@ -146,10 +146,10 @@
 
   /* Phase colour palette */
   --phase-neg1: oklch(0.45 0.22 295);  /* Phase -1: Nomination Sprint */
-  --phase-0: oklch(0.60 0.14 210);     /* Phase 0: Audit & Infrastructure */
+  --phase-0: oklch(0.47 0.11 210);     /* Phase 0: Audit & Infrastructure. Darkened in 2026: 3.1:1 as text on its own tint */
   --phase-1: oklch(0.45 0.18 255);     /* Phase 1: Awareness & Community */
-  --phase-2: oklch(0.55 0.16 60);      /* Phase 2: Engagement & Persuasion */
-  --phase-3: oklch(0.52 0.16 145);     /* Phase 3: Mobilisation & GOTV */
+  --phase-2: oklch(0.50 0.15 60);      /* Phase 2: Engagement & Persuasion. Darkened in 2026: 4.3:1 as text on its own tint */
+  --phase-3: oklch(0.46 0.14 145);     /* Phase 3: Mobilisation & GOTV. Darkened in 2026: 4.4:1 as text on its own tint */
 
   /* Domain B — Chart Scale (fixed coordinate space / SVG geometry) */
   --fs-chart-micro: 8px;
@@ -160,31 +160,31 @@
 }
 
 .dark {
-  --ink: oklch(1 0 0); /* Crisp white for infinite OLED contrast */
-  --muted: oklch(0.72 0.035 240); /* Boosted to 5.2:1+ against OLED black for WCAG AA */
-  --paper: oklch(0 0 0); /* True infinite contrast OLED black */
-  --card: oklch(0.16 0.03 250);
-  --line: oklch(0.24 0.04 250);
-  --accent: oklch(0.70 0.16 255); /* Luminous royal blue — 7.23:1 as text on --card */
-  --accent-solid: oklch(0.50 0.20 265); /* the fill stays dark in both themes; white sits on it */
+  --ink: oklch(0.965 0.008 250); /* near-white, cool: 17.6:1 on paper */
+  --muted: oklch(0.78 0.025 255); /* 9.7:1 on paper, 9.0:1 on card */
+  --paper: oklch(0.16 0.03 262); /* deep indigo-black, not pure black */
+  --card: oklch(0.205 0.032 262); /* one step lighter than the ground */
+  --line: oklch(0.31 0.03 262);
+  --accent: oklch(0.74 0.14 262); /* Wiper royal blue, bright enough for text: 7.7:1 on card */
+  --accent-solid: oklch(0.50 0.20 265); /* the fill stays dark in both themes; white sits on it at 6.3:1 */
   --on-accent: oklch(1 0 0);
-  --rival: oklch(0.74 0.07 220);
-  --rival-solid: oklch(0.48 0.08 220);
-  --gold: oklch(0.68 0.21 22);    /* Vivid crimson red — text and stroke only */
-  --gold-solid: oklch(0.46 0.17 38); /* the fill stays dark in both themes; white sits on it */
+  --rival: oklch(0.74 0.04 200);
+  --rival-solid: oklch(0.50 0.04 205);
+  --gold: oklch(0.74 0.13 45);    /* laterite: text and stroke, 7.4:1 on card */
+  --gold-solid: oklch(0.53 0.15 40); /* the fill stays dark in both themes; white sits on it at 5.7:1 */
   --on-gold: oklch(1 0 0);
   --align-a: #ff6b73;   /* the same three categories, lifted to read on the dark ground */
   --align-b: #f0a742;
   --align-c: #7bb3ff;
   --dark: oklch(1 0 0);
-  --danger: oklch(0.68 0.21 22);
-  --glow: oklch(0.70 0.16 255 / 0.15);
+  --danger: oklch(0.72 0.17 28);
+  --glow: oklch(0.50 0.20 265 / 0.22);
 
-  --prose-body: oklch(0.74 0.03 240);
-  --prose-strong: oklch(1 0 0);
-  --prose-bg-nested: oklch(0.16 0.03 250);
-  --code-bg: oklch(0.22 0.04 250);
-  --th-bg: oklch(0.22 0.04 250);
+  --prose-body: oklch(0.87 0.015 255);
+  --prose-strong: oklch(0.965 0.008 250);
+  --prose-bg-nested: oklch(0.205 0.032 262);
+  --code-bg: oklch(0.25 0.035 262);
+  --th-bg: oklch(0.25 0.035 262);
   --placeholder-bg: oklch(0.20 0.08 25);
   --placeholder-border: oklch(0.35 0.12 25);
   --placeholder-color: oklch(0.70 0.20 22);
@@ -254,20 +254,9 @@
   --phase-3: oklch(0.48 0.16 145);
 }
 
-/* Wide-gamut display P3 layer for flagship Android AMOLED */
-@media (color-gamut: p3) {
-  :root {
-    --accent: oklch(0.36 0.26 265);
-    --gold: oklch(0.56 0.26 27);
-  }
-  .dark {
-    /* Text and stroke only. --accent-solid is deliberately absent from this block: it is a
-       fill carrying white text, and widening its gamut moves it off a contrast ratio that
-       was chosen by measurement. */
-    --accent: oklch(0.71 0.20 255);
-    --gold: oklch(0.70 0.25 22);
-  }
-}
+/* Wide-gamut display P3 layer: retired in the 2026 premium pass. Every accent and laterite
+   value above was chosen by contrast measurement, and a P3 override would move the colour off
+   the ratio it was measured at. */
 
 html {
   color-scheme: light;
@@ -282,7 +271,7 @@ html.dark {
 body {
   background-color: var(--color-paper);
   color: var(--color-ink);
-  font-family: Montserrat, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-display), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -394,16 +383,16 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
 /* Recharts and SVG Chart Typography Hierarchy */
 .recharts-cartesian-axis-tick text {
   font-size: var(--fs-chart-tick) !important;
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-display), sans-serif;
 }
 .recharts-legend-item-text {
   font-size: var(--fs-chart-axis) !important;
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-display), sans-serif;
 }
 .recharts-label text,
 .recharts-cartesian-axis text.recharts-label {
   font-size: var(--fs-chart-axis) !important;
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-display), sans-serif;
 }
 
 /* Scoped Tabular Figures for Financial, Electoral, and Telemetry Data */
@@ -562,7 +551,7 @@ table,
 }
 
 .prose h1:not(.not-prose *), .prose h2:not(.not-prose *), .prose h3:not(.not-prose *), .prose h4:not(.not-prose *), .prose h5:not(.not-prose *), .prose h6:not(.not-prose *) {
-  font-family: Montserrat, sans-serif;
+  font-family: var(--font-display), sans-serif;
   color: var(--color-ink);
   font-weight: 600;
   text-wrap: balance;

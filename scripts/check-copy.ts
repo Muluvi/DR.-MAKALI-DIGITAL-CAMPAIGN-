@@ -97,9 +97,44 @@ for (const file of fs.readdirSync(SRC).filter((f) => f.endsWith(".md")).sort()) 
   });
 }
 
+/**
+ * The same money rule, over the copy components and data modules carry (O-4, approved 24 September
+ * 2026). The markdown gate above could not see a hosting price in ReachSplit, a per-send cost in the
+ * feature-phone panel or a cost-per-contact row in the benchmark ladder, and all three reached the
+ * page. Component files are full of the county's own money (the budget, the audit), so this scan is
+ * narrower than MONEY: a line fails when it prices something in shillings AND names a unit of the
+ * engagement's own spending — per month, per message, per send, per contact, cost per, hosting.
+ * Comments are skipped: a line that explains the rule is not the rule being broken.
+ */
+const ENGAGEMENT_PRICE = /\bKSh\s*[\d~≤.,$]|KSh\$\{/i;
+const ENGAGEMENT_UNIT = /\b(per month|a month|per message|a message|per send|one send|send ?cost|sendCost|per contact|consented contact|cost per|costs? KSh|hosting|per persuaded)\b/i;
+const isComment = (t: string) => t.startsWith("//") || t.startsWith("*") || t.startsWith("/*") || t.startsWith("{/*");
+function walk(dir: string, out: string[] = []): string[] {
+  for (const f of fs.readdirSync(dir)) {
+    const p = path.join(dir, f);
+    if (fs.statSync(p).isDirectory()) walk(p, out);
+    else if (/\.(tsx?|json)$/.test(f) && !f.endsWith(".generated.json")) out.push(p);
+  }
+  return out;
+}
+for (const file of [...walk(path.join(ROOT, "components")), ...walk(path.join(ROOT, "data"))]) {
+  const rel = path.relative(ROOT, file);
+  const lines = fs.readFileSync(file, "utf8").split("\n");
+  lines.forEach((raw, i) => {
+    const t = raw.trim();
+    if (isComment(t) || !ENGAGEMENT_PRICE.test(raw)) return;
+    // A price and its unit are often a few lines apart (a label above, a unit below, a row's
+    // metric three fields up), so the unit is looked for in a small window, comments excluded.
+    const window = lines.slice(Math.max(0, i - 4), i + 3).filter((l) => !isComment(l.trim())).join(" ");
+    if (ENGAGEMENT_UNIT.test(window)) {
+      errors.push(`${rel}:${i + 1}: an engagement price in component or data copy — ${t.slice(0, 90)}`);
+    }
+  });
+}
+
 if (errors.length) {
   console.error(`check-copy: ${errors.length} problem(s)`);
   for (const e of errors) console.error(`  - ${e}`);
   process.exit(1);
 }
-console.log("check-copy: no poll evidence outside Annex C, no engagement money, no remote framing, no ASCII");
+console.log("check-copy: no poll evidence outside Annex C, no engagement money (content, components or data), no remote framing, no ASCII");

@@ -1,15 +1,19 @@
 import type { Metadata, Viewport } from 'next';
-import { Montserrat, Newsreader, JetBrains_Mono } from 'next/font/google';
+import { Bricolage_Grotesque, Newsreader, JetBrains_Mono } from 'next/font/google';
 import './globals.css'; // Global styles
 import './register.css'; // The figure register's visual system
+import './premium.css'; // The 2026 premium layer: last, so it is the final word
 
 // The variable axis, not a pair of static cuts.
 //
-// Loading the variable fonts via next/font self-hosts and subsets them,
-// ensuring crisp, consistent type rendering on iOS, Android, and Desktop.
-const montserrat = Montserrat({
+// Bricolage Grotesque is the display and UI face (2026 premium pass, replacing Montserrat, which
+// is wide and tiring at small sizes over 47,000 words). Its optical-size axis lets one family set
+// both a 17rem act numeral and an 11px label; its width axis sets display type slightly
+// condensed. Newsreader carries the reading prose. Both are self-hosted and subset by next/font.
+const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
-  variable: '--font-montserrat',
+  axes: ['opsz', 'wdth'],
+  variable: '--font-display',
   display: 'swap',
   adjustFontFallback: true,
   fallback: ['ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
@@ -36,8 +40,8 @@ export const viewport: Viewport = {
   maximumScale: 5,
   viewportFit: 'cover',
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f4f7fc' },
-    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+    { media: '(prefers-color-scheme: light)', color: '#f9f5ed' },
+    { media: '(prefers-color-scheme: dark)', color: '#060d1a' },
   ],
 };
 
@@ -114,7 +118,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="en" className={`dark ${montserrat.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`dark ${bricolage.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}>
       <head>
         {/* With scripts off, no accordion can open, so every panel ships open (brief §Q: JS-off). */}
         <noscript>

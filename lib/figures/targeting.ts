@@ -1,5 +1,5 @@
 /**
- * §3.4.6 — the eight findings §3.4 established, each with the section that established it.
+ * §3.10 — the eight findings §3.4 established, each with the section that established it.
  *
  * WHAT THIS REPLACES. A box-drawing banner headed SECTION 3.4.6 STRATEGIC TARGETING SUMMARY: eight
  * bullet lines restating figures the reader had already met, between two and nine subsections
@@ -18,7 +18,7 @@
  *      pool that spans 21 (C-7). The rows carry those flags. Nothing in the content has changed.
  *
  * The row text below quotes the banner's own phrasing, including the figures this audit disputes,
- * so retiring the block loses no wording — `stated` is what §3.4.6 printed and `computed` is what
+ * so retiring the block loses no wording — `stated` is what §3.10 printed and `computed` is what
  * the register says, side by side, wherever the two differ.
  */
 import {
@@ -55,7 +55,7 @@ export type SummaryRow = {
   detail: string;
   /** The subsection that established it. */
   section: string;
-  /** What §3.4.6 printed, where that differs from the computed value. */
+  /** What §3.10 printed, where that differs from the computed value. */
   stated?: string;
   conflicts?: string[];
 };
@@ -98,7 +98,7 @@ export const TARGETING_SUMMARY: SummaryRow[] = [
     label: "Primary deficit zones",
     value: `${n(DEFICIT_POOL)} registered`,
     detail: `Mwingi (${n(MWINGI_BLOC)}) + Kitui South (${n(KITUI_SOUTH)}) = ${DEFICIT_POOL_SHARE.toFixed(2)}% of the register.`,
-    section: "§3.4.5",
+    section: "§3.4",
     stated: "51.72%",
     conflicts: ["C-6"],
   },
@@ -107,7 +107,7 @@ export const TARGETING_SUMMARY: SummaryRow[] = [
     value: "5 of the top 11 wards",
     detail:
       "Direct 1:1 overlap: Kyuso, Tseikuru, Mumoni, Athi and Ikanga/Kyatune sit in the deficit zones, 83,496 voters between them. Four of the five are in the top 8.",
-    section: "§3.4.5",
+    section: "§3.4",
     stated: "5 of top 8 wards",
     conflicts: ["C-5"],
   },
@@ -115,7 +115,7 @@ export const TARGETING_SUMMARY: SummaryRow[] = [
     label: "Operational mandate",
     value: "65% digital · 70% offline SMS",
     detail: `Directed to Mwingi and Kitui South — ${DEFICIT_WARD_COUNT} wards — to close the 15.3-point gap.`,
-    section: "§3.4.5",
+    section: "§3.4",
     stated: "24 northern and southern deficit wards",
     conflicts: ["C-7"],
   },
@@ -131,6 +131,6 @@ export const TARGETING_SERIES: FigureSeries = {
   conflicts: ["C-5", "C-6", "C-7"],
   note:
     "Every figure is derived from the register rather than restated, so this summary cannot drift " +
-    "from what it summarises. Where §3.4.6 printed a different figure, the printed one is shown " +
+    "from what it summarises. Where §3.10 printed a different figure, the printed one is shown " +
     "beside the computed one and neither has been changed.",
 };

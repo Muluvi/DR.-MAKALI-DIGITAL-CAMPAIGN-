@@ -17,6 +17,7 @@ import { MarketAuditScreen } from "./screens/MarketAuditScreen";
 import { IncidentScreen } from "./screens/IncidentScreen";
 import { TurnoutScreen } from "./screens/TurnoutScreen";
 import { MapPin, Radio } from "lucide-react";
+import { IllustrativeTag } from "../premium/IllustrativeTag";
 
 const SCREENS: Record<TerminalModeId, React.ComponentType<{ data: (typeof WARD_DATA)[string] }>> = {
   dgp: GroundPulseScreen,
@@ -86,12 +87,13 @@ export function TerminalShowcase() {
     <div className="not-prose my-8 sm:my-10 print-avoid-break">
       {/* Component Intro & Framing */}
       <div className="border border-line rounded-2xl bg-card p-4 sm:p-6 shadow-sm mb-6">
+        <IllustrativeTag />
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-line/60">
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span className="t-label font-mono text-muted font-bold">
-                Section 8.8.1 Physical Hardware Model
+                Section 5.2.3.1 Physical Hardware Model
               </span>
             </div>
             <h3 className="font-serif text-lg sm:text-xl font-bold text-ink">

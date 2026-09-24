@@ -15,19 +15,19 @@ import { ClaimBadge } from "./markdown/ClaimBadge";
  * DELIBERATELY UNANIMATED. After 55,000 words and every animated surface before it, stillness is
  * the strongest effect left. The ask should not perform.
  *
- * Content is §15.1 (what Firefly needs) and §10.1.2 (the tier recommendation), with the owner
+ * Content is §6.1 (what Firefly needs) and §5.5.2 (the tier recommendation), with the owner
  * column. Nothing here is new.
  */
 
 /**
- * §15.1, verbatim — and this comment is now load-bearing, because it stopped being true.
+ * §6.1, verbatim — and this comment is now load-bearing, because it stopped being true.
  *
  * Two entries had drifted from the section they claim to quote. One asked for "the verified
- * expenditure ceiling from the gazette schedule", a dependency §15.1 no longer lists: the
+ * expenditure ceiling from the gazette schedule", a dependency §6.1 no longer lists: the
  * campaign-finance content was excised on the client's instruction and this was the last place
  * still asking the campaign to supply it. The other asked for sign-off on "the budget tier",
- * which §10.1.1 calls a scope level precisely because §1.2 puts commercial terms outside this
- * document. Both are corrected against §15.1's seven items.
+ * which §5.5.1 calls a scope level precisely because §1.2 puts commercial terms outside this
+ * document. Both are corrected against §6.1's seven items.
  *
  * The `owner` field is carried here; its register was retired.
  */
@@ -40,7 +40,7 @@ const DEPENDENCIES: { icon: typeof UserCheck; text: string; longLead?: boolean }
   { icon: Camera, text: "Ground team asset uploads: daily photographs and video from the trail" },
   {
     icon: Scale,
-    text: "Appointment of the data-protection reviewer (§12.5.5) — the long-lead item, needed in Phase −1",
+    text: "Appointment of the data-protection reviewer (§5.7.9) — the long-lead item, needed in Phase −1",
     longLead: true,
   },
   { icon: MapPin, text: "Current ward-level registration data from the IEBC published file" },
@@ -92,7 +92,7 @@ export function DecisionPanel() {
             <h3 className="t-label font-black text-muted">
               What Firefly needs from the campaign
             </h3>
-            <span className="t-label text-muted font-mono">§15.1</span>
+            <span className="t-label text-muted font-mono">§6.1</span>
           </div>
 
           <ol className="space-y-2.5">

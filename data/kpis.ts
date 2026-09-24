@@ -1,4 +1,4 @@
-// The two scorecards, §11.1.1 and §11.1.2, as data.
+// The two scorecards, §5.6.1 and §5.6.2, as data.
 //
 // The one thing this file exists to encode is that a BASELINE IS NOT ALWAYS A NUMBER. The
 // document is scrupulous about it and the interface has to be too:
@@ -13,7 +13,7 @@
 //                   from. Only these five can be drawn as a starting position on a track.
 //
 // Note for review: the task brief lists all four nomination baselines as "Not yet measured".
-// §11.1.1 in this repository marks NW-04 as "Confirm w/ party" instead, which is the
+// §5.6.1 in this repository marks NW-04 as "Confirm w/ party" instead, which is the
 // awaiting-decision state rather than the unmeasured one. The repository is the source of truth,
 // so that is what is encoded here, and the difference is flagged rather than smoothed over.
 import type { ClaimStatus } from "../components/markdown/ClaimBadge";
@@ -121,7 +121,7 @@ export const GENERAL_ELECTION_KPIS: Kpi[] = [
     target: "220,000 Pledged Voters (110% Win)",
     targetValue: 220000,
     unit: "count",
-    method: "Verified opt-in 2G SMS & Baraza registration ledger (Section 11.2.2)",
+    method: "Verified opt-in 2G SMS & Baraza registration ledger (Section 5.6.6)",
     owner: "Field Ops & Data Director",
     cadence: "Weekly Progress Audit",
   },
@@ -178,18 +178,18 @@ export const GENERAL_ELECTION_KPIS: Kpi[] = [
   },
 ];
 
-/** The four Stage 1 headline targets, as §11.1.3's architecture diagram states them. */
+/** The four Stage 1 headline targets, as §1.5's architecture diagram states them. */
 /**
- * The four Stage 1 headline targets, as §11.1.3's architecture block states them.
+ * The four Stage 1 headline targets, as §1.5's architecture block states them.
  *
  * THIS LIST HAD DRIFTED FROM THE SCORECARD TEN LINES ABOVE IT. It read "North Sub-County Name ID
- * (>65%)" where both §11.1.1's NW-02 row and §11.1.3's own block say ≥70.0%, and "Delegate
+ * (>65%)" where both §5.6.1's NW-02 row and §1.5's own block say ≥70.0%, and "Delegate
  * Endorsement Pledges" where the document says "Branch Executive". KpiArchitecture renders this
  * list, so the site was showing a target five points below the one the proposal states. It was a
  * retyping of data this file already held correctly — which is how it drifted — and
  * figures.test.ts now asserts each line against the KPI it summarises, so it cannot drift again.
  *
- * The WORDING is §11.1.3's, not NW-01's, because the block is a summary and uses its own shorter
+ * The WORDING is §1.5's, not NW-01's, because the block is a summary and uses its own shorter
  * labels. Only the two wrong figures were corrected. No content was changed: see DECISIONS.md D-14.
  */
 export const STAGE_1_TARGETS = [

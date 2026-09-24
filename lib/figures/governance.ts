@@ -1,26 +1,26 @@
 /**
- * §13.5 and §14 — what the campaign has to clear, and who is accountable for clearing it.
+ * §5.8.11 and §5.9 — what the campaign has to clear, and who is accountable for clearing it.
  *
  * WHAT THESE REPLACE. Six box-drawing blocks: a statutory compliance architecture, an IEBC
  * clearance checklist, a DPA and Election Offences matrix, an org chart, a roles and ownership
  * matrix, and the reporting line between the existing team and Firefly.
  *
- * C-22 IS WHY THE FIRST TWO ARE HERE TOGETHER. §13.5 states the nomination endorsement requirement
+ * C-22 IS WHY THE FIRST TWO ARE HERE TOGETHER. §5.8.11 states the nomination endorsement requirement
  * as "500 Registered Voter Nomination Endorsement Signatures per Sub-County" — 4,000 across eight.
- * §13.5.1, fifty lines later, states it as "500 registered voter signatures from at least 5 of the
+ * §5.8.12, fifty lines later, states it as "500 registered voter signatures from at least 5 of the
  * 8 Sub-Counties" — 500 in total. They differ by a factor of eight, and a nomination paper short of
  * the statutory count is rejected. Both are transcribed exactly and both carry the flag; neither
  * figure resolves them, because reading the Elections Act regulation is not a thing a figure should
  * do on Firefly's behalf.
  *
- * §13.5.1's STATUS COLUMN IS THE OTHER THING WORTH KEEPING EXACTLY. Seven clearances, and they are
+ * §5.8.12's STATUS COLUMN IS THE OTHER THING WORTH KEEPING EXACTLY. Seven clearances, and they are
  * at five different stages: Verified, Pending Filing Window, Active/Current, Scheduled,
  * Operationalized, and one that reads "[Requires Legal Confirmation]". That last one is the
  * document declining to claim a deadline it has not confirmed, and it prints as it stands.
  */
 import type { FigureSeries } from "./types";
 
-/* ------------------------------------------------------------------ §13.5 the architecture */
+/* ------------------------------------------------------------------ §5.8.11 the architecture */
 
 export const COMPLIANCE_TIERS = [
   {
@@ -56,17 +56,17 @@ export const COMPLIANCE_TIERS = [
 export const COMPLIANCE_SERIES: FigureSeries = {
   id: "compliance-architecture",
   headline: "Three statutes, and the first one has a signature count the document gives twice",
-  measure: "§13.5's statutory compliance architecture",
+  measure: "§5.8.11's statutory compliance architecture",
   points: [],
   conflicts: ["C-22"],
   note:
     "The signature line reads “per sub-county” here — 4,000 across eight — and “from at least 5 " +
-    "of the 8 Sub-Counties” in §13.5.1, which is 500 in total. Both are printed as stated. A " +
+    "of the 8 Sub-Counties” in §5.8.12, which is 500 in total. Both are printed as stated. A " +
     "nomination paper short of the statutory count is rejected, so this is C-22 and it has a " +
     "deadline on it.",
 };
 
-/* ------------------------------------------------------------------ §13.5.1 the clearances */
+/* ------------------------------------------------------------------ §5.8.12 the clearances */
 
 export const IEBC_CLEARANCES: string[][] = [
   [
@@ -109,17 +109,17 @@ export const IEBC_CLEARANCES: string[][] = [
 export const CLEARANCE_SERIES: FigureSeries = {
   id: "iebc-clearance",
   headline: "Seven clearances at five different stages, and one the campaign will not yet claim",
-  measure: "§13.5.1's IEBC statutory nomination clearance checklist — dimension, statutory standard, current status",
+  measure: "§5.8.12's IEBC statutory nomination clearance checklist — dimension, statutory standard, current status",
   points: [],
   conflicts: ["C-22"],
   note:
     "The status column is the point: two Verified, one Active, one Scheduled, one Pending the " +
     "filing window, one Operationalized — and one that reads “[Requires legal confirmation]”, " +
     "the document declining to claim a deadline it has not confirmed. Row 6's signature count " +
-    "disagrees with §13.5's by a factor of eight: C-22.",
+    "disagrees with §5.8.11's by a factor of eight: C-22.",
 };
 
-/* ------------------------------------------------------------------ §13.5.2 the liability matrix */
+/* ------------------------------------------------------------------ §5.8.13 the liability matrix */
 
 export const LIABILITY_MATRIX: string[][] = [
   [
@@ -142,7 +142,7 @@ export const LIABILITY_MATRIX: string[][] = [
 export const LIABILITY_SERIES: FigureSeries = {
   id: "liability-matrix",
   headline: "Three exposures, and two of them end in a custodial sentence",
-  measure: "§13.5.2's DPA 2019 and Election Offences statutory matrix — obligation, exposure, mitigation",
+  measure: "§5.8.13's DPA 2019 and Election Offences statutory matrix — obligation, exposure, mitigation",
   points: [],
   note:
     "The exposure column carries the penalty as the document states it — Ksh 5,000,000 or two " +
@@ -150,7 +150,7 @@ export const LIABILITY_SERIES: FigureSeries = {
     "exposure is a procedure rather than a reason.",
 };
 
-/* ------------------------------------------------------------------ §14 the org chart */
+/* ------------------------------------------------------------------ §5.9 the org chart */
 
 export const ORG_CHAIN = [
   { role: "Dr. Makali Mulu (candidate) & strategic advisory board" },
@@ -175,14 +175,14 @@ export const ORG_BRANCHES = [
 export const ORG_SERIES: FigureSeries = {
   id: "org-chart",
   headline: "A lean core of three leads, each directing subcontracted specialists",
-  measure: "§14's lean core plus specialist vendor model",
+  measure: "§5.9's lean core plus specialist vendor model",
   points: [],
   note:
     "The three leads report to the Campaign Manager and the specialists are subcontracted, not " +
     "hired. No role or headcount has been added: this is exactly the set the block named.",
 };
 
-/* ------------------------------------------------------------------ §14.5 roles and ownership */
+/* ------------------------------------------------------------------ §5.9.4 roles and ownership */
 
 export const ROLE_OWNERSHIP: string[][] = [
   [
@@ -210,15 +210,15 @@ export const ROLE_OWNERSHIP: string[][] = [
 export const ROLES_SERIES: FigureSeries = {
   id: "role-ownership",
   headline: "Four core roles, and every specialist in the campaign reports through one of them",
-  measure: "§14.5's core campaign roles and ownership matrix — role, ownership, subcontractors directed",
+  measure: "§5.9.4's core campaign roles and ownership matrix — role, ownership, subcontractors directed",
   points: [],
   note:
     "No role, headcount or vendor has been added. The SMS/USSD gateway vendor is stated as " +
-    "“selected at contracting”, which is the same pending state §8.14.2's procurement matrix " +
+    "“selected at contracting”, which is the same pending state §5.2.4.3's procurement matrix " +
     "records for every one of its five rows.",
 };
 
-/* ------------------------------------------------------------------ §14.6 the reporting line */
+/* ------------------------------------------------------------------ §5.9.5 the reporting line */
 
 export const REPORTING_TEAMS = [
   {
@@ -237,7 +237,7 @@ export const REPORTING_CHAIN = [
 export const REPORTING_SERIES: FigureSeries = {
   id: "reporting-lines",
   headline: "Two teams, one weekly brief, and a single named counterpart between them and the candidate",
-  measure: "§14.6's reporting lines",
+  measure: "§5.9.5's reporting lines",
   points: [],
   note:
     "The weekly brief is the join: the existing team and Firefly's three people meet there, and " +

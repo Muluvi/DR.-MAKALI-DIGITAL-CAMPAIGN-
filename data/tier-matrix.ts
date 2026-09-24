@@ -1,6 +1,6 @@
-// §10.1.2 "The scope levels compared", transcribed exactly.
+// §5.5.2 "The scope levels compared", transcribed exactly.
 //
-// Nine attributes across three tiers. Every string here is the cell as §10.1.2 prints it — the
+// Nine attributes across three tiers. Every string here is the cell as §5.5.2 prints it — the
 // table is the record and this is a second rendering of it, never a re-derivation. The prose's
 // ✓ and ✗ become `true`/`false` so the interface can render them as an icon with a screen-reader
 // word instead of a bare glyph, which is the one change of representation in this file.
@@ -11,12 +11,12 @@
 export type Cell = string | boolean;
 
 export interface TierAttribute {
-  /** The row label, as §10.1.2 prints it. */
+  /** The row label, as §5.5.2 prints it. */
   label: string;
   lean: Cell;
   standard: Cell;
   premium: Cell;
-  /** Rendered bold in §10.1.2 — the one cell in the matrix the source emphasises. */
+  /** Rendered bold in §5.5.2 — the one cell in the matrix the source emphasises. */
   emphasise?: ("lean" | "standard" | "premium")[];
 }
 
@@ -48,7 +48,7 @@ export const TIER_ATTRIBUTES: TierAttribute[] = [
   // Migrated out of components/DataVisualizations.tsx, which was the only place these three
   // shares existed. They were hard-coded there as a percentage "of verified ceiling" — a figure
   // the proposal no longer carries — so nothing could review them and the figure guard could not
-  // tell them from invented ones. §10.1.2 now prints them, and this is the second rendering of
+  // tell them from invented ones. §5.5.2 now prints them, and this is the second rendering of
   // that row on the same terms as every other row in this file.
   {
     label: "Digital ad share of the agreed spend envelope",
@@ -60,9 +60,9 @@ export const TIER_ATTRIBUTES: TierAttribute[] = [
 
 export interface TierColumn {
   id: "lean" | "standard" | "premium";
-  /** §10.1.1's tier number, so the carousel and the budget modeller name the same thing. */
+  /** §5.5.1's tier number, so the carousel and the budget modeller name the same thing. */
   number: string;
-  /** §10.1.2's column heading. */
+  /** §5.5.2's column heading. */
   label: string;
   recommended?: boolean;
 }
