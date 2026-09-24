@@ -40,7 +40,8 @@
     "holder": "Audience-research publishers",
     "status": "Open",
     "where": [
-      "Section 3.8.1"
+      "Section 3.8.1",
+      "Section 4.6"
     ]
   },
   {
@@ -105,16 +106,6 @@
     "status": "Open",
     "where": [
       "Section 3.10"
-    ]
-  },
-  {
-    "kind": "data",
-    "gap": "The published rounds, and what each one measured",
-    "closes": "not published",
-    "holder": "To be named",
-    "status": "Open",
-    "where": [
-      "Section C.1"
     ]
   },
   {
@@ -268,16 +259,6 @@
     "status": "Open",
     "where": [
       "Section 4.4.6"
-    ]
-  },
-  {
-    "kind": "data",
-    "gap": "Which channel does which job",
-    "closes": "Kitui listenership by station",
-    "holder": "Audience-research publishers",
-    "status": "Open",
-    "where": [
-      "Section 4.6"
     ]
   },
   {
@@ -482,16 +463,6 @@
   },
   {
     "kind": "placeholder",
-    "gap": "To insert: specified hardware security key model — two keys per critical account holder for redundancy",
-    "closes": "At contracting",
-    "holder": "The campaign",
-    "status": "Open",
-    "where": [
-      "Section F.8"
-    ]
-  },
-  {
-    "kind": "placeholder",
     "gap": "To insert: baseline audit results — Week 1 deliverable",
     "closes": "At contracting",
     "holder": "The campaign",
@@ -532,32 +503,12 @@
   },
   {
     "kind": "placeholder",
-    "gap": "Campaign decision required: Decision rights and content approval",
-    "closes": "Campaign decision",
-    "holder": "The campaign",
-    "status": "Open",
-    "where": [
-      "Section 5.7.3"
-    ]
-  },
-  {
-    "kind": "placeholder",
     "gap": "Campaign decision required: confirmed in the Section 5.7.9 scope memorandum",
     "closes": "Campaign decision",
     "holder": "The campaign",
     "status": "Open",
     "where": [
       "Section 5.7.5"
-    ]
-  },
-  {
-    "kind": "placeholder",
-    "gap": "To insert: SLA — recommend 14 days",
-    "closes": "At contracting",
-    "holder": "The campaign",
-    "status": "Open",
-    "where": [
-      "Section 5.7.8"
     ]
   },
   {
@@ -661,16 +612,6 @@
     "status": "Open",
     "where": [
       "Section 5.2.1.2"
-    ]
-  },
-  {
-    "kind": "placeholder",
-    "gap": "To insert: threshold — recommend 1.5% CTR",
-    "closes": "At contracting",
-    "holder": "The campaign",
-    "status": "Open",
-    "where": [
-      "Section 5.2.1.3"
     ]
   },
   {

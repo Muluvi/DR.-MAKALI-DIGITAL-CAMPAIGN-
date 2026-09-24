@@ -224,7 +224,7 @@ environment where opponents may deploy manipulated media (Section 5.8.7).
 * Minimum 3 headline and 3 visual variations per ad set
 * Monday–Thursday learning; Friday–Sunday optimisation and scaling
 * Effort split: **30% testing, 70% proven performers**
-* Automatic kill rule: any ad below `[Insert threshold — recommend 1.5% CTR]`
+* Automatic kill rule: any ad below **1.5% CTR**
 after 5,000 impressions is paused
 
 #### Performance benchmarks

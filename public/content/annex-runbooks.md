@@ -112,7 +112,8 @@ For this campaign specifically, the highest-consequence scenarios are:
 | Recovery contacts | Documented, verified, held by two named people | Candidate accounts |
 
 **Hardware keys for the candidate and admins are non-negotiable and take very
-little.** `[Insert specified hardware security key model — two keys per critical account holder for redundancy]`
+little.** The specification: **FIDO2 (WebAuthn) hardware security keys, two per critical account
+holder** so a lost key never locks an account, registered before any SMS or app code is removed.
 
 ## F.9 Phishing awareness
 
