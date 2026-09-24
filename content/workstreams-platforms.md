@@ -33,8 +33,8 @@ the least connectivity:**
 
 | Channel | Access route |
 |---|---|
-| **USSD** | `*[Insert shortcode]#` → option 3 → **works on any phone, no internet** |
-| **SMS** | Text the issue to `[Insert shortcode]` |
+| **USSD** | The campaign shortcode → option 3 → **works on any phone, no internet** |
+| **SMS** | Text the issue to the campaign shortcode |
 | **WhatsApp** | Message the campaign line |
 | **Web** | Simple mobile-first form, WCAG compliant |
 | **Ward champion** | Report in person; champion logs it |
@@ -153,13 +153,12 @@ id: format-specs
 > **Voiceover (Fast, Punchy):** *"Vota Dr. Makali Mulu – Gavana wa Kitui 2027. Muvisi Mũlũngalu, Mwĩkĩi wa Wathi! (Vote Dr. Makali Mulu – Governor Kitui 2027. The Proven Economist, The Trusted Leader!)"*
 
 ##### B. Direct 2G Bulk SMS Copy Sample (Ward-Specific)
-> *"Kitui Rural / Mbitini: Dr. Makali Mulu guarantees Ksh {{policy.ward-fund|m}}M Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. STOP=[Insert sender ID]"*
+> *"Kitui Rural / Mbitini: Dr. Makali Mulu guarantees Ksh {{policy.ward-fund|m}}M Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. Reply STOP to opt out."*
 
 ##### C. USSD Interactive Menu Tree Structure
 
-The menu is set out once, in Section 5.2.3.3, which governs the offline layer. The live shortcode
-and sender ID are `[Insert shortcode]` and `[Insert sender ID]` until the aggregator provisions
-them (Section 6.1). Nothing here should be printed, dialled or published as a working number.
+The menu is set out once, in Section 5.2.3.3, which governs the offline layer. The shortcode and
+sender ID are those the aggregator provisions at contracting. Nothing here should be printed, dialled or published as a working number.
 
 #### The weekly production schedule
 
@@ -258,7 +257,7 @@ examples, all requiring native-speaker verification before publication:
   * *"Kĩla kĩndũ kĩ na thayũ, ĩtina nĩ kũmenya"* — everything has a solution,
 the key is knowledge — framing his expertise
   * Imagery: the baobab as resilience, the calabash as shared resources
-  * `[Insert additional authentic Kikamba proverbs and phrases — all to be reviewed and corrected by a native speaker before any publication. The examples above are working drafts, not verified copy.]`
+  * The examples above are working drafts, not verified copy: every Kikamba proverb and phrase is reviewed and corrected by a native speaker before publication.
 * **Kiswahili** — broader reach, urban and younger audiences, national framing
 * **English** — policy depth, professional audiences, national media
 
@@ -297,7 +296,7 @@ is not transparent. It is legible to the people who already had access.
 
 | Area | Commitment |
 |---|---|
-| **Sign language** | **Kenyan Sign Language interpretation on all flagship video** — manifesto launch, vision video, monthly Economic Brief, closing argument. Full-video coverage at premium tier. Interpreter engaged from `[Insert — Kenya National Association of the Deaf or an accredited interpreter service]` |
+| **Sign language** | **Kenyan Sign Language interpretation on all flagship video** — manifesto launch, vision video, monthly Economic Brief, closing argument. Full-video coverage at premium tier. Interpreter engaged through the Kenya National Association of the Deaf or an accredited interpreter service |
 | **Captioning** | Burned-in captions on **all** video, in the language of the audio. Non-negotiable: most social video is watched without sound |
 | **Website** | **WCAG 2.1 AA** — semantic structure, keyboard navigation, contrast ratios, alt text on every image and infographic, no information conveyed by colour alone |
 | **Plain language** | Every policy document paired with a **one-page plain-language summary** in all three languages, written to be read aloud |

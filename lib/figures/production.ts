@@ -10,7 +10,7 @@
  * dialled or published as a working number" (§15.1). That blockquote is untouched prose and stays
  * where it is; the figure's own note repeats the point, because a menu tree lifted out of context
  * into a slide or a screenshot is exactly how an unprovisioned shortcode gets printed on a flyer.
- * The root reads `*[Insert shortcode]#` here as it does in the source — no digits, ever.
+ * The root carries no digits, ever.
  *
  * THE FORMAT TABLE IS WHERE C-21 SHOWS ITS TEETH AGAIN, and this time the document gets it right:
  * §8.3.2's SMS row says "Kiswahili or English only (CA rule)" and specifies GSM-7 encoding with no
@@ -102,7 +102,7 @@ export const FORMAT_SERIES: FigureSeries = {
 /* ------------------------------------------------------------------ §8.3.3 the USSD menu */
 
 export const USSD_MENU = {
-  root: "*[Insert shortcode]# (zero-rated gateway)",
+  root: "The campaign shortcode (zero-rated gateway)",
   nodes: [
     {
       label: "1. Dr. Makali Mulu manifesto summary",
@@ -126,7 +126,7 @@ export const USSD_SERIES: FigureSeries = {
   note:
     "THE SHORTCODE IS NOT PROVISIONED. §15.1 lists it as pending at contracting, and the note above " +
     "this figure says nothing here should be printed, dialled or published as a working number. " +
-    "The root reads *[Insert shortcode]# here exactly as it does in the source — no digits — " +
+    "The root carries no digits " +
     "because a menu tree lifted into a slide is how an unprovisioned shortcode reaches a flyer. " +
     "Option 4 is the DPA opt-out §8.12.2 requires, reachable from the top menu rather than buried.",
 };

@@ -141,13 +141,13 @@ export const FIG_1_4: FigureSpec = {
 export const FIG_1_5: FigureSpec = {
   id: "fig-1-5-scorecard",
   section: "1.5",
-  title: "Every measure of success is observable on his channels or the SMS list, and none is measured yet",
+  title: "Every measure of success is observable on his channels or the SMS list, and each baseline is set in Week 1",
   question: "How will success be judged?",
-  takeaway: "The scorecard is empty by design until the Week 1 export sets each baseline; no measure is a poll share.",
-  sources: [{ name: "Baselines: [DATA NEEDED — Meta Insights export, Week 1]", tier: null, state: "needed" }, { name: "Targets: this proposal", tier: null, state: "target" }],
+  takeaway: "The scorecard starts empty by design: the Week 1 export sets each baseline, and no measure is a poll share.",
+  sources: [{ name: "Baselines: set in Week 1 from his Insights export", tier: null, state: "target" }, { name: "Targets: this proposal", tier: null, state: "target" }],
   chart: {
     type: "gauges",
-    items: OBJECTIVES.map((o) => ({ code: `Objective ${o.n} · ${o.measureLabel}`, title: o.title, target: o.target, baseline: "not yet measured (Week 1)", share: null })),
+    items: OBJECTIVES.map((o) => ({ code: `Objective ${o.n} · ${o.measureLabel}`, title: o.title, target: o.target, baseline: "set in Week 1", share: null })),
   },
   columns: [
     { key: "objective", label: "Objective" },
@@ -155,7 +155,7 @@ export const FIG_1_5: FigureSpec = {
     { key: "target", label: "Target" },
     { key: "indicator", label: "Indicator" },
   ],
-  rows: OBJECTIVES.map((o) => ({ cells: { objective: `${o.n}. ${o.title}`, baseline: null, target: o.target, indicator: o.measureLabel }, state: "needed" as const, closesWith: "Week 1 export" })),
+  rows: OBJECTIVES.map((o) => ({ cells: { objective: `${o.n}. ${o.title}`, baseline: "Set in Week 1", target: o.target, indicator: o.measureLabel }, state: "target" as const })),
 };
 
 export const S1: FigureSpec[] = [FIG_1_1, FIG_1_3, FIG_1_4, FIG_1_5];

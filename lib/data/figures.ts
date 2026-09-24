@@ -76,7 +76,6 @@ modelled("register.2026.growth", v("register.2026") - v("register.2022"), "voter
 modelled("register.2026.continuous", v("register.2026") - v("register.2022") - v("register.2026.ecvr-drive"), "voters", "Growth since 2022 less the ECVR drive: continuous registration outside the drive.");
 sourced("register.polling-stations", 1_578, "count", "T1", "IEBC 2022 polling station register");
 modelled("register.2022.ward-mean", Math.round(v("register.2022") / 40), "voters", "532,758 across 40 wards.");
-add({ id: "register.2026.by-ward", value: null, unit: "voters", tier: null, state: "needed", source: null, closesWith: "IEBC ECVR ward annex" });
 
 /* ------------------------------------------------------------------ groupings of the register */
 

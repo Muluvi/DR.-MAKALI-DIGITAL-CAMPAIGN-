@@ -400,28 +400,8 @@
      "n": 3,
      "label": "Historical 2017 Gubernatorial Ward-by-Ward…",
      "body": "Historical 2017 Gubernatorial Ward-by-Ward Tallies: Named Data Gap (Tier 1 Gap). While the countywide certified totals are…"
-    },
-    {
-     "n": 4,
-     "label": "Ward-Level Mobile Broadband Penetration Data",
-     "body": "Named Data Gap (Tier 1 Gap). CA/KNBS publish countywide connectivity (26.2% internet use, 44.1% phone ownership, 2023/24), but…"
     }
    ]
-  }
- },
- "analysis-sec-3-10-1": {
-  "id": "analysis-sec-3-10-1",
-  "tab": "analysis",
-  "level": 3,
-  "number": "3.10.1",
-  "title": "Segment research still outstanding",
-  "kind": "gauge",
-  "data": {
-   "value": 3,
-   "display": "3",
-   "label": "Diaspora Voter Registration Ratio",
-   "pct": false,
-   "long": false
   }
  },
  "analysis-sec-3-11": {
@@ -628,7 +608,7 @@
     },
     {
      "label": "Gaps.",
-     "body": "A metric the export does not contain is marked [DATA NEEDED] with the method for obtaining it, exactly as…"
+     "body": "A metric the export does not contain is reported as absent, not estimated. Estimated engagement rates and…"
     },
     {
      "label": "Competitive figures",
@@ -1136,7 +1116,7 @@
     {
      "n": 3,
      "label": "Official campaign hashtag #MuluForKitui…",
-     "body": "Official campaign hashtag #MuluForKitui plus a Kikamba equivalent [Insert — native-speaker developed]"
+     "body": "Official campaign hashtag #MuluForKitui plus a Kikamba equivalent, developed by the native-speaker reviewer"
     },
     {
      "n": 4,
@@ -1759,8 +1739,8 @@
     },
     {
      "n": 7,
-     "label": "Detection tooling at premium tier [Insert…",
-     "body": "Detection tooling at premium tier [Insert vendor — selected at contracting]. The shortlist to test against a sample of real…"
+     "label": "Detection tooling at premium tier,…",
+     "body": "Detection tooling at premium tier, selected at contracting from a shortlist tested against a sample of real Kikamba and…"
     }
    ]
   }
@@ -2017,42 +1997,6 @@
    ]
   }
  },
- "nextsteps-sec-6-1": {
-  "id": "nextsteps-sec-6-1",
-  "tab": "nextsteps",
-  "level": 2,
-  "number": "6.1",
-  "title": "What this needs from the campaign",
-  "kind": "stats",
-  "data": {
-   "figures": [
-    {
-     "label": "SMS codes are provisioned",
-     "value": 5.2,
-     "display": "5.2",
-     "pct": false
-    },
-    {
-     "label": "Firefly",
-     "value": 5.8,
-     "display": "5.8",
-     "pct": false
-    },
-    {
-     "label": "above",
-     "value": 4,
-     "display": "4",
-     "pct": false
-    },
-    {
-     "label": "item",
-     "value": 5.7,
-     "display": "5.7",
-     "pct": false
-    }
-   ]
-  }
- },
  "nextsteps-sec-6-1-1": {
   "id": "nextsteps-sec-6-1-1",
   "tab": "nextsteps",
@@ -2213,7 +2157,7 @@
   "title": "Be known where he isn't yet",
   "kind": "bullet",
   "data": {
-   "baselineLabel": "Not yet measured [DATA NEEDED — Week 1 export]. The hypothesis is that his reach…",
+   "baselineLabel": "set in Week 1, from his own Insights export. The hypothesis is that his reach…",
    "targetLabel": "At least 51.7% of his reach landing in the pool, the pool's own share of the…",
    "baseline": 1,
    "target": 51.7,
@@ -2267,7 +2211,7 @@
   "title": "Give every post a voter, a ward and a reason",
   "kind": "bullet",
   "data": {
-   "baselineLabel": "Not yet measured [DATA NEEDED — Week 1 post coding].",
+   "baselineLabel": "set in Week 1, from the post coding.",
    "targetLabel": "Every briefed post coded with segment, ward and pillar, checked in the Monday…",
    "baseline": 1,
    "target": null,
@@ -2594,40 +2538,28 @@
   "level": 3,
   "number": "4.3.6",
   "title": "The Formal Sector Professionals, Civil Servants & Educators",
-  "kind": "checklist",
+  "kind": "bars",
   "data": {
    "items": [
     {
-     "label": "Empirical Sizing",
-     "body": "[DATA NEEDED — TSC establishment for Kitui; County Public Service Board staff return; Ministry of Health…"
+     "label": "doctors",
+     "value": 10,
+     "display": "10"
     },
     {
-     "label": "Geographic Base",
-     "body": "Administrative hubs (Kitui Town, Mwingi Town, sub-county headquarters) and public schools/hospitals throughout…"
+     "label": "wards",
+     "value": 40,
+     "display": "40"
     },
     {
-     "label": "Connectivity & Media Consumption",
-     "body": "Predominantly smartphone and laptop connected (internet use reaches about 92.3% among Kenyans with higher…"
+     "label": "% among Kenyans",
+     "value": 92.3,
+     "display": "92.3"
     },
     {
-     "label": "Reachable Channels",
-     "body": ""
-    },
-    {
-     "label": "Direct & Digital",
-     "body": "Thought-leadership policy whitepapers, LinkedIn/X executive briefs, structured appearances on…"
-    },
-    {
-     "label": "Institutional",
-     "body": "Union delegate barazas (KNUT Kitui Branch, KUPPET, KMPDU, KNUMLO), Kenya Primary School Heads Association…"
-    },
-    {
-     "label": "Persuasion Lever (What It Takes to Move Them)",
-     "body": ""
-    },
-    {
-     "label": "Core Anxiety",
-     "body": ""
+     "label": "national",
+     "value": 24,
+     "display": "24,"
     }
    ]
   }
@@ -2783,10 +2715,6 @@
      "body": ""
     },
     {
-     "label": "Social proof",
-     "body": ""
-    },
-    {
      "label": "Verification",
      "body": ""
     },
@@ -2796,6 +2724,10 @@
     },
     {
      "label": "Commitment device",
+     "body": ""
+    },
+    {
+     "label": "Messenger effect",
      "body": ""
     }
    ]
@@ -3089,7 +3021,7 @@
     },
     {
      "label": "SMS keyword short codes",
-     "body": "— text a keyword to [Insert shortcode] to register support and opt in"
+     "body": "— text a keyword to the campaign shortcode to register support and opt in"
     },
     {
      "label": "USSD completions",

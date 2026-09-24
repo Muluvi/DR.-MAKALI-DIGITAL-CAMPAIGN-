@@ -1,7 +1,6 @@
 /**
  * Section 6, Next Steps: what the campaign provides, what is still open, and the decision.
  */
-import openItems from "../generated/open-items.json" with { type: "json" };
 import type { FigureSpec } from "../types.ts";
 import { fmt } from "./_util.ts";
 
@@ -26,26 +25,6 @@ export const FIG_6_1: FigureSpec = {
   chart: { type: "steps", steps: DEPS.map((d, i) => ({ when: d.gating ? `${i + 1} · gating` : `${i + 1}`, title: d.item, body: d.why, current: d.gating })) },
   columns: [{ key: "n", label: "#", numeric: true }, { key: "item", label: "Dependency" }, { key: "gating", label: "Gates the rest" }, { key: "why", label: "Why" }],
   rows: DEPS.map((d, i) => ({ cells: { n: i + 1, item: d.item, gating: d.gating ? "Yes" : "No", why: d.why } })),
-};
-
-type Item = { kind: "data" | "confirm" | "placeholder"; gap: string; closes: string; holder: string; status: string; where: string[] };
-const ITEMS = openItems as Item[];
-const KIND = { data: "Data needed", confirm: "Confirm or edit", placeholder: "Placeholder" } as const;
-
-export const FIG_6_2: FigureSpec = {
-  id: "fig-6-2-open-items",
-  section: "6.2",
-  title: `${ITEMS.length} items are still open: ${ITEMS.filter((i) => i.kind === "data").length} data gaps, ${ITEMS.filter((i) => i.kind === "confirm").length} to confirm and ${ITEMS.filter((i) => i.kind === "placeholder").length} placeholders`,
-  question: "What is still open?",
-  takeaway: "Every one is named with who holds the answer; none is filled with an estimate.",
-  sources: [{ name: "Generated from every marker in this document (scripts/build-open-items.ts)", tier: null, state: "needed" }],
-  chart: {
-    type: "matrix",
-    header: ["Item", "Kind", "Closed by", "Holder", "Where"],
-    rows: ITEMS.map((i) => ({ head: i.gap, cells: [KIND[i.kind], i.closes, i.holder, i.where.join("; ")] })),
-  },
-  columns: [{ key: "item", label: "Item" }, { key: "kind", label: "Kind" }, { key: "closes", label: "Closed by" }, { key: "holder", label: "Holder" }, { key: "where", label: "Where" }],
-  rows: ITEMS.map((i) => ({ cells: { item: i.gap, kind: KIND[i.kind], closes: i.closes, holder: i.holder, where: i.where.join("; ") } })),
 };
 
 export const FIG_6_3: FigureSpec = {
@@ -93,4 +72,4 @@ export const FIG_6_3: FigureSpec = {
   ],
 };
 
-export const S6: FigureSpec[] = [FIG_6_1, FIG_6_2, FIG_6_3];
+export const S6: FigureSpec[] = [FIG_6_1, FIG_6_3];

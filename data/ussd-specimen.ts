@@ -50,7 +50,7 @@ export const USSD_MENU: UssdOption[] = [
 ];
 
 /** §8.10.3 prints the shortcode as an unresolved placeholder. It stays one. */
-export const USSD_SHORTCODE_PLACEHOLDER = "*[Insert shortcode]#";
+export const USSD_SHORTCODE_PLACEHOLDER = "the campaign shortcode";
 
 /**
  * A USSD session is a network round trip, and a menu that appears instantly is the one detail

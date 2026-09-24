@@ -7,7 +7,7 @@ To achieve absolute mathematical certainty, the campaign's success metrics are a
 *   **Total Registered County Voters:** **532,758** ward-registered voters (plus **75** prison-registered voters, totalling **532,833**) (Tier 1).
 *   **Total Registered County Assembly Wards:** **40** across **8** constituencies (Tier 1).
 *   **Total Polling Stations:** 1,578 (Tier 1).
-*   **Registered voters, July 2026:** **605,703** (Tier 1, IEBC Enhanced Continuous Voter Registration county annex). Of the **72,945** added since 2022, **61,839** registered in ECVR Phase 1, the 30-day drive that closed on 28 April 2026 and **11,106** through continuous registration outside it (modelled: the growth less the drive). A second ECVR phase ran from 25 June to 25 July 2026 (IEBC gazette notice, 24 June 2026); whether the July annex includes it is not stated, so the remainder may carry some of it. The 2026 register is not yet published by ward `[DATA NEEDED — IEBC ECVR ward annex]`.
+*   **Registered voters, July 2026:** **605,703** (Tier 1, IEBC Enhanced Continuous Voter Registration county annex). Of the **72,945** added since 2022, **61,839** registered in ECVR Phase 1, the 30-day drive that closed on 28 April 2026 and **11,106** through continuous registration outside it (modelled: the growth less the drive). A second ECVR phase ran from 25 June to 25 July 2026 (IEBC gazette notice, 24 June 2026); whether the July annex includes it is not stated, so the remainder may carry some of it. The 2026 register is not yet published by ward.
 *   **Winning benchmark:** Governor Malombe won in 2022 with **198,004 votes** (Section 2.2). Section 3.1 derives the working benchmark of 200,000 from it.
 *   **Turnout, 2022:** **61.7%** certified: 328,760 valid votes of 532,758 registered (Tier 1, IEBC Form 37C). Section 3 carries this rate forward to 2027 as a stated assumption.
 
@@ -132,7 +132,7 @@ The **602,470 mobile-money agent network** (representing a rapid expansion from 
 
 #### Platform Sizing & Realistic In-County Reach
 
-The digital footprint in Kitui County is concentrated in urban nodes (Kitui Town, Mwingi Town, Kwa Vonza university corridor) and among educated youth. In-county active users per platform are not published: they are `[DATA NEEDED — Meta Audience Insights export, Week 1]`, and Section 3.8 sizes what digital can reach from the published rates alone.
+The digital footprint in Kitui County is concentrated in urban nodes (Kitui Town, Mwingi Town, Kwa Vonza university corridor) and among educated youth. In-county active users per platform are not published; Section 3.8 sizes what digital can reach from the published rates alone.
 
 ## 2.7 Who owns the airwaves
 
@@ -152,7 +152,7 @@ governs. It is the version reconciled against `data/media-ownership.ts`, which
 the site renders directly.
 
 > **Research Integrity Note on Listenership Data:**  
-> The published audience share is regional: the CA/KARF report for **Lower Eastern** (Kitui, Machakos and Makueni together) puts Musyi FM at 17.3%, Athiani FM at 10.9%, Mbaitu FM at 5.7% and County FM at 4.4% of listeners (Tier 2, an earlier measurement). It ranks the stations; it does not size Kitui's own audience, which stays `[DATA NEEDED — Kitui listenership by station, current CA audience report]`.
+> The published audience share is regional: the CA/KARF report for **Lower Eastern** (Kitui, Machakos and Makueni together) puts Musyi FM at 17.3%, Athiani FM at 10.9%, Mbaitu FM at 5.7% and County FM at 4.4% of listeners (Tier 2, an earlier measurement). It ranks the stations; it does not size Kitui's own audience.
 
 The three structural facts that drive the rest of this section:
 
@@ -187,8 +187,7 @@ id: fig-2-8-record
 proposals, allocations and Project Implementation Status reports across its five wards: Mulango,
 Kyangwithya East, Kyangwithya West, Township and Miambani. The FY2026/27 allocation is
 **KSh 192,613,000** (Tier 1). A project is described as completed only where its
-implementation-status report says so; the ward-by-ward table is built from those reports
-`[DATA NEEDED — Kitui Central NG-CDF Project Implementation Status reports, compiled by ward]`.
+implementation-status report says so.
 
 ## 2.9 His channels today, and his rivals'
 

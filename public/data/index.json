@@ -37,9 +37,9 @@
   {
     "id": "fig-1-5-scorecard",
     "section": "1.5",
-    "title": "Every measure of success is observable on his channels or the SMS list, and none is measured yet",
+    "title": "Every measure of success is observable on his channels or the SMS list, and each baseline is set in Week 1",
     "question": "How will success be judged?",
-    "takeaway": "The scorecard is empty by design until the Week 1 export sets each baseline; no measure is a poll share."
+    "takeaway": "The scorecard starts empty by design: the Week 1 export sets each baseline, and no measure is a poll share."
   },
   {
     "id": "fig-2-1-register",
@@ -100,9 +100,9 @@
   {
     "id": "fig-2-9-channels",
     "section": "2.9",
-    "title": "His presence is one Facebook page and a quiet X account, and the field's is not yet counted",
+    "title": "His presence is one Facebook page, a quiet X account and a constituency site that already holds his record",
     "question": "What does his presence look like against the field?",
-    "takeaway": "The comparison fills from public pages in the Week 1 audit; until then the field's cells stay named gaps rather than estimates."
+    "takeaway": "The NG-CDF site is the most under-used asset here; the comparison with the field is drawn in the Week 1 audit."
   },
   {
     "id": "fig-3-1-funnel",
@@ -163,16 +163,16 @@
   {
     "id": "fig-3-9-audit",
     "section": "3.9",
-    "title": "His profile carries six errors a researcher would find in an afternoon, and his reach data is not yet in hand",
+    "title": "His profile carries six errors a researcher would find in an afternoon, and the Week 1 audit reads the rest",
     "question": "What does his current presence actually show?",
-    "takeaway": "The six fixes are Section 4.7; the four audit figures fill from the Week 1 export and are drawn with their gaps until then."
+    "takeaway": "The six fixes are Section 4.7; the four audit figures are drawn from the Week 1 export, never from an estimate."
   },
   {
     "id": "fig-3-10-gaps",
     "section": "3.10",
-    "title": "33 facts the analysis needs are not yet in hand, and each has a named document that closes it",
+    "title": "3 things no published source can tell the analysis, and none is estimated",
     "question": "What can't the data tell us yet, and what closes each gap?",
-    "takeaway": "None of these is estimated and none is closed by new polling: each waits on a document that already exists or an export only he can grant."
+    "takeaway": "The analysis works from where he has held office and from certified totals, not from ward-level preference or ward returns no one has published."
   },
   {
     "id": "fig-3-11-evidence",
@@ -200,7 +200,7 @@
     "section": "4.3",
     "title": "Six segments, three sized in voters from the census and three with context but no published voter count",
     "question": "Who are we trying to move, and how much do they matter?",
-    "takeaway": "Sizes overlap and are not additive; where no source exists the cell names the document that would close it rather than guessing."
+    "takeaway": "Sizes overlap and are not additive; where no source publishes a voter count, none is given."
   },
   {
     "id": "fig-4-4-message-region",
@@ -327,13 +327,6 @@
     "title": "The campaign provides 8 things, and three of them gate everything else",
     "question": "What does the campaign provide?",
     "takeaway": "A counterpart, read-only access and the data-protection reviewer come first; the rest follow once the engagement is running."
-  },
-  {
-    "id": "fig-6-2-open-items",
-    "section": "6.2",
-    "title": "53 items are still open: 33 data gaps, 3 to confirm and 17 placeholders",
-    "question": "What is still open?",
-    "takeaway": "Every one is named with who holds the answer; none is filled with an estimate."
   },
   {
     "id": "fig-6-3-decision",

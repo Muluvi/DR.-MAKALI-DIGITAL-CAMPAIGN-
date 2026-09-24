@@ -64,8 +64,8 @@ export const FIG_USSD_MENU: FigureSpec = {
   title: "Six options on any phone, and the third puts the tracker in reach of a feature phone in Mutha",
   question: "What does the USSD menu offer?",
   takeaway: "Dial the shortcode, read the plan, register, report an issue, volunteer or opt in, with no internet and close to no cost.",
-  sources: [PROPOSAL, { name: "Shortcode: [Insert shortcode] at contracting", tier: null, state: "needed" }],
-  chart: { type: "mock", header: "KITUI NA MULU · *[shortcode]#", fields: MENU },
+  sources: [PROPOSAL],
+  chart: { type: "mock", header: "KITUI NA MULU · the campaign shortcode", fields: MENU },
   notes: [
     "Menu labels in Kikamba are pending the Kikamba reviewer's sign-off (Section 5.9.3).",
     "The Section 5.7.8 charter requires a data opt-out the voter can reach from the menu; its position is set when the shortcode is provisioned.",

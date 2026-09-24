@@ -176,8 +176,8 @@ success looks like there.
 | Voter universe | Every registered voter in Kitui County | **532,758** | IEBC ward register (Tier 1) | — |
 | Expected turnout universe | Ballots expected at the 61.7% turnout rate (the certified 2022 rate) | **~328,712** | Derived at the modelling constant, Section 3.1 | — |
 | **Victory universe** | Votes required to win the general election | **~200,000** | Section 3.1; 198,004 won in 2022 (Tier 2) | GOTV |
-| **Base-hold universe** | The anchor: Kitui Central and Kitui West | `[VERIFIED FIGURE REQUIRED]` — Kitui Central holds **77,764** registered voters (Tier 1), but a register count is not a support estimate | Section 3.7.1 | Mobilisation |
-| **Persuasion universe** | The Mwingi bloc and the arid belt, where recognition is weakest | `[VERIFIED FIGURE REQUIRED]` — the Mwingi constituencies hold **200,198** registered voters (Tier 1), which is the ceiling on this universe and not its size | Section 3.4 | Recognition |
+| **Base-hold universe** | The anchor: Kitui Central and Kitui West | Not stated — Kitui Central holds **77,764** registered voters (Tier 1), but a register count is not a support estimate | Section 3.7.1 | Mobilisation |
+| **Persuasion universe** | The Mwingi bloc and the arid belt, where recognition is weakest | Not stated — the Mwingi constituencies hold **200,198** registered voters (Tier 1), which is the ceiling on this universe and not its size | Section 3.4 | Recognition |
 | **Mobilisation universe** | Identified supporters needing a turnout contact | Target **200,000** verified supporters | Section 1.3.4 (target) | Field + SMS |
 | Soft opposition | Rival-leaning but movable | **Evidence required** | No instrument measures this today | Messaging |
 
@@ -225,7 +225,7 @@ It is the pillar that feeds P1 twelve weeks later.
 ---
 
 ### 4.3.3 The Agro-Pastoralist & Arid-Zone Livestock Keepers
-*   **Empirical Sizing:** **215,003 livestock-farming households** countywide (2019 Census agriculture report, Tier 1), or 177,701 households practising livestock production on the county PCRA's definition (Tier 2). The two are different definitions and are shown side by side, never averaged. Households are not voters, so no voter count is derived; the split by sub-county is `[DATA NEEDED — KNBS 2019 Census, Volume IV: households keeping livestock, by sub-county]`.
+*   **Empirical Sizing:** **215,003 livestock-farming households** countywide (2019 Census agriculture report, Tier 1), or 177,701 households practising livestock production on the county PCRA's definition (Tier 2). The two are different definitions and are shown side by side, never averaged. Households are not voters, so no voter count is derived.
 *   **Geographic Base:** Mwingi North (Kyuso, Tseikuru, Tharaka, Ngomeni), Mwingi Central (Waita, Kivou), Kitui South (Mutha, Kanziko, Ikutha, Athi), and Kitui East (Endau/Malalani, Voo/Kyamatu).
 *   **Connectivity & Media Consumption:** Highly dispersed geography; intermittent 2G cellular coverage; heavy battery-powered solar radio listenership; pastoral migration routes.
 *   **Reachable Channels:**
@@ -241,7 +241,7 @@ It is the pillar that feeds P1 twelve weeks later.
 ### 4.3.4 The Youth Cohort (Ages 18–35: Students, Bodaboda, Unemployed Graduates & Creatives)
 *   **Empirical Sizing:** **~44% of the register, about 234,000 registered voters** (modelled: the 2019 KNBS Census age distribution applied to the 2022 IEBC register; the register is not published by age).
 *   **Geographic Base:** Clustered heavily in peri-urban corridors (Kitui Township, Kwa Vonza/SEKU/KU university belts, Mwingi Central town, Mutonguni, Kabati) and dispersed across rural trading centers.
-*   **Connectivity & Media Consumption:** High smartphone and feature-phone social media usage (internet use nationally is 46.6% at 15–24 and 59.3% at 25–34, and 46.7% among rural 18–34s: CA/KNBS 2023/24, national figures, Tier 1; Kitui's figures by age are `[DATA NEEDED — CA/KNBS county tables by age band]`); active on WhatsApp groups, TikTok, Facebook Mobile, and YouTube; congregation at bodaboda stages, video dens, and sports centers.
+*   **Connectivity & Media Consumption:** High smartphone and feature-phone social media usage (internet use nationally is 46.6% at 15–24 and 59.3% at 25–34, and 46.7% among rural 18–34s: CA/KNBS 2023/24, national figures, Tier 1); active on WhatsApp groups, TikTok, Facebook Mobile, and YouTube; congregation at bodaboda stages, video dens, and sports centers.
 *   **Reachable Channels:**
     *   **Primary Digital:** Targeted Meta (Facebook/Instagram) and TikTok short-form video campaigns; viral WhatsApp audio and graphic forwards.
     *   **Primary Physical:** Bodaboda stage associations, local football tournament circuits, university/college student unions (SEKU, KU Kitui Campus, Kitui KMTC).
@@ -256,7 +256,7 @@ It is the pillar that feeds P1 twelve weeks later.
 ### 4.3.5 The Urban & Peri-Urban Commercial Informal Sector (MSMEs & Traders)
 *   **Empirical Sizing:** **54,019 urban residents — 4.8% of the county population** (2019 KNBS Census urban classification, Tier 1). Applying that share to the register gives approximately **26,000 urban registered voters** — again derived, not measured. Note this segment's messaging reach extends well beyond the urban classification, since peri-urban trading centres in the ward list sit inside rural wards.
 *   **Geographic Base:** Kitui Township (19,538 voters), Mwingi Central Town (14,525 voters), Kwa Vonza/Yatta (18,020 voters), Mutomo (12,637 voters), Matinyani (14,279 voters), and Nguutani (15,121 voters).
-*   **Connectivity & Media Consumption:** Higher mobile internet use than the county (internet use is 56.6% in urban Kenya against 25.0% rural: CA/KNBS 2023/24, national figures, Tier 1; Kitui's own split is `[DATA NEEDED — CA/KNBS county urban/rural tables]`); constant WhatsApp business use; daily interaction with county revenue collectors; regular local vernacular radio listening.
+*   **Connectivity & Media Consumption:** Higher mobile internet use than the county (internet use is 56.6% in urban Kenya against 25.0% rural: CA/KNBS 2023/24, national figures, Tier 1); constant WhatsApp business use; daily interaction with county revenue collectors; regular local vernacular radio listening.
 *   **Reachable Channels:**
     *   **Physical:** Direct walk-throughs in commercial business districts, market trader association meetings, chamber of commerce chapters (KNCCI Kitui Chapter).
     *   **Digital:** Hyper-geofenced Meta ads (Kitui and Mwingi town centers) and peer-to-peer WhatsApp broadcast chains.
@@ -268,7 +268,7 @@ It is the pillar that feeds P1 twelve weeks later.
 ---
 
 ### 4.3.6 The Formal Sector Professionals, Civil Servants & Educators
-*   **Empirical Sizing:** `[DATA NEEDED — TSC establishment for Kitui; County Public Service Board staff return; Ministry of Health workforce data]` (Section 3.10.1). Comprises teachers under KNUT/KUPPET, healthcare workers, county and national civil servants, bank staff and clergy; no size is estimated.
+*   **Empirical Sizing:** not published: comprises teachers under KNUT/KUPPET, healthcare workers, county and national civil servants, bank staff and clergy. Kitui's core health workforce density is 10 (doctors, clinical officers, laboratory staff and nurses per ten thousand people) (Countdown 2030, Tier 2); no size is estimated.
 *   **Geographic Base:** Administrative hubs (Kitui Town, Mwingi Town, sub-county headquarters) and public schools/hospitals throughout all 40 wards.
 *   **Connectivity & Media Consumption:** Predominantly smartphone and laptop connected (internet use reaches about 92.3% among Kenyans with higher education: CA/KNBS 2023/24, national, Tier 1); active on X (Twitter), Facebook, LinkedIn, professional WhatsApp groups; readers of national daily newspapers and policy analyses.
 *   **Reachable Channels:**
@@ -282,7 +282,7 @@ It is the pillar that feeds P1 twelve weeks later.
 ---
 
 ### 4.3.7 The Out-of-County Kamba Diaspora Matrix (Nairobi, Coast & Nationwide)
-*   **Empirical Sizing:** Kitui's net recent-migration balance was **−72,051** in 2019 (KNBS Census Analytical Report on Migration, Volume VIII, Tier 1), one of the largest outflows in the country. That is migration context, not a voter count: the share of Kitui-born residents elsewhere who remain registered in Kitui is `[DATA NEEDED — IEBC register by polling station, set against the migration tables]`, and no voter size is estimated.
+*   **Empirical Sizing:** Kitui's net recent-migration balance was **−72,051** in 2019 (KNBS Census Analytical Report on Migration, Volume VIII, Tier 1), one of the largest outflows in the country. That is migration context, not a voter count: the share of Kitui-born residents elsewhere who remain registered in Kitui is not published, and no voter size is estimated.
 *   **Geographic Concentration:** Nairobi (Embakasi, Kasarani, Kibra, Starehe, Eastleigh, Westlands), Mombasa/Coast (Changamwe, Likoni, Kisauni, Malindi), Machakos/Makueni urban centers.
 *   **Strategic Role:** Even those registered to vote in Nairobi/Mombasa act as **critical opinion shapers and financial remitters**. They pay school fees, medical bills, and funeral costs for rural relatives; their political endorsements carry immense weight during family decision-making.
 *   **Connectivity & Media Consumption:** Predominantly internet connected (internet use among 18–34s is 83.1% in Nairobi and 70.4% in Mombasa: CA/KNBS 2023/24, Tier 1); active on X, Facebook, WhatsApp, YouTube, and national podcasts.
@@ -301,7 +301,7 @@ It is the pillar that feeds P1 twelve weeks later.
 **These six segments overlap, and the figures below are not additive.** A 26-year-old
 smallholder in Mwingi sits in segment 1 and segment 3; a trader who keeps goats sits in 2 and 4.
 Where a size is stated it is a census share or a derived estimate labelled as one; where no source
-exists, the cell reads `[DATA NEEDED]` and names the document that would close it (Section 3.10.1).
+exists, no size is given.
 None is a share of a partition.
 
 **Check the base before quoting any percentage here.** Two denominators are in play: the
@@ -413,8 +413,6 @@ credential into a persuasion technique available to no rival.
 - *Loss aversion:* "Approximately 400,000 people in Kitui still depend on
   surface water for drinking. Every dry season takes more from us than the
   boreholes would."
-- *Social proof:* "`[Insert verified number]` families in Kitui East have
-  already signed for sand dams. Add your name."
 - *Verification:* "We will publish every borehole location, cost and
   completion date. Dial `[shortcode]` to check the one nearest you."
 
@@ -509,8 +507,8 @@ pillars in Section 4.1.4 and the three message pillars in Section 4.4, which are
 not competing versions of this one. Pillar weights are set by the Week 1 audit (Section 5.3) and re-set at each
 monthly review, not chosen in advance.
 
-`[KIKAMBA REVIEW NEEDED — the Kikamba name for each pillar, from the native-speaker reviewer named
-in Section 6.1. None is invented here, and none should be published until that review is done.]`
+The Kikamba name for each pillar comes from the native-speaker reviewer; none is invented here, and
+none is published before that review.
 
 ### 4.5.1 Pillar 1 — Where the money went
 
@@ -572,8 +570,7 @@ monthly review reads as a miss, not as a scheduling accident.
 
 The pattern below is the current one as observed from the public page: a daily record of where
 Dr. Mulu was, mostly in English, with no ward named outside Kitui Central, no commitment attached
-and no ask. `[CONFIRM against the Week 1 export before this is put in front of him — it must be his
-actual week, not a characterisation of it.]`
+and no ask. Week 1 checks it against his actual week before it is put in front of him.
 
 ```figure
 id: fig-4-5-calendar
@@ -611,7 +608,7 @@ id: fig-4-6-channel-shift
 | Share of the 200,000 benchmark digital could reach | **79.3%**, reach not votes |
 | Reachable by SMS only | ~108,419 voters (modelled: 44.1% phone ownership less 26.2% internet use) |
 | No phone: radio or in person only | ~338,588 voters (modelled) |
-| Vernacular radio reach | Lower Eastern shares: Musyi FM 17.3%, Athiani FM 10.9%, Mbaitu FM 5.7%, County FM 4.4% (CA/KARF, an earlier measurement, Tier 2). Kitui alone: `[DATA NEEDED — Kitui listenership by station, current CA audience report]` |
+| Vernacular radio reach | Lower Eastern shares: Musyi FM 17.3%, Athiani FM 10.9%, Mbaitu FM 5.7%, County FM 4.4% (CA/KARF, an earlier measurement, Tier 2). |
 | Communications weight, offline | **82%** — radio 37%, SMS 20%, caravans 18%, church 7% |
 | Communications weight, digital | **18%** |
 
@@ -650,8 +647,8 @@ no Page Insights, no Business Suite export, no delegated admin roles and no ad a
 most of what follows does not exist, and the strategy has a migration question attached to it before
 anything else is decided.
 
-`[DATA NEEDED — one screenshot of Meta Business Suite, or of the Professional dashboard, settles
-this. It takes five minutes and it gates the rest of the audit.]`
+One screenshot of Meta Business Suite, or of the Professional dashboard, settles this in the first
+hour of Week 1, and it gates the rest of the audit.
 
 ## 4.8 When the plan changes
 

@@ -17,8 +17,7 @@ fireflymanagement.ke@gmail.com · 0726 766 800
 
 **Date:** September 2026
 
-**Status:** Proposal for discussion. Contains marked placeholders requiring
-internal campaign decisions or verification against primary documents.
+**Status:** Proposal for discussion.
 
 **Firefly holds no publishing credentials to any of Dr. Mulu's accounts, and asks for none.**
 The access this engagement needs is read-only: analytics, so the work can be measured. The one

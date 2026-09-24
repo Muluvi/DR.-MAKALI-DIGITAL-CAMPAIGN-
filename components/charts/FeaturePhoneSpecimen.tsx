@@ -228,11 +228,8 @@ export function FeaturePhoneSpecimen() {
               <span className="inline-flex items-center gap-1.5 shrink-0">
                 <Phone size={12} className="text-accent" aria-hidden="true" />
                 <span className="t-micro font-black text-muted">Dial</span>
-                <code className="placeholder t-micro whitespace-nowrap">
-                  {USSD_SHORTCODE_PLACEHOLDER}
-                </code>
+                <span className="t-micro whitespace-nowrap">{USSD_SHORTCODE_PLACEHOLDER}</span>
               </span>
-              <ClaimBadge status="awaiting" compact />
             </div>
             <ol className="space-y-1">
               {USSD_MENU.map((o) => (

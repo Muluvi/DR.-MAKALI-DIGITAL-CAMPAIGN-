@@ -12,7 +12,7 @@ To eliminate subjective projections, the campaign's target metrics are anchored 
     Wards** (plus **75 prison voters**, totalling **{{register.2022.with-prisons}} registered voters**).
 *   **Total Registered Electorate (July 2026, Tier 1):** **{{register.2026}} voters** (Section 2.1). IEBC has
     not yet published the 2026 register by ward, so every ward figure in this section is the 2022
-    register `[DATA NEEDED — IEBC ECVR ward annex]`.
+    register.
 *   **The benchmark: {{benchmark}} votes.** Governor Julius Malombe's certified 2022 winning total was
     **{{result.2022.gov.malombe}} votes** (Section 2.2). This document rounds it to **{{benchmark}}** and uses that one figure
     as the benchmark everywhere: every route in Section 3.3, the digital ceiling in Section 3.8 and
@@ -298,7 +298,7 @@ id: fig-3-8-ceiling
 The election will be won or lost across the **{{reach.offline}} registered voters not reachable online** (modelled: the July 2026 register less the {{reach.smartphone}} reachable by smartphone or data). Reaching this electorate requires an orchestrated combination of telecommunications protocol channels (SMS/USSD), broadcast audio (vernacular radio), financial agent touchpoints, and dense physical market presence.
 
 #### Kikamba Vernacular Radio (The Decisive Broadcast Medium)
-*   **Reach:** the CA/KARF audience report for Lower Eastern (Kitui, Machakos and Makueni together) puts Musyi FM at {{radio.musyi}}% of listeners, Citizen Radio {{radio.citizen}}%, Athiani FM {{radio.athiani}}%, Mbaitu FM {{radio.mbaitu}}%, County FM {{radio.county}}% and Mwatu FM {{radio.mwatu}}% (Tier 2). It is a regional and an earlier measurement, so it ranks the stations rather than sizing Kitui's audience: Kitui alone is `[DATA NEEDED — Kitui listenership by station, current CA audience report]`.
+*   **Reach:** the CA/KARF audience report for Lower Eastern (Kitui, Machakos and Makueni together) puts Musyi FM at {{radio.musyi}}% of listeners, Citizen Radio {{radio.citizen}}%, Athiani FM {{radio.athiani}}%, Mbaitu FM {{radio.mbaitu}}%, County FM {{radio.county}}% and Mwatu FM {{radio.mwatu}}% (Tier 2). It is a regional and an earlier measurement, so it ranks the stations rather than sizing Kitui's audience.
 *   **Station Hierarchy & Reach:**
     *   *Musyi FM (Royal Media Services):* Dominant market leader in Ukambani; commercially independent. **Priority placement.**
     *   *County FM (Kitui-based independent):* Local ward news and debates, strong in Kitui Town, Kabati and Kwa Vonza. **Priority placement.**
@@ -310,19 +310,19 @@ The election will be won or lost across the **{{reach.offline}} registered voter
     *   *Live Event Feeds:* Sponsoring live outside broadcasting (OB) vans at major market rallies in Kalundu, Kabati, and Mutomo.
 
 #### Direct 2G Bulk SMS & USSD Service
-*   **Reach:** `[DATA NEEDED — handset ownership by ward; CA/KNBS]`. Mobile phone ownership is {{ict.phone}}% of residents countywide (CA/KNBS 2023/24, Tier 1); a feature phone is enough for SMS and USSD.
+*   **Reach:** mobile phone ownership is {{ict.phone}}% of residents countywide (CA/KNBS 2023/24, Tier 1); a feature phone is enough for SMS and USSD.
 *   **What Firefly operates** (Section 5.2.3.3):
     *   *Zero-Rated USSD Portal (`*[shortcode]#`):* Allows feature phone users to dial a free code to read Dr. Mulu's 5-point manifesto in Kikamba, register as a volunteer, or locate their nearest Ward Captain.
     *   *Hyper-Localised Bulk SMS:* Dispatching customised **Kiswahili** messages to consented supporters within specific wards on the eve of market days and on election morning for Get-Out-The-Vote (GOTV) mobilisation. Bulk political SMS is restricted to English or Kiswahili (Section 5.2.3.3); the Kikamba version travels by voice note and radio.
 
 #### Mobile-Money (M-Pesa) Agent Network Strategy
-*   **Reach:** `[DATA NEEDED — agent count for Kitui; Central Bank of Kenya or Safaricom agent register]`. Nationally there are {{ict.agents}} registered agents (March 2026, Tier 1, Section 2.6).
+*   **Reach:** nationally there are {{ict.agents}} registered agents (March 2026, Tier 1, Section 2.6).
 *   **What the campaign would run** (campaign-owned, outside this engagement, Section 5.1.3):
     *   M-Pesa agents are trusted community hubs where residents deposit funds, buy airtime, and discuss local news. **Agent networks are regulated financial infrastructure**; Section 5.2.3.3 flags that any commercial arrangement with them must be reviewed by campaign counsel before recruitment begins. The ambassador network is untiered and needs a source.
     *   The campaign will recruit {{target.ambassadors}}+ shopkeepers and M-Pesa agents as "Economic Ambassadors," providing them with branded business ledgers, counter pens, calendar posters, and daily economic talking points.
 
 #### Open-Air Market Day Barazas & Caravan Circuits
-*   **Reach:** `[DATA NEEDED — market-day attendance; county trade department]`. For scale only: the 2023 Kitui Agricultural Show drew more than {{show.2023}} people over three days (Tier 3), and market days are gazetted by market. Neither is a market-day count.
+*   **Reach:** for scale only: the 2023 Kitui Agricultural Show drew more than {{show.2023}} people over three days (Tier 3), and market days are gazetted by market. Neither is a market-day count.
 *   **Market Rotation Map:**
     *   *Mondays:* Nguni Livestock Market (Mwingi Central), Kabati (Kitui West).
     *   *Tuesdays:* Kalundu Market (Kitui Central), Tseikuru (Mwingi North).
@@ -333,7 +333,7 @@ The election will be won or lost across the **{{reach.offline}} registered voter
 *   **What the campaign would run** (campaign-owned, outside this engagement, Section 5.1.3): Deploying two high-output mobile sound trucks (*The Mulu Economic Caravans*) equipped with live PA systems, Kikamba music, and local youth speakers to dominate market entrances on their designated days.
 
 #### Church Fellowships & Clergy Engagement
-*   **Reach:** `[DATA NEEDED — congregation sizes; diocesan and denominational offices]`. Denominations present: Catholic, AIC, Redeemed Gospel, Anglican and Baptist. The Catholic Diocese of Kitui alone counts over {{church.catholic}} baptised members (Tier 3), a floor for one denomination rather than attendance.
+*   **Reach:** denominations present: Catholic, AIC, Redeemed Gospel, Anglican and Baptist. The Catholic Diocese of Kitui alone counts over {{church.catholic}} baptised members (Tier 3), a floor for one denomination rather than attendance.
 *   **What the campaign would run** (campaign-owned, outside this engagement, Section 5.1.3): Sunday morning worship visits across all 8 constituencies, respecting liturgical decorum, requesting pastoral prayers, and engaging parish development committees post-service.
 
 ## 3.9 What his current presence shows
@@ -357,9 +357,8 @@ Four figures and a two-page note. Not a report.
 *   **Him against the field** — posts per week, median shares per post, and ads live, for all four
     candidates.
 
-Each renders with its axes drawn and its question printed before the export lands, marked
-`[DATA NEEDED — Week 1 export]`. A figure that shows its own missing data is the argument for this
-engagement; a figure filled with an estimate would be the opposite.
+Each is drawn from the Week 1 export, never from an estimate: until the export lands, the figure
+states that it is set in Week 1.
 
 ## 3.10 What the data can't yet tell us
 
@@ -368,7 +367,6 @@ In strict adherence to the campaign's data provenance standards, the analytical 
 1.  **Ward-level voter preference:** **Named data gap.** No source measures it. The published opinion polls report countywide aggregates only and publish no sample size by area (Annex C, for reference only), and this proposal commissions no polling. The gap closes only if the party's own nomination instrument publishes its ward or sub-county splits (Section 2.3.2). Until then the analysis works from where he has held office, not from preference.
 2.  **Historical 2013 Gubernatorial Ward-by-Ward Certified Returns:** **Named Data Gap (Tier 1 Gap).** Official IEBC ward-by-ward certified return sheets for the 2013 gubernatorial race are not contained in the campaign's certified baseline archives.
 3.  **Historical 2017 Gubernatorial Ward-by-Ward Tallies:** **Named Data Gap (Tier 1 Gap).** While the countywide certified totals are established (Ngilu {{result.2017.gov.ngilu}} vs. Musila {{result.2017.gov.musila}} vs. Malombe {{result.2017.gov.malombe}}, Tier 1), individual ward breakdown sheets are treated as unverified pending physical retrieval from the IEBC registry.
-4.  **Ward-Level Mobile Broadband Penetration Data:** **Named Data Gap (Tier 1 Gap).** CA/KNBS publish countywide connectivity ({{ict.internet}}% internet use, {{ict.phone}}% phone ownership, 2023/24), but no ward-by-ward coverage figure is published `[DATA NEEDED — ward-level extraction from the CA ICT Services Coverage Geo-Portal, 2G/3G/4G by operator]`. The Geo-Portal and the CA's ICT Access Gap Study hold the layers; they are not yet tabulated by ward.
 
 ```figure
 id: fig-3-10-gaps
@@ -378,11 +376,7 @@ id: fig-3-10-gaps
 
 ### 3.10.1 Segment research still outstanding
 
-Three segment sizes in Section 4.3 cannot be stated from the sources in hand. Each is named with the existing document that would close it; none is estimated, and none is closed by new polling:
-
-1.  **Agro-Pastoral Electorate Sizing:** **Named data gap.** Census population counts exist for the arid sub-counties (Mwingi North, Kitui South), but the share of voters whose livelihood is strictly pastoral is not published. Closed by: **KNBS 2019 Census, Volume IV** (households keeping livestock, by sub-county).
-2.  **Formal Sector Civil Service Registry:** **Named data gap.** Voter registration counts for teachers (KNUT/KUPPET), county staff and health workers resident in Kitui are not disaggregated in IEBC reports. Closed by: the **TSC teacher establishment for Kitui**, the **County Public Service Board staff return** and the **Ministry of Health workforce data**, as headcounts of the segment.
-3.  **Diaspora Voter Registration Ratio:** **Named data gap.** The share of Kitui-born residents of Nairobi and Mombasa who remain registered in Kitui has never been published. Closed by: the **IEBC register by polling station** set against the **KNBS 2019 Census migration tables**.
+Three segment sizes in Section 4.3 are not published: the agro-pastoral, the formal-sector and the diaspora voter counts. Section 4.3 gives the census context for each; none is estimated, and none is closed by new polling.
 
 ## 3.11 The diagnosis, and the evidence that could overturn it
 

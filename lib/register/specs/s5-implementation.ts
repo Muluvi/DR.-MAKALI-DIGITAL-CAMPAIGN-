@@ -83,7 +83,7 @@ export const FIG_5_3: FigureSpec = {
   title: "The first week measures, and nothing is committed against the diagnosis until it has",
   question: "What happens in the first four weeks?",
   takeaway: "Week 1 is the audit; the brief starts in Week 2, weighted to the pool, and the six fixes ship by the end of it.",
-  sources: [PROPOSAL, { name: "The audit waits on [DATA NEEDED — Meta Insights export, Week 1]", tier: null, state: "needed" }],
+  sources: [PROPOSAL, { name: "The audit runs on his Insights export, Week 1", tier: null, state: "target" }],
   chart: {
     type: "composite",
     parts: [
@@ -185,7 +185,7 @@ export const FIG_5_5: FigureSpec = {
 /* ------------------------------------------------------------------ fig-5-6-kpis */
 
 const KPIS = [...NOMINATION_KPIS, ...GENERAL_ELECTION_KPIS];
-const baselineText = (k: (typeof KPIS)[number]) => (k.baseline.kind === "measured" ? k.baseline.display : k.baseline.note);
+const baselineText = (k: (typeof KPIS)[number]) => (k.baseline.kind === "measured" ? k.baseline.display : k.baseline.kind === "unmeasured" ? "set in Week 1" : k.baseline.note);
 
 export const FIG_5_6: FigureSpec = {
   id: "fig-5-6-kpis",
@@ -193,7 +193,7 @@ export const FIG_5_6: FigureSpec = {
   title: "Nine indicators judge the work, four for the nomination and five for the election, and none is a poll share",
   question: "How is progress measured?",
   takeaway: "Every indicator is observable on his channels, the SMS list or the field record, and each stays empty until its baseline is taken.",
-  sources: [PROPOSAL, { name: "Baselines: [DATA NEEDED — Meta Insights export, Week 1]", tier: null, state: "needed" }],
+  sources: [PROPOSAL, { name: "Baselines: set in Week 1 from his Insights export", tier: null, state: "target" }],
   chart: {
     type: "composite",
     parts: [
@@ -202,7 +202,7 @@ export const FIG_5_6: FigureSpec = {
     ],
   },
   columns: [{ key: "code", label: "Code" }, { key: "title", label: "Indicator" }, { key: "baseline", label: "Baseline" }, { key: "target", label: "Target" }, { key: "cadence", label: "Cadence" }],
-  rows: KPIS.map((k) => ({ cells: { code: k.code, title: k.title, baseline: baselineText(k), target: k.target, cadence: k.cadence }, state: k.baseline.kind === "unmeasured" ? ("needed" as const) : ("target" as const), closesWith: k.baseline.kind === "unmeasured" ? "Week 1 export" : undefined })),
+  rows: KPIS.map((k) => ({ cells: { code: k.code, title: k.title, baseline: k.baseline.kind === "unmeasured" ? "Set in Week 1" : baselineText(k), target: k.target, cadence: k.cadence }, state: "target" as const })),
 };
 
 /* ------------------------------------------------------------------ fig-5-7-approval */
