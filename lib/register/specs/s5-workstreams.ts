@@ -66,7 +66,10 @@ export const FIG_USSD_MENU: FigureSpec = {
   takeaway: "Dial the shortcode, read the plan, register, report an issue, volunteer or opt in, with no internet and close to no cost.",
   sources: [PROPOSAL, { name: "Shortcode: [Insert shortcode] at contracting", tier: null, state: "needed" }],
   chart: { type: "mock", header: "KITUI NA MULU · *[shortcode]#", fields: MENU },
-  notes: ["Menu labels in Kikamba are pending the Kikamba reviewer's sign-off (Section 5.9.3)."],
+  notes: [
+    "Menu labels in Kikamba are pending the Kikamba reviewer's sign-off (Section 5.9.3).",
+    "The Section 5.7.8 charter requires a data opt-out the voter can reach from the menu; its position is set when the shortcode is provisioned.",
+  ],
   columns: [{ key: "n", label: "Option", numeric: true }, { key: "kikamba", label: "Kikamba" }, { key: "english", label: "English" }, { key: "does", label: "What it does" }],
   rows: MENU.map((m) => ({ cells: { n: m.n, kikamba: m.label, english: m.shown, does: m.issue } })),
 };

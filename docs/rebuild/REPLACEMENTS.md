@@ -140,3 +140,4 @@ Each figure below is built from a spec in `lib/register/specs/`; its table view 
 | §5.2.1.1 | ASCII diagram: "What happens to a report" (seven boxes joined by arrows) | Visual (brief §D.4) | `fig-5-2-1-report-flow` |
 | §5.2.3.2 | ASCII diagram: the field ↔ digital loop | Visual (brief §D.4) | `fig-5-2-3-field-loop`, two lanes |
 | §5.2.3.3 | ASCII block: the proposed USSD menu | Visual (brief §D.4) | `fig-5-2-3-ussd-menu`, the six options numbered on a phone-screen mock; Kikamba and English labels in its table |
+| §5.2.1.2 C | `ussd-menu` figure: a second, different USSD menu (four options, including an unsourced KSh 85/kg ndengu floor price) | One menu, one owner: Section 5.2.3.3 | A sentence pointing to `fig-5-2-3-ussd-menu`; the charter's opt-out requirement moves onto that figure as a note |

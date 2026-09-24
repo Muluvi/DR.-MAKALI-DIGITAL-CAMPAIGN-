@@ -472,16 +472,6 @@
   },
   {
     "kind": "confirm",
-    "gap": "the 82/18 weighting was set when digital reach was put at 13.6% of residents (the 2019 census rate). On the 2023/24 rate it is 26.2%. Firefly to confirm…",
-    "closes": "Campaign decision",
-    "holder": "The campaign",
-    "status": "Open",
-    "where": [
-      "Section 4.6"
-    ]
-  },
-  {
-    "kind": "confirm",
     "gap": "confirm both are held, and whether the shortcode is dedicated or shared",
     "closes": "Campaign decision",
     "holder": "The campaign",

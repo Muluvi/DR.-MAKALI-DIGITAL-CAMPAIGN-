@@ -345,7 +345,7 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
                 <p style={{ "--fx-i": 3 } as React.CSSProperties} className="fx-in-up col-start-1 t-body text-muted leading-relaxed text-pretty">
                   Campaign strategy and digital architecture for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
                 </p>
-                <div style={{ "--fx-i": 2 } as React.CSSProperties} className="fx-in-settle col-start-2 row-start-2 sm:row-start-1 sm:row-span-2 self-end w-[104px] sm:w-[150px] lg:w-[210px] shrink-0 -mb-1">
+                <div style={{ "--fx-i": 2 } as React.CSSProperties} className="fx-in-settle col-start-2 row-start-2 sm:row-start-1 sm:row-span-2 self-end w-[104px] sm:w-[150px] shrink-0 -mb-1 lg:hidden">
                   <Portrait id="hero-clasped-hands" sizes="(min-width: 1024px) 210px, (min-width: 640px) 150px, 104px" priority />
                 </div>
               </div>
@@ -381,7 +381,14 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
                 figures, and the spine of the argument. They sit here, under the portrait, on the
                 flow, and open the section on the /cover route, never both. The poll-share strip
                 that stood here is cut (docs/rebuild/REPLACEMENTS.md). */}
-            <Figure id="fig-cover-map" />
+            {/* On a wide screen the portrait sits beside the map (brief §F.1); on a phone it stays
+                beside the title, where there is room for it. */}
+            <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_220px] lg:items-start lg:gap-6">
+              <Figure id="fig-cover-map" />
+              <div className="hidden lg:block lg:sticky lg:top-24 lg:mt-6">
+                <Portrait id="hero-clasped-hands" sizes="220px" />
+              </div>
+            </div>
             <Figure id="fig-cover-spine" />
           </section>
         )}

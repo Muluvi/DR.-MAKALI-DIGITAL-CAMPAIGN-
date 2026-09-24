@@ -157,12 +157,9 @@ id: format-specs
 
 ##### C. USSD Interactive Menu Tree Structure
 
-> **The codes below are illustrative structure, not provisioned identifiers.** The live shortcode
-> and sender ID are `[Insert shortcode]` and `[Insert sender ID]` until the aggregator provisions
-> them (Section 6.1). Nothing here should be printed, dialled or published as a working number.
-```figure
-id: ussd-menu
-```
+The menu is set out once, in Section 5.2.3.3, which governs the offline layer. The live shortcode
+and sender ID are `[Insert shortcode]` and `[Insert sender ID]` until the aggregator provisions
+them (Section 6.1). Nothing here should be printed, dialled or published as a working number.
 
 #### The weekly production schedule
 

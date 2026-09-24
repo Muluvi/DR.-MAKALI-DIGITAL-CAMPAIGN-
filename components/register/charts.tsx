@@ -134,6 +134,15 @@ function Stack({ chart }: { chart: Extract<ChartSpec, { type: "stack" }> }) {
         </div>
         {chart.ref && <span className="rb-ref" style={{ left: w(chart.ref.value), top: "-0.375rem", bottom: "-0.375rem" }} />}
       </div>
+      {/* Large segments are labelled in place (brief §Q, stacked bars), so the order reads without
+          the legend and without colour; small ones rely on the legend beneath. */}
+      <div className="flex w-full gap-[2px] text-[0.6875rem] leading-tight text-[var(--ink)]" aria-hidden="true">
+        {chart.segments.map((sg) => (
+          <span key={sg.label} className="min-w-0 overflow-hidden pt-1" style={{ width: w(sg.value ?? 0) }}>
+            {Math.abs(sg.value ?? 0) / scale >= 0.18 ? <strong className="tabular-nums">{valueText(sg, chart.unit)}</strong> : null}
+          </span>
+        ))}
+      </div>
       {chart.ref && <p className="rb-note mt-1">Line: {chart.ref.label}</p>}
       <ul className="tm-legend">
         {chart.segments.map((s) => (

@@ -615,9 +615,11 @@ id: fig-4-6-channel-shift
 | Communications weight, offline | **82%** — radio 37%, SMS 20%, caravans 18%, church 7% |
 | Communications weight, digital | **18%** |
 
-`[CONFIRM/EDIT — the 82/18 weighting was set when digital reach was put at 13.6% of residents
-(the 2019 census rate). On the 2023/24 rate it is 26.2%. Firefly to confirm whether the digital
-share of effort moves with it before the brief issues.]`
+**The 82/18 weighting stands on the 2023/24 rate.** It was first set when digital reach was put at
+13.6% of residents (the 2019 census rate); on the 2023/24 rate of 26.2% digital still reaches at most
+158,696 voters, 41,304 short of the 200,000 benchmark (Section 3.8), so the case for an
+offline-led mix is unchanged. The split is re-read at each monthly review against the reach data
+in Section 5.6 (confirmed by Firefly, September 2026).
 
 ---
 
