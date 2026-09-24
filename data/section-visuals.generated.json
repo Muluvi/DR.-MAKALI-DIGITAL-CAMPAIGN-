@@ -3344,7 +3344,7 @@
     {
      "n": 5,
      "label": "Automatic kill rule",
-     "body": "Automatic kill rule: any ad below [Insert threshold — recommend 1.5% CTR]"
+     "body": "Automatic kill rule: any ad below 1.5% CTR"
     }
    ]
   }

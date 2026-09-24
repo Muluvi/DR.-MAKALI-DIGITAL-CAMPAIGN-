@@ -147,6 +147,16 @@ for (const spec of REGISTER_ORDER) {
   }
 }
 
+// The same gap reached two ways ("listenership by station; GeoPoll or KARF" in one section, bare
+// "listenership by station" in another) is one item: fold an item whose document names another's gap.
+for (const [key, it] of [...items]) {
+  if (it.kind !== "data") continue;
+  const twin = [...items.values()].find((o) => o !== it && o.kind === "data" && o.gap.toLowerCase() === it.closes.toLowerCase());
+  if (!twin) continue;
+  for (const w of it.where) if (!twin.where.includes(w)) twin.where.push(w);
+  items.delete(key);
+}
+
 const ORDER = { data: 0, confirm: 1, placeholder: 2 };
 const list = [...items.values()].sort((a, b) => ORDER[a.kind] - ORDER[b.kind]);
 const body = JSON.stringify(list, null, 2) + "\n";

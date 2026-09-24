@@ -704,10 +704,10 @@ Three parties, not two. The column that matters is the last one.
 id: fig-5-7-approval
 ```
 
-**Who holds the ad account is a decision for Dr. Mulu, not an assumption in this document.**
-Firefly's recommendation: the campaign holds it, Firefly takes Analyst and Advertiser access so it
-can plan and read, and your team places. That keeps the credential where the accountability is and
-still closes the loop. `[CAMPAIGN DECISION REQUIRED]`
+**Who holds the ad account: the campaign.** Firefly's recommendation, approved in September 2026:
+the campaign holds the ad account, Firefly takes Analyst and Advertiser access so it can plan and
+read, and your team places. That keeps the credential where the accountability is and still closes
+the loop.
 
 ---
 
@@ -864,7 +864,7 @@ denial.
 > **10. Your rights.**
 > You may ask us what data we hold about you, ask us to correct it, or ask us
 > to delete it, at any time, at fireflymanagement.ke@gmail.com. We will respond
-> within `[Insert SLA — recommend 14 days]`.
+> within **14 days**.
 >
 > *Published in Kikamba, Kiswahili and English.*
 

@@ -10,8 +10,8 @@ trajectory nobody measured.
 | Pollster | Release | Sample size | Margin of error (95%) | Mulu | Kasalu | Wambua | Ngilu | Undecided | Tier |
 |---|---|---|---|---|---|---|---|---|---|
 | Politrack Africa | 12 Mar 2026 | n = {{poll.politrack.n}} | ±1.4 to ±1.7 points, by candidate | 26.2% | 35.2% | 18.8% | 18.6% | 0.6% | T3 |
-| Mizani Africa | 23 Jun 2026 | `[DATA NEEDED — not published]` | Unknown: no sample size published | 20.2% | 31.3% | 16.3% | not polled | `[DATA NEEDED — not published]` | T2 |
-| Mizani Africa | 7 Aug 2026 | `[DATA NEEDED — not published]` | Unknown: no sample size published | 22.1% | 37.4% | 14.3% | 17.0% | 6.0% | T3 |
+| Mizani Africa | 23 Jun 2026 | Not published | Unknown: no sample size published | 20.2% | 31.3% | 16.3% | not polled | Not published | T2 |
+| Mizani Africa | 7 Aug 2026 | Not published | Unknown: no sample size published | 22.1% | 37.4% | 14.3% | 17.0% | 6.0% | T3 |
 
 *Politrack via The County Diary, 12 March 2026; Mizani via Mizani Africa and The County Diary. The
 Politrack margins are computed from its published sample on a simple-random assumption, which a
