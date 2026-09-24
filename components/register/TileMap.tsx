@@ -46,7 +46,7 @@ export function TileMap({ id, layers, initial, showWardList = false }: { id: str
         <defs>
           <pattern id={`${id}-hatch`} patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
             <rect width="6" height="6" fill="transparent" />
-            <line x1="0" y1="0" x2="0" y2="6" stroke="var(--card)" strokeWidth="2.2" strokeOpacity="0.65" />
+            <line x1="0" y1="0" x2="0" y2="6" stroke="var(--card)" strokeWidth="2.2" strokeOpacity="0.65" /> {/* verify-figures-ignore: hatch opacity */}
           </pattern>
         </defs>
 

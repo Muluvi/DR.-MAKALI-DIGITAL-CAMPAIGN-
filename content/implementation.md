@@ -30,23 +30,9 @@ separately and appear nowhere in this document.
 
 ### 5.1.2 The fourteen, by owner
 
-| Owner | WS | Workstream | What Firefly contributes | Level |
-|---|---|---|---|---|
-| **Firefly** | 1 | The public service-delivery tracker (§5.2.1.1) | Built and operated by Firefly — new infrastructure nobody currently runs | All |
-| **Your team, directed** | 1 | Owned platform operation (§5.2.1.1) | The brief, the calendar, the approval gate. Firefly holds no credentials | All |
-| **Your team, directed** | 2 | Content production and asset governance (§5.2.1.2) | Weekly brief, pillar weights, language rule, asset standard | All |
-| **Firefly** | 3 | Creative testing and AI assistance (§5.2.1.3) | Test design, variant selection, and the read on the result | All |
-| **Firefly standard, team-executed** | 4 | Accessibility and inclusion (§5.2.1.4) | The standard, written into every brief | **All — not a level** |
-| **Your team, directed** | 5 | Platform tactics and paid media (§5.2.2.1) | Targeting plans and performance reading. The ad account stays campaign-side (§5.7.3) | All |
-| **Your team, directed** | 6 | Earned media, journalists and debates (§5.2.2.2) | Briefing notes, debate prep, the evidence pack | All |
-| **Campaign-owned** | 7 | Ground-digital integration (§5.2.3.1) | The reporting template, and the analysis of what comes back | Standard+ |
-| **Campaign-owned** | 8 | The field-to-digital loop (§5.2.3.2) | The instrument and its data governance | Standard+ |
-| **Firefly** | 9 | **Offline reach: SMS, USSD and voice (§5.2.3.3)** | Operated directly — the WhatsApp Business API line and the USSD shortcode | **Standard = all 40 wards** |
-| **Out of scope** | 10 | Digital organising and volunteers (§5.2.3.4) | Metric definitions for the leaderboard, and nothing else | — |
-| **Firefly** | 11 | The data layer (§5.2.4.1) | Voter and supporter model built to the Data Protection Act 2019 | All |
-| **Firefly** | 12 | Predictive voter modelling (§5.2.4.2) | Scored voter file | **Standard+, gated on §5.2.4.2** |
-| **Out of scope** | 13 | The technology stack (§5.2.4.3) | Only the tracker, the CRM and the offline layer. The rest Dr. Mulu already holds | — |
-| **Firefly** | 14 | Analytics and attribution (§5.2.4.4) | The engine room of this engagement — measurement, attribution, the weekly read | Standard+ |
+```figure
+id: fig-5-1-workstreams
+```
 
 **Workstream 9 is the one Firefly operates and the one that decides the race.** **{{ict.offline}}%** of Kitui
 residents are outside the internet-using population (CA/KNBS 2023/24, Tier 1), and Section 4.6 puts
@@ -122,5 +108,9 @@ layer — and reaching the arid belt is the whole argument.
 ---
 
 ## 5.2 The workstreams in detail
+
+```figure
+id: fig-5-2-workstream-panels
+```
 
 The fourteen workstreams, in four groups: 5.2.1 Platforms and content (workstreams 1 to 4), 5.2.2 Publishing and earned media (5 and 6), 5.2.3 Ground and offline reach (7 to 10) and 5.2.4 Data and technology (11 to 14). Each sets out what it produces, who owns it and how often it reports.

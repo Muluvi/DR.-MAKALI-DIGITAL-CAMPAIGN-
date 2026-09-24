@@ -15,6 +15,10 @@ unfamiliarity — the response is different, and the campaign will know **before
 significant effort is committed. This is the discipline the rest of the
 proposal claims to embody, applied to its own first assumption.
 
+```figure
+id: fig-5-3-four-weeks
+```
+
 **Week 1 — the presence audit (immediate):**
 - **The presence audit (Sections 5.3.1–5.3.5)** — ninety days of the existing channels: reach by ward, engagement on
   reach, language mix, format mix, cadence, and the structural Page-or-profile question
@@ -173,6 +177,10 @@ because they are set by the electoral calendar rather than by when this engageme
 
 Five phases: a new Phase −1 addressing the nomination contest, followed by the
 original four phases running to the General Election on **10 August 2027**.
+
+```figure
+id: fig-5-4-phases
+```
 
 **How to read the metric tables below.** Rows marked **°** are **operational diagnostics**, not
 performance indicators. Reach, follower and view counts are what the team steers ad delivery and
@@ -396,20 +404,9 @@ and that is a real drawback rather than a disclaimer
 
 ### 5.5.2 The scope levels compared
 
-| | Lean | Standard | Premium |
-|---|---|---|---|
-| Presence audit | Once, at start | **Refreshed monthly** | Refreshed fortnightly |
-| Wards with reach reporting | 12 decisive | **All 40** | All 40 + diaspora |
-| Wards with active SMS/USSD | Partial | **All 40** | All 40 + diaspora |
-| Weekly brief | ✓ | ✓ | ✓ |
-| Creative testing | Monthly | **Weekly** | Weekly + message lab |
-| Predictive voter scoring | ✗ | ✓ | ✓ |
-| Multi-touch attribution | ✗ | ✓ | ✓ |
-| Focus groups | ✗ | Quarterly | Monthly |
-| Team upskilling | Standard, once | **Standard + pairing to Month 3** | Standard + embedded coaching |
-| Red-team drills | On trigger | Quarterly | Monthly |
-| Arid-belt reach | Weak | Strong | Strong |
-| Realistic Phase 3 contact universe | ~60,000 | ~150,000 | ~250,000 |
+```figure
+id: fig-5-5-cadence
+```
 
 **Recommendation: Level 2 (Standard).** Level 1 instruments only the twelve decisive wards, which
 leaves the recognition deficit measured at county level — the one place this campaign cannot afford
@@ -483,6 +480,10 @@ only the campaign can make, and it names them rather than assuming them.
 ## 5.6 How progress is measured
 
 Every indicator here is one Firefly can observe on his own channels or on the SMS list it operates. None is a poll share, and none waits on a survey. Section 1.5 states the principle; this section states the measures.
+
+```figure
+id: fig-5-6-kpis
+```
 
 ### 5.6.1 Stage 1: the nomination-window scorecard
 
@@ -699,17 +700,9 @@ Firefly is a **Kenya-based media and consulting company**. The proposal delibera
 
 Three parties, not two. The column that matters is the last one.
 
-| Content type | Drafted by | Approved by | Published by | Turnaround |
-|---|---|---|---|---|
-| Routine post inside an approved brief | Your team | Your team lead | Your team | Same day |
-| New policy claim or figure | Your team | Firefly + campaign counterpart | Your team | 24 hours |
-| Kikamba voice note | Your team + Kikamba reviewer | Firefly | Your team | 48 hours |
-| Response to attack, Level 1 | Your team | Your team lead, Firefly notified | Your team | ≤4 hours |
-| Response to attack, Level 2 | Firefly drafts | Campaign Communications Director | Your team | ≤2 hours |
-| Response to attack, Level 3 | Firefly drafts | **Candidate + senior leadership** | Your team | ≤30 minutes |
-| SMS / USSD / WhatsApp broadcast | Firefly | Campaign counterpart | **Firefly** | 24 hours |
-| Any voter-file-based targeting | — | **Compliance gate — see Section 5.7.9** | — | Before launch, no exceptions |
-| Paid targeting plan and reallocation within the agreed weighting | Firefly proposes | Campaign counterpart | Your team executes | 24 hours |
+```figure
+id: fig-5-7-approval
+```
 
 **Who holds the ad account is a decision for Dr. Mulu, not an assumption in this document.**
 Firefly's recommendation: the campaign holds it, Firefly takes Analyst and Advertiser access so it
@@ -930,14 +923,9 @@ What can go wrong and what happens when it does: rapid response, the war room th
 Six risks decide whether this plan survives contact. Everything after this section is how each
 is handled; Annex F carries the runbooks.
 
-| # | Risk | Likelihood | Impact | Owner | Mitigation |
-|---|---|---|---|---|---|
-| R1 | **The nomination is decided by delegates, not an opinion poll.** The poll mechanism is Tier 3 and unconfirmed | Medium | Severe — the targeting model changes wholesale | Firefly Director + campaign | Section 5.8.14's delegate whip contingency; Section 2.3.2 states the verification test that would close this |
-| R2 | **The recognition hypothesis is wrong.** The deficit may be about perceived distance, not unfamiliarity | Medium | Severe — the Phase −1 channel mix is built on it | Head of Research | Tested in Week 1 by the presence audit and the message lab, **before anything is committed against it** (Section 3.11) |
-| R3 | **The data-protection reviewer is not appointed in time.** The long-lead campaign appointment | Medium | High — gates the voter-file work in Section 5.2.4.2 and the mass SMS layer | Campaign | Section 5.7.9's compliance gate; named as dependency 4 in Section 6.1 |
-| R4 | **ODPC guidance prohibits the planned SMS approach.** The political-campaigning circular could not be retrieved | Low | High — Workstream 9 is the layer the race turns on | Campaign Legal Director | Section 6.2's three mandatory actions, before Phase −1 broadcasting |
-| R5 | **A manipulated-media attack lands inside the nomination window** | Medium | High — a compressed window leaves no time to recover | Digital Director | Section 5.8.7's protocol; hardware-key 2FA from day one (Section 5.3) |
-| R6 | **Firefly's brief and the team's judgement disagree.** The direction model puts an outside brief in front of people who know the ground better | High — it will happen, and should | Moderate if handled, severe if suppressed | Firefly Director + team lead | The brief states intent and the rule, never the caption. Where the team overrides, they log why in the calendar, and the monthly review reads the overrides as data rather than as non-compliance |
+```figure
+id: fig-5-8-risk
+```
 
 **R1 and R2 are the two that change the plan rather than damage it**, and both are resolved by
 measurement rather than by contingency: one by obtaining the pollster's terms of reference, the
@@ -1153,6 +1141,10 @@ Because Governor Malombe served as Governor from 2013–2017, lost the 2017 elec
     today. This engagement adds a brief to their week. It does not add a manager to their line.
 *   **The 3-person Firefly core** named at every engagement level in Section 5.5 — strategy,
     analysis, and the offline layer.
+
+```figure
+id: fig-5-9-team
+```
 
 Where this section says "four-person core" it means the campaign's; where Section 5.5 says
 "3-person core" it means Firefly's; where it says "your team" it means the one already in post.

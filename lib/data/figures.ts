@@ -286,8 +286,8 @@ sourced("channel.fb.posts", 745, "count", "T3", "Public Facebook page, as displa
 sourced("poll.politrack.n", 2_927, "count", "T3", "Politrack Africa, via The County Diary, 12 March 2026");
 
 // ---- segment sizes that are derived rather than measured (Section 4.3)
-modelled("segment.rural.voters", Math.round((v("register.2022") * 95.2) / 100 / 1000) * 1000, "voters", "95.2% rural share applied to the 2022 register, rounded. The register is not published by rural/urban split.");
-modelled("segment.urban.voters", Math.round((v("register.2022") * 4.8) / 100 / 1000) * 1000, "voters", "4.8% urban share applied to the 2022 register, rounded.");
+modelled("segment.rural.voters", Math.round((v("register.2022") * v("census.rural.share")) / 100 / 1000) * 1000, "voters", "95.2% rural share applied to the 2022 register, rounded. The register is not published by rural/urban split.");
+modelled("segment.urban.voters", Math.round((v("register.2022") * v("census.urban.share")) / 100 / 1000) * 1000, "voters", "4.8% urban share applied to the 2022 register, rounded.");
 modelled("segment.youth.voters", 234_000, "voters", "The 2019 census age distribution applied to the 2022 register; the register is not published by age.");
 
 // ---- shares quoted in prose, computed so they cannot drift from their parts
@@ -348,6 +348,20 @@ for (const [phase, anchor, mwingi, arid, rotating] of EFFORT) {
   target(`effort.${phase}.arid`, arid, "percent", "Share of communications effort to the arid and resource belt.", { source: T_FIREFLY, decimals: 0 });
   target(`effort.${phase}.rotating`, rotating, "percent", "Share of communications effort rotating across wards as testing.", { source: T_FIREFLY, decimals: 0 });
 }
+// ---- where communications effort goes by channel (Section 4.6): the conventional pitch as Firefly
+// characterises it, and the rebalanced target. Shares of effort, not money.
+const CHANNEL_SHIFT: [string, string, number, number][] = [
+  ["radio", "Vernacular radio (Musyi, County, Wikwatyo)", 20, 37],
+  ["sms", "Direct SMS and the USSD tree", 10, 20],
+  ["markets", "Market caravans and barazas", 15, 18],
+  ["digital", "Digital and social media", 45, 18],
+  ["church", "Church and community outreach", 10, 7],
+];
+for (const [id, label, from, to] of CHANNEL_SHIFT) {
+  target(`channel.${id}.conventional`, from, "percent", `${label}: share of effort in the conventional pitch, as Firefly characterises it.`, { source: T_FIREFLY, decimals: 0 });
+  target(`channel.${id}.rebalanced`, to, "percent", `${label}: share of effort, rebalanced.`, { source: T_FIREFLY, decimals: 0 });
+}
+target("channel.offline.rebalanced", CHANNEL_SHIFT.filter(([id]) => id !== "digital").reduce((n, [, , , to]) => n + to, 0), "percent", "Share of effort offline, rebalanced: radio, SMS, caravans and church.", { source: T_FIREFLY, decimals: 0 });
 target("effort.digital.pool", 65, "percent", "Share of Phase −1 digital reach effort geofenced to the pool.", { source: T_FIREFLY, decimals: 0 });
 target("effort.sms.pool", 70, "percent", "Share of SMS/USSD onboarding effort to the pool's 21 wards.", { source: T_FIREFLY, decimals: 0 });
 

@@ -4,23 +4,9 @@ What this proposal needs from the campaign, what is still open, and the decision
 
 Stated plainly, because these are the dependencies that determine delivery:
 
-1. **One named counterpart** with authority to approve content, and **one named lead on the
-   existing digital team** to receive the weekly brief
-2. **Read-only analytics access** on every existing channel — Analyst role on Meta, equivalent
-   elsewhere, no publishing rights. Without it there is nothing to analyse and the engagement
-   cannot start
-3. **Candidate time:** approximately 3 hours per week — one Facebook Live, one
-   voice-note recording session, one interview or content block
-4. **Ground team asset uploads:** daily photographs and video from the trail
-5. **Appointment of the data-protection reviewer** (Section 5.7.9) — the
-   long-lead item, needed in Phase −1
-6. **The IEBC 2026 register annex** — county-level first, ward-level when published. **This is
-   the highest-priority data request in this proposal**: the ward file re-bases every ward figure in
-   Section 3. The county total, 605,703, is confirmed (Tier 1, Section 2.1)
-7. **Access to the existing NG-CDF project record** for verified proof points — **the project
-   record, not the beneficiary list.** Bursary and beneficiary personal data is off-limits for
-   campaign contact under ODPC's 2025 public-sector guidance (Section 5.7.6)
-8. **Sign-off on the engagement level** so the team can be assembled
+```figure
+id: fig-6-1-dependencies
+```
 
 #### The marked placeholders, in one list
 
@@ -52,7 +38,7 @@ baseline or by testing, and each is left open deliberately rather than filled wi
 
 ### 6.1.1 What this asks of the campaign
 
-Seven dependencies, set out in full in Section 6.1. Three of them gate everything else:
+Eight dependencies, set out in full in Section 6.1. Three of them gate everything else:
 
 *   **A named counterpart** with authority to approve content.
 *   **Read-only analytics access** on the existing accounts — Analyst role, no publishing rights.
@@ -60,11 +46,15 @@ Seven dependencies, set out in full in Section 6.1. Three of them gate everythin
 *   **Appointment of the data-protection reviewer** (Section 5.7.9) — the long-lead item, and the
     one that can delay the offline layer if it slips.
 
-The remaining four: approximately **3 hours** of candidate time per week; daily ground-team photo
-and video uploads; current ward-level registration data from the IEBC published file; and access to
-the existing NG-CDF project record.
+The remaining five: approximately **3 hours** of candidate time per week; daily ground-team photo
+and video uploads; current ward-level registration data from the IEBC published file; access to
+the existing NG-CDF project record; and sign-off on the engagement level.
 
 ## 6.2 Open items
+
+```figure
+id: fig-6-2-open-items
+```
 
 > [!WARNING]
 > **COMPLIANCE ACTION ITEM — ODPC DIRECTIVE CONFIRMATION REQUIRED:**
@@ -150,6 +140,10 @@ presented as settled fact.
 ## 6.3 The decision: one week and one export
 
 What this section adds is the clock behind the ask, and the ask itself (Section 6.3.2).
+
+```figure
+id: fig-6-3-decision
+```
 
 > ### THE WINDOW, NOT THE DEADLINE
 >

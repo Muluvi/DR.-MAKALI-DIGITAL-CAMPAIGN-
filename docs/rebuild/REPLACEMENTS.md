@@ -117,3 +117,26 @@ Each figure below is built from a spec in `lib/register/specs/`; its table view 
 | §3.9 | The six-row profile-issues table (#, as displayed, the issue) | Visual | `fig-3-9-audit`: the profile mock numbered 1–6, with the same six rows in its table, and the four audit figures as named gaps |
 | §3.10 | `targeting-summary` figure: eight §3.4 findings recomputed, including the stale "5 of the top 11 wards" | Visual; stale figure | `fig-3-10-gaps`, generated from every `[DATA NEEDED]` in the document; the findings it summarised are each drawn in §3.1–3.4 |
 | §3.11 | — (added) | Visual | `fig-3-11-evidence` |
+| §4.1 | — (added) | Visual | `fig-4-1-message-house` |
+| §4.2 | The zone × phase effort table (share of population, three phases) | Visual | `fig-4-2-effort`: effort tile map and heatmap; its table carries the population share and every phase value |
+| §4.3.8 | `audience-segments` figure (segment sizes, several unsourced) | Visual; NN5 | `fig-4-3-segments`: three sizes derived from the census and marked modelled, three as `[DATA NEEDED — …]` |
+| §4.4 | `message-house` figure (the three message pillars; the position now sits in `fig-4-1-message-house`) | Visual | `fig-4-4-message-region`: region × message, and the language rules |
+| §4.5.5 | The seven-day "now / after" table | Visual | `fig-4-5-calendar`: the same seven days, coloured by pillar, with both columns in each cell and the table |
+| §4.6 | `effort-rebalance` figure | Visual | `fig-4-6-channel-shift`: slope of effort shares, and station posture from §2.7 |
+| §4.7 | The six-row fixes table (order, finding, before, after) | Visual | `fig-4-7-profile-fixes`, PhD first |
+| §4.8 | The seven-row decision table (if the audit finds / the strategy changes to) | Visual | `fig-4-8-decision-rules` |
+| §5.1.2 | The fourteen-row owner table (owner, WS, workstream, contribution, level) | Visual | `fig-5-1-workstreams`, coloured and bordered by owner; the per-level detail stays in §5.5 |
+| §5.2 | — (added) | Visual | `fig-5-2-workstream-panels` |
+| §5.3 | — (added) | Visual | `fig-5-3-four-weeks` |
+| §5.4 | — (added) | Visual | `fig-5-4-phases`, on the same date axis as `fig-1-1-timeline` |
+| §5.5.2 | The scope-levels table (Lean, Standard, Premium) | Visual | `fig-5-5-cadence`: the cadence at Level 2 and the depth by level; rows for weekly brief, attribution, upskilling, red-team drills and arid-belt reach are carried in the §5.5.1 prose and §5.5.3 schedule |
+| §5.6 | — (added; the two scorecards stay, they carry definitions and methods) | Visual | `fig-5-6-kpis` |
+| §5.7.3 | The decision-rights table | Visual | `fig-5-7-approval`: approval path and escalation ladder; every row in its table |
+| §5.8 | The six-row risk table | Visual | `fig-5-8-risk`: likelihood × impact matrix with both branch diagrams; owner, why and mitigation in its table |
+| §5.9 | — (added) | Visual | `fig-5-9-team` |
+| §6.1 | The numbered list of eight dependencies | Visual | `fig-6-1-dependencies`, the three gating items marked; each item's detail in its table |
+| §6.2 | — (added) | Visual | `fig-6-2-open-items`, generated from every marker in the document |
+| §6.3 | — (added) | Visual | `fig-6-3-decision` |
+| §5.2.1.1 | ASCII diagram: "What happens to a report" (seven boxes joined by arrows) | Visual (brief §D.4) | `fig-5-2-1-report-flow` |
+| §5.2.3.2 | ASCII diagram: the field ↔ digital loop | Visual (brief §D.4) | `fig-5-2-3-field-loop`, two lanes |
+| §5.2.3.3 | ASCII block: the proposed USSD menu | Visual (brief §D.4) | `fig-5-2-3-ussd-menu`, the six options numbered on a phone-screen mock; Kikamba and English labels in its table |

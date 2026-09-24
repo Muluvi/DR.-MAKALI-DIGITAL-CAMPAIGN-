@@ -170,7 +170,7 @@
   {
     "id": "fig-3-10-gaps",
     "section": "3.10",
-    "title": "41 facts the analysis needs are not yet in hand, and each has a named document that closes it",
+    "title": "44 facts the analysis needs are not yet in hand, and each has a named document that closes it",
     "question": "What can't the data tell us yet, and what closes each gap?",
     "takeaway": "None of these is estimated and none is closed by new polling: each waits on a document that already exists or an export only he can grant."
   },
@@ -180,5 +180,166 @@
     "title": "The diagnosis is a recognition gap outside Kitui Central, and one rival's result is the strongest evidence against it",
     "question": "How strong is the diagnosis, and what would overturn it?",
     "takeaway": "Week 1 tests it against his own channel data before anything is committed: if his reach already lands in Mwingi, the problem is message, not reach."
+  },
+  {
+    "id": "fig-4-1-message-house",
+    "section": "4.1",
+    "title": "One position, four pillars that argue it, and a record that holds it up",
+    "question": "What is the position, and what holds it up?",
+    "takeaway": "Every message rests on something already on the public record; none rests on a promise alone."
+  },
+  {
+    "id": "fig-4-2-effort",
+    "section": "4.2",
+    "title": "In Phase −1, 65% of the effort goes to Mwingi and the arid belt, well above their share of residents",
+    "question": "Where does the effort go in Phase −1?",
+    "takeaway": "The weighting over-indexes on the pool because the nomination deficit is a recognition deficit; 65% of digital reach effort is geofenced to it."
+  },
+  {
+    "id": "fig-4-3-segments",
+    "section": "4.3",
+    "title": "Six segments, three of them sized from the census and three that no published source sizes yet",
+    "question": "Who are we trying to move, and how much do they matter?",
+    "takeaway": "Sizes overlap and are not additive; where no source exists the cell names the document that would close it rather than guessing."
+  },
+  {
+    "id": "fig-4-4-message-region",
+    "section": "4.4",
+    "title": "Each region hears a different case for the same candidate, and Kikamba travels by voice, never by bulk SMS",
+    "question": "What do we say where, and in which language?",
+    "takeaway": "The anchor hears his record, Mwingi hears a published allocation method, the arid belt hears infrastructure; the language follows the channel."
+  },
+  {
+    "id": "fig-4-5-calendar",
+    "section": "4.5",
+    "title": "The same seven days become six briefed posts across four pillars, and Thursday's commitment returns as a Sunday check",
+    "question": "What gets published, and when?",
+    "takeaway": "Two fields on a Thursday post and a language rule change the week; who takes the photograph and who presses publish do not."
+  },
+  {
+    "id": "fig-4-6-channel-shift",
+    "section": "4.6",
+    "title": "Radio's share of effort nearly doubles and digital's falls to 18%, because digital cannot reach the number",
+    "question": "How does effort move between channels?",
+    "takeaway": "82% of effort goes offline; radio placement goes only to the stations Section 2.7 marks for placement."
+  },
+  {
+    "id": "fig-4-7-profile-fixes",
+    "section": "4.7",
+    "title": "Six profile corrections, each minutes of work, and the missing PhD comes first",
+    "question": "What gets fixed first?",
+    "takeaway": "The doctorate is the differentiator no rival holds, and it is absent from the one field a voter checks."
+  },
+  {
+    "id": "fig-4-8-decision-rules",
+    "section": "4.8",
+    "title": "Seven findings the Week 1 audit could return, each with the change it triggers, fixed in advance",
+    "question": "When does the plan change?",
+    "takeaway": "Stating the rules before the audit means the data cannot be read backwards into whatever was already planned."
+  },
+  {
+    "id": "fig-5-1-workstreams",
+    "section": "5.1",
+    "title": "Of the fourteen workstreams, Firefly operates the analysis, the data and the offline layer, and your team keeps publishing",
+    "question": "Who owns what?",
+    "takeaway": "Workstream 9, the offline layer, is the one Firefly runs directly and the one the race turns on; two workstreams sit outside the engagement."
+  },
+  {
+    "id": "fig-5-2-workstream-panels",
+    "section": "5.2",
+    "title": "Four groups of work, each with one product, one owner and one rhythm",
+    "question": "What does each group produce?",
+    "takeaway": "Most of the output is your team's existing work, now directed; Firefly's own products are the brief, the analysis and the offline dispatch."
+  },
+  {
+    "id": "fig-5-3-four-weeks",
+    "section": "5.3",
+    "title": "The first week measures, and nothing is committed against the diagnosis until it has",
+    "question": "What happens in the first four weeks?",
+    "takeaway": "Week 1 is the audit; the brief starts in Week 2, weighted to the pool, and the six fixes ship by the end of it."
+  },
+  {
+    "id": "fig-5-4-phases",
+    "section": "5.4",
+    "title": "Four phases run to the election, and the nomination phase overlaps the first",
+    "question": "How does the plan run to August 2027?",
+    "takeaway": "Phase −1 is aimed at a window reported for late October to November; the three general-election phases follow it to 10 August 2027."
+  },
+  {
+    "id": "fig-5-5-cadence",
+    "section": "5.5",
+    "title": "He receives a brief every week and a read every month, and the level sets how deep each goes",
+    "question": "What does he receive, and how often?",
+    "takeaway": "Standard, the recommended level, is the one at which all 40 wards carry reach reporting and an active SMS and USSD layer."
+  },
+  {
+    "id": "fig-5-6-kpis",
+    "section": "5.6",
+    "title": "Nine indicators judge the work, four for the nomination and five for the election, and none is a poll share",
+    "question": "How is progress measured?",
+    "takeaway": "Every indicator is observable on his channels, the SMS list or the field record, and each stays empty until its baseline is taken."
+  },
+  {
+    "id": "fig-5-7-approval",
+    "section": "5.7",
+    "title": "Your team drafts and publishes, one named counterpart approves, and an attack climbs three levels in hours",
+    "question": "How are decisions made?",
+    "takeaway": "Firefly approves new claims and Kikamba output and publishes only the offline broadcasts; a Level 3 attack reaches the candidate within thirty minutes."
+  },
+  {
+    "id": "fig-5-8-risk",
+    "section": "5.8",
+    "title": "Two of the six risks would change the plan rather than damage it, and both are settled by measurement early",
+    "question": "What could go wrong?",
+    "takeaway": "R1 closes with the pollster's terms of reference, R2 with the Week 1 audit; the incumbent's eligibility stays open, so its two branches are drawn."
+  },
+  {
+    "id": "fig-5-9-team",
+    "section": "5.9",
+    "title": "Firefly adds three people and removes none, with five surge roles each tied to a trigger",
+    "question": "What shape is the team?",
+    "takeaway": "The campaign's command structure and his publishing team stay as they are; Firefly reports to one named counterpart and briefs one named lead."
+  },
+  {
+    "id": "fig-5-2-1-report-flow",
+    "section": "5.2.1.1",
+    "title": "Every report ends in a published outcome, and the reporter hears back twice",
+    "question": "What happens to a report in the service-delivery tracker?",
+    "takeaway": "The register shows what was reported, what was raised and what happened, failures included."
+  },
+  {
+    "id": "fig-5-2-3-field-loop",
+    "section": "5.2.3.2",
+    "title": "The doorstep and the ad audience update each other within a day",
+    "question": "How do the field and digital operations learn from each other?",
+    "takeaway": "A field validation match rate of at least 85% keeps both sides honest: if the model and the doorstep disagree, the model is wrong."
+  },
+  {
+    "id": "fig-5-2-3-ussd-menu",
+    "section": "5.2.3.3",
+    "title": "Six options on any phone, and the third puts the tracker in reach of a feature phone in Mutha",
+    "question": "What does the USSD menu offer?",
+    "takeaway": "Dial the shortcode, read the plan, register, report an issue, volunteer or opt in, with no internet and close to no cost."
+  },
+  {
+    "id": "fig-6-1-dependencies",
+    "section": "6.1",
+    "title": "The campaign provides 8 things, and three of them gate everything else",
+    "question": "What does the campaign provide?",
+    "takeaway": "A counterpart, read-only access and the data-protection reviewer come first; the rest follow once the engagement is running."
+  },
+  {
+    "id": "fig-6-2-open-items",
+    "section": "6.2",
+    "title": "69 items are still open: 44 data gaps, 4 to confirm and 21 placeholders",
+    "question": "What is still open?",
+    "takeaway": "Every one is named with who holds the answer; none is filled with an estimate."
+  },
+  {
+    "id": "fig-6-3-decision",
+    "section": "6.3",
+    "title": "The ask is one week and one export, because the nomination window sets the clock",
+    "question": "What is being asked?",
+    "takeaway": "Each week of delay is a week less of directed output before a window reported for late October; the 275,570-voter pool is where that output goes."
   }
 ]

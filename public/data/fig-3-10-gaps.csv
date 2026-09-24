@@ -7,7 +7,7 @@ Handset ownership by ward,CA/KNBS,Communications Authority,Open,Section 3.8.1,So
 Agent count for Kitui,Central Bank of Kenya or Safaricom agent register,Central Bank of Kenya or Safaricom,Open,Section 3.8.1,Sourced
 Market-day attendance,county trade department,County government or church offices,Open,Section 3.8.1,Sourced
 Congregation sizes,diocesan and denominational offices,County government or church offices,Open,Section 3.8.1,Sourced
-What the audit produces,Week 1 export,His team: the Week 1 export,Open,Section 3.9.1; Section 5.6.4; Section 1.3.1; Figure fig-1-5-scorecard,Sourced
+What the audit produces,Week 1 export,His team: the Week 1 export,Open,Section 3.9.1; Section 5.6.4; Section 1.3.1; Figure fig-1-5-scorecard; Figure fig-5-6-kpis,Sourced
 "CA/KNBS publish countywide connectivity (26.2% internet use, 44.1% phone ownership, 2023/24), but no ward-by-ward coverage figure is…",Communications Authority coverage maps by ward,Communications Authority,Open,Section 3.10,Sourced
 "The published rounds, and what each one measured",not published,To be named,Open,Section C.1,Sourced
 "In-county active users per platform are not published: they are , and Section 3.8 sizes what digital can reach from the published rates…","Meta Audience Insights export, Week 1",His team: the Week 1 export,Open,Section 2.6,Sourced
@@ -40,3 +40,6 @@ Ward-by-ward project record: value,"NG-CDF project inventory, verified",NG-CDF K
 "Which language travels: as displayed, or the figure","Meta Insights export, Week 1",His team: the Week 1 export,Open,Figure fig-3-9-audit,Sourced
 "Him against the field: as displayed, or the figure","Meta Insights export, Week 1",His team: the Week 1 export,Open,Figure fig-3-9-audit,Sourced
 Test,"Meta Insights export, Week 1",His team: the Week 1 export,Open,Figure fig-3-11-evidence,Sourced
+"Agro-pastoralist and arid-zone livestock keepers: size, registered voters","KNBS 2019 Census, Volume IV: households keeping livestock",KNBS,Open,Figure fig-4-3-segments,Sourced
+"Formal-sector professionals and educators: size, registered voters",TSC establishment for Kitui; County Public Service Board staff return,Public-sector employers,Open,Figure fig-4-3-segments,Sourced
+"Out-of-county Kamba diaspora: size, registered voters","KNBS 2019 Census migration tables, against the IEBC register by polling station",IEBC,Open,Figure fig-4-3-segments,Sourced

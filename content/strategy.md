@@ -63,6 +63,10 @@ four below.
 
 ---
 
+```figure
+id: fig-4-1-message-house
+```
+
 ### 4.1.6 The six campaign themes
 
 Six themes, each evidenced. **Every figure below carries the tier it was established at, and where it was established.** Three of them are not established anywhere in this proposal and say so rather than borrowing authority from the ones beside them — the theme they support stands without them, and each is obtainable from the CIDP or a KNBS bulletin the campaign can pull.
@@ -138,12 +142,9 @@ across zones covering under four-fifths of the population, and the missing sub-c
 either adding to a zone or an explicit statement of why they are out of scope before this
 table drives effort.
 
-| Zone | Share of population | Phase −1 (nomination) | Phase 1–2 | Phase 3 (GOTV) |
-|---|---|---|---|---|
-| Anchor (Central/West) | {{zone.anchor.share}}% | {{effort.p-1.anchor}}% | {{effort.p12.anchor}}% | {{effort.p3.anchor}}% |
-| Mwingi Block | {{zone.mwingi.share}}% | **{{effort.p-1.mwingi}}%** | {{effort.p12.mwingi}}% | {{effort.p3.mwingi}}% |
-| Arid & Resource Belt | {{zone.arid.share}}% | **{{effort.p-1.arid}}%** | {{effort.p12.arid}}% | {{effort.p3.arid}}% |
-| Rotating / testing | — | {{effort.p-1.rotating}}% | {{effort.p12.rotating}}% | {{effort.p3.rotating}}% |
+```figure
+id: fig-4-2-effort
+```
 
 Phase −1 deliberately over-indexes on Mwingi and the arid belt relative to
 population share, because the nomination deficit is a recognition deficit
@@ -310,7 +311,7 @@ states which applies to each row.
 
 
 ```figure
-id: audience-segments
+id: fig-4-3-segments
 ```
 
 ---
@@ -325,7 +326,7 @@ Political messaging in Kitui County has historically relied on empty populist sl
 Under the campaign's Provenance Discipline (Section A.1.1), **no claim is made without an attached primary empirical source**. Every message delivered—from a 160-character Kiswahili SMS to a 2-hour Kikamba radio debate—is grounded in certified parliamentary scorecards, Auditor-General reports, or KNBS economic data.
 
 ```figure
-id: message-house
+id: fig-4-4-message-region
 ```
 
 ### 4.4.1 The central claim and its three pillars
@@ -574,15 +575,9 @@ Dr. Mulu was, mostly in English, with no ward named outside Kitui Central, no co
 and no ask. `[CONFIRM against the Week 1 export before this is put in front of him — it must be his
 actual week, not a characterisation of it.]`
 
-| Day | Now | After |
-|---|---|---|
-| Mon | Church service, Kitui Central. Photos. English caption. | **P2.** Same photos. Kikamba caption on one family's poultry income. One figure. |
-| Tue | Delegation meeting. Group photo. English. | **P3.** 45-second vertical clip: what the delegation asked for, and what it would ask of the county. Kiswahili. |
-| Wed | Budget Committee, Parliament. Photo. English. | **P1.** What that committee released to Kitui this quarter, and whether it arrived. Kikamba voice note. |
-| Thu | Road inspection. Photos. English. | **P4.** Same photos, plus the ward named, one commitment, one date. Goes to that ward's WhatsApp group and consented SMS list. |
-| Fri | Funeral attendance. Photos. | *Unchanged.* Not every post is a campaign asset, and one that tries to be is worse than one that does not. |
-| Sat | Harambee. Photos. English. | **P2.** One household, one income stream, one number. Kikamba. |
-| Sun | Church. Photos. | **P1.** A twelve-week-old Thursday commitment, revisited. Delivered, delayed, or not done. |
+```figure
+id: fig-4-5-calendar
+```
 
 **Two rules on top.** At least two of the seven originate in a ward inside the deficit pool. At least
 four are Kikamba-first. Both rules are set by the Week 1 audit rather than by preference, and both
@@ -605,7 +600,7 @@ domain should carry: production time, team attention, weekly output and channel 
 is a statement of where the campaign's weight goes.
 
 ```figure
-id: effort-rebalance
+id: fig-4-6-channel-shift
 ```
 
 **§4.6 in one view.**
@@ -617,10 +612,10 @@ id: effort-rebalance
 | Reachable by SMS only | ~{{reach.sms-only}} voters (modelled: {{ict.phone}}% phone ownership less {{ict.internet}}% internet use) |
 | No phone: radio or in person only | ~{{reach.nophone}} voters (modelled) |
 | Vernacular radio reach | `[DATA NEEDED — Kitui listenership by station]` |
-| Communications weight, offline | **82%** — radio 37%, SMS 20%, caravans 18%, church 7% |
-| Communications weight, digital | **18%** |
+| Communications weight, offline | **{{channel.offline.rebalanced}}%** — radio {{channel.radio.rebalanced}}%, SMS {{channel.sms.rebalanced}}%, caravans {{channel.markets.rebalanced}}%, church {{channel.church.rebalanced}}% |
+| Communications weight, digital | **{{channel.digital.rebalanced}}%** |
 
-`[CONFIRM/EDIT — the 82/18 weighting was set when digital reach was put at {{ict.internet.2019}}% of residents
+`[CONFIRM/EDIT — the {{channel.offline.rebalanced}}/{{channel.digital.rebalanced}} weighting was set when digital reach was put at {{ict.internet.2019}}% of residents
 (the 2019 census rate). On the 2023/24 rate it is {{ict.internet}}%. Firefly to confirm whether the digital
 share of effort moves with it before the brief issues.]`
 
@@ -638,14 +633,9 @@ The political economy of Kamba broadcasting presents three structural hazards fo
 Because Section 3.9: six entries on his own profile contradict the parliamentary record or the
 positioning, and each takes minutes to correct.
 
-| Order | Finding (Section 3.9) | Before | After |
-|---|---|---|---|
-| 1 | #5 | Education lists Kenyatta University, but not the PhD | Add the **PhD in Economics (Kenyatta University, 2009–2014)** |
-| 2 | #1 | MP start date "Aug 2012" | Correct to **2013** |
-| 3 | #2 | "Programmer Officer — CDTF" | **M&E Officer, CDTF, 1997–2004** |
-| 4 | #3 | "Forms of government — Economist" | **Economist, Ministry of Planning & Finance, 1991–1997** |
-| 5 | #4 | Current city: Nairobi | Consider showing Kitui |
-| 6 | #6 | Bio: "Incoming Governor Kitui County 2027" | A deliberate messaging choice to review, not to leave on autopilot |
+```figure
+id: fig-4-7-profile-fixes
+```
 
 **The PhD is the one to fix first.** The site argues that his economics doctorate and his evaluation
 record are the differentiators no rival holds. Neither appears on the profile where a voter would
@@ -668,12 +658,6 @@ Because Section 3.11: the diagnosis is a hypothesis, and Week 1 tests it.
 Stated as decision rules in advance, so the audit cannot be read backwards into whatever was already
 planned.
 
-| If the audit finds | The strategy changes to |
-|---|---|
-| Follower and reach geography concentrated in Kitui Central and Nairobi | The recognition thesis is confirmed on his own data. Output weight shifts to Mwingi and the arid belt, and the headline indicator becomes reach share in the deficit pool (R-02, Section 5.6.3). |
-| Material reach in Mwingi but flat engagement there | The problem is message, not reach. The answer is the message lab (Section 5.6.9), not geofenced advertising — and the Phase −1 weighting in Section 4.2 is wrong. |
-| Kikamba posts out-engaging English by a wide margin | Language stops being a preference and becomes a rule in the weekly brief (Section 4.4.7). |
-| Video watch time collapsing before 10 seconds | Long flagship video is the wrong format. Short vertical and Kikamba voice notes replace it, and the deliverables cadence in Section 5.5.3 is re-cut. |
-| Most engagement produced by a few hundred repeat accounts | The follower base is a shell. Priority moves from page growth to consented WhatsApp and SMS list building (Section 5.2.3.3). |
-| Rivals running Meta ads while Dr. Mulu is not | Part of the gap is bought reach. The ad-account question in Section 5.7.3 becomes urgent. |
-| It is a personal profile, not a Page | No Insights, no ads, no delegated access, nothing to direct against. A structural finding that changes what can be directed at all, and it is settled in the first hour. |
+```figure
+id: fig-4-8-decision-rules
+```

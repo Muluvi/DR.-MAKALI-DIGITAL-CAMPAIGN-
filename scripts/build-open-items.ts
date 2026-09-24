@@ -21,7 +21,7 @@ const CHECK = process.argv.includes("--check");
 const SELF = new Set(["fig-3-10-gaps", "fig-6-2-open-items"]);
 
 export interface OpenItem {
-  kind: "data" | "confirm";
+  kind: "data" | "confirm" | "placeholder";
   gap: string;
   closes: string;
   holder: string;
@@ -56,7 +56,7 @@ function sentenceAround(line: string, at: number): string {
   const start = cut === -1 ? 0 : cut + 2;
   const rest = line.slice(at);
   const endRel = rest.search(/\.\s|\s\||$/);
-  let s = clean((line.slice(Math.max(0, start), at) + rest.slice(0, endRel)).replace(/\[(DATA NEEDED|CONFIRM\/EDIT)[^\]]*\]/g, ""));
+  let s = clean((line.slice(Math.max(0, start), at) + rest.slice(0, endRel)).replace(/\[(DATA NEEDED|CONFIRM\/EDIT|CAMPAIGN DECISION REQUIRED|VERIFIED FIGURE REQUIRED|KIKAMBA REVIEW NEEDED|CONFIRM|Insert)[^\]]*\]/g, ""));
   s = s.replace(/[\s:;,.(—-]+$/, "").replace(/^[\s:;,.)—-]+/, "");
   if (s.length > 140) s = s.slice(0, 137).replace(/\s\S*$/, "") + "…";
   return s || "Not stated";
@@ -65,26 +65,26 @@ function sentenceAround(line: string, at: number): string {
 const items = new Map<string, OpenItem>();
 function add(kind: OpenItem["kind"], gap: string, closes: string, where: string, byGap = false) {
   // A figure row whose document is already listed from the text joins that item.
-  if (byGap) {
+  if (byGap && kind !== "placeholder") {
     const same = [...items.values()].find((i) => i.kind === kind && i.closes.toLowerCase() === closes.toLowerCase() && !i.where.every((w) => w.startsWith("Figure")));
     if (same) {
       if (!same.where.includes(where)) same.where.push(where);
       return;
     }
   }
-  const key = byGap || kind === "confirm" || closes === "To be named" ? `${kind}|${gap.toLowerCase()}` : `${kind}|${closes.toLowerCase()}`;
+  const key = byGap || kind !== "data" || closes === "To be named" ? `${kind}|${gap.toLowerCase()}` : `${kind}|${closes.toLowerCase()}`;
   const it = items.get(key);
   if (it) {
     if (!it.where.includes(where)) it.where.push(where);
     return;
   }
-  items.set(key, { kind, gap, closes, holder: kind === "confirm" ? "The campaign" : holderOf(closes), status: "Open", where: [where] });
+  items.set(key, { kind, gap, closes, holder: kind === "data" ? holderOf(closes) : closes === "Kikamba reviewer" ? "Kikamba reviewer" : "The campaign", status: "Open", where: [where] });
 }
 
 // 1. content markers. Read per file as one string, so a marker that wraps across lines is caught.
 // A bare marker quoted to describe the convention itself ("is marked `[DATA NEEDED]` with…") is not
 // a gap, and is skipped by the three phrasings the document uses for that.
-const MARK = /\[(DATA NEEDED|CONFIRM\/EDIT)(?:\s*—\s*([^\]]+))?\]/g;
+const MARK = /\[(DATA NEEDED|CONFIRM\/EDIT|CAMPAIGN DECISION REQUIRED|VERIFIED FIGURE REQUIRED|KIKAMBA REVIEW NEEDED|CONFIRM|Insert)(?:\s*—\s*([^\]]+)|\s+([^\]]+))?\]/g;
 const CONVENTION = /(marked|rest|reads)\s+`$/;
 for (const file of fs.readdirSync(CONTENT).filter((f) => f.endsWith(".md")).sort()) {
   const text = fs.readFileSync(path.join(CONTENT, file), "utf8").replace(/```[\s\S]*?```/g, (m) => m.replace(/[^\n]/g, " "));
@@ -97,7 +97,16 @@ for (const file of fs.readdirSync(CONTENT).filter((f) => f.endsWith(".md")).sort
     const lineStart = text.lastIndexOf("\n", at) + 1;
     const lineEnd = text.indexOf("\n", at + m[0].length);
     const line = text.slice(lineStart, lineEnd === -1 ? undefined : lineEnd);
-    const body = m[2] ? clean(m[2].replace(/\n>\s?/g, " ")).replace(/\.$/, "") : "";
+    const raw = m[2] ?? m[3];
+    const body = raw ? clean(raw.replace(/\n>\s?/g, " ")).replace(/\.$/, "") : "";
+    if (m[1] !== "DATA NEEDED" && m[1] !== "CONFIRM/EDIT") {
+      // The document's other placeholders: a decision, a review, or a value to insert at contracting.
+      const around = sentenceAround(line, at - lineStart);
+      const detail = body || (around === "Not stated" && head ? head.title : around);
+      const what = m[1] === "Insert" ? `To insert: ${detail}` : `${m[1].charAt(0)}${m[1].slice(1).toLowerCase()}: ${detail}`;
+      add("placeholder", what.length > 160 ? what.slice(0, 157).replace(/\s\S*$/, "") + "…" : what, m[1] === "KIKAMBA REVIEW NEEDED" ? "Kikamba reviewer" : m[1] === "Insert" ? "At contracting" : "Campaign decision", where, true);
+      continue;
+    }
     if (m[1] === "CONFIRM/EDIT") {
       const gap = body || sentenceAround(line, at - lineStart);
       add("confirm", gap.length > 160 ? gap.slice(0, 157).replace(/\s\S*$/, "") + "…" : gap, "Campaign decision", where);
@@ -138,7 +147,8 @@ for (const spec of REGISTER_ORDER) {
   }
 }
 
-const list = [...items.values()].sort((a, b) => (a.kind === b.kind ? 0 : a.kind === "data" ? -1 : 1));
+const ORDER = { data: 0, confirm: 1, placeholder: 2 };
+const list = [...items.values()].sort((a, b) => ORDER[a.kind] - ORDER[b.kind]);
 const body = JSON.stringify(list, null, 2) + "\n";
 
 if (CHECK) {
@@ -150,5 +160,5 @@ if (CHECK) {
 } else {
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
   fs.writeFileSync(OUT, body);
-  console.log(`build-open-items: ${list.filter((i) => i.kind === "data").length} data gaps, ${list.filter((i) => i.kind === "confirm").length} items to confirm`);
+  console.log(`build-open-items: ${list.filter((i) => i.kind === "data").length} data gaps, ${list.filter((i) => i.kind === "confirm").length} to confirm, ${list.filter((i) => i.kind === "placeholder").length} placeholders`);
 }

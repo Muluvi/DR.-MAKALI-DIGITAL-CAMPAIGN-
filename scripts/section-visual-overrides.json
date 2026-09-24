@@ -4,8 +4,8 @@
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
   "strategy-sec-4-8": {
-    "kind": "playbook",
-    "note": "Seven decision rules, written in advance as a two-column 'if the audit finds / the strategy changes to' table. It is a response playbook and should be drawn as one."
+    "kind": "none",
+    "note": "The decision table this drew is now fig-4-8-decision-rules, placed in the section; a second drawing of the same rules would repeat it."
   },
   "strategy-sec-4-4-9": {
     "kind": "none",

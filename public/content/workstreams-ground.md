@@ -99,20 +99,8 @@ re-canvasses households digital already converted; digital keeps advertising to
 voters the ground team has confirmed as committed opponents. In a county of
 30,430 square kilometres, that duplication is unaffordable.
 
-```
-   FIELD                                    DIGITAL
-   -----                                    -------
-   Ward champion canvasses  ---------->  Contact outcome logged
-   household                             (support/undecided/oppose)
-        ^                                        |
-        |                                        v
-   Priority route                        Voter score updated
-   delivered to                          (Section 5.2.4.2)
-   champion's phone                              |
-        ^                                        v
-        |                                Ad audiences and SMS
-   Highest-value  <----------------      lists re-segmented
-   households first                      within 24 hours
+```figure
+id: fig-5-2-3-field-loop
 ```
 
 * **Field to digital synchronization:**
@@ -225,14 +213,8 @@ voter. It is the single most under-used civic channel in Kenyan county
 politics.
 
 **Proposed menu — `*[Insert shortcode]#`:**
-```
-KITUI NA MULU
-1. Sisemo sya Mulu / Mulu's plan for my ward
-2. Andikithya kuvota / Voter registration info
-3. Ripoti wia / Report a local issue      <-- Section 5.2.1.1
-4. Kuthukuma / Volunteer
-5. Kwithukiisya / Get updates (opt-in)
-6. Kiswahili / English
+```figure
+id: fig-5-2-3-ussd-menu
 ```
 
 **Why option 3 matters most.** The service-delivery tracker (Section 5.2.1.1) is

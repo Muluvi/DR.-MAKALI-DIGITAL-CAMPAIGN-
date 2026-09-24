@@ -93,7 +93,8 @@
       "Section 3.9.1",
       "Section 5.6.4",
       "Section 1.3.1",
-      "Figure fig-1-5-scorecard"
+      "Figure fig-1-5-scorecard",
+      "Figure fig-5-6-kpis"
     ]
   },
   {
@@ -420,6 +421,36 @@
     ]
   },
   {
+    "kind": "data",
+    "gap": "Agro-pastoralist and arid-zone livestock keepers: size, registered voters",
+    "closes": "KNBS 2019 Census, Volume IV: households keeping livestock",
+    "holder": "KNBS",
+    "status": "Open",
+    "where": [
+      "Figure fig-4-3-segments"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Formal-sector professionals and educators: size, registered voters",
+    "closes": "TSC establishment for Kitui; County Public Service Board staff return",
+    "holder": "Public-sector employers",
+    "status": "Open",
+    "where": [
+      "Figure fig-4-3-segments"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Out-of-county Kamba diaspora: size, registered voters",
+    "closes": "KNBS 2019 Census migration tables, against the IEBC register by polling station",
+    "holder": "IEBC",
+    "status": "Open",
+    "where": [
+      "Figure fig-4-3-segments"
+    ]
+  },
+  {
     "kind": "confirm",
     "gap": "whether the endorsement signature count applies per sub-county or in total",
     "closes": "Campaign decision",
@@ -457,6 +488,219 @@
     "status": "Open",
     "where": [
       "Section 5.2.3.3"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "To insert: specified hardware security key model — two keys per critical account holder for redundancy",
+    "closes": "At contracting",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section F.8"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "To insert: baseline audit results — Week 1 deliverable",
+    "closes": "At contracting",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 5.3"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "To insert: native-speaker developed",
+    "closes": "At contracting",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 5.4.1"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "To insert: target",
+    "closes": "At contracting",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 5.4.9"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "To insert: independent Kenyan qualitative research facilitator; Firefly to recommend, campaign to appoint",
+    "closes": "At contracting",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 5.6.10"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "Campaign decision required: Decision rights and content approval",
+    "closes": "Campaign decision",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 5.7.3"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "Campaign decision required: confirmed in the Section 5.7.9 scope memorandum",
+    "closes": "Campaign decision",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 5.7.5"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "To insert: SLA — recommend 14 days",
+    "closes": "At contracting",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 5.7.8"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "To insert: named Kenyan data-protection / electoral-law specialist — to be appointed by the campaign",
+    "closes": "At contracting",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 5.7.9"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "To insert: vendor — selected at contracting",
+    "closes": "At contracting",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 5.8.7"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "Campaign decision required: anything further the campaign wishes placed outside scope",
+    "closes": "Campaign decision",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 5.1.3"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "Verified figure required: Kitui Central holds 77,764 registered voters (Tier 1), but a register count is not a support estimate",
+    "closes": "Campaign decision",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 4.3"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "Verified figure required: the Mwingi constituencies hold 200,198 registered voters (Tier 1), which is the ceiling on this universe and not its size",
+    "closes": "Campaign decision",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 4.3"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "To insert: verified number",
+    "closes": "At contracting",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 4.4.6"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "Kikamba review needed: the Kikamba name for each pillar, from the native-speaker reviewer named in Section 6.1. None is invented here, and none should be…",
+    "closes": "Kikamba reviewer",
+    "holder": "Kikamba reviewer",
+    "status": "Open",
+    "where": [
+      "Section 4.5"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "Confirm: against the Week 1 export before this is put in front of him — it must be his actual week, not a characterisation of it",
+    "closes": "Campaign decision",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 4.5.5"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "To insert: shortcode",
+    "closes": "At contracting",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 5.2.4.4",
+      "Section 5.2.3.3",
+      "Section 5.2.1.1",
+      "Section 5.2.1.2"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "To insert: sender ID",
+    "closes": "At contracting",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 5.2.1.2"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "To insert: threshold — recommend 1.5% CTR",
+    "closes": "At contracting",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 5.2.1.3"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "To insert: additional authentic Kikamba proverbs and phrases — all to be reviewed and corrected by a native speaker before any publication. The examples…",
+    "closes": "At contracting",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 5.2.1.4"
+    ]
+  },
+  {
+    "kind": "placeholder",
+    "gap": "To insert: Kenya National Association of the Deaf or an accredited interpreter service",
+    "closes": "At contracting",
+    "holder": "The campaign",
+    "status": "Open",
+    "where": [
+      "Section 5.2.1.4"
     ]
   }
 ]

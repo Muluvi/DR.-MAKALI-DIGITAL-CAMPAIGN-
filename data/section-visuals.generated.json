@@ -1399,15 +1399,15 @@
   "data": {
    "figures": [
     {
-     "label": "diaspora Wards",
-     "value": 40,
-     "display": "All 40",
+     "label": "defensible",
+     "value": 3,
+     "display": "3",
      "pct": false
     },
     {
-     "label": "diaspora Weekly brief…",
+     "label": "wards carry both reach",
      "value": 40,
-     "display": "All 40",
+     "display": "40",
      "pct": false
     }
    ]
@@ -1663,66 +1663,6 @@
    ]
   }
  },
- "delivery-sec-5-8": {
-  "id": "delivery-sec-5-8",
-  "tab": "delivery",
-  "level": 2,
-  "number": "5.8",
-  "title": "Risks and responses",
-  "kind": "quadrant",
-  "data": {
-   "items": [
-    {
-     "id": "R1",
-     "label": "The nomination is decided by delegates, not an opinion poll. The…",
-     "x": null,
-     "likelihood": "Medium",
-     "impact": "Severe — the targeting model changes wholesale",
-     "owner": "Firefly Director + campaign"
-    },
-    {
-     "id": "R2",
-     "label": "The recognition hypothesis is wrong. The deficit may be about…",
-     "x": null,
-     "likelihood": "Medium",
-     "impact": "Severe — the Phase −1 channel mix is built on it",
-     "owner": "Head of Research"
-    },
-    {
-     "id": "R3",
-     "label": "The data-protection reviewer is not appointed in time. The long-lead…",
-     "x": null,
-     "likelihood": "Medium",
-     "impact": "High — gates the voter-file work in Section 5.2.4.2 and the mass SMS layer",
-     "owner": "Campaign"
-    },
-    {
-     "id": "R4",
-     "label": "ODPC guidance prohibits the planned SMS approach. The…",
-     "x": null,
-     "likelihood": "Low",
-     "impact": "High — Workstream 9 is the layer the race turns on",
-     "owner": "Campaign Legal Director"
-    },
-    {
-     "id": "R5",
-     "label": "A manipulated-media attack lands inside the nomination window",
-     "x": null,
-     "likelihood": "Medium",
-     "impact": "High — a compressed window leaves no time to recover",
-     "owner": "Digital Director"
-    },
-    {
-     "id": "R6",
-     "label": "Firefly's brief and the team's judgement disagree. The direction…",
-     "x": null,
-     "likelihood": "High — it will happen, and should",
-     "impact": "Moderate if handled, severe if suppressed",
-     "owner": "Firefly Director + team lead"
-    }
-   ]
-  }
- },
  "delivery-sec-5-8-2": {
   "id": "delivery-sec-5-8-2",
   "tab": "delivery",
@@ -1936,6 +1876,19 @@
    ]
   }
  },
+ "implementation-sec-5-1-2": {
+  "id": "implementation-sec-5-1-2",
+  "tab": "implementation",
+  "level": 3,
+  "number": "5.1.2",
+  "title": "The fourteen, by owner",
+  "kind": "donut",
+  "data": {
+   "value": 73.8,
+   "label": "Kitui residents are outside",
+   "rest": "Workstream 9 is the one Firefly operates and the one that decides the race. 73.8% of Kitui residents are…"
+  }
+ },
  "implementation-sec-5-1-3": {
   "id": "implementation-sec-5-1-3",
   "tab": "implementation",
@@ -2081,40 +2034,32 @@
   "level": 2,
   "number": "6.1",
   "title": "What this needs from the campaign",
-  "kind": "timeline",
+  "kind": "stats",
   "data": {
-   "events": [
+   "figures": [
     {
-     "label": "One named counterpart",
-     "body": "with authority to approve content, and one named lead on the existing digital team to receive the weekly brief"
+     "label": "SMS codes are provisioned",
+     "value": 5.2,
+     "display": "5.2",
+     "pct": false
     },
     {
-     "label": "Read-only analytics access",
-     "body": "on every existing channel — Analyst role on Meta, equivalent elsewhere, no publishing rights. Without it there is…"
+     "label": "Firefly",
+     "value": 5.8,
+     "display": "5.8",
+     "pct": false
     },
     {
-     "label": "Candidate time",
-     "body": "approximately 3 hours per week — one Facebook Live, one voice-note recording session, one interview or content block"
+     "label": "above",
+     "value": 4,
+     "display": "4",
+     "pct": false
     },
     {
-     "label": "Ground team asset uploads",
-     "body": "daily photographs and video from the trail"
-    },
-    {
-     "label": "Appointment of the data-protection…",
-     "body": "(Section 5.7.9) — the long-lead item, needed in Phase −1"
-    },
-    {
-     "label": "The IEBC 2026 register annex",
-     "body": "— county-level first, ward-level when published. This is the highest-priority data request in this proposal: the ward…"
-    },
-    {
-     "label": "Access to the existing NG-CDF project…",
-     "body": "for verified proof points — the project record, not the beneficiary list. Bursary and beneficiary personal data is…"
-    },
-    {
-     "label": "Sign-off on the engagement level",
-     "body": "so the team can be assembled"
+     "label": "item",
+     "value": 5.7,
+     "display": "5.7",
+     "pct": false
     }
    ]
   }
@@ -2960,6 +2905,19 @@
    ]
   }
  },
+ "strategy-sec-4-5-5": {
+  "id": "strategy-sec-4-5-5",
+  "tab": "strategy",
+  "level": 3,
+  "number": "4.5.5",
+  "title": "One week, before and after",
+  "kind": "contrast",
+  "data": {
+   "left": "Both rules are set by the Week 1 audit",
+   "right": "by preference",
+   "lead": "Same week. Same events. Same team. Different structure."
+  }
+ },
  "strategy-sec-4-6": {
   "id": "strategy-sec-4-6",
   "tab": "strategy",
@@ -2990,48 +2948,17 @@
    ]
   }
  },
- "strategy-sec-4-8": {
-  "id": "strategy-sec-4-8",
+ "strategy-sec-4-7": {
+  "id": "strategy-sec-4-7",
   "tab": "strategy",
   "level": 2,
-  "number": "4.8",
-  "title": "When the plan changes",
-  "kind": "playbook",
+  "number": "4.7",
+  "title": "Fix first: six profile corrections",
+  "kind": "contrast",
   "data": {
-   "pairs": [
-    {
-     "when": "Follower and reach geography concentrated in Kitui Central and Nairobi",
-     "then": "The recognition thesis is confirmed on his own data. Output weight shifts to Mwingi and the arid belt, and the headline…"
-    },
-    {
-     "when": "Material reach in Mwingi but flat engagement there",
-     "then": "The problem is message, not reach. The answer is the message lab (Section 5.6.9), not geofenced advertising — and the Phase −1…"
-    },
-    {
-     "when": "Kikamba posts out-engaging English by a wide margin",
-     "then": "Language stops being a preference and becomes a rule in the weekly brief (Section 4.4.7)."
-    },
-    {
-     "when": "Video watch time collapsing before 10 seconds",
-     "then": "Long flagship video is the wrong format. Short vertical and Kikamba voice notes replace it, and the deliverables cadence in…"
-    },
-    {
-     "when": "Most engagement produced by a few hundred repeat accounts",
-     "then": "The follower base is a shell. Priority moves from page growth to consented WhatsApp and SMS list building (Section 5.2.3.3)."
-    },
-    {
-     "when": "Rivals running Meta ads while Dr. Mulu is not",
-     "then": "Part of the gap is bought reach. The ad-account question in Section 5.7.3 becomes urgent."
-    },
-    {
-     "when": "It is a personal profile, not a Page",
-     "then": "No Insights, no ads, no delegated access, nothing to direct against. A structural finding that changes what can be directed at…"
-    }
-   ],
-   "heads": [
-    "If the audit finds",
-    "The strategy changes to"
-   ]
+   "left": "the assumption",
+   "right": "the finding",
+   "lead": "Because Section 3.9: six entries on his own profile contradict the parliamentary record or the positioning, and each takes minutes to correct."
   }
  },
  "workstreams-data-sec-5-2-4-1": {

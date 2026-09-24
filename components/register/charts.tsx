@@ -54,6 +54,7 @@ function Part({ c, spec }: { c: ChartSpec; spec: FigureSpec }) {
     case "pareto": return <Pareto chart={c} title={spec.title} />;
     case "paths": return <Paths chart={c} />;
     case "mock": return <Mock chart={c} />;
+    case "calendar": return <Calendar chart={c} />;
   }
 }
 
@@ -275,11 +276,14 @@ function Timeline({ chart }: { chart: Extract<ChartSpec, { type: "timeline" }> }
       {/* Horizontal on a wide screen: one date axis, milestones labelled. */}
       <div className="relative hidden h-24 sm:block" aria-hidden="true">
         {chart.events.map((e, i) => {
+          // More than three events and the names collide on the axis: number them, and the list
+          // beneath carries the same numbers.
+          const numbered = chart.events.length > 3;
           const x = (Date.parse(e.date) - t0) / (t1 - t0);
           const align = x < 0.15 ? "" : x > 0.85 ? "-translate-x-full" : "-translate-x-1/2";
           return (
             <span key={`${e.label}-l`} className={`absolute whitespace-nowrap text-[0.6875rem] font-semibold text-[var(--ink)] ${align}`} style={{ left: at(e.date), top: e.end || i % 2 ? "3.75rem" : "0.25rem" }}>
-              {e.label}
+              {numbered ? i + 1 : e.label}
             </span>
           );
         })}
@@ -298,7 +302,7 @@ function Timeline({ chart }: { chart: Extract<ChartSpec, { type: "timeline" }> }
         {chart.events.map((e) => (
           <li key={e.label} className={`rs-step ${e.reported || e.state === "needed" ? "!border-dashed" : ""}`}>
             <p className="when">{e.whenText ?? (e.end ? `${fmtDate(e.date)} – ${fmtDate(e.end)}` : fmtDate(e.date))}{e.reported ? " · reported, not confirmed (T3)" : e.state === "needed" ? " · data needed" : e.state === "target" ? " · planned" : ""}</p>
-            <h5>{e.label}</h5>
+            <h5>{chart.events.length > 3 ? `${chart.events.indexOf(e) + 1}. ` : ""}{e.label}</h5>
             {e.note && <p>{e.note}</p>}
           </li>
         ))}
@@ -560,6 +564,30 @@ function Mock({ chart }: { chart: Extract<ChartSpec, { type: "mock" }> }) {
   );
 }
 
+/** One week, a column per day, coloured by the four production pillars only and labelled P1–P4. */
+function Calendar({ chart }: { chart: Extract<ChartSpec, { type: "calendar" }> }) {
+  return (
+    <div>
+      <ul className="tm-legend">
+        {chart.pillars.map((p, i) => (
+          <li key={p}><span className="tm-swatch" style={{ background: `var(--pillar-${i + 1})` }} aria-hidden="true" />P{i + 1} · {p}</li>
+        ))}
+      </ul>
+      <ol className="rk-week mt-2">
+        {chart.days.map((d) => (
+          <li key={d.day} className="rk-day">
+            <div className={`rk-band ${d.pillar ? "" : "is-none"}`} style={d.pillar ? { background: `var(--pillar-${d.pillar})`, color: `var(--pillar-ink-${d.pillar})` } : undefined}>
+              <span>{d.day}</span><span>{d.pillar ? `P${d.pillar}` : "no pillar"}</span>
+            </div>
+            <p>{d.after}</p>
+            <p className="now">Now: {d.now}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
 /** Numbers with context, never naked (brief §F). The final value is in the HTML; a count-up, where
  *  motion is allowed, animates from it rather than to it. */
 function Stats({ chart }: { chart: Extract<ChartSpec, { type: "stats" }> }) {
@@ -668,33 +696,39 @@ function Balance({ chart }: { chart: Extract<ChartSpec, { type: "balance" }> }) 
 }
 
 const LEVEL = ["", "Low", "Medium", "High"];
+const IMPACT_LEVEL = ["", "Moderate", "High", "Severe"];
+
+/** Likelihood × impact, with only the codes in the grid so it stays legible at 360px; the labels
+ *  sit in a list beneath, and the table view carries the rest. */
 function Risk({ chart }: { chart: Extract<ChartSpec, { type: "risk" }> }) {
   return (
     <div className="grid gap-4">
-      <div className="rm-scroll">
-        <table className="rm-table">
-          <caption className="sr-only">Risks by likelihood (rows) and impact (columns)</caption>
-          <thead>
-            <tr><th scope="col">Likelihood ↓ / Impact →</th>{[1, 2, 3].map((i) => <th key={i} scope="col">{LEVEL[i]} impact</th>)}</tr>
-          </thead>
-          <tbody>
-            {[3, 2, 1].map((l) => (
-              <tr key={l}>
-                <th scope="row">{LEVEL[l]} likelihood</th>
-                {[1, 2, 3].map((i) => (
-                  <td key={i} className={l + i >= 5 ? "bg-[color-mix(in_oklab,var(--div-neg)_10%,transparent)]" : ""}>
-                    <ul className="grid gap-1">
-                      {chart.items.filter((r) => r.likelihood === l && r.impact === i).map((r) => (
-                        <li key={r.code}><strong>{r.code}</strong> {r.label}</li>
-                      ))}
-                    </ul>
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <p className="rb-ref-label">Rows: likelihood. Columns: impact. Shaded cells are the high-likelihood, high-impact corner.</p>
+      <table className="rk-risk">
+        <caption className="sr-only">Risks by likelihood (rows) and impact (columns)</caption>
+        <thead>
+          <tr><td aria-hidden="true" />{[1, 2, 3].map((i) => <th key={i} scope="col">{IMPACT_LEVEL[i]}</th>)}</tr>
+        </thead>
+        <tbody>
+          {[3, 2, 1].map((l) => (
+            <tr key={l}>
+              <th scope="row">{LEVEL[l]}</th>
+              {[1, 2, 3].map((i) => (
+                <td key={i} className={l + i >= 5 ? "is-hot" : ""}>
+                  {chart.items.filter((r) => r.likelihood === l && r.impact === i).map((r) => (
+                    <span key={r.code} className="rk-code">{r.code}</span>
+                  ))}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <ul className="grid gap-1 text-[0.8125rem] text-[var(--ink)]">
+        {chart.items.map((r) => (
+          <li key={r.code}><strong>{r.code}</strong> {r.label} <span className="text-[var(--muted)]">· {LEVEL[r.likelihood].toLowerCase()} likelihood, {IMPACT_LEVEL[r.impact].toLowerCase()} impact</span></li>
+        ))}
+      </ul>
       {chart.branches?.map((b) => (
         <div key={b.title} className="rc-card">
           <h5>{b.title}</h5>

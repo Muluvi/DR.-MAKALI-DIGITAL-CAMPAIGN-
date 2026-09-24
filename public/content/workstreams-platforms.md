@@ -41,27 +41,8 @@ the least connectivity:**
 
 #### What happens to a report
 
-```
-   Report submitted (any channel)
-              |
-              v
-   Logged with ward, category, date, reference number
-              |
-              v
-   Reporter receives SMS confirmation + reference number
-              |
-              v
-   Published to the public register (aggregated, no personal data)
-              |
-              v
-   Campaign follows up: raises with the relevant authority,
-   or verifies status through the ward champion network
-              |
-              v
-   Outcome published against the original report
-              |
-              v
-   Reporter notified by SMS
+```figure
+id: fig-5-2-1-report-flow
 ```
 
 #### Design principles
