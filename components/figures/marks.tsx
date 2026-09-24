@@ -739,9 +739,11 @@ export function Allocation({
     conflicts?: string[];
   }[];
 }) {
+  // The middle shade carries white text, so it darkens toward black rather than paling toward the
+  // paper: the paper mix measured 2.35:1 under white in the light theme.
   const shades = [
     "var(--color-accent-solid)",
-    "color-mix(in oklch, var(--color-accent-solid) 50%, var(--color-paper))",
+    "color-mix(in oklch, var(--color-accent-solid) 62%, black)",
     "var(--color-muted)",
   ];
 

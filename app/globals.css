@@ -146,10 +146,10 @@
 
   /* Phase colour palette */
   --phase-neg1: oklch(0.45 0.22 295);  /* Phase -1: Nomination Sprint */
-  --phase-0: oklch(0.60 0.14 210);     /* Phase 0: Audit & Infrastructure */
+  --phase-0: oklch(0.47 0.11 210);     /* Phase 0: Audit & Infrastructure. Darkened in 2026: 3.1:1 as text on its own tint */
   --phase-1: oklch(0.45 0.18 255);     /* Phase 1: Awareness & Community */
-  --phase-2: oklch(0.55 0.16 60);      /* Phase 2: Engagement & Persuasion */
-  --phase-3: oklch(0.52 0.16 145);     /* Phase 3: Mobilisation & GOTV */
+  --phase-2: oklch(0.50 0.15 60);      /* Phase 2: Engagement & Persuasion. Darkened in 2026: 4.3:1 as text on its own tint */
+  --phase-3: oklch(0.46 0.14 145);     /* Phase 3: Mobilisation & GOTV. Darkened in 2026: 4.4:1 as text on its own tint */
 
   /* Domain B — Chart Scale (fixed coordinate space / SVG geometry) */
   --fs-chart-micro: 8px;
