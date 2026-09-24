@@ -21,11 +21,11 @@ To eliminate subjective projections, the campaign's target metrics are anchored 
     **{{benchmark.share-2022}}%** of the register. Held against the July 2026 register of {{register.2026}}, the equivalent tally is
     **≈{{benchmark.2026-equivalent.rounded}} votes**. Treat {{benchmark}} as the floor and ≈{{benchmark.2026-equivalent.rounded}} as the equivalent on today's register:
     the number to win is ≈{{benchmark}}–{{benchmark.2026-equivalent.rounded}}.
-*   **The turnout constant: 62%.** Kitui's turnout is taken as about **62%** for every calculation in
-    this section. It is a modelling constant, not a measurement: the evidence pack carries no
-    certified county turnout figure `[DATA NEEDED — IEBC Form 37C, Kitui governor 2022]`, and the
-    scenario model brackets it at 55–72%.
-    *   At 62% of the 2022 register, total ballots cast equal approximately **{{ballots.2022}} votes**.
+*   **The turnout rate: {{turnout.constant}}%.** The certified 2022 county turnout was **{{turnout.2022}}%**:
+    {{result.2022.gov.valid}} valid votes of {{register.2022}} registered (Tier 1, IEBC Form 37C). Every calculation in this
+    section carries that rate forward to 2027. The rate is measured; carrying it forward is an
+    assumption, and the scenario model brackets it at 55–72%.
+    *   At {{turnout.constant}}% of the 2022 register, total ballots cast equal approximately **{{ballots.2022}} votes**.
     *   To reach **{{benchmark}}**, a winning candidate must capture about **{{benchmark.share-of-ballots}}% of ballots cast**, which is
         **{{benchmark.share-of-register}}% of the registered electorate**.
 
@@ -42,7 +42,7 @@ id: fig-3-2-register-map
 ```
 
 #### Critical Concentration Insights:
-1.  **The "12 Megawards" Rule:** The top **12 largest wards** (representing just 30.0% of all wards) contain **{{pareto.top12}} registered voters** ({{pareto.top12.share}}% of the entire county electorate). They hold as many registered voters as the 2022 winning tally, but registration is not turnout: at the 62% constant they cast about **{{path.c.ballots}} ballots**.
+1.  **The "12 Megawards" Rule:** The top **12 largest wards** (representing just 30.0% of all wards) contain **{{pareto.top12}} registered voters** ({{pareto.top12.share}}% of the entire county electorate). They hold as many registered voters as the 2022 winning tally, but registration is not turnout: at the {{turnout.constant}}% turnout rate they cast about **{{path.c.ballots}} ballots**.
 2.  **The Upper Half Domination:** The top **20 wards** (50% of the wards) command **{{pareto.top20}} registered voters** (**{{pareto.top20.share}}%** of the county total).
 3.  **The Lower Tail Dispersal:** The bottom **10 smallest wards** (from Mui down to Tharaka) aggregate to **{{pareto.bottom10}} registered voters** (only **{{pareto.bottom10.share}}%** of the county register across 25% of the total wards), yet cover vast geographic areas with severe logistical transit costs.
 
@@ -65,7 +65,7 @@ A key strategic finding emerges from this integrated database: **Mwingi North, M
 
 ## 3.3 Four routes to the number
 
-Each route below is a combination of constituencies or wards, measured the same way: registered voters, then the ballots they would cast at the 62% turnout constant, then that ballot count against the {{benchmark}} benchmark from Section 3.1. The ballot count is the ceiling, since it assumes every ballot in the route goes to one candidate. **No route clears {{benchmark}} on its own ballots.** A route is where the margin is built, not where the whole number lives.
+Each route below is a combination of constituencies or wards, measured the same way: registered voters, then the ballots they would cast at the {{turnout.constant}}% turnout rate, then that ballot count against the {{benchmark}} benchmark from Section 3.1. The ballot count is the ceiling, since it assumes every ballot in the route goes to one candidate. **No route clears {{benchmark}} on its own ballots.** A route is where the margin is built, not where the whole number lives.
 
 ```figure
 id: fig-3-3-paths
@@ -76,7 +76,7 @@ id: fig-3-3-paths
 *   **Total Registered Voters:** **{{bloc.mwingi}} voters** across **15 wards** (**{{bloc.mwingi.share}}%** of county total).
 *   **Mathematical Proof:**
     *   `Total (Mwingi) = {{con.mwingi-central}} + {{con.mwingi-north}} + {{con.mwingi-west}} = {{bloc.mwingi}} registered voters`
-    *   `Ballots at 62% turnout = {{bloc.mwingi}} × 0.62 = {{path.a.ballots}}`
+    *   `Ballots at {{turnout.constant}}% turnout = {{bloc.mwingi}} × {{turnout.rate}} = {{path.a.ballots}}`
     *   `Against the benchmark = {{path.a.ballots}} − {{benchmark}} = −{{path.a.margin|abs}} votes, even at 100% of ballots`
 *   **Turnout Reality:** Even an unprecedented 80% share of those ballots ({{path.a.at80}} votes) leaves the campaign **{{path.a.at80.short}} votes short** of {{benchmark}}.
 *   **Strategic Implication:** The Mwingi bloc is the largest single reservoir of votes in the county and the campaign cannot win without a decisive margin in it — but it cannot win on it alone either. Mwingi is the necessary foundation, paired with Kitui South and the home belt.
@@ -86,7 +86,7 @@ id: fig-3-3-paths
 *   **Total Registered Voters:** **{{path.b.registered}} voters** across **15 wards** (**{{path.b.share}}%** of county total).
 *   **Mathematical Proof:**
     *   `Total (Central-South-West) = {{con.kitui-central}} + {{con.kitui-south}} + {{con.kitui-west}} = {{path.b.registered}} registered voters`
-    *   `Ballots at 62% turnout = {{path.b.registered}} × 0.62 = {{path.b.ballots}}`
+    *   `Ballots at {{turnout.constant}}% turnout = {{path.b.registered}} × {{turnout.rate}} = {{path.b.ballots}}`
     *   `Against the benchmark = {{path.b.ballots}} − {{benchmark}} = −{{path.b.margin|abs}} votes, even at 100% of ballots`
 *   **Strategic Implication:** Combining the candidate's home base (Kitui Central) with the county's largest southern constituency (Kitui South) and the peri-urban west (Kitui West) forms a contiguous southern/central coalition with more *registered voters* than the benchmark, but its ballots fall **{{path.b.margin|abs}} short** of {{benchmark}} even if every one of them were his. It is the largest route, and it still needs Mwingi.
 
@@ -95,7 +95,7 @@ id: fig-3-3-paths
 *   **Total Registered Voters:** **{{pareto.top12}} voters** across **12 wards** (**{{pareto.top12.share}}%** of county total).
 *   **Mathematical Proof:**
     *   `∑ (12 Wards) = {{ward.kyuso}} + {{ward.township}} + {{ward.kwa-vonza-yatta}} + … + {{ward.mulango}} = {{pareto.top12}} registered voters`
-    *   `Ballots at 62% turnout = {{pareto.top12}} × 0.62 = {{path.c.ballots}}`
+    *   `Ballots at {{turnout.constant}}% turnout = {{pareto.top12}} × {{turnout.rate}} = {{path.c.ballots}}`
     *   `Against the benchmark = {{path.c.ballots}} − {{benchmark}} = −{{path.c.margin|abs}} votes, even at 100% of ballots`
 *   **Strategic Implication:** The campaign does not need to contest all 40 wards with equal intensity. Concentrated effort across these 12 high-yield wards reaches {{pareto.top12}} registered voters, which is where the margin is cheapest to build.
 
@@ -104,7 +104,7 @@ id: fig-3-3-paths
 *   **Total Registered Voters:** **{{path.d.registered}} voters** across **13 wards** (**{{path.d.share}}%** of county total).
 *   **Mathematical Proof:**
     *   `Total (Home-Belt) = {{con.kitui-central}} + {{con.kitui-west}} + {{con.kitui-rural}} = {{path.d.registered}} registered voters`
-    *   `Ballots at 62% turnout = {{path.d.registered}} × 0.62 = {{path.d.ballots}}`
+    *   `Ballots at {{turnout.constant}}% turnout = {{path.d.registered}} × {{turnout.rate}} = {{path.d.ballots}}`
     *   `Against the benchmark = {{path.d.ballots}} − {{benchmark}} = −{{path.d.margin|abs}} votes, even at 100% of ballots`
 *   **Turnout Reality:** These {{path.d.registered}} registered voters cast only **{{path.d.ballots}} ballots**. Even if Dr. Mulu captured an unprecedented 80% of all votes cast across this entire home belt ({{path.d.at80}} votes), he would still fall **{{path.d.at80.short}} votes short** of the {{benchmark}} victory threshold.
 *   **Strategic Conclusion:** **A home-constituency strategy is mathematically impossible.** Dr. Mulu cannot win by simply maximizing margins in Kitui Central, Kitui West, and Kitui Rural. Aggressive outward expansion into Mwingi and Kitui South is an absolute, non-negotiable arithmetic necessity.
@@ -152,14 +152,14 @@ id: fig-3-5-field
 
 *   **Dr. Irene Kasalu (Woman Representative, Kitui County):** Commands an expansive, countywide constituency base by virtue of her seat. It has been reported in regional media that she maintains active grassroots networks built through her extensive local development tours ("Ziara Mashinani") (Tier 2). Her certified 2022 result is the strongest in the field: **{{result.2022.womanrep.kasalu}} votes** as Woman Representative, above the {{result.2022.gov.malombe}} that won the governorship the same year (Section 2.2). Critics allege a lack of structured financial governance or executive experience. Her public criticism of the incumbent's equal-ward funding allocation is a live policy argument, and one where the campaign's own position needs settling first: Section 4.4.1 currently proposes an equal-ward guarantee of its own. The two positions cannot both be run. Either the equal-ward guarantee is the platform, and this line of argument is not available to the campaign, or the argument is made and the guarantee is restated as a needs-weighted formula. **Firefly's recommendation is the second, because a published allocation methodology is the stronger fit with the verification pillar in Section 4.1.5 — but it is the campaign's policy call.**
 *   **Sen. Enoch Wambua (Senator, Kitui County):** Commands significant party influence and standing as a senior legislator within the Wiper Patriotic Front (Tier 1). He retains a highly loyal, traditional party delegate and voter base (Tier 1). He won the 2022 Senate race with **{{result.2022.senate.wambua}} votes** (Tier 2), within {{gap.wambua-to-benchmark-2022}} of the winning governor's tally.
-*   **Hon. Dr. Benson Makali Mulu (Member of Parliament, Kitui Central):** Possesses the most comprehensive macroeconomic, fiscal, and monitoring and evaluation credentials in the race (Tier 1). His largest electorate to date is Kitui Central's {{con.kitui-central}} registered voters: he has not yet stood for a countywide office, so his proof at the ballot is constituency-bounded `[DATA NEEDED — IEBC Form 35B, Kitui Central MP 2022, his vote total]`.
+*   **Hon. Dr. Benson Makali Mulu (Member of Parliament, Kitui Central):** Possesses the most comprehensive macroeconomic, fiscal, and monitoring and evaluation credentials in the race (Tier 1). His largest electorate to date is Kitui Central's {{con.kitui-central}} registered voters, where he was re-elected in 2022 with **{{result.2022.mp.mulu}} votes** (Tier 1). He has not yet stood for a countywide office, so his proof at the ballot is constituency-bounded.
 
 #### Stage Two: the general election field
 
 Beyond the immediate Wiper party nomination, the broader general election field includes key regional figures, each analyzed with strict adherence to legal attribution and objective reporting:
 
 *   **Charity Ngilu (Former Governor, Kitui County - NARC):** A veteran national political figure who won the hotly contested, court-confirmed 2017 gubernatorial election with {{result.2017.gov.ngilu}} votes (Tier 1). Sourced political reports indicate she maintains a distinct and highly active core support base, although she opted not to defend her seat directly in the 2022 general election (Tier 2).
-*   **David Musila (Former Senator, Kitui County):** A formidable regional contender who finished as the runner-up in both the 2017 and 2022 gubernatorial elections (Tier 1). His 2017 campaign garnered {{result.2017.gov.musila}} votes (Tier 1). For 2022 two totals are published: {{result.2022.gov.musila}} (The Star) and {{result.2022.gov.musila.alt}} (Nation, Standard), both Tier 2. Neither is preferred. Sourced commentaries indicate his core support remains historically concentrated within the Mwingi constituencies.
+*   **David Musila (Former Senator, Kitui County):** A formidable regional contender who finished as the runner-up in both the 2017 and 2022 gubernatorial elections (Tier 1). His 2017 campaign garnered {{result.2017.gov.musila}} votes (Tier 1). In 2022 he polled {{result.2022.gov.musila}} (Tier 1, certified; The Star's early total of {{result.2022.gov.musila.media}} is a media variant). Sourced commentaries indicate his core support remains historically concentrated within the Mwingi constituencies.
 *   **Peninah Malonza (Former Deputy Governor & Former Cabinet Secretary):** Served as Deputy Governor from 2013–2017 (Tier 1) and subsequently as Cabinet Secretary for Tourism, Wildlife, and Heritage (Tier 1). Sourced campaign profiles indicate she possesses strong national-level executive credentials and represents a significant general-election competitor, though her local campaign structures are reported to be in the early phases of deployment.
 *   **Nicholas Mulila (Safaricom PLC Executive):** A highly regarded corporate leader with extensive technical and operational credentials in digital infrastructure, telecommunications, and corporate risk governance (Tier 2). Local news outlets have reported his prospective candidacy for the gubernatorial seat (Tier 2), framing him as an expert technocratic reformer, though commentators allege he lacks a traditional grassroots political mobilization network.
 *   **Francis Musili Kauta (Governance Activist):** A prominent legal professional and civil society advocate in Kitui (Tier 2). Sourced activist reports note his active campaign for local community rights and municipal accountability, though analysts allege his support base remains structurally bounded by urban civic networks.
@@ -298,7 +298,7 @@ id: fig-3-8-ceiling
 The election will be won or lost across the **{{reach.offline}} registered voters not reachable online** (modelled: the July 2026 register less the {{reach.smartphone}} reachable by smartphone or data). Reaching this electorate requires an orchestrated combination of telecommunications protocol channels (SMS/USSD), broadcast audio (vernacular radio), financial agent touchpoints, and dense physical market presence.
 
 #### Kikamba Vernacular Radio (The Decisive Broadcast Medium)
-*   **Reach:** `[DATA NEEDED — Kitui listenership by station; GeoPoll or KARF county release]`. Section 2.7 records that no county-level listenership figure is published, so none is estimated here.
+*   **Reach:** the CA/KARF audience report for Lower Eastern (Kitui, Machakos and Makueni together) puts Musyi FM at {{radio.musyi}}% of listeners, Citizen Radio {{radio.citizen}}%, Athiani FM {{radio.athiani}}%, Mbaitu FM {{radio.mbaitu}}%, County FM {{radio.county}}% and Mwatu FM {{radio.mwatu}}% (Tier 2). It is a regional and an earlier measurement, so it ranks the stations rather than sizing Kitui's audience: Kitui alone is `[DATA NEEDED — Kitui listenership by station, current CA audience report]`.
 *   **Station Hierarchy & Reach:**
     *   *Musyi FM (Royal Media Services):* Dominant market leader in Ukambani; commercially independent. **Priority placement.**
     *   *County FM (Kitui-based independent):* Local ward news and debates, strong in Kitui Town, Kabati and Kwa Vonza. **Priority placement.**
@@ -322,7 +322,7 @@ The election will be won or lost across the **{{reach.offline}} registered voter
     *   The campaign will recruit {{target.ambassadors}}+ shopkeepers and M-Pesa agents as "Economic Ambassadors," providing them with branded business ledgers, counter pens, calendar posters, and daily economic talking points.
 
 #### Open-Air Market Day Barazas & Caravan Circuits
-*   **Reach:** `[DATA NEEDED — market-day attendance; county trade department]`.
+*   **Reach:** `[DATA NEEDED — market-day attendance; county trade department]`. For scale only: the 2023 Kitui Agricultural Show drew more than {{show.2023}} people over three days (Tier 3), and market days are gazetted by market. Neither is a market-day count.
 *   **Market Rotation Map:**
     *   *Mondays:* Nguni Livestock Market (Mwingi Central), Kabati (Kitui West).
     *   *Tuesdays:* Kalundu Market (Kitui Central), Tseikuru (Mwingi North).
@@ -333,7 +333,7 @@ The election will be won or lost across the **{{reach.offline}} registered voter
 *   **What the campaign would run** (campaign-owned, outside this engagement, Section 5.1.3): Deploying two high-output mobile sound trucks (*The Mulu Economic Caravans*) equipped with live PA systems, Kikamba music, and local youth speakers to dominate market entrances on their designated days.
 
 #### Church Fellowships & Clergy Engagement
-*   **Reach:** `[DATA NEEDED — congregation sizes; diocesan and denominational offices]`. Denominations present: Catholic, AIC, Redeemed Gospel, Anglican and Baptist.
+*   **Reach:** `[DATA NEEDED — congregation sizes; diocesan and denominational offices]`. Denominations present: Catholic, AIC, Redeemed Gospel, Anglican and Baptist. The Catholic Diocese of Kitui alone counts over {{church.catholic}} baptised members (Tier 3), a floor for one denomination rather than attendance.
 *   **What the campaign would run** (campaign-owned, outside this engagement, Section 5.1.3): Sunday morning worship visits across all 8 constituencies, respecting liturgical decorum, requesting pastoral prayers, and engaging parish development committees post-service.
 
 ## 3.9 What his current presence shows
@@ -368,7 +368,7 @@ In strict adherence to the campaign's data provenance standards, the analytical 
 1.  **Ward-level voter preference:** **Named data gap.** No source measures it. The published opinion polls report countywide aggregates only and publish no sample size by area (Annex C, for reference only), and this proposal commissions no polling. The gap closes only if the party's own nomination instrument publishes its ward or sub-county splits (Section 2.3.2). Until then the analysis works from where he has held office, not from preference.
 2.  **Historical 2013 Gubernatorial Ward-by-Ward Certified Returns:** **Named Data Gap (Tier 1 Gap).** Official IEBC ward-by-ward certified return sheets for the 2013 gubernatorial race are not contained in the campaign's certified baseline archives.
 3.  **Historical 2017 Gubernatorial Ward-by-Ward Tallies:** **Named Data Gap (Tier 1 Gap).** While the countywide certified totals are established (Ngilu {{result.2017.gov.ngilu}} vs. Musila {{result.2017.gov.musila}} vs. Malombe {{result.2017.gov.malombe}}, Tier 1), individual ward breakdown sheets are treated as unverified pending physical retrieval from the IEBC registry.
-4.  **Ward-Level Mobile Broadband Penetration Data:** **Named Data Gap (Tier 1 Gap).** CA/KNBS publish countywide connectivity ({{ict.internet}}% internet use, {{ict.phone}}% phone ownership, 2023/24), but no ward-by-ward coverage figure is published `[DATA NEEDED — Communications Authority coverage maps by ward]`.
+4.  **Ward-Level Mobile Broadband Penetration Data:** **Named Data Gap (Tier 1 Gap).** CA/KNBS publish countywide connectivity ({{ict.internet}}% internet use, {{ict.phone}}% phone ownership, 2023/24), but no ward-by-ward coverage figure is published `[DATA NEEDED — ward-level extraction from the CA ICT Services Coverage Geo-Portal, 2G/3G/4G by operator]`. The Geo-Portal and the CA's ICT Access Gap Study hold the layers; they are not yet tabulated by ward.
 
 ```figure
 id: fig-3-10-gaps

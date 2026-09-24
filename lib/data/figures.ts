@@ -71,7 +71,7 @@ sourced("register.2022.with-prisons", register.countyTotalWithPrisons, "voters",
 
 const ECVR = "IEBC, Enhanced Continuous Voter Registration county annex (July 2026)";
 sourced("register.2026", 605_703, "voters", "T1", ECVR, { asOf: "2026-07" });
-sourced("register.2026.ecvr-drive", 61_839, "voters", "T1", ECVR, { asOf: "2026-04-28", note: "New voters in the 30-day ECVR drive that closed 28 April 2026." });
+sourced("register.2026.ecvr-drive", 61_839, "voters", "T1", ECVR, { asOf: "2026-04-28", note: "New voters in ECVR Phase 1, the 30-day drive that closed 28 April 2026. A further phase ran 25 June to 25 July 2026 (IEBC gazette notice, 24 June 2026)." });
 modelled("register.2026.growth", v("register.2026") - v("register.2022"), "voters", "605,703 less 532,758: growth since 2022.");
 modelled("register.2026.continuous", v("register.2026") - v("register.2022") - v("register.2026.ecvr-drive"), "voters", "Growth since 2022 less the ECVR drive: continuous registration outside the drive.");
 sourced("register.polling-stations", 1_578, "count", "T1", "IEBC 2022 polling station register");
@@ -114,19 +114,32 @@ modelled("mwingi-north.top3", v("ward.kyuso") + v("ward.tseikuru") + v("ward.mum
 // declaration (analysis/config/assumptions.yaml S11-S13), so they are Tier 2 until a form is cited.
 const MEDIA_2022 = "Media reporting of the IEBC 2022 declaration (The Star; Nation; Standard)";
 const COA_2018 = "Court of Appeal, Malombe v Ngilu [2018] KECA 460";
-sourced("result.2022.gov.malombe", 198_004, "votes", "T2", MEDIA_2022, { asOf: "2022-08" });
-sourced("result.2022.gov.musila", 114_606, "votes", "T2", "The Star, August 2022", {
+// The governor's race is now cited to the certified result (Form 37C), compiled in Firefly's Public
+// Data & Evidence Audit of 24 September 2026. The certified 35.77% share matches 117,606 for Musila,
+// which settles the two published totals; The Star's 114,606 is kept as the media variant.
+const IEBC_37C = "IEBC certified result, Kitui governor 2022 (Form 37C), per Firefly's Public Data & Evidence Audit (24 Sep 2026)";
+const AUDIT = "Firefly Public Data & Evidence Audit (24 Sep 2026)";
+sourced("result.2022.gov.malombe", 198_004, "votes", "T1", IEBC_37C, { asOf: "2022-08" });
+sourced("result.2022.gov.musila", 117_606, "votes", "T1", IEBC_37C, {
   asOf: "2022-08",
-  alt: { value: 117_606, source: "Nation and Standard, August 2022", tier: "T2", note: "Two published totals. Neither is preferred." },
+  alt: { value: 114_606, source: "The Star, August 2022", tier: "T2", note: "An early media total; the certified share (35.77%) matches 117,606." },
 });
-sourced("result.2022.gov.musila.alt", 117_606, "votes", "T2", "Nation and Standard, August 2022", { note: "The other published total; see result.2022.gov.musila." });
+sourced("result.2022.gov.musila.media", 114_606, "votes", "T2", "The Star, August 2022", { note: "The early media total; the certified figure is 117,606." });
+sourced("result.2022.gov.valid", 328_760, "votes", "T1", IEBC_37C);
+modelled("result.2022.gov.musila.share", pct(v("result.2022.gov.musila"), v("result.2022.gov.valid")), "percent", "117,606 / 328,760 valid votes: matches the certified share.", { decimals: 2 });
+sourced("turnout.2022", 61.7, "percent", "T1", IEBC_37C, { note: "Valid votes as a share of the 2022 register: 328,760 / 532,758." });
 sourced("result.2022.gov.mueke", 10_639, "votes", "T2", MEDIA_2022);
 sourced("result.2022.senate.wambua", 191_317, "votes", "T2", MEDIA_2022);
 sourced("result.2022.womanrep.kasalu", 201_899, "votes", "T2", MEDIA_2022);
 sourced("result.2017.gov.ngilu", 169_990, "votes", "T1", COA_2018);
 sourced("result.2017.gov.musila", 114_827, "votes", "T1", COA_2018);
 sourced("result.2017.gov.malombe", 74_681, "votes", "T1", COA_2018);
-add({ id: "result.2022.mp.mulu", value: null, unit: "votes", tier: null, state: "needed", source: null, closesWith: "IEBC Form 35B, Kitui Central MP 2022" });
+const IEBC_35B = "IEBC declaration, Kitui Central MP 2022, as gazetted (via The Star), per Firefly's Public Data & Evidence Audit (24 Sep 2026)";
+sourced("result.2022.mp.mulu", 30_954, "votes", "T1", IEBC_35B, {
+  asOf: "2022-08",
+  alt: { value: 30_571, source: "Mwingi Times, August 2022", tier: "T3", note: "Early media totals differ: 30,571 (Mwingi Times) and 31,754 (Safi News, Tuko). The gazetted 30,954 is used." },
+});
+sourced("result.2022.mp.musambi", 9_866, "votes", "T1", IEBC_35B, { note: "Boniface Musambi, second in Kitui Central, 2022." });
 
 // ---- the benchmark and the arithmetic (Section 3.1)
 target("benchmark", 200_000, "votes", "The single working benchmark: the 2022 winning tally, 198,004, rounded. Stated once in Section 3.1 and reused everywhere (consistency fix 3).");
@@ -134,12 +147,13 @@ modelled("benchmark.share-2022", pct(v("result.2022.gov.malombe"), v("register.2
 modelled("benchmark.2026-equivalent", Math.round((v("result.2022.gov.malombe") / v("register.2022")) * v("register.2026")), "votes", "The 2022 winner's share of the register applied to the July 2026 register. A ratio carried forward, not a forecast.");
 modelled("benchmark.2026-equivalent.rounded", Math.round(v("benchmark.2026-equivalent") / 5000) * 5000, "votes", "The 2026 equivalent, rounded to the nearest 5,000 for prose.");
 modelled("benchmark.2026-equivalent.share", pct(v("result.2022.gov.malombe"), v("register.2022")), "percent", "The share carried forward: 198,004 / 532,758.");
-target("turnout.constant", 62, "percent", "The turnout constant used in every calculation. Not a measurement: no certified county turnout is in the evidence pack, and the scenario model brackets it at 55–72%.", { decimals: 0 });
+target("turnout.constant", v("turnout.2022"), "percent", "The turnout rate used in every calculation: the certified 2022 county rate carried forward to 2027. An assumption about 2027, not a measurement of it; the scenario model brackets it at 55–72%.", { decimals: 1 });
 const TURNOUT = v("turnout.constant") / 100;
-modelled("ballots.2022", Math.round(v("register.2022") * TURNOUT), "votes", "2022 register × 62% turnout constant.");
-modelled("ballots.2026", Math.round(v("register.2026") * TURNOUT), "votes", "July 2026 register × 62% turnout constant.");
-modelled("benchmark.share-of-ballots.2026", pct(v("benchmark"), v("register.2026") * TURNOUT), "percent", "200,000 / ballots at 62% on the July 2026 register.");
-modelled("benchmark.share-of-ballots", pct(v("benchmark"), v("register.2022") * TURNOUT), "percent", "200,000 / ballots at 62%.");
+modelled("turnout.rate", TURNOUT, "percent", "The turnout rate as a multiplier, for the working shown in Section 3.3.", { decimals: 3 });
+modelled("ballots.2022", Math.round(v("register.2022") * TURNOUT), "votes", "2022 register × the turnout rate (the certified 2022 rate, carried forward).");
+modelled("ballots.2026", Math.round(v("register.2026") * TURNOUT), "votes", "July 2026 register × the 2022 turnout rate, carried forward.");
+modelled("benchmark.share-of-ballots.2026", pct(v("benchmark"), v("register.2026") * TURNOUT), "percent", "200,000 / ballots at the 2022 turnout rate on the July 2026 register.");
+modelled("benchmark.share-of-ballots", pct(v("benchmark"), v("register.2022") * TURNOUT), "percent", "200,000 / ballots at the 2022 turnout rate.");
 modelled("benchmark.share-of-register", pct(v("benchmark"), v("register.2022")), "percent", "200,000 / 2022 register.");
 modelled("gap.wambua-to-benchmark-2022", v("result.2022.gov.malombe") - v("result.2022.senate.wambua"), "votes", "198,004 less 191,317.");
 
@@ -155,7 +169,7 @@ for (const [key, registered, what] of ROUTES) {
   modelled(`path.${key}.registered`, registered, "voters", `${what}, 2022 register.`);
   modelled(`path.${key}.share`, pct(registered, v("register.2022")), "percent", `${what} / 2022 register.`, { decimals: 2 });
   const ballots = Math.round(registered * TURNOUT);
-  modelled(`path.${key}.ballots`, ballots, "votes", `${what} × 62% turnout constant.`);
+  modelled(`path.${key}.ballots`, ballots, "votes", `${what} × the 2022 turnout rate, carried forward.`);
   modelled(`path.${key}.margin`, ballots - v("benchmark"), "votes", "Ballots at the constant less 200,000, even if every ballot went to him.");
 }
 for (const key of ["a", "d"]) {
@@ -255,14 +269,16 @@ modelled("reach.smartphone.of-benchmark", pct(v("reach.smartphone"), v("benchmar
 
 // ---- the county budget (Section 2.5): CFSP FY2026/27 [S47, S48]
 const CFSP = "Kitui County Fiscal Strategy Paper FY2026/27, as approved by the County Assembly";
-sourced("budget.total", 13.79e9, "ksh", "T3", CFSP, { note: "Cited through secondary reporting of the Paper; verify.", decimals: 2 });
+sourced("budget.total", 13.79e9, "ksh", "T3", CFSP, { note: "Cited through secondary reporting of the Paper; verify.", decimals: 2, alt: { value: 13.78e9, source: "Firefly Public Data & Evidence Audit (24 Sep 2026)", tier: "T3", note: "The audit reads the total as KSh 13.78bn and grants as KSh 1.03bn. Neither is preferred until the Paper itself is cited." } });
 sourced("budget.equitable", 11.64e9, "ksh", "T1", CFSP, { decimals: 2 });
 sourced("budget.osr", 1.12e9, "ksh", "T3", CFSP, {
   decimals: 2,
   alt: { value: 1.339e9, source: "County Assembly revision of the CFSP [S48]", tier: "T3", note: "Raised by the Assembly. Both published; neither is preferred." },
 });
 sourced("budget.osr.revised", 1.339e9, "ksh", "T3", "County Assembly revision of the CFSP [S48]", { decimals: 3 });
-sourced("budget.grants", 1.04e9, "ksh", "T1", CFSP, { decimals: 2 });
+sourced("budget.grants", 1.04e9, "ksh", "T1", CFSP, { decimals: 2, alt: { value: 1.03e9, source: "Firefly Public Data & Evidence Audit (24 Sep 2026)", tier: "T3", note: "See budget.total." } });
+sourced("budget.total.audit", 13.78e9, "ksh", "T3", "Firefly Public Data & Evidence Audit (24 Sep 2026)", { decimals: 2, note: "The other published total; see budget.total." });
+sourced("budget.grants.audit", 1.03e9, "ksh", "T3", "Firefly Public Data & Evidence Audit (24 Sep 2026)", { decimals: 2, note: "The other published grants figure; see budget.grants." });
 modelled("budget.rounding", 13.79e9 - (11.64e9 + 1.12e9 + 1.04e9), "ksh", "Published total less the three parts: rounding in the source, shown as its own segment.", { decimals: 2 });
 
 // ---- the county audit record (Annex B, Section 4.1.2)
@@ -364,6 +380,46 @@ for (const [id, label, from, to] of CHANNEL_SHIFT) {
 target("channel.offline.rebalanced", CHANNEL_SHIFT.filter(([id]) => id !== "digital").reduce((n, [, , , to]) => n + to, 0), "percent", "Share of effort offline, rebalanced: radio, SMS, caravans and church.", { source: T_FIREFLY, decimals: 0 });
 target("effort.digital.pool", 65, "percent", "Share of Phase −1 digital reach effort geofenced to the pool.", { source: T_FIREFLY, decimals: 0 });
 target("effort.sms.pool", 70, "percent", "Share of SMS/USSD onboarding effort to the pool's 21 wards.", { source: T_FIREFLY, decimals: 0 });
+
+// ---- public statistics compiled in Firefly's Public Data & Evidence Audit (24 Sep 2026). Each names
+// the document the audit read; national figures are labelled national wherever they are printed.
+const KDHS = "KNBS, Kenya Demographic and Health Survey 2022, Kitui factsheet, per Firefly's audit";
+sourced("health.insurance", 11.7, "percent", "T1", KDHS, { asOf: "2022", note: "Household population with any health insurance." });
+sourced("health.insurance.nhif", 10.3, "percent", "T1", KDHS, { asOf: "2022" });
+sourced("health.stunting", 25.1, "percent", "T1", "KNBS, KDHS 2022 (via the Advancing Nutrition policy brief), per Firefly's audit", {
+  asOf: "2022",
+  alt: { value: 29.3, source: "Kitui County health planning baseline (CIDP)", tier: "T2", note: "A county planning baseline, older than KDHS 2022." },
+});
+sourced("health.stunting.cidp", 29.3, "percent", "T2", "Kitui County health planning baseline (CIDP), per Firefly's audit", { note: "The older county baseline; KDHS 2022 is used." });
+const CENSUS_2019_AUDIT = "KNBS, 2019 Kenya Population and Housing Census, per Firefly's audit";
+sourced("fuel.unclean", 92.6, "percent", "T1", CENSUS_2019_AUDIT, { asOf: "2019", note: "Households cooking with unclean fuels: firewood, paraffin, charcoal." });
+sourced("fuel.firewood", 79.5, "percent", "T1", CENSUS_2019_AUDIT, { asOf: "2019" });
+sourced("livestock.households", 215_003, "households", "T1", "KNBS, 2019 Census, agriculture report, per Firefly's audit", {
+  asOf: "2019",
+  alt: { value: 177_701, source: "Kitui County PCRA, derived from the census", tier: "T2", note: "A different definition: households practising livestock production. Both are real; they are shown side by side, never averaged." },
+});
+sourced("livestock.households.pcra", 177_701, "households", "T2", "Kitui County PCRA, derived from the 2019 Census, per Firefly's audit", { asOf: "2019", note: "Households practising livestock production: a different definition from the census agriculture report." });
+sourced("migration.net", -72_051, "people", "T1", "KNBS, 2019 Census Analytical Report on Migration, Volume VIII, per Firefly's audit", { asOf: "2019", note: "Net recent-migration balance. Migration context, not a voter count." });
+const ICT_NATIONAL = "CA/KNBS, Analytical Report on ICT, 2023/24 Kenya Housing Survey (national tables), per Firefly's audit";
+for (const [id, value] of [
+  ["ict.kenya.internet", 35.0], ["ict.kenya.internet.rural", 25.0], ["ict.kenya.internet.urban", 56.6],
+  ["ict.kenya.internet.15-24", 46.6], ["ict.kenya.internet.25-34", 59.3], ["ict.kenya.internet.35-44", 47.1],
+  ["ict.kenya.youth", 58.6], ["ict.kenya.youth.rural", 46.7], ["ict.kenya.youth.urban", 78.7],
+  ["ict.kenya.internet.higher-ed", 92.3], ["ict.nairobi.youth", 83.1], ["ict.mombasa.youth", 70.4],
+  ["ict.kenya.phone", 53.7],
+] as [string, number][]) sourced(id, value, "percent", "T1", ICT_NATIONAL, { asOf: "2023/24", note: "National or city figure, not a Kitui figure." });
+const RADIO_LE = "CA/KARF audience report, Lower Eastern (Kitui, Machakos, Makueni), per Firefly's audit";
+for (const [id, value] of [["radio.musyi", 17.3], ["radio.citizen", 11.3], ["radio.athiani", 10.9], ["radio.mbaitu", 5.7], ["radio.county", 4.4], ["radio.mwatu", 0.5]] as [string, number][])
+  sourced(id, value, "percent", "T2", RADIO_LE, { note: "Share of listeners across Lower Eastern, not Kitui alone, from an earlier measurement; the year is to be confirmed against the report." });
+sourced("boda.riders", 14_000, "people", "T3", `A 2026 report, per ${AUDIT}`, { asOf: "2026", note: "An estimate, not an NTSA register count." });
+sourced("boda.unlicensed", 10_921, "people", "T3", `A 2026 report, per ${AUDIT}`, { asOf: "2026" });
+sourced("boda.licensed.2026", 783, "people", "T2", `Kitui County Government and NTSA, August 2026, per ${AUDIT}`, { asOf: "2026-08", note: "Smart driving licences issued, drawn from all 40 wards." });
+sourced("ngcdf.allocation.2026", 192_613_000, "ksh", "T1", "Kitui Central NG-CDF, FY2026/27 allocation, per Firefly's audit", { asOf: "2026", decimals: 3 });
+sourced("channel.x.followers", 5_100, "count", "T3", `Public X profile @MakaliMulu, indexed snapshot, per ${AUDIT}`, { asOf: "2026-09", note: "Approximate and live; a dated baseline, replaced by the Week 1 export." });
+sourced("church.catholic", 240_000, "people", "T3", `Catholic Diocese of Kitui, per ${AUDIT}`, { note: "Over 240,000 baptised Catholics across the diocese. A floor, not a congregation count." });
+sourced("show.2023", 70_000, "people", "T3", `Kitui Agricultural Show 2023, per ${AUDIT}`, { note: "More than 70,000 attendees over three days: one event, not market-day attendance." });
+for (const [id, value] of [["health.density.doctors", 0.7], ["health.density.clinical", 2.3], ["health.density.lab", 1.8], ["health.density.nurses", 7.2], ["health.density.core", 10.2]] as [string, number][])
+  sourced(id, value, "count", "T2", `Countdown 2030, Kitui health workforce, per ${AUDIT}`, { note: "Per 10,000 population." });
 
 // ---- county-policy parameters the campaign is still to size (Section 4.4)
 target("policy.ward-fund", 100_000_000, "ksh", "The proposed Ward Development Equalization Fund, per ward per year: a campaign policy proposal, not yet sized.", { source: "Campaign policy proposal, this proposal" });

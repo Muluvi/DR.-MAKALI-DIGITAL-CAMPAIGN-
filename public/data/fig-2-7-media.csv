@@ -1,9 +1,9 @@
-Station,Owner or association,Posture,Frequency,Basis
-Akamba FM,"Independent, launched 2023","Secondary — newer, may be more accessible.",100.8 (Nairobi),Sourced
-County FM,Kitui-based independent,Priority — the only station carrying separate Kitui and Mwingi frequencies.,"90.3 (Kitui), 91.8 (Mwingi)",Sourced
-Athiani FM,"Reported: associated with Kalonzo Musyoka, Wiper leader","Party-aligned, not neutral. Coverage may track party leadership sentiment.",97.7 (Kitui),Sourced
-KBC Mwatu FM,State-owned (Kenya Broadcasting Corporation),"Secondary — state broadcaster, Machakos-centred, limited Kitui service.",93.1 (Machakos),Sourced
-Mbaitu FM,Reported: associated with Charity Ngilu,Monitor closely; expect unfavourable framing; do not rely on placement.,100.4 (Mwingi & Kitui),Sourced
-Syokimau FM,Reported: associated with Charity Ngilu,As above.,Not published,Sourced
-Musyi FM,Royal Media Services (commercial),"Priority — commercially independent, broad Ukambani reach.",102.2 (Nairobi/Machakos); Kitui frequency not published,Sourced
-Wikwatyo FM,"Seventh-Day Adventist Church, Kitui-based",Priority for community and service-delivery programming.,Kitui; frequency not published,Sourced
+Station,Owner or association,Posture,"Lower Eastern share, %",Frequency,Basis
+Akamba FM,"Independent, launched 2023","Secondary — newer, may be more accessible.",Not reported,100.8 (Nairobi),Sourced
+County FM,Kitui-based independent,Priority — the only station carrying separate Kitui and Mwingi frequencies.,4.4,"90.3 (Kitui), 91.8 (Mwingi)",Sourced
+Athiani FM,"Reported: associated with Kalonzo Musyoka, Wiper leader","Party-aligned, not neutral. Coverage may track party leadership sentiment.",10.9,97.7 (Kitui),Sourced
+KBC Mwatu FM,State-owned (Kenya Broadcasting Corporation),"Secondary — state broadcaster, Machakos-centred, limited Kitui service.",0.5,93.1 (Machakos),Sourced
+Mbaitu FM,Reported: associated with Charity Ngilu,Monitor closely; expect unfavourable framing; do not rely on placement.,5.7,100.4 (Mwingi & Kitui),Sourced
+Syokimau FM,Reported: associated with Charity Ngilu,As above.,Not reported,Not published,Sourced
+Musyi FM,Royal Media Services (commercial),"Priority — commercially independent, broad Ukambani reach.",17.3,102.2 (Nairobi/Machakos); Kitui frequency not published,Sourced
+Wikwatyo FM,"Seventh-Day Adventist Church, Kitui-based",Priority for community and service-delivery programming.,Not reported,Kitui; frequency not published,Sourced

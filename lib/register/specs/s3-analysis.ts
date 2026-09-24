@@ -15,7 +15,7 @@ const TURNOUT = `${fmt("turnout.constant")}%`;
 
 const funnel = (reg: "2022" | "2026") => [
   { label: `Registered voters, ${reg === "2022" ? "2022" : "July 2026"}`, value: num(`register.${reg}`), state: F(`register.${reg}`).state },
-  { label: `Ballots cast at the ${TURNOUT} turnout constant`, value: num(`ballots.${reg}`), state: "modelled" as const, note: `${fmt(`register.${reg}`)} × ${TURNOUT} = ${fmt(`ballots.${reg}`)}. The constant is not a measurement.` },
+  { label: `Ballots cast at the ${TURNOUT} turnout rate`, value: num(`ballots.${reg}`), state: "modelled" as const, note: `${fmt(`register.${reg}`)} × ${TURNOUT} = ${fmt(`ballots.${reg}`)}. The rate is the certified 2022 turnout, carried forward.` },
   { label: "Votes to win: the benchmark", value: num("benchmark"), state: "target" as const, note: `${fmt("benchmark")} is ${fmt(reg === "2022" ? "benchmark.share-of-ballots" : "benchmark.share-of-ballots.2026")}% of those ballots. A constant here, not re-derived from the register.` },
 ];
 
@@ -25,9 +25,9 @@ export const FIG_3_1: FigureSpec = {
   title: `To win, he needs about ${fmt("benchmark.share-of-ballots")}% of the ballots cast, on the 2022 register`,
   question: "What is the winning number?",
   takeaway: `${fmt("benchmark")} votes is the 2022 winner's total rounded; the same share of the larger July 2026 register is ≈${fmt("benchmark.2026-equivalent.rounded")}.`,
-  sources: [src("register.2022"), src("register.2026"), { name: `Turnout of ${TURNOUT}: a modelling constant, no certified figure in the evidence pack`, tier: null, state: "target" }, { name: "Benchmark: the 2022 governor's winning total, rounded", tier: null, state: "target" }],
+  sources: [src("register.2022"), src("register.2026"), src("turnout.2022", `Turnout of ${TURNOUT}: IEBC Form 37C, Kitui governor 2022, carried forward to 2027`), { name: "Benchmark: the 2022 governor's winning total, rounded", tier: null, state: "target" }],
   chart: { type: "funnel", stages: funnel("2022"), toggle: { label: "July 2026 register", stages: funnel("2026") } },
-  notes: [`Turnout and the benchmark are constants: the toggle changes only the register. Certified turnout: [DATA NEEDED — IEBC Form 37C, Kitui governor 2022].`],
+  notes: [`The turnout rate and the benchmark are held fixed: the toggle changes only the register. The rate is measured for 2022; applying it to 2027 is an assumption.`],
   columns: [{ key: "step", label: "Step" }, { key: "y2022", label: "2022 register", numeric: true }, { key: "y2026", label: "July 2026 register", numeric: true }],
   rows: [
     { cells: { step: "Registered voters", y2022: num("register.2022"), y2026: num("register.2026") } },
@@ -163,8 +163,8 @@ const FIELD: Bar[] = [
   bar("result.2022.gov.malombe", "Julius Malombe · Governor 2022 · countywide"),
   bar("result.2022.senate.wambua", "Enoch Wambua · Senator 2022 · countywide"),
   bar("result.2017.gov.ngilu", "Charity Ngilu · Governor 2017 · countywide"),
-  bar("result.2022.gov.musila.alt", "David Musila · Governor 2022 · countywide", { note: `The other published total is ${fmt("result.2022.gov.musila")} (The Star); neither is preferred.` }),
-  bar("result.2022.mp.mulu", "Dr. Mulu · Kitui Central MP 2022 · one constituency", { tone: "accent", note: `His largest electorate so far is Kitui Central's ${fmt("con.kitui-central")} registered voters. Vote total closes with ${F("result.2022.mp.mulu").closesWith}.` }),
+  bar("result.2022.gov.musila", "David Musila · Governor 2022 · countywide", { note: `Certified; The Star's early total was ${fmt("result.2022.gov.musila.media")}.` }),
+  bar("result.2022.mp.mulu", "Dr. Mulu · Kitui Central MP 2022 · one constituency", { tone: "accent", note: `Won from an electorate of ${fmt("con.kitui-central")}: a constituency total, not a countywide one.` }),
 ];
 
 export const FIG_3_5: FigureSpec = {

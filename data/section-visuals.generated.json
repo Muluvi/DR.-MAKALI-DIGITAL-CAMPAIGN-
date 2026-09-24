@@ -47,8 +47,8 @@
     },
     {
      "label": "ballots",
-     "value": 124786,
-     "display": "124,786 ballots"
+     "value": 124182,
+     "display": "124,182 ballots"
     },
     {
      "label": "wards",
@@ -74,8 +74,8 @@
    "items": [
     {
      "label": "ballots",
-     "value": 124123,
-     "display": "124,123 ballots"
+     "value": 123522,
+     "display": "123,522 ballots"
     },
     {
      "label": "Kyuso",
@@ -121,8 +121,8 @@
     },
     {
      "label": "votes short",
-     "value": 100702,
-     "display": "100,702 votes short"
+     "value": 101182,
+     "display": "101,182 votes short"
     }
    ]
   }
@@ -323,6 +323,11 @@
      "display": "158,696"
     },
     {
+     "label": "% and Mwatu FM",
+     "value": 4.4,
+     "display": "4.4"
+    },
+    {
      "label": "interactive morning studio…",
      "value": 6,
      "display": "06"
@@ -336,11 +341,6 @@
      "label": "residents countywide CA KNBS",
      "value": 24,
      "display": "24,"
-    },
-    {
-     "label": "point manifesto",
-     "value": 5,
-     "display": "5"
     }
    ]
   }
@@ -812,38 +812,32 @@
   "level": 2,
   "number": "2.1",
   "title": "The electorate",
-  "kind": "bars",
+  "kind": "timeline",
   "data": {
-   "items": [
+   "events": [
     {
-     "label": "ward-registered voters plus…",
-     "value": 532758,
-     "display": "532,758"
+     "label": "Total Registered County Voters",
+     "body": "532,758 ward-registered voters (plus 75 prison-registered voters, totalling 532,833) (Tier 1)."
     },
     {
-     "label": "prison-registered voters",
-     "value": 75,
-     "display": "75"
+     "label": "Total Registered County Assembly Wards",
+     "body": "40 across 8 constituencies (Tier 1)."
     },
     {
-     "label": "totalling",
-     "value": 532833,
-     "display": "532,833"
+     "label": "Total Polling Stations",
+     "body": "1,578 (Tier 1)."
     },
     {
-     "label": "across constituencies",
-     "value": 40,
-     "display": "40"
+     "label": "Registered voters, July 2026",
+     "body": "605,703 (Tier 1, IEBC Enhanced Continuous Voter Registration county annex). Of the 72,945 added since 2022, 61,839…"
     },
     {
-     "label": "constituencies",
-     "value": 8,
-     "display": "8"
+     "label": "Winning benchmark",
+     "body": "Governor Malombe won in 2022 with 198,004 votes (Section 2.2). Section 3.1 derives the working benchmark of 200,000…"
     },
     {
-     "label": "July",
-     "value": 605703,
-     "display": "605,703"
+     "label": "Turnout, 2022",
+     "body": "61.7% certified: 328,760 valid votes of 532,758 registered (Tier 1, IEBC Form 37C). Section 3 carries this rate…"
     }
    ]
   }
@@ -867,7 +861,11 @@
     },
     {
      "label": "2022 General Election (Kitui Governor)",
-     "body": "Won by Julius Malombe (Wiper) with 198,004 votes (Tier 2: the IEBC declaration as reported; Tier 1 once Form 37C is…"
+     "body": "Won by Julius Malombe (Wiper) with 198,004 votes on a certified turnout of 61.7%, 328,760 valid votes of 532,758…"
+    },
+    {
+     "label": "2022 Kitui Central MP",
+     "body": "Dr. Mulu was re-elected on the Wiper ticket with 30,954 votes (Tier 1, IEBC declaration as gazetted); Boniface Musambi…"
     }
    ]
   }
@@ -954,22 +952,13 @@
   "level": 3,
   "number": "2.7.1",
   "title": "Who owns the Kamba-language stations, and who they favour",
-  "kind": "checklist",
+  "kind": "gauge",
   "data": {
-   "items": [
-    {
-     "label": "Two stations are associated with Charity…",
-     "body": ""
-    },
-    {
-     "label": "One station is associated with Kalonzo…",
-     "body": ""
-    },
-    {
-     "label": "The stations open to the campaign are…",
-     "body": ""
-    }
-   ]
+   "value": 5.7,
+   "display": "5.7",
+   "label": "% and County FM",
+   "pct": false,
+   "long": false
   }
  },
  "delivery-sec-5-3": {
@@ -1771,7 +1760,7 @@
     {
      "n": 7,
      "label": "Detection tooling at premium tier [Insert…",
-     "body": "Detection tooling at premium tier [Insert vendor — selected at contracting]"
+     "body": "Detection tooling at premium tier [Insert vendor — selected at contracting]. The shortlist to test against a sample of real…"
     }
    ]
   }
@@ -2296,7 +2285,7 @@
   "title": "Hold the home base while Kitui Central runs its own race",
   "kind": "bullet",
   "data": {
-   "baselineLabel": "77,764 registered voters in Kitui Central. His own 2022 vote total there [DATA…",
+   "baselineLabel": "77,764 registered voters in Kitui Central. He was re-elected there in 2022 with…",
    "targetLabel": "Reach and engagement in Kitui Central held at or above the Week 1 baseline while…",
    "baseline": 77764,
    "target": 1,
@@ -2524,11 +2513,35 @@
   "level": 3,
   "number": "4.3.4",
   "title": "The Youth Cohort (Ages 18–35: Students, Bodaboda, Unemployed Graduates & Creatives)",
-  "kind": "donut",
+  "kind": "bars",
   "data": {
-   "value": 44,
-   "label": "register",
-   "rest": ""
+   "items": [
+    {
+     "label": "registered voters modelled",
+     "value": 234000,
+     "display": "234,000"
+    },
+    {
+     "label": "% among rural",
+     "value": 46.7,
+     "display": "46.7"
+    },
+    {
+     "label": "among rural",
+     "value": 18,
+     "display": "18"
+    },
+    {
+     "label": "national figures",
+     "value": 24,
+     "display": "24,"
+    },
+    {
+     "label": "% transparent Kitui Central",
+     "value": 100,
+     "display": "100"
+    }
+   ]
   }
  },
  "strategy-sec-4-3-5": {
@@ -2550,7 +2563,7 @@
     },
     {
      "label": "Connectivity & Media Consumption",
-     "body": "Higher mobile internet use than the county (urban smartphone share [DATA NEEDED — CA/KNBS urban/rural split]);…"
+     "body": "Higher mobile internet use than the county (internet use is 56.6% in urban Kenya against 25.0% rural: CA/KNBS…"
     },
     {
      "label": "Reachable Channels",
@@ -2594,7 +2607,7 @@
     },
     {
      "label": "Connectivity & Media Consumption",
-     "body": "Predominantly smartphone and laptop connected (share [DATA NEEDED — internet use by education level; CA/KNBS…"
+     "body": "Predominantly smartphone and laptop connected (internet use reaches about 92.3% among Kenyans with higher…"
     },
     {
      "label": "Reachable Channels",
@@ -2630,7 +2643,7 @@
    "items": [
     {
      "label": "Empirical Sizing",
-     "body": "[DATA NEEDED — KNBS 2019 Census migration tables, set against the IEBC register by polling station] (Section…"
+     "body": "Kitui's net recent-migration balance was −72,051 in 2019 (KNBS Census Analytical Report on Migration, Volume…"
     },
     {
      "label": "Geographic Concentration",
@@ -2642,7 +2655,7 @@
     },
     {
      "label": "Connectivity & Media Consumption",
-     "body": "Predominantly internet connected (share [DATA NEEDED — internet use in Nairobi and Mombasa; CA/KNBS 2023/24…"
+     "body": "Predominantly internet connected (internet use among 18–34s is 83.1% in Nairobi and 70.4% in Mombasa: CA/KNBS…"
     },
     {
      "label": "Reachable Channels",
@@ -3116,7 +3129,7 @@
     },
     {
      "label": "Infrastructure",
-     "body": "Commercial motorcycle operators in Kitui, organized into distinct stage associations (masese). Operator count…"
+     "body": "Commercial motorcycle operators in Kitui, organized into distinct stage associations (masese). About 14,000…"
     },
     {
      "label": "Operational Role",

@@ -14,33 +14,13 @@
   },
   {
     "kind": "data",
-    "gap": "The number it takes",
-    "closes": "IEBC Form 37C, Kitui governor 2022",
-    "holder": "IEBC",
-    "status": "Open",
-    "where": [
-      "Section 3.1",
-      "Section 2.1"
-    ]
-  },
-  {
-    "kind": "data",
-    "gap": "His largest electorate to date is Kitui Central's 77,764 registered voters: he has not yet stood for a countywide office, so his proof…",
-    "closes": "IEBC Form 35B, Kitui Central MP 2022, his vote total",
-    "holder": "IEBC",
-    "status": "Open",
-    "where": [
-      "Section 3.5"
-    ]
-  },
-  {
-    "kind": "data",
-    "gap": "Kitui listenership by station",
-    "closes": "GeoPoll or KARF county release",
+    "gap": "It is a regional and an earlier measurement, so it ranks the stations rather than sizing Kitui's audience: Kitui alone is",
+    "closes": "Kitui listenership by station, current CA audience report",
     "holder": "Audience-research publishers",
     "status": "Open",
     "where": [
       "Section 3.8.1",
+      "Section 2.7.1",
       "Section 4.6"
     ]
   },
@@ -101,8 +81,8 @@
   {
     "kind": "data",
     "gap": "CA/KNBS publish countywide connectivity (26.2% internet use, 44.1% phone ownership, 2023/24), but no ward-by-ward coverage figure is…",
-    "closes": "Communications Authority coverage maps by ward",
-    "holder": "Communications Authority",
+    "closes": "ward-level extraction from the CA ICT Services Coverage Geo-Portal, 2G/3G/4G by operator",
+    "holder": "To be named",
     "status": "Open",
     "where": [
       "Section 3.10"
@@ -120,9 +100,19 @@
   },
   {
     "kind": "data",
-    "gap": "The measurement set",
-    "closes": "handles and follower counts for X, TikTok, Instagram, YouTube, and any WhatsApp Channel or Business number. Not estimated",
-    "holder": "To be named",
+    "gap": "Dr. Mulu's public record",
+    "closes": "Kitui Central NG-CDF Project Implementation Status reports, compiled by ward",
+    "holder": "NG-CDF Kitui Central",
+    "status": "Open",
+    "where": [
+      "Section 2.8"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "Handles and follower counts from the team",
+    "closes": "none verified publicly. Not estimated",
+    "holder": "Public pages, Week 1 audit",
     "status": "Open",
     "where": [
       "Section 5.3.1"
@@ -150,20 +140,7 @@
   },
   {
     "kind": "data",
-    "gap": "His own 2022 vote total there",
-    "closes": "IEBC Form 35B, Kitui Central MP 2022",
-    "holder": "IEBC",
-    "status": "Open",
-    "where": [
-      "Section 1.3.5",
-      "Data layer: result.2022.mp.mulu",
-      "Figure fig-2-2-results",
-      "Figure fig-3-5-field"
-    ]
-  },
-  {
-    "kind": "data",
-    "gap": "The Agro-Pastoralist & Arid-Zone Livestock Keepers",
+    "gap": "Households are not voters, so no voter count is derived; the split by sub-county is",
     "closes": "KNBS 2019 Census, Volume IV: households keeping livestock, by sub-county",
     "holder": "KNBS",
     "status": "Open",
@@ -173,8 +150,8 @@
   },
   {
     "kind": "data",
-    "gap": "High smartphone and feature-phone social media usage (smartphone adoption by age ); active on WhatsApp groups, TikTok, Facebook Mobile,…",
-    "closes": "CA/KNBS by age band",
+    "gap": "High smartphone and feature-phone social media usage (internet use nationally is 46.6% at 15–24 and 59.3% at 25–34, and 46.7% among…",
+    "closes": "CA/KNBS county tables by age band",
     "holder": "Communications Authority",
     "status": "Open",
     "where": [
@@ -183,8 +160,8 @@
   },
   {
     "kind": "data",
-    "gap": "Higher mobile internet use than the county (urban smartphone share ); constant WhatsApp business use; daily interaction with county…",
-    "closes": "CA/KNBS urban/rural split",
+    "gap": "Higher mobile internet use than the county (internet use is 56.6% in urban Kenya against 25.0% rural: CA/KNBS 2023/24, national figures,…",
+    "closes": "CA/KNBS county urban/rural tables",
     "holder": "Communications Authority",
     "status": "Open",
     "where": [
@@ -203,62 +180,13 @@
   },
   {
     "kind": "data",
-    "gap": "Internet use by education level",
-    "closes": "CA/KNBS 2023/24 tables",
-    "holder": "Communications Authority",
-    "status": "Open",
-    "where": [
-      "Section 4.3.6"
-    ]
-  },
-  {
-    "kind": "data",
-    "gap": "The Out-of-County Kamba Diaspora Matrix (Nairobi, Coast & Nationwide)",
-    "closes": "KNBS 2019 Census migration tables, set against the IEBC register by polling station",
+    "gap": "That is migration context, not a voter count: the share of Kitui-born residents elsewhere who remain registered in Kitui is , and no…",
+    "closes": "IEBC register by polling station, set against the migration tables",
     "holder": "IEBC",
     "status": "Open",
     "where": [
-      "Section 4.3.7"
-    ]
-  },
-  {
-    "kind": "data",
-    "gap": "Internet use in Nairobi and Mombasa",
-    "closes": "CA/KNBS 2023/24 county tables",
-    "holder": "Communications Authority",
-    "status": "Open",
-    "where": [
-      "Section 4.3.7"
-    ]
-  },
-  {
-    "kind": "data",
-    "gap": "Health insurance coverage",
-    "closes": "KNBS county bulletin",
-    "holder": "KNBS",
-    "status": "Open",
-    "where": [
-      "Section 4.4.6"
-    ]
-  },
-  {
-    "kind": "data",
-    "gap": "Child stunting",
-    "closes": "KNBS Demographic and Health Survey",
-    "holder": "KNBS",
-    "status": "Open",
-    "where": [
-      "Section 4.4.6"
-    ]
-  },
-  {
-    "kind": "data",
-    "gap": "Solid-fuel use",
-    "closes": "KNBS 2019 Census, Volume IV",
-    "holder": "KNBS",
-    "status": "Open",
-    "where": [
-      "Section 4.4.6"
+      "Section 4.3.7",
+      "Figure fig-4-3-segments"
     ]
   },
   {
@@ -269,16 +197,6 @@
     "status": "Open",
     "where": [
       "Section 4.7"
-    ]
-  },
-  {
-    "kind": "data",
-    "gap": "Workstream 7 — Ground-digital integration",
-    "closes": "county transport department or NTSA registration by county",
-    "holder": "NTSA or the county transport department",
-    "status": "Open",
-    "where": [
-      "Section 5.2.3.1"
     ]
   },
   {
@@ -404,8 +322,8 @@
   {
     "kind": "data",
     "gap": "Agro-pastoralist and arid-zone livestock keepers: size, registered voters",
-    "closes": "KNBS 2019 Census, Volume IV: households keeping livestock",
-    "holder": "KNBS",
+    "closes": "voters by livelihood; not published",
+    "holder": "To be named",
     "status": "Open",
     "where": [
       "Figure fig-4-3-segments"
@@ -416,16 +334,6 @@
     "gap": "Formal-sector professionals and educators: size, registered voters",
     "closes": "TSC establishment for Kitui; County Public Service Board staff return",
     "holder": "Public-sector employers",
-    "status": "Open",
-    "where": [
-      "Figure fig-4-3-segments"
-    ]
-  },
-  {
-    "kind": "data",
-    "gap": "Out-of-county Kamba diaspora: size, registered voters",
-    "closes": "KNBS 2019 Census migration tables, against the IEBC register by polling station",
-    "holder": "IEBC",
     "status": "Open",
     "where": [
       "Figure fig-4-3-segments"

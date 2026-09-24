@@ -55,19 +55,19 @@ that also writes its table view and `public/data/<id>.csv`.
 | `fig-1-4-flow` | 1.4 | How does the engagement run? | This proposal, Sections 5.3 and 5.7 (target) | steps |
 | `fig-1-5-scorecard` | 1.5 | How will success be judged? | Baselines: [DATA NEEDED — Meta Insights export, Week 1] (data needed); Targets: this proposal (target) | gauges |
 | `fig-2-1-register` | 2.1 | How big is the register, and how did it get there? | IEBC, Registered Voters per County Assembly Ward (2022) (T1); IEBC, Enhanced Continuous Voter Registration county annex (July 2026) (T1); Continuous registration: the growth less the drive, derived (modelled T1) | waterfall + bars + bars |
-| `fig-2-2-results` | 2.2 | What does it take to win a countywide seat in Kitui? | Court of Appeal, Malombe v Ngilu [2018] KECA 460 (T1); Media reporting of the IEBC 2022 declaration (The Star; Nation; Standard) (T2); David Musila's 2022 total: two published values, neither preferred (T2); [DATA NEEDED — IEBC Form 35B, Kitui Central MP 2022] (data needed) | multiples |
+| `fig-2-2-results` | 2.2 | What does it take to win a countywide seat in Kitui? | Court of Appeal, Malombe v Ngilu [2018] KECA 460 (T1); IEBC certified result, Kitui governor 2022 (Form 37C), per Firefly's Public Data & Evidence Audit (24 Sep 2026) (T1); IEBC declaration, Kitui Central MP 2022, as gazetted (via The Star), per Firefly's Public Data & Evidence Audit (24 Sep 2026) (T1); Senator and Woman Representative 2022: media reporting of the IEBC declaration (T2) | multiples |
 | `fig-2-3-nomination` | 2.3 | What is the nomination method, and how confident are we? | Nomination method and window: single-source campaign report (T3); Party name change: Office of the Registrar of Political Parties (August 2025) (T1) | cards + matrix |
 | `fig-2-4-people` | 2.4 | Who lives in Kitui? | KNBS, 2019 Kenya Population and Housing Census (T1); KNBS, Kenya Poverty Report (2021) (T1); NDMA Long Rains Food Security Assessment, citing KNBS (the other poverty rate) (T2); Kitui County livestock statistics, as cited in the evidence pack (T1); NDMA drought bulletin, January 2026 (T1) | icons + bars + cards |
 | `fig-2-5-budget` | 2.5 | What does the next governor actually control? | Kitui County Fiscal Strategy Paper FY2026/27: equitable share and conditional grants (T1); The same Paper, via secondary reporting: the total and own-source revenue (T3); County Assembly revision of the Paper: own-source revenue (T3) | stack |
 | `fig-2-6-connectivity` | 2.6 | How do people get online, and has that changed? | KNBS, 2019 Kenya Population and Housing Census (T2); Communications Authority / KNBS, ICT Analytical Report on the 2023/24 Kenya Housing Survey (T1) | slope |
-| `fig-2-7-media` | 2.7 | Who owns the airwaves, and where do we place vs monitor? | Local media ownership reporting (publicly reported, not certified) (T3); Corporate and denominational ownership records (T2) | network |
+| `fig-2-7-media` | 2.7 | Who owns the airwaves, and where do we place vs monitor? | Local media ownership reporting (publicly reported, not certified) (T3); Corporate and denominational ownership records (T2); CA/KARF audience report, Lower Eastern (Kitui, Machakos, Makueni), per Firefly's audit (T2) | network + bars |
 | `fig-2-8-record` | 2.8 | What has he actually done? | Kitui Central NG-CDF bursary record (T1); Parliament of Kenya record; NG-CDF Board evaluation, FY2014/15 (T1); Kitui Central Project Inventory 2013–2026, awaiting line items (T3) | timeline + stats |
 | `fig-2-9-channels` | 2.9 | What does his presence look like against the field? | Public Facebook page, approximate count as displayed (T3); Public pages of each candidate, Week 1 audit (data needed) | matrix + matrix |
-| `fig-3-1-funnel` | 3.1 | What is the winning number? | IEBC, Registered Voters per County Assembly Ward (2022) (T1); IEBC, Enhanced Continuous Voter Registration county annex (July 2026) (T1); Turnout of 62%: a modelling constant, no certified figure in the evidence pack (target); Benchmark: the 2022 governor's winning total, rounded (target) | funnel |
+| `fig-3-1-funnel` | 3.1 | What is the winning number? | IEBC, Registered Voters per County Assembly Ward (2022) (T1); IEBC, Enhanced Continuous Voter Registration county annex (July 2026) (T1); Turnout of 61.7%: IEBC Form 37C, Kitui governor 2022, carried forward to 2027 (T1); Benchmark: the 2022 governor's winning total, rounded (target) | funnel |
 | `fig-3-2-register-map` | 3.2 | Where are the votes? | IEBC, Registered Voters per County Assembly Ward (2022) (T1); Shares and running totals, derived (modelled T1) | tilemap + pareto |
-| `fig-3-3-paths` | 3.3 | Which route to the number is real, and which is a trap? | IEBC, Registered Voters per County Assembly Ward (2022) (T1); Ballots at the 62% turnout constant, derived (modelled T1) | paths |
+| `fig-3-3-paths` | 3.3 | Which route to the number is real, and which is a trap? | IEBC, Registered Voters per County Assembly Ward (2022) (T1); Ballots at the 61.7% turnout constant, derived (modelled T1) | paths |
 | `fig-3-4-footprint` | 3.4 | Where has he held office, and what does that leave untouched? | IEBC, Registered Voters per County Assembly Ward (2022) (T1); Parliament of Kenya record (T1); The pool: Mwingi North, West, Central and Kitui South, summed (modelled T1) | tilemap + stats |
-| `fig-3-5-field` | 3.5 | What has each contender already proven at the ballot? | Media reporting of the IEBC 2022 declaration (The Star; Nation; Standard) (T2); Court of Appeal, Malombe v Ngilu [2018] KECA 460 (T1); [DATA NEEDED — IEBC Form 35B, Kitui Central MP 2022] (data needed) | bars |
+| `fig-3-5-field` | 3.5 | What has each contender already proven at the ballot? | Media reporting of the IEBC 2022 declaration (The Star; Nation; Standard) (T2); Court of Appeal, Malombe v Ngilu [2018] KECA 460 (T1); IEBC declaration, Kitui Central MP 2022, as gazetted (via The Star), per Firefly's Public Data & Evidence Audit (24 Sep 2026) (T1) | bars |
 | `fig-3-6-party-flow` | 3.6 | Where will party loyalty not carry him? | Constituency records, 2022 (single-source) (T3); IEBC, Registered Voters per County Assembly Ward (2022) (T1); Kitui Central succession reports (T3) | tilemap + stats |
 | `fig-3-7-zones` | 3.7 | How do the three zones differ, and who is left out? | KNBS, 2019 Kenya Population and Housing Census (T1); IEBC, Registered Voters per County Assembly Ward (2022) (T1); This proposal's zoning; shares derived (modelled T1) | tilemap + dumbbell |
 | `fig-3-8-ceiling` | 3.8 | What can digital physically reach? | analysis pipeline, stage 09 (published rates × July 2026 register) (modelled T1); Communications Authority / KNBS, ICT Analytical Report on the 2023/24 Kenya Housing Survey (T1) | stack |
@@ -114,44 +114,36 @@ measured on ballots (**Path B no longer clears it**); 5 of the 12 largest wards 
 at T1; campaign-owned items marked outside scope; engagement money language removed and linted;
 the 40% threshold removed. C-1 to C-21 are applied; the 82/18 channel split is confirmed on the
 2023/24 rate (R-20); the two USSD menus are one (R-19); **C-22** (endorsement count per sub-county or
-in total) stays open as a `[CONFIRM/EDIT]`. R-1 to R-22 record what the rebuild found and changed.
+in total) stays open as a `[CONFIRM/EDIT]`. R-1 to R-28 record (R-23 to R-28 enter Firefly's Public Data & Evidence Audit of 24 September 2026) what the rebuild found and changed.
 
 ## 6. What is still open
 
 Generated by `scripts/build-open-items.ts` from every marker in the served content, every
-`needed` figure in the data layer and every `needed` row in a figure: **42 data gaps, 3 items to
+`needed` figure in the data layer and every `needed` row in a figure: **33 data gaps, 3 items to
 confirm, 17 placeholders.** The same list renders as `fig-3-10-gaps` (data gaps) and
 `fig-6-2-open-items` (all).
 
 | Kind | Item | Closed by | Holder | Where |
 |---|---|---|---|---|
 | DATA NEEDED | The number it takes | IEBC ECVR ward annex | IEBC | Section 3.1; Section 2.1; Data layer: register.2026.by-ward; Figure fig-2-1-register |
-| DATA NEEDED | The number it takes | IEBC Form 37C, Kitui governor 2022 | IEBC | Section 3.1; Section 2.1 |
-| DATA NEEDED | His largest electorate to date is Kitui Central's 77,764 registered voters: he has not yet stood for a countywide office, so his proof… | IEBC Form 35B, Kitui Central MP 2022, his vote total | IEBC | Section 3.5 |
-| DATA NEEDED | Kitui listenership by station | GeoPoll or KARF county release | Audience-research publishers | Section 3.8.1; Section 4.6 |
+| DATA NEEDED | It is a regional and an earlier measurement, so it ranks the stations rather than sizing Kitui's audience: Kitui alone is | Kitui listenership by station, current CA audience report | Audience-research publishers | Section 3.8.1; Section 2.7.1; Section 4.6 |
 | DATA NEEDED | Handset ownership by ward | CA/KNBS | Communications Authority | Section 3.8.1 |
 | DATA NEEDED | Agent count for Kitui | Central Bank of Kenya or Safaricom agent register | Central Bank of Kenya or Safaricom | Section 3.8.1 |
 | DATA NEEDED | Market-day attendance | county trade department | County government or church offices | Section 3.8.1 |
 | DATA NEEDED | Congregation sizes | diocesan and denominational offices | County government or church offices | Section 3.8.1 |
 | DATA NEEDED | What the audit produces | Week 1 export | His team: the Week 1 export | Section 3.9.1; Section 5.6.4; Section 1.3.1; Figure fig-1-5-scorecard; Figure fig-5-6-kpis |
-| DATA NEEDED | CA/KNBS publish countywide connectivity (26.2% internet use, 44.1% phone ownership, 2023/24), but no ward-by-ward coverage figure is… | Communications Authority coverage maps by ward | Communications Authority | Section 3.10 |
+| DATA NEEDED | CA/KNBS publish countywide connectivity (26.2% internet use, 44.1% phone ownership, 2023/24), but no ward-by-ward coverage figure is… | ward-level extraction from the CA ICT Services Coverage Geo-Portal, 2G/3G/4G by operator | To be named | Section 3.10 |
 | DATA NEEDED | In-county active users per platform are not published: they are , and Section 3.8 sizes what digital can reach from the published rates… | Meta Audience Insights export, Week 1 | His team: the Week 1 export | Section 2.6 |
-| DATA NEEDED | The measurement set | handles and follower counts for X, TikTok, Instagram, YouTube, and any WhatsApp Channel or Business number. Not estimated | To be named | Section 5.3.1 |
+| DATA NEEDED | Dr. Mulu's public record | Kitui Central NG-CDF Project Implementation Status reports, compiled by ward | NG-CDF Kitui Central | Section 2.8 |
+| DATA NEEDED | Handles and follower counts from the team | none verified publicly. Not estimated | Public pages, Week 1 audit | Section 5.3.1 |
 | DATA NEEDED | Wiper delegate register for Kitui | party secretariat | Wiper Patriotic Front secretariat | Section 5.8.14 |
 | DATA NEEDED | Give every post a voter, a ward and a reason | Week 1 post coding | His team: the Week 1 export | Section 1.3.4 |
-| DATA NEEDED | His own 2022 vote total there | IEBC Form 35B, Kitui Central MP 2022 | IEBC | Section 1.3.5; Data layer: result.2022.mp.mulu; Figure fig-2-2-results; Figure fig-3-5-field |
-| DATA NEEDED | The Agro-Pastoralist & Arid-Zone Livestock Keepers | KNBS 2019 Census, Volume IV: households keeping livestock, by sub-county | KNBS | Section 4.3.3 |
-| DATA NEEDED | High smartphone and feature-phone social media usage (smartphone adoption by age ); active on WhatsApp groups, TikTok, Facebook Mobile,… | CA/KNBS by age band | Communications Authority | Section 4.3.4 |
-| DATA NEEDED | Higher mobile internet use than the county (urban smartphone share ); constant WhatsApp business use; daily interaction with county… | CA/KNBS urban/rural split | Communications Authority | Section 4.3.5 |
+| DATA NEEDED | Households are not voters, so no voter count is derived; the split by sub-county is | KNBS 2019 Census, Volume IV: households keeping livestock, by sub-county | KNBS | Section 4.3.3 |
+| DATA NEEDED | High smartphone and feature-phone social media usage (internet use nationally is 46.6% at 15–24 and 59.3% at 25–34, and 46.7% among… | CA/KNBS county tables by age band | Communications Authority | Section 4.3.4 |
+| DATA NEEDED | Higher mobile internet use than the county (internet use is 56.6% in urban Kenya against 25.0% rural: CA/KNBS 2023/24, national figures,… | CA/KNBS county urban/rural tables | Communications Authority | Section 4.3.5 |
 | DATA NEEDED | TSC establishment for Kitui | County Public Service Board staff return; Ministry of Health workforce data | Public-sector employers | Section 4.3.6 |
-| DATA NEEDED | Internet use by education level | CA/KNBS 2023/24 tables | Communications Authority | Section 4.3.6 |
-| DATA NEEDED | The Out-of-County Kamba Diaspora Matrix (Nairobi, Coast & Nationwide) | KNBS 2019 Census migration tables, set against the IEBC register by polling station | IEBC | Section 4.3.7 |
-| DATA NEEDED | Internet use in Nairobi and Mombasa | CA/KNBS 2023/24 county tables | Communications Authority | Section 4.3.7 |
-| DATA NEEDED | Health insurance coverage | KNBS county bulletin | KNBS | Section 4.4.6 |
-| DATA NEEDED | Child stunting | KNBS Demographic and Health Survey | KNBS | Section 4.4.6 |
-| DATA NEEDED | Solid-fuel use | KNBS 2019 Census, Volume IV | KNBS | Section 4.4.6 |
+| DATA NEEDED | That is migration context, not a voter count: the share of Kitui-born residents elsewhere who remain registered in Kitui is , and no… | IEBC register by polling station, set against the migration tables | IEBC | Section 4.3.7; Figure fig-4-3-segments |
 | DATA NEEDED | Fix first: six profile corrections | one screenshot of Meta Business Suite, or of the Professional dashboard, settles this. It takes five minutes and it gates the rest of the audit | His team: the Week 1 export | Section 4.7 |
-| DATA NEEDED | Workstream 7 — Ground-digital integration | county transport department or NTSA registration by county | NTSA or the county transport department | Section 5.2.3.1 |
 | DATA NEEDED | Wiper NEC signed resolution: status | Wiper NEC resolution | Wiper Patriotic Front secretariat | Figure fig-2-3-nomination |
 | DATA NEEDED | Pollster's terms of reference: status | pollster's terms of reference | Wiper Patriotic Front secretariat | Figure fig-2-3-nomination |
 | DATA NEEDED | Ward-by-ward project record: value | NG-CDF project inventory, verified | NG-CDF Kitui Central | Figure fig-2-8-record |
@@ -164,9 +156,8 @@ confirm, 17 placeholders.** The same list renders as `fig-3-10-gaps` (data gaps)
 | DATA NEEDED | Which language travels: as displayed, or the figure | Meta Insights export, Week 1 | His team: the Week 1 export | Figure fig-3-9-audit |
 | DATA NEEDED | Him against the field: as displayed, or the figure | Meta Insights export, Week 1 | His team: the Week 1 export | Figure fig-3-9-audit |
 | DATA NEEDED | Test | Meta Insights export, Week 1 | His team: the Week 1 export | Figure fig-3-11-evidence |
-| DATA NEEDED | Agro-pastoralist and arid-zone livestock keepers: size, registered voters | KNBS 2019 Census, Volume IV: households keeping livestock | KNBS | Figure fig-4-3-segments |
+| DATA NEEDED | Agro-pastoralist and arid-zone livestock keepers: size, registered voters | voters by livelihood; not published | To be named | Figure fig-4-3-segments |
 | DATA NEEDED | Formal-sector professionals and educators: size, registered voters | TSC establishment for Kitui; County Public Service Board staff return | Public-sector employers | Figure fig-4-3-segments |
-| DATA NEEDED | Out-of-county Kamba diaspora: size, registered voters | KNBS 2019 Census migration tables, against the IEBC register by polling station | IEBC | Figure fig-4-3-segments |
 | CONFIRM/EDIT | whether the endorsement signature count applies per sub-county or in total | Campaign decision | The campaign | Section 6.1 |
 | CONFIRM/EDIT | USSD shortcode | Campaign decision | The campaign | Section 6.3.2 |
 | CONFIRM/EDIT | confirm both are held, and whether the shortcode is dedicated or shared | Campaign decision | The campaign | Section 5.2.3.3 |

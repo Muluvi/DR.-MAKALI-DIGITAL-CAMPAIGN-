@@ -88,24 +88,24 @@ export const FIG_4_2: FigureSpec = {
 
 const SEGMENTS = [
   { name: "Rural agrarian and smallholder baseline", size: "segment.rural.voters", pillar: "P2", lang: "Kikamba on voice; Kiswahili on SMS", channel: "WhatsApp voice note, SMS" },
-  { name: "Agro-pastoralist and arid-zone livestock keepers", size: null, closes: "KNBS 2019 Census, Volume IV: households keeping livestock", pillar: "P1", lang: "Kikamba on radio and USSD; Kiswahili on SMS", channel: "SMS, USSD, radio" },
+  { name: "Agro-pastoralist and arid-zone livestock keepers", size: null, context: () => `${fmt("livestock.households")} livestock-farming households (2019 Census, T1); households, not voters`, closes: "voters by livelihood; not published", pillar: "P1", lang: "Kikamba on radio and USSD; Kiswahili on SMS", channel: "SMS, USSD, radio" },
   { name: "Youth, 18–35", size: "segment.youth.voters", pillar: "P3", lang: "Kiswahili and Sheng, Kikamba hooks", channel: "TikTok, Facebook" },
   { name: "Urban and peri-urban informal sector", size: "segment.urban.voters", pillar: "P3", lang: "Kiswahili", channel: "Facebook, WhatsApp" },
-  { name: "Formal-sector professionals and educators", size: null, closes: "TSC establishment for Kitui; County Public Service Board staff return", pillar: "P1", lang: "English, Kiswahili", channel: "Facebook, X, YouTube" },
-  { name: "Out-of-county Kamba diaspora", size: null, closes: "KNBS 2019 Census migration tables, against the IEBC register by polling station", pillar: "P3", lang: "English, Kikamba", channel: "Facebook, YouTube, WhatsApp" },
+  { name: "Formal-sector professionals and educators", size: null, context: () => `Health workers: ${fmt("health.density.core")} core staff per 10,000 people (Countdown 2030, T2); headcounts not published`, closes: "TSC establishment for Kitui; County Public Service Board staff return", pillar: "P1", lang: "English, Kiswahili", channel: "Facebook, X, YouTube" },
+  { name: "Out-of-county Kamba diaspora", size: null, context: () => `Net recent migration ${fmt("migration.net")} (2019, T1): context, not a voter count`, closes: "IEBC register by polling station, set against the migration tables", pillar: "P3", lang: "English, Kikamba", channel: "Facebook, YouTube, WhatsApp" },
 ];
 
 export const FIG_4_3: FigureSpec = {
   id: "fig-4-3-segments",
   section: "4.3",
-  title: "Six segments, three of them sized from the census and three that no published source sizes yet",
+  title: "Six segments, three sized in voters from the census and three with context but no published voter count",
   question: "Who are we trying to move, and how much do they matter?",
   takeaway: "Sizes overlap and are not additive; where no source exists the cell names the document that would close it rather than guessing.",
   sources: [src("census.rural.share"), { name: "Segment sizes: census shares applied to the 2022 register, derived", tier: "T1", state: "modelled" }],
   chart: {
     type: "matrix",
     header: ["Segment", "Size (registered voters)", "Pillar", "Language", "Lead channel"],
-    rows: SEGMENTS.map((g) => ({ head: g.name, cells: [g.size ? `≈${fmt(g.size)} (modelled)` : `[DATA NEEDED — ${g.closes}]`, g.pillar, g.lang, g.channel] })),
+    rows: SEGMENTS.map((g) => ({ head: g.name, cells: [g.size ? `≈${fmt(g.size)} (modelled)` : `${g.context ? `${g.context()}. ` : ""}Voters: [DATA NEEDED — ${g.closes}]`, g.pillar, g.lang, g.channel] })),
   },
   notes: ["Priority among segments is set by the Week 1 audit (Section 5.3) and re-set at each monthly review, not chosen in advance."],
   columns: [{ key: "segment", label: "Segment" }, { key: "size", label: "Size, registered voters", numeric: true }, { key: "pillar", label: "Pillar" }, { key: "lang", label: "Language" }, { key: "channel", label: "Lead channel" }],

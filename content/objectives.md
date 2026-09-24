@@ -63,7 +63,7 @@ id: fig-1-3-objectives
 
 *   **Traceability:** Prevents the "Central Isolation Trap" (Path D in the electoral analysis) by maintaining Dr. Mulu's anchor in Kitui Central while candidate succession dynamics unfold.
 *   **Finding it answers:** Kitui Central will have its own MP succession contest through the same window (Section 3.6).
-*   **Baseline:** {{con.kitui-central}} registered voters in Kitui Central. His own 2022 vote total there `[DATA NEEDED — IEBC Form 35B, Kitui Central MP 2022]`.
+*   **Baseline:** {{con.kitui-central}} registered voters in Kitui Central. He was re-elected there in 2022 with {{result.2022.mp.mulu}} votes (Tier 1).
 *   **Target:** Reach and engagement in Kitui Central held at or above the Week 1 baseline while output weight moves to Mwingi and the arid belt.
 *   **Served by:** Section 4.2 (the anchor zone's weighting). **Measured by:** reach by constituency in the monthly performance report (Section 5.5.3).
 *   **Named Owner:** Kitui Central Constituency Campaign Committee.
