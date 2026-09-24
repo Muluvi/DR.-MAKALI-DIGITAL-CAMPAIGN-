@@ -8,7 +8,7 @@ interface StrategicPillar {
   num: string;
   title: string;
   subtitle: string;
-  icon: React.ElementType;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
   corePremise: string;
   tangibleProofPoint: string;
   deliveryFormat: string;

@@ -77,6 +77,13 @@ const PRERENDERED = 1;
  * fragment alone, and ClientPage routes to the right section on arrival. Every legacy id
  * still resolves through LEGACY_IDS exactly as before; scripts/verify-deep-links.mjs proves it.
  */
+/**
+ * Only the routes generated below exist. Any other slug was already a 404 (notFound() below);
+ * declaring it lets a sibling static route (app/style-frames) take its own path rather than being
+ * resolved through this catch-all.
+ */
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return [{ slug: [] as string[] }, ...TAB_IDS.map((id) => ({ slug: [id] })), { slug: [FULL] }];
 }
