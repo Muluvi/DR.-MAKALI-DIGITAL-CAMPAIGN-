@@ -127,8 +127,7 @@ honest: if the model and the doorstep disagree, the model is wrong.
 ### 5.2.3.3 Workstream 9 — What Firefly operates: SMS, USSD and voice
 
 > **Owner: Firefly, end to end.** Two pieces of infrastructure, held and run by Firefly: the
-> **WhatsApp Business API line** and the **USSD shortcode** `[CONFIRM/EDIT — confirm both are held,
-> and whether the shortcode is dedicated or shared]`. This is the one place in the engagement where
+> **WhatsApp Business API line** and the **USSD shortcode**. This is the one place in the engagement where
 > Firefly publishes. Everything on the owned social accounts stays with the team that runs them.
 >
 > It is also the one place where Firefly is a **data controller or joint controller** rather than a
@@ -212,7 +211,7 @@ USSD works on every phone, requires no internet, and is close to free for the
 voter. It is the single most under-used civic channel in Kenyan county
 politics.
 
-**Proposed menu — `*[Insert shortcode]#`:**
+**Proposed menu — dialled on the campaign's USSD shortcode:**
 ```figure
 id: fig-5-2-3-ussd-menu
 ```

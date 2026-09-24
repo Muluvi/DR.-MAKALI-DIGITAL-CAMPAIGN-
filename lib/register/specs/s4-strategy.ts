@@ -100,16 +100,16 @@ export const FIG_4_3: FigureSpec = {
   section: "4.3",
   title: "Six segments, three sized in voters from the census and three with context but no published voter count",
   question: "Who are we trying to move, and how much do they matter?",
-  takeaway: "Sizes overlap and are not additive; where no source exists the cell names the document that would close it rather than guessing.",
+  takeaway: "Sizes overlap and are not additive; where no source publishes a voter count, none is given.",
   sources: [src("census.rural.share"), { name: "Segment sizes: census shares applied to the 2022 register, derived", tier: "T1", state: "modelled" }],
   chart: {
     type: "matrix",
     header: ["Segment", "Size (registered voters)", "Pillar", "Language", "Lead channel"],
-    rows: SEGMENTS.map((g) => ({ head: g.name, cells: [g.size ? `≈${fmt(g.size)} (modelled)` : `${g.context ? `${g.context()}. ` : ""}Voters: [DATA NEEDED — ${g.closes}]`, g.pillar, g.lang, g.channel] })),
+    rows: SEGMENTS.map((g) => ({ head: g.name, cells: [g.size ? `≈${fmt(g.size)} (modelled)` : `${g.context ? `${g.context()}. ` : ""}Voters: not published`, g.pillar, g.lang, g.channel] })),
   },
   notes: ["Priority among segments is set by the Week 1 audit (Section 5.3) and re-set at each monthly review, not chosen in advance."],
   columns: [{ key: "segment", label: "Segment" }, { key: "size", label: "Size, registered voters", numeric: true }, { key: "pillar", label: "Pillar" }, { key: "lang", label: "Language" }, { key: "channel", label: "Lead channel" }],
-  rows: SEGMENTS.map((g) => ({ cells: { segment: g.name, size: g.size ? num(g.size) : null, pillar: g.pillar, lang: g.lang, channel: g.channel }, state: g.size ? ("modelled" as const) : ("needed" as const), closesWith: g.closes })),
+  rows: SEGMENTS.map((g) => ({ cells: { segment: g.name, size: g.size ? num(g.size) : "Not published", pillar: g.pillar, lang: g.lang, channel: g.channel }, state: g.size ? ("modelled" as const) : undefined })),
 };
 
 /* ------------------------------------------------------------------ fig-4-4-message-region */
@@ -179,7 +179,7 @@ export const FIG_4_5: FigureSpec = {
   title: "The same seven days become six briefed posts across four pillars, and Thursday's commitment returns as a Sunday check",
   question: "What gets published, and when?",
   takeaway: "Two fields on a Thursday post and a language rule change the week; who takes the photograph and who presses publish do not.",
-  sources: [{ name: "His public page, as observed: [CONFIRM against the Week 1 export]", tier: "T3" }, { name: "The briefed week: this proposal", tier: null, state: "target" }],
+  sources: [{ name: "His public page, as observed; checked against his actual week in Week 1", tier: "T3" }, { name: "The briefed week: this proposal", tier: null, state: "target" }],
   chart: { type: "calendar", days: WEEK, pillars: PILLARS },
   notes: ["Two rules on top: at least two of the seven originate in a pool ward, and at least four are Kikamba-first."],
   columns: [{ key: "day", label: "Day" }, { key: "pillar", label: "Pillar" }, { key: "after", label: "After" }, { key: "now", label: "Now" }],
@@ -267,7 +267,7 @@ export const FIG_4_8: FigureSpec = {
   title: "Seven findings the Week 1 audit could return, each with the change it triggers, fixed in advance",
   question: "When does the plan change?",
   takeaway: "Stating the rules before the audit means the data cannot be read backwards into whatever was already planned.",
-  sources: [{ name: "This proposal; the test waits on [DATA NEEDED — Meta Insights export, Week 1]", tier: null, state: "target" }],
+  sources: [{ name: "This proposal; the test runs on the Week 1 export", tier: null, state: "target" }],
   chart: { type: "decision", question: "If the Week 1 audit finds…", rules: RULES },
   columns: [{ key: "if", label: "If the audit finds" }, { key: "then", label: "The strategy changes to" }],
   rows: RULES.map((r) => ({ cells: { if: r.if, then: r.then } })),

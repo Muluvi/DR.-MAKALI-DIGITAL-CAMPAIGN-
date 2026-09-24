@@ -51,9 +51,8 @@ The presence audit in Section 5.3 is held to the same rules as every figure in t
     disagreements resolved by a third pass. **The inter-coder agreement rate is published with the
     findings.** A coding exercise that will not report its own agreement rate is an opinion wearing
     a table.
-*   **Gaps.** A metric the export does not contain is marked `[DATA NEEDED]` with the method for
-    obtaining it, exactly as elsewhere. Estimated engagement rates and inferred follower
-    geographies are not used.
+*   **Gaps.** A metric the export does not contain is reported as absent, not estimated.
+    Estimated engagement rates and inferred follower geographies are not used.
 *   **Competitive figures** are public-source only, gathered the same way for all four candidates,
     in the same window.
 

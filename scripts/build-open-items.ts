@@ -1,5 +1,5 @@
 /**
- * Every open item in the proposal, generated, never typed (brief §N fig-3-10-gaps and fig-6-2-open-items).
+ * Every open item in the proposal, generated, never typed (brief §N fig-3-10-gaps).
  *
  * Reads three places, so nothing marked open can be missing from the tables that list what is open:
  *   1. every `[DATA NEEDED …]` and `[CONFIRM/EDIT …]` marker in the resolved content (public/content)
@@ -63,9 +63,9 @@ function sentenceAround(line: string, at: number): string {
 }
 
 const items = new Map<string, OpenItem>();
-function add(kind: OpenItem["kind"], gap: string, closes: string, where: string, byGap = false) {
+function add(kind: OpenItem["kind"], gap: string, closes: string, where: string, byGap = false, merge = true) {
   // A figure row whose document is already listed from the text joins that item.
-  if (byGap && kind !== "placeholder") {
+  if (byGap && merge && kind !== "placeholder") {
     const same = [...items.values()].find((i) => i.kind === kind && i.closes.toLowerCase() === closes.toLowerCase() && !i.where.every((w) => w.startsWith("Figure")));
     if (same) {
       if (!same.where.includes(where)) same.where.push(where);
@@ -78,7 +78,7 @@ function add(kind: OpenItem["kind"], gap: string, closes: string, where: string,
     if (!it.where.includes(where)) it.where.push(where);
     return;
   }
-  items.set(key, { kind, gap, closes, holder: kind === "data" ? holderOf(closes) : closes === "Kikamba reviewer" ? "Kikamba reviewer" : "The campaign", status: "Open", where: [where] });
+  items.set(key, { kind, gap, closes, holder: kind === "data" ? (closes === "Not published" ? (/20(13|17)/.test(gap) ? "IEBC" : "No source publishes it") : holderOf(closes)) : closes === "Kikamba reviewer" ? "Kikamba reviewer" : "The campaign", status: "Open", where: [where] });
 }
 
 // 1. content markers. Read per file as one string, so a marker that wraps across lines is caught.
@@ -127,6 +127,16 @@ for (const file of fs.readdirSync(CONTENT).filter((f) => f.endsWith(".md")).sort
       if (gap.length < 24 || !/^[A-Z"“]/.test(gap)) gap = head ? head.title : gap;
     }
     add("data", gap.charAt(0).toUpperCase() + gap.slice(1), closes, where);
+  }
+}
+
+// 1b. the named data gaps Section 3.10 lists in prose: "**Label:** **Named data gap.**". They are
+// limits of the evidence rather than markers, and they are what fig-3-10 exists to show.
+for (const file of fs.readdirSync(CONTENT).filter((f) => f.endsWith(".md")).sort()) {
+  for (const line of fs.readFileSync(path.join(CONTENT, file), "utf8").split("\n")) {
+    const m = line.match(/^\s*\d+\.\s+\*\*([^*]+?):\*\*\s+\*\*Named data gap/i);
+    if (!m) continue;
+    add("data", clean(m[1]), "Not published", `Section 3.10`, true, false);
   }
 }
 

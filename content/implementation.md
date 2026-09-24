@@ -74,8 +74,6 @@ campaign discovers later:
     broadcasts, and the market-day sound-truck caravans (Section 3.8.1). Each appears in this
     document as a recommendation to the campaign. Firefly writes the brief each one carries; the
     campaign recruits, pays and runs them.
-*   **`[CAMPAIGN DECISION REQUIRED]`** — anything further the campaign wishes placed outside scope
-    before contracting. This line exists to be filled in, not to be left.
 
 ### 5.1.4 How the levels change what runs
 

@@ -21,9 +21,7 @@ Central; Gubernatorial Aspirant, Kitui County. Personally, and not for any party
 
 **Prepared by:** Firefly Management, Strategic Communications & Digital Campaign Consultancy.
 
-**Status:** Proposal for discussion. It carries marked placeholders where a campaign decision or a
-primary document is still required; Section 6.1 lists every one of them in a single table rather
-than leaving them to be found.
+**Status:** Proposal for discussion.
 
 **Confidential.** Submitted in confidence for the purpose of evaluating this engagement, and not to
 be circulated beyond Dr. Mulu and those he authorises. Section G.1 states the full terms; Section

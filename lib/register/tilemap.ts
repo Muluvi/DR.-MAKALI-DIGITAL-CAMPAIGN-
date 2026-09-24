@@ -150,11 +150,11 @@ export const LAYERS: Record<TileLayerId, TileLayer> = {
   "reach-targets": {
     id: "reach-targets",
     name: "Reach share, against target",
-    description: "Reach share by ward, from his Meta Insights export, against the pool's own share of the register. Every tile is empty until the Week 1 export lands.",
-    source: "[DATA NEEDED — Meta Insights export, Week 1]",
+    description: "Reach share by ward, from his Meta Insights export, against the pool's own share of the register. Every tile is set from the Week 1 export.",
+    source: "Set in Week 1 from his Meta Insights export",
     tier: null,
-    state: "needed",
-    legend: [{ label: "Data needed: Week 1 export", fill: "transparent", dashed: true }],
+    state: "target",
+    legend: [{ label: "Set in Week 1", fill: "transparent", dashed: true }],
     style: () => ({ fill: "transparent", ink: "var(--muted)", label: "—", dashed: true }),
   },
 };

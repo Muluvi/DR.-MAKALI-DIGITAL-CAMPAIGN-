@@ -41,10 +41,6 @@ export const FIG_2_1: FigureSpec = {
         heading: "By constituency, 2022 register",
         chart: { type: "bars", bars: conBars, unit: "" },
       },
-      {
-        heading: "By constituency, July 2026 register",
-        chart: { type: "bars", bars: [bar("register.2026.by-ward", "Not yet published by constituency or ward", { note: "Closes with the IEBC ECVR ward annex." })] },
-      },
     ],
   },
   notes: [
@@ -61,7 +57,6 @@ export const FIG_2_1: FigureSpec = {
     { cells: { item: "Continuous registration outside the drive", voters: num("register.2026.continuous"), source: "Derived: July 2026 less 2022 less the drive" }, state: "modelled" },
     { cells: { item: "Registered, July 2026", voters: num("register.2026"), source: ECVR } },
     ...conBars.map((b) => ({ cells: { item: `${b.label}, 2022`, voters: b.value, source: W22 } })),
-    { cells: { item: "By constituency or ward, July 2026", voters: null, source: "—" }, state: "needed" as const, closesWith: F("register.2026.by-ward").closesWith },
   ],
 };
 
@@ -132,8 +127,8 @@ export const FIG_2_3: FigureSpec = {
   rows: [
     { cells: { item: "Nomination method: countywide opinion poll", status: "Reported, not confirmed (T3)", holder: "—" } },
     { cells: { item: "Nomination window: late October to November 2026", status: "Reported, not confirmed (T3)", holder: "—" } },
-    { cells: { item: "Wiper NEC signed resolution", status: null, holder: "Wiper NEC" }, state: "needed", closesWith: "Wiper NEC resolution" },
-    { cells: { item: "Pollster's terms of reference", status: null, holder: "The party, via the campaign" }, state: "needed", closesWith: "pollster's terms of reference" },
+    { cells: { item: "Wiper NEC signed resolution", status: "Not in hand", holder: "Wiper NEC" } },
+    { cells: { item: "Pollster's terms of reference", status: "Not in hand", holder: "The party, via the campaign" } },
   ],
 };
 
@@ -345,7 +340,7 @@ export const FIG_2_8: FigureSpec = {
       },
     ],
   },
-  notes: ["The NG-CDF project list is drawn as counts only: the ward-by-ward project record is [DATA NEEDED — NG-CDF project inventory, verified]."],
+  notes: [`The NG-CDF record is drawn as counts; the FY2026/27 allocation is KSh ${fmt("ngcdf.allocation.2026")} (T1).`],
   columns: [{ key: "item", label: "Item" }, { key: "value", label: "Value" }, { key: "tier", label: "Tier" }],
   rows: [
     { cells: { item: "Elected MP, Kitui Central", value: "2013; re-elected 2017 and 2022", tier: "T1" } },
@@ -354,49 +349,38 @@ export const FIG_2_8: FigureSpec = {
     { cells: { item: "Constituency evaluation, FY2014/15", value: "Best in the Eastern region; first of 71 in its peer group", tier: "T1" } },
     { cells: { item: "Boreholes, NG-CDF inventory", value: num("record.cdf.boreholes"), tier: "T3" } },
     { cells: { item: "School water projects, NG-CDF inventory", value: num("record.cdf.school-water"), tier: "T3" } },
-    { cells: { item: "Ward-by-ward project record", value: null, tier: "—" }, state: "needed", closesWith: "NG-CDF project inventory, verified" },
+    { cells: { item: "NG-CDF allocation, FY2026/27, KSh", value: num("ngcdf.allocation.2026"), tier: "T1" } },
   ],
 };
 
 /* ------------------------------------------------------------------ fig-2-9-channels */
 
-const NEED = "[DATA NEEDED — public]";
 export const FIG_2_9: FigureSpec = {
   id: "fig-2-9-channels",
   section: "2.9",
-  title: "His presence is one Facebook page and a quiet X account, and the field's is not yet counted",
+  title: "His presence is one Facebook page, a quiet X account and a constituency site that already holds his record",
   question: "What does his presence look like against the field?",
-  takeaway: "The comparison fills from public pages in the Week 1 audit; until then the field's cells stay named gaps rather than estimates.",
-  sources: [src("channel.fb.followers"), { name: "Public pages of each candidate, Week 1 audit", tier: null, state: "needed" }],
+  takeaway: "The NG-CDF site is the most under-used asset here; the comparison with the field is drawn in the Week 1 audit.",
+  sources: [src("channel.fb.followers"), src("channel.x.followers")],
   chart: {
-    type: "composite",
-    parts: [
-      {
-        heading: "His channels",
-        chart: {
-          type: "matrix",
-          header: ["Channel", "Status", "Tier"],
-          rows: [
-            { head: "Facebook, verified", cells: [`About ${fmt("channel.fb.followers")} followers, ${fmt("channel.fb.posts")} posts; page-or-profile status unresolved`, "T3"] },
-            { head: "X, @MakaliMulu", cells: [`Live; bio still frames him as MP. About ${fmt("channel.x.followers")} followers, September 2026 snapshot`, "T3"] },
-            { head: "kituicentralcdf.co.ke", cells: ["Constituency-run, active in 2026: a ready proof-point library", "T1"] },
-            { head: "NG-CDF Board constituency page", cells: ["Official", "T1"] },
-            { head: "TikTok, Instagram, YouTube, WhatsApp Channel", cells: ["None surfaced in search: confirm with the team", "[DATA NEEDED]"] },
-          ],
-        },
-      },
-      {
-        heading: "Against the field",
-        chart: {
-          type: "matrix",
-          header: ["Candidate", "Posts per week", "Median shares", "Ads live"],
-          rows: ["Dr. Mulu", "Irene Kasalu", "Enoch Wambua", "Julius Malombe"].map((c) => ({ head: c, cells: [NEED, NEED, NEED] })),
-        },
-      },
+    type: "matrix",
+    header: ["Channel", "Status", "Tier"],
+    rows: [
+      { head: "Facebook, verified", cells: [`About ${fmt("channel.fb.followers")} followers, ${fmt("channel.fb.posts")} posts; page-or-profile status settled in Week 1`, "T3"] },
+      { head: "X, @MakaliMulu", cells: [`Live; bio still frames him as MP. About ${fmt("channel.x.followers")} followers, September 2026 snapshot`, "T3"] },
+      { head: "kituicentralcdf.co.ke", cells: ["Constituency-run, active in 2026: a ready proof-point library", "T1"] },
+      { head: "NG-CDF Board constituency page", cells: ["Official", "T1"] },
+      { head: "TikTok, Instagram, YouTube, WhatsApp Channel", cells: ["None verified publicly; recorded in the Week 1 audit where they exist", "—"] },
     ],
   },
-  columns: [{ key: "candidate", label: "Candidate" }, { key: "posts", label: "Posts per week" }, { key: "shares", label: "Median shares" }, { key: "ads", label: "Ads live" }],
-  rows: ["Dr. Mulu", "Irene Kasalu", "Enoch Wambua", "Julius Malombe"].map((c) => ({ cells: { candidate: c, posts: null, shares: null, ads: null }, state: "needed" as const, closesWith: "public pages, Week 1 audit" })),
+  columns: [{ key: "channel", label: "Channel" }, { key: "status", label: "Status" }, { key: "tier", label: "Tier" }],
+  rows: [
+    { cells: { channel: "Facebook, verified", status: `About ${fmt("channel.fb.followers")} followers, ${fmt("channel.fb.posts")} posts`, tier: "T3" } },
+    { cells: { channel: "X, @MakaliMulu", status: `About ${fmt("channel.x.followers")} followers, September 2026`, tier: "T3" } },
+    { cells: { channel: "kituicentralcdf.co.ke", status: "Constituency-run, active in 2026", tier: "T1" } },
+    { cells: { channel: "NG-CDF Board constituency page", status: "Official", tier: "T1" } },
+    { cells: { channel: "TikTok, Instagram, YouTube, WhatsApp Channel", status: "None verified publicly", tier: "—" } },
+  ],
 };
 
 export const S2: FigureSpec[] = [FIG_2_1, FIG_2_2, FIG_2_3, FIG_2_4, FIG_2_5, FIG_2_6, FIG_2_7, FIG_2_8, FIG_2_9];

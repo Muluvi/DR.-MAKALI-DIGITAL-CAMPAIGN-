@@ -141,7 +141,7 @@ export const WHATSAPP = {
     {
       from: "campaign",
       kind: "text",
-      text: "Kitui Rural / Mbitini: Dr. Makali Mulu guarantees Ksh 100M Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. STOP=[Insert sender ID]",
+      text: "Kitui Rural / Mbitini: Dr. Makali Mulu guarantees Ksh 100M Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. Reply STOP to opt out.",
       time: "07:12",
       source: "§8.3.3 — Direct 2G Bulk SMS copy sample, verbatim",
     },
@@ -283,7 +283,7 @@ export interface UssdMenuItem {
  * document. Confirm both before anything is printed or dialled.
  */
 export const USSD = {
-  shortCode: "*[shortcode]#",
+  shortCode: "the campaign shortcode",
   gatewayLabel: "Zero-Rated Gateway",
   networkLabel: "USSD",
   dialingMessage: "Sending…",

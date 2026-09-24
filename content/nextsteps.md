@@ -8,31 +8,6 @@ Stated plainly, because these are the dependencies that determine delivery:
 id: fig-6-1-dependencies
 ```
 
-#### The marked placeholders, in one list
-
-The proposal's status line says it carries marked placeholders. They fall
-into three kinds. Collected here so none has to be hunted for:
-
-| What is needed | Where it appears | From whom |
-|---|---|---|
-| **Shortcode and sender ID**, once the USSD and SMS codes are provisioned | 5.2.3.3, 5.2.4.4, 5.2.1.1 | Telco / aggregator at contracting |
-| **Deepfake detection vendor** (the hardware keys are specified in F.8: FIDO2, two per account holder) | 5.8.7 | Firefly, at contracting |
-| **Named data-protection / electoral-law reviewer** — the long-lead item in row 4 above | 5.7.9, 5.8.11 | Campaign appoints |
-| **Independent qualitative research facilitator** | 5.6.10 | Firefly recommends, campaign appoints |
-| **Kenyan Sign Language interpreter or service** | 5.2.1.4 | Campaign or KNAD |
-| **Verified Kikamba proverbs and idiom**, native-speaker reviewed | 5.2.1.4 | Kikamba producer, Phase −1 |
-| **Week 1 audit baseline** (R-01 to R-03); **endorsement target** (the ad kill rule is set at 1.5% CTR, 5.2.1.3) | 5.3, 5.4.9 | Established by measurement, not assumed |
-| **Page-or-profile status** of the Facebook presence | 4.7 | One screenshot, from the team |
-| **Handles and follower counts** on TikTok, Instagram, YouTube, WhatsApp | 5.3.1 | The team; verified publicly. X is confirmed as @MakaliMulu; the count is still a gap |
-| **IEBC 2026 register annex**, county then ward | 2.1, 3.1 | IEBC ECVR release annex; constituency offices |
-| **WPF nomination-poll terms** — method, pollster, timing, sample design | 2.3.2 | Party secretariat |
-| **2022 Forms 37A/37B/37C** for governor and Woman Rep | 3.10 | IEBC; party agents' copies |
-| **Kamba radio audience share by sub-county** | 2.7, 3.8.1 | GeoPoll or KARF releases |
-| **IEBC nomination endorsement rule** — whether the endorsement signature count applies per sub-county or in total `[CONFIRM/EDIT]` | 5.8.11, 5.8.12 | IEBC nomination rules; campaign counsel |
-
-Nothing in the last row is a number the campaign can supply today; each is set by the Week 1
-baseline or by testing, and each is left open deliberately rather than filled with an estimate.
-
 ---
 
 ### 6.1.1 What this asks of the campaign
@@ -51,9 +26,6 @@ the existing NG-CDF project record; and sign-off on the engagement level.
 
 ## 6.2 Open items
 
-```figure
-id: fig-6-2-open-items
-```
 
 > [!WARNING]
 > **COMPLIANCE ACTION ITEM — ODPC DIRECTIVE CONFIRMATION REQUIRED:**
@@ -214,7 +186,7 @@ exactly what Week 1 measures, and Section 4.8 what would change the strategy.
 
 **Firefly publishes nothing on Dr. Mulu's accounts and holds no credentials to them.** The one thing
 it operates directly is the offline layer it already holds: the WhatsApp Business API line and the
-USSD shortcode `[CONFIRM/EDIT]`. Everything else on the owned channels stays where it is, with the
+USSD shortcode. Everything else on the owned channels stays where it is, with the
 people who run it now.
 
 **Where the contest stands.** Both Wiper rivals have already won a countywide election: Dr. Kasalu

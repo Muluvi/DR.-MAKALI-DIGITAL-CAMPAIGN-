@@ -22,9 +22,9 @@ Cross-referencing the demographic and livelihood segments established in **Secti
 > **Section 4.3.8 is the sizing authority** — it is built from census and register data — and
 > the shares below are message-reach targets, which is why they are wider:
 >
-> **No segment in these grids carries a size.** Section 4.3 states only sourced sizes and marks the
-> rest `[DATA NEEDED]` with the document that would close each (Section 3.10.1). The grids assign
-> messages; they do not measure audiences.
+> **No segment in these grids carries a size.** Section 4.3 states only sourced sizes and gives no
+> size where none is published (Section 3.10.1). The grids assign messages; they do not measure
+> audiences.
 
 ```figure
 id: message-by-segment

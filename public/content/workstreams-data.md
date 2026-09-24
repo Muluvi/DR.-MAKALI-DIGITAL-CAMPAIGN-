@@ -267,7 +267,7 @@ anchored to the ~200,000-vote threshold.
 
 To track offline-to-digital and physical engagement, four mechanisms bridge the gap:
 * **Unique QR codes** on printed materials and at barazas, tracking which content drove physical attendance
-* **SMS keyword short codes** — text a keyword to `[Insert shortcode]` to register support and opt in
+* **SMS keyword short codes** — text a keyword to the campaign shortcode to register support and opt in
 * **USSD completions** as a direct offline-to-digital bridge
 * **Volunteer-reported contact outcomes** recording prior campaign awareness
 

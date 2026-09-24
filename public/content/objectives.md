@@ -25,7 +25,7 @@ id: fig-1-3-objectives
 
 *   **Traceability:** Traces directly to nomination viability by elevating name recognition and operational visibility in northern Mwingi and southern wards where Dr. Mulu's profile has historically been constituency-bounded to Kitui Central.
 *   **Finding it answers:** 51.7% of the register, 275,570 voters, lives in Mwingi and Kitui South, where he has never held office (Section 3.4).
-*   **Baseline:** Not yet measured `[DATA NEEDED — Week 1 export]`. The hypothesis is that his reach concentrates in Kitui Central (Section 3.11); Week 1 tests it.
+*   **Baseline:** set in Week 1, from his own Insights export. The hypothesis is that his reach concentrates in Kitui Central (Section 3.11); Week 1 tests it.
 *   **Target:** At least 51.7% of his reach landing in the pool, the pool's own share of the register, and a verified subscriber footprint across all 15 Mwingi wards and 6 Kitui South wards before the opening of the party nomination window.
 *   **Served by:** Section 4.2 (where the effort goes) and Section 4.5 (what gets published). **Measured by:** NW-01 and R-02 (Section 5.6).
 *   **Named Owner:** Director of Communications; Firefly provides the messaging infrastructure and delivery ledger.
@@ -53,7 +53,7 @@ id: fig-1-3-objectives
 
 *   **Traceability:** Every post the weekly brief commissions names the voter segment it is for (Section 4.3), the ward it is aimed at (Section 3.2) and the pillar that gives it a reason (Section 4.5).
 *   **Finding it answers:** his current output is a record of where he was, with no ward named outside Kitui Central and no ask (Section 4.5.5).
-*   **Baseline:** Not yet measured `[DATA NEEDED — Week 1 post coding]`.
+*   **Baseline:** set in Week 1, from the post coding.
 *   **Target:** Every briefed post coded with segment, ward and pillar, checked in the Monday review.
 *   **Served by:** Sections 4.3 to 4.5. **Measured by:** R-05 and the weekly post coding (Sections 5.3.5 and 5.6).
 *   **Campaign build target it supports:** **200,000 registered, verified supporters** in the central database mapped across all 1,578 polling stations by 31 May 2027. The database is Firefly's instrument (Section 5.2.4.1); the recruitment is the campaign's.

@@ -283,29 +283,31 @@ const PROFILE = [
   { n: 5, label: "Education", shown: "Kenyatta University", issue: "The PhD in Economics, the credential the positioning rests on, is missing." },
   { n: 6, label: "Bio", shown: "Incoming Governor Kitui County 2027", issue: "Presumes a nomination that has not happened." },
 ];
-const needBars = (labels: string[]): Bar[] => labels.map((l) => ({ label: l, value: null, state: "needed" as const }));
+const AUDIT_FIGURES = [
+  { title: "Reach against the vote map", body: "His reach by constituency beside each constituency's share of the register, and the gap between them." },
+  { title: "Ninety days, coded", body: "Every post in the window, by content pillar and reach." },
+  { title: "Which language travels", body: "Engagement on reach for English, Kiswahili and Kikamba posts." },
+  { title: "Him against the field", body: "Posts per week, median shares and ads live, for all four candidates, from public data." },
+];
 
 export const FIG_3_9: FigureSpec = {
   id: "fig-3-9-audit",
   section: "3.9",
-  title: "His profile carries six errors a researcher would find in an afternoon, and his reach data is not yet in hand",
+  title: "His profile carries six errors a researcher would find in an afternoon, and the Week 1 audit reads the rest",
   question: "What does his current presence actually show?",
-  takeaway: "The six fixes are Section 4.7; the four audit figures fill from the Week 1 export and are drawn with their gaps until then.",
-  sources: [{ name: "His public profile, as displayed; Parliament of Kenya record", tier: "T1" }, { name: `[DATA NEEDED — ${EXPORT}]`, tier: null, state: "needed" }],
+  takeaway: "The six fixes are Section 4.7; the four audit figures are drawn from the Week 1 export, never from an estimate.",
+  sources: [{ name: "His public profile, as displayed; Parliament of Kenya record", tier: "T1" }, { name: `The four audit figures: ${EXPORT}`, tier: null, state: "target" }],
   chart: {
     type: "composite",
     parts: [
       { heading: "The profile as displayed, numbered", chart: { type: "mock", header: "Hon Makali Mulu · Facebook, intro", fields: PROFILE } },
-      { heading: "1. Reach against the vote map, by constituency", chart: { type: "bars", bars: needBars(["Reach share by constituency"]) } },
-      { heading: "2. Ninety days, coded by pillar", chart: { type: "bars", bars: needBars(["Every post in the window, by pillar and reach"]) } },
-      { heading: "3. Which language travels", chart: { type: "bars", bars: needBars(["Engagement rate: English", "Engagement rate: Kiswahili", "Engagement rate: Kikamba"]) } },
-      { heading: "4. Him against the field", chart: { type: "bars", bars: needBars(["Posts per week, median shares, ads live: four candidates"]) } },
+      { heading: "What the Week 1 audit draws", chart: { type: "cards", columns: 2, cards: AUDIT_FIGURES.map((f, i) => ({ kicker: `Figure ${i + 1} · Week 1`, title: f.title, body: f.body })) } },
     ],
   },
   columns: [{ key: "item", label: "Item" }, { key: "shown", label: "As displayed, or the figure" }, { key: "issue", label: "The issue" }],
   rows: [
     ...PROFILE.map((p) => ({ cells: { item: `${p.n}. ${p.label}`, shown: p.shown, issue: p.issue } })),
-    ...["Reach against the vote map", "Ninety days, coded", "Which language travels", "Him against the field"].map((a) => ({ cells: { item: a, shown: null, issue: "—" }, state: "needed" as const, closesWith: EXPORT })),
+    ...AUDIT_FIGURES.map((f) => ({ cells: { item: f.title, shown: "Drawn in Week 1", issue: f.body }, state: "target" as const })),
   ],
 };
 
@@ -316,10 +318,10 @@ const DATA_GAPS = (openItems as { kind: string; gap: string; closes: string; hol
 export const FIG_3_10: FigureSpec = {
   id: "fig-3-10-gaps",
   section: "3.10",
-  title: `${DATA_GAPS.length} facts the analysis needs are not yet in hand, and each has a named document that closes it`,
+  title: `${DATA_GAPS.length} things no published source can tell the analysis, and none is estimated`,
   question: "What can't the data tell us yet, and what closes each gap?",
-  takeaway: "None of these is estimated and none is closed by new polling: each waits on a document that already exists or an export only he can grant.",
-  sources: [{ name: "Generated from every [DATA NEEDED] in this document (scripts/build-open-items.ts)", tier: null, state: "needed" }],
+  takeaway: "The analysis works from where he has held office and from certified totals, not from ward-level preference or ward returns no one has published.",
+  sources: [{ name: "Generated from the named data gaps in Section 3.10 (scripts/build-open-items.ts)", tier: null }],
   chart: {
     type: "matrix",
     header: ["Gap", "Closing document", "Holder", "Where"],
@@ -337,7 +339,7 @@ export const FIG_3_11: FigureSpec = {
   title: "The diagnosis is a recognition gap outside Kitui Central, and one rival's result is the strongest evidence against it",
   question: "How strong is the diagnosis, and what would overturn it?",
   takeaway: "Week 1 tests it against his own channel data before anything is committed: if his reach already lands in Mwingi, the problem is message, not reach.",
-  sources: [src("pool.share"), src("result.2022.womanrep.kasalu"), { name: "The Week 1 test: [DATA NEEDED — Meta Insights export, Week 1]", tier: null, state: "needed" }],
+  sources: [src("pool.share"), src("result.2022.womanrep.kasalu"), { name: "The Week 1 test: his own Insights export", tier: null, state: "target" }],
   chart: {
     type: "composite",
     parts: [
@@ -380,7 +382,7 @@ export const FIG_3_11: FigureSpec = {
     { cells: { side: "Supports", point: "Two constituencies will not carry party flow" } },
     { cells: { side: "Counts against", point: `Kasalu, ${fmt("result.2022.womanrep.kasalu")} votes countywide, above the winning governor` } },
     { cells: { side: "Counts against", point: `Wambua, within ${fmt("gap.wambua-to-benchmark-2022")} of the winning governor` } },
-    { cells: { side: "Test", point: "Week 1 reach by constituency" }, state: "needed", closesWith: "Meta Insights export, Week 1" },
+    { cells: { side: "Test", point: "Week 1 reach by constituency" }, state: "target" },
   ],
 };
 
