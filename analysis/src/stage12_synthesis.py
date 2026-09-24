@@ -273,7 +273,7 @@ def build_charts() -> list[Chart]:
                    "not win probabilities.",
                    "A win probability would require rival vote ranges, which have not been "
                    "supplied.",
-                   "Every input is a placeholder assumption from config/assumptions.yaml."],
+                   "Every input is a stated modelling assumption, listed in Section 6.2.1; none is a measurement."],
         ))
     return charts
 

@@ -5,19 +5,21 @@ All fourteen workstreams on one page, with the owner named against each — and 
 Section 5.2 sets each workstream out in full, with its own boundaries and KPIs. This page
 exists so the whole engagement can be seen at once before any of it is read in detail.
 
-**Six of the fourteen are Firefly's to operate. Six your team already runs and will keep running, to
-a brief. Two are not this engagement's to touch.**
+**Seven of the fourteen are Firefly's to operate. Six your team already runs and will keep running,
+to a brief. Two are not this engagement's to touch.** Workstream 1 is split: Firefly builds the
+tracker, and your team runs the platforms.
 
 ### 5.1.1 Who owns what
 
 Fourteen numbered workstreams sit behind this engagement, and the change from the conventional
 pitch is who holds each one:
 
-*   **Six are Firefly's to operate** — the analysis, the modelling, the creative testing, the
-    accessibility standard, the data layer, and the offline SMS/USSD/WhatsApp reach.
-*   **Six the existing team already runs and will keep running**, to a Firefly brief — content
-    production, publishing, community response, platform tactics, earned media, and the ground
-    reporting loop.
+*   **Seven are Firefly's to operate** — the service-delivery tracker, the creative testing, the
+    accessibility standard, the offline SMS/USSD/WhatsApp reach, the data layer, the modelling,
+    and the analysis.
+*   **Six the existing team already runs and will keep running**, to a Firefly brief — platform
+    operation and publishing, content production, platform tactics, earned media, and the two
+    ground workstreams (integration and the field-to-digital loop).
 *   **Two are not this engagement's to touch** — volunteer organising, and the technology stack
     Dr. Mulu already holds.
 

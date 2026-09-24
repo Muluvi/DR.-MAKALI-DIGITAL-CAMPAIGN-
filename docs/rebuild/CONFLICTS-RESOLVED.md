@@ -38,16 +38,16 @@ rebuilt in Phase 3.
 | C-8 | Poll tier labels disagree | Annex C now carries each round's tier as the pipeline holds it: Politrack T3, Mizani June T2, Mizani August T3. No poll appears outside Annex C. | Applied |
 | C-9 | 2026 register T1 and T3 | T1 (fix 5). 3.1's "Tier 3, [VERIFY], not used in any calculation" callout rewritten. | Applied |
 | C-10 | Margin of error at one end of a range | The passage (old §3.1.3, "What the poll would measure") is cut by the brief's cut table. Annex C's own margins are computed per candidate from Politrack's published n. | Applied |
-| C-11 | Developer path visible to the client | Unchanged in this phase: the note is in the pipeline export's `notes`. Phase 3 rewords it when fig-3-3 reads the export. | Phase 3 |
-| C-12 | Who owns the six | Not yet reconciled in prose: 5.1.1 lists six Firefly workstreams, the 5.1.2 table marks the tracker (WS1) as Firefly and accessibility (WS4) as a Firefly standard executed by the team. fig-5-1 draws the table, which is the operative statement, and Phase 3 aligns the sentence to it. | Phase 3 |
+| C-11 | Developer path visible to the client | The export note now reads "Every input is a stated modelling assumption, listed in Section 6.2.1; none is a measurement." in both copies of the export and in `stage12_synthesis.py`. | Applied |
+| C-12 | Who owns the six | 5.1 prose aligned to the 5.1.2 table, which `fig-5-1-workstreams` draws: seven Firefly (WS 1 tracker, 3, 4, 9, 11, 12, 14), six team-run (WS 1 platforms, 2, 5, 6, 7, 8), two outside (10, 13). | Applied |
 | C-13 | Two connectivity rates | Fix 2. | Applied |
 | C-14 | Two nomination windows | The component carrying "29 Aug – 15 Nov" (DeficitGauge) was removed. The window is "final quarter of 2026, late October to November, reported (T3)" everywhere. | Applied |
-| C-15 | Hero labels the Mwingi bloc as the digital stage | HeroVisual is replaced by the cover in Phase 3. | Phase 3 |
-| C-16 | Zones mix sub-counties with a constituency register | The coverage note stays in 4.2; the zone totals are now computed from the sub-county census figures (`zone.*`), and the unsourced "~190 / ~53 / ~19" zone densities are removed. fig-3-7 carries the note onto the figure. | Applied in prose; figure Phase 3 |
-| C-17 | Offline reach figures carry no tier | The prose now reads `[DATA NEEDED]` with the closing document for radio, SMS, mobile money, markets and churches. The `offline-channels` figure still draws the old estimates as "Source needed" bars; Phase 3 rebuilds it on the data layer. | Prose applied; figure Phase 3 |
-| C-18 | 35,000 printed as 6.5% and 6.6% | The platform-sizing figure computes its shares; Phase 3 rebases it on the 2023/24 rate. | Phase 3 |
+| C-15 | Hero labels the Mwingi bloc as the digital stage | HeroVisual, StateOfTheRace and VoterProjectionsChart are deleted; the cover is `fig-cover-map` and `fig-cover-spine`. | Applied |
+| C-16 | Zones mix sub-counties with a constituency register | Zone totals computed from the sub-county census figures (`zone.*`); `fig-3-7-zones` states the unit mismatch on the figure and uses the nearest constituency match for the register share. | Applied |
+| C-17 | Offline reach figures carry no tier | The `offline-channels` figure is removed (REPLACEMENTS.md, §3.8.1); each channel reads `[DATA NEEDED — …]` with its closing document. | Applied |
+| C-18 | 35,000 printed as 6.5% and 6.6% | The `platform-sizing` figure is removed with its unsourced ranges; in-county users per platform are `[DATA NEEDED — Meta Audience Insights export, Week 1]`. | Applied |
 | C-19 | 3.1.x sub-numbers under 3.6 | Removed in Phase 1. | Applied |
-| C-20 | Musyi FM hostile and priority | 2.7 and Section 5.2.2.2 are the governing table (Musyi: priority, commercially independent). The bypass diagram's "hostile" list is the conflict; Phase 3 redraws fig-2-7 from `data/media-ownership.ts`. | Phase 3 |
+| C-20 | Musyi FM hostile and priority | `fig-2-7-media` is drawn from `data/media-ownership.ts`: Musyi is a placement station. The bypass diagram (`radio-gatekeepers`) is replaced. | Applied |
 | C-21 | Kikamba on the bulk-SMS rail | Resolved in #12 and kept: bulk political SMS is English or Kiswahili only; Kikamba travels by voice note and radio (3.8.1, 4.3.2, 5.2.3.3). | Applied |
 | C-22 | 500 signatures per sub-county or in total | Unchanged: still two readings in 5.8.11 and 5.8.12. Needs the IEBC nomination rules document; listed in 6.1. | Open, `[CONFIRM/EDIT]` |
 
