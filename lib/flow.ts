@@ -4,7 +4,7 @@ import { SECTIONS, type TabId } from "./heading-slug";
  * The document as one continuous scroll, in the engagement's own order.
  *
  * Cover, then Objectives, The Data, The Analysis, The Strategy, Implementation and Next Steps,
- * then the seven annexes. Section 5 is one section across six routes: a section is a unit of
+ * then the six annexes. Section 5 is one section across six routes: a section is a unit of
  * argument and a route is a unit of transfer, and §5 is the longest part of the document.
  *
  * Section numbers are the document's addressing system. When the 2026 rebuild renumbered it,
@@ -13,7 +13,7 @@ import { SECTIONS, type TabId } from "./heading-slug";
  */
 export const FLOW_ORDER: TabId[] = [
   // The cover opens the document: who it is for, who prepared it, and one line of terms. The full
-  // terms are Annex G.
+  // terms are Annex F.
   "cover",
   // The engagement's own order, which is also the brief's: objectives, then the data, then what
   // the data implies, then what we will therefore do, then how it runs, then the decision.
@@ -31,7 +31,6 @@ export const FLOW_ORDER: TabId[] = [
   // Reference, after the offer is made.
   "annex-evidence",
   "annex-county",
-  "annex-polls",
   "annex-messages",
   "annex-cadence",
   "annex-runbooks",
@@ -54,7 +53,7 @@ export const FLOW_ACTS: FlowAct[] = [
   { id: "strategy", label: "The Strategy", blurb: "Each choice tied to the finding it answers", opensOn: "strategy" },
   { id: "implementation", label: "Implementation", blurb: "Who does what, when, and how it's checked", opensOn: "implementation" },
   { id: "close", label: "Next Steps", blurb: "What the campaign provides, and the decision requested", opensOn: "nextsteps" },
-  { id: "reference", label: "Annexes", blurb: "Method, reference, polls for reference only, and terms", opensOn: "annex-evidence" },
+  { id: "reference", label: "Annexes", blurb: "Method, county reference, the runbooks and terms", opensOn: "annex-evidence" },
 ];
 
 const ACT_BY_OPENER = new Map(FLOW_ACTS.map((a) => [a.opensOn as string, a]));

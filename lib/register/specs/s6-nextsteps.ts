@@ -13,6 +13,7 @@ const DEPS: { item: string; gating: boolean; why: string }[] = [
   { item: "The IEBC 2026 register annex, county then ward", gating: false, why: `The highest-priority data request: it re-bases every ward figure in Section 3. The county total, ${fmt("register.2026")}, is confirmed` },
   { item: "Access to the NG-CDF project record, not the beneficiary list", gating: false, why: "Verified proof points; beneficiary data is off-limits" },
   { item: "Sign-off on the engagement level", gating: false, why: "So the team can be assembled" },
+  { item: "Wiper's 2027 nomination rules and timetable, or the NEC resolution, as soon as the party issues them", gating: false, why: "The document that confirms or overturns the Phase −1 plan (Section 2.3.2)" },
 ];
 
 export const FIG_6_1: FigureSpec = {
@@ -56,7 +57,7 @@ export const FIG_6_3: FigureSpec = {
           steps: [
             { when: "Day 1", title: "Access granted", body: "Analyst role on Meta and equivalents; no publishing rights change hands." },
             { when: "Days 1–2", title: "The export", body: "Ninety days of reach, engagement, language and geography; the Page-or-profile question settled." },
-            { when: "Days 2–4", title: "Against the field", body: "The same window for the three rivals, on public data." },
+            { when: "Days 2–4", title: "Against the field", body: "The same window for the two nomination rivals, on public data." },
             { when: "Day 5", title: "The read", body: "The four audit figures filled, the diagnosis tested, the first brief drafted for Week 2." },
           ],
         },
@@ -67,7 +68,7 @@ export const FIG_6_3: FigureSpec = {
   rows: [
     { cells: { when: "Day 1", what: "Read-only analytics access granted" } },
     { cells: { when: "Days 1–2", what: "Ninety-day export pulled; Page-or-profile settled" } },
-    { cells: { when: "Days 2–4", what: "Same window for the three rivals, public data" } },
+    { cells: { when: "Days 2–4", what: "Same window for the two nomination rivals, public data" } },
     { cells: { when: "Day 5", what: "Audit read; diagnosis tested; first brief drafted" } },
   ],
 };

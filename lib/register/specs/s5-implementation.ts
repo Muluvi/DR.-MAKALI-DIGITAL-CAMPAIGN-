@@ -73,7 +73,7 @@ export const FIG_5_2: FigureSpec = {
 const WEEKS = [
   { when: "Week 1", title: "The presence audit", body: "Ninety days of his channels against the rivals; the Page-or-profile question; 2FA applied by your team." },
   { when: "Weeks 1–2", title: "Foundations", body: "Capability map, compliance review commissioned, Kikamba reviewer confirmed; the six profile fixes shipped." },
-  { when: "Weeks 2–6", title: "First directed cycles", body: `The weekly brief from Week 2; output weighted ${fmt("effort.p-1.mwingi")}% Mwingi, ${fmt("effort.p-1.arid")}% arid belt, ${fmt("effort.p-1.anchor")}% anchor, ${fmt("effort.p-1.rotating")}% testing; SMS opt-in drive; one message-lab round.` },
+  { when: "Weeks 2–6", title: "First directed cycles", body: `The weekly brief from Week 2; output weighted ${fmt("effort.p-1.mwingi")}% Mwingi, ${fmt("effort.p-1.arid")}% arid belt, ${fmt("effort.p-1.anchor")}% anchor, ${fmt("effort.p-1.rotating")}% testing; SMS opt-in drive.` },
   { when: "Weeks 6–8", title: "Consolidation", body: "Red-team drill before the nomination decision; coalition roundtables; ward champions in the highest-priority wards." },
 ];
 
@@ -151,15 +151,14 @@ const CADENCE: [string, string[]][] = [
   ["Weekly", ["The weekly brief, Thursday (Firefly)", "Content calendar, Friday (your team; Firefly approves)", "Kikamba voice note", "Facebook Live", "Creative test cycle (Firefly reads)"]],
   ["Fortnightly", ["SMS touch to the consented list (Firefly), rising to a GOTV surge"]],
   ["Monthly", ["Presence audit refresh (Firefly)", "Performance report (Firefly)", "Sentiment report (Firefly)", "Competitive brief (Firefly)", "Kitui Economic Brief (your team)"]],
-  ["Quarterly", ["Focus groups (independent facilitator)", "Red-team drill (Firefly and your team)"]],
+  ["Quarterly", ["Red-team drill (Firefly and your team)"]],
 ];
 const LEVELS: [string, string, string, string][] = [
   ["Presence audit", "Once, at start", "Refreshed monthly", "Refreshed fortnightly"],
   ["Wards with reach reporting", "12 decisive", "All 40", "All 40 + diaspora"],
   ["Wards with active SMS/USSD", "Partial", "All 40", "All 40 + diaspora"],
-  ["Creative testing", "Monthly", "Weekly", "Weekly + message lab"],
+  ["Creative testing", "Monthly", "Weekly", "Weekly"],
   ["Predictive scoring and attribution", "No", "Yes", "Yes"],
-  ["Focus groups", "No", "Quarterly", "Monthly"],
   ["Phase 3 contact universe", `≈${fmt("target.contact-universe.lean")}`, `≈${fmt("target.contact-universe.standard")}`, `≈${fmt("target.contact-universe.premium")}`],
 ];
 
@@ -190,7 +189,7 @@ const baselineText = (k: (typeof KPIS)[number]) => (k.baseline.kind === "measure
 export const FIG_5_6: FigureSpec = {
   id: "fig-5-6-kpis",
   section: "5.6",
-  title: "Nine indicators judge the work, four for the nomination and five for the election, and none is a poll share",
+  title: "Nine indicators judge the work, four for the nomination and five for the election, each observable on his own channels or lists",
   question: "How is progress measured?",
   takeaway: "Every indicator is observable on his channels, the SMS list or the field record, and each stays empty until its baseline is taken.",
   sources: [PROPOSAL, { name: "Baselines: set in Week 1 from his Insights export", tier: null, state: "target" }],
@@ -261,8 +260,8 @@ export const FIG_5_7: FigureSpec = {
 /* ------------------------------------------------------------------ fig-5-8-risk */
 
 const RISKS: { code: string; label: string; likelihood: 1 | 2 | 3; impact: 1 | 2 | 3; owner: string; why: string; mitigation: string }[] = [
-  { code: "R1", label: "Nomination decided by delegates, not a poll", likelihood: 2, impact: 3, owner: "Firefly Director + campaign", why: "The poll mechanism is Tier 3 and unconfirmed; the targeting model changes wholesale", mitigation: "Section 5.8.14's delegate whip contingency; Section 2.3.2 states the verification test that would close this" },
-  { code: "R2", label: "The recognition hypothesis is wrong", likelihood: 2, impact: 3, owner: "Head of Research", why: "The deficit may be about perceived distance, not unfamiliarity; the Phase −1 channel mix is built on it", mitigation: "Tested in Week 1 by the presence audit and the message lab, before anything is committed against it (Section 3.11)" },
+  { code: "R1", label: "Nomination decided by delegates, not the reported countywide selection", likelihood: 2, impact: 3, owner: "Firefly Director + campaign", why: "The reported selection method is Tier 3 and unconfirmed; the targeting model changes wholesale", mitigation: "Section 5.8.14's delegate whip contingency; Section 2.3.2 names the party documents that would close this" },
+  { code: "R2", label: "The recognition hypothesis is wrong", likelihood: 2, impact: 3, owner: "Head of Research", why: "The deficit may be about perceived distance, not unfamiliarity; the Phase −1 channel mix is built on it", mitigation: "Tested in Week 1 by the presence audit, and against the IEBC ward-level results once in hand, before anything is committed against it (Section 3.11)" },
   { code: "R3", label: "Data-protection reviewer not appointed in time", likelihood: 2, impact: 2, owner: "Campaign", why: "The long-lead appointment; gates the voter-file work and the mass SMS layer", mitigation: "Section 5.7.9's compliance gate; named as a gating dependency in Section 6.1" },
   { code: "R4", label: "ODPC guidance prohibits the SMS approach", likelihood: 1, impact: 2, owner: "Campaign Legal Director", why: "The political-campaigning circular could not be retrieved; Workstream 9 is the layer the race turns on", mitigation: "Section 6.2's three mandatory actions, before Phase −1 broadcasting" },
   { code: "R5", label: "Manipulated-media attack in the nomination window", likelihood: 2, impact: 2, owner: "Digital Director", why: "A compressed window leaves no time to recover", mitigation: "Section 5.8.7's protocol; hardware-key 2FA from day one (Section 5.3)" },
@@ -276,7 +275,7 @@ export const FIG_5_8: FigureSpec = {
   section: "5.8",
   title: "Two of the six risks would change the plan rather than damage it, and both are settled by measurement early",
   question: "What could go wrong?",
-  takeaway: "R1 closes with the pollster's terms of reference, R2 with the Week 1 audit; the incumbent's eligibility stays open, so its two branches are drawn.",
+  takeaway: "R1 closes with the party's 2027 nomination rules, R2 with the Week 1 audit; the incumbent's eligibility stays open, so its two branches are drawn.",
   sources: [PROPOSAL, { name: "Article 180(7): published commentary reads it both ways; no court has ruled", tier: "T2" }],
   chart: {
     type: "risk",
@@ -284,10 +283,10 @@ export const FIG_5_8: FigureSpec = {
     branches: [
       {
         title: "If it becomes a delegate primary",
-        question: "Does Wiper leave the poll mechanism?",
+        question: "Does Wiper move to a delegates' vote?",
         rules: [
           { if: "yes, delegates decide", then: "map the delegate register, move ward captains to peer lobbying, open a dedicated SMS channel to delegates" },
-          { if: "no, the poll stands", then: "the Phase −1 plan runs as written" },
+          { if: "no, the reported countywide selection stands", then: "the Phase −1 plan runs as written" },
         ],
       },
       {

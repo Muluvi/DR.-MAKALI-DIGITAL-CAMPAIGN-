@@ -12,7 +12,7 @@ id: fig-6-1-dependencies
 
 ### 6.1.1 What this asks of the campaign
 
-Eight dependencies, set out in full in Section 6.1. Three of them gate everything else:
+Nine dependencies, set out in full in Section 6.1. Three of them gate everything else:
 
 *   **A named counterpart** with authority to approve content.
 *   **Read-only analytics access** on the existing accounts — Analyst role, no publishing rights.
@@ -20,9 +20,10 @@ Eight dependencies, set out in full in Section 6.1. Three of them gate everythin
 *   **Appointment of the data-protection reviewer** (Section 5.7.9) — the long-lead item, and the
     one that can delay the offline layer if it slips.
 
-The remaining five: approximately **3 hours** of candidate time per week; daily ground-team photo
+The remaining six: approximately **3 hours** of candidate time per week; daily ground-team photo
 and video uploads; current ward-level registration data from the IEBC published file; access to
-the existing NG-CDF project record; and sign-off on the engagement level.
+the existing NG-CDF project record; sign-off on the engagement level; and Wiper's 2027 nomination
+rules or NEC resolution as soon as the party issues them (Section 2.3.2).
 
 ## 6.2 Open items
 
@@ -54,8 +55,9 @@ This proposal is built on the following assumptions. Each is stated so that if o
 campaign can see immediately what in the plan moves. None of them is a prediction, and none is
 presented as settled fact.
 
-1. **The Wiper ticket is decided by opinion poll, not a delegates' contest.** This is reported
-   and not confirmed by the party (Tier 3; Section 2.3.2). If it becomes a delegate primary, the
+1. **The Wiper ticket is decided by a party-run countywide selection, not a delegates' contest.**
+   This is reported and not confirmed by the party (Tier 3; Section 2.3.2 names the party documents
+   that would confirm it). If it becomes a delegate primary, the
    targeting model changes from countywide name recognition to delegate arithmetic, and
    Section 5.8.14 sets out what that would require.
 
@@ -73,9 +75,8 @@ presented as settled fact.
    {{ict.offline}}% of residents offline (CA/KNBS 2023/24) and the 2022 ward distribution in Section 3.2 are
    the most recent published figures. The offline layer in Section 5.2.3.3 is sized against them.
 
-4. **The campaign appoints the named roles.** The data-protection and electoral-law reviewer, the
-   qualitative research facilitator and the sign-language provider are campaign appointments, not
-   Firefly's. Section 6.1 lists them. Firefly assembles no publishing team: the one in post stays
+4. **The campaign appoints the named roles.** The data-protection and electoral-law reviewer and the
+   sign-language provider are campaign appointments, not Firefly's. Section 6.1 lists them. Firefly assembles no publishing team: the one in post stays
    in post (Section 5.9.6).
 
 4a. **The Facebook asset is a Page, not a personal profile in professional mode.** A visible friends
@@ -118,8 +119,8 @@ id: fig-6-3-decision
 
 > ### THE WINDOW, NOT THE DEADLINE
 >
-> **What sets the pace.** The Wiper flagbearer decision is expected to be settled by countywide
-> opinion poll in the final quarter of 2026 — late October to November on the reported timetable
+> **What sets the pace.** The Wiper flagbearer decision is expected to be settled by a party-run
+> countywide selection in the final quarter of 2026 — late October to November on the reported timetable
 > (Tier 3, Section 2.3.2). That date is not in the campaign's gift, and every other date in this
 > document is derived from it rather than chosen.
 >
@@ -138,15 +139,16 @@ id: fig-6-3-decision
 Dr. Makali Mulu has the credentials, the experience and the vision to be an
 outstanding Governor of Kitui County. He also has something no rival in this
 race has: a professional qualification in verifying whether public money
-delivered what it promised. That is the exact deficit Kitui voters have lived
-with, and it is currently the campaign's most under-used asset.
+delivered what it promised. Unconfirmed balances, pending bills and low development absorption are what the
+Auditor-General and the Controller of Budget report for the county (Annex B.2), and that qualification is currently the campaign's most under-used
+asset.
 
 **But the timeline is not the one the planning cycle assumes.** The Wiper
-flagbearer decision is expected to be settled by opinion poll in the final
+flagbearer decision is expected to be settled by a party-run countywide selection in the final
 quarter of 2026 (reported, Tier 3). Half the register, {{pool.share}}%, lives in the four
-constituencies where he has never held office. That gap is a recognition problem concentrated outside his home constituency —
-the most solvable category of deficit there is, and the one that closes fastest
-through disciplined reach into Mwingi and the arid south.
+constituencies where he has never held office. The working hypothesis is that the gap there is one
+of recognition rather than credibility (Section 3.11). If Week 1 confirms it, it is the kind of gap
+that closes fastest through disciplined reach into Mwingi and the arid south.
 
 This proposal sets out the layer that turns an active channel into a directed one: an audit of
 what the existing accounts are actually doing (Section 5.3), a strategy derived from it, a weekly
@@ -177,7 +179,7 @@ fireflymanagement.ke@gmail.com · 0726 766 800
 
 Dr. Mulu is already in the conversation. A verified page, {{channel.fb.posts}} posts, a team that publishes every
 day in three languages. What the record does not yet show is a reason behind any single post: which
-voter it was for, which of the **{{pool}}** registered voters in his recognition-deficit wards it
+voter it was for, which of the **{{pool}}** registered voters in the pool wards, where he has never held office, it
 reached, and whether it moved anything.
 
 Firefly supplies that layer in the three steps Section 1.4 sets out: analyse in Week 1, strategise in
@@ -191,7 +193,7 @@ people who run it now.
 
 **Where the contest stands.** Both Wiper rivals have already won a countywide election: Dr. Kasalu
 with **{{result.2022.womanrep.kasalu}}** votes as Woman Representative and Sen. Wambua with **{{result.2022.senate.wambua}}** as Senator, both in
-2022 (Section 3.5). Dr. Mulu has not yet stood countywide. The ticket is expected to be settled by countywide opinion poll in the final
+2022 (Section 3.5). Dr. Mulu has not yet stood countywide. The ticket is expected to be settled by a party-run countywide selection in the final
 quarter of 2026 — reported, and **not confirmed by the party** (Tier 3; Section 2.3.2 sets out what
 would confirm it).
 

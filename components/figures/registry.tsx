@@ -450,11 +450,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "message-by-segment": {
-    note: "§D.1 — six segments, their message and the evidence behind it.",
+    note: "§C.1 — six segments, their message and the evidence behind it.",
     render: () => (
       <FigureFrame series={SEGMENT_MESSAGE_SERIES}>
         <SpecTable
-          caption="§D.1 message-by-demographic-segment matrix"
+          caption="§C.1 message-by-demographic-segment matrix"
           columns={["Target segment", "Tailored message & Kikamba framing", "Verifiable evidence & data source"]}
           rows={MESSAGE_BY_SEGMENT}
         />
@@ -463,11 +463,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "message-by-channel": {
-    note: "§D.2 — five channels, their register and their proof points.",
+    note: "§C.2 — five channels, their register and their proof points.",
     render: () => (
       <FigureFrame series={CHANNEL_MESSAGE_SERIES}>
         <SpecTable
-          caption="§D.2 message-by-channel matrix and evidence deployment"
+          caption="§C.2 message-by-channel matrix and evidence deployment"
           columns={["Channel & reach", "Format, tone & linguistic style", "Evidential proof points"]}
           rows={MESSAGE_BY_CHANNEL}
         />
@@ -476,7 +476,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "escalation-ladder": {
-    note: "§E.2 — three escalation levels and who decides at each.",
+    note: "§D.2 — three escalation levels and who decides at each.",
     render: () => (
       <FigureFrame series={ESCALATION_SERIES}>
         <Stepper stages={ESCALATION_LADDER} />
@@ -485,11 +485,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "response-matrix": {
-    note: "§F.1 — four threat severities, their protocol and SLA.",
+    note: "§E.1 — four threat severities, their protocol and SLA.",
     render: () => (
       <FigureFrame series={MATRIX_SERIES}>
         <SpecTable
-          caption="§F.1 rapid response decision matrix"
+          caption="§E.1 rapid response decision matrix"
           columns={["Threat severity", "Definition & impact threshold", "Strategic response protocol", "Turnaround target (SLA)"]}
           rows={RESPONSE_MATRIX}
           emphasise={3}
@@ -499,11 +499,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "response-sla": {
-    note: "§F.2 — mandatory response time per channel.",
+    note: "§E.2 — mandatory response time per channel.",
     render: () => (
       <FigureFrame series={SLA_SERIES}>
         <SpecTable
-          caption="§F.2 rapid response SLA by channel"
+          caption="§E.2 rapid response SLA by channel"
           columns={["Channel & platform", "Mandatory response time target"]}
           rows={RESPONSE_SLA}
           emphasise={1}
@@ -513,7 +513,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "holding-positions": {
-    note: "§F.3 — four attack lines with their pre-drafted answers and sources.",
+    note: "§E.3 — four attack lines with their pre-drafted answers and sources.",
     render: () => (
       <FigureFrame series={HOLDING_SERIES}>
         <ol className="not-prose m-0 list-none space-y-2 p-0">
@@ -659,7 +659,7 @@ export const FIGURES: Record<string, FigureEntry> = {
       <FigureFrame series={RESEARCH_SPLIT}>
         <TierGrid
           tiers={RESEARCH_TIERS}
-          flow="The research programme feeds the tracker: what the polling establishes about a ward becomes a baseline the tracker publishes against."
+          flow="The evidence tests feed the tracker: what the ward-level record establishes about a ward becomes a baseline the tracker publishes against."
         />
       </FigureFrame>
     ),
@@ -671,7 +671,7 @@ export const FIGURES: Record<string, FigureEntry> = {
       <FigureFrame series={MODULES_SERIES}>
         <SpecTable
           caption="§5.6.5 recognition-deficit research architecture"
-          columns={["Research module", "Method & instrument", "Sample & stratification", "Timing", "Decision unlocked"]}
+          columns={["Evidence test", "Method", "Record read", "Timing", "Decision unlocked"]}
           rows={RESEARCH_MODULES}
           emphasise={4}
         />

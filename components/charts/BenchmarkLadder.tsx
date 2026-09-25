@@ -5,7 +5,7 @@ import { motion, useInView } from "motion/react";
 import { ArrowUp, Minus } from "lucide-react";
 
 import {
-  PLOTTED_BENCHMARKS, UNPLOTTED_BENCHMARKS, targetPosition, type Benchmark,
+  PLOTTED_BENCHMARKS, targetPosition, type Benchmark,
 } from "../../data/benchmarks";
 import { useMotionPreset } from "../../hooks/useMotionPreset";
 import { STAGGER } from "../../lib/motion";
@@ -127,27 +127,6 @@ export function BenchmarkLadder() {
         ))}
       </ul>
 
-      <div className="mt-4 pt-4 border-t border-line/60">
-        <p className="t-micro font-black text-muted mb-2">
-          Measured on their own scales
-        </p>
-        <dl className="space-y-2">
-          {UNPLOTTED_BENCHMARKS.map((u) => (
-            <div key={u.metric} className="flex flex-col gap-0.5">
-              <dt className="t-small font-bold text-ink leading-snug">{u.metric}</dt>
-              <dd className="t-micro text-muted leading-snug">
-                {u.definition} · Benchmark {u.benchmarkLabel} ·{" "}
-                <span className="text-accent font-bold">Target {u.targetLabel}</span>
-              </dd>
-            </div>
-          ))}
-        </dl>
-        <p className="t-micro text-muted mt-2 leading-snug">
-          These three are not plotted above: a cost in shillings, a cost in dollars and a shift in
-          survey points share no axis, and putting them on one would invent a comparison this
-          document does not make.
-        </p>
-      </div>
     </section>
   );
 }

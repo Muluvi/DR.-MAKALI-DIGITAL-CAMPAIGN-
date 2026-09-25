@@ -97,7 +97,7 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
    * Which section the reader is in.
    *
    * On the flow this is observed, not navigated: there is no route change and no history entry
-   * per section, because scrolling through a document is not nineteen acts of navigation. It
+   * per section, because scrolling through a document is not eighteen acts of navigation. It
    * drives the capsule, the edge rail and nothing else, so it is allowed to be approximate.
    */
   const [currentTab, setCurrentTab] = useState<TabId>(expanded ? LANDING_TAB : activeTab);
@@ -125,7 +125,7 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
   /**
    * The section a deep link is aimed at, which must mount whether or not it is near the viewport.
    *
-   * A link to §F.12 lands 48,000 words down the flow. Without this the observer would not have
+   * A link to §E.12 lands 48,000 words down the flow. Without this the observer would not have
    * fired for it, the scroll helper would find nothing, and the reader would be left at the top of
    * a document they arrived in the middle of.
    */

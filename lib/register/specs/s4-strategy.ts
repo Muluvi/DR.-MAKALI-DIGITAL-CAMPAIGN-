@@ -60,7 +60,7 @@ export const FIG_4_2: FigureSpec = {
   section: "4.2",
   title: `In Phase −1, ${num("effort.p-1.mwingi") + num("effort.p-1.arid")}% of the effort goes to Mwingi and the arid belt, well above their share of residents`,
   question: "Where does the effort go in Phase −1?",
-  takeaway: `The weighting over-indexes on the pool because the nomination deficit is a recognition deficit; ${fmt("effort.digital.pool")}% of digital reach effort is geofenced to it.`,
+  takeaway: `The weighting over-indexes on the pool on the working hypothesis that his gap there is one of recognition; ${fmt("effort.digital.pool")}% of digital reach effort is geofenced to it.`,
   sources: [T_FIREFLY, src("zone.mwingi.share")],
   chart: {
     type: "composite",
@@ -253,7 +253,7 @@ export const FIG_4_7: FigureSpec = {
 
 const RULES = [
   { if: "follower and reach geography concentrates in Kitui Central and Nairobi", then: "the recognition thesis is confirmed; output weight shifts to Mwingi and the arid belt, headline indicator R-02" },
-  { if: "reach in Mwingi is material but engagement there is flat", then: "the problem is message, not reach: the message lab, not geofenced advertising; the Section 4.2 weighting is revised" },
+  { if: "reach in Mwingi is material but engagement there is flat", then: "the problem is message, not reach: the weekly creative test cycle re-cuts the message rather than buying more geofenced reach; the Section 4.2 weighting is revised" },
   { if: "Kikamba posts out-engage English by a wide margin", then: "language becomes a rule in the weekly brief" },
   { if: "video watch time collapses before ten seconds", then: "short vertical and Kikamba voice notes replace long video; the Section 5.5.3 cadence is re-cut" },
   { if: "most engagement comes from a few hundred repeat accounts", then: "priority moves from page growth to consented WhatsApp and SMS lists" },

@@ -20,7 +20,7 @@
     },
     {
      "n": 3,
-     "label": "Steep Recognition Deficit Zones",
+     "label": "Where he has never held office",
      "body": ""
     },
     {
@@ -35,8 +35,8 @@
     },
     {
      "n": 6,
-     "label": "Kitui East Border Wards",
-     "body": "Total 65,377 registered voters (particularly Endau/Malalani, Voo/Kyamatu, and Mutitu/Kaliku)."
+     "label": "Kitui East (outside the pool)",
+     "body": "Total 65,377 registered voters (particularly Endau/Malalani, Voo/Kyamatu, and Mutitu/Kaliku). He has not held office here…"
     },
     {
      "n": 7,
@@ -63,32 +63,32 @@
     {
      "n": 1,
      "label": "Sen. Enoch Wambua (Senator, Kitui County)",
-     "body": "Commands significant party influence and standing as a senior legislator within the Wiper Patriotic Front (Tier 1). He retains a…"
+     "body": "Won the 2022 Senate race with 191,317 votes (Tier 2; the IEBC Form 38C declaration is the record to hold), within 6,687 of the…"
     },
     {
      "n": 2,
-     "label": "Charity Ngilu (Former Governor, Kitui…",
-     "body": "Charity Ngilu (Former Governor, Kitui County - NARC): A veteran national political figure who won the hotly contested,…"
+     "label": "The incumbent and the nomination.",
+     "body": "Governor Julius Malombe won the 2022 race on the Wiper ticket (Tier 1, Section 2.2). Whether he seeks the 2027 Wiper nomination…"
     },
     {
      "n": 3,
-     "label": "David Musila (Former Senator, Kitui County)",
-     "body": "A formidable regional contender who finished as the runner-up in both the 2017 and 2022 gubernatorial elections (Tier 1). His…"
+     "label": "Charity Ngilu (Former Governor, Kitui…",
+     "body": "Charity Ngilu (Former Governor, Kitui County - NARC): Won the court-confirmed 2017 gubernatorial election with 169,990 votes…"
     },
     {
      "n": 4,
+     "label": "David Musila (Former Senator, Kitui County)",
+     "body": "Runner-up in both the 2017 and 2022 gubernatorial elections (Tier 1): 114,827 votes in 2017 (Tier 1), and 117,606 in 2022 (Tier…"
+    },
+    {
+     "n": 5,
      "label": "Peninah Malonza (Former Deputy Governor &…",
      "body": "Peninah Malonza (Former Deputy Governor & Former Cabinet Secretary): Served as Deputy Governor from 2013–2017 (Tier 1) and…"
     },
     {
-     "n": 5,
-     "label": "Nicholas Mulila (Safaricom PLC Executive)",
-     "body": "A highly regarded corporate leader with extensive technical and operational credentials in digital infrastructure,…"
-    },
-    {
      "n": 6,
-     "label": "Francis Musili Kauta (Governance Activist)",
-     "body": "A prominent legal professional and civil society advocate in Kitui (Tier 2). Sourced activist reports note his active campaign…"
+     "label": "Nicholas Mulila (Safaricom PLC Executive)",
+     "body": "Holds executive roles at Safaricom PLC (Tier 2); the company's published annual reports are the documentary record of those…"
     }
    ]
   }
@@ -99,32 +99,38 @@
   "level": 2,
   "number": "3.8",
   "title": "What each channel can physically reach",
-  "kind": "checklist",
+  "kind": "stepper",
   "data": {
-   "items": [
+   "steps": [
     {
+     "n": 1,
      "label": "Elite Agenda Setting & Narrative Defense",
-     "body": "X and Facebook dominate the information diet of local radio producers, vernacular talk-show hosts, church…"
+     "body": "The working premise is that local radio producers, vernacular talk-show hosts, church leaders and county assembly members follow…"
     },
     {
+     "n": 2,
      "label": "Youth Mobilization & Field Volunteer…",
-     "body": ""
+     "body": "Youth Mobilization & Field Volunteer Recruitment: Engaging the ~234,000 youth cohort via TikTok and WhatsApp generates…"
     },
     {
+     "n": 3,
      "label": "Efficient Micro-Targeting of Urban MSMEs",
-     "body": "Hyper-geofencing commercial centers (Kitui CBD, Mwingi Central) allows testing policy messages (\"The…"
+     "body": "Hyper-geofencing commercial centers (Kitui CBD, Mwingi Central) allows testing policy messages (\"The Economist's Single Business…"
     },
     {
-     "label": "It Cannot Deliver the 200,000 Vote Benchmark…",
-     "body": ""
+     "n": 4,
+     "label": "It Cannot Deliver the 200,000 Vote…",
+     "body": "It Cannot Deliver the 200,000 Vote Benchmark Alone: Capped at about 158,696 reachable voters inside Kitui County (modelled)."
     },
     {
+     "n": 5,
      "label": "It Cannot Penetrate the Rural Agrarian Base",
-     "body": "73.8% of Kitui's residents are offline (CA/KNBS 2023/24), and the rural smallholder majority does not meet…"
+     "body": "73.8% of Kitui's residents are offline (CA/KNBS 2023/24), and the rural smallholder majority does not meet political content…"
     },
     {
+     "n": 6,
      "label": "It Cannot Counteract Ground Rumors Directly",
-     "body": "WhatsApp and Facebook echo chambers rarely cross over into dryland farming communities without physical…"
+     "body": "WhatsApp and Facebook echo chambers rarely cross over into dryland farming communities without physical intermediaries."
     }
    ]
   }
@@ -156,7 +162,7 @@
     {
      "n": 4,
      "label": "Him against the field",
-     "body": "— posts per week, median shares per post, and ads live, for all four candidates."
+     "body": "— posts per week, median shares per post, and ads live, for him and the two nomination rivals named in Section 3.5."
     }
    ]
   }
@@ -173,7 +179,7 @@
     {
      "n": 1,
      "label": "Ward-level voter preference",
-     "body": "Named data gap. No source measures it. The published opinion polls report countywide aggregates only and publish no sample size…"
+     "body": "Not measured, and not sought. This proposal forms strategy from existing records and its own analysis only. The nearest official…"
     },
     {
      "n": 2,
@@ -199,11 +205,11 @@
    "items": [
     {
      "label": "Dr. Irene Kasalu (Woman Representative)",
-     "body": "It is reported in local media that her platform leverages a wide countywide network built through her office…"
+     "body": "Her 2022 countywide result (Section 2.2) is a media report of the declaration (Tier 2); the IEBC Form 39C…"
     },
     {
      "label": "Sen. Enoch Wambua (Senator)",
-     "body": "Legislative records establish his role in senior Senate committee positions (Tier 1)."
+     "body": "Legislative records establish his role in Senate committee positions (Tier 1); each committee is to be named…"
     },
     {
      "label": "Charity Ngilu (Former Governor)",
@@ -211,23 +217,23 @@
     },
     {
      "label": "David Musila (Former Senator)",
-     "body": "Sourced election declarations confirm his high runner-up voting totals across two cycles (Tier 1)."
+     "body": "Sourced election declarations confirm his high runner-up voting totals across two cycles (Tier 1). His Senate…"
     },
     {
      "label": "Peninah Malonza (Former Cabinet Secretary)",
-     "body": "Official records confirm her appointments as Deputy Governor and Cabinet Minister (Tier 1)."
+     "body": "Official records confirm her appointments as Deputy Governor and Cabinet Minister (Tier 1); the Kenya Gazette…"
     },
     {
      "label": "Nicholas Mulila (Corporate Executive)",
-     "body": "Sourced business reports note his executive roles at Safaricom PLC (Tier 2)."
+     "body": "His executive roles at Safaricom PLC are reported (Tier 2); the company's published annual reports are the…"
     },
     {
      "label": "Francis Musili Kauta (Activist)",
-     "body": "Regional civic profiles document his litigation and advocacy on public land use (Tier 2)."
+     "body": "His litigation and advocacy on public land use are reported (Tier 2); the judgments themselves, from Kenya…"
     },
     {
      "label": "Julius Malombe (Incumbent Governor)",
-     "body": "Official records confirm his administrative oversight of county departments (Tier 1). Sourced legal…"
+     "body": "Official records confirm his administrative oversight of county departments (Tier 1), and the…"
     }
    ]
   }
@@ -259,16 +265,16 @@
     },
     {
      "label": "Competitive figures",
-     "body": "are public-source only, gathered the same way for all four candidates, in the same window."
+     "body": "are public-source only, gathered the same way for him and both nomination rivals, in the same window."
     }
    ]
   }
  },
- "annex-runbooks-sec-f-5": {
-  "id": "annex-runbooks-sec-f-5",
+ "annex-runbooks-sec-e-5": {
+  "id": "annex-runbooks-sec-e-5",
   "tab": "annex-runbooks",
   "level": 2,
-  "number": "F.5",
+  "number": "E.5",
   "title": "Rapid-response protocol and pre-approved message library",
   "kind": "stepper",
   "data": {
@@ -301,11 +307,11 @@
    ]
   }
  },
- "annex-runbooks-sec-f-7": {
-  "id": "annex-runbooks-sec-f-7",
+ "annex-runbooks-sec-e-7": {
+  "id": "annex-runbooks-sec-e-7",
   "tab": "annex-runbooks",
   "level": 2,
-  "number": "F.7",
+  "number": "E.7",
   "title": "The threat model",
   "kind": "checklist",
   "data": {
@@ -329,11 +335,11 @@
    ]
   }
  },
- "annex-runbooks-sec-f-9": {
-  "id": "annex-runbooks-sec-f-9",
+ "annex-runbooks-sec-e-9": {
+  "id": "annex-runbooks-sec-e-9",
   "tab": "annex-runbooks",
   "level": 2,
-  "number": "F.9",
+  "number": "E.9",
   "title": "Phishing awareness",
   "kind": "checklist",
   "data": {
@@ -357,11 +363,11 @@
    ]
   }
  },
- "annex-runbooks-sec-f-12": {
-  "id": "annex-runbooks-sec-f-12",
+ "annex-runbooks-sec-e-12": {
+  "id": "annex-runbooks-sec-e-12",
   "tab": "annex-runbooks",
   "level": 2,
-  "number": "F.12",
+  "number": "E.12",
   "title": "Competitive intelligence outputs and rapid alerts",
   "kind": "checklist",
   "data": {
@@ -421,6 +427,10 @@
     {
      "label": "2022 Kitui Central MP",
      "body": "Dr. Mulu was re-elected on the Wiper ticket with 30,954 votes (Tier 1, IEBC declaration as gazetted); Boniface Musambi…"
+    },
+    {
+     "label": "Ward and polling-station results",
+     "body": "The constituency and polling-station forms for the 2017 and 2022 governor races (IEBC Forms 37B and 37A) are public…"
     }
    ]
   }
@@ -563,8 +573,8 @@
     },
     {
      "n": 8,
-     "label": "Quarterly red-team drill; quarterly…",
-     "body": "Quarterly red-team drill; quarterly message lab"
+     "label": "Quarterly red-team drill",
+     "body": ""
     }
    ]
   }
@@ -600,8 +610,8 @@
     },
     {
      "n": 5,
-     "label": "Targeted ads to registered voters and…",
-     "body": "Targeted ads to registered voters and undecided segments"
+     "label": "Targeted ads to registered voters in the…",
+     "body": "Targeted ads to registered voters in the pool and the high-potential polling-station areas (Section 5.2.4.2)"
     },
     {
      "n": 6,
@@ -960,7 +970,7 @@
     {
      "n": 1,
      "label": "The National Budget Seat",
-     "body": "Sourced legislative records confirm Dr. Mulu's senior position on the National Assembly's Budget and Appropriations Committee…"
+     "body": "Sourced legislative records confirm Dr. Mulu's membership of the National Assembly's Budget and Appropriations Committee (Tier…"
     },
     {
      "n": 2,
@@ -970,7 +980,7 @@
     {
      "n": 3,
      "label": "Certified Administrative Excellence",
-     "body": "Sourced Ministry of Finance performance audits officially certified Kitui Central as the best-evaluated constituency in the…"
+     "body": "Kitui Central was evaluated the best constituency in the Eastern region, FY2014/15—ranking first out of all 71 constituencies in…"
     },
     {
      "n": 4,
@@ -1232,6 +1242,58 @@
    ]
   }
  },
+ "workstreams-data-sec-5-2-4-2": {
+  "id": "workstreams-data-sec-5-2-4-2",
+  "tab": "workstreams-data",
+  "level": 3,
+  "number": "5.2.4.2",
+  "title": "Workstream 12 — Predictive voter modelling",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "IEBC Voter Register",
+     "body": "name, gender, age bracket, polling station, ward,"
+    },
+    {
+     "n": 2,
+     "label": "KNBS Census and county statistics",
+     "body": "demographics, education, household"
+    },
+    {
+     "n": 3,
+     "label": "Historical results",
+     "body": "ward and polling-station results from 2017 and 2022"
+    },
+    {
+     "n": 4,
+     "label": "Campaign first-party data",
+     "body": "interactions with campaign content, WhatsApp"
+    },
+    {
+     "n": 5,
+     "label": "Field contact log",
+     "body": "(Section 5.2.3.2): whether a household was reached, opted in,"
+    },
+    {
+     "n": 6,
+     "label": "Ad targeting",
+     "body": "scored segments as custom audiences on Meta, Google, TikTok"
+    },
+    {
+     "n": 7,
+     "label": "SMS/USSD segmentation",
+     "body": "priority broadcast lists for high-support,"
+    },
+    {
+     "n": 8,
+     "label": "Content personalisation",
+     "body": "different messages to station areas by their support"
+    }
+   ]
+  }
+ },
  "workstreams-ground-sec-5-2-3-1": {
   "id": "workstreams-ground-sec-5-2-3-1",
   "tab": "workstreams-ground",
@@ -1242,8 +1304,8 @@
   "data": {
    "items": [
     {
-     "label": "Voter Sentiment & Dominant Anxieties",
-     "body": "E.g., \"Farmers in Kyuso are angry about uncollected green grams; opponents are claiming Dr. Mulu will…"
+     "label": "Issues Raised in Public",
+     "body": "What residents raised at barazas, markets and public meetings, logged as it was said. E.g., \"Farmers at the…"
     },
     {
      "label": "Competitor Movement & Expenditure",
@@ -1293,7 +1355,7 @@
     {
      "n": 2,
      "label": "Capture",
-     "body": "ward champions log outcomes via a simple mobile form — four options, under thirty seconds per household. Complexity kills field…"
+     "body": "ward champions log the contact via a simple mobile form — four options (opted in; reached, no opt-in; asked not to be contacted;…"
     },
     {
      "n": 3,
@@ -1308,7 +1370,7 @@
     {
      "n": 5,
      "label": "Suppression",
-     "body": "confirmed committed opponents are removed from paid targeting, not messaged harder. This saves money and is the correct practice."
+     "body": "households that ask not to be contacted are removed from paid targeting and every contact list, not messaged harder. This is the…"
     },
     {
      "n": 6,

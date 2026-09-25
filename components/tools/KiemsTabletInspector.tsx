@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { IllustrativeTag } from "../premium/IllustrativeTag";
 import { TiltStage } from "../premium/TiltStage";
+import { CONSTITUENCIES_BY_SIZE, COUNTY_TOTAL_WARDS } from "../../data/ward-register";
 
 type TabletView = "bvr" | "form37a" | "threshold";
 
@@ -266,16 +267,11 @@ export function KiemsTabletInspector() {
 
                 {/* 8 Constituencies Contribution Matrix */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px]">
-                  {[
-                    { name: "Kitui Central", share: "77,764", pct: "14.6%" },
-                    { name: "Kitui South", share: "75,372", pct: "14.1%" },
-                    { name: "Mwingi Central", share: "74,231", pct: "13.9%" },
-                    { name: "Mwingi North", share: "68,829", pct: "12.9%" },
-                    { name: "Kitui East", share: "65,377", pct: "12.3%" },
-                    { name: "Kitui West", share: "59,047", pct: "11.1%" },
-                    { name: "Mwingi West", share: "57,138", pct: "10.7%" },
-                    { name: "Kitui Rural", share: "55,000", pct: "10.3%" },
-                  ].map((c) => (
+                  {CONSTITUENCIES_BY_SIZE.map((k) => ({
+                    name: k.name,
+                    share: k.voters.toLocaleString("en-US"),
+                    pct: `${((k.voters / COUNTY_TOTAL_WARDS) * 100).toFixed(1)}%`,
+                  })).map((c) => (
                     <div key={c.name} className="p-2 rounded-lg bg-[#181d26] border border-white/5">
                       <span className="text-slate-400 block text-[10px] truncate">{c.name}</span>
                       <span className="font-bold text-white text-xs">{c.share} reg</span>

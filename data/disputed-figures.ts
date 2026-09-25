@@ -24,7 +24,7 @@ export const DISPUTED_FIGURES: DisputedFigureEntry[] = [
     ],
     preferredIndex: 0,
     preferenceReason:
-      "KNBS is Kenya's official census authority (Tier 1); the NG-CDF office webpage is not a statistical survey body and does not cite a methodology for its figure.",
+      "KNBS is Kenya's official census authority (Tier 1); the NG-CDF office webpage is not a statistical authority and does not cite a methodology for its figure.",
     resolutionPath:
       "Cross-check the NG-CDF site's figure against KNBS's constituency-level census volumes directly — it may be conflating population with a different base (e.g. a projected or eligible-beneficiary count) rather than the 2019 census count.",
     status: "resolved-preferred",

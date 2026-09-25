@@ -31,9 +31,9 @@ export const FIG_TRACKER_FLOW: FigureSpec = {
 
 const LOOP = [
   { lane: "Field", title: "Canvass", body: "A ward champion canvasses a household: four options, under thirty seconds." },
-  { lane: "Digital", title: "Log the outcome", body: "Support, undecided or oppose, synced when signal returns." },
-  { lane: "Digital", title: "Update the score", body: "The voter score moves (Section 5.2.4.2)." },
-  { lane: "Digital", title: "Re-segment within 24 hours", body: "Ad audiences and SMS lists; committed opponents are removed from paid targeting." },
+  { lane: "Digital", title: "Log the contact", body: "Opted in, reached without opt-in, asked not to be contacted, or no one home, synced when signal returns. Never how anyone will vote." },
+  { lane: "Digital", title: "Update the lists", body: "Contactability updates the SMS and routing lists (Section 5.2.4.2)." },
+  { lane: "Digital", title: "Re-segment within 24 hours", body: "Ad audiences and SMS lists; households that asked not to be contacted are removed." },
   { lane: "Field", title: "Route the highest-value doors", body: "Warm leads go to the champion's phone as priority doors, with the issue each household engaged with." },
 ];
 
@@ -42,7 +42,7 @@ export const FIG_FIELD_LOOP: FigureSpec = {
   section: "5.2.3.2",
   title: "The doorstep and the ad audience update each other within a day",
   question: "How do the field and digital operations learn from each other?",
-  takeaway: "A field validation match rate of at least 85% keeps both sides honest: if the model and the doorstep disagree, the model is wrong.",
+  takeaway: "The opt-in rate on routed doors keeps both sides honest: if routed doors do no better than the rest, the routing is wrong.",
   sources: [PROPOSAL],
   chart: { type: "steps", horizontal: true, lanes: ["Field", "Digital"], steps: LOOP.map((l, i) => ({ ...l, when: `${i + 1}${i === LOOP.length - 1 ? " → back to 1" : ""}` })) },
   columns: [{ key: "n", label: "Step", numeric: true }, { key: "lane", label: "Side" }, { key: "what", label: "What happens" }, { key: "detail", label: "Detail" }],

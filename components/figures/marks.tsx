@@ -123,8 +123,8 @@ export function BarList({
 /**
  * Two values on one scale, with the gap named.
  *
- * This is the hero's job: 22.1% against 37.4% is not two numbers, it is one distance, and the
- * distance is the finding. Drawing them as two separate figures makes the reader subtract.
+ * Two values on one scale are not two numbers, they are one distance, and the distance is the
+ * finding. Drawing them as two separate figures makes the reader subtract.
  */
 export function GapBar({
   leading,
@@ -300,11 +300,8 @@ export function ShareBar({ series }: { series: FigureSeries }) {
 /**
  * Two time points per series, joined.
  *
- * Deliberately limited to two, and deliberately NOT a trend line across houses. §C.1 is
- * explicit that the three published rounds come from two pollsters and are "deliberately not
- * drawn as one trend line", because different houses use different samples and screens, and
- * joining them would manufacture a trajectory nobody measured. This component draws one house at
- * a time; the cross-house comparison is a DotRange, where the rounds sit apart.
+ * Deliberately limited to two points: joining more readings from different sources would
+ * manufacture a trajectory nobody measured.
  */
 export function SlopeChart({
   rows,
@@ -353,7 +350,7 @@ export function SlopeChart({
           <li key={r.label} className="flex items-baseline justify-between gap-3 t-micro">
             <span className="font-medium text-ink">{r.label}</span>
             <span className="shrink-0 tabular-nums text-muted">
-              {r.from === null ? <em>not polled</em> : fmt(r.from, unit)}
+              {r.from === null ? <em>not measured</em> : fmt(r.from, unit)}
               {" → "}
               <strong className="font-bold text-ink">{r.to === null ? "—" : fmt(r.to, unit)}</strong>
               {r.from !== null && r.to !== null && (
@@ -382,10 +379,9 @@ export function SlopeChart({
 /**
  * Dots with whiskers: a value and the uncertainty around it.
  *
- * For published poll shares with a margin, and for modelled intervals. A point with no published
- * sample gets a hatched marker and says so — §C.1 records that both Mizani rounds published no
- * sample size, and drawing them with the same confident dot as Politrack's n = 2,927 would be
- * asserting a precision nobody published.
+ * For modelled intervals. A point with no published range gets a hatched marker and says so:
+ * drawing it with the same confident dot as a point that has one would be asserting a precision
+ * nobody published.
  */
 export function DotRange({
   series,

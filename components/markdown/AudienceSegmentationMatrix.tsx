@@ -12,7 +12,7 @@ import { DURATION } from "../../lib/motion";
  * §5.1–2.4.2 — the six structural segments.
  *
  * Sizing figures are quoted from §5.1's "Empirical Sizing" line and §5.2's summary matrix.
- * Three of the six are marked in the source as a Named Data Gap requiring primary survey; those
+ * Three of the six are marked in the source as a Named Data Gap with no official count; those
  * render as unsized, with the source's estimated range shown as an estimate rather than promoted
  * to a fact. An earlier version of this component assigned all six invented percentages and
  * voter counts that appear nowhere in the proposal
@@ -60,7 +60,7 @@ const AUDIENCE_SEGMENTS: AudienceSegment[] = [
     sizing: {
       kind: "gap",
       estimate: "~80,000–105,000 registered voters",
-      note: "~15%–20% of the rural population. Precise registration figures require a targeted primary survey.",
+      note: "~15%–20% of the rural population. No official source publishes this segment's registered-voter count; the range is the source's estimate, not a measurement.",
     },
     connectivity: "Highly dispersed. Intermittent 2G coverage, heavy battery and solar radio listenership.",
     geographicBase: "Mwingi North, Mwingi Central, Kitui South and Kitui East borderlands.",
@@ -124,7 +124,7 @@ const AUDIENCE_SEGMENTS: AudienceSegment[] = [
     sizing: {
       kind: "gap",
       estimate: "150,000+ individuals",
-      note: "Total diaspora volume. The subset registered to vote in Kitui County requires specialised primary polling.",
+      note: "Total diaspora volume. The subset registered to vote in Kitui County is not published by any official source.",
     },
     connectivity: ">95% internet and smartphone connected. Active on X, Facebook, WhatsApp, YouTube and national podcasts.",
     geographicBase: "Nairobi, the Coast and nationwide, plus the 26 countries IEBC is opening to diaspora registration.",
@@ -267,8 +267,8 @@ export function AudienceSegmentationMatrix() {
 
       <div className="px-4 py-3 bg-paper/60 border-t border-line">
         <p className="t-small text-muted leading-relaxed">
-          {gapCount} of the 6 segments are unsized in the source and are shown as such. §5.3 catalogues them for
-          commissioning in the Phase −1 baseline survey — this document does not estimate past its own evidence.
+          {gapCount} of the 6 segments are unsized in the source and are shown as such. Each stays unsized until an
+          official source publishes it — this document does not estimate past its own evidence.
         </p>
       </div>
     </div>

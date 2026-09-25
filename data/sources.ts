@@ -129,14 +129,6 @@ export const ODPC_PUBLIC_SECTOR_GUIDANCE: Source = {
 
 // ---- Tier 2 · Reported --------------------------------------------------------------------
 
-export const POLITRACK_AFRICA: Source = {
-  name: "Politrack Africa — Kitui County gubernatorial preference survey (n = 2,927)",
-  publicationDate: "2026-03-12",
-  tier: 2,
-  // A second pollster, reported via The County Diary. Never joined to the Mizani series as one
-  // trend line: different houses, different methods (§C.1).
-};
-
 export const KNBS_POVERTY_REPORT: Source = {
   name: "KNBS — Kenya Poverty Report, via national press coverage",
   url: "https://www.knbs.or.ke/wp-content/uploads/2024/10/The-Kenya-Poverty-Report-2022.pdf",
@@ -210,12 +202,6 @@ export const PETITION_12_2014: Source = {
 };
 
 // ---- Tier 3 · Single-source / partisan -----------------------------------------------------
-
-export const MIZANI_AFRICA: Source = {
-  name: "Mizani Africa — Kitui County gubernatorial preference survey",
-  publicationDate: "2026-08-07",
-  tier: 2,
-};
 
 export const LOCAL_DIGITAL_NOMINATION_REPORT: Source = {
   name: "Local Kitui digital outlet reporting on the Wiper nomination method",

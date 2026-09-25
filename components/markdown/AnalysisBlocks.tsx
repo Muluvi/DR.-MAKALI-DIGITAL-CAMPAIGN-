@@ -5,32 +5,11 @@ import { AnalysisFigure } from "./AnalysisFigure";
  * The pipeline's published exports, mounted into the sections they belong to.
  *
  * Each block pairs the figures with the finding they support, because the numbers alone do
- * not carry the argument — the reason the polling block matters is not that three polls
- * exist, it is that two of them cannot be compared.
+ * not carry the argument.
  *
  * Nothing here hard-codes a figure. Every number comes from data/analysis/*.json, which the
  * pipeline writes and re-writes; to change what this renders, re-run the pipeline.
  */
-
-/** §C.1 — the polling gap, as sourced. */
-export function PollMarginsBlock() {
-  return (
-    <AnalysisFigure
-      chart={analysisExport("published-polls-2026")}
-      heading="Three polls, two pollsters, one published sample size"
-    >
-      <p className="mt-3 pt-2 border-t border-line/40 t-small text-muted leading-relaxed">
-        <strong className="text-ink">What the margins allow.</strong> Politrack published its
-        sample, so its gap can be tested: at that size the nine-point March gap sits well outside
-        its own margin of error and is real. Neither Mizani round published a sample size, so the
-        June-to-August movement in Dr. Mulu&rsquo;s share cannot be tested at all — the honest
-        answer is <em>cannot determine</em>, not a trend. June also excluded Ngilu while August
-        included her, so part of any apparent movement is a changed field rather than changed
-        opinion.
-      </p>
-    </AnalysisFigure>
-  );
-}
 
 /** §3.4.1 — which register the arithmetic rests on. */
 export function RegisterComparisonBlock() {
@@ -60,12 +39,12 @@ export function ScenarioBenchmarkBlock() {
       plot={false}
     >
       <p className="mt-3 pt-2 border-t border-line/40 t-small text-muted leading-relaxed">
-        <strong className="text-ink">Two scenarios, because one cannot answer the question.</strong>{" "}
-        The first applies his current measured preference — a nomination-poll share — to the ward
-        register, and falls well short of the 2022 benchmark. The second applies the share the 2022
-        winner actually took, and reaches it in a minority of runs. The distance between those two
-        answers is the work: it is the difference between where measured support sits today and
-        what winning this county has required.
+        <strong className="text-ink">One scenario, read against two bars.</strong>{" "}
+        The model draws turnout and vote share across stated ranges, anchored on the share of
+        ballots the 2022 winner took, on the confirmed July 2026 register. It is set against the
+        2022 winning tally and against the same share of today&rsquo;s larger register. Every input
+        is a stated modelling assumption, not a measurement, and the result is a scenario, not a
+        forecast.
       </p>
     </AnalysisFigure>
   );
@@ -108,10 +87,9 @@ export function IssueEvidenceBlock() {
         <strong className="text-ink">This ranks the evidence, not the electorate.</strong> It scores
         how strong the public record is for each issue — the tier of the source, whether the
         indicator is a number or a description, and whether it covers the whole county. Water leads
-        because Kitui is the worst county in Kenya on an official measure, not because anyone has
-        yet asked Kitui voters what they care about. Measured salience needs the baseline survey,
-        and the second axis of a proper issue matrix — the candidate&rsquo;s credibility on each
-        issue — has no public substitute at all.
+        because Kitui is the worst county in Kenya on an official measure. The ranking says where
+        the official record is strongest, which is what a message can be built on; it does not
+        claim to say what voters rank first.
       </p>
     </AnalysisFigure>
   );

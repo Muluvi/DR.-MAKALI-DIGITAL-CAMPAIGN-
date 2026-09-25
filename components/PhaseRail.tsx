@@ -35,10 +35,10 @@ const DETAIL: Record<string, PhaseDetail> = {
   neg1: {
     id: "neg1",
     objective:
-      "Close the measured preference deficit ahead of the Wiper flagbearer decision, which party sources indicate is intended to conclude before the final quarter of 2026.",
+      "Close the recognition gap outside Kitui Central ahead of the Wiper flagbearer decision, which party sources indicate is intended to conclude within the final quarter of 2026.",
     highlights: [
       "Week 1 competitive digital baseline audit",
-      "Message lab tests the central hypothesis before budget is committed",
+      "The ward-level record tests the central hypothesis before effort is committed",
       "Geofenced reach into Mwingi and the arid belt",
     ],
   },

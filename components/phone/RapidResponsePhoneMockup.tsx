@@ -22,7 +22,7 @@ export function RapidResponsePhoneMockup() {
     <div className="not-prose my-8 rounded-2xl border border-line bg-surface p-4 sm:p-6 shadow-xs">
       <div className="max-w-xl mx-auto text-center mb-6">
         <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-700 dark:text-rose-400 text-xs font-semibold mb-2">
-          <span>§5.8.7 & Annex F Protocol</span>
+          <span>§5.8.7 & Annex E Protocol</span>
           <span>•</span>
           <span>Level 3 Manipulated Media Protocol (30-Min Clock)</span>
         </div>

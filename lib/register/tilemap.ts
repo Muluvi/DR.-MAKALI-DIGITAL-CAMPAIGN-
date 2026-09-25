@@ -76,7 +76,7 @@ export const LAYERS: Record<TileLayerId, TileLayer> = {
   footprint: {
     id: "footprint",
     name: "Where he has held office",
-    description: `Kitui Central is the constituency he has represented since 2013. The pool, ${formatFigure(FIGURES["pool"])} voters and ${formatFigure(FIGURES["pool.share"])}% of the register, is Mwingi North, West, Central and Kitui South. Structural, derived from where he has held office, not from a survey.`,
+    description: `Kitui Central is the constituency he has represented since 2013. The pool, ${formatFigure(FIGURES["pool"])} voters and ${formatFigure(FIGURES["pool.share"])}% of the register, is Mwingi North, West, Central and Kitui South. Structural, derived from where he has held office, not from any measure of opinion.`,
     source: "Parliament of Kenya record; IEBC ward register (2022)",
     tier: "T1",
     state: "sourced",

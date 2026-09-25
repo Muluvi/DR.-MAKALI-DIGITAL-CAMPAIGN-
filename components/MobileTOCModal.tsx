@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useEffect, useRef, useId } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Search, ChevronRight, Layers, Compass, Map, MessageSquare, Megaphone, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck, Activity} from "lucide-react";
+import { X, Search, ChevronRight, Layers, Compass, Map, MessageSquare, Megaphone, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck } from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
 import { FLOW_ACTS, FLOW_SECTIONS, actOf } from "../lib/flow";
 import { ACT_PORTRAITS, ACT_ROMAN } from "../lib/premium/acts";
@@ -25,7 +25,6 @@ const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: 
   nextsteps: Handshake,
   "annex-evidence": ClipboardList,
   "annex-county": FileText,
-  "annex-polls": Activity,
   "annex-messages": MessageSquare,
   "annex-cadence": CalendarClock,
   "annex-runbooks": ShieldCheck,

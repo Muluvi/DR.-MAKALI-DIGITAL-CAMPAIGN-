@@ -92,7 +92,7 @@ export const FIG_2_3: FigureSpec = {
   section: "2.3",
   title: "The nomination method is reported, not confirmed, and two documents would settle it",
   question: "What is the nomination method, and how confident are we?",
-  takeaway: "Until the party's resolution or the pollster's terms are in hand, every phase that leans on a poll-based nomination is a plan against a Tier 3 report.",
+  takeaway: "Until the party's resolution or its 2027 nomination rules are in hand, every phase that leans on the reported selection method is a plan against a Tier 3 report.",
   sources: [{ name: "Nomination method and window: single-source campaign report", tier: "T3" }, { name: "Party name change: Office of the Registrar of Political Parties (August 2025)", tier: "T1" }],
   chart: {
     type: "composite",
@@ -103,7 +103,7 @@ export const FIG_2_3: FigureSpec = {
           type: "cards",
           columns: 2,
           cards: [
-            { kicker: "Method · T3", title: "A countywide opinion poll, run for the party", body: "Single-sourced campaign report; not confirmed by party officials.", tone: "outside" },
+            { kicker: "Method · T3", title: "A party-run countywide selection, not a competitive primary", body: "Single-sourced campaign report; not confirmed by party officials.", tone: "outside" },
             { kicker: "Window · T3", title: "Late October to November 2026", body: "Reported for the Wiper Patriotic Front's selection; no party calendar published.", tone: "outside" },
             { kicker: "Constitution · T1", title: "Article 180(7) and the incumbent", body: "Whether the two-term limit bars Governor Malombe is unsettled; carried as a risk with two branches in Section 5.8.15." },
             { kicker: "Party · T1", title: "Wiper Democratic Movement is now Wiper Patriotic Front", body: "Certificate of change of name issued by the Registrar, August 2025." },
@@ -117,7 +117,7 @@ export const FIG_2_3: FigureSpec = {
           header: ["Document", "Holder", "Status"],
           rows: [
             { head: "Signed resolution of the Wiper National Executive Council", cells: ["Wiper NEC", "Not in hand"] },
-            { head: "The commissioned pollster's terms of reference: sample frame, questionnaire, fieldwork dates, weighting", cells: ["The party, via the campaign", "Not in hand: the obtainable test"] },
+            { head: "The party's 2027 nomination rules and timetable, as filed with the IEBC and the Registrar of Political Parties", cells: ["Wiper, via the campaign", "Not in hand: the obtainable test"] },
           ],
         },
       },
@@ -125,10 +125,10 @@ export const FIG_2_3: FigureSpec = {
   },
   columns: [{ key: "item", label: "Item" }, { key: "status", label: "Status" }, { key: "holder", label: "Holder" }],
   rows: [
-    { cells: { item: "Nomination method: countywide opinion poll", status: "Reported, not confirmed (T3)", holder: "—" } },
+    { cells: { item: "Nomination method: party-run countywide selection", status: "Reported, not confirmed (T3)", holder: "—" } },
     { cells: { item: "Nomination window: late October to November 2026", status: "Reported, not confirmed (T3)", holder: "—" } },
     { cells: { item: "Wiper NEC signed resolution", status: "Not in hand", holder: "Wiper NEC" } },
-    { cells: { item: "Pollster's terms of reference", status: "Not in hand", holder: "The party, via the campaign" } },
+    { cells: { item: "Party nomination rules and timetable, 2027", status: "Not in hand", holder: "Wiper, via the campaign" } },
   ],
 };
 

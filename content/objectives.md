@@ -8,7 +8,7 @@ The campaign's objectives are structured across two separate timelines, each wit
 ## 1.2 The two deadlines
 
 The campaign operates against two non-negotiable temporal milestones:
-1.  **Q4 2026 Nomination Window (reported):** Wiper Patriotic Front party consensus and selection window, reported for late October to November and not confirmed by the party (Tier 3, Section 2.3). Success requires demonstrating organized geographic reach in the {{pool}}-voter deficit pool (Mwingi North, Mwingi West, Mwingi Central, and Kitui South) where Dr. Mulu has never held office.
+1.  **Q4 2026 Nomination Window (reported):** Wiper Patriotic Front party consensus and selection window, reported for late October to November and not confirmed by the party (Tier 3, Section 2.3). Success requires demonstrating organized geographic reach in the {{pool}}-voter pool (Mwingi North, Mwingi West, Mwingi Central, and Kitui South) where Dr. Mulu has never held office. That he is less known there is the working hypothesis Section 3.11 states and Week 1 tests, not a measured fact.
 2.  **10 August 2027 General Election:** Mobilizing and turning out the {{benchmark}}-vote coalition required for a plurality victory in a multi-candidate field.
 
 ```figure
@@ -34,7 +34,7 @@ id: fig-1-3-objectives
 
 *   **Traceability:** Converts Dr. Mulu's 13-year parliamentary record ({{record.bursary.recipients}} bursary recipients, KSh 47m allocated, Kitui Central certified the best-evaluated constituency in the Eastern region, FY2014/15) into verifiable, shareable digital case studies tailored to voter priorities in dryland pastoralist and agricultural zones.
 *   **Finding it answers:** both Wiper rivals have already won countywide; his distinguishing proof is his record (Sections 2.8 and 3.5).
-*   **Baseline:** Accomplishments are recognized primarily inside Kitui Central.
+*   **Baseline:** His record is documented for Kitui Central, the only constituency he has represented (Section 2.8). Where content about it currently reaches is measured in Week 1.
 *   **Target:** 40 ward-specific achievement briefs detailing economic and devolved governance models distributed via localized WhatsApp networks and audio digests.
 *   **Served by:** Section 4.1 (the position) and Pillar 1 in Section 4.5. **Measured by:** R-03, shares per 1,000 reached in the deficit wards (Section 5.6).
 *   **Named Owner:** Policy and Communications Research Lead.
@@ -78,13 +78,13 @@ The digital operation separates operational software, messaging infrastructure, 
 id: fig-1-4-flow
 ```
 
-*   **Analyse (Week 1).** Firefly audits his channels against the race: ninety days of reach, engagement, language and geography, against the same window for the three rivals (Section 5.3).
+*   **Analyse (Week 1).** Firefly audits his channels against the race: ninety days of reach, engagement, language and geography, against the same window for the two nomination rivals named in Section 3.5 (Section 5.3).
 *   **Strategise (Weeks 2–3).** From that audit, Firefly defines what to post, for whom, in which language, on which channel, and why (Section 4).
 *   **Direct (Week 4 on).** His team keeps publishing. Firefly issues the weekly brief, approves the calendar and reviews performance (Section 5.7).
 
 ## 1.5 How success will be judged
 
-Success is judged on measures Firefly can observe on his channels and on the SMS list it operates, not on poll shares.
+Success is judged on measures Firefly can observe on his channels and on the SMS list it operates.
 
 ```figure
 id: fig-1-5-scorecard

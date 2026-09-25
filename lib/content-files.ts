@@ -22,7 +22,6 @@ export const CONTENT_FILES: Record<TabId, string> = {
   nextsteps: "nextsteps.md",
   "annex-evidence": "annex-evidence.md",
   "annex-county": "annex-county.md",
-  "annex-polls": "annex-polls.md",
   "annex-messages": "annex-messages.md",
   "annex-cadence": "annex-cadence.md",
   "annex-runbooks": "annex-runbooks.md",

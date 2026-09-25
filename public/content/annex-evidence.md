@@ -23,7 +23,7 @@ id: tier-classification
 #### Standard Implementation Rules:
 *   *Tier 1 Data* (e.g., 532,758 registered voters in 2022, 605,703 in July 2026, 40 wards) is hardcoded into operational models and cannot be modified without gazetted IEBC addenda.
 *   *Tier 2 Data* (e.g., the 2022 governor results as reported by The Star, the Nation and the Standard, pending the IEBC forms) is used with its source named, and where two published values disagree both are shown.
-*   *Tier 3 Data* (e.g., informal reports that Wiper party primaries will use polling rather than delegates) is explicitly watermarked as single-source until validated by formal party communiques.
+*   *Tier 3 Data* (e.g., informal reports of the method Wiper will use to select its Kitui nominee) is explicitly watermarked as single-source until validated by the party's own documents: an NEC resolution, or its nomination rules as filed.
 
 ### A.1.3 When two sources disagree
 
@@ -53,6 +53,6 @@ The presence audit in Section 5.3 is held to the same rules as every figure in t
     a table.
 *   **Gaps.** A metric the export does not contain is reported as absent, not estimated.
     Estimated engagement rates and inferred follower geographies are not used.
-*   **Competitive figures** are public-source only, gathered the same way for all four candidates,
+*   **Competitive figures** are public-source only, gathered the same way for him and both nomination rivals,
     in the same window.
 

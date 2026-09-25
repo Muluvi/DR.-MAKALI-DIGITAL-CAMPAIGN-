@@ -30,7 +30,7 @@ export const DATA_LAYER_TIERS = [
   },
   {
     label: "Output & channels",
-    items: ["Target SMS / IVR", "Geofenced ads", "Polling samples", "Field logistics"],
+    items: ["Target SMS / IVR", "Geofenced ads", "Ward reach reports", "Field logistics"],
   },
 ];
 
@@ -66,7 +66,7 @@ export const SUPPORTER_SCHEMA: string[][] = [
   ["gender", "Enum", "Male | Female | Unknown"],
   ["livelihood_group", "Enum", "Smallholder | Pastoralist | Bodaboda | MSME Trader | Professional | Student"],
   ["language_pref", "Enum", "Kikamba (default) | Kiswahili | English"],
-  ["support_status", "Enum", "Hard Supporter | Soft Supporter | Lean Mulu | Undecided | Opposed | Inactive"],
+  ["contact_status", "Enum", "Opted in | Volunteer | Reached, no opt-in | Do not contact | Inactive"],
   ["acquisition_source", "Enum", "SMS_Inbound | Ward_Captain | USSD_Tree | Web_Signup | Town_Hall | WhatsApp_Bot"],
   ["consent_status", "Boolean", "Explicit opt-in confirmation (DPA 2019)"],
   ["consent_timestamp", "ISO-8601", "UTC timestamp of explicit consent"],

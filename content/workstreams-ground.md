@@ -26,7 +26,7 @@ id: field-reports
 ```
 
 ##### What Ward Coordinators Report:
-1.  **Voter Sentiment & Dominant Anxieties:** E.g., *"Farmers in Kyuso are angry about uncollected green grams; opponents are claiming Dr. Mulu will eliminate county agricultural subsidies."*
+1.  **Issues Raised in Public:** What residents raised at barazas, markets and public meetings, logged as it was said. E.g., *"Farmers at the Kyuso market raised uncollected green grams; opponents are claiming Dr. Mulu will eliminate county agricultural subsidies."* No coordinator canvasses opinion or asks anyone how they will vote: the report records what was said in public, not a measured sentiment.
 2.  **Competitor Movement & Expenditure:** E.g., *"Opponent convoy visited Migwani market; distributed Ksh 500 notes to youth groups; promised new market shades."*
 3.  **Ground Disinformation & Counter-Narratives:** E.g., *"Rumor circulating in Mutomo that Dr. Mulu's CDF bursary program excluded non-Kitui Central students."*
 4.  **Field Inventory & Collateral Levels:** Current stock of Kikamba manifesto summary leaflets, posters, audio flash drives, and volunteer T-shirts.
@@ -95,8 +95,8 @@ id: operating-rhythm
 
 Most campaigns run two separate operations: a ground team that knocks doors and
 a digital team that buys ads. Neither learns from the other. The ground team
-re-canvasses households digital already converted; digital keeps advertising to
-voters the ground team has confirmed as committed opponents. In a county of
+re-visits households digital already reached; digital keeps advertising to
+households that have asked not to be contacted. In a county of
 {{census.area}} square kilometres, that duplication is unaffordable.
 
 ```figure
@@ -104,10 +104,10 @@ id: fig-5-2-3-field-loop
 ```
 
 * **Field to digital synchronization:**
-  * **Capture:** ward champions log outcomes via a simple mobile form — four options, under thirty seconds per household. Complexity kills field data collection.
+  * **Capture:** ward champions log the contact via a simple mobile form — four options (opted in; reached, no opt-in; asked not to be contacted; no one home), under thirty seconds per household. Complexity kills field data collection. The form never asks how anyone will vote.
   * **Offline-first:** the form caches locally and syncs when signal returns. Non-negotiable in Ikutha and Mutitu.
   * **Latency target:** field outcomes reflected in digital targeting within **24 hours**.
-  * **Suppression:** confirmed committed opponents are **removed from paid targeting**, not messaged harder. This saves money and is the correct practice.
+  * **Suppression:** households that ask not to be contacted are **removed from paid targeting and every contact list**, not messaged harder. This is the correct practice, and the Data Protection Act requires it.
 * **Digital to field routing:**
   * **Warm-lead routing:** voters who engaged with content, opened an SMS, or completed a USSD session are routed to ward champions as priority doors.
   * **Pre-briefing:** champions receive the issue the household engaged with — water, bursaries, market fees — so the conversation starts where the voter's interest already is.
@@ -119,8 +119,9 @@ id: fig-5-2-3-field-loop
 by the same charter as all other personal data (Section 5.7.8).
 * Ward champions receive data-handling training before being issued the form,
 and cannot export or retain contact data on personal devices.
-* **Field validation match rate ≥ 85%** is the joint KPI holding both sides
-honest: if the model and the doorstep disagree, the model is wrong.
+* **Opt-in rate on routed doors** is the joint KPI holding both sides honest: if
+doors the model routes do not opt in at a higher rate than doors it does not, the
+routing is wrong.
 
 ---
 

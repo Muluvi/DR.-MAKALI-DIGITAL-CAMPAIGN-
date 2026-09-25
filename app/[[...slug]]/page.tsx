@@ -43,7 +43,7 @@ const PRERENDERED = 1;
  * It was the cover. A cover page states who a document is for and on what terms, which is the
  * right content for a printed front matter and the wrong content for the one screen every reader
  * reaches. The proposal's ask — approve the Phase −1 sprint, meet inside fourteen days — sat at
- * the far end of nineteen routes and roughly four hours of reading, where a decision-maker
+ * the far end of eighteen routes and roughly four hours of reading, where a decision-maker
  * scanning on a phone would never reach it.
  *
  * So "/" is now the decision. The cover keeps its own route, its own section number and every

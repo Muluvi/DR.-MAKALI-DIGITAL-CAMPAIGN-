@@ -14,17 +14,14 @@ import { partVisual } from "../lib/part-visuals";
 import { ClaimBadge } from "./markdown/ClaimBadge";
 import { HighlightedText } from "./markdown/HighlightedText";
 import { hasHighlight } from "../lib/highlight-patterns";
-import { CompetitiveQuadrantBlock } from "./markdown/CompetitiveQuadrantBlock";
 import { ResourceEnvelopeBlock } from "./markdown/ResourceEnvelopeBlock";
 import {
   ChannelReachBlock,
   IssueEvidenceBlock,
-  PollMarginsBlock,
   RegisterComparisonBlock,
   ScenarioBenchmarkBlock,
 } from "./markdown/AnalysisBlocks";
 import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
-import { MizaniSlopeBlock } from "./markdown/MizaniSlopeBlock";
 import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
 import { BenchmarkLadder } from "./charts/BenchmarkLadder";
 import { TierComparisonCarousel } from "./charts/TierComparisonCarousel";
@@ -233,21 +230,13 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // stayed with the work they measure — indexed beneath them rather than moved here.
   "delivery-sec-5-6": <ObjectivesIndex />,
   "data-sec-2-3": <NominationPathPanel />,
-  // The pipeline's poll margins land in the section that states the gap, because the gap is
-  // the thing the margins qualify: one of these three polls can be tested and two cannot.
-  "annex-polls-sec-c-1": <PollMarginsBlock />,
   // The governing claim opens §6, ahead of the pillars and themes that rest on it.
   "strategy-sec-4-1": <EconomistGovernorThesis />,
-  "analysis-sec-3-5": (
-    <>
-      <ConstitutionalBranchNavigator />
-      <CompetitiveQuadrantBlock />
-    </>
-  ),
+  "analysis-sec-3-5": <ConstitutionalBranchNavigator />,
   "data-sec-2-8": (
     <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §2.8">
-      One of Kenya&rsquo;s most consistent and authoritative voices on macroeconomic governance,
-      fiscal discipline, and budget oversight.
+      Member for Kitui Central since 2013, and a member of the National Assembly&rsquo;s Budget and
+      Appropriations Committee.
     </SectionPortrait>
   ),
   "data-sec-2-1": (
@@ -360,7 +349,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // The audit's four figures, the week and the visit loop are drawn by the register
   // (fig-3-9-audit, fig-4-5-calendar) and the visit-loop figure; their earlier inserts are retired.
   // §5.7 is the direction model. The week replaces a bullet list, a meeting table and the
-  // governance chart cut from Annex D.
+  // governance chart cut from Annex C.
   "delivery-sec-5-7-1": <DirectionWeek />,
 };
 
@@ -379,7 +368,7 @@ const HEADING_TEXT_INSERTS: Record<string, React.ReactNode> = {};
 // kept; only its frame changes.
 //   Rule     the owner/Firefly split lines ("Owner: the campaign.", "Outside this engagement."),
 //            headed by a two-part badge
-//   Aside    pointers and notes ("…is in Annex F", "Research Integrity Note")
+//   Aside    pointers and notes ("…is in Annex E", "Research Integrity Note")
 //   Finding  the one claim a section leans on: the first other quote in the section, once
 const RULE_PATTERN = /^(owner:|split ownership|mostly outside this engagement|outside this engagement|campaign-owned recommendations)/i;
 const ASIDE_PATTERN = /(is in annex|are in annex|research integrity note|^note\b|segments overlap|re-cut against|name changed|live version of this list|^sfx:|^"|^\[!)/i;
@@ -411,20 +400,7 @@ function buildComponents(tabId: TabId): Components {
                 return <ClaimCards>{children}</ClaimCards>;
               }
 
-              const table = <InteractiveTable>{children}</InteractiveTable>;
-
-              // §6.2 Mizani survey table — table stays (item 14 says keep it with only
-              // two data points), slope chart added alongside it.
-              if (tabId === "objectives" && has("kasalu") && has("wambua")) {
-                return (
-                  <>
-                    {table}
-                    <MizaniSlopeBlock />
-                  </>
-                );
-              }
-
-              return table;
+              return <InteractiveTable>{children}</InteractiveTable>;
             },
             pre: ({ children }) => {
               const source = getDeepText(children);

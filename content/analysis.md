@@ -56,7 +56,7 @@ id: constituency-power
 
 #### The Mwingi bloc: necessary, not sufficient
 
-A key strategic finding emerges from this integrated database: **Mwingi North, Mwingi West, and Mwingi Central together command exactly {{bloc.mwingi}} registered voters (Tier 1).** That is more *registered voters* than the 2022 winning vote total ({{result.2022.gov.malombe}} votes, Tier 1) — but registration is not turnout. At the county's 62% turnout baseline the Mwingi bloc yields roughly **{{path.a.ballots}} ballots**, so even total dominance there leaves the campaign about {{path.a.margin|abs}} votes short of {{benchmark}}. Mwingi is therefore **necessary and not sufficient**: no path to {{benchmark}} runs around it, and none ends there. This finding informs the campaign's geographic prioritization, directing immediate SMS/USSD and digital outreach to establish Dr. Mulu as the dominant alternative in Mwingi.
+A key strategic finding emerges from this integrated database: **Mwingi North, Mwingi West, and Mwingi Central together command exactly {{bloc.mwingi}} registered voters (Tier 1).** That is more *registered voters* than the 2022 winning vote total ({{result.2022.gov.malombe}} votes, Tier 1) — but registration is not turnout. At the county's certified {{turnout.2022}}% turnout baseline the Mwingi bloc yields roughly **{{path.a.ballots}} ballots**, so even total dominance there leaves the campaign about {{path.a.margin|abs}} votes short of {{benchmark}}. Mwingi is therefore **necessary and not sufficient**: no path to {{benchmark}} runs around it, and none ends there. This finding informs the campaign's geographic prioritization, directing immediate SMS/USSD and digital outreach to establish Dr. Mulu as the dominant alternative in Mwingi.
 
 #### Analytical Hierarchy:
 1.  **The "Big 4" Electorate Engine ({{big4.share}}% of County):** Kitui Central, Kitui South, Mwingi Central, and Mwingi North command **{{big4}} registered voters** across 22 wards. Securing parity or dominance in these four sub-counties decides the gubernatorial election.
@@ -116,10 +116,10 @@ To formulate a targeted intervention, the campaign maps Dr. Mulu's structural pr
 #### Where he has held office, and where he has not
 *   **Candidate Profile:** Dr. Benson Makali Mulu has served as Member of Parliament for Kitui Central for **13 consecutive years (since 2013, Tier 1)**.
 *   **High-Recognition / Core Anchor Zone:** Kitui Central ({{con.kitui-central}} voters) and immediate adjacent wards in Kitui West (Matinyani, Kauwi) and Kitui Rural (Kisasi, Mbitini).
-*   **Steep Recognition Deficit Zones:**
+*   **Where he has never held office:**
     1.  **The Mwingi Sub-Counties (Mwingi North, Mwingi Central, Mwingi West):** Total **{{bloc.mwingi}} registered voters** (**{{bloc.mwingi.share}}%** of the county register). He has never held office in these northern constituencies. The hypothesis is that his identity as a "Kitui Central MP" limits recall there compared with countywide office holders; Week 1 tests it against his own channel data (Section 3.11).
     2.  **Kitui South (6 Wards):** Total **{{con.kitui-south}} registered voters** (**{{con.kitui-south.share}}%** of the county register). Geographically remote, separated by long transit corridors, and traditionally influenced by local southern leadership dynamics.
-    3.  **Kitui East Border Wards:** Total **{{con.kitui-east}} registered voters** (particularly Endau/Malalani, Voo/Kyamatu, and Mutitu/Kaliku).
+    3.  **Kitui East (outside the pool):** Total **{{con.kitui-east}} registered voters** (particularly Endau/Malalani, Voo/Kyamatu, and Mutitu/Kaliku). He has not held office here either, but Kitui East is not counted in the pool below; it is a direct-contact target on the party-flow finding in Section 3.6.
 
 #### Do the deficit wards overlap the decisive ones?
 **Partly. Five of the twelve largest wards lie where he has never held office.**
@@ -134,7 +134,7 @@ Together the five hold **{{pareto.top12.in-pool.voters}} registered voters**, **
 #### Total Decisive Deficit Pool:
 *   `Deficit Pool (Mwingi + South) = {{bloc.mwingi}} (Mwingi) + {{con.kitui-south}} (Kitui South) = {{pool}} registered voters`
 
-This represents **{{pool.share}}% of the entire Kitui County voter register**. The pool is structural: it is derived from where he has held office, not from a survey.
+This represents **{{pool.share}}% of the entire Kitui County voter register**. The pool is structural: it is derived from where he has held office, not from any measure of opinion.
 
 ```figure
 id: fig-3-4-footprint
@@ -150,35 +150,42 @@ id: fig-3-5-field
 
 #### Stage One: the Wiper nomination
 
-*   **Dr. Irene Kasalu (Woman Representative, Kitui County):** Commands an expansive, countywide constituency base by virtue of her seat. It has been reported in regional media that she maintains active grassroots networks built through her extensive local development tours ("Ziara Mashinani") (Tier 2). Her certified 2022 result is the strongest in the field: **{{result.2022.womanrep.kasalu}} votes** as Woman Representative, above the {{result.2022.gov.malombe}} that won the governorship the same year (Section 2.2). Critics allege a lack of structured financial governance or executive experience. Her public criticism of the incumbent's equal-ward funding allocation is a live policy argument, and one where the campaign's own position needs settling first: Section 4.4.1 currently proposes an equal-ward guarantee of its own. The two positions cannot both be run. Either the equal-ward guarantee is the platform, and this line of argument is not available to the campaign, or the argument is made and the guarantee is restated as a needs-weighted formula. **Firefly's recommendation is the second, because a published allocation methodology is the stronger fit with the verification pillar in Section 4.1.5 — but it is the campaign's policy call.**
-*   **Sen. Enoch Wambua (Senator, Kitui County):** Commands significant party influence and standing as a senior legislator within the Wiper Patriotic Front (Tier 1). He retains a highly loyal, traditional party delegate and voter base (Tier 1). He won the 2022 Senate race with **{{result.2022.senate.wambua}} votes** (Tier 2), within {{gap.wambua-to-benchmark-2022}} of the winning governor's tally.
-*   **Hon. Dr. Benson Makali Mulu (Member of Parliament, Kitui Central):** Possesses the most comprehensive macroeconomic, fiscal, and monitoring and evaluation credentials in the race (Tier 1). His largest electorate to date is Kitui Central's {{con.kitui-central}} registered voters, where he was re-elected in 2022 with **{{result.2022.mp.mulu}} votes** (Tier 1). He has not yet stood for a countywide office, so his proof at the ballot is constituency-bounded.
+Every attribute below is stated from an official or documentary record, and each line names the record that carries it. Where the record is not yet in hand, the line says so and makes no claim in its place.
+
+*   **Dr. Irene Kasalu (Woman Representative, Kitui County):** Holds the county's Woman Representative seat, a countywide constituency. Her 2022 result is the highest in the field: **{{result.2022.womanrep.kasalu}} votes** as Woman Representative, above the {{result.2022.gov.malombe}} that won the governorship the same year (Tier 2, a media report of the declaration; the IEBC Form 39C declaration is the record to hold, Section 2.2). As Woman Representative she is patron of the Kitui allocation of the National Government Affirmative Action Fund; the Auditor-General's reports on that allocation are the documentary record of her stewardship of public money, and they are not yet in hand. Her public criticism of the incumbent's equal-ward funding allocation is a live policy argument, and one where the campaign's own position needs settling first: Section 4.4.1 currently proposes an equal-ward guarantee of its own. The two positions cannot both be run. Either the equal-ward guarantee is the platform, and this line of argument is not available to the campaign, or the argument is made and the guarantee is restated as a needs-weighted formula. **Firefly's recommendation is the second, because a published allocation methodology is the stronger fit with the verification pillar in Section 4.1.5 — but it is the campaign's policy call.**
+*   **Sen. Enoch Wambua (Senator, Kitui County):** Won the 2022 Senate race with **{{result.2022.senate.wambua}} votes** (Tier 2; the IEBC Form 38C declaration is the record to hold), within {{gap.wambua-to-benchmark-2022}} of the winning governor's tally. His Senate committee roles are a matter of parliamentary record, to be cited from the Senate Hansard and committee membership lists.
+*   **Hon. Dr. Benson Makali Mulu (Member of Parliament, Kitui Central):** Holds a PhD in Economics and sits on the National Assembly's Budget and Appropriations Committee (Tier 1, Section 2.8). His largest electorate to date is Kitui Central's {{con.kitui-central}} registered voters, where he was re-elected in 2022 with **{{result.2022.mp.mulu}} votes** (Tier 1). He has not yet stood for a countywide office, so his proof at the ballot is constituency-bounded.
+*   **The incumbent and the nomination.** Governor Julius Malombe won the 2022 race on the Wiper ticket (Tier 1, Section 2.2). Whether he seeks the 2027 Wiper nomination is not established by any record in hand. It turns on the Article 180(7) question below and on the party's 2027 nomination list, which is the document that settles who contests Stage One.
 
 #### Stage Two: the general election field
 
-Beyond the immediate Wiper party nomination, the broader general election field includes key regional figures, each analyzed with strict adherence to legal attribution and objective reporting:
+Beyond the Wiper nomination, the general election field is stated on the same rule: the official record, attributed, and nothing in its place where the record is missing. No candidacy below is established until the party nomination records and the IEBC's gazetted nominations for 2027 are published.
 
-*   **Charity Ngilu (Former Governor, Kitui County - NARC):** A veteran national political figure who won the hotly contested, court-confirmed 2017 gubernatorial election with {{result.2017.gov.ngilu}} votes (Tier 1). Sourced political reports indicate she maintains a distinct and highly active core support base, although she opted not to defend her seat directly in the 2022 general election (Tier 2).
-*   **David Musila (Former Senator, Kitui County):** A formidable regional contender who finished as the runner-up in both the 2017 and 2022 gubernatorial elections (Tier 1). His 2017 campaign garnered {{result.2017.gov.musila}} votes (Tier 1). In 2022 he polled {{result.2022.gov.musila}} (Tier 1, certified; The Star's early total of {{result.2022.gov.musila.media}} is a media variant). Sourced commentaries indicate his core support remains historically concentrated within the Mwingi constituencies.
-*   **Peninah Malonza (Former Deputy Governor & Former Cabinet Secretary):** Served as Deputy Governor from 2013–2017 (Tier 1) and subsequently as Cabinet Secretary for Tourism, Wildlife, and Heritage (Tier 1). Sourced campaign profiles indicate she possesses strong national-level executive credentials and represents a significant general-election competitor, though her local campaign structures are reported to be in the early phases of deployment.
-*   **Nicholas Mulila (Safaricom PLC Executive):** A highly regarded corporate leader with extensive technical and operational credentials in digital infrastructure, telecommunications, and corporate risk governance (Tier 2). Local news outlets have reported his prospective candidacy for the gubernatorial seat (Tier 2), framing him as an expert technocratic reformer, though commentators allege he lacks a traditional grassroots political mobilization network.
-*   **Francis Musili Kauta (Governance Activist):** A prominent legal professional and civil society advocate in Kitui (Tier 2). Sourced activist reports note his active campaign for local community rights and municipal accountability, though analysts allege his support base remains structurally bounded by urban civic networks.
-*   **Julius Malombe (Incumbent Governor, Kitui County):** Won the 2022 general election with {{result.2022.gov.malombe}} votes (Tier 2) after serving a first term from 2013–2017. Whether Article 180(7) of the Constitution, which limits a governor to two terms, bars him in 2027 is not settled on the sourced record: published commentary reads it both ways and no court has ruled. It is carried as a risk with two branches in Section 5.8, not asserted here.
+*   **Charity Ngilu (Former Governor, Kitui County - NARC):** Won the court-confirmed 2017 gubernatorial election with {{result.2017.gov.ngilu}} votes (Tier 1). She did not defend the seat in the 2022 general election (Tier 2; the IEBC's gazetted 2022 candidate list is the record).
+*   **David Musila (Former Senator, Kitui County):** Runner-up in both the 2017 and 2022 gubernatorial elections (Tier 1): {{result.2017.gov.musila}} votes in 2017 (Tier 1), and {{result.2022.gov.musila}} in 2022 (Tier 1, certified; The Star's early total of {{result.2022.gov.musila.media}} is a media variant). Where his vote came from is a question for the ward and polling-station forms (Section 2.2); until they are in hand, this proposal makes no claim about his geographic base.
+*   **Peninah Malonza (Former Deputy Governor & Former Cabinet Secretary):** Served as Deputy Governor from 2013–2017 (Tier 1) and subsequently as Cabinet Secretary for Tourism, Wildlife, and Heritage (Tier 1). Both appointments are Kenya Gazette records.
+*   **Nicholas Mulila (Safaricom PLC Executive):** Holds executive roles at Safaricom PLC (Tier 2); the company's published annual reports are the documentary record of those roles. His prospective candidacy has been reported in local news (Tier 2).
+*   **Francis Musili Kauta (Governance Activist):** A legal professional and civil society advocate in Kitui (Tier 2). His litigation on community rights and public land use is a matter of court record, to be cited from Kenya Law.
+*   **Julius Malombe (Incumbent Governor, Kitui County):** Won the 2022 general election with {{result.2022.gov.malombe}} votes (Tier 1, IEBC Form 37C) after serving a first term from 2013–2017. The Auditor-General's and Controller of Budget's reports on the county executive are the documentary record of his administration (Annex B.2). Whether Article 180(7) of the Constitution, which limits a governor to two terms, bars him in 2027 is not settled on the sourced record: published commentary reads it both ways and no court has ruled. It is carried as a risk with two branches in Section 5.8, not asserted here.
 
 ## 3.6 Where party loyalty won't carry him
 
 **Kitui Central will be fighting its own contest.** Stephen Kilonzo ("Kitundumo") has reportedly
 entered the Kitui Central MP race, and NLP leader Augustus Muli is weighing a bid there (Tier 3 and
-Tier 2 respectively). Dr. Mulu's home constituency — {{con.kitui-central}} voters, {{con.kitui-central.share}}% of the register — will
+Tier 2 respectively; both become record only when the party nomination lists and the IEBC's gazetted
+nominations are published, and Mr Muli's party leadership is a matter of the Registrar of Political
+Parties' register). Dr. Mulu's home constituency — {{con.kitui-central}} voters, {{con.kitui-central.share}}% of the register — will
 therefore have its own succession fight running through the same window as his gubernatorial bid.
 **Anchor-zone loyalty cannot be left on autopilot**, and the Section 4.5 pillar weights should not
 assume it.
 
 **Two constituencies will not carry party flow.** Kitui East returned a **UDA** MP and Kitui South a
-**Jubilee** MP in 2022 (Tier 3, constituency records). Together they hold **{{east-south}} registered
+**Jubilee** MP in 2022 (Tier 3, constituency records; the IEBC's 2022 declarations for both seats
+are the record to cite). Together they hold **{{east-south}} registered
 voters — {{east-south.share}}% of the county**. Party structures do not reach those local networks, which means
-reach into them is a direct-contact problem rather than a party-mobilisation one. Both sit inside
-the recognition-deficit pool, so this compounds rather than offsets the Section 3.4 finding.
+reach into them is a direct-contact problem rather than a party-mobilisation one. Kitui South sits
+inside the pool and Kitui East beside it, where he has also never held office, so this compounds
+rather than offsets the Section 3.4 finding.
 
 ```figure
 id: fig-3-6-party-flow
@@ -211,7 +218,7 @@ Mulango {{ward.mulango}}; Miambani {{ward.miambani}}).
 Messaging here emphasises track record, professional competence and national
 reputation. **This base must be mobilised early and intensely — it is the only
 zone where Dr. Mulu starts with a structural advantage, and in a
-nomination-poll contest, consolidating a base is cheaper than converting a
+countywide nomination contest, consolidating a base is cheaper than converting a
 stranger.**
 
 ### 3.7.2 The northern block: Mwingi
@@ -283,7 +290,7 @@ id: fig-3-8-ceiling
 > Therefore, digital channels alone **cannot mathematically win this election**. Victory depends on dominating the offline media and field infrastructure (Section 5.2.3.3), while using digital channels (Section 5.2.3.2) with surgical precision to shape elite opinion, organize youth volunteers, and mobilize the out-of-county diaspora.
 
 #### What digital can do
-1.  **Elite Agenda Setting & Narrative Defense:** X and Facebook dominate the information diet of local radio producers, vernacular talk-show hosts, church leaders, and county assembly members. Establishing rapid-response dominance on these platforms shapes the stories broadcast over radio 6 hours later.
+1.  **Elite Agenda Setting & Narrative Defense:** The working premise is that local radio producers, vernacular talk-show hosts, church leaders and county assembly members follow X and Facebook, so rapid response there can shape what radio goes on to discuss. No source in this proposal measures that link or its timing; the war room's monitoring log (Section 5.8.4) records it from the first month rather than assuming it.
 2.  **Youth Mobilization & Field Volunteer Recruitment:** Engaging the ~{{segment.youth.voters}} youth cohort via TikTok and WhatsApp generates high-energy field activists who operate the ground logistics and serve as polling agents.
 3.  **Efficient Micro-Targeting of Urban MSMEs:** Hyper-geofencing commercial centers (Kitui CBD, Mwingi Central) allows testing policy messages ("The Economist's Single Business Permit") with minimal waste.
 
@@ -354,8 +361,8 @@ Four figures and a two-page note. Not a report.
     difference between them.
 *   **Ninety days, coded** — every day in the window, coloured by content pillar, sized by reach.
 *   **Which language travels** — engagement rate by post language.
-*   **Him against the field** — posts per week, median shares per post, and ads live, for all four
-    candidates.
+*   **Him against the field** — posts per week, median shares per post, and ads live, for him and
+    the two nomination rivals named in Section 3.5.
 
 Each is drawn from the Week 1 export, never from an estimate: until the export lands, the figure
 states that it is set in Week 1.
@@ -364,7 +371,7 @@ states that it is set in Week 1.
 
 In strict adherence to the campaign's data provenance standards, the analytical team explicitly marks empirical data gaps rather than interpolating unverified statistics:
 
-1.  **Ward-level voter preference:** **Named data gap.** No source measures it. The published opinion polls report countywide aggregates only and publish no sample size by area (Annex C, for reference only), and this proposal commissions no polling. The gap closes only if the party's own nomination instrument publishes its ward or sub-county splits (Section 2.3.2). Until then the analysis works from where he has held office, not from preference.
+1.  **Ward-level voter preference:** **Not measured, and not sought.** This proposal forms strategy from existing records and its own analysis only. The nearest official record is how each ward actually voted: the IEBC's ward and polling-station forms for 2017 and 2022 (Section 2.2), which the analysis uses as soon as they are in hand. Until then the analysis works from where he has held office.
 2.  **Historical 2013 Gubernatorial Ward-by-Ward Certified Returns:** **Named Data Gap (Tier 1 Gap).** Official IEBC ward-by-ward certified return sheets for the 2013 gubernatorial race are not contained in the campaign's certified baseline archives.
 3.  **Historical 2017 Gubernatorial Ward-by-Ward Tallies:** **Named Data Gap (Tier 1 Gap).** While the countywide certified totals are established (Ngilu {{result.2017.gov.ngilu}} vs. Musila {{result.2017.gov.musila}} vs. Malombe {{result.2017.gov.malombe}}, Tier 1), individual ward breakdown sheets are treated as unverified pending physical retrieval from the IEBC registry.
 
@@ -374,9 +381,9 @@ id: fig-3-10-gaps
 
 ---
 
-### 3.10.1 Segment research still outstanding
+### 3.10.1 Segment sizes the record does not publish
 
-Three segment sizes in Section 4.3 are not published: the agro-pastoral, the formal-sector and the diaspora voter counts. Section 4.3 gives the census context for each; none is estimated, and none is closed by new polling.
+Three segment sizes in Section 4.3 are not published by any official source: the agro-pastoral, the formal-sector and the diaspora voter counts. Section 4.3 gives the census context for each; none is estimated, and each stays unsized until an official source publishes it.
 
 ## 3.11 The diagnosis, and the evidence that could overturn it
 

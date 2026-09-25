@@ -97,7 +97,7 @@ export function KpiArchitecture() {
         <Stage
           kicker="Stage 1"
           title="Nomination window targets"
-          sub="Primary delegate / voter preference"
+          sub="The Wiper nomination window"
           items={STAGE_1_TARGETS}
           tone="nomination"
         />

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp, Calculator } from "lucide-react";
 
-// Arithmetic behind the two derived figures the proposal leans on hardest, built only from
+// Arithmetic behind the derived figures the proposal leans on hardest, built only from
 // numbers already stated elsewhere in the document (cited by section) — never a new estimate.
 const WORKINGS: Record<string, { title: string; inputs: string[]; result: string }> = {
   "win-threshold": {
@@ -14,14 +14,6 @@ const WORKINGS: Record<string, { title: string; inputs: string[]; result: string
       "Approximate 2022 turnout — Section 3.3.3: ~62%",
     ],
     result: "198,004 actual winning votes, rounded up to an approximate working target of 200,000 for KPI-setting.",
-  },
-  deficit: {
-    title: "How the 15.3-point deficit is derived",
-    inputs: [
-      "Mizani Africa, 7 August 2026 — Kasalu: 37.4%",
-      "Mizani Africa, 7 August 2026 — Mulu: 22.1%",
-    ],
-    result: "37.4 − 22.1 = 15.3 points.",
   },
 };
 

@@ -1,6 +1,6 @@
 ANNEX D. The meeting cadence and the escalation protocol, in full. Schedule material: what a reader approves is that it exists and is proportionate, which Section 5.7 states.
 
-## E.1 Cadence and the meeting rhythm
+## D.1 Cadence and the meeting rhythm
 
 | Cadence | Meeting | Participants | Output |
 |---|---|---|---|
@@ -10,8 +10,8 @@ ANNEX D. The meeting cadence and the escalation protocol, in full. Schedule mate
 | **Weekly** | Creative review | Content Lead + Kikamba Producer | Language and cultural sign-off before scheduling |
 | **Fortnightly** | Ward champion call | Volunteer Coordinator + ward champions | Ground sentiment; content distribution; leaderboard |
 | **Monthly** | Performance review | Firefly Director + Campaign leadership + `[campaign counsel, where voter-file work is live]` | Analytics report; competitive brief |
-| **Monthly** | Consented-list review | Firefly Director + Volunteer Coordinator | Consented-list growth against the 8.10.6 target; opt-out rate; ward coverage |
-| **Quarterly** | Red-team simulation | Full team + external panel | Crisis drill report and matrix revision (Section F.6) |
+| **Monthly** | Consented-list review | Firefly Director + Volunteer Coordinator | Consented-list growth against the phase target (Section 5.4); opt-out rate; ward coverage |
+| **Quarterly** | Red-team simulation | Full team + external panel | Crisis drill report and matrix revision (Section E.6) |
 
 The four-forum leadership cadence that stood here set the **campaign's own** internal meeting
 rhythm — the candidate's Monday war room, the Wednesday vendor review, the monthly board. None of
@@ -20,7 +20,7 @@ creates. The table above is that rhythm in full.
 
 ---
 
-## E.2 The escalation path
+## D.2 The escalation path
 
 To prevent decision bottlenecks and operational confusion during high-pressure field situations, the campaign enforces a strict **Three-Tier Escalation Hierarchy**:
 

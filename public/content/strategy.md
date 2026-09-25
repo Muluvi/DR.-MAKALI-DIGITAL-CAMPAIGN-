@@ -7,18 +7,18 @@ Because Section 3.5: both Wiper rivals have already won a countywide election, a
 The core narrative of the campaign turns standard political promotion on its head: **Dr. Makali Mulu is the Economist Governor Kitui needs.** This narrative frames him not as a politician who merely promises, but as an expert economist who can show his working and enforce rigorous accountability.
 
 
-**The asset no rival holds.** Forensic analysis of Dr. Mulu's record identifies a highly powerful, under-utilized asset. Parliamentary and professional records document his extensive credentials as a specialist in project management, strategic planning, and **monitoring and evaluation (M&E)**, his membership in the Evaluation Society of Kenya, and his designation as an **M&E Champion by the Ministry of Finance**, following distinguished service with the United Nations in financial advisory and project management capacities. Notably, under his stewardship, Kitui Central was certified as the best evaluated constituency in the Eastern region for FY2014/15.
+**The asset no rival holds.** Forensic analysis of Dr. Mulu's record identifies a highly powerful, under-utilized asset. Parliamentary and professional records document his extensive credentials as a specialist in project management, strategic planning, and **monitoring and evaluation (M&E)**, his membership in the Evaluation Society of Kenya, and his designation as an **M&E Champion by the Ministry of Finance**, following distinguished service with the United Nations in financial advisory and project management capacities. Notably, under his stewardship, Kitui Central was evaluated the best constituency in the Eastern region for FY2014/15 (the evaluation report is to be cited, Section 4.1.1).
 
-Dr. Mulu is not merely an economist; he is a specialist in **verifying whether public expenditure yields tangible developmental returns** — addressing the precise point of skepticism held by the Kitui electorate. This proposal translates this distinctive qualification into a public-facing, interactive service-delivery tracker (detailed in Section 5.2.1.1), transforming a resume asset into a live, daily demonstration of administrative accountability.
+Dr. Mulu is not merely an economist; he is a specialist in **verifying whether public expenditure yields tangible developmental returns** — addressing a gap the county's own audit record documents: unconfirmed balances, pending bills and low development absorption (Annex B.2). This proposal translates this distinctive qualification into a public-facing, interactive service-delivery tracker (detailed in Section 5.2.1.1), transforming a resume asset into a live, daily demonstration of administrative accountability.
 
 ---
 
 ### 4.1.1 The evidence behind the claim
 
 Dr. Mulu's technocratic and delivery credentials are not abstract campaign claims; they are backed by verified, empirical milestones (Tier 1):
-*   **The National Budget Seat:** Sourced legislative records confirm Dr. Mulu's senior position on the National Assembly's **Budget and Appropriations Committee** (Tier 1). His tenure provides him with unparalleled authority and direct oversight of macroeconomic resource allocation.
+*   **The National Budget Seat:** Sourced legislative records confirm Dr. Mulu's membership of the National Assembly's **Budget and Appropriations Committee** (Tier 1), the committee that scrutinises the national estimates. Any leadership role on it is to be confirmed from the committee's membership records and Hansard before it is claimed (Section 2.8).
 *   **Direct Local Investment (Educational Bursaries):** Dr. Mulu has successfully directed **KSh 47 million in educational bursaries to 12,573 needy students** within Kitui Central (Tier 1), proving that high-level economic stewardship translates directly into concrete household financial relief.
-*   **Certified Administrative Excellence:** Sourced Ministry of Finance performance audits officially certified Kitui Central as the **best-evaluated constituency in the Eastern region, FY2014/15**—ranking first out of all 71 constituencies in its peer group (Tier 1).
+*   **Certified Administrative Excellence:** Kitui Central was evaluated the **best constituency in the Eastern region, FY2014/15**—ranking first out of all 71 constituencies in its peer group (Tier 1). This proposal has attributed the evaluation to Ministry of Finance performance audits; the evaluation report itself, and the body that issued it, are to be cited before the line is published.
 *   **Professional Monitoring & Evaluation Credentials:** He is a certified consultant in project management, a member of the **Evaluation Society of Kenya (ESK)** (Tier 1), and was officially designated as an **M&E Champion by the Ministry of Finance** (Tier 1).
 
 ### 4.1.2 The resource paradox
@@ -112,10 +112,9 @@ Mutomo (Tier 1, Section 2.4); smartphones at 59.7% of active SIMs nationally (Ti
 Section 2.4) creating real digital-economy access.
 5. **Healthcare Access** — hospital upgrades, maternal health, insurance
 coverage.
-**Evidence:** only 11.7% health insurance coverage and 25% child stunting — **both Evidence
-required.** Neither is established at any tier in this proposal, and neither should be used in
-published content until it is sourced to a KNBS bulletin or the CIDP. The theme does not rest on
-them: Section 2.4 documents the poverty and water-access position at Tier 1.
+**Evidence:** 11.7% of Kitui residents have any health insurance, and
+25.1% of children under five are stunted (both KDHS 2022, Tier 1; Section 4.4.6
+carries the working and the older county baseline).
 6. **Education** — ECDE, bursaries, school infrastructure.
 **Evidence:** 13.0% never attended school and 17.4% completed secondary (both stated at
 Section 5.2.1.4 and **not yet tiered** — obtainable from the KNBS county bulletin); and
@@ -131,24 +130,26 @@ did."**
 Because **51.7% of the county register sits where he has never held office** (Section 3.4), the campaign cannot rely on organic spillover from Kitui Central. Output and targeting are weighted accordingly:
 *   **65% of all Phase −1 digital reach effort (Meta, Google, YouTube)** must be geofenced exclusively to Mwingi North, Mwingi Central, Mwingi West, and Kitui South — the weighting is on output and targeting, measured by R-02 in Section 5.6.4.
 *   **70% of the offline SMS/USSD onboarding effort** (Section 5.2.3.3) goes to the 21 wards of the pool: the 15 Mwingi wards and the 6 of Kitui South. The campaign's own ward-captain network (240 of 400 captains, recommended for the same wards) is campaign-owned and outside this engagement (Section 5.1.3).
-*   The "Economist Governor" messaging in these wards must emphasize countywide fiscal redistribution, showing how Dr. Mulu's public finance oversight will direct water and health infrastructure investment into historically neglected rural wards like Kyuso, Tseikuru, Athi, and Mutha.
+*   The "Economist Governor" messaging in these wards must emphasize countywide fiscal redistribution, showing how Dr. Mulu's public finance oversight will direct water and health infrastructure investment into rural wards like Kyuso, Tseikuru, Athi, and Mutha. Calling any ward neglected needs the county's development expenditure by ward, from the Controller of Budget's county budget implementation reports and the county's own budget documents; until that is in hand, the message names the ward and the need, not the neglect.
 
 Effort and content allocation across zones, by phase.
 
 **Coverage note.** The three zones above total 895,766 residents — **78.8% of the county's
 1,136,187**. They name 12 of the county's 18 sub-counties; the remaining six, about 240,000
 residents, are not in any zone. The weightings below therefore distribute 100% of communications effort
-across zones covering under four-fifths of the population, and the missing sub-counties need
-either adding to a zone or an explicit statement of why they are out of scope before this
-table drives effort.
+across zones covering under four-fifths of the population. **Until the six are assigned, the
+Phase −1 weighting governs only the three zones, and the six unassigned sub-counties receive
+the rotating share alone.** Assigning them is a Week 2 task for the strategy lead, against the
+Section 3.7 regions and the IEBC register, and the table is restated when it is done.
 
 ```figure
 id: fig-4-2-effort
 ```
 
 Phase −1 deliberately over-indexes on Mwingi and the arid belt relative to
-population share, because the nomination deficit is a recognition deficit
-concentrated outside the home base. Weightings are reviewed monthly against
+population share, on the working hypothesis that his gap is one of recognition,
+concentrated outside the home base (Section 3.11). If Week 1 refutes it, Section 4.8
+sets out how the weighting changes. Weightings are reviewed monthly against
 the reach data in Section 5.6 and reallocated.
 
 
@@ -175,16 +176,15 @@ success looks like there.
 |---|---|---|---|---|
 | Voter universe | Every registered voter in Kitui County | **532,758** | IEBC ward register (Tier 1) | — |
 | Expected turnout universe | Ballots expected at the 61.7% turnout rate (the certified 2022 rate) | **~328,712** | Derived at the modelling constant, Section 3.1 | — |
-| **Victory universe** | Votes required to win the general election | **~200,000** | Section 3.1; 198,004 won in 2022 (Tier 2) | GOTV |
+| **Victory universe** | Votes required to win the general election | **~200,000** | Section 3.1; 198,004 won in 2022 (Tier 1, IEBC Form 37C) | GOTV |
 | **Base-hold universe** | The anchor: Kitui Central and Kitui West | Not stated — Kitui Central holds **77,764** registered voters (Tier 1), but a register count is not a support estimate | Section 3.7.1 | Mobilisation |
 | **Persuasion universe** | The Mwingi bloc and the arid belt, where recognition is weakest | Not stated — the Mwingi constituencies hold **200,198** registered voters (Tier 1), which is the ceiling on this universe and not its size | Section 3.4 | Recognition |
 | **Mobilisation universe** | Identified supporters needing a turnout contact | Target **200,000** verified supporters | Section 1.3.4 (target) | Field + SMS |
-| Soft opposition | Rival-leaning but movable | **Evidence required** | No instrument measures this today | Messaging |
 
-**Three of these sizes are deliberately not stated.** No published source reports ward-level
-recognition or support, and Section 3.10 records that as a named data gap. This proposal commissions
-no survey to fill it: Week 1 measures what his own channels reach (Section 5.3), which is evidence
-about reach, not about support. A register count is the most a universe can
+**Two of these sizes are deliberately not stated.** No official source reports ward-level
+recognition or support (Section 3.10). This proposal works from existing records only: Week 1
+measures what his own channels reach (Section 5.3), which is evidence about reach, not about
+support, and the IEBC's ward-level results (Section 2.2) show how each ward has actually voted. A register count is the most a universe can
 contain, never what it does contain, and the two are not interchangeable. Estimating the
 difference would be the exact failure Section A.1.3's ban on guesswork forbids.
 
@@ -207,6 +207,12 @@ segmentation has an output rather than only a description:
 **P4 — *He came, and this is what he said he would do* — is not in the table because it is not
 segment-led.** It is ward-led: whichever ward Dr. Mulu visited that day, in that ward's own channels.
 It is the pillar that feeds P1 twelve weeks later.
+
+**The "core anxiety" under each segment is a working hypothesis, not a measured opinion.** Where
+an official indicator bears on it — drought and food security (Annex B.3), poverty and water
+access (Section 2.4), health coverage (Section 4.4.6) — the segment's message cites that indicator.
+The rest is tested only by how content on it performs on reach and engagement, and a hypothesis
+the weekly brief cannot support is dropped rather than asserted.
 
 
 ### 4.3.2 The Rural Agrarian & Smallholder Baseline
@@ -332,7 +338,8 @@ id: fig-4-4-message-region
 ### 4.4.1 The central claim and its three pillars
 
 #### Message Pillar 1: Fiscal Integrity & Transparent Public Finance *(carries campaign pillars 1 and 4, Section 4.1.5)*
-*   **Narrative Statement:** *"Kitui's KSh 13.79 billion annual budget has been crippled by pending bills, procurement inflation, and ghost projects. Dr. Makali Mulu is the only candidate with a verified track record of managing public funds with zero financial audit queries."*
+*   **Narrative Statement** *(held until the Auditor-General's reports below are in hand)*: *"Kitui's KSh 13.79 billion annual budget has been crippled by pending bills, procurement inflation, and ghost projects. Dr. Makali Mulu is the only candidate with a verified track record of managing public funds with zero financial audit queries."*
+*   **Comparison — awaiting primary documents:** "The only candidate" is a claim about every rival, so it rests on the Auditor-General's reports on each public fund a rival has managed — the Kitui allocation of the National Government Affirmative Action Fund (Dr. Kasalu's office) and the county executive (Governor Malombe) among them — as well as on Dr. Mulu's own NG-CDF reports below. Until all are in hand the comparative line is not published; the usable form is his own record, quoted year by year from the audit opinions.
 *   **Primary Evidence & Source:**
     *   **Proof Point — awaiting primary documents:** **Office of the Auditor-General (OAG) NG-CDF audit reports, 2013–2025.** Firefly has not yet retrieved the underlying reports, so the claim of consistently unqualified opinions is untiered pending that. It is worth settling early: because the claim is precisely checkable, a single qualified year would carry more weight in an opponent's hands than the record deserves. Note also that the "top 5 best-managed constituencies in Kenya" ranking is wider than the Tier 1 claim in Sections 2.8 and 4.1.1 — best-evaluated constituency in the Eastern region, FY2014/15. Firefly would use the narrower, documented version until the wider one is sourced.
     *   **Contrast — awaiting primary documents:** Kitui County Government audited accounts under both predecessor regimes are reported to have accumulated over **Ksh 2.4 billion in contested pending bills** (OAG County Executive Audit FY2021/22 & FY2022/23). This is a **different measure** from the KSh 1.3 billion pending-bill figure at FY2020/21 carried as Tier 1 in Sections B.2 and 4.1.2 — different years, different scopes. Both are usable; whichever is quoted is named with its year.
@@ -363,9 +370,9 @@ id: fig-4-4-message-region
 *   **Narrative Statement:** *"Development in Kitui must no longer depend on which ward voted for the Governor. Dr. Mulu guarantees an institutionalized Ward Development Equalization Fund of Ksh 100 Million per ward annually, prioritizing solar borehole reticulation and stocked village dispensaries."*
 *   **Primary Evidence & Source:**
     *   **Proof Point — awaiting page reference:** **Kitui County Integrated Development Plan (CIDP III).** The 61% figure is not yet tiered. Section 2.4 carries a related Tier 1 statistic — approximately 400,000 residents relying on untreated surface water — which measures something different and is the one currently documented.
-    *   **CDF Proof — a request to your constituency office:** 84 community solar boreholes and 142 school water-harvesting projects (Kitui Central Project Inventory 2013–2026). Sections F.3 and 5.6.6 previously cited the same inventory for a classroom count, a different project category; both now defer to the ledger. The inventory's own line items would let Firefly use one consistent set of figures throughout.
+    *   **CDF Proof — a request to your constituency office:** 84 community solar boreholes and 142 school water-harvesting projects (Kitui Central Project Inventory 2013–2026). Sections E.3 and 5.6.6 previously cited the same inventory for a classroom count, a different project category; both now defer to the ledger. The inventory's own line items would let Firefly use one consistent set of figures throughout.
 
-> **Message assignment by segment (D.1) and by channel (D.2) is in Annex D.** Those two
+> **Message assignment by segment (C.1) and by channel (C.2) is in Annex C.** Those two
 > grids are the studio's production reference — which message goes to whom, on what platform.
 > The spine they carry is 4.4.1 above.
 

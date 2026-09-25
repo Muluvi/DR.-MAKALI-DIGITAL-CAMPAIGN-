@@ -68,9 +68,9 @@ const GEOGRAPHIC_ZONES: GeographicZone[] = [
     households: "58,724",
     nominationWeight: 20,
     generalWeight: 25,
-    connectivityProfile: "Highest in the county — the urban core is where the 13.6% connected minority is concentrated.",
+    connectivityProfile: "Highest in the county — the urban core is where the connected minority is concentrated.",
     primaryStrategicImperative:
-      "Consolidate the home base early and intensely. This is the only zone where Dr. Mulu starts with a structural advantage, and in a nomination-poll contest consolidating a base is cheaper than converting a stranger.",
+      "Consolidate the home base early and intensely. This is the only zone where Dr. Mulu starts with a structural advantage, and in a countywide nomination contest consolidating a base is cheaper than converting a stranger.",
   },
   {
     id: "mwingi",

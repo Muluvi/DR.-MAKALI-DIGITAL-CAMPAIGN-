@@ -2,7 +2,10 @@
 /**
  * The brief's copy gates (§S), enforced at build rather than by review:
  *
- *   Polling   no pollster, poll or survey used as evidence outside Annex C, and no promise of one.
+ *   Polling   no poll, pollster, survey or focus group anywhere: not as evidence, not "for
+ *             reference only", not as a promise, not as the thing a measure is "not". Firefly works
+ *             from existing records and its own analysis only (the September 2026 audit). Checked
+ *             in content and in the copy that components, figure specs and data modules carry.
  *   Money     no budget, spend, cost, fee or price language in the engagement sections. Section 2.5
  *             and 2.8 are exempt (the county's money), and so are the phrases below that name the
  *             county's money or a county policy instrument rather than the engagement's.
@@ -20,26 +23,15 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = path.join(ROOT, "content");
 
-const POLL = /\b(poll|polls|polling|pollster|pollsters|survey|surveys|mizani|infotrak|tifa|ipsos|politrack)\b/gi;
-/** Uses of the words that are not a poll used as evidence. */
+const POLL = /\b(poll|polls|polled|polling|pollster|pollsters|survey|surveys|mizani|infotrak|tifa|ipsos|politrack|(?<!fx-)focus[- ]groups?|message lab)\b/gi;
+/** The only uses of these words that are not opinion research. Each is listed with its reason. */
 const POLL_OK = [
-  /polling (station|stations|agent|agents|day|stream)/gi, // election-day infrastructure
-  /opinion[- ]poll (mechanism|rather than|, not a delegates|not a delegates)/gi, // the party's nomination method (Section 2.3)
-  /by (countywide )?opinion poll/gi, // likewise: how the ticket is decided
-  /opinion[- ]poll mechanism/gi,
-  /departs from the opinion-poll/gi,
-  /decided by delegates, not an opinion poll|The poll mechanism is Tier 3/gi, // risk R1
-  /the pollster's terms of reference|commissioned pollster's terms of reference|nomination-poll terms/gi, // the party's instrument, which the campaign asks to see
-  /a party (poll|nomination)/gi,
-  /(Household|Housing|Demographic and Health) Survey/gi, // KNBS/CA survey names as sources
-  /no survey|no polling|commissions no (polling|survey)|none is commissioned from a pollster|not a poll|never solicited as a survey|without a survey|None of the three is a poll or a survey|no poll share|not on poll shares|none is closed by new polling|commissions no survey|with no polling and no survey|None is a poll share|waits on a survey|not poll shares|nomination KPI rests on a poll/gi, // stating the absence
-  /published polls? (log|round)/gi, // monitoring, logged for Annex C
-  /Annex C/g,
-  /used opinion surveys of selected delegates/gi, // the 2022 nomination method as a court record states it (Section 2.3.1)
-  /published polling, public records/gi, // the public sources competitor monitoring may read
-  /not from a survey|rather than against a poll|No new polling|published opinion polls report countywide aggregates/gi, // stating what the evidence is not
-  /nomination-poll|via a countywide opinion poll|use polling rather than delegates|opinion poll in the final quarter|method, pollster, timing/gi, // the party's nomination method
-  /polling-station|polling information/gi, // election-day infrastructure
+  /polling[- ](station|stations|agent|agents|day|stream|streams|information|centre|centres|clerk|clerks)/gi, // election-day infrastructure, as the Elections Act names it
+  /polling_station/g, // the IEBC register's field name
+  /(Household|Housing|Demographic and Health|Integrated Household Budget|Labour Force) Survey/gi, // KNBS statistical instruments, cited as official sources
+  /Survey of Kenya/g, // the national mapping agency
+  /https?:\/\/\S+/g, // a source's URL is an address, not copy
+  /Polls (open|close)/g, // election-day voter information: when voting opens and closes
 ];
 
 const ENGAGEMENT = new Set([
@@ -88,9 +80,9 @@ for (const file of fs.readdirSync(SRC).filter((f) => f.endsWith(".md")).sort()) 
     }
     if (fence === "figure") return;
     if (BOX.test(line)) errors.push(`${at}: box-drawing characters — an ASCII diagram`);
-    if (file !== "annex-polls.md") {
+    {
       const left = residue(line, POLL_OK);
-      for (const m of left.matchAll(POLL)) errors.push(`${at}: "${m[0]}" outside Annex C — ${line.trim().slice(0, 90)}`);
+      for (const m of left.matchAll(POLL)) errors.push(`${at}: "${m[0]}" — opinion research has no place in the proposal — ${line.trim().slice(0, 90)}`);
     }
     if (ENGAGEMENT.has(file)) {
       const left = residue(line, MONEY_OK);
@@ -135,9 +127,28 @@ for (const file of [...walk(path.join(ROOT, "components")), ...walk(path.join(RO
   });
 }
 
+/**
+ * The polling rule, over the copy that components, figure specs and data modules render. Comments
+ * are skipped for the same reason as above; so are test files, which assert arithmetic rather than
+ * render copy.
+ */
+const COPY_ROOTS = ["components", "data", "lib", "app", "hooks"];
+for (const file of COPY_ROOTS.flatMap((d) => walk(path.join(ROOT, d)))) {
+  // Tests assert arithmetic, and lib/anchors holds retired heading ids (addresses, not copy).
+  if (/\.test\.tsx?$/.test(file) || file.includes(`${path.sep}anchors${path.sep}`)) continue;
+  const rel = path.relative(ROOT, file);
+  fs.readFileSync(file, "utf8").split("\n").forEach((raw, i) => {
+    const t = raw.trim();
+    if (isComment(t)) return;
+    const code = raw.replace(/\s\/\/ .*$/, "");
+    const left = residue(code, POLL_OK);
+    for (const m of left.matchAll(POLL)) errors.push(`${rel}:${i + 1}: "${m[0]}" in rendered copy — ${t.slice(0, 90)}`);
+  });
+}
+
 if (errors.length) {
   console.error(`check-copy: ${errors.length} problem(s)`);
   for (const e of errors) console.error(`  - ${e}`);
   process.exit(1);
 }
-console.log("check-copy: no poll evidence outside Annex C, no engagement money (content, components or data), no remote framing, no ASCII");
+console.log("check-copy: no poll, survey or focus group anywhere, no engagement money (content, components or data), no remote framing, no ASCII");

@@ -132,7 +132,7 @@ export const FIG_3_4: FigureSpec = {
   section: "3.4",
   title: `${fmt("pool.share")}% of the register lives in the four constituencies where he has never held office`,
   question: "Where has he held office, and what does that leave untouched?",
-  takeaway: `The ${fmt("pool")}-voter pool is structural, derived from where he has held office, not from a survey; ${fmt("pareto.top12.in-pool")} of the twelve largest wards are in it.`,
+  takeaway: `The ${fmt("pool")}-voter pool is structural, derived from where he has held office, not from any measure of opinion; ${fmt("pareto.top12.in-pool")} of the twelve largest wards are in it.`,
   sources: [src("register.2022"), { name: "Parliament of Kenya record", tier: "T1" }, { name: "The pool: Mwingi North, West, Central and Kitui South, summed", tier: "T1", state: "modelled" }],
   chart: {
     type: "composite",
@@ -143,7 +143,7 @@ export const FIG_3_4: FigureSpec = {
         chart: {
           type: "stats",
           items: [
-            { value: fmt("pool"), label: "registered voters in the pool: structural, derived from where he has held office, not from a survey", state: "modelled" },
+            { value: fmt("pool"), label: "registered voters in the pool: structural, derived from where he has held office, not from any measure of opinion", state: "modelled" },
             { value: `${fmt("pool.share")}%`, label: "of the county register", state: "modelled" },
             { value: `${fmt("pareto.top12.in-pool")} of 12`, label: `largest wards lie in the pool, holding ${fmt("pareto.top12.in-pool.voters")} voters`, state: "modelled" },
             { value: fmt("pool.wards"), label: "wards: fifteen in Mwingi, six in Kitui South", state: "modelled" },
@@ -287,7 +287,7 @@ const AUDIT_FIGURES = [
   { title: "Reach against the vote map", body: "His reach by constituency beside each constituency's share of the register, and the gap between them." },
   { title: "Ninety days, coded", body: "Every post in the window, by content pillar and reach." },
   { title: "Which language travels", body: "Engagement on reach for English, Kiswahili and Kikamba posts." },
-  { title: "Him against the field", body: "Posts per week, median shares and ads live, for all four candidates, from public data." },
+  { title: "Him against the field", body: "Posts per week, median shares and ads live, for him and the two nomination rivals, from public data." },
 ];
 
 export const FIG_3_9: FigureSpec = {

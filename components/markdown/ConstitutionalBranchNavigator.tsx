@@ -112,7 +112,7 @@ export function ConstitutionalBranchNavigator() {
                     Malombe Base Fragmentation
                   </div>
                   <p className="t-small text-muted leading-relaxed">
-                    Malombe&apos;s loyalist bloc in Kitui Central and rural wards becomes available. Dr. Mulu becomes the primary home-base consolidation candidate.
+                    The wards Malombe carried in 2022 are open to the field; which they are is read from the IEBC&apos;s ward-level results (Section 2.2), not assumed.
                   </p>
                 </div>
 
@@ -151,10 +151,10 @@ export function ConstitutionalBranchNavigator() {
                     Nomination Mechanism
                   </div>
                   <div className="t-label font-bold text-ink">
-                    Three-Way Wiper Primary
+                    Three-Way Wiper Nomination
                   </div>
                   <p className="t-small text-muted leading-relaxed">
-                    Requires forcing party primaries through scientific polling before mid-November 2026 to prevent consensus nomination of the incumbent.
+                    Whether the incumbent can be nominated by consensus or must contest is set by the party&apos;s 2027 nomination rules, the document Section 2.3.2 asks for.
                   </p>
                 </div>
 

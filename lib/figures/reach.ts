@@ -174,7 +174,7 @@ export const OFFLINE_CHANNELS: FigureSeries = {
       ["Church and synod networks", 350_000, "Weekly attendance", "Sunday fellowship greetings, pastoral blessings and clergy alignment.", "none"],
       ["Direct 2G SMS (opt-in database)", 320_000, "60%+ of the active register on basic GSM handsets", "Hyper-localised ward updates, endorsement letters and GOTV alerts.", "ca"],
       ["Open-air market barazas", 280_000, "Physical foot-fall", "Weekly physical interaction, flyer distribution and localised speeches.", "none"],
-      ["USSD interactive service", 250_000, "Feature-phone users", "Zero-rated policy quiz, ward-captain registration and live polling.", "ca"],
+      ["USSD interactive service", 250_000, "Feature-phone users", "Zero-rated policy quiz, ward-captain registration and polling-station lookup.", "ca"],
       ["Mobile-money agents (M-Pesa)", 180_000, "Monthly interactions across 1,800+ M-Pesa kiosks", "Word-of-mouth peer network, branded point-of-sale collateral.", "none"],
     ] as const
   ).map<FigurePoint>(([label, value, basis, role, provenance]) => ({

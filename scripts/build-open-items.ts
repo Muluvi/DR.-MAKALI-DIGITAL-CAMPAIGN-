@@ -33,7 +33,7 @@ export interface OpenItem {
 const HOLDERS: [RegExp, string][] = [
   [/IEBC/, "IEBC"],
   [/Meta|Insights|Week 1|post coding|export/i, "His team: the Week 1 export"],
-  [/Wiper|party|pollster|NEC/i, "Wiper Patriotic Front secretariat"],
+  [/Wiper|party|NEC/i, "Wiper Patriotic Front secretariat"],
   [/Communications Authority|CA\/KNBS/, "Communications Authority"],
   [/KNBS/, "KNBS"],
   [/TSC|Public Service Board|Ministry of Health/, "Public-sector employers"],

@@ -8,7 +8,7 @@
   "scenario_label": "",
   "notes": [
     "Ranks evidence strength: source tier, whether the indicator is quantified, and whether it is county-wide or localised.",
-    "This is NOT measured salience. Measuring what voters care about needs the baseline survey, which has not been run."
+    "This is NOT measured salience. It ranks the strength of the official record for each issue, not what voters say they care about."
   ],
   "values": [
     {
