@@ -7,7 +7,6 @@ import { ChevronDown, Gauge, Target, User, CalendarClock, Ruler } from "lucide-r
 import { ClaimBadge } from "../markdown/ClaimBadge";
 import { baselineStatus, type Baseline, type Kpi } from "../../data/kpis";
 import { useMotionPreset } from "../../hooks/useMotionPreset";
-import { STAGGER, fadeUp, staggerContainer, VIEWPORT_TALL } from "../../lib/motion";
 
 /**
  * The two scorecards as cards rather than as seven-column tables.
@@ -48,7 +47,7 @@ function KpiCard({ kpi }: { kpi: Kpi }) {
   const fraction = trackFraction(kpi.baseline, kpi.targetValue);
 
   return (
-    <motion.li variants={fadeUp} className="list-none">
+    <li className="list-none">
       <div
         className="rounded-2xl border border-line bg-card overflow-hidden"
         style={{ boxShadow: "var(--shadow-2)" }}
@@ -184,7 +183,7 @@ function KpiCard({ kpi }: { kpi: Kpi }) {
           </div>
         </div>
       </div>
-    </motion.li>
+    </li>
   );
 }
 
@@ -196,7 +195,6 @@ export function KpiScorecards({
   title: string;
   note: string;
 }) {
-  const { variants, enter } = useMotionPreset();
   const unmeasured = kpis.filter((k) => k.baseline.kind !== "measured").length;
 
   return (
@@ -223,17 +221,12 @@ export function KpiScorecards({
         </p>
       )}
 
-      <motion.ul
-        className="grid grid-cols-1 md:grid-cols-2 gap-3"
-        variants={variants(staggerContainer(STAGGER.loose))}
-        initial={enter("hidden")}
-        whileInView="visible"
-        viewport={VIEWPORT_TALL}
-      >
+      {/* D-17: the cards are static; the only motion is each track filling to its reading. */}
+      <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {kpis.map((k) => (
           <KpiCard key={k.code} kpi={k} />
         ))}
-      </motion.ul>
+      </ul>
     </section>
   );
 }

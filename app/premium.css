@@ -1108,34 +1108,86 @@ html { scroll-padding-bottom: calc(var(--pf-dock-h) + 24px); }
 }
 .pf-illus__mark { width: 8px; height: 8px; border-radius: 50%; border: 1.5px dashed currentColor; }
 
-/* ---- the index's seven acts (G-7): the phone's spine. */
-.pf-index-acts { display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: 6px; margin: 4px 0 14px; padding: 0; list-style: none; }
-.pf-index-acts button {
+/* ---- the index (G-7): a full-screen act index. Seven acts with numeral, portrait, what each
+   answers and its reading time; the argument rail in miniature; then every section and heading. */
+.pf-idx { background: color-mix(in oklch, var(--pf-ground) 94%, transparent); backdrop-filter: blur(18px) saturate(1.2); -webkit-backdrop-filter: blur(18px) saturate(1.2); }
+.pf-idx__inner { display: flex; flex-direction: column; height: 100dvh; max-width: 1320px; margin: 0 auto; }
+.pf-idx__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: max(16px, env(safe-area-inset-top)) var(--pf-gutter) 12px; border-bottom: 1px solid var(--pf-line); }
+.pf-idx__title { margin: 0; font: 800 clamp(1.9rem, 1.4rem + 2.4vw, 3rem)/1 var(--pf-display); font-stretch: var(--pf-display-stretch); letter-spacing: -0.03em; color: var(--pf-ink); }
+.pf-idx__meta { margin: 6px 0 0; font: 500 13px/1.4 var(--pf-display); color: var(--pf-muted); }
+.pf-idx__close { display: grid; place-items: center; flex: none; width: 48px; height: 48px; border-radius: 999px; border: 1px solid var(--pf-line); background: var(--pf-raised); color: var(--pf-ink); cursor: pointer; }
+.pf-idx__close:focus-visible { outline: 2px solid var(--pf-accent); outline-offset: 2px; }
+.pf-idx__body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 16px var(--pf-gutter) calc(24px + env(safe-area-inset-bottom)); display: grid; gap: 28px; align-content: start; }
+@media (min-width: 960px) {
+  .pf-idx__body { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 40px; }
+  .pf-idx__col:first-child { position: sticky; top: 0; align-self: start; }
+}
+.pf-idx__col { display: grid; gap: 14px; align-content: start; min-width: 0; }
+.pf-idx__acts { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+@media (min-width: 640px) { .pf-idx__acts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.pf-idx__act {
+  position: relative;
   display: grid;
-  grid-template-columns: 40px 1fr;
-  grid-template-rows: auto auto;
-  column-gap: 8px;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 14px;
   align-items: center;
   width: 100%;
-  min-height: 56px;
-  padding: 6px 10px 6px 6px;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-  background: var(--card);
+  min-height: 88px;
+  padding: 10px 14px 10px 10px;
+  overflow: hidden;
+  border: 1px solid var(--pf-line);
+  border-radius: 16px;
+  background: var(--pf-raised);
   text-align: left;
+  cursor: pointer;
+  transition: border-color var(--pf-dur-fast) var(--pf-ease-out), background-color var(--pf-dur-fast) var(--pf-ease-out);
 }
-.pf-index-acts button[aria-current="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
-.pf-index-acts__img { grid-row: 1 / span 2; width: 40px; height: 44px; overflow: hidden; border-radius: 8px; background: var(--pf-raised-2); }
-.pf-index-acts__img img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-.pf-index-acts__n { display: none; }
-.pf-index-acts__label { font: 700 13.5px/1.2 var(--pf-display); color: var(--ink); }
-.pf-index-acts__min { font: 500 12px/1.2 var(--pf-display); color: var(--muted); }
+.pf-idx__act::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: var(--pf-weave-img) right / 14px; opacity: var(--pf-weave-op); mask-image: linear-gradient(90deg, transparent 40%, #000); -webkit-mask-image: linear-gradient(90deg, transparent 40%, #000); }
+.pf-idx__act:hover { border-color: color-mix(in oklch, var(--pf-accent) 45%, var(--pf-line)); background: var(--pf-raised-2); }
+.pf-idx__act:focus-visible { outline: 2px solid var(--pf-accent); outline-offset: 2px; }
+.pf-idx__act[aria-current="true"] { border-color: var(--pf-accent); box-shadow: inset 0 0 0 1px var(--pf-accent), 0 0 28px -12px var(--pf-accent-glow); }
+.pf-idx__img { grid-row: 1; grid-column: 1; width: 64px; height: 72px; overflow: hidden; border-radius: 12px; background: var(--pf-raised-2); }
+.pf-idx__img img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.pf-idx__n { position: absolute; left: 48px; bottom: 4px; z-index: 1; font: 800 34px/1 var(--pf-display); font-stretch: var(--pf-display-stretch); letter-spacing: -0.03em; color: var(--pf-earth); text-shadow: 0 1px 0 var(--pf-raised), 0 0 12px var(--pf-raised); }
+.pf-idx__text { display: grid; gap: 3px; min-width: 0; padding-left: 14px; }
+.pf-idx__label { font: 700 16.5px/1.2 var(--pf-display); color: var(--pf-ink); }
+.pf-idx__blurb { font: 400 14px/1.4 var(--pf-serif); color: var(--pf-muted); }
+.pf-idx__min { font: 600 12.5px/1.3 var(--pf-display); color: var(--pf-muted); font-variant-numeric: tabular-nums; }
+.pf-idx__min b { color: var(--pf-accent); }
+@media (prefers-reduced-motion: no-preference) {
+  .pf-idx__acts > li { animation: pf-idx-in 420ms var(--pf-ease) both; animation-delay: calc(var(--i, 0) * 40ms + 60ms); }
+}
+@keyframes pf-idx-in { from { opacity: 0; transform: translate3d(0, 10px, 0); } to { opacity: 1; transform: none; } }
+
+.pf-idx__rail ol { position: relative; list-style: none; margin: 4px 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.pf-idx__rail ol::before { content: ""; position: absolute; top: 21px; left: 10%; right: 10%; height: 2px; background: var(--pf-accent-solid); }
+.pf-idx__rail button { position: relative; display: grid; justify-items: center; gap: 6px; width: 100%; min-height: 44px; padding: 6px 2px; border: 0; background: none; color: var(--pf-ink); cursor: pointer; font: 600 12.5px/1.2 var(--pf-display); text-align: center; border-radius: 10px; }
+.pf-idx__rail button:focus-visible { outline: 2px solid var(--pf-accent); outline-offset: 2px; }
+.pf-idx__railnode { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--pf-accent-solid); background: var(--pf-ground); font: 700 12px/1 var(--pf-display); }
+.pf-idx__rail button[aria-current="step"] .pf-idx__railnode, .pf-idx__rail button:hover .pf-idx__railnode { background: var(--pf-accent-solid); color: var(--pf-on-solid); }
+
+.pf-idx__subhead { display: flex; justify-content: space-between; gap: 8px; margin: 6px 0 6px; font: 600 13px/1.3 var(--pf-display); color: var(--pf-muted); }
+.pf-idx__flow { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.pf-idx__row { display: grid; grid-template-columns: 18px 34px minmax(0, 1fr) auto auto; gap: 10px; align-items: center; width: 100%; min-height: 48px; padding: 6px 12px; border: 1px solid var(--pf-line); border-radius: 12px; background: var(--pf-raised); color: var(--pf-ink); text-align: left; cursor: pointer; }
+.pf-idx__row:hover { border-color: color-mix(in oklch, var(--pf-accent) 40%, var(--pf-line)); }
+.pf-idx__row:focus-visible { outline: 2px solid var(--pf-accent); outline-offset: 2px; }
+.pf-idx__row[aria-current="true"] { background: var(--pf-accent-solid); border-color: var(--pf-accent-solid); color: var(--pf-on-solid); }
+.pf-idx__rowicon { color: var(--pf-accent); }
+.pf-idx__row[aria-current="true"] .pf-idx__rowicon { color: inherit; }
+.pf-idx__rownum { font: 700 12px/1 var(--pf-mono); color: inherit; opacity: 0.85; }
+.pf-idx__rowlabel { font: 600 14.5px/1.3 var(--pf-display); }
+.pf-idx__rowmin, .pf-idx__rowstate { font: 600 12px/1 var(--pf-display); font-variant-numeric: tabular-nums; opacity: 0.85; white-space: nowrap; }
 
 /* ---- G-11: route changes that are real navigations (a shared deep link opened in the same tab, the
    /full print route) cross-fade instead of flashing. In-page jumps are scrolls, not navigations. */
 @view-transition { navigation: auto; }
 ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 260ms; animation-timing-function: var(--pf-ease-out); }
-@media (prefers-reduced-motion: reduce) { ::view-transition-old(root), ::view-transition-new(root) { animation: none; } }
+/* In-page jumps (lib/premium/transition.ts): the pressed title and act numeral travel to the chapter
+   heading they open, while the page crossfades beneath them. */
+::view-transition-group(pf-section-title), ::view-transition-group(pf-section-numeral) { animation-duration: 520ms; animation-timing-function: var(--pf-ease); }
+::view-transition-old(pf-section-title), ::view-transition-new(pf-section-title),
+::view-transition-old(pf-section-numeral), ::view-transition-new(pf-section-numeral) { height: 100%; object-fit: contain; animation-duration: 520ms; }
+@media (prefers-reduced-motion: reduce) { ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; } }
 
 /* ---- G-12: print is the light theme, whatever the reader chose on screen. */
 @media print {
@@ -1184,3 +1236,191 @@ html:not(.dark) [class*="text-muted/"] { color: var(--muted) !important; }
 html:not(.dark) .text-rose-600 { color: #9f1239 !important; }      /* 7.5:1 on paper */
 html:not(.dark) .text-amber-600 { color: #92400e !important; }     /* 6.1:1 on amber-500/10 */
 html:not(.dark) .text-emerald-600 { color: #065f46 !important; }   /* 6.4:1 on emerald-500/10 */
+
+/* ---------------------------------------------------------------- story pointers (G-4) */
+/* Where §3.1–§3.4 would have drawn a figure the story now carries. */
+.pf-storyptr { margin: 1.25rem 0; }
+.pf-storyptr a {
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px 14px 18px;
+  border: 1px solid var(--pf-line);
+  border-left: 3px solid var(--pf-accent-solid);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--pf-ink);
+  transition: background-color var(--pf-dur-fast) var(--pf-ease-out);
+}
+.pf-storyptr a:hover { background: var(--pf-raised-2); }
+.pf-storyptr a:focus-visible { outline: 2px solid var(--pf-accent); outline-offset: 2px; }
+.pf-storyptr__k { font: 600 12.5px/1.3 var(--pf-display); color: var(--pf-muted); }
+.pf-storyptr__t { font: 600 16.5px/1.35 var(--pf-serif); }
+.pf-storyptr__h { font: 500 13.5px/1.4 var(--pf-display); color: var(--pf-accent); }
+.pf-storyptr__h::before { content: "↑ "; }
+
+/* A step card that holds a whole figure is wider, and the figure sits flush inside it. */
+.pf-story__card { max-width: 36rem; }
+.pf-story__card .rf { margin: 12px 0 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; }
+.pf-story__card .rf :is(.rf-head, .rf-body) { padding-inline: 0; }
+.pf-story__card .rf :is(.rf-takeaway, .rf-foot) { padding-inline: 0; background: transparent; }
+.pf-story__card .rf--hero .rf-title { font-size: 1.35rem !important; }
+@media (min-width: 1024px) {
+  .pf-story[data-pinned="true"] .pf-story__card { max-width: 34rem; }
+}
+
+/* ---------------------------------------------------------------- device stages (G-10) */
+/* A lit stage for a mockup: perspective, the shared pointer/scroll tilt, a sliding sheen. */
+.pf-tilt { position: relative; perspective: 1300px; }
+.pf-tilt__body { position: relative; transform-style: preserve-3d; will-change: transform; }
+.pf-tilt__sheen { position: absolute; inset: 0; z-index: 5; pointer-events: none; mix-blend-mode: screen; }
+.pf-tilt__shadow {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: -14px;
+  height: 26px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, oklch(0.12 0.02 262 / 0.5) 0%, transparent 72%);
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: -1;
+}
+/* The rugged slab: a lit top edge and a machined rim, depth by tone rather than a heavy shadow. */
+.pf-slab {
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 0.14),
+    inset 0 -2px 3px oklch(0 0 0 / 0.55),
+    0 30px 60px -30px oklch(0.1 0.02 262 / 0.7);
+  background-image: linear-gradient(160deg, oklch(0.3 0.02 262), oklch(0.2 0.02 262) 45%, oklch(0.16 0.02 262));
+}
+.pf-glass-screen { position: relative; box-shadow: inset 0 2px 8px oklch(0 0 0 / 0.55); }
+
+/* The 2G handset: moulded plastic, a recessed LCD under glass, bevelled keys. */
+.pf-handset {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  padding-bottom: 6px;
+  background: linear-gradient(162deg, #353b45 0%, #1c2027 42%, #111418 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 1px 0 0 rgba(255, 255, 255, 0.06),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.65),
+    0 22px 36px -18px rgba(3, 8, 18, 0.7);
+}
+.pf-handset__ear { width: 38px; height: 4px; border-radius: 999px; background: #0c0e11; box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08); }
+.pf-handset__screen {
+  position: relative;
+  overflow: hidden;
+  min-height: 140px;
+  margin: 0 12px;
+  padding: 7px 9px;
+  border-radius: 7px;
+  background: linear-gradient(180deg, #cfdcbf, #bccca7);
+  color: #12210b;
+  font-size: 8.5px;
+  line-height: 1.35;
+  box-shadow: inset 0 2px 5px rgba(18, 33, 11, 0.45), 0 0 0 3px #0c0e11, 0 0 0 4px rgba(255, 255, 255, 0.07);
+}
+.pf-handset__glass {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(125deg, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0.06) 38%, transparent 40%);
+}
+.pf-handset__key {
+  display: block;
+  padding: 4px 0;
+  border-radius: 6px 6px 8px 8px;
+  text-align: center;
+  font-size: 8.5px;
+  color: #a3abb8;
+  background: linear-gradient(180deg, #2f3540, #22272f);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 1.5px 0 #0b0d10;
+}
+.pf-handset__key.is-down { color: #fff; background: linear-gradient(180deg, #4b5568, #3a4252); box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5); }
+
+/* A screen that changes arrives with a short crossfade, as a display redraws. */
+@keyframes pf-xfade { from { opacity: 0; } to { opacity: 1; } }
+.pf-xfade { animation: pf-xfade 260ms var(--pf-ease-out) both; }
+@media (prefers-reduced-motion: reduce) { .pf-xfade { animation: none; } .pf-tilt__body { will-change: auto; } }
+@media print { .pf-tilt__sheen, .pf-tilt__shadow { display: none; } .pf-tilt__body { transform: none !important; } }
+
+/* ---------------------------------------------------------------- skeletons (G-11) */
+/* Shaped like what is coming; static and faint. A slow sheen crosses once a second and a half
+   where motion is allowed, which reads as "arriving" without imitating a live system. */
+.pf-skel, .pf-skel-section__fig { display: grid; align-content: start; gap: 10px; margin: 1.5rem 0; padding: 18px 18px 22px; border: 1px solid var(--pf-line); border-radius: 18px; background: color-mix(in oklch, var(--pf-raised) 60%, transparent); }
+.pf-skel__title, .pf-skel__sub, .pf-skel__bar, .pf-skel__row i, .pf-skel-section__h, .pf-skel-section__p span { display: block; border-radius: 6px; background: color-mix(in oklch, var(--pf-line) 65%, transparent); }
+.pf-skel__title { width: 62%; height: 16px; }
+.pf-skel__sub { width: 38%; height: 10px; margin-bottom: 8px; }
+.pf-skel__plot { display: grid; gap: 14px; }
+.pf-skel__bar { height: 14px; background: none; }
+.pf-skel__bar i { display: block; height: 100%; border-radius: 3px; background: linear-gradient(90deg, color-mix(in oklch, var(--pf-line) 30%, transparent), color-mix(in oklch, var(--pf-line) 90%, transparent)); }
+.pf-skel__svg { width: 100%; height: 160px; }
+.pf-skel__svg path, .pf-skel__svg line { fill: none; stroke: color-mix(in oklch, var(--pf-line) 90%, transparent); stroke-width: 2.5; vector-effect: non-scaling-stroke; }
+.pf-skel__svg circle { fill: color-mix(in oklch, var(--pf-line) 80%, transparent); }
+.pf-skel__tiles { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 3px; max-width: 360px; }
+.pf-skel__tiles i { aspect-ratio: 1; border-radius: 4px; background: color-mix(in oklch, var(--pf-line) 60%, transparent); }
+.pf-skel__row { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; }
+.pf-skel__row i { height: 12px; }
+.pf-skel-section { display: grid; gap: 22px; padding-top: 8px; }
+.pf-skel-section__h { width: 48%; height: 22px; }
+.pf-skel-section__p { display: grid; gap: 11px; max-width: var(--measure, 66ch); }
+.pf-skel-section__p span { height: 11px; }
+@media (prefers-reduced-motion: no-preference) {
+  .pf-skel, .pf-skel-section { position: relative; overflow: hidden; }
+  .pf-skel::after, .pf-skel-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, transparent 30%, color-mix(in oklch, var(--pf-ground) 40%, transparent) 50%, transparent 70%);
+    transform: translateX(-100%);
+    animation: pf-skel-sheen 1.6s var(--pf-ease-out) 1 both;
+  }
+}
+@keyframes pf-skel-sheen { to { transform: translateX(100%); } }
+
+/* ---------------------------------------------------------------- micro-interactions (§7.6) */
+/* Press states: every control gives under the finger. `scale` (not transform) so it composes with
+   whatever positioning transform a control already has. */
+@media (prefers-reduced-motion: no-preference) {
+  .pf-page :is(button, [role="tab"], .pf-toggle label, .rf-csv, .pf-storyptr a, .kx-spine a, summary) {
+    transition: scale 140ms var(--pf-ease-out), translate 260ms var(--pf-ease), color 150ms var(--pf-ease-out), background-color 150ms var(--pf-ease-out), border-color 150ms var(--pf-ease-out), box-shadow 150ms var(--pf-ease-out), opacity 150ms var(--pf-ease-out);
+  }
+  .pf-page :is(button, [role="tab"], .pf-toggle label, .rf-csv, .pf-storyptr a, .kx-spine a, summary):active { scale: 0.97; }
+  .pf-idx :is(.pf-idx__act, .pf-idx__row, .pf-idx__rail button):active { scale: 0.985; }
+  .pf-idx :is(.pf-idx__act, .pf-idx__row) { transition: scale 140ms var(--pf-ease-out), border-color var(--pf-dur-fast) var(--pf-ease-out), background-color var(--pf-dur-fast) var(--pf-ease-out); }
+}
+
+/* The key figure's light: a soft glow that follows a mouse pointer across the card. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .rf--hero { position: relative; }
+  .rf--hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), var(--pf-accent-glow), transparent 70%);
+    opacity: 0;
+    transition: opacity 400ms var(--pf-ease-out);
+  }
+  .rf--hero:hover::before { opacity: 1; }
+  .rf--hero > * { position: relative; z-index: 1; }
+}
+
+/* Tap ripples: a ring that opens at the finger and fades, on one fixed layer. */
+.pf-ripples { position: fixed; inset: 0; z-index: 90; pointer-events: none; overflow: hidden; }
+.pf-ripple {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  border-radius: 50%;
+  border: 2px solid var(--pf-accent);
+  background: var(--pf-accent-glow);
+  animation: pf-ripple 460ms var(--pf-ease-out) both;
+}
+@keyframes pf-ripple { from { opacity: 0.55; transform: scale(0.3); } to { opacity: 0; transform: scale(1.4); } }
+@media print { .pf-ripples { display: none; } }

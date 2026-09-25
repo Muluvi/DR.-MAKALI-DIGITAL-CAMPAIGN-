@@ -1,4 +1,4 @@
-What the official record shows, graded by source: the IEBC register, certified results, the census, CA/KNBS connectivity data, the county's own fiscal paper, the parliamentary record and his public channels. No new polling.
+What the official record shows, graded by source: the IEBC register, certified results, the census, CA/KNBS connectivity data, the county's own fiscal paper, the parliamentary record and his public channels.
 
 ## 2.1 The electorate
 
@@ -19,11 +19,12 @@ The full 40-ward register, by constituency, is in Annex B.1.
 
 ## 2.2 How Kitui has voted
 
-*   **2013 General Election (Kitui Governor):** This cycle represents a **named data gap** in the official campaign records (Tier 1 gap). The research did not supply certified results, and the campaign does not use unverified recollections.
+*   **2013 General Election (Kitui Governor):** This cycle represents a **named data gap** in the official campaign records (Tier 1 gap). The research did not supply certified results, and the campaign does not use unverified recollections. The record that closes it is the IEBC's 2013 declaration and its Kenya Gazette notice.
 *   **2017 General Election (Kitui Governor):** Won by Charity Ngilu (NARC) with **{{result.2017.gov.ngilu}} votes** (Tier 1), following a highly contested election confirmed by the Court of Appeal (*Malombe v Ngilu* [2018] KECA 460) (Tier 1). The certified runner-up was David Musila with **{{result.2017.gov.musila}} votes** (Tier 1), and the incumbent Julius Malombe finished third with **{{result.2017.gov.malombe}} votes** (Tier 1).
 *   **2022 General Election (Kitui Governor):** Won by Julius Malombe (Wiper) with **{{result.2022.gov.malombe}} votes** on a certified turnout of **{{turnout.2022}}%**, {{result.2022.gov.valid}} valid votes of {{register.2022}} registered (Tier 1, IEBC Form 37C). David Musila (Jubilee) was runner-up with **{{result.2022.gov.musila}} votes** (Tier 1); The Star's early total of {{result.2022.gov.musila.media}} is a media variant, and the certified share ({{result.2022.gov.musila.share}}%) matches {{result.2022.gov.musila}}. Jonathan Mueke (UDA) finished third with **{{result.2022.gov.mueke}} votes** (Tier 2).
-*   **2022 Kitui Central MP:** Dr. Mulu was re-elected on the Wiper ticket with **{{result.2022.mp.mulu}} votes** (Tier 1, IEBC declaration as gazetted); Boniface Musambi was second with {{result.2022.mp.musambi}}. Early media totals differ from the gazetted figure and are not used.
-*   **2022 Senate and Woman Representative Elections:** Senator Enoch Wambua (Wiper) secured his seat with **{{result.2022.senate.wambua}} votes** (Tier 2), and Woman Representative Irene Kasalu (Wiper) won with **{{result.2022.womanrep.kasalu}} votes** (Tier 2).
+*   **2022 Kitui Central MP:** Dr. Mulu was re-elected on the Wiper ticket with **{{result.2022.mp.mulu}} votes** (Tier 1, IEBC declaration as gazetted); Boniface Musambi was second with {{result.2022.mp.musambi}}. Early media totals differ from the gazetted figure and are not used. The figure reached this proposal through a press reproduction of the declaration; the Kenya Gazette notice itself is the record to hold.
+*   **2022 Senate and Woman Representative Elections:** Senator Enoch Wambua (Wiper) secured his seat with **{{result.2022.senate.wambua}} votes** (Tier 2), and Woman Representative Irene Kasalu (Wiper) won with **{{result.2022.womanrep.kasalu}} votes** (Tier 2). Both totals are media reports. The certified declarations (IEBC Form 38C for the Senate, Form 39C for the Woman Representative) are the Tier 1 record and are not yet in hand; until they are, both figures stay Tier 2.
+*   **Ward and polling-station results:** The constituency and polling-station forms for the 2017 and 2022 governor races (IEBC Forms 37B and 37A) are public records and are not yet in hand. They are the record Section 3.4 needs to test where each candidate's vote came from, ward by ward.
 
 ```figure
 id: fig-2-2-results
@@ -38,8 +39,8 @@ id: fig-2-3-nomination
 ### 2.3.1 How Wiper picks its candidate
 
 Section 1.2 opened with the claim this entire Phase −1 strategy is built on:
-that the Wiper Kitui gubernatorial ticket will be settled by opinion poll
-rather than a competitive primary. That claim deserves to be stated plainly
+that the Wiper Kitui gubernatorial ticket will be settled by a party-run
+countywide selection rather than a competitive primary. That claim deserves to be stated plainly
 for what it is — **a Tier 3, single-source report, not a confirmed party
 decision.**
 
@@ -51,22 +52,22 @@ re-check happens deliberately rather than by accident.
 **What the 2022 record shows, and what it does not.** The High Court judgment in *Kilonzo v Wiper
 Democratic Movement* (2022) records that Wiper's rules allowed nomination by consensus, and by
 direct or indirect methods, with the National Executive Council deciding the mode; and that for
-the 2022 Kitui gubernatorial ticket the party's board used opinion surveys of selected delegates
-and panels in reaching its decision (Tier 1, Kenya Law). That is the 2022 precedent. It is not the
-2027 procedure, which rests on the resolution and the terms of reference in Section 2.3.2.
+the 2022 Kitui gubernatorial ticket the party's board reached its decision through selected
+delegates and panels (Tier 1, Kenya Law). That is the 2022 precedent. It is not the 2027
+procedure, which rests on the party documents listed in Section 2.3.2.
 
-### 2.3.2 Where the opinion-poll mechanism stands
+### 2.3.2 Where the selection method stands
 
 > **The party's name changed in 2025.** The Office of the Registrar of Political Parties issued a
 > certificate of change of name from **Wiper Democratic Movement (WDM)** to **Wiper Patriotic Front
 > (WPF)** in August 2025 (Tier 1, ORPP). This document uses WPF throughout; WDM appears only where
 > a 2022 record is quoted as it was filed.
 
-The strategic assumption that the Wiper Patriotic Front will select its Kitui gubernatorial nominee via a countywide opinion poll is classified as **Tier 3 (single-sourced campaign report, not confirmed by party officials)**. This mechanism remains highly fluid and subject to internal party negotiations.
+The strategic assumption that the Wiper Patriotic Front will select its Kitui gubernatorial nominee through a party-run countywide selection is classified as **Tier 3 (single-sourced campaign report, not confirmed by party officials)**. This mechanism remains highly fluid and subject to internal party negotiations.
 
 To transition this selection mechanism from a Tier 3 strategic assumption to a **Tier 1 verified operational constraint**, the campaign requires:
 1.  An official, signed resolution by the **Wiper National Executive Council (NEC)**.
-2.  **The commissioned pollster's terms of reference** — sample frame, questionnaire, fieldwork dates, and the count and weighting method. This is the obtainable test, and the operationally useful one: it is what tells the campaign whether the instrument deciding the ticket is sound. A signed communique from the party leader would settle the question but is not something the campaign can produce on demand.
+2.  **The party's nomination rules and timetable for 2027** — the documentary record the party files with the IEBC and the Office of the Registrar of Political Parties. This is the obtainable test, and the operationally useful one: it states who selects, by what mode, and when. A signed communique from the party leader would settle the question but is not something the campaign can produce on demand.
 
 ## 2.4 The county's people and economy
 
@@ -161,12 +162,13 @@ The three structural facts that drive the rest of this section:
 *   **The stations open to the campaign are commercially or institutionally independent**: **Musyi FM** (Royal Media Services), **County FM** (Kitui-based independent) and **Wikwatyo FM** (Seventh-Day Adventist Church, Kitui). These are the placement targets.
 
 Ownership associations are publicly reported rather than certified, and media
-ownership changes. Section 5.2.2.2 carries the standing instruction to verify and
-update this map before any placement is booked.
+ownership changes. The certifiable records are the Communications Authority's register
+of broadcast licensees and the Business Registration Service's company records; the map
+is checked against both before any placement is booked (Section 5.2.2.2).
 
 ## 2.8 Dr. Mulu's public record
 
-Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS, represents a highly refined technocratic option for the Kitui County gubernatorial seat (Tier 1). In his extensive tenure in the National Assembly, he has established an unassailable reputation as one of Kenya's most consistent and authoritative voices on macroeconomic governance, fiscal discipline, and budget oversight. His long-standing membership on the critical Budget and Appropriations Committee provides him with an intimate, operational understanding of public finance systems and the optimization of county resource allocation frameworks.
+Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS, has represented Kitui Central in the National Assembly since 2013 (Tier 1). He is a member of the Budget and Appropriations Committee (Tier 1), the committee that scrutinises the national estimates. Whether he has held a leadership position on it is confirmed from the National Assembly's committee membership records and Hansard; until it is, this proposal describes him as a member. The record below is what the public-finance message rests on, and each line names the document behind it.
 
 ```figure
 id: fig-2-8-record
@@ -176,11 +178,11 @@ id: fig-2-8-record
 
 | Asset | Sourced Empirical Evidence | Strategic Digital Application |
 |---|---|---|
-| Macroeconomic Leadership | PhD (Economics) (Tier 1); Budget and Appropriations Committee Leadership (Tier 1) | Weekly "Dr. Mulu on Public Finance" explainer series |
-| **Monitoring & Evaluation Expertise** | Certified Consultant in Project Management & M&E (Tier 1); Member, Evaluation Society of Kenya (ESK) (Tier 1); **Designated M&E Champion by the Ministry of Finance** (Tier 1) | Launch of the interactive service-delivery tracker (Section 5.2.1.1) |
+| Macroeconomic Leadership | PhD (Economics) (Tier 1); Budget and Appropriations Committee membership (Tier 1; any leadership role to be confirmed from the National Assembly's committee records) | Weekly "Dr. Mulu on Public Finance" explainer series |
+| **Monitoring & Evaluation Expertise** | Certified Consultant in Project Management & M&E (Tier 1); Member, Evaluation Society of Kenya (ESK) (Tier 1); **Designated M&E Champion by the Ministry of Finance** (Tier 1; the issuing letter or notice is to be cited) | Launch of the interactive service-delivery tracker (Section 5.2.1.1) |
 | International Executive Standing | United Nations — Project Management and Financial Advisory Roles (Tier 1) | Professional and diaspora network engagement and credibility |
-| Legislative Delivery Record | KSh 47 million in educational bursaries allocated directly to {{record.bursary.recipients}} constituents (Tier 1); **Kitui Central certified as the best-evaluated constituency in the Eastern region, FY2014/15** (ranking first out of 71 constituencies in its national peer group) (Tier 1) | Micro-targeted, ward-level visual proof points |
-| Administrative Longevity | 17 years in active political leadership, 13 years as Member of Parliament for Kitui Central (Tier 1); Commander of the Order of the Burning Spear (CBS) (Tier 1) | Steady, low-risk leadership framing contrasted with less-experienced candidates |
+| Legislative Delivery Record | KSh 47 million in educational bursaries allocated directly to {{record.bursary.recipients}} constituents (Tier 1); **Kitui Central certified as the best-evaluated constituency in the Eastern region, FY2014/15** (ranking first out of 71 constituencies in its national peer group) (Tier 1; the evaluating body's report is to be cited, see Section 4.1.1) | Micro-targeted, ward-level visual proof points |
+| Administrative Longevity | 17 years in active political leadership, 13 years as Member of Parliament for Kitui Central (Tier 1); Commander of the Order of the Burning Spear (CBS) (Tier 1; the Kenya Gazette notice of the award is to be cited) | Steady, low-risk leadership framing contrasted with less-experienced candidates |
 | Existing Web Footprint | Active, established Kitui Central NG-CDF digital portal (Tier 1) | Integration and leveraging of existing assets to avoid duplicated effort |
 
 **The NG-CDF record, and its limits.** The constituency's NG-CDF site publishes project records,

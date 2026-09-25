@@ -39,7 +39,7 @@
     "section": "1.5",
     "title": "Every measure of success is observable on his channels or the SMS list, and each baseline is set in Week 1",
     "question": "How will success be judged?",
-    "takeaway": "The scorecard starts empty by design: the Week 1 export sets each baseline, and no measure is a poll share."
+    "takeaway": "The scorecard starts empty by design: the Week 1 export sets each baseline from his own channels and the SMS list."
   },
   {
     "id": "fig-2-1-register",
@@ -60,7 +60,7 @@
     "section": "2.3",
     "title": "The nomination method is reported, not confirmed, and two documents would settle it",
     "question": "What is the nomination method, and how confident are we?",
-    "takeaway": "Until the party's resolution or the pollster's terms are in hand, every phase that leans on a poll-based nomination is a plan against a Tier 3 report."
+    "takeaway": "Until the party's resolution or its 2027 nomination rules are in hand, every phase that leans on the reported selection method is a plan against a Tier 3 report."
   },
   {
     "id": "fig-2-4-people",
@@ -130,7 +130,7 @@
     "section": "3.4",
     "title": "51.7% of the register lives in the four constituencies where he has never held office",
     "question": "Where has he held office, and what does that leave untouched?",
-    "takeaway": "The 275,570-voter pool is structural, derived from where he has held office, not from a survey; 5 of the twelve largest wards are in it."
+    "takeaway": "The 275,570-voter pool is structural, derived from where he has held office, not from any measure of opinion; 5 of the twelve largest wards are in it."
   },
   {
     "id": "fig-3-5-field",
@@ -170,7 +170,7 @@
   {
     "id": "fig-3-10-gaps",
     "section": "3.10",
-    "title": "3 things no published source can tell the analysis, and none is estimated",
+    "title": "2 things no published source can tell the analysis, and none is estimated",
     "question": "What can't the data tell us yet, and what closes each gap?",
     "takeaway": "The analysis works from where he has held office and from certified totals, not from ward-level preference or ward returns no one has published."
   },
@@ -193,7 +193,7 @@
     "section": "4.2",
     "title": "In Phase −1, 65% of the effort goes to Mwingi and the arid belt, well above their share of residents",
     "question": "Where does the effort go in Phase −1?",
-    "takeaway": "The weighting over-indexes on the pool because the nomination deficit is a recognition deficit; 65% of digital reach effort is geofenced to it."
+    "takeaway": "The weighting over-indexes on the pool on the working hypothesis that his gap there is one of recognition; 65% of digital reach effort is geofenced to it."
   },
   {
     "id": "fig-4-3-segments",
@@ -266,6 +266,13 @@
     "takeaway": "Phase −1 is aimed at a window reported for late October to November; the three general-election phases follow it to 10 August 2027."
   },
   {
+    "id": "fig-5-4-ladder",
+    "section": "5.4",
+    "title": "Three indicators climb through every phase, and every other target belongs to one phase",
+    "question": "What does each phase have to deliver?",
+    "takeaway": "Consented SMS contacts rise from 40,000 in Phase 1 to 120,000 by Phase 3; rows marked ° are operational diagnostics, not performance indicators (Section 5.6.7)."
+  },
+  {
     "id": "fig-5-5-cadence",
     "section": "5.5",
     "title": "He receives a brief every week and a read every month, and the level sets how deep each goes",
@@ -275,7 +282,7 @@
   {
     "id": "fig-5-6-kpis",
     "section": "5.6",
-    "title": "Nine indicators judge the work, four for the nomination and five for the election, and none is a poll share",
+    "title": "Nine indicators judge the work, four for the nomination and five for the election, each observable on his own channels or lists",
     "question": "How is progress measured?",
     "takeaway": "Every indicator is observable on his channels, the SMS list or the field record, and each stays empty until its baseline is taken."
   },
@@ -291,7 +298,7 @@
     "section": "5.8",
     "title": "Two of the six risks would change the plan rather than damage it, and both are settled by measurement early",
     "question": "What could go wrong?",
-    "takeaway": "R1 closes with the pollster's terms of reference, R2 with the Week 1 audit; the incumbent's eligibility stays open, so its two branches are drawn."
+    "takeaway": "R1 closes with the party's 2027 nomination rules, R2 with the Week 1 audit; the incumbent's eligibility stays open, so its two branches are drawn."
   },
   {
     "id": "fig-5-9-team",
@@ -312,7 +319,7 @@
     "section": "5.2.3.2",
     "title": "The doorstep and the ad audience update each other within a day",
     "question": "How do the field and digital operations learn from each other?",
-    "takeaway": "A field validation match rate of at least 85% keeps both sides honest: if the model and the doorstep disagree, the model is wrong."
+    "takeaway": "The opt-in rate on routed doors keeps both sides honest: if routed doors do no better than the rest, the routing is wrong."
   },
   {
     "id": "fig-5-2-3-ussd-menu",
@@ -322,9 +329,16 @@
     "takeaway": "Dial the shortcode, read the plan, register, report an issue, volunteer or opt in, with no internet and close to no cost."
   },
   {
+    "id": "fig-5-2-4-stack",
+    "section": "5.2.4.3",
+    "title": "Five components, and the personal data concentrates in the first two",
+    "question": "What does each component of the stack do, hold and risk?",
+    "takeaway": "The gateway and the CRM carry the high and critical data-protection exposure; the other three work on public or anonymised data, and every one awaits a campaign decision."
+  },
+  {
     "id": "fig-6-1-dependencies",
     "section": "6.1",
-    "title": "The campaign provides 8 things, and three of them gate everything else",
+    "title": "The campaign provides 9 things, and three of them gate everything else",
     "question": "What does the campaign provide?",
     "takeaway": "A counterpart, read-only access and the data-protection reviewer come first; the rest follow once the engagement is running."
   },

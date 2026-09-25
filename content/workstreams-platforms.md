@@ -68,9 +68,8 @@ commitment — and the commitment is the persuasive element.
 
 * **Narrative:** the strongest possible proof of the Verification pillar
 (Section 4.1.5) — evidence rather than assertion
-* **Data:** ward-level issue salience derived from citizens' own priorities
-rather than from campaign assumptions, feeding directly into content and
-message-lab design
+* **Data:** the issues citizens report, ward by ward, counted from what arrives
+rather than assumed, feeding directly into the weekly brief
 * **Organising:** every report is a consented contact and a warm lead for ward
 champions
 * **Earned media:** a public register of county service-delivery failures is a
@@ -105,7 +104,7 @@ layer the campaign is building anyway; nothing comparable exists in this race.**
 > Firefly holds no credentials and publishes nothing here.
 
 
-Campaign communications succeed when production is treated as a rigorous, industrial pipeline rather than ad-hoc creative posting. In a county where only ~14% of voters are active on digital social media (Section 2.6), the content production engine must be **predominantly focused on offline and broadcast formats**—vernacular radio scripts, 2G bulk SMS, USSD menu trees, printed baraza photobooks, and market PA audio jingles—while maintaining a high-fidelity digital and video pipeline for youth and the diaspora.
+Campaign communications succeed when production is treated as a rigorous, industrial pipeline rather than ad-hoc creative posting. In a county where only {{ict.internet}}% of residents use the internet (CA/KNBS 2023/24, Section 2.6), the content production engine must be **predominantly focused on offline and broadcast formats**—vernacular radio scripts, 2G bulk SMS, USSD menu trees, printed baraza photobooks, and market PA audio jingles—while maintaining a high-fidelity digital and video pipeline for youth and the diaspora.
 
 ```figure
 id: production-pipeline
@@ -115,14 +114,14 @@ id: production-pipeline
 
 > **Section 4.5 is the live version of this list.** The four pillars there are anchored on
 > Dr. Mulu's own cover line and are set by the Week 1 audit. The four below are the thematic
-> buckets they draw from, kept because the message grids in Annex D index against them.
+> buckets they draw from, kept because the message grids in Annex C index against them.
 
 Production buckets, not a restatement of the campaign pillars in Section 4.1.4 or the message
 pillars in Section 4.4. Every piece of creative output anchors to one of these four, and each
 carries one or more of the Section 4.1.4 pillars:
 
 1.  **Pillar A: The Integrity & Stewardship Ledger (*Kĩtĩo kya Kũthũkũma*)**
-    *   *Core Theme:* 13 years of spotless public financial management and zero Auditor-General queries in Kitui Central NG-CDF.
+    *   *Core Theme:* 13 years of Kitui Central NG-CDF management, shown through the Auditor-General's opinion for every year. The reports are being retrieved (Section 4.4.1), and no year is characterised before its report is in hand.
     *   *Tone:* Authoritative, calm, legally certified, transparent.
     *   *Primary Formats:* Radio debate evidence cards, documentary video case studies, audit certificate infographics, press statements.
 2.  **Pillar B: The Agrarian & Household Wealth Engine (*Ũtonga wa Mĩsyĩ na Mĩũnda*)**
@@ -284,7 +283,7 @@ accessibility is reach, not compliance theatre.*
 
 * **13.0% of Kitui residents have never attended school**; only 17.4% completed
 secondary education
-* Roughly **86% are outside the internet-using population**
+* **{{ict.offline}}% are outside the internet-using population** (CA/KNBS 2023/24)
 * Kenyans with disabilities are a substantial constituency systematically
 under-served by campaign communication in every cycle
 * Low bandwidth is itself an accessibility constraint

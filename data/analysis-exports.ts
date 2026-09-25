@@ -20,7 +20,6 @@ import type { Tier } from "./types";
 import channelReach from "./analysis/channel-reach.json";
 import countyFinance from "./analysis/county-finance-2026-27.json";
 import issueEvidence from "./analysis/issue-evidence.json";
-import publishedPolls from "./analysis/published-polls-2026.json";
 import registerComparison from "./analysis/register-comparison.json";
 import results2022 from "./analysis/results-2022-governor.json";
 import scenarioBenchmarks from "./analysis/scenario-benchmarks.json";
@@ -67,7 +66,6 @@ export const ANALYSIS_EXPORTS = {
   "channel-reach": channelReach as ExportChart,
   "county-finance-2026-27": countyFinance as ExportChart,
   "issue-evidence": issueEvidence as ExportChart,
-  "published-polls-2026": publishedPolls as ExportChart,
   "register-comparison": registerComparison as ExportChart,
   "results-2022-governor": results2022 as ExportChart,
   "scenario-benchmarks": scenarioBenchmarks as ExportChart,

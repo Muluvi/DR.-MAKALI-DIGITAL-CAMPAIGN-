@@ -434,12 +434,12 @@
   .pv[data-in-view="false"] .pv-gauge__fg,
   .pv[data-in-view="false"] .pv-donut__fg { stroke-dashoffset: 999 !important; }
 
+  /* D-17: not one fade-and-rise for everything. Steps and dated items are sequences in time, so
+     they open forward, left to right, one after another; a checklist's items simply appear in
+     order; everything else is static. */
   .pv[data-in-view="true"] .pv-steps__item,
-  .pv[data-in-view="true"] .pv-tl__item,
-  .pv[data-in-view="true"] .pv-play__pair,
-  .pv[data-in-view="true"] .pv-check__item,
-  .pv[data-in-view="true"] .pv-shape__nodes li,
-  .pv[data-in-view="true"] .pv-chap li { animation: pv-rise 420ms ease-out both; animation-delay: var(--pv-d, 0ms); }
+  .pv[data-in-view="true"] .pv-tl__item { animation: pv-forward 520ms cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: var(--pv-d, 0ms); }
+  .pv[data-in-view="true"] .pv-check__item { animation: pv-appear 260ms ease-out both; animation-delay: var(--pv-d, 0ms); }
 
   .pv[data-in-view="true"] .pv-waffle__cell { animation: pv-pop 260ms ease-out both; animation-delay: var(--pv-d, 0ms); }
   .pv[data-in-view="true"] .pv-quad__pt { animation: pv-pop 320ms cubic-bezier(0.34, 1.4, 0.64, 1) both; animation-delay: var(--pv-d, 0ms); }
@@ -447,6 +447,8 @@
 
 @keyframes pv-grow { from { transform: scaleX(0); transform-origin: left; } to { transform: scaleX(1); transform-origin: left; } }
 @keyframes pv-rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes pv-forward { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes pv-appear { from { opacity: 0; } to { opacity: 1; } }
 /* Animates `scale`, not `transform`.
    As a transform keyframe this ended on `transform: none`, which is not "no animation transform"
    — it replaces whatever transform the element was positioned with. The quadrant's markers are

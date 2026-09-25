@@ -1,5 +1,6 @@
 import { FigureFrame } from "./FigureFrame";
 import { RegisterFigure } from "../register/Figure";
+import { STORY_FIGURES } from "../../lib/premium/story";
 import { REGISTER } from "../../lib/register/specs";
 import {
   Allocation,
@@ -449,11 +450,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "message-by-segment": {
-    note: "§D.1 — six segments, their message and the evidence behind it.",
+    note: "§C.1 — six segments, their message and the evidence behind it.",
     render: () => (
       <FigureFrame series={SEGMENT_MESSAGE_SERIES}>
         <SpecTable
-          caption="§D.1 message-by-demographic-segment matrix"
+          caption="§C.1 message-by-demographic-segment matrix"
           columns={["Target segment", "Tailored message & Kikamba framing", "Verifiable evidence & data source"]}
           rows={MESSAGE_BY_SEGMENT}
         />
@@ -462,11 +463,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "message-by-channel": {
-    note: "§D.2 — five channels, their register and their proof points.",
+    note: "§C.2 — five channels, their register and their proof points.",
     render: () => (
       <FigureFrame series={CHANNEL_MESSAGE_SERIES}>
         <SpecTable
-          caption="§D.2 message-by-channel matrix and evidence deployment"
+          caption="§C.2 message-by-channel matrix and evidence deployment"
           columns={["Channel & reach", "Format, tone & linguistic style", "Evidential proof points"]}
           rows={MESSAGE_BY_CHANNEL}
         />
@@ -475,7 +476,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "escalation-ladder": {
-    note: "§E.2 — three escalation levels and who decides at each.",
+    note: "§D.2 — three escalation levels and who decides at each.",
     render: () => (
       <FigureFrame series={ESCALATION_SERIES}>
         <Stepper stages={ESCALATION_LADDER} />
@@ -484,11 +485,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "response-matrix": {
-    note: "§F.1 — four threat severities, their protocol and SLA.",
+    note: "§E.1 — four threat severities, their protocol and SLA.",
     render: () => (
       <FigureFrame series={MATRIX_SERIES}>
         <SpecTable
-          caption="§F.1 rapid response decision matrix"
+          caption="§E.1 rapid response decision matrix"
           columns={["Threat severity", "Definition & impact threshold", "Strategic response protocol", "Turnaround target (SLA)"]}
           rows={RESPONSE_MATRIX}
           emphasise={3}
@@ -498,11 +499,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "response-sla": {
-    note: "§F.2 — mandatory response time per channel.",
+    note: "§E.2 — mandatory response time per channel.",
     render: () => (
       <FigureFrame series={SLA_SERIES}>
         <SpecTable
-          caption="§F.2 rapid response SLA by channel"
+          caption="§E.2 rapid response SLA by channel"
           columns={["Channel & platform", "Mandatory response time target"]}
           rows={RESPONSE_SLA}
           emphasise={1}
@@ -512,7 +513,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "holding-positions": {
-    note: "§F.3 — four attack lines with their pre-drafted answers and sources.",
+    note: "§E.3 — four attack lines with their pre-drafted answers and sources.",
     render: () => (
       <FigureFrame series={HOLDING_SERIES}>
         <ol className="not-prose m-0 list-none space-y-2 p-0">
@@ -658,7 +659,7 @@ export const FIGURES: Record<string, FigureEntry> = {
       <FigureFrame series={RESEARCH_SPLIT}>
         <TierGrid
           tiers={RESEARCH_TIERS}
-          flow="The research programme feeds the tracker: what the polling establishes about a ward becomes a baseline the tracker publishes against."
+          flow="The evidence tests feed the tracker: what the ward-level record establishes about a ward becomes a baseline the tracker publishes against."
         />
       </FigureFrame>
     ),
@@ -670,7 +671,7 @@ export const FIGURES: Record<string, FigureEntry> = {
       <FigureFrame series={MODULES_SERIES}>
         <SpecTable
           caption="§5.6.5 recognition-deficit research architecture"
-          columns={["Research module", "Method & instrument", "Sample & stratification", "Timing", "Decision unlocked"]}
+          columns={["Evidence test", "Method", "Record read", "Timing", "Decision unlocked"]}
           rows={RESEARCH_MODULES}
           emphasise={4}
         />
@@ -1115,6 +1116,22 @@ export const FIGURES: Record<string, FigureEntry> = {
 };
 
 /**
+ * Where §3.1–§3.4 would have drawn a figure the §3 story now carries: one line that names the
+ * figure and links up to the step that holds it, with its sources, table and CSV.
+ */
+function StoryPointer({ spec }: { spec: { id: string; title: string; section: string } }) {
+  return (
+    <p className="pf-storyptr not-prose">
+      <a href={`#${spec.id}`}>
+        <span className="pf-storyptr__k">Figure, §{spec.section}</span>
+        <span className="pf-storyptr__t">{spec.title}</span>
+        <span className="pf-storyptr__h">In the four-step story at the start of this part, with its sources, table and CSV</span>
+      </a>
+    </p>
+  );
+}
+
+/**
  * The fence's renderer.
  *
  * An unknown id is drawn as a visible gap rather than silently dropped: a typo in a fence would
@@ -1124,6 +1141,7 @@ export function Figure({ id }: { id: string }) {
   // The brief's figure register (lib/register/specs) is looked up first: one spec draws the chart,
   // the table view and the CSV.
   const spec = REGISTER[id];
+  if (spec && STORY_FIGURES.has(id)) return <StoryPointer spec={spec} />;
   if (spec) return <RegisterFigure spec={spec} />;
   const entry = FIGURES[id];
   if (!entry) {

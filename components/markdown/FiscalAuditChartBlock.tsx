@@ -11,7 +11,7 @@ import { ChartFallback } from "../ChartFallback";
  */
 const FiscalAuditChartBlockContent = dynamic(
   () => import("./FiscalAuditChartBlockContent").then((m) => m.FiscalAuditChartBlockContent),
-  { ssr: false, loading: () => <ChartFallback /> },
+  { ssr: false, loading: () => <ChartFallback shape="bars" /> },
 );
 
 export function FiscalAuditChartBlock() {

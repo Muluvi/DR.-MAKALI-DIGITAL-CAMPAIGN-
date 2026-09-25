@@ -114,7 +114,7 @@ export const TARGETING_SUMMARY: SummaryRow[] = [
   {
     label: "Operational mandate",
     value: "65% digital · 70% offline SMS",
-    detail: `Directed to Mwingi and Kitui South — ${DEFICIT_WARD_COUNT} wards — to close the 15.3-point gap.`,
+    detail: `Directed to Mwingi and Kitui South — ${DEFICIT_WARD_COUNT} wards — where he has never held office.`,
     section: "§3.4",
     stated: "24 northern and southern deficit wards",
     conflicts: ["C-7"],

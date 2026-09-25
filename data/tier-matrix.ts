@@ -36,7 +36,6 @@ export const TIER_ATTRIBUTES: TierAttribute[] = [
   },
   { label: "Predictive voter scoring", lean: false, standard: true, premium: true },
   { label: "Multi-touch attribution", lean: false, standard: true, premium: true },
-  { label: "Focus groups", lean: false, standard: "Quarterly", premium: "Monthly" },
   { label: "Red-team drills", lean: "On trigger", standard: "Quarterly", premium: "Monthly" },
   { label: "Arid-belt reach", lean: "Weak", standard: "Strong", premium: "Strong" },
   {

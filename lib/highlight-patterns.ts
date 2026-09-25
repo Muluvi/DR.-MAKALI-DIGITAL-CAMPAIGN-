@@ -8,11 +8,10 @@ export function ws(phrase: string): string {
   return phrase.replace(/ /g, "\\s+");
 }
 
-// The two derived figures the proposal leans on hardest, matched at their canonical first
-// statement so the "show the working" drawer appears once, not on every later restatement.
+// The derived figure the proposal leans on hardest, matched at its canonical first statement so
+// the "show the working" drawer appears once, not on every later restatement.
 export const WORKING_TRIGGERS: { pattern: string; id: string }[] = [
   { pattern: ws("approximately 200,000 votes\\.?"), id: "win-threshold" },
-  { pattern: ws("15\\.3 percentage points\\.?"), id: "deficit" },
 ];
 
 // Figures the copy itself already states a status for — an approved fiscal-strategy-paper
@@ -23,7 +22,6 @@ export const WORKING_TRIGGERS: { pattern: string; id: string }[] = [
 export const STATUS_PHRASES: { pattern: string; status: ClaimStatus }[] = [
   { pattern: ws("KSh13\\.79 billion"), status: "verified" },
   { pattern: ws("532,758 voters"), status: "verified" },
-  { pattern: ws("22\\.1% against a front-runner at 37\\.4%"), status: "verified" },
   { pattern: ws("approximately 1\\.2 million by 2024"), status: "estimate" },
   { pattern: ws("KSh97\\.56 million"), status: "verified" },
 ];
@@ -40,7 +38,6 @@ export const BANNER_TRIGGERS: { pattern: string; tabIds: TabId[] }[] = [
 // Dictionary of definitions for hover tooltips
 export const DEFINITIONS: Record<string, string> = {
   "own-source revenue": "Kitui's locally-generated county treasury funds, targeted at KSh 1.339bn.",
-  "polling deficit": "The 15.3-point gap between Dr. Mulu (22.1%) and Dr. Kasalu (37.4%) in the 7 August 2026 Mizani survey. Percentage points, not percent.",
   "ussd database": "Offline text-based digital voter registration system designed to reach citizens without internet.",
   "aircover": "Continuous community FM radio broadcasting synchronized with SMS networks.",
   "consensus strategy": "Direct delegate alignment to secure 75%+ endorsements without ballot splits.",

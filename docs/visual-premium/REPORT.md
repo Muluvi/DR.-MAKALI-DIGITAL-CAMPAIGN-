@@ -142,11 +142,13 @@ one reappears. This fixes D-01, D-02 and D-05. No retired entry needed a new reg
 
 ## 6. Prose → visual conversion
 
-**Not done.** No paragraph was moved into a figure, so `docs/visual-premium/REPLACEMENTS.md` has no
-entries and reading time is unchanged. The one thing in this pass that carries argument visually
-rather than in prose is the §3 Story, and it adds a visual *over* §3.1–§3.4 without removing a
-line of them. Doing this well needs a paragraph-by-paragraph pass through the content-integrity
-guard; it is the obvious next piece of work.
+**Done in the follow-up pass.** Five conversions, each logged in
+[`REPLACEMENTS.md`](REPLACEMENTS.md) with the prose's job, the figure that now does it and where
+the original text lives: §3.3's route details, §5.2.4.3's five stack components, §5.4's three
+phase KPI tables, §6.1.1's dependency list and §5.8's risk paragraphs. The prose sits under each
+figure as "Read the text version", closed in Brief and open in Full and print. **Brief reading
+time: 94 → 87 min; Full: 217 → 218 min** (the moved passages keep every word). Brief folds no
+longer hide figures: three sections that showed no figure in Brief now do.
 
 ## 7. Geography
 
@@ -203,31 +205,22 @@ HTML). Recharts stays: six charts still use it.
 - **§8.5** reference in `components/figures/registry.tsx` (the cultural advisor's appointment "§8.5
   places those appointments in Phase …"): the old number maps to five current sections and the
   sentence does not settle which. It is inside a data note that is closed by default.
-- **Section 12 conversions** (§6 above): the brief's biggest remaining lever on reading time.
+- **Section 12 conversions** (§6 above): done; further candidates are argument rather than
+  measurement, which no figure can carry without losing facts.
 
 O-1, O-2, O-3, O-4, O-5, O-6, O-8, O-9 and O-10 were applied as recommended.
 
 ## 11. Not done, and why
 
-- **Prose → visual conversions** (brief §12): not started; see §6.
-- **Chart kit v2 across all 27 chart kinds** (G-5): only the funnel was rebuilt on d3. The other
-  renderers are restyled through the new tokens, type and frame hierarchy; the spec → table → CSV
-  contract is untouched.
-- **Story steps contain their figures** (G-4): the Story's steps carry each figure's own title and
-  takeaway and link to the figure, which stays in place in the section, rather than embedding the
-  full figure in the step.
-- **Device frames** (G-10): every mockup is labelled; the realistic lit device renders with tilt were
-  not built.
-- **Shared-element view transitions** (G-11): only the cross-document root transition is set; in-page
-  jumps are scrolls, not navigations. Figure-shaped skeletons were not added.
-- **Micro-interactions** (§7.6): magnetic buttons, pointer-follow light and tap ripples were not
-  added. Number morphing is on the four cover figures and the funnel's values, not on every
-  headline figure.
-- **Full-screen act index** (G-7): the index gained a seven-act strip with numerals, portraits and
-  reading times; it remains a sheet, not a full-screen view.
-- **Real-device 120 Hz traces**: see §9.
-- **D-17** (uniform fade-and-rise): reduced by retiring the part visuals and by the new surfaces each
-  having their own motion, but the remaining legacy `fx-in-up` entrances were not audited one by one.
-- **Section numbers** (D-19): every pre-2026 reference in rendered copy was rewritten to the current
-  number (through the anchor redirect table where the mapping is one-to-one, by reading where it is
-  not). A scan of the full rendered text, hidden panels included, finds one left: §8.5 (§10 above).
+The follow-up pass (commits `5eab750` onwards) delivered the items this list used to carry: chart
+kit v2 across the register renderers (G-5), Story steps that embed their figures (G-4), lit device
+stages with tilt (G-10), in-page view transitions and figure-shaped skeletons (G-11), magnetic
+buttons, pointer light, tap ripples and number morphing on headline figures (§7.6), the full-screen
+act index (G-7), the D-17 audit of legacy entrances, and the §12 conversions (§6).
+
+Still not done:
+
+- **Real-device 120 Hz traces** (§9): no iPhone Pro or Galaxy S was available to this environment.
+  Headless Chromium holds its 60 Hz vsync with WebGL off; a remote-profiled trace on a 120 Hz phone
+  is still owed before anyone relies on the frame-timing claim.
+- **Section numbers** (D-19): the one ambiguous §8.5 reference in §10 stands.

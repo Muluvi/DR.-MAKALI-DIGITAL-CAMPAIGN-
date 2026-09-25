@@ -16,7 +16,6 @@ export function IncidentScreen({ data }: { data: WardPulseData }) {
       <div className="flex items-center justify-between pb-2 mb-3 border-b border-slate-800">
         <div className="flex items-center gap-2">
           <span className="flex h-2 w-2 relative">
-            <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${isTier1 ? "bg-rose-400" : isTier2 ? "bg-amber-400" : "bg-blue-400"} opacity-75`} />
             <span className={`relative inline-flex rounded-full h-2 w-2 ${isTier1 ? "bg-rose-500" : isTier2 ? "bg-amber-500" : "bg-blue-500"}`} />
           </span>
           <span className="font-mono text-rose-400 font-semibold" style={{ fontSize: "0.6875em" }}>

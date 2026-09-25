@@ -90,8 +90,8 @@ especially radio — reaches everyone else.*
 
 #### The radio problem, stated plainly
 
-Kamba-language radio is the dominant information channel for the roughly 86% of
-Kitui residents outside the internet-using population. **But the ownership map
+Kamba-language radio is the dominant information channel for the 73.8% of
+Kitui residents outside the internet-using population (CA/KNBS 2023/24). **But the ownership map
 is politically compromised, and any credible media plan must say so:**
 
 | Station | Kitui frequency | Ownership association | Campaign posture |
@@ -110,10 +110,12 @@ is politically compromised, and any credible media plan must say so:**
 County FM and Wikwatyo, treats Athiani as party-sensitive, and treats
 Mbaitu/Syokimau as monitoring targets rather than placement targets. Attacks
 on Dr. Mulu are more likely to originate on air than online, which is why radio
-monitoring sits in the war room (Section F.4) rather than in a media annex.
+monitoring sits in the war room (Section E.4) rather than in a media annex.
 
-*This map is based on publicly reported ownership associations and should be
-verified and updated by the campaign; media ownership changes.*
+*This map is based on publicly reported ownership associations. Before any placement
+is booked it is checked against the Communications Authority's register of broadcast
+licensees and the Business Registration Service's company records, and it is updated
+when either changes.*
 
 #### The journalist relationship programme
 

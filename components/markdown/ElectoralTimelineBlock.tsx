@@ -11,7 +11,7 @@ import { ChartFallback } from "../ChartFallback";
  */
 const ElectoralTimelineBlockContent = dynamic(
   () => import("./ElectoralTimelineBlockContent").then((m) => m.ElectoralTimelineBlockContent),
-  { ssr: false, loading: () => <ChartFallback /> },
+  { ssr: false, loading: () => <ChartFallback shape="lines" /> },
 );
 
 export function ElectoralTimelineBlock() {

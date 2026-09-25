@@ -188,7 +188,7 @@ export const ROLE_OWNERSHIP: string[][] = [
   [
     "1. Campaign Manager & Chief of Operations",
     "Overall campaign execution, budget allocation, strategic schedule and coalition alignment · direct liaison with Dr. Mulu and the advisory board · primary escalation authority for all domains",
-    "General logistics vendors · security coordination firm · strategic polling firm",
+    "General logistics vendors · security coordination firm",
   ],
   [
     "2. Communications & Media Lead",

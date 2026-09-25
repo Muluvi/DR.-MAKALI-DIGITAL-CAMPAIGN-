@@ -9,6 +9,7 @@ import { useTheme } from "../lib/useTheme";
 import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
 import { Figure } from "./figures/FigureBoundary";
 import { RegisterMotion } from "./register/RegisterMotion";
+import { MicroFX } from "./premium/MicroFX";
 import { ReadingModeToggle } from "./ReadingModeToggle";
 import { ReadingModeProvider } from "../lib/reading-mode";
 import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
@@ -29,6 +30,7 @@ import { CoverHero } from "./premium/CoverHero";
 import { ActOpener } from "./premium/ActOpener";
 import { Dock, Spine } from "./premium/Chrome";
 import { Story } from "./premium/Story";
+import { jumpTo } from "../lib/premium/transition";
 
 
 /**
@@ -95,7 +97,7 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
    * Which section the reader is in.
    *
    * On the flow this is observed, not navigated: there is no route change and no history entry
-   * per section, because scrolling through a document is not nineteen acts of navigation. It
+   * per section, because scrolling through a document is not eighteen acts of navigation. It
    * drives the capsule, the edge rail and nothing else, so it is allowed to be approximate.
    */
   const [currentTab, setCurrentTab] = useState<TabId>(expanded ? LANDING_TAB : activeTab);
@@ -123,7 +125,7 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
   /**
    * The section a deep link is aimed at, which must mount whether or not it is near the viewport.
    *
-   * A link to §F.12 lands 48,000 words down the flow. Without this the observer would not have
+   * A link to §E.12 lands 48,000 words down the flow. Without this the observer would not have
    * fired for it, the scroll helper would find nothing, and the reader would be left at the top of
    * a document they arrived in the middle of.
    */
@@ -145,14 +147,16 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
    * which is also how a link into an annex from a single-section page still works.
    */
   const goToSection = useCallback(
-    (tabId: string) => {
+    (tabId: string, during?: () => void) => {
       forceFor(tabId);
       const el = typeof document !== "undefined" ? document.getElementById(`section-${tabId}`) : null;
       if (el) {
         const y = el.getBoundingClientRect().top + window.scrollY - 72;
-        window.scrollTo({ top: y, behavior: "smooth" });
+        // A shared-element cut where the browser supports it; a smooth scroll where it does not.
+        jumpTo(el, y, during);
         return;
       }
+      during?.();
       router.push(`/#section-${tabId}`, { scroll: false });
     },
     [router, forceFor]
@@ -305,6 +309,7 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
         )}
 
         <RegisterMotion />
+        <MicroFX />
         <div className="pf-grain print:hidden" aria-hidden="true" />
 
         {/* ----------------------------------------------------------- hero */}

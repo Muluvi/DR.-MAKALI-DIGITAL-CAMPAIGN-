@@ -1,6 +1,6 @@
 ANNEX E. The runbooks: the rapid-response decision tree and its response times, the pre-drafted holding positions, monitoring tooling, the security baseline and incident response, and competitor-monitoring outputs. Operational detail a campaign runs on and a principal approves the existence of.
 
-## F.1 The four-tier response decision tree
+## E.1 The four-tier response decision tree
 
 To avoid elevating fringe attacks or wasting campaign capital, the campaign evaluates every incident against a standardized **Response Decision Tree**:
 
@@ -8,13 +8,13 @@ To avoid elevating fringe attacks or wasting campaign capital, the campaign eval
 id: response-matrix
 ```
 
-## F.2 Response times, by channel
+## E.2 Response times, by channel
 
 ```figure
 id: response-sla
 ```
 
-## F.3 Holding positions, pre-drafted
+## E.3 Holding positions, pre-drafted
 
 The campaign maintains ready-to-deploy holding positions, evidential citations, and Kikamba framing for the four primary lines of attack:
 
@@ -22,7 +22,7 @@ The campaign maintains ready-to-deploy holding positions, evidential citations, 
 id: holding-positions
 ```
 
-## F.4 Monitoring tools
+## E.4 Monitoring tools
 
 | Tool class | Function |
 |---|---|
@@ -35,7 +35,7 @@ id: holding-positions
 | Custom BI dashboard | Centralised real-time metrics |
 | **Radio monitoring** | Kamba-language station tracking (Section 5.2.2.2) — critical, as most attacks on Dr. Mulu will originate on air, not online |
 
-## F.5 Rapid-response protocol and pre-approved message library
+## E.5 Rapid-response protocol and pre-approved message library
 
 | Severity | Definition | Response time | Approval |
 |---|---|---|---|
@@ -50,7 +50,7 @@ To execute rapid containment without awaiting ad-hoc legal drafting, a pre-appro
 * Fact-check cards linking to verified sources
 * **Deepfake first-response templates** (Section 5.8.7)
 
-## F.6 Red-team drills
+## E.6 Red-team drills
 
 *Reactive protocols fail because they are first used under real pressure.*
 
@@ -61,7 +61,7 @@ before the general election.
 **Method:** a small red-team panel — Firefly's crisis lead, one campaign
 representative, and an external participant with no stake in the outcome — is
 briefed to attack. The response team is **not** told which scenario is coming
-or when. The drill runs in real time against the Section F.5 clock.
+or when. The drill runs in real time against the Section E.5 clock.
 
 **Standing scenario library:**
 | # | Scenario | Tests |
@@ -70,7 +70,7 @@ or when. The drill runs in real time against the Section F.5 clock.
 | 2 | Coordinated hashtag attack on his NG-CDF record | Fact-base readiness; rebuttal library |
 | 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval (Section 5.7.8) |
 | 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 5.2.2.2) |
-| 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section F.10) |
+| 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section E.10) |
 | 7 | Manufactured "grassroots" campaign attacking a rival, falsely attributed to Dr. Mulu | Charter defence; provenance evidence |
 
 **Output:** every drill produces a written report — actual response times
@@ -84,7 +84,7 @@ target**.
 
 ---
 
-## F.7 The threat model
+## E.7 The threat model
 
 Kenyan campaigns face account takeover, phishing of staff and volunteers,
 leaked internal material, and increasingly the fabrication of audio and video.
@@ -99,7 +99,7 @@ For this campaign specifically, the highest-consequence scenarios are:
 3. Leaked internal strategy material — including, if mishandled, this document
 4. Fabricated audio or video of the candidate
 
-## F.8 Account security baseline
+## E.8 Account security baseline
 
 | Control | Standard | Applies to |
 |---|---|---|
@@ -115,7 +115,7 @@ For this campaign specifically, the highest-consequence scenarios are:
 little.** The specification: **FIDO2 (WebAuthn) hardware security keys, two per critical account
 holder** so a lost key never locks an account, registered before any SMS or app code is removed.
 
-## F.9 Phishing awareness
+## E.9 Phishing awareness
 
 * Onboarding training for every staff member and Tier 3–4 volunteer before
 account access is granted
@@ -127,7 +127,7 @@ suspicion to report
 * Specific coverage of the patterns most likely here: fake platform security
 alerts, fake IEBC or party communications, and fake media interview requests
 
-## F.10 The incident response plan
+## E.10 The incident response plan
 
 | Phase | Action | Owner | Target |
 |---|---|---|---|
@@ -143,7 +143,7 @@ campaign confirms or denies authenticity accurately and quickly. It does not
 speculate about the source, and it does not deny the authenticity of genuine
 material — a denial later disproved is worse than the original leak.
 
-## F.11 Competitor monitoring tools
+## E.11 Competitor monitoring tools
 
 | Tool | Function |
 |---|---|
@@ -152,9 +152,8 @@ material — a denial later disproved is worse than the original leak.
 | Social listening (premium tier) | Mentions, supporter sentiment, emerging narratives |
 | X lists | Curated rival, surrogate and influencer accounts |
 | **Radio monitoring** | Kamba-station coverage and airtime share (Section 5.2.2.2) |
-| **Published polls log** | Each published round logged with its date and method limits for Annex C, for reference only; never used as evidence |
 
-## F.12 Competitive intelligence outputs and rapid alerts
+## E.12 Competitive intelligence outputs and rapid alerts
 
 The competitive intelligence workflow produces two operational outputs:
 

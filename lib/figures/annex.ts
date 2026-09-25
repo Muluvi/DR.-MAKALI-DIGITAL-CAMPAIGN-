@@ -12,11 +12,11 @@
  * blocks into figures that state the rules plainly is the closest thing to a self-portrait this
  * pass produces, and the reason they are transcribed rather than paraphrased.
  *
- * THE KIKAMBA IN THE RUNBOOKS IS LOAD-BEARING. §F.3's four holding positions each carry a
+ * THE KIKAMBA IN THE RUNBOOKS IS LOAD-BEARING. §E.3's four holding positions each carry a
  * Kikamba framing with full diacritics — ĩ, ũ, w' — and §4.4.9 forbids machine translation of
  * exactly this material. Every string is transcribed character for character.
  *
- * TWO OF THE SOURCE CELLS DECLINE TO CLAIM SOMETHING, and both are kept: §F.3's first position
+ * TWO OF THE SOURCE CELLS DECLINE TO CLAIM SOMETHING, and both are kept: §E.3's first position
  * says the classroom and bursary counts are pending the inventory and that only §2.8's 12,573
  * and KSh 47m should be used until reconciled, and its second says the ward allocation methodology
  * does not exist yet and the line should not go on air before it does.
@@ -59,7 +59,7 @@ export const AUDIENCE_SEGMENTS: string[][] = [
   ],
   [
     "2. Agro-pastoralists (arid borderlands)",
-    "~80,000–105,000 (requires survey)",
+    "~80,000–105,000 (no official count)",
     "Primary research needed",
     "Vernacular radio & market days",
     "Livestock off-take & border security support",
@@ -80,14 +80,14 @@ export const AUDIENCE_SEGMENTS: string[][] = [
   ],
   [
     "5. Formal professionals & civil servants",
-    "~25,000–35,000 (requires survey)",
+    "~25,000–35,000 (no official count)",
     "Primary research needed",
     "X, TV, LinkedIn, union synods",
     "Meritocracy, reliable medicine & pension flow",
   ],
   [
     "6. Out-of-county Kamba diaspora",
-    "150k+ influencers (requires survey)",
+    "150k+ influencers (no official count)",
     "Primary research needed",
     "Nairobi/coast ads & town halls",
     "Remittance relief & audited fiscal prudence",
@@ -96,7 +96,7 @@ export const AUDIENCE_SEGMENTS: string[][] = [
 
 export const SEGMENTS_SERIES: FigureSeries = {
   id: "audience-segments",
-  headline: "Six segments, and three of them are sized by a survey nobody has run",
+  headline: "Six segments, and three of them have no official size",
   measure: "§5.2's audience segment comparative summary — size, data tier, primary channel and persuasion hook",
   points: [],
   note:
@@ -143,7 +143,7 @@ export const PROVENANCE_MANDATE: string[][] = [
   ],
   [
     "2. Timestamp date",
-    "Exact date or year of survey or official gazettement",
+    "Exact date or year of the census, statistical release or official gazettement",
     'e.g. "August 2022", "7 August 2026"',
   ],
   [
@@ -174,8 +174,8 @@ export const TIER_CLASSIFICATION: string[][] = [
   ],
   [
     "Tier 2",
-    "Independent field research: reputable public polls · commissioned survey waves · academic demographic data",
-    "Directional tracking of candidate popularity, issue salience and message resonance. Used with stated confidence intervals and error bars.",
+    "Reported records: published media reproductions of official figures · academic demographic data · industry audience measurement",
+    "Used with its source named, pending the certified record; where two published values disagree, both are shown. Never used to measure candidate popularity.",
   ],
   [
     "Tier 3",
@@ -237,7 +237,7 @@ export const PROTOCOL_SERIES: FigureSeries = {
     "tier test comes back equal.",
 };
 
-/* ------------------------------------------------------------------ §D.1 message by segment */
+/* ------------------------------------------------------------------ §C.1 message by segment */
 
 export const MESSAGE_BY_SEGMENT: string[][] = [
   [
@@ -275,7 +275,7 @@ export const MESSAGE_BY_SEGMENT: string[][] = [
 export const SEGMENT_MESSAGE_SERIES: FigureSeries = {
   id: "message-by-segment",
   headline: "Six segments, six messages, and a named evidence source behind every one",
-  measure: "§D.1's message-by-demographic-segment matrix — segment, tailored message and Kikamba framing, verifiable evidence",
+  measure: "§C.1's message-by-demographic-segment matrix — segment, tailored message and Kikamba framing, verifiable evidence",
   points: [],
   note:
     "The evidence column is not decoration: §5.2.1.2's approval gateway makes a primary citation " +
@@ -283,7 +283,7 @@ export const SEGMENT_MESSAGE_SERIES: FigureSeries = {
     "framings are transcribed exactly, diacritics included.",
 };
 
-/* ------------------------------------------------------------------ §D.2 message by channel */
+/* ------------------------------------------------------------------ §C.2 message by channel */
 
 export const MESSAGE_BY_CHANNEL: string[][] = [
   [
@@ -316,7 +316,7 @@ export const MESSAGE_BY_CHANNEL: string[][] = [
 export const CHANNEL_MESSAGE_SERIES: FigureSeries = {
   id: "message-by-channel",
   headline: "Five channels, each with its own register and its own proof",
-  measure: "§D.2's message-by-channel matrix — channel and reach, format and linguistic style, evidential proof points",
+  measure: "§C.2's message-by-channel matrix — channel and reach, format and linguistic style, evidential proof points",
   points: [],
   note:
     "The reach figures are §3.8.1's and §2.6's, restated here per channel: radio ~420,000, SMS " +
@@ -324,7 +324,7 @@ export const CHANNEL_MESSAGE_SERIES: FigureSeries = {
     "channels overlap, as §3.8.1's own warning says.",
 };
 
-/* ------------------------------------------------------------------ §E.2 the escalation ladder */
+/* ------------------------------------------------------------------ §D.2 the escalation ladder */
 
 export const ESCALATION_LADDER = [
   {
@@ -356,7 +356,7 @@ export const ESCALATION_LADDER = [
 export const ESCALATION_SERIES: FigureSeries = {
   id: "escalation-ladder",
   headline: "Three levels, three authorities, and the candidate is only in the third",
-  measure: "§E.2's three-tier escalation protocol — issues, resolution authority and the rule at each level",
+  measure: "§D.2's three-tier escalation protocol — issues, resolution authority and the rule at each level",
   points: [],
   note:
     "The levels are numbered because escalation is ordered: a level 1 issue that is not resolved " +
@@ -364,7 +364,7 @@ export const ESCALATION_SERIES: FigureSeries = {
     "who decides and what they must do, which is what makes it a protocol rather than a list.",
 };
 
-/* ------------------------------------------------------------------ §F.1 the decision matrix */
+/* ------------------------------------------------------------------ §E.1 the decision matrix */
 
 export const RESPONSE_MATRIX: string[][] = [
   [
@@ -396,7 +396,7 @@ export const RESPONSE_MATRIX: string[][] = [
 export const MATRIX_SERIES: FigureSeries = {
   id: "response-matrix",
   headline: "Four severities, and the first instruction is to do nothing",
-  measure: "§F.1's rapid response decision matrix — severity, threshold, protocol and turnaround SLA",
+  measure: "§E.1's rapid response decision matrix — severity, threshold, protocol and turnaround SLA",
   points: [],
   note:
     "Level 1's protocol is IGNORE / PASSIVE MONITOR, with an explicit instruction not to amplify " +
@@ -405,7 +405,7 @@ export const MATRIX_SERIES: FigureSeries = {
     "matrix usable at speed.",
 };
 
-/* ------------------------------------------------------------------ §F.2 the SLA ladder */
+/* ------------------------------------------------------------------ §E.2 the SLA ladder */
 
 export const RESPONSE_SLA: string[][] = [
   [
@@ -430,7 +430,7 @@ export const RESPONSE_SLA: string[][] = [
 export const SLA_SERIES: FigureSeries = {
   id: "response-sla",
   headline: "From fifteen minutes on air to twenty-four hours in print",
-  measure: "§F.2's rapid response SLA by channel",
+  measure: "§E.2's rapid response SLA by channel",
   points: [],
   note:
     "The ladder runs from the fastest channel to the slowest, which is also the order a rebuttal " +
@@ -438,7 +438,7 @@ export const SLA_SERIES: FigureSeries = {
     "lodging rule is why the SMS rung sits at two hours rather than minutes.",
 };
 
-/* ------------------------------------------------------------------ §F.3 holding positions */
+/* ------------------------------------------------------------------ §E.3 holding positions */
 
 export const HOLDING_POSITIONS = [
   {
@@ -488,7 +488,7 @@ export const HOLDING_POSITIONS = [
 export const HOLDING_SERIES: FigureSeries = {
   id: "holding-positions",
   headline: "Four attack lines, four answers, and two sources that say the answer is not ready yet",
-  measure: "§F.3's pre-drafted holding positions — attack line, holding message, Kikamba framing and primary source",
+  measure: "§E.3's pre-drafted holding positions — attack line, holding message, Kikamba framing and primary source",
   points: [],
   note:
     "TWO OF THE FOUR SOURCE CELLS DECLINE TO CLAIM SOMETHING, and both are kept exactly. Position 1 " +

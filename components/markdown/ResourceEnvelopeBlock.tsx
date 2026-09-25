@@ -13,7 +13,7 @@ import { formatFigure } from "../../lib/data/format";
 // still gates when it mounts; this gates when it downloads.
 const ResourceEnvelopeChart = dynamic(() => import("../charts/ResourceEnvelopeChart"), {
   ssr: false,
-  loading: () => <ChartFallback />,
+  loading: () => <ChartFallback shape="bars" />,
 });
 
 // Section 2.5, from the data layer: the CFSP FY2026/27 envelope and its three parts. The parts sum to

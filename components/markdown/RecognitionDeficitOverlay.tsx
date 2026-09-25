@@ -10,9 +10,8 @@ import { UnderReview } from "../figures/UnderReview";
 /**
  * §3.4 — recognition deficit mapped against voter concentration.
  *
- * WHAT THIS DELIBERATELY DOES NOT SHOW: ward-level polling. No ward-level poll of this race
- * exists. Only two countywide Mizani data points are available (§2.2), and §3.10 lists
- * ward-level recognition data as a named Tier 1 gap. An earlier version of this component
+ * WHAT THIS DELIBERATELY DOES NOT SHOW: any measure of opinion. Firefly works from existing
+ * records only, and §3.10 records ward-level recognition as unmeasured. An earlier version of this component
  * carried per-ward `muluPollingBaseline` / `kasaluPollingBaseline` percentages; they were
  * invented, and they are gone.
  *
@@ -54,8 +53,8 @@ const STATUS_META: Record<RecognitionStatus, { label: string; note: string; clas
     dot: "bg-amber-500",
   },
   deficit: {
-    label: "Critical deficit",
-    note: "Out-of-constituency. Recall limited against countywide office holders.",
+    label: "Never held office",
+    note: "Out-of-constituency. Lower recall here is the hypothesis Week 1 tests (§3.11).",
     className: "border-rose-500/25 bg-rose-500/[0.04]",
     dot: "bg-rose-500",
   },
@@ -95,6 +94,8 @@ const KITUI_SOUTH_TOTAL = CONSTITUENCIES.find((c) => c.id === "kitui-south")?.vo
 /** §3.4's "Total Decisive Deficit Pool" — Mwingi bloc plus Kitui South, both from the register. */
 const DEFICIT_POOL = MWINGI_BLOC_TOTAL + KITUI_SOUTH_TOTAL;
 const DEFICIT_POOL_SHARE = (DEFICIT_POOL / COUNTY_TOTAL_WARDS) * 100;
+const POOL_CONSTITUENCIES = new Set(["mwingi-north", "mwingi-central", "mwingi-west", "kitui-south"]);
+const POOL_WARD_COUNT = ALL_WARDS.filter((w) => POOL_CONSTITUENCIES.has(w.constituencyId)).length;
 
 const DECISIVE_WARDS = [...ALL_WARDS]
   .sort((a, b) => b.voters - a.voters)
@@ -175,11 +176,11 @@ export function RecognitionDeficitOverlay() {
           </div>
         </div>
         <div className="p-3.5 sm:p-4">
-          <div className="t-label font-black text-muted">Countywide polling deficit</div>
-          <div className="font-serif text-xl sm:text-2xl font-bold text-rose-600 dark:text-rose-400 mt-0.5 tabular-nums">
-            −15.3 points
+          <div className="t-label font-black text-muted">Pool wards</div>
+          <div className="font-serif text-xl sm:text-2xl font-bold text-ink mt-0.5 tabular-nums">
+            {POOL_WARD_COUNT} of {ALL_WARDS.length}
           </div>
-          <div className="t-small text-muted mt-0.5">Kasalu 37.4%, Mulu 22.1%</div>
+          <div className="t-small text-muted mt-0.5">Wards where he has never held office</div>
         </div>
         <div className="p-3.5 sm:p-4">
           <div className="t-label font-black text-muted">Phase −1 geofenced spend</div>
@@ -254,8 +255,8 @@ export function RecognitionDeficitOverlay() {
           <AlertTriangle size={12} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
           <span>
             Recognition status here is <strong>structural</strong> — derived from where Dr. Mulu has held office, not
-            from any survey. No ward-level poll of this race exists; §3.10 lists ward-level recognition data as a named
-            Tier 1 gap, and commissioning it is a Phase −1 research priority.
+            from any measure of opinion. §3.10 records ward-level recognition as unmeasured; the IEBC&rsquo;s ward-level
+            results (§2.2) are the official record the analysis reads next.
           </span>
         </p>
         <p className="t-small text-muted flex items-start gap-1.5">

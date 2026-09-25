@@ -11,7 +11,7 @@ import type { PlatformDatum } from "../charts/PlatformSizingChart";
 // still gates when it mounts; this gates when it downloads.
 const PlatformSizingChart = dynamic(() => import("../charts/PlatformSizingChart"), {
   ssr: false,
-  loading: () => <ChartFallback />,
+  loading: () => <ChartFallback shape="bars" />,
 });
 
 import { PLATFORM_AUDIENCES } from "../../data/external-figures";

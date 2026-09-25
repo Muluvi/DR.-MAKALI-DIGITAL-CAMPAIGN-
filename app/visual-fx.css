@@ -1196,18 +1196,11 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 /*  the figure is visible by default and the reveal can never hide content.  */
 /* ========================================================================== */
 
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .prose > figure:not(.not-prose *),
-    .prose > .not-prose,
-    .prose > table:not(.not-prose *) {
-      animation: fx-slide-up auto var(--fx-ease-entrance) both;
-      animation-timeline: view();
-      animation-range: entry 4% cover 26%;
-      --fx-travel: 14px;
-    }
-  }
-}
+/* RETIRED in the 2026 premium pass (D-17). Every figure, table and mounted block used to slide up
+   the same 14px as it scrolled in, which made the one entrance the page had into its signature
+   tell. Each surface now carries motion that means something, or none: register marks grow from
+   zero and lines draw (app/chart-kit.css), act openers mask their lines in, the county morphs,
+   headings wipe only at h2. Tables and prose blocks simply are there. */
 
 /* The hero field drifts against the page as it scrolls, which is what makes
    the header read as having depth rather than as a picture behind text. The

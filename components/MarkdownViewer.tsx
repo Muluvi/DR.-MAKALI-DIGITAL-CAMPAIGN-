@@ -14,24 +14,20 @@ import { partVisual } from "../lib/part-visuals";
 import { ClaimBadge } from "./markdown/ClaimBadge";
 import { HighlightedText } from "./markdown/HighlightedText";
 import { hasHighlight } from "../lib/highlight-patterns";
-import { CompetitiveQuadrantBlock } from "./markdown/CompetitiveQuadrantBlock";
 import { ResourceEnvelopeBlock } from "./markdown/ResourceEnvelopeBlock";
 import {
   ChannelReachBlock,
   IssueEvidenceBlock,
-  PollMarginsBlock,
   RegisterComparisonBlock,
   ScenarioBenchmarkBlock,
 } from "./markdown/AnalysisBlocks";
 import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
-import { MizaniSlopeBlock } from "./markdown/MizaniSlopeBlock";
 import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
 import { BenchmarkLadder } from "./charts/BenchmarkLadder";
 import { TierComparisonCarousel } from "./charts/TierComparisonCarousel";
 import { FeaturePhoneSpecimen } from "./charts/FeaturePhoneSpecimen";
 import { OfflineWaterline } from "./charts/OfflineWaterline";
 import { VoteFunnel } from "./charts/VoteFunnel";
-import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
 import { AsciiDiagram } from "./markdown/AsciiDiagram";
 import { Figure } from "./figures/FigureBoundary";
 import { ReachSplit } from "./ReachSplit";
@@ -85,6 +81,7 @@ import { CrossRef } from "./CrossRef";
 import { PrintSafeDisclosures } from "./PrintSafeDisclosures";
 import { DisclosureGroup } from "./markdown/DisclosureGroup";
 import { ObjectivesIndex } from "./markdown/ObjectivesIndex";
+import { TextVersion } from "./markdown/TextVersion";
 import { ProseFold } from "./markdown/ProseFold";
 import { BriefFold } from "./markdown/BriefFold";
 
@@ -232,21 +229,13 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // stayed with the work they measure — indexed beneath them rather than moved here.
   "delivery-sec-5-6": <ObjectivesIndex />,
   "data-sec-2-3": <NominationPathPanel />,
-  // The pipeline's poll margins land in the section that states the gap, because the gap is
-  // the thing the margins qualify: one of these three polls can be tested and two cannot.
-  "annex-polls-sec-c-1": <PollMarginsBlock />,
   // The governing claim opens §6, ahead of the pillars and themes that rest on it.
   "strategy-sec-4-1": <EconomistGovernorThesis />,
-  "analysis-sec-3-5": (
-    <>
-      <ConstitutionalBranchNavigator />
-      <CompetitiveQuadrantBlock />
-    </>
-  ),
+  "analysis-sec-3-5": <ConstitutionalBranchNavigator />,
   "data-sec-2-8": (
     <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §2.8">
-      One of Kenya&rsquo;s most consistent and authoritative voices on macroeconomic governance,
-      fiscal discipline, and budget oversight.
+      Member for Kitui Central since 2013, and a member of the National Assembly&rsquo;s Budget and
+      Appropriations Committee.
     </SectionPortrait>
   ),
   "data-sec-2-1": (
@@ -348,18 +337,15 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   ),
   "strategy-sec-4-1-6": <SloganBuilder />,
   "workstreams-platforms-sec-5-2-1": <PublicServiceDeliveryTracker />,
-  "delivery-sec-5-4": (
-    <>
-      <PhaseRail />
-      <KpiPhaseBlock />
-    </>
-  ),
+  // The phase KPI chart that sat here is carried by the register's fig-5-4-ladder, which holds
+  // every phase target with its table and CSV (brief §12).
+  "delivery-sec-5-4": <PhaseRail />,
 
   // ---- The repositioning: analyse, strategise, direct ---------------------------------
   // The audit's four figures, the week and the visit loop are drawn by the register
   // (fig-3-9-audit, fig-4-5-calendar) and the visit-loop figure; their earlier inserts are retired.
   // §5.7 is the direction model. The week replaces a bullet list, a meeting table and the
-  // governance chart cut from Annex D.
+  // governance chart cut from Annex C.
   "delivery-sec-5-7-1": <DirectionWeek />,
 };
 
@@ -378,7 +364,7 @@ const HEADING_TEXT_INSERTS: Record<string, React.ReactNode> = {};
 // kept; only its frame changes.
 //   Rule     the owner/Firefly split lines ("Owner: the campaign.", "Outside this engagement."),
 //            headed by a two-part badge
-//   Aside    pointers and notes ("…is in Annex F", "Research Integrity Note")
+//   Aside    pointers and notes ("…is in Annex E", "Research Integrity Note")
 //   Finding  the one claim a section leans on: the first other quote in the section, once
 const RULE_PATTERN = /^(owner:|split ownership|mostly outside this engagement|outside this engagement|campaign-owned recommendations)/i;
 const ASIDE_PATTERN = /(is in annex|are in annex|research integrity note|^note\b|segments overlap|re-cut against|name changed|live version of this list|^sfx:|^"|^\[!)/i;
@@ -410,20 +396,7 @@ function buildComponents(tabId: TabId): Components {
                 return <ClaimCards>{children}</ClaimCards>;
               }
 
-              const table = <InteractiveTable>{children}</InteractiveTable>;
-
-              // §6.2 Mizani survey table — table stays (item 14 says keep it with only
-              // two data points), slope chart added alongside it.
-              if (tabId === "objectives" && has("kasalu") && has("wambua")) {
-                return (
-                  <>
-                    {table}
-                    <MizaniSlopeBlock />
-                  </>
-                );
-              }
-
-              return table;
+              return <InteractiveTable>{children}</InteractiveTable>;
             },
             pre: ({ children }) => {
               const source = getDeepText(children);
@@ -437,6 +410,22 @@ function buildComponents(tabId: TabId): Components {
                * a deletion rather than a replacement. The fence body is `id: <figure-id>`; the
                * registry resolves it, and an unknown id renders a visible gap rather than nothing.
                */
+              /**
+               * A ```textversion fence holds prose a figure has taken over (brief §12), word for
+               * word. It renders directly under the figure as "Read the text version", through the
+               * same markdown components as the rest of the section, so nothing in it reads
+               * differently from where it stood.
+               */
+              if (fenceLanguage(children) === "textversion") {
+                return (
+                  <TextVersion>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} components={buildComponents(tabId)}>
+                      {source}
+                    </ReactMarkdown>
+                  </TextVersion>
+                );
+              }
+
               if (fenceLanguage(children) === "figure") {
                 const id = source.match(/^\s*id:\s*([a-z0-9-]+)\s*$/im)?.[1];
                 return id ? (

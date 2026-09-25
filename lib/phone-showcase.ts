@@ -189,8 +189,8 @@ export const X_POST = {
   /** §7.1.1 Pillar 1, evidence lines, cut to post length. */
   body: {
     value:
-      "Kitui Central NG-CDF: unqualified clean audit opinions, 2013–2025 (Auditor-General).\n\nKitui County government accounts over the same period: more than Ksh 2.4 Billion in contested pending bills.\n\nThe difference is not luck. It is method.",
-    source: "§7.1.1 Pillar 1 — Fiscal Integrity, Tier 1 proof point and Tier 1 contrast",
+      "Kitui Central NG-CDF: the Auditor-General's opinion for every year, 2013–2025, published in full.\n\nKitui County: KSh 1.3 billion in pending bills at FY2020/21 (Controller of Budget).\n\nThe record is public. Read it.",
+    source: "§4.4.1 Pillar 1 — the NG-CDF opinions are quoted as each report states them once retrieved; the pending-bills figure is Tier 1 (Annex B.2)",
   } as Sourced<string>,
   mediaLabel: {
     value: "Auditor-General — Kitui Central NG-CDF audit opinions, 2013–2025",
@@ -200,7 +200,7 @@ export const X_POST = {
 
 export const INSTAGRAM = {
   /**
-   * §D.1 specifies "1080x1080 square carousel cards" for social; it does not specify Reels or
+   * §C.1 specifies "1080x1080 square carousel cards" for social; it does not specify Reels or
    * Stories, and a Reel here would only duplicate the TikTok screen. So: a square feed carousel.
    */
   location: "Kitui County",
@@ -261,8 +261,8 @@ export const YOUTUBE = {
   publishedAgo: "2 days ago",
   subscribeLabel: "Subscribe",
   thumbnailKicker: {
-    value: "Zero Auditor-General queries",
-    source: "§8.3.1 Pillar A — core theme",
+    value: "Every audit opinion, year by year",
+    source: "§5.2.1.2 Pillar A — core theme",
   } as Sourced<string>,
 } as const;
 

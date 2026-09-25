@@ -132,9 +132,12 @@ export function SectionHeading({
   // an element with no border width, so it never showed; the width is now set alongside it.
   const phaseBorder = level === 3 && accentColor ? "border-l-2 pl-3" : "";
 
-  // The entrance. h2 wipes open from the left; h3 rises. Both resolve to the finished heading
-  // under reduced motion and in print — see the guards at the end of visual-fx.css.
-  const entrance = inView ? (level === 2 ? "fx-in-wipe" : "fx-in-up") : "fx-preveal";
+  // The entrance (D-17). An h2 opens a new sub-section, so it wipes open from the left like a
+  // rule being drawn; that is the only heading that moves. An h3 is a run-in inside a
+  // sub-section and simply is there: a queue of small headings rising one after another was the
+  // uniform fade-and-rise the audit flagged. Both resolve to the finished heading under reduced
+  // motion and in print — see the guards at the end of visual-fx.css.
+  const entrance = level === 2 ? (inView ? "fx-in-wipe" : "fx-preveal") : "";
 
   return (
     <Tag
@@ -146,9 +149,6 @@ export function SectionHeading({
       style={
         {
           ...(accentColor ? { borderColor: accentColor } : {}),
-          // h3s are dense — a shorter travel and a shorter duration keep a run of five of them
-          // from reading as a queue of things arriving.
-          ...(level === 3 ? ({ "--fx-travel": "6px", "--fx-dur": "340ms" } as React.CSSProperties) : {}),
         } as React.CSSProperties
       }
     >

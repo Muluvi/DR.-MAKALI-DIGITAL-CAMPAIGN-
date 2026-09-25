@@ -1,5 +1,5 @@
-Route,"Registered, 2022",Ballots at 61.7%,"Against 200,000",Basis
-Path A: the Mwingi bloc,200198,123522,-76478,Modelled
-"Path B: Central, South and West",212183,130917,-69083,Modelled
-Path C: the twelve largest wards,201267,124182,-75818,Modelled
-Path D: the home belt (the trap),191811,118347,-81653,Modelled
+Route,Wards,"Registered, 2022","Share of register, %",Ballots at 61.7%,"Against 200,000",At 80% of ballots,Basis
+Path A: the Mwingi bloc,15,200198,37.57766190277762,123522,-76478,98818,Modelled
+"Path B: Central, South and West",15,212183,39.82727617417289,130917,-69083,—,Modelled
+Path C: the twelve largest wards,12,201267,37.77831585823207,124182,-75818,—,Modelled
+Path D: the home belt (the trap),13,191811,36.00340116901107,118347,-81653,94678,Modelled

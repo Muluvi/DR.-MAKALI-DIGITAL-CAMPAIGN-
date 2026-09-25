@@ -54,10 +54,12 @@ id: dpa-compliance
 
 #### What the model scores, and why
 
-The campaign will build a model scoring registered voters in Kitui County on
-two dimensions: likelihood to support Dr. Mulu and likelihood to turn out. This
-moves the campaign from broad messaging to disciplined prioritisation of
-persuasion and mobilisation effort.
+The campaign will build a model scoring Kitui's polling stations and wards on
+two dimensions: likely support for the Wiper ticket and likely turnout. Both are
+estimated from how each station actually voted in 2017 and 2022 (IEBC Forms 37A)
+and from the register, not from asking anyone how they will vote. This moves the
+campaign from broad messaging to disciplined prioritisation of persuasion and
+mobilisation effort, on the official record.
 
 **This entire section is conditional on the compliance gate in Section 5.7.9.**
 No voter-file-based targeting is deployed until a Kenyan data-protection or
@@ -68,16 +70,18 @@ processing is already permissible.
 #### Data sources
 
 * **IEBC Voter Register:** name, gender, age bracket, polling station, ward,
-constituency, historical turnout flags — **subject to lawful access and the
-Section 5.7.9 gate**
-* **KNBS Census and county statistics:** ward-level demographics, education,
-household characteristics, economic activity
+constituency — **subject to lawful access and the Section 5.7.9 gate**. The IEBC
+does not publish individual turnout history, and none is assumed.
+* **KNBS Census and county statistics:** demographics, education, household
+characteristics and economic activity, at the finest unit KNBS publishes (which for
+several measures is the sub-county, not the ward)
 * **Historical results:** ward and polling-station results from 2017 and 2022
-to identify patterns and swing areas
+(IEBC Forms 37A and 37B) — the basis of the support and turnout scores
 * **Campaign first-party data:** interactions with campaign content, WhatsApp
 membership, **SMS/USSD opt-ins**, volunteer sign-ups — all
 consent-based
-* **Field canvass returns** (Section 5.2.3.2)
+* **Field contact log** (Section 5.2.3.2): whether a household was reached, opted in,
+or asked not to be contacted — contactability, never voting intention
 
 **Explicitly excluded:** purchased third-party contact lists, scraped number
 databases, and any inferred psychographic or personality attributes. Vendors
@@ -93,7 +97,7 @@ them. See Section 5.7.8.
 | **Gradient boosting (XGBoost)** | Final ensemble scoring | Highest predictive accuracy at scale |
 | **Propensity score matching** | Volunteer conversion | Estimates causal effect of touchpoints on offline action |
 
-Final output: an ensemble probability score (0–1) for support likelihood and
+Final output: an ensemble score (0–1) per polling station for likely support and
 turnout likelihood.
 
 #### Model variables
@@ -107,11 +111,13 @@ turnout likelihood.
 | `constituency` | Constituency | IEBC register | Categorical | 8 values |
 | `subcounty` | Sub-county | Census | Categorical | 18 values |
 | `polling_station` | Station identifier | IEBC register | String | Unique code |
-| `turnout_2017` | Turned out 2017 | IEBC results | Binary | 0/1 |
-| `turnout_2022` | Turned out 2022 | IEBC results | Binary | 0/1 |
-| `ward_poverty_rate` | Ward poverty headcount | KNBS | Continuous | 0–100 |
-| `ward_literacy_rate` | Adult literacy | KNBS | Continuous | 0–100 |
-| `ward_water_access` | % households, improved water | KNBS | Continuous | 0–100 |
+| `station_turnout_2017` | Polling-station turnout, 2017 | IEBC Forms 37A | Continuous | 0–100 |
+| `station_turnout_2022` | Polling-station turnout, 2022 | IEBC Forms 37A | Continuous | 0–100 |
+| `station_wiper_share_2017` | Wiper governor share at the station, 2017 | IEBC Forms 37A | Continuous | 0–100 |
+| `station_wiper_share_2022` | Wiper governor share at the station, 2022 | IEBC Forms 37A | Continuous | 0–100 |
+| `area_poverty_rate` | Poverty headcount, finest published unit (not ward) | KNBS | Continuous | 0–100 |
+| `area_literacy_rate` | Adult literacy, finest published unit | KNBS | Continuous | 0–100 |
+| `area_water_access` | % households, improved water, finest published unit | KNBS | Continuous | 0–100 |
 | `ward_connectivity_index` | **Internet/mobile use proxy — drives channel selection** | KNBS/CA | Continuous | 0–100 |
 | `population_density` | Persons per km² | Census | Continuous | 9–{{sub.kitui-central.density}} |
 | `household_size` | Average household size | Census | Continuous | 3.6–4.9 |
@@ -119,8 +125,8 @@ turnout likelihood.
 | `sms_optin_status` | **Consented to SMS contact** | Campaign | Binary | 0/1 |
 | `whatsapp_group_member` | Campaign group member | Campaign | Binary | 0/1 |
 | `volunteer_status` | Sign-up status | Campaign | Categorical | None/Inactive/Active |
-| `field_contact_outcome` | **Canvass result (Section 5.2.3.2)** | Field team | Categorical | Support/Undecided/Oppose/No contact |
-| `support_score` | Predicted support (output) | Model | Continuous | 0–1 |
+| `field_contact_outcome` | **Doorstep contact result (Section 5.2.3.2)** | Field team | Categorical | Opted in/Reached, no opt-in/Do not contact/No one home |
+| `support_score` | Predicted Wiper support at the station (output) | Model | Continuous | 0–1 |
 | `turnout_score` | Predicted turnout (output) | Model | Continuous | 0–1 |
 
 **No psychographic, personality, ethnic, clan or religious variable appears in
@@ -132,22 +138,19 @@ reachable digitally or must be reached by SMS, USSD or radio.
 
 | Metric | Target | Frequency |
 |---|---|---|
-| Area under ROC curve (AUC) | ≥ 0.75 for support score | Monthly |
-| Precision at 10% | ≥ 0.80 for top-decile supporters | Monthly |
-| Recall at 10% | ≥ 0.70 for high-turnout voters | Monthly |
-| Lift over random targeting | ≥ 3× at top decile | Monthly |
+| Back-test against 2022 | Scores built on the 2017 record, checked against each station's 2022 result; the error is reported, not pre-set | Once, before first use |
 | Cross-validation stability | Variance < 5% across folds | Quarterly |
-| Field validation match rate | ≥ 85% against ground canvass outcomes | Monthly |
+| Opt-in rate on routed doors | Higher on doors the model routes than on doors it does not | Monthly |
 
 #### Putting the model to work
 
 * **Ad targeting:** scored segments as custom audiences on Meta, Google, TikTok
 * **SMS/USSD segmentation:** priority broadcast lists for high-support,
-low-turnout voters — the single most valuable GOTV segment
-* **Content personalisation:** different messages to persuadable voters,
-strong supporters and low-propensity voters
-* **Volunteer routing:** ground teams directed to highest-persuasion-potential
-households first (Section 5.2.3.2)
+low-turnout polling-station areas — the single most valuable GOTV segment
+* **Content personalisation:** different messages to station areas by their support
+and turnout history
+* **Volunteer routing:** ground teams directed to the highest-potential
+polling-station areas first (Section 5.2.3.2)
 
 #### The compliance gate this depends on
 
@@ -178,6 +181,11 @@ id: tech-stack
 
 #### Component by component, and what each does
 
+```figure
+id: fig-5-2-4-stack
+```
+
+```textversion
 ##### 1. SMS / USSD Telecommunications Gateway
 *   **Tooling Recommendation:** **Africa's Talking API Suite** (or Safaricom Direct Enterprise SDP Gateway).
 *   **Function & Purpose:** Powers the offline communications engine (Section 5.2.3.3). Dispatches targeted, opt-in bulk 2G SMS to registered voters across 40 wards, manages the zero-rated interactive USSD menu (`*[shortcode]#`), and handles inbound field report ingestion from the campaign's ward network (campaign-owned, Section 5.1.3).
@@ -222,6 +230,7 @@ id: tech-stack
 *   **Data Held & Processed:** Public infrastructure records, project GPS coordinates, photo/video documentation, project completion certificates, and public comment/feedback forms.
 *   **DPA 2019 Exposure & Compliance:** **LOW RISK.** Public government and campaign policy data. Feedback forms collect standard consented contact details governed by an explicit privacy policy.
 *   **Procurement Status:** **Awaiting campaign decision** *(Approval of digital design mockups and public domain registration)*.
+```
 
 #### The procurement matrix
 
@@ -269,7 +278,7 @@ To track offline-to-digital and physical engagement, four mechanisms bridge the 
 * **Unique QR codes** on printed materials and at barazas, tracking which content drove physical attendance
 * **SMS keyword short codes** — text a keyword to the campaign shortcode to register support and opt in
 * **USSD completions** as a direct offline-to-digital bridge
-* **Volunteer-reported contact outcomes** recording prior campaign awareness
+* **Volunteer-reported contact outcomes** from the doorstep form (Section 5.2.3.2)
 
 #### Key metrics and benchmarks
 
@@ -309,7 +318,7 @@ Responsibilities:
 * Maintains the data inventory: what is held, lawful basis, retention period,
 who has access
 * Owns the consent audit trail and can produce it on demand within
-**24 hours** — the standard the Section F.6 drill tests
+**24 hours** — the standard the Section E.6 drill tests
 * Owns the deletion schedule and executes it (Section 5.7.8)
 * Is the campaign's standing point of contact for the Section 5.7.9 compliance
 reviewer

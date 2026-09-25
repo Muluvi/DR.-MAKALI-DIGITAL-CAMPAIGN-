@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useCallback, useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
-import { SPRING } from "@/lib/motion";
+import React, { useRef } from "react";
+import { motion, useTransform } from "motion/react";
 import { useReducedMotionSafe } from "@/hooks/use-reduced-motion-safe";
+import { useDeviceTilt } from "@/hooks/use-device-tilt";
 import { BEZEL_BOTTOM, BEZEL_TOP, BODY_H, BODY_W, MAX_ROTATE_X, MAX_ROTATE_Y, PERSPECTIVE, SCREEN_H, SCREEN_W, STATUS_LEDS } from "./device";
 import { Sun, Wifi, BatteryCharging, Shield } from "lucide-react";
 
@@ -53,10 +53,8 @@ export function TerminalFrame({
   const reduce = useReducedMotionSafe();
   const ref = useRef<HTMLDivElement>(null);
 
-  const rawY = useMotionValue(0);
-  const rawX = useMotionValue(0);
-  const rotateY = useSpring(rawY, SPRING.gentle);
-  const rotateX = useSpring(rawX, SPRING.gentle);
+  // Pointer on a desktop, the page's scroll on a touch screen (hooks/use-device-tilt.ts).
+  const { rotateX, rotateY, onPointerMove, onPointerLeave: reset } = useDeviceTilt(ref, { maxX: MAX_ROTATE_X, maxY: MAX_ROTATE_Y });
 
   // Subtle glass reflection tracking rotation
   const sheenX = useTransform(rotateY, [-MAX_ROTATE_Y, MAX_ROTATE_Y], ["15%", "85%"]);
@@ -65,25 +63,6 @@ export function TerminalFrame({
     (x) =>
       `linear-gradient(115deg, transparent 0%, transparent calc(${x} - 28%), rgba(255,255,255,0.08) ${x}, transparent calc(${x} + 28%), transparent 100%)`
   );
-
-  const onPointerMove = useCallback(
-    (e: React.PointerEvent) => {
-      if (reduce || e.pointerType !== "mouse") return;
-      const el = ref.current;
-      if (!el) return;
-      const r = el.getBoundingClientRect();
-      const px = (e.clientX - r.left) / r.width - 0.5;
-      const py = (e.clientY - r.top) / r.height - 0.5;
-      rawY.set(px * MAX_ROTATE_Y * 2);
-      rawX.set(-py * MAX_ROTATE_X * 2);
-    },
-    [reduce, rawX, rawY]
-  );
-
-  const reset = useCallback(() => {
-    rawY.set(0);
-    rawX.set(0);
-  }, [rawX, rawY]);
 
   return (
     <div

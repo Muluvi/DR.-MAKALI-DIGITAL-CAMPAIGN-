@@ -64,13 +64,3 @@ export function targetPosition(b: Benchmark): "above" | "inside" | "below" {
   if (b.target < b.benchmarkFrom) return "below";
   return "inside";
 }
-
-/** The three metrics in §5.2.4.4 that share no axis with the five above. */
-export const UNPLOTTED_BENCHMARKS = [
-  {
-    metric: "Measured preference shift",
-    definition: "Change in published survey share",
-    benchmarkLabel: "—",
-    targetLabel: "Close the deficit to ≤ 5 points by nomination window",
-  },
-];

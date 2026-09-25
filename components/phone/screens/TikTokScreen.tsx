@@ -11,7 +11,7 @@ import { ScreenShell, SlotGap } from "../primitives";
 
 /**
  * TikTok — §2.6's fastest-growing channel among 18–25s, carrying §8.3.1 Pillar D (youth
- * enterprise and TVET) in the vertical format §D.1 specifies.
+ * enterprise and TVET) in the vertical format §C.1 specifies.
  *
  * The "video" is a designed poster frame, not a file: the proposal ships no footage, and a
  * stock clip would be worse than an honest frame. Hashtags and the audio track name are gaps —

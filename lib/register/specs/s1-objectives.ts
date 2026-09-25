@@ -19,6 +19,7 @@ export const FIG_1_1: FigureSpec = {
   sources: [{ name: "Nomination window: a single-source campaign report (Section 2.3)", tier: "T3" }, { name: "General election date: Constitution of Kenya, Article 101", tier: "T1" }],
   chart: {
     type: "timeline",
+    countdown: { date: ELECTION, label: "general election" },
     from: "2026-09-01",
     to: "2027-08-31",
     today: TODAY,
@@ -116,7 +117,7 @@ export const FIG_1_4: FigureSpec = {
     horizontal: true,
     lanes: ["Firefly", "His team"],
     steps: [
-      { lane: "Firefly", when: "Week 1", title: "Analyse", body: "Audits ninety days of his channels against the same window for the three rivals." },
+      { lane: "Firefly", when: "Week 1", title: "Analyse", body: "Audits ninety days of his channels against the same window for the two nomination rivals." },
       { lane: "Firefly", when: "Weeks 2–3", title: "Strategise", body: "Defines what to post, for whom, in which language, on which channel, and why." },
       { lane: "Firefly", when: "Week 4 on", title: "Direct", body: "Issues the weekly brief, approves the calendar, reviews performance. Operates the WhatsApp and USSD line: the only channel it runs directly." },
       { lane: "His team", when: "Week 1", title: "Grants read-only analytics", body: "Insights exports only; no publishing credentials change hands." },
@@ -130,7 +131,7 @@ export const FIG_1_4: FigureSpec = {
     { key: "team", label: "His team" },
   ],
   rows: [
-    { cells: { phase: "Analyse (Week 1)", firefly: "Audits his channels against the three rivals", team: "Grants read-only analytics" } },
+    { cells: { phase: "Analyse (Week 1)", firefly: "Audits his channels against the two nomination rivals", team: "Grants read-only analytics" } },
     { cells: { phase: "Strategise (Weeks 2–3)", firefly: "Defines what to post, for whom, where and why", team: "Keeps publishing" } },
     { cells: { phase: "Direct (Week 4 on)", firefly: "Weekly brief, calendar approval, performance review; operates WhatsApp and USSD", team: "Publishes to the brief" } },
   ],
@@ -143,7 +144,7 @@ export const FIG_1_5: FigureSpec = {
   section: "1.5",
   title: "Every measure of success is observable on his channels or the SMS list, and each baseline is set in Week 1",
   question: "How will success be judged?",
-  takeaway: "The scorecard starts empty by design: the Week 1 export sets each baseline, and no measure is a poll share.",
+  takeaway: "The scorecard starts empty by design: the Week 1 export sets each baseline from his own channels and the SMS list.",
   sources: [{ name: "Baselines: set in Week 1 from his Insights export", tier: null, state: "target" }, { name: "Targets: this proposal", tier: null, state: "target" }],
   chart: {
     type: "gauges",

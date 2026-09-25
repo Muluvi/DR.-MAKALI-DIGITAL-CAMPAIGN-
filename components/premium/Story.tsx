@@ -7,7 +7,9 @@ import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
 import { WARD_TILES } from "../../lib/geo/wards";
 import type { CountyWard } from "../../lib/premium/county";
 import type { SceneTheme } from "../../lib/premium/palette";
-import { FIG_3_1, FIG_3_2, FIG_3_3, FIG_3_4 } from "../../lib/register/specs/s3-analysis";
+import { FIG_3_3 } from "../../lib/register/specs/s3-analysis";
+import { STORY_STEPS } from "../../lib/premium/story";
+import { RegisterFigure } from "../register/Figure";
 import type { SceneDriver } from "./CountyScene";
 import { CountyStatic } from "./CountyStatic";
 
@@ -22,11 +24,14 @@ const CountyScene = dynamic(() => import("./CountyScene"), { ssr: false });
  *   4  where he has held office  Kitui Central in blue, the pool in laterite, and the scene
  *                                ends on the equal-tile map the reader meets again below
  *
- * Every word on a step card is the figure's own title and takeaway (lib/register/specs), so the
- * story adds no claim. The figures themselves follow in the section with their sources, tables
- * and CSVs; each card links to its figure. Rules from the brief: one point per step, the page's
- * own scroll (nothing hijacks its speed), and under reduced motion, without WebGL or without
- * script, the steps are simply shown in order beside the static county, with no pin.
+ * Each step card IS its figure: title, question, chart, takeaway, source with its tier pill, the
+ * table in <details> and the CSV link (brief G-4, "all four figures keep their own titles, sources,
+ * tables and CSVs inside the story steps"). The story adds no words of its own beyond the step
+ * number and the figure's question; where §3.1–§3.4 would have drawn these figures, the section
+ * points back up here (STORY_FIGURES, lib/premium/story.ts), so each id exists once.
+ * Rules from the brief: one point per step, the page's own scroll (nothing hijacks its speed),
+ * and under reduced motion, without WebGL or without script, the steps are simply shown in order
+ * beside the static county, with no pin.
  */
 
 const TOP12 = new Set([...WARD_TILES].sort((a, b) => b.voters - a.voters).slice(0, 12).map((t) => t.id));
@@ -43,7 +48,7 @@ const PATHS =
       }))
     : [];
 
-const STEPS = [FIG_3_1, FIG_3_2, FIG_3_3, FIG_3_4];
+const STEPS = STORY_STEPS;
 const N = STEPS.length;
 
 const clamp = (x: number) => Math.min(1, Math.max(0, x));
@@ -106,11 +111,23 @@ export function Story({ theme }: { theme: SceneTheme }) {
     const el = ref.current;
     if (!el || !pinned) return;
     let frame = 0;
+    // Steps now hold whole figures, so they differ in height: progress is read off the step
+    // elements themselves (which one has crossed the reading line, and how far through it the
+    // reader is), not off the section's height as a whole.
+    const steps = [...el.querySelectorAll<HTMLElement>(".pf-story__step")];
     const read = () => {
       frame = 0;
-      const r = el.getBoundingClientRect();
-      const span = r.height - window.innerHeight;
-      const p = span > 0 ? clamp(-r.top / span) : 0;
+      const line = window.innerHeight * 0.62;
+      let k = 0;
+      let t = 0;
+      steps.forEach((st, i) => {
+        const r = st.getBoundingClientRect();
+        if (r.top < line) {
+          k = i;
+          t = clamp((line - r.top) / Math.max(1, r.height));
+        }
+      });
+      const p = clamp((k + t) / N);
       progress.current = p;
       const s = Math.min(N - 0.0001, p * N);
       setStep(Math.floor(s));
@@ -142,10 +159,8 @@ export function Story({ theme }: { theme: SceneTheme }) {
           <li key={f.id} className="pf-story__step" data-active={pinned && step === i ? "true" : undefined}>
             <div className="pf-story__card">
               <p className="pf-story__n">
-                §{f.section} <span>{f.question}</span>
+                Step {i + 1} of {N} <span>§{f.section}</span>
               </p>
-              <p className="pf-story__title">{f.title}</p>
-              <p className="pf-story__take">{f.takeaway}</p>
               {i === 2 && (
                 <ul className="pf-story__paths">
                   {PATHS.map((p, k) => (
@@ -156,9 +171,7 @@ export function Story({ theme }: { theme: SceneTheme }) {
                   ))}
                 </ul>
               )}
-              <a className="pf-story__link" href={`#${f.id}`}>
-                The figure, with its sources and data
-              </a>
+              <RegisterFigure spec={f} />
             </div>
           </li>
         ))}

@@ -297,8 +297,6 @@ sourced("record.cdf.school-water", 142, "count", "T3", "Kitui Central Project In
 sourced("channel.fb.followers", 15_000, "count", "T3", "Public Facebook page, approximate count as displayed", { note: "Approximate; replaced by the Week 1 export." });
 sourced("channel.fb.posts", 745, "count", "T3", "Public Facebook page, as displayed");
 
-// ---- Annex C: the one poll with a published sample
-sourced("poll.politrack.n", 2_927, "count", "T3", "Politrack Africa, via The County Diary, 12 March 2026");
 
 // ---- segment sizes that are derived rather than measured (Section 4.3)
 modelled("segment.rural.voters", Math.round((v("register.2022") * v("census.rural.share")) / 100 / 1000) * 1000, "voters", "95.2% rural share applied to the 2022 register, rounded. The register is not published by rural/urban split.");

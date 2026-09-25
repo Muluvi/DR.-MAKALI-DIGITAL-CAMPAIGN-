@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from 'next';
 import { Bricolage_Grotesque, Newsreader, JetBrains_Mono } from 'next/font/google';
 import './globals.css'; // Global styles
 import './register.css'; // The figure register's visual system
-import './premium.css'; // The 2026 premium layer: last, so it is the final word
+import './premium.css'; // The 2026 premium layer
+import './chart-kit.css'; // Chart kit v2: the register's marks, after the layer they sit in
 
 // The variable axis, not a pair of static cuts.
 //

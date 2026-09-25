@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { MessageSquare, Phone, Signal, BatteryMedium } from "lucide-react";
 
 import {
@@ -12,6 +12,8 @@ import {
 import { ClaimBadge } from "../markdown/ClaimBadge";
 import { useMotionPreset } from "../../hooks/useMotionPreset";
 import { IllustrativeTag } from "../premium/IllustrativeTag";
+import { TiltStage } from "../premium/TiltStage";
+import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
 
 /**
  * The channel that reaches the other 86.4%, as an object you can operate.
@@ -56,76 +58,78 @@ const STEP_SEQUENCE: { step: Step; hold: number }[] = [
 ];
 
 function Handset({ step, pressed }: { step: Step; pressed: string | null }) {
+  const reduce = useReducedMotionSafe();
   return (
-    <div
-      aria-hidden="true"
-      className="relative mx-auto w-full max-w-[190px] rounded-[22px] border-4 border-line bg-dark shadow-lg overflow-hidden select-none"
-      style={{ background: "#171a1f" }}
-    >
-      {/* Earpiece */}
-      <div className="h-5 flex items-center justify-center">
-        <span className="w-8 h-1 rounded-full" style={{ background: "#31363f" }} />
-      </div>
-
-      {/* The screen. A 2G handset panel: small, greenish, system type, no design language. */}
-      <div
-        className="mx-2.5 rounded-md px-2 py-1.5 font-mono"
-        style={{ background: "#c8d6b9", color: "#12210b", minHeight: 132, fontSize: 8.5, lineHeight: 1.35 }}
-      >
-        <div className="flex items-center justify-between opacity-70" style={{ fontSize: 7 }}>
-          <span className="inline-flex items-center gap-0.5"><Signal size={7} /> 2G</span>
-          <span className="inline-flex items-center gap-0.5"><BatteryMedium size={8} /></span>
+    <TiltStage className="mx-auto w-full max-w-[212px]" radius={28} maxX={4} maxY={9}>
+      <div aria-hidden="true" className="pf-handset select-none">
+        {/* Earpiece */}
+        <div className="h-6 flex items-center justify-center">
+          <span className="pf-handset__ear" />
         </div>
 
-        {step === "dialling" && (
-          <div className="mt-6 text-center">
-            <div className="font-bold">{USSD_SHORTCODE_PLACEHOLDER}</div>
-            <div className="mt-2 opacity-70">Sending…</div>
+        {/* The screen. A 2G handset panel: small, greenish, system type, no design language. It
+            sits under a glass that catches the light; each step crossfades, as the panel redraws. */}
+        <div className="pf-handset__screen font-mono">
+          <div className="flex items-center justify-between opacity-70" style={{ fontSize: 7 }}>
+            <span className="inline-flex items-center gap-0.5"><Signal size={7} /> 2G</span>
+            <span className="inline-flex items-center gap-0.5"><BatteryMedium size={8} /></span>
           </div>
-        )}
 
-        {step === "menu" && (
-          <div className="mt-1.5">
-            <div className="font-bold">{USSD_HEADER}</div>
-            {USSD_MENU.map((o) => (
-              <div key={o.key} className="truncate">
-                {o.key}. {o.kikamba ?? o.english}
-              </div>
-            ))}
-          </div>
-        )}
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={step}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: reduce ? 0 : 0.22, ease: "easeOut" }}
+            >
+              {step === "dialling" && (
+                <div className="mt-6 text-center">
+                  <div className="font-bold">{USSD_SHORTCODE_PLACEHOLDER}</div>
+                  <div className="mt-2 opacity-70">Sending…</div>
+                </div>
+              )}
 
-        {step === "submenu" && (
-          <div className="mt-1.5">
-            <div className="font-bold">{USSD_MENU[0].kikamba}</div>
-            <div className="mt-1 opacity-80">{USSD_MENU[0].english}</div>
-            <div className="mt-2 border-t border-black/20 pt-1 opacity-70">
-              Reply 0 to go back
-            </div>
-          </div>
-        )}
+              {step === "menu" && (
+                <div className="mt-1.5">
+                  <div className="font-bold">{USSD_HEADER}</div>
+                  {USSD_MENU.map((o) => (
+                    <div key={o.key} className="truncate">
+                      {o.key}. {o.kikamba ?? o.english}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {step === "submenu" && (
+                <div className="mt-1.5">
+                  <div className="font-bold">{USSD_MENU[0].kikamba}</div>
+                  <div className="mt-1 opacity-80">{USSD_MENU[0].english}</div>
+                  <div className="mt-2 border-t border-black/20 pt-1 opacity-70">
+                    Reply 0 to go back
+                  </div>
+                </div>
+              )}
+            </motion.div>
+          </AnimatePresence>
+          <span className="pf-handset__glass" />
+        </div>
+
+        {/* Keypad. The pressed key sinks, which is the only thing that moves. */}
+        <div className="grid grid-cols-3 gap-1.5 p-3 pt-3.5">
+          {["1", "2", "3", "4", "5", "6", "7", "8", "9", "*", "0", "#"].map((k) => (
+            <motion.span
+              key={k}
+              className={`pf-handset__key font-mono ${pressed === k ? "is-down" : ""}`}
+              animate={{ scale: pressed === k ? 0.9 : 1 }}
+              transition={{ duration: 0.12 }}
+            >
+              {k}
+            </motion.span>
+          ))}
+        </div>
       </div>
-
-      {/* Keypad. The pressed key lifts, which is the only thing that moves. */}
-      <div className="grid grid-cols-3 gap-1 p-2.5">
-        {["1", "2", "3", "4", "5", "6", "7", "8", "9", "*", "0", "#"].map((k) => (
-          <motion.span
-            key={k}
-            className="rounded-[4px] text-center font-mono"
-            style={{
-              background: pressed === k ? "#4b5568" : "#262b33",
-              color: pressed === k ? "#fff" : "#8b93a1",
-              fontSize: 8,
-              padding: "3px 0",
-            }}
-            animate={{ scale: pressed === k ? 0.9 : 1 }}
-            transition={{ duration: 0.12 }}
-          >
-            {k}
-          </motion.span>
-        ))}
-      </div>
-    </div>
+    </TiltStage>
   );
 }
 

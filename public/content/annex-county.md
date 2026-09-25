@@ -80,14 +80,15 @@ The extensive coal deposits in the Mui Basin, straddling Kitui East and Kitui So
 
 ## B.5 Each rival, and the legal ground to be careful on
 
-The general election field is treated with strict legal caution. To prevent libel or campaign interference charges, all candidate profiles in this proposal rely strictly on official court records, parliamentary reports, or published media. Every adverse claim is explicitly attributed to its source, and no wrongdoing is asserted as settled fact unless confirmed by a court of law:
+The general election field is treated with strict legal caution. To prevent libel or campaign interference charges, every candidate attribute in this proposal rests on an official or documentary record: IEBC declarations and gazetted results, parliamentary records (Hansard and committee membership lists), the Kenya Gazette, the Auditor-General's and Controller of Budget's reports, NG-CDF records, Kenya Law, party nomination records and official biographies. Every adverse claim is explicitly attributed to its source, and no wrongdoing is asserted as settled fact unless confirmed by a court of law. Where the record is not yet in hand, the entry names it and makes no claim in its place:
 
-*   **Dr. Irene Kasalu (Woman Representative):** It is reported in local media that her platform leverages a wide countywide network built through her office (Tier 2).
-*   **Sen. Enoch Wambua (Senator):** Legislative records establish his role in senior Senate committee positions (Tier 1).
+*   **Dr. Irene Kasalu (Woman Representative):** Her 2022 countywide result (Section 2.2) is a media report of the declaration (Tier 2); the IEBC Form 39C declaration is the record to hold. The Auditor-General's reports on the Kitui allocation of the National Government Affirmative Action Fund are the record of her office's stewardship of public money, not yet in hand.
+*   **Sen. Enoch Wambua (Senator):** Legislative records establish his role in Senate committee positions (Tier 1); each committee is to be named from the Senate Hansard and committee membership lists. His 2022 result is Tier 2 until the IEBC Form 38C declaration is in hand.
 *   **Charity Ngilu (Former Governor):** Court records in the 2018 appeal (*Malombe v Ngilu*) confirm her 2017 electoral victory (Tier 1).
-*   **David Musila (Former Senator):** Sourced election declarations confirm his high runner-up voting totals across two cycles (Tier 1).
-*   **Peninah Malonza (Former Cabinet Secretary):** Official records confirm her appointments as Deputy Governor and Cabinet Minister (Tier 1).
-*   **Nicholas Mulila (Corporate Executive):** Sourced business reports note his executive roles at Safaricom PLC (Tier 2).
-*   **Francis Musili Kauta (Activist):** Regional civic profiles document his litigation and advocacy on public land use (Tier 2).
-*   **Julius Malombe (Incumbent Governor):** Official records confirm his administrative oversight of county departments (Tier 1). Sourced legal commentaries treat his 2027 eligibility as an open constitutional question.
+*   **David Musila (Former Senator):** Sourced election declarations confirm his high runner-up voting totals across two cycles (Tier 1). His Senate tenure is to be cited from the Senate record and the Kenya Gazette.
+*   **Peninah Malonza (Former Cabinet Secretary):** Official records confirm her appointments as Deputy Governor and Cabinet Minister (Tier 1); the Kenya Gazette notices are the instruments to cite.
+*   **Nicholas Mulila (Corporate Executive):** His executive roles at Safaricom PLC are reported (Tier 2); the company's published annual reports are the documentary record to cite.
+*   **Francis Musili Kauta (Activist):** His litigation and advocacy on public land use are reported (Tier 2); the judgments themselves, from Kenya Law, are the record to cite.
+*   **Julius Malombe (Incumbent Governor):** Official records confirm his administrative oversight of county departments (Tier 1), and the Auditor-General's and Controller of Budget's reports on the county executive (Section B.2) are the record of his administration. Sourced legal commentaries treat his 2027 eligibility as an open constitutional question; Kenya Law is where a ruling, if one comes, will be read (Section 5.8.15).
+*   **Every 2027 candidacy** in this annex is established only when the party nomination records and the IEBC's gazetted nominations are published.
 

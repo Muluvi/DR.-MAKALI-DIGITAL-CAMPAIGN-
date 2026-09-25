@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { UserCheck, Clock, Camera, Scale, MapPin, Briefcase, CheckCircle2 } from "lucide-react";
+import { UserCheck, Clock, Camera, Scale, MapPin, Briefcase, CheckCircle2, Eye, FileText } from "lucide-react";
 
 import { ClaimBadge } from "./markdown/ClaimBadge";
 
@@ -27,12 +27,14 @@ import { ClaimBadge } from "./markdown/ClaimBadge";
  * campaign-finance content was excised on the client's instruction and this was the last place
  * still asking the campaign to supply it. The other asked for sign-off on "the budget tier",
  * which §5.5.1 calls a scope level precisely because §1.2 puts commercial terms outside this
- * document. Both are corrected against §6.1's seven items.
+ * document. Both are corrected against §6.1, which now lists nine items: read-only analytics access
+ * and the party's 2027 nomination rules are carried here too.
  *
  * The `owner` field is carried here; its register was retired.
  */
 const DEPENDENCIES: { icon: typeof UserCheck; text: string; longLead?: boolean }[] = [
   { icon: UserCheck, text: "One named counterpart with authority to approve content" },
+  { icon: Eye, text: "Read-only analytics access on the existing accounts — Analyst role, no publishing rights" },
   {
     icon: Clock,
     text: "Candidate time: approximately 3 hours per week — one Facebook Live, one voice-note recording session, one interview or content block",
@@ -46,6 +48,7 @@ const DEPENDENCIES: { icon: typeof UserCheck; text: string; longLead?: boolean }
   { icon: MapPin, text: "Current ward-level registration data from the IEBC published file" },
   { icon: Briefcase, text: "Access to the existing NG-CDF project record for verified proof points" },
   { icon: CheckCircle2, text: "Sign-off on the service level so the team can be assembled" },
+  { icon: FileText, text: "Wiper's 2027 nomination rules or NEC resolution, as soon as the party issues them (§2.3.2)" },
 ];
 
 export function DecisionPanel() {
@@ -82,8 +85,8 @@ export function DecisionPanel() {
           </p>
 
           <p className="text-sm text-ink font-semibold leading-relaxed mt-4">
-            The nomination is decided by opinion poll, and the window closes in September 2026.
-            Every dependency below sits on that clock.
+            The Wiper nomination is reported for late October to November 2026, by a party-run
+            countywide selection (Tier 3, Section 2.3). Every dependency below sits on that clock.
           </p>
         </div>
 

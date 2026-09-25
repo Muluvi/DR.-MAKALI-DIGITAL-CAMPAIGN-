@@ -101,7 +101,7 @@ export function OptInConsentPhoneMockup() {
                   SMS: MAKALI-2027
                 </div>
                 <div className="text-[9.5px] leading-tight">
-                  Habari John. Dr. Makali policy update: Kyuso pipeline survey completed. Reply STOP to unsubscribe.
+                  Habari John. Dr. Makali policy update: Kyuso pipeline inspection completed. Reply STOP to unsubscribe.
                 </div>
                 {optedOut ? (
                   <div className="p-1.5 bg-[#12210b]/10 border border-[#12210b]/30 rounded text-[9px] mt-2">

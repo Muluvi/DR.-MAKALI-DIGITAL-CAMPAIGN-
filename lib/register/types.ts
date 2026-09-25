@@ -58,7 +58,7 @@ export type Chart =
   | { type: "slope"; left: string; right: string; lines: { label: string; a: number; b: number; tone?: "accent" | "neutral" }[]; unit: string }
   | { type: "funnel"; stages: { label: string; value: number | null; state: CellState; note?: string; display?: string }[]; toggle?: { label: string; stages: { label: string; value: number | null; state: CellState; note?: string; display?: string }[] }; ref?: Ref }
   | { type: "tilemap"; layers: TileLayerId[]; initial: TileLayerId; showWardList?: boolean }
-  | { type: "timeline"; events: { date: string; end?: string; label: string; state: CellState; note?: string; whenText?: string; reported?: boolean }[]; from: string; to: string; today?: string }
+  | { type: "timeline"; events: { date: string; end?: string; label: string; state: CellState; note?: string; whenText?: string; reported?: boolean }[]; from: string; to: string; today?: string; countdown?: { date: string; label: string } }
   | { type: "steps"; steps: { title: string; body: string; when?: string; lane?: string; current?: boolean }[]; lanes?: string[]; horizontal?: boolean }
   | { type: "cards"; cards: { kicker?: string; title: string; body: string; meta?: string; tone?: "accent" | "outside"; links?: { label: string; href: string }[] }[]; columns?: 2 | 3 | 4 }
   | { type: "matrix"; header: string[]; rows: { head: string; cells: string[] }[]; cards?: boolean }
@@ -73,7 +73,7 @@ export type Chart =
   | { type: "heatmap"; rowLabels: string[]; colLabels: string[]; values: (number | null)[][]; unit: string; state: CellState }
   | { type: "spine"; steps: { label: string; href: string }[]; current?: number }
   | { type: "pareto"; items: { label: string; share: number; top?: boolean; mark?: boolean }[]; cutAt: number; cutLabel: string; markLabel: string; topLabel: string }
-  | { type: "paths"; groups: { title: string; tag?: string; rows: { label: string; segments: Bar[] }[] }[]; ref: Ref; max: number }
+  | { type: "paths"; groups: { title: string; tag?: string; meta?: string; note?: string; rows: { label: string; segments: Bar[] }[] }[]; ref: Ref; max: number }
   | { type: "mock"; header: string; fields: { n: number; label: string; shown: string; issue: string }[] }
   | { type: "calendar"; days: { day: string; pillar: 1 | 2 | 3 | 4 | null; after: string; now: string }[]; pillars: string[] }
   | { type: "stats"; items: { value: string; label: string; state: CellState; countTo?: number }[] }

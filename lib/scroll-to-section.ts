@@ -42,7 +42,7 @@ export function scrollToSectionWhenReady(id: string, behavior: ScrollBehavior = 
     /**
      * Animate a short hop; teleport a long one.
      *
-     * This document is 480,000px tall. A smooth scroll from the executive summary to Annex E is
+     * This document is 480,000px tall. A smooth scroll from the executive summary to Annex D is
      * forty seconds of scenery at the browser's animation rate, during which the reader cannot
      * read anything and every section in between streams in and is thrown away. Past three
      * screens the honest behaviour is to arrive.

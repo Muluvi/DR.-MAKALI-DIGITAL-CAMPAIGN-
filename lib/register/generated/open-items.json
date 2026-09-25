@@ -1,16 +1,6 @@
 [
   {
     "kind": "data",
-    "gap": "Ward-level voter preference",
-    "closes": "Not published",
-    "holder": "No source publishes it",
-    "status": "Open",
-    "where": [
-      "Section 3.10"
-    ]
-  },
-  {
-    "kind": "data",
     "gap": "Historical 2013 Gubernatorial Ward-by-Ward Certified Returns",
     "closes": "Not published",
     "holder": "IEBC",

@@ -10,8 +10,8 @@ import { useEffect } from "react";
  *              on. No class is set, so nothing moves.
  *   Tier 2, draw-in: bars below the fold grow once as they enter view. Reduced motion substitutes
  *              a short fade for the growth rather than dropping the cue (app/register.css).
- *   Cover count-up: the four cover figures count up once, and only when reduced motion is off.
- *              The number in the HTML is the final value, and it is restored exactly at the end.
+ *   Numbers: headline values roll to their place in <Roll> (components/premium/Roll.tsx), and
+ *              bar values count in <CountUp>; both keep the final value in the HTML.
  *
  * No loop, no scroll-jacking; print draws everything at once.
  */
@@ -23,9 +23,9 @@ export function RegisterMotion() {
 
     const root = document.documentElement;
     root.classList.add("motion-ok");
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const figures = [...document.querySelectorAll<HTMLElement>(".rf")];
+    const seen = new WeakSet<HTMLElement>();
+    const figures: HTMLElement[] = [];
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
@@ -37,37 +37,37 @@ export function RegisterMotion() {
       },
       { rootMargin: "0px 0px -10% 0px" },
     );
-    for (const f of figures) {
+    const arm = (f: HTMLElement) => {
+      if (seen.has(f)) return;
+      seen.add(f);
+      figures.push(f);
       // A figure already on screen stays as it is: animating what the reader is looking at would
       // redraw it under their eyes.
-      if (f.getBoundingClientRect().top < window.innerHeight) continue;
+      if (f.getBoundingClientRect().top < window.innerHeight) return;
       f.classList.add("is-pending");
       io.observe(f);
-    }
+    };
+    document.querySelectorAll<HTMLElement>(".rf").forEach(arm);
 
-    const frames: number[] = [];
-    if (!reduce) {
-      for (const el of document.querySelectorAll<HTMLElement>("#fig-cover-map [data-count-to]")) {
-        const final = el.textContent ?? "";
-        const target = Number(el.dataset.countTo);
-        if (!Number.isFinite(target)) continue;
-        el.setAttribute("aria-label", final);
-        const start = performance.now();
-        const tick = (now: number) => {
-          const t = Math.min(1, (now - start) / 900);
-          const eased = 1 - Math.pow(1 - t, 3);
-          el.textContent = t < 1 ? Math.round(target * eased).toLocaleString("en-US") : final;
-          if (t < 1) frames.push(requestAnimationFrame(tick));
-        };
-        frames.push(requestAnimationFrame(tick));
+    // Most sections stream in as the reader approaches them (components/flow/StreamedSection.tsx),
+    // so their figures arrive after this first pass. They are armed as they arrive, on the same
+    // rule: below the fold, pending; anything else, as it is.
+    const mo = new MutationObserver((records) => {
+      for (const r of records) {
+        r.addedNodes.forEach((n) => {
+          if (!(n instanceof HTMLElement)) return;
+          if (n.matches(".rf")) arm(n);
+          n.querySelectorAll<HTMLElement>(".rf").forEach(arm);
+        });
       }
-    }
+    });
+    mo.observe(document.getElementById("content-area") ?? document.body, { childList: true, subtree: true });
 
     const drawAll = () => figures.forEach((f) => f.classList.replace("is-pending", "is-drawn"));
     window.addEventListener("beforeprint", drawAll);
     return () => {
       io.disconnect();
-      frames.forEach(cancelAnimationFrame);
+      mo.disconnect();
       window.removeEventListener("beforeprint", drawAll);
     };
   }, []);

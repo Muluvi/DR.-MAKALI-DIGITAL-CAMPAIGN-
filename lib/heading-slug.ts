@@ -49,7 +49,7 @@ export function headingSlug(text: string): string | null {
 export const SECTIONS = [
   { id: "cover", part: 0, number: "", label: "Cover", blurb: "Prepared for, prepared by, and on what terms" },
   { id: "objectives", part: 1, number: "1", label: "Objectives", blurb: "What this engagement is for, and how success will be judged" },
-  { id: "data", part: 2, number: "2", label: "The Data", blurb: "What the official record shows, graded by source, with no new polling" },
+  { id: "data", part: 2, number: "2", label: "The Data", blurb: "What the official record shows, graded by source" },
   { id: "analysis", part: 3, number: "3", label: "The Analysis", blurb: "The winning number, where it lives, and why he isn't yet reaching it" },
   { id: "strategy", part: 4, number: "4", label: "The Strategy", blurb: "Each choice tied to the finding it answers" },
   { id: "implementation", part: 5, number: "5", label: "Implementation", blurb: "Who owns what, and the fourteen workstreams" },
@@ -61,11 +61,10 @@ export const SECTIONS = [
   { id: "nextsteps", part: 6, number: "6", label: "Next Steps", blurb: "What the campaign provides, and the decision requested" },
   { id: "annex-evidence", part: 7, number: "A", label: "Annex A \u2014 Evidence standard", blurb: "Provenance rules, the three source tiers, and conflict resolution" },
   { id: "annex-county", part: 7, number: "B", label: "Annex B \u2014 County reference", blurb: "The 40-ward register, the audit record, drought, Mui Basin, and the legal ground on each rival" },
-  { id: "annex-polls", part: 7, number: "C", label: "Annex C \u2014 Published polls", blurb: "For reference only. Each round on its own row, with its method limits" },
-  { id: "annex-messages", part: 7, number: "D", label: "Annex D \u2014 Message assignment", blurb: "Message by segment and by channel \u2014 the studio's production reference" },
-  { id: "annex-cadence", part: 7, number: "E", label: "Annex E \u2014 Cadence & escalation", blurb: "The meeting rhythm and the escalation protocol, in full" },
-  { id: "annex-runbooks", part: 7, number: "F", label: "Annex F \u2014 Response runbooks", blurb: "Decision tree, holding positions, security baseline, monitoring tooling" },
-  { id: "annex-terms", part: 7, number: "G", label: "Annex G \u2014 Terms", blurb: "Confidentiality, use, and who this was prepared for" },
+  { id: "annex-messages", part: 7, number: "C", label: "Annex C \u2014 Message assignment", blurb: "Message by segment and by channel \u2014 the studio's production reference" },
+  { id: "annex-cadence", part: 7, number: "D", label: "Annex D \u2014 Cadence & escalation", blurb: "The meeting rhythm and the escalation protocol, in full" },
+  { id: "annex-runbooks", part: 7, number: "E", label: "Annex E \u2014 Response runbooks", blurb: "Decision tree, holding positions, security baseline, monitoring tooling" },
+  { id: "annex-terms", part: 7, number: "F", label: "Annex F \u2014 Terms", blurb: "Confidentiality, use, and who this was prepared for" },
 ] as const;
 
 
@@ -81,7 +80,7 @@ export const PARTS = [
   { part: 4, label: "The Strategy", blurb: "Each choice tied to the finding it answers" },
   { part: 5, label: "Implementation", blurb: "Who does what, when, and how it's checked" },
   { part: 6, label: "Next Steps", blurb: "What the campaign provides, and the decision requested" },
-  { part: 7, label: "Annexes", blurb: "Evidence standard, county reference, polls, and the runbooks" },
+  { part: 7, label: "Annexes", blurb: "Evidence standard, county reference, message assignment and the runbooks" },
 ] as const;
 
 export type PartId = (typeof PARTS)[number]["part"];
