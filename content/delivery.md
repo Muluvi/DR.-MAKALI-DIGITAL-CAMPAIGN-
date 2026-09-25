@@ -181,6 +181,11 @@ original four phases running to the General Election on **10 August 2027**.
 id: fig-5-4-phases
 ```
 
+```figure
+id: fig-5-4-ladder
+```
+
+```textversion
 **How to read the metric tables below.** Rows marked **°** are **operational diagnostics**, not
 performance indicators. Reach, follower and view counts are what the team steers ad delivery and
 creative by, and they are published here so the campaign can see what is being optimised. They are
@@ -189,6 +194,53 @@ dashboards, reporting meetings and vendor performance contracts, and gives the r
 offline population, diaspora-skewed interaction, and no demonstrated link to turnout. Performance
 is judged on the indicators in Section 5.6, every one of which traces either to the nomination
 objectives in Section 1.3 or to the ~{{benchmark}}-vote benchmark. Where a row below is **bold**, it is one of those.
+
+**Phase 1 — October–December 2026 KPIs:**
+
+| Metric | Target |
+|---|---|
+| Combined social reach ° | {{target.reach.phase-1}} |
+| Engaged followers ° | {{target.followers.phase-1}} |
+| **Consented SMS contacts** | **{{target.sms.phase-1b}}** |
+| **USSD unique sessions** | **{{target.ussd.phase-1}}** |
+| **Tracker reports received** | **{{target.tracker.phase-1}}** |
+| Email/SMS subscribers | {{target.subscribers.phase-1}} |
+| Digital volunteer sign-ups | {{target.volunteers.phase-1}} |
+| Facebook engagement rate | ≥ 5% |
+| Earned media items/month | ≥ 8 |
+| Opt-out rate | < 2% |
+
+**Phase 2 — January–March 2027 KPIs:**
+
+| Metric | Target |
+|---|---|
+| Cumulative reach ° | {{target.reach.phase-2}} |
+| Engaged followers ° | {{target.followers.phase-2}} |
+| **Consented SMS contacts** | **{{target.sms.phase-2}}** |
+| **USSD unique sessions** | **{{target.ussd.phase-2}}** |
+| **Tracker reports** | **{{target.tracker.phase-2}}** |
+| Email/SMS subscribers | {{target.subscribers.phase-2}} |
+| Digital volunteer sign-ups | {{target.volunteers.phase-2}} |
+| Positive sentiment | ≥ 50% |
+| Viral content pieces (>100,000 views) ° | ≥ 10 |
+| Red-team response times meeting target | ≥ 90% |
+
+**Phase 3 — April–August 2027 KPIs:**
+
+| Metric | Target |
+|---|---|
+| Cumulative reach ° | {{target.reach.phase-3}} |
+| Engaged followers ° | {{target.followers.phase-3}} |
+| **Consented SMS contacts** | **{{target.sms}}** |
+| **USSD unique sessions** | **{{target.ussd.phase-3}}** |
+| **Tracker reports** | **{{target.tracker.phase-3}}** |
+| Digital pledges to vote | {{target.pledges}} |
+| Positive sentiment | ≥ 80% |
+| Voter registration lift in target wards | ≥ 10% |
+| GOTV contact rate | ≥ 70% |
+| **Contact share of the ~{{benchmark}} win threshold** | **≥ 75%** |
+| Misinformation incidents responded to within severity target | 100% |
+```
 
 ### 5.4.1 Phase 1: Awareness and Community Building — October–December 2026
 
@@ -204,20 +256,7 @@ objectives in Section 1.3 or to the ~{{benchmark}}-vote benchmark. Where a row b
 - Coalition programme: MSME associations, youth groups
 - Analytics maturity Stage 1 complete
 
-**KPIs:**
-
-| Metric | Target |
-|---|---|
-| Combined social reach ° | {{target.reach.phase-1}} |
-| Engaged followers ° | {{target.followers.phase-1}} |
-| **Consented SMS contacts** | **{{target.sms.phase-1b}}** |
-| **USSD unique sessions** | **{{target.ussd.phase-1}}** |
-| **Tracker reports received** | **{{target.tracker.phase-1}}** |
-| Email/SMS subscribers | {{target.subscribers.phase-1}} |
-| Digital volunteer sign-ups | {{target.volunteers.phase-1}} |
-| Facebook engagement rate | ≥ 5% |
-| Earned media items/month | ≥ 8 |
-| Opt-out rate | < 2% |
+**KPIs:** set out, phase by phase, in the target ladder at the head of Section 5.4.
 
 ### 5.4.2 Phase 2: Engagement and Persuasion — January–March 2027
 
@@ -235,20 +274,7 @@ objectives in Section 1.3 or to the ~{{benchmark}}-vote benchmark. Where a row b
 - **Quarterly red-team drill**
 - Analytics maturity Stages 2–3, subject to the compliance gate
 
-**KPIs:**
-
-| Metric | Target |
-|---|---|
-| Cumulative reach ° | {{target.reach.phase-2}} |
-| Engaged followers ° | {{target.followers.phase-2}} |
-| **Consented SMS contacts** | **{{target.sms.phase-2}}** |
-| **USSD unique sessions** | **{{target.ussd.phase-2}}** |
-| **Tracker reports** | **{{target.tracker.phase-2}}** |
-| Email/SMS subscribers | {{target.subscribers.phase-2}} |
-| Digital volunteer sign-ups | {{target.volunteers.phase-2}} |
-| Positive sentiment | ≥ 50% |
-| Viral content pieces (>100,000 views) ° | ≥ 10 |
-| Red-team response times meeting target | ≥ 90% |
+**KPIs:** set out, phase by phase, in the target ladder at the head of Section 5.4.
 
 ### 5.4.3 Phase 3: Mobilisation and GOTV — April–August 2027
 
@@ -264,21 +290,7 @@ objectives in Section 1.3 or to the ~{{benchmark}}-vote benchmark. Where a row b
 - **Full-scale red-team drill at 60 days**
 - Analytics maturity Stage 4
 
-**KPIs:**
-
-| Metric | Target |
-|---|---|
-| Cumulative reach ° | {{target.reach.phase-3}} |
-| Engaged followers ° | {{target.followers.phase-3}} |
-| **Consented SMS contacts** | **{{target.sms}}** |
-| **USSD unique sessions** | **{{target.ussd.phase-3}}** |
-| **Tracker reports** | **{{target.tracker.phase-3}}** |
-| Digital pledges to vote | {{target.pledges}} |
-| Positive sentiment | ≥ 80% |
-| Voter registration lift in target wards | ≥ 10% |
-| GOTV contact rate | ≥ 70% |
-| **Contact share of the ~{{benchmark}} win threshold** | **≥ 75%** |
-| Misinformation incidents responded to within severity target | 100% |
+**KPIs:** set out, phase by phase, in the target ladder at the head of Section 5.4.
 
 ### 5.4.4 Post-election
 
@@ -876,6 +888,7 @@ is handled; Annex E carries the runbooks.
 id: fig-5-8-risk
 ```
 
+```textversion
 **R1 and R2 are the two that change the plan rather than damage it**, and both are resolved by
 measurement rather than by contingency: one by obtaining the party's 2027 nomination rules, the
 other by the Week 1 presence audit. Both resolve inside the first weeks, which is the argument for
@@ -885,6 +898,7 @@ starting there.
 protocol fails on its first collision — and it fails quietly, because a team that is overruled once
 stops raising the objection rather than stopping the behaviour. The override log exists so that
 friction surfaces as evidence instead of as attrition.
+```
 
 ---
 
@@ -1015,13 +1029,14 @@ knowing what opponents say publicly, not surveilling them.
 
 ### 5.8.10 Reading the current field
 
-Dr. Kasalu's strength is built on countywide grassroots touring under a
-branded programme (Section 3.5), and on a certified 2022 result above the
-governor's winning tally. The strategic
-implication is not to replicate her method — the campaign cannot out-tour a
-Woman Representative in the time available — but to **compete on a dimension
-she is not occupying**: verifiable fiscal and delivery competence, distributed
-by channels that reach where touring has not yet reached. Her documented
+Dr. Kasalu's strength, on the record, is a countywide seat and a 2022 result
+above the governor's winning tally (Section 3.5; Tier 2 until the IEBC
+declaration is in hand). The strategic implication is not to compete for the
+same countywide presence — the campaign cannot match a sitting Woman
+Representative's countywide constituency in the time available — but to
+**compete on a dimension she is not occupying**: verifiable fiscal and delivery
+competence, distributed by channels that reach the wards where he has never held
+office. Her documented
 critique of the incumbent's equal-ward allocation model also opens a technical
 policy debate Dr. Mulu is better equipped to win than any candidate in the
 field.

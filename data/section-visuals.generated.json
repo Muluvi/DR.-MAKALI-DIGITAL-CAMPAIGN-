@@ -1,4 +1,56 @@
 {
+ "analysis-sec-3-3": {
+  "id": "analysis-sec-3-3",
+  "tab": "analysis",
+  "level": 2,
+  "number": "3.3",
+  "title": "Four routes to the number",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "Constituency Composition",
+     "body": "Mwingi Central (74,231) + Mwingi North (68,829) + Mwingi West (57,138)."
+    },
+    {
+     "n": 2,
+     "label": "Total Registered Voters",
+     "body": "200,198 voters across 15 wards (37.58% of county total)."
+    },
+    {
+     "n": 3,
+     "label": "Mathematical Proof",
+     "body": ""
+    },
+    {
+     "n": 4,
+     "label": "Total (Mwingi) = 74,231 + 68,829 + 57,138…",
+     "body": "Total (Mwingi) = 74,231 + 68,829 + 57,138 = 200,198 registered voters"
+    },
+    {
+     "n": 5,
+     "label": "Ballots at 61",
+     "body": "Ballots at 61.7% turnout = 200,198 × 0.617 = 123,522"
+    },
+    {
+     "n": 6,
+     "label": "Against the benchmark = 123,522 − 200,000…",
+     "body": "Against the benchmark = 123,522 − 200,000 = −76,478 votes, even at 100% of ballots"
+    },
+    {
+     "n": 7,
+     "label": "Turnout Reality",
+     "body": "Even an unprecedented 80% share of those ballots (98,818 votes) leaves the campaign 101,182 votes short of 200,000."
+    },
+    {
+     "n": 8,
+     "label": "Strategic Implication",
+     "body": "The Mwingi bloc is the largest single reservoir of votes in the county and the campaign cannot win without a decisive margin in…"
+    }
+   ]
+  }
+ },
  "analysis-sec-3-4": {
   "id": "analysis-sec-3-4",
   "tab": "analysis",

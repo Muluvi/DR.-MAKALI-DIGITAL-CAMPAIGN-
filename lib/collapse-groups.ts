@@ -142,6 +142,36 @@ function longestProseRun(body: string[]): number {
   return longest;
 }
 
+/**
+ * A fold hides prose, never a figure. The figures in a folded run (and the text versions that sit
+ * under them) are lifted out to show beneath the lead, in their own order; only the prose folds.
+ * The same compromise as splitBrief: a figure that sat between two folded paragraphs moves above
+ * them, in both modes, and the fold opens beneath it. Nothing is lost; only the order shifts.
+ */
+function liftFigures(rest: string[]): { figures: string[]; prose: string[] } {
+  const figures: string[] = [];
+  const prose: string[] = [];
+  let inFence = false;
+  let lift = false;
+  for (const line of rest) {
+    if (FENCE.test(line)) {
+      if (!inFence) {
+        inFence = true;
+        lift = /^\s*```(?:figure|textversion)\s*$/.test(line);
+        (lift ? figures : prose).push(line);
+        continue;
+      }
+      inFence = false;
+      (lift ? figures : prose).push(line);
+      if (lift) figures.push("");
+      lift = false;
+      continue;
+    }
+    (inFence && lift ? figures : prose).push(line);
+  }
+  return { figures, prose };
+}
+
 /** Everything from the end of the opening paragraph onwards, which is what gets folded. */
 function splitLead(body: string[]): { lead: string[]; rest: string[] } {
   let seenText = false;
@@ -312,9 +342,10 @@ export function segmentContent(markdown: string, { isClosingSection = false } = 
     ) {
       // No sub-headings to fold on, but a long unbroken run of prose. Keep the opening
       // paragraph — the block still has to say what it is — and fold the argument behind it.
-      const { lead, rest } = splitLead(body);
+      const { lead, rest: folded } = splitLead(body);
+      const { figures, prose: rest } = liftFigures(folded);
       if (wordCount(rest) >= MIN_FOLD_HIDDEN) {
-        pending.push(line, ...lead);
+        pending.push(line, ...lead, "", ...figures);
         flush();
         segments.push({ kind: "fold", id: cleanLabel(heading[2]), text: rest.join("\n") });
       } else {

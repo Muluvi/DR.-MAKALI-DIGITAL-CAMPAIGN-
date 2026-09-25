@@ -266,6 +266,13 @@
     "takeaway": "Phase −1 is aimed at a window reported for late October to November; the three general-election phases follow it to 10 August 2027."
   },
   {
+    "id": "fig-5-4-ladder",
+    "section": "5.4",
+    "title": "Three indicators climb through every phase, and every other target belongs to one phase",
+    "question": "What does each phase have to deliver?",
+    "takeaway": "Consented SMS contacts rise from 40,000 in Phase 1 to 120,000 by Phase 3; rows marked ° are operational diagnostics, not performance indicators (Section 5.6.7)."
+  },
+  {
     "id": "fig-5-5-cadence",
     "section": "5.5",
     "title": "He receives a brief every week and a read every month, and the level sets how deep each goes",
@@ -320,6 +327,13 @@
     "title": "Six options on any phone, and the third puts the tracker in reach of a feature phone in Mutha",
     "question": "What does the USSD menu offer?",
     "takeaway": "Dial the shortcode, read the plan, register, report an issue, volunteer or opt in, with no internet and close to no cost."
+  },
+  {
+    "id": "fig-5-2-4-stack",
+    "section": "5.2.4.3",
+    "title": "Five components, and the personal data concentrates in the first two",
+    "question": "What does each component of the stack do, hold and risk?",
+    "takeaway": "The gateway and the CRM carry the high and critical data-protection exposure; the other three work on public or anonymised data, and every one awaits a campaign decision."
   },
   {
     "id": "fig-6-1-dependencies",

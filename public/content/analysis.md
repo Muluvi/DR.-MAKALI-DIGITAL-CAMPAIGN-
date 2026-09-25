@@ -71,6 +71,7 @@ Each route below is a combination of constituencies or wards, measured the same 
 id: fig-3-3-paths
 ```
 
+```textversion
 #### Path A: The Northern Mwingi Triad (The "Mwingi Bloc")
 *   **Constituency Composition:** Mwingi Central (74,231) + Mwingi North (68,829) + Mwingi West (57,138).
 *   **Total Registered Voters:** **200,198 voters** across **15 wards** (**37.58%** of county total).
@@ -108,6 +109,7 @@ id: fig-3-3-paths
     *   `Against the benchmark = 118,347 − 200,000 = −81,653 votes, even at 100% of ballots`
 *   **Turnout Reality:** These 191,811 registered voters cast only **118,347 ballots**. Even if Dr. Mulu captured an unprecedented 80% of all votes cast across this entire home belt (94,678 votes), he would still fall **105,322 votes short** of the 200,000 victory threshold.
 *   **Strategic Conclusion:** **A home-constituency strategy is mathematically impossible.** Dr. Mulu cannot win by simply maximizing margins in Kitui Central, Kitui West, and Kitui Rural. Aggressive outward expansion into Mwingi and Kitui South is an absolute, non-negotiable arithmetic necessity.
+```
 
 ## 3.4 Where he is known and where he isn't
 

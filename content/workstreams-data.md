@@ -181,6 +181,11 @@ id: tech-stack
 
 #### Component by component, and what each does
 
+```figure
+id: fig-5-2-4-stack
+```
+
+```textversion
 ##### 1. SMS / USSD Telecommunications Gateway
 *   **Tooling Recommendation:** **Africa's Talking API Suite** (or Safaricom Direct Enterprise SDP Gateway).
 *   **Function & Purpose:** Powers the offline communications engine (Section 5.2.3.3). Dispatches targeted, opt-in bulk 2G SMS to registered voters across 40 wards, manages the zero-rated interactive USSD menu (`*[shortcode]#`), and handles inbound field report ingestion from the campaign's ward network (campaign-owned, Section 5.1.3).
@@ -225,6 +230,7 @@ id: tech-stack
 *   **Data Held & Processed:** Public infrastructure records, project GPS coordinates, photo/video documentation, project completion certificates, and public comment/feedback forms.
 *   **DPA 2019 Exposure & Compliance:** **LOW RISK.** Public government and campaign policy data. Feedback forms collect standard consented contact details governed by an explicit privacy policy.
 *   **Procurement Status:** **Awaiting campaign decision** *(Approval of digital design mockups and public domain registration)*.
+```
 
 #### The procurement matrix
 

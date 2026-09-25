@@ -8,10 +8,7 @@ Stated plainly, because these are the dependencies that determine delivery:
 id: fig-6-1-dependencies
 ```
 
----
-
-### 6.1.1 What this asks of the campaign
-
+```textversion
 Nine dependencies, set out in full in Section 6.1. Three of them gate everything else:
 
 *   **A named counterpart** with authority to approve content.
@@ -24,6 +21,7 @@ The remaining six: approximately **3 hours** of candidate time per week; daily g
 and video uploads; current ward-level registration data from the IEBC published file; access to
 the existing NG-CDF project record; sign-off on the engagement level; and Wiper's 2027 nomination
 rules or NEC resolution as soon as the party issues them (Section 2.3.2).
+```
 
 ## 6.2 Open items
 

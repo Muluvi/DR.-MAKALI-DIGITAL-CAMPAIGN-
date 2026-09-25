@@ -28,7 +28,6 @@ import { TierComparisonCarousel } from "./charts/TierComparisonCarousel";
 import { FeaturePhoneSpecimen } from "./charts/FeaturePhoneSpecimen";
 import { OfflineWaterline } from "./charts/OfflineWaterline";
 import { VoteFunnel } from "./charts/VoteFunnel";
-import { KpiPhaseBlock } from "./markdown/KpiPhaseBlock";
 import { AsciiDiagram } from "./markdown/AsciiDiagram";
 import { Figure } from "./figures/FigureBoundary";
 import { ReachSplit } from "./ReachSplit";
@@ -338,12 +337,9 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   ),
   "strategy-sec-4-1-6": <SloganBuilder />,
   "workstreams-platforms-sec-5-2-1": <PublicServiceDeliveryTracker />,
-  "delivery-sec-5-4": (
-    <>
-      <PhaseRail />
-      <KpiPhaseBlock />
-    </>
-  ),
+  // The phase KPI chart that sat here is carried by the register's fig-5-4-ladder, which holds
+  // every phase target with its table and CSV (brief §12).
+  "delivery-sec-5-4": <PhaseRail />,
 
   // ---- The repositioning: analyse, strategise, direct ---------------------------------
   // The audit's four figures, the week and the visit loop are drawn by the register

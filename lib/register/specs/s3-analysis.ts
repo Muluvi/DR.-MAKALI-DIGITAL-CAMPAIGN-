@@ -7,6 +7,7 @@ import { WARD_TILES } from "../../geo/wards.ts";
 import type { Bar, FigureSpec } from "../types.ts";
 import { tileColumns, tileRows } from "./s0-cover.ts";
 import { bar, F, fmt, num, src } from "./_util.ts";
+import { WARD_ROWS } from "../../data/figures.ts";
 
 const BENCH = { value: num("benchmark"), label: `${fmt("benchmark")}, the working benchmark (Section 3.1)` };
 const TURNOUT = `${fmt("turnout.constant")}%`;
@@ -88,11 +89,28 @@ export const FIG_3_2: FigureSpec = {
 /* ------------------------------------------------------------------ fig-3-3-paths */
 
 const cons = (...ids: [string, string][]): Bar[] => ids.map(([id, name]) => bar(`con.${id}`, name));
-const PATHS = [
-  { key: "a", title: "Path A: the Mwingi bloc", reg: cons(["mwingi-central", "Mwingi Central"], ["mwingi-north", "Mwingi North"], ["mwingi-west", "Mwingi West"]) },
-  { key: "b", title: "Path B: Central, South and West", reg: cons(["kitui-central", "Kitui Central"], ["kitui-south", "Kitui South"], ["kitui-west", "Kitui West"]) },
-  { key: "c", title: "Path C: the twelve largest wards", reg: [bar("pareto.top12", "12 wards")] },
-  { key: "d", title: "Path D: the home belt", tag: "the trap", reg: cons(["kitui-central", "Kitui Central"], ["kitui-west", "Kitui West"], ["kitui-rural", "Kitui Rural"]) },
+/** Section 3.3's own route details, carried by the figure so the prose can sit behind it (brief §12). */
+const PATHS: { key: string; title: string; tag?: string; wards: number; reg: Bar[]; at80?: boolean; note: string }[] = [
+  {
+    key: "a", title: "Path A: the Mwingi bloc", wards: 15, at80: true,
+    reg: cons(["mwingi-central", "Mwingi Central"], ["mwingi-north", "Mwingi North"], ["mwingi-west", "Mwingi West"]),
+    note: `Even 80% of its ballots leaves him ${fmt("path.a.at80.short")} short. The largest single reservoir of votes in the county: no win without a decisive margin here, and no win on it alone. It is the necessary foundation, paired with Kitui South and the home belt.`,
+  },
+  {
+    key: "b", title: "Path B: Central, South and West", wards: 15,
+    reg: cons(["kitui-central", "Kitui Central"], ["kitui-south", "Kitui South"], ["kitui-west", "Kitui West"]),
+    note: `The home base, the largest southern constituency and the peri-urban west form a contiguous southern and central coalition with more registered voters than the benchmark, yet its ballots fall ${fmt("path.b.margin", "abs")} short even if every one were his. The largest route, and it still needs Mwingi.`,
+  },
+  {
+    key: "c", title: "Path C: the twelve largest wards", wards: 12,
+    reg: WARD_ROWS.slice(0, 12).map((w) => bar(w.id, w.name)),
+    note: "The campaign does not need to contest all 40 wards with equal intensity: these twelve are where the margin is cheapest to build.",
+  },
+  {
+    key: "d", title: "Path D: the home belt", tag: "the trap", wards: 13, at80: true,
+    reg: cons(["kitui-central", "Kitui Central"], ["kitui-west", "Kitui West"], ["kitui-rural", "Kitui Rural"]),
+    note: `Even 80% of all its ballots leaves him ${fmt("path.d.at80.short")} short. A home-constituency strategy is mathematically impossible: expansion into Mwingi and Kitui South is an arithmetic necessity, not a choice.`,
+  },
 ];
 
 export const FIG_3_3: FigureSpec = {
@@ -109,20 +127,37 @@ export const FIG_3_3: FigureSpec = {
     groups: PATHS.map((p) => ({
       title: p.title,
       tag: p.tag,
+      meta: `${p.wards} wards · ${fmt(`path.${p.key}.share`)}% of the register · ${fmt(`path.${p.key}.margin`, "abs")} short even with every ballot`,
+      note: p.note,
       rows: [
         { label: "Registered voters", segments: p.reg },
         { label: `Ballots at ${TURNOUT}, if every one were his`, segments: [bar(`path.${p.key}.ballots`, "Ballots", { tone: p.tag ? "neg" : "neutral" })] },
+        ...(p.at80 ? [{ label: "80% of those ballots", segments: [bar(`path.${p.key}.at80`, "80% of ballots", { tone: "neg" as const })] }] : []),
       ],
     })),
   },
   notes: ["Path D is the trap: a home-constituency strategy cannot reach the number, whatever its margin."],
   columns: [
     { key: "path", label: "Route" },
+    { key: "wards", label: "Wards", numeric: true },
     { key: "registered", label: "Registered, 2022", numeric: true },
+    { key: "share", label: "Share of register, %", numeric: true },
     { key: "ballots", label: `Ballots at ${TURNOUT}`, numeric: true },
     { key: "margin", label: `Against ${fmt("benchmark")}`, numeric: true },
+    { key: "at80", label: "At 80% of ballots", numeric: true },
   ],
-  rows: PATHS.map((p) => ({ cells: { path: `${p.title}${p.tag ? " (the trap)" : ""}`, registered: num(`path.${p.key}.registered`), ballots: num(`path.${p.key}.ballots`), margin: num(`path.${p.key}.margin`) }, state: "modelled" as const })),
+  rows: PATHS.map((p) => ({
+    cells: {
+      path: `${p.title}${p.tag ? " (the trap)" : ""}`,
+      wards: p.wards,
+      registered: num(`path.${p.key}.registered`),
+      share: num(`path.${p.key}.share`),
+      ballots: num(`path.${p.key}.ballots`),
+      margin: num(`path.${p.key}.margin`),
+      at80: p.at80 ? num(`path.${p.key}.at80`) : "—",
+    },
+    state: "modelled" as const,
+  })),
 };
 
 /* ------------------------------------------------------------------ fig-3-4-footprint */

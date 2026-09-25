@@ -525,9 +525,10 @@ none is published before that review.
 *   **Channel:** WhatsApp voice note, SMS, Facebook.
 *   **Format:** 45–60 seconds. One figure. One named place. One verdict: delivered, delayed, or not
     done.
-*   **Why it exists:** no rival can run it. Dr. Mulu is an M&E Champion designated by the Ministry
-    of Finance, and Kitui Central was certified the best evaluated constituency in the Eastern
-    region for FY2014/15 (Section 4.1). This pillar turns that from a line in a CV into a weekly
+*   **Why it exists:** it is built on a qualification his public record carries. Dr. Mulu is an M&E
+    Champion designated by the Ministry of Finance, and Kitui Central was evaluated the best
+    constituency in the Eastern region for FY2014/15 (Section 4.1.1, where the documents to cite are
+    named). This pillar turns that from a line in a CV into a weekly
     habit, and it answers *"who is this man"* with a ward name rather than a qualification.
 
 ### 4.5.2 Pillar 2 — From poverty to wealth creation, one household

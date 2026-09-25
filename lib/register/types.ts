@@ -73,7 +73,7 @@ export type Chart =
   | { type: "heatmap"; rowLabels: string[]; colLabels: string[]; values: (number | null)[][]; unit: string; state: CellState }
   | { type: "spine"; steps: { label: string; href: string }[]; current?: number }
   | { type: "pareto"; items: { label: string; share: number; top?: boolean; mark?: boolean }[]; cutAt: number; cutLabel: string; markLabel: string; topLabel: string }
-  | { type: "paths"; groups: { title: string; tag?: string; rows: { label: string; segments: Bar[] }[] }[]; ref: Ref; max: number }
+  | { type: "paths"; groups: { title: string; tag?: string; meta?: string; note?: string; rows: { label: string; segments: Bar[] }[] }[]; ref: Ref; max: number }
   | { type: "mock"; header: string; fields: { n: number; label: string; shown: string; issue: string }[] }
   | { type: "calendar"; days: { day: string; pillar: 1 | 2 | 3 | 4 | null; after: string; now: string }[]; pillars: string[] }
   | { type: "stats"; items: { value: string; label: string; state: CellState; countTo?: number }[] }

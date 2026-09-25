@@ -773,6 +773,7 @@ function Paths({ uid, chart }: { uid: string; chart: Extract<ChartSpec, { type: 
               {g.title}
               {g.tag && <span className="kx-route__tag">{g.tag}</span>}
             </h6>
+            {g.meta && <p className="kx-route__meta">{g.meta}</p>}
             {g.rows.map((r, ri) => {
               const total = r.segments.reduce((n, s) => n + (s.value ?? 0), 0);
               const ends = runningTotal(r.segments.map((s) => s.value ?? 0));
@@ -810,6 +811,7 @@ function Paths({ uid, chart }: { uid: string; chart: Extract<ChartSpec, { type: 
                 </div>
               );
             })}
+            {g.note && <p className="kx-route__note">{g.note}</p>}
           </section>
         ))}
       </div>
