@@ -2,7 +2,7 @@
 
 Which exported JSON file belongs in which site section. Nothing is copied into the site until this is approved.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-17*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-25*
 
 
 ## Proposed mappings
@@ -11,13 +11,12 @@ Which exported JSON file belongs in which site section. Nothing is copied into t
 |---|---|---|---|
 | `ward-register-2022.json` | §3.4.2 — the 40-ward ranking table | Replaces a hand-maintained table with a provenanced file. | 40 |
 | `register-comparison.json` | §3.4.1 — the number of votes it takes | Adds the 2026 figures the site currently lacks, with verify markers. | 5 |
-| `published-polls-2026.json` | §3.1.5 — the polling gap, as sourced | Adds Politrack, which the site is missing, and margins of error. | 11 |
 | `results-2022-governor.json` | §3.3.6 — electoral history | Carries the Musila conflict as two values, not one. | 5 |
 | `channel-reach.json` | §8.10.1 / §9A.1 — offline reach | Replaces asserted reach figures with a modelled, labelled split. | 4 |
 | `water-and-drought.json` | §3.3.8 — drought and food security | Adds the 21% water figure, the strongest Tier 1 line available. | 6 |
 | `county-finance-2026-27.json` | §3.3.4 — the resource envelope | Updates to the FY2026/27 CFSP figures. | 5 |
 | `issue-evidence.json` | §7 — messaging pillars | Evidence behind each pillar. Labelled as evidence strength, not salience. | 8 |
-| `scenario-benchmarks.json` | §3.4.1 — the path to the threshold | Scenario model only. Must render with its scenario label visible. | 12 |
+| `scenario-benchmarks.json` | §3.4.1 — the path to the threshold | Scenario model only. Must render with its scenario label visible. | 5 |
 
 
 ## Deliberately excluded
@@ -26,7 +25,6 @@ These exist in the pipeline and are **not** exported to the site:
 
 | Excluded | Reason |
 |---|---|
-| Nomination leverage ranking (`nomination_leverage.csv`) | Tells rivals exactly which wards to defend. On the never-publish list. |
 | Holdout assignment (`holdout_assignment.csv`) | Publishing which wards are controls destroys the experiment. |
 | Competitor benchmark (Stage 8) | Rival analysis on a public URL shows what the campaign is watching. |
 | Reported vulnerabilities (pack §6.4) | Never appears in any output. It is opposition-research material about our own candidate. |

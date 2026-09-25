@@ -136,7 +136,7 @@ benchmarks:
       be wrong. The simulation reports benchmark comparisons only.
 
 # ---------------------------------------------------------------------------------------
-# 3. Turnout and support ranges (Stage 3B). All PLACEHOLDER — no ward-level data exists.
+# 3. Turnout and support ranges (Stage 3). All PLACEHOLDER — no ward-level data exists.
 # ---------------------------------------------------------------------------------------
 turnout:
   ward_low:
@@ -170,24 +170,9 @@ turnout:
       central tendency, and a uniform draw does not pretend to one.
 
 support:
-  mulu_ward_low:
-    value: 0.18
-    status: PLACEHOLDER
-    rationale: >-
-      Lower bound of Mulu's per-ward vote share draw. Anchored on his published countywide
-      nomination-poll range (20.2%–26.2%, three polls, Mar–Aug 2026) and widened downward
-      because those polls measure WPF nomination preference, not general-election support,
-      and are countywide, not per ward. This is a scenario input, not a projection.
-  mulu_ward_high:
-    value: 0.32
-    status: PLACEHOLDER
-    rationale: Upper bound. See mulu_ward_low.
-  # Two scenarios, because one range cannot answer both questions the brief asks.
-  # mulu_ward_low/high above describe his CURRENT measured preference, which is a
-  # four-way nomination share. The benchmarks are what a general-election winner took.
-  # Comparing the first against the second guarantees a shortfall and tells the reader
-  # nothing they did not already know. The competitive range below is anchored on what
-  # actually happened in 2022 so the comparison has meaning.
+  # One scenario, anchored on an official result: what the 2022 winner took. Firefly works
+  # from existing records and its own analysis only, so no support range is taken from a
+  # measure of opinion.
   competitive_ward_low:
     value: 0.40
     status: PLACEHOLDER
@@ -229,7 +214,7 @@ support:
       Set to 1.00 deliberately, i.e. no effect. The "Kavaa Makali" narrative is reported to
       be gaining traction in Mwingi [S30], but that is a single T3 outlet with no measured
       support figure. Encoding it as an uplift would convert an anecdote into arithmetic.
-      Left at parity until the baseline survey measures it.
+      Left at parity until an official record (2022 ward results, Forms 37A/37B) shows it.
 
 simulation:
   n_draws:
@@ -252,29 +237,7 @@ rivals:
   ranges: {}
 
 # ---------------------------------------------------------------------------------------
-# 4. Nomination model (Stage 3A)
-# ---------------------------------------------------------------------------------------
-nomination:
-  poll_samples_proportional_to_register:
-    value: true
-    status: PLACEHOLDER
-    rationale: >-
-      UNCONFIRMED. The brief instructs this assumption for the leverage model. WPF has not
-      published the sample frame, and the pack lists the nomination-poll terms as
-      [DATA NEEDED] (gap 9). If the real poll over-samples urban wards, every leverage rank
-      below shifts. Stated on the chart, not just here.
-  method_is_opinion_poll:
-    value: true
-    source_id: S10
-    tier: 3
-    status: PLACEHOLDER
-    verify: true
-    rationale: >-
-      The County Diary, May 2026. T3, not confirmed by the party. The entire nomination
-      strategy rests on this. If WPF runs a delegate primary instead, Stage 3A is void.
-
-# ---------------------------------------------------------------------------------------
-# 5. Ward priority index (Stage 4)
+# 4. Ward priority index (Stage 4)
 # ---------------------------------------------------------------------------------------
 # Weights must sum to 1.0 across features that are actually available. Features with no
 # data are dropped and listed — never imputed — and the remaining weights are renormalised,
@@ -288,12 +251,6 @@ index_weights:
     value: 0.15
     status: PLACEHOLDER
     rationale: Requires the 2026 register by ward. [DATA NEEDED] — currently dropped.
-  recognition_gap:
-    value: 0.25
-    status: PLACEHOLDER
-    rationale: >-
-      Highest weight after voter weight, because the campaign's own diagnosis is that his
-      deficit is a recognition problem. Requires the baseline survey. [DATA NEEDED].
   connectivity:
     value: 0.10
     status: PLACEHOLDER
@@ -308,9 +265,13 @@ index_weights:
       detail is [DATA NEEDED]. A county-wide constant has zero variance across wards and
       so cannot enter a ward ranking — currently dropped.
   party_strength_2022:
-    value: 0.10
+    value: 0.35
     status: PLACEHOLDER
-    rationale: Requires 2022 Forms 37A/37B by ward. [DATA NEEDED] (pack gap 7).
+    rationale: >-
+      Requires 2022 Forms 37A/37B by ward. [DATA NEEDED] (pack gap 7). Carries the 0.25 the
+      retired recognition-gap feature held: that feature needed a voter survey, and Firefly
+      works from existing records only. How a ward actually voted in 2022 is the official
+      record closest to the question it asked.
 
 sensitivity:
   n_weight_draws:
@@ -351,7 +312,7 @@ clustering:
       unstable at this size and segment membership should be read as indicative.
 
 # ---------------------------------------------------------------------------------------
-# 6. Content pillars (Stage 6 labelling, Stage 10 ranking)
+# 5. Content pillars (Stage 6 labelling, Stage 10 ranking)
 # ---------------------------------------------------------------------------------------
 # Derived from the issues the pack evidences, not from the site's messaging section, so that
 # Stage 10 ranks pillars against data rather than against the proposal's own prior.
@@ -359,8 +320,8 @@ content_pillars:
   status: PLACEHOLDER
   rationale: >-
     Pillar set for auto-labelling untagged posts and comments. Each is anchored to a pack
-    figure so Stage 10 can score salience from evidence. Revise once the baseline survey
-    and comment corpus exist.
+    figure so Stage 10 can score salience from evidence. Revise once the comment corpus
+    exists.
   values:
     - id: water
       label: Water and drought
@@ -416,7 +377,7 @@ labelling:
       Kikamba and their output on it must not be trusted.
 
 # ---------------------------------------------------------------------------------------
-# 7. Reach model (Stage 9). Every figure derived here is MODELLED.
+# 6. Reach model (Stage 9). Every figure derived here is MODELLED.
 # ---------------------------------------------------------------------------------------
 reach:
   county_internet_use:
@@ -523,7 +484,7 @@ reach:
       county rate applied to a ward denominator, and the report says exactly that.
 
 # ---------------------------------------------------------------------------------------
-# 8. Messaging compliance (binds Stages 9-11)
+# 7. Messaging compliance (binds Stages 9-11)
 # ---------------------------------------------------------------------------------------
 compliance:
   bulk_sms_languages:
@@ -559,13 +520,13 @@ compliance:
       Project records remain usable as proof points.
 
 # ---------------------------------------------------------------------------------------
-# 9. Measurement design (Stage 11)
+# 8. Measurement design (Stage 11)
 # ---------------------------------------------------------------------------------------
 measurement:
   alpha:
     value: 0.05
     status: CONFIRMED
-    rationale: Two-sided 95% confidence, matching the poll margins in Stage 2.
+    rationale: Two-sided 95% confidence, the conventional level for the minimum detectable effect.
   power:
     value: 0.80
     status: CONFIRMED
@@ -594,7 +555,7 @@ measurement:
       own team know which wards are controls, the experiment is dead.
 
 # ---------------------------------------------------------------------------------------
-# 10. Site export (Stage 12)
+# 9. Site export (Stage 12)
 # ---------------------------------------------------------------------------------------
 site_export:
   never_publish:
@@ -602,8 +563,8 @@ site_export:
     status: CONFIRMED
     rationale: >-
       Stripped before any copy to the site's content folder. The repo is public and the site
-      is a public URL. Nomination leverage rankings tell rivals where to defend; holdout
-      assignments destroy the experiment; rival analysis and vulnerability lines are
+      is a public URL. Nomination leverage (no longer produced) stays blocked in case an old
+      export resurfaces; holdout assignments destroy the experiment; rival analysis and vulnerability lines are
       internal working material.
   requires_approval:
     value: true

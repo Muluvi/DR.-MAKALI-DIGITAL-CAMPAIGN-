@@ -2,7 +2,7 @@
 
 What the data says Kitui's issues are, and what is still needed to turn that into a content plan.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-17*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-25*
 
 ![Issues ranked by the strength of public evidence](../outputs/charts/10_issue_evidence.svg)
 
@@ -11,9 +11,9 @@ What the data says Kitui's issues are, and what is still needed to turn that int
 
 ## The matrix is half-built, and the missing half matters
 
-The brief asks for issues plotted on two axes: local salience, and Mulu's credibility on each. The first axis has hard public indicators. The second has none — it comes from a survey that has not been run or a team score that has not been given.
+The brief asks for issues plotted on two axes: local salience, and Mulu's credibility on each. The first axis has hard public indicators. The second has none: no public record measures it, and Firefly commissions no survey to create one. It can only be a team score, which has not been given.
 
-**No two-axis chart is produced, deliberately.** Placing eight issues on a credibility axis with no credibility data would mean inventing the y-coordinate for every point, and a scatter plot makes invented numbers look measured. The salience axis is delivered below as an evidence inventory; the matrix follows the survey.
+**No two-axis chart is produced, deliberately.** Placing eight issues on a credibility axis with no credibility data would mean inventing the y-coordinate for every point, and a scatter plot makes invented numbers look measured. The salience axis is delivered below as an evidence inventory; the matrix follows a team credibility score, if one is given, labelled as a judgement.
 
 The ranking below is also **not measured salience**. It ranks the strength of the public evidence: source tier, whether the indicator is quantified, and whether it is county-wide or localised. Water ranks first because Kitui is the worst county in Kenya on a T1 measure, not because anyone has asked Kitui voters what they care about.
 
@@ -55,7 +55,7 @@ NG-CDF project record and Budget & Appropriations service. [S20, T3, 2026]
 
 ## What the top three mean for content
 
-- **Water is the strongest available argument.** Being the worst county in Kenya on a Tier 1 measure is a rare thing to be able to say with a citation. It is county-wide, it is current, and it needs no survey to justify.
+- **Water is the strongest available argument.** Being the worst county in Kenya on a Tier 1 measure is a rare thing to be able to say with a citation. It is county-wide, it is current, and it needs nothing beyond the official record to justify.
 - **Poverty anchors the existing cover line.** The profile already carries "From Poverty to Wealth Creation"; 55.2% in poverty and 72.5% of spending going on food give that line evidence instead of sentiment.
 - **Allocation is the sharpest point of difference, and the campaign is not yet ready for it.** The leading rival attacks equal-ward CLIDP as entrenching inequality. The site's own §7.1.1 proposes an equal-ward guarantee, which is the same policy. Those two positions cannot both be run, and this stage cannot resolve it — it is a policy decision, flagged here because the content plan depends on it.
 
@@ -68,8 +68,7 @@ NG-CDF project record and Budget & Appropriations service. [S20, T3, 2026]
 
 ## Data gaps
 
-- **[DATA NEEDED]** The baseline survey's issue-salience and credibility questions — both axes of the matrix depend on it, and the credibility axis has no public substitute.
 - **[DATA NEEDED]** Stage 7's coded comment themes, which give a second, behavioural read on salience.
-- **[DATA NEEDED]** A team credibility score per issue, if the survey is delayed. It is an opinion and the chart would label it as one, but it would let the matrix exist.
+- **[DATA NEEDED]** A team credibility score per issue. It is an opinion and the chart would label it as one, but it would let the matrix exist. The credibility axis has no public record.
 - **[DATA NEEDED]** Which wards the Mui concession blocks cover, before any ward-targeted coal content.
 - **[DATA NEEDED]** Kitui's rows in the KNBS Poverty Report 2022 and Gross County Product 2024 (pack gap 12), which would update the 2021 poverty figure.

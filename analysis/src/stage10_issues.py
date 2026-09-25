@@ -1,8 +1,8 @@
 """Stage 10 — issue salience and credibility.
 
 The matrix has two axes. Only one can be built from public data: salience has hard
-indicators in the pack, credibility comes from a survey or a team score and neither
-exists. A two-axis chart with one invented axis would be worse than no chart, so this
+indicators in the pack, while credibility has no public record and could only come from a
+team score, which does not exist. Firefly commissions no survey to fill it. A two-axis chart with one invented axis would be worse than no chart, so this
 stage delivers the salience axis as an evidence inventory and says what the matrix needs.
 """
 from __future__ import annotations
@@ -84,8 +84,7 @@ def build() -> pd.DataFrame:
     reach_score = df["reach"].str.startswith("county-wide").map({True: 1.0, False: 0.4})
     df["evidence_strength"] = (tier_score * 0.4 + quantified * 0.25 + reach_score * 0.35).round(3)
     df["comment_share_pct"] = np.nan      # Stage 7 fills this
-    df["survey_salience_pct"] = np.nan    # baseline_survey fills this
-    df["credibility_score"] = np.nan      # survey or team score fills this
+    df["credibility_score"] = np.nan      # a team score fills this, labelled as a judgement
     return df.sort_values("evidence_strength", ascending=False).reset_index(drop=True)
 
 
@@ -112,7 +111,8 @@ def chart_evidence(df: pd.DataFrame) -> str:
         fig, "10_issue_evidence.svg",
         "This ranks how strong the PUBLIC EVIDENCE is for each issue — source tier, whether the "
         "indicator is quantified, and whether it reaches the whole county. It is not a measure "
-        "of what voters care about. That needs the baseline survey and the comment corpus.",
+        "of what voters care about. What voters raise unprompted comes from the comment corpus "
+        "(Stage 7).",
     )
 
 
@@ -132,14 +132,16 @@ def run() -> dict:
     rep.h2("The matrix is half-built, and the missing half matters")
     rep.p(
         "The brief asks for issues plotted on two axes: local salience, and Mulu's credibility on "
-        "each. The first axis has hard public indicators. The second has none — it comes from a "
-        "survey that has not been run or a team score that has not been given."
+        "each. The first axis has hard public indicators. The second has none: no public record "
+        "measures it, and Firefly commissions no survey to create one. It can only be a team "
+        "score, which has not been given."
     )
     rep.p(
         "**No two-axis chart is produced, deliberately.** Placing eight issues on a credibility "
         "axis with no credibility data would mean inventing the y-coordinate for every point, and "
         "a scatter plot makes invented numbers look measured. The salience axis is delivered "
-        "below as an evidence inventory; the matrix follows the survey."
+        "below as an evidence inventory; the matrix follows a team credibility score, if one is "
+        "given, labelled as a judgement."
     )
     rep.p(
         "The ranking below is also **not measured salience**. It ranks the strength of the public "
@@ -162,7 +164,7 @@ def run() -> dict:
     rep.bullets([
         "**Water is the strongest available argument.** Being the worst county in Kenya on a "
         "Tier 1 measure is a rare thing to be able to say with a citation. It is county-wide, it "
-        "is current, and it needs no survey to justify.",
+        "is current, and it needs nothing beyond the official record to justify.",
         "**Poverty anchors the existing cover line.** The profile already carries \"From Poverty "
         "to Wealth Creation\"; 55.2% in poverty and 72.5% of spending going on food give that "
         "line evidence instead of sentiment.",
@@ -183,11 +185,9 @@ def run() -> dict:
     ])
 
     rep.gaps([
-        "The baseline survey's issue-salience and credibility questions — both axes of the "
-        "matrix depend on it, and the credibility axis has no public substitute.",
         "Stage 7's coded comment themes, which give a second, behavioural read on salience.",
-        "A team credibility score per issue, if the survey is delayed. It is an opinion and the "
-        "chart would label it as one, but it would let the matrix exist.",
+        "A team credibility score per issue. It is an opinion and the chart would label it as "
+        "one, but it would let the matrix exist. The credibility axis has no public record.",
         "Which wards the Mui concession blocks cover, before any ward-targeted coal content.",
         "Kitui's rows in the KNBS Poverty Report 2022 and Gross County Product 2024 (pack gap "
         "12), which would update the 2021 poverty figure.",

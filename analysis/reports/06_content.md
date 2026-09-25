@@ -2,7 +2,7 @@
 
 What his existing posting actually achieves, by pillar, format, language and timing.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-17*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-25*
 
 
 ## No data yet
@@ -15,7 +15,7 @@ What his existing posting actually achieves, by pillar, format, language and tim
 - The Facebook account shows **~15,000 followers and 745 posts** as at 16 Sep 2026. Both are read off a screenshot, so both carry status verify.
 - It appears to be a **personal profile in professional mode**, not a Page, because a friends list is visible. This decides which analytics exist at all and must be confirmed first — a personal profile has no Professional Dashboard export.
 - The posting pattern is described as **daily activity updates with no pillars, targeting or stated rationale**. That is the gap this stage measures.
-- Six profile hygiene issues are already identified and need no analysis to fix: the MP start date given as Aug 2012 against a Parliament record of 2013, "Programmer Officer" for Programme Officer, a garbled "Forms of government" employer entry, Nairobi shown as current city for a county aspirant, "Incoming Governor" presuming a party poll that has not happened, and the PhD missing from a profile whose whole positioning is the Economist Governor.
+- Six profile hygiene issues are already identified and need no analysis to fix: the MP start date given as Aug 2012 against a Parliament record of 2013, "Programmer Officer" for Programme Officer, a garbled "Forms of government" employer entry, Nairobi shown as current city for a county aspirant, "Incoming Governor" presuming a nomination that has not happened, and the PhD missing from a profile whose whole positioning is the Economist Governor.
 
 
 ## What this stage will produce

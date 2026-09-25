@@ -213,7 +213,7 @@ def test_findings_and_mapping_exist_and_list_exclusions():
     assert "How to get it" in findings
     # And it must be honest about what research cannot supply.
     assert "only the party can confirm" in findings.lower()
-    for excluded in ("Nomination leverage", "Holdout assignment", "Competitor benchmark"):
+    for excluded in ("Holdout assignment", "Competitor benchmark"):
         assert excluded in mapping, f"{excluded} must be listed as excluded"
 
 
@@ -228,5 +228,5 @@ def test_no_personal_data_appears_in_any_output():
                 continue
             text = path.read_text(encoding="utf-8", errors="ignore")
             for hit in patterns.findall(text):
-                assert hit in allowed or hit.startswith("@Mizani") or hit.startswith("@MakaliMulu"), (
+                assert hit in allowed or hit.startswith("@MakaliMulu"), (
                     f"possible personal data in {path.name}: {hit}")

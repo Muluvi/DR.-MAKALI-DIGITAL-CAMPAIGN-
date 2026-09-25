@@ -99,35 +99,6 @@ TEMPLATES: tuple[Template, ...] = (
         ),
     ),
     Template(
-        name="baseline_survey",
-        purpose="Ward-level survey aggregates: recognition, favourability, issue salience.",
-        stage="Stages 4, 10",
-        columns=(
-            Column("ward", "Ward name. Stage 1 normalises spelling on join."),
-            Column("constituency", "Constituency name."),
-            Column("n_respondents", "Integer. Printed beside every figure derived from this row."),
-            Column("aided_recognition_pct", "% who recognise Mulu from a prompted list."),
-            Column("unaided_recognition_pct", "% who name him spontaneously."),
-            Column("favourability_pct", "% favourable among those who recognise him."),
-            Column("vote_intention_pct", "% stating an intention to vote for him."),
-            Column("top_issue_1", "Most-cited issue. Use a pillar id from assumptions.yaml."),
-            Column("top_issue_2", "Second most-cited issue."),
-            Column("credibility_mulu_water", "0-10 score: his credibility on water."),
-            Column("credibility_mulu_poverty", "0-10 score: household economics."),
-            Column("credibility_mulu_fiscal", "0-10 score: county finance."),
-            Column("fieldwork_start", "ISO date."),
-            Column("fieldwork_end", "ISO date."),
-        ),
-        notes=(
-            "WARD-LEVEL AGGREGATES ONLY. Never supply respondent-level rows. No names, phone "
-            "numbers, ages or GPS points. This is a hard rule under the Data Protection Act 2019.",
-            "A ward with fewer than ~30 respondents should be reported as indicative only; "
-            "Stage 4 prints n beside every ward score.",
-            "This file unlocks the recognition-gap feature, which carries the second-highest "
-            "weight in the Stage 4 index. Without it that feature is dropped, not estimated.",
-        ),
-    ),
-    Template(
         name="register_2026_by_ward",
         purpose="The post-ECVR 2026 register, by ward — the IEBC annex figure.",
         stage="Stages 1, 3, 4",
@@ -206,13 +177,13 @@ TEMPLATES: tuple[Template, ...] = (
             Column("indicator_source_id", "S-number."),
             Column("indicator_tier", "1, 2 or 3."),
             Column("comment_share_pct", "% of coded comments on this theme. From Stage 7."),
-            Column("survey_salience_pct", "% naming it a top issue. From baseline_survey."),
             Column("credibility_score", "0-10, Mulu's credibility on this issue."),
-            Column("credibility_source", "survey | team — say which. A team score is a judgement."),
+            Column("credibility_source", "team — a team score is a judgement, and is labelled as one."),
         ),
         notes=(
             "Stage 10 fills indicator columns from the pack automatically. The credibility axis "
-            "cannot be derived from public data and must come from the survey or a team score.",
+            "has no public record behind it: it is a team score or nothing. Firefly commissions "
+            "no survey to fill it.",
             "A team score is an opinion. Stage 10 labels it as such on the chart.",
         ),
     ),

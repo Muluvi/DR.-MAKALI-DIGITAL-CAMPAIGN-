@@ -19,7 +19,6 @@ def _read(name: str) -> pd.DataFrame | None:
 def build_charts() -> list[Chart]:
     charts: list[Chart] = []
     wards = _read("wards")
-    polls = _read("polls")
     results = _read("results_2022")
     finance = _read("county_finance")
     drought = _read("drought")
@@ -72,38 +71,6 @@ def build_charts() -> list[Chart]:
             "198,004 in 2022.",
         ],
     ))
-
-    # 3. Polls ---------------------------------------------------------------------------
-    if polls is not None:
-        from src import polls as pollmath
-        vals: list[Value] = []
-        for r in polls[polls["polled"]].itertuples():
-            n = None if pd.isna(r.sample_size) else int(r.sample_size)
-            moe = pollmath.share_moe(r.share_pct, n) if n else None
-            vals.append(Value(
-                f"{r.pollster} · {r.release_date} · {r.candidate}", float(r.share_pct), "%",
-                str(r.source_id), int(r.tier), str(r.as_of), OFFICIAL, VERIFY,
-                note=(f"n = {n:,}, 95% MoE ±{moe:.2f} pts" if n
-                      else "Sample size not published — margin of error unknown"),
-            ))
-        charts.append(Chart(
-            id="published-polls-2026",
-            title="Published governor polls, 2026",
-            description="Three published rounds from two pollsters. Politrack and Mizani use "
-                        "different methods and are never joined into one trend line.",
-            chart_type="grouped-error-bar",
-            values=vals,
-            notes=[
-                "Mizani's June round excluded Ngilu; the August round included her at 17.0%. "
-                "The two are not like-for-like.",
-                "Politrack reports 0.6% undecided, Mizani 6.0% — a tenfold difference that "
-                "points to different instruments.",
-                "Neither Mizani round published a sample size, so the June-to-August change "
-                "cannot be tested for significance.",
-                "Every poll reaches this pipeline through a T3 outlet or a social post, so all "
-                "carry status verify.",
-            ],
-        ))
 
     # 4. 2022 results --------------------------------------------------------------------
     if results is not None:
@@ -226,34 +193,32 @@ def build_charts() -> list[Chart]:
             ) for r in issues.itertuples()],
             notes=["Ranks evidence strength: source tier, whether the indicator is quantified, "
                    "and whether it is county-wide or localised.",
-                   "This is NOT measured salience. Measuring what voters care about needs the "
-                   "baseline survey, which has not been run."],
+                   "This is NOT measured salience. It ranks the strength of the official record "
+                   "for each issue, not what voters say they care about."],
         ))
 
     # 9. Simulation benchmarks -----------------------------------------------------------
     if wards is not None:
-        from src.stage03_simulation import SCENARIOS, _support_range
+        from src.stage03_simulation import SCENARIO, _support_range
         scale = float(config.value("register.y2026_uniform_scale_factor"))
         wards_2026 = wards.assign(
             registered_voters_2026_scaled=wards["registered_voters_2022"] * scale)
         vals = []
-        # Only the competitive scenario is published. The "current" scenario is anchored on
-        # nomination-poll shares, and the rebuild brief keeps polls out of every model the site
-        # shows (non-negotiable 1). Share-of-draws rows are dropped for the same reason a
-        # win probability is: they read as one.
-        for key in ("competitive",):
-            res = sim.simulate(wards_2026, register_col="registered_voters_2026_scaled",
-                               support_range=_support_range(key))
-            s = res.summary()
-            label = SCENARIOS[key]["label"]
-            vals += [
-                Value(f"{label} — median", int(s["median"]), "votes", "S1", 1, "2026-09",
-                      MODELLED, PLACEHOLDER, note=SCENARIOS[key]["gloss"]),
-                Value(f"{label} — 5th percentile", int(s["p5"]), "votes", "S1", 1, "2026-09",
-                      MODELLED, PLACEHOLDER),
-                Value(f"{label} — 95th percentile", int(s["p95"]), "votes", "S1", 1, "2026-09",
-                      MODELLED, PLACEHOLDER),
-            ]
+        # The competitive scenario is the only one: it is anchored on the 2022 result, an
+        # official record. Share-of-draws rows are dropped for the same reason a win
+        # probability is: they read as one.
+        res = sim.simulate(wards_2026, register_col="registered_voters_2026_scaled",
+                           support_range=_support_range())
+        s = res.summary()
+        label = SCENARIO["label"]
+        vals += [
+            Value(f"{label} — median", int(s["median"]), "votes", "S1", 1, "2026-09",
+                  MODELLED, PLACEHOLDER, note=SCENARIO["gloss"]),
+            Value(f"{label} — 5th percentile", int(s["p5"]), "votes", "S1", 1, "2026-09",
+                  MODELLED, PLACEHOLDER),
+            Value(f"{label} — 95th percentile", int(s["p95"]), "votes", "S1", 1, "2026-09",
+                  MODELLED, PLACEHOLDER),
+        ]
         vals.append(Value("2022 winning tally", 198004, "votes", "S11", 2, "2022-08",
                           OFFICIAL, CONFIRMED,
                           note="What the proposal measures against — set on a register 13.7% smaller."))
@@ -285,23 +250,15 @@ def write_findings(charts: list[Chart]) -> str:
 
     rep = report.Report(
         "findings.md", "Findings",
-        "The ten things this analysis establishes, what every one of them rests on, and what "
+        "The things this analysis establishes, what every one of them rests on, and what "
         "is still missing.",
     )
-    rep.h2("The ten findings")
-
     reg22 = int(config.value("register.y2022"))
     reg26 = int(config.value("register.y2026_july"))
     bench26 = reg26 * float(config.value("benchmarks.winner_share_of_register_2022"))
     tally22 = int(config.value("benchmarks.winning_tally_2022"))
 
     items = [
-        ("The 'widening deficit' cannot be substantiated.",
-         "The site reads 11.1 to 15.3 points as a trend. Neither Mizani round published a "
-         "sample size, so the change returns cannot determine. June also excluded Ngilu while "
-         "August included her at 17.0%, so part of the movement is a changed field rather than "
-         "changed opinion. The deficit is real in each round; its direction is not measurable.",
-         "Stage 2"),
         ("The SMS layer is half the size the proposal assumes.",
          f"On the confirmed 2023/24 rates, {int(reach['sms_only'].sum()):,} voters own a phone "
          "but no data, against 177,473 on the 2019 rates the proposal was built on. Phone "
@@ -316,12 +273,6 @@ def write_findings(charts: list[Chart]) -> str:
          f"register is about {bench26:,.0f} votes, against the {tally22:,} the proposal "
          "measures everything against. Every target built on ~200,000 is set too low.",
          "Stage 3"),
-        ("Only one of the three published polls can be tested, and its gap is real.",
-         "Politrack (12 March 2026, n = 2,927) is the sole poll with a published sample size. "
-         "At that n its 9.0-point gap carries a margin of ±2.82 points and clears zero "
-         "comfortably. Neither Mizani round published n, so nothing about their movement can be "
-         "established.",
-         "Stage 2"),
         ("The digital ceiling is roughly one voter in four, not one in seven.",
          f"{int(reach['digital'].sum()):,} voters are reachable by smartphone or data on "
          "current rates. That is the second-largest of the three segments. It does not make the "
@@ -362,6 +313,8 @@ def write_findings(charts: list[Chart]) -> str:
          "Stage 9"),
     ]
 
+    count = ("one two three four five six seven eight nine ten eleven twelve".split())[len(items) - 1]
+    rep.h2(f"The {count} findings")
     for i, (headline, evidence, stage) in enumerate(items, 1):
         rep.raw(f"**{i}. {headline}**  \n{evidence}  \n*Source: {stage}.*")
 
@@ -373,8 +326,10 @@ def write_findings(charts: list[Chart]) -> str:
     rep.table(pd.DataFrame([
         {"Finding": "The party name was wrong on the site",
          "How it closed": "Corrected to Wiper Patriotic Front throughout"},
-        {"Finding": "Politrack was missing from the site",
-         "How it closed": "Added alongside Mizani, on a separate series"},
+        {"Finding": "Opinion polls appeared on the site",
+         "How it closed": "Removed with Annex C, September 2026: Firefly works from existing "
+                          "records and its own analysis only, and the site build now refuses "
+                          "any poll"},
         {"Finding": "The 2026 register was unverified",
          "How it closed": "Confirmed against the IEBC annex: 605,703, Tier 1"},
         {"Finding": "The two 2026 register figures 'did not reconcile'",
@@ -412,61 +367,57 @@ def write_findings(charts: list[Chart]) -> str:
 
     rep.h2("What to collect next, in order")
     rep.p(
-        "Ranked by what each unlocks against how hard it is to get. The first three are the "
-        "ones worth chasing; below those, the return falls off sharply."
+        "Ranked by what each unlocks against how hard it is to get. Every item is an existing "
+        "record or the campaign's own data; nothing on this list is new research. The first "
+        "three are the ones worth chasing; below those, the return falls off sharply."
     )
     gaps = [
-        ("1", "Baseline survey — ward aggregates",
-         "Recognition gap (the highest-weighted feature in the ward index) AND the entire "
-         "credibility axis of the issue matrix. Two stages, no substitute.",
-         "Commission it. Ward-level aggregates only — never respondent rows.",
-         "Stages 4, 10"),
-        ("2", "posts.csv — 90 days of public posts",
+        ("1", "posts.csv — 90 days of public posts",
          "The whole Existing Presence Audit: engagement by pillar, format and language, the "
          "day-and-hour heatmap, cadence, and what actually drives engagement.",
          "Manual log from the public page, or a Professional Dashboard export if the account "
          "is a Page. Confirm which it is first — a personal profile has no export. Over ~300 "
          "posts, set ANTHROPIC_API_KEY and the labelling script runs.",
          "Stage 6"),
-        ("3", "2022 Forms 37A/37B by ward",
+        ("2", "2022 Forms 37A/37B by ward",
          "Ward-level party strength and turnout. Replaces two placeholder ranges in the "
          "simulation with measured values and adds a fourth feature to the ward index.",
          "IEBC, or party agents' copies. Presidential Forms 34A are already public and serve "
          "as a turnout proxy by polling station if 37A/37B are slow.",
          "Stages 3, 4"),
-        ("4", "Ward boundary file",
+        ("3", "Ward boundary file",
          "Five choropleth maps. geopandas is installed, the name-matching is written and "
          "tested, and two known spelling variants are already handled.",
          "IEBC 2022 delimitation shapefiles, or ADM3 boundaries from Kenya Open Data or "
          "OCHA/HDX. Drop it in data/raw/boundaries/.",
          "Stage 5"),
-        ("5", "Ward-level 2G/3G/4G coverage",
-         "The binding constraint on reach now that the county rates are confirmed. The same "
-         "survey shows 56.6% urban against 25.0% rural, so one county rate across Township and "
+        ("4", "Ward-level 2G/3G/4G coverage",
+         "The binding constraint on reach now that the county rates are confirmed. The KNBS "
+         "household survey shows 56.6% urban against 25.0% rural, so one county rate across Township and "
          "Tharaka is the largest remaining error in Stage 9.",
          "Safaricom and Airtel coverage maps; CA universal-service studies.",
          "Stages 4, 9"),
-        ("6", "comments.csv — public comments",
+        ("5", "comments.csv — public comments",
          "Theme and sentiment coding, and a behavioural read on issue salience to sit "
-         "alongside the survey.",
+         "alongside the evidence ranking.",
          "Export with names and handles already removed. Three columns only. A "
          "Kikamba-speaking reviewer is a staffing dependency, not a data one.",
          "Stages 7, 10"),
-        ("7", "competitors.csv",
+        ("6", "competitors.csv",
          "Any rival benchmark at all. Currently there is none.",
          "Manual audit of public pages plus Meta Ad Library. Internal only — never published.",
          "Stage 8"),
-        ("8", "The 2026 register by ward",
+        ("7", "The 2026 register by ward",
          "Removes the last modelled distribution: ward figures currently scale the confirmed "
          "county total on 2022 shares.",
          "IEBC, if a ward-level annex exists. Lower priority than it was — the county figure "
          "is confirmed and carries the county-level conclusions.",
          "Stages 3, 4, 9"),
-        ("9", "Kikamba radio audience by sub-county",
+        ("8", "Kikamba radio audience by sub-county",
          "Converts the 338,588 no-phone voters into an addressable radio audience. Until then "
          "that segment is a population count, not a reach estimate.",
-         "GeoPoll, Ipsos or KARF releases, or a question in the baseline survey — which is the "
-         "cheaper route if the survey is commissioned anyway.",
+         "Published audience measurement: the CA/KARF, GeoPoll or Ipsos releases that already "
+         "exist. Nothing is commissioned.",
          "Stage 9"),
     ]
     rep.table(pd.DataFrame(gaps, columns=["#", "What", "What it unlocks", "How to get it",
@@ -475,7 +426,7 @@ def write_findings(charts: list[Chart]) -> str:
         "Two things are deliberately absent from this list. **Rival vote ranges** would be "
         "needed for a win probability, and are not being sought: any range supplied today "
         "would be a guess, and the benchmark comparisons are the honest output. **WPF's "
-        "nomination-poll terms** cannot be obtained by research — only the party can confirm "
+        "2027 nomination rules** cannot be obtained by research — only the party can confirm "
         "the method, and the whole nomination strategy rests on a single T3 report until it does."
     )
 
@@ -499,8 +450,6 @@ def write_mapping(charts: list[Chart]) -> str:
                                "Replaces a hand-maintained table with a provenanced file."),
         "register-comparison": ("§3.4.1 — the number of votes it takes",
                                 "Adds the 2026 figures the site currently lacks, with verify markers."),
-        "published-polls-2026": ("§3.1.5 — the polling gap, as sourced",
-                                 "Adds Politrack, which the site is missing, and margins of error."),
         "results-2022-governor": ("§3.3.6 — electoral history",
                                   "Carries the Musila conflict as two values, not one."),
         "channel-reach": ("§8.10.1 / §9A.1 — offline reach",
@@ -524,8 +473,6 @@ def write_mapping(charts: list[Chart]) -> str:
     rep.h2("Deliberately excluded")
     rep.p("These exist in the pipeline and are **not** exported to the site:")
     rep.table(pd.DataFrame([
-        {"Excluded": "Nomination leverage ranking (`nomination_leverage.csv`)",
-         "Reason": "Tells rivals exactly which wards to defend. On the never-publish list."},
         {"Excluded": "Holdout assignment (`holdout_assignment.csv`)",
          "Reason": "Publishing which wards are controls destroys the experiment."},
         {"Excluded": "Competitor benchmark (Stage 8)",

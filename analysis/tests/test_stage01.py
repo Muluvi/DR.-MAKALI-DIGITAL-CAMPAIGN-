@@ -111,46 +111,12 @@ def test_conflicting_musila_totals_are_both_kept(frames):
     assert (musila["status"] == config.TAG_CONFLICT).all()
 
 
-def test_june_poll_has_no_ngilu_share(frames):
-    """Mizani's June round excluded Ngilu. Null, never zero."""
-    polls = frames["polls"]
-    june = polls[(polls.pollster.str.contains("Mizani")) & (polls.release_date.str.contains("Jun"))]
-    ngilu = june[june.candidate == "Ngilu"]
-    assert len(ngilu) == 1
-    assert pd.isna(ngilu["share_pct"].iloc[0])
-    assert not ngilu["polled"].iloc[0]
-
-
-def test_politrack_sample_size_is_parsed_and_mizani_is_not(frames):
-    polls = frames["polls"]
-    politrack = polls[polls.pollster.str.contains("Politrack")]
-    assert (politrack["sample_size"] == 2927).all()
-    mizani = polls[polls.pollster.str.contains("Mizani")]
-    assert mizani["sample_size"].isna().all()
-
-
-def test_poll_shares_match_the_published_figures(frames):
-    polls = frames["polls"]
-
-    def share(pollster, month, cand):
-        row = polls[(polls.pollster.str.contains(pollster))
-                    & (polls.release_date.str.contains(month))
-                    & (polls.candidate == cand)]
-        return row["share_pct"].iloc[0]
-
-    assert share("Politrack", "Mar", "Mulu") == 26.2
-    assert share("Politrack", "Mar", "Kasalu") == 35.2
-    assert share("Mizani", "Jun", "Mulu") == 20.2
-    assert share("Mizani", "Aug", "Kasalu") == 37.4
-    assert share("Mizani", "Aug", "Ngilu") == 17.0
-
-
 # --- checks --------------------------------------------------------------------------------
 
 def test_checks_run_and_find_the_register_conflict(frames):
     """Assert the checks that do not depend on today's site content.
 
-    The party-name and missing-poll checks are deliberately NOT asserted here: the site has
+    The party-name and poll-on-site checks are deliberately NOT asserted here: the site has
     since fixed both, and a test that requires the content to stay broken would fail the
     moment someone does the right thing. Those checks are proved at unit level below
     instead, where the input is fixed.

@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import pandas as pd
 
-from src import checks, claims as claimsmod, config, pack as packmod, report, templates, tidy
+from src import checks, claims as claimsmod, config, features, pack as packmod, report, templates, tidy
 
 
 def _write_csv(df: pd.DataFrame, name: str) -> None:
@@ -121,7 +121,7 @@ def run() -> dict:
 
     rep.h2("Templates written")
     rep.p(
-        "Seven templates and a schema README are in `data/templates/`. Headers only, no example "
+        f"{len(templates.TEMPLATES)} templates and a schema README are in `data/templates/`. Headers only, no example "
         "rows. The ward boundary file location is documented in "
         "`data/raw/boundaries/README.md`."
     )
@@ -137,12 +137,10 @@ def run() -> dict:
 
     rep.h2("What this means for later stages")
     rep.bullets([
-        "Stage 2 has three polls from two pollsters. They stay on separate series, and with "
-        "fewer than five polls there is no Bayesian average.",
         "Stage 3 can run on the 2022 ward register. Turnout and support ranges are placeholders "
         "until ward-level 2022 results arrive.",
-        "Stage 4 has one of six features with data. The other five are dropped and listed, "
-        "never imputed.",
+        f"Stage 4 has one of {len(features.FEATURES)} features with data. The others are dropped "
+        "and listed, never imputed.",
         "Stage 5 needs a boundary file. Two ward-name variants are already known and will need "
         "the normalisation described in the boundary README.",
         "Stages 6, 7 and 8 have no input yet and will report [DATA NEEDED].",
