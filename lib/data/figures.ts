@@ -194,7 +194,7 @@ sourced("census.rural.share", 95.2, "percent", "T1", CENSUS);
 sourced("census.urban.share", 4.8, "percent", "T1", CENSUS);
 sourced("water.surface", 400_000, "people", "T1", "KNBS, via the NDMA Long Rains Food Security Assessment", { note: "Approximate: residents relying on untreated surface water." });
 sourced("poverty.2021", 55.2, "percent", "T1", "KNBS, Kenya Poverty Report (2021)", {
-  alt: { value: 60.4, source: "NDMA Long Rains Food Security Assessment, citing KNBS", tier: "T2", note: "An older or differently defined rate. Both are shown; the KNBS report is current." },
+  note: "The official poverty rate. The 60.4% in the NDMA food-security assessment is not a poverty-report rate and is not used (confirmed 25 September 2026).",
 });
 sourced("poverty.2021.people", 637_000, "people", "T1", "KNBS, Kenya Poverty Report (2021)");
 sourced("livestock.cattle", 613_000, "count", "T1", "Kitui County livestock statistics, as cited in the evidence pack");
@@ -271,16 +271,14 @@ modelled("reach.smartphone.of-benchmark", pct(v("reach.smartphone"), v("benchmar
 
 // ---- the county budget (Section 2.5): CFSP FY2026/27 [S47, S48]
 const CFSP = "Kitui County Fiscal Strategy Paper FY2026/27, as approved by the County Assembly";
-sourced("budget.total", 13.79e9, "ksh", "T3", CFSP, { note: "Cited through secondary reporting of the Paper; verify.", decimals: 2, alt: { value: 13.78e9, source: "Firefly Public Data & Evidence Audit (24 Sep 2026)", tier: "T3", note: "The audit reads the total as KSh 13.78bn and grants as KSh 1.03bn. Neither is preferred until the Paper itself is cited." } });
+sourced("budget.total", 13.79e9, "ksh", "T3", CFSP, { note: "Cited through secondary reporting of the Paper; verify. The Paper sets the envelope at KSh 13.79bn (confirmed 25 September 2026); a KSh 13.78bn reading is not used.", decimals: 2 });
 sourced("budget.equitable", 11.64e9, "ksh", "T1", CFSP, { decimals: 2 });
 sourced("budget.osr", 1.12e9, "ksh", "T3", CFSP, {
   decimals: 2,
-  alt: { value: 1.339e9, source: "County Assembly revision of the CFSP [S48]", tier: "T3", note: "Raised by the Assembly. Both published; neither is preferred." },
+  alt: { value: 1.339e9, source: "County Assembly revision of the CFSP [S48]", tier: "T3", note: "Raised by the Assembly. The final approved FY2026/27 budget settles which applies; until it is in hand, both are shown." },
 });
 sourced("budget.osr.revised", 1.339e9, "ksh", "T3", "County Assembly revision of the CFSP [S48]", { decimals: 3 });
-sourced("budget.grants", 1.04e9, "ksh", "T1", CFSP, { decimals: 2, alt: { value: 1.03e9, source: "Firefly Public Data & Evidence Audit (24 Sep 2026)", tier: "T3", note: "See budget.total." } });
-sourced("budget.total.audit", 13.78e9, "ksh", "T3", "Firefly Public Data & Evidence Audit (24 Sep 2026)", { decimals: 2, note: "The other published total; see budget.total." });
-sourced("budget.grants.audit", 1.03e9, "ksh", "T3", "Firefly Public Data & Evidence Audit (24 Sep 2026)", { decimals: 2, note: "The other published grants figure; see budget.grants." });
+sourced("budget.grants", 1.04e9, "ksh", "T1", CFSP, { decimals: 2, note: "Conditional and unconditional grants in the Paper (confirmed 25 September 2026); a KSh 1.03bn reading is not used." });
 modelled("budget.rounding", 13.79e9 - (11.64e9 + 1.12e9 + 1.04e9), "ksh", "Published total less the three parts: rounding in the source, shown as its own segment.", { decimals: 2 });
 
 // ---- the county audit record (Annex B, Section 4.1.2)

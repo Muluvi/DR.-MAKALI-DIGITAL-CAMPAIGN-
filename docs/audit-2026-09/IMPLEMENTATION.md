@@ -72,6 +72,14 @@ station", "polling day") and KNBS statistical instruments are allowed, each with
   - turnout is 61.7%
   - the July 2026 register total (605,703) is Tier 3, reported by Venas News, and labelled
     unconfirmed wherever it appears, until IEBC's own July figure is in hand
+  - figures with two published values were settled by Firefly on 25 September 2026, in each
+    case confirming the value the site already used: Musila 117,606 (The Star's 114,606 is not
+    used), Dr. Mulu 30,954, poverty 55.2% (the NDMA 60.4% is not a poverty-report rate),
+    budget total KSh 13.79bn and grants KSh 1.04bn (the 13.78bn / 1.03bn reading is dropped),
+    stunting 25.1%, and development absorption 18% (the media 5% is not used). Own-source
+    revenue keeps both values until the final approved budget is in hand, and the two
+    livestock-household counts stay side by side as different definitions. Tiers are unchanged:
+    no new document was supplied
   - Kitui East sits outside the pool
   - the Week 1 comparison set is the two nomination rivals
   - Phase −1 runs from signature

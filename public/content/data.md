@@ -77,7 +77,7 @@ Kitui County's vast physical and demographic characteristics define its developm
 *   **Total Households:** **262,942** (Tier 1), with an average household size of **4.3 persons** (Tier 1).
 *   **Vast Land Area:** **30,430 km²** (Tier 1), establishing Kitui as Kenya's sixth-largest county, with a low population density of **37 persons/km²** (Tier 1) compared to the national average of 82.
 *   **Rural-Urban Split:** **95.2% rural** (1,082,168 residents) vs **4.8% urban** (54,019 residents) (Tier 1).
-*   **Socio-Economic Vulnerability:** two published poverty rates disagree, and both are shown. The **KNBS Kenya Poverty Report** puts **55.2% of Kitui residents, about 637,000 people, in poverty in 2021** (Tier 1). The **NDMA Long Rains Food Security Assessment**, citing KNBS, gives **60.4%** against a national 45.2% (Tier 2). The KNBS report is the later primary source and is the one this proposal uses as current. Approximately **400,000 residents rely on untreated surface water** as their primary domestic source (Tier 1).
+*   **Socio-Economic Vulnerability:** the **KNBS Kenya Poverty Report** puts **55.2% of Kitui residents, about 637,000 people, in poverty in 2021** (Tier 1). This is the official poverty rate; the 60.4% in the NDMA Long Rains Food Security Assessment is a food-security figure, not a poverty-report rate, and is not used. Approximately **400,000 residents rely on untreated surface water** as their primary domestic source (Tier 1).
 *   **Livestock Economy:** Anchored by approximately 613,000 cattle, 2,000,000 goats, 4,000,000 poultry, and 326,000 donkeys (Tier 1). **Poultry farming is practiced by over 90% of households** (Tier 1), serving as a highly inclusive, gender-focused entry point for economic empowerment messaging.
 
 ```figure
@@ -99,14 +99,14 @@ The Governor of Kitui is the supreme executive authority of the county, responsi
 #### Sourced Revenue Envelope, FY2026/27 (Approved Fiscal Strategy Paper):
 The county budget represents a significant administrative responsibility. According to the approved Kitui County Fiscal Strategy Paper for FY2026/27, the total projected resource envelope is **KSh 13.79 billion**, comprising:
 *   **Equitable Share:** KSh 11.64 billion (84.3% of the envelope) (Tier 1).
-*   **Own-Source Revenue:** KSh 1.12 billion in the Fiscal Strategy Paper (8.1%), raised to **KSh 1.339 billion** by the County Assembly. Both figures are published; neither is preferred (Tier 3, verify).
+*   **Own-Source Revenue:** KSh 1.12 billion in the Fiscal Strategy Paper (8.1%), raised to **KSh 1.339 billion** by the County Assembly. The final approved FY2026/27 budget settles which applies; until it is in hand, both are shown (Tier 3, verify).
 *   **Conditional Grants:** KSh 1.04 billion (7.5%) (Tier 1).
 
 ```figure
 id: fig-2-5-budget
 ```
 
-The three parts sum to KSh 13.80 billion against a published total of 13.79: the KSh 0.01 billion difference is rounding in the source, and is shown as its own segment rather than absorbed. The total itself is cited through secondary reporting of the Paper (Tier 3) until the Paper is cited directly. A second reading of the same Paper gives the total as KSh 13.78 billion and conditional grants as KSh 1.03 billion (Tier 3); both readings are shown and neither is preferred.
+The three parts sum to KSh 13.80 billion against a published total of 13.79: the KSh 0.01 billion difference is rounding in the source, and is shown as its own segment rather than absorbed. The total itself is cited through secondary reporting of the Paper (Tier 3) until the Paper is cited directly.
 
 **The Strategic Opportunity:** This KSh 13.79 billion envelope represents the actual fiscal ceiling of devolved governance. The campaign will translate this budget into clear, ward-level policy targets, demonstrating how an expert economist will optimize public resource allocation across the 40 wards.
 

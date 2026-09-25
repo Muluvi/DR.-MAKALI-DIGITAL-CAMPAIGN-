@@ -14,9 +14,12 @@ function formatValue(value: number, unit: string): string {
  * bundle cost regardless of how many places in the document render one.
  */
 export function DisputedFigure({ entry }: { entry: DisputedFigureEntry }) {
+  const resolved = entry.status === "resolved-preferred";
   return (
-    <div className="not-prose my-6 rounded-2xl border-2 border-dashed border-danger/40 bg-paper p-4 sm:p-5 print-avoid-break">
-      <span className="eyebrow-label !mb-2 !text-danger">Disputed figure — both values shown</span>
+    <div className={`not-prose my-6 rounded-2xl border-2 border-dashed bg-paper p-4 sm:p-5 print-avoid-break ${resolved ? "border-line" : "border-danger/40"}`}>
+      <span className={`eyebrow-label !mb-2 ${resolved ? "!text-muted" : "!text-danger"}`}>
+        {resolved ? "Two published values — one preferred" : "Disputed figure — both values shown"}
+      </span>
       <h4 className="font-serif text-sm font-bold text-ink mb-3">{entry.label}</h4>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">

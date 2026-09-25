@@ -68,7 +68,7 @@ According to the Office of the Auditor-General's FY2023/24 audit report, four cr
 *   **Integrated Financial Management Information System (IFMIS) Variance:** KSh 621,500,000 (Tier 1).
 *   **Unexplained Inter-Account Transfer Variance:** KSh 356,200,000 (Tier 1).
 
-Additionally, Controller of Budget reports indicate that the county carried outstanding pending bills of approximately **KSh 1.3 billion as of FY2020/21** (Tier 1). Sourced from the Controller of Budget’s County Budget Implementation Review Report, the county’s FY2025/26 Q1 development absorption rate is recorded as **18%** (Tier 1), although other independent media reports alleged an absorption rate of only **5%** (Tier 2). Sourced reports also note stalled county health projects, though the exact list of facilities remains a **named data gap** (Tier 1 gap).
+Additionally, Controller of Budget reports indicate that the county carried outstanding pending bills of approximately **KSh 1.3 billion as of FY2020/21** (Tier 1). Sourced from the Controller of Budget’s County Budget Implementation Review Report, the county’s FY2025/26 Q1 development absorption rate is recorded as **18%** (Tier 1). Media reports of a 5% rate are not used. Sourced reports also note stalled county health projects, though the exact list of facilities remains a **named data gap** (Tier 1 gap).
 
 ## B.3 Drought, food security and climate pressure
 

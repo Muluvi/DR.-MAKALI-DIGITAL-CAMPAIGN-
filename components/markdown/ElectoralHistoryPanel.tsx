@@ -49,9 +49,12 @@ export function ElectoralHistoryPanel() {
                       <tr key={j} className="border-t border-line/40">
                         <td className="py-1.5 pr-3 font-bold text-ink">
                           {r.candidate}
-                          {r.disputedFigureId && (
-                            <span className="ml-1.5 t-micro font-black text-danger">Disputed ↓</span>
-                          )}
+                          {r.disputedFigureId &&
+                            (DISPUTED_FIGURES.find((d) => d.id === r.disputedFigureId)?.status === "resolved-preferred" ? (
+                              <span className="ml-1.5 t-micro font-black text-muted">Two published values ↓</span>
+                            ) : (
+                              <span className="ml-1.5 t-micro font-black text-danger">Disputed ↓</span>
+                            ))}
                         </td>
                         <td className="py-1.5 pr-3 text-ink/70">{r.party ?? "—"}</td>
                         <td className="py-1.5 pr-3 font-black text-ink">{r.votes.toLocaleString()}</td>

@@ -89,7 +89,7 @@ const PERSUASION_THEMES: PersuasionTheme[] = [
       {
         name: "Loss Aversion",
         description: "Contrast local poverty against national benchmarks as a policy choice.",
-        scriptFraming: "“60.4% of Kitui lives below the poverty line compared to the 45.2% national average. That gap is a failure of leadership, not a fact of nature.”"
+        scriptFraming: "“55.2% of Kitui lived in poverty in 2021 (KNBS). That is a policy choice, not a fact of nature.”"
       },
       {
         name: "Messenger Effect (Chama Leaders)",

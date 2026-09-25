@@ -143,7 +143,7 @@ export const FIG_2_4: FigureSpec = {
   title: `Kitui is ${fmt("census.rural.share")}% rural, and more than half its residents are poor`,
   question: "Who lives in Kitui?",
   takeaway: `A county of ${fmt("census.population")} people across ${fmt("census.area")} km², with livestock at the centre of its economy, and at Alert Phase in the NDMA's January 2026 drought bulletin.`,
-  sources: [src("census.rural.share"), src("poverty.2021"), { name: "NDMA Long Rains Food Security Assessment, citing KNBS (the other poverty rate)", tier: "T2" }, src("livestock.goats"), { name: "NDMA drought bulletin, January 2026", tier: "T1" }],
+  sources: [src("census.rural.share"), src("poverty.2021"), src("livestock.goats"), { name: "NDMA drought bulletin, January 2026", tier: "T1" }],
   chart: {
     type: "composite",
     parts: [
@@ -154,7 +154,6 @@ export const FIG_2_4: FigureSpec = {
           items: [
             { label: "Live in rural areas (KNBS 2019)", share: num("census.rural.share"), state: "sourced" },
             { label: "In poverty, KNBS 2021", share: num("poverty.2021"), state: "sourced" },
-            { label: "In poverty, NDMA citing KNBS", share: F("poverty.2021").alt!.value as number, state: "sourced" },
           ],
         },
       },
@@ -178,7 +177,6 @@ export const FIG_2_4: FigureSpec = {
     { cells: { measure: "Population (2019)", value: num("census.population"), unit: "people", source: "KNBS 2019 Census (T1)" } },
     { cells: { measure: "Rural share", value: num("census.rural.share"), unit: "%", source: "KNBS 2019 Census (T1)" } },
     { cells: { measure: "Poverty rate (2021)", value: num("poverty.2021"), unit: "%", source: "KNBS Kenya Poverty Report 2021 (T1)" } },
-    { cells: { measure: "Poverty rate, other published value", value: F("poverty.2021").alt!.value as number, unit: "%", source: "NDMA, citing KNBS (T2)" } },
     ...LIVESTOCK.map((b) => ({ cells: { measure: b.label, value: b.value, unit: "head", source: `${F("livestock.goats").source} (T1)` } })),
     { cells: { measure: "Drought status, January 2026", value: "Alert Phase", unit: "—", source: "NDMA bulletin (T1)" } },
     { cells: { measure: "Food security, September 2025", value: "IPC Phase 2", unit: "—", source: "IPC (T1)" } },
@@ -200,7 +198,7 @@ export const FIG_2_5: FigureSpec = {
   section: "2.5",
   title: `The next governor runs a ${bn("budget.total")} envelope, and ${fmt("budget.equitable.share")}% of it arrives from the national government`,
   question: "What does the next governor actually control?",
-  takeaway: `Own-source revenue is the one part the county raises itself, and its size is disputed: ${bn("budget.osr")} in the Fiscal Strategy Paper, ${bn("budget.osr.revised")} after the Assembly's revision.`,
+  takeaway: `Own-source revenue is the one part the county raises itself: ${bn("budget.osr")} in the Fiscal Strategy Paper, ${bn("budget.osr.revised")} after the Assembly's revision, until the final approved budget settles it.`,
   sources: [
     { name: "Kitui County Fiscal Strategy Paper FY2026/27: equitable share and conditional grants", tier: "T1" },
     { name: "The same Paper, via secondary reporting: the total and own-source revenue", tier: "T3" },
@@ -209,7 +207,6 @@ export const FIG_2_5: FigureSpec = {
   chart: { type: "stack", segments: BUDGET, total: num("budget.total"), totalLabel: `Total envelope, FY2026/27: ${bn("budget.total")} (T3, secondary reporting of the Paper)` },
   notes: [
     "The three parts sum to KSh 0.01bn more than the published total; the difference is drawn as its own segment rather than absorbed.",
-    `A second reading of the Paper gives the total as ${bn("budget.total.audit")} and grants as ${bn("budget.grants.audit")} (T3). Neither is preferred until the Paper itself is cited.`,
   ],
   columns: [{ key: "part", label: "Part" }, { key: "ksh", label: "KSh", numeric: true }, { key: "share", label: "Share of envelope, %", numeric: true }, { key: "tier", label: "Tier" }],
   rows: [

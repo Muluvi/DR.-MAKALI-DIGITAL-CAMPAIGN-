@@ -1,7 +1,7 @@
 // Phase 4a — electoral history across the 2013, 2017 and 2022 cycles. Feeds §2.2 and
 // the Phase 6c electoral-timeline chart.
 import type { Source } from "./types";
-import { COURT_OF_APPEAL_2018, IEBC_2022_RESULTS, MEDIA_2022_DECLARATION, THE_STAR } from "./sources";
+import { COURT_OF_APPEAL_2018, IEBC_2022_RESULTS, MEDIA_2022_DECLARATION } from "./sources";
 
 export interface RaceResult {
   candidate: string;
@@ -42,7 +42,7 @@ export const ELECTORAL_HISTORY: ElectionRace[] = [
     office: "Kitui Governor",
     results: [
       { candidate: "Julius Malombe", party: "Wiper", votes: 198004, source: IEBC_2022_RESULTS },
-      { candidate: "David Musila", party: "Jubilee", votes: 114606, source: THE_STAR, disputedFigureId: "musila-2022-governor-votes" },
+      { candidate: "David Musila", party: "Jubilee", votes: 117606, source: IEBC_2022_RESULTS, disputedFigureId: "musila-2022-governor-votes" },
       { candidate: "Mueke", party: "UDA", votes: 10639, source: IEBC_2022_RESULTS },
     ],
   },
@@ -58,9 +58,7 @@ export const ELECTORAL_HISTORY: ElectionRace[] = [
   },
 ];
 
-// Musila's 2022 governor figure is disputed (see data/disputed-figures.ts, id
-// "musila-2022-governor-votes"). The value shown here (114,606) is the lower of the two
-// published totals, purely so the timeline chart has a single plottable number for that
-// point — it is not this file's resolution of the dispute. Any render of this specific race
-// must pair it with <DisputedFigure> for the reader to see both values (see
-// components/markdown/ElectoralTimelineBlock.tsx).
+// Musila's 2022 governor figure is 117,606, the IEBC Form 37C total (see data/disputed-figures.ts,
+// id "musila-2022-governor-votes", resolved 25 September 2026). The Star's early 114,606 is not
+// used. Any render of this race pairs it with <DisputedFigure> so the reader sees both published
+// values and why one is preferred (see components/markdown/ElectoralTimelineBlock.tsx).
