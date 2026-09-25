@@ -2,7 +2,7 @@
 
 What people say under his posts, coded by theme, sentiment and language.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-17*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-25*
 
 
 ## Data protection

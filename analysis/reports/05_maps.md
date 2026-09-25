@@ -2,7 +2,7 @@
 
 Ward choropleths of voters, priority, segment, connectivity and drought exposure.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-17*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-25*
 
 
 ## Skipped — no boundary file

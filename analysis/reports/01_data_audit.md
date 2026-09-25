@@ -2,7 +2,7 @@
 
 What the pack contains, what the site claims, and where the two disagree.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-17*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-25*
 
 
 ## What was parsed
@@ -16,7 +16,7 @@ What the pack contains, what the site claims, and where the two disagree.
 | `channels.csv` | 25 |
 | `county_finance.csv` | 6 |
 | `drought.csv` | 6 |
-| `claims_register.csv` | 1093 |
+| `claims_register.csv` | 950 |
 
 14 markdown tables and 69 sources parsed from the pack. Sources split T1/T2/T3 as 19/22/28.
 
@@ -39,22 +39,22 @@ What the pack contains, what the site claims, and where the two disagree.
 
 ## Problems found
 
-3 high, 3 medium, 8 checks passed. Full list in `data/processed/audit_findings.csv`.
+3 high, 3 medium, 7 checks passed. Full list in `data/processed/audit_findings.csv`.
 
 
 ### High severity
 
 **Malombe eligibility — pack-vs-site**  
-The pack states the seat is open: Malombe was elected in 2013 and 2022, and Article 180(7) limits governors to two terms [S63]. The site treats his eligibility as an unresolved two-branch question in situation.md.  
+The pack states the seat is open: Malombe was elected in 2013 and 2022, and Article 180(7) limits governors to two terms [S63]. The site treats his eligibility as an unresolved two-branch question in analysis.md, delivery.md.  
 *Action:* Resolve. If the pack is right, the branching scenario is dead content and the framing should change to an open-seat race.
+
+**Site content — claim-sourcing**  
+739 of 950 numeric claims (78%) carry no visible tier marker within 70 characters.  
+*Action:* Most are restatements of figures tiered elsewhere on the page. Prioritise the ones that state a figure for the first time.
 
 **Nomination method — t3-dependency**  
 The reported WPF nomination method is T3, single-sourced to The County Diary [S10], and the whole nomination strategy rests on it.  
 *Action:* Obtain the WPF NEC resolution, or the 2027 nomination rules and timetable as filed with the IEBC and the Registrar of Political Parties.
-
-**Site content — claim-sourcing**  
-917 of 1,093 numeric claims (84%) carry no visible tier marker within 70 characters.  
-*Action:* Most are restatements of figures tiered elsewhere on the page. Prioritise the ones that state a figure for the first time.
 
 
 ### Medium severity
@@ -64,11 +64,11 @@ The pack spells this 'Mutito/Kaliku'; the site spells it 'Mutitu/Kaliku' (simila
 *Action:* Confirm against the IEBC ward list and fix one spelling. This will break a boundary-file join at Stage 5 if left.
 
 **Site content — stale-party-name**  
-Bare 'Wiper' without 'Patriotic Front' appears in 16 files.  
+Bare 'Wiper' without 'Patriotic Front' appears in 10 files.  
 *Action:* Acceptable as shorthand after the full name is used once per page; check first use.
 
 **Site content — claim-sourcing**  
-6 site claims are explicitly marked Tier 3.  
+11 site claims are explicitly marked Tier 3.  
 *Action:* Each must render with a visible unconfirmed marker.
 
 
@@ -85,20 +85,20 @@ Bare 'Wiper' without 'Patriotic Front' appears in 16 files.
 
 ## The claims register
 
-1,093 numeric claims across 28 content files. 917 (84%) carry no tier marker within 70 characters of the figure.
+950 numeric claims across 16 content files. 739 (78%) carry no tier marker within 70 characters of the figure.
 
 That percentage overstates the problem and should not be quoted on its own. The site tiers a figure where it is introduced and then restates it in summaries, tables and callouts without repeating the marker. The register is a worklist, not a verdict: sort it by file and look for figures that appear for the first time without a tier.
 
 | File | Claims | Unsourced |
 |---|---|---|
-| arithmetic.md | 410 | 397 |
-| situation.md | 194 | 104 |
-| audiences.md | 41 | 27 |
-| roadmap.md | 40 | 40 |
-| reach.md | 38 | 35 |
-| approach.md | 36 | 21 |
-| scope-ground.md | 32 | 32 |
-| scope-data.md | 31 | 31 |
+| analysis.md | 299 | 248 |
+| strategy.md | 167 | 117 |
+| data.md | 128 | 55 |
+| delivery.md | 98 | 91 |
+| annex-county.md | 59 | 43 |
+| workstreams-data.md | 40 | 40 |
+| workstreams-ground.md | 32 | 28 |
+| objectives.md | 31 | 29 |
 
 
 ## Templates written
@@ -109,6 +109,7 @@ That percentage overstates the problem and should not be quoted on its own. The 
 - `data/templates/comments.csv`
 - `data/templates/competitors.csv`
 - `data/templates/register_2026_by_ward.csv`
+- `data/templates/register_2026_by_county.csv`
 - `data/templates/results_2022_by_ward.csv`
 - `data/templates/issues.csv`
 - `data/templates/README.md`
@@ -121,6 +122,7 @@ That percentage overstates the problem and should not be quoted on its own. The 
 - **[DATA NEEDED]** `comments.csv` is empty — Public comments for theme and sentiment coding.
 - **[DATA NEEDED]** `competitors.csv` is empty — Rival channel benchmarks for Kasalu, Wambua and Ngilu.
 - **[DATA NEEDED]** `register_2026_by_ward.csv` is empty — The post-ECVR 2026 register, by ward — the IEBC annex figure.
+- **[DATA NEEDED]** `register_2026_by_county.csv` is empty — The post-ECVR 2026 register at COUNTY level — the IEBC annex row for Kitui.
 - **[DATA NEEDED]** `results_2022_by_ward.csv` is empty — 2022 governor and Woman Rep results by ward, from IEBC Forms 37A/37B.
 - **[DATA NEEDED]** `issues.csv` is empty — Issue salience and candidate credibility, for the Stage 10 matrix.
 - **[DATA NEEDED]** The IEBC ECVR county annex [S3] — the T1 2026 register. It settles the 605,703 vs 594,597 conflict and is the highest-value missing input.
