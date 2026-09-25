@@ -70,6 +70,8 @@ station", "polling day") and KNBS statistical instruments are allowed, each with
   - the health indicators are Tier 1 KDHS
   - Malombe's result is Tier 1
   - turnout is 61.7%
+  - the July 2026 register total (605,703) is Tier 3, reported by Venas News, and labelled
+    unconfirmed wherever it appears, until IEBC's own July figure is in hand
   - Kitui East sits outside the pool
   - the Week 1 comparison set is the two nomination rivals
   - Phase −1 runs from signature
@@ -126,9 +128,15 @@ the text where the claim needs it.
     The hand-edited findings and site-mapping reports came out unchanged. The Stage 1 audit
     now counts claims against the restructured site (950 claims across 16 content files) and
     lists 7 passed checks. No poll figure from the pack reaches a report or an export.
-  - One Stage 1 test still fails: the IEBC annex row in
-    `data/templates/register_2026_by_county.csv`, supplied by the campaign on 17 September
-    with its document URL, is gitignored and needs re-entering. It is not in the pack.
+  - The July 2026 register total, 605,703, is back to Tier 3 and verify (25 September 2026).
+    From 17 September it had been recorded as Tier 1, read off the IEBC ECVR county annex,
+    but that annex is IEBC's April release on the drive and cannot carry a July total, and no
+    IEBC document giving the July total is in hand. Its only source is Venas News [S4]. The
+    value is unchanged, so no calculation moves; the 72,945 growth, the 11,106 residue, the
+    reach denominator and the ≈225,000 benchmark derived from it are Tier 3 and verify too.
+    The drive figure, 61,839, stays Tier 1. IEBC's 17 April 2026 status update (Kitui: 37,162
+    new registrations by 16 April) was checked and carries neither figure. The Stage 1 test
+    that expected the Tier 1 row now tests the check's behaviour when such a row is supplied.
 - **Left as history:**
   - **`scripts/rebuild/`, `scripts/audit-*.json`, `scripts/visual-inventory-plan.json`** are
     records of earlier migrations and mention the old Annex C as history.

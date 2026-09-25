@@ -21,14 +21,14 @@ Nothing in this report predicts an outcome. Every input is an official record or
 
 | Register | Scenario | Median | 90% interval | Above 198,004 | Above 37.2% of register |
 |---|---|---|---|---|---|
-| IEBC July 2026 (605,703) — current | Competitive general election | 200,158 | 158,083 – 250,790 | 53.0% | 21.2% |
+| Reported July 2026 (605,703, T3, verify) — current | Competitive general election | 200,158 | 158,083 – 250,790 | 53.0% | 21.2% |
 | IEBC 2022 (532,758) — for comparison | Competitive general election | 176,056 | 139,048 – 220,591 | 21.3% | 21.2% |
 
 
 ### What this says
 
 - **Under a competitive scenario the benchmark is reachable but not comfortable.** Median 200,158, with 53.0% of draws above 198,004. The competitive range is anchored on the 2022 winner's own ~60% of ballots cast.
-- **The register grew, so the bar rose.** On the confirmed July 2026 register of 605,703 the 37.2% benchmark is about 225,317 votes, against the 198,004 the proposal measures against. The same performance now clears a higher bar.
+- **The register grew, so the bar rose.** On the July 2026 register of 605,703, as reported (Tier 3, verify), the 37.2% benchmark is about 225,317 votes, against the 198,004 the proposal measures against. The same performance now clears a higher bar.
 - **Which benchmark you choose changes the answer more than the model does.** The simulated total clears the 2022 tally in 53% of draws, but clears 37.2% of today's register in only 21%. Same model, same draws; a 32-point swing from the choice of yardstick alone. Measuring a 2027 campaign against a 2022 tally on a register 13.7% larger flatters it.
 
 
@@ -70,7 +70,7 @@ Nothing in this report predicts an outcome. Every input is an official record or
 - 10,000 draws, seed 20270809, fully reproducible.
 - Turnout and support are drawn once per draw at county level, then varied by ward. Independent per-ward draws would average out across 40 wards and collapse the county distribution to false precision.
 - Ward shares are capped at 1.0. The cap binds only in the home wards at the top of the competitive range.
-- The county register is confirmed at 605,703, but it is published at county level only. Ward figures scale every 2022 ward by the same factor, which is known to be wrong in detail because the drive was ward-based and growth was uneven. County totals are not affected; ward totals are indicative.
+- The county register of 605,703 is Tier 3 (verify), and reported at county level only. Ward figures scale every 2022 ward by the same factor, which is known to be wrong in detail because the drive was ward-based and growth was uneven. County totals are not affected; ward totals are indicative.
 - No rival is modelled, so nothing here is a win probability.
 - Every parameter is a PLACEHOLDER. The tornado chart ranks the assumptions, not the world.
 

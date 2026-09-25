@@ -3,7 +3,7 @@
   "title": "How many voters each channel can reach",
   "description": "The electorate split into three mutually exclusive reach segments, modelled from the 2023/24 CA/KNBS rates.",
   "chart_type": "stacked-bar",
-  "generated": "2026-09-17",
+  "generated": "2026-09-25",
   "data_as_of": "2026-09-16",
   "scenario_label": "",
   "notes": [
@@ -52,11 +52,11 @@
       "label": "Total electorate, July 2026",
       "value": 605703,
       "unit": "voters",
-      "source_id": "S3",
-      "tier": 1,
+      "source_id": "S4",
+      "tier": 3,
       "as_of": "2026-07",
       "method": "official",
-      "status": "confirmed",
+      "status": "verify",
       "note": ""
     }
   ]

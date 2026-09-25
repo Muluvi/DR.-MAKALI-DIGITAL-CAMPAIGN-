@@ -41,7 +41,7 @@ export function ScenarioBenchmarkBlock() {
       <p className="mt-3 pt-2 border-t border-line/40 t-small text-muted leading-relaxed">
         <strong className="text-ink">One scenario, read against two bars.</strong>{" "}
         The model draws turnout and vote share across stated ranges, anchored on the share of
-        ballots the 2022 winner took, on the confirmed July 2026 register. It is set against the
+        ballots the 2022 winner took, on the July 2026 register as reported (Tier 3, unconfirmed). It is set against the
         2022 winning tally and against the same share of today&rsquo;s larger register. Every input
         is a stated modelling assumption, not a measurement, and the result is a scenario, not a
         forecast.

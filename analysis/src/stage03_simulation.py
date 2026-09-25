@@ -46,8 +46,8 @@ def chart_distribution(res: sim.SimulationResult) -> str:
     return charts.save(
         fig, "03_vote_distribution.svg",
         "Scenario model, not a forecast. Solid red is the 2022 winning tally of 198,004, which "
-        "the proposal measures against. Dashed red is 37.2% of the confirmed July 2026 "
-        "register, about 225,300 — the same share of a 13.7% larger electorate, and the "
+        "the proposal measures against. Dashed red is 37.2% of the reported July 2026 "
+        "register (Tier 3, verify), about 225,300 — the same share of a 13.7% larger electorate, and the "
         "like-for-like bar. The gap between the two lines is what a growing register costs. "
         "Governor races are won by plurality, so neither is a threshold: exceeding one is not "
         "a win probability.",
@@ -97,11 +97,11 @@ def run() -> dict:
     scale = float(config.value("register.y2026_uniform_scale_factor"))
     wards["registered_voters_2026_scaled"] = wards["registered_voters_2022"] * scale
 
-    # The confirmed July 2026 register is the primary basis: it is the electorate that will
+    # The reported July 2026 register (T3, verify) is the primary basis: it is the electorate that will
     # actually vote. The 2022 run is kept for comparison, because every target in the proposal
     # is still expressed against it.
     comp = sim.simulate(wards, register_col="registered_voters_2026_scaled",
-                        register_label="IEBC July 2026 register (605,703)",
+                        register_label="Reported July 2026 register (605,703, T3, verify)",
                         support_range=_support_range())
     comp_2022 = sim.simulate(wards, support_range=_support_range())
     c_dist = chart_distribution(comp)
@@ -137,7 +137,7 @@ def run() -> dict:
     )
 
     rows = []
-    for register_label, res in (("IEBC July 2026 (605,703) — current", comp),
+    for register_label, res in (("Reported July 2026 (605,703, T3, verify) — current", comp),
                                 ("IEBC 2022 (532,758) — for comparison", comp_2022)):
         s_ = res.summary()
         marks = sim.benchmarks(res.register_total)
@@ -160,8 +160,8 @@ def run() -> dict:
         f"Median {np.median(comp.totals):,.0f}, with {comp.share_exceeding(198004):.1%} of draws "
         "above 198,004. The competitive range is anchored on the 2022 winner's own ~60% of "
         "ballots cast.",
-        "**The register grew, so the bar rose.** On the confirmed July 2026 register of "
-        f"605,703 the 37.2% benchmark is about {marks_now[1]:,.0f} votes, against the 198,004 the "
+        "**The register grew, so the bar rose.** On the July 2026 register of 605,703, as "
+        f"reported (Tier 3, verify), the 37.2% benchmark is about {marks_now[1]:,.0f} votes, against the 198,004 the "
         "proposal measures against. The same performance now clears a higher bar.",
         "**Which benchmark you choose changes the answer more than the model does.** The "
         f"simulated total clears the 2022 tally in {above_2022:.0%} of draws, but clears 37.2% of "
@@ -203,7 +203,7 @@ def run() -> dict:
         "distribution to false precision.",
         "Ward shares are capped at 1.0. The cap binds only in the home wards at the top of the "
         "competitive range.",
-        "The county register is confirmed at 605,703, but it is published at county level only. "
+        "The county register of 605,703 is Tier 3 (verify), and reported at county level only. "
         "Ward figures scale every 2022 ward by the same factor, which is known to be wrong in "
         "detail because the drive was ward-based and growth was uneven. County totals are not "
         "affected; ward totals are indicative.",

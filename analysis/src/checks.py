@@ -178,12 +178,17 @@ def official_2026_register() -> tuple[int, dict] | None:
 
 
 def register_conflict() -> list[dict]:
-    """The 2026 register: reconciled once the IEBC annex is in hand.
+    """The 2026 register: what the two figures mean, and how firm each is.
 
-    This check previously reported the two 2026 figures as a conflict, on the reasoning that
+    This check once reported the two 2026 figures as a conflict, on the reasoning that
     532,758 + 61,839 should equal 605,703 and did not. That reasoning was wrong. The two
     figures measure different windows: 61,839 is the 30-day ECVR drive alone, while 605,703
     is the cumulative July total. They were never meant to sum.
+
+    From 17 September 2026 the July total was also recorded as Tier 1, read off the IEBC
+    ECVR annex. That was withdrawn on 25 September 2026: the annex is IEBC's April release
+    on the drive and cannot carry a July total. Until IEBC's own July figure is supplied as a
+    Tier 1 row, the total is Tier 3 [S4] and verify.
     """
     base = int(config.value("register.y2022"))
     added = int(config.value("register.y2026_new_registrations"))
@@ -192,49 +197,51 @@ def register_conflict() -> list[dict]:
     residue = growth - added
 
     official = official_2026_register()
-    tier = config.assumption("register.y2026_july").tier
+    july = config.assumption("register.y2026_july")
+    out: list[dict] = []
 
-    if official is None and tier != 1:
-        return [
-            _finding(
+    if official is not None:
+        official_total, row = official
+        if official_total != total:
+            out.append(_finding(
                 "register-2026", "high", "2026 register",
-                f"The 2026 register figures are still T3: {total:,} reported for July 2026 [S4] "
-                f"and {added:,} new in the ECVR drive [S5]. Neither is IEBC's own document.",
-                "Obtain the IEBC ECVR county annex [S3] and add one row to "
-                "data/templates/register_2026_by_county.csv.",
-            ),
-        ]
-
-    out = [
-        _finding(
-            "register-2026", "ok", "2026 register",
-            f"CONFIRMED against the IEBC annex [S3, T1]. Kitui stands at {total:,} registered "
-            f"voters as at July 2026, up {growth:,} on the 2022 register of {base:,}.",
-            "None. This is now the register the 37.2% benchmark is computed against.",
-        ),
-        _finding(
-            "register-2026", "ok", "2026 register",
-            f"The apparent {residue:,}-voter discrepancy is resolved, and was never a "
-            f"discrepancy. Of the {growth:,} growth, {added:,} came from the 30-day ECVR drive "
-            f"that ended 28 April 2026; the remaining {residue:,} is ordinary continuous "
-            "registration outside that window, which opened on 29 September 2025 and continued "
-            "after the drive closed. The July total post-dates the drive by three months.",
-            "Earlier runs of this pipeline reported these two figures as contradictory. That "
-            "reading was wrong and is corrected here.",
-        ),
-    ]
-
-    if total == 605703 and added == 61839:
+                f"IEBC's document gives Kitui {official_total:,} registered voters; the "
+                f"pipeline holds {total:,} [{july.source_id}, T{july.tier}].",
+                "Replace register.y2026_july with the IEBC figure and re-run every stage.",
+            ))
+        else:
+            out.append(_finding(
+                "register-2026", "ok", "2026 register",
+                f"CONFIRMED against IEBC's own document [T1]. Kitui stands at {total:,} "
+                f"registered voters as at July 2026, up {growth:,} on the 2022 register of "
+                f"{base:,}.",
+                f"Set register.y2026_july to Tier 1 with this source. The document: "
+                f"{row.get('document_url', '')}",
+            ))
+    elif july.tier != 1:
         out.append(_finding(
-            "register-2026", "ok", "2026 register",
-            "Both figures match the T3 reports [S4, S5] exactly, which corroborates those "
-            "outlets rather than casting doubt on the annex. Because the values are identical, "
-            "the Tier 1 claim rests on provenance rather than on the number: the campaign "
-            "confirmed on 17 September 2026 that both were read directly off the IEBC annex "
-            "PDF, not copied from the aggregators.",
-            "None. The document URL is on the row in register_2026_by_county.csv for anyone "
-            "who wants to check at source.",
+            "register-2026", "high", "2026 register",
+            f"The July 2026 total of {total:,} is T{july.tier}, reported by Venas News "
+            f"[{july.source_id}], and is marked verify. From 17 September 2026 this pipeline "
+            "recorded it as Tier 1, read off the IEBC ECVR county annex [S3]. That was "
+            "withdrawn on 25 September 2026: [S3] is IEBC's April release on the drive and "
+            "cannot carry a July total, and no IEBC document giving the July total is in hand. "
+            f"The drive figure, {added:,}, is unaffected.",
+            "Obtain IEBC's county register as at July 2026 and add one Tier 1 row, with its "
+            "document URL, to data/templates/register_2026_by_county.csv.",
         ))
+
+    out.append(_finding(
+        "register-2026", "ok", "2026 register",
+        f"The apparent {residue:,}-voter discrepancy is resolved, and was never a "
+        f"discrepancy. Of the {growth:,} growth, {added:,} came from the 30-day ECVR drive "
+        f"that ended 28 April 2026; the remaining {residue:,} is ordinary continuous "
+        "registration outside that window, which opened on 29 September 2025 and continued "
+        "after the drive closed. The July total post-dates the drive by three months.",
+        "Earlier runs of this pipeline reported these two figures as contradictory. That "
+        "reading was wrong and is corrected here. The decomposition holds whatever the tier "
+        "of the July total.",
+    ))
     return out
 
 

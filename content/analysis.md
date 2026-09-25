@@ -10,7 +10,7 @@ To eliminate subjective projections, the campaign's target metrics are anchored 
 
 *   **Total Registered Electorate (2022, Tier 1):** **{{register.2022}} voters** across **40 County Assembly
     Wards** (plus **75 prison voters**, totalling **{{register.2022.with-prisons}} registered voters**).
-*   **Total Registered Electorate (July 2026, Tier 1):** **{{register.2026}} voters** (Section 2.1). IEBC has
+*   **Total Registered Electorate (July 2026, Tier 3, unconfirmed):** **{{register.2026}} voters** (Section 2.1). IEBC has
     not yet published the 2026 register by ward, so every ward figure in this section is the 2022
     register.
 *   **The benchmark: {{benchmark}} votes.** Governor Julius Malombe's certified 2022 winning total was

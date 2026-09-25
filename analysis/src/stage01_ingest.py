@@ -130,8 +130,8 @@ def run() -> dict:
     gaps = [f"`{n}.csv` is empty — {t.purpose}" for n in still_empty
             for t in templates.TEMPLATES if t.name == n]
     gaps.append(
-        "The IEBC ECVR county annex [S3] — the T1 2026 register. It settles the 605,703 vs "
-        "594,597 conflict and is the highest-value missing input."
+        "IEBC's county register as at July 2026 — the T1 source for the 2026 total. 605,703 is "
+        "Tier 3 [S4] and verify until it is in hand."
     )
     rep.gaps(gaps)
 

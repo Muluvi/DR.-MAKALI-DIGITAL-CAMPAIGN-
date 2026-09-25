@@ -36,7 +36,7 @@ This is not an argument for a digital-first campaign. The no-phone segment is st
 | SMS only (phone, no data) | 177,473 | 108,419 | -69,054 | 17.9% |
 | No phone — radio or in person | 345,852 | 338,588 | -7,264 | 55.9% |
 
-Both columns use the same denominator — the confirmed July 2026 register of 605,703 voters — so the only thing changing between them is the rate pair.
+Both columns use the same denominator — the July 2026 register (Tier 3, verify) of 605,703 voters — so the only thing changing between them is the rate pair.
 
 
 ## The rates, and where they come from

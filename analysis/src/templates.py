@@ -111,8 +111,8 @@ TEMPLATES: tuple[Template, ...] = (
             Column("as_of", "ISO date of the register snapshot."),
         ),
         notes=(
-            "This is pack gap 6 and the single highest-value missing input. It settles the "
-            "605,703 vs 594,597 conflict and unlocks registration growth as a Stage 4 feature.",
+            "This is pack gap 6 and the single highest-value missing input. It gives the 2026 "
+            "register an official source and unlocks registration growth as a Stage 4 feature.",
             "The 2026 drive was ward-based, so growth is uneven. Do not distribute a county "
             "total across wards pro rata — that would be invented data.",
         ),
@@ -125,22 +125,23 @@ TEMPLATES: tuple[Template, ...] = (
             Column("county", "County name, e.g. Kitui."),
             Column("registered_voters_2026", "Total registered voters, from the IEBC annex."),
             Column("new_registrations_2026", "New voters added in the ECVR drive. Blank if the annex gives only a total."),
-            Column("source_id", "S3 for the IEBC ECVR release annex. Use the real S-number of whichever release you take it from."),
+            Column("source_id", "The S-number of the IEBC release you take it from. The April ECVR release [S3] gives the drive figure only, not a July total."),
             Column("tier", "1. Anything that is not the IEBC's own document does not belong in this file."),
-            Column("as_of", "ISO date the register was counted, e.g. 2026-04-28."),
+            Column("as_of", "ISO date the register was counted, e.g. 2026-07."),
             Column("document_url", "Direct URL of the PDF the figure was read from, so the next person can check it."),
         ),
         notes=(
-            "This is the one file that settles the register conflict. The pack carries two T3 "
-            "figures that disagree by 11,106 voters: 605,703 reported for July 2026 [S4], "
-            "against 594,597 implied by 532,758 + 61,839 new [S5]. One T1 row here replaces both.",
+            "This is the file that moves the July 2026 total from Tier 3 to Tier 1. 605,703 is "
+            "reported for July 2026 by Venas News [S4]; no IEBC document giving it is in hand. "
+            "The two 2026 figures do not conflict: 61,839 is the drive alone and 605,703 the "
+            "cumulative July total.",
             "County level is what the IEBC annex actually publishes. The ward-level file is "
             "better still and unlocks more, but it is harder to obtain — fill whichever you can "
             "get, and this one first.",
             "ONLY the IEBC's own document. A figure copied from a news site or an aggregator is "
             "the same tier as what it would be replacing, so it settles nothing.",
-            "Once this file has a row, Stage 1 promotes it over the T3 figures automatically and "
-            "reports the difference against each.",
+            "Once this file has a Tier 1 row, Stage 1 confirms the July total against it, or "
+            "reports the difference if the two disagree.",
         ),
     ),
     Template(

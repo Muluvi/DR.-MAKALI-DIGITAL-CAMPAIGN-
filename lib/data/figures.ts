@@ -70,10 +70,13 @@ sourced("register.2022.prisons", register.prisonVoters, "voters", "T1", IEBC_WAR
 sourced("register.2022.with-prisons", register.countyTotalWithPrisons, "voters", "T1", IEBC_WARDS);
 
 const ECVR = "IEBC, Enhanced Continuous Voter Registration county annex (July 2026)";
-sourced("register.2026", 605_703, "voters", "T1", ECVR, { asOf: "2026-07" });
+// Tier 3 and unconfirmed (25 September 2026): reported by an aggregator. No IEBC document giving
+// the July total is in hand; the ECVR annex is April's release and carries the drive only.
+const REGISTER_2026_REPORTED = "Venas News, registered voters by county, July 2026 [S4]; unconfirmed until IEBC's own July figure is in hand";
+sourced("register.2026", 605_703, "voters", "T3", REGISTER_2026_REPORTED, { asOf: "2026-07" });
 sourced("register.2026.ecvr-drive", 61_839, "voters", "T1", ECVR, { asOf: "2026-04-28", note: "New voters in ECVR Phase 1, the 30-day drive that closed 28 April 2026. A further phase ran 25 June to 25 July 2026 (IEBC gazette notice, 24 June 2026)." });
-modelled("register.2026.growth", v("register.2026") - v("register.2022"), "voters", "605,703 less 532,758: growth since 2022.");
-modelled("register.2026.continuous", v("register.2026") - v("register.2022") - v("register.2026.ecvr-drive"), "voters", "Growth since 2022 less the ECVR drive: continuous registration outside the drive.");
+modelled("register.2026.growth", v("register.2026") - v("register.2022"), "voters", "605,703 less 532,758: growth since 2022.", { tier: "T3" });
+modelled("register.2026.continuous", v("register.2026") - v("register.2022") - v("register.2026.ecvr-drive"), "voters", "Growth since 2022 less the ECVR drive: continuous registration outside the drive.", { tier: "T3" });
 sourced("register.polling-stations", 1_578, "count", "T1", "IEBC 2022 polling station register");
 modelled("register.2022.ward-mean", Math.round(v("register.2022") / 40), "voters", "532,758 across 40 wards.");
 

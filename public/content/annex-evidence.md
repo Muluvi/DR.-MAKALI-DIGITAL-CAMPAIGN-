@@ -21,9 +21,9 @@ id: tier-classification
 ```
 
 #### Standard Implementation Rules:
-*   *Tier 1 Data* (e.g., 532,758 registered voters in 2022, 605,703 in July 2026, 40 wards) is hardcoded into operational models and cannot be modified without gazetted IEBC addenda.
+*   *Tier 1 Data* (e.g., 532,758 registered voters in 2022, 40 wards) is hardcoded into operational models and cannot be modified without gazetted IEBC addenda.
 *   *Tier 2 Data* (e.g., the 2022 governor results as reported by The Star, the Nation and the Standard, pending the IEBC forms) is used with its source named, and where two published values disagree both are shown.
-*   *Tier 3 Data* (e.g., informal reports of the method Wiper will use to select its Kitui nominee) is explicitly watermarked as single-source until validated by the party's own documents: an NEC resolution, or its nomination rules as filed.
+*   *Tier 3 Data* (e.g., informal reports of the method Wiper will use to select its Kitui nominee, or the 605,703 registered voters reported for July 2026) is explicitly watermarked as single-source until validated by the issuing body's own documents: for the method, an NEC resolution or the party's nomination rules as filed; for the register, IEBC's own July 2026 figure.
 
 ### A.1.3 When two sources disagree
 

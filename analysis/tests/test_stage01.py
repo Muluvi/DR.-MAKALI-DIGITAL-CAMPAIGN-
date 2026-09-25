@@ -270,15 +270,24 @@ def test_year_labelled_register_is_not_flagged_as_presented_current(tmp_path, mo
     assert [f for f in checks.stale_site_content() if f["check"] == "stale-register"]
 
 
-# --- the 2026 register, once the IEBC annex is in hand --------------------------------
+# --- the 2026 register -----------------------------------------------------------------
 
-def test_the_2026_register_figures_are_tier_one_and_confirmed():
-    """Supplied from the IEBC annex, so they no longer carry verify."""
-    for key in ("register.y2026_july", "register.y2026_new_registrations"):
+def test_the_july_total_is_tier_three_and_verify():
+    """No IEBC document giving the July total is in hand, so it is the aggregator's figure.
+
+    The drive figure is a different number with a different source and stays Tier 1.
+    """
+    july = config.assumption("register.y2026_july")
+    assert (july.source_id, july.tier, july.verify) == ("S4", 3, True)
+    assert july.status != "CONFIRMED"
+    drive = config.assumption("register.y2026_new_registrations")
+    assert (drive.tier, drive.status, drive.verify) == (1, "CONFIRMED", False)
+
+
+def test_figures_derived_from_the_july_total_are_no_firmer_than_it():
+    for key in ("register.y2026_growth_outside_the_drive", "reach.denominator_register"):
         a = config.assumption(key)
-        assert a.tier == 1, f"{key} should be T1"
-        assert a.status == "CONFIRMED", f"{key} should be CONFIRMED"
-        assert not a.verify, f"{key} should not be marked verify"
+        assert a.tier == 3 and a.verify, f"{key} inherits the T3 July total"
 
 
 def test_the_register_arithmetic_reconciles():
@@ -295,15 +304,14 @@ def test_the_register_arithmetic_reconciles():
     assert total - base == 72945
 
 
-def test_the_check_reports_the_register_as_reconciled_not_conflicting():
+def test_the_check_flags_the_july_total_and_keeps_the_reconciliation():
     findings = checks.register_conflict()
-    assert findings, "the register check must still say something"
-    assert all(f["severity"] != "high" for f in findings), (
-        "a confirmed T1 register must not be reported as a high-severity conflict"
-    )
+    high = [f for f in findings if f["severity"] == "high"]
+    assert len(high) == 1, "a T3 register must be reported until IEBC's figure is in hand"
+    assert "605,703" in high[0]["detail"] and "verify" in high[0]["detail"]
     text = " ".join(f["detail"] for f in findings)
     assert "was never a discrepancy" in text
-    assert "605,703" in text and "61,839" in text
+    assert "61,839" in text
 
 
 def test_the_correction_to_the_earlier_reading_is_recorded():
@@ -313,28 +321,40 @@ def test_the_correction_to_the_earlier_reading_is_recorded():
     assert "wrong" in text.lower()
 
 
-def test_the_match_with_the_t3_reports_is_recorded_with_its_provenance():
-    """Both figures equal the T3 reports exactly, so value alone cannot distinguish them.
-
-    The tier therefore has to rest on the document, and the audit must say so — otherwise a
-    later reader cannot tell a figure read off the annex from one copied off an aggregator.
-    """
+def test_the_withdrawn_tier_one_claim_is_recorded():
+    """From 17 September the July total was recorded as read off the IEBC annex. A reader of
+    those reports deserves to see that claim withdrawn, and why, rather than quietly gone."""
     text = " ".join(f["detail"] for f in checks.register_conflict())
-    assert "match the T3 reports" in text
-    assert "read directly off the IEBC annex PDF" in text
     assert "17 September 2026" in text
+    assert "withdrawn on 25 September 2026" in text
+    assert "cannot carry a July total" in text
 
 
-def test_the_annex_row_carries_a_document_url():
-    """The figure must be checkable at source."""
-    path = config.DATA_TEMPLATES / "register_2026_by_county.csv"
-    df = pd.read_csv(path)
-    kitui = df[df["county"].str.strip().str.casefold() == "kitui"]
-    assert len(kitui) == 1
-    row = kitui.iloc[0]
-    assert int(row["tier"]) == 1
-    assert int(row["registered_voters_2026"]) == 605703
-    assert str(row["document_url"]).startswith("https://")
+def test_a_tier_one_row_confirms_the_total_and_keeps_its_document_url(tmp_path, monkeypatch):
+    """Once IEBC's July figure is supplied, the check confirms it and names the document."""
+    fake = tmp_path / "register_2026_by_county.csv"
+    fake.write_text(
+        "county,registered_voters_2026,new_registrations_2026,source_id,tier,as_of,document_url\n"
+        "Kitui,605703,61839,S3,1,2026-07,https://example.invalid/SYNTHETIC-IEBC\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(checks.config, "DATA_TEMPLATES", tmp_path)
+    findings = checks.register_conflict()
+    assert not [f for f in findings if f["severity"] == "high"]
+    confirmed = [f for f in findings if "CONFIRMED" in f["detail"]]
+    assert confirmed and "https://example.invalid/SYNTHETIC-IEBC" in confirmed[0]["action"]
+
+
+def test_a_tier_one_row_that_disagrees_is_reported(tmp_path, monkeypatch):
+    fake = tmp_path / "register_2026_by_county.csv"
+    fake.write_text(
+        "county,registered_voters_2026,new_registrations_2026,source_id,tier,as_of,document_url\n"
+        "Kitui,600000,61839,S3,1,2026-07,https://example.invalid/SYNTHETIC-IEBC\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(checks.config, "DATA_TEMPLATES", tmp_path)
+    high = [f for f in checks.register_conflict() if f["severity"] == "high"]
+    assert high and "600,000" in high[0]["detail"]
 
 
 def test_official_2026_register_ignores_a_non_tier_one_row(tmp_path, monkeypatch):

@@ -37,7 +37,7 @@ export const FIG_COVER_MAP: FigureSpec = {
   title: `Half the register, ${fmt("pool.share")}%, lives where he has never held office`,
   question: "Where does the electorate sit, and where has he held office?",
   takeaway: `The ${fmt("pool")}-voter pool in Mwingi and Kitui South is the ground the nomination is won or lost on; Kitui Central, which he has represented since 2013, is ${fmt("con.kitui-central.share")}% of the register.`,
-  sources: [src("register.2022"), { name: "Parliament of Kenya record", tier: "T1" }, { name: "The pool: a sum of the four constituencies, derived", tier: "T1", state: "modelled" }],
+  sources: [src("register.2022"), src("register.2026"), { name: "Parliament of Kenya record", tier: "T1" }, { name: "The pool: a sum of the four constituencies, derived", tier: "T1", state: "modelled" }],
   chart: {
     type: "composite",
     parts: [
@@ -47,7 +47,7 @@ export const FIG_COVER_MAP: FigureSpec = {
         chart: {
           type: "stats",
           items: [
-            { value: fmt("register.2026"), label: "registered voters, July 2026", state: "sourced", countTo: F("register.2026").value ?? undefined },
+            { value: fmt("register.2026"), label: "registered voters, July 2026 (reported)", state: "sourced", countTo: F("register.2026").value ?? undefined },
             { value: `≈${fmt("benchmark")}–${fmt("benchmark.2026-equivalent.rounded")}`, label: "votes to win: the 2022 winner's share, carried to the 2026 register", state: "modelled" },
             { value: `${fmt("pool.share")}%`, label: "of the register in Mwingi and Kitui South, where he has never held office", state: "modelled" },
             { value: "Both", label: "Wiper rivals for the ticket have already won a countywide election", state: "sourced" },
