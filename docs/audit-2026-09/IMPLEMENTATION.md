@@ -119,10 +119,13 @@ the text where the claim needs it.
   - The pipeline's rules (`analysis/CLAUDE.md` §5) now state the no-polls, no-new-research
     principle.
   - Every export the pipeline regenerates matches the file already on the site.
-  - The data pack is gitignored and was not available, so reports that need it were edited
-    by hand to match the code. The reports for Stages 3, 4, 6, 8, 10 and 11 were regenerated.
-    Stages 3 and 4 ran on the 40-ward register rebuilt from the pipeline's own published
-    export, which reproduces the earlier Stage 3 results exactly.
+  - Every report has since been regenerated from the data pack (compiled 16 September 2026).
+    The hand-edited findings and site-mapping reports came out unchanged. The Stage 1 audit
+    now counts claims against the restructured site (950 claims across 16 content files) and
+    lists 7 passed checks. No poll figure from the pack reaches a report or an export.
+  - One Stage 1 test still fails: the IEBC annex row in
+    `data/templates/register_2026_by_county.csv`, supplied by the campaign on 17 September
+    with its document URL, is gitignored and needs re-entering. It is not in the pack.
 - **Left as history:**
   - **`scripts/rebuild/`, `scripts/audit-*.json`, `scripts/visual-inventory-plan.json`** are
     records of earlier migrations and mention the old Annex C as history.

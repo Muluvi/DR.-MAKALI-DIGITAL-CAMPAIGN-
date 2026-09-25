@@ -146,9 +146,12 @@ def test_reconciliation_check_catches_a_broken_sum(frames):
 # --- claims and templates ------------------------------------------------------------------
 
 def test_claims_register_covers_content_and_excludes_section_refs():
+    """Coverage is measured against the content folder, not a fixed file count: the site
+    was restructured into fewer, longer files, and some (the glossary) carry no figures."""
     df = claims.build()
+    content_files = list(config.SITE_CONTENT.glob("*.md"))
     assert len(df) > 500
-    assert df["file"].nunique() >= 25
+    assert df["file"].nunique() >= 0.8 * len(content_files)
     unitless_small = df[(df["value"] < 100) & (df["unit"] == "")]
     assert unitless_small.empty, "section references leaked into the claims register"
 
