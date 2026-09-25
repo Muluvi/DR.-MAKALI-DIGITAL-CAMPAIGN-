@@ -1,4 +1,5 @@
-// Phase 3 — disputed figures. Three known contradictions in the research pass. None is
+// Phase 3 — disputed figures. Three known contradictions in the research pass, all now resolved
+// by a preferred value (September 2026). None is
 // resolved by picking a winner and dropping the other value: every entry keeps both (or all)
 // values, both sources, and states either the reason a value is preferred or exactly what
 // would resolve the dispute. Rendered by components/markdown/DisputedFigure.tsx.
@@ -36,8 +37,11 @@ export const DISPUTED_FIGURES: DisputedFigureEntry[] = [
       { value: 114606, unit: "votes", source: THE_STAR, granularity: "county" },
       { value: 117606, unit: "votes", source: STANDARD_NATION, granularity: "county" },
     ],
-    resolutionPath: "The IEBC declaration form (Form 37C or the equivalent gubernatorial declaration) for the 2022 Kitui County result, once obtained, is the only Tier 1 source that settles this.",
-    status: "unresolved",
+    preferredIndex: 1,
+    preferenceReason:
+      "117,606 is the IEBC Form 37C total as reported by Nation Africa, and the certified share (35.77%) matches it; Firefly confirmed it on 25 September 2026. The Star's 114,606 was an early media total and is not used.",
+    resolutionPath: "The IEBC Form 37C for the 2022 Kitui governor result, held directly, would make the figure Tier 1.",
+    status: "resolved-preferred",
   },
   {
     id: "kitui-fy2025-26-q1-absorption",
@@ -46,7 +50,10 @@ export const DISPUTED_FIGURES: DisputedFigureEntry[] = [
       { value: 18, unit: "%", source: CONTROLLER_OF_BUDGET, granularity: "county" },
       { value: 5, unit: "% (approx.)", source: MEDIA_ABSORPTION_ALT, granularity: "county" },
     ],
-    resolutionPath: "The primary County Budget Implementation Review Report (CBIRR) for FY2025/26 Q1, once obtained directly rather than via secondary reporting, is the only source that settles this.",
-    status: "unresolved",
+    preferredIndex: 0,
+    preferenceReason:
+      "The Controller of Budget is the statutory source for county absorption, and its review report gives Kitui's FY2025/26 Q1 development absorption as 18%; Firefly confirmed it on 25 September 2026. The 5% in media reports is not used.",
+    resolutionPath: "The primary County Budget Implementation Review Report (CBIRR) for FY2025/26 Q1, held directly rather than via secondary reporting, would attach the document to the figure.",
+    status: "resolved-preferred",
   },
 ];

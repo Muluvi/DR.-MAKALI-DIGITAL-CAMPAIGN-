@@ -1,5 +1,5 @@
 // Phase 4b — county fiscal and audit record. Feeds §B.2 and the Phase 6d fiscal/audit
-// panel. The FY2025/26 Q1 absorption rate itself is disputed — see data/disputed-figures.ts,
+// panel. The FY2025/26 Q1 absorption rate (18%, the Controller of Budget's) sits in data/disputed-figures.ts,
 // id "kitui-fy2025-26-q1-absorption" — and is not duplicated here as a single number.
 import type { SourcedFigure } from "./types";
 import { AUDITOR_GENERAL_FY2023_24, CONTROLLER_OF_BUDGET, FISCAL_STRATEGY_PAPER_FY2026_27 } from "./sources";

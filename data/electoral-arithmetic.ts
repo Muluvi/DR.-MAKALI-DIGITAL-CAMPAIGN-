@@ -70,10 +70,10 @@ export const ELECTORAL_ARITHMETIC = {
       candidate: "David Musila",
       office: "Governor",
       year: 2022,
-      votes: 114606, // Certified 114,606 (117,606 widely reported)
+      votes: 117606, // IEBC Form 37C; The Star's early 114,606 is not used
       tier: "T1",
       source: "IEBC Certified Results 2022",
-      notes: "114,606 certified / 117,606 disputed reported tally",
+      notes: "117,606 certified (IEBC Form 37C); The Star's early total of 114,606 is not used",
     },
   ] as CertifiedResult[],
 
