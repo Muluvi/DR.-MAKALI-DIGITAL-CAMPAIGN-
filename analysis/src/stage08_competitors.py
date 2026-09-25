@@ -55,13 +55,12 @@ def run() -> dict:
             "does establish is non-digital and still matters for the benchmark:"
         )
         rep.bullets([
-            "**Kasalu leads every published poll** and won the 2022 Woman Rep race with 201,899 "
-            "votes — more than the winning gubernatorial tally of 198,004. She has already "
-            "demonstrated countywide vote-getting capacity above the benchmark.",
+            "**Kasalu won the 2022 Woman Rep race with 201,899 votes** — more than the winning "
+            "gubernatorial tally of 198,004. She has already demonstrated countywide "
+            "vote-getting capacity above the benchmark. The total is a media report of the "
+            "declaration; IEBC Form 39C is the record to hold.",
             "**Kasalu is visibly campaigning on the ground**: a #ZiaraMashinani grassroots tour "
             "and a visibility push in Kitui East [S28, S29].",
-            "**Wambua's published share is contracting** across the Mizani rounds, 16.3% to "
-            "14.3% — though as Stage 2 shows, that movement cannot be tested without sample sizes.",
             "**Ngilu has a reported media asset.** Mbaitu FM is reported as linked to her [S38], "
             "and Athiani FM as linked to the party leader. Both are T3 and carry verify. Media "
             "planning has to assume neither station is neutral.",

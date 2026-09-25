@@ -1,13 +1,13 @@
-"""Stage 3 models. Both are scenario models. Neither is a forecast.
+"""Stage 3 model. A scenario model, not a forecast.
 
-Model A — nomination-poll leverage. If the party's poll samples in proportion to
-registered voters (an UNCONFIRMED assumption), a ward's leverage on Mulu's countywide
-share is simply its share of the register.
-
-Model B — general-election paths. Per-ward turnout and support are drawn from ranges in
+General-election paths. Per-ward turnout and support are drawn from ranges in
 assumptions.yaml and summed to a county total, which is then compared against two
 published benchmarks. Kenyan governor races are won by plurality, so there is no
 threshold to clear and no win probability is produced.
+
+The support range is anchored on what the 2022 winner actually took, an official result.
+Every input is an official record or a stated assumption in assumptions.yaml: Firefly
+works from existing records and its own analysis only.
 """
 from __future__ import annotations
 
@@ -21,41 +21,7 @@ from src import config
 HOME_CONSTITUENCY = "Kitui Central"
 
 
-# --- Model A: nomination leverage ------------------------------------------------------
-
-def nomination_leverage(wards: pd.DataFrame) -> pd.DataFrame:
-    """Each ward's share of the register, and what a gain there is worth countywide.
-
-    Under proportional sampling, a gain of g points among a ward's voters moves the
-    countywide share by g * (ward register / county register). That is the whole model:
-    it is arithmetic, not a simulation, and its honesty rests entirely on whether the
-    proportional-sampling assumption holds.
-    """
-    total = wards["registered_voters_2022"].sum()
-    df = wards.copy()
-    df["register_share"] = df["registered_voters_2022"] / total
-    df["leverage_per_10pt_gain"] = df["register_share"] * 10
-    df["cumulative_share"] = (
-        df.sort_values("registered_voters_2022", ascending=False)["register_share"].cumsum()
-    )
-    df = df.sort_values("registered_voters_2022", ascending=False).reset_index(drop=True)
-    df["rank"] = df.index + 1
-    df["cumulative_share"] = df["register_share"].cumsum()
-    return df
-
-
-def constituency_leverage(wards: pd.DataFrame) -> pd.DataFrame:
-    total = wards["registered_voters_2022"].sum()
-    grp = (
-        wards.groupby("constituency")["registered_voters_2022"].sum()
-        .sort_values(ascending=False).reset_index()
-    )
-    grp["register_share"] = grp["registered_voters_2022"] / total
-    grp["leverage_per_10pt_gain"] = grp["register_share"] * 10
-    return grp
-
-
-# --- Model B: general-election paths ---------------------------------------------------
+# --- General-election paths ------------------------------------------------------------
 
 @dataclass
 class SimulationResult:
@@ -97,7 +63,7 @@ def simulate(
     t_lo, t_hi = turnout_range or (
         config.value("turnout.ward_low"), config.value("turnout.ward_high"))
     s_lo, s_hi = support_range or (
-        config.value("support.mulu_ward_low"), config.value("support.mulu_ward_high"))
+        config.value("support.competitive_ward_low"), config.value("support.competitive_ward_high"))
     home = home_multiplier if home_multiplier is not None else config.value(
         "support.home_advantage_multiplier")
 
@@ -158,7 +124,7 @@ def parameter_tornado(wards: pd.DataFrame, register_col: str = "registered_voter
     asking about when they ask which assumption matters.
     """
     t_lo, t_hi = config.value("turnout.ward_low"), config.value("turnout.ward_high")
-    s_lo, s_hi = config.value("support.mulu_ward_low"), config.value("support.mulu_ward_high")
+    s_lo, s_hi = config.value("support.competitive_ward_low"), config.value("support.competitive_ward_high")
     home = config.value("support.home_advantage_multiplier")
     t_mid, s_mid = (t_lo + t_hi) / 2, (s_lo + s_hi) / 2
 

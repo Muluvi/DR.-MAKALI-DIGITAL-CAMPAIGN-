@@ -15,5 +15,3 @@ pytest==8.3.3
 # do not spend time fixing the install (addendum, ENVIRONMENT).
 geopandas==1.0.1
 
-# PyMC is deliberately absent. Stage 2 installs it only if 5+ published polls exist.
-# At 3 published polls the Bayesian average is skipped, so the dependency is not taken on.

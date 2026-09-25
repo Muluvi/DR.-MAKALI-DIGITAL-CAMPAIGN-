@@ -31,7 +31,7 @@ def synthetic_normalised():
         "ward": [f"SYNTHETIC-{i:02d}" for i in range(n)],
         "constituency": np.repeat([f"SYN-C{i}" for i in range(4)], 10),
         "registered_voters": np.clip(group * 0.3 + rng.normal(0, 0.03, n), 0, 1),
-        "recognition_gap": np.clip((3 - group) * 0.3 + rng.normal(0, 0.03, n), 0, 1),
+        "party_strength_2022": np.clip((3 - group) * 0.3 + rng.normal(0, 0.03, n), 0, 1),
         "connectivity": np.clip(rng.random(n), 0, 1),
     })
 
@@ -47,16 +47,16 @@ def test_normalise_maps_onto_zero_one(real_wards):
 
 
 def test_score_is_the_weighted_sum(synthetic_normalised):
-    weights = {"registered_voters": 0.5, "recognition_gap": 0.3, "connectivity": 0.2}
+    weights = {"registered_voters": 0.5, "party_strength_2022": 0.3, "connectivity": 0.2}
     got = s4.score(synthetic_normalised, weights)
     expected = (synthetic_normalised["registered_voters"] * 0.5
-                + synthetic_normalised["recognition_gap"] * 0.3
+                + synthetic_normalised["party_strength_2022"] * 0.3
                 + synthetic_normalised["connectivity"] * 0.2)
     assert np.allclose(got, expected)
 
 
 def test_score_stays_within_zero_one_when_weights_sum_to_one(synthetic_normalised):
-    weights = {"registered_voters": 0.5, "recognition_gap": 0.3, "connectivity": 0.2}
+    weights = {"registered_voters": 0.5, "party_strength_2022": 0.3, "connectivity": 0.2}
     s = s4.score(synthetic_normalised, weights)
     assert s.min() >= 0.0 and s.max() <= 1.0
 
@@ -103,7 +103,7 @@ def test_sensitivity_is_degenerate_with_one_feature(real_wards):
 
 def test_sensitivity_moves_ranks_when_features_conflict(synthetic_normalised):
     """SYNTHETIC: two features ordered oppositely must produce unstable middle ranks."""
-    weights = {"registered_voters": 0.5, "recognition_gap": 0.5}
+    weights = {"registered_voters": 0.5, "party_strength_2022": 0.5}
     sens = s4.rank_sensitivity(synthetic_normalised, weights, 300, 5.0)
     assert sens["rank_range"].max() > 0, "conflicting features must move the ranking"
     assert (sens["rank_best"] <= sens["rank_median"]).all()
@@ -111,14 +111,14 @@ def test_sensitivity_moves_ranks_when_features_conflict(synthetic_normalised):
 
 
 def test_sensitivity_is_reproducible(synthetic_normalised):
-    weights = {"registered_voters": 0.6, "recognition_gap": 0.4}
+    weights = {"registered_voters": 0.6, "party_strength_2022": 0.4}
     a = s4.rank_sensitivity(synthetic_normalised, weights, 100, 10.0)
     b = s4.rank_sensitivity(synthetic_normalised, weights, 100, 10.0)
     pd.testing.assert_frame_equal(a, b)
 
 
 def test_ranks_are_a_valid_permutation(synthetic_normalised):
-    weights = {"registered_voters": 0.5, "recognition_gap": 0.5}
+    weights = {"registered_voters": 0.5, "party_strength_2022": 0.5}
     sens = s4.rank_sensitivity(synthetic_normalised, weights, 20, 10.0)
     n = len(synthetic_normalised)
     assert sens["rank_best"].between(1, n).all()
@@ -129,7 +129,7 @@ def test_ranks_are_a_valid_permutation(synthetic_normalised):
 
 def test_clustering_recovers_known_groups(synthetic_normalised):
     """SYNTHETIC: four well-separated groups must cluster cleanly."""
-    assigned, sil = s4.cluster(synthetic_normalised, ["registered_voters", "recognition_gap"])
+    assigned, sil = s4.cluster(synthetic_normalised, ["registered_voters", "party_strength_2022"])
     assert len(assigned) == 40
     assert sil["k"].tolist() == [3, 4, 5]
     assert sil["silhouette"].max() > 0.5, "clear structure should score well"

@@ -21,9 +21,12 @@ from dataclasses import dataclass, field
 from src import config
 
 # Stage number -> (module name, human title). Order is the execution order.
+#
+# There is no Stage 2. It modelled published opinion polls, and Firefly works from existing
+# records and its own analysis only (September 2026). The other stages keep their numbers so
+# that every report, chart and reference to them stays valid.
 STAGES: dict[int, tuple[str, str]] = {
     1: ("stage01_ingest", "Ingest and audit"),
-    2: ("stage02_polls", "Poll uncertainty"),
     3: ("stage03_simulation", "Scenario simulation"),
     4: ("stage04_wards", "Ward priority index and segments"),
     5: ("stage05_maps", "Maps"),

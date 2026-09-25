@@ -154,8 +154,6 @@ def run() -> dict:
          "Source": "manual monitoring", "Frequency": "weekly", "Owner": "Firefly analyst"},
         {"KPI": "Net sentiment", "Formula": "(positive − negative) / total coded comments",
          "Source": "Stage 7 coding", "Frequency": "fortnightly", "Owner": "Firefly analyst"},
-        {"KPI": "Aided recognition", "Formula": "% recognising Mulu from a prompted list, by ward",
-         "Source": "baseline and tracking survey", "Frequency": "quarterly", "Owner": "Independent facilitator"},
         {"KPI": "Cost per consented contact", "Formula": "channel spend / net new consented contacts",
          "Source": "finance + SMS platform", "Frequency": "monthly", "Owner": "Campaign finance"},
         {"KPI": "Holdout gap", "Formula": "treatment ward metric − holdout ward metric",
@@ -229,9 +227,9 @@ def run() -> dict:
     rep.h2("KPI definitions")
     rep.table(kpis)
     rep.p(
-        "Every KPI above is computable from a named source. Two depend on inputs that do not yet "
-        "exist: net sentiment needs Stage 7's coded comments, and aided recognition needs the "
-        "baseline survey."
+        "Every KPI above is computable from a named source. One depends on an input that does not "
+        "yet exist: net sentiment needs Stage 7's coded comments. None needs a survey: Firefly "
+        "works from existing records and its own analysis only."
     )
 
     rep.gaps([

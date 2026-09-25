@@ -2,7 +2,7 @@
 
 What the Direct phase can actually detect, and how it will be measured.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-17*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-25*
 
 ![Minimum detectable effect by list size](../outputs/charts/11_mde.svg)
 
@@ -76,11 +76,10 @@ The template refuses to run on fewer than eight pre-launch weeks. Below that the
 | Engagement rate | (reactions + comments + shares) / followers, per post | platform analytics | weekly | Campaign social team |
 | Share of voice | mentions of Mulu / mentions of all four candidates | manual monitoring | weekly | Firefly analyst |
 | Net sentiment | (positive − negative) / total coded comments | Stage 7 coding | fortnightly | Firefly analyst |
-| Aided recognition | % recognising Mulu from a prompted list, by ward | baseline and tracking survey | quarterly | Independent facilitator |
 | Cost per consented contact | channel spend / net new consented contacts | finance + SMS platform | monthly | Campaign finance |
 | Holdout gap | treatment ward metric − holdout ward metric | this stage's assignment | monthly | Firefly analyst |
 
-Every KPI above is computable from a named source. Two depend on inputs that do not yet exist: net sentiment needs Stage 7's coded comments, and aided recognition needs the baseline survey.
+Every KPI above is computable from a named source. One depends on an input that does not yet exist: net sentiment needs Stage 7's coded comments. None needs a survey: Firefly works from existing records and its own analysis only.
 
 
 ## Data gaps

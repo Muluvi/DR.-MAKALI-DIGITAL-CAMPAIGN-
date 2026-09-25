@@ -101,13 +101,30 @@ the text where the claim needs it.
 | Safaricom PLC annual reports (Mulila) | §3.5, B.5 |
 | CA broadcast-licence register; Business Registration Service records | §2.7.1, §5.2.2.2 |
 
-## Outside the website, left as it is
+## Outside the website
 
-- **`analysis/`**, the Python pipeline that produced the analysis exports, still contains its poll
-  stages (`stage02_polls.py`, the nomination-poll model in `stage03_simulation.py`) and reports. It
-  ships nothing to the site, which now imports none of its poll output. Removing those stages means
-  rewriting the pipeline's simulation, which is a separate piece of work.
-- **`scripts/rebuild/`, `scripts/audit-*.json`, `scripts/visual-inventory-plan.json`** are records
-  of earlier migrations and mention the old Annex C as history.
-- **`components/markdown/KpiPhaseBlock.tsx`** is no longer mounted: `fig-5-4-ladder` carries its
-  targets (`docs/visual-premium/REPLACEMENTS.md`).
+- **`analysis/`**, the Python pipeline behind the analysis exports, no longer handles polls or
+  surveys (follow-up change):
+  - Stage 2 (poll uncertainty) and its maths module, tests and report are removed. The other
+    stages keep their numbers.
+  - Stage 3 drops the "nomination-poll leverage" model and the poll-share scenario. It keeps the
+    competitive general-election model, the one the site shows. Its sensitivity chart is now
+    based on the competitive range.
+  - Stage 1 no longer parses the pack's poll table.
+  - Stage 12 no longer exports `published-polls-2026` or reports poll findings.
+  - The "baseline survey" is removed: its template, the recognition-gap feature in the Stage 4
+    index (its weight moves to 2022 ward results), the survey axis in Stage 10 and the
+    survey-based KPI in Stage 11.
+  - Stage 1's check now flags any opinion-poll material that reaches the site.
+  - The pipeline's rules (`analysis/CLAUDE.md` §5) now state the no-polls, no-new-research
+    principle.
+  - Every export the pipeline regenerates matches the file already on the site.
+  - The data pack is gitignored and was not available, so reports that need it were edited
+    by hand to match the code. The reports for Stages 3, 4, 6, 8, 10 and 11 were regenerated.
+    Stages 3 and 4 ran on the 40-ward register rebuilt from the pipeline's own published
+    export, which reproduces the earlier Stage 3 results exactly.
+- **Left as history:**
+  - **`scripts/rebuild/`, `scripts/audit-*.json`, `scripts/visual-inventory-plan.json`** are
+    records of earlier migrations and mention the old Annex C as history.
+  - **`components/markdown/KpiPhaseBlock.tsx`** is no longer mounted: `fig-5-4-ladder` carries
+    its targets (`docs/visual-premium/REPLACEMENTS.md`).

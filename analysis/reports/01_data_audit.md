@@ -12,7 +12,6 @@ What the pack contains, what the site claims, and where the two disagree.
 | `sources.csv` | 69 |
 | `wards.csv` | 40 |
 | `constituencies.csv` | 8 |
-| `polls.csv` | 12 |
 | `results_2022.csv` | 7 |
 | `channels.csv` | 25 |
 | `county_finance.csv` | 6 |
@@ -50,8 +49,8 @@ The pack states the seat is open: Malombe was elected in 2013 and 2022, and Arti
 *Action:* Resolve. If the pack is right, the branching scenario is dead content and the framing should change to an open-seat race.
 
 **Nomination method — t3-dependency**  
-The opinion-poll nomination method is T3, single-sourced to The County Diary [S10], and the whole nomination strategy rests on it.  
-*Action:* Obtain official WPF communication on the method, pollster, timing and sample design.
+The reported WPF nomination method is T3, single-sourced to The County Diary [S10], and the whole nomination strategy rests on it.  
+*Action:* Obtain the WPF NEC resolution, or the 2027 nomination rules and timetable as filed with the IEBC and the Registrar of Political Parties.
 
 **Site content — claim-sourcing**  
 917 of 1,093 numeric claims (84%) carry no visible tier marker within 70 characters.  
@@ -80,7 +79,6 @@ Bare 'Wiper' without 'Patriotic Front' appears in 16 files.
 - 2026 register: The apparent 11,106-voter discrepancy is resolved, and was never a discrepancy. Of the 72,945 growth, 61,839 came from the 30-day ECVR drive that ended 28 April 2026; the remaining 11,106 is ordinary continuous registration outside that window, which opened on 29 September 2025 and continued after the drive closed. The July total post-dates the drive by three months.
 - 2026 register: Both figures match the T3 reports [S4, S5] exactly, which corroborates those outlets rather than casting doubt on the annex. Because the values are identical, the Tier 1 claim rests on provenance rather than on the number: the campaign confirmed on 17 September 2026 that both were read directly off the IEBC annex PDF, not copied from the aggregators.
 - All 40 wards: Every ward's voter count in the pack matches the site's ward-register.json.
-- polls: All 8 T3 rows in polls.csv carry status 'verify'.
 - county_finance: All 2 T3 rows in county_finance.csv carry status 'verify'.
 - channels: All 13 T3 rows in channels.csv carry status 'verify'.
 
@@ -105,12 +103,11 @@ That percentage overstates the problem and should not be quoted on its own. The 
 
 ## Templates written
 
-Seven templates and a schema README are in `data/templates/`. Headers only, no example rows. The ward boundary file location is documented in `data/raw/boundaries/README.md`.
+7 templates and a schema README are in `data/templates/`. Headers only, no example rows. The ward boundary file location is documented in `data/raw/boundaries/README.md`.
 
 - `data/templates/posts.csv`
 - `data/templates/comments.csv`
 - `data/templates/competitors.csv`
-- `data/templates/baseline_survey.csv`
 - `data/templates/register_2026_by_ward.csv`
 - `data/templates/results_2022_by_ward.csv`
 - `data/templates/issues.csv`
@@ -123,7 +120,6 @@ Seven templates and a schema README are in `data/templates/`. Headers only, no e
 - **[DATA NEEDED]** `posts.csv` is empty — Every public post from the candidate's channels, for the Existing Presence Audit.
 - **[DATA NEEDED]** `comments.csv` is empty — Public comments for theme and sentiment coding.
 - **[DATA NEEDED]** `competitors.csv` is empty — Rival channel benchmarks for Kasalu, Wambua and Ngilu.
-- **[DATA NEEDED]** `baseline_survey.csv` is empty — Ward-level survey aggregates: recognition, favourability, issue salience.
 - **[DATA NEEDED]** `register_2026_by_ward.csv` is empty — The post-ECVR 2026 register, by ward — the IEBC annex figure.
 - **[DATA NEEDED]** `results_2022_by_ward.csv` is empty — 2022 governor and Woman Rep results by ward, from IEBC Forms 37A/37B.
 - **[DATA NEEDED]** `issues.csv` is empty — Issue salience and candidate credibility, for the Stage 10 matrix.
@@ -132,8 +128,7 @@ Seven templates and a schema README are in `data/templates/`. Headers only, no e
 
 ## What this means for later stages
 
-- Stage 2 has three polls from two pollsters. They stay on separate series, and with fewer than five polls there is no Bayesian average.
 - Stage 3 can run on the 2022 ward register. Turnout and support ranges are placeholders until ward-level 2022 results arrive.
-- Stage 4 has one of six features with data. The other five are dropped and listed, never imputed.
+- Stage 4 has one of 5 features with data. The others are dropped and listed, never imputed.
 - Stage 5 needs a boundary file. Two ward-name variants are already known and will need the normalisation described in the boundary README.
 - Stages 6, 7 and 8 have no input yet and will report [DATA NEEDED].

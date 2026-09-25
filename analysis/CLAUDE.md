@@ -49,16 +49,18 @@ Written in British English throughout, including in generated reports.
   comparisons, not win probability**.
 - Prefer simple, explainable methods over sophisticated ones.
 
-## 5. Polls
+## 5. No polls, no new research
 
-- **Never join different pollsters into one trend line.** Politrack and Mizani are separate
-  series on every chart.
-- Where a sample size is unknown, show margins for n = 500, 1,000 and 2,000, clearly labelled
-  as illustrative panels, not as the poll's actual precision.
-- Mizani's June poll excluded Ngilu; the August poll included her. **Flag this on every
-  June-to-August comparison** — the shares are not like-for-like.
-- Politrack reports 0.6% undecided, Mizani 6.0%. Note this: it indicates different methods.
-- Build a Bayesian poll average only at 5+ polls. At fewer, skip it and say why.
+- **Firefly works from existing records and its own analysis only.** No stage commissions,
+  models or reads a new study, survey, poll or focus group to form strategy (September 2026).
+- **Opinion polls appear nowhere**: not as a stage, a model input, an export, a finding or a
+  "for reference only" table. Stage 2, which modelled the published polls, has been removed;
+  the other stages keep their numbers.
+- **Candidate attributes come from official or documentary records**: IEBC declarations and
+  forms, Hansard, the Kenya Gazette, OAG and Controller of Budget reports, NG-CDF records,
+  Kenya Law, party nomination records and official biographies. Where the record is missing,
+  write `[DATA NEEDED]` and name it; never fill it with a measure of opinion.
+- Stage 1's `poll-on-site` check flags any opinion-poll material that reaches the site.
 
 ## 6. Naming and currency of facts
 

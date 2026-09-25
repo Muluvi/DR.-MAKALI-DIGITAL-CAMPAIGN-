@@ -147,7 +147,7 @@ def run() -> dict:
             "MP start date given as Aug 2012 against a Parliament record of 2013, "
             "\"Programmer Officer\" for Programme Officer, a garbled \"Forms of government\" "
             "employer entry, Nairobi shown as current city for a county aspirant, "
-            "\"Incoming Governor\" presuming a party poll that has not happened, and the PhD "
+            "\"Incoming Governor\" presuming a nomination that has not happened, and the PhD "
             "missing from a profile whose whole positioning is the Economist Governor.",
         ])
         rep.h2("What this stage will produce")

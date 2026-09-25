@@ -8,6 +8,8 @@ from sklearn.metrics import silhouette_score
 
 from src import charts, config, features as featlib, report
 
+_WORDS = "zero one two three four five six seven eight nine ten".split()
+
 
 def score(normalised: pd.DataFrame, weights: dict[str, float]) -> pd.Series:
     total = pd.Series(0.0, index=normalised.index)
@@ -99,9 +101,9 @@ def chart_priority(ranked: pd.DataFrame) -> str:
     charts.strip_spines(ax, keep=("bottom",))
     return charts.save(
         fig, "04_ward_priority.svg",
-        "Modelled. One of six features has data, so this ranking currently reproduces the "
-        "register ranking. It is not yet a priority index in any meaningful sense — see the "
-        "report's list of the five dropped features.",
+        "Modelled. While registered voters is the only feature with data, this ranking "
+        "reproduces the register ranking. It is not yet a priority index in any meaningful "
+        "sense — see the report's list of dropped features.",
     )
 
 
@@ -186,7 +188,8 @@ def run() -> dict:
     # --- report -------------------------------------------------------------------------
     rep = report.Report(
         "04_wards.md", "Stage 4 — Ward priority index and segments",
-        "One of six features has data. This is the honest state of the index.",
+        f"{_WORDS[len(fs.available)].capitalize()} of {_WORDS[len(featlib.FEATURES)]} features "
+        f"{'has' if len(fs.available) == 1 else 'have'} data. This is the honest state of the index.",
     )
     rep.chart(c_pri, "Ward priority index, top 20")
     rep.chart(c_seg, "Ward segments")
@@ -213,7 +216,7 @@ def run() -> dict:
     } for f, why in fs.dropped]
     rep.table(pd.DataFrame(rows))
     rep.p(
-        f"**Nothing was imputed.** The five dropped features carry "
+        f"**Nothing was imputed.** The {_WORDS[len(fs.dropped)]} dropped features carry "
         f"{sum(fs.original_weights[f.key] for f, _ in fs.dropped):.0%} of the stated weight "
         "between them. That weight was not redistributed by judgement — the surviving weights "
         "were renormalised arithmetically, which with one feature means it takes the whole 1.0."
@@ -267,8 +270,8 @@ def run() -> dict:
             "**More specifically, these are size bands.** Clustering one standardised variable "
             "cuts it into contiguous ranges, so the high silhouette reflects that a single "
             "variable separates cleanly, not that the wards fall into strategic types. Segment "
-            "names describe the only feature present. Real segmentation needs the survey and "
-            "the 2022 ward results."
+            "names describe the only feature present. Real segmentation needs the 2022 ward "
+            "results and ward-level coverage data."
         )
 
     rep.h2("Output")
@@ -283,6 +286,6 @@ def run() -> dict:
     path_out = rep.write()
     return {
         "state": "ok",
-        "summary": f"{len(fs.available)}/6 features; index = register ranking → {path_out}",
+        "summary": f"{len(fs.available)}/{len(featlib.FEATURES)} features; index = register ranking → {path_out}",
         "gaps": [f.label for f, _ in fs.dropped],
     }

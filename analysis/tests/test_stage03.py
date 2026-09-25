@@ -49,27 +49,6 @@ def test_benchmarks_are_the_two_published_ones_and_no_threshold(wards):
     assert config.value("benchmarks.no_fixed_threshold") is True
 
 
-def test_leverage_is_register_share_and_sums_to_one(wards):
-    lev = sim.nomination_leverage(wards)
-    assert len(lev) == 40
-    assert lev["register_share"].sum() == pytest.approx(1.0)
-    assert lev["cumulative_share"].iloc[-1] == pytest.approx(1.0)
-    assert lev.iloc[0]["ward"] == "Kyuso"  # largest register
-    assert lev["leverage_per_10pt_gain"].iloc[0] == pytest.approx(
-        lev["register_share"].iloc[0] * 10)
-
-
-def test_leverage_ranking_is_monotonic_in_register(wards):
-    lev = sim.nomination_leverage(wards)
-    assert lev["registered_voters_2022"].is_monotonic_decreasing
-
-
-def test_constituency_leverage_sums_to_one(wards):
-    cl = sim.constituency_leverage(wards)
-    assert len(cl) == 8
-    assert cl["register_share"].sum() == pytest.approx(1.0)
-
-
 def test_county_shock_keeps_the_distribution_wide(wards):
     """Independent per-ward draws would collapse the spread; the shared factor prevents it."""
     res = sim.simulate(wards, n_draws=4000)
@@ -77,11 +56,20 @@ def test_county_shock_keeps_the_distribution_wide(wards):
     assert spread > 0.2 * np.median(res.totals), "county distribution is implausibly narrow"
 
 
-def test_current_and_competitive_scenarios_differ(wards):
+def test_the_only_support_range_is_anchored_on_the_2022_result():
+    """No support range may come from a measure of opinion (records and own analysis only)."""
+    support = config.assumptions()["support"]
+    assert "mulu_ward_low" not in support and "mulu_ward_high" not in support
     from src import stage03_simulation as s3
-    cur = sim.simulate(wards, support_range=s3._support_range("current"))
-    comp = sim.simulate(wards, support_range=s3._support_range("competitive"))
-    assert np.median(comp.totals) > np.median(cur.totals) * 1.5
+    assert s3._support_range() == (
+        config.value("support.competitive_ward_low"), config.value("support.competitive_ward_high"))
+
+
+def test_simulation_defaults_to_the_competitive_range(wards):
+    from src import stage03_simulation as s3
+    default = sim.simulate(wards, n_draws=500)
+    explicit = sim.simulate(wards, n_draws=500, support_range=s3._support_range())
+    assert np.array_equal(default.totals, explicit.totals)
 
 
 def test_tornado_ranks_support_above_home_advantage(wards):
@@ -105,12 +93,6 @@ def test_every_stage3_output_carries_the_scenario_label():
     stage03_simulation.run()
     text = (config.REPORTS / "03_simulation.md").read_text(encoding="utf-8")
     assert config.SCENARIO_LABEL in text
-    for name in ("03_nomination_leverage.svg", "03_vote_distribution.svg", "03_tornado.svg"):
+    for name in ("03_vote_distribution.svg", "03_tornado.svg"):
         svg = (config.OUT_CHARTS / name).read_text(encoding="utf-8")
         assert "Scenario model, not a forecast" in svg, f"{name} lacks the scenario label"
-
-
-def test_nomination_assumption_is_flagged_unconfirmed():
-    a = config.assumption("nomination.poll_samples_proportional_to_register")
-    assert a.is_placeholder
-    assert "UNCONFIRMED" in a.rationale

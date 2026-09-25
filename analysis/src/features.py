@@ -47,17 +47,6 @@ def _registration_growth(wards: pd.DataFrame) -> pd.Series | None:
     return (merged["registered_voters_2026"] / merged["registered_voters_2022"] - 1).astype(float)
 
 
-def _recognition_gap(wards: pd.DataFrame) -> pd.Series | None:
-    df = _template("baseline_survey")
-    if df is None:
-        return None
-    merged = wards.merge(df, on="ward", how="left")
-    if merged["aided_recognition_pct"].isna().any():
-        return None
-    # The gap is what is missing, so a low recognition score is a high priority.
-    return (100.0 - merged["aided_recognition_pct"]).astype(float)
-
-
 def _connectivity(wards: pd.DataFrame) -> pd.Series | None:
     # Pack gap 20. The pack names USO coverage gains in a handful of Mwingi North wards
     # [S35], but says nothing about the other 37. Turning that into a 40-ward feature
@@ -94,10 +83,6 @@ FEATURES: tuple[Feature, ...] = (
             "IEBC 2026 ward annex", _registration_growth,
             "The 2026 register by ward is not published. The drive was ward-based, so growth "
             "is uneven and cannot be distributed pro rata without inventing it. Pack gap 6."),
-    Feature("recognition_gap", "Recognition gap", "high",
-            "Baseline survey", _recognition_gap,
-            "No baseline survey has been run. This is the feature the campaign's own diagnosis "
-            "depends on, and it carries the second-highest weight in the file."),
     Feature("connectivity", "Connectivity proxy", "high",
             "Ward-level coverage data", _connectivity,
             "No ward-level connectivity data exists. The pack records USO coverage gains in "

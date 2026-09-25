@@ -79,42 +79,6 @@ def constituencies_df(p: Pack, tiers: dict[str, int]) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-CANDIDATES = ["Mulu", "Kasalu", "Wambua", "Ngilu"]
-
-
-def polls_df(p: Pack, tiers: dict[str, int]) -> pd.DataFrame:
-    """Long format: one row per pollster-round-candidate. Sample size None when the pack
-    says [DATA NEEDED] — never zero, which would read as a real sample of nobody."""
-    table = p.table_under("Published 2026 polls")
-    rows = []
-    for row in table.as_dicts():
-        pollster_cell = row["Pollster"]
-        ids = source_ids(pollster_cell)
-        tier = _tier_for(tiers, ids)
-        pollster = strip_annotations(pollster_cell)
-        release = strip_annotations(row["Release"])
-        sample = to_number(row["Sample"]) if "DATA NEEDED" not in row["Sample"] else None
-        undecided = to_number(row["Undecided"]) if "DATA NEEDED" not in row["Undecided"] else None
-        for cand in CANDIDATES:
-            cell = row.get(cand, "")
-            share = None if "not polled" in cell.lower() else to_number(cell)
-            rows.append(
-                {
-                    "pollster": pollster,
-                    "release_date": release,
-                    "candidate": cand,
-                    "share_pct": share,
-                    "sample_size": int(sample) if sample else None,
-                    "undecided_pct": undecided,
-                    "polled": share is not None,
-                    "source_id": ids[0] if ids else "",
-                    "tier": tier,
-                    "as_of": release,
-                    "method": "official",
-                    "status": _status(pollster_cell + row["Sample"], tier),
-                }
-            )
-    return pd.DataFrame(rows)
 
 
 def results_2022_df(p: Pack, tiers: dict[str, int]) -> pd.DataFrame:
@@ -361,7 +325,6 @@ def build_all(p: Pack) -> dict[str, pd.DataFrame]:
         "sources": src,
         "wards": wards_df(p, tiers),
         "constituencies": constituencies_df(p, tiers),
-        "polls": polls_df(p, tiers),
         "results_2022": results_2022_df(p, tiers),
         "channels": channels_df(p, tiers),
         "county_finance": county_finance_df(p, tiers),

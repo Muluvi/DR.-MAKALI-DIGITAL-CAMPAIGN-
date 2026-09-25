@@ -292,14 +292,18 @@ def stale_site_content() -> list[dict]:
             "Relabel as 'IEBC 2022 register' and show the 2026 figure separately, marked verify.",
         ))
 
-    # Poll coverage: the site carries Mizani only.
-    politrack = [p.name for p in config.SITE_CONTENT.glob("*.md") if "Politrack" in p.read_text(encoding="utf-8")]
-    if not politrack:
+    # No opinion poll on the site, in any form: Firefly works from existing records and its own
+    # analysis only (September 2026). Election-day terms ("polling station") are not polls.
+    poll_term = re.compile(r"\b(poll|polls|pollster|pollsters|mizani|politrack)\b", re.I)
+    polled = [
+        p.name for p in config.SITE_CONTENT.glob("*.md")
+        if poll_term.search(re.sub(r"polling[- ](station|stations|day|agent|agents|stream)", "", p.read_text(encoding="utf-8"), flags=re.I))
+    ]
+    if polled:
         out.append(_finding(
-            "missing-poll", "high", "Site content",
-            "The site shows only the Mizani rounds. Politrack Africa (12 Mar 2026, n = 2,927) "
-            "is a second published pollster and is absent [S9].",
-            "Add Politrack as a separate series. Never join it to Mizani as one trend line.",
+            "poll-on-site", "high", "Site content",
+            f"Opinion-poll material appears in: {', '.join(sorted(polled))}.",
+            "Remove it. The proposal forms strategy from existing records and its own analysis only.",
         ))
 
     # The open-seat question: pack and site disagree.
@@ -346,9 +350,10 @@ def t3_without_t1(frames: dict[str, pd.DataFrame], sources: pd.DataFrame) -> lis
             ))
     out.append(_finding(
         "t3-dependency", "high", "Nomination method",
-        "The opinion-poll nomination method is T3, single-sourced to The County Diary [S10], and "
+        "The reported WPF nomination method is T3, single-sourced to The County Diary [S10], and "
         "the whole nomination strategy rests on it.",
-        "Obtain official WPF communication on the method, pollster, timing and sample design.",
+        "Obtain the WPF NEC resolution, or the 2027 nomination rules and timetable as filed with "
+        "the IEBC and the Registrar of Political Parties.",
     ))
     return out
 
