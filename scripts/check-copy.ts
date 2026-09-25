@@ -79,7 +79,10 @@ for (const file of fs.readdirSync(SRC).filter((f) => f.endsWith(".md")).sort()) 
     if (opener) {
       if (fence === null) {
         fence = opener[1];
-        if (fence !== "figure") errors.push(`${at}: code block "${fence || "plain"}" — ASCII diagrams become figures (brief §D.4)`);
+        // One allowance, with its reason: a ```textversion fence is not a code block but prose a
+        // figure has taken over (premium brief §12), kept word for word under the figure. Its
+        // lines are still scanned below by every rule here, exactly as they were before they moved.
+        if (fence !== "figure" && fence !== "textversion") errors.push(`${at}: code block "${fence || "plain"}" — ASCII diagrams become figures (brief §D.4)`);
       } else fence = null;
       return;
     }

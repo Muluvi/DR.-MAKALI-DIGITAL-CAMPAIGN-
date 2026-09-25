@@ -91,7 +91,7 @@ export function TerminalShowcase() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-line/60">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-emerald-500" />
               <span className="t-label font-mono text-muted font-bold">
                 Section 5.2.3.1 Physical Hardware Model
               </span>

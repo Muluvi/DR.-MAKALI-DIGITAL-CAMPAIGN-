@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useEffect, useRef, useId } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Search, ChevronRight, Layers, Sparkles, Compass, Map, MessageSquare, Megaphone, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck, Activity} from "lucide-react";
+import { X, Search, ChevronRight, Layers, Compass, Map, MessageSquare, Megaphone, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck, Activity} from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
 import { FLOW_ACTS, FLOW_SECTIONS, actOf } from "../lib/flow";
 import { ACT_PORTRAITS, ACT_ROMAN } from "../lib/premium/acts";
@@ -44,7 +44,7 @@ interface MobileTOCModalProps {
   /** Which sections this reader has already opened, from localStorage. */
   visited: ReadonlySet<TabId>;
   /** Jump to a top-level section rather than to one of its 262 headings. */
-  onSelectTab: (tabId: TabId) => void;
+  onSelectTab: (tabId: TabId, during?: () => void) => void;
 }
 
 export function MobileTOCModal({
@@ -141,272 +141,236 @@ export function MobileTOCModal({
 
   if (!isOpen) return null;
 
+  const hereAct = actOf(activeTab as TabId).id;
+  /** The five-step argument (the cover spine), in miniature: acts I to V. */
+  const argument = FLOW_ACTS.slice(0, 5);
+
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex flex-col justify-end sm:justify-center items-center print:hidden">
-        {/* Backdrop */}
+      <div
+        ref={sheetRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        className="pf-idx fixed inset-0 z-50 print:hidden"
+      >
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, scale: 0.985 }}
+          animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
-          onClick={onClose}
-          aria-hidden="true"
-          className="fx-backdrop absolute inset-0 bg-ink/70"
-        />
-
-        {/* Sheet / Modal Container */}
-        <motion.div
-          initial={{ y: "100%" }}
-          animate={{ y: 0 }}
-          exit={{ y: "100%" }}
-          transition={{ type: "spring", damping: 28, stiffness: 300 }}
-          ref={sheetRef}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby={titleId}
-          className="fx-sheet-bottom sm:fx-modal relative w-full max-w-xl max-h-[88dvh] sm:max-h-[80dvh] fx-glass border-t sm:border border-line rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-10"
+          transition={{ duration: 0.26, ease: [0.22, 1, 0.36, 1] }}
+          className="pf-idx__inner"
         >
-          {/* Top Grab Handle on Mobile */}
-          <div className="sm:hidden pt-3 pb-1 flex justify-center cursor-grab active:cursor-grabbing">
-            <div className="w-12 h-1.5 bg-line/80 rounded-full" />
-          </div>
-
           {/* Header */}
-          <div className="p-3.5 sm:p-5 border-b border-line flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-accent/10 text-accent flex items-center justify-center font-bold">
-                <Layers size={18} />
-              </div>
-              <div>
-                <h3 id={titleId} className="font-serif text-base sm:text-lg font-bold text-ink leading-tight">
-                  Full index
-                </h3>
-                <p className="t-label text-muted font-medium mt-0.5">
-                  {PARTS.filter((p) => p.part > 0 && p.part < 7).length} sections, {SECTIONS.filter((s) => s.part === 7).length} annexes, {subSectionCount} sub-sections, {partCount} parts
-                </p>
-              </div>
+          <header className="pf-idx__head">
+            <div>
+              <h2 id={titleId} className="pf-idx__title">The index</h2>
+              <p className="pf-idx__meta">
+                {FLOW_ACTS.length} acts · {PARTS.filter((p) => p.part > 0 && p.part < 7).length} sections, {SECTIONS.filter((s) => s.part === 7).length} annexes, {subSectionCount} sub-sections, {partCount} parts
+              </p>
             </div>
-
-            <button
-              onClick={onClose}
-              className="w-11 h-11 rounded-xl bg-paper border border-line text-muted hover:text-ink flex items-center justify-center transition-colors cursor-pointer shrink-0"
-              aria-label="Close navigation"
-            >
-              <X size={18} />
+            <button type="button" onClick={onClose} className="pf-idx__close" aria-label="Close the index">
+              <X size={20} />
             </button>
-          </div>
+          </header>
 
-          {/* Search Box */}
-          <div className="p-3 sm:p-4 bg-paper/50 border-b border-line space-y-2.5">
-            <div className="relative">
-              <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted" />
-              <input
-                type="text"
-                placeholder="Search sections (e.g., Nomination, Radio, 40 Wards, SMS)..."
-                aria-label="Search sections by number, title or part"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                ref={searchRef}
-                className="fx-input-glow w-full pl-10 pr-4 py-2 bg-card border border-line rounded-xl t-label font-semibold text-ink placeholder:text-muted focus:outline-none focus:border-accent min-h-[44px]"
-              />
-              {searchQuery && (
-                <button
-                  type="button"
-                  aria-label="Clear search"
-                  onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 t-label text-muted hover:text-ink px-2 py-1 bg-paper rounded-lg border border-line cursor-pointer"
-                >
-                  Clear
-                </button>
-              )}
-            </div>
-
-            <p role="status" aria-live="polite" aria-atomic="true" className="sr-only">
-              {searchQuery.trim()
-                ? `${filteredSections.length} ${filteredSections.length === 1 ? "section matches" : "sections match"} "${searchQuery.trim()}"`
-                : `${filteredSections.length} sections listed`}
-            </p>
-
-            {/*
-              The thirty sections, in the order the page scrolls, with how long each takes and
-              whether it has been reached.
-
-              The index below this lists 272 headings, which answers "where is X" and cannot
-              answer the question a reader of a 290-minute document actually has between
-              sittings: which parts have I already been through, and what am I taking on if I
-              start this one? Thirty rows, a minute count, and a state.
-
-              IN FLOW ORDER, not file order. The page is one scroll now (lib/flow.ts), and an
-              index that lists the sections in a different sequence from the one the reader is
-              travelling through is a second, contradictory map of the same document.
-            */}
-            {/* The seven acts (brief G-7): each with its numeral, its portrait and how long it
-                takes, one tap to its opener. This is the phone's version of the desktop spine. */}
-            <ol className="pf-index-acts" aria-label="The seven acts">
-              {FLOW_ACTS.map((a, i) => {
-                const mins = readingMinutes(
-                  FLOW_SECTIONS.filter((s) => actOf(s.id as TabId).id === a.id).reduce((n, s) => n + (wordCounts[s.id as TabId] ?? 0), 0)
-                );
-                return (
-                  <li key={a.id}>
-                    <button
-                      type="button"
-                      onClick={() => { onSelectTab(a.opensOn); onClose(); }}
-                      aria-current={actOf(activeTab as TabId).id === a.id ? "true" : undefined}
-                    >
-                      <span className="pf-index-acts__img" aria-hidden="true">
-                        <Portrait id={ACT_PORTRAITS[i]} sizes="56px" fade={false} />
-                      </span>
-                      <span className="pf-index-acts__n" aria-hidden="true">{ACT_ROMAN[i]}</span>
-                      <span className="pf-index-acts__label">{a.label}</span>
-                      <span className="pf-index-acts__min">{mins} min</span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ol>
-
-            <div className="mb-3">
-              <div className="flex items-baseline justify-between gap-2 mb-1.5">
-                <span className="t-micro font-black text-muted">
-                  In reading order
-                </span>
-                <span className="t-micro tabular-nums text-muted">
-                  {visited.size}/{SECTIONS.length} opened
-                </span>
-              </div>
-              <ul className="grid grid-cols-1 gap-1">
-                {FLOW_SECTIONS.map((s) => {
-                  const Icon = TAB_ICONS[s.id] ?? Compass;
-                  const isRead = visited.has(s.id);
-                  const isHere = activeTab === s.id;
-                  const mins = readingMinutes(wordCounts[s.id] ?? 0);
+          <div className="pf-idx__body">
+            <div className="pf-idx__col">
+              {/* The seven acts (brief G-7): each with its numeral, its portrait, what it answers
+                  and how long it takes; one tap to its opener, and the act's title carries across
+                  to the chapter it lands on (lib/premium/transition.ts). */}
+              <ol className="pf-idx__acts" aria-label="The seven acts">
+                {FLOW_ACTS.map((a, i) => {
+                  const mins = readingMinutes(
+                    FLOW_SECTIONS.filter((s) => actOf(s.id as TabId).id === a.id).reduce((n, s) => n + (wordCounts[s.id as TabId] ?? 0), 0)
+                  );
+                  const here = hereAct === a.id;
                   return (
-                    <li key={s.id}>
+                    <li key={a.id} style={{ "--i": i } as React.CSSProperties}>
                       <button
-                        onClick={() => { onSelectTab(s.id); onClose(); }}
-                        aria-current={isHere ? "true" : undefined}
-                        className={`w-full min-h-[44px] flex items-center gap-2.5 px-2.5 py-1.5 rounded-xl border text-left fx-press fx-focus cursor-pointer transition-colors ${
- isHere
-                            ? "bg-accent-solid border-accent-solid text-on-accent"
-                            : "bg-card border-line/60 hover:border-accent/40"
-                        }`}
+                        type="button"
+                        data-vt-source=""
+                        onClick={() => onSelectTab(a.opensOn, onClose)}
+                        aria-current={here ? "true" : undefined}
+                        className="pf-idx__act"
                       >
-                        <Icon size={14} className={isHere ? "" : "text-accent"} aria-hidden="true" />
-                        <span className={`t-micro font-mono font-black shrink-0 ${isHere ? "" : "text-muted"}`}>
-                          {s.number}
+                        <span className="pf-idx__img" aria-hidden="true">
+                          <Portrait id={ACT_PORTRAITS[i]} sizes="96px" fade={false} />
                         </span>
-                        <span className={`t-small font-semibold flex-1 min-w-0 truncate ${isHere ? "" : "text-ink"}`}>
-                          {s.label}
-                        </span>
-                        <span className={`t-micro tabular-nums shrink-0 ${isHere ? "opacity-90" : "text-muted"}`}>
-                          {mins} min
-                        </span>
-                        {/* State carried by a word and a mark, not by colour alone. */}
-                        <span className={`t-micro font-black shrink-0 ${isHere ? "opacity-90" : isRead ? "text-accent" : "text-muted"}`}>
-                          {isHere ? "Here" : isRead ? "✓ Read" : "New"}
+                        <span className="pf-idx__n" data-vt-numeral="" aria-hidden="true">{ACT_ROMAN[i]}</span>
+                        <span className="pf-idx__text">
+                          <span className="pf-idx__label" data-vt-title="">{a.label}</span>
+                          <span className="pf-idx__blurb">{a.blurb}</span>
+                          <span className="pf-idx__min">
+                            {mins} min{here ? <b> · you are here</b> : null}
+                          </span>
                         </span>
                       </button>
                     </li>
                   );
                 })}
-              </ul>
+              </ol>
+
+              {/* The argument rail from the cover, in miniature. */}
+              <nav className="pf-idx__rail" aria-label="The shape of the argument">
+                <ol>
+                  {argument.map((a, i) => (
+                    <li key={a.id}>
+                      <button type="button" data-vt-source="" onClick={() => onSelectTab(a.opensOn, onClose)} aria-current={hereAct === a.id ? "step" : undefined}>
+                        <span className="pf-idx__railnode" aria-hidden="true">{i + 1}</span>
+                        <span data-vt-title="">{a.label.replace(/^The /, "")}</span>
+                      </button>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
             </div>
 
-            {/* Filter Pills */}
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none t-small font-bold">
-              <button
-                onClick={() => setSelectedTabFilter("all")}
-                className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[32px] ${
- selectedTabFilter === "all"
-                    ? "bg-accent-solid text-on-accent border-accent-solid"
-                    : "bg-card text-muted border-line hover:text-ink"
-                }`}
-              >
-                All ({sections.length})
-              </button>
-              {PARTS.map((part) => (
+            <div className="pf-idx__col pf-idx__col--list">
+              {/* Search */}
+              <div className="relative">
+                <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted" aria-hidden="true" />
+                <input
+                  type="text"
+                  placeholder="Search sections (e.g., Nomination, Radio, 40 Wards, SMS)..."
+                  aria-label="Search sections by number, title or part"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  ref={searchRef}
+                  className="w-full pl-10 pr-20 py-2 bg-card border border-line rounded-xl t-label font-semibold text-ink placeholder:text-muted focus:outline-none focus:border-accent min-h-[48px]"
+                />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    aria-label="Clear search"
+                    onClick={() => setSearchQuery("")}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 t-label text-muted hover:text-ink px-2.5 py-1.5 bg-paper rounded-lg border border-line cursor-pointer"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+
+              <p role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+                {searchQuery.trim()
+                  ? `${filteredSections.length} ${filteredSections.length === 1 ? "section matches" : "sections match"} "${searchQuery.trim()}"`
+                  : `${filteredSections.length} sections listed`}
+              </p>
+
+              {!searchQuery.trim() && (
+                <div>
+                  {/* IN FLOW ORDER, not file order: the page is one scroll (lib/flow.ts), and an
+                      index in a different sequence would be a second, contradictory map. */}
+                  <div className="pf-idx__subhead">
+                    <span>In reading order</span>
+                    <span className="tabular-nums">{visited.size}/{SECTIONS.length} opened</span>
+                  </div>
+                  <ul className="pf-idx__flow">
+                    {FLOW_SECTIONS.map((s) => {
+                      const Icon = TAB_ICONS[s.id] ?? Compass;
+                      const isRead = visited.has(s.id);
+                      const isHere = activeTab === s.id;
+                      const mins = readingMinutes(wordCounts[s.id] ?? 0);
+                      return (
+                        <li key={s.id}>
+                          <button
+                            type="button"
+                            data-vt-source=""
+                            onClick={() => onSelectTab(s.id, onClose)}
+                            aria-current={isHere ? "true" : undefined}
+                            className="pf-idx__row"
+                          >
+                            <Icon size={15} aria-hidden="true" className="pf-idx__rowicon" />
+                            <span className="pf-idx__rownum">{s.number}</span>
+                            <span className="pf-idx__rowlabel" data-vt-title="">{s.label}</span>
+                            <span className="pf-idx__rowmin">{mins} min</span>
+                            {/* State carried by a word and a mark, not by colour alone. */}
+                            <span className="pf-idx__rowstate">{isHere ? "Here" : isRead ? "✓ Read" : "New"}</span>
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
+
+              {/* Filter pills */}
+              <div className="pf-idx__subhead"><span>Every heading</span></div>
+              <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none t-small font-bold">
                 <button
-                  key={part.part}
-                  onClick={() => setSelectedTabFilter(part.part)}
-                  className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[32px] ${
- selectedTabFilter === part.part
-                      ? "bg-accent-solid text-on-accent border-accent-solid"
-                      : "bg-card text-muted border-line hover:text-ink"
+                  type="button"
+                  onClick={() => setSelectedTabFilter("all")}
+                  aria-pressed={selectedTabFilter === "all"}
+                  className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[36px] ${
+                    selectedTabFilter === "all" ? "bg-accent-solid text-on-accent border-accent-solid" : "bg-card text-muted border-line hover:text-ink"
                   }`}
                 >
-                  {part.label}
+                  All ({sections.length})
                 </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Section List */}
-          <div className="flex-1 overflow-y-auto p-2.5 sm:p-4 divide-y divide-line/40 overscroll-contain">
-            {filteredSections.length > 0 ? (
-              filteredSections.map((item) => {
-                const Icon = TAB_ICONS[item.tabId] ?? Compass;
-                const isCurrentTab = activeTab === item.tabId;
-
-                return (
+                {PARTS.map((part) => (
                   <button
-                    key={item.id}
-                    onClick={() => {
-                      onSelectSection(item.id, item.tabId);
-                      onClose();
-                    }}
-                    className="fx-press fx-focus w-full py-3 px-2 flex items-center justify-between text-left hover:bg-paper/70 active:bg-paper rounded-xl transition-all group cursor-pointer min-h-[50px]"
+                    type="button"
+                    key={part.part}
+                    onClick={() => setSelectedTabFilter(part.part)}
+                    aria-pressed={selectedTabFilter === part.part}
+                    className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[36px] ${
+                      selectedTabFilter === part.part ? "bg-accent-solid text-on-accent border-accent-solid" : "bg-card text-muted border-line hover:text-ink"
+                    }`}
                   >
-                    <div className={`flex items-start gap-2.5 sm:gap-3 min-w-0 pr-2 ${item.level === 3 ? "pl-3 sm:pl-5" : ""}`}>
-                      <span className="font-mono t-micro tabular-nums text-accent shrink-0 mt-0.5 min-w-[38px]">
-                        {item.number}
-                      </span>
-                      <div className="min-w-0">
-                        <span className={`block t-label text-ink group-hover:text-accent transition-colors truncate ${item.level === 2 ? "font-bold" : "font-medium"}`}>
-                          {item.title}
-                        </span>
-                        {searchQuery.trim() &&
-                          (item.figures ?? [])
-                            .filter((f) => `${f.title} ${f.takeaway}`.toLowerCase().includes(searchQuery.toLowerCase().trim()))
-                            .map((f) => (
-                              <span key={f.id} className="block t-micro text-ink/80 mt-0.5">
-                                Figure: {f.title}
-                              </span>
-                            ))}
-                        <div className="flex items-center gap-1.5 mt-0.5 t-micro text-muted">
-                          <Icon size={11} className="shrink-0" />
-                          <span className="font-medium truncate">{item.tabLabel}</span>
-                          {isCurrentTab && <span className="text-accent font-semibold">· current</span>}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="fx-icon-nudge w-7 h-7 rounded-full bg-paper border border-line flex items-center justify-center shrink-0 text-muted group-hover:text-accent group-hover:border-accent/50 transition-colors">
-                      <ChevronRight size={14} />
-                    </div>
+                    {part.label}
                   </button>
-                );
-              })
-            ) : (
-              <div className="p-8 text-center t-label text-muted space-y-2">
-                <p className="font-bold text-ink">No matching sections found</p>
-                <p>Try searching by keyword like &quot;Ward&quot;, &quot;Radio&quot;, &quot;Nomination&quot;, or &quot;Turnout&quot;.</p>
+                ))}
               </div>
-            )}
-          </div>
 
-          {/* Footer Quick Info */}
-          <div className="p-3 bg-paper/60 border-t border-line flex items-center justify-between t-small text-muted px-4 font-semibold">
-            <span className="flex items-center gap-1.5">
-              <Sparkles size={12} className="text-accent" />
-              <span>Tap any section to jump instantly</span>
-            </span>
-            <button
-              onClick={onClose}
-              className="text-accent font-bold hover:underline"
-            >
-              Done
-            </button>
+              {/* Section list */}
+              <div className="divide-y divide-line/40">
+                {filteredSections.length > 0 ? (
+                  filteredSections.map((item) => {
+                    const Icon = TAB_ICONS[item.tabId] ?? Compass;
+                    const isCurrentTab = activeTab === item.tabId;
+                    return (
+                      <button
+                        type="button"
+                        key={item.id}
+                        onClick={() => {
+                          onSelectSection(item.id, item.tabId);
+                          onClose();
+                        }}
+                        className="fx-press fx-focus w-full py-3 px-2 flex items-center justify-between text-left hover:bg-paper/70 active:bg-paper rounded-xl transition-colors group cursor-pointer min-h-[50px]"
+                      >
+                        <div className={`flex items-start gap-2.5 sm:gap-3 min-w-0 pr-2 ${item.level === 3 ? "pl-3 sm:pl-5" : ""}`}>
+                          <span className="font-mono t-micro tabular-nums text-accent shrink-0 mt-0.5 min-w-[38px]">{item.number}</span>
+                          <div className="min-w-0">
+                            <span className={`block t-label text-ink group-hover:text-accent transition-colors ${item.level === 2 ? "font-bold" : "font-medium"}`}>
+                              {item.title}
+                            </span>
+                            {searchQuery.trim() &&
+                              (item.figures ?? [])
+                                .filter((f) => `${f.title} ${f.takeaway}`.toLowerCase().includes(searchQuery.toLowerCase().trim()))
+                                .map((f) => (
+                                  <span key={f.id} className="block t-micro text-ink mt-0.5">
+                                    Figure: {f.title}
+                                  </span>
+                                ))}
+                            <div className="flex items-center gap-1.5 mt-0.5 t-micro text-muted">
+                              <Icon size={11} className="shrink-0" aria-hidden="true" />
+                              <span className="font-medium truncate">{item.tabLabel}</span>
+                              {isCurrentTab && <span className="text-accent font-semibold">· current</span>}
+                            </div>
+                          </div>
+                        </div>
+                        <ChevronRight size={16} aria-hidden="true" className="shrink-0 text-muted group-hover:text-accent" />
+                      </button>
+                    );
+                  })
+                ) : (
+                  <div className="p-8 text-center t-label text-muted space-y-2">
+                    <p className="font-bold text-ink">No matching sections found</p>
+                    <p>Try searching by keyword like &quot;Ward&quot;, &quot;Radio&quot;, &quot;Nomination&quot;, or &quot;Turnout&quot;.</p>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

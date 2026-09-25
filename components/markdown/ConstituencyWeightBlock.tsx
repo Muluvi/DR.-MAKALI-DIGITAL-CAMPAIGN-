@@ -11,7 +11,7 @@ import { ChartFallback } from "../ChartFallback";
  */
 const ConstituencyWeightBlockContent = dynamic(
   () => import("./ConstituencyWeightBlockContent").then((m) => m.ConstituencyWeightBlockContent),
-  { ssr: false, loading: () => <ChartFallback /> },
+  { ssr: false, loading: () => <ChartFallback shape="bars" /> },
 );
 
 export function ConstituencyWeightBlock() {

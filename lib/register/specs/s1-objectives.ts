@@ -19,6 +19,7 @@ export const FIG_1_1: FigureSpec = {
   sources: [{ name: "Nomination window: a single-source campaign report (Section 2.3)", tier: "T3" }, { name: "General election date: Constitution of Kenya, Article 101", tier: "T1" }],
   chart: {
     type: "timeline",
+    countdown: { date: ELECTION, label: "general election" },
     from: "2026-09-01",
     to: "2027-08-31",
     today: TODAY,

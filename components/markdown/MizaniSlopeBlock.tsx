@@ -11,7 +11,7 @@ import type { SlopeSeries } from "../charts/MizaniSlopeChart";
 // still gates when it mounts; this gates when it downloads.
 const MizaniSlopeChart = dynamic(() => import("../charts/MizaniSlopeChart"), {
   ssr: false,
-  loading: () => <ChartFallback />,
+  loading: () => <ChartFallback shape="lines" />,
 });
 
 // §2.2 table. Ngilu has no June 2026 figure (she wasn't in that round), so her line

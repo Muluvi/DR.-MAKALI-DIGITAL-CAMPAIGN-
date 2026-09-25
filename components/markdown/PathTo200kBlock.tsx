@@ -11,7 +11,7 @@ import { ChartFallback } from "../ChartFallback";
  */
 const PathTo200kBlockContent = dynamic(
   () => import("./PathTo200kBlockContent").then((m) => m.PathTo200kBlockContent),
-  { ssr: false, loading: () => <ChartFallback /> },
+  { ssr: false, loading: () => <ChartFallback shape="bars" /> },
 );
 
 export function PathTo200kBlock() {

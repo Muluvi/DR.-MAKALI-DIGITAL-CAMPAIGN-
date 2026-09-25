@@ -11,7 +11,7 @@ import { ChartFallback } from "../ChartFallback";
  */
 const MediaOwnershipBlockContent = dynamic(
   () => import("./MediaOwnershipBlockContent").then((m) => m.MediaOwnershipBlockContent),
-  { ssr: false, loading: () => <ChartFallback /> },
+  { ssr: false, loading: () => <ChartFallback shape="table" /> },
 );
 
 export function MediaOwnershipBlock() {

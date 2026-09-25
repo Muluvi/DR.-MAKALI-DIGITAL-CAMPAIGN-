@@ -156,12 +156,13 @@ export function Spine({ onSelect }: { onSelect: (tab: TabId) => void }) {
                 onClick={() => onSelect(a.opensOn)}
                 aria-current={i === active ? "true" : undefined}
                 aria-label={`Act ${ROMAN[i]}: ${a.label}`}
+                data-vt-source=""
               >
                 <span className="pf-spine__track" aria-hidden="true">
                   <span className="pf-spine__fill" style={{ "--fill": `var(--fill-${i}, 0)` } as React.CSSProperties} />
                 </span>
                 <span className="pf-spine__name" aria-hidden="true">
-                  <b>{ROMAN[i]}</b> {a.label}
+                  <b data-vt-numeral="">{ROMAN[i]}</b> <span data-vt-title="">{a.label}</span>
                 </span>
               </button>
             </li>

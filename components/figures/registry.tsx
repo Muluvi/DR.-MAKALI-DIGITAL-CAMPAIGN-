@@ -1,5 +1,6 @@
 import { FigureFrame } from "./FigureFrame";
 import { RegisterFigure } from "../register/Figure";
+import { STORY_FIGURES } from "../../lib/premium/story";
 import { REGISTER } from "../../lib/register/specs";
 import {
   Allocation,
@@ -1115,6 +1116,22 @@ export const FIGURES: Record<string, FigureEntry> = {
 };
 
 /**
+ * Where §3.1–§3.4 would have drawn a figure the §3 story now carries: one line that names the
+ * figure and links up to the step that holds it, with its sources, table and CSV.
+ */
+function StoryPointer({ spec }: { spec: { id: string; title: string; section: string } }) {
+  return (
+    <p className="pf-storyptr not-prose">
+      <a href={`#${spec.id}`}>
+        <span className="pf-storyptr__k">Figure, §{spec.section}</span>
+        <span className="pf-storyptr__t">{spec.title}</span>
+        <span className="pf-storyptr__h">In the four-step story at the start of this part, with its sources, table and CSV</span>
+      </a>
+    </p>
+  );
+}
+
+/**
  * The fence's renderer.
  *
  * An unknown id is drawn as a visible gap rather than silently dropped: a typo in a fence would
@@ -1124,6 +1141,7 @@ export function Figure({ id }: { id: string }) {
   // The brief's figure register (lib/register/specs) is looked up first: one spec draws the chart,
   // the table view and the CSV.
   const spec = REGISTER[id];
+  if (spec && STORY_FIGURES.has(id)) return <StoryPointer spec={spec} />;
   if (spec) return <RegisterFigure spec={spec} />;
   const entry = FIGURES[id];
   if (!entry) {

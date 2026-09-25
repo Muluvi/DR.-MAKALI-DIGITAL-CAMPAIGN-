@@ -85,6 +85,7 @@ import { CrossRef } from "./CrossRef";
 import { PrintSafeDisclosures } from "./PrintSafeDisclosures";
 import { DisclosureGroup } from "./markdown/DisclosureGroup";
 import { ObjectivesIndex } from "./markdown/ObjectivesIndex";
+import { TextVersion } from "./markdown/TextVersion";
 import { ProseFold } from "./markdown/ProseFold";
 import { BriefFold } from "./markdown/BriefFold";
 
@@ -437,6 +438,22 @@ function buildComponents(tabId: TabId): Components {
                * a deletion rather than a replacement. The fence body is `id: <figure-id>`; the
                * registry resolves it, and an unknown id renders a visible gap rather than nothing.
                */
+              /**
+               * A ```textversion fence holds prose a figure has taken over (brief §12), word for
+               * word. It renders directly under the figure as "Read the text version", through the
+               * same markdown components as the rest of the section, so nothing in it reads
+               * differently from where it stood.
+               */
+              if (fenceLanguage(children) === "textversion") {
+                return (
+                  <TextVersion>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} components={buildComponents(tabId)}>
+                      {source}
+                    </ReactMarkdown>
+                  </TextVersion>
+                );
+              }
+
               if (fenceLanguage(children) === "figure") {
                 const id = source.match(/^\s*id:\s*([a-z0-9-]+)\s*$/im)?.[1];
                 return id ? (

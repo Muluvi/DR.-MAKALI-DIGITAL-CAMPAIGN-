@@ -42,9 +42,16 @@ for (const [id, f] of Object.entries(FIGURES)) {
 for (const file of fs.readdirSync(SRC).filter((f) => f.endsWith(".md")).sort()) {
   const lines = fs.readFileSync(path.join(SRC, file), "utf8").split("\n");
   let fence = false;
+  // A ```textversion fence is prose a figure has taken over (brief §12): it is still content, and
+  // it is checked exactly as it was before it moved. Only real code and figure fences are skipped.
+  let proseFence = false;
   lines.forEach((line, i) => {
-    if (/^\s*```/.test(line)) { fence = !fence; return; }
-    if (fence) return;
+    if (/^\s*```/.test(line)) {
+      if (!fence) proseFence = /^\s*```textversion\s*$/.test(line);
+      fence = !fence;
+      return;
+    }
+    if (fence && !proseFence) return;
     for (const m of line.matchAll(LITERAL)) {
       // Allowed only when an allow-list match covers this literal itself: a year elsewhere on the
       // line must not excuse the count beside it.

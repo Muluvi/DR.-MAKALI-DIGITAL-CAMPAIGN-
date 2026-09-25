@@ -145,12 +145,31 @@ function longestProseRun(body: string[]): number {
 /** Everything from the end of the opening paragraph onwards, which is what gets folded. */
 function splitLead(body: string[]): { lead: string[]; rest: string[] } {
   let seenText = false;
+  let inFence = false;
   for (let i = 0; i < body.length; i += 1) {
     const t = body[i].trim();
-    if (t !== "") { seenText = true; continue; }
+    // A blank line inside a fence (a text version holds whole paragraphs) is not a paragraph break.
+    if (FENCE.test(body[i])) inFence = !inFence;
+    if (inFence || t !== "") { seenText = true; continue; }
     if (seenText && body.slice(i).some((l) => l.trim() !== "")) return { lead: body.slice(0, i), rest: body.slice(i) };
   }
   return { lead: body, rest: [] };
+}
+
+/**
+ * Words inside ```textversion fences: prose a visual has taken over (brief §12), kept word for word
+ * behind the figure's "Read the text version". Brief mode shows the figure with the disclosure
+ * closed, so these words are counted out of the Brief reading time wherever they sit in shown text.
+ */
+export function textVersionWords(text: string): number {
+  let inside = false;
+  let words = 0;
+  for (const line of text.split("\n")) {
+    if (/^\s*```textversion\s*$/.test(line)) { inside = true; continue; }
+    if (inside && FENCE.test(line)) { inside = false; continue; }
+    if (inside) words += line.trim().split(/\s+/).filter(Boolean).length;
+  }
+  return words;
 }
 
 /** Below this, folding costs the reader a tap to save less scroll than the tap was worth. */
@@ -212,7 +231,9 @@ function splitBrief(body: string[]): { shown: string[]; hidden: string[] } {
         emit();
         inFence = true;
         blockIsFence = true;
-        fenceIsFigure = /^\s*```figure\s*$/.test(line);
+        // A figure always shows, and so does a text version: it is the figure's own disclosure,
+        // closed in Brief, and it belongs directly under the figure it describes.
+        fenceIsFigure = /^\s*```(?:figure|textversion)\s*$/.test(line);
         block.push(line);
         continue;
       }

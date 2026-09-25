@@ -11,7 +11,7 @@ import { ChartFallback } from "../ChartFallback";
  */
 const WardCartogramBlockContent = dynamic(
   () => import("./WardCartogramBlockContent").then((m) => m.WardCartogramBlockContent),
-  { ssr: false, loading: () => <ChartFallback /> },
+  { ssr: false, loading: () => <ChartFallback shape="map" /> },
 );
 
 export function WardCartogramBlock() {

@@ -11,7 +11,7 @@ import type { KpiRow } from "../charts/KpiPhaseBarChart";
 // still gates when it mounts; this gates when it downloads.
 const KpiPhaseBarChart = dynamic(() => import("../charts/KpiPhaseBarChart"), {
   ssr: false,
-  loading: () => <ChartFallback />,
+  loading: () => <ChartFallback shape="table" />,
 });
 
 function points(values: Partial<Record<string, number>>): KpiRow["points"] {

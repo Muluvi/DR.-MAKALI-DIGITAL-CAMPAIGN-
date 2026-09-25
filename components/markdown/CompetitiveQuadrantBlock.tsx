@@ -11,7 +11,7 @@ import type { QuadrantPoint } from "../charts/CompetitiveQuadrantChart";
 // still gates when it mounts; this gates when it downloads.
 const CompetitiveQuadrantChart = dynamic(() => import("../charts/CompetitiveQuadrantChart"), {
   ssr: false,
-  loading: () => <ChartFallback />,
+  loading: () => <ChartFallback shape="scatter" />,
 });
 
 // Preference: Mizani Africa, 7 August 2026 (§2.2 / §C.1 table). Credibility: a

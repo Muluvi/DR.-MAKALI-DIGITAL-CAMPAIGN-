@@ -2,61 +2,39 @@
 
 import React from "react";
 
+/** Line widths for one paragraph of prose, so the silhouette reads as text, not as cards. */
+const PARAGRAPHS = [
+  [1, 0.97, 0.94, 0.99, 0.62],
+  [0.98, 1, 0.91, 0.96, 0.95, 0.4],
+  [1, 0.93, 0.97, 0.7],
+];
+
+/**
+ * The shape of a section that is still on its way (brief G-11): a heading, then paragraphs of
+ * prose at the reading measure, then the outline of a figure frame. Static and faint; no pulse,
+ * no spinner. The parent reserves the section's measured height, so nothing moves when the real
+ * text arrives.
+ */
 export function SectionSkeleton() {
   return (
-    <div className="fx-shimmer w-full bg-card/60 backdrop-blur-sm border border-line/70 rounded-2xl p-5 sm:p-7 space-y-6 shadow-sm overflow-hidden">
-      {/* Header Skeleton Bar */}
-      <div className="flex items-center justify-between border-b border-line/40 pb-4">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-xl bg-accent/15 flex items-center justify-center">
-            <div className="w-4 h-4 rounded-md bg-accent/40 fx-skeleton-pulse" />
-          </div>
-          <div className="space-y-1.5">
-            <div className="h-4 w-40 sm:w-56 fx-skeleton rounded-md" />
-            <div className="h-2.5 w-24 sm:w-32 fx-skeleton rounded" />
-          </div>
+    <div className="pf-skel-section" aria-hidden="true">
+      <span className="pf-skel-section__h" />
+      {PARAGRAPHS.map((lines, i) => (
+        <div key={i} className="pf-skel-section__p">
+          {lines.map((w, j) => (
+            <span key={j} style={{ width: `${w * 100}%` }} />
+          ))}
         </div>
-        <div className="h-6 w-16 fx-skeleton rounded-full hidden sm:block" />
-      </div>
-
-      {/* Paragraph blocks skeleton matching real reading density */}
-      <div className="space-y-3 pt-1">
-        <div className="h-3.5 w-full fx-skeleton rounded" />
-        <div className="h-3.5 w-[94%] fx-skeleton rounded" />
-        <div className="h-3.5 w-[88%] fx-skeleton rounded" />
-        <div className="h-3.5 w-[76%] fx-skeleton rounded" />
-      </div>
-
-      {/* Metric Cards Skeleton Table */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-        <div className="p-3.5 rounded-xl border border-line/50 bg-card/40 space-y-2">
-          <div className="h-2.5 w-20 fx-skeleton rounded" />
-          <div className="h-5 w-28 fx-skeleton rounded" />
-          <div className="h-1.5 w-full fx-skeleton rounded-full" />
-        </div>
-        <div className="p-3.5 rounded-xl border border-line/50 bg-card/40 space-y-2">
-          <div className="h-2.5 w-24 fx-skeleton rounded" />
-          <div className="h-5 w-32 fx-skeleton rounded" />
-          <div className="h-1.5 w-full fx-skeleton rounded-full" />
-        </div>
-        <div className="p-3.5 rounded-xl border border-line/50 bg-card/40 space-y-2">
-          <div className="h-2.5 w-16 fx-skeleton rounded" />
-          <div className="h-5 w-20 fx-skeleton rounded" />
-          <div className="h-1.5 w-full fx-skeleton rounded-full" />
-        </div>
-      </div>
-
-      {/* Table Structure Skeleton */}
-      <div className="border border-line/50 rounded-xl overflow-hidden pt-1">
-        <div className="h-8 bg-line/30 flex items-center px-4 gap-4">
-          <div className="h-2.5 w-20 fx-skeleton rounded" />
-          <div className="h-2.5 w-28 fx-skeleton rounded" />
-          <div className="h-2.5 w-16 fx-skeleton rounded ml-auto" />
-        </div>
-        <div className="p-4 space-y-2.5 bg-card/20">
-          <div className="h-3 w-full fx-skeleton rounded" />
-          <div className="h-3 w-[92%] fx-skeleton rounded" />
-          <div className="h-3 w-[85%] fx-skeleton rounded" />
+      ))}
+      <div className="pf-skel-section__fig">
+        <span className="pf-skel__title" />
+        <span className="pf-skel__sub" />
+        <div className="pf-skel__plot">
+          {[0.9, 0.72, 0.55].map((w, i) => (
+            <span key={i} className="pf-skel__bar">
+              <i style={{ width: `${w * 100}%` }} />
+            </span>
+          ))}
         </div>
       </div>
     </div>

@@ -58,7 +58,7 @@ export type Chart =
   | { type: "slope"; left: string; right: string; lines: { label: string; a: number; b: number; tone?: "accent" | "neutral" }[]; unit: string }
   | { type: "funnel"; stages: { label: string; value: number | null; state: CellState; note?: string; display?: string }[]; toggle?: { label: string; stages: { label: string; value: number | null; state: CellState; note?: string; display?: string }[] }; ref?: Ref }
   | { type: "tilemap"; layers: TileLayerId[]; initial: TileLayerId; showWardList?: boolean }
-  | { type: "timeline"; events: { date: string; end?: string; label: string; state: CellState; note?: string; whenText?: string; reported?: boolean }[]; from: string; to: string; today?: string }
+  | { type: "timeline"; events: { date: string; end?: string; label: string; state: CellState; note?: string; whenText?: string; reported?: boolean }[]; from: string; to: string; today?: string; countdown?: { date: string; label: string } }
   | { type: "steps"; steps: { title: string; body: string; when?: string; lane?: string; current?: boolean }[]; lanes?: string[]; horizontal?: boolean }
   | { type: "cards"; cards: { kicker?: string; title: string; body: string; meta?: string; tone?: "accent" | "outside"; links?: { label: string; href: string }[] }[]; columns?: 2 | 3 | 4 }
   | { type: "matrix"; header: string[]; rows: { head: string; cells: string[] }[]; cards?: boolean }
