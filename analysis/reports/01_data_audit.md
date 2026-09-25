@@ -39,10 +39,14 @@ What the pack contains, what the site claims, and where the two disagree.
 
 ## Problems found
 
-3 high, 2 medium, 7 checks passed. Full list in `data/processed/audit_findings.csv`.
+4 high, 2 medium, 5 checks passed. Full list in `data/processed/audit_findings.csv`.
 
 
 ### High severity
+
+**2026 register — register-2026**  
+The July 2026 total of 605,703 is T3, reported by Venas News [S4], and is marked verify. From 17 September 2026 this pipeline recorded it as Tier 1, read off the IEBC ECVR county annex [S3]. That was withdrawn on 25 September 2026: [S3] is IEBC's April release on the drive and cannot carry a July total, and no IEBC document giving the July total is in hand. The drive figure, 61,839, is unaffected.  
+*Action:* Obtain IEBC's county register as at July 2026 and add one Tier 1 row, with its document URL, to data/templates/register_2026_by_county.csv.
 
 **Malombe eligibility — pack-vs-site**  
 The pack states the seat is open: Malombe was elected in 2013 and 2022, and Article 180(7) limits governors to two terms [S63]. The site treats his eligibility as an unresolved two-branch question in analysis.md, delivery.md.  
@@ -72,9 +76,7 @@ Bare 'Wiper' without 'Patriotic Front' appears in 10 files.
 
 - Kitui County: 40 wards sum to 532,758, matching the IEBC 2022 county register exactly.
 - All 40 wards: Every ward's voter count in the pack matches the site's ward-register.json.
-- 2026 register: CONFIRMED against the IEBC annex [S3, T1]. Kitui stands at 605,703 registered voters as at July 2026, up 72,945 on the 2022 register of 532,758.
 - 2026 register: The apparent 11,106-voter discrepancy is resolved, and was never a discrepancy. Of the 72,945 growth, 61,839 came from the 30-day ECVR drive that ended 28 April 2026; the remaining 11,106 is ordinary continuous registration outside that window, which opened on 29 September 2025 and continued after the drive closed. The July total post-dates the drive by three months.
-- 2026 register: Both figures match the T3 reports [S4, S5] exactly, which corroborates those outlets rather than casting doubt on the annex. Because the values are identical, the Tier 1 claim rests on provenance rather than on the number: the campaign confirmed on 17 September 2026 that both were read directly off the IEBC annex PDF, not copied from the aggregators.
 - channels: All 13 T3 rows in channels.csv carry status 'verify'.
 - county_finance: All 2 T3 rows in county_finance.csv carry status 'verify'.
 
@@ -121,7 +123,7 @@ That percentage overstates the problem and should not be quoted on its own. The 
 - **[DATA NEEDED]** `register_2026_by_county.csv` is empty — The post-ECVR 2026 register at COUNTY level — the IEBC annex row for Kitui.
 - **[DATA NEEDED]** `results_2022_by_ward.csv` is empty — 2022 governor and Woman Rep results by ward, from IEBC Forms 37A/37B.
 - **[DATA NEEDED]** `issues.csv` is empty — Issue salience and candidate credibility, for the Stage 10 matrix.
-- **[DATA NEEDED]** The IEBC ECVR county annex [S3] — the T1 2026 register. It settles the 605,703 vs 594,597 conflict and is the highest-value missing input.
+- **[DATA NEEDED]** IEBC's county register as at July 2026 — the T1 source for the 2026 total. 605,703 is Tier 3 [S4] and verify until it is in hand.
 
 
 ## What this means for later stages

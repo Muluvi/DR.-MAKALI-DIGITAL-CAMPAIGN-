@@ -12,6 +12,7 @@ const CONS = register.constituencies as { id: string; name: string }[];
 
 const W22 = "IEBC ward register, 2022 (T1)";
 const ECVR = "IEBC ECVR county annex, July 2026 (T1)";
+const REPORTED_2026 = "Venas News, July 2026 (T3, unconfirmed)";
 
 const conBars = byValue(CONS.map((c) => bar(`con.${c.id}`, c.name)));
 
@@ -55,7 +56,7 @@ export const FIG_2_1: FigureSpec = {
     { cells: { item: "Registered, 2022 (ward-registered)", voters: num("register.2022"), source: W22 } },
     { cells: { item: "ECVR Phase 1, to 28 April 2026", voters: num("register.2026.ecvr-drive"), source: ECVR } },
     { cells: { item: "Continuous registration outside the drive", voters: num("register.2026.continuous"), source: "Derived: July 2026 less 2022 less the drive" }, state: "modelled" },
-    { cells: { item: "Registered, July 2026", voters: num("register.2026"), source: ECVR } },
+    { cells: { item: "Registered, July 2026", voters: num("register.2026"), source: REPORTED_2026 } },
     ...conBars.map((b) => ({ cells: { item: `${b.label}, 2022`, voters: b.value, source: W22 } })),
   ],
 };

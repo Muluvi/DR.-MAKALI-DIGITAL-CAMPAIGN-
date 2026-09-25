@@ -29,7 +29,7 @@ def rates() -> dict:
 
 
 def ward_denominators(wards: pd.DataFrame) -> pd.DataFrame:
-    """Distribute the confirmed 2026 county register across wards on 2022 shares.
+    """Distribute the reported 2026 county register (T3, verify) across wards on 2022 shares.
 
     The 2026 register is known at county level only. Holding ward shares at their 2022
     values is the least-bad option: the alternative is either using a four-year-old county
@@ -196,7 +196,7 @@ def run() -> dict:
     } for key, label, _ in SEGMENTS])
     rep.table(summary)
     rep.p(
-        f"Both columns use the same denominator — the confirmed July 2026 register of "
+        f"Both columns use the same denominator — the July 2026 register (Tier 3, verify) of "
         f"{total:,} voters — so the only thing changing between them is the rate pair."
     )
 

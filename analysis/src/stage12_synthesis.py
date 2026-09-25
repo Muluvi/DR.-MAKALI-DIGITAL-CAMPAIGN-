@@ -44,26 +44,27 @@ def build_charts() -> list[Chart]:
     charts.append(Chart(
         id="register-comparison",
         title="The register the arithmetic rests on",
-        description="Kitui's electorate has grown by 72,945 voters since 2022, confirmed "
-                    "against the IEBC's own annex.",
+        description="Kitui's electorate has grown by 72,945 voters since 2022, on the July "
+                    "2026 total as reported (Tier 3, verify).",
         chart_type="comparison",
         values=[
             Value("IEBC 2022 register", 532758, "voters", "S2", 1, "2022", OFFICIAL, CONFIRMED),
-            Value("IEBC register, July 2026", 605703, "voters", "S3", 1, "2026-07", OFFICIAL,
-                  CONFIRMED, note="Confirmed against the IEBC ECVR county annex."),
-            Value("Growth since 2022", 72945, "voters", "S3", 1, "2026-07", CALCULATED, CONFIRMED,
+            Value("Reported register, July 2026", 605703, "voters", "S4", 3, "2026-07", OFFICIAL,
+                  VERIFY, note="Reported by Venas News; IEBC's own July figure is not in hand."),
+            Value("Growth since 2022", 72945, "voters", "S4", 3, "2026-07", CALCULATED, VERIFY,
                   note="605,703 minus 532,758 — a 13.7% larger electorate."),
             Value("Added in the 30-day ECVR drive", 61839, "voters", "S3", 1, "2026-04-28",
                   OFFICIAL, CONFIRMED,
                   note="The drive that ended 28 April 2026."),
-            Value("Added by continuous registration outside the drive", 11106, "voters", "S3", 1,
-                  "2026-07", CALCULATED, CONFIRMED,
+            Value("Added by continuous registration outside the drive", 11106, "voters", "S4", 3,
+                  "2026-07", CALCULATED, VERIFY,
                   note="Continuous registration opened 29 September 2025 and ran on after the "
                        "drive closed; the July total post-dates it by three months."),
         ],
         notes=[
             "The 2022 register is no longer the current electorate. Any figure describing "
-            "today's electorate should use 605,703.",
+            "today's electorate should use 605,703, marked Tier 3 and verify until IEBC's own "
+            "July 2026 figure is in hand.",
             "The drive figure and the July total measure different windows and were never "
             "meant to sum. An earlier version of this analysis reported them as contradictory; "
             "that reading was wrong and is corrected here.",
@@ -115,8 +116,8 @@ def build_charts() -> list[Chart]:
                 Value("No phone — radio or in person only", int(reach["offline"].sum()), "voters",
                       "CA-ICT-KHS-2024", 1, "2023-24", MODELLED, PLACEHOLDER,
                       note="Not a radio audience estimate: no Kitui listenership data exists"),
-                Value("Total electorate, July 2026", total, "voters", "S3", 1, "2026-07",
-                      OFFICIAL, CONFIRMED),
+                Value("Total electorate, July 2026", total, "voters", "S4", 3, "2026-07",
+                      OFFICIAL, VERIFY),
             ],
             notes=[
                 "MODELLED. Published rates multiplied by ward electorates — not a measurement.",
@@ -222,14 +223,14 @@ def build_charts() -> list[Chart]:
         vals.append(Value("2022 winning tally", 198004, "votes", "S11", 2, "2022-08",
                           OFFICIAL, CONFIRMED,
                           note="What the proposal measures against — set on a register 13.7% smaller."))
-        vals.append(Value("37.2% of the July 2026 register", 225322, "votes", "S3", 1, "2026-07",
-                          CALCULATED, CONFIRMED,
+        vals.append(Value("37.2% of the July 2026 register", 225322, "votes", "S4", 3, "2026-07",
+                          CALCULATED, VERIFY,
                           note="The like-for-like bar on today's electorate."))
         charts.append(Chart(
             id="scenario-benchmarks",
             title="Scenario model: votes against the 2022 benchmark",
-            description="The competitive general-election scenario, 10,000 draws on the confirmed "
-                        "July 2026 register, against both benchmarks.",
+            description="The competitive general-election scenario, 10,000 draws on the July "
+                        "2026 register as reported (Tier 3, verify), against both benchmarks.",
             chart_type="distribution",
             values=vals,
             scenario_label=config.SCENARIO_LABEL,
@@ -268,8 +269,8 @@ def write_findings(charts: list[Chart]) -> str:
          "supports.",
          "Stage 9"),
         ("The bar for 2027 is about 27,000 votes higher than 2022's winning tally.",
-         f"The register has grown from {reg22:,} to {reg26:,}, confirmed against the IEBC "
-         f"annex. The 2022 winner took 37.2% of the register; the same share of today's "
+         f"The register has grown from {reg22:,} to {reg26:,}, as reported for July 2026 "
+         f"(Tier 3, verify). The 2022 winner took 37.2% of the register; the same share of today's "
          f"register is about {bench26:,.0f} votes, against the {tally22:,} the proposal "
          "measures everything against. Every target built on ~200,000 is set too low.",
          "Stage 3"),
@@ -320,8 +321,11 @@ def write_findings(charts: list[Chart]) -> str:
 
     rep.h2("Closed since the first audit")
     rep.p(
-        "Four findings from earlier runs of this pipeline are no longer open. Three were fixed "
-        "on the site; one was my own error."
+        "Three findings from earlier runs of this pipeline are no longer open. Two were fixed "
+        "on the site; one was my own error. One finding closed on 17 September 2026 is open "
+        "again: the July 2026 register was recorded as confirmed against the IEBC annex, and "
+        "that claim was withdrawn on 25 September 2026, because the annex is IEBC's April "
+        "release and cannot carry a July total. 605,703 is Tier 3 and verify (Stage 1)."
     )
     rep.table(pd.DataFrame([
         {"Finding": "The party name was wrong on the site",
@@ -330,8 +334,6 @@ def write_findings(charts: list[Chart]) -> str:
          "How it closed": "Removed with Annex C, September 2026: Firefly works from existing "
                           "records and its own analysis only, and the site build now refuses "
                           "any poll"},
-        {"Finding": "The 2026 register was unverified",
-         "How it closed": "Confirmed against the IEBC annex: 605,703, Tier 1"},
         {"Finding": "The two 2026 register figures 'did not reconcile'",
          "How it closed": "WITHDRAWN — my error. They measure different windows and were "
                           "never meant to sum. See Stage 1."},
@@ -407,12 +409,12 @@ def write_findings(charts: list[Chart]) -> str:
          "Any rival benchmark at all. Currently there is none.",
          "Manual audit of public pages plus Meta Ad Library. Internal only — never published.",
          "Stage 8"),
-        ("7", "The 2026 register by ward",
-         "Removes the last modelled distribution: ward figures currently scale the confirmed "
-         "county total on 2022 shares.",
-         "IEBC, if a ward-level annex exists. Lower priority than it was — the county figure "
-         "is confirmed and carries the county-level conclusions.",
-         "Stages 3, 4, 9"),
+        ("7", "The IEBC 2026 register: the county total, then by ward",
+         "Moves the July 2026 total (605,703) from Tier 3 to Tier 1, and removes the last "
+         "modelled distribution: ward figures currently scale that total on 2022 shares.",
+         "IEBC's county register as at July 2026, with its document URL, as one row in "
+         "data/templates/register_2026_by_county.csv; a ward-level annex if one exists.",
+         "Stages 1, 3, 4, 9"),
         ("8", "Kikamba radio audience by sub-county",
          "Converts the 338,588 no-phone voters into an addressable radio audience. Until then "
          "that segment is a population count, not a reach estimate.",

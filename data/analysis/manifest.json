@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-17",
+  "generated": "2026-09-25",
   "data_as_of": "2026-09-16",
   "source": "analysis pipeline, python -m src.run_all",
   "approved_mapping": "analysis/reports/site_mapping.md",

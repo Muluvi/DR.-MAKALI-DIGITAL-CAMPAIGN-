@@ -45,17 +45,19 @@ register:
   y2026_july:
     value: 605703
     unit: voters
-    source_id: S3
-    tier: 1
+    source_id: S4
+    tier: 3
     as_of: "2026-07"
-    status: CONFIRMED
-    verify: false
+    status: PLACEHOLDER
+    verify: true
     rationale: >-
-      Kitui's total registered voters, read directly off the IEBC ECVR county annex PDF [S3]
-      by the campaign and confirmed on 17 September 2026. It matches exactly the figure the T3
-      aggregator [S4] had reported, which corroborates that source rather than undermining
-      this one; the tier rests on the document it was read from, not on the value. Supersedes the earlier PLACEHOLDER/verify treatment: this is now the register
-      Stage 3's 37.2% benchmark is computed against.
+      Kitui's total registered voters as at July 2026, as reported by Venas News [S4], a T3
+      aggregator. Every output using it is labelled "verify". Downgraded on 25 September 2026:
+      from 17 September this entry recorded the figure as Tier 1, read off the IEBC ECVR county
+      annex [S3], but [S3] is IEBC's April release on the drive and cannot carry a July total,
+      and no IEBC document giving the July total is in hand. The value is unchanged and Stage
+      3's 37.2% benchmark is still computed against it, as a reported figure, not an official
+      one. The T1 source is IEBC's county register as at July 2026.
   y2026_new_registrations:
     value: 61839
     unit: voters
@@ -77,14 +79,17 @@ register:
   y2026_growth_outside_the_drive:
     value: 11106
     unit: voters
-    source_id: S3
-    tier: 1
+    source_id: S4
+    tier: 3
     as_of: "2026-07"
-    status: CONFIRMED
+    status: PLACEHOLDER
+    verify: true
+    method: calculated
     rationale: >-
       605,703 minus 532,758 minus 61,839. Continuous registration outside the 30-day ECVR
       window, which opened on 29 September 2025 and continued after 28 April 2026. Derived,
-      not reported: the annex gives the total and the drive figure; this is the residue.
+      not reported, and no firmer than its least certain input: the 605,703 total is T3
+      [S4], so this residue is T3 and verify too.
   y2026_uniform_scale_factor:
     value: 1.1369
     status: PLACEHOLDER
@@ -463,14 +468,16 @@ reach:
   denominator_register:
     value: 605703
     unit: voters
-    source_id: S3
-    tier: 1
+    source_id: S4
+    tier: 3
     as_of: "2026-07"
-    status: CONFIRMED
+    status: PLACEHOLDER
+    verify: true
     rationale: >-
       Reach is a statement about today's electorate, so the county totals are computed on the
-      confirmed July 2026 register, not the 2022 one. Ward-level figures still distribute that
-      total using 2022 ward shares, because no ward-level 2026 breakdown exists - see
+      July 2026 register as reported by Venas News [S4], not the 2022 one. That figure is T3
+      and verify (see register.y2026_july). Ward-level figures still distribute that total
+      using 2022 ward shares, because no ward-level 2026 breakdown exists - see
       register.y2026_uniform_scale_factor for why that distribution is known to be wrong in
       detail and used anyway.
   ward_uniformity:

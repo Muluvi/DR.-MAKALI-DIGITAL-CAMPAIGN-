@@ -71,7 +71,8 @@ presented as settled fact.
 
 3. **The register and connectivity figures hold.** The 605,703 registered voters (July 2026), the
    73.8% of residents offline (CA/KNBS 2023/24) and the 2022 ward distribution in Section 3.2 are
-   the most recent published figures. The offline layer in Section 5.2.3.3 is sized against them.
+   the most recent published figures. The offline layer in Section 5.2.3.3 is sized against them. The
+   July 2026 total is Tier 3, reported by an aggregator, until IEBC's own figure is in hand.
 
 4. **The campaign appoints the named roles.** The data-protection and electoral-law reviewer and the
    sign-language provider are campaign appointments, not Firefly's. Section 6.1 lists them. Firefly assembles no publishing team: the one in post stays

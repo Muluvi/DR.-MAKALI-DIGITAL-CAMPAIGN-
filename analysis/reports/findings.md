@@ -12,7 +12,7 @@ On the confirmed 2023/24 rates, 108,419 voters own a phone but no data, against 
 *Source: Stage 9.*
 
 **2. The bar for 2027 is about 27,000 votes higher than 2022's winning tally.**  
-The register has grown from 532,758 to 605,703, confirmed against the IEBC annex. The 2022 winner took 37.2% of the register; the same share of today's register is about 225,322 votes, against the 198,004 the proposal measures everything against. Every target built on ~200,000 is set too low.  
+The register has grown from 532,758 to 605,703, as reported for July 2026 (Tier 3, verify). The 2022 winner took 37.2% of the register; the same share of today's register is about 225,322 votes, against the 198,004 the proposal measures everything against. Every target built on ~200,000 is set too low.  
 *Source: Stage 3.*
 
 **3. The digital ceiling is roughly one voter in four, not one in seven.**  
@@ -42,13 +42,12 @@ Several sections still state 13.6% internet use and an 86.4% offline majority, a
 
 ## Closed since the first audit
 
-Four findings from earlier runs of this pipeline are no longer open. Three were fixed on the site; one was my own error.
+Three findings from earlier runs of this pipeline are no longer open. Two were fixed on the site; one was my own error. One finding closed on 17 September 2026 is open again: the July 2026 register was recorded as confirmed against the IEBC annex, and that claim was withdrawn on 25 September 2026, because the annex is IEBC's April release and cannot carry a July total. 605,703 is Tier 3 and verify (Stage 1).
 
 | Finding | How it closed |
 |---|---|
 | The party name was wrong on the site | Corrected to Wiper Patriotic Front throughout |
 | Opinion polls appeared on the site | Removed with Annex C, September 2026: Firefly works from existing records and its own analysis only, and the site build now refuses any poll |
-| The 2026 register was unverified | Confirmed against the IEBC annex: 605,703, Tier 1 |
 | The two 2026 register figures 'did not reconcile' | WITHDRAWN — my error. They measure different windows and were never meant to sum. See Stage 1. |
 
 
@@ -62,7 +61,7 @@ Four findings from earlier runs of this pipeline are no longer open. Three were 
 
 ## Every assumption
 
-26 entries in `config/assumptions.yaml` are marked PLACEHOLDER — nobody has confirmed them. Each carries a rationale in the file.
+29 entries in `config/assumptions.yaml` are marked PLACEHOLDER — nobody has confirmed them. Each carries a rationale in the file.
 
 | Assumption | Value | Why it is a placeholder |
 |---|---|---|
@@ -76,8 +75,11 @@ Four findings from earlier runs of this pipeline are no longer open. Three were 
 | measurement.baseline_rates | [0.02, 0.05, 0.1] | Illustrative baseline response rates for the two-proportion MDE grid. No campaign has run yet, so there is no measured baseline. Replaced by the Week  |
 | measurement.holdout_share | 0.15 | Share of wards held out as untreated controls, stratified by constituency. 15% of 40 is 6 wards. Large enough to read an effect, small enough to cost  |
 | measurement.list_sizes | [1000, 5000, 10000, 25000, 50000, 100000] | Illustrative SMS list sizes spanning ward-level to countywide sends. |
+| reach.denominator_register | 605703 | Reach is a statement about today's electorate, so the county totals are computed on the July 2026 register as reported by Venas News [S4], not the 202 |
 | reach.ward_uniformity | True | The model applies county rates uniformly across all 40 wards, because no ward-level connectivity data exists ([DATA NEEDED], pack gap 20). This is kno |
 | register.by_ward_2026 | None | [DATA NEEDED] The 2026 register by ward. The ECVR drive was ward-based, so growth is uneven and cannot be distributed pro rata without inventing data. |
+| register.y2026_growth_outside_the_drive | 11106 | 605,703 minus 532,758 minus 61,839. Continuous registration outside the 30-day ECVR window, which opened on 29 September 2025 and continued after 28 A |
+| register.y2026_july | 605703 | Kitui's total registered voters as at July 2026, as reported by Venas News [S4], a T3 aggregator. Every output using it is labelled "verify". Downgrad |
 | register.y2026_uniform_scale_factor | 1.1369 | 605,703 / 532,758 = 1.1369. Used ONLY to project the 2022 ward register onto the 2026 county total so the simulation can report against both register  |
 | rivals.model_rivals | False | No rival vote ranges have been supplied. While this is false, Stage 3 reports benchmark comparisons and explicitly states it is NOT a win probability. |
 | sensitivity.dirichlet_concentration | 10.0 | Concentration for the Dirichlet draw around the stated weights. 10.0 gives meaningful spread without producing degenerate weight vectors. Lower = more |
@@ -105,7 +107,7 @@ Ranked by what each unlocks against how hard it is to get. Every item is an exis
 | 4 | Ward-level 2G/3G/4G coverage | The binding constraint on reach now that the county rates are confirmed. The KNBS household survey shows 56.6% urban against 25.0% rural, so one county rate across Township and Tharaka is the largest remaining error in Stage 9. | Safaricom and Airtel coverage maps; CA universal-service studies. | Stages 4, 9 |
 | 5 | comments.csv — public comments | Theme and sentiment coding, and a behavioural read on issue salience to sit alongside the evidence ranking. | Export with names and handles already removed. Three columns only. A Kikamba-speaking reviewer is a staffing dependency, not a data one. | Stages 7, 10 |
 | 6 | competitors.csv | Any rival benchmark at all. Currently there is none. | Manual audit of public pages plus Meta Ad Library. Internal only — never published. | Stage 8 |
-| 7 | The 2026 register by ward | Removes the last modelled distribution: ward figures currently scale the confirmed county total on 2022 shares. | IEBC, if a ward-level annex exists. Lower priority than it was — the county figure is confirmed and carries the county-level conclusions. | Stages 3, 4, 9 |
+| 7 | The IEBC 2026 register: the county total, then by ward | Moves the July 2026 total (605,703) from Tier 3 to Tier 1, and removes the last modelled distribution: ward figures currently scale that total on 2022 shares. | IEBC's county register as at July 2026, with its document URL, as one row in data/templates/register_2026_by_county.csv; a ward-level annex if one exists. | Stages 1, 3, 4, 9 |
 | 8 | Kikamba radio audience by sub-county | Converts the 338,588 no-phone voters into an addressable radio audience. Until then that segment is a population count, not a reach estimate. | Published audience measurement: the CA/KARF, GeoPoll or Ipsos releases that already exist. Nothing is commissioned. | Stage 9 |
 
 Two things are deliberately absent from this list. **Rival vote ranges** would be needed for a win probability, and are not being sought: any range supplied today would be a guess, and the benchmark comparisons are the honest output. **WPF's 2027 nomination rules** cannot be obtained by research — only the party can confirm the method, and the whole nomination strategy rests on a single T3 report until it does.
@@ -113,4 +115,4 @@ Two things are deliberately absent from this list. **Rival vote ranges** would b
 
 ## Audit findings still open
 
-3 high-severity findings from Stage 1. Full list in `data/processed/audit_findings.csv`.
+4 high-severity findings from Stage 1. Full list in `data/processed/audit_findings.csv`.

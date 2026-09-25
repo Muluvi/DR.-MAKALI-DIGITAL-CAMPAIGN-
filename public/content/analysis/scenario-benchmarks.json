@@ -1,9 +1,9 @@
 {
   "id": "scenario-benchmarks",
   "title": "Scenario model: votes against the 2022 benchmark",
-  "description": "The competitive general-election scenario, 10,000 draws on the confirmed July 2026 register, against both benchmarks.",
+  "description": "The competitive general-election scenario, 10,000 draws on the July 2026 register as reported (Tier 3, verify), against both benchmarks.",
   "chart_type": "distribution",
-  "generated": "2026-09-17",
+  "generated": "2026-09-25",
   "data_as_of": "2026-09-16",
   "scenario_label": "Scenario model, not a forecast.",
   "notes": [
@@ -61,11 +61,11 @@
       "label": "37.2% of the July 2026 register",
       "value": 225322,
       "unit": "votes",
-      "source_id": "S3",
-      "tier": 1,
+      "source_id": "S4",
+      "tier": 3,
       "as_of": "2026-07",
       "method": "calculated",
-      "status": "confirmed",
+      "status": "verify",
       "note": "The like-for-like bar on today's electorate."
     }
   ]
