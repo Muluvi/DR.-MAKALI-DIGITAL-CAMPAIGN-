@@ -39,7 +39,7 @@ What the pack contains, what the site claims, and where the two disagree.
 
 ## Problems found
 
-3 high, 3 medium, 7 checks passed. Full list in `data/processed/audit_findings.csv`.
+3 high, 2 medium, 7 checks passed. Full list in `data/processed/audit_findings.csv`.
 
 
 ### High severity
@@ -48,20 +48,16 @@ What the pack contains, what the site claims, and where the two disagree.
 The pack states the seat is open: Malombe was elected in 2013 and 2022, and Article 180(7) limits governors to two terms [S63]. The site treats his eligibility as an unresolved two-branch question in analysis.md, delivery.md.  
 *Action:* Resolve. If the pack is right, the branching scenario is dead content and the framing should change to an open-seat race.
 
-**Site content — claim-sourcing**  
-739 of 950 numeric claims (78%) carry no visible tier marker within 70 characters.  
-*Action:* Most are restatements of figures tiered elsewhere on the page. Prioritise the ones that state a figure for the first time.
-
 **Nomination method — t3-dependency**  
 The reported WPF nomination method is T3, single-sourced to The County Diary [S10], and the whole nomination strategy rests on it.  
 *Action:* Obtain the WPF NEC resolution, or the 2027 nomination rules and timetable as filed with the IEBC and the Registrar of Political Parties.
 
+**Site content — claim-sourcing**  
+739 of 950 numeric claims (78%) carry no visible tier marker within 70 characters.  
+*Action:* Most are restatements of figures tiered elsewhere on the page. Prioritise the ones that state a figure for the first time.
+
 
 ### Medium severity
-
-**Mutito/Kaliku — ward-name-variant**  
-The pack spells this 'Mutito/Kaliku'; the site spells it 'Mutitu/Kaliku' (similarity 0.923). Matched by similarity, not exactly.  
-*Action:* Confirm against the IEBC ward list and fix one spelling. This will break a boundary-file join at Stage 5 if left.
 
 **Site content — stale-party-name**  
 Bare 'Wiper' without 'Patriotic Front' appears in 10 files.  
@@ -74,13 +70,13 @@ Bare 'Wiper' without 'Patriotic Front' appears in 10 files.
 
 ### Checks that passed
 
-- 2026 register: CONFIRMED against the IEBC annex [S3, T1]. Kitui stands at 605,703 registered voters as at July 2026, up 72,945 on the 2022 register of 532,758.
 - Kitui County: 40 wards sum to 532,758, matching the IEBC 2022 county register exactly.
+- All 40 wards: Every ward's voter count in the pack matches the site's ward-register.json.
+- 2026 register: CONFIRMED against the IEBC annex [S3, T1]. Kitui stands at 605,703 registered voters as at July 2026, up 72,945 on the 2022 register of 532,758.
 - 2026 register: The apparent 11,106-voter discrepancy is resolved, and was never a discrepancy. Of the 72,945 growth, 61,839 came from the 30-day ECVR drive that ended 28 April 2026; the remaining 11,106 is ordinary continuous registration outside that window, which opened on 29 September 2025 and continued after the drive closed. The July total post-dates the drive by three months.
 - 2026 register: Both figures match the T3 reports [S4, S5] exactly, which corroborates those outlets rather than casting doubt on the annex. Because the values are identical, the Tier 1 claim rests on provenance rather than on the number: the campaign confirmed on 17 September 2026 that both were read directly off the IEBC annex PDF, not copied from the aggregators.
-- All 40 wards: Every ward's voter count in the pack matches the site's ward-register.json.
-- county_finance: All 2 T3 rows in county_finance.csv carry status 'verify'.
 - channels: All 13 T3 rows in channels.csv carry status 'verify'.
+- county_finance: All 2 T3 rows in county_finance.csv carry status 'verify'.
 
 
 ## The claims register

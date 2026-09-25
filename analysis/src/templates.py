@@ -214,9 +214,10 @@ A polygon layer covering all 40 Kitui County Assembly wards, with at least:
 
 ## The join, and why it will need attention
 
-Ward names do not agree across sources. This pack alone contains two variants the site
-spells differently: `Kwavonza/Yatta` vs `Kwa Vonza/Yatta`, and `Mutito/Kaliku` vs
-`Mutitu/Kaliku`. Stage 5 normalises spacing and punctuation, then falls back to
+Ward names do not agree across sources. The pack and the site still differ on
+`Kwavonza/Yatta` vs `Kwa Vonza/Yatta`, and until September 2026 they differed on
+`Mutito/Kaliku` vs `Mutitu/Kaliku` (the site now uses IEBC's `Mutito/Kaliku`). A boundary
+file may carry either spelling. Stage 5 normalises spacing and punctuation, then falls back to
 similarity matching, and it lists every ward that fails to match exactly rather than
 quietly dropping it from the map. A ward missing from a choropleth is a lie of omission,
 so unmatched wards are reported, not hidden.

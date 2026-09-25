@@ -121,7 +121,7 @@ To formulate a targeted intervention, the campaign maps Dr. Mulu's structural pr
 *   **Where he has never held office:**
     1.  **The Mwingi Sub-Counties (Mwingi North, Mwingi Central, Mwingi West):** Total **{{bloc.mwingi}} registered voters** (**{{bloc.mwingi.share}}%** of the county register). He has never held office in these northern constituencies. The hypothesis is that his identity as a "Kitui Central MP" limits recall there compared with countywide office holders; Week 1 tests it against his own channel data (Section 3.11).
     2.  **Kitui South (6 Wards):** Total **{{con.kitui-south}} registered voters** (**{{con.kitui-south.share}}%** of the county register). Geographically remote, separated by long transit corridors, and traditionally influenced by local southern leadership dynamics.
-    3.  **Kitui East (outside the pool):** Total **{{con.kitui-east}} registered voters** (particularly Endau/Malalani, Voo/Kyamatu, and Mutitu/Kaliku). He has not held office here either, but Kitui East is not counted in the pool below; it is a direct-contact target on the party-flow finding in Section 3.6.
+    3.  **Kitui East (outside the pool):** Total **{{con.kitui-east}} registered voters** (particularly Endau/Malalani, Voo/Kyamatu, and Mutito/Kaliku). He has not held office here either, but Kitui East is not counted in the pool below; it is a direct-contact target on the party-flow finding in Section 3.6.
 
 #### Do the deficit wards overlap the decisive ones?
 **Partly. Five of the twelve largest wards lie where he has never held office.**

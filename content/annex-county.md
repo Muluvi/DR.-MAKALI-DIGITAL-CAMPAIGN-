@@ -49,7 +49,7 @@ Registered voters per county assembly ward, 2022 (IEBC, Tier 1). The 2026 regist
 *   **Chuluni Ward:** {{ward.chuluni}} voters
 *   **Nzambani Ward:** {{ward.nzambani}} voters
 *   **Voo/Kyamatu Ward:** {{ward.voo-kyamatu}} voters
-*   **Mutitu/Kaliku Ward:** {{ward.mutitu-kaliku}} voters
+*   **Mutito/Kaliku Ward:** {{ward.mutito-kaliku}} voters
 *   **Endau/Malalani Ward:** {{ward.endau-malalani}} voters
 
 #### 8. Kitui South Constituency ({{con.kitui-south}} total registered voters, Tier 1)

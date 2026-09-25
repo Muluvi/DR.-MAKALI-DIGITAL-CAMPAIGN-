@@ -22,7 +22,7 @@ If Firefly prefers that source, supply the file and it drops in behind the same 
 
 1. **Delimitation date.** The boundaries follow the IEBC's 2012 ward proposals, digitised by third
    parties. The 2022 register is by the same 40 wards, and all 40 names match the register after
-   two spelling aliases (below), but ward lines may differ in detail from the gazetted final
+   one spelling alias (below), but ward lines may differ in detail from the gazetted final
    delimitation. The scene says "schematic" for this reason as well as for the extrusion.
 2. **One stray feature removed.** The source file carries a polygon named `Township (Kiambu)`,
    county code 15 (Kitui), whose coordinates (36.79–36.89 E, 1.17–1.22 S) are in Kiambu. It is a
@@ -34,16 +34,18 @@ If Firefly prefers that source, supply the file and it drops in behind the same 
 
 | Source spelling | Register spelling |
 |---|---|
-| Mutito/Kaliku | Mutitu/Kaliku |
 | Kwavonza/Yatta | Kwa Vonza/Yatta |
 
-All other 38 wards match by name and constituency. `lib/premium/county.ts` throws at build if any
+All other 39 wards match by name and constituency. The register used to spell one Kitui East ward
+"Mutitu/Kaliku", and the map carried a second alias to match it. IEBC's 2022 register by polling
+station spells it "Mutito/Kaliku", as the boundary source does, so the register now uses that
+spelling and the alias is gone. `lib/premium/county.ts` throws at build if any
 ward fails to join or the count differs from the register's 40.
 
 ## Processing
 
 ```
-extract Kitui features, drop the Kiambu record, apply the two aliases   (40 features, 109 KB GeoJSON)
+extract Kitui features, drop the Kiambu record, apply the alias          (40 features, 109 KB GeoJSON)
 mapshaper -clean -simplify 22% keep-shapes weighted -rename-layers wards \
           -o format=topojson quantization=1e4                            (public/geo/kitui-wards.topo.json, 11 KB)
 ```

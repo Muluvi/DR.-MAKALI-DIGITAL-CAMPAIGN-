@@ -391,4 +391,4 @@ def run_all(frames: dict[str, pd.DataFrame], claims: pd.DataFrame) -> pd.DataFra
     findings += claims_coverage(claims)
     df = pd.DataFrame(findings)
     order = {"high": 0, "medium": 1, "info": 2, "ok": 3}
-    return df.sort_values("severity", key=lambda c: c.map(order)).reset_index(drop=True)
+    return df.sort_values("severity", key=lambda c: c.map(order), kind="stable").reset_index(drop=True)
