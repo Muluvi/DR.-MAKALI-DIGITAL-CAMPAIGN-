@@ -75,11 +75,12 @@ def run() -> dict:
         )
         rep.h2("The join will need attention")
         rep.p(
-            "Ward names do not agree across sources. Stage 1 already found two variants between "
-            "the pack and the site: `Kwavonza/Yatta` against `Kwa Vonza/Yatta`, which normalises "
-            "away safely, and `Mutito/Kaliku` against `Mutitu/Kaliku`, which differs by a letter "
-            "and is only ever matched by similarity. Every ward that fails to match exactly is "
-            "listed rather than dropped: a ward missing from a choropleth is a lie of omission."
+            "Ward names do not agree across sources. The pack and the site differ on "
+            "`Kwavonza/Yatta` against `Kwa Vonza/Yatta`, which normalises away safely. A boundary "
+            "file may also spell a ward differently by a letter, as the site once did with "
+            "`Mutitu/Kaliku` for IEBC's `Mutito/Kaliku`; such a ward is only ever matched by "
+            "similarity. Every ward that fails to match exactly is listed rather than dropped: a "
+            "ward missing from a choropleth is a lie of omission."
         )
         rep.h2("Layers that would be produced")
         rep.table(pd.DataFrame(

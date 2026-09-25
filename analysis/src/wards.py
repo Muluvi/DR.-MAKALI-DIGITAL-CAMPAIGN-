@@ -4,6 +4,8 @@ The pack, the site's JSON and any boundary file spell wards differently. Two rea
 in this data: "Kwavonza/Yatta" vs "Kwa Vonza/Yatta" (spacing) and "Mutito/Kaliku" vs
 "Mutitu/Kaliku" (one letter). Spacing is safe to normalise away. A letter difference is
 not, so it is matched by similarity and reported for confirmation, never silently fused.
+The second case was confirmed that way: IEBC's 2022 register by polling station spells it
+"Mutito/Kaliku", and the site's register was corrected to match in September 2026.
 """
 from __future__ import annotations
 

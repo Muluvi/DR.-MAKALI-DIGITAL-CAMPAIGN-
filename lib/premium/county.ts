@@ -5,7 +5,7 @@
  * digitised at 1:50,000 from the IEBC's proposed ward delimitation of 9 January 2012, CC BY 4.0
  * (github.com/benaboki/Kenya-County-Assembly-Boundaries, commit 7ee2ae5). Simplified with
  * mapshaper (22%, weighted, shapes kept) into public/geo/kitui-wards.topo.json. Provenance and
- * the two spelling aliases are recorded in docs/visual-premium/GEOGRAPHY.md.
+ * the spelling alias is recorded in docs/visual-premium/GEOGRAPHY.md.
  *
  * Every number drawn from this module is a ward's 2022 registered voters, read from the same
  * WARD_TILES the tile map uses (data/ward-register.json, verified by verify-ward-register). The

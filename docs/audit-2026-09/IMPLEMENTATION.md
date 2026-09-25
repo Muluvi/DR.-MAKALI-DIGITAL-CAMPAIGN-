@@ -75,6 +75,9 @@ station", "polling day") and KNBS statistical instruments are allowed, each with
   - Phase −1 runs from signature
   - there are nine dependencies
   - the six unassigned sub-counties get an explicit Week 2 rule
+  - the Kitui East ward is spelled "Mutito/Kaliku", as IEBC's 2022 register by polling
+    station spells it; the register, content, map and CSVs all follow. The same register
+    confirms 1,578 polling stations and all 40 ward totals (532,758)
 - **Annexes** are re-lettered A–F, with every cross-reference, heading and anchor updated
   (1,369 redirects, 0 orphans). The cover now counts six annexes.
 
