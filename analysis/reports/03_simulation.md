@@ -2,7 +2,7 @@
 
 What the ward arithmetic yields under stated assumptions, against two published benchmarks.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-25*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-26*
 
 > **Scenario model, not a forecast.**
 
@@ -21,14 +21,14 @@ Nothing in this report predicts an outcome. Every input is an official record or
 
 | Register | Scenario | Median | 90% interval | Above 198,004 | Above 37.2% of register |
 |---|---|---|---|---|---|
-| Reported July 2026 (605,703, T3, verify) — current | Competitive general election | 200,158 | 158,083 – 250,790 | 53.0% | 21.2% |
-| IEBC 2022 (532,758) — for comparison | Competitive general election | 176,056 | 139,048 – 220,591 | 21.3% | 21.2% |
+| Reported July 2026 (605,703, T3, verify) — current | Competitive general election | 200,161 | 158,086 – 250,795 | 53.0% | 21.3% |
+| IEBC 2022 (532,758) — for comparison | Competitive general election | 176,056 | 139,048 – 220,591 | 21.3% | 21.3% |
 
 
 ### What this says
 
-- **Under a competitive scenario the benchmark is reachable but not comfortable.** Median 200,158, with 53.0% of draws above 198,004. The competitive range is anchored on the 2022 winner's own ~60% of ballots cast.
-- **The register grew, so the bar rose.** On the July 2026 register of 605,703, as reported (Tier 3, verify), the 37.2% benchmark is about 225,317 votes, against the 198,004 the proposal measures against. The same performance now clears a higher bar.
+- **Under a competitive scenario the benchmark is reachable but not comfortable.** Median 200,161, with 53.0% of draws above 198,004. The competitive range is anchored on the 2022 winner's own ~60% of ballots cast.
+- **The register grew, so the bar rose.** On the July 2026 register of 605,703, as reported (Tier 3, verify), the 37.2% benchmark is about 225,115 votes, against the 198,004 the proposal measures against. The same performance now clears a higher bar.
 - **Which benchmark you choose changes the answer more than the model does.** The simulated total clears the 2022 tally in 53% of draws, but clears 37.2% of today's register in only 21%. Same model, same draws; a 32-point swing from the choice of yardstick alone. Measuring a 2027 campaign against a 2022 tally on a register 13.7% larger flatters it.
 
 
@@ -57,7 +57,7 @@ Nothing in this report predicts an outcome. Every input is an official record or
 | Mulango | 7,358 | 1,173 | 3.6% |
 | Kyuso | 7,168 | 1,144 | 3.6% |
 | Kwavonza/Yatta | 6,494 | 1,033 | 3.2% |
-| Mutonguni | 6,467 | 1,028 | 3.2% |
+| Mutonguni | 6,468 | 1,028 | 3.2% |
 | Tseikuru | 5,926 | 952 | 2.9% |
 | Mumoni | 5,719 | 910 | 2.8% |
 | Miambani | 5,716 | 911 | 2.8% |

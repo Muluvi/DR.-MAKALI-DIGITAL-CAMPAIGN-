@@ -6,6 +6,7 @@ import { deliberate } from "../../lib/motion";
 import { Calculator, CheckCircle2, AlertTriangle, TrendingUp, Layers, ShieldAlert, Percent } from "lucide-react";
 
 import { ALL_WARDS, CONSTITUENCIES, COUNTY_TOTAL_WARDS } from "../../data/ward-register";
+import { FIGURES } from "../../lib/data/figures";
 
 /**
  * §3.4.3 — the four structural paths to ~200,000, showing the working.
@@ -81,7 +82,7 @@ const PATH_DEFS: CoalitionPath[] = [
     tagline: "Central geography only — the isolation trap",
     composition: { kind: "constituencies", ids: ["kitui-central", "kitui-west", "kitui-rural"] },
     strategicVerdict:
-      "A home-constituency strategy is mathematically impossible. At the 62.0% turnout baseline these registered voters produce only 118,923 ballots cast; even at an unprecedented 80% share across the entire home belt, the result falls far short.",
+      `A home-constituency strategy is mathematically impossible. At the certified 2022 turnout of ${FIGURES["turnout.constant"].value}% these registered voters produce only ${(FIGURES["path.d.ballots"].value as number).toLocaleString("en-KE")} ballots cast; even at an unprecedented 80% share across the entire home belt, the result falls far short.`,
     tacticalRequirement:
       "Aggressive outward expansion into Mwingi and Kitui South is an absolute, non-negotiable arithmetic necessity.",
   },

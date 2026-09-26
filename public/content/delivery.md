@@ -1084,16 +1084,12 @@ The campaign runs a **Lean Core Delivery Model**: a tightly coordinated core ste
 id: org-chart
 ```
 
-### 5.8.15 If the incumbent's eligibility is contested
+### 5.8.15 The incumbent is term-limited: 2027 is an open seat
 
-The sourced record does not settle whether Governor Malombe may stand in 2027: published commentary reads Article 180(7) both ways and no court has ruled. It is therefore carried here, as a risk with two branches, and not asserted as fact anywhere else in this document (Section 3.5). The record that would settle it is legal, not political: the text of Article 180(7) and any judgment on it, both read from Kenya Law, and the IEBC's decision on his nomination papers if he files them. The campaign's electoral-law reviewer (Section 5.7.9) checks Kenya Law for any ruling before either branch is acted on.
+Governor Malombe served as Governor from 2013 to 2017, lost the 2017 election to Charity Ngilu (court-confirmed, Tier 1), and won again in 2022. Article 180(7) of the Constitution of Kenya limits a governor to two terms (Tier 1). He is serving his second, so he cannot stand in 2027, and this proposal plans for an open-seat election throughout.
 
-Because Governor Malombe served as Governor from 2013–2017, lost the 2017 election to Charity Ngilu (court-confirmed, Tier 1), and won again in 2022, his eligibility to contest the 2027 election is an open legal question under Article 180(7) of the Constitution of Kenya, which limits governors to a maximum of two terms. This campaign analyzes this issue through two distinct scenarios:
-
-*   **Scenario Branch A — Cumulative Disqualification:** Proponents of this reading argue that Article 180(7) imposes a lifetime limit of two terms of service, regardless of whether they were consecutive or interrupted. Under this reading, having served from 2013–2017 and 2022–2027, Governor Malombe is constitutionally barred from running in 2027.
-    *   *Strategic Consequence:* This scenario creates an "open-seat" election, dissolving Malombe's incumbency advantage. It will trigger intense factional realignment within the Wiper Patriotic Front and across independent coalitions, allowing Dr. Mulu to position himself as the natural, high-integrity successor to lead the county's economic transition.
-*   **Scenario Branch B — Eligibility Upheld:** Alternatively, a reading of the constitutional provisions may interpret the two-term limit as applying only to consecutive terms of service, or that an interrupted term resets the constitutional clock, rendering him eligible for the 2027 cycle.
-    *   *Strategic Consequence:* Under this scenario, Governor Malombe remains eligible to defend his seat. The campaign must therefore execute a direct anti-incumbency strategy, overcoming a seated executive who commands county development resources, public-funding distribution systems, and established grassroots patronages.
+*   **Strategic consequence:** the 2027 race has no incumbent. Malombe's incumbency advantage does not carry into it, the Wiper Patriotic Front's nomination is a contest for an open seat, and factional realignment within the party and across independent coalitions follows. Dr. Mulu positions himself as the high-integrity successor to lead the county's economic transition, measured against the outgoing administration's record (Annex B.2).
+*   **What would change it:** only a court ruling or an IEBC decision to accept his nomination papers. The campaign's electoral-law reviewer (Section 5.7.9) reads Kenya Law and the IEBC's gazetted 2027 nominations for either, and the plan changes only if one appears.
 
 ## 5.9 How the work is staffed
 

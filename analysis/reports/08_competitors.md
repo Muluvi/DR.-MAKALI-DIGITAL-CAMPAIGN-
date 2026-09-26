@@ -2,7 +2,7 @@
 
 Mulu against Kasalu, Wambua and Ngilu on followers, cadence, engagement, share of voice and paid activity.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-25*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-26*
 
 **Internal only.** This report is excluded from the site export by `site_export.never_publish`. Rival analysis on a public URL tells rivals what the campaign is watching.
 

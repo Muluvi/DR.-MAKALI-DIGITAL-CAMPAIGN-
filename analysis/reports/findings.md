@@ -2,7 +2,7 @@
 
 The things this analysis establishes, what every one of them rests on, and what is still missing.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-25*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-26*
 
 
 ## The eight findings
@@ -12,7 +12,7 @@ On the confirmed 2023/24 rates, 108,419 voters own a phone but no data, against 
 *Source: Stage 9.*
 
 **2. The bar for 2027 is about 27,000 votes higher than 2022's winning tally.**  
-The register has grown from 532,758 to 605,703, as reported for July 2026 (Tier 3, verify). The 2022 winner took 37.2% of the register; the same share of today's register is about 225,322 votes, against the 198,004 the proposal measures everything against. Every target built on ~200,000 is set too low.  
+The register has grown from 532,758 to 605,703, as reported for July 2026 (Tier 3, verify). The 2022 winner took 37.2% of the register; the same share of today's register is about 225,115 votes, against the 198,004 the proposal measures everything against. Every target built on ~200,000 is set too low.  
 *Source: Stage 3.*
 
 **3. The digital ceiling is roughly one voter in four, not one in seven.**  
@@ -80,7 +80,7 @@ Three findings from earlier runs of this pipeline are no longer open. Two were f
 | register.by_ward_2026 | None | [DATA NEEDED] The 2026 register by ward. The ECVR drive was ward-based, so growth is uneven and cannot be distributed pro rata without inventing data. |
 | register.y2026_growth_outside_the_drive | 11106 | 605,703 minus 532,758 minus 61,839. Continuous registration outside the 30-day ECVR window, which opened on 29 September 2025 and continued after 28 A |
 | register.y2026_july | 605703 | Kitui's total registered voters as at July 2026, as reported by Venas News [S4], a T3 aggregator. Every output using it is labelled "verify". Downgrad |
-| register.y2026_uniform_scale_factor | 1.1369 | 605,703 / 532,758 = 1.1369. Used ONLY to project the 2022 ward register onto the 2026 county total so the simulation can report against both register  |
+| register.y2026_uniform_scale_factor | 1.1369215 | 605,703 / 532,758 = 1.1369215, held to seven places so the scaled wards sum back to 605,703 rather than 605,693. Used ONLY to project the 2022 ward re |
 | rivals.model_rivals | False | No rival vote ranges have been supplied. While this is false, Stage 3 reports benchmark comparisons and explicitly states it is NOT a win probability. |
 | sensitivity.dirichlet_concentration | 10.0 | Concentration for the Dirichlet draw around the stated weights. 10.0 gives meaningful spread without producing degenerate weight vectors. Lower = more |
 | sensitivity.unstable_rank_range | 8 | A ward whose rank spans more than 8 places across the 1,000 draws is flagged unstable. 8 is one fifth of 40 wards — a judgement line, stated so it can |
@@ -115,4 +115,4 @@ Two things are deliberately absent from this list. **Rival vote ranges** would b
 
 ## Audit findings still open
 
-4 high-severity findings from Stage 1. Full list in `data/processed/audit_findings.csv`.
+3 high-severity findings from Stage 1. Full list in `data/processed/audit_findings.csv`.

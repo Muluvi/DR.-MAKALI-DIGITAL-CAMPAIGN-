@@ -66,7 +66,9 @@ def test_no_fixed_win_threshold_is_modelled():
     """Addendum: governor races are plurality. A 50% threshold must not appear."""
     assert config.value("benchmarks.no_fixed_threshold") is True
     assert config.value("benchmarks.winning_tally_2022") == 198004
-    assert config.value("benchmarks.winner_share_of_register_2022") == pytest.approx(0.372)
+    # The exact 2022 share, printed as 37.2%, so every stage and the site give one benchmark.
+    assert config.value("benchmarks.winner_share_of_register_2022") == pytest.approx(
+        198004 / 532758, abs=1e-8)
 
 
 def test_rivals_off_means_no_win_probability():

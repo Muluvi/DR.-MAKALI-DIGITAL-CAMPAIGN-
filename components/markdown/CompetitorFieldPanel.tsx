@@ -33,7 +33,7 @@ export function CompetitorFieldPanel() {
 
       <div className="rounded-xl border border-line/60 bg-paper p-3">
         <div className="t-micro font-black text-ink mb-1.5">
-          Open question: Governor Malombe&apos;s 2027 term-limit eligibility
+          Term-limited: Governor Malombe cannot stand in 2027
         </div>
         <p className="t-label text-ink/85 leading-relaxed">{MALOMBE_TERM_LIMIT_QUESTION}</p>
       </div>

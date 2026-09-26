@@ -8,7 +8,7 @@ import type { Transition, Variants } from "motion/react";
  * ===========================================================================
  *
  * THE PERFORMANCE THESIS & BUDGET:
- * 86.4% of Kitui County is offline (143,340 internet users of 1,053,991 aged 3+).
+ * 73.8% of Kitui County is offline (CA/KNBS 2023/24).
  * The reader is Dr. Mulu — an economist reviewing this on a phone over a mobile
  * data connection. Performance is the design's strongest argument, not an afterthought.
  * Motion is an information device, never an ambient effect or decorative gimmick.

@@ -106,7 +106,7 @@ export const FIG_2_3: FigureSpec = {
           cards: [
             { kicker: "Method · T3", title: "A party-run countywide selection, not a competitive primary", body: "Single-sourced campaign report; not confirmed by party officials.", tone: "outside" },
             { kicker: "Window · T3", title: "Late October to November 2026", body: "Reported for the Wiper Patriotic Front's selection; no party calendar published.", tone: "outside" },
-            { kicker: "Constitution · T1", title: "Article 180(7) and the incumbent", body: "Whether the two-term limit bars Governor Malombe is unsettled; carried as a risk with two branches in Section 5.8.15." },
+            { kicker: "Constitution · T1", title: "Article 180(7): the incumbent cannot stand", body: "Governor Malombe has served two terms, 2013–2017 and 2022–2027, the limit Article 180(7) sets. 2027 is an open seat (Section 5.8.15)." },
             { kicker: "Party · T1", title: "Wiper Democratic Movement is now Wiper Patriotic Front", body: "Certificate of change of name issued by the Registrar, August 2025." },
           ],
         },

@@ -17,7 +17,7 @@ export const ELECTORAL_ARITHMETIC = {
   // Electorate baselines
   register2022Certified: 532758, // 40 wards (532,833 including 75 prisons) - T1
   register2026ECVRReported: 605703, // July 2026 reported - T3 uncertified
-  turnoutHistoricalAvgPct: 62.0, // Historical county turnout ~62% - T1
+  turnoutHistoricalAvgPct: 61.7, // Certified 2022 county turnout, IEBC Form 37C - T1
 
   // Winning thresholds & margins
   victoryThresholdBenchmark: 200000, // Derived from Malombe 2022 winning total

@@ -2,7 +2,7 @@
  * The register, bound: the pure arithmetic in ./register-math.ts applied to the real 40 wards.
  *
  * WHY THE DERIVED FIGURES ARE COMPUTED AND NOT TRANSCRIBED. §3.4 states around forty derived
- * figures — the top twelve wards, the deficit pool, four coalition paths, ballots at 62% — and
+ * figures — the top twelve wards, the deficit pool, four coalition paths, ballots at 61.7% — and
  * every one of them is a sum or a subtraction over the same forty ward numbers. Stated as text
  * they can drift, and this audit found that they have: the deficit pool is 51.72% in one
  * paragraph and 51.73% in the panel beside it, and Path B's margin is measured against a
@@ -39,8 +39,11 @@ export const WARD_COUNT = wardCount(CONSTITUENCIES);
 export const CONSTITUENCY_COUNT = CONSTITUENCIES.length;
 export { PRISON_VOTERS, COUNTY_TOTAL_WITH_PRISONS, COUNTY_TOTAL_WARDS };
 
-/** The turnout baseline §3.4.1 states, as a rate. Tier 1, and the only turnout figure used. */
-export const TURNOUT_BASELINE = 0.62;
+/**
+ * The turnout rate, as a rate: the certified 2022 county turnout, 61.7% (IEBC Form 37C), the same
+ * figure as turnout.constant in lib/data/figures.ts. It replaced a rounded 62% on 26 September 2026.
+ */
+export const TURNOUT_BASELINE = 0.617;
 
 /** 2022's certified winning total — the number every path is measured against. */
 export const WINNING_TOTAL_2022 = 198_004;
@@ -48,7 +51,7 @@ export const WINNING_TOTAL_2022 = 198_004;
 /** The rounded threshold the document plans to, stated as "approximately 200,000". */
 export const THRESHOLD_ROUNDED = 200_000;
 
-/** Total ballots the county casts at the 62% baseline. §3.4.1 prints 330,310. */
+/** Total ballots the county casts at the 61.7% turnout rate: 328,712. */
 export const COUNTY_BALLOTS = ballotsAt(COUNTY_REGISTER, TURNOUT_BASELINE);
 
 export const TOP_12 = topWards(CONSTITUENCIES, 12);
@@ -85,7 +88,7 @@ export interface CoalitionPath {
   wards: number;
   /** Share of the county register. */
   share: number;
-  /** Ballots this path yields at the 62% baseline — the number the register is not. */
+  /** Ballots this path yields at the 61.7% turnout rate — the number the register is not. */
   ballots: number;
   /** Margin over 2022's certified 198,004, and over the rounded 200,000. Both, because §3.4.3 mixes them. */
   marginOver2022: number;

@@ -6,13 +6,14 @@ import { motion, useInView } from "motion/react";
 import { useMotionPreset } from "../../hooks/useMotionPreset";
 import { AnimatedNumber } from "../visual/AnimatedNumber";
 import { STAGGER, drawPath } from "../../lib/motion";
+import { FIGURES } from "../../lib/data/figures";
 
 /**
  * The register, the turnout, and the number that wins — as one narrowing flow.
  *
  * Three figures the document keeps in separate paragraphs, and the relationship between them is
- * the whole arithmetic of §3.4.1: 532,758 people are registered, about 330,310 of them will
- * actually vote at the 62% countywide baseline, and roughly 200,000 of those votes wins the
+ * the whole arithmetic of §3.1: 532,758 people are registered, about 328,712 of them will
+ * actually vote at the certified 2022 turnout of 61.7%, and roughly 200,000 of those votes wins the
  * seat. Stated as a list they are three big numbers. Drawn as a funnel they are one shrinking
  * quantity, and the last stage is most of what remains — which is the point.
  *
@@ -25,19 +26,20 @@ import { STAGGER, drawPath } from "../../lib/motion";
  * Under reduced motion everything renders final and the paths are simply drawn.
  */
 
-const REGISTERED = 532758;
-const TURNOUT_RATE = 62.0;
-const EXPECTED_TURNOUT = 330310;
-const THRESHOLD = 200000;
-const WON_2022 = 198004;
+// Read from the figure registry, so the funnel moves if the register or the turnout rate does.
+const REGISTERED = FIGURES["register.2022"].value as number;
+const TURNOUT_RATE = FIGURES["turnout.constant"].value as number;
+const EXPECTED_TURNOUT = FIGURES["ballots.2022"].value as number;
+const THRESHOLD = FIGURES["benchmark"].value as number;
+const WON_2022 = FIGURES["result.2022.gov.malombe"].value as number;
 
 /**
  * The winning number as a share of the ballots this chart actually draws — derived, not typed.
  *
  * §1.5 puts 200,000 at "~53.4% of expected turnout", which only holds if expected turnout is
  * about 374,500 (70.3% of the register). This document does not assume that anywhere: its
- * stated countywide participation baseline is 62%, which is the figure the middle stage above
- * is drawn from. Against that baseline the winning number is 60.5% of the ballots cast, and
+ * turnout rate is the certified 2022 rate, 61.7%, which is the figure the middle stage above
+ * is drawn from. Against that rate the winning number is 60.8% of the ballots cast, and
  * the chart cannot quote one while drawing the other. Computing it here means the label moves
  * if the baseline ever does.
  */
@@ -55,14 +57,14 @@ const STAGES = [
     key: "turnout",
     value: EXPECTED_TURNOUT,
     label: "Expected ballots cast",
-    note: `At the ${TURNOUT_RATE}% countywide participation baseline.`,
+    note: `At the certified 2022 turnout of ${TURNOUT_RATE}%, carried forward.`,
     tone: "bg-rival-solid",
   },
   {
     key: "threshold",
     value: THRESHOLD,
     label: "Votes that win the seat",
-    note: `≈${THRESHOLD_SHARE_OF_TURNOUT}% of the ballots expected at that baseline.`,
+    note: `≈${THRESHOLD_SHARE_OF_TURNOUT}% of the ballots expected at that rate.`,
     tone: "bg-accent-solid",
   },
 ] as const;
@@ -170,8 +172,8 @@ export function VoteFunnel() {
       {/* The accessible equivalent. */}
       <table className="w-full mt-4 t-small border-collapse">
         <caption className="sr-only">
-          Kitui County vote arithmetic: registered voters, expected ballots cast at the 62%
-          participation baseline, and the winning threshold, with the 2022 winning total as a
+          Kitui County vote arithmetic: registered voters, expected ballots cast at the certified
+          2022 turnout of {TURNOUT_RATE}%, and the winning threshold, with the 2022 winning total as a
           benchmark.
         </caption>
         <tbody>

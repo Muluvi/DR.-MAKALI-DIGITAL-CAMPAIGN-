@@ -3,7 +3,7 @@
   "title": "How many voters each channel can reach",
   "description": "The electorate split into three mutually exclusive reach segments, modelled from the 2023/24 CA/KNBS rates.",
   "chart_type": "stacked-bar",
-  "generated": "2026-09-25",
+  "generated": "2026-09-26",
   "data_as_of": "2026-09-16",
   "scenario_label": "",
   "notes": [

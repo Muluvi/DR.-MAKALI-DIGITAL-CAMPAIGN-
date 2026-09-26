@@ -2,7 +2,7 @@
 
 What his existing posting actually achieves, by pillar, format, language and timing.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-25*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-26*
 
 
 ## No data yet

@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { IllustrativeTag } from "../premium/IllustrativeTag";
 import { TiltStage } from "../premium/TiltStage";
 import { CONSTITUENCIES_BY_SIZE, COUNTY_TOTAL_WARDS } from "../../data/ward-register";
+import { FIGURES } from "../../lib/data/figures";
+import { formatFigure } from "../../lib/data/format";
 
 type TabletView = "bvr" | "form37a" | "threshold";
 
@@ -247,7 +249,7 @@ export function KiemsTabletInspector() {
                     COUNTYWIDE 200,000 VOTE GUBERNATORIAL THRESHOLD VELOCITY
                   </div>
                   <div className="text-[11px] text-slate-400">
-                    Target calculation across 532,758 registered Kitui voters (62% turnout baseline = ~330,310 ballots cast)
+                    Target calculation across {COUNTY_TOTAL_WARDS.toLocaleString("en-KE")} registered Kitui voters ({FIGURES["turnout.constant"].value}% certified 2022 turnout = ~{(FIGURES["ballots.2022"].value as number).toLocaleString("en-KE")} ballots cast)
                   </div>
                 </div>
 
@@ -261,7 +263,7 @@ export function KiemsTabletInspector() {
                     <div className="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full" style={{ width: "100%" }} />
                   </div>
                   <div className="text-[10px] text-slate-400 text-right">
-                    Required Share: 60.5% of ballots cast (37.5% of total register)
+                    Required Share: {formatFigure(FIGURES["benchmark.share-of-ballots"])}% of ballots cast ({formatFigure(FIGURES["benchmark.share-of-register"])}% of total register)
                   </div>
                 </div>
 

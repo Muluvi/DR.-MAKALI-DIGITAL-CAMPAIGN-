@@ -91,10 +91,11 @@ register:
       not reported, and no firmer than its least certain input: the 605,703 total is T3
       [S4], so this residue is T3 and verify too.
   y2026_uniform_scale_factor:
-    value: 1.1369
+    value: 1.1369215
     status: PLACEHOLDER
     rationale: >-
-      605,703 / 532,758 = 1.1369. Used ONLY to project the 2022 ward register onto the
+      605,703 / 532,758 = 1.1369215, held to seven places so the scaled wards sum back to
+      605,703 rather than 605,693. Used ONLY to project the 2022 ward register onto the
       2026 county total so the simulation can report against both register figures.
       It is known to be wrong in detail: the 2026 ECVR drive was ward-based, so growth
       was uneven, and applying one factor to every ward assumes it was not. It is used
@@ -122,7 +123,7 @@ benchmarks:
     status: CONFIRMED
     rationale: Malombe's certified 2022 winning gubernatorial tally. Benchmark (a).
   winner_share_of_register_2022:
-    value: 0.372
+    value: 0.37165843
     unit: share
     source_id: S11
     tier: 2
@@ -130,8 +131,10 @@ benchmarks:
     status: CONFIRMED
     method: calculated
     rationale: >-
-      198,004 / 532,758 = 37.17%. Benchmark (b): applied to each register figure in turn.
-      On the 2022 register this reproduces 198,004; on 605,703 [VERIFY] it gives ~225,300.
+      198,004 / 532,758 = 0.37165843, printed as 37.2%. Benchmark (b): applied to each
+      register figure in turn. The exact share is held, not the rounded 37.2%, so every stage
+      and the site give the same figure: on the 2022 register it reproduces 198,004; on 605,703
+      [VERIFY] it gives 225,115.
       This is a ratio carried forward, not a forecast of what a 2027 win requires.
   no_fixed_threshold:
     value: true

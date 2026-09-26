@@ -331,8 +331,8 @@ export const FIG_5_8: FigureSpec = {
   section: "5.8",
   title: "Two of the six risks would change the plan rather than damage it, and both are settled by measurement early",
   question: "What could go wrong?",
-  takeaway: "R1 closes with the party's 2027 nomination rules, R2 with the Week 1 audit; the incumbent's eligibility stays open, so its two branches are drawn.",
-  sources: [PROPOSAL, { name: "Article 180(7): published commentary reads it both ways; no court has ruled", tier: "T2" }],
+  takeaway: "R1 closes with the party's 2027 nomination rules, R2 with the Week 1 audit. The incumbent is term-limited under Article 180(7), so the plan is for an open seat.",
+  sources: [PROPOSAL, { name: "Constitution of Kenya, Article 180(7): a governor serves at most two terms", tier: "T1" }],
   chart: {
     type: "risk",
     items: RISKS.map(({ code, label, likelihood, impact }) => ({ code, label, likelihood, impact })),
@@ -343,14 +343,6 @@ export const FIG_5_8: FigureSpec = {
         rules: [
           { if: "yes, delegates decide", then: "map the delegate register, move ward captains to peer lobbying, open a dedicated SMS channel to delegates" },
           { if: "no, the reported countywide selection stands", then: "the Phase −1 plan runs as written" },
-        ],
-      },
-      {
-        title: "If the incumbent's eligibility is contested",
-        question: "Is Governor Malombe barred by Article 180(7)?",
-        rules: [
-          { if: "barred (Branch A, cumulative reading)", then: "an open-seat election: incumbency dissolves, Wiper realigns, and he runs as the successor" },
-          { if: "eligible (Branch B, the limit read as consecutive)", then: "a direct anti-incumbency campaign against a seated executive" },
         ],
       },
     ],

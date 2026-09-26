@@ -196,13 +196,13 @@ const WARD_RANKING_SERIES: FigureSeries = {
 const PATHS_SERIES: FigureSeries = {
   id: "paths-to-threshold",
   headline: `Three of the four routes clear ${THRESHOLD_ROUNDED.toLocaleString("en-KE")} on the register, and none of them clears it on ballots`,
-  measure: `Registered voters per coalition, and the ballots each yields at the 62% turnout baseline`,
+  measure: `Registered voters per coalition, and the ballots each yields at the certified 61.7% turnout`,
   points: COALITION_PATHS.map<FigurePoint>((p) => ({
     label: `Path ${p.id} — ${p.name}`,
     value: p.registered,
     ...officialRegister,
     note:
-      `${p.wards} wards · ${p.share.toFixed(2)}% of the register · about ${p.ballots.toLocaleString("en-KE")} ballots at 62%` +
+      `${p.wards} wards · ${p.share.toFixed(2)}% of the register · about ${p.ballots.toLocaleString("en-KE")} ballots at 61.7%` +
       ` · ${p.marginOverRounded >= 0 ? "+" : "−"}${Math.abs(p.marginOverRounded).toLocaleString("en-KE")} against 200,000` +
       ` · ${p.marginOver2022 >= 0 ? "+" : "−"}${Math.abs(p.marginOver2022).toLocaleString("en-KE")} against 198,004`,
     conflicts: p.id === "B" ? ["C-4"] : undefined,

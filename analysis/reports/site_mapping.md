@@ -2,7 +2,7 @@
 
 Which exported JSON file belongs in which site section. Nothing is copied into the site until this is approved.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-25*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-26*
 
 
 ## Proposed mappings

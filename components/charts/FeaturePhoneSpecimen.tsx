@@ -16,7 +16,7 @@ import { TiltStage } from "../premium/TiltStage";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
 
 /**
- * The channel that reaches the other 86.4%, as an object you can operate.
+ * The channel that reaches the other 73.8%, as an object you can operate.
  *
  * §5.2.3.3 argues that a purely digital campaign in Kitui addresses roughly one resident in seven,
  * and that the six it misses are concentrated in exactly the wards where the recognition deficit
