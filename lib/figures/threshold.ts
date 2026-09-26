@@ -41,8 +41,12 @@ export const ECVR_NEW_REGISTRATIONS = 61_839;
 export const REGISTER_2026_REPORTED = 605_703;
 export const ECVR_REMAINDER = REGISTER_2026_REPORTED - COUNTY_REGISTER - ECVR_NEW_REGISTRATIONS;
 
-/** 37.2% of the reported 2026 register — §3.4.1's "[CALC, not a forecast]" like-for-like figure. */
-export const LIKE_FOR_LIKE_THRESHOLD = Math.round(REGISTER_2026_REPORTED * 0.372);
+/**
+ * The 2022 winner's share of the register (37.2%, exactly 198,004 / 532,758) applied to the
+ * reported 2026 register — §3.4.1's "[CALC, not a forecast]" like-for-like figure. The exact share
+ * is used, not the rounded 37.2%, so this matches benchmark.2026-equivalent and the pipeline.
+ */
+export const LIKE_FOR_LIKE_THRESHOLD = Math.round(REGISTER_2026_REPORTED * WINNING_SHARE_2022);
 
 /* ------------------------------------------------------------------ the build-up */
 
@@ -58,7 +62,7 @@ const officialRegister = {
  * Step by step, and each step says what kind of number it is.
  *
  * The whole argument of §3B is that a register is not a vote — that 200,198 registered voters in
- * Mwingi is about 124,100 ballots, and that a bloc bigger than the 2022 winning total still loses
+ * Mwingi is about 123,500 ballots, and that a bloc bigger than the 2022 winning total still loses
  * on its own. A build-up that drew all four steps identically would lose exactly that distinction,
  * so the turnout step and the threshold step are marked `calculated` and carry their working.
  */
@@ -71,7 +75,7 @@ export const THRESHOLD_STEPS: FigurePoint[] = [
     note: "40 wards across 8 constituencies. A further 75 prison voters bring the register to 532,833.",
   },
   {
-    label: `Ballots cast at ${(TURNOUT_BASELINE * 100).toFixed(0)}% turnout`,
+    label: `Ballots cast at ${(TURNOUT_BASELINE * 100).toFixed(1)}% turnout`,
     value: COUNTY_BALLOTS,
     unit: "ballots",
     source: IEBC_WARD_REGISTER,
@@ -79,7 +83,7 @@ export const THRESHOLD_STEPS: FigurePoint[] = [
     asOf: "2022",
     kind: "calculated",
     granularity: "county",
-    note: `${COUNTY_REGISTER.toLocaleString("en-KE")} × ${(TURNOUT_BASELINE * 100).toFixed(0)}% — the county's historical turnout baseline.`,
+    note: `${COUNTY_REGISTER.toLocaleString("en-KE")} × ${(TURNOUT_BASELINE * 100).toFixed(1)}% — the certified 2022 turnout, carried forward.`,
   },
   {
     label: "Votes that won the seat in 2022",
@@ -177,7 +181,7 @@ export const LIKE_FOR_LIKE: FigurePoint = {
 export const THRESHOLD_SERIES: FigureSeries = {
   id: "threshold-build-up",
   headline: `A register of ${COUNTY_REGISTER.toLocaleString("en-KE")} yields about ${COUNTY_BALLOTS.toLocaleString("en-KE")} ballots, and ${WINNING_TOTAL_2022.toLocaleString("en-KE")} of them won the seat`,
-  measure: "Registered voters, ballots at the 62% turnout baseline, and the certified 2022 winning total",
+  measure: "Registered voters, ballots at the certified 61.7% turnout, and the certified 2022 winning total",
   points: THRESHOLD_STEPS,
   note:
     `A register is not a vote. Winning takes ${REQUIRED_SHARES.ofBallotsLow.toFixed(1)}–${REQUIRED_SHARES.ofBallotsHigh.toFixed(1)}% of ` +

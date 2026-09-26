@@ -64,7 +64,6 @@ import { PathTo200kBlock } from "./markdown/PathTo200kBlock";
 import { ConstituencyWeightBlock } from "./markdown/ConstituencyWeightBlock";
 import { ElectoralTimelineBlock } from "./markdown/ElectoralTimelineBlock";
 import { FiscalAuditChartBlock } from "./markdown/FiscalAuditChartBlock";
-import { ConstitutionalBranchNavigator } from "./markdown/ConstitutionalBranchNavigator";
 import { PathTo200kCalculator } from "./markdown/PathTo200kCalculator";
 import { RecognitionDeficitOverlay } from "./markdown/RecognitionDeficitOverlay";
 import { AudienceSegmentationMatrix } from "./markdown/AudienceSegmentationMatrix";
@@ -231,7 +230,6 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "data-sec-2-3": <NominationPathPanel />,
   // The governing claim opens §6, ahead of the pillars and themes that rest on it.
   "strategy-sec-4-1": <EconomistGovernorThesis />,
-  "analysis-sec-3-5": <ConstitutionalBranchNavigator />,
   "data-sec-2-8": (
     <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §2.8">
       Member for Kitui Central since 2013, and a member of the National Assembly&rsquo;s Budget and

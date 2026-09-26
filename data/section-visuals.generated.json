@@ -119,8 +119,8 @@
     },
     {
      "n": 2,
-     "label": "The incumbent and the nomination.",
-     "body": "Governor Julius Malombe won the 2022 race on the Wiper ticket (Tier 1, Section 2.2). Whether he seeks the 2027 Wiper nomination…"
+     "label": "The incumbent cannot stand.",
+     "body": "Governor Julius Malombe won the 2022 race on the Wiper ticket (Tier 1, Section 2.2) after a first term from 2013 to 2017.…"
     },
     {
      "n": 3,
@@ -868,30 +868,6 @@
      "n": 7,
      "label": "Detection tooling at premium tier,…",
      "body": "Detection tooling at premium tier, selected at contracting from a shortlist tested against a sample of real Kikamba and…"
-    }
-   ]
-  }
- },
- "delivery-sec-5-8-15": {
-  "id": "delivery-sec-5-8-15",
-  "tab": "delivery",
-  "level": 3,
-  "number": "5.8.15",
-  "title": "If the incumbent's eligibility is contested",
-  "kind": "checklist",
-  "data": {
-   "items": [
-    {
-     "label": "Scenario Branch A ",
-     "body": ""
-    },
-    {
-     "label": "Strategic Consequence",
-     "body": ""
-    },
-    {
-     "label": "Scenario Branch B — Eligibility Upheld",
-     "body": "Alternatively, a reading of the constitutional provisions may interpret the two-term limit as applying only to…"
     }
    ]
   }

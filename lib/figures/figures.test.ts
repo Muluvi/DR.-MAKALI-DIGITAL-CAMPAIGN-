@@ -5,7 +5,7 @@
  *     npm run test:figures
  *
  * WHY THESE ASSERTIONS EXIST. §3.4 states around forty derived figures — the top twelve wards, the
- * deficit pool, four coalition paths, ballots at 62% — and every one is a sum or a subtraction
+ * deficit pool, four coalition paths, ballots at 61.7% — and every one is a sum or a subtraction
  * over the same forty ward numbers. Stated as prose they can drift apart, and this audit found
  * that they have. A failing assertion here is therefore NOT permission to edit the content: hard
  * rule 2 says a disagreement between the document and its own arithmetic is logged in
@@ -98,9 +98,9 @@ test("the Mwingi bloc holds 200,198 registered voters", () => {
 test("the Mwingi bloc exceeds the 2022 winning total on the register and falls short on ballots", () => {
   const mwingi = blocTotal(CONS, ["Mwingi North", "Mwingi West", "Mwingi Central"]);
   assert.ok(mwingi > 198_004, "the register is larger than 2022's winning tally");
-  // §3.3.3 prints "roughly 124,100 ballots"; the exact product is 124,123.
-  assert.equal(ballotsAt(mwingi, 0.62), 124_123);
-  assert.ok(ballotsAt(mwingi, 0.62) < 198_004, "…and the ballots it yields are not");
+  // At the certified 2022 turnout of 61.7%.
+  assert.equal(ballotsAt(mwingi, 0.617), 123_522);
+  assert.ok(ballotsAt(mwingi, 0.617) < 198_004, "…and the ballots it yields are not");
 });
 
 test("the recognition-deficit pool is 275,570, and rounds to 51.73% not 51.72%", () => {
@@ -183,8 +183,8 @@ test("every line of the retired §3.10 summary is what the register says", () =>
 
   const mwingi = blocTotal(CONS, ["Mwingi North", "Mwingi West", "Mwingi Central"]);
   assert.equal(mwingi.toLocaleString("en-KE"), "200,198");
-  // "~124,100 ballots" — the banner rounded to the nearest hundred and said so.
-  assert.equal(Math.round(ballotsAt(mwingi, 0.62) / 100) * 100, 124_100);
+  // About 123,500 ballots at the certified 61.7% turnout.
+  assert.equal(Math.round(ballotsAt(mwingi, 0.617) / 100) * 100, 123_500);
 
   assert.equal(
     blocTotal(CONS, ["Kitui Central", "Kitui West", "Kitui Rural"]).toLocaleString("en-KE"),
@@ -220,8 +220,8 @@ test("Path D cannot reach the threshold on its register at all", () => {
   assert.equal(pathD, 191_811);
   assert.equal(200_000 - pathD, 8_189);
   // And on ballots the gap is not close: §3.4.3's "more than 100,000 votes short".
-  assert.equal(ballotsAt(pathD, 0.62), 118_923);
-  assert.ok(200_000 - Math.round(ballotsAt(pathD, 0.62) * 0.8) > 100_000);
+  assert.equal(ballotsAt(pathD, 0.617), 118_347);
+  assert.ok(200_000 - Math.round(ballotsAt(pathD, 0.617) * 0.8) > 100_000);
 });
 
 /* ------------------------------------------------------------------ constituency power (§3.4.4) */
@@ -280,17 +280,16 @@ test("every constituency's share and average ward size are what §3.4.4 printed"
 
 /* ------------------------------------------------------------------ turnout and threshold (§3.4.1) */
 
-test("the county casts about 330,310 ballots at the 62% baseline", () => {
-  assert.equal(ballotsAt(countyTotal(CONS), 0.62), 330_310);
+test("the county casts about 328,712 ballots at the certified 61.7% turnout", () => {
+  assert.equal(ballotsAt(countyTotal(CONS), 0.617), 328_712);
 });
 
-test("198,004 is 37.2% of the register and 60.0% of ballots cast", () => {
+test("198,004 is 37.2% of the register and 60.2% of ballots cast", () => {
   const total = countyTotal(CONS);
   assert.equal(Number(((198_004 / total) * 100).toFixed(1)), 37.2);
-  assert.equal(Number(((198_004 / ballotsAt(total, 0.62)) * 100).toFixed(1)), 59.9);
-  // §3.4.1 prints the required share as a 60.0%–60.5% band against a 198,004–200,000 threshold.
-  // The low end computes to 59.9%, which rounds into the band's stated floor at one decimal.
-  assert.equal(Number(((200_000 / ballotsAt(total, 0.62)) * 100).toFixed(1)), 60.5);
+  // At the certified 61.7% turnout: 60.2% of ballots for 198,004, 60.8% for 200,000.
+  assert.equal(Number(((198_004 / ballotsAt(total, 0.617)) * 100).toFixed(1)), 60.2);
+  assert.equal(Number(((200_000 / ballotsAt(total, 0.617)) * 100).toFixed(1)), 60.8);
 });
 
 test("register growth sums exactly: 532,758 + 61,839 + 11,106 = 605,703", () => {
@@ -298,7 +297,8 @@ test("register growth sums exactly: 532,758 + 61,839 + 11,106 = 605,703", () => 
 });
 
 test("the like-for-like threshold on the 2026 register is about 225,000", () => {
-  assert.equal(Math.round(605_703 * 0.372), 225_322);
+  // The exact 2022 share (198,004 / 532,758), not the rounded 37.2%, which would give 225,322.
+  assert.equal(Math.round((605_703 * 198_004) / 532_758), 225_115);
 });
 
 /* ------------------------------------------------------------------ reach (§3.6) */

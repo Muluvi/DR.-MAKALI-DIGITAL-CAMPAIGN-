@@ -31,7 +31,7 @@ export type { Granularity, Provenance, Source, Tier };
  *   official      a named public institution published it. Draw as a measurement.
  *   reported      media reported it; nobody official has confirmed it. Draw as a measurement,
  *                 label the tier.
- *   calculated    arithmetic this document performs on official figures — 532,758 x 62%. Draw as
+ *   calculated    arithmetic this document performs on official figures — 532,758 x 61.7%. Draw as
  *                 a measurement, and show the working.
  *   modelled      the output of an assumption or a simulation. NEVER a point: a range, a band or
  *                 a category, labelled "Modelled".

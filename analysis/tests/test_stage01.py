@@ -367,3 +367,22 @@ def test_official_2026_register_ignores_a_non_tier_one_row(tmp_path, monkeypatch
     )
     monkeypatch.setattr(checks.config, "DATA_TEMPLATES", tmp_path)
     assert checks.official_2026_register() is None
+
+
+def test_citing_article_180_7_for_an_open_seat_is_not_flagged(tmp_path, monkeypatch):
+    """The finding is about two-branch framing, not about citing the article."""
+    from src import checks, config as cfg
+
+    page = tmp_path / "analysis.md"
+    monkeypatch.setattr(cfg, "SITE_CONTENT", tmp_path)
+    monkeypatch.setattr(checks.config, "SITE_CONTENT", tmp_path)
+
+    page.write_text(
+        "Article 180(7) limits a governor to two terms, and he has served two: an open seat.",
+        encoding="utf-8")
+    assert not [f for f in checks.stale_site_content() if f["subject"] == "Malombe eligibility"]
+
+    page.write_text(
+        "Whether Article 180(7) bars him is carried as a risk with two branches.",
+        encoding="utf-8")
+    assert [f for f in checks.stale_site_content() if f["subject"] == "Malombe eligibility"]

@@ -43,7 +43,7 @@ const n = (v: number) => v.toLocaleString("en-KE");
 /** The home belt — Kitui Central, West and Rural — which §3.4.3 carries as Path D. */
 export const HOME_BELT = 191_811;
 
-/** Mwingi's ballots at the 62% baseline: the banner's "~124,100". */
+/** Mwingi's ballots at the certified 61.7% turnout: 123,522. */
 export const MWINGI_BALLOTS = ballotsAt(MWINGI_BLOC, TURNOUT_BASELINE);
 
 export type SummaryRow = {
@@ -82,10 +82,7 @@ export const TARGETING_SUMMARY: SummaryRow[] = [
   {
     label: "Mwingi triad proof",
     value: `${n(MWINGI_BLOC)} registered`,
-    // The banner rounded this to the nearest hundred and said "~". Computed it is 124,123, and
-    // both are printed rather than one quietly replacing the other — the difference is a
-    // rounding, not a disagreement, and saying so costs one clause.
-    detail: `Mwingi's three sub-counties — ${n(MWINGI_BALLOTS)} ballots at the ${Math.round(TURNOUT_BASELINE * 100)}% turnout baseline, which §3.4.3 states as approximately 124,100. Short of the threshold either way.`,
+    detail: `Mwingi's three sub-counties — ${n(MWINGI_BALLOTS)} ballots at the ${(TURNOUT_BASELINE * 100).toFixed(1)}% turnout rate, short of the threshold.`,
     section: "§3.4.3",
   },
   {

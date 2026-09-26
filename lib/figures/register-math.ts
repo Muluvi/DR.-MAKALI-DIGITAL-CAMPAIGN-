@@ -90,7 +90,7 @@ export function blocTotal(constituencies: RegisterConstituency[], names: string[
 /**
  * Ballots at a turnout rate.
  *
- * Rounded, because a ballot is a whole thing. §3.4.1 prints 330,310 for 532,758 at 62%, which is
+ * Rounded, because a ballot is a whole thing. 532,758 at 61.7% gives 328,712, which is
  * this function's answer — the prose and the arithmetic agree here, and the figure says so.
  */
 export const ballotsAt = (registered: number, turnout: number): number => Math.round(registered * turnout);

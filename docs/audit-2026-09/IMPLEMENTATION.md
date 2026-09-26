@@ -80,6 +80,17 @@ station", "polling day") and KNBS statistical instruments are allowed, each with
     revenue keeps both values until the final approved budget is in hand, and the two
     livestock-household counts stay side by side as different definitions. Tiers are unchanged:
     no new document was supplied
+  - Governor Malombe cannot stand in 2027 (Firefly, 26 September 2026): Article 180(7) limits
+    a governor to two terms and he is serving his second. The two-branch treatment is gone from
+    §3.5, §5.8.15 (now "The incumbent is term-limited: 2027 is an open seat"), Annex B.5, the
+    fig-2-3 card and the fig-5-8 branches; the scenario navigator in §3.5 is unmounted
+  - the 2026 like-for-like benchmark uses the exact 2022 share (198,004 / 532,758) everywhere:
+    225,115, where the pipeline had 225,322 and 225,317. The scenario median is exported rounded
+    rather than truncated, so the site and the Stage 3 report agree (200,161)
+  - turnout is the certified 61.7% throughout: the vote funnel, the path calculator and the
+    older figure layer no longer use a rounded 62% (328,712 ballots, not 330,310)
+  - the connectivity panels in §2.4 and §5.2.3.3 and the §4.3 audience overview show the
+    CA/KNBS 2023/24 rate (73.8% offline) instead of the 2019 census's 86.4%
   - Kitui East sits outside the pool
   - the Week 1 comparison set is the two nomination rivals
   - Phase −1 runs from signature

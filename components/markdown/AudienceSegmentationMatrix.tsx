@@ -44,7 +44,7 @@ const AUDIENCE_SEGMENTS: AudienceSegment[] = [
     name: "Rural agrarian & smallholder baseline",
     shortName: "Rural agrarian",
     sizing: { kind: "sized", voters: "~507,000 registered voters (derived)", share: "95.2% of county population", tier: 1 },
-    connectivity: "86.4% offline. 2G feature-phone dominance, high evening vernacular radio listenership.",
+    connectivity: "73.8% offline countywide (CA/KNBS 2023/24). 2G feature-phone dominance, high evening vernacular radio listenership.",
     geographicBase: "Rural belts across Kitui Central, Kitui West, Kitui Rural, Mwingi Central, Mwingi West and Kitui East — 36 non-urban wards.",
     coreAnxiety:
       "Persistent seasonal crop failure, unmitigated drought shocks, exploitative middlemen for green grams and pigeon peas, erratic subsidised seed and fertiliser distribution.",

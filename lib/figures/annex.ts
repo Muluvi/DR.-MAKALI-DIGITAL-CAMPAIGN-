@@ -28,7 +28,7 @@ import type { FigureSeries } from "./types";
 export const AUDIENCE_FACETS = [
   { label: "Geographic locus", items: ["Rural: 95.2%", "Urban: 4.8%"] },
   { label: "Age demographic", items: ["Youth (18–35): ~44%", "Mid/senior (36+): 56%"] },
-  { label: "Connectivity status", items: ["Offline (2G): 86.4%", "Online (smart): 13.6%"] },
+  { label: "Connectivity status", items: ["Offline: 73.8%", "Online: 26.2%"] },
   { label: "Primary language", items: ["Kikamba: ~76% (7.3)", "Kiswahili: ~16%", "English: ~8%"] },
   { label: "Livelihood clusters", items: ["Dryland agrarian", "Pastoral / livestock", "Informal / bodaboda"] },
   { label: "Diaspora matrix", items: ["Nairobi / Mombasa", "Remittance leverage", "Family opinion shapers"] },
@@ -39,12 +39,10 @@ export const AUDIENCE_SERIES: FigureSeries = {
   headline: "Six ways of cutting the same electorate, and two of them decide the channel plan",
   measure: "§4.3's Kitui County audience architecture overview",
   points: [],
-  conflicts: ["C-13"],
   note:
-    "Connectivity and language are the two facets the rest of the proposal turns on: 86.4% offline " +
-    "sets the channel mix, ~76% Kikamba sets the language mix. The 86.4% / 13.6% split is the 2019 " +
-    "census rate, which §2.6 says the 2023/24 Kenya Housing Survey supersedes — C-13. Neither " +
-    "rate has been changed anywhere.",
+    "Connectivity and language are the two facets the rest of the proposal turns on: 73.8% offline " +
+    "sets the channel mix, ~76% Kikamba sets the language mix. The 73.8% / 26.2% split is the " +
+    "CA/KNBS 2023/24 rate (§2.6), which supersedes the 2019 census's 86.4% / 13.6%.",
 };
 
 /* ------------------------------------------------------------------ §5.2 the segments */

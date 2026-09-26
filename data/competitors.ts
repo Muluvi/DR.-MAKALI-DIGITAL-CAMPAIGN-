@@ -21,9 +21,9 @@ export const CONTENDERS: Contender[] = [
     name: "Julius Malombe",
     position: "Incumbent Governor, Kitui County",
     stage: "General election field",
-    note: "Term-limit eligibility for 2027 is an open legal question — see below. Not treated as resolved in this document.",
+    note: "Term-limited: two terms served (2013–2017, 2022–2027), the limit under Article 180(7). Not in the 2027 field.",
   },
 ];
 
 export const MALOMBE_TERM_LIMIT_QUESTION =
-  "Malombe served as Kitui Governor 2013–2017, then lost the seat to Ngilu for the 2017–2022 term (the court-confirmed 2017 result, §2.2), before winning again in 2022. Whether that non-consecutive, interrupted service counts toward Kenya's two-term gubernatorial limit for a 2027 run is, on the facts established in this document, an open question with two possible readings — that interrupted terms count toward the limit, or that they do not — rather than a settled one. This proposal treats it as unresolved in all planning, per the existing framing in Section 5.8.15, and does not take a position on which reading is correct.";
+  "Malombe served as Kitui Governor 2013–2017, lost the seat to Ngilu for the 2017–2022 term (the court-confirmed 2017 result, §2.2), and won again in 2022. Article 180(7) limits a governor to two terms, and he is serving his second, so he cannot stand in 2027. This proposal plans for an open seat throughout (Section 5.8.15).";

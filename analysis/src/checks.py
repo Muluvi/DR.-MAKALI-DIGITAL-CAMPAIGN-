@@ -313,10 +313,17 @@ def stale_site_content() -> list[dict]:
             "Remove it. The proposal forms strategy from existing records and its own analysis only.",
         ))
 
-    # The open-seat question: pack and site disagree.
+    # The open-seat question: the pack says the seat is open. Citing Article 180(7) is not a
+    # disagreement; treating his eligibility as a two-branch or open question is.
+    branch_framing = re.compile(
+        r"two branches|Branch [AB]\b|reads (?:Article 180\(7\)|it) both ways|"
+        r"eligibility (?:is|stays|remains) (?:contested|open|unsettled)|"
+        r"open (?:legal|constitutional) question",
+        re.I,
+    )
     branch_files = [
         p.name for p in config.SITE_CONTENT.glob("*.md")
-        if "180(7)" in p.read_text(encoding="utf-8")
+        if "180(7)" in (text := p.read_text(encoding="utf-8")) and branch_framing.search(text)
     ]
     if branch_files:
         out.append(_finding(

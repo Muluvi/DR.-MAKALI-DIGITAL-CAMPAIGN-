@@ -2,7 +2,7 @@
 
 How many voters each channel can physically reach, by ward.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-25*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-26*
 
 ![Where five years of connectivity growth went](../outputs/charts/09_reach_shift.svg)
 

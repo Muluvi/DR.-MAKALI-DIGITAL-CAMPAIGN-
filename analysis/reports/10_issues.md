@@ -2,7 +2,7 @@
 
 What the data says Kitui's issues are, and what is still needed to turn that into a content plan.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-25*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-26*
 
 ![Issues ranked by the strength of public evidence](../outputs/charts/10_issue_evidence.svg)
 

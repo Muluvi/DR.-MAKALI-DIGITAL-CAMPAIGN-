@@ -2,7 +2,7 @@
 
 What the Direct phase can actually detect, and how it will be measured.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-25*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-26*
 
 ![Minimum detectable effect by list size](../outputs/charts/11_mde.svg)
 

@@ -5,6 +5,8 @@ import { motion, useInView } from "motion/react";
 import { Wifi, WifiOff, Radio, MessageSquare, Smartphone, Users } from "lucide-react";
 
 import { DURATION, EASE_ENTRANCE, VIEWPORT } from "../lib/motion";
+import { FIGURES } from "../lib/data/figures";
+import { formatFigure } from "../lib/data/format";
 import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
 import { useMotionPreset } from "../hooks/useMotionPreset";
 import { TierBadge } from "./markdown/TierBadge";
@@ -13,7 +15,7 @@ import { ClaimBadge } from "./markdown/ClaimBadge";
 /**
  * M3 — the county's central division, and the tool that addresses the larger side of it.
  *
- * "86.4% of your voters cannot see any of this" is the strongest argument in the document for
+ * "73.8% of your voters cannot see any of this" is the strongest argument in the document for
  * hiring a team that plans for both tiers, and it was a sentence in §3.6.
  *
  * The split is the site's ONE masked reveal: a clip-path wipe, because a wipe divides. Spending
@@ -23,14 +25,12 @@ import { ClaimBadge } from "./markdown/ClaimBadge";
  * phone prints its menu line by line, so the mock does too. It is also the best proof-of-execution
  * artefact on the site, which is why the deliverable is demonstrated rather than described.
  *
- * Figures: §2.4 (KNBS 2019, Tier 1). Menu: §3.8.1, verbatim including the
+ * Figures: §2.6 (CA/KNBS 2023/24, Tier 1), read from the figure registry. Menu: §3.8.1, verbatim including the
  * unallocated shortcode.
  */
 
-const CONNECTED = 13.6;
-const OFFLINE = 86.4;
-const INTERNET_USERS = 143_340;
-const BASE_POPULATION = 1_053_991;
+const CONNECTED = Number(formatFigure(FIGURES["ict.internet"]));
+const OFFLINE = Number(formatFigure(FIGURES["ict.offline"]));
 
 /** §3.8.1, verbatim. Kikamba first, English gloss second, exactly as written. */
 const USSD_MENU = [
@@ -105,9 +105,8 @@ export function ReachSplit() {
         Most of Kitui cannot see a digital campaign
       </h3>
       <p className="text-sm text-muted leading-relaxed max-w-[62ch] mb-5">
-        {INTERNET_USERS.toLocaleString()} active internet users out of a base of{" "}
-        {BASE_POPULATION.toLocaleString()} aged three and above. A purely digital campaign here
-        addresses roughly one in seven residents.
+        {CONNECTED}% of residents use the internet (CA/KNBS 2023/24). A purely digital campaign
+        here addresses roughly one resident in four.
       </p>
 
       {/* The division. One wipe, left to right, splitting the county in two. */}
@@ -142,7 +141,7 @@ export function ReachSplit() {
       </div>
       <div className="flex justify-between mt-1.5 t-label font-mono text-muted tabular-nums">
         <span>{CONNECTED}% connected</span>
-        <span>KNBS 2019</span>
+        <span>CA/KNBS 2023/24</span>
       </div>
 
       {/* What serves each side. */}

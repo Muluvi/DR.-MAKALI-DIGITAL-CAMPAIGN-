@@ -213,17 +213,19 @@ def build_charts() -> list[Chart]:
         s = res.summary()
         label = SCENARIO["label"]
         vals += [
-            Value(f"{label} — median", int(s["median"]), "votes", "S1", 1, "2026-09",
+            Value(f"{label} — median", round(s["median"]), "votes", "S1", 1, "2026-09",
                   MODELLED, PLACEHOLDER, note=SCENARIO["gloss"]),
-            Value(f"{label} — 5th percentile", int(s["p5"]), "votes", "S1", 1, "2026-09",
+            Value(f"{label} — 5th percentile", round(s["p5"]), "votes", "S1", 1, "2026-09",
                   MODELLED, PLACEHOLDER),
-            Value(f"{label} — 95th percentile", int(s["p95"]), "votes", "S1", 1, "2026-09",
+            Value(f"{label} — 95th percentile", round(s["p95"]), "votes", "S1", 1, "2026-09",
                   MODELLED, PLACEHOLDER),
         ]
         vals.append(Value("2022 winning tally", 198004, "votes", "S11", 2, "2022-08",
                           OFFICIAL, CONFIRMED,
                           note="What the proposal measures against — set on a register 13.7% smaller."))
-        vals.append(Value("37.2% of the July 2026 register", 225322, "votes", "S4", 3, "2026-07",
+        like_for_like = round(int(config.value("register.y2026_july"))
+                              * float(config.value("benchmarks.winner_share_of_register_2022")))
+        vals.append(Value("37.2% of the July 2026 register", like_for_like, "votes", "S4", 3, "2026-07",
                           CALCULATED, VERIFY,
                           note="The like-for-like bar on today's electorate."))
         charts.append(Chart(
