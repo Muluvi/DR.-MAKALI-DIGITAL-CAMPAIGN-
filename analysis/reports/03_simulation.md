@@ -2,7 +2,7 @@
 
 What the ward arithmetic yields under stated assumptions, against two published benchmarks.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-26*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-27*
 
 > **Scenario model, not a forecast.**
 

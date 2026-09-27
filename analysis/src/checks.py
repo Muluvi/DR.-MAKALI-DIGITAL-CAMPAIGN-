@@ -263,16 +263,20 @@ def stale_site_content() -> list[dict]:
             "is correct.",
         ))
 
-    # The site also uses the bare "Wiper", which is not wrong but is no longer the full name.
-    bare = [
-        p.name for p in sorted(config.SITE_CONTENT.glob("*.md"))
-        if re.search(r"\bWiper\b(?!\s+Patriotic)", p.read_text(encoding="utf-8"))
-    ]
+    # The bare "Wiper" is acceptable shorthand once the page has used the full name, so the
+    # finding is a page whose first "Wiper" comes before its first "Wiper Patriotic Front".
+    bare = []
+    for p in sorted(config.SITE_CONTENT.glob("*.md")):
+        text = p.read_text(encoding="utf-8")
+        first_bare = re.search(r"\bWiper\b(?!\s+Patriotic)(?!\s+Democratic)", text)
+        full = text.find("Wiper Patriotic Front")
+        if first_bare and not (0 <= full < first_bare.start()):
+            bare.append(p.name)
     if bare:
         out.append(_finding(
             "stale-party-name", "medium", "Site content",
-            f"Bare 'Wiper' without 'Patriotic Front' appears in {len(bare)} files.",
-            "Acceptable as shorthand after the full name is used once per page; check first use.",
+            f"Bare 'Wiper' is used before the full name on {len(bare)} pages: {', '.join(bare)}.",
+            "Use 'Wiper Patriotic Front' at first mention on each page; the shorthand is fine after.",
         ))
 
     # The 2022 register presented as current, without a year label.

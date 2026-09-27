@@ -55,7 +55,7 @@ id: dpa-compliance
 #### What the model scores, and why
 
 The campaign will build a model scoring Kitui's polling stations and wards on
-two dimensions: likely support for the Wiper ticket and likely turnout. Both are
+two dimensions: likely support for the Wiper Patriotic Front ticket and likely turnout. Both are
 estimated from how each station actually voted in 2017 and 2022 (IEBC Forms 37A)
 and from the register, not from asking anyone how they will vote. This moves the
 campaign from broad messaging to disciplined prioritisation of persuasion and

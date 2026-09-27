@@ -65,7 +65,7 @@ campaign discovers later:
     electoral-law review itself. Section 5.7.9 has the campaign appoint that reviewer; Firefly
     builds to their sign-off rather than substituting for it.
 *   **Candidate scheduling** — tour management, diary and constituency office operations.
-*   **Party-level negotiation** with Wiper organs, branch committees and the national executive.
+*   **Party-level negotiation** with Wiper Patriotic Front organs, branch committees and the national executive.
 *   **Polling agent recruitment, accreditation and payment.** Firefly builds the tracking behind
     indicator GE-03; the campaign supplies and accredits the agents.
 *   **Campaign-owned field recommendations.** The ward-captain network (240 of 400 captains

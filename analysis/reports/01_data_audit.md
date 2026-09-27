@@ -2,7 +2,7 @@
 
 What the pack contains, what the site claims, and where the two disagree.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-26*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-27*
 
 
 ## What was parsed
@@ -16,7 +16,7 @@ What the pack contains, what the site claims, and where the two disagree.
 | `channels.csv` | 25 |
 | `county_finance.csv` | 6 |
 | `drought.csv` | 6 |
-| `claims_register.csv` | 948 |
+| `claims_register.csv` | 949 |
 
 14 markdown tables and 69 sources parsed from the pack. Sources split T1/T2/T3 as 19/22/28.
 
@@ -39,7 +39,7 @@ What the pack contains, what the site claims, and where the two disagree.
 
 ## Problems found
 
-3 high, 2 medium, 5 checks passed. Full list in `data/processed/audit_findings.csv`.
+3 high, 1 medium, 5 checks passed. Full list in `data/processed/audit_findings.csv`.
 
 
 ### High severity
@@ -53,15 +53,11 @@ The reported WPF nomination method is T3, single-sourced to The County Diary [S1
 *Action:* Obtain the WPF NEC resolution, or the 2027 nomination rules and timetable as filed with the IEBC and the Registrar of Political Parties.
 
 **Site content — claim-sourcing**  
-736 of 948 numeric claims (78%) carry no visible tier marker within 70 characters.  
+737 of 949 numeric claims (78%) carry no visible tier marker within 70 characters.  
 *Action:* Most are restatements of figures tiered elsewhere on the page. Prioritise the ones that state a figure for the first time.
 
 
 ### Medium severity
-
-**Site content — stale-party-name**  
-Bare 'Wiper' without 'Patriotic Front' appears in 10 files.  
-*Action:* Acceptable as shorthand after the full name is used once per page; check first use.
 
 **Site content — claim-sourcing**  
 14 site claims are explicitly marked Tier 3.  
@@ -79,7 +75,7 @@ Bare 'Wiper' without 'Patriotic Front' appears in 10 files.
 
 ## The claims register
 
-948 numeric claims across 16 content files. 736 (78%) carry no tier marker within 70 characters of the figure.
+949 numeric claims across 16 content files. 737 (78%) carry no tier marker within 70 characters of the figure.
 
 That percentage overstates the problem and should not be quoted on its own. The site tiers a figure where it is introduced and then restates it in summaries, tables and callouts without repeating the marker. The register is a worklist, not a verdict: sort it by file and look for figures that appear for the first time without a tier.
 
@@ -87,7 +83,7 @@ That percentage overstates the problem and should not be quoted on its own. The 
 |---|---|---|
 | analysis.md | 301 | 247 |
 | strategy.md | 167 | 117 |
-| data.md | 125 | 55 |
+| data.md | 126 | 56 |
 | delivery.md | 92 | 84 |
 | annex-county.md | 63 | 47 |
 | workstreams-data.md | 40 | 40 |

@@ -2,7 +2,7 @@
 
 The things this analysis establishes, what every one of them rests on, and what is still missing.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-26*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-09-27*
 
 
 ## The eight findings

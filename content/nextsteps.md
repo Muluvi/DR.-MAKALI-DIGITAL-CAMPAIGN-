@@ -19,7 +19,7 @@ Nine dependencies, set out in full in Section 6.1. Three of them gate everything
 
 The remaining six: approximately **3 hours** of candidate time per week; daily ground-team photo
 and video uploads; current ward-level registration data from the IEBC published file; access to
-the existing NG-CDF project record; sign-off on the engagement level; and Wiper's 2027 nomination
+the existing NG-CDF project record; sign-off on the engagement level; and the Wiper Patriotic Front's 2027 nomination
 rules or NEC resolution as soon as the party issues them (Section 2.3.2).
 ```
 
