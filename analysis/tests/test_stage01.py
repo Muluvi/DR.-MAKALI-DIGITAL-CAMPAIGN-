@@ -386,3 +386,20 @@ def test_citing_article_180_7_for_an_open_seat_is_not_flagged(tmp_path, monkeypa
         "Whether Article 180(7) bars him is carried as a risk with two branches.",
         encoding="utf-8")
     assert [f for f in checks.stale_site_content() if f["subject"] == "Malombe eligibility"]
+
+
+def test_bare_wiper_is_flagged_only_before_the_full_name(tmp_path, monkeypatch):
+    """Shorthand after the full name is fine; shorthand before it is the finding."""
+    from src import checks, config as cfg
+
+    page = tmp_path / "strategy.md"
+    monkeypatch.setattr(cfg, "SITE_CONTENT", tmp_path)
+    monkeypatch.setattr(checks.config, "SITE_CONTENT", tmp_path)
+    medium = lambda: [f for f in checks.stale_site_content()
+                      if f["check"] == "stale-party-name" and f["severity"] == "medium"]
+
+    page.write_text("The Wiper Patriotic Front decides. Wiper's rules follow.", encoding="utf-8")
+    assert not medium()
+
+    page.write_text("Wiper's rules follow. The Wiper Patriotic Front decides.", encoding="utf-8")
+    assert medium()

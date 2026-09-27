@@ -2,7 +2,7 @@ The first four weeks, the phases to August 2027, what the campaign receives, how
 
 ## 5.3 The first four weeks
 
-**Objective:** close the recognition gap outside Kitui Central ahead of the Wiper
+**Objective:** close the recognition gap outside Kitui Central ahead of the Wiper Patriotic Front's
 flagbearer decision, which party sources indicate is intended to conclude
 within the final quarter of 2026.
 

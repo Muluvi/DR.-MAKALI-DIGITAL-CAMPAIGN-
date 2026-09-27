@@ -60,7 +60,7 @@ A key strategic finding emerges from this integrated database: **Mwingi North, M
 
 #### Analytical Hierarchy:
 1.  **The "Big 4" Electorate Engine ({{big4.share}}% of County):** Kitui Central, Kitui South, Mwingi Central, and Mwingi North command **{{big4}} registered voters** across 22 wards. Securing parity or dominance in these four sub-counties decides the gubernatorial election.
-2.  **The Northern Anchor (Mwingi North - {{con.mwingi-north}} voters):** While 4th in total voters, Mwingi North carries outsized structural leverage: it hosts the #1 largest ward in the county (**Kyuso, {{ward.kyuso}} voters**), the ancestral political base of Wiper Party Leader Hon. Kalonzo Musyoka (**Tseikuru, {{ward.tseikuru}} voters**), and **Mumoni ({{ward.mumoni}} voters)**. It is both a voter powerhouse and the party's spiritual heartland.
+2.  **The Northern Anchor (Mwingi North - {{con.mwingi-north}} voters):** While 4th in total voters, Mwingi North carries outsized structural leverage: it hosts the #1 largest ward in the county (**Kyuso, {{ward.kyuso}} voters**), the ancestral political base of Wiper Patriotic Front leader Hon. Kalonzo Musyoka (**Tseikuru, {{ward.tseikuru}} voters**), and **Mumoni ({{ward.mumoni}} voters)**. It is both a voter powerhouse and the party's spiritual heartland.
 3.  **The Southern Bulwark (Kitui South - {{con.kitui-south}} voters):** The second-largest constituency by volume, Kitui South is anchored by high-density wards in Athi ({{ward.athi}}) and Ikanga/Kyatune ({{ward.ikanga-kyatune}}).
 
 ## 3.3 Four routes to the number

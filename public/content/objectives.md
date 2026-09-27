@@ -1,4 +1,4 @@
-The campaign's objectives are structured across two separate timelines, each with its own clocks, success parameters, and strictly traceable targets. Every objective traces directly either to securing the Wiper nomination or delivering the ~200,000 vote threshold at the general election. All non-traceable, purely digital vanity metrics have been eliminated.
+The campaign's objectives are structured across two separate timelines, each with its own clocks, success parameters, and strictly traceable targets. Every objective traces directly either to securing the Wiper Patriotic Front nomination or delivering the ~200,000 vote threshold at the general election. All non-traceable, purely digital vanity metrics have been eliminated.
 
 ## 1.1 The goal: the Wiper ticket first, the county second
 

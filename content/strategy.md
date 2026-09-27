@@ -2,7 +2,7 @@ Each choice tied to the finding it answers: the position, where the effort goes,
 
 ## 4.1 The position
 
-Because Section 3.5: both Wiper rivals have already won a countywide election, and what distinguishes him is not a vote tally but his record (Section 2.8).
+Because Section 3.5: both Wiper Patriotic Front rivals have already won a countywide election, and what distinguishes him is not a vote tally but his record (Section 2.8).
 
 The core narrative of the campaign turns standard political promotion on its head: **Dr. Makali Mulu is the Economist Governor Kitui needs.** This narrative frames him not as a politician who merely promises, but as an expert economist who can show his working and enforce rigorous accountability.
 
