@@ -158,9 +158,9 @@
   aspect-ratio: 971 / 1600;
   transform: translate3d(0, calc(var(--p, 0) * 60%), 0);
   opacity: clamp(0, calc(1 - (var(--p, 0) - 0.08) * 5), 1);
-  will-change: transform, opacity;
   pointer-events: none;
 }
+.pf-hero[data-story="true"] .pf-hero__portrait { will-change: transform, opacity; }
 .pf-hero__portrait img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; }
 
 .pf-hero__copy {
@@ -854,8 +854,18 @@
   width: 100%;
   max-width: 1180px;
   margin-inline: auto;
-  padding-inline: 16px;
-}
+  padding-inline: clamp(1rem, 3.5vw, 3.5rem);
+  }
+
+/* Keep long-form reading comfortably narrow while giving figures room to breathe. */
+.flow-body .prose {
+  max-width: 66ch;
+  margin-inline: auto;
+  font-size: clamp(1.0625rem, 1rem + 0.22vw, 1.1875rem);
+  line-height: 1.62;
+  text-wrap: pretty;
+  }
+.flow-body .prose :is(h1, h2, h3, h4) { text-wrap: balance; }
 @media (min-width: 640px) { .pf-shell { padding-inline: 28px; } }
 @media (min-width: 1024px) { .pf-shell { padding-inline: 56px; } }
 /* D-07: the dock's band is reserved at the end of the document. */
