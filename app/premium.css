@@ -832,8 +832,24 @@
   .pf-hero__portrait, .pf-hero__copy, .pf-act__portrait, .pf-act__county, .pf-act__numeral { transform: none !important; opacity: 1 !important; }
 }
 
-/* ---------------------------------------------------------------- print */
-@media print {
+  @media (max-width: 640px) {
+    .pf-hero[data-story="true"] { height: 250svh; }
+    .pf-hero__stage { min-height: 100svh; }
+    .pf-hero__copy {
+      padding: max(1rem, env(safe-area-inset-top)) var(--gutter) 0;
+      max-width: min(100%, 30rem);
+    }
+    .pf-hero__title {
+      font-size: clamp(2.25rem, 12vw, 3.75rem);
+      line-height: 0.98;
+    }
+    .pf-hero__sub { max-width: 25rem; font-size: 1rem; line-height: 1.45; }
+    .pf-hero__portrait { right: -14vw; height: 52svh; max-width: 78vw; }
+  }
+
+  /* ---------------------------------------------------------------- print */
+  @media print {
+
   .pf-grain, .pf-dock, .pf-spine, .pf-hero__steps, .pf-hero__pick { display: none !important; }
   .pf-hero[data-story="true"] { height: auto; }
   .pf-hero__stage { position: relative; height: auto; min-height: 0; }

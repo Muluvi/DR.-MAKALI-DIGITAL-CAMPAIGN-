@@ -34,7 +34,88 @@
 .visual-overview__caption strong { color: var(--overview-ink); }
 @media (max-width: 700px) { .visual-overview__heading { display: block; } .visual-overview__reading { display: block; margin-top: .75rem; } .visual-overview__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .visual-overview__card { min-height: 8.5rem; } }
 @media (max-width: 420px) { .visual-overview { margin-inline: -.35rem; border-radius: 1rem; } .visual-overview__grid { gap: .5rem; } .visual-overview__card { padding: .75rem; } .visual-overview__card svg { margin-bottom: 1rem; } }
-@media print { .visual-overview { break-inside: avoid; color: #111; } }
+@media print {
+  .visual-overview { break-inside: avoid; color: #111; }
+}
+
+/* Mobile viewport guardrails: keep the reading shell inside the device width while preserving
+   intentional scrolling only inside data visualisations and chip rails. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --gutter: max(0.875rem, env(safe-area-inset-left));
+    --section-gap: clamp(1.5rem, 7vw, 2.5rem);
+  }
+
+  .prose {
+    font-size: var(--fs-body);
+    line-height: 1.68;
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    text-wrap: balance;
+  }
+
+  .prose > table,
+  .prose > figure,
+  .prose > .not-prose {
+    max-width: 100%;
+  }
+
+  .prose pre,
+  .prose code {
+    max-width: 100%;
+  }
+
+  .prose pre {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .visual-overview {
+    margin-inline: 0;
+    padding: 0.875rem;
+  }
+
+  .visual-overview__grid {
+    gap: 0.5rem;
+  }
+
+  .visual-overview__card {
+    min-height: 7.75rem;
+    padding: 0.75rem;
+  }
+
+  .visual-overview__card strong {
+    font-size: clamp(1.25rem, 6vw, 1.7rem);
+  }
+}
+
+@media (max-width: 380px) {
+  .visual-overview__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .visual-overview__card {
+    min-height: auto;
+  }
+}
+
 
 @import "tw-animate-css";
 @import "./visual-fx.css";
