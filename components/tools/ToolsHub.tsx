@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowUpRight, BarChart3, Check, Clipboard, Filter, Map, MessageSquare, Radio, Search, ShieldCheck, SlidersHorizontal, Users, Wifi } from "lucide-react";
+import { ELECTORAL_ARITHMETIC } from "@/data/electoral-arithmetic";
 
 type Family = "All" | "Data & targeting" | "Messaging & channels" | "Ground & field" | "Measurement & reach";
 type Tool = { id: number; name: string; slug: string; family: Exclude<Family, "All">; description: string; icon: typeof Map; freshness: "Live" | "Ready" | "Data needed" };
@@ -45,8 +46,9 @@ const families: Family[] = ["All", "Data & targeting", "Messaging & channels", "
 function formatNumber(value: number) { return new Intl.NumberFormat("en-KE").format(value); }
 
 function Simulator() {
-  const [register, setRegister] = useState(532758);
-  const [turnout, setTurnout] = useState(61.7);
+  const registerRange = ELECTORAL_ARITHMETIC;
+  const [register, setRegister] = useState<number>(registerRange.register2022Certified);
+  const [turnout, setTurnout] = useState<number>(61.7);
   const ballots = Math.round(register * turnout / 100);
   const gap = 200000 - Math.round(ballots * 0.5);
   return (
@@ -56,7 +58,7 @@ function Simulator() {
         <Link href="/tools/winning-number" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-xs font-semibold text-white transition hover:border-cyan-300/60 hover:text-cyan-200">Open full tool <ArrowUpRight size={14} /></Link>
       </div>
       <div className="mt-7 grid gap-6 lg:grid-cols-[1fr_1fr_0.8fr]">
-        <label className="space-y-2 text-sm text-slate-200">Register base <output className="float-right font-mono text-cyan-200">{formatNumber(register)}</output><input aria-label="Register base" type="range" min="450000" max="650000" step="1000" value={register} onChange={(event) => setRegister(Number(event.target.value))} className="mt-3 w-full accent-cyan-300" /></label>
+        <label className="space-y-2 text-sm text-slate-200">Register base <output className="float-right font-mono text-cyan-200">{formatNumber(register)}</output><input aria-label="Register base" type="range" min={registerRange.register2022Certified} max={registerRange.register2026ECVRReported} step="1000" value={register} onChange={(event) => setRegister(Number(event.target.value))} className="mt-3 w-full accent-cyan-300" /></label>
         <label className="space-y-2 text-sm text-slate-200">Turnout <output className="float-right font-mono text-cyan-200">{turnout.toFixed(1)}%</output><input aria-label="Turnout" type="range" min="40" max="80" step="0.1" value={turnout} onChange={(event) => setTurnout(Number(event.target.value))} className="mt-3 w-full accent-cyan-300" /></label>
         <div className="rounded-2xl bg-black/20 p-4"><p className="text-xs uppercase tracking-[0.18em] text-slate-400">Ballots at turnout</p><p className="mt-2 font-mono text-3xl text-white">{formatNumber(ballots)}</p><p className="mt-2 text-xs text-amber-200">Gap to 200,000 at 50% share: {formatNumber(Math.max(0, gap))}</p></div>
       </div>

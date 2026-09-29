@@ -1,0 +1,84 @@
+name: public material refresh
+
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: public-refresh
+  cancel-in-progress: true
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Collect public source snapshots
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data/candidates
+          tmp="$(mktemp)"
+          {
+            printf '# Public material candidates\n\n'
+            printf '> Generated %s. Every item in this file is `verify`; this file is never confirmation.\n\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            printf 'Review each source in GitHub before moving any item into the published data pack.\n\n'
+            for source in \
+              "https://www.iebc.or.ke/" \
+              "https://www.cob.go.ke/" \
+              "https://news.google.com/rss/search?q=Kitui+governor+2027&hl=en-KE&gl=KE&ceid=KE:en"; do
+              printf '## %s\n\n' "$source"
+              printf -- '- status: verify\n- retrieved: %s\n- source: %s\n\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$source"
+              source_file="$(mktemp)"
+              if curl --fail --location --max-time 45 --silent --show-error "$source" -o "$source_file"; then
+                head -c 20000 "$source_file"
+              else
+                printf '_Source unavailable during this run._\n'
+              fi
+              rm -f "$source_file"
+              printf '\n\n'
+            done
+          } > "$tmp"
+          if [ -s "$tmp" ]; then
+            mv "$tmp" data/candidates/public-material.md
+          else
+            rm -f "$tmp"
+            exit 1
+          fi
+
+      - name: Open review pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: automation/public-material-refresh
+          delete-branch: true
+          commit-message: "chore: refresh public material candidates"
+          title: "chore: refresh public material candidates"
+          body: |
+            Automated public-source snapshot for human review.
+
+            Nothing in this pull request is confirmed. Review every source, reconcile figures against primary records, and keep candidate items marked `verify` until a maintainer edits and merges the published data pack.
+          labels: data,verify
+          add-paths: data/candidates/public-material.md
+
+      - name: Explain source limitations
+        if: always()
+        run: |
+          echo "This workflow collects source snapshots only. It does not extract, approve, or publish facts automatically."
+          echo "Replace the source URLs with an approved feed or API after a human decision about monitoring coverage."
+
+# Cadence rationale: daily keeps fast-moving race coverage reviewable; official IEBC and
+# Controller of Budget material is included in the same low-cost snapshot until a dedicated
+# feed is selected. GitHub review remains the publication gate.
+
+# v0 note: this workflow intentionally does not set any candidate to ok/confirmed.
+# A maintainer must validate and merge the data-pack change.
