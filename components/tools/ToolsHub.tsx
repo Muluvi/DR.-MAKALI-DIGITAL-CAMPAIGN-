@@ -47,8 +47,8 @@ function formatNumber(value: number) { return new Intl.NumberFormat("en-KE").for
 
 function Simulator() {
   const registerRange = ELECTORAL_ARITHMETIC;
-  const [register, setRegister] = useState(registerRange.register2022Certified);
-  const [turnout, setTurnout] = useState(61.7);
+  const [register, setRegister] = useState<number>(registerRange.register2022Certified);
+  const [turnout, setTurnout] = useState<number>(61.7);
   const ballots = Math.round(register * turnout / 100);
   const gap = 200000 - Math.round(ballots * 0.5);
   return (
