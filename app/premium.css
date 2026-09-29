@@ -1450,3 +1450,51 @@ html:not(.dark) .text-emerald-600 { color: #065f46 !important; }   /* 6.4:1 on e
 }
 @keyframes pf-ripple { from { opacity: 0.55; transform: scale(0.3); } to { opacity: 0; transform: scale(1.4); } }
 @media print { .pf-ripples { display: none; } }
+
+/* Mobile-first finishing pass. Keep the editorial canvas edge-to-edge, but give reading surfaces
+   safe-area-aware breathing room and let only data-heavy children scroll when necessary. */
+@media (max-width: 639px) {
+  :root {
+    --pf-gutter: max(16px, env(safe-area-inset-left));
+    --pf-dock-h: 52px;
+  }
+
+  .pf-page { width: 100%; min-width: 0; overflow-x: clip; }
+  .pf-hero__stage { min-height: 100svh; height: 100svh; }
+  .pf-hero__copy { padding: max(20px, env(safe-area-inset-top)) var(--pf-gutter) 0; max-width: 100%; }
+  .pf-hero__title { max-width: 11ch; font-size: clamp(2.25rem, 12vw, 3.35rem); line-height: .94; }
+  .pf-hero__sub { max-width: 32ch; margin-top: 12px; font-size: 1rem; line-height: 1.45; }
+  .pf-seal { margin-bottom: 16px; font-size: 11px; }
+  .pf-hero__portrait { right: -12vw; height: 54svh; max-width: 78vw; }
+  .pf-hero__county > svg { inset: 30% 0 8% 20%; width: 80%; height: 58%; }
+  .pf-hero__steps { left: var(--pf-gutter); right: var(--pf-gutter); bottom: calc(var(--pf-dock-h) + 16px + env(safe-area-inset-bottom)); }
+  .pf-step { max-width: none; padding: 11px 12px; font-size: 14px; line-height: 1.38; }
+  .pf-hero__pick { top: auto; right: var(--pf-gutter); bottom: calc(var(--pf-dock-h) + 14px + env(safe-area-inset-bottom)); left: auto; max-width: min(17rem, calc(100vw - 2 * var(--pf-gutter))); }
+  .pf-numbers { gap: 0; padding: 32px var(--pf-gutter) 16px; }
+  .pf-bn { min-width: 0; padding: 16px 0 18px; }
+  .pf-bn__value { max-width: 100%; font-size: min(clamp(2.25rem, 15vw, 3.5rem), 100%); line-height: .95; }
+  .pf-bn__label, .pf-bn__note { max-width: 34ch; }
+  .pf-act { min-width: 0; padding: 52px var(--pf-gutter) 28px; }
+  .pf-act__copy, .pf-act__title, .pf-act__dek { max-width: 100%; }
+  .pf-act__portrait { max-width: 72vw; }
+  .pf-fig--hero { padding: 24px 16px 22px; }
+  .pf-fig__title { font-size: clamp(1.35rem, 6vw, 1.8rem); line-height: 1.08; }
+  .pf-fig__body, .pf-fig__takeaway { max-width: 100%; }
+  .pf-storyptr, .pf-idx__rail, .rf-csv { max-width: 100%; }
+  .pf-storyptr { overflow-x: auto; overscroll-behavior-x: contain; }
+  .pf-fig :is(table, .rf-table, .rf-chart, svg) { max-width: 100%; }
+  .pf-page :is(.rf-table, .rf-chart) { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+
+@media (max-width: 380px) {
+  :root { --pf-gutter: 14px; }
+  .pf-hero__title { font-size: clamp(2rem, 11.5vw, 2.8rem); }
+  .pf-hero__sub { font-size: .95rem; }
+  .pf-step { font-size: 13px; }
+}
+
+@media (min-width: 1600px) {
+  .pf-page { max-width: 1800px; margin-inline: auto; }
+  .pf-hero__copy { max-width: 34rem; }
+  .pf-numbers { max-width: 1480px; }
+}
