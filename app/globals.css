@@ -1,4 +1,41 @@
 @import "tailwindcss";
+
+/* Decision map: compresses the document's route into a visual scan before prose begins. */
+.visual-overview {
+  --overview-ink: var(--ink, #f4f0e8);
+  --overview-muted: color-mix(in oklch, var(--overview-ink) 64%, transparent);
+  --overview-line: color-mix(in oklch, var(--overview-ink) 16%, transparent);
+  margin: clamp(1.5rem, 4vw, 3rem) 0;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid var(--overview-line);
+  border-radius: 1.25rem;
+  background: color-mix(in oklch, var(--overview-ink) 4%, transparent);
+}
+.visual-overview__heading { display: flex; align-items: end; justify-content: space-between; gap: 1rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--overview-line); }
+.visual-overview__eyebrow { margin: 0 0 .45rem; color: var(--accent, #8fd7ca); font: 700 .68rem/1 var(--font-display), sans-serif; letter-spacing: .18em; text-transform: uppercase; }
+.visual-overview h2 { margin: 0; color: var(--overview-ink); font: 650 clamp(1.35rem, 3vw, 2rem)/1.05 var(--font-display), sans-serif; letter-spacing: -.03em; }
+.visual-overview__heading p:last-child { max-width: 38rem; margin: .65rem 0 0; color: var(--overview-muted); font: 400 .92rem/1.5 var(--font-display), sans-serif; }
+.visual-overview__reading { flex: none; color: var(--overview-muted); font: 600 .7rem/1.2 var(--font-mono), monospace; white-space: nowrap; }
+.visual-overview__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .7rem; margin-top: 1rem; }
+.visual-overview__card { min-height: 9.5rem; padding: 1rem; border: 1px solid var(--overview-line); border-radius: .9rem; background: color-mix(in oklch, var(--overview-ink) 5%, transparent); }
+.visual-overview__card svg { width: 1rem; height: 1rem; margin-bottom: 1.4rem; color: var(--card-accent, var(--accent, #8fd7ca)); }
+.visual-overview__card span { display: block; color: var(--overview-muted); font: 600 .66rem/1.2 var(--font-display), sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.visual-overview__card strong { display: block; margin-top: .35rem; color: var(--overview-ink); font: 700 clamp(1.45rem, 3vw, 2rem)/1 var(--font-display), sans-serif; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.visual-overview__card small { display: block; margin-top: .6rem; color: var(--overview-muted); font: 400 .75rem/1.4 var(--font-display), sans-serif; }
+.visual-overview__card.is-gold { --card-accent: #e9c46a; } .visual-overview__card.is-blue { --card-accent: #76b9e8; } .visual-overview__card.is-coral { --card-accent: #e68a72; } .visual-overview__card.is-green { --card-accent: #8fd7ca; }
+.visual-overview__rail { display: flex; align-items: center; gap: .4rem; overflow-x: auto; padding: 1.1rem 0 .75rem; scrollbar-width: thin; }
+.visual-overview__step { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .45rem; min-width: 8.5rem; padding: .65rem .75rem; border: 1px solid var(--overview-line); border-radius: .7rem; color: var(--overview-ink); text-decoration: none; }
+.visual-overview__step:hover, .visual-overview__step:focus-visible { border-color: var(--accent, #8fd7ca); }
+.visual-overview__step span { color: var(--accent, #8fd7ca); font: 700 .68rem/1 var(--font-mono), monospace; }
+.visual-overview__step strong { overflow: hidden; color: inherit; font: 600 .72rem/1.2 var(--font-display), sans-serif; text-overflow: ellipsis; white-space: nowrap; }
+.visual-overview__step svg { width: .8rem; height: .8rem; color: var(--overview-muted); }
+.visual-overview__tail { flex: none; color: var(--overview-muted); font: 600 .7rem/1 var(--font-mono), monospace; }
+.visual-overview__caption { margin: .5rem 0 0; color: var(--overview-muted); font: 400 .78rem/1.45 var(--font-display), sans-serif; }
+.visual-overview__caption strong { color: var(--overview-ink); }
+@media (max-width: 700px) { .visual-overview__heading { display: block; } .visual-overview__reading { display: block; margin-top: .75rem; } .visual-overview__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .visual-overview__card { min-height: 8.5rem; } }
+@media (max-width: 420px) { .visual-overview { margin-inline: -.35rem; border-radius: 1rem; } .visual-overview__grid { gap: .5rem; } .visual-overview__card { padding: .75rem; } .visual-overview__card svg { margin-bottom: 1rem; } }
+@media print { .visual-overview { break-inside: avoid; color: #111; } }
+
 @import "tw-animate-css";
 @import "./visual-fx.css";
 @import "./part-visuals.css";
