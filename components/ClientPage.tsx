@@ -30,6 +30,7 @@ import { CoverHero } from "./premium/CoverHero";
 import { ActOpener } from "./premium/ActOpener";
 import { Dock, Spine } from "./premium/Chrome";
 import { Story } from "./premium/Story";
+import { VisualOverview } from "./VisualOverview";
 import { jumpTo } from "../lib/premium/transition";
 
 
@@ -344,6 +345,7 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
               />
               <p className="pf-reading__hint">Scroll. The whole proposal is on this page, in order — {navItems.length} sections.</p>
             </div>
+            <VisualOverview sections={FLOW_SECTIONS.map((section) => ({ id: section.id as TabId, label: section.label, number: section.number }))} wordCounts={wordCounts} />
             {/* The cover figures (brief §F.1), with their tables and CSVs: the tile map shaded for
                 the pool and the spine of the argument. The hero above tells the same map's story. */}
             <Figure id="fig-cover-map" />
