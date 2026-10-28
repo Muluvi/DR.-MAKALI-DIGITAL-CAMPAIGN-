@@ -8,3 +8,272 @@ Decisions taken while carrying out `preview.md`, in the order they were taken. W
 2. **Inventory count.** 333 headings, 205 numbered and 128 run-ins, as the brief expects. A heading counts as numbered only at levels 2 and 3, the two levels the site indexes; a level-4 run-in that opens "1." (the ward lists in B.1, the component list in old 5.2.4.3) is a list ordinal, not a section number.
 3. **Preview title errors.** Preview section 6 carries three titles damaged by an old regex ("Langua register", and "Sta:" twice). `mapping.json` keeps the content's own titles. Recorded in BASELINE.md.
 4. **No `npm test` or `npm run typecheck` script.** The baseline used `npm run test:figures` and `npx tsc --noEmit`, and every later stage uses the same two commands.
+
+## Stage 2: new content file layout
+
+The new `content/*.md` files are written by `scripts/restructure-2026-10/build-layout.py`, which reads every old file from the baseline commit and places each of the 333 old heading blocks exactly once (the script fails otherwise). Re-running it rewrites the same files. Stage 4 renumbers the citations on top of it.
+
+### Rules applied throughout
+
+1. **Text moves verbatim.** The only words the script writes are heading lines, one-line purpose lines, the bridging pointers listed below, and the `[CONFLICT Cn: see open items]` markers.
+2. **Titles.** An old heading carried into a numbered slot keeps its exact title and takes the new number. New titles are used only where preview section 7.4 renames a section (6.3 → 1.1, 5.1 → 1.4, 5.7 → 4.1, 5.2 → 4.5, 5.6 → 5.1; 5.3's new title goes on the new 4.2 container), where several old headings combine into one new heading, and where the new heading has no old heading behind it. Preview section 5 abbreviates some titles (for example it drops the date range from the three phase headings); those abbreviations are not adopted, because section 7.4 is the rename register and lists none of them. The full list is in the table "Preview section 5 shorthand not adopted" below.
+3. **Merged headings.** Where several old numbered headings combine, each keeps its title as an unnumbered run-in inside the new section, so no heading text is lost. Exceptions: an empty heading marked Removed is dropped (4.4.3, 5.1.5, 5.4.5, 5.6.3, 5.7.4, 5.8.4, 5.8.6, 5.8.8); a heading whose title is now the title of the section it sits in is dropped rather than repeated (4.4.7 under 3.6, 4.4.8 under 3.6.1); and 4.5 "What gets published" is dropped because its two halves went to 3.2.3 and 3.7.
+4. **Old file preambles** travel with the first heading of their old file: objectives → 1.2, data → the opening line of `evidence.md`, analysis → inside 2.1 ahead of "The number it takes", strategy → the opening line of `strategy.md`, implementation → the head of 1.4, delivery → the head of 4.2.1, nextsteps → the head of 1.7. New files with no old preamble open on a one-line purpose: `decision.md`, `delivery.md`, `staffing.md`, `measurement.md`, `annex-spec.md`.
+5. **Workstream banners.** The four group headings (5.2.1 to 5.2.4) dissolve. Each workstream banner gains a line "Group: …" carrying its old group intro word for word (5.2.1 had none, so its label and "(workstreams 1 to 4)" come from the 5.2 overview).
+6. **Figures stay with their text.** Every `figure` fence moves with the paragraph it sat under. Two fences change the heading they attach to, because preview section 5 puts a new sub-heading between them and their old heading: `fig-5-4-ladder` (old 5.4 → new 4.3.1 "The target ladder", with its text version) and `research-and-tracker` (its paragraph returns to open 5.2.6, as the brief directs). `tech-stack` moves with the reference-architecture paragraphs to G.4.
+7. **Subsection count.** The new main text has 6 Parts, 43 sections and **102** subsections. Preview section 5 counts 96 because it lists 4.6 without its six subsections; the mapping (the master) keeps 4.6.1 to 4.6.6, so they stay. 102 = 96 + 6.
+
+### Where the brief's conflict rule overrides a preview cut
+
+The brief says to keep both versions of every conflicting passage. Where the preview marked a conflict location "cut to a cross-reference", the text is moved whole instead:
+
+- **C4.** Old 5.1.6 and 5.1.7 stay together, unchanged, as two run-ins under 4.5 with a one-line note saying why. They are not split across the workstreams.
+- **C5.** Old 5.6.6, with its `delivery-tracker` figure and the "Dual Operational Function" list, moves whole into 4.5.1, after Tracker KPIs. Workstream 13 component 5 stays word for word inside the G.4 text version; text versions must survive unchanged in any case.
+- **C7.** Old 2.7.1 keeps all its text in 2.9.2; only its heading line goes.
+
+### Preview cuts not applied, and why
+
+- **B.5 per-rival lines.** Kept. They carry tier labels and citation notes that 2.6 does not, for example Sen. Wambua's committee roles as Tier 1, and David Musila's Senate tenure "to be cited from the Senate record and the Kenya Gazette". Cutting them would lose provenance (hard rule 2). A pointer to 2.6 now opens the list.
+- **Old 3.8.1 "what the campaign would run" bullets.** Kept in 2.9.4. They are not duplicated in workstreams 7 or 9 (the radio bookings, OB vans and church visits appear nowhere else), and the M-Pesa bullet carries `{{target.ambassadors}}`, which may not be lost (hard stop).
+- **E.11.** Its table is not folded into E.4's rows. Two of its five rows (X lists; social listening described as "mentions, supporter sentiment, emerging narratives") exist nowhere else, and the shared rows are worded differently. The table moves whole under E.12 as the run-in "Competitor monitoring tools".
+- **Old 5.2.1.4 language block.** Moved, not cut: it opens 3.6.1 after the language map, and a pointer stands in 4.5.4. The Governance paragraph on the Kikamba reviewer stays in 4.5.4.
+
+### Orphaned and stranded passages returned
+
+- The 5.8 intro ("What can go wrong…"), stranded at the end of old 5.7.9, is the opening line of `risks.md`, directly ahead of 6.1.
+- The 5.9 opening paragraphs and the `org-chart` figure, stranded under old 5.8.14, open 4.6 ahead of "Three cores…".
+- The trailing paragraph of old 5.6.4 ("Political strategy without empirical measurement…") and its `research-and-tracker` figure open 5.2.6.
+- The 3.7.3 lead-in ("What digital reach can and cannot deliver…") opens 2.9.3, as the brief directs.
+- The Annex A pointer stays where it stood, at the end of 6.5. Part 6 is now the last thing before Annex A, so it sits directly ahead of the annex it points to. This is the most conservative reading of "the Annex A pointer to Annex A": a pointer to Annex A placed inside Annex A would point at itself.
+- The D.1/D.2 pointer box that followed "The Firefly proposition" stays at the end of 4.1.2, where its "the table below" still points at 4.1.3. The proposition itself moves to 1.4.2.
+
+### Other placements
+
+- 4.3 gains the one-line pointer "Phase −1 and Phase 0 are set out in 4.2." directly under its heading.
+- 4.2.1 keeps the title "The first four weeks". The mapping notes a retitle to "The first ten weeks" pending the 5.3/5.3.7 timing decision, so it waits for that decision (OPEN-ITEMS.md).
+- 4.5 sits at the head of `workstreams-platforms.md`. The brief's file table gives `delivery.md` 4.1 to 4.4 and the workstream files 4.5.1 to 4.5.14, and 4.5 heads the first of those.
+- The five old files `objectives.md`, `data.md`, `analysis.md`, `implementation.md` and `nextsteps.md` are deleted. Their text is all in the new files.
+
+### Build status at this stage
+
+Content-level guards pass: `check-figures` (337 figures valid, no numeric literal in content), `check-copy`, `heading-inventory --strict` (no repeated number, no fourth numbered level) and `check-conservation.py`. The site build cannot pass at this stage, because `lib/content-files.ts` still names the old files. Stage 3 points it at the new ones.
+
+### Word conservation
+
+```
+{
+ "wordsBefore": 47768,
+ "wordsAfter": 48356,
+ "wordsCut": 319,
+ "groupIntroWordsReusedInBanners": 84,
+ "headingWordsDropped": 141,
+ "wordsAdded(headings,banners,pointers,purpose,markers)": 1132,
+ "unexplained": 0,
+ "unexplainedPct": 0.0,
+ "figures": 92,
+ "textversions": 5,
+ "tokens": 621
+}
+check-conservation: figures, text versions and tokens conserved; words reconcile within 1%
+```
+
+Words after = words before − words cut − group intros removed from their dissolved group headings − heading lines dropped + words the restructure writes (headings, banner group lines, purpose lines, pointers, markers). Unexplained: 0.
+
+### Cuts (preview 7.2, applied)
+
+| Old ref | Old heading | Words cut | Reason | Pointer left in its place |
+|---|---|---|---|---|
+| 5.1.4 | 5.1.4 How the levels change what runs | 163 | 5.1.4 repeats 5.5.1 and 5.5.2: the Level 2 recommendation is stated near-verbatim in 5.5.2 (D2); canonical home 1.5.1 | — |
+| 6.3.1 | 6.3.1 The ask | 23 | The closing sign-off block repeats the cover's 'Prepared by' block word for word; canonical home the cover | — |
+| 6.3.1 | 6.3.1 The ask | 1 | rule line above the cut sign-off block | — |
+| F.2 | F.2 Who this is for, and on what terms | 78 | F.2 restates the cover: parties, status and confidentiality; canonical home the cover, full terms F.1 | — |
+| — | The compliance gate this depends on | 54 | Restates the fallback 5.7.9 (now 5.3.4) sets out: 'Until step 4 is complete, the campaign operates on first-party consented data and aggregate ward-level statistics only' (mapping: 'Last item reduces to a pointer to 5.3.4') | *The compliance gate, and the fallback the model runs on until it clears, are set out in 5.3.4.* |
+
+The removed text, word for word:
+
+<details><summary>5.1.4 — 163 words</summary>
+
+```text
+The three engagement levels in Section 5.5 change the **depth of the intelligence**, not the volume
+of Firefly's output: how often the presence audit is refreshed, how many wards carry reach reporting,
+how often creative is tested, and how far the team upskilling goes. They do
+not change the list above, they never move a workstream from one owner to another, and they never
+change Workstream 4 — accessibility applies in full at every level and is not a line to trade away
+(Section 5.5.1).
+
+**Firefly recommends Level 2 (Standard).** Level 1 instruments only the twelve decisive wards and
+leaves the recognition deficit measured at county level, which is the one place this campaign cannot
+afford to be blind. Level 3 refreshes the analysis faster than a nomination sprint can act on it.
+Standard is the level at which all 40 wards carry both reach reporting and an active SMS and USSD
+layer — and reaching the arid belt is the whole argument.
+```
+</details>
+
+<details><summary>6.3.1 — 23 words</summary>
+
+```text
+**Prepared by:**
+Firefly Management
+Strategic Communications & Digital Campaign Consultancy
+6th Floor, Next Gen Mall, Mombasa Road, Nairobi
+fireflymanagement.ke@gmail.com · 0726 766 800
+```
+</details>
+
+<details><summary>F.2 — 78 words</summary>
+
+```text
+**Prepared for:** Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS — Member of Parliament, Kitui
+Central; Gubernatorial Aspirant, Kitui County. Personally, and not for any party organ.
+
+**Prepared by:** Firefly Management, Strategic Communications & Digital Campaign Consultancy.
+
+**Status:** Proposal for discussion.
+
+**Confidential.** Submitted in confidence for the purpose of evaluating this engagement, and not to
+be circulated beyond Dr. Mulu and those he authorises. Section F.1 states the full terms; Section
+1.4 explains how the document is organised.
+```
+</details>
+
+<details><summary>None — 54 words</summary>
+
+```text
+Model deployment is gated. If the Section 5.7.9 review does not clear
+voter-file-based processing, the campaign operates the model on **first-party
+consented data and aggregate ward-level statistics only** — a materially
+weaker but fully lawful fallback that is planned into all three engagement
+levels. The campaign is not exposed if the answer is no.
+```
+</details>
+
+### Heading lines dropped (text kept unless listed under Cuts)
+
+| Old heading | Why |
+|---|---|
+| 5.2.1 Platforms and content | group heading dissolves; its purpose line moves into each workstream banner |
+| 5.2.2 Publishing and earned media | group heading dissolves; its purpose line moves into each workstream banner |
+| 5.2.3 Ground and offline reach | group heading dissolves; its purpose line moves into each workstream banner |
+| 5.2.4 Data and technology | group heading dissolves; its purpose line moves into each workstream banner |
+| 5.1.4 How the levels change what runs | Removed: Repeats 5.5.1 and 5.5.2 (the Level 2 recommendation appears three times); canonical home is 1.5.1 |
+| 2.7.1 Who owns the Kamba-language stations, and who they favour | Removed: Defers to the table in old 5.2.2.2 and restates the three structural facts; kept as one short paragraph plus the research-integrity note |
+| 3.10.1 Segment sizes the record does not publish | Merged: Folded in as its closing paragraph |
+| 4.4.3 Persuasion principles and message discipline | Removed: Empty heading directly above 4.4.4; the two merge |
+| 4.4.7 Language, register and dialect | Merged: Language section starts here |
+| 4.4.8 Which language reaches which voters, on which channel | Merged: Same language map as 4.4.11 at a different level of detail |
+| 4.5 What gets published | Merged: Intro of production pillars moves to 3.2.3; weekly pattern stays here |
+| 5.4.5 Coalition and endorsement sequencing | Removed: Empty heading directly above 5.4.6 |
+| 5.1.5 Scope summary and workstream boundaries | Removed: Empty heading |
+| 5.6.3 Indicators, and why these | Removed: Empty heading; its orphan paragraph is moved to open 5.2.6 |
+| 5.3.3 What is measured | Removed: Thirty-word intro that sits out of order after 5.3.1; becomes the section purpose line |
+| 5.7.4 Data ethics, privacy and the data charter | Removed: Empty heading; "5.3 Data protection, ethics and compliance" replaces it |
+| 6.2 Open items | Split: ODPC action box to 5.3.6; assumptions to 1.8; heading itself removed |
+| 5.8.4 The digital war room | Removed: Empty heading above 5.8.5 |
+| 5.8.6 Cybersecurity and manipulated media | Removed: Empty heading above 5.8.7 |
+| 5.8.8 Competitor monitoring | Removed: Empty heading above 5.8.9 |
+| F.2 Who this is for, and on what terms | Merged: Restates the cover; reduced to a pointer |
+
+### Passages moved apart from their heading
+
+| From | Fragment | Words | Opens with |
+|---|---|---|---|
+| 3.7.3 | lead-in-3.8 | 24 | What digital reach can and cannot deliver against the winning number, the infrastructure t |
+| 4.1.4 | pillar-cross-list | 78 | Four pillars, extended from the original three. **These four are the campaign's pillars.** |
+| 4.3 | universe-table | 344 | The six segments below describe **who** the voters are. This table describes **what the ca |
+| 4.5 | production-pillar-intro | 127 | *"The mission is for Kitui to prosper. From Poverty to Wealth Creation."* That line is alr |
+| 5.2.1.4 | ws4-language-block | 199 | Language is central to trust in Kitui. |
+| 5.2.4.3 | ws13-reference-intro | 83 | A data-driven political campaign requires robust, reliable, and compliant technical infras |
+| 5.4 | target-ladder | 403 | ```figure |
+| 5.6.4 | audit-two-part-intro | 53 | Political strategy without empirical measurement risks misallocating scarce campaign effor |
+| The Firefly proposition | annex-d-pointer | 38 | --- |
+| 5.7.9 | risks-intro | 37 | What can go wrong and what happens when it does: rapid response, the war room that runs it |
+| 5.8.14 | staffing-opening | 97 | Dr. Mulu already has a team that publishes every day. This section is about how three more |
+| 6.2 | odpc-action-box | 264 | > [!WARNING] |
+
+### Conflict markers placed
+
+| Conflict | Old location | Anchor |
+|---|---|---|
+| C1 | 5.2.1.4 | `/ **Kikamba** / **50%** /` |
+| C1 | 4.4.8 | `id: language-map` |
+| C1 | 4.4.11 | `id: language-deployment` |
+| C1 | 4.5.5 | `are checked in the Monday review.` |
+| C2 | 4.4.8 | `id: language-map` |
+| C2 | The SMS layer | ``[VERIFY whether in force]`` |
+| C3 | 5.1.1 | `Dr. Mulu already holds.` |
+| C3 | 5.5.4 | `and boundaries stated so that what is outside them` |
+| C4 | 5.1.3 | `Firefly operates end to end.` |
+| C4 | 5.1.6 | `within **2 hours** during peak periods.` |
+| C4 | 5.9.3 | `campaign has.` |
+| C5 | What it is | `road, a market without sanitation, a stalled project.` |
+| C5 | 5. Public Service-Delivery Tracker (Section 5.2.4 Digital Charter Platform) | `Displays verifiable records of 13 years` |
+| C5 | 5.6.6 | `**Governor's Day-One Public Delivery Dashboard**.` |
+| C6 | Stage One: the Wiper nomination | `but it is the campaign's policy call.**` |
+| C6 | Message Pillar 3: Devolution Equity, Universal Water Access & Healthcare *(carries campaign pillars 1 and 2, Section 4.1.5)* | `Million per ward annually` |
+| C6 | The four content pillars | `Ward Equalization Fund, solar water within 1 km` |
+| C6 | B. Direct 2G Bulk SMS Copy Sample (Ward-Specific) | `Reply STOP to opt out.` |
+| C6 | Pre-drafted response lines | `methodology-first allocation formula` |
+| C7 | 2.7.1 | `These are the placement targets.` |
+| C7 | Kikamba Vernacular Radio (The Decisive Broadcast Medium) | `so it ranks the stations rather than sizing Kitui's audience` |
+| C7 | 4.3.2 | `**Primary:** Kamba Vernacular Radio` |
+| C7 | The radio problem, stated plainly | `/ **KBC Mwatu FM** /` |
+| C7 | 5.8.2 | `**Broadcast Vernacular Radio Triage` |
+| C8 | 2.1 | `**Turnout, 2022:**` |
+| C8 | 3.1 | `total ballots cast equal approximately` |
+| C8 | 4.3 | `/ Expected turnout universe /` |
+
+### Pointers and purpose lines written
+
+| Where | Text |
+|---|---|
+| 4.5.12 | The compliance gate, and the fallback the model runs on until it clears, are set out in 5.3.4. |
+| decision.md opening | The decision first: what is being asked, what Dr. Mulu receives and at which level, who does what, and what the campaign must decide or provide. |
+| 1.4.3 (pointer for removed 5.1.4) | How the three engagement levels change what runs, and the Level 2 recommendation, are set out once, in 1.5.1. |
+| 1.9 | The indicators themselves are set out in 5.1. |
+| delivery.md opening | How the engagement is run, when and by whom: the weekly operating rhythm, the first weeks, the phases to August 2027 and the coalition calendar. |
+| 4.5 (old 5.1.6 and 5.1.7) | The two scope lists below stay together, rather than being split across the workstreams that deliver them, until conflict C4 is settled. |
+| 4.5.2 | The four content pillars are now in 3.2.3, with the other production pillars. Formats by channel and the radio, SMS and USSD copy samples are in Annex G.2. |
+| 4.5.4 | The languages this standard works in, and the content mix for locally facing platforms, are set out in 3.6.1. |
+| 4.5.5 | The platform-by-platform playbooks (Facebook, X, WhatsApp, TikTok, Instagram, YouTube and Google Ads) are in Annex G.1. |
+| 4.5.10 | The volunteer programme reference (tiers, gamification, tooling and KPIs) is in Annex G.3. |
+| 4.5.11 | The Data Protection Act obligations this layer works under, and its mandatory compliance safeguards, are set out with the rest of compliance in 5.3.2. |
+| 4.5.12 | The data sources the model draws on are listed in Annex G.5. |
+| 4.5.12 | The model's variable dictionary is in Annex G.5. |
+| 4.5.13 | The reference architecture the campaign owns (component by component, the procurement matrix and the technical security protocols) is in Annex G.4. |
+| staffing.md opening | Who does the work: the Firefly core, the surge roles activated by phase and level, and how the existing team is assessed and upskilled. |
+| measurement.md opening | How progress is measured, how the Week 1 presence audit is run, and how the work is kept lawful. |
+| 6.4 | Analysis of the rivals themselves is in 2.6.4; the tools and outputs are in Annex E.4 and E.12. |
+| B.5 | The field itself is analysed in 2.6; each line below records the documents a rival's attributes rest on. |
+| Annex F (pointer for F.2) | Who this proposal is for, who prepared it, and its status are stated once, on the cover. |
+| annex-spec.md opening | ANNEX G. Channel and technical specifications: the platform playbooks, formats and copy samples, the volunteer programme reference, the technology reference architecture, and the voter model's data sources and variables. Reference the main text points to, not argues from. |
+| 4.3 | Phase −1 and Phase 0 are set out in 4.2. |
+
+### Preview section 5 shorthand not adopted
+
+Each of these headings has a single old heading behind it, so it keeps that heading's title (rule 2). Preview section 7.4, the rename register, lists none of them.
+
+| New ref | Preview section 5 reads | Heading as built (the old title) |
+|---|---|---|
+| 1.4.1 | How the engagement runs in three steps | How this proposal is built |
+| 1.5 | What Dr. Mulu receives, and at which level | What Dr. Mulu receives, and how often |
+| 1.6 | What this proposal commits to, and what it does not | What this proposal commits to |
+| 1.7 | What the campaign must provide | What this needs from the campaign |
+| 1.8 | What this proposal rests on | Assumptions this proposal rests on |
+| 2.6.1 / 2.6.2 | Stage one / Stage two … | Stage One / Stage Two … |
+| 2.7.1 | The deficit pool | Where he has held office, and where he has not |
+| 2.8.1 | People and economy | The county's people and economy |
+| 2.9.1 | Connectivity | How people get information |
+| 2.9.3 | The digital ceiling: what digital can and cannot do | What each channel can physically reach |
+| 2.9.4 | The offline majority and the infrastructure that reaches it | The offline majority, and the infrastructure that reaches it |
+| 2.10.1 | His public record | Dr. Mulu's public record |
+| 3.2.2 | Message pillars and their proof points | The central claim and its three pillars |
+| 3.3.1 | The weighting, and the finding it answers | Where the effort goes (the old run-in "The weighting, and the finding it answers" sits directly beneath it) |
+| 3.5 | What we say: claims, counter-messaging and framing | What we say, and in which language |
+| 4.2.1 | Week-by-week plan and KPIs | The first four weeks |
+| 4.2.2 | Phase 0: instrumentation | Phase 0: Instrumentation — Weeks 4–10 from signature |
+| 4.3.2 to 4.3.4 | Phase n titles without dates | Phase n titles with their date ranges |
+| 5.1.2 | Recognition and persuasion where he is least known | Re-anchored: recognition and persuasion where he is least known |
+| 5.3.1 | The standard we hold ourselves to, and who is controller | The standard we hold ourselves to |
+| 6.1 | The six risks that decide whether the plan survives | Risks and responses |
+| 6.2.4 | … dashboard | … dashboard view |
+| 6.5 | If the nomination becomes a delegate primary | If it becomes a delegate primary |

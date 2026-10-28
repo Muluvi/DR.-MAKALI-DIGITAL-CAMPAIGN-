@@ -1,6 +1,6 @@
 Each choice tied to the finding it answers: the position, where the effort goes, who we are trying to move, what we say and in which language, what gets published, which channel does which job, the six profile fixes, and when the plan changes.
 
-## 4.1 The position
+## 3.1 The position
 
 Because Section 3.5: both Wiper Patriotic Front rivals have already won a countywide election, and what distinguishes him is not a vote tally but his record (Section 2.8).
 
@@ -13,7 +13,7 @@ Dr. Mulu is not merely an economist; he is a specialist in **verifying whether p
 
 ---
 
-### 4.1.1 The evidence behind the claim
+### 3.1.1 The evidence behind the claim
 
 Dr. Mulu's technocratic and delivery credentials are not abstract campaign claims; they are backed by verified, empirical milestones (Tier 1):
 *   **The National Budget Seat:** Sourced legislative records confirm Dr. Mulu's membership of the National Assembly's **Budget and Appropriations Committee** (Tier 1), the committee that scrutinises the national estimates. Any leadership role on it is to be confirmed from the committee's membership records and Hansard before it is claimed (Section 2.8).
@@ -21,7 +21,7 @@ Dr. Mulu's technocratic and delivery credentials are not abstract campaign claim
 *   **Certified Administrative Excellence:** Kitui Central was evaluated the **best constituency in the Eastern region, FY2014/15**—ranking first out of all 71 constituencies in its peer group (Tier 1). This proposal has attributed the evaluation to Ministry of Finance performance audits; the evaluation report itself, and the body that issued it, are to be cited before the line is published.
 *   **Professional Monitoring & Evaluation Credentials:** He is a certified consultant in project management, a member of the **Evaluation Society of Kenya (ESK)** (Tier 1), and was officially designated as an **M&E Champion by the Ministry of Finance** (Tier 1).
 
-### 4.1.2 The resource paradox
+### 3.1.2 The resource paradox
 
 The campaign's primary argument is anchored in a documented, structural paradox: **Kitui has ample developmental resources; what it completely lacks is disciplined, accountable deployment.**
 
@@ -33,7 +33,7 @@ According to the approved Kitui County Fiscal Strategy Paper for FY2026/27, the 
 
 Furthermore, Controller of Budget reports reveal that the county carries an estimated **KSh 1.3 billion in outstanding pending bills** as of FY2020/21 (Tier 1). These metrics prove that Kitui's primary developmental obstacle is not a lack of funding, but a lack of fiscal discipline, project oversight, and structural monitoring and evaluation—the exact competencies that define Dr. Mulu's professional career.
 
-### 4.1.3 Answering the charge that discipline is cold
+### 3.1.3 Answering the charge that discipline is cold
 
 Competitors will seek to weaponize Dr. Mulu's technocratic and economic credentials to paint him as politically detached:
 *   **The Rival Attack:** *"Dr. Mulu is a cold, distant, Nairobi-facing intellectual who spends his time in air-conditioned parliamentary offices, completely out of touch with the raw, daily struggles of rural Kitui households."*
@@ -41,11 +41,7 @@ Competitors will seek to weaponize Dr. Mulu's technocratic and economic credenti
 
 ---
 
-### 4.1.4 The four strategic pillars
-
-**"The mission is for Kitui to prosper. From Poverty to Wealth Creation."** That is Dr. Mulu's own
-cover line, and it is the frame these four pillars argue. It has carried no content so far; Section
-4.5 turns it into a weekly production cycle.
+## 3.2 The pillar architecture
 
 Four pillars, extended from the original three. **These four are the campaign's pillars.** Three
 other groupings appear elsewhere and are deliberately different things, not competing versions of
@@ -54,7 +50,15 @@ Section 5.2.1.2 the four thematic *content* buckets; and **Section 4.5 the four 
 pillars**, which are the ones the weekly brief actually commissions against. Each maps back to the
 four below.
 
-### 4.1.5 The four campaign pillars in practice
+### 3.2.1 Campaign pillars
+
+#### The four strategic pillars
+
+**"The mission is for Kitui to prosper. From Poverty to Wealth Creation."** That is Dr. Mulu's own
+cover line, and it is the frame these four pillars argue. It has carried no content so far; Section
+4.5 turns it into a weekly production cycle.
+
+#### The four campaign pillars in practice
 
 * **Fiscal accountability and devolution:** Translate Dr. Mulu's parliamentary advocacy for equitable resource distribution into a clear, actionable manifesto for Kitui's 40 wards. Content will show, line by line, how the county's KSh13.79 billion should be allocated and audited — using his economics background to give voters confidence their money will be managed well.
 * **Data-driven civic engagement:** Infographic analyses breaking down Dr. Mulu's track record — including NG-CDF-funded projects in Kitui Central — so voters can visualise impact. Complex budget documents converted into simple charts, ward-level maps, and before-and-after comparisons.
@@ -67,7 +71,143 @@ four below.
 id: fig-4-1-message-house
 ```
 
-### 4.1.6 The six campaign themes
+### 3.2.2 The central claim and its three pillars
+#### Message Pillar 1: Fiscal Integrity & Transparent Public Finance *(carries campaign pillars 1 and 4, Section 4.1.5)*
+*   **Narrative Statement** *(held until the Auditor-General's reports below are in hand)*: *"Kitui's KSh 13.79 billion annual budget has been crippled by pending bills, procurement inflation, and ghost projects. Dr. Makali Mulu is the only candidate with a verified track record of managing public funds with zero financial audit queries."*
+*   **Comparison — awaiting primary documents:** "The only candidate" is a claim about every rival, so it rests on the Auditor-General's reports on each public fund a rival has managed — the Kitui allocation of the National Government Affirmative Action Fund (Dr. Kasalu's office) and the county executive (Governor Malombe) among them — as well as on Dr. Mulu's own NG-CDF reports below. Until all are in hand the comparative line is not published; the usable form is his own record, quoted year by year from the audit opinions.
+*   **Primary Evidence & Source:**
+    *   **Proof Point — awaiting primary documents:** **Office of the Auditor-General (OAG) NG-CDF audit reports, 2013–2025.** Firefly has not yet retrieved the underlying reports, so the claim of consistently unqualified opinions is untiered pending that. It is worth settling early: because the claim is precisely checkable, a single qualified year would carry more weight in an opponent's hands than the record deserves. Note also that the "top 5 best-managed constituencies in Kenya" ranking is wider than the Tier 1 claim in Sections 2.8 and 4.1.1 — best-evaluated constituency in the Eastern region, FY2014/15. Firefly would use the narrower, documented version until the wider one is sourced.
+    *   **Contrast — awaiting primary documents:** Kitui County Government audited accounts under both predecessor regimes are reported to have accumulated over **Ksh 2.4 billion in contested pending bills** (OAG County Executive Audit FY2021/22 & FY2022/23). This is a **different measure** from the KSh 1.3 billion pending-bill figure at FY2020/21 carried as Tier 1 in Sections B.2 and 4.1.2 — different years, different scopes. Both are usable; whichever is quoted is named with its year.
+
+#### Message Pillar 2: Household Economic Empowerment & Agrarian Value Addition *(carries campaign pillar 3, Section 4.1.5)*
+*   **Narrative Statement** *(Firefly is verifying the 78.4% figure against KNBS before this line is used)*: *"78.4% of Kitui's households depend on farming and livestock, yet our farmers sell raw green grams and charcoal at throwaway prices. Dr. Mulu's economic plan introduces solar-powered cold storage, green gram aggregation centers, and honey processing to double household farm incomes."*
+*   **Primary Evidence & Source:**
+    *   **Proof Point — awaiting page references:** **KNBS 2019 Census & Agricultural Sector Transformation Strategy (ASTGS).** The {{policy.ndengu-output}} tonne output and the sub-32% value-capture figure are not yet tiered to a specific page. Both carry the floor-price commitment above, so Firefly is sourcing them before either appears in published copy.
+    *   **Policy Intervention — one point to confirm with your office:** sessional papers are ordinarily Executive instruments rather than backbench sponsorships, so the precise role is worth stating exactly as the Hansard record has it. Firefly will describe it accordingly.
+
+> **What the two flagship commitments would take from the county envelope, and what still has to be decided.**
+> Against the KSh 13.79 billion envelope in Section 2.5: a Ward Development Equalization
+> Fund at KSh {{policy.ward-fund|m}} million across 40 wards is **KSh 4.0 billion a year, or 29% of the
+> envelope** before salaries. A *ndengu* floor price at KSh 85/kg against the {{policy.ndengu-output}} tonnes
+> cited in Message Pillar 2 is **a further ~KSh 2.0 billion** if the county bridges from the
+> KSh 40 farm-gate price, or KSh 3.8 billion if it buys the crop outright. Together, on the
+> bridge case, **~KSh 6.0 billion — 44% of the envelope.**
+>
+> These are envelope arithmetic, not a full sizing: the delivery mechanism for each is still to be
+> set, and a floor price may be structured as a revolving fund or a partial aggregation
+> scheme rather than a purchase guarantee, which changes the figure materially. Firefly's
+> recommendation is that both are sized and structured with the campaign's fiscal team before
+> they go into broadcast copy, since the figures already appear in the radio scripts, SMS
+> copy and USSD menu in Section 5.2.1.2. **This is the campaign's call, and one worth settling
+> early rather than on air.**
+
+#### Message Pillar 3: Devolution Equity, Universal Water Access & Healthcare *(carries campaign pillars 1 and 2, Section 4.1.5)*
+*   **Narrative Statement:** *"Development in Kitui must no longer depend on which ward voted for the Governor. Dr. Mulu guarantees an institutionalized Ward Development Equalization Fund of Ksh {{policy.ward-fund|m}} Million per ward annually, prioritizing solar borehole reticulation and stocked village dispensaries."* [CONFLICT C6: see open items]
+*   **Primary Evidence & Source:**
+    *   **Proof Point — awaiting page reference:** **Kitui County Integrated Development Plan (CIDP III).** The 61% figure is not yet tiered. Section 2.4 carries a related Tier 1 statistic — approximately {{water.surface}} residents relying on untreated surface water — which measures something different and is the one currently documented.
+    *   **CDF Proof — a request to your constituency office:** 84 community solar boreholes and {{record.cdf.school-water}} school water-harvesting projects (Kitui Central Project Inventory 2013–2026). Sections E.3 and 5.6.6 previously cited the same inventory for a classroom count, a different project category; both now defer to the ledger. The inventory's own line items would let Firefly use one consistent set of figures throughout.
+
+> **Message assignment by segment (C.1) and by channel (C.2) is in Annex C.** Those two
+> grids are the studio's production reference — which message goes to whom, on what platform.
+> The spine they carry is 4.4.1 above.
+
+### 3.2.3 Production pillars and the visit-to-verification loop
+
+*"The mission is for Kitui to prosper. From Poverty to Wealth Creation."* That line is already on
+Dr. Mulu's cover. Nothing published so far argues it. These four pillars do — and the fourth feeds
+the first, so the campaign compounds instead of repeating.
+
+These are the **production pillars**: what the team makes, week by week. They carry the four campaign
+pillars in Section 4.1.4 and the three message pillars in Section 4.4, which are different objects and
+not competing versions of this one. Pillar weights are set by the Week 1 audit (Section 5.3) and re-set at each
+monthly review, not chosen in advance.
+
+The Kikamba name for each pillar comes from the native-speaker reviewer; none is invented here, and
+none is published before that review.
+
+#### Pillar 1 — Where the money went
+
+*   **Segment:** smallholders and traders in Mwingi and Kitui South — the **{{pool}}** registered
+    voters in the recognition-deficit pool (Section 3.4).
+*   **Language:** Kikamba primary, Kiswahili secondary.
+*   **Channel:** WhatsApp voice note, SMS, Facebook.
+*   **Format:** 45–60 seconds. One figure. One named place. One verdict: delivered, delayed, or not
+    done.
+*   **Why it exists:** it is built on a qualification his public record carries. Dr. Mulu is an M&E
+    Champion designated by the Ministry of Finance, and Kitui Central was evaluated the best
+    constituency in the Eastern region for FY2014/15 (Section 4.1.1, where the documents to cite are
+    named). This pillar turns that from a line in a CV into a weekly
+    habit, and it answers *"who is this man"* with a ward name rather than a qualification.
+
+#### Pillar 2 — From poverty to wealth creation, one household
+
+*   **Segment:** the rural agrarian baseline, and the women's household economy — **{{census.female}}** women,
+    {{census.female.share}}% of residents (Section 2.4).
+*   **Language:** Kikamba.
+*   **Channel:** WhatsApp, SMS, Facebook.
+*   **Format:** one household, one income stream, one number. Poultry is in **over 90%** of Kitui
+    households (Section 2.4) and carries no county policy at all.
+*   **Why it exists:** the cover line is currently a banner. A slogan with no weekly proof behind it
+    stays a banner. This pillar is the proof, and it is the only one that speaks to the county's
+    largest demographic in the register's own terms.
+
+#### Pillar 3 — The economist explains
+
+*   **Segment:** youth 18–35, traders, professionals, and the out-of-county Kamba diaspora.
+*   **Language:** Kiswahili and Sheng with Kikamba hooks; English for diaspora and national press.
+*   **Channel:** TikTok, Facebook, X, YouTube.
+*   **Format:** 45-second vertical video. One county figure made physical — the **KSh13.79bn**
+    envelope, or the **KSh670m** in unconfirmed cash balances, shown with objects rather than charts.
+*   **Why it exists:** it converts "PhD in Economics" from a title into a demonstrated skill, and it
+    is the only pillar that travels beyond the county.
+
+#### Pillar 4 — He came, and this is what he said he would do
+
+*   **Segment:** the specific ward visited, that day.
+*   **Language:** Kikamba and Kiswahili.
+*   **Channel:** Facebook, the ward's WhatsApp group, SMS to that ward's consented list.
+*   **Format:** the photograph the team already takes — **plus one commitment and one date**.
+*   **Why it exists:** this is not new work. It is the current daily activity post with two fields
+    added. Twelve weeks later, that commitment and that date become a Pillar 1 post.
+
+**The engine is the loop between pillar four and pillar one**, and nothing else on this page matters
+as much:
+
+```figure
+id: visit-loop
+```
+
+A commitment with no date is not logged. A date that passes with no verification post is a gap the
+monthly review reads as a miss, not as a scheduling accident.
+
+#### The four content pillars
+
+> **Section 4.5 is the live version of this list.** The four pillars there are anchored on
+> Dr. Mulu's own cover line and are set by the Week 1 audit. The four below are the thematic
+> buckets they draw from, kept because the message grids in Annex C index against them.
+
+Production buckets, not a restatement of the campaign pillars in Section 4.1.4 or the message
+pillars in Section 4.4. Every piece of creative output anchors to one of these four, and each
+carries one or more of the Section 4.1.4 pillars:
+
+1.  **Pillar A: The Integrity & Stewardship Ledger (*Kĩtĩo kya Kũthũkũma*)**
+    *   *Core Theme:* 13 years of Kitui Central NG-CDF management, shown through the Auditor-General's opinion for every year. The reports are being retrieved (Section 4.4.1), and no year is characterised before its report is in hand.
+    *   *Tone:* Authoritative, calm, legally certified, transparent.
+    *   *Primary Formats:* Radio debate evidence cards, documentary video case studies, audit certificate infographics, press statements.
+2.  **Pillar B: The Agrarian & Household Wealth Engine (*Ũtonga wa Mĩsyĩ na Mĩũnda*)**
+    *   *Core Theme:* Guaranteed minimum floor prices for *ndengu* (Ksh 85/kg), county aggregation cold-storage hubs, solar borehole irrigation, and livestock feed reserves.
+    *   *Tone:* Pragmatic, empathetic, farmer-centric, culturally resonant Kikamba.
+    *   *Primary Formats:* Vernacular morning radio skits, 2G market day SMS alerts, printed agricultural policy fold-outs.
+3.  **Pillar C: Devolution Equity & Universal Basic Services (*Kĩla Kĩtheka na Mwanya Wayo*)**
+    *   *Core Theme:* The statutory Ksh {{policy.ward-fund|m}} Million/year Ward Equalization Fund, solar water within 1 km, functional maternity dispensaries, and bursary equity. [CONFLICT C6: see open items]
+    *   *Tone:* Inclusive, forward-looking, accountable, grassroots-empowering.
+    *   *Primary Formats:* Ward-by-ward budget pledge cards, USSD interactive budget explorer, market caravan speeches.
+4.  **Pillar D: The Youth Enterprise & TVET Frontier (*Mwanya wa Mwanake na Wathi*)**
+    *   *Core Theme:* Zero-interest equipment loans, digital cottage hubs, fee waivers for artisan TVET courses, and boda boda dignity.
+    *   *Tone:* Energetic, aspirational, street-smart Sheng/Kikamba blend, action-oriented.
+    *   *Primary Formats:* Vertical TikTok/Reels clips, sound truck music tracks, boda boda shed sticker banners, WhatsApp voice notes.
+
+### 3.2.4 The six campaign themes
 
 Six themes, each evidenced. **Every figure below carries the tier it was established at, and where it was established.** Three of them are not established anywhere in this proposal and say so rather than borrowing authority from the ones beside them — the theme they support stands without them, and each is obtainable from the CIDP or a KNBS bulletin the campaign can pull.
 
@@ -124,8 +264,9 @@ Underlying narrative throughout: **"Kitui has resources. What it has lacked is
 leadership that understands how to use them — and the discipline to prove it
 did."**
 
-## 4.2 Where the effort goes
+## 3.3 Where the effort goes, and which channel does which job
 
+### 3.3.1 Where the effort goes
 #### The weighting, and the finding it answers
 Because **{{pool.share}}% of the county register sits where he has never held office** (Section 3.4), the campaign cannot rely on organic spillover from Kitui Central. Output and targeting are weighted accordingly:
 *   **{{effort.digital.pool}}% of all Phase −1 digital reach effort (Meta, Google, YouTube)** must be geofenced exclusively to Mwingi North, Mwingi Central, Mwingi West, and Kitui South — the weighting is on output and targeting, measured by R-02 in Section 5.6.4.
@@ -152,8 +293,51 @@ concentrated outside the home base (Section 3.11). If Week 1 refutes it, Section
 sets out how the weighting changes. Weightings are reviewed monthly against
 the reach data in Section 5.6 and reallocated.
 
+### 3.3.2 Which channel does which job
 
-## 4.3 Who we are trying to move
+Because Section 3.8: digital alone reaches about {{reach.smartphone}} voters at most, short of the {{benchmark}} benchmark even if every one of them voted for him.
+
+A common failure mode in modern Kenyan political campaigns is over-weighting flashy social
+media influencers while starving the unglamorous rural infrastructure that actually produces
+votes.
+
+The table below is the **rebalancing target** — the direction of travel away from the
+conventional pitch, argued from reach. It states the share of communications *effort* each
+domain should carry: production time, team attention, weekly output and channel priority. It
+is a statement of where the campaign's weight goes.
+
+```figure
+id: fig-4-6-channel-shift
+```
+
+**§4.6 in one view.**
+
+| | Figure |
+|---|---|
+| Reachable by smartphone or data, in county | ~{{reach.smartphone}} voters (modelled: {{ict.internet}}% of the July 2026 register) |
+| Share of the {{benchmark}} benchmark digital could reach | **{{reach.smartphone.of-benchmark}}%**, reach not votes |
+| Reachable by SMS only | ~{{reach.sms-only}} voters (modelled: {{ict.phone}}% phone ownership less {{ict.internet}}% internet use) |
+| No phone: radio or in person only | ~{{reach.nophone}} voters (modelled) |
+| Vernacular radio reach | Lower Eastern shares: Musyi FM {{radio.musyi}}%, Athiani FM {{radio.athiani}}%, Mbaitu FM {{radio.mbaitu}}%, County FM {{radio.county}}% (CA/KARF, an earlier measurement, Tier 2). |
+| Communications weight, offline | **{{channel.offline.rebalanced}}%** — radio {{channel.radio.rebalanced}}%, SMS {{channel.sms.rebalanced}}%, caravans {{channel.markets.rebalanced}}%, church {{channel.church.rebalanced}}% |
+| Communications weight, digital | **{{channel.digital.rebalanced}}%** |
+
+**The {{channel.offline.rebalanced}}/{{channel.digital.rebalanced}} weighting stands on the 2023/24 rate.** It was first set when digital reach was put at
+{{ict.internet.2019}}% of residents (the 2019 census rate); on the 2023/24 rate of {{ict.internet}}% digital still reaches at most
+{{reach.smartphone}} voters, {{reach.smartphone.short}} short of the {{benchmark}} benchmark (Section 3.8), so the case for an
+offline-led mix is unchanged. The split is re-read at each monthly review against the reach data
+in Section 5.6 (confirmed by Firefly, September 2026).
+
+---
+
+### 3.3.3 The gatekeeper bottleneck
+
+The political economy of Kamba broadcasting presents three structural hazards for the campaign:
+1.  **Editorial Blackouts on Key Milestones:** High-profile developmental achievements (e.g., OAG clean audit certificates, parliamentary budget wins) are routinely downplayed or denied airtime on politically captured Tier 1 stations.
+2.  **Surrogate Studio Ambush Tactics:** Morning talk shows (*06:00–09:00 EAT*) frequently host adversarial panels stacked with rival proxies, designed to draw the candidate into unverified local controversies.
+3.  **Unequal access to prime slots:** Politically steered media houses refuse prime morning slots to competitive campaigns, or offer them on worse terms.
+
+## 3.4 Who we are trying to move
 
 Because Section 3.7: the three regions differ in economy, connectivity and language, so one countywide message fails.
 
@@ -167,6 +351,8 @@ This section defines the structural architecture of the Kitui electorate across 
 id: audience-overview
 ```
 
+### 3.4.1 The universes: voter, turnout, victory, base, persuasion, mobilisation
+
 The six segments below describe **who** the voters are. This table describes **what the campaign
 needs each group to do**, which is a different question and the one the objectives in Section 1.3
 are written against. Segments say where to speak and in what language; universes say what
@@ -175,7 +361,7 @@ success looks like there.
 | Universe | Definition | Size | Basis | What it owns |
 |---|---|---|---|---|
 | Voter universe | Every registered voter in Kitui County | **{{register.2022}}** | IEBC ward register (Tier 1) | — |
-| Expected turnout universe | Ballots expected at the {{turnout.constant}}% turnout rate (the certified 2022 rate) | **~{{ballots.2022}}** | Derived at the modelling constant, Section 3.1 | — |
+| Expected turnout universe | Ballots expected at the {{turnout.constant}}% turnout rate (the certified 2022 rate) | **~{{ballots.2022}}** | Derived at the modelling constant, Section 3.1 | — [CONFLICT C8: see open items] |
 | **Victory universe** | Votes required to win the general election | **~{{benchmark}}** | Section 3.1; {{result.2022.gov.malombe}} won in 2022 (Tier 1, IEBC Form 37C) | GOTV |
 | **Base-hold universe** | The anchor: Kitui Central and Kitui West | Not stated — Kitui Central holds **{{con.kitui-central}}** registered voters (Tier 1), but a register count is not a support estimate | Section 3.7.1 | Mobilisation |
 | **Persuasion universe** | The Mwingi bloc and the arid belt, where recognition is weakest | Not stated — the Mwingi constituencies hold **{{bloc.mwingi}}** registered voters (Tier 1), which is the ceiling on this universe and not its size | Section 3.4 | Recognition |
@@ -190,7 +376,7 @@ difference would be the exact failure Section A.1.3's ban on guesswork forbids.
 
 ---
 
-### 4.3.1 The six voter segments
+### 3.4.2 The six voter segments
 
 **Each segment carries the production pillar that commissions for it** (Section 4.5), so the
 segmentation has an output rather than only a description:
@@ -215,12 +401,12 @@ The rest is tested only by how content on it performs on reach and engagement, a
 the weekly brief cannot support is dropped rather than asserted.
 
 
-### 4.3.2 The Rural Agrarian & Smallholder Baseline
+#### The Rural Agrarian & Smallholder Baseline
 *   **Empirical Sizing:** **{{census.rural}} rural residents — {{census.rural.share}}% of the county population** (2019 KNBS Census, Tier 1; see Section 2.4). The register is not published by rural/urban split, so applying that share to the {{register.2022}} register gives approximately **{{segment.rural.voters}} rural registered voters** across 36 non-urban wards — a **derived estimate, not a measured figure**.
 *   **Geographic Base:** Rural agricultural belts in Kitui Central (Mulango, Kyangwithya East), Kitui West (Mutonguni, Kauwi), Kitui Rural (Kisasi, Mbitini), Mwingi Central (Nuu, Nguni), Mwingi West (Nguutani, Migwani), and Kitui East (Zombe, Chuluni).
 *   **Connectivity & Media Consumption:** **{{ict.offline}}% of residents offline countywide** (CA/KNBS 2023/24, Tier 1); 2G/GSM feature phone dominance; high evening vernacular radio listenership; weekly open-air market gatherings.
 *   **Reachable Channels:**
-    *   **Primary:** Kamba Vernacular Radio (Musyi FM, Mbaitu FM, Sang'u FM, Athiani FM, Syokimau FM) during morning (06:00–08:30) and evening drive (19:00–21:30).
+    *   **Primary:** Kamba Vernacular Radio (Musyi FM, Mbaitu FM, Sang'u FM, Athiani FM, Syokimau FM) during morning (06:00–08:30) and evening drive (19:00–21:30). [CONFLICT C7: see open items]
     *   **Secondary:** Direct localised bulk SMS in **Kiswahili** to consented contacts on the Firefly-operated line (Section 5.2.3.3); the campaign's own ward-captain network, which could carry it further, is campaign-owned (Section 5.1.3). Bulk political SMS is restricted to English or Kiswahili by the CA/NCIC guidelines; the Kikamba version of the same message travels as a WhatsApp voice note (Section 5.2.3.3).
     *   **Physical:** Open-air market day barazas (e.g., Kalundu, Kabati, Mbondoni, Nguni, Mutomo), church fellowships (AIC, Catholic, Redeemed), and agricultural cooperative/SACCO meetings.
 *   **Persuasion Lever (What It Takes to Move Them):**
@@ -230,7 +416,7 @@ the weekly brief cannot support is dropped rather than asserted.
 
 ---
 
-### 4.3.3 The Agro-Pastoralist & Arid-Zone Livestock Keepers
+#### The Agro-Pastoralist & Arid-Zone Livestock Keepers
 *   **Empirical Sizing:** **{{livestock.households}} livestock-farming households** countywide (2019 Census agriculture report, Tier 1), or {{livestock.households.pcra}} households practising livestock production on the county PCRA's definition (Tier 2). The two are different definitions and are shown side by side, never averaged. Households are not voters, so no voter count is derived.
 *   **Geographic Base:** Mwingi North (Kyuso, Tseikuru, Tharaka, Ngomeni), Mwingi Central (Waita, Kivou), Kitui South (Mutha, Kanziko, Ikutha, Athi), and Kitui East (Endau/Malalani, Voo/Kyamatu).
 *   **Connectivity & Media Consumption:** Highly dispersed geography; intermittent 2G cellular coverage; heavy battery-powered solar radio listenership; pastoral migration routes.
@@ -244,7 +430,7 @@ the weekly brief cannot support is dropped rather than asserted.
 
 ---
 
-### 4.3.4 The Youth Cohort (Ages 18–35: Students, Bodaboda, Unemployed Graduates & Creatives)
+#### The Youth Cohort (Ages 18–35: Students, Bodaboda, Unemployed Graduates & Creatives)
 *   **Empirical Sizing:** **~44% of the register, about {{segment.youth.voters}} registered voters** (modelled: the 2019 KNBS Census age distribution applied to the 2022 IEBC register; the register is not published by age).
 *   **Geographic Base:** Clustered heavily in peri-urban corridors (Kitui Township, Kwa Vonza/SEKU/KU university belts, Mwingi Central town, Mutonguni, Kabati) and dispersed across rural trading centers.
 *   **Connectivity & Media Consumption:** High smartphone and feature-phone social media usage (internet use nationally is {{ict.kenya.internet.15-24}}% at 15–24 and {{ict.kenya.internet.25-34}}% at 25–34, and {{ict.kenya.youth.rural}}% among rural 18–34s: CA/KNBS 2023/24, national figures, Tier 1); active on WhatsApp groups, TikTok, Facebook Mobile, and YouTube; congregation at bodaboda stages, video dens, and sports centers.
@@ -259,7 +445,7 @@ the weekly brief cannot support is dropped rather than asserted.
 
 ---
 
-### 4.3.5 The Urban & Peri-Urban Commercial Informal Sector (MSMEs & Traders)
+#### The Urban & Peri-Urban Commercial Informal Sector (MSMEs & Traders)
 *   **Empirical Sizing:** **{{census.urban}} urban residents — {{census.urban.share}}% of the county population** (2019 KNBS Census urban classification, Tier 1). Applying that share to the register gives approximately **{{segment.urban.voters}} urban registered voters** — again derived, not measured. Note this segment's messaging reach extends well beyond the urban classification, since peri-urban trading centres in the ward list sit inside rural wards.
 *   **Geographic Base:** Kitui Township ({{ward.township}} voters), Mwingi Central Town ({{ward.central}} voters), Kwa Vonza/Yatta ({{ward.kwa-vonza-yatta}} voters), Mutomo ({{ward.mutomo}} voters), Matinyani ({{ward.matinyani}} voters), and Nguutani ({{ward.nguutani}} voters).
 *   **Connectivity & Media Consumption:** Higher mobile internet use than the county (internet use is {{ict.kenya.internet.urban}}% in urban Kenya against {{ict.kenya.internet.rural}}% rural: CA/KNBS 2023/24, national figures, Tier 1); constant WhatsApp business use; daily interaction with county revenue collectors; regular local vernacular radio listening.
@@ -273,7 +459,7 @@ the weekly brief cannot support is dropped rather than asserted.
 
 ---
 
-### 4.3.6 The Formal Sector Professionals, Civil Servants & Educators
+#### The Formal Sector Professionals, Civil Servants & Educators
 *   **Empirical Sizing:** not published: comprises teachers under KNUT/KUPPET, healthcare workers, county and national civil servants, bank staff and clergy. Kitui's core health workforce density is {{health.density.core}} (doctors, clinical officers, laboratory staff and nurses per ten thousand people) (Countdown 2030, Tier 2); no size is estimated.
 *   **Geographic Base:** Administrative hubs (Kitui Town, Mwingi Town, sub-county headquarters) and public schools/hospitals throughout all 40 wards.
 *   **Connectivity & Media Consumption:** Predominantly smartphone and laptop connected (internet use reaches about {{ict.kenya.internet.higher-ed}}% among Kenyans with higher education: CA/KNBS 2023/24, national, Tier 1); active on X (Twitter), Facebook, LinkedIn, professional WhatsApp groups; readers of national daily newspapers and policy analyses.
@@ -287,7 +473,7 @@ the weekly brief cannot support is dropped rather than asserted.
 
 ---
 
-### 4.3.7 The Out-of-County Kamba Diaspora Matrix (Nairobi, Coast & Nationwide)
+#### The Out-of-County Kamba Diaspora Matrix (Nairobi, Coast & Nationwide)
 *   **Empirical Sizing:** Kitui's net recent-migration balance was **{{migration.net}}** in 2019 (KNBS Census Analytical Report on Migration, Volume VIII, Tier 1), one of the largest outflows in the country. That is migration context, not a voter count: the share of Kitui-born residents elsewhere who remain registered in Kitui is not published, and no voter size is estimated.
 *   **Geographic Concentration:** Nairobi (Embakasi, Kasarani, Kibra, Starehe, Eastleigh, Westlands), Mombasa/Coast (Changamwe, Likoni, Kisauni, Malindi), Machakos/Makueni urban centers.
 *   **Strategic Role:** Even those registered to vote in Nairobi/Mombasa act as **critical opinion shapers and financial remitters**. They pay school fees, medical bills, and funeral costs for rural relatives; their political endorsements carry immense weight during family decision-making.
@@ -302,7 +488,7 @@ the weekly brief cannot support is dropped rather than asserted.
 
 ---
 
-### 4.3.8 Segment sizing, and the evidence for it
+### 3.4.3 Segment sizing, and the evidence for it
 
 **These six segments overlap, and the figures below are not additive.** A 26-year-old
 smallholder in Mwingi sits in segment 1 and segment 3; a trader who keeps goats sits in 2 and 4.
@@ -323,7 +509,7 @@ id: fig-4-3-segments
 ---
 
 
-## 4.4 What we say, and in which language
+## 3.5 What we say, and in which language
 
 Because Sections 3.7 and 2.6: the three regions differ, and most residents are offline, so the message and its language are set region by region and channel by channel.
 
@@ -335,48 +521,7 @@ Under the campaign's Provenance Discipline (Section A.1.1), **no claim is made w
 id: fig-4-4-message-region
 ```
 
-### 4.4.1 The central claim and its three pillars
-
-#### Message Pillar 1: Fiscal Integrity & Transparent Public Finance *(carries campaign pillars 1 and 4, Section 4.1.5)*
-*   **Narrative Statement** *(held until the Auditor-General's reports below are in hand)*: *"Kitui's KSh 13.79 billion annual budget has been crippled by pending bills, procurement inflation, and ghost projects. Dr. Makali Mulu is the only candidate with a verified track record of managing public funds with zero financial audit queries."*
-*   **Comparison — awaiting primary documents:** "The only candidate" is a claim about every rival, so it rests on the Auditor-General's reports on each public fund a rival has managed — the Kitui allocation of the National Government Affirmative Action Fund (Dr. Kasalu's office) and the county executive (Governor Malombe) among them — as well as on Dr. Mulu's own NG-CDF reports below. Until all are in hand the comparative line is not published; the usable form is his own record, quoted year by year from the audit opinions.
-*   **Primary Evidence & Source:**
-    *   **Proof Point — awaiting primary documents:** **Office of the Auditor-General (OAG) NG-CDF audit reports, 2013–2025.** Firefly has not yet retrieved the underlying reports, so the claim of consistently unqualified opinions is untiered pending that. It is worth settling early: because the claim is precisely checkable, a single qualified year would carry more weight in an opponent's hands than the record deserves. Note also that the "top 5 best-managed constituencies in Kenya" ranking is wider than the Tier 1 claim in Sections 2.8 and 4.1.1 — best-evaluated constituency in the Eastern region, FY2014/15. Firefly would use the narrower, documented version until the wider one is sourced.
-    *   **Contrast — awaiting primary documents:** Kitui County Government audited accounts under both predecessor regimes are reported to have accumulated over **Ksh 2.4 billion in contested pending bills** (OAG County Executive Audit FY2021/22 & FY2022/23). This is a **different measure** from the KSh 1.3 billion pending-bill figure at FY2020/21 carried as Tier 1 in Sections B.2 and 4.1.2 — different years, different scopes. Both are usable; whichever is quoted is named with its year.
-
-#### Message Pillar 2: Household Economic Empowerment & Agrarian Value Addition *(carries campaign pillar 3, Section 4.1.5)*
-*   **Narrative Statement** *(Firefly is verifying the 78.4% figure against KNBS before this line is used)*: *"78.4% of Kitui's households depend on farming and livestock, yet our farmers sell raw green grams and charcoal at throwaway prices. Dr. Mulu's economic plan introduces solar-powered cold storage, green gram aggregation centers, and honey processing to double household farm incomes."*
-*   **Primary Evidence & Source:**
-    *   **Proof Point — awaiting page references:** **KNBS 2019 Census & Agricultural Sector Transformation Strategy (ASTGS).** The {{policy.ndengu-output}} tonne output and the sub-32% value-capture figure are not yet tiered to a specific page. Both carry the floor-price commitment above, so Firefly is sourcing them before either appears in published copy.
-    *   **Policy Intervention — one point to confirm with your office:** sessional papers are ordinarily Executive instruments rather than backbench sponsorships, so the precise role is worth stating exactly as the Hansard record has it. Firefly will describe it accordingly.
-
-> **What the two flagship commitments would take from the county envelope, and what still has to be decided.**
-> Against the KSh 13.79 billion envelope in Section 2.5: a Ward Development Equalization
-> Fund at KSh {{policy.ward-fund|m}} million across 40 wards is **KSh 4.0 billion a year, or 29% of the
-> envelope** before salaries. A *ndengu* floor price at KSh 85/kg against the {{policy.ndengu-output}} tonnes
-> cited in Message Pillar 2 is **a further ~KSh 2.0 billion** if the county bridges from the
-> KSh 40 farm-gate price, or KSh 3.8 billion if it buys the crop outright. Together, on the
-> bridge case, **~KSh 6.0 billion — 44% of the envelope.**
->
-> These are envelope arithmetic, not a full sizing: the delivery mechanism for each is still to be
-> set, and a floor price may be structured as a revolving fund or a partial aggregation
-> scheme rather than a purchase guarantee, which changes the figure materially. Firefly's
-> recommendation is that both are sized and structured with the campaign's fiscal team before
-> they go into broadcast copy, since the figures already appear in the radio scripts, SMS
-> copy and USSD menu in Section 5.2.1.2. **This is the campaign's call, and one worth settling
-> early rather than on air.**
-
-#### Message Pillar 3: Devolution Equity, Universal Water Access & Healthcare *(carries campaign pillars 1 and 2, Section 4.1.5)*
-*   **Narrative Statement:** *"Development in Kitui must no longer depend on which ward voted for the Governor. Dr. Mulu guarantees an institutionalized Ward Development Equalization Fund of Ksh {{policy.ward-fund|m}} Million per ward annually, prioritizing solar borehole reticulation and stocked village dispensaries."*
-*   **Primary Evidence & Source:**
-    *   **Proof Point — awaiting page reference:** **Kitui County Integrated Development Plan (CIDP III).** The 61% figure is not yet tiered. Section 2.4 carries a related Tier 1 statistic — approximately {{water.surface}} residents relying on untreated surface water — which measures something different and is the one currently documented.
-    *   **CDF Proof — a request to your constituency office:** 84 community solar boreholes and {{record.cdf.school-water}} school water-harvesting projects (Kitui Central Project Inventory 2013–2026). Sections E.3 and 5.6.6 previously cited the same inventory for a classroom count, a different project category; both now defer to the ledger. The inventory's own line items would let Firefly use one consistent set of figures throughout.
-
-> **Message assignment by segment (C.1) and by channel (C.2) is in Annex C.** Those two
-> grids are the studio's production reference — which message goes to whom, on what platform.
-> The spine they carry is 4.4.1 above.
-
-### 4.4.2 Counter-messaging against disinformation
+### 3.5.1 Counter-messaging against disinformation
 
 ```figure
 id: counter-fire
@@ -385,9 +530,8 @@ id: counter-fire
 
 ---
 
-### 4.4.3 Persuasion principles and message discipline
-
-### 4.4.4 Framing true claims, transparently
+### 3.5.2 Persuasion principles and message discipline
+#### Framing true claims, transparently
 
 The campaign applies behavioural economics to make every message
 psychologically effective — moving beyond "what to say" to "how to frame it so
@@ -398,7 +542,7 @@ transparently, at population level. They are not psychographic targeting, not
 personality-based manipulation, and not individualised emotional profiling.
 Section 5.7.8 makes this a published commitment.
 
-### 4.4.5 The principles we apply
+#### The principles we apply
 
 | Principle | Definition | Campaign application |
 |---|---|---|
@@ -414,7 +558,7 @@ Section 5.7.8 makes this a published commitment.
 The final row is the campaign's signature move. It converts Dr. Mulu's M&E
 credential into a persuasion technique available to no rival.
 
-### 4.4.6 Framing, worked through in examples
+### 3.5.3 Framing, worked through in examples
 
 **Water scarcity**
 - *Loss aversion:* "Approximately {{water.surface}} people in Kitui still depend on
@@ -462,19 +606,52 @@ publication under the Section 5.7.8 fact-check protocol.*
 
 ---
 
-### 4.4.7 Language, register and dialect
+## 3.6 Language, register and dialect
+
+### 3.6.1 Which language reaches which voters, on which channel
 
 Kitui County is a deeply multilingual electoral ecosystem. While English functions as the language of statutory policy and constitutional governance, and Kiswahili serves as the commercial lingua franca of urban trading centers, **Kikamba is the primary language of emotional connection, rural trust, cultural authority, and grassroots electoral mobilization**.
 
 A flawed translation—or an urban, anglicized phrasing of a traditional Kikamba idiom—can alienate rural elders and smallholder farmers. The campaign therefore establishes a **Trilingual Content Architecture** that maps each language to its demographic audience, dominant communication channel, cultural register, and dedicated linguistic quality-control sign-off protocol.
 
-### 4.4.8 Which language reaches which voters, on which channel
-
 ```figure
 id: language-map
 ```
 
-### 4.4.9 Register, dialect and the discipline it takes
+[CONFLICT C1: see open items] [CONFLICT C2: see open items]
+
+Language is central to trust in Kitui.
+
+* **Kikamba** — deep local resonance, especially on WhatsApp, TikTok, Facebook,
+SMS and radio. Local proverbs, idioms and cultural reference. Working
+examples, all requiring native-speaker verification before publication:
+  * *"Kĩtui nĩ yethu, tũtethanĩe"* — Kitui is ours, let us help each other
+  * The Kamba call-and-response form — opening a video with *"Mbee! Mbee!"*
+(Forward! Forward!)
+  * *"Kĩla kĩndũ kĩ na thayũ, ĩtina nĩ kũmenya"* — everything has a solution,
+the key is knowledge — framing his expertise
+  * Imagery: the baobab as resilience, the calabash as shared resources
+  * The examples above are working drafts, not verified copy: every Kikamba proverb and phrase is reviewed and corrected by a native speaker before publication.
+* **Kiswahili** — broader reach, urban and younger audiences, national framing
+* **English** — policy depth, professional audiences, national media
+
+**Content mix for locally facing platforms:**
+
+| Language | Share | Primary use |
+|---|---|---|
+| **Kikamba** | **50%** | WhatsApp, TikTok, Facebook grassroots, voice notes, radio, USSD — **not bulk SMS** (§5.2.3.3) [CONFLICT C1: see open items] |
+| **Kiswahili** | **30%** | General social, national reach, SMS |
+| **English** | **20%** | Policy documents, website, X, YouTube, national media |
+
+#### Channel-by-language deployment
+
+```figure
+id: language-deployment
+```
+
+[CONFLICT C1: see open items]
+
+### 3.6.2 Register, dialect and the discipline it takes
 
 Translating political concepts from statutory English into vernacular Kikamba requires precise cultural calibration. Kikamba varies across sub-counties—from the *Kitui Central/South dialect* to the *Northern/Mwingi dialect*—and uses rich proverbial allegories that must be deployed correctly:
 
@@ -487,7 +664,7 @@ id: cultural-registers
 2.  **No Direct Machine Translation:** Automated translation tools (e.g., Google Translate) are **strictly forbidden** for Kikamba and Kiswahili public collateral. Automated outputs fail to capture cultural nuance and produce unnatural syntax that destroys candidate credibility.
 3.  **Bilingual Print Packaging:** All major printed baraza flyers, photobooks, and summaries must be packaged bilingually (Kikamba on primary spread, Swahili/English summary on reverse).
 
-### 4.4.10 The production and quality-control pipeline
+### 3.6.3 The production and quality-control pipeline
 
 Running a synchronized three-language communications operation introduces severe version-drift and contradiction risks. The campaign implements a rigid **Translation & Quality-Control Gateway**:
 
@@ -495,84 +672,11 @@ Running a synchronized three-language communications operation introduces severe
 id: qc-gateway
 ```
 
-### 4.4.11 Channel-by-language deployment
-
-```figure
-id: language-deployment
-```
-
-## 4.5 What gets published
+## 3.7 A week of publishing, before and after
 
 Because Section 3.4: {{pool.share}}% of the register lives where he has never held office, and nothing published so far argues his case there.
 
-*"The mission is for Kitui to prosper. From Poverty to Wealth Creation."* That line is already on
-Dr. Mulu's cover. Nothing published so far argues it. These four pillars do — and the fourth feeds
-the first, so the campaign compounds instead of repeating.
-
-These are the **production pillars**: what the team makes, week by week. They carry the four campaign
-pillars in Section 4.1.4 and the three message pillars in Section 4.4, which are different objects and
-not competing versions of this one. Pillar weights are set by the Week 1 audit (Section 5.3) and re-set at each
-monthly review, not chosen in advance.
-
-The Kikamba name for each pillar comes from the native-speaker reviewer; none is invented here, and
-none is published before that review.
-
-### 4.5.1 Pillar 1 — Where the money went
-
-*   **Segment:** smallholders and traders in Mwingi and Kitui South — the **{{pool}}** registered
-    voters in the recognition-deficit pool (Section 3.4).
-*   **Language:** Kikamba primary, Kiswahili secondary.
-*   **Channel:** WhatsApp voice note, SMS, Facebook.
-*   **Format:** 45–60 seconds. One figure. One named place. One verdict: delivered, delayed, or not
-    done.
-*   **Why it exists:** it is built on a qualification his public record carries. Dr. Mulu is an M&E
-    Champion designated by the Ministry of Finance, and Kitui Central was evaluated the best
-    constituency in the Eastern region for FY2014/15 (Section 4.1.1, where the documents to cite are
-    named). This pillar turns that from a line in a CV into a weekly
-    habit, and it answers *"who is this man"* with a ward name rather than a qualification.
-
-### 4.5.2 Pillar 2 — From poverty to wealth creation, one household
-
-*   **Segment:** the rural agrarian baseline, and the women's household economy — **{{census.female}}** women,
-    {{census.female.share}}% of residents (Section 2.4).
-*   **Language:** Kikamba.
-*   **Channel:** WhatsApp, SMS, Facebook.
-*   **Format:** one household, one income stream, one number. Poultry is in **over 90%** of Kitui
-    households (Section 2.4) and carries no county policy at all.
-*   **Why it exists:** the cover line is currently a banner. A slogan with no weekly proof behind it
-    stays a banner. This pillar is the proof, and it is the only one that speaks to the county's
-    largest demographic in the register's own terms.
-
-### 4.5.3 Pillar 3 — The economist explains
-
-*   **Segment:** youth 18–35, traders, professionals, and the out-of-county Kamba diaspora.
-*   **Language:** Kiswahili and Sheng with Kikamba hooks; English for diaspora and national press.
-*   **Channel:** TikTok, Facebook, X, YouTube.
-*   **Format:** 45-second vertical video. One county figure made physical — the **KSh13.79bn**
-    envelope, or the **KSh670m** in unconfirmed cash balances, shown with objects rather than charts.
-*   **Why it exists:** it converts "PhD in Economics" from a title into a demonstrated skill, and it
-    is the only pillar that travels beyond the county.
-
-### 4.5.4 Pillar 4 — He came, and this is what he said he would do
-
-*   **Segment:** the specific ward visited, that day.
-*   **Language:** Kikamba and Kiswahili.
-*   **Channel:** Facebook, the ward's WhatsApp group, SMS to that ward's consented list.
-*   **Format:** the photograph the team already takes — **plus one commitment and one date**.
-*   **Why it exists:** this is not new work. It is the current daily activity post with two fields
-    added. Twelve weeks later, that commitment and that date become a Pillar 1 post.
-
-**The engine is the loop between pillar four and pillar one**, and nothing else on this page matters
-as much:
-
-```figure
-id: visit-loop
-```
-
-A commitment with no date is not logged. A date that passes with no verification post is a gap the
-monthly review reads as a miss, not as a scheduling accident.
-
-### 4.5.5 One week, before and after
+#### One week, before and after
 
 **Same week. Same events. Same team. Different structure.**
 
@@ -586,79 +690,12 @@ id: fig-4-5-calendar
 
 **Two rules on top.** At least two of the seven originate in a ward inside the deficit pool. At least
 four are Kikamba-first. Both rules are set by the Week 1 audit rather than by preference, and both
-are checked in the Monday review.
+are checked in the Monday review. [CONFLICT C1: see open items]
 
 **What changed:** two fields on a Thursday post, and a language rule.
 **What did not change:** who takes the photograph, who writes the caption, and who presses publish.
 
-## 4.6 Which channel does which job
-
-Because Section 3.8: digital alone reaches about {{reach.smartphone}} voters at most, short of the {{benchmark}} benchmark even if every one of them voted for him.
-
-A common failure mode in modern Kenyan political campaigns is over-weighting flashy social
-media influencers while starving the unglamorous rural infrastructure that actually produces
-votes.
-
-The table below is the **rebalancing target** — the direction of travel away from the
-conventional pitch, argued from reach. It states the share of communications *effort* each
-domain should carry: production time, team attention, weekly output and channel priority. It
-is a statement of where the campaign's weight goes.
-
-```figure
-id: fig-4-6-channel-shift
-```
-
-**§4.6 in one view.**
-
-| | Figure |
-|---|---|
-| Reachable by smartphone or data, in county | ~{{reach.smartphone}} voters (modelled: {{ict.internet}}% of the July 2026 register) |
-| Share of the {{benchmark}} benchmark digital could reach | **{{reach.smartphone.of-benchmark}}%**, reach not votes |
-| Reachable by SMS only | ~{{reach.sms-only}} voters (modelled: {{ict.phone}}% phone ownership less {{ict.internet}}% internet use) |
-| No phone: radio or in person only | ~{{reach.nophone}} voters (modelled) |
-| Vernacular radio reach | Lower Eastern shares: Musyi FM {{radio.musyi}}%, Athiani FM {{radio.athiani}}%, Mbaitu FM {{radio.mbaitu}}%, County FM {{radio.county}}% (CA/KARF, an earlier measurement, Tier 2). |
-| Communications weight, offline | **{{channel.offline.rebalanced}}%** — radio {{channel.radio.rebalanced}}%, SMS {{channel.sms.rebalanced}}%, caravans {{channel.markets.rebalanced}}%, church {{channel.church.rebalanced}}% |
-| Communications weight, digital | **{{channel.digital.rebalanced}}%** |
-
-**The {{channel.offline.rebalanced}}/{{channel.digital.rebalanced}} weighting stands on the 2023/24 rate.** It was first set when digital reach was put at
-{{ict.internet.2019}}% of residents (the 2019 census rate); on the 2023/24 rate of {{ict.internet}}% digital still reaches at most
-{{reach.smartphone}} voters, {{reach.smartphone.short}} short of the {{benchmark}} benchmark (Section 3.8), so the case for an
-offline-led mix is unchanged. The split is re-read at each monthly review against the reach data
-in Section 5.6 (confirmed by Firefly, September 2026).
-
----
-
-### 4.6.1 The gatekeeper bottleneck
-
-The political economy of Kamba broadcasting presents three structural hazards for the campaign:
-1.  **Editorial Blackouts on Key Milestones:** High-profile developmental achievements (e.g., OAG clean audit certificates, parliamentary budget wins) are routinely downplayed or denied airtime on politically captured Tier 1 stations.
-2.  **Surrogate Studio Ambush Tactics:** Morning talk shows (*06:00–09:00 EAT*) frequently host adversarial panels stacked with rival proxies, designed to draw the candidate into unverified local controversies.
-3.  **Unequal access to prime slots:** Politically steered media houses refuse prime morning slots to competitive campaigns, or offer them on worse terms.
-
-## 4.7 Fix first: six profile corrections
-
-Because Section 3.9: six entries on his own profile contradict the parliamentary record or the
-positioning, and each takes minutes to correct.
-
-```figure
-id: fig-4-7-profile-fixes
-```
-
-**The PhD is the one to fix first.** The site argues that his economics doctorate and his evaluation
-record are the differentiators no rival holds. Neither appears on the profile where a voter would
-look for them.
-
-**Is the Facebook presence a Page, or a personal profile in professional mode?**
-
-A visible friends list suggests the latter. The distinction is not cosmetic. A personal profile has
-no Page Insights, no Business Suite export, no delegated admin roles and no ad account — which means
-most of what follows does not exist, and the strategy has a migration question attached to it before
-anything else is decided.
-
-One screenshot of Meta Business Suite, or of the Professional dashboard, settles this in the first
-hour of Week 1, and it gates the rest of the audit.
-
-## 4.8 When the plan changes
+## 3.8 When the plan changes
 
 Because Section 3.11: the diagnosis is a hypothesis, and Week 1 tests it.
 

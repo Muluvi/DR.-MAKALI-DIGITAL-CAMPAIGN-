@@ -143,16 +143,6 @@ campaign confirms or denies authenticity accurately and quickly. It does not
 speculate about the source, and it does not deny the authenticity of genuine
 material — a denial later disproved is worse than the original leak.
 
-## E.11 Competitor monitoring tools
-
-| Tool | Function |
-|---|---|
-| Meta Ad Library | Competitor ad spend, creative themes, targeting estimates, frequency |
-| Google Ads Transparency Centre | Competitor search advertising and keywords |
-| Social listening (premium tier) | Mentions, supporter sentiment, emerging narratives |
-| X lists | Curated rival, surrogate and influencer accounts |
-| **Radio monitoring** | Kamba-station coverage and airtime share (Section 5.2.2.2) |
-
 ## E.12 Competitive intelligence outputs and rapid alerts
 
 The competitive intelligence workflow produces two operational outputs:
@@ -165,3 +155,12 @@ The competitive intelligence workflow produces two operational outputs:
    * **Recommendations:** counter-messaging and proactive content
 2. **The rapid alert system:** New attacks or significant messaging shifts trigger real-time alerts to campaign leadership with recommended responses drawn from the pre-approved library.
 
+#### Competitor monitoring tools
+
+| Tool | Function |
+|---|---|
+| Meta Ad Library | Competitor ad spend, creative themes, targeting estimates, frequency |
+| Google Ads Transparency Centre | Competitor search advertising and keywords |
+| Social listening (premium tier) | Mentions, supporter sentiment, emerging narratives |
+| X lists | Curated rival, surrogate and influencer accounts |
+| **Radio monitoring** | Kamba-station coverage and airtime share (Section 5.2.2.2) |

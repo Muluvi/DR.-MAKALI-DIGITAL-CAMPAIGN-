@@ -1,10 +1,31 @@
+What the official record shows, graded by source: the IEBC register, certified results, the census, CA/KNBS connectivity data, the county's own fiscal paper, the parliamentary record and his public channels.
+
+## 2.1 The electorate and the number it takes
+
+#### The electorate
+
+To achieve absolute mathematical certainty, the campaign's success metrics are anchored strictly to the official 2022 IEBC register (Tier 1), rather than volatile digital vanity metrics:
+
+*   **Total Registered County Voters:** **{{register.2022}}** ward-registered voters (plus **{{register.2022.prisons}}** prison-registered voters, totalling **{{register.2022.with-prisons}}**) (Tier 1).
+*   **Total Registered County Assembly Wards:** **40** across **8** constituencies (Tier 1).
+*   **Total Polling Stations:** {{register.polling-stations}} (Tier 1).
+*   **Registered voters, July 2026:** **{{register.2026}}** (Tier 3, reported by Venas News; unconfirmed until IEBC's own July 2026 figure is in hand). Of the **{{register.2026.growth}}** added since 2022, **{{register.2026.ecvr-drive}}** registered in ECVR Phase 1, the 30-day drive that closed on 28 April 2026 and **{{register.2026.continuous}}** through continuous registration outside it (modelled: the growth less the drive). A second ECVR phase ran from 25 June to 25 July 2026 (IEBC gazette notice, 24 June 2026); whether the July annex includes it is not stated, so the remainder may carry some of it. The 2026 register is not yet published by ward.
+*   **Winning benchmark:** Governor Malombe won in 2022 with **{{result.2022.gov.malombe}} votes** (Section 2.2). Section 3.1 derives the working benchmark of {{benchmark}} from it.
+*   **Turnout, 2022:** **{{turnout.2022}}%** certified: {{result.2022.gov.valid}} valid votes of {{register.2022}} registered (Tier 1, IEBC Form 37C). Section 3 carries this rate forward to 2027 as a stated assumption. [CONFLICT C8: see open items]
+
+```figure
+id: fig-2-1-register
+```
+
+The full 40-ward register, by constituency, is in Annex B.1.
+
 The number of votes it takes, the forty wards ranked by weight, four routes to the threshold with the working shown, and the three regions the county divides into.
 
 The path to the Kitui County governorship is governed by strict spatial and demographic mathematics. An effective campaign cannot treat the county as a uniform political landscape; it must allocate effort, digital attention, offline SMS broadcasts, and field organizers in direct proportion to registered voter density and structural electoral leverage.
 
 This section constructs the complete electoral arithmetic of the **~{{benchmark}} vote victory threshold** from the official **40-ward IEBC voter register** (Tier 1), identifies the decisive geographic concentrations and structural coalitions, and maps the critical intersection between the candidate's recognition deficit and the county's decisive voting blocs.
 
-## 3.1 The number it takes
+#### The number it takes
 
 To eliminate subjective projections, the campaign's target metrics are anchored directly to official IEBC outcomes:
 
@@ -25,7 +46,7 @@ To eliminate subjective projections, the campaign's target metrics are anchored 
     {{result.2022.gov.valid}} valid votes of {{register.2022}} registered (Tier 1, IEBC Form 37C). Every calculation in this
     section carries that rate forward to 2027. The rate is measured; carrying it forward is an
     assumption, and the scenario model brackets it at 55–72%.
-    *   At {{turnout.constant}}% of the 2022 register, total ballots cast equal approximately **{{ballots.2022}} votes**.
+    *   At {{turnout.constant}}% of the 2022 register, total ballots cast equal approximately **{{ballots.2022}} votes**. [CONFLICT C8: see open items]
     *   To reach **{{benchmark}}**, a winning candidate must capture about **{{benchmark.share-of-ballots}}% of ballots cast**, which is
         **{{benchmark.share-of-register}}% of the registered electorate**.
 
@@ -33,7 +54,20 @@ To eliminate subjective projections, the campaign's target metrics are anchored 
 id: fig-3-1-funnel
 ```
 
-## 3.2 Where the votes are
+## 2.2 How Kitui has voted
+
+*   **2013 General Election (Kitui Governor):** This cycle represents a **named data gap** in the official campaign records (Tier 1 gap). The research did not supply certified results, and the campaign does not use unverified recollections. The record that closes it is the IEBC's 2013 declaration and its Kenya Gazette notice.
+*   **2017 General Election (Kitui Governor):** Won by Charity Ngilu (NARC) with **{{result.2017.gov.ngilu}} votes** (Tier 1), following a highly contested election confirmed by the Court of Appeal (*Malombe v Ngilu* [2018] KECA 460) (Tier 1). The certified runner-up was David Musila with **{{result.2017.gov.musila}} votes** (Tier 1), and the incumbent Julius Malombe finished third with **{{result.2017.gov.malombe}} votes** (Tier 1).
+*   **2022 General Election (Kitui Governor):** Won by Julius Malombe (Wiper Democratic Movement, renamed the Wiper Patriotic Front in 2025) with **{{result.2022.gov.malombe}} votes** on a certified turnout of **{{turnout.2022}}%**, {{result.2022.gov.valid}} valid votes of {{register.2022}} registered (Tier 1, IEBC Form 37C). David Musila (Jubilee) was runner-up with **{{result.2022.gov.musila}} votes** (Tier 1); The Star's early total of {{result.2022.gov.musila.media}} is a media variant, and the certified share ({{result.2022.gov.musila.share}}%) matches {{result.2022.gov.musila}}. Jonathan Mueke (UDA) finished third with **{{result.2022.gov.mueke}} votes** (Tier 2).
+*   **2022 Kitui Central MP:** Dr. Mulu was re-elected on the Wiper ticket with **{{result.2022.mp.mulu}} votes** (Tier 1, IEBC declaration as gazetted); Boniface Musambi was second with {{result.2022.mp.musambi}}. Early media totals differ from the gazetted figure and are not used. The figure reached this proposal through a press reproduction of the declaration; the Kenya Gazette notice itself is the record to hold.
+*   **2022 Senate and Woman Representative Elections:** Senator Enoch Wambua (Wiper) secured his seat with **{{result.2022.senate.wambua}} votes** (Tier 2), and Woman Representative Irene Kasalu (Wiper) won with **{{result.2022.womanrep.kasalu}} votes** (Tier 2). Both totals are media reports. The certified declarations (IEBC Form 38C for the Senate, Form 39C for the Woman Representative) are the Tier 1 record and are not yet in hand; until they are, both figures stay Tier 2.
+*   **Ward and polling-station results:** The constituency and polling-station forms for the 2017 and 2022 governor races (IEBC Forms 37B and 37A) are public records and are not yet in hand. They are the record Section 3.4 needs to test where each candidate's vote came from, ward by ward.
+
+```figure
+id: fig-2-2-results
+```
+
+## 2.3 Where the votes are
 
 Voter registration in Kitui County is highly concentrated. Rather than a flat geographic distribution across all 40 wards (which would average {{register.2022.ward-mean}} voters per ward), the electorate exhibits extreme density clustering in urban corridors, agricultural belts, and sub-county headquarters.
 
@@ -46,7 +80,7 @@ id: fig-3-2-register-map
 2.  **The Upper Half Domination:** The top **20 wards** (50% of the wards) command **{{pareto.top20}} registered voters** (**{{pareto.top20.share}}%** of the county total).
 3.  **The Lower Tail Dispersal:** The bottom **10 smallest wards** (from Mui down to Tharaka) aggregate to **{{pareto.bottom10}} registered voters** (only **{{pareto.bottom10.share}}%** of the county register across 25% of the total wards), yet cover vast geographic areas with severe logistical transit costs.
 
-### 3.2.1 The constituencies that decide it
+### 2.3.1 The constituencies that decide it
 
 A constituency's structural importance is determined by its total voter weight, the density of its wards, and its historical role in party nominating conventions:
 
@@ -63,7 +97,7 @@ A key strategic finding emerges from this integrated database: **Mwingi North, M
 2.  **The Northern Anchor (Mwingi North - {{con.mwingi-north}} voters):** While 4th in total voters, Mwingi North carries outsized structural leverage: it hosts the #1 largest ward in the county (**Kyuso, {{ward.kyuso}} voters**), the ancestral political base of Wiper Patriotic Front leader Hon. Kalonzo Musyoka (**Tseikuru, {{ward.tseikuru}} voters**), and **Mumoni ({{ward.mumoni}} voters)**. It is both a voter powerhouse and the party's spiritual heartland.
 3.  **The Southern Bulwark (Kitui South - {{con.kitui-south}} voters):** The second-largest constituency by volume, Kitui South is anchored by high-density wards in Athi ({{ward.athi}}) and Ikanga/Kyatune ({{ward.ikanga-kyatune}}).
 
-## 3.3 Four routes to the number
+## 2.4 Four routes to the number
 
 Each route below is a combination of constituencies or wards, measured the same way: registered voters, then the ballots they would cast at the {{turnout.constant}}% turnout rate, then that ballot count against the {{benchmark}} benchmark from Section 3.1. The ballot count is the ceiling, since it assumes every ballot in the route goes to one candidate. **No route clears {{benchmark}} on its own ballots.** A route is where the margin is built, not where the whole number lives.
 
@@ -111,11 +145,103 @@ id: fig-3-3-paths
 *   **Strategic Conclusion:** **A home-constituency strategy is mathematically impossible.** Dr. Mulu cannot win by simply maximizing margins in Kitui Central, Kitui West, and Kitui Rural. Aggressive outward expansion into Mwingi and Kitui South is an absolute, non-negotiable arithmetic necessity.
 ```
 
-## 3.4 Where he is known and where he isn't
+## 2.5 The nomination rules and the calendar
+
+```figure
+id: fig-2-3-nomination
+```
+
+### 2.5.1 How Wiper picks its candidate
+
+Section 1.2 opened with the claim this entire Phase −1 strategy is built on:
+that the Wiper Kitui gubernatorial ticket will be settled by a party-run
+countywide selection rather than a competitive primary. That claim deserves to be stated plainly
+for what it is — **a Tier 3, single-source report, not a confirmed party
+decision.**
+
+If it turns out to be wrong — if Wiper instead runs a competitive primary, or
+delegate vote, or some hybrid — the phasing in Section 1.5 needs to be revised
+before further effort commits against it. This section exists so that
+re-check happens deliberately rather than by accident.
+
+**What the 2022 record shows, and what it does not.** The High Court judgment in *Kilonzo v Wiper
+Democratic Movement* (2022) records that Wiper's rules allowed nomination by consensus, and by
+direct or indirect methods, with the National Executive Council deciding the mode; and that for
+the 2022 Kitui gubernatorial ticket the party's board reached its decision through selected
+delegates and panels (Tier 1, Kenya Law). That is the 2022 precedent. It is not the 2027
+procedure, which rests on the party documents listed in Section 2.3.2.
+
+### 2.5.2 Where the selection method stands
+
+> **The party's name changed in 2025.** The Office of the Registrar of Political Parties issued a
+> certificate of change of name from **Wiper Democratic Movement (WDM)** to **Wiper Patriotic Front
+> (WPF)** in August 2025 (Tier 1, ORPP). This document uses WPF throughout; WDM appears only where
+> a 2022 record is quoted as it was filed.
+
+The strategic assumption that the Wiper Patriotic Front will select its Kitui gubernatorial nominee through a party-run countywide selection is classified as **Tier 3 (single-sourced campaign report, not confirmed by party officials)**. This mechanism remains highly fluid and subject to internal party negotiations.
+
+To transition this selection mechanism from a Tier 3 strategic assumption to a **Tier 1 verified operational constraint**, the campaign requires:
+1.  An official, signed resolution by the **Wiper National Executive Council (NEC)**.
+2.  **The party's nomination rules and timetable for 2027** — the documentary record the party files with the IEBC and the Office of the Registrar of Political Parties. This is the obtainable test, and the operationally useful one: it states who selects, by what mode, and when. A signed communique from the party leader would settle the question but is not something the campaign can produce on demand.
+
+## 2.6 The field: rivals and an open seat
+
+#### What his rivals have already proven
+
+The 2027 gubernatorial race in Kitui features a highly competitive, multi-candidate field. The campaign's strategic and digital architecture must navigate a distinct, two-stage contest.
+
+```figure
+id: fig-3-5-field
+```
+
+### 2.6.1 Stage One: the Wiper nomination
+
+Every attribute below is stated from an official or documentary record, and each line names the record that carries it. Where the record is not yet in hand, the line says so and makes no claim in its place.
+
+*   **Dr. Irene Kasalu (Woman Representative, Kitui County):** Holds the county's Woman Representative seat, a countywide constituency. Her 2022 result is the highest in the field: **{{result.2022.womanrep.kasalu}} votes** as Woman Representative, above the {{result.2022.gov.malombe}} that won the governorship the same year (Tier 2, a media report of the declaration; the IEBC Form 39C declaration is the record to hold, Section 2.2). As Woman Representative she is patron of the Kitui allocation of the National Government Affirmative Action Fund; the Auditor-General's reports on that allocation are the documentary record of her stewardship of public money, and they are not yet in hand. Her public criticism of the incumbent's equal-ward funding allocation is a live policy argument, and one where the campaign's own position needs settling first: Section 4.4.1 currently proposes an equal-ward guarantee of its own. The two positions cannot both be run. Either the equal-ward guarantee is the platform, and this line of argument is not available to the campaign, or the argument is made and the guarantee is restated as a needs-weighted formula. **Firefly's recommendation is the second, because a published allocation methodology is the stronger fit with the verification pillar in Section 4.1.5 — but it is the campaign's policy call.** [CONFLICT C6: see open items]
+*   **Sen. Enoch Wambua (Senator, Kitui County):** Won the 2022 Senate race with **{{result.2022.senate.wambua}} votes** (Tier 2; the IEBC Form 38C declaration is the record to hold), within {{gap.wambua-to-benchmark-2022}} of the winning governor's tally. His Senate committee roles are a matter of parliamentary record, to be cited from the Senate Hansard and committee membership lists.
+*   **Hon. Dr. Benson Makali Mulu (Member of Parliament, Kitui Central):** Holds a PhD in Economics and sits on the National Assembly's Budget and Appropriations Committee (Tier 1, Section 2.8). His largest electorate to date is Kitui Central's {{con.kitui-central}} registered voters, where he was re-elected in 2022 with **{{result.2022.mp.mulu}} votes** (Tier 1). He has not yet stood for a countywide office, so his proof at the ballot is constituency-bounded.
+*   **The incumbent cannot stand.** Governor Julius Malombe won the 2022 race on the Wiper ticket (Tier 1, Section 2.2) after a first term from 2013 to 2017. Article 180(7) of the Constitution limits a governor to two terms (Tier 1), and he is serving his second, so the 2027 Wiper nomination is for an open seat (Section 5.8.15). The party's 2027 nomination list is the document that settles who contests Stage One.
+
+### 2.6.2 Stage Two: the general election field
+
+Beyond the Wiper nomination, the general election field is stated on the same rule: the official record, attributed, and nothing in its place where the record is missing. No candidacy below is established until the party nomination records and the IEBC's gazetted nominations for 2027 are published.
+
+*   **Charity Ngilu (Former Governor, Kitui County - NARC):** Won the court-confirmed 2017 gubernatorial election with {{result.2017.gov.ngilu}} votes (Tier 1). She did not defend the seat in the 2022 general election (Tier 2; the IEBC's gazetted 2022 candidate list is the record).
+*   **David Musila (Former Senator, Kitui County):** Runner-up in both the 2017 and 2022 gubernatorial elections (Tier 1): {{result.2017.gov.musila}} votes in 2017 (Tier 1), and {{result.2022.gov.musila}} in 2022 (Tier 1, certified; The Star's early total of {{result.2022.gov.musila.media}} is a media variant). Where his vote came from is a question for the ward and polling-station forms (Section 2.2); until they are in hand, this proposal makes no claim about his geographic base.
+*   **Peninah Malonza (Former Deputy Governor & Former Cabinet Secretary):** Served as Deputy Governor from 2013–2017 (Tier 1) and subsequently as Cabinet Secretary for Tourism, Wildlife, and Heritage (Tier 1). Both appointments are Kenya Gazette records.
+*   **Nicholas Mulila (Safaricom PLC Executive):** Holds executive roles at Safaricom PLC (Tier 2); the company's published annual reports are the documentary record of those roles. His prospective candidacy has been reported in local news (Tier 2).
+*   **Francis Musili Kauta (Governance Activist):** A legal professional and civil society advocate in Kitui (Tier 2). His litigation on community rights and public land use is a matter of court record, to be cited from Kenya Law.
+*   **Julius Malombe (Incumbent Governor, Kitui County):** Won the 2022 general election with {{result.2022.gov.malombe}} votes (Tier 1, IEBC Form 37C) after serving a first term from 2013–2017. The Auditor-General's and Controller of Budget's reports on the county executive are the documentary record of his administration (Annex B.2). He is not in the 2027 field: Article 180(7) of the Constitution limits a governor to two terms, and he has served two. The race is for an open seat (Section 5.8.15), and his record is the one every candidate in it will be measured against.
+
+### 2.6.3 The incumbent is term-limited: 2027 is an open seat
+
+Governor Malombe served as Governor from 2013 to 2017, lost the 2017 election to Charity Ngilu (court-confirmed, Tier 1), and won again in 2022. Article 180(7) of the Constitution of Kenya limits a governor to two terms (Tier 1). He is serving his second, so he cannot stand in 2027, and this proposal plans for an open-seat election throughout.
+
+*   **Strategic consequence:** the 2027 race has no incumbent. Malombe's incumbency advantage does not carry into it, the Wiper Patriotic Front's nomination is a contest for an open seat, and factional realignment within the party and across independent coalitions follows. Dr. Mulu positions himself as the high-integrity successor to lead the county's economic transition, measured against the outgoing administration's record (Annex B.2).
+*   **What would change it:** only a court ruling or an IEBC decision to accept his nomination papers. The campaign's electoral-law reviewer (Section 5.7.9) reads Kenya Law and the IEBC's gazetted 2027 nominations for either, and the plan changes only if one appears.
+
+### 2.6.4 Reading the current field
+
+Dr. Kasalu's strength, on the record, is a countywide seat and a 2022 result
+above the governor's winning tally (Section 3.5; Tier 2 until the IEBC
+declaration is in hand). The strategic implication is not to compete for the
+same countywide presence — the campaign cannot match a sitting Woman
+Representative's countywide constituency in the time available — but to
+**compete on a dimension she is not occupying**: verifiable fiscal and delivery
+competence, distributed by channels that reach the wards where he has never held
+office. Her documented
+critique of the incumbent's equal-ward allocation model also opens a technical
+policy debate Dr. Mulu is better equipped to win than any candidate in the
+field.
+
+---
+
+## 2.7 Where he is known and where he isn't
 
 To formulate a targeted intervention, the campaign maps Dr. Mulu's structural profile against the county's voter geography.
 
-#### Where he has held office, and where he has not
+### 2.7.1 Where he has held office, and where he has not
 *   **Candidate Profile:** Dr. Benson Makali Mulu has served as Member of Parliament for Kitui Central for **13 consecutive years (since 2013, Tier 1)**.
 *   **High-Recognition / Core Anchor Zone:** Kitui Central ({{con.kitui-central}} voters) and immediate adjacent wards in Kitui West (Matinyani, Kauwi) and Kitui Rural (Kisasi, Mbitini).
 *   **Where he has never held office:**
@@ -142,35 +268,7 @@ This represents **{{pool.share}}% of the entire Kitui County voter register**. T
 id: fig-3-4-footprint
 ```
 
-## 3.5 What his rivals have already proven
-
-The 2027 gubernatorial race in Kitui features a highly competitive, multi-candidate field. The campaign's strategic and digital architecture must navigate a distinct, two-stage contest.
-
-```figure
-id: fig-3-5-field
-```
-
-#### Stage One: the Wiper nomination
-
-Every attribute below is stated from an official or documentary record, and each line names the record that carries it. Where the record is not yet in hand, the line says so and makes no claim in its place.
-
-*   **Dr. Irene Kasalu (Woman Representative, Kitui County):** Holds the county's Woman Representative seat, a countywide constituency. Her 2022 result is the highest in the field: **{{result.2022.womanrep.kasalu}} votes** as Woman Representative, above the {{result.2022.gov.malombe}} that won the governorship the same year (Tier 2, a media report of the declaration; the IEBC Form 39C declaration is the record to hold, Section 2.2). As Woman Representative she is patron of the Kitui allocation of the National Government Affirmative Action Fund; the Auditor-General's reports on that allocation are the documentary record of her stewardship of public money, and they are not yet in hand. Her public criticism of the incumbent's equal-ward funding allocation is a live policy argument, and one where the campaign's own position needs settling first: Section 4.4.1 currently proposes an equal-ward guarantee of its own. The two positions cannot both be run. Either the equal-ward guarantee is the platform, and this line of argument is not available to the campaign, or the argument is made and the guarantee is restated as a needs-weighted formula. **Firefly's recommendation is the second, because a published allocation methodology is the stronger fit with the verification pillar in Section 4.1.5 — but it is the campaign's policy call.**
-*   **Sen. Enoch Wambua (Senator, Kitui County):** Won the 2022 Senate race with **{{result.2022.senate.wambua}} votes** (Tier 2; the IEBC Form 38C declaration is the record to hold), within {{gap.wambua-to-benchmark-2022}} of the winning governor's tally. His Senate committee roles are a matter of parliamentary record, to be cited from the Senate Hansard and committee membership lists.
-*   **Hon. Dr. Benson Makali Mulu (Member of Parliament, Kitui Central):** Holds a PhD in Economics and sits on the National Assembly's Budget and Appropriations Committee (Tier 1, Section 2.8). His largest electorate to date is Kitui Central's {{con.kitui-central}} registered voters, where he was re-elected in 2022 with **{{result.2022.mp.mulu}} votes** (Tier 1). He has not yet stood for a countywide office, so his proof at the ballot is constituency-bounded.
-*   **The incumbent cannot stand.** Governor Julius Malombe won the 2022 race on the Wiper ticket (Tier 1, Section 2.2) after a first term from 2013 to 2017. Article 180(7) of the Constitution limits a governor to two terms (Tier 1), and he is serving his second, so the 2027 Wiper nomination is for an open seat (Section 5.8.15). The party's 2027 nomination list is the document that settles who contests Stage One.
-
-#### Stage Two: the general election field
-
-Beyond the Wiper nomination, the general election field is stated on the same rule: the official record, attributed, and nothing in its place where the record is missing. No candidacy below is established until the party nomination records and the IEBC's gazetted nominations for 2027 are published.
-
-*   **Charity Ngilu (Former Governor, Kitui County - NARC):** Won the court-confirmed 2017 gubernatorial election with {{result.2017.gov.ngilu}} votes (Tier 1). She did not defend the seat in the 2022 general election (Tier 2; the IEBC's gazetted 2022 candidate list is the record).
-*   **David Musila (Former Senator, Kitui County):** Runner-up in both the 2017 and 2022 gubernatorial elections (Tier 1): {{result.2017.gov.musila}} votes in 2017 (Tier 1), and {{result.2022.gov.musila}} in 2022 (Tier 1, certified; The Star's early total of {{result.2022.gov.musila.media}} is a media variant). Where his vote came from is a question for the ward and polling-station forms (Section 2.2); until they are in hand, this proposal makes no claim about his geographic base.
-*   **Peninah Malonza (Former Deputy Governor & Former Cabinet Secretary):** Served as Deputy Governor from 2013–2017 (Tier 1) and subsequently as Cabinet Secretary for Tourism, Wildlife, and Heritage (Tier 1). Both appointments are Kenya Gazette records.
-*   **Nicholas Mulila (Safaricom PLC Executive):** Holds executive roles at Safaricom PLC (Tier 2); the company's published annual reports are the documentary record of those roles. His prospective candidacy has been reported in local news (Tier 2).
-*   **Francis Musili Kauta (Governance Activist):** A legal professional and civil society advocate in Kitui (Tier 2). His litigation on community rights and public land use is a matter of court record, to be cited from Kenya Law.
-*   **Julius Malombe (Incumbent Governor, Kitui County):** Won the 2022 general election with {{result.2022.gov.malombe}} votes (Tier 1, IEBC Form 37C) after serving a first term from 2013–2017. The Auditor-General's and Controller of Budget's reports on the county executive are the documentary record of his administration (Annex B.2). He is not in the 2027 field: Article 180(7) of the Constitution limits a governor to two terms, and he has served two. The race is for an open seat (Section 5.8.15), and his record is the one every candidate in it will be measured against.
-
-## 3.6 Where party loyalty won't carry him
+### 2.7.2 Where party loyalty won't carry him
 
 **Kitui Central will be fighting its own contest.** Stephen Kilonzo ("Kitundumo") has reportedly
 entered the Kitui Central MP race, and NLP leader Augustus Muli is weighing a bid there (Tier 3 and
@@ -193,7 +291,50 @@ rather than offsets the Section 3.4 finding.
 id: fig-3-6-party-flow
 ```
 
-## 3.7 The three regions
+## 2.8 The county: people, budget and three regions
+
+### 2.8.1 The county's people and economy
+
+Kitui County's vast physical and demographic characteristics define its developmental and electoral context:
+
+*   **Demographic Base:** Sourced from the official 2019 Kenya Population and Housing Census, the county population is **{{census.population}}** (comprising {{census.male}} males, {{census.female}} females, and 33 intersex individuals) (Tier 1). Projections estimate a population base of approximately 1.2 million by 2024 (Tier 2).
+*   **Total Households:** **{{census.households}}** (Tier 1), with an average household size of **4.3 persons** (Tier 1).
+*   **Vast Land Area:** **{{census.area}} km²** (Tier 1), establishing Kitui as Kenya's sixth-largest county, with a low population density of **37 persons/km²** (Tier 1) compared to the national average of 82.
+*   **Rural-Urban Split:** **{{census.rural.share}}% rural** ({{census.rural}} residents) vs **{{census.urban.share}}% urban** ({{census.urban}} residents) (Tier 1).
+*   **Socio-Economic Vulnerability:** the **KNBS Kenya Poverty Report** puts **{{poverty.2021}}% of Kitui residents, about {{poverty.2021.people}} people, in poverty in 2021** (Tier 1). This is the official poverty rate; the 60.4% in the NDMA Long Rains Food Security Assessment is a food-security figure, not a poverty-report rate, and is not used. Approximately **{{water.surface}} residents rely on untreated surface water** as their primary domestic source (Tier 1).
+*   **Livestock Economy:** Anchored by approximately {{livestock.cattle}} cattle, {{livestock.goats}} goats, {{livestock.poultry}} poultry, and {{livestock.donkeys}} donkeys (Tier 1). **Poultry farming is practiced by over 90% of households** (Tier 1), serving as a highly inclusive, gender-focused entry point for economic empowerment messaging.
+
+```figure
+id: fig-2-4-people
+```
+
+#### Natural Hazards and NDMA Early-Warning Context:
+The county experienced severe, chronic drought pressure throughout 2025 (Tier 1). Sourced from the National Drought Management Authority (NDMA) January 2026 bulletin, the county's drought early-warning status was designated as **Alert Phase** (Tier 1), and its food security was classified under **IPC Phase 2 ("Stressed")** as of September 2025 (Tier 1). This drought pressure was immediately followed by the **March 2026 national flooding** (Tier 2), which disrupted infrastructure across multiple sub-counties.
+
+### 2.8.2 The budget the next governor runs
+
+The Governor of Kitui is the supreme executive authority of the county, responsible under the County Governments Act for administering public services to over one million residents. Key administrative and policy competencies include:
+
+*   **Agriculture and Water Infrastructure:** Developing drought-resilient food production, sand dams, irrigation, and livestock markets.
+*   **County Health Services:** Managing health facilities, personnel, pharmaceutical procurement, and sanitation.
+*   **Economic Devolution and Infrastructure:** Constructing county road networks, market facilities, and trade support systems.
+*   **Financial Administration:** Accountably managing public revenue allocations and local own-source collections.
+
+#### Sourced Revenue Envelope, FY2026/27 (Approved Fiscal Strategy Paper):
+The county budget represents a significant administrative responsibility. According to the approved Kitui County Fiscal Strategy Paper for FY2026/27, the total projected resource envelope is **KSh 13.79 billion**, comprising:
+*   **Equitable Share:** KSh 11.64 billion ({{budget.equitable.share}}% of the envelope) (Tier 1).
+*   **Own-Source Revenue:** KSh 1.12 billion in the Fiscal Strategy Paper ({{budget.osr.share}}%), raised to **KSh 1.339 billion** by the County Assembly. The final approved FY2026/27 budget settles which applies; until it is in hand, both are shown (Tier 3, verify).
+*   **Conditional Grants:** KSh 1.04 billion ({{budget.grants.share}}%) (Tier 1).
+
+```figure
+id: fig-2-5-budget
+```
+
+The three parts sum to KSh 13.80 billion against a published total of 13.79: the KSh 0.01 billion difference is rounding in the source, and is shown as its own segment rather than absorbed. The total itself is cited through secondary reporting of the Paper (Tier 3) until the Paper is cited directly.
+
+**The Strategic Opportunity:** This KSh 13.79 billion envelope represents the actual fiscal ceiling of devolved governance. The campaign will translate this budget into clear, ward-level policy targets, demonstrating how an expert economist will optimize public resource allocation across the 40 wards.
+
+### 2.8.3 The three regions
 
 Kitui is not a monolith. Its eight constituencies and 18 sub-counties have
 distinct economic bases, infrastructure needs and political histories. Digital
@@ -203,7 +344,7 @@ and SMS messaging is calibrated to each.
 id: fig-3-7-zones
 ```
 
-### 3.7.1 The urban and central anchor: Kitui Central and Kitui West
+#### The urban and central anchor: Kitui Central and Kitui West
 
 | Sub-County | Population | Density/km² | Households | Strategic value |
 |---|---|---|---|---|
@@ -223,7 +364,7 @@ zone where Dr. Mulu starts with a structural advantage, and in a
 countywide nomination contest, consolidating a base is cheaper than converting a
 stranger.**
 
-### 3.7.2 The northern block: Mwingi
+#### The northern block: Mwingi
 
 | Sub-County | Population | Density/km² | Households | Key issues |
 |---|---|---|---|---|
@@ -243,7 +384,7 @@ methodology and then evaluate against it.
 county and is where a Kitui Central MP is structurally least known. It carries
 disproportionate Phase −1 weighting of effort and reach.
 
-### 3.7.3 The arid and resource belt: Kitui South and East
+#### The arid and resource belt: Kitui South and East
 
 | Sub-County | Population | Density/km² | Households | Characteristics |
 |---|---|---|---|---|
@@ -272,9 +413,64 @@ is not a strategy; it is an assumption. Mapped against the 2022 baseline registe
 registered voters in Kitui South total {{con.kitui-south}}, distributed across six wards: Athi ({{ward.athi}}),
 Ikanga/Kyatune ({{ward.ikanga-kyatune}}), Mutomo/Kibwea ({{ward.mutomo}}), Ikutha ({{ward.ikutha}}), Mutha ({{ward.mutha}}), and Kanziko ({{ward.kanziko}}).
 
-What digital reach can and cannot deliver against the winning number, the infrastructure that reaches the offline majority, and who controls the Kamba-language airwaves.
+## 2.9 How voters get information, and what each channel can reach
 
-## 3.8 What each channel can physically reach
+### 2.9.1 How people get information
+#### The Defining Digital and Telecommunications Constraints (CA/KNBS Sourced):
+
+To maintain absolute data integrity, the campaign anchors on current Communications Authority and KNBS 2023/24 data as ground truth, while tracking the historical 2019 census:
+
+According to the **2023/24 Kenya Continuous Household Survey & Communications Authority reports** (Tier 1), Kitui County has an active internet penetration rate of **{{ict.internet}}%** (up from {{ict.internet.2019}}% in the 2019 KNBS Census), leaving **{{ict.offline}}% of the population offline**. Mobile phone ownership stands at **{{ict.phone}}%** (up from {{ict.phone.2019}}% in 2019).
+
+| Connectivity Metric | Current Sourced Value (2023/24) | 2019 Historical Baseline | Sourced National Context |
+|---|---|---|---|
+| Mobile Device Ownership | **{{ict.phone}}%** of residents (CA/KNBS 2023/24) (Tier 1) | {{ict.phone.2019.people}} individuals ({{ict.phone.2019}}%) (Tier 1) | 84.1 million active SIM cards; {{ict.sim-penetration}}% penetration (CA, Q3 FY2025/26) |
+| Active Internet Usage | **{{ict.internet}}%** ({{ict.offline}}% offline majority) (Tier 1) | {{ict.internet.2019.people}} individuals ({{ict.internet.2019}}%) (Tier 1) | 62.6 million mobile broadband subscriptions (Tier 1) |
+| Core Device Profile | Feature-phone and USSD-compatible devices dominant | Feature-phone dominance (Tier 1) | Smartphones are {{ict.smartphone-share}}% of active SIMs nationally (50.2 million of 84.1 million, CA Q3 FY2025/26, Tier 2); a national rate, which overstates Kitui |
+| Mobile Financial Services | Near-universal reliance on mobile transactions | Dominant mobile-money footprint | 53.4 million subscriptions ({{ict.momo-penetration}}%); **{{ict.agents}} registered agents** (March 2026) |
+
+```figure
+id: fig-2-6-connectivity
+```
+
+The **{{ict.agents}} mobile-money agent network** (representing a rapid expansion from {{ict.agents.2025}} in late 2025, Tier 1) is a vital offline asset. These agents represent trusted, commercially motivated local touchpoints in settlements where broadband access is unavailable.
+
+#### Platform Sizing & Realistic In-County Reach
+
+The digital footprint in Kitui County is concentrated in urban nodes (Kitui Town, Mwingi Town, Kwa Vonza university corridor) and among educated youth. In-county active users per platform are not published; Section 3.8 sizes what digital can reach from the published rates alone.
+
+### 2.9.2 Who owns the airwaves
+
+Vernacular radio is the primary medium of political consciousness and daily news in rural and peri-urban Kitui County. However, the media environment in Eastern Kenya is characterized by severe political concentration: **the highest-reach commercial radio stations broadcasting in Kikamba are owned, financed, or editorially steered by active political rivals or entrenched party gatekeepers**.
+
+To ensure uninterrupted, high-credibility communication with the electorate, the campaign constructs a dual strategy: a disciplined operational engagement model for Tier 1 commercial networks, coupled with an aggressive bypass architecture detailed in **Section 5.2.2.2**.
+
+```figure
+id: fig-2-7-media
+```
+
+The ownership map, the frequencies and the resulting campaign posture for every
+Kikamba-language station are set out once, in **Section 5.2.2.2**, and that table
+governs. It is the version reconciled against `data/media-ownership.ts`, which
+the site renders directly.
+
+> **Research Integrity Note on Listenership Data:**  
+> The published audience share is regional: the CA/KARF report for **Lower Eastern** (Kitui, Machakos and Makueni together) puts Musyi FM at {{radio.musyi}}%, Athiani FM at {{radio.athiani}}%, Mbaitu FM at {{radio.mbaitu}}% and County FM at {{radio.county}}% of listeners (Tier 2, an earlier measurement). It ranks the stations; it does not size Kitui's own audience.
+
+The three structural facts that drive the rest of this section:
+
+*   **Two stations are associated with Charity Ngilu**, a declared general-election rival: **Mbaitu FM** and **Syokimau FM**. Both are monitoring targets, not placement targets.
+*   **One station is associated with Kalonzo Musyoka**, the Wiper party leader: **Athiani FM**. It is party-sensitive rather than hostile, and it matters most during the nomination window, when coverage may track party leadership sentiment rather than merit.
+*   **The stations open to the campaign are commercially or institutionally independent**: **Musyi FM** (Royal Media Services), **County FM** (Kitui-based independent) and **Wikwatyo FM** (Seventh-Day Adventist Church, Kitui). These are the placement targets. [CONFLICT C7: see open items]
+
+Ownership associations are publicly reported rather than certified, and media
+ownership changes. The certifiable records are the Communications Authority's register
+of broadcast licensees and the Business Registration Service's company records; the map
+is checked against both before any placement is booked (Section 5.2.2.2).
+
+### 2.9.3 What each channel can physically reach
+
+What digital reach can and cannot deliver against the winning number, the infrastructure that reaches the offline majority, and who controls the Kamba-language airwaves.
 
 Winning Kitui County requires building a communication strategy aligned with empirical reality rather than digital wishful thinking. 
 
@@ -301,13 +497,13 @@ id: fig-3-8-ceiling
 2.  **It Cannot Penetrate the Rural Agrarian Base:** {{ict.offline}}% of Kitui's residents are offline (CA/KNBS 2023/24), and the rural smallholder majority does not meet political content through social algorithms: few smartphones, high data costs, and weak 3G/4G coverage in rural wards (e.g., Tharaka, Tseikuru, Voo/Kyamatu, Endau, Mutha).
 3.  **It Cannot Counteract Ground Rumors Directly:** WhatsApp and Facebook echo chambers rarely cross over into dryland farming communities without physical intermediaries.
 
-### 3.8.1 The offline majority, and the infrastructure that reaches it
+### 2.9.4 The offline majority, and the infrastructure that reaches it
 
 
 The election will be won or lost across the **{{reach.offline}} registered voters not reachable online** (modelled: the July 2026 register less the {{reach.smartphone}} reachable by smartphone or data). Reaching this electorate requires an orchestrated combination of telecommunications protocol channels (SMS/USSD), broadcast audio (vernacular radio), financial agent touchpoints, and dense physical market presence.
 
 #### Kikamba Vernacular Radio (The Decisive Broadcast Medium)
-*   **Reach:** the CA/KARF audience report for Lower Eastern (Kitui, Machakos and Makueni together) puts Musyi FM at {{radio.musyi}}% of listeners, Citizen Radio {{radio.citizen}}%, Athiani FM {{radio.athiani}}%, Mbaitu FM {{radio.mbaitu}}%, County FM {{radio.county}}% and Mwatu FM {{radio.mwatu}}% (Tier 2). It is a regional and an earlier measurement, so it ranks the stations rather than sizing Kitui's audience.
+*   **Reach:** the CA/KARF audience report for Lower Eastern (Kitui, Machakos and Makueni together) puts Musyi FM at {{radio.musyi}}% of listeners, Citizen Radio {{radio.citizen}}%, Athiani FM {{radio.athiani}}%, Mbaitu FM {{radio.mbaitu}}%, County FM {{radio.county}}% and Mwatu FM {{radio.mwatu}}% (Tier 2). It is a regional and an earlier measurement, so it ranks the stations rather than sizing Kitui's audience. [CONFLICT C7: see open items]
 *   **Station Hierarchy & Reach:**
     *   *Musyi FM (Royal Media Services):* Dominant market leader in Ukambani; commercially independent. **Priority placement.**
     *   *County FM (Kitui-based independent):* Local ward news and debates, strong in Kitui Town, Kabati and Kwa Vonza. **Priority placement.**
@@ -345,7 +541,45 @@ The election will be won or lost across the **{{reach.offline}} registered voter
 *   **Reach:** denominations present: Catholic, AIC, Redeemed Gospel, Anglican and Baptist. The Catholic Diocese of Kitui alone counts over {{church.catholic}} baptised members (Tier 3), a floor for one denomination rather than attendance.
 *   **What the campaign would run** (campaign-owned, outside this engagement, Section 5.1.3): Sunday morning worship visits across all 8 constituencies, respecting liturgical decorum, requesting pastoral prayers, and engaging parish development committees post-service.
 
-## 3.9 What his current presence shows
+## 2.10 His record and his channels today
+
+### 2.10.1 Dr. Mulu's public record
+
+Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS, has represented Kitui Central in the National Assembly since 2013 (Tier 1). He is a member of the Budget and Appropriations Committee (Tier 1), the committee that scrutinises the national estimates. Whether he has held a leadership position on it is confirmed from the National Assembly's committee membership records and Hansard; until it is, this proposal describes him as a member. The record below is what the public-finance message rests on, and each line names the document behind it.
+
+```figure
+id: fig-2-8-record
+```
+
+**Forensic Assets for Systematic Digital Projection:**
+
+| Asset | Sourced Empirical Evidence | Strategic Digital Application |
+|---|---|---|
+| Macroeconomic Leadership | PhD (Economics) (Tier 1); Budget and Appropriations Committee membership (Tier 1; any leadership role to be confirmed from the National Assembly's committee records) | Weekly "Dr. Mulu on Public Finance" explainer series |
+| **Monitoring & Evaluation Expertise** | Certified Consultant in Project Management & M&E (Tier 1); Member, Evaluation Society of Kenya (ESK) (Tier 1); **Designated M&E Champion by the Ministry of Finance** (Tier 1; the issuing letter or notice is to be cited) | Launch of the interactive service-delivery tracker (Section 5.2.1.1) |
+| International Executive Standing | United Nations — Project Management and Financial Advisory Roles (Tier 1) | Professional and diaspora network engagement and credibility |
+| Legislative Delivery Record | KSh 47 million in educational bursaries allocated directly to {{record.bursary.recipients}} constituents (Tier 1); **Kitui Central certified as the best-evaluated constituency in the Eastern region, FY2014/15** (ranking first out of 71 constituencies in its national peer group) (Tier 1; the evaluating body's report is to be cited, see Section 4.1.1) | Micro-targeted, ward-level visual proof points |
+| Administrative Longevity | 17 years in active political leadership, 13 years as Member of Parliament for Kitui Central (Tier 1); Commander of the Order of the Burning Spear (CBS) (Tier 1; the Kenya Gazette notice of the award is to be cited) | Steady, low-risk leadership framing contrasted with less-experienced candidates |
+| Existing Web Footprint | Active, established Kitui Central NG-CDF digital portal (Tier 1) | Integration and leveraging of existing assets to avoid duplicated effort |
+
+**The NG-CDF record, and its limits.** The constituency's NG-CDF site publishes project records,
+proposals, allocations and Project Implementation Status reports across its five wards: Mulango,
+Kyangwithya East, Kyangwithya West, Township and Miambani. The FY2026/27 allocation is
+**KSh {{ngcdf.allocation.2026}}** (Tier 1). A project is described as completed only where its
+implementation-status report says so.
+
+### 2.10.2 His channels today, and his rivals'
+
+```figure
+id: fig-2-9-channels
+```
+
+**The NG-CDF site is the most under-used asset in this list.** It is a public, constituency-run
+record of completed projects, and Pillar 1 exists to put exactly that record in front of voters who
+have never heard of him. Note the boundary in Section 5.7.6: the **project record** is usable;
+the **beneficiary personal data** behind it is not.
+
+### 2.10.3 What his current presence shows
 
 These come from the profile as displayed, and finding them took an afternoon. They are findings here
 because a brief written over a profile that contradicts the parliamentary record inherits the
@@ -355,7 +589,7 @@ contradiction. The corrections are strategy, and are in Section 4.7.
 id: fig-3-9-audit
 ```
 
-### 3.9.1 What the audit produces
+#### What the audit produces
 
 Four figures and a two-page note. Not a report.
 
@@ -369,7 +603,7 @@ Four figures and a two-page note. Not a report.
 Each is drawn from the Week 1 export, never from an estimate: until the export lands, the figure
 states that it is set in Week 1.
 
-## 3.10 What the data can't yet tell us
+## 2.11 What the data can't yet tell us
 
 In strict adherence to the campaign's data provenance standards, the analytical team explicitly marks empirical data gaps rather than interpolating unverified statistics:
 
@@ -383,11 +617,9 @@ id: fig-3-10-gaps
 
 ---
 
-### 3.10.1 Segment sizes the record does not publish
-
 Three segment sizes in Section 4.3 are not published by any official source: the agro-pastoral, the formal-sector and the diaspora voter counts. Section 4.3 gives the census context for each; none is estimated, and each stays unsized until an official source publishes it.
 
-## 3.11 The diagnosis, and the evidence that could overturn it
+## 2.12 The diagnosis, and the evidence that could overturn it
 
 **The hypothesis.** Dr. Mulu's gap is substantially a **geography-of-recognition** problem
 concentrated outside Kitui Central, not a deficit of leadership credibility, and recognition is

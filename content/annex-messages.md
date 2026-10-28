@@ -66,4 +66,3 @@ Cross-referencing the channel reach realities established in **Section 3.8**:
 ```figure
 id: message-by-channel
 ```
-
