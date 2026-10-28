@@ -2,7 +2,7 @@
 
 Every deletion made by the declutter, generated from `cuts.json` by `scripts/declutter/build-cuts-md.mjs`. Each row gives the file, the section, the opening words, the words removed (net of any short reference left in place), the kind of cut and the canonical home where its facts still stand. `scripts/declutter/check-content.mjs` checks that every duplicate's tokens and names are at its home (check 5) and that the word count balances (check 4).
 
-93 cuts, 1,783 words; 5 passages moved to their homes.
+107 cuts, 1,797 words; 5 passages moved to their homes.
 
 | File | Section | First words | Words | Kind | Canonical home | Note |
 |---|---|---|---:|---|---|---|
@@ -104,3 +104,17 @@ Every deletion made by the declutter, generated from `cuts.json` by `scripts/dec
 | risks | 6.3.1 | Prevention — provenance by default | 0 | Signpost or meta-text | — | The bold label became the checklist's title (moved). |
 | risks | 6.3.1 | Detection | 0 | Signpost or meta-text | — | The bold label became the checklist's title (moved). |
 | risks | 6.3.1 | Minute Action | 2 | Signpost or meta-text | — | The 'Minute' and 'Action' column heads: the timeline's times and labels. |
+| annex-evidence | A.1.2 | three immutable evidential tiers | 1 | Intensifier (X10) | — | X10: intensifier. Left in place: `three evidential tiers`. |
+| annex-evidence | A.1.2 | Standard Implementation Rules | 0 | Signpost or meta-text | — | The label became the visual's title (moved). |
+| annex-runbooks | E.4 | Tool class Function | 3 | Signpost or meta-text | — | The column heads: each tool is a row's label, its function the row's text. |
+| annex-runbooks | E.6 | Standing scenario library | 0 | Signpost or meta-text | — | The label became the visual's title (moved). |
+| annex-runbooks | E.6 | # Scenario | 7 | Signpost or meta-text | — | The 'Scenario' column head, and the six scenario numbers (as found: 1 to 5, then 7), which now open each label as list ordinals and so are not counted as words. |
+| annex-runbooks | E.10 | Phase Action Target | 3 | Signpost or meta-text | — | The 'Phase', 'Action' and 'Target' column heads: the timeline's labels, texts and times. |
+| annex-spec | G.1 | Facebook | 0 | Signpost or meta-text | — | The platform's h4 became its card's title (moved). |
+| annex-spec | G.1 | X | 0 | Signpost or meta-text | — | The platform's h4 became its card's title (moved). |
+| annex-spec | G.1 | WhatsApp | 0 | Signpost or meta-text | — | The platform's h4 became its card's title (moved). |
+| annex-spec | G.1 | TikTok | 0 | Signpost or meta-text | — | The platform's h4 became its card's title (moved). |
+| annex-spec | G.1 | Instagram | 0 | Signpost or meta-text | — | The platform's h4 became its card's title (moved). |
+| annex-spec | G.1 | YouTube | 0 | Signpost or meta-text | — | The platform's h4 became its card's title (moved). |
+| annex-spec | G.1 | Google Ads | 0 | Signpost or meta-text | — | The platform's h4 became its card's title (moved). |
+| annex-spec | G.5 | Data sources | 0 | Signpost or meta-text | — | The label became the visual's title (moved). |

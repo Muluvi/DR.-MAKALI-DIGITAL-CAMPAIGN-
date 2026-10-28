@@ -8,6 +8,10 @@ ANNEX C. Message assignment by segment and by channel — the production referen
 
 ## C.1 Message assignment by segment
 
+```lead
+**No segment in these grids carries a size.** The grids assign messages; they do not measure audiences.
+```
+
 Cross-referencing the demographic and livelihood segments established in **Section 3.4.2**:
 
 > **These segments overlap, and the percentages are shares of the register, not a partition

@@ -1006,5 +1006,146 @@
   "home": "",
   "note": "The 'Minute' and 'Action' column heads: the timeline's times and labels.",
   "text": "Minute | Action"
+ },
+ {
+  "file": "annex-evidence",
+  "section": "A.1.2",
+  "first12": "three immutable evidential tiers",
+  "words": 1,
+  "kind": "register",
+  "home": "",
+  "note": "X10: intensifier.",
+  "text": "three immutable evidential tiers",
+  "replacement": "three evidential tiers"
+ },
+ {
+  "file": "annex-evidence",
+  "section": "A.1.2",
+  "first12": "Standard Implementation Rules",
+  "words": 0,
+  "kind": "signpost",
+  "home": "",
+  "note": "The label became the visual's title (moved).",
+  "text": "#### Standard Implementation Rules:"
+ },
+ {
+  "file": "annex-runbooks",
+  "section": "E.4",
+  "first12": "Tool class Function",
+  "words": 3,
+  "kind": "signpost",
+  "home": "",
+  "note": "The column heads: each tool is a row's label, its function the row's text.",
+  "text": "Tool class | Function"
+ },
+ {
+  "file": "annex-runbooks",
+  "section": "E.6",
+  "first12": "Standing scenario library",
+  "words": 0,
+  "kind": "signpost",
+  "home": "",
+  "note": "The label became the visual's title (moved).",
+  "text": "**Standing scenario library:**"
+ },
+ {
+  "file": "annex-runbooks",
+  "section": "E.6",
+  "first12": "# Scenario",
+  "words": 7,
+  "kind": "signpost",
+  "home": "",
+  "note": "The 'Scenario' column head, and the six scenario numbers (as found: 1 to 5, then 7), which now open each label as list ordinals and so are not counted as words.",
+  "text": "Scenario; 1 2 3 4 5 7"
+ },
+ {
+  "file": "annex-runbooks",
+  "section": "E.10",
+  "first12": "Phase Action Target",
+  "words": 3,
+  "kind": "signpost",
+  "home": "",
+  "note": "The 'Phase', 'Action' and 'Target' column heads: the timeline's labels, texts and times.",
+  "text": "Phase | Action | Target"
+ },
+ {
+  "file": "annex-spec",
+  "section": "G.1",
+  "first12": "Facebook",
+  "words": 0,
+  "kind": "signpost",
+  "home": "",
+  "note": "The platform's h4 became its card's title (moved).",
+  "text": "#### Facebook"
+ },
+ {
+  "file": "annex-spec",
+  "section": "G.1",
+  "first12": "X",
+  "words": 0,
+  "kind": "signpost",
+  "home": "",
+  "note": "The platform's h4 became its card's title (moved).",
+  "text": "#### X"
+ },
+ {
+  "file": "annex-spec",
+  "section": "G.1",
+  "first12": "WhatsApp",
+  "words": 0,
+  "kind": "signpost",
+  "home": "",
+  "note": "The platform's h4 became its card's title (moved).",
+  "text": "#### WhatsApp"
+ },
+ {
+  "file": "annex-spec",
+  "section": "G.1",
+  "first12": "TikTok",
+  "words": 0,
+  "kind": "signpost",
+  "home": "",
+  "note": "The platform's h4 became its card's title (moved).",
+  "text": "#### TikTok"
+ },
+ {
+  "file": "annex-spec",
+  "section": "G.1",
+  "first12": "Instagram",
+  "words": 0,
+  "kind": "signpost",
+  "home": "",
+  "note": "The platform's h4 became its card's title (moved).",
+  "text": "#### Instagram"
+ },
+ {
+  "file": "annex-spec",
+  "section": "G.1",
+  "first12": "YouTube",
+  "words": 0,
+  "kind": "signpost",
+  "home": "",
+  "note": "The platform's h4 became its card's title (moved).",
+  "text": "#### YouTube"
+ },
+ {
+  "file": "annex-spec",
+  "section": "G.1",
+  "first12": "Google Ads",
+  "words": 0,
+  "kind": "signpost",
+  "home": "",
+  "note": "The platform's h4 became its card's title (moved).",
+  "text": "#### Google Ads"
+ },
+ {
+  "file": "annex-spec",
+  "section": "G.5",
+  "first12": "Data sources",
+  "words": 0,
+  "kind": "signpost",
+  "home": "",
+  "note": "The label became the visual's title (moved).",
+  "text": "#### Data sources"
  }
 ]

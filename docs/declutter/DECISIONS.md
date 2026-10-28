@@ -97,3 +97,17 @@ A run of h4 blocks becomes an accordion from three panels, not two. Two-panel ru
 **D-39. Inline chips and cross-references inside a row's face are drawn as text.** A visual row with details is a button, and a tier chip, conflict chip or section link inside it nested one control in another (a hydration error in development and an accessibility fault). Inside a row face these now render as plain badges and plain section numbers (`components/markdown/InertMarks.ts`). Each chip keeps the words it stands for as screen-reader text, and each reference keeps its section number; only the jump is lost on a face.
 
 **D-40. Visual faces break at a sentence end, never at a semicolon or colon.** Stage 8's list and table conversions show an item's first sentence when it is short, the whole text when it has no sentence break and is short, and otherwise only the label, with the text in the details. Breaking at a colon had left faces such as "Publish:" and "X:".
+
+## Stage 9: Annexes A to G
+
+**D-41. B.1's ward register stays as eight constituency panels.** The plan asks for the forty ward bullets to become a sortable table in a disclosure. Each constituency heading carries that constituency's registered-voter total and its tier, which a ward table would have to restate as an extra row per constituency. The h4 accordion already shows one constituency open and seven closed, which meets the section's on-load target, so the bullets stay as found.
+
+**D-42. F.1 is shown in full.** The terms of use are never summarised (brief section 2, rule 7). All three paragraphs are marked to show on load; the section has no lead.
+
+**D-43. The annex intros stay.** The plan keeps the intros for annexes A, B, D, E and G. Annex C's intro callout ("Re-cut against the production pillars") is left as found rather than given a lead, because a lead above an annex's opening line would sit above the annex marker.
+
+**D-44. E.6's scenario numbers are kept as found.** The standing scenario library runs 1 to 5, then 7. Each number now opens its scenario's label, so the gap stays visible; it is an open item, not a typo to fix.
+
+**D-45. G.4's component count is reported, not corrected.** G.4 says it specifies "the six core software components" and then names five. The count is a value in the source, so it stands and is listed in REPORT.md.
+
+**D-46. Stage scripts share their helpers.** From Stage 9, the block, list, sentence-face and keep helpers live in `scripts/declutter/stage_helpers.py`. Stage 8's script keeps its own copy, as it ran.

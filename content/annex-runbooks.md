@@ -24,33 +24,65 @@ id: holding-positions
 
 ## E.4 Monitoring tools
 
-| Tool class | Function |
-|---|---|
-| Social monitoring dashboards | Real-time X and cross-platform keyword, hashtag and competitor tracking |
-| Social listening and sentiment (premium tier) | Cross-platform sentiment analysis |
-| Meta Business Suite | Facebook and Instagram monitoring; competitor content |
-| Google Alerts | "Makali Mulu," "Kitui Governor 2027," rival names |
-| **Meta Ad Library** | Competitor ad spend, creative and targeting estimates |
-| **Google Ads Transparency Centre** | Competitor search advertising |
-| Custom BI dashboard | Centralised real-time metrics |
-| **Radio monitoring** | Kamba-language station tracking (Section 4.5.6) — critical, as most attacks on Dr. Mulu will originate on air, not online |
+```visual
+kind: checklist
+items:
+  - label: "Social monitoring dashboards"
+    text: "Real-time X and cross-platform keyword, hashtag and competitor tracking"
+  - label: "Social listening and sentiment (premium tier)"
+    text: "Cross-platform sentiment analysis"
+  - label: "Meta Business Suite"
+    text: "Facebook and Instagram monitoring; competitor content"
+  - label: "Google Alerts"
+    text: "\"Makali Mulu,\" \"Kitui Governor 2027,\" rival names"
+  - label: "**Meta Ad Library**"
+    text: "Competitor ad spend, creative and targeting estimates"
+  - label: "**Google Ads Transparency Centre**"
+    text: "Competitor search advertising"
+  - label: "Custom BI dashboard"
+    text: "Centralised real-time metrics"
+  - label: "**Radio monitoring**"
+    text: "Kamba-language station tracking (Section 4.5.6) — critical, as most attacks on Dr. Mulu will originate on air, not online"
+```
 
 ## E.5 Rapid-response protocol and pre-approved message library
 
-| Severity | Definition | Response time | Approval |
-|---|---|---|---|
-| **Level 1** | Minor negative comment or isolated misinformation | ≤ 4 hours | Digital Director |
-| **Level 2** | Coordinated attack; viral misinformation (>10,000 views) | ≤ 2 hours | Campaign Communications Director |
-| **Level 3** | Major crisis — false allegation, **manipulated or AI-generated media**, legal threat | ≤ 30 minutes | **Candidate + senior leadership** |
+```visual
+kind: checklist
+items:
+  - label: "Level 1"
+    text: "Minor negative comment or isolated misinformation"
+    head: { label: "Response time", text: "≤ 4 hours" }
+    fields:
+      - { label: "Approval", text: "Digital Director" }
+  - label: "Level 2"
+    text: "Coordinated attack; viral misinformation (>10,000 views)"
+    head: { label: "Response time", text: "≤ 2 hours" }
+    fields:
+      - { label: "Approval", text: "Campaign Communications Director" }
+  - label: "Level 3"
+    text: "Major crisis — false allegation, **manipulated or AI-generated media**, legal threat"
+    head: { label: "Response time", text: "≤ 30 minutes" }
+    fields:
+      - { label: "Approval", text: "**Candidate + senior leadership**" }
+```
 
 To execute rapid containment without awaiting ad-hoc legal drafting, a pre-approved message library is maintained:
-* Standard rebuttals for false claims about Dr. Mulu's record
-* Kikamba, Kiswahili and English versions of key messages
-* Template statements for policy positions issued in response to attack
-* Fact-check cards linking to verified sources
-* **Deepfake first-response templates** (Section 6.3.1)
+```visual
+kind: checklist
+items:
+  - label: "Standard rebuttals for false claims about Dr. Mulu's record"
+  - label: "Kikamba, Kiswahili and English versions of key messages"
+  - label: "Template statements for policy positions issued in response to attack"
+  - label: "Fact-check cards linking to verified sources"
+  - label: "**Deepfake first-response templates** (Section 6.3.1)"
+```
 
 ## E.6 Red-team drills
+
+```lead
+Quarterly at standard tier, monthly at premium, with a mandatory full-scale drill immediately before the nomination decision and again 60 days before the general election.
+```
 
 *Reactive protocols fail because they are first used under real pressure.*
 
@@ -63,15 +95,29 @@ representative, and an external participant with no stake in the outcome — is
 briefed to attack. The response team is **not** told which scenario is coming
 or when. The drill runs in real time against the Section E.5 clock.
 
-**Standing scenario library:**
-| # | Scenario | Tests |
-|---|---|---|
-| 1 | Fabricated audio of Dr. Mulu making an inflammatory statement, seeded on WhatsApp | Deepfake protocol; 30-minute Level 3 clock |
-| 2 | Coordinated hashtag attack on his NG-CDF record | Fact-base readiness; rebuttal library |
-| 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval (Section 5.3.3) |
-| 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 4.5.6) |
-| 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section E.10) |
-| 7 | Manufactured "grassroots" campaign attacking a rival, falsely attributed to Dr. Mulu | Charter defence; provenance evidence |
+```visual
+kind: checklist
+title: "Standing scenario library"
+items:
+  - label: "1. Fabricated audio of Dr. Mulu making an inflammatory statement, seeded on WhatsApp"
+    fields:
+      - { label: "Tests", text: "Deepfake protocol; 30-minute Level 3 clock" }
+  - label: "2. Coordinated hashtag attack on his NG-CDF record"
+    fields:
+      - { label: "Tests", text: "Fact-base readiness; rebuttal library" }
+  - label: "3. Claim that the campaign sent unsolicited SMS"
+    fields:
+      - { label: "Tests", text: "Consent audit trail retrieval (Section 5.3.3)" }
+  - label: "4. Hostile radio segment on a station associated with a rival"
+    fields:
+      - { label: "Tests", text: "Radio response pathway (Section 4.5.6)" }
+  - label: "5. Ward champion's account compromised; false messages sent to a ward group"
+    fields:
+      - { label: "Tests", text: "Incident response (Section E.10)" }
+  - label: "7. Manufactured \"grassroots\" campaign attacking a rival, falsely attributed to Dr. Mulu"
+    fields:
+      - { label: "Tests", text: "Charter defence; provenance evidence" }
+```
 
 **Output:** every drill produces a written report — actual response times
 against target, decision bottlenecks, gaps in the message library — and the
@@ -86,6 +132,10 @@ target**.
 
 ## E.7 The threat model
 
+```lead
+Kenyan campaigns face account takeover, phishing of staff and volunteers, leaked internal material, and increasingly the fabrication of audio and video.
+```
+
 Kenyan campaigns face account takeover, phishing of staff and volunteers,
 leaked internal material, and increasingly the fabrication of audio and video.
 Kenya's Communications Authority attributed rising cyber threat volumes in part
@@ -93,23 +143,54 @@ to **inadequate system patching, insufficient phishing awareness, and the
 growing use of AI tools by malicious actors**, issuing 21.8 million threat
 advisories in a single quarter.
 
-For this campaign specifically, the highest-consequence scenarios are:
-1. Compromise of the candidate's own social accounts
-2. A ward champion's WhatsApp account compromised and used to message a ward
-3. Leaked internal strategy material — including, if mishandled, this document
-4. Fabricated audio or video of the candidate
+```visual
+kind: checklist
+note: "For this campaign specifically, the highest-consequence scenarios are:"
+items:
+  - label: "Compromise of the candidate's own social accounts"
+  - label: "A ward champion's WhatsApp account compromised and used to message a ward"
+  - label: "Leaked internal strategy material — including, if mishandled, this document"
+  - label: "Fabricated audio or video of the candidate"
+```
 
 ## E.8 Account security baseline
 
-| Control | Standard | Applies to |
-|---|---|---|
-| **Hardware security keys (FIDO2)** for two-factor authentication | **Mandatory** — SMS-based 2FA is not sufficient and is vulnerable to SIM-swap | Candidate, Digital Director, all admin-level accounts |
-| App-based 2FA minimum | Where hardware keys are impractical | All staff and Tier 3–4 volunteers |
-| Password manager | Unique generated credentials; no reuse | All staff |
-| Role-based access | Least privilege; no shared logins ever | All platforms |
-| Business Manager structure | Assets owned by the campaign entity, not individuals | All ad and page assets |
-| Quarterly access review | Remove departed staff and volunteers within 24 hours of departure | Data-governance owner |
-| Recovery contacts | Documented, verified, held by two named people | Candidate accounts |
+```lead
+**Hardware keys for the candidate and admins are non-negotiable and take very little.**
+```
+
+```visual
+kind: checklist
+items:
+  - label: "**Hardware security keys (FIDO2)** for two-factor authentication"
+    text: "**Mandatory** — SMS-based 2FA is not sufficient and is vulnerable to SIM-swap"
+    fields:
+      - { label: "Applies to", text: "Candidate, Digital Director, all admin-level accounts" }
+  - label: "App-based 2FA minimum"
+    text: "Where hardware keys are impractical"
+    fields:
+      - { label: "Applies to", text: "All staff and Tier 3–4 volunteers" }
+  - label: "Password manager"
+    text: "Unique generated credentials; no reuse"
+    fields:
+      - { label: "Applies to", text: "All staff" }
+  - label: "Role-based access"
+    text: "Least privilege; no shared logins ever"
+    fields:
+      - { label: "Applies to", text: "All platforms" }
+  - label: "Business Manager structure"
+    text: "Assets owned by the campaign entity, not individuals"
+    fields:
+      - { label: "Applies to", text: "All ad and page assets" }
+  - label: "Quarterly access review"
+    text: "Remove departed staff and volunteers within 24 hours of departure"
+    fields:
+      - { label: "Applies to", text: "Data-governance owner" }
+  - label: "Recovery contacts"
+    text: "Documented, verified, held by two named people"
+    fields:
+      - { label: "Applies to", text: "Candidate accounts" }
+```
 
 **Hardware keys for the candidate and admins are non-negotiable and take very
 little.** The specification: **FIDO2 (WebAuthn) hardware security keys, two per critical account
@@ -117,26 +198,51 @@ holder** so a lost key never locks an account, registered before any SMS or app 
 
 ## E.9 Phishing awareness
 
-* Onboarding training for every staff member and Tier 3–4 volunteer before
-account access is granted
-* **Simulated phishing exercises quarterly**, with results used for coaching,
-never for punishment — punitive programmes suppress reporting, which is the
-opposite of the goal
-* A no-blame reporting channel with a target of **under 15 minutes** from
-suspicion to report
-* Specific coverage of the patterns most likely here: fake platform security
-alerts, fake IEBC or party communications, and fake media interview requests
+```visual
+kind: checklist
+items:
+  - label: "Onboarding training for every staff member and Tier 3–4 volunteer before account access is granted"
+  - label: "**Simulated phishing exercises quarterly**, with results used for coaching, never for punishment — punitive programmes suppress reporting, which is the opposite of the goal"
+  - label: "A no-blame reporting channel with a target of **under 15 minutes** from suspicion to report"
+  - label: "Specific coverage of the patterns most likely here: fake platform security alerts, fake IEBC or party communications, and fake media interview requests"
+```
 
 ## E.10 The incident response plan
 
-| Phase | Action | Owner | Target |
-|---|---|---|---|
-| **Detect** | Anomalous login, unexpected post, member report | Any team member | Immediate |
-| **Contain** | Force password reset, revoke sessions and tokens, remove compromised access | Digital Director | ≤ 15 min |
-| **Assess** | Determine what was accessed, posted or exfiltrated | Data-governance owner | ≤ 1 hour |
-| **Communicate** | Notify leadership; if voter data is affected, assess notification obligations with counsel | Digital Director | ≤ 2 hours |
-| **Correct** | Delete unauthorised content; issue public correction if it was seen | Crisis lead | ≤ 4 hours |
-| **Review** | Written post-incident report; control revision | Data-governance owner | ≤ 7 days |
+```visual
+kind: timeline
+items:
+  - when: "Immediate"
+    label: "Detect"
+    text: "Anomalous login, unexpected post, member report"
+    fields:
+      - { label: "Owner", text: "Any team member" }
+  - when: "≤ 15 min"
+    label: "Contain"
+    text: "Force password reset, revoke sessions and tokens, remove compromised access"
+    fields:
+      - { label: "Owner", text: "Digital Director" }
+  - when: "≤ 1 hour"
+    label: "Assess"
+    text: "Determine what was accessed, posted or exfiltrated"
+    fields:
+      - { label: "Owner", text: "Data-governance owner" }
+  - when: "≤ 2 hours"
+    label: "Communicate"
+    text: "Notify leadership; if voter data is affected, assess notification obligations with counsel"
+    fields:
+      - { label: "Owner", text: "Digital Director" }
+  - when: "≤ 4 hours"
+    label: "Correct"
+    text: "Delete unauthorised content; issue public correction if it was seen"
+    fields:
+      - { label: "Owner", text: "Crisis lead" }
+  - when: "≤ 7 days"
+    label: "Review"
+    text: "Written post-incident report; control revision"
+    fields:
+      - { label: "Owner", text: "Data-governance owner" }
+```
 
 **Leaked material protocol.** If internal material surfaces publicly, the
 campaign confirms or denies authenticity accurately and quickly. It does not
@@ -144,6 +250,10 @@ speculate about the source, and it does not deny the authenticity of genuine
 material — a denial later disproved is worse than the original leak.
 
 ## E.12 Competitive intelligence outputs and rapid alerts
+
+```lead
+The competitive intelligence workflow produces two operational outputs: the monthly competitive brief and the rapid alert system.
+```
 
 The competitive intelligence workflow produces two operational outputs:
 
