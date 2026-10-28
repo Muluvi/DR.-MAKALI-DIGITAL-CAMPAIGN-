@@ -41,7 +41,7 @@ def write(name, text):
 
 def words(s):
     """Whitespace-separated runs with a letter or digit in them (scripts/declutter/sections.mjs agrees)."""
-    return len([t for t in s.split() if re.search(r"[A-Za-z0-9]", t)])
+    return len([t for t in s.split() if re.search(r"[A-Za-z0-9]", t) and not re.fullmatch(r"\d+\.", t)])
 
 
 def span(text, number):
@@ -252,7 +252,8 @@ def swap(name, number, old, new):
 def split_clause(text, limit=12):
     """(visible, rest): the first clause of `text` when it is `limit` words or fewer, else ("", text)."""
     t = oneline(text)
-    m = re.match(r"^(.+?[.;:])(\s+|$)([\s\S]*)$", t)
+    # Not at an abbreviation: "Dr. Mulu", "Sen. Wambua", "e.g. Tharaka".
+    m = re.match(r"^(.+?(?<!\bDr)(?<!\bSen)(?<!\bHon)(?<!\bMr)(?<!\bMrs)(?<!\bSt)(?<!\bNo)(?<!\be\.g)(?<!\bi\.e)[.;:])(\s+|$)([\s\S]*)$", t)
     if m and words(m.group(1)) <= limit:
         head = m.group(1)
         rest = m.group(3).strip()

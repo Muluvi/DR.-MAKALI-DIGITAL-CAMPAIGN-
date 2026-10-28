@@ -272,3 +272,21 @@ span[data-fold-body][hidden] { display: inline-block; }
 @media (prefers-reduced-motion: reduce) {
   .pf-more__chev, .vz-more__chev { transition: none; }
 }
+
+/* A matrix or crosswalk on a phone: each row is a block, each cell labelled with its column. Five
+   columns squeezed into 360px read as a column of single words. */
+@media (max-width: 639px) {
+  .vz--matrix .vz-table thead, .vz--crosswalk .vz-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .vz--matrix .vz-table, .vz--matrix .vz-table tbody, .vz--matrix .vz-table tr,
+  .vz--crosswalk .vz-table, .vz--crosswalk .vz-table tbody, .vz--crosswalk .vz-table tr { display: block; }
+  .vz--matrix .vz-table tr, .vz--crosswalk .vz-table tr { padding: 10px 0; border-bottom: 1px solid var(--pf-line); }
+  .vz--matrix .vz-table th, .vz--matrix .vz-table td,
+  .vz--crosswalk .vz-table th, .vz--crosswalk .vz-table td { display: block; padding: 2px 0; border: 0; }
+  .vz--matrix .vz-table td::before, .vz--crosswalk .vz-table td::before {
+    content: attr(data-col) " · ";
+    font: 700 11px/1.3 var(--pf-display);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--pf-muted);
+  }
+}

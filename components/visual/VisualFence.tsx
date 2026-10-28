@@ -452,6 +452,7 @@ function Donut({ items, md }: { items: Item[]; md: Md }) {
             <span className="vz-donut__swatch" style={{ background: DONUT_TONES[i % DONUT_TONES.length] }} aria-hidden="true" />
             <span className="vz-donut__value">{md(it.value ?? "", true)}</span> {md(labelOf(it), true)} <TierTag tier={it.tier} />
             {it.conflict ? <> <ConflictMark conflict={it.conflict} /></> : null}
+            <FaceConflicts it={it} />
             <ItemDetails it={it} md={md} />
           </li>
         ))}
@@ -526,6 +527,7 @@ export function VisualFence({ json, md }: { json: string; md: Md }) {
         <Body spec={spec} md={md} />
       </div>
       {spec.source ? <p className="vz__source">{md(spec.source, true)}</p> : null}
+      <FaceConflicts it={{ body: spec.body }} />
       {spec.body ? (
         <More label="Read the full text">
           <div className="vz-body prose max-w-none">{md(spec.body)}</div>

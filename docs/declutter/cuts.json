@@ -128,7 +128,7 @@
   "file": "delivery",
   "section": "4.2.1",
   "first12": "flagbearer decision, which party sources indicate is intended to conclude within the",
-  "words": 13,
+  "words": 12,
   "kind": "chip",
   "home": "evidence:2.5.1|evidence:2.5.2",
   "note": "X7: restatement of the nomination window. 'Party sources indicate' is the report 2.5.2 grades Tier 3, single-source.",
@@ -336,7 +336,7 @@
   "file": "evidence",
   "section": "2.6.1",
   "first12": "The incumbent cannot stand. Governor Julius Malombe won the 2022 race on",
-  "words": 58,
+  "words": 57,
   "kind": "duplicate",
   "home": "evidence:2.6.3|evidence:2.6.2|evidence:2.2",
   "note": "The term limit, said once at 2.6.3 (section 6). Its last sentence, on the party's 2027 nomination list, stays.",
@@ -453,5 +453,138 @@
   "home": "",
   "note": "The four bold labels became the hypothesis card's four panel titles.",
   "text": "**The hypothesis.** **What supports it.** **What counts against it.** **The test.**"
+ },
+ {
+  "file": "strategy",
+  "section": "3.1",
+  "first12": "turns standard political promotion on its head:",
+  "words": 7,
+  "kind": "register",
+  "home": "",
+  "note": "X10: rhetorical framing.",
+  "text": " turns standard political promotion on its head:",
+  "replacement": ":"
+ },
+ {
+  "file": "strategy",
+  "section": "3.1",
+  "first12": "The asset no rival holds. Forensic analysis of Dr. Mulu's record identifies",
+  "words": 17,
+  "kind": "register",
+  "home": "",
+  "note": "X10: inflated framing. The credentials that follow stay in the full text, because they name 'strategic planning', which his record's home (2.10.1) does not.",
+  "text": "**The asset no rival holds.** Forensic analysis of Dr. Mulu's record identifies a highly powerful, under-utilized asset. "
+ },
+ {
+  "file": "strategy",
+  "section": "3.1.3",
+  "first12": "The Rival Attack: / The Clinical Rebuttal:",
+  "words": 5,
+  "kind": "signpost",
+  "home": "",
+  "note": "The two bold labels became the attack-and-answer card's panel titles.",
+  "text": "**The Rival Attack:** **The Clinical Rebuttal:**"
+ },
+ {
+  "file": "strategy",
+  "section": "3.1.3",
+  "first12": "The campaign will aggressively pivot this attack into a powerful, reinforcing asset.",
+  "words": 2,
+  "kind": "register",
+  "home": "",
+  "note": "X10: intensifiers.",
+  "text": "The campaign will aggressively pivot this attack into a powerful, reinforcing asset.",
+  "replacement": "The campaign will pivot this attack into a reinforcing asset."
+ },
+ {
+  "file": "strategy",
+  "section": "3.2.3",
+  "first12": "Segment: Language: Channel: Format: (x4)",
+  "words": 16,
+  "kind": "signpost",
+  "home": "",
+  "note": "The four repeated field labels became the matrix's column heads.",
+  "text": "**Segment:** **Language:** **Channel:** **Format:** ×4"
+ },
+ {
+  "file": "strategy",
+  "section": "3.3.2",
+  "first12": "A common failure mode in modern Kenyan political campaigns is over-weighting flashy",
+  "words": 25,
+  "kind": "register",
+  "home": "",
+  "note": "X10: framing paragraph.",
+  "text": "A common failure mode in modern Kenyan political campaigns is over-weighting flashy social\nmedia influencers while starving the unglamorous rural infrastructure that actually produces\nvotes.\n\n"
+ },
+ {
+  "file": "strategy",
+  "section": "3.4",
+  "first12": "Electoral conversion in Kitui County requires disaggregating the {{register.2022}} registered voters into",
+  "words": 47,
+  "kind": "register",
+  "home": "",
+  "note": "Framing paragraph (plan 3.4); each segment names its own source.",
+  "text": "Electoral conversion in Kitui County requires disaggregating the {{register.2022}} registered voters into distinct, behavioral, and demographic segments grounded in official data from the **2019 Kenya National Bureau of Statistics (KNBS) Census**, the **Independent Electoral and Boundaries Commission (IEBC)**, and the **Communications Authority of Kenya (CA)** (Tier 1).\n\n"
+ },
+ {
+  "file": "strategy",
+  "section": "3.4",
+  "first12": "A generic countywide message fails because an offline smallholder farmer in Tseikuru",
+  "words": 41,
+  "kind": "register",
+  "home": "",
+  "note": "Framing paragraph (plan 3.4): 'one countywide message fails' stays as the section's opening line.",
+  "text": "A generic countywide message fails because an offline smallholder farmer in Tseikuru evaluating drought mitigation has entirely different information channels, daily anxieties, and economic incentives than an urban bodaboda operator in Kitui Township or a diaspora professional remitting money from Nairobi.\n\n"
+ },
+ {
+  "file": "strategy",
+  "section": "3.4",
+  "first12": "This section defines the structural architecture of the Kitui electorate across six",
+  "words": 29,
+  "kind": "signpost",
+  "home": "",
+  "note": "",
+  "text": "This section defines the structural architecture of the Kitui electorate across six empirical dimensions: **Rural/Urban Split**, **Youth Cohort**, **Connectivity Infrastructure**, **Language Hierarchy**, **Livelihood Clusters**, and the **Out-of-County Diaspora Matrix**.\n\n"
+ },
+ {
+  "file": "strategy",
+  "section": "3.4.2",
+  "first12": "Segment | Primary pillar | Language | Lead channel (table)",
+  "words": 0,
+  "kind": "signpost",
+  "home": "",
+  "note": "The pillar table's cells moved into each segment tab as its first three fields; its six segment names duplicate the tab titles.",
+  "text": "| Segment | Primary pillar | Language | Lead channel |\n|---|---|---|---|\n| 3.4.2 Rural agrarian & smallholder baseline | **P2** — one household, one income stream | Kikamba on voice; Kiswahili on SMS | WhatsApp voice note, SMS |\n| 3.4.2 Agro-pastoralist & arid-zone livestock keepers | **P1** — where the money went | Kikamba on radio and USSD; Kiswahili on SMS | SMS, USSD, radio |\n| 3.4.2 Youth cohort, 18–35 | **P3** — the economist explains | Kiswahili / Sheng, Kikamba hooks | TikTok, Facebook |\n| 3.4.2 Urban & peri-urban informal sector | **P3** — the economist explains | Kiswahili | Facebook, WhatsApp |\n| 3.4.2 Formal sector professionals & educators | **P1** — the verification record | English, Kiswahili | Facebook, X, YouTube |\n| 3.4.2 Out-of-county Kamba diaspora | **P3** — the economist explains | English, Kikamba | Facebook, YouTube, WhatsApp |"
+ },
+ {
+  "file": "strategy",
+  "section": "3.5",
+  "first12": "Political messaging in Kitui County has historically relied on empty populist slogans",
+  "words": 31,
+  "kind": "register",
+  "home": "",
+  "note": "X10: framing paragraph.",
+  "text": "Political messaging in Kitui County has historically relied on empty populist slogans that fail to withstand economic scrutiny. The campaign breaks decisively with this practice by constructing an **Evidence-Backed Message Hierarchy**.\n\n"
+ },
+ {
+  "file": "strategy",
+  "section": "3.6.3",
+  "first12": "Running a synchronized three-language communications operation introduces severe version-drift and contradiction risks.",
+  "words": 13,
+  "kind": "register",
+  "home": "",
+  "note": "X10: intensifiers and framing.",
+  "text": "Running a synchronized three-language communications operation introduces severe version-drift and contradiction risks. The campaign implements a rigid **Translation",
+  "replacement": "The campaign implements a **Translation"
+ },
+ {
+  "file": "strategy",
+  "section": "3.1.2",
+  "first12": "(Tier 1) ×4 and 'in' ×4 in the audit list",
+  "words": 10,
+  "kind": "signpost",
+  "home": "",
+  "note": "Layout: each finding's '(Tier 1)' became the bar's tier badge, and the 'in' joining amount to label became the bar's layout.",
+  "text": "(Tier 1) (Tier 1) (Tier 1) (Tier 1) in in in in"
  }
 ]

@@ -4,9 +4,10 @@
  *
  *   3  Every ```figure fence (92) and ```textversion fence (5) is present, its body unchanged.
  *   4  Word conservation. Per section: words after (prose, plus the text moved into ```visual
- *      fences, less a visual's own title, note and source; leads excluded) plus the words logged in
- *      docs/declutter/cuts.json for that section equals the words before. The total must hold within
- *      ±1%, and no section may lose more than 2% without a logged cut.
+ *      fences; leads excluded) plus the words logged in docs/declutter/cuts.json for that section
+ *      equals the words before. The total must hold within ±1%, and no section may lose more than 2%
+ *      without a logged cut. Text a visual adds (a label, a badge, a title written for it) is
+ *      reported separately and does not count towards the balance, so it cannot hide a loss.
  *   5  Duplicate cuts are real. For every cut logged as a duplicate (or replaced by a chip), every {{token}} and every
  *      capitalised name in the cut text appears at the logged canonical home.
  *   9  Conflicts C1 to C8: the same 27 `[CONFLICT Cn` markers, each still after the words it
@@ -59,11 +60,14 @@ for (const c of cuts) {
 let totalBefore = 0;
 let totalAfter = 0;
 let totalCut = 0;
+let totalAdded = 0;
 const rows = [];
 for (const s of secBefore) {
   const a = byKeyAfter[s.key];
   const wb = conservedWords(s.lines);
-  const wa = a ? conservedWords(a.lines) : 0;
+  const counted = a ? conservedWords(a.lines, s.lines.join("\n")) : { total: 0, added: 0 };
+  const wa = counted.total;
+  totalAdded += counted.added;
   const wc = cutWords[s.key] ?? 0;
   totalBefore += wb;
   totalAfter += wa;
@@ -75,7 +79,7 @@ for (const s of secBefore) {
 }
 const drift = (totalAfter + totalCut - totalBefore) / totalBefore;
 if (Math.abs(drift) > 0.01) errors.push(`4: words after ${totalAfter} + cut ${totalCut} = ${totalAfter + totalCut} against ${totalBefore} before (${(drift * 100).toFixed(2)}%)`);
-console.log(`4. words: ${totalBefore} before; ${totalAfter} after + ${totalCut} logged cuts = ${totalAfter + totalCut} (${(drift * 100).toFixed(2)}%)`);
+console.log(`4. words: ${totalBefore} before; ${totalAfter} after + ${totalCut} logged cuts = ${totalAfter + totalCut} (${(drift * 100).toFixed(2)}%); ${totalAdded} words added by visuals (labels, titles), counted apart`);
 if (SHOW) for (const r of rows) if (r.wb !== r.wa || r.wc) console.log(`   ${r.key.padEnd(34)} ${String(r.wb).padStart(5)} → ${String(r.wa).padStart(5)} + cut ${String(r.wc).padStart(4)}  ${r.loss > 0 ? `loss ${r.loss}` : ""}`);
 
 /* ---------------------------------------------------------------- 5: duplicate cuts */
@@ -125,7 +129,7 @@ console.log(`5. duplicate cuts: ${dupChecked} checked against their canonical ho
 
 /* ---------------------------------------------------------------- 9: conflicts */
 const MARK = /\[CONFLICT (C\d+): see open items\]/g;
-const plain = (s) => s.toLowerCase().replace(/\{\{[^}]*\}\}/g, " tok ").replace(/[^a-z0-9]+/g, " ").trim();
+const plain = (s) => s.replace(/<!--\s*keep\s*-->/g, " ").toLowerCase().replace(/\{\{[^}]*\}\}/g, " tok ").replace(/[^a-z0-9]+/g, " ").trim();
 const contextsBefore = [];
 for (const [f, t] of Object.entries(before)) {
   for (const m of t.matchAll(MARK)) contextsBefore.push({ f, id: m[1], ctx: plain(t.slice(Math.max(0, (m.index ?? 0) - 160), m.index)).split(" ").slice(-5).join(" ") });

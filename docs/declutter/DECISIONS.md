@@ -51,3 +51,23 @@ A run of h4 blocks becomes an accordion from three panels, not two. Two-panel ru
 **D-19. Restatements inside a structure the plan rebuilds are handled with their tab.** Several of the say-once restatements in brief section 6 sit inside a list, table or field that a later stage turns into a card, tab or week strip. Examples are an objective's "Finding it answers" field, a level's trade-offs, the week's publishing day and a segment's channel row. Each is cut or kept when its structure is rebuilt, and logged in CUTS.md either way. A restatement that carries a `[CONFLICT Cn]` marker (1.4.3's publishing boundary, C4; 1.6's ownership split, C3; 3.3.2's radio row, C7) stays, because both versions of a conflict stay.
 
 **D-20. Moves are logged with cuts.** Text that moves to its canonical home is logged as kind "moved" in `cuts.json`. The conservation check credits the section it left and debits the section it joined.
+
+## Stages 4 to 6: Parts 1 to 3
+
+**D-21. REUSE is carried out by folding, not deleting.** For a REUSE section, the plan says to delete the prose once every number in it is confirmed in the figure or component that shows it. The figures and components carry their own versions of these numbers, not always with the same wording, tiers or caveats, and a mismatch would lose a fact. So the conservative option (section 11) is taken: the prose moves into the section's "Read the full text" fold under a lead and the visual, and nothing is deleted unless it is a verified duplicate, a signpost or framing. The visible-prose targets are met either way, because a closed fold is not visible on load.
+
+**D-22. Word conservation counts moved words, not added ones.** Check 4 counts the text in visual fences. A visual adds some words of its own: a stat tile's label, a card's badge, a crosswalk's cells. Counting those as "after" would let a gain hide a loss. So `scripts/declutter/check-content.mjs` matches each word of a visual against the section's original words that its prose no longer holds. A matched word counts as moved. An unmatched word is counted apart as added and reported, and does not count towards the ±1% balance. This is stricter than the brief's formula, not looser.
+
+**D-23. Ordinals, bullets, pipes and dashes are not words.** Both counters (`scripts/declutter/sections.mjs` and `edit.py`) count whitespace-separated runs that contain a letter or digit, except list ordinals such as "1.". Without this, turning a numbered list into cards registered as a loss of its numbers.
+
+**D-24. Labels that become a visual's structure are logged.** Some labels become a visual's structure: the four bold labels of 2.12 become the hypothesis card's panel titles, the "(Tier 1)" on each audit finding becomes the bar's tier badge, and the repeated Segment/Language/Channel/Format labels become matrix column heads. Each of these is logged in CUTS.md as kind "signpost" with its word count, so the balance shows where the words went.
+
+**D-25. A conflict marker in a folded card also shows on its face.** The source marker stays where it was. A tile, card, row or visual whose folded text carries a `[CONFLICT Cn]` marker also shows the "under review" chip on its visible face, so closing the details never hides that a figure is disputed.
+
+**D-26. 3.1's record restatement keeps its unique detail.** The credentials paragraph in 3.1 restates the record whose home is 2.10.1, but it also names "strategic planning", which 2.10.1 does not. Only the inflated opening ("Forensic analysis … highly powerful, under-utilized asset") is cut. The rest stays in 3.1's full text, so no detail is lost.
+
+**D-27. The pillar crosswalk (3.2) shows only what the document states.** It lists the five groupings (campaign pillars, message pillars, production pillars P1 to P4, content buckets A to D, themes) with their counts, what each is for in the document's own words, and where each is set out. It does not map items across groupings, because the document states that mapping only for the message pillars (3.2.2). Inventing the rest would be a strategy decision, and pillar consolidation is listed for the owner.
+
+**D-28. The segment tabs (3.4.2) carry the pillar table.** The pillar, language and channel table at the top of 3.4.2 becomes the first three fields of each segment's tab. The "core anxiety is a hypothesis" sentence becomes the tabs' standing note. Each tab shows its segment's fields in full, as the plan's list of fields (size, where, channels, anxiety, offer, proof) asks.
+
+**D-29. 3.1.2's bars use the audit's four findings only.** The Controller of Budget's pending-bills figure is a different year, source and kind, so it stays in the text and is not added as a fifth bar.
