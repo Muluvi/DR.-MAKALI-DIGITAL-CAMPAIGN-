@@ -1,12 +1,16 @@
 ### 4.5.7 Workstream 7 — Ground-digital integration
 
+```lead
+**Owner: the campaign.** Field intelligence captured by the 40 Ward Coordinators directly dictates the daily digital and radio advertising content; Firefly supplies the reporting template and the analysis of what comes back.
+```
+
 > **Owner: the campaign.** The 40 ward coordinators are the campaign's people. Firefly supplies
 > the reporting template and the analysis of what comes back.
 >
-> **Group: Ground and offline reach.** Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them.
+> **Group: Ground and offline reach.**
 
 
-A campaign that operates field organizing and digital messaging as isolated silos will fail in a county where {{ict.offline}}% of residents are offline (CA/KNBS 2023/24). Digital content created in an air-conditioned command center in Nairobi or Kitui Town is worthless if it does not address the live anxieties voiced at the morning livestock auction in Nguni or the wellhead in Mutha.
+A campaign that operates field organizing and digital messaging as isolated silos will fail in a county where {{ict.offline}}% of residents are offline (CA/KNBS 2023/24).
 
 The campaign establishes a **Closed-Loop Ground-Digital Integration Engine**. Field intelligence captured by the 40 Ward Coordinators directly dictates the daily digital and radio advertising content; conversely, digital and radio narratives are converted by field captains into physical talking points, print flyers, and audio notes distributed through local transport and commercial networks.
 
@@ -22,11 +26,20 @@ The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, w
 id: field-reports
 ```
 
-##### What Ward Coordinators Report:
-1.  **Issues Raised in Public:** What residents raised at barazas, markets and public meetings, logged as it was said. E.g., *"Farmers at the Kyuso market raised uncollected green grams; opponents are claiming Dr. Mulu will eliminate county agricultural subsidies."* No coordinator canvasses opinion or asks anyone how they will vote: the report records what was said in public, not a measured sentiment.
-2.  **Competitor Movement & Expenditure:** E.g., *"Opponent convoy visited Migwani market; distributed Ksh 500 notes to youth groups; promised new market shades."*
-3.  **Ground Disinformation & Counter-Narratives:** E.g., *"Rumor circulating in Mutomo that Dr. Mulu's CDF bursary program excluded non-Kitui Central students."*
-4.  **Field Inventory & Collateral Levels:** Current stock of Kikamba manifesto summary leaflets, posters, audio flash drives, and volunteer T-shirts.
+```visual
+kind: cards
+preset: report
+title: "What Ward Coordinators Report"
+items:
+  - title: "Issues Raised in Public"
+    text: "What residents raised at barazas, markets and public meetings, logged as it was said. E.g., *\"Farmers at the Kyuso market raised uncollected green grams; opponents are claiming Dr. Mulu will eliminate county agricultural subsidies.\"* No coordinator canvasses opinion or asks anyone how they will vote: the report records what was said in public, not a measured sentiment."
+  - title: "Competitor Movement & Expenditure"
+    text: "E.g., *\"Opponent convoy visited Migwani market; distributed Ksh 500 notes to youth groups; promised new market shades.\"*"
+  - title: "Ground Disinformation & Counter-Narratives"
+    text: "E.g., *\"Rumor circulating in Mutomo that Dr. Mulu's CDF bursary program excluded non-Kitui Central students.\"*"
+  - title: "Field Inventory & Collateral Levels"
+    text: "Current stock of Kikamba manifesto summary leaflets, posters, audio flash drives, and volunteer T-shirts."
+```
 
 #### From ground intel to a published response in four hours
 
@@ -43,34 +56,35 @@ id: four-hour-cycle
 
 To bypass digital connectivity barriers, the campaign turns physical transportation, trade, and civic networks into active information distribution conduits:
 
-##### 1. The Boda Boda Stage Network ({{target.stage-champions}} Stage Champions)
-*   **Infrastructure:** Commercial motorcycle operators in Kitui, organized into distinct stage associations (*masese*). About **{{boda.riders}} riders** by a 2026 estimate, of whom {{boda.unlicensed}} were reported riding without a valid licence (Tier 3; an estimate, not an NTSA register). In August 2026 the county and NTSA issued smart licences to {{boda.licensed.2026}} operators drawn from all 40 wards (Tier 2).
-*   **Operational Role:** The campaign identifies {{target.stage-champions}} "Stage Champions" (30 per ward) across all 40 wards.
-*   **Execution:**
-    *   Champions receive high-visibility reflective campaign vests branded with "Uchumi na Kazi" and safety helmets.
-    *   Equipped with mobile phone charging hubs at stages, playing looped Kikamba campaign audio podcasts and speeches to passengers awaiting transport.
-    *   Act as rapid physical distributors of print materials to remote interior villages inaccessible by four-wheel vehicles.
-
-##### 2. Matatu & Sacco Commuter Transit Routes
-*   **Infrastructure:** Matatu SACCOs connecting Kitui Town, Mwingi, Mutomo, Nairobi, and Mombasa (e.g., Kitui Classic, Mwingi Travelers, TSS, Buscar).
-*   **Operational Role:** Capturing passengers during long transit journeys (3–6 hours).
-*   **Execution:**
-    *   Provision of branded onboard audio USB flash drives to matatu drivers featuring popular Kamba secular and gospel music interspersed with 60-second policy messages from Dr. Mulu.
-    *   Placement of seatback information cards in commuter vans detailing Dr. Mulu's 5-point Economic Charter.
-
-##### 3. Weekly Market Days & Caravan Circuits
-*   **Infrastructure:** The 40 major market centers rotating across the county weekly (Section 4.5.9).
-*   **Operational Role:** Concentrated voter aggregation points.
-*   **Execution:**
-    *   Coordinated arrival of the *Mulu Economic Caravan* sound trucks at 10:00 AM on market days.
-    *   Ward Coordinators lead door-to-door merchant walk-throughs, distributing Kikamba business charters to shopkeepers, vegetable vendors (*mama mboga*), and hardware dealers.
-
-##### 4. Community Barazas & Chief's Gatherings (Protocol-Compliant)
-*   **Infrastructure:** Monthly administrative barazas convened by National Government Administrative Officers (NGAO—Chiefs and Assistant Chiefs).
-*   **Operational Mandate & Civility:** Campaign teams respect that civil service barazas are strictly non-partisan by law.
-*   **Execution:**
-    *   Ward Captains attend barazas as active community citizens to listen to localized grievances (water, security, relief food).
-    *   Post-baraza informal engagement: Engaging elders and attendees outside official proceedings, answering questions, and sharing Dr. Mulu's policy solutions for the specific community issues raised during the baraza.
+```visual
+kind: cards
+preset: network
+items:
+  - title: "The Boda Boda Stage Network ({{target.stage-champions}} Stage Champions)"
+    badge: "campaign-owned"
+    head: { label: "Operational Role", text: "The campaign identifies {{target.stage-champions}} \"Stage Champions\" (30 per ward) across all 40 wards." }
+    fields:
+      - { label: "Infrastructure", text: "Commercial motorcycle operators in Kitui, organized into distinct stage associations (*masese*). About **{{boda.riders}} riders** by a 2026 estimate, of whom {{boda.unlicensed}} were reported riding without a valid licence (Tier 3; an estimate, not an NTSA register). In August 2026 the county and NTSA issued smart licences to {{boda.licensed.2026}} operators drawn from all 40 wards (Tier 2)." }
+      - { label: "Execution", text: "- Champions receive high-visibility reflective campaign vests branded with \"Uchumi na Kazi\" and safety helmets.\n- Equipped with mobile phone charging hubs at stages, playing looped Kikamba campaign audio podcasts and speeches to passengers awaiting transport.\n- Act as rapid physical distributors of print materials to remote interior villages inaccessible by four-wheel vehicles." }
+  - title: "Matatu & Sacco Commuter Transit Routes"
+    badge: "campaign-owned"
+    head: { label: "Operational Role", text: "Capturing passengers during long transit journeys (3–6 hours)." }
+    fields:
+      - { label: "Infrastructure", text: "Matatu SACCOs connecting Kitui Town, Mwingi, Mutomo, Nairobi, and Mombasa (e.g., Kitui Classic, Mwingi Travelers, TSS, Buscar)." }
+      - { label: "Execution", text: "- Provision of branded onboard audio USB flash drives to matatu drivers featuring popular Kamba secular and gospel music interspersed with 60-second policy messages from Dr. Mulu.\n- Placement of seatback information cards in commuter vans detailing Dr. Mulu's 5-point Economic Charter." }
+  - title: "Weekly Market Days & Caravan Circuits"
+    badge: "campaign-owned"
+    head: { label: "Operational Role", text: "Concentrated voter aggregation points." }
+    fields:
+      - { label: "Infrastructure", text: "The 40 major market centers rotating across the county weekly (Section 4.5.9)." }
+      - { label: "Execution", text: "- Coordinated arrival of the *Mulu Economic Caravan* sound trucks at 10:00 AM on market days.\n- Ward Coordinators lead door-to-door merchant walk-throughs, distributing Kikamba business charters to shopkeepers, vegetable vendors (*mama mboga*), and hardware dealers." }
+  - title: "Community Barazas & Chief's Gatherings (Protocol-Compliant)"
+    badge: "campaign-owned"
+    head: { label: "Operational Mandate & Civility", text: "Campaign teams respect that civil service barazas are strictly non-partisan by law." }
+    fields:
+      - { label: "Infrastructure", text: "Monthly administrative barazas convened by National Government Administrative Officers (NGAO—Chiefs and Assistant Chiefs)." }
+      - { label: "Execution", text: "- Ward Captains attend barazas as active community citizens to listen to localized grievances (water, security, relief food).\n- Post-baraza informal engagement: Engaging elders and attendees outside official proceedings, answering questions, and sharing Dr. Mulu's policy solutions for the specific community issues raised during the baraza." }
+```
 
 #### The operating rhythm
 
@@ -85,9 +99,13 @@ id: operating-rhythm
 
 ### 4.5.8 Workstream 8 — The field-to-digital loop
 
+```lead
+**Owner: the campaign.** Firefly supplies the instrument and its data governance. **Opt-in rate on routed doors** is the joint KPI holding both sides honest.
+```
+
 > **Owner: the campaign.** Firefly supplies the instrument and its data governance.
 >
-> **Group: Ground and offline reach.** Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them.
+> **Group: Ground and offline reach.**
 
 
 #### Operating architecture and bidirectional sync
@@ -102,38 +120,56 @@ households that have asked not to be contacted. In a county of
 id: fig-5-2-3-field-loop
 ```
 
-* **Field to digital synchronization:**
-  * **Capture:** ward champions log the contact via a simple mobile form — four options (opted in; reached, no opt-in; asked not to be contacted; no one home), under thirty seconds per household. Complexity kills field data collection. The form never asks how anyone will vote.
-  * **Offline-first:** the form caches locally and syncs when signal returns. Non-negotiable in Ikutha and Mutitu.
-  * **Latency target:** field outcomes reflected in digital targeting within **24 hours**.
-  * **Suppression:** households that ask not to be contacted are **removed from paid targeting and every contact list**, not messaged harder. This is the correct practice, and the Data Protection Act requires it.
-* **Digital to field routing:**
-  * **Warm-lead routing:** voters who engaged with content, opened an SMS, or completed a USSD session are routed to ward champions as priority doors.
-  * **Pre-briefing:** champions receive the issue the household engaged with — water, bursaries, market fees — so the conversation starts where the voter's interest already is.
-  * **Event conversion:** digital sign-ups for barazas are handed to ground organisers with attendance follow-up.
+```visual
+kind: contrast
+left:
+  title: "Field to digital synchronization"
+  items:
+    - label: "Capture"
+      text: "ward champions log the contact via a simple mobile form — four options (opted in;"
+      body: "reached, no opt-in; asked not to be contacted; no one home), under thirty seconds per household. Complexity kills field data collection. The form never asks how anyone will vote."
+    - label: "Offline-first"
+      text: "the form caches locally and syncs when signal returns."
+      body: "Non-negotiable in Ikutha and Mutitu."
+    - label: "Latency target"
+      text: "field outcomes reflected in digital targeting within **24 hours**."
+    - label: "Suppression"
+      text: "households that ask not to be contacted are **removed from paid targeting and every contact list**, not messaged harder. This is the correct practice, and the Data Protection Act requires it."
+right:
+  title: "Digital to field routing"
+  items:
+    - label: "Warm-lead routing"
+      text: "voters who engaged with content, opened an SMS, or completed a USSD session are routed to ward champions as priority doors."
+    - label: "Pre-briefing"
+      text: "champions receive the issue the household engaged with — water, bursaries, market fees — so the conversation starts where the voter's interest already is."
+    - label: "Event conversion"
+      text: "digital sign-ups for barazas are handed to ground organisers with attendance follow-up."
+```
 
 #### Governance and data protection on the doorstep
 
-* Field data is campaign first-party data, collected with notice, and governed
-by the same charter as all other personal data (Section 5.3.3).
-* Ward champions receive data-handling training before being issued the form,
-and cannot export or retain contact data on personal devices.
-* **Opt-in rate on routed doors** is the joint KPI holding both sides honest: if
-doors the model routes do not opt in at a higher rate than doors it does not, the
-routing is wrong.
-
----
+```visual
+kind: checklist
+items:
+  - label: "Field data is campaign first-party data, collected with notice, and governed by the same charter as all other personal data (Section 5.3.3)."
+  - label: "Ward champions receive data-handling training before being issued the form, and cannot export or retain contact data on personal devices."
+  - label: "Opt-in rate on routed doors"
+    body: "is the joint KPI holding both sides honest: if doors the model routes do not opt in at a higher rate than doors it does not, the routing is wrong."
+```
 
 ### 4.5.9 Workstream 9 — What Firefly operates: SMS, USSD and voice
 
+```lead
+**Owner: Firefly, end to end.** **Bulk political SMS cannot be sent in Kikamba**: the CA/NCIC guidelines restrict political SMS to **English or Kiswahili** (Tier 1, Communications Authority), lodged with the mobile operator at least 48 hours before sending.
+```
+
 > **Owner: Firefly, end to end.** Two pieces of infrastructure, held and run by Firefly: the
-> **WhatsApp Business API line** and the **USSD shortcode**. This is the one place in the engagement where
-> Firefly publishes. Everything on the owned social accounts stays with the team that runs them.
+> **WhatsApp Business API line** and the **USSD shortcode**.
 >
 > It is also the one place where Firefly is a **data controller or joint controller** rather than a
 > processor — see Section 5.3.1, which must be settled in writing before the first dispatch.
 >
-> **Group: Ground and offline reach.** Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them.
+> **Group: Ground and offline reach.**
 
 
 #### Why this layer decides the race
@@ -184,6 +220,7 @@ penalise unsolicited messaging.
 > instead — and a **2020 draft revision** proposed narrowing the sending window to 08:00–18:00
 > `[VERIFY whether in force]`.
 
+<!-- keep -->
 [CONFLICT C2: see open items]
 
 **Message architecture** — 160 characters, **English or Kiswahili only**, ward-tagged:
@@ -196,18 +233,20 @@ penalise unsolicited messaging.
 | **GOTV sequence** | Final 30 days | Kiswahili / English | Countdown, polling station, time |
 | **Rapid rebuttal** | On trigger | — | **Not an SMS channel.** The 48-hour lodging rule rules it out; runs on WhatsApp, radio and the ward networks |
 
-**Operational discipline:**
-* **Every bulk send lodged with the operator 48 hours ahead**, verbatim text plus signed
-authorisation, logged against the dispatch record
-* **No attacks on individuals, families, ethnicity, religion or association** in any message —
-a guideline requirement, and already a charter commitment (Section 5.3.3, clauses 2 and 6)
-* Sending window **7am–7pm**, per market practice and DND norms
-* Every message carries a clear opt-out; opt-outs honoured immediately and
-permanently
-* Ward-tagged segmentation so a message about mango prices reaches Kitui West
-and not Kyuso
-* Personalisation by first name where consent covers it
-* Per-send audit trail retained, per the charter (Section 5.3.3)
+```visual
+kind: checklist
+title: "Operational discipline"
+items:
+  - label: "Every bulk send lodged with the operator 48 hours ahead"
+    body: ", verbatim text plus signed authorisation, logged against the dispatch record"
+  - label: "No attacks on individuals, families, ethnicity, religion or association"
+    body: "in any message — a guideline requirement, and already a charter commitment (Section 5.3.3, clauses 2 and 6)"
+  - label: "Sending window **7am–7pm**, per market practice and DND norms"
+  - label: "Every message carries a clear opt-out; opt-outs honoured immediately and permanently"
+  - label: "Ward-tagged segmentation so a message about mango prices reaches Kitui West and not Kyuso"
+  - label: "Personalisation by first name where consent covers it"
+  - label: "Per-send audit trail retained, per the charter (Section 5.3.3)"
+```
 
 #### The USSD layer
 
@@ -245,15 +284,15 @@ Kenya's registered mobile-money agents grew from **{{ict.agents.2025}} in Septem
 subscriptions. In rural Kitui, the agent kiosk is often the most reliable
 commercial touchpoint in a settlement.
 
-**Proposed use:** agent-sited printed materials carrying QR codes and the USSD
-short code, offered on a straightforward commercial or voluntary basis with
-proprietor consent, in wards with the lowest connectivity index.
-* **This is a distribution channel, not a data channel.** The campaign does not
-seek, receive or process any customer data from agents. Nothing about
-transaction records, balances or customer identity enters this programme.
-* Participation is by the proprietor's consent and is disclosed as campaign
-material.
-* `[Confirm approach with campaign counsel — agent networks are regulated financial infrastructure and any commercial arrangement should be reviewed]`
+```visual
+kind: cards
+preset: agent
+items:
+  - title: "The mobile-money agent network: proposed use"
+    text: "agent-sited printed materials carrying QR codes and the USSD"
+    fields:
+      - { label: "Conditions", text: "- **This is a distribution channel, not a data channel.** The campaign does not seek, receive or process any customer data from agents. Nothing about transaction records, balances or customer identity enters this programme.\n- Participation is by the proprietor's consent and is disclosed as campaign material.\n- `[Confirm approach with campaign counsel — agent networks are regulated financial infrastructure and any commercial arrangement should be reviewed]`" }
+```
 
 #### KPIs for the offline layer
 
@@ -274,11 +313,15 @@ a vanity one.
 
 ### 4.5.10 Workstream 10 — Digital organising and volunteers
 
+```lead
+**Outside this engagement.** Firefly's contribution is the metric definitions the leaderboard reports against, and nothing else.
+```
+
 > **Outside this engagement.** Volunteer recruitment, tiers, gamification and ward-champion
 > management belong to the ground campaign, which already runs them. Firefly's contribution is
 > the metric definitions the leaderboard reports against, and nothing else. The material below is
 > retained as reference for the campaign's own coordinator, not as a Firefly deliverable.
 >
-> **Group: Ground and offline reach.** Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them.
+> **Group: Ground and offline reach.**
 
 *The volunteer programme reference (tiers, gamification, tooling and KPIs) is in Annex G.3.*

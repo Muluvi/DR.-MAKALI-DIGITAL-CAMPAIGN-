@@ -65,7 +65,9 @@ const rows = [];
 for (const s of secBefore) {
   const a = byKeyAfter[s.key];
   const wb = conservedWords(s.lines);
-  const counted = a ? conservedWords(a.lines, s.lines.join("\n")) : { total: 0, added: 0 };
+  // Text moved into this section counts as its own: a visual built from it is matched against it too.
+  const movedIn = cuts.filter((c) => c.kind === "moved" && c.to === s.key).map((c) => c.text ?? "");
+  const counted = a ? conservedWords(a.lines, [s.lines.join("\n"), ...movedIn].join("\n")) : { total: 0, added: 0 };
   const wa = counted.total;
   totalAdded += counted.added;
   const wc = cutWords[s.key] ?? 0;
@@ -83,7 +85,7 @@ console.log(`4. words: ${totalBefore} before; ${totalAfter} after + ${totalCut} 
 if (SHOW) for (const r of rows) if (r.wb !== r.wa || r.wc) console.log(`   ${r.key.padEnd(34)} ${String(r.wb).padStart(5)} → ${String(r.wa).padStart(5)} + cut ${String(r.wc).padStart(4)}  ${r.loss > 0 ? `loss ${r.loss}` : ""}`);
 
 /* ---------------------------------------------------------------- 5: duplicate cuts */
-const SENTENCE_START = /(?:^|[.!?:;]\s+|\n\s*[-*]?\s*|\*\*|["“(])$/;
+const SENTENCE_START = /(?:^\s*|[.!?:;]\s+|\n\s*[-*]?\s*|\*\*|["“(])$/;
 function capitalisedNames(text) {
   const clean = text.replace(/\{\{[^}]*\}\}/g, " ").replace(/[*_`>#|]/g, " ");
   const out = new Set();

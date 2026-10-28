@@ -1,9 +1,13 @@
 ### 4.5.11 Workstream 11 — The data layer
 
+```lead
+**Owner: Firefly**, as processor on the campaign's behalf, under a written processing agreement (Section 5.3.1).
+```
+
 > **Owner: Firefly**, as processor on the campaign's behalf, under a written processing agreement
 > (Section 5.3.1).
 >
-> **Group: Data and technology.** Four workstreams that sit under the rest: the data model, the voter model built on it, the technology stack that runs both, and the analytics layer that measures what the other ten produce.
+> **Group: Data and technology.**
 
 
 A modern, high-precision political operation requires an infallible data layer. The campaign rejects arbitrary spreadsheets, unverified voter claims, and ad-hoc phone lists. In their place, the strategy establishes a centralized, structured database architecture governed by strict mathematical provenance, audit trails, and rigorous adherence to Kenyan privacy legislation.
@@ -22,70 +26,46 @@ The campaign database is organized around a relational, entity-attribute-value s
 id: supporter-schema
 ```
 
-##### Key Architecture Principles:
-1.  **Strict Anonymization & Encryption at Rest:** PII (Personally Identifiable Information), including mobile MSISDNs, is encrypted using **AES-256-GCM**. Read-only analytic dashboards (such as ward target monitors) access only hashed identifiers (`msisdn_hash`) and geographic aggregates.
-2.  **Granular Geographic Tagging:** No supporter entry exists in a vacuum; every record MUST map to an explicit Constituency, Ward, and Polling Station.
-3.  **Audit Trail Logging:** Every modification to a voter's `support_status` or contact detail logs the modifying user ID, timestamp, and field collection source.
+```visual
+kind: checklist
+title: "Key Architecture Principles"
+items:
+  - label: "Strict Anonymization & Encryption at Rest"
+    body: "PII (Personally Identifiable Information), including mobile MSISDNs, is encrypted using **AES-256-GCM**. Read-only analytic dashboards (such as ward target monitors) access only hashed identifiers (`msisdn_hash`) and geographic aggregates."
+  - label: "Granular Geographic Tagging"
+    body: "No supporter entry exists in a vacuum; every record MUST map to an explicit Constituency, Ward, and Polling Station."
+  - label: "Audit Trail Logging"
+    body: "Every modification to a voter's `support_status` or contact detail logs the modifying user ID, timestamp, and field collection source."
+```
 
 *The Data Protection Act obligations this layer works under, and its mandatory compliance safeguards, are set out with the rest of compliance in 5.3.2.*
 
 ### 4.5.12 Workstream 12 — Predictive voter modelling
 
+```lead
+**Owner: Firefly — gated on Section 5.3.4.** Until written sign-off, this runs as **ward-level aggregate scoring only**. Individual-level scoring waits for the opinion.
+```
+
 > **Owner: Firefly — gated on Section 5.3.4.** Until written sign-off, this runs as **ward-level
 > aggregate scoring only**, which delivers most of the targeting value at a fraction of the
 > exposure. Individual-level scoring waits for the opinion.
 >
-> **Group: Data and technology.** Four workstreams that sit under the rest: the data model, the voter model built on it, the technology stack that runs both, and the analytics layer that measures what the other ten produce.
+> **Group: Data and technology.**
 
 
-#### What the model scores, and why
-
-The campaign will build a model scoring Kitui's polling stations and wards on
-two dimensions: likely support for the Wiper Patriotic Front ticket and likely turnout. Both are
-estimated from how each station actually voted in 2017 and 2022 (IEBC Forms 37A)
-and from the register, not from asking anyone how they will vote. This moves the
-campaign from broad messaging to disciplined prioritisation of persuasion and
-mobilisation effort, on the official record.
-
-**This entire section is conditional on the compliance gate in Section 5.3.4.**
-No voter-file-based targeting is deployed until a Kenyan data-protection or
-electoral-law specialist has reviewed and signed off the specific proposed
-processing. Nothing in this section should be read as a claim that such
-processing is already permissible.
-
-*The data sources the model draws on are listed in Annex G.5.*
-
-#### Modelling methodology
-
-| Model | Purpose | Strength |
-|---|---|---|
-| **Logistic regression** | Baseline support and turnout scores | Interpretability; identifies driving variables |
-| **Random forest** | Non-linear pattern detection | Captures interactions; robust to outliers |
-| **Gradient boosting (XGBoost)** | Final ensemble scoring | Highest predictive accuracy at scale |
-| **Propensity score matching** | Volunteer conversion | Estimates causal effect of touchpoints on offline action |
-
-Final output: an ensemble score (0–1) per polling station for likely support and
-turnout likelihood.
-
-*The model's variable dictionary is in Annex G.5.*
-
-#### How the model is evaluated
-
-| Metric | Target | Frequency |
-|---|---|---|
-| Back-test against 2022 | Scores built on the 2017 record, checked against each station's 2022 result; the error is reported, not pre-set | Once, before first use |
-| Cross-validation stability | Variance < 5% across folds | Quarterly |
-| Opt-in rate on routed doors | Higher on doors the model routes than on doors it does not | Monthly |
-
-#### Putting the model to work
-
-* **Ad targeting:** scored segments as custom audiences on Meta, Google, TikTok
-* **SMS/USSD segmentation:** priority broadcast lists for high-support,
-low-turnout polling-station areas — the single most valuable GOTV segment
-* **Content personalisation:** different messages to station areas by their support
-and turnout history
-* **Volunteer routing:** ground teams directed to the highest-potential
-polling-station areas first (Section 4.5.8)
+```visual
+kind: stepper
+items:
+  - label: "What the model scores, and why"
+    text: "The campaign will build a model scoring Kitui's polling stations and wards on two dimensions:"
+    body: "likely support for the Wiper Patriotic Front ticket and likely turnout. Both are estimated from how each station actually voted in 2017 and 2022 (IEBC Forms 37A) and from the register, not from asking anyone how they will vote. This moves the campaign from broad messaging to disciplined prioritisation of persuasion and mobilisation effort, on the official record.\n\n**This entire section is conditional on the compliance gate in Section 5.3.4.**\nNo voter-file-based targeting is deployed until a Kenyan data-protection or\nelectoral-law specialist has reviewed and signed off the specific proposed\nprocessing. Nothing in this section should be read as a claim that such\nprocessing is already permissible.\n\n*The data sources the model draws on are listed in Annex G.5.*"
+  - label: "Modelling methodology"
+    body: "| Model | Purpose | Strength |\n|---|---|---|\n| **Logistic regression** | Baseline support and turnout scores | Interpretability; identifies driving variables |\n| **Random forest** | Non-linear pattern detection | Captures interactions; robust to outliers |\n| **Gradient boosting (XGBoost)** | Final ensemble scoring | Highest predictive accuracy at scale |\n| **Propensity score matching** | Volunteer conversion | Estimates causal effect of touchpoints on offline action |\n\nFinal output: an ensemble score (0–1) per polling station for likely support and\nturnout likelihood.\n\n*The model's variable dictionary is in Annex G.5.*"
+  - label: "How the model is evaluated"
+    body: "| Metric | Target | Frequency |\n|---|---|---|\n| Back-test against 2022 | Scores built on the 2017 record, checked against each station's 2022 result; the error is reported, not pre-set | Once, before first use |\n| Cross-validation stability | Variance < 5% across folds | Quarterly |\n| Opt-in rate on routed doors | Higher on doors the model routes than on doors it does not | Monthly |"
+  - label: "Putting the model to work"
+    body: "* **Ad targeting:** scored segments as custom audiences on Meta, Google, TikTok\n* **SMS/USSD segmentation:** priority broadcast lists for high-support,\nlow-turnout polling-station areas — the single most valuable GOTV segment\n* **Content personalisation:** different messages to station areas by their support\nand turnout history\n* **Volunteer routing:** ground teams directed to the highest-potential\npolling-station areas first (Section 4.5.8)"
+```
 
 #### The compliance gate this depends on
 
@@ -95,23 +75,31 @@ polling-station areas first (Section 4.5.8)
 
 ### 4.5.13 Workstream 13 — The technology stack
 
+```lead
+**Mostly outside this engagement.** Firefly builds and operates three components only: the **service-delivery tracker**, the **supporter CRM**, and the **SMS/USSD/WhatsApp layer**.
+```
+
 > **Mostly outside this engagement.** Dr. Mulu already holds accounts, hosting and the tooling in
 > daily use, and procuring a stack the campaign already has is not a service. Firefly builds and
 > operates three components only: the **service-delivery tracker**, the **supporter CRM**, and the
 > **SMS/USSD/WhatsApp layer**. The rest of this section is the reference architecture the campaign
 > owns and Firefly integrates against.
 >
-> **Group: Data and technology.** Four workstreams that sit under the rest: the data model, the voter model built on it, the technology stack that runs both, and the analytics layer that measures what the other ten produce.
+> **Group: Data and technology.**
 
 *The reference architecture the campaign owns (component by component, the procurement matrix and the technical security protocols) is in Annex G.4.*
 
 ### 4.5.14 Workstream 14 — Analytics and attribution
 
+```lead
+**Owner: Firefly. This is the engine room of the engagement.** Measurement moves beyond vanity metrics to what drives votes, anchored to the ~{{benchmark}}-vote threshold. **No stage is skipped.**
+```
+
 > **Owner: Firefly. This is the engine room of the engagement.** It is numbered fourteenth because
 > that is where the original numbering put it; it is read first, in Section 4.2.1, and it is the
 > workstream every other one is measured by.
 >
-> **Group: Data and technology.** Four workstreams that sit under the rest: the data model, the voter model built on it, the technology stack that runs both, and the analytics layer that measures what the other ten produce.
+> **Group: Data and technology.**
 
 
 #### Attribution model and offline conversion tracking
@@ -154,13 +142,40 @@ To track offline-to-digital and physical engagement, four mechanisms bridge the 
 
 *A staged path, so the campaign is never blocked waiting on capability.*
 
-| Stage | Window | Capability | Prerequisite | Owner |
-|---|---|---|---|---|
-| **0 — Baseline** | Phase −1 | Platform-native dashboards; manual weekly report; SMS delivery reporting; single source of truth established | Accounts and pixel installed | Paid Media & Analytics Manager |
-| **1 — Integrated** | Phase 0–1 | Unified BI dashboard across paid, organic, SMS, USSD, web; ward-level segmentation; A/B testing discipline | Consistent tagging taxonomy | Paid Media & Analytics Manager |
-| **2 — Predictive** | Phase 1–2 | Voter scoring live; field-digital loop operating; audience segments driven by score | **Section 5.3.4 compliance gate cleared** | Data Analyst (surge) |
-| **3 — Attributed** | Phase 2–3 | Multi-touch attribution; offline conversion tracking; effort per persuaded voter reported against actuals | Stage 2 stable ≥ 6 weeks | Data Analyst |
-| **4 — Optimised** | Phase 3 | Continuous reallocation against modelled marginal return; GOTV list prioritisation | Stage 3 validated against field returns | Data Analyst + Director |
+```visual
+kind: timeline
+items:
+  - when: "Phase −1"
+    label: "0 — Baseline"
+    text: "Platform-native dashboards; manual weekly report; SMS delivery reporting; single source of truth established"
+    fields:
+      - { label: "Prerequisite", text: "Accounts and pixel installed" }
+      - { label: "Owner", text: "Paid Media & Analytics Manager" }
+  - when: "Phase 0–1"
+    label: "1 — Integrated"
+    text: "Unified BI dashboard across paid, organic, SMS, USSD, web; ward-level segmentation; A/B testing discipline"
+    fields:
+      - { label: "Prerequisite", text: "Consistent tagging taxonomy" }
+      - { label: "Owner", text: "Paid Media & Analytics Manager" }
+  - when: "Phase 1–2"
+    label: "2 — Predictive"
+    text: "Voter scoring live; field-digital loop operating; audience segments driven by score"
+    fields:
+      - { label: "Prerequisite", text: "**Section 5.3.4 compliance gate cleared**" }
+      - { label: "Owner", text: "Data Analyst (surge)" }
+  - when: "Phase 2–3"
+    label: "3 — Attributed"
+    text: "Multi-touch attribution; offline conversion tracking; effort per persuaded voter reported against actuals"
+    fields:
+      - { label: "Prerequisite", text: "Stage 2 stable ≥ 6 weeks" }
+      - { label: "Owner", text: "Data Analyst" }
+  - when: "Phase 3"
+    label: "4 — Optimised"
+    text: "Continuous reallocation against modelled marginal return; GOTV list prioritisation"
+    fields:
+      - { label: "Prerequisite", text: "Stage 3 validated against field returns" }
+      - { label: "Owner", text: "Data Analyst + Director" }
+```
 
 **No stage is skipped.** A campaign that attempts predictive scoring before its
 tagging is consistent produces confident nonsense, and a campaign that attempts

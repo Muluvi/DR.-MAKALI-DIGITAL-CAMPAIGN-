@@ -586,5 +586,259 @@
   "home": "",
   "note": "Layout: each finding's '(Tier 1)' became the bar's tier badge, and the 'in' joining amount to label became the bar's layout.",
   "text": "(Tier 1) (Tier 1) (Tier 1) (Tier 1) in in in in"
+ },
+ {
+  "file": "delivery",
+  "section": "4.1.2",
+  "first12": "One row has Firefly publishing. That asymmetry is the engagement, stated as",
+  "words": 40,
+  "kind": "duplicate",
+  "home": "decision:1.4.1|decision:1.1",
+  "note": "Firefly publishes only on the offline layer: said once at 1.4.1 (section 6).",
+  "text": "**One row has Firefly publishing.** That asymmetry is the engagement, stated as a workflow: the\noffline layer is Firefly's to operate because Firefly holds the infrastructure, and everything on\nthe owned accounts stays with the people who run it now.\n\n"
+ },
+ {
+  "file": "delivery",
+  "section": "4.2.1",
+  "first12": "The first four weeks, the phases to August 2027, what the campaign",
+  "words": 29,
+  "kind": "signpost",
+  "home": "",
+  "note": "",
+  "text": "The first four weeks, the phases to August 2027, what the campaign receives, how progress is measured and decided, what could go wrong, and how the work is staffed.\n\n"
+ },
+ {
+  "file": "delivery",
+  "section": "4.3.2",
+  "first12": "KPIs: set out, phase by phase, in the target ladder at the",
+  "words": 16,
+  "kind": "signpost",
+  "home": "",
+  "note": "Pointer repeated in each phase; the target ladder is 4.3.1.",
+  "text": "\n\n**KPIs:** set out, phase by phase, in the target ladder at the head of Section 4.3."
+ },
+ {
+  "file": "delivery",
+  "section": "4.3.3",
+  "first12": "KPIs: set out, phase by phase, in the target ladder at the",
+  "words": 16,
+  "kind": "signpost",
+  "home": "",
+  "note": "Pointer repeated in each phase; the target ladder is 4.3.1.",
+  "text": "\n\n**KPIs:** set out, phase by phase, in the target ladder at the head of Section 4.3."
+ },
+ {
+  "file": "delivery",
+  "section": "4.3.4",
+  "first12": "KPIs: set out, phase by phase, in the target ladder at the",
+  "words": 16,
+  "kind": "signpost",
+  "home": "",
+  "note": "Pointer repeated in each phase; the target ladder is 4.3.1.",
+  "text": "\n\n**KPIs:** set out, phase by phase, in the target ladder at the head of Section 4.3."
+ },
+ {
+  "file": "workstreams-media",
+  "section": "4.5.5",
+  "first12": "Two workstreams: paid media across the platforms that reach the connected minority,",
+  "words": 26,
+  "kind": "moved",
+  "home": "workstreams-platforms:4.5",
+  "to": "workstreams-platforms:4.5",
+  "note": "X5: the group's description, set out once in 4.5.",
+  "text": "Two workstreams: paid media across the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely controlled by rivals."
+ },
+ {
+  "file": "workstreams-media",
+  "section": "4.5.6",
+  "first12": "Two workstreams: paid media across the platforms that reach the connected minority,",
+  "words": 26,
+  "kind": "duplicate",
+  "home": "workstreams-platforms:4.5",
+  "note": "X5: the group description, said once in 4.5.",
+  "text": " Two workstreams: paid media across the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely controlled by rivals."
+ },
+ {
+  "file": "workstreams-ground",
+  "section": "4.5.7",
+  "first12": "Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital",
+  "words": 25,
+  "kind": "moved",
+  "home": "workstreams-platforms:4.5",
+  "to": "workstreams-platforms:4.5",
+  "note": "X5: the group's description, set out once in 4.5.",
+  "text": "Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them."
+ },
+ {
+  "file": "workstreams-ground",
+  "section": "4.5.8",
+  "first12": "Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital",
+  "words": 25,
+  "kind": "duplicate",
+  "home": "workstreams-platforms:4.5",
+  "note": "X5: the group description, said once in 4.5.",
+  "text": " Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them."
+ },
+ {
+  "file": "workstreams-ground",
+  "section": "4.5.9",
+  "first12": "Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital",
+  "words": 25,
+  "kind": "duplicate",
+  "home": "workstreams-platforms:4.5",
+  "note": "X5: the group description, said once in 4.5.",
+  "text": " Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them."
+ },
+ {
+  "file": "workstreams-ground",
+  "section": "4.5.10",
+  "first12": "Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital",
+  "words": 25,
+  "kind": "duplicate",
+  "home": "workstreams-platforms:4.5",
+  "note": "X5: the group description, said once in 4.5.",
+  "text": " Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them."
+ },
+ {
+  "file": "workstreams-data",
+  "section": "4.5.11",
+  "first12": "Four workstreams that sit under the rest: the data model, the voter",
+  "words": 33,
+  "kind": "moved",
+  "home": "workstreams-platforms:4.5",
+  "to": "workstreams-platforms:4.5",
+  "note": "X5: the group's description, set out once in 4.5.",
+  "text": "Four workstreams that sit under the rest: the data model, the voter model built on it, the technology stack that runs both, and the analytics layer that measures what the other ten produce."
+ },
+ {
+  "file": "workstreams-data",
+  "section": "4.5.12",
+  "first12": "Four workstreams that sit under the rest: the data model, the voter",
+  "words": 33,
+  "kind": "duplicate",
+  "home": "workstreams-platforms:4.5",
+  "note": "X5: the group description, said once in 4.5.",
+  "text": " Four workstreams that sit under the rest: the data model, the voter model built on it, the technology stack that runs both, and the analytics layer that measures what the other ten produce."
+ },
+ {
+  "file": "workstreams-data",
+  "section": "4.5.13",
+  "first12": "Four workstreams that sit under the rest: the data model, the voter",
+  "words": 33,
+  "kind": "duplicate",
+  "home": "workstreams-platforms:4.5",
+  "note": "X5: the group description, said once in 4.5.",
+  "text": " Four workstreams that sit under the rest: the data model, the voter model built on it, the technology stack that runs both, and the analytics layer that measures what the other ten produce."
+ },
+ {
+  "file": "workstreams-data",
+  "section": "4.5.14",
+  "first12": "Four workstreams that sit under the rest: the data model, the voter",
+  "words": 33,
+  "kind": "duplicate",
+  "home": "workstreams-platforms:4.5",
+  "note": "X5: the group description, said once in 4.5.",
+  "text": " Four workstreams that sit under the rest: the data model, the voter model built on it, the technology stack that runs both, and the analytics layer that measures what the other ten produce."
+ },
+ {
+  "file": "workstreams-platforms",
+  "section": "4.5",
+  "first12": "The fourteen workstreams, in four groups: 4.5 Platforms and content (workstreams 1",
+  "words": 14,
+  "kind": "signpost",
+  "home": "",
+  "note": "The four-group sentence became the group cards: its group names, counts and closing line moved into them; '4.5' ×4 and the joining words went.",
+  "text": "The fourteen workstreams, in four groups: 4.5 Platforms and content (workstreams 1 to 4), 4.5 Publishing and earned media (5 and 6), 4.5 Ground and offline reach (7 to 10) and 4.5 Data and technology (11 to 14). Each sets out what it produces, who owns it and how often it reports."
+ },
+ {
+  "file": "workstreams-platforms",
+  "section": "4.5",
+  "first12": "Digital infrastructure, brand and civic content",
+  "words": 0,
+  "kind": "signpost",
+  "home": "",
+  "note": "The h4 label became the checklist's title (moved).",
+  "text": "#### Digital infrastructure, brand and civic content"
+ },
+ {
+  "file": "workstreams-platforms",
+  "section": "4.5",
+  "first12": "Growth, field advertising and reputation operations",
+  "words": 0,
+  "kind": "signpost",
+  "home": "",
+  "note": "The h4 label became the checklist's title (moved).",
+  "text": "#### Growth, field advertising and reputation operations"
+ },
+ {
+  "file": "workstreams-platforms",
+  "section": "4.5.1",
+  "first12": "Dr. Mulu is a monitoring and evaluation specialist — a member of",
+  "words": 34,
+  "kind": "duplicate",
+  "home": "evidence:2.10.1",
+  "note": "His record, said once at 2.10.1 (section 6).",
+  "text": "Dr. Mulu is a monitoring and evaluation specialist — a member of the Evaluation\nSociety of Kenya and an M&amp;E Champion recognised by the Ministry of Finance,\nwhose constituency was certified best evaluated in the Eastern region."
+ },
+ {
+  "file": "workstreams-platforms",
+  "section": "4.5.2",
+  "first12": "Firefly holds no credentials and publishes nothing here.",
+  "words": 8,
+  "kind": "duplicate",
+  "home": "decision:1.4.1",
+  "note": "Firefly publishes nothing on his accounts: said once at 1.4.1 (section 6).",
+  "text": "\n> Firefly holds no credentials and publishes nothing here."
+ },
+ {
+  "file": "workstreams-platforms",
+  "section": "4.5.2",
+  "first12": "a rigorous, industrial pipeline",
+  "words": 2,
+  "kind": "register",
+  "home": "",
+  "note": "X10: inflated register.",
+  "text": "a rigorous, industrial pipeline",
+  "replacement": "a pipeline"
+ },
+ {
+  "file": "workstreams-media",
+  "section": "4.5.6",
+  "first12": "Tier | Who | Cadence | Offer",
+  "words": 3,
+  "kind": "signpost",
+  "home": "",
+  "note": "Table column heads became the cards' layout.",
+  "text": "| Tier | Who | Cadence | Offer |"
+ },
+ {
+  "file": "workstreams-ground",
+  "section": "4.5.7",
+  "first12": "Digital content created in an air-conditioned command center in Nairobi or Kitui",
+  "words": 36,
+  "kind": "register",
+  "home": "",
+  "note": "X10: inflated framing ('air-conditioned command center').",
+  "text": " Digital content created in an air-conditioned command center in Nairobi or Kitui Town is worthless if it does not address the live anxieties voiced at the morning livestock auction in Nguni or the wellhead in Mutha."
+ },
+ {
+  "file": "workstreams-ground",
+  "section": "4.5.9",
+  "first12": "This is the one place in the engagement where Firefly publishes. Everything",
+  "words": 24,
+  "kind": "duplicate",
+  "home": "decision:1.4.1",
+  "note": "Firefly publishes only on the offline layer: said once at 1.4.1 (section 6).",
+  "text": " This is the one place in the engagement where\n> Firefly publishes. Everything on the owned social accounts stays with the team that runs them."
+ },
+ {
+  "file": "workstreams-ground",
+  "section": "4.5.9",
+  "first12": "Operational discipline:",
+  "words": 0,
+  "kind": "signpost",
+  "home": "",
+  "note": "Label became the checklist's title (moved).",
+  "text": "**Operational discipline:**"
  }
 ]

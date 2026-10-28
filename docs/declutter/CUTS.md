@@ -2,7 +2,7 @@
 
 Every deletion made by the declutter, generated from `cuts.json` by `scripts/declutter/build-cuts-md.mjs`. Each row gives the file, the section, the opening words, the words removed (net of any short reference left in place), the kind of cut and the canonical home where its facts still stand. `scripts/declutter/check-content.mjs` checks that every duplicate's tokens and names are at its home (check 5) and that the word count balances (check 4).
 
-55 cuts, 1,247 words; 2 passages moved to their homes.
+77 cuts, 1,685 words; 5 passages moved to their homes.
 
 | File | Section | First words | Words | Kind | Canonical home | Note |
 |---|---|---|---:|---|---|---|
@@ -63,3 +63,28 @@ Every deletion made by the declutter, generated from `cuts.json` by `scripts/dec
 | strategy | 3.5 | Political messaging in Kitui County has historically relied on empty populist slogans | 31 | Intensifier (X10) | — | X10: framing paragraph. |
 | strategy | 3.6.3 | Running a synchronized three-language communications operation introduces severe version-drift and contradiction risks. | 13 | Intensifier (X10) | — | X10: intensifiers and framing. Left in place: `The campaign implements a **Translation`. |
 | strategy | 3.1.2 | (Tier 1) ×4 and 'in' ×4 in the audit list | 10 | Signpost or meta-text | — | Layout: each finding's '(Tier 1)' became the bar's tier badge, and the 'in' joining amount to label became the bar's layout. |
+| delivery | 4.1.2 | One row has Firefly publishing. That asymmetry is the engagement, stated as | 40 | Verified duplicate | decision:1.4.1\|decision:1.1 | Firefly publishes only on the offline layer: said once at 1.4.1 (section 6). |
+| delivery | 4.2.1 | The first four weeks, the phases to August 2027, what the campaign | 29 | Signpost or meta-text | — |  |
+| delivery | 4.3.2 | KPIs: set out, phase by phase, in the target ladder at the | 16 | Signpost or meta-text | — | Pointer repeated in each phase; the target ladder is 4.3.1. |
+| delivery | 4.3.3 | KPIs: set out, phase by phase, in the target ladder at the | 16 | Signpost or meta-text | — | Pointer repeated in each phase; the target ladder is 4.3.1. |
+| delivery | 4.3.4 | KPIs: set out, phase by phase, in the target ladder at the | 16 | Signpost or meta-text | — | Pointer repeated in each phase; the target ladder is 4.3.1. |
+| workstreams-media | 4.5.5 | Two workstreams: paid media across the platforms that reach the connected minority, | 26 | Moved to its home | workstreams-platforms:4.5 | X5: the group's description, set out once in 4.5. |
+| workstreams-media | 4.5.6 | Two workstreams: paid media across the platforms that reach the connected minority, | 26 | Verified duplicate | workstreams-platforms:4.5 | X5: the group description, said once in 4.5. |
+| workstreams-ground | 4.5.7 | Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital | 25 | Moved to its home | workstreams-platforms:4.5 | X5: the group's description, set out once in 4.5. |
+| workstreams-ground | 4.5.8 | Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital | 25 | Verified duplicate | workstreams-platforms:4.5 | X5: the group description, said once in 4.5. |
+| workstreams-ground | 4.5.9 | Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital | 25 | Verified duplicate | workstreams-platforms:4.5 | X5: the group description, said once in 4.5. |
+| workstreams-ground | 4.5.10 | Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital | 25 | Verified duplicate | workstreams-platforms:4.5 | X5: the group description, said once in 4.5. |
+| workstreams-data | 4.5.11 | Four workstreams that sit under the rest: the data model, the voter | 33 | Moved to its home | workstreams-platforms:4.5 | X5: the group's description, set out once in 4.5. |
+| workstreams-data | 4.5.12 | Four workstreams that sit under the rest: the data model, the voter | 33 | Verified duplicate | workstreams-platforms:4.5 | X5: the group description, said once in 4.5. |
+| workstreams-data | 4.5.13 | Four workstreams that sit under the rest: the data model, the voter | 33 | Verified duplicate | workstreams-platforms:4.5 | X5: the group description, said once in 4.5. |
+| workstreams-data | 4.5.14 | Four workstreams that sit under the rest: the data model, the voter | 33 | Verified duplicate | workstreams-platforms:4.5 | X5: the group description, said once in 4.5. |
+| workstreams-platforms | 4.5 | The fourteen workstreams, in four groups: 4.5 Platforms and content (workstreams 1 | 14 | Signpost or meta-text | — | The four-group sentence became the group cards: its group names, counts and closing line moved into them; '4.5' ×4 and the joining words went. |
+| workstreams-platforms | 4.5 | Digital infrastructure, brand and civic content | 0 | Signpost or meta-text | — | The h4 label became the checklist's title (moved). |
+| workstreams-platforms | 4.5 | Growth, field advertising and reputation operations | 0 | Signpost or meta-text | — | The h4 label became the checklist's title (moved). |
+| workstreams-platforms | 4.5.1 | Dr. Mulu is a monitoring and evaluation specialist — a member of | 34 | Verified duplicate | evidence:2.10.1 | His record, said once at 2.10.1 (section 6). |
+| workstreams-platforms | 4.5.2 | Firefly holds no credentials and publishes nothing here. | 8 | Verified duplicate | decision:1.4.1 | Firefly publishes nothing on his accounts: said once at 1.4.1 (section 6). |
+| workstreams-platforms | 4.5.2 | a rigorous, industrial pipeline | 2 | Intensifier (X10) | — | X10: inflated register. Left in place: `a pipeline`. |
+| workstreams-media | 4.5.6 | Tier \| Who \| Cadence \| Offer | 3 | Signpost or meta-text | — | Table column heads became the cards' layout. |
+| workstreams-ground | 4.5.7 | Digital content created in an air-conditioned command center in Nairobi or Kitui | 36 | Intensifier (X10) | — | X10: inflated framing ('air-conditioned command center'). |
+| workstreams-ground | 4.5.9 | This is the one place in the engagement where Firefly publishes. Everything | 24 | Verified duplicate | decision:1.4.1 | Firefly publishes only on the offline layer: said once at 1.4.1 (section 6). |
+| workstreams-ground | 4.5.9 | Operational discipline: | 0 | Signpost or meta-text | — | Label became the checklist's title (moved). |

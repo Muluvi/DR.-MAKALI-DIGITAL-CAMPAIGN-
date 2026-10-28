@@ -71,3 +71,13 @@ A run of h4 blocks becomes an accordion from three panels, not two. Two-panel ru
 **D-28. The segment tabs (3.4.2) carry the pillar table.** The pillar, language and channel table at the top of 3.4.2 becomes the first three fields of each segment's tab. The "core anxiety is a hypothesis" sentence becomes the tabs' standing note. Each tab shows its segment's fields in full, as the plan's list of fields (size, where, channels, anxiety, offer, proof) asks.
 
 **D-29. 3.1.2's bars use the audit's four findings only.** The Controller of Budget's pending-bills figure is a different year, source and kind, so it stays in the text and is not added as a fifth bar.
+
+## Stage 7: Part 4
+
+**D-30. The phase sections 4.3.2 to 4.3.4 become per-section checklists, and their headings keep their ids.** The plan asks for one phase timeline across 4.3. Each phase is its own deep-linked heading (4.3.2, 4.3.3, 4.3.4), and merging them would move or retire three anchors. So each phase's deliverable list becomes a checklist under its own heading. The pointer each phase repeated to the target ladder is logged as a signpost, because the ladder is 4.3.1, directly above. 4.2.1 and 4.2.2 become timelines in place, and 4.4's sequenced calendar becomes a timeline.
+
+**D-31. The workstream groups are described once, in 4.5.** Each workstream's banner ended with its group and, for the first workstream in a group, a sentence describing the group. Those sentences move, verbatim, into the group cards at the top of 4.5 (kind "moved"); the repeats in later banners are logged as duplicates. The "Group:" line itself stays in every banner, so a reader who lands on a single workstream by deep link still sees which group it belongs to. "Platforms and content" had no describing sentence in the source, so its card carries only its title and range.
+
+**D-32. Each workstream's owner line opens its lead.** The banners under the workstream headings state who owns the work. A lead is extractive, so each lead opens with the banner's own owner sentence and stops before any detail; the banner stays in full below it. 4.5.12's lead keeps "gated on Section 5.3.4" and "ward-level aggregate scoring only", which are the 5.3.4 gate rule and must stay visible.
+
+**D-33. Moved text counts for the section it joins.** When a sentence moves into another section's visual (D-31), check 4 now matches that visual's words against the moved text too, not only against the section's own original words. Without this, the moved words were debited from the destination and then excluded again as "added", counting the same words twice.
