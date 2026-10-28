@@ -665,7 +665,16 @@ function buildComponents(tabId: TabId): Components {
  * text without a paragraph box, for labels and one-line fields.
  */
 function markdownFor(tabId: TabId) {
-  const block = buildComponents(tabId);
+  // Inside a visual a table is part of a card or tab, so it is drawn as a plain, compact table that
+  // scrolls sideways on a phone, not as the document's interactive table with its own controls.
+  const block: Components = {
+    ...buildComponents(tabId),
+    table: ({ children }) => (
+      <div className="vz-table-wrap" tabIndex={0} role="region" aria-label="Table">
+        <table className="vz-table">{children}</table>
+      </div>
+    ),
+  };
   const inline: Components = {
     ...block,
     p: ({ children }) => <>{highlightInline(children, tabId)}</>,

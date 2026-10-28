@@ -260,5 +260,198 @@
   "note": "Editorial history of the drafts; the Tier 3 status it ended on stays.",
   "text": "Earlier drafts of this proposal said \"before the final quarter\" in four places while every\n   operational deadline in it assumed Q4; the wording is now the same throughout, and it remains\n   a **Tier 3** expectation",
   "replacement": "It remains\n   a **Tier 3** expectation"
+ },
+ {
+  "file": "evidence",
+  "section": "2.1",
+  "first12": "To achieve absolute mathematical certainty, the campaign's success metrics are anchored strictly",
+  "words": 26,
+  "kind": "register",
+  "home": "",
+  "note": "X10: framing ('absolute mathematical certainty'); the list it introduced follows unchanged.",
+  "text": "To achieve absolute mathematical certainty, the campaign's success metrics are anchored strictly to the official 2022 IEBC register (Tier 1), rather than volatile digital vanity metrics:\n\n"
+ },
+ {
+  "file": "evidence",
+  "section": "2.1",
+  "first12": "The number of votes it takes, the forty wards ranked by weight,",
+  "words": 29,
+  "kind": "signpost",
+  "home": "",
+  "note": "",
+  "text": "The number of votes it takes, the forty wards ranked by weight, four routes to the threshold with the working shown, and the three regions the county divides into.\n\n"
+ },
+ {
+  "file": "evidence",
+  "section": "2.1",
+  "first12": "The path to the Kitui County governorship is governed by strict spatial",
+  "words": 50,
+  "kind": "register",
+  "home": "",
+  "note": "X10: framing paragraph; the allocation rule it asserts is 3.3.1's.",
+  "text": "The path to the Kitui County governorship is governed by strict spatial and demographic mathematics. An effective campaign cannot treat the county as a uniform political landscape; it must allocate effort, digital attention, offline SMS broadcasts, and field organizers in direct proportion to registered voter density and structural electoral leverage.\n\n"
+ },
+ {
+  "file": "evidence",
+  "section": "2.1",
+  "first12": "This section constructs the complete electoral arithmetic of the ~{{benchmark}} vote victory",
+  "words": 46,
+  "kind": "signpost",
+  "home": "",
+  "note": "",
+  "text": "This section constructs the complete electoral arithmetic of the **~{{benchmark}} vote victory threshold** from the official **40-ward IEBC voter register** (Tier 1), identifies the decisive geographic concentrations and structural coalitions, and maps the critical intersection between the candidate's recognition deficit and the county's decisive voting blocs.\n\n"
+ },
+ {
+  "file": "evidence",
+  "section": "2.1",
+  "first12": "To eliminate subjective projections, the campaign's target metrics are anchored directly to",
+  "words": 15,
+  "kind": "register",
+  "home": "",
+  "note": "X10: framing line before the list.",
+  "text": "To eliminate subjective projections, the campaign's target metrics are anchored directly to official IEBC outcomes:\n\n"
+ },
+ {
+  "file": "evidence",
+  "section": "2.1",
+  "first12": "Total Registered Electorate (2022, Tier 1): {{register.2022}} voters across 40 County Assembly",
+  "words": 21,
+  "kind": "duplicate",
+  "home": "evidence:2.1",
+  "note": "The 2022 register, stated in the first list (now the register tile).",
+  "text": "*   **Total Registered Electorate (2022, Tier 1):** **{{register.2022}} voters** across **40 County Assembly\n    Wards** (plus **75 prison voters**, totalling **{{register.2022.with-prisons}} registered voters**).\n"
+ },
+ {
+  "file": "evidence",
+  "section": "2.3",
+  "first12": "exhibits extreme density clustering",
+  "words": 1,
+  "kind": "register",
+  "home": "",
+  "note": "X10: intensifier.",
+  "text": "exhibits extreme density clustering",
+  "replacement": "exhibits density clustering"
+ },
+ {
+  "file": "evidence",
+  "section": "2.6.1",
+  "first12": "The incumbent cannot stand. Governor Julius Malombe won the 2022 race on",
+  "words": 58,
+  "kind": "duplicate",
+  "home": "evidence:2.6.3|evidence:2.6.2|evidence:2.2",
+  "note": "The term limit, said once at 2.6.3 (section 6). Its last sentence, on the party's 2027 nomination list, stays.",
+  "text": "*   **The incumbent cannot stand.** Governor Julius Malombe won the 2022 race on the Wiper ticket (Tier 1, Section 2.2) after a first term from 2013 to 2017. Article 180(7) of the Constitution limits a governor to two terms (Tier 1), and he is serving his second, so the 2027 Wiper nomination is for an open seat (Section 2.6.3). ",
+  "replacement": "*   "
+ },
+ {
+  "file": "evidence",
+  "section": "2.6.2",
+  "first12": "The Auditor-General's and Controller of Budget's reports on the county executive are",
+  "words": 20,
+  "kind": "moved",
+  "home": "evidence:2.6.3",
+  "to": "evidence:2.6.3",
+  "note": "A detail the term-limit home lacked moves there before the Malombe bullet is cut (section 6).",
+  "text": "The Auditor-General's and Controller of Budget's reports on the county executive are the documentary record of his administration (Annex B.2). "
+ },
+ {
+  "file": "evidence",
+  "section": "2.6.2",
+  "first12": "Julius Malombe (Incumbent Governor, Kitui County): Won the 2022 general election with",
+  "words": 72,
+  "kind": "duplicate",
+  "home": "evidence:2.6.3|evidence:2.2|evidence:2.6.2",
+  "note": "The term limit, said once at 2.6.3; his 2022 total is 2.2's.",
+  "text": "\n*   **Julius Malombe (Incumbent Governor, Kitui County):** Won the 2022 general election with {{result.2022.gov.malombe}} votes (Tier 1, IEBC Form 37C) after serving a first term from 2013–2017. He is not in the 2027 field: Article 180(7) of the Constitution limits a governor to two terms, and he has served two. The race is for an open seat (Section 2.6.3), and his record is the one every candidate in it will be measured against."
+ },
+ {
+  "file": "evidence",
+  "section": "2.7",
+  "first12": "To formulate a targeted intervention, the campaign maps Dr. Mulu's structural profile",
+  "words": 17,
+  "kind": "signpost",
+  "home": "",
+  "note": "",
+  "text": "To formulate a targeted intervention, the campaign maps Dr. Mulu's structural profile against the county's voter geography.\n"
+ },
+ {
+  "file": "evidence",
+  "section": "2.7.1",
+  "first12": "Total Decisive Deficit Pool:",
+  "words": 0,
+  "kind": "signpost",
+  "home": "",
+  "note": "The h4 label became the stat rail's title (moved, not cut).",
+  "text": "#### Total Decisive Deficit Pool:"
+ },
+ {
+  "file": "evidence",
+  "section": "2.9.1",
+  "first12": "To maintain absolute data integrity, the campaign anchors on current Communications Authority",
+  "words": 25,
+  "kind": "register",
+  "home": "",
+  "note": "X10: framing; the sources it names are cited in the paragraph and table that follow.",
+  "text": "To maintain absolute data integrity, the campaign anchors on current Communications Authority and KNBS 2023/24 data as ground truth, while tracking the historical 2019 census:\n\n"
+ },
+ {
+  "file": "evidence",
+  "section": "2.9.1",
+  "first12": "The Defining Digital and Telecommunications Constraints (CA/KNBS Sourced):",
+  "words": 0,
+  "kind": "signpost",
+  "home": "",
+  "note": "The h4 label became the stat rail's title (moved, not cut).",
+  "text": "#### The Defining Digital and Telecommunications Constraints (CA/KNBS Sourced):"
+ },
+ {
+  "file": "evidence",
+  "section": "2.9.3",
+  "first12": "What digital reach can and cannot deliver against the winning number, the",
+  "words": 24,
+  "kind": "signpost",
+  "home": "",
+  "note": "",
+  "text": "What digital reach can and cannot deliver against the winning number, the infrastructure that reaches the offline majority, and who controls the Kamba-language airwaves.\n\n"
+ },
+ {
+  "file": "evidence",
+  "section": "2.9.3",
+  "first12": "Winning Kitui County requires building a communication strategy aligned with empirical reality",
+  "words": 17,
+  "kind": "register",
+  "home": "",
+  "note": "X10: framing sentence.",
+  "text": "Winning Kitui County requires building a communication strategy aligned with empirical reality rather than digital wishful thinking. \n\n"
+ },
+ {
+  "file": "evidence",
+  "section": "2.9.4",
+  "first12": "Bulk political SMS is restricted to English or Kiswahili (Section 4.5.9); the",
+  "words": 20,
+  "kind": "duplicate",
+  "home": "workstreams-ground:4.5.9",
+  "note": "Kikamba is not permitted on the bulk SMS rail: said once at 4.5.9 (section 6).",
+  "text": " Bulk political SMS is restricted to English or Kiswahili (Section 4.5.9); the Kikamba version travels by voice note and radio."
+ },
+ {
+  "file": "evidence",
+  "section": "2.10.1",
+  "first12": "Forensic Assets for Systematic Digital Projection:",
+  "words": 6,
+  "kind": "register",
+  "home": "",
+  "note": "X10: inflated label over the asset table; the table follows unchanged.",
+  "text": "**Forensic Assets for Systematic Digital Projection:**\n\n"
+ },
+ {
+  "file": "evidence",
+  "section": "2.12",
+  "first12": "The hypothesis. What supports it. What counts against it. The test.",
+  "words": 11,
+  "kind": "signpost",
+  "home": "",
+  "note": "The four bold labels became the hypothesis card's four panel titles.",
+  "text": "**The hypothesis.** **What supports it.** **What counts against it.** **The test.**"
  }
 ]

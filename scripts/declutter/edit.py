@@ -162,11 +162,16 @@ def q(s):
 def bullet_items(block):
     """Top-level bullets of a markdown list, each joined to one line, continuation lines kept."""
     items = []
+    blank = False
     for line in block.split("\n"):
         if re.match(r"^\s{0,1}[*\-+]\s+|^\d+\.\s+", line):
             items.append(re.sub(r"^\s{0,1}(?:[*\-+]|\d+\.)\s+", "", line))
         elif items and line.strip():
+            # A list ends at a blank line followed by text that is not indented under it.
+            if blank and not line.startswith((" ", "\t")):
+                break
             items[-1] += "\n" + line
+        blank = not line.strip()
     return items
 
 

@@ -74,6 +74,28 @@ function ItemDetails({ it, md, label }: { it: Item; md: Md; label?: string }) {
   );
 }
 
+/**
+ * Conflict markers in the folded part of an item (its fields or body). A disputed figure is flagged
+ * on the face of its card or tile, so closing the details never hides that it is under review; the
+ * marker itself stays where the source put it.
+ */
+function hiddenConflicts(it: Item): string[] {
+  const text = [it.body ?? "", ...(it.fields ?? []).map((f) => f.text)].join(" ");
+  return [...new Set([...text.matchAll(/\[CONFLICT (C\d+): see open items\]/g)].map((m) => m[1]))];
+}
+
+function FaceConflicts({ it }: { it: Item }) {
+  const ids = hiddenConflicts(it);
+  if (!ids.length) return null;
+  return (
+    <span className="vz-face-conflicts">
+      {ids.map((id) => (
+        <ConflictMark key={id} conflict={id} />
+      ))}
+    </span>
+  );
+}
+
 function Chips({ chips }: { chips?: string[] }) {
   if (!chips?.length) return null;
   return (
@@ -158,6 +180,7 @@ function Stats({ items, md }: { items: Item[]; md: Md }) {
           </span>
           {it.caption ? <span className="vz-stat__cap">{md(it.caption, true)}</span> : null}
           {it.conflict ? <ConflictMark conflict={it.conflict} /> : null}
+          <FaceConflicts it={it} />
           <ItemDetails it={it} md={md} />
         </li>
       ))}
@@ -177,6 +200,7 @@ function Cards({ items, md, preset }: { items: Item[]; md: Md; preset?: string }
           {labelOf(it) ? <h5 className="vz-card__title">{md(labelOf(it), true)}</h5> : null}
           {it.value ? <p className="vz-card__value">{md(it.value, true)}</p> : null}
           <ItemFace it={it} md={md} />
+          <FaceConflicts it={it} />
           <ItemDetails it={it} md={md} />
         </li>
       ))}
@@ -259,6 +283,7 @@ function Sequence({ items, md, kind }: { items: Item[]; md: Md; kind: "timeline"
             </ToggleRow>
             <Chips chips={it.chips} />
             {it.conflict ? <ConflictMark conflict={it.conflict} /> : null}
+            <FaceConflicts it={it} />
           </div>
         </li>
       ))}
@@ -277,6 +302,7 @@ function Column({ title, items, md, tone }: { title: string; items: Item[]; md: 
               <RowFace it={it} md={md} />
             </ToggleRow>
             <Chips chips={it.chips} />
+            <FaceConflicts it={it} />
           </li>
         ))}
       </ul>

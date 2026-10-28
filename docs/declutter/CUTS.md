@@ -2,7 +2,7 @@
 
 Every deletion made by the declutter, generated from `cuts.json` by `scripts/declutter/build-cuts-md.mjs`. Each row gives the file, the section, the opening words, the words removed (net of any short reference left in place), the kind of cut and the canonical home where its facts still stand. `scripts/declutter/check-content.mjs` checks that every duplicate's tokens and names are at its home (check 5) and that the word count balances (check 4).
 
-24 cuts, 568 words; 1 passages moved to their homes.
+42 cuts, 1,006 words; 2 passages moved to their homes.
 
 | File | Section | First words | Words | Kind | Canonical home | Note |
 |---|---|---|---:|---|---|---|
@@ -31,3 +31,22 @@ Every deletion made by the declutter, generated from `cuts.json` by `scripts/dec
 | decision | 1.4.2 | {{ict.offline}}% of Kitui residents are outside the internet-using population (CA/KNBS 2023/24, Tier | 38 | Verified duplicate | evidence:2.9.1\|evidence:2.9.3 | Connectivity (home 2.9.1) and the digital ceiling (home 2.9.3), said once. Left in place: ` (Section 2.9.3)`. |
 | decision | 1.4.3 | How the three engagement levels change what runs, and the Level 2 | 19 | Signpost or meta-text | — | Closing pointer. |
 | decision | 1.8 | Earlier drafts of this proposal said "before the final quarter" in four | 29 | Editorial history of the drafts | — | Editorial history of the drafts; the Tier 3 status it ended on stays. Left in place: `It remains    a **Tier 3** expectation`. |
+| evidence | 2.1 | To achieve absolute mathematical certainty, the campaign's success metrics are anchored strictly | 26 | Intensifier (X10) | — | X10: framing ('absolute mathematical certainty'); the list it introduced follows unchanged. |
+| evidence | 2.1 | The number of votes it takes, the forty wards ranked by weight, | 29 | Signpost or meta-text | — |  |
+| evidence | 2.1 | The path to the Kitui County governorship is governed by strict spatial | 50 | Intensifier (X10) | — | X10: framing paragraph; the allocation rule it asserts is 3.3.1's. |
+| evidence | 2.1 | This section constructs the complete electoral arithmetic of the ~{{benchmark}} vote victory | 46 | Signpost or meta-text | — |  |
+| evidence | 2.1 | To eliminate subjective projections, the campaign's target metrics are anchored directly to | 15 | Intensifier (X10) | — | X10: framing line before the list. |
+| evidence | 2.1 | Total Registered Electorate (2022, Tier 1): {{register.2022}} voters across 40 County Assembly | 21 | Verified duplicate | evidence:2.1 | The 2022 register, stated in the first list (now the register tile). |
+| evidence | 2.3 | exhibits extreme density clustering | 1 | Intensifier (X10) | — | X10: intensifier. Left in place: `exhibits density clustering`. |
+| evidence | 2.6.1 | The incumbent cannot stand. Governor Julius Malombe won the 2022 race on | 58 | Verified duplicate | evidence:2.6.3\|evidence:2.6.2\|evidence:2.2 | The term limit, said once at 2.6.3 (section 6). Its last sentence, on the party's 2027 nomination list, stays. Left in place: `*   `. |
+| evidence | 2.6.2 | The Auditor-General's and Controller of Budget's reports on the county executive are | 20 | Moved to its home | evidence:2.6.3 | A detail the term-limit home lacked moves there before the Malombe bullet is cut (section 6). |
+| evidence | 2.6.2 | Julius Malombe (Incumbent Governor, Kitui County): Won the 2022 general election with | 72 | Verified duplicate | evidence:2.6.3\|evidence:2.2\|evidence:2.6.2 | The term limit, said once at 2.6.3; his 2022 total is 2.2's. |
+| evidence | 2.7 | To formulate a targeted intervention, the campaign maps Dr. Mulu's structural profile | 17 | Signpost or meta-text | — |  |
+| evidence | 2.7.1 | Total Decisive Deficit Pool: | 0 | Signpost or meta-text | — | The h4 label became the stat rail's title (moved, not cut). |
+| evidence | 2.9.1 | To maintain absolute data integrity, the campaign anchors on current Communications Authority | 25 | Intensifier (X10) | — | X10: framing; the sources it names are cited in the paragraph and table that follow. |
+| evidence | 2.9.1 | The Defining Digital and Telecommunications Constraints (CA/KNBS Sourced): | 0 | Signpost or meta-text | — | The h4 label became the stat rail's title (moved, not cut). |
+| evidence | 2.9.3 | What digital reach can and cannot deliver against the winning number, the | 24 | Signpost or meta-text | — |  |
+| evidence | 2.9.3 | Winning Kitui County requires building a communication strategy aligned with empirical reality | 17 | Intensifier (X10) | — | X10: framing sentence. |
+| evidence | 2.9.4 | Bulk political SMS is restricted to English or Kiswahili (Section 4.5.9); the | 20 | Verified duplicate | workstreams-ground:4.5.9 | Kikamba is not permitted on the bulk SMS rail: said once at 4.5.9 (section 6). |
+| evidence | 2.10.1 | Forensic Assets for Systematic Digital Projection: | 6 | Intensifier (X10) | — | X10: inflated label over the asset table; the table follows unchanged. |
+| evidence | 2.12 | The hypothesis. What supports it. What counts against it. The test. | 11 | Signpost or meta-text | — | The four bold labels became the hypothesis card's four panel titles. |

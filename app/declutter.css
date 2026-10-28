@@ -172,6 +172,9 @@ span[data-fold-body][hidden] { display: inline-block; }
 .vz-seq__label + .vz-row__text { display: block; }
 .vz-seq__text > .vz-row__face { display: block; padding-top: 2px; }
 
+.vz-face-conflicts { display: block; margin-top: 4px; }
+.vz-face-conflicts .ichip__btn { margin-left: 0; }
+
 /* stats */
 .vz-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
 @media (min-width: 720px) { .vz-stats { grid-template-columns: repeat(var(--vz-n, 3), minmax(0, 1fr)); } }
