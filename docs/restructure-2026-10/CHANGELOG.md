@@ -466,3 +466,34 @@ Old and new numbers overlap (old 3.1 is new 2.1, and new 3.1 is the position), s
 ### Checks at the end of Stage 4
 
 Lint and typecheck clean; `npm run verify` passes, including `verify-figures`, which caught a component note still citing §3.11; the conservation check passes (92 figures, 5 text versions, 621 tokens, words reconcile to 0); `heading-inventory --strict` passes.
+
+## Stage 5: verification
+
+### Acceptance checks (brief section 6), on the final tree
+
+| # | Check | Result |
+|---|---|---|
+| 1 | Structure (`check-acceptance.py`, `heading-inventory.ts --strict`) | Pass. Parts 1 to 6, Annexes A to G; 43 sections, 102 subsections (preview 5's 96 plus 4.6.1 to 4.6.6, which the mapping keeps); deepest numbered level 3; no number repeated |
+| 2 | Mapping completeness | Pass. 333 rows; every new ref is a live heading or a run-in's parent; 11 removals, each canonical home present |
+| 3 | Word conservation | Pass. 47,768 before, 48,356 after; unexplained 0 (Stage 2 table) |
+| 4 | Figure conservation | Pass. 92 figure fences and 5 text versions, each exactly once |
+| 5 | Token conservation | Pass. 621 tokens before and after, same counts |
+| 6 | No 5A to 5E tab letters in navigation | Pass |
+| 7 | `npm run content`, then `build-content.ts --check` | Pass (621 figure tokens resolved) |
+| 8 | `npm run lint`, `npx tsc --noEmit`, `npm run test:figures` (the repo has no `npm test`; 35 of 35), `npm run build` | Pass, as at the baseline |
+| 9 | `check-figures.ts`, `check-copy.ts` (inside `npm run verify`) | Pass |
+| 10 | Anchors (`build-anchors.ts --check`) | Pass. 176 live headings, 1,546 redirects, 0 orphans, 0 misdirected |
+| 11 | Idempotence (`renumber-citations.ts --check`) | Pass. Nothing to change (924 citations) |
+| 12 | Content integrity | Pass. 818 of 818 baseline paragraphs present word for word, once citation numbers, markers and the layout's own lines are set aside (cuts excluded); 20 random spot-checks identical |
+| 13 | Numbers | Pass. 1,776 number tokens outside citations before (less cuts), 1,776 after, identical |
+| 14 to 17 | Live checks (`live-checks.mjs`, local production build at 380 × 844) | Pass. 19 sections in the new order; index acts in preview 5 order, "The decision" first; all 19 routes 200; 40 of 40 deep links (15 pre-rebuild ids, 15 ids live before the restructure, 10 new ids) land in view; `/analysis#analysis-sec-3-4` lands on 2.7 and `/delivery#delivery-sec-5-6` on 5.1; search "ten smallest wards" finds 2.3 by its figure's finding; dock labels for the four workstream routes read "§4.5 Platform…", "§4.5 Publishi…", "§4.5 Ground &…", "§4.5 Data & t…" |
+
+The live checks run in a local browser: this session's network proxy does not reach `*.vercel.app`, so the preview and production deployments are checked over the Vercel connector's fetch (routes, section order in the HTML, `/content/decision.md`, the `/analysis` redirect), and the browser checks are the local run above, on the same commit.
+
+### Fix found by the live checks
+
+The index's part rail on a phone. Six parts in place of the old five made the equal-width columns narrower than "Measurement", so labels wrapped and broke mid-word. `components/MobileTOCModal.tsx` now gives the rail a short label per part (its own name without a leading "The" or anything after "and": "Decision", "Evidence", "Strategy", "Delivery", "Measurement", "Risks") and tells the list how many steps it holds (`data-steps`); `app/premium.css` sizes a six-step rail's columns to their labels and spreads them edge to edge, with a slightly smaller face under 380 px. Checked at 380 and 360 px. No copy changed.
+
+### Scripts added in this stage
+
+`scripts/restructure-2026-10/check-acceptance.py` (checks 1, 2, 6, 12, 13) and `scripts/restructure-2026-10/live-checks.mjs` (checks 14 to 17). Both are listed with the other restructure scripts in `README.md` in this folder.

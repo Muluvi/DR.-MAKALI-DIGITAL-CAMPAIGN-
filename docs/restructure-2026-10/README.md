@@ -19,3 +19,9 @@ The approved plan is `preview.md`. Everything else in this folder records how it
     python3 -I scripts/restructure-2026-10/parse-mapping.py                  # preview section 6 -> mapping.json
     node --experimental-strip-types scripts/renumber-citations.ts           # rewrite "Section N.N" citations to the new numbers
     node --experimental-strip-types scripts/renumber-citations.ts --check   # fail if a run would change anything
+    python3 -I scripts/restructure-2026-10/build-layout.py                   # cut the baseline into heading blocks and write the new content/ layout
+    python3 -I scripts/restructure-2026-10/check-conservation.py             # checks 3 to 5: words, figures, text versions, tokens
+    python3 -I scripts/restructure-2026-10/build-moves.py                    # old live ids -> new ids (lib/anchors/restructure-2026-10.json)
+    python3 -I scripts/restructure-2026-10/update-keys.py                    # re-key mounts, visual overrides and figure-spec sections
+    python3 -I scripts/restructure-2026-10/check-acceptance.py               # checks 1, 2, 6, 12 and 13
+    NODE_PATH=$(npm root -g) node scripts/restructure-2026-10/live-checks.mjs http://localhost:3210   # checks 14 to 17 in a browser, against a running site

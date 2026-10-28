@@ -32,6 +32,12 @@ const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: 
   "annex-spec": FileCog,
 };
 
+/** An act's label as the argument rail shows it: no leading "The", first word of an "X and Y". */
+const railLabel = (label: string) => {
+  const short = label.replace(/^The /, "").split(" and ")[0];
+  return short.charAt(0).toUpperCase() + short.slice(1);
+};
+
 interface MobileTOCModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -213,12 +219,14 @@ export function MobileTOCModal({
 
               {/* The argument rail from the cover, in miniature. */}
               <nav className="pf-idx__rail" aria-label="The shape of the argument">
-                <ol>
+                <ol data-steps={argument.length}>
                   {argument.map((a, i) => (
                     <li key={a.id}>
                       <button type="button" data-vt-source="" onClick={() => onSelectTab(a.opensOn, onClose)} aria-current={hereAct === a.id ? "step" : undefined}>
                         <span className="pf-idx__railnode" aria-hidden="true">{i + 1}</span>
-                        <span data-vt-title="">{a.label.replace(/^The /, "")}</span>
+                        {/* The cover spine's short form: "The decision" reads "Decision", and
+                            "Measurement and governance" reads "Measurement", so six fit one row. */}
+                        <span data-vt-title="">{railLabel(a.label)}</span>
                       </button>
                     </li>
                   ))}

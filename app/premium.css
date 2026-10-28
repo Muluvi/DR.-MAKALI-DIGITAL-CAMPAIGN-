@@ -1189,6 +1189,11 @@ html { scroll-padding-bottom: calc(var(--pf-dock-h) + 24px); }
 .pf-idx__rail ol::before { content: ""; position: absolute; top: 21px; left: 10%; right: 10%; height: 2px; background: var(--pf-accent-solid); }
 .pf-idx__rail button { position: relative; display: grid; justify-items: center; gap: 6px; width: 100%; min-height: 44px; padding: 6px 2px; border: 0; background: none; color: var(--pf-ink); cursor: pointer; font: 600 12.5px/1.2 var(--pf-display); text-align: center; border-radius: 10px; }
 .pf-idx__rail button:focus-visible { outline: 2px solid var(--pf-accent); outline-offset: 2px; }
+/* Six parts share one row on a phone. Equal columns are narrower than "Measurement", so each
+   column takes its label's width and the row spreads them edge to edge. */
+.pf-idx__rail ol[data-steps="6"] { grid-template-columns: repeat(6, auto); justify-content: space-between; column-gap: 2px; }
+.pf-idx__rail ol[data-steps="6"] button { padding-inline: 0; }
+@media (max-width: 380px) { .pf-idx__rail ol[data-steps="6"] button { font-size: 11.5px; } }
 .pf-idx__railnode { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--pf-accent-solid); background: var(--pf-ground); font: 700 12px/1 var(--pf-display); }
 .pf-idx__rail button[aria-current="step"] .pf-idx__railnode, .pf-idx__rail button:hover .pf-idx__railnode { background: var(--pf-accent-solid); color: var(--pf-on-solid); }
 
