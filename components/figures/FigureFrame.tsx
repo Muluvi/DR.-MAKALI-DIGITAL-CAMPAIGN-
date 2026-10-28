@@ -2,6 +2,7 @@ import type { FigureSeries } from "../../lib/figures/types";
 import { KIND_LABEL, conflictsOf, isImprecise, sourcesOf, tierOf } from "../../lib/figures/types";
 import { TIER_META } from "../../data/types";
 import { UnderReview } from "./UnderReview";
+import { FigDetail, FigureDetails, FigureDetailsToggle } from "../register/FigureDetails";
 
 /**
  * The frame every figure in this audit sits in, and the contract it enforces.
@@ -63,11 +64,11 @@ export function FigureFrame({
       role="group"
       aria-label={series.headline}
     >
+      <FigureDetails>
       <figcaption className="px-4 pt-4 sm:px-5 sm:pt-5">
         <h4 className="font-serif t-small sm:t-body font-bold leading-snug text-ink text-balance">
           {series.headline}
         </h4>
-        <p className="t-micro mt-1 leading-snug text-muted">{series.measure}</p>
       </figcaption>
 
       {conflicts.length > 0 && (
@@ -100,9 +101,13 @@ export function FigureFrame({
           )}
         </p>
 
-        {series.note && conflicts.length === 0 && (
-          <p className="t-micro mt-1.5 leading-snug text-muted">{series.note}</p>
-        )}
+        <FigureDetailsToggle />
+        <FigDetail notes className="rf-method">
+          <p className="t-micro leading-snug text-muted">{series.measure}</p>
+          {series.note && conflicts.length === 0 && (
+            <p className="t-micro mt-1.5 leading-snug text-muted">{series.note}</p>
+          )}
+        </FigDetail>
 
         {/* SHIPS OPEN, closed by PrintSafeDisclosures once a script is there to reopen it.
             This carried `print:open` before, which styles nothing — `open` is an attribute, not a
@@ -118,6 +123,7 @@ export function FigureFrame({
           </div>
         </details>
       </div>
+      </FigureDetails>
     </figure>
   );
 }

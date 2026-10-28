@@ -290,3 +290,16 @@ span[data-fold-body][hidden] { display: inline-block; }
     color: var(--pf-muted);
   }
 }
+
+/* Figure slimming (section 7): one control opens a figure's question, notes and item bodies. */
+.rf-more { display: flex; width: 100%; min-height: 44px; align-items: center; gap: 6px; padding: 0 1rem; color: var(--pf-accent); font: 650 13.5px/1.2 var(--pf-display); cursor: pointer; border-top: 1px solid var(--line); }
+.rf-more__chev { transition: transform var(--pf-dur-fast) var(--pf-ease-out); }
+.rf-more__chev[data-open="true"] { transform: rotate(180deg); }
+.rf-method { padding: 0 1rem 0.75rem; }
+.rf-method .rf-question { margin-top: 0; }
+.rf--open :is(.rf-more, .rf-method) { padding-inline: 0; }
+@media (min-width: 640px) { .rf-more, .rf-method { padding-inline: 1.25rem; } }
+@media (prefers-reduced-motion: reduce) { .rf-more__chev { transition: none; } }
+@media print { .rf-more { display: none !important; } }
+/* Inside a FigureFrame's footer the control and its notes sit flush with the source line. */
+.border-t > .rf-more, .border-t > .rf-method { padding-inline: 0; border-top: 0; }
