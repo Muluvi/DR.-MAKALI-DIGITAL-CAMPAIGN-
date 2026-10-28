@@ -150,7 +150,7 @@ point tracking, content distribution, leaderboards
 
 ## G.4 Technology reference architecture
 
-A data-driven political campaign requires robust, reliable, and compliant technical infrastructure. The technology stack must bridge the gap between digital command centers and offline rural wards, while adhering strictly to Kenya's **Data Protection Act (DPA) 2019** and cybersecurity best practices.
+A data-driven political campaign requires robust, reliable, and compliant technical infrastructure. The technology stack must bridge the gap between digital command centers and offline rural wards, while adhering to Kenya's **Data Protection Act (DPA) 2019** and cybersecurity best practices.
 
 This section specifies the six core software components of the campaign: the **SMS/USSD Telecommunications Gateway**, the **Supporter CRM & Voter Database**, **Social Media Publishing & Social Listening Systems**, **Analytics & Business Intelligence Dashboard**, and the **Section 4.5.1 Service-Delivery Tracker**.
 

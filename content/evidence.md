@@ -1,4 +1,4 @@
-What the official record shows, graded by source: the IEBC register, certified results, the census, CA/KNBS connectivity data, the county's own fiscal paper, the parliamentary record and his public channels.
+
 
 ## 2.1 The electorate and the number it takes
 
@@ -152,6 +152,8 @@ id: fig-2-3-nomination
 ```
 
 ### 2.5.1 How Wiper picks its candidate
+
+The Wiper flagbearer decision is expected to be settled by a party-run countywide selection in the final quarter of 2026 — late October to November on the reported timetable (Tier 3, Section 2.5.2).
 
 Section 1.2 opened with the claim this entire Phase −1 strategy is built on:
 that the Wiper Kitui gubernatorial ticket will be settled by a party-run

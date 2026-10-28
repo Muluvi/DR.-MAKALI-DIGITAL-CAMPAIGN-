@@ -105,6 +105,22 @@ span[data-fold-body][hidden] { display: inline-block; }
   text-decoration: none !important;
 }
 
+.wchip {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 4px;
+  margin: 0 2px;
+  padding: 1px 9px;
+  border: 1px dashed color-mix(in oklch, var(--pf-t3) 70%, transparent);
+  border-radius: 8px;
+  background: color-mix(in oklch, var(--pf-t3) 6%, var(--pf-raised));
+  font: 600 13px/1.5 var(--pf-display);
+  color: var(--pf-ink);
+}
+.wchip__k { font-weight: 750; }
+.wchip__t { color: var(--pf-t3); font-weight: 750; }
+
 /* ------------------------------------------------------------------------------ visuals */
 
 .vz {

@@ -1,0 +1,182 @@
+[
+ {
+  "file": "decision",
+  "section": "(intro)",
+  "first12": "The decision first: what is being asked, what Dr. Mulu receives and",
+  "words": 26,
+  "kind": "blurb",
+  "home": "nav-blurb:decision|1.1",
+  "note": "Tab intro: the chapter marker prints the navigation blurb directly above it (X9).",
+  "text": "The decision first: what is being asked, what Dr. Mulu receives and at which level, who does what, and what the campaign must decide or provide."
+ },
+ {
+  "file": "evidence",
+  "section": "(intro)",
+  "first12": "What the official record shows, graded by source: the IEBC register, certified",
+  "words": 30,
+  "kind": "blurb",
+  "home": "nav-blurb:evidence|2.1|2.2|2.9.1|2.8.2|2.10.1|2.10.2",
+  "note": "Tab intro: the chapter marker prints the navigation blurb directly above it (X9).",
+  "text": "What the official record shows, graded by source: the IEBC register, certified results, the census, CA/KNBS connectivity data, the county's own fiscal paper, the parliamentary record and his public channels."
+ },
+ {
+  "file": "strategy",
+  "section": "(intro)",
+  "first12": "Each choice tied to the finding it answers: the position, where the",
+  "words": 44,
+  "kind": "blurb",
+  "home": "nav-blurb:strategy",
+  "note": "Tab intro: the chapter marker prints the navigation blurb directly above it (X9).",
+  "text": "Each choice tied to the finding it answers: the position, where the effort goes, who we are trying to move, what we say and in which language, what gets published, which channel does which job, the six profile fixes, and when the plan changes."
+ },
+ {
+  "file": "delivery",
+  "section": "(intro)",
+  "first12": "How the engagement is run, when and by whom: the weekly operating",
+  "words": 25,
+  "kind": "blurb",
+  "home": "nav-blurb:delivery|4.3",
+  "note": "Tab intro: the chapter marker prints the navigation blurb directly above it (X9).",
+  "text": "How the engagement is run, when and by whom: the weekly operating rhythm, the first weeks, the phases to August 2027 and the coalition calendar."
+ },
+ {
+  "file": "staffing",
+  "section": "(intro)",
+  "first12": "Who does the work: the Firefly core, the surge roles activated by",
+  "words": 24,
+  "kind": "blurb",
+  "home": "nav-blurb:staffing",
+  "note": "Tab intro: the chapter marker prints the navigation blurb directly above it (X9).",
+  "text": "Who does the work: the Firefly core, the surge roles activated by phase and level, and how the existing team is assessed and upskilled."
+ },
+ {
+  "file": "measurement",
+  "section": "(intro)",
+  "first12": "How progress is measured, how the Week 1 presence audit is run,",
+  "words": 19,
+  "kind": "blurb",
+  "home": "nav-blurb:measurement|5.2|5.2.1",
+  "note": "Tab intro: the chapter marker prints the navigation blurb directly above it (X9).",
+  "text": "How progress is measured, how the Week 1 presence audit is run, and how the work is kept lawful."
+ },
+ {
+  "file": "risks",
+  "section": "(intro)",
+  "first12": "What can go wrong and what happens when it does: rapid response,",
+  "words": 37,
+  "kind": "blurb",
+  "home": "nav-blurb:risks",
+  "note": "Tab intro: the chapter marker prints the navigation blurb directly above it (X9).",
+  "text": "What can go wrong and what happens when it does: rapid response, the war room that runs it, the cybersecurity and manipulated-media protocols, competitor monitoring from public sources, and the statutory ground all of it stands on."
+ },
+ {
+  "file": "decision",
+  "section": "1.1",
+  "first12": "The Wiper flagbearer decision is expected to be settled by a party-run",
+  "words": 36,
+  "kind": "moved",
+  "home": "evidence:2.5.1",
+  "to": "evidence:2.5.1",
+  "text": "The Wiper flagbearer decision is expected to be settled by a party-run countywide selection in the final quarter of 2026 — late October to November on the reported timetable (Tier 3, Section 2.5.2).",
+  "note": "The window's one full statement moves to its home (2.5.1), which graded the method but did not state the timing. In 1.1 it becomes the window chip (X7). The 3 extra words are the callout's > markers."
+ },
+ {
+  "file": "decision",
+  "section": "1.1",
+  "first12": "The Wiper flagbearer decision is expected to be settled by a party-run",
+  "words": 22,
+  "kind": "chip",
+  "home": "evidence:2.5.1|evidence:2.5.2",
+  "note": "X7: restatement of the nomination window.",
+  "text": "The Wiper\nflagbearer decision is expected to be settled by a party-run countywide selection in the final\nquarter of 2026 (reported, Tier 3).",
+  "replacement": "<window-chip></window-chip>"
+ },
+ {
+  "file": "decision",
+  "section": "1.1",
+  "first12": "The ticket is expected to be settled by a party-run countywide selection",
+  "words": 35,
+  "kind": "chip",
+  "home": "evidence:2.5.1|evidence:2.5.2",
+  "note": "X7: restatement of the nomination window; 2.5.2 grades it 'not confirmed by party officials' and sets out what would confirm it.",
+  "text": "The ticket is expected to be settled by a party-run countywide selection in the final\nquarter of 2026 — reported, and **not confirmed by the party** (Tier 3; Section 2.5.2 sets out what\nwould confirm it).",
+  "replacement": "<window-chip></window-chip>"
+ },
+ {
+  "file": "decision",
+  "section": "1.2",
+  "first12": "Wiper Patriotic Front party consensus and selection window, reported for late October",
+  "words": 23,
+  "kind": "chip",
+  "home": "evidence:2.5.1|evidence:2.5.2",
+  "note": "X7: restatement of the nomination window.",
+  "text": "Wiper Patriotic Front party consensus and selection window, reported for late October to November and not confirmed by the party (Tier 3, Section 2.5).",
+  "replacement": "<window-chip></window-chip>"
+ },
+ {
+  "file": "decision",
+  "section": "1.8",
+  "first12": "The decision falls in the final quarter of 2026 — late October",
+  "words": 13,
+  "kind": "chip",
+  "home": "evidence:2.5.1|evidence:2.5.2",
+  "note": "X7: assumption 2's statement of the window.",
+  "text": "**The decision falls in the final quarter of 2026 — late October to November.**",
+  "replacement": "<window-chip></window-chip>"
+ },
+ {
+  "file": "delivery",
+  "section": "4.2.1",
+  "first12": "flagbearer decision, which party sources indicate is intended to conclude within the",
+  "words": 13,
+  "kind": "chip",
+  "home": "evidence:2.5.1|evidence:2.5.2",
+  "note": "X7: restatement of the nomination window. 'Party sources indicate' is the report 2.5.2 grades Tier 3, single-source.",
+  "text": "flagbearer decision, which party sources indicate is intended to conclude\nwithin the final quarter of 2026.",
+  "replacement": "flagbearer decision <window-chip></window-chip>."
+ },
+ {
+  "file": "annex-spec",
+  "section": "G.4",
+  "first12": "while adhering strictly to",
+  "words": 1,
+  "kind": "register",
+  "home": "",
+  "note": "X10: intensifier deleted.",
+  "text": "while adhering strictly to",
+  "replacement": "while adhering to"
+ },
+ {
+  "file": "decision",
+  "section": "1.2",
+  "first12": "and strictly traceable targets",
+  "words": 1,
+  "kind": "register",
+  "home": "",
+  "note": "X10: intensifier deleted.",
+  "text": "and strictly traceable targets",
+  "replacement": "and traceable targets"
+ },
+ {
+  "file": "risks",
+  "section": "6.2.3",
+  "first12": "are strictly bound by",
+  "words": 1,
+  "kind": "register",
+  "home": "",
+  "note": "X10: intensifier deleted.",
+  "text": "are strictly bound by",
+  "replacement": "are bound by"
+ },
+ {
+  "file": "risks",
+  "section": "6.2.3",
+  "first12": "must strictly reference",
+  "words": 1,
+  "kind": "register",
+  "home": "",
+  "note": "X10: intensifier deleted.",
+  "text": "must strictly reference",
+  "replacement": "must reference"
+ }
+]

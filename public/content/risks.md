@@ -1,4 +1,4 @@
-What can go wrong and what happens when it does: rapid response, the war room that runs it, the cybersecurity and manipulated-media protocols, competitor monitoring from public sources, and the statutory ground all of it stands on.
+
 
 ## 6.1 Risks and responses
 
@@ -53,9 +53,9 @@ The campaign monitors four complementary intelligence streams 24 hours a day, 7 
 
 ### 6.2.3 Staying inside defamation law
 
-All campaign communicators, surrogates, and media buyers are strictly bound by the following **Three Defamation Safeguards**:
+All campaign communicators, surrogates, and media buyers are bound by the following **Three Defamation Safeguards**:
 
-1.  **Rule 1: Focus on Public Audit Records, Never Private Character:** Communicators are legally prohibited from making allegations regarding rivals' private lives, family affairs, or unadjudicated criminal accusations. All comparative critiques must strictly reference published statutory records (e.g., OAG reports, Ethics and Anti-Corruption Commission filings, Controller of Budget reports).
+1.  **Rule 1: Focus on Public Audit Records, Never Private Character:** Communicators are legally prohibited from making allegations regarding rivals' private lives, family affairs, or unadjudicated criminal accusations. All comparative critiques must reference published statutory records (e.g., OAG reports, Ethics and Anti-Corruption Commission filings, Controller of Budget reports).
 2.  **Rule 2: Accurate Linguistic Attribution:** When quoting rivals on Kikamba radio or social media, communicators must possess the original, unedited audio recording or verbatim Hansard/media link. Edited audio clips (*deepfakes or out-of-context splicing*) are strictly banned.
 3.  **Rule 3: Automatic Legal Pre-Clearance for Comparative Media:** Any advertising spot, leaflet, or press release naming an opposing candidate must receive written legal pre-clearance from the Campaign Legal Counsel prior to broadcast or circulation.
 

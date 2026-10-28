@@ -1,4 +1,4 @@
-How the engagement is run, when and by whom: the weekly operating rhythm, the first weeks, the phases to August 2027 and the coalition calendar.
+
 
 ## 4.1 How the engagement runs week to week
 ### 4.1.1 Operating rhythm, tooling and reporting lines
@@ -88,8 +88,7 @@ the loop.
 The first four weeks, the phases to August 2027, what the campaign receives, how progress is measured and decided, what could go wrong, and how the work is staffed.
 
 **Objective:** close the recognition gap outside Kitui Central ahead of the Wiper Patriotic Front's
-flagbearer decision, which party sources indicate is intended to conclude
-within the final quarter of 2026.
+flagbearer decision <window-chip></window-chip>.
 
 **The strategic hypothesis being tested:** Dr. Mulu's deficit is a
 geography-of-recognition problem concentrated outside Kitui Central, not a

@@ -86,7 +86,7 @@ import { ObjectivesIndex } from "./markdown/ObjectivesIndex";
 import { TextVersion } from "./markdown/TextVersion";
 import { ReadMore } from "./markdown/ReadMore";
 import { VisualFence } from "./visual/VisualFence";
-import { CheckRefMark, ConflictMark, StatusMark, TierMark, XrefMark, counselNote } from "./markdown/InlineMarks";
+import { CheckRefMark, ConflictMark, StatusMark, TierMark, WindowChip, XrefMark, counselNote } from "./markdown/InlineMarks";
 import { GroupChip } from "./markdown/GroupChip";
 import { rehypeInlineMarks } from "../lib/rehype-inline-marks";
 
@@ -644,6 +644,7 @@ function buildComponents(tabId: TabId): Components {
               "checkref-mark": () => <CheckRefMark />,
               "status-mark": (props: { status?: string; note?: string }) => <StatusMark status={props.status} note={props.note} />,
               "xref-mark": (props: { refs?: string; raw?: string }) => <XrefMark refs={props.refs} raw={props.raw} />,
+              "window-chip": () => <WindowChip />,
             } as unknown as Components),
             h3: ({ children }) => {
               const text = getHeadingText(children);

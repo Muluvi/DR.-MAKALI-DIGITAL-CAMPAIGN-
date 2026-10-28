@@ -1,4 +1,4 @@
-The decision first: what is being asked, what Dr. Mulu receives and at which level, who does what, and what the campaign must decide or provide.
+
 
 ## 1.1 The ask: one week and one export
 
@@ -10,9 +10,7 @@ id: fig-6-3-decision
 
 > ### THE WINDOW, NOT THE DEADLINE
 >
-> **What sets the pace.** The Wiper flagbearer decision is expected to be settled by a party-run
-> countywide selection in the final quarter of 2026 — late October to November on the reported timetable
-> (Tier 3, Section 2.5.2). That date is not in the campaign's gift, and every other date in this
+> **What sets the pace.** <window-chip></window-chip> That date is not in the campaign's gift, and every other date in this
 > document is derived from it rather than chosen.
 >
 > **What the work needs in front of it.** Roughly six weeks for a first directed cycle, and the
@@ -34,9 +32,7 @@ delivered what it promised. Unconfirmed balances, pending bills and low developm
 Auditor-General and the Controller of Budget report for the county (Annex B.2), and that qualification is currently the campaign's most under-used
 asset.
 
-**But the timeline is not the one the planning cycle assumes.** The Wiper
-flagbearer decision is expected to be settled by a party-run countywide selection in the final
-quarter of 2026 (reported, Tier 3). Half the register, 51.7%, lives in the four
+**But the timeline is not the one the planning cycle assumes.** <window-chip></window-chip> Half the register, 51.7%, lives in the four
 constituencies where he has never held office. The working hypothesis is that the gap there is one
 of recognition rather than credibility (Section 2.12). If Week 1 confirms it, it is the kind of gap
 that closes fastest through disciplined reach into Mwingi and the arid south.
@@ -78,9 +74,7 @@ people who run it now.
 
 **Where the contest stands.** Both Wiper rivals have already won a countywide election: Dr. Kasalu
 with **201,899** votes as Woman Representative and Sen. Wambua with **191,317** as Senator, both in
-2022 (Section 2.6). Dr. Mulu has not yet stood countywide. The ticket is expected to be settled by a party-run countywide selection in the final
-quarter of 2026 — reported, and **not confirmed by the party** (Tier 3; Section 2.5.2 sets out what
-would confirm it).
+2022 (Section 2.6). Dr. Mulu has not yet stood countywide. <window-chip></window-chip>
 
 **What Firefly does not ask you to believe.** This proposal commits to a method, a cadence and a
 standard. It does not commit to an electoral outcome, and no figure in it should be read as one
@@ -88,7 +82,7 @@ standard. It does not commit to an electoral outcome, and no figure in it should
 
 ## 1.2 The goal and the two deadlines
 
-The campaign's objectives are structured across two separate timelines, each with its own clocks, success parameters, and strictly traceable targets. Every objective traces directly either to securing the Wiper Patriotic Front nomination or delivering the ~200,000 vote threshold at the general election. All non-traceable, purely digital vanity metrics have been eliminated.
+The campaign's objectives are structured across two separate timelines, each with its own clocks, success parameters, and traceable targets. Every objective traces directly either to securing the Wiper Patriotic Front nomination or delivering the ~200,000 vote threshold at the general election. All non-traceable, purely digital vanity metrics have been eliminated.
 
 #### The goal: the Wiper ticket first, the county second
 
@@ -98,7 +92,7 @@ The campaign's objectives are structured across two separate timelines, each wit
 #### The two deadlines
 
 The campaign operates against two non-negotiable temporal milestones:
-1.  **Q4 2026 Nomination Window (reported):** Wiper Patriotic Front party consensus and selection window, reported for late October to November and not confirmed by the party (Tier 3, Section 2.5). Success requires demonstrating organized geographic reach in the 275,570-voter pool (Mwingi North, Mwingi West, Mwingi Central, and Kitui South) where Dr. Mulu has never held office. That he is less known there is the working hypothesis Section 2.12 states and Week 1 tests, not a measured fact.
+1.  **Q4 2026 Nomination Window (reported):** <window-chip></window-chip> Success requires demonstrating organized geographic reach in the 275,570-voter pool (Mwingi North, Mwingi West, Mwingi Central, and Kitui South) where Dr. Mulu has never held office. That he is less known there is the working hypothesis Section 2.12 states and Week 1 tests, not a measured fact.
 2.  **10 August 2027 General Election:** Mobilizing and turning out the 200,000-vote coalition required for a plurality victory in a multi-candidate field.
 
 ```figure
@@ -433,7 +427,7 @@ presented as settled fact.
    targeting model changes from countywide name recognition to delegate arithmetic, and
    Section 6.5 sets out what that would require.
 
-2. **The decision falls in the final quarter of 2026 — late October to November.** That is the
+2. <window-chip></window-chip> That is the
    window Section 1.1 states and the one Section 1.2's timeline is built on.
    Earlier drafts of this proposal said "before the final quarter" in four places while every
    operational deadline in it assumed Q4; the wording is now the same throughout, and it remains

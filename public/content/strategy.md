@@ -1,4 +1,4 @@
-Each choice tied to the finding it answers: the position, where the effort goes, who we are trying to move, what we say and in which language, what gets published, which channel does which job, the six profile fixes, and when the plan changes.
+
 
 ## 3.1 The position
 

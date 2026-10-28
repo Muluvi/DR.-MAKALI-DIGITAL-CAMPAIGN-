@@ -1,4 +1,4 @@
-How progress is measured, how the Week 1 presence audit is run, and how the work is kept lawful.
+
 
 ## 5.1 The indicators
 

@@ -1,4 +1,4 @@
-Who does the work: the Firefly core, the surge roles activated by phase and level, and how the existing team is assessed and upskilled.
+
 
 ## 4.6 How the work is staffed
 
