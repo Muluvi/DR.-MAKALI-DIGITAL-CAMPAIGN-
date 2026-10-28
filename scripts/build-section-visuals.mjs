@@ -820,6 +820,10 @@ for (const sec of sections) {
   if (!sec.id) continue;
   const over = OVERRIDES[sec.id];
 
+  // A section with a ```visual fence has its own visual (brief 2026-10 declutter, 5.2): a derived
+  // figure drawn from the same text would show it twice.
+  if (sec.body.some((l) => /^\s*```visual\s*$/.test(l))) { figureless += 1; continue; }
+
   // An override of "none" is a curated judgement that this heading warrants no figure. Nine of
   // the twelve overrides in this file used to say "statement" instead, which was the only way to
   // express that before a heading was allowed to have nothing.

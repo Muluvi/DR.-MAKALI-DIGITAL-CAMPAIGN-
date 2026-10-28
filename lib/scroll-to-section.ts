@@ -47,6 +47,8 @@ export function scrollToSectionWhenReady(id: string, behavior: ScrollBehavior = 
      * read anything and every section in between streams in and is thrown away. Past three
      * screens the honest behaviour is to arrive.
      */
+    // A target inside a closed fold (a section's full text, a card's details) opens first.
+    revealAround(el);
     const distance = Math.abs(el.getBoundingClientRect().top);
     const far = distance > window.innerHeight * 3;
     el.scrollIntoView({ behavior: far || behavior === "auto" ? "instant" : behavior, block: "start", inline: "nearest" });
@@ -58,6 +60,7 @@ export function scrollToSectionWhenReady(id: string, behavior: ScrollBehavior = 
 }
 
 import { sectionsPending } from "./flow-pending";
+import { revealAround } from "./fold";
 
 /** How long the target is re-seated for after the first scroll, at most. */
 const HOLD_MS = 12000;

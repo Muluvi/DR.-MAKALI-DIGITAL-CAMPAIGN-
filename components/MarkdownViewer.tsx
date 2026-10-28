@@ -76,13 +76,19 @@ import { DataSecurityEthicsCharter } from "./markdown/DataSecurityEthicsCharter"
 import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, type TabId } from "../lib/heading-slug";
 import { crossRefFor, segmentContent } from "../lib/collapse-groups";
+
+/** Every markdown pass shares these: the working marks become chips (lib/inline-marks.ts). */
+const REHYPE = [rehypeRaw, rehypeInlineMarks];
 import { CrossRef } from "./CrossRef";
 import { PrintSafeDisclosures } from "./PrintSafeDisclosures";
 import { DisclosureGroup } from "./markdown/DisclosureGroup";
 import { ObjectivesIndex } from "./markdown/ObjectivesIndex";
 import { TextVersion } from "./markdown/TextVersion";
-import { ProseFold } from "./markdown/ProseFold";
-import { BriefFold } from "./markdown/BriefFold";
+import { ReadMore } from "./markdown/ReadMore";
+import { VisualFence } from "./visual/VisualFence";
+import { CheckRefMark, ConflictMark, StatusMark, TierMark, XrefMark, counselNote } from "./markdown/InlineMarks";
+import { GroupChip } from "./markdown/GroupChip";
+import { rehypeInlineMarks } from "../lib/rehype-inline-marks";
 
 const kituiCentralPopulationDispute = DISPUTED_FIGURES.find((d) => d.id === "kitui-central-2019-population")!;
 
@@ -373,7 +379,9 @@ function ruleOwner(text: string): string | null {
 }
 
 function buildComponents(tabId: TabId): Components {
-  let findingUsed = false;
+  // The one "finding" callout per map, keyed by where the quote starts in the markdown: a render
+  // that runs twice (React's development checks do) gives the same answer both times.
+  let findingAt: number | null = null;
   return {
             table: ({ children }) => {
               const headers = getTableHeaderTexts(children).map((h) => h.toLowerCase());
@@ -411,10 +419,30 @@ function buildComponents(tabId: TabId): Components {
                * same markdown components as the rest of the section, so nothing in it reads
                * differently from where it stood.
                */
+              /**
+               * A ```lead fence (brief 2026-10 declutter, 5.1) is a section's summary, drawn from its
+               * own sentences. It shows above the section's visuals, with the full text folded
+               * beneath; it is hidden in print, where the full text it was drawn from prints open.
+               */
+              if (fenceLanguage(children) === "lead") {
+                return (
+                  <div className="pf-lead not-prose" data-lead>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={REHYPE} components={buildComponents(tabId)}>
+                      {source}
+                    </ReactMarkdown>
+                  </div>
+                );
+              }
+
+              // A ```visual fence: prose laid out as the shape it already has (components/visual).
+              if (fenceLanguage(children) === "visual") {
+                return <VisualFence json={source} md={markdownFor(tabId)} />;
+              }
+
               if (fenceLanguage(children) === "textversion") {
                 return (
                   <TextVersion>
-                    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} components={buildComponents(tabId)}>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={REHYPE} components={buildComponents(tabId)}>
                       {source}
                     </ReactMarkdown>
                   </TextVersion>
@@ -449,6 +477,9 @@ function buildComponents(tabId: TabId): Components {
             },
             code: ({ children }) => {
               const text = flattenText(children);
+              // X4: a counsel note typed as a code span renders as a "Counsel review" chip.
+              const counsel = counselNote(text);
+              if (counsel) return counsel;
               if (PLACEHOLDER_PATTERN.test(text.trim())) {
                 return (
                   <span className="inline-flex items-center gap-1.5 flex-wrap align-middle my-0.5">
@@ -484,6 +515,14 @@ function buildComponents(tabId: TabId): Components {
                * found none of them. Nothing is deleted — the paragraph is the child, in full,
                * and CrossRef forces itself open for print and with JavaScript off.
                */
+              // X5: a workstream banner's "Group: …" line is a chip; its sentence sits behind it.
+              const first = React.Children.toArray(children)[0];
+              const flat = normalizeWhitespace(getDeepText(children)).trim();
+              if (React.isValidElement(first) && /^Group: /.test(flat)) {
+                const label = normalizeWhitespace(getDeepText(first)).replace(/^Group:\s*/, "").replace(/\.$/, "").trim();
+                const rest = flat.slice(normalizeWhitespace(getDeepText(first)).trim().length).trim();
+                return <GroupChip label={label} detail={rest} />;
+              }
               const repeat = crossRefFor(tabId, getDeepText(children));
               if (repeat) {
                 return (
@@ -499,7 +538,7 @@ function buildComponents(tabId: TabId): Components {
               }
               return <MarkdownParagraph tabId={tabId}>{children}</MarkdownParagraph>;
             },
-            blockquote: ({ children }) => {
+            blockquote: ({ children, node }) => {
               // The central narrative line (§5.2.4.1) gets the full pull-quote treatment;
               // every other blockquote (the ethics charter, etc.) keeps the standard styling.
               if (getDeepText(children).includes("Kitui has resources")) {
@@ -520,8 +559,9 @@ function buildComponents(tabId: TabId): Components {
                   </blockquote>
                 );
               }
-              if (!findingUsed && !ASIDE_PATTERN.test(text)) {
-                findingUsed = true;
+              const at = node?.position?.start.offset ?? -1;
+              if ((findingAt === null || findingAt === at) && !ASIDE_PATTERN.test(text)) {
+                findingAt = at;
                 return <blockquote className="pf-callout pf-callout--finding">{children}</blockquote>;
               }
               return <blockquote className="pf-callout pf-callout--aside">{children}</blockquote>;
@@ -597,6 +637,14 @@ function buildComponents(tabId: TabId): Components {
                 </>
               );
             },
+            // The working marks, as chips (lib/inline-marks.ts, lib/rehype-inline-marks.ts).
+            ...({
+              "tier-mark": (props: { tiers?: string; head?: string; rest?: string }) => <TierMark tiers={props.tiers} head={props.head} rest={props.rest} />,
+              "conflict-mark": (props: { conflict?: string }) => <ConflictMark conflict={props.conflict} />,
+              "checkref-mark": () => <CheckRefMark />,
+              "status-mark": (props: { status?: string; note?: string }) => <StatusMark status={props.status} note={props.note} />,
+              "xref-mark": (props: { refs?: string; raw?: string }) => <XrefMark refs={props.refs} raw={props.raw} />,
+            } as unknown as Components),
             h3: ({ children }) => {
               const text = getHeadingText(children);
               const slug = headingSlug(text);
@@ -611,20 +659,45 @@ function buildComponents(tabId: TabId): Components {
   };
 }
 
+/**
+ * Markdown inside a visual: a field, a card's text, a tab's body. `inline` renders a single run of
+ * text without a paragraph box, for labels and one-line fields.
+ */
+function markdownFor(tabId: TabId) {
+  const block = buildComponents(tabId);
+  const inline: Components = {
+    ...block,
+    p: ({ children }) => <>{highlightInline(children, tabId)}</>,
+  };
+  return function renderVisualText(text: string, isInline = false) {
+    return (
+      <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={REHYPE} components={isInline ? inline : block}>
+        {text}
+      </ReactMarkdown>
+    );
+  };
+}
+
+function highlightInline(children: React.ReactNode, tabId: TabId) {
+  return React.Children.map(children, (child) =>
+    typeof child === "string" && hasHighlight(child) ? <HighlightedText text={child} tabId={tabId} /> : child
+  );
+}
+
 export function MarkdownViewer({ content, tabId }: { content: string; tabId: TabId }) {
-  // The heaviest parts of the proposal are matrices typed as prose. segmentContent finds them
-  // by shape — three or more sibling h4 blocks over 300 words — and hands each block back as a
-  // panel, so the reader gets the labels at a glance and the bodies on demand. Everything else
-  // comes back as ordinary markdown and renders exactly as before.
-  const markdownComponents = buildComponents(tabId);
-  const segments = segmentContent(content, { isClosingSection: tabId === "decision" });
+  // segmentContent lays each section out: what shows on load, and what sits behind "Read the
+  // full text" (lib/collapse-groups.ts). Each segment gets its own components map, so the one
+  // "finding" callout a map allows is decided within the segment, in the same order on the server
+  // and in the browser: a map shared across segments counted callouts in render order, which
+  // hydration does not guarantee.
+  const segments = segmentContent(content);
 
   const renderMarkdown = (text: string, key?: string) => (
     <ReactMarkdown
       key={key}
       remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeRaw]}
-      components={markdownComponents}
+      rehypePlugins={REHYPE}
+      components={buildComponents(tabId)}
     >
       {text}
     </ReactMarkdown>
@@ -643,17 +716,11 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
 ">
         {segments.map((segment, i) => {
           if (segment.kind === "markdown") return renderMarkdown(segment.text, `md-${i}`);
-          if (segment.kind === "fold")
+          if (segment.kind === "more")
             return (
-              <ProseFold key={`fold-${i}`} label={segment.id}>
-                {renderMarkdown(segment.text, `fold-body-${i}`)}
-              </ProseFold>
-            );
-          if (segment.kind === "brief")
-            return (
-              <BriefFold key={`brief-${i}`} label={segment.number} words={segment.hiddenWords}>
-                {renderMarkdown(segment.hidden, `brief-body-${i}`)}
-              </BriefFold>
+              <ReadMore key={`more-${i}`} words={segment.words}>
+                {renderMarkdown(segment.text, `more-body-${i}`)}
+              </ReadMore>
             );
           return (
             <DisclosureGroup

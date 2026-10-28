@@ -10,8 +10,6 @@ import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress"
 import { Figure } from "./figures/FigureBoundary";
 import { RegisterMotion } from "./register/RegisterMotion";
 import { MicroFX } from "./premium/MicroFX";
-import { ReadingModeToggle } from "./ReadingModeToggle";
-import { ReadingModeProvider } from "../lib/reading-mode";
 import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
 import { MobileTOCModal } from "./MobileTOCModal";
 import { resolveLegacySectionId, SECTIONS, type TabId } from "../lib/heading-slug";
@@ -62,8 +60,8 @@ interface ClientPageProps {
   /** Rendered prose, keyed by section — every section on the flow, one on a deep-link route. */
   documents: Partial<Record<TabId, React.ReactNode>>;
   wordCounts: Record<TabId, number>;
-  /** The same counts for Brief mode, measured from the segmentation the renderer uses. */
-  briefWordCounts: Record<TabId, number>;
+  /** What each section shows on load, measured from the segmentation the renderer uses. */
+  visibleWordCounts: Record<TabId, number>;
   activeTab: TabId;
   /** True on "/" and "/full": the whole document in one scroll. */
   expanded: boolean;
@@ -85,7 +83,7 @@ const TAB_IDS: string[] = SECTIONS.map((s) => s.id);
 
 const LANDING_TAB: TabId = FLOW_ORDER[0];
 
-export function ClientPage({ sections, documents, wordCounts, briefWordCounts, activeTab, expanded, streamed = false }: ClientPageProps) {
+export function ClientPage({ sections, documents, wordCounts, visibleWordCounts, activeTab, expanded, streamed = false }: ClientPageProps) {
   const router = useRouter();
   const [isTOCModalOpen, setIsTOCModalOpen] = useState(false);
   const { theme, toggleTheme, mounted } = useTheme();
@@ -93,6 +91,10 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
 
   useScrollShell();
   useDaypart();
+
+  // The Brief/Full reading mode was removed in October 2026; this clears the preference it stored.
+  // It can be deleted after 2026-12-31.
+  useEffect(() => { try { window.localStorage.removeItem("kitui2027:reading-mode"); } catch { /* storage blocked */ } }, []);
 
   /**
    * Which section the reader is in.
@@ -112,8 +114,9 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
         blurb: section.blurb,
         content: documents[section.id as TabId] ?? null,
         wordCount: wordCounts[section.id as TabId],
+        visibleWordCount: visibleWordCounts[section.id as TabId],
       })),
-    [documents, wordCounts]
+    [documents, wordCounts, visibleWordCounts]
   );
 
   // On the flow, every section has a slot: the ones the server rendered carry their prose, and
@@ -302,7 +305,6 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
 
   return (
     <SectionNumberMapProvider sections={sections}>
-      <ReadingModeProvider>
       <div className="pf-page min-h-screen bg-paper text-ink font-sans selection:bg-accent/20">
         <a href="#content-area" className="skip-link">Skip to the document</a>
 
@@ -343,16 +345,13 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
         {/* ------------------------------------------------ evidence preface */}
         {expanded && (
           <section aria-label="The figures behind the decision" className="cv-auto-strip pf-shell pf-preface">
-            {/* One instruction, and one choice. Both reading times are measured from the rendered
-                segmentation rather than typed, so neither can drift from what the page does. */}
+            {/* One reading time, measured from what the page shows on load (app/[[...slug]]/page.tsx),
+                so it cannot drift from what the page does. */}
             <div className="pf-reading">
-              <ReadingModeToggle
-                briefMinutes={readingMinutes(Object.values(briefWordCounts).reduce((a, b) => a + b, 0))}
-                fullMinutes={readingMinutes(Object.values(wordCounts).reduce((a, b) => a + b, 0))}
-              />
-              <p className="pf-reading__hint">Scroll. The whole proposal is on this page, in order — {navItems.length} sections.</p>
+              <p className="pf-reading__time">~{readingMinutes(Object.values(visibleWordCounts).reduce((a, b) => a + b, 0))} min read</p>
+              <p className="pf-reading__hint">Scroll. The whole proposal is on this page, in order — {navItems.length} sections. Every section&rsquo;s full text is one tap away.</p>
             </div>
-            <VisualOverview sections={FLOW_SECTIONS.map((section) => ({ id: section.id as TabId, label: section.label, number: section.number }))} wordCounts={wordCounts} />
+            <VisualOverview sections={FLOW_SECTIONS.map((section) => ({ id: section.id as TabId, label: section.label, number: section.number }))} wordCounts={wordCounts} visibleWordCounts={visibleWordCounts} />
             {/* The cover figures (brief §F.1), with their tables and CSVs: the tile map shaded for
                 the pool and the spine of the argument. The hero above tells the same map's story. */}
             <Figure id="fig-cover-map" />
@@ -406,7 +405,7 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
                       blurb={item.blurb}
                       position={position}
                       total={FLOW_ORDER.length}
-                      minutes={readingMinutes(item.wordCount)}
+                      minutes={readingMinutes(item.visibleWordCount)}
                       asTitle={!expanded}
                     />
                   </div>
@@ -476,7 +475,7 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
 
         <MobileTOCModal
           sections={sections}
-          wordCounts={wordCounts}
+          wordCounts={visibleWordCounts}
           visited={visited}
           onSelectTab={goToSection}
           isOpen={isTOCModalOpen}
@@ -488,7 +487,6 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
           }}
         />
       </div>
-      </ReadingModeProvider>
     </SectionNumberMapProvider>
   );
 }

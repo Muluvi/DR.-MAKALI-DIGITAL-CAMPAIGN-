@@ -2,10 +2,13 @@ import Link from "next/link";
 import { ArrowDownRight, ArrowUpRight, BarChart3, MapPinned, Route, ShieldCheck } from "lucide-react";
 
 import type { TabId } from "@/lib/heading-slug";
+import { readingMinutes } from "../hooks/useReadingProgress";
 
 type VisualOverviewProps = {
   sections: Array<{ id: TabId; label: string; number: string }>;
   wordCounts: Record<TabId, number>;
+  /** What each section shows on load, for the reading time. */
+  visibleWordCounts: Record<TabId, number>;
 };
 
 const signals = [
@@ -15,8 +18,7 @@ const signals = [
   { label: "Decision model", value: "200k", detail: "A benchmark to test, not a forecast to promise.", icon: BarChart3, tone: "green" },
 ] as const;
 
-export function VisualOverview({ sections, wordCounts }: VisualOverviewProps) {
-  const totalWords = Object.values(wordCounts).reduce((sum, count) => sum + count, 0);
+export function VisualOverview({ sections, wordCounts, visibleWordCounts }: VisualOverviewProps) {
   const largest = sections.reduce((max, section) => (wordCounts[section.id] > wordCounts[max.id] ? section : max), sections[0]);
 
   return (
@@ -27,7 +29,7 @@ export function VisualOverview({ sections, wordCounts }: VisualOverviewProps) {
           <h2 id="visual-overview-title">The route, before the detail.</h2>
           <p>Four signals hold the argument together. Open a section when you need the evidence behind the shape.</p>
         </div>
-        <span className="visual-overview__reading">{Math.round(totalWords / 250)} min full read</span>
+        <span className="visual-overview__reading">~{readingMinutes(Object.values(visibleWordCounts).reduce((sum, count) => sum + count, 0))} min read</span>
       </div>
 
       <div className="visual-overview__grid">

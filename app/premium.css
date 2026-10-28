@@ -712,30 +712,6 @@
   text-overflow: ellipsis;
 }
 @media (min-width: 640px) { .pf-dock__label { max-width: 22rem; } }
-.pf-dock__rule { width: 1px; height: 24px; background: var(--pf-line); }
-.pf-dock__mode { position: relative; display: grid; grid-template-columns: 1fr 1fr; padding: 3px; border-radius: 999px; background: var(--pf-ground); }
-.pf-dock__mode button {
-  position: relative;
-  z-index: 1;
-  min-width: 48px;
-  min-height: 38px;
-  padding: 0 8px;
-  font: 600 12.5px/1 var(--pf-display);
-  color: var(--pf-muted);
-  transition: color var(--pf-dur-fast) var(--pf-ease-out);
-}
-.pf-dock__mode button[aria-pressed="true"] { color: var(--pf-on-solid); }
-.pf-dock__thumb {
-  position: absolute;
-  top: 3px;
-  bottom: 3px;
-  left: 3px;
-  width: calc(50% - 3px);
-  border-radius: 999px;
-  background: var(--pf-accent-solid);
-  transition: transform var(--pf-dur-entrance) var(--pf-ease);
-}
-.pf-dock__thumb[data-at="full"] { transform: translateX(100%); }
 .pf-dock__icon {
   display: grid;
   place-items: center;

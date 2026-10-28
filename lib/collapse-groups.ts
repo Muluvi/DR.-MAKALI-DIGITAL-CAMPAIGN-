@@ -1,44 +1,48 @@
 /**
- * Turns a long run of repeated `h4` blocks into a set of disclosures.
+ * How one section's body is laid out on the page: what shows on load, and what sits behind
+ * "Read the full text".
  *
- * The heaviest parts of this proposal are not dense arguments — they are matrices typed as
- * prose. §5.1 is six voter segments carrying the same seven fields each, 1,292 words of it;
- * §8.14.1 is five stack components each with a spec, a cost and a vendor. Read top to bottom
- * that is a very long scroll on a phone, and the structure the author actually wrote — six
- * comparable things — is invisible until you have read all of it.
+ * The site has one version (brief 2026-10 declutter, section 5.0; the Brief/Full reading mode and
+ * its rule that nothing is summarised are retired, see docs/declutter/DECISIONS.md). Every section
+ * is laid out by one of three rules:
  *
- * Nothing is rewritten or removed here. The `h4` heading becomes the label of a disclosure and
- * its body moves inside; the first one is open, so the section still opens on real content
- * rather than on a row of closed drawers. Every word is one tap away, and the shape of the
- * section is legible at a glance.
+ *   A LEAD. A section whose body carries a ```lead fence opens on that lead (a summary drawn from the
+ *   section's own sentences, checked by scripts/declutter/check-leads.mjs), then its visuals: every
+ *   ```figure, ```visual and ```textversion fence, in document order, and any block marked
+ *   `<!-- keep -->`. The section's original prose follows in one closed "Read the full text" fold.
+ *
+ *   A GROUP. A section written as three or more comparable h4 blocks (six voter segments with the
+ *   same seven fields) is an accordion: the labels show, one panel is open at a time.
+ *
+ *   THE DEFAULT. Any other section shows its first paragraph when it is 60 words or fewer, a
+ *   paragraph that is wholly bold and short (this document writes its findings that way), its
+ *   visuals and its keep-marked blocks. The rest folds, once there is enough of it to be worth a
+ *   tap. A section of 60 words or fewer shows as written.
+ *
+ * Nothing is deleted here and nothing is rewritten: every line of the body is in exactly one of the
+ * shown or folded parts. Order is kept within each part; a folded block that sat between two shown
+ * ones moves below them, which is the one compromise one fold per section requires.
  *
  * Deliberately rule-driven rather than a hand-kept list of section numbers: this document has
- * been renumbered twice, and every hardcoded section list in this repo had drifted out of date
- * by the time anyone looked at it.
+ * been renumbered three times, and every hardcoded section list in this repo had drifted out of
+ * date by the time anyone looked at it.
  */
 
 /** Below this, a run of headings is short enough to just read. */
-const MIN_PANELS = 2;
+const MIN_PANELS = 3;
 /** Below this, the block is not heavy enough for the interaction to be worth it. */
 const MIN_WORDS = 150;
-/** A block with no headings but a long unbroken run of prose gets folded after its opening. */
-const MIN_FOLD_RUN = 6;
-const MIN_FOLD_WORDS = 250;
-/** A fold that hides less than this is pure friction — the tap costs more than the scroll. */
-const MIN_FOLD_HIDDEN = 150;
+/** The longest paragraph a reader meets on load (brief 2026-10 declutter, section 3). */
+export const MAX_VISIBLE_PARAGRAPH = 60;
+/** A section this short shows as written. */
+const SHOW_ALL_WORDS = 60;
+/** A fold that hides less than this is friction: the tap costs more than the scroll. */
+const MIN_FOLDED = 40;
+/** A wholly bold paragraph shows on load up to this length. */
+const MAX_FINDING = 40;
 
-/**
- * Sections that are never collapsed, whatever their shape, because the reader has to hold two of
- * their parts side by side to judge a trade-off — and an accordion shows one at a time.
- *
- * §10.1 is the whole of it: the scope levels and the cadence each carries
- * are §10.1.1, and choosing a tier means reading them together. Collapsing that section puts the
- * ceiling and the tiers behind two different taps, which is the one thing an answer-first
- * document must not do to the section it is asking the reader to decide on.
- */
-const NEVER_COLLAPSE = new Set(["9.2", "1.1"]);
-// "1.1" is the ask. It closed the document until the October 2026 restructure put the decision
-// first; the rule that it is never folded follows it to the front.
+/** A line that marks the block after it as shown on load (a published commitment, for instance). */
+export const KEEP_MARKER = /^\s*<!--\s*keep\s*-->\s*$/;
 
 /**
  * A block carrying a figure the campaign has not yet established — an `[Insert …]` placeholder,
@@ -54,22 +58,17 @@ export function hasUnresolvedFigure(text: string): boolean {
   return UNRESOLVED.test(text);
 }
 
-const LEADING_NUMBER = /^((?:\d+[A-Z]?(?:\.\d+)*|[A-G](?:\.\d+)+))/;
-
 export type Segment =
   | { kind: "markdown"; text: string }
   | { kind: "group"; id: string; panels: { label: string; text: string; unresolved: boolean }[] }
-  | { kind: "fold"; id: string; text: string }
-  /**
-   * A subsection split for Brief mode: what a first read needs, and everything else behind one
-   * control. `shown` and `hidden` together are the whole body, in order within each part — no
-   * word of it is dropped.
-   */
-  | { kind: "brief"; id: string; number: string; shown: string; hidden: string; hiddenWords: number };
+  /** A section's folded text: closed by default, "Read the full text (N words)". */
+  | { kind: "more"; id: string; text: string; words: number };
 
 const FENCE = /^\s*```/;
 const SECTION_HEADING = /^(#{2,3})\s+(.+?)\s*$/;
 const PANEL_HEADING = /^(#{4,5})\s+(.+?)\s*$/;
+/** The fences that show on load wherever they sit: they are what replaces the prose. */
+const VISUAL_FENCE = /^\s*```(?:figure|visual|textversion|lead)\s*$/;
 
 /** Strip markdown emphasis from a heading so it can be used as a button label. */
 function cleanLabel(raw: string): string {
@@ -85,6 +84,23 @@ function wordCount(lines: string[]): number {
   return lines.reduce((n, line) => n + line.trim().split(/\s+/).filter(Boolean).length, 0);
 }
 
+/** Words outside every fence: the running prose a reader would have to read. */
+export function proseWords(lines: string[]): number {
+  let inFence = false;
+  let n = 0;
+  for (const line of lines) {
+    if (FENCE.test(line)) { inFence = !inFence; continue; }
+    if (inFence || KEEP_MARKER.test(line)) continue;
+    n += line.trim().split(/\s+/).filter(Boolean).length;
+  }
+  return n;
+}
+
+function makePanel(current: { label: string; lines: string[] }) {
+  const text = current.lines.join("\n").trim();
+  return { label: current.label, text, unresolved: hasUnresolvedFigure(text) };
+}
+
 /**
  * Split one section's body into the text before its first sub-heading and one chunk per
  * sub-heading.
@@ -93,11 +109,6 @@ function wordCount(lines: string[]): number {
  * 40-ward register does exactly this — divides into the two things the author actually wrote
  * rather than into eight fragments with the second h4 buried inside the last of them.
  */
-function makePanel(current: { label: string; lines: string[] }) {
-  const text = current.lines.join("\n").trim();
-  return { label: current.label, text, unresolved: hasUnresolvedFigure(text) };
-}
-
 function splitPanels(body: string[]): { preamble: string[]; panels: { label: string; text: string; unresolved: boolean }[] } {
   let inFence = false;
   let level = 0;
@@ -129,166 +140,84 @@ function splitPanels(body: string[]): { preamble: string[]; panels: { label: str
   return { preamble, panels };
 }
 
-/** Longest run of consecutive prose lines — the thing that actually reads as a wall of text. */
-function longestProseRun(body: string[]): number {
-  let inFence = false;
-  let run = 0;
-  let longest = 0;
-  for (const line of body) {
-    if (FENCE.test(line)) { inFence = !inFence; run = 0; continue; }
-    const t = line.trim();
-    if (inFence || t === "" || /^\|/.test(t) || /^[*\-+]\s|^\d+\.\s/.test(t) || /^#/.test(t)) { run = 0; continue; }
-    run += 1;
-    longest = Math.max(longest, run);
-  }
-  return longest;
-}
+type Block = { lines: string[]; fence: string | null; keep: boolean };
 
 /**
- * A fold hides prose, never a figure. The figures in a folded run (and the text versions that sit
- * under them) are lifted out to show beneath the lead, in their own order; only the prose folds.
- * The same compromise as splitBrief: a figure that sat between two folded paragraphs moves above
- * them, in both modes, and the fold opens beneath it. Nothing is lost; only the order shifts.
+ * A body as blocks: a paragraph, a list, a table, a callout or a fence, each with whether it was
+ * marked `<!-- keep -->`. The marker line itself is consumed; it is a layout instruction, not text.
  */
-function liftFigures(rest: string[]): { figures: string[]; prose: string[] } {
-  const figures: string[] = [];
-  const prose: string[] = [];
+function blocksOf(body: string[]): Block[] {
+  const blocks: Block[] = [];
+  let cur: string[] = [];
   let inFence = false;
-  let lift = false;
-  for (const line of rest) {
-    if (FENCE.test(line)) {
-      if (!inFence) {
-        inFence = true;
-        lift = /^\s*```(?:figure|textversion)\s*$/.test(line);
-        (lift ? figures : prose).push(line);
-        continue;
-      }
-      inFence = false;
-      (lift ? figures : prose).push(line);
-      if (lift) figures.push("");
-      lift = false;
+  let fence: string | null = null;
+  let keepNext = false;
+  const emit = () => {
+    if (cur.length) blocks.push({ lines: cur, fence, keep: keepNext });
+    if (cur.length) keepNext = false;
+    cur = [];
+    fence = null;
+  };
+  for (const line of body) {
+    if (!inFence && KEEP_MARKER.test(line)) {
+      emit();
+      keepNext = true;
       continue;
     }
-    (inFence && lift ? figures : prose).push(line);
-  }
-  return { figures, prose };
-}
-
-/** Everything from the end of the opening paragraph onwards, which is what gets folded. */
-function splitLead(body: string[]): { lead: string[]; rest: string[] } {
-  let seenText = false;
-  let inFence = false;
-  for (let i = 0; i < body.length; i += 1) {
-    const t = body[i].trim();
-    // A blank line inside a fence (a text version holds whole paragraphs) is not a paragraph break.
-    if (FENCE.test(body[i])) inFence = !inFence;
-    if (inFence || t !== "") { seenText = true; continue; }
-    if (seenText && body.slice(i).some((l) => l.trim() !== "")) return { lead: body.slice(0, i), rest: body.slice(i) };
-  }
-  return { lead: body, rest: [] };
-}
-
-/**
- * Words inside ```textversion fences: prose a visual has taken over (brief §12), kept word for word
- * behind the figure's "Read the text version". Brief mode shows the figure with the disclosure
- * closed, so these words are counted out of the Brief reading time wherever they sit in shown text.
- */
-export function textVersionWords(text: string): number {
-  let inside = false;
-  let words = 0;
-  for (const line of text.split("\n")) {
-    if (/^\s*```textversion\s*$/.test(line)) { inside = true; continue; }
-    if (inside && FENCE.test(line)) { inside = false; continue; }
-    if (inside) words += line.trim().split(/\s+/).filter(Boolean).length;
-  }
-  return words;
-}
-
-/** Below this, folding costs the reader a tap to save less scroll than the tap was worth. */
-const MIN_BRIEF_HIDDEN = 120;
-
-/**
- * What a first read of a subsection needs, and what can wait.
- *
- * KEPT: the lead paragraph, because a subsection has to say what it is; every callout, because
- * the document uses blockquotes for decisions, caveats and tier status and those are exactly the
- * things a skimming reader must not miss; every figure, because the whole point of this pass is
- * that figures carry the argument; and any paragraph that is wholly bold, because this document
- * writes its findings that way.
- *
- * FOLDED: the remaining prose, the lists and the tables.
- *
- * ORDER, AND THE ONE HONEST COMPROMISE. The kept blocks stay in document order and the folded
- * blocks stay in document order, but a folded block that sat between two kept ones moves below
- * them. The brief asks for ONE disclosure per subsection, and one disclosure cannot hold blocks
- * that are interleaved with visible ones without either reordering or splitting into several
- * controls. Several controls is worse: it turns a section into a row of drawers, which is the
- * failure the existing DisclosureGroup comment already warns about. Nothing is lost either way,
- * and Full restores the document's own order exactly.
- */
-function splitBrief(body: string[]): { shown: string[]; hidden: string[] } {
-  const shown: string[] = [];
-  const hidden: string[] = [];
-
-  let inFence = false;
-  let fenceIsFigure = false;
-  let leadTaken = false;
-  let block: string[] = [];
-  let blockIsFence = false;
-
-  const isBrief = (lines: string[], wasFigureFence: boolean): boolean => {
-    const text = lines.join("\n").trim();
-    if (!text) return true;
-    if (wasFigureFence) return true;                       // a figure always shows
-    if (/^\s*>/.test(lines[0])) return true;                // a callout always shows
-    // A finding written as a whole bold paragraph.
-    if (/^\*\*[\s\S]+\*\*$/.test(text)) return true;
-    if (!leadTaken && !/^\s*(?:[*\-+]|\d+\.)\s/.test(lines[0]) && !/^\s*\|/.test(lines[0])) {
-      leadTaken = true;                                    // the lead paragraph
-      return true;
-    }
-    return false;
-  };
-
-  const emit = () => {
-    if (block.length === 0) return;
-    (isBrief(block, blockIsFence && fenceIsFigure) ? shown : hidden).push(...block, "");
-    block = [];
-    blockIsFence = false;
-  };
-
-  for (const line of body) {
     if (FENCE.test(line)) {
       if (!inFence) {
         emit();
         inFence = true;
-        blockIsFence = true;
-        // A figure always shows, and so does a text version: it is the figure's own disclosure,
-        // closed in Brief, and it belongs directly under the figure it describes.
-        fenceIsFigure = /^\s*```(?:figure|textversion)\s*$/.test(line);
-        block.push(line);
+        fence = (/^\s*```([A-Za-z0-9_-]*)/.exec(line)?.[1] ?? "").toLowerCase();
+        cur.push(line);
         continue;
       }
       inFence = false;
-      block.push(line);
+      cur.push(line);
       emit();
       continue;
     }
-    if (inFence) { block.push(line); continue; }
+    if (inFence) { cur.push(line); continue; }
     if (line.trim() === "") { emit(); continue; }
-    block.push(line);
+    cur.push(line);
   }
   emit();
-
-  return { shown, hidden };
+  return blocks;
 }
 
-/**
- * @param isClosingSection the section the proposal ends on. Its final block is the ask, and the
- * ask is never folded — a proposal that hides what it wants behind a "read more" does not close,
- * whatever it saves in scroll. Every other section's final block folds like any other.
- */
-export function segmentContent(markdown: string, { isClosingSection = false } = {}): Segment[] {
+const isVisualBlock = (b: Block) => b.fence !== null && VISUAL_FENCE.test(b.lines[0]);
+
+/** Lay out one section body: what shows, and what folds. */
+export function layoutSection(body: string[]): { shown: string[]; folded: string[] } {
+  const blocks = blocksOf(body);
+  const shown: string[] = [];
+  const folded: string[] = [];
+  const show = (b: Block) => shown.push(...b.lines, "");
+  const fold = (b: Block) => folded.push(...b.lines, "");
+
+  const hasLead = blocks.some((b) => b.fence === "lead");
+  if (hasLead) {
+    for (const b of blocks) (isVisualBlock(b) || b.keep ? show : fold)(b);
+    return { shown, folded };
+  }
+
+  let leadTaken = false;
+  for (const b of blocks) {
+    if (isVisualBlock(b) || b.keep) { show(b); continue; }
+    const text = b.lines.join("\n").trim();
+    const words = wordCount(b.lines);
+    const isProse = b.fence === null && !/^\s*(?:[*\-+]|\d+\.)\s/.test(b.lines[0]) && !/^\s*[|>#]/.test(b.lines[0]);
+    if (!leadTaken && isProse) {
+      leadTaken = true;
+      if (words <= MAX_VISIBLE_PARAGRAPH) { show(b); continue; }
+    }
+    if (b.fence === null && /^\*\*[\s\S]+\*\*$/.test(text) && words <= MAX_FINDING) { show(b); continue; }
+    fold(b);
+  }
+  return { shown, folded };
+}
+
+export function segmentContent(markdown: string): Segment[] {
   const segments: Segment[] = [];
   const lines = markdown.split("\n");
 
@@ -308,7 +237,7 @@ export function segmentContent(markdown: string, { isClosingSection = false } = 
     if (FENCE.test(line)) inFence = !inFence;
     const heading = inFence ? null : SECTION_HEADING.exec(line);
     if (!heading) {
-      pending.push(line);
+      if (!KEEP_MARKER.test(line)) pending.push(line);
       i += 1;
       continue;
     }
@@ -323,62 +252,64 @@ export function segmentContent(markdown: string, { isClosingSection = false } = 
       body.push(lines[j]);
       j += 1;
     }
+    i = j;
 
-    const words = wordCount(body);
+    const id = cleanLabel(heading[2]);
+    const hasLead = body.some((l) => /^\s*```lead\s*$/.test(l));
     const { preamble, panels } = splitPanels(body);
-    const number = LEADING_NUMBER.exec(cleanLabel(heading[2]))?.[1];
-    if (number && NEVER_COLLAPSE.has(number)) {
-      pending.push(line, ...body);
-      i = j;
+
+    if (!hasLead && proseWords(body) <= SHOW_ALL_WORDS) {
+      pending.push(line, ...body.filter((l) => !KEEP_MARKER.test(l)));
       continue;
     }
-    if (panels.length >= MIN_PANELS && words >= MIN_WORDS) {
-      pending.push(line, ...preamble);
+    if (!hasLead && panels.length >= MIN_PANELS && wordCount(body) >= MIN_WORDS) {
+      const pre = layoutSection(preamble);
+      pending.push(line, ...pre.shown);
       flush();
-      segments.push({ kind: "group", id: cleanLabel(heading[2]), panels });
-    } else if (
-      !panels.length &&
-      words >= MIN_FOLD_WORDS &&
-      longestProseRun(body) >= MIN_FOLD_RUN &&
-      !(isClosingSection && j >= lines.length)
-    ) {
-      // No sub-headings to fold on, but a long unbroken run of prose. Keep the opening
-      // paragraph — the block still has to say what it is — and fold the argument behind it.
-      const { lead, rest: folded } = splitLead(body);
-      const { figures, prose: rest } = liftFigures(folded);
-      if (wordCount(rest) >= MIN_FOLD_HIDDEN) {
-        pending.push(line, ...lead, "", ...figures);
-        flush();
-        segments.push({ kind: "fold", id: cleanLabel(heading[2]), text: rest.join("\n") });
-      } else {
-        pending.push(line, ...body);
+      segments.push({ kind: "group", id, panels });
+      if (pre.folded.length && proseWords(pre.folded) > 0) {
+        segments.push({ kind: "more", id, text: pre.folded.join("\n"), words: proseWords(pre.folded) });
       }
-    } else {
-      // Brief mode: every remaining subsection opens on what a first read needs, with the rest
-      // one tap away. The group and fold branches above already collapse the heaviest sections,
-      // so this is what turns the other two hundred from a wall into a scannable document.
-      const { shown, hidden } = splitBrief(body);
-      const hiddenWords = wordCount(hidden);
-      if (hiddenWords >= MIN_BRIEF_HIDDEN && !(isClosingSection && j >= lines.length)) {
-        pending.push(line, ...shown);
-        flush();
-        segments.push({
-          kind: "brief",
-          id: cleanLabel(heading[2]),
-          number: number ?? "",
-          shown: "",
-          hidden: hidden.join("\n"),
-          hiddenWords,
-        });
-      } else {
-        pending.push(line, ...body);
-      }
+      continue;
     }
-    i = j;
+    const { shown, folded } = layoutSection(body);
+    const foldedWords = proseWords(folded);
+    if (!hasLead && foldedWords < MIN_FOLDED) {
+      pending.push(line, ...body.filter((l) => !KEEP_MARKER.test(l)));
+      continue;
+    }
+    pending.push(line, ...shown);
+    flush();
+    if (folded.some((l) => l.trim())) segments.push({ kind: "more", id, text: folded.join("\n"), words: foldedWords });
   }
 
   flush();
   return segments;
+}
+
+/**
+ * Words a reader meets on load: what the segmentation shows, outside figures and text versions,
+ * plus each lead. A visual's own words are counted by the visual (lib/visual.ts visibleWords).
+ */
+export function visibleProseWords(markdown: string, visualWords: (json: string) => number = () => 0): number {
+  let n = 0;
+  for (const segment of segmentContent(markdown)) {
+    if (segment.kind === "more") continue;
+    const text = segment.kind === "group" ? segment.panels[0]?.text ?? "" : segment.text;
+    let fence: string | null = null;
+    let buf: string[] = [];
+    for (const line of text.split("\n")) {
+      if (FENCE.test(line)) {
+        if (fence === null) { fence = (/^\s*```([A-Za-z0-9_-]*)/.exec(line)?.[1] ?? "").toLowerCase(); buf = []; continue; }
+        if (fence === "visual") n += visualWords(buf.join("\n"));
+        fence = null;
+        continue;
+      }
+      if (fence === null || fence === "lead") n += line.trim().split(/\s+/).filter(Boolean).length;
+      else buf.push(line);
+    }
+  }
+  return n;
 }
 
 /* ------------------------------------------------------------------ rule 1b: cross-references */
@@ -419,9 +350,9 @@ export function duplicatesIn(chapter: string): DuplicateDeclaration[] {
  *
  * MATCHED AT RENDER, NOT AT SEGMENTATION, and the difference matters. A first attempt split the
  * `markdown` segments and found nothing: almost every paragraph in this document lives inside a
- * `brief` segment, because Brief mode splits every subsection into a lead and the rest. Matching
+ * fold, because the layout splits every long subsection into what shows and the rest. Matching
  * in the paragraph renderer instead reaches the text wherever segmentation put it — markdown,
- * brief, fold or disclosure panel — and leaves reading order exactly as the author wrote it,
+ * fold or disclosure panel — and leaves reading order exactly as the author wrote it,
  * which lifting a paragraph out of a fold would not.
  *
  * The comparison folds whitespace, because markdown paragraphs wrap in the source and arrive

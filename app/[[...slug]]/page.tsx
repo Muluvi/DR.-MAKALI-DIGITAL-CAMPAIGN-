@@ -8,7 +8,8 @@ import { SECTIONS, type TabId } from "@/lib/heading-slug";
 import { FLOW_ORDER } from "@/lib/flow";
 import { CONTENT_FILES } from "@/lib/content-files";
 import { buildSectionIndex } from "@/lib/section-index";
-import { segmentContent, textVersionWords } from "@/lib/collapse-groups";
+import { visibleProseWords } from "@/lib/collapse-groups";
+import { visibleWordsOfJson } from "@/lib/visual";
 
 const TAB_IDS = SECTIONS.map((s) => s.id) as TabId[];
 
@@ -104,31 +105,15 @@ async function readAll(): Promise<Record<TabId, string>> {
 const countWords = (raw: string) => raw.split(/\s+/).filter(Boolean).length;
 
 /**
- * How much of a chapter Brief mode actually shows.
+ * How much of a chapter a reader meets on load.
  *
  * Computed here, on the server, from the same segmentation the renderer uses — so the hero's
- * "Brief: ~N min" is a measurement of what the reader will see rather than a guess typed into a
- * string. If the folding rules change, this number changes with them.
- *
- * Everything a fold hides is subtracted: the Brief disclosures, the long-prose folds, and every
- * panel of a disclosure group except the one that opens.
+ * "~N min read" is a measurement of what the reader will see rather than a guess typed into a
+ * string. Leads, the prose a section shows and the visible part of each visual are counted; the
+ * text behind every "Read the full text", text version and card disclosure is not.
  */
-function briefWords(raw: string, isClosingSection: boolean): number {
-  let hidden = 0;
-  for (const segment of segmentContent(raw, { isClosingSection })) {
-    if (segment.kind === "brief") hidden += segment.hiddenWords;
-    else if (segment.kind === "fold") hidden += countWords(segment.text);
-    else if (segment.kind === "group") {
-      // DisclosureGroup opens its first panel, so only the rest is hidden; a text version inside
-      // the open panel is closed in Brief.
-      hidden += segment.panels.slice(1).reduce((n, panel) => n + countWords(panel.text), 0);
-      hidden += textVersionWords(segment.panels[0]?.text ?? "");
-    } else {
-      // Shown text: a text version in it sits closed under its figure (brief §12).
-      hidden += textVersionWords(segment.text);
-    }
-  }
-  return Math.max(0, countWords(raw) - hidden);
+function visibleWords(raw: string): number {
+  return visibleProseWords(raw, visibleWordsOfJson);
 }
 
 export default async function Page({ params }: { params: Promise<{ slug?: string[] }> }) {
@@ -158,10 +143,9 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
     SECTIONS.map((s) => [s.id, countWords(documents[s.id])])
   ) as Record<TabId, number>;
 
-  // The same figure for Brief mode, so the hero can offer the reader a real choice between two
-  // measured reading times rather than one number and a promise.
-  const briefWordCounts = Object.fromEntries(
-    SECTIONS.map((s) => [s.id, briefWords(documents[s.id], s.id === "decision")])
+  // What each section shows on load, for the one reading time on the hero.
+  const visibleWordCounts = Object.fromEntries(
+    SECTIONS.map((s) => [s.id, visibleWords(documents[s.id])])
   ) as Record<TabId, number>;
 
   /**
@@ -185,7 +169,7 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
       sections={sections}
       documents={rendered}
       wordCounts={wordCounts}
-      briefWordCounts={briefWordCounts}
+      visibleWordCounts={visibleWordCounts}
       activeTab={activeTab}
       expanded={expanded}
       streamed={streamed}
