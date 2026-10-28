@@ -40,7 +40,8 @@ def write(name, text):
 
 
 def words(s):
-    return len(s.split())
+    """Whitespace-separated runs with a letter or digit in them (scripts/declutter/sections.mjs agrees)."""
+    return len([t for t in s.split() if re.search(r"[A-Za-z0-9]", t)])
 
 
 def span(text, number):
@@ -177,5 +178,78 @@ def labelled(item):
     return (m.group(1).strip(), m.group(2).strip()) if m else (None, item.strip())
 
 
+def table_cells(line):
+    """The cells of a markdown table row, without splitting on the '|' inside a {{token|mod}}."""
+    masked = re.sub(r"\{\{[^}]*\}\}", lambda m: m.group(0).replace("|", "\x00"), line.strip().strip("|"))
+    return [c.strip().replace("\x00", "|") for c in masked.split("|")]
+
+
 def oneline(s):
     return re.sub(r"\s*\n\s*", " ", s).strip()
+
+
+def fence(kind, body):
+    """A fenced block, as text to insert."""
+    return f"```{kind}\n{body.rstrip()}\n```"
+
+
+def yaml_items(items, indent="  "):
+    """
+    A YAML list of mappings from Python dicts, every string double-quoted (JSON syntax). Nested
+    lists of dicts (fields) and of strings (chips) are supported.
+    """
+    out = []
+    for it in items:
+        first = True
+        for k, v in it.items():
+            if v is None or v == [] or v == "":
+                continue
+            lead = f"{indent}- " if first else f"{indent}  "
+            first = False
+            if isinstance(v, list) and v and isinstance(v[0], dict):
+                out.append(f"{lead}{k}:")
+                for d in v:
+                    out.append(f"{indent}    - {{ " + ", ".join(f"{dk}: {q(dv)}" for dk, dv in d.items()) + " }")
+            elif isinstance(v, list):
+                out.append(f"{lead}{k}: [" + ", ".join(q(x) for x in v) + "]")
+            elif isinstance(v, dict):
+                out.append(f"{lead}{k}: {{ " + ", ".join(f"{dk}: {q(dv)}" for dk, dv in v.items()) + " }")
+            elif isinstance(v, (int, float)):
+                out.append(f"{lead}{k}: {v}")
+            else:
+                out.append(f"{lead}{k}: {q(v)}")
+    return "\n".join(out)
+
+
+def visual(kind, items=None, title=None, note=None, source=None, preset=None, extra=None, key="items"):
+    lines = [f"kind: {kind}"]
+    if preset:
+        lines.append(f"preset: {preset}")
+    if title:
+        lines.append(f"title: {q(title)}")
+    if note:
+        lines.append(f"note: {q(note)}")
+    if source:
+        lines.append(f"source: {q(source)}")
+    if items is not None:
+        lines.append(f"{key}:")
+        lines.append(yaml_items(items))
+    if extra:
+        lines.append(extra.rstrip())
+    return fence("visual", "\n".join(lines))
+
+
+def swap(name, number, old, new):
+    """Replace prose with a visual built from it (the words move into the fence): not a cut."""
+    replace(name, number, old, new)
+
+
+def split_clause(text, limit=12):
+    """(visible, rest): the first clause of `text` when it is `limit` words or fewer, else ("", text)."""
+    t = oneline(text)
+    m = re.match(r"^(.+?[.;:])(\s+|$)([\s\S]*)$", t)
+    if m and words(m.group(1)) <= limit:
+        head = m.group(1)
+        rest = m.group(3).strip()
+        return head, rest
+    return "", t

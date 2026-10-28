@@ -2,7 +2,7 @@
 
 Every deletion made by the declutter, generated from `cuts.json` by `scripts/declutter/build-cuts-md.mjs`. Each row gives the file, the section, the opening words, the words removed (net of any short reference left in place), the kind of cut and the canonical home where its facts still stand. `scripts/declutter/check-content.mjs` checks that every duplicate's tokens and names are at its home (check 5) and that the word count balances (check 4).
 
-16 cuts, 315 words; 1 passages moved to their homes.
+24 cuts, 568 words; 1 passages moved to their homes.
 
 | File | Section | First words | Words | Kind | Canonical home | Note |
 |---|---|---|---:|---|---|---|
@@ -13,13 +13,21 @@ Every deletion made by the declutter, generated from `cuts.json` by `scripts/dec
 | staffing | (intro) | Who does the work: the Firefly core, the surge roles activated by | 24 | Tab intro (repeats the navigation blurb) | nav-blurb:staffing | Tab intro: the chapter marker prints the navigation blurb directly above it (X9). |
 | measurement | (intro) | How progress is measured, how the Week 1 presence audit is run, | 19 | Tab intro (repeats the navigation blurb) | nav-blurb:measurement\|5.2\|5.2.1 | Tab intro: the chapter marker prints the navigation blurb directly above it (X9). |
 | risks | (intro) | What can go wrong and what happens when it does: rapid response, | 37 | Tab intro (repeats the navigation blurb) | nav-blurb:risks | Tab intro: the chapter marker prints the navigation blurb directly above it (X9). |
-| decision | 1.1 | The Wiper flagbearer decision is expected to be settled by a party-run | 36 | Moved to its home | evidence:2.5.1 | The window's one full statement moves to its home (2.5.1), which graded the method but did not state the timing. In 1.1 it becomes the window chip (X7). The 3 extra words are the callout's > markers. |
+| decision | 1.1 | The Wiper flagbearer decision is expected to be settled by a party-run | 32 | Moved to its home | evidence:2.5.1 | The window's one full statement moves to its home (2.5.1), which graded the method but did not state the timing. In 1.1 it becomes the window chip (X7). The 3 extra words are the callout's > markers. |
 | decision | 1.1 | The Wiper flagbearer decision is expected to be settled by a party-run | 22 | Restatement, now a chip | evidence:2.5.1\|evidence:2.5.2 | X7: restatement of the nomination window. Left in place: `<window-chip></window-chip>`. |
-| decision | 1.1 | The ticket is expected to be settled by a party-run countywide selection | 35 | Restatement, now a chip | evidence:2.5.1\|evidence:2.5.2 | X7: restatement of the nomination window; 2.5.2 grades it 'not confirmed by party officials' and sets out what would confirm it. Left in place: `<window-chip></window-chip>`. |
+| decision | 1.1 | The ticket is expected to be settled by a party-run countywide selection | 34 | Restatement, now a chip | evidence:2.5.1\|evidence:2.5.2 | X7: restatement of the nomination window; 2.5.2 grades it 'not confirmed by party officials' and sets out what would confirm it. Left in place: `<window-chip></window-chip>`. |
 | decision | 1.2 | Wiper Patriotic Front party consensus and selection window, reported for late October | 23 | Restatement, now a chip | evidence:2.5.1\|evidence:2.5.2 | X7: restatement of the nomination window. Left in place: `<window-chip></window-chip>`. |
-| decision | 1.8 | The decision falls in the final quarter of 2026 — late October | 13 | Restatement, now a chip | evidence:2.5.1\|evidence:2.5.2 | X7: assumption 2's statement of the window. Left in place: `<window-chip></window-chip>`. |
+| decision | 1.8 | The decision falls in the final quarter of 2026 — late October | 12 | Restatement, now a chip | evidence:2.5.1\|evidence:2.5.2 | X7: assumption 2's statement of the window. Left in place: `<window-chip></window-chip>`. |
 | delivery | 4.2.1 | flagbearer decision, which party sources indicate is intended to conclude within the | 13 | Restatement, now a chip | evidence:2.5.1\|evidence:2.5.2 | X7: restatement of the nomination window. 'Party sources indicate' is the report 2.5.2 grades Tier 3, single-source. Left in place: `flagbearer decision <window-chip></window-chip>.`. |
 | annex-spec | G.4 | while adhering strictly to | 1 | Intensifier (X10) | — | X10: intensifier deleted. Left in place: `while adhering to`. |
 | decision | 1.2 | and strictly traceable targets | 1 | Intensifier (X10) | — | X10: intensifier deleted. Left in place: `and traceable targets`. |
 | risks | 6.2.3 | are strictly bound by | 1 | Intensifier (X10) | — | X10: intensifier deleted. Left in place: `are bound by`. |
 | risks | 6.2.3 | must strictly reference | 1 | Intensifier (X10) | — | X10: intensifier deleted. Left in place: `must reference`. |
+| decision | 1.1 | What this section adds is the clock behind the ask, and the | 16 | Signpost or meta-text | — | Signpost; it also cited its own section. |
+| decision | 1.4 | All fourteen workstreams on one page, with the owner named against each | 19 | Signpost or meta-text | — |  |
+| decision | 1.4 | Section 4.5 sets each workstream out in full, with its own boundaries | 34 | Signpost or meta-text | — |  |
+| decision | 1.4.1 | This proposal is built in the same order as the engagement: the | 42 | Signpost or meta-text | — | Describes the document's own order; carried one [CHECK REF]. |
+| decision | 1.4.2 | Three engagement levels are defined in Section 1.5, and they differ in | 58 | Verified duplicate | decision:1.5.2\|decision:1.5.1 | The Level 2 recommendation, said once at 1.5.2; 'levels of depth, not volume' is 1.5.1's. |
+| decision | 1.4.2 | {{ict.offline}}% of Kitui residents are outside the internet-using population (CA/KNBS 2023/24, Tier | 38 | Verified duplicate | evidence:2.9.1\|evidence:2.9.3 | Connectivity (home 2.9.1) and the digital ceiling (home 2.9.3), said once. Left in place: ` (Section 2.9.3)`. |
+| decision | 1.4.3 | How the three engagement levels change what runs, and the Level 2 | 19 | Signpost or meta-text | — | Closing pointer. |
+| decision | 1.8 | Earlier drafts of this proposal said "before the final quarter" in four | 29 | Editorial history of the drafts | — | Editorial history of the drafts; the Tier 3 status it ended on stays. Left in place: `It remains    a **Tier 3** expectation`. |

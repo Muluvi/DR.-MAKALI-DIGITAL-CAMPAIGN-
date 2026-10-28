@@ -119,7 +119,7 @@ export function validateVisual(spec: unknown): string[] {
   if (Array.isArray(s.items)) {
     s.items.forEach((it, i) => {
       if (!it || typeof it !== "object") errors.push(`item ${i + 1} is not a mapping`);
-      else if (!(it.label || it.title || it.day || it.value)) errors.push(`item ${i + 1} has no label or title`);
+      else if (!(it.label || it.title || it.day || it.value || it.head)) errors.push(`item ${i + 1} has no label, title or headline`);
       if (it && (s.kind === "bars" || s.kind === "donut") && !Number.isFinite(numberOf(it.value))) errors.push(`item ${i + 1} has no numeric value`);
       if (it && s.kind === "stats" && !it.value) errors.push(`item ${i + 1} has no value`);
     });

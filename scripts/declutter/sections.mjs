@@ -6,10 +6,11 @@
  *
  *   SECTION   a numbered h2 or h3 and its body up to the next h2 or h3, keyed "<file>:<number>";
  *             the text before a file's first heading is "<file>:(intro)".
- *   WORD      a whitespace-separated run. A {{token}} is one word.
- *   PROSE     the body outside every fence, plus the text of every ```visual fence (moved prose,
- *             brief 10 check 4) except the framing a visual adds (title, note, source). A ```lead
- *             is excluded: it restates text that is still there. Figure and text-version fences
+ *   WORD      a whitespace-separated run with a letter or digit in it. A {{token}} is one word;
+ *             a bullet, a table pipe or a dash is not.
+ *   PROSE     the body outside every fence, plus every string in every ```visual fence (moved
+ *             prose, brief 10 check 4: a visual's own title and labels count too, so words a visual
+ *             adds show as a gain). A ```lead is excluded: it restates text that is still there. Figure and text-version fences
  *             count as their own words, unchanged on both sides.
  */
 import { execFileSync } from "node:child_process";
@@ -63,22 +64,21 @@ export function sectionsOf(name, text) {
   return out;
 }
 
-export const words = (s) => (s.match(/\S+/g) ?? []).length;
+/** Whitespace-separated runs with a letter or digit in them: markdown's bullets, pipes and dashes are not words. */
+export const words = (s) => (s.match(/\S+/g) ?? []).filter((t) => /[A-Za-z0-9]/.test(t)).length;
 
-/** The visual's own framing: authored, so not counted as moved prose. */
-const FRAMING = new Set(["title", "note", "source"]);
 const META = new Set(["kind", "id", "preset", "tier"]);
 
-/** Every moved string in a visual spec (its text, minus its framing). */
+/** Every string in a visual spec a reader can reach (layout keys excluded). */
 export function visualStrings(spec) {
   const out = [];
-  const walk = (v, key = "", depth = 0) => {
+  const walk = (v, key = "") => {
     if (typeof v === "string") {
-      if (!META.has(key) && !(depth === 1 && FRAMING.has(key))) out.push(v);
-    } else if (Array.isArray(v)) v.forEach((x) => walk(x, key, depth + 1));
-    else if (v && typeof v === "object") for (const [k, x] of Object.entries(v)) walk(x, k, depth + 1);
+      if (!META.has(key)) out.push(v);
+    } else if (Array.isArray(v)) v.forEach((x) => walk(x, key));
+    else if (v && typeof v === "object") for (const [k, x] of Object.entries(v)) walk(x, k);
   };
-  walk(spec, "", 0);
+  walk(spec, "");
   return out;
 }
 

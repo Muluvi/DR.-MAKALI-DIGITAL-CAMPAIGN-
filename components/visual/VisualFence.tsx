@@ -105,6 +105,46 @@ function ItemFace({ it, md }: { it: Item; md: Md }) {
   );
 }
 
+/**
+ * A row that is its own disclosure: the label and short text are the button, the details open
+ * beneath. Saves the separate "Details" line a card needs, on lists of ten rows.
+ */
+function ToggleRow({ it, md, children }: { it: Item; md: Md; children: ReactNode }) {
+  const [open, setOpen] = useState(false);
+  const id = useId();
+  const reveal = useCallback(() => setOpen(true), []);
+  const hasMore = Boolean(it.fields?.length || it.body);
+  if (!hasMore) return <>{children}</>;
+  return (
+    <>
+      <button type="button" className="vz-row__btn" aria-expanded={open} aria-controls={id} onClick={() => setOpen((o) => !o)}>
+        <span className="vz-row__face">{children}</span>
+        <ChevronDown size={16} aria-hidden="true" className="vz-row__chev" data-open={open ? "true" : "false"} />
+      </button>
+      <FoldBody id={id} open={open} onReveal={reveal} className="vz-row__more">
+        {it.fields?.length ? <Fields fields={it.fields} md={md} /> : null}
+        {it.body ? <div className="vz-body prose max-w-none">{md(it.body)}</div> : null}
+      </FoldBody>
+    </>
+  );
+}
+
+/** The visible face of a row: label and short text, inline, so it can sit inside a button. */
+function RowFace({ it, md }: { it: Item; md: Md }) {
+  return (
+    <>
+      {it.when ? <span className="vz-seq__when">{it.when}</span> : null}
+      <span className="vz-row__label">{md(labelOf(it), true)}</span> <TierTag tier={it.tier} />
+      {it.head ? (
+        <span className="vz-row__text">
+          <span className="vz-head__label">{it.head.label}</span> {md(it.head.text, true)}
+        </span>
+      ) : null}
+      {it.text ? <span className="vz-row__text">{md(it.text, true)}</span> : null}
+    </>
+  );
+}
+
 /* --------------------------------------------------------------------- kinds */
 
 function Stats({ items, md }: { items: Item[]; md: Md }) {
@@ -134,7 +174,7 @@ function Cards({ items, md, preset }: { items: Item[]; md: Md; preset?: string }
             {it.badge ? <span className="vz-badge">{it.badge}</span> : null}
             <TierTag tier={it.tier} />
           </div>
-          <h5 className="vz-card__title">{md(labelOf(it), true)}</h5>
+          {labelOf(it) ? <h5 className="vz-card__title">{md(labelOf(it), true)}</h5> : null}
           {it.value ? <p className="vz-card__value">{md(it.value, true)}</p> : null}
           <ItemFace it={it} md={md} />
           <ItemDetails it={it} md={md} />
@@ -214,10 +254,11 @@ function Sequence({ items, md, kind }: { items: Item[]; md: Md; kind: "timeline"
             {kind === "stepper" ? i + 1 : kind === "checklist" ? <svg viewBox="0 0 16 16"><path d="M2 8.4l4 4L14 4" /></svg> : null}
           </span>
           <div className="vz-seq__text">
-            {it.when ? <span className="vz-seq__when">{it.when}</span> : null}
-            <span className="vz-seq__label">{md(labelOf(it), true)} <TierTag tier={it.tier} /></span>
-            <ItemFace it={it} md={md} />
-            <ItemDetails it={it} md={md} />
+            <ToggleRow it={it} md={md}>
+              <RowFace it={it} md={md} />
+            </ToggleRow>
+            <Chips chips={it.chips} />
+            {it.conflict ? <ConflictMark conflict={it.conflict} /> : null}
           </div>
         </li>
       ))}
@@ -232,9 +273,10 @@ function Column({ title, items, md, tone }: { title: string; items: Item[]; md: 
       <ul className="vz-col__list">
         {items.map((it, i) => (
           <li key={i} className="vz-col__item">
-            <span className="vz-col__label">{md(labelOf(it), true)}</span>
-            <ItemFace it={it} md={md} />
-            <ItemDetails it={it} md={md} />
+            <ToggleRow it={it} md={md}>
+              <RowFace it={it} md={md} />
+            </ToggleRow>
+            <Chips chips={it.chips} />
           </li>
         ))}
       </ul>

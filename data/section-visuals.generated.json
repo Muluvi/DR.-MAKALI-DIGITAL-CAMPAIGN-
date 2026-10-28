@@ -245,60 +245,6 @@
    ]
   }
  },
- "decision-sec-1-4-1": {
-  "id": "decision-sec-1-4-1",
-  "tab": "decision",
-  "level": 3,
-  "number": "1.4.1",
-  "title": "How this proposal is built",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "Analyse (Week 1).",
-     "body": "Firefly audits his channels against the race: ninety days of reach, engagement, language and geography, against the same window…"
-    },
-    {
-     "n": 2,
-     "label": "Strategise (Weeks 2–3).",
-     "body": "From that audit, Firefly defines what to post, for whom, in which language, on which channel, and why (Section 3)."
-    },
-    {
-     "n": 3,
-     "label": "Direct (Week 4 on).",
-     "body": "His team keeps publishing. Firefly issues the weekly brief, approves the calendar and reviews performance (Section 4.1)."
-    }
-   ]
-  }
- },
- "decision-sec-1-4-2": {
-  "id": "decision-sec-1-4-2",
-  "tab": "decision",
-  "level": 3,
-  "number": "1.4.2",
-  "title": "The fourteen workstreams, by owner",
-  "kind": "stepper",
-  "data": {
-   "steps": [
-    {
-     "n": 1,
-     "label": "Seven are Firefly's to operate",
-     "body": "— the service-delivery tracker, the creative testing, the accessibility standard, the offline SMS/USSD/WhatsApp reach, the data…"
-    },
-    {
-     "n": 2,
-     "label": "Six the existing team already runs and…",
-     "body": "Six the existing team already runs and will keep running, to a Firefly brief — platform operation and publishing, content…"
-    },
-    {
-     "n": 3,
-     "label": "Two are not this engagement's to touch",
-     "body": "— volunteer organising, and the technology stack Dr. Mulu already holds. [CONFLICT C3: see open items]"
-    }
-   ]
-  }
- },
  "delivery-sec-4-1-1": {
   "id": "delivery-sec-4-1-1",
   "tab": "delivery",

@@ -73,7 +73,7 @@
   "file": "decision",
   "section": "1.1",
   "first12": "The Wiper flagbearer decision is expected to be settled by a party-run",
-  "words": 36,
+  "words": 32,
   "kind": "moved",
   "home": "evidence:2.5.1",
   "to": "evidence:2.5.1",
@@ -95,7 +95,7 @@
   "file": "decision",
   "section": "1.1",
   "first12": "The ticket is expected to be settled by a party-run countywide selection",
-  "words": 35,
+  "words": 34,
   "kind": "chip",
   "home": "evidence:2.5.1|evidence:2.5.2",
   "note": "X7: restatement of the nomination window; 2.5.2 grades it 'not confirmed by party officials' and sets out what would confirm it.",
@@ -117,7 +117,7 @@
   "file": "decision",
   "section": "1.8",
   "first12": "The decision falls in the final quarter of 2026 — late October",
-  "words": 13,
+  "words": 12,
   "kind": "chip",
   "home": "evidence:2.5.1|evidence:2.5.2",
   "note": "X7: assumption 2's statement of the window.",
@@ -178,5 +178,87 @@
   "note": "X10: intensifier deleted.",
   "text": "must strictly reference",
   "replacement": "must reference"
+ },
+ {
+  "file": "decision",
+  "section": "1.1",
+  "first12": "What this section adds is the clock behind the ask, and the",
+  "words": 16,
+  "kind": "signpost",
+  "home": "",
+  "note": "Signpost; it also cited its own section.",
+  "text": "What this section adds is the clock behind the ask, and the ask itself (Section 1.1).\n"
+ },
+ {
+  "file": "decision",
+  "section": "1.4",
+  "first12": "All fourteen workstreams on one page, with the owner named against each",
+  "words": 19,
+  "kind": "signpost",
+  "home": "",
+  "note": "",
+  "text": "All fourteen workstreams on one page, with the owner named against each — and what is deliberately outside the engagement.\n\n"
+ },
+ {
+  "file": "decision",
+  "section": "1.4",
+  "first12": "Section 4.5 sets each workstream out in full, with its own boundaries",
+  "words": 34,
+  "kind": "signpost",
+  "home": "",
+  "note": "",
+  "text": "Section 4.5 sets each workstream out in full, with its own boundaries and KPIs. This page\nexists so the whole engagement can be seen at once before any of it is read in detail.\n\n"
+ },
+ {
+  "file": "decision",
+  "section": "1.4.1",
+  "first12": "This proposal is built in the same order as the engagement: the",
+  "words": 42,
+  "kind": "signpost",
+  "home": "",
+  "note": "Describes the document's own order; carried one [CHECK REF].",
+  "text": "This proposal is built in the same order as the engagement: the data (Section 2), what it implies (Section 2), the strategy it leads to (Section 3) and how that strategy is directed (Section 5 [CHECK REF]). Section 1 is the decision.\n\n"
+ },
+ {
+  "file": "decision",
+  "section": "1.4.2",
+  "first12": "Three engagement levels are defined in Section 1.5, and they differ in",
+  "words": 58,
+  "kind": "duplicate",
+  "home": "decision:1.5.2|decision:1.5.1",
+  "note": "The Level 2 recommendation, said once at 1.5.2; 'levels of depth, not volume' is 1.5.1's.",
+  "text": "Three engagement levels are defined in Section 1.5, and they differ in\nthe *depth of the intelligence*, not the volume of Firefly's output; **Firefly recommends Level 2\n(Standard)**, because it is the level at which all 40 wards carry both reach reporting and an active\nSMS and USSD layer — and reaching the arid belt is the whole argument. "
+ },
+ {
+  "file": "decision",
+  "section": "1.4.2",
+  "first12": "{{ict.offline}}% of Kitui residents are outside the internet-using population (CA/KNBS 2023/24, Tier",
+  "words": 38,
+  "kind": "duplicate",
+  "home": "evidence:2.9.1|evidence:2.9.3",
+  "note": "Connectivity (home 2.9.1) and the digital ceiling (home 2.9.3), said once.",
+  "text": " **{{ict.offline}}%** of Kitui\nresidents are outside the internet-using population (CA/KNBS 2023/24, Tier 1), and Section 3.3.2 puts\nthe reach of a purely digital operation at about **{{reach.smartphone}} voters**, short of the {{benchmark}} benchmark\neven before reach is turned into votes.",
+  "replacement": " (Section 2.9.3)"
+ },
+ {
+  "file": "decision",
+  "section": "1.4.3",
+  "first12": "How the three engagement levels change what runs, and the Level 2",
+  "words": 19,
+  "kind": "signpost",
+  "home": "",
+  "note": "Closing pointer.",
+  "text": "\n*How the three engagement levels change what runs, and the Level 2 recommendation, are set out once, in 1.5.1.*\n"
+ },
+ {
+  "file": "decision",
+  "section": "1.8",
+  "first12": "Earlier drafts of this proposal said \"before the final quarter\" in four",
+  "words": 29,
+  "kind": "history",
+  "home": "",
+  "note": "Editorial history of the drafts; the Tier 3 status it ended on stays.",
+  "text": "Earlier drafts of this proposal said \"before the final quarter\" in four places while every\n   operational deadline in it assumed Q4; the wording is now the same throughout, and it remains\n   a **Tier 3** expectation",
+  "replacement": "It remains\n   a **Tier 3** expectation"
  }
 ]

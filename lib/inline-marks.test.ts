@@ -14,9 +14,12 @@ import { tokenizeInline, splitTier, refsOf, COUNSEL_NOTE } from "./inline-marks.
 
 const DIR = path.join(process.cwd(), "public", "content");
 const files = fs.readdirSync(DIR).filter((f) => f.endsWith(".md")).sort();
-/** Prose only: fences carry figure ids and visual JSON, which the renderer never tokenizes. */
+/**
+ * What the renderer tokenizes: prose, leads, text versions and the strings in visual fences (drawn
+ * through the same markdown renderer). Figure fences carry only an id.
+ */
 function prose(text: string): string {
-  return text.replace(/^```[\s\S]*?^```/gm, "").replace(/\s+/g, " ");
+  return text.replace(/^```figure[\s\S]*?^```/gm, "").replace(/\s+/g, " ");
 }
 const all = files.map((f) => prose(fs.readFileSync(path.join(DIR, f), "utf8"))).join(" ");
 

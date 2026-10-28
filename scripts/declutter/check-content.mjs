@@ -86,7 +86,7 @@ function capitalisedNames(text) {
   for (const m of clean.matchAll(/\b[A-Z][A-Za-z'’.-]*[A-Za-z]/g)) {
     const at = m.index ?? 0;
     if (SENTENCE_START.test(clean.slice(Math.max(0, at - 4), at))) continue;
-    out.add(m[0]);
+    out.add(m[0].replace(/['’]s$/, ""));
   }
   return [...out];
 }
