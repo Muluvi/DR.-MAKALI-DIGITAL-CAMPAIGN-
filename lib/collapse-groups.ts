@@ -36,7 +36,9 @@ const MIN_FOLD_HIDDEN = 150;
  * ceiling and the tiers behind two different taps, which is the one thing an answer-first
  * document must not do to the section it is asking the reader to decide on.
  */
-const NEVER_COLLAPSE = new Set(["9.2"]);
+const NEVER_COLLAPSE = new Set(["9.2", "1.1"]);
+// "1.1" is the ask. It closed the document until the October 2026 restructure put the decision
+// first; the rule that it is never folded follows it to the front.
 
 /**
  * A block carrying a figure the campaign has not yet established — an `[Insert …]` placeholder,

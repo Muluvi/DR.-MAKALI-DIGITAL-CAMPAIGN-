@@ -32,7 +32,7 @@ const OWNER_LABEL: Record<Owner, string> = { firefly: "Firefly operates", team: 
 
 export const FIG_5_1: FigureSpec = {
   id: "fig-5-1-workstreams",
-  section: "5.1",
+  section: "1.4.2",
   title: "Of the fourteen workstreams, Firefly operates the analysis, the data and the offline layer, and your team keeps publishing",
   question: "Who owns what?",
   takeaway: "Workstream 9, the offline layer, is the one Firefly runs directly and the one the race turns on; two workstreams sit outside the engagement.",
@@ -58,7 +58,7 @@ const GROUPS = [
 
 export const FIG_5_2: FigureSpec = {
   id: "fig-5-2-workstream-panels",
-  section: "5.2",
+  section: "4.5",
   title: "Four groups of work, each with one product, one owner and one rhythm",
   question: "What does each group produce?",
   takeaway: "Most of the output is your team's existing work, now directed; Firefly's own products are the brief, the analysis and the offline dispatch.",
@@ -79,7 +79,7 @@ const WEEKS = [
 
 export const FIG_5_3: FigureSpec = {
   id: "fig-5-3-four-weeks",
-  section: "5.3",
+  section: "4.2.1",
   title: "The first week measures, and nothing is committed against the diagnosis until it has",
   question: "What happens in the first four weeks?",
   takeaway: "Week 1 is the audit; the brief starts in Week 2, weighted to the pool, and the six fixes ship by the end of it.",
@@ -117,7 +117,7 @@ const PHASE_EVENTS = [
 
 export const FIG_5_4: FigureSpec = {
   id: "fig-5-4-phases",
-  section: "5.4",
+  section: "4.3",
   title: "Four phases run to the election, and the nomination phase overlaps the first",
   question: "How does the plan run to August 2027?",
   takeaway: "Phase −1 is aimed at a window reported for late October to November; the three general-election phases follow it to 10 August 2027.",
@@ -174,7 +174,7 @@ const PHASE_TARGETS: [string, string, string, string][] = [
 
 export const FIG_5_4_LADDER: FigureSpec = {
   id: "fig-5-4-ladder",
-  section: "5.4",
+  section: "4.3.1",
   title: "Three indicators climb through every phase, and every other target belongs to one phase",
   question: "What does each phase have to deliver?",
   takeaway: `Consented SMS contacts rise from ${fmt("target.sms.phase-1b")} in Phase 1 to ${fmt("target.sms")} by Phase 3; rows marked ° are operational diagnostics, not performance indicators (Section 5.6.7).`,
@@ -220,7 +220,7 @@ const LEVELS: [string, string, string, string][] = [
 
 export const FIG_5_5: FigureSpec = {
   id: "fig-5-5-cadence",
-  section: "5.5",
+  section: "1.5.2",
   title: "He receives a brief every week and a read every month, and the level sets how deep each goes",
   question: "What does he receive, and how often?",
   takeaway: "Standard, the recommended level, is the one at which all 40 wards carry reach reporting and an active SMS and USSD layer.",
@@ -244,7 +244,7 @@ const baselineText = (k: (typeof KPIS)[number]) => (k.baseline.kind === "measure
 
 export const FIG_5_6: FigureSpec = {
   id: "fig-5-6-kpis",
-  section: "5.6",
+  section: "5.1",
   title: "Nine indicators judge the work, four for the nomination and five for the election, each observable on his own channels or lists",
   question: "How is progress measured?",
   takeaway: "Every indicator is observable on his channels, the SMS list or the field record, and each stays empty until its baseline is taken.",
@@ -264,7 +264,7 @@ export const FIG_5_6: FigureSpec = {
 
 export const FIG_5_7: FigureSpec = {
   id: "fig-5-7-approval",
-  section: "5.7",
+  section: "4.1.3",
   title: "Your team drafts and publishes, one named counterpart approves, and an attack climbs three levels in hours",
   question: "How are decisions made?",
   takeaway: "Firefly approves new claims and Kikamba output and publishes only the offline broadcasts; a Level 3 attack reaches the candidate within thirty minutes.",
@@ -328,7 +328,7 @@ const IMPACT = ["", "Moderate", "High", "Severe"];
 
 export const FIG_5_8: FigureSpec = {
   id: "fig-5-8-risk",
-  section: "5.8",
+  section: "6.1",
   title: "Two of the six risks would change the plan rather than damage it, and both are settled by measurement early",
   question: "What could go wrong?",
   takeaway: "R1 closes with the party's 2027 nomination rules, R2 with the Week 1 audit. The incumbent is term-limited under Article 180(7), so the plan is for an open seat.",
@@ -359,7 +359,7 @@ export const FIG_5_8: FigureSpec = {
 
 export const FIG_5_9: FigureSpec = {
   id: "fig-5-9-team",
-  section: "5.9",
+  section: "4.6",
   title: "Firefly adds three people and removes none, with five surge roles each tied to a trigger",
   question: "What shape is the team?",
   takeaway: "The campaign's command structure and his publishing team stay as they are; Firefly reports to one named counterpart and briefs one named lead.",

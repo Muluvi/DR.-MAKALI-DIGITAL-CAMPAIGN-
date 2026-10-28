@@ -6,8 +6,8 @@
  *             reference only", not as a promise, not as the thing a measure is "not". Firefly works
  *             from existing records and its own analysis only (the September 2026 audit). Checked
  *             in content and in the copy that components, figure specs and data modules carry.
- *   Money     no budget, spend, cost, fee or price language in the engagement sections. Section 2.5
- *             and 2.8 are exempt (the county's money), and so are the phrases below that name the
+ *   Money     no budget, spend, cost, fee or price language in the engagement sections. Part 2 (the
+ *             evidence, which carries the county's money in 2.8.2 and 2.10.1) is exempt, and so are the phrases below that name the
  *             county's money or a county policy instrument rather than the engagement's.
  *   Remote    no "remote" framing of how the work is done.
  *   ASCII     no text diagram in a code block, and no box-drawing characters, in any content file.
@@ -35,8 +35,9 @@ const POLL_OK = [
 ];
 
 const ENGAGEMENT = new Set([
-  "cover.md", "objectives.md", "strategy.md", "implementation.md", "workstreams-platforms.md",
-  "workstreams-media.md", "workstreams-ground.md", "workstreams-data.md", "delivery.md", "nextsteps.md",
+  "cover.md", "decision.md", "strategy.md", "delivery.md", "workstreams-platforms.md",
+  "workstreams-media.md", "workstreams-ground.md", "workstreams-data.md", "staffing.md",
+  "measurement.md", "risks.md", "annex-spec.md",
 ]);
 const MONEY = /\b(budget|budgets|spend|spending|spent|cost|costs|costed|costing|fee|fees|price|prices|pricing|fundrais\w*|donor|donors|donation|donations)\b/gi;
 /** County money and county policy instruments, not the engagement's money. */

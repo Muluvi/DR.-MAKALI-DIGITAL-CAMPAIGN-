@@ -60,30 +60,33 @@ export const FIG_COVER_MAP: FigureSpec = {
   rows: tileRows(["footprint"]).map((r) => ({ ...r, cells: { ...r.cells, footprint: FOOTPRINT_LABEL[String(r.cells.footprint)] ?? r.cells.footprint } })),
 };
 
+// The document's own table of contents, decision first (docs/restructure-2026-10/preview.md,
+// section 5). Each step is a part, and each row's job is the question that part answers.
 export const SPINE_STEPS = [
-  { label: "Objectives", href: "/objectives" },
-  { label: "Data", href: "/data" },
-  { label: "Analysis", href: "/analysis" },
+  { label: "Decision", href: "/decision" },
+  { label: "Evidence", href: "/evidence" },
   { label: "Strategy", href: "/strategy" },
-  { label: "Implementation", href: "/implementation" },
+  { label: "Delivery", href: "/delivery" },
+  { label: "Measurement", href: "/measurement" },
+  { label: "Risks", href: "/risks" },
 ];
 
 export const FIG_COVER_SPINE: FigureSpec = {
   id: "fig-cover-spine",
   section: "Cover",
-  title: "The argument runs in five steps, from what the campaign must achieve to who does the work",
+  title: "The proposal runs decision first: the ask, then the evidence, the strategy, how it is delivered, measured and governed, and what could go wrong",
   question: "What is the shape of the argument?",
-  takeaway: "Each section answers the one before it; Section 6 is the decision the five lead to, not a sixth step.",
+  takeaway: "Part 1 is the decision and everything needed to make it; Parts 2 to 6 are the reasoning and the plan behind it, and the annexes are reference.",
   sources: [{ name: "This proposal's structure", tier: null, state: "target" }],
   chart: { type: "spine", steps: SPINE_STEPS },
-  columns: [{ key: "step", label: "Step" }, { key: "job", label: "What the section does" }],
+  columns: [{ key: "step", label: "Part" }, { key: "job", label: "The question it answers" }],
   rows: [
-    { cells: { step: "1 Objectives", job: "What the campaign must achieve, and by when" } },
-    { cells: { step: "2 Data", job: "What the official record shows, graded by source" } },
-    { cells: { step: "3 Analysis", job: "What the data implies for the race" } },
-    { cells: { step: "4 Strategy", job: "What to do about it, each strategy tied to a finding" } },
-    { cells: { step: "5 Implementation", job: "Who does the work, how it is measured and governed" } },
-    { cells: { step: "6 Next steps", job: "The decision, and what the campaign provides" } },
+    { cells: { step: "1 The decision", job: "What is being asked, what do I get, who does what, and what must I decide or provide?" } },
+    { cells: { step: "2 The evidence", job: "What does the record show, and why is the plan shaped this way?" } },
+    { cells: { step: "3 The strategy", job: "What do we do about it, and why that?" } },
+    { cells: { step: "4 Delivery", job: "How is it run, when, by whom?" } },
+    { cells: { step: "5 Measurement and governance", job: "How will we know it is working, and how is it kept lawful?" } },
+    { cells: { step: "6 Risks and response", job: "What could go wrong, and what happens when it does?" } },
   ],
 };
 

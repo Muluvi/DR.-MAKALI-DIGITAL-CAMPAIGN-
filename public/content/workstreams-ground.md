@@ -1,12 +1,9 @@
-## 5.2.3 Ground and offline reach
-
-
-Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them.
-
-### 5.2.3.1 Workstream 7 — Ground-digital integration
+### 4.5.7 Workstream 7 — Ground-digital integration
 
 > **Owner: the campaign.** The 40 ward coordinators are the campaign's people. Firefly supplies
 > the reporting template and the analysis of what comes back.
+>
+> **Group: Ground and offline reach.** Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them.
 
 
 A campaign that operates field organizing and digital messaging as isolated silos will fail in a county where 73.8% of residents are offline (CA/KNBS 2023/24). Digital content created in an air-conditioned command center in Nairobi or Kitui Town is worthless if it does not address the live anxieties voiced at the morning livestock auction in Nguni or the wellhead in Mutha.
@@ -86,9 +83,11 @@ id: operating-rhythm
 
 ---
 
-### 5.2.3.2 Workstream 8 — The field-to-digital loop
+### 4.5.8 Workstream 8 — The field-to-digital loop
 
 > **Owner: the campaign.** Firefly supplies the instrument and its data governance.
+>
+> **Group: Ground and offline reach.** Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them.
 
 
 #### Operating architecture and bidirectional sync
@@ -125,7 +124,7 @@ routing is wrong.
 
 ---
 
-### 5.2.3.3 Workstream 9 — What Firefly operates: SMS, USSD and voice
+### 4.5.9 Workstream 9 — What Firefly operates: SMS, USSD and voice
 
 > **Owner: Firefly, end to end.** Two pieces of infrastructure, held and run by Firefly: the
 > **WhatsApp Business API line** and the **USSD shortcode**. This is the one place in the engagement where
@@ -133,6 +132,8 @@ routing is wrong.
 >
 > It is also the one place where Firefly is a **data controller or joint controller** rather than a
 > processor — see Section 5.7.5, which must be settled in writing before the first dispatch.
+>
+> **Group: Ground and offline reach.** Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them.
 
 
 #### Why this layer decides the race
@@ -182,6 +183,8 @@ penalise unsolicited messaging.
 > **same-day SMS rapid response impossible** — the rebuttal row below runs on WhatsApp and radio
 > instead — and a **2020 draft revision** proposed narrowing the sending window to 08:00–18:00
 > `[VERIFY whether in force]`.
+
+[CONFLICT C2: see open items]
 
 **Message architecture** — 160 characters, **English or Kiswahili only**, ward-tagged:
 | Type | Frequency | Language | Example structure |
@@ -269,64 +272,13 @@ a vanity one.
 
 ---
 
-### 5.2.3.4 Workstream 10 — Digital organising and volunteers
+### 4.5.10 Workstream 10 — Digital organising and volunteers
 
 > **Outside this engagement.** Volunteer recruitment, tiers, gamification and ward-champion
 > management belong to the ground campaign, which already runs them. Firefly's contribution is
 > the metric definitions the leaderboard reports against, and nothing else. The material below is
 > retained as reference for the campaign's own coordinator, not as a Firefly deliverable.
+>
+> **Group: Ground and offline reach.** Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them.
 
-
-#### Turning online supporters into offline organisers
-
-A tiered volunteer programme converting passive online supporters into active
-offline organisers, with gamification driving sustained engagement.
-
-#### Volunteer tiers
-
-| Tier | Name | Entry requirement | Activities |
-|---|---|---|---|
-| **1** | Digital Advocate | Follow on 2+ platforms | Share, comment, amplify |
-| **2** | Ward Champion | Join ward WhatsApp group + data-handling briefing | Distribute content, report ground sentiment, recruit 5 advocates |
-| **3** | Community Organiser | Complete online training module | Host groups, coordinate local events, **log canvass outcomes (Section 5.2.3.2)** |
-| **4** | County Coordinator | Manage 3+ organisers | Oversee regional operations, attend weekly syncs |
-
-**Data-handling training is a gate, not an option.** No volunteer collects
-personal data before completing it (Section 5.7.8).
-
-#### Gamification mechanics
-
-| Mechanic | Implementation | Reward |
-|---|---|---|
-| Points | Awarded for shares, sign-ups, training completion, verified registration drives, canvass returns | Merchandise, recognition |
-| Leaderboards | Ward and county rankings published weekly in WhatsApp groups | Public recognition, tier advancement |
-| Badges | Milestones — "10 Voters Registered," "Content Creator," "Ward Champion" | Profile display, sharing |
-| Streaks | Daily engagement tracked via WhatsApp bot | Bonus points, spotlight features |
-
-**Integrity rule.** Points reward **verified real-world action** — a registered
-voter, a canvassed household, a completed training — not raw posting volume.
-Reward systems that pay for volume produce spam and, at scale, look
-indistinguishable from inauthentic activity. That would breach both platform
-policy and the Section 5.7.8 charter, and it is designed out from the start.
-
-#### Management tooling
-
-* **Custom WhatsApp bot** for lightweight volunteer management: registration,
-point tracking, content distribution, leaderboards
-* **USSD registration path** so volunteers without smartphones can join
-(Section 5.2.3.3) — a genuine differentiator in the arid belt
-* Forms and spreadsheets for baseline collection
-* Task management via a shared board
-* Purpose-built volunteer platforms only at the premium level
-
-#### Volunteer KPIs
-
-| Metric | Target |
-|---|---|
-| Sign-up conversion from social traffic | ≥ 5% |
-| Active rate (engaged in last 30 days) | ≥ 40% |
-| Tier 2 advancement | ≥ 20% of Tier 1 |
-| Offline action completion | ≥ 60% |
-| Average points per volunteer per month | ≥ 100 |
-| 90-day retention | ≥ 50% |
-| **Canvass returns logged per active Tier 3 organiser per week** | ≥ 25 households |
+*The volunteer programme reference (tiers, gamification, tooling and KPIs) is in Annex G.3.*

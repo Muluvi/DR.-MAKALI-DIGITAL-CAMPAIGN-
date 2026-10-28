@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useEffect, useRef, useId } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Search, ChevronRight, Layers, Compass, Map, MessageSquare, Megaphone, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck } from "lucide-react";
+import { X, Search, ChevronRight, Layers, Compass, MessageSquare, Megaphone, Shield, Database, Gauge, FileText, BookLock, ClipboardList, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck, Users, TriangleAlert, FileCog } from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
 import { FLOW_ACTS, FLOW_SECTIONS, actOf } from "../lib/flow";
 import { ACT_PORTRAITS, ACT_ROMAN } from "../lib/premium/acts";
@@ -12,23 +12,24 @@ import type { SectionItem } from "../lib/section-index";
 
 const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
   cover: BookLock,
-  objectives: Target,
-  data: Database,
-  analysis: Map,
+  decision: Handshake,
+  evidence: Database,
   strategy: Compass,
-  implementation: ListChecks,
+  delivery: ListChecks,
   "workstreams-platforms": Layers,
   "workstreams-media": Megaphone,
   "workstreams-ground": Radio,
   "workstreams-data": Workflow,
-  delivery: Gauge,
-  nextsteps: Handshake,
+  staffing: Users,
+  measurement: Gauge,
+  risks: TriangleAlert,
   "annex-evidence": ClipboardList,
   "annex-county": FileText,
   "annex-messages": MessageSquare,
   "annex-cadence": CalendarClock,
   "annex-runbooks": ShieldCheck,
   "annex-terms": Shield,
+  "annex-spec": FileCog,
 };
 
 interface MobileTOCModalProps {
@@ -141,8 +142,8 @@ export function MobileTOCModal({
   if (!isOpen) return null;
 
   const hereAct = actOf(activeTab as TabId).id;
-  /** The five-step argument (the cover spine), in miniature: acts I to V. */
-  const argument = FLOW_ACTS.slice(0, 5);
+  /** The six-part argument (the cover spine), in miniature: acts I to VI. */
+  const argument = FLOW_ACTS.slice(0, 6);
 
   return (
     <AnimatePresence>

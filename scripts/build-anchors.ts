@@ -10,6 +10,11 @@
  *   lib/anchors/pre-rebuild.json  every id that existed before this rebuild, and every redirect
  *                                 edge the repo ever declared (frozen by scripts/rebuild/snapshot-anchors.mjs)
  *   lib/anchors/rebuild-moves.json ids this rebuild renumbered (written by scripts/rebuild/phase1.py)
+ *   lib/anchors/restructure-2026-10.json
+ *                                 every id live before the October 2026 restructure, and every
+ *                                 redirect key, mapped to the heading that now holds its text
+ *                                 (written by scripts/restructure-2026-10/build-moves.py). It is
+ *                                 read first, and each of its entries must land exactly where it says.
  *   public/content/*.md           the headings that exist today
  *
  * Each old id follows its edges until it reaches a live heading. Where a chain dead-ends because
@@ -61,6 +66,9 @@ const pre = JSON.parse(fs.readFileSync(path.join(ROOT, "lib", "anchors", "pre-re
   edges: Record<string, string>;
 };
 const moves = JSON.parse(fs.readFileSync(path.join(ROOT, "lib", "anchors", "rebuild-moves.json"), "utf8")) as Record<string, string>;
+const restructure = (
+  JSON.parse(fs.readFileSync(path.join(ROOT, "lib", "anchors", "restructure-2026-10.json"), "utf8")) as { moves: Record<string, string> }
+).moves;
 
 function climb(id: string): string | null {
   const [route, slug] = id.split("-sec-");
@@ -81,7 +89,7 @@ function resolve(start: string): string | null {
   while (!seen.has(id)) {
     if (live.has(id)) return id;
     seen.add(id);
-    const next = moves[id] ?? pre.edges[id];
+    const next = restructure[id] ?? moves[id] ?? pre.edges[id];
     if (next) { id = next; continue; }
     const parent = climb(id);
     if (parent) return parent;
@@ -98,7 +106,7 @@ function resolve(start: string): string | null {
 
 const redirects: Record<string, string> = {};
 const orphans: string[] = [];
-const everyOld = new Set([...pre.ids, ...Object.keys(pre.edges), ...Object.keys(moves)]);
+const everyOld = new Set([...pre.ids, ...Object.keys(pre.edges), ...Object.keys(moves), ...Object.keys(restructure)]);
 for (const id of [...everyOld].sort()) {
   if (live.has(id)) continue;
   const target = resolve(id);
@@ -114,6 +122,19 @@ const body =
   "export const ANCHOR_REDIRECTS: Record<string, string> = " +
   JSON.stringify(redirects, null, 1) +
   ";\n";
+
+// Every id the restructure moved must land on the heading the mapping names, not merely somewhere.
+// An old id that is a live heading again names the new heading, and is reported, not redirected.
+const misdirected: string[] = [];
+for (const [id, target] of Object.entries(restructure)) {
+  if (!live.has(target)) misdirected.push(`${id} -> ${target} (target is not a live heading)`);
+  else if (!live.has(id) && redirects[id] !== target) misdirected.push(`${id} -> ${redirects[id]} (expected ${target})`);
+}
+if (misdirected.length) {
+  console.error(`build-anchors: ${misdirected.length} restructured id(s) do not land where restructure-2026-10.json says:`);
+  for (const m of misdirected.slice(0, 20)) console.error(`  - ${m}`);
+  process.exit(1);
+}
 
 if (orphans.length) {
   console.error(`build-anchors: ${orphans.length} pre-rebuild id(s) land on nothing:`);

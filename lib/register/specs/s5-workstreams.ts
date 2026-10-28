@@ -20,7 +20,7 @@ const REPORT = [
 
 export const FIG_TRACKER_FLOW: FigureSpec = {
   id: "fig-5-2-1-report-flow",
-  section: "5.2.1.1",
+  section: "4.5.1",
   title: "Every report ends in a published outcome, and the reporter hears back twice",
   question: "What happens to a report in the service-delivery tracker?",
   takeaway: "The register shows what was reported, what was raised and what happened, failures included.",
@@ -40,7 +40,7 @@ const LOOP = [
 
 export const FIG_FIELD_LOOP: FigureSpec = {
   id: "fig-5-2-3-field-loop",
-  section: "5.2.3.2",
+  section: "4.5.8",
   title: "The doorstep and the ad audience update each other within a day",
   question: "How do the field and digital operations learn from each other?",
   takeaway: "The opt-in rate on routed doors keeps both sides honest: if routed doors do no better than the rest, the routing is wrong.",
@@ -61,7 +61,7 @@ const MENU = [
 
 export const FIG_USSD_MENU: FigureSpec = {
   id: "fig-5-2-3-ussd-menu",
-  section: "5.2.3.3",
+  section: "4.5.9",
   title: "Six options on any phone, and the third puts the tracker in reach of a feature phone in Mutha",
   question: "What does the USSD menu offer?",
   takeaway: "Dial the shortcode, read the plan, register, report an issue, volunteer or opt in, with no internet and close to no cost.",
@@ -123,7 +123,7 @@ const STACK: [string, string, string, string, string, string][] = [
 
 export const FIG_STACK: FigureSpec = {
   id: "fig-5-2-4-stack",
-  section: "5.2.4.3",
+  section: "G.4",
   title: "Five components, and the personal data concentrates in the first two",
   question: "What does each component of the stack do, hold and risk?",
   takeaway: "The gateway and the CRM carry the high and critical data-protection exposure; the other three work on public or anonymised data, and every one awaits a campaign decision.",

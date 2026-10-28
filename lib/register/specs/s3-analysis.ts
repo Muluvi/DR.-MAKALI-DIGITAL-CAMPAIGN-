@@ -22,7 +22,7 @@ const funnel = (reg: "2022" | "2026") => [
 
 export const FIG_3_1: FigureSpec = {
   id: "fig-3-1-funnel",
-  section: "3.1",
+  section: "2.1",
   title: `To win, he needs about ${fmt("benchmark.share-of-ballots")}% of the ballots cast, on the 2022 register`,
   question: "What is the winning number?",
   takeaway: `${fmt("benchmark")} votes is the 2022 winner's total rounded; the same share of the larger July 2026 register is ≈${fmt("benchmark.2026-equivalent.rounded")}.`,
@@ -46,7 +46,7 @@ const TOTAL = num("register.2022");
 
 export const FIG_3_2: FigureSpec = {
   id: "fig-3-2-register-map",
-  section: "3.2",
+  section: "2.3",
   title: `The twelve largest wards hold ${fmt("pareto.top12.share")}% of the register, and half the wards hold ${fmt("pareto.top20.share")}%`,
   question: "Where are the votes?",
   takeaway: `Registration is concentrated: the ten smallest wards together hold only ${fmt("pareto.bottom10.share")}% of voters, across some of the county's widest ground.`,
@@ -115,7 +115,7 @@ const PATHS: { key: string; title: string; tag?: string; wards: number; reg: Bar
 
 export const FIG_3_3: FigureSpec = {
   id: "fig-3-3-paths",
-  section: "3.3",
+  section: "2.4",
   title: `No route clears ${fmt("benchmark")} on its own ballots, and the home belt falls furthest short`,
   question: "Which route to the number is real, and which is a trap?",
   takeaway: `Even every ballot in the home belt leaves him ${fmt("path.d.margin", "abs")} short: a route is where the margin is built, and Mwingi is part of any route that works.`,
@@ -164,7 +164,7 @@ export const FIG_3_3: FigureSpec = {
 
 export const FIG_3_4: FigureSpec = {
   id: "fig-3-4-footprint",
-  section: "3.4",
+  section: "2.7.1",
   title: `${fmt("pool.share")}% of the register lives in the four constituencies where he has never held office`,
   question: "Where has he held office, and what does that leave untouched?",
   takeaway: `The ${fmt("pool")}-voter pool is structural, derived from where he has held office, not from any measure of opinion; ${fmt("pareto.top12.in-pool")} of the twelve largest wards are in it.`,
@@ -204,7 +204,7 @@ const FIELD: Bar[] = [
 
 export const FIG_3_5: FigureSpec = {
   id: "fig-3-5-field",
-  section: "3.5",
+  section: "2.6",
   title: "Four of the field have already won a countywide race, and he has not yet stood for one",
   question: "What has each contender already proven at the ballot?",
   takeaway: `Kasalu's ${fmt("result.2022.womanrep.kasalu")} beat the winning governor's total; his own proof at the ballot is constituency-bounded.`,
@@ -219,7 +219,7 @@ export const FIG_3_5: FigureSpec = {
 
 export const FIG_3_6: FigureSpec = {
   id: "fig-3-6-party-flow",
-  section: "3.6",
+  section: "2.7.2",
   title: `Two constituencies with ${fmt("east-south.share")}% of the register returned non-Wiper MPs, and his own seat has its own race`,
   question: "Where will party loyalty not carry him?",
   takeaway: "Kitui East and Kitui South are a direct-contact problem, not a party-mobilisation one, and Kitui Central cannot be left on autopilot.",
@@ -257,7 +257,7 @@ const one = (id: string) => Math.round(num(id) * 10) / 10;
 
 export const FIG_3_7: FigureSpec = {
   id: "fig-3-7-zones",
-  section: "3.7",
+  section: "2.8.3",
   title: `The three zones hold ${fmt("zones.share")}% of residents, and Kitui Rural falls in none of them`,
   question: "How do the three zones differ, and who is left out?",
   takeaway: `About ${fmt("zones.excluded")} residents and ${fmt("con.kitui-rural.share")}% of the register sit outside the zoning; Kitui Rural needs a zone or a stated reason it is out.`,
@@ -281,7 +281,7 @@ export const FIG_3_7: FigureSpec = {
 
 export const FIG_3_8: FigureSpec = {
   id: "fig-3-8-ceiling",
-  section: "3.8",
+  section: "2.9.3",
   title: `Digital reaches at most ${fmt("reach.smartphone")} voters, ${fmt("reach.smartphone.short")} short of the benchmark before a single one is persuaded`,
   question: "What can digital physically reach?",
   takeaway: `${fmt("reach.offline")} registered voters are not reachable online: SMS, USSD, radio and the ground carry the rest.`,
@@ -327,7 +327,7 @@ const AUDIT_FIGURES = [
 
 export const FIG_3_9: FigureSpec = {
   id: "fig-3-9-audit",
-  section: "3.9",
+  section: "2.10.3",
   title: "His profile carries six errors a researcher would find in an afternoon, and the Week 1 audit reads the rest",
   question: "What does his current presence actually show?",
   takeaway: "The six fixes are Section 4.7; the four audit figures are drawn from the Week 1 export, never from an estimate.",
@@ -352,7 +352,7 @@ const DATA_GAPS = (openItems as { kind: string; gap: string; closes: string; hol
 
 export const FIG_3_10: FigureSpec = {
   id: "fig-3-10-gaps",
-  section: "3.10",
+  section: "2.11",
   title: `${DATA_GAPS.length} things no published source can tell the analysis, and none is estimated`,
   question: "What can't the data tell us yet, and what closes each gap?",
   takeaway: "The analysis works from where he has held office and from certified totals, not from ward-level preference or ward returns no one has published.",
@@ -370,7 +370,7 @@ export const FIG_3_10: FigureSpec = {
 
 export const FIG_3_11: FigureSpec = {
   id: "fig-3-11-evidence",
-  section: "3.11",
+  section: "2.12",
   title: "The diagnosis is a recognition gap outside Kitui Central, and one rival's result is the strongest evidence against it",
   question: "How strong is the diagnosis, and what would overturn it?",
   takeaway: "Week 1 tests it against his own channel data before anything is committed: if his reach already lands in Mwingi, the problem is message, not reach.",

@@ -161,7 +161,7 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
   // The same figure for Brief mode, so the hero can offer the reader a real choice between two
   // measured reading times rather than one number and a promise.
   const briefWordCounts = Object.fromEntries(
-    SECTIONS.map((s) => [s.id, briefWords(documents[s.id], s.id === "nextsteps")])
+    SECTIONS.map((s) => [s.id, briefWords(documents[s.id], s.id === "decision")])
   ) as Record<TabId, number>;
 
   /**

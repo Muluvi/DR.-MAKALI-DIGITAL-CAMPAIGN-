@@ -27,4 +27,3 @@ To prevent decision bottlenecks and operational confusion during high-pressure f
 ```figure
 id: escalation-ladder
 ```
-

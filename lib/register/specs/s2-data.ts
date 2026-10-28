@@ -90,7 +90,7 @@ export const FIG_2_2: FigureSpec = {
 
 export const FIG_2_3: FigureSpec = {
   id: "fig-2-3-nomination",
-  section: "2.3",
+  section: "2.5",
   title: "The nomination method is reported, not confirmed, and two documents would settle it",
   question: "What is the nomination method, and how confident are we?",
   takeaway: "Until the party's resolution or its 2027 nomination rules are in hand, every phase that leans on the reported selection method is a plan against a Tier 3 report.",
@@ -139,7 +139,7 @@ const LIVESTOCK = byValue([bar("livestock.poultry", "Poultry"), bar("livestock.g
 
 export const FIG_2_4: FigureSpec = {
   id: "fig-2-4-people",
-  section: "2.4",
+  section: "2.8.1",
   title: `Kitui is ${fmt("census.rural.share")}% rural, and more than half its residents are poor`,
   question: "Who lives in Kitui?",
   takeaway: `A county of ${fmt("census.population")} people across ${fmt("census.area")} km², with livestock at the centre of its economy, and at Alert Phase in the NDMA's January 2026 drought bulletin.`,
@@ -195,7 +195,7 @@ const BUDGET = [
 
 export const FIG_2_5: FigureSpec = {
   id: "fig-2-5-budget",
-  section: "2.5",
+  section: "2.8.2",
   title: `The next governor runs a ${bn("budget.total")} envelope, and ${fmt("budget.equitable.share")}% of it arrives from the national government`,
   question: "What does the next governor actually control?",
   takeaway: `Own-source revenue is the one part the county raises itself: ${bn("budget.osr")} in the Fiscal Strategy Paper, ${bn("budget.osr.revised")} after the Assembly's revision, until the final approved budget settles it.`,
@@ -223,7 +223,7 @@ export const FIG_2_5: FigureSpec = {
 
 export const FIG_2_6: FigureSpec = {
   id: "fig-2-6-connectivity",
-  section: "2.6",
+  section: "2.9.1",
   title: "Internet use nearly doubled since 2019, while phone ownership barely moved",
   question: "How do people get online, and has that changed?",
   takeaway: `Even after the rise, ${fmt("ict.offline")}% of Kitui is offline, and fewer than half of residents own a phone.`,
@@ -261,7 +261,7 @@ const OWNERS = [...new Map(STATIONS.map((s) => [OWNER_OF(s.alignment).id, OWNER_
 
 export const FIG_2_7: FigureSpec = {
   id: "fig-2-7-media",
-  section: "2.7",
+  section: "2.9.2",
   title: "Three of the Kikamba stations are tied to political figures, so placement goes to the independents",
   question: "Who owns the airwaves, and where do we place vs monitor?",
   takeaway: "Musyi, County FM and Wikwatyo carry the campaign's placements; the Ngilu-linked stations and the party leader's station are watched, not relied on.",
@@ -302,7 +302,7 @@ export const FIG_2_7: FigureSpec = {
 
 export const FIG_2_8: FigureSpec = {
   id: "fig-2-8-record",
-  section: "2.8",
+  section: "2.10.1",
   title: `Thirteen years as MP have left a checkable record: ${fmt("record.bursary.recipients")} bursaries and the best-evaluated constituency in the Eastern region`,
   question: "What has he actually done?",
   takeaway: "His distinguishing proof is delivery on the record, and most of it is already published on the constituency's own NG-CDF site.",
@@ -355,7 +355,7 @@ export const FIG_2_8: FigureSpec = {
 
 export const FIG_2_9: FigureSpec = {
   id: "fig-2-9-channels",
-  section: "2.9",
+  section: "2.10.2",
   title: "His presence is one Facebook page, a quiet X account and a constituency site that already holds his record",
   question: "What does his presence look like against the field?",
   takeaway: "The NG-CDF site is the most under-used asset here; the comparison with the field is drawn in the Week 1 audit.",

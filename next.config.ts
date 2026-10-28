@@ -42,11 +42,28 @@ const nextConfig: NextConfig = {
       '7-team': '4e-team',
       '8-measure': '5-delivery',
     };
-    return Object.entries(moved).map(([from, to]) => ({
-      source: `/content/${from}.md`,
-      destination: `/content/${to}.md`,
-      permanent: true,
-    }));
+    // The October 2026 restructure retired five routes. Their pages and markdown redirect to the
+    // route that now holds most of their text; a fragment on the old URL survives the redirect
+    // (browsers carry it over), and ClientPage sends it on to whichever section now holds it.
+    // Temporary (307), so a rollback of the restructure is not fought by cached redirects.
+    const retired: Record<string, string> = {
+      objectives: 'decision',
+      data: 'evidence',
+      analysis: 'evidence',
+      implementation: 'decision',
+      nextsteps: 'decision',
+    };
+    return [
+      ...Object.entries(moved).map(([from, to]) => ({
+        source: `/content/${from}.md`,
+        destination: `/content/${to}.md`,
+        permanent: true,
+      })),
+      ...Object.entries(retired).flatMap(([from, to]) => [
+        { source: `/${from}`, destination: `/${to}`, permanent: false },
+        { source: `/content/${from}.md`, destination: `/content/${to}.md`, permanent: false },
+      ]),
+    ];
   },
   webpack: (config, {dev}) => {
     // HMR is disabled in AI Studio via DISABLE_HMR env var.

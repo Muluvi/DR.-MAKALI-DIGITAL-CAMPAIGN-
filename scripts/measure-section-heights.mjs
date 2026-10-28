@@ -65,30 +65,39 @@ const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
 await page.goto(`${BASE}/full`, { waitUntil: "load", timeout: 180000 });
 await page.waitForTimeout(4000);
 
-// `content-visibility: auto` sections report their placeholder height until they have been laid
-// out once, and laying one out lengthens the page, which reveals the next. Walk until none is
-// still reporting a placeholder.
+// `content-visibility: auto` sections report their reserved height until they have been laid out
+// once, and the reservation is each section's own previous measurement, so a section the walk
+// never reached reports last time's number as if it were new. Content visibility is therefore
+// switched off for the measurement, and the walk (which still wakes lazily mounted figures)
+// repeats until two passes measure the same heights.
+const measure = () =>
+  page.evaluate(() => {
+    const out = {};
+    document.querySelectorAll('[id^="section-"]').forEach((el) => {
+      out[el.id.replace("section-", "")] = Math.round(el.getBoundingClientRect().height);
+    });
+    return out;
+  });
+// Measure layout, not the reservation: lay every section out for real while measuring.
+await page.addStyleTag({ content: '[id^="section-"]{content-visibility:visible!important;contain-intrinsic-size:none!important}' });
+await page.waitForTimeout(1500);
+let heights = await measure();
 for (let pass = 0; pass < 14; pass++) {
   await page.evaluate(async () => {
-    for (let y = 0; y < document.documentElement.scrollHeight; y += 800) {
-      window.scrollTo(0, y);
-      await new Promise((r) => setTimeout(r, 8));
+    for (const el of document.querySelectorAll('[id^="section-"]')) {
+      const top = el.getBoundingClientRect().top + window.scrollY;
+      for (let y = top; y < top + el.getBoundingClientRect().height; y += 800) {
+        window.scrollTo(0, y);
+        await new Promise((r) => setTimeout(r, 8));
+      }
     }
   });
   await page.waitForTimeout(1200);
-  const pending = await page.evaluate(() =>
-    [...document.querySelectorAll('[id^="section-"]')].filter((e) => Math.round(e.getBoundingClientRect().height) === 1400).length
-  );
-  if (pending === 0) break;
+  const next = await measure();
+  const stable = Object.keys(next).every((k) => next[k] === heights[k]);
+  heights = next;
+  if (stable) break;
 }
-
-const heights = await page.evaluate(() => {
-  const out = {};
-  document.querySelectorAll('[id^="section-"]').forEach((el) => {
-    out[el.id.replace("section-", "")] = Math.round(el.getBoundingClientRect().height);
-  });
-  return out;
-});
 await browser.close();
 
 const sorted = Object.fromEntries(Object.entries(heights).sort(([a], [b]) => a.localeCompare(b)));

@@ -9,23 +9,24 @@ import type { TabId } from "./heading-slug";
  */
 export const CONTENT_FILES: Record<TabId, string> = {
   cover: "cover.md",
-  objectives: "objectives.md",
-  data: "data.md",
-  analysis: "analysis.md",
+  decision: "decision.md",
+  evidence: "evidence.md",
   strategy: "strategy.md",
-  implementation: "implementation.md",
+  delivery: "delivery.md",
   "workstreams-platforms": "workstreams-platforms.md",
   "workstreams-media": "workstreams-media.md",
   "workstreams-ground": "workstreams-ground.md",
   "workstreams-data": "workstreams-data.md",
-  delivery: "delivery.md",
-  nextsteps: "nextsteps.md",
+  staffing: "staffing.md",
+  measurement: "measurement.md",
+  risks: "risks.md",
   "annex-evidence": "annex-evidence.md",
   "annex-county": "annex-county.md",
   "annex-messages": "annex-messages.md",
   "annex-cadence": "annex-cadence.md",
   "annex-runbooks": "annex-runbooks.md",
   "annex-terms": "annex-terms.md",
+  "annex-spec": "annex-spec.md",
 };
 
 export const contentUrl = (tabId: TabId) => `/content/${CONTENT_FILES[tabId]}`;

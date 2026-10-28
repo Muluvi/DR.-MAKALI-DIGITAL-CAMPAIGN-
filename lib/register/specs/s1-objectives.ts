@@ -12,7 +12,7 @@ export const NOMINATION = { date: "2026-10-20", end: "2026-11-30", whenText: "La
 
 export const FIG_1_1: FigureSpec = {
   id: "fig-1-1-timeline",
-  section: "1.1–1.2",
+  section: "1.2",
   title: "There are about eleven months to the election, and the nomination window comes first, within weeks",
   question: "How long is there?",
   takeaway: "The Wiper ticket is settled in a window reported for late October to November 2026; everything the engagement does before then is aimed at it.",
@@ -47,27 +47,27 @@ const OBJECTIVES = [
   {
     n: "1", title: "Be known where he isn't yet",
     target: `At least ${fmt("pool.share")}% of his reach landing in the ${fmt("pool")}-voter pool`,
-    finding: "3.4", measure: "5.6.1", measureLabel: "NW-01, R-02", serves: "4.2",
+    finding: "2.7", measure: "5.1.1", measureLabel: "NW-01, R-02", serves: "3.3.1",
   },
   {
     n: "2", title: "Turn his record into visible proof",
     target: "Ward-specific achievement briefs for every ward, distributed where he is least known",
-    finding: "3.5", measure: "5.6.4", measureLabel: "R-03", serves: "4.1",
+    finding: "2.6", measure: "5.1.2", measureLabel: "R-03", serves: "3.1",
   },
   {
     n: "3", title: "A direct line to the voters the internet doesn't reach",
     target: `${fmt("target.sms")} consented SMS/USSD subscribers by 30 June 2027`,
-    finding: "3.8", measure: "5.6.1", measureLabel: "NW-03, R-04", serves: "4.6",
+    finding: "2.9.3", measure: "5.1.1", measureLabel: "NW-03, R-04", serves: "3.3.2",
   },
   {
     n: "4", title: "Give every post a voter, a ward and a reason",
     target: "Every briefed post coded with segment, ward and pillar",
-    finding: "3.2", measure: "5.6.4", measureLabel: "R-05", serves: "4.5",
+    finding: "2.3", measure: "5.1.2", measureLabel: "R-05", serves: "3.7",
   },
   {
     n: "5", title: "Hold the home base while Kitui Central runs its own race",
     target: "Reach and engagement in Kitui Central at or above the Week 1 baseline",
-    finding: "3.6", measure: "5.5.3", measureLabel: "Monthly report", serves: "4.2",
+    finding: "2.7.2", measure: "1.5.3", measureLabel: "Monthly report", serves: "3.3.1",
   },
 ];
 
@@ -107,7 +107,7 @@ export const FIG_1_3: FigureSpec = {
 
 export const FIG_1_4: FigureSpec = {
   id: "fig-1-4-flow",
-  section: "1.4",
+  section: "1.4.1",
   title: "Firefly analyses, sets the strategy and directs; his team keeps publishing throughout",
   question: "How does the engagement run?",
   takeaway: "Firefly publishes nothing on his accounts: the only channel it operates directly is the WhatsApp and USSD line it already holds.",
@@ -141,7 +141,7 @@ export const FIG_1_4: FigureSpec = {
 
 export const FIG_1_5: FigureSpec = {
   id: "fig-1-5-scorecard",
-  section: "1.5",
+  section: "1.9",
   title: "Every measure of success is observable on his channels or the SMS list, and each baseline is set in Week 1",
   question: "How will success be judged?",
   takeaway: "The scorecard starts empty by design: the Week 1 export sets each baseline from his own channels and the SMS list.",

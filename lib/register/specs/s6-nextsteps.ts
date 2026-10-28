@@ -18,7 +18,7 @@ const DEPS: { item: string; gating: boolean; why: string }[] = [
 
 export const FIG_6_1: FigureSpec = {
   id: "fig-6-1-dependencies",
-  section: "6.1",
+  section: "1.7",
   title: `The campaign provides ${DEPS.length} things, and three of them gate everything else`,
   question: "What does the campaign provide?",
   takeaway: "A counterpart, read-only access and the data-protection reviewer come first; the rest follow once the engagement is running.",
@@ -30,7 +30,7 @@ export const FIG_6_1: FigureSpec = {
 
 export const FIG_6_3: FigureSpec = {
   id: "fig-6-3-decision",
-  section: "6.3",
+  section: "1.1",
   title: "The ask is one week and one export, because the nomination window sets the clock",
   question: "What is being asked?",
   takeaway: `Each week of delay is a week less of directed output before a window reported for late October; the ${fmt("pool")}-voter pool is where that output goes.`,

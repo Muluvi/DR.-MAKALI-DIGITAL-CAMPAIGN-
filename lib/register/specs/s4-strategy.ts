@@ -12,7 +12,7 @@ const T_FIREFLY = { name: "Firefly's weighting, this proposal", tier: null, stat
 
 export const FIG_4_1: FigureSpec = {
   id: "fig-4-1-message-house",
-  section: "4.1",
+  section: "3.2.1",
   title: "One position, four pillars that argue it, and a record that holds it up",
   question: "What is the position, and what holds it up?",
   takeaway: "Every message rests on something already on the public record; none rests on a promise alone.",
@@ -57,7 +57,7 @@ const PHASES = [["p-1", "Phase −1 (nomination)"], ["p12", "Phases 1–2"], ["p
 
 export const FIG_4_2: FigureSpec = {
   id: "fig-4-2-effort",
-  section: "4.2",
+  section: "3.3.1",
   title: `In Phase −1, ${num("effort.p-1.mwingi") + num("effort.p-1.arid")}% of the effort goes to Mwingi and the arid belt, well above their share of residents`,
   question: "Where does the effort go in Phase −1?",
   takeaway: `The weighting over-indexes on the pool on the working hypothesis that his gap there is one of recognition; ${fmt("effort.digital.pool")}% of digital reach effort is geofenced to it.`,
@@ -97,7 +97,7 @@ const SEGMENTS = [
 
 export const FIG_4_3: FigureSpec = {
   id: "fig-4-3-segments",
-  section: "4.3",
+  section: "3.4.3",
   title: "Six segments, three sized in voters from the census and three with context but no published voter count",
   question: "Who are we trying to move, and how much do they matter?",
   takeaway: "Sizes overlap and are not additive; where no source publishes a voter count, none is given.",
@@ -116,7 +116,7 @@ export const FIG_4_3: FigureSpec = {
 
 export const FIG_4_4: FigureSpec = {
   id: "fig-4-4-message-region",
-  section: "4.4",
+  section: "3.5",
   title: "Each region hears a different case for the same candidate, and Kikamba travels by voice, never by bulk SMS",
   question: "What do we say where, and in which language?",
   takeaway: "The anchor hears his record, Mwingi hears a published allocation method, the arid belt hears infrastructure; the language follows the channel.",
@@ -175,7 +175,7 @@ const WEEK: { day: string; pillar: 1 | 2 | 3 | 4 | null; after: string; now: str
 
 export const FIG_4_5: FigureSpec = {
   id: "fig-4-5-calendar",
-  section: "4.5",
+  section: "3.7",
   title: "The same seven days become six briefed posts across four pillars, and Thursday's commitment returns as a Sunday check",
   question: "What gets published, and when?",
   takeaway: "Two fields on a Thursday post and a language rule change the week; who takes the photograph and who presses publish do not.",
@@ -193,7 +193,7 @@ const POSTURE = RADIO_STATIONS.map((s) => ({ name: s.name, posture: /^Priority/.
 
 export const FIG_4_6: FigureSpec = {
   id: "fig-4-6-channel-shift",
-  section: "4.6",
+  section: "3.3.2",
   title: `Radio's share of effort nearly doubles and digital's falls to ${fmt("channel.digital.rebalanced")}%, because digital cannot reach the number`,
   question: "How does effort move between channels?",
   takeaway: `${fmt("channel.offline.rebalanced")}% of effort goes offline; radio placement goes only to the stations Section 2.7 marks for placement.`,
@@ -235,7 +235,7 @@ const FIXES = [
 
 export const FIG_4_7: FigureSpec = {
   id: "fig-4-7-profile-fixes",
-  section: "4.7",
+  section: "4.2.3",
   title: "Six profile corrections, each minutes of work, and the missing PhD comes first",
   question: "What gets fixed first?",
   takeaway: "The doctorate is the differentiator no rival holds, and it is absent from the one field a voter checks.",
@@ -263,7 +263,7 @@ const RULES = [
 
 export const FIG_4_8: FigureSpec = {
   id: "fig-4-8-decision-rules",
-  section: "4.8",
+  section: "3.8",
   title: "Seven findings the Week 1 audit could return, each with the change it triggers, fixed in advance",
   question: "When does the plan change?",
   takeaway: "Stating the rules before the audit means the data cannot be read backwards into whatever was already planned.",
