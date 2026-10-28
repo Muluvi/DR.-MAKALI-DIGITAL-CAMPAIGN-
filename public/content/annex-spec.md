@@ -57,7 +57,7 @@ uchumi aeleze."*
 * Search-optimised videos answering "What does the Kitui Governor do?" and
 "Kitui development 2027"
 * **Monthly "Kitui Economic Brief"** reviewing county budget execution
-* **Home for full sign-language-interpreted versions** (Section 5.2.1.4)
+* **Home for full sign-language-interpreted versions** (Section 4.5.4)
 
 #### Google Ads
 
@@ -89,7 +89,7 @@ id: format-specs
 
 ##### C. USSD Interactive Menu Tree Structure
 
-The menu is set out once, in Section 5.2.3.3, which governs the offline layer. The shortcode and
+The menu is set out once, in Section 4.5.9, which governs the offline layer. The shortcode and
 sender ID are those the aggregator provisions at contracting. Nothing here should be printed, dialled or published as a working number.
 
 ## G.3 Volunteer programme reference
@@ -105,11 +105,11 @@ offline organisers, with gamification driving sustained engagement.
 |---|---|---|---|
 | **1** | Digital Advocate | Follow on 2+ platforms | Share, comment, amplify |
 | **2** | Ward Champion | Join ward WhatsApp group + data-handling briefing | Distribute content, report ground sentiment, recruit 5 advocates |
-| **3** | Community Organiser | Complete online training module | Host groups, coordinate local events, **log canvass outcomes (Section 5.2.3.2)** |
+| **3** | Community Organiser | Complete online training module | Host groups, coordinate local events, **log canvass outcomes (Section 4.5.8)** |
 | **4** | County Coordinator | Manage 3+ organisers | Oversee regional operations, attend weekly syncs |
 
 **Data-handling training is a gate, not an option.** No volunteer collects
-personal data before completing it (Section 5.7.8).
+personal data before completing it (Section 5.3.3).
 
 #### Gamification mechanics
 
@@ -124,14 +124,14 @@ personal data before completing it (Section 5.7.8).
 voter, a canvassed household, a completed training — not raw posting volume.
 Reward systems that pay for volume produce spam and, at scale, look
 indistinguishable from inauthentic activity. That would breach both platform
-policy and the Section 5.7.8 charter, and it is designed out from the start.
+policy and the Section 5.3.3 charter, and it is designed out from the start.
 
 #### Management tooling
 
 * **Custom WhatsApp bot** for lightweight volunteer management: registration,
 point tracking, content distribution, leaderboards
 * **USSD registration path** so volunteers without smartphones can join
-(Section 5.2.3.3) — a genuine differentiator in the arid belt
+(Section 4.5.9) — a genuine differentiator in the arid belt
 * Forms and spreadsheets for baseline collection
 * Task management via a shared board
 * Purpose-built volunteer platforms only at the premium level
@@ -152,7 +152,7 @@ point tracking, content distribution, leaderboards
 
 A data-driven political campaign requires robust, reliable, and compliant technical infrastructure. The technology stack must bridge the gap between digital command centers and offline rural wards, while adhering strictly to Kenya's **Data Protection Act (DPA) 2019** and cybersecurity best practices.
 
-This section specifies the six core software components of the campaign: the **SMS/USSD Telecommunications Gateway**, the **Supporter CRM & Voter Database**, **Social Media Publishing & Social Listening Systems**, **Analytics & Business Intelligence Dashboard**, and the **Section 5.2.1.1 Service-Delivery Tracker**.
+This section specifies the six core software components of the campaign: the **SMS/USSD Telecommunications Gateway**, the **Supporter CRM & Voter Database**, **Social Media Publishing & Social Listening Systems**, **Analytics & Business Intelligence Dashboard**, and the **Section 4.5.1 Service-Delivery Tracker**.
 
 ```figure
 id: tech-stack
@@ -167,16 +167,16 @@ id: fig-5-2-4-stack
 ```textversion
 ##### 1. SMS / USSD Telecommunications Gateway
 *   **Tooling Recommendation:** **Africa's Talking API Suite** (or Safaricom Direct Enterprise SDP Gateway).
-*   **Function & Purpose:** Powers the offline communications engine (Section 5.2.3.3). Dispatches targeted, opt-in bulk 2G SMS to registered voters across 40 wards, manages the zero-rated interactive USSD menu (`*[shortcode]#`), and handles inbound field report ingestion from the campaign's ward network (campaign-owned, Section 5.1.3).
+*   **Function & Purpose:** Powers the offline communications engine (Section 4.5.9). Dispatches targeted, opt-in bulk 2G SMS to registered voters across 40 wards, manages the zero-rated interactive USSD menu (`*[shortcode]#`), and handles inbound field report ingestion from the campaign's ward network (campaign-owned, Section 1.4.3).
 *   **Data Held & Processed:** Voter mobile phone numbers (MSISDN), geolocation ward tags, inbound USSD menu responses, delivery receipt timestamps, and opt-out trigger logs.
-*   **DPA 2019 Exposure & Compliance:** **HIGH RISK.** Telecommunications data constitutes direct personal data (Section 5.2.3.4). Requires explicit opt-in confirmation logs, automated STOP opt-out processing within 15 seconds, and signed Data Processing Agreements (DPA) with the gateway aggregator.
+*   **DPA 2019 Exposure & Compliance:** **HIGH RISK.** Telecommunications data constitutes direct personal data (Section 5.2.3.4 [CHECK REF]). Requires explicit opt-in confirmation logs, automated STOP opt-out processing within 15 seconds, and signed Data Processing Agreements (DPA) with the gateway aggregator.
 *   **Procurement Status:** **Awaiting campaign decision** *(Vendor selection between Africa's Talking vs. Safaricom SDP Enterprise)*.
 
 ---
 
 ##### 2. Supporter Relationship Management (CRM) & Voter Database
 *   **Tooling Recommendation:** **Custom PostgreSQL Database with Hasura / Directus Headless Admin UI** (or CiviCRM instance).
-*   **Function & Purpose:** The centralized single-source-of-truth supporter data warehouse (Section 5.2.4.1). Stores supporter profiles, 40-ward geographic linkages, demographic classifications, volunteer skills, delegate tracking status, and contact history.
+*   **Function & Purpose:** The centralized single-source-of-truth supporter data warehouse (Section 4.5.11). Stores supporter profiles, 40-ward geographic linkages, demographic classifications, volunteer skills, delegate tracking status, and contact history.
 *   **Data Held & Processed:** Encrypted voter names, phone numbers (AES-256), constituency/ward/polling station IDs, gender, age cohort, livelihood classification, consent timestamps, and interaction logs.
 *   **DPA 2019 Exposure & Compliance:** **CRITICAL RISK.** Core repository of sensitive and personal supporter data. Requires strict Row-Level Security (RLS), multi-factor authentication (MFA) for all campaign operators, role-based access control (RBAC), daily encrypted off-site backups, and full audit logging of every query.
 *   **Procurement Status:** **Awaiting campaign decision** *(Architecture approval for custom PostgreSQL instance vs. open-source CiviCRM)*.
@@ -189,7 +189,7 @@ id: fig-5-2-4-stack
     *   *Publishing:* Multi-account scheduling across Facebook, X (Twitter), Instagram, TikTok, and YouTube.
     *   *Listening:* 24/7 automated monitoring of Kamba and national political keywords (e.g., "Dr. Makali Mulu", "Kitui Governor 2027", "Kitui Central CDF", "Wiper Primaries", "Kalonzo Musyoka"). Flags emerging viral rumors, competitor attacks, and trending local issues in real time.
 *   **Data Held & Processed:** Public social media posts, comments, engagement metrics, sentiment scores, influencer handles, and public reach metrics.
-*   **DPA 2019 Exposure & Compliance:** **LOW TO MODERATE RISK.** Processes only publicly accessible posts and aggregated sentiment metadata. Compliant with Section 5.2.3.4 provided individual user profiles are not scraped or merged into private voter records without consent.
+*   **DPA 2019 Exposure & Compliance:** **LOW TO MODERATE RISK.** Processes only publicly accessible posts and aggregated sentiment metadata. Compliant with Section 5.2.3.4 [CHECK REF] provided individual user profiles are not scraped or merged into private voter records without consent.
 *   **Procurement Status:** **Awaiting campaign decision** *(Approval of the software subscription)*.
 
 ---
@@ -203,7 +203,7 @@ id: fig-5-2-4-stack
 
 ---
 
-##### 5. Public Service-Delivery Tracker (Section 5.2.4 Digital Charter Platform)
+##### 5. Public Service-Delivery Tracker (Section 5.2.4 [CHECK REF] Digital Charter Platform)
 *   **Tooling Recommendation:** **Next.js App Router Web Platform with Interactive GIS Ward Map (Vercel / Cloudflare Edge Hosting)**.
 *   **Function & Purpose:** The public-facing evidence engine supporting Dr. Mulu's good-governance brand. Displays verifiable records of 13 years of Kitui Central NG-CDF projects (schools, boreholes, dispensaries, bursary audits) and provides an interactive "Kitui Economic Blueprint" where citizens can track proposed ward-level investments for the 2027–2032 gubernatorial term.
 *   **Data Held & Processed:** Public infrastructure records, project GPS coordinates, photo/video documentation, project completion certificates, and public comment/feedback forms.
@@ -235,7 +235,7 @@ To ensure 100% operational uptime and protect campaign systems from infiltration
 #### Data sources
 
 * **IEBC Voter Register:** name, gender, age bracket, polling station, ward,
-constituency — **subject to lawful access and the Section 5.7.9 gate**. The IEBC
+constituency — **subject to lawful access and the Section 5.3.4 gate**. The IEBC
 does not publish individual turnout history, and none is assumed.
 * **KNBS Census and county statistics:** demographics, education, household
 characteristics and economic activity, at the finest unit KNBS publishes (which for
@@ -245,13 +245,13 @@ several measures is the sub-county, not the ward)
 * **Campaign first-party data:** interactions with campaign content, WhatsApp
 membership, **SMS/USSD opt-ins**, volunteer sign-ups — all
 consent-based
-* **Field contact log** (Section 5.2.3.2): whether a household was reached, opted in,
+* **Field contact log** (Section 4.5.8): whether a household was reached, opted in,
 or asked not to be contacted — contactability, never voting intention
 
 **Explicitly excluded:** purchased third-party contact lists, scraped number
 databases, and any inferred psychographic or personality attributes. Vendors
 openly market bulk Kenyan mobile-number databases; the campaign will not buy
-them. See Section 5.7.8.
+them. See Section 5.3.3.
 
 #### Model variables
 
@@ -278,7 +278,7 @@ them. See Section 5.7.8.
 | `sms_optin_status` | **Consented to SMS contact** | Campaign | Binary | 0/1 |
 | `whatsapp_group_member` | Campaign group member | Campaign | Binary | 0/1 |
 | `volunteer_status` | Sign-up status | Campaign | Categorical | None/Inactive/Active |
-| `field_contact_outcome` | **Doorstep contact result (Section 5.2.3.2)** | Field team | Categorical | Opted in/Reached, no opt-in/Do not contact/No one home |
+| `field_contact_outcome` | **Doorstep contact result (Section 4.5.8)** | Field team | Categorical | Opted in/Reached, no opt-in/Do not contact/No one home |
 | `support_score` | Predicted Wiper support at the station (output) | Model | Continuous | 0–1 |
 | `turnout_score` | Predicted turnout (output) | Model | Continuous | 0–1 |
 

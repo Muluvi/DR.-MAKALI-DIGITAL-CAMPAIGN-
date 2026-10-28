@@ -38,7 +38,7 @@ id: conflict-protocol
 
 ### A.1.4 The standard applied to our own measurement
 
-The presence audit in Section 5.3 is held to the same rules as every figure in this document.
+The presence audit in Section 4.2.1 is held to the same rules as every figure in this document.
 
 *   **Provenance.** Every number carries its export date, its source system, and whether it came
     from a Page Insights export or a manual public tally. The two are not interchangeable and are

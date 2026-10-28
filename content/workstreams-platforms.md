@@ -4,21 +4,21 @@
 id: fig-5-2-workstream-panels
 ```
 
-The fourteen workstreams, in four groups: 5.2.1 Platforms and content (workstreams 1 to 4), 5.2.2 Publishing and earned media (5 and 6), 5.2.3 Ground and offline reach (7 to 10) and 5.2.4 Data and technology (11 to 14). Each sets out what it produces, who owns it and how often it reports.
+The fourteen workstreams, in four groups: 4.5 Platforms and content (workstreams 1 to 4), 4.5 Publishing and earned media (5 and 6), 4.5 Ground and offline reach (7 to 10) and 4.5 Data and technology (11 to 14). Each sets out what it produces, who owns it and how often it reports.
 
 *The two scope lists below stay together, rather than being split across the workstreams that deliver them, until conflict C4 is settled.*
 
 #### Digital infrastructure, brand and civic content
 
-* **Web management and digital architecture:** Development and deployment of a high-performance campaign web portal hosting the manifesto, tracking media appearances, and capturing volunteer data. Lightweight, rapid-loading frameworks so the site is usable on 3G and on feature-phone browsers — non-negotiable in a county at {{ict.internet}}% internet use (CA/KNBS 2023/24). **WCAG 2.1 AA compliance from build, not retrofitted** (Section 5.2.1.4). Search engine optimisation for "Kitui Governor 2027", "Kitui development" and related terms. A "Meet Dr. Mulu" page with biography, parliamentary record, M&E credentials and vision for Kitui. **Audit before build:** an existing Kitui Central NG-CDF web presence is already live. Phase 0 audits and integrates it rather than duplicating it.
-* **Brand management:** Core messaging matrix ensuring consistency across broadcast, print and digital. Dynamic digital press kits for media houses and influencers — approved biographies, high-resolution assets, policy briefs (Section 5.2.2.2). Daily management of Facebook, X, Instagram, TikTok, YouTube and WhatsApp. Community management: responses to comments, DMs and mentions within **2 hours** during peak periods. [CONFLICT C4: see open items]
+* **Web management and digital architecture:** Development and deployment of a high-performance campaign web portal hosting the manifesto, tracking media appearances, and capturing volunteer data. Lightweight, rapid-loading frameworks so the site is usable on 3G and on feature-phone browsers — non-negotiable in a county at {{ict.internet}}% internet use (CA/KNBS 2023/24). **WCAG 2.1 AA compliance from build, not retrofitted** (Section 4.5.4). Search engine optimisation for "Kitui Governor 2027", "Kitui development" and related terms. A "Meet Dr. Mulu" page with biography, parliamentary record, M&E credentials and vision for Kitui. **Audit before build:** an existing Kitui Central NG-CDF web presence is already live. Phase 0 audits and integrates it rather than duplicating it.
+* **Brand management:** Core messaging matrix ensuring consistency across broadcast, print and digital. Dynamic digital press kits for media houses and influencers — approved biographies, high-resolution assets, policy briefs (Section 4.5.6). Daily management of Facebook, X, Instagram, TikTok, YouTube and WhatsApp. Community management: responses to comments, DMs and mentions within **2 hours** during peak periods. [CONFLICT C4: see open items]
 * **Civic content and visual data:** Infographic analyses highlighting Kitui's economic challenges and Dr. Mulu's proposed solutions, anchored to the KSh13.79bn county envelope. Content calendars tailored to each segment in Section C.1. Graphics, short video, motion graphics and policy explainers in English, Kiswahili and Kikamba. Human-interest storytelling: constituent testimonials, verified project outcomes, vision-driven narratives. A weekly **"Dr. Mulu Explains"** series breaking down county budgets, revenue sources and development economics in plain language.
 
 #### Growth, field advertising and reputation operations
 
 * **Data analytics:** Real-time dashboards tracking reach, engagement, sentiment and conversion. Ward-level analytics identifying priority areas. Weekly A/B testing of messages, visuals and ad formats. Monthly voter sentiment reports to campaign leadership.
 * **Digital advertising:** Targeted Meta ads by ward, age, gender and interest. Google Search and Display to capture high-intent voters. YouTube pre-roll before local and national content. TikTok ads reaching first-time and younger voters. Retargeting to convert engaged users into volunteers. Monthly allocation matrix based on ward-level registration and engagement data.
-* **Crisis and reputation management:** Continuous sentiment monitoring across platforms. Rapid-response statements managing emerging narratives or opponent claims. Real-time monitoring and countering of misinformation and manipulated media (Sections 4.4 and 5.8.6).
+* **Crisis and reputation management:** Continuous sentiment monitoring across platforms. Rapid-response statements managing emerging narratives or opponent claims. Real-time monitoring and countering of misinformation and manipulated media (Sections 3.5 and 6.3).
 
 ---
 
@@ -75,7 +75,7 @@ id: fig-5-2-1-report-flow
 with counts by category. Transparency is the point.
 2. **No personal data published.** Reports appear with ward, category and
 status only. Contact details are used to update the reporter and nothing
-else, under the Section 5.7.8 charter.
+else, under the Section 5.3.3 charter.
 3. **Outcomes published honestly — including failures.** Where an issue is not
 resolved, the register says so. A tracker that only shows successes is
 marketing, and voters recognise it instantly. Publishing unresolved items is
@@ -91,20 +91,20 @@ commitment — and the commitment is the persuasive element.
 #### What it is worth to the campaign
 
 * **Narrative:** the strongest possible proof of the Verification pillar
-(Section 4.1.5) — evidence rather than assertion
+(Section 3.2.1) — evidence rather than assertion
 * **Data:** the issues citizens report, ward by ward, counted from what arrives
 rather than assumed, feeding directly into the weekly brief
 * **Organising:** every report is a consented contact and a warm lead for ward
 champions
 * **Earned media:** a public register of county service-delivery failures is a
-standing story for county correspondents (Section 5.2.2.2)
+standing story for county correspondents (Section 4.5.6)
 * **Defensive:** it makes "he is not close to ordinary people" a difficult
 attack to sustain against a candidate publishing their reported problems
 
 #### Build
 
 Built on the USSD/SMS infrastructure the campaign is already deploying (Section
-4.3), plus a lightweight public register on the campaign site. **It reuses a
+4.3 [CHECK REF]), plus a lightweight public register on the campaign site. **It reuses a
 layer the campaign is building anyway; nothing comparable exists in this race.**
 
 #### Tracker KPIs
@@ -147,7 +147,7 @@ id: delivery-tracker
 > **Group: Platforms and content** (workstreams 1 to 4).
 
 
-Campaign communications succeed when production is treated as a rigorous, industrial pipeline rather than ad-hoc creative posting. In a county where only {{ict.internet}}% of residents use the internet (CA/KNBS 2023/24, Section 2.6), the content production engine must be **predominantly focused on offline and broadcast formats**—vernacular radio scripts, 2G bulk SMS, USSD menu trees, printed baraza photobooks, and market PA audio jingles—while maintaining a high-fidelity digital and video pipeline for youth and the diaspora.
+Campaign communications succeed when production is treated as a rigorous, industrial pipeline rather than ad-hoc creative posting. In a county where only {{ict.internet}}% of residents use the internet (CA/KNBS 2023/24, Section 2.9.1), the content production engine must be **predominantly focused on offline and broadcast formats**—vernacular radio scripts, 2G bulk SMS, USSD menu trees, printed baraza photobooks, and market PA audio jingles—while maintaining a high-fidelity digital and video pipeline for youth and the diaspora.
 
 ```figure
 id: production-pipeline
@@ -199,8 +199,8 @@ delivers maximum persuasive impact.
 used to fabricate imagery of real people, simulate events that did not occur,
 or generate synthetic voices of the candidate or any other person. Where
 AI-generated illustration appears in published material, it is labelled. This
-is a published commitment (Section 5.7.8) and a defensive necessity in an
-environment where opponents may deploy manipulated media (Section 5.8.7).
+is a published commitment (Section 5.3.3) and a defensive necessity in an
+environment where opponents may deploy manipulated media (Section 6.3.1).
 
 #### Tools and platforms
 
@@ -248,7 +248,7 @@ after 5,000 impressions is paused
 *The languages this standard works in, and the content mix for locally facing platforms, are set out in 3.6.1.*
 
 **Governance.** A native Kikamba speaker is a named role at every engagement
-level (Section 5.9.3), not an occasional reviewer. No Kikamba content publishes
+level (Section 4.6.3), not an occasional reviewer. No Kikamba content publishes
 without their sign-off. Proverbs carry cultural weight and misused proverbs
 do cultural damage — in a campaign built on rigour, a mangled idiom is a
 substantive error, not a cosmetic one.
@@ -279,7 +279,7 @@ is not transparent. It is legible to the people who already had access.
 | **Website** | **WCAG 2.1 AA** — semantic structure, keyboard navigation, contrast ratios, alt text on every image and infographic, no information conveyed by colour alone |
 | **Plain language** | Every policy document paired with a **one-page plain-language summary** in all three languages, written to be read aloud |
 | **Audio versions** | Every flagship policy item available as audio, distributable by WhatsApp, voice note and radio |
-| **Low bandwidth** | Text-first fallbacks; compressed images; a site that loads on 3G; SMS and USSD paths to the same information (Section 5.2.3.3) |
+| **Low bandwidth** | Text-first fallbacks; compressed images; a site that loads on 3G; SMS and USSD paths to the same information (Section 4.5.9) |
 | **Print** | Ward-level materials in large print with QR and USSD codes |
 
 #### Why this is scope, not an annex

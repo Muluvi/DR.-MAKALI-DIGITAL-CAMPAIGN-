@@ -16,6 +16,11 @@ import json, os, re, subprocess, sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 BASE = "9681948"
+# --out DIR writes the layout somewhere other than content/ (scripts/renumber-citations.ts uses
+# this to regenerate the pre-renumbering text), together with DIR/authored-lines.json: the lines
+# this script wrote itself, which carry new numbers and must not be renumbered again.
+OUT_DIR = next((a.split("=", 1)[1] for a in sys.argv[1:] if a.startswith("--out=")), os.path.join(ROOT, "content"))
+AUTHORED = {}
 MAPPING = json.load(open(os.path.join(ROOT, "docs", "restructure-2026-10", "mapping.json"), encoding="utf8"))
 OLD_FILES = ["cover", "objectives", "data", "analysis", "strategy", "implementation", "workstreams-platforms",
              "workstreams-media", "workstreams-ground", "workstreams-data", "delivery", "nextsteps",
@@ -124,6 +129,9 @@ def cut_all(i, reason, pointer=None):
                         "words": words(removed), "pointer": pointer, "text": "\n".join(removed)})
 
 
+POINTER_LINES = set()
+
+
 def marker(n):
     return f"[CONFLICT C{n}: see open items]"
 
@@ -169,6 +177,7 @@ def body_text(i):
 
 def pointer(text, where):
     LOG["pointers"].append({"where": where, "text": text})
+    POINTER_LINES.add(f"*{text}*")
     return f"*{text}*"
 
 
@@ -260,14 +269,17 @@ ROWS[125]["body"], TRACKER_RULE = _b[:_k], _b[_k:]
 
 OUT = {}
 cur = None
+cur_name = None
 LAST = None
 
 
 def file(name, purpose=None, preamble_of=None):
-    global cur
+    global cur, cur_name
     cur = OUT.setdefault(name, [])
+    cur_name = name
     if purpose:
         cur += [purpose, ""]
+        AUTHORED.setdefault(name, []).append(purpose)
         LOG["pointers"].append({"where": f"{name}.md opening", "text": purpose})
     if preamble_of:
         cur += trim(PREAMBLE[preamble_of]) + [""]
@@ -276,11 +288,13 @@ def file(name, purpose=None, preamble_of=None):
 def H(level, number, title):
     line = "#" * level + " " + (f"{number} " if number else "") + title
     cur.extend([line, ""])
+    AUTHORED.setdefault(cur_name, []).append(line)
     LOG["added"].append({"where": f"new heading {number}", "words": len(line.split())})
 
 
 def T(*lines):
     cur.extend(list(lines) + [""])
+    AUTHORED.setdefault(cur_name, []).extend(lines)
     if not (len(lines) == 1 and lines[0].startswith("*") and lines[0].endswith("*")):
         LOG["added"].append({"where": "text", "words": sum(len(l.split()) for l in lines)})
 
@@ -696,15 +710,21 @@ for name, lines in OUT.items():
     text = "\n".join(lines) + "\n"
     if "@@" in text:
         sys.exit(f"build-layout: unplaced marker in {name}.md")
-    with open(os.path.join(ROOT, "content", f"{name}.md"), "w", encoding="utf8") as fh:
+    with open(os.path.join(OUT_DIR, f"{name}.md"), "w", encoding="utf8") as fh:
         fh.write(text)
+    # Pointer lines can be placed into a file by index (the 4.5.4 and B.5 pointers), so they are
+    # collected here from the finished text rather than at the call.
+    AUTHORED.setdefault(name, []).extend(l for l in lines if l in POINTER_LINES and l not in AUTHORED[name])
 
 for gone in ("objectives", "data", "analysis", "implementation", "nextsteps"):
-    p = os.path.join(ROOT, "content", f"{gone}.md")
+    p = os.path.join(OUT_DIR, f"{gone}.md")
     if os.path.exists(p):
         os.remove(p)
 
-json.dump(LOG, open(os.path.join(ROOT, "docs", "restructure-2026-10", "layout-log.json"), "w", encoding="utf8"), indent=1, ensure_ascii=False)
+json.dump(AUTHORED, open(os.path.join(OUT_DIR if OUT_DIR != os.path.join(ROOT, "content") else os.path.join(ROOT, "docs", "restructure-2026-10"),
+                                      "authored-lines.json"), "w", encoding="utf8"), indent=1, ensure_ascii=False)
+if OUT_DIR == os.path.join(ROOT, "content"):
+    json.dump(LOG, open(os.path.join(ROOT, "docs", "restructure-2026-10", "layout-log.json"), "w", encoding="utf8"), indent=1, ensure_ascii=False)
 print(f"build-layout: {len(OUT)} files written; {len(LOG['cuts'])} cuts ({sum(c['words'] for c in LOG['cuts'])} words), "
       f"{len(LOG['markers'])} conflict markers, {len(LOG['pointers'])} pointers and purpose lines, "
       f"{len(LOG['droppedHeadings'])} heading lines dropped")

@@ -430,3 +430,39 @@ Register figure `section` fields are set to the heading each figure now sits und
 | s5-workstreams.ts fig-5-2-4-stack: section 5.2.4.3 -> G.4 |
 | s6-nextsteps.ts fig-6-1-dependencies: section 6.1 -> 1.7 |
 | s6-nextsteps.ts fig-6-3-decision: section 6.3 -> 1.1 |
+
+## Stage 4: cross-references
+
+`scripts/renumber-citations.ts` rewrites every citation from the old numbers to the new, from `mapping.json`: a run-in goes to its parent, a merge to its target, a removal to its canonical home.
+
+### Result
+
+| | Count |
+|---|---|
+| Citations rewritten in `content/` | **400** to **103** distinct targets (the brief expected about 407 to 116). By form: section 366, table cell 26, bare 6, parenthesis 2 |
+| Citations rewritten in code (figure captions and notes, data-module strings, component copy, and comments in `lib/figures` and `lib/register/specs`) | **524** |
+| Marked `[CHECK REF]` | 11 in content, 88 in code (OPEN-ITEMS.md section 2) |
+| Second run | Changes nothing (`--check` passes) |
+
+Every change is a row in `citations.csv` (file, line, form, before, after, note).
+
+### How it stays idempotent
+
+Old and new numbers overlap (old 3.1 is new 2.1, and new 3.1 is the position), so renumbering content in place twice would move a citation twice. The script therefore always derives `content/` from the baseline: it regenerates the layout into a scratch directory (`build-layout.py --out=`) and renumbers from there. For code it rewrites each baseline line that carries a citation, and applies the result only where that exact line still stands. Two lines had been edited in Stage 3 and are reported, not overwritten: the cover spine takeaway, rewritten for the new parts, and a `MarkdownViewer.tsx` comment about the decision panel.
+
+### Rules
+
+- **Forms:** "Section(s) N.N" with lists, ranges and line breaks; "§N.N"; "Section N" (a part); "Annex X.n"; a parenthesis holding only section numbers; a table cell that opens with section numbers (the "Where it is set" columns in 1.5.1 and 1.5.3, and the 3.4.2 segment table); and a bare three-level number in prose ("4.4.1 above"). Heading numbers, `{{tokens}}`, figure fences, conflict markers and the layout's own pointers are never touched.
+- **Parts:** old 1 → 1, 2 → 2, 3 → 2, 4 → 3, 6 → 1. Old Part 5 split across new Parts 1, 4, 5 and 6, so a bare "Section 5" is flagged.
+- **Given by the brief:** "the phasing in Section 1.5" (old 2.3.1, now 2.5.1; also `data/nomination-path.ts`) → Section 4.3, the phases. "Section 1.2" in the same passage maps to the new 1.2 mechanically.
+- **Flagged, not guessed** (preview 3.3 rows 1 to 9 and brief §5): "Section 3.3.3" and "SMS/USSD (Section 4.3)" in old 3.7.3; "(Section 4.3)" in workstream 1's Build; "(16.4)"; "Defamation Law Safeguards (Section A.1.1)"; "Section 5.2.1.4 of the DPA"; "Section 5.2.3.4" twice as the DPA; "Section 5.2.4 Digital Charter Platform"; "Sections 4.4.11 and 5.7.4 for the regulatory basis". Any number with no heading at the baseline is flagged the same way.
+- **Text versions:** citations inside text versions are renumbered like any other. Renumbering is the one prose change the brief permits, and the conservation check compares text versions with citation numbers masked.
+- **Comments outside `lib/figures` and `lib/register/specs`** are not renumbered: they record history in the numbers of their own time. Strings in those files that a reader sees are renumbered. `data/*.ts` changes are section-reference strings only (method and source notes); no value changes, and each is a row in `citations.csv`.
+
+### Knock-on change
+
+`lib/highlight-patterns.ts`: the in-text cross-reference linker no longer links a citation followed by `[CHECK REF]`. That number was wrong before it moved, and linking it would send a reader to whatever carries it now.
+
+### Checks at the end of Stage 4
+
+Lint and typecheck clean; `npm run verify` passes, including `verify-figures`, which caught a component note still citing §3.11; the conservation check passes (92 figures, 5 text versions, 621 tokens, words reconcile to 0); `heading-inventory --strict` passes.

@@ -90,7 +90,7 @@ export const TABLE_CHARTS: Record<string, TableChartSpec> = {
     // No aggregate. The column's own last cumulative cell already states 532,758 and 100.00%, so a
     // "Combined" underneath it would be the same figure a second time — and the cumulative column
     // says it better, because it says it in order.
-    note: "§3.4.2. One unit, one measure, already presented as a ranked distribution.",
+    note: "§3.4.2 [CHECK REF]. One unit, one measure, already presented as a ranked distribution.",
   },
 };
 

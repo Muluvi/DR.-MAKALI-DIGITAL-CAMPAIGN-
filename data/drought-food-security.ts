@@ -24,7 +24,7 @@ export const FOOD_RESERVE_HOUSEHOLDS: SourcedFigure = {
     source: CBC_CECM_STATEMENT,
     granularity: "county",
     note:
-      "The CECM's stated household base (over 1.2 million) is markedly higher than the 2019 census household count for the whole county (262,942 — §2.4). Rendered exactly as stated rather than corrected; the discrepancy may reflect the CECM conflating population with households, but this pass has no second source to resolve which figure is right.",
+      "The CECM's stated household base (over 1.2 million) is markedly higher than the 2019 census household count for the whole county (262,942 — §2.8.1). Rendered exactly as stated rather than corrected; the discrepancy may reflect the CECM conflating population with households, but this pass has no second source to resolve which figure is right.",
   },
 };
 

@@ -25,7 +25,7 @@ friction surfaces as evidence instead of as attrition.
 
 > **The runbooks are in Annex E.** The four-tier response decision tree (E.1), the response
 > times by channel (E.2), the pre-drafted holding positions (E.3), the monitoring tooling
-> (E.4, E.11), the pre-approved message library (E.5), the red-team drill format
+> (E.4, E.12), the pre-approved message library (E.5), the red-team drill format
 > (E.6), the threat model and security baseline (E.7–E.10) and the competitive
 > intelligence outputs (E.12) are set out there in full. They are operational detail: what a
 > principal approves is that they exist and are proportionate, which this section states.
@@ -36,7 +36,7 @@ friction surfaces as evidence instead of as attrition.
 
 In a high-stakes gubernatorial campaign, unchecked misinformation and coordinated political attacks can erode voter trust within hours. In Kitui County, ground rumors and hostile talking points travel primarily through two high-velocity vectors: **morning vernacular radio talk shows (06:00–09:00 EAT)** and **hyper-local ward WhatsApp groups**.
 
-The campaign enforces a disciplined **Rapid Response & Opposition Handling System**. This framework is governed by strict **Defamation Law Safeguards (Section A.1.1)**: all rebuttals focus exclusively on certified public records, legislative Hansard transcripts, and verifiable policy positions, completely eschewing personal invective or unsubstantiated allegations against political rivals.
+The campaign enforces a disciplined **Rapid Response & Opposition Handling System**. This framework is governed by strict **Defamation Law Safeguards (Section A.1.1 [CHECK REF])**: all rebuttals focus exclusively on certified public records, legislative Hansard transcripts, and verifiable policy positions, completely eschewing personal invective or unsubstantiated allegations against political rivals.
 
 ```figure
 id: rapid-response-flow
@@ -49,7 +49,7 @@ The campaign monitors four complementary intelligence streams 24 hours a day, 7 
 1.  **Broadcast Vernacular Radio Triage (06:00–21:00 EAT):** Dedicated audio recording monitors tracking morning and evening talk shows across *Musyi FM, Mbaitu FM, Sang'u FM, County FM*, and *Athiani FM*. Immediate audio clipping of candidate mentions or political challenger assertions. [CONFLICT C7: see open items]
 2.  **Ward WhatsApp Ingestion Network:** 40 Constituency Monitoring Assistants monitoring ~180 major community, market, church, and clan WhatsApp groups across all 8 sub-counties.
 3.  **Social Listening Keyword Feeds:** Automated continuous tracking via Brand24 / Talkwalker of high-frequency keywords: *"Dr. Makali Mulu"*, *"Kitui Governor 2027"*, *"Kitui Central CDF"*, *"Ndengu price"*, and competitor candidate handles.
-4.  **Field Captain Rumor Logs:** Twice-daily SMS pulse reports from the campaign's ward captains (campaign-owned, Section 5.1.3) logging prevalent market-day and baraza whispers.
+4.  **Field Captain Rumor Logs:** Twice-daily SMS pulse reports from the campaign's ward captains (campaign-owned, Section 1.4.3) logging prevalent market-day and baraza whispers.
 
 ### 6.2.3 Staying inside defamation law
 
@@ -118,8 +118,8 @@ private-group circulation
 | 0–5 | Ward champion or monitoring flags; crisis lead confirms receipt |
 | 5–15 | Verify against the campaign's own archive: was Dr. Mulu there, on that date, saying that? Retrieve original footage if it exists |
 | 15–20 | Candidate and senior leadership briefed; response approved |
-| 20–30 | Publish: plain statement of falsity, the verified original where one exists, and provenance evidence. Simultaneously in Kikamba, Kiswahili and English, across all channels **except bulk SMS, which the 48-hour lodging rule rules out of rapid response entirely** (Section 5.2.3.3) |
-| 30–120 | Platform reports filed; journalists briefed directly (Section 5.2.2.2); ward champions supplied with a forwarding-friendly correction card for WhatsApp |
+| 20–30 | Publish: plain statement of falsity, the verified original where one exists, and provenance evidence. Simultaneously in Kikamba, Kiswahili and English, across all channels **except bulk SMS, which the 48-hour lodging rule rules out of rapid response entirely** (Section 4.5.9) |
+| 30–120 | Platform reports filed; journalists briefed directly (Section 4.5.6); ward champions supplied with a forwarding-friendly correction card for WhatsApp |
 | Same day | Legal options reviewed with counsel |
 
 **The SMS component is what makes this work in Kitui.** A rebuttal published
@@ -152,7 +152,7 @@ knowing what opponents say publicly, not surveilling them.
 
 If Wiper party leadership departs from the reported countywide selection and reverts to a delegate-based nomination primary, the campaign will immediately trigger its **Delegate Whip Contingency Plan**:
 1.  **Map the Delegate Registry:** Instantly map and profile the official delegates from the party's register (comprising constituency executives, sub-branch officials, and ward-level party committee members).
-2.  **Targeted Whip Operations:** The campaign reallocates its ward captains (campaign-owned, Section 5.1.3) from general voter outreach to peer-to-peer lobbying and direct, physical whip operations. Each captain will be assigned specific delegates residing in their ward.
+2.  **Targeted Whip Operations:** The campaign reallocates its ward captains (campaign-owned, Section 1.4.3) from general voter outreach to peer-to-peer lobbying and direct, physical whip operations. Each captain will be assigned specific delegates residing in their ward.
 3.  **Encrypted SMS Delegate Channel:** Establish a secure, dedicated SMS/USSD communications loop directly targeting the delegates, pushing policy briefs on Dr. Mulu's "Economist Governor" platform to reinforce party loyalty and administrative competence.
 
 ---

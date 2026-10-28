@@ -4,7 +4,7 @@
   3. Words: words after, plus words logged as cut, less words the restructure added (headings,
      purpose lines, pointers, markers), equals words before within 1%.
   4. Figures: every ```figure id present before is present after, exactly once; every
-     ```textversion block is present after, byte for byte.
+     ```textversion block is present after, byte for byte apart from renumbered citations.
   5. Tokens: every {{token}} present before is present after, the same number of times.
 
 Baseline is docs/restructure-2026-10/baseline-snapshot.json and the content at commit 9681948.
@@ -51,7 +51,11 @@ base_tv = []
 for f in subprocess.check_output(["git", "ls-tree", "--name-only", "9681948", "content/"], cwd=ROOT).decode().split():
     base_tv += textversions(subprocess.check_output(["git", "show", f"9681948:{f}"], cwd=ROOT).decode())
 after_tv = [t for src in files.values() for t in textversions(src)]
-if sorted(base_tv) != sorted(after_tv):
+# The one change a text version may carry is a renumbered citation (scripts/renumber-citations.ts),
+# so the comparison masks citation numbers and the [CHECK REF] flag on both sides.
+CITE = re.compile(r"((?:Sections?|§)\s*)(?:[A-G](?:\.\d+)+|\d+(?:\.\d+)*)(?: \[CHECK REF\])?")
+mask = lambda t: CITE.sub(r"\1#", t)
+if sorted(map(mask, base_tv)) != sorted(map(mask, after_tv)):
     errors.append(f"textversion blocks differ ({len(base_tv)} before, {len(after_tv)} after)")
 
 # 5. tokens
@@ -70,6 +74,7 @@ for src in files.values():
     added += len(re.findall(r"\[CONFLICT C\d+: see open items\]", src)) * 5
 added += sum(len(p["text"].split()) for p in log["pointers"])
 added += sum(a["words"] for a in log["added"]) + log["headingDelta"]
+added += text.count("[CHECK REF]") * 2  # the renumbering's flag on a citation it would not guess
 before_words = snap["totalWords"]
 expected = before_words - cut_words - relocated - dropped_heading_words + added
 diff = after_words - expected

@@ -1,7 +1,7 @@
 ### 4.5.11 Workstream 11 — The data layer
 
 > **Owner: Firefly**, as processor on the campaign's behalf, under a written processing agreement
-> (Section 5.7.5).
+> (Section 5.3.1).
 >
 > **Group: Data and technology.** Four workstreams that sit under the rest: the data model, the voter model built on it, the technology stack that runs both, and the analytics layer that measures what the other ten produce.
 
@@ -31,7 +31,7 @@ id: supporter-schema
 
 ### 4.5.12 Workstream 12 — Predictive voter modelling
 
-> **Owner: Firefly — gated on Section 5.7.9.** Until written sign-off, this runs as **ward-level
+> **Owner: Firefly — gated on Section 5.3.4.** Until written sign-off, this runs as **ward-level
 > aggregate scoring only**, which delivers most of the targeting value at a fraction of the
 > exposure. Individual-level scoring waits for the opinion.
 >
@@ -47,7 +47,7 @@ and from the register, not from asking anyone how they will vote. This moves the
 campaign from broad messaging to disciplined prioritisation of persuasion and
 mobilisation effort, on the official record.
 
-**This entire section is conditional on the compliance gate in Section 5.7.9.**
+**This entire section is conditional on the compliance gate in Section 5.3.4.**
 No voter-file-based targeting is deployed until a Kenyan data-protection or
 electoral-law specialist has reviewed and signed off the specific proposed
 processing. Nothing in this section should be read as a claim that such
@@ -85,7 +85,7 @@ low-turnout polling-station areas — the single most valuable GOTV segment
 * **Content personalisation:** different messages to station areas by their support
 and turnout history
 * **Volunteer routing:** ground teams directed to the highest-potential
-polling-station areas first (Section 5.2.3.2)
+polling-station areas first (Section 4.5.8)
 
 #### The compliance gate this depends on
 
@@ -108,7 +108,7 @@ polling-station areas first (Section 5.2.3.2)
 ### 4.5.14 Workstream 14 — Analytics and attribution
 
 > **Owner: Firefly. This is the engine room of the engagement.** It is numbered fourteenth because
-> that is where the original numbering put it; it is read first, in Section 5.3, and it is the
+> that is where the original numbering put it; it is read first, in Section 4.2.1, and it is the
 > workstream every other one is measured by.
 >
 > **Group: Data and technology.** Four workstreams that sit under the rest: the data model, the voter model built on it, the technology stack that runs both, and the analytics layer that measures what the other ten produce.
@@ -130,13 +130,13 @@ anchored to the ~200,000-vote threshold.
 | YouTube view | View-through | Google Ads |
 | Website visit | Multi-touch weighted | GA4 |
 | Email open | Position-based | Email platform |
-| **Field canvass contact** | Direct event | Ward champion form (Section 5.2.3.2) |
+| **Field canvass contact** | Direct event | Ward champion form (Section 4.5.8) |
 
 To track offline-to-digital and physical engagement, four mechanisms bridge the gap:
 * **Unique QR codes** on printed materials and at barazas, tracking which content drove physical attendance
 * **SMS keyword short codes** — text a keyword to the campaign shortcode to register support and opt in
 * **USSD completions** as a direct offline-to-digital bridge
-* **Volunteer-reported contact outcomes** from the doorstep form (Section 5.2.3.2)
+* **Volunteer-reported contact outcomes** from the doorstep form (Section 4.5.8)
 
 #### Key metrics and benchmarks
 
@@ -144,7 +144,7 @@ To track offline-to-digital and physical engagement, four mechanisms bridge the 
 |---|---|---|---|
 | Share of voice | % of Kitui gubernatorial mentions about Dr. Mulu | 30–40% for leader | ≥ 50% |
 | Net sentiment | (Positive − negative) / total | +20 to +30 | ≥ +40 |
-| **Reach share in the deficit pool** | Share of his reach landing in Mwingi and Kitui South (R-02, Section 5.6.4) | — | **≥ 51.7%, the pool's share of the register** |
+| **Reach share in the deficit pool** | Share of his reach landing in Mwingi and Kitui South (R-02, Section 5.1.2) | — | **≥ 51.7%, the pool's share of the register** |
 | Voter registration lift | Increase in target wards from campaign drives | 5–10% | ≥ 10% |
 | Digital-to-offline conversion | % of engagers attending or volunteering | 5–15% | ≥ 10% |
 | GOTV contact rate | % of target voters reached | 60–80% | ≥ 70% |
@@ -158,7 +158,7 @@ To track offline-to-digital and physical engagement, four mechanisms bridge the 
 |---|---|---|---|---|
 | **0 — Baseline** | Phase −1 | Platform-native dashboards; manual weekly report; SMS delivery reporting; single source of truth established | Accounts and pixel installed | Paid Media & Analytics Manager |
 | **1 — Integrated** | Phase 0–1 | Unified BI dashboard across paid, organic, SMS, USSD, web; ward-level segmentation; A/B testing discipline | Consistent tagging taxonomy | Paid Media & Analytics Manager |
-| **2 — Predictive** | Phase 1–2 | Voter scoring live; field-digital loop operating; audience segments driven by score | **Section 5.7.9 compliance gate cleared** | Data Analyst (surge) |
+| **2 — Predictive** | Phase 1–2 | Voter scoring live; field-digital loop operating; audience segments driven by score | **Section 5.3.4 compliance gate cleared** | Data Analyst (surge) |
 | **3 — Attributed** | Phase 2–3 | Multi-touch attribution; offline conversion tracking; effort per persuaded voter reported against actuals | Stage 2 stable ≥ 6 weeks | Data Analyst |
 | **4 — Optimised** | Phase 3 | Continuous reallocation against modelled marginal return; GOTV list prioritisation | Stage 3 validated against field returns | Data Analyst + Director |
 
@@ -177,8 +177,8 @@ Responsibilities:
 who has access
 * Owns the consent audit trail and can produce it on demand within
 **24 hours** — the standard the Section E.6 drill tests
-* Owns the deletion schedule and executes it (Section 5.7.8)
-* Is the campaign's standing point of contact for the Section 5.7.9 compliance
+* Owns the deletion schedule and executes it (Section 5.3.3)
+* Is the campaign's standing point of contact for the Section 5.3.4 compliance
 reviewer
 * Holds authority to **suspend any targeting activity** pending review, without
 requiring commercial sign-off

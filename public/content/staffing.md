@@ -16,14 +16,14 @@ id: org-chart
     chart above. Four roles. Firefly works to it and replaces no part of it.
 *   **Dr. Mulu's existing digital team** — the people producing and publishing the daily record
     today. This engagement adds a brief to their week. It does not add a manager to their line.
-*   **The 3-person Firefly core** named at every engagement level in Section 5.5 — strategy,
+*   **The 3-person Firefly core** named at every engagement level in Section 1.5 — strategy,
     analysis, and the offline layer.
 
 ```figure
 id: fig-5-9-team
 ```
 
-Where this section says "four-person core" it means the campaign's; where Section 5.5 says
+Where this section says "four-person core" it means the campaign's; where Section 1.5 says
 "3-person core" it means Firefly's; where it says "your team" it means the one already in post.
 
 What the arrangement buys, stated without the usual claims about bloat:
@@ -47,17 +47,17 @@ stated plainly because a campaign is entitled to know exactly who is doing the
 work. A proposal claiming a large standing department it does not have will
 fail on the first question about it.
 
-The structure below scales with the service level selected in Section 5.5.
+The structure below scales with the service level selected in Section 1.5.
 
 ---
 
 ### 4.6.2 The core team, retained throughout
 
 **What this section covers, and what it does not.** The three roles below are **Firefly's** — the
-people this engagement adds. Section 5.9.4 sets out the **campaign's own** leadership structure,
-which Firefly reports into and does not staff. Section 5.9.6 sets out how Dr. Mulu's existing
+people this engagement adds. Section 4.6.4 sets out the **campaign's own** leadership structure,
+which Firefly reports into and does not staff. Section 4.6.6 sets out how Dr. Mulu's existing
 digital team is assessed and upskilled — that team is neither staffed nor replaced by this
-engagement. Section 5.6's KPI owners are campaign-side roles unless the campaign asks Firefly to
+engagement. Section 5.1's KPI owners are campaign-side roles unless the campaign asks Firefly to
 fill them.
 
 | Role | Function | Decision rights |
@@ -72,11 +72,11 @@ fill them.
 
 | Role | Activated | Function |
 |---|---|---|
-| **Data Analyst / Modeller** | Phase 1 onward (standard and premium levels) | Predictive scoring, field-digital integration, attribution modelling. **Named data-governance owner** (Section 5.2.4.4) |
+| **Data Analyst / Modeller** | Phase 1 onward (standard and premium levels) | Predictive scoring, field-digital integration, attribution modelling. **Named data-governance owner** (Section 4.5.14) |
 | **Kikamba Reviewer (native speaker)** | Week 1 onward — **mandatory at all levels** | Proverb and idiom verification, cultural register review. No Kikamba content publishes without this review. Your team produces; this role signs off |
-| **Volunteer & Ward Champion Coordinator** | Phase 1 onward | Tiered volunteer programme (Section 5.2.3.4); ward champion training and reporting |
+| **Volunteer & Ward Champion Coordinator** | Phase 1 onward | Tiered volunteer programme (Section 4.5.10); ward champion training and reporting |
 | **Crisis Communications Lead** | Phase 2 onward, or immediately on trigger | Rapid response, red-team drills, deepfake rebuttal protocol |
-| **Earned Media / Press Officer** | Phase −1 onward (standard and premium levels) | Journalist relationships, debate clipping, radio placement (Section 5.2.2.2) |
+| **Earned Media / Press Officer** | Phase −1 onward (standard and premium levels) | Journalist relationships, debate clipping, radio placement (Section 4.5.6) |
 
 **Community management and video editing are not on this list, and that is deliberate.** Both are
 roles your team already fills. Adding them here would have been Firefly selling back capability the
@@ -122,7 +122,7 @@ time. Nobody is graded in private.
 
 **Week 2 — one written standard.** The brief template, the caption pattern, the
 commitment-and-date rule, the language rule, the escalation line, and the accessibility floor from
-Section 5.2.1.4. Six pages. It belongs to the team from the day it is written.
+Section 4.5.4. Six pages. It belongs to the team from the day it is written.
 
 **Weeks 3–8 — pairing, not training.** Firefly and the team write the first three briefs together.
 Then Firefly writes and the team marks it up. Then the team drafts and Firefly reviews.

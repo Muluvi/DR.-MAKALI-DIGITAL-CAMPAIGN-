@@ -143,21 +143,21 @@ export const WHATSAPP = {
       kind: "text",
       text: "Kitui Rural / Mbitini: Dr. Makali Mulu guarantees Ksh 100M Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. Reply STOP to opt out.",
       time: "07:12",
-      source: "§5.2.1.2 — Direct 2G Bulk SMS copy sample, verbatim",
+      source: "§4.5.2 — Direct 2G Bulk SMS copy sample, verbatim",
     },
     {
       from: "resident",
       kind: "text",
       text: "1",
       time: "07:14",
-      source: "§5.2.1.2 — the reply the message itself asks for",
+      source: "§4.5.2 — the reply the message itself asks for",
     },
     {
       from: "campaign",
       kind: "voice",
       duration: "0:45",
       time: "07:15",
-      source: "§8.8.2 — 45-second audio note voiced by Dr. Mulu, pushed via WhatsApp",
+      source: "§8.8.2 [CHECK REF] — 45-second audio note voiced by Dr. Mulu, pushed via WhatsApp",
     },
   ] satisfies WhatsAppMessage[],
   composerPlaceholder: "Message",
@@ -170,7 +170,7 @@ export const FACEBOOK = {
   body: {
     value:
       "Development in Kitui must no longer depend on which ward voted for the Governor. Dr. Mulu guarantees an institutionalized Ward Development Equalization Fund of Ksh 100 Million per ward, every year.",
-    source: "§7.1.1 Pillar 3 — Devolution Equity, narrative statement",
+    source: "§7.1.1 [CHECK REF] Pillar 3 — Devolution Equity, narrative statement",
   } as Sourced<string>,
   /** §7.1.1 Pillar 3, Tier 1 proof point — the card under the post. */
   card: {
@@ -178,7 +178,7 @@ export const FACEBOOK = {
       kicker: "CIDP III — Tier 1",
       headline: "Over 61% of rural Kitui households still walk more than 5 km for water in dry seasons",
     },
-    source: "§7.1.1 Pillar 3 — Kitui County Integrated Development Plan proof point",
+    source: "§7.1.1 [CHECK REF] Pillar 3 — Kitui County Integrated Development Plan proof point",
   } as Sourced<{ kicker: string; headline: string }>,
   /** No comment copy exists anywhere in the proposal. */
   commentPreview: { gap: "Comment preview" } as Fillable<string>,
@@ -190,11 +190,11 @@ export const X_POST = {
   body: {
     value:
       "Kitui Central NG-CDF: the Auditor-General's opinion for every year, 2013–2025, published in full.\n\nKitui County: KSh 1.3 billion in pending bills at FY2020/21 (Controller of Budget).\n\nThe record is public. Read it.",
-    source: "§4.4.1 Pillar 1 — the NG-CDF opinions are quoted as each report states them once retrieved; the pending-bills figure is Tier 1 (Annex B.2)",
+    source: "§3.2.2 Pillar 1 — the NG-CDF opinions are quoted as each report states them once retrieved; the pending-bills figure is Tier 1 (Annex B.2)",
   } as Sourced<string>,
   mediaLabel: {
     value: "Auditor-General — Kitui Central NG-CDF audit opinions, 2013–2025",
-    source: "§7.1.1 Pillar 1 — Tier 1 proof point",
+    source: "§7.1.1 [CHECK REF] Pillar 1 — Tier 1 proof point",
   } as Sourced<string>,
 } as const;
 
@@ -210,19 +210,19 @@ export const INSTAGRAM = {
   caption: {
     value:
       "Ksh 85 per kilo floor price for ndengu. County aggregation cold-storage hubs. Solar borehole irrigation. Livestock feed reserves.",
-    source: "§8.3.1 Pillar B — The Agrarian & Household Wealth Engine, core theme",
+    source: "§8.3.1 [CHECK REF] Pillar B — The Agrarian & Household Wealth Engine, core theme",
   } as Sourced<string>,
   captionTitle: {
     value: "Ũtonga wa Mĩsyĩ na Mĩũnda",
-    source: "§8.3.1 Pillar B — Kikamba pillar name, verbatim",
+    source: "§8.3.1 [CHECK REF] Pillar B — Kikamba pillar name, verbatim",
   } as Sourced<string>,
   cardHeadline: {
     value: "Ksh 85 / kg",
-    source: "§8.3.1 Pillar B — guaranteed minimum floor price for ndengu",
+    source: "§8.3.1 [CHECK REF] Pillar B — guaranteed minimum floor price for ndengu",
   } as Sourced<string>,
   cardSub: {
     value: "Guaranteed ndengu floor price",
-    source: "§8.3.1 Pillar B — core theme",
+    source: "§8.3.1 [CHECK REF] Pillar B — core theme",
   } as Sourced<string>,
 } as const;
 
@@ -233,11 +233,11 @@ export const TIKTOK = {
   caption: {
     value:
       "Zero-interest equipment loans. Fee waivers for artisan TVET courses. Boda boda dignity.",
-    source: "§8.3.1 Pillar D — The Youth Enterprise & TVET Frontier, core theme",
+    source: "§8.3.1 [CHECK REF] Pillar D — The Youth Enterprise & TVET Frontier, core theme",
   } as Sourced<string>,
   overlayTitle: {
     value: "Mwanya wa Mwanake na Wathi",
-    source: "§8.3.1 Pillar D — Kikamba pillar name, verbatim",
+    source: "§8.3.1 [CHECK REF] Pillar D — Kikamba pillar name, verbatim",
   } as Sourced<string>,
   /** A hashtag is new coinage, not a reshaping of existing copy. None exist in the proposal. */
   hashtags: { gap: "Hashtags" } as Fillable<string[]>,
@@ -250,19 +250,19 @@ export const YOUTUBE = {
   title: {
     value:
       "The Integrity & Stewardship Ledger: 13 years of Kitui Central NG-CDF audits, opened up",
-    source: "§8.3.1 Pillar A — core theme and primary formats (documentary video case studies)",
+    source: "§8.3.1 [CHECK REF] Pillar A — core theme and primary formats (documentary video case studies)",
   } as Sourced<string>,
   /** §2.6 — YouTube's stated role in the channel mix. */
   descriptionLine: {
     value: "Long-form debates, church sermons and rally livestreams.",
-    source: "§2.6 — YouTube strategic role",
+    source: "§2.9.1 — YouTube strategic role",
   } as Sourced<string>,
   duration: "18:24",
   publishedAgo: "2 days ago",
   subscribeLabel: "Subscribe",
   thumbnailKicker: {
     value: "Every audit opinion, year by year",
-    source: "§5.2.1.2 Pillar A — core theme",
+    source: "§4.5.2 Pillar A — core theme",
   } as Sourced<string>,
 } as const;
 
@@ -302,7 +302,7 @@ export const USSD = {
   inputPlaceholder: "Reply",
   cancelLabel: "Cancel",
   sendLabel: "Send",
-  source: "§5.2.1.2 — USSD Interactive Menu Tree Structure, verbatim",
+  source: "§4.5.2 — USSD Interactive Menu Tree Structure, verbatim",
 } as const;
 
 /** The one quiet line the module carries. */

@@ -16,7 +16,7 @@ id: field-loop
 
 #### What the 40 ward coordinators report
 
-The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, who supervise the campaign's ward captains (400 recommended, 10 per ward; campaign-owned, Section 5.1.3). Each coordinator is equipped with a dual reporting channel: a **secure field WhatsApp bot** for smartphone-equipped coordinators in 3G/4G zones, and a **zero-rated USSD/SMS structured reporting tree** for offline/2G wards.
+The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, who supervise the campaign's ward captains (400 recommended, 10 per ward; campaign-owned, Section 1.4.3). Each coordinator is equipped with a dual reporting channel: a **secure field WhatsApp bot** for smartphone-equipped coordinators in 3G/4G zones, and a **zero-rated USSD/SMS structured reporting tree** for offline/2G wards.
 
 ```figure
 id: field-reports
@@ -38,7 +38,7 @@ id: four-hour-cycle
 
 #### Distribution beyond social media
 
-> **Campaign-owned recommendations, outside this engagement (Section 5.1.3).** The four networks
+> **Campaign-owned recommendations, outside this engagement (Section 1.4.3).** The four networks
 > below are the campaign's to recruit, equip and run. Firefly writes the brief each one carries.
 
 To bypass digital connectivity barriers, the campaign turns physical transportation, trade, and civic networks into active information distribution conduits:
@@ -59,7 +59,7 @@ To bypass digital connectivity barriers, the campaign turns physical transportat
     *   Placement of seatback information cards in commuter vans detailing Dr. Mulu's 5-point Economic Charter.
 
 ##### 3. Weekly Market Days & Caravan Circuits
-*   **Infrastructure:** The 40 major market centers rotating across the county weekly (Section 5.2.3.3).
+*   **Infrastructure:** The 40 major market centers rotating across the county weekly (Section 4.5.9).
 *   **Operational Role:** Concentrated voter aggregation points.
 *   **Execution:**
     *   Coordinated arrival of the *Mulu Economic Caravan* sound trucks at 10:00 AM on market days.
@@ -115,7 +115,7 @@ id: fig-5-2-3-field-loop
 #### Governance and data protection on the doorstep
 
 * Field data is campaign first-party data, collected with notice, and governed
-by the same charter as all other personal data (Section 5.7.8).
+by the same charter as all other personal data (Section 5.3.3).
 * Ward champions receive data-handling training before being issued the form,
 and cannot export or retain contact data on personal devices.
 * **Opt-in rate on routed doors** is the joint KPI holding both sides honest: if
@@ -131,7 +131,7 @@ routing is wrong.
 > Firefly publishes. Everything on the owned social accounts stays with the team that runs them.
 >
 > It is also the one place where Firefly is a **data controller or joint controller** rather than a
-> processor — see Section 5.7.5, which must be settled in writing before the first dispatch.
+> processor — see Section 5.3.1, which must be settled in writing before the first dispatch.
 >
 > **Group: Ground and offline reach.** Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them.
 
@@ -153,7 +153,7 @@ campaigning in this county, and solving it is the clearest demonstration of the
 rather than where measurement is convenient.
 
 The critical constraint: the campaign can only message consented numbers
-(Section 5.7.4). List building is therefore a KPI in its own right from Phase −1,
+(Section 5.3). List building is therefore a KPI in its own right from Phase −1,
 not an afterthought — consented contacts are a campaign asset that compounds.
 
 #### The SMS layer
@@ -161,7 +161,7 @@ not an afterthought — consented contacts are a campaign asset that compounds.
 **Consent-first architecture.** Every number in the campaign database arrives
 by opt-in: a USSD self-registration, a signed baraza sheet with a clear data
 notice, a WhatsApp opt-in confirmation, a website form, or a missed-call
-opt-in. **No purchased lists. Ever.** See Sections 4.4.11 and 5.7.4 for the
+opt-in. **No purchased lists. Ever.** See Sections 4.4.11 [CHECK REF] and 5.7.4 [CHECK REF] for the
 regulatory basis; the short version is that the industry code requires express
 opt-in for political messages and the ODPC has demonstrated willingness to
 penalise unsolicited messaging.
@@ -176,7 +176,7 @@ penalise unsolicited messaging.
 >
 > **This changes the channel plan, not the language strategy.** Kikamba remains the campaign's
 > strongest register — it simply cannot ride the bulk SMS rail. It belongs on **radio, WhatsApp
-> voice notes, USSD menu text, barazas and person-to-person**, which is where the Section 4.5
+> voice notes, USSD menu text, barazas and person-to-person**, which is where the Section 3.7
 > pillars already put it. SMS carries the Kiswahili and English versions of the same message.
 >
 > Two practical consequences the operating rhythm must absorb: a 48-hour lodging lead time makes
@@ -200,14 +200,14 @@ penalise unsolicited messaging.
 * **Every bulk send lodged with the operator 48 hours ahead**, verbatim text plus signed
 authorisation, logged against the dispatch record
 * **No attacks on individuals, families, ethnicity, religion or association** in any message —
-a guideline requirement, and already a charter commitment (Section 5.7.8, clauses 2 and 6)
+a guideline requirement, and already a charter commitment (Section 5.3.3, clauses 2 and 6)
 * Sending window **7am–7pm**, per market practice and DND norms
 * Every message carries a clear opt-out; opt-outs honoured immediately and
 permanently
 * Ward-tagged segmentation so a message about mango prices reaches Kitui West
 and not Kyuso
 * Personalisation by first name where consent covers it
-* Per-send audit trail retained, per the charter (Section 5.7.8)
+* Per-send audit trail retained, per the charter (Section 5.3.3)
 
 #### The USSD layer
 
@@ -220,7 +220,7 @@ politics.
 id: fig-5-2-3-ussd-menu
 ```
 
-**Why option 3 matters most.** The service-delivery tracker (Section 5.2.1.1) is
+**Why option 3 matters most.** The service-delivery tracker (Section 4.5.1) is
 reachable from a feature phone in Mutha. A constituent reports a broken water
 point by dialling a short code; the report enters a public register; the
 campaign follows up and publishes the outcome. That is the M&E credential
@@ -234,7 +234,7 @@ pending operator approval.
 * **Kikamba voice notes from Dr. Mulu** distributed by WhatsApp and by ward
 champions to Bluetooth-share onward. Audio travels where text does not, and
 carries the candidate's actual voice — the highest-trust format available.
-* **Radio** — see Section 5.2.2.2.
+* **Radio** — see Section 4.5.6.
 * **Audio versions of all flagship policy content**, addressing both low
 literacy (13.0% of the population never attended school) and low bandwidth.
 

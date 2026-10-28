@@ -21,6 +21,6 @@ fireflymanagement.ke@gmail.com · 0726 766 800
 
 **Firefly holds no publishing credentials to any of Dr. Mulu's accounts, and asks for none.**
 The access this engagement needs is read-only: analytics, so the work can be measured. The one
-place Firefly publishes is the offline layer it already operates (Section 5.2.3.3).
+place Firefly publishes is the offline layer it already operates (Section 4.5.9).
 
 ---

@@ -1,7 +1,7 @@
 /**
  * The register, bound: the pure arithmetic in ./register-math.ts applied to the real 40 wards.
  *
- * WHY THE DERIVED FIGURES ARE COMPUTED AND NOT TRANSCRIBED. §3.4 states around forty derived
+ * WHY THE DERIVED FIGURES ARE COMPUTED AND NOT TRANSCRIBED. §2.7 states around forty derived
  * figures — the top twelve wards, the deficit pool, four coalition paths, ballots at 61.7% — and
  * every one of them is a sum or a subtraction over the same forty ward numbers. Stated as text
  * they can drift, and this audit found that they have: the deficit pool is 51.72% in one
@@ -65,7 +65,7 @@ export const KITUI_SOUTH = blocTotal(CONSTITUENCIES, ["Kitui South"]);
 /**
  * The recognition-deficit pool: Mwingi plus Kitui South.
  *
- * Note what it does NOT include. §3.4 names three Kitui East border wards among the deficit
+ * Note what it does NOT include. §2.7 names three Kitui East border wards among the deficit
  * zones and then directs effort into "these 24 northern and southern deficit wards" — but the
  * pool it quotes, 275,570, is Mwingi (200,198) + Kitui South (75,372) and excludes Kitui East
  * entirely. Mwingi's 15 wards plus Kitui South's 6 is 21, not 24. That is conflict C-7, and the
@@ -90,7 +90,7 @@ export interface CoalitionPath {
   share: number;
   /** Ballots this path yields at the 61.7% turnout rate — the number the register is not. */
   ballots: number;
-  /** Margin over 2022's certified 198,004, and over the rounded 200,000. Both, because §3.4.3 mixes them. */
+  /** Margin over 2022's certified 198,004, and over the rounded 200,000. Both, because §3.4.3 [CHECK REF] mixes them. */
   marginOver2022: number;
   marginOverRounded: number;
 }
@@ -116,7 +116,7 @@ function path(
 }
 
 /**
- * The four routes §3.4.3 evaluates.
+ * The four routes §3.4.3 [CHECK REF] evaluates.
  *
  * Every total is computed from the register, which is how conflict C-4 became visible: Path B's
  * prose says it "exceeds the 200,000 threshold by 14,179 voters", and 212,183 − 200,000 is
@@ -145,7 +145,7 @@ export const CONSTITUENCY_RANKING = [...CONSTITUENCIES]
     averageWard: Math.round(c.voters / c.wards.length),
   }));
 
-/** The "Big 4" §3.4.4 names: the four largest constituencies. */
+/** The "Big 4" §3.4.4 [CHECK REF] names: the four largest constituencies. */
 export const BIG_FOUR = CONSTITUENCY_RANKING.slice(0, 4);
 export const BIG_FOUR_TOTAL = BIG_FOUR.reduce((s, c) => s + c.voters, 0);
 export const BIG_FOUR_WARDS = BIG_FOUR.reduce((s, c) => s + c.wards, 0);

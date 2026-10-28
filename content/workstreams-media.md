@@ -3,7 +3,7 @@
 > **Owner: your team, to a Firefly brief.** Read every platform block below as *what belongs on
 > this channel and why*, not as a list of things Firefly will post. Firefly writes the targeting
 > plan and reads the performance; your team places and publishes. Who holds the ad account is a
-> decision for Dr. Mulu — Section 5.7.3 states the recommendation and marks it open.
+> decision for Dr. Mulu — Section 4.1.3 states the recommendation and marks it open.
 >
 > **Group: Publishing and earned media.** Two workstreams: paid media across the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely controlled by rivals.
 
@@ -128,7 +128,7 @@ substance fixed, delivery natural.
 | **"NG-CDF questions"** | Lead with the documented record — bursary numbers, project list, the Eastern region evaluation certification — and invite scrutiny. **Never defensive; an evaluator welcomes audit.** |
 | **"Too technical / not close to ordinary people"** | Answer in Kikamba, with a household example. The best rebuttal to "too technical" is a demonstration, not a denial |
 | **"Wiper insider / party establishment"** | Point to the independence of his parliamentary record on budget matters |
-| **Manipulated media** | Section 5.8.7 protocol — 30-minute clock |
+| **Manipulated media** | Section 6.3.1 protocol — 30-minute clock |
 | **Unsolicited SMS allegation** | Produce the consent audit trail; cite the published charter; correct publicly within the hour |
 
 #### Earned media KPIs

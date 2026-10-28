@@ -10,8 +10,8 @@ To achieve absolute mathematical certainty, the campaign's success metrics are a
 *   **Total Registered County Assembly Wards:** **40** across **8** constituencies (Tier 1).
 *   **Total Polling Stations:** 1,578 (Tier 1).
 *   **Registered voters, July 2026:** **605,703** (Tier 3, reported by Venas News; unconfirmed until IEBC's own July 2026 figure is in hand). Of the **72,945** added since 2022, **61,839** registered in ECVR Phase 1, the 30-day drive that closed on 28 April 2026 and **11,106** through continuous registration outside it (modelled: the growth less the drive). A second ECVR phase ran from 25 June to 25 July 2026 (IEBC gazette notice, 24 June 2026); whether the July annex includes it is not stated, so the remainder may carry some of it. The 2026 register is not yet published by ward.
-*   **Winning benchmark:** Governor Malombe won in 2022 with **198,004 votes** (Section 2.2). Section 3.1 derives the working benchmark of 200,000 from it.
-*   **Turnout, 2022:** **61.7%** certified: 328,760 valid votes of 532,758 registered (Tier 1, IEBC Form 37C). Section 3 carries this rate forward to 2027 as a stated assumption. [CONFLICT C8: see open items]
+*   **Winning benchmark:** Governor Malombe won in 2022 with **198,004 votes** (Section 2.2). Section 2.1 derives the working benchmark of 200,000 from it.
+*   **Turnout, 2022:** **61.7%** certified: 328,760 valid votes of 532,758 registered (Tier 1, IEBC Form 37C). Section 2 carries this rate forward to 2027 as a stated assumption. [CONFLICT C8: see open items]
 
 ```figure
 id: fig-2-1-register
@@ -36,7 +36,7 @@ To eliminate subjective projections, the campaign's target metrics are anchored 
     register.
 *   **The benchmark: 200,000 votes.** Governor Julius Malombe's certified 2022 winning total was
     **198,004 votes** (Section 2.2). This document rounds it to **200,000** and uses that one figure
-    as the benchmark everywhere: every route in Section 3.3, the digital ceiling in Section 3.8 and
+    as the benchmark everywhere: every route in Section 2.4, the digital ceiling in Section 2.9.3 and
     the objectives in Section 1 are measured against it.
 *   **[CALC, not a forecast] The same share of a larger register.** In 2022 the winning tally was
     **37.2%** of the register. Held against the July 2026 register of 605,703, the equivalent tally is
@@ -61,7 +61,7 @@ id: fig-3-1-funnel
 *   **2022 General Election (Kitui Governor):** Won by Julius Malombe (Wiper Democratic Movement, renamed the Wiper Patriotic Front in 2025) with **198,004 votes** on a certified turnout of **61.7%**, 328,760 valid votes of 532,758 registered (Tier 1, IEBC Form 37C). David Musila (Jubilee) was runner-up with **117,606 votes** (Tier 1); The Star's early total of 114,606 is a media variant, and the certified share (35.77%) matches 117,606. Jonathan Mueke (UDA) finished third with **10,639 votes** (Tier 2).
 *   **2022 Kitui Central MP:** Dr. Mulu was re-elected on the Wiper ticket with **30,954 votes** (Tier 1, IEBC declaration as gazetted); Boniface Musambi was second with 9,866. Early media totals differ from the gazetted figure and are not used. The figure reached this proposal through a press reproduction of the declaration; the Kenya Gazette notice itself is the record to hold.
 *   **2022 Senate and Woman Representative Elections:** Senator Enoch Wambua (Wiper) secured his seat with **191,317 votes** (Tier 2), and Woman Representative Irene Kasalu (Wiper) won with **201,899 votes** (Tier 2). Both totals are media reports. The certified declarations (IEBC Form 38C for the Senate, Form 39C for the Woman Representative) are the Tier 1 record and are not yet in hand; until they are, both figures stay Tier 2.
-*   **Ward and polling-station results:** The constituency and polling-station forms for the 2017 and 2022 governor races (IEBC Forms 37B and 37A) are public records and are not yet in hand. They are the record Section 3.4 needs to test where each candidate's vote came from, ward by ward.
+*   **Ward and polling-station results:** The constituency and polling-station forms for the 2017 and 2022 governor races (IEBC Forms 37B and 37A) are public records and are not yet in hand. They are the record Section 2.7 needs to test where each candidate's vote came from, ward by ward.
 
 ```figure
 id: fig-2-2-results
@@ -99,7 +99,7 @@ A key strategic finding emerges from this integrated database: **Mwingi North, M
 
 ## 2.4 Four routes to the number
 
-Each route below is a combination of constituencies or wards, measured the same way: registered voters, then the ballots they would cast at the 61.7% turnout rate, then that ballot count against the 200,000 benchmark from Section 3.1. The ballot count is the ceiling, since it assumes every ballot in the route goes to one candidate. **No route clears 200,000 on its own ballots.** A route is where the margin is built, not where the whole number lives.
+Each route below is a combination of constituencies or wards, measured the same way: registered voters, then the ballots they would cast at the 61.7% turnout rate, then that ballot count against the 200,000 benchmark from Section 2.1. The ballot count is the ceiling, since it assumes every ballot in the route goes to one candidate. **No route clears 200,000 on its own ballots.** A route is where the margin is built, not where the whole number lives.
 
 ```figure
 id: fig-3-3-paths
@@ -160,7 +160,7 @@ for what it is — **a Tier 3, single-source report, not a confirmed party
 decision.**
 
 If it turns out to be wrong — if Wiper instead runs a competitive primary, or
-delegate vote, or some hybrid — the phasing in Section 1.5 needs to be revised
+delegate vote, or some hybrid — the phasing in Section 4.3 needs to be revised
 before further effort commits against it. This section exists so that
 re-check happens deliberately rather than by accident.
 
@@ -169,7 +169,7 @@ Democratic Movement* (2022) records that Wiper's rules allowed nomination by con
 direct or indirect methods, with the National Executive Council deciding the mode; and that for
 the 2022 Kitui gubernatorial ticket the party's board reached its decision through selected
 delegates and panels (Tier 1, Kenya Law). That is the 2022 precedent. It is not the 2027
-procedure, which rests on the party documents listed in Section 2.3.2.
+procedure, which rests on the party documents listed in Section 2.5.2.
 
 ### 2.5.2 Where the selection method stands
 
@@ -198,10 +198,10 @@ id: fig-3-5-field
 
 Every attribute below is stated from an official or documentary record, and each line names the record that carries it. Where the record is not yet in hand, the line says so and makes no claim in its place.
 
-*   **Dr. Irene Kasalu (Woman Representative, Kitui County):** Holds the county's Woman Representative seat, a countywide constituency. Her 2022 result is the highest in the field: **201,899 votes** as Woman Representative, above the 198,004 that won the governorship the same year (Tier 2, a media report of the declaration; the IEBC Form 39C declaration is the record to hold, Section 2.2). As Woman Representative she is patron of the Kitui allocation of the National Government Affirmative Action Fund; the Auditor-General's reports on that allocation are the documentary record of her stewardship of public money, and they are not yet in hand. Her public criticism of the incumbent's equal-ward funding allocation is a live policy argument, and one where the campaign's own position needs settling first: Section 4.4.1 currently proposes an equal-ward guarantee of its own. The two positions cannot both be run. Either the equal-ward guarantee is the platform, and this line of argument is not available to the campaign, or the argument is made and the guarantee is restated as a needs-weighted formula. **Firefly's recommendation is the second, because a published allocation methodology is the stronger fit with the verification pillar in Section 4.1.5 — but it is the campaign's policy call.** [CONFLICT C6: see open items]
+*   **Dr. Irene Kasalu (Woman Representative, Kitui County):** Holds the county's Woman Representative seat, a countywide constituency. Her 2022 result is the highest in the field: **201,899 votes** as Woman Representative, above the 198,004 that won the governorship the same year (Tier 2, a media report of the declaration; the IEBC Form 39C declaration is the record to hold, Section 2.2). As Woman Representative she is patron of the Kitui allocation of the National Government Affirmative Action Fund; the Auditor-General's reports on that allocation are the documentary record of her stewardship of public money, and they are not yet in hand. Her public criticism of the incumbent's equal-ward funding allocation is a live policy argument, and one where the campaign's own position needs settling first: Section 3.2.2 currently proposes an equal-ward guarantee of its own. The two positions cannot both be run. Either the equal-ward guarantee is the platform, and this line of argument is not available to the campaign, or the argument is made and the guarantee is restated as a needs-weighted formula. **Firefly's recommendation is the second, because a published allocation methodology is the stronger fit with the verification pillar in Section 3.2.1 — but it is the campaign's policy call.** [CONFLICT C6: see open items]
 *   **Sen. Enoch Wambua (Senator, Kitui County):** Won the 2022 Senate race with **191,317 votes** (Tier 2; the IEBC Form 38C declaration is the record to hold), within 6,687 of the winning governor's tally. His Senate committee roles are a matter of parliamentary record, to be cited from the Senate Hansard and committee membership lists.
-*   **Hon. Dr. Benson Makali Mulu (Member of Parliament, Kitui Central):** Holds a PhD in Economics and sits on the National Assembly's Budget and Appropriations Committee (Tier 1, Section 2.8). His largest electorate to date is Kitui Central's 77,764 registered voters, where he was re-elected in 2022 with **30,954 votes** (Tier 1). He has not yet stood for a countywide office, so his proof at the ballot is constituency-bounded.
-*   **The incumbent cannot stand.** Governor Julius Malombe won the 2022 race on the Wiper ticket (Tier 1, Section 2.2) after a first term from 2013 to 2017. Article 180(7) of the Constitution limits a governor to two terms (Tier 1), and he is serving his second, so the 2027 Wiper nomination is for an open seat (Section 5.8.15). The party's 2027 nomination list is the document that settles who contests Stage One.
+*   **Hon. Dr. Benson Makali Mulu (Member of Parliament, Kitui Central):** Holds a PhD in Economics and sits on the National Assembly's Budget and Appropriations Committee (Tier 1, Section 2.10.1). His largest electorate to date is Kitui Central's 77,764 registered voters, where he was re-elected in 2022 with **30,954 votes** (Tier 1). He has not yet stood for a countywide office, so his proof at the ballot is constituency-bounded.
+*   **The incumbent cannot stand.** Governor Julius Malombe won the 2022 race on the Wiper ticket (Tier 1, Section 2.2) after a first term from 2013 to 2017. Article 180(7) of the Constitution limits a governor to two terms (Tier 1), and he is serving his second, so the 2027 Wiper nomination is for an open seat (Section 2.6.3). The party's 2027 nomination list is the document that settles who contests Stage One.
 
 ### 2.6.2 Stage Two: the general election field
 
@@ -212,19 +212,19 @@ Beyond the Wiper nomination, the general election field is stated on the same ru
 *   **Peninah Malonza (Former Deputy Governor & Former Cabinet Secretary):** Served as Deputy Governor from 2013–2017 (Tier 1) and subsequently as Cabinet Secretary for Tourism, Wildlife, and Heritage (Tier 1). Both appointments are Kenya Gazette records.
 *   **Nicholas Mulila (Safaricom PLC Executive):** Holds executive roles at Safaricom PLC (Tier 2); the company's published annual reports are the documentary record of those roles. His prospective candidacy has been reported in local news (Tier 2).
 *   **Francis Musili Kauta (Governance Activist):** A legal professional and civil society advocate in Kitui (Tier 2). His litigation on community rights and public land use is a matter of court record, to be cited from Kenya Law.
-*   **Julius Malombe (Incumbent Governor, Kitui County):** Won the 2022 general election with 198,004 votes (Tier 1, IEBC Form 37C) after serving a first term from 2013–2017. The Auditor-General's and Controller of Budget's reports on the county executive are the documentary record of his administration (Annex B.2). He is not in the 2027 field: Article 180(7) of the Constitution limits a governor to two terms, and he has served two. The race is for an open seat (Section 5.8.15), and his record is the one every candidate in it will be measured against.
+*   **Julius Malombe (Incumbent Governor, Kitui County):** Won the 2022 general election with 198,004 votes (Tier 1, IEBC Form 37C) after serving a first term from 2013–2017. The Auditor-General's and Controller of Budget's reports on the county executive are the documentary record of his administration (Annex B.2). He is not in the 2027 field: Article 180(7) of the Constitution limits a governor to two terms, and he has served two. The race is for an open seat (Section 2.6.3), and his record is the one every candidate in it will be measured against.
 
 ### 2.6.3 The incumbent is term-limited: 2027 is an open seat
 
 Governor Malombe served as Governor from 2013 to 2017, lost the 2017 election to Charity Ngilu (court-confirmed, Tier 1), and won again in 2022. Article 180(7) of the Constitution of Kenya limits a governor to two terms (Tier 1). He is serving his second, so he cannot stand in 2027, and this proposal plans for an open-seat election throughout.
 
 *   **Strategic consequence:** the 2027 race has no incumbent. Malombe's incumbency advantage does not carry into it, the Wiper Patriotic Front's nomination is a contest for an open seat, and factional realignment within the party and across independent coalitions follows. Dr. Mulu positions himself as the high-integrity successor to lead the county's economic transition, measured against the outgoing administration's record (Annex B.2).
-*   **What would change it:** only a court ruling or an IEBC decision to accept his nomination papers. The campaign's electoral-law reviewer (Section 5.7.9) reads Kenya Law and the IEBC's gazetted 2027 nominations for either, and the plan changes only if one appears.
+*   **What would change it:** only a court ruling or an IEBC decision to accept his nomination papers. The campaign's electoral-law reviewer (Section 5.3.4) reads Kenya Law and the IEBC's gazetted 2027 nominations for either, and the plan changes only if one appears.
 
 ### 2.6.4 Reading the current field
 
 Dr. Kasalu's strength, on the record, is a countywide seat and a 2022 result
-above the governor's winning tally (Section 3.5; Tier 2 until the IEBC
+above the governor's winning tally (Section 2.6; Tier 2 until the IEBC
 declaration is in hand). The strategic implication is not to compete for the
 same countywide presence — the campaign cannot match a sitting Woman
 Representative's countywide constituency in the time available — but to
@@ -245,14 +245,14 @@ To formulate a targeted intervention, the campaign maps Dr. Mulu's structural pr
 *   **Candidate Profile:** Dr. Benson Makali Mulu has served as Member of Parliament for Kitui Central for **13 consecutive years (since 2013, Tier 1)**.
 *   **High-Recognition / Core Anchor Zone:** Kitui Central (77,764 voters) and immediate adjacent wards in Kitui West (Matinyani, Kauwi) and Kitui Rural (Kisasi, Mbitini).
 *   **Where he has never held office:**
-    1.  **The Mwingi Sub-Counties (Mwingi North, Mwingi Central, Mwingi West):** Total **200,198 registered voters** (**37.58%** of the county register). He has never held office in these northern constituencies. The hypothesis is that his identity as a "Kitui Central MP" limits recall there compared with countywide office holders; Week 1 tests it against his own channel data (Section 3.11).
+    1.  **The Mwingi Sub-Counties (Mwingi North, Mwingi Central, Mwingi West):** Total **200,198 registered voters** (**37.58%** of the county register). He has never held office in these northern constituencies. The hypothesis is that his identity as a "Kitui Central MP" limits recall there compared with countywide office holders; Week 1 tests it against his own channel data (Section 2.12).
     2.  **Kitui South (6 Wards):** Total **75,372 registered voters** (**14.15%** of the county register). Geographically remote, separated by long transit corridors, and traditionally influenced by local southern leadership dynamics.
-    3.  **Kitui East (outside the pool):** Total **65,377 registered voters** (particularly Endau/Malalani, Voo/Kyamatu, and Mutito/Kaliku). He has not held office here either, but Kitui East is not counted in the pool below; it is a direct-contact target on the party-flow finding in Section 3.6.
+    3.  **Kitui East (outside the pool):** Total **65,377 registered voters** (particularly Endau/Malalani, Voo/Kyamatu, and Mutito/Kaliku). He has not held office here either, but Kitui East is not counted in the pool below; it is a direct-contact target on the party-flow finding in Section 2.7.2.
 
 #### Do the deficit wards overlap the decisive ones?
 **Partly. Five of the twelve largest wards lie where he has never held office.**
 
-The denominator is the twelve largest wards (Section 3.2). The numerator is those of them in Mwingi North, Mwingi West, Mwingi Central or Kitui South, the constituencies where he has never held office. Kitui Central, Kitui West and Kitui Rural, which hold the other seven, sit in or beside the constituency he has represented since 2013.
+The denominator is the twelve largest wards (Section 2.3). The numerator is those of them in Mwingi North, Mwingi West, Mwingi Central or Kitui South, the constituencies where he has never held office. Kitui Central, Kitui West and Kitui Rural, which hold the other seven, sit in or beside the constituency he has represented since 2013.
 
 1.  **Mwingi North:** Kyuso (#1 countywide, **19,921**), Tseikuru (#5, **16,471**) and Mumoni (#7, **15,877**).
 2.  **Kitui South:** Athi (#8, **15,843**) and Ikanga/Kyatune (#11, **15,384**).
@@ -276,7 +276,7 @@ Tier 2 respectively; both become record only when the party nomination lists and
 nominations are published, and Mr Muli's party leadership is a matter of the Registrar of Political
 Parties' register). Dr. Mulu's home constituency — 77,764 voters, 14.6% of the register — will
 therefore have its own succession fight running through the same window as his gubernatorial bid.
-**Anchor-zone loyalty cannot be left on autopilot**, and the Section 4.5 pillar weights should not
+**Anchor-zone loyalty cannot be left on autopilot**, and the Section 3.7 pillar weights should not
 assume it.
 
 **Two constituencies will not carry party flow.** Kitui East returned a **UDA** MP and Kitui South a
@@ -285,7 +285,7 @@ are the record to cite). Together they hold **140,749 registered
 voters — 26.4% of the county**. Party structures do not reach those local networks, which means
 reach into them is a direct-contact problem rather than a party-mobilisation one. Kitui South sits
 inside the pool and Kitui East beside it, where he has also never held office, so this compounds
-rather than offsets the Section 3.4 finding.
+rather than offsets the Section 2.7 finding.
 
 ```figure
 id: fig-3-6-party-flow
@@ -399,7 +399,7 @@ disproportionate Phase −1 weighting of effort and reach.
 map one-to-one onto the eight constituencies used for the ward register in Section 2.1.
 Migwani and Mwingi East appear here, while Migwani **Ward** sits in Mwingi West constituency
 in the northern bloc — the two are different units with the same name. Anyone reading the
-zone tables against the ward register should treat the constituency figures in 3.3.3 as
+zone tables against the ward register should treat the constituency figures in 3.3.3 [CHECK REF] as
 authoritative for targeting, and these as demographic context only.
 
 Over a third of the county, at an average of 19 persons per square kilometre.
@@ -408,7 +408,7 @@ networks, and responsible management of mineral resource wealth for local
 benefit.
 
 **This is where the connectivity gap bites hardest and where SMS/USSD (Section
-4.3) does the heavy lifting.** Digital-only reach into Ikutha at 9 persons/km²
+4.3 [CHECK REF]) does the heavy lifting.** Digital-only reach into Ikutha at 9 persons/km²
 is not a strategy; it is an assumption. Mapped against the 2022 baseline register,
 registered voters in Kitui South total 75,372, distributed across six wards: Athi (15,843),
 Ikanga/Kyatune (15,384), Mutomo/Kibwea (12,637), Ikutha (12,066), Mutha (11,039), and Kanziko (8,403).
@@ -437,20 +437,20 @@ The **602,470 mobile-money agent network** (representing a rapid expansion from 
 
 #### Platform Sizing & Realistic In-County Reach
 
-The digital footprint in Kitui County is concentrated in urban nodes (Kitui Town, Mwingi Town, Kwa Vonza university corridor) and among educated youth. In-county active users per platform are not published; Section 3.8 sizes what digital can reach from the published rates alone.
+The digital footprint in Kitui County is concentrated in urban nodes (Kitui Town, Mwingi Town, Kwa Vonza university corridor) and among educated youth. In-county active users per platform are not published; Section 2.9.3 sizes what digital can reach from the published rates alone.
 
 ### 2.9.2 Who owns the airwaves
 
 Vernacular radio is the primary medium of political consciousness and daily news in rural and peri-urban Kitui County. However, the media environment in Eastern Kenya is characterized by severe political concentration: **the highest-reach commercial radio stations broadcasting in Kikamba are owned, financed, or editorially steered by active political rivals or entrenched party gatekeepers**.
 
-To ensure uninterrupted, high-credibility communication with the electorate, the campaign constructs a dual strategy: a disciplined operational engagement model for Tier 1 commercial networks, coupled with an aggressive bypass architecture detailed in **Section 5.2.2.2**.
+To ensure uninterrupted, high-credibility communication with the electorate, the campaign constructs a dual strategy: a disciplined operational engagement model for Tier 1 commercial networks, coupled with an aggressive bypass architecture detailed in **Section 4.5.6**.
 
 ```figure
 id: fig-2-7-media
 ```
 
 The ownership map, the frequencies and the resulting campaign posture for every
-Kikamba-language station are set out once, in **Section 5.2.2.2**, and that table
+Kikamba-language station are set out once, in **Section 4.5.6**, and that table
 governs. It is the version reconciled against `data/media-ownership.ts`, which
 the site renders directly.
 
@@ -466,7 +466,7 @@ The three structural facts that drive the rest of this section:
 Ownership associations are publicly reported rather than certified, and media
 ownership changes. The certifiable records are the Communications Authority's register
 of broadcast licensees and the Business Registration Service's company records; the map
-is checked against both before any placement is booked (Section 5.2.2.2).
+is checked against both before any placement is booked (Section 4.5.6).
 
 ### 2.9.3 What each channel can physically reach
 
@@ -485,10 +485,10 @@ id: fig-3-8-ceiling
 >
 > If the campaign reached **100% of every internet-connected voter in Kitui County**, it would reach about **158,696 voters** (modelled: 26.2% internet use applied to the July 2026 register). Reach is not votes, and even if every one of them voted for him he would be **41,304 votes short** of the 200,000 benchmark.
 >
-> Therefore, digital channels alone **cannot mathematically win this election**. Victory depends on dominating the offline media and field infrastructure (Section 5.2.3.3), while using digital channels (Section 5.2.3.2) with surgical precision to shape elite opinion, organize youth volunteers, and mobilize the out-of-county diaspora.
+> Therefore, digital channels alone **cannot mathematically win this election**. Victory depends on dominating the offline media and field infrastructure (Section 4.5.9), while using digital channels (Section 4.5.8) with surgical precision to shape elite opinion, organize youth volunteers, and mobilize the out-of-county diaspora.
 
 #### What digital can do
-1.  **Elite Agenda Setting & Narrative Defense:** The working premise is that local radio producers, vernacular talk-show hosts, church leaders and county assembly members follow X and Facebook, so rapid response there can shape what radio goes on to discuss. No source in this proposal measures that link or its timing; the war room's monitoring log (Section 5.8.4) records it from the first month rather than assuming it.
+1.  **Elite Agenda Setting & Narrative Defense:** The working premise is that local radio producers, vernacular talk-show hosts, church leaders and county assembly members follow X and Facebook, so rapid response there can shape what radio goes on to discuss. No source in this proposal measures that link or its timing; the war room's monitoring log (Section 6.2.4) records it from the first month rather than assuming it.
 2.  **Youth Mobilization & Field Volunteer Recruitment:** Engaging the ~234,000 youth cohort via TikTok and WhatsApp generates high-energy field activists who operate the ground logistics and serve as polling agents.
 3.  **Efficient Micro-Targeting of Urban MSMEs:** Hyper-geofencing commercial centers (Kitui CBD, Mwingi Central) allows testing policy messages ("The Economist's Single Business Permit") with minimal waste.
 
@@ -508,22 +508,22 @@ The election will be won or lost across the **447,007 registered voters not reac
     *   *Musyi FM (Royal Media Services):* Dominant market leader in Ukambani; commercially independent. **Priority placement.**
     *   *County FM (Kitui-based independent):* Local ward news and debates, strong in Kitui Town, Kabati and Kwa Vonza. **Priority placement.**
     *   *Wikwatyo FM (Seventh-Day Adventist Church, Kitui):* Broad rural community trust. **Priority for community and service-delivery programming.**
-    *   *Mbaitu FM, Syokimau FM (Ngilu-associated) and Athiani FM (Wiper leadership):* **monitoring targets, not placement targets** — see Section 5.2.2.2 for the ownership map and the posture each one carries.
-*   **What the campaign would run** (campaign-owned, outside this engagement, Section 5.1.3):
+    *   *Mbaitu FM, Syokimau FM (Ngilu-associated) and Athiani FM (Wiper leadership):* **monitoring targets, not placement targets** — see Section 4.5.6 for the ownership map and the posture each one carries.
+*   **What the campaign would run** (campaign-owned, outside this engagement, Section 1.4.3):
     *   *Prime-Time Strategic Bookings:* Secure weekly 2-hour interactive morning studio interviews (06:30–08:30) with Dr. Mulu during key policy rollout weeks.
     *   *Kikamba Voice Jingles & Audio Testimonials:* 45-second micro-stories featuring real farmers from Mwingi North, Kitui South, and Kitui Rural explaining how Dr. Mulu's economic model protects their harvest prices.
     *   *Live Event Feeds:* Sponsoring live outside broadcasting (OB) vans at major market rallies in Kalundu, Kabati, and Mutomo.
 
 #### Direct 2G Bulk SMS & USSD Service
 *   **Reach:** mobile phone ownership is 44.1% of residents countywide (CA/KNBS 2023/24, Tier 1); a feature phone is enough for SMS and USSD.
-*   **What Firefly operates** (Section 5.2.3.3):
+*   **What Firefly operates** (Section 4.5.9):
     *   *Zero-Rated USSD Portal (`*[shortcode]#`):* Allows feature phone users to dial a free code to read Dr. Mulu's 5-point manifesto in Kikamba, register as a volunteer, or locate their nearest Ward Captain.
-    *   *Hyper-Localised Bulk SMS:* Dispatching customised **Kiswahili** messages to consented supporters within specific wards on the eve of market days and on election morning for Get-Out-The-Vote (GOTV) mobilisation. Bulk political SMS is restricted to English or Kiswahili (Section 5.2.3.3); the Kikamba version travels by voice note and radio.
+    *   *Hyper-Localised Bulk SMS:* Dispatching customised **Kiswahili** messages to consented supporters within specific wards on the eve of market days and on election morning for Get-Out-The-Vote (GOTV) mobilisation. Bulk political SMS is restricted to English or Kiswahili (Section 4.5.9); the Kikamba version travels by voice note and radio.
 
 #### Mobile-Money (M-Pesa) Agent Network Strategy
-*   **Reach:** nationally there are 602,470 registered agents (March 2026, Tier 1, Section 2.6).
-*   **What the campaign would run** (campaign-owned, outside this engagement, Section 5.1.3):
-    *   M-Pesa agents are trusted community hubs where residents deposit funds, buy airtime, and discuss local news. **Agent networks are regulated financial infrastructure**; Section 5.2.3.3 flags that any commercial arrangement with them must be reviewed by campaign counsel before recruitment begins. The ambassador network is untiered and needs a source.
+*   **Reach:** nationally there are 602,470 registered agents (March 2026, Tier 1, Section 2.9.1).
+*   **What the campaign would run** (campaign-owned, outside this engagement, Section 1.4.3):
+    *   M-Pesa agents are trusted community hubs where residents deposit funds, buy airtime, and discuss local news. **Agent networks are regulated financial infrastructure**; Section 4.5.9 flags that any commercial arrangement with them must be reviewed by campaign counsel before recruitment begins. The ambassador network is untiered and needs a source.
     *   The campaign will recruit 800+ shopkeepers and M-Pesa agents as "Economic Ambassadors," providing them with branded business ledgers, counter pens, calendar posters, and daily economic talking points.
 
 #### Open-Air Market Day Barazas & Caravan Circuits
@@ -535,11 +535,11 @@ The election will be won or lost across the **447,007 registered voters not reac
     *   *Thursdays:* Chuluni (Kitui East), Kyuso (Mwingi North).
     *   *Fridays:* Kisasi (Kitui Rural), Migwani (Mwingi West).
     *   *Saturdays:* Kitui Town Central Market, Mwingi Town Main Market.
-*   **What the campaign would run** (campaign-owned, outside this engagement, Section 5.1.3): Deploying two high-output mobile sound trucks (*The Mulu Economic Caravans*) equipped with live PA systems, Kikamba music, and local youth speakers to dominate market entrances on their designated days.
+*   **What the campaign would run** (campaign-owned, outside this engagement, Section 1.4.3): Deploying two high-output mobile sound trucks (*The Mulu Economic Caravans*) equipped with live PA systems, Kikamba music, and local youth speakers to dominate market entrances on their designated days.
 
 #### Church Fellowships & Clergy Engagement
 *   **Reach:** denominations present: Catholic, AIC, Redeemed Gospel, Anglican and Baptist. The Catholic Diocese of Kitui alone counts over 240,000 baptised members (Tier 3), a floor for one denomination rather than attendance.
-*   **What the campaign would run** (campaign-owned, outside this engagement, Section 5.1.3): Sunday morning worship visits across all 8 constituencies, respecting liturgical decorum, requesting pastoral prayers, and engaging parish development committees post-service.
+*   **What the campaign would run** (campaign-owned, outside this engagement, Section 1.4.3): Sunday morning worship visits across all 8 constituencies, respecting liturgical decorum, requesting pastoral prayers, and engaging parish development committees post-service.
 
 ## 2.10 His record and his channels today
 
@@ -556,9 +556,9 @@ id: fig-2-8-record
 | Asset | Sourced Empirical Evidence | Strategic Digital Application |
 |---|---|---|
 | Macroeconomic Leadership | PhD (Economics) (Tier 1); Budget and Appropriations Committee membership (Tier 1; any leadership role to be confirmed from the National Assembly's committee records) | Weekly "Dr. Mulu on Public Finance" explainer series |
-| **Monitoring & Evaluation Expertise** | Certified Consultant in Project Management & M&E (Tier 1); Member, Evaluation Society of Kenya (ESK) (Tier 1); **Designated M&E Champion by the Ministry of Finance** (Tier 1; the issuing letter or notice is to be cited) | Launch of the interactive service-delivery tracker (Section 5.2.1.1) |
+| **Monitoring & Evaluation Expertise** | Certified Consultant in Project Management & M&E (Tier 1); Member, Evaluation Society of Kenya (ESK) (Tier 1); **Designated M&E Champion by the Ministry of Finance** (Tier 1; the issuing letter or notice is to be cited) | Launch of the interactive service-delivery tracker (Section 4.5.1) |
 | International Executive Standing | United Nations — Project Management and Financial Advisory Roles (Tier 1) | Professional and diaspora network engagement and credibility |
-| Legislative Delivery Record | KSh 47 million in educational bursaries allocated directly to 12,573 constituents (Tier 1); **Kitui Central certified as the best-evaluated constituency in the Eastern region, FY2014/15** (ranking first out of 71 constituencies in its national peer group) (Tier 1; the evaluating body's report is to be cited, see Section 4.1.1) | Micro-targeted, ward-level visual proof points |
+| Legislative Delivery Record | KSh 47 million in educational bursaries allocated directly to 12,573 constituents (Tier 1); **Kitui Central certified as the best-evaluated constituency in the Eastern region, FY2014/15** (ranking first out of 71 constituencies in its national peer group) (Tier 1; the evaluating body's report is to be cited, see Section 3.1.1) | Micro-targeted, ward-level visual proof points |
 | Administrative Longevity | 17 years in active political leadership, 13 years as Member of Parliament for Kitui Central (Tier 1); Commander of the Order of the Burning Spear (CBS) (Tier 1; the Kenya Gazette notice of the award is to be cited) | Steady, low-risk leadership framing contrasted with less-experienced candidates |
 | Existing Web Footprint | Active, established Kitui Central NG-CDF digital portal (Tier 1) | Integration and leveraging of existing assets to avoid duplicated effort |
 
@@ -576,14 +576,14 @@ id: fig-2-9-channels
 
 **The NG-CDF site is the most under-used asset in this list.** It is a public, constituency-run
 record of completed projects, and Pillar 1 exists to put exactly that record in front of voters who
-have never heard of him. Note the boundary in Section 5.7.6: the **project record** is usable;
+have never heard of him. Note the boundary in Section 5.3.2: the **project record** is usable;
 the **beneficiary personal data** behind it is not.
 
 ### 2.10.3 What his current presence shows
 
 These come from the profile as displayed, and finding them took an afternoon. They are findings here
 because a brief written over a profile that contradicts the parliamentary record inherits the
-contradiction. The corrections are strategy, and are in Section 4.7.
+contradiction. The corrections are strategy, and are in Section 4.2.3.
 
 ```figure
 id: fig-3-9-audit
@@ -598,7 +598,7 @@ Four figures and a two-page note. Not a report.
 *   **Ninety days, coded** — every day in the window, coloured by content pillar, sized by reach.
 *   **Which language travels** — engagement rate by post language.
 *   **Him against the field** — posts per week, median shares per post, and ads live, for him and
-    the two nomination rivals named in Section 3.5.
+    the two nomination rivals named in Section 2.6.
 
 Each is drawn from the Week 1 export, never from an estimate: until the export lands, the figure
 states that it is set in Week 1.
@@ -617,7 +617,7 @@ id: fig-3-10-gaps
 
 ---
 
-Three segment sizes in Section 4.3 are not published by any official source: the agro-pastoral, the formal-sector and the diaspora voter counts. Section 4.3 gives the census context for each; none is estimated, and each stays unsized until an official source publishes it.
+Three segment sizes in Section 3.4 are not published by any official source: the agro-pastoral, the formal-sector and the diaspora voter counts. Section 3.4 gives the census context for each; none is estimated, and each stays unsized until an official source publishes it.
 
 ## 2.12 The diagnosis, and the evidence that could overturn it
 
@@ -627,8 +627,8 @@ the most addressable kind of gap, through targeted digital output and SMS/USSD o
 is built to close it.
 
 **What supports it.** 51.7% of the register lives in the four constituencies where he has never
-held office (Section 3.4). Five of the twelve largest wards are among them (Section 3.4). Two
-constituencies, Kitui East and Kitui South, will not carry party flow (Section 3.6).
+held office (Section 2.7). Five of the twelve largest wards are among them (Section 2.7). Two
+constituencies, Kitui East and Kitui South, will not carry party flow (Section 2.7.2).
 
 **What counts against it.** Dr. Kasalu won the 2022 Woman Representative race with
 **201,899 votes**, more than the **198,004** that won the governorship the same year (Section 2.2).
@@ -637,7 +637,7 @@ profile of a candidate leading on passive name recognition alone.
 
 **The test.** Week 1 tests the hypothesis against Dr. Mulu's own channel data before anything is
 committed against it. If his reach is already landing in Mwingi and failing to convert, the
-problem is message rather than reach, and the response changes: Section 4.8 sets out, in advance,
+problem is message rather than reach, and the response changes: Section 3.8 sets out, in advance,
 what each finding changes. That test is not a formality; it is the first deliverable.
 
 ```figure

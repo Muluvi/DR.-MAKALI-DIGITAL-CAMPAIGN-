@@ -2,7 +2,7 @@ How progress is measured, how the Week 1 presence audit is run, and how the work
 
 ## 5.1 The indicators
 
-Every indicator here is one Firefly can observe on his own channels or on the SMS list it operates. Section 1.5 states the principle; this section states the measures.
+Every indicator here is one Firefly can observe on his own channels or on the SMS list it operates. Section 1.9 states the principle; this section states the measures.
 
 ```figure
 id: fig-5-6-kpis
@@ -29,7 +29,7 @@ id: ge-scorecard
 
 **Followers are not the target. Being known in Mwingi is.**
 
-Section 5.6.7 already rejects vanity metrics. These five indicators say what replaces them. Every
+Section 5.1.3 already rejects vanity metrics. These five indicators say what replaces them. Every
 one is measured where Dr. Mulu is least known, and every one is read from his own channels or from
 Firefly's dispatch logs.
 
@@ -39,11 +39,11 @@ Firefly's dispatch logs.
 | **R-02** | Share of total reach landing in the {{pool}}-voter deficit pool | Meta city breakdown mapped to sub-county, weekly | Set in Week 1 | ≥ {{pool.share}}%, the pool's own share of the register |
 | **R-03** | Shares per 1,000 reached, deficit wards only | Post-level export, weekly | Set in Week 1 | Set against the measured Week 1 figure, as a stated point gain |
 | **R-04** | Consented contacts in the 21 wards of the deficit pool, and their share of the list | Firefly's own dispatch logs | 0 | Deficit-ward share of the list ≥ deficit-ward share of the register |
-| **R-05** | Kikamba-first share of weekly output, and its engagement on reach | Post coding, weekly (Section 5.3.5) | Set in Week 1 | ≥ 4 of 7 weekly posts Kikamba-first (Section 4.5.5) |
+| **R-05** | Kikamba-first share of weekly output, and its engagement on reach | Post coding, weekly (Section 5.2.4) | Set in Week 1 | ≥ 4 of 7 weekly posts Kikamba-first (Section 3.7) |
 
 **R-02 is the indicator this engagement lives or dies on.** It is the only one fully inside the
 direction layer's control, it moves weekly, and it is the direct test of the recognition thesis in
-Section 3.11. If reach share in the deficit pool does not rise, the briefs are wrong and the monthly
+Section 2.12. If reach share in the deficit pool does not rise, the briefs are wrong and the monthly
 review says so.
 
 **Excluded, and named so the exclusion is visible:** total followers, impressions, post likes, video
@@ -56,7 +56,7 @@ post can usefully do.
 The campaign strictly excludes vanity metrics from all executive dashboards, reporting meetings, and vendor performance contracts based on the following empirical realities:
 
 *   **Offline Reality:** {{ict.offline}}% of Kitui's residents are offline (CA/KNBS 2023/24, Tier 1). Optimizing for digital likes misallocates effort away from village barazas and market PA caravans.
-*   **Geographic Skew:** Political content from Eastern Kenya draws a large share of its social media interaction from non-resident users in Nairobi, Mombasa and abroad, who are not registered to vote in Kitui's 40 wards. **Evidence required:** an earlier draft of this section put that share at "over 60%", which no source in this proposal supports. The figure is withdrawn rather than restated; the ward-level split is obtainable from the campaign's own platform analytics in Week 1 (Section 5.3) and should replace this sentence once measured. The argument does not depend on the precise number.
+*   **Geographic Skew:** Political content from Eastern Kenya draws a large share of its social media interaction from non-resident users in Nairobi, Mombasa and abroad, who are not registered to vote in Kitui's 40 wards. **Evidence required:** an earlier draft of this section put that share at "over 60%", which no source in this proposal supports. The figure is withdrawn rather than restated; the ward-level split is obtainable from the campaign's own platform analytics in Week 1 (Section 4.2.1) and should replace this sentence once measured. The argument does not depend on the precise number.
 *   **Zero Correlation to Turnout:** A viral video does not transport an elderly voter in Ikutha or Nguni to their polling stream on election morning. Physical voter pledge collection, verified 2G SMS connectivity, and trained polling day agents directly generate counted votes.
 
 ### 5.1.4 Performance governance and executive escalation
@@ -64,7 +64,7 @@ The campaign strictly excludes vanity metrics from all executive dashboards, rep
 To ensure accountability across all divisions, the KPI framework is embedded in a rigid governance rhythm:
 
 1.  **Weekly Monday KPI Standup (08:00 EAT):** Executive review of all Tier 1 metrics (NW-01 through NW-04 or GE-01 through GE-05). Any metric lagging behind target by $>10\%$ triggers a mandatory **Red Flag Action Plan** within 24 hours.
-2.  **Monthly Reallocation Trigger:** If voter pledge recruitment (GE-01) lags in any sub-county for two consecutive cycles, the Campaign Manager shifts a fifth of that sub-county's communications weight from digital and creative output to ground sound-truck caravans, on the Section 4.6 weighting model.
+2.  **Monthly Reallocation Trigger:** If voter pledge recruitment (GE-01) lags in any sub-county for two consecutive cycles, the Campaign Manager shifts a fifth of that sub-county's communications weight from digital and creative output to ground sound-truck caravans, on the Section 3.3.2 weighting model.
 3.  **Polling Day Real-Time Conversion Operations (GE-04 & GE-05):** On election day, the War Room monitors voter turnout conversion every hour from 06:00 to 17:00 EAT. Wards reporting $<40\%$ turnout by 12:00 EAT receive immediate boda boda mobilization squad dispatches.
 
 ## 5.2 The presence audit: method
@@ -105,8 +105,8 @@ an operating channel with a record, and that record can be read. What it has nev
 only question that matters in a countywide name-recognition contest: **how much of this reach lands
 where he is not yet known?**
 
-Section 3.4 establishes that **{{pool}} registered voters — {{pool.share}}% of the county register** — sit
-where he has never held office. Section 3.8 establishes that in-county digital reach has a
+Section 2.7 establishes that **{{pool}} registered voters — {{pool.share}}% of the county register** — sit
+where he has never held office. Section 2.9.3 establishes that in-county digital reach has a
 ceiling of about {{reach.smartphone}} voters. Put together, those two figures make one measurement decisive:
 the share of existing reach that lands inside the deficit pool. Nothing in the public record answers
 it. The Week 1 audit does.
@@ -122,24 +122,24 @@ it. The Week 1 audit does.
     to a third pass; the inter-coder agreement rate is reported alongside the findings. A coding
     exercise that does not report its own agreement rate is an opinion.
 5.  **Competitive baseline.** The same public post-level coding for Dr. Kasalu and Sen. Wambua,
-    the two nomination rivals in Section 3.5. Public posts only.
+    the two nomination rivals in Section 2.6. Public posts only.
 6.  **Ad libraries** for all three.
-7.  **Overlay.** Reach-by-city onto the twelve decisive wards in Section 3.2 and the
-    {{pool}}-voter deficit pool in Section 3.4.
+7.  **Overlay.** Reach-by-city onto the twelve decisive wards in Section 2.3 and the
+    {{pool}}-voter deficit pool in Section 2.7.
 8.  **Aggregate only.** No named commenter lists, no export of individual profiles, no retention of
-    personal data. Counts and shares. The audit is scoped in the Section 5.7.9 memorandum before it
+    personal data. Counts and shares. The audit is scoped in the Section 5.3.4 memorandum before it
     begins, on the same terms as every other processing activity in this engagement.
 
 ### 5.2.5 What this section is not
 
-It is not an appraisal of the people doing the work. Section 5.9.6 sets out how the team is assessed
+It is not an appraisal of the people doing the work. Section 4.6.6 sets out how the team is assessed
 and upskilled, and that assessment is done with them in the room. This section reads the output, not
 the operators — and the distinction is kept deliberately, because a measurement exercise that
 doubles as a performance review will be resisted, and rightly.
 
 ### 5.2.6 Testing the hypothesis on existing records
 
-Political strategy without empirical measurement risks misallocating scarce campaign effort. To eliminate speculative assumptions, the campaign implements a two-part data architecture: **Section 5.6.5** sets out how the recognition-deficit hypothesis is tested on existing records, while **Section 5.6.6** operationalizes a public service-delivery tracker that bridges campaign credibility with day-one governance.
+Political strategy without empirical measurement risks misallocating scarce campaign effort. To eliminate speculative assumptions, the campaign implements a two-part data architecture: **Section 5.2.6** sets out how the recognition-deficit hypothesis is tested on existing records, while **Section 4.5.1** operationalizes a public service-delivery tracker that bridges campaign credibility with day-one governance.
 
 ```figure
 id: research-and-tracker
@@ -161,7 +161,7 @@ reinforces Dr. Mulu's brand as a trustworthy, accountable leader.
 
 **Important framing: this section describes the campaign's intended standard
 and control environment. It is not a legal opinion, and nothing here asserts
-that any specific processing is already lawful. Section 5.7.9 establishes the
+that any specific processing is already lawful. Section 5.3.4 establishes the
 gate that answers that question properly.**
 
 **Who the controller is, channel by channel.** This engagement splits the answer, and the split
@@ -171,36 +171,36 @@ notification and liability all follow controllership rather than convenience:
 | Channel | Operated by | Controller position to be confirmed |
 |---|---|---|
 | Owned social accounts | Your team | The campaign. Firefly holds no credentials and processes only aggregate analytics. |
-| SMS, USSD and WhatsApp Business API | **Firefly** | Firefly is a controller, or a joint controller with the campaign — **not a processor acting on instructions.** Confirmed in the Section 5.7.9 scope memorandum. |
+| SMS, USSD and WhatsApp Business API | **Firefly** | Firefly is a controller, or a joint controller with the campaign — **not a processor acting on instructions.** Confirmed in the Section 5.3.4 scope memorandum. |
 | Supporter CRM and voter model | Firefly, on the campaign's behalf | The campaign as controller, Firefly as processor, under a written processing agreement. |
 
 **NG-CDF and bursary beneficiary lists are off-limits for campaign contact.** ODPC's 2025 public
 sector guidance note bars the reuse of personal data collected through public programmes for
 **political mobilisation** without explicit, separate consent (Tier 1, ODPC). The campaign holds
-exactly such a dataset — the bursary record covering the {{record.bursary.recipients}} students in Section 4.1.1 — and it
+exactly such a dataset — the bursary record covering the {{record.bursary.recipients}} students in Section 3.1.1 — and it
 is the most tempting list in the county.
 
 **It is not used.** Not for SMS, not for WhatsApp, not for matching, not for lookalike targeting.
 The **project record** remains fully usable as a proof point, because a completed classroom is not
-personal data; the **people** in that record are not a contact list. Section 6.1 lists access to
+personal data; the **people** in that record are not a contact list. Section 1.7 lists access to
 the project record for exactly that reason, and it should not be read as access to the beneficiaries.
 
 **The electoral guidance note applies on top of the general Act.** ODPC's *Guidance Note on
 Processing Personal Data for Electoral Purposes* governs anyone handling voter or party-member
 data, and the Data Protection Commissioner restated the consent standard publicly in **August
 2026**, specifically noting that parties are expanding supporter databases (Tier 1 / Tier 2). The
-Section 5.7.9 reviewer should be pointed at both documents by name.
+Section 5.3.4 reviewer should be pointed at both documents by name.
 
 **Inherited lists are not used until their consent is evidenced.** Any SMS or WhatsApp contacts
 already held by the existing team arrive with unknown opt-in provenance. The rule this engagement
 operates under, stated before anyone asks: **a contact whose consent cannot be evidenced is not
-messaged**, and no inherited list is merged into the consented list in Section 5.2.3.3 until its
-origin is documented. This is the same standard Section 5.7.6 applies to purchased databases, and
+messaged**, and no inherited list is merged into the consented list in Section 4.5.9 until its
+origin is documented. This is the same standard Section 5.3.2 applies to purchased databases, and
 it applies to friendly sources for the same reason.
 
-**The presence audit processes personal data too.** The Section 5.3 audit touches data subjects
+**The presence audit processes personal data too.** The Section 4.2.1 audit touches data subjects
 through commenter counts and demographic breakdowns. It is low-risk and aggregate — counts and
-shares, no named lists, no profile exports — but it sits inside the Section 5.7.9 scope
+shares, no named lists, no profile exports — but it sits inside the Section 5.3.4 scope
 memorandum rather than outside it, on the same terms as every other processing activity here.
 
 ### 5.3.2 The regulatory environment and compliance measures
@@ -227,7 +227,7 @@ accountability. The campaign will not.
 | Collection | Voters informed of use; consent obtained | Clear privacy notice at every collection point — website, USSD, baraza sign-up sheet, WhatsApp opt-in |
 | Storage | Data secured | Encrypted storage, role-based access control, access logging, periodic review |
 | Sharing | No sharing without consent | No third-party transfer; no sale under any circumstance |
-| Retention | Not kept indefinitely | Published deletion schedule (16.4) |
+| Retention | Not kept indefinitely | Published deletion schedule (16.4 [CHECK REF]) |
 | Communication | Opt-outs respected | One-touch opt-out on every message; honoured immediately and permanently |
 | Accuracy | Correction rights honoured | Documented request route with response SLA |
 | Misinformation | No false content | Fact-check protocol; pre-approval of sensitive claims |
@@ -241,7 +241,7 @@ id: dpa-compliance
 ```
 
 ##### Mandatory Compliance Safeguards:
-1.  **Ban on Commercial Database Ingestion:** The campaign strictly forbids purchasing or scraping phone directories, bank lists, student registers, or church rosters. Ingesting non-consented bulk phone numbers is a direct violation of Section 5.2.1.4 of the DPA 2019.
+1.  **Ban on Commercial Database Ingestion:** The campaign strictly forbids purchasing or scraping phone directories, bank lists, student registers, or church rosters. Ingesting non-consented bulk phone numbers is a direct violation of Section 5.2.1.4 [CHECK REF] of the DPA 2019.
 2.  **Automated Opt-Out Processing:** Any inbound SMS containing "STOP", "SIMAMA", "ONDOKA", or "CANCEL" is automatically processed by a webhook within 15 seconds, toggling `opt_out_status = True` and permanently halting outbound SMS transmissions.
 3.  **Data Protection Officer (DPO):** The Campaign Secretariat will formally designate a certified Legal & Data Protection Officer to supervise all database access logs, consent registries, and vendor contracts.
 
@@ -340,7 +340,7 @@ data-protection or electoral-law specialist must review and sign off the
 specific proposed processing in writing.**
 
 **This proposal does not assert that the micro-targeting programme described in
-Section 5.2.4.2 is legally clear. It may not be.** The questions below are genuinely
+Section 4.5.12 is legally clear. It may not be.** The questions below are genuinely
 open, are questions of Kenyan law and regulatory interpretation, and are for
 the campaign's counsel to answer — not for a communications consultancy to
 assume:
@@ -368,7 +368,7 @@ at public events?
 
 **Until step 4 is complete, the campaign operates on first-party consented data
 and aggregate ward-level statistics only.** This fallback is carried at every
-engagement level (Section 5.2.4.2), so the campaign loses no time waiting and
+engagement level (Section 4.5.12), so the campaign loses no time waiting and
 carries no exposure if the answer is restrictive.
 
 ### 5.3.5 Statutory compliance, IEBC clearance and liability
@@ -403,14 +403,14 @@ id: liability-matrix
 > **Current Status:** Two ODPC documents are now identified by name and should be put in front of
 > the reviewer directly: the ***Guidance Note on Processing Personal Data for Electoral Purposes***
 > and the ***Guidance Note for the Public Sector (2025)***, the second of which bars reuse of
-> public-programme data for political mobilisation (Section 5.7.6). What remains unretrieved is
+> public-programme data for political mobilisation (Section 5.3.2). What remains unretrieved is
 > any circular issued after these. Separately, the **CA/NCIC political bulk-messaging guidelines**
-> are now applied in full at Section 5.2.3.3: English or Kiswahili only, and 48-hour advance lodging
+> are now applied in full at Section 4.5.9: English or Kiswahili only, and 48-hour advance lodging
 > with the operator.
 >
-> **Mandatory Action:** Prior to any mass SMS/USSD broadcasting — which Firefly operates, and for which Firefly is a controller or joint controller (Section 5.7.5) — the Campaign Legal Director MUST:
+> **Mandatory Action:** Prior to any mass SMS/USSD broadcasting — which Firefly operates, and for which Firefly is a controller or joint controller (Section 5.3.1) — the Campaign Legal Director MUST:
 > 1. Conduct a formal legal review with the ODPC registry to obtain the latest gazetted political campaigning guidelines and advisory notes.
-> 2. Formally register the campaign entity as a **Data Controller / Data Processor** with the ODPC if aggregate supporter records exceed statutory thresholds (Section 5.2.4.1 & Section 5.8.13).
+> 2. Formally register the campaign entity as a **Data Controller / Data Processor** with the ODPC if aggregate supporter records exceed statutory thresholds (Section 4.5.11 & Section 5.3.5).
 > 3. Verify compliance of telecommunication aggregator contracts (Safaricom / Airtel bulk SMS gateways) with the latest ODPC direct marketing codes.
 
 

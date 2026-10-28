@@ -1,12 +1,12 @@
 /**
- * Section 5.2, the workstreams: three process figures that replace the last ASCII diagrams in the
+ * Section 4.5, the workstreams: three process figures that replace the last ASCII diagrams in the
  * content (brief §D.4). Not in the §N register; built on the same frame so they keep its table,
  * CSV and print behaviour.
  */
 import type { FigureSpec } from "../types.ts";
 import { fmt } from "./_util.ts";
 
-const PROPOSAL = { name: "This proposal, Section 5.2", tier: null, state: "target" as const };
+const PROPOSAL = { name: "This proposal, Section 4.5", tier: null, state: "target" as const };
 
 const REPORT = [
   ["Report submitted", "By USSD, SMS, WhatsApp, the web form, or in person through a ward champion."],
@@ -33,7 +33,7 @@ export const FIG_TRACKER_FLOW: FigureSpec = {
 const LOOP = [
   { lane: "Field", title: "Canvass", body: "A ward champion canvasses a household: four options, under thirty seconds." },
   { lane: "Digital", title: "Log the contact", body: "Opted in, reached without opt-in, asked not to be contacted, or no one home, synced when signal returns. Never how anyone will vote." },
-  { lane: "Digital", title: "Update the lists", body: "Contactability updates the SMS and routing lists (Section 5.2.4.2)." },
+  { lane: "Digital", title: "Update the lists", body: "Contactability updates the SMS and routing lists (Section 4.5.12)." },
   { lane: "Digital", title: "Re-segment within 24 hours", body: "Ad audiences and SMS lists; households that asked not to be contacted are removed." },
   { lane: "Field", title: "Route the highest-value doors", body: "Warm leads go to the champion's phone as priority doors, with the issue each household engaged with." },
 ];
@@ -53,7 +53,7 @@ export const FIG_FIELD_LOOP: FigureSpec = {
 const MENU = [
   { n: 1, label: "Sisemo sya Mulu", shown: "Mulu's plan for my ward", issue: "His plan, ward by ward." },
   { n: 2, label: "Andikithya kuvota", shown: "Voter registration info", issue: "Where and how to register." },
-  { n: 3, label: "Ripoti wia", shown: "Report a local issue", issue: "Opens a report in the service-delivery tracker (Section 5.2.1.1): the option that matters most." },
+  { n: 3, label: "Ripoti wia", shown: "Report a local issue", issue: "Opens a report in the service-delivery tracker (Section 4.5.1): the option that matters most." },
   { n: 4, label: "Kuthukuma", shown: "Volunteer", issue: "Joins the volunteer list." },
   { n: 5, label: "Kwithukiisya", shown: "Get updates (opt-in)", issue: "Consent to the SMS list." },
   { n: 6, label: "Kiswahili / English", shown: "Language", issue: "Switches the menu language." },
@@ -68,8 +68,8 @@ export const FIG_USSD_MENU: FigureSpec = {
   sources: [PROPOSAL],
   chart: { type: "mock", header: "KITUI NA MULU · the campaign shortcode", fields: MENU },
   notes: [
-    "Menu labels in Kikamba are pending the Kikamba reviewer's sign-off (Section 5.9.3).",
-    "The Section 5.7.8 charter requires a data opt-out the voter can reach from the menu; its position is set when the shortcode is provisioned.",
+    "Menu labels in Kikamba are pending the Kikamba reviewer's sign-off (Section 4.6.3).",
+    "The Section 5.3.3 charter requires a data opt-out the voter can reach from the menu; its position is set when the shortcode is provisioned.",
   ],
   columns: [{ key: "n", label: "Option", numeric: true }, { key: "kikamba", label: "Kikamba" }, { key: "english", label: "English" }, { key: "does", label: "What it does" }],
   rows: MENU.map((m) => ({ cells: { n: m.n, kikamba: m.label, english: m.shown, does: m.issue } })),
@@ -77,20 +77,20 @@ export const FIG_USSD_MENU: FigureSpec = {
 
 /* ------------------------------------------------------------------ fig-5-2-4-stack */
 
-/** Section 5.2.4.3's five components, one row each, every fact kept (brief §12). */
+/** Section 4.5.13's five components, one row each, every fact kept (brief §12 [CHECK REF]). */
 const STACK: [string, string, string, string, string, string][] = [
   [
     "1. SMS / USSD gateway",
     "Africa's Talking API Suite, or Safaricom Direct Enterprise SDP Gateway",
-    "The offline engine (Section 5.2.3.3): opt-in bulk 2G SMS to registered voters across 40 wards, the zero-rated USSD menu (*[shortcode]#), and inbound field reports from the campaign-owned ward network (Section 5.1.3)",
+    "The offline engine (Section 4.5.9): opt-in bulk 2G SMS to registered voters across 40 wards, the zero-rated USSD menu (*[shortcode]#), and inbound field reports from the campaign-owned ward network (Section 1.4.3)",
     "Phone numbers (MSISDN), ward tags, USSD menu responses, delivery-receipt timestamps, opt-out logs",
-    "HIGH: direct personal data (Section 5.2.3.4). Opt-in confirmation logs, STOP processed within 15 seconds, signed data processing agreements with the aggregator",
+    "HIGH: direct personal data (Section 5.2.3.4 [CHECK REF]). Opt-in confirmation logs, STOP processed within 15 seconds, signed data processing agreements with the aggregator",
     "Vendor: Africa's Talking or Safaricom SDP Enterprise",
   ],
   [
     "2. Supporter CRM and voter database",
     "Custom PostgreSQL with a Hasura / Directus admin UI, or a CiviCRM instance",
-    "The single source of truth for supporters (Section 5.2.4.1): profiles, 40-ward linkages, demographic classes, volunteer skills, delegate tracking, contact history",
+    "The single source of truth for supporters (Section 4.5.11): profiles, 40-ward linkages, demographic classes, volunteer skills, delegate tracking, contact history",
     "Encrypted names, phone numbers (AES-256), constituency, ward and polling-station IDs, gender, age cohort, livelihood, consent timestamps, interaction logs",
     "CRITICAL: the core store of personal data. Row-level security, MFA for every operator, role-based access, daily encrypted off-site backups, audit log of every query",
     "Architecture: custom PostgreSQL or open-source CiviCRM",
@@ -100,7 +100,7 @@ const STACK: [string, string, string, string, string, string][] = [
     "Buffer / Hootsuite Enterprise to publish; Brand24 / Talkwalker to listen",
     "Scheduling across Facebook, X, Instagram, TikTok and YouTube; 24/7 monitoring of Kamba and national political keywords (\"Dr. Makali Mulu\", \"Kitui Governor 2027\", \"Kitui Central CDF\", \"Wiper Primaries\", \"Kalonzo Musyoka\"), flagging rumours, attacks and local issues in real time",
     "Public posts, comments, engagement metrics, sentiment scores, influencer handles, public reach",
-    "LOW TO MODERATE: public posts and aggregated sentiment only; compliant with Section 5.2.3.4 provided no profile is scraped or merged into voter records without consent",
+    "LOW TO MODERATE: public posts and aggregated sentiment only; compliant with Section 4.5.10 provided no profile is scraped or merged into voter records without consent",
     "The software subscription",
   ],
   [
@@ -127,7 +127,7 @@ export const FIG_STACK: FigureSpec = {
   title: "Five components, and the personal data concentrates in the first two",
   question: "What does each component of the stack do, hold and risk?",
   takeaway: "The gateway and the CRM carry the high and critical data-protection exposure; the other three work on public or anonymised data, and every one awaits a campaign decision.",
-  sources: [{ name: "This proposal, Section 5.2.4.3", tier: null, state: "target" }],
+  sources: [{ name: "This proposal, Section 4.5.13", tier: null, state: "target" }],
   chart: {
     type: "cards",
     columns: 2,

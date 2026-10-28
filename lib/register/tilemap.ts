@@ -133,7 +133,7 @@ export const LAYERS: Record<TileLayerId, TileLayer> = {
     id: "effort",
     name: "Where the effort goes in Phase −1",
     description: "Share of Phase −1 communications effort by zone: Firefly's weighting, not a measurement. The remainder rotates across wards as testing effort, and Kitui Rural is covered only by it.",
-    source: "This proposal, Section 4.2",
+    source: "This proposal, Section 3.3.1",
     tier: null,
     state: "target",
     legend: [

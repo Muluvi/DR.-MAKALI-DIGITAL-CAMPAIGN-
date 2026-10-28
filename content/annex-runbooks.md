@@ -33,7 +33,7 @@ id: holding-positions
 | **Meta Ad Library** | Competitor ad spend, creative and targeting estimates |
 | **Google Ads Transparency Centre** | Competitor search advertising |
 | Custom BI dashboard | Centralised real-time metrics |
-| **Radio monitoring** | Kamba-language station tracking (Section 5.2.2.2) — critical, as most attacks on Dr. Mulu will originate on air, not online |
+| **Radio monitoring** | Kamba-language station tracking (Section 4.5.6) — critical, as most attacks on Dr. Mulu will originate on air, not online |
 
 ## E.5 Rapid-response protocol and pre-approved message library
 
@@ -48,7 +48,7 @@ To execute rapid containment without awaiting ad-hoc legal drafting, a pre-appro
 * Kikamba, Kiswahili and English versions of key messages
 * Template statements for policy positions issued in response to attack
 * Fact-check cards linking to verified sources
-* **Deepfake first-response templates** (Section 5.8.7)
+* **Deepfake first-response templates** (Section 6.3.1)
 
 ## E.6 Red-team drills
 
@@ -68,8 +68,8 @@ or when. The drill runs in real time against the Section E.5 clock.
 |---|---|---|
 | 1 | Fabricated audio of Dr. Mulu making an inflammatory statement, seeded on WhatsApp | Deepfake protocol; 30-minute Level 3 clock |
 | 2 | Coordinated hashtag attack on his NG-CDF record | Fact-base readiness; rebuttal library |
-| 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval (Section 5.7.8) |
-| 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 5.2.2.2) |
+| 3 | Claim that the campaign sent unsolicited SMS | Consent audit trail retrieval (Section 5.3.3) |
+| 4 | Hostile radio segment on a station associated with a rival | Radio response pathway (Section 4.5.6) |
 | 5 | Ward champion's account compromised; false messages sent to a ward group | Incident response (Section E.10) |
 | 7 | Manufactured "grassroots" campaign attacking a rival, falsely attributed to Dr. Mulu | Charter defence; provenance evidence |
 
@@ -163,4 +163,4 @@ The competitive intelligence workflow produces two operational outputs:
 | Google Ads Transparency Centre | Competitor search advertising and keywords |
 | Social listening (premium tier) | Mentions, supporter sentiment, emerging narratives |
 | X lists | Curated rival, surrogate and influencer accounts |
-| **Radio monitoring** | Kamba-station coverage and airtime share (Section 5.2.2.2) |
+| **Radio monitoring** | Kamba-station coverage and airtime share (Section 4.5.6) |

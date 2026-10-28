@@ -210,7 +210,7 @@ export function AudienceSegmentationMatrix() {
               <p className="t-small text-muted mt-2 flex items-start gap-1.5">
                 <AlertTriangle size={11} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
                 <span>
-                  <strong>Named data gap (§5.3).</strong> {active.sizing.note} Commissioning this is a Phase −1
+                  <strong>Named data gap (§4.2.1).</strong> {active.sizing.note} Commissioning this is a Phase −1
                   research priority; it is not sized here because it is not sized in the source.
                 </span>
               </p>

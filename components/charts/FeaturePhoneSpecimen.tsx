@@ -184,7 +184,7 @@ export function FeaturePhoneSpecimen() {
         </h4>
         <p className="t-small text-muted leading-relaxed mt-1.5">
           USSD works on every phone, needs no internet, and costs the voter almost nothing. This is
-          §5.2.3.3&rsquo;s menu on a 2G handset, and §5.2.3.3&rsquo;s message beside it.
+          §4.5.9&rsquo;s menu on a 2G handset, and §4.5.9&rsquo;s message beside it.
         </p>
 
         {/* Language, scoped to this widget. The rest of the document stays in English. */}
@@ -252,7 +252,7 @@ export function FeaturePhoneSpecimen() {
               ))}
             </ol>
             <p className="t-micro text-muted mt-2 leading-snug">
-              §5.2.3.3, quoted. The shortcode is a vendor allocation the campaign has not made yet.
+              §4.5.9, quoted. The shortcode is a vendor allocation the campaign has not made yet.
             </p>
           </div>
         </div>
@@ -301,7 +301,7 @@ export function FeaturePhoneSpecimen() {
                   ))}
                 </ol>
                 <p className="t-micro text-muted mt-2.5 leading-snug">
-                  §8.5 places those appointments in Phase −1. Showing invented vernacular here
+                  §8.5 [CHECK REF] places those appointments in Phase −1. Showing invented vernacular here
                   would be the claim-versus-delivery gap this proposal argues against.
                 </p>
               </div>
@@ -316,7 +316,7 @@ export function FeaturePhoneSpecimen() {
                 </div>
                 <p className="t-micro text-muted mt-2 leading-snug">
                   <span className="font-bold text-ink">{specimen.structure}.</span> {specimen.frequency}.
-                  §5.2.3.3 sets the 160-character limit; it is a billing boundary, not a style rule.
+                  §4.5.9 sets the 160-character limit; it is a billing boundary, not a style rule.
                 </p>
               </>
             )}
