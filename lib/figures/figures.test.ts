@@ -4,7 +4,7 @@
  *     node --experimental-strip-types --test lib/figures/figures.test.ts
  *     npm run test:figures
  *
- * WHY THESE ASSERTIONS EXIST. §3.4 states around forty derived figures — the top twelve wards, the
+ * WHY THESE ASSERTIONS EXIST. §2.7 states around forty derived figures — the top twelve wards, the
  * deficit pool, four coalition paths, ballots at 61.7% — and every one is a sum or a subtraction
  * over the same forty ward numbers. Stated as prose they can drift apart, and this audit found
  * that they have. A failing assertion here is therefore NOT permission to edit the content: hard
@@ -39,7 +39,7 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..")
 const register = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "ward-register.json"), "utf8"));
 const CONS = register.constituencies;
 
-/** Share of the county register, to two places — the precision §3.4 prints. */
+/** Share of the county register, to two places — the precision §2.7 prints. */
 const share = (n: number) => Number(((n / countyTotal(CONS)) * 100).toFixed(2));
 
 /* ------------------------------------------------------------------ the register itself */
@@ -64,7 +64,7 @@ test("the prison voters are carried separately and not folded into the ward regi
   assert.equal(register.countyTotalWards + register.prisonVoters, register.countyTotalWithPrisons);
 });
 
-/* ------------------------------------------------------------------ concentration (§3.4.2) */
+/* ------------------------------------------------------------------ concentration (§3.4.2 [CHECK REF]) */
 
 test("the top 12 wards hold 201,267 voters — 37.78% of the register", () => {
   assert.equal(topWards(CONS, 12), 201_267);
@@ -89,7 +89,7 @@ test("the ward ranking is stable where two wards share a figure", () => {
   assert.deepEqual(rankWards(CONS).map((w) => w.name), rankWards(CONS).map((w) => w.name));
 });
 
-/* ------------------------------------------------------------------ the blocs (§3.3.3, §3.4) */
+/* ------------------------------------------------------------------ the blocs (§3.3.3 [CHECK REF], §2.7) */
 
 test("the Mwingi bloc holds 200,198 registered voters", () => {
   assert.equal(blocTotal(CONS, ["Mwingi North", "Mwingi West", "Mwingi Central"]), 200_198);
@@ -117,7 +117,7 @@ test("the deficit wards number 21, not the 24 the mandate directs effort into (C
   const names = ["Mwingi North", "Mwingi West", "Mwingi Central", "Kitui South"];
   const wards = CONS.filter((c: { name: string }) => names.includes(c.name))
     .reduce((n: number, c: { wards: unknown[] }) => n + c.wards.length, 0);
-  // CONFLICT C-7. §3.4 sends 70% of SMS/USSD onboarding and 240 of 400 ward captains into
+  // CONFLICT C-7. §2.7 sends 70% of SMS/USSD onboarding and 240 of 400 ward captains into
   // "these 24 northern and southern deficit wards", while the 275,570 pool it quotes excludes
   // Kitui East entirely. 15 Mwingi wards + 6 Kitui South wards is 21.
   assert.equal(wards, 21);
@@ -130,17 +130,17 @@ test("Ikanga/Kyatune ranks 11th, so the summary line's 'top 8' is wrong (C-5)", 
   assert.equal(rankOf("Tseikuru"), 5);
   assert.equal(rankOf("Mumoni"), 7);
   assert.equal(rankOf("Athi"), 8);
-  // CONFLICT C-5. The §3.4 prose says "2 of the top 11", which matches. The summary table
+  // CONFLICT C-5. The §2.7 prose says "2 of the top 11", which matches. The summary table
   // says "5 of top 8 wards", which cannot be true of a ward ranked 11th.
   assert.equal(rankOf("Ikanga/Kyatune"), 11);
 });
 
-test("the retired §3.4 cross-match was right: 5 of the top 11 deficit wards hold 83,496", () => {
+test("the retired §2.7 cross-match was right: 5 of the top 11 deficit wards hold 83,496", () => {
   /**
    * The block's own closing claim, which is the version that survives contact with the register.
    *
-   * Three statements of one overlap exist — the §3.4 prose ("3 of the top 7", "2 of the top
-   * 11"), this block ("5 of the Top 11 … 83,496 Voters") and the §3.10 summary ("5 of top 8").
+   * Three statements of one overlap exist — the §2.7 prose ("3 of the top 7", "2 of the top
+   * 11"), this block ("5 of the Top 11 … 83,496 Voters") and the §2.11 summary ("5 of top 8").
    * The first two agree with each other and with the register; only the third does not. Pinning
    * the block's arithmetic is what authorised retiring it, and it keeps 83,496 — a figure that now
    * lives only as a computation — asserted in the document's own notation.
@@ -158,13 +158,13 @@ test("the retired §3.4 cross-match was right: 5 of the top 11 deficit wards hol
   );
   assert.equal(top11.reduce((n, w) => n + w.voters, 0).toLocaleString("en-KE"), "83,496");
 
-  // And the same five, windowed at 8 as §3.10 windows them, are four — which is the conflict.
+  // And the same five, windowed at 8 as §2.11 windows them, are four — which is the conflict.
   const top8 = inTop(8);
   assert.equal(top8.length, 4, "C-5: the summary's 'top 8' window holds four of the five");
   assert.equal(top8.reduce((n, w) => n + w.voters, 0).toLocaleString("en-KE"), "68,112");
 });
 
-test("every line of the retired §3.10 summary is what the register says", () => {
+test("every line of the retired §2.11 summary is what the register says", () => {
   /**
    * The eight findings of the STRATEGIC TARGETING SUMMARY banner, in its own notation.
    *
@@ -199,7 +199,7 @@ test("every line of the retired §3.10 summary is what the register says", () =>
   assert.equal(((pool / total) * 100).toFixed(2), "51.73");
 });
 
-/* ------------------------------------------------------------------ the four paths (§3.4.3) */
+/* ------------------------------------------------------------------ the four paths (§3.4.3 [CHECK REF]) */
 
 test("the four coalition paths total 200,198 / 212,183 / 201,267 / 191,811", () => {
   assert.equal(blocTotal(CONS, ["Mwingi North", "Mwingi West", "Mwingi Central"]), 200_198);
@@ -219,12 +219,12 @@ test("Path D cannot reach the threshold on its register at all", () => {
   const pathD = blocTotal(CONS, ["Kitui Central", "Kitui West", "Kitui Rural"]);
   assert.equal(pathD, 191_811);
   assert.equal(200_000 - pathD, 8_189);
-  // And on ballots the gap is not close: §3.4.3's "more than 100,000 votes short".
+  // And on ballots the gap is not close: §3.4.3 [CHECK REF]'s "more than 100,000 votes short".
   assert.equal(ballotsAt(pathD, 0.617), 118_347);
   assert.ok(200_000 - Math.round(ballotsAt(pathD, 0.617) * 0.8) > 100_000);
 });
 
-/* ------------------------------------------------------------------ constituency power (§3.4.4) */
+/* ------------------------------------------------------------------ constituency power (§3.4.4 [CHECK REF]) */
 
 test('the "Big 4" hold 296,196 voters — 55.60% across 22 wards', () => {
   const big4 = blocTotal(CONS, ["Kitui Central", "Kitui South", "Mwingi Central", "Mwingi North"]);
@@ -236,7 +236,7 @@ test('the "Big 4" hold 296,196 voters — 55.60% across 22 wards', () => {
   assert.equal(wards, 22);
 });
 
-test("every constituency's share and average ward size are what §3.4.4 printed", () => {
+test("every constituency's share and average ward size are what §3.4.4 [CHECK REF] printed", () => {
   /**
    * The rows of the CONSTITUENCY STRUCTURAL POWER RANKING table, as that table printed them.
    *
@@ -278,7 +278,7 @@ test("every constituency's share and average ward size are what §3.4.4 printed"
   });
 });
 
-/* ------------------------------------------------------------------ turnout and threshold (§3.4.1) */
+/* ------------------------------------------------------------------ turnout and threshold (§3.4.1 [CHECK REF]) */
 
 test("the county casts about 328,712 ballots at the certified 61.7% turnout", () => {
   assert.equal(ballotsAt(countyTotal(CONS), 0.617), 328_712);
@@ -301,7 +301,7 @@ test("the like-for-like threshold on the 2026 register is about 225,000", () => 
   assert.equal(Math.round((605_703 * 198_004) / 532_758), 225_115);
 });
 
-/* ------------------------------------------------------------------ reach (§3.6) */
+/* ------------------------------------------------------------------ reach (§2.7.2) */
 
 test("the three reach segments sum to the reported 2026 register", () => {
   const reach = JSON.parse(
@@ -333,16 +333,16 @@ test("13.6% of the 2019 census population is 143,340 internet users", () => {
   assert.equal(Number(((143_340 / 1_053_991) * 100).toFixed(1)), 13.6);
 });
 
-/* ------------------------------------------------------------------ the KPI scorecards (§11) */
+/* ------------------------------------------------------------------ the KPI scorecards (§11 [CHECK REF]) */
 
-test("§1.5's stage summaries agree with the scorecards they summarise (D-14)", () => {
+test("§1.9's stage summaries agree with the scorecards they summarise (D-14)", () => {
   /**
    * The assertion that would have caught the bug this test was written for.
    *
    * data/kpis.ts held the stage-1 headline targets twice: once inside NOMINATION_KPIS, where they
    * were right, and once in STAGE_1_TARGETS, a hand-typed summary feeding KpiArchitecture, where
    * "≥ 70.0%" had become ">65%" and "Branch Executive" had become "Delegate". The site rendered
-   * a target five points below the one §5.6.1 and §1.5 both state.
+   * a target five points below the one §5.1.1 and §1.9 both state.
    *
    * Read as TEXT rather than imported, for this file's usual reason: data/kpis.ts imports a
    * component type, which plain Node cannot resolve. Asserting the two lists against each other in
@@ -352,7 +352,7 @@ test("§1.5's stage summaries agree with the scorecards they summarise (D-14)", 
   const stage1 = kpis.slice(kpis.indexOf("export const STAGE_1_TARGETS"), kpis.indexOf("export const STAGE_2_TARGETS"));
   const stage2 = kpis.slice(kpis.indexOf("export const STAGE_2_TARGETS"));
 
-  // Each headline figure, exactly as §5.6.1 and §5.6.2 print it.
+  // Each headline figure, exactly as §5.1.1 and §5.1.1 print it.
   assert.match(stage1, /Reach Share in the Deficit Pool \(≥ 51\.7%\)/, "NW-01");
   assert.match(stage1, /Consented Contacts in the Pool \(≥ 51\.7%\)/, "NW-03");
   assert.match(stage1, /Branch Executive Endorsement Pledges \(8\/8\)/, "NW-04 — branch executive, not delegate");
@@ -374,7 +374,7 @@ test("§1.5's stage summaries agree with the scorecards they summarise (D-14)", 
 
 test("no nomination baseline is drawn as a measured zero", () => {
   /**
-   * §5.6.1 says "Not yet measured (Week 1)" for NW-01 to NW-03 and "Confirm w/ party" for NW-04.
+   * §5.1.1 says "Not yet measured (Week 1)" for NW-01 to NW-03 and "Confirm w/ party" for NW-04.
    * The brief forbids filling an empty data state with an estimate, and drawing an unmeasured
    * quantity at zero reports it as measured at nil — a different and false claim. This pins the
    * three kinds so a later edit cannot quietly turn an absence into a number.
@@ -389,13 +389,13 @@ test("no nomination baseline is drawn as a measured zero", () => {
   assert.equal((nomination.match(/kind: "measured"/g) ?? []).length, 0, "nothing in stage 1 is measured yet");
 });
 
-/* ------------------------------------------------------------------ the language map (§7.3) */
+/* ------------------------------------------------------------------ the language map (§7.3 [CHECK REF]) */
 
-test("§7.3's three language reach shares sum to 100%", () => {
+test("§7.3 [CHECK REF]'s three language reach shares sum to 100%", () => {
   /**
    * They are stated without a citation and they are a map rather than a measurement, so the only
    * check that means anything is internal consistency — and it holds. Pinned because the retired
-   * §7.3 banner and the retired §4.4.8 matrix both printed them and neither is in the markdown now.
+   * §7.3 [CHECK REF] banner and the retired §3.6.1 matrix both printed them and neither is in the markdown now.
    */
   const SHARES = [
     ["Kikamba", 76],
@@ -405,11 +405,11 @@ test("§7.3's three language reach shares sum to 100%", () => {
   assert.equal(SHARES.reduce((n, [, v]) => n + v, 0), 100);
 });
 
-test("every row of §4.4.11's deployment matrix allocates exactly 100%", () => {
+test("every row of §3.6.1's deployment matrix allocates exactly 100%", () => {
   /**
    * The matrix's own claim, which the figure that replaced it draws as seven separate wholes.
    *
-   * Written out here in §4.4.11's notation rather than imported, for the reason in this file's
+   * Written out here in §3.6.1's notation rather than imported, for the reason in this file's
    * header: lib/figures/language.ts is bundler-resolved and this test runs under plain Node. The
    * rows are the ones the retirement declaration lists, so a drift between them fails here.
    */
@@ -427,16 +427,16 @@ test("every row of §4.4.11's deployment matrix allocates exactly 100%", () => {
   }
 
   // C-21, stated as an assertion: the bulk SMS rail allocates Kikamba nothing, which is what
-  // §5.2.3.3 requires and what §4.4.8's channel list — "2G Bulk SMS & USSD" under Kikamba —
+  // §4.5.9 requires and what §3.6.1's channel list — "2G Bulk SMS & USSD" under Kikamba —
   // contradicts. If a Kikamba share ever appears on this row, the conflict has been resolved one
   // way and this test should be the thing that says so.
   const sms = ROWS.find(([m]) => m === "Direct 2G bulk SMS")?.[1] ?? [];
   assert.deepEqual(sms, [80, 20], "80% Kiswahili and 20% English — no Kikamba on the SMS rail");
 });
 
-/* ------------------------------------------------------------------ channel reach (§3.6) */
+/* ------------------------------------------------------------------ channel reach (§2.7.2) */
 
-test("every platform band's share of the register is what §2.6 printed, except the one C-18 flags", () => {
+test("every platform band's share of the register is what §2.9.1 printed, except the one C-18 flags", () => {
   /**
    * The DIGITAL PLATFORM IN-COUNTY SIZING MATRIX, as that matrix printed it.
    *
@@ -460,7 +460,7 @@ test("every platform band's share of the register is what §2.6 printed, except 
     "X (Twitter)                |  8,000 | 12,000 |  1.5% |  2.3%",
   ];
 
-  /** headcount → [what §2.6 printed, what the register says]. C-18. */
+  /** headcount → [what §2.9.1 printed, what the register says]. C-18. */
   const EXPECTED_MISMATCH: Record<string, [printed: number, computed: number]> = {
     "TikTok:low": [6.5, 6.6],
   };
@@ -481,7 +481,7 @@ test("every platform band's share of the register is what §2.6 printed, except 
 
       if (mismatch) {
         // Assert the disagreement itself, both halves of it, so neither side can drift.
-        assert.equal(num(printed), mismatch[0], `§2.6 no longer prints ${mismatch[0]}% — has C-18 been resolved?`);
+        assert.equal(num(printed), mismatch[0], `§2.9.1 no longer prints ${mismatch[0]}% — has C-18 been resolved?`);
         assert.equal(computed, mismatch[1], `${figure} ÷ ${total} is no longer ${mismatch[1]}% — C-18`);
         assert.notEqual(computed, num(printed), `${name} ${end} end agrees now — retire C-18`);
         found.push(`${name}:${end}`);
@@ -500,7 +500,7 @@ test("every platform band's share of the register is what §2.6 printed, except 
 test("the same 35,000 is printed as two different shares in adjacent rows (C-18)", () => {
   /**
    * The conflict stated as one line, independent of the table above: TikTok's low end and YouTube's
-   * high end are the same headcount against the same denominator, and §2.6 gives two answers.
+   * high end are the same headcount against the same denominator, and §2.9.1 gives two answers.
    *
    * It checks `reach.ts` as TEXT rather than importing it, for the reason in this file's header:
    * that module binds to the register through `./register.ts`, which plain Node cannot load. The
@@ -513,7 +513,7 @@ test("the same 35,000 is printed as two different shares in adjacent rows (C-18)
   const reach = fs.readFileSync(path.join(ROOT, "lib", "figures", "reach.ts"), "utf8");
   const tikTokRow = reach.match(/^\s*\["TikTok",.*$/m)?.[0] ?? "";
 
-  assert.match(tikTokRow, /35_000, 45_000/, "the TikTok band still starts at the 35,000 §2.6 states");
+  assert.match(tikTokRow, /35_000, 45_000/, "the TikTok band still starts at the 35,000 §2.9.1 states");
   assert.match(tikTokRow, /"C-18"\]/, "the TikTok band still carries the Under review flag");
   assert.equal(
     reach.match(/^\s*\["[^"]+",.*"C-18"\],$/gm)?.length,
@@ -522,7 +522,7 @@ test("the same 35,000 is printed as two different shares in adjacent rows (C-18)
   );
 });
 
-test("every offline channel's share of the register is what §3.8.1 printed", () => {
+test("every offline channel's share of the register is what §2.9.4 printed", () => {
   const ROWS = [
     "Kikamba vernacular radio | 420,000 | 78.8%",
     "Church and synod networks| 350,000 | 65.7%",
@@ -549,7 +549,7 @@ test("every offline channel's share of the register is what §3.8.1 printed", ()
   assert.ok(sum > total * 3, "summed, the offline channels claim more than three times the register");
 });
 
-test("the §3.6.3 rebalance is a reallocation: both columns sum to 100%", () => {
+test("the §3.6.3 [CHECK REF] rebalance is a reallocation: both columns sum to 100%", () => {
   const FROM = [45, 20, 10, 15, 10];
   const TO = [18, 37, 20, 18, 7];
   assert.equal(FROM.reduce((a, b) => a + b, 0), 100);
@@ -560,13 +560,13 @@ test("the §3.6.3 rebalance is a reallocation: both columns sum to 100%", () => 
 });
 
 test("the digital ceiling is 36.2% of the threshold, and the shortfall 125,549", () => {
-  // §3.6 states both. The figure computes the shortfall rather than transcribing it.
+  // §2.7.2 states both. The figure computes the shortfall rather than transcribing it.
   assert.equal(198_004 - 72_000, 125_549 + 455, "the document's 125,549 is against a different base");
   assert.equal(Number(((72_000 / 198_004) * 100).toFixed(1)), 36.4);
   assert.equal(Number(((72_000 / 200_000) * 100).toFixed(1)), 36.0);
 });
 
-/* ------------------------------------------------------------------ zones (§3.5) */
+/* ------------------------------------------------------------------ zones (§2.6) */
 
 test("the three zone populations sum to 895,766 — 78.8% of 1,136,187", () => {
   assert.equal(223_970 + 255_795 + 416_001, 895_766);

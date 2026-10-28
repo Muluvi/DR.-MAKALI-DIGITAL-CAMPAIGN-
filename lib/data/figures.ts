@@ -144,14 +144,14 @@ sourced("result.2022.mp.mulu", 30_954, "votes", "T1", IEBC_35B, {
 sourced("result.2022.mp.musambi", 9_866, "votes", "T1", IEBC_35B, { note: "Boniface Musambi, second in Kitui Central, 2022." });
 
 // ---- the benchmark and the arithmetic (Section 3.1)
-target("benchmark", 200_000, "votes", "The single working benchmark: the 2022 winning tally, 198,004, rounded. Stated once in Section 3.1 and reused everywhere (consistency fix 3).");
+target("benchmark", 200_000, "votes", "The single working benchmark: the 2022 winning tally, 198,004, rounded. Stated once in Section 2.1 and reused everywhere (consistency fix 3).");
 modelled("benchmark.share-2022", pct(v("result.2022.gov.malombe"), v("register.2022")), "percent", "198,004 / 532,758: the 2022 winner's share of the register.");
 modelled("benchmark.2026-equivalent", Math.round((v("result.2022.gov.malombe") / v("register.2022")) * v("register.2026")), "votes", "The 2022 winner's share of the register applied to the July 2026 register. A ratio carried forward, not a forecast.");
 modelled("benchmark.2026-equivalent.rounded", Math.round(v("benchmark.2026-equivalent") / 5000) * 5000, "votes", "The 2026 equivalent, rounded to the nearest 5,000 for prose.");
 modelled("benchmark.2026-equivalent.share", pct(v("result.2022.gov.malombe"), v("register.2022")), "percent", "The share carried forward: 198,004 / 532,758.");
 target("turnout.constant", v("turnout.2022"), "percent", "The turnout rate used in every calculation: the certified 2022 county rate carried forward to 2027. An assumption about 2027, not a measurement of it; the scenario model brackets it at 55–72%.", { decimals: 1 });
 const TURNOUT = v("turnout.constant") / 100;
-modelled("turnout.rate", TURNOUT, "percent", "The turnout rate as a multiplier, for the working shown in Section 3.3.", { decimals: 3 });
+modelled("turnout.rate", TURNOUT, "percent", "The turnout rate as a multiplier, for the working shown in Section 2.4.", { decimals: 3 });
 modelled("ballots.2022", Math.round(v("register.2022") * TURNOUT), "votes", "2022 register × the turnout rate (the certified 2022 rate, carried forward).");
 modelled("ballots.2026", Math.round(v("register.2026") * TURNOUT), "votes", "July 2026 register × the 2022 turnout rate, carried forward.");
 modelled("benchmark.share-of-ballots.2026", pct(v("benchmark"), v("register.2026") * TURNOUT), "percent", "200,000 / ballots at the 2022 turnout rate on the July 2026 register.");
@@ -343,7 +343,7 @@ target("target.contact-universe.lean", 60_000, "count", "Realistic Phase 3 conta
 target("target.contact-universe.standard", 150_000, "count", "Realistic Phase 3 contact universe at Level 2.", { source: T_FIREFLY });
 target("target.contact-universe.premium", 250_000, "count", "Realistic Phase 3 contact universe at Level 3.", { source: T_FIREFLY });
 target("target.content.first", 100, "count", "Pieces of content approved and scheduled in Phase 0.", { source: T_FIREFLY });
-target("target.captains", 400, "count", "Ward captains, 10 per ward: a campaign-owned recommendation (Section 5.1.3).", { source: T_CAMPAIGN });
+target("target.captains", 400, "count", "Ward captains, 10 per ward: a campaign-owned recommendation (Section 1.4.3).", { source: T_CAMPAIGN });
 target("target.captains.pool", 240, "count", "Of the 400 captains, those recommended for the pool's wards: campaign-owned.", { source: T_CAMPAIGN });
 target("target.ambassadors", 800, "count", "M-Pesa 'Economic Ambassadors': a campaign-owned recommendation.", { source: T_CAMPAIGN });
 target("target.stage-champions", 1_200, "count", "Boda-boda Stage Champions, 30 per ward: a campaign-owned recommendation.", { source: T_CAMPAIGN });

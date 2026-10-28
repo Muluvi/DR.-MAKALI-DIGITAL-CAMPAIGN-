@@ -1,41 +1,37 @@
 {
-  "delivery-sec-5-3-2": {
+  "measurement-sec-5-2-2": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "strategy-sec-4-8": {
+  "strategy-sec-3-8": {
     "kind": "none",
     "note": "The decision table this drew is now fig-4-8-decision-rules, placed in the section; a second drawing of the same rules would repeat it."
   },
-  "strategy-sec-4-4-9": {
+  "strategy-sec-3-6-2": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "workstreams-platforms-sec-5-2-1-2": {
+  "workstreams-platforms-sec-4-5-2": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "workstreams-platforms-sec-5-2-1-4": {
+  "workstreams-platforms-sec-4-5-4": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "delivery-sec-5-7-8": {
+  "measurement-sec-5-3-3": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "delivery-sec-5-9-6": {
+  "staffing-sec-4-6-6": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "strategy-sec-4-6-1": {
+  "strategy-sec-3-3-3": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "strategy-sec-4-3-3": {
-    "kind": "none",
-    "note": "The segment's size is [DATA NEEDED] (Section 3.10.1). The donut this carried drew the removed estimate, and a figure of an unsourced share would be the estimate by another route."
-  },
-  "delivery-sec-5-3-7": {
+  "delivery-sec-4-2-2": {
     "kind": "none",
     "note": "2026 premium pass: this was a stats rail of step counts (3, 4, 5); with quantitative derivation retired it fell back to a list of bare week labels with no content. No honest visual; the section's own list carries it."
   }

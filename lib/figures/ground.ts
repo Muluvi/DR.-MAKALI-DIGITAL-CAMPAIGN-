@@ -1,5 +1,5 @@
 /**
- * §5.2.3.1 — the loop between what the field hears and what the campaign says back.
+ * §4.5.7 — the loop between what the field hears and what the campaign says back.
  *
  * WHAT THESE REPLACE. Five box-drawing blocks: a closed-loop engine diagram, a ward-coordinator
  * reporting protocol, a four-hour timeline, an empty banner, and an operating rhythm the size of a
@@ -12,13 +12,13 @@
  * stage rather than a label beside it.
  *
  * ONE NUMBER IN IT IS WORTH READING TWICE. The T+04:00 row pushes bulk SMS to "14,000 consented
- * voters in Tseikuru/Kyuso" — consented, at a moment when §5.6's KPI ladder is still building
- * towards 120,000 by Phase 3. It is transcribed as stated; whether the list exists yet is §5.6's
+ * voters in Tseikuru/Kyuso" — consented, at a moment when §5.1's KPI ladder is still building
+ * towards 120,000 by Phase 3. It is transcribed as stated; whether the list exists yet is §5.1's
  * question, not this figure's.
  */
 import type { FigureSeries } from "./types";
 
-/* ------------------------------------------------------------------ §5.2.3.1 the loop */
+/* ------------------------------------------------------------------ §4.5.7 the loop */
 
 export const FIELD_LOOP_TIERS = [
   {
@@ -61,7 +61,7 @@ export const FIELD_LOOP_TIERS = [
 export const FIELD_LOOP: FigureSeries = {
   id: "field-loop",
   headline: "What a ward coordinator hears at 18:00 can be answered on air the next morning",
-  measure: "§5.2.3.1's closed-loop field and digital integration engine",
+  measure: "§4.5.7's closed-loop field and digital integration engine",
   points: [],
   note:
     "It is a loop, not a funnel: the inbound pipeline feeds the war room, the war room feeds the " +
@@ -69,7 +69,7 @@ export const FIELD_LOOP: FigureSeries = {
     "intelligence. The ASCII drew that with arrows; the order and this line carry it instead.",
 };
 
-/* ------------------------------------------------------------------ §5.2.3.1 what they report */
+/* ------------------------------------------------------------------ §4.5.7 what they report */
 
 export const FIELD_REPORTS: string[][] = [
   [
@@ -101,7 +101,7 @@ export const FIELD_REPORTS: string[][] = [
 export const FIELD_REPORTS_SERIES: FigureSeries = {
   id: "field-reports",
   headline: "Four report types, one of which has a thirty-minute clock on it",
-  measure: "§5.2.3.1's ward coordinator field reporting protocol — type, frequency, channel and fields captured",
+  measure: "§4.5.7's ward coordinator field reporting protocol — type, frequency, channel and fields captured",
   points: [],
   note:
     "The Critical Threat Flash is the only one with a deadline measured in minutes, and the only " +
@@ -109,7 +109,7 @@ export const FIELD_REPORTS_SERIES: FigureSeries = {
     "weekly, and every one names the fields it captures.",
 };
 
-/* ------------------------------------------------------------------ §5.2.3.1 the four-hour cycle */
+/* ------------------------------------------------------------------ §4.5.7 the four-hour cycle */
 
 export const FOUR_HOUR_CYCLE = [
   {
@@ -148,15 +148,15 @@ export const FOUR_HOUR_CYCLE = [
 export const CYCLE_SERIES: FigureSeries = {
   id: "four-hour-cycle",
   headline: "A rumour logged by USSD is answered in three languages across four channels inside four hours",
-  measure: "§5.2.3.1's ground-to-digital cycle, on the clock",
+  measure: "§4.5.7's ground-to-digital cycle, on the clock",
   points: [],
   note:
     "The clock is the claim, so it runs down the margin rather than sitting in a caption. The " +
     "SMS step names 14,000 consented voters in Tseikuru and Kyuso; it is transcribed as stated, " +
-    "and whether that list exists yet is §5.6's KPI ladder to answer, not this figure's.",
+    "and whether that list exists yet is §5.1's KPI ladder to answer, not this figure's.",
 };
 
-/* ------------------------------------------------------------------ §5.2.3.1 the operating rhythm */
+/* ------------------------------------------------------------------ §4.5.7 the operating rhythm */
 
 export const OPERATING_RHYTHM: string[][] = [
   [
@@ -176,7 +176,7 @@ export const OPERATING_RHYTHM: string[][] = [
   [
     "Weekly · Monday 09:00–11:30",
     "Strategic command war room",
-    "Review the week's KPI dashboard (Section 5.6.8), approve the weekly radio and digital ad spend, set the tour route",
+    "Review the week's KPI dashboard (Section 5.1.4), approve the weekly radio and digital ad spend, set the tour route",
     "Campaign Manager / Dr. Makali Mulu",
     "Candidate, all departmental directors",
   ],
@@ -213,7 +213,7 @@ export const OPERATING_RHYTHM: string[][] = [
 export const RHYTHM_SERIES: FigureSeries = {
   id: "operating-rhythm",
   headline: "Seven standing forums, and the candidate is named in three of them",
-  measure: "§5.2.3.1's campaign operational rhythm and governance cadence — time, forum, agenda, owner and participants",
+  measure: "§4.5.7's campaign operational rhythm and governance cadence — time, forum, agenda, owner and participants",
   points: [],
   note:
     "The cadence is repeated on every row rather than merged down a column. A merged cell is a " +

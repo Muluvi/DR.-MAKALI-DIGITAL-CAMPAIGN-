@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useEffect, useRef, useId } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Search, ChevronRight, Layers, Compass, Map, MessageSquare, Megaphone, Shield, Database, Target, Gauge, FileText, BookLock, ClipboardList, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck } from "lucide-react";
+import { X, Search, ChevronRight, Layers, Compass, MessageSquare, Megaphone, Shield, Database, Gauge, FileText, BookLock, ClipboardList, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck, Users, TriangleAlert, FileCog } from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
 import { FLOW_ACTS, FLOW_SECTIONS, actOf } from "../lib/flow";
 import { ACT_PORTRAITS, ACT_ROMAN } from "../lib/premium/acts";
@@ -12,23 +12,30 @@ import type { SectionItem } from "../lib/section-index";
 
 const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
   cover: BookLock,
-  objectives: Target,
-  data: Database,
-  analysis: Map,
+  decision: Handshake,
+  evidence: Database,
   strategy: Compass,
-  implementation: ListChecks,
+  delivery: ListChecks,
   "workstreams-platforms": Layers,
   "workstreams-media": Megaphone,
   "workstreams-ground": Radio,
   "workstreams-data": Workflow,
-  delivery: Gauge,
-  nextsteps: Handshake,
+  staffing: Users,
+  measurement: Gauge,
+  risks: TriangleAlert,
   "annex-evidence": ClipboardList,
   "annex-county": FileText,
   "annex-messages": MessageSquare,
   "annex-cadence": CalendarClock,
   "annex-runbooks": ShieldCheck,
   "annex-terms": Shield,
+  "annex-spec": FileCog,
+};
+
+/** An act's label as the argument rail shows it: no leading "The", first word of an "X and Y". */
+const railLabel = (label: string) => {
+  const short = label.replace(/^The /, "").split(" and ")[0];
+  return short.charAt(0).toUpperCase() + short.slice(1);
 };
 
 interface MobileTOCModalProps {
@@ -141,8 +148,8 @@ export function MobileTOCModal({
   if (!isOpen) return null;
 
   const hereAct = actOf(activeTab as TabId).id;
-  /** The five-step argument (the cover spine), in miniature: acts I to V. */
-  const argument = FLOW_ACTS.slice(0, 5);
+  /** The six-part argument (the cover spine), in miniature: acts I to VI. */
+  const argument = FLOW_ACTS.slice(0, 6);
 
   return (
     <AnimatePresence>
@@ -212,12 +219,14 @@ export function MobileTOCModal({
 
               {/* The argument rail from the cover, in miniature. */}
               <nav className="pf-idx__rail" aria-label="The shape of the argument">
-                <ol>
+                <ol data-steps={argument.length}>
                   {argument.map((a, i) => (
                     <li key={a.id}>
                       <button type="button" data-vt-source="" onClick={() => onSelectTab(a.opensOn, onClose)} aria-current={hereAct === a.id ? "step" : undefined}>
                         <span className="pf-idx__railnode" aria-hidden="true">{i + 1}</span>
-                        <span data-vt-title="">{a.label.replace(/^The /, "")}</span>
+                        {/* The cover spine's short form: "The decision" reads "Decision", and
+                            "Measurement and governance" reads "Measurement", so six fit one row. */}
+                        <span data-vt-title="">{railLabel(a.label)}</span>
                       </button>
                     </li>
                   ))}

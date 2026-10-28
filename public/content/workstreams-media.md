@@ -1,88 +1,21 @@
-## 5.2.2 Publishing and earned media
-
-
-Two workstreams: paid media across the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely controlled by rivals.
-
-### 5.2.2.1 Workstream 5 — Platform tactics and paid media
+### 4.5.5 Workstream 5 — Platform tactics and paid media
 
 > **Owner: your team, to a Firefly brief.** Read every platform block below as *what belongs on
 > this channel and why*, not as a list of things Firefly will post. Firefly writes the targeting
 > plan and reads the performance; your team places and publishes. Who holds the ad account is a
-> decision for Dr. Mulu — Section 5.7.3 states the recommendation and marks it open.
+> decision for Dr. Mulu — Section 4.1.3 states the recommendation and marks it open.
+>
+> **Group: Publishing and earned media.** Two workstreams: paid media across the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely controlled by rivals.
 
+*The platform-by-platform playbooks (Facebook, X, WhatsApp, TikTok, Instagram, YouTube and Google Ads) are in Annex G.1.*
 
-##### Facebook
-
-* Daily posts in English, Kiswahili and Kikamba
-* **Weekly Facebook Live town halls** where Dr. Mulu answers constituent
-questions — the highest-value recurring format, because unscripted
-competence is his strongest asset
-* Ward-specific groups moderated by trained local digital champions
-* Targeted ads across the 40 wards and diaspora hubs
-* **Sample ad copy:** *"Kitui County will handle KSh13.79 billion this year. Dr.
-Makali Mulu is an economist and an evaluator — he knows how to allocate it and
-how to prove it was spent. #MuluForKitui"*
-
-##### X
-
-* Policy commentary on national and county budget matters
-* Threads breaking down county issues into shareable explanations
-* Engagement with journalists, analysts and national conversations
-* **Sample thread starter:** *"Kitui County's approved resource envelope for
-2026/27 is KSh13.79 billion, of which KSh1.339 billion is own-source revenue.
-As an economist, here are three things I would change on day one…"*
-
-##### WhatsApp
-
-* Broadcast lists segmented by ward and interest group — **opt-in only**
-* **Kikamba voice notes from Dr. Mulu** — the single highest-trust format
-available to this campaign
-* Shareable cards with key policy points, designed for forwarding
-* Ward-level group admins, trained to the Firefly standard by your team, distributing
-content and reporting sentiment
-* Weekly "Kitui Updates" broadcast in Kikamba and Kiswahili
-* **Forwarding-friendly correction cards** during crisis response
-
-##### TikTok
-
-* Short, energetic videos on youth issues, campaign moments and Kikamba
-cultural content
-* Explainer format: county money made visual and concrete
-* Paid ads targeting Kitui-based users aged 18–35
-* **Sample content:** a 30-second video explaining county revenue allocation
-using common objects — *"Hii pesa ya county inatumika aje? Mchukue mwana
-uchumi aeleze."*
-
-##### Instagram
-
-* Visual storytelling: events, community projects, aspirational imagery
-* Reels and Stories for daily relevance
-* Infographics summarising budget priorities and development plans
-* Question and quiz stickers for younger voters
-
-##### YouTube
-
-* Long-form policy speeches, town halls and documentary-style Kitui stories
-* Search-optimised videos answering "What does the Kitui Governor do?" and
-"Kitui development 2027"
-* **Monthly "Kitui Economic Brief"** reviewing county budget execution
-* **Home for full sign-language-interpreted versions** (Section 5.2.1.4)
-
-##### Google Ads
-
-* Search ads on the candidate's name and related terms
-* Display on Kenyan news sites and local blogs
-* Location targeting to Kitui County and Nairobi diaspora areas
-* **Sample search ad:** *"Dr. Makali Mulu for Kitui Governor | Economist.
-Evaluator. Reformer. | Read the plan for your ward."*
-
----
-
-### 5.2.2.2 Workstream 6 — Earned media, journalists and debates
+### 4.5.6 Workstream 6 — Earned media, journalists and debates
 
 > **Owner: your team and the campaign, to a Firefly brief.** Placement is a relationship business
 > the campaign already has. Firefly supplies the briefing notes, the debate preparation and the
 > evidence pack behind each pitch.
+>
+> **Group: Publishing and earned media.** Two workstreams: paid media across the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely controlled by rivals.
 
 
 *Paid and owned media reach the connected minority. Earned media —
@@ -105,6 +38,8 @@ is politically compromised, and any credible media plan must say so:**
 | **Ene FM** | 90.6 (Kitui) | Makueni-based | Secondary |
 | **Akamba FM** | 103.3 (Kitui) | Independent, launched 2023 | Secondary — newer, may be more accessible |
 | **KBC Mwatu FM** | 93.1 | Public broadcaster | Institutional coverage |
+
+[CONFLICT C7: see open items]
 
 **Strategic implication:** the campaign's radio strategy runs through Musyi,
 County FM and Wikwatyo, treats Athiani as party-sensitive, and treats
@@ -188,12 +123,12 @@ substance fixed, delivery natural.
 | Likely attack | Response structure |
 |---|---|
 | **"He is a national MP, not a county manager"** | Acknowledge the distinction, then reframe: county government's central failure mode is budget execution, which is the one discipline he has done professionally at national scale — and the certification of Kitui Central as best evaluated constituency in the Eastern region is the county-level proof |
-| **"He is from Kitui Central and will favour it"** | Commit to a published, methodology-first allocation formula across all 40 wards, published before allocation and audited after — an economist's answer, and one no rival can match |
+| **"He is from Kitui Central and will favour it"** | Commit to a published, methodology-first allocation formula across all 40 wards, published before allocation and audited after — an economist's answer, and one no rival can match [CONFLICT C6: see open items] |
 | **"Others have been more visible on the ground"** | Do not contest the premise. Reframe visibility as a means, not a qualification: the question is what a leader does with the office, and offer the verification record |
 | **"NG-CDF questions"** | Lead with the documented record — bursary numbers, project list, the Eastern region evaluation certification — and invite scrutiny. **Never defensive; an evaluator welcomes audit.** |
 | **"Too technical / not close to ordinary people"** | Answer in Kikamba, with a household example. The best rebuttal to "too technical" is a demonstration, not a denial |
 | **"Wiper insider / party establishment"** | Point to the independence of his parliamentary record on budget matters |
-| **Manipulated media** | Section 5.8.7 protocol — 30-minute clock |
+| **Manipulated media** | Section 6.3.1 protocol — 30-minute clock |
 | **Unsolicited SMS allegation** | Produce the consent audit trail; cite the published charter; correct publicly within the hour |
 
 #### Earned media KPIs

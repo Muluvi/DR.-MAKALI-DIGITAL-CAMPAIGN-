@@ -1,13 +1,13 @@
 /**
  * The vote arithmetic, as one build-up: register → ballots → the votes that win.
  *
- * This is §3B's spine, and the one place in the document where the visual boldness is meant to be
+ * This is §2B's spine, and the one place in the document where the visual boldness is meant to be
  * spent. Everything here is computed from data/ward-register.json and the published register
  * comparison; nothing is transcribed from the prose, so a figure and the sentence beside it can
  * be compared rather than assumed to agree.
  *
  * TWO REGISTERS, AND THEY ARE NOT INTERCHANGEABLE. The 2022 ward register (532,758) is Tier 1 and
- * every ward figure in §3.4 rests on it. The 2026 register (605,703) is reported at Tier 3 in the
+ * every ward figure in §2.7 rests on it. The 2026 register (605,703) is reported at Tier 3 in the
  * prose — "[VERIFY]", "not used in any calculation below" — and asserted as Tier 1 "confirmed
  * against the IEBC ECVR county annex" by the register panel. That is conflict C-9, and the
  * like-for-like step below inherits it: ≈225,000 is arithmetically sound (605,703 × 37.2%) and
@@ -34,7 +34,7 @@ export const ECVR_NEW_REGISTRATIONS = 61_839;
 /**
  * The remainder between 532,758 + 61,839 and the reported 605,703.
  *
- * Computed rather than typed, because the three numbers are quoted together in §3.4.1 as though
+ * Computed rather than typed, because the three numbers are quoted together in §3.4.1 [CHECK REF] as though
  * they add up and this is the only way to see whether they do. They do: 532,758 + 61,839 + 11,106
  * = 605,703 exactly.
  */
@@ -43,7 +43,7 @@ export const ECVR_REMAINDER = REGISTER_2026_REPORTED - COUNTY_REGISTER - ECVR_NE
 
 /**
  * The 2022 winner's share of the register (37.2%, exactly 198,004 / 532,758) applied to the
- * reported 2026 register — §3.4.1's "[CALC, not a forecast]" like-for-like figure. The exact share
+ * reported 2026 register — §3.4.1 [CHECK REF]'s "[CALC, not a forecast]" like-for-like figure. The exact share
  * is used, not the rounded 37.2%, so this matches benchmark.2026-equivalent and the pipeline.
  */
 export const LIKE_FOR_LIKE_THRESHOLD = Math.round(REGISTER_2026_REPORTED * WINNING_SHARE_2022);
@@ -61,7 +61,7 @@ const officialRegister = {
 /**
  * Step by step, and each step says what kind of number it is.
  *
- * The whole argument of §3B is that a register is not a vote — that 200,198 registered voters in
+ * The whole argument of §2B is that a register is not a vote — that 200,198 registered voters in
  * Mwingi is about 123,500 ballots, and that a bloc bigger than the 2022 winning total still loses
  * on its own. A build-up that drew all four steps identically would lose exactly that distinction,
  * so the turnout step and the threshold step are marked `calculated` and carry their working.
@@ -127,7 +127,7 @@ export const REQUIRED_SHARES = {
 /**
  * The register as it stands in 2026, and what that does to the threshold.
  *
- * §3.4.1 is emphatic that 605,703 is not used in any calculation in that section, and this series
+ * §3.4.1 [CHECK REF] is emphatic that 605,703 is not used in any calculation in that section, and this series
  * is presented separately for that reason rather than folded into the steps above. It carries C-9
  * on both points that rest on the 2026 figure.
  */
@@ -173,7 +173,7 @@ export const LIKE_FOR_LIKE: FigurePoint = {
   kind: "calculated",
   granularity: "county",
   conflicts: ["C-9"],
-  note: "§3.4.1 marks this [CALC, not a forecast]. It inherits the tier of the register it rests on, which the document states two ways.",
+  note: "§3.4.1 [CHECK REF] marks this [CALC, not a forecast]. It inherits the tier of the register it rests on, which the document states two ways.",
 };
 
 /* ------------------------------------------------------------------ series */
@@ -186,7 +186,7 @@ export const THRESHOLD_SERIES: FigureSeries = {
   note:
     `A register is not a vote. Winning takes ${REQUIRED_SHARES.ofBallotsLow.toFixed(1)}–${REQUIRED_SHARES.ofBallotsHigh.toFixed(1)}% of ` +
     `all ballots cast, or ${REQUIRED_SHARES.ofRegisterLow.toFixed(1)}–${REQUIRED_SHARES.ofRegisterHigh.toFixed(1)}% of the whole register. ` +
-    `Every path in §3.4.3 is measured against the last two bars, not the first.`,
+    `Every path in §3.4.3 [CHECK REF] is measured against the last two bars, not the first.`,
 };
 
 export const REGISTER_GROWTH_SERIES: FigureSeries = {
@@ -195,5 +195,5 @@ export const REGISTER_GROWTH_SERIES: FigureSeries = {
   measure: "2022 register, registrations added since, and the like-for-like threshold on the larger base",
   points: [...REGISTER_GROWTH, LIKE_FOR_LIKE],
   conflicts: ["C-9"],
-  note: "§3.4.1 states that 605,703 is not used in any ward calculation. Treat ≈200,000 as a floor rather than a target.",
+  note: "§3.4.1 [CHECK REF] states that 605,703 is not used in any ward calculation. Treat ≈200,000 as a floor rather than a target.",
 };

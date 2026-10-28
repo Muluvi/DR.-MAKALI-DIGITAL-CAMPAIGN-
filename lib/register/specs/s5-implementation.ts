@@ -1,5 +1,5 @@
 /**
- * Section 5, Implementation: who owns what, what each group produces, the first four weeks, the
+ * Section 5 [CHECK REF], Implementation: who owns what, what each group produces, the first four weeks, the
  * phases, the cadence, the measures, the decision path, the risks and the team.
  */
 import { GENERAL_ELECTION_KPIS, NOMINATION_KPIS } from "../../../data/kpis.ts";
@@ -7,7 +7,7 @@ import type { FigureSpec } from "../types.ts";
 import { ELECTION, NOMINATION, TODAY } from "./s1-objectives.ts";
 import { bar, fmt } from "./_util.ts";
 
-const PROPOSAL = { name: "This proposal, Sections 5.1–5.9", tier: null, state: "target" as const };
+const PROPOSAL = { name: "This proposal, Sections 1.4–4.6", tier: null, state: "target" as const };
 
 /* ------------------------------------------------------------------ fig-5-1-workstreams */
 
@@ -32,7 +32,7 @@ const OWNER_LABEL: Record<Owner, string> = { firefly: "Firefly operates", team: 
 
 export const FIG_5_1: FigureSpec = {
   id: "fig-5-1-workstreams",
-  section: "5.1",
+  section: "1.4.2",
   title: "Of the fourteen workstreams, Firefly operates the analysis, the data and the offline layer, and your team keeps publishing",
   question: "Who owns what?",
   takeaway: "Workstream 9, the offline layer, is the one Firefly runs directly and the one the race turns on; two workstreams sit outside the engagement.",
@@ -58,7 +58,7 @@ const GROUPS = [
 
 export const FIG_5_2: FigureSpec = {
   id: "fig-5-2-workstream-panels",
-  section: "5.2",
+  section: "4.5",
   title: "Four groups of work, each with one product, one owner and one rhythm",
   question: "What does each group produce?",
   takeaway: "Most of the output is your team's existing work, now directed; Firefly's own products are the brief, the analysis and the offline dispatch.",
@@ -79,7 +79,7 @@ const WEEKS = [
 
 export const FIG_5_3: FigureSpec = {
   id: "fig-5-3-four-weeks",
-  section: "5.3",
+  section: "4.2.1",
   title: "The first week measures, and nothing is committed against the diagnosis until it has",
   question: "What happens in the first four weeks?",
   takeaway: "Week 1 is the audit; the brief starts in Week 2, weighted to the pool, and the six fixes ship by the end of it.",
@@ -117,7 +117,7 @@ const PHASE_EVENTS = [
 
 export const FIG_5_4: FigureSpec = {
   id: "fig-5-4-phases",
-  section: "5.4",
+  section: "4.3",
   title: "Four phases run to the election, and the nomination phase overlaps the first",
   question: "How does the plan run to August 2027?",
   takeaway: "Phase −1 is aimed at a window reported for late October to November; the three general-election phases follow it to 10 August 2027.",
@@ -146,7 +146,7 @@ export const FIG_5_4: FigureSpec = {
 
 /* ------------------------------------------------------------------ fig-5-4-ladder */
 
-/** The three phases' KPI tables (Sections 5.4.1–5.4.3) as one ladder (brief §12). */
+/** The three phases' KPI tables (Sections 4.3.2–4.3.4) as one ladder (brief §12 [CHECK REF]). */
 const PHASE_LABELS = ["Phase 1 · Oct–Dec 2026", "Phase 2 · Jan–Mar 2027", "Phase 3 · Apr–Aug 2027"];
 const CLIMB: { title: string; ids: [string, string, string] }[] = [
   { title: "Consented SMS contacts", ids: ["target.sms.phase-1b", "target.sms.phase-2", "target.sms"] },
@@ -174,10 +174,10 @@ const PHASE_TARGETS: [string, string, string, string][] = [
 
 export const FIG_5_4_LADDER: FigureSpec = {
   id: "fig-5-4-ladder",
-  section: "5.4",
+  section: "4.3.1",
   title: "Three indicators climb through every phase, and every other target belongs to one phase",
   question: "What does each phase have to deliver?",
-  takeaway: `Consented SMS contacts rise from ${fmt("target.sms.phase-1b")} in Phase 1 to ${fmt("target.sms")} by Phase 3; rows marked ° are operational diagnostics, not performance indicators (Section 5.6.7).`,
+  takeaway: `Consented SMS contacts rise from ${fmt("target.sms.phase-1b")} in Phase 1 to ${fmt("target.sms")} by Phase 3; rows marked ° are operational diagnostics, not performance indicators (Section 5.1.3).`,
   sources: [PROPOSAL],
   chart: {
     type: "composite",
@@ -190,8 +190,8 @@ export const FIG_5_4_LADDER: FigureSpec = {
     ],
   },
   notes: [
-    `° an operational diagnostic: what the team steers ad delivery and creative by, published so the campaign can see what is optimised, and kept out of executive dashboards, reporting meetings and vendor performance contracts. Section 5.6.7 gives the reasons: a ${fmt("ict.offline")}% offline population, diaspora-skewed interaction, and no demonstrated link to turnout.`,
-    `The three climbing indicators, and the contact share of the ~${fmt("benchmark")} threshold, are performance indicators: each traces to the nomination objectives in Section 1.3 or to the benchmark, and performance is judged on the Section 5.6 set.`,
+    `° an operational diagnostic: what the team steers ad delivery and creative by, published so the campaign can see what is optimised, and kept out of executive dashboards, reporting meetings and vendor performance contracts. Section 5.1.3 gives the reasons: a ${fmt("ict.offline")}% offline population, diaspora-skewed interaction, and no demonstrated link to turnout.`,
+    `The three climbing indicators, and the contact share of the ~${fmt("benchmark")} threshold, are performance indicators: each traces to the nomination objectives in Section 1.3 or to the benchmark, and performance is judged on the Section 5.1 set.`,
   ],
   columns: [{ key: "target", label: "Target" }, { key: "p1", label: "Phase 1" }, { key: "p2", label: "Phase 2" }, { key: "p3", label: "Phase 3" }],
   rows: [
@@ -220,7 +220,7 @@ const LEVELS: [string, string, string, string][] = [
 
 export const FIG_5_5: FigureSpec = {
   id: "fig-5-5-cadence",
-  section: "5.5",
+  section: "1.5.2",
   title: "He receives a brief every week and a read every month, and the level sets how deep each goes",
   question: "What does he receive, and how often?",
   takeaway: "Standard, the recommended level, is the one at which all 40 wards carry reach reporting and an active SMS and USSD layer.",
@@ -244,7 +244,7 @@ const baselineText = (k: (typeof KPIS)[number]) => (k.baseline.kind === "measure
 
 export const FIG_5_6: FigureSpec = {
   id: "fig-5-6-kpis",
-  section: "5.6",
+  section: "5.1",
   title: "Nine indicators judge the work, four for the nomination and five for the election, each observable on his own channels or lists",
   question: "How is progress measured?",
   takeaway: "Every indicator is observable on his channels, the SMS list or the field record, and each stays empty until its baseline is taken.",
@@ -264,7 +264,7 @@ export const FIG_5_6: FigureSpec = {
 
 export const FIG_5_7: FigureSpec = {
   id: "fig-5-7-approval",
-  section: "5.7",
+  section: "4.1.3",
   title: "Your team drafts and publishes, one named counterpart approves, and an attack climbs three levels in hours",
   question: "How are decisions made?",
   takeaway: "Firefly approves new claims and Kikamba output and publishes only the offline broadcasts; a Level 3 attack reaches the candidate within thirty minutes.",
@@ -308,7 +308,7 @@ export const FIG_5_7: FigureSpec = {
     { cells: { type: "Attack, Level 2", draft: "Firefly", approve: "Communications Director", publish: "Your team", time: "≤2 hours" } },
     { cells: { type: "Attack, Level 3", draft: "Firefly", approve: "Candidate + senior leadership", publish: "Your team", time: "≤30 minutes" } },
     { cells: { type: "SMS / USSD / WhatsApp broadcast", draft: "Firefly", approve: "Campaign counterpart", publish: "Firefly", time: "24 hours" } },
-    { cells: { type: "Any voter-file-based targeting", draft: "—", approve: "Compliance gate (Section 5.7.9)", publish: "—", time: "Before launch, no exceptions" } },
+    { cells: { type: "Any voter-file-based targeting", draft: "—", approve: "Compliance gate (Section 5.3.4)", publish: "—", time: "Before launch, no exceptions" } },
     { cells: { type: "Paid targeting plan and reallocation within the agreed weighting", draft: "Firefly proposes", approve: "Campaign counterpart", publish: "Your team executes", time: "24 hours" } },
   ],
 };
@@ -316,11 +316,11 @@ export const FIG_5_7: FigureSpec = {
 /* ------------------------------------------------------------------ fig-5-8-risk */
 
 const RISKS: { code: string; label: string; likelihood: 1 | 2 | 3; impact: 1 | 2 | 3; owner: string; why: string; mitigation: string }[] = [
-  { code: "R1", label: "Nomination decided by delegates, not the reported countywide selection", likelihood: 2, impact: 3, owner: "Firefly Director + campaign", why: "The reported selection method is Tier 3 and unconfirmed; the targeting model changes wholesale", mitigation: "Section 5.8.14's delegate whip contingency; Section 2.3.2 names the party documents that would close this" },
-  { code: "R2", label: "The recognition hypothesis is wrong", likelihood: 2, impact: 3, owner: "Head of Research", why: "The deficit may be about perceived distance, not unfamiliarity; the Phase −1 channel mix is built on it", mitigation: "Tested in Week 1 by the presence audit, and against the IEBC ward-level results once in hand, before anything is committed against it (Section 3.11)" },
-  { code: "R3", label: "Data-protection reviewer not appointed in time", likelihood: 2, impact: 2, owner: "Campaign", why: "The long-lead appointment; gates the voter-file work and the mass SMS layer", mitigation: "Section 5.7.9's compliance gate; named as a gating dependency in Section 6.1" },
-  { code: "R4", label: "ODPC guidance prohibits the SMS approach", likelihood: 1, impact: 2, owner: "Campaign Legal Director", why: "The political-campaigning circular could not be retrieved; Workstream 9 is the layer the race turns on", mitigation: "Section 6.2's three mandatory actions, before Phase −1 broadcasting" },
-  { code: "R5", label: "Manipulated-media attack in the nomination window", likelihood: 2, impact: 2, owner: "Digital Director", why: "A compressed window leaves no time to recover", mitigation: "Section 5.8.7's protocol; hardware-key 2FA from day one (Section 5.3)" },
+  { code: "R1", label: "Nomination decided by delegates, not the reported countywide selection", likelihood: 2, impact: 3, owner: "Firefly Director + campaign", why: "The reported selection method is Tier 3 and unconfirmed; the targeting model changes wholesale", mitigation: "Section 6.5's delegate whip contingency; Section 2.5.2 names the party documents that would close this" },
+  { code: "R2", label: "The recognition hypothesis is wrong", likelihood: 2, impact: 3, owner: "Head of Research", why: "The deficit may be about perceived distance, not unfamiliarity; the Phase −1 channel mix is built on it", mitigation: "Tested in Week 1 by the presence audit, and against the IEBC ward-level results once in hand, before anything is committed against it (Section 2.12)" },
+  { code: "R3", label: "Data-protection reviewer not appointed in time", likelihood: 2, impact: 2, owner: "Campaign", why: "The long-lead appointment; gates the voter-file work and the mass SMS layer", mitigation: "Section 5.3.4's compliance gate; named as a gating dependency in Section 1.7" },
+  { code: "R4", label: "ODPC guidance prohibits the SMS approach", likelihood: 1, impact: 2, owner: "Campaign Legal Director", why: "The political-campaigning circular could not be retrieved; Workstream 9 is the layer the race turns on", mitigation: "Section 5.3.6's three mandatory actions, before Phase −1 broadcasting" },
+  { code: "R5", label: "Manipulated-media attack in the nomination window", likelihood: 2, impact: 2, owner: "Digital Director", why: "A compressed window leaves no time to recover", mitigation: "Section 6.3.1's protocol; hardware-key 2FA from day one (Section 4.2.1)" },
   { code: "R6", label: "The brief and the team's judgement disagree", likelihood: 3, impact: 2, owner: "Firefly Director + team lead", why: "It will happen, and should: moderate if handled, severe if suppressed", mitigation: "The brief states intent and the rule, never the caption; overrides are logged and read monthly as data, not as non-compliance" },
 ];
 const LEVEL = ["", "Low", "Medium", "High"];
@@ -328,7 +328,7 @@ const IMPACT = ["", "Moderate", "High", "Severe"];
 
 export const FIG_5_8: FigureSpec = {
   id: "fig-5-8-risk",
-  section: "5.8",
+  section: "6.1",
   title: "Two of the six risks would change the plan rather than damage it, and both are settled by measurement early",
   question: "What could go wrong?",
   takeaway: "R1 closes with the party's 2027 nomination rules, R2 with the Week 1 audit. The incumbent is term-limited under Article 180(7), so the plan is for an open seat.",
@@ -359,7 +359,7 @@ export const FIG_5_8: FigureSpec = {
 
 export const FIG_5_9: FigureSpec = {
   id: "fig-5-9-team",
-  section: "5.9",
+  section: "4.6",
   title: "Firefly adds three people and removes none, with five surge roles each tied to a trigger",
   question: "What shape is the team?",
   takeaway: "The campaign's command structure and his publishing team stay as they are; Firefly reports to one named counterpart and briefs one named lead.",

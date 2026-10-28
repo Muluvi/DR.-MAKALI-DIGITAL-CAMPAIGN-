@@ -43,7 +43,7 @@ export interface UssdOption {
 export const USSD_MENU: UssdOption[] = [
   { key: "1", kikamba: "Sisemo sya Mulu", english: "Mulu's plan for my ward" },
   { key: "2", kikamba: "Andikithya kuvota", english: "Voter registration info" },
-  { key: "3", kikamba: "Ripoti wia", english: "Report a local issue", crossReference: "Section 5.2.1" },
+  { key: "3", kikamba: "Ripoti wia", english: "Report a local issue", crossReference: "Section 4.5" },
   { key: "4", kikamba: "Kuthukuma", english: "Volunteer" },
   { key: "5", kikamba: "Kwithukiisya", english: "Get updates (opt-in)" },
   { key: "6", kikamba: null, english: "Kiswahili / English" },

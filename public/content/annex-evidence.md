@@ -1,7 +1,6 @@
 ANNEX A. The provenance rules every figure in this proposal is held to, the three source tiers, and the protocol for when two sources disagree. Referenced throughout; collected here so the method can be checked without interrupting the argument.
 
 ## A.1 Evidence standard: provenance and source tiers
-
 ### A.1.1 Every figure carries its provenance
 
 To ensure zero "data drift" across the strategic command, every figure cited in memos, ad targeting budgets, field operations, and executive briefings must satisfy the **Tri-Partite Metadata Mandate**:
@@ -39,7 +38,7 @@ id: conflict-protocol
 
 ### A.1.4 The standard applied to our own measurement
 
-The presence audit in Section 5.3 is held to the same rules as every figure in this document.
+The presence audit in Section 4.2.1 is held to the same rules as every figure in this document.
 
 *   **Provenance.** Every number carries its export date, its source system, and whether it came
     from a Page Insights export or a manual public tally. The two are not interchangeable and are
@@ -55,4 +54,3 @@ The presence audit in Section 5.3 is held to the same rules as every figure in t
     Estimated engagement rates and inferred follower geographies are not used.
 *   **Competitive figures** are public-source only, gathered the same way for him and both nomination rivals,
     in the same window.
-

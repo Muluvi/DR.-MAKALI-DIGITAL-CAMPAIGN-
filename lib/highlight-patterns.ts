@@ -31,8 +31,8 @@ export const STATUS_PHRASES: { pattern: string; status: ClaimStatus }[] = [
 // longer appear anywhere in the proposal ("a governance commitment…", "commence Phase −1 Week
 // 1."); they matched nothing and have been removed rather than repointed.
 export const BANNER_TRIGGERS: { pattern: string; tabIds: TabId[] }[] = [
-  { pattern: ws("the reason the campaign's own deepfake denials will be believed\\."), tabIds: ["delivery"] },
-  { pattern: ws("Firefly Management is ready to build that operation\\."), tabIds: ["nextsteps"] },
+  { pattern: ws("the reason the campaign's own deepfake denials will be believed\\."), tabIds: ["risks"] },
+  { pattern: ws("Firefly Management is ready to build that operation\\."), tabIds: ["decision"] },
 ];
 
 // Dictionary of definitions for hover tooltips
@@ -48,8 +48,10 @@ const termsUnion = Object.keys(DEFINITIONS).join("|");
 export const datePatterns = "August 2026|December 2026|April 2027|August 2027|2026/27|KSh 1\\.339bn";
 // In-text cross-references to numbered sections. Every reference in the document is matched;
 // the section-number map resolves each one to the id it lives at today and yields nothing for
-// anything that is not a real section, so a stray figure never becomes a link to nowhere.
-export const crossRefPattern = "Section\\s+\\d+(?:\\.\\d+){1,2}";
+// anything that is not a real section, so a stray figure never becomes a link to nowhere. A
+// citation flagged "[CHECK REF]" by the October 2026 renumbering names a number that was wrong
+// before it moved, so it is left as text rather than linked to whatever carries that number now.
+export const crossRefPattern = "Section\\s+\\d+(?:\\.\\d+){1,2}(?![.\\d]*\\s*\\[CHECK REF\\])";
 const statusPhrasePattern = STATUS_PHRASES.map((p) => p.pattern).join("|");
 const workingTriggerPattern = WORKING_TRIGGERS.map((p) => p.pattern).join("|");
 const bannerTriggerPattern = BANNER_TRIGGERS.map((p) => p.pattern).join("|");

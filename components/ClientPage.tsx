@@ -197,6 +197,13 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
     // HTML it is hydrating.
     const frame = requestAnimationFrame(() => {
       const id = raw.startsWith("section-") ? raw : resolveLegacySectionId(raw, validSectionIds);
+      // A legacy link to a single-section route can name text that now lives on another route
+      // (the October 2026 restructure moved headings between files). The whole document holds
+      // every section, so the link is handed to it, exactly as navigateToSection does.
+      const targetTab = id.startsWith("section-") ? id.slice("section-".length) : id.split("-sec-")[0];
+      if (!document.getElementById(`section-${targetTab}`) && TAB_IDS.includes(targetTab)) {
+        router.push(`/#${id}`, { scroll: false });
+      }
       forceFor(id);
       scrollToSectionWhenReady(id, "auto");
     });
@@ -404,7 +411,7 @@ export function ClientPage({ sections, documents, wordCounts, briefWordCounts, a
                     />
                   </div>
                   {/* §3's argument, told once over a pinned county before the section's detail. */}
-                  {item.id === "analysis" && <Story theme={theme === "light" ? "light" : "dark"} />}
+                  {item.id === "evidence" && <Story theme={theme === "light" ? "light" : "dark"} />}
                   {/* On the /cover route there is no hero, so the cover figures open the section. */}
                   {!expanded && item.id === "cover" && (
                     <>

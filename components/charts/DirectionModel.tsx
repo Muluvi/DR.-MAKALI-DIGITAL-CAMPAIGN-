@@ -48,7 +48,7 @@ export function DirectionWeek() {
       aria-labelledby="direction-week-title"
     >
       <div className="p-4 sm:p-5 pb-3">
-        <p className="eyebrow-label">The direction model · §5.7.1</p>
+        <p className="eyebrow-label">The direction model · §4.1.1</p>
         <h4 id="direction-week-title" className="font-serif t-h4 font-black text-ink leading-tight mt-1">
           Firefly steers. Your team publishes.
         </h4>
@@ -79,7 +79,7 @@ export function DirectionWeek() {
       <div className="px-4 sm:px-5 py-3 border-t border-line/60 bg-paper/40">
         <p className="t-micro text-muted leading-relaxed">
           <strong className="text-ink">Firefly publishes on one channel only</strong> — the SMS,
-          USSD and WhatsApp layer it operates (§5.2.3.3). Every owned account stays with the people
+          USSD and WhatsApp layer it operates (§4.5.9). Every owned account stays with the people
           who run it now. Monthly, on the last Friday: recognition indicators, the overrides log,
           and the brief re-based on what the month proved.
         </p>

@@ -1,3 +1,4 @@
+
 ## F.1 Confidentiality and use
 
 This proposal is for Dr. Mulu. It is not addressed to any party organ, and it should not be
@@ -14,16 +15,4 @@ settled separately and in person, and appear nowhere in these pages.
 
 ---
 
-## F.2 Who this is for, and on what terms
-
-**Prepared for:** Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS — Member of Parliament, Kitui
-Central; Gubernatorial Aspirant, Kitui County. Personally, and not for any party organ.
-
-**Prepared by:** Firefly Management, Strategic Communications & Digital Campaign Consultancy.
-
-**Status:** Proposal for discussion.
-
-**Confidential.** Submitted in confidence for the purpose of evaluating this engagement, and not to
-be circulated beyond Dr. Mulu and those he authorises. Section F.1 states the full terms; Section
-1.4 explains how the document is organised.
-
+*Who this proposal is for, who prepared it, and its status are stated once, on the cover.*

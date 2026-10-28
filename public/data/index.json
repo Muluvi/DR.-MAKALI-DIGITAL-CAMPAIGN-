@@ -9,13 +9,13 @@
   {
     "id": "fig-cover-spine",
     "section": "Cover",
-    "title": "The argument runs in five steps, from what the campaign must achieve to who does the work",
+    "title": "The proposal runs decision first: the ask, then the evidence, the strategy, how it is delivered, measured and governed, and what could go wrong",
     "question": "What is the shape of the argument?",
-    "takeaway": "Each section answers the one before it; Section 6 is the decision the five lead to, not a sixth step."
+    "takeaway": "Part 1 is the decision and everything needed to make it; Parts 2 to 6 are the reasoning and the plan behind it, and the annexes are reference."
   },
   {
     "id": "fig-1-1-timeline",
-    "section": "1.1–1.2",
+    "section": "1.2",
     "title": "There are about eleven months to the election, and the nomination window comes first, within weeks",
     "question": "How long is there?",
     "takeaway": "The Wiper ticket is settled in a window reported for late October to November 2026; everything the engagement does before then is aimed at it."
@@ -25,18 +25,18 @@
     "section": "1.3",
     "title": "Each of the five objectives answers one finding and is judged by one observable measure",
     "question": "What are the five objectives, and what does each serve?",
-    "takeaway": "No objective stands on its own: each starts from a finding in Section 3 and ends in an indicator in Section 5.6."
+    "takeaway": "No objective stands on its own: each starts from a finding in Section 2 and ends in an indicator in Section 5.1."
   },
   {
     "id": "fig-1-4-flow",
-    "section": "1.4",
+    "section": "1.4.1",
     "title": "Firefly analyses, sets the strategy and directs; his team keeps publishing throughout",
     "question": "How does the engagement run?",
     "takeaway": "Firefly publishes nothing on his accounts: the only channel it operates directly is the WhatsApp and USSD line it already holds."
   },
   {
     "id": "fig-1-5-scorecard",
-    "section": "1.5",
+    "section": "1.9",
     "title": "Every measure of success is observable on his channels or the SMS list, and each baseline is set in Week 1",
     "question": "How will success be judged?",
     "takeaway": "The scorecard starts empty by design: the Week 1 export sets each baseline from his own channels and the SMS list."
@@ -57,294 +57,294 @@
   },
   {
     "id": "fig-2-3-nomination",
-    "section": "2.3",
+    "section": "2.5",
     "title": "The nomination method is reported, not confirmed, and two documents would settle it",
     "question": "What is the nomination method, and how confident are we?",
     "takeaway": "Until the party's resolution or its 2027 nomination rules are in hand, every phase that leans on the reported selection method is a plan against a Tier 3 report."
   },
   {
     "id": "fig-2-4-people",
-    "section": "2.4",
+    "section": "2.8.1",
     "title": "Kitui is 95.2% rural, and more than half its residents are poor",
     "question": "Who lives in Kitui?",
     "takeaway": "A county of 1,136,187 people across 30,430 km², with livestock at the centre of its economy, and at Alert Phase in the NDMA's January 2026 drought bulletin."
   },
   {
     "id": "fig-2-5-budget",
-    "section": "2.5",
+    "section": "2.8.2",
     "title": "The next governor runs a KSh 13.79bn envelope, and 84.3% of it arrives from the national government",
     "question": "What does the next governor actually control?",
     "takeaway": "Own-source revenue is the one part the county raises itself: KSh 1.12bn in the Fiscal Strategy Paper, KSh 1.339bn after the Assembly's revision, until the final approved budget settles it."
   },
   {
     "id": "fig-2-6-connectivity",
-    "section": "2.6",
+    "section": "2.9.1",
     "title": "Internet use nearly doubled since 2019, while phone ownership barely moved",
     "question": "How do people get online, and has that changed?",
     "takeaway": "Even after the rise, 73.8% of Kitui is offline, and fewer than half of residents own a phone."
   },
   {
     "id": "fig-2-7-media",
-    "section": "2.7",
+    "section": "2.9.2",
     "title": "Three of the Kikamba stations are tied to political figures, so placement goes to the independents",
     "question": "Who owns the airwaves, and where do we place vs monitor?",
     "takeaway": "Musyi, County FM and Wikwatyo carry the campaign's placements; the Ngilu-linked stations and the party leader's station are watched, not relied on."
   },
   {
     "id": "fig-2-8-record",
-    "section": "2.8",
+    "section": "2.10.1",
     "title": "Thirteen years as MP have left a checkable record: 12,573 bursaries and the best-evaluated constituency in the Eastern region",
     "question": "What has he actually done?",
     "takeaway": "His distinguishing proof is delivery on the record, and most of it is already published on the constituency's own NG-CDF site."
   },
   {
     "id": "fig-2-9-channels",
-    "section": "2.9",
+    "section": "2.10.2",
     "title": "His presence is one Facebook page, a quiet X account and a constituency site that already holds his record",
     "question": "What does his presence look like against the field?",
     "takeaway": "The NG-CDF site is the most under-used asset here; the comparison with the field is drawn in the Week 1 audit."
   },
   {
     "id": "fig-3-1-funnel",
-    "section": "3.1",
+    "section": "2.1",
     "title": "To win, he needs about 60.8% of the ballots cast, on the 2022 register",
     "question": "What is the winning number?",
     "takeaway": "200,000 votes is the 2022 winner's total rounded; the same share of the larger July 2026 register is ≈225,000."
   },
   {
     "id": "fig-3-2-register-map",
-    "section": "3.2",
+    "section": "2.3",
     "title": "The twelve largest wards hold 37.78% of the register, and half the wards hold 59.13%",
     "question": "Where are the votes?",
     "takeaway": "Registration is concentrated: the ten smallest wards together hold only 18.10% of voters, across some of the county's widest ground."
   },
   {
     "id": "fig-3-3-paths",
-    "section": "3.3",
+    "section": "2.4",
     "title": "No route clears 200,000 on its own ballots, and the home belt falls furthest short",
     "question": "Which route to the number is real, and which is a trap?",
     "takeaway": "Even every ballot in the home belt leaves him 81,653 short: a route is where the margin is built, and Mwingi is part of any route that works."
   },
   {
     "id": "fig-3-4-footprint",
-    "section": "3.4",
+    "section": "2.7.1",
     "title": "51.7% of the register lives in the four constituencies where he has never held office",
     "question": "Where has he held office, and what does that leave untouched?",
     "takeaway": "The 275,570-voter pool is structural, derived from where he has held office, not from any measure of opinion; 5 of the twelve largest wards are in it."
   },
   {
     "id": "fig-3-5-field",
-    "section": "3.5",
+    "section": "2.6",
     "title": "Four of the field have already won a countywide race, and he has not yet stood for one",
     "question": "What has each contender already proven at the ballot?",
     "takeaway": "Kasalu's 201,899 beat the winning governor's total; his own proof at the ballot is constituency-bounded."
   },
   {
     "id": "fig-3-6-party-flow",
-    "section": "3.6",
+    "section": "2.7.2",
     "title": "Two constituencies with 26.4% of the register returned non-Wiper MPs, and his own seat has its own race",
     "question": "Where will party loyalty not carry him?",
     "takeaway": "Kitui East and Kitui South are a direct-contact problem, not a party-mobilisation one, and Kitui Central cannot be left on autopilot."
   },
   {
     "id": "fig-3-7-zones",
-    "section": "3.7",
+    "section": "2.8.3",
     "title": "The three zones hold 78.8% of residents, and Kitui Rural falls in none of them",
     "question": "How do the three zones differ, and who is left out?",
     "takeaway": "About 240,000 residents and 10.3% of the register sit outside the zoning; Kitui Rural needs a zone or a stated reason it is out."
   },
   {
     "id": "fig-3-8-ceiling",
-    "section": "3.8",
+    "section": "2.9.3",
     "title": "Digital reaches at most 158,696 voters, 41,304 short of the benchmark before a single one is persuaded",
     "question": "What can digital physically reach?",
     "takeaway": "447,007 registered voters are not reachable online: SMS, USSD, radio and the ground carry the rest."
   },
   {
     "id": "fig-3-9-audit",
-    "section": "3.9",
+    "section": "2.10.3",
     "title": "His profile carries six errors a researcher would find in an afternoon, and the Week 1 audit reads the rest",
     "question": "What does his current presence actually show?",
-    "takeaway": "The six fixes are Section 4.7; the four audit figures are drawn from the Week 1 export, never from an estimate."
+    "takeaway": "The six fixes are Section 4.2.3; the four audit figures are drawn from the Week 1 export, never from an estimate."
   },
   {
     "id": "fig-3-10-gaps",
-    "section": "3.10",
+    "section": "2.11",
     "title": "2 things no published source can tell the analysis, and none is estimated",
     "question": "What can't the data tell us yet, and what closes each gap?",
     "takeaway": "The analysis works from where he has held office and from certified totals, not from ward-level preference or ward returns no one has published."
   },
   {
     "id": "fig-3-11-evidence",
-    "section": "3.11",
+    "section": "2.12",
     "title": "The diagnosis is a recognition gap outside Kitui Central, and one rival's result is the strongest evidence against it",
     "question": "How strong is the diagnosis, and what would overturn it?",
     "takeaway": "Week 1 tests it against his own channel data before anything is committed: if his reach already lands in Mwingi, the problem is message, not reach."
   },
   {
     "id": "fig-4-1-message-house",
-    "section": "4.1",
+    "section": "3.2.1",
     "title": "One position, four pillars that argue it, and a record that holds it up",
     "question": "What is the position, and what holds it up?",
     "takeaway": "Every message rests on something already on the public record; none rests on a promise alone."
   },
   {
     "id": "fig-4-2-effort",
-    "section": "4.2",
+    "section": "3.3.1",
     "title": "In Phase −1, 65% of the effort goes to Mwingi and the arid belt, well above their share of residents",
     "question": "Where does the effort go in Phase −1?",
     "takeaway": "The weighting over-indexes on the pool on the working hypothesis that his gap there is one of recognition; 65% of digital reach effort is geofenced to it."
   },
   {
     "id": "fig-4-3-segments",
-    "section": "4.3",
+    "section": "3.4.3",
     "title": "Six segments, three sized in voters from the census and three with context but no published voter count",
     "question": "Who are we trying to move, and how much do they matter?",
     "takeaway": "Sizes overlap and are not additive; where no source publishes a voter count, none is given."
   },
   {
     "id": "fig-4-4-message-region",
-    "section": "4.4",
+    "section": "3.5",
     "title": "Each region hears a different case for the same candidate, and Kikamba travels by voice, never by bulk SMS",
     "question": "What do we say where, and in which language?",
     "takeaway": "The anchor hears his record, Mwingi hears a published allocation method, the arid belt hears infrastructure; the language follows the channel."
   },
   {
     "id": "fig-4-5-calendar",
-    "section": "4.5",
+    "section": "3.7",
     "title": "The same seven days become six briefed posts across four pillars, and Thursday's commitment returns as a Sunday check",
     "question": "What gets published, and when?",
     "takeaway": "Two fields on a Thursday post and a language rule change the week; who takes the photograph and who presses publish do not."
   },
   {
     "id": "fig-4-6-channel-shift",
-    "section": "4.6",
+    "section": "3.3.2",
     "title": "Radio's share of effort nearly doubles and digital's falls to 18%, because digital cannot reach the number",
     "question": "How does effort move between channels?",
-    "takeaway": "82% of effort goes offline; radio placement goes only to the stations Section 2.7 marks for placement."
+    "takeaway": "82% of effort goes offline; radio placement goes only to the stations Section 2.9.2 marks for placement."
   },
   {
     "id": "fig-4-7-profile-fixes",
-    "section": "4.7",
+    "section": "4.2.3",
     "title": "Six profile corrections, each minutes of work, and the missing PhD comes first",
     "question": "What gets fixed first?",
     "takeaway": "The doctorate is the differentiator no rival holds, and it is absent from the one field a voter checks."
   },
   {
     "id": "fig-4-8-decision-rules",
-    "section": "4.8",
+    "section": "3.8",
     "title": "Seven findings the Week 1 audit could return, each with the change it triggers, fixed in advance",
     "question": "When does the plan change?",
     "takeaway": "Stating the rules before the audit means the data cannot be read backwards into whatever was already planned."
   },
   {
     "id": "fig-5-1-workstreams",
-    "section": "5.1",
+    "section": "1.4.2",
     "title": "Of the fourteen workstreams, Firefly operates the analysis, the data and the offline layer, and your team keeps publishing",
     "question": "Who owns what?",
     "takeaway": "Workstream 9, the offline layer, is the one Firefly runs directly and the one the race turns on; two workstreams sit outside the engagement."
   },
   {
     "id": "fig-5-2-workstream-panels",
-    "section": "5.2",
+    "section": "4.5",
     "title": "Four groups of work, each with one product, one owner and one rhythm",
     "question": "What does each group produce?",
     "takeaway": "Most of the output is your team's existing work, now directed; Firefly's own products are the brief, the analysis and the offline dispatch."
   },
   {
     "id": "fig-5-3-four-weeks",
-    "section": "5.3",
+    "section": "4.2.1",
     "title": "The first week measures, and nothing is committed against the diagnosis until it has",
     "question": "What happens in the first four weeks?",
     "takeaway": "Week 1 is the audit; the brief starts in Week 2, weighted to the pool, and the six fixes ship by the end of it."
   },
   {
     "id": "fig-5-4-phases",
-    "section": "5.4",
+    "section": "4.3",
     "title": "Four phases run to the election, and the nomination phase overlaps the first",
     "question": "How does the plan run to August 2027?",
     "takeaway": "Phase −1 is aimed at a window reported for late October to November; the three general-election phases follow it to 10 August 2027."
   },
   {
     "id": "fig-5-4-ladder",
-    "section": "5.4",
+    "section": "4.3.1",
     "title": "Three indicators climb through every phase, and every other target belongs to one phase",
     "question": "What does each phase have to deliver?",
-    "takeaway": "Consented SMS contacts rise from 40,000 in Phase 1 to 120,000 by Phase 3; rows marked ° are operational diagnostics, not performance indicators (Section 5.6.7)."
+    "takeaway": "Consented SMS contacts rise from 40,000 in Phase 1 to 120,000 by Phase 3; rows marked ° are operational diagnostics, not performance indicators (Section 5.1.3)."
   },
   {
     "id": "fig-5-5-cadence",
-    "section": "5.5",
+    "section": "1.5.2",
     "title": "He receives a brief every week and a read every month, and the level sets how deep each goes",
     "question": "What does he receive, and how often?",
     "takeaway": "Standard, the recommended level, is the one at which all 40 wards carry reach reporting and an active SMS and USSD layer."
   },
   {
     "id": "fig-5-6-kpis",
-    "section": "5.6",
+    "section": "5.1",
     "title": "Nine indicators judge the work, four for the nomination and five for the election, each observable on his own channels or lists",
     "question": "How is progress measured?",
     "takeaway": "Every indicator is observable on his channels, the SMS list or the field record, and each stays empty until its baseline is taken."
   },
   {
     "id": "fig-5-7-approval",
-    "section": "5.7",
+    "section": "4.1.3",
     "title": "Your team drafts and publishes, one named counterpart approves, and an attack climbs three levels in hours",
     "question": "How are decisions made?",
     "takeaway": "Firefly approves new claims and Kikamba output and publishes only the offline broadcasts; a Level 3 attack reaches the candidate within thirty minutes."
   },
   {
     "id": "fig-5-8-risk",
-    "section": "5.8",
+    "section": "6.1",
     "title": "Two of the six risks would change the plan rather than damage it, and both are settled by measurement early",
     "question": "What could go wrong?",
     "takeaway": "R1 closes with the party's 2027 nomination rules, R2 with the Week 1 audit. The incumbent is term-limited under Article 180(7), so the plan is for an open seat."
   },
   {
     "id": "fig-5-9-team",
-    "section": "5.9",
+    "section": "4.6",
     "title": "Firefly adds three people and removes none, with five surge roles each tied to a trigger",
     "question": "What shape is the team?",
     "takeaway": "The campaign's command structure and his publishing team stay as they are; Firefly reports to one named counterpart and briefs one named lead."
   },
   {
     "id": "fig-5-2-1-report-flow",
-    "section": "5.2.1.1",
+    "section": "4.5.1",
     "title": "Every report ends in a published outcome, and the reporter hears back twice",
     "question": "What happens to a report in the service-delivery tracker?",
     "takeaway": "The register shows what was reported, what was raised and what happened, failures included."
   },
   {
     "id": "fig-5-2-3-field-loop",
-    "section": "5.2.3.2",
+    "section": "4.5.8",
     "title": "The doorstep and the ad audience update each other within a day",
     "question": "How do the field and digital operations learn from each other?",
     "takeaway": "The opt-in rate on routed doors keeps both sides honest: if routed doors do no better than the rest, the routing is wrong."
   },
   {
     "id": "fig-5-2-3-ussd-menu",
-    "section": "5.2.3.3",
+    "section": "4.5.9",
     "title": "Six options on any phone, and the third puts the tracker in reach of a feature phone in Mutha",
     "question": "What does the USSD menu offer?",
     "takeaway": "Dial the shortcode, read the plan, register, report an issue, volunteer or opt in, with no internet and close to no cost."
   },
   {
     "id": "fig-5-2-4-stack",
-    "section": "5.2.4.3",
+    "section": "G.4",
     "title": "Five components, and the personal data concentrates in the first two",
     "question": "What does each component of the stack do, hold and risk?",
     "takeaway": "The gateway and the CRM carry the high and critical data-protection exposure; the other three work on public or anonymised data, and every one awaits a campaign decision."
   },
   {
     "id": "fig-6-1-dependencies",
-    "section": "6.1",
+    "section": "1.7",
     "title": "The campaign provides 9 things, and three of them gate everything else",
     "question": "What does the campaign provide?",
     "takeaway": "A counterpart, read-only access and the data-protection reviewer come first; the rest follow once the engagement is running."
   },
   {
     "id": "fig-6-3-decision",
-    "section": "6.3",
+    "section": "1.1",
     "title": "The ask is one week and one export, because the nomination window sets the clock",
     "question": "What is being asked?",
     "takeaway": "Each week of delay is a week less of directed output before a window reported for late October; the 275,570-voter pool is where that output goes."

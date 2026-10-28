@@ -1,5 +1,5 @@
 /**
- * Section 4, The Strategy: the position, the effort, the segments, the message by region, the
+ * Section 3, The Strategy: the position, the effort, the segments, the message by region, the
  * calendar, the channel shift, the six fixes and the decision rules.
  */
 import { RADIO_STATIONS } from "../../../data/media-ownership.ts";
@@ -12,7 +12,7 @@ const T_FIREFLY = { name: "Firefly's weighting, this proposal", tier: null, stat
 
 export const FIG_4_1: FigureSpec = {
   id: "fig-4-1-message-house",
-  section: "4.1",
+  section: "3.2.1",
   title: "One position, four pillars that argue it, and a record that holds it up",
   question: "What is the position, and what holds it up?",
   takeaway: "Every message rests on something already on the public record; none rests on a promise alone.",
@@ -57,7 +57,7 @@ const PHASES = [["p-1", "Phase −1 (nomination)"], ["p12", "Phases 1–2"], ["p
 
 export const FIG_4_2: FigureSpec = {
   id: "fig-4-2-effort",
-  section: "4.2",
+  section: "3.3.1",
   title: `In Phase −1, ${num("effort.p-1.mwingi") + num("effort.p-1.arid")}% of the effort goes to Mwingi and the arid belt, well above their share of residents`,
   question: "Where does the effort go in Phase −1?",
   takeaway: `The weighting over-indexes on the pool on the working hypothesis that his gap there is one of recognition; ${fmt("effort.digital.pool")}% of digital reach effort is geofenced to it.`,
@@ -79,7 +79,7 @@ export const FIG_4_2: FigureSpec = {
       },
     ],
   },
-  notes: ["Firefly's weighting, not a measurement: every cell is a target, reviewed monthly against the reach data in Section 5.6."],
+  notes: ["Firefly's weighting, not a measurement: every cell is a target, reviewed monthly against the reach data in Section 5.1."],
   columns: [{ key: "zone", label: "Zone" }, { key: "pop", label: "Share of residents, %", numeric: true }, ...PHASES.map(([p, l]) => ({ key: p, label: `${l}, %`, numeric: true }))],
   rows: ZONE_ROWS.map(([z, l]) => ({ cells: { zone: l, pop: z === "rotating" ? "—" : Math.round(num(`zone.${z}.share`) * 10) / 10, ...Object.fromEntries(PHASES.map(([p]) => [p, num(`effort.${p}.${z}`)])) }, state: "target" as const })),
 };
@@ -97,7 +97,7 @@ const SEGMENTS = [
 
 export const FIG_4_3: FigureSpec = {
   id: "fig-4-3-segments",
-  section: "4.3",
+  section: "3.4.3",
   title: "Six segments, three sized in voters from the census and three with context but no published voter count",
   question: "Who are we trying to move, and how much do they matter?",
   takeaway: "Sizes overlap and are not additive; where no source publishes a voter count, none is given.",
@@ -107,7 +107,7 @@ export const FIG_4_3: FigureSpec = {
     header: ["Segment", "Size (registered voters)", "Pillar", "Language", "Lead channel"],
     rows: SEGMENTS.map((g) => ({ head: g.name, cells: [g.size ? `≈${fmt(g.size)} (modelled)` : `${g.context ? `${g.context()}. ` : ""}Voters: not published`, g.pillar, g.lang, g.channel] })),
   },
-  notes: ["Priority among segments is set by the Week 1 audit (Section 5.3) and re-set at each monthly review, not chosen in advance."],
+  notes: ["Priority among segments is set by the Week 1 audit (Section 4.2.1) and re-set at each monthly review, not chosen in advance."],
   columns: [{ key: "segment", label: "Segment" }, { key: "size", label: "Size, registered voters", numeric: true }, { key: "pillar", label: "Pillar" }, { key: "lang", label: "Language" }, { key: "channel", label: "Lead channel" }],
   rows: SEGMENTS.map((g) => ({ cells: { segment: g.name, size: g.size ? num(g.size) : "Not published", pillar: g.pillar, lang: g.lang, channel: g.channel }, state: g.size ? ("modelled" as const) : undefined })),
 };
@@ -116,11 +116,11 @@ export const FIG_4_3: FigureSpec = {
 
 export const FIG_4_4: FigureSpec = {
   id: "fig-4-4-message-region",
-  section: "4.4",
+  section: "3.5",
   title: "Each region hears a different case for the same candidate, and Kikamba travels by voice, never by bulk SMS",
   question: "What do we say where, and in which language?",
   takeaway: "The anchor hears his record, Mwingi hears a published allocation method, the arid belt hears infrastructure; the language follows the channel.",
-  sources: [{ name: "This proposal, Sections 3.7 and 4.4; political-messaging rules (Section 5.2.3.3)", tier: null, state: "target" }],
+  sources: [{ name: "This proposal, Sections 2.8.3 and 3.5; political-messaging rules (Section 4.5.9)", tier: null, state: "target" }],
   chart: {
     type: "composite",
     parts: [
@@ -175,7 +175,7 @@ const WEEK: { day: string; pillar: 1 | 2 | 3 | 4 | null; after: string; now: str
 
 export const FIG_4_5: FigureSpec = {
   id: "fig-4-5-calendar",
-  section: "4.5",
+  section: "3.7",
   title: "The same seven days become six briefed posts across four pillars, and Thursday's commitment returns as a Sunday check",
   question: "What gets published, and when?",
   takeaway: "Two fields on a Thursday post and a language rule change the week; who takes the photograph and who presses publish do not.",
@@ -193,10 +193,10 @@ const POSTURE = RADIO_STATIONS.map((s) => ({ name: s.name, posture: /^Priority/.
 
 export const FIG_4_6: FigureSpec = {
   id: "fig-4-6-channel-shift",
-  section: "4.6",
+  section: "3.3.2",
   title: `Radio's share of effort nearly doubles and digital's falls to ${fmt("channel.digital.rebalanced")}%, because digital cannot reach the number`,
   question: "How does effort move between channels?",
-  takeaway: `${fmt("channel.offline.rebalanced")}% of effort goes offline; radio placement goes only to the stations Section 2.7 marks for placement.`,
+  takeaway: `${fmt("channel.offline.rebalanced")}% of effort goes offline; radio placement goes only to the stations Section 2.9.2 marks for placement.`,
   sources: [T_FIREFLY, src("reach.smartphone")],
   chart: {
     type: "composite",
@@ -212,7 +212,7 @@ export const FIG_4_6: FigureSpec = {
         },
       },
       {
-        heading: "Station posture, carried from Section 2.7",
+        heading: "Station posture, carried from Section 2.9.2",
         chart: { type: "matrix", header: ["Station", "Posture"], rows: POSTURE.map((p) => ({ head: p.name, cells: [p.posture] })) },
       },
     ],
@@ -235,7 +235,7 @@ const FIXES = [
 
 export const FIG_4_7: FigureSpec = {
   id: "fig-4-7-profile-fixes",
-  section: "4.7",
+  section: "4.2.3",
   title: "Six profile corrections, each minutes of work, and the missing PhD comes first",
   question: "What gets fixed first?",
   takeaway: "The doctorate is the differentiator no rival holds, and it is absent from the one field a voter checks.",
@@ -243,7 +243,7 @@ export const FIG_4_7: FigureSpec = {
   chart: {
     type: "cards",
     columns: 2,
-    cards: FIXES.map((f) => ({ kicker: `${f.order} · finding #${f.finding} (Section 3.9)`, title: f.after, body: `Before: ${f.before}`, tone: f.order === 1 ? ("accent" as const) : undefined })),
+    cards: FIXES.map((f) => ({ kicker: `${f.order} · finding #${f.finding} (Section 2.10.3)`, title: f.after, body: `Before: ${f.before}`, tone: f.order === 1 ? ("accent" as const) : undefined })),
   },
   columns: [{ key: "order", label: "Order", numeric: true }, { key: "finding", label: "Finding" }, { key: "before", label: "Before" }, { key: "after", label: "After" }],
   rows: FIXES.map((f) => ({ cells: { order: f.order, finding: `#${f.finding}`, before: f.before, after: f.after } })),
@@ -253,9 +253,9 @@ export const FIG_4_7: FigureSpec = {
 
 const RULES = [
   { if: "follower and reach geography concentrates in Kitui Central and Nairobi", then: "the recognition thesis is confirmed; output weight shifts to Mwingi and the arid belt, headline indicator R-02" },
-  { if: "reach in Mwingi is material but engagement there is flat", then: "the problem is message, not reach: the weekly creative test cycle re-cuts the message rather than buying more geofenced reach; the Section 4.2 weighting is revised" },
+  { if: "reach in Mwingi is material but engagement there is flat", then: "the problem is message, not reach: the weekly creative test cycle re-cuts the message rather than buying more geofenced reach; the Section 3.3.1 weighting is revised" },
   { if: "Kikamba posts out-engage English by a wide margin", then: "language becomes a rule in the weekly brief" },
-  { if: "video watch time collapses before ten seconds", then: "short vertical and Kikamba voice notes replace long video; the Section 5.5.3 cadence is re-cut" },
+  { if: "video watch time collapses before ten seconds", then: "short vertical and Kikamba voice notes replace long video; the Section 1.5.3 cadence is re-cut" },
   { if: "most engagement comes from a few hundred repeat accounts", then: "priority moves from page growth to consented WhatsApp and SMS lists" },
   { if: "rivals run Meta ads while he does not", then: "part of the gap is bought reach; the ad-account question becomes urgent" },
   { if: "the presence is a personal profile, not a Page", then: "nothing can be directed against it until it migrates: settled in the first hour" },
@@ -263,7 +263,7 @@ const RULES = [
 
 export const FIG_4_8: FigureSpec = {
   id: "fig-4-8-decision-rules",
-  section: "4.8",
+  section: "3.8",
   title: "Seven findings the Week 1 audit could return, each with the change it triggers, fixed in advance",
   question: "When does the plan change?",
   takeaway: "Stating the rules before the audit means the data cannot be read backwards into whatever was already planned.",

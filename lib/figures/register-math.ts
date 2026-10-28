@@ -36,7 +36,7 @@ export interface RankedWard {
 
 /* ------------------------------------------------------------------ the pure core */
 
-/** Every ward, largest first, with its share and the running total — the §3.4.2 table, computed. */
+/** Every ward, largest first, with its share and the running total — the §3.4.2 [CHECK REF] table, computed. */
 export function rankWards(constituencies: RegisterConstituency[]): RankedWard[] {
   const total = countyTotal(constituencies);
   const flat = constituencies

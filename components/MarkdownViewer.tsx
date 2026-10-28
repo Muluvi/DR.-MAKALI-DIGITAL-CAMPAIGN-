@@ -226,31 +226,36 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // ---- Cover, summary, situation and approach (§1-§7) ---------------------------------
   // The scorecards are the objectives. What they do not carry is the eight indicator sets that
   // stayed with the work they measure — indexed beneath them rather than moved here.
-  "delivery-sec-5-6": <ObjectivesIndex />,
-  "data-sec-2-3": <NominationPathPanel />,
+  "measurement-sec-5-1": <ObjectivesIndex />,
+  "evidence-sec-2-5": <NominationPathPanel />,
   // The governing claim opens §6, ahead of the pillars and themes that rest on it.
-  "strategy-sec-4-1": <EconomistGovernorThesis />,
-  "data-sec-2-8": (
-    <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §2.8">
+  "strategy-sec-3-1": <EconomistGovernorThesis />,
+  "evidence-sec-2-10-1": (
+    <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §2.10.1">
       Member for Kitui Central since 2013, and a member of the National Assembly&rsquo;s Budget and
       Appropriations Committee.
     </SectionPortrait>
   ),
-  "data-sec-2-1": (
+  // 2.1 is the electorate and the number it takes, so it carries both sets that used to sit under
+  // old 2.1 and old 3.1, in that order. The funnel shows how the threshold is built; the register
+  // block shows which register it is built on, which is now a live question rather than a settled one.
+  "evidence-sec-2-1": (
     <>
       <WardCartogramBlock />
       <PathTo200kBlock />
       <ConstituencyWeightBlock />
+      <VoteFunnel />
+      <RegisterComparisonBlock />
     </>
   ),
-  "data-sec-2-5": <ResourceEnvelopeBlock />,
-  "data-sec-2-4": (
+  "evidence-sec-2-8-2": <ResourceEnvelopeBlock />,
+  "evidence-sec-2-8-1": (
     <>
       <OfflineWaterline />
       <DisputedFigure entry={kituiCentralPopulationDispute} />
     </>
   ),
-  "data-sec-2-2": (
+  "evidence-sec-2-2": (
     <>
       <ElectoralHistoryPanel />
       <ElectoralTimelineBlock />
@@ -265,27 +270,19 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "annex-county-sec-b-3": <DroughtFoodSecurityPanel />,
   "annex-county-sec-b-4": <MuiBasinPanel />,
   "annex-county-sec-b-5": <CompetitorFieldPanel />,
-  // The funnel shows how the threshold is built; the register block shows which register it
-  // is built on, which is now a live question rather than a settled one.
-  "analysis-sec-3-1": (
-    <>
-      <VoteFunnel />
-      <RegisterComparisonBlock />
-    </>
-  ),
-  "analysis-sec-3-2": <ScenarioBenchmarkBlock />,
-  "analysis-sec-3-3": <PathTo200kCalculator />,
-  "analysis-sec-3-4": <RecognitionDeficitOverlay />,
-  "strategy-sec-4-3-1": <AudienceSegmentationMatrix />,
+  "evidence-sec-2-3": <ScenarioBenchmarkBlock />,
+  "evidence-sec-2-4": <PathTo200kCalculator />,
+  "evidence-sec-2-7": <RecognitionDeficitOverlay />,
+  "strategy-sec-3-4-2": <AudienceSegmentationMatrix />,
   // §7.3 splits the electorate into a connected minority and an offline majority. The showcase is
   // that argument as an object: one handset, the campaign on all seven channels, ending on the
   // USSD dialog that reaches more voters than the six apps together.
-  "analysis-sec-3-8": <PhoneShowcase />,
+  "evidence-sec-2-9-3": <PhoneShowcase />,
   // The showcase makes the argument; this puts the modelled numbers under it, including the
   // one the showcase cannot show — that the largest addressable layer cannot carry Kikamba.
-  "data-sec-2-6": <ChannelReachBlock />,
-  "strategy-sec-4-4-1": <IssueEvidenceBlock />,
-  "strategy-sec-4-4": (
+  "evidence-sec-2-9-1": <ChannelReachBlock />,
+  "strategy-sec-3-2-2": <IssueEvidenceBlock />,
+  "strategy-sec-3-5": (
     <>
       <MessagingPlayground />
       <ToneVoiceSlider />
@@ -293,30 +290,30 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   ),
   // O-6 (approved 24 September 2026): the "Upcoming" market-assembly scheduler is removed. Its
   // two events were invented and already past.
-  "delivery-sec-5-8-1": <CounterMessagingGrid />,
+  "risks-sec-6-2-1": <CounterMessagingGrid />,
   // The ownership/alignment/tier table this chart plots, now §8.5.1 in the situation analysis.
-  "data-sec-2-7-1": <MediaOwnershipBlock />,
+  "evidence-sec-2-9-2": <MediaOwnershipBlock />,
 
   // ---- Scope, roadmap, measurement, governance and risk (§8-§16) ----------------------
-  "delivery-sec-5-7": (
-    <SectionPortrait id="seated-grey-cropped" kicker="The engagement model — §5.7" flip>
+  "delivery-sec-4-1": (
+    <SectionPortrait id="seated-grey-cropped" kicker="The engagement model — §4.1" flip>
       Firefly reports to a single named campaign-side counterpart.
     </SectionPortrait>
   ),
-  "strategy-sec-4-1-4": <StrategicPillarsMatrix />,
-  "analysis-sec-3-7": <GeographicZoneMatrix />,
+  "strategy-sec-3-2-1": <StrategicPillarsMatrix />,
+  "evidence-sec-2-8-3": <GeographicZoneMatrix />,
   // The technology workstreams carried no anchored visualisation at all before this — the one
   // stretch of the document that was a wall of text, and the one describing the technology
   // stack, which is the part this reader is most likely to test against the artifact itself.
-  "workstreams-data-sec-5-2-4-4": <BenchmarkLadder />,
-  "delivery-sec-5-5-1": <ServiceLevelSelector />,
+  "workstreams-data-sec-4-5-14": <BenchmarkLadder />,
+  "decision-sec-1-5-1": <ServiceLevelSelector />,
   // The four-column matrix below this heading stacks into nine attribute cards on a phone, which
   // answers "what does row six say" rather than "which tier should we buy". One card per tier,
   // swipeable, with the table left in place underneath as the accessible equivalent.
-  "delivery-sec-5-5-2": <TierComparisonCarousel />,
-  "workstreams-ground-sec-5-2-3-1": <TerminalShowcase />,
-  "workstreams-ground-sec-5-2-3-2": <FlywheelSchematic />,
-  "workstreams-ground-sec-5-2-3-3": (
+  "decision-sec-1-5-2": <TierComparisonCarousel />,
+  "workstreams-ground-sec-4-5-7": <TerminalShowcase />,
+  "workstreams-ground-sec-4-5-8": <FlywheelSchematic />,
+  "workstreams-ground-sec-4-5-9": (
     <>
       <FeaturePhoneSpecimen />
       <ReachSplit />
@@ -324,27 +321,27 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
           presented illustration as evidence, against the proposal's own ethics commitments. */}
     </>
   ),
-  "strategy-sec-4-4-3": <PersuasionFramingMatrix />,
-  "delivery-sec-5-7-4": <DataSecurityEthicsCharter />,
-  "workstreams-media-sec-5-2-2-1": <MediaPlaybackMockup />,
-  "workstreams-media-sec-5-2-2-2": (
+  "strategy-sec-3-5-2": <PersuasionFramingMatrix />,
+  "measurement-sec-5-3": <DataSecurityEthicsCharter />,
+  "workstreams-media-sec-4-5-5": <MediaPlaybackMockup />,
+  "workstreams-media-sec-4-5-6": (
     <>
       <MediaRadioLandscapeCard />
       <RadioAircoverDial />
     </>
   ),
-  "strategy-sec-4-1-6": <SloganBuilder />,
-  "workstreams-platforms-sec-5-2-1": <PublicServiceDeliveryTracker />,
+  "strategy-sec-3-2-4": <SloganBuilder />,
+  "workstreams-platforms-sec-4-5-1": <PublicServiceDeliveryTracker />,
   // The phase KPI chart that sat here is carried by the register's fig-5-4-ladder, which holds
   // every phase target with its table and CSV (brief §12).
-  "delivery-sec-5-4": <PhaseRail />,
+  "delivery-sec-4-3": <PhaseRail />,
 
   // ---- The repositioning: analyse, strategise, direct ---------------------------------
   // The audit's four figures, the week and the visit loop are drawn by the register
   // (fig-3-9-audit, fig-4-5-calendar) and the visit-loop figure; their earlier inserts are retired.
   // §5.7 is the direction model. The week replaces a bullet list, a meeting table and the
   // governance chart cut from Annex C.
-  "delivery-sec-5-7-1": <DirectionWeek />,
+  "delivery-sec-4-1-1": <DirectionWeek />,
 };
 
 // A handful of headings still carry no leading digit (unnumbered platform names, phase
@@ -384,13 +381,13 @@ function buildComponents(tabId: TabId): Components {
 
               // §2.6 "National platform sizing" — replaced by the sorted bar chart
               // (item 13), not kept alongside it.
-              if (tabId === "data" && has("platform") && has("kenya audience")) {
+              if (tabId === "evidence" && has("platform") && has("kenya audience")) {
                 return <PlatformSizingBlock />;
               }
 
               // §2.8 candidate-asset table — assertion/evidence/application becomes
               // claim cards (item 21), replacing the table rather than sitting alongside it.
-              if (tabId === "data" && has("asset") && has("evidence") && has("digital application")) {
+              if (tabId === "evidence" && has("asset") && has("evidence") && has("digital application")) {
                 return <ClaimCards>{children}</ClaimCards>;
               }
 
@@ -543,7 +540,7 @@ function buildComponents(tabId: TabId): Components {
               // The three operating conditions (§6.3) get a pull-quote-style emphasis
               // treatment instead of a plain bullet — every other list item is unaffected.
               const text = normalizeWhitespace(getDeepText(children));
-              const isGoverningReality = tabId === "analysis" && GOVERNING_REALITY_TRIGGERS.some((t) => text.includes(t));
+              const isGoverningReality = tabId === "evidence" && GOVERNING_REALITY_TRIGGERS.some((t) => text.includes(t));
               if (isGoverningReality) {
                 return <MarkdownListItem tabId={tabId} emphasis>{children}</MarkdownListItem>;
               }
@@ -620,7 +617,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
   // panel, so the reader gets the labels at a glance and the bodies on demand. Everything else
   // comes back as ordinary markdown and renders exactly as before.
   const markdownComponents = buildComponents(tabId);
-  const segments = segmentContent(content, { isClosingSection: tabId === "nextsteps" });
+  const segments = segmentContent(content, { isClosingSection: tabId === "decision" });
 
   const renderMarkdown = (text: string, key?: string) => (
     <ReactMarkdown
@@ -673,10 +670,11 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
             kit is complete whether or not scripts run. See PrintSafeDisclosures. */}
         <PrintSafeDisclosures />
 
-        {/* The ask closes the document, inside the prose flow. It used to sit in the footer
+        {/* The ask closes the decision part, inside the prose flow. It used to sit in the footer
             chrome below a rule, next to the print widget — which framed a vendor's closing
-            request as one more piece of page tooling. §16 builds to it; it belongs there. */}
-        {tabId === "nextsteps" && <DecisionPanel />}
+            request as one more piece of page tooling. Since the October 2026 restructure the
+            decision is Part 1, and the panel closes it. */}
+        {tabId === "decision" && <DecisionPanel />}
       </div>
     </div>
   );

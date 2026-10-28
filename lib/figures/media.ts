@@ -1,16 +1,16 @@
 /**
- * §3.7 and §5.2.2.2 — who owns the air in Kitui, and the four ways the campaign gets on it anyway.
+ * §2.8.3 and §4.5.6 — who owns the air in Kitui, and the four ways the campaign gets on it anyway.
  *
- * ONE FACT SHAPES THIS WHOLE FILE: §3.7 and §3.7.1 disagree about which stations are hostile, and
- * the disagreement is not cosmetic. §3.7's diagram files **Musyi FM** under "TIER 1: HOSTILE /
- * GATEKEEPER COMMERCIAL STATIONS"; §3.7.1 says Musyi FM is open to the campaign and carries the
+ * ONE FACT SHAPES THIS WHOLE FILE: §2.8.3 and §2.8.3 disagree about which stations are hostile, and
+ * the disagreement is not cosmetic. §2.8.3's diagram files **Musyi FM** under "TIER 1: HOSTILE /
+ * GATEKEEPER COMMERCIAL STATIONS"; §2.8.3 says Musyi FM is open to the campaign and carries the
  * placement budget; `data/media-ownership.ts` reads "Priority — commercially independent"; and
- * §3.6.3's rebalance scales vernacular radio effort UP into Musyi from 20% to 37%. Athiani FM is
+ * §3.6.3 [CHECK REF]'s rebalance scales vernacular radio effort UP into Musyi from 20% to 37%. Athiani FM is
  * the same argument at lower volume — "hostile" in the diagram, "party-sensitive rather than
  * hostile" in the prose. C-20.
  *
- * So the roster below is built from `data/media-ownership.ts`, which §3.7.1 names as the version
- * that governs, and each station carries what §3.7's diagram said about it where the two differ.
+ * So the roster below is built from `data/media-ownership.ts`, which §2.8.3 names as the version
+ * that governs, and each station carries what §2.8.3's diagram said about it where the two differ.
  * Picking one and rendering it silently is the single thing this figure must not do: a reader
  * deciding where to spend the placement budget needs to see that the document gives two answers.
  *
@@ -30,10 +30,10 @@ export type RosterRow = {
   conflicts?: string[];
 };
 
-/** The four stations §3.7's diagram grouped as Tier 1 hostile gatekeepers, in its order. */
+/** The four stations §2.8.3's diagram grouped as Tier 1 hostile gatekeepers, in its order. */
 const DIAGRAM_HOSTILE = ["Musyi FM", "Mbaitu FM", "Sang'u FM", "Athiani FM"];
 
-/** What §3.7's diagram asserted about every station in that group. */
+/** What §2.8.3's diagram asserted about every station in that group. */
 const DIAGRAM_CLAIM = "Tier 1 hostile / gatekeeper — politically aligned ownership and editorial vetoes";
 
 /**
@@ -47,14 +47,14 @@ const NOT_IN_MAP = (name: string, role: string): RosterRow => ({
   label: name,
   value: "Not in the ownership map",
   detail: `${role} No owner, frequency or posture is recorded for it in data/media-ownership.ts, which carries eight stations. It appears in the prose of six chapters.`,
-  section: "§3.7",
+  section: "§2.8.3",
   stated: DIAGRAM_CLAIM,
   conflicts: ["C-20"],
 });
 
 const stationRow = (name: string): RosterRow => {
   const s = RADIO_STATIONS.find((r) => r.name === name);
-  if (!s) return NOT_IN_MAP(name, "Named in §3.7's hostile tier.");
+  if (!s) return NOT_IN_MAP(name, "Named in §2.8.3's hostile tier.");
 
   // The diagram and the ownership map agree about a station only when the map's posture is one
   // the campaign does not place into. Ngilu's two stations are monitoring targets on both
@@ -65,30 +65,30 @@ const stationRow = (name: string): RosterRow => {
     label: s.name,
     value: s.alignment,
     detail: `${s.frequency ?? "Kitui frequency not published"} · ${s.posture}`,
-    section: "§3.7.1",
+    section: "§2.8.3",
     stated: agrees ? undefined : DIAGRAM_CLAIM,
     conflicts: agrees ? undefined : ["C-20"],
   };
 };
 
-/** §3.7's hostile tier, read against the ownership map §3.7.1 says governs. */
+/** §2.8.3's hostile tier, read against the ownership map §2.8.3 says governs. */
 export const RADIO_GATEKEEPERS: RosterRow[] = DIAGRAM_HOSTILE.map(stationRow);
 
-/** The stations §3.7's diagram routed around them to, and what the map says about those. */
+/** The stations §2.8.3's diagram routed around them to, and what the map says about those. */
 export const BYPASS_STATIONS: RosterRow[] = [
   stationRow("Wikwatyo FM"),
-  NOT_IN_MAP("Mang'elete", "Named in §3.7 and §5.2.2.2 as a neutral, church-owned bypass route."),
+  NOT_IN_MAP("Mang'elete", "Named in §2.8.3 and §4.5.6 as a neutral, church-owned bypass route."),
   stationRow("County FM"),
 ];
 
 /**
- * §5.2.2.2's four bypass pillars, at both the levels the document states them.
+ * §4.5.6's four bypass pillars, at both the levels the document states them.
  *
- * §3.7 named the four routes in four lines and pointed at §5.2.2.2 for the protocol; §5.2.2.2 gave the
+ * §2.8.3 named the four routes in four lines and pointed at §4.5.6 for the protocol; §4.5.6 gave the
  * protocol in a table of its own. Both blocks are retired, so both levels live here: `summary` is
- * §3.7's line and `detail` is §5.2.2.2's cell, transcribed. The §3.7 figure prints the summary and
- * says where the full version is, exactly as the block it replaced did; the §5.2.2.2 figure prints
- * the protocol. Flattening them into one would either lose §5.2.2.2's operational detail or move it
+ * §2.8.3's line and `detail` is §4.5.6's cell, transcribed. The §2.8.3 figure prints the summary and
+ * says where the full version is, exactly as the block it replaced did; the §4.5.6 figure prints
+ * the protocol. Flattening them into one would either lose §4.5.6's operational detail or move it
  * four chapters earlier than the document puts it.
  */
 export const BYPASS_PILLARS = [

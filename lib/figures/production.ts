@@ -1,5 +1,5 @@
 /**
- * §5.2.1.2 — what gets made, to what specification, on what day, and who signs it off.
+ * §4.5.2 — what gets made, to what specification, on what day, and who signs it off.
  *
  * WHAT THESE REPLACE. Six box-drawing blocks: a production pipeline, a format specification by
  * channel, a USSD menu tree, a seven-day production cycle, a four-step approval gateway and an
@@ -7,20 +7,20 @@
  *
  * THE USSD MENU CARRIES A WARNING THAT MUST TRAVEL WITH IT. The block sits directly beneath a
  * blockquote saying the shortcode is not provisioned and that "nothing here should be printed,
- * dialled or published as a working number" (§6.1). That blockquote is untouched prose and stays
+ * dialled or published as a working number" (§1.7). That blockquote is untouched prose and stays
  * where it is; the figure's own note repeats the point, because a menu tree lifted out of context
  * into a slide or a screenshot is exactly how an unprovisioned shortcode gets printed on a flyer.
  * The root carries no digits, ever.
  *
  * THE FORMAT TABLE IS WHERE C-21 SHOWS ITS TEETH AGAIN, and this time the document gets it right:
- * §5.2.1.2's SMS row says "Kiswahili or English only (CA rule)" and specifies GSM-7 encoding with no
+ * §4.5.2's SMS row says "Kiswahili or English only (CA rule)" and specifies GSM-7 encoding with no
  * accented unicode — which is the same constraint from the other end, since Kikamba orthography
  * needs ĩ and ũ. Two independent reasons the bulk SMS rail cannot carry Kikamba, stated here and
- * contradicted in §4.4.8.
+ * contradicted in §3.6.1.
  */
 import type { FigureSeries } from "./types";
 
-/* ------------------------------------------------------------------ §5.2.1.2 the pipeline */
+/* ------------------------------------------------------------------ §4.5.2 the pipeline */
 
 export const PRODUCTION_TIERS = [
   {
@@ -50,14 +50,14 @@ export const PRODUCTION_TIERS = [
 export const PRODUCTION_SERIES: FigureSeries = {
   id: "production-pipeline",
   headline: "Four content pillars feed two engines, and everything leaves through one gateway",
-  measure: "§5.2.1.2's 360° content production pipeline",
+  measure: "§4.5.2's 360° content production pipeline",
   points: [],
   note:
     "The gateway is the point of the diagram: both engines converge on it, so no asset reaches a " +
-    "voter without the four-step sign-off §5.2.1.2 specifies. Nothing routes around it.",
+    "voter without the four-step sign-off §4.5.2 specifies. Nothing routes around it.",
 };
 
-/* ------------------------------------------------------------------ §5.2.1.2 formats by channel */
+/* ------------------------------------------------------------------ §4.5.2 formats by channel */
 
 export const FORMAT_SPECS: string[][] = [
   [
@@ -67,7 +67,7 @@ export const FORMAT_SPECS: string[][] = [
   ],
   [
     "2. Direct 2G bulk SMS & USSD portal",
-    "Single-part 160-character plain text · GSM-7 encoding, no accented unicode · USSD: 4-option menu tree (see §5.2.1.2)",
+    "Single-part 160-character plain text · GSM-7 encoding, no accented unicode · USSD: 4-option menu tree (see §4.5.2)",
     'Kiswahili or English only (CA rule); ward name, policy pledge and a free opt-out footer ("STOP to [sender ID]").',
   ],
   [
@@ -90,16 +90,16 @@ export const FORMAT_SPECS: string[][] = [
 export const FORMAT_SERIES: FigureSeries = {
   id: "format-specs",
   headline: "Five channels, and only one of them may carry Kikamba text",
-  measure: "§5.2.1.2's production format specifications — channel, technical specification, language and creative treatment",
+  measure: "§4.5.2's production format specifications — channel, technical specification, language and creative treatment",
   points: [],
   conflicts: ["C-21"],
   note:
     "The SMS row states the constraint twice over: “Kiswahili or English only (CA rule)”, and " +
     "GSM-7 encoding with no accented unicode — which rules out the ĩ and ũ Kikamba orthography " +
-    "needs. §4.4.8 nonetheless lists 2G bulk SMS among Kikamba's channels. C-21.",
+    "needs. §3.6.1 nonetheless lists 2G bulk SMS among Kikamba's channels. C-21.",
 };
 
-/* ------------------------------------------------------------------ §5.2.1.2 the USSD menu */
+/* ------------------------------------------------------------------ §4.5.2 the USSD menu */
 
 export const USSD_MENU = {
   root: "The campaign shortcode (zero-rated gateway)",
@@ -121,17 +121,17 @@ export const USSD_MENU = {
 export const USSD_SERIES: FigureSeries = {
   id: "ussd-menu",
   headline: "Four options, one of which is the way out",
-  measure: "§5.2.1.2's USSD interactive menu tree",
+  measure: "§4.5.2's USSD interactive menu tree",
   points: [],
   note:
-    "THE SHORTCODE IS NOT PROVISIONED. §6.1 lists it as pending at contracting, and the note above " +
+    "THE SHORTCODE IS NOT PROVISIONED. §1.7 lists it as pending at contracting, and the note above " +
     "this figure says nothing here should be printed, dialled or published as a working number. " +
     "The root carries no digits " +
     "because a menu tree lifted into a slide is how an unprovisioned shortcode reaches a flyer. " +
-    "Option 4 is the DPA opt-out §5.2.4.1 requires, reachable from the top menu rather than buried.",
+    "Option 4 is the DPA opt-out §4.5.11 requires, reachable from the top menu rather than buried.",
 };
 
-/* ------------------------------------------------------------------ §5.2.1.2 the weekly cycle */
+/* ------------------------------------------------------------------ §4.5.2 the weekly cycle */
 
 export const WEEKLY_CYCLE: string[][] = [
   [
@@ -174,15 +174,15 @@ export const WEEKLY_CYCLE: string[][] = [
 export const WEEKLY_SERIES: FigureSeries = {
   id: "weekly-cycle",
   headline: "Approval falls on Wednesday, which is what makes Friday's market broadcast possible",
-  measure: "§5.2.1.2's weekly 7-day content production cycle — focus and output deliverables per day",
+  measure: "§4.5.2's weekly 7-day content production cycle — focus and output deliverables per day",
   points: [],
   note:
     "The week is built backwards from Friday's markets: scripts Monday, studio Tuesday, the " +
     "approval gateway Wednesday, print and radio dispatch Thursday. Friday's row states 100,000 " +
-    "ward SMS delivered, which §5.6's KPI ladder is the place to check against.",
+    "ward SMS delivered, which §5.1's KPI ladder is the place to check against.",
 };
 
-/* ------------------------------------------------------------------ §5.2.1.2 the gateway */
+/* ------------------------------------------------------------------ §4.5.2 the gateway */
 
 export const APPROVAL_STEPS = [
   {
@@ -216,7 +216,7 @@ export const APPROVAL_STEPS = [
 export const APPROVAL_SERIES: FigureSeries = {
   id: "approval-gateway",
   headline: "Nothing reaches a voter without a citation at the front and a logged signature at the end",
-  measure: "§5.2.1.2's four-step content approval gateway, in order",
+  measure: "§4.5.2's four-step content approval gateway, in order",
   points: [],
   note:
     "Numbered because the order is the control: a citation attached at step 1 is what steps 2 and " +
@@ -224,7 +224,7 @@ export const APPROVAL_SERIES: FigureSeries = {
     "reviewable afterwards.",
 };
 
-/* ------------------------------------------------------------------ §5.2.1.2 the asset library */
+/* ------------------------------------------------------------------ §4.5.2 the asset library */
 
 export const ASSET_LIBRARY = {
   root: "/CAMPAIGN_ASSET_REPOSITORY_2027/",
@@ -284,10 +284,10 @@ export const ASSET_LIBRARY = {
 export const LIBRARY_SERIES: FigureSeries = {
   id: "asset-library",
   headline: "Seven vaults, and the second one holds the evidence every asset has to cite",
-  measure: "§5.2.1.2's campaign asset repository",
+  measure: "§4.5.2's campaign asset repository",
   points: [],
   note:
-    "02_PRIMARY_EVIDENCE_VAULT is the one that makes §5.2.1.2 step 1 workable: the OAG certificates, " +
+    "02_PRIMARY_EVIDENCE_VAULT is the one that makes §4.5.2 step 1 workable: the OAG certificates, " +
     "the Hansard records and the KNBS baselines a drafter must attach a citation from are filed " +
     "in one place rather than looked up each time.",
 };
