@@ -840,5 +840,171 @@
   "home": "",
   "note": "Label became the checklist's title (moved).",
   "text": "**Operational discipline:**"
+ },
+ {
+  "file": "measurement",
+  "section": "5.1.1",
+  "first12": "establishing unassailable party consensus and",
+  "words": 5,
+  "kind": "register",
+  "home": "",
+  "note": "X10: inflated register.",
+  "text": "establishing unassailable party consensus and "
+ },
+ {
+  "file": "measurement",
+  "section": "5.1.1",
+  "first12": "systematic voter mobilization",
+  "words": 1,
+  "kind": "register",
+  "home": "",
+  "note": "X10: intensifier.",
+  "text": "systematic voter mobilization",
+  "replacement": "voter mobilization"
+ },
+ {
+  "file": "measurement",
+  "section": "5.1.3",
+  "first12": "The campaign strictly excludes",
+  "words": 1,
+  "kind": "register",
+  "home": "",
+  "note": "X10: intensifier (the rule is 'excludes').",
+  "text": "The campaign strictly excludes",
+  "replacement": "The campaign excludes"
+ },
+ {
+  "file": "measurement",
+  "section": "5.1.3",
+  "first12": "the following empirical realities:",
+  "words": 1,
+  "kind": "register",
+  "home": "",
+  "note": "X10: inflated register.",
+  "text": "the following empirical realities:",
+  "replacement": "the following realities:"
+ },
+ {
+  "file": "measurement",
+  "section": "5.1.4",
+  "first12": "embedded in a rigid governance rhythm",
+  "words": 1,
+  "kind": "register",
+  "home": "",
+  "note": "X10: intensifier.",
+  "text": "embedded in a rigid governance rhythm",
+  "replacement": "embedded in a governance rhythm"
+ },
+ {
+  "file": "measurement",
+  "section": "5.2.1",
+  "first12": "Measured",
+  "words": 1,
+  "kind": "signpost",
+  "home": "",
+  "note": "The 'Measured' column head: each row's measures are the item's text.",
+  "text": "Measured"
+ },
+ {
+  "file": "measurement",
+  "section": "5.2.6",
+  "first12": "Political strategy without empirical measurement risks misallocating scarce campaign effort. To eliminate",
+  "words": 49,
+  "kind": "signpost",
+  "home": "",
+  "note": "Opening paragraph is a signpost to 5.2.6 itself and 4.5.1 (plan); the hypothesis is 2.12's.",
+  "text": "Political strategy without empirical measurement risks misallocating scarce campaign effort. To eliminate speculative assumptions, the campaign implements a two-part data architecture: **Section 5.2.6** sets out how the recognition-deficit hypothesis is tested on existing records, while **Section 4.5.1** operationalizes a public service-delivery tracker that bridges campaign credibility with day-one governance."
+ },
+ {
+  "file": "measurement",
+  "section": "5.3.2",
+  "first12": "operate under strict statutory oversight",
+  "words": 1,
+  "kind": "register",
+  "home": "",
+  "note": "X10: intensifier.",
+  "text": "operate under strict statutory oversight",
+  "replacement": "operate under statutory oversight"
+ },
+ {
+  "file": "measurement",
+  "section": "5.3.2",
+  "first12": "Non-compliance risks severe criminal penalties, regulatory injunctions, and catastrophic brand damage to",
+  "words": 7,
+  "kind": "register",
+  "home": "",
+  "note": "X10: inflated register.",
+  "text": "Non-compliance risks severe criminal penalties, regulatory injunctions, and catastrophic brand damage to Dr. Mulu's integrity-driven platform.",
+  "replacement": "Non-compliance risks criminal penalties, regulatory injunctions, and brand damage."
+ },
+ {
+  "file": "measurement",
+  "section": "5.3.2",
+  "first12": "Mandatory Compliance Safeguards",
+  "words": 0,
+  "kind": "signpost",
+  "home": "",
+  "note": "The h5 label became the checklist's title (moved).",
+  "text": "##### Mandatory Compliance Safeguards:"
+ },
+ {
+  "file": "measurement",
+  "section": "5.3.4",
+  "first12": "The single most important governance control in this document.",
+  "words": 9,
+  "kind": "signpost",
+  "home": "",
+  "note": "Framing line above the gate rule, which is the section's lead.",
+  "text": "*The single most important governance control in this document.*\n\n"
+ },
+ {
+  "file": "measurement",
+  "section": "5.3.4",
+  "first12": "Step",
+  "words": 1,
+  "kind": "signpost",
+  "home": "",
+  "note": "The 'Step' column head: each step is a stepper row.",
+  "text": "Step"
+ },
+ {
+  "file": "measurement",
+  "section": "5.3.5",
+  "first12": "This compliance pack consolidates all statutory, constitutional, and regulatory requirements governing Dr.",
+  "words": 19,
+  "kind": "signpost",
+  "home": "",
+  "note": "Plan: the 'compliance pack consolidates' sentence is a signpost to the figures below it.",
+  "text": "This compliance pack consolidates all statutory, constitutional, and regulatory requirements governing Dr. Makali Mulu’s 2027 Kitui County gubernatorial campaign. "
+ },
+ {
+  "file": "risks",
+  "section": "6.3.1",
+  "first12": "Prevention — provenance by default",
+  "words": 0,
+  "kind": "signpost",
+  "home": "",
+  "note": "The bold label became the checklist's title (moved).",
+  "text": "**Prevention — provenance by default:**"
+ },
+ {
+  "file": "risks",
+  "section": "6.3.1",
+  "first12": "Detection",
+  "words": 0,
+  "kind": "signpost",
+  "home": "",
+  "note": "The bold label became the checklist's title (moved).",
+  "text": "**Detection:**"
+ },
+ {
+  "file": "risks",
+  "section": "6.3.1",
+  "first12": "Minute Action",
+  "words": 2,
+  "kind": "signpost",
+  "home": "",
+  "note": "The 'Minute' and 'Action' column heads: the timeline's times and labels.",
+  "text": "Minute | Action"
  }
 ]

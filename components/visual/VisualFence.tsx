@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 import { TIER_META, type Tier } from "../../data/types";
 import { numberOf, type Field, type Item, type Side, type VisualSpec } from "../../lib/visual";
 import { FoldBody } from "../markdown/FoldBody";
-import { ConflictMark } from "../markdown/InlineMarks";
+import { ConflictMark, InertMarks } from "../markdown/InlineMarks";
 
 /**
  * The renderer for a ```visual fence (lib/visual.ts holds the shapes and what each shows on load).
@@ -140,7 +140,9 @@ function ToggleRow({ it, md, children }: { it: Item; md: Md; children: ReactNode
   return (
     <>
       <button type="button" className="vz-row__btn" aria-expanded={open} aria-controls={id} onClick={() => setOpen((o) => !o)}>
-        <span className="vz-row__face">{children}</span>
+        <span className="vz-row__face">
+          <InertMarks.Provider value={true}>{children}</InertMarks.Provider>
+        </span>
         <ChevronDown size={16} aria-hidden="true" className="vz-row__chev" data-open={open ? "true" : "false"} />
       </button>
       <FoldBody id={id} open={open} onReveal={reveal} className="vz-row__more">

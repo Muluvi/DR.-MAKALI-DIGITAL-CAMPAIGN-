@@ -1,12 +1,13 @@
 "use client";
 
-import { useCallback, useId, useState, type ReactNode } from "react";
+import { useCallback, useContext, useId, useState, type ReactNode } from "react";
 
 import { TIER_META, type Tier } from "../../data/types";
 import { hasHighlight } from "../../lib/highlight-patterns";
 import { tokenizeInline, hasInlineMark, COUNSEL_NOTE } from "../../lib/inline-marks";
 import { CrossSectionLink } from "./CrossSectionLink";
 import { FoldBody } from "./FoldBody";
+import { InertMarks } from "./InertMarks";
 import { HighlightedText } from "./HighlightedText";
 import { useSectionNumberMap } from "./SectionNumberMap";
 
@@ -22,20 +23,34 @@ import { useSectionNumberMap } from "./SectionNumberMap";
 /** Annex A.1.2, the tier legend every badge points at. */
 const TIER_LEGEND_ID = "annex-evidence-sec-a-1-2";
 
+export { InertMarks };
+
 export function Chip({
   label,
   className,
   title,
+  inertText,
   children,
 }: {
   label: ReactNode;
   className: string;
   title?: string;
+  /** The words the chip stands for, as plain text, for a chip drawn inside a control. */
+  inertText?: string;
   children: ReactNode;
 }) {
+  const inert = useContext(InertMarks);
   const [open, setOpen] = useState(false);
   const id = useId();
   const reveal = useCallback(() => setOpen(true), []);
+  if (inert) {
+    return (
+      <span className={`ichip ${className}`} title={title}>
+        <span className="ichip__btn">{label}</span>
+        {inertText ? <span className="sr-only"> ({inertText})</span> : null}
+      </span>
+    );
+  }
   return (
     <span className={`ichip ${className}`} data-open={open ? "true" : "false"}>
       <button type="button" className="ichip__btn" aria-expanded={open} aria-controls={id} title={title} onClick={() => setOpen((o) => !o)}>
@@ -68,6 +83,7 @@ export function TierMark({ tiers, head, rest }: { tiers?: string; head?: string;
       className={`ichip--tier ichip--t${first}`}
       label={tierBadgeText(list, head ?? "")}
       title={TIER_META[first].description}
+      inertText={rest || TIER_META[first].label}
     >
       {rest ? <>{plain(rest)} · </> : <>{TIER_META[first].label}. </>}
       <CrossSectionLink id={TIER_LEGEND_ID}>What the tiers mean</CrossSectionLink>
@@ -77,7 +93,11 @@ export function TierMark({ tiers, head, rest }: { tiers?: string; head?: string;
 
 export function ConflictMark({ conflict }: { conflict?: string }) {
   return (
-    <Chip className="ichip--conflict" label="Two versions in this document — under review">
+    <Chip
+      className="ichip--conflict"
+      label="Two versions in this document — under review"
+      inertText={`Open item ${conflict}: the proposal states this point two ways`}
+    >
       Open item {conflict}: the proposal states this point two ways. Both versions are kept, unchanged,
       until the campaign decides between them.
     </Chip>
@@ -93,7 +113,7 @@ export function CheckRefMark() {
 export function StatusMark({ status, note }: { status?: string; note?: string }) {
   const counsel = status === "counsel";
   return (
-    <Chip className={counsel ? "ichip--counsel" : "ichip--pending"} label={counsel ? "Counsel review" : "Source pending"}>
+    <Chip className={counsel ? "ichip--counsel" : "ichip--pending"} label={counsel ? "Counsel review" : "Source pending"} inertText={note}>
       {note ? plain(note) : null}
     </Chip>
   );
@@ -101,6 +121,7 @@ export function StatusMark({ status, note }: { status?: string; note?: string })
 
 export function XrefMark({ refs, raw }: { refs?: string; raw?: string }) {
   const map = useSectionNumberMap();
+  const inert = useContext(InertMarks);
   const list = (refs ?? "").split(",").filter(Boolean);
   const resolved = list.map((n) => ({ n, id: map[n] }));
   // A reference to a number with no heading is left exactly as typed rather than drawn as a chip
@@ -110,7 +131,7 @@ export function XrefMark({ refs, raw }: { refs?: string; raw?: string }) {
     <span className="xchip-row">
       {resolved.map((r) => (
         <span key={r.n} className="xchip">
-          <CrossSectionLink id={r.id!}>§{r.n}</CrossSectionLink>
+          {inert ? <span>§{r.n}</span> : <CrossSectionLink id={r.id!}>§{r.n}</CrossSectionLink>}
         </span>
       ))}
     </span>
@@ -152,11 +173,12 @@ export function InlineMarks({ text }: { text: string }) {
  */
 export function WindowChip() {
   const map = useSectionNumberMap();
+  const inert = useContext(InertMarks);
   const id = map["2.5.1"] ?? "evidence-sec-2-5-1";
   return (
     <span className="wchip">
       <span className="wchip__k">Wiper decision:</span> late Oct–Nov 2026 · reported · <span className="wchip__t">Tier 3</span> ·{" "}
-      <CrossSectionLink id={id}>§2.5</CrossSectionLink>
+      {inert ? <span>§2.5</span> : <CrossSectionLink id={id}>§2.5</CrossSectionLink>}
     </span>
   );
 }

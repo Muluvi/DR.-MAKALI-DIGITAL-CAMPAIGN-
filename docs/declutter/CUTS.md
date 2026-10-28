@@ -2,7 +2,7 @@
 
 Every deletion made by the declutter, generated from `cuts.json` by `scripts/declutter/build-cuts-md.mjs`. Each row gives the file, the section, the opening words, the words removed (net of any short reference left in place), the kind of cut and the canonical home where its facts still stand. `scripts/declutter/check-content.mjs` checks that every duplicate's tokens and names are at its home (check 5) and that the word count balances (check 4).
 
-77 cuts, 1,685 words; 5 passages moved to their homes.
+93 cuts, 1,783 words; 5 passages moved to their homes.
 
 | File | Section | First words | Words | Kind | Canonical home | Note |
 |---|---|---|---:|---|---|---|
@@ -88,3 +88,19 @@ Every deletion made by the declutter, generated from `cuts.json` by `scripts/dec
 | workstreams-ground | 4.5.7 | Digital content created in an air-conditioned command center in Nairobi or Kitui | 36 | Intensifier (X10) | — | X10: inflated framing ('air-conditioned command center'). |
 | workstreams-ground | 4.5.9 | This is the one place in the engagement where Firefly publishes. Everything | 24 | Verified duplicate | decision:1.4.1 | Firefly publishes only on the offline layer: said once at 1.4.1 (section 6). |
 | workstreams-ground | 4.5.9 | Operational discipline: | 0 | Signpost or meta-text | — | Label became the checklist's title (moved). |
+| measurement | 5.1.1 | establishing unassailable party consensus and | 5 | Intensifier (X10) | — | X10: inflated register. |
+| measurement | 5.1.1 | systematic voter mobilization | 1 | Intensifier (X10) | — | X10: intensifier. Left in place: `voter mobilization`. |
+| measurement | 5.1.3 | The campaign strictly excludes | 1 | Intensifier (X10) | — | X10: intensifier (the rule is 'excludes'). Left in place: `The campaign excludes`. |
+| measurement | 5.1.3 | the following empirical realities: | 1 | Intensifier (X10) | — | X10: inflated register. Left in place: `the following realities:`. |
+| measurement | 5.1.4 | embedded in a rigid governance rhythm | 1 | Intensifier (X10) | — | X10: intensifier. Left in place: `embedded in a governance rhythm`. |
+| measurement | 5.2.1 | Measured | 1 | Signpost or meta-text | — | The 'Measured' column head: each row's measures are the item's text. |
+| measurement | 5.2.6 | Political strategy without empirical measurement risks misallocating scarce campaign effort. To eliminate | 49 | Signpost or meta-text | — | Opening paragraph is a signpost to 5.2.6 itself and 4.5.1 (plan); the hypothesis is 2.12's. |
+| measurement | 5.3.2 | operate under strict statutory oversight | 1 | Intensifier (X10) | — | X10: intensifier. Left in place: `operate under statutory oversight`. |
+| measurement | 5.3.2 | Non-compliance risks severe criminal penalties, regulatory injunctions, and catastrophic brand damage to | 7 | Intensifier (X10) | — | X10: inflated register. Left in place: `Non-compliance risks criminal penalties, regulatory injunctions, and brand damage.`. |
+| measurement | 5.3.2 | Mandatory Compliance Safeguards | 0 | Signpost or meta-text | — | The h5 label became the checklist's title (moved). |
+| measurement | 5.3.4 | The single most important governance control in this document. | 9 | Signpost or meta-text | — | Framing line above the gate rule, which is the section's lead. |
+| measurement | 5.3.4 | Step | 1 | Signpost or meta-text | — | The 'Step' column head: each step is a stepper row. |
+| measurement | 5.3.5 | This compliance pack consolidates all statutory, constitutional, and regulatory requirements governing Dr. | 19 | Signpost or meta-text | — | Plan: the 'compliance pack consolidates' sentence is a signpost to the figures below it. |
+| risks | 6.3.1 | Prevention — provenance by default | 0 | Signpost or meta-text | — | The bold label became the checklist's title (moved). |
+| risks | 6.3.1 | Detection | 0 | Signpost or meta-text | — | The bold label became the checklist's title (moved). |
+| risks | 6.3.1 | Minute Action | 2 | Signpost or meta-text | — | The 'Minute' and 'Action' column heads: the timeline's times and labels. |
