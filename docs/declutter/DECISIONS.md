@@ -148,3 +148,41 @@ The 5.3.3 charter clauses and F.1 stay whole under rule 7; check 11 lists them a
 - **label-content-name-mismatch.** The dock button is named by its visible text plus a screen-reader-only ". Open the index."
 
 The evidence page's CLS of 0.48 (0.48 at baseline too) came from the 2.1 story switching to its pinned layout after hydration. An inline script in `app/layout.tsx` now sets `data-story-pin` on `<html>` before the first paint, where WebGL exists and reduced motion is off. The pinned layout's CSS keys off that flag, so the layout is right from the start. With scripts off, nothing is set and the story stays unpinned, as before. Result: accessibility 100, 100 and 100; CLS 0 on all three; performance 44, 42 and 54 against a baseline of 44, 16 and 49.
+
+## Mounted panels (the owner's instruction of 29 October 2026)
+
+After the evidence pass the site measured 265.4 phone screens. The owner then asked to "collapse the mounted panels too to reach 170 screens" (option 1 of REPORT.md). Six changes took it to 169.3. Every folded part is a FoldBody, so find in page, deep links, print and scripts-off still reach it (checks 13–15).
+
+**D-57. Mounted panels sit behind one control, closed.** `components/markdown/PanelFold.tsx` wraps 43 panels:
+- every heading insert in `MarkdownViewer`;
+- every figure fence the registry draws with a bespoke component rather than a figure frame;
+- the 2.1 story;
+- the decision panel.
+
+The control reads "Show the panel" over the panel's own title. That title is the first heading, else the caption or chart title, else the eyebrow line. The control watches a lazy panel until its title arrives. Two panels have no title that names them, so they carry their component's own description:
+- the tier carousel: "Lean, Standard and Premium, one card per tier";
+- the phone showcase: "Seven channels, one phone".
+
+There are two exceptions:
+- **The tier carousel** is phone only and never printed, so its control is too.
+- **The objectives index at 5.1** is not wrapped. It renders nothing because no section title matches its pattern, so a control there would open nothing. This was already true on main and is listed for the owner.
+
+**D-58. A sequence of six or more items shows its first four.** The rest sit behind "Show N more", numbered on from where the visible list stops. This applies to the `visual` timeline, stepper and checklist kinds. A sequence of five or fewer shows whole.
+
+**D-59. A figure's source line folds; its tiers stay in view.** The source line, with its documents and dates, moves behind "Show the figure". The tier pills it carried now sit on the control's line, one per distinct tier, so rule 5 holds: every figure shows its tiers without a tap. A figure frame shows its tier and, where the value is not exact, its kind (for example "Modelled"). Conflict flags stay above the control, unchanged (rule 6).
+
+**D-60. Long tables show five rows.** A table of seven or more rows shows its first five. The existing "Show all rows" control opens the rest. A search shows every match. Every row is in the HTML, and print and scripts-off show them all.
+
+**D-61. The 2.10.1 asset table joins its section's full text.** It was marked `<!-- keep -->`. Its rows restate the record that the figure above it (fig-2-8-record) and the candidate profile set out. It now opens with 2.10.1's "Read the full text". No words changed.
+
+**D-62. Phone spacing is a little closer.** Below 640 px only:
+- visuals, figures, leads, folds and panels keep the same order of gaps, a few pixels closer;
+- the chapter marker's margins go from 1.75rem/1.125rem to 1.5rem/1rem;
+- visual and card padding goes from 14 to 12 px.
+
+Desktop is unchanged.
+
+**Result.** Phone screens fell from 265.4 to 169.3, against a target of 170 or fewer, and visible words from 29,747 to 18,883, against 26,000. Folded, reachable words rose to 65,366. Checks:
+- `npm run verify` passes;
+- live checks 10, 11, 13, 14 and 15 pass;
+- Lighthouse (mobile) on /, /evidence and /strategy: accessibility 100, 100 and 100; CLS 0, 0.006 and 0.004; performance 54, 53 and 58.

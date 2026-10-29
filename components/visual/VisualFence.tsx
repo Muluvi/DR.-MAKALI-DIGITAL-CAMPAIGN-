@@ -270,14 +270,31 @@ function Tabs({ items, md }: { items: Item[]; md: Md }) {
   );
 }
 
+/** A list longer than this shows its first SHOWN items and folds the rest behind "Show N more". */
+const LONG_LIST = 5;
+const SHOWN = 4;
+
 function Sequence({ items, md, kind }: { items: Item[]; md: Md; kind: "timeline" | "stepper" | "checklist" }) {
+  if (items.length <= LONG_LIST) return <SequenceList items={items} md={md} kind={kind} />;
+  const rest = items.length - SHOWN;
+  return (
+    <>
+      <SequenceList items={items.slice(0, SHOWN)} md={md} kind={kind} />
+      <More label={`Show ${rest} more`}>
+        <SequenceList items={items.slice(SHOWN)} md={md} kind={kind} offset={SHOWN} />
+      </More>
+    </>
+  );
+}
+
+function SequenceList({ items, md, kind, offset = 0 }: { items: Item[]; md: Md; kind: "timeline" | "stepper" | "checklist"; offset?: number }) {
   const Tag = kind === "checklist" ? "ul" : "ol";
   return (
-    <Tag className={`vz-seq vz-seq--${kind}`}>
+    <Tag className={`vz-seq vz-seq--${kind}`} start={Tag === "ol" && offset ? offset + 1 : undefined}>
       {items.map((it, i) => (
         <li key={i} className="vz-seq__item">
           <span className="vz-seq__mark" aria-hidden="true">
-            {kind === "stepper" ? i + 1 : kind === "checklist" ? <svg viewBox="0 0 16 16"><path d="M2 8.4l4 4L14 4" /></svg> : null}
+            {kind === "stepper" ? offset + i + 1 : kind === "checklist" ? <svg viewBox="0 0 16 16"><path d="M2 8.4l4 4L14 4" /></svg> : null}
           </span>
           <div className="vz-seq__text">
             <ToggleRow it={it} md={md}>

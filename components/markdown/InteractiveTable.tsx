@@ -178,9 +178,12 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
    */
   const showFilter = parsedRows.length > 10;
 
-  const ROW_PREVIEW = 10;
-  const isCapped = !showAllRows && !searchTerm && filteredRows.length > ROW_PREVIEW + 2;
-  const visibleRows = isCapped ? filteredRows.slice(0, ROW_PREVIEW) : filteredRows;
+  // Five rows on load; the rest wait behind "Show all N rows" (the owner's phone-screen target,
+  // October 2026). They stay in the page, marked data-row-more, so print and scripts-off show them.
+  const ROW_PREVIEW = 5;
+  const isCapped = !showAllRows && !searchTerm && filteredRows.length > ROW_PREVIEW + 1;
+  const visibleRows = filteredRows;
+  const more = (rIdx: number) => (isCapped && rIdx >= ROW_PREVIEW ? "" : undefined);
 
   /**
    * Which columns this table is ALLOWED to chart, and whether it may show an aggregate.
@@ -440,6 +443,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                 return (
                   <div
                     key={rIdx}
+                    data-row-more={more(rIdx)}
                     style={{ "--fx-i": Math.min(rIdx, 12) } as React.CSSProperties}
                     className="fx-item-insert bg-card/70 border border-line/60 rounded-xl p-3 shadow-xs space-y-2 hover:border-line transition-colors"
                   >
@@ -514,6 +518,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                   {visibleRows.map((row, rIdx) => (
                     <tr
                       key={rIdx}
+                      data-row-more={more(rIdx)}
                       style={{ "--fx-i": Math.min(rIdx, 12) } as React.CSSProperties}
                       className="fx-item-insert fx-flip-item hover:bg-accent/[0.06] hover:shadow-[inset_3px_0_0_var(--color-accent)] transition-colors"
                     >
@@ -549,7 +554,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
               Show all {filteredRows.length} rows
             </button>
           )}
-          {showAllRows && !searchTerm && filteredRows.length > 12 && (
+          {showAllRows && !searchTerm && filteredRows.length > ROW_PREVIEW + 1 && (
             <button
               type="button"
               onClick={() => setShowAllRows(false)}

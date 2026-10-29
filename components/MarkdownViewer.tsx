@@ -73,6 +73,7 @@ import { PersuasionFramingMatrix } from "./markdown/PersuasionFramingMatrix";
 import { PublicServiceDeliveryTracker } from "./markdown/PublicServiceDeliveryTracker";
 import { MediaRadioLandscapeCard } from "./markdown/MediaRadioLandscapeCard";
 import { DataSecurityEthicsCharter } from "./markdown/DataSecurityEthicsCharter";
+import { PanelFold } from "./markdown/PanelFold";
 import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, type TabId } from "../lib/heading-slug";
 import { crossRefFor, segmentContent } from "../lib/collapse-groups";
@@ -228,6 +229,28 @@ const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
 // actually existed. That guesswork rendered the same chart up to three times in a single
 // section. Every key below now resolves to a heading that exists; a build-time check would be
 // the next step if this map grows again.
+// Every insert sits behind a PanelFold control except the objectives index: it is a short list of
+// links rather than a panel, and it renders nothing while no other part's heading matches it, so a
+// control there would open nothing.
+const OPEN_INSERTS = new Set(["measurement-sec-5-1"]);
+// The control is named by the panel's own heading. These two have none that names them (the
+// carousel's first heading is its first card), so they carry their component's own description.
+// The carousel is phone only and never printed, so its control is too.
+const INSERT_PANELS: Record<string, { label: string; className?: string }> = {
+  "decision-sec-1-5-2": { label: "Lean, Standard and Premium, one card per tier", className: "sm:hidden print:hidden" },
+  "evidence-sec-2-9-3": { label: "Seven channels, one phone" },
+};
+
+function mountInsert(id: string | null, node: React.ReactNode) {
+  if (id && OPEN_INSERTS.has(id)) return node;
+  const panel = id ? INSERT_PANELS[id] : undefined;
+  return (
+    <PanelFold label={panel?.label} className={panel?.className}>
+      {node}
+    </PanelFold>
+  );
+}
+
 const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // ---- Cover, summary, situation and approach (§1-§7) ---------------------------------
   // The scorecards are the objectives. What they do not carry is the eight indicator sets that
@@ -633,7 +656,7 @@ function buildComponents(tabId: TabId): Components {
                   {/* The hand-built visualisation where one exists, and the figure derived from
                       this heading's own content where one does not. Never both: 50 sub-sections
                       were designed, and the other 222 are covered rather than decorated. */}
-                  {insert ?? <PartVisual spec={partVisual(id)} />}
+                  {insert ? mountInsert(id, insert) : <PartVisual spec={partVisual(id)} />}
                 </>
               );
             },
@@ -653,7 +676,7 @@ function buildComponents(tabId: TabId): Components {
               return (
                 <>
                   <SectionHeading id={id} level={3} accentColor={phaseAccentFor(text)}>{children}</SectionHeading>
-                  {(id && HEADING_INSERTS[id]) ?? <PartVisual spec={partVisual(id)} />}
+                  {id && HEADING_INSERTS[id] ? mountInsert(id, HEADING_INSERTS[id]) : <PartVisual spec={partVisual(id)} />}
                 </>
               );
             }
@@ -751,7 +774,11 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
             chrome below a rule, next to the print widget — which framed a vendor's closing
             request as one more piece of page tooling. Since the October 2026 restructure the
             decision is Part 1, and the panel closes it. */}
-        {tabId === "decision" && <DecisionPanel />}
+        {tabId === "decision" && (
+          <PanelFold label="What Firefly needs from the campaign">
+            <DecisionPanel />
+          </PanelFold>
+        )}
       </div>
     </div>
   );

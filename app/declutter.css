@@ -306,3 +306,34 @@ span[data-fold-body][hidden] { display: inline-block; }
 @media print { .rf-more { display: none !important; } }
 /* Behind the control: the question, the marks, the notes and the data, in that order. */
 .rf-fold > .rf-method { padding-top: 0.5rem; padding-bottom: 0; }
+
+/* A mounted panel behind one control (components/markdown/PanelFold.tsx). One line, whatever the
+   panel's name, so naming it after hydration moves nothing. */
+.pf-panel { margin: 14px 0 20px; border: 1px solid var(--pf-line); border-radius: 14px; background: var(--pf-ground); }
+.pf-panel__btn { display: flex; width: 100%; min-height: 52px; align-items: center; gap: 10px; padding: 8px 14px; text-align: left; cursor: pointer; color: inherit; }
+.pf-panel__icon { flex: none; color: var(--pf-accent); }
+.pf-panel__text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.pf-panel__k { font: 650 12px/1.2 var(--pf-display); letter-spacing: 0.02em; color: var(--pf-accent); }
+.pf-panel__t { font: 600 14px/1.35 var(--pf-display); color: var(--pf-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pf-panel__chev { flex: none; color: var(--pf-muted); transition: transform var(--pf-dur-fast) var(--pf-ease-out); }
+.pf-panel__chev[data-open="true"] { transform: rotate(180deg); }
+.pf-panel__body { padding: 0 6px 6px; }
+@media (prefers-reduced-motion: reduce) { .pf-panel__chev { transition: none; } }
+@media print { .pf-panel { border: 0; } .pf-panel__btn { display: none !important; } }
+/* The figure's tier badges, beside its control: tiers stay in view while the source names fold. */
+.rf-more__tiers { margin-left: auto; display: inline-flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px; }
+/* A table's rows after the fifth, until "Show all N rows" (components/markdown/InteractiveTable.tsx). */
+[data-row-more] { display: none; }
+@media print { [data-row-more] { display: revert !important; } }
+
+/* Phone rhythm (the owner's 170-screen target): the same order of spacing, a little closer. A visual,
+   a figure, a lead, a fold and a panel each keep a clear gap from the next; desktop is unchanged. */
+@media (max-width: 639px) {
+  .vz { margin: 14px 0 16px; padding: 12px; }
+  .vz-card { padding: 12px; }
+  .vz__cap { margin-bottom: 10px; }
+  .rf { margin: 1rem 0; }
+  .pf-more { margin: 10px 0 14px; }
+  .pf-lead { margin: 6px 0 12px; }
+  .pf-panel { margin: 10px 0 14px; }
+}

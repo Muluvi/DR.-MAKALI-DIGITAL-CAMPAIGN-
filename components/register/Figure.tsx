@@ -50,7 +50,7 @@ export function RegisterFigure({ spec }: { spec: FigureSpec }) {
         <h4 id={titleId} className="rf-title">{spec.title}</h4>
       </div>
       <p id={takeawayId} className="rf-takeaway">{spec.takeaway}</p>
-      <FigureDetailsToggle />
+      <FigureDetailsToggle badges={<TierBadges sources={spec.sources} />} />
       <FigDetail notes className="rf-fold">
         <div className="rf-method">
           <p className="rf-question">{spec.question}</p>
@@ -73,7 +73,7 @@ export function RegisterFigure({ spec }: { spec: FigureSpec }) {
         </a>
         </div>
       </FigDetail>
-      <figcaption className="rf-foot">
+      <FigDetail className="rf-foot">
         <p className="rf-source">
           <span>Source:</span>
           {spec.sources.map((s) => (
@@ -83,7 +83,7 @@ export function RegisterFigure({ spec }: { spec: FigureSpec }) {
             </span>
           ))}
         </p>
-      </figcaption>
+      </FigDetail>
       </FigureDetails>
     </figure>
   );
@@ -95,6 +95,19 @@ const STATE_TEXT: Record<CellState, string> = {
   needed: "Data needed",
   target: "Target",
 };
+
+/** One badge per distinct tier or state among a figure's sources: what stays in view when it is closed. */
+function TierBadges({ sources }: { sources: SourceRef[] }) {
+  const seen = new Map<string, SourceRef>();
+  for (const s of sources) seen.set(`${s.state ?? ""}|${s.tier ?? ""}`, s);
+  return (
+    <>
+      {[...seen.values()].map((s) => (
+        <TierPill key={`${s.state ?? ""}|${s.tier ?? ""}`} source={s} />
+      ))}
+    </>
+  );
+}
 
 export function TierPill({ source }: { source: Pick<SourceRef, "tier" | "state"> }) {
   if (source.state === "needed") return <span className="tp tp-needed">Data needed</span>;
