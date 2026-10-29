@@ -69,3 +69,32 @@ Measured with `node scripts/measure-text-load.mjs http://localhost:3100 <label> 
 | Headings, spacing, leads' frames, page chrome | 67.9 | — |
 | Prose paragraphs | 19.9 | 3,296 |
 | Callouts and lists | 4.3 | 661 |
+
+## Mounted panels (D-57 to D-62)
+
+Measured at 390 × 844 on a local production build. `metrics-evidence-pass.json` is the site as merged in PR #35; `metrics-panels.json` is after this change.
+
+| Tab | Screens: evidence pass | After panels | Words: evidence pass | After panels |
+|---|---:|---:|---:|---:|
+| cover | 2.2 | 2 | 225 | 180 |
+| decision | 22.7 | 16.8 | 2,601 | 1,879 |
+| evidence | 65 | 28.4 | 7,722 | 3,518 |
+| strategy | 35 | 25.6 | 4,692 | 3,674 |
+| delivery | 21.1 | 14.7 | 1,959 | 1,235 |
+| workstreams-platforms | 12.9 | 8.9 | 1,312 | 901 |
+| workstreams-media | 6.7 | 2.7 | 613 | 268 |
+| workstreams-ground | 12.8 | 6.8 | 1,534 | 804 |
+| workstreams-data | 5 | 3.9 | 446 | 326 |
+| staffing | 6 | 5.8 | 558 | 549 |
+| measurement | 26.9 | 18.3 | 3,387 | 2,243 |
+| risks | 8.9 | 7.4 | 895 | 791 |
+| annex-evidence | 4.3 | 4.2 | 460 | 457 |
+| annex-county | 13.4 | 3.8 | 1,479 | 372 |
+| annex-messages | 1.9 | 1.8 | 119 | 117 |
+| annex-cadence | 4.3 | 3.4 | 264 | 205 |
+| annex-runbooks | 9.7 | 8.4 | 836 | 727 |
+| annex-terms | 1.8 | 1.8 | 153 | 153 |
+| annex-spec | 4.8 | 4.6 | 492 | 484 |
+| **Total** | **265.4** | **169.3** | **29,747** | **18,883** |
+
+The steps, measured after each: panels behind the control, 192 screens; long sequences folded after five, the decision panel and the 2.10.1 table, 185; figure sources folded with tiers kept on the control, and the five-row table preview, 176; phone spacing, 173; sequences shown to four items, 171; closer chapter markers and visual padding, 169.3.

@@ -132,7 +132,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         {/* With scripts off, no fold, accordion, card or tab can open, so every one ships open
             and its control is hidden (brief §Q: JS-off; lib/fold.ts). */}
         <noscript>
-          <style>{`[data-fold-body]{display:block!important}span[data-fold-body]{display:inline!important}.pf-more__btn,.vz-more__btn,.rf-more,.pf-textver__summary,.vz-tabs__list{display:none!important}`}</style>
+          <style>{`[data-fold-body]{display:block!important}span[data-fold-body]{display:inline!important}[data-row-more]{display:revert!important}.pf-more__btn,.vz-more__btn,.rf-more,.pf-panel__btn,.pf-textver__summary,.vz-tabs__list{display:none!important}`}</style>
         </noscript>
       </head>
       <body suppressHydrationWarning className="font-sans antialiased bg-paper text-ink">{children}</body>

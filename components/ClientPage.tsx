@@ -10,6 +10,7 @@ import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress"
 import { Figure } from "./figures/FigureBoundary";
 import { RegisterMotion } from "./register/RegisterMotion";
 import { HeadingOutline } from "./HeadingOutline";
+import { PanelFold } from "./markdown/PanelFold";
 import { MicroFX } from "./premium/MicroFX";
 import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
 import { MobileTOCModal } from "./MobileTOCModal";
@@ -412,7 +413,11 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
                     />
                   </div>
                   {/* §3's argument, told once over a pinned county before the section's detail. */}
-                  {item.id === "evidence" && <Story theme={theme === "light" ? "light" : "dark"} />}
+                  {item.id === "evidence" && (
+                    <PanelFold label="The analysis in four steps: the winning number, where the votes are, the routes, and where he has held office">
+                      <Story theme={theme === "light" ? "light" : "dark"} />
+                    </PanelFold>
+                  )}
                   {/* On the /cover route there is no hero, so the cover figures open the section. */}
                   {!expanded && item.id === "cover" && (
                     <>

@@ -2,7 +2,9 @@
 
 **Status.** Stages 1 to 11 are done on `claude/new-session-giw0mo`.
 
-After Stage 10 the work stopped at a hard stop (brief section 11): the screens target was missed by more than 25%, at 362 phone screens against 170. The owner then chose option 2 of that report: "Collapse figure charts behind a control, showing only the headline and takeaway" (D-51). That brought the site to 264 screens. The 170 target is still not met; the owner chose this option knowing that.
+After Stage 10 the work stopped at a hard stop (brief section 11): the screens target was missed by more than 25%, at 362 phone screens against 170. The owner then chose option 2 of that report: "Collapse figure charts behind a control, showing only the headline and takeaway" (D-51). That brought the site to 264 screens.
+
+The evidence pass (PR #35) left it at 265.4. The owner then asked to "collapse the mounted panels too to reach 170 screens" (D-57 to D-62). The site now measures **169.3 phone screens**, so the 170 target is met. Visible words are 18,883, against a target of 26,000, so that target is met too.
 
 ## Before and after
 
@@ -10,19 +12,21 @@ All figures are from `scripts/measure-text-load.mjs` at 390 × 844 on a producti
 - **Before:** `4bfc078`, which was the live site, in Brief mode (its default) and Full mode.
 - **After:** the single version of the site.
 
-| Measure | Before: Brief | Before: Full | After | Target |
-|---|---:|---:|---:|---:|
-| Phone screens, all 19 tabs | 371 | 607 | **264** | ≤ 170 (not met) |
-| Words visible on load | 62,286 | 77,744 | **29,408** | ≤ 26,000 (not met) |
-| Words behind a closed fold, reachable | — | — | 53,251 | |
-| Paragraphs over 60 words visible | 54 | 82 | **0**, plus 3 kept whole by rule 7 | 0 |
-| Raw `[CONFLICT` markers visible | 19 | 27 | **0** | 0 |
-| Raw "(Tier N" parentheticals visible | 161 | 169 | **0** | 0 |
-| Reading-mode controls, code paths, storage reads | 3 / 11 files | | **0** (one line clears the old storage key) | 0 |
-| Lighthouse accessibility, mobile (/, /evidence, /strategy) | 99 / 98 / 98 | | **100 / 100 / 100** | 100 |
-| Lighthouse performance (same) | 44 / 16 / 49 | | 44 / 42 / 54 | ≥ before − 3 |
-| CLS (same) | 0 / 0.48 / 0 | | **0 / 0 / 0** | < 0.1 |
-| First Load JS, shared | 103 kB | | 103 kB | ≤ 110 kB |
+The "After panels" column is the site after D-57 to D-62 (`metrics-panels.json`).
+
+| Measure | Before: Brief | Before: Full | After | After panels | Target |
+|---|---:|---:|---:|---:|---:|
+| Phone screens, all 19 tabs | 371 | 607 | 264 | **169.3** | ≤ 170 (met) |
+| Words visible on load | 62,286 | 77,744 | 29,408 | **18,883** | ≤ 26,000 (met) |
+| Words behind a closed fold, reachable | — | — | 53,251 | 65,366 | |
+| Paragraphs over 60 words visible | 54 | 82 | **0**, plus 3 kept whole by rule 7 | same | 0 |
+| Raw `[CONFLICT` markers visible | 19 | 27 | **0** | 0 | 0 |
+| Raw "(Tier N" parentheticals visible | 161 | 169 | **0** | 0 | 0 |
+| Reading-mode controls, code paths, storage reads | 3 / 11 files | | **0** (one line clears the old storage key) | 0 | 0 |
+| Lighthouse accessibility, mobile (/, /evidence, /strategy) | 99 / 98 / 98 | | **100 / 100 / 100** | **100 / 100 / 100** | 100 |
+| Lighthouse performance (same) | 44 / 16 / 49 | | 44 / 42 / 54 | 54 / 53 / 58 | ≥ before − 3 |
+| CLS (same) | 0 / 0.48 / 0 | | **0 / 0 / 0** | 0 / 0.006 / 0.004 | < 0.1 |
+| First Load JS, shared | 103 kB | | 103 kB | 103 kB | ≤ 110 kB |
 
 Notes on the table:
 - **Rule 7 exceptions.** The three long paragraphs are two clauses of the 5.3.3 charter and F.1's first paragraph. Rule 7 keeps them whole and visible.
@@ -30,15 +34,19 @@ Notes on the table:
 
 Per-tab screens and words are in PROGRESS.md.
 
-## What blocks 170 screens
+## How 170 screens was reached
 
-At Stage 10 the site measured 362 screens: figures 119, mounted components 87, `visual` fences 64, headings and spacing 68, prose 24. Option 2 folded the figures' marks and took the site to 264.
+At Stage 10 the site measured 362 screens: figures 119, mounted components 87, `visual` fences 64, headings and spacing 68, prose 24. Option 2 folded the figures' marks and took the site to 264. The evidence pass added 1.4 screens.
 
-The two remaining levers are larger owner decisions:
-- **Collapse the mounted components** behind a one-line control. This would save about 65 screens.
-- **Tighten the visuals and section spacing.** This is CSS only and would save roughly 20 to 30 screens.
+The owner's second instruction, to collapse the mounted panels (DECISIONS.md D-57 to D-62), made six changes:
+- **Panels.** 43 mounted panels sit behind one "Show the panel" control, each named by its own title. Alone, this took the site to 192 screens.
+- **Sequences.** A sequence of six or more items shows its first four.
+- **Figure sources.** A figure's source line folds, and its tier pills move onto the figure's control, so rule 5 still holds.
+- **Tables.** Long tables show five rows.
+- **The 2.10.1 asset table** joins its section's full text.
+- **Phone spacing** is a little closer.
 
-Together they would bring the site near 170–180.
+The result is 169.3 screens.
 
 ## What changed
 
@@ -63,7 +71,7 @@ Together they would bring the site near 170–180.
 
 **Derived visuals.** All 34 derived heading visuals are resolved: 27 by visual fences, 7 by override (D-48).
 
-**Figures.** Each figure shows its headline, takeaway, source line with tier, and any conflict flag. One "Show the figure" control opens the marks, question, notes, item text, data table and CSV (D-47, D-51).
+**Figures.** Each figure shows its headline, takeaway, any conflict flag, and its tier pills on the line of its "Show the figure" control. The control opens the marks, question, notes, item text, source line, data table and CSV (D-47, D-51, D-59).
 
 **Fixes found in verification:**
 - folds did not print (D-52);
@@ -87,14 +95,14 @@ Together they would bring the site near 170–180.
 | 9 | 27 conflict markers, each in its passage | Pass |
 | 10 | No working marks rendered | Pass: 0 on 19 tabs |
 | 11 | No paragraph over 60 words outside folds; no reading-mode code | Pass. The charter clauses and F.1 are exempt under rule 7; the grep finds only the storage-key cleanup. |
-| 12 | Section 3 targets | **Not met** for screens (264) and visible words (29,408). Met for the rest. `metrics-after.json` |
-| 13 | Print | Pass: 885 fold bodies and 91 content disclosures displayed under print; /delivery's PDF holds the folded text |
-| 14 | Scripts off | Pass: 885 fold bodies (20 of them tab panels) in the HTML and displayed |
+| 12 | Section 3 targets | **Met** after the panels: 169.3 screens and 18,883 visible words (`metrics-panels.json`). At Stage 11 they were not met: 264 and 29,408 (`metrics-after.json`). |
+| 13 | Print | Pass: 1,006 fold bodies (885 at Stage 11) and 91 content disclosures displayed under print; /delivery's PDF holds the folded text |
+| 14 | Scripts off | Pass: 1,006 fold bodies (21 of them tab panels) in the HTML and displayed |
 | 15 | Deep links | Pass: 50 of 50 (30 pre-rebuild ids, 20 current) land with no closed fold around them |
 | 16 | Lighthouse | Pass: accessibility 100 on all three, performance at or above baseline, CLS 0 |
 | 17 | Screenshots | `screenshots/before` and `screenshots/after`, every tab at 390 and 1280 px |
 
-Checks 10–16 are run by `scripts/declutter/live-checks.mjs` (10, 11, 13, 14, 15) and Lighthouse, on a local production build of `32774a8`. This container's network policy blocks `*.vercel.app`, so a browser here cannot open the Vercel preview. Instead the preview (`dpl_7EEh2ghfU57LzM8n6QXXxTqDbuwK`, same commit) was fetched through the Vercel connector and compared with the local build:
+After the panels, checks 1–16 were run again on a local production build of this change; all pass. Before that, checks 10–16 were run by `scripts/declutter/live-checks.mjs` (10, 11, 13, 14, 15) and Lighthouse, on a local production build of `32774a8`. This container's network policy blocks `*.vercel.app`, so a browser here cannot open the Vercel preview. Instead the preview (`dpl_7EEh2ghfU57LzM8n6QXXxTqDbuwK`, same commit) was fetched through the Vercel connector and compared with the local build:
 - `/evidence` renders the same 139,134 characters of text, with the same counts of every marker the checks look for;
 - `/annex-terms` serves F.1 in full and the pre-paint story flag;
 - no route offers a Brief or Full control.
@@ -116,6 +124,7 @@ Checks 10–16 are run by `scripts/declutter/live-checks.mjs` (10, 11, 13, 14, 1
 3. **Sub-counties.** Six sub-counties are in no zone (3.3.1).
 4. **Untiered statistics.** These are "not yet tiered" and now shown on cards: 13.0% never attended school, 17.4% completed secondary, 78.4% farm-dependent, 61% water access.
 5. **Stale dates** (`docs/restructure-2026-10/TODO-dates.md`). The nomination window, "late October to November 2026", is now the present.
+6. **The objectives index at 5.1 is empty.** It lists other parts' indicator sets by matching their section titles. No title matches its pattern since the restructure, so it renders nothing (it was already empty on main). It is left out of the panel controls (D-57) until its pattern is updated.
 
 ## Production
 

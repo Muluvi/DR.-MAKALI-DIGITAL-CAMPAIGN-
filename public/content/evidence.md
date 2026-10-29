@@ -490,7 +490,6 @@ Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS, has represented Kitui Central
 id: fig-2-8-record
 ```
 
-<!-- keep -->
 | Asset | Sourced Empirical Evidence | Strategic Digital Application |
 |---|---|---|
 | Macroeconomic Leadership | PhD (Economics) (Tier 1); Budget and Appropriations Committee membership (Tier 1; any leadership role to be confirmed from the National Assembly's committee records) | Weekly "Dr. Mulu on Public Finance" explainer series |

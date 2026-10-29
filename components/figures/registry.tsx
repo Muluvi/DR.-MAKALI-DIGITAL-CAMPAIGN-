@@ -1,4 +1,7 @@
+import { isValidElement } from "react";
+
 import { FigureFrame } from "./FigureFrame";
+import { PanelFold } from "../markdown/PanelFold";
 import { RegisterFigure } from "../register/Figure";
 import { STORY_FIGURES } from "../../lib/premium/story";
 import { REGISTER } from "../../lib/register/specs";
@@ -1152,7 +1155,11 @@ export function Figure({ id }: { id: string }) {
       </p>
     );
   }
-  return <>{entry.render()}</>;
+  // A framed figure carries its own "Show the figure" control; anything else drawn here is a bespoke
+  // panel, and goes behind the panel control like every other mounted panel.
+  const node = entry.render();
+  if (isValidElement(node) && node.type === FigureFrame) return node;
+  return <PanelFold>{node}</PanelFold>;
 }
 
 export { GapBar };
