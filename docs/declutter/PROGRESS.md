@@ -31,7 +31,9 @@ Measured with `node scripts/measure-text-load.mjs http://localhost:3100 <label> 
 - **Stages 4 to 9 (per-tab plan):** 310 → 376 screens, while visible words fell. Each section's lead, its visual and its kept commitments now show on load, and the prose they replace is folded. The visuals are taller than the prose they summarise, because cards, steppers, checklists and timelines lay text out in rows and boxes. Decision (+10.6), delivery (+9.2), measurement (+10) and annex-cadence (+2.4) rose the most.
 - **Stage 10 (figure slimming, derived visuals):** 376 → 362 screens and 47,553 → 42,962 words. Figure questions, notes and item bodies moved behind "Details and notes"; the last seven derived visuals were retired.
 
-## Where the 362 screens are (Stage 10, 390 px)
+- **After the stop (owner's option 2):** 362 → 266 screens and 42,962 → 30,170 words, with figure charts behind "Show the figure" (D-51).
+
+## Where the 362 screens were at the stop (Stage 10, 390 px)
 
 | Kind | Screens | Visible words |
 |---|---:|---:|

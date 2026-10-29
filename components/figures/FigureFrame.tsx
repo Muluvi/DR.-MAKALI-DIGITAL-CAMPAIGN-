@@ -80,7 +80,11 @@ export function FigureFrame({
         </div>
       )}
 
-      <div className="px-4 py-4 sm:px-5">{children}</div>
+      <FigureDetailsToggle />
+      <FigDetail notes className="rf-fold">
+        <p className="t-micro px-4 pt-3 leading-snug text-muted sm:px-5">{series.measure}</p>
+        <div className="px-4 py-4 sm:px-5">{children}</div>
+      </FigDetail>
 
       <div className="border-t border-line/60 bg-paper/40 px-4 py-3 sm:px-5">
         <p className="t-micro leading-snug text-muted">
@@ -101,13 +105,10 @@ export function FigureFrame({
           )}
         </p>
 
-        <FigureDetailsToggle />
-        <FigDetail notes className="rf-method">
-          <p className="t-micro leading-snug text-muted">{series.measure}</p>
+        <FigDetail>
           {series.note && conflicts.length === 0 && (
             <p className="t-micro mt-1.5 leading-snug text-muted">{series.note}</p>
           )}
-        </FigDetail>
 
         {/* SHIPS OPEN, closed by PrintSafeDisclosures once a script is there to reopen it.
             This carried `print:open` before, which styles nothing — `open` is an attribute, not a
@@ -122,6 +123,7 @@ export function FigureFrame({
             {data ?? <SeriesTable series={series} />}
           </div>
         </details>
+        </FigDetail>
       </div>
       </FigureDetails>
     </figure>

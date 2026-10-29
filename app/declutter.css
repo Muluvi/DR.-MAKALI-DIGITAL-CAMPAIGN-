@@ -291,7 +291,8 @@ span[data-fold-body][hidden] { display: inline-block; }
   }
 }
 
-/* Figure slimming (section 7): one control opens a figure's question, notes and item bodies. */
+/* Figure slimming (section 7, widened by the owner): one control opens a figure's marks, question,
+   notes, item bodies and data. */
 .rf-more { display: flex; width: 100%; min-height: 44px; align-items: center; gap: 6px; padding: 0 1rem; color: var(--pf-accent); font: 650 13.5px/1.2 var(--pf-display); cursor: pointer; border-top: 1px solid var(--line); }
 .rf-more__chev { transition: transform var(--pf-dur-fast) var(--pf-ease-out); }
 .rf-more__chev[data-open="true"] { transform: rotate(180deg); }
@@ -301,5 +302,5 @@ span[data-fold-body][hidden] { display: inline-block; }
 @media (min-width: 640px) { .rf-more, .rf-method { padding-inline: 1.25rem; } }
 @media (prefers-reduced-motion: reduce) { .rf-more__chev { transition: none; } }
 @media print { .rf-more { display: none !important; } }
-/* Inside a FigureFrame's footer the control and its notes sit flush with the source line. */
-.border-t > .rf-more, .border-t > .rf-method { padding-inline: 0; border-top: 0; }
+/* Behind the control: the question, the marks, the notes and the data, in that order. */
+.rf-fold > .rf-method { padding-top: 0.5rem; padding-bottom: 0; }

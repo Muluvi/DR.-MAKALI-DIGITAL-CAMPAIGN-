@@ -49,16 +49,29 @@ export function RegisterFigure({ spec }: { spec: FigureSpec }) {
       <div className="rf-head">
         <h4 id={titleId} className="rf-title">{spec.title}</h4>
       </div>
-      <div className="rf-body">
-        <Chart spec={spec} />
-      </div>
       <p id={takeawayId} className="rf-takeaway">{spec.takeaway}</p>
       <FigureDetailsToggle />
-      <FigDetail notes className="rf-method">
-        <p className="rf-question">{spec.question}</p>
-        {spec.notes?.map((n) => (
-          <p key={n} className="rf-notes">{n}</p>
-        ))}
+      <FigDetail notes className="rf-fold">
+        <div className="rf-method">
+          <p className="rf-question">{spec.question}</p>
+        </div>
+        <div className="rf-body">
+          <Chart spec={spec} />
+          {spec.notes?.map((n) => (
+            <p key={n} className="rf-notes">{n}</p>
+          ))}
+        </div>
+        <div className="rf-foot rf-foot--data">
+        <details open className="rf-details print-open">
+          <summary>View the data table</summary>
+          <div className="rf-table-wrap" tabIndex={0} role="region" aria-label={`Data table: ${spec.title}`}>
+            <DataTable spec={spec} />
+          </div>
+        </details>
+        <a className="rf-csv" href={`/data/${spec.id}.csv`} download={`${spec.id}.csv`}>
+          Download the data as CSV<span className="rf-csv-file">{spec.id}.csv</span>
+        </a>
+        </div>
       </FigDetail>
       <figcaption className="rf-foot">
         <p className="rf-source">
@@ -70,15 +83,6 @@ export function RegisterFigure({ spec }: { spec: FigureSpec }) {
             </span>
           ))}
         </p>
-        <details open className="rf-details print-open">
-          <summary>View the data table</summary>
-          <div className="rf-table-wrap" tabIndex={0} role="region" aria-label={`Data table: ${spec.title}`}>
-            <DataTable spec={spec} />
-          </div>
-        </details>
-        <a className="rf-csv" href={`/data/${spec.id}.csv`} download={`${spec.id}.csv`}>
-          Download the data as CSV<span className="rf-csv-file">{spec.id}.csv</span>
-        </a>
       </figcaption>
       </FigureDetails>
     </figure>
