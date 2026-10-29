@@ -15,6 +15,10 @@
  *      "/#id", land with their heading in view and no closed fold around it.
  *
  *     node scripts/declutter/live-checks.mjs http://localhost:3100
+ *     VERCEL_SHARE="<preview url with ?_vercel_share=…>" node scripts/declutter/live-checks.mjs <preview url>
+ *
+ * VERCEL_SHARE is a Vercel share link for a protected preview: each browser context opens it once
+ * first, which sets the access cookie, and then tests the site as a reader would.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -40,6 +44,15 @@ const rand = () => ((seed = (seed * 1103515245 + 12345) % 2 ** 31) / 2 ** 31);
 const draw = (list, n) => [...list].sort().map((v) => [rand(), v]).sort((a, b) => a[0] - b[0]).slice(0, n).map((p) => p[1]);
 
 const browser = await chromium.launch();
+const SHARE = process.env.VERCEL_SHARE;
+async function open(context) {
+  if (SHARE) {
+    const p = await context.newPage();
+    await p.goto(SHARE, { waitUntil: "load", timeout: 120000 });
+    await p.close();
+  }
+  return context;
+}
 
 async function settle(page) {
   let last = 0;
@@ -53,7 +66,7 @@ async function settle(page) {
 }
 
 /* ---------------------------------------------------------------- 10, 11 and 13: scripts on */
-const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
+const ctx = await open(await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce" }));
 const page = await ctx.newPage();
 let raw = 0, long = 0, foldsPrinted = 0, detailsPrinted = 0;
 for (const tab of TABS) {
@@ -113,7 +126,7 @@ say(`11. paragraphs over 60 words visible outside folds (the 5.3.3 charter and F
 say(`13. print: ${foldsPrinted} fold bodies and ${detailsPrinted} content disclosures across ${TABS.length} tabs, all displayed`);
 
 /* ---------------------------------------------------------------- 14: scripts off */
-const off = await browser.newContext({ viewport: { width: 390, height: 844 }, javaScriptEnabled: false });
+const off = await open(await browser.newContext({ viewport: { width: 390, height: 844 }, javaScriptEnabled: false }));
 const offPage = await off.newPage();
 let offFolds = 0, offPanels = 0;
 for (const tab of TABS) {

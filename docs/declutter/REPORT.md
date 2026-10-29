@@ -94,7 +94,12 @@ Together they would bring the site near 170–180.
 | 16 | Lighthouse | Pass: accessibility 100 on all three, performance at or above baseline, CLS 0 |
 | 17 | Screenshots | `screenshots/before` and `screenshots/after`, every tab at 390 and 1280 px |
 
-Checks 10–16 are run by `scripts/declutter/live-checks.mjs` (10, 11, 13, 14, 15) and Lighthouse. They are run again against the Vercel preview and production as the PR proceeds.
+Checks 10–16 are run by `scripts/declutter/live-checks.mjs` (10, 11, 13, 14, 15) and Lighthouse, on a local production build of `32774a8`. This container's network policy blocks `*.vercel.app`, so a browser here cannot open the Vercel preview. Instead the preview (`dpl_7EEh2ghfU57LzM8n6QXXxTqDbuwK`, same commit) was fetched through the Vercel connector and compared with the local build:
+- `/evidence` renders the same 139,134 characters of text, with the same counts of every marker the checks look for;
+- `/annex-terms` serves F.1 in full and the pre-paint story flag;
+- no route offers a Brief or Full control.
+
+`live-checks.mjs` also accepts a `VERCEL_SHARE` link, for running it against a protected preview from a network that can reach it.
 
 ## Found, not changed (values and sources are out of scope)
 
