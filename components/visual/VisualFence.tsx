@@ -518,7 +518,7 @@ export function VisualFence({ json, md }: { json: string; md: Md }) {
     );
   }
   return (
-    <figure className={`vz not-prose vz--${spec.kind}`} id={spec.id} data-visual={spec.kind} role="group" aria-label={spec.title ?? undefined}>
+    <figure className={`vz not-prose vz--${spec.kind}`} id={spec.id} data-visual={spec.kind} aria-label={spec.title ?? undefined}>
       {spec.title || spec.note ? (
         <figcaption className="vz__cap">
           {spec.title ? <h4 className="vz__title">{md(spec.title, true)}</h4> : null}

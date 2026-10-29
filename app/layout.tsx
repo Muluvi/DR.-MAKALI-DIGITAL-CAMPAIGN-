@@ -119,8 +119,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="en" className={`dark ${bricolage.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`dark ${bricolage.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}>
       <head>
+        {/* The 2.1 story pins its county only where WebGL can draw it and motion is welcome. Deciding
+            that here, before the first paint, lets the story's CSS lay out the pinned steps from the
+            start instead of switching after hydration, which shifted the evidence page (CLS 0.48). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(window.WebGLRenderingContext&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.setAttribute("data-story-pin","")}catch(e){}`,
+          }}
+        />
         {/* With scripts off, no fold, accordion, card or tab can open, so every one ships open
             and its control is hidden (brief §Q: JS-off; lib/fold.ts). */}
         <noscript>

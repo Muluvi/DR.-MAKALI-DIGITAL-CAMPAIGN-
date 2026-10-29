@@ -49,11 +49,14 @@ export function Dock({
   return (
     <nav className="pf-dock print:hidden" data-hidden={visible ? "false" : "true"} aria-label="Document">
       <div className="pf-dock__pill">
-        <button type="button" className="pf-dock__where" onClick={onOpenIndex} aria-label={`${number ? `Section ${number}, ` : ""}${label}. Open the index.`}>
+        {/* Named by its visible text plus a hidden clause, so the name a voice user speaks is the one
+            they see (WCAG 2.5.3; Lighthouse "label-content-name-mismatch"). */}
+        <button type="button" className="pf-dock__where" onClick={onOpenIndex}>
           <span className="pf-dock__numeral" aria-hidden="true">{actNumeral(tab) || "·"}</span>
           <span className="pf-dock__label">
             {number && <b className="pf-dock__num">§{number}</b>} {label}
           </span>
+          <span className="sr-only">. Open the index.</span>
         </button>
         <button type="button" className="pf-dock__icon" onClick={onOpenIndex} aria-label="Open the index">
           <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">

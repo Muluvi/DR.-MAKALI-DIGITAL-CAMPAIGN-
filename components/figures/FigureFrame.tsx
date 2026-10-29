@@ -60,8 +60,8 @@ export function FigureFrame({
     <figure
       className={`not-prose my-6 rounded-2xl border border-line bg-card overflow-hidden ${className}`}
       // The summary a screen reader hears before the marks, and the one a reader gets if the SVG
-      // fails to paint. It is the headline, because the headline is the finding.
-      role="group"
+      // fails to paint. It is the headline, because the headline is the finding. A <figure> takes
+      // the name itself; role="group" is not an allowed role on it (axe "aria-allowed-role").
       aria-label={series.headline}
     >
       <FigureDetails>

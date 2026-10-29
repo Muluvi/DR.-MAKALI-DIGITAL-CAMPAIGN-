@@ -16,6 +16,8 @@ The aim is to turn the proposal from a document into a website. The site is read
 | `TIER-MISMATCHES.md` | Typed tier parentheticals that disagree with the token's data tier |
 | `PROGRESS.md` | Before and after for each tab |
 | `REPORT.md` | Before and after for the whole site, and the check results |
+| `screenshots/` | The top of every tab at 390 and 1280 px, `before/` (`4bfc078`) and `after/` |
+| `cuts.json` | The cut log as data; `CUTS.md` is generated from it |
 
 ## Re-measuring
 
@@ -26,7 +28,15 @@ The measurement needs a production build served locally, and the Playwright that
     node scripts/measure-text-load.mjs http://localhost:3100 <label>            # Brief and Full (before)
     node scripts/measure-text-load.mjs http://localhost:3100 <label> --single   # one version (after)
 
-The script writes `docs/declutter/metrics-<label>.json` and prints a table. If `import "playwright"` does not resolve, link the global copy rather than installing another: `ln -s "$(npm root -g)/playwright" node_modules/playwright`.
+The script writes `docs/declutter/metrics-<label>.json` and prints a table.
+
+## Checks
+
+    npm run verify                                         # checks 1-9, including check:declutter
+    node scripts/declutter/live-checks.mjs <url>           # checks 10, 11, 13, 14 and 15, against any running copy
+    node scripts/declutter/screenshots.mjs <url> <label>   # check 17
+
+`check:declutter` runs `check-tokens`, `check-content` (conservation, duplicates, conflicts), `check-leads`, and the staleness checks for `CUTS.md` and `TIER-MISMATCHES.md`. The content edits of Stages 3 to 9 were made by the scripts in `scripts/declutter/stages/`, which are kept as the record of how each tab was changed. If `import "playwright"` does not resolve, link the global copy rather than installing another: `ln -s "$(npm root -g)/playwright" node_modules/playwright`.
 
 ## Stage 1 result
 

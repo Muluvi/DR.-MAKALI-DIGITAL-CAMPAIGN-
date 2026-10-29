@@ -9,6 +9,7 @@ import { useTheme } from "../lib/useTheme";
 import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
 import { Figure } from "./figures/FigureBoundary";
 import { RegisterMotion } from "./register/RegisterMotion";
+import { HeadingOutline } from "./HeadingOutline";
 import { MicroFX } from "./premium/MicroFX";
 import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
 import { MobileTOCModal } from "./MobileTOCModal";
@@ -319,6 +320,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
         )}
 
         <RegisterMotion />
+        <HeadingOutline />
         <MicroFX />
         <div className="pf-grain print:hidden" aria-hidden="true" />
 

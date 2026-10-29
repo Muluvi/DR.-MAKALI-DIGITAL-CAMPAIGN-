@@ -134,10 +134,17 @@ A run of h4 blocks becomes an accordion from three panels, not two. Two-panel ru
 
 **D-54. Long paragraphs that are notes, not commitments, fold.** Check 11 found long paragraphs in places the plan did not reach:
 - The analysis panels' reading notes (60–87 words each) now sit behind "Read the notes".
-- Two kept paragraphs are no longer kept: 3.4.3's "Two rules on top", and 4.6.3's, which becomes that section's lead and its full text.
+- Two kept paragraphs are no longer kept: 3.7's "Two rules on top", and 4.6.3's, which becomes that section's lead and its full text.
 - The 81-word callout at the top of Annex C moves to the head of C.1 (logged as moved).
 - The ward overlay's computed sentence pair is split into two paragraphs.
 - Four visual faces moved their long text into the item's folded fields: the radio card's reach and the three message pillars' narrative statements. The hypothesis card's closing sentence moved into its body.
 The 5.3.3 charter clauses and F.1 stay whole under rule 7; check 11 lists them as the only exceptions.
 
 **D-55. Tier mismatches are generated, not hand-listed.** `scripts/declutter/tier-mismatches.mjs` pairs each token with a "(Tier N" parenthetical that follows it within four words, and compares the two. It found 58 pairs; 2 disagree (2.9.1's 2019 census phone and internet shares, which are T2 in the data and typed "Tier 1"). The typed tier renders, as X1 requires, and TIER-MISMATCHES.md lists both for the owner. `check:declutter` fails if the file is stale.
+
+**D-56. Accessibility and layout shift fixed at their source.** Lighthouse (mobile) scored the baseline 99, 98 and 98 on /, /evidence and /strategy, and this branch the same before these fixes. Three audits failed:
+- **heading-order.** Figure, card and panel titles in 46 components are h4 or h5 wherever they are mounted, so under an h2 the outline skipped a level. `components/HeadingOutline.tsx` gives any heading deeper than one below its predecessor an `aria-level` one below it. Section headings keep their level, and no markup or style changes.
+- **aria-allowed-role.** `role="group"` is removed from `<figure>`s, which take their name directly.
+- **label-content-name-mismatch.** The dock button is named by its visible text plus a screen-reader-only ". Open the index."
+
+The evidence page's CLS of 0.48 (0.48 at baseline too) came from the 2.1 story switching to its pinned layout after hydration. An inline script in `app/layout.tsx` now sets `data-story-pin` on `<html>` before the first paint, where WebGL exists and reduced motion is off. The pinned layout's CSS keys off that flag, so the layout is right from the start. With scripts off, nothing is set and the story stays unpinned, as before. Result: accessibility 100, 100 and 100; CLS 0 on all three; performance 44, 42 and 54 against a baseline of 44, 16 and 49.
