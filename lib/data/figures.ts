@@ -197,10 +197,10 @@ sourced("poverty.2021", 55.2, "percent", "T1", "KNBS, Kenya Poverty Report (2021
   note: "The official poverty rate. The 60.4% in the NDMA food-security assessment is not a poverty-report rate and is not used (confirmed 25 September 2026).",
 });
 sourced("poverty.2021.people", 637_000, "people", "T1", "KNBS, Kenya Poverty Report (2021)");
-sourced("livestock.cattle", 613_000, "count", "T1", "Kitui County livestock statistics, as cited in the evidence pack");
-sourced("livestock.goats", 2_000_000, "count", "T1", "Kitui County livestock statistics, as cited in the evidence pack");
-sourced("livestock.poultry", 4_000_000, "count", "T1", "Kitui County livestock statistics, as cited in the evidence pack");
-sourced("livestock.donkeys", 326_000, "count", "T1", "Kitui County livestock statistics, as cited in the evidence pack");
+sourced("livestock.cattle", 613_000, "count", "T1", "Livestock data validation 2023, as cited in the NDMA Kitui 2025 Long Rains Food and Nutrition Security Assessment (July 2025), p. 96");
+sourced("livestock.goats", 2_000_000, "count", "T1", "Livestock data validation 2023, as cited in the NDMA Kitui 2025 Long Rains Food and Nutrition Security Assessment (July 2025), p. 96");
+sourced("livestock.poultry", 4_000_000, "count", "T1", "Livestock data validation 2023, as cited in the NDMA Kitui 2025 Long Rains Food and Nutrition Security Assessment (July 2025), p. 96");
+sourced("livestock.donkeys", 326_000, "count", "T1", "Livestock data validation 2023, as cited in the NDMA Kitui 2025 Long Rains Food and Nutrition Security Assessment (July 2025), p. 96");
 sourced("food.reserve-households", 28_000, "households", "T2", "Kitui County CECM for Agriculture, statement");
 
 // ---- sub-county census tables (Section 3.7)
@@ -422,6 +422,182 @@ for (const [id, value] of [["health.density.doctors", 0.7], ["health.density.cli
 // ---- county-policy parameters the campaign is still to size (Section 4.4)
 target("policy.ward-fund", 100_000_000, "ksh", "The proposed Ward Development Equalization Fund, per ward per year: a campaign policy proposal, not yet sized.", { source: "Campaign policy proposal, this proposal" });
 sourced("policy.ndengu-output", 45_000, "count", "T3", "KNBS 2019 Census and ASTGS, as cited; page reference pending", { note: "Tonnes of ndengu output, not yet tiered to a page." });
+
+// ---- the Kitui source pack (29 Oct 2026): four documents read in docs/evidence-2026-10/source-pack-upgrades.md.
+// Pages are those of the cleaned kitui-source-documents.pdf. National figures are labelled national.
+const GDS = "County Government of Kitui, KNBS and UN Women, County Gender Data Sheet: Kitui (October 2025), from KDHS 2022 and the 2019 Census";
+const NDMA25 = "NDMA and Kitui County Steering Group, Kitui County 2025 Long Rains Food and Nutrition Security Assessment (July 2025)";
+const SCORECARD = "County Government of Kitui, Delivering the Kitui Promise: Three-Year Scorecard (Aug 2022 – Aug 2025)";
+const ABSTRACT_2015 = "KNBS, Kitui County Statistical Abstract 2015";
+const NATIONAL = "Kenya, national figure, not a Kitui figure.";
+const page = (n: string, extra = "") => `Source pack p. ${n}.${extra ? ` ${extra}` : ""}`;
+
+// Phones, internet and the register's sex split (KDHS 2022 via the Gender Data Sheet).
+sourced("ict.phone.adult.men", 77.7, "percent", "T1", GDS, { asOf: "2022", note: page("9", "Men aged 18 and over who own a mobile phone.") });
+sourced("ict.phone.adult.women", 73.9, "percent", "T1", GDS, { asOf: "2022", note: page("9", "Women aged 18 and over who own a mobile phone.") });
+sourced("ict.kenya.phone.adult.men", 80.4, "percent", "T1", GDS, { asOf: "2022", note: page("9", NATIONAL) });
+sourced("ict.kenya.phone.adult.women", 77.5, "percent", "T1", GDS, { asOf: "2022", note: page("9", NATIONAL) });
+sourced("ict.internet.1549.men", 34.7, "percent", "T1", GDS, { asOf: "2022", note: page("9", "Men aged 15–49 who used the internet in the last 12 months.") });
+sourced("ict.internet.1549.women", 23.3, "percent", "T1", GDS, { asOf: "2022", note: page("9", "Women aged 15–49 who used the internet in the last 12 months.") });
+sourced("ict.kenya.internet.1549.men", 56.2, "percent", "T1", GDS, { asOf: "2022", note: page("9", NATIONAL) });
+sourced("ict.kenya.internet.1549.women", 44.2, "percent", "T1", GDS, { asOf: "2022", note: page("9", NATIONAL) });
+sourced("register.women.share", 52, "percent", "T1", GDS, { asOf: "2022", decimals: 0, note: page("10", "Women's share of registered voters, 2022.") });
+modelled(
+  "ict.phone.adult",
+  (v("register.women.share") * v("ict.phone.adult.women") + (100 - v("register.women.share")) * v("ict.phone.adult.men")) / 100,
+  "percent",
+  "Adult phone ownership weighted by the register's sex split: 52% × 73.9% + 48% × 77.7%.",
+  { source: GDS },
+);
+modelled("reach.phone.adult", Math.round((v("register.2026") * v("ict.phone.adult")) / 100 / 1000) * 1000, "voters", "The adult phone-ownership rate applied to the July 2026 register, rounded to the nearest 1,000. The adult basis: voters are adults.", { tier: "T3", source: GDS });
+modelled("reach.nophone.adult", Math.round((v("register.2026") - (v("register.2026") * v("ict.phone.adult")) / 100) / 1000) * 1000, "voters", "The July 2026 register less adult phone owners, rounded to the nearest 1,000.", { tier: "T3", source: GDS });
+modelled("reach.phone.resident", v("reach.smartphone") + v("reach.sms-only"), "voters", "Phone owners on the resident basis: reachable online plus reachable by SMS only.", { source: REACH });
+modelled("reach.phone.ratio", v("reach.phone.adult") / v("reach.phone.resident"), "count", "Adult-basis phone owners / resident-basis phone owners.", { source: REACH, decimals: 1 });
+
+// Women (Gender Data Sheet).
+sourced("women.nopaidwork", 60.2, "percent", "T1", GDS, { asOf: "2022", note: page("9", "Women aged 15–49 with no paid work in the past 12 months.") });
+sourced("women.nopaidwork.kenya", 40.3, "percent", "T1", GDS, { asOf: "2022", note: page("9", NATIONAL) });
+sourced("men.nopaidwork", 21.9, "percent", "T1", GDS, { asOf: "2022", note: page("9", "Men aged 15–49 with no paid work in the past 12 months.") });
+sourced("women.unpaidwork", 14.8, "percent", "T1", GDS, { note: page("10", "Share of time women aged 15+ spend on unpaid domestic and care work.") });
+sourced("men.unpaidwork", 2.8, "percent", "T1", GDS, { note: page("10", "Share of time men aged 15+ spend on unpaid domestic and care work.") });
+sourced("women.unpaidwork.kenya", 18.7, "percent", "T1", GDS, { note: page("10", NATIONAL) });
+sourced("men.unpaidwork.kenya", 3.6, "percent", "T1", GDS, { note: page("10", NATIONAL) });
+sourced("women.purchases", 87.4, "percent", "T1", GDS, { asOf: "2022", note: page("10", "Women who take part in decisions on major household purchases.") });
+sourced("women.purchases.kenya", 78.2, "percent", "T1", GDS, { asOf: "2022", note: page("10", NATIONAL) });
+sourced("women.cash.alone", 4.7, "percent", "T1", GDS, { asOf: "2022", note: page("10", "Women with cash earnings who decide alone how they are used.") });
+sourced("women.cash.joint", 67.3, "percent", "T1", GDS, { asOf: "2022", note: page("10", "…who decide jointly with their husbands.") });
+sourced("women.cash.husband", 27.9, "percent", "T1", GDS, { asOf: "2022", note: page("10", "…whose husbands mainly decide.") });
+sourced("water.women.collect", 66.0, "percent", "T1", GDS, { note: page("6", "Adult women as a share of those who collect household drinking water.") });
+sourced("water.women.collect.kenya", 68.5, "percent", "T1", GDS, { note: page("6", NATIONAL) });
+
+// Water.
+sourced("water.30min", 21.2, "percent", "T1", GDS, { note: page("6", "Population reaching drinking water in under 30 minutes.") });
+sourced("water.30min.kenya", 67.9, "percent", "T1", GDS, { note: page("6", NATIONAL) });
+sourced("water.over30", 61.8, "percent", "T1", GDS, { note: page("6", "Population spending more than 30 minutes to reach drinking water.") });
+sourced("water.over30.kenya", 8.7, "percent", "T1", GDS, { note: page("6", NATIONAL) });
+sourced("water.points.working", 450, "count", "T1", NDMA25, { asOf: "2025-07", note: page("103", "Water sources operational at the assessment.") });
+sourced("water.points.total", 630, "count", "T1", NDMA25, { asOf: "2025-07", note: page("103") });
+modelled("water.points.down.share", (100 * (v("water.points.total") - v("water.points.working"))) / v("water.points.total"), "percent", "Water sources not operational / all water sources assessed.", { source: NDMA25 });
+sourced("water.points.working.kitui-central", 56, "percent", "T1", NDMA25, { asOf: "2025-07", decimals: 0, note: page("103", "Share of water sources operational in Kitui Central, the lowest of the eight.") });
+sourced("water.points.working.kitui-south", 61, "percent", "T1", NDMA25, { asOf: "2025-07", decimals: 0, note: page("103") });
+sourced("water.schools.unsafe", 2_244, "count", "T1", NDMA25, { asOf: "2025-07", note: page("116", "School units (797 pre-primary, 679 primary, 558 junior, 210 secondary) without safe water within 100 m. Units by level; several may share a compound.") });
+
+// Health.
+sourced("health.access.problem", 69.5, "percent", "T1", GDS, { asOf: "2022", note: page("8", "Women reporting at least one problem accessing health care.") });
+sourced("health.access.problem.kenya", 52.4, "percent", "T1", GDS, { asOf: "2022", note: page("8", NATIONAL) });
+sourced("health.facility-births", 79.5, "percent", "T1", GDS, { asOf: "2022", note: page("8") });
+sourced("health.facility-births.kenya", 88.1, "percent", "T1", GDS, { asOf: "2022", note: page("8", NATIONAL) });
+sourced("health.skilled-birth", 86.0, "percent", "T1", GDS, { asOf: "2022", note: page("8") });
+sourced("health.imr", 23, "count", "T1", GDS, { asOf: "2022", note: page("7", "Infant deaths per 1,000 live births, KDHS 2022.") });
+sourced("health.u5mr", 27, "count", "T1", GDS, { asOf: "2022", note: page("7", "Under-5 deaths per 1,000 live births, KDHS 2022.") });
+sourced("health.imr.kenya", 32, "count", "T1", GDS, { asOf: "2022", note: page("7", NATIONAL) });
+sourced("health.u5mr.kenya", 41, "count", "T1", GDS, { asOf: "2022", note: page("7", NATIONAL) });
+sourced("health.measles.ngomeni", 112, "count", "T1", NDMA25, { asOf: "2025-06", note: page("106", "Confirmed measles cases, Ngomeni, January–June 2025.") });
+sourced("health.typhoid.2025", 2_564, "count", "T1", NDMA25, { asOf: "2025-06", note: page("106", "Typhoid cases, January–June 2025.") });
+sourced("health.typhoid.2024", 1_696, "count", "T1", NDMA25, { asOf: "2024-06", note: page("106", "Typhoid cases in the same period a year earlier.") });
+modelled("health.typhoid.rise", (100 * (v("health.typhoid.2025") - v("health.typhoid.2024"))) / v("health.typhoid.2024"), "percent", "Rise in typhoid cases, January–June 2025 on the year before.", { source: NDMA25 });
+sourced("health.dysentery.rise", 8.5, "percent", "T1", NDMA25, { asOf: "2025-06", note: page("106") });
+sourced("health.diet.diversity", 42.9, "percent", "T1", `SMART nutrition assessment 2023, as cited in ${NDMA25}`, { asOf: "2023", note: page("107–108", "Children 6–23 months meeting minimum dietary diversity.") });
+sourced("health.diet.acceptable", 30.5, "percent", "T1", `SMART nutrition assessment 2023, as cited in ${NDMA25}`, { asOf: "2023", note: page("107–108", "Children 6–23 months with a minimum acceptable diet.") });
+
+// Education.
+sourced("edu.none.men", 9.7, "percent", "T1", GDS, { asOf: "2022", note: page("8", "Males aged 6 and over with no education.") });
+sourced("edu.none.women", 15.1, "percent", "T1", GDS, { asOf: "2022", note: page("8", "Females aged 6 and over with no education.") });
+sourced("edu.secondary.girls", 51.6, "percent", "T1", GDS, { asOf: "2022", note: page("9", "Girls' net secondary attendance.") });
+sourced("edu.secondary.boys", 40.8, "percent", "T1", GDS, { asOf: "2022", note: page("9", "Boys' net secondary attendance.") });
+sourced("edu.literacy.men", 99.3, "percent", "T1", GDS, { asOf: "2022", note: page("8", "Men aged 15–49.") });
+sourced("edu.literacy.women", 94.8, "percent", "T1", GDS, { asOf: "2022", note: page("8", "Women aged 15–49.") });
+sourced("schools.meals", 439, "count", "T1", NDMA25, {
+  asOf: "2025-07",
+  note: page("111", "Schools with a meals programme, of 3,969."),
+  alt: { value: 1_994, source: `${NDMA25}, p. 113`, tier: "T1", note: "School units with a programme, of 5,868, all parent-supported. The report's two counts do not agree; both are kept." },
+});
+sourced("schools.meals.of", 3_969, "count", "T1", NDMA25, { asOf: "2025-07", note: page("111") });
+sourced("schools.damaged", 426, "count", "T1", NDMA25, { asOf: "2025-04", note: page("111", "Schools damaged, March–April 2025: 107 pre-primary, 137 primary, 134 junior, 48 secondary.") });
+sourced("schools.damaged.learners", 9_900, "people", "T1", NDMA25, { asOf: "2025-04", note: page("111", "About 9,900 learners affected.") });
+
+// Food security, livelihoods and the economy.
+sourced("livelihood.mixed", 55, "percent", "T1", NDMA25, { decimals: 0, note: page("92", "Share of the population in the mixed farming zone.") });
+sourced("livelihood.marginal", 42, "percent", "T1", NDMA25, { decimals: 0, note: page("92", "Share of the population in the marginal mixed farming zone.") });
+sourced("livelihood.employment", 3, "percent", "T1", NDMA25, { decimals: 0, note: page("92", "Formal and unskilled employment zone.") });
+sourced("wealth.verypoor", 29, "percent", "T1", NDMA25, { decimals: 0, note: page("92") });
+sourced("wealth.poor", 31, "percent", "T1", NDMA25, { decimals: 0, note: page("92") });
+sourced("wealth.middle", 26, "percent", "T1", NDMA25, { decimals: 0, note: page("92") });
+sourced("wealth.better", 14, "percent", "T1", NDMA25, { decimals: 0, note: page("92") });
+sourced("greengrams.cash.marginal", 40, "percent", "T1", NDMA25, { decimals: 0, note: page("94–95", "Green grams' share of cash income in marginal mixed farming.") });
+sourced("greengrams.cash.mixed", 30, "percent", "T1", NDMA25, { decimals: 0, note: page("94–95", "…in mixed farming.") });
+sourced("greengrams.lr2025", 146_522, "count", "T1", NDMA25, { asOf: "2025-07", note: page("95", "90 kg bags, long rains 2025.") });
+sourced("greengrams.lr2025.vs-average", 58, "percent", "T1", NDMA25, { asOf: "2025-07", decimals: 0, note: page("95", "Above the five-year average.") });
+sourced("maize.lr2025.vs-average", 41, "percent", "T1", NDMA25, { asOf: "2025-07", decimals: 0, note: page("95", "Below the five-year average.") });
+sourced("price.maize", 59, "ksh", "T1", NDMA25, { asOf: "2025-07", note: page("102", "Per kg; five-year average 56.") });
+sourced("price.maize.average", 56, "ksh", "T1", NDMA25, { note: page("102") });
+sourced("price.goat", 5_969, "ksh", "T1", NDMA25, { asOf: "2025-07", note: page("102", "A medium goat.") });
+sourced("price.goat.average", 4_262, "ksh", "T1", NDMA25, { note: page("102") });
+sourced("fodder.held", 21_734, "count", "T1", NDMA25, { asOf: "2025-07", note: page("97–98", "Bales of fodder held.") });
+sourced("fodder.needed", 215_000, "count", "T1", NDMA25, { asOf: "2025-07", note: page("97–98", "Bales needed. No commercial fodder or pasture business in the county.") });
+sourced("aflatoxin.maize", 32, "percent", "T1", `KEPHIS 2024 tests, as cited in ${NDMA25}`, { asOf: "2024", decimals: 0, note: page("96", "Maize samples above the safe limit.") });
+sourced("aflatoxin.groundnut", 75, "percent", "T1", `KEPHIS 2024 tests, as cited in ${NDMA25}`, { asOf: "2024", decimals: 0, note: page("96", "Groundnut samples above the safe limit.") });
+sourced("goats.ccpp.morbidity", 29, "percent", "T1", NDMA25, { decimals: 0, note: page("100", "CCPP morbidity in goats; mortality 15%.") });
+sourced("goats.ccpp.mortality", 15, "percent", "T1", NDMA25, { decimals: 0, note: page("100") });
+sourced("goats.ppr.morbidity", 15, "percent", "T1", NDMA25, { decimals: 0, note: page("100", "PPR morbidity in goats; mortality 8%.") });
+sourced("goats.ppr.mortality", 8, "percent", "T1", NDMA25, { decimals: 0, note: page("100") });
+sourced("border.killed", 2, "count", "T1", NDMA25, { asOf: "2025-07", note: page("93", "People killed on the Kitui–Tana River border (Endau/Malalani).") });
+sourced("poverty.ndma.2019", 60.4, "percent", "T2", NDMA25, { note: page("92", "Cited by NDMA as \"below the poverty line (KNBS 2019)\"; a different base from KNBS 2021's 55.2%.") });
+sourced("poverty.ndma.county", 63.1, "percent", "T2", NDMA25, { note: page("92", "Cited by NDMA as \"a county poverty rate\"; base not stated.") });
+
+// Population and inclusion.
+sourced("population.2025", 1_258_954, "people", "T1", GDS, { asOf: "2025", note: page("6", "KNBS projection.") });
+sourced("population.2030", 1_327_463, "people", "T1", GDS, { asOf: "2030", note: page("6", "KNBS projection.") });
+sourced("population.15-24.2025", 276_060, "people", "T1", GDS, { asOf: "2025", note: page("6", "KNBS projection. The 18–34 row on the same page is not used: its 2025 and 2030 totals cannot both be right.") });
+sourced("disability.men", 7.5, "percent", "T1", GDS, { asOf: "2022", note: page("6", "Men aged 15 and over with a disability.") });
+sourced("disability.women", 5.5, "percent", "T1", GDS, { asOf: "2022", note: page("6", "Women aged 15 and over with a disability.") });
+sourced("fuel.clean.2022", 6.3, "percent", "T1", GDS, { asOf: "2022", note: page("6", "Households relying on clean cooking fuels.") });
+sourced("fuel.clean.2022.kenya", 21.2, "percent", "T1", GDS, { asOf: "2022", note: page("6", NATIONAL) });
+sourced("farm.employs", 66, "percent", "T2", SCORECARD, { decimals: 0, note: page("141", "The county government's statement that agriculture employs 66% of the population: a claim by the county, not a statistical measurement.") });
+sourced("farm.rural-households", 87, "percent", "T2", SCORECARD, { decimals: 0, note: page("141", "The county government's statement that agriculture sustains 87% of rural households.") });
+
+// The incumbent's scorecard: what it claims, and what it itemises (data/scorecard/kitui-scorecard-projects.csv).
+sourced("scorecard.claimed", 2_244, "count", "T1", SCORECARD, { asOf: "2025-08", note: page("139–140", "Projects and programmes claimed. Tier 1 as a record of what the county claims, not evidence that the claims are true.") });
+sourced("scorecard.itemised", 401, "count", "T1", SCORECARD, { asOf: "2025-08", note: page("140–165", "Projects itemised in the scorecard's tables with cost, place and status.") });
+sourced("scorecard.itemised.ksh", 1_363_953_263, "ksh", "T1", SCORECARD, { asOf: "2025-08", decimals: 2, note: "Sum of the itemised costs (data/scorecard/kitui-scorecard-projects.csv)." });
+modelled("scorecard.unitemised", v("scorecard.claimed") - v("scorecard.itemised"), "count", "Projects claimed less projects itemised.", { source: SCORECARD });
+const SCORECARD_SPEND: [string, number, number][] = [
+  ["kitui-central", 69, 254.9], ["mwingi-north", 54, 211.2], ["kitui-south", 59, 197.5], ["mwingi-central", 59, 182.3],
+  ["kitui-east", 45, 133.7], ["kitui-rural", 28, 109.9], ["kitui-west", 33, 62.9], ["mwingi-west", 27, 50.5],
+];
+for (const [id, n, m] of SCORECARD_SPEND) {
+  sourced(`scorecard.${id}.projects`, n, "count", "T1", SCORECARD, { asOf: "2025-08", note: "Itemised projects attributed to the constituency." });
+  sourced(`scorecard.${id}.ksh`, m * 1e6, "ksh", "T1", SCORECARD, { asOf: "2025-08", decimals: 1, note: "Itemised spend attributed to the constituency, KSh, summed from the scorecard's tables." });
+  modelled(`scorecard.${id}.per-voter`, (m * 1e6) / v(`con.${id}`), "ksh", "Itemised spend / the constituency's 2022 register. Covers the 401 itemised projects only.", { source: SCORECARD });
+}
+sourced("scorecard.countywide.ksh", 160.9e6, "ksh", "T1", SCORECARD, { asOf: "2025-08", decimals: 1, note: "Itemised spend attributed to the whole county or headquarters (27 projects)." });
+modelled("scorecard.attributed.ksh", SCORECARD_SPEND.reduce((n, [, , m]) => n + m * 1e6, 0), "ksh", "Itemised spend attributed to a constituency.", { source: SCORECARD, decimals: 1 });
+modelled("scorecard.pool.share", (100 * ["mwingi-north", "mwingi-central", "mwingi-west", "kitui-south"].reduce((n, id) => n + v(`scorecard.${id}.ksh`), 0)) / v("scorecard.attributed.ksh"), "percent", "The pool's four constituencies' share of constituency-attributed itemised spend.", { source: SCORECARD });
+sourced("scorecard.mwingi-west.water.ksh", 1.9e6, "ksh", "T1", SCORECARD, { asOf: "2025-08", decimals: 1, note: "Itemised water spend in Mwingi West." });
+sourced("scorecard.kitui-central.health.ksh", 76.6e6, "ksh", "T1", SCORECARD, { asOf: "2025-08", decimals: 1, note: "Itemised health spend in Kitui Central, which includes the county referral hospital." });
+sourced("scorecard.health.attributed.ksh", 153.4e6, "ksh", "T1", SCORECARD, { asOf: "2025-08", decimals: 1, note: "Itemised health spend attributed to individual constituencies." });
+// Its headline claims, as printed, and the itemised figures they do not reconcile with (the tracker's questions).
+sourced("scorecard.vaccinated", 1_500_000, "count", "T1", SCORECARD, { note: page("141", "Livestock vaccinated, as claimed.") });
+modelled("scorecard.vaccinated.itemised", 216_441 + 10_050, "count", "The itemised vaccination rows: 216,441 + 10,050 animals.", { source: SCORECARD });
+sourced("scorecard.imr.from", 47, "count", "T1", SCORECARD, { note: page("146", "Infant mortality per 1,000, as claimed, before.") });
+sourced("scorecard.imr.to", 13, "count", "T1", SCORECARD, { note: page("146", "…and after. The scorecard does not say whether this is a facility or a county rate.") });
+sourced("scorecard.roads.graded", 6_974.77, "count", "T1", SCORECARD, { decimals: 2, note: page("152", "Km of road graded, as claimed.") });
+sourced("scorecard.roads.row.km", 2_800, "count", "T1", SCORECARD, { note: page("152–153", "The itemised row \"30 km per ward\".") });
+sourced("scorecard.roads.row.ksh", 18_000_000, "ksh", "T1", SCORECARD, { note: page("152–153") });
+modelled("scorecard.roads.row.per-km", v("scorecard.roads.row.ksh") / v("scorecard.roads.row.km"), "ksh", "The itemised road row's cost / its length.", { source: SCORECARD });
+sourced("scorecard.boreholes.drilled", 57, "count", "T1", SCORECARD, { note: page("143") });
+sourced("scorecard.boreholes.equipped", 32, "count", "T1", SCORECARD, { note: page("143") });
+sourced("scorecard.health.beneficiaries", 1_304_665, "people", "T1", SCORECARD, { note: page("147", "Beneficiaries listed for two health projects: larger than the 2019 population.") });
+sourced("scorecard.kangu.ksh", 839_700_000, "ksh", "T1", SCORECARD, { decimals: 1, note: page("143", "The Kangu Kangu water project, commissioned 19 September 2025.") });
+sourced("scorecard.kangu.households", 25_000, "households", "T1", SCORECARD, { note: page("143", "Households, as claimed (\"25,000+\").") });
+sourced("scorecard.boda.sheds", 44, "count", "T1", SCORECARD, { note: page("162", "Boda boda sheds, as claimed; 32 are itemised.") });
+sourced("scorecard.boda.sheds.itemised", 32, "count", "T1", SCORECARD, { note: page("162–163") });
+sourced("scorecard.police.stations", 8, "count", "T1", SCORECARD, { note: page("165", "Border police stations, as claimed; six complete.") });
+sourced("scorecard.police.complete", 6, "count", "T1", SCORECARD, { note: page("165") });
+
+// The 2015 abstract: history only.
+sourced("ngcdf.kitui-central.2013", 76.7e6, "ksh", "T1", ABSTRACT_2015, { asOf: "2013/14", decimals: 1, note: page("75") });
+sourced("ngcdf.kitui-central.2014", 110.3e6, "ksh", "T1", ABSTRACT_2015, { asOf: "2014/15", decimals: 1, note: page("75", "Provisional.") });
 
 export const FIGURES: Readonly<Record<string, Figure>> = FIG;
 

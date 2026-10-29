@@ -423,7 +423,7 @@ items:
   - value: "{{census.population}}"
     label: "people, 2019 census"
     tier: 1
-    body: "**Demographic Base:** Sourced from the official 2019 Kenya Population and Housing Census, the county population is **{{census.population}}** (comprising {{census.male}} males, {{census.female}} females, and 33 intersex individuals) (Tier 1). Projections estimate a population base of approximately 1.2 million by 2024 (Tier 2)."
+    body: "**Demographic Base:** Sourced from the official 2019 Kenya Population and Housing Census, the county population is **{{census.population}}** (comprising {{census.male}} males, {{census.female}} females, and 33 intersex individuals) (Tier 1). KNBS projects **{{population.2025}}** residents in 2025 and **{{population.2030}}** in 2030 (Tier 1, County Gender Data Sheet, October 2025)."
   - value: "{{census.households}}"
     label: "households"
     tier: 1
@@ -439,21 +439,26 @@ items:
   - value: "{{poverty.2021}}%"
     label: "in poverty, 2021"
     tier: 1
-    body: "**Socio-Economic Vulnerability:** the **KNBS Kenya Poverty Report** puts **{{poverty.2021}}% of Kitui residents, about {{poverty.2021.people}} people, in poverty in 2021** (Tier 1). This is the official poverty rate; the 60.4% in the NDMA Long Rains Food Security Assessment is a food-security figure, not a poverty-report rate, and is not used. Approximately **{{water.surface}} residents rely on untreated surface water** as their primary domestic source (Tier 1)."
+    body: "**Socio-Economic Vulnerability:** the **KNBS Kenya Poverty Report** puts **{{poverty.2021}}% of Kitui residents, about {{poverty.2021.people}} people, in poverty in 2021** (Tier 1). This is the official poverty rate; NDMA's 2025 long-rains assessment cites {{poverty.ndma.2019}}% \"below the poverty line (KNBS 2019)\" and a county poverty rate of {{poverty.ndma.county}}%, on bases it does not reconcile with this one (Tier 2), so neither is used in its place. Approximately **{{water.surface}} residents rely on untreated surface water** as their primary domestic source (Tier 1)."
   - value: "over 90%"
     label: "of households keep poultry"
     tier: 1
-    body: "**Livestock Economy:** Anchored by approximately {{livestock.cattle}} cattle, {{livestock.goats}} goats, {{livestock.poultry}} poultry, and {{livestock.donkeys}} donkeys (Tier 1). **Poultry farming is practiced by over 90% of households** (Tier 1), serving as a highly inclusive, gender-focused entry point for economic empowerment messaging."
+    body: "**Livestock Economy:** Anchored by approximately {{livestock.cattle}} cattle, {{livestock.goats}} goats, {{livestock.poultry}} poultry, and {{livestock.donkeys}} donkeys (livestock data validation 2023, cited by NDMA in July 2025; Tier 1). **Poultry farming is practiced by over 90% of households** (Tier 1), serving as a highly inclusive, gender-focused entry point for economic empowerment messaging."
 ```
 
 ```figure
 id: fig-2-4-people
 ```
 
+**Livelihoods and wealth (NDMA, July 2025, Tier 1).** {{livelihood.mixed}}% of residents live in the mixed farming zone, {{livelihood.marginal}}% in marginal mixed farming and {{livelihood.employment}}% in formal and unskilled employment. NDMA's wealth groups are very poor {{wealth.verypoor}}%, poor {{wealth.poor}}%, middle {{wealth.middle}}% and better-off {{wealth.better}}%: the Tier 1 basis for the rural agrarian and agro-pastoralist segments in Section 3.4.2.
+
 ```visual
 kind: timeline
 title: "Natural Hazards and NDMA Early-Warning Context"
 items:
+  - when: "July 2025"
+    label: "NDMA long-rains assessment: IPC 2, worsening; the marginal mixed-farming zone ({{livelihood.marginal}}% of residents) projected to IPC 3 (\"Crisis\") for October–December 2025"
+    tier: 1
   - when: "September 2025"
     label: "IPC Phase 2 (\"Stressed\")"
     tier: 1
@@ -554,6 +559,10 @@ body: "According to the **2023/24 Kenya Continuous Household Survey & Communicat
 | Active Internet Usage | **{{ict.internet}}%** ({{ict.offline}}% offline majority) (Tier 1) | {{ict.internet.2019.people}} individuals ({{ict.internet.2019}}%) (Tier 1) | 62.6 million mobile broadband subscriptions (Tier 1) |
 | Core Device Profile | Feature-phone and USSD-compatible devices dominant | Feature-phone dominance (Tier 1) | Smartphones are {{ict.smartphone-share}}% of active SIMs nationally (50.2 million of 84.1 million, CA Q3 FY2025/26, Tier 2); a national rate, which overstates Kitui |
 | Mobile Financial Services | Near-universal reliance on mobile transactions | Dominant mobile-money footprint | 53.4 million subscriptions ({{ict.momo-penetration}}%); **{{ict.agents}} registered agents** (March 2026) |
+| Mobile Phone Ownership, adults (KDHS 2022) | Men 18+ **{{ict.phone.adult.men}}%**, women 18+ **{{ict.phone.adult.women}}%** (County Gender Data Sheet, October 2025) (Tier 1) | — | Kenya: men {{ict.kenya.phone.adult.men}}%, women {{ict.kenya.phone.adult.women}}% (Tier 1) |
+| Internet Use, ages 15–49 (KDHS 2022) | Men **{{ict.internet.1549.men}}%**, women **{{ict.internet.1549.women}}%** (Tier 1) | — | Kenya: men {{ict.kenya.internet.1549.men}}%, women {{ict.kenya.internet.1549.women}}% (Tier 1) |
+
+**Two bases, never averaged.** {{ict.phone}}% and {{ict.internet}}% are shares of all residents, children included. The register holds adults only, and adults own phones at about three times in four. Section 2.9.3 models voter reach on both bases and states which it uses.
 
 ```figure
 id: fig-2-6-connectivity
@@ -620,6 +629,8 @@ id: fig-3-8-ceiling
 > If the campaign reached **100% of every internet-connected voter in Kitui County**, it would reach about **{{reach.smartphone}} voters** (modelled: {{ict.internet}}% internet use applied to the July 2026 register). Reach is not votes, and even if every one of them voted for him he would be **{{reach.smartphone.short}} votes short** of the {{benchmark}} benchmark.
 >
 > Therefore, digital channels alone **cannot mathematically win this election**. Victory depends on dominating the offline media and field infrastructure (Section 4.5.9), while using digital channels (Section 4.5.8) with surgical precision to shape elite opinion, organize youth volunteers, and mobilize the out-of-county diaspora.
+
+**The SMS and USSD layer reaches more voters than the resident rate implies.** On the resident basis ({{ict.phone}}% of all residents) about {{reach.phone.resident}} voters own a phone. On the adult basis ({{ict.phone.adult}}% of adults, KDHS 2022, weighted by the register's {{register.women.share}}% women) about **{{reach.phone.adult}}** do and about {{reach.nophone.adult}} do not (both modelled on the July 2026 register as reported, so Tier 3). That is roughly {{reach.phone.ratio}} times as many voters within reach of SMS and USSD. The digital ceiling above does not move: internet use among adults aged 15–49 is {{ict.internet.1549.men}}% for men and {{ict.internet.1549.women}}% for women.
 
 ```visual
 kind: contrast
@@ -807,7 +818,7 @@ hypothesis: "Dr. Mulu's gap is substantially a **geography-of-recognition** prob
 for: "{{pool.share}}% of the register lives in the four constituencies where he has never held office (Section 2.7). Five of the twelve largest wards are among them (Section 2.7). Two constituencies, Kitui East and Kitui South, will not carry party flow (Section 2.7.2)."
 against: "Dr. Kasalu won the 2022 Woman Representative race with **{{result.2022.womanrep.kasalu}} votes**, more than the **{{result.2022.gov.malombe}}** that won the governorship the same year (Section 2.2). She has already shown countywide vote-getting capacity above the benchmark. That is not the profile of a candidate leading on passive name recognition alone."
 test: "Week 1 tests the hypothesis against Dr. Mulu's own channel data before anything is committed against it. If his reach is already landing in Mwingi and failing to convert, the problem is message rather than reach, and the response changes: Section 3.8 sets out, in advance, what each finding changes."
-body: "That test is not a formality; it is the first deliverable."
+body: "That test is not a formality; it is the first deliverable. A further line for what supports it: NDMA ranks Mwingi North and Kitui South the two most food-insecure sub-counties in July 2025 and Kitui Central the least (Tier 1, Annex B.3), so the pool is where county service delivery is under the most visible strain, and a verification candidate has the most to show there."
 ```
 
 ```figure

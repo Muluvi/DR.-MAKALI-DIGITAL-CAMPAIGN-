@@ -16,13 +16,16 @@ const KIND = {
   register: "Intensifier (X10)",
   history: "Editorial history of the drafts",
   moved: "Moved to its home",
+  added: "Added (new, sourced)",
+  replaced: "Replaced (a figure or source superseded)",
 };
 const esc = (s) => String(s).replace(/\|/g, "\\|").replace(/\n/g, " ");
-const total = cuts.filter((c) => c.kind !== "moved").reduce((n, c) => n + c.words, 0);
+const OUT = process.env.CONTENT_LEDGER_MD ?? path.join("docs", "declutter", "CUTS.md");
+const total = cuts.filter((c) => c.kind !== "moved" && c.kind !== "added").reduce((n, c) => n + c.words, 0);
 const lines = [
-  "# Cuts",
+  process.env.CONTENT_LEDGER_TITLE ?? "# Cuts",
   "",
-  "Every deletion made by the declutter, generated from `cuts.json` by `scripts/declutter/build-cuts-md.mjs`. Each row gives the file, the section, the opening words, the words removed (net of any short reference left in place), the kind of cut and the canonical home where its facts still stand. `scripts/declutter/check-content.mjs` checks that every duplicate's tokens and names are at its home (check 5) and that the word count balances (check 4).",
+  process.env.CONTENT_LEDGER_INTRO ?? "Every deletion made by the declutter, generated from `cuts.json` by `scripts/declutter/build-cuts-md.mjs`. Each row gives the file, the section, the opening words, the words removed (net of any short reference left in place), the kind of cut and the canonical home where its facts still stand. `scripts/declutter/check-content.mjs` checks that every duplicate's tokens and names are at its home (check 5) and that the word count balances (check 4).",
   "",
   `${cuts.filter((c) => c.kind !== "moved").length} cuts, ${total.toLocaleString("en-GB")} words; ${cuts.filter((c) => c.kind === "moved").length} passages moved to their homes.`,
   "",
@@ -32,13 +35,13 @@ const lines = [
   "",
 ];
 const out = lines.join("\n");
-const file = path.join(ROOT, "docs", "declutter", "CUTS.md");
+const file = path.join(ROOT, OUT);
 if (process.argv.includes("--check")) {
   if (!fs.existsSync(file) || fs.readFileSync(file, "utf8") !== out) {
-    console.error("build-cuts-md: docs/declutter/CUTS.md is stale. Run: node scripts/declutter/build-cuts-md.mjs");
+    console.error(`build-cuts-md: ${OUT} is stale. Run: node scripts/declutter/build-cuts-md.mjs`);
     process.exit(1);
   }
-  console.log("build-cuts-md: CUTS.md is current");
+  console.log(`build-cuts-md: ${OUT} is current`);
 } else {
   fs.writeFileSync(file, out);
   console.log(`build-cuts-md: ${cuts.length} rows`);

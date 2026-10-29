@@ -183,6 +183,8 @@ Put plainly: **a purely digital campaign in Kitui addresses roughly one in
 four residents, and the three it misses are concentrated in exactly the wards
 where Dr. Mulu's recognition deficit is largest.**
 
+The phone side of this layer is larger than the resident rate suggests. Adults own phones at {{ict.phone.adult}}% (KDHS 2022), so about {{reach.phone.adult}} voters can receive an SMS or dial a USSD menu, against about {{reach.phone.resident}} on the resident rate (both modelled, Section 2.9.3). On its own logic that makes this layer the decisive one: it reaches roughly three voters in four.
+
 This is not an equity footnote. It is the central strategic problem of
 campaigning in this county, and solving it is the clearest demonstration of the
 "Economist Governor" proposition: allocating resources to where the need is,
@@ -275,7 +277,7 @@ champions to Bluetooth-share onward. Audio travels where text does not, and
 carries the candidate's actual voice — the highest-trust format available.
 * **Radio** — see Section 4.5.6.
 * **Audio versions of all flagship policy content**, addressing both low
-literacy (13.0% of the population never attended school) and low bandwidth.
+literacy ({{edu.none.women}}% of women and {{edu.none.men}}% of men aged six and over have no education) and low bandwidth.
 
 #### The mobile-money agent network
 

@@ -46,6 +46,8 @@ The campaign enforces a disciplined **Rapid Response & Opposition Handling Syste
 id: rapid-response-flow
 ```
 
+**Expect the scorecard's numbers.** The incumbent's *Delivering the Kitui Promise* scorecard is the main attack and defence document in this race. Its headline figures (2,244 projects, 57 boreholes, 6,974.77 km of roads graded) will come up in debates and on air. The answers are prepared from its own itemised tables: 401 projects worth KSh 1.36 billion, the itemised totals by constituency in Annex B.2, and the tracker's questions in Section 4.5.1. They are put as questions, never as accusations.
+
 ### 6.2.2 What we monitor, and how threats reach us
 
 The campaign monitors four complementary intelligence streams 24 hours a day, 7 days a week:

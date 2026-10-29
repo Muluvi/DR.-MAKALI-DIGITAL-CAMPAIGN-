@@ -31,6 +31,8 @@ import { ClaimBadge } from "./markdown/ClaimBadge";
 
 const CONNECTED = Number(formatFigure(FIGURES["ict.internet"]));
 const OFFLINE = Number(formatFigure(FIGURES["ict.offline"]));
+/** Adults own phones at about three in four (KDHS 2022), so most of the offline side still has a handset. */
+const ADULT_PHONE = formatFigure(FIGURES["ict.phone.adult"]);
 
 /** §3.8.1, verbatim. Kikamba first, English gloss second, exactly as written. */
 const USSD_MENU = [
@@ -171,6 +173,10 @@ export function ReachSplit() {
               </li>
             ))}
           </ul>
+          <p className="t-small text-muted mt-2.5 leading-snug">
+            Most of them still have a handset: {ADULT_PHONE}% of adults own a phone (KDHS 2022, via the County Gender Data
+            Sheet, October 2025), so SMS and USSD reach most of this side (Section 2.9.3).
+          </p>
         </div>
       </div>
 

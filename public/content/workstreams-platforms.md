@@ -81,6 +81,16 @@ Built on the USSD/SMS infrastructure the campaign is already deploying (Section
 4.3 [CHECK REF]), plus a lightweight public register on the campaign site. **It reuses a
 layer the campaign is building anyway; nothing comparable exists in this race.**
 
+#### The opening register: the county's own scorecard
+
+The tracker does not start from an empty list. The county's *Delivering the Kitui Promise* scorecard (August 2022 – August 2025) claims 2,244 projects and itemises 401 of them with value, ward and status, KSh 1.36 billion in all (Tier 1 as a record of what the county claims, not evidence that the claims are true). Those rows load as the tracker's opening register ([kitui-scorecard-projects.csv](/data/kitui-scorecard-projects.csv)): each becomes a public row, *County says: complete. Residents say: ___*, and reports through USSD option 3 fill the second column.
+
+The first verification questions are inconsistencies inside the county's document or against an official statistic. Each is a question to publish and test, not an accusation, and a county correspondent can check the first six independently (Section 4.5.6).
+
+```visual
+{"kind":"checklist","title":"The tracker's first questions","items":[{"label":"Q1. Livestock vaccinated","text":"1,500,000 claimed; the itemised rows total 226,491 animals."},{"label":"Q2. Infant mortality","text":"Claimed to fall from 47 to 13 per thousand births; KDHS 2022 puts Kitui at 23. Is the scorecard's figure a facility rate or a county rate?"},{"label":"Q3. Roads graded","text":"6,974.77 km claimed; the itemised row of 2,800 km comes to KSh 6,429 a km."},{"label":"Q4. Boreholes","text":"57 drilled and 32 equipped: are the rest not yet equipped?"},{"label":"Q5. Health beneficiaries","text":"Two health projects list 1,304,665 beneficiaries, more than the county's 2019 population of 1,136,187: a catchment, not people served?"},{"label":"Q6. The unitemised projects","text":"2,244 claimed, 401 itemised: where is the list of the other 1,843?"},{"label":"Q7. Kangu Kangu","text":"KSh 839.7 million for 25,000+ households, commissioned after the period the scorecard covers: what has been delivered since?"},{"label":"Q8. Boda boda sheds","text":"44 claimed; 32 itemised."},{"label":"Q9. Ward attributions","text":"Some rows place wards in the wrong constituency (Voo/Kyamatu under Kitui South; it is in Kitui East): a data-quality point for any ward-level use."}]}
+```
+
 #### Tracker KPIs
 
 | Metric | Phase 1 | Phase 2 | Phase 3 |
@@ -212,7 +222,7 @@ id: asset-library
 ### 4.5.4 Workstream 4 — Accessibility and inclusion
 
 ```lead
-**Owner: Firefly sets the standard; your team applies it.** In a county where 13.0% of the population never attended school, accessibility is reach, not compliance theatre.
+**Owner: Firefly sets the standard; your team applies it.** In a county where 15.1% of women and 9.7% of men aged six and over have no education, accessibility is reach, not compliance theatre.
 ```
 
 > **Owner: Firefly sets the standard; your team applies it.** Written into every weekly brief,
@@ -231,13 +241,13 @@ substantive error, not a cosmetic one.
 
 #### What accessibility means here
 
-*In a county where 13.0% of the population never attended school,
+*In a county where 15.1% of women and 9.7% of men aged six and over have no education,
 accessibility is reach, not compliance theatre.*
 
 #### The case
 
 ```visual
-{"kind":"stats","items":[{"value":"13.0%","label":"never attended school","tier":"not yet tiered","body":"**13.0% of Kitui residents have never attended school**; only 17.4% completed secondary education"},{"value":"73.8%","label":"outside the internet-using population","tier":1,"body":"**73.8% are outside the internet-using population** (CA/KNBS 2023/24)"}],"body":"Kenyans with disabilities are a substantial constituency systematically under-served by campaign communication in every cycle Low bandwidth is itself an accessibility constraint"}
+{"kind":"stats","items":[{"value":"15.1%","label":"of women aged 6+ have no education","tier":1,"body":"KDHS 2022 via the County Gender Data Sheet (October 2025): 15.1% of females and 9.7% of males aged six and over have no education. This replaces an untiered 13.0% (\"never attended school\", a different measure). 17.4% completed secondary is still not yet tiered."},{"value":"73.8%","label":"outside the internet-using population","tier":1,"body":"**73.8% are outside the internet-using population** (CA/KNBS 2023/24)"}],"body":"Kenyans with disabilities are a substantial constituency systematically under-served by campaign communication in every cycle. In Kitui, 7.5% of men and 5.5% of women aged 15 and over have a disability (2022, Tier 1). Low bandwidth is itself an accessibility constraint"}
 ```
 
 A campaign built on transparency that publishes only in dense written English
