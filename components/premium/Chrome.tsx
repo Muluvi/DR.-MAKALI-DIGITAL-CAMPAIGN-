@@ -7,7 +7,6 @@ import measured from "../../data/section-heights.json";
 import { useChromeVisible } from "../../hooks/use-chrome-visible";
 import { FLOW_ACTS, FLOW_ORDER, actOf } from "../../lib/flow";
 import type { TabId } from "../../lib/heading-slug";
-import { useReadingMode } from "../../lib/reading-mode";
 
 /**
  * The navigation chrome (brief G-7): the dock and the kiondo progress spine.
@@ -46,26 +45,19 @@ export function Dock({
   themeReady: boolean;
 }) {
   const visible = useChromeVisible();
-  const { mode, setMode } = useReadingMode();
 
   return (
     <nav className="pf-dock print:hidden" data-hidden={visible ? "false" : "true"} aria-label="Document">
       <div className="pf-dock__pill">
-        <button type="button" className="pf-dock__where" onClick={onOpenIndex} aria-label={`${number ? `Section ${number}, ` : ""}${label}. Open the index.`}>
+        {/* Named by its visible text plus a hidden clause, so the name a voice user speaks is the one
+            they see (WCAG 2.5.3; Lighthouse "label-content-name-mismatch"). */}
+        <button type="button" className="pf-dock__where" onClick={onOpenIndex}>
           <span className="pf-dock__numeral" aria-hidden="true">{actNumeral(tab) || "·"}</span>
           <span className="pf-dock__label">
             {number && <b className="pf-dock__num">§{number}</b>} {label}
           </span>
+          <span className="sr-only">. Open the index.</span>
         </button>
-        <span className="pf-dock__rule" aria-hidden="true" />
-        <div className="pf-dock__mode" role="group" aria-label="Reading mode">
-          {(["brief", "full"] as const).map((m) => (
-            <button key={m} type="button" aria-pressed={mode === m} onClick={() => setMode(m)}>
-              {m === "brief" ? "Brief" : "Full"}
-            </button>
-          ))}
-          <span className="pf-dock__thumb" data-at={mode} aria-hidden="true" />
-        </div>
         <button type="button" className="pf-dock__icon" onClick={onOpenIndex} aria-label="Open the index">
           <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
             <path d="M2 4h12M2 8h12M2 12h7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />

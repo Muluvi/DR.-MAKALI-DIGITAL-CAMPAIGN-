@@ -2,6 +2,7 @@ import type { FigureSeries } from "../../lib/figures/types";
 import { KIND_LABEL, conflictsOf, isImprecise, sourcesOf, tierOf } from "../../lib/figures/types";
 import { TIER_META } from "../../data/types";
 import { UnderReview } from "./UnderReview";
+import { FigDetail, FigureDetails, FigureDetailsToggle } from "../register/FigureDetails";
 
 /**
  * The frame every figure in this audit sits in, and the contract it enforces.
@@ -59,15 +60,15 @@ export function FigureFrame({
     <figure
       className={`not-prose my-6 rounded-2xl border border-line bg-card overflow-hidden ${className}`}
       // The summary a screen reader hears before the marks, and the one a reader gets if the SVG
-      // fails to paint. It is the headline, because the headline is the finding.
-      role="group"
+      // fails to paint. It is the headline, because the headline is the finding. A <figure> takes
+      // the name itself; role="group" is not an allowed role on it (axe "aria-allowed-role").
       aria-label={series.headline}
     >
+      <FigureDetails>
       <figcaption className="px-4 pt-4 sm:px-5 sm:pt-5">
         <h4 className="font-serif t-small sm:t-body font-bold leading-snug text-ink text-balance">
           {series.headline}
         </h4>
-        <p className="t-micro mt-1 leading-snug text-muted">{series.measure}</p>
       </figcaption>
 
       {conflicts.length > 0 && (
@@ -79,7 +80,11 @@ export function FigureFrame({
         </div>
       )}
 
-      <div className="px-4 py-4 sm:px-5">{children}</div>
+      <FigureDetailsToggle />
+      <FigDetail notes className="rf-fold">
+        <p className="t-micro px-4 pt-3 leading-snug text-muted sm:px-5">{series.measure}</p>
+        <div className="px-4 py-4 sm:px-5">{children}</div>
+      </FigDetail>
 
       <div className="border-t border-line/60 bg-paper/40 px-4 py-3 sm:px-5">
         <p className="t-micro leading-snug text-muted">
@@ -100,9 +105,10 @@ export function FigureFrame({
           )}
         </p>
 
-        {series.note && conflicts.length === 0 && (
-          <p className="t-micro mt-1.5 leading-snug text-muted">{series.note}</p>
-        )}
+        <FigDetail>
+          {series.note && conflicts.length === 0 && (
+            <p className="t-micro mt-1.5 leading-snug text-muted">{series.note}</p>
+          )}
 
         {/* SHIPS OPEN, closed by PrintSafeDisclosures once a script is there to reopen it.
             This carried `print:open` before, which styles nothing — `open` is an attribute, not a
@@ -117,7 +123,9 @@ export function FigureFrame({
             {data ?? <SeriesTable series={series} />}
           </div>
         </details>
+        </FigDetail>
       </div>
+      </FigureDetails>
     </figure>
   );
 }

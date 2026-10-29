@@ -5,8 +5,8 @@ import dynamic from "next/dynamic";
 /**
  * The code-splitting boundary between the prose renderer and the sixty figures.
  *
- * WHY IT EXISTS. `MarkdownViewer` has to be a client component — it carries the Brief/Full switch,
- * the disclosures and the cross-references — and it renders figures inline where a ```figure fence
+ * WHY IT EXISTS. `MarkdownViewer` has to be a client component — it carries the folds, the
+ * disclosures and the cross-references — and it renders figures inline where a ```figure fence
  * appears. Importing the registry directly from there pulled every figure's data into the shared
  * client bundle: eight data modules, `marks.tsx` and `registry.tsx`, roughly 258 kB of source, for
  * output the browser never changes. First-load JS went from 458 kB at baseline to 491 kB, past the

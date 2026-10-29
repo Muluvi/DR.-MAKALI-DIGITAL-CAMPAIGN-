@@ -8,13 +8,15 @@
     "start": "next start",
     "lint": "eslint .",
     "clean": "next clean",
-    "verify": "node --no-warnings --experimental-strip-types scripts/build-content.ts --check && node --no-warnings --experimental-strip-types scripts/build-open-items.ts --check && node --no-warnings --experimental-strip-types scripts/build-csv.ts --check && node --no-warnings --experimental-strip-types scripts/check-figures.ts && node --no-warnings --experimental-strip-types scripts/check-copy.ts && node scripts/build-section-visuals.mjs && node scripts/verify-ward-register.mjs && node scripts/verify-analysis-exports.mjs && node scripts/verify-figures.mjs && node scripts/verify-figure-fences.mjs && node scripts/find-duplicates.mjs --check && node scripts/verify-mounts.mjs && node --no-warnings --experimental-strip-types scripts/build-anchors.ts --check && node scripts/visual-coverage.mjs --check && npm run test:figures",
+    "verify": "node --no-warnings --experimental-strip-types scripts/build-content.ts --check && node --no-warnings --experimental-strip-types scripts/build-open-items.ts --check && node --no-warnings --experimental-strip-types scripts/build-csv.ts --check && node --no-warnings --experimental-strip-types scripts/check-figures.ts && node --no-warnings --experimental-strip-types scripts/check-copy.ts && node scripts/build-section-visuals.mjs && node scripts/verify-ward-register.mjs && node scripts/verify-analysis-exports.mjs && node scripts/verify-figures.mjs && node scripts/verify-figure-fences.mjs && node scripts/find-duplicates.mjs --check && node scripts/verify-mounts.mjs && node --no-warnings --experimental-strip-types scripts/build-anchors.ts --check && node scripts/visual-coverage.mjs --check && npm run test:figures && npm run test:declutter && npm run check:declutter",
     "prebuild": "node --no-warnings --experimental-strip-types scripts/build-content.ts && node --no-warnings --experimental-strip-types scripts/build-open-items.ts && node --no-warnings --experimental-strip-types scripts/build-csv.ts && node --no-warnings --experimental-strip-types scripts/check-figures.ts && node --no-warnings --experimental-strip-types scripts/check-copy.ts && node scripts/build-section-visuals.mjs && node --no-warnings --experimental-strip-types scripts/build-anchors.ts --check",
     "test:figures": "node --experimental-strip-types --test lib/figures/figures.test.ts",
     "audit:routes": "node scripts/audit-routes.mjs",
     "anchors": "node --no-warnings --experimental-strip-types scripts/build-anchors.ts",
     "content": "node --no-warnings --experimental-strip-types scripts/build-content.ts && node --no-warnings --experimental-strip-types scripts/build-open-items.ts && node --no-warnings --experimental-strip-types scripts/build-csv.ts",
-    "predev": "node --no-warnings --experimental-strip-types scripts/build-content.ts && node --no-warnings --experimental-strip-types scripts/build-open-items.ts && node --no-warnings --experimental-strip-types scripts/build-csv.ts"
+    "predev": "node --no-warnings --experimental-strip-types scripts/build-content.ts && node --no-warnings --experimental-strip-types scripts/build-open-items.ts && node --no-warnings --experimental-strip-types scripts/build-csv.ts",
+    "test:declutter": "node --experimental-strip-types --test lib/inline-marks.test.ts lib/visual.test.ts",
+    "check:declutter": "node scripts/declutter/check-tokens.mjs && node scripts/declutter/check-content.mjs && node scripts/declutter/check-leads.mjs && node scripts/declutter/build-cuts-md.mjs --check && node --no-warnings --experimental-strip-types scripts/declutter/tier-mismatches.mjs --check"
   },
   "dependencies": {
     "@react-three/fiber": "^9.8.0",
@@ -22,6 +24,7 @@
     "d3-geo": "^3.1.1",
     "d3-scale": "^4.0.2",
     "d3-time": "^3.1.0",
+    "js-yaml": "^4.3.2",
     "lucide-react": "^1.34.0",
     "motion": "^12.43.0",
     "next": "^15.4.9",

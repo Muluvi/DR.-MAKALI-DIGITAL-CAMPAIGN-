@@ -239,9 +239,11 @@ export function RecognitionDeficitOverlay() {
             <strong className="font-semibold text-ink">
               {DEFICIT_IN_TOP_11.length} of the top 11 — {DEFICIT_IN_TOP_11.map((w) => w.name).join(", ")}
             </strong>
-            , <span className="tabular-nums">{fmt(DEFICIT_IN_TOP_11_VOTERS)}</span> voters. Either way, the wards that
-            decide the election are the wards where Dr. Mulu is least known.
+            , <span className="tabular-nums">{fmt(DEFICIT_IN_TOP_11_VOTERS)}</span> voters.
           </span>
+        </p>
+        <p className="t-small text-muted font-medium pl-[18px]">
+          Either way, the wards that decide the election are the wards where Dr. Mulu is least known.
         </p>
         {/* §3.10's summary table reads "5 of top 8 wards", which is the top-11 count printed
             against the top-8 window. Both figures above are computed from the register; neither

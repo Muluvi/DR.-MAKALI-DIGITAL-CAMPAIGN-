@@ -3,6 +3,8 @@ import { Database, FlaskConical, TriangleAlert } from "lucide-react";
 import type { ExportChart, ExportStatus, ExportValue } from "../../data/analysis-exports";
 import { hasUnverified, isModelled, numericValues } from "../../data/analysis-exports";
 import type { Tier } from "../../data/types";
+import { InlineMarks } from "./InlineMarks";
+import { ReadMore } from "./ReadMore";
 import { TierBadge } from "./TierBadge";
 
 /**
@@ -121,7 +123,7 @@ export function FigureRow({
         */}
         {showStatusChip ? <StatusChip status={value.status} /> : null}
         <span className="t-label text-muted font-medium">
-          {METHOD_LABEL[value.method]} · {sourceLabel} · as at {value.as_of}
+          {METHOD_LABEL[value.method]} · <InlineMarks text={sourceLabel} /> · as at {value.as_of}
         </span>
       </div>
       {value.note ? (
@@ -161,7 +163,7 @@ export function AnalysisFigure({
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">{heading ?? chart.title}</h4>
       </div>
-      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">{chart.description}</p>
+      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5"><InlineMarks text={chart.description} /></p>
 
       {chart.scenario_label ? (
         <p className="analysis-banner analysis-banner-scenario">
@@ -189,7 +191,13 @@ export function AnalysisFigure({
         ))}
       </ul>
 
-      {children}
+      {/* The panel's reading notes run to 60–80 words a paragraph; they sit behind one control
+          (brief 2026-10 declutter, check 11), in the HTML for find, print and scripts-off. */}
+      {children ? (
+        <ReadMore words={0} label="Read the notes" hideLabel="Hide the notes">
+          {children}
+        </ReadMore>
+      ) : null}
 
       {chart.notes.length > 0 ? (
         <ul className="mt-3 pt-2 border-t border-line/40 list-none pl-0 space-y-1">

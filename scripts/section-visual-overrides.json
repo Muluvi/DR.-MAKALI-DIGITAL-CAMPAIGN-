@@ -34,5 +34,33 @@
   "delivery-sec-4-2-2": {
     "kind": "none",
     "note": "2026 premium pass: this was a stats rail of step counts (3, 4, 5); with quantitative derivation retired it fell back to a list of bare week labels with no content. No honest visual; the section's own list carries it."
+  },
+  "annex-county-sec-b-5": {
+    "kind": "none",
+    "note": "Declutter brief 5.3 (c): this checklist redrew B.5's own bullets, which stay in the section as its record (folded under the lead where the section has one). Drawing them again would show the same text twice."
+  },
+  "annex-runbooks-sec-e-12": {
+    "kind": "none",
+    "note": "Declutter brief 5.3 (c): this checklist redrew E.12's own bullets, which stay in the section as its record (folded under the lead where the section has one). Drawing them again would show the same text twice."
+  },
+  "evidence-sec-2-2": {
+    "kind": "none",
+    "note": "Declutter brief 5.3 (c): this timeline redrew 2.2's own bullets, which stay in the section as its record (folded under the lead where the section has one). Drawing them again would show the same text twice."
+  },
+  "evidence-sec-2-4": {
+    "kind": "none",
+    "note": "Declutter brief 5.3 (c): this stepper redrew 2.4's own bullets, which stay in the section as its record (folded under the lead where the section has one). Drawing them again would show the same text twice."
+  },
+  "evidence-sec-2-11": {
+    "kind": "none",
+    "note": "Declutter brief 5.3 (c): this stepper redrew 2.11's own bullets, which stay in the section as its record (folded under the lead where the section has one). Drawing them again would show the same text twice."
+  },
+  "staffing-sec-4-6": {
+    "kind": "none",
+    "note": "Declutter brief 5.3 (c): this checklist redrew 4.6's own bullets, which stay in the section as its record (folded under the lead where the section has one). Drawing them again would show the same text twice."
+  },
+  "strategy-sec-3-1-1": {
+    "kind": "none",
+    "note": "Declutter brief 5.3 (c): this stepper redrew 3.1.1's own bullets, which stay in the section as its record (folded under the lead where the section has one). Drawing them again would show the same text twice."
   }
 }

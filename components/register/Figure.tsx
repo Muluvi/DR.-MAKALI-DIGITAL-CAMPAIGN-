@@ -1,6 +1,7 @@
 import type { Cell, CellState, FigureSpec, SourceRef } from "../../lib/register/types";
 import { group } from "../../lib/data/format";
 import { Chart } from "./charts";
+import { FigDetail, FigureDetails, FigureDetailsToggle } from "./FigureDetails";
 
 /**
  * The frame every figure in the register sits in (brief §E.8, §O). A server component: all of it
@@ -44,17 +45,34 @@ export function RegisterFigure({ spec }: { spec: FigureSpec }) {
   const takeawayId = `${spec.id}-takeaway`;
   return (
     <figure id={spec.id} className={`rf not-prose ${variantOf(spec)}`} role="figure" aria-labelledby={titleId} aria-describedby={takeawayId} data-figure={spec.id}>
+      <FigureDetails>
       <div className="rf-head">
         <h4 id={titleId} className="rf-title">{spec.title}</h4>
-        <p className="rf-question">{spec.question}</p>
-      </div>
-      <div className="rf-body">
-        <Chart spec={spec} />
-        {spec.notes?.map((n) => (
-          <p key={n} className="rf-notes">{n}</p>
-        ))}
       </div>
       <p id={takeawayId} className="rf-takeaway">{spec.takeaway}</p>
+      <FigureDetailsToggle />
+      <FigDetail notes className="rf-fold">
+        <div className="rf-method">
+          <p className="rf-question">{spec.question}</p>
+        </div>
+        <div className="rf-body">
+          <Chart spec={spec} />
+          {spec.notes?.map((n) => (
+            <p key={n} className="rf-notes">{n}</p>
+          ))}
+        </div>
+        <div className="rf-foot rf-foot--data">
+        <details open className="rf-details print-open">
+          <summary>View the data table</summary>
+          <div className="rf-table-wrap" tabIndex={0} role="region" aria-label={`Data table: ${spec.title}`}>
+            <DataTable spec={spec} />
+          </div>
+        </details>
+        <a className="rf-csv" href={`/data/${spec.id}.csv`} download={`${spec.id}.csv`}>
+          Download the data as CSV<span className="rf-csv-file">{spec.id}.csv</span>
+        </a>
+        </div>
+      </FigDetail>
       <figcaption className="rf-foot">
         <p className="rf-source">
           <span>Source:</span>
@@ -65,16 +83,8 @@ export function RegisterFigure({ spec }: { spec: FigureSpec }) {
             </span>
           ))}
         </p>
-        <details open className="rf-details print-open">
-          <summary>View the data table</summary>
-          <div className="rf-table-wrap" tabIndex={0} role="region" aria-label={`Data table: ${spec.title}`}>
-            <DataTable spec={spec} />
-          </div>
-        </details>
-        <a className="rf-csv" href={`/data/${spec.id}.csv`} download={`${spec.id}.csv`}>
-          Download the data as CSV<span className="rf-csv-file">{spec.id}.csv</span>
-        </a>
       </figcaption>
+      </FigureDetails>
     </figure>
   );
 }

@@ -62,6 +62,10 @@ Registered voters per county assembly ward, 2022 (IEBC, Tier 1). The 2026 regist
 
 ## B.2 County money and the audit record
 
+```lead
+According to the Office of the Auditor-General's FY2023/24 audit report, four critical financial queries must be addressed by the county administration (Tier 1).
+```
+
 According to the Office of the Auditor-General's FY2023/24 audit report, four critical financial queries must be addressed by the county administration (Tier 1):
 *   **Unconfirmed Cash Balances:** KSh 670,000,000 (Tier 1).
 *   **Uncollected County Rates and Rents:** KSh 1,090,000,000 (Tier 1).
@@ -72,13 +76,25 @@ Additionally, Controller of Budget reports indicate that the county carried outs
 
 ## B.3 Drought, food security and climate pressure
 
+```lead
+Kitui's food security remains classified under **IPC Phase 2 ("Stressed")** as of September 2025 (Tier 1).
+```
+
 The county's climate profile features multi-directional hazards, as documented by the NDMA January 2026 Alert bulletin (Tier 1). Kitui's food security remains classified under **IPC Phase 2 ("Stressed")** as of September 2025 (Tier 1). According to an official statement by the County CECM for Agriculture, only **28,000 households** hold food reserves (Tier 2), although this figure raises statistical scale questions compared to the 2019 Census count of 262,942 total households (Tier 1). The county was also severely affected by the **March 2026 national flooding** (Tier 2), disrupting rural transportation networks.
 
 ## B.4 Mui Basin coal and the displaced communities
 
+```lead
+The extensive coal deposits in the Mui Basin, straddling Kitui East and Kitui South, have remained undeveloped for over a decade due to unresolved legal challenges under **Petition 12 of 2014** (Tier 1).
+```
+
 The extensive coal deposits in the Mui Basin, straddling Kitui East and Kitui South, have remained undeveloped for over a decade due to unresolved legal challenges under **Petition 12 of 2014** (Tier 1). The legal standstill has created significant uncertainty regarding displacement exposure for communities across the affected wards (Tier 1). The exact concession counts and displacement headcounts remain **named data gaps** (Tier 1 gaps) in the campaign's records.
 
 ## B.5 Each rival, and the legal ground to be careful on
+
+```lead
+Every adverse claim is explicitly attributed to its source, and no wrongdoing is asserted as settled fact unless confirmed by a court of law.
+```
 
 The general election field is treated with strict legal caution. To prevent libel or campaign interference charges, every candidate attribute in this proposal rests on an official or documentary record: IEBC declarations and gazetted results, parliamentary records (Hansard and committee membership lists), the Kenya Gazette, the Auditor-General's and Controller of Budget's reports, NG-CDF records, Kenya Law, party nomination records and official biographies. Every adverse claim is explicitly attributed to its source, and no wrongdoing is asserted as settled fact unless confirmed by a court of law. Where the record is not yet in hand, the entry names it and makes no claim in its place:
 

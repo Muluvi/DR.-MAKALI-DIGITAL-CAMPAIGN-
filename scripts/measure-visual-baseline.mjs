@@ -255,19 +255,20 @@ async function vitals(route) {
   /**
    * CLS is read BEFORE anything is clicked, and that is not a convenience.
    *
-   * Cumulative Layout Shift measures instability the reader did not ask for. Switching Brief to
-   * Full reflows the document because the reader asked it to, and the API only discounts shifts
+   * Cumulative Layout Shift measures instability the reader did not ask for. Opening a fold
+   * reflows the document because the reader asked it to, and the API only discounts shifts
    * within 500ms of the input — so a script that clicks and then waits records a deliberate
    * reflow as instability. Measured across the load, `/` is 0; measured across the load plus a
-   * Brief/Full toggle, it reads 0.0061, and that number would be a lie about the page.
+   * reading-mode toggle (removed in October 2026), it read 0.0061, and that number would have been
+   * a lie about the page.
    */
   const clsAtLoad = await page.evaluate(() => Number(window.__cls.toFixed(4)));
 
   /**
    * Then actually interact with it, because an unclicked page has no INP.
    *
-   * The controls below are the ones this redesign added or kept: the Brief/Full switch, a
-   * subsection disclosure, a figure's data table, a rule 1b cross-reference and a table control.
+   * The controls below are the ones this redesign added or kept: the reading-mode switch (gone
+   * since October 2026, so skipped), a subsection disclosure, a figure's data table, a rule 1b cross-reference and a table control.
    * Anything that is not on this route is skipped rather than failing the run — `/` and `/full`
    * do not carry the same set.
    */

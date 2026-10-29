@@ -1,4 +1,4 @@
-Who does the work: the Firefly core, the surge roles activated by phase and level, and how the existing team is assessed and upskilled.
+
 
 ## 4.6 How the work is staffed
 
@@ -60,16 +60,19 @@ digital team is assessed and upskilled — that team is neither staffed nor repl
 engagement. Section 5.1's KPI owners are campaign-side roles unless the campaign asks Firefly to
 fill them.
 
-| Role | Function | Decision rights |
-|---|---|---|
-| **Strategy Director** (Firefly principal) | Owns the analysis, the strategy and the weekly brief; the relationship with the campaign counterpart; crisis Level 2 drafting | Approves new policy claims and Kikamba output before your team publishes; escalates Level 3 to the candidate. **Does not publish, and holds no account credentials** |
-| **Analyst** | Owns the presence audit, the measurement cycle, attribution and the weekly read; named **data-governance owner** for the audit scope | Sets the indicators and the reporting; flags a brief that the data does not support |
-| **Offline-layer Operator** | Runs the SMS, USSD and WhatsApp Business API dispatch; consent ledger; **compliance logging for IEBC returns** | Executes the approved weighting; dispatches nothing outside the consented list |
+```visual
+{"kind":"cards","preset":"role","items":[{"title":"**Strategy Director** (Firefly principal)","text":"Owns the analysis, the strategy and the weekly brief; the relationship with the campaign counterpart; crisis Level 2 drafting","fields":[{"label":"Decision rights","text":"Approves new policy claims and Kikamba output before your team publishes; escalates Level 3 to the candidate. **Does not publish, and holds no account credentials**"}]},{"title":"**Analyst**","text":"Owns the presence audit, the measurement cycle, attribution and the weekly read; named **data-governance owner** for the audit scope","fields":[{"label":"Decision rights","text":"Sets the indicators and the reporting; flags a brief that the data does not support"}]},{"title":"**Offline-layer Operator**","text":"Runs the SMS, USSD and WhatsApp Business API dispatch; consent ledger; **compliance logging for IEBC returns**","fields":[{"label":"Decision rights","text":"Executes the approved weighting; dispatches nothing outside the consented list"}]}]}
+```
 
 ---
 
 ### 4.6.3 Surge roles, activated by phase and scope level
 
+```lead
+**Community management and video editing are not on this list, and that is deliberate.**
+```
+
+<!-- keep -->
 | Role | Activated | Function |
 |---|---|---|
 | **Data Analyst / Modeller** | Phase 1 onward (standard and premium levels) | Predictive scoring, field-digital integration, attribution modelling. **Named data-governance owner** (Section 4.5.14) |
@@ -97,6 +100,10 @@ id: role-ownership
 
 ### 4.6.5 Reporting lines
 
+```lead
+Two teams, one interface. The brief is the interface. **Firefly adds three people. It removes none.**
+```
+
 Two teams, one interface. The brief is the interface.
 
 ```figure
@@ -115,21 +122,9 @@ digitally when five people can commission content and no one can approve it.
 
 **Firefly assesses the team Dr. Mulu has. It does not replace it.**
 
-**Week 1 — the capability map, not an appraisal.** Four axes, scored 1–4, with each person in the
-room while it is scored: platform mechanics, Kikamba fluency and cultural register, measurement
-literacy, and response speed under pressure. The map goes to Dr. Mulu and to the team at the same
-time. Nobody is graded in private.
-
-**Week 2 — one written standard.** The brief template, the caption pattern, the
-commitment-and-date rule, the language rule, the escalation line, and the accessibility floor from
-Section 4.5.4. Six pages. It belongs to the team from the day it is written.
-
-**Weeks 3–8 — pairing, not training.** Firefly and the team write the first three briefs together.
-Then Firefly writes and the team marks it up. Then the team drafts and Firefly reviews.
-
-**Month 3 — the handover of the pen.** The team writes the weekly brief; Firefly reviews and
-challenges it. That is the success measure, and it is stated here so it can be held against us.
-An intelligence layer that makes itself permanently necessary has failed at the part that mattered.
+```visual
+{"kind":"timeline","items":[{"when":"Week 1","label":"the capability map, not an appraisal","body":"Four axes, scored 1–4, with each person in the room while it is scored: platform mechanics, Kikamba fluency and cultural register, measurement literacy, and response speed under pressure. The map goes to Dr. Mulu and to the team at the same time. Nobody is graded in private."},{"when":"Week 2","label":"one written standard","body":"The brief template, the caption pattern, the commitment-and-date rule, the language rule, the escalation line, and the accessibility floor from Section 4.5.4. Six pages. It belongs to the team from the day it is written."},{"when":"Weeks 3–8","label":"pairing, not training","body":"Firefly and the team write the first three briefs together. Then Firefly writes and the team marks it up. Then the team drafts and Firefly reviews."},{"when":"Month 3","label":"the handover of the pen","body":"The team writes the weekly brief; Firefly reviews and challenges it. That is the success measure, and it is stated here so it can be held against us. An intelligence layer that makes itself permanently necessary has failed at the part that mattered."}]}
+```
 
 **Where a gap cannot be closed by upskilling** — no native Kikamba producer, nobody who can cut
 vertical video — Firefly names the gap in the capability map and the campaign decides whether to

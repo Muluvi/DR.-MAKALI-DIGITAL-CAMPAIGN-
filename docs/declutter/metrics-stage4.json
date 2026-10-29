@@ -1,0 +1,889 @@
+{
+ "label": "stage4",
+ "base": "http://localhost:3100",
+ "at": "2026-10-28T18:24:08.382Z",
+ "tabs": [
+  {
+   "mode": "site",
+   "tab": "cover",
+   "height": 3708,
+   "words": 531,
+   "figureWords": 889,
+   "panelWords": 96,
+   "figureCount": 2,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 90,
+   "longParagraphs": 0,
+   "screens": 4.4
+  },
+  {
+   "mode": "site",
+   "tab": "decision",
+   "height": 29187,
+   "words": 3898,
+   "figureWords": 4024,
+   "panelWords": 2512,
+   "figureCount": 22,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 1,
+   "foldedWords": 3213,
+   "longParagraphs": 0,
+   "screens": 34.6
+  },
+  {
+   "mode": "site",
+   "tab": "evidence",
+   "height": 72225,
+   "words": 10596,
+   "figureWords": 6428,
+   "panelWords": 9871,
+   "figureCount": 21,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 11,
+   "foldedWords": 7054,
+   "longParagraphs": 6,
+   "screens": 85.6
+  },
+  {
+   "mode": "site",
+   "tab": "strategy",
+   "height": 37579,
+   "words": 5656,
+   "figureWords": 3447,
+   "panelWords": 7758,
+   "figureCount": 16,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 1,
+   "foldedWords": 6899,
+   "longParagraphs": 1,
+   "screens": 44.5
+  },
+  {
+   "mode": "site",
+   "tab": "delivery",
+   "height": 14699,
+   "words": 2107,
+   "figureWords": 1413,
+   "panelWords": 2348,
+   "figureCount": 8,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 2103,
+   "longParagraphs": 1,
+   "screens": 17.4
+  },
+  {
+   "mode": "site",
+   "tab": "workstreams-platforms",
+   "height": 9543,
+   "words": 1314,
+   "figureWords": 1497,
+   "panelWords": 1626,
+   "figureCount": 7,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 2747,
+   "longParagraphs": 1,
+   "screens": 11.3
+  },
+  {
+   "mode": "site",
+   "tab": "workstreams-media",
+   "height": 8128,
+   "words": 795,
+   "figureWords": 262,
+   "panelWords": 467,
+   "figureCount": 1,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 1324,
+   "longParagraphs": 0,
+   "screens": 9.6
+  },
+  {
+   "mode": "site",
+   "tab": "workstreams-ground",
+   "height": 11314,
+   "words": 1746,
+   "figureWords": 1295,
+   "panelWords": 1241,
+   "figureCount": 6,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 1,
+   "tierParentheticals": 0,
+   "foldedWords": 2654,
+   "longParagraphs": 0,
+   "screens": 13.4
+  },
+  {
+   "mode": "site",
+   "tab": "workstreams-data",
+   "height": 8895,
+   "words": 1097,
+   "figureWords": 434,
+   "panelWords": 1512,
+   "figureCount": 3,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 1084,
+   "longParagraphs": 1,
+   "screens": 10.5
+  },
+  {
+   "mode": "site",
+   "tab": "staffing",
+   "height": 7224,
+   "words": 1022,
+   "figureWords": 711,
+   "panelWords": 854,
+   "figureCount": 5,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 851,
+   "longParagraphs": 1,
+   "screens": 8.6
+  },
+  {
+   "mode": "site",
+   "tab": "measurement",
+   "height": 21398,
+   "words": 3723,
+   "figureWords": 2188,
+   "panelWords": 3901,
+   "figureCount": 7,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 3297,
+   "longParagraphs": 0,
+   "screens": 25.4
+  },
+  {
+   "mode": "site",
+   "tab": "risks",
+   "height": 6183,
+   "words": 783,
+   "figureWords": 706,
+   "panelWords": 1180,
+   "figureCount": 3,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 1240,
+   "longParagraphs": 0,
+   "screens": 7.3
+  },
+  {
+   "mode": "site",
+   "tab": "annex-evidence",
+   "height": 4542,
+   "words": 734,
+   "figureWords": 490,
+   "panelWords": 293,
+   "figureCount": 4,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 281,
+   "longParagraphs": 0,
+   "screens": 5.4
+  },
+  {
+   "mode": "site",
+   "tab": "annex-county",
+   "height": 10856,
+   "words": 1385,
+   "figureWords": 0,
+   "panelWords": 1362,
+   "figureCount": 0,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 967,
+   "longParagraphs": 0,
+   "screens": 12.9
+  },
+  {
+   "mode": "site",
+   "tab": "annex-messages",
+   "height": 4098,
+   "words": 834,
+   "figureWords": 681,
+   "panelWords": 749,
+   "figureCount": 2,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 743,
+   "longParagraphs": 1,
+   "screens": 4.9
+  },
+  {
+   "mode": "site",
+   "tab": "annex-cadence",
+   "height": 2318,
+   "words": 346,
+   "figureWords": 208,
+   "panelWords": 106,
+   "figureCount": 1,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 100,
+   "longParagraphs": 0,
+   "screens": 2.7
+  },
+  {
+   "mode": "site",
+   "tab": "annex-runbooks",
+   "height": 8400,
+   "words": 1583,
+   "figureWords": 1160,
+   "panelWords": 782,
+   "figureCount": 6,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 1,
+   "tierParentheticals": 0,
+   "foldedWords": 734,
+   "longParagraphs": 0,
+   "screens": 10
+  },
+  {
+   "mode": "site",
+   "tab": "annex-terms",
+   "height": 844,
+   "words": 22,
+   "figureWords": 0,
+   "panelWords": 143,
+   "figureCount": 0,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 137,
+   "longParagraphs": 0,
+   "screens": 1
+  },
+  {
+   "mode": "site",
+   "tab": "annex-spec",
+   "height": 8646,
+   "words": 1359,
+   "figureWords": 1540,
+   "panelWords": 1339,
+   "figureCount": 5,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 1,
+   "tierParentheticals": 0,
+   "foldedWords": 2129,
+   "longParagraphs": 0,
+   "screens": 10.2
+  }
+ ],
+ "figures": [
+  {
+   "tab": "annex-spec",
+   "id": "fig-5-2-4-stack",
+   "words": 934
+  },
+  {
+   "tab": "cover",
+   "id": "fig-cover-map",
+   "words": 728
+  },
+  {
+   "tab": "measurement",
+   "id": "fig-5-6-kpis",
+   "words": 698
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-2-register-map",
+   "words": 657
+  },
+  {
+   "tab": "annex-runbooks",
+   "id": "Four attack lines, four answers, and two sources that say th",
+   "words": 627
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-4-footprint",
+   "words": 562
+  },
+  {
+   "tab": "decision",
+   "id": "",
+   "words": 545
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-6-party-flow",
+   "words": 530
+  },
+  {
+   "tab": "risks",
+   "id": "fig-5-8-risk",
+   "words": 519
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-7-zones",
+   "words": 497
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-3-paths",
+   "words": 487
+  },
+  {
+   "tab": "strategy",
+   "id": "fig-4-2-effort",
+   "words": 471
+  },
+  {
+   "tab": "decision",
+   "id": "fig-6-1-dependencies",
+   "words": 403
+  },
+  {
+   "tab": "annex-messages",
+   "id": "Six segments, six messages, and a named evidence source behi",
+   "words": 388
+  },
+  {
+   "tab": "strategy",
+   "id": "fig-4-8-decision-rules",
+   "words": 387
+  },
+  {
+   "tab": "delivery",
+   "id": "fig-5-4-ladder",
+   "words": 381
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-9-audit",
+   "words": 377
+  },
+  {
+   "tab": "strategy",
+   "id": "Three languages, and three quarters of the county reachable ",
+   "words": 364
+  },
+  {
+   "tab": "measurement",
+   "id": "Seven clearances at five different stages, and one the campa",
+   "words": 342
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-2-7-media",
+   "words": 336
+  },
+  {
+   "tab": "measurement",
+   "id": "Three instruments, and each one names the decision it unlock",
+   "words": 328
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-11-evidence",
+   "words": 326
+  },
+  {
+   "tab": "strategy",
+   "id": "fig-4-5-calendar",
+   "words": 317
+  },
+  {
+   "tab": "decision",
+   "id": "fig-1-3-objectives",
+   "words": 315
+  },
+  {
+   "tab": "decision",
+   "id": "fig-1-5-scorecard",
+   "words": 314
+  },
+  {
+   "tab": "evidence",
+   "id": "Four of the eight constituencies hold 296,196 voters — 55.60",
+   "words": 300
+  },
+  {
+   "tab": "workstreams-data",
+   "id": "Nineteen fields, four of them about consent and one that can",
+   "words": 299
+  },
+  {
+   "tab": "decision",
+   "id": "",
+   "words": 296
+  },
+  {
+   "tab": "workstreams-ground",
+   "id": "Seven standing forums, and the candidate is named in three o",
+   "words": 296
+  },
+  {
+   "tab": "workstreams-platforms",
+   "id": "fig-5-2-workstream-panels",
+   "words": 294
+  },
+  {
+   "tab": "annex-messages",
+   "id": "Five channels, each with its own register and its own proof§",
+   "words": 293
+  },
+  {
+   "tab": "decision",
+   "id": "fig-5-1-workstreams",
+   "words": 292
+  },
+  {
+   "tab": "workstreams-platforms",
+   "id": "Approval falls on Wednesday, which is what makes Friday's ma",
+   "words": 288
+  },
+  {
+   "tab": "annex-spec",
+   "id": "Five channels, and only one of them may carry Kikamba text§4",
+   "words": 283
+  },
+  {
+   "tab": "annex-runbooks",
+   "id": "Four severities, and the first instruction is to do nothing§",
+   "words": 279
+  },
+  {
+   "tab": "strategy",
+   "id": "fig-4-3-segments",
+   "words": 269
+  },
+  {
+   "tab": "staffing",
+   "id": "Four core roles, and every specialist in the campaign report",
+   "words": 265
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-2-1-register",
+   "words": 264
+  },
+  {
+   "tab": "workstreams-media",
+   "id": "Four ways to reach 532,758 voters without a commercial gatek",
+   "words": 262
+  },
+  {
+   "tab": "strategy",
+   "id": "fig-4-4-message-region",
+   "words": 261
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-2-4-people",
+   "words": 255
+  },
+  {
+   "tab": "workstreams-platforms",
+   "id": "Four delivery dimensions, two of which are still waiting on ",
+   "words": 254
+  },
+  {
+   "tab": "delivery",
+   "id": "fig-5-3-four-weeks",
+   "words": 252
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-2-3-nomination",
+   "words": 251
+  },
+  {
+   "tab": "measurement",
+   "id": "Three exposures, and two of them end in a custodial sentence",
+   "words": 237
+  },
+  {
+   "tab": "delivery",
+   "id": "fig-5-7-approval",
+   "words": 236
+  },
+  {
+   "tab": "decision",
+   "id": "fig-5-5-cadence",
+   "words": 232
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-2-2-results",
+   "words": 231
+  },
+  {
+   "tab": "workstreams-ground",
+   "id": "fig-5-2-3-field-loop",
+   "words": 231
+  },
+  {
+   "tab": "measurement",
+   "id": "Three statutes, and the first one has a signature count the ",
+   "words": 226
+  },
+  {
+   "tab": "staffing",
+   "id": "fig-5-9-team",
+   "words": 224
+  },
+  {
+   "tab": "strategy",
+   "id": "fig-4-1-message-house",
+   "words": 218
+  },
+  {
+   "tab": "delivery",
+   "id": "fig-5-4-phases",
+   "words": 216
+  },
+  {
+   "tab": "strategy",
+   "id": "Every medium is allocated to the whole, and only one of them",
+   "words": 212
+  },
+  {
+   "tab": "delivery",
+   "id": "fig-4-7-profile-fixes",
+   "words": 211
+  },
+  {
+   "tab": "workstreams-ground",
+   "id": "fig-5-2-3-ussd-menu",
+   "words": 208
+  },
+  {
+   "tab": "annex-cadence",
+   "id": "Three levels, three authorities, and the candidate is only i",
+   "words": 208
+  },
+  {
+   "tab": "strategy",
+   "id": "Four terms where the literal translation loses the argument§",
+   "words": 207
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-1-funnel",
+   "words": 205
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-5-field",
+   "words": 203
+  },
+  {
+   "tab": "workstreams-platforms",
+   "id": "Seven vaults, and the second one holds the evidence every as",
+   "words": 203
+  },
+  {
+   "tab": "workstreams-ground",
+   "id": "Four report types, one of which has a thirty-minute clock on",
+   "words": 202
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-2-8-record",
+   "words": 201
+  },
+  {
+   "tab": "measurement",
+   "id": "Six sections of the Data Protection Act 2019, and what each ",
+   "words": 201
+  },
+  {
+   "tab": "workstreams-ground",
+   "id": "A rumour logged by USSD is answered in three languages acros",
+   "words": 195
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-2-5-budget",
+   "words": 192
+  },
+  {
+   "tab": "annex-evidence",
+   "id": "Three tiers, and only one of them may move money§A.1.2's thr",
+   "words": 192
+  },
+  {
+   "tab": "annex-runbooks",
+   "id": "From fifteen minutes on air to twenty-four hours in print§E.",
+   "words": 188
+  },
+  {
+   "tab": "decision",
+   "id": "fig-6-3-decision",
+   "words": 187
+  },
+  {
+   "tab": "decision",
+   "id": "fig-1-4-flow",
+   "words": 187
+  },
+  {
+   "tab": "decision",
+   "id": "",
+   "words": 186
+  },
+  {
+   "tab": "workstreams-platforms",
+   "id": "fig-5-2-1-report-flow",
+   "words": 185
+  },
+  {
+   "tab": "strategy",
+   "id": "Three ground rumours, and the evidence the campaign answers ",
+   "words": 178
+  },
+  {
+   "tab": "annex-evidence",
+   "id": "What to do when two sources disagree, in four steps the docu",
+   "words": 173
+  },
+  {
+   "tab": "annex-spec",
+   "id": "Five components, rated for data-protection risk, and not one",
+   "words": 173
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-2-9-channels",
+   "words": 168
+  },
+  {
+   "tab": "workstreams-platforms",
+   "id": "Nothing reaches a voter without a citation at the front and ",
+   "words": 168
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-8-ceiling",
+   "words": 167
+  },
+  {
+   "tab": "workstreams-ground",
+   "id": "What a ward coordinator hears at 18:00 can be answered on ai",
+   "words": 163
+  },
+  {
+   "tab": "cover",
+   "id": "fig-cover-spine",
+   "words": 161
+  },
+  {
+   "tab": "strategy",
+   "id": "Four gates between an English draft and a Kikamba broadcast§",
+   "words": 161
+  },
+  {
+   "tab": "strategy",
+   "id": "fig-4-6-channel-shift",
+   "words": 158
+  },
+  {
+   "tab": "measurement",
+   "id": "One programme tests whether the deficit is real; the other i",
+   "words": 156
+  },
+  {
+   "tab": "decision",
+   "id": "fig-1-1-timeline",
+   "words": 151
+  },
+  {
+   "tab": "risks",
+   "id": "",
+   "words": 149
+  },
+  {
+   "tab": "decision",
+   "id": "",
+   "words": 141
+  },
+  {
+   "tab": "annex-spec",
+   "id": "Four tiers, and the personal data lives in exactly one of th",
+   "words": 137
+  },
+  {
+   "tab": "workstreams-data",
+   "id": "Everything captured is tagged, consented and tiered before i",
+   "words": 128
+  },
+  {
+   "tab": "decision",
+   "id": "",
+   "words": 124
+  },
+  {
+   "tab": "decision",
+   "id": "",
+   "words": 123
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-10-gaps",
+   "words": 120
+  },
+  {
+   "tab": "strategy",
+   "id": "Six ways of cutting the same electorate, and two of them dec",
+   "words": 116
+  },
+  {
+   "tab": "annex-evidence",
+   "id": "Three things every figure in this document has to carry§2.3.",
+   "words": 116
+  },
+  {
+   "tab": "strategy",
+   "id": "Every visit logs a commitment, and twelve weeks later the tr",
+   "words": 111
+  },
+  {
+   "tab": "workstreams-platforms",
+   "id": "Four content pillars feed two engines, and everything leaves",
+   "words": 105
+  },
+  {
+   "tab": "decision",
+   "id": "",
+   "words": 104
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-2-6-connectivity",
+   "words": 99
+  },
+  {
+   "tab": "staffing",
+   "id": "A lean core of three leads, each directing subcontracted spe",
+   "words": 98
+  },
+  {
+   "tab": "staffing",
+   "id": "Two teams, one weekly brief, and a single named counterpart ",
+   "words": 93
+  },
+  {
+   "tab": "decision",
+   "id": "",
+   "words": 87
+  },
+  {
+   "tab": "decision",
+   "id": "",
+   "words": 74
+  },
+  {
+   "tab": "decision",
+   "id": "Choose a service levelWhat changes is scope — team, ward cov",
+   "words": 67
+  },
+  {
+   "tab": "decision",
+   "id": "",
+   "words": 61
+  },
+  {
+   "tab": "decision",
+   "id": "Four deliverables are gated on decisions the campaign has no",
+   "words": 60
+  },
+  {
+   "tab": "decision",
+   "id": "",
+   "words": 57
+  },
+  {
+   "tab": "delivery",
+   "id": "In order",
+   "words": 41
+  },
+  {
+   "tab": "delivery",
+   "id": "In order",
+   "words": 40
+  },
+  {
+   "tab": "risks",
+   "id": "In order",
+   "words": 38
+  },
+  {
+   "tab": "delivery",
+   "id": "In order",
+   "words": 36
+  },
+  {
+   "tab": "staffing",
+   "id": "What this commits to",
+   "words": 31
+  },
+  {
+   "tab": "annex-runbooks",
+   "id": "What this commits to",
+   "words": 25
+  },
+  {
+   "tab": "annex-runbooks",
+   "id": "What this commits to",
+   "words": 25
+  },
+  {
+   "tab": "decision",
+   "id": "",
+   "words": 18
+  },
+  {
+   "tab": "annex-runbooks",
+   "id": "What this commits to",
+   "words": 16
+  },
+  {
+   "tab": "strategy",
+   "id": "In order",
+   "words": 13
+  },
+  {
+   "tab": "annex-spec",
+   "id": "In order",
+   "words": 13
+  },
+  {
+   "tab": "annex-evidence",
+   "id": "What this commits to",
+   "words": 9
+  },
+  {
+   "tab": "workstreams-data",
+   "id": "In order",
+   "words": 7
+  },
+  {
+   "tab": "strategy",
+   "id": "In order",
+   "words": 4
+  }
+ ]
+}

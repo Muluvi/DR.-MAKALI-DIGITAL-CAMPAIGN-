@@ -140,6 +140,7 @@ canvas {
 @import "./visual-fx.css";
 @import "./part-visuals.css";
 @import "./flow.css";
+@import "./declutter.css";
 @plugin "@tailwindcss/typography";
 
 /*
@@ -627,13 +628,6 @@ table,
 .prose > table,
 .prose > .not-prose {
   max-width: none;
-}
-
-/* Focus Mode Refinements */
-.focus-reading-mode {
-  max-width: 68ch !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
 }
 
 /* Minimalist Clean Section Styling - eliminates excessive card nesting */

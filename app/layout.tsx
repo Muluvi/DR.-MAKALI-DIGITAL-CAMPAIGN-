@@ -119,11 +119,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="en" className={`dark ${bricolage.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`dark ${bricolage.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}>
       <head>
-        {/* With scripts off, no accordion can open, so every panel ships open (brief §Q: JS-off). */}
+        {/* The 2.1 story pins its county only where WebGL can draw it and motion is welcome. Deciding
+            that here, before the first paint, lets the story's CSS lay out the pinned steps from the
+            start instead of switching after hydration, which shifted the evidence page (CLS 0.48). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(window.WebGLRenderingContext&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.setAttribute("data-story-pin","")}catch(e){}`,
+          }}
+        />
+        {/* With scripts off, no fold, accordion, card or tab can open, so every one ships open
+            and its control is hidden (brief §Q: JS-off; lib/fold.ts). */}
         <noscript>
-          <style>{`.dg-panel{display:block!important}`}</style>
+          <style>{`[data-fold-body]{display:block!important}span[data-fold-body]{display:inline!important}.pf-more__btn,.vz-more__btn,.rf-more,.pf-textver__summary,.vz-tabs__list{display:none!important}`}</style>
         </noscript>
       </head>
       <body suppressHydrationWarning className="font-sans antialiased bg-paper text-ink">{children}</body>

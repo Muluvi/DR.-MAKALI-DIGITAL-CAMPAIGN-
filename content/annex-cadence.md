@@ -2,6 +2,11 @@ ANNEX D. The meeting cadence and the escalation protocol, in full. Schedule mate
 
 ## D.1 Cadence and the meeting rhythm
 
+```lead
+This annex now carries only the rhythm the engagement itself creates.
+```
+
+<!-- keep -->
 | Cadence | Meeting | Participants | Output |
 |---|---|---|---|
 | **Daily (15 min)** | Stand-up | Firefly core | Priorities, escalations, live issues |

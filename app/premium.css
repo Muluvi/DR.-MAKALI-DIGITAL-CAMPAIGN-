@@ -712,30 +712,6 @@
   text-overflow: ellipsis;
 }
 @media (min-width: 640px) { .pf-dock__label { max-width: 22rem; } }
-.pf-dock__rule { width: 1px; height: 24px; background: var(--pf-line); }
-.pf-dock__mode { position: relative; display: grid; grid-template-columns: 1fr 1fr; padding: 3px; border-radius: 999px; background: var(--pf-ground); }
-.pf-dock__mode button {
-  position: relative;
-  z-index: 1;
-  min-width: 48px;
-  min-height: 38px;
-  padding: 0 8px;
-  font: 600 12.5px/1 var(--pf-display);
-  color: var(--pf-muted);
-  transition: color var(--pf-dur-fast) var(--pf-ease-out);
-}
-.pf-dock__mode button[aria-pressed="true"] { color: var(--pf-on-solid); }
-.pf-dock__thumb {
-  position: absolute;
-  top: 3px;
-  bottom: 3px;
-  left: 3px;
-  width: calc(50% - 3px);
-  border-radius: 999px;
-  background: var(--pf-accent-solid);
-  transition: transform var(--pf-dur-entrance) var(--pf-ease);
-}
-.pf-dock__thumb[data-at="full"] { transform: translateX(100%); }
 .pf-dock__icon {
   display: grid;
   place-items: center;
@@ -1071,7 +1047,9 @@ html { scroll-padding-bottom: calc(var(--pf-dock-h) + 24px); }
 .pf-story__county { position: absolute; inset: 0; }
 .pf-story__county > svg { position: absolute; inset: 4% 12%; width: 76%; height: 92%; }
 .pf-story[data-pinned="true"] .pf-story__static { display: none; }
-.pf-story[data-pinned="true"] .pf-story__stage {
+/* The pinned layout follows the pre-paint flag on <html> (app/layout.tsx), so it is in place before
+   the story hydrates; whether the scene or the static county draws still follows data-pinned. */
+:root[data-story-pin] .pf-story__stage {
   position: sticky;
   top: 0;
   height: 100svh;
@@ -1080,9 +1058,9 @@ html { scroll-padding-bottom: calc(var(--pf-dock-h) + 24px); }
   background: radial-gradient(60% 50% at 60% 50%, var(--pf-accent-glow), transparent 70%);
 }
 .pf-story__steps { position: relative; display: grid; gap: 1.25rem; padding: 0; margin: 0; list-style: none; }
-.pf-story[data-pinned="true"] .pf-story__steps { margin-top: -100svh; gap: 0; padding-inline: var(--pf-gutter); pointer-events: none; }
-.pf-story[data-pinned="true"] .pf-story__step { min-height: 100svh; display: flex; align-items: flex-end; padding-bottom: calc(var(--pf-dock-h) + 36px); }
-.pf-story[data-pinned="true"] .pf-story__step:last-child { min-height: 140svh; }
+:root[data-story-pin] .pf-story__steps { margin-top: -100svh; gap: 0; padding-inline: var(--pf-gutter); pointer-events: none; }
+:root[data-story-pin] .pf-story__step { min-height: 100svh; display: flex; align-items: flex-end; padding-bottom: calc(var(--pf-dock-h) + 36px); }
+:root[data-story-pin] .pf-story__step:last-child { min-height: 140svh; }
 .pf-story__card {
   pointer-events: auto;
   max-width: 30rem;
@@ -1104,8 +1082,8 @@ html { scroll-padding-bottom: calc(var(--pf-dock-h) + 24px); }
 .pf-story__paths li[data-trap="true"] em { color: var(--gold); font-style: normal; }
 .pf-story__link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 4px; font: 600 14px/1.2 var(--pf-display); color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 @media (min-width: 1024px) {
-  .pf-story[data-pinned="true"] .pf-story__county { left: 38%; }
-  .pf-story[data-pinned="true"] .pf-story__step { align-items: center; padding-bottom: 0; }
+  :root[data-story-pin] .pf-story__county { left: 38%; }
+  :root[data-story-pin] .pf-story__step { align-items: center; padding-bottom: 0; }
 }
 @media print {
   .pf-story__stage { position: static !important; height: 60vh !important; }
@@ -1296,7 +1274,7 @@ html:not(.dark) .text-emerald-600 { color: #065f46 !important; }   /* 6.4:1 on e
 .pf-story__card .rf :is(.rf-takeaway, .rf-foot) { padding-inline: 0; background: transparent; }
 .pf-story__card .rf--hero .rf-title { font-size: 1.35rem !important; }
 @media (min-width: 1024px) {
-  .pf-story[data-pinned="true"] .pf-story__card { max-width: 34rem; }
+  :root[data-story-pin] .pf-story__card { max-width: 34rem; }
 }
 
 /* ---------------------------------------------------------------- device stages (G-10) */

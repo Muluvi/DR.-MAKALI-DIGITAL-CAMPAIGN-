@@ -1,18 +1,39 @@
-The decision first: what is being asked, what Dr. Mulu receives and at which level, who does what, and what the campaign must decide or provide.
+
 
 ## 1.1 The ask: one week and one export
 
-What this section adds is the clock behind the ask, and the ask itself (Section 1.1).
+```lead
+**Firefly Management asks for one week and one export.** Firefly supplies that layer while the existing team keeps publishing, and publishes nothing on Dr. Mulu's accounts. This proposal commits to a method, a cadence and a standard; it does not commit to an electoral outcome.
+```
+
 
 ```figure
 id: fig-6-3-decision
 ```
 
+```visual
+kind: stats
+items:
+  - value: "{{pool}}"
+    label: "voters in the pool wards"
+    tier: 1
+  - value: "{{pool.share}}%"
+    label: "of the register"
+    tier: 1
+  - value: "{{ict.offline}}%"
+    label: "of residents offline"
+    tier: 1
+  - value: "{{result.2022.womanrep.kasalu}}"
+    label: "Dr. Kasalu, 2022"
+    tier: 2
+  - value: "{{result.2022.senate.wambua}}"
+    label: "Sen. Wambua, 2022"
+    tier: 2
+```
+
 > ### THE WINDOW, NOT THE DEADLINE
 >
-> **What sets the pace.** The Wiper flagbearer decision is expected to be settled by a party-run
-> countywide selection in the final quarter of 2026 — late October to November on the reported timetable
-> (Tier 3, Section 2.5.2). That date is not in the campaign's gift, and every other date in this
+> **What sets the pace.** <window-chip></window-chip> That date is not in the campaign's gift, and every other date in this
 > document is derived from it rather than chosen.
 >
 > **What the work needs in front of it.** Roughly six weeks for a first directed cycle, and the
@@ -34,9 +55,7 @@ delivered what it promised. Unconfirmed balances, pending bills and low developm
 Auditor-General and the Controller of Budget report for the county (Annex B.2), and that qualification is currently the campaign's most under-used
 asset.
 
-**But the timeline is not the one the planning cycle assumes.** The Wiper
-flagbearer decision is expected to be settled by a party-run countywide selection in the final
-quarter of 2026 (reported, Tier 3). Half the register, {{pool.share}}%, lives in the four
+**But the timeline is not the one the planning cycle assumes.** <window-chip></window-chip> Half the register, {{pool.share}}%, lives in the four
 constituencies where he has never held office. The working hypothesis is that the gap there is one
 of recognition rather than credibility (Section 2.12). If Week 1 confirms it, it is the kind of gap
 that closes fastest through disciplined reach into Mwingi and the arid south.
@@ -78,9 +97,7 @@ people who run it now.
 
 **Where the contest stands.** Both Wiper rivals have already won a countywide election: Dr. Kasalu
 with **{{result.2022.womanrep.kasalu}}** votes as Woman Representative and Sen. Wambua with **{{result.2022.senate.wambua}}** as Senator, both in
-2022 (Section 2.6). Dr. Mulu has not yet stood countywide. The ticket is expected to be settled by a party-run countywide selection in the final
-quarter of 2026 — reported, and **not confirmed by the party** (Tier 3; Section 2.5.2 sets out what
-would confirm it).
+2022 (Section 2.6). Dr. Mulu has not yet stood countywide. <window-chip></window-chip>
 
 **What Firefly does not ask you to believe.** This proposal commits to a method, a cadence and a
 standard. It does not commit to an electoral outcome, and no figure in it should be read as one
@@ -88,7 +105,11 @@ standard. It does not commit to an electoral outcome, and no figure in it should
 
 ## 1.2 The goal and the two deadlines
 
-The campaign's objectives are structured across two separate timelines, each with its own clocks, success parameters, and strictly traceable targets. Every objective traces directly either to securing the Wiper Patriotic Front nomination or delivering the ~{{benchmark}} vote threshold at the general election. All non-traceable, purely digital vanity metrics have been eliminated.
+```lead
+The campaign operates against two deadlines: the Wiper nomination <window-chip></window-chip> and the 10 August 2027 general election.
+```
+
+The campaign's objectives are structured across two separate timelines, each with its own clocks, success parameters, and traceable targets. Every objective traces directly either to securing the Wiper Patriotic Front nomination or delivering the ~{{benchmark}} vote threshold at the general election. All non-traceable, purely digital vanity metrics have been eliminated.
 
 #### The goal: the Wiper ticket first, the county second
 
@@ -98,7 +119,7 @@ The campaign's objectives are structured across two separate timelines, each wit
 #### The two deadlines
 
 The campaign operates against two non-negotiable temporal milestones:
-1.  **Q4 2026 Nomination Window (reported):** Wiper Patriotic Front party consensus and selection window, reported for late October to November and not confirmed by the party (Tier 3, Section 2.5). Success requires demonstrating organized geographic reach in the {{pool}}-voter pool (Mwingi North, Mwingi West, Mwingi Central, and Kitui South) where Dr. Mulu has never held office. That he is less known there is the working hypothesis Section 2.12 states and Week 1 tests, not a measured fact.
+1.  **Q4 2026 Nomination Window (reported):** <window-chip></window-chip> Success requires demonstrating organized geographic reach in the {{pool}}-voter pool (Mwingi North, Mwingi West, Mwingi Central, and Kitui South) where Dr. Mulu has never held office. That he is less known there is the working hypothesis Section 2.12 states and Week 1 tests, not a measured fact.
 2.  **10 August 2027 General Election:** Mobilizing and turning out the {{benchmark}}-vote coalition required for a plurality victory in a multi-candidate field.
 
 ```figure
@@ -113,57 +134,91 @@ id: fig-1-3-objectives
 
 ### 1.3.1 Be known where he isn't yet
 
-*   **Traceability:** Traces directly to nomination viability by elevating name recognition and operational visibility in northern Mwingi and southern wards where Dr. Mulu's profile has historically been constituency-bounded to Kitui Central.
-*   **Finding it answers:** {{pool.share}}% of the register, {{pool}} voters, lives in Mwingi and Kitui South, where he has never held office (Section 2.7).
-*   **Baseline:** set in Week 1, from his own Insights export. The hypothesis is that his reach concentrates in Kitui Central (Section 2.12); Week 1 tests it.
-*   **Target:** At least {{pool.share}}% of his reach landing in the pool, the pool's own share of the register, and a verified subscriber footprint across all 15 Mwingi wards and 6 Kitui South wards before the opening of the party nomination window.
-*   **Served by:** Section 3.3.1 (where the effort goes) and Section 3.7 (what gets published). **Measured by:** NW-01 and R-02 (Section 5.1).
-*   **Named Owner:** Director of Communications; Firefly provides the messaging infrastructure and delivery ledger.
+```visual
+kind: cards
+preset: objective
+items:
+  - head: { label: "Target", text: "At least {{pool.share}}% of his reach landing in the pool, the pool's own share of the register, and a verified subscriber footprint across all 15 Mwingi wards and 6 Kitui South wards before the opening of the party nomination window." }
+    chips: ["NW-01", "R-02"]
+    text: "**Named Owner:** Director of Communications; Firefly provides the messaging infrastructure and delivery ledger."
+    fields:
+      - { label: "Traceability", text: "Traces directly to nomination viability by elevating name recognition and operational visibility in northern Mwingi and southern wards where Dr. Mulu's profile has historically been constituency-bounded to Kitui Central." }
+      - { label: "Finding it answers", text: "{{pool.share}}% of the register, {{pool}} voters, lives in Mwingi and Kitui South, where he has never held office (Section 2.7)." }
+      - { label: "Baseline", text: "set in Week 1, from his own Insights export. The hypothesis is that his reach concentrates in Kitui Central (Section 2.12); Week 1 tests it." }
+      - { label: "Served by", text: "Section 3.3.1 (where the effort goes) and Section 3.7 (what gets published)." }
+      - { label: "Measured by", text: "NW-01 and R-02 (Section 5.1)." }
+```
 
 ### 1.3.2 Turn his record into visible proof
 
-*   **Traceability:** Converts Dr. Mulu's 13-year parliamentary record ({{record.bursary.recipients}} bursary recipients, KSh 47m allocated, Kitui Central certified the best-evaluated constituency in the Eastern region, FY2014/15) into verifiable, shareable digital case studies tailored to voter priorities in dryland pastoralist and agricultural zones.
-*   **Finding it answers:** both Wiper rivals have already won countywide; his distinguishing proof is his record (Sections 2.10.1 and 2.6).
-*   **Baseline:** His record is documented for Kitui Central, the only constituency he has represented (Section 2.10.1). Where content about it currently reaches is measured in Week 1.
-*   **Target:** 40 ward-specific achievement briefs detailing economic and devolved governance models distributed via localized WhatsApp networks and audio digests.
-*   **Served by:** Section 3.1 (the position) and Pillar 1 in Section 3.7. **Measured by:** R-03, shares per 1,000 reached in the deficit wards (Section 5.1).
-*   **Named Owner:** Policy and Communications Research Lead.
+```visual
+kind: cards
+preset: objective
+items:
+  - head: { label: "Target", text: "40 ward-specific achievement briefs detailing economic and devolved governance models distributed via localized WhatsApp networks and audio digests." }
+    chips: ["R-03"]
+    text: "**Named Owner:** Policy and Communications Research Lead."
+    fields:
+      - { label: "Traceability", text: "Converts Dr. Mulu's 13-year parliamentary record ({{record.bursary.recipients}} bursary recipients, KSh 47m allocated, Kitui Central certified the best-evaluated constituency in the Eastern region, FY2014/15) into verifiable, shareable digital case studies tailored to voter priorities in dryland pastoralist and agricultural zones." }
+      - { label: "Finding it answers", text: "both Wiper rivals have already won countywide; his distinguishing proof is his record (Sections 2.10.1 and 2.6)." }
+      - { label: "Baseline", text: "His record is documented for Kitui Central, the only constituency he has represented (Section 2.10.1). Where content about it currently reaches is measured in Week 1." }
+      - { label: "Served by", text: "Section 3.1 (the position) and Pillar 1 in Section 3.7." }
+      - { label: "Measured by", text: "R-03, shares per 1,000 reached in the deficit wards (Section 5.1)." }
+```
 
 ### 1.3.3 Build a direct line to the voters the internet doesn't reach
 
-*   **Traceability:** Directly addresses the county's digital connectivity ceiling ({{ict.internet}}% internet use, {{ict.phone}}% mobile phone ownership per CA/KNBS 2023/24) by creating an offline broadcast asset.
-*   **Finding it answers:** digital alone reaches about {{reach.smartphone}} voters at most, short of the {{benchmark}} benchmark (Section 2.9.3).
-*   **Baseline:** 0 consented offline rural subscribers in centralized campaign registry.
-*   **Target:** **{{target.sms}} active, verified SMS/USSD offline subscribers** across rural wards.
-*   **Deadline:** 30 June 2027.
-*   **Served by:** Section 3.3.2 (which channel does which job) and Workstream 9 (Section 4.5.9). **Measured by:** NW-03 and R-04 (Section 5.1).
-*   **Named Owner:** Campaign Field Operations Lead; Firefly operates the USSD/SMS dispatch engine.
+```visual
+kind: cards
+preset: objective
+items:
+  - head: { label: "Target", text: "**{{target.sms}} active, verified SMS/USSD offline subscribers** across rural wards." }
+    chips: ["NW-03", "R-04"]
+    text: "**Named Owner:** Campaign Field Operations Lead; Firefly operates the USSD/SMS dispatch engine."
+    fields:
+      - { label: "Traceability", text: "Directly addresses the county's digital connectivity ceiling ({{ict.internet}}% internet use, {{ict.phone}}% mobile phone ownership per CA/KNBS 2023/24) by creating an offline broadcast asset." }
+      - { label: "Finding it answers", text: "digital alone reaches about {{reach.smartphone}} voters at most, short of the {{benchmark}} benchmark (Section 2.9.3)." }
+      - { label: "Baseline", text: "0 consented offline rural subscribers in centralized campaign registry." }
+      - { label: "Deadline", text: "30 June 2027." }
+      - { label: "Served by", text: "Section 3.3.2 (which channel does which job) and Workstream 9 (Section 4.5.9)." }
+      - { label: "Measured by", text: "NW-03 and R-04 (Section 5.1)." }
+```
 
 ### 1.3.4 Give every post a voter, a ward and a reason
 
-*   **Traceability:** Every post the weekly brief commissions names the voter segment it is for (Section 3.4), the ward it is aimed at (Section 2.3) and the pillar that gives it a reason (Section 3.7).
-*   **Finding it answers:** his current output is a record of where he was, with no ward named outside Kitui Central and no ask (Section 3.7).
-*   **Baseline:** set in Week 1, from the post coding.
-*   **Target:** Every briefed post coded with segment, ward and pillar, checked in the Monday review.
-*   **Served by:** Sections 3.4 to 3.7. **Measured by:** R-05 and the weekly post coding (Sections 5.2.4 and 5.1).
-*   **Campaign build target it supports:** **{{target.supporters}} registered, verified supporters** in the central database mapped across all {{register.polling-stations}} polling stations by 31 May 2027. The database is Firefly's instrument (Section 4.5.11); the recruitment is the campaign's.
-*   **Named Owner:** Database and Ground Mobilization Coordinator.
+```visual
+kind: cards
+preset: objective
+items:
+  - head: { label: "Target", text: "Every briefed post coded with segment, ward and pillar, checked in the Monday review." }
+    chips: ["R-05"]
+    text: "**Named Owner:** Database and Ground Mobilization Coordinator."
+    fields:
+      - { label: "Traceability", text: "Every post the weekly brief commissions names the voter segment it is for (Section 3.4), the ward it is aimed at (Section 2.3) and the pillar that gives it a reason (Section 3.7)." }
+      - { label: "Finding it answers", text: "his current output is a record of where he was, with no ward named outside Kitui Central and no ask (Section 3.7)." }
+      - { label: "Baseline", text: "set in Week 1, from the post coding." }
+      - { label: "Served by", text: "Sections 3.4 to 3.7." }
+      - { label: "Measured by", text: "R-05 and the weekly post coding (Sections 5.2.4 and 5.1)." }
+      - { label: "Campaign build target it supports", text: "**{{target.supporters}} registered, verified supporters** in the central database mapped across all {{register.polling-stations}} polling stations by 31 May 2027. The database is Firefly's instrument (Section 4.5.11); the recruitment is the campaign's." }
+```
 
 ### 1.3.5 Hold the home base while Kitui Central runs its own race
 
-*   **Traceability:** Prevents the "Central Isolation Trap" (Path D in the electoral analysis) by maintaining Dr. Mulu's anchor in Kitui Central while candidate succession dynamics unfold.
-*   **Finding it answers:** Kitui Central will have its own MP succession contest through the same window (Section 2.7.2).
-*   **Baseline:** {{con.kitui-central}} registered voters in Kitui Central. He was re-elected there in 2022 with {{result.2022.mp.mulu}} votes (Tier 1).
-*   **Target:** Reach and engagement in Kitui Central held at or above the Week 1 baseline while output weight moves to Mwingi and the arid belt.
-*   **Served by:** Section 3.3.1 (the anchor zone's weighting). **Measured by:** reach by constituency in the monthly performance report (Section 1.5.3).
-*   **Named Owner:** Kitui Central Constituency Campaign Committee.
+```visual
+kind: cards
+preset: objective
+items:
+  - head: { label: "Target", text: "Reach and engagement in Kitui Central held at or above the Week 1 baseline while output weight moves to Mwingi and the arid belt." }
+    text: "**Named Owner:** Kitui Central Constituency Campaign Committee."
+    fields:
+      - { label: "Traceability", text: "Prevents the \"Central Isolation Trap\" (Path D in the electoral analysis) by maintaining Dr. Mulu's anchor in Kitui Central while candidate succession dynamics unfold." }
+      - { label: "Finding it answers", text: "Kitui Central will have its own MP succession contest through the same window (Section 2.7.2)." }
+      - { label: "Baseline", text: "{{con.kitui-central}} registered voters in Kitui Central. He was re-elected there in 2022 with {{result.2022.mp.mulu}} votes (Tier 1)." }
+      - { label: "Served by", text: "Section 3.3.1 (the anchor zone's weighting)." }
+      - { label: "Measured by", text: "reach by constituency in the monthly performance report (Section 1.5.3)." }
+```
 
 ## 1.4 Who does what: ownership and boundaries
-
-All fourteen workstreams on one page, with the owner named against each — and what is deliberately outside the engagement.
-
-Section 4.5 sets each workstream out in full, with its own boundaries and KPIs. This page
-exists so the whole engagement can be seen at once before any of it is read in detail.
 
 **Seven of the fourteen are Firefly's to operate. Six your team already runs and will keep running,
 to a brief. Two are not this engagement's to touch.** Workstream 1 is split: Firefly builds the
@@ -171,7 +226,9 @@ tracker, and your team runs the platforms.
 
 ### 1.4.1 How this proposal is built
 
-This proposal is built in the same order as the engagement: the data (Section 2), what it implies (Section 2), the strategy it leads to (Section 3) and how that strategy is directed (Section 5 [CHECK REF]). Section 1 is the decision.
+```lead
+**Firefly publishes nothing on Dr. Mulu's accounts and holds no credentials to them.** The only channel it operates directly is the offline layer it already holds: a WhatsApp Business API line and a USSD shortcode.
+```
 
 The digital operation separates operational software, messaging infrastructure, and data science (provided by Firefly) from voter mobilization, ground staffing, broadcast advertising, and logistics (owned and executed by the Campaign Team). **Firefly publishes nothing on Dr. Mulu's accounts and holds no credentials to them.** The only channel it operates directly is the offline layer it already holds: a WhatsApp Business API line and a USSD shortcode.
 
@@ -179,11 +236,24 @@ The digital operation separates operational software, messaging infrastructure, 
 id: fig-1-4-flow
 ```
 
-*   **Analyse (Week 1).** Firefly audits his channels against the race: ninety days of reach, engagement, language and geography, against the same window for the two nomination rivals named in Section 2.6 (Section 4.2.1).
-*   **Strategise (Weeks 2–3).** From that audit, Firefly defines what to post, for whom, in which language, on which channel, and why (Section 3).
-*   **Direct (Week 4 on).** His team keeps publishing. Firefly issues the weekly brief, approves the calendar and reviews performance (Section 4.1).
+```visual
+kind: stepper
+items:
+  - label: "Analyse (Week 1)"
+    text: "Firefly audits his channels against the race:"
+    body: "ninety days of reach, engagement, language and geography, against the same window for the two nomination rivals named in Section 2.6 (Section 4.2.1)."
+  - label: "Strategise (Weeks 2–3)"
+    body: "From that audit, Firefly defines what to post, for whom, in which language, on which channel, and why (Section 3)."
+  - label: "Direct (Week 4 on)"
+    text: "His team keeps publishing."
+    body: "Firefly issues the weekly brief, approves the calendar and reviews performance (Section 4.1)."
+```
 
 ### 1.4.2 The fourteen workstreams, by owner
+
+```lead
+Firefly is being proposed as the campaign's **intelligence and strategy layer**, not as a replacement for the team already publishing.
+```
 
 #### Who owns what
 
@@ -200,10 +270,7 @@ pitch is who holds each one:
     Dr. Mulu already holds. [CONFLICT C3: see open items]
 
 Section 1.4 sets out all fourteen with the owner named against each, together with **what is
-explicitly outside scope**. Three engagement levels are defined in Section 1.5, and they differ in
-the *depth of the intelligence*, not the volume of Firefly's output; **Firefly recommends Level 2
-(Standard)**, because it is the level at which all 40 wards carry both reach reporting and an active
-SMS and USSD layer — and reaching the arid belt is the whole argument. Commercial terms are settled
+explicitly outside scope**. Commercial terms are settled
 separately and appear nowhere in this document.
 
 #### The fourteen, by owner
@@ -212,13 +279,14 @@ separately and appear nowhere in this document.
 id: fig-5-1-workstreams
 ```
 
-**Workstream 9 is the one Firefly operates and the one that decides the race.** **{{ict.offline}}%** of Kitui
-residents are outside the internet-using population (CA/KNBS 2023/24, Tier 1), and Section 3.3.2 puts
-the reach of a purely digital operation at about **{{reach.smartphone}} voters**, short of the {{benchmark}} benchmark
-even before reach is turned into votes. Every other workstream is built on the assumption that this one works.
-
-**Workstream 14 is the one that makes the rest legible.** Without it the other thirteen are activity.
-It is listed fourteenth because that is where the numbering put it; it is read first, in Section 4.2.1.
+```visual
+kind: cards
+items:
+  - title: "Workstream 9 is the one Firefly operates and the one that decides the race."
+    text: "(Section 2.9.3) Every other workstream is built on the assumption that this one works."
+  - title: "Workstream 14 is the one that makes the rest legible."
+    text: "Without it the other thirteen are activity. It is listed fourteenth because that is where the numbering put it; it is read first, in Section 4.2.1."
+```
 
 #### The Firefly proposition
 
@@ -231,46 +299,63 @@ Firefly is a **Kenya-based media and consulting company**. The proposal delibera
 Stated as plainly as what is inside, because a boundary a proposal will not draw is a boundary the
 campaign discovers later:
 
-*   **Publishing to Dr. Mulu's owned accounts.** Firefly briefs, approves and measures. It does not
-    post, and does not hold credentials. The single exception is the offline layer in §4.5.9, which
-    Firefly operates end to end. [CONFLICT C4: see open items]
-*   **Replacing or restaffing the existing team.** Section 4.6.6 sets out how Firefly assesses and
-    upskills it. Where a capability gap cannot be closed by upskilling, Firefly names the gap and
-    the campaign decides — Firefly does not propose itself for the role.
-*   **Volunteer organising** — recruitment, tiers, gamification and ward-champion management
-    (Workstream 10). Firefly defines the metrics the leaderboard reports.
-*   **The existing technology estate** — accounts, hosting, devices and the tooling already in use
-    (Workstream 13, in part). Procuring a stack the campaign already has is not a service.
-*   **Physical event logistics** — staging, PA systems, tents, transport and fuel. Section 4.6 names
-    these as subcontracted vendor classes managed by the campaign.
-*   **Legal representation** — election petitions, litigation, and the data-protection and
-    electoral-law review itself. Section 5.3.4 has the campaign appoint that reviewer; Firefly
-    builds to their sign-off rather than substituting for it.
-*   **Candidate scheduling** — tour management, diary and constituency office operations.
-*   **Party-level negotiation** with Wiper Patriotic Front organs, branch committees and the national executive.
-*   **Polling agent recruitment, accreditation and payment.** Firefly builds the tracking behind
-    indicator GE-03; the campaign supplies and accredits the agents.
-*   **Campaign-owned field recommendations.** The ward-captain network ({{target.captains.pool}} of {{target.captains}} captains
-    recommended for the deficit wards, Section 3.3.1), the {{target.ambassadors}} M-Pesa "Economic Ambassadors", the
-    {{target.stage-champions}} boda-boda Stage Champions (Section 4.5.7), radio studio bookings and sponsored outside
-    broadcasts, and the market-day sound-truck caravans (Section 2.9.4). Each appears in this
-    document as a recommendation to the campaign. Firefly writes the brief each one carries; the
-    campaign recruits, pays and runs them.
-
-*How the three engagement levels change what runs, and the Level 2 recommendation, are set out once, in 1.5.1.*
+```visual
+kind: inout
+out:
+  - label: "Publishing to Dr. Mulu's owned accounts"
+    text: "Firefly briefs, approves and measures."
+    body: "It does not post, and does not hold credentials. The single exception is the offline layer in §4.5.9, which Firefly operates end to end. [CONFLICT C4: see open items]"
+  - label: "Replacing or restaffing the existing team"
+    text: "Section 4.6.6 sets out how Firefly assesses and upskills it."
+    body: "Where a capability gap cannot be closed by upskilling, Firefly names the gap and the campaign decides — Firefly does not propose itself for the role."
+  - label: "Volunteer organising"
+    text: "recruitment, tiers, gamification and ward-champion management (Workstream 10)."
+    body: "Firefly defines the metrics the leaderboard reports."
+  - label: "The existing technology estate"
+    body: "accounts, hosting, devices and the tooling already in use (Workstream 13, in part). Procuring a stack the campaign already has is not a service."
+  - label: "Physical event logistics"
+    text: "staging, PA systems, tents, transport and fuel."
+    body: "Section 4.6 names these as subcontracted vendor classes managed by the campaign."
+  - label: "Legal representation"
+    text: "election petitions, litigation, and the data-protection and electoral-law review itself."
+    body: "Section 5.3.4 has the campaign appoint that reviewer; Firefly builds to their sign-off rather than substituting for it."
+  - label: "Candidate scheduling"
+    text: "tour management, diary and constituency office operations."
+  - label: "Party-level negotiation"
+    text: "with Wiper Patriotic Front organs, branch committees and the national executive."
+  - label: "Polling agent recruitment, accreditation and payment"
+    text: "Firefly builds the tracking behind indicator GE-03;"
+    body: "the campaign supplies and accredits the agents."
+  - label: "Campaign-owned field recommendations"
+    body: "The ward-captain network ({{target.captains.pool}} of {{target.captains}} captains recommended for the deficit wards, Section 3.3.1), the {{target.ambassadors}} M-Pesa \"Economic Ambassadors\", the {{target.stage-champions}} boda-boda Stage Champions (Section 4.5.7), radio studio bookings and sponsored outside broadcasts, and the market-day sound-truck caravans (Section 2.9.4). Each appears in this document as a recommendation to the campaign. Firefly writes the brief each one carries; the campaign recruits, pays and runs them."
+```
 
 ## 1.5 What Dr. Mulu receives, and how often
 ### 1.5.1 The three scope levels
 
+```lead
+**These are levels of depth, not volume.** What none of them changes is who publishes: your team does, at every level.
+```
+
 **One definition per number.** Four different quantities are in play and were previously
 quoted interchangeably:
 
-| Term | Means | Where it is set |
-|---|---|---|
-| **Consented SMS contacts** | Phone numbers held with opt-in, reachable by SMS | 4.5.9: {{target.sms}} by Phase 3 |
-| **Contact universe** | Everyone reachable by any owned channel, SMS or otherwise | 1.5.2: ~{{target.contact-universe.lean|k}}k / ~{{target.contact-universe.standard|k}}k / ~{{target.contact-universe.premium|k}}k by level |
-| **Pledged voters** | CRM records with phone, ward and polling station logged | 5.1.1 GE-01: {{target.pledged-voters}} target |
-| **Verified supporters** | Pledged voters confirmed by a second touch | 1.3.4: {{target.supporters}} target |
+```visual
+kind: nested
+items:
+  - label: "Contact universe"
+    text: "Everyone reachable by any owned channel, SMS or otherwise"
+    fields:
+      - { label: "Where it is set", text: "1.5.2: ~{{target.contact-universe.lean|k}}k / ~{{target.contact-universe.standard|k}}k / ~{{target.contact-universe.premium|k}}k by level" }
+    items:
+      - { label: "Consented SMS contacts", text: "Phone numbers held with opt-in, reachable by SMS", fields: [{"label": "Where it is set", "text": "4.5.9: {{target.sms}} by Phase 3"}] }
+  - label: "Pledged voters"
+    text: "CRM records with phone, ward and polling station logged"
+    fields:
+      - { label: "Where it is set", text: "5.1.1 GE-01: {{target.pledged-voters}} target" }
+    items:
+      - { label: "Verified supporters", text: "Pledged voters confirmed by a second touch", fields: [{"label": "Where it is set", "text": "1.3.4: {{target.supporters}} target"}] }
+```
 
 They are nested, not alternatives: consented contacts ⊂ contact universe, and verified
 supporters ⊂ pledged voters.
@@ -280,6 +365,7 @@ is refreshed, how many wards carry reach reporting, how often creative is tested
 upskilling goes, and how many wards carry an active SMS and USSD layer. What
 none of them changes is who publishes: your team does, at every level.
 
+<!-- keep -->
 **Accessibility is not a service level.** Sign-language interpretation on flagship content, and
 every commitment in Section 4.5.4, applies in full at whichever level is chosen. Accessibility is
 not something a campaign buys more of, and it is not a line to trade away.
@@ -340,6 +426,10 @@ and USSD layer, and reaching the arid belt is the whole argument.
 
 ### 1.5.3 The deliverables schedule
 
+```lead
+Every row below is set somewhere else in this proposal, in the workstream that produces it. Most of this schedule is your team's existing output, now directed.
+```
+
 Every row below is set somewhere else in this proposal, in the workstream that produces it. This
 section consolidates them so the campaign can see the whole commitment on one page rather than
 assembling it from nine sections. Where a cadence varies by level, Section 1.5 governs; the cadence
@@ -348,6 +438,7 @@ shown here is the one Level 2 carries.
 **The "Produced by" column is the point.** Most of this schedule is your team's existing output,
 now directed. Firefly's own deliverables are the brief, the analysis and the offline dispatch.
 
+<!-- keep -->
 | Deliverable | Cadence | Produced by | Form | Where it is set |
 |---|---|---|---|---|
 | Flagship video | 2–3 per week | Your team | Subtitled video, platform-native cuts | 4.5.2 |
@@ -370,31 +461,37 @@ now directed. Firefly's own deliverables are the brief, the analysis and the off
 | Compliance review | Once, early, then on material change | Campaign's appointed reviewer | Written opinion | 5.3.4 |
 | Asset library deposit | Continuous | Your team | Originals with metadata retained, catalogued | 4.5.2, 4.1.1 |
 
-Four deliverables are gated on decisions the campaign has not yet made: **the presence audit cannot
-start until read-only analytics access is granted**, the USSD menu cannot be provisioned until the
-shortcode is, the compliance review cannot start until the reviewer is appointed, and sign-language
-interpretation on flagship content depends on the interpreter or service named in Section 1.7.
-Each is listed there.
+```visual
+kind: checklist
+title: "Four deliverables are gated on decisions the campaign has not yet made"
+note: "Each is listed there."
+items:
+  - label: "**the presence audit cannot start until read-only analytics access is granted**"
+  - label: "the USSD menu cannot be provisioned until the shortcode is"
+  - label: "the compliance review cannot start until the reviewer is appointed"
+  - label: "sign-language interpretation on flagship content depends on the interpreter or service named in Section 1.7"
+```
 
 ## 1.6 What this proposal commits to
 
 Firefly commits to a scope, a cadence and a standard. It does not commit to an electoral outcome,
 and no figure in this document should be read as one.
 
-**The scope** is the fourteen workstreams in Section 1.4, with an owner named against each — six
-Firefly operates, six the existing team runs to a Firefly brief, two are outside the engagement —
-and boundaries stated so that what is outside them is as clear as what is inside. [CONFLICT C3: see open items]
-
-**The cadence** is in Section 4.1.2: the weekly brief, the calendar, the approval path and the
-monthly review. Section 1.5 states what each engagement level carries, measured in depth of
-intelligence rather than in volume of Firefly's output.
-
-**The standard** is in Sections 5.1 and 4.1: indicators that trace to either the nomination
-objectives in Section 1.3 or the vote benchmark, reported on a fixed cycle to a single named campaign counterpart,
-with an escalation path that is agreed before it is needed rather than improvised under pressure.
-
-**The conditions** are in Section 6. This proposal depends on decisions and appointments that
-only the campaign can make, and it names them rather than assuming them.
+```visual
+kind: checklist
+items:
+  - label: "The scope"
+    body: "is the fourteen workstreams in Section 1.4, with an owner named against each — six Firefly operates, six the existing team runs to a Firefly brief, two are outside the engagement — and boundaries stated so that what is outside them is as clear as what is inside. [CONFLICT C3: see open items]"
+  - label: "The cadence"
+    text: "is in Section 4.1.2:"
+    body: "the weekly brief, the calendar, the approval path and the monthly review. Section 1.5 states what each engagement level carries, measured in depth of intelligence rather than in volume of Firefly's output."
+  - label: "The standard"
+    text: "is in Sections 5.1 and 4.1:"
+    body: "indicators that trace to either the nomination objectives in Section 1.3 or the vote benchmark, reported on a fixed cycle to a single named campaign counterpart, with an escalation path that is agreed before it is needed rather than improvised under pressure."
+  - label: "The conditions"
+    text: "are in Section 6."
+    body: "This proposal depends on decisions and appointments that only the campaign can make, and it names them rather than assuming them."
+```
 
 ## 1.7 What this needs from the campaign
 
@@ -423,63 +520,44 @@ rules or NEC resolution as soon as the party issues them (Section 2.5.2).
 
 ## 1.8 Assumptions this proposal rests on
 
+```lead
+Each assumption is stated so that if one fails, the campaign can see immediately what in the plan moves. None of them is a prediction, and none is presented as settled fact.
+```
+
 This proposal is built on the following assumptions. Each is stated so that if one fails, the
 campaign can see immediately what in the plan moves. None of them is a prediction, and none is
 presented as settled fact.
 
-1. **The Wiper ticket is decided by a party-run countywide selection, not a delegates' contest.**
-   This is reported and not confirmed by the party (Tier 3; Section 2.5.2 names the party documents
-   that would confirm it). If it becomes a delegate primary, the
-   targeting model changes from countywide name recognition to delegate arithmetic, and
-   Section 6.5 sets out what that would require.
-
-2. **The decision falls in the final quarter of 2026 — late October to November.** That is the
-   window Section 1.1 states and the one Section 1.2's timeline is built on.
-   Earlier drafts of this proposal said "before the final quarter" in four places while every
-   operational deadline in it assumed Q4; the wording is now the same throughout, and it remains
-   a **Tier 3** expectation rather than a date the party has published. Every deadline in
-   Section 1.2 and the Phase −1 sprint in Section 4.2.1 are set by that window. A later date
-   lengthens the sprint; an earlier one compresses it and forces the decision rules in
-   Section 3.8 sooner. **The campaign should confirm the window against Section 2.5.2's
-   verification test before committing effort against it.**
-
-3. **The register and connectivity figures hold.** The {{register.2026}} registered voters (July 2026), the
-   {{ict.offline}}% of residents offline (CA/KNBS 2023/24) and the 2022 ward distribution in Section 2.3 are
-   the most recent published figures. The offline layer in Section 4.5.9 is sized against them. The
-   July 2026 total is Tier 3, reported by an aggregator, until IEBC's own figure is in hand.
-
-4. **The campaign appoints the named roles.** The data-protection and electoral-law reviewer and the
-   sign-language provider are campaign appointments, not Firefly's. Section 1.7 lists them. Firefly assembles no publishing team: the one in post stays
-   in post (Section 4.6.6).
-
-4a. **The Facebook asset is a Page, not a personal profile in professional mode.** A visible friends
-   list suggests otherwise. If it is a profile there are no Page Insights, no ad account and no
-   delegated access, and Section 4.2.3 says what changes. This is settled in the first hour of
-   Week 1 and is the largest single unknown in this document.
-
-4b. **The existing team will work to a weekly brief and a named approval path.** The direction model
-   in Section 4.1 assumes it. If the team will not, or cannot, take direction from outside the
-   campaign, the engagement is the wrong shape and should be re-scoped rather than forced.
-
-4c. **Analytics access can be granted at analyst level without admin rights.** Firefly asks for no
-   publishing credentials and should be given none.
-
-4d. **Any SMS or WhatsApp list already held carries documented opt-in.** Where it does not, it is
-   not merged and not messaged (Section 5.3.2).
-
-5. **The candidate is available to the production cycle.** The weekly Facebook Live, the
-   explainer series and the debate preparation in Section 4.5.6 assume scheduled candidate time.
-   Without it, the earned-media and owned-video commitments in Section 1.5.3 cannot hold at the
-   stated cadence.
-
-6. **Telco and platform access is obtained on ordinary commercial terms.** The SMS aggregator,
-   the shortcode and the advertising platforms are assumed available to a compliant political
-   advertiser. Section 5.3.5 covers the compliance conditions; Section 5.3.6 covers the regulatory
-   guidance still outstanding.
-
-7. **The engagement is embedded with the campaign.** Firefly works alongside the campaign's own
-   structure under Section 4.1, not at arm's length from it, and the ground-digital integration in
-   Section 4.5.7 assumes daily contact with the field operation.
+```visual
+kind: cards
+preset: assumption
+items:
+  - title: "1. The Wiper ticket is decided by a party-run countywide selection, not a delegates' contest."
+    head: { label: "If it fails", text: "If it becomes a delegate primary, the targeting model changes from countywide name recognition to delegate arithmetic, and Section 6.5 sets out what that would require." }
+    body: "This is reported and not confirmed by the party (Tier 3; Section 2.5.2 names the party documents that would confirm it). 2. <window-chip></window-chip> That is the window Section 1.1 states and the one Section 1.2's timeline is built on. It remains a **Tier 3** expectation rather than a date the party has published. Every deadline in Section 1.2 and the Phase −1 sprint in Section 4.2.1 are set by that window. A later date lengthens the sprint; an earlier one compresses it and forces the decision rules in Section 3.8 sooner. **The campaign should confirm the window against Section 2.5.2's verification test before committing effort against it.**"
+  - title: "3. The register and connectivity figures hold."
+    body: "The {{register.2026}} registered voters (July 2026), the {{ict.offline}}% of residents offline (CA/KNBS 2023/24) and the 2022 ward distribution in Section 2.3 are the most recent published figures. The offline layer in Section 4.5.9 is sized against them. The July 2026 total is Tier 3, reported by an aggregator, until IEBC's own figure is in hand."
+  - title: "4. The campaign appoints the named roles."
+    body: "The data-protection and electoral-law reviewer and the sign-language provider are campaign appointments, not Firefly's. Section 1.7 lists them. Firefly assembles no publishing team: the one in post stays in post (Section 4.6.6)."
+  - title: "4a. The Facebook asset is a Page, not a personal profile in professional mode."
+    head: { label: "If it fails", text: "If it is a profile there are no Page Insights, no ad account and no delegated access, and Section 4.2.3 says what changes." }
+    badge: "the largest single unknown in this document"
+    body: "A visible friends list suggests otherwise. This is settled in the first hour of Week 1 and is the largest single unknown in this document."
+  - title: "4b. The existing team will work to a weekly brief and a named approval path."
+    head: { label: "If it fails", text: "If the team will not, or cannot, take direction from outside the campaign, the engagement is the wrong shape and should be re-scoped rather than forced." }
+    body: "The direction model in Section 4.1 assumes it."
+  - title: "4c. Analytics access can be granted at analyst level without admin rights."
+    body: "Firefly asks for no publishing credentials and should be given none."
+  - title: "4d. Any SMS or WhatsApp list already held carries documented opt-in."
+    head: { label: "If it fails", text: "Where it does not, it is not merged and not messaged (Section 5.3.2)." }
+  - title: "5. The candidate is available to the production cycle."
+    head: { label: "If it fails", text: "Without it, the earned-media and owned-video commitments in Section 1.5.3 cannot hold at the stated cadence." }
+    body: "The weekly Facebook Live, the explainer series and the debate preparation in Section 4.5.6 assume scheduled candidate time."
+  - title: "6. Telco and platform access is obtained on ordinary commercial terms."
+    body: "The SMS aggregator, the shortcode and the advertising platforms are assumed available to a compliant political advertiser. Section 5.3.5 covers the compliance conditions; Section 5.3.6 covers the regulatory guidance still outstanding."
+  - title: "7. The engagement is embedded with the campaign."
+    body: "Firefly works alongside the campaign's own structure under Section 4.1, not at arm's length from it, and the ground-digital integration in Section 4.5.7 assumes daily contact with the field operation."
+```
 
 ## 1.9 How success will be judged
 

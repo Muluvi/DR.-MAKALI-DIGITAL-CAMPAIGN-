@@ -1,21 +1,29 @@
 ### 4.5.5 Workstream 5 — Platform tactics and paid media
 
+```lead
+**Owner: your team, to a Firefly brief.** Firefly writes the targeting plan and reads the performance; your team places and publishes.
+```
+
 > **Owner: your team, to a Firefly brief.** Read every platform block below as *what belongs on
 > this channel and why*, not as a list of things Firefly will post. Firefly writes the targeting
 > plan and reads the performance; your team places and publishes. Who holds the ad account is a
 > decision for Dr. Mulu — Section 4.1.3 states the recommendation and marks it open.
 >
-> **Group: Publishing and earned media.** Two workstreams: paid media across the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely controlled by rivals.
+> **Group: Publishing and earned media.**
 
 *The platform-by-platform playbooks (Facebook, X, WhatsApp, TikTok, Instagram, YouTube and Google Ads) are in Annex G.1.*
 
 ### 4.5.6 Workstream 6 — Earned media, journalists and debates
 
+```lead
+**Owner: your team and the campaign, to a Firefly brief.** Kamba-language radio is the dominant information channel, **but the ownership map is politically compromised**: the campaign's radio strategy runs through Musyi, County FM and Wikwatyo.
+```
+
 > **Owner: your team and the campaign, to a Firefly brief.** Placement is a relationship business
 > the campaign already has. Firefly supplies the briefing notes, the debate preparation and the
 > evidence pack behind each pitch.
 >
-> **Group: Publishing and earned media.** Two workstreams: paid media across the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely controlled by rivals.
+> **Group: Publishing and earned media.**
 
 
 *Paid and owned media reach the connected minority. Earned media —
@@ -39,6 +47,7 @@ is politically compromised, and any credible media plan must say so:**
 | **Akamba FM** | 103.3 (Kitui) | Independent, launched 2023 | Secondary — newer, may be more accessible |
 | **KBC Mwatu FM** | 93.1 | Public broadcaster | Institutional coverage |
 
+<!-- keep -->
 [CONFLICT C7: see open items]
 
 **Strategic implication:** the campaign's radio strategy runs through Musyi,
@@ -54,12 +63,9 @@ when either changes.*
 
 #### The journalist relationship programme
 
-| Tier | Who | Cadence | Offer |
-|---|---|---|---|
-| **Tier A** | County correspondents for national outlets; Kitui-based digital publications | Fortnightly | First access to data releases; direct line to the Digital Director |
-| **Tier B** | Kamba-language radio presenters and producers at priority stations | Monthly | Candidate availability; Kikamba-ready talking points and audio |
-| **Tier C** | National business and economics desks | Quarterly | Dr. Mulu as an expert source on county public finance — **not as a candidate** |
-| **Tier D** | Fact-checking organisations | Standing relationship | Proactive contact on manipulated media; the campaign as a reliable source |
+```visual
+{"kind":"cards","preset":"journalist","items":[{"title":"Tier A","text":"County correspondents for national outlets; Kitui-based digital publications","head":{"label":"Offer","text":"First access to data releases; direct line to the Digital Director"},"chips":["Fortnightly"]},{"title":"Tier B","text":"Kamba-language radio presenters and producers at priority stations","head":{"label":"Offer","text":"Candidate availability; Kikamba-ready talking points and audio"},"chips":["Monthly"]},{"title":"Tier C","text":"National business and economics desks","head":{"label":"Offer","text":"Dr. Mulu as an expert source on county public finance — **not as a candidate**"},"chips":["Quarterly"]},{"title":"Tier D","text":"Fact-checking organisations","head":{"label":"Offer","text":"Proactive contact on manipulated media; the campaign as a reliable source"},"chips":["Standing relationship"]}]}
+```
 
 **Tier C is the underused opportunity.** A gubernatorial aspirant who is also a
 credible national commentator on county fiscal management earns coverage that
@@ -133,14 +139,9 @@ substance fixed, delivery natural.
 
 #### Earned media KPIs
 
-| Metric | Target |
-|---|---|
-| Earned media items per month, Phase 1 onward | ≥ 8 |
-| Radio appearances per month on priority stations | ≥ 4 |
-| Tier C expert-source placements per quarter | ≥ 2 |
-| Debate clips published within 60 minutes | 100% |
-| Share of voice in Kitui gubernatorial coverage | ≥ 50% |
-| Fact-checker corrections secured on false claims | 100% of material false claims challenged |
+```visual
+{"kind":"stats","items":[{"value":"≥ 8","label":"Earned media items per month, Phase 1 onward"},{"value":"≥ 4","label":"Radio appearances per month on priority stations"},{"value":"≥ 2","label":"Tier C expert-source placements per quarter"},{"value":"100%","label":"Debate clips published within 60 minutes"},{"value":"≥ 50%","label":"Share of voice in Kitui gubernatorial coverage"},{"value":"100% of material false claims challenged","label":"Fact-checker corrections secured on false claims"}]}
+```
 
 #### Getting on air around a hostile gatekeeper
 

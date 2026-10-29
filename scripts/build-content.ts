@@ -13,6 +13,10 @@
  *   {{register.2026|tier}}     Tier 1       (or "modelled", "target", "data needed")
  *   {{pool.share|d0}}          52           (|d0, |d1, |d2 override the decimals)
  *
+ * A ```visual fence (brief 2026-10 declutter, 5.2) is YAML in content/ and JSON in public/content:
+ * its tokens are resolved, it is parsed and checked against lib/visual.ts, and a fence that does
+ * not parse or does not fit its kind fails the build with the file and line.
+ *
  *     node --experimental-strip-types scripts/build-content.ts           # write
  *     node --experimental-strip-types scripts/build-content.ts --check   # fail if public/content is stale
  */
@@ -21,6 +25,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { FIGURES } from "../lib/data/figures.ts";
 import { formatFigure, type FormatMod } from "../lib/data/format.ts";
+import { compileVisuals } from "../lib/visual-compile.ts";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = path.join(ROOT, "content");
@@ -44,7 +49,7 @@ let tokens = 0;
 for (const file of fs.readdirSync(SRC).filter((f) => f.endsWith(".md")).sort()) {
   const source = fs.readFileSync(path.join(SRC, file), "utf8");
   tokens += (source.match(TOKEN) ?? []).length;
-  const out = resolveTokens(source, `content/${file}`);
+  const out = compileVisuals(resolveTokens(source, `content/${file}`), `content/${file}`);
   const target = path.join(OUT, file);
   const current = fs.existsSync(target) ? fs.readFileSync(target, "utf8") : null;
   if (current === out) continue;

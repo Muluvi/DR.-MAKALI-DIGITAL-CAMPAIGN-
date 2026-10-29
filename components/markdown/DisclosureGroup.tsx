@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-import { useReadingMode, type ReadingMode } from "../../lib/reading-mode";
+import { FoldBody } from "./FoldBody";
 
 /**
  * A run of comparable blocks, one open at a time.
@@ -14,12 +14,8 @@ import { useReadingMode, type ReadingMode } from "../../lib/reading-mode";
  * how deep to go; the first is open, so the section never opens on a wall of closed drawers.
  *
  * The panels are rendered on the server and passed in as children — this component only owns
- * which one is showing, so no markdown or parser reaches the client bundle for them.
- *
- * IN FULL MODE, EVERY PANEL IS OPEN. "Full" has to mean the whole document in the document's own
- * order, or the control is lying: a reader who asks for everything and is handed a row of closed
- * drawers with one open has not been given everything. Brief keeps the accordion, which is what
- * makes a six-segment matrix legible at a glance in the first place.
+ * which one is showing, so no markdown or parser reaches the client bundle for them. A closed
+ * panel stays in the DOM (lib/fold.ts): find in page, a deep link and print all reach it.
  */
 export function DisclosureGroup({
   labels,
@@ -31,28 +27,24 @@ export function DisclosureGroup({
   unresolved?: boolean[];
   children: React.ReactNode[];
 }) {
-  const { mode } = useReadingMode();
-
-  // The mode sets the default; a manual tap wins until the mode changes again. The override
-  // records which mode it was made under, so a change of mode retires it by derivation rather
-  // than by an effect resetting state after render.
-  const [override, setOverride] = useState<{ mode: ReadingMode; index: number } | null>(null);
-  const openIndex = override?.mode === mode ? override.index : 0;
-  const allOpen = mode === "full" && override?.mode !== mode;
+  const [openIndex, setOpenIndex] = useState(0);
+  const base = useId();
 
   return (
     <div className="not-prose my-6 border border-line/70 rounded-2xl overflow-hidden bg-card/40">
       {labels.map((label, i) => {
-        const isOpen = allOpen || i === openIndex;
+        const isOpen = i === openIndex;
+        const panelId = `${base}-p${i}`;
         return (
           <div key={label} className={i > 0 ? "border-t border-line/70" : undefined}>
             <h4 className="m-0">
               <button
                 type="button"
-                onClick={() => setOverride({ mode, index: isOpen ? -1 : i })}
+                onClick={() => setOpenIndex(isOpen ? -1 : i)}
                 aria-expanded={isOpen}
+                aria-controls={panelId}
                 className={`w-full flex items-center gap-3 text-left px-4 py-3.5 sm:px-5 cursor-pointer transition-colors min-h-[52px] ${
- isOpen ? "bg-accent/[0.06] text-ink" : "text-muted hover:bg-ink/[0.03] hover:text-ink"
+                  isOpen ? "bg-accent/[0.06] text-ink" : "text-muted hover:bg-ink/[0.03] hover:text-ink"
                 }`}
               >
                 {/* No 01/02/03 marker: several of these runs are not sequences, and the ones
@@ -79,21 +71,14 @@ export function DisclosureGroup({
                 <ChevronDown
                   size={16}
                   className={`shrink-0 transition-transform duration-200 motion-reduce:transition-none ${
- isOpen ? "rotate-180 text-accent" : "text-muted"
+                    isOpen ? "rotate-180 text-accent" : "text-muted"
                   }`}
                 />
               </button>
             </h4>
-            {/* Rendered whether or not it is open, and hidden with CSS rather than dropped from
-                the tree, so the printed briefing kit carries every panel instead of a row of
-                labels with nothing under them. */}
-            <div
-              className={`dg-panel prose max-w-none px-4 pb-5 pt-1 sm:px-5 border-t border-line/40 ${
- isOpen ? "" : "hidden print:block"
-              }`}
-            >
-              {children[i]}
-            </div>
+            <FoldBody id={panelId} open={isOpen} onReveal={() => setOpenIndex(i)}>
+              <div className="dg-panel prose max-w-none px-4 pb-5 pt-1 sm:px-5 border-t border-line/40">{children[i]}</div>
+            </FoldBody>
           </div>
         );
       })}

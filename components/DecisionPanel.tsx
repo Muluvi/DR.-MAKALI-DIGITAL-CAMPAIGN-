@@ -4,6 +4,7 @@ import React from "react";
 import { UserCheck, Clock, Camera, Scale, MapPin, Briefcase, CheckCircle2, Eye, FileText } from "lucide-react";
 
 import { ClaimBadge } from "./markdown/ClaimBadge";
+import { InlineMarks } from "./markdown/InlineMarks";
 
 /**
  * M5 — the ask.
@@ -85,8 +86,7 @@ export function DecisionPanel() {
           </p>
 
           <p className="text-sm text-ink font-semibold leading-relaxed mt-4">
-            The Wiper nomination is reported for late October to November 2026, by a party-run
-            countywide selection (Tier 3, Section 2.5). Every dependency below sits on that clock.
+            <InlineMarks text="The Wiper nomination is reported for late October to November 2026, by a party-run countywide selection (Tier 3, Section 2.5). Every dependency below sits on that clock." />
           </p>
         </div>
 

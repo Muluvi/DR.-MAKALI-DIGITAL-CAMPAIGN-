@@ -3,6 +3,7 @@ import { utcYear } from "d3-time";
 
 import type { Bar, CellState, Chart as ChartSpec, FigureSpec, Ref } from "../../lib/register/types";
 import { group } from "../../lib/data/format";
+import { FigDetail } from "./FigureDetails";
 import { TileMap } from "./TileMap";
 import { FunnelV2 } from "../premium/FunnelV2";
 import { Reveal } from "../premium/Reveal";
@@ -227,7 +228,7 @@ function Bars({ uid, bars, max, ref_, unit, refLabel = true }: { uid: string; ba
                 <BarMark uid={uid} w={x(Math.abs(b.value ?? 0))} tone={b.tone ?? "neutral"} state={b.state} i={i} />
                 {ref_ && <span className="kx-ref" style={{ left: pct(x(ref_.value)) }} aria-hidden="true" />}
               </div>
-              {b.note && <p className="kx-note">{b.note}</p>}
+              {b.note && <FigDetail><p className="kx-note">{b.note}</p></FigDetail>}
             </li>
           );
         })}
@@ -521,7 +522,7 @@ function Timeline({ uid, chart, title }: { uid: string; chart: Extract<ChartSpec
               {numbered ? `${num(e)}. ` : ""}
               {e.label}
             </h5>
-            {e.note && <p>{e.note}</p>}
+            {e.note && <FigDetail><p>{e.note}</p></FigDetail>}
           </li>
         ))}
       </ol>
@@ -550,7 +551,7 @@ function Steps({ chart }: { chart: Extract<ChartSpec, { type: "steps" }> }) {
                   <div className="kx-step__body">
                     {s.when && <p className="kx-step__when">{s.when}</p>}
                     <h5>{s.title}</h5>
-                    <p>{s.body}</p>
+                    <FigDetail><p>{s.body}</p></FigDetail>
                   </div>
                 </li>
               ))}
@@ -569,7 +570,7 @@ function Cards({ chart }: { chart: Extract<ChartSpec, { type: "cards" }> }) {
         <div key={c.title} className={`kx-card ${c.tone ? `is-${c.tone}` : ""}`}>
           {c.kicker && <p className="kx-card__kicker">{c.kicker}</p>}
           <h5>{c.title}</h5>
-          <p>{c.body}</p>
+          <FigDetail><p>{c.body}</p></FigDetail>
           {c.meta && <p className="kx-card__meta">{c.meta}</p>}
           {c.links && (
             <p className="kx-card__meta">
@@ -672,7 +673,7 @@ function Dumbbell({ chart }: { chart: Extract<ChartSpec, { type: "dumbbell" }> }
                 {it.a !== null && <span className="kx-dot is-a kx-dot--abs" style={{ left: pct(x(it.a)) }} aria-hidden="true" />}
                 {it.b !== null && <span className="kx-dot is-b kx-dot--abs" style={{ left: pct(x(it.b)) }} aria-hidden="true" />}
               </div>
-              {it.note && <p className="kx-note">{it.note}</p>}
+              {it.note && <FigDetail><p className="kx-note">{it.note}</p></FigDetail>}
             </li>
           );
         })}
@@ -811,7 +812,7 @@ function Paths({ uid, chart }: { uid: string; chart: Extract<ChartSpec, { type: 
                 </div>
               );
             })}
-            {g.note && <p className="kx-route__note">{g.note}</p>}
+            {g.note && <FigDetail><p className="kx-route__note">{g.note}</p></FigDetail>}
           </section>
         ))}
       </div>
@@ -840,6 +841,7 @@ function Mock({ chart }: { chart: Extract<ChartSpec, { type: "mock" }> }) {
         </div>
         <p className="kx-phone__tag">Illustrative mockup</p>
       </div>
+      <FigDetail>
       <ol className="kx-mock__issues">
         {chart.fields.map((f) => (
           <li key={f.n}>
@@ -851,6 +853,7 @@ function Mock({ chart }: { chart: Extract<ChartSpec, { type: "mock" }> }) {
           </li>
         ))}
       </ol>
+      </FigDetail>
     </div>
   );
 }
@@ -883,8 +886,10 @@ function Calendar({ uid, chart }: { uid: string; chart: Extract<ChartSpec, { typ
               <span>{d.day}</span>
               <span className="kx-day__p">{d.pillar ? `P${d.pillar}` : "no pillar"}</span>
             </div>
-            <p className="kx-day__after"><span className="kx-day__k">Briefed: </span>{d.after}</p>
-            <p className="kx-day__now"><span className="kx-day__k">Now: </span>{d.now}</p>
+            <FigDetail>
+              <p className="kx-day__after"><span className="kx-day__k">Briefed: </span>{d.after}</p>
+              <p className="kx-day__now"><span className="kx-day__k">Now: </span>{d.now}</p>
+            </FigDetail>
           </li>
         ))}
       </ol>
@@ -1007,15 +1012,17 @@ function House({ chart }: { chart: Extract<ChartSpec, { type: "house" }> }) {
         {chart.pillars.map((p, i) => (
           <div key={p.title} className="kx-house__pillar" style={{ "--i": i } as React.CSSProperties}>
             <h5>{p.title}</h5>
-            <p>{p.body}</p>
+            <FigDetail><p>{p.body}</p></FigDetail>
           </div>
         ))}
       </div>
       <div className="kx-house__base">
         <p className="kx-house__k">The foundation: his record</p>
-        <ul>
-          {chart.foundation.map((f) => <li key={f}>{f}</li>)}
-        </ul>
+        <FigDetail>
+          <ul>
+            {chart.foundation.map((f) => <li key={f}>{f}</li>)}
+          </ul>
+        </FigDetail>
       </div>
     </div>
   );
@@ -1050,11 +1057,11 @@ function Balance({ chart }: { chart: Extract<ChartSpec, { type: "balance" }> }) 
       <div className="kx-balance__pans">
         <div className="kx-card is-for">
           <h5>What supports it</h5>
-          <ul>{chart.supporting.map((s) => <li key={s}>{s}</li>)}</ul>
+          <FigDetail><ul>{chart.supporting.map((s) => <li key={s}>{s}</li>)}</ul></FigDetail>
         </div>
         <div className="kx-card is-outside">
           <h5>What counts against it</h5>
-          <ul>{chart.counter.map((s) => <li key={s}>{s}</li>)}</ul>
+          <FigDetail><ul>{chart.counter.map((s) => <li key={s}>{s}</li>)}</ul></FigDetail>
         </div>
       </div>
       <div className="kx-card is-accent kx-balance__test">
@@ -1110,7 +1117,7 @@ function Risk({ chart }: { chart: Extract<ChartSpec, { type: "risk" }> }) {
       {chart.branches?.map((b) => (
         <div key={b.title} className="kx-card kx-risk__branch">
           <h5>{b.title}</h5>
-          <Decision question={b.question} rules={b.rules} />
+          <FigDetail><Decision question={b.question} rules={b.rules} /></FigDetail>
         </div>
       ))}
     </div>
