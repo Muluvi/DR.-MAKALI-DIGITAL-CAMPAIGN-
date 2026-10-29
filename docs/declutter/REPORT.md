@@ -116,3 +116,14 @@ Checks 10–16 are run by `scripts/declutter/live-checks.mjs` (10, 11, 13, 14, 1
 3. **Sub-counties.** Six sub-counties are in no zone (3.3.1).
 4. **Untiered statistics.** These are "not yet tiered" and now shown on cards: 13.0% never attended school, 17.4% completed secondary, 78.4% farm-dependent, 61% water access.
 5. **Stale dates** (`docs/restructure-2026-10/TODO-dates.md`). The nomination window, "late October to November 2026", is now the present.
+
+## Production
+
+PR #34 merged as `8f10cb9` (merge commit, stage commits kept). Production deployment `dpl_2J4Ke5GakhDSeCQxjgBgQsEMjoo1` is live on `dr-makali-digital-campaign.vercel.app`.
+
+Checked through the Vercel connector, because this container cannot reach `*.vercel.app`:
+- `/evidence` returns 200 and renders the same 139,446 characters of text, with the same marker counts, as the local production build that checks 10–16 ran on;
+- the legacy `/analysis` route lands on the evidence content.
+
+No rollback was needed. The previous production deployment, `dpl_6Hrupsas8mjfw4tS7AWfTammsbQV`, stays available for one.
+

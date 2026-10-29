@@ -20,7 +20,7 @@ import re
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 CONTENT = os.path.join(ROOT, "content")
-CUTS = os.path.join(ROOT, "docs", "declutter", "cuts.json")
+CUTS = os.path.join(ROOT, os.environ.get("CONTENT_LEDGER", os.path.join("docs", "declutter", "cuts.json")))
 
 HEADING = re.compile(r"^(#{2,3})\s+((?:\d+(?:\.\d+)*|[A-G](?:\.\d+)+))\s+(.*)$")
 

@@ -21,7 +21,13 @@ import { fileURLToPath } from "node:url";
 import yaml from "js-yaml";
 
 export const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
-export const BASE = "4bfc078";
+/**
+ * The commit a content pass is measured from, and the ledger its cuts, moves and additions are logged
+ * in. The declutter ran from 4bfc078 with docs/declutter/cuts.json; a later pass sets CONTENT_BASE
+ * and CONTENT_LEDGER (package.json, "check:content") so its own changes are what the checks weigh.
+ */
+export const BASE = process.env.CONTENT_BASE ?? "4bfc078";
+export const LEDGER = process.env.CONTENT_LEDGER ?? path.join("docs", "declutter", "cuts.json");
 const CONTENT = path.join(ROOT, "content");
 
 const HEADING = /^(#{2,3})\s+((?:\d+(?:\.\d+)*|[A-G](?:\.\d+)+))\s+(.*)$/;
@@ -152,6 +158,6 @@ export function reachableText(lines) {
 }
 
 export function loadCuts() {
-  const file = path.join(ROOT, "docs", "declutter", "cuts.json");
+  const file = path.join(ROOT, LEDGER);
   return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8")) : [];
 }

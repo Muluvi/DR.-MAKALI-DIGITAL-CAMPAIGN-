@@ -8,7 +8,7 @@
  *
  * Token forms:
  *   {{register.2026}}          605,703
- *   {{budget.total|bn}}        13.79        (also |m, |k for millions and thousands)
+ *   {{budget.total|bn}}        13.79        (also |m, |k for millions and thousands; |m1 for millions to one decimal)
  *   {{path.a.margin|abs}}      75,877       (the sentence carries the sign in words)
  *   {{register.2026|tier}}     Tier 1       (or "modelled", "target", "data needed")
  *   {{pool.share|d0}}          52           (|d0, |d1, |d2 override the decimals)
@@ -33,7 +33,7 @@ const OUT = path.join(ROOT, "public", "content");
 const CHECK = process.argv.includes("--check");
 
 const TOKEN = /\{\{\s*([a-z0-9][a-z0-9.\-]*)(?:\|([a-z0-9]+))?\s*\}\}/g;
-const MODS = new Set(["", "tier", "bn", "m", "k", "abs", "d0", "d1", "d2"]);
+const MODS = new Set(["", "tier", "bn", "m", "m1", "k", "abs", "d0", "d1", "d2"]);
 
 export function resolveTokens(source: string, file = "<string>"): string {
   return source.replace(TOKEN, (_, id: string, mod = "") => {

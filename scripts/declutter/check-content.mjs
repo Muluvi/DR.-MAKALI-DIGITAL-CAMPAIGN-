@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Content safety checks 3, 4, 5 and 9 (brief 2026-10 declutter, section 10), against 4bfc078.
+ * Content safety checks 3, 4, 5 and 9 (brief 2026-10 declutter, section 10), against CONTENT_BASE
+ * (4bfc078 for the declutter; sections.mjs says how a later pass sets its own).
  *
  *   3  Every ```figure fence (92) and ```textversion fence (5) is present, its body unchanged.
  *   4  Word conservation. Per section: words after (prose, plus the text moved into ```visual
@@ -51,9 +52,20 @@ for (const kind of ["figure", "textversion"]) {
 }
 
 /* ---------------------------------------------------------------- 4: conservation */
+/** Words an addition brings, as this check counts them: YAML keys and fence lines are not words. */
+function addedWords(text = "") {
+  return words(
+    text
+      .replace(/^```.*$/gm, " ")
+      .replace(/\b(?:kind|preset|title|note|items|label|text|head|fields|body|tier|when|value|badge|chips|caption)\s*:/g, " "),
+  );
+}
 const cutWords = {};
 for (const c of cuts) {
-  cutWords[`${c.file}:${c.section}`] = (cutWords[`${c.file}:${c.section}`] ?? 0) + c.words;
+  // An addition is new, sourced text: it joins its section's base (below), and the words it brings,
+  // counted the way this check counts them, are debited from that section.
+  const n = c.kind === "added" ? -addedWords(c.text) : c.words;
+  cutWords[`${c.file}:${c.section}`] = (cutWords[`${c.file}:${c.section}`] ?? 0) + n;
   // A move takes words from one section to another: the source is credited, the destination debited.
   if (c.kind === "moved") cutWords[c.to] = (cutWords[c.to] ?? 0) - c.words;
 }
@@ -65,8 +77,11 @@ const rows = [];
 for (const s of secBefore) {
   const a = byKeyAfter[s.key];
   const wb = conservedWords(s.lines);
-  // Text moved into this section counts as its own: a visual built from it is matched against it too.
-  const movedIn = cuts.filter((c) => c.kind === "moved" && c.to === s.key).map((c) => c.text ?? "");
+  // Text moved or added into this section counts as its own: a visual built from it is matched against it too.
+  // A replacement's new wording counts the same way.
+  const movedIn = cuts
+    .filter((c) => (c.kind === "moved" && c.to === s.key) || ((c.kind === "added" || c.kind === "replaced") && `${c.file}:${c.section}` === s.key))
+    .map((c) => (c.kind === "replaced" ? c.replacement ?? "" : c.text ?? ""));
   const counted = a ? conservedWords(a.lines, [s.lines.join("\n"), ...movedIn].join("\n")) : { total: 0, added: 0 };
   const wa = counted.total;
   totalAdded += counted.added;

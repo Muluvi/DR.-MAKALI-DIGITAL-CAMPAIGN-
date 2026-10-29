@@ -74,6 +74,24 @@ According to the Office of the Auditor-General's FY2023/24 audit report, four cr
 
 Additionally, Controller of Budget reports indicate that the county carried outstanding pending bills of approximately **KSh 1.3 billion as of FY2020/21** (Tier 1). Sourced from the Controller of Budget’s County Budget Implementation Review Report, the county’s FY2025/26 Q1 development absorption rate is recorded as **18%** (Tier 1). Media reports of a 5% rate are not used. Sourced reports also note stalled county health projects, though the exact list of facilities remains a **named data gap** (Tier 1 gap).
 
+#### The incumbent's scorecard: where the itemised money went
+
+The county's *Delivering the Kitui Promise* scorecard (August 2022 – August 2025) itemises {{scorecard.itemised}} of the {{scorecard.claimed}} projects it claims, KSh {{scorecard.itemised.ksh|bn}} billion in all. Summed from its own tables:
+
+| Constituency | Projects | KSh, itemised | KSh per registered voter (2022) |
+|---|---:|---:|---:|
+| Kitui Central | {{scorecard.kitui-central.projects}} | {{scorecard.kitui-central.ksh|m1}}m | {{scorecard.kitui-central.per-voter}} |
+| Mwingi North | {{scorecard.mwingi-north.projects}} | {{scorecard.mwingi-north.ksh|m1}}m | {{scorecard.mwingi-north.per-voter}} |
+| Kitui South | {{scorecard.kitui-south.projects}} | {{scorecard.kitui-south.ksh|m1}}m | {{scorecard.kitui-south.per-voter}} |
+| Mwingi Central | {{scorecard.mwingi-central.projects}} | {{scorecard.mwingi-central.ksh|m1}}m | {{scorecard.mwingi-central.per-voter}} |
+| Kitui East | {{scorecard.kitui-east.projects}} | {{scorecard.kitui-east.ksh|m1}}m | {{scorecard.kitui-east.per-voter}} |
+| Kitui Rural | {{scorecard.kitui-rural.projects}} | {{scorecard.kitui-rural.ksh|m1}}m | {{scorecard.kitui-rural.per-voter}} |
+| Kitui West | {{scorecard.kitui-west.projects}} | {{scorecard.kitui-west.ksh|m1}}m | {{scorecard.kitui-west.per-voter}} |
+| Mwingi West | {{scorecard.mwingi-west.projects}} | {{scorecard.mwingi-west.ksh|m1}}m | {{scorecard.mwingi-west.per-voter}} |
+| Countywide or headquarters | — | {{scorecard.countywide.ksh|m1}}m | — |
+
+**How to read it, and how not to.** It covers only the {{scorecard.itemised}} itemised projects, not the county budget and not all {{scorecard.claimed}} projects (Tier 1 as a record of what the county claims, not evidence that the claims are true). Kitui Central's figure includes the county referral hospital and town works that serve the whole county: its health spend alone is KSh {{scorecard.kitui-central.health.ksh|m1}}m of the KSh {{scorecard.health.attributed.ksh|m1}}m attributed to constituencies. The pool's four constituencies receive {{scorecard.pool.share}}% of constituency-attributed spend against {{pool.share}}% of the register, so the proposal does not claim the pool was neglected. The specific gap is Mwingi West, with less than a third of Kitui Central's spend per voter and KSh {{scorecard.mwingi-west.water.ksh|m1}}m for water. The full list is [kitui-scorecard-projects.csv](/data/kitui-scorecard-projects.csv), and the tracker's questions are in Section 4.5.1.
+
 ## B.3 Drought, food security and climate pressure
 
 ```lead
@@ -81,6 +99,21 @@ Kitui's food security remains classified under **IPC Phase 2 ("Stressed")** as o
 ```
 
 The county's climate profile features multi-directional hazards, as documented by the NDMA January 2026 Alert bulletin (Tier 1). Kitui's food security remains classified under **IPC Phase 2 ("Stressed")** as of September 2025 (Tier 1). According to an official statement by the County CECM for Agriculture, only **{{food.reserve-households}} households** hold food reserves (Tier 2), although this figure raises statistical scale questions compared to the 2019 Census count of {{census.households}} total households (Tier 1). The county was also severely affected by the **March 2026 national flooding** (Tier 2), disrupting rural transportation networks.
+
+**The long rains of 2025 (NDMA, July 2025, Tier 1).** The county stays at IPC 2 ("Stressed") with a worsening trend, and the marginal mixed-farming zone, {{livelihood.marginal}}% of residents, was projected to fall to IPC 3 ("Crisis") in October–December 2025. NDMA ranks the eight sub-counties by food-insecurity severity:
+
+| Rank | Sub-county | In the pool? | Hotspot wards NDMA names |
+|---|---|---|---|
+| 1 | Mwingi North | Yes | Ngomeni, Kyuso, Tseikuru, Tharaka |
+| 2 | Kitui South | Yes | Athi, Ikutha, Kanziko/Simisi, Mutha |
+| 3 | Kitui East | No (no party flow, Section 2.7.2) | Zombe/Mwitika, Voo/Kyamatu, Endau/Malalani |
+| 4 | Mwingi Central | Yes | Nguni, Nuu |
+| 5 | Kitui West | No | Mutonguni, Kauwi |
+| 6 | Kitui Rural | No | Kanyangi |
+| 7 | Mwingi West | Yes | Kyome/Thaana, Nguutani, Kiomo/Kyethani |
+| 8 | Kitui Central | No (home base) | Mulango, Kyangwithya West |
+
+NDMA names hotspot wards in every sub-county, the home base included, so the ranking is the evidence, not hotspot status. Goats suffered CCPP (morbidity {{goats.ccpp.morbidity}}%, mortality {{goats.ccpp.mortality}}%) and PPR (morbidity {{goats.ppr.morbidity}}%, mortality {{goats.ppr.mortality}}%); most households were buying food rather than storing it, and a medium goat sold at KSh {{price.goat}} against a five-year average of {{price.goat.average}}.
 
 ## B.4 Mui Basin coal and the displaced communities
 

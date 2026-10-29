@@ -23,6 +23,15 @@ id: tier-classification
 {"kind":"cards","preset":"tier","title":"Standard Implementation Rules","items":[{"title":"Tier 1 Data","text":"(e.g., 532,758 registered voters in 2022, 40 wards) is hardcoded into operational models and cannot be modified without gazetted IEBC addenda."},{"title":"Tier 2 Data","text":"(e.g., the 2022 governor results as reported by The Star, the Nation and the Standard, pending the IEBC forms) is used with its source named, and where two published values disagree both are shown."},{"title":"Tier 3 Data","text":"(e.g., informal reports of the method the Wiper Patriotic Front will use to select its Kitui nominee, or the 605,703 registered voters reported for July 2026) is explicitly watermarked as single-source until validated by the issuing body's own documents: for the method, an NEC resolution or the party's nomination rules as filed; for the register, IEBC's own July 2026 figure."}]}
 ```
 
+#### The Kitui source pack (October 2026), and how each document is tiered
+
+| Document | Publisher, date | Basis | Tier |
+|---|---|---|---|
+| County Gender Data Sheet, Kitui | County Government of Kitui with KNBS and UN Women, October 2025 | KDHS 2022, the 2019 Census, KNBS projections | Tier 1: an official compilation of official statistics |
+| Kitui County Statistical Abstract 2015 | KNBS | Administrative data for 2013–14, KDHS 2014 | Tier 1, but over ten years old: a historical baseline only |
+| Kitui County 2025 Long Rains Food and Nutrition Security Assessment | Multi-agency team led by NDMA; fieldwork July 2025 | Field transects, sector checklists, IPC analysis | Tier 1 |
+| Delivering the Kitui Promise: Three-Year Scorecard (Aug 2022 – Aug 2025) | County Government of Kitui | The executive's own account | Tier 1 as a record of what the county claims; not evidence that the claims are true |
+
 ### A.1.3 When two sources disagree
 
 When multiple sources report conflicting metrics (e.g., voter registration counts, vote totals, or demographic proportions), the analytical unit applies a standardized **Four-Step Conflict Resolution Protocol**:

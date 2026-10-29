@@ -7,7 +7,7 @@
 import type { Figure } from "./schema";
 
 /** A render modifier after the pipe in a `{{id|mod}}` token. */
-export type FormatMod = "" | "tier" | "bn" | "m" | "k" | "abs" | "d0" | "d1" | "d2";
+export type FormatMod = "" | "tier" | "bn" | "m" | "m1" | "k" | "abs" | "d0" | "d1" | "d2";
 
 const TIER_TEXT = { T1: "Tier 1", T2: "Tier 2", T3: "Tier 3" } as const;
 
@@ -41,6 +41,8 @@ export function formatFigure(f: Figure, mod: FormatMod = ""): string {
   let d = f.unit === "ksh" ? 0 : defaultDecimals(f);
   if (mod === "bn") { v = v / 1e9; d = f.decimals ?? 2; }
   if (mod === "m") { v = v / 1e6; d = 0; }
+  // Millions to one decimal, as a source prints them ("KSh 254.9m"), where rounding would change the figure.
+  if (mod === "m1") { v = v / 1e6; d = 1; }
   if (mod === "k") { v = v / 1e3; d = 0; }
   if (mod === "abs") v = Math.abs(v);
   if (mod === "d0") d = 0;
