@@ -1,16 +1,16 @@
 ANNEX C. Message assignment by segment and by channel — the production reference the studio works from. The narrative spine these carry is Section 3.2.2.
 
-> **Re-cut against the production pillars in Section 3.7.** The segment and channel axes below are
-> unchanged and remain the studio's reference. What has moved is the row labels: each grid entry
-> now carries the Section 3.7 pillar that commissions it — P1 *Where the money went*, P2 *From
-> poverty to wealth creation*, P3 *The economist explains*, P4 *He came, and this is what he said
-> he would do* — so a producer reading a grid row knows which weekly brief slot it fills.
-
 ## C.1 Message assignment by segment
 
 ```lead
 **No segment in these grids carries a size.** The grids assign messages; they do not measure audiences.
 ```
+
+> **Re-cut against the production pillars in Section 3.7.** The segment and channel axes below are
+> unchanged and remain the studio's reference. What has moved is the row labels: each grid entry
+> now carries the Section 3.7 pillar that commissions it — P1 *Where the money went*, P2 *From
+> poverty to wealth creation*, P3 *The economist explains*, P4 *He came, and this is what he said
+> he would do* — so a producer reading a grid row knows which weekly brief slot it fills.
 
 Cross-referencing the demographic and livelihood segments established in **Section 3.4.2**:
 

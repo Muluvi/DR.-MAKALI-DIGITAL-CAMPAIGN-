@@ -125,3 +125,19 @@ A run of h4 blocks becomes an accordion from three panels, not two. Two-panel ru
 ## After the stop
 
 **D-51. The owner chose to collapse figure charts (option 2 of REPORT.md).** On 2026-10-29 the owner chose: "Collapse figure charts behind a control, showing only the headline and takeaway." Both figure frames now show the headline and the takeaway. One "Show the figure" control opens the marks, the question or measure line, the notes, each item's body text, the data table and the CSV link. Two things stay visible next to the headline and takeaway, because brief section 2 keeps them in view whatever else is folded: the source line with its tier pills (rule 5) and a figure's conflict flag (rule 6). Everything behind the control is a FoldBody, so find in page, deep links, print and scripts-off still reach it. This replaces D-47's narrower fold. The site went from 362 to 266 phone screens and from 42,962 to 30,170 visible words. Mounted components (option 1) are unchanged.
+
+## Stage 11: verification
+
+**D-52. Folds now print.** `globals.css` drops `[hidden]` from paper with `display: none !important`. It comes after the fold rule in `app/declutter.css` at the same specificity, so every closed fold, which carries `hidden="until-found"`, was missing from print. The print rule now also matches `[data-fold-body][hidden]`, which outranks it. Measured on /delivery: the PDF went from 1,634 to 4,455 words, and check 13 counts every fold body displayed under print on all 19 tabs.
+
+**D-53. Working marks in component text become chips too.** Five strings typed in components rather than content still showed a raw "(Tier N" or "[CHECK REF]": in the decision panel, the analysis-export figures, the disputed-figure note and the feature-phone specimen. They now pass through `InlineMarks`, the plain-string form of the same chips. No words changed.
+
+**D-54. Long paragraphs that are notes, not commitments, fold.** Check 11 found long paragraphs in places the plan did not reach:
+- The analysis panels' reading notes (60–87 words each) now sit behind "Read the notes".
+- Two kept paragraphs are no longer kept: 3.4.3's "Two rules on top", and 4.6.3's, which becomes that section's lead and its full text.
+- The 81-word callout at the top of Annex C moves to the head of C.1 (logged as moved).
+- The ward overlay's computed sentence pair is split into two paragraphs.
+- Four visual faces moved their long text into the item's folded fields: the radio card's reach and the three message pillars' narrative statements. The hypothesis card's closing sentence moved into its body.
+The 5.3.3 charter clauses and F.1 stay whole under rule 7; check 11 lists them as the only exceptions.
+
+**D-55. Tier mismatches are generated, not hand-listed.** `scripts/declutter/tier-mismatches.mjs` pairs each token with a "(Tier N" parenthetical that follows it within four words, and compares the two. It found 58 pairs; 2 disagree (2.9.1's 2019 census phone and internet shares, which are T2 in the data and typed "Tier 1"). The typed tier renders, as X1 requires, and TIER-MISMATCHES.md lists both for the owner. `check:declutter` fails if the file is stale.

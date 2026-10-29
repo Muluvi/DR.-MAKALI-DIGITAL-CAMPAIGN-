@@ -2,7 +2,7 @@
 
 Every deletion made by the declutter, generated from `cuts.json` by `scripts/declutter/build-cuts-md.mjs`. Each row gives the file, the section, the opening words, the words removed (net of any short reference left in place), the kind of cut and the canonical home where its facts still stand. `scripts/declutter/check-content.mjs` checks that every duplicate's tokens and names are at its home (check 5) and that the word count balances (check 4).
 
-107 cuts, 1,797 words; 5 passages moved to their homes.
+107 cuts, 1,797 words; 6 passages moved to their homes.
 
 | File | Section | First words | Words | Kind | Canonical home | Note |
 |---|---|---|---:|---|---|---|
@@ -118,3 +118,4 @@ Every deletion made by the declutter, generated from `cuts.json` by `scripts/dec
 | annex-spec | G.1 | YouTube | 0 | Signpost or meta-text | — | The platform's h4 became its card's title (moved). |
 | annex-spec | G.1 | Google Ads | 0 | Signpost or meta-text | — | The platform's h4 became its card's title (moved). |
 | annex-spec | G.5 | Data sources | 0 | Signpost or meta-text | — | The label became the visual's title (moved). |
+| annex-messages | (intro) | Re-cut against the production pillars in Section 3.7. The segment and channel | 81 | Moved to its home | annex-messages:C.1 | Check 11: the 81-word intro callout is about the grids below; it moves to the head of C.1, where it sits in the section's full text under the lead. |

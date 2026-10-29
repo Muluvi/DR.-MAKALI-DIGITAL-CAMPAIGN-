@@ -1147,5 +1147,16 @@
   "home": "",
   "note": "The label became the visual's title (moved).",
   "text": "#### Data sources"
+ },
+ {
+  "file": "annex-messages",
+  "section": "(intro)",
+  "first12": "Re-cut against the production pillars in Section 3.7. The segment and channel",
+  "words": 81,
+  "kind": "moved",
+  "home": "annex-messages:C.1",
+  "to": "annex-messages:C.1",
+  "note": "Check 11: the 81-word intro callout is about the grids below; it moves to the head of C.1, where it sits in the section's full text under the lead.",
+  "text": "> **Re-cut against the production pillars in Section 3.7.** The segment and channel axes below are\n> unchanged and remain the studio's reference. What has moved is the row labels: each grid entry\n> now carries the Section 3.7 pillar that commissions it — P1 *Where the money went*, P2 *From\n> poverty to wealth creation*, P3 *The economist explains*, P4 *He came, and this is what he said\n> he would do* — so a producer reading a grid row knows which weekly brief slot it fills.\n\n"
  }
 ]

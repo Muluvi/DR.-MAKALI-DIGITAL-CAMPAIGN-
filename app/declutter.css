@@ -13,8 +13,10 @@
 span[data-fold-body][hidden] { display: inline-block; }
 
 @media print {
-  [data-fold-body] { display: block !important; content-visibility: visible !important; }
-  span[data-fold-body] { display: inline !important; }
+  /* [hidden] as well, to outrank globals.css's print rule `[hidden] { display: none !important }`,
+     which comes later at the same specificity and would otherwise keep every closed fold off paper. */
+  [data-fold-body], [data-fold-body][hidden] { display: block !important; content-visibility: visible !important; }
+  span[data-fold-body], span[data-fold-body][hidden] { display: inline !important; }
   .pf-more__btn, .vz-more__btn, .pf-textver__summary, .vz-tabs__list { display: none !important; }
   .pf-lead { display: none !important; }
 }

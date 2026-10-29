@@ -10,6 +10,7 @@ import {
   type SpecimenLanguage,
 } from "../../data/ussd-specimen";
 import { ClaimBadge } from "../markdown/ClaimBadge";
+import { InlineMarks } from "../markdown/InlineMarks";
 import { useMotionPreset } from "../../hooks/useMotionPreset";
 import { IllustrativeTag } from "../premium/IllustrativeTag";
 import { TiltStage } from "../premium/TiltStage";
@@ -301,8 +302,7 @@ export function FeaturePhoneSpecimen() {
                   ))}
                 </ol>
                 <p className="t-micro text-muted mt-2.5 leading-snug">
-                  §8.5 [CHECK REF] places those appointments in Phase −1. Showing invented vernacular here
-                  would be the claim-versus-delivery gap this proposal argues against.
+                  <InlineMarks text="§8.5 [CHECK REF] places those appointments in Phase −1. Showing invented vernacular here would be the claim-versus-delivery gap this proposal argues against." />
                 </p>
               </div>
             ) : (

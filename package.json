@@ -16,7 +16,7 @@
     "content": "node --no-warnings --experimental-strip-types scripts/build-content.ts && node --no-warnings --experimental-strip-types scripts/build-open-items.ts && node --no-warnings --experimental-strip-types scripts/build-csv.ts",
     "predev": "node --no-warnings --experimental-strip-types scripts/build-content.ts && node --no-warnings --experimental-strip-types scripts/build-open-items.ts && node --no-warnings --experimental-strip-types scripts/build-csv.ts",
     "test:declutter": "node --experimental-strip-types --test lib/inline-marks.test.ts lib/visual.test.ts",
-    "check:declutter": "node scripts/declutter/check-tokens.mjs && node scripts/declutter/check-content.mjs && node scripts/declutter/check-leads.mjs && node scripts/declutter/build-cuts-md.mjs --check"
+    "check:declutter": "node scripts/declutter/check-tokens.mjs && node scripts/declutter/check-content.mjs && node scripts/declutter/check-leads.mjs && node scripts/declutter/build-cuts-md.mjs --check && node --no-warnings --experimental-strip-types scripts/declutter/tier-mismatches.mjs --check"
   },
   "dependencies": {
     "@react-three/fiber": "^9.8.0",

@@ -68,6 +68,10 @@ fill them.
 
 ### 4.6.3 Surge roles, activated by phase and scope level
 
+```lead
+**Community management and video editing are not on this list, and that is deliberate.**
+```
+
 <!-- keep -->
 | Role | Activated | Function |
 |---|---|---|
@@ -77,7 +81,6 @@ fill them.
 | **Crisis Communications Lead** | Phase 2 onward, or immediately on trigger | Rapid response, red-team drills, deepfake rebuttal protocol |
 | **Earned Media / Press Officer** | Phase −1 onward (standard and premium levels) | Journalist relationships, debate clipping, radio placement (Section 4.5.6) |
 
-<!-- keep -->
 **Community management and video editing are not on this list, and that is deliberate.** Both are
 roles your team already fills. Adding them here would have been Firefly selling back capability the
 campaign has. [CONFLICT C4: see open items]

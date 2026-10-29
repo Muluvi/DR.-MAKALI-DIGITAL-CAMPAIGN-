@@ -1,4 +1,5 @@
 import type { DisputedFigureEntry } from "../../data/types";
+import { InlineMarks } from "./InlineMarks";
 import { TierBadge } from "./TierBadge";
 
 function formatValue(value: number, unit: string): string {
@@ -45,7 +46,7 @@ export function DisputedFigure({ entry }: { entry: DisputedFigureEntry }) {
 
       {entry.status === "resolved-preferred" && entry.preferenceReason && (
         <p className="t-label text-ink/80 leading-relaxed">
-          <strong className="text-ink">Why the preferred value is used:</strong> {entry.preferenceReason}
+          <strong className="text-ink">Why the preferred value is used:</strong> <InlineMarks text={entry.preferenceReason} />
         </p>
       )}
 
