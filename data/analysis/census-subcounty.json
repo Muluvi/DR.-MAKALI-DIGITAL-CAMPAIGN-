@@ -1,0 +1,2211 @@
+{
+  "id": "census-subcounty",
+  "title": "Kitui by KNBS sub-county, 2019 census",
+  "description": "Population, adults, phone ownership, internet use and electric lighting for Kitui's 18 census sub-counties, which are not its 8 constituencies.",
+  "chart_type": "table",
+  "generated": "2026-10-30",
+  "data_as_of": "2026-09-16",
+  "scenario_label": "",
+  "notes": [
+    "KNBS 2019 Kenya Population and Housing Census, read from the rKenyaCensus package (commit 6db00e5). Sub-county figures are never summed into constituencies; wards reach them through data/geo/ward-keys.json."
+  ],
+  "values": [
+    {
+      "label": "Kitui County: population",
+      "value": 1136187,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Vol. I Table 2.5.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "population"
+      }
+    },
+    {
+      "label": "Kitui County: aged 18+",
+      "value": 591033,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Sum of single years 18 to 100+, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "aged_18_plus"
+      }
+    },
+    {
+      "label": "Kitui County: aged 18+ share",
+      "value": 52.0,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Aged 18+ / population by age (excludes intersex), Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "aged_18_plus_pct"
+      }
+    },
+    {
+      "label": "Kitui County: own a mobile phone",
+      "value": 42.9,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.32.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "phone_pct"
+      }
+    },
+    {
+      "label": "Kitui County: use the internet",
+      "value": 13.6,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.33.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "internet_pct"
+      }
+    },
+    {
+      "label": "Kitui County: lit by mains electricity",
+      "value": 17.1,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "mains_electricity_pct"
+      }
+    },
+    {
+      "label": "Ikutha: population",
+      "value": 82964,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Vol. I Table 2.5.",
+      "dims": {
+        "subcounty": "IKUTHA",
+        "code": "1501",
+        "measure": "population"
+      }
+    },
+    {
+      "label": "Ikutha: aged 18+",
+      "value": 39692,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Sum of single years 18 to 100+, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "IKUTHA",
+        "code": "1501",
+        "measure": "aged_18_plus"
+      }
+    },
+    {
+      "label": "Ikutha: aged 18+ share",
+      "value": 47.8,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Aged 18+ / population by age (excludes intersex), Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "IKUTHA",
+        "code": "1501",
+        "measure": "aged_18_plus_pct"
+      }
+    },
+    {
+      "label": "Ikutha: own a mobile phone",
+      "value": 36.6,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.32.",
+      "dims": {
+        "subcounty": "IKUTHA",
+        "code": "1501",
+        "measure": "phone_pct"
+      }
+    },
+    {
+      "label": "Ikutha: use the internet",
+      "value": 9.8,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.33.",
+      "dims": {
+        "subcounty": "IKUTHA",
+        "code": "1501",
+        "measure": "internet_pct"
+      }
+    },
+    {
+      "label": "Ikutha: lit by mains electricity",
+      "value": 6.4,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "IKUTHA",
+        "code": "1501",
+        "measure": "mains_electricity_pct"
+      }
+    },
+    {
+      "label": "Katulani: population",
+      "value": 47108,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Vol. I Table 2.5.",
+      "dims": {
+        "subcounty": "KATULANI",
+        "code": "1502",
+        "measure": "population"
+      }
+    },
+    {
+      "label": "Katulani: aged 18+",
+      "value": 26925,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Sum of single years 18 to 100+, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "KATULANI",
+        "code": "1502",
+        "measure": "aged_18_plus"
+      }
+    },
+    {
+      "label": "Katulani: aged 18+ share",
+      "value": 57.2,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Aged 18+ / population by age (excludes intersex), Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "KATULANI",
+        "code": "1502",
+        "measure": "aged_18_plus_pct"
+      }
+    },
+    {
+      "label": "Katulani: own a mobile phone",
+      "value": 48.3,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.32.",
+      "dims": {
+        "subcounty": "KATULANI",
+        "code": "1502",
+        "measure": "phone_pct"
+      }
+    },
+    {
+      "label": "Katulani: use the internet",
+      "value": 15.7,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.33.",
+      "dims": {
+        "subcounty": "KATULANI",
+        "code": "1502",
+        "measure": "internet_pct"
+      }
+    },
+    {
+      "label": "Katulani: lit by mains electricity",
+      "value": 17.7,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "KATULANI",
+        "code": "1502",
+        "measure": "mains_electricity_pct"
+      }
+    },
+    {
+      "label": "Kisasi: population",
+      "value": 46142,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Vol. I Table 2.5.",
+      "dims": {
+        "subcounty": "KISASI",
+        "code": "1503",
+        "measure": "population"
+      }
+    },
+    {
+      "label": "Kisasi: aged 18+",
+      "value": 24887,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Sum of single years 18 to 100+, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "KISASI",
+        "code": "1503",
+        "measure": "aged_18_plus"
+      }
+    },
+    {
+      "label": "Kisasi: aged 18+ share",
+      "value": 53.9,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Aged 18+ / population by age (excludes intersex), Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "KISASI",
+        "code": "1503",
+        "measure": "aged_18_plus_pct"
+      }
+    },
+    {
+      "label": "Kisasi: own a mobile phone",
+      "value": 43.5,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.32.",
+      "dims": {
+        "subcounty": "KISASI",
+        "code": "1503",
+        "measure": "phone_pct"
+      }
+    },
+    {
+      "label": "Kisasi: use the internet",
+      "value": 11.9,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.33.",
+      "dims": {
+        "subcounty": "KISASI",
+        "code": "1503",
+        "measure": "internet_pct"
+      }
+    },
+    {
+      "label": "Kisasi: lit by mains electricity",
+      "value": 12.3,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "KISASI",
+        "code": "1503",
+        "measure": "mains_electricity_pct"
+      }
+    },
+    {
+      "label": "Kitui Central: population",
+      "value": 105991,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Vol. I Table 2.5.",
+      "dims": {
+        "subcounty": "KITUI CENTRAL",
+        "code": "1504",
+        "measure": "population"
+      }
+    },
+    {
+      "label": "Kitui Central: aged 18+",
+      "value": 63378,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Sum of single years 18 to 100+, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "KITUI CENTRAL",
+        "code": "1504",
+        "measure": "aged_18_plus"
+      }
+    },
+    {
+      "label": "Kitui Central: aged 18+ share",
+      "value": 59.8,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Aged 18+ / population by age (excludes intersex), Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "KITUI CENTRAL",
+        "code": "1504",
+        "measure": "aged_18_plus_pct"
+      }
+    },
+    {
+      "label": "Kitui Central: own a mobile phone",
+      "value": 54.6,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.32.",
+      "dims": {
+        "subcounty": "KITUI CENTRAL",
+        "code": "1504",
+        "measure": "phone_pct"
+      }
+    },
+    {
+      "label": "Kitui Central: use the internet",
+      "value": 24.8,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.33.",
+      "dims": {
+        "subcounty": "KITUI CENTRAL",
+        "code": "1504",
+        "measure": "internet_pct"
+      }
+    },
+    {
+      "label": "Kitui Central: lit by mains electricity",
+      "value": 48.5,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "KITUI CENTRAL",
+        "code": "1504",
+        "measure": "mains_electricity_pct"
+      }
+    },
+    {
+      "label": "Kitui West: population",
+      "value": 70871,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Vol. I Table 2.5.",
+      "dims": {
+        "subcounty": "KITUI WEST",
+        "code": "1505",
+        "measure": "population"
+      }
+    },
+    {
+      "label": "Kitui West: aged 18+",
+      "value": 39264,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Sum of single years 18 to 100+, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "KITUI WEST",
+        "code": "1505",
+        "measure": "aged_18_plus"
+      }
+    },
+    {
+      "label": "Kitui West: aged 18+ share",
+      "value": 55.4,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Aged 18+ / population by age (excludes intersex), Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "KITUI WEST",
+        "code": "1505",
+        "measure": "aged_18_plus_pct"
+      }
+    },
+    {
+      "label": "Kitui West: own a mobile phone",
+      "value": 49.2,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.32.",
+      "dims": {
+        "subcounty": "KITUI WEST",
+        "code": "1505",
+        "measure": "phone_pct"
+      }
+    },
+    {
+      "label": "Kitui West: use the internet",
+      "value": 17.5,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.33.",
+      "dims": {
+        "subcounty": "KITUI WEST",
+        "code": "1505",
+        "measure": "internet_pct"
+      }
+    },
+    {
+      "label": "Kitui West: lit by mains electricity",
+      "value": 20.7,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "KITUI WEST",
+        "code": "1505",
+        "measure": "mains_electricity_pct"
+      }
+    },
+    {
+      "label": "Kyuso: population",
+      "value": 76867,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Vol. I Table 2.5.",
+      "dims": {
+        "subcounty": "KYUSO",
+        "code": "1506",
+        "measure": "population"
+      }
+    },
+    {
+      "label": "Kyuso: aged 18+",
+      "value": 36870,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Sum of single years 18 to 100+, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "KYUSO",
+        "code": "1506",
+        "measure": "aged_18_plus"
+      }
+    },
+    {
+      "label": "Kyuso: aged 18+ share",
+      "value": 48.0,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Aged 18+ / population by age (excludes intersex), Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "KYUSO",
+        "code": "1506",
+        "measure": "aged_18_plus_pct"
+      }
+    },
+    {
+      "label": "Kyuso: own a mobile phone",
+      "value": 38.1,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.32.",
+      "dims": {
+        "subcounty": "KYUSO",
+        "code": "1506",
+        "measure": "phone_pct"
+      }
+    },
+    {
+      "label": "Kyuso: use the internet",
+      "value": 9.8,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.33.",
+      "dims": {
+        "subcounty": "KYUSO",
+        "code": "1506",
+        "measure": "internet_pct"
+      }
+    },
+    {
+      "label": "Kyuso: lit by mains electricity",
+      "value": 7.1,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "KYUSO",
+        "code": "1506",
+        "measure": "mains_electricity_pct"
+      }
+    },
+    {
+      "label": "Lower Yatta: population",
+      "value": 63329,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Vol. I Table 2.5.",
+      "dims": {
+        "subcounty": "LOWER YATTA",
+        "code": "1507",
+        "measure": "population"
+      }
+    },
+    {
+      "label": "Lower Yatta: aged 18+",
+      "value": 34573,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Sum of single years 18 to 100+, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "LOWER YATTA",
+        "code": "1507",
+        "measure": "aged_18_plus"
+      }
+    },
+    {
+      "label": "Lower Yatta: aged 18+ share",
+      "value": 54.6,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Aged 18+ / population by age (excludes intersex), Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "LOWER YATTA",
+        "code": "1507",
+        "measure": "aged_18_plus_pct"
+      }
+    },
+    {
+      "label": "Lower Yatta: own a mobile phone",
+      "value": 46.0,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.32.",
+      "dims": {
+        "subcounty": "LOWER YATTA",
+        "code": "1507",
+        "measure": "phone_pct"
+      }
+    },
+    {
+      "label": "Lower Yatta: use the internet",
+      "value": 14.5,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.33.",
+      "dims": {
+        "subcounty": "LOWER YATTA",
+        "code": "1507",
+        "measure": "internet_pct"
+      }
+    },
+    {
+      "label": "Lower Yatta: lit by mains electricity",
+      "value": 10.1,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "LOWER YATTA",
+        "code": "1507",
+        "measure": "mains_electricity_pct"
+      }
+    },
+    {
+      "label": "Matinyani: population",
+      "value": 47811,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Vol. I Table 2.5.",
+      "dims": {
+        "subcounty": "MATINYANI",
+        "code": "1508",
+        "measure": "population"
+      }
+    },
+    {
+      "label": "Matinyani: aged 18+",
+      "value": 26893,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Sum of single years 18 to 100+, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "MATINYANI",
+        "code": "1508",
+        "measure": "aged_18_plus"
+      }
+    },
+    {
+      "label": "Matinyani: aged 18+ share",
+      "value": 56.2,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Aged 18+ / population by age (excludes intersex), Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "MATINYANI",
+        "code": "1508",
+        "measure": "aged_18_plus_pct"
+      }
+    },
+    {
+      "label": "Matinyani: own a mobile phone",
+      "value": 48.4,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.32.",
+      "dims": {
+        "subcounty": "MATINYANI",
+        "code": "1508",
+        "measure": "phone_pct"
+      }
+    },
+    {
+      "label": "Matinyani: use the internet",
+      "value": 15.7,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.33.",
+      "dims": {
+        "subcounty": "MATINYANI",
+        "code": "1508",
+        "measure": "internet_pct"
+      }
+    },
+    {
+      "label": "Matinyani: lit by mains electricity",
+      "value": 23.3,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "MATINYANI",
+        "code": "1508",
+        "measure": "mains_electricity_pct"
+      }
+    },
+    {
+      "label": "Migwani: population",
+      "value": 79255,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Vol. I Table 2.5.",
+      "dims": {
+        "subcounty": "MIGWANI",
+        "code": "1509",
+        "measure": "population"
+      }
+    },
+    {
+      "label": "Migwani: aged 18+",
+      "value": 42669,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Sum of single years 18 to 100+, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "MIGWANI",
+        "code": "1509",
+        "measure": "aged_18_plus"
+      }
+    },
+    {
+      "label": "Migwani: aged 18+ share",
+      "value": 53.8,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Aged 18+ / population by age (excludes intersex), Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "MIGWANI",
+        "code": "1509",
+        "measure": "aged_18_plus_pct"
+      }
+    },
+    {
+      "label": "Migwani: own a mobile phone",
+      "value": 48.6,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.32.",
+      "dims": {
+        "subcounty": "MIGWANI",
+        "code": "1509",
+        "measure": "phone_pct"
+      }
+    },
+    {
+      "label": "Migwani: use the internet",
+      "value": 15.6,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.33.",
+      "dims": {
+        "subcounty": "MIGWANI",
+        "code": "1509",
+        "measure": "internet_pct"
+      }
+    },
+    {
+      "label": "Migwani: lit by mains electricity",
+      "value": 15.5,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "MIGWANI",
+        "code": "1509",
+        "measure": "mains_electricity_pct"
+      }
+    },
+    {
+      "label": "Mumoni: population",
+      "value": 29344,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Vol. I Table 2.5.",
+      "dims": {
+        "subcounty": "MUMONI",
+        "code": "1510",
+        "measure": "population"
+      }
+    },
+    {
+      "label": "Mumoni: aged 18+",
+      "value": 13960,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Sum of single years 18 to 100+, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "MUMONI",
+        "code": "1510",
+        "measure": "aged_18_plus"
+      }
+    },
+    {
+      "label": "Mumoni: aged 18+ share",
+      "value": 47.6,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Aged 18+ / population by age (excludes intersex), Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "MUMONI",
+        "code": "1510",
+        "measure": "aged_18_plus_pct"
+      }
+    },
+    {
+      "label": "Mumoni: own a mobile phone",
+      "value": 39.5,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.32.",
+      "dims": {
+        "subcounty": "MUMONI",
+        "code": "1510",
+        "measure": "phone_pct"
+      }
+    },
+    {
+      "label": "Mumoni: use the internet",
+      "value": 11.4,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.33.",
+      "dims": {
+        "subcounty": "MUMONI",
+        "code": "1510",
+        "measure": "internet_pct"
+      }
+    },
+    {
+      "label": "Mumoni: lit by mains electricity",
+      "value": 4.0,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "MUMONI",
+        "code": "1510",
+        "measure": "mains_electricity_pct"
+      }
+    },
+    {
+      "label": "Mutitu: population",
+      "value": 55287,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Vol. I Table 2.5.",
+      "dims": {
+        "subcounty": "MUTITU",
+        "code": "1511",
+        "measure": "population"
+      }
+    },
+    {
+      "label": "Mutitu: aged 18+",
+      "value": 25910,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Sum of single years 18 to 100+, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "MUTITU",
+        "code": "1511",
+        "measure": "aged_18_plus"
+      }
+    },
+    {
+      "label": "Mutitu: aged 18+ share",
+      "value": 46.9,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Aged 18+ / population by age (excludes intersex), Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "MUTITU",
+        "code": "1511",
+        "measure": "aged_18_plus_pct"
+      }
+    },
+    {
+      "label": "Mutitu: own a mobile phone",
+      "value": 33.8,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.32.",
+      "dims": {
+        "subcounty": "MUTITU",
+        "code": "1511",
+        "measure": "phone_pct"
+      }
+    },
+    {
+      "label": "Mutitu: use the internet",
+      "value": 8.8,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.33.",
+      "dims": {
+        "subcounty": "MUTITU",
+        "code": "1511",
+        "measure": "internet_pct"
+      }
+    },
+    {
+      "label": "Mutitu: lit by mains electricity",
+      "value": 4.4,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "MUTITU",
+        "code": "1511",
+        "measure": "mains_electricity_pct"
+      }
+    },
+    {
+      "label": "Mutitu North: population",
+      "value": 21215,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Vol. I Table 2.5.",
+      "dims": {
+        "subcounty": "MUTITU NORTH",
+        "code": "1512",
+        "measure": "population"
+      }
+    },
+    {
+      "label": "Mutitu North: aged 18+",
+      "value": 10960,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Sum of single years 18 to 100+, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "MUTITU NORTH",
+        "code": "1512",
+        "measure": "aged_18_plus"
+      }
+    },
+    {
+      "label": "Mutitu North: aged 18+ share",
+      "value": 51.7,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Aged 18+ / population by age (excludes intersex), Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "MUTITU NORTH",
+        "code": "1512",
+        "measure": "aged_18_plus_pct"
+      }
+    },
+    {
+      "label": "Mutitu North: own a mobile phone",
+      "value": 41.8,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.32.",
+      "dims": {
+        "subcounty": "MUTITU NORTH",
+        "code": "1512",
+        "measure": "phone_pct"
+      }
+    },
+    {
+      "label": "Mutitu North: use the internet",
+      "value": 11.0,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.33.",
+      "dims": {
+        "subcounty": "MUTITU NORTH",
+        "code": "1512",
+        "measure": "internet_pct"
+      }
+    },
+    {
+      "label": "Mutitu North: lit by mains electricity",
+      "value": 8.3,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "MUTITU NORTH",
+        "code": "1512",
+        "measure": "mains_electricity_pct"
+      }
+    },
+    {
+      "label": "Mutomo: population",
+      "value": 113356,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Vol. I Table 2.5.",
+      "dims": {
+        "subcounty": "MUTOMO",
+        "code": "1513",
+        "measure": "population"
+      }
+    },
+    {
+      "label": "Mutomo: aged 18+",
+      "value": 54980,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Sum of single years 18 to 100+, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "MUTOMO",
+        "code": "1513",
+        "measure": "aged_18_plus"
+      }
+    },
+    {
+      "label": "Mutomo: aged 18+ share",
+      "value": 48.5,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Aged 18+ / population by age (excludes intersex), Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "MUTOMO",
+        "code": "1513",
+        "measure": "aged_18_plus_pct"
+      }
+    },
+    {
+      "label": "Mutomo: own a mobile phone",
+      "value": 34.9,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.32.",
+      "dims": {
+        "subcounty": "MUTOMO",
+        "code": "1513",
+        "measure": "phone_pct"
+      }
+    },
+    {
+      "label": "Mutomo: use the internet",
+      "value": 10.4,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.33.",
+      "dims": {
+        "subcounty": "MUTOMO",
+        "code": "1513",
+        "measure": "internet_pct"
+      }
+    },
+    {
+      "label": "Mutomo: lit by mains electricity",
+      "value": 6.5,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "MUTOMO",
+        "code": "1513",
+        "measure": "mains_electricity_pct"
+      }
+    },
+    {
+      "label": "Mwingi Central: population",
+      "value": 108713,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Vol. I Table 2.5.",
+      "dims": {
+        "subcounty": "MWINGI CENTRAL",
+        "code": "1514",
+        "measure": "population"
+      }
+    },
+    {
+      "label": "Mwingi Central: aged 18+",
+      "value": 57446,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Sum of single years 18 to 100+, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "MWINGI CENTRAL",
+        "code": "1514",
+        "measure": "aged_18_plus"
+      }
+    },
+    {
+      "label": "Mwingi Central: aged 18+ share",
+      "value": 52.8,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Aged 18+ / population by age (excludes intersex), Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "MWINGI CENTRAL",
+        "code": "1514",
+        "measure": "aged_18_plus_pct"
+      }
+    },
+    {
+      "label": "Mwingi Central: own a mobile phone",
+      "value": 45.8,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.32.",
+      "dims": {
+        "subcounty": "MWINGI CENTRAL",
+        "code": "1514",
+        "measure": "phone_pct"
+      }
+    },
+    {
+      "label": "Mwingi Central: use the internet",
+      "value": 15.1,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.33.",
+      "dims": {
+        "subcounty": "MWINGI CENTRAL",
+        "code": "1514",
+        "measure": "internet_pct"
+      }
+    },
+    {
+      "label": "Mwingi Central: lit by mains electricity",
+      "value": 26.7,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "MWINGI CENTRAL",
+        "code": "1514",
+        "measure": "mains_electricity_pct"
+      }
+    },
+    {
+      "label": "Mwingi East: population",
+      "value": 85139,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Vol. I Table 2.5.",
+      "dims": {
+        "subcounty": "MWINGI EAST",
+        "code": "1515",
+        "measure": "population"
+      }
+    },
+    {
+      "label": "Mwingi East: aged 18+",
+      "value": 39820,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Sum of single years 18 to 100+, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "MWINGI EAST",
+        "code": "1515",
+        "measure": "aged_18_plus"
+      }
+    },
+    {
+      "label": "Mwingi East: aged 18+ share",
+      "value": 46.8,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Aged 18+ / population by age (excludes intersex), Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "MWINGI EAST",
+        "code": "1515",
+        "measure": "aged_18_plus_pct"
+      }
+    },
+    {
+      "label": "Mwingi East: own a mobile phone",
+      "value": 37.5,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.32.",
+      "dims": {
+        "subcounty": "MWINGI EAST",
+        "code": "1515",
+        "measure": "phone_pct"
+      }
+    },
+    {
+      "label": "Mwingi East: use the internet",
+      "value": 9.2,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.33.",
+      "dims": {
+        "subcounty": "MWINGI EAST",
+        "code": "1515",
+        "measure": "internet_pct"
+      }
+    },
+    {
+      "label": "Mwingi East: lit by mains electricity",
+      "value": 6.7,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "MWINGI EAST",
+        "code": "1515",
+        "measure": "mains_electricity_pct"
+      }
+    },
+    {
+      "label": "Nzambani: population",
+      "value": 46788,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Vol. I Table 2.5.",
+      "dims": {
+        "subcounty": "NZAMBANI",
+        "code": "1516",
+        "measure": "population"
+      }
+    },
+    {
+      "label": "Nzambani: aged 18+",
+      "value": 25559,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Sum of single years 18 to 100+, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "NZAMBANI",
+        "code": "1516",
+        "measure": "aged_18_plus"
+      }
+    },
+    {
+      "label": "Nzambani: aged 18+ share",
+      "value": 54.6,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Aged 18+ / population by age (excludes intersex), Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "NZAMBANI",
+        "code": "1516",
+        "measure": "aged_18_plus_pct"
+      }
+    },
+    {
+      "label": "Nzambani: own a mobile phone",
+      "value": 45.7,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.32.",
+      "dims": {
+        "subcounty": "NZAMBANI",
+        "code": "1516",
+        "measure": "phone_pct"
+      }
+    },
+    {
+      "label": "Nzambani: use the internet",
+      "value": 14.5,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.33.",
+      "dims": {
+        "subcounty": "NZAMBANI",
+        "code": "1516",
+        "measure": "internet_pct"
+      }
+    },
+    {
+      "label": "Nzambani: lit by mains electricity",
+      "value": 23.5,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "NZAMBANI",
+        "code": "1516",
+        "measure": "mains_electricity_pct"
+      }
+    },
+    {
+      "label": "Thagicu: population",
+      "value": 15136,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Vol. I Table 2.5.",
+      "dims": {
+        "subcounty": "THAGICU",
+        "code": "1517",
+        "measure": "population"
+      }
+    },
+    {
+      "label": "Thagicu: aged 18+",
+      "value": 7462,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Sum of single years 18 to 100+, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "THAGICU",
+        "code": "1517",
+        "measure": "aged_18_plus"
+      }
+    },
+    {
+      "label": "Thagicu: aged 18+ share",
+      "value": 49.3,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Aged 18+ / population by age (excludes intersex), Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "THAGICU",
+        "code": "1517",
+        "measure": "aged_18_plus_pct"
+      }
+    },
+    {
+      "label": "Thagicu: own a mobile phone",
+      "value": 34.6,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.32.",
+      "dims": {
+        "subcounty": "THAGICU",
+        "code": "1517",
+        "measure": "phone_pct"
+      }
+    },
+    {
+      "label": "Thagicu: use the internet",
+      "value": 8.0,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.33.",
+      "dims": {
+        "subcounty": "THAGICU",
+        "code": "1517",
+        "measure": "internet_pct"
+      }
+    },
+    {
+      "label": "Thagicu: lit by mains electricity",
+      "value": 1.6,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "THAGICU",
+        "code": "1517",
+        "measure": "mains_electricity_pct"
+      }
+    },
+    {
+      "label": "Tseikuru: population",
+      "value": 40871,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Vol. I Table 2.5.",
+      "dims": {
+        "subcounty": "TSEIKURU",
+        "code": "1518",
+        "measure": "population"
+      }
+    },
+    {
+      "label": "Tseikuru: aged 18+",
+      "value": 19785,
+      "unit": "people",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Sum of single years 18 to 100+, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "TSEIKURU",
+        "code": "1518",
+        "measure": "aged_18_plus"
+      }
+    },
+    {
+      "label": "Tseikuru: aged 18+ share",
+      "value": 48.4,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Aged 18+ / population by age (excludes intersex), Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "TSEIKURU",
+        "code": "1518",
+        "measure": "aged_18_plus_pct"
+      }
+    },
+    {
+      "label": "Tseikuru: own a mobile phone",
+      "value": 34.6,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.32.",
+      "dims": {
+        "subcounty": "TSEIKURU",
+        "code": "1518",
+        "measure": "phone_pct"
+      }
+    },
+    {
+      "label": "Tseikuru: use the internet",
+      "value": 8.3,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Persons aged 3 and above, Vol. IV Table 2.33.",
+      "dims": {
+        "subcounty": "TSEIKURU",
+        "code": "1518",
+        "measure": "internet_pct"
+      }
+    },
+    {
+      "label": "Tseikuru: lit by mains electricity",
+      "value": 6.4,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "TSEIKURU",
+        "code": "1518",
+        "measure": "mains_electricity_pct"
+      }
+    },
+    {
+      "label": "Kitui County: aged 0-4",
+      "value": 11.1,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "126,190 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "0-4"
+      }
+    },
+    {
+      "label": "Kitui County: aged 5-9",
+      "value": 12.7,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "144,472 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "5-9"
+      }
+    },
+    {
+      "label": "Kitui County: aged 10-14",
+      "value": 15.3,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "173,446 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "10-14"
+      }
+    },
+    {
+      "label": "Kitui County: aged 15-19",
+      "value": 13.3,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "151,148 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "15-19"
+      }
+    },
+    {
+      "label": "Kitui County: aged 20-24",
+      "value": 7.8,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "88,720 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "20-24"
+      }
+    },
+    {
+      "label": "Kitui County: aged 25-29",
+      "value": 5.9,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "67,509 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "25-29"
+      }
+    },
+    {
+      "label": "Kitui County: aged 30-34",
+      "value": 6.0,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "68,691 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "30-34"
+      }
+    },
+    {
+      "label": "Kitui County: aged 35-39",
+      "value": 5.0,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "56,678 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "35-39"
+      }
+    },
+    {
+      "label": "Kitui County: aged 40-44",
+      "value": 4.5,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "51,344 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "40-44"
+      }
+    },
+    {
+      "label": "Kitui County: aged 45-49",
+      "value": 4.2,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "47,652 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "45-49"
+      }
+    },
+    {
+      "label": "Kitui County: aged 50-54",
+      "value": 3.0,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "33,819 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "50-54"
+      }
+    },
+    {
+      "label": "Kitui County: aged 55-59",
+      "value": 2.6,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "29,704 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "55-59"
+      }
+    },
+    {
+      "label": "Kitui County: aged 60-64",
+      "value": 2.2,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "25,004 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "60-64"
+      }
+    },
+    {
+      "label": "Kitui County: aged 65-69",
+      "value": 2.0,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "22,627 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "65-69"
+      }
+    },
+    {
+      "label": "Kitui County: aged 70-74",
+      "value": 1.7,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "19,456 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "70-74"
+      }
+    },
+    {
+      "label": "Kitui County: aged 75-79",
+      "value": 0.9,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "10,519 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "75-79"
+      }
+    },
+    {
+      "label": "Kitui County: aged 80-84",
+      "value": 0.8,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "8,916 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "80-84"
+      }
+    },
+    {
+      "label": "Kitui County: aged 85-89",
+      "value": 0.4,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "4,480 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "85-89"
+      }
+    },
+    {
+      "label": "Kitui County: aged 90-94",
+      "value": 0.3,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "3,578 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "90-94"
+      }
+    },
+    {
+      "label": "Kitui County: aged 95-99",
+      "value": 0.1,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "1,438 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "95-99"
+      }
+    },
+    {
+      "label": "Kitui County: aged 100+",
+      "value": 0.1,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "753 people / population by age, Vol. III Table 2.3.",
+      "dims": {
+        "subcounty": "COUNTY",
+        "code": "15",
+        "measure": "age_band",
+        "band": "100+"
+      }
+    },
+    {
+      "label": "Kenya: lit by mains electricity",
+      "value": 50.4,
+      "unit": "percent",
+      "source_id": "S72",
+      "tier": 1,
+      "as_of": "2019",
+      "method": "official",
+      "status": "confirmed",
+      "note": "Conventional households by main lighting source, Vol. IV Table 2.19.",
+      "dims": {
+        "subcounty": "KENYA",
+        "code": "",
+        "measure": "mains_electricity_pct"
+      }
+    }
+  ]
+}

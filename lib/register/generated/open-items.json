@@ -1,32 +1,12 @@
 [
   {
     "kind": "data",
-    "gap": "census.age-bands",
-    "closes": "KNBS 2019 Census Volume III (population by age and sex), the Kitui table",
-    "holder": "KNBS",
-    "status": "Open",
-    "where": [
-      "Data layer: census.age-bands"
-    ]
-  },
-  {
-    "kind": "data",
     "gap": "literacy.county",
     "closes": "KNBS county literacy table (2019 Census or KDHS 2022 county report); the draft's 56.3% and 87.4% have no confirmed source",
     "holder": "KNBS",
     "status": "Open",
     "where": [
       "Data layer: literacy.county"
-    ]
-  },
-  {
-    "kind": "data",
-    "gap": "electricity.national",
-    "closes": "KNBS 2019 Census Volume IV national household electricity table",
-    "holder": "KNBS",
-    "status": "Open",
-    "where": [
-      "Data layer: electricity.national"
     ]
   },
   {

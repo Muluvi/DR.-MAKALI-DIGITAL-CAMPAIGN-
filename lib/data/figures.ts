@@ -210,6 +210,17 @@ sourced("electricity.2019", 17.2, "percent", "T2", STATS_KENYA, { asOf: "2019", 
 sourced("electricity.2009", 4.8, "percent", "T2", STATS_KENYA, { asOf: "2009", note: "Households with electricity, 2009 Census." });
 sourced("water.safe.2019", 38.5, "percent", "T2", STATS_KENYA, { asOf: "2019", note: "Households with safe drinking water (the census definition). An earlier draft's 53.2% likely used a different definition and is not used." });
 sourced("water.piped.2019", 5.1, "percent", "T2", STATS_KENYA, { asOf: "2019", note: "Households with piped water." });
+// The KNBS 2019 census tables themselves, read from the rKenyaCensus package (analysis Stage 15,
+// docs/open-data/REGISTER.md), which reproduces Kitui's published population, phone and internet figures.
+const CENSUS_V3 = "KNBS 2019 Census Volume III, Table 2.3 (population by age, sex and sub-county), via rKenyaCensus";
+const CENSUS_V4_LIGHT = "KNBS 2019 Census Volume IV, Table 2.19 (main lighting fuel), via rKenyaCensus";
+const AGE_NOTE = "Share of Kitui's 1,136,154 residents by age (the table excludes 33 intersex persons), summed from single years.";
+sourced("census.age.0-14.share", 39.1, "percent", "T1", CENSUS_V3, { asOf: "2019", note: AGE_NOTE });
+sourced("census.age.15-34.share", 33.1, "percent", "T1", CENSUS_V3, { asOf: "2019", note: AGE_NOTE });
+sourced("census.age.35-59.share", 19.3, "percent", "T1", CENSUS_V3, { asOf: "2019", note: AGE_NOTE });
+sourced("census.age.60-plus.share", 8.5, "percent", "T1", CENSUS_V3, { asOf: "2019", note: AGE_NOTE });
+sourced("electricity.mains.2019", 17.1, "percent", "T1", CENSUS_V4_LIGHT, { asOf: "2019", note: "Kitui's conventional households whose main lighting is mains electricity." });
+sourced("electricity.national", 50.4, "percent", "T1", CENSUS_V4_LIGHT, { asOf: "2019", note: "Kenya's conventional households whose main lighting is mains electricity. A national figure, not a Kitui figure." });
 const EQUAL_POLITICS = "Equal Politics aggregation of IEBC 2022 presidential results (Tier 1 record: IEBC Forms 34B and 34C)";
 sourced("result.2022.pres.odinga", 235_400, "votes", "T2", EQUAL_POLITICS, { asOf: "2022-08" });
 sourced("result.2022.pres.odinga.share", 70.82, "percent", "T2", EQUAL_POLITICS, { decimals: 2 });
@@ -221,9 +232,7 @@ sourced("result.2022.pres.rejected", 3_306, "votes", "T2", EQUAL_POLITICS);
 sourced("result.2022.pres.turnout", 62, "percent", "T2", EQUAL_POLITICS, { decimals: 0, note: "Approximate. Includes rejected ballots, so it is not the same base as turnout.2022 (governor valid votes / register)." });
 sourced("poverty.2022.statskenya", 58.3, "percent", "T3", "Stats Kenya, reporting KNBS for 2022", { asOf: "2022", note: "Not used in place of the KNBS 2021 rate until verified against the KNBS 2022 poverty report." });
 for (const [id, unit, closes] of [
-  ["census.age-bands", "percent", "KNBS 2019 Census Volume III (population by age and sex), the Kitui table"],
   ["literacy.county", "percent", "KNBS county literacy table (2019 Census or KDHS 2022 county report); the draft's 56.3% and 87.4% have no confirmed source"],
-  ["electricity.national", "percent", "KNBS 2019 Census Volume IV national household electricity table"],
   ["admin.villages", "count", "Kitui County Integrated Development Plan 2023–2027 (the count of villages, reported as 247)"],
   ["cidp.sectors", "count", "Kitui County Integrated Development Plan 2023–2027 (KIPPRA repository), the priority-sector list"],
   ["unemployment.youth.county", "percent", "KNBS Quarterly Labour Force Survey county tables, or the 2019 Census Volume IV labour table"],

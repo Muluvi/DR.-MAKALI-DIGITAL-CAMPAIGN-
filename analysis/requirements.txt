@@ -15,3 +15,6 @@ pytest==8.3.3
 # do not spend time fixing the install (addendum, ENVIRONMENT).
 geopandas==1.0.1
 
+
+# Stage 15 (census) only: reads the rKenyaCensus .rda tables without an R install.
+pyreadr==0.5.8

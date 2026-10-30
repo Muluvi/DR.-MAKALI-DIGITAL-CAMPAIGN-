@@ -609,3 +609,27 @@ projects:
       is not split; text naming a ward in another constituency is a conflict; anything else
       stays at constituency or county level. No ward is guessed (brief WP6). This is a rule,
       not a number, so nothing in it is a placeholder.
+
+# ---------------------------------------------------------------------------------------
+# 11. 2019 census by sub-county (Stage 15, open-data brief WP3)
+# ---------------------------------------------------------------------------------------
+census:
+  source:
+    value: S72
+    source_id: S72
+    tier: 1
+    as_of: "2019"
+    status: CONFIRMED
+    rationale: >-
+      KNBS, 2019 Kenya Population and Housing Census, Volumes I, III and IV, read from the
+      rKenyaCensus package (commit 6db00e5, MIT). Tier 1 because the package reproduces the
+      KNBS tables: Stage 15 checks it against Kitui's published population (1,136,187), phone
+      ownership (42.9%) and internet use (13.6%) before writing anything. S72 is the next ID
+      after S71; confirm it is free in the data pack (docs/open-data/REGISTER.md).
+  ward_majority:
+    value: 0.8
+    status: PLACEHOLDER
+    rationale: >-
+      A ward is reported as split between sub-counties when no single sub-county holds this
+      share of its area. Chosen by Firefly so that boundary-file disagreement (a few per cent)
+      does not count as a split; nobody has confirmed it. At 0.8, four wards are split.

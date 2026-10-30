@@ -4,6 +4,7 @@
   "source": "analysis pipeline, python -m src.run_all",
   "approved_mapping": "analysis/reports/site_mapping.md",
   "files": [
+    "census-subcounty.json",
     "channel-reach.json",
     "county-finance-2026-27.json",
     "issue-evidence.json",

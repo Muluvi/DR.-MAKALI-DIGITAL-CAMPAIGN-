@@ -16,7 +16,7 @@ The 2019 census counted **1,136,187** people: 549,003 men, 587,151 women and 33 
 id: fig-2-4-people
 ```
 
-**Age.** The median age is **17** (Tier 2, KNBS 2019 via Stats Kenya). No verified figure is available yet for the full age bands (0–14, 15–34, 35–59, 60 and over); the record that would settle it is KNBS 2019 Census Volume III, the Kitui table.
+**Age.** The median age is **17** (Tier 2, KNBS 2019 via Stats Kenya). The 2019 census puts **39.1%** of residents at 0–14, **33.1%** at 15–34, **19.3%** at 35–59 and **8.5%** at 60 and over (Tier 1, KNBS 2019 Census Volume III).
 
 **What it means for the campaign.** A county where half the people are under 17 has a large cohort of first-time voters arriving at each election, and women are the majority of residents (51.7%).
 
@@ -52,7 +52,7 @@ More than half of Kitui lives in poverty, fewer than two households in five have
 
 **Water.** **38.5%** of households had safe drinking water in 2019, and **5.1%** piped water (Tier 2, KNBS 2019 via Stats Kenya). This is the census definition of a safe source; Section 3.1 sets out the other measures, which count different things. About **400,000** residents rely on untreated surface water as their main domestic source (Tier 1).
 
-**Electricity.** **17.2%** of households had electricity in 2019, up from **4.8%** in 2009 (Tier 2, KNBS 2019 via Stats Kenya). No verified national comparison is available yet; the record that would settle it is the KNBS 2019 Census Volume IV household table.
+**Electricity.** **17.2%** of households had electricity in 2019, up from **4.8%** in 2009 (Tier 2, KNBS 2019 via Stats Kenya). Measured by main lighting source, **17.1%** of Kitui households were lit by mains electricity against **50.4%** nationally (Tier 1, KNBS 2019 Census Volume IV).
 
 **Phones and internet.** **26.2%** of residents use the internet and **44.1%** own a mobile phone (Tier 1, CA/KNBS 2023/24), so **73.8%** are offline. Chapter 4 sets out what each channel can reach.
 

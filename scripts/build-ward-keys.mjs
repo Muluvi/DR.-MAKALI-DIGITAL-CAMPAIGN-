@@ -6,6 +6,8 @@
  *   register   data/ward-register.json (IEBC 2022), the spelling every other source joins to
  *   polygons   public/geo/kitui-wards.topo.json (benaboki, CC BY 4.0), by name and constituency
  *   codes      open-admin-data/kenya-administrative-divisions (CC BY 4.0), pinned by commit
+ *   census     analysis/outputs/geo/ward-subcounty.json, the KNBS sub-county each ward sits in,
+ *              from Stage 15's area overlay (python -m src.run_all --stage 15, in analysis/)
  *
  * Register entries are never renamed. Every other spelling is recorded as an alias with the
  * source that uses it, so a later join (the scorecard's ward text, WP6) can resolve it without
@@ -29,6 +31,7 @@ const OAD_SHA = "60f507697da89f5c0580a177f15d21f14b679aac";
 const OAD_URL = `https://raw.githubusercontent.com/open-admin-data/kenya-administrative-divisions/${OAD_SHA}/data/all-ward.json`;
 const OAD_FILE = path.join(ROOT, "analysis", "data", "raw", "open-admin-data", OAD_SHA, "all-ward.json");
 const OUT = path.join(ROOT, "data", "geo", "ward-keys.json");
+const CROSSWALK = path.join(ROOT, "analysis", "outputs", "geo", "ward-subcounty.json");
 
 /** Kitui's county code in open-admin-data. */
 const OAD_COUNTY = "KE015";
@@ -38,9 +41,10 @@ const OAD_CONSTITUENCY_ALIASES = { "Mwingi East": "Mwingi Central" };
 
 /**
  * Spellings that do not join by case and spacing alone. Each names the register ward it means
- * and the source that uses it. `verify` marks an alias that rests on a reading of the place
- * name rather than a plain spelling variant: anything joined through it is marked unconfirmed. Scorecard spellings are as printed in the county's
- * Delivering the Kitui Promise scorecard (data/scorecard/kitui-scorecard-projects.csv).
+ * and the source that uses it. Scorecard spellings are as printed in the county's Delivering the
+ * Kitui Promise scorecard (data/scorecard/kitui-scorecard-projects.csv). `verify` marks an alias
+ * that rests on a reading of the place name rather than a plain spelling variant: anything
+ * joined through it is marked unconfirmed.
  */
 const EXPLICIT_ALIASES = [
   { ward: "Mutonguni", spelling: "Mutongoni", source: "open-admin-data", note: "Spelling variant." },
@@ -72,6 +76,12 @@ if (!fs.existsSync(OAD_FILE)) {
 const register = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "ward-register.json"), "utf8"));
 const topo = JSON.parse(fs.readFileSync(path.join(ROOT, "public", "geo", "kitui-wards.topo.json"), "utf8"));
 const oad = JSON.parse(fs.readFileSync(OAD_FILE, "utf8")).filter((w) => w.id.startsWith(`${OAD_COUNTY}`));
+if (!fs.existsSync(CROSSWALK)) {
+  console.error(`build-ward-keys: ${path.relative(ROOT, CROSSWALK)} is missing. Run Stage 15 first.`);
+  process.exit(1);
+}
+const crosswalk = JSON.parse(fs.readFileSync(CROSSWALK, "utf8"));
+const census = new Map(crosswalk.wards.map((w) => [w.slug, w]));
 
 const errors = [];
 const explicitBySpelling = new Map(EXPLICIT_ALIASES.map((a) => [loose(a.spelling), a]));
@@ -94,6 +104,7 @@ for (const c of register.constituencies) {
       (g) => g.properties.ward === w.name && g.properties.constituency === c.name
     );
     if (polygon.length !== 1) errors.push(`${w.name} (${c.name}): ${polygon.length} polygons join`);
+    if (!census.has(slugOf(w.name))) errors.push(`${w.name} (${c.name}): not in the Stage 15 crosswalk`);
     const record = joinOad(w.name, c.name);
 
     const aliases = [];
@@ -122,7 +133,10 @@ for (const c of register.constituencies) {
       wardcode: polygon[0]?.properties.wardcode ?? null,
       open_admin_id: record?.id ?? null,
       open_admin_name: record?.name.en ?? null,
-      knbs_subcounty: null,
+      knbs_subcounty: census.get(slugOf(w.name))?.knbs_subcounty ?? null,
+      knbs_code: census.get(slugOf(w.name))?.knbs_code ?? null,
+      knbs_split: census.get(slugOf(w.name))?.split ?? null,
+      knbs_shares: census.get(slugOf(w.name))?.shares ?? null,
       aliases,
     });
   }
@@ -141,6 +155,7 @@ const out = {
     register: "IEBC, Registered Voters per County Assembly Ward (2022): data/ward-register.json",
     wardcode: "Omare & Omare (2017), Kenya County Assembly Boundaries, CC BY 4.0: public/geo/kitui-wards.topo.json",
     open_admin_id: `open-admin-data, Kenya Administrative Divisions, CC BY 4.0, commit ${OAD_SHA}`,
+    knbs_subcounty: "KNBS 2019 census sub-counties: polygons from keAdminBounds (US Census Bureau, codes = KNBS), commit b5858bc4dcd50d73cc504e7d8c14c5803b6e7200",
   },
   constituency_aliases: Object.entries(OAD_CONSTITUENCY_ALIASES).map(([spelling, constituency]) => ({
     spelling,
@@ -148,8 +163,7 @@ const out = {
     source: "open-admin-data",
     note: `Pre-2013 name of ${constituency}.`,
   })),
-  knbs_subcounty_status:
-    "[DATA NEEDED] KNBS 2019 census sub-counties are not IEBC constituencies, and no sub-county polygons or ward-to-sub-county list is in the repo. Filled by spatial overlay in WP3, never forced onto constituencies.",
+  knbs_subcounty_method: `${crosswalk.method} knbs_subcounty is the sub-county holding the largest share; knbs_shares keeps every share. KNBS census sub-counties are not IEBC constituencies and are never summed into them.`,
   wards,
 };
 

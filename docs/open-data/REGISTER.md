@@ -4,7 +4,7 @@ Every public repository the site or the analysis pipeline takes anything from, r
 use (`KITUI-OPEN-DATA-BRIEF.md`, WP0). A repository with no licence file is not used. Raw
 downloads go in `analysis/data/` (gitignored). Only derived keys and aggregates are committed.
 
-Last updated 30 October 2026.
+Last updated 30 October 2026 (step 4, census).
 
 ## In use
 
@@ -37,6 +37,36 @@ Last updated 30 October 2026.
 | Proposed tier | Not applicable. It carries no figures. |
 | Known limits | OCDS `tender.status` is deprecated since 1.2 and describes procurement, not delivery. The cleaned projects table keeps the scorecard's own printed status ("Complete", "Ongoing" …) under `status` and does not map it to the OCDS codelist. |
 
+### Shelmith-Kariuki/rKenyaCensus
+
+| | |
+|---|---|
+| URL | https://github.com/Shelmith-Kariuki/rKenyaCensus |
+| Commit | `6db00e5b1b71a781e6def15dd98a4828b6d960bc` (29 June 2020; HEAD on 30 October 2026) |
+| Licence | MIT, quoted from `LICENSE`: "YEAR: 2020 / COPYRIGHT HOLDER: Shelmith Kariuki" with `DESCRIPTION`: "License: MIT + file LICENSE". The figures themselves are KNBS's and are cited to KNBS. |
+| What was taken | `data/*.rda`, read in Python with `pyreadr` (no R install): `V1_T2.5` (population by sub-county), `V3_T2.3` (population by single year of age, sex and sub-county), `V4_T2.19` (main lighting fuel), `V4_T2.32` (mobile phone ownership), `V4_T2.33` (internet use). Table IDs from the package's own `DataCatalogue`. |
+| Original source and date | KNBS, *2019 Kenya Population and Housing Census*, Volumes I, III and IV (published 2019–2020). Census night 24/25 August 2019. |
+| Coverage of Kitui | County total and all 18 KNBS sub-counties |
+| Resolution | KNBS sub-county (not IEBC constituency) |
+| Tier | T1 `official`, source ID `S72`. Stage 15 checks the package against Kitui's published totals (1,136,187 people; 42.9% phone ownership; 13.6% internet use) before writing, and stops if any differ. |
+| Known limits | Volumes I–IV as packaged carry no literacy table, so `literacy.county` stays open. Phone and internet rates are of persons aged 3 and above. 2019 figures. |
+| Attribution line | "KNBS, 2019 Kenya Population and Housing Census; tables via rKenyaCensus (Kariuki, MIT)." |
+
+### wanjohikibui/keAdminBounds (sub-county polygons)
+
+| | |
+|---|---|
+| URL | https://github.com/wanjohikibui/keAdminBounds |
+| Commit | `b5858bc4dcd50d73cc504e7d8c14c5803b6e7200` (HEAD on 30 October 2026) |
+| Licence | MIT, quoted from `LICENSE`: "MIT License / Copyright (c) 2023 Leonard Ouma". |
+| What was taken | `Kenya_adm2_uscb_2020.geojson`: the 18 Kitui sub-county polygons and their `NSO_CODE` (KNBS codes 1501–1518). Used only to overlay ward polygons; no figure is read from it. |
+| Original source and date | US Census Bureau, Kenya subnational boundaries (2020), matched to the KNBS 2019 census sub-counties. |
+| Coverage of Kitui | All 18 census sub-counties; names match the census tables exactly |
+| Resolution | Polygons, sub-county |
+| Tier | T2, reference, source ID `S73`. It carries no figures. |
+| Known limits | Digitised separately from the ward polygons, so the overlay leaves slivers; those under 1% of a ward are dropped. Shares are of land area, not people. The file `ken_sublocations23.zip` (sub-locations) was not used; WP2b could use it. |
+| Attribution line | "Sub-county boundaries: US Census Bureau via keAdminBounds (MIT)." |
+
 ## Already in use before this register (recorded elsewhere)
 
 | Repository | Record |
@@ -47,18 +77,18 @@ Last updated 30 October 2026.
 
 | Repository | Brief's work package | State on 30 October 2026 |
 |---|---|---|
-| Shelmith-Kariuki/rKenyaCensus | WP3 | Reachable from this environment through `raw.githubusercontent.com`. Not started. |
 | WorldPop (wpgp) rasters | WP2 | `hub.worldpop.org` and `data.worldpop.org` did not connect from this environment. [DATA NEEDED] until the hosts are allowed or the rasters are supplied. |
 | KMHFL (masterfacilitylist, `api.kmhfl.health.go.ke`) | WP4 | Did not connect from this environment. [DATA NEEDED] on the same terms. |
 | Microsoft/KenyaNigeriaBuildingFootprints | WP5 | The repository page returned 403 through the environment's proxy. Not checked further. |
-| wanjohikibui/keAdminBounds | WP2b | Not checked |
+| wanjohikibui/keAdminBounds, sub-locations | WP2b | In use for sub-counties (above); sub-location polygons not yet used |
 | tigawanna/kenya_wards_geojson_data | WP1 cross-check | Not needed: open-admin-data and the existing polygons agreed on all 40 wards |
 | lsc-hubs/kenya-catalogue | WP7 | Not started |
 
 ## Source IDs
 
-The analysis exports cite the scorecard as `S70` and open-admin-data as `S71`. The highest ID in
+The analysis exports cite the scorecard as `S70`, open-admin-data as `S71`, the KNBS 2019 census
+tables as `S72` and the sub-county polygons as `S73`. The highest ID in
 the repository before this work was `S69` (`data/analysis/issue-evidence.json`). The S-IDs are
 assigned in the data pack (`analysis/data/raw/kitui-2027-public-data-pack.md`), which is not in
-the repository. Whoever holds the pack must confirm `S70` and `S71` are free there before the
+the repository. Whoever holds the pack must confirm `S70` to `S73` are free there before the
 next pipeline run.

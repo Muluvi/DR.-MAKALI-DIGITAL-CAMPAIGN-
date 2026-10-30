@@ -29,7 +29,7 @@ items:
 id: fig-2-4-people
 ```
 
-**Age.** The median age is **{{census.median-age}}** (Tier 2, KNBS 2019 via Stats Kenya). No verified figure is available yet for the full age bands (0–14, 15–34, 35–59, 60 and over); the record that would settle it is KNBS 2019 Census Volume III, the Kitui table.
+**Age.** The median age is **{{census.median-age}}** (Tier 2, KNBS 2019 via Stats Kenya). The 2019 census puts **{{census.age.0-14.share}}%** of residents at 0–14, **{{census.age.15-34.share}}%** at 15–34, **{{census.age.35-59.share}}%** at 35–59 and **{{census.age.60-plus.share}}%** at 60 and over (Tier 1, KNBS 2019 Census Volume III).
 
 **What it means for the campaign.** A county where half the people are under {{census.median-age}} has a large cohort of first-time voters arriving at each election, and women are the majority of residents ({{census.female.share}}%).
 
@@ -100,7 +100,7 @@ items:
 
 **Water.** **{{water.safe.2019}}%** of households had safe drinking water in 2019, and **{{water.piped.2019}}%** piped water (Tier 2, KNBS 2019 via Stats Kenya). This is the census definition of a safe source; Section 3.1 sets out the other measures, which count different things. About **{{water.surface}}** residents rely on untreated surface water as their main domestic source (Tier 1).
 
-**Electricity.** **{{electricity.2019}}%** of households had electricity in 2019, up from **{{electricity.2009}}%** in 2009 (Tier 2, KNBS 2019 via Stats Kenya). No verified national comparison is available yet; the record that would settle it is the KNBS 2019 Census Volume IV household table.
+**Electricity.** **{{electricity.2019}}%** of households had electricity in 2019, up from **{{electricity.2009}}%** in 2009 (Tier 2, KNBS 2019 via Stats Kenya). Measured by main lighting source, **{{electricity.mains.2019}}%** of Kitui households were lit by mains electricity against **{{electricity.national}}%** nationally (Tier 1, KNBS 2019 Census Volume IV).
 
 **Phones and internet.** **{{ict.internet}}%** of residents use the internet and **{{ict.phone}}%** own a mobile phone (Tier 1, CA/KNBS 2023/24), so **{{ict.offline}}%** are offline. Chapter 4 sets out what each channel can reach.
 

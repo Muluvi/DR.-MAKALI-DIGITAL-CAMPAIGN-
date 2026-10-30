@@ -4,7 +4,8 @@
   "sources": {
     "register": "IEBC, Registered Voters per County Assembly Ward (2022): data/ward-register.json",
     "wardcode": "Omare & Omare (2017), Kenya County Assembly Boundaries, CC BY 4.0: public/geo/kitui-wards.topo.json",
-    "open_admin_id": "open-admin-data, Kenya Administrative Divisions, CC BY 4.0, commit 60f507697da89f5c0580a177f15d21f14b679aac"
+    "open_admin_id": "open-admin-data, Kenya Administrative Divisions, CC BY 4.0, commit 60f507697da89f5c0580a177f15d21f14b679aac",
+    "knbs_subcounty": "KNBS 2019 census sub-counties: polygons from keAdminBounds (US Census Bureau, codes = KNBS), commit b5858bc4dcd50d73cc504e7d8c14c5803b6e7200"
   },
   "constituency_aliases": [
     {
@@ -14,7 +15,7 @@
       "note": "Pre-2013 name of Mwingi Central."
     }
   ],
-  "knbs_subcounty_status": "[DATA NEEDED] KNBS 2019 census sub-counties are not IEBC constituencies, and no sub-county polygons or ward-to-sub-county list is in the repo. Filled by spatial overlay in WP3, never forced onto constituencies.",
+  "knbs_subcounty_method": "Area overlay of public/geo/kitui-wards.topo.json on the KNBS sub-county polygons (Kenya_adm2_uscb_2020.geojson) in EPSG:6933. Slivers under 1% dropped. A ward is split when no sub-county holds 80% of its area (assumptions.yaml census.ward_majority). knbs_subcounty is the sub-county holding the largest share; knbs_shares keeps every share. KNBS census sub-counties are not IEBC constituencies and are never summed into them.",
   "wards": [
     {
       "slug": "ngomeni",
@@ -24,7 +25,21 @@
       "wardcode": "331",
       "open_admin_id": "KE015067_ngomeni",
       "open_admin_name": "Ngomeni",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "KYUSO",
+      "knbs_code": "1506",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "KYUSO",
+          "code": "1506",
+          "share": 0.979
+        },
+        {
+          "subcounty": "MWINGI EAST",
+          "code": "1515",
+          "share": 0.021
+        }
+      ],
       "aliases": []
     },
     {
@@ -35,7 +50,26 @@
       "wardcode": "332",
       "open_admin_id": "KE015067_kyuso",
       "open_admin_name": "Kyuso",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "KYUSO",
+      "knbs_code": "1506",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "KYUSO",
+          "code": "1506",
+          "share": 0.938
+        },
+        {
+          "subcounty": "MUMONI",
+          "code": "1510",
+          "share": 0.041
+        },
+        {
+          "subcounty": "MWINGI CENTRAL",
+          "code": "1514",
+          "share": 0.022
+        }
+      ],
       "aliases": []
     },
     {
@@ -46,7 +80,16 @@
       "wardcode": "333",
       "open_admin_id": "KE015067_mumoni",
       "open_admin_name": "Mumoni",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MUMONI",
+      "knbs_code": "1510",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "MUMONI",
+          "code": "1510",
+          "share": 1
+        }
+      ],
       "aliases": [
         {
           "spelling": "Muumoni",
@@ -63,7 +106,26 @@
       "wardcode": "334",
       "open_admin_id": "KE015067_tseikuru",
       "open_admin_name": "Tseikuru",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "TSEIKURU",
+      "knbs_code": "1518",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "TSEIKURU",
+          "code": "1518",
+          "share": 0.976
+        },
+        {
+          "subcounty": "KYUSO",
+          "code": "1506",
+          "share": 0.014
+        },
+        {
+          "subcounty": "THAGICU",
+          "code": "1517",
+          "share": 0.01
+        }
+      ],
       "aliases": []
     },
     {
@@ -74,7 +136,21 @@
       "wardcode": "335",
       "open_admin_id": "KE015067_tharaka",
       "open_admin_name": "Tharaka",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "THAGICU",
+      "knbs_code": "1517",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "THAGICU",
+          "code": "1517",
+          "share": 0.986
+        },
+        {
+          "subcounty": "MUMONI",
+          "code": "1510",
+          "share": 0.014
+        }
+      ],
       "aliases": []
     },
     {
@@ -85,7 +161,21 @@
       "wardcode": "336",
       "open_admin_id": "KE015068_kyomethaana",
       "open_admin_name": "Kyome/thaana",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MIGWANI",
+      "knbs_code": "1509",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "MIGWANI",
+          "code": "1509",
+          "share": 0.909
+        },
+        {
+          "subcounty": "MWINGI CENTRAL",
+          "code": "1514",
+          "share": 0.091
+        }
+      ],
       "aliases": []
     },
     {
@@ -96,7 +186,26 @@
       "wardcode": "337",
       "open_admin_id": "KE015068_nguutani",
       "open_admin_name": "Nguutani",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MIGWANI",
+      "knbs_code": "1509",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "MIGWANI",
+          "code": "1509",
+          "share": 0.86
+        },
+        {
+          "subcounty": "KITUI WEST",
+          "code": "1505",
+          "share": 0.097
+        },
+        {
+          "subcounty": "KITUI CENTRAL",
+          "code": "1504",
+          "share": 0.044
+        }
+      ],
       "aliases": [
         {
           "spelling": "Ngutani",
@@ -113,7 +222,21 @@
       "wardcode": "338",
       "open_admin_id": "KE015068_migwani",
       "open_admin_name": "Migwani",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MIGWANI",
+      "knbs_code": "1509",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "MIGWANI",
+          "code": "1509",
+          "share": 0.908
+        },
+        {
+          "subcounty": "MWINGI CENTRAL",
+          "code": "1514",
+          "share": 0.092
+        }
+      ],
       "aliases": []
     },
     {
@@ -124,7 +247,21 @@
       "wardcode": "339",
       "open_admin_id": "KE015068_kiomokyethani",
       "open_admin_name": "Kiomo/kyethani",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MWINGI CENTRAL",
+      "knbs_code": "1514",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "MWINGI CENTRAL",
+          "code": "1514",
+          "share": 0.966
+        },
+        {
+          "subcounty": "MIGWANI",
+          "code": "1509",
+          "share": 0.034
+        }
+      ],
       "aliases": []
     },
     {
@@ -135,7 +272,21 @@
       "wardcode": "340",
       "open_admin_id": "KE015069_central",
       "open_admin_name": "Central",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MWINGI CENTRAL",
+      "knbs_code": "1514",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "MWINGI CENTRAL",
+          "code": "1514",
+          "share": 0.954
+        },
+        {
+          "subcounty": "MIGWANI",
+          "code": "1509",
+          "share": 0.046
+        }
+      ],
       "aliases": []
     },
     {
@@ -146,7 +297,16 @@
       "wardcode": "341",
       "open_admin_id": "KE015069_kivou",
       "open_admin_name": "Kivou",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MWINGI CENTRAL",
+      "knbs_code": "1514",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "MWINGI CENTRAL",
+          "code": "1514",
+          "share": 1
+        }
+      ],
       "aliases": []
     },
     {
@@ -157,7 +317,21 @@
       "wardcode": "342",
       "open_admin_id": "KE015069_nguni",
       "open_admin_name": "Nguni",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MWINGI EAST",
+      "knbs_code": "1515",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "MWINGI EAST",
+          "code": "1515",
+          "share": 0.914
+        },
+        {
+          "subcounty": "KYUSO",
+          "code": "1506",
+          "share": 0.086
+        }
+      ],
       "aliases": []
     },
     {
@@ -168,7 +342,21 @@
       "wardcode": "343",
       "open_admin_id": "KE015069_nuu",
       "open_admin_name": "Nuu",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MWINGI EAST",
+      "knbs_code": "1515",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "MWINGI EAST",
+          "code": "1515",
+          "share": 0.945
+        },
+        {
+          "subcounty": "MUTITU",
+          "code": "1511",
+          "share": 0.055
+        }
+      ],
       "aliases": []
     },
     {
@@ -179,7 +367,31 @@
       "wardcode": "344",
       "open_admin_id": "KE015069_mui",
       "open_admin_name": "Mui",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MWINGI EAST",
+      "knbs_code": "1515",
+      "knbs_split": true,
+      "knbs_shares": [
+        {
+          "subcounty": "MWINGI EAST",
+          "code": "1515",
+          "share": 0.702
+        },
+        {
+          "subcounty": "MWINGI CENTRAL",
+          "code": "1514",
+          "share": 0.255
+        },
+        {
+          "subcounty": "KITUI CENTRAL",
+          "code": "1504",
+          "share": 0.031
+        },
+        {
+          "subcounty": "MIGWANI",
+          "code": "1509",
+          "share": 0.012
+        }
+      ],
       "aliases": []
     },
     {
@@ -190,7 +402,16 @@
       "wardcode": "345",
       "open_admin_id": "KE015069_waita",
       "open_admin_name": "Waita",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MWINGI CENTRAL",
+      "knbs_code": "1514",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "MWINGI CENTRAL",
+          "code": "1514",
+          "share": 1
+        }
+      ],
       "aliases": []
     },
     {
@@ -201,7 +422,21 @@
       "wardcode": "346",
       "open_admin_id": "KE015070_mutongoni",
       "open_admin_name": "Mutongoni",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "KITUI WEST",
+      "knbs_code": "1505",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "KITUI WEST",
+          "code": "1505",
+          "share": 0.948
+        },
+        {
+          "subcounty": "MATINYANI",
+          "code": "1508",
+          "share": 0.052
+        }
+      ],
       "aliases": [
         {
           "spelling": "Mutongoni",
@@ -218,7 +453,26 @@
       "wardcode": "347",
       "open_admin_id": "KE015070_kauwi",
       "open_admin_name": "Kauwi",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "KITUI WEST",
+      "knbs_code": "1505",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "KITUI WEST",
+          "code": "1505",
+          "share": 0.856
+        },
+        {
+          "subcounty": "LOWER YATTA",
+          "code": "1507",
+          "share": 0.072
+        },
+        {
+          "subcounty": "MATINYANI",
+          "code": "1508",
+          "share": 0.071
+        }
+      ],
       "aliases": []
     },
     {
@@ -229,7 +483,21 @@
       "wardcode": "348",
       "open_admin_id": "KE015070_matinyani",
       "open_admin_name": "Matinyani",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MATINYANI",
+      "knbs_code": "1508",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "MATINYANI",
+          "code": "1508",
+          "share": 0.934
+        },
+        {
+          "subcounty": "KITUI CENTRAL",
+          "code": "1504",
+          "share": 0.066
+        }
+      ],
       "aliases": []
     },
     {
@@ -240,7 +508,31 @@
       "wardcode": "349",
       "open_admin_id": "KE015070_kwamutongakithumula",
       "open_admin_name": "Kwamutonga/kithumula",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MATINYANI",
+      "knbs_code": "1508",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "MATINYANI",
+          "code": "1508",
+          "share": 0.914
+        },
+        {
+          "subcounty": "LOWER YATTA",
+          "code": "1507",
+          "share": 0.038
+        },
+        {
+          "subcounty": "KITUI WEST",
+          "code": "1505",
+          "share": 0.028
+        },
+        {
+          "subcounty": "KITUI CENTRAL",
+          "code": "1504",
+          "share": 0.02
+        }
+      ],
       "aliases": [
         {
           "spelling": "Kwamutonga/kithumula",
@@ -257,7 +549,26 @@
       "wardcode": "350",
       "open_admin_id": "KE015071_kisasi",
       "open_admin_name": "Kisasi",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "KISASI",
+      "knbs_code": "1503",
+      "knbs_split": true,
+      "knbs_shares": [
+        {
+          "subcounty": "KISASI",
+          "code": "1503",
+          "share": 0.651
+        },
+        {
+          "subcounty": "KATULANI",
+          "code": "1502",
+          "share": 0.316
+        },
+        {
+          "subcounty": "MUTOMO",
+          "code": "1513",
+          "share": 0.033
+        }
+      ],
       "aliases": []
     },
     {
@@ -268,7 +579,31 @@
       "wardcode": "351",
       "open_admin_id": "KE015071_mbitini",
       "open_admin_name": "Mbitini",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "KISASI",
+      "knbs_code": "1503",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "KISASI",
+          "code": "1503",
+          "share": 0.939
+        },
+        {
+          "subcounty": "NZAMBANI",
+          "code": "1516",
+          "share": 0.029
+        },
+        {
+          "subcounty": "MUTOMO",
+          "code": "1513",
+          "share": 0.016
+        },
+        {
+          "subcounty": "KATULANI",
+          "code": "1502",
+          "share": 0.016
+        }
+      ],
       "aliases": []
     },
     {
@@ -279,7 +614,16 @@
       "wardcode": "352",
       "open_admin_id": "KE015071_kwavonzayatta",
       "open_admin_name": "Kwavonza/yatta",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "LOWER YATTA",
+      "knbs_code": "1507",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "LOWER YATTA",
+          "code": "1507",
+          "share": 1
+        }
+      ],
       "aliases": [
         {
           "spelling": "Kwavonza/yatta",
@@ -296,7 +640,21 @@
       "wardcode": "353",
       "open_admin_id": "KE015071_kanyangi",
       "open_admin_name": "Kanyangi",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "LOWER YATTA",
+      "knbs_code": "1507",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "LOWER YATTA",
+          "code": "1507",
+          "share": 0.943
+        },
+        {
+          "subcounty": "IKUTHA",
+          "code": "1501",
+          "share": 0.057
+        }
+      ],
       "aliases": []
     },
     {
@@ -307,7 +665,31 @@
       "wardcode": "354",
       "open_admin_id": "KE015072_miambani",
       "open_admin_name": "Miambani",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "KITUI CENTRAL",
+      "knbs_code": "1504",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "KITUI CENTRAL",
+          "code": "1504",
+          "share": 0.849
+        },
+        {
+          "subcounty": "KITUI WEST",
+          "code": "1505",
+          "share": 0.116
+        },
+        {
+          "subcounty": "MATINYANI",
+          "code": "1508",
+          "share": 0.021
+        },
+        {
+          "subcounty": "NZAMBANI",
+          "code": "1516",
+          "share": 0.014
+        }
+      ],
       "aliases": []
     },
     {
@@ -318,7 +700,26 @@
       "wardcode": "355",
       "open_admin_id": "KE015072_township",
       "open_admin_name": "Township",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "KITUI CENTRAL",
+      "knbs_code": "1504",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "KITUI CENTRAL",
+          "code": "1504",
+          "share": 0.929
+        },
+        {
+          "subcounty": "NZAMBANI",
+          "code": "1516",
+          "share": 0.047
+        },
+        {
+          "subcounty": "KATULANI",
+          "code": "1502",
+          "share": 0.024
+        }
+      ],
       "aliases": []
     },
     {
@@ -329,7 +730,26 @@
       "wardcode": "356",
       "open_admin_id": "KE015072_kyangwithya-west",
       "open_admin_name": "Kyangwithya west",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "KITUI CENTRAL",
+      "knbs_code": "1504",
+      "knbs_split": true,
+      "knbs_shares": [
+        {
+          "subcounty": "KITUI CENTRAL",
+          "code": "1504",
+          "share": 0.566
+        },
+        {
+          "subcounty": "KATULANI",
+          "code": "1502",
+          "share": 0.415
+        },
+        {
+          "subcounty": "LOWER YATTA",
+          "code": "1507",
+          "share": 0.019
+        }
+      ],
       "aliases": []
     },
     {
@@ -340,7 +760,21 @@
       "wardcode": "357",
       "open_admin_id": "KE015072_mulango",
       "open_admin_name": "Mulango",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "KATULANI",
+      "knbs_code": "1502",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "KATULANI",
+          "code": "1502",
+          "share": 0.977
+        },
+        {
+          "subcounty": "KISASI",
+          "code": "1503",
+          "share": 0.023
+        }
+      ],
       "aliases": []
     },
     {
@@ -351,7 +785,26 @@
       "wardcode": "358",
       "open_admin_id": "KE015072_kyangwithya-east",
       "open_admin_name": "Kyangwithya east",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "KITUI CENTRAL",
+      "knbs_code": "1504",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "KITUI CENTRAL",
+          "code": "1504",
+          "share": 0.915
+        },
+        {
+          "subcounty": "MATINYANI",
+          "code": "1508",
+          "share": 0.045
+        },
+        {
+          "subcounty": "NZAMBANI",
+          "code": "1516",
+          "share": 0.041
+        }
+      ],
       "aliases": []
     },
     {
@@ -362,7 +815,31 @@
       "wardcode": "359",
       "open_admin_id": "KE015073_zombemwitika",
       "open_admin_name": "Zombe/mwitika",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MUTITU",
+      "knbs_code": "1511",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "MUTITU",
+          "code": "1511",
+          "share": 0.943
+        },
+        {
+          "subcounty": "MUTITU NORTH",
+          "code": "1512",
+          "share": 0.032
+        },
+        {
+          "subcounty": "NZAMBANI",
+          "code": "1516",
+          "share": 0.013
+        },
+        {
+          "subcounty": "KITUI CENTRAL",
+          "code": "1504",
+          "share": 0.012
+        }
+      ],
       "aliases": []
     },
     {
@@ -373,7 +850,26 @@
       "wardcode": "361",
       "open_admin_id": "KE015073_nzambani",
       "open_admin_name": "Nzambani",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "NZAMBANI",
+      "knbs_code": "1516",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "NZAMBANI",
+          "code": "1516",
+          "share": 0.885
+        },
+        {
+          "subcounty": "KATULANI",
+          "code": "1502",
+          "share": 0.086
+        },
+        {
+          "subcounty": "KISASI",
+          "code": "1503",
+          "share": 0.029
+        }
+      ],
       "aliases": []
     },
     {
@@ -384,7 +880,26 @@
       "wardcode": "360",
       "open_admin_id": "KE015073_chuluni",
       "open_admin_name": "Chuluni",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "NZAMBANI",
+      "knbs_code": "1516",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "NZAMBANI",
+          "code": "1516",
+          "share": 0.818
+        },
+        {
+          "subcounty": "KITUI CENTRAL",
+          "code": "1504",
+          "share": 0.17
+        },
+        {
+          "subcounty": "KISASI",
+          "code": "1503",
+          "share": 0.012
+        }
+      ],
       "aliases": []
     },
     {
@@ -395,7 +910,21 @@
       "wardcode": "362",
       "open_admin_id": "KE015073_vookyamatu",
       "open_admin_name": "Voo/kyamatu",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MUTITU",
+      "knbs_code": "1511",
+      "knbs_split": true,
+      "knbs_shares": [
+        {
+          "subcounty": "MUTITU",
+          "code": "1511",
+          "share": 0.601
+        },
+        {
+          "subcounty": "MUTOMO",
+          "code": "1513",
+          "share": 0.399
+        }
+      ],
       "aliases": []
     },
     {
@@ -406,7 +935,16 @@
       "wardcode": "363",
       "open_admin_id": "KE015073_endaumalalani",
       "open_admin_name": "Endau/malalani",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MUTITU",
+      "knbs_code": "1511",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "MUTITU",
+          "code": "1511",
+          "share": 1
+        }
+      ],
       "aliases": []
     },
     {
@@ -417,7 +955,26 @@
       "wardcode": "364",
       "open_admin_id": "KE015073_mutitukaliku",
       "open_admin_name": "Mutitu/kaliku",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MUTITU NORTH",
+      "knbs_code": "1512",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "MUTITU NORTH",
+          "code": "1512",
+          "share": 0.918
+        },
+        {
+          "subcounty": "KITUI CENTRAL",
+          "code": "1504",
+          "share": 0.057
+        },
+        {
+          "subcounty": "MWINGI EAST",
+          "code": "1515",
+          "share": 0.025
+        }
+      ],
       "aliases": [
         {
           "spelling": "Mutitu/kaliku",
@@ -434,7 +991,26 @@
       "wardcode": "365",
       "open_admin_id": "KE015074_ikangakyatune",
       "open_admin_name": "Ikanga/kyatune",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MUTOMO",
+      "knbs_code": "1513",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "MUTOMO",
+          "code": "1513",
+          "share": 0.961
+        },
+        {
+          "subcounty": "LOWER YATTA",
+          "code": "1507",
+          "share": 0.028
+        },
+        {
+          "subcounty": "KATULANI",
+          "code": "1502",
+          "share": 0.011
+        }
+      ],
       "aliases": []
     },
     {
@@ -445,7 +1021,21 @@
       "wardcode": "366",
       "open_admin_id": "KE015074_mutomo",
       "open_admin_name": "Mutomo",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MUTOMO",
+      "knbs_code": "1513",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "MUTOMO",
+          "code": "1513",
+          "share": 0.979
+        },
+        {
+          "subcounty": "IKUTHA",
+          "code": "1501",
+          "share": 0.021
+        }
+      ],
       "aliases": [
         {
           "spelling": "Mutomo/Kibwea",
@@ -463,7 +1053,21 @@
       "wardcode": "367",
       "open_admin_id": "KE015074_mutha",
       "open_admin_name": "Mutha",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "MUTOMO",
+      "knbs_code": "1513",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "MUTOMO",
+          "code": "1513",
+          "share": 0.952
+        },
+        {
+          "subcounty": "MUTITU",
+          "code": "1511",
+          "share": 0.048
+        }
+      ],
       "aliases": []
     },
     {
@@ -474,7 +1078,21 @@
       "wardcode": "368",
       "open_admin_id": "KE015074_ikutha",
       "open_admin_name": "Ikutha",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "IKUTHA",
+      "knbs_code": "1501",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "IKUTHA",
+          "code": "1501",
+          "share": 0.968
+        },
+        {
+          "subcounty": "MUTOMO",
+          "code": "1513",
+          "share": 0.032
+        }
+      ],
       "aliases": []
     },
     {
@@ -485,7 +1103,21 @@
       "wardcode": "369",
       "open_admin_id": "KE015074_kanziko",
       "open_admin_name": "Kanziko",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "IKUTHA",
+      "knbs_code": "1501",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "IKUTHA",
+          "code": "1501",
+          "share": 0.884
+        },
+        {
+          "subcounty": "MUTOMO",
+          "code": "1513",
+          "share": 0.116
+        }
+      ],
       "aliases": [
         {
           "spelling": "Kanziku/Simisi",
@@ -503,7 +1135,16 @@
       "wardcode": "370",
       "open_admin_id": "KE015074_athi",
       "open_admin_name": "Athi",
-      "knbs_subcounty": null,
+      "knbs_subcounty": "IKUTHA",
+      "knbs_code": "1501",
+      "knbs_split": false,
+      "knbs_shares": [
+        {
+          "subcounty": "IKUTHA",
+          "code": "1501",
+          "share": 1
+        }
+      ],
       "aliases": []
     }
   ]
