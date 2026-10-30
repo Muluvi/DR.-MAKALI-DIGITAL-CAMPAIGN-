@@ -421,9 +421,9 @@ function buildComponents(tabId: TabId): Components {
                 return <PlatformSizingBlock />;
               }
 
-              // §2.8 candidate-asset table — assertion/evidence/application becomes
-              // claim cards (item 21), replacing the table rather than sitting alongside it.
-              if (tabId === "record" && has("asset") && has("evidence") && has("digital application")) {
+              // §6.1 candidate-asset table — assertion/evidence/use becomes claim cards (item 21),
+              // replacing the table rather than sitting alongside it.
+              if (tabId === "record" && has("asset") && has("evidence") && has("how we would use it")) {
                 return <ClaimCards>{children}</ClaimCards>;
               }
 

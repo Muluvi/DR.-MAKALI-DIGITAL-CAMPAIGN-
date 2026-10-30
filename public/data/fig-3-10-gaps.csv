@@ -1,6 +1,4 @@
 Gap,Closing document,Holder,Status,Where,Basis
-Historical 2013 Gubernatorial Ward-by-Ward Certified Returns,Not published,IEBC,Open,Section 3.10,Sourced
-Historical 2017 Gubernatorial Ward-by-Ward Tallies,Not published,IEBC,Open,Section 3.10,Sourced
 census.age-bands,"KNBS 2019 Census Volume III (population by age and sex), the Kitui table",KNBS,Open,Data layer: census.age-bands,Sourced
 literacy.county,KNBS county literacy table (2019 Census or KDHS 2022 county report); the draft's 56.3% and 87.4% have no confirmed source,KNBS,Open,Data layer: literacy.county,Sourced
 electricity.national,KNBS 2019 Census Volume IV national household electricity table,KNBS,Open,Data layer: electricity.national,Sourced
