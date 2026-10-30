@@ -40,6 +40,9 @@ class Value:
     method: str
     status: str
     note: str = ""
+    # Optional keys for a row-shaped export (a ward, a project): which ward, which measure.
+    # Omitted from the JSON when unset, so chart-shaped exports are unchanged.
+    dims: dict[str, Any] | None = None
 
     def __post_init__(self) -> None:
         if self.method not in METHODS:
@@ -74,7 +77,10 @@ class Chart:
             "data_as_of": config.assumptions()["meta"]["as_of"],
             "scenario_label": self.scenario_label,
             "notes": self.notes,
-            "values": [asdict(v) for v in self.values],
+            "values": [
+                {k: val for k, val in asdict(v).items() if not (k == "dims" and val is None)}
+                for v in self.values
+            ],
         }
 
     def write(self) -> str:

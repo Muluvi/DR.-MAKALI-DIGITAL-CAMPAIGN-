@@ -38,7 +38,8 @@ const OAD_CONSTITUENCY_ALIASES = { "Mwingi East": "Mwingi Central" };
 
 /**
  * Spellings that do not join by case and spacing alone. Each names the register ward it means
- * and the source that uses it. Scorecard spellings are as printed in the county's
+ * and the source that uses it. `verify` marks an alias that rests on a reading of the place
+ * name rather than a plain spelling variant: anything joined through it is marked unconfirmed. Scorecard spellings are as printed in the county's
  * Delivering the Kitui Promise scorecard (data/scorecard/kitui-scorecard-projects.csv).
  */
 const EXPLICIT_ALIASES = [
@@ -46,8 +47,8 @@ const EXPLICIT_ALIASES = [
   { ward: "Mutito/Kaliku", spelling: "Mutitu/Kaliku", source: "open-admin-data, scorecard", note: "The register's spelling before 2026; see docs/visual-premium/GEOGRAPHY.md." },
   { ward: "Mumoni", spelling: "Muumoni", source: "scorecard", note: "Spelling variant." },
   { ward: "Nguutani", spelling: "Ngutani", source: "scorecard", note: "Spelling variant." },
-  { ward: "Kanziko", spelling: "Kanziku/Simisi", source: "scorecard", note: "Kanziku is a spelling variant of Kanziko; Simisi is not a ward. Confirm before relying on it." },
-  { ward: "Mutomo", spelling: "Mutomo/Kibwea", source: "scorecard", note: "Kibwea is not a ward. Confirm before relying on it." },
+  { ward: "Kanziko", spelling: "Kanziku/Simisi", source: "scorecard", note: "Kanziku is a spelling variant of Kanziko; Simisi is not a ward. Confirm before relying on it.", verify: true },
+  { ward: "Mutomo", spelling: "Mutomo/Kibwea", source: "scorecard", note: "Kibwea is not a ward. Confirm before relying on it.", verify: true },
 ];
 
 const slugOf = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -107,7 +108,7 @@ for (const c of register.constituencies) {
       addAlias({ spelling: record.name.en, source: "open-admin-data", note: explicit?.note ?? "Spacing only." });
     }
     for (const a of EXPLICIT_ALIASES.filter((a) => a.ward === w.name)) {
-      addAlias({ spelling: a.spelling, source: a.source, note: a.note });
+      addAlias({ spelling: a.spelling, source: a.source, note: a.note, ...(a.verify ? { verify: true } : {}) });
     }
     if (w.name === "Kwa Vonza/Yatta") {
       addAlias({ spelling: "Kwavonza/Yatta", source: "benaboki boundary file", note: "Spacing only. Joined in the polygon build; see docs/visual-premium/GEOGRAPHY.md." });

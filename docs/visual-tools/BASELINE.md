@@ -20,6 +20,8 @@ The main route's First Load JS (477 kB) is the reference figure.
 | Work package | Route | First Load JS | Delta against baseline |
 |---|---|---:|---:|
 | V0 baseline | `/[[...slug]]` | 477 kB | — |
+| V1.3 Projects register (open-data WP6) | `/[[...slug]]` | 476 kB | −1 kB (rounding; the register's data is not imported here) |
+| V1.3 Projects register (open-data WP6) | `/tools/service-delivery` (new) | 137 kB | New route: 26.1 kB of its own, most of it the 401-project export |
 
 ## Section coverage, `node scripts/visual-coverage.mjs`
 

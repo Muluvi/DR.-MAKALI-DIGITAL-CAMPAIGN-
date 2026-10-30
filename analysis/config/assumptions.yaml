@@ -582,3 +582,30 @@ site_export:
     rationale: >-
       Nothing is copied into the site until reports/site_mapping.md is approved. The
       pipeline never edits the site's files on its own.
+
+# ---------------------------------------------------------------------------------------
+# 10. County projects by ward (Stage 14, open-data brief WP6)
+# ---------------------------------------------------------------------------------------
+projects:
+  scorecard:
+    value: S70
+    source_id: S70
+    tier: 1
+    as_of: "2025-08"
+    status: CONFIRMED
+    rationale: >-
+      County Government of Kitui, Delivering the Kitui Promise: Three-Year Scorecard
+      (Aug 2022 – Aug 2025), the 401 itemised projects in data/scorecard/
+      kitui-scorecard-projects.csv. Tier 1 as a record of what the county claims, not
+      evidence that the claims are true (content/annex-evidence.md). S70 is the next ID after
+      S69; confirm it is free in the data pack (docs/open-data/REGISTER.md).
+  ward_match:
+    value: unique-within-constituency
+    status: CONFIRMED
+    rationale: >-
+      A project lands on a ward only when its printed ward text resolves to exactly one ward
+      in the constituency the row is filed under, by spelling or by an alias in
+      data/geo/ward-keys.json. Text naming several wards is listed against each but its cost
+      is not split; text naming a ward in another constituency is a conflict; anything else
+      stays at constituency or county level. No ward is guessed (brief WP6). This is a rule,
+      not a number, so nothing in it is a placeholder.
