@@ -27,7 +27,7 @@ One file and route per chapter; Chapter 15 keeps its four routes. Retired routes
 | C13 | `content/decision.md:34` §1.1 | 23.1 | Reworded |  |
 | C14 | `content/decision.md:49` §1.1 | 23 | Reworded | Plain heading. |
 | C15 | `content/decision.md:51` §1.1 | 23 | Moved | 'Outstanding' cut (no number behind it); the audit sentence cross-refers to 3.7. Wording kept; cross-references renumbered. |
-| C16 | `content/decision.md:58` §1.1 | 23 | Moved | Wording kept; cross-references renumbered. |
+| C16 | `content/decision.md:58` §1.1 | 23 | Reworded |  |
 | C17 | `content/decision.md:63` §1.1 | 23 | Moved | Wording kept; cross-references renumbered. |
 | C18 | `content/decision.md:72` §1.1 | 9.1 | C18 + C267 → merged | The premise is the position; stated once in 9.1. |
 | C19 | `content/decision.md:76` §1.1 | 23 | C19 + C10 → merged |  |
@@ -1073,9 +1073,9 @@ One file and route per chapter; Chapter 15 keeps its four routes. Retired routes
 
 | Treatment | Units |
 |---|---:|
-| Reworded | 393 |
+| Reworded | 394 |
 | Retained | 324 |
-| Moved | 173 |
+| Moved | 172 |
 | Merged | 125 |
 | Corrected | 19 |
 | Replaced by visual | 2 |

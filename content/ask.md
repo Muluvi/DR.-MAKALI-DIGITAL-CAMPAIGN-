@@ -13,7 +13,7 @@ delivered what it promised. Unconfirmed balances, pending bills and low developm
 Auditor-General and the Controller of Budget report for the county (Section 3.7), and that qualification is currently the campaign's most under-used
 asset.
 
-**But the timeline is not the one the planning cycle assumes.** <window-chip></window-chip> Half the register, {{pool.share}}%, lives in the four
+**But the timeline is not the one the planning cycle assumes.** <window-chip></window-chip> Just over half the register, {{pool.share}}%, lives in the four
 constituencies where he has never held office. The working hypothesis is that the gap there is one
 of recognition rather than credibility (Section 7.1). If Week 1 confirms it, it is the kind of gap
 that closes fastest through disciplined reach into Mwingi and the arid south.

@@ -12,7 +12,7 @@ unchanged. To diff against the text before this pass: `CONTENT_BASE=04fc4ea`.
 | | |
 |---|---|
 | **Structure** | Cover; In brief (new, 147 words); Parts I–VI with Chapters 1–23; Annexes A–H. One route per chapter (36 routes); Chapter 15 keeps its four workstream routes |
-| **Map** | `docs/restructure-2026-11/reorganisation-map.md`: all 1,036 inventory units, computed from the content by `render_final.py`. Retained 324, Moved 173, Reworded 393, Merged 125, Corrected 19, Replaced by visual 2. Discrepancy 0 |
+| **Map** | `docs/restructure-2026-11/reorganisation-map.md`: all 1,036 inventory units, computed from the content by `render_final.py`. Retained 324, Moved 172, Reworded 394, Merged 125, Corrected 19, Replaced by visual 2. Discrepancy 0 |
 | **Routes** | Ten retired routes redirect (307) to the route holding most of their text (`next.config.ts`); the October five now point straight at their final home |
 | **Anchors** | `lib/anchors/restructure-2026-11.json` maps 176 old heading ids onto live ones; `lib/anchors/redirects.ts` holds 1,704 redirects, 0 orphans, for 142 live headings |
 | **Figures** | New sourced, modelled and needed figures in `lib/data/figures.ts` (census detail, living standards, the 2022 presidential result, pending bills, absorption, water, food share, telecom totals; eight needed figures with the record that would close each). 536 figures |
