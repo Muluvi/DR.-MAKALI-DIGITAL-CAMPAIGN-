@@ -335,7 +335,7 @@ type FigureEntry = { render: () => React.ReactNode; note: string };
 
 export const FIGURES: Record<string, FigureEntry> = {
   "reach-split": {
-    note: "§6.3 — the register split by connectivity, and the digital ceiling.",
+    note: "§4.3 — the register split by connectivity, and the digital ceiling.",
     render: () => (
       <FigureFrame series={REACH_SPLIT}>
         <ShareBar series={REACH_SPLIT} />
@@ -351,7 +351,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "platform-sizing": {
-    note: "§4.1 — five platforms, each as a range, against the register.",
+    note: "§4.3 — five platforms, each as a range, against the register.",
     render: () => (
       <FigureFrame series={PLATFORM_SIZING}>
         <RangeBars series={PLATFORM_SIZING} />
@@ -369,7 +369,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "effort-rebalance": {
-    note: "§3.6.3 [CHECK REF] — the traditional pitch against the rebalanced weighting.",
+    note: "§12.1 — the traditional pitch against the rebalanced weighting.",
     render: () => (
       <FigureFrame series={REBALANCE_SERIES}>
         <SlopeChart
@@ -394,7 +394,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "audience-segments": {
-    note: "§15 — six segments, their size, tier, channel and hook.",
+    note: "§11.3 — six segments, their size, tier, channel and hook.",
     render: () => (
       <FigureFrame series={SEGMENTS_SERIES}>
         <SpecTable
@@ -417,7 +417,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "provenance-mandate": {
-    note: "§2.4 — the three things every figure has to carry.",
+    note: "§A.1.1 — the three things every figure has to carry.",
     render: () => (
       <FigureFrame series={MANDATE_SERIES}>
         <SpecTable
@@ -453,7 +453,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "message-by-segment": {
-    note: "§C.1 — six segments, their message and the evidence behind it.",
+    note: "§10.4 — six segments, their message and the evidence behind it.",
     render: () => (
       <FigureFrame series={SEGMENT_MESSAGE_SERIES}>
         <SpecTable
@@ -466,7 +466,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "message-by-channel": {
-    note: "§C.2 — five channels, their register and their proof points.",
+    note: "§10.4 — five channels, their register and their proof points.",
     render: () => (
       <FigureFrame series={CHANNEL_MESSAGE_SERIES}>
         <SpecTable
@@ -479,7 +479,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "escalation-ladder": {
-    note: "§D.2 — three escalation levels and who decides at each.",
+    note: "§13.5 — three escalation levels and who decides at each.",
     render: () => (
       <FigureFrame series={ESCALATION_SERIES}>
         <Stepper stages={ESCALATION_LADDER} />
@@ -488,7 +488,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "response-matrix": {
-    note: "§E.1 — four threat severities, their protocol and SLA.",
+    note: "§F.1 — four threat severities, their protocol and SLA.",
     render: () => (
       <FigureFrame series={MATRIX_SERIES}>
         <SpecTable
@@ -502,7 +502,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "response-sla": {
-    note: "§E.2 — mandatory response time per channel.",
+    note: "§F.2 — mandatory response time per channel.",
     render: () => (
       <FigureFrame series={SLA_SERIES}>
         <SpecTable
@@ -516,7 +516,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "holding-positions": {
-    note: "§E.3 — four attack lines with their pre-drafted answers and sources.",
+    note: "§F.3 — four attack lines with their pre-drafted answers and sources.",
     render: () => (
       <FigureFrame series={HOLDING_SERIES}>
         <ol className="not-prose m-0 list-none space-y-2 p-0">
@@ -549,7 +549,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "rapid-response-flow": {
-    note: "§13.1 [CHECK REF] — monitoring feeds through the decision tree and the legal gateway to the response channels.",
+    note: "§20.2 — monitoring feeds through the decision tree and the legal gateway to the response channels.",
     render: () => <RapidResponseFlowDiagram />,
   },
 
@@ -594,7 +594,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "org-chart": {
-    note: "§17 — the lean core and the specialists each lead directs.",
+    note: "§17.1 — the lean core and the specialists each lead directs.",
     render: () => (
       <FigureFrame series={ORG_SERIES}>
         <Hierarchy chain={ORG_CHAIN} branches={ORG_BRANCHES} />
@@ -652,12 +652,12 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "kpi-architecture": {
-    note: "§18.1 — the two stages of targets, anchored to the vote threshold.",
+    note: "§18.2 — the two stages of targets, anchored to the vote threshold.",
     render: () => <KpiArchitecture />,
   },
 
   "research-and-tracker": {
-    note: "§18.3 — the research programme and the service-delivery tracker.",
+    note: "§18.5 — the research programme and the service-delivery tracker.",
     render: () => (
       <FigureFrame series={RESEARCH_SPLIT}>
         <TierGrid
@@ -708,7 +708,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "format-specs": {
-    note: "§15.1.2 — five channels, their technical specification and creative treatment.",
+    note: "§C.2 — five channels, their technical specification and creative treatment.",
     render: () => (
       <FigureFrame series={FORMAT_SERIES}>
         <SpecTable
@@ -721,7 +721,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "ussd-menu": {
-    note: "§15.1.2 — the USSD menu tree, with the shortcode still unprovisioned.",
+    note: "§15.3.3 — the USSD menu tree, with the shortcode still unprovisioned.",
     render: () => (
       <FigureFrame series={USSD_SERIES}>
         <Tree root={USSD_MENU.root} nodes={USSD_MENU.nodes} />
@@ -835,7 +835,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "dpa-compliance": {
-    note: "§15.4.1 — six sections of the Data Protection Act 2019, and what each obliges.",
+    note: "§19.2 — six sections of the Data Protection Act 2019, and what each obliges.",
     render: () => (
       <FigureFrame series={DPA_SERIES}>
         <PairedRows
@@ -848,7 +848,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "tech-stack": {
-    note: "§15.4.3 — the four tiers of the campaign technology stack.",
+    note: "§E.1 — the four tiers of the campaign technology stack.",
     render: () => (
       <FigureFrame series={STACK_SERIES}>
         <TierGrid
@@ -860,7 +860,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "procurement-matrix": {
-    note: "§15.4.3 — five components, their DPA risk level, and their decision status.",
+    note: "§E.1 — five components, their DPA risk level, and their decision status.",
     render: () => (
       <FigureFrame series={PROCUREMENT_SERIES}>
         <SpecTable
@@ -924,7 +924,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "message-house": {
-    note: "§7.1 [CHECK REF] — the central claim in three languages over its three pillars.",
+    note: "§10.1 — the central claim in three languages over its three pillars.",
     render: () => (
       <FigureFrame series={MESSAGE_HOUSE}>
         <MessageHouse claim={CENTRAL_CLAIM} evidence={CLAIM_EVIDENCE} pillars={MESSAGE_PILLARS} />
@@ -986,7 +986,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "radio-gatekeepers": {
-    note: "§1.2 — the four stations the diagram called hostile, and what the ownership map says.",
+    note: "§4.2 — the four stations the diagram called hostile, and what the ownership map says.",
     render: () => (
       <FigureFrame series={GATEKEEPER_SERIES}>
         <p className="mb-2 t-micro font-bold uppercase tracking-wide text-muted">
@@ -1027,7 +1027,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "register-map": {
-    note: "§6.2 — the whole register, grouped by constituency.",
+    note: "§2.4 — the whole register, grouped by constituency.",
     render: () => (
       <FigureFrame series={REGISTER_SERIES}>
         <RegisterGroups
@@ -1040,7 +1040,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "constituency-power": {
-    note: "§3.4.4 [CHECK REF] — the eight constituencies, ranked, with the Big 4 bracket.",
+    note: "§2.4 — the eight constituencies, ranked, with the Big 4 bracket.",
     render: () => (
       <FigureFrame series={CONSTITUENCY_SERIES}>
         <BarList
@@ -1058,7 +1058,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "threshold-build-up": {
-    note: "§3.4.1 [CHECK REF] — register → ballots → the votes that win.",
+    note: "§2.5 — register → ballots → the votes that win.",
     render: () => (
       <FigureFrame series={THRESHOLD_SERIES}>
         <BuildUp
@@ -1070,7 +1070,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "register-growth": {
-    note: "§3.4.1 [CHECK REF] — the 2026 register and the like-for-like threshold on it.",
+    note: "§2.1 — the 2026 register and the like-for-like threshold on it.",
     render: () => (
       <FigureFrame series={REGISTER_GROWTH_SERIES}>
         <BuildUp series={REGISTER_GROWTH_SERIES} />
@@ -1079,7 +1079,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "ward-ranking": {
-    note: "§3.4.2 [CHECK REF] — the forty wards, ranked, with the concentration brackets.",
+    note: "§2.3 — the forty wards, ranked, with the concentration brackets.",
     render: () => (
       <FigureFrame series={WARD_RANKING_SERIES}>
         <BarList
@@ -1097,7 +1097,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "paths-to-threshold": {
-    note: "§3.4.3 [CHECK REF] — the four coalition routes, on the register and on ballots.",
+    note: "§2.5 — the four coalition routes, on the register and on ballots.",
     render: () => (
       <FigureFrame series={PATHS_SERIES}>
         <BuildUp

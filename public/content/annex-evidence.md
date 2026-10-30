@@ -168,7 +168,7 @@ Every figure in the store, 536 in all: 353 read off a named document, 113 modell
 | `benchmark.2026-equivalent` | 225,115 | Tier 1 | The 2022 winner's share of the register applied to the July 2026 register. A ratio carried forward, not a forecast. |
 | `benchmark.2026-equivalent.rounded` | 225,000 | Tier 1 | The 2026 equivalent, rounded to the nearest 5,000 for prose. |
 | `benchmark.2026-equivalent.share` | 37.2% | Tier 1 | The share carried forward: 198,004 / 532,758. |
-| `turnout.rate` | 0.617% | Tier 1 | The turnout rate as a multiplier, for the working shown in Section 2.4. |
+| `turnout.rate` | 0.617% | Tier 1 | The turnout rate as a multiplier, for the working shown in Section 2.5. |
 | `ballots.2022` | 328,712 | Tier 1 | 2022 register × the turnout rate (the certified 2022 rate, carried forward). |
 | `ballots.2026` | 373,719 | Tier 1 | July 2026 register × the 2022 turnout rate, carried forward. |
 | `benchmark.share-of-ballots.2026` | 53.5% | Tier 1 | 200,000 / ballots at the 2022 turnout rate on the July 2026 register. |
@@ -258,7 +258,7 @@ Every figure in the store, 536 in all: 353 read off a named document, 113 modell
 <!-- keep -->
 | Target | Value | Whose, and what it commits to |
 |---|---|---|
-| `benchmark` | 200,000 | The single working benchmark: the 2022 winning tally, 198,004, rounded. Stated once in Section 2.1 and reused everywhere (consistency fix 3). |
+| `benchmark` | 200,000 | The single working benchmark: the 2022 winning tally, 198,004, rounded. Stated once in Section 2.5 and reused everywhere (consistency fix 3). |
 | `turnout.constant` | 61.7% | The turnout rate used in every calculation: the certified 2022 county rate carried forward to 2027. An assumption about 2027, not a measurement of it; the scenario model brackets it at 55–72%. |
 | `policy.ndengu-floor` | KSh 85 | A proposed floor price for ndengu, per kilogram: a campaign policy proposal, not yet sized. |
 | `target.sms.phase-1` | 15,000 | Consented SMS contacts by the end of Phase −1. |
@@ -288,7 +288,7 @@ Every figure in the store, 536 in all: 353 read off a named document, 113 modell
 | `target.contact-universe.standard` | 150,000 | Realistic Phase 3 contact universe at Level 2. |
 | `target.contact-universe.premium` | 250,000 | Realistic Phase 3 contact universe at Level 3. |
 | `target.content.first` | 100 | Pieces of content approved and scheduled in Phase 0. |
-| `target.captains` | 400 | Ward captains, 10 per ward: a campaign-owned recommendation (Section 1.4.3). |
+| `target.captains` | 400 | Ward captains, 10 per ward: a campaign-owned recommendation (Section 13.3). |
 | `target.captains.pool` | 240 | Of the 400 captains, those recommended for the pool's wards: campaign-owned. |
 | `target.ambassadors` | 800 | M-Pesa 'Economic Ambassadors': a campaign-owned recommendation. |
 | `target.stage-champions` | 1,200 | Boda-boda Stage Champions, 30 per ward: a campaign-owned recommendation. |

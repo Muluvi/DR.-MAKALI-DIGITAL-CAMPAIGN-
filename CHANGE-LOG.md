@@ -1,3 +1,31 @@
+# Change log — the November restructure: six Parts, 23 chapters, eight annexes (30 October 2026)
+
+**Content baseline moves to `a767371`.** The restructure renumbered every section, so the
+section-keyed word balance in `scripts/declutter/check-content.mjs` cannot compare across it. The
+pass is checked instead by `scripts/restructure-2026-11/check-preservation.mjs`, which runs inside
+`npm run check:content`: for each of the 430 inventory units that carry a `{{figure}}` token, an
+acronym or a proper name, every one of them (2,307 in all) must still be in the file the approved
+plan sent the unit to. `check-content.mjs` now weighs later passes from `a767371`, with its own
+empty ledger at `docs/restructure-2026-11/ledger.json`; the evidence ledger's own check is
+unchanged. To diff against the text before this pass: `CONTENT_BASE=04fc4ea`.
+
+| | |
+|---|---|
+| **Structure** | Cover; In brief (new, 147 words); Parts I–VI with Chapters 1–23; Annexes A–H. One route per chapter (36 routes); Chapter 15 keeps its four workstream routes |
+| **Map** | `docs/restructure-2026-11/reorganisation-map.md`: all 1,036 inventory units, computed from the content by `render_final.py`. Retained 324, Moved 173, Reworded 393, Merged 125, Corrected 19, Replaced by visual 2. Discrepancy 0 |
+| **Routes** | Ten retired routes redirect (307) to the route holding most of their text (`next.config.ts`); the October five now point straight at their final home |
+| **Anchors** | `lib/anchors/restructure-2026-11.json` maps 176 old heading ids onto live ones; `lib/anchors/redirects.ts` holds 1,704 redirects, 0 orphans, for 142 live headings |
+| **Figures** | New sourced, modelled and needed figures in `lib/data/figures.ts` (census detail, living standards, the 2022 presidential result, pending bills, absorption, water, food share, telecom totals; eight needed figures with the record that would close each). 536 figures |
+| **Annex A.2** | The source table is generated from the figures store by `scripts/build-source-table.ts` (run by `npm run content`; `--check` in `verify` and `prebuild`) |
+| **Guards** | `check-figures` skips the generated A.2 region; the copy guard's engagement set re-keyed to the new routes; annex letters A–H in every parser |
+| **Captions** | Figure captions in `components/figures/registry.tsx` set to each figure's host section |
+
+Rules carried over and still enforced: no opinion polls, no Firefly fee or cost figures, no remote
+framing, no credentials or past-client section. Build, `npm run verify` and the route audit (38
+routes) pass.
+
+---
+
 # Change log — the vertical flow (September 2026)
 
 **Presentation only.** No line of `public/content/*.md` changed; `verify-content-integrity` still

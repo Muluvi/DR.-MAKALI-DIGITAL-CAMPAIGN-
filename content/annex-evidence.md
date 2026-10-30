@@ -190,7 +190,7 @@ Every figure in the store, 536 in all: 353 read off a named document, 113 modell
 | `benchmark.2026-equivalent` | {{benchmark.2026-equivalent}} | Tier 1 | The 2022 winner's share of the register applied to the July 2026 register. A ratio carried forward, not a forecast. |
 | `benchmark.2026-equivalent.rounded` | {{benchmark.2026-equivalent.rounded}} | Tier 1 | The 2026 equivalent, rounded to the nearest 5,000 for prose. |
 | `benchmark.2026-equivalent.share` | {{benchmark.2026-equivalent.share}}% | Tier 1 | The share carried forward: 198,004 / 532,758. |
-| `turnout.rate` | {{turnout.rate}}% | Tier 1 | The turnout rate as a multiplier, for the working shown in Section 2.4. |
+| `turnout.rate` | {{turnout.rate}}% | Tier 1 | The turnout rate as a multiplier, for the working shown in Section 2.5. |
 | `ballots.2022` | {{ballots.2022}} | Tier 1 | 2022 register × the turnout rate (the certified 2022 rate, carried forward). |
 | `ballots.2026` | {{ballots.2026}} | Tier 1 | July 2026 register × the 2022 turnout rate, carried forward. |
 | `benchmark.share-of-ballots.2026` | {{benchmark.share-of-ballots.2026}}% | Tier 1 | 200,000 / ballots at the 2022 turnout rate on the July 2026 register. |
@@ -280,7 +280,7 @@ Every figure in the store, 536 in all: 353 read off a named document, 113 modell
 <!-- keep -->
 | Target | Value | Whose, and what it commits to |
 |---|---|---|
-| `benchmark` | {{benchmark}} | The single working benchmark: the 2022 winning tally, 198,004, rounded. Stated once in Section 2.1 and reused everywhere (consistency fix 3). |
+| `benchmark` | {{benchmark}} | The single working benchmark: the 2022 winning tally, 198,004, rounded. Stated once in Section 2.5 and reused everywhere (consistency fix 3). |
 | `turnout.constant` | {{turnout.constant}}% | The turnout rate used in every calculation: the certified 2022 county rate carried forward to 2027. An assumption about 2027, not a measurement of it; the scenario model brackets it at 55–72%. |
 | `policy.ndengu-floor` | KSh {{policy.ndengu-floor}} | A proposed floor price for ndengu, per kilogram: a campaign policy proposal, not yet sized. |
 | `target.sms.phase-1` | {{target.sms.phase-1}} | Consented SMS contacts by the end of Phase −1. |
@@ -310,7 +310,7 @@ Every figure in the store, 536 in all: 353 read off a named document, 113 modell
 | `target.contact-universe.standard` | {{target.contact-universe.standard}} | Realistic Phase 3 contact universe at Level 2. |
 | `target.contact-universe.premium` | {{target.contact-universe.premium}} | Realistic Phase 3 contact universe at Level 3. |
 | `target.content.first` | {{target.content.first}} | Pieces of content approved and scheduled in Phase 0. |
-| `target.captains` | {{target.captains}} | Ward captains, 10 per ward: a campaign-owned recommendation (Section 1.4.3). |
+| `target.captains` | {{target.captains}} | Ward captains, 10 per ward: a campaign-owned recommendation (Section 13.3). |
 | `target.captains.pool` | {{target.captains.pool}} | Of the 400 captains, those recommended for the pool's wards: campaign-owned. |
 | `target.ambassadors` | {{target.ambassadors}} | M-Pesa 'Economic Ambassadors': a campaign-owned recommendation. |
 | `target.stage-champions` | {{target.stage-champions}} | Boda-boda Stage Champions, 30 per ward: a campaign-owned recommendation. |
