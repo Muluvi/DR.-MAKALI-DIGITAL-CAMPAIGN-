@@ -295,6 +295,10 @@ sourced("ict.phone.2019.people", 452_948, "people", "T2", CENSUS);
 sourced("ict.smartphone-share", 59.7, "percent", "T2", "Communications Authority, Q3 FY2025/26 sector statistics", { note: "50.2m smartphones / 84.1m active SIMs, national." });
 sourced("ict.sim-penetration", 157.7, "percent", "T1", "Communications Authority, Q3 FY2025/26 sector statistics");
 sourced("ict.momo-penetration", 100.1, "percent", "T1", "Communications Authority, Q3 FY2025/26 sector statistics");
+sourced("ict.sims.national", 84.1e6, "count", "T1", "Communications Authority, Q3 FY2025/26 sector statistics", { decimals: 1, note: "Active SIM cards, national." });
+sourced("ict.smartphones.national", 50.2e6, "count", "T2", "Communications Authority, Q3 FY2025/26 sector statistics", { decimals: 1, note: "Smartphones, national." });
+sourced("ict.broadband.national", 62.6e6, "count", "T1", "Communications Authority, Q3 FY2025/26 sector statistics", { decimals: 1, note: "Mobile broadband subscriptions, national." });
+sourced("ict.momo.national", 53.4e6, "count", "T1", "Communications Authority, Q3 FY2025/26 sector statistics", { decimals: 1, note: "Mobile money subscriptions, national." });
 sourced("ict.agents", 602_470, "count", "T1", "Communications Authority, Q3 FY2025/26 sector statistics", { asOf: "2026-03" });
 sourced("ict.agents.2025", 480_216, "count", "T1", "Communications Authority, sector statistics", { asOf: "2025-09" });
 

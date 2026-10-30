@@ -6,8 +6,8 @@
  *             reference only", not as a promise, not as the thing a measure is "not". Firefly works
  *             from existing records and its own analysis only (the September 2026 audit). Checked
  *             in content and in the copy that components, figure specs and data modules carry.
- *   Money     no budget, spend, cost, fee or price language in the engagement sections. Part 2 (the
- *             evidence, which carries the county's money in 2.8.2 and 2.10.1) is exempt, and so are the phrases below that name the
+ *   Money     no budget, spend, cost, fee or price language in the engagement chapters. Parts I and II
+ *             (the county, which carries its money in 1.5 and 3.7, and the record in 6.1) are exempt, and so are the phrases below that name the
  *             county's money or a county policy instrument rather than the engagement's.
  *   Remote    no "remote" framing of how the work is done.
  *   ASCII     no text diagram in a code block, and no box-drawing characters, in any content file.
@@ -34,10 +34,14 @@ const POLL_OK = [
   /Polls (open|close)/g, // election-day voter information: when voting opens and closes
 ];
 
+// The engagement chapters (the November 2026 restructure). Parts I and II — the county, its money,
+// the contest and the record — carry the county's money as evidence and are exempt, as Part 2 was.
 const ENGAGEMENT = new Set([
-  "cover.md", "decision.md", "strategy.md", "delivery.md", "workstreams-platforms.md",
-  "workstreams-media.md", "workstreams-ground.md", "workstreams-data.md", "staffing.md",
-  "measurement.md", "risks.md", "annex-spec.md",
+  "cover.md", "brief.md", "goal.md", "position.md", "message.md", "voters.md", "channels.md",
+  "engagement.md", "timeline.md", "workstreams-platforms.md", "workstreams-media.md",
+  "workstreams-ground.md", "workstreams-data.md", "coalitions.md", "team.md", "success.md",
+  "lawful.md", "response.md", "receives.md", "commitments.md", "ask.md", "annex-playbooks.md",
+  "annex-volunteers.md", "annex-technology.md",
 ]);
 const MONEY = /\b(budget|budgets|spend|spending|spent|cost|costs|costed|costing|fee|fees|price|prices|pricing|fundrais\w*|donor|donors|donation|donations)\b/gi;
 /** County money and county policy instruments, not the engagement's money. */
