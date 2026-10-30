@@ -1,0 +1,508 @@
+{
+  "id": "ward-keys",
+  "description": "One row per ward: the register's spelling and slug, the boundary file's wardcode, the open-admin-data code, and every other spelling in use.",
+  "sources": {
+    "register": "IEBC, Registered Voters per County Assembly Ward (2022): data/ward-register.json",
+    "wardcode": "Omare & Omare (2017), Kenya County Assembly Boundaries, CC BY 4.0: public/geo/kitui-wards.topo.json",
+    "open_admin_id": "open-admin-data, Kenya Administrative Divisions, CC BY 4.0, commit 60f507697da89f5c0580a177f15d21f14b679aac"
+  },
+  "constituency_aliases": [
+    {
+      "spelling": "Mwingi East",
+      "constituency": "Mwingi Central",
+      "source": "open-admin-data",
+      "note": "Pre-2013 name of Mwingi Central."
+    }
+  ],
+  "knbs_subcounty_status": "[DATA NEEDED] KNBS 2019 census sub-counties are not IEBC constituencies, and no sub-county polygons or ward-to-sub-county list is in the repo. Filled by spatial overlay in WP3, never forced onto constituencies.",
+  "wards": [
+    {
+      "slug": "ngomeni",
+      "name": "Ngomeni",
+      "constituency": "Mwingi North",
+      "constituency_id": "mwingi-north",
+      "wardcode": "331",
+      "open_admin_id": "KE015067_ngomeni",
+      "open_admin_name": "Ngomeni",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "kyuso",
+      "name": "Kyuso",
+      "constituency": "Mwingi North",
+      "constituency_id": "mwingi-north",
+      "wardcode": "332",
+      "open_admin_id": "KE015067_kyuso",
+      "open_admin_name": "Kyuso",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "mumoni",
+      "name": "Mumoni",
+      "constituency": "Mwingi North",
+      "constituency_id": "mwingi-north",
+      "wardcode": "333",
+      "open_admin_id": "KE015067_mumoni",
+      "open_admin_name": "Mumoni",
+      "knbs_subcounty": null,
+      "aliases": [
+        {
+          "spelling": "Muumoni",
+          "source": "scorecard",
+          "note": "Spelling variant."
+        }
+      ]
+    },
+    {
+      "slug": "tseikuru",
+      "name": "Tseikuru",
+      "constituency": "Mwingi North",
+      "constituency_id": "mwingi-north",
+      "wardcode": "334",
+      "open_admin_id": "KE015067_tseikuru",
+      "open_admin_name": "Tseikuru",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "tharaka",
+      "name": "Tharaka",
+      "constituency": "Mwingi North",
+      "constituency_id": "mwingi-north",
+      "wardcode": "335",
+      "open_admin_id": "KE015067_tharaka",
+      "open_admin_name": "Tharaka",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "kyome-thaana",
+      "name": "Kyome/Thaana",
+      "constituency": "Mwingi West",
+      "constituency_id": "mwingi-west",
+      "wardcode": "336",
+      "open_admin_id": "KE015068_kyomethaana",
+      "open_admin_name": "Kyome/thaana",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "nguutani",
+      "name": "Nguutani",
+      "constituency": "Mwingi West",
+      "constituency_id": "mwingi-west",
+      "wardcode": "337",
+      "open_admin_id": "KE015068_nguutani",
+      "open_admin_name": "Nguutani",
+      "knbs_subcounty": null,
+      "aliases": [
+        {
+          "spelling": "Ngutani",
+          "source": "scorecard",
+          "note": "Spelling variant."
+        }
+      ]
+    },
+    {
+      "slug": "migwani",
+      "name": "Migwani",
+      "constituency": "Mwingi West",
+      "constituency_id": "mwingi-west",
+      "wardcode": "338",
+      "open_admin_id": "KE015068_migwani",
+      "open_admin_name": "Migwani",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "kiomo-kyethani",
+      "name": "Kiomo/Kyethani",
+      "constituency": "Mwingi West",
+      "constituency_id": "mwingi-west",
+      "wardcode": "339",
+      "open_admin_id": "KE015068_kiomokyethani",
+      "open_admin_name": "Kiomo/kyethani",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "central",
+      "name": "Central",
+      "constituency": "Mwingi Central",
+      "constituency_id": "mwingi-central",
+      "wardcode": "340",
+      "open_admin_id": "KE015069_central",
+      "open_admin_name": "Central",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "kivou",
+      "name": "Kivou",
+      "constituency": "Mwingi Central",
+      "constituency_id": "mwingi-central",
+      "wardcode": "341",
+      "open_admin_id": "KE015069_kivou",
+      "open_admin_name": "Kivou",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "nguni",
+      "name": "Nguni",
+      "constituency": "Mwingi Central",
+      "constituency_id": "mwingi-central",
+      "wardcode": "342",
+      "open_admin_id": "KE015069_nguni",
+      "open_admin_name": "Nguni",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "nuu",
+      "name": "Nuu",
+      "constituency": "Mwingi Central",
+      "constituency_id": "mwingi-central",
+      "wardcode": "343",
+      "open_admin_id": "KE015069_nuu",
+      "open_admin_name": "Nuu",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "mui",
+      "name": "Mui",
+      "constituency": "Mwingi Central",
+      "constituency_id": "mwingi-central",
+      "wardcode": "344",
+      "open_admin_id": "KE015069_mui",
+      "open_admin_name": "Mui",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "waita",
+      "name": "Waita",
+      "constituency": "Mwingi Central",
+      "constituency_id": "mwingi-central",
+      "wardcode": "345",
+      "open_admin_id": "KE015069_waita",
+      "open_admin_name": "Waita",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "mutonguni",
+      "name": "Mutonguni",
+      "constituency": "Kitui West",
+      "constituency_id": "kitui-west",
+      "wardcode": "346",
+      "open_admin_id": "KE015070_mutongoni",
+      "open_admin_name": "Mutongoni",
+      "knbs_subcounty": null,
+      "aliases": [
+        {
+          "spelling": "Mutongoni",
+          "source": "open-admin-data",
+          "note": "Spelling variant."
+        }
+      ]
+    },
+    {
+      "slug": "kauwi",
+      "name": "Kauwi",
+      "constituency": "Kitui West",
+      "constituency_id": "kitui-west",
+      "wardcode": "347",
+      "open_admin_id": "KE015070_kauwi",
+      "open_admin_name": "Kauwi",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "matinyani",
+      "name": "Matinyani",
+      "constituency": "Kitui West",
+      "constituency_id": "kitui-west",
+      "wardcode": "348",
+      "open_admin_id": "KE015070_matinyani",
+      "open_admin_name": "Matinyani",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "kwa-mutonga-kithumula",
+      "name": "Kwa Mutonga/Kithumula",
+      "constituency": "Kitui West",
+      "constituency_id": "kitui-west",
+      "wardcode": "349",
+      "open_admin_id": "KE015070_kwamutongakithumula",
+      "open_admin_name": "Kwamutonga/kithumula",
+      "knbs_subcounty": null,
+      "aliases": [
+        {
+          "spelling": "Kwamutonga/kithumula",
+          "source": "open-admin-data",
+          "note": "Spacing only."
+        }
+      ]
+    },
+    {
+      "slug": "kisasi",
+      "name": "Kisasi",
+      "constituency": "Kitui Rural",
+      "constituency_id": "kitui-rural",
+      "wardcode": "350",
+      "open_admin_id": "KE015071_kisasi",
+      "open_admin_name": "Kisasi",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "mbitini",
+      "name": "Mbitini",
+      "constituency": "Kitui Rural",
+      "constituency_id": "kitui-rural",
+      "wardcode": "351",
+      "open_admin_id": "KE015071_mbitini",
+      "open_admin_name": "Mbitini",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "kwa-vonza-yatta",
+      "name": "Kwa Vonza/Yatta",
+      "constituency": "Kitui Rural",
+      "constituency_id": "kitui-rural",
+      "wardcode": "352",
+      "open_admin_id": "KE015071_kwavonzayatta",
+      "open_admin_name": "Kwavonza/yatta",
+      "knbs_subcounty": null,
+      "aliases": [
+        {
+          "spelling": "Kwavonza/yatta",
+          "source": "open-admin-data, benaboki boundary file",
+          "note": "Spacing only."
+        }
+      ]
+    },
+    {
+      "slug": "kanyangi",
+      "name": "Kanyangi",
+      "constituency": "Kitui Rural",
+      "constituency_id": "kitui-rural",
+      "wardcode": "353",
+      "open_admin_id": "KE015071_kanyangi",
+      "open_admin_name": "Kanyangi",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "miambani",
+      "name": "Miambani",
+      "constituency": "Kitui Central",
+      "constituency_id": "kitui-central",
+      "wardcode": "354",
+      "open_admin_id": "KE015072_miambani",
+      "open_admin_name": "Miambani",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "township",
+      "name": "Township",
+      "constituency": "Kitui Central",
+      "constituency_id": "kitui-central",
+      "wardcode": "355",
+      "open_admin_id": "KE015072_township",
+      "open_admin_name": "Township",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "kyangwithya-west",
+      "name": "Kyangwithya West",
+      "constituency": "Kitui Central",
+      "constituency_id": "kitui-central",
+      "wardcode": "356",
+      "open_admin_id": "KE015072_kyangwithya-west",
+      "open_admin_name": "Kyangwithya west",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "mulango",
+      "name": "Mulango",
+      "constituency": "Kitui Central",
+      "constituency_id": "kitui-central",
+      "wardcode": "357",
+      "open_admin_id": "KE015072_mulango",
+      "open_admin_name": "Mulango",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "kyangwithya-east",
+      "name": "Kyangwithya East",
+      "constituency": "Kitui Central",
+      "constituency_id": "kitui-central",
+      "wardcode": "358",
+      "open_admin_id": "KE015072_kyangwithya-east",
+      "open_admin_name": "Kyangwithya east",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "zombe-mwitika",
+      "name": "Zombe/Mwitika",
+      "constituency": "Kitui East",
+      "constituency_id": "kitui-east",
+      "wardcode": "359",
+      "open_admin_id": "KE015073_zombemwitika",
+      "open_admin_name": "Zombe/mwitika",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "nzambani",
+      "name": "Nzambani",
+      "constituency": "Kitui East",
+      "constituency_id": "kitui-east",
+      "wardcode": "361",
+      "open_admin_id": "KE015073_nzambani",
+      "open_admin_name": "Nzambani",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "chuluni",
+      "name": "Chuluni",
+      "constituency": "Kitui East",
+      "constituency_id": "kitui-east",
+      "wardcode": "360",
+      "open_admin_id": "KE015073_chuluni",
+      "open_admin_name": "Chuluni",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "voo-kyamatu",
+      "name": "Voo/Kyamatu",
+      "constituency": "Kitui East",
+      "constituency_id": "kitui-east",
+      "wardcode": "362",
+      "open_admin_id": "KE015073_vookyamatu",
+      "open_admin_name": "Voo/kyamatu",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "endau-malalani",
+      "name": "Endau/Malalani",
+      "constituency": "Kitui East",
+      "constituency_id": "kitui-east",
+      "wardcode": "363",
+      "open_admin_id": "KE015073_endaumalalani",
+      "open_admin_name": "Endau/malalani",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "mutito-kaliku",
+      "name": "Mutito/Kaliku",
+      "constituency": "Kitui East",
+      "constituency_id": "kitui-east",
+      "wardcode": "364",
+      "open_admin_id": "KE015073_mutitukaliku",
+      "open_admin_name": "Mutitu/kaliku",
+      "knbs_subcounty": null,
+      "aliases": [
+        {
+          "spelling": "Mutitu/kaliku",
+          "source": "open-admin-data, scorecard",
+          "note": "The register's spelling before 2026; see docs/visual-premium/GEOGRAPHY.md."
+        }
+      ]
+    },
+    {
+      "slug": "ikanga-kyatune",
+      "name": "Ikanga/Kyatune",
+      "constituency": "Kitui South",
+      "constituency_id": "kitui-south",
+      "wardcode": "365",
+      "open_admin_id": "KE015074_ikangakyatune",
+      "open_admin_name": "Ikanga/kyatune",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "mutomo",
+      "name": "Mutomo",
+      "constituency": "Kitui South",
+      "constituency_id": "kitui-south",
+      "wardcode": "366",
+      "open_admin_id": "KE015074_mutomo",
+      "open_admin_name": "Mutomo",
+      "knbs_subcounty": null,
+      "aliases": [
+        {
+          "spelling": "Mutomo/Kibwea",
+          "source": "scorecard",
+          "note": "Kibwea is not a ward. Confirm before relying on it."
+        }
+      ]
+    },
+    {
+      "slug": "mutha",
+      "name": "Mutha",
+      "constituency": "Kitui South",
+      "constituency_id": "kitui-south",
+      "wardcode": "367",
+      "open_admin_id": "KE015074_mutha",
+      "open_admin_name": "Mutha",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "ikutha",
+      "name": "Ikutha",
+      "constituency": "Kitui South",
+      "constituency_id": "kitui-south",
+      "wardcode": "368",
+      "open_admin_id": "KE015074_ikutha",
+      "open_admin_name": "Ikutha",
+      "knbs_subcounty": null,
+      "aliases": []
+    },
+    {
+      "slug": "kanziko",
+      "name": "Kanziko",
+      "constituency": "Kitui South",
+      "constituency_id": "kitui-south",
+      "wardcode": "369",
+      "open_admin_id": "KE015074_kanziko",
+      "open_admin_name": "Kanziko",
+      "knbs_subcounty": null,
+      "aliases": [
+        {
+          "spelling": "Kanziku/Simisi",
+          "source": "scorecard",
+          "note": "Kanziku is a spelling variant of Kanziko; Simisi is not a ward. Confirm before relying on it."
+        }
+      ]
+    },
+    {
+      "slug": "athi",
+      "name": "Athi",
+      "constituency": "Kitui South",
+      "constituency_id": "kitui-south",
+      "wardcode": "370",
+      "open_admin_id": "KE015074_athi",
+      "open_admin_name": "Athi",
+      "knbs_subcounty": null,
+      "aliases": []
+    }
+  ]
+}
