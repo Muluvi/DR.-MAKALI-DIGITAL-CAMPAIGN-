@@ -6,8 +6,9 @@ import openItems from "../generated/open-items.json" with { type: "json" };
 import { WARD_TILES } from "../../geo/wards.ts";
 import type { Bar, FigureSpec } from "../types.ts";
 import { tileColumns, tileRows } from "./s0-cover.ts";
-import { bar, F, fmt, num, src } from "./_util.ts";
+import { bar, F, fmt, num, src, stateOf } from "./_util.ts";
 import { WARD_ROWS } from "../../data/figures.ts";
+import register from "../../../data/ward-register.json" with { type: "json" };
 
 const BENCH = { value: num("benchmark"), label: `${fmt("benchmark")}, the working benchmark (Section 2.1)` };
 const TURNOUT = `${fmt("turnout.constant")}%`;
@@ -421,4 +422,100 @@ export const FIG_3_11: FigureSpec = {
   ],
 };
 
-export const S3: FigureSpec[] = [FIG_3_1, FIG_3_2, FIG_3_3, FIG_3_4, FIG_3_5, FIG_3_6, FIG_3_7, FIG_3_8, FIG_3_9, FIG_3_10, FIG_3_11];
+/* ------------------------------------------------------------------ fig-3-12-projects */
+
+// The scorecard's itemised projects by ward (analysis Stage 14, data/analysis/projects-by-ward.json).
+const CONSTITUENCY_NAME: Record<string, string> = Object.fromEntries(register.constituencies.map((c) => [c.id, c.name]));
+const PROJECT_WARDS = WARD_ROWS.map((w) => {
+  const slug = w.id.slice("ward.".length);
+  const note = F(`projects.${slug}.ksh`).note ?? "";
+  return {
+    ...w,
+    constituency: CONSTITUENCY_NAME[w.constituency],
+    slug,
+    count: num(`projects.${slug}.count`),
+    ksh: num(`projects.${slug}.ksh`),
+    flag: note.includes("still to confirm") ? "Placed through a spelling of the ward still to confirm" : undefined,
+  };
+});
+const TOP_PROJECT_WARD = [...PROJECT_WARDS].sort((a, b) => b.ksh - a.ksh)[0];
+const UNPLACED: [string, string][] = [
+  ["county", "County-wide or headquarters"],
+  ["multi-ward", "Naming several wards"],
+  ["constituency", "Naming no single ward"],
+  ["conflict", "Naming a ward in another constituency"],
+];
+const PLACED_COUNT = PROJECT_WARDS.reduce((n, w) => n + w.count, 0);
+const UNPLACED_COUNT = UNPLACED.reduce((n, [k]) => n + num(`projects.${k}.count`), 0);
+
+export const FIG_3_12: FigureSpec = {
+  id: "fig-3-12-projects",
+  section: "3.7",
+  title: `${TOP_PROJECT_WARD.name} carries the most itemised spend placed on one ward, KSh ${fmt(`projects.${TOP_PROJECT_WARD.slug}.ksh`, "m1")}m across ${fmt(`projects.${TOP_PROJECT_WARD.slug}.count`)} projects`,
+  question: "Where does the scorecard place its itemised projects, ward by ward, against how many voters each ward holds?",
+  takeaway: `${PLACED_COUNT} of the ${fmt("scorecard.itemised")} itemised projects name one ward and are drawn on it; the other ${UNPLACED_COUNT} are totalled apart, never spread across wards.`,
+  sources: [src("projects.township.ksh"), src("register.2022")],
+  chart: {
+    type: "composite",
+    parts: [
+      {
+        heading: "Projects placed on one ward",
+        chart: {
+          type: "bubble",
+          points: PROJECT_WARDS.map((w) => ({
+            label: w.name,
+            group: w.constituency,
+            x: w.count,
+            y: w.ksh,
+            size: w.voters,
+            state: stateOf(`projects.${w.slug}.ksh`),
+            flag: w.flag,
+          })),
+          xLabel: "Itemised projects",
+          yLabel: "Itemised spend, KSh",
+          sizeLabel: "Registered voters, 2022",
+          flagLabel: "Placed through a spelling of the ward still to confirm",
+          labelTop: 2,
+        },
+      },
+      {
+        heading: "Projects not placed on one ward",
+        chart: {
+          type: "bars",
+          unit: "KSh",
+          bars: UNPLACED.map(([k, label]) =>
+            bar(`projects.${k}.ksh`, `${label} · ${fmt(`projects.${k}.count`)} ${num(`projects.${k}.count`) === 1 ? "project" : "projects"}`, { display: `KSh ${fmt(`projects.${k}.ksh`, "m1")}m` })),
+        },
+      },
+    ],
+  },
+  columns: [
+    { key: "ward", label: "Ward, or where the project sits" },
+    { key: "constituency", label: "Constituency" },
+    { key: "projects", label: "Itemised projects", numeric: true },
+    { key: "ksh", label: "Itemised spend, KSh", numeric: true },
+    { key: "voters", label: "Registered voters, 2022", numeric: true },
+  ],
+  rows: [
+    ...[...PROJECT_WARDS].sort((a, b) => b.ksh - a.ksh).map((w) => ({
+      cells: {
+        ward: w.flag ? `${w.name} (spelling to confirm)` : w.name,
+        constituency: w.constituency,
+        projects: fmt(`projects.${w.slug}.count`),
+        ksh: fmt(`projects.${w.slug}.ksh`),
+        voters: fmt(w.id),
+      },
+      state: stateOf(`projects.${w.slug}.ksh`),
+    })),
+    ...UNPLACED.map(([k, label]) => ({
+      cells: { ward: label, constituency: "—", projects: fmt(`projects.${k}.count`), ksh: fmt(`projects.${k}.ksh`), voters: "—" },
+      state: stateOf(`projects.${k}.ksh`),
+    })),
+  ],
+  notes: [
+    "Covers the itemised projects only, not the county budget and not every project the scorecard claims. A record of what the county says it built, not evidence that it did.",
+    "A project is placed on a ward only when its printed place names that one ward in its own constituency. Ward totals are not adjusted for projects that serve the whole county from a town ward.",
+  ],
+};
+
+export const S3: FigureSpec[] = [FIG_3_1, FIG_3_2, FIG_3_3, FIG_3_4, FIG_3_5, FIG_3_6, FIG_3_7, FIG_3_8, FIG_3_9, FIG_3_10, FIG_3_11, FIG_3_12];

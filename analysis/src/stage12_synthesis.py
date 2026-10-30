@@ -126,8 +126,11 @@ def build_charts() -> list[Chart]:
                 "SMS-only layer, not by adding new phone owners.",
                 "The offline majority is unchanged by this update and remains the largest "
                 "single segment.",
-                "Rates are applied uniformly to all 40 wards because no ward-level connectivity "
-                "data exists. Township and Tharaka get the same rate, which is certainly wrong.",
+                ("Ward rates follow each ward's KNBS census sub-county in 2019, rescaled so the "
+                 "county totals above are unchanged: a 2019 sub-county pattern, not a ward "
+                 "measurement." if "internet_rate" in reach.columns else
+                 "Rates are applied uniformly to all 40 wards because no ward-level connectivity "
+                 "data exists. Township and Tharaka get the same rate, which is certainly wrong."),
                 "The rates were measured on persons aged 3+ and are applied here to registered "
                 "voters, who are all adults. This probably understates the digital and SMS layers.",
                 "Bulk political SMS is English or Kiswahili only under CA/NCIC guidelines, and "

@@ -1,24 +1,24 @@
 ```lead
-Kitui is large, rural, young and poor: **1,136,187** people on **30,430 km²**, a median age of **17**, and **55.2%** in poverty in 2021.
+Kitui is large, rural, young and poor: **1,136,187** people on **30,430 km²**, a median age of **18.9**, and **55.2%** in poverty in 2021.
 ```
 
-Kitui is large, rural, young and poor: **1,136,187** people on **30,430 km²**, a median age of **17**, and **55.2%** in poverty in 2021. Its next governor runs a resource envelope of **KSh 13.79 billion** a year. This chapter sets out who lives here and how the county is run; Chapter 3 sets out what they need.
+Kitui is large, rural, young and poor: **1,136,187** people on **30,430 km²**, a median age of **18.9**, and **55.2%** in poverty in 2021. Its next governor runs a resource envelope of **KSh 13.79 billion** a year. This chapter sets out who lives here and how the county is run; Chapter 3 sets out what they need.
 
 ## 1.1 The people: population, gender, age, households
 
 The 2019 census counted **1,136,187** people: 549,003 men, 587,151 women and 33 intersex people (Tier 1, KNBS). KNBS projects **1,258,954** residents in 2025 and **1,327,463** in 2030 (Tier 1, County Gender Data Sheet, October 2025).
 
 ```visual
-{"kind":"stats","items":[{"value":"1,136,187","label":"people, 2019 census","tier":1,"body":"549,003 men, 587,151 women and 33 intersex people (Tier 1, KNBS 2019 Census)."},{"value":"262,942","label":"households","tier":1,"body":"An average of **4.3** people per household (Tier 1, KNBS 2019 Census)."},{"value":"17","label":"median age, in years","tier":2,"body":"Half of Kitui's residents are 17 or younger (Tier 2, KNBS 2019 via Stats Kenya)."}]}
+{"kind":"stats","items":[{"value":"1,136,187","label":"people, 2019 census","tier":1,"body":"549,003 men, 587,151 women and 33 intersex people (Tier 1, KNBS 2019 Census)."},{"value":"262,942","label":"households","tier":1,"body":"An average of **4.3** people per household (Tier 1, KNBS 2019 Census)."},{"value":"18.9","label":"median age, in years","tier":1,"body":"Half of Kitui's residents are 18.9 or younger (Tier 1, calculated from KNBS 2019 Census Volume III)."}]}
 ```
 
 ```figure
 id: fig-2-4-people
 ```
 
-**Age.** The median age is **17** (Tier 2, KNBS 2019 via Stats Kenya). No verified figure is available yet for the full age bands (0–14, 15–34, 35–59, 60 and over); the record that would settle it is KNBS 2019 Census Volume III, the Kitui table.
+**Age.** The median age is **18.9** (Tier 1, calculated from KNBS 2019 Census Volume III). The 2019 census puts **39.1%** of residents at 0–14, **33.1%** at 15–34, **19.3%** at 35–59 and **8.5%** at 60 and over (Tier 1, KNBS 2019 Census Volume III).
 
-**What it means for the campaign.** A county where half the people are under 17 has a large cohort of first-time voters arriving at each election, and women are the majority of residents (51.7%).
+**What it means for the campaign.** A county where half the people are under 18.9 has a large cohort of first-time voters arriving at each election, and women are the majority of residents (51.7%).
 
 ## 1.2 The land: area, density, rural and urban, the three regions
 
@@ -52,7 +52,7 @@ More than half of Kitui lives in poverty, fewer than two households in five have
 
 **Water.** **38.5%** of households had safe drinking water in 2019, and **5.1%** piped water (Tier 2, KNBS 2019 via Stats Kenya). This is the census definition of a safe source; Section 3.1 sets out the other measures, which count different things. About **400,000** residents rely on untreated surface water as their main domestic source (Tier 1).
 
-**Electricity.** **17.2%** of households had electricity in 2019, up from **4.8%** in 2009 (Tier 2, KNBS 2019 via Stats Kenya). No verified national comparison is available yet; the record that would settle it is the KNBS 2019 Census Volume IV household table.
+**Electricity.** **17.2%** of households had electricity in 2019, up from **4.8%** in 2009 (Tier 2, KNBS 2019 via Stats Kenya). Measured by main lighting source, **17.1%** of Kitui households were lit by mains electricity against **50.4%** nationally (Tier 1, KNBS 2019 Census Volume IV).
 
 **Phones and internet.** **26.2%** of residents use the internet and **44.1%** own a mobile phone (Tier 1, CA/KNBS 2023/24), so **73.8%** are offline. Chapter 4 sets out what each channel can reach.
 

@@ -1,12 +1,15 @@
 {
-  "generated": "2026-09-26",
+  "generated": "2026-10-30",
   "data_as_of": "2026-09-16",
   "source": "analysis pipeline, python -m src.run_all",
   "approved_mapping": "analysis/reports/site_mapping.md",
   "files": [
+    "census-subcounty.json",
     "channel-reach.json",
     "county-finance-2026-27.json",
     "issue-evidence.json",
+    "projects-by-ward.json",
+    "projects-register.json",
     "register-comparison.json",
     "results-2022-governor.json",
     "scenario-benchmarks.json",

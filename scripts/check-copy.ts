@@ -30,6 +30,7 @@ const POLL_OK = [
   /polling_station/g, // the IEBC register's field name
   /(Household|Housing|Demographic and Health|Integrated Household Budget|Labour Force) Survey/gi, // KNBS statistical instruments, cited as official sources
   /Survey of Kenya/g, // the national mapping agency
+  /Kitui County Survey Offices/g, // the county's land survey office: a project title in the county scorecard
   /https?:\/\/\S+/g, // a source's URL is an address, not copy
   /Polls (open|close)/g, // election-day voter information: when voting opens and closes
 ];

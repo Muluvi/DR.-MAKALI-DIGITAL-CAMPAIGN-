@@ -1,0 +1,1494 @@
+{
+  "id": "projects-by-ward",
+  "title": "County projects by ward",
+  "description": "Itemised scorecard projects whose printed place resolves to one ward: count and summed printed cost. Projects naming several wards, a ward outside their constituency, no ward, or the whole county are totalled separately and never spread across wards.",
+  "chart_type": "bar",
+  "generated": "2026-10-30",
+  "data_as_of": "2026-09-16",
+  "scenario_label": "",
+  "notes": [
+    "Covers the 401 itemised projects only, not the county budget and not the 2,244 projects the scorecard claims."
+  ],
+  "values": [
+    {
+      "label": "Ngomeni: projects",
+      "value": 10,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "ngomeni",
+        "constituency": "mwingi-north",
+        "multi_ward_listed": 1,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Ngomeni: KSh",
+      "value": 49513765.339999996,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "ngomeni",
+        "constituency": "mwingi-north",
+        "multi_ward_listed": 1,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Kyuso: projects",
+      "value": 9,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kyuso",
+        "constituency": "mwingi-north",
+        "multi_ward_listed": 2,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Kyuso: KSh",
+      "value": 29499809.0,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kyuso",
+        "constituency": "mwingi-north",
+        "multi_ward_listed": 2,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Mumoni: projects",
+      "value": 9,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "mumoni",
+        "constituency": "mwingi-north",
+        "multi_ward_listed": 2,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Mumoni: KSh",
+      "value": 43058434.269999996,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "mumoni",
+        "constituency": "mwingi-north",
+        "multi_ward_listed": 2,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Tseikuru: projects",
+      "value": 13,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "tseikuru",
+        "constituency": "mwingi-north",
+        "multi_ward_listed": 3,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Tseikuru: KSh",
+      "value": 52420200.489999995,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "tseikuru",
+        "constituency": "mwingi-north",
+        "multi_ward_listed": 3,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Tharaka: projects",
+      "value": 8,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "tharaka",
+        "constituency": "mwingi-north",
+        "multi_ward_listed": 2,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Tharaka: KSh",
+      "value": 28598358.93,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "tharaka",
+        "constituency": "mwingi-north",
+        "multi_ward_listed": 2,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Kyome/Thaana: projects",
+      "value": 7,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kyome-thaana",
+        "constituency": "mwingi-west",
+        "multi_ward_listed": 0,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Kyome/Thaana: KSh",
+      "value": 10763125.6,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kyome-thaana",
+        "constituency": "mwingi-west",
+        "multi_ward_listed": 0,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Nguutani: projects",
+      "value": 4,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "nguutani",
+        "constituency": "mwingi-west",
+        "multi_ward_listed": 0,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Nguutani: KSh",
+      "value": 7621687.88,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "nguutani",
+        "constituency": "mwingi-west",
+        "multi_ward_listed": 0,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Migwani: projects",
+      "value": 9,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "migwani",
+        "constituency": "mwingi-west",
+        "multi_ward_listed": 0,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Migwani: KSh",
+      "value": 17172605.38,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "migwani",
+        "constituency": "mwingi-west",
+        "multi_ward_listed": 0,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Kiomo/Kyethani: projects",
+      "value": 7,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kiomo-kyethani",
+        "constituency": "mwingi-west",
+        "multi_ward_listed": 0,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Kiomo/Kyethani: KSh",
+      "value": 14969842.0,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kiomo-kyethani",
+        "constituency": "mwingi-west",
+        "multi_ward_listed": 0,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Central: projects",
+      "value": 4,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "central",
+        "constituency": "mwingi-central",
+        "multi_ward_listed": 1,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Central: KSh",
+      "value": 16620535.0,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "central",
+        "constituency": "mwingi-central",
+        "multi_ward_listed": 1,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Kivou: projects",
+      "value": 16,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kivou",
+        "constituency": "mwingi-central",
+        "multi_ward_listed": 1,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Kivou: KSh",
+      "value": 37398177.620000005,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kivou",
+        "constituency": "mwingi-central",
+        "multi_ward_listed": 1,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Nguni: projects",
+      "value": 3,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "nguni",
+        "constituency": "mwingi-central",
+        "multi_ward_listed": 1,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Nguni: KSh",
+      "value": 4602029.53,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "nguni",
+        "constituency": "mwingi-central",
+        "multi_ward_listed": 1,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Nuu: projects",
+      "value": 5,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "nuu",
+        "constituency": "mwingi-central",
+        "multi_ward_listed": 3,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Nuu: KSh",
+      "value": 15155200.6,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "nuu",
+        "constituency": "mwingi-central",
+        "multi_ward_listed": 3,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Mui: projects",
+      "value": 6,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "mui",
+        "constituency": "mwingi-central",
+        "multi_ward_listed": 1,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Mui: KSh",
+      "value": 22910807.07,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "mui",
+        "constituency": "mwingi-central",
+        "multi_ward_listed": 1,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Waita: projects",
+      "value": 6,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "waita",
+        "constituency": "mwingi-central",
+        "multi_ward_listed": 0,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Waita: KSh",
+      "value": 7503840.0,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "waita",
+        "constituency": "mwingi-central",
+        "multi_ward_listed": 0,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Mutonguni: projects",
+      "value": 4,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "mutonguni",
+        "constituency": "kitui-west",
+        "multi_ward_listed": 2,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Mutonguni: KSh",
+      "value": 10860025.6,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "mutonguni",
+        "constituency": "kitui-west",
+        "multi_ward_listed": 2,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Kauwi: projects",
+      "value": 11,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kauwi",
+        "constituency": "kitui-west",
+        "multi_ward_listed": 2,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Kauwi: KSh",
+      "value": 22476251.4,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kauwi",
+        "constituency": "kitui-west",
+        "multi_ward_listed": 2,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Matinyani: projects",
+      "value": 5,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "matinyani",
+        "constituency": "kitui-west",
+        "multi_ward_listed": 0,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Matinyani: KSh",
+      "value": 6178264.16,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "matinyani",
+        "constituency": "kitui-west",
+        "multi_ward_listed": 0,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Kwa Mutonga/Kithumula: projects",
+      "value": 12,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kwa-mutonga-kithumula",
+        "constituency": "kitui-west",
+        "multi_ward_listed": 0,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Kwa Mutonga/Kithumula: KSh",
+      "value": 19404275.61,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kwa-mutonga-kithumula",
+        "constituency": "kitui-west",
+        "multi_ward_listed": 0,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Kisasi: projects",
+      "value": 9,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kisasi",
+        "constituency": "kitui-rural",
+        "multi_ward_listed": 1,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Kisasi: KSh",
+      "value": 28354222.63,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kisasi",
+        "constituency": "kitui-rural",
+        "multi_ward_listed": 1,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Mbitini: projects",
+      "value": 5,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "mbitini",
+        "constituency": "kitui-rural",
+        "multi_ward_listed": 0,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Mbitini: KSh",
+      "value": 8416019.75,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "mbitini",
+        "constituency": "kitui-rural",
+        "multi_ward_listed": 0,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Kwa Vonza/Yatta: projects",
+      "value": 8,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kwa-vonza-yatta",
+        "constituency": "kitui-rural",
+        "multi_ward_listed": 1,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Kwa Vonza/Yatta: KSh",
+      "value": 65780434.150000006,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kwa-vonza-yatta",
+        "constituency": "kitui-rural",
+        "multi_ward_listed": 1,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Kanyangi: projects",
+      "value": 5,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kanyangi",
+        "constituency": "kitui-rural",
+        "multi_ward_listed": 1,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Kanyangi: KSh",
+      "value": 7342564.61,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kanyangi",
+        "constituency": "kitui-rural",
+        "multi_ward_listed": 1,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Miambani: projects",
+      "value": 7,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "miambani",
+        "constituency": "kitui-central",
+        "multi_ward_listed": 0,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Miambani: KSh",
+      "value": 18148893.28,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "miambani",
+        "constituency": "kitui-central",
+        "multi_ward_listed": 0,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Township: projects",
+      "value": 27,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "township",
+        "constituency": "kitui-central",
+        "multi_ward_listed": 0,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Township: KSh",
+      "value": 115932941.35,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "township",
+        "constituency": "kitui-central",
+        "multi_ward_listed": 0,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Kyangwithya West: projects",
+      "value": 15,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kyangwithya-west",
+        "constituency": "kitui-central",
+        "multi_ward_listed": 0,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Kyangwithya West: KSh",
+      "value": 76136540.21000001,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kyangwithya-west",
+        "constituency": "kitui-central",
+        "multi_ward_listed": 0,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Mulango: projects",
+      "value": 10,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "mulango",
+        "constituency": "kitui-central",
+        "multi_ward_listed": 0,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Mulango: KSh",
+      "value": 23304851.57,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "mulango",
+        "constituency": "kitui-central",
+        "multi_ward_listed": 0,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Kyangwithya East: projects",
+      "value": 7,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kyangwithya-east",
+        "constituency": "kitui-central",
+        "multi_ward_listed": 0,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Kyangwithya East: KSh",
+      "value": 13682574.25,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kyangwithya-east",
+        "constituency": "kitui-central",
+        "multi_ward_listed": 0,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Zombe/Mwitika: projects",
+      "value": 7,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "zombe-mwitika",
+        "constituency": "kitui-east",
+        "multi_ward_listed": 1,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Zombe/Mwitika: KSh",
+      "value": 15018225.0,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "zombe-mwitika",
+        "constituency": "kitui-east",
+        "multi_ward_listed": 1,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Nzambani: projects",
+      "value": 4,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "nzambani",
+        "constituency": "kitui-east",
+        "multi_ward_listed": 0,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Nzambani: KSh",
+      "value": 3982057.2,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "nzambani",
+        "constituency": "kitui-east",
+        "multi_ward_listed": 0,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Chuluni: projects",
+      "value": 9,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "chuluni",
+        "constituency": "kitui-east",
+        "multi_ward_listed": 0,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Chuluni: KSh",
+      "value": 31575122.54,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "chuluni",
+        "constituency": "kitui-east",
+        "multi_ward_listed": 0,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Voo/Kyamatu: projects",
+      "value": 10,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "voo-kyamatu",
+        "constituency": "kitui-east",
+        "multi_ward_listed": 0,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Voo/Kyamatu: KSh",
+      "value": 36342888.45,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "voo-kyamatu",
+        "constituency": "kitui-east",
+        "multi_ward_listed": 0,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Endau/Malalani: projects",
+      "value": 4,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "endau-malalani",
+        "constituency": "kitui-east",
+        "multi_ward_listed": 0,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Endau/Malalani: KSh",
+      "value": 10720064.0,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "endau-malalani",
+        "constituency": "kitui-east",
+        "multi_ward_listed": 0,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Mutito/Kaliku: projects",
+      "value": 10,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "mutito-kaliku",
+        "constituency": "kitui-east",
+        "multi_ward_listed": 2,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Mutito/Kaliku: KSh",
+      "value": 32964838.84,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "mutito-kaliku",
+        "constituency": "kitui-east",
+        "multi_ward_listed": 2,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Ikanga/Kyatune: projects",
+      "value": 2,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "ikanga-kyatune",
+        "constituency": "kitui-south",
+        "multi_ward_listed": 0,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Ikanga/Kyatune: KSh",
+      "value": 3240640.0,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "ikanga-kyatune",
+        "constituency": "kitui-south",
+        "multi_ward_listed": 0,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Mutomo: projects",
+      "value": 14,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "mutomo",
+        "constituency": "kitui-south",
+        "multi_ward_listed": 1,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Mutomo: KSh",
+      "value": 66368966.73,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "mutomo",
+        "constituency": "kitui-south",
+        "multi_ward_listed": 1,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Mutha: projects",
+      "value": 14,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "mutha",
+        "constituency": "kitui-south",
+        "multi_ward_listed": 1,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Mutha: KSh",
+      "value": 36245403.51,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "mutha",
+        "constituency": "kitui-south",
+        "multi_ward_listed": 1,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Ikutha: projects",
+      "value": 9,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "ikutha",
+        "constituency": "kitui-south",
+        "multi_ward_listed": 4,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Ikutha: KSh",
+      "value": 16231230.6,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "ikutha",
+        "constituency": "kitui-south",
+        "multi_ward_listed": 4,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Kanziko: projects",
+      "value": 6,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kanziko",
+        "constituency": "kitui-south",
+        "multi_ward_listed": 1,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Kanziko: KSh",
+      "value": 10096365.2,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "kanziko",
+        "constituency": "kitui-south",
+        "multi_ward_listed": 1,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Athi: projects",
+      "value": 9,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "athi",
+        "constituency": "kitui-south",
+        "multi_ward_listed": 1,
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Athi: KSh",
+      "value": 11987673.0,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "ward": "athi",
+        "constituency": "kitui-south",
+        "multi_ward_listed": 1,
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Several wards: projects",
+      "value": 15,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "level": "multi_ward",
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Several wards: KSh",
+      "value": 91592672.58,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "level": "multi_ward",
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Ward outside its constituency: projects",
+      "value": 1,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "level": "conflict",
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Ward outside its constituency: KSh",
+      "value": 1663498.0,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "level": "conflict",
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "Constituency level, no ward: projects",
+      "value": 19,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "level": "constituency",
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "Constituency level, no ward: KSh",
+      "value": 61178583.28,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "level": "constituency",
+        "measure": "ksh"
+      }
+    },
+    {
+      "label": "County-wide or HQ: projects",
+      "value": 27,
+      "unit": "count",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "level": "county",
+        "measure": "projects"
+      }
+    },
+    {
+      "label": "County-wide or HQ: KSh",
+      "value": 160918756.44,
+      "unit": "KSh",
+      "source_id": "S70",
+      "tier": 1,
+      "as_of": "2025-08",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "",
+      "dims": {
+        "level": "county",
+        "measure": "ksh"
+      }
+    }
+  ]
+}
