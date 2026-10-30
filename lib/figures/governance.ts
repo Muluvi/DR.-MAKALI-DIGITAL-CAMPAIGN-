@@ -56,12 +56,12 @@ export const COMPLIANCE_TIERS = [
 export const COMPLIANCE_SERIES: FigureSeries = {
   id: "compliance-architecture",
   headline: "Three statutes, and the first one has a signature count the document gives twice",
-  measure: "§5.3.5's statutory compliance architecture",
+  measure: "§19.4's statutory compliance architecture",
   points: [],
   conflicts: ["C-22"],
   note:
     "The signature line reads “per sub-county” here — 4,000 across eight — and “from at least 5 " +
-    "of the 8 Sub-Counties” in §5.3.5, which is 500 in total. Both are printed as stated. A " +
+    "of the 8 Sub-Counties” in §19.4, which is 500 in total. Both are printed as stated. A " +
     "nomination paper short of the statutory count is rejected, so this is C-22 and it has a " +
     "deadline on it.",
 };
@@ -109,14 +109,14 @@ export const IEBC_CLEARANCES: string[][] = [
 export const CLEARANCE_SERIES: FigureSeries = {
   id: "iebc-clearance",
   headline: "Seven clearances at five different stages, and one the campaign will not yet claim",
-  measure: "§5.3.5's IEBC statutory nomination clearance checklist — dimension, statutory standard, current status",
+  measure: "§19.4's IEBC statutory nomination clearance checklist — dimension, statutory standard, current status",
   points: [],
   conflicts: ["C-22"],
   note:
     "The status column is the point: two Verified, one Active, one Scheduled, one Pending the " +
     "filing window, one Operationalized — and one that reads “[Requires legal confirmation]”, " +
     "the document declining to claim a deadline it has not confirmed. Row 6's signature count " +
-    "disagrees with §5.3.5's by a factor of eight: C-22.",
+    "disagrees with §19.4's by a factor of eight: C-22.",
 };
 
 /* ------------------------------------------------------------------ §5.3.5 the liability matrix */
@@ -142,7 +142,7 @@ export const LIABILITY_MATRIX: string[][] = [
 export const LIABILITY_SERIES: FigureSeries = {
   id: "liability-matrix",
   headline: "Three exposures, and two of them end in a custodial sentence",
-  measure: "§5.3.5's DPA 2019 and Election Offences statutory matrix — obligation, exposure, mitigation",
+  measure: "§19.4's DPA 2019 and Election Offences statutory matrix — obligation, exposure, mitigation",
   points: [],
   note:
     "The exposure column carries the penalty as the document states it — Ksh 5,000,000 or two " +
@@ -175,7 +175,7 @@ export const ORG_BRANCHES = [
 export const ORG_SERIES: FigureSeries = {
   id: "org-chart",
   headline: "A lean core of three leads, each directing subcontracted specialists",
-  measure: "§4.6's lean core plus specialist vendor model",
+  measure: "§17's lean core plus specialist vendor model",
   points: [],
   note:
     "The three leads report to the Campaign Manager and the specialists are subcontracted, not " +
@@ -210,11 +210,11 @@ export const ROLE_OWNERSHIP: string[][] = [
 export const ROLES_SERIES: FigureSeries = {
   id: "role-ownership",
   headline: "Four core roles, and every specialist in the campaign reports through one of them",
-  measure: "§4.6.4's core campaign roles and ownership matrix — role, ownership, subcontractors directed",
+  measure: "§17.4's core campaign roles and ownership matrix — role, ownership, subcontractors directed",
   points: [],
   note:
     "No role, headcount or vendor has been added. The SMS/USSD gateway vendor is stated as " +
-    "“selected at contracting”, which is the same pending state §4.5.13's procurement matrix " +
+    "“selected at contracting”, which is the same pending state §15.4.3's procurement matrix " +
     "records for every one of its five rows.",
 };
 
@@ -237,7 +237,7 @@ export const REPORTING_CHAIN = [
 export const REPORTING_SERIES: FigureSeries = {
   id: "reporting-lines",
   headline: "Two teams, one weekly brief, and a single named counterpart between them and the candidate",
-  measure: "§4.6.5's reporting lines",
+  measure: "§17.4's reporting lines",
   points: [],
   note:
     "The weekly brief is the join: the existing team and Firefly's three people meet there, and " +

@@ -42,7 +42,7 @@ export const DATA_LAYER_CORE = {
 export const DATA_LAYER: FigureSeries = {
   id: "data-layer",
   headline: "Everything captured is tagged, consented and tiered before it reaches a channel",
-  measure: "§4.5.11's campaign data layer architecture — capture, validation, output, and the core beneath them",
+  measure: "§15.4.1's campaign data layer architecture — capture, validation, output, and the core beneath them",
   points: [],
   note:
     "The ASCII original joined these with arrows. Arrows are the part that cannot survive a reflow, " +
@@ -78,7 +78,7 @@ export const SUPPORTER_SCHEMA: string[][] = [
 export const SUPPORTER_SCHEMA_SERIES: FigureSeries = {
   id: "supporter-schema",
   headline: "Nineteen fields, four of them about consent and one that can never be reversed",
-  measure: "§4.5.11's supporter record schema — field, type, and the constraint on each",
+  measure: "§15.4.1's supporter record schema — field, type, and the constraint on each",
   points: [],
   note:
     "Transcribed field for field, including the enum members and their order: msisdn_hash is a " +
@@ -131,7 +131,7 @@ export const DPA_COMPLIANCE = [
 export const DPA_SERIES: FigureSeries = {
   id: "dpa-compliance",
   headline: "Six sections of the Data Protection Act 2019, and what each one obliges the campaign to build",
-  measure: "§4.5.11's statutory compliance checklist — the legal requirement against the operational implementation",
+  measure: "§15.4.1's statutory compliance checklist — the legal requirement against the operational implementation",
   points: [],
   note:
     "Each requirement cites its section of the Act. The pairing is the content, so each is drawn " +
@@ -155,18 +155,18 @@ export const STACK_TIERS = [
   },
   {
     label: "Tier 4: analytics & ward tracker",
-    items: ["Metabase / Apache Superset", "§4.5 service-delivery public policy tracker (web)"],
+    items: ["Metabase / Apache Superset", "§15 service-delivery public policy tracker (web)"],
   },
 ];
 
 export const STACK_SERIES: FigureSeries = {
   id: "tech-stack",
   headline: "Four tiers, and the personal data lives in exactly one of them",
-  measure: "§4.5.13's campaign technology stack architecture",
+  measure: "§15.4.3's campaign technology stack architecture",
   points: [],
   note:
     "Tier 1 collects the phone numbers and tier 2 holds them encrypted; tiers 3 and 4 work on " +
-    "public and anonymised data. §4.5.13's procurement matrix rates the DPA risk of each " +
+    "public and anonymised data. §15.4.3's procurement matrix rates the DPA risk of each " +
     "accordingly, and every one of its five rows is still awaiting a campaign decision.",
 };
 
@@ -184,7 +184,7 @@ export const PROCUREMENT: string[][] = [
 export const PROCUREMENT_SERIES: FigureSeries = {
   id: "procurement-matrix",
   headline: "Five components, rated for data-protection risk, and not one of them decided",
-  measure: "§4.5.13's technology stack master procurement matrix",
+  measure: "§15.4.3's technology stack master procurement matrix",
   points: [],
   note:
     "All five rows read “Awaiting campaign decision” in the source and all five read it here. A " +

@@ -25,7 +25,7 @@
     "section": "1.3",
     "title": "Each of the five objectives answers one finding and is judged by one observable measure",
     "question": "What are the five objectives, and what does each serve?",
-    "takeaway": "No objective stands on its own: each starts from a finding in Section 2 and ends in an indicator in Section 5.1."
+    "takeaway": "No objective stands on its own: each starts from a finding in Section 2 and ends in an indicator in Section 18.1."
   },
   {
     "id": "fig-1-4-flow",
@@ -165,12 +165,12 @@
     "section": "2.10.3",
     "title": "His profile carries six errors a researcher would find in an afternoon, and the Week 1 audit reads the rest",
     "question": "What does his current presence actually show?",
-    "takeaway": "The six fixes are Section 4.2.3; the four audit figures are drawn from the Week 1 export, never from an estimate."
+    "takeaway": "The six fixes are Section 14.3; the four audit figures are drawn from the Week 1 export, never from an estimate."
   },
   {
     "id": "fig-3-10-gaps",
     "section": "2.11",
-    "title": "2 things no published source can tell the analysis, and none is estimated",
+    "title": "8 things no published source can tell the analysis, and none is estimated",
     "question": "What can't the data tell us yet, and what closes each gap?",
     "takeaway": "The analysis works from where he has held office and from certified totals, not from ward-level preference or ward returns no one has published."
   },
@@ -221,7 +221,7 @@
     "section": "3.3.2",
     "title": "Radio's share of effort nearly doubles and digital's falls to 18%, because digital cannot reach the number",
     "question": "How does effort move between channels?",
-    "takeaway": "82% of effort goes offline; radio placement goes only to the stations Section 2.9.2 marks for placement."
+    "takeaway": "82% of effort goes offline; radio placement goes only to the stations Section 4.2 marks for placement."
   },
   {
     "id": "fig-4-7-profile-fixes",
@@ -270,7 +270,7 @@
     "section": "4.3.1",
     "title": "Three indicators climb through every phase, and every other target belongs to one phase",
     "question": "What does each phase have to deliver?",
-    "takeaway": "Consented SMS contacts rise from 40,000 in Phase 1 to 120,000 by Phase 3; rows marked ° are operational diagnostics, not performance indicators (Section 5.1.3)."
+    "takeaway": "Consented SMS contacts rise from 40,000 in Phase 1 to 120,000 by Phase 3; rows marked ° are operational diagnostics, not performance indicators (Section 18.4)."
   },
   {
     "id": "fig-5-5-cadence",

@@ -1,65 +1,26 @@
-### 4.5.5 Workstream 5 — Platform tactics and paid media
+## 15.2 Media (workstreams 5–6)
+
+Paid media on the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely controlled by rivals (Section 4.2).
+
+### 15.2.1 Workstream 5 — Platform tactics and paid media
 
 ```lead
 **Owner: your team, to a Firefly brief.** Firefly writes the targeting plan and reads the performance; your team places and publishes.
 ```
 
-> **Owner: your team, to a Firefly brief.** Read every platform block below as *what belongs on
-> this channel and why*, not as a list of things Firefly will post. Firefly writes the targeting
-> plan and reads the performance; your team places and publishes. Who holds the ad account is a
-> decision for Dr. Mulu — Section 4.1.3 states the recommendation and marks it open.
->
-> **Group: Publishing and earned media.**
+**Owner: your team, to a Firefly brief.** Read every platform block below as *what belongs on this channel and why*, not as a list of things Firefly will post. Firefly writes the targeting plan and reads the performance; your team places and publishes. The campaign holds the ad account (Section 13.4).
 
-*The platform-by-platform playbooks (Facebook, X, WhatsApp, TikTok, Instagram, YouTube and Google Ads) are in Annex G.1.*
+*Corrected: an earlier version said the ad-account recommendation was still open; Section 13.4 records it as approved in September 2026.*
 
-### 4.5.6 Workstream 6 — Earned media, journalists and debates
+*The platform-by-platform playbooks (Facebook, X, WhatsApp, TikTok, Instagram, YouTube and Google Ads) are in Annex C.1.*
+
+### 15.2.2 Workstream 6 — Earned media, journalists and debates
 
 ```lead
-**Owner: your team and the campaign, to a Firefly brief.** Kamba-language radio is the dominant information channel, **but the ownership map is politically compromised**: the campaign's radio strategy runs through Musyi, County FM and Wikwatyo.
+**Owner: your team and the campaign, to a Firefly brief.** Paid and owned media reach the connected minority; earned media, especially radio, reaches everyone else.
 ```
 
-> **Owner: your team and the campaign, to a Firefly brief.** Placement is a relationship business
-> the campaign already has. Firefly supplies the briefing notes, the debate preparation and the
-> evidence pack behind each pitch.
->
-> **Group: Publishing and earned media.**
-
-
-*Paid and owned media reach the connected minority. Earned media —
-especially radio — reaches everyone else.*
-
-#### The radio problem, stated plainly
-
-Kamba-language radio is the dominant information channel for the {{ict.offline}}% of
-Kitui residents outside the internet-using population (CA/KNBS 2023/24). **But the ownership map
-is politically compromised, and any credible media plan must say so:**
-
-| Station | Kitui frequency | Ownership association | Campaign posture |
-|---|---|---|---|
-| **Mbaitu FM** | 100.4 (Kitui/Mwingi) | Associated with **Charity Ngilu** — a declared rival | Monitor closely; expect unfavourable framing; do not rely on placement |
-| **Syokimau FM** | — | Associated with **Charity Ngilu** | As above |
-| **Athiani FM** | 97.7 | Associated with **Kalonzo Musyoka**, Wiper Patriotic Front leader | Party-aligned, not neutral. Relevant during the nomination window — coverage may track party leadership sentiment rather than merit |
-| **Musyi FM** | 102.2 (regional) | Royal Media Services | **Priority — commercially independent, broad Ukambani reach** |
-| **County FM** | 90.3 Kitui / 91.8 Mwingi | Kitui-based independent | **Priority — local, independent, Mwingi reach** |
-| **Wikwatyo FM** | 105.3 | Seventh-Day Adventist Church, Kitui-based | Priority for community and service-delivery programming |
-| **Ene FM** | 90.6 (Kitui) | Makueni-based | Secondary |
-| **Akamba FM** | 103.3 (Kitui) | Independent, launched 2023 | Secondary — newer, may be more accessible |
-| **KBC Mwatu FM** | 93.1 | Public broadcaster | Institutional coverage |
-
-<!-- keep -->
-[CONFLICT C7: see open items]
-
-**Strategic implication:** the campaign's radio strategy runs through Musyi,
-County FM and Wikwatyo, treats Athiani as party-sensitive, and treats
-Mbaitu/Syokimau as monitoring targets rather than placement targets. Attacks
-on Dr. Mulu are more likely to originate on air than online, which is why radio
-monitoring sits in the war room (Section E.4) rather than in a media annex.
-
-*This map is based on publicly reported ownership associations. Before any placement
-is booked it is checked against the Communications Authority's register of broadcast
-licensees and the Business Registration Service's company records, and it is updated
-when either changes.*
+**Owner: your team and the campaign, to a Firefly brief.** Paid and owned media reach the connected minority; earned media, especially radio, reaches everyone else. Placement is a relationship business the campaign already has. Firefly supplies the briefing notes, the debate preparation and the evidence pack behind each pitch. The radio plan runs through Musyi, County FM and Wikwatyo, on the ownership map in Section 4.2.
 
 #### The journalist relationship programme
 
@@ -90,7 +51,7 @@ credible national commentator on county fiscal management earns coverage that
 no rival can buy, and it reinforces the core narrative every time it runs.
 
 **Standing press kit** — permanently available: approved biography (short,
-medium, long), high-resolution photography, the M&amp;E and parliamentary record
+medium, long), high-resolution photography, the M&E and parliamentary record (Section 6.1)
 with sources, policy briefs by theme, verified county data with citations, and
 contact routes. The easier the campaign makes a journalist's job, the more
 often it is quoted.
@@ -139,22 +100,6 @@ top three issues
 **The rule: the clip is published before the coverage is written.** Whoever
 distributes the moment first defines what the debate was about.
 
-#### Pre-drafted response lines
-
-Prepared, verified, and rehearsed in drills. Each is a structure, not a script —
-substance fixed, delivery natural.
-
-| Likely attack | Response structure |
-|---|---|
-| **"He is a national MP, not a county manager"** | Acknowledge the distinction, then reframe: county government's central failure mode is budget execution, which is the one discipline he has done professionally at national scale — and the certification of Kitui Central as best evaluated constituency in the Eastern region is the county-level proof |
-| **"He is from Kitui Central and will favour it"** | Commit to a published, methodology-first allocation formula across all 40 wards, published before allocation and audited after — an economist's answer, and one no rival can match [CONFLICT C6: see open items] |
-| **"Others have been more visible on the ground"** | Do not contest the premise. Reframe visibility as a means, not a qualification: the question is what a leader does with the office, and offer the verification record |
-| **"NG-CDF questions"** | Lead with the documented record — bursary numbers, project list, the Eastern region evaluation certification — and invite scrutiny. **Never defensive; an evaluator welcomes audit.** |
-| **"Too technical / not close to ordinary people"** | Answer in Kikamba, with a household example. The best rebuttal to "too technical" is a demonstration, not a denial |
-| **"Wiper insider / party establishment"** | Point to the independence of his parliamentary record on budget matters |
-| **Manipulated media** | Section 6.3.1 protocol — 30-minute clock |
-| **Unsolicited SMS allegation** | Produce the consent audit trail; cite the published charter; correct publicly within the hour |
-
 #### Earned media KPIs
 
 ```visual
@@ -176,7 +121,7 @@ items:
 
 #### Getting on air around a hostile gatekeeper
 
-To guarantee uninhibited communication with all {{register.2022}} registered voters across the 40 wards, the campaign executes a four-pillar bypass strategy that operates entirely independently of captured Tier 1 commercial gatekeepers:
+So that the campaign can reach all {{register.2022}} registered voters in the 40 wards whatever the rival-aligned stations do (Section 12.3), it runs four routes that need none of them:
 
 ```figure
 id: bypass-architecture
@@ -184,8 +129,10 @@ id: bypass-architecture
 
 #### How we pitch: evidence first
 
-To capture objective news coverage on mainstream national and regional platforms without depending on paid access to broadcast gatekeepers, the press desk operates an **Evidence-First Pitch Engine**:
+To win fair coverage on national and regional outlets without paying for access to broadcast gatekeepers, the press desk pitches evidence first:
 
-1.  **Hansard & Audit Exclusives:** Providing national media bureau chiefs (*Daily Nation, Standard, Citizen TV, KTN News*) with verified, data-dense policy briefs on national debt, equalization fund legislation, and local county pending bills.
-2.  **On-Site Project Media Tours:** Transporting accredited regional correspondents directly to Kitui Central model projects (solar boreholes, modern TVET workshops, secondary school laboratories) with on-camera beneficiary interviews.
-3.  **Rapid Studio Call-In Rights:** Enforcing statutory right-of-reply provisions under the Media Council of Kenya (MCK) Act whenever candidate record distortions are aired on rival stations.
+1.  **Hansard and audit exclusives:** verified, data-rich policy briefs for national bureau chiefs (*Daily Nation, Standard, Citizen TV, KTN News*) on national debt, equalisation-fund legislation and the county's pending bills.
+2.  **Project tours:** accredited regional correspondents taken to Kitui Central projects (solar boreholes, TVET workshops, secondary-school laboratories), with on-camera interviews with the people they serve.
+3.  **The right of reply:** using the statutory right of reply under the Media Council of Kenya (MCK) Act whenever a rival station misrepresents the candidate's record.
+
+**Lines for likely attacks.** The pre-drafted response lines for the debate and the phone-in are kept with the holding positions, in Annex F.3.

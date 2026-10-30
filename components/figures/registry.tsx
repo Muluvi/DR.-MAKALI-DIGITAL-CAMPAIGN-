@@ -295,13 +295,13 @@ const GATEKEEPER_SERIES: FigureSeries = {
   id: "radio-gatekeepers",
   headline: "The document names four hostile stations, and disagrees with itself about two of them",
   measure:
-    "§2.8.3's Tier 1 hostile tier, read against data/media-ownership.ts — the reconciled map §2.8.3 says governs",
+    "§1.2's Tier 1 hostile tier, read against data/media-ownership.ts — the reconciled map §1.2 says governs",
   points: [],
   conflicts: ["C-20"],
   note:
-    "Ownership associations are publicly reported, not certified, and §2.8.3 carries the standing " +
+    "Ownership associations are publicly reported, not certified, and §1.2 carries the standing " +
     "instruction to verify this map before any placement is booked. The bypass architecture these " +
-    "four are routed around is stated in full in §4.5.6.",
+    "four are routed around is stated in full in §15.2.2.",
 };
 
 /* ------------------------------------------------------------------ §7.3 the language map */
@@ -309,24 +309,24 @@ const GATEKEEPER_SERIES: FigureSeries = {
 const DEPLOYMENT_SERIES: FigureSeries = {
   id: "language-deployment",
   headline: "Every medium is allocated to the whole, and only one of them is allocated to Kikamba alone",
-  measure: "§3.6.1's language allocation per campaign output medium. Each row totals 100%.",
+  measure: "§12.4's language allocation per campaign output medium. Each row totals 100%.",
   points: [],
   conflicts: ["C-21"],
   note:
-    "The bulk SMS row gives Kikamba no allocation, which is what §4.5.9 requires — the " +
+    "The bulk SMS row gives Kikamba no allocation, which is what §15.3.3 requires — the " +
     "Communications Authority restricts political bulk SMS to English or Kiswahili — and what " +
-    "§3.6.1's channel list contradicts. USSD is not restricted, and takes 50% Kikamba here.",
+    "§12.4's channel list contradicts. USSD is not restricted, and takes 50% Kikamba here.",
 };
 
 const BYPASS_SERIES: FigureSeries = {
   id: "bypass-architecture",
   headline: "Four ways to reach 532,758 voters without a commercial gatekeeper's permission",
-  measure: "§4.5.6's gatekeeper bypass and direct reach architecture — the operational protocol for each pillar",
+  measure: "§15.2.2's gatekeeper bypass and direct reach architecture — the operational protocol for each pillar",
   points: [],
   note:
-    "Numbered because §4.5.6 numbers them, and because four routes run in parallel but are stood " +
-    "up in order. The station list in pillar 1 is §4.5.6's; two of the three stations it names, " +
-    "Mang'elete among them, are in no ownership map — see §2.8.3 and C-20.",
+    "Numbered because §15.2.2 numbers them, and because four routes run in parallel but are stood " +
+    "up in order. The station list in pillar 1 is §15.2.2's; two of the three stations it names, " +
+    "Mang'elete among them, are in no ownership map — see §1.2 and C-20.",
 };
 
 /* ------------------------------------------------------------------ the registry */
@@ -335,7 +335,7 @@ type FigureEntry = { render: () => React.ReactNode; note: string };
 
 export const FIGURES: Record<string, FigureEntry> = {
   "reach-split": {
-    note: "§2.7.2 — the register split by connectivity, and the digital ceiling.",
+    note: "§4.3 — the register split by connectivity, and the digital ceiling.",
     render: () => (
       <FigureFrame series={REACH_SPLIT}>
         <ShareBar series={REACH_SPLIT} />
@@ -351,7 +351,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "platform-sizing": {
-    note: "§2.9.1 — five platforms, each as a range, against the register.",
+    note: "§4.3 — five platforms, each as a range, against the register.",
     render: () => (
       <FigureFrame series={PLATFORM_SIZING}>
         <RangeBars series={PLATFORM_SIZING} />
@@ -360,7 +360,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "offline-channels": {
-    note: "§2.9.4 — six offline channels, three of them unsourced.",
+    note: "§4.4 — six offline channels, three of them unsourced.",
     render: () => (
       <FigureFrame series={OFFLINE_CHANNELS}>
         <BarList series={OFFLINE_CHANNELS} />
@@ -369,7 +369,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "effort-rebalance": {
-    note: "§3.6.3 [CHECK REF] — the traditional pitch against the rebalanced weighting.",
+    note: "§12.1 — the traditional pitch against the rebalanced weighting.",
     render: () => (
       <FigureFrame series={REBALANCE_SERIES}>
         <SlopeChart
@@ -382,7 +382,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "audience-overview": {
-    note: "§3.4 — six ways of cutting the electorate.",
+    note: "§11 — six ways of cutting the electorate.",
     render: () => (
       <FigureFrame series={AUDIENCE_SERIES}>
         <TierGrid
@@ -394,11 +394,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "audience-segments": {
-    note: "§4.5 — six segments, their size, tier, channel and hook.",
+    note: "§11.3 — six segments, their size, tier, channel and hook.",
     render: () => (
       <FigureFrame series={SEGMENTS_SERIES}>
         <SpecTable
-          caption="§4.5 audience segment comparative summary"
+          caption="§15 audience segment comparative summary"
           columns={["Segment", "Sized electorate", "Data tier", "Primary channel", "Decisive persuasion hook"]}
           rows={AUDIENCE_SEGMENTS}
           emphasise={2}
@@ -408,7 +408,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "visit-loop": {
-    note: "§3.2.3 — visit, commitment, twelve weeks, verification, published either way.",
+    note: "§10.1 — visit, commitment, twelve weeks, verification, published either way.",
     render: () => (
       <FigureFrame series={VISIT_SERIES}>
         <Stepper stages={VISIT_LOOP} />
@@ -417,11 +417,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "provenance-mandate": {
-    note: "§2.3.1 — the three things every figure has to carry.",
+    note: "§A.1.1 — the three things every figure has to carry.",
     render: () => (
       <FigureFrame series={MANDATE_SERIES}>
         <SpecTable
-          caption="§2.3.1 tri-partite provenance mandate"
+          caption="§2.4 tri-partite provenance mandate"
           columns={["Requirement", "What it means", "Example"]}
           rows={PROVENANCE_MANDATE}
         />
@@ -453,7 +453,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "message-by-segment": {
-    note: "§C.1 — six segments, their message and the evidence behind it.",
+    note: "§10.4 — six segments, their message and the evidence behind it.",
     render: () => (
       <FigureFrame series={SEGMENT_MESSAGE_SERIES}>
         <SpecTable
@@ -466,7 +466,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "message-by-channel": {
-    note: "§C.2 — five channels, their register and their proof points.",
+    note: "§10.4 — five channels, their register and their proof points.",
     render: () => (
       <FigureFrame series={CHANNEL_MESSAGE_SERIES}>
         <SpecTable
@@ -479,7 +479,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "escalation-ladder": {
-    note: "§D.2 — three escalation levels and who decides at each.",
+    note: "§13.5 — three escalation levels and who decides at each.",
     render: () => (
       <FigureFrame series={ESCALATION_SERIES}>
         <Stepper stages={ESCALATION_LADDER} />
@@ -488,7 +488,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "response-matrix": {
-    note: "§E.1 — four threat severities, their protocol and SLA.",
+    note: "§F.1 — four threat severities, their protocol and SLA.",
     render: () => (
       <FigureFrame series={MATRIX_SERIES}>
         <SpecTable
@@ -502,7 +502,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "response-sla": {
-    note: "§E.2 — mandatory response time per channel.",
+    note: "§F.2 — mandatory response time per channel.",
     render: () => (
       <FigureFrame series={SLA_SERIES}>
         <SpecTable
@@ -516,7 +516,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "holding-positions": {
-    note: "§E.3 — four attack lines with their pre-drafted answers and sources.",
+    note: "§F.3 — four attack lines with their pre-drafted answers and sources.",
     render: () => (
       <FigureFrame series={HOLDING_SERIES}>
         <ol className="not-prose m-0 list-none space-y-2 p-0">
@@ -549,12 +549,12 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "rapid-response-flow": {
-    note: "§13.1 [CHECK REF] — monitoring feeds through the decision tree and the legal gateway to the response channels.",
+    note: "§20.2 — monitoring feeds through the decision tree and the legal gateway to the response channels.",
     render: () => <RapidResponseFlowDiagram />,
   },
 
   "compliance-architecture": {
-    note: "§5.3.5 — the three statutes the campaign operates under.",
+    note: "§19.4 — the three statutes the campaign operates under.",
     render: () => (
       <FigureFrame series={COMPLIANCE_SERIES}>
         <TierGrid
@@ -566,11 +566,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "iebc-clearance": {
-    note: "§5.3.5 — seven clearances, their statutory standard and their current status.",
+    note: "§19.4 — seven clearances, their statutory standard and their current status.",
     render: () => (
       <FigureFrame series={CLEARANCE_SERIES}>
         <SpecTable
-          caption="§5.3.5 IEBC statutory nomination clearance checklist"
+          caption="§19.4 IEBC statutory nomination clearance checklist"
           columns={["Clearance dimension", "Statutory standard & issuing authority", "Current status & legal verification"]}
           rows={IEBC_CLEARANCES}
           emphasise={2}
@@ -580,11 +580,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "liability-matrix": {
-    note: "§5.3.5 — three statutory exposures and the mitigation against each.",
+    note: "§19.4 — three statutory exposures and the mitigation against each.",
     render: () => (
       <FigureFrame series={LIABILITY_SERIES}>
         <SpecTable
-          caption="§5.3.5 DPA 2019 and Election Offences statutory matrix"
+          caption="§19.4 DPA 2019 and Election Offences statutory matrix"
           columns={["Legal dimension", "Statutory obligation / exposure risk", "Campaign risk mitigation protocol"]}
           rows={LIABILITY_MATRIX}
           emphasise={1}
@@ -594,7 +594,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "org-chart": {
-    note: "§4.6 — the lean core and the specialists each lead directs.",
+    note: "§17.1 — the lean core and the specialists each lead directs.",
     render: () => (
       <FigureFrame series={ORG_SERIES}>
         <Hierarchy chain={ORG_CHAIN} branches={ORG_BRANCHES} />
@@ -603,11 +603,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "role-ownership": {
-    note: "§4.6.4 — four core roles, what each owns and which specialists each directs.",
+    note: "§17.4 — four core roles, what each owns and which specialists each directs.",
     render: () => (
       <FigureFrame series={ROLES_SERIES}>
         <SpecTable
-          caption="§4.6.4 core campaign roles and ownership matrix"
+          caption="§17.4 core campaign roles and ownership matrix"
           columns={["Core role", "Primary strategic & operational ownership", "Specialist subcontractors directed"]}
           rows={ROLE_OWNERSHIP}
         />
@@ -616,7 +616,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "reporting-lines": {
-    note: "§4.6.5 — the two teams, the weekly brief and the line upward.",
+    note: "§17.4 — the two teams, the weekly brief and the line upward.",
     render: () => (
       <FigureFrame series={REPORTING_SERIES}>
         <TierGrid tiers={REPORTING_TEAMS} flow="Both teams meet at the weekly brief." />
@@ -628,7 +628,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "nomination-scorecard": {
-    note: "§5.1.1 — the four nomination-window indicators, with their unmeasured baselines shown as absences.",
+    note: "§18.2 — the four nomination-window indicators, with their unmeasured baselines shown as absences.",
     render: () => (
       <KpiScorecards
         stage={1}
@@ -640,7 +640,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "ge-scorecard": {
-    note: "§5.1.1 — the five general-election indicators, anchored to the winning threshold.",
+    note: "§18.2 — the five general-election indicators, anchored to the winning threshold.",
     render: () => (
       <KpiScorecards
         stage={2}
@@ -652,12 +652,12 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "kpi-architecture": {
-    note: "§1.9 — the two stages of targets, anchored to the vote threshold.",
+    note: "§18.2 — the two stages of targets, anchored to the vote threshold.",
     render: () => <KpiArchitecture />,
   },
 
   "research-and-tracker": {
-    note: "§5.1.2 — the research programme and the service-delivery tracker.",
+    note: "§18.5 — the research programme and the service-delivery tracker.",
     render: () => (
       <FigureFrame series={RESEARCH_SPLIT}>
         <TierGrid
@@ -669,11 +669,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "research-modules": {
-    note: "§5.2.6 — three research instruments and the decision each unlocks.",
+    note: "§18.5 — three research instruments and the decision each unlocks.",
     render: () => (
       <FigureFrame series={MODULES_SERIES}>
         <SpecTable
-          caption="§5.2.6 recognition-deficit research architecture"
+          caption="§18.5 recognition-deficit research architecture"
           columns={["Evidence test", "Method", "Record read", "Timing", "Decision unlocked"]}
           rows={RESEARCH_MODULES}
           emphasise={4}
@@ -683,11 +683,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "delivery-tracker": {
-    note: "§4.5.1 — four delivery dimensions, their statutory sources and cadence.",
+    note: "§15.1.1 — four delivery dimensions, their statutory sources and cadence.",
     render: () => (
       <FigureFrame series={TRACKER_SERIES}>
         <SpecTable
-          caption="§4.5.1 public service-delivery tracker architecture"
+          caption="§15.1.1 public service-delivery tracker architecture"
           columns={["Core delivery dimension", "Primary statutory data sources", "Update cadence & verification"]}
           rows={TRACKER_DIMENSIONS}
         />
@@ -696,7 +696,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "production-pipeline": {
-    note: "§4.5.2 — four pillars, two engines, one approval gateway.",
+    note: "§15.1.2 — four pillars, two engines, one approval gateway.",
     render: () => (
       <FigureFrame series={PRODUCTION_SERIES}>
         <TierGrid
@@ -708,11 +708,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "format-specs": {
-    note: "§4.5.2 — five channels, their technical specification and creative treatment.",
+    note: "§C.2 — five channels, their technical specification and creative treatment.",
     render: () => (
       <FigureFrame series={FORMAT_SERIES}>
         <SpecTable
-          caption="§4.5.2 production format specifications by channel"
+          caption="§15.1.2 production format specifications by channel"
           columns={["Channel & medium", "Technical specification", "Language & creative treatment"]}
           rows={FORMAT_SPECS}
         />
@@ -721,7 +721,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "ussd-menu": {
-    note: "§4.5.2 — the USSD menu tree, with the shortcode still unprovisioned.",
+    note: "§15.3.3 — the USSD menu tree, with the shortcode still unprovisioned.",
     render: () => (
       <FigureFrame series={USSD_SERIES}>
         <Tree root={USSD_MENU.root} nodes={USSD_MENU.nodes} />
@@ -730,11 +730,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "weekly-cycle": {
-    note: "§4.5.2 — the seven-day production cycle, focus and outputs per day.",
+    note: "§15.1.2 — the seven-day production cycle, focus and outputs per day.",
     render: () => (
       <FigureFrame series={WEEKLY_SERIES}>
         <SpecTable
-          caption="§4.5.2 weekly 7-day content production cycle"
+          caption="§15.1.2 weekly 7-day content production cycle"
           columns={["Day", "Production focus & milestones", "Output deliverables"]}
           rows={WEEKLY_CYCLE}
         />
@@ -743,7 +743,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "approval-gateway": {
-    note: "§4.5.2 — the four steps every asset passes before dispatch.",
+    note: "§15.1.2 — the four steps every asset passes before dispatch.",
     render: () => (
       <FigureFrame series={APPROVAL_SERIES}>
         <Stepper stages={APPROVAL_STEPS} />
@@ -752,7 +752,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "asset-library": {
-    note: "§4.5.2 — the seven vaults of the campaign asset repository.",
+    note: "§15.1.2 — the seven vaults of the campaign asset repository.",
     render: () => (
       <FigureFrame series={LIBRARY_SERIES}>
         <Tree root={ASSET_LIBRARY.root} nodes={ASSET_LIBRARY.nodes} />
@@ -761,7 +761,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "field-loop": {
-    note: "§4.5.7 — the closed loop between field intelligence and published response.",
+    note: "§15.3.1 — the closed loop between field intelligence and published response.",
     render: () => (
       <FigureFrame series={FIELD_LOOP}>
         <TierGrid
@@ -773,11 +773,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "field-reports": {
-    note: "§4.5.7 — four report types, their frequency, channel and captured fields.",
+    note: "§15.3.1 — four report types, their frequency, channel and captured fields.",
     render: () => (
       <FigureFrame series={FIELD_REPORTS_SERIES}>
         <SpecTable
-          caption="§4.5.7 ward coordinator field reporting protocol"
+          caption="§15.3.1 ward coordinator field reporting protocol"
           columns={["Report type", "Frequency", "Channel", "Data captured"]}
           rows={FIELD_REPORTS}
           emphasise={1}
@@ -787,7 +787,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "four-hour-cycle": {
-    note: "§4.5.7 — ground report to synchronised deployment, on the clock.",
+    note: "§15.3.1 — ground report to synchronised deployment, on the clock.",
     render: () => (
       <FigureFrame series={CYCLE_SERIES}>
         <Stepper stages={FOUR_HOUR_CYCLE} />
@@ -796,11 +796,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "operating-rhythm": {
-    note: "§4.5.7 — seven standing forums, their owners and participants.",
+    note: "§15.3.1 — seven standing forums, their owners and participants.",
     render: () => (
       <FigureFrame series={RHYTHM_SERIES}>
         <SpecTable
-          caption="§4.5.7 campaign operational rhythm and governance cadence"
+          caption="§15.3.1 campaign operational rhythm and governance cadence"
           columns={["Cadence & time (EAT)", "Forum", "Agenda", "Primary owner", "Participants"]}
           rows={OPERATING_RHYTHM}
         />
@@ -809,7 +809,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "data-layer": {
-    note: "§4.5.11 — capture, validation, output, and the encrypted core beneath them.",
+    note: "§15.4.1 — capture, validation, output, and the encrypted core beneath them.",
     render: () => (
       <FigureFrame series={DATA_LAYER}>
         <TierGrid
@@ -822,11 +822,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "supporter-schema": {
-    note: "§4.5.11 — the supporter record, field by field.",
+    note: "§15.4.1 — the supporter record, field by field.",
     render: () => (
       <FigureFrame series={SUPPORTER_SCHEMA_SERIES}>
         <SpecTable
-          caption="§4.5.11 supporter record schema specification"
+          caption="§15.4.1 supporter record schema specification"
           columns={["Field name", "Data type", "Description & constraints"]}
           rows={SUPPORTER_SCHEMA}
         />
@@ -835,7 +835,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "dpa-compliance": {
-    note: "§4.5.11 — six sections of the Data Protection Act 2019, and what each obliges.",
+    note: "§19.2 — six sections of the Data Protection Act 2019, and what each obliges.",
     render: () => (
       <FigureFrame series={DPA_SERIES}>
         <PairedRows
@@ -848,7 +848,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "tech-stack": {
-    note: "§4.5.13 — the four tiers of the campaign technology stack.",
+    note: "§E.1 — the four tiers of the campaign technology stack.",
     render: () => (
       <FigureFrame series={STACK_SERIES}>
         <TierGrid
@@ -860,11 +860,11 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "procurement-matrix": {
-    note: "§4.5.13 — five components, their DPA risk level, and their decision status.",
+    note: "§E.1 — five components, their DPA risk level, and their decision status.",
     render: () => (
       <FigureFrame series={PROCUREMENT_SERIES}>
         <SpecTable
-          caption="§4.5.13 technology stack master procurement matrix"
+          caption="§15.4.3 technology stack master procurement matrix"
           columns={["System component", "Recommended vendor", "DPA risk level", "Decision status"]}
           rows={PROCUREMENT}
           emphasise={2}
@@ -874,7 +874,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "bypass-architecture": {
-    note: "§4.5.6 — the four bypass pillars and the protocol for each.",
+    note: "§15.2.2 — the four bypass pillars and the protocol for each.",
     render: () => (
       <FigureFrame series={BYPASS_SERIES}>
         <Stepper
@@ -885,7 +885,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "counter-fire": {
-    note: "§3.5.1 — three ground rumours paired with the evidence that answers each.",
+    note: "§10.5 — three ground rumours paired with the evidence that answers each.",
     render: () => (
       <FigureFrame series={COUNTER_FIRE_SERIES}>
         <PairedRows
@@ -898,7 +898,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "cultural-registers": {
-    note: "§3.6.2 — four terms, the literal translation that fails, and the approved Kikamba idiom.",
+    note: "§12.5 — four terms, the literal translation that fails, and the approved Kikamba idiom.",
     render: () => (
       <FigureFrame series={REGISTERS_SERIES}>
         <PairedRows
@@ -915,7 +915,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "qc-gateway": {
-    note: "§3.6.3 — the four gates between an English draft and a Kikamba broadcast.",
+    note: "§12.5 — the four gates between an English draft and a Kikamba broadcast.",
     render: () => (
       <FigureFrame series={QC_SERIES}>
         <Stepper stages={QC_STAGES} />
@@ -924,7 +924,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "message-house": {
-    note: "§7.1 [CHECK REF] — the central claim in three languages over its three pillars.",
+    note: "§10.1 — the central claim in three languages over its three pillars.",
     render: () => (
       <FigureFrame series={MESSAGE_HOUSE}>
         <MessageHouse claim={CENTRAL_CLAIM} evidence={CLAIM_EVIDENCE} pillars={MESSAGE_PILLARS} />
@@ -933,7 +933,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "language-map": {
-    note: "§3.6.1 — the three languages, their reach, their audiences and their channels.",
+    note: "§12.4 — the three languages, their reach, their audiences and their channels.",
     render: () => (
       <FigureFrame series={LANGUAGE_SPLIT}>
         <ShareBar series={LANGUAGE_SPLIT} />
@@ -953,9 +953,9 @@ export const FIGURES: Record<string, FigureEntry> = {
                   {/* The channel list is §4.4.8's, transcribed. The flag is the audit's. */}
                   {l.conflicts?.includes("C-21") && (
                     <span className="mt-1 block rounded border border-gold/40 bg-gold/[0.06] px-2 py-1 text-ink">
-                      <strong className="font-bold text-gold">Under review — C-21.</strong> §4.5.9 states
+                      <strong className="font-bold text-gold">Under review — C-21.</strong> §15.3.3 states
                       that the Communications Authority restricts political bulk SMS to English or
-                      Kiswahili, and that an operator may refuse a non-compliant message. §3.6.1
+                      Kiswahili, and that an operator may refuse a non-compliant message. §12.4
                       allocates this rail 80% Kiswahili and 20% English. USSD is not restricted.
                     </span>
                   )}
@@ -970,7 +970,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "language-deployment": {
-    note: "§3.6.1 — seven output media, each allocated across languages.",
+    note: "§12.4 — seven output media, each allocated across languages.",
     render: () => (
       <FigureFrame series={DEPLOYMENT_SERIES}>
         <Allocation
@@ -986,19 +986,19 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "radio-gatekeepers": {
-    note: "§2.8.3 — the four stations the diagram called hostile, and what the ownership map says.",
+    note: "§4.2 — the four stations the diagram called hostile, and what the ownership map says.",
     render: () => (
       <FigureFrame series={GATEKEEPER_SERIES}>
         <p className="mb-2 t-micro font-bold uppercase tracking-wide text-muted">
-          §2.8.3: Tier 1 hostile / gatekeeper commercial stations
+          §1.2: Tier 1 hostile / gatekeeper commercial stations
         </p>
-        <Ledger rows={RADIO_GATEKEEPERS} statedLabel="§2.8.3's diagram calls this" nameFirst />
+        <Ledger rows={RADIO_GATEKEEPERS} statedLabel="§1.2's diagram calls this" nameFirst />
         <p className="mb-2 mt-4 t-micro font-bold uppercase tracking-wide text-muted">
-          §2.8.3: the stations it routes around them to
+          §1.2: the stations it routes around them to
         </p>
-        <Ledger rows={BYPASS_STATIONS} statedLabel="§2.8.3's diagram calls this" nameFirst />
+        <Ledger rows={BYPASS_STATIONS} statedLabel="§1.2's diagram calls this" nameFirst />
         <p className="mb-2 mt-4 t-micro font-bold uppercase tracking-wide text-muted">
-          And the four routes that need no station at all — stated in full in §4.5.6
+          And the four routes that need no station at all — stated in full in §15.2.2
         </p>
         <ol className="not-prose m-0 list-none space-y-1.5 p-0">
           {BYPASS_PILLARS.map((pillar, i) => (
@@ -1018,7 +1018,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "targeting-summary": {
-    note: "§2.11 — the eight findings of §2.7, computed, with the three that are in dispute flagged.",
+    note: "§7.3 — the eight findings of §6.2, computed, with the three that are in dispute flagged.",
     render: () => (
       <FigureFrame series={TARGETING_SERIES}>
         <Ledger rows={TARGETING_SUMMARY} />
@@ -1027,7 +1027,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "register-map": {
-    note: "§2.7 — the whole register, grouped by constituency.",
+    note: "§2.4 — the whole register, grouped by constituency.",
     render: () => (
       <FigureFrame series={REGISTER_SERIES}>
         <RegisterGroups
@@ -1040,7 +1040,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "constituency-power": {
-    note: "§3.4.4 [CHECK REF] — the eight constituencies, ranked, with the Big 4 bracket.",
+    note: "§2.4 — the eight constituencies, ranked, with the Big 4 bracket.",
     render: () => (
       <FigureFrame series={CONSTITUENCY_SERIES}>
         <BarList
@@ -1058,7 +1058,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "threshold-build-up": {
-    note: "§3.4.1 [CHECK REF] — register → ballots → the votes that win.",
+    note: "§2.5 — register → ballots → the votes that win.",
     render: () => (
       <FigureFrame series={THRESHOLD_SERIES}>
         <BuildUp
@@ -1070,7 +1070,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "register-growth": {
-    note: "§3.4.1 [CHECK REF] — the 2026 register and the like-for-like threshold on it.",
+    note: "§2.1 — the 2026 register and the like-for-like threshold on it.",
     render: () => (
       <FigureFrame series={REGISTER_GROWTH_SERIES}>
         <BuildUp series={REGISTER_GROWTH_SERIES} />
@@ -1079,7 +1079,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "ward-ranking": {
-    note: "§3.4.2 [CHECK REF] — the forty wards, ranked, with the concentration brackets.",
+    note: "§2.3 — the forty wards, ranked, with the concentration brackets.",
     render: () => (
       <FigureFrame series={WARD_RANKING_SERIES}>
         <BarList
@@ -1097,7 +1097,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "paths-to-threshold": {
-    note: "§3.4.3 [CHECK REF] — the four coalition routes, on the register and on ballots.",
+    note: "§2.5 — the four coalition routes, on the register and on ballots.",
     render: () => (
       <FigureFrame series={PATHS_SERIES}>
         <BuildUp
@@ -1109,7 +1109,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "deficit-pool": {
-    note: "§2.7 — where the recognition deficit sits, as a share of the register.",
+    note: "§6.2 — where the recognition deficit sits, as a share of the register.",
     render: () => (
       <FigureFrame series={DEFICIT_SERIES}>
         <ShareBar series={DEFICIT_SERIES} />

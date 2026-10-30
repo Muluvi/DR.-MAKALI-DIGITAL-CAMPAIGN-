@@ -1,65 +1,65 @@
 {
-  "measurement-sec-5-2-2": {
+  "success-sec-18-5": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "strategy-sec-3-8": {
+  "channels-sec-12-7": {
     "kind": "none",
     "note": "The decision table this drew is now fig-4-8-decision-rules, placed in the section; a second drawing of the same rules would repeat it."
   },
-  "strategy-sec-3-6-2": {
+  "channels-sec-12-5": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "workstreams-platforms-sec-4-5-2": {
+  "workstreams-platforms-sec-15-1-2": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "workstreams-platforms-sec-4-5-4": {
+  "workstreams-platforms-sec-15-1-4": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "measurement-sec-5-3-3": {
+  "lawful-sec-19-3": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "staffing-sec-4-6-6": {
+  "team-sec-17-5": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "strategy-sec-3-3-3": {
+  "channels-sec-12-3": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "delivery-sec-4-2-2": {
+  "timeline-sec-14-2": {
     "kind": "none",
     "note": "2026 premium pass: this was a stats rail of step counts (3, 4, 5); with quantitative derivation retired it fell back to a list of bare week labels with no content. No honest visual; the section's own list carries it."
   },
-  "annex-county-sec-b-5": {
+  "race-sec-5-5": {
     "kind": "none",
     "note": "Declutter brief 5.3 (c): this checklist redrew B.5's own bullets, which stay in the section as its record (folded under the lead where the section has one). Drawing them again would show the same text twice."
   },
-  "annex-runbooks-sec-e-12": {
+  "annex-runbooks-sec-f-11": {
     "kind": "none",
     "note": "Declutter brief 5.3 (c): this checklist redrew E.12's own bullets, which stay in the section as its record (folded under the lead where the section has one). Drawing them again would show the same text twice."
   },
-  "evidence-sec-2-2": {
+  "votes-sec-2-2": {
     "kind": "none",
     "note": "Declutter brief 5.3 (c): this timeline redrew 2.2's own bullets, which stay in the section as its record (folded under the lead where the section has one). Drawing them again would show the same text twice."
   },
-  "evidence-sec-2-4": {
+  "votes-sec-2-5": {
     "kind": "none",
     "note": "Declutter brief 5.3 (c): this stepper redrew 2.4's own bullets, which stay in the section as its record (folded under the lead where the section has one). Drawing them again would show the same text twice."
   },
-  "evidence-sec-2-11": {
+  "diagnosis-sec-7-3": {
     "kind": "none",
     "note": "Declutter brief 5.3 (c): this stepper redrew 2.11's own bullets, which stay in the section as its record (folded under the lead where the section has one). Drawing them again would show the same text twice."
   },
-  "staffing-sec-4-6": {
+  "team-sec-17-1": {
     "kind": "none",
     "note": "Declutter brief 5.3 (c): this checklist redrew 4.6's own bullets, which stay in the section as its record (folded under the lead where the section has one). Drawing them again would show the same text twice."
   },
-  "strategy-sec-3-1-1": {
+  "record-sec-6-1": {
     "kind": "none",
     "note": "Declutter brief 5.3 (c): this stepper redrew 3.1.1's own bullets, which stay in the section as its record (folded under the lead where the section has one). Drawing them again would show the same text twice."
   }

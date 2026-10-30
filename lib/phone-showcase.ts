@@ -143,14 +143,14 @@ export const WHATSAPP = {
       kind: "text",
       text: "Kitui Rural / Mbitini: Dr. Makali Mulu guarantees Ksh 100M Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. Reply STOP to opt out.",
       time: "07:12",
-      source: "§4.5.2 — Direct 2G Bulk SMS copy sample, verbatim",
+      source: "§15.1.2 — Direct 2G Bulk SMS copy sample, verbatim",
     },
     {
       from: "resident",
       kind: "text",
       text: "1",
       time: "07:14",
-      source: "§4.5.2 — the reply the message itself asks for",
+      source: "§15.1.2 — the reply the message itself asks for",
     },
     {
       from: "campaign",
@@ -190,7 +190,7 @@ export const X_POST = {
   body: {
     value:
       "Kitui Central NG-CDF: the Auditor-General's opinion for every year, 2013–2025, published in full.\n\nKitui County: KSh 1.3 billion in pending bills at FY2020/21 (Controller of Budget).\n\nThe record is public. Read it.",
-    source: "§3.2.2 Pillar 1 — the NG-CDF opinions are quoted as each report states them once retrieved; the pending-bills figure is Tier 1 (Annex B.2)",
+    source: "§10.1 Pillar 1 — the NG-CDF opinions are quoted as each report states them once retrieved; the pending-bills figure is Tier 1 (Annex B.2)",
   } as Sourced<string>,
   mediaLabel: {
     value: "Auditor-General — Kitui Central NG-CDF audit opinions, 2013–2025",
@@ -255,14 +255,14 @@ export const YOUTUBE = {
   /** §2.6 — YouTube's stated role in the channel mix. */
   descriptionLine: {
     value: "Long-form debates, church sermons and rally livestreams.",
-    source: "§2.9.1 — YouTube strategic role",
+    source: "§4.1 — YouTube strategic role",
   } as Sourced<string>,
   duration: "18:24",
   publishedAgo: "2 days ago",
   subscribeLabel: "Subscribe",
   thumbnailKicker: {
     value: "Every audit opinion, year by year",
-    source: "§4.5.2 Pillar A — core theme",
+    source: "§15.1.2 Pillar A — core theme",
   } as Sourced<string>,
 } as const;
 
@@ -302,7 +302,7 @@ export const USSD = {
   inputPlaceholder: "Reply",
   cancelLabel: "Cancel",
   sendLabel: "Send",
-  source: "§4.5.2 — USSD Interactive Menu Tree Structure, verbatim",
+  source: "§15.1.2 — USSD Interactive Menu Tree Structure, verbatim",
 } as const;
 
 /** The one quiet line the module carries. */

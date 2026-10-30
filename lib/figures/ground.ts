@@ -61,7 +61,7 @@ export const FIELD_LOOP_TIERS = [
 export const FIELD_LOOP: FigureSeries = {
   id: "field-loop",
   headline: "What a ward coordinator hears at 18:00 can be answered on air the next morning",
-  measure: "§4.5.7's closed-loop field and digital integration engine",
+  measure: "§15.3.1's closed-loop field and digital integration engine",
   points: [],
   note:
     "It is a loop, not a funnel: the inbound pipeline feeds the war room, the war room feeds the " +
@@ -101,7 +101,7 @@ export const FIELD_REPORTS: string[][] = [
 export const FIELD_REPORTS_SERIES: FigureSeries = {
   id: "field-reports",
   headline: "Four report types, one of which has a thirty-minute clock on it",
-  measure: "§4.5.7's ward coordinator field reporting protocol — type, frequency, channel and fields captured",
+  measure: "§15.3.1's ward coordinator field reporting protocol — type, frequency, channel and fields captured",
   points: [],
   note:
     "The Critical Threat Flash is the only one with a deadline measured in minutes, and the only " +
@@ -148,12 +148,12 @@ export const FOUR_HOUR_CYCLE = [
 export const CYCLE_SERIES: FigureSeries = {
   id: "four-hour-cycle",
   headline: "A rumour logged by USSD is answered in three languages across four channels inside four hours",
-  measure: "§4.5.7's ground-to-digital cycle, on the clock",
+  measure: "§15.3.1's ground-to-digital cycle, on the clock",
   points: [],
   note:
     "The clock is the claim, so it runs down the margin rather than sitting in a caption. The " +
     "SMS step names 14,000 consented voters in Tseikuru and Kyuso; it is transcribed as stated, " +
-    "and whether that list exists yet is §5.1's KPI ladder to answer, not this figure's.",
+    "and whether that list exists yet is §18.1's KPI ladder to answer, not this figure's.",
 };
 
 /* ------------------------------------------------------------------ §4.5.7 the operating rhythm */
@@ -176,7 +176,7 @@ export const OPERATING_RHYTHM: string[][] = [
   [
     "Weekly · Monday 09:00–11:30",
     "Strategic command war room",
-    "Review the week's KPI dashboard (Section 5.1.4), approve the weekly radio and digital ad spend, set the tour route",
+    "Review the week's KPI dashboard (Section 18.2), approve the weekly radio and digital ad spend, set the tour route",
     "Campaign Manager / Dr. Makali Mulu",
     "Candidate, all departmental directors",
   ],
@@ -213,7 +213,7 @@ export const OPERATING_RHYTHM: string[][] = [
 export const RHYTHM_SERIES: FigureSeries = {
   id: "operating-rhythm",
   headline: "Seven standing forums, and the candidate is named in three of them",
-  measure: "§4.5.7's campaign operational rhythm and governance cadence — time, forum, agenda, owner and participants",
+  measure: "§15.3.1's campaign operational rhythm and governance cadence — time, forum, agenda, owner and participants",
   points: [],
   note:
     "The cadence is repeated on every row rather than merged down a column. A merged cell is a " +

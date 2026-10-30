@@ -64,7 +64,7 @@ function derivedKinds() {
   return new Map(Object.entries(specs).map(([id, spec]) => [id, spec.kind]));
 }
 
-const LEADING = /^((?:\d+[A-Z]?(?:\.\d+)*|[A-G](?:\.\d+)+))\.?\s/;
+const LEADING = /^((?:\d+[A-Z]?(?:\.\d+)*|[A-H](?:\.\d+)+))\.?\s/;
 const idFor = (h) => {
   const m = LEADING.exec(h.title.trim());
   return m ? `${h.tab}-sec-${m[1].replace(/\./g, "-").toLowerCase()}` : null;

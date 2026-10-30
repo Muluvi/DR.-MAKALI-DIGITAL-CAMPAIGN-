@@ -28,7 +28,7 @@ import type { FigurePoint, FigureSeries } from "./types";
  * draw anything carrying it as hatched with "Source needed" on the bar. C-17.
  */
 export const UNSOURCED: Source = {
-  name: "Stated in §2.7.2 without a citation — source needed",
+  name: "Stated in §6.3 without a citation — source needed",
   publicationDate: "2026",
   tier: 3,
 };
@@ -92,7 +92,7 @@ export const REACH_SPLIT: FigureSeries = {
   ],
   conflicts: ["C-13"],
   note:
-    "§2.9.1 states that the 2023/24 Kenya Housing Survey supersedes the 2019 rate, putting internet " +
+    "§4.1 states that the 2023/24 Kenya Housing Survey supersedes the 2019 rate, putting internet " +
     "use at 26.2% and phone ownership at 44.1% — which would roughly double the connected layer. " +
     "Both rates are stated in the document and neither has been changed.",
 };
@@ -194,14 +194,14 @@ export const OFFLINE_CHANNELS: FigureSeries = {
     conflicts: provenance === "none" ? ["C-17"] : undefined,
     note:
       `${shareOfRegister(value)} of the register · ${basis}. ${role}` +
-      (provenance === "none" ? " SOURCE NEEDED — stated in §2.9.4 without a citation." : ""),
+      (provenance === "none" ? " SOURCE NEEDED — stated in §4.4 without a citation." : ""),
   })),
   conflicts: ["C-17"],
   note:
     "THESE CHANNELS OVERLAP AND MUST NOT BE ADDED. One voter listens to radio, attends a market and " +
     "holds a phone. Summed, the six would claim 1,800,000 reachable voters in a county with a " +
     "register of 532,758. Three of them — church, markets and mobile-money agents — are stated in " +
-    "§2.9.4 with no source, and the document says so.",
+    "§4.4 with no source, and the document says so.",
 };
 
 /* ------------------------------------------------------------------ §3.6.3 [CHECK REF] the rebalance */

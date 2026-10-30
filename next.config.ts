@@ -46,12 +46,25 @@ const nextConfig: NextConfig = {
     // route that now holds most of their text; a fragment on the old URL survives the redirect
     // (browsers carry it over), and ClientPage sends it on to whichever section now holds it.
     // Temporary (307), so a rollback of the restructure is not fought by cached redirects.
+    //
+    // The November 2026 restructure retired ten more, on the same rule; the October five now point
+    // straight at their final home rather than through a second redirect.
     const retired: Record<string, string> = {
-      objectives: 'decision',
-      data: 'evidence',
-      analysis: 'evidence',
-      implementation: 'decision',
-      nextsteps: 'decision',
+      objectives: 'goal',
+      data: 'news',
+      analysis: 'news',
+      implementation: 'goal',
+      nextsteps: 'goal',
+      decision: 'goal',
+      evidence: 'news',
+      strategy: 'message',
+      delivery: 'timeline',
+      staffing: 'team',
+      measurement: 'lawful',
+      risks: 'response',
+      'annex-messages': 'message',
+      'annex-cadence': 'engagement',
+      'annex-spec': 'annex-technology',
     };
     return [
       ...Object.entries(moved).map(([from, to]) => ({

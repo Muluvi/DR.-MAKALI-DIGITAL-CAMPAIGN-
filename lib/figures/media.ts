@@ -47,14 +47,14 @@ const NOT_IN_MAP = (name: string, role: string): RosterRow => ({
   label: name,
   value: "Not in the ownership map",
   detail: `${role} No owner, frequency or posture is recorded for it in data/media-ownership.ts, which carries eight stations. It appears in the prose of six chapters.`,
-  section: "§2.8.3",
+  section: "§1.2",
   stated: DIAGRAM_CLAIM,
   conflicts: ["C-20"],
 });
 
 const stationRow = (name: string): RosterRow => {
   const s = RADIO_STATIONS.find((r) => r.name === name);
-  if (!s) return NOT_IN_MAP(name, "Named in §2.8.3's hostile tier.");
+  if (!s) return NOT_IN_MAP(name, "Named in §1.2's hostile tier.");
 
   // The diagram and the ownership map agree about a station only when the map's posture is one
   // the campaign does not place into. Ngilu's two stations are monitoring targets on both
@@ -65,7 +65,7 @@ const stationRow = (name: string): RosterRow => {
     label: s.name,
     value: s.alignment,
     detail: `${s.frequency ?? "Kitui frequency not published"} · ${s.posture}`,
-    section: "§2.8.3",
+    section: "§1.2",
     stated: agrees ? undefined : DIAGRAM_CLAIM,
     conflicts: agrees ? undefined : ["C-20"],
   };
@@ -77,7 +77,7 @@ export const RADIO_GATEKEEPERS: RosterRow[] = DIAGRAM_HOSTILE.map(stationRow);
 /** The stations §2.8.3's diagram routed around them to, and what the map says about those. */
 export const BYPASS_STATIONS: RosterRow[] = [
   stationRow("Wikwatyo FM"),
-  NOT_IN_MAP("Mang'elete", "Named in §2.8.3 and §4.5.6 as a neutral, church-owned bypass route."),
+  NOT_IN_MAP("Mang'elete", "Named in §1.2 and §15.2.2 as a neutral, church-owned bypass route."),
   stationRow("County FM"),
 ];
 

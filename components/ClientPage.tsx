@@ -412,8 +412,8 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
                       asTitle={!expanded}
                     />
                   </div>
-                  {/* §3's argument, told once over a pinned county before the section's detail. */}
-                  {item.id === "evidence" && (
+                  {/* Chapter 2's argument, told once over a pinned county before the chapter's detail. */}
+                  {item.id === "votes" && (
                     <PanelFold label="The analysis in four steps: the winning number, where the votes are, the routes, and where he has held office">
                       <Story theme={theme === "light" ? "light" : "dark"} />
                     </PanelFold>

@@ -28,7 +28,7 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = path.join(ROOT, process.argv.find((a) => a.startsWith("--dir="))?.slice(6) ?? "content");
 
 /** The same leading-number shape lib/heading-slug.ts accepts. */
-const LEADING = /^((?:\d+[A-Z]?(?:\.\d+)*|[A-G](?:\.\d+)+))\.?\s/;
+const LEADING = /^((?:\d+[A-Z]?(?:\.\d+)*|[A-H](?:\.\d+)+))\.?\s/;
 const HEADING = /^(#{2,6})\s+(.+?)\s*$/;
 const FENCE = /^\s*(```+|~~~+)\s*(\S*)/;
 
@@ -70,7 +70,7 @@ export function inventory(dir = SRC): Heading[] {
   return out;
 }
 
-const depth = (ref: string) => ref.split(".").length - (/^[A-G]\./.test(ref) ? 1 : 0);
+const depth = (ref: string) => ref.split(".").length - (/^[A-H]\./.test(ref) ? 1 : 0);
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   const all = inventory();

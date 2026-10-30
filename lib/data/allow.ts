@@ -17,5 +17,6 @@ export const ALLOW: RegExp[] = [
   /Ksh 500 notes/, // a quoted field report, not a figure
   />\s?10,000 views|>\s?100,000 views|5,000 impressions/, // thresholds in a response or ad rule
   /\b30–120\b/, // a response window, in minutes
+  /within 100 m\b/, // the distance in NDMA's definition of a school water source, not a count
 ];
 

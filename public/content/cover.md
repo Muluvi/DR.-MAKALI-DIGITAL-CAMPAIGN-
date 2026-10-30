@@ -1,8 +1,8 @@
-Who this proposal is for, who prepared it, the terms it is submitted under, and the order of the six sections and six annexes that follow.
+Who this proposal is for, who prepared it, the terms it is submitted under, and the order of the six Parts and eight annexes that follow.
 
-## Prepared for, prepared by, and on what terms
+#### Prepared for, prepared by, and on what terms
 
-**Confidential.** Prepared for Hon. Dr. Benson Makali Mulu personally, and shared by link only. The full terms are in Annex F.
+**Confidential.** Prepared for Hon. Dr. Benson Makali Mulu personally, and shared by link only. The full terms are in Annex G.
 
 **Prepared for:**
 Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS
@@ -18,9 +18,3 @@ fireflymanagement.ke@gmail.com · 0726 766 800
 **Date:** September 2026
 
 **Status:** Proposal for discussion.
-
-**Firefly holds no publishing credentials to any of Dr. Mulu's accounts, and asks for none.**
-The access this engagement needs is read-only: analytics, so the work can be measured. The one
-place Firefly publishes is the offline layer it already operates (Section 4.5.9).
-
----

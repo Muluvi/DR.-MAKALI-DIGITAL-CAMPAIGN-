@@ -1,20 +1,40 @@
-ANNEX E. The runbooks: the rapid-response decision tree and its response times, the pre-drafted holding positions, monitoring tooling, the security baseline and incident response, and competitor-monitoring outputs. Operational detail a campaign runs on and a principal approves the existence of.
+```lead
+These are the runbooks the war room in Section 20.2 works from: operational detail a campaign runs on and a principal approves the existence of.
+```
 
-## E.1 The four-tier response decision tree
+These are the runbooks the war room in Section 20.2 works from: operational detail a campaign runs on and a principal approves the existence of. This annex holds the rapid-response decision tree and its response times, the pre-drafted holding positions, the monitoring tools, the red-team drills, the threat model, the security baseline and incident response, and the competitor-monitoring outputs.
 
-To avoid elevating fringe attacks or wasting campaign capital, the campaign evaluates every incident against a standardized **Response Decision Tree**:
+## F.1 The four-tier response decision tree
+
+To avoid elevating fringe attacks or wasting campaign capital, the campaign judges every incident against a four-tier **response decision tree**:
 
 ```figure
 id: response-matrix
 ```
 
-## E.2 Response times, by channel
+## F.2 Response times, by channel
 
 ```figure
 id: response-sla
 ```
 
-## E.3 Holding positions, pre-drafted
+## F.3 Holding positions, pre-drafted
+
+#### Pre-drafted response lines
+
+Prepared, verified, and rehearsed in drills. Each is a structure, not a script —
+substance fixed, delivery natural.
+
+| Likely attack | Response structure |
+|---|---|
+| **"He is a national MP, not a county manager"** | Acknowledge the distinction, then reframe: county government's central failure mode is budget execution, which is the one discipline he has done professionally at national scale — and the certification of Kitui Central as best evaluated constituency in the Eastern region is the county-level proof |
+| **"He is from Kitui Central and will favour it"** | Commit to a published, methodology-first allocation formula across all 40 wards, published before allocation and audited after — an economist's answer, and one no rival can match [CONFLICT C6: see open items] |
+| **"Others have been more visible on the ground"** | Do not contest the premise. Reframe visibility as a means, not a qualification: the question is what a leader does with the office, and offer the verification record |
+| **"NG-CDF questions"** | Lead with the documented record — bursary numbers, project list, the Eastern region evaluation certification — and invite scrutiny. **Never defensive; an evaluator welcomes audit.** |
+| **"Too technical / not close to ordinary people"** | Answer in Kikamba, with a household example. The best rebuttal to "too technical" is a demonstration, not a denial |
+| **"Wiper insider / party establishment"** | Point to the independence of his parliamentary record on budget matters |
+| **Manipulated media** | Section 20.4 protocol — 30-minute clock |
+| **Unsolicited SMS allegation** | Produce the consent audit trail; cite the published charter; correct publicly within the hour |
 
 The campaign maintains ready-to-deploy holding positions, evidential citations, and Kikamba framing for the four primary lines of attack:
 
@@ -22,7 +42,7 @@ The campaign maintains ready-to-deploy holding positions, evidential citations, 
 id: holding-positions
 ```
 
-## E.4 Monitoring tools
+## F.4 Monitoring tools
 
 ```visual
 kind: checklist
@@ -30,22 +50,24 @@ items:
   - label: "Social monitoring dashboards"
     text: "Real-time X and cross-platform keyword, hashtag and competitor tracking"
   - label: "Social listening and sentiment (premium tier)"
-    text: "Cross-platform sentiment analysis"
+    text: "Cross-platform sentiment analysis: mentions, supporter sentiment, emerging narratives"
   - label: "Meta Business Suite"
     text: "Facebook and Instagram monitoring; competitor content"
   - label: "Google Alerts"
     text: "\"Makali Mulu,\" \"Kitui Governor 2027,\" rival names"
   - label: "**Meta Ad Library**"
-    text: "Competitor ad spend, creative and targeting estimates"
+    text: "Competitor ad spend, creative themes, targeting estimates and frequency"
   - label: "**Google Ads Transparency Centre**"
-    text: "Competitor search advertising"
+    text: "Competitor search advertising and keywords"
+  - label: "X lists"
+    text: "Curated rival, surrogate and influencer accounts"
   - label: "Custom BI dashboard"
     text: "Centralised real-time metrics"
   - label: "**Radio monitoring**"
-    text: "Kamba-language station tracking (Section 4.5.6) — critical, as most attacks on Dr. Mulu will originate on air, not online"
+    text: "Kamba-language station tracking, coverage and airtime share (Section 15.2.2) — critical, as most attacks on Dr. Mulu will originate on air, not online"
 ```
 
-## E.5 Rapid-response protocol and pre-approved message library
+## F.5 Rapid-response protocol and pre-approved message library
 
 ```visual
 kind: checklist
@@ -68,6 +90,7 @@ items:
 ```
 
 To execute rapid containment without awaiting ad-hoc legal drafting, a pre-approved message library is maintained:
+
 ```visual
 kind: checklist
 items:
@@ -75,10 +98,10 @@ items:
   - label: "Kikamba, Kiswahili and English versions of key messages"
   - label: "Template statements for policy positions issued in response to attack"
   - label: "Fact-check cards linking to verified sources"
-  - label: "**Deepfake first-response templates** (Section 6.3.1)"
+  - label: "**Deepfake first-response templates** (Section 20.4)"
 ```
 
-## E.6 Red-team drills
+## F.6 Red-team drills
 
 ```lead
 Quarterly at standard tier, monthly at premium, with a mandatory full-scale drill immediately before the nomination decision and again 60 days before the general election.
@@ -93,7 +116,7 @@ before the general election.
 **Method:** a small red-team panel — Firefly's crisis lead, one campaign
 representative, and an external participant with no stake in the outcome — is
 briefed to attack. The response team is **not** told which scenario is coming
-or when. The drill runs in real time against the Section E.5 clock.
+or when. The drill runs in real time against the Annex F.5 clock.
 
 ```visual
 kind: checklist
@@ -107,17 +130,19 @@ items:
       - { label: "Tests", text: "Fact-base readiness; rebuttal library" }
   - label: "3. Claim that the campaign sent unsolicited SMS"
     fields:
-      - { label: "Tests", text: "Consent audit trail retrieval (Section 5.3.3)" }
+      - { label: "Tests", text: "Consent audit trail retrieval (Section 19.3)" }
   - label: "4. Hostile radio segment on a station associated with a rival"
     fields:
-      - { label: "Tests", text: "Radio response pathway (Section 4.5.6)" }
+      - { label: "Tests", text: "Radio response pathway (Section 15.2.2)" }
   - label: "5. Ward champion's account compromised; false messages sent to a ward group"
     fields:
-      - { label: "Tests", text: "Incident response (Section E.10)" }
-  - label: "7. Manufactured \"grassroots\" campaign attacking a rival, falsely attributed to Dr. Mulu"
+      - { label: "Tests", text: "Incident response (Annex F.10)" }
+  - label: "6. Manufactured \"grassroots\" campaign attacking a rival, falsely attributed to Dr. Mulu"
     fields:
       - { label: "Tests", text: "Charter defence; provenance evidence" }
 ```
+
+*Source conflict: an earlier version numbered the last scenario 7; there was no sixth, and the library holds six.*
 
 **Output:** every drill produces a written report — actual response times
 against target, decision bottlenecks, gaps in the message library — and the
@@ -128,9 +153,7 @@ matters.
 **KPI:** by Phase 2, **90% of drill responses meet their severity-level time
 target**.
 
----
-
-## E.7 The threat model
+## F.7 The threat model
 
 ```lead
 Kenyan campaigns face account takeover, phishing of staff and volunteers, leaked internal material, and increasingly the fabrication of audio and video.
@@ -153,7 +176,7 @@ items:
   - label: "Fabricated audio or video of the candidate"
 ```
 
-## E.8 Account security baseline
+## F.8 Account security baseline
 
 ```lead
 **Hardware keys for the candidate and admins are non-negotiable and take very little.**
@@ -196,7 +219,7 @@ items:
 little.** The specification: **FIDO2 (WebAuthn) hardware security keys, two per critical account
 holder** so a lost key never locks an account, registered before any SMS or app code is removed.
 
-## E.9 Phishing awareness
+## F.9 Phishing awareness
 
 ```visual
 kind: checklist
@@ -207,7 +230,7 @@ items:
   - label: "Specific coverage of the patterns most likely here: fake platform security alerts, fake IEBC or party communications, and fake media interview requests"
 ```
 
-## E.10 The incident response plan
+## F.10 The incident response plan
 
 ```visual
 kind: timeline
@@ -249,7 +272,7 @@ campaign confirms or denies authenticity accurately and quickly. It does not
 speculate about the source, and it does not deny the authenticity of genuine
 material — a denial later disproved is worse than the original leak.
 
-## E.12 Competitive intelligence outputs and rapid alerts
+## F.11 Competitive intelligence outputs and rapid alerts
 
 ```lead
 The competitive intelligence workflow produces two operational outputs: the monthly competitive brief and the rapid alert system.
@@ -267,10 +290,4 @@ The competitive intelligence workflow produces two operational outputs:
 
 #### Competitor monitoring tools
 
-| Tool | Function |
-|---|---|
-| Meta Ad Library | Competitor ad spend, creative themes, targeting estimates, frequency |
-| Google Ads Transparency Centre | Competitor search advertising and keywords |
-| Social listening (premium tier) | Mentions, supporter sentiment, emerging narratives |
-| X lists | Curated rival, surrogate and influencer accounts |
-| **Radio monitoring** | Kamba-station coverage and airtime share (Section 4.5.6) |
+The tools that feed both outputs are listed once, in Annex F.4.

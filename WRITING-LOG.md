@@ -574,3 +574,26 @@ All strategic and copy updates to the Hon. Dr. Benson Makali Mulu Campaign Porta
 
 
 
+
+
+---
+
+## [2026-10-30] - The November restructure: six Parts, 23 chapters, eight annexes
+
+### Modified Files:
+*   `content/*.md`: 36 files, one per route (cover, brief, Chapters 1–23 with 15 in four files, Annexes A–H); the eight retired files' text is carried into them
+*   `docs/restructure-2026-11/`: inventory, plan, preservation list, final reorganisation map
+
+### Updates Performed:
+1.  **Structure.** The table of contents is now Cover; In brief; Part I (Kitui and its voters, Chapters 1–4); Part II (the race and the candidate, 5–7); Part III (the strategy, 8–12); Part IV (the engagement, 13–17); Part V (success, law and risk, 18–20); Part VI (what each side receives and commits, 21–23); Annexes A–H.
+2.  **House style.** Economist register: each chapter opens with an answer-first lead and a sentence saying what the chapter covers; plain headings, sentence case; British spelling; numbers one to nine spelled out in prose.
+3.  **Naming.** Full name and honours on the cover only; "Dr. Makali Mulu" at first mention in each chapter; "Dr. Mulu" after.
+4.  **Merges.** Repeated passages stated once, recorded in the map as "Cx + Cy → merged" (125 units). Leads repeat their section's first sentence by design and are not merges.
+5.  **Corrections.** Each carries a note in the text ("*Source conflict: an earlier version gave …*"): among them the ICT survey's name (4.3), the runbook letters (20.2), the deliverables table's section numbers (21.2), the commitment references (22.1), the count of technology components (E.1), the Authenticator/hardware-key line (E.1), the scenario numbering (F.6), and the segment-share sum (10.4).
+6.  **New text, built only from existing claims or verified data.** In brief; chapter leads; Annex A.2 (generated); Annex H glossary (ten terms).
+7.  **Cross-references.** Every "Section X" in the content resolves to a live heading; every `[CHECK REF]` marker resolved, and none remains; two `[VERIFY …]` markers remain: the DPA section on bulk numbers, for the data-protection reviewer (new), and whether a regulation is in force (15.3, carried).
+
+### Preservation Verification:
+*   **Nothing deleted:** 1,036 inventory units, 1,036 in the map, discrepancy 0.
+*   **Facts kept:** `check-preservation.mjs` confirms 2,307 tokens, acronyms and names at their new locations; `check-tokens` confirms every token present at `4bfc078` survives.
+*   **Conflict markers:** all 27 `[CONFLICT C1–C8]` markers kept with the text they mark; the eight conflicts are carried unresolved, as approved.

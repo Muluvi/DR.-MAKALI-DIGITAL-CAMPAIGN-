@@ -272,7 +272,7 @@ export const FIG_3_7: FigureSpec = {
       },
     ],
   },
-  notes: ["Zones are built from administrative sub-counties; the register is by constituency. The two units do not match one-to-one (Section 2.8.3), so the register share is the nearest constituency match."],
+  notes: ["Zones are built from administrative sub-counties; the register is by constituency. The two units do not match one-to-one (Section 1.2), so the register share is the nearest constituency match."],
   columns: [{ key: "zone", label: "Zone" }, { key: "pop", label: "Share of residents, %", numeric: true }, { key: "reg", label: "Share of the register, %", numeric: true }],
   rows: ZONES.map((z) => ({ cells: { zone: z.label, pop: one(z.pop), reg: one(z.reg) }, state: "modelled" as const })),
 };
@@ -330,7 +330,7 @@ export const FIG_3_9: FigureSpec = {
   section: "2.10.3",
   title: "His profile carries six errors a researcher would find in an afternoon, and the Week 1 audit reads the rest",
   question: "What does his current presence actually show?",
-  takeaway: "The six fixes are Section 4.2.3; the four audit figures are drawn from the Week 1 export, never from an estimate.",
+  takeaway: "The six fixes are Section 14.3; the four audit figures are drawn from the Week 1 export, never from an estimate.",
   sources: [{ name: "His public profile, as displayed; Parliament of Kenya record", tier: "T1" }, { name: `The four audit figures: ${EXPORT}`, tier: null, state: "target" }],
   chart: {
     type: "composite",
@@ -356,7 +356,7 @@ export const FIG_3_10: FigureSpec = {
   title: `${DATA_GAPS.length} things no published source can tell the analysis, and none is estimated`,
   question: "What can't the data tell us yet, and what closes each gap?",
   takeaway: "The analysis works from where he has held office and from certified totals, not from ward-level preference or ward returns no one has published.",
-  sources: [{ name: "Generated from the named data gaps in Section 2.11 (scripts/build-open-items.ts)", tier: null }],
+  sources: [{ name: "Generated from the named data gaps in Section 7.3 (scripts/build-open-items.ts)", tier: null }],
   chart: {
     type: "matrix",
     header: ["Gap", "Closing document", "Holder", "Where"],
@@ -384,15 +384,15 @@ export const FIG_3_11: FigureSpec = {
           type: "balance",
           hypothesis: "His gap is a geography-of-recognition problem outside Kitui Central, not a deficit of leadership credibility.",
           supporting: [
-            `${fmt("pool.share")}% of the register lives where he has never held office (Section 2.7).`,
-            `${fmt("pareto.top12.in-pool")} of the twelve largest wards are in that pool (Section 2.7).`,
-            "Kitui East and Kitui South will not carry party flow (Section 2.7.2).",
+            `${fmt("pool.share")}% of the register lives where he has never held office (Section 6.2).`,
+            `${fmt("pareto.top12.in-pool")} of the twelve largest wards are in that pool (Section 6.2).`,
+            "Kitui East and Kitui South will not carry party flow (Section 6.3).",
           ],
           counter: [
             `Irene Kasalu won ${fmt("result.2022.womanrep.kasalu")} votes countywide in 2022, more than the ${fmt("result.2022.gov.malombe")} that won the governorship: countywide vote-getting capacity, not passive recognition.`,
-            `Enoch Wambua came within ${fmt("gap.wambua-to-benchmark-2022")} of the winning governor's total (Section 2.6).`,
+            `Enoch Wambua came within ${fmt("gap.wambua-to-benchmark-2022")} of the winning governor's total (Section 5.3).`,
           ],
-          test: ["Week 1: his reach by constituency, from his own Insights export, against the register (Section 4.2.1)."],
+          test: ["Week 1: his reach by constituency, from his own Insights export, against the register (Section 14.1)."],
         },
       },
       {
@@ -401,9 +401,9 @@ export const FIG_3_11: FigureSpec = {
           type: "decision",
           question: "Where does his reach land now?",
           rules: [
-            { if: "reach concentrates in Kitui Central", then: "the recognition diagnosis holds: Phase −1 runs as written (Section 3.3.1)" },
-            { if: "reach already lands in Mwingi and Kitui South, but engagement there is low", then: "the problem is message, not reach: content changes, targeting holds (Section 3.8)" },
-            { if: "the export cannot be read by constituency", then: "the test waits on the method in Section 5.2.4; nothing is committed against the hypothesis" },
+            { if: "reach concentrates in Kitui Central", then: "the recognition diagnosis holds: Phase −1 runs as written (Section 12.1)" },
+            { if: "reach already lands in Mwingi and Kitui South, but engagement there is low", then: "the problem is message, not reach: content changes, targeting holds (Section 12.7)" },
+            { if: "the export cannot be read by constituency", then: "the test waits on the method in Section 18.5; nothing is committed against the hypothesis" },
           ],
         },
       },

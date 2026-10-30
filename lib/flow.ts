@@ -1,45 +1,19 @@
 import { SECTIONS, type TabId } from "./heading-slug";
 
 /**
- * The document as one continuous scroll, decision first.
+ * The document as one continuous scroll, evidence first (the November 2026 restructure).
  *
- * Cover, then the decision, the evidence, the strategy, delivery (the operating model, the four
- * workstream routes and the staffing), measurement and governance, and risks, then the seven
- * annexes. Part 4 is one part across seven routes: a part is a unit of argument and a route is a
- * unit of transfer, and Part 4 is the longest part of the document.
+ * The cover and the one-screen summary, then six Parts in the campaign-planning order: what Kitui
+ * is and needs, the contest and where Dr. Mulu stands, the strategy the evidence justifies, how
+ * Firefly delivers it, how it is measured and kept lawful, and the decision. The annexes follow.
  *
- * Section numbers are the document's addressing system. When the October 2026 restructure
- * renumbered it, every old id was given a generated redirect (lib/anchors/redirects.ts), so a
- * link already shared still lands on the heading that holds the text it named.
+ * Section numbers are the document's addressing system. Every id live before this restructure has
+ * a generated redirect (lib/anchors/restructure-2026-11.json), so a link already shared still lands
+ * on the heading that holds the text it named.
  */
-export const FLOW_ORDER: TabId[] = [
-  // The cover opens the document: who it is for, who prepared it, and one line of terms. The full
-  // terms are Annex F.
-  "cover",
-  // The ask and everything a decision-maker needs to make it, before the argument behind it.
-  "decision",
-  // The record and what it implies, then what we will therefore do, then how it runs.
-  "evidence",
-  "strategy",
-  "delivery",
-  "workstreams-platforms",
-  "workstreams-media",
-  "workstreams-ground",
-  "workstreams-data",
-  "staffing",
-  "measurement",
-  "risks",
-  // Reference, after the argument is made.
-  "annex-evidence",
-  "annex-county",
-  "annex-messages",
-  "annex-cadence",
-  "annex-runbooks",
-  "annex-terms",
-  "annex-spec",
-];
+export const FLOW_ORDER: TabId[] = SECTIONS.map((s) => s.id);
 
-/** The seven movements of the scroll, so the reader can feel where they are without a menu. */
+/** The six Parts and the annexes, so the reader can feel where they are without a menu. */
 export interface FlowAct {
   id: string;
   label: string;
@@ -49,13 +23,13 @@ export interface FlowAct {
 }
 
 export const FLOW_ACTS: FlowAct[] = [
-  { id: "decision", label: "The decision", blurb: "What is being asked, what do I get, who does what, and what must I decide or provide?", opensOn: "decision" },
-  { id: "evidence", label: "The evidence", blurb: "What does the record show, and why is the plan shaped this way?", opensOn: "evidence" },
-  { id: "strategy", label: "The strategy", blurb: "What do we do about it, and why that?", opensOn: "strategy" },
-  { id: "delivery", label: "Delivery", blurb: "How is it run, when, by whom?", opensOn: "delivery" },
-  { id: "measurement", label: "Measurement and governance", blurb: "How will we know it is working, and how is it kept lawful?", opensOn: "measurement" },
-  { id: "risks", label: "Risks and response", blurb: "What could go wrong, and what happens when it does?", opensOn: "risks" },
-  { id: "reference", label: "Annexes", blurb: "Method, county reference, the runbooks, terms and specifications", opensOn: "annex-evidence" },
+  { id: "kitui", label: "Part I — Kitui today", blurb: "Who lives here, and what do they need?", opensOn: "kitui" },
+  { id: "contest", label: "Part II — The contest", blurb: "Who is running, and where does Dr. Mulu stand?", opensOn: "race" },
+  { id: "strategy", label: "Part III — The strategy", blurb: "What should the campaign do, and why?", opensOn: "goal" },
+  { id: "delivery", label: "Part IV — How Firefly delivers", blurb: "Who does the work, when, and how?", opensOn: "engagement" },
+  { id: "proof", label: "Part V — Proof and protection", blurb: "How will we know it works, and how is it kept safe and lawful?", opensOn: "success" },
+  { id: "decision", label: "Part VI — The decision", blurb: "What is Dr. Mulu being asked to decide?", opensOn: "receives" },
+  { id: "reference", label: "Annexes", blurb: "Reference", opensOn: "annex-evidence" },
 ];
 
 const ACT_BY_OPENER = new Map(FLOW_ACTS.map((a) => [a.opensOn as string, a]));

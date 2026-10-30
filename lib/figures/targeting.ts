@@ -65,7 +65,7 @@ export const TARGETING_SUMMARY: SummaryRow[] = [
     label: "Registered electorate",
     value: `${n(COUNTY_REGISTER)} voters`,
     detail: `Across ${WARD_COUNT} wards — ${n(COUNTY_TOTAL_WITH_PRISONS)} with prisons.`,
-    section: "§2.7",
+    section: "§6.2",
   },
   {
     label: "Victory threshold",
@@ -95,7 +95,7 @@ export const TARGETING_SUMMARY: SummaryRow[] = [
     label: "Primary deficit zones",
     value: `${n(DEFICIT_POOL)} registered`,
     detail: `Mwingi (${n(MWINGI_BLOC)}) + Kitui South (${n(KITUI_SOUTH)}) = ${DEFICIT_POOL_SHARE.toFixed(2)}% of the register.`,
-    section: "§2.7",
+    section: "§6.2",
     stated: "51.72%",
     conflicts: ["C-6"],
   },
@@ -104,7 +104,7 @@ export const TARGETING_SUMMARY: SummaryRow[] = [
     value: "5 of the top 11 wards",
     detail:
       "Direct 1:1 overlap: Kyuso, Tseikuru, Mumoni, Athi and Ikanga/Kyatune sit in the deficit zones, 83,496 voters between them. Four of the five are in the top 8.",
-    section: "§2.7",
+    section: "§6.2",
     stated: "5 of top 8 wards",
     conflicts: ["C-5"],
   },
@@ -112,7 +112,7 @@ export const TARGETING_SUMMARY: SummaryRow[] = [
     label: "Operational mandate",
     value: "65% digital · 70% offline SMS",
     detail: `Directed to Mwingi and Kitui South — ${DEFICIT_WARD_COUNT} wards — where he has never held office.`,
-    section: "§2.7",
+    section: "§6.2",
     stated: "24 northern and southern deficit wards",
     conflicts: ["C-7"],
   },
@@ -120,14 +120,14 @@ export const TARGETING_SUMMARY: SummaryRow[] = [
 
 export const TARGETING_SERIES: FigureSeries = {
   id: "targeting-summary",
-  headline: "What §2.7 established, and the three lines of it that are in dispute",
-  measure: `The eight findings of §2.7, each computed from the ${n(COUNTY_REGISTER)} register and pointing back at the subsection that established it`,
+  headline: "What §6.2 established, and the three lines of it that are in dispute",
+  measure: `The eight findings of §6.2, each computed from the ${n(COUNTY_REGISTER)} register and pointing back at the subsection that established it`,
   // The rows are statements rather than a measurable series, so the frame takes no points: the
   // mark draws them. Declaring points here would put a bar chart behind a ledger.
   points: [],
   conflicts: ["C-5", "C-6", "C-7"],
   note:
     "Every figure is derived from the register rather than restated, so this summary cannot drift " +
-    "from what it summarises. Where §2.11 printed a different figure, the printed one is shown " +
+    "from what it summarises. Where §7.3 printed a different figure, the printed one is shown " +
     "beside the computed one and neither has been changed.",
 };

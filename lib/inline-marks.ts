@@ -35,7 +35,7 @@ const CONFLICT = String.raw`\[CONFLICT (C\d+): see open items\]`;
 const CHECKREF = String.raw` ?\[CHECK REF\]`;
 const VERIFY = String.raw`\[VERIFY ([^\]]*)\]`;
 /** A section number as this document writes it: 2, 2.5, 2.5.2, A.1, G.4. */
-const NUM = String.raw`(?:\d+(?:\.\d+){0,2}|[A-G](?:\.\d+){1,2})`;
+const NUM = String.raw`(?:\d+(?:\.\d+){0,2}|[A-H](?:\.\d+){1,2})`;
 const XREF = String.raw`\((?:Sections?\s+|§\s?)${NUM}(?:\s*(?:,|and|or|&|–|-|to)\s*(?:Sections?\s+|§\s?)?${NUM})*\)`;
 
 const MASTER = new RegExp(`(${TIER})|${CONFLICT}|(${CHECKREF})|${VERIFY}|(${XREF})`, "g");

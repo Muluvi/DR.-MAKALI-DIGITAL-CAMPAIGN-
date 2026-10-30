@@ -1,26 +1,31 @@
-ANNEX A. The provenance rules every figure in this proposal is held to, the three source tiers, and the protocol for when two sources disagree. Referenced throughout; collected here so the method can be checked without interrupting the argument.
+```lead
+Every figure in this proposal carries its source, its tier and its date, and where no source exists the gap is named rather than filled.
+```
+
+Every figure in this proposal carries its source, its tier and its date, and where no source exists the gap is named rather than filled. This annex sets out the provenance rules every figure is held to, the three source tiers it is graded against and the protocol for when two sources disagree, and then lists every figure with its source. It is referenced throughout and collected here so the method can be checked without interrupting the argument.
 
 ## A.1 Evidence standard: provenance and source tiers
+
 ### A.1.1 Every figure carries its provenance
 
-To ensure zero "data drift" across the strategic command, every figure cited in memos, ad targeting budgets, field operations, and executive briefings must satisfy the **Tri-Partite Metadata Mandate**:
+So that no figure drifts between documents, every figure cited in memos, ad targeting budgets, field operations and briefings carries three things, its source, its tier and its date (the **three-part provenance rule**):
 
 ```figure
 id: provenance-mandate
 ```
 
-**Rule of Implementation:** Any metric presented without all three parameters is classified as **Unverified Draft Data** and is strictly prohibited from informing field allocations or financial expenditures.
+**The rule.** Any metric presented without all three is classed as **unverified draft data** and may not inform field allocations or spending decisions.
 
 ### A.1.2 The three source tiers
 
-The campaign classifies all intelligence into three evidential tiers:
+The campaign grades every source into one of three tiers:
 
 ```figure
 id: tier-classification
 ```
 
 ```visual
-{"kind":"cards","preset":"tier","title":"Standard Implementation Rules","items":[{"title":"Tier 1 Data","text":"(e.g., 532,758 registered voters in 2022, 40 wards) is hardcoded into operational models and cannot be modified without gazetted IEBC addenda."},{"title":"Tier 2 Data","text":"(e.g., the 2022 governor results as reported by The Star, the Nation and the Standard, pending the IEBC forms) is used with its source named, and where two published values disagree both are shown."},{"title":"Tier 3 Data","text":"(e.g., informal reports of the method the Wiper Patriotic Front will use to select its Kitui nominee, or the 605,703 registered voters reported for July 2026) is explicitly watermarked as single-source until validated by the issuing body's own documents: for the method, an NEC resolution or the party's nomination rules as filed; for the register, IEBC's own July 2026 figure."}]}
+{"kind":"cards","preset":"tier","title":"How each tier is used","items":[{"title":"Tier 1","text":"(e.g., 532,758 registered voters in 2022, 40 wards) is hardcoded into operational models and cannot be modified without gazetted IEBC addenda."},{"title":"Tier 2","text":"(e.g., the 2022 governor results as reported by The Star, the Nation and the Standard, pending the IEBC forms) is used with its source named, and where two published values disagree both are shown."},{"title":"Tier 3","text":"(e.g., informal reports of the method the Wiper Patriotic Front will use to select its Kitui nominee, or the 605,703 registered voters reported for July 2026) is marked as single-source until validated by the issuing body's own documents: for the method, an NEC resolution or the party's nomination rules as filed; for the register, IEBC's own July 2026 figure."}]}
 ```
 
 #### The Kitui source pack (October 2026), and how each document is tiered
@@ -34,24 +39,286 @@ id: tier-classification
 
 ### A.1.3 When two sources disagree
 
-When multiple sources report conflicting metrics (e.g., voter registration counts, vote totals, or demographic proportions), the analytical unit applies a standardized **Four-Step Conflict Resolution Protocol**:
+When multiple sources report conflicting metrics (e.g., voter registration counts, vote totals, or demographic proportions), the analysis applies a **four-step protocol**:
 
 ```figure
 id: conflict-protocol
 ```
 
-**Ban on Guesswork:** Under no circumstance will the analytics team interpolate, smooth, or invent numbers to fill gaps between conflicting datasets.
-
----
+**No guesswork.** The analysis never interpolates, smooths or invents numbers to fill gaps between conflicting datasets.
 
 ### A.1.4 The standard applied to our own measurement
 
 ```lead
-The presence audit in Section 4.2.1 is held to the same rules as every figure in this document. Platform-reported metrics are **Tier 2**, and they are never presented as Tier 1 alongside IEBC or KNBS figures.
+The presence audit in Section 14.1 is held to the same rules as every figure in this document. Platform-reported metrics are **Tier 2**, and they are never presented as Tier 1 alongside IEBC or KNBS figures.
 ```
 
-The presence audit in Section 4.2.1 is held to the same rules as every figure in this document.
+The presence audit in Section 14.1 is held to the same rules as every figure in this document.
 
 ```visual
 {"kind":"checklist","items":[{"label":"Provenance","body":"Every number carries its export date, its source system, and whether it came from a Page Insights export or a manual public tally. The two are not interchangeable and are never averaged."},{"label":"Tier","body":"Platform-reported metrics are **Tier 2**: they are the platform's own measurement of itself, they restate silently, and they are not audited. They are never presented as Tier 1 alongside IEBC or KNBS figures."},{"label":"Coding, and its agreement rate","text":"Post coding is done twice, independently, with disagreements resolved by a third pass.","body":"**The inter-coder agreement rate is published with the findings.** A coding exercise that will not report its own agreement rate is an opinion wearing a table."},{"label":"Gaps","text":"A metric the export does not contain is reported as absent, not estimated.","body":"Estimated engagement rates and inferred follower geographies are not used."},{"label":"Competitive figures","body":"are public-source only, gathered the same way for him and both nomination rivals, in the same window."}]}
 ```
+
+## A.2 Source table
+
+<!-- source-table:start (generated by scripts/build-source-table.ts; do not edit) -->
+
+Every figure in the store, 536 in all: 353 read off a named document, 113 modelled, 62 targets and 8 still needed. The needed figures are the open items listed in Section 7.3 and are not repeated here.
+
+#### Sourced figures, by document
+
+<!-- keep -->
+| Document | Tier | As of | Figures read off it |
+|---|---|---|---|
+| CA/KNBS, Analytical Report on ICT, 2023/24 Kenya Housing Survey (national tables), per Firefly's audit | Tier 1 | 2023/24 | `ict.kenya.internet` 35.0%; `ict.kenya.internet.rural` 25.0%; `ict.kenya.internet.urban` 56.6%; `ict.kenya.internet.15-24` 46.6%; `ict.kenya.internet.25-34` 59.3%; `ict.kenya.internet.35-44` 47.1%; `ict.kenya.youth` 58.6%; `ict.kenya.youth.rural` 46.7%; `ict.kenya.youth.urban` 78.7%; `ict.kenya.internet.higher-ed` 92.3%; `ict.nairobi.youth` 83.1%; `ict.mombasa.youth` 70.4%; `ict.kenya.phone` 53.7% |
+| Communications Authority / KNBS, ICT Analytical Report on the 2023/24 Kenya Housing Survey | Tier 1 | 2023-24 | `ict.internet` 26.2%; `ict.phone` 44.1% |
+| Communications Authority, Q3 FY2025/26 sector statistics | Tier 1 | 2026-03 | `ict.sim-penetration` 157.7%; `ict.momo-penetration` 100.1%; `ict.sims.national` 84,100,000.0; `ict.broadband.national` 62,600,000.0; `ict.momo.national` 53,400,000.0; `ict.agents` 602,470 |
+| Communications Authority, sector statistics | Tier 1 | 2025-09 | `ict.agents.2025` 480,216 |
+| Controller of Budget, County Budget Implementation Review Report | Tier 1 | 2020-21, 2025-26 Q1 | `budget.pending-bills.2021` KSh 1,300,000,000; `budget.absorption.q1` 18% |
+| County Government of Kitui, Delivering the Kitui Promise: Three-Year Scorecard (Aug 2022 – Aug 2025) | Tier 1 | 2025-08 | `scorecard.claimed` 2,244; `scorecard.itemised` 401; `scorecard.itemised.ksh` KSh 1,363,953,263; `scorecard.kitui-central.projects` 69; `scorecard.kitui-central.ksh` KSh 254,900,000; `scorecard.mwingi-north.projects` 54; `scorecard.mwingi-north.ksh` KSh 211,200,000; `scorecard.kitui-south.projects` 59; `scorecard.kitui-south.ksh` KSh 197,500,000; `scorecard.mwingi-central.projects` 59; `scorecard.mwingi-central.ksh` KSh 182,300,000; `scorecard.kitui-east.projects` 45; `scorecard.kitui-east.ksh` KSh 133,700,000; `scorecard.kitui-rural.projects` 28; `scorecard.kitui-rural.ksh` KSh 109,900,000; `scorecard.kitui-west.projects` 33; `scorecard.kitui-west.ksh` KSh 62,900,000; `scorecard.mwingi-west.projects` 27; `scorecard.mwingi-west.ksh` KSh 50,500,000; `scorecard.countywide.ksh` KSh 160,900,000; `scorecard.mwingi-west.water.ksh` KSh 1,900,000; `scorecard.kitui-central.health.ksh` KSh 76,600,000; `scorecard.health.attributed.ksh` KSh 153,400,000; `scorecard.vaccinated` 1,500,000; `scorecard.imr.from` 47; `scorecard.imr.to` 13; `scorecard.roads.graded` 6,974.77; `scorecard.roads.row.km` 2,800; `scorecard.roads.row.ksh` KSh 18,000,000; `scorecard.boreholes.drilled` 57; `scorecard.boreholes.equipped` 32; `scorecard.health.beneficiaries` 1,304,665; `scorecard.kangu.ksh` KSh 839,700,000; `scorecard.kangu.households` 25,000; `scorecard.boda.sheds` 44; `scorecard.boda.sheds.itemised` 32; `scorecard.police.stations` 8; `scorecard.police.complete` 6 |
+| County Government of Kitui, KNBS and UN Women, County Gender Data Sheet: Kitui (October 2025), from KDHS 2022 and the 2019 Census | Tier 1 | 2022, 2025, 2030 | `ict.phone.adult.men` 77.7%; `ict.phone.adult.women` 73.9%; `ict.kenya.phone.adult.men` 80.4%; `ict.kenya.phone.adult.women` 77.5%; `ict.internet.1549.men` 34.7%; `ict.internet.1549.women` 23.3%; `ict.kenya.internet.1549.men` 56.2%; `ict.kenya.internet.1549.women` 44.2%; `register.women.share` 52%; `women.nopaidwork` 60.2%; `women.nopaidwork.kenya` 40.3%; `men.nopaidwork` 21.9%; `women.unpaidwork` 14.8%; `men.unpaidwork` 2.8%; `women.unpaidwork.kenya` 18.7%; `men.unpaidwork.kenya` 3.6%; `women.purchases` 87.4%; `women.purchases.kenya` 78.2%; `women.cash.alone` 4.7%; `women.cash.joint` 67.3%; `women.cash.husband` 27.9%; `water.women.collect` 66.0%; `water.women.collect.kenya` 68.5%; `water.30min` 21.2%; `water.30min.kenya` 67.9%; `water.over30` 61.8%; `water.over30.kenya` 8.7%; `health.access.problem` 69.5%; `health.access.problem.kenya` 52.4%; `health.facility-births` 79.5%; `health.facility-births.kenya` 88.1%; `health.skilled-birth` 86.0%; `health.imr` 23; `health.u5mr` 27; `health.imr.kenya` 32; `health.u5mr.kenya` 41; `edu.none.men` 9.7%; `edu.none.women` 15.1%; `edu.secondary.girls` 51.6%; `edu.secondary.boys` 40.8%; `edu.literacy.men` 99.3%; `edu.literacy.women` 94.8%; `population.2025` 1,258,954; `population.2030` 1,327,463; `population.15-24.2025` 276,060; `disability.men` 7.5%; `disability.women` 5.5%; `fuel.clean.2022` 6.3%; `fuel.clean.2022.kenya` 21.2% |
+| Court of Appeal, Malombe v Ngilu [2018] KECA 460 | Tier 1 | Not stated | `result.2017.gov.ngilu` 169,990; `result.2017.gov.musila` 114,827; `result.2017.gov.malombe` 74,681 |
+| IEBC 2022 polling station register | Tier 1 | Not stated | `register.polling-stations` 1,578 |
+| IEBC certified result, Kitui governor 2022 (Form 37C), per Firefly's Public Data & Evidence Audit (24 Sep 2026) | Tier 1 | 2022-08 | `result.2022.gov.malombe` 198,004; `result.2022.gov.musila` 117,606; `result.2022.gov.valid` 328,760; `turnout.2022` 61.7% |
+| IEBC declaration, Kitui Central MP 2022, as gazetted (via The Star), per Firefly's Public Data & Evidence Audit (24 Sep 2026) | Tier 1 | 2022-08 | `result.2022.mp.mulu` 30,954; `result.2022.mp.musambi` 9,866 |
+| IEBC, Enhanced Continuous Voter Registration county annex (July 2026) | Tier 1 | 2026-04-28 | `register.2026.ecvr-drive` 61,839 |
+| IEBC, Registered Voters per County Assembly Ward (2022) | Tier 1 | Not stated | `con.mwingi-north` 68,829; `ward.ngomeni` 9,131; `ward.kyuso` 19,921; `ward.mumoni` 15,877; `ward.tseikuru` 16,471; `ward.tharaka` 7,429; `con.mwingi-west` 57,138; `ward.kyome-thaana` 14,979; `ward.nguutani` 15,121; `ward.migwani` 14,678; `ward.kiomo-kyethani` 12,360; `con.mwingi-central` 74,231; `ward.central` 14,525; `ward.kivou` 12,301; `ward.nguni` 13,165; `ward.nuu` 12,729; `ward.mui` 11,039; `ward.waita` 10,472; `con.kitui-west` 59,047; `ward.mutonguni` 17,979; `ward.kauwi` 15,767; `ward.matinyani` 14,279; `ward.kwa-mutonga-kithumula` 11,022; `con.kitui-rural` 55,000; `ward.kisasi` 13,840; `ward.mbitini` 12,048; `ward.kwa-vonza-yatta` 18,020; `ward.kanyangi` 11,092; `con.kitui-central` 77,764; `ward.miambani` 11,759; `ward.township` 19,538; `ward.kyangwithya-west` 15,931; `ward.mulango` 15,135; `ward.kyangwithya-east` 15,401; `con.kitui-east` 65,377; `ward.zombe-mwitika` 13,152; `ward.nzambani` 11,723; `ward.chuluni` 12,622; `ward.voo-kyamatu` 10,003; `ward.endau-malalani` 7,897; `ward.mutito-kaliku` 9,980; `con.kitui-south` 75,372; `ward.ikanga-kyatune` 15,384; `ward.mutomo` 12,637; `ward.mutha` 11,039; `ward.ikutha` 12,066; `ward.kanziko` 8,403; `ward.athi` 15,843; `register.2022` 532,758; `register.2022.prisons` 75; `register.2022.with-prisons` 532,833 |
+| KEPHIS 2024 tests, as cited in NDMA and Kitui County Steering Group, Kitui County 2025 Long Rains Food and Nutrition Security Assessment (July 2025) | Tier 1 | 2024 | `aflatoxin.maize` 32%; `aflatoxin.groundnut` 75% |
+| Kitui Central NG-CDF bursary record | Tier 1 | Not stated | `record.bursary.recipients` 12,573; `record.bursary.ksh` KSh 47,000,000 |
+| Kitui Central NG-CDF, FY2026/27 allocation, per Firefly's audit | Tier 1 | 2026 | `ngcdf.allocation.2026` KSh 192,613,000 |
+| Kitui County Fiscal Strategy Paper FY2026/27, as approved by the County Assembly | Tier 1 | Not stated | `budget.equitable` KSh 11,640,000,000; `budget.grants` KSh 1,040,000,000; `budget.equitable.share` 84.3%; `budget.grants.share` 7.5% |
+| KNBS, 2019 Census Analytical Report on Migration, Volume VIII, per Firefly's audit | Tier 1 | 2019 | `migration.net` −72,051 |
+| KNBS, 2019 Census, agriculture report, per Firefly's audit | Tier 1 | 2019 | `livestock.households` 215,003 |
+| KNBS, 2019 Census; IEBC | Tier 1 | Not stated | `census.subcounties` 18 |
+| KNBS, 2019 Kenya Population and Housing Census | Tier 1 | Not stated | `census.population` 1,136,187; `census.male` 549,003; `census.female` 587,151; `census.households` 262,942; `census.area` 30,430; `census.intersex` 33; `census.household-size` 4.3; `census.density` 37; `sub.kitui-central.population` 105,991; `sub.kitui-central.density` 251; `sub.kitui-central.households` 29,057; `sub.kitui-west.population` 70,871; `sub.kitui-west.density` 170; `sub.kitui-west.households` 17,497; `sub.katulani.population` 47,108; `sub.katulani.density` 146; `sub.katulani.households` 12,170; `sub.mwingi-central.population` 108,713; `sub.mwingi-central.density` 95; `sub.mwingi-central.households` 26,753; `sub.kyuso.population` 76,867; `sub.kyuso.density` 30; `sub.kyuso.households` 15,993; `sub.mumoni.population` 29,344; `sub.mumoni.density` 48; `sub.mumoni.households` 6,496; `sub.tseikuru.population` 40,871; `sub.tseikuru.density` 30; `sub.tseikuru.households` 8,579; `sub.mutomo.population` 113,356; `sub.mutomo.density` 40; `sub.mutomo.households` 23,044; `sub.ikutha.population` 82,964; `sub.ikutha.density` 9; `sub.ikutha.households` 16,679; `sub.mwingi-east.population` 85,139; `sub.mwingi-east.density` 25; `sub.mwingi-east.households` 18,730; `sub.mutitu.population` 55,287; `sub.mutitu.density` 12; `sub.mutitu.households` 11,521; `sub.migwani.population` 79,255; `sub.migwani.density` 125; `sub.migwani.households` 19,096 |
+| KNBS, 2019 Kenya Population and Housing Census, per Firefly's audit | Tier 1 | 2019 | `fuel.unclean` 92.6%; `fuel.firewood` 79.5% |
+| KNBS, KDHS 2022 (via the Advancing Nutrition policy brief), per Firefly's audit | Tier 1 | 2022 | `health.stunting` 25.1% |
+| KNBS, Kenya Demographic and Health Survey 2022 | Tier 1 | 2022 | `water.basic.kdhs` 21%; `water.basic.nairobi` 99% |
+| KNBS, Kenya Demographic and Health Survey 2022, Kitui factsheet, per Firefly's audit | Tier 1 | 2022 | `health.insurance` 11.7%; `health.insurance.nhif` 10.3% |
+| KNBS, Kenya Poverty Report (2021) | Tier 1 | Not stated | `poverty.2021` 55.2%; `poverty.2021.people` 637,000 |
+| KNBS, Kitui County Statistical Abstract 2015 | Tier 1 | 2013/14, 2014/15 | `ngcdf.kitui-central.2013` KSh 76,700,000; `ngcdf.kitui-central.2014` KSh 110,300,000 |
+| KNBS, via the NDMA Long Rains Food Security Assessment | Tier 1 | Not stated | `water.surface` 400,000 |
+| Livestock data validation 2023, as cited in the NDMA Kitui 2025 Long Rains Food and Nutrition Security Assessment (July 2025), p. 96 | Tier 1 | Not stated | `livestock.cattle` 613,000; `livestock.goats` 2,000,000; `livestock.poultry` 4,000,000; `livestock.donkeys` 326,000 |
+| NDMA and Kitui County Steering Group, Kitui County 2025 Long Rains Food and Nutrition Security Assessment (July 2025) | Tier 1 | 2024-06, 2025-04, 2025-06, 2025-07 | `water.points.working` 450; `water.points.total` 630; `water.points.working.kitui-central` 56%; `water.points.working.kitui-south` 61%; `water.schools.unsafe` 2,244; `health.measles.ngomeni` 112; `health.typhoid.2025` 2,564; `health.typhoid.2024` 1,696; `health.dysentery.rise` 8.5%; `schools.meals` 439; `schools.meals.of` 3,969; `schools.damaged` 426; `schools.damaged.learners` 9,900; `livelihood.mixed` 55%; `livelihood.marginal` 42%; `livelihood.employment` 3%; `wealth.verypoor` 29%; `wealth.poor` 31%; `wealth.middle` 26%; `wealth.better` 14%; `greengrams.cash.marginal` 40%; `greengrams.cash.mixed` 30%; `greengrams.lr2025` 146,522; `greengrams.lr2025.vs-average` 58%; `maize.lr2025.vs-average` 41%; `price.maize` KSh 59; `price.maize.average` KSh 56; `price.goat` KSh 5,969; `price.goat.average` KSh 4,262; `fodder.held` 21,734; `fodder.needed` 215,000; `goats.ccpp.morbidity` 29%; `goats.ccpp.mortality` 15%; `goats.ppr.morbidity` 15%; `goats.ppr.mortality` 8%; `border.killed` 2 |
+| NDMA National Drought Early Warning Bulletin, February 2026 | Tier 1 | 2026-02 | `water.trek.2026-02` 7.2 |
+| Office of the Auditor-General, Kitui County FY2023/24 audit report | Tier 1 | Not stated | `audit.cash` KSh 670,000,000; `audit.uncollected` KSh 1,090,000,000; `audit.ifmis` KSh 621,500,000; `audit.transfers` KSh 356,200,000 |
+| SMART nutrition assessment 2023, as cited in NDMA and Kitui County Steering Group, Kitui County 2025 Long Rains Food and Nutrition Security Assessment (July 2025) | Tier 1 | 2023 | `health.diet.diversity` 42.9%; `health.diet.acceptable` 30.5% |
+| CA/KARF audience report, Lower Eastern (Kitui, Machakos, Makueni), per Firefly's audit | Tier 2 | Not stated | `radio.musyi` 17.3%; `radio.citizen` 11.3%; `radio.athiani` 10.9%; `radio.mbaitu` 5.7%; `radio.county` 4.4%; `radio.mwatu` 0.5% |
+| Communications Authority, Q3 FY2025/26 sector statistics | Tier 2 | Not stated | `ict.smartphone-share` 59.7%; `ict.smartphones.national` 50,200,000.0 |
+| Countdown 2030, Kitui health workforce, per Firefly Public Data & Evidence Audit (24 Sep 2026) | Tier 2 | Not stated | `health.density.doctors` 1; `health.density.clinical` 2; `health.density.lab` 2; `health.density.nurses` 7; `health.density.core` 10 |
+| County Government of Kitui, Delivering the Kitui Promise: Three-Year Scorecard (Aug 2022 – Aug 2025) | Tier 2 | Not stated | `farm.employs` 66%; `farm.rural-households` 87% |
+| Equal Politics aggregation of IEBC 2022 presidential results (Tier 1 record: IEBC Forms 34B and 34C) | Tier 2 | 2022-08 | `result.2022.pres.odinga` 235,400; `result.2022.pres.odinga.share` 70.82%; `result.2022.pres.ruto` 89,419; `result.2022.pres.ruto.share` 26.90%; `result.2022.pres.wajackoyah` 2,838; `result.2022.pres.mwaure` 1,446; `result.2022.pres.rejected` 3,306; `result.2022.pres.turnout` 62% |
+| Kitui County CECM for Agriculture, statement | Tier 2 | Not stated | `food.reserve-households` 28,000 |
+| Kitui County Government and NTSA, August 2026, per Firefly Public Data & Evidence Audit (24 Sep 2026) | Tier 2 | 2026-08 | `boda.licensed.2026` 783 |
+| Kitui County health planning baseline (CIDP), per Firefly's audit | Tier 2 | Not stated | `health.stunting.cidp` 29.3% |
+| Kitui County PCRA, derived from the 2019 Census, per Firefly's audit | Tier 2 | 2019 | `livestock.households.pcra` 177,701 |
+| KNBS 2019 Census Volume II (rural and urban distribution), via the CRA Kitui County Fact Sheet, 3rd edition, and citypopulation.de | Tier 2 | Not stated | `census.rural` 1,082,168; `census.urban` 54,019; `census.rural.share` 95.2%; `census.urban.share` 4.8% |
+| KNBS 2019 Census, via Stats Kenya county profile (statskenya.co.ke) | Tier 2 | 2009, 2019 | `census.median-age` 17; `electricity.2019` 17.2%; `electricity.2009` 4.8%; `water.safe.2019` 38.5%; `water.piped.2019` 5.1% |
+| KNBS Kenya Poverty Report, via national reporting | Tier 2 | Not stated | `food.share` 72.5% |
+| KNBS, 2019 Kenya Population and Housing Census | Tier 2 | 2019 | `ict.internet.2019` 13.6%; `ict.phone.2019` 42.9%; `ict.internet.2019.people` 143,340; `ict.phone.2019.people` 452,948 |
+| Media reporting of the IEBC 2022 declaration (The Star; Nation; Standard) | Tier 2 | Not stated | `result.2022.gov.mueke` 10,639; `result.2022.senate.wambua` 191,317; `result.2022.womanrep.kasalu` 201,899 |
+| NDMA and Kitui County Steering Group, Kitui County 2025 Long Rains Food and Nutrition Security Assessment (July 2025) | Tier 2 | Not stated | `poverty.ndma.2019` 60.4%; `poverty.ndma.county` 63.1% |
+| The Star, August 2022 | Tier 2 | Not stated | `result.2022.gov.musila.media` 114,606 |
+| A 2026 report, per Firefly Public Data & Evidence Audit (24 Sep 2026) | Tier 3 | 2026 | `boda.riders` 14,000; `boda.unlicensed` 10,921 |
+| Catholic Diocese of Kitui, per Firefly Public Data & Evidence Audit (24 Sep 2026) | Tier 3 | Not stated | `church.catholic` 240,000 |
+| County Assembly revision of the CFSP [S48] | Tier 3 | Not stated | `budget.osr.revised` KSh 1,339,000,000 |
+| Farm-gate price as quoted in the message matrix; source pending | Tier 3 | Not stated | `price.ndengu.farmgate` KSh 40 |
+| Kitui Agricultural Show 2023, per Firefly Public Data & Evidence Audit (24 Sep 2026) | Tier 3 | Not stated | `show.2023` 70,000 |
+| Kitui Central Project Inventory 2013–2026, awaiting line items | Tier 3 | Not stated | `record.cdf.boreholes` 84; `record.cdf.school-water` 142 |
+| Kitui County Fiscal Strategy Paper FY2026/27, as approved by the County Assembly | Tier 3 | Not stated | `budget.total` KSh 13,790,000,000; `budget.osr` KSh 1,120,000,000; `budget.osr.share` 8.1% |
+| KNBS 2019 Census and ASTGS, as cited; page reference pending | Tier 3 | Not stated | `policy.ndengu-output` 45,000 |
+| OAG County Executive audits FY2021/22 and FY2022/23, as reported; reports not yet retrieved | Tier 3 | Not stated | `audit.pending.contested` KSh 2,400,000,000 |
+| Public Facebook page, approximate count as displayed | Tier 3 | Not stated | `channel.fb.followers` 15,000 |
+| Public Facebook page, as displayed | Tier 3 | Not stated | `channel.fb.posts` 745 |
+| Public X profile @MakaliMulu, indexed snapshot, per Firefly Public Data & Evidence Audit (24 Sep 2026) | Tier 3 | 2026-09 | `channel.x.followers` 5,100 |
+| Stats Kenya, reporting KNBS for 2022 | Tier 3 | 2022 | `poverty.2022.statskenya` 58.3% |
+| Venas News, registered voters by county, July 2026 [S4]; unconfirmed until IEBC's own July figure is in hand | Tier 3 | 2026-07 | `register.2026` 605,703 |
+
+#### Modelled figures, and how each is computed
+
+<!-- keep -->
+| Figure | Value | Tier of its inputs | How it is computed |
+|---|---|---|---|
+| `register.2026.growth` | 72,945 | Tier 3 | 605,703 less 532,758: growth since 2022. |
+| `register.2026.continuous` | 11,106 | Tier 3 | Growth since 2022 less the ECVR drive: continuous registration outside the drive. |
+| `register.2022.ward-mean` | 13,319 | Tier 1 | 532,758 across 40 wards. |
+| `bloc.mwingi` | 200,198 | Tier 1 | Mwingi North + West + Central, 2022 register. |
+| `pool` | 275,570 | Tier 1 | The four constituencies where he has never held office: Mwingi North, West, Central and Kitui South. |
+| `pool.share` | 51.7% | Tier 1 | Pool / 2022 register. |
+| `pool.wards` | 21 | Tier 1 | Wards in the pool. |
+| `bloc.mwingi.share` | 37.58% | Tier 1 | Mwingi bloc / 2022 register. |
+| `con.kitui-central.share` | 14.6% | Tier 1 | Kitui Central / 2022 register. |
+| `con.kitui-south.share` | 14.15% | Tier 1 | Kitui South / 2022 register. |
+| `east-south` | 140,749 | Tier 1 | Kitui East + Kitui South: the two constituencies without Wiper MPs. |
+| `east-south.share` | 26.4% | Tier 1 | Kitui East + South / 2022 register. |
+| `big4` | 296,196 | Tier 1 | Kitui Central, Kitui South, Mwingi Central and Mwingi North. |
+| `big4.share` | 55.60% | Tier 1 | Big 4 / 2022 register. |
+| `pareto.top12` | 201,267 | Tier 1 | The twelve largest wards, 2022 register. |
+| `pareto.top12.share` | 37.78% | Tier 1 | Top 12 / 2022 register. |
+| `pareto.top20` | 315,006 | Tier 1 | The twenty largest wards. |
+| `pareto.top20.share` | 59.13% | Tier 1 | Top 20 / 2022 register. |
+| `pareto.bottom10` | 96,415 | Tier 1 | The ten smallest wards. |
+| `pareto.bottom10.share` | 18.10% | Tier 1 | Bottom 10 / 2022 register. |
+| `pareto.top12.in-pool` | 5 | Tier 1 | Of the twelve largest wards, those in the pool (consistency fix 4). |
+| `pareto.top12.in-pool.voters` | 83,496 | Tier 1 | Registered voters in those wards. |
+| `pareto.top12.in-pool.share` | 15.7% | Tier 1 | Their share of the register. |
+| `mwingi-north.top3` | 52,269 | Tier 1 | Kyuso + Tseikuru + Mumoni. |
+| `result.2022.gov.musila.share` | 35.77% | Tier 1 | 117,606 / 328,760 valid votes: matches the certified share. |
+| `benchmark.share-2022` | 37.2% | Tier 1 | 198,004 / 532,758: the 2022 winner's share of the register. |
+| `benchmark.2026-equivalent` | 225,115 | Tier 1 | The 2022 winner's share of the register applied to the July 2026 register. A ratio carried forward, not a forecast. |
+| `benchmark.2026-equivalent.rounded` | 225,000 | Tier 1 | The 2026 equivalent, rounded to the nearest 5,000 for prose. |
+| `benchmark.2026-equivalent.share` | 37.2% | Tier 1 | The share carried forward: 198,004 / 532,758. |
+| `turnout.rate` | 0.617% | Tier 1 | The turnout rate as a multiplier, for the working shown in Section 2.5. |
+| `ballots.2022` | 328,712 | Tier 1 | 2022 register × the turnout rate (the certified 2022 rate, carried forward). |
+| `ballots.2026` | 373,719 | Tier 1 | July 2026 register × the 2022 turnout rate, carried forward. |
+| `benchmark.share-of-ballots.2026` | 53.5% | Tier 1 | 200,000 / ballots at the 2022 turnout rate on the July 2026 register. |
+| `benchmark.share-of-ballots` | 60.8% | Tier 1 | 200,000 / ballots at the 2022 turnout rate. |
+| `benchmark.share-of-register` | 37.5% | Tier 1 | 200,000 / 2022 register. |
+| `gap.wambua-to-benchmark-2022` | 6,687 | Tier 1 | 198,004 less 191,317. |
+| `path.a.registered` | 200,198 | Tier 1 | Mwingi Central + North + West, 2022 register. |
+| `path.a.share` | 37.58% | Tier 1 | Mwingi Central + North + West / 2022 register. |
+| `path.a.ballots` | 123,522 | Tier 1 | Mwingi Central + North + West × the 2022 turnout rate, carried forward. |
+| `path.a.margin` | −76,478 | Tier 1 | Ballots at the constant less 200,000, even if every ballot went to him. |
+| `path.b.registered` | 212,183 | Tier 1 | Kitui Central + South + West, 2022 register. |
+| `path.b.share` | 39.83% | Tier 1 | Kitui Central + South + West / 2022 register. |
+| `path.b.ballots` | 130,917 | Tier 1 | Kitui Central + South + West × the 2022 turnout rate, carried forward. |
+| `path.b.margin` | −69,083 | Tier 1 | Ballots at the constant less 200,000, even if every ballot went to him. |
+| `path.c.registered` | 201,267 | Tier 1 | The twelve largest wards, 2022 register. |
+| `path.c.share` | 37.78% | Tier 1 | The twelve largest wards / 2022 register. |
+| `path.c.ballots` | 124,182 | Tier 1 | The twelve largest wards × the 2022 turnout rate, carried forward. |
+| `path.c.margin` | −75,818 | Tier 1 | Ballots at the constant less 200,000, even if every ballot went to him. |
+| `path.d.registered` | 191,811 | Tier 1 | Kitui Central + West + Rural (the home belt), 2022 register. |
+| `path.d.share` | 36.00% | Tier 1 | Kitui Central + West + Rural (the home belt) / 2022 register. |
+| `path.d.ballots` | 118,347 | Tier 1 | Kitui Central + West + Rural (the home belt) × the 2022 turnout rate, carried forward. |
+| `path.d.margin` | −81,653 | Tier 1 | Ballots at the constant less 200,000, even if every ballot went to him. |
+| `path.a.at80` | 98,818 | Tier 1 | 80% of the route's ballots. |
+| `path.a.at80.short` | 101,182 | Tier 1 | 200,000 less 80% of the route's ballots. |
+| `path.d.at80` | 94,678 | Tier 1 | 80% of the route's ballots. |
+| `path.d.at80.short` | 105,322 | Tier 1 | 200,000 less 80% of the route's ballots. |
+| `census.female.share` | 51.7% | Tier 1 | Women / residents. |
+| `zone.anchor.population` | 223,970 | Tier 1 | Sum of the zone's sub-counties: kitui-central, kitui-west, katulani. |
+| `zone.anchor.households` | 58,724 | Tier 1 | Sum of the zone's sub-counties. |
+| `zone.anchor.share` | 19.7% | Tier 1 | Zone population / county. |
+| `zone.mwingi.population` | 255,795 | Tier 1 | Sum of the zone's sub-counties: mwingi-central, kyuso, mumoni, tseikuru. |
+| `zone.mwingi.households` | 57,821 | Tier 1 | Sum of the zone's sub-counties. |
+| `zone.mwingi.share` | 22.5% | Tier 1 | Zone population / county. |
+| `zone.arid.population` | 416,001 | Tier 1 | Sum of the zone's sub-counties: mutomo, ikutha, mwingi-east, mutitu, migwani. |
+| `zone.arid.households` | 89,070 | Tier 1 | Sum of the zone's sub-counties. |
+| `zone.arid.share` | 36.6% | Tier 1 | Zone population / county. |
+| `zones.population` | 895,766 | Tier 1 | The three zones together. |
+| `zones.share` | 78.8% | Tier 1 | The three zones / county. |
+| `zones.excluded` | 240,000 | Tier 1 | Residents in no zone, rounded to the nearest 10,000. |
+| `zones.excluded.share` | 21.2% | Tier 1 | Residents in no zone / county: 100 less the three zones' share. |
+| `zone.anchor.register.share` | 25.7% | Tier 1 | Kitui Central + Kitui West / 2022 register. |
+| `zone.mwingi.register.share` | 37.6% | Tier 1 | Mwingi North + West + Central / 2022 register. |
+| `zone.arid.register.share` | 26.4% | Tier 1 | Kitui South + Kitui East / 2022 register. |
+| `con.kitui-rural.share` | 10.3% | Tier 1 | Kitui Rural / 2022 register. |
+| `ict.offline` | 73.8% | Tier 1 | 100% less 26.2% internet use. |
+| `reach.smartphone` | 158,696 | Tier 1 | 26.2% internet use applied to the July 2026 register. |
+| `reach.sms-only` | 108,419 | Tier 1 | 44.1% phone ownership less 26.2% internet use, on the July 2026 register. |
+| `reach.nophone` | 338,588 | Tier 1 | No phone: the remainder of the July 2026 register. |
+| `reach.offline` | 447,007 | Tier 1 | The July 2026 register less those reachable online. |
+| `reach.smartphone.short` | 41,304 | Tier 1 | 200,000 less the digital ceiling. |
+| `reach.smartphone.of-benchmark` | 79.3% | Tier 1 | The digital ceiling / 200,000. |
+| `budget.rounding` | KSh −10,000,000 | Tier 1 | Published total less the three parts: rounding in the source, shown as its own segment. |
+| `segment.rural.voters` | 507,000 | Tier 1 | 95.2% rural share applied to the 2022 register, rounded. The register is not published by rural/urban split. |
+| `segment.urban.voters` | 26,000 | Tier 1 | 4.8% urban share applied to the 2022 register, rounded. |
+| `segment.youth.voters` | 234,000 | Tier 1 | The 2019 census age distribution applied to the 2022 register; the register is not published by age. |
+| `segment.youth.share` | 44% | Tier 1 | Youth voters / the 2022 register. |
+| `con.mwingi-north.share` | 12.92% | Tier 1 | Mwingi North / 2022 register. |
+| `policy.ward-fund.total` | KSh 4,000,000,000 | Tier 1 | KSh 100m per ward × 40 wards, a year. |
+| `policy.ward-fund.share` | 29% | Tier 1 | The ward fund / the KSh 13.79bn envelope. |
+| `policy.ndengu.bridge` | KSh 2,025,000,000 | Tier 1 | (floor price − farm-gate price) × output in kg: the county bridges the gap. |
+| `policy.ndengu.purchase` | KSh 3,825,000,000 | Tier 1 | Floor price × output in kg: the county buys the crop outright. |
+| `policy.flagships.bridge` | KSh 6,025,000,000 | Tier 1 | Ward fund + the ndengu bridge. |
+| `policy.flagships.share` | 44% | Tier 1 | Both commitments, bridge case / the envelope. |
+| `ict.phone.adult` | 75.7% | Tier 1 | Adult phone ownership weighted by the register's sex split: 52% × 73.9% + 48% × 77.7%. |
+| `reach.phone.adult` | 459,000 | Tier 3 | The adult phone-ownership rate applied to the July 2026 register, rounded to the nearest 1,000. The adult basis: voters are adults. |
+| `reach.nophone.adult` | 147,000 | Tier 3 | The July 2026 register less adult phone owners, rounded to the nearest 1,000. |
+| `reach.phone.resident` | 267,115 | Tier 1 | Phone owners on the resident basis: reachable online plus reachable by SMS only. |
+| `reach.phone.ratio` | 1.7 | Tier 1 | Adult-basis phone owners / resident-basis phone owners. |
+| `water.points.down.share` | 28.6% | Tier 1 | Water sources not operational / all water sources assessed. |
+| `health.typhoid.rise` | 51.2% | Tier 1 | Rise in typhoid cases, January–June 2025 on the year before. |
+| `scorecard.unitemised` | 1,843 | Tier 1 | Projects claimed less projects itemised. |
+| `scorecard.kitui-central.per-voter` | KSh 3,278 | Tier 1 | Itemised spend / the constituency's 2022 register. Covers the 401 itemised projects only. |
+| `scorecard.mwingi-north.per-voter` | KSh 3,068 | Tier 1 | Itemised spend / the constituency's 2022 register. Covers the 401 itemised projects only. |
+| `scorecard.kitui-south.per-voter` | KSh 2,620 | Tier 1 | Itemised spend / the constituency's 2022 register. Covers the 401 itemised projects only. |
+| `scorecard.mwingi-central.per-voter` | KSh 2,456 | Tier 1 | Itemised spend / the constituency's 2022 register. Covers the 401 itemised projects only. |
+| `scorecard.kitui-east.per-voter` | KSh 2,045 | Tier 1 | Itemised spend / the constituency's 2022 register. Covers the 401 itemised projects only. |
+| `scorecard.kitui-rural.per-voter` | KSh 1,998 | Tier 1 | Itemised spend / the constituency's 2022 register. Covers the 401 itemised projects only. |
+| `scorecard.kitui-west.per-voter` | KSh 1,065 | Tier 1 | Itemised spend / the constituency's 2022 register. Covers the 401 itemised projects only. |
+| `scorecard.mwingi-west.per-voter` | KSh 884 | Tier 1 | Itemised spend / the constituency's 2022 register. Covers the 401 itemised projects only. |
+| `scorecard.attributed.ksh` | KSh 1,202,900,000 | Tier 1 | Itemised spend attributed to a constituency. |
+| `scorecard.pool.share` | 53.3% | Tier 1 | The pool's four constituencies' share of constituency-attributed itemised spend. |
+| `scorecard.vaccinated.itemised` | 226,491 | Tier 1 | The itemised vaccination rows: 216,441 + 10,050 animals. |
+| `scorecard.roads.row.per-km` | KSh 6,429 | Tier 1 | The itemised road row's cost / its length. |
+
+#### Targets, and whose each is
+
+<!-- keep -->
+| Target | Value | Whose, and what it commits to |
+|---|---|---|
+| `benchmark` | 200,000 | The single working benchmark: the 2022 winning tally, 198,004, rounded. Stated once in Section 2.5 and reused everywhere (consistency fix 3). |
+| `turnout.constant` | 61.7% | The turnout rate used in every calculation: the certified 2022 county rate carried forward to 2027. An assumption about 2027, not a measurement of it; the scenario model brackets it at 55–72%. |
+| `policy.ndengu-floor` | KSh 85 | A proposed floor price for ndengu, per kilogram: a campaign policy proposal, not yet sized. |
+| `target.sms.phase-1` | 15,000 | Consented SMS contacts by the end of Phase −1. |
+| `target.sms.phase-1b` | 40,000 | Consented SMS contacts, Phase 1. |
+| `target.sms.phase-2` | 80,000 | Consented SMS contacts, Phase 2. |
+| `target.sms` | 120,000 | Consented SMS/USSD contacts by Phase 3 (objective 1.3.3). |
+| `target.ussd.phase-1` | 5,000 | USSD unique sessions, Phase 1. |
+| `target.ussd.phase-2` | 25,000 | USSD unique sessions, Phase 2. |
+| `target.ussd.phase-3` | 60,000 | USSD unique sessions, Phase 3. |
+| `target.tracker.phase-1` | 500 | Tracker reports, Phase 1. |
+| `target.tracker.phase-2` | 3,000 | Tracker reports, Phase 2. |
+| `target.tracker.phase-3` | 8,000 | Tracker reports, Phase 3. |
+| `target.reach.phase-1` | 1,000,000 | Combined social reach, Phase 1: an operational diagnostic, not a performance indicator. |
+| `target.reach.phase-2` | 3,000,000 | Cumulative reach, Phase 2: diagnostic. |
+| `target.reach.phase-3` | 5,000,000 | Cumulative reach, Phase 3: diagnostic. |
+| `target.followers.phase-1` | 50,000 | Engaged followers, Phase 1: diagnostic. |
+| `target.followers.phase-2` | 150,000 | Engaged followers, Phase 2: diagnostic. |
+| `target.followers.phase-3` | 250,000 | Engaged followers, Phase 3: diagnostic. |
+| `target.subscribers.phase-1` | 5,000 | Email/SMS subscribers, Phase 1. |
+| `target.subscribers.phase-2` | 15,000 | Email/SMS subscribers, Phase 2. |
+| `target.volunteers.phase-1` | 1,000 | Digital volunteer sign-ups, Phase 1 (campaign-owned programme). |
+| `target.volunteers.phase-2` | 5,000 | Digital volunteer sign-ups, Phase 2 (campaign-owned programme). |
+| `target.pledges` | 30,000 | Digital pledges to vote, Phase 3. |
+| `target.supporters` | 200,000 | Verified supporters mapped to polling stations by 31 May 2027 (objective 1.3.4). |
+| `target.pledged-voters` | 220,000 | Pledged voters in the CRM (GE-01). |
+| `target.contact-universe.lean` | 60,000 | Realistic Phase 3 contact universe at Level 1. |
+| `target.contact-universe.standard` | 150,000 | Realistic Phase 3 contact universe at Level 2. |
+| `target.contact-universe.premium` | 250,000 | Realistic Phase 3 contact universe at Level 3. |
+| `target.content.first` | 100 | Pieces of content approved and scheduled in Phase 0. |
+| `target.captains` | 400 | Ward captains, 10 per ward: a campaign-owned recommendation (Section 13.3). |
+| `target.captains.pool` | 240 | Of the 400 captains, those recommended for the pool's wards: campaign-owned. |
+| `target.ambassadors` | 800 | M-Pesa 'Economic Ambassadors': a campaign-owned recommendation. |
+| `target.stage-champions` | 1,200 | Boda-boda Stage Champions, 30 per ward: a campaign-owned recommendation. |
+| `target.volunteer-points` | 100 | Average points per volunteer per month: the campaign-owned volunteer programme's target. |
+| `target.whatsapp-groups` | 180 | Community WhatsApp groups monitored by the 40 constituency monitoring assistants. |
+| `effort.p-1.anchor` | 20% | Share of communications effort to the anchor zone. |
+| `effort.p-1.mwingi` | 35% | Share of communications effort to the Mwingi block. |
+| `effort.p-1.arid` | 30% | Share of communications effort to the arid and resource belt. |
+| `effort.p-1.rotating` | 15% | Share of communications effort rotating across wards as testing. |
+| `effort.p12.anchor` | 25% | Share of communications effort to the anchor zone. |
+| `effort.p12.mwingi` | 25% | Share of communications effort to the Mwingi block. |
+| `effort.p12.arid` | 30% | Share of communications effort to the arid and resource belt. |
+| `effort.p12.rotating` | 20% | Share of communications effort rotating across wards as testing. |
+| `effort.p3.anchor` | 25% | Share of communications effort to the anchor zone. |
+| `effort.p3.mwingi` | 25% | Share of communications effort to the Mwingi block. |
+| `effort.p3.arid` | 35% | Share of communications effort to the arid and resource belt. |
+| `effort.p3.rotating` | 15% | Share of communications effort rotating across wards as testing. |
+| `channel.radio.conventional` | 20% | Vernacular radio (Musyi, County, Wikwatyo): share of effort in the conventional pitch, as Firefly characterises it. |
+| `channel.radio.rebalanced` | 37% | Vernacular radio (Musyi, County, Wikwatyo): share of effort, rebalanced. |
+| `channel.sms.conventional` | 10% | Direct SMS and the USSD tree: share of effort in the conventional pitch, as Firefly characterises it. |
+| `channel.sms.rebalanced` | 20% | Direct SMS and the USSD tree: share of effort, rebalanced. |
+| `channel.markets.conventional` | 15% | Market caravans and barazas: share of effort in the conventional pitch, as Firefly characterises it. |
+| `channel.markets.rebalanced` | 18% | Market caravans and barazas: share of effort, rebalanced. |
+| `channel.digital.conventional` | 45% | Digital and social media: share of effort in the conventional pitch, as Firefly characterises it. |
+| `channel.digital.rebalanced` | 18% | Digital and social media: share of effort, rebalanced. |
+| `channel.church.conventional` | 10% | Church and community outreach: share of effort in the conventional pitch, as Firefly characterises it. |
+| `channel.church.rebalanced` | 7% | Church and community outreach: share of effort, rebalanced. |
+| `channel.offline.rebalanced` | 82% | Share of effort offline, rebalanced: radio, SMS, caravans and church. |
+| `effort.digital.pool` | 65% | Share of Phase −1 digital reach effort geofenced to the pool. |
+| `effort.sms.pool` | 70% | Share of SMS/USSD onboarding effort to the pool's 21 wards. |
+| `policy.ward-fund` | KSh 100,000,000 | The proposed Ward Development Equalization Fund, per ward per year: a campaign policy proposal, not yet sized. |
+
+<!-- source-table:end -->

@@ -7,13 +7,13 @@ import { fmt } from "./_util.ts";
 const DEPS: { item: string; gating: boolean; why: string }[] = [
   { item: "One named counterpart who approves, and one named lead on the digital team who receives the brief", gating: true, why: "Decisions in one place" },
   { item: "Read-only analytics access on every channel: Analyst role, no publishing rights", gating: true, why: "Without it there is nothing to analyse and the engagement cannot start" },
-  { item: "Appointment of the data-protection reviewer (Section 5.3.4)", gating: true, why: "The long-lead item; gates the voter-file work and the offline layer" },
+  { item: "Appointment of the data-protection reviewer (Section 19.2)", gating: true, why: "The long-lead item; gates the voter-file work and the offline layer" },
   { item: "About three hours a week of candidate time", gating: false, why: "One Facebook Live, one voice-note session, one interview or content block" },
   { item: "Daily photo and video uploads from the ground team", gating: false, why: "The raw material of Pillar 4" },
   { item: "The IEBC 2026 register, county total then ward", gating: false, why: `The highest-priority data request: it re-bases every ward figure in Section 3. The county total, ${fmt("register.2026")}, is Tier 3 and unconfirmed until IEBC's own July figure is in hand` },
   { item: "Access to the NG-CDF project record, not the beneficiary list", gating: false, why: "Verified proof points; beneficiary data is off-limits" },
   { item: "Sign-off on the engagement level", gating: false, why: "So the team can be assembled" },
-  { item: "Wiper's 2027 nomination rules and timetable, or the NEC resolution, as soon as the party issues them", gating: false, why: "The document that confirms or overturns the Phase −1 plan (Section 2.5.2)" },
+  { item: "Wiper's 2027 nomination rules and timetable, or the NEC resolution, as soon as the party issues them", gating: false, why: "The document that confirms or overturns the Phase −1 plan (Section 5.2)" },
 ];
 
 export const FIG_6_1: FigureSpec = {
@@ -22,7 +22,7 @@ export const FIG_6_1: FigureSpec = {
   title: `The campaign provides ${DEPS.length} things, and three of them gate everything else`,
   question: "What does the campaign provide?",
   takeaway: "A counterpart, read-only access and the data-protection reviewer come first; the rest follow once the engagement is running.",
-  sources: [{ name: "This proposal, Section 1.7", tier: null, state: "target" }],
+  sources: [{ name: "This proposal, Section 22.2", tier: null, state: "target" }],
   chart: { type: "steps", steps: DEPS.map((d, i) => ({ when: d.gating ? `${i + 1} · gating` : `${i + 1}`, title: d.item, body: d.why, current: d.gating })) },
   columns: [{ key: "n", label: "#", numeric: true }, { key: "item", label: "Dependency" }, { key: "gating", label: "Gates the rest" }, { key: "why", label: "Why" }],
   rows: DEPS.map((d, i) => ({ cells: { n: i + 1, item: d.item, gating: d.gating ? "Yes" : "No", why: d.why } })),

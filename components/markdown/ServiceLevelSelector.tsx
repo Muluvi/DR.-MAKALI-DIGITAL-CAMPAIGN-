@@ -119,7 +119,7 @@ export function ServiceLevelSelector() {
         {column.recommended && (
           <p className="inline-flex items-center gap-1 rounded-full bg-accent/10 text-accent px-2 py-0.5 t-micro font-black mb-3">
             <Star size={10} className="fill-current" aria-hidden="true" />
-            Recommended in §1.5.2
+            Recommended in §21.1
           </p>
         )}
         <dl className="space-y-3">

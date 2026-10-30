@@ -1,22 +1,82 @@
 [
   {
     "kind": "data",
-    "gap": "Historical 2013 Gubernatorial Ward-by-Ward Certified Returns",
-    "closes": "Not published",
-    "holder": "IEBC",
+    "gap": "census.age-bands",
+    "closes": "KNBS 2019 Census Volume III (population by age and sex), the Kitui table",
+    "holder": "KNBS",
     "status": "Open",
     "where": [
-      "Section 3.10"
+      "Data layer: census.age-bands"
     ]
   },
   {
     "kind": "data",
-    "gap": "Historical 2017 Gubernatorial Ward-by-Ward Tallies",
-    "closes": "Not published",
-    "holder": "IEBC",
+    "gap": "literacy.county",
+    "closes": "KNBS county literacy table (2019 Census or KDHS 2022 county report); the draft's 56.3% and 87.4% have no confirmed source",
+    "holder": "KNBS",
     "status": "Open",
     "where": [
-      "Section 3.10"
+      "Data layer: literacy.county"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "electricity.national",
+    "closes": "KNBS 2019 Census Volume IV national household electricity table",
+    "holder": "KNBS",
+    "status": "Open",
+    "where": [
+      "Data layer: electricity.national"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "admin.villages",
+    "closes": "Kitui County Integrated Development Plan 2023–2027 (the count of villages, reported as 247)",
+    "holder": "County government or church offices",
+    "status": "Open",
+    "where": [
+      "Data layer: admin.villages"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "cidp.sectors",
+    "closes": "Kitui County Integrated Development Plan 2023–2027 (KIPPRA repository), the priority-sector list",
+    "holder": "County government or church offices",
+    "status": "Open",
+    "where": [
+      "Data layer: cidp.sectors"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "unemployment.youth.county",
+    "closes": "KNBS Quarterly Labour Force Survey county tables, or the 2019 Census Volume IV labour table",
+    "holder": "KNBS",
+    "status": "Open",
+    "where": [
+      "Data layer: unemployment.youth.county"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "cpi.county",
+    "closes": "KNBS county consumer price index series",
+    "holder": "KNBS",
+    "status": "Open",
+    "where": [
+      "Data layer: cpi.county"
+    ]
+  },
+  {
+    "kind": "data",
+    "gap": "roads.county",
+    "closes": "Kitui County roads inventory (CIDP 2023–2027) and KeRRA/KURA classified-road data",
+    "holder": "County government or church offices",
+    "status": "Open",
+    "where": [
+      "Data layer: roads.county"
     ]
   }
 ]

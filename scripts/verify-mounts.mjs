@@ -24,7 +24,7 @@ const CONTENT = path.join(ROOT, "public", "content");
 // The tab id for each content file, mirroring FILES in app/page.tsx.
 const TABS = contentTabs();
 
-const LEADING = /^((?:\d+[A-Z]?(?:\.\d+)*|[A-G](?:\.\d+)+))\.?\s/;
+const LEADING = /^((?:\d+[A-Z]?(?:\.\d+)*|[A-H](?:\.\d+)+))\.?\s/;
 const HEADING = /^(#{2,3})\s+(.+?)\s*$/;
 
 function cleanTitle(raw) {

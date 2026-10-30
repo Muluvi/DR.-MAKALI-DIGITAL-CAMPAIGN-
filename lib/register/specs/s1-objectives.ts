@@ -16,7 +16,7 @@ export const FIG_1_1: FigureSpec = {
   title: "There are about eleven months to the election, and the nomination window comes first, within weeks",
   question: "How long is there?",
   takeaway: "The Wiper ticket is settled in a window reported for late October to November 2026; everything the engagement does before then is aimed at it.",
-  sources: [{ name: "Nomination window: a single-source campaign report (Section 2.5)", tier: "T3" }, { name: "General election date: Constitution of Kenya, Article 101", tier: "T1" }],
+  sources: [{ name: "Nomination window: a single-source campaign report (Section 5.2)", tier: "T3" }, { name: "General election date: Constitution of Kenya, Article 101", tier: "T1" }],
   chart: {
     type: "timeline",
     countdown: { date: ELECTION, label: "general election" },
@@ -25,7 +25,7 @@ export const FIG_1_1: FigureSpec = {
     today: TODAY,
     events: [
       { date: TODAY, label: "This proposal", state: "sourced", whenText: "September 2026" },
-      { ...NOMINATION, label: "Wiper nomination window", state: "sourced", reported: true, note: "Reported, not confirmed by the party (Section 2.5)." },
+      { ...NOMINATION, label: "Wiper nomination window", state: "sourced", reported: true, note: "Reported, not confirmed by the party (Section 5.2)." },
       { date: ELECTION, label: "General election", state: "sourced", note: "The second Tuesday of August, fixed by the Constitution." },
     ],
   },
@@ -76,7 +76,7 @@ export const FIG_1_3: FigureSpec = {
   section: "1.3",
   title: "Each of the five objectives answers one finding and is judged by one observable measure",
   question: "What are the five objectives, and what does each serve?",
-  takeaway: "No objective stands on its own: each starts from a finding in Section 2 and ends in an indicator in Section 5.1.",
+  takeaway: "No objective stands on its own: each starts from a finding in Section 2 and ends in an indicator in Section 18.1.",
   sources: [{ name: "This proposal, Sections 2 and 5.1", tier: null, state: "target" }],
   chart: {
     type: "cards",
@@ -111,7 +111,7 @@ export const FIG_1_4: FigureSpec = {
   title: "Firefly analyses, sets the strategy and directs; his team keeps publishing throughout",
   question: "How does the engagement run?",
   takeaway: "Firefly publishes nothing on his accounts: the only channel it operates directly is the WhatsApp and USSD line it already holds.",
-  sources: [{ name: "This proposal, Sections 4.2.1 and 4.1", tier: null, state: "target" }],
+  sources: [{ name: "This proposal, Sections 14.1 and 13.4", tier: null, state: "target" }],
   chart: {
     type: "steps",
     horizontal: true,

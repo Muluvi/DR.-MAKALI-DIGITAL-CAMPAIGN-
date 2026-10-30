@@ -43,7 +43,7 @@ const OUT = path.join(ROOT, "data", "section-visuals.generated.json");
 const TABS = contentTabs();
 
 const HEADING = /^(#{2,3})\s+(.+?)\s*$/;
-const LEADING_NUMBER = /^((?:\d+[A-Z]?(?:\.\d+)*|[A-G](?:\.\d+)+))\.?\s/;
+const LEADING_NUMBER = /^((?:\d+[A-Z]?(?:\.\d+)*|[A-H](?:\.\d+)+))\.?\s/;
 
 const cleanTitle = (raw) =>
   raw

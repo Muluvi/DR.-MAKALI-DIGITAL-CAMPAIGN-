@@ -37,12 +37,12 @@ export const AUDIENCE_FACETS = [
 export const AUDIENCE_SERIES: FigureSeries = {
   id: "audience-overview",
   headline: "Six ways of cutting the same electorate, and two of them decide the channel plan",
-  measure: "§3.4's Kitui County audience architecture overview",
+  measure: "§11's Kitui County audience architecture overview",
   points: [],
   note:
     "Connectivity and language are the two facets the rest of the proposal turns on: 73.8% offline " +
     "sets the channel mix, ~76% Kikamba sets the language mix. The 73.8% / 26.2% split is the " +
-    "CA/KNBS 2023/24 rate (§2.9.1), which supersedes the 2019 census's 86.4% / 13.6%.",
+    "CA/KNBS 2023/24 rate (§4.1), which supersedes the 2019 census's 86.4% / 13.6%.",
 };
 
 /* ------------------------------------------------------------------ §4.5 the segments */
@@ -95,12 +95,12 @@ export const AUDIENCE_SEGMENTS: string[][] = [
 export const SEGMENTS_SERIES: FigureSeries = {
   id: "audience-segments",
   headline: "Six segments, and three of them have no official size",
-  measure: "§4.5's audience segment comparative summary — size, data tier, primary channel and persuasion hook",
+  measure: "§15's audience segment comparative summary — size, data tier, primary channel and persuasion hook",
   points: [],
   note:
     "The data tier column is the one to read first. Three segments are Tier 1 and sized from the " +
     "census and the register; the other three say “primary research needed” and carry a range " +
-    "rather than a number. The ranges are printed as ranges and the gaps as gaps — §5.2.6's " +
+    "rather than a number. The ranges are printed as ranges and the gaps as gaps — §18.5's " +
     "research programme is what closes them.",
 };
 
@@ -115,7 +115,7 @@ export const VISIT_LOOP = [
     title: "Verification",
     steps: [
       "Delivered, delayed or not done.",
-      "Published either way to the service-delivery tracker (§4.5) — and the result feeds the next visit.",
+      "Published either way to the service-delivery tracker (§15) — and the result feeds the next visit.",
     ],
   },
 ];
@@ -123,7 +123,7 @@ export const VISIT_LOOP = [
 export const VISIT_SERIES: FigureSeries = {
   id: "visit-loop",
   headline: "Every visit logs a commitment, and twelve weeks later the tracker says what happened to it",
-  measure: "§3.2.3's visit-to-verification loop",
+  measure: "§10.1's visit-to-verification loop",
   points: [],
   note:
     "It is a loop: the verification publishes to the tracker whether the commitment was kept or " +
@@ -154,7 +154,7 @@ export const PROVENANCE_MANDATE: string[][] = [
 export const MANDATE_SERIES: FigureSeries = {
   id: "provenance-mandate",
   headline: "Three things every figure in this document has to carry",
-  measure: "§2.3.1's tri-partite provenance mandate",
+  measure: "§2.4's tri-partite provenance mandate",
   points: [],
   note:
     "Source, date and geographic unit. Every figure in this pass carries all three in its " +
@@ -276,7 +276,7 @@ export const SEGMENT_MESSAGE_SERIES: FigureSeries = {
   measure: "§C.1's message-by-demographic-segment matrix — segment, tailored message and Kikamba framing, verifiable evidence",
   points: [],
   note:
-    "The evidence column is not decoration: §4.5.2's approval gateway makes a primary citation " +
+    "The evidence column is not decoration: §15.1.2's approval gateway makes a primary citation " +
     "mandatory at drafting, and this matrix is where each segment's citation is named. The Kikamba " +
     "framings are transcribed exactly, diacritics included.",
 };
@@ -317,9 +317,9 @@ export const CHANNEL_MESSAGE_SERIES: FigureSeries = {
   measure: "§C.2's message-by-channel matrix — channel and reach, format and linguistic style, evidential proof points",
   points: [],
   note:
-    "The reach figures are §2.9.4's and §2.9.1's, restated here per channel: radio ~420,000, SMS " +
+    "The reach figures are §4.4's and §4.1's, restated here per channel: radio ~420,000, SMS " +
     "~320,000, caravans ~280,000, church ~350,000, social ~72,000. They must not be added — the " +
-    "channels overlap, as §2.9.4's own warning says.",
+    "channels overlap, as §4.4's own warning says.",
 };
 
 /* ------------------------------------------------------------------ §D.2 the escalation ladder */
@@ -432,7 +432,7 @@ export const SLA_SERIES: FigureSeries = {
   points: [],
   note:
     "The ladder runs from the fastest channel to the slowest, which is also the order a rebuttal " +
-    "travels: radio first, then WhatsApp, then digital, then SMS, then print. §4.5.9's 48-hour " +
+    "travels: radio first, then WhatsApp, then digital, then SMS, then print. §15.3.3's 48-hour " +
     "lodging rule is why the SMS rung sits at two hours rather than minutes.",
 };
 
@@ -447,7 +447,7 @@ export const HOLDING_POSITIONS = [
     kikamba:
       "Kũthũkũma nĩ wĩtĩkĩlo na wathi mũseo. Nĩ mũthũkũmi mũmanya meko, ũte na kambĩ sya kũya mbesa sya mwananchi.",
     source:
-      "National Assembly Hansard; Kitui Central NG-CDF project inventory (84 solar boreholes; classroom and bursary counts pending the inventory — the Tier 1 figure in §2.10.1 and §6.1.1 [CHECK REF] is 12,573 bursary recipients and KSh 47m, and only that figure should be used until it is reconciled).",
+      "National Assembly Hansard; Kitui Central NG-CDF project inventory (84 solar boreholes; classroom and bursary counts pending the inventory — the Tier 1 figure in §6.1 and §6.1.1 [CHECK REF] is 12,573 bursary recipients and KSh 47m, and only that figure should be used until it is reconciled).",
   },
   {
     question: '2. The "northern & southern recognition deficit" question',
@@ -458,7 +458,7 @@ export const HOLDING_POSITIONS = [
     kikamba:
       "Mwanya wa maendeeo nĩ wa kĩla mũndũ. Mbesa sya Ward Fund syĩithiwa kwa kĩla kĩtheka kũtetheesya mĩsyĩ yonthe ya Kitui ta ĩmwe.",
     source:
-      "The ward allocation methodology, once drafted. §4.5 is the delivery tracker and does not carry a schedule; Firefly would build the formula with the campaign before this line is used on air.",
+      "The ward allocation methodology, once drafted. §15 is the delivery tracker and does not carry a schedule; Firefly would build the formula with the campaign before this line is used on air.",
   },
   {
     question: '3. The "Nairobi technocrat" question',
@@ -490,7 +490,7 @@ export const HOLDING_SERIES: FigureSeries = {
   points: [],
   note:
     "TWO OF THE FOUR SOURCE CELLS DECLINE TO CLAIM SOMETHING, and both are kept exactly. Position 1 " +
-    "says the classroom and bursary counts are pending the inventory and that only §2.10.1's 12,573 " +
+    "says the classroom and bursary counts are pending the inventory and that only §6.1's 12,573 " +
     "recipients and KSh 47m should be used until reconciled. Position 2 says the ward allocation " +
     "methodology does not exist yet and the line should not go on air before it does. A runbook " +
     "that hid either would be a runbook that sends a spokesperson on air with an unverified figure.",

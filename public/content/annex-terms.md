@@ -1,8 +1,9 @@
+*Who this proposal is for, who prepared it, and its status are stated once, on the cover.*
 
-## F.1 Confidentiality and use
+## G.1 Confidentiality and use
 
 <!-- keep -->
-This proposal is for Dr. Mulu. It is not addressed to any party organ, and it should not be
+This proposal is for Dr. Makali Mulu. It is not addressed to any party organ, and it should not be
 shared with one. It is submitted in confidence to him and to those he authorises to review it. It sets out Firefly Management's analysis, method and proposed scope of
 work for the Kitui gubernatorial campaign, and is provided for the purpose of evaluating this
 engagement.
@@ -15,7 +16,3 @@ Management's written consent.
 <!-- keep -->
 Nothing in this document constitutes a binding commitment by either party. Commercial terms are
 settled separately and in person, and appear nowhere in these pages.
-
----
-
-*Who this proposal is for, who prepared it, and its status are stated once, on the cover.*
