@@ -1,10 +1,12 @@
+```lead
+Two teams, one interface. The brief is the interface. **Firefly adds three people. It removes none.**
+```
+
+Dr. Makali Mulu already has a team that publishes every day. Two teams, one interface. The brief is the interface. **Firefly adds three people. It removes none.** This chapter sets out how the teams fit, the Firefly core, the surge roles, leadership and reporting lines, and how the existing team is assessed and upskilled.
+
 ## 17.1 Three teams, and how they fit
 
-#### How the work is staffed
-
-Dr. Mulu already has a team that publishes every day. This section is about how three more people sit alongside it without displacing anyone.
-
-The campaign runs a **Lean Core Delivery Model**: a tightly coordinated core steering team that owns campaign strategy, narrative discipline and data integrity, while **subcontracting specialised execution packages** (video production, audio jingles, media buying, USSD gateway infrastructure and event staging) to proven specialist vendors. Firefly joins that structure as its intelligence layer — it is not one of the execution packages, and it does not replace the publishing team.
+The campaign runs a lean core: a small steering team that owns campaign strategy, narrative discipline and data integrity, and **subcontracts specialised work** (video production, audio jingles, media buying, USSD gateway infrastructure and event staging) to specialist vendors. Firefly joins that structure as its intelligence layer — it is not one of the execution packages, and it does not replace the publishing team.
 
 ```figure
 id: org-chart
@@ -15,16 +17,16 @@ id: org-chart
 *   **The campaign's command structure** — the Campaign Manager and three functional leads in the
     chart above. Four roles. Firefly works to it and replaces no part of it.
 *   **Dr. Mulu's existing digital team** — the people producing and publishing the daily record
-    today. This engagement adds a brief to their week. It does not add a manager to their line.
-*   **The 3-person Firefly core** named at every engagement level in Section 21.1 — strategy,
-    analysis, and the offline layer.
+    today, led by the campaign's **Digital Director**. This engagement adds a brief to their week. It does not add a manager to their line.
+*   **The Firefly core** — strategy, analysis and the offline layer: three people at Standard and Premium, two at Lean with the offline-layer operator part-activated (Section 21.1).
 
 ```figure
 id: fig-5-9-team
 ```
 
-Where this section says "four-person core" it means the campaign's; where Section 21.1 says
-"3-person core" it means Firefly's; where it says "your team" it means the one already in post.
+Where this chapter says "four-person core" it means the campaign's; where Section 21.1 says "3-person core" it means Firefly's; "your team" means the one already in post. The **Digital Director** named in the runbooks (Annex F) and in Section 15.4.4 is the head of that team, a campaign role. Other campaign-side roles named in this proposal (for example the owners of the objectives in Section 8.2) are the campaign's to appoint.
+
+*Corrected: earlier versions said the three-person Firefly core is named at every engagement level; at Lean it is two people and a part-activated operator, as Section 21.1 states.*
 
 What the arrangement buys, stated without the usual claims about bloat:
 
@@ -39,9 +41,7 @@ What the arrangement buys, stated without the usual claims about bloat:
 4.  **Specialist quality where it is measurable.** Vernacular recording and telecom infrastructure
     are bought from people who do only that.
 
-#### A lean core with a defined surge
-
-Firefly delivers this engagement through a small senior core team supplemented
+**A lean core with a defined surge.** Firefly delivers this engagement through a small senior core team supplemented
 by named surge roles activated at specific phases and engagement levels. This is
 stated plainly because a campaign is entitled to know exactly who is doing the
 work. A proposal claiming a large standing department it does not have will
@@ -51,14 +51,13 @@ The structure below scales with the service level selected in Section 21.1.
 
 ## 17.2 The Firefly core
 
-#### The core team, retained throughout
-
-**What this section covers, and what it does not.** The three roles below are **Firefly's** — the
+The core is retained throughout the engagement. **What this section covers, and what it does not.** The three roles below are **Firefly's** — the
 people this engagement adds. Section 17.4 sets out the **campaign's own** leadership structure,
 which Firefly reports into and does not staff. Section 17.5 sets out how Dr. Mulu's existing
 digital team is assessed and upskilled — that team is neither staffed nor replaced by this
-engagement. Section 18.1's KPI owners are campaign-side roles unless the campaign asks Firefly to
-fill them.
+engagement. Section 18.1's KPI owners are campaign-side roles unless the campaign asks Firefly to fill them.
+
+**The data-governance owner** (Section 15.4.4) is one named role, accountable in writing. For the presence audit's scope it is the Analyst. Across the campaign's data it is the Digital Director at Lean, and the Data Analyst / Modeller from Standard (Section 17.3).
 
 ```visual
 {"kind":"cards","preset":"role","items":[{"title":"**Strategy Director** (Firefly principal)","text":"Owns the analysis, the strategy and the weekly brief; the relationship with the campaign counterpart; crisis Level 2 drafting","fields":[{"label":"Decision rights","text":"Approves new policy claims and Kikamba output before your team publishes; escalates Level 3 to the candidate. **Does not publish, and holds no account credentials**"}]},{"title":"**Analyst**","text":"Owns the presence audit, the measurement cycle, attribution and the weekly read; named **data-governance owner** for the audit scope","fields":[{"label":"Decision rights","text":"Sets the indicators and the reporting; flags a brief that the data does not support"}]},{"title":"**Offline-layer Operator**","text":"Runs the SMS, USSD and WhatsApp Business API dispatch; consent ledger; **compliance logging for IEBC returns**","fields":[{"label":"Decision rights","text":"Executes the approved weighting; dispatches nothing outside the consented list"}]}]}
@@ -66,7 +65,7 @@ fill them.
 
 ## 17.3 Surge roles
 
-#### Surge roles, activated by phase and scope level
+Surge roles are activated by phase and scope level.
 
 ```lead
 **Community management and video editing are not on this list, and that is deliberate.**
@@ -94,29 +93,17 @@ phase date, an engagement level, or a KPI threshold. Roles are not added specula
 champion network is local by design rather than by exception. These are local appointments, made locally — not a concession, but the
 reason the county-facing half of this operation will sound like the county.
 
-#### Leadership roles and who owns what
+**Leadership roles and who owns what.**
 
 ```figure
 id: role-ownership
 ```
 
-#### Reporting lines
-
-```lead
-Two teams, one interface. The brief is the interface. **Firefly adds three people. It removes none.**
-```
-
-Two teams, one interface. The brief is the interface.
+**Reporting lines.** The weekly brief is the interface between the two teams. Firefly reports to one named person in the campaign, not to a committee, and briefs one named lead on the publishing team (Section 17.1, point 1).
 
 ```figure
 id: reporting-lines
 ```
-
-**Firefly adds three people. It removes none.**
-
-**A single campaign-side counterpart is required.** Firefly reports to one named person in the
-campaign, not to a committee, and briefs one named lead on the publishing team. Campaigns fail
-digitally when five people can commission content and no one can approve it.
 
 ## 17.5 How the existing team is assessed and upskilled
 

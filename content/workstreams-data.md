@@ -1,6 +1,6 @@
-## 15.4 Data and technology (11–14)
+## 15.4 Data and technology (workstreams 11–14)
 
-<!-- restructure 2026-11: to be written from the verified data -->
+Four workstreams under the rest: the data layer, the voter model built on it, the technology stack that runs both, and the analytics that measure what the other ten produce.
 
 ### 15.4.1 Workstream 11 — The data layer
 
@@ -8,12 +8,9 @@
 **Owner: Firefly**, as processor on the campaign's behalf, under a written processing agreement (Section 19.1).
 ```
 
-> **Owner: Firefly**, as processor on the campaign's behalf, under a written processing agreement
-> (Section 19.1).
->
-> **Group: Data and technology.**
+**Owner: Firefly** , as processor on the campaign's behalf, under a written processing agreement (Section 19.1).
 
-A modern, high-precision political operation requires an infallible data layer. The campaign rejects arbitrary spreadsheets, unverified voter claims, and ad-hoc phone lists. In their place, the strategy establishes a centralized, structured database architecture governed by strict mathematical provenance, audit trails, and rigorous adherence to Kenyan privacy legislation.
+A precise campaign needs a data layer it can trust. No loose spreadsheets, unverified voter claims or ad-hoc phone lists: one structured database, with provenance and audit trails on every record, run within Kenyan privacy law.
 
 This section defines the voter and supporter data model and the legal compliance workflows under Kenya's **Data Protection Act (DPA) 2019** and the **Office of the Data Protection Commissioner (ODPC)**. The three-tier provenance standard that grades every figure in this proposal (Annex A.1.1) and the protocol for when two sources disagree (Annex A.1.3) are set out alongside the evidence they govern.
 
@@ -49,11 +46,7 @@ items:
 **Owner: Firefly — gated on Section 19.2.** Until written sign-off, this runs as **ward-level aggregate scoring only**. Individual-level scoring waits for the opinion.
 ```
 
-> **Owner: Firefly — gated on Section 19.2.** Until written sign-off, this runs as **ward-level
-> aggregate scoring only**, which delivers most of the targeting value at a fraction of the
-> exposure. Individual-level scoring waits for the opinion.
->
-> **Group: Data and technology.**
+**Owner: Firefly — gated on Section 19.2.** Until written sign-off, this runs as **ward-level aggregate scoring only**, which delivers most of the targeting value at a fraction of the exposure. Individual-level scoring waits for the opinion.
 
 ```visual
 kind: stepper
@@ -79,15 +72,7 @@ items:
 **Mostly outside this engagement.** Firefly builds and operates three components only: the **service-delivery tracker**, the **supporter CRM**, and the **SMS/USSD/WhatsApp layer**.
 ```
 
-> **Mostly outside this engagement.** Dr. Mulu already holds accounts, hosting and the tooling in
-> daily use, and procuring a stack the campaign already has is not a service. Firefly builds and
-> operates three components only: the **service-delivery tracker**, the **supporter CRM**, and the
-> **SMS/USSD/WhatsApp layer**. The rest of this section is the reference architecture the campaign
-> owns and Firefly integrates against.
->
-> **Group: Data and technology.**
-
-*The reference architecture the campaign owns (component by component, the procurement matrix and the technical security protocols) is in Annex E.1.*
+**Mostly outside this engagement.** Dr. Mulu already holds accounts, hosting and the tooling in daily use, and procuring a stack the campaign already has is not a service. Firefly builds and operates three components only: the **service-delivery tracker**, the **supporter CRM**, and the **SMS/USSD/WhatsApp layer**. The reference architecture the campaign owns and Firefly integrates against — component by component, with the procurement matrix and the security protocols — is in Annex E.1.
 
 ### 15.4.4 Workstream 14 — Analytics and attribution
 
@@ -95,11 +80,7 @@ items:
 **Owner: Firefly. This is the engine room of the engagement.** Measurement moves beyond vanity metrics to what drives votes, anchored to the ~{{benchmark}}-vote threshold. **No stage is skipped.**
 ```
 
-> **Owner: Firefly. This is the engine room of the engagement.** It is numbered fourteenth because
-> that is where the original numbering put it; it is read first, in Section 14.1, and it is the
-> workstream every other one is measured by.
->
-> **Group: Data and technology.**
+**Owner: Firefly. This is the engine room of the engagement.** It is numbered fourteenth because that is where the original numbering put it; it is read first, in Section 14.1, and it is the workstream every other one is measured by.
 
 #### Attribution model and offline conversion tracking
 
@@ -199,5 +180,4 @@ reviewer
 * Holds authority to **suspend any targeting activity** pending review, without
 requiring commercial sign-off
 
-At lean tier this role sits with the Digital Director; from standard tier it
-sits with the Data Analyst. It is named in writing either way.
+At Lean this role sits with the Digital Director, who heads the campaign's existing digital team; from Standard it sits with the Data Analyst / Modeller (Section 17.2). It is named in writing either way.

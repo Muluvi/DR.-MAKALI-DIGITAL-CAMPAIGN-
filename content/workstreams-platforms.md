@@ -1,4 +1,8 @@
-#### The fourteen workstreams
+```lead
+Fourteen workstreams deliver the plan, in four groups: owned platforms and content, media, ground and offline reach, and data and technology. Each names what it produces, who owns it and how often it reports.
+```
+
+Fourteen workstreams deliver the plan, in four groups: owned platforms and content, media, ground and offline reach, and data and technology. Each names what it produces, who owns it and how often it reports. Seven are Firefly's to operate, six the existing team runs to a Firefly brief, and two are outside this engagement (Section 13.2).
 
 ```figure
 id: fig-5-2-workstream-panels
@@ -34,7 +38,7 @@ items:
   - label: "Brand management"
     body: "Core messaging matrix ensuring consistency across broadcast, print and digital. Dynamic digital press kits for media houses and influencers — approved biographies, high-resolution assets, policy briefs (Section 15.2.2). Daily management of Facebook, X, Instagram, TikTok, YouTube and WhatsApp. Community management: responses to comments, DMs and mentions within **2 hours** during peak periods. [CONFLICT C4: see open items]"
   - label: "Civic content and visual data"
-    body: "Infographic analyses highlighting Kitui's economic challenges and Dr. Mulu's proposed solutions, anchored to the KSh13.79bn county envelope. Content calendars tailored to each segment in Section 10.4. Graphics, short video, motion graphics and policy explainers in English, Kiswahili and Kikamba. Human-interest storytelling: constituent testimonials, verified project outcomes, vision-driven narratives. A weekly **\"Dr. Mulu Explains\"** series breaking down county budgets, revenue sources and development economics in plain language."
+    body: "Infographic analyses highlighting Kitui's economic challenges and Dr. Mulu's proposed solutions, anchored to the KSh {{budget.total|bn}} billion county envelope. Content calendars tailored to each segment in Section 10.4. Graphics, short video, motion graphics and policy explainers in English, Kiswahili and Kikamba. Human-interest storytelling: constituent testimonials, verified project outcomes, vision-driven narratives. A weekly **\"Dr. Mulu Explains\"** series breaking down county budgets, revenue sources and development economics in plain language."
 ```
 
 ```visual
@@ -49,9 +53,9 @@ items:
     body: "Continuous sentiment monitoring across platforms. Rapid-response statements managing emerging narratives or opponent claims. Real-time monitoring and countering of misinformation and manipulated media (Sections 10.2 and 20.4)."
 ```
 
-## 15.1 Owned platforms and content (1–4)
+## 15.1 Owned platforms and content (workstreams 1–4)
 
-<!-- restructure 2026-11: to be written from the verified data -->
+The public service-delivery tracker, the content brief, creative testing and the accessibility standard.
 
 ### 15.1.1 Workstream 1 — Owned platforms and the service-delivery tracker
 
@@ -59,12 +63,7 @@ items:
 **The service-delivery tracker is Firefly's to build and operate; the owned platforms stay with your team.** Every candidate will promise water points, roads and markets. Only one is professionally qualified in **verifying whether promises were kept**.
 ```
 
-> **Split ownership, and the split matters.** The **service-delivery tracker is Firefly's to build
-> and operate** — it is new infrastructure nobody currently runs. **The owned platforms stay with
-> your team**, who run them now and will continue to; Firefly's contribution there is the brief,
-> the calendar and the approval gate.
->
-> **Group: Platforms and content** (workstreams 1 to 4).
+**The service-delivery tracker is Firefly's to build and operate; the owned platforms stay with your team.** **Split ownership, and the split matters.** The tracker is new infrastructure nobody currently runs. The owned platforms stay with your team, who run them now and will continue to; Firefly's contribution there is the brief, the calendar and the approval gate.
 
 *The single clearest expression of the candidate's actual
 professional discipline.*
@@ -142,8 +141,7 @@ items:
 
 #### Build
 
-Built on the USSD/SMS infrastructure the campaign is already deploying (Section
-4.3 [CHECK REF]), plus a lightweight public register on the campaign site. **It reuses a
+Built on the USSD and SMS layer Firefly operates (Section 15.3.3), plus a lightweight public register on the campaign site. **It reuses a
 layer the campaign is building anyway; nothing comparable exists in this race.**
 
 #### The opening register: the county's own scorecard
@@ -210,11 +208,7 @@ id: delivery-tracker
 **Owner: your team, to a Firefly brief.** Your producers write, film, edit and publish, as they do today. What this workstream adds is the brief and the approval gate.
 ```
 
-> **Owner: your team, to a Firefly brief.** Your producers write, film, edit and publish, as they
-> do today. What this workstream adds is the brief that tells them which pillar, which ward, which
-> language and which format — and the approval gate on new policy claims and Kikamba output.
->
-> **Group: Platforms and content** (workstreams 1 to 4).
+**Owner: your team, to a Firefly brief.** Your producers write, film, edit and publish, as they do today. What this workstream adds is the brief that tells them which pillar, which ward, which language and which format — and the approval gate on new policy claims and Kikamba output.
 
 Campaign communications succeed when production is treated as a pipeline rather than ad-hoc creative posting. In a county where only {{ict.internet}}% of residents use the internet (CA/KNBS 2023/24, Section 4.1), the content production engine must be **predominantly focused on offline and broadcast formats**—vernacular radio scripts, 2G bulk SMS, USSD menu trees, printed baraza photobooks, and market PA audio jingles—while maintaining a high-fidelity digital and video pipeline for youth and the diaspora.
 
@@ -254,10 +248,7 @@ id: asset-library
 **Owner: Firefly.** Test design, variant selection and the read on the result are analysis. Your team produces the variants.
 ```
 
-> **Owner: Firefly.** Test design, variant selection and the read on the result are analysis.
-> Your team produces the variants.
->
-> **Group: Platforms and content** (workstreams 1 to 4).
+**Owner: Firefly.** Test design, variant selection and the read on the result are analysis. Your team produces the variants.
 
 #### What AI is used for, and what it is never used for
 
@@ -319,10 +310,7 @@ items:
 **Owner: Firefly sets the standard; your team applies it.** In a county where {{edu.none.women}}% of women and {{edu.none.men}}% of men aged six and over have no education, accessibility is reach, not compliance theatre.
 ```
 
-> **Owner: Firefly sets the standard; your team applies it.** Written into every weekly brief,
-> at every engagement level, and never traded away.
->
-> **Group: Platforms and content** (workstreams 1 to 4).
+**Owner: Firefly sets the standard; your team applies it.** Written into every weekly brief, at every engagement level, and never traded away.
 
 *The languages this standard works in, and the content mix for locally facing platforms, are set out in 12.4.*
 

@@ -1,6 +1,6 @@
-## 15.2 Media (5–6)
+## 15.2 Media (workstreams 5–6)
 
-<!-- restructure 2026-11: to be written from the verified data -->
+Paid media on the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely controlled by rivals (Section 4.2).
 
 ### 15.2.1 Workstream 5 — Platform tactics and paid media
 
@@ -8,29 +8,19 @@
 **Owner: your team, to a Firefly brief.** Firefly writes the targeting plan and reads the performance; your team places and publishes.
 ```
 
-> **Owner: your team, to a Firefly brief.** Read every platform block below as *what belongs on
-> this channel and why*, not as a list of things Firefly will post. Firefly writes the targeting
-> plan and reads the performance; your team places and publishes. Who holds the ad account is a
-> decision for Dr. Mulu — Section 13.4 states the recommendation and marks it open.
->
-> **Group: Publishing and earned media.**
+**Owner: your team, to a Firefly brief.** Read every platform block below as *what belongs on this channel and why*, not as a list of things Firefly will post. Firefly writes the targeting plan and reads the performance; your team places and publishes. The campaign holds the ad account (Section 13.4).
+
+*Corrected: an earlier version said the ad-account recommendation was still open; Section 13.4 records it as approved in September 2026.*
 
 *The platform-by-platform playbooks (Facebook, X, WhatsApp, TikTok, Instagram, YouTube and Google Ads) are in Annex C.1.*
 
 ### 15.2.2 Workstream 6 — Earned media, journalists and debates
 
 ```lead
-**Owner: your team and the campaign, to a Firefly brief.** Kamba-language radio is the dominant information channel, **but the ownership map is politically compromised**: the campaign's radio strategy runs through Musyi, County FM and Wikwatyo.
+**Owner: your team and the campaign, to a Firefly brief.** Paid and owned media reach the connected minority; earned media, especially radio, reaches everyone else.
 ```
 
-> **Owner: your team and the campaign, to a Firefly brief.** Placement is a relationship business
-> the campaign already has. Firefly supplies the briefing notes, the debate preparation and the
-> evidence pack behind each pitch.
->
-> **Group: Publishing and earned media.**
-
-*Paid and owned media reach the connected minority. Earned media —
-especially radio — reaches everyone else.*
+**Owner: your team and the campaign, to a Firefly brief.** Paid and owned media reach the connected minority; earned media, especially radio, reaches everyone else. Placement is a relationship business the campaign already has. Firefly supplies the briefing notes, the debate preparation and the evidence pack behind each pitch. The radio plan runs through Musyi, County FM and Wikwatyo, on the ownership map in Section 4.2.
 
 #### The journalist relationship programme
 
@@ -43,7 +33,7 @@ credible national commentator on county fiscal management earns coverage that
 no rival can buy, and it reinforces the core narrative every time it runs.
 
 **Standing press kit** — permanently available: approved biography (short,
-medium, long), high-resolution photography, the M&amp;E and parliamentary record
+medium, long), high-resolution photography, the M&E and parliamentary record (Section 6.1)
 with sources, policy briefs by theme, verified county data with citations, and
 contact routes. The easier the campaign makes a journalist's job, the more
 often it is quoted.
@@ -100,7 +90,7 @@ distributes the moment first defines what the debate was about.
 
 #### Getting on air around a hostile gatekeeper
 
-To guarantee uninhibited communication with all 532,758 registered voters across the 40 wards, the campaign executes a four-pillar bypass strategy that operates entirely independently of captured Tier 1 commercial gatekeepers:
+So that the campaign can reach all 532,758 registered voters in the 40 wards whatever the rival-aligned stations do (Section 12.3), it runs four routes that need none of them:
 
 ```figure
 id: bypass-architecture
@@ -108,8 +98,10 @@ id: bypass-architecture
 
 #### How we pitch: evidence first
 
-To capture objective news coverage on mainstream national and regional platforms without depending on paid access to broadcast gatekeepers, the press desk operates an **Evidence-First Pitch Engine**:
+To win fair coverage on national and regional outlets without paying for access to broadcast gatekeepers, the press desk pitches evidence first:
 
-1.  **Hansard & Audit Exclusives:** Providing national media bureau chiefs (*Daily Nation, Standard, Citizen TV, KTN News*) with verified, data-dense policy briefs on national debt, equalization fund legislation, and local county pending bills.
-2.  **On-Site Project Media Tours:** Transporting accredited regional correspondents directly to Kitui Central model projects (solar boreholes, modern TVET workshops, secondary school laboratories) with on-camera beneficiary interviews.
-3.  **Rapid Studio Call-In Rights:** Enforcing statutory right-of-reply provisions under the Media Council of Kenya (MCK) Act whenever candidate record distortions are aired on rival stations.
+1.  **Hansard and audit exclusives:** verified, data-rich policy briefs for national bureau chiefs (*Daily Nation, Standard, Citizen TV, KTN News*) on national debt, equalisation-fund legislation and the county's pending bills.
+2.  **Project tours:** accredited regional correspondents taken to Kitui Central projects (solar boreholes, TVET workshops, secondary-school laboratories), with on-camera interviews with the people they serve.
+3.  **The right of reply:** using the statutory right of reply under the Media Council of Kenya Act whenever a rival station misrepresents the candidate's record.
+
+**Lines for likely attacks.** The pre-drafted response lines for the debate and the phone-in are kept with the holding positions, in Annex F.3.
