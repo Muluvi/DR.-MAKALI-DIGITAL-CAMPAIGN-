@@ -1,17 +1,13 @@
-#### The ask: one week and one export
-
 ```lead
-**Firefly Management asks for one week and one export.** Firefly supplies that layer while the existing team keeps publishing, and publishes nothing on Dr. Mulu's accounts. This proposal commits to a method, a cadence and a standard; it does not commit to an electoral outcome.
+**Firefly Management asks for one week and one export.** Everything after that is evidence.
 ```
 
 ```figure
 id: fig-6-3-decision
 ```
 
-#### The ask
-
 Dr. Makali Mulu has the credentials, the experience and the vision to be an
-outstanding Governor of Kitui County. He also has something no rival in this
+outstanding governor of Kitui County. He also has something no rival in this
 race has: a professional qualification in verifying whether public money
 delivered what it promised. Unconfirmed balances, pending bills and low development absorption are what the
 Auditor-General and the Controller of Budget report for the county (Section 3.7), and that qualification is currently the campaign's most under-used
@@ -33,7 +29,7 @@ cast.
 
 Firefly would like one week and one export. Everything after that is evidence.
 
-#### The ask, in full
+#### What the record does not yet show
 
 > **Firefly Management asks for one week and one export.**
 
@@ -44,8 +40,6 @@ reached, and whether it moved anything.
 
 ## 23.1 The window, not the deadline
 
-> ### THE WINDOW, NOT THE DEADLINE
->
 > **What sets the pace.** <window-chip></window-chip> That date is not in the campaign's gift, and every other date in this
 > document is derived from it rather than chosen.
 >
