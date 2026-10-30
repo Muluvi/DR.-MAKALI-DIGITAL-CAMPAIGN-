@@ -1,26 +1,6 @@
 [
   {
     "kind": "data",
-    "gap": "Historical 2013 Gubernatorial Ward-by-Ward Certified Returns",
-    "closes": "Not published",
-    "holder": "IEBC",
-    "status": "Open",
-    "where": [
-      "Section 3.10"
-    ]
-  },
-  {
-    "kind": "data",
-    "gap": "Historical 2017 Gubernatorial Ward-by-Ward Tallies",
-    "closes": "Not published",
-    "holder": "IEBC",
-    "status": "Open",
-    "where": [
-      "Section 3.10"
-    ]
-  },
-  {
-    "kind": "data",
     "gap": "census.age-bands",
     "closes": "KNBS 2019 Census Volume III (population by age and sex), the Kitui table",
     "holder": "KNBS",

@@ -356,6 +356,7 @@ sourced("channel.fb.posts", 745, "count", "T3", "Public Facebook page, as displa
 modelled("segment.rural.voters", Math.round((v("register.2022") * v("census.rural.share")) / 100 / 1000) * 1000, "voters", "95.2% rural share applied to the 2022 register, rounded. The register is not published by rural/urban split.");
 modelled("segment.urban.voters", Math.round((v("register.2022") * v("census.urban.share")) / 100 / 1000) * 1000, "voters", "4.8% urban share applied to the 2022 register, rounded.");
 modelled("segment.youth.voters", 234_000, "voters", "The 2019 census age distribution applied to the 2022 register; the register is not published by age.");
+modelled("segment.youth.share", pct(v("segment.youth.voters"), v("register.2022")), "percent", "Youth voters / the 2022 register.", { decimals: 0 });
 
 // ---- shares quoted in prose, computed so they cannot drift from their parts
 // The CFSP states its own shares. They are kept as published: 11.64 / 13.79 computes to 84.4%, the
@@ -475,6 +476,13 @@ for (const [id, value] of [["health.density.doctors", 0.7], ["health.density.cli
 // ---- county-policy parameters the campaign is still to size (Section 4.4)
 target("policy.ward-fund", 100_000_000, "ksh", "The proposed Ward Development Equalization Fund, per ward per year: a campaign policy proposal, not yet sized.", { source: "Campaign policy proposal, this proposal" });
 sourced("policy.ndengu-output", 45_000, "count", "T3", "KNBS 2019 Census and ASTGS, as cited; page reference pending", { note: "Tonnes of ndengu output, not yet tiered to a page." });
+// The two flagship commitments against the envelope (restructure 2026-11: computed, not typed).
+modelled("policy.ward-fund.total", 40 * v("policy.ward-fund"), "ksh", "KSh 100m per ward × 40 wards, a year.", { decimals: 1 });
+modelled("policy.ward-fund.share", pct(40 * v("policy.ward-fund"), v("budget.total")), "percent", "The ward fund / the KSh 13.79bn envelope.", { decimals: 0 });
+modelled("policy.ndengu.bridge", (v("policy.ndengu-floor") - v("price.ndengu.farmgate")) * v("policy.ndengu-output") * 1000, "ksh", "(floor price − farm-gate price) × output in kg: the county bridges the gap.", { decimals: 1 });
+modelled("policy.ndengu.purchase", v("policy.ndengu-floor") * v("policy.ndengu-output") * 1000, "ksh", "Floor price × output in kg: the county buys the crop outright.", { decimals: 1 });
+modelled("policy.flagships.bridge", 40 * v("policy.ward-fund") + (v("policy.ndengu-floor") - v("price.ndengu.farmgate")) * v("policy.ndengu-output") * 1000, "ksh", "Ward fund + the ndengu bridge.", { decimals: 1 });
+modelled("policy.flagships.share", pct(40 * v("policy.ward-fund") + (v("policy.ndengu-floor") - v("price.ndengu.farmgate")) * v("policy.ndengu-output") * 1000, v("budget.total")), "percent", "Both commitments, bridge case / the envelope.", { decimals: 0 });
 
 // ---- the Kitui source pack (29 Oct 2026): four documents read in docs/evidence-2026-10/source-pack-upgrades.md.
 // Pages are those of the cleaned kitui-source-documents.pdf. National figures are labelled national.
