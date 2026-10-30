@@ -484,14 +484,25 @@ reach:
       register.y2026_uniform_scale_factor for why that distribution is known to be wrong in
       detail and used anyway.
   ward_uniformity:
+    value: false
+    status: PLACEHOLDER
+    rationale: >-
+      Until 30 October 2026 the model applied county rates uniformly across all 40 wards,
+      because no ward-level connectivity data existed (pack gap 20). It now varies them by each
+      ward's KNBS census sub-county (Stage 15, ward_spread_from_2019 below), which closes pack
+      gap 20 in part: sub-county, not ward, and 2019, not 2023/24. Set to true to return to
+      the uniform model. If the census tables are absent, or any ward fails to match its ward
+      key, Stage 9 falls back to uniform rates on its own and says so.
+  ward_spread_from_2019:
     value: true
     status: PLACEHOLDER
     rationale: >-
-      The model applies county rates uniformly across all 40 wards, because no ward-level
-      connectivity data exists ([DATA NEEDED], pack gap 20). This is known to be wrong:
-      the pack records USO coverage gains in Mwingi North, Mumoni, Ngomeni and Tharaka
-      [S35], so rural wards differ from Township. Ward reach figures are therefore a
-      county rate applied to a ward denominator, and the report says exactly that.
+      Each ward's phone and internet rates are the county's 2023/24 rates times its census
+      sub-county's 2019 rate relative to the county's, rescaled so the electorate-weighted
+      mean is the county rate and county totals are unchanged. This assumes the 2019 pattern
+      across sub-counties still holds in 2023/24. Nobody has confirmed it: internet use doubled
+      county-wide in that time, and growth need not have been even. Replace with sub-county
+      2023/24 rates if CA/KNBS publish them.
 
 # ---------------------------------------------------------------------------------------
 # 7. Messaging compliance (binds Stages 9-11)
