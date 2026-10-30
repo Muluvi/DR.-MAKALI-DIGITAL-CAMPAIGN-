@@ -1,3 +1,9 @@
+```lead
+Six risks decide whether this plan survives contact, and the attacks it will face are answered by a protocol rehearsed in advance, kept inside defamation law and built on public sources only.
+```
+
+Six risks decide whether this plan survives contact, and the attacks it will face are answered by a protocol rehearsed in advance, kept inside defamation law and built on public sources only. This chapter sets out the risks and responses to them, the war room and rapid-response protocol, the defamation safeguards, the protocol for manipulated media aimed at Dr. Makali Mulu, and the rules for monitoring competitors.
+
 ## 20.1 Risks and responses
 
 Six risks decide whether this plan survives contact. Everything after this section is how each
@@ -21,24 +27,22 @@ friction surfaces as evidence instead of as attrition.
 
 ## 20.2 The war room and rapid-response protocol
 
-> **The runbooks are in Annex E.** The four-tier response decision tree (E.1), the response
-> times by channel (E.2), the pre-drafted holding positions (E.3), the monitoring tooling
-> (F.4, F.11), the pre-approved message library (E.5), the red-team drill format
-> (E.6), the threat model and security baseline (E.7–E.10) and the competitive
-> intelligence outputs (E.12) are set out there in full. They are operational detail: what a
+> **The runbooks are in Annex F.** The four-tier response decision tree (F.1), the response
+> times by channel (F.2), the pre-drafted holding positions (F.3), the monitoring tooling
+> (F.4), the pre-approved message library (F.5), the red-team drill format
+> (F.6), the threat model and security baseline (F.7–F.10) and the competitive
+> intelligence outputs (F.11) are set out there in full. They are operational detail: what a
 > principal approves is that they exist and are proportionate, which this section states.
-
-#### Rapid response and the war room
-
-#### Rapid-response protocol and opposition handling
+>
+> *Source conflict: an earlier version lettered these runbooks E.1–E.12; they sit in Annex F, and the letters above are the current ones.*
 
 ```lead
-In Kitui County, ground rumors and hostile talking points travel primarily through two high-velocity vectors: **morning vernacular radio talk shows (06:00–09:00 EAT)** and **hyper-local ward WhatsApp groups**.
+In Kitui County, ground rumours and hostile talking points travel primarily through two high-velocity vectors: **morning vernacular radio talk shows (06:00–09:00 EAT)** and **hyper-local ward WhatsApp groups**.
 ```
 
-In a high-stakes gubernatorial campaign, unchecked misinformation and coordinated political attacks can erode voter trust within hours. In Kitui County, ground rumors and hostile talking points travel primarily through two high-velocity vectors: **morning vernacular radio talk shows (06:00–09:00 EAT)** and **hyper-local ward WhatsApp groups**.
+In a governor's race, unchecked misinformation and coordinated political attacks can erode voter trust within hours. In Kitui County, ground rumours and hostile talking points travel primarily through two high-velocity vectors: **morning vernacular radio talk shows (06:00–09:00 EAT)** and **hyper-local ward WhatsApp groups**.
 
-The campaign enforces a disciplined **Rapid Response & Opposition Handling System**. This framework is governed by strict **Defamation Law Safeguards (Section A.1.1 [CHECK REF])**: all rebuttals focus exclusively on certified public records, legislative Hansard transcripts, and verifiable policy positions, completely eschewing personal invective or unsubstantiated allegations against political rivals.
+The campaign enforces a disciplined **rapid-response and opposition-handling system**. This framework is governed by the **defamation safeguards in Section 20.3**: all rebuttals focus exclusively on certified public records, legislative Hansard transcripts, and verifiable policy positions, completely eschewing personal invective or unsubstantiated allegations against political rivals.
 
 ```figure
 id: rapid-response-flow
@@ -48,10 +52,10 @@ id: rapid-response-flow
 
 #### What we monitor, and how threats reach us
 
-The campaign monitors four complementary intelligence streams 24 hours a day, 7 days a week:
+The campaign monitors four complementary intelligence streams around the clock:
 
 ```visual
-{"kind":"cards","items":[{"title":"Broadcast Vernacular Radio Triage (06:00–21:00 EAT)","body":"Dedicated audio recording monitors tracking morning and evening talk shows across *Musyi FM, Mbaitu FM, Sang'u FM, County FM*, and *Athiani FM*. Immediate audio clipping of candidate mentions or political challenger assertions. [CONFLICT C7: see open items]"},{"title":"Ward WhatsApp Ingestion Network","body":"40 Constituency Monitoring Assistants monitoring ~180 major community, market, church, and clan WhatsApp groups across all 8 sub-counties."},{"title":"Social Listening Keyword Feeds","body":"Automated continuous tracking via Brand24 / Talkwalker of high-frequency keywords: *\"Dr. Makali Mulu\"*, *\"Kitui Governor 2027\"*, *\"Kitui Central CDF\"*, *\"Ndengu price\"*, and competitor candidate handles."},{"title":"Field Captain Rumor Logs","body":"Twice-daily SMS pulse reports from the campaign's ward captains (campaign-owned, Section 13.3) logging prevalent market-day and baraza whispers."}]}
+{"kind":"cards","items":[{"title":"Vernacular radio triage (06:00–21:00 EAT)","body":"Dedicated audio recording monitors tracking morning and evening talk shows across *Musyi FM, Mbaitu FM, Sang'u FM, County FM*, and *Athiani FM*. Immediate audio clipping of candidate mentions or political challenger assertions. [CONFLICT C7: see open items]"},{"title":"Ward WhatsApp network","body":"40 Constituency Monitoring Assistants monitoring ~180 major community, market, church, and clan WhatsApp groups across all eight sub-counties."},{"title":"Social listening keyword feeds","body":"Automated continuous tracking via Brand24 / Talkwalker of high-frequency keywords: *\"Dr. Makali Mulu\"*, *\"Kitui Governor 2027\"*, *\"Kitui Central CDF\"*, *\"Ndengu price\"*, and competitor candidate handles."},{"title":"Field captain rumour logs","body":"Twice-daily SMS pulse reports from the campaign's ward captains (campaign-owned, Section 13.3) logging prevalent market-day and baraza whispers."}]}
 ```
 
 #### War room operating model, shift coverage and dashboard view
@@ -71,15 +75,13 @@ The command console centralises real-time metrics: live sentiment score; trendin
 
 ## 20.3 Staying inside defamation law
 
-All campaign communicators, surrogates, and media buyers are bound by the following **Three Defamation Safeguards**:
+All campaign communicators, surrogates, and media buyers are bound by the following three defamation safeguards:
 
 ```visual
-{"kind":"cards","preset":"rule","items":[{"title":"Rule 1: Focus on Public Audit Records, Never Private Character","body":"Communicators are legally prohibited from making allegations regarding rivals' private lives, family affairs, or unadjudicated criminal accusations. All comparative critiques must reference published statutory records (e.g., OAG reports, Ethics and Anti-Corruption Commission filings, Controller of Budget reports)."},{"title":"Rule 2: Accurate Linguistic Attribution","body":"When quoting rivals on Kikamba radio or social media, communicators must possess the original, unedited audio recording or verbatim Hansard/media link. Edited audio clips (*deepfakes or out-of-context splicing*) are strictly banned."},{"title":"Rule 3: Automatic Legal Pre-Clearance for Comparative Media","body":"Any advertising spot, leaflet, or press release naming an opposing candidate must receive written legal pre-clearance from the Campaign Legal Counsel prior to broadcast or circulation."}]}
+{"kind":"cards","preset":"rule","items":[{"title":"Rule 1: public audit records, never private character","body":"Communicators are barred from making allegations regarding rivals' private lives, family affairs, or unadjudicated criminal accusations. All comparative critiques must reference published statutory records (e.g., OAG reports, Ethics and Anti-Corruption Commission filings, Controller of Budget reports)."},{"title":"Rule 2: accurate attribution in every language","body":"When quoting rivals on Kikamba radio or social media, communicators must possess the original, unedited audio recording or verbatim Hansard/media link. Edited audio clips (*deepfakes or out-of-context splicing*) are strictly banned."},{"title":"Rule 3: legal pre-clearance for comparative material","body":"Any advertising spot, leaflet, or press release naming an opposing candidate must receive written legal pre-clearance from the campaign's legal counsel before broadcast or circulation."}]}
 ```
 
 ## 20.4 Manipulated media and cyber security
-
-#### Manipulated media and cybersecurity
 
 #### The deepfake and manipulated media protocol
 
@@ -127,9 +129,7 @@ campaign's own deepfake denials will be believed.
 
 ## 20.5 Monitoring competitors: public sources only
 
-#### Competitor monitoring
-
-*Analysis of the rivals themselves is in 5.5; the tools and outputs are in Annex F.4 and F.11.*
+*Analysis of the rivals themselves is in Section 5.5; the tools are in Annex F.4 and the outputs in Annex F.11.*
 
 #### Public sources only, and the line we do not cross
 

@@ -1,8 +1,10 @@
+```lead
+Voter data is handled in a manner intended to comply with Kenya's data-protection and electoral law, and no voter-file targeting or bulk political messaging goes live until a named Kenyan specialist has signed it off in writing.
+```
+
+Voter data is handled in a manner intended to comply with Kenya's data-protection and electoral law, and no voter-file targeting or bulk political messaging goes live until a named Kenyan specialist has signed it off in writing. This chapter sets out the standard, the Data Protection Act and the regulator, the published charter, IEBC clearance and liability, and the regulatory items still open.
+
 ## 19.1 Our standard
-
-#### Data protection, ethics and compliance
-
-#### The standard we hold ourselves to
 
 ```lead
 Voter data is handled in a manner intended to comply with Kenya's Data Protection Act 2019, the Communications Authority framework governing political messaging, and IEBC regulations.
@@ -11,7 +13,7 @@ Voter data is handled in a manner intended to comply with Kenya's Data Protectio
 Voter data is handled in a manner intended to comply with Kenya's Data
 Protection Act 2019, the Communications Authority framework governing political
 messaging, and IEBC regulations. This protects the campaign from legal risk and
-reinforces Dr. Mulu's brand as a trustworthy, accountable leader.
+reinforces Dr. Makali Mulu's brand as a trustworthy, accountable leader.
 
 <!-- keep -->
 **Important framing: this section describes the campaign's intended standard
@@ -45,8 +47,6 @@ items:
 ```
 
 ## 19.2 The Data Protection Act and the regulator
-
-#### The regulatory environment and compliance measures
 
 ```lead
 Vendors openly market databases of millions of Kenyan mobile numbers. Rival campaigns may well buy them. The campaign will not.
@@ -102,7 +102,7 @@ items:
   - label: "Retention"
     text: "Not kept indefinitely"
     fields:
-      - { label: "Implementation", text: "Published deletion schedule (16.4 [CHECK REF])" }
+      - { label: "Implementation", text: "Published deletion schedule (Section 19.3, clause 5)" }
   - label: "Communication"
     text: "Opt-outs respected"
     fields:
@@ -127,14 +127,14 @@ id: dpa-compliance
 
 ```visual
 kind: checklist
-title: "Mandatory Compliance Safeguards"
+title: "Mandatory compliance safeguards"
 items:
-  - label: "Ban on Commercial Database Ingestion"
-    body: "The campaign strictly forbids purchasing or scraping phone directories, bank lists, student registers, or church rosters. Ingesting non-consented bulk phone numbers is a direct violation of Section 5.2.1.4 [CHECK REF] of the DPA 2019."
-  - label: "Automated Opt-Out Processing"
+  - label: "No commercial databases"
+    body: "The campaign strictly forbids purchasing or scraping phone directories, bank lists, student registers, or church rosters. Ingesting bulk phone numbers without consent breaches the consent requirement of the DPA 2019 [VERIFY: the Section 19.2 reviewer to cite the section of the Act]."
+  - label: "Automated opt-out"
     body: "Any inbound SMS containing \"STOP\", \"SIMAMA\", \"ONDOKA\", or \"CANCEL\" is automatically processed by a webhook within 15 seconds, toggling `opt_out_status = True` and permanently halting outbound SMS transmissions."
-  - label: "Data Protection Officer (DPO)"
-    body: "The Campaign Secretariat will formally designate a certified Legal & Data Protection Officer to supervise all database access logs, consent registries, and vendor contracts."
+  - label: "Data protection officer"
+    body: "The campaign secretariat designates a certified legal and data protection officer to supervise all database access logs, consent registries, and vendor contracts."
 ```
 
 #### The compliance sign-off gate
@@ -289,11 +289,9 @@ by the data-governance owner (clause 5), the variable dictionary exclusions
 
 ## 19.4 IEBC clearance and liability
 
-#### Statutory compliance, IEBC clearance and liability
-
 #### Statutory and regulatory compliance
 
-Operating with strict legal adherence is both an ethical mandate and an essential defense against administrative disqualification or election petition exposure.
+Operating with strict legal adherence is both an ethical mandate and an essential defence against administrative disqualification or election petition exposure.
 
 ```figure
 id: compliance-architecture
@@ -313,14 +311,12 @@ id: liability-matrix
 
 ## 19.5 Open regulatory items
 
-#### Open regulatory action items
-
 ```lead
 Two ODPC documents are now identified by name and should be put in front of the reviewer directly. What remains unretrieved is any circular issued after these.
 ```
 
 > [!WARNING]
-> **COMPLIANCE ACTION ITEM — ODPC DIRECTIVE CONFIRMATION REQUIRED:**
+> **Action: confirm the latest ODPC directives.**
 >
 > While the general provisions of the **Data Protection Act 2019** and the **Data Protection (General) Regulations 2021** are fully integrated, the campaign notes that the **Office of the Data Protection Commissioner (ODPC)** has periodically issued specific sector-guidelines and advisory circulars regarding **"Processing of Personal Data in Political Campaigns and Direct Marketing"**.
 >
@@ -334,9 +330,9 @@ Two ODPC documents are now identified by name and should be put in front of the 
 
 ```visual
 kind: checklist
-note: "**Mandatory Action:** Prior to any mass SMS/USSD broadcasting — which Firefly operates, and for which Firefly is a controller or joint controller (Section 19.1) — the Campaign Legal Director MUST:"
+note: "**Required:** before any mass SMS or USSD broadcast — which Firefly operates, and for which Firefly is a controller or joint controller (Section 19.1) — the campaign's legal lead must:"
 items:
   - label: "Conduct a formal legal review with the ODPC registry to obtain the latest gazetted political campaigning guidelines and advisory notes."
-  - label: "Formally register the campaign entity as a **Data Controller / Data Processor** with the ODPC if aggregate supporter records exceed statutory thresholds (Section 15.4.1 & Section 19.4)."
+  - label: "Formally register the campaign entity as a **Data Controller / Data Processor** with the ODPC if aggregate supporter records exceed statutory thresholds (Sections 15.4.1 and 19.4)."
   - label: "Verify compliance of telecommunication aggregator contracts (Safaricom / Airtel bulk SMS gateways) with the latest ODPC direct marketing codes."
 ```
