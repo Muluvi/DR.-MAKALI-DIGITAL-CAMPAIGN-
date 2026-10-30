@@ -79,6 +79,7 @@ function Part({ c, spec }: { c: ChartSpec; spec: FigureSpec }) {
     case "paths": return <Paths uid={uid} chart={c} />;
     case "mock": return <Mock chart={c} />;
     case "calendar": return <Calendar uid={uid} chart={c} />;
+    case "bubble": return <Bubbles chart={c} />;
   }
 }
 
@@ -756,6 +757,65 @@ function Pareto({ chart }: { chart: Extract<ChartSpec, { type: "pareto" }> }) {
         <li><span className="kx-swatch is-neutral" aria-hidden="true" />The other wards</li>
         <li><span className="kx-swatch is-line" aria-hidden="true" />Running total, share of the register</li>
         <li><span className="kx-swatch is-mark" aria-hidden="true" />{chart.markLabel}</li>
+      </ul>
+    </div>
+  );
+}
+
+/**
+ * Bubbles on two linear scales from zero, circle AREA for the third value (so radius is the square
+ * root). Every point is a focusable mark naming all three values; the largest few carry a direct
+ * label so the chart reads without hovering. Motion: each circle swells from its own centre,
+ * largest-y first, which is the order the eye reads them; reduced motion and print show them whole.
+ */
+function Bubbles({ chart }: { chart: Extract<ChartSpec, { type: "bubble" }> }) {
+  const x = scaleLinear().domain([0, Math.max(...chart.points.map((p) => p.x)) || 1]).nice(5).range([0, 1]);
+  const y = scaleLinear().domain([0, Math.max(...chart.points.map((p) => p.y)) || 1]).nice(5).range([0, 1]);
+  const maxSize = Math.max(...chart.points.map((p) => p.size)) || 1;
+  const yTop = y.domain()[1];
+  const order = [...chart.points].sort((a, b) => b.y - a.y);
+  const labelled = new Set(order.slice(0, chart.labelTop ?? 0).map((p) => p.label));
+  return (
+    <div className="kx-bubble">
+      <p className="kx-bubble__y">{chart.yLabel}</p>
+      <div className="kx-bubble__plot">
+        {y.ticks(5).map((t) => (
+          <span key={t} className="kx-pareto__grid" style={{ bottom: pct(y(t)) }} aria-hidden="true">
+            <span>{tickText(t, yTop)}</span>
+          </span>
+        ))}
+        <ol className="kx-bubble__pts">
+          {order.map((p, i) => {
+            const v = `${chart.xLabel}: ${group(p.x)}; ${chart.yLabel}: ${group(Math.round(p.y))}; ${chart.sizeLabel}: ${group(p.size)}`;
+            return (
+              <li
+                key={p.label}
+                className={`kx-bub ${p.flag ? "is-flagged" : ""} ${x(p.x) > 0.6 ? "is-right" : ""}`}
+                style={{ left: pct(x(p.x)), bottom: pct(y(p.y)), "--s": Math.sqrt(p.size / maxSize), "--i": i } as React.CSSProperties}
+                tabIndex={0}
+                aria-label={`${p.label}, ${p.group}. ${v}${p.flag ? `. ${p.flag}` : ""}`}
+              >
+                <span className={`kx-bub__dot ${p.state === "modelled" ? "is-modelled" : ""}`} aria-hidden="true" />
+                {labelled.has(p.label) && <span className="kx-bub__label" aria-hidden="true">{p.label}</span>}
+                <span className="kx-tip" aria-hidden="true">
+                  <strong>{p.label}</strong> · {p.group}<br />{v}{p.flag ? <><br />{p.flag}</> : null}
+                </span>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+      <div className="kx-axis kx-bubble__x" aria-hidden="true">
+        {x.ticks(5).map((t) => (
+          <span key={t} className="kx-axis__t" style={{ left: pct(x(t)) }}>{group(t)}</span>
+        ))}
+      </div>
+      <p className="kx-pareto__x kx-bubble__xlabel">{chart.xLabel}</p>
+      <ul className="kx-legend">
+        <li><span className="kx-swatch is-bubble" aria-hidden="true" />Circle area: {chart.sizeLabel.toLowerCase()}</li>
+        {chart.flagLabel && chart.points.some((p) => p.flag) && (
+          <li><span className="kx-swatch is-bubble is-flagged" aria-hidden="true" />{chart.flagLabel}</li>
+        )}
       </ul>
     </div>
   );

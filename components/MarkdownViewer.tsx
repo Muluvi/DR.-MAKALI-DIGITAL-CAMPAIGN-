@@ -290,6 +290,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
     <>
       <FiscalAuditPanel />
       <FiscalAuditChartBlock />
+      <Figure id="fig-3-12-projects" />
     </>
   ),
   "needs-sec-3-8": <MuiBasinPanel />,

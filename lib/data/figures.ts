@@ -16,6 +16,7 @@
  * disagreement is logged in docs/rebuild/CONFLICTS-RESOLVED.md.
  */
 import register from "../../data/ward-register.json" with { type: "json" };
+import projectsByWard from "../../data/analysis/projects-by-ward.json" with { type: "json" };
 import type { Figure, Tier, Unit } from "./schema";
 
 const FIG: Record<string, Figure> = {};
@@ -640,6 +641,19 @@ for (const [id, n, m] of SCORECARD_SPEND) {
   sourced(`scorecard.${id}.projects`, n, "count", "T1", SCORECARD, { asOf: "2025-08", note: "Itemised projects attributed to the constituency." });
   sourced(`scorecard.${id}.ksh`, m * 1e6, "ksh", "T1", SCORECARD, { asOf: "2025-08", decimals: 1, note: "Itemised spend attributed to the constituency, KSh, summed from the scorecard's tables." });
   modelled(`scorecard.${id}.per-voter`, (m * 1e6) / v(`con.${id}`), "ksh", "Itemised spend / the constituency's 2022 register. Covers the 401 itemised projects only.", { source: SCORECARD });
+}
+// The same itemised projects by ward, from analysis Stage 14 (data/analysis/projects-by-ward.json):
+// a project counts toward a ward only where its printed place names that one ward. The rest are
+// totalled apart, by why they were not placed, and never spread across wards.
+type ProjectValue = { value: number; status: string; dims: { ward?: string; level?: string; measure: string } };
+const PROJECT_VALUES = projectsByWard.values as ProjectValue[];
+const PROJECTS_NOTE = "Summed from the scorecard's itemised tables where the printed place names this one ward (analysis Stage 14).";
+const PROJECTS_ALIAS_NOTE = " Placed through a spelling of the ward still to confirm (data/geo/ward-keys.json).";
+for (const p of PROJECT_VALUES) {
+  const key = p.dims.ward ?? p.dims.level?.replace("_", "-");
+  const note = p.dims.ward ? PROJECTS_NOTE + (p.status === "verify" ? PROJECTS_ALIAS_NOTE : "") : `Itemised projects not placed on one ward: ${p.dims.level?.replace("_", " ")} (analysis Stage 14).`;
+  if (p.dims.measure === "projects") sourced(`projects.${key}.count`, p.value, "count", "T1", SCORECARD, { asOf: "2025-08", note });
+  else sourced(`projects.${key}.ksh`, p.value, "ksh", "T1", SCORECARD, { asOf: "2025-08", decimals: 1, note });
 }
 sourced("scorecard.countywide.ksh", 160.9e6, "ksh", "T1", SCORECARD, { asOf: "2025-08", decimals: 1, note: "Itemised spend attributed to the whole county or headquarters (27 projects)." });
 modelled("scorecard.attributed.ksh", SCORECARD_SPEND.reduce((n, [, , m]) => n + m * 1e6, 0), "ksh", "Itemised spend attributed to a constituency.", { source: SCORECARD, decimals: 1 });

@@ -22,6 +22,17 @@ The main route's First Load JS (477 kB) is the reference figure.
 | V0 baseline | `/[[...slug]]` | 477 kB | — |
 | V1.3 Projects register (open-data WP6) | `/[[...slug]]` | 476 kB | −1 kB (rounding; the register's data is not imported here) |
 | V1.3 Projects register (open-data WP6) | `/tools/service-delivery` (new) | 137 kB | New route: 26.1 kB of its own, most of it the 401-project export |
+| V1.2 Projects bubble chart, fig-3-12-projects (open-data WP6) | `/[[...slug]]` | 480 kB | +3 kB: the figure store (lib/data/figures.ts, in the shared bundle) now reads the 40 ward totals from data/analysis/projects-by-ward.json. The chart itself is server-rendered behind the existing lazy figure boundary |
+
+## Work packages not built
+
+| Work package | State | Why |
+|---|---|---|
+| V1.1 Settlement heatmap | Waiting on data | Needs the open-data brief's WP5 (Microsoft building footprints), not yet fetched. |
+| V2 Budget Sankey | **[DATA NEEDED]** | `data/analysis/county-finance-2026-27.json` carries the sources side only (equitable share, own-source revenue, grants; KSh 13.79bn). A Sankey needs the uses side: departmental allocations from the FY2026/27 programme-based budget, a Tier 1 document not in the data pack. `d3-sankey` is not installed, and no figure draws sources into a single "Total" node. |
+| V3 Print route, guided tour | Not started | Optional; needs Firefly's yes. |
+| V4 Mermaid in docs | Not started | Docs only; no reader-facing change. |
+| V5 Explainer clips | Not started | Optional, off-site; needs Firefly's yes. |
 
 ## Section coverage, `node scripts/visual-coverage.mjs`
 

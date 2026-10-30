@@ -77,7 +77,21 @@ export type Chart =
   | { type: "mock"; header: string; fields: { n: number; label: string; shown: string; issue: string }[] }
   | { type: "calendar"; days: { day: string; pillar: 1 | 2 | 3 | 4 | null; after: string; now: string }[]; pillars: string[] }
   | { type: "stats"; items: { value: string; label: string; state: CellState; countTo?: number }[] }
+  | { type: "bubble"; points: BubblePoint[]; xLabel: string; yLabel: string; sizeLabel: string; flagLabel?: string; labelTop?: number }
   | { type: "composite"; parts: { heading: string; chart: Chart }[] };
+
+/** One mark in a bubble chart: two values on the axes and a third, as circle area. */
+export interface BubblePoint {
+  label: string;
+  /** Printed under the label in the tooltip and the table: the ward's constituency. */
+  group: string;
+  x: number;
+  y: number;
+  size: number;
+  state: CellState;
+  /** A point resting on something still to confirm: drawn with a dashed ring, and says why. */
+  flag?: string;
+}
 
 export type TileLayerId = "register" | "footprint" | "party-flow" | "zones" | "effort" | "reach-targets";
 
