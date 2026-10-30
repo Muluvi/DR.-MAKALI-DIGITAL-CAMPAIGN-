@@ -1,4 +1,4 @@
-## 4.5 The fourteen workstreams
+#### The fourteen workstreams
 
 ```figure
 id: fig-5-2-workstream-panels
@@ -30,11 +30,11 @@ kind: checklist
 title: "Digital infrastructure, brand and civic content"
 items:
   - label: "Web management and digital architecture"
-    body: "Development and deployment of a high-performance campaign web portal hosting the manifesto, tracking media appearances, and capturing volunteer data. Lightweight, rapid-loading frameworks so the site is usable on 3G and on feature-phone browsers — non-negotiable in a county at {{ict.internet}}% internet use (CA/KNBS 2023/24). **WCAG 2.1 AA compliance from build, not retrofitted** (Section 4.5.4). Search engine optimisation for \"Kitui Governor 2027\", \"Kitui development\" and related terms. A \"Meet Dr. Mulu\" page with biography, parliamentary record, M&E credentials and vision for Kitui. **Audit before build:** an existing Kitui Central NG-CDF web presence is already live. Phase 0 audits and integrates it rather than duplicating it."
+    body: "Development and deployment of a high-performance campaign web portal hosting the manifesto, tracking media appearances, and capturing volunteer data. Lightweight, rapid-loading frameworks so the site is usable on 3G and on feature-phone browsers — non-negotiable in a county at {{ict.internet}}% internet use (CA/KNBS 2023/24). **WCAG 2.1 AA compliance from build, not retrofitted** (Section 15.1.4). Search engine optimisation for \"Kitui Governor 2027\", \"Kitui development\" and related terms. A \"Meet Dr. Mulu\" page with biography, parliamentary record, M&E credentials and vision for Kitui. **Audit before build:** an existing Kitui Central NG-CDF web presence is already live. Phase 0 audits and integrates it rather than duplicating it."
   - label: "Brand management"
-    body: "Core messaging matrix ensuring consistency across broadcast, print and digital. Dynamic digital press kits for media houses and influencers — approved biographies, high-resolution assets, policy briefs (Section 4.5.6). Daily management of Facebook, X, Instagram, TikTok, YouTube and WhatsApp. Community management: responses to comments, DMs and mentions within **2 hours** during peak periods. [CONFLICT C4: see open items]"
+    body: "Core messaging matrix ensuring consistency across broadcast, print and digital. Dynamic digital press kits for media houses and influencers — approved biographies, high-resolution assets, policy briefs (Section 15.2.2). Daily management of Facebook, X, Instagram, TikTok, YouTube and WhatsApp. Community management: responses to comments, DMs and mentions within **2 hours** during peak periods. [CONFLICT C4: see open items]"
   - label: "Civic content and visual data"
-    body: "Infographic analyses highlighting Kitui's economic challenges and Dr. Mulu's proposed solutions, anchored to the KSh13.79bn county envelope. Content calendars tailored to each segment in Section C.1. Graphics, short video, motion graphics and policy explainers in English, Kiswahili and Kikamba. Human-interest storytelling: constituent testimonials, verified project outcomes, vision-driven narratives. A weekly **\"Dr. Mulu Explains\"** series breaking down county budgets, revenue sources and development economics in plain language."
+    body: "Infographic analyses highlighting Kitui's economic challenges and Dr. Mulu's proposed solutions, anchored to the KSh13.79bn county envelope. Content calendars tailored to each segment in Section 10.4. Graphics, short video, motion graphics and policy explainers in English, Kiswahili and Kikamba. Human-interest storytelling: constituent testimonials, verified project outcomes, vision-driven narratives. A weekly **\"Dr. Mulu Explains\"** series breaking down county budgets, revenue sources and development economics in plain language."
 ```
 
 ```visual
@@ -46,12 +46,14 @@ items:
   - label: "Digital advertising"
     body: "Targeted Meta ads by ward, age, gender and interest. Google Search and Display to capture high-intent voters. YouTube pre-roll before local and national content. TikTok ads reaching first-time and younger voters. Retargeting to convert engaged users into volunteers. Monthly allocation matrix based on ward-level registration and engagement data."
   - label: "Crisis and reputation management"
-    body: "Continuous sentiment monitoring across platforms. Rapid-response statements managing emerging narratives or opponent claims. Real-time monitoring and countering of misinformation and manipulated media (Sections 3.5 and 6.3)."
+    body: "Continuous sentiment monitoring across platforms. Rapid-response statements managing emerging narratives or opponent claims. Real-time monitoring and countering of misinformation and manipulated media (Sections 10.2 and 20.4)."
 ```
 
----
+## 15.1 Owned platforms and content (1–4)
 
-### 4.5.1 Workstream 1 — Owned platforms and the service-delivery tracker
+<!-- restructure 2026-11: to be written from the verified data -->
+
+### 15.1.1 Workstream 1 — Owned platforms and the service-delivery tracker
 
 ```lead
 **The service-delivery tracker is Firefly's to build and operate; the owned platforms stay with your team.** Every candidate will promise water points, roads and markets. Only one is professionally qualified in **verifying whether promises were kept**.
@@ -63,7 +65,6 @@ items:
 > the calendar and the approval gate.
 >
 > **Group: Platforms and content** (workstreams 1 to 4).
-
 
 *The single clearest expression of the candidate's actual
 professional discipline.*
@@ -113,7 +114,7 @@ items:
   - label: "Public by default"
     body: "The register is visible to anyone, mapped by ward, with counts by category. Transparency is the point."
   - label: "No personal data published"
-    body: "Reports appear with ward, category and status only. Contact details are used to update the reporter and nothing else, under the Section 5.3.3 charter."
+    body: "Reports appear with ward, category and status only. Contact details are used to update the reporter and nothing else, under the Section 19.3 charter."
   - label: "Outcomes published honestly — including failures"
     body: "Where an issue is not resolved, the register says so. A tracker that only shows successes is marketing, and voters recognise it instantly. Publishing unresolved items is what makes the resolved ones credible."
   - label: "No false authority"
@@ -128,13 +129,13 @@ items:
 kind: checklist
 items:
   - label: "Narrative"
-    body: "the strongest possible proof of the Verification pillar (Section 3.2.1) — evidence rather than assertion"
+    body: "the strongest possible proof of the Verification pillar (Section 10.1) — evidence rather than assertion"
   - label: "Data"
     body: "the issues citizens report, ward by ward, counted from what arrives rather than assumed, feeding directly into the weekly brief"
   - label: "Organising"
     body: "every report is a consented contact and a warm lead for ward champions"
   - label: "Earned media"
-    body: "a public register of county service-delivery failures is a standing story for county correspondents (Section 4.5.6)"
+    body: "a public register of county service-delivery failures is a standing story for county correspondents (Section 15.2.2)"
   - label: "Defensive"
     body: "it makes \"he is not close to ordinary people\" a difficult attack to sustain against a candidate publishing their reported problems"
 ```
@@ -149,7 +150,7 @@ layer the campaign is building anyway; nothing comparable exists in this race.**
 
 The tracker does not start from an empty list. The county's *Delivering the Kitui Promise* scorecard (August 2022 – August 2025) claims {{scorecard.claimed}} projects and itemises {{scorecard.itemised}} of them with value, ward and status, KSh {{scorecard.itemised.ksh|bn}} billion in all (Tier 1 as a record of what the county claims, not evidence that the claims are true). Those rows load as the tracker's opening register ([kitui-scorecard-projects.csv](/data/kitui-scorecard-projects.csv)): each becomes a public row, *County says: complete. Residents say: ___*, and reports through USSD option 3 fill the second column.
 
-The first verification questions are inconsistencies inside the county's document or against an official statistic. Each is a question to publish and test, not an accusation, and a county correspondent can check the first six independently (Section 4.5.6).
+The first verification questions are inconsistencies inside the county's document or against an official statistic. Each is a question to publish and test, not an accusation, and a county correspondent can check the first six independently (Section 15.2.2).
 
 ```visual
 kind: checklist
@@ -194,7 +195,8 @@ The campaign builds and maintains the **Kitui County Service-Delivery Performanc
 id: delivery-tracker
 ```
 
-##### Dual Operational Function:
+#### Dual Operational Function:
+
 1.  **As a Campaign Credibility Asset (Pre-Election):**
     *   *Public Web & USSD Transparency:* Voters can dial `*[shortcode]#` or visit the web portal to query exact project GPS coordinates, contract values, and completion certificates in their own village.
     *   *Debate & Media Weapon:* Equips candidate and spokespersons with instant, primary-sourced factual data to rebut rival exaggerations on live radio and television debates.
@@ -202,10 +204,7 @@ id: delivery-tracker
     *   *Statutory Ward Equalization Tracking:* Establishes the operational framework for managing the **Ksh {{policy.ward-fund|m}} Million/Ward Annual Fund**, tracking execution velocity and contractor payments across all 40 wards in real time.
     *   *Zero Pending Bills Enforcer:* Integrates directly into the County Treasury accounting system to ensure all ward projects are verified before invoice settlement, preventing the recurrence of county debt.
 
----
-
-
-### 4.5.2 Workstream 2 — The content brief and asset governance
+### 15.1.2 Workstream 2 — The content brief and asset governance
 
 ```lead
 **Owner: your team, to a Firefly brief.** Your producers write, film, edit and publish, as they do today. What this workstream adds is the brief and the approval gate.
@@ -217,14 +216,13 @@ id: delivery-tracker
 >
 > **Group: Platforms and content** (workstreams 1 to 4).
 
-
-Campaign communications succeed when production is treated as a pipeline rather than ad-hoc creative posting. In a county where only {{ict.internet}}% of residents use the internet (CA/KNBS 2023/24, Section 2.9.1), the content production engine must be **predominantly focused on offline and broadcast formats**—vernacular radio scripts, 2G bulk SMS, USSD menu trees, printed baraza photobooks, and market PA audio jingles—while maintaining a high-fidelity digital and video pipeline for youth and the diaspora.
+Campaign communications succeed when production is treated as a pipeline rather than ad-hoc creative posting. In a county where only {{ict.internet}}% of residents use the internet (CA/KNBS 2023/24, Section 4.1), the content production engine must be **predominantly focused on offline and broadcast formats**—vernacular radio scripts, 2G bulk SMS, USSD menu trees, printed baraza photobooks, and market PA audio jingles—while maintaining a high-fidelity digital and video pipeline for youth and the diaspora.
 
 ```figure
 id: production-pipeline
 ```
 
-*The four content pillars are now in 3.2.3, with the other production pillars. Formats by channel and the radio, SMS and USSD copy samples are in Annex G.2.*
+*The four content pillars are now in 10.1, with the other production pillars. Formats by channel and the radio, SMS and USSD copy samples are in Annex C.2.*
 
 #### The weekly production schedule
 
@@ -250,10 +248,7 @@ All creative assets are stored in a centralized, cloud-backed Digital Asset Mana
 id: asset-library
 ```
 
-
----
-
-### 4.5.3 Workstream 3 — Creative testing and AI assistance
+### 15.1.3 Workstream 3 — Creative testing and AI assistance
 
 ```lead
 **Owner: Firefly.** Test design, variant selection and the read on the result are analysis. Your team produces the variants.
@@ -263,7 +258,6 @@ id: asset-library
 > Your team produces the variants.
 >
 > **Group: Platforms and content** (workstreams 1 to 4).
-
 
 #### What AI is used for, and what it is never used for
 
@@ -280,7 +274,7 @@ right:
     - { label: "to fabricate imagery of real people" }
     - { label: "to simulate events that did not occur" }
     - { label: "to generate synthetic voices of the candidate or any other person" }
-body: "**Disclosure commitment.** AI assists production and optimisation. It is never used to fabricate imagery of real people, simulate events that did not occur, or generate synthetic voices of the candidate or any other person. Where AI-generated illustration appears in published material, it is labelled. This is a published commitment (Section 5.3.3) and a defensive necessity in an environment where opponents may deploy manipulated media (Section 6.3.1)."
+body: "**Disclosure commitment.** AI assists production and optimisation. It is never used to fabricate imagery of real people, simulate events that did not occur, or generate synthetic voices of the candidate or any other person. Where AI-generated illustration appears in published material, it is labelled. This is a published commitment (Section 19.3) and a defensive necessity in an environment where opponents may deploy manipulated media (Section 20.4)."
 ```
 
 #### Tools and platforms
@@ -319,9 +313,7 @@ items:
 | **SMS delivery rate** | 98–99.9% | ≥ 98% |
 | **SMS opt-out rate** | — | **< 2%** |
 
----
-
-### 4.5.4 Workstream 4 — Accessibility and inclusion
+### 15.1.4 Workstream 4 — Accessibility and inclusion
 
 ```lead
 **Owner: Firefly sets the standard; your team applies it.** In a county where {{edu.none.women}}% of women and {{edu.none.men}}% of men aged six and over have no education, accessibility is reach, not compliance theatre.
@@ -332,11 +324,10 @@ items:
 >
 > **Group: Platforms and content** (workstreams 1 to 4).
 
-
-*The languages this standard works in, and the content mix for locally facing platforms, are set out in 3.6.1.*
+*The languages this standard works in, and the content mix for locally facing platforms, are set out in 12.4.*
 
 **Governance.** A native Kikamba speaker is a named role at every engagement
-level (Section 4.6.3), not an occasional reviewer. No Kikamba content publishes
+level (Section 17.3), not an occasional reviewer. No Kikamba content publishes
 without their sign-off. Proverbs carry cultural weight and misused proverbs
 do cultural damage — in a campaign built on rigour, a mangled idiom is a
 substantive error, not a cosmetic one.
@@ -383,7 +374,7 @@ items:
     text: "Every flagship policy item available as audio, distributable by WhatsApp, voice note and radio"
   - label: "Low bandwidth"
     text: "Text-first fallbacks;"
-    body: "compressed images; a site that loads on 3G; SMS and USSD paths to the same information (Section 4.5.9)"
+    body: "compressed images; a site that loads on 3G; SMS and USSD paths to the same information (Section 15.3.3)"
   - label: "Print"
     text: "Ward-level materials in large print with QR and USSD codes"
 ```

@@ -1,1 +1,29 @@
-{}
+{
+ "kitui-sec-1-5": {
+  "id": "kitui-sec-1-5",
+  "tab": "kitui",
+  "level": 2,
+  "number": "1.5",
+  "title": "The county's money: the budget envelope, the development plan, the audit record",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "Equitable Share",
+     "body": "KSh 11.64 billion (84.3% of the envelope) (Tier 1)."
+    },
+    {
+     "n": 2,
+     "label": "Own-Source Revenue",
+     "body": "KSh 1.12 billion in the Fiscal Strategy Paper (8.1%), raised to KSh 1.339 billion by the County Assembly. The final approved…"
+    },
+    {
+     "n": 3,
+     "label": "Conditional Grants",
+     "body": "KSh 1.04 billion (7.5%) (Tier 1)."
+    }
+   ]
+  }
+ }
+}

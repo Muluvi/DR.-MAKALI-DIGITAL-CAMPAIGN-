@@ -1,18 +1,21 @@
-### 4.5.11 Workstream 11 — The data layer
+## 15.4 Data and technology (11–14)
+
+<!-- restructure 2026-11: to be written from the verified data -->
+
+### 15.4.1 Workstream 11 — The data layer
 
 ```lead
-**Owner: Firefly**, as processor on the campaign's behalf, under a written processing agreement (Section 5.3.1).
+**Owner: Firefly**, as processor on the campaign's behalf, under a written processing agreement (Section 19.1).
 ```
 
 > **Owner: Firefly**, as processor on the campaign's behalf, under a written processing agreement
-> (Section 5.3.1).
+> (Section 19.1).
 >
 > **Group: Data and technology.**
 
-
 A modern, high-precision political operation requires an infallible data layer. The campaign rejects arbitrary spreadsheets, unverified voter claims, and ad-hoc phone lists. In their place, the strategy establishes a centralized, structured database architecture governed by strict mathematical provenance, audit trails, and rigorous adherence to Kenyan privacy legislation.
 
-This section defines the voter and supporter data model and the legal compliance workflows under Kenya's **Data Protection Act (DPA) 2019** and the **Office of the Data Protection Commissioner (ODPC)**. The three-tier provenance standard that grades every figure in this proposal (Section A.1.1) and the protocol for when two sources disagree (Section A.1.3) are set out alongside the evidence they govern.
+This section defines the voter and supporter data model and the legal compliance workflows under Kenya's **Data Protection Act (DPA) 2019** and the **Office of the Data Protection Commissioner (ODPC)**. The three-tier provenance standard that grades every figure in this proposal (Annex A.1.1) and the protocol for when two sources disagree (Annex A.1.3) are set out alongside the evidence they govern.
 
 ```figure
 id: data-layer
@@ -38,42 +41,39 @@ items:
     body: "Every modification to a voter's `support_status` or contact detail logs the modifying user ID, timestamp, and field collection source."
 ```
 
-*The Data Protection Act obligations this layer works under, and its mandatory compliance safeguards, are set out with the rest of compliance in 5.3.2.*
+*The Data Protection Act obligations this layer works under, and its mandatory compliance safeguards, are set out with the rest of compliance in 19.2.*
 
-### 4.5.12 Workstream 12 — Predictive voter modelling
+### 15.4.2 Workstream 12 — Predictive voter modelling
 
 ```lead
-**Owner: Firefly — gated on Section 5.3.4.** Until written sign-off, this runs as **ward-level aggregate scoring only**. Individual-level scoring waits for the opinion.
+**Owner: Firefly — gated on Section 19.2.** Until written sign-off, this runs as **ward-level aggregate scoring only**. Individual-level scoring waits for the opinion.
 ```
 
-> **Owner: Firefly — gated on Section 5.3.4.** Until written sign-off, this runs as **ward-level
+> **Owner: Firefly — gated on Section 19.2.** Until written sign-off, this runs as **ward-level
 > aggregate scoring only**, which delivers most of the targeting value at a fraction of the
 > exposure. Individual-level scoring waits for the opinion.
 >
 > **Group: Data and technology.**
-
 
 ```visual
 kind: stepper
 items:
   - label: "What the model scores, and why"
     text: "The campaign will build a model scoring Kitui's polling stations and wards on two dimensions:"
-    body: "likely support for the Wiper Patriotic Front ticket and likely turnout. Both are estimated from how each station actually voted in 2017 and 2022 (IEBC Forms 37A) and from the register, not from asking anyone how they will vote. This moves the campaign from broad messaging to disciplined prioritisation of persuasion and mobilisation effort, on the official record.\n\n**This entire section is conditional on the compliance gate in Section 5.3.4.**\nNo voter-file-based targeting is deployed until a Kenyan data-protection or\nelectoral-law specialist has reviewed and signed off the specific proposed\nprocessing. Nothing in this section should be read as a claim that such\nprocessing is already permissible.\n\n*The data sources the model draws on are listed in Annex G.5.*"
+    body: "likely support for the Wiper Patriotic Front ticket and likely turnout. Both are estimated from how each station actually voted in 2017 and 2022 (IEBC Forms 37A) and from the register, not from asking anyone how they will vote. This moves the campaign from broad messaging to disciplined prioritisation of persuasion and mobilisation effort, on the official record.\n\n**This entire section is conditional on the compliance gate in Section 19.2.**\nNo voter-file-based targeting is deployed until a Kenyan data-protection or\nelectoral-law specialist has reviewed and signed off the specific proposed\nprocessing. Nothing in this section should be read as a claim that such\nprocessing is already permissible.\n\n*The data sources the model draws on are listed in Annex E.2.*"
   - label: "Modelling methodology"
-    body: "| Model | Purpose | Strength |\n|---|---|---|\n| **Logistic regression** | Baseline support and turnout scores | Interpretability; identifies driving variables |\n| **Random forest** | Non-linear pattern detection | Captures interactions; robust to outliers |\n| **Gradient boosting (XGBoost)** | Final ensemble scoring | Highest predictive accuracy at scale |\n| **Propensity score matching** | Volunteer conversion | Estimates causal effect of touchpoints on offline action |\n\nFinal output: an ensemble score (0–1) per polling station for likely support and\nturnout likelihood.\n\n*The model's variable dictionary is in Annex G.5.*"
+    body: "| Model | Purpose | Strength |\n|---|---|---|\n| **Logistic regression** | Baseline support and turnout scores | Interpretability; identifies driving variables |\n| **Random forest** | Non-linear pattern detection | Captures interactions; robust to outliers |\n| **Gradient boosting (XGBoost)** | Final ensemble scoring | Highest predictive accuracy at scale |\n| **Propensity score matching** | Volunteer conversion | Estimates causal effect of touchpoints on offline action |\n\nFinal output: an ensemble score (0–1) per polling station for likely support and\nturnout likelihood.\n\n*The model's variable dictionary is in Annex E.2.*"
   - label: "How the model is evaluated"
     body: "| Metric | Target | Frequency |\n|---|---|---|\n| Back-test against 2022 | Scores built on the 2017 record, checked against each station's 2022 result; the error is reported, not pre-set | Once, before first use |\n| Cross-validation stability | Variance < 5% across folds | Quarterly |\n| Opt-in rate on routed doors | Higher on doors the model routes than on doors it does not | Monthly |"
   - label: "Putting the model to work"
-    body: "* **Ad targeting:** scored segments as custom audiences on Meta, Google, TikTok\n* **SMS/USSD segmentation:** priority broadcast lists for high-support,\nlow-turnout polling-station areas — the single most valuable GOTV segment\n* **Content personalisation:** different messages to station areas by their support\nand turnout history\n* **Volunteer routing:** ground teams directed to the highest-potential\npolling-station areas first (Section 4.5.8)"
+    body: "* **Ad targeting:** scored segments as custom audiences on Meta, Google, TikTok\n* **SMS/USSD segmentation:** priority broadcast lists for high-support,\nlow-turnout polling-station areas — the single most valuable GOTV segment\n* **Content personalisation:** different messages to station areas by their support\nand turnout history\n* **Volunteer routing:** ground teams directed to the highest-potential\npolling-station areas first (Section 15.3.2)"
 ```
 
 #### The compliance gate this depends on
 
-*The compliance gate, and the fallback the model runs on until it clears, are set out in 5.3.4.*
+*The compliance gate, and the fallback the model runs on until it clears, are set out in 19.2.*
 
----
-
-### 4.5.13 Workstream 13 — The technology stack
+### 15.4.3 Workstream 13 — The technology stack
 
 ```lead
 **Mostly outside this engagement.** Firefly builds and operates three components only: the **service-delivery tracker**, the **supporter CRM**, and the **SMS/USSD/WhatsApp layer**.
@@ -87,20 +87,19 @@ items:
 >
 > **Group: Data and technology.**
 
-*The reference architecture the campaign owns (component by component, the procurement matrix and the technical security protocols) is in Annex G.4.*
+*The reference architecture the campaign owns (component by component, the procurement matrix and the technical security protocols) is in Annex E.1.*
 
-### 4.5.14 Workstream 14 — Analytics and attribution
+### 15.4.4 Workstream 14 — Analytics and attribution
 
 ```lead
 **Owner: Firefly. This is the engine room of the engagement.** Measurement moves beyond vanity metrics to what drives votes, anchored to the ~{{benchmark}}-vote threshold. **No stage is skipped.**
 ```
 
 > **Owner: Firefly. This is the engine room of the engagement.** It is numbered fourteenth because
-> that is where the original numbering put it; it is read first, in Section 4.2.1, and it is the
+> that is where the original numbering put it; it is read first, in Section 14.1, and it is the
 > workstream every other one is measured by.
 >
 > **Group: Data and technology.**
-
 
 #### Attribution model and offline conversion tracking
 
@@ -118,13 +117,14 @@ anchored to the ~{{benchmark}}-vote threshold.
 | YouTube view | View-through | Google Ads |
 | Website visit | Multi-touch weighted | GA4 |
 | Email open | Position-based | Email platform |
-| **Field canvass contact** | Direct event | Ward champion form (Section 4.5.8) |
+| **Field canvass contact** | Direct event | Ward champion form (Section 15.3.2) |
 
 To track offline-to-digital and physical engagement, four mechanisms bridge the gap:
+
 * **Unique QR codes** on printed materials and at barazas, tracking which content drove physical attendance
 * **SMS keyword short codes** — text a keyword to the campaign shortcode to register support and opt in
 * **USSD completions** as a direct offline-to-digital bridge
-* **Volunteer-reported contact outcomes** from the doorstep form (Section 4.5.8)
+* **Volunteer-reported contact outcomes** from the doorstep form (Section 15.3.2)
 
 #### Key metrics and benchmarks
 
@@ -132,7 +132,7 @@ To track offline-to-digital and physical engagement, four mechanisms bridge the 
 |---|---|---|---|
 | Share of voice | % of Kitui gubernatorial mentions about Dr. Mulu | 30–40% for leader | ≥ 50% |
 | Net sentiment | (Positive − negative) / total | +20 to +30 | ≥ +40 |
-| **Reach share in the deficit pool** | Share of his reach landing in Mwingi and Kitui South (R-02, Section 5.1.2) | — | **≥ {{pool.share}}%, the pool's share of the register** |
+| **Reach share in the deficit pool** | Share of his reach landing in Mwingi and Kitui South (R-02, Section 18.3) | — | **≥ {{pool.share}}%, the pool's share of the register** |
 | Voter registration lift | Increase in target wards from campaign drives | 5–10% | ≥ 10% |
 | Digital-to-offline conversion | % of engagers attending or volunteering | 5–15% | ≥ 10% |
 | GOTV contact rate | % of target voters reached | 60–80% | ≥ 70% |
@@ -161,7 +161,7 @@ items:
     label: "2 — Predictive"
     text: "Voter scoring live; field-digital loop operating; audience segments driven by score"
     fields:
-      - { label: "Prerequisite", text: "**Section 5.3.4 compliance gate cleared**" }
+      - { label: "Prerequisite", text: "**Section 19.2 compliance gate cleared**" }
       - { label: "Owner", text: "Data Analyst (surge)" }
   - when: "Phase 2–3"
     label: "3 — Attributed"
@@ -188,12 +188,13 @@ performance and data compliance — deliberately one role, because splitting the
 creates an incentive to treat compliance as someone else's obstacle.
 
 Responsibilities:
+
 * Maintains the data inventory: what is held, lawful basis, retention period,
 who has access
 * Owns the consent audit trail and can produce it on demand within
-**24 hours** — the standard the Section E.6 drill tests
-* Owns the deletion schedule and executes it (Section 5.3.3)
-* Is the campaign's standing point of contact for the Section 5.3.4 compliance
+**24 hours** — the standard the Annex F.6 drill tests
+* Owns the deletion schedule and executes it (Section 19.3)
+* Is the campaign's standing point of contact for the Section 19.2 compliance
 reviewer
 * Holds authority to **suspend any targeting activity** pending review, without
 requiring commercial sign-off

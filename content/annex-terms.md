@@ -1,5 +1,6 @@
+*Who this proposal is for, who prepared it, and its status are stated once, on the cover.*
 
-## F.1 Confidentiality and use
+## G.1 Confidentiality and use
 
 <!-- keep -->
 This proposal is for Dr. Mulu. It is not addressed to any party organ, and it should not be
@@ -15,7 +16,3 @@ Management's written consent.
 <!-- keep -->
 Nothing in this document constitutes a binding commitment by either party. Commercial terms are
 settled separately and in person, and appear nowhere in these pages.
-
----
-
-*Who this proposal is for, who prepared it, and its status are stated once, on the cover.*

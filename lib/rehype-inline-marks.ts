@@ -18,7 +18,7 @@ type HastElement = { type: "element"; tagName: string; properties: Record<string
 type HastNode = HastText | HastElement | { type: string; children?: HastNode[] };
 
 const SKIP = new Set(["code", "pre", "script", "style"]);
-const CITATION_TAIL = /((?:Sections?|§)\s*(?:\d+(?:\.\d+){0,3}|[A-G](?:\.\d+){1,2})(?:\s*(?:,|and|or|to|&|–)\s*(?:\d+(?:\.\d+){0,3}|[A-G](?:\.\d+){1,2}))*[)\s]*)$/;
+const CITATION_TAIL = /((?:Sections?|§)\s*(?:\d+(?:\.\d+){0,3}|[A-H](?:\.\d+){1,2})(?:\s*(?:,|and|or|to|&|–)\s*(?:\d+(?:\.\d+){0,3}|[A-H](?:\.\d+){1,2}))*[)\s]*)$/;
 
 const text = (value: string): HastText => ({ type: "text", value });
 const el = (tagName: string, properties: Record<string, unknown>, children: HastNode[] = []): HastElement => ({

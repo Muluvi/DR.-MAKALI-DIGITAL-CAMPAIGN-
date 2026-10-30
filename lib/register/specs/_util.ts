@@ -42,23 +42,23 @@ export function bar(id: string, label: string, extra: Partial<Bar> = {}): Bar {
 /** Sort bars by value, largest first (brief §M: sort unless the order is the point). */
 export const byValue = (bars: Bar[]): Bar[] => [...bars].sort((a, b) => (b.value ?? -1) - (a.value ?? -1));
 
-/** The live deep link to a numbered section: "2.7" -> "/evidence#evidence-sec-2-7". */
+/** The live deep link to a numbered section: "6.2" -> "/record#record-sec-6-2". */
 export function secHref(num: string): string {
-  const top: Record<string, string> = { "1": "decision", "2": "evidence", "3": "strategy", "5": "measurement", "6": "risks" };
-  const annex: Record<string, string> = { A: "annex-evidence", B: "annex-county", C: "annex-messages", D: "annex-cadence", E: "annex-runbooks", F: "annex-terms", G: "annex-spec" };
+  // One route per chapter (the November 2026 restructure). Chapter 15 runs across four routes, one
+  // per workstream group: 15.1 platforms, 15.2 media, 15.3 ground, 15.4 data.
+  const chapter: Record<string, string> = {
+    "1": "kitui", "2": "votes", "3": "needs", "4": "news", "5": "race", "6": "record", "7": "diagnosis",
+    "8": "goal", "9": "position", "10": "message", "11": "voters", "12": "channels", "13": "engagement",
+    "14": "timeline", "16": "coalitions", "17": "team", "18": "success", "19": "lawful", "20": "response",
+    "21": "receives", "22": "commitments", "23": "ask",
+  };
+  const annex: Record<string, string> = {
+    A: "annex-evidence", B: "annex-county", C: "annex-playbooks", D: "annex-volunteers", E: "annex-technology",
+    F: "annex-runbooks", G: "annex-terms", H: "annex-glossary",
+  };
+  const workstreams: Record<string, string> = { "1": "workstreams-platforms", "2": "workstreams-media", "3": "workstreams-ground", "4": "workstreams-data" };
   const parts = num.split(".");
-  let tab = top[parts[0]] ?? annex[parts[0]];
-  if (parts[0] === "4") {
-    // Part 4 runs across seven routes: 4.1 to 4.4 the operating model, 4.5 the workstreams in four
-    // files by group (1-4, 5-6, 7-10, 11-14), and 4.6 the staffing.
-    const ws = Number(parts[2]);
-    if (parts[1] === "6") tab = "staffing";
-    else if (parts[1] !== "5") tab = "delivery";
-    else if (!ws || ws <= 4) tab = "workstreams-platforms";
-    else if (ws <= 6) tab = "workstreams-media";
-    else if (ws <= 10) tab = "workstreams-ground";
-    else tab = "workstreams-data";
-  }
+  const tab = parts[0] === "15" ? workstreams[parts[1] ?? "1"] : chapter[parts[0]] ?? annex[parts[0]];
   if (!tab) throw new Error(`secHref: no route for ${num}`);
   return `/${tab}#${tab}-sec-${parts.join("-").toLowerCase()}`;
 }

@@ -1,4 +1,8 @@
-### 4.5.5 Workstream 5 — Platform tactics and paid media
+## 15.2 Media (5–6)
+
+<!-- restructure 2026-11: to be written from the verified data -->
+
+### 15.2.1 Workstream 5 — Platform tactics and paid media
 
 ```lead
 **Owner: your team, to a Firefly brief.** Firefly writes the targeting plan and reads the performance; your team places and publishes.
@@ -7,13 +11,13 @@
 > **Owner: your team, to a Firefly brief.** Read every platform block below as *what belongs on
 > this channel and why*, not as a list of things Firefly will post. Firefly writes the targeting
 > plan and reads the performance; your team places and publishes. Who holds the ad account is a
-> decision for Dr. Mulu — Section 4.1.3 states the recommendation and marks it open.
+> decision for Dr. Mulu — Section 13.4 states the recommendation and marks it open.
 >
 > **Group: Publishing and earned media.**
 
-*The platform-by-platform playbooks (Facebook, X, WhatsApp, TikTok, Instagram, YouTube and Google Ads) are in Annex G.1.*
+*The platform-by-platform playbooks (Facebook, X, WhatsApp, TikTok, Instagram, YouTube and Google Ads) are in Annex C.1.*
 
-### 4.5.6 Workstream 6 — Earned media, journalists and debates
+### 15.2.2 Workstream 6 — Earned media, journalists and debates
 
 ```lead
 **Owner: your team and the campaign, to a Firefly brief.** Kamba-language radio is the dominant information channel, **but the ownership map is politically compromised**: the campaign's radio strategy runs through Musyi, County FM and Wikwatyo.
@@ -25,41 +29,8 @@
 >
 > **Group: Publishing and earned media.**
 
-
 *Paid and owned media reach the connected minority. Earned media —
 especially radio — reaches everyone else.*
-
-#### The radio problem, stated plainly
-
-Kamba-language radio is the dominant information channel for the 73.8% of
-Kitui residents outside the internet-using population (CA/KNBS 2023/24). **But the ownership map
-is politically compromised, and any credible media plan must say so:**
-
-| Station | Kitui frequency | Ownership association | Campaign posture |
-|---|---|---|---|
-| **Mbaitu FM** | 100.4 (Kitui/Mwingi) | Associated with **Charity Ngilu** — a declared rival | Monitor closely; expect unfavourable framing; do not rely on placement |
-| **Syokimau FM** | — | Associated with **Charity Ngilu** | As above |
-| **Athiani FM** | 97.7 | Associated with **Kalonzo Musyoka**, Wiper Patriotic Front leader | Party-aligned, not neutral. Relevant during the nomination window — coverage may track party leadership sentiment rather than merit |
-| **Musyi FM** | 102.2 (regional) | Royal Media Services | **Priority — commercially independent, broad Ukambani reach** |
-| **County FM** | 90.3 Kitui / 91.8 Mwingi | Kitui-based independent | **Priority — local, independent, Mwingi reach** |
-| **Wikwatyo FM** | 105.3 | Seventh-Day Adventist Church, Kitui-based | Priority for community and service-delivery programming |
-| **Ene FM** | 90.6 (Kitui) | Makueni-based | Secondary |
-| **Akamba FM** | 103.3 (Kitui) | Independent, launched 2023 | Secondary — newer, may be more accessible |
-| **KBC Mwatu FM** | 93.1 | Public broadcaster | Institutional coverage |
-
-<!-- keep -->
-[CONFLICT C7: see open items]
-
-**Strategic implication:** the campaign's radio strategy runs through Musyi,
-County FM and Wikwatyo, treats Athiani as party-sensitive, and treats
-Mbaitu/Syokimau as monitoring targets rather than placement targets. Attacks
-on Dr. Mulu are more likely to originate on air than online, which is why radio
-monitoring sits in the war room (Section E.4) rather than in a media annex.
-
-*This map is based on publicly reported ownership associations. Before any placement
-is booked it is checked against the Communications Authority's register of broadcast
-licensees and the Business Registration Service's company records, and it is updated
-when either changes.*
 
 #### The journalist relationship programme
 
@@ -120,22 +91,6 @@ top three issues
 
 **The rule: the clip is published before the coverage is written.** Whoever
 distributes the moment first defines what the debate was about.
-
-#### Pre-drafted response lines
-
-Prepared, verified, and rehearsed in drills. Each is a structure, not a script —
-substance fixed, delivery natural.
-
-| Likely attack | Response structure |
-|---|---|
-| **"He is a national MP, not a county manager"** | Acknowledge the distinction, then reframe: county government's central failure mode is budget execution, which is the one discipline he has done professionally at national scale — and the certification of Kitui Central as best evaluated constituency in the Eastern region is the county-level proof |
-| **"He is from Kitui Central and will favour it"** | Commit to a published, methodology-first allocation formula across all 40 wards, published before allocation and audited after — an economist's answer, and one no rival can match [CONFLICT C6: see open items] |
-| **"Others have been more visible on the ground"** | Do not contest the premise. Reframe visibility as a means, not a qualification: the question is what a leader does with the office, and offer the verification record |
-| **"NG-CDF questions"** | Lead with the documented record — bursary numbers, project list, the Eastern region evaluation certification — and invite scrutiny. **Never defensive; an evaluator welcomes audit.** |
-| **"Too technical / not close to ordinary people"** | Answer in Kikamba, with a household example. The best rebuttal to "too technical" is a demonstration, not a denial |
-| **"Wiper insider / party establishment"** | Point to the independence of his parliamentary record on budget matters |
-| **Manipulated media** | Section 6.3.1 protocol — 30-minute clock |
-| **Unsolicited SMS allegation** | Produce the consent audit trail; cite the published charter; correct publicly within the hour |
 
 #### Earned media KPIs
 

@@ -653,7 +653,7 @@ export function RangeBars({ series, scaleMax }: { series: FigureSeries; scaleMax
  */
 export function Ledger({
   rows,
-  statedLabel = "§2.11 prints",
+  statedLabel = "§7.3 prints",
   nameFirst = false,
 }: {
   rows: {
@@ -925,7 +925,7 @@ export function Stepper({
             <p className="m-0 t-micro font-bold text-ink">
               <span className="sr-only">Stage {i + 1}: </span>
               {/* The offset, where there is one, is the point of the row and not an annotation:
-                  §4.5.7's claim is four hours, and it is only legible as a running clock. */}
+                  §15.3.1's claim is four hours, and it is only legible as a running clock. */}
               {stage.at && <span className="mr-1.5 font-mono tabular-nums text-accent">{stage.at}</span>}
               {stage.title}
             </p>

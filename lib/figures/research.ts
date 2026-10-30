@@ -46,7 +46,7 @@ export const RESEARCH_TIERS = [
 export const RESEARCH_SPLIT: FigureSeries = {
   id: "research-and-tracker",
   headline: "One programme tests whether the deficit is real; the other is the evidence it argues with",
-  measure: "§5.1's tests of the recognition hypothesis, and the service-delivery tracker",
+  measure: "§18.1's tests of the recognition hypothesis, and the service-delivery tracker",
   points: [],
   note:
     "The research programme feeds the tracker: what the audit establishes about a ward becomes " +
@@ -62,14 +62,14 @@ export const RESEARCH_MODULES: string[][] = [
     "Ninety days of his own channels, exported and coded twice · reach by city mapped to sub-county · engagement on reach · language and format mix · the public comparison with the two nomination rivals",
     "Every post in the window · his Meta Insights export · public posts of the two nomination rivals · no personal data",
     "Week 1",
-    "If reach concentrates in Kitui Central, output weight shifts to Mwingi and the arid belt. If it lands in Mwingi but does not convert, the problem is message, not reach (Section 3.8).",
+    "If reach concentrates in Kitui Central, output weight shifts to Mwingi and the arid belt. If it lands in Mwingi but does not convert, the problem is message, not reach (Section 12.7).",
   ],
   [
     "2. The ward-level record",
     "The 2017 and 2022 governor results by ward and polling station, set against the pool and the twelve decisive wards · Wiper's 2022 share, ward by ward",
     "IEBC Forms 37A and 37B for all 40 wards · public records, not yet in hand (Section 2.2)",
     "On receipt",
-    "If Wiper carried the pool wards in 2022, the gap there is his own recognition and reach is the answer. If it did not, party flow is part of the problem and Section 2.7.2's direct-contact plan widens.",
+    "If Wiper carried the pool wards in 2022, the gap there is his own recognition and reach is the answer. If it did not, party flow is part of the problem and Section 6.3's direct-contact plan widens.",
   ],
   [
     "3. Inbound feedback log",
@@ -83,11 +83,11 @@ export const RESEARCH_MODULES: string[][] = [
 export const MODULES_SERIES: FigureSeries = {
   id: "research-modules",
   headline: "Three instruments, and each one names the decision it unlocks",
-  measure: "§5.2.6's tests of the recognition-deficit hypothesis — module, method, record, timing and the decision it unlocks",
+  measure: "§18.5's tests of the recognition-deficit hypothesis — module, method, record, timing and the decision it unlocks",
   points: [],
   note:
     "The last column is what makes this a decision instrument: the audit's result routes directly " +
-    "to a stated change of plan, set out in advance in Section 3.8. All three read records that " +
+    "to a stated change of plan, set out in advance in Section 12.7. All three read records that " +
     "already exist: his own analytics, the IEBC's published forms and the line Firefly operates.",
 };
 
@@ -107,22 +107,22 @@ export const TRACKER_DIMENSIONS: string[][] = [
   [
     "3. Public financial stewardship ledger",
     "Office of the Auditor-General certified reports (2013–2025) · Controller of Budget reports",
-    "Annual / statutory audit cycle · each year's audit opinion as the OAG report states it; the 2013–2025 reports are not yet retrieved (Section 3.2.2)",
+    "Annual / statutory audit cycle · each year's audit opinion as the OAG report states it; the 2013–2025 reports are not yet retrieved (Section 10.1)",
   ],
   [
     "4. Secondary & tertiary bursary distribution",
     "NG-CDF bursary disbursements ledger · NG-CDF constituency records — not HELB, which holds national loan data",
-    "Termly disbursement audit · receipt count pending the ledger; §2.10.1 gives 12,573 as Tier 1",
+    "Termly disbursement audit · receipt count pending the ledger; §6.1 gives 12,573 as Tier 1",
   ],
 ];
 
 export const TRACKER_SERIES: FigureSeries = {
   id: "delivery-tracker",
   headline: "Four delivery dimensions, two of which are still waiting on a ledger",
-  measure: "§4.5.1's public service-delivery tracker — dimension, statutory sources, update cadence and verification",
+  measure: "§15.1.1's public service-delivery tracker — dimension, statutory sources, update cadence and verification",
   points: [],
   note:
     "The classroom and TVET counts and the bursary receipt count are stated as pending the project " +
-    "ledger, and they are printed that way rather than filled with an estimate. §2.10.1's 12,573 " +
+    "ledger, and they are printed that way rather than filled with an estimate. §6.1's 12,573 " +
     "bursary recipients is the Tier 1 figure the document does have, and the row says so.",
 };

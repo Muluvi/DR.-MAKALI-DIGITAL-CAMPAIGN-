@@ -73,8 +73,8 @@ export const MESSAGE_HOUSE: FigureSeries = {
   measure: "§7.1 [CHECK REF]'s message architecture and §7.1.1 [CHECK REF]'s central claim, drawn as one house",
   points: [],
   note:
-    "The three language versions are printed at equal weight because §3.6.1 puts 76% of the " +
-    "county's primary reach in Kikamba, and §3.6.2 forbids machine translation of it and requires " +
+    "The three language versions are printed at equal weight because §12.4 puts 76% of the " +
+    "county's primary reach in Kikamba, and §12.5 forbids machine translation of it and requires " +
     "a named cultural sign-off for every vernacular line. Each is transcribed exactly as §7.1.1 [CHECK REF] " +
     "states it. The pillar names are §7.1 [CHECK REF]'s short forms; the full headings and the campaign pillars " +
     "each one carries are printed beneath them.",
@@ -102,7 +102,7 @@ export const COUNTER_FIRE = [
   {
     rumour: "Economists only care about numbers, not the poor.",
     answers: [
-      "FACT: 13 years of Kitui Central CDF directed the majority of funds to needy student bursaries — 12,573 recipients, KSh 47m (Tier 1, §3.1.1) — and village boreholes.",
+      "FACT: 13 years of Kitui Central CDF directed the majority of funds to needy student bursaries — 12,573 recipients, KSh 47m (Tier 1, §6.1) — and village boreholes.",
     ],
     note: "Share pending the ledger.",
   },
@@ -117,7 +117,7 @@ export const COUNTER_FIRE = [
 export const COUNTER_FIRE_SERIES: FigureSeries = {
   id: "counter-fire",
   headline: "Three ground rumours, and the evidence the campaign answers each with",
-  measure: "§3.5.1's rumour-and-rebuttal protocol, paired",
+  measure: "§10.5's rumour-and-rebuttal protocol, paired",
   points: [],
   note:
     "One of the three rebuttals ends “Share pending the ledger” — the document declining to claim " +
@@ -168,11 +168,11 @@ export const CULTURAL_REGISTERS = [
 export const REGISTERS_SERIES: FigureSeries = {
   id: "cultural-registers",
   headline: "Four terms where the literal translation loses the argument",
-  measure: "§3.6.2's proverbial framing protocol — the term, the translation that fails, and the approved idiom",
+  measure: "§12.5's proverbial framing protocol — the term, the translation that fails, and the approved idiom",
   points: [],
   note:
-    "Every Kikamba string is transcribed with its diacritics exactly as §3.6.2 prints them. ĩ and " +
-    "ũ are distinct letters rather than decorated vowels, and §3.6.2's own rules of engagement " +
+    "Every Kikamba string is transcribed with its diacritics exactly as §12.5 prints them. ĩ and " +
+    "ũ are distinct letters rather than decorated vowels, and §12.5's own rules of engagement " +
     "forbid machine translation of Kikamba for this reason.",
 };
 
@@ -210,7 +210,7 @@ export const QC_STAGES = [
 export const QC_SERIES: FigureSeries = {
   id: "qc-gateway",
   headline: "Four gates between an English draft and a Kikamba broadcast",
-  measure: "§3.6.3's translation and quality-control gateway, in order",
+  measure: "§12.5's translation and quality-control gateway, in order",
   points: [],
   note:
     "Numbered because it is a real sequence: the reverse-translation audit cannot run before the " +

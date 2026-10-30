@@ -1,4 +1,8 @@
-### 4.5.7 Workstream 7 — Ground-digital integration
+## 15.3 Ground and offline (7–10)
+
+<!-- restructure 2026-11: to be written from the verified data -->
+
+### 15.3.1 Workstream 7 — Ground-digital integration
 
 ```lead
 **Owner: the campaign.** Field intelligence captured by the 40 Ward Coordinators directly dictates the daily digital and radio advertising content; Firefly supplies the reporting template and the analysis of what comes back.
@@ -8,7 +12,6 @@
 > the reporting template and the analysis of what comes back.
 >
 > **Group: Ground and offline reach.**
-
 
 A campaign that operates field organizing and digital messaging as isolated silos will fail in a county where {{ict.offline}}% of residents are offline (CA/KNBS 2023/24).
 
@@ -20,7 +23,7 @@ id: field-loop
 
 #### What the 40 ward coordinators report
 
-The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, who supervise the campaign's ward captains ({{target.captains}} recommended, 10 per ward; campaign-owned, Section 1.4.3). Each coordinator is equipped with a dual reporting channel: a **secure field WhatsApp bot** for smartphone-equipped coordinators in 3G/4G zones, and a **zero-rated USSD/SMS structured reporting tree** for offline/2G wards.
+The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, who supervise the campaign's ward captains ({{target.captains}} recommended, 10 per ward; campaign-owned, Section 13.3). Each coordinator is equipped with a dual reporting channel: a **secure field WhatsApp bot** for smartphone-equipped coordinators in 3G/4G zones, and a **zero-rated USSD/SMS structured reporting tree** for offline/2G wards.
 
 ```figure
 id: field-reports
@@ -51,7 +54,7 @@ id: four-hour-cycle
 
 #### Distribution beyond social media
 
-> **Campaign-owned recommendations, outside this engagement (Section 1.4.3).** The four networks
+> **Campaign-owned recommendations, outside this engagement (Section 13.3).** The four networks
 > below are the campaign's to recruit, equip and run. Firefly writes the brief each one carries.
 
 To bypass digital connectivity barriers, the campaign turns physical transportation, trade, and civic networks into active information distribution conduits:
@@ -76,7 +79,7 @@ items:
     badge: "campaign-owned"
     head: { label: "Operational Role", text: "Concentrated voter aggregation points." }
     fields:
-      - { label: "Infrastructure", text: "The 40 major market centers rotating across the county weekly (Section 4.5.9)." }
+      - { label: "Infrastructure", text: "The 40 major market centers rotating across the county weekly (Section 15.3.3)." }
       - { label: "Execution", text: "- Coordinated arrival of the *Mulu Economic Caravan* sound trucks at 10:00 AM on market days.\n- Ward Coordinators lead door-to-door merchant walk-throughs, distributing Kikamba business charters to shopkeepers, vegetable vendors (*mama mboga*), and hardware dealers." }
   - title: "Community Barazas & Chief's Gatherings (Protocol-Compliant)"
     badge: "campaign-owned"
@@ -94,10 +97,7 @@ To maintain operational tempo across 8 constituencies and 40 wards, the campaign
 id: operating-rhythm
 ```
 
-
----
-
-### 4.5.8 Workstream 8 — The field-to-digital loop
+### 15.3.2 Workstream 8 — The field-to-digital loop
 
 ```lead
 **Owner: the campaign.** Firefly supplies the instrument and its data governance. **Opt-in rate on routed doors** is the joint KPI holding both sides honest.
@@ -106,7 +106,6 @@ id: operating-rhythm
 > **Owner: the campaign.** Firefly supplies the instrument and its data governance.
 >
 > **Group: Ground and offline reach.**
-
 
 #### Operating architecture and bidirectional sync
 
@@ -151,13 +150,13 @@ right:
 ```visual
 kind: checklist
 items:
-  - label: "Field data is campaign first-party data, collected with notice, and governed by the same charter as all other personal data (Section 5.3.3)."
+  - label: "Field data is campaign first-party data, collected with notice, and governed by the same charter as all other personal data (Section 19.3)."
   - label: "Ward champions receive data-handling training before being issued the form, and cannot export or retain contact data on personal devices."
   - label: "Opt-in rate on routed doors"
     body: "is the joint KPI holding both sides honest: if doors the model routes do not opt in at a higher rate than doors it does not, the routing is wrong."
 ```
 
-### 4.5.9 Workstream 9 — What Firefly operates: SMS, USSD and voice
+### 15.3.3 Workstream 9 — What Firefly operates: SMS, USSD and voice
 
 ```lead
 **Owner: Firefly, end to end.** **Bulk political SMS cannot be sent in Kikamba**: the CA/NCIC guidelines restrict political SMS to **English or Kiswahili** (Tier 1, Communications Authority), lodged with the mobile operator at least 48 hours before sending.
@@ -167,10 +166,9 @@ items:
 > **WhatsApp Business API line** and the **USSD shortcode**.
 >
 > It is also the one place where Firefly is a **data controller or joint controller** rather than a
-> processor — see Section 5.3.1, which must be settled in writing before the first dispatch.
+> processor — see Section 19.1, which must be settled in writing before the first dispatch.
 >
 > **Group: Ground and offline reach.**
-
 
 #### Why this layer decides the race
 
@@ -183,7 +181,7 @@ Put plainly: **a purely digital campaign in Kitui addresses roughly one in
 four residents, and the three it misses are concentrated in exactly the wards
 where Dr. Mulu's recognition deficit is largest.**
 
-The phone side of this layer is larger than the resident rate suggests. Adults own phones at {{ict.phone.adult}}% (KDHS 2022), so about {{reach.phone.adult}} voters can receive an SMS or dial a USSD menu, against about {{reach.phone.resident}} on the resident rate (both modelled, Section 2.9.3). On its own logic that makes this layer the decisive one: it reaches roughly three voters in four.
+The phone side of this layer is larger than the resident rate suggests. Adults own phones at {{ict.phone.adult}}% (KDHS 2022), so about {{reach.phone.adult}} voters can receive an SMS or dial a USSD menu, against about {{reach.phone.resident}} on the resident rate (both modelled, Section 4.3). On its own logic that makes this layer the decisive one: it reaches roughly three voters in four.
 
 This is not an equity footnote. It is the central strategic problem of
 campaigning in this county, and solving it is the clearest demonstration of the
@@ -191,7 +189,7 @@ campaigning in this county, and solving it is the clearest demonstration of the
 rather than where measurement is convenient.
 
 The critical constraint: the campaign can only message consented numbers
-(Section 5.3). List building is therefore a KPI in its own right from Phase −1,
+(Section 19.1). List building is therefore a KPI in its own right from Phase −1,
 not an afterthought — consented contacts are a campaign asset that compounds.
 
 #### The SMS layer
@@ -214,7 +212,7 @@ penalise unsolicited messaging.
 >
 > **This changes the channel plan, not the language strategy.** Kikamba remains the campaign's
 > strongest register — it simply cannot ride the bulk SMS rail. It belongs on **radio, WhatsApp
-> voice notes, USSD menu text, barazas and person-to-person**, which is where the Section 3.7
+> voice notes, USSD menu text, barazas and person-to-person**, which is where the Section 12.6
 > pillars already put it. SMS carries the Kiswahili and English versions of the same message.
 >
 > Two practical consequences the operating rhythm must absorb: a 48-hour lodging lead time makes
@@ -226,6 +224,7 @@ penalise unsolicited messaging.
 [CONFLICT C2: see open items]
 
 **Message architecture** — 160 characters, **English or Kiswahili only**, ward-tagged:
+
 | Type | Frequency | Language | Example structure |
 |---|---|---|---|
 | **Policy drop** | Weekly | Kiswahili / English | One issue, one commitment, one verification promise |
@@ -242,12 +241,12 @@ items:
   - label: "Every bulk send lodged with the operator 48 hours ahead"
     body: ", verbatim text plus signed authorisation, logged against the dispatch record"
   - label: "No attacks on individuals, families, ethnicity, religion or association"
-    body: "in any message — a guideline requirement, and already a charter commitment (Section 5.3.3, clauses 2 and 6)"
+    body: "in any message — a guideline requirement, and already a charter commitment (Section 19.3, clauses 2 and 6)"
   - label: "Sending window **7am–7pm**, per market practice and DND norms"
   - label: "Every message carries a clear opt-out; opt-outs honoured immediately and permanently"
   - label: "Ward-tagged segmentation so a message about mango prices reaches Kitui West and not Kyuso"
   - label: "Personalisation by first name where consent covers it"
-  - label: "Per-send audit trail retained, per the charter (Section 5.3.3)"
+  - label: "Per-send audit trail retained, per the charter (Section 19.3)"
 ```
 
 #### The USSD layer
@@ -257,11 +256,12 @@ voter. It is the single most under-used civic channel in Kenyan county
 politics.
 
 **Proposed menu — dialled on the campaign's USSD shortcode:**
+
 ```figure
 id: fig-5-2-3-ussd-menu
 ```
 
-**Why option 3 matters most.** The service-delivery tracker (Section 4.5.1) is
+**Why option 3 matters most.** The service-delivery tracker (Section 15.1.1) is
 reachable from a feature phone in Mutha. A constituent reports a broken water
 point by dialling a short code; the report enters a public register; the
 campaign follows up and publishes the outcome. That is the M&E credential
@@ -275,7 +275,7 @@ pending operator approval.
 * **Kikamba voice notes from Dr. Mulu** distributed by WhatsApp and by ward
 champions to Bluetooth-share onward. Audio travels where text does not, and
 carries the candidate's actual voice — the highest-trust format available.
-* **Radio** — see Section 4.5.6.
+* **Radio** — see Section 15.2.2.
 * **Audio versions of all flagship policy content**, addressing both low
 literacy ({{edu.none.women}}% of women and {{edu.none.men}}% of men aged six and over have no education) and low bandwidth.
 
@@ -311,9 +311,7 @@ is being experienced as spam, which damages the brand of rigour and
 accountability the whole strategy rests on. It is treated as a red-flag KPI, not
 a vanity one.
 
----
-
-### 4.5.10 Workstream 10 — Digital organising and volunteers
+### 15.3.4 Workstream 10 — Digital organising and volunteers
 
 ```lead
 **Outside this engagement.** Firefly's contribution is the metric definitions the leaderboard reports against, and nothing else.
@@ -326,4 +324,4 @@ a vanity one.
 >
 > **Group: Ground and offline reach.**
 
-*The volunteer programme reference (tiers, gamification, tooling and KPIs) is in Annex G.3.*
+*The volunteer programme reference (tiers, gamification, tooling and KPIs) is in Annex D.1.*

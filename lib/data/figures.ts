@@ -188,10 +188,48 @@ sourced("census.female", 587_151, "people", "T1", CENSUS);
 modelled("census.female.share", pct(587_151, 1_136_187), "percent", "Women / residents.");
 sourced("census.households", 262_942, "households", "T1", CENSUS);
 sourced("census.area", 30_430, "km2", "T1", CENSUS);
-sourced("census.rural", 1_082_168, "people", "T1", CENSUS);
-sourced("census.urban", 54_019, "people", "T1", CENSUS);
-sourced("census.rural.share", 95.2, "percent", "T1", CENSUS);
-sourced("census.urban.share", 4.8, "percent", "T1", CENSUS);
+// Rural and urban (restructure 2026-11): the brief's verified-data check (29 October 2026) found no
+// source for an earlier draft's 14.9% urban share and secondary reporting near 86% rural. The site's
+// split is corroborated by the CRA County Fact Sheet (3rd edition) and citypopulation.de, both from
+// KNBS 2019 Census Volume II, so it stays, at Tier 2 until the Volume II table is cited directly.
+const CENSUS_VOL2 = "KNBS 2019 Census Volume II (rural and urban distribution), via the CRA Kitui County Fact Sheet, 3rd edition, and citypopulation.de";
+const CENSUS_VOL2_NOTE = "Tier 2 until the KNBS Volume II table itself is cited. Secondary sources putting the rural share near 86% do not reconcile with this split, which sums exactly to the census total.";
+sourced("census.rural", 1_082_168, "people", "T2", CENSUS_VOL2, { note: CENSUS_VOL2_NOTE });
+sourced("census.urban", 54_019, "people", "T2", CENSUS_VOL2, { note: CENSUS_VOL2_NOTE });
+sourced("census.rural.share", 95.2, "percent", "T2", CENSUS_VOL2, { note: CENSUS_VOL2_NOTE });
+sourced("census.urban.share", 4.8, "percent", "T2", CENSUS_VOL2, { note: CENSUS_VOL2_NOTE });
+sourced("census.intersex", 33, "people", "T1", CENSUS);
+sourced("census.household-size", 4.3, "persons", "T1", CENSUS, { decimals: 1, note: "Average household size." });
+sourced("census.density", 37, "per-km2", "T1", CENSUS, { note: "Persons per square kilometre." });
+sourced("census.subcounties", 18, "count", "T1", "KNBS, 2019 Census; IEBC", { note: "Administrative sub-counties." });
+
+// Verified-data check of 29 October 2026 (restructure 2026-11). Each is graded by the document cited.
+const STATS_KENYA = "KNBS 2019 Census, via Stats Kenya county profile (statskenya.co.ke)";
+sourced("census.median-age", 17, "count", "T2", STATS_KENYA, { asOf: "2019", note: "Median age in years." });
+sourced("electricity.2019", 17.2, "percent", "T2", STATS_KENYA, { asOf: "2019", note: "Households with electricity." });
+sourced("electricity.2009", 4.8, "percent", "T2", STATS_KENYA, { asOf: "2009", note: "Households with electricity, 2009 Census." });
+sourced("water.safe.2019", 38.5, "percent", "T2", STATS_KENYA, { asOf: "2019", note: "Households with safe drinking water (the census definition). An earlier draft's 53.2% likely used a different definition and is not used." });
+sourced("water.piped.2019", 5.1, "percent", "T2", STATS_KENYA, { asOf: "2019", note: "Households with piped water." });
+const EQUAL_POLITICS = "Equal Politics aggregation of IEBC 2022 presidential results (Tier 1 record: IEBC Forms 34B and 34C)";
+sourced("result.2022.pres.odinga", 235_400, "votes", "T2", EQUAL_POLITICS, { asOf: "2022-08" });
+sourced("result.2022.pres.odinga.share", 70.82, "percent", "T2", EQUAL_POLITICS, { decimals: 2 });
+sourced("result.2022.pres.ruto", 89_419, "votes", "T2", EQUAL_POLITICS, { asOf: "2022-08" });
+sourced("result.2022.pres.ruto.share", 26.9, "percent", "T2", EQUAL_POLITICS, { decimals: 2 });
+sourced("result.2022.pres.wajackoyah", 2_838, "votes", "T2", EQUAL_POLITICS);
+sourced("result.2022.pres.mwaure", 1_446, "votes", "T2", EQUAL_POLITICS);
+sourced("result.2022.pres.rejected", 3_306, "votes", "T2", EQUAL_POLITICS);
+sourced("result.2022.pres.turnout", 62, "percent", "T2", EQUAL_POLITICS, { decimals: 0, note: "Approximate. Includes rejected ballots, so it is not the same base as turnout.2022 (governor valid votes / register)." });
+sourced("poverty.2022.statskenya", 58.3, "percent", "T3", "Stats Kenya, reporting KNBS for 2022", { asOf: "2022", note: "Not used in place of the KNBS 2021 rate until verified against the KNBS 2022 poverty report." });
+for (const [id, unit, closes] of [
+  ["census.age-bands", "percent", "KNBS 2019 Census Volume III (population by age and sex), the Kitui table"],
+  ["literacy.county", "percent", "KNBS county literacy table (2019 Census or KDHS 2022 county report); the draft's 56.3% and 87.4% have no confirmed source"],
+  ["electricity.national", "percent", "KNBS 2019 Census Volume IV national household electricity table"],
+  ["admin.villages", "count", "Kitui County Integrated Development Plan 2023–2027 (the count of villages, reported as 247)"],
+  ["cidp.sectors", "count", "Kitui County Integrated Development Plan 2023–2027 (KIPPRA repository), the priority-sector list"],
+  ["unemployment.youth.county", "percent", "KNBS Quarterly Labour Force Survey county tables, or the 2019 Census Volume IV labour table"],
+  ["cpi.county", "percent", "KNBS county consumer price index series"],
+  ["roads.county", "count", "Kitui County roads inventory (CIDP 2023–2027) and KeRRA/KURA classified-road data"],
+] as const) add({ id, value: null, unit, tier: null, state: "needed", source: null, closesWith: closes });
 sourced("water.surface", 400_000, "people", "T1", "KNBS, via the NDMA Long Rains Food Security Assessment", { note: "Approximate: residents relying on untreated surface water." });
 sourced("poverty.2021", 55.2, "percent", "T1", "KNBS, Kenya Poverty Report (2021)", {
   note: "The official poverty rate. The 60.4% in the NDMA food-security assessment is not a poverty-report rate and is not used (confirmed 25 September 2026).",
@@ -293,6 +331,17 @@ sourced("record.bursary.recipients", 12_573, "count", "T1", "Kitui Central NG-CD
 sourced("record.bursary.ksh", 47_000_000, "ksh", "T1", "Kitui Central NG-CDF bursary record");
 sourced("record.cdf.boreholes", 84, "count", "T3", "Kitui Central Project Inventory 2013–2026, awaiting line items");
 sourced("record.cdf.school-water", 142, "count", "T3", "Kitui Central Project Inventory 2013–2026, awaiting line items");
+// Figures the November 2026 restructure found typed into prose; each now has a token.
+const COB = "Controller of Budget, County Budget Implementation Review Report";
+sourced("budget.pending-bills.2021", 1.3e9, "ksh", "T1", COB, { asOf: "2020-21", decimals: 1, note: "Outstanding pending bills, FY2020/21." });
+sourced("budget.absorption.q1", 18, "percent", "T1", COB, { asOf: "2025-26 Q1", decimals: 0, note: "Development absorption, FY2025/26 first quarter. Media reports of 5% are not used." });
+sourced("audit.pending.contested", 2.4e9, "ksh", "T3", "OAG County Executive audits FY2021/22 and FY2022/23, as reported; reports not yet retrieved", { decimals: 1, note: "A different measure from the FY2020/21 pending bills: different years, different scope." });
+sourced("water.basic.kdhs", 21, "percent", "T1", "KNBS, Kenya Demographic and Health Survey 2022", { asOf: "2022", decimals: 0, note: "Population with at least a basic drinking-water service; the lowest county in Kenya." });
+sourced("water.basic.nairobi", 99, "percent", "T1", "KNBS, Kenya Demographic and Health Survey 2022", { asOf: "2022", decimals: 0 });
+sourced("water.trek.2026-02", 7.2, "count", "T1", "NDMA National Drought Early Warning Bulletin, February 2026", { asOf: "2026-02", decimals: 1, note: "Average water trekking distance in kilometres; the longest of Kenya's semi-arid counties." });
+sourced("food.share", 72.5, "percent", "T2", "KNBS Kenya Poverty Report, via national reporting", { note: "Share of household spending that goes on food." });
+target("policy.ndengu-floor", 85, "ksh", "A proposed floor price for ndengu, per kilogram: a campaign policy proposal, not yet sized.", { source: "Campaign policy proposal, this proposal" });
+sourced("price.ndengu.farmgate", 40, "ksh", "T3", "Farm-gate price as quoted in the message matrix; source pending", { note: "Per kilogram." });
 
 // ---- his channels (Section 2.9), read off the public page
 sourced("channel.fb.followers", 15_000, "count", "T3", "Public Facebook page, approximate count as displayed", { note: "Approximate; replaced by the Week 1 export." });

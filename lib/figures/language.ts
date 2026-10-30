@@ -27,7 +27,7 @@ import type { Source } from "../../data/types";
  * measurement — so they are Tier 3 and say so, rather than borrowing the register's authority.
  */
 const LANGUAGE_REACH: Source = {
-  name: "Stated in §3.6.1 as an estimated primary reach — source needed",
+  name: "Stated in §12.4 as an estimated primary reach — source needed",
   publicationDate: "2026",
   tier: 3,
 };
@@ -91,7 +91,7 @@ export const LANGUAGES: LanguageRow[] = [
 export const LANGUAGE_SPLIT: FigureSeries = {
   id: "language-map",
   headline: "Three languages, and three quarters of the county reachable in only one of them",
-  measure: "Estimated primary reach per language, as §3.6.1 states it",
+  measure: "Estimated primary reach per language, as §12.4 states it",
   points: LANGUAGES.map<FigurePoint>((l) => ({
     label: l.name,
     value: l.share,
@@ -106,9 +106,9 @@ export const LANGUAGE_SPLIT: FigureSeries = {
   })),
   conflicts: ["C-21"],
   note:
-    "The three shares are stated in §3.6.1 without a citation and sum to 100%, so they are a " +
+    "The three shares are stated in §12.4 without a citation and sum to 100%, so they are a " +
     "language map rather than a measurement. Kikamba's channel list is transcribed exactly as " +
-    "§3.6.1 gives it, including 2G Bulk SMS — which §4.5.9 says the Communications Authority " +
+    "§12.4 gives it, including 2G Bulk SMS — which §15.3.3 says the Communications Authority " +
     "closes to Kikamba. Neither line has been changed.",
 };
 
@@ -133,14 +133,14 @@ export const LANGUAGE_DEPLOYMENT: DeploymentRow[] = [
     medium: "Direct 2G bulk SMS",
     primary: { language: "Kiswahili", share: 80 },
     secondary: [{ language: "English", share: 20 }],
-    note: "Kiswahili rural, English for urban centres and youth boda. Kikamba is allocated none of this rail — which is what §4.5.9 requires and §3.6.1 contradicts.",
+    note: "Kiswahili rural, English for urban centres and youth boda. Kikamba is allocated none of this rail — which is what §15.3.3 requires and §12.4 contradicts.",
     conflicts: ["C-21"],
   },
   {
     medium: "USSD menu system",
     primary: { language: "Kikamba", share: 50 },
     secondary: [{ language: "Kiswahili", share: 50 }],
-    note: "Toggle via option 0 on the USSD menu. USSD is not restricted — §4.5.9 names USSD menu text as a place Kikamba belongs.",
+    note: "Toggle via option 0 on the USSD menu. USSD is not restricted — §15.3.3 names USSD menu text as a place Kikamba belongs.",
   },
   {
     medium: "Baraza print collateral",

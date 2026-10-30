@@ -43,13 +43,13 @@ const DEPENDENCIES: { icon: typeof UserCheck; text: string; longLead?: boolean }
   { icon: Camera, text: "Ground team asset uploads: daily photographs and video from the trail" },
   {
     icon: Scale,
-    text: "Appointment of the data-protection reviewer (§5.3.4) — the long-lead item, needed in Phase −1",
+    text: "Appointment of the data-protection reviewer (§19.2) — the long-lead item, needed in Phase −1",
     longLead: true,
   },
   { icon: MapPin, text: "Current ward-level registration data from the IEBC published file" },
   { icon: Briefcase, text: "Access to the existing NG-CDF project record for verified proof points" },
   { icon: CheckCircle2, text: "Sign-off on the service level so the team can be assembled" },
-  { icon: FileText, text: "Wiper's 2027 nomination rules or NEC resolution, as soon as the party issues them (§2.5.2)" },
+  { icon: FileText, text: "Wiper's 2027 nomination rules or NEC resolution, as soon as the party issues them (§5.2)" },
 ];
 
 export function DecisionPanel() {
@@ -86,7 +86,7 @@ export function DecisionPanel() {
           </p>
 
           <p className="text-sm text-ink font-semibold leading-relaxed mt-4">
-            <InlineMarks text="The Wiper nomination is reported for late October to November 2026, by a party-run countywide selection (Tier 3, Section 2.5). Every dependency below sits on that clock." />
+            <InlineMarks text="The Wiper nomination is reported for late October to November 2026, by a party-run countywide selection (Tier 3, Section 5.2). Every dependency below sits on that clock." />
           </p>
         </div>
 
@@ -95,7 +95,7 @@ export function DecisionPanel() {
             <h3 className="t-label font-black text-muted">
               What Firefly needs from the campaign
             </h3>
-            <span className="t-label text-muted font-mono">§1.7</span>
+            <span className="t-label text-muted font-mono">§22.2</span>
           </div>
 
           <ol className="space-y-2.5">

@@ -22,10 +22,10 @@ const KPI_HEADING = /\bKPIs?\b|^Key metrics/i;
 
 export function ObjectivesIndex() {
   const sections = useSectionIndex();
-  // §5.1, the indicator framework, sits in this part itself — an index of what is elsewhere
+  // Chapter 18, the indicator framework, sits in this part itself — an index of what is elsewhere
   // should not list the thing sitting three headings above it.
   const items = React.useMemo(
-    () => sections.filter((s) => s.tabId !== "measurement" && KPI_HEADING.test(s.title)),
+    () => sections.filter((s) => s.tabId !== "success" && KPI_HEADING.test(s.title)),
     [sections]
   );
 

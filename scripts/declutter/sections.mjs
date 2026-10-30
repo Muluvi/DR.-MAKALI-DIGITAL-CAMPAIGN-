@@ -30,7 +30,7 @@ export const BASE = process.env.CONTENT_BASE ?? "4bfc078";
 export const LEDGER = process.env.CONTENT_LEDGER ?? path.join("docs", "declutter", "cuts.json");
 const CONTENT = path.join(ROOT, "content");
 
-const HEADING = /^(#{2,3})\s+((?:\d+(?:\.\d+)*|[A-G](?:\.\d+)+))\s+(.*)$/;
+const HEADING = /^(#{2,3})\s+((?:\d+(?:\.\d+)*|[A-H](?:\.\d+)+))\s+(.*)$/;
 const FENCE = /^\s*```/;
 
 export function baseFiles() {

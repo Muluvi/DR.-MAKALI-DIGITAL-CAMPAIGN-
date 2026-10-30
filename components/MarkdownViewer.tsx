@@ -232,13 +232,13 @@ const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
 // Every insert sits behind a PanelFold control except the objectives index: it is a short list of
 // links rather than a panel, and it renders nothing while no other part's heading matches it, so a
 // control there would open nothing.
-const OPEN_INSERTS = new Set(["measurement-sec-5-1"]);
+const OPEN_INSERTS = new Set(["success-sec-18-1"]);
 // The control is named by the panel's own heading. These two have none that names them (the
 // carousel's first heading is its first card), so they carry their component's own description.
 // The carousel is phone only and never printed, so its control is too.
 const INSERT_PANELS: Record<string, { label: string; className?: string }> = {
-  "decision-sec-1-5-2": { label: "Lean, Standard and Premium, one card per tier", className: "sm:hidden print:hidden" },
-  "evidence-sec-2-9-3": { label: "Seven channels, one phone" },
+  "receives-sec-21-1-2": { label: "Lean, Standard and Premium, one card per tier", className: "sm:hidden print:hidden" },
+  "news-sec-4-3": { label: "Seven channels, one phone" },
 };
 
 function mountInsert(id: string | null, node: React.ReactNode) {
@@ -251,98 +251,108 @@ function mountInsert(id: string | null, node: React.ReactNode) {
   );
 }
 
+// Re-keyed in the November 2026 restructure: each component follows the text it illustrates to
+// its new chapter (docs/restructure-2026-11/reorganisation-map.md). Where two old homes now share
+// one heading, their components share the mount, in reading order.
 const HEADING_INSERTS: Record<string, React.ReactNode> = {
-  // ---- Cover, summary, situation and approach (§1-§7) ---------------------------------
-  // The scorecards are the objectives. What they do not carry is the eight indicator sets that
-  // stayed with the work they measure — indexed beneath them rather than moved here.
-  "measurement-sec-5-1": <ObjectivesIndex />,
-  "evidence-sec-2-5": <NominationPathPanel />,
-  // The governing claim opens §6, ahead of the pillars and themes that rest on it.
-  "strategy-sec-3-1": <EconomistGovernorThesis />,
-  "evidence-sec-2-10-1": (
-    <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §2.10.1">
-      Member for Kitui Central since 2013, and a member of the National Assembly&rsquo;s Budget and
-      Appropriations Committee.
-    </SectionPortrait>
-  ),
-  // 2.1 is the electorate and the number it takes, so it carries both sets that used to sit under
-  // old 2.1 and old 3.1, in that order. The funnel shows how the threshold is built; the register
-  // block shows which register it is built on, which is now a live question rather than a settled one.
-  "evidence-sec-2-1": (
-    <>
-      <WardCartogramBlock />
-      <PathTo200kBlock />
-      <ConstituencyWeightBlock />
-      <VoteFunnel />
-      <RegisterComparisonBlock />
-    </>
-  ),
-  "evidence-sec-2-8-2": <ResourceEnvelopeBlock />,
-  "evidence-sec-2-8-1": (
-    <>
-      <OfflineWaterline />
-      <DisputedFigure entry={kituiCentralPopulationDispute} />
-    </>
-  ),
-  "evidence-sec-2-2": (
+  // ---- Part I: Kitui today ----------------------------------------------------------------
+  "kitui-sec-1-1": <DisputedFigure entry={kituiCentralPopulationDispute} />,
+  "kitui-sec-1-2": <GeographicZoneMatrix />,
+  "kitui-sec-1-3": <OfflineWaterline />,
+  "kitui-sec-1-5": <ResourceEnvelopeBlock />,
+  // Chapter 2 builds the number in order: the register, the results, where the votes are, the
+  // constituencies that decide it, then the threshold and the routes to it.
+  "votes-sec-2-1": <RegisterComparisonBlock />,
+  "votes-sec-2-2": (
     <>
       <ElectoralHistoryPanel />
       <ElectoralTimelineBlock />
     </>
   ),
-  "annex-county-sec-b-2": (
+  "votes-sec-2-3": (
+    <>
+      <WardCartogramBlock />
+      <ScenarioBenchmarkBlock />
+    </>
+  ),
+  "votes-sec-2-4": <ConstituencyWeightBlock />,
+  "votes-sec-2-5": (
+    <>
+      <VoteFunnel />
+      <PathTo200kBlock />
+      <PathTo200kCalculator />
+    </>
+  ),
+  // The issue evidence opens the chapter on what voters need.
+  "needs-sec-3-1": <IssueEvidenceBlock />,
+  "needs-sec-3-2": <DroughtFoodSecurityPanel />,
+  "needs-sec-3-7": (
     <>
       <FiscalAuditPanel />
       <FiscalAuditChartBlock />
     </>
   ),
-  "annex-county-sec-b-3": <DroughtFoodSecurityPanel />,
-  "annex-county-sec-b-4": <MuiBasinPanel />,
-  "annex-county-sec-b-5": <CompetitorFieldPanel />,
-  "evidence-sec-2-3": <ScenarioBenchmarkBlock />,
-  "evidence-sec-2-4": <PathTo200kCalculator />,
-  "evidence-sec-2-7": <RecognitionDeficitOverlay />,
-  "strategy-sec-3-4-2": <AudienceSegmentationMatrix />,
-  // §7.3 splits the electorate into a connected minority and an offline majority. The showcase is
-  // that argument as an object: one handset, the campaign on all seven channels, ending on the
-  // USSD dialog that reaches more voters than the six apps together.
-  "evidence-sec-2-9-3": <PhoneShowcase />,
-  // The showcase makes the argument; this puts the modelled numbers under it, including the
-  // one the showcase cannot show — that the largest addressable layer cannot carry Kikamba.
-  "evidence-sec-2-9-1": <ChannelReachBlock />,
-  "strategy-sec-3-2-2": <IssueEvidenceBlock />,
-  "strategy-sec-3-5": (
+  "needs-sec-3-8": <MuiBasinPanel />,
+  // The showcase makes the argument; the reach block puts the modelled numbers under it, including
+  // the one the showcase cannot show — that the largest addressable layer cannot carry Kikamba.
+  "news-sec-4-1": <ChannelReachBlock />,
+  "news-sec-4-2": <MediaOwnershipBlock />,
+  // One handset, the campaign on all seven channels, ending on the USSD dialog that reaches more
+  // voters than the six apps together.
+  "news-sec-4-3": <PhoneShowcase />,
+
+  // ---- Part II: the contest ----------------------------------------------------------------
+  "race-sec-5-2": <NominationPathPanel />,
+  "race-sec-5-5": <CompetitorFieldPanel />,
+  "record-sec-6-1": (
+    <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §6.1">
+      Member for Kitui Central since 2013, and a member of the National Assembly&rsquo;s Budget and
+      Appropriations Committee.
+    </SectionPortrait>
+  ),
+  "record-sec-6-2": <RecognitionDeficitOverlay />,
+
+  // ---- Part III: the strategy ---------------------------------------------------------------
+  // The governing claim opens Chapter 9, ahead of the pillars and themes that rest on it.
+  "position-sec-9-1": <EconomistGovernorThesis />,
+  "message-sec-10-1": <StrategicPillarsMatrix />,
+  "message-sec-10-2": (
     <>
       <MessagingPlayground />
       <ToneVoiceSlider />
+      <PersuasionFramingMatrix />
     </>
   ),
+  "message-sec-10-3": <SloganBuilder />,
   // O-6 (approved 24 September 2026): the "Upcoming" market-assembly scheduler is removed. Its
   // two events were invented and already past.
-  "risks-sec-6-2-1": <CounterMessagingGrid />,
-  // The ownership/alignment/tier table this chart plots, now §8.5.1 in the situation analysis.
-  "evidence-sec-2-9-2": <MediaOwnershipBlock />,
+  "message-sec-10-5": <CounterMessagingGrid />,
+  "voters-sec-11-2": <AudienceSegmentationMatrix />,
 
-  // ---- Scope, roadmap, measurement, governance and risk (§8-§16) ----------------------
-  "delivery-sec-4-1": (
-    <SectionPortrait id="seated-grey-cropped" kicker="The engagement model — §4.1" flip>
-      Firefly reports to a single named campaign-side counterpart.
-    </SectionPortrait>
+  // ---- Part IV: how Firefly delivers --------------------------------------------------------
+  // The week replaces a bullet list, a meeting table and the governance chart cut from Annex C.
+  "engagement-sec-13-4": (
+    <>
+      <SectionPortrait id="seated-grey-cropped" kicker="The engagement model — §13.4" flip>
+        Firefly reports to a single named campaign-side counterpart.
+      </SectionPortrait>
+      <DirectionWeek />
+    </>
   ),
-  "strategy-sec-3-2-1": <StrategicPillarsMatrix />,
-  "evidence-sec-2-8-3": <GeographicZoneMatrix />,
-  // The technology workstreams carried no anchored visualisation at all before this — the one
-  // stretch of the document that was a wall of text, and the one describing the technology
-  // stack, which is the part this reader is most likely to test against the artifact itself.
-  "workstreams-data-sec-4-5-14": <BenchmarkLadder />,
-  "decision-sec-1-5-1": <ServiceLevelSelector />,
-  // The four-column matrix below this heading stacks into nine attribute cards on a phone, which
-  // answers "what does row six say" rather than "which tier should we buy". One card per tier,
-  // swipeable, with the table left in place underneath as the accessible equivalent.
-  "decision-sec-1-5-2": <TierComparisonCarousel />,
-  "workstreams-ground-sec-4-5-7": <TerminalShowcase />,
-  "workstreams-ground-sec-4-5-8": <FlywheelSchematic />,
-  "workstreams-ground-sec-4-5-9": (
+  // The phase KPI chart that sat here is carried by the register's fig-5-4-ladder, which holds
+  // every phase target with its table and CSV (brief §12).
+  "timeline-sec-14-4": <PhaseRail />,
+  "workstreams-platforms-sec-15-1-1": <PublicServiceDeliveryTracker />,
+  "workstreams-media-sec-15-2-1": <MediaPlaybackMockup />,
+  "workstreams-media-sec-15-2-2": (
+    <>
+      <MediaRadioLandscapeCard />
+      <RadioAircoverDial />
+    </>
+  ),
+  "workstreams-ground-sec-15-3-1": <TerminalShowcase />,
+  "workstreams-ground-sec-15-3-2": <FlywheelSchematic />,
+  "workstreams-ground-sec-15-3-3": (
     <>
       <FeaturePhoneSpecimen />
       <ReachSplit />
@@ -350,27 +360,22 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
           presented illustration as evidence, against the proposal's own ethics commitments. */}
     </>
   ),
-  "strategy-sec-3-5-2": <PersuasionFramingMatrix />,
-  "measurement-sec-5-3": <DataSecurityEthicsCharter />,
-  "workstreams-media-sec-4-5-5": <MediaPlaybackMockup />,
-  "workstreams-media-sec-4-5-6": (
-    <>
-      <MediaRadioLandscapeCard />
-      <RadioAircoverDial />
-    </>
-  ),
-  "strategy-sec-3-2-4": <SloganBuilder />,
-  "workstreams-platforms-sec-4-5-1": <PublicServiceDeliveryTracker />,
-  // The phase KPI chart that sat here is carried by the register's fig-5-4-ladder, which holds
-  // every phase target with its table and CSV (brief §12).
-  "delivery-sec-4-3": <PhaseRail />,
+  // The technology workstreams carried no anchored visualisation before this: the stretch
+  // describing the stack, which is the part this reader is most likely to test against the artifact.
+  "workstreams-data-sec-15-4-4": <BenchmarkLadder />,
 
-  // ---- The repositioning: analyse, strategise, direct ---------------------------------
-  // The audit's four figures, the week and the visit loop are drawn by the register
-  // (fig-3-9-audit, fig-4-5-calendar) and the visit-loop figure; their earlier inserts are retired.
-  // §5.7 is the direction model. The week replaces a bullet list, a meeting table and the
-  // governance chart cut from Annex C.
-  "delivery-sec-4-1-1": <DirectionWeek />,
+  // ---- Part V: proof and protection ---------------------------------------------------------
+  // The scorecards are the objectives. What they do not carry is the indicator sets that stayed
+  // with the work they measure — indexed beneath them rather than moved here.
+  "success-sec-18-1": <ObjectivesIndex />,
+  "lawful-sec-19-3": <DataSecurityEthicsCharter />,
+
+  // ---- Part VI: the decision ----------------------------------------------------------------
+  "receives-sec-21-1-1": <ServiceLevelSelector />,
+  // The four-column matrix below this heading stacks into nine attribute cards on a phone, which
+  // answers "what does row six say" rather than "which tier should we buy". One card per tier,
+  // swipeable, with the table left in place underneath as the accessible equivalent.
+  "receives-sec-21-1-2": <TierComparisonCarousel />,
 };
 
 // A handful of headings still carry no leading digit (unnumbered platform names, phase
@@ -412,13 +417,13 @@ function buildComponents(tabId: TabId): Components {
 
               // §2.6 "National platform sizing" — replaced by the sorted bar chart
               // (item 13), not kept alongside it.
-              if (tabId === "evidence" && has("platform") && has("kenya audience")) {
+              if (tabId === "news" && has("platform") && has("kenya audience")) {
                 return <PlatformSizingBlock />;
               }
 
               // §2.8 candidate-asset table — assertion/evidence/application becomes
               // claim cards (item 21), replacing the table rather than sitting alongside it.
-              if (tabId === "evidence" && has("asset") && has("evidence") && has("digital application")) {
+              if (tabId === "record" && has("asset") && has("evidence") && has("digital application")) {
                 return <ClaimCards>{children}</ClaimCards>;
               }
 
@@ -603,7 +608,7 @@ function buildComponents(tabId: TabId): Components {
               // The three operating conditions (§6.3) get a pull-quote-style emphasis
               // treatment instead of a plain bullet — every other list item is unaffected.
               const text = normalizeWhitespace(getDeepText(children));
-              const isGoverningReality = tabId === "evidence" && GOVERNING_REALITY_TRIGGERS.some((t) => text.includes(t));
+              const isGoverningReality = (tabId === "news" || tabId === "needs") && GOVERNING_REALITY_TRIGGERS.some((t) => text.includes(t));
               if (isGoverningReality) {
                 return <MarkdownListItem tabId={tabId} emphasis>{children}</MarkdownListItem>;
               }
@@ -770,11 +775,11 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
             kit is complete whether or not scripts run. See PrintSafeDisclosures. */}
         <PrintSafeDisclosures />
 
-        {/* The ask closes the decision part, inside the prose flow. It used to sit in the footer
-            chrome below a rule, next to the print widget — which framed a vendor's closing
-            request as one more piece of page tooling. Since the October 2026 restructure the
-            decision is Part 1, and the panel closes it. */}
-        {tabId === "decision" && (
+        {/* What the campaign must provide closes Chapter 22, inside the prose flow. It used to sit
+            in the footer chrome below a rule, next to the print widget — which framed a vendor's
+            closing request as one more piece of page tooling. Since the November 2026 restructure
+            the decision is Part VI, and the panel sits with the campaign's commitments. */}
+        {tabId === "commitments" && (
           <PanelFold label="What Firefly needs from the campaign">
             <DecisionPanel />
           </PanelFold>

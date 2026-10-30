@@ -42,7 +42,7 @@ export function MediaOwnershipBlockContent() {
         <h4 className="font-serif text-sm font-bold text-ink">Media Ownership Map — Reach vs. Alignment</h4>
       </div>
       <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
-        Reach is a qualitative reading of Section 2.8.3&apos;s own &quot;Campaign posture&quot; column, not a measured
+        Reach is a qualitative reading of Section 1.2&apos;s own &quot;Campaign posture&quot; column, not a measured
         listenership figure — none was supplied by the research pass (Data Gaps Register). Ownership associations are
         Tier 2/3 and labelled individually below.
       </p>

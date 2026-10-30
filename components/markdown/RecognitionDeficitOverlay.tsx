@@ -54,7 +54,7 @@ const STATUS_META: Record<RecognitionStatus, { label: string; note: string; clas
   },
   deficit: {
     label: "Never held office",
-    note: "Out-of-constituency. Lower recall here is the hypothesis Week 1 tests (§2.12).",
+    note: "Out-of-constituency. Lower recall here is the hypothesis Week 1 tests (§7.1).",
     className: "border-rose-500/25 bg-rose-500/[0.04]",
     dot: "bg-rose-500",
   },
@@ -249,15 +249,15 @@ export function RecognitionDeficitOverlay() {
             against the top-8 window. Both figures above are computed from the register; neither
             sentence in the content has been changed. */}
         <UnderReview ids={["C-5"]}>
-          §2.11 summarises this overlap as “5 of top 8 wards”. Ranked on the register,
-          Ikanga/Kyatune is 11th — so the five named wards are 5 of the top 11, as §2.7 itself
+          §7.3 summarises this overlap as “5 of top 8 wards”. Ranked on the register,
+          Ikanga/Kyatune is 11th — so the five named wards are 5 of the top 11, as §6.2 itself
           states, and 4 of them are in the top 8. Both counts are shown; neither has been changed.
         </UnderReview>
         <p className="t-small text-muted flex items-start gap-1.5">
           <AlertTriangle size={12} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
           <span>
             Recognition status here is <strong>structural</strong> — derived from where Dr. Mulu has held office, not
-            from any measure of opinion. §2.11 records ward-level recognition as unmeasured; the IEBC&rsquo;s ward-level
+            from any measure of opinion. §7.3 records ward-level recognition as unmeasured; the IEBC&rsquo;s ward-level
             results (§2.2) are the official record the analysis reads next.
           </span>
         </p>

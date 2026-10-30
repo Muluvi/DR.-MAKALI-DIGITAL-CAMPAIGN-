@@ -1,6 +1,12 @@
+> **The evidence standard (A.1) is in Annex A**, with the three source tiers every figure in
+> this proposal is graded against and the protocol for when two sources disagree.
+
 ANNEX A. The provenance rules every figure in this proposal is held to, the three source tiers, and the protocol for when two sources disagree. Referenced throughout; collected here so the method can be checked without interrupting the argument.
 
 ## A.1 Evidence standard: provenance and source tiers
+
+<!-- restructure 2026-11: to be written from the verified data -->
+
 ### A.1.1 Every figure carries its provenance
 
 To ensure zero "data drift" across the strategic command, every figure cited in memos, ad targeting budgets, field operations, and executive briefings must satisfy the **Tri-Partite Metadata Mandate**:
@@ -51,15 +57,13 @@ id: conflict-protocol
 
 **Ban on Guesswork:** Under no circumstance will the analytics team interpolate, smooth, or invent numbers to fill gaps between conflicting datasets.
 
----
-
 ### A.1.4 The standard applied to our own measurement
 
 ```lead
-The presence audit in Section 4.2.1 is held to the same rules as every figure in this document. Platform-reported metrics are **Tier 2**, and they are never presented as Tier 1 alongside IEBC or KNBS figures.
+The presence audit in Section 14.1 is held to the same rules as every figure in this document. Platform-reported metrics are **Tier 2**, and they are never presented as Tier 1 alongside IEBC or KNBS figures.
 ```
 
-The presence audit in Section 4.2.1 is held to the same rules as every figure in this document.
+The presence audit in Section 14.1 is held to the same rules as every figure in this document.
 
 ```visual
 kind: checklist
@@ -77,3 +81,7 @@ items:
   - label: "Competitive figures"
     body: "are public-source only, gathered the same way for him and both nomination rivals, in the same window."
 ```
+
+## A.2 Source table (new)
+
+<!-- restructure 2026-11: to be written from the verified data -->

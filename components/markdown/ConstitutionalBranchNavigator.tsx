@@ -154,7 +154,7 @@ export function ConstitutionalBranchNavigator() {
                     Three-Way Wiper Nomination
                   </div>
                   <p className="t-small text-muted leading-relaxed">
-                    Whether the incumbent can be nominated by consensus or must contest is set by the party&apos;s 2027 nomination rules, the document Section 2.5.2 asks for.
+                    Whether the incumbent can be nominated by consensus or must contest is set by the party&apos;s 2027 nomination rules, the document Section 5.2 asks for.
                   </p>
                 </div>
 

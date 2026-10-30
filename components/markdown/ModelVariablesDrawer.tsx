@@ -35,7 +35,7 @@ const MODEL_VARIABLES: ModelVariable[] = [
   { variable: "whatsapp_group_member", description: "Campaign group member", source: "Campaign", type: "Binary", format: "0/1" },
   { variable: "volunteer_status", description: "Sign-up status", source: "Campaign", type: "Categorical", format: "None/Inactive/Active" },
   { variable: "donor_status", description: "Donation history", source: "Campaign", type: "Categorical", format: "None/One-time/Recurring" },
-  { variable: "field_contact_outcome", description: "Doorstep contact result (Section 4.5.8)", source: "Field team", type: "Categorical", format: "Opted in/Reached, no opt-in/Do not contact/No one home", highlight: true },
+  { variable: "field_contact_outcome", description: "Doorstep contact result (Section 15.3.2)", source: "Field team", type: "Categorical", format: "Opted in/Reached, no opt-in/Do not contact/No one home", highlight: true },
   { variable: "support_score", description: "Predicted Wiper support at the station (output)", source: "Model", type: "Continuous", format: "0–1" },
   { variable: "turnout_score", description: "Predicted turnout (output)", source: "Model", type: "Continuous", format: "0–1" },
 ];
@@ -86,7 +86,7 @@ export default function ModelVariablesDrawer() {
             <div>
               <div className="flex items-center gap-2 flex-wrap">
                 <h4 className="font-serif text-sm sm:text-base font-bold text-ink">
-                  Model Variables Dictionary (§4.5.12)
+                  Model Variables Dictionary (§15.4.2)
                 </h4>
                 <span className="t-micro font-bold px-2 py-0.5 rounded-full bg-accent/10 text-accent">
                   23 Verified Features
@@ -256,7 +256,7 @@ export default function ModelVariablesDrawer() {
       {/* Footer info strip */}
       <div className="px-3.5 py-2.5 bg-paper/50 border-t border-line/60 flex items-center justify-between text-muted t-micro">
         <span>Showing {filtered.length} of 23 variables</span>
-        <span className="font-mono">Section 4.5.12 Tech Spec</span>
+        <span className="font-mono">Section 15.4.2 Tech Spec</span>
       </div>
     </div>
   );

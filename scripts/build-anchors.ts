@@ -10,6 +10,11 @@
  *   lib/anchors/pre-rebuild.json  every id that existed before this rebuild, and every redirect
  *                                 edge the repo ever declared (frozen by scripts/rebuild/snapshot-anchors.mjs)
  *   lib/anchors/rebuild-moves.json ids this rebuild renumbered (written by scripts/rebuild/phase1.py)
+ *   lib/anchors/restructure-2026-11.json
+ *                                 every id live before the November 2026 restructure, mapped to the
+ *                                 heading that now holds its text (written by
+ *                                 scripts/restructure-2026-11/build-moves.py). Read before everything
+ *                                 else, and each of its entries must land exactly where it says.
  *   lib/anchors/restructure-2026-10.json
  *                                 every id live before the October 2026 restructure, and every
  *                                 redirect key, mapped to the heading that now holds its text
@@ -33,7 +38,7 @@ const CONTENT = path.join(ROOT, "public", "content");
 const OUT = path.join(ROOT, "lib", "anchors", "redirects.ts");
 const CHECK = process.argv.includes("--check");
 
-const LEADING = /^((?:\d+[A-Z]?(?:\.\d+)*|[A-G](?:\.\d+)+))\.?\s/;
+const LEADING = /^((?:\d+[A-Z]?(?:\.\d+)*|[A-H](?:\.\d+)+))\.?\s/;
 const HEADING = /^(#{2,3})\s+(.+?)\s*$/;
 const clean = (raw: string) =>
   raw.replace(/\*\((new|updated)\)\*/gi, "").replace(/\*\*/g, "").replace(/\*/g, "").replace(/`/g, "").trim();
@@ -69,6 +74,9 @@ const moves = JSON.parse(fs.readFileSync(path.join(ROOT, "lib", "anchors", "rebu
 const restructure = (
   JSON.parse(fs.readFileSync(path.join(ROOT, "lib", "anchors", "restructure-2026-10.json"), "utf8")) as { moves: Record<string, string> }
 ).moves;
+const november = (
+  JSON.parse(fs.readFileSync(path.join(ROOT, "lib", "anchors", "restructure-2026-11.json"), "utf8")) as { moves: Record<string, string> }
+).moves;
 
 function climb(id: string): string | null {
   const [route, slug] = id.split("-sec-");
@@ -89,7 +97,7 @@ function resolve(start: string): string | null {
   while (!seen.has(id)) {
     if (live.has(id)) return id;
     seen.add(id);
-    const next = restructure[id] ?? moves[id] ?? pre.edges[id];
+    const next = november[id] ?? restructure[id] ?? moves[id] ?? pre.edges[id];
     if (next) { id = next; continue; }
     const parent = climb(id);
     if (parent) return parent;
@@ -106,7 +114,7 @@ function resolve(start: string): string | null {
 
 const redirects: Record<string, string> = {};
 const orphans: string[] = [];
-const everyOld = new Set([...pre.ids, ...Object.keys(pre.edges), ...Object.keys(moves), ...Object.keys(restructure)]);
+const everyOld = new Set([...pre.ids, ...Object.keys(pre.edges), ...Object.keys(moves), ...Object.keys(restructure), ...Object.keys(november)]);
 for (const id of [...everyOld].sort()) {
   if (live.has(id)) continue;
   const target = resolve(id);
@@ -125,13 +133,20 @@ const body =
 
 // Every id the restructure moved must land on the heading the mapping names, not merely somewhere.
 // An old id that is a live heading again names the new heading, and is reported, not redirected.
+// The October moves now land through the November ones: an October target that the November
+// restructure moved is expected where November sends it.
 const misdirected: string[] = [];
-for (const [id, target] of Object.entries(restructure)) {
+for (const [id, target] of Object.entries(november)) {
   if (!live.has(target)) misdirected.push(`${id} -> ${target} (target is not a live heading)`);
   else if (!live.has(id) && redirects[id] !== target) misdirected.push(`${id} -> ${redirects[id]} (expected ${target})`);
 }
+for (const [id, oct] of Object.entries(restructure)) {
+  const target = live.has(oct) ? oct : november[oct];
+  if (!target || !live.has(target)) misdirected.push(`${id} -> ${oct} (neither it nor its November move is a live heading)`);
+  else if (!live.has(id) && !november[id] && redirects[id] !== target) misdirected.push(`${id} -> ${redirects[id]} (expected ${target})`);
+}
 if (misdirected.length) {
-  console.error(`build-anchors: ${misdirected.length} restructured id(s) do not land where restructure-2026-10.json says:`);
+  console.error(`build-anchors: ${misdirected.length} restructured id(s) do not land where restructure-2026-11.json and -10.json say:`);
   for (const m of misdirected.slice(0, 20)) console.error(`  - ${m}`);
   process.exit(1);
 }
