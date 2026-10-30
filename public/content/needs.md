@@ -84,7 +84,7 @@ No verified figure is available yet for the county's road network or its conditi
 
 ## 3.5 Jobs and the young
 
-**Kitui is young, and its young people are short of work and of skills.** The median age is **17** (Tier 2, KNBS 2019 via Stats Kenya), and about **234,000** registered voters are aged 18 to 35 (modelled: the 2019 census age distribution applied to the 2022 register). 60.2% of women aged 15–49 had no paid work in the past year, against 40.3% nationally and 21.9% of Kitui's men (Tier 1, County Gender Data Sheet, October 2025).
+**Kitui is young, and its young people are short of work and of skills.** The median age is **18.9** (Tier 1, calculated from KNBS 2019 Census Volume III), and about **234,000** registered voters are aged 18 to 35 (modelled: the 2019 census age distribution applied to the 2022 register). 60.2% of women aged 15–49 had no paid work in the past year, against 40.3% nationally and 21.9% of Kitui's men (Tier 1, County Gender Data Sheet, October 2025).
 
 *   **No verified youth unemployment figure** is available yet for the county; the record that would settle it is the KNBS Quarterly Labour Force Survey county tables or the 2019 Census Volume IV labour table.
 *   **Education.** 15.1% of females and 9.7% of males aged six and over have no education (Tier 1, KDHS 2022; this replaces an untiered 13.0%). The share who completed secondary school, given in an earlier draft as 17.4%, is **not yet tiered**.

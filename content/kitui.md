@@ -21,15 +21,15 @@ items:
     body: "An average of **{{census.household-size}}** people per household (Tier 1, KNBS 2019 Census)."
   - value: "{{census.median-age}}"
     label: "median age, in years"
-    tier: 2
-    body: "Half of Kitui's residents are {{census.median-age}} or younger (Tier 2, KNBS 2019 via Stats Kenya)."
+    tier: 1
+    body: "Half of Kitui's residents are {{census.median-age}} or younger (Tier 1, calculated from KNBS 2019 Census Volume III)."
 ```
 
 ```figure
 id: fig-2-4-people
 ```
 
-**Age.** The median age is **{{census.median-age}}** (Tier 2, KNBS 2019 via Stats Kenya). The 2019 census puts **{{census.age.0-14.share}}%** of residents at 0–14, **{{census.age.15-34.share}}%** at 15–34, **{{census.age.35-59.share}}%** at 35–59 and **{{census.age.60-plus.share}}%** at 60 and over (Tier 1, KNBS 2019 Census Volume III).
+**Age.** The median age is **{{census.median-age}}** (Tier 1, calculated from KNBS 2019 Census Volume III). The 2019 census puts **{{census.age.0-14.share}}%** of residents at 0–14, **{{census.age.15-34.share}}%** at 15–34, **{{census.age.35-59.share}}%** at 35–59 and **{{census.age.60-plus.share}}%** at 60 and over (Tier 1, KNBS 2019 Census Volume III).
 
 **What it means for the campaign.** A county where half the people are under {{census.median-age}} has a large cohort of first-time voters arriving at each election, and women are the majority of residents ({{census.female.share}}%).
 

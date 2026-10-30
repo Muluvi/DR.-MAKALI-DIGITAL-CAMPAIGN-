@@ -205,7 +205,7 @@ sourced("census.subcounties", 18, "count", "T1", "KNBS, 2019 Census; IEBC", { no
 
 // Verified-data check of 29 October 2026 (restructure 2026-11). Each is graded by the document cited.
 const STATS_KENYA = "KNBS 2019 Census, via Stats Kenya county profile (statskenya.co.ke)";
-sourced("census.median-age", 17, "count", "T2", STATS_KENYA, { asOf: "2019", note: "Median age in years." });
+sourced("census.median-age.statskenya", 17, "count", "T2", STATS_KENYA, { asOf: "2019", note: "Median age in years, as Stats Kenya prints it. Superseded by census.median-age (18.9), calculated from the KNBS table itself: under-18s are 48% of residents, so the median cannot be 17." });
 sourced("electricity.2019", 17.2, "percent", "T2", STATS_KENYA, { asOf: "2019", note: "Households with electricity." });
 sourced("electricity.2009", 4.8, "percent", "T2", STATS_KENYA, { asOf: "2009", note: "Households with electricity, 2009 Census." });
 sourced("water.safe.2019", 38.5, "percent", "T2", STATS_KENYA, { asOf: "2019", note: "Households with safe drinking water (the census definition). An earlier draft's 53.2% likely used a different definition and is not used." });
@@ -215,6 +215,7 @@ sourced("water.piped.2019", 5.1, "percent", "T2", STATS_KENYA, { asOf: "2019", n
 const CENSUS_V3 = "KNBS 2019 Census Volume III, Table 2.3 (population by age, sex and sub-county), via rKenyaCensus";
 const CENSUS_V4_LIGHT = "KNBS 2019 Census Volume IV, Table 2.19 (main lighting fuel), via rKenyaCensus";
 const AGE_NOTE = "Share of Kitui's 1,136,154 residents by age (the table excludes 33 intersex persons), summed from single years.";
+modelled("census.median-age", 18.9, "count", "Median age in years, interpolated within the single year of age where the cumulative count of residents passes half: 545,111 are under 18 and 24,682 are aged 18, of 1,136,144 with age stated.", { source: CENSUS_V3, asOf: "2019", decimals: 1 });
 sourced("census.age.0-14.share", 39.1, "percent", "T1", CENSUS_V3, { asOf: "2019", note: AGE_NOTE });
 sourced("census.age.15-34.share", 33.1, "percent", "T1", CENSUS_V3, { asOf: "2019", note: AGE_NOTE });
 sourced("census.age.35-59.share", 19.3, "percent", "T1", CENSUS_V3, { asOf: "2019", note: AGE_NOTE });
