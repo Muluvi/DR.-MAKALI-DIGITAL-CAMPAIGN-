@@ -59,7 +59,7 @@ items:
     chips: ["R-03"]
     text: "**Named Owner:** Policy and Communications Research Lead."
     fields:
-      - { label: "Traceability", text: "Turns Dr. Mulu's 13-year parliamentary record (Section 6.1) into verifiable, shareable case studies set to the priorities of the dryland pastoral and farming zones." }
+      - { label: "Traceability", text: "Turns Dr. Mulu's 13-year parliamentary record (Section 6.1: {{record.bursary.recipients}} bursary recipients, KSh 47m allocated, Kitui Central certified the best-evaluated constituency in the Eastern region, FY2014/15) into verifiable, shareable case studies set to the priorities of the dryland pastoral and farming zones." }
       - { label: "Finding it answers", text: "both Wiper rivals have already won countywide; his distinguishing proof is his record (Sections 6.1 and 5.3)." }
       - { label: "Baseline", text: "His record is documented for Kitui Central, the only constituency he has represented (Section 6.1). Where content about it currently reaches is measured in Week 1." }
       - { label: "Served by", text: "Section 9.1 (the position) and the content type \"Where the money went\" (Section 10.1)." }

@@ -102,6 +102,6 @@ To win fair coverage on national and regional outlets without paying for access 
 
 1.  **Hansard and audit exclusives:** verified, data-rich policy briefs for national bureau chiefs (*Daily Nation, Standard, Citizen TV, KTN News*) on national debt, equalisation-fund legislation and the county's pending bills.
 2.  **Project tours:** accredited regional correspondents taken to Kitui Central projects (solar boreholes, TVET workshops, secondary-school laboratories), with on-camera interviews with the people they serve.
-3.  **The right of reply:** using the statutory right of reply under the Media Council of Kenya Act whenever a rival station misrepresents the candidate's record.
+3.  **The right of reply:** using the statutory right of reply under the Media Council of Kenya (MCK) Act whenever a rival station misrepresents the candidate's record.
 
 **Lines for likely attacks.** The pre-drafted response lines for the debate and the phone-in are kept with the holding positions, in Annex F.3.

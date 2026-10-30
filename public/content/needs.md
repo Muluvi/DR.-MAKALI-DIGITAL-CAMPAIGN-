@@ -41,7 +41,7 @@ Kitui's food security remains classified under **IPC Phase 2 ("Stressed")** as o
 *   **Fodder.** The county holds 21,734 bales against 215,000 needed, and has no commercial fodder business (Tier 1, NDMA).
 *   **Aflatoxin.** KEPHIS found 32% of maize and 75% of groundnut samples above the limit in 2024 (Tier 1, via NDMA).
 *   **Livestock disease.** Goats suffered CCPP (morbidity 29%, mortality 15%) and PPR (morbidity 15%, mortality 8%) (Tier 1, NDMA).
-*   **Food reserves.** The County Executive for Agriculture has said only **28,000 households** hold food reserves (Tier 2). That figure sits oddly beside the 2019 census count of 262,942 households (Tier 1), and is quoted with that caveat.
+*   **Food reserves.** The County Executive Committee Member (CECM) for Agriculture has said only **28,000 households** hold food reserves (Tier 2). That figure sits oddly beside the 2019 census count of 262,942 households (Tier 1), and is quoted with that caveat.
 
 **Where the need is worst.** NDMA ranks the eight sub-counties by food-insecurity severity (July 2025, Tier 1):
 

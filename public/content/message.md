@@ -82,7 +82,7 @@ Under the campaign's Provenance Discipline (Annex A.1.1), **no claim is made wit
 
 **Every claim carries its source.** Under the campaign's Provenance Discipline (Annex A.1.1), **no claim is made without an attached primary empirical source**. Every message, from a 160-character Kiswahili SMS to a two-hour Kikamba radio debate, rests on parliamentary records, Auditor-General reports or KNBS data. The three regions differ and most residents are offline (Sections 1.2 and 4.1), so the message and its language are set region by region and channel by channel.
 
-**The incumbent's slogan already claims resources.** The county scorecard runs *"Rasilimali Zetu, Maisha Bora"* ("Our Resources, Better Lives") on every page. This proposal's governing line, *"Kitui has resources. What it has lacked is leadership that understands how to use them — and the discipline to prove it did"*, answers it. Governor Malombe's administration is Wiper and the nomination is a Wiper contest, so until the ticket is settled the campaign uses the line's verification half (publish whether it happened), not its deficit half. In the general election the full contrast is available.
+**The incumbent's slogan already claims resources.** The county scorecard runs *"Rasilimali Zetu, Maisha Bora"* ("Our Resources, Better Lives") on every page. This proposal's governing line, quoted in full in Section 9.1, answers it: Kitui has the resources, and lacks the leadership to use them. Governor Malombe's administration is Wiper and the nomination is a Wiper contest, so until the ticket is settled the campaign uses the line's verification half (publish whether it happened), not its deficit half. In the general election the full contrast is available.
 
 #### Framing true claims, transparently
 
@@ -124,7 +124,9 @@ id: fig-4-4-message-region
 
 The segments are those of Section 11.2. **No segment in these grids carries a size.** Section 11.3 is the sizing authority, built from census and register data; it states only sourced sizes and gives none where none is published (Section 7.3). The grids assign messages; they do not measure audiences. The segments overlap: a woman farming in Mwingi is in rows 2 and 4, and a boda operator in Kitui Town in rows 1 and 3.
 
-*Corrected: an earlier version gave a sum of segment shares, printed from a population-density token rather than from any share; the grids carry no shares, so the sentence is withdrawn.*
+**These segments overlap.** A woman farming in Mwingi is in both the agrarian and the women's-cooperative segments; a boda operator in Kitui Town is in both the youth and the trader segments. That is expected for messaging segments and would be an error for a population breakdown.
+
+*Source conflict: an earlier version gave a sum of segment shares, printed from a population-density figure rather than from any share, and counts applied to the 532,758 register; the grids carry no shares or counts, so both are withdrawn.*
 
 ```figure
 id: message-by-segment

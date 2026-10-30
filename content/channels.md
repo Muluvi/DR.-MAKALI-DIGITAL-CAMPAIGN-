@@ -85,7 +85,7 @@ kind: cards
 preset: hazard
 items:
   - title: "Achievements kept off air"
-    text: "Development achievements (for example clean audit certificates, or budget wins in Parliament) are routinely played down or denied airtime on politically aligned stations."
+    text: "Development achievements (for example clean audit certificates from the Office of the Auditor-General (OAG), or budget wins in Parliament) are routinely played down or denied airtime on politically aligned stations."
   - title: "Ambush in the studio"
     text: "Morning talk shows (*06:00–09:00 EAT*) often host panels stacked with rivals' proxies, set up to draw the candidate into unverified local controversies."
   - title: "Unequal access to prime slots"

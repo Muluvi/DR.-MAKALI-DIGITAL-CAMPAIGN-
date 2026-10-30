@@ -130,10 +130,10 @@ kind: checklist
 title: "Mandatory compliance safeguards"
 items:
   - label: "No commercial databases"
-    body: "The campaign strictly forbids purchasing or scraping phone directories, bank lists, student registers, or church rosters. Ingesting bulk phone numbers without consent breaches the consent requirement of the DPA 2019 [VERIFY: the Section 19.2 reviewer to cite the section of the Act]."
+    body: "The campaign strictly forbids purchasing or scraping phone directories, bank lists, student registers, or church rosters. Ingesting bulk phone numbers without consent breaches the consent requirement of the DPA 2019 [VERIFY the section of the Act, to be cited by the Section 19.2 reviewer]."
   - label: "Automated opt-out"
     body: "Any inbound SMS containing \"STOP\", \"SIMAMA\", \"ONDOKA\", or \"CANCEL\" is automatically processed by a webhook within 15 seconds, toggling `opt_out_status = True` and permanently halting outbound SMS transmissions."
-  - label: "Data protection officer"
+  - label: "Data protection officer (DPO)"
     body: "The campaign secretariat designates a certified legal and data protection officer to supervise all database access logs, consent registries, and vendor contracts."
 ```
 

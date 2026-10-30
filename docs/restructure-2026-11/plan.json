@@ -533,7 +533,7 @@
   "C107": {
    "loc": "7.4",
    "t": "Corrected",
-   "note": "Assumption 2 is fused into card 1's body; split into its own card and renumber 1\u201311 without 4a\u20134d."
+   "note": "Assumption 2 is fused into card 1's body; split into its own card and renumber 1–11 without 4a–4d."
   },
   "C108": {
    "loc": "18.1",
@@ -573,7 +573,7 @@
   "C115": {
    "loc": "2.1",
    "t": "Corrected",
-   "note": "Turnout card states its base: governor valid votes \u00f7 register (61.7%); presidential turnout \u224862% includes rejected ballots (Source conflict note)."
+   "note": "Turnout card states its base: governor valid votes ÷ register (61.7%); presidential turnout ≈62% includes rejected ballots (Source conflict note)."
   },
   "C116": {
    "loc": "2.1",
@@ -968,7 +968,7 @@
   "C194": {
    "loc": "1.1",
    "t": "Corrected",
-   "note": "Split: population/households \u2192 1.1; area, density, rural/urban \u2192 1.2; poverty and surface water \u2192 1.3; livestock and poultry \u2192 3.2. Rural/urban share: the site's 95.2%/4.8% (T1) conflicts with the verified-data note (urban share [VERIFY]; secondary sources \u224886% rural) \u2014 Source conflict note added; median age (17) added as new T2 token; age bands [VERIFY]."
+   "note": "Split: population/households → 1.1; area, density, rural/urban → 1.2; poverty and surface water → 1.3; livestock and poultry → 3.2. Rural/urban share: the site's 95.2%/4.8% (T1) conflicts with the verified-data note (urban share [VERIFY]; secondary sources ≈86% rural) — Source conflict note added; median age (17) added as new T2 token; age bands [VERIFY]."
   },
   "C195": {
    "loc": "1.1",
@@ -1013,7 +1013,7 @@
   "C203": {
    "loc": "1.5",
    "t": "Corrected",
-   "note": "Labels the document (CFSP 2026/27, T3); notes the FY2026/27 budget was unapproved after 30 June 2026 (The Star, 6 July 2026); the unconfirmed ADP figure (KSh 14.27bn) is not used \u2014 Source conflict note."
+   "note": "Labels the document (CFSP 2026/27, T3); notes the FY2026/27 budget was unapproved after 30 June 2026 (The Star, 6 July 2026); the unconfirmed ADP figure (KSh 14.27bn) is not used — Source conflict note."
   },
   "C204": {
    "loc": "1.5",
@@ -1053,7 +1053,7 @@
   "C211": {
    "loc": "1.2",
    "t": "Corrected",
-   "note": "Two [CHECK REF]s repointed: 'Section 4.3' \u2192 15.3 (Workstream 9); '3.3.3' \u2192 Annex B."
+   "note": "Two [CHECK REF]s repointed: 'Section 4.3' → 15.3 (Workstream 9); '3.3.3' → Annex B."
   },
   "C212": {
    "loc": "4",
@@ -1308,7 +1308,7 @@
   "C262": {
    "loc": "7.1",
    "t": "Moved",
-   "note": "Split: hypothesis and 'for' \u2192 7.1; 'against' and 'test' \u2192 7.2."
+   "note": "Split: hypothesis and 'for' → 7.1; 'against' and 'test' → 7.2."
   },
   "C263": {
    "loc": "7.1",
@@ -1418,7 +1418,7 @@
   "C284": {
    "loc": "10.1",
    "t": "Reworded",
-   "note": "Lead rewritten to the layered architecture: claim \u2192 three pillars \u2192 six themes \u2192 content types."
+   "note": "Lead rewritten to the layered architecture: claim → three pillars → six themes → content types."
   },
   "C285": {
    "loc": "10.1",
@@ -1458,7 +1458,7 @@
   "C292": {
    "loc": "10.1",
    "t": "Merged with C295",
-   "note": "Four campaign pillars fold into the three message pillars (the crosswalk already maps 1+4 \u2192 MP1, 3 \u2192 MP2, 1+2 \u2192 MP3); every fact kept, the verification pillar becomes MP1's proof mechanism."
+   "note": "Four campaign pillars fold into the three message pillars (the crosswalk already maps 1+4 → MP1, 3 → MP2, 1+2 → MP3); every fact kept, the verification pillar becomes MP1's proof mechanism."
   },
   "C293": {
    "loc": "10.1",
@@ -1503,7 +1503,7 @@
   "C301": {
    "loc": "10.1",
    "t": "Reworded",
-   "note": "P1\u2013P4 become the 'content types' layer of the architecture."
+   "note": "P1–P4 become the 'content types' layer of the architecture."
   },
   "C302": {
    "loc": "10.1",
@@ -1533,7 +1533,7 @@
   "C307": {
    "loc": "10.1",
    "t": "Merged with C301",
-   "note": "Content buckets A\u2013D merge into the content-types layer."
+   "note": "Content buckets A–D merge into the content-types layer."
   },
   "C308": {
    "loc": "10.1",
@@ -1568,7 +1568,7 @@
   "C314": {
    "loc": "3.1",
    "t": "Moved",
-   "note": "Split: each theme's evidence \u2192 Chapter 3 (water \u2192 3.1; economy, green grams, food share \u2192 3.2/3.6; fiscal \u2192 3.7; youth \u2192 3.5; health \u2192 3.3; education \u2192 3.5); theme names and 'why it matters' \u2192 10.1."
+   "note": "Split: each theme's evidence → Chapter 3 (water → 3.1; economy, green grams, food share → 3.2/3.6; fiscal → 1.5 (the budget envelope) and 3.7; youth → 3.5; health → 3.3; education → 3.5); theme names and 'why it matters' → 10.1."
   },
   "C315": {
    "loc": "3.2",
@@ -1753,7 +1753,7 @@
   "C351": {
    "loc": "11.2",
    "t": "Reworded",
-   "note": "Stale cross-reference (3.7 \u2192 10.1)."
+   "note": "Stale cross-reference (3.7 → 10.1)."
   },
   "C352": {
    "loc": "11.2",
@@ -2038,7 +2038,7 @@
   "C408": {
    "loc": "12.7",
    "t": "Reworded",
-   "note": "Cross-reference \u2192 7.1."
+   "note": "Cross-reference → 7.1."
   },
   "C409": {
    "loc": "12.7",
@@ -2463,7 +2463,7 @@
   "C493": {
    "loc": "15.1",
    "t": "Corrected",
-   "note": "[CHECK REF] 'Section 4.3' \u2192 15.3 (Workstream 9)."
+   "note": "[CHECK REF] 'Section 4.3' → 15.3 (Workstream 9)."
   },
   "C494": {
    "loc": "15.1",
@@ -3123,7 +3123,7 @@
   "C625": {
    "loc": "15.3",
    "t": "Corrected",
-   "note": "[CHECK REF] 'Sections 4.4.11 and 5.7.4' \u2192 19.2."
+   "note": "[CHECK REF] 'Sections 4.4.11 and 5.7.4' → 19.2."
   },
   "C626": {
    "loc": "15.3",
@@ -3913,7 +3913,7 @@
   "C783": {
    "loc": "19.2",
    "t": "Corrected",
-   "note": "Compliance-measures list: [CHECK REF] '16.4' \u2192 19.3 clause 5 (the deletion schedule)."
+   "note": "Compliance-measures list: [CHECK REF] '16.4' → 19.3 clause 5 (the deletion schedule)."
   },
   "C784": {
    "loc": "19.2",
@@ -3933,7 +3933,7 @@
   "C787": {
    "loc": "19.2",
    "t": "Corrected",
-   "note": "[CHECK REF] 'Section 5.2.1.4 of the DPA 2019' \u2192 the lawful-processing and consent provisions of the Act; the exact section is for the reviewer to cite."
+   "note": "[CHECK REF] 'Section 5.2.1.4 of the DPA 2019' → the lawful-processing and consent provisions of the Act; the exact section is for the reviewer to cite."
   },
   "C788": {
    "loc": "19.3",
@@ -4108,7 +4108,7 @@
   "C822": {
    "loc": "20.2",
    "t": "Corrected",
-   "note": "[CHECK REF] 'Section A.1.1' \u2192 20.3 (the defamation safeguards)."
+   "note": "[CHECK REF] 'Section A.1.1' → 20.3 (the defamation safeguards)."
   },
   "C823": {
    "loc": "20.2",
@@ -4583,7 +4583,7 @@
   "C917": {
    "loc": "5.5",
    "t": "Reworded",
-   "note": "Cross-reference \u2192 5.3."
+   "note": "Cross-reference → 5.3."
   },
   "C918": {
    "loc": "5.5",
@@ -4608,7 +4608,7 @@
   "C922": {
    "loc": "10.4",
    "t": "Corrected",
-   "note": "Stale cross-reference (3.7 \u2192 10.1)."
+   "note": "Stale cross-reference (3.7 → 10.1)."
   },
   "C923": {
    "loc": "10.4",
@@ -4618,7 +4618,7 @@
   "C924": {
    "loc": "10.4",
    "t": "Corrected",
-   "note": "'sum to about {{sub.kitui-west.density}}%' uses a population-density token as a percentage \u2014 wrong token; to be corrected or the sentence cut if no sourced sum exists."
+   "note": "'sum to about {{sub.kitui-west.density}}%' uses a population-density token as a percentage — wrong token; to be corrected or the sentence cut if no sourced sum exists."
   },
   "C925": {
    "loc": "10.4",
@@ -4703,7 +4703,7 @@
   "C941": {
    "loc": "F",
    "t": "Reworded",
-   "note": "Renumbered E.1\u2013E.10, E.12 \u2192 F.1\u2013F.11, no gap."
+   "note": "Renumbered E.1–E.10, E.12 → F.1–F.11, no gap."
   },
   "C942": {
    "loc": "F.1",
@@ -4803,7 +4803,7 @@
   "C961": {
    "loc": "F.6",
    "t": "Corrected",
-   "note": "Scenarios numbered 1\u20135, 7: renumbered 1\u20136."
+   "note": "Scenarios numbered 1–5, 7: renumbered 1–6."
   },
   "C962": {
    "loc": "F.6",
@@ -5113,7 +5113,7 @@
   "C1023": {
    "loc": "E.1",
    "t": "Corrected",
-   "note": "Inside the text version: two [CHECK REF]s 'Section 5.2.3.4' \u2192 19.2; one 'Section 5.2.4' \u2192 15.1 (the tracker)."
+   "note": "Inside the text version: two [CHECK REF]s 'Section 5.2.3.4' → 19.2; one 'Section 5.2.4' → 15.1 (the tracker)."
   },
   "C1024": {
    "loc": "E.1",
@@ -5143,7 +5143,7 @@
   "C1029": {
    "loc": "E.1",
    "t": "Corrected",
-   "note": "'YubiKey or Google Authenticator' \u2014 an authenticator app is not a hardware key; aligned with F.8 (FIDO2 keys mandatory for admins, app 2FA as the floor)."
+   "note": "'YubiKey or Google Authenticator' — an authenticator app is not a hardware key; aligned with F.8 (FIDO2 keys mandatory for admins, app 2FA as the floor)."
   },
   "C1030": {
    "loc": "E.2",

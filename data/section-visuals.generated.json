@@ -10,18 +10,77 @@
    "steps": [
     {
      "n": 1,
-     "label": "Equitable Share",
+     "label": "Equitable share",
      "body": "KSh 11.64 billion (84.3% of the envelope) (Tier 1)."
     },
     {
      "n": 2,
-     "label": "Own-Source Revenue",
-     "body": "KSh 1.12 billion in the Fiscal Strategy Paper (8.1%), raised to KSh 1.339 billion by the County Assembly. The final approved…"
+     "label": "Own-source revenue",
+     "body": "KSh 1.12 billion in the Fiscal Strategy Paper (8.1%), raised to KSh 1.339 billion by the County Assembly. The approved FY2026/27…"
     },
     {
      "n": 3,
-     "label": "Conditional Grants",
+     "label": "Conditional grants",
      "body": "KSh 1.04 billion (7.5%) (Tier 1)."
+    }
+   ]
+  }
+ },
+ "needs-sec-3-5": {
+  "id": "needs-sec-3-5",
+  "tab": "needs",
+  "level": 2,
+  "number": "3.5",
+  "title": "Jobs and the young",
+  "kind": "checklist",
+  "data": {
+   "items": [
+    {
+     "label": "No verified youth unemployment figure",
+     "body": "is available yet for the county; the record that would settle it is the KNBS Quarterly Labour Force Survey…"
+    },
+    {
+     "label": "Education.",
+     "body": "15.1% of females and 9.7% of males aged six and over have no education (Tier 1, KDHS 2022; this replaces an…"
+    },
+    {
+     "label": "Attendance.",
+     "body": "Girls attend secondary school more than boys: net attendance 51.6% against 40.8% (Tier 1)."
+    },
+    {
+     "label": "School meals.",
+     "body": "They reach a minority of schools, much of the provision is parent-funded, and NDMA links the gap to…"
+    },
+    {
+     "label": "Digital access.",
+     "body": "Smartphones are 59.7% of active SIMs nationally (Tier 2, CA), a national rate that overstates Kitui (Section…"
+    }
+   ]
+  }
+ },
+ "votes-sec-2-4": {
+  "id": "votes-sec-2-4",
+  "tab": "votes",
+  "level": 2,
+  "number": "2.4",
+  "title": "The constituencies that decide it: the Mwingi bloc and the Big Four",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "The Big Four (55.60% of the county)",
+     "body": "Kitui Central, Kitui South, Mwingi Central and Mwingi North hold 296,196 registered voters across 22 wards. The candidate who…"
+    },
+    {
+     "n": 2,
+     "label": "Mwingi North (68,829 voters)",
+     "body": "fourth by voters, but it holds the county's largest ward (Kyuso, 19,921 voters), the political home of the Wiper Patriotic Front…"
+    },
+    {
+     "n": 3,
+     "label": "Kitui South (75,372 voters)",
+     "body": "the second-largest constituency, anchored by the dense wards of Athi (15,843) and Ikanga/Kyatune (15,384)."
     }
    ]
   }

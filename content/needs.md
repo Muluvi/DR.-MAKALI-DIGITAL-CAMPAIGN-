@@ -82,7 +82,7 @@ items:
 *   **Fodder.** The county holds {{fodder.held}} bales against {{fodder.needed}} needed, and has no commercial fodder business (Tier 1, NDMA).
 *   **Aflatoxin.** KEPHIS found {{aflatoxin.maize}}% of maize and {{aflatoxin.groundnut}}% of groundnut samples above the limit in 2024 (Tier 1, via NDMA).
 *   **Livestock disease.** Goats suffered CCPP (morbidity {{goats.ccpp.morbidity}}%, mortality {{goats.ccpp.mortality}}%) and PPR (morbidity {{goats.ppr.morbidity}}%, mortality {{goats.ppr.mortality}}%) (Tier 1, NDMA).
-*   **Food reserves.** The County Executive for Agriculture has said only **{{food.reserve-households}} households** hold food reserves (Tier 2). That figure sits oddly beside the 2019 census count of {{census.households}} households (Tier 1), and is quoted with that caveat.
+*   **Food reserves.** The County Executive Committee Member (CECM) for Agriculture has said only **{{food.reserve-households}} households** hold food reserves (Tier 2). That figure sits oddly beside the 2019 census count of {{census.households}} households (Tier 1), and is quoted with that caveat.
 
 **Where the need is worst.** NDMA ranks the eight sub-counties by food-insecurity severity (July 2025, Tier 1):
 

@@ -68,7 +68,7 @@ id: fig-4-6-channel-shift
 The stations with the widest Kikamba reach are tied to rivals (Section 4.2), and that creates three hazards for the campaign:
 
 ```visual
-{"kind":"cards","preset":"hazard","items":[{"title":"Achievements kept off air","text":"Development achievements (for example clean audit certificates, or budget wins in Parliament) are routinely played down or denied airtime on politically aligned stations."},{"title":"Ambush in the studio","text":"Morning talk shows (*06:00–09:00 EAT*) often host panels stacked with rivals' proxies, set up to draw the candidate into unverified local controversies."},{"title":"Unequal access to prime slots","text":"Politically aligned stations refuse prime morning slots to competing campaigns, or offer them on worse terms."}]}
+{"kind":"cards","preset":"hazard","items":[{"title":"Achievements kept off air","text":"Development achievements (for example clean audit certificates from the Office of the Auditor-General (OAG), or budget wins in Parliament) are routinely played down or denied airtime on politically aligned stations."},{"title":"Ambush in the studio","text":"Morning talk shows (*06:00–09:00 EAT*) often host panels stacked with rivals' proxies, set up to draw the candidate into unverified local controversies."},{"title":"Unequal access to prime slots","text":"Politically aligned stations refuse prime morning slots to competing campaigns, or offer them on worse terms."}]}
 ```
 
 The routes around these stations are in Section 15.2.2.
