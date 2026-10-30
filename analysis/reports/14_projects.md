@@ -40,9 +40,9 @@ Where the scorecard's itemised projects land, ward by ward.
 | Athi | Kitui South | 9 | 12.0 | 1 | False |
 | Ikanga/Kyatune | Kitui South | 2 | 3.2 | 0 | False |
 | Ikutha | Kitui South | 9 | 16.2 | 4 | False |
-| Kanziko | Kitui South | 6 | 10.1 | 1 | True |
+| Kanziko | Kitui South | 6 | 10.1 | 1 | False |
 | Mutha | Kitui South | 14 | 36.2 | 1 | False |
-| Mutomo | Kitui South | 14 | 66.4 | 1 | True |
+| Mutomo | Kitui South | 14 | 66.4 | 1 | False |
 | Kauwi | Kitui West | 11 | 22.5 | 2 | False |
 | Kwa Mutonga/Kithumula | Kitui West | 12 | 19.4 | 0 | False |
 | Matinyani | Kitui West | 5 | 6.2 | 0 | False |
@@ -109,7 +109,7 @@ n = 40 wards. Counts are small, and a ward with no single-ward project may still
 
 ## Aliases to confirm
 
-21 projects matched through an alias marked verify in data/geo/ward-keys.json (Kanziku/Simisi for Kanziko, Mutomo/Kibwea for Mutomo). They carry status 'verify' in both exports until Firefly confirms the alias.
+No project rests on an alias still to confirm. The scorecard spellings Kanziku/Simisi (Kanziko) and Mutomo/Kibwea (Mutomo) were confirmed by Firefly on 30 October 2026 (data/geo/ward-keys.json).
 
 
 ## Site mapping

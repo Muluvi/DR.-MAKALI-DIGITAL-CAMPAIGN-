@@ -52,8 +52,18 @@ def test_county_rows_stay_county():
     assert s14.match_row("All/HQ", place("All", "All"), WARDS).level == "county"
 
 
-def test_an_alias_marked_verify_marks_the_match():
+def test_a_confirmed_alias_places_the_project_without_a_verify_flag():
+    """Mutomo/Kibwea and Kanziku/Simisi were confirmed on 30 October 2026."""
     m = s14.match_row("Kitui South", place("Kitui South", "Mutomo/ Kibwea"), WARDS)
+    assert (m.level, m.wards, m.verify) == ("ward", ["mutomo"], False)
+    m = s14.match_row("Kitui South", place("Kitui South", "Kanziku/ Simisi"), WARDS)
+    assert (m.level, m.wards, m.verify) == ("ward", ["kanziko"], False)
+
+
+def test_an_alias_marked_verify_marks_the_match():
+    flagged = s14.Ward("mutomo", "Mutomo", "Kitui South", "kitui-south",
+                       (s14.tokens("Mutomo"), s14.tokens("Mutomo/Kibwea")), (s14.tokens("Mutomo/Kibwea"),))
+    m = s14.match_row("Kitui South", place("Kitui South", "Mutomo/ Kibwea"), [flagged])
     assert (m.level, m.wards, m.verify) == ("ward", ["mutomo"], True)
 
 

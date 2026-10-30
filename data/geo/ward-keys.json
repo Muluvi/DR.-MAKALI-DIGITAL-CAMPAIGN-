@@ -1040,8 +1040,7 @@
         {
           "spelling": "Mutomo/Kibwea",
           "source": "scorecard",
-          "note": "Kibwea is not a ward. Confirm before relying on it.",
-          "verify": true
+          "note": "Kibwea is not a ward; the scorecard's Mutomo/Kibwea is Mutomo ward. Confirmed by Firefly, 30 October 2026."
         }
       ]
     },
@@ -1122,8 +1121,7 @@
         {
           "spelling": "Kanziku/Simisi",
           "source": "scorecard",
-          "note": "Kanziku is a spelling variant of Kanziko; Simisi is not a ward. Confirm before relying on it.",
-          "verify": true
+          "note": "Kanziku is a spelling variant of Kanziko; Simisi is not a ward. Confirmed by Firefly, 30 October 2026."
         }
       ]
     },

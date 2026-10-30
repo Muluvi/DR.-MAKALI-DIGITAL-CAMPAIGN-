@@ -402,7 +402,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Mutomo/Kibwea\"",
       "dims": {
         "id": "Agriculture-18",
@@ -1228,7 +1228,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Kanziku/Simisi\"",
       "dims": {
         "id": "Water-25",
@@ -1481,7 +1481,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Mutomo/Kibwea\"",
       "dims": {
         "id": "Water-36",
@@ -1688,7 +1688,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Mutomo/ Kibwea\"",
       "dims": {
         "id": "Water-45",
@@ -1734,7 +1734,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Mutomo/ Kibwea\"",
       "dims": {
         "id": "Water-47",
@@ -1895,7 +1895,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Kanziku\"",
       "dims": {
         "id": "Water-54",
@@ -3015,7 +3015,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Kanziku/ Simisi\"",
       "dims": {
         "id": "Education-9",
@@ -3402,7 +3402,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Mutomo/ Kibwea\"",
       "dims": {
         "id": "Education-26",
@@ -3988,7 +3988,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Mutomo/Kibwea\"",
       "dims": {
         "id": "Roads-2",
@@ -4170,7 +4170,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Mutomo/ Kibwea\"",
       "dims": {
         "id": "Roads-10",
@@ -4785,7 +4785,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Kanziku/ Simisi\"",
       "dims": {
         "id": "MSMEs-7",
@@ -6114,7 +6114,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Mutomo/ Kibwea\"",
       "dims": {
         "id": "Tourism-8",
@@ -6137,7 +6137,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Mutomo/ Kibwea\"",
       "dims": {
         "id": "Tourism-9",
@@ -6160,7 +6160,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Mutomo/ Kibwea\"",
       "dims": {
         "id": "Tourism-10",
@@ -6183,7 +6183,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Mutomo/ Kibwea\"",
       "dims": {
         "id": "Tourism-11",
@@ -6206,7 +6206,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Mutomo/Kibwea\"",
       "dims": {
         "id": "Tourism-12",
@@ -6229,7 +6229,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Mutomo/Kibwea\"",
       "dims": {
         "id": "Tourism-13",
@@ -6631,7 +6631,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Kanziku/ Simisi\"",
       "dims": {
         "id": "Women/Youth/PWD-13",
@@ -6907,7 +6907,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Kanziku/Simisi\"",
       "dims": {
         "id": "Boda Boda-3",
@@ -7321,7 +7321,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "\"Mutomo / Kibwea\"",
       "dims": {
         "id": "Boda Boda-21",
@@ -7925,7 +7925,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "official",
-      "status": "verify",
+      "status": "confirmed",
       "note": "Several wards named: Ikutha, Kanziko, Mutomo, Mutha, Kwa Vonza/Yatta.",
       "dims": {
         "id": "Environment-16",

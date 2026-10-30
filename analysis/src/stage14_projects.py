@@ -323,9 +323,14 @@ def run() -> dict:
 
     rep.h2("Aliases to confirm")
     flagged = projects[projects["verify"]]
-    rep.p(f"{len(flagged)} projects matched through an alias marked verify in "
-          "data/geo/ward-keys.json (Kanziku/Simisi for Kanziko, Mutomo/Kibwea for Mutomo). "
-          "They carry status 'verify' in both exports until Firefly confirms the alias.")
+    if flagged.empty:
+        rep.p("No project rests on an alias still to confirm. The scorecard spellings "
+              "Kanziku/Simisi (Kanziko) and Mutomo/Kibwea (Mutomo) were confirmed by Firefly on "
+              "30 October 2026 (data/geo/ward-keys.json).")
+    else:
+        rep.p(f"{len(flagged)} projects matched through an alias marked verify in "
+              "data/geo/ward-keys.json. They carry status 'verify' in both exports until Firefly "
+              "confirms the alias.")
 
     rep.h2("Site mapping")
     rep.p("Approved by Firefly on 30 October 2026 (open-data steps 1–3) and published with "

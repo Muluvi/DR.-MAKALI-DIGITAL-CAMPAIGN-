@@ -1208,7 +1208,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "calculated",
-      "status": "verify",
+      "status": "placeholder",
       "note": "",
       "dims": {
         "ward": "mutomo",
@@ -1225,7 +1225,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "calculated",
-      "status": "verify",
+      "status": "placeholder",
       "note": "",
       "dims": {
         "ward": "mutomo",
@@ -1310,7 +1310,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "calculated",
-      "status": "verify",
+      "status": "placeholder",
       "note": "",
       "dims": {
         "ward": "kanziko",
@@ -1327,7 +1327,7 @@
       "tier": 1,
       "as_of": "2025-08",
       "method": "calculated",
-      "status": "verify",
+      "status": "placeholder",
       "note": "",
       "dims": {
         "ward": "kanziko",

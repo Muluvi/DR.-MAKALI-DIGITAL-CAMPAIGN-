@@ -51,8 +51,8 @@ const EXPLICIT_ALIASES = [
   { ward: "Mutito/Kaliku", spelling: "Mutitu/Kaliku", source: "open-admin-data, scorecard", note: "The register's spelling before 2026; see docs/visual-premium/GEOGRAPHY.md." },
   { ward: "Mumoni", spelling: "Muumoni", source: "scorecard", note: "Spelling variant." },
   { ward: "Nguutani", spelling: "Ngutani", source: "scorecard", note: "Spelling variant." },
-  { ward: "Kanziko", spelling: "Kanziku/Simisi", source: "scorecard", note: "Kanziku is a spelling variant of Kanziko; Simisi is not a ward. Confirm before relying on it.", verify: true },
-  { ward: "Mutomo", spelling: "Mutomo/Kibwea", source: "scorecard", note: "Kibwea is not a ward. Confirm before relying on it.", verify: true },
+  { ward: "Kanziko", spelling: "Kanziku/Simisi", source: "scorecard", note: "Kanziku is a spelling variant of Kanziko; Simisi is not a ward. Confirmed by Firefly, 30 October 2026." },
+  { ward: "Mutomo", spelling: "Mutomo/Kibwea", source: "scorecard", note: "Kibwea is not a ward; the scorecard's Mutomo/Kibwea is Mutomo ward. Confirmed by Firefly, 30 October 2026." },
 ];
 
 const slugOf = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
