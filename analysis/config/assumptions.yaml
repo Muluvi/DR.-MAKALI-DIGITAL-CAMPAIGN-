@@ -495,12 +495,13 @@ reach:
       key, Stage 9 falls back to uniform rates on its own and says so.
   ward_spread_from_2019:
     value: true
-    status: PLACEHOLDER
+    status: CONFIRMED
     rationale: >-
       Each ward's phone and internet rates are the county's 2023/24 rates times its census
       sub-county's 2019 rate relative to the county's, rescaled so the electorate-weighted
       mean is the county rate and county totals are unchanged. This assumes the 2019 pattern
-      across sub-counties still holds in 2023/24. Nobody has confirmed it: internet use doubled
+      across sub-counties still holds in 2023/24. Approved by Firefly on 30 October 2026 as the
+      working assumption; it remains an assumption, not a measurement: internet use doubled
       county-wide in that time, and growth need not have been even. Replace with sub-county
       2023/24 rates if CA/KNBS publish them.
 
@@ -639,8 +640,9 @@ census:
       after S71; confirm it is free in the data pack (docs/open-data/REGISTER.md).
   ward_majority:
     value: 0.8
-    status: PLACEHOLDER
+    status: CONFIRMED
     rationale: >-
       A ward is reported as split between sub-counties when no single sub-county holds this
       share of its area. Chosen by Firefly so that boundary-file disagreement (a few per cent)
-      does not count as a split; nobody has confirmed it. At 0.8, four wards are split.
+      does not count as a split. Approved by Firefly on 30 October 2026. At 0.8, four wards are
+      split.

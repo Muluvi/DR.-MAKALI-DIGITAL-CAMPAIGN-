@@ -59,7 +59,7 @@ def ward_factors(denoms: pd.DataFrame) -> pd.DataFrame | None:
     (Stage 15, data/geo/ward-keys.json), as a ratio to the county's 2019 rates. The ratios are
     then rescaled so that, weighted by ward electorates, they average exactly 1: applied to the
     county's 2023/24 rates, the county totals are unchanged and only their spread across wards
-    moves. That the 2019 spread still holds is reach.ward_spread_from_2019, a placeholder.
+    moves. That the 2019 spread still holds is reach.ward_spread_from_2019, an approved assumption.
 
     Returns None (uniform rates) when reach.ward_uniformity is true, the census tables are
     absent, or any ward fails to resolve to exactly one ward key: no ward is guessed.
@@ -317,8 +317,9 @@ def run() -> dict:
             "relative to the county's, rescaled so county totals match the uniform model exactly. "
             f"Internet use now runs from {est['internet_rate'].min():.1%} to "
             f"{est['internet_rate'].max():.1%} by ward. That the 2019 spread still holds in "
-            "2023/24 is a placeholder (reach.ward_spread_from_2019). There are 18 sub-counties for "
-            f"40 wards, so wards in one sub-county share a rate, and {n_split} wards are split "
+            "2023/24 is an approved assumption, not a measurement (reach.ward_spread_from_2019). "
+            "There are 18 sub-counties for 40 wards, so wards in one sub-county share a rate, and "
+            f"{n_split} wards are split "
             "between sub-counties and take the larger one's."
         )
     rep.bullets([
