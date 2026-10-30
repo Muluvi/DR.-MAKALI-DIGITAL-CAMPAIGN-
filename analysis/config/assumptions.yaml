@@ -485,14 +485,15 @@ reach:
       detail and used anyway.
   ward_uniformity:
     value: false
-    status: PLACEHOLDER
+    status: CONFIRMED
     rationale: >-
       Until 30 October 2026 the model applied county rates uniformly across all 40 wards,
       because no ward-level connectivity data existed (pack gap 20). It now varies them by each
       ward's KNBS census sub-county (Stage 15, ward_spread_from_2019 below), which closes pack
       gap 20 in part: sub-county, not ward, and 2019, not 2023/24. Set to true to return to
       the uniform model. If the census tables are absent, or any ward fails to match its ward
-      key, Stage 9 falls back to uniform rates on its own and says so.
+      key, Stage 9 falls back to uniform rates on its own and says so. Approved by Firefly on
+      30 October 2026.
   ward_spread_from_2019:
     value: true
     status: CONFIRMED
