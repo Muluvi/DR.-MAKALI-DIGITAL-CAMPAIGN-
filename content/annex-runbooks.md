@@ -1,8 +1,12 @@
-ANNEX E. The runbooks: the rapid-response decision tree and its response times, the pre-drafted holding positions, monitoring tooling, the security baseline and incident response, and competitor-monitoring outputs. Operational detail a campaign runs on and a principal approves the existence of.
+```lead
+These are the runbooks the war room in Section 20.2 works from: operational detail a campaign runs on and a principal approves the existence of.
+```
+
+These are the runbooks the war room in Section 20.2 works from: operational detail a campaign runs on and a principal approves the existence of. This annex holds the rapid-response decision tree and its response times, the pre-drafted holding positions, the monitoring tools, the red-team drills, the threat model, the security baseline and incident response, and the competitor-monitoring outputs.
 
 ## F.1 The four-tier response decision tree
 
-To avoid elevating fringe attacks or wasting campaign capital, the campaign evaluates every incident against a standardized **Response Decision Tree**:
+To avoid elevating fringe attacks or wasting campaign capital, the campaign judges every incident against a four-tier **response decision tree**:
 
 ```figure
 id: response-matrix
@@ -46,19 +50,21 @@ items:
   - label: "Social monitoring dashboards"
     text: "Real-time X and cross-platform keyword, hashtag and competitor tracking"
   - label: "Social listening and sentiment (premium tier)"
-    text: "Cross-platform sentiment analysis"
+    text: "Cross-platform sentiment analysis: mentions, supporter sentiment, emerging narratives"
   - label: "Meta Business Suite"
     text: "Facebook and Instagram monitoring; competitor content"
   - label: "Google Alerts"
     text: "\"Makali Mulu,\" \"Kitui Governor 2027,\" rival names"
   - label: "**Meta Ad Library**"
-    text: "Competitor ad spend, creative and targeting estimates"
+    text: "Competitor ad spend, creative themes, targeting estimates and frequency"
   - label: "**Google Ads Transparency Centre**"
-    text: "Competitor search advertising"
+    text: "Competitor search advertising and keywords"
+  - label: "X lists"
+    text: "Curated rival, surrogate and influencer accounts"
   - label: "Custom BI dashboard"
     text: "Centralised real-time metrics"
   - label: "**Radio monitoring**"
-    text: "Kamba-language station tracking (Section 15.2.2) — critical, as most attacks on Dr. Mulu will originate on air, not online"
+    text: "Kamba-language station tracking, coverage and airtime share (Section 15.2.2) — critical, as most attacks on Dr. Mulu will originate on air, not online"
 ```
 
 ## F.5 Rapid-response protocol and pre-approved message library
@@ -131,10 +137,12 @@ items:
   - label: "5. Ward champion's account compromised; false messages sent to a ward group"
     fields:
       - { label: "Tests", text: "Incident response (Annex F.10)" }
-  - label: "7. Manufactured \"grassroots\" campaign attacking a rival, falsely attributed to Dr. Mulu"
+  - label: "6. Manufactured \"grassroots\" campaign attacking a rival, falsely attributed to Dr. Mulu"
     fields:
       - { label: "Tests", text: "Charter defence; provenance evidence" }
 ```
+
+*Source conflict: an earlier version numbered the last scenario 7; there was no sixth, and the library holds six.*
 
 **Output:** every drill produces a written report — actual response times
 against target, decision bottlenecks, gaps in the message library — and the
@@ -282,10 +290,4 @@ The competitive intelligence workflow produces two operational outputs:
 
 #### Competitor monitoring tools
 
-| Tool | Function |
-|---|---|
-| Meta Ad Library | Competitor ad spend, creative themes, targeting estimates, frequency |
-| Google Ads Transparency Centre | Competitor search advertising and keywords |
-| Social listening (premium tier) | Mentions, supporter sentiment, emerging narratives |
-| X lists | Curated rival, surrogate and influencer accounts |
-| **Radio monitoring** | Kamba-station coverage and airtime share (Section 15.2.2) |
+The tools that feed both outputs are listed once, in Annex F.4.

@@ -1,12 +1,14 @@
 ## E.1 Technology reference architecture
 
 ```lead
-The technology stack must bridge the gap between digital command centers and offline rural wards, while adhering to Kenya's **Data Protection Act (DPA) 2019** and cybersecurity best practices.
+The technology stack must bridge the gap between the war room and offline rural wards, while adhering to Kenya's **Data Protection Act (DPA) 2019** and cybersecurity best practice.
 ```
 
-A data-driven political campaign requires robust, reliable, and compliant technical infrastructure. The technology stack must bridge the gap between digital command centers and offline rural wards, while adhering to Kenya's **Data Protection Act (DPA) 2019** and cybersecurity best practices.
+A data-driven campaign needs reliable and compliant technical infrastructure. The technology stack must bridge the gap between the war room and offline rural wards, while adhering to Kenya's **Data Protection Act (DPA) 2019** and cybersecurity best practice.
 
-This section specifies the six core software components of the campaign: the **SMS/USSD Telecommunications Gateway**, the **Supporter CRM & Voter Database**, **Social Media Publishing & Social Listening Systems**, **Analytics & Business Intelligence Dashboard**, and the **Section 15.1.1 Service-Delivery Tracker**.
+This section specifies the five core software components of the campaign: the **SMS/USSD Telecommunications Gateway**, the **Supporter CRM & Voter Database**, **Social Media Publishing & Social Listening Systems**, **Analytics & Business Intelligence Dashboard**, and the **Service-Delivery Tracker** (Section 15.1.1).
+
+*Source conflict: an earlier version said six core components; it listed five, and five is the verified count.*
 
 ```figure
 id: tech-stack
@@ -23,14 +25,14 @@ id: fig-5-2-4-stack
 *   **Tooling Recommendation:** **Africa's Talking API Suite** (or Safaricom Direct Enterprise SDP Gateway).
 *   **Function & Purpose:** Powers the offline communications engine (Section 15.3.3). Dispatches targeted, opt-in bulk 2G SMS to registered voters across 40 wards, manages the zero-rated interactive USSD menu (`*[shortcode]#`), and handles inbound field report ingestion from the campaign's ward network (campaign-owned, Section 13.3).
 *   **Data Held & Processed:** Voter mobile phone numbers (MSISDN), geolocation ward tags, inbound USSD menu responses, delivery receipt timestamps, and opt-out trigger logs.
-*   **DPA 2019 Exposure & Compliance:** **HIGH RISK.** Telecommunications data constitutes direct personal data (Section 5.2.3.4 [CHECK REF]). Requires explicit opt-in confirmation logs, automated STOP opt-out processing within 15 seconds, and signed Data Processing Agreements (DPA) with the gateway aggregator.
+*   **DPA 2019 Exposure & Compliance:** **HIGH RISK.** Telecommunications data is personal data (Section 19.2). Requires explicit opt-in confirmation logs, automated STOP opt-out processing within 15 seconds, and signed Data Processing Agreements (DPA) with the gateway aggregator.
 *   **Procurement Status:** **Awaiting campaign decision** *(Vendor selection between Africa's Talking vs. Safaricom SDP Enterprise)*.
 
 ---
 
 ##### 2. Supporter Relationship Management (CRM) & Voter Database
 *   **Tooling Recommendation:** **Custom PostgreSQL Database with Hasura / Directus Headless Admin UI** (or CiviCRM instance).
-*   **Function & Purpose:** The centralized single-source-of-truth supporter data warehouse (Section 15.4.1). Stores supporter profiles, 40-ward geographic linkages, demographic classifications, volunteer skills, delegate tracking status, and contact history.
+*   **Function & Purpose:** The centralised supporter data warehouse, the single source of truth for the campaign (Section 15.4.1). Stores supporter profiles, 40-ward geographic linkages, demographic classifications, volunteer skills, delegate tracking status, and contact history.
 *   **Data Held & Processed:** Encrypted voter names, phone numbers (AES-256), constituency/ward/polling station IDs, gender, age cohort, livelihood classification, consent timestamps, and interaction logs.
 *   **DPA 2019 Exposure & Compliance:** **CRITICAL RISK.** Core repository of sensitive and personal supporter data. Requires strict Row-Level Security (RLS), multi-factor authentication (MFA) for all campaign operators, role-based access control (RBAC), daily encrypted off-site backups, and full audit logging of every query.
 *   **Procurement Status:** **Awaiting campaign decision** *(Architecture approval for custom PostgreSQL instance vs. open-source CiviCRM)*.
@@ -41,9 +43,9 @@ id: fig-5-2-4-stack
 *   **Tooling Recommendation:** **Buffer / Hootsuite Enterprise** (Publishing) + **Brand24 / Talkwalker** (Social Listening & Media Monitoring).
 *   **Function & Purpose:** 
     *   *Publishing:* Multi-account scheduling across Facebook, X (Twitter), Instagram, TikTok, and YouTube.
-    *   *Listening:* 24/7 automated monitoring of Kamba and national political keywords (e.g., "Dr. Makali Mulu", "Kitui Governor 2027", "Kitui Central CDF", "Wiper Primaries", "Kalonzo Musyoka"). Flags emerging viral rumors, competitor attacks, and trending local issues in real time.
+    *   *Listening:* 24/7 automated monitoring of Kamba and national political keywords (e.g., "Dr. Makali Mulu", "Kitui Governor 2027", "Kitui Central CDF", "Wiper Primaries", "Kalonzo Musyoka"). Flags emerging viral rumours, competitor attacks, and trending local issues in real time.
 *   **Data Held & Processed:** Public social media posts, comments, engagement metrics, sentiment scores, influencer handles, and public reach metrics.
-*   **DPA 2019 Exposure & Compliance:** **LOW TO MODERATE RISK.** Processes only publicly accessible posts and aggregated sentiment metadata. Compliant with Section 5.2.3.4 [CHECK REF] provided individual user profiles are not scraped or merged into private voter records without consent.
+*   **DPA 2019 Exposure & Compliance:** **LOW TO MODERATE RISK.** Processes only publicly accessible posts and aggregated sentiment metadata. Within the rules in Section 19.2 provided individual user profiles are not scraped or merged into private voter records without consent.
 *   **Procurement Status:** **Awaiting campaign decision** *(Approval of the software subscription)*.
 
 ---
@@ -51,13 +53,13 @@ id: fig-5-2-4-stack
 ##### 4. Campaign Analytics & Business Intelligence Dashboard
 *   **Tooling Recommendation:** **Metabase Open Source** (Self-Hosted on private cloud) or **Apache Superset**.
 *   **Function & Purpose:** Delivers real-time analytical dashboards to the Campaign Manager and Dr. Mulu. Tracks the 200,000 vote threshold progress across all 40 wards, monitors SMS delivery rates, maps daily field pulse reports, and tracks effort per ward.
-*   **Data Held & Processed:** Aggregated, fully anonymized statistical data: voter counts, ward completion percentages and reach cross-tabulations. No raw unencrypted PII displayed.
-*   **DPA 2019 Exposure & Compliance:** **MINIMAL RISK.** Operates on aggregated, anonymized analytical views. Restricted to authorized War Room IP addresses via VPN and MFA.
+*   **Data Held & Processed:** Aggregated, fully anonymised statistical data: voter counts, ward completion percentages and reach cross-tabulations. No raw unencrypted PII displayed.
+*   **DPA 2019 Exposure & Compliance:** **MINIMAL RISK.** Operates on aggregated, anonymised analytical views. Restricted to authorised War Room IP addresses via VPN and MFA.
 *   **Procurement Status:** **Awaiting campaign decision** *(Sign-off on technical hosting environment)*.
 
 ---
 
-##### 5. Public Service-Delivery Tracker (Section 5.2.4 [CHECK REF] Digital Charter Platform)
+##### 5. Public Service-Delivery Tracker (Section 15.1.1)
 *   **Tooling Recommendation:** **Next.js App Router Web Platform with Interactive GIS Ward Map (Vercel / Cloudflare Edge Hosting)**.
 *   **Function & Purpose:** The public-facing evidence engine supporting Dr. Mulu's good-governance brand. Displays verifiable records of 13 years of Kitui Central NG-CDF projects (schools, boreholes, dispensaries, bursary audits) and provides an interactive "Kitui Economic Blueprint" where citizens can track proposed ward-level investments for the 2027–2032 gubernatorial term.
 *   **Data Held & Processed:** Public infrastructure records, project GPS coordinates, photo/video documentation, project completion certificates, and public comment/feedback forms.
@@ -75,11 +77,13 @@ id: procurement-matrix
 
 #### Technical risk and security protocols
 
-To ensure 100% operational uptime and protect campaign systems from infiltration or cyber disruption:
+To keep campaign systems running and protect them from infiltration or cyber disruption:
 
-1.  **Mandatory Hardware Security Keys / 2FA:** All War Room operators, Ward Coordinators accessing digital dashboards, and database administrators must use hardware 2FA (e.g., YubiKey or Google Authenticator).
-2.  **Daily Automated Off-Site Backups:** The PostgreSQL Supporter CRM executes automated hourly WAL archiving and daily encrypted snapshots stored in geographically isolated cloud buckets.
-3.  **Role-Based Data Redaction:** Ground field staff and Ward Captains see only voter data relevant to their specific assigned ward. Exporting full countywide voter lists is programmatically blocked and restricted exclusively to the Data Protection Officer and Campaign Manager.
+1.  **Two-factor authentication, with hardware keys for administrators:** every war room operator and every ward coordinator who opens a dashboard uses two-factor authentication, by an authenticator app (such as Google Authenticator) at minimum; database administrators use a hardware security key (such as a YubiKey).
+2.  **Automated off-site backups:** The PostgreSQL Supporter CRM executes automated hourly WAL archiving and daily encrypted snapshots stored in geographically isolated cloud buckets.
+3.  **Data redaction by role:** ground staff and ward captains see only voter data relevant to their specific assigned ward. Exporting full countywide voter lists is programmatically blocked and restricted exclusively to the data protection officer and the campaign manager.
+
+*Source conflict: an earlier version listed Google Authenticator as a hardware key; it is an app, and the rule above separates the two.*
 
 ## E.2 Voter model: data sources and variable dictionary
 

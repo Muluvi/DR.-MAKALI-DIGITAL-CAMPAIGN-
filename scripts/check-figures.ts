@@ -6,7 +6,8 @@
  *   - a sourced figure with no source, or a sourced or modelled figure with no tier
  *   - a modelled figure, or a target, with no note saying how or whose
  *   - an alt value equal to the primary: a real dispute silently collapsed
- *   - any bare numeric literal of three or more digits in content/*.md outside the allow-list
+ *   - any bare numeric literal of three or more digits in content/*.md outside the allow-list and
+ *     outside the generated Annex A.2 source table
  *
  * The allow-list is for numbers that are not data: identifiers, specifications, citations and
  * units of a rate. Each entry says why it is there.
@@ -45,7 +46,13 @@ for (const file of fs.readdirSync(SRC).filter((f) => f.endsWith(".md")).sort()) 
   // A ```textversion fence is prose a figure has taken over (brief §12): it is still content, and
   // it is checked exactly as it was before it moved. Only real code and figure fences are skipped.
   let proseFence = false;
+  // Annex A.2 is generated from this store by scripts/build-source-table.ts: its notes and sources
+  // are the store's own text, so they cannot drift from it, and they are not re-checked here.
+  let generated = false;
   lines.forEach((line, i) => {
+    if (line.startsWith("<!-- source-table:start")) generated = true;
+    if (line.startsWith("<!-- source-table:end")) generated = false;
+    if (generated) return;
     if (/^\s*```/.test(line)) {
       if (!fence) proseFence = /^\s*```textversion\s*$/.test(line);
       fence = !fence;

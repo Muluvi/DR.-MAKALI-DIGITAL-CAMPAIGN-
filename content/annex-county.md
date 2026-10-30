@@ -1,4 +1,8 @@
-ANNEX B. County reference: the 40-ward register, the audit record, drought and food security, the Mui Basin, and the legal ground to be careful on with each rival. Background the argument rests on rather than part of the argument.
+```lead
+This annex holds the 40-ward register: background the argument rests on rather than part of the argument.
+```
+
+This annex holds the 40-ward register: background the argument rests on rather than part of the argument. The audit record is now in Section 3.7, drought and food security in Section 3.2, the Mui Basin in Section 3.8, and the legal ground to be careful on with each rival in Section 5.5.
 
 ## B.1 The 40-ward register
 
