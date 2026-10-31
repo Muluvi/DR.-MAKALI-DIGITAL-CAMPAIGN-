@@ -16,6 +16,7 @@
  * disagreement is logged in docs/rebuild/CONFLICTS-RESOLVED.md.
  */
 import register from "../../data/ward-register.json" with { type: "json" };
+import projectsByWard from "../../data/analysis/projects-by-ward.json" with { type: "json" };
 import type { Figure, Tier, Unit } from "./schema";
 
 const FIG: Record<string, Figure> = {};
@@ -205,11 +206,23 @@ sourced("census.subcounties", 18, "count", "T1", "KNBS, 2019 Census; IEBC", { no
 
 // Verified-data check of 29 October 2026 (restructure 2026-11). Each is graded by the document cited.
 const STATS_KENYA = "KNBS 2019 Census, via Stats Kenya county profile (statskenya.co.ke)";
-sourced("census.median-age", 17, "count", "T2", STATS_KENYA, { asOf: "2019", note: "Median age in years." });
+sourced("census.median-age.statskenya", 17, "count", "T2", STATS_KENYA, { asOf: "2019", note: "Median age in years, as Stats Kenya prints it. Superseded by census.median-age (18.9), calculated from the KNBS table itself: under-18s are 48% of residents, so the median cannot be 17." });
 sourced("electricity.2019", 17.2, "percent", "T2", STATS_KENYA, { asOf: "2019", note: "Households with electricity." });
 sourced("electricity.2009", 4.8, "percent", "T2", STATS_KENYA, { asOf: "2009", note: "Households with electricity, 2009 Census." });
 sourced("water.safe.2019", 38.5, "percent", "T2", STATS_KENYA, { asOf: "2019", note: "Households with safe drinking water (the census definition). An earlier draft's 53.2% likely used a different definition and is not used." });
 sourced("water.piped.2019", 5.1, "percent", "T2", STATS_KENYA, { asOf: "2019", note: "Households with piped water." });
+// The KNBS 2019 census tables themselves, read from the rKenyaCensus package (analysis Stage 15,
+// docs/open-data/REGISTER.md), which reproduces Kitui's published population, phone and internet figures.
+const CENSUS_V3 = "KNBS 2019 Census Volume III, Table 2.3 (population by age, sex and sub-county), via rKenyaCensus";
+const CENSUS_V4_LIGHT = "KNBS 2019 Census Volume IV, Table 2.19 (main lighting fuel), via rKenyaCensus";
+const AGE_NOTE = "Share of Kitui's 1,136,154 residents by age (the table excludes 33 intersex persons), summed from single years.";
+modelled("census.median-age", 18.9, "count", "Median age in years, interpolated within the single year of age where the cumulative count of residents passes half: 545,111 are under 18 and 24,682 are aged 18, of 1,136,144 with age stated.", { source: CENSUS_V3, asOf: "2019", decimals: 1 });
+sourced("census.age.0-14.share", 39.1, "percent", "T1", CENSUS_V3, { asOf: "2019", note: AGE_NOTE });
+sourced("census.age.15-34.share", 33.1, "percent", "T1", CENSUS_V3, { asOf: "2019", note: AGE_NOTE });
+sourced("census.age.35-59.share", 19.3, "percent", "T1", CENSUS_V3, { asOf: "2019", note: AGE_NOTE });
+sourced("census.age.60-plus.share", 8.5, "percent", "T1", CENSUS_V3, { asOf: "2019", note: AGE_NOTE });
+sourced("electricity.mains.2019", 17.1, "percent", "T1", CENSUS_V4_LIGHT, { asOf: "2019", note: "Kitui's conventional households whose main lighting is mains electricity." });
+sourced("electricity.national", 50.4, "percent", "T1", CENSUS_V4_LIGHT, { asOf: "2019", note: "Kenya's conventional households whose main lighting is mains electricity. A national figure, not a Kitui figure." });
 const EQUAL_POLITICS = "Equal Politics aggregation of IEBC 2022 presidential results (Tier 1 record: IEBC Forms 34B and 34C)";
 sourced("result.2022.pres.odinga", 235_400, "votes", "T2", EQUAL_POLITICS, { asOf: "2022-08" });
 sourced("result.2022.pres.odinga.share", 70.82, "percent", "T2", EQUAL_POLITICS, { decimals: 2 });
@@ -221,9 +234,7 @@ sourced("result.2022.pres.rejected", 3_306, "votes", "T2", EQUAL_POLITICS);
 sourced("result.2022.pres.turnout", 62, "percent", "T2", EQUAL_POLITICS, { decimals: 0, note: "Approximate. Includes rejected ballots, so it is not the same base as turnout.2022 (governor valid votes / register)." });
 sourced("poverty.2022.statskenya", 58.3, "percent", "T3", "Stats Kenya, reporting KNBS for 2022", { asOf: "2022", note: "Not used in place of the KNBS 2021 rate until verified against the KNBS 2022 poverty report." });
 for (const [id, unit, closes] of [
-  ["census.age-bands", "percent", "KNBS 2019 Census Volume III (population by age and sex), the Kitui table"],
   ["literacy.county", "percent", "KNBS county literacy table (2019 Census or KDHS 2022 county report); the draft's 56.3% and 87.4% have no confirmed source"],
-  ["electricity.national", "percent", "KNBS 2019 Census Volume IV national household electricity table"],
   ["admin.villages", "count", "Kitui County Integrated Development Plan 2023–2027 (the count of villages, reported as 247)"],
   ["cidp.sectors", "count", "Kitui County Integrated Development Plan 2023–2027 (KIPPRA repository), the priority-sector list"],
   ["unemployment.youth.county", "percent", "KNBS Quarterly Labour Force Survey county tables, or the 2019 Census Volume IV labour table"],
@@ -630,6 +641,19 @@ for (const [id, n, m] of SCORECARD_SPEND) {
   sourced(`scorecard.${id}.projects`, n, "count", "T1", SCORECARD, { asOf: "2025-08", note: "Itemised projects attributed to the constituency." });
   sourced(`scorecard.${id}.ksh`, m * 1e6, "ksh", "T1", SCORECARD, { asOf: "2025-08", decimals: 1, note: "Itemised spend attributed to the constituency, KSh, summed from the scorecard's tables." });
   modelled(`scorecard.${id}.per-voter`, (m * 1e6) / v(`con.${id}`), "ksh", "Itemised spend / the constituency's 2022 register. Covers the 401 itemised projects only.", { source: SCORECARD });
+}
+// The same itemised projects by ward, from analysis Stage 14 (data/analysis/projects-by-ward.json):
+// a project counts toward a ward only where its printed place names that one ward. The rest are
+// totalled apart, by why they were not placed, and never spread across wards.
+type ProjectValue = { value: number; status: string; dims: { ward?: string; level?: string; measure: string } };
+const PROJECT_VALUES = projectsByWard.values as ProjectValue[];
+const PROJECTS_NOTE = "Summed from the scorecard's itemised tables where the printed place names this one ward (analysis Stage 14).";
+const PROJECTS_ALIAS_NOTE = " Placed through a spelling of the ward still to confirm (data/geo/ward-keys.json).";
+for (const p of PROJECT_VALUES) {
+  const key = p.dims.ward ?? p.dims.level?.replace("_", "-");
+  const note = p.dims.ward ? PROJECTS_NOTE + (p.status === "verify" ? PROJECTS_ALIAS_NOTE : "") : `Itemised projects not placed on one ward: ${p.dims.level?.replace("_", " ")} (analysis Stage 14).`;
+  if (p.dims.measure === "projects") sourced(`projects.${key}.count`, p.value, "count", "T1", SCORECARD, { asOf: "2025-08", note });
+  else sourced(`projects.${key}.ksh`, p.value, "ksh", "T1", SCORECARD, { asOf: "2025-08", decimals: 1, note });
 }
 sourced("scorecard.countywide.ksh", 160.9e6, "ksh", "T1", SCORECARD, { asOf: "2025-08", decimals: 1, note: "Itemised spend attributed to the whole county or headquarters (27 projects)." });
 modelled("scorecard.attributed.ksh", SCORECARD_SPEND.reduce((n, [, , m]) => n + m * 1e6, 0), "ksh", "Itemised spend attributed to a constituency.", { source: SCORECARD, decimals: 1 });

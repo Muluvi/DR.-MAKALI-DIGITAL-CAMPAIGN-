@@ -1,11 +1,13 @@
 """Stage 9 — channel reach estimate by ward. Every figure here is MODELLED."""
 from __future__ import annotations
 
+import re
+
 import numpy as np
 import pandas as pd
 from matplotlib.patches import Patch
 
-from src import charts, config, report
+from src import charts, config, report, stage15_census
 
 SEGMENTS = [
     ("digital", "Smartphone or data", charts.CATEGORICAL[0]),
@@ -45,10 +47,55 @@ def ward_denominators(wards: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def estimate(denoms: pd.DataFrame, internet_rate: float, phone_rate: float) -> pd.DataFrame:
-    """Split each ward's electorate into three mutually exclusive reach segments."""
-    if phone_rate < internet_rate:
+def tokens(name: str) -> frozenset[str]:
+    """A ward spelling as a set of words, so "Kwa Vonza/Yatta" and "Yatta/Kwa Vonza" agree."""
+    return frozenset(re.sub(r"[^a-z]+", " ", name.lower()).split())
+
+
+def ward_factors(denoms: pd.DataFrame) -> pd.DataFrame | None:
+    """How far each ward's phone and internet use sits from the county's, or None to stay uniform.
+
+    Each ward takes the 2019 census rates of the KNBS sub-county holding most of its area
+    (Stage 15, data/geo/ward-keys.json), as a ratio to the county's 2019 rates. The ratios are
+    then rescaled so that, weighted by ward electorates, they average exactly 1: applied to the
+    county's 2023/24 rates, the county totals are unchanged and only their spread across wards
+    moves. That the 2019 spread still holds is reach.ward_spread_from_2019, an approved assumption.
+
+    Returns None (uniform rates) when reach.ward_uniformity is true, the census tables are
+    absent, or any ward fails to resolve to exactly one ward key: no ward is guessed.
+    """
+    if config.value("reach.ward_uniformity"):
+        return None
+    rel = stage15_census.ward_relative_ict()
+    if rel is None:
+        return None
+    lookup: dict[frozenset[str], list[int]] = {}
+    for i, r in rel.iterrows():
+        for spelling in [r["name"], *r["aliases"]]:
+            lookup.setdefault(tokens(spelling), []).append(i)
+    rows = []
+    for ward in denoms["ward"]:
+        hits = set(lookup.get(tokens(str(ward)), []))
+        if len(hits) != 1:
+            return None
+        rows.append(rel.loc[hits.pop()])
+    f = pd.DataFrame(rows).reset_index(drop=True)[["subcounty", "split", "internet_rel", "phone_rel"]]
+    weights = denoms["voters"].to_numpy(dtype=float)
+    for col in ("internet_rel", "phone_rel"):
+        f[col] = f[col] / np.average(f[col], weights=weights)
+    return f
+
+
+def estimate(denoms: pd.DataFrame, internet_rate, phone_rate) -> pd.DataFrame:
+    """Split each ward's electorate into three mutually exclusive reach segments.
+
+    The rates are county scalars, or per-ward arrays when ward_factors() varies them."""
+    internet_rate = np.asarray(internet_rate, dtype=float)
+    phone_rate = np.asarray(phone_rate, dtype=float)
+    if np.any(phone_rate < internet_rate):
         raise ValueError("phone ownership cannot be below internet use — the split would go negative")
+    if np.any(phone_rate > 1):
+        raise ValueError("a ward's phone ownership rate exceeds 100%")
     out = denoms.copy()
     reg = out["voters"].astype(float)
     out["digital"] = (reg * internet_rate).round().astype(int)
@@ -59,7 +106,7 @@ def estimate(denoms: pd.DataFrame, internet_rate: float, phone_rate: float) -> p
     return out
 
 
-def chart_stack(est: pd.DataFrame) -> str:
+def chart_stack(est: pd.DataFrame, varied: bool = False) -> str:
     charts.apply()
     data = est.sort_values("voters", ascending=False)
     fig, ax = charts.figure(8.2, 7.4)
@@ -78,13 +125,18 @@ def chart_stack(est: pd.DataFrame) -> str:
     ax.grid(axis="y", visible=False)
     ax.xaxis.set_major_formatter(lambda x, _: f"{x/1000:.0f}k")
     charts.strip_spines(ax, keep=("bottom",))
-    return charts.save(
-        fig, "09_reach_by_ward.svg",
+    caption = (
+        "MODELLED. County rates of 26.2% internet use and 44.1% phone ownership (CA/KNBS 2023/24), "
+        "spread across wards in proportion to each ward's census sub-county in 2019 (KNBS) and "
+        "rescaled so the county totals are unchanged. Ward differences are a 2019 sub-county "
+        "pattern, not a ward measurement."
+        if varied else
         "MODELLED. County rates applied uniformly to every ward: internet use 26.2% and phone "
         "ownership 44.1%, both CA/KNBS 2023/24. No ward-level connectivity data exists, so ward "
         "differences here come only from electorate size, not from any measured difference in "
-        "connectivity.",
+        "connectivity."
     )
+    return charts.save(fig, "09_reach_by_ward.svg", caption)
 
 
 def chart_shift(old: pd.DataFrame, new: pd.DataFrame) -> str:
@@ -136,11 +188,17 @@ def run() -> dict:
     wards = pd.read_csv(path)
     r = rates()
     denoms = ward_denominators(wards)
-    est = estimate(denoms, r["internet"].value, r["phone"].value)
-    old = estimate(denoms, r["internet_2019"].value, r["phone_2019"].value)
+    factors = ward_factors(denoms)
+    f_net = 1.0 if factors is None else factors["internet_rel"].to_numpy()
+    f_phone = 1.0 if factors is None else factors["phone_rel"].to_numpy()
+    est = estimate(denoms, r["internet"].value * f_net, r["phone"].value * f_phone)
+    old = estimate(denoms, r["internet_2019"].value * f_net, r["phone_2019"].value * f_phone)
+    if factors is not None:
+        est = est.assign(subcounty=factors["subcounty"].to_numpy(), split=factors["split"].to_numpy(),
+                         internet_rate=r["internet"].value * f_net, phone_rate=r["phone"].value * f_phone)
     est.to_csv(config.DATA_PROCESSED / "ward_reach.csv", index=False)
 
-    c_stack = chart_stack(est)
+    c_stack = chart_stack(est, varied=factors is not None)
     c_shift = chart_shift(old, est)
 
     total = int(est["voters"].sum())
@@ -244,11 +302,28 @@ def run() -> dict:
     ])
 
     rep.h2("Limits")
+    if factors is None:
+        rate_basis = (
+            "**The rates are applied uniformly to all 40 wards.** No ward-level connectivity data "
+            "exists, so ward variation here reflects electorate size only. Township and Tharaka get "
+            "the same rate, which is certainly wrong — and more wrong now than before, because the "
+            "urban-rural gap in the same survey is 56.6% against 25.0%."
+        )
+    else:
+        n_split = int(factors["split"].sum())
+        rate_basis = (
+            "**Ward rates follow each ward's census sub-county in 2019.** Each ward takes the KNBS "
+            "2019 phone and internet rates of the sub-county holding most of its area (Stage 15), "
+            "relative to the county's, rescaled so county totals match the uniform model exactly. "
+            f"Internet use now runs from {est['internet_rate'].min():.1%} to "
+            f"{est['internet_rate'].max():.1%} by ward. That the 2019 spread still holds in "
+            "2023/24 is an approved assumption, not a measurement (reach.ward_spread_from_2019). "
+            "There are 18 sub-counties for 40 wards, so wards in one sub-county share a rate, and "
+            f"{n_split} wards are split "
+            "between sub-counties and take the larger one's."
+        )
     rep.bullets([
-        "**The rates are applied uniformly to all 40 wards.** No ward-level connectivity data "
-        "exists, so ward variation here reflects electorate size only. Township and Tharaka get "
-        "the same rate, which is certainly wrong — and more wrong now than before, because the "
-        "urban-rural gap in the same survey is 56.6% against 25.0%.",
+        rate_basis,
         "**Ward electorates are the 2026 county total distributed on 2022 ward shares.** The "
         "2026 register is published at county level only. Growth was uneven, so ward figures "
         "are indicative; county figures are not affected by this.",

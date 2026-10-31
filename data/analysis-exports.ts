@@ -47,6 +47,8 @@ export interface ExportValue {
   method: ExportMethod;
   status: ExportStatus;
   note: string;
+  /** Row keys for a row-shaped export (a ward, a project). Absent on chart-shaped exports. */
+  dims?: Record<string, unknown>;
 }
 
 export interface ExportChart {
@@ -88,9 +90,12 @@ const STATUSES: ReadonlySet<string> = new Set(["confirmed", "verify", "placehold
  * The pipeline cannot stop someone hand-editing a JSON file in this directory afterwards,
  * and a figure that quietly loses its tier or its verify marker is exactly the failure this
  * whole provenance system exists to prevent. So the build asserts it again here.
+ *
+ * Exports too large for every page (the projects register) are kept out of ANALYSIS_EXPORTS
+ * and loaded by their own module, which passes them in here.
  */
-function assertExportIntegrity(): void {
-  for (const [id, chart] of Object.entries(ANALYSIS_EXPORTS)) {
+export function assertExportIntegrity(exports: Record<string, ExportChart> = ANALYSIS_EXPORTS): void {
+  for (const [id, chart] of Object.entries(exports)) {
     if (chart.id !== id) {
       throw new Error(`Analysis export integrity failure: ${id} declares id "${chart.id}".`);
     }

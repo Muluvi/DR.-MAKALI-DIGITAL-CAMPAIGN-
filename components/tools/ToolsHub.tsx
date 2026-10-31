@@ -31,7 +31,7 @@ const tools: Tool[] = [
   ["Field Network Tracker", "field-network", "Ground & field", "See assigned versus target counts by ward.", Users, "Data needed"],
   ["Market-Day Planner", "markets", "Ground & field", "Plan the weekly caravan rotation.", Map, "Ready"],
   ["Event Saturation Heatmap", "events", "Ground & field", "Find under-served and over-served wards.", BarChart3, "Data needed"],
-  ["Service-Delivery Tracker", "service-delivery", "Ground & field", "Make public projects easy to verify and share.", ShieldCheck, "Data needed"],
+  ["Service-Delivery Tracker", "service-delivery", "Ground & field", "Make public projects easy to verify and share.", ShieldCheck, "Ready"],
   ["Ward Allocation Simulator", "allocation", "Ground & field", "Compare equal and needs-weighted formulas.", SlidersHorizontal, "Ready"],
   ["Data Update Wizard", "data-update", "Ground & field", "Validate files and download a clean diff.", Check, "Live"],
   ["KPI Ladder Dashboard", "kpis", "Measurement & reach", "Connect weekly indicators to the threshold.", BarChart3, "Data needed"],

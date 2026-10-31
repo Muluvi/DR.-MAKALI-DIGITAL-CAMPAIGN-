@@ -121,7 +121,9 @@ def main(argv: list[str] | None = None) -> int:
         "data_as_of": config.assumptions()["meta"]["as_of"],
         "source": "analysis pipeline, python -m src.run_all",
         "approved_mapping": "analysis/reports/site_mapping.md",
-        "files": published,
+        # Every export the site holds, not only this run's: a run that publishes one stage
+        # must not drop the others from the manifest.
+        "files": sorted(p.name for p in DATA_DESTINATION.glob("*.json") if p.name != "manifest.json"),
         "excluded": sorted(sx.NEVER_PUBLISH),
         "field_contract": sorted(REQUIRED_FIELDS),
         "rules": [

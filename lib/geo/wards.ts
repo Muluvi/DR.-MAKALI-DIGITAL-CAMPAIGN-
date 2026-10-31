@@ -1,9 +1,11 @@
 /**
  * The 40 wards as tiles (brief §E.7, §O). Schematic, not to scale.
  *
- * There is no ward boundary file in the repo, so the map is a tile map: every ward the same size,
- * which is also the right choice for Kitui, where Mutha and Township differ in area by two orders
- * of magnitude and a choropleth would let the empty north outshout the dense centre.
+ * The map is a tile map by choice: every ward the same size, because Mutha and Township differ in
+ * area by two orders of magnitude and a choropleth would let the empty north outshout the dense
+ * centre. Real ward polygons do exist (public/geo/kitui-wards.topo.json, see
+ * docs/visual-premium/GEOGRAPHY.md); they are used only where geography itself is the point, in
+ * CountyScene and CountyStatic.
  *
  * Constituency blocks are placed roughly as the county sits: Mwingi across the north, Kitui West,
  * Central and Rural through the middle and south-west, Kitui East as the long eastern strip, Kitui

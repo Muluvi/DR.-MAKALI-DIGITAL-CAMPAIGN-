@@ -170,7 +170,7 @@
   {
     "id": "fig-3-10-gaps",
     "section": "2.11",
-    "title": "8 things no published source can tell the analysis, and none is estimated",
+    "title": "6 things no published source can tell the analysis, and none is estimated",
     "question": "What can't the data tell us yet, and what closes each gap?",
     "takeaway": "The analysis works from where he has held office and from certified totals, not from ward-level preference or ward returns no one has published."
   },
@@ -180,6 +180,13 @@
     "title": "The diagnosis is a recognition gap outside Kitui Central, and one rival's result is the strongest evidence against it",
     "question": "How strong is the diagnosis, and what would overturn it?",
     "takeaway": "Week 1 tests it against his own channel data before anything is committed: if his reach already lands in Mwingi, the problem is message, not reach."
+  },
+  {
+    "id": "fig-3-12-projects",
+    "section": "3.7",
+    "title": "Township carries the most itemised spend placed on one ward, KSh 115.9m across 27 projects",
+    "question": "Where does the scorecard place its itemised projects, ward by ward, against how many voters each ward holds?",
+    "takeaway": "339 of the 401 itemised projects name one ward and are drawn on it; the other 62 are totalled apart, never spread across wards."
   },
   {
     "id": "fig-4-1-message-house",
