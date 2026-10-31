@@ -110,7 +110,7 @@ NDMA names hotspot wards in every sub-county, the home base included, so the ran
 *   **Insurance and stunting.** {{health.insurance}}% of residents have any health insurance, and {{health.stunting}}% of children under five are stunted (both Tier 1, KDHS 2022; Section 10.3 carries the older county baseline).
 *   **Child survival.** Infant mortality is {{health.imr}} per thousand births and under-five mortality {{health.u5mr}}, both better than Kenya's {{health.imr.kenya}} and {{health.u5mr.kenya}} (Tier 1, KDHS 2022).
 *   **Outbreaks.** In January–June 2025 Ngomeni had a confirmed measles outbreak ({{health.measles.ngomeni}} cases), and typhoid cases rose from {{health.typhoid.2024}} to {{health.typhoid.2025}}, which NDMA attributes to contaminated water and poor sanitation (Tier 1).
-*   **Nutrition.** Only {{health.diet.diversity}}% of children aged 6–23 months meet minimum dietary diversity (SMART 2023).
+*   **Nutrition.** Only {{health.diet.diversity}}% of children aged 6–23 months meet minimum dietary diversity (Tier 1, SMART 2023).
 *   **Stalled projects.** Controller of Budget reports note stalled county health projects; the list of facilities is a **named data gap** (Tier 1 gap).
 
 **What it means for the campaign.** Health is a service-delivery story, and water drives part of it: the typhoid rise is the water problem appearing as illness.
@@ -130,7 +130,7 @@ No verified figure is available yet for the county's road network or its conditi
 *   **No verified youth unemployment figure** is available yet for the county; the record that would settle it is the KNBS Quarterly Labour Force Survey county tables or the 2019 Census Volume IV labour table.
 *   **Education.** {{edu.none.women}}% of females and {{edu.none.men}}% of males aged six and over have no education (Tier 1, KDHS 2022; this replaces an untiered 13.0%). The share who completed secondary school, given in an earlier draft as 17.4%, is **not yet tiered**.
 *   **Attendance.** Girls attend secondary school more than boys: net attendance {{edu.secondary.girls}}% against {{edu.secondary.boys}}% (Tier 1).
-*   **School meals.** They reach a minority of schools, much of the provision is parent-funded, and NDMA links the gap to absenteeism, dropout and transfers out of the county. Its report gives two counts that do not agree: {{schools.meals}} of {{schools.meals.of}} schools with a programme on one page, and a larger count of school units on another (Tier 1). {{schools.damaged}} schools were damaged in March–April 2025, affecting about {{schools.damaged.learners}} learners.
+*   **School meals.** They reach a minority of schools, much of the provision is parent-funded, and NDMA links the gap to absenteeism, dropout and transfers out of the county. Its report gives two counts that do not agree: {{schools.meals}} of {{schools.meals.of}} schools with a programme on one page, and a larger count of school units on another (Tier 1). {{schools.damaged}} schools were damaged in March–April 2025, affecting about {{schools.damaged.learners}} learners (Tier 1, NDMA).
 *   **Digital access.** Smartphones are {{ict.smartphone-share}}% of active SIMs nationally (Tier 2, CA), a national rate that overstates Kitui (Section 4.1).
 
 **What it means for the campaign.** The young are the largest group arriving at each election, and they are reached on their phones, so jobs and skills are the issue that travels on social media.
@@ -141,7 +141,7 @@ No verified figure is available yet for the county's road network or its conditi
 
 *   **Maize** sold at KSh {{price.maize}} a kg against a five-year average of {{price.maize.average}} (Tier 1, NDMA, July 2025).
 *   **A medium goat** sold at KSh {{price.goat}} against a five-year average of {{price.goat.average}}, and most households were buying food rather than storing it (Tier 1, NDMA).
-*   **Cooking fuel.** Only {{fuel.clean.2022}}% of households cook with clean fuels (Kenya {{fuel.clean.2022.kenya}}%) (Tier 1, County Gender Data Sheet, 2022); the 2019 census put unclean fuels at {{fuel.unclean}}% and firewood at {{fuel.firewood}}%.
+*   **Cooking fuel.** Only {{fuel.clean.2022}}% of households cook with clean fuels (Kenya {{fuel.clean.2022.kenya}}%) (Tier 1, County Gender Data Sheet, 2022); the 2019 census put unclean fuels at {{fuel.unclean}}% and firewood at {{fuel.firewood}}% (Tier 1).
 *   No verified county price index is available yet; the record that would settle it is the KNBS county consumer price index series.
 
 **What it means for the campaign.** A household spending seven shillings in ten on food has no margin to invest, which is the whole argument for "From Poverty to Wealth Creation" stated as a number.
@@ -178,7 +178,7 @@ items:
 
 #### The incumbent's scorecard: where the itemised money went
 
-The county's *Delivering the Kitui Promise* scorecard (August 2022 – August 2025) itemises {{scorecard.itemised}} of the {{scorecard.claimed}} projects it claims, KSh {{scorecard.itemised.ksh|bn}} billion in all. Summed from its own tables:
+The county's *Delivering the Kitui Promise* scorecard (August 2022 – August 2025) itemises {{scorecard.itemised}} of the {{scorecard.claimed}} projects it claims, KSh {{scorecard.itemised.ksh|bn}} billion in all (Tier 1). Summed from its own tables:
 
 | Constituency | Projects | KSh, itemised (Tier 1) | KSh per registered voter (2022, calculated) |
 |---|---:|---:|---:|

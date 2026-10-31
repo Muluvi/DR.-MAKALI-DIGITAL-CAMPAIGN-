@@ -20,7 +20,7 @@ items:
     body: "**{{effort.digital.pool}}% of all Phase −1 digital reach effort (Meta, Google, YouTube)** is geofenced to Mwingi North, Mwingi Central, Mwingi West and Kitui South. The weighting is on output and targeting, and R-02 measures it (Section 18.3)."
   - value: "{{effort.sms.pool}}%"
     label: "of SMS/USSD onboarding, in the pool's 21 wards"
-    body: "**{{effort.sms.pool}}% of the offline SMS and USSD onboarding effort** (Section 15.3.3) goes to the 21 wards of the pool: the 15 Mwingi wards and the six of Kitui South. The campaign's own ward-captain network ({{target.captains.pool}} of {{target.captains}} captains, recommended for the same wards) is campaign-owned and outside this engagement (Section 13.3)."
+    body: "**{{effort.sms.pool}}% of the offline SMS and USSD onboarding effort** (Section 15.3.3) goes to the 21 wards of the pool: the 15 Mwingi wards and the six of Kitui South. The campaign's own ward-captain network (a target of {{target.captains.pool}} of {{target.captains}} captains, recommended for the same wards) is campaign-owned and outside this engagement (Section 13.3)."
 ```
 
 **What the message says there.** In these wards the Economist Governor message stresses fair distribution across the county: how Dr. Makali Mulu's oversight of public money would direct water and health investment into rural wards such as Kyuso, Tseikuru, Athi and Mutha. Calling any ward neglected needs the county's development expenditure by ward, from the Controller of Budget's implementation reports and the county's own budget documents; until that is in hand, the message names the ward and the need, not the neglect.
@@ -31,7 +31,7 @@ items:
 **Until the six are assigned, the Phase −1 weighting governs only the three zones, and the six unassigned sub-counties receive the rotating share alone.** Assigning them is a Week 2 task for the strategy lead.
 ```
 
-**Coverage note.** The three zones of Section 1.2 total {{zones.population}} residents, **{{zones.share}}% of the county's {{census.population}}**. They name 12 of the county's {{census.subcounties}} sub-counties; the remaining six, about {{zones.excluded}} residents, are in no zone. The weightings below therefore spread all of the communications effort across zones covering under four-fifths of the population. **Until the six are assigned, the Phase −1 weighting governs only the three zones, and the six unassigned sub-counties receive the rotating share alone.** Assigning them is a Week 2 task for the strategy lead, against the Section 1.2 regions and the IEBC register, and the weighting is restated when it is done.
+**Coverage note.** The three zones of Section 1.2 total {{zones.population}} residents, **{{zones.share}}% of the county's {{census.population}}** (calculated from the 2019 census, Tier 1). They name 12 of the county's {{census.subcounties}} sub-counties; the remaining six, about {{zones.excluded}} residents, are in no zone. The weightings below therefore spread all of the communications effort across zones covering under four-fifths of the population. **Until the six are assigned, the Phase −1 weighting governs only the three zones, and the six unassigned sub-counties receive the rotating share alone.** Assigning them is a Week 2 task for the strategy lead, against the Section 1.2 regions and the IEBC register, and the weighting is restated when it is done.
 
 *Effort and content allocation across zones, by phase:*
 
@@ -68,7 +68,7 @@ items:
 | | Figure |
 |---|---|
 | Reachable by smartphone or data, in county | ~{{reach.smartphone}} voters (modelled: {{ict.internet}}% of the July 2026 register) |
-| Share of the {{benchmark}} benchmark digital could reach | **{{reach.smartphone.of-benchmark}}%**, reach not votes |
+| Share of the {{benchmark}} benchmark digital could reach | **{{reach.smartphone.of-benchmark}}%** (modelled), reach not votes |
 | Reachable by SMS only | ~{{reach.sms-only}} voters (modelled: {{ict.phone}}% phone ownership less {{ict.internet}}% internet use) |
 | Phone owners: the SMS and USSD layer | ~{{reach.phone.resident}} voters on the resident rate ({{ict.phone}}%); ~{{reach.phone.adult}} on the adult rate (KDHS 2022: {{ict.phone.adult}}%). Both modelled, never averaged (Section 4.3) |
 | No phone: radio or in person only | ~{{reach.nophone}} voters on the resident rate; ~{{reach.nophone.adult}} on the adult rate (both modelled) |

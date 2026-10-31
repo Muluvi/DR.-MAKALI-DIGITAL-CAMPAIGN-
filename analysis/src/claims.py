@@ -2,8 +2,10 @@
 
 Scans the site content in reading order and records each numeric claim with the section it
 sits in, the tier the site itself asserts, and whether the reader can see where the figure
-comes from at all: a "Tier N" marker, a Tier column or header in a table, a visual item's own
-tier, or a visible status ("modelled", "calculated", "target", "not used").
+comes from at all: a "Tier N" marker later in the same sentence or within 70 characters, a Tier
+column or a tier in a table's header, a visual item's own tier, or a visible status ("modelled",
+"calculated", "target", "not used"). A figure's text version (a ```textversion fence beneath a
+```figure) takes its status, "figure", from the figure's own sources.
 
 Two worklists come out of it. `never_stated` lists figures that carry no tier or status
 anywhere in the document, so a reader can never trace them; that is the sourcing gap. The
@@ -73,7 +75,7 @@ def _unit(money: str | None, suffix: str | None, context: str) -> str:
 # the reader can see: Firefly's own arithmetic, a commitment rather than a claim, or a figure
 # quoted only to say it is not used.
 STATUS_NEAR = (
-    ("modelled", re.compile(r"\bmodelled\b|\[CALC\b|\bcalculated\b", re.I)),
+    ("modelled", re.compile(r"\bmodelled\b|\[CALC\b|\bcalculated\b|\bderived estimate\b", re.I)),
     ("target", re.compile(r"\btargets?\b|\bthresholds?\b", re.I)),
     ("excluded", re.compile(r"\bnot (?:used|confirmed|yet tiered)\b|\bno source\b", re.I)),
 )
@@ -118,11 +120,28 @@ def _column(rows: list[str], i: int, start: int) -> tuple[str, str, bool] | None
     col = next((k for k, (a, b, _) in enumerate(cells) if a <= start < b), None)
     name = header[col] if col is not None and col < len(header) else ""
     tier_cell = ""
+    # A tier in the first header cell ("Sub-county (Tier 1, KNBS 2019 Census)") labels the table.
+    if header and TIER_CELL.search(header[0]):
+        tier_cell = header[0]
     for k, h in enumerate(header):
-        if re.search(r"\btier\b", h, re.I) and k < len(cells):
+        # A Tier column is headed "Tier"; a header that states a tier is a label, not a column.
+        if re.search(r"\btier\b", h, re.I) and not TIER_CELL.search(h) and k < len(cells):
             tier_cell = cells[k][2]
     lists_targets = any(h.strip().lower() == "target" for h in header)
     return name, tier_cell, lists_targets
+
+
+ABBREVIATION = re.compile(r"\b(?:Dr|Mr|Mrs|Ms|Hon|St|No|vs|Vol|cf)\.$")
+
+
+def _rest_of_sentence(text: str) -> str:
+    """Text up to the end of the sentence it starts in. "Dr." and "Hon." do not end one."""
+    out = ""
+    for part in re.split(r"(?<=[.!?])\s+(?=[A-Z*(\"])", text):
+        out += (" " if out else "") + part
+        if not ABBREVIATION.search(part):
+            break
+    return out
 
 
 def _claims_in(text_rows: list[str], file: str, lineno: int, heading: str,
@@ -158,6 +177,9 @@ def _claims_in(text_rows: list[str], file: str, lineno: int, heading: str,
             if not money and not suffix and (re.match(r"-[a-z]", line[end:end + 2] or "")
                                              or re.match(r"\s*characters?\b", line[end:end + 12])):
                 continue
+            # "per 1,000 reached": a rate's denominator, not a claim.
+            if re.search(r"\bper\s*$", line[max(0, start - 5):start]):
+                continue
             # A phone number is not a claim.
             if any(p.start() <= start < p.end() for p in PHONE.finditer(line)):
                 continue
@@ -180,7 +202,11 @@ def _claims_in(text_rows: list[str], file: str, lineno: int, heading: str,
                 continue
 
             tier, status = None, None
-            tier_match = TIER_NEAR.search(context)
+            # A marker later in the same sentence labels the figure, however long the sentence;
+            # otherwise the nearest marker within 70 characters either side.
+            # A table row is not a sentence: its cells carry their own tiers.
+            sentence = "" if line.lstrip().startswith("|") else _rest_of_sentence(line[end:])
+            tier_match = TIER_NEAR.search(sentence) or TIER_NEAR.search(context)
             if tier_match:
                 tier = int(tier_match.group(1))
             elif column:
@@ -199,6 +225,11 @@ def _claims_in(text_rows: list[str], file: str, lineno: int, heading: str,
                 status = item_status
             if tier is None and status is None:
                 status = next((name for name, rx in STATUS_NEAR if rx.search(context)), None)
+            if tier is None and status is None and sentence:
+                # The sentence's own status ("calculated", "modelled", "not used"), in prose only.
+                status = next((name for name, rx in STATUS_NEAR[::2] if rx.search(sentence)), None)
+                if status is None and re.search(r"\((?:a |policy )?targets?\b", sentence, re.I):
+                    status = "target"
 
             out.append(
                 {
@@ -212,6 +243,21 @@ def _claims_in(text_rows: list[str], file: str, lineno: int, heading: str,
                     "status": config.TAG_OK if tier else (status or "unsourced"),
                 }
             )
+    return out
+
+
+def _paragraphs(text: str) -> list[str]:
+    """A visual's text as the reader sees it: hard-wrapped prose lines joined into paragraphs,
+    table rows kept one per line."""
+    out: list[str] = []
+    prose = False
+    for line in text.split("\n"):
+        is_prose = bool(line.strip()) and not line.lstrip().startswith("|")
+        if is_prose and prose:
+            out[-1] += " " + line.strip()
+        else:
+            out.append(line)
+        prose = is_prose
     return out
 
 
@@ -233,7 +279,7 @@ def _visual_claims(spec: object, file: str, lineno: int, heading: str) -> list[d
             if key in ("when", "day"):
                 continue
             if isinstance(v, str):
-                out += _claims_in(v.split("\n"), file, lineno, heading, item_status=status)
+                out += _claims_in(_paragraphs(v), file, lineno, heading, item_status=status)
             elif isinstance(v, dict) and isinstance(v.get("label"), str) \
                     and re.search(r"\btarget\b", v["label"], re.I):
                 out += _claims_in([str(v.get("text", ""))], file, lineno, heading,
@@ -255,11 +301,23 @@ def build() -> pd.DataFrame:
         heading = ""
         lines = path.read_text(encoding="utf-8").splitlines()
         fence: str | None = None
+        last_closed: str | None = None
+        # A ```textversion fence straight after a ```figure is that figure's text alternative,
+        # rendered beneath it as "Read the text version" and kept word for word; the figure's
+        # own sources and tiers label what it says.
+        under_figure = False
         for lineno, line in enumerate(lines, 1):
             stripped = line.strip()
             if stripped.startswith("```"):
-                fence = None if fence is not None else (stripped[3:].strip() or "code")
+                if fence is None:
+                    fence = stripped[3:].strip() or "code"
+                    under_figure = fence == "textversion" and last_closed == "figure"
+                else:
+                    last_closed, fence, under_figure = fence, None, False
                 continue
+            if fence is None and stripped:
+                last_closed = None
+            figure_status = "figure" if under_figure else None
             if fence == "visual":
                 try:
                     spec = json.loads(line)
@@ -281,9 +339,10 @@ def build() -> pd.DataFrame:
                 while top > 0 and lines[top - 1].lstrip().startswith("|"):
                     top -= 1
                 block = lines[top:lineno]
-                rows += _claims_in(block, path.name, lineno, heading, scan_from=len(block) - 1)
+                rows += _claims_in(block, path.name, lineno, heading, scan_from=len(block) - 1,
+                                   item_status=figure_status)
             else:
-                rows += _claims_in([line], path.name, lineno, heading)
+                rows += _claims_in([line], path.name, lineno, heading, item_status=figure_status)
 
     df = pd.DataFrame(rows)
     if df.empty:

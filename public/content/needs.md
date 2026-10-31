@@ -69,7 +69,7 @@ NDMA names hotspot wards in every sub-county, the home base included, so the ran
 *   **Insurance and stunting.** 11.7% of residents have any health insurance, and 25.1% of children under five are stunted (both Tier 1, KDHS 2022; Section 10.3 carries the older county baseline).
 *   **Child survival.** Infant mortality is 23 per thousand births and under-five mortality 27, both better than Kenya's 32 and 41 (Tier 1, KDHS 2022).
 *   **Outbreaks.** In January–June 2025 Ngomeni had a confirmed measles outbreak (112 cases), and typhoid cases rose from 1,696 to 2,564, which NDMA attributes to contaminated water and poor sanitation (Tier 1).
-*   **Nutrition.** Only 42.9% of children aged 6–23 months meet minimum dietary diversity (SMART 2023).
+*   **Nutrition.** Only 42.9% of children aged 6–23 months meet minimum dietary diversity (Tier 1, SMART 2023).
 *   **Stalled projects.** Controller of Budget reports note stalled county health projects; the list of facilities is a **named data gap** (Tier 1 gap).
 
 **What it means for the campaign.** Health is a service-delivery story, and water drives part of it: the typhoid rise is the water problem appearing as illness.
@@ -89,7 +89,7 @@ No verified figure is available yet for the county's road network or its conditi
 *   **No verified youth unemployment figure** is available yet for the county; the record that would settle it is the KNBS Quarterly Labour Force Survey county tables or the 2019 Census Volume IV labour table.
 *   **Education.** 15.1% of females and 9.7% of males aged six and over have no education (Tier 1, KDHS 2022; this replaces an untiered 13.0%). The share who completed secondary school, given in an earlier draft as 17.4%, is **not yet tiered**.
 *   **Attendance.** Girls attend secondary school more than boys: net attendance 51.6% against 40.8% (Tier 1).
-*   **School meals.** They reach a minority of schools, much of the provision is parent-funded, and NDMA links the gap to absenteeism, dropout and transfers out of the county. Its report gives two counts that do not agree: 439 of 3,969 schools with a programme on one page, and a larger count of school units on another (Tier 1). 426 schools were damaged in March–April 2025, affecting about 9,900 learners.
+*   **School meals.** They reach a minority of schools, much of the provision is parent-funded, and NDMA links the gap to absenteeism, dropout and transfers out of the county. Its report gives two counts that do not agree: 439 of 3,969 schools with a programme on one page, and a larger count of school units on another (Tier 1). 426 schools were damaged in March–April 2025, affecting about 9,900 learners (Tier 1, NDMA).
 *   **Digital access.** Smartphones are 59.7% of active SIMs nationally (Tier 2, CA), a national rate that overstates Kitui (Section 4.1).
 
 **What it means for the campaign.** The young are the largest group arriving at each election, and they are reached on their phones, so jobs and skills are the issue that travels on social media.
@@ -100,7 +100,7 @@ No verified figure is available yet for the county's road network or its conditi
 
 *   **Maize** sold at KSh 59 a kg against a five-year average of 56 (Tier 1, NDMA, July 2025).
 *   **A medium goat** sold at KSh 5,969 against a five-year average of 4,262, and most households were buying food rather than storing it (Tier 1, NDMA).
-*   **Cooking fuel.** Only 6.3% of households cook with clean fuels (Kenya 21.2%) (Tier 1, County Gender Data Sheet, 2022); the 2019 census put unclean fuels at 92.6% and firewood at 79.5%.
+*   **Cooking fuel.** Only 6.3% of households cook with clean fuels (Kenya 21.2%) (Tier 1, County Gender Data Sheet, 2022); the 2019 census put unclean fuels at 92.6% and firewood at 79.5% (Tier 1).
 *   No verified county price index is available yet; the record that would settle it is the KNBS county consumer price index series.
 
 **What it means for the campaign.** A household spending seven shillings in ten on food has no margin to invest, which is the whole argument for "From Poverty to Wealth Creation" stated as a number.
@@ -123,7 +123,7 @@ According to the Office of the Auditor-General's FY2023/24 audit report, four cr
 
 #### The incumbent's scorecard: where the itemised money went
 
-The county's *Delivering the Kitui Promise* scorecard (August 2022 – August 2025) itemises 401 of the 2,244 projects it claims, KSh 1.36 billion in all. Summed from its own tables:
+The county's *Delivering the Kitui Promise* scorecard (August 2022 – August 2025) itemises 401 of the 2,244 projects it claims, KSh 1.36 billion in all (Tier 1). Summed from its own tables:
 
 | Constituency | Projects | KSh, itemised (Tier 1) | KSh per registered voter (2022, calculated) |
 |---|---:|---:|---:|
