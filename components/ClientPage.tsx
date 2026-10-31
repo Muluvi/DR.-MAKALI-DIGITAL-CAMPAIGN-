@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { Toaster } from "./Toaster";
+import { LazyMount } from "./LazyMount";
 import { Printer, Search } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
@@ -431,7 +432,17 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
                   {/* Chapter 2's argument, told once over a pinned county before the chapter's detail. */}
                   {item.id === "votes" && (
                     <PanelFold label="The analysis in four steps: the winning number, where the votes are, the routes, and where he has held office">
-                      <Story />
+                      {/* On the streamed flow the story (≈ 2,300 nodes, four figures) mounts as the
+                          reader approaches §2, not in the first hydration, where it was most of the
+                          blocking time on a throttled phone. /full and the section routes still
+                          render it on the server, for print and for readers without JavaScript. */}
+                      {streamed ? (
+                        <LazyMount minHeight="100svh" rootMargin="150% 0px">
+                          <Story />
+                        </LazyMount>
+                      ) : (
+                        <Story />
+                      )}
                     </PanelFold>
                   )}
                   {/* On the /cover route there is no hero, so the cover figures open the section. */}

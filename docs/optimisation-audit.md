@@ -10,23 +10,29 @@ here are listed at the end.
 
 | Metric | Mobile before | Mobile after | Desktop before | Desktop after | Target |
 |---|---|---|---|---|---|
-| Lighthouse performance | **44** | 61 (checkpoint, median of 3) | 90 | 98 | ≥ 95 desktop |
+| Lighthouse performance | **44** | 63 simulated · 68 DevTools-throttled (median) | 90 | 98 | ≥ 95 desktop |
 | Lighthouse accessibility | 100 (dark only) | 100 light and dark | 100 | 100 | 100 |
-| LCP | **9.15 s** | 5.2 s | 1.12 s | 1.0 s | < 2.5 s mobile |
+| LCP | **9.15 s** | 4.6 s simulated · **2.35–2.43 s DevTools-throttled** | 1.12 s | 0.95 s | < 2.5 s mobile |
 | FCP | 1.83 s | | 0.42 s | | |
-| TBT (lab proxy for INP) | **2,034 ms** | 736 ms | 226 ms | 96 ms | INP < 200 ms |
+| TBT (lab proxy for INP) | **2,034 ms** | 629 ms simulated · 1,670 ms DevTools-throttled | 226 ms | 93 ms | INP < 200 ms |
 | CLS | 0.000 | | 0.000 | | < 0.05 |
 | Speed Index | 4.25 s | | 0.79 s | | |
 | JS transferred on load | **788 kB** | 461 kB | 788 kB | 461 kB | |
 | Initial JS (First Load JS, `/`, gz) | **480 kB** | 388 kB | | | < 170 kB |
-| Fonts transferred | **289 kB** | | 289 kB | | |
+| Fonts transferred | **289 kB** | 225 kB | 289 kB | 225 kB | |
 | Images transferred | 19 kB | | 19 kB | | |
 | HTML document | 73 kB | | | | |
-| DOM nodes, `/` on load | 5,940 | | | | |
+| DOM nodes, `/` on load | 5,940 | 3,646 | | | |
 | DOM nodes, `/full` (whole document) | 45,677 | | | | |
 | `/full` HTML | 4.3 MB | | | | |
 
-LCP breakdown, mobile: TTFB 466 ms · load delay 155 ms · **load time 5,916 ms** · render delay 2,612 ms.
+**Two throttling methods.** Lighthouse's default ("simulate") estimates a slow phone from a fast
+run; DevTools throttling actually slows the network and CPU. On this page they disagree: the
+simulated LCP is 4.6 s while the throttled run measures 2.35–2.43 s, and unthrottled Chromium
+reports one LCP entry, the hero image, at 264 ms with no hydration error. Both are recorded; the
+mobile LCP target is met under applied throttling and not under the simulation.
+
+LCP breakdown, mobile (before): TTFB 466 ms · load delay 155 ms · **load time 5,916 ms** · render delay 2,612 ms.
 The LCP element is the hero portrait, which is only 19 kB: it takes six seconds because it shares
 the slow-4G pipe with 788 kB of script and 289 kB of fonts. The render delay is main-thread time.
 JavaScript is the whole problem; the image is not.
