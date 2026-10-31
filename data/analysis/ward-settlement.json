@@ -1,0 +1,2312 @@
+{
+  "id": "ward-settlement",
+  "title": "Buildings by ward, and where they cluster",
+  "description": "Detected buildings per ward and per km², and the dense clusters that mark trading centres. A count of buildings, not of households or people.",
+  "chart_type": "table",
+  "generated": "2026-10-31",
+  "data_as_of": "2026-09-16",
+  "scenario_label": "",
+  "notes": [
+    "Overture Maps buildings, release 2026-10-21.0 (ODbL): OpenStreetMap, Microsoft and Google detections, conflated. Source imagery and edit dates run 2014 to 2026; detection misses buildings and under-counts recent growth."
+  ],
+  "values": [
+    {
+      "label": "Kiomo/Kyethani: buildings",
+      "value": 15266,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "kiomo-kyethani",
+        "constituency": "mwingi-west",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Kiomo/Kyethani: buildings per km²",
+      "value": 41.1,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "kiomo-kyethani",
+        "constituency": "mwingi-west",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Kiomo/Kyethani: share from OpenStreetMap",
+      "value": 16.7,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "kiomo-kyethani",
+        "constituency": "mwingi-west",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Athi: buildings",
+      "value": 24800,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "athi",
+        "constituency": "kitui-south",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Athi: buildings per km²",
+      "value": 3.4,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "athi",
+        "constituency": "kitui-south",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Athi: share from OpenStreetMap",
+      "value": 14.5,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "athi",
+        "constituency": "kitui-south",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Nzambani: buildings",
+      "value": 19220,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "nzambani",
+        "constituency": "kitui-east",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Nzambani: buildings per km²",
+      "value": 210.2,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "nzambani",
+        "constituency": "kitui-east",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Nzambani: share from OpenStreetMap",
+      "value": 0.1,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "nzambani",
+        "constituency": "kitui-east",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Voo/Kyamatu: buildings",
+      "value": 10875,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "voo-kyamatu",
+        "constituency": "kitui-east",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Voo/Kyamatu: buildings per km²",
+      "value": 10.0,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "voo-kyamatu",
+        "constituency": "kitui-east",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Voo/Kyamatu: share from OpenStreetMap",
+      "value": 3.9,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "voo-kyamatu",
+        "constituency": "kitui-east",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Central: buildings",
+      "value": 12546,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "central",
+        "constituency": "mwingi-central",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Central: buildings per km²",
+      "value": 193.1,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "central",
+        "constituency": "mwingi-central",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Central: share from OpenStreetMap",
+      "value": 0.7,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "central",
+        "constituency": "mwingi-central",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Kyuso: buildings",
+      "value": 26873,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "kyuso",
+        "constituency": "mwingi-north",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Kyuso: buildings per km²",
+      "value": 33.1,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "kyuso",
+        "constituency": "mwingi-north",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Kyuso: share from OpenStreetMap",
+      "value": 2.6,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "kyuso",
+        "constituency": "mwingi-north",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Mutito/Kaliku: buildings",
+      "value": 18544,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "mutito-kaliku",
+        "constituency": "kitui-east",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Mutito/Kaliku: buildings per km²",
+      "value": 30.6,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "mutito-kaliku",
+        "constituency": "kitui-east",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Mutito/Kaliku: share from OpenStreetMap",
+      "value": 2.7,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "mutito-kaliku",
+        "constituency": "kitui-east",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Nuu: buildings",
+      "value": 16173,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "nuu",
+        "constituency": "mwingi-central",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Nuu: buildings per km²",
+      "value": 11.5,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "nuu",
+        "constituency": "mwingi-central",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Nuu: share from OpenStreetMap",
+      "value": 0.7,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "nuu",
+        "constituency": "mwingi-central",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Mutha: buildings",
+      "value": 12347,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "mutha",
+        "constituency": "kitui-south",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Mutha: buildings per km²",
+      "value": 3.3,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "mutha",
+        "constituency": "kitui-south",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Mutha: share from OpenStreetMap",
+      "value": 1.4,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "mutha",
+        "constituency": "kitui-south",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Endau/Malalani: buildings",
+      "value": 9344,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "endau-malalani",
+        "constituency": "kitui-east",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Endau/Malalani: buildings per km²",
+      "value": 4.1,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "endau-malalani",
+        "constituency": "kitui-east",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Endau/Malalani: share from OpenStreetMap",
+      "value": 5.2,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "endau-malalani",
+        "constituency": "kitui-east",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Waita: buildings",
+      "value": 11245,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "waita",
+        "constituency": "mwingi-central",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Waita: buildings per km²",
+      "value": 31.9,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "waita",
+        "constituency": "mwingi-central",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Waita: share from OpenStreetMap",
+      "value": 2.3,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "waita",
+        "constituency": "mwingi-central",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Ikanga/Kyatune: buildings",
+      "value": 18328,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "ikanga-kyatune",
+        "constituency": "kitui-south",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Ikanga/Kyatune: buildings per km²",
+      "value": 38.1,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "ikanga-kyatune",
+        "constituency": "kitui-south",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Ikanga/Kyatune: share from OpenStreetMap",
+      "value": 1.6,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "ikanga-kyatune",
+        "constituency": "kitui-south",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Tharaka: buildings",
+      "value": 8486,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "tharaka",
+        "constituency": "mwingi-north",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Tharaka: buildings per km²",
+      "value": 24.1,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "tharaka",
+        "constituency": "mwingi-north",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Tharaka: share from OpenStreetMap",
+      "value": 21.5,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "tharaka",
+        "constituency": "mwingi-north",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Zombe/Mwitika: buildings",
+      "value": 15302,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "zombe-mwitika",
+        "constituency": "kitui-east",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Zombe/Mwitika: buildings per km²",
+      "value": 28.0,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "zombe-mwitika",
+        "constituency": "kitui-east",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Zombe/Mwitika: share from OpenStreetMap",
+      "value": 3.2,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "zombe-mwitika",
+        "constituency": "kitui-east",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Kivou: buildings",
+      "value": 15647,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "kivou",
+        "constituency": "mwingi-central",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Kivou: buildings per km²",
+      "value": 67.1,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "kivou",
+        "constituency": "mwingi-central",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Kivou: share from OpenStreetMap",
+      "value": 0.8,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "kivou",
+        "constituency": "mwingi-central",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Kanyangi: buildings",
+      "value": 15075,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "kanyangi",
+        "constituency": "kitui-rural",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Kanyangi: buildings per km²",
+      "value": 36.6,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "kanyangi",
+        "constituency": "kitui-rural",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Kanyangi: share from OpenStreetMap",
+      "value": 16.2,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "kanyangi",
+        "constituency": "kitui-rural",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Mumoni: buildings",
+      "value": 19878,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "mumoni",
+        "constituency": "mwingi-north",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Mumoni: buildings per km²",
+      "value": 29.0,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "mumoni",
+        "constituency": "mwingi-north",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Mumoni: share from OpenStreetMap",
+      "value": 16.5,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "mumoni",
+        "constituency": "mwingi-north",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Mutomo: buildings",
+      "value": 12759,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "mutomo",
+        "constituency": "kitui-south",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Mutomo: buildings per km²",
+      "value": 40.0,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "mutomo",
+        "constituency": "kitui-south",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Mutomo: share from OpenStreetMap",
+      "value": 1.6,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "mutomo",
+        "constituency": "kitui-south",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Kanziko: buildings",
+      "value": 8666,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "kanziko",
+        "constituency": "kitui-south",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Kanziko: buildings per km²",
+      "value": 19.7,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "kanziko",
+        "constituency": "kitui-south",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Kanziko: share from OpenStreetMap",
+      "value": 1.0,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "kanziko",
+        "constituency": "kitui-south",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Chuluni: buildings",
+      "value": 10776,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "chuluni",
+        "constituency": "kitui-east",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Chuluni: buildings per km²",
+      "value": 62.4,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "chuluni",
+        "constituency": "kitui-east",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Chuluni: share from OpenStreetMap",
+      "value": 0.0,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "chuluni",
+        "constituency": "kitui-east",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Ikutha: buildings",
+      "value": 14356,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "ikutha",
+        "constituency": "kitui-south",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Ikutha: buildings per km²",
+      "value": 33.5,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "ikutha",
+        "constituency": "kitui-south",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Ikutha: share from OpenStreetMap",
+      "value": 0.9,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "ikutha",
+        "constituency": "kitui-south",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Kwa Vonza/Yatta: buildings",
+      "value": 25861,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "kwa-vonza-yatta",
+        "constituency": "kitui-rural",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Kwa Vonza/Yatta: buildings per km²",
+      "value": 34.4,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "kwa-vonza-yatta",
+        "constituency": "kitui-rural",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Kwa Vonza/Yatta: share from OpenStreetMap",
+      "value": 4.1,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "kwa-vonza-yatta",
+        "constituency": "kitui-rural",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Kauwi: buildings",
+      "value": 9912,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "kauwi",
+        "constituency": "kitui-west",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Kauwi: buildings per km²",
+      "value": 41.7,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "kauwi",
+        "constituency": "kitui-west",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Kauwi: share from OpenStreetMap",
+      "value": 1.8,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "kauwi",
+        "constituency": "kitui-west",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Mutonguni: buildings",
+      "value": 28847,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "mutonguni",
+        "constituency": "kitui-west",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Mutonguni: buildings per km²",
+      "value": 194.2,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "mutonguni",
+        "constituency": "kitui-west",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Mutonguni: share from OpenStreetMap",
+      "value": 0.0,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "mutonguni",
+        "constituency": "kitui-west",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Kyome/Thaana: buildings",
+      "value": 19476,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "kyome-thaana",
+        "constituency": "mwingi-west",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Kyome/Thaana: buildings per km²",
+      "value": 59.9,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "kyome-thaana",
+        "constituency": "mwingi-west",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Kyome/Thaana: share from OpenStreetMap",
+      "value": 3.5,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "kyome-thaana",
+        "constituency": "mwingi-west",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Kisasi: buildings",
+      "value": 18508,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "kisasi",
+        "constituency": "kitui-rural",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Kisasi: buildings per km²",
+      "value": 91.8,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "kisasi",
+        "constituency": "kitui-rural",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Kisasi: share from OpenStreetMap",
+      "value": 0.0,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "kisasi",
+        "constituency": "kitui-rural",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Mbitini: buildings",
+      "value": 24413,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "mbitini",
+        "constituency": "kitui-rural",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Mbitini: buildings per km²",
+      "value": 165.9,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "mbitini",
+        "constituency": "kitui-rural",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Mbitini: share from OpenStreetMap",
+      "value": 0.6,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "mbitini",
+        "constituency": "kitui-rural",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Mulango: buildings",
+      "value": 20191,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "mulango",
+        "constituency": "kitui-central",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Mulango: buildings per km²",
+      "value": 119.6,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "mulango",
+        "constituency": "kitui-central",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Mulango: share from OpenStreetMap",
+      "value": 0.0,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "mulango",
+        "constituency": "kitui-central",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Tseikuru: buildings",
+      "value": 21147,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "tseikuru",
+        "constituency": "mwingi-north",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Tseikuru: buildings per km²",
+      "value": 15.7,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "tseikuru",
+        "constituency": "mwingi-north",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Tseikuru: share from OpenStreetMap",
+      "value": 8.8,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "tseikuru",
+        "constituency": "mwingi-north",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Ngomeni: buildings",
+      "value": 9410,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "ngomeni",
+        "constituency": "mwingi-north",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Ngomeni: buildings per km²",
+      "value": 6.3,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "ngomeni",
+        "constituency": "mwingi-north",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Ngomeni: share from OpenStreetMap",
+      "value": 0.2,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "ngomeni",
+        "constituency": "mwingi-north",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Nguni: buildings",
+      "value": 16747,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "nguni",
+        "constituency": "mwingi-central",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Nguni: buildings per km²",
+      "value": 8.8,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "nguni",
+        "constituency": "mwingi-central",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Nguni: share from OpenStreetMap",
+      "value": 1.7,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "nguni",
+        "constituency": "mwingi-central",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Matinyani: buildings",
+      "value": 10415,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "matinyani",
+        "constituency": "kitui-west",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Matinyani: buildings per km²",
+      "value": 194.6,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "matinyani",
+        "constituency": "kitui-west",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Matinyani: share from OpenStreetMap",
+      "value": 0.0,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "matinyani",
+        "constituency": "kitui-west",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Miambani: buildings",
+      "value": 13946,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "miambani",
+        "constituency": "kitui-central",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Miambani: buildings per km²",
+      "value": 61.9,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "miambani",
+        "constituency": "kitui-central",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Miambani: share from OpenStreetMap",
+      "value": 0.2,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "miambani",
+        "constituency": "kitui-central",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Kyangwithya West: buildings",
+      "value": 18342,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "kyangwithya-west",
+        "constituency": "kitui-central",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Kyangwithya West: buildings per km²",
+      "value": 104.3,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "kyangwithya-west",
+        "constituency": "kitui-central",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Kyangwithya West: share from OpenStreetMap",
+      "value": 0.0,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "kyangwithya-west",
+        "constituency": "kitui-central",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Township: buildings",
+      "value": 10128,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "township",
+        "constituency": "kitui-central",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Township: buildings per km²",
+      "value": 476.2,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "township",
+        "constituency": "kitui-central",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Township: share from OpenStreetMap",
+      "value": 7.7,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "township",
+        "constituency": "kitui-central",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Kyangwithya East: buildings",
+      "value": 18462,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "kyangwithya-east",
+        "constituency": "kitui-central",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Kyangwithya East: buildings per km²",
+      "value": 229.9,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "kyangwithya-east",
+        "constituency": "kitui-central",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Kyangwithya East: share from OpenStreetMap",
+      "value": 0.3,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "kyangwithya-east",
+        "constituency": "kitui-central",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Kwa Mutonga/Kithumula: buildings",
+      "value": 18190,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "kwa-mutonga-kithumula",
+        "constituency": "kitui-west",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Kwa Mutonga/Kithumula: buildings per km²",
+      "value": 88.8,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "kwa-mutonga-kithumula",
+        "constituency": "kitui-west",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Kwa Mutonga/Kithumula: share from OpenStreetMap",
+      "value": 0.0,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "kwa-mutonga-kithumula",
+        "constituency": "kitui-west",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Nguutani: buildings",
+      "value": 21860,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "nguutani",
+        "constituency": "mwingi-west",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Nguutani: buildings per km²",
+      "value": 99.2,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "nguutani",
+        "constituency": "mwingi-west",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Nguutani: share from OpenStreetMap",
+      "value": 0.0,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "nguutani",
+        "constituency": "mwingi-west",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Migwani: buildings",
+      "value": 9496,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "migwani",
+        "constituency": "mwingi-west",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Migwani: buildings per km²",
+      "value": 125.1,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "migwani",
+        "constituency": "mwingi-west",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Migwani: share from OpenStreetMap",
+      "value": 0.0,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "migwani",
+        "constituency": "mwingi-west",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Mui: buildings",
+      "value": 28361,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Overture buildings whose centre falls in the ward polygon.",
+      "dims": {
+        "ward": "mui",
+        "constituency": "mwingi-central",
+        "measure": "buildings"
+      }
+    },
+    {
+      "label": "Mui: buildings per km²",
+      "value": 58.5,
+      "unit": "per km²",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings / ward area (equal-area projection).",
+      "dims": {
+        "ward": "mui",
+        "constituency": "mwingi-central",
+        "measure": "per_km2"
+      }
+    },
+    {
+      "label": "Mui: share from OpenStreetMap",
+      "value": 0.1,
+      "unit": "percent",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "The rest are machine-detected (Microsoft, Google).",
+      "dims": {
+        "ward": "mui",
+        "constituency": "mwingi-central",
+        "measure": "osm_pct"
+      }
+    },
+    {
+      "label": "Cluster 1",
+      "value": 4281,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 1,
+        "lon": 38.05967,
+        "lat": -0.93651,
+        "ward": "central"
+      }
+    },
+    {
+      "label": "Cluster 2",
+      "value": 1330,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 2,
+        "lon": 38.00862,
+        "lat": -1.367,
+        "ward": "township"
+      }
+    },
+    {
+      "label": "Cluster 3",
+      "value": 1080,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 3,
+        "lon": 38.20773,
+        "lat": -1.84812,
+        "ward": "mutomo"
+      }
+    },
+    {
+      "label": "Cluster 4",
+      "value": 877,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 4,
+        "lon": 38.01697,
+        "lat": -1.37132,
+        "ward": "township"
+      }
+    },
+    {
+      "label": "Cluster 5",
+      "value": 603,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 5,
+        "lon": 38.0081,
+        "lat": -1.35807,
+        "ward": "township"
+      }
+    },
+    {
+      "label": "Cluster 6",
+      "value": 578,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 6,
+        "lon": 37.91548,
+        "lat": -1.23355,
+        "ward": "kauwi"
+      }
+    },
+    {
+      "label": "Cluster 7",
+      "value": 494,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 7,
+        "lon": 37.99558,
+        "lat": -1.37556,
+        "ward": "township"
+      }
+    },
+    {
+      "label": "Cluster 8",
+      "value": 446,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 8,
+        "lon": 37.82911,
+        "lat": -1.3835,
+        "ward": "kwa-vonza-yatta"
+      }
+    },
+    {
+      "label": "Cluster 9",
+      "value": 390,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 9,
+        "lon": 38.11748,
+        "lat": -1.59323,
+        "ward": "mbitini"
+      }
+    },
+    {
+      "label": "Cluster 10",
+      "value": 329,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 10,
+        "lon": 38.31047,
+        "lat": -0.80387,
+        "ward": "nguni"
+      }
+    },
+    {
+      "label": "Cluster 11",
+      "value": 327,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 11,
+        "lon": 38.21194,
+        "lat": -0.55648,
+        "ward": "kyuso"
+      }
+    },
+    {
+      "label": "Cluster 12",
+      "value": 309,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 12,
+        "lon": 38.10288,
+        "lat": -1.05142,
+        "ward": "mui"
+      }
+    },
+    {
+      "label": "Cluster 13",
+      "value": 294,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 13,
+        "lon": 38.24501,
+        "lat": -1.44325,
+        "ward": "zombe-mwitika"
+      }
+    },
+    {
+      "label": "Cluster 14",
+      "value": 289,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 14,
+        "lon": 38.18966,
+        "lat": -1.22565,
+        "ward": "mutito-kaliku"
+      }
+    },
+    {
+      "label": "Cluster 15",
+      "value": 275,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 15,
+        "lon": 37.97892,
+        "lat": -1.18687,
+        "ward": "mutonguni"
+      }
+    },
+    {
+      "label": "Cluster 16",
+      "value": 219,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 16,
+        "lon": 38.01902,
+        "lat": -1.09678,
+        "ward": "migwani"
+      }
+    },
+    {
+      "label": "Cluster 17",
+      "value": 217,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 17,
+        "lon": 37.9223,
+        "lat": -1.67753,
+        "ward": "kisasi"
+      }
+    },
+    {
+      "label": "Cluster 18",
+      "value": 212,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 18,
+        "lon": 38.17932,
+        "lat": -2.06523,
+        "ward": "ikutha"
+      }
+    },
+    {
+      "label": "Cluster 19",
+      "value": 210,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 19,
+        "lon": 38.21797,
+        "lat": -0.30775,
+        "ward": "tseikuru"
+      }
+    },
+    {
+      "label": "Cluster 20",
+      "value": 209,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 20,
+        "lon": 38.73953,
+        "lat": -0.77649,
+        "ward": "nguni"
+      }
+    },
+    {
+      "label": "Cluster 21",
+      "value": 205,
+      "unit": "count",
+      "source_id": "S74",
+      "tier": 2,
+      "as_of": "2026-10-21.0",
+      "method": "calculated",
+      "status": "placeholder",
+      "note": "Buildings in a dense cluster (assumptions.yaml settlement.cluster_*): centroid only.",
+      "dims": {
+        "measure": "cluster",
+        "rank": 21,
+        "lon": 38.09207,
+        "lat": -1.50816,
+        "ward": "mbitini"
+      }
+    }
+  ]
+}

@@ -647,3 +647,42 @@ census:
       share of its area. Chosen by Firefly so that boundary-file disagreement (a few per cent)
       does not count as a split. Approved by Firefly on 30 October 2026. At 0.8, four wards are
       split.
+
+# ---------------------------------------------------------------------------------------
+# 12. Buildings and settlement clusters (Stage 16, open-data brief WP5)
+# ---------------------------------------------------------------------------------------
+settlement:
+  source:
+    value: S74
+    source_id: S74
+    tier: 2
+    as_of: "2026-10-21.0"
+    status: CONFIRMED
+    rationale: >-
+      Overture Maps Foundation, buildings theme, release 2026-10-21.0 (ODbL): OpenStreetMap,
+      Microsoft and Google building detections, conflated. Used in place of the brief's
+      Microsoft Kenya footprints, whose download host is unreachable from the build
+      environment; approved by Firefly on 30 October 2026. Tier 2: machine detection and
+      volunteer mapping, not an official count. S74 is the next ID after S73.
+  overture_release:
+    value: "2026-10-21.0"
+    status: CONFIRMED
+    rationale: >-
+      The Overture release read by Stage 16's fetch, pinned so a re-run reads the same data.
+  cluster_eps_m:
+    value: 75
+    status: PLACEHOLDER
+    rationale: >-
+      DBSCAN neighbourhood radius, metres. Wide enough to join the buildings of a market
+      centre across a street, narrow enough not to chain scattered homesteads together.
+      Chosen by Firefly; nobody has confirmed it.
+  cluster_min_samples:
+    value: 25
+    status: PLACEHOLDER
+    rationale: >-
+      Buildings within cluster_eps_m needed to seed a cluster. Chosen by Firefly.
+  cluster_min_buildings:
+    value: 200
+    status: PLACEHOLDER
+    rationale: >-
+      Smallest cluster kept as a likely trading centre. Chosen by Firefly.

@@ -2,7 +2,7 @@
 
 Where the scorecard's itemised projects land, ward by ward.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-10-30*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-10-31*
 
 
 ## Match rate

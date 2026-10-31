@@ -18,3 +18,7 @@ geopandas==1.0.1
 
 # Stage 15 (census) only: reads the rKenyaCensus .rda tables without an R install.
 pyreadr==0.5.8
+
+# Stage 16 (buildings) only: reads Overture's parquet row groups from S3. 18.1 is the last
+# release built against NumPy 1.x, which the rest of the pipeline pins.
+pyarrow==18.1.0

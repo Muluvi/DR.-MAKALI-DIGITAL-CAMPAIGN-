@@ -2,7 +2,7 @@
 
 Kitui's census sub-counties, and which of them each ward sits in.
 
-*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-10-30*
+*Kitui 2027 analysis pipeline · data as of 2026-09-16 · generated 2026-10-31*
 
 
 ## Kitui's sub-counties

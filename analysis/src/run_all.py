@@ -40,6 +40,7 @@ STAGES: dict[int, tuple[str, str]] = {
     # Stage 13 is reserved for ward population (open-data brief, WP2).
     14: ("stage14_projects", "County projects by ward"),
     15: ("stage15_census", "2019 census by sub-county"),
+    16: ("stage16_settlement", "Buildings and settlement clusters"),
 }
 
 

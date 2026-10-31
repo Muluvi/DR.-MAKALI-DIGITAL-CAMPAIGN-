@@ -4,7 +4,7 @@ Every public repository the site or the analysis pipeline takes anything from, r
 use (`KITUI-OPEN-DATA-BRIEF.md`, WP0). A repository with no licence file is not used. Raw
 downloads go in `analysis/data/` (gitignored). Only derived keys and aggregates are committed.
 
-Last updated 30 October 2026 (step 4, census).
+Last updated 31 October 2026 (step 5, buildings).
 
 ## In use
 
@@ -67,6 +67,21 @@ Last updated 30 October 2026 (step 4, census).
 | Known limits | Digitised separately from the ward polygons, so the overlay leaves slivers; those under 1% of a ward are dropped. Shares are of land area, not people. The file `ken_sublocations23.zip` (sub-locations) was not used; WP2b could use it. |
 | Attribution line | "Sub-county boundaries: US Census Bureau via keAdminBounds (MIT)." |
 
+### Overture Maps Foundation, buildings theme (in place of Microsoft's Kenya footprints)
+
+| | |
+|---|---|
+| Where | `s3://overturemaps-us-west-2/release/2026-10-21.0/theme=buildings/type=building/`, read anonymously over HTTPS |
+| Version | Release `2026-10-21.0`, pinned in `analysis/config/assumptions.yaml` (`settlement.overture_release`) |
+| Licence | ODbL 1.0 for the buildings theme (Overture's published licence for this theme). The `sources[].license` field of each record names its source's terms. |
+| What was taken | For the 74 parquet row groups (in 3 of 512 files) whose bounding boxes overlap Kitui: each building's `id`, the centre of its `bbox`, and its first source's `dataset` and `update_time`. 1,922,973 buildings in the rectangle; 660,218 inside the 40 wards. No geometry is kept. |
+| Original source and date | Conflated by Overture from Google Open Buildings (63.0% of Kitui's), Microsoft ML Buildings (33.5%) and OpenStreetMap (3.5%). Edit and imagery dates run 2014 to 2026. |
+| Coverage of Kitui | All 40 wards |
+| Resolution | Building points, aggregated to ward counts, ward density and cluster centroids |
+| Tier | T2 `calculated`, source ID `S74` |
+| Known limits | Replaces the brief's Microsoft Kenya release (2020–21 Maxar imagery), whose host `minedbuildings.z5.web.core.windows.net` is unreachable from this environment; approved by Firefly on 30 October 2026. All sources are counted together, because Overture keeps an OpenStreetMap building over a detection of the same building. Detection misses buildings (Microsoft reports 69% recall in Kenya). A building count, not households or people. |
+| Attribution line | "Buildings: © Overture Maps Foundation, ODbL; includes OpenStreetMap contributors, Microsoft and Google Open Buildings." |
+
 ## Already in use before this register (recorded elsewhere)
 
 | Repository | Record |
@@ -77,9 +92,9 @@ Last updated 30 October 2026 (step 4, census).
 
 | Repository | Brief's work package | State on 30 October 2026 |
 |---|---|---|
-| WorldPop (wpgp) rasters | WP2 | `hub.worldpop.org` and `data.worldpop.org` did not connect from this environment. [DATA NEEDED] until the hosts are allowed or the rasters are supplied. |
-| KMHFL (masterfacilitylist, `api.kmhfl.health.go.ke`) | WP4 | Did not connect from this environment. [DATA NEEDED] on the same terms. |
-| Microsoft/KenyaNigeriaBuildingFootprints | WP5 | The repository page returned 403 through the environment's proxy. Not checked further. |
+| WorldPop (wpgp) rasters | WP2 | `hub.worldpop.org` and `data.worldpop.org` still did not connect on 31 October 2026. [DATA NEEDED] until the hosts are allowed or the rasters are supplied. No substitute: Overture has no population layer. |
+| KMHFL (masterfacilitylist, `api.kmhfl.health.go.ke`) | WP4 | Still did not connect on 31 October 2026. [DATA NEEDED] on the same terms. Overture's places are not used in its place: KMHFL is the official register. |
+| Microsoft/KenyaNigeriaBuildingFootprints | WP5 | Repository reachable (commit `13adff8`, ODbL), but its data host `minedbuildings.z5.web.core.windows.net` is not. Replaced by Overture's buildings (above). |
 | wanjohikibui/keAdminBounds, sub-locations | WP2b | In use for sub-counties (above); sub-location polygons not yet used |
 | tigawanna/kenya_wards_geojson_data | WP1 cross-check | Not needed: open-admin-data and the existing polygons agreed on all 40 wards |
 | lsc-hubs/kenya-catalogue | WP7 | Not started |
@@ -87,8 +102,8 @@ Last updated 30 October 2026 (step 4, census).
 ## Source IDs
 
 The analysis exports cite the scorecard as `S70`, open-admin-data as `S71`, the KNBS 2019 census
-tables as `S72` and the sub-county polygons as `S73`. The highest ID in
+tables as `S72`, the sub-county polygons as `S73` and Overture's buildings as `S74`. The highest ID in
 the repository before this work was `S69` (`data/analysis/issue-evidence.json`). The S-IDs are
 assigned in the data pack (`analysis/data/raw/kitui-2027-public-data-pack.md`), which is not in
-the repository. Whoever holds the pack must confirm `S70` to `S73` are free there before the
+the repository. Whoever holds the pack must confirm `S70` to `S74` are free there before the
 next pipeline run.

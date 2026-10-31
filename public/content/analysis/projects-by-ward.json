@@ -3,7 +3,7 @@
   "title": "County projects by ward",
   "description": "Itemised scorecard projects whose printed place resolves to one ward: count and summed printed cost. Projects naming several wards, a ward outside their constituency, no ward, or the whole county are totalled separately and never spread across wards.",
   "chart_type": "bar",
-  "generated": "2026-10-30",
+  "generated": "2026-10-31",
   "data_as_of": "2026-09-16",
   "scenario_label": "",
   "notes": [
