@@ -32,6 +32,9 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
   display: 'swap',
+  // Not preloaded: nothing on the first screen is set in mono, and on slow 4G its 40 kB competed
+  // with the hero portrait for the critical path (docs/optimisation-audit.md).
+  preload: false,
   fallback: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
 });
 
@@ -121,12 +124,20 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" suppressHydrationWarning className={`dark ${bricolage.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}>
       <head>
-        {/* The 2.1 story pins its county only where WebGL can draw it and motion is welcome. Deciding
-            that here, before the first paint, lets the story's CSS lay out the pinned steps from the
-            start instead of switching after hydration, which shifted the evidence page (CLS 0.48). */}
+        {/* The 2.1 story pins its county only where motion is welcome. Deciding that here, before
+            the first paint, lets the story's CSS lay out the pinned steps from the start instead of
+            switching after hydration, which shifted the evidence page (CLS 0.48). */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{if(window.WebGLRenderingContext&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.setAttribute("data-story-pin","")}catch(e){}`,
+            __html: `try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.setAttribute("data-story-pin","")}catch(e){}`,
+          }}
+        />
+        {/* The theme, before first paint (visual-first pass). A stored choice wins; without one the
+            page follows the device's colour scheme. Setting the class here, not after hydration,
+            removes the flash of the dark ground a light-theme reader used to get. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=null;try{t=localStorage.getItem("theme")}catch(e){}var l=t==="light"||t==="sepia"||(t!=="dark"&&matchMedia("(prefers-color-scheme: light)").matches);document.documentElement.classList.toggle("dark",!l)}catch(e){}`,
           }}
         />
         {/* With scripts off, no fold, accordion, card or tab can open, so every one ships open

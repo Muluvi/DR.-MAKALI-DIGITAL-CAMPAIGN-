@@ -3,7 +3,7 @@
 /* Decision map: compresses the document's route into a visual scan before prose begins. */
 .visual-overview {
   --overview-ink: var(--ink, #f4f0e8);
-  --overview-muted: color-mix(in oklch, var(--overview-ink) 64%, transparent);
+  --overview-muted: color-mix(in oklch, var(--overview-ink) 72%, transparent); /* 64% gave 4.43:1 on the light ground (visual-first pass, Lighthouse) */
   --overview-line: color-mix(in oklch, var(--overview-ink) 16%, transparent);
   margin: clamp(1.5rem, 4vw, 3rem) 0;
   padding: clamp(1rem, 3vw, 1.5rem);
@@ -458,7 +458,7 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   --fs-micro: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);  /* 12 → 13px */
   --fs-label: clamp(0.8125rem, 0.78rem + 0.15vw, 0.875rem); /* 13 → 14px */
   --fs-small: clamp(0.875rem, 0.84rem + 0.18vw, 0.9375rem); /* 14 → 15px */
-  --fs-body:  clamp(0.9375rem, 0.91rem + 0.22vw, 1.0625rem); /* 15px mobile → 17px desktop */
+  --fs-body:  clamp(1rem, 0.96rem + 0.2vw, 1.125rem); /* 16px phone → 18px laptop (visual-first pass: the brief sets 16–17 / 18–19) */
   --fs-lead:  clamp(1.0625rem, 1.02rem + 0.28vw, 1.25rem);   /* 17px mobile → 20px desktop */
 
   /* The display end. Hero statistics only — the deficit, the ceiling, the vote threshold —
@@ -2119,3 +2119,15 @@ html {
   figure details > summary { display: none; }
   details.print-open > summary .crossref-toggle { display: none !important; }
 }
+
+/* ---------------------------------------------------------------------------------------------
+ * Typography floor (visual-first pass, October 2026). One rule each, so no component has to
+ * remember them:
+ *   - every number in a figure, a table, a visual block or a KPI lines up in columns;
+ *   - headings balance their lines, paragraphs avoid a lone last word;
+ *   - long ward and place names in table cells break at a hyphenation point, not mid-glyph.
+ * ------------------------------------------------------------------------------------------- */
+:is(.rf, .vz, table, .pf-num, .pf-bn, .anim-num) { font-variant-numeric: tabular-nums lining-nums; }
+:is(h1, h2, h3, h4) { text-wrap: balance; }
+:where(p, li, figcaption) { text-wrap: pretty; }
+:is(td, th) { hyphens: auto; overflow-wrap: break-word; }

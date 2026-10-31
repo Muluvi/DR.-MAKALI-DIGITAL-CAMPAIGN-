@@ -22,7 +22,6 @@
     "check:declutter": "node scripts/declutter/check-tokens.mjs && node scripts/declutter/check-leads.mjs && node scripts/declutter/build-cuts-md.mjs --check && node --no-warnings --experimental-strip-types scripts/declutter/tier-mismatches.mjs --check"
   },
   "dependencies": {
-    "@react-three/fiber": "^9.8.0",
     "autoprefixer": "^10.4.21",
     "d3-geo": "^3.1.1",
     "d3-scale": "^4.0.2",
@@ -38,7 +37,6 @@
     "recharts": "^3.10.1",
     "rehype-raw": "^7.0.0",
     "remark-gfm": "^4.0.1",
-    "three": "^0.180.0",
     "topojson-client": "^3.1.0"
   },
   "devDependencies": {
@@ -49,7 +47,6 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/three": "^0.186.0",
     "@types/topojson-client": "^3.1.5",
     "eslint": "9.39.1",
     "eslint-config-next": "16.0.8",

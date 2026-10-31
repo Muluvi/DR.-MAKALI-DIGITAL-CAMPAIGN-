@@ -5,6 +5,7 @@ import { Link2, Check, Share2 } from "lucide-react";
 import { useInView } from "../../hooks/use-in-view";
 import { useRipple } from "../../hooks/use-pointer-fx";
 import { useMounted } from "../../hooks/use-mobile";
+import { announce } from "../Toaster";
 
 /**
  * Every one of the document's 262 headings renders through this component, which makes it the
@@ -60,6 +61,7 @@ function CopyLinkButton({ id }: { id: string }) {
       // Clipboard API can be denied (permissions, insecure context); the href fallback below still works.
     }
     if (window.__navigateToSection) window.__navigateToSection(id);
+    announce("Link to this section copied");
     setCopied(true);
     setTimeout(() => setCopied(false), 1600);
   };

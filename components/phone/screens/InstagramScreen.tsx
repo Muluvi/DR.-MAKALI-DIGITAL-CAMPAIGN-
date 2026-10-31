@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Bookmark, Heart, Home, MessageCircle, MoreHorizontal, Search, Send, SquarePlay, User } from "lucide-react";
 
 import { IDENTITY, ILLUSTRATIVE_COUNTS, INSTAGRAM } from "../../../lib/phone-showcase";
-import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
 import { Avatar, ScreenShell } from "../primitives";
 
 /**
@@ -22,14 +21,9 @@ const FG = "#262626";
 const MUTED = "#8e8e8e";
 
 export function InstagramScreen() {
-  const reduce = useReducedMotionSafe();
-  const [slide, setSlide] = useState(0);
-
-  useEffect(() => {
-    if (reduce) return;
-    const id = window.setInterval(() => setSlide((s) => (s + 1) % INSTAGRAM.slideCount), 2600);
-    return () => window.clearInterval(id);
-  }, [reduce]);
+  // The post's first slide, held still. The index used to cycle every 2.6s over an unchanging
+  // image: an auto-advancing carousel, which the visual-first pass rejects, and a false one.
+  const slide = 0;
 
   return (
     <ScreenShell tone="dark" background="#ffffff">

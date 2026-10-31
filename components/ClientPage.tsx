@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+
+import { Toaster } from "./Toaster";
 import { Printer, Search } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
@@ -97,6 +99,13 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
   // The Brief/Full reading mode was removed in October 2026; this clears the preference it stored.
   // It can be deleted after 2026-12-31.
   useEffect(() => { try { window.localStorage.removeItem("kitui2027:reading-mode"); } catch { /* storage blocked */ } }, []);
+
+  // Offline reading for the team (public/sw.js): what a phone has read reopens on a weak signal.
+  // Production only, so a development server is never answered from a stale cache.
+  useEffect(() => {
+    if (process.env.NODE_ENV !== "production" || !("serviceWorker" in navigator)) return;
+    navigator.serviceWorker.register("/sw.js").catch(() => { /* unsupported or refused: the page works without it */ });
+  }, []);
 
   /**
    * Which section the reader is in.
@@ -300,6 +309,14 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
     window.setTimeout(fire, 1400);
   }, [expanded, router]);
 
+  const labelOf = useCallback(
+    (id: string) => {
+      const item = navItems.find((t) => t.id === id);
+      return item ? `${item.number ? `§${item.number} ` : ""}${item.label}` : null;
+    },
+    [navItems]
+  );
+
   const activeItem = useMemo(
     () => navItems.find((t) => t.id === (expanded ? currentTab : activeTab)) ?? navItems[0],
     [navItems, currentTab, activeTab, expanded]
@@ -326,13 +343,12 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
         <div className="pf-grain print:hidden" aria-hidden="true" />
 
         {/* ----------------------------------------------------------- hero */}
-        {/* The cover (brief G-2, §10 Cover): the county in 3D behind, the portrait large in
-            front, the title in the display face. It scrolls through the county's story and ends
-            on the tile map with the pool resolved; the four figures follow as big numbers. The
+        {/* The cover (brief G-2, §10 Cover): the county behind, the portrait large in
+            front, the title in the display face, and the county drawn ward by ward (SVG; the WebGL
+            scene was removed in the visual-first pass). The four figures follow as big numbers. The
             static county is in the HTML for print, reduced motion and scripts off. */}
         {expanded && (
           <CoverHero
-            theme={theme === "light" ? "light" : "dark"}
             byline={
               <p className="pf-byline">
                 <WiperUmbrellaLogo />
@@ -415,7 +431,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
                   {/* Chapter 2's argument, told once over a pinned county before the chapter's detail. */}
                   {item.id === "votes" && (
                     <PanelFold label="The analysis in four steps: the winning number, where the votes are, the routes, and where he has held office">
-                      <Story theme={theme === "light" ? "light" : "dark"} />
+                      <Story />
                     </PanelFold>
                   )}
                   {/* On the /cover route there is no hero, so the cover figures open the section. */}
@@ -493,6 +509,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
             navigateToSection(secId);
           }}
         />
+        <Toaster current={activeItem.id} labelOf={labelOf} goTo={goToSection} resumable={streamed} />
       </div>
     </SectionNumberMapProvider>
   );
