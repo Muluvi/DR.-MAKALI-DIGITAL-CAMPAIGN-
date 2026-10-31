@@ -119,7 +119,7 @@ out:
     text: "Firefly builds the tracking behind indicator GE-03;"
     body: "the campaign supplies and accredits the agents."
   - label: "Campaign-owned field recommendations"
-    body: "The ward-captain network ({{target.captains.pool}} of {{target.captains}} captains recommended for the pool's wards, Section 12.1), the {{target.ambassadors}} M-Pesa \"Economic Ambassadors\", the {{target.stage-champions}} boda-boda Stage Champions (Section 15.3.1), radio studio bookings and sponsored outside broadcasts, and the market-day sound-truck caravans (Section 4.4). Each appears in this document as a recommendation to the campaign. Firefly writes the brief each one carries; the campaign recruits, pays and runs them."
+    body: "The ward-captain network ({{target.captains.pool}} of {{target.captains}} captains recommended for the pool's wards, Section 12.1), the {{target.ambassadors}} M-Pesa \"Economic Ambassadors\", the {{target.stage-champions}} boda-boda Stage Champions (a target, Section 15.3.1), radio studio bookings and sponsored outside broadcasts, and the market-day sound-truck caravans (Section 4.4). Each appears in this document as a recommendation to the campaign. Firefly writes the brief each one carries; the campaign recruits, pays and runs them."
 ```
 
 ## 13.4 The weekly rhythm, decision rights and approvals

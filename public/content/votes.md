@@ -2,12 +2,12 @@
 Kitui has **532,758** registered voters on the 2022 register, and Governor Malombe won in 2022 with **198,004** votes. The number to win is about **200,000**, and no single region holds it.
 ```
 
-Kitui has **532,758** registered voters on the 2022 register, and Governor Malombe won in 2022 with **198,004** votes. The number to win is about **200,000**, and no single region holds it. This chapter sets out the electorate, how it has voted, where the votes are, and the arithmetic of winning.
+Kitui has **532,758** registered voters on the 2022 register, and Governor Malombe won in 2022 with **198,004** votes (Tier 1, IEBC). The number to win is about **200,000** (target), and no single region holds it. This chapter sets out the electorate, how it has voted, where the votes are, and the arithmetic of winning.
 
 ## 2.1 The electorate: registered voters in 2022 and 2026, polling stations, turnout
 
 ```visual
-{"kind":"stats","items":[{"value":"532,758","label":"registered voters, 2022","tier":1,"body":"**532,758** voters registered in wards, plus **75** registered in prisons: **532,833** in all (Tier 1, IEBC)."},{"value":"40","label":"wards across 8 constituencies","tier":1,"body":"40 county assembly wards in eight constituencies (Tier 1, IEBC)."},{"value":"1,578","label":"polling stations","tier":1,"body":"1,578 polling stations (Tier 1, IEBC 2022 polling station register)."},{"value":"605,703","label":"registered, July 2026","tier":3,"body":"**605,703** registered voters in July 2026 (Tier 3, reported by Venas News; unconfirmed until IEBC's own July 2026 figure is in hand). Of the **72,945** added since 2022, **61,839** registered in ECVR Phase 1, the 30-day drive that closed on 28 April 2026, and **11,106** through continuous registration outside it (modelled: the growth less the drive). A second ECVR phase ran from 25 June to 25 July 2026 (IEBC gazette notice, 24 June 2026); whether the July figure includes it is not stated, so the remainder may carry some of it. The 2026 register is not yet published by ward."},{"value":"61.7%","label":"turnout, 2022","tier":1,"body":"**61.7%** certified: 328,760 valid votes for governor, of 532,758 registered (Tier 1, IEBC Form 37C). Chapter 2 carries this rate forward to 2027 as a stated assumption. [CONFLICT C8: see open items]"}]}
+{"kind":"stats","items":[{"value":"532,758","label":"registered voters, 2022","tier":1,"body":"**532,758** voters registered in wards, plus **75** registered in prisons: **532,833** in all (Tier 1, IEBC)."},{"value":"40","label":"wards across 8 constituencies","tier":1,"body":"40 county assembly wards in eight constituencies (Tier 1, IEBC)."},{"value":"1,578","label":"polling stations","tier":1,"body":"1,578 polling stations (Tier 1, IEBC 2022 polling station register)."},{"value":"605,703","label":"registered, July 2026","tier":3,"body":"**605,703** registered voters in July 2026 (Tier 3, reported by Venas News; unconfirmed until IEBC's own July 2026 figure is in hand). Of the **72,945** added since 2022 (Tier 3, unconfirmed), **61,839** registered in ECVR Phase 1 (Tier 1, IEBC), the 30-day drive that closed on 28 April 2026, and **11,106** through continuous registration outside it (modelled: the growth less the drive). A second ECVR phase ran from 25 June to 25 July 2026 (IEBC gazette notice, 24 June 2026); whether the July figure includes it is not stated, so the remainder may carry some of it. The 2026 register is not yet published by ward."},{"value":"61.7%","label":"turnout, 2022","tier":1,"body":"**61.7%** certified: 328,760 valid votes for governor, of 532,758 registered (Tier 1, IEBC Form 37C). Chapter 2 carries this rate forward to 2027 as a stated assumption. [CONFLICT C8: see open items]"}]}
 ```
 
 ```figure
@@ -26,7 +26,7 @@ Julius Malombe won 2022 with **198,004 votes** on a certified turnout of **61.7%
 
 *   **Governor, 2013:** a **named data gap** (Tier 1 gap). No certified result is in hand, and the proposal does not use recollection in its place. The record that closes it is the IEBC's 2013 declaration and its Kenya Gazette notice.
 *   **Governor, 2017:** Charity Ngilu (NARC) won with **169,990 votes** (Tier 1), in an election the Court of Appeal confirmed (*Malombe v Ngilu* [2018] KECA 460) (Tier 1). David Musila was the certified runner-up with **114,827 votes** (Tier 1), and the incumbent, Julius Malombe, came third with **74,681 votes** (Tier 1).
-*   **Governor, 2022:** Julius Malombe (Wiper Democratic Movement, renamed the Wiper Patriotic Front in 2025) won with **198,004 votes** on a certified turnout of **61.7%**, 328,760 valid votes of 532,758 registered (Tier 1, IEBC Form 37C). David Musila (Jubilee) was runner-up with **117,606 votes** (Tier 1); The Star's early total of 114,606 is a media variant, and the certified share (35.77%) matches 117,606. Jonathan Mueke (UDA) came third with **10,639 votes** (Tier 2).
+*   **Governor, 2022:** Julius Malombe (Wiper Democratic Movement, renamed the Wiper Patriotic Front in 2025) won with **198,004 votes** on a certified turnout of **61.7%**, 328,760 valid votes of 532,758 registered (Tier 1, IEBC Form 37C). David Musila (Jubilee) was runner-up with **117,606 votes** (Tier 1); The Star's early total of 114,606 is a media variant, and the certified share (35.77%, calculated) matches 117,606. Jonathan Mueke (UDA) came third with **10,639 votes** (Tier 2).
 *   **President, 2022 (Kitui):** Raila Odinga won **235,400** votes (**70.82%**) and William Ruto **89,419** (**26.90%**); George Wajackoyah won 2,838 and David Mwaure 1,446, with 3,306 ballots rejected (Tier 2, Equal Politics aggregation of IEBC results). The Tier 1 record is IEBC Forms 34B and 34C, not yet in hand.
 *   **Kitui Central MP, 2022:** Dr. Makali Mulu was re-elected on the Wiper ticket with **30,954 votes** (Tier 1, IEBC declaration as gazetted); Boniface Musambi was second with 9,866. Early media totals differ from the gazetted figure and are not used. The figure reached this proposal through a press reproduction of the declaration; the Kenya Gazette notice itself is the record to hold.
 *   **Senator and Woman Representative, 2022:** Senator Enoch Wambua (Wiper) won with **191,317 votes** (Tier 2), and Woman Representative Irene Kasalu (Wiper) with **201,899 votes** (Tier 2). Both totals are media reports. The certified declarations (IEBC Form 38C for the Senate, Form 39C for the Woman Representative) are the Tier 1 record and are not yet in hand; until they are, both figures stay Tier 2.
@@ -40,14 +40,14 @@ id: fig-2-2-results
 
 ## 2.3 Where the votes are: the twelve largest wards
 
-The register is concentrated. Spread evenly, the 40 wards would hold 13,319 voters each; in fact voters cluster in urban corridors, farming belts and sub-county headquarters.
+The register is concentrated. Spread evenly, the 40 wards would hold 13,319 voters each (calculated); in fact voters cluster in urban corridors, farming belts and sub-county headquarters.
 
 ```figure
 id: fig-3-2-register-map
 ```
 
 ```visual
-{"kind":"stats","title":"Where the votes concentrate","items":[{"value":"37.78%","label":"of the register in the 12 largest wards","tier":1,"body":"**Twelve wards, 30% of the total, hold 201,267 registered voters** (37.78% of the county). That is as many registered voters as the 2022 winning tally, but registration is not turnout: at the 61.7% turnout rate they cast about **124,182 ballots**."},{"value":"59.13%","label":"in the largest 20","tier":1,"body":"**The largest 20 wards**, half the total, hold **315,006 registered voters** (**59.13%** of the county)."},{"value":"18.10%","label":"in the smallest 10","tier":1,"body":"**The ten smallest wards** (from Mui down to Tharaka), a quarter of the total, hold **96,415 registered voters** (**18.10%** of the register) across large areas that are slow and costly to cover on the ground."}]}
+{"kind":"stats","title":"Where the votes concentrate","items":[{"value":"37.78%","label":"of the register in the 12 largest wards","tier":1,"body":"**Twelve wards, 30% of the total, hold 201,267 registered voters** (37.78% of the county, calculated from IEBC's 2022 register). That is as many registered voters as the 2022 winning tally, but registration is not turnout: at the 61.7% turnout rate they cast about **124,182 ballots** (calculated)."},{"value":"59.13%","label":"in the largest 20","tier":1,"body":"**The largest 20 wards**, half the total, hold **315,006 registered voters** (**59.13%** of the county, calculated)."},{"value":"18.10%","label":"in the smallest 10","tier":1,"body":"**The ten smallest wards** (from Mui down to Tharaka), a quarter of the total, hold **96,415 registered voters** (**18.10%** of the register, calculated) across large areas that are slow and costly to cover on the ground."}]}
 ```
 
 ## 2.4 The constituencies that decide it: the Mwingi bloc and the Big Four
@@ -64,12 +64,12 @@ id: constituency-power
 
 #### The Mwingi bloc: necessary, not sufficient
 
-**Mwingi North, Mwingi West and Mwingi Central together command 200,198 registered voters (Tier 1).** That is more *registered voters* than the 2022 winning tally (198,004 votes, Tier 1), but registration is not turnout. At the certified 61.7% turnout the bloc casts roughly **123,522 ballots**, so even every vote there leaves the campaign about 76,478 short of 200,000. Mwingi is therefore **necessary and not sufficient**: no path to 200,000 runs around it, and none ends there. So SMS, USSD and digital outreach go into Mwingi first, to establish Dr. Mulu as the leading alternative there.
+**Mwingi North, Mwingi West and Mwingi Central together command 200,198 registered voters (Tier 1).** That is more *registered voters* than the 2022 winning tally (198,004 votes, Tier 1), but registration is not turnout. At the certified 61.7% turnout the bloc casts roughly **123,522 ballots**, so even every vote there leaves the campaign about 76,478 short of 200,000 (calculated). Mwingi is therefore **necessary and not sufficient**: no path to 200,000 runs around it, and none ends there. So SMS, USSD and digital outreach go into Mwingi first, to establish Dr. Mulu as the leading alternative there.
 
 #### The four constituencies that decide it
 
-1.  **The Big Four (55.60% of the county):** Kitui Central, Kitui South, Mwingi Central and Mwingi North hold **296,196 registered voters** across 22 wards. The candidate who leads in these four, or holds level in them, is in reach of the governorship.
-2.  **Mwingi North (68,829 voters):** fourth by voters, but it holds the county's largest ward (**Kyuso, 19,921 voters**), the political home of the Wiper Patriotic Front leader, Hon. Kalonzo Musyoka (**Tseikuru, 16,471 voters**), and **Mumoni (15,877 voters)**. It is both a large electorate and the party's heartland.
+1.  **The Big Four (55.60% of the county):** Kitui Central, Kitui South, Mwingi Central and Mwingi North hold **296,196 registered voters** across 22 wards (calculated from IEBC's 2022 register, Tier 1). The candidate who leads in these four, or holds level in them, is in reach of the governorship.
+2.  **Mwingi North (68,829 voters, Tier 1):** fourth by voters, but it holds the county's largest ward (**Kyuso, 19,921 voters**), the political home of the Wiper Patriotic Front leader, Hon. Kalonzo Musyoka (**Tseikuru, 16,471 voters**), and **Mumoni (15,877 voters)**, all Tier 1 (IEBC). It is both a large electorate and the party's heartland.
 3.  **Kitui South (75,372 voters):** the second-largest constituency, anchored by the dense wards of Athi (15,843) and Ikanga/Kyatune (15,384).
 
 ## 2.5 The number it takes: the winning benchmark and four routes to it
@@ -80,10 +80,10 @@ Governor Julius Malombe's certified 2022 winning total was 198,004 votes; this d
 
 *   **The electorate (July 2026, Tier 3, unconfirmed):** **605,703 voters** (Section 2.1). IEBC has not yet published the 2026 register by ward, so every ward figure in this proposal is the 2022 register.
 *   **The benchmark: 200,000 votes.** Governor Julius Malombe's certified 2022 winning total was **198,004 votes** (Section 2.2). This document rounds it to **200,000** and uses that one figure as the benchmark everywhere: every route below, the digital ceiling in Section 4.3 and the objectives in Chapter 8 are measured against it.
-*   **[CALC, not a forecast] The same share of a larger register.** In 2022 the winning tally was **37.2%** of the register. Held against the July 2026 register of 605,703, the equivalent tally is **≈225,000 votes**. Treat 200,000 as the floor and ≈225,000 as the equivalent on today's register: the number to win is ≈200,000–225,000.
+*   **[CALC, not a forecast] The same share of a larger register.** In 2022 the winning tally was **37.2%** of the register (calculated). Held against the July 2026 register of 605,703, the equivalent tally is **≈225,000 votes** (calculated). Treat 200,000 as the floor and ≈225,000 as the equivalent on today's register: the number to win is ≈200,000–225,000 (calculated).
 *   **The turnout rate: 61.7%.** The certified 2022 county turnout was **61.7%**: 328,760 valid votes of 532,758 registered (Tier 1, IEBC Form 37C). Every calculation here carries that rate forward to 2027. The rate is measured; carrying it forward is an assumption, and the scenario model brackets it at 55–72%.
-    *   At 61.7% of the 2022 register, total ballots cast equal approximately **328,712 votes**. [CONFLICT C8: see open items]
-    *   To reach **200,000**, a winning candidate needs about **60.8% of ballots cast**, which is **37.5% of the registered electorate**.
+    *   At 61.7% of the 2022 register (calculated), total ballots cast equal approximately **328,712 votes**. [CONFLICT C8: see open items]
+    *   To reach **200,000**, a winning candidate needs about **60.8% of ballots cast**, which is **37.5% of the registered electorate** (calculated).
 
 ```figure
 id: fig-3-1-funnel

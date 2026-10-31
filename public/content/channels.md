@@ -13,7 +13,7 @@ Because **51.7% of the county register sits where he has never held office** (Se
 Because **51.7% of the county register sits where he has never held office** (Section 6.2), output and targeting are weighted accordingly. The campaign cannot rely on reach spilling over from Kitui Central.
 
 ```visual
-{"kind":"stats","items":[{"value":"65%","label":"of Phase −1 digital reach effort, in the pool","body":"**65% of all Phase −1 digital reach effort (Meta, Google, YouTube)** is geofenced to Mwingi North, Mwingi Central, Mwingi West and Kitui South. The weighting is on output and targeting, and R-02 measures it (Section 18.3)."},{"value":"70%","label":"of SMS/USSD onboarding, in the pool's 21 wards","body":"**70% of the offline SMS and USSD onboarding effort** (Section 15.3.3) goes to the 21 wards of the pool: the 15 Mwingi wards and the six of Kitui South. The campaign's own ward-captain network (240 of 400 captains, recommended for the same wards) is campaign-owned and outside this engagement (Section 13.3)."}]}
+{"kind":"stats","items":[{"value":"65%","label":"of Phase −1 digital reach effort, in the pool","body":"**65% of all Phase −1 digital reach effort (Meta, Google, YouTube)** is geofenced to Mwingi North, Mwingi Central, Mwingi West and Kitui South. The weighting is on output and targeting, and R-02 measures it (Section 18.3)."},{"value":"70%","label":"of SMS/USSD onboarding, in the pool's 21 wards","body":"**70% of the offline SMS and USSD onboarding effort** (Section 15.3.3) goes to the 21 wards of the pool: the 15 Mwingi wards and the six of Kitui South. The campaign's own ward-captain network (a target of 240 of 400 captains, recommended for the same wards) is campaign-owned and outside this engagement (Section 13.3)."}]}
 ```
 
 **What the message says there.** In these wards the Economist Governor message stresses fair distribution across the county: how Dr. Makali Mulu's oversight of public money would direct water and health investment into rural wards such as Kyuso, Tseikuru, Athi and Mutha. Calling any ward neglected needs the county's development expenditure by ward, from the Controller of Budget's implementation reports and the county's own budget documents; until that is in hand, the message names the ward and the need, not the neglect.
@@ -24,7 +24,7 @@ Because **51.7% of the county register sits where he has never held office** (Se
 **Until the six are assigned, the Phase −1 weighting governs only the three zones, and the six unassigned sub-counties receive the rotating share alone.** Assigning them is a Week 2 task for the strategy lead.
 ```
 
-**Coverage note.** The three zones of Section 1.2 total 895,766 residents, **78.8% of the county's 1,136,187**. They name 12 of the county's 18 sub-counties; the remaining six, about 240,000 residents, are in no zone. The weightings below therefore spread all of the communications effort across zones covering under four-fifths of the population. **Until the six are assigned, the Phase −1 weighting governs only the three zones, and the six unassigned sub-counties receive the rotating share alone.** Assigning them is a Week 2 task for the strategy lead, against the Section 1.2 regions and the IEBC register, and the weighting is restated when it is done.
+**Coverage note.** The three zones of Section 1.2 total 895,766 residents, **78.8% of the county's 1,136,187** (calculated from the 2019 census, Tier 1). They name 12 of the county's 18 sub-counties; the remaining six, about 240,000 residents, are in no zone. The weightings below therefore spread all of the communications effort across zones covering under four-fifths of the population. **Until the six are assigned, the Phase −1 weighting governs only the three zones, and the six unassigned sub-counties receive the rotating share alone.** Assigning them is a Week 2 task for the strategy lead, against the Section 1.2 regions and the IEBC register, and the weighting is restated when it is done.
 
 *Effort and content allocation across zones, by phase:*
 
@@ -55,7 +55,7 @@ id: fig-4-6-channel-shift
 | | Figure |
 |---|---|
 | Reachable by smartphone or data, in county | ~158,696 voters (modelled: 26.2% of the July 2026 register) |
-| Share of the 200,000 benchmark digital could reach | **79.3%**, reach not votes |
+| Share of the 200,000 benchmark digital could reach | **79.3%** (modelled), reach not votes |
 | Reachable by SMS only | ~108,419 voters (modelled: 44.1% phone ownership less 26.2% internet use) |
 | Phone owners: the SMS and USSD layer | ~267,115 voters on the resident rate (44.1%); ~459,000 on the adult rate (KDHS 2022: 75.7%). Both modelled, never averaged (Section 4.3) |
 | No phone: radio or in person only | ~338,588 voters on the resident rate; ~147,000 on the adult rate (both modelled) |

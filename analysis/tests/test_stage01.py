@@ -213,6 +213,36 @@ def test_years_phone_numbers_and_section_lists_are_not_claims():
     assert claims._claims_in(["Messages stay under 160 characters."], "t.md", 1, "T") == []
 
 
+def test_a_marker_later_in_the_same_sentence_labels_the_figure():
+    c = _one(["About 400,000 residents rely on untreated surface water as their main domestic "
+              "source, by the long-rains assessment's count (Tier 1)."])
+    assert c["tier"] == 1
+    # A full stop ends the sentence; "Hon." does not.
+    assert _one(["Kyuso has 19,921 voters. Its member of the County Assembly sits on the "
+                 "budget committee and the committee on water (Tier 1)."])["status"] == "unsourced"
+    c = _one(["Kyuso holds 19,921 voters, the home of Hon. Kalonzo Musyoka and of the party's "
+              "national leadership, all on the register (Tier 1)."])
+    assert c["tier"] == 1
+
+
+def test_a_tier_in_the_first_header_cell_labels_the_whole_table():
+    rows = ["| Sub-county (Tier 1, KNBS 2019 Census) | Population | Households |",
+            "|---|---|---|", "| Mutomo | 113,356 | 23,044 |"]
+    found = claims._claims_in(rows, "t.md", 1, "Test", scan_from=2)
+    assert [c["tier"] for c in found] == [1, 1]
+
+
+def test_hard_wrapped_visual_text_is_read_as_one_paragraph():
+    spec = {"body": "Kitui South has 75,372 registered voters in six wards,\nfrom Athi to "
+                    "Kanziko, all Tier 1 (IEBC)."}
+    found = claims._visual_claims(spec, "t.md", 1, "Test")
+    assert [(c["value"], c["tier"]) for c in found] == [(75372.0, 1)]
+
+
+def test_a_rate_denominator_is_not_a_claim():
+    assert claims._claims_in(["Shares per 1,000 reached in the deficit wards."], "t.md", 1, "T") == []
+
+
 def test_modelled_and_excluded_figures_carry_a_visible_status():
     assert _one(["A cost of KSh 13.80 billion (calculated)."])["status"] == "modelled"
     assert _one(["The 114,606 reading is not used."])["status"] == "excluded"

@@ -153,7 +153,7 @@ items:
   - label: "Content"
     body: "Every post coded on four axes: pillar, language, format, and whether it carries a commitment, a date, a ward name or a call to action"
     fields:
-      - { label: "Why this one", text: "Turns {{channel.fb.posts}} posts from an archive into a distribution. Without coding there is nothing to compare." }
+      - { label: "Why this one", text: "Turns {{channel.fb.posts}} posts (Tier 3, unconfirmed) from an archive into a distribution. Without coding there is nothing to compare." }
   - label: "Video"
     text: "3-second and 30-second views, average watch time, completion rate"
     fields:
