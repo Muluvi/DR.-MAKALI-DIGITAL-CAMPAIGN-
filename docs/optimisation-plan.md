@@ -15,7 +15,7 @@ choices and licences are in `docs/toolkit.md`; the section-by-section conversion
 | Text to visual G-1, G-2, G-3, §3 visuals | Done |
 | Typography, spacing (touch targets), colour (theme) | Done (first items) |
 | Checkpoint after Acts I–III | **Reached**: screenshots in `docs/optimisation/screenshots/checkpoint-acts-1-3/` |
-| Acts IV–VI and annexes | Not started |
+| Acts IV–VI and annexes | **Done**: 7 of 360 phone screens prose-only, all kept-visible legal or commitment text |
 
 ## 1. Performance (largest gap: mobile 44, LCP 9.2 s, 480 kB initial JS)
 
@@ -41,7 +41,7 @@ labels, 4.43:1); fixed.
 ### Next, in order
 
 1. ~~P-3 server-side markdown~~: **tried and reverted** (see below). P-9 CSS split remains.
-2. Acts I–III remaining prose-only screens (61 of 166; most in §2, §3, §6, §10, §12), then Acts IV–VI by the same method.
+2. ~~Remaining prose-only screens~~: done. The broad "no `vz-*` block" count (61 of 166) treated cards, step lists and card-rendered tables as prose; the card-aware measure finds 7 of 360, all kept visible on purpose.
 3. Laptop layout. A figure breakout (1,040 px figures beside a 736 px prose column at 1440) was
    built and reverted: every flow section has `content-visibility: auto`, whose paint containment
    clips anything wider than the section, so a breakout means giving up that optimisation on

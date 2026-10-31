@@ -135,33 +135,52 @@ Visible words before → after are per section. "Moved" is prose newly placed in
 | 12.6 A week | Calendar | Week strip (existing `DirectionWeek`) | — | — | — |
 | 12.7 When the plan changes | Triggers | `cards` | — | — | — |
 
-## Parts IV–VI and annexes — planned
+## Parts IV–VI and annexes — converted
 
-Not converted in this pass's first checkpoint; G-1 to G-3 apply to them already because they are
-global. The forms below are the defaults from the brief, to be applied Act by Act after the
-checkpoint.
+G-1 to G-3 opened every figure and panel in these Parts, and that, measured, was most of the
+work: the prose here was already written as structured components (step lists, RACI and
+workstream cards, scorecards, the escalation flow, the radio-station cards, the deliverables
+table), which were closed behind "Show the panel". Per-section changes:
 
-| § | Section | Visible before | Prose job | Visual form planned |
+| § | Section | Visible before → after | Change | Kept visible (reason) |
 |---|---|---|---|---|
-| 13 | How it works | 870 | Process (approvals, escalation) | Flow diagram (`stepper`), RACI `matrix` |
-| 14 | Timeline to Aug 2027 | 813 | Schedule | Horizontal timeline / Gantt (`timeline`), scroll-snap on mobile |
-| 15.1–15.4 | Workstreams | 933 / 236 / 659 / 288 | Comparing options, process | `cards` per workstream; field loop as `stepper` |
-| 16 | Coalitions | 392 | Sequence | `timeline` |
-| 17 | The team | 459 | Hierarchy | Org chart (`nested`), core vs surge |
-| 18 | Measuring success | 666 | Quantities | KPI scorecards (existing) |
-| 19 | Lawful & ethical | 1,390 | Legal standard | **Kept visible** (legal terms); charter as `checklist` |
-| 20 | Risks & response | 616 | Risks | Likelihood × impact `matrix` heat-map; response tiers `stepper` |
-| 21 | What he receives | 630 | Comparing options | Three-level comparison `crosswalk` |
-| 22 | Commitments | 256 | Two-sided commitments | `inout` |
-| 23 | The ask | 368 | Decision | Full-width decision card (existing `DecisionPanel`) |
-| A–H | Annexes | 2,740 / 118 / 184 / 23 / 128 / 840 / 145 / 390 | Reference | Filterable source table (A); register table (B); glossary popovers (H) |
+| 13 | How it works | 870 → 798 | Panels open; §13.1 gets an extractive lead, so the paragraph restating its stepper folds | RACI table (keep-marked) |
+| 14 | Timeline to Aug 2027 | 813 → 755 | Phased-plan panel, target ladder and the four-week strip open | — |
+| 15.1 | Platforms & content | 933 → 877 | Promise tracker, verification protocol, asset repository open | Conflict C4 note (uncertainty) |
+| 15.2 | Media | 236 → 236 | Radio landscape and broadcast player open | — |
+| 15.3 | Ground & offline | 659 → 659 | Field terminal and offline-reach panels open | — |
+| 15.4 | Data & technology | 288 → 288 | Panels open | — |
+| 16 | Coalitions | 392 → 357 | Opening restatement folds | "Never built around ethnic, clan or religious bloc identity" (ethical standard) |
+| 17 | The team | 459 → 405 | Team tree and surge-role cards open | — |
+| 18 | Measuring success | 666 → 590 | Scorecards open | "Commits to the method, not an electoral outcome" (caveat) |
+| 19 | Lawful & ethical | 1,390 → 1,327 | Charter panel open | **Legal standard, DPA, charter, IEBC clearance** (legal terms) |
+| 20 | Risks & response | 616 → 549 | Risk and response panels open | — |
+| 21 | What he receives | 630 → 570 | Service-level selector and three-tier comparison open | — |
+| 22 | Commitments | 256 → 210 | Opening folds; lead carries the no-outcome commitment | — |
+| 23 | The ask | 368 → 21 | Opening folds; the lead and the decision card carry the ask | — |
+| A–H | Annexes | 4,568 → 4,322 | Openings fold | Annex G terms (legal) |
+
+## Prose-only phone screens, final
+
+Measured by `scripts/optimisation/prose-screens.mjs`: a 390 × 844 screen is prose-only when free
+paragraphs (outside every figure, panel, card, table and fold) cover more than 60% of it.
+
+**7 of 360 screens** across all 36 sections, every one text kept visible on purpose: §19 Lawful
+(4, legal standard), Annex G Terms (1, confidentiality terms), In brief (1, the commitments: no
+voter-file targeting until a named specialist signs off, method not outcome) and the cover (1,
+title and byline).
+
+The longest free-prose run between two visuals exceeds 60 words in some sections; itemised, those
+runs are the section subtitle plus its key-finding lead plus one sentence, or legal and
+uncertainty statements kept visible (§5 Article 180(7), §18 the no-outcome caveat). One real
+restatement (§13.1) was fixed.
 
 ## Word counts
 
 | | Visible before | Visible after (checkpoint) |
 |---|---|---|
 | Acts I–III (§1–§12) | 6,545 | **5,891** (−654, −10%) |
-| Whole document | 20,016 of 58,472 | **18,017** (−1,999, −10%) |
+| Whole document | 20,016 of 58,472 | **18,118** (−1,898, −9%) after Parts IV–VI and the two keep-marks |
 
 Per section, Acts I–III, before → after: §1 554 → 492 · §2 331 → 277 · §3 476 → 459 · §4 606 → 542 ·
 §5 459 → 401 · §6 439 → 380 · §7 598 → 536 · §8 352 → 295 · §9 279 → 218 · §10 1,157 → 1,098 ·

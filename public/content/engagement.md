@@ -6,6 +6,10 @@
 
 ## 13.1 How this proposal is built
 
+```lead
+Firefly works in three steps, while the existing team keeps publishing: analyse in Week 1, strategise in Weeks 2–3, and direct from Week 4.
+```
+
 Firefly works in three steps, while the existing team keeps publishing: analyse in Week 1, strategise in Weeks 2–3, and direct from Week 4. Section 18.5 specifies what Week 1 measures, and Section 12.7 what would change the strategy.
 
 ```figure

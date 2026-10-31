@@ -12,6 +12,7 @@ id: fig-5-2-workstream-panels
 {"kind":"cards","preset":"group","title":"The fourteen workstreams, in four groups","note":"Each sets out what it produces, who owns it and how often it reports.","items":[{"title":"Platforms and content","badge":"workstreams 1 to 4"},{"title":"Publishing and earned media","badge":"5 and 6","text":"Two workstreams: paid media across the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely controlled by rivals."},{"title":"Ground and offline reach","badge":"7 to 10","text":"Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them."},{"title":"Data and technology","badge":"11 to 14","text":"Four workstreams that sit under the rest: the data model, the voter model built on it, the technology stack that runs both, and the analytics layer that measures what the other ten produce."}]}
 ```
 
+<!-- keep -->
 *The two scope lists below stay together, rather than being split across the workstreams that deliver them, until conflict C4 is settled.*
 
 ```visual

@@ -27,6 +27,7 @@ items:
     text: "Four workstreams that sit under the rest: the data model, the voter model built on it, the technology stack that runs both, and the analytics layer that measures what the other ten produce."
 ```
 
+<!-- keep -->
 *The two scope lists below stay together, rather than being split across the workstreams that deliver them, until conflict C4 is settled.*
 
 ```visual
