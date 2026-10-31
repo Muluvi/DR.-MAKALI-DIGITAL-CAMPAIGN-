@@ -190,7 +190,7 @@ id: asset-library
 {"kind":"checklist","items":[{"label":"Minimum 5 ad variations per objective per platform"},{"label":"Minimum 3 headline and 3 visual variations per ad set"},{"label":"Monday–Thursday learning; Friday–Sunday optimisation and scaling"},{"label":"Effort split: **30% testing, 70% proven performers**"},{"label":"Automatic kill rule: any ad below the **1.5% CTR** threshold after 5,000 impressions is paused"}]}
 ```
 
-#### Performance benchmarks
+#### Performance targets
 
 | Metric | Campaign target |
 |---|---|
