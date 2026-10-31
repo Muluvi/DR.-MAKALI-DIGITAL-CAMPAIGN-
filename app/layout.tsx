@@ -32,6 +32,9 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
   display: 'swap',
+  // Not preloaded: nothing on the first screen is set in mono, and on slow 4G its 40 kB competed
+  // with the hero portrait for the critical path (docs/optimisation-audit.md).
+  preload: false,
   fallback: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
 });
 

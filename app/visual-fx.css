@@ -1025,7 +1025,9 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 /* ========================================================================== */
 
 @media (prefers-reduced-data: reduce) {
-  .fx-aurora, .fx-motes, .fx-caustics, .fx-grain::before { display: none; }
+  .fx-aurora, .fx-motes, .fx-caustics, .fx-grain::before, .pf-grain { display: none; }
+  /* Decorative motion costs battery and frames on the phones that ask for less data. */
+  .fx-kenburns, .fx-loop-float { animation: none !important; }
   .fx-glass { backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--color-card); }
 }
 

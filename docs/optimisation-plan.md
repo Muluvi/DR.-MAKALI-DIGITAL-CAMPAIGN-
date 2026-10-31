@@ -10,7 +10,8 @@ choices and licences are in `docs/toolkit.md`; the section-by-section conversion
 |---|---|
 | Phase 1 audit | Done |
 | Phase 2 documents | Done |
-| Commit 1, toolkit | See git log |
+| Commit 1, toolkit | Done |
+| Performance (P-1, P-2, P-4, P-7, P-8) | Done; P-3, P-5, P-6, P-9 open |
 | Area commits, Acts I–III | See git log |
 | Checkpoint after Acts I–III | Reached at the end of the first session |
 | Acts IV–VI and annexes | Not started |
@@ -27,6 +28,23 @@ choices and licences are in `docs/toolkit.md`; the section-by-section conversion
 | P-6 | Tile map: one shared `<symbol>` set for the 40 tiles, referenced by `<use>` in each of the 7 maps | `components/register/TileMap.tsx` | ≈ 1,500 DOM nodes on `/full` | M |
 | P-7 | Lightweight service worker, stale-while-revalidate for `/`, `/content/*.md`, `/data/*.csv` | `public/sw.js`, registration in `ClientPage` | Reopen on weak signal | S |
 | P-8 | `prefers-reduced-data`: no Ken Burns, noise or decorative motion | CSS | Data and battery | S |
+| P-9 | Split the render-blocking stylesheet: section-specific CSS loads with its section | `app/*.css`, component imports | Mobile render delay | M |
+
+### Measured after P-1, P-2, P-4, P-7, P-8 (same build, same machine as the audit)
+
+| | Before | After |
+|---|---|---|
+| First Load JS, `/` | 480 kB | 388 kB |
+| JS transferred on load | 788 kB | 461 kB |
+| Mobile Lighthouse | 44 | 57 |
+| Mobile TBT | 2,034 ms | 685 ms |
+| Mobile LCP | 9.15 s | 6.71 s |
+| Desktop Lighthouse | 90 | **98** (target ≥ 95 met) |
+
+The mobile LCP is now render delay, not download: the portrait loads in 245 ms and paints 5.6 s
+later, behind 70 kB gzipped of render-blocking CSS (one 265 kB stylesheet) and 1.7 s of style and
+layout on a 6,000-node first screen. P-3 and a CSS split (P-9: load `register.css`,
+`chart-kit.css` and `part-visuals.css` with the sections that use them) are what close it.
 
 The 170 kB initial-JS target is **not reachable without P-3**: the framework runtime is 98 kB and
 the client markdown pipeline another ≈ 85 kB. P-3 changes how every section renders, so it is

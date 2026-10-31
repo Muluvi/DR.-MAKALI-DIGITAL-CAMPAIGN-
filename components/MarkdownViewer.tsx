@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -9,81 +10,86 @@ import rehypeRaw from "rehype-raw";
 import { InteractiveTable } from "./markdown/InteractiveTable";
 import { MarkdownParagraph, MarkdownListItem } from "./markdown/MarkdownTextComponents";
 import { SectionHeading } from "./markdown/SectionHeading";
-import { PartVisual } from "./partviz/PartVisual";
 import { partVisual } from "../lib/part-visuals";
 import { ClaimBadge } from "./markdown/ClaimBadge";
 import { HighlightedText } from "./markdown/HighlightedText";
 import { hasHighlight } from "../lib/highlight-patterns";
-import { ResourceEnvelopeBlock } from "./markdown/ResourceEnvelopeBlock";
-import {
-  ChannelReachBlock,
-  IssueEvidenceBlock,
-  RegisterComparisonBlock,
-  ScenarioBenchmarkBlock,
-} from "./markdown/AnalysisBlocks";
-import { PlatformSizingBlock } from "./markdown/PlatformSizingBlock";
-import { WardCartogramBlock } from "./markdown/WardCartogramBlock";
-import { BenchmarkLadder } from "./charts/BenchmarkLadder";
-import { TierComparisonCarousel } from "./charts/TierComparisonCarousel";
-import { FeaturePhoneSpecimen } from "./charts/FeaturePhoneSpecimen";
-import { OfflineWaterline } from "./charts/OfflineWaterline";
-import { VoteFunnel } from "./charts/VoteFunnel";
-import { AsciiDiagram } from "./markdown/AsciiDiagram";
 import { Figure } from "./figures/FigureBoundary";
-import { ReachSplit } from "./ReachSplit";
-import {
-  FlywheelSchematic,
-  MessagingPlayground,
-  CounterMessagingGrid,
-  ToneVoiceSlider,
-  SloganBuilder,
-  MediaPlaybackMockup,
-  RadioAircoverDial,
-} from "./StrategicAids";
-import { DirectionWeek } from "./charts/DirectionModel";
-import { PhaseRail } from "./PhaseRail";
 import { PullQuote } from "./markdown/PullQuote";
-import { ClaimCards } from "./markdown/ClaimCards";
 import { DisputedFigure } from "./markdown/DisputedFigure";
-import { ElectoralHistoryPanel } from "./markdown/ElectoralHistoryPanel";
-import { FiscalAuditPanel } from "./markdown/FiscalAuditPanel";
-import { DroughtFoodSecurityPanel } from "./markdown/DroughtFoodSecurityPanel";
-import { MuiBasinPanel } from "./markdown/MuiBasinPanel";
-import { CompetitorFieldPanel } from "./markdown/CompetitorFieldPanel";
-import { NominationPathPanel } from "./markdown/NominationPathPanel";
-import { EconomistGovernorThesis } from "./markdown/EconomistGovernorThesis";
-import { DecisionPanel } from "./DecisionPanel";
-import { CommitmentFields } from "./markdown/CommitmentFields";
-import { ServiceLevelSelector } from "./markdown/ServiceLevelSelector";
-import { PhoneShowcase } from "./phone/PhoneShowcase";
-import { TerminalShowcase } from "./terminal/TerminalShowcase";
 import { SectionPortrait } from "./markdown/SectionPortrait";
 import { commitmentFieldKey, isCommitmentFieldList, type CommitmentField } from "../lib/commitment-fields";
-import { MediaOwnershipBlock } from "./markdown/MediaOwnershipBlock";
-import { PathTo200kBlock } from "./markdown/PathTo200kBlock";
-import { ConstituencyWeightBlock } from "./markdown/ConstituencyWeightBlock";
-import { ElectoralTimelineBlock } from "./markdown/ElectoralTimelineBlock";
-import { FiscalAuditChartBlock } from "./markdown/FiscalAuditChartBlock";
-import { PathTo200kCalculator } from "./markdown/PathTo200kCalculator";
-import { RecognitionDeficitOverlay } from "./markdown/RecognitionDeficitOverlay";
-import { AudienceSegmentationMatrix } from "./markdown/AudienceSegmentationMatrix";
-import { StrategicPillarsMatrix } from "./markdown/StrategicPillarsMatrix";
-import { GeographicZoneMatrix } from "./markdown/GeographicZoneMatrix";
-import { PersuasionFramingMatrix } from "./markdown/PersuasionFramingMatrix";
-import { PublicServiceDeliveryTracker } from "./markdown/PublicServiceDeliveryTracker";
-import { MediaRadioLandscapeCard } from "./markdown/MediaRadioLandscapeCard";
-import { DataSecurityEthicsCharter } from "./markdown/DataSecurityEthicsCharter";
 import { PanelFold } from "./markdown/PanelFold";
 import { DISPUTED_FIGURES } from "../data/disputed-figures";
 import { headingSlug, sectionId, type TabId } from "../lib/heading-slug";
 import { crossRefFor, segmentContent } from "../lib/collapse-groups";
 
 /** Every markdown pass shares these: the working marks become chips (lib/inline-marks.ts). */
+
+/*
+ * Block components, loaded per section (visual-first pass, October 2026). Each one is used by one
+ * or two sections, and statically they were all in the first-load bundle (≈ 100 kB gzipped of the
+ * 480 kB the flow shipped). `next/dynamic` keeps server rendering, so the HTML of a server-rendered
+ * section is unchanged and hydrates in place; a section that streams in fetches only the chunks
+ * its own blocks need.
+ */
+const PartVisual = dynamic(() => import("./partviz/PartVisual").then((m) => m.PartVisual));
+const ResourceEnvelopeBlock = dynamic(() => import("./markdown/ResourceEnvelopeBlock").then((m) => m.ResourceEnvelopeBlock));
+const ChannelReachBlock = dynamic(() => import("./markdown/AnalysisBlocks").then((m) => m.ChannelReachBlock));
+const IssueEvidenceBlock = dynamic(() => import("./markdown/AnalysisBlocks").then((m) => m.IssueEvidenceBlock));
+const RegisterComparisonBlock = dynamic(() => import("./markdown/AnalysisBlocks").then((m) => m.RegisterComparisonBlock));
+const ScenarioBenchmarkBlock = dynamic(() => import("./markdown/AnalysisBlocks").then((m) => m.ScenarioBenchmarkBlock));
+const PlatformSizingBlock = dynamic(() => import("./markdown/PlatformSizingBlock").then((m) => m.PlatformSizingBlock));
+const WardCartogramBlock = dynamic(() => import("./markdown/WardCartogramBlock").then((m) => m.WardCartogramBlock));
+const BenchmarkLadder = dynamic(() => import("./charts/BenchmarkLadder").then((m) => m.BenchmarkLadder));
+const TierComparisonCarousel = dynamic(() => import("./charts/TierComparisonCarousel").then((m) => m.TierComparisonCarousel));
+const FeaturePhoneSpecimen = dynamic(() => import("./charts/FeaturePhoneSpecimen").then((m) => m.FeaturePhoneSpecimen));
+const OfflineWaterline = dynamic(() => import("./charts/OfflineWaterline").then((m) => m.OfflineWaterline));
+const VoteFunnel = dynamic(() => import("./charts/VoteFunnel").then((m) => m.VoteFunnel));
+const AsciiDiagram = dynamic(() => import("./markdown/AsciiDiagram").then((m) => m.AsciiDiagram));
+const ReachSplit = dynamic(() => import("./ReachSplit").then((m) => m.ReachSplit));
+const FlywheelSchematic = dynamic(() => import("./StrategicAids").then((m) => m.FlywheelSchematic));
+const MessagingPlayground = dynamic(() => import("./StrategicAids").then((m) => m.MessagingPlayground));
+const CounterMessagingGrid = dynamic(() => import("./StrategicAids").then((m) => m.CounterMessagingGrid));
+const ToneVoiceSlider = dynamic(() => import("./StrategicAids").then((m) => m.ToneVoiceSlider));
+const SloganBuilder = dynamic(() => import("./StrategicAids").then((m) => m.SloganBuilder));
+const MediaPlaybackMockup = dynamic(() => import("./StrategicAids").then((m) => m.MediaPlaybackMockup));
+const RadioAircoverDial = dynamic(() => import("./StrategicAids").then((m) => m.RadioAircoverDial));
+const DirectionWeek = dynamic(() => import("./charts/DirectionModel").then((m) => m.DirectionWeek));
+const PhaseRail = dynamic(() => import("./PhaseRail").then((m) => m.PhaseRail));
+const ClaimCards = dynamic(() => import("./markdown/ClaimCards").then((m) => m.ClaimCards));
+const ElectoralHistoryPanel = dynamic(() => import("./markdown/ElectoralHistoryPanel").then((m) => m.ElectoralHistoryPanel));
+const FiscalAuditPanel = dynamic(() => import("./markdown/FiscalAuditPanel").then((m) => m.FiscalAuditPanel));
+const DroughtFoodSecurityPanel = dynamic(() => import("./markdown/DroughtFoodSecurityPanel").then((m) => m.DroughtFoodSecurityPanel));
+const MuiBasinPanel = dynamic(() => import("./markdown/MuiBasinPanel").then((m) => m.MuiBasinPanel));
+const CompetitorFieldPanel = dynamic(() => import("./markdown/CompetitorFieldPanel").then((m) => m.CompetitorFieldPanel));
+const NominationPathPanel = dynamic(() => import("./markdown/NominationPathPanel").then((m) => m.NominationPathPanel));
+const EconomistGovernorThesis = dynamic(() => import("./markdown/EconomistGovernorThesis").then((m) => m.EconomistGovernorThesis));
+const DecisionPanel = dynamic(() => import("./DecisionPanel").then((m) => m.DecisionPanel));
+const CommitmentFields = dynamic(() => import("./markdown/CommitmentFields").then((m) => m.CommitmentFields));
+const ServiceLevelSelector = dynamic(() => import("./markdown/ServiceLevelSelector").then((m) => m.ServiceLevelSelector));
+const PhoneShowcase = dynamic(() => import("./phone/PhoneShowcase").then((m) => m.PhoneShowcase));
+const TerminalShowcase = dynamic(() => import("./terminal/TerminalShowcase").then((m) => m.TerminalShowcase));
+const MediaOwnershipBlock = dynamic(() => import("./markdown/MediaOwnershipBlock").then((m) => m.MediaOwnershipBlock));
+const PathTo200kBlock = dynamic(() => import("./markdown/PathTo200kBlock").then((m) => m.PathTo200kBlock));
+const ConstituencyWeightBlock = dynamic(() => import("./markdown/ConstituencyWeightBlock").then((m) => m.ConstituencyWeightBlock));
+const ElectoralTimelineBlock = dynamic(() => import("./markdown/ElectoralTimelineBlock").then((m) => m.ElectoralTimelineBlock));
+const FiscalAuditChartBlock = dynamic(() => import("./markdown/FiscalAuditChartBlock").then((m) => m.FiscalAuditChartBlock));
+const PathTo200kCalculator = dynamic(() => import("./markdown/PathTo200kCalculator").then((m) => m.PathTo200kCalculator));
+const RecognitionDeficitOverlay = dynamic(() => import("./markdown/RecognitionDeficitOverlay").then((m) => m.RecognitionDeficitOverlay));
+const AudienceSegmentationMatrix = dynamic(() => import("./markdown/AudienceSegmentationMatrix").then((m) => m.AudienceSegmentationMatrix));
+const StrategicPillarsMatrix = dynamic(() => import("./markdown/StrategicPillarsMatrix").then((m) => m.StrategicPillarsMatrix));
+const GeographicZoneMatrix = dynamic(() => import("./markdown/GeographicZoneMatrix").then((m) => m.GeographicZoneMatrix));
+const PersuasionFramingMatrix = dynamic(() => import("./markdown/PersuasionFramingMatrix").then((m) => m.PersuasionFramingMatrix));
+const PublicServiceDeliveryTracker = dynamic(() => import("./markdown/PublicServiceDeliveryTracker").then((m) => m.PublicServiceDeliveryTracker));
+const MediaRadioLandscapeCard = dynamic(() => import("./markdown/MediaRadioLandscapeCard").then((m) => m.MediaRadioLandscapeCard));
+const DataSecurityEthicsCharter = dynamic(() => import("./markdown/DataSecurityEthicsCharter").then((m) => m.DataSecurityEthicsCharter));
+const ObjectivesIndex = dynamic(() => import("./markdown/ObjectivesIndex").then((m) => m.ObjectivesIndex));
+
 const REHYPE = [rehypeRaw, rehypeInlineMarks];
 import { CrossRef } from "./CrossRef";
 import { PrintSafeDisclosures } from "./PrintSafeDisclosures";
 import { DisclosureGroup } from "./markdown/DisclosureGroup";
-import { ObjectivesIndex } from "./markdown/ObjectivesIndex";
 import { TextVersion } from "./markdown/TextVersion";
 import { ReadMore } from "./markdown/ReadMore";
 import { VisualFence } from "./visual/VisualFence";

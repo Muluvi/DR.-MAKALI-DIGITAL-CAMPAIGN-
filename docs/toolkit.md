@@ -54,7 +54,7 @@ is ever copied, its **MIT + Commons Clause** licence must be recorded here and i
 |---|---|---|---|---|
 | A. Blur-in hero portrait | CSS `@keyframes` on `filter`/`opacity` (one-off, on load) | Cover | Same, 400 ms | 600 ms |
 | A. Fade-in sequence, KPI | Motion `cascade()` from `lib/motion.ts` | Cover stats | Same | Same |
-| A. Animated counters | `CountUp` (rAF + IntersectionObserver, no React renders per frame), lands on the exact printed string, once; the counting digits are `aria-hidden` and the final value is in the accessibility tree from the start (fixed in this pass) | KPI tiles | Same | Same |
+| A. Animated counters | `CountUp` (rAF + IntersectionObserver, no React renders per frame), lands on the exact printed string, once; the server HTML carries the exact value, so screen readers, print and no-JS readers meet it; one text node per figure (no `sr-only` copy, which doubled figures in copy and find-in-page, see `AnimatedNumber.tsx`) | KPI tiles | Same | Same |
 | A. SVG line drawing, ward map | CSS `stroke-dashoffset` animation on the static county SVG | Cover | Same | Same |
 | A. Ken Burns + parallax, Act portraits | CSS `animation-timeline: view()` on `transform` | Act openers | Ken Burns only; off under `prefers-reduced-data` | Both |
 | B. Slide-up / stagger reveals | Motion `riseIn` + `cascade` (`VIEWPORT.once`) | Visual blocks | Shorter distance | Same |
@@ -87,7 +87,7 @@ is ever copied, its **MIT + Commons Clause** licence must be recorded here and i
 | Lenis | Smooth scrolling changes the feel of native scroll for a working document read daily; adds a scroll loop. No comprehension gain. |
 | visx | Would duplicate the register figure system, which already renders SVG on the server with tables and CSV. |
 | Observable Plot | Needs client-only loading; a second chart grammar. |
-| NumberFlow | `CountUp` meets every counter rule (exact landing, once, tabular figures) once its final value is exposed to screen readers from the start, which this pass adds. A 10 kB dependency for that is not justified. |
+| NumberFlow | `CountUp` and `AnimatedNumber` already meet every counter rule (exact landing, once, tabular figures, the published value in the server HTML). NumberFlow renders per-digit spans, which would reintroduce the split-text problem `AnimatedNumber.tsx` documents. |
 | React Flow | The flow diagrams are static sequences; plain SVG carries them. |
 | Rough Notation | The hand-drawn look reads as playful against "The Economist Governor"; the CSS highlighter sweep does the job. Last release May 2022. |
 | shadcn/ui + Radix | See "Component base". |

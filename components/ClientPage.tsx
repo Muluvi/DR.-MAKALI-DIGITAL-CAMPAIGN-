@@ -98,6 +98,13 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
   // It can be deleted after 2026-12-31.
   useEffect(() => { try { window.localStorage.removeItem("kitui2027:reading-mode"); } catch { /* storage blocked */ } }, []);
 
+  // Offline reading for the team (public/sw.js): what a phone has read reopens on a weak signal.
+  // Production only, so a development server is never answered from a stale cache.
+  useEffect(() => {
+    if (process.env.NODE_ENV !== "production" || !("serviceWorker" in navigator)) return;
+    navigator.serviceWorker.register("/sw.js").catch(() => { /* unsupported or refused: the page works without it */ });
+  }, []);
+
   /**
    * Which section the reader is in.
    *

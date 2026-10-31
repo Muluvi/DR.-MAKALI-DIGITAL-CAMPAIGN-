@@ -29,6 +29,17 @@ const nextConfig: NextConfig = {
   //
   // These ten are the exception: the markdown files are real static assets under public/content,
   // so their paths are server-visible URLs, and the five-part restructure renamed every one.
+  // Cache policy for the files the team's phones re-read. The service worker must never be cached
+  // by HTTP, or a fix to it could take a day to arrive. Figure CSVs and section markdown change
+  // only on a merge: a short max-age with a long stale-while-revalidate answers from cache on a
+  // weak signal while still picking up the next deploy.
+  async headers() {
+    return [
+      { source: '/sw.js', headers: [{ key: 'Cache-Control', value: 'no-cache, no-store, must-revalidate' }] },
+      { source: '/data/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=300, stale-while-revalidate=86400' }] },
+      { source: '/content/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=300, stale-while-revalidate=86400' }] },
+    ];
+  },
   async redirects() {
     const moved: Record<string, string> = {
       '0-overview': '1-decision',
