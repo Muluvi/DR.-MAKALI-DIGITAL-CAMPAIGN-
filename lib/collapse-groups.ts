@@ -232,6 +232,31 @@ export function segmentContent(markdown: string): Segment[] {
 
   let inFence = false;
   let i = 0;
+
+  // The chapter's opening, before its first sub-heading. When it carries a lead, it is laid out by
+  // the lead rule like any section (visual-first pass, October 2026): the lead and the visuals show,
+  // and the opening paragraph that restates the lead folds, so the finding is said once. Headings
+  // in it stay shown. Without a lead it passes through as written, as before.
+  {
+    let k = 0;
+    let fenced = false;
+    while (k < lines.length) {
+      if (FENCE.test(lines[k])) fenced = !fenced;
+      if (!fenced && SECTION_HEADING.test(lines[k])) break;
+      k += 1;
+    }
+    const opening = lines.slice(0, k);
+    if (opening.some((l) => /^\s*```lead\s*$/.test(l))) {
+      const headings = opening.filter((l) => /^#\s/.test(l));
+      const { shown, folded } = layoutSection(opening.filter((l) => !/^#\s/.test(l)));
+      pending.push(...headings, ...shown);
+      flush();
+      const words = proseWords(folded);
+      if (words > 0) segments.push({ kind: "more", id: "opening", text: folded.join("\n"), words });
+      i = k;
+    }
+  }
+
   while (i < lines.length) {
     const line = lines[i];
     if (FENCE.test(line)) inFence = !inFence;

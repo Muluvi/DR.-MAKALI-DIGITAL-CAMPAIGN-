@@ -6,9 +6,10 @@ import { ChevronDown, LayoutPanelTop } from "lucide-react";
 import { FoldBody } from "./FoldBody";
 
 /**
- * A mounted panel (an interactive component placed under a heading, or a bespoke figure) behind one
- * control, closed by default (the owner's instruction of 29 October 2026, to reach the phone-screen
- * target). The panel is rendered with the page and kept in the DOM as a FoldBody, so find in page
+ * A mounted panel (an interactive component placed under a heading, or a bespoke figure) with one
+ * control to collapse it. It was closed by default (the owner's instruction of 29 October 2026, to
+ * reach the phone-screen target); the visual-first pass (October 2026) opens it, because these
+ * panels are the visuals that carry the argument and a closed panel showed the reader only a label. The panel is rendered with the page and kept in the DOM as a FoldBody, so find in page
  * and a deep link open it, print shows it, and with scripts off it is shown.
  *
  * The control names the panel by its own title, read once the page has hydrated: its first heading,
@@ -30,7 +31,7 @@ function readTitle(el: HTMLElement): string | null {
 }
 
 export function PanelFold({ children, label, className }: { children: ReactNode; label?: string; className?: string }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [title, setTitle] = useState<string | null>(null);
   const id = useId();
   const body = useRef<HTMLDivElement>(null);

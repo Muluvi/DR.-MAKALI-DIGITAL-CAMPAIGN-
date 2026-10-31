@@ -66,6 +66,10 @@ NDMA names hotspot wards in every sub-county, the home base included, so the ran
 
 **Kitui is below Kenya on access and births in a facility, and above it on child survival.** 69.5% of women report a problem getting health care (Kenya 52.4%), and 79.5% of births are in a facility (Kenya 88.1%) (Tier 1, KDHS 2022).
 
+```visual
+{"kind":"bars","title":"Kitui against Kenya: access to care and births in a facility, KDHS 2022","source":"KDHS 2022 (Tier 1)","items":[{"label":"Women reporting a problem getting health care, Kitui","value":"69.5%","tier":1},{"label":"Women reporting a problem getting health care, Kenya","value":"52.4%","tier":1},{"label":"Births in a facility, Kitui","value":"79.5%","tier":1},{"label":"Births in a facility, Kenya","value":"88.1%","tier":1}]}
+```
+
 *   **Insurance and stunting.** 11.7% of residents have any health insurance, and 25.1% of children under five are stunted (both Tier 1, KDHS 2022; Section 10.3 carries the older county baseline).
 *   **Child survival.** Infant mortality is 23 per thousand births and under-five mortality 27, both better than Kenya's 32 and 41 (Tier 1, KDHS 2022).
 *   **Outbreaks.** In January–June 2025 Ngomeni had a confirmed measles outbreak (112 cases), and typhoid cases rose from 1,696 to 2,564, which NDMA attributes to contaminated water and poor sanitation (Tier 1).
@@ -97,6 +101,10 @@ No verified figure is available yet for the county's road network or its conditi
 ## 3.6 The cost of living
 
 **Food takes most of what a Kitui household spends.** Food is **72.5%** of household spending, one of the highest shares in the country (Tier 2, KNBS Kenya Poverty Report, via national reporting), and **55.2%** of residents, about 637,000 people, lived in poverty in 2021 (Tier 1), placing Kitui among the ten counties with the most poor people.
+
+```visual
+{"kind":"stats","items":[{"value":"72.5%","label":"of household spending goes on food","tier":2,"body":"One of the highest shares in the country (Tier 2, KNBS Kenya Poverty Report, via national reporting)."},{"value":"55.2%","label":"of residents in poverty, 2021","tier":1,"body":"About 637,000 people (Tier 1)."},{"value":"KSh 59","label":"a kg of maize, July 2025","tier":1,"body":"Against a five-year average of 56 (Tier 1, NDMA)."},{"value":"6.3%","label":"of households cook with clean fuels","tier":1,"body":"Kenya 21.2% (Tier 1, County Gender Data Sheet, 2022)."}]}
+```
 
 *   **Maize** sold at KSh 59 a kg against a five-year average of 56 (Tier 1, NDMA, July 2025).
 *   **A medium goat** sold at KSh 5,969 against a five-year average of 4,262, and most households were buying food rather than storing it (Tier 1, NDMA).

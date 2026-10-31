@@ -80,6 +80,11 @@ export function FigureFrame({
         </div>
       )}
 
+      {/* The marks show on load (visual-first pass): the measure says what is drawn, the chart
+          draws it. Sources, notes and the data table stay behind the control. */}
+      <p className="t-micro px-4 pt-3 leading-snug text-muted sm:px-5">{series.measure}</p>
+      <div className="px-4 py-4 sm:px-5">{children}</div>
+
       <FigureDetailsToggle
         badges={
           <span className="t-micro font-semibold text-ink">
@@ -88,12 +93,8 @@ export function FigureFrame({
           </span>
         }
       />
-      <FigDetail notes className="rf-fold">
-        <p className="t-micro px-4 pt-3 leading-snug text-muted sm:px-5">{series.measure}</p>
-        <div className="px-4 py-4 sm:px-5">{children}</div>
-      </FigDetail>
 
-      <FigDetail className="border-t border-line/60 bg-paper/40 px-4 py-3 sm:px-5">
+      <FigDetail notes className="border-t border-line/60 bg-paper/40 px-4 py-3 sm:px-5">
         <p className="t-micro leading-snug text-muted">
           <span className="font-semibold text-ink">
             {TIER_META[tier].short} · {TIER_META[tier].label}

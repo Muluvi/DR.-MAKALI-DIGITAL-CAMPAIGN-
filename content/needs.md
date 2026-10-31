@@ -107,6 +107,25 @@ NDMA names hotspot wards in every sub-county, the home base included, so the ran
 
 **Kitui is below Kenya on access and births in a facility, and above it on child survival.** {{health.access.problem}}% of women report a problem getting health care (Kenya {{health.access.problem.kenya}}%), and {{health.facility-births}}% of births are in a facility (Kenya {{health.facility-births.kenya}}%) (Tier 1, KDHS 2022).
 
+```visual
+kind: bars
+title: "Kitui against Kenya: access to care and births in a facility, KDHS 2022"
+source: "KDHS 2022 (Tier 1)"
+items:
+  - label: "Women reporting a problem getting health care, Kitui"
+    value: "{{health.access.problem}}%"
+    tier: 1
+  - label: "Women reporting a problem getting health care, Kenya"
+    value: "{{health.access.problem.kenya}}%"
+    tier: 1
+  - label: "Births in a facility, Kitui"
+    value: "{{health.facility-births}}%"
+    tier: 1
+  - label: "Births in a facility, Kenya"
+    value: "{{health.facility-births.kenya}}%"
+    tier: 1
+```
+
 *   **Insurance and stunting.** {{health.insurance}}% of residents have any health insurance, and {{health.stunting}}% of children under five are stunted (both Tier 1, KDHS 2022; Section 10.3 carries the older county baseline).
 *   **Child survival.** Infant mortality is {{health.imr}} per thousand births and under-five mortality {{health.u5mr}}, both better than Kenya's {{health.imr.kenya}} and {{health.u5mr.kenya}} (Tier 1, KDHS 2022).
 *   **Outbreaks.** In January–June 2025 Ngomeni had a confirmed measles outbreak ({{health.measles.ngomeni}} cases), and typhoid cases rose from {{health.typhoid.2024}} to {{health.typhoid.2025}}, which NDMA attributes to contaminated water and poor sanitation (Tier 1).
@@ -138,6 +157,27 @@ No verified figure is available yet for the county's road network or its conditi
 ## 3.6 The cost of living
 
 **Food takes most of what a Kitui household spends.** Food is **{{food.share}}%** of household spending, one of the highest shares in the country (Tier 2, KNBS Kenya Poverty Report, via national reporting), and **{{poverty.2021}}%** of residents, about {{poverty.2021.people}} people, lived in poverty in 2021 (Tier 1), placing Kitui among the ten counties with the most poor people.
+
+```visual
+kind: stats
+items:
+  - value: "{{food.share}}%"
+    label: "of household spending goes on food"
+    tier: 2
+    body: "One of the highest shares in the country (Tier 2, KNBS Kenya Poverty Report, via national reporting)."
+  - value: "{{poverty.2021}}%"
+    label: "of residents in poverty, 2021"
+    tier: 1
+    body: "About {{poverty.2021.people}} people (Tier 1)."
+  - value: "KSh {{price.maize}}"
+    label: "a kg of maize, July 2025"
+    tier: 1
+    body: "Against a five-year average of {{price.maize.average}} (Tier 1, NDMA)."
+  - value: "{{fuel.clean.2022}}%"
+    label: "of households cook with clean fuels"
+    tier: 1
+    body: "Kenya {{fuel.clean.2022.kenya}}% (Tier 1, County Gender Data Sheet, 2022)."
+```
 
 *   **Maize** sold at KSh {{price.maize}} a kg against a five-year average of {{price.maize.average}} (Tier 1, NDMA, July 2025).
 *   **A medium goat** sold at KSh {{price.goat}} against a five-year average of {{price.goat.average}}, and most households were buying food rather than storing it (Tier 1, NDMA).

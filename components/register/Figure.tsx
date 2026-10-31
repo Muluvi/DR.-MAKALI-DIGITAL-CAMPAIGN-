@@ -50,17 +50,24 @@ export function RegisterFigure({ spec }: { spec: FigureSpec }) {
         <h4 id={titleId} className="rf-title">{spec.title}</h4>
       </div>
       <p id={takeawayId} className="rf-takeaway">{spec.takeaway}</p>
+      {/* The marks show on load (visual-first pass, October 2026): the chart carries the argument.
+          The question, the notes, each item's body text, the sources and the data stay behind the
+          control, in the DOM, so find in page, print and no-JS readers still reach them. */}
+      <div className="rf-body">
+        <Chart spec={spec} />
+      </div>
       <FigureDetailsToggle badges={<TierBadges sources={spec.sources} />} />
       <FigDetail notes className="rf-fold">
         <div className="rf-method">
           <p className="rf-question">{spec.question}</p>
         </div>
-        <div className="rf-body">
-          <Chart spec={spec} />
-          {spec.notes?.map((n) => (
-            <p key={n} className="rf-notes">{n}</p>
-          ))}
-        </div>
+        {spec.notes?.length ? (
+          <div className="rf-body rf-body--notes">
+            {spec.notes.map((n) => (
+              <p key={n} className="rf-notes">{n}</p>
+            ))}
+          </div>
+        ) : null}
         <div className="rf-foot rf-foot--data">
         <details open className="rf-details print-open">
           <summary>View the data table</summary>

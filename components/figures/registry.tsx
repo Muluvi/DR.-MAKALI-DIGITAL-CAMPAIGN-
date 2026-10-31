@@ -1155,7 +1155,7 @@ export function Figure({ id }: { id: string }) {
       </p>
     );
   }
-  // A framed figure carries its own "Show the figure" control; anything else drawn here is a bespoke
+  // A framed figure carries its own "Show the details" control; anything else drawn here is a bespoke
   // panel, and goes behind the panel control like every other mounted panel.
   const node = entry.render();
   if (isValidElement(node) && node.type === FigureFrame) return node;
