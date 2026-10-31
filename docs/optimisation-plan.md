@@ -40,13 +40,29 @@ labels, 4.43:1); fixed.
 
 ### Next, in order
 
-1. P-3 server-side markdown and P-9 CSS split: the mobile LCP and the 170 kB target.
+1. ~~P-3 server-side markdown~~: **tried and reverted** (see below). P-9 CSS split remains.
 2. Acts I–III remaining prose-only screens (61 of 166; most in §2, §3, §6, §10, §12), then Acts IV–VI by the same method.
-3. Laptop layout: sticky contents rail on the left, figures breaking wider than the prose column
-   (at 1440 px the column is centred with wide empty margins).
+3. Laptop layout. A figure breakout (1,040 px figures beside a 736 px prose column at 1440) was
+   built and reverted: every flow section has `content-visibility: auto`, whose paint containment
+   clips anything wider than the section, so a breakout means giving up that optimisation on
+   sections 10–30 screens long. Doing it properly means widening the section and narrowing its
+   prose instead. The Act spine on the right is the laptop's section navigator; a left rail was
+   not added beside it.
 4. Design tokens doc (`docs/design-tokens.md`) and component guide; type-scale and colour-literal
    consolidation (103 font sizes, 210 hex literals).
 5. Toasts, copy-link buttons, keyboard shortcuts, resume-reading control.
+
+### P-3, tried and reverted
+
+`MarkdownViewer` has no hooks, so it was made a server component and streamed sections were
+rendered by a server action instead of parsed in the browser (visual text pre-rendered on the
+server for `VisualFence`). It built and ran. Measured, three mobile runs each: script transferred
+461 → 440 kB, performance median 61 → 58 (within run-to-run noise), LCP unchanged at 5.2 s. Every
+client component the route can reference still loads with the page, so the markdown pipeline was
+not the weight that mattered. The cost was real: a server action is a POST, which the service
+worker cannot cache, so the team could no longer read past the first section offline. Reverted.
+Reaching 170 kB needs the Next/React runtime (146 kB of the first load) and the eager client
+components addressed, which is an architecture change, not a pass.
 
 ### Measured after P-1, P-2, P-4, P-7, P-8 (same build, same machine as the audit)
 

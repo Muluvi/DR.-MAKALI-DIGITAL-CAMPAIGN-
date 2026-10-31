@@ -1495,3 +1495,61 @@ html:not(.dark) .text-emerald-600 { color: #065f46 !important; }   /* 6.4:1 on e
   .pf-hero__copy { max-width: 34rem; }
   .pf-numbers { max-width: 1480px; }
 }
+
+/* ---------------------------------------------------------------- toasts and shortcuts (visual-first pass) */
+.pf-toast-region {
+  position: fixed;
+  z-index: 60;
+  left: 50%;
+  bottom: calc(var(--pf-dock-h, 56px) + 20px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  width: min(28rem, calc(100vw - 2 * var(--pf-gutter, 16px)));
+  pointer-events: none;
+}
+.pf-toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 10px 8px 10px 16px;
+  border: 1px solid var(--pf-line);
+  border-radius: 14px;
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: var(--pf-shadow);
+  font: 500 14px/1.4 var(--pf-display);
+  pointer-events: auto;
+  animation: pf-fade var(--pf-dur-fast) var(--pf-ease-out) both;
+}
+.pf-toast > span { flex: 1; }
+.pf-toast__action {
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 10px;
+  background: var(--accent-solid);
+  color: var(--paper);
+  font: 700 14px/1 var(--pf-display);
+}
+.pf-toast__close { min-width: 44px; min-height: 44px; border-radius: 10px; color: var(--muted); font-size: 20px; line-height: 1; }
+.pf-toast__close:hover, .pf-toast__close:focus-visible { color: var(--ink); }
+.pf-keys {
+  position: fixed;
+  z-index: 61;
+  right: 24px;
+  bottom: 24px;
+  width: 18rem;
+  padding: 16px;
+  border: 1px solid var(--pf-line);
+  border-radius: 14px;
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: var(--pf-shadow);
+  font: 400 14px/1.45 var(--pf-display);
+}
+.pf-keys__title { margin: 0 0 8px; font-weight: 700; }
+.pf-keys dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; margin: 0 0 12px; }
+.pf-keys dt { white-space: nowrap; }
+.pf-keys dd { margin: 0; color: var(--muted); }
+.pf-keys kbd { display: inline-block; min-width: 1.6em; padding: 1px 6px; border: 1px solid var(--pf-line); border-radius: 6px; font: 600 12px/1.5 var(--font-mono), monospace; text-align: center; }
+@media print { .pf-toast-region, .pf-keys { display: none; } }
+

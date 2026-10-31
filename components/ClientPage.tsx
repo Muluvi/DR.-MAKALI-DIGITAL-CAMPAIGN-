@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+
+import { Toaster } from "./Toaster";
 import { Printer, Search } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
@@ -307,6 +309,14 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
     window.setTimeout(fire, 1400);
   }, [expanded, router]);
 
+  const labelOf = useCallback(
+    (id: string) => {
+      const item = navItems.find((t) => t.id === id);
+      return item ? `${item.number ? `§${item.number} ` : ""}${item.label}` : null;
+    },
+    [navItems]
+  );
+
   const activeItem = useMemo(
     () => navItems.find((t) => t.id === (expanded ? currentTab : activeTab)) ?? navItems[0],
     [navItems, currentTab, activeTab, expanded]
@@ -499,6 +509,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
             navigateToSection(secId);
           }}
         />
+        <Toaster current={activeItem.id} labelOf={labelOf} goTo={goToSection} resumable={streamed} />
       </div>
     </SectionNumberMapProvider>
   );
