@@ -67,6 +67,17 @@ land under the header (112 px). What remains is module evaluation and hydration 
 bundle (≈ 320 ms in webpack's loader alone at 4× CPU), which needs the client bundle itself made
 smaller.
 
+### Bundle and stylesheet trims
+
+- The legacy deep-link map (1,704 entries, ≈ 9 kB gz) loads only for an id that is not live:
+  First Load JS 389 → 381 kB.
+- P-5 (`LazyMotion`) rejected: 40 files would move from `motion.*` to `m.*`, and the site's
+  `layoutId` / `LayoutGroup` animations need the `domMax` feature set, so the saving is ≈ 10–15 kB.
+- Unused CSS (`scripts/optimisation/prune-css.mjs`): pruning every stylesheet removed ≈ 46 kB raw
+  but changed rendered heights (a figure table in §19 by 82 px, a §10 panel card by 21 px), so it
+  was not kept. Pruning only `visual-fx.css` (108 of its 154 effect classes unused) left every
+  element height identical on the three most sensitive pages and was kept: CSS 66.6 kB gzipped.
+
 ### P-3, tried and reverted
 
 `MarkdownViewer` has no hooks, so it was made a server component and streamed sections were

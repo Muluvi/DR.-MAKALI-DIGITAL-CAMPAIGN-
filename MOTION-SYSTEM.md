@@ -27,11 +27,13 @@ cannot afford that.
 
 | Token | Value | Use |
 |---|---|---|
-| `DURATION.micro` | 140ms | Hover, tap, toggle |
-| `DURATION.fast` | 180ms | Tab and panel crossfades |
-| `DURATION.medium` | 300ms | Disclosure, accordion, tooltip |
-| `DURATION.entrance` | 520ms | The default entrance |
-| `DURATION.deliberate` | 620ms | Charts and maps carrying many marks |
+| `DURATION.fast` (`lib/motion.ts`) | 150ms | Hover, tap, toggle |
+| `DURATION.base` | 250ms | Panels, disclosures, crossfades |
+| `DURATION.deliberate` | 400ms | Charts and threshold reveals |
+| `--pf-dur-fast` (CSS) | 180ms | Hover, toasts |
+| `--pf-dur-entrance` | 520ms | The default entrance |
+| `--pf-dur-deliberate` | 620ms | Maps and ward fills carrying many marks |
+| `--pf-dur-settle` | 900ms | Hero title, the county trace |
 | `EASE_ENTRANCE` | `cubic-bezier(0.16, 1, 0.3, 1)` | Expo-out. Fast commit, long settle |
 | `EASE_OUT` | `cubic-bezier(0.22, 1, 0.36, 1)` | Micro-interactions |
 | `STAGGER.tight/normal/loose` | 60 / 75 / 90ms | Between siblings |
