@@ -67,7 +67,7 @@ items:
     fields:
       - { label: "Source", text: "ODPC determinations under the Data Protection Act 2019" }
   - label: "Enforcement"
-    body: "ODPC has issued penalties up to **KSh5 million**, including **KSh400,000 against a lender for unsolicited marketing SMS (December 2025)** and penalties of KSh1.85m–4.55m against three controllers"
+    body: "ODPC has issued penalties up to **KSh5 million**, including **KSh400,000 against a lender for unsolicited marketing SMS (December 2025)** and penalties of KSh1.85m–4.55m against three controllers (ODPC determinations, Tier 1)"
     fields:
       - { label: "Source", text: "ODPC" }
   - label: "Political messaging scrutiny"

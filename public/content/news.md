@@ -17,7 +17,7 @@
 | Mobile phone ownership | **44.1%** of residents (CA/KNBS 2023/24) (Tier 1) | 452,948 people (42.9%) (Tier 1) | 84.1 million active SIM cards; 157.7% penetration (CA, Q3 FY2025/26) |
 | Internet use | **26.2%** (73.8% offline) (Tier 1) | 143,340 people (13.6%) (Tier 1) | 62.6 million mobile broadband subscriptions (Tier 1) |
 | Devices | Feature-phone and USSD-capable devices dominate | Feature phones dominate (Tier 1) | Smartphones are 59.7% of active SIMs nationally (50.2 million of 84.1 million, CA Q3 FY2025/26, Tier 2); a national rate, which overstates Kitui |
-| Mobile money | Near-universal use of mobile transactions | Mobile money dominant | 53.4 million subscriptions (100.1%); **602,470 registered agents** (March 2026) |
+| Mobile money | Near-universal use of mobile transactions | Mobile money dominant | 53.4 million subscriptions (100.1%, Tier 1); **602,470 registered agents** (March 2026) |
 | Phone ownership, adults (KDHS 2022) | Men 18+ **77.7%**, women 18+ **73.9%** (County Gender Data Sheet, October 2025) (Tier 1) | — | Kenya: men 80.4%, women 77.5% (Tier 1) |
 | Internet use, ages 15–49 (KDHS 2022) | Men **34.7%**, women **23.3%** (Tier 1) | — | Kenya: men 56.2%, women 44.2% (Tier 1) |
 

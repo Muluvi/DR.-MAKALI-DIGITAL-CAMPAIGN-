@@ -125,7 +125,7 @@ According to the Office of the Auditor-General's FY2023/24 audit report, four cr
 
 The county's *Delivering the Kitui Promise* scorecard (August 2022 – August 2025) itemises 401 of the 2,244 projects it claims, KSh 1.36 billion in all. Summed from its own tables:
 
-| Constituency | Projects | KSh, itemised | KSh per registered voter (2022) |
+| Constituency | Projects | KSh, itemised (Tier 1) | KSh per registered voter (2022, calculated) |
 |---|---:|---:|---:|
 | Kitui Central | 69 | 254.9m | 3,278 |
 | Mwingi North | 54 | 211.2m | 3,068 |
@@ -137,7 +137,7 @@ The county's *Delivering the Kitui Promise* scorecard (August 2022 – August 20
 | Mwingi West | 27 | 50.5m | 884 |
 | Countywide or headquarters | — | 160.9m | — |
 
-**How to read it, and how not to.** It covers only the 401 itemised projects, not the county budget and not all 2,244 projects (Tier 1 as a record of what the county claims, not evidence that the claims are true). Kitui Central's figure includes the county referral hospital and town works that serve the whole county: its health spending alone is KSh 76.6m of the KSh 153.4m attributed to constituencies. The pool's four constituencies receive 53.3% of constituency-attributed spending against 51.7% of the register, so the proposal does not claim the pool was neglected. The specific gap is Mwingi West, with less than a third of Kitui Central's spending per voter and KSh 1.9m for water. The full list is [kitui-scorecard-projects.csv](/data/kitui-scorecard-projects.csv), and the tracker's questions are in Section 15.1.1.
+**How to read it, and how not to.** It covers only the 401 itemised projects, not the county budget and not all 2,244 projects (Tier 1 as a record of what the county claims, not evidence that the claims are true). Kitui Central's figure includes the county referral hospital and town works that serve the whole county: its health spending alone is KSh 76.6m of the KSh 153.4m attributed to constituencies (Tier 1, county scorecard). The pool's four constituencies receive 53.3% of constituency-attributed spending against 51.7% of the register, so the proposal does not claim the pool was neglected. The specific gap is Mwingi West, with less than a third of Kitui Central's spending per voter and KSh 1.9m for water (Tier 1). The full list is [kitui-scorecard-projects.csv](/data/kitui-scorecard-projects.csv), and the tracker's questions are in Section 15.1.1.
 
 **What it means for the campaign.** The audit record is the evidence for Dr. Mulu's position (Chapter 9): the county's problem is not a lack of money but how it is managed, which is the discipline he has practised.
 

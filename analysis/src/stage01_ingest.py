@@ -99,21 +99,34 @@ def run() -> dict:
     rep.bullets([f"{r.subject}: {r.detail}" for _, r in ok.iterrows()])
 
     rep.h2("The claims register")
-    unsourced = int((claims["source_cited"] == "no").sum())
+    labelled = int((claims["source_cited"] == "yes").sum())
+    missing = claimsmod.never_stated(claims)
+    first = claims[claims["first_statement"]]
+    first_bare = int((first["source_cited"] == "no").sum())
     rep.p(
         f"{len(claims):,} numeric claims across {claims['file'].nunique()} content files. "
-        f"{unsourced:,} ({unsourced / len(claims):.0%}) carry no tier marker within 70 characters "
-        "of the figure."
+        f"{labelled:,} ({labelled / len(claims):.0%}) show where they come from where they stand: "
+        "a tier marker, a Tier column or header, a visual item's own tier, or a visible status "
+        "(modelled, calculated, target, not used)."
     )
     rep.p(
-        "That percentage overstates the problem and should not be quoted on its own. The site "
-        "tiers a figure where it is introduced and then restates it in summaries, tables and "
-        "callouts without repeating the marker. The register is a worklist, not a verdict: sort "
-        "it by file and look for figures that appear for the first time without a tier."
+        "The rest are mostly restatements. The site tiers a figure where it is introduced and "
+        "then repeats it in summaries, tables and callouts without the marker. The measure that "
+        "matters is whether a figure carries a tier or status anywhere in the document: "
+        f"{len(missing):,} {'figure does' if len(missing) == 1 else 'figures do'} not. "
+        f"Of {len(first):,} distinct figures, {first_bare:,} are first stated without a label; "
+        "apart from those listed below, each is tiered later in the reading order or in Annex A. "
+        "A figure counts as tiered when the same value is tiered anywhere, so two different "
+        "figures that happen to share a value can mask each other."
     )
+    if not missing.empty:
+        rep.table(
+            missing[["file", "location", "figure"]]
+            .rename(columns={"file": "File", "location": "Location", "figure": "Figure"}),
+        )
     top = (
         claims.groupby("file").agg(Claims=("value", "size"),
-                                   Unsourced=("source_cited", lambda s: (s == "no").sum()))
+                                   Unlabelled=("source_cited", lambda s: (s == "no").sum()))
         .sort_values("Claims", ascending=False).head(8).reset_index()
         .rename(columns={"file": "File"})
     )

@@ -113,7 +113,7 @@ items:
   - label: "Contact universe"
     text: "Everyone reachable by any owned channel, SMS or otherwise"
     fields:
-      - { label: "Where it is set", text: "21.1: ~{{target.contact-universe.lean|k}}k / ~{{target.contact-universe.standard|k}}k / ~{{target.contact-universe.premium|k}}k by level" }
+      - { label: "Where it is set", text: "21.1: ~{{target.contact-universe.lean|k}}k / ~{{target.contact-universe.standard|k}}k / ~{{target.contact-universe.premium|k}}k by level (targets)" }
     items:
       - { label: "Consented SMS contacts", text: "Phone numbers held with opt-in, reachable by SMS", fields: [{"label": "Where it is set", "text": "15.3.3: {{target.sms}} by Phase 3"}] }
   - label: "Pledged voters"

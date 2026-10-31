@@ -136,14 +136,14 @@ The county's Fiscal Strategy Paper for FY2026/27 sets a resource envelope of **K
 **The budget envelope.** The county's Fiscal Strategy Paper for FY2026/27 sets a resource envelope of **KSh {{budget.total|bn}} billion**; the total is cited through secondary reporting of the Paper (Tier 3) until the Paper is cited directly. The figures here are the Fiscal Strategy Paper's (the CFSP), not the Annual Development Plan's (the ADP), which is a different document. An earlier draft gave an ADP envelope of KSh 14.27 billion; it is not confirmed and is not used.
 
 *   **Equitable share:** KSh {{budget.equitable|bn}} billion ({{budget.equitable.share}}% of the envelope) (Tier 1).
-*   **Own-source revenue:** KSh {{budget.osr|bn}} billion in the Fiscal Strategy Paper ({{budget.osr.share}}%), raised to **KSh {{budget.osr.revised|bn}} billion** by the County Assembly. The approved FY2026/27 budget settles which applies; until it is in hand, both are shown (Tier 3, verify).
+*   **Own-source revenue:** KSh {{budget.osr|bn}} billion in the Fiscal Strategy Paper ({{budget.osr.share}}%, Tier 3), raised to **KSh {{budget.osr.revised|bn}} billion** by the County Assembly (Tier 3). The approved FY2026/27 budget settles which applies; until it is in hand, both are shown, and both are marked verify.
 *   **Conditional grants:** KSh {{budget.grants|bn}} billion ({{budget.grants.share}}%) (Tier 1).
 
 ```figure
 id: fig-2-5-budget
 ```
 
-The three parts sum to KSh 13.80 billion against a published total of {{budget.total|bn}}. The KSh 0.01 billion difference is rounding in the source, and is shown as its own segment rather than absorbed.
+The three parts sum to KSh 13.80 billion (calculated) against a published total of {{budget.total|bn}}. The KSh 0.01 billion difference is rounding in the source, and is shown as its own segment rather than absorbed.
 
 **The budget itself was not approved on time.** The FY2026/27 county budget was still unapproved after 30 June 2026 (Tier 2, The Star, 6 July 2026). Once the approved budget is in hand, its figures replace the Fiscal Strategy Paper's here.
 
