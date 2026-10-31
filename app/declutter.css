@@ -343,3 +343,16 @@ span[data-fold-body][hidden] { display: inline-block; }
   .pf-lead { margin: 6px 0 12px; }
   .pf-panel { margin: 10px 0 14px; }
 }
+
+/* A reference now reads as the heading's own words, not a number, so it wraps like prose and
+   uses the reading face; the arrow is the only mark that says "this goes somewhere". */
+.xchip-row { white-space: normal; }
+.xchip a {
+  display: inline;
+  min-height: 0;
+  padding: 1px 6px;
+  font: 600 0.92em/1.5 var(--pf-display, inherit);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.xchip__k { color: var(--pf-accent); font-weight: 700; }

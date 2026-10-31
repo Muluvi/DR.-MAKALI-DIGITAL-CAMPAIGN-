@@ -175,7 +175,7 @@ export function ReachSplit() {
           </ul>
           <p className="t-small text-muted mt-2.5 leading-snug">
             Most of them still have a handset: {ADULT_PHONE}% of adults own a phone (KDHS 2022, via the County Gender Data
-            Sheet, October 2025), so SMS and USSD reach most of this side (Section 2.9.3).
+            Sheet, October 2025), so SMS and USSD reach most of this side.
           </p>
         </div>
       </div>

@@ -20,7 +20,7 @@ export const COUNTY_POPULATION: SourcedFigure = {
     source: KNBS_CENSUS_2019,
     granularity: "county",
     note:
-      "549,003 males, 587,151 females, 33 intersex (§5.3.6). The 2024 projection of approximately " +
+      "549,003 males, 587,151 females, 33 intersex. The 2024 projection of approximately " +
       "1.2 million is Tier 2 and is not used in the chrome.",
   },
 };
@@ -32,7 +32,7 @@ export const COUNTY_WOMEN: SourcedFigure = {
   provenance: {
     source: KNBS_CENSUS_2019,
     granularity: "county",
-    note: "51.7% of the resident population. The register is not published by sex (§3.1).",
+    note: "51.7% of the resident population. The register is not published by sex.",
   },
 };
 
@@ -51,7 +51,7 @@ export const INTERNET_USE_BASE: SourcedFigure = {
   provenance: {
     source: KNBS_CENSUS_2019,
     granularity: "county",
-    note: "The census reports internet use for this population, not for all residents (§5.3.6).",
+    note: "The census reports internet use for this population, not for all residents.",
   },
 };
 

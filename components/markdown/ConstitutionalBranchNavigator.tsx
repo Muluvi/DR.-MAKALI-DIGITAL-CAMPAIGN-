@@ -112,7 +112,7 @@ export function ConstitutionalBranchNavigator() {
                     Malombe Base Fragmentation
                   </div>
                   <p className="t-small text-muted leading-relaxed">
-                    The wards Malombe carried in 2022 are open to the field; which they are is read from the IEBC&apos;s ward-level results (Section 2.2), not assumed.
+                    The wards Malombe carried in 2022 are open to the field; which they are is read from the IEBC&apos;s ward-level results, not assumed.
                   </p>
                 </div>
 

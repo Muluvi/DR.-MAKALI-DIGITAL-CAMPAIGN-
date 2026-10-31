@@ -1,8 +1,8 @@
-Target,Phase 1,Phase 2,Phase 3,Basis
+Target,Awareness phase,Persuasion phase,Turnout phase,Basis
 Consented SMS contacts,"40,000","80,000","120,000",Target
 USSD unique sessions,"5,000","25,000","60,000",Target
 Tracker reports received,500,"3,000","8,000",Target
-"Social reach ° (combined in Phase 1, cumulative after)","1,000,000","3,000,000","5,000,000",Target
+"Social reach ° (combined in the Awareness phase, cumulative after)","1,000,000","3,000,000","5,000,000",Target
 Engaged followers °,"50,000","150,000","250,000",Target
 Email/SMS subscribers,"5,000","15,000",—,Target
 Digital volunteer sign-ups,"1,000","5,000",—,Target

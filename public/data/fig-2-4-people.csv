@@ -1,10 +1,10 @@
 Measure,Value,Unit,Source,Basis
-Population (2019),1136187,people,KNBS 2019 Census (T1),Sourced
-Rural share,95.2,%,KNBS 2019 Census (T1),Sourced
-Poverty rate (2021),55.2,%,KNBS Kenya Poverty Report 2021 (T1),Sourced
-Poultry,4000000,head,"Livestock data validation 2023, as cited in the NDMA Kitui 2025 Long Rains Food and Nutrition Security Assessment (July 2025), p. 96 (T1)",Sourced
-Goats,2000000,head,"Livestock data validation 2023, as cited in the NDMA Kitui 2025 Long Rains Food and Nutrition Security Assessment (July 2025), p. 96 (T1)",Sourced
-Cattle,613000,head,"Livestock data validation 2023, as cited in the NDMA Kitui 2025 Long Rains Food and Nutrition Security Assessment (July 2025), p. 96 (T1)",Sourced
-Donkeys,326000,head,"Livestock data validation 2023, as cited in the NDMA Kitui 2025 Long Rains Food and Nutrition Security Assessment (July 2025), p. 96 (T1)",Sourced
-"Drought status, January 2026",Alert Phase,—,NDMA bulletin (T1),Sourced
-"Food security, September 2025",IPC Phase 2,—,IPC (T1),Sourced
+Population (2019),1136187,people,KNBS 2019 Census (Official),Sourced
+Rural share,95.2,%,KNBS 2019 Census (Official),Sourced
+Poverty rate (2021),55.2,%,KNBS Kenya Poverty Report 2021 (Official),Sourced
+Poultry,4000000,head,"Livestock data validation 2023, as cited in the NDMA Kitui 2025 Long Rains Food and Nutrition Security Assessment (July 2025), p. 96 (Official)",Sourced
+Goats,2000000,head,"Livestock data validation 2023, as cited in the NDMA Kitui 2025 Long Rains Food and Nutrition Security Assessment (July 2025), p. 96 (Official)",Sourced
+Cattle,613000,head,"Livestock data validation 2023, as cited in the NDMA Kitui 2025 Long Rains Food and Nutrition Security Assessment (July 2025), p. 96 (Official)",Sourced
+Donkeys,326000,head,"Livestock data validation 2023, as cited in the NDMA Kitui 2025 Long Rains Food and Nutrition Security Assessment (July 2025), p. 96 (Official)",Sourced
+"Drought status, January 2026",Alert Phase,—,NDMA bulletin (Official),Sourced
+"Food security, September 2025",IPC Phase 2,—,IPC (Official),Sourced

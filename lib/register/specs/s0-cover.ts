@@ -60,33 +60,34 @@ export const FIG_COVER_MAP: FigureSpec = {
   rows: tileRows(["footprint"]).map((r) => ({ ...r, cells: { ...r.cells, footprint: FOOTPRINT_LABEL[String(r.cells.footprint)] ?? r.cells.footprint } })),
 };
 
-// The document's own table of contents, decision first (docs/restructure-2026-10/preview.md,
-// section 5). Each step is a part, and each row's job is the question that part answers.
+// The document's own table of contents, in the order the page runs: the evidence first, then
+// the strategy it justifies, how it is delivered, how it is proven and protected, and the decision.
+// Each step is a part, and each row's job is the question that part answers.
 export const SPINE_STEPS = [
-  { label: "Decision", href: "/decision" },
-  { label: "Evidence", href: "/evidence" },
-  { label: "Strategy", href: "/strategy" },
-  { label: "Delivery", href: "/delivery" },
-  { label: "Measurement", href: "/measurement" },
-  { label: "Risks", href: "/risks" },
+  { label: "Kitui today", href: "/kitui" },
+  { label: "The contest", href: "/race" },
+  { label: "The strategy", href: "/goal" },
+  { label: "Delivery", href: "/engagement" },
+  { label: "Proof", href: "/success" },
+  { label: "The decision", href: "/receives" },
 ];
 
 export const FIG_COVER_SPINE: FigureSpec = {
   id: "fig-cover-spine",
   section: "Cover",
-  title: "The proposal runs decision first: the ask, then the evidence, the strategy, how it is delivered, measured and governed, and what could go wrong",
+  title: "The proposal runs evidence first: what Kitui is and needs, the contest, the strategy, how it is delivered, how it is proven and kept lawful, and the decision",
   question: "What is the shape of the argument?",
-  takeaway: "Part 1 is the decision and everything needed to make it; Parts 2 to 6 are the reasoning and the plan behind it, and the annexes are reference.",
+  takeaway: "Kitui today and The contest are the evidence; The strategy and Delivery are the plan built on it; Proof and protection shows how it is measured and kept safe; The decision closes with what Dr. Mulu is asked to decide. The reference shelf follows.",
   sources: [{ name: "This proposal's structure", tier: null, state: "target" }],
   chart: { type: "spine", steps: SPINE_STEPS },
   columns: [{ key: "step", label: "Part" }, { key: "job", label: "The question it answers" }],
   rows: [
-    { cells: { step: "1 The decision", job: "What is being asked, what do I get, who does what, and what must I decide or provide?" } },
-    { cells: { step: "2 The evidence", job: "What does the record show, and why is the plan shaped this way?" } },
-    { cells: { step: "3 The strategy", job: "What do we do about it, and why that?" } },
-    { cells: { step: "4 Delivery", job: "How is it run, when, by whom?" } },
-    { cells: { step: "5 Measurement and governance", job: "How will we know it is working, and how is it kept lawful?" } },
-    { cells: { step: "6 Risks and response", job: "What could go wrong, and what happens when it does?" } },
+    { cells: { step: "Kitui today", job: "Who lives here, and what do they need?" } },
+    { cells: { step: "The contest", job: "Who is running, and where does Dr. Mulu stand?" } },
+    { cells: { step: "The strategy", job: "What should the campaign do, and why?" } },
+    { cells: { step: "How Firefly delivers", job: "Who does the work, when, and how?" } },
+    { cells: { step: "Proof and protection", job: "How will we know it works, and how is it kept safe and lawful?" } },
+    { cells: { step: "The decision", job: "What is Dr. Mulu being asked to decide?" } },
   ],
 };
 

@@ -43,13 +43,13 @@ const DEPENDENCIES: { icon: typeof UserCheck; text: string; longLead?: boolean }
   { icon: Camera, text: "Ground team asset uploads: daily photographs and video from the trail" },
   {
     icon: Scale,
-    text: "Appointment of the data-protection reviewer (§19.2) — the long-lead item, needed in Phase −1",
+    text: "Appointment of the data-protection reviewer — the long-lead item, needed in Phase −1",
     longLead: true,
   },
   { icon: MapPin, text: "Current ward-level registration data from the IEBC published file" },
   { icon: Briefcase, text: "Access to the existing NG-CDF project record for verified proof points" },
   { icon: CheckCircle2, text: "Sign-off on the service level so the team can be assembled" },
-  { icon: FileText, text: "Wiper's 2027 nomination rules or NEC resolution, as soon as the party issues them (§5.2)" },
+  { icon: FileText, text: "Wiper's 2027 nomination rules or NEC resolution, as soon as the party issues them" },
 ];
 
 export function DecisionPanel() {

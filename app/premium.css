@@ -1553,3 +1553,25 @@ html:not(.dark) .text-emerald-600 { color: #065f46 !important; }   /* 6.4:1 on e
 .pf-keys kbd { display: inline-block; min-width: 1.6em; padding: 1px 6px; border: 1px solid var(--pf-line); border-radius: 6px; font: 600 12px/1.5 var(--font-mono), monospace; text-align: center; }
 @media print { .pf-toast-region, .pf-keys { display: none; } }
 
+
+/* ------------------------------------------------------------------ part dots
+   The single "where am I" signal (components/flow/PartDots.tsx): six dots, one per part. Shape
+   and fill carry the state, not colour alone, so it survives greyscale and print. */
+.part-dots { display: inline-flex; align-items: center; gap: 6px; vertical-align: middle; }
+.part-dots__dot {
+  width: 8px; height: 8px; border-radius: 99px;
+  border: 1.5px solid var(--gold);
+  background: transparent;
+  opacity: 0.55;
+}
+.part-dots__dot[data-state="passed"] { background: var(--gold); opacity: 0.45; }
+.part-dots__dot[data-state="here"] { background: var(--gold); opacity: 1; width: 20px; }
+.flow-chap__num { text-transform: uppercase; letter-spacing: 0.08em !important; font-size: 0.75rem !important; }
+.pf-act__count .part-dots__dot { width: 9px; height: 9px; }
+.pf-act__count .part-dots__dot[data-state="here"] { width: 24px; }
+.pf-dock__numeral { padding: 0 10px; }
+.pf-dock__numeral .part-dots { gap: 4px; }
+.pf-dock__numeral .part-dots__dot { width: 6px; height: 6px; border-color: var(--pf-on-solid); }
+.pf-dock__numeral .part-dots__dot[data-state="passed"],
+.pf-dock__numeral .part-dots__dot[data-state="here"] { background: var(--pf-on-solid); }
+.pf-dock__numeral .part-dots__dot[data-state="here"] { width: 14px; }

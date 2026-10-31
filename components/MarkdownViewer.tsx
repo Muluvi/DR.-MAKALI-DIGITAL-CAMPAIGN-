@@ -21,7 +21,7 @@ import { SectionPortrait } from "./markdown/SectionPortrait";
 import { commitmentFieldKey, isCommitmentFieldList, type CommitmentField } from "../lib/commitment-fields";
 import { PanelFold } from "./markdown/PanelFold";
 import { DISPUTED_FIGURES } from "../data/disputed-figures";
-import { headingSlug, sectionId, type TabId } from "../lib/heading-slug";
+import { displayTitle, headingSlug, sectionId, type TabId } from "../lib/heading-slug";
 import { crossRefFor, segmentContent } from "../lib/collapse-groups";
 
 /** Every markdown pass shares these: the working marks become chips (lib/inline-marks.ts). */
@@ -86,7 +86,7 @@ const MediaRadioLandscapeCard = dynamic(() => import("./markdown/MediaRadioLands
 const DataSecurityEthicsCharter = dynamic(() => import("./markdown/DataSecurityEthicsCharter").then((m) => m.DataSecurityEthicsCharter));
 const ObjectivesIndex = dynamic(() => import("./markdown/ObjectivesIndex").then((m) => m.ObjectivesIndex));
 
-const REHYPE = [rehypeRaw, rehypeInlineMarks];
+const REHYPE = [rehypeRaw, rehypeInlineMarks, rehypePlainLabels];
 import { CrossRef } from "./CrossRef";
 import { PrintSafeDisclosures } from "./PrintSafeDisclosures";
 import { DisclosureGroup } from "./markdown/DisclosureGroup";
@@ -107,15 +107,17 @@ const GOVERNING_REALITY_TRIGGERS = [
   "Kamba-language radio",
 ];
 import { PHASES } from "../lib/phases";
+import { PHASE_ID_BY_NAME, rehypePlainLabels } from "../lib/plain-labels";
 
 // §4.1's phase parts ("Phase −1: Nomination Sprint …", "Phase 0: …") don't start
 // with a digit, so they never pick up a heading id from headingSlug — but they should still get
 // the matching phase colour on their left border instead of the generic gold accent.
 const PHASE_HEADING_PATTERN = /^Phase\s+(−1|-1|0|1|2|3)\s*:/i;
 function phaseAccentFor(headingText: string): string | undefined {
+  const named = Object.keys(PHASE_ID_BY_NAME).find((n) => headingText.trim().startsWith(n));
   const match = PHASE_HEADING_PATTERN.exec(headingText.trim());
-  if (!match) return undefined;
-  const id = match[1] === "−1" || match[1] === "-1" ? "neg1" : match[1];
+  if (!match && !named) return undefined;
+  const id = named ? PHASE_ID_BY_NAME[named] : match![1] === "−1" || match![1] === "-1" ? "neg1" : match![1];
   const phase = PHASES.find((p) => p.id === id);
   return phase ? `var(${phase.colorVar})` : undefined;
 }
@@ -312,7 +314,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "race-sec-5-2": <NominationPathPanel />,
   "race-sec-5-5": <CompetitorFieldPanel />,
   "record-sec-6-1": (
-    <SectionPortrait id="gesture-explaining" kicker="Candidate profile — §6.1">
+    <SectionPortrait id="gesture-explaining" kicker="Candidate profile">
       Member for Kitui Central since 2013, and a member of the National Assembly&rsquo;s Budget and
       Appropriations Committee.
     </SectionPortrait>
@@ -340,7 +342,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // The week replaces a bullet list, a meeting table and the governance chart cut from Annex C.
   "engagement-sec-13-4": (
     <>
-      <SectionPortrait id="seated-grey-cropped" kicker="The engagement model — §13.4" flip>
+      <SectionPortrait id="seated-grey-cropped" kicker="The engagement model" flip>
         Firefly reports to a single named campaign-side counterpart.
       </SectionPortrait>
       <DirectionWeek />
@@ -664,7 +666,7 @@ function buildComponents(tabId: TabId): Components {
               const insert = id ? HEADING_INSERTS[id] : HEADING_TEXT_INSERTS[text.trim()];
               return (
                 <>
-                  <SectionHeading id={id} level={2}>{children}</SectionHeading>
+                  <SectionHeading id={id} level={2}>{withoutNumber(children)}</SectionHeading>
                   {/* The hand-built visualisation where one exists, and the figure derived from
                       this heading's own content where one does not. Never both: 50 sub-sections
                       were designed, and the other 222 are covered rather than decorated. */}
@@ -687,7 +689,7 @@ function buildComponents(tabId: TabId): Components {
               const id = slug ? sectionId(tabId, slug) : null;
               return (
                 <>
-                  <SectionHeading id={id} level={3} accentColor={phaseAccentFor(text)}>{children}</SectionHeading>
+                  <SectionHeading id={id} level={3} accentColor={phaseAccentFor(text)}>{withoutNumber(children)}</SectionHeading>
                   {id && HEADING_INSERTS[id] ? mountInsert(id, HEADING_INSERTS[id]) : <PartVisual spec={partVisual(id)} />}
                 </>
               );
@@ -727,6 +729,16 @@ function highlightInline(children: React.ReactNode, tabId: TabId) {
   return React.Children.map(children, (child) =>
     typeof child === "string" && hasHighlight(child) ? <HighlightedText text={child} tabId={tabId} /> : child
   );
+}
+
+/** Drop the printed number ("2.5", "15.3.2", "A.1") from the first text run of a heading. */
+function withoutNumber(children: React.ReactNode): React.ReactNode {
+  let done = false;
+  return React.Children.map(children, (child) => {
+    if (done || typeof child !== "string") return child;
+    done = true;
+    return displayTitle(child) === child.trim() ? child : displayTitle(child) + (child.endsWith(" ") ? " " : "");
+  });
 }
 
 export function MarkdownViewer({ content, tabId }: { content: string; tabId: TabId }) {

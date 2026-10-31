@@ -331,7 +331,7 @@ export function ServiceTrackerPhoneMockup() {
       <div className="mt-6 pt-4 border-t border-line text-xs text-muted flex flex-col sm:flex-row items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-sky-500" />
-          <span>Integrated with 40 Ward Coordinator Terminals (§15.3.1)</span>
+          <span>Integrated with 40 Ward Coordinator Terminals</span>
         </div>
         <span className="font-mono text-[11px] text-muted/80">Average response SLA: &lt; 4 Hours</span>
       </div>

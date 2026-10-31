@@ -8,7 +8,7 @@ import { ClaimBadge } from "./ClaimBadge";
 import { DerivedFigureDrawer } from "./DerivedFigureDrawer";
 import { KeyTakeawayBanner } from "./KeyTakeawayBanner";
 import { type TabId } from "../../lib/heading-slug";
-import { useSectionNumberMap } from "./SectionNumberMap";
+import { useSectionNumberMap, useSectionTitleMap } from "./SectionNumberMap";
 
 // Every pattern this component matches now lives in lib/highlight-patterns, so the server can
 // ask `hasHighlight` whether a text node needs this component at all before shipping it to the
@@ -19,6 +19,7 @@ import {
   STATUS_PHRASES,
   WORKING_TRIGGERS,
   masterRegex,
+  refNumbers,
 } from "../../lib/highlight-patterns";
 
 // Tooltip helper component
@@ -60,6 +61,7 @@ function InlineTooltip({ text, term }: { text: string; term: string }) {
 // Highly optimized memoized component to handle tooltip wrapping and badge highlights
 export const HighlightedText = React.memo(function HighlightedText({ text, tabId }: { text: string; tabId?: TabId }) {
   const sectionNumberMap = useSectionNumberMap();
+  const sectionTitleMap = useSectionTitleMap();
   const elements = React.useMemo(() => {
     if (!text) return null;
     const parts = text.split(masterRegex);
@@ -75,17 +77,21 @@ export const HighlightedText = React.memo(function HighlightedText({ text, tabId
       // Every "Section N.N" the author wrote, not a hand-listed handful. The previous list held
       // four numbers (22.14, 29.1, 31.1, 31.7) left over from an earlier renumbering, none of
       // which survive in the document — so all 173 references rendered as plain text.
-      const crossRefMatch = /^Section\s+((?:\d+[A-Z]?|[A-H])(?:\.\d+){1,2})$/i.exec(part);
-      if (crossRefMatch) {
-        const targetId = sectionNumberMap[crossRefMatch[1]] ?? null;
-        if (targetId) {
-          return (
-            <CrossSectionLink key={idx} id={targetId}>
-              {part}
-            </CrossSectionLink>
-          );
-        }
-        return part;
+      // A reference reads as the heading's own words, linked; the number stays out of sight.
+      if (/^(?:Sections?\s+|§\s?|Annex(?:es)?\s+)(?:\d|[A-H]\b)/i.test(part)) {
+        const nums = refNumbers(part);
+        const hits = nums.map((n) => ({ n, id: sectionNumberMap[n.toUpperCase()] ?? sectionNumberMap[n] }));
+        if (!nums.length || hits.some((h) => !h.id)) return part;
+        return (
+          <React.Fragment key={idx}>
+            {hits.map((h, i) => (
+              <React.Fragment key={h.n}>
+                {i > 0 ? (i === hits.length - 1 ? " and " : ", ") : null}
+                <CrossSectionLink id={h.id!}>{sectionTitleMap[h.n.toUpperCase()] ?? sectionTitleMap[h.n] ?? h.n}</CrossSectionLink>
+              </React.Fragment>
+            ))}
+          </React.Fragment>
+        );
       }
       // If this is a section's natural closing line, follow it with a key-takeaway banner
       const bannerMatch =
@@ -131,7 +137,7 @@ export const HighlightedText = React.memo(function HighlightedText({ text, tabId
       }
       return part;
     });
-  }, [text, tabId, sectionNumberMap]);
+  }, [text, tabId, sectionNumberMap, sectionTitleMap]);
 
   return <>{elements}</>;
 });

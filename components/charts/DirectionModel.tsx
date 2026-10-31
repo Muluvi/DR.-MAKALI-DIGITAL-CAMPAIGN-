@@ -79,7 +79,7 @@ export function DirectionWeek() {
       <div className="px-4 sm:px-5 py-3 border-t border-line/60 bg-paper/40">
         <p className="t-micro text-muted leading-relaxed">
           <strong className="text-ink">Firefly publishes on one channel only</strong> — the SMS,
-          USSD and WhatsApp layer it operates (§15.3.3). Every owned account stays with the people
+          USSD and WhatsApp layer it operates. Every owned account stays with the people
           who run it now. Monthly, on the last Friday: recognition indicators, the overrides log,
           and the brief re-based on what the month proved.
         </p>

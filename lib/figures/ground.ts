@@ -176,7 +176,7 @@ export const OPERATING_RHYTHM: string[][] = [
   [
     "Weekly · Monday 09:00–11:30",
     "Strategic command war room",
-    "Review the week's KPI dashboard (Section 18.2), approve the weekly radio and digital ad spend, set the tour route",
+    "Review the week's KPI dashboard, approve the weekly radio and digital ad spend, set the tour route",
     "Campaign Manager / Dr. Makali Mulu",
     "Candidate, all departmental directors",
   ],

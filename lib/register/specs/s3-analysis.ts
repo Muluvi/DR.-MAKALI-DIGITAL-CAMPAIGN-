@@ -10,7 +10,7 @@ import { bar, F, fmt, num, src, stateOf } from "./_util.ts";
 import { WARD_ROWS } from "../../data/figures.ts";
 import register from "../../../data/ward-register.json" with { type: "json" };
 
-const BENCH = { value: num("benchmark"), label: `${fmt("benchmark")}, the working benchmark (Section 2.1)` };
+const BENCH = { value: num("benchmark"), label: `${fmt("benchmark")}, the working benchmark` };
 const TURNOUT = `${fmt("turnout.constant")}%`;
 
 /* ------------------------------------------------------------------ fig-3-1-funnel */
@@ -273,7 +273,7 @@ export const FIG_3_7: FigureSpec = {
       },
     ],
   },
-  notes: ["Zones are built from administrative sub-counties; the register is by constituency. The two units do not match one-to-one (Section 1.2), so the register share is the nearest constituency match."],
+  notes: ["Zones are built from administrative sub-counties; the register is by constituency. The two units do not match one-to-one, so the register share is the nearest constituency match."],
   columns: [{ key: "zone", label: "Zone" }, { key: "pop", label: "Share of residents, %", numeric: true }, { key: "reg", label: "Share of the register, %", numeric: true }],
   rows: ZONES.map((z) => ({ cells: { zone: z.label, pop: one(z.pop), reg: one(z.reg) }, state: "modelled" as const })),
 };
@@ -385,15 +385,15 @@ export const FIG_3_11: FigureSpec = {
           type: "balance",
           hypothesis: "His gap is a geography-of-recognition problem outside Kitui Central, not a deficit of leadership credibility.",
           supporting: [
-            `${fmt("pool.share")}% of the register lives where he has never held office (Section 6.2).`,
-            `${fmt("pareto.top12.in-pool")} of the twelve largest wards are in that pool (Section 6.2).`,
-            "Kitui East and Kitui South will not carry party flow (Section 6.3).",
+            `${fmt("pool.share")}% of the register lives where he has never held office.`,
+            `${fmt("pareto.top12.in-pool")} of the twelve largest wards are in that pool.`,
+            "Kitui East and Kitui South will not carry party flow.",
           ],
           counter: [
             `Irene Kasalu won ${fmt("result.2022.womanrep.kasalu")} votes countywide in 2022, more than the ${fmt("result.2022.gov.malombe")} that won the governorship: countywide vote-getting capacity, not passive recognition.`,
-            `Enoch Wambua came within ${fmt("gap.wambua-to-benchmark-2022")} of the winning governor's total (Section 5.3).`,
+            `Enoch Wambua came within ${fmt("gap.wambua-to-benchmark-2022")} of the winning governor's total.`,
           ],
-          test: ["Week 1: his reach by constituency, from his own Insights export, against the register (Section 14.1)."],
+          test: ["Week 1: his reach by constituency, from his own Insights export, against the register."],
         },
       },
       {
@@ -402,8 +402,8 @@ export const FIG_3_11: FigureSpec = {
           type: "decision",
           question: "Where does his reach land now?",
           rules: [
-            { if: "reach concentrates in Kitui Central", then: "the recognition diagnosis holds: Phase −1 runs as written (Section 12.1)" },
-            { if: "reach already lands in Mwingi and Kitui South, but engagement there is low", then: "the problem is message, not reach: content changes, targeting holds (Section 12.7)" },
+            { if: "reach concentrates in Kitui Central", then: "the recognition diagnosis holds: Phase −1 runs as written" },
+            { if: "reach already lands in Mwingi and Kitui South, but engagement there is low", then: "the problem is message, not reach: content changes, targeting holds" },
             { if: "the export cannot be read by constituency", then: "the test waits on the method in Section 18.5; nothing is committed against the hypothesis" },
           ],
         },

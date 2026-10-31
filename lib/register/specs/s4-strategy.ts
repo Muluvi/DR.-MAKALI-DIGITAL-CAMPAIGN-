@@ -107,7 +107,7 @@ export const FIG_4_3: FigureSpec = {
     header: ["Segment", "Size (registered voters)", "Pillar", "Language", "Lead channel"],
     rows: SEGMENTS.map((g) => ({ head: g.name, cells: [g.size ? `≈${fmt(g.size)} (modelled)` : `${g.context ? `${g.context()}. ` : ""}Voters: not published`, g.pillar, g.lang, g.channel] })),
   },
-  notes: ["Priority among segments is set by the Week 1 audit (Section 14.1) and re-set at each monthly review, not chosen in advance."],
+  notes: ["Priority among segments is set by the Week 1 audit and re-set at each monthly review, not chosen in advance."],
   columns: [{ key: "segment", label: "Segment" }, { key: "size", label: "Size, registered voters", numeric: true }, { key: "pillar", label: "Pillar" }, { key: "lang", label: "Language" }, { key: "channel", label: "Lead channel" }],
   rows: SEGMENTS.map((g) => ({ cells: { segment: g.name, size: g.size ? num(g.size) : "Not published", pillar: g.pillar, lang: g.lang, channel: g.channel }, state: g.size ? ("modelled" as const) : undefined })),
 };
@@ -120,7 +120,7 @@ export const FIG_4_4: FigureSpec = {
   title: "Each region hears a different case for the same candidate, and Kikamba travels by voice, never by bulk SMS",
   question: "What do we say where, and in which language?",
   takeaway: "The anchor hears his record, Mwingi hears a published allocation method, the arid belt hears infrastructure; the language follows the channel.",
-  sources: [{ name: "This proposal, Sections 1.2 and 10.2; political-messaging rules (Section 15.3.3)", tier: null, state: "target" }],
+  sources: [{ name: "This proposal, Sections 1.2 and 10.2; political-messaging rules", tier: null, state: "target" }],
   chart: {
     type: "composite",
     parts: [
@@ -243,7 +243,7 @@ export const FIG_4_7: FigureSpec = {
   chart: {
     type: "cards",
     columns: 2,
-    cards: FIXES.map((f) => ({ kicker: `${f.order} · finding #${f.finding} (Section 6.5)`, title: f.after, body: `Before: ${f.before}`, tone: f.order === 1 ? ("accent" as const) : undefined })),
+    cards: FIXES.map((f) => ({ kicker: `${f.order} · finding #${f.finding}`, title: f.after, body: `Before: ${f.before}`, tone: f.order === 1 ? ("accent" as const) : undefined })),
   },
   columns: [{ key: "order", label: "Order", numeric: true }, { key: "finding", label: "Finding" }, { key: "before", label: "Before" }, { key: "after", label: "After" }],
   rows: FIXES.map((f) => ({ cells: { order: f.order, finding: `#${f.finding}`, before: f.before, after: f.after } })),

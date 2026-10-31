@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useMemo } from "react";
 import type { SectionItem } from "../../lib/section-index";
+import { SECTIONS } from "../../lib/heading-slug";
 
 /**
  * Maps a printed section number ("6.5.4") to the deep-link id it lives at today  verify-figures-ignore
@@ -18,6 +19,8 @@ import type { SectionItem } from "../../lib/section-index";
  */
 const SectionNumberMapContext = createContext<Readonly<Record<string, string>>>({});
 const SectionIndexContext = createContext<readonly SectionItem[]>([]);
+/** Printed number -> the heading's own words, so a reference reads as a name, never a number. */
+const SectionTitleMapContext = createContext<Readonly<Record<string, string>>>({});
 
 export function SectionNumberMapProvider({
   sections,
@@ -26,19 +29,38 @@ export function SectionNumberMapProvider({
   sections: readonly SectionItem[];
   children: React.ReactNode;
 }) {
-  const map = useMemo(
-    () => Object.fromEntries(sections.map((s) => [s.number, s.id])) as Record<string, string>,
-    [sections]
-  );
+  const { map, titles } = useMemo(() => {
+    const map: Record<string, string> = {};
+    const titles: Record<string, string> = {};
+    for (const s of sections) {
+      map[s.number] = s.id;
+      titles[s.number] = s.title;
+    }
+    // A whole chapter ("Section 6") lands on its first heading and reads as the chapter's name.
+    for (const sec of SECTIONS) {
+      if (!sec.number || map[sec.number]) continue;
+      const first = sections.find((s) => s.tabId === sec.id);
+      if (!first) continue;
+      map[sec.number] = first.id;
+      titles[sec.number] = sec.label.replace(/^Annex [A-H] — /, "");
+    }
+    return { map, titles };
+  }, [sections]);
   return (
     <SectionIndexContext.Provider value={sections}>
-      <SectionNumberMapContext.Provider value={map}>{children}</SectionNumberMapContext.Provider>
+      <SectionTitleMapContext.Provider value={titles}>
+        <SectionNumberMapContext.Provider value={map}>{children}</SectionNumberMapContext.Provider>
+      </SectionTitleMapContext.Provider>
     </SectionIndexContext.Provider>
   );
 }
 
 export function useSectionNumberMap(): Readonly<Record<string, string>> {
   return useContext(SectionNumberMapContext);
+}
+
+export function useSectionTitleMap(): Readonly<Record<string, string>> {
+  return useContext(SectionTitleMapContext);
 }
 
 /** The document's generated section index, for surfaces that index the document itself. */
