@@ -16,7 +16,7 @@ export const FIG_1_1: FigureSpec = {
   title: "There are about eleven months to the election, and the nomination window comes first, within weeks",
   question: "How long is there?",
   takeaway: "The Wiper ticket is settled in a window reported for late October to November 2026; everything the engagement does before then is aimed at it.",
-  sources: [{ name: "Nomination window: a single-source campaign report (Section 5.2)", tier: "T3" }, { name: "General election date: Constitution of Kenya, Article 101", tier: "T1" }],
+  sources: [{ name: "Nomination window: a single-source campaign report", tier: "T3" }, { name: "General election date: Constitution of Kenya, Article 101", tier: "T1" }],
   chart: {
     type: "timeline",
     countdown: { date: ELECTION, label: "general election" },
@@ -25,7 +25,7 @@ export const FIG_1_1: FigureSpec = {
     today: TODAY,
     events: [
       { date: TODAY, label: "This proposal", state: "sourced", whenText: "September 2026" },
-      { ...NOMINATION, label: "Wiper nomination window", state: "sourced", reported: true, note: "Reported, not confirmed by the party (Section 5.2)." },
+      { ...NOMINATION, label: "Wiper nomination window", state: "sourced", reported: true, note: "Reported, not confirmed by the party." },
       { date: ELECTION, label: "General election", state: "sourced", note: "The second Tuesday of August, fixed by the Constitution." },
     ],
   },

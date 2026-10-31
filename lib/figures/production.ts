@@ -67,7 +67,7 @@ export const FORMAT_SPECS: string[][] = [
   ],
   [
     "2. Direct 2G bulk SMS & USSD portal",
-    "Single-part 160-character plain text · GSM-7 encoding, no accented unicode · USSD: 4-option menu tree (see §15.1.2)",
+    "Single-part 160-character plain text · GSM-7 encoding, no accented unicode · USSD: 4-option menu tree",
     'Kiswahili or English only (CA rule); ward name, policy pledge and a free opt-out footer ("STOP to [sender ID]").',
   ],
   [

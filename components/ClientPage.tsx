@@ -17,12 +17,13 @@ import { PanelFold } from "./markdown/PanelFold";
 import { MicroFX } from "./premium/MicroFX";
 import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
 import { MobileTOCModal } from "./MobileTOCModal";
-import { isLiveSectionId, resolveLegacySectionId, SECTIONS, type TabId } from "../lib/heading-slug";
-import { FLOW_ORDER, FLOW_SECTIONS, FLOW_ACTS, flowIndex, opensAct } from "../lib/flow";
+import { isLiveSectionId, partOf, resolveLegacySectionId, SECTIONS, type TabId } from "../lib/heading-slug";
+import { FLOW_ORDER, FLOW_SECTIONS, FLOW_ACTS, actOf, opensAct } from "../lib/flow";
 import { sectionHeight } from "../lib/section-heights";
 import type { SectionItem } from "../lib/section-index";
 
 import { SectionNumberMapProvider } from "./markdown/SectionNumberMap";
+import { PlainTextPass } from "./PlainTextPass";
 import { StreamedSection } from "./flow/StreamedSection";
 import { ChapterMarker } from "./flow/ChapterMarker";
 
@@ -317,7 +318,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
   const labelOf = useCallback(
     (id: string) => {
       const item = navItems.find((t) => t.id === id);
-      return item ? `${item.number ? `§${item.number} ` : ""}${item.label}` : null;
+      return item ? item.label : null;
     },
     [navItems]
   );
@@ -329,7 +330,8 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
 
   return (
     <SectionNumberMapProvider sections={sections}>
-      <div className="pf-page min-h-screen bg-paper text-ink font-sans selection:bg-accent/20">
+      <div id="pf-root" className="pf-page min-h-screen bg-paper text-ink font-sans selection:bg-accent/20">
+        <PlainTextPass rootId="pf-root" />
         <a href="#content-area" className="skip-link">Skip to the document</a>
 
         {/* The flow streams its later sections, so the complete server-rendered document lives at
@@ -397,7 +399,6 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
           <div id="content-area" className="flow-body">
             {served.map((item) => {
               const act = expanded ? opensAct(item.id) : null;
-              const position = flowIndex(item.id);
               return (
                 <React.Fragment key={item.id}>
                   {/* The act opener sits before its section, not inside it: a section is
@@ -424,12 +425,10 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
                 >
                   <div id={`chap-${item.id}`}>
                     <ChapterMarker
-                      number={item.number}
+                      partLabel={partOf(item.id) === 0 ? null : actOf(item.id).label}
+                      actId={partOf(item.id) === 0 ? null : actOf(item.id).id}
                       label={item.label}
                       blurb={item.blurb}
-                      position={position}
-                      total={FLOW_ORDER.length}
-                      minutes={readingMinutes(item.visibleWordCount)}
                       asTitle={!expanded}
                     />
                   </div>
@@ -503,7 +502,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
 
         <Dock
           label={activeItem.label}
-          number={activeItem.number}
+          number={partOf(activeItem.id) === 0 ? "" : actOf(activeItem.id).label}
           tab={activeItem.id}
           onOpenIndex={() => setIsTOCModalOpen(true)}
           onToggleTheme={toggleTheme}

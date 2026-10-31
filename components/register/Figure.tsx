@@ -1,3 +1,4 @@
+import { tierWord } from "../../lib/tier-word";
 import type { Cell, CellState, FigureSpec, SourceRef } from "../../lib/register/types";
 import { group } from "../../lib/data/format";
 import { Chart } from "./charts";
@@ -118,10 +119,10 @@ function TierBadges({ sources }: { sources: SourceRef[] }) {
 
 export function TierPill({ source }: { source: Pick<SourceRef, "tier" | "state"> }) {
   if (source.state === "needed") return <span className="tp tp-needed">Data needed</span>;
-  if (source.state === "modelled") return <span className="tp tp-modelled">Modelled{source.tier ? ` · ${source.tier}` : ""}</span>;
+  if (source.state === "modelled") return <span className="tp tp-modelled">Modelled</span>;
   if (source.state === "target") return <span className="tp tp-target">Target</span>;
   if (!source.tier) return <span className="tp tp-needed">No tier</span>;
-  return <span className={`tp tp-${source.tier}`}>{source.tier}</span>;
+  return <span className={`tp tp-${source.tier}`}>{tierWord(source.tier)}</span>;
 }
 
 export function cellText(v: Cell, closesWith?: string): string {

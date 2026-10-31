@@ -1,6 +1,7 @@
 import type { FigureSeries } from "../../lib/figures/types";
 import { KIND_LABEL, conflictsOf, isImprecise, sourcesOf, tierOf } from "../../lib/figures/types";
 import { TIER_META } from "../../data/types";
+import { readerDeep } from "../../lib/reader-text";
 import { UnderReview } from "./UnderReview";
 import { FigDetail, FigureDetails, FigureDetailsToggle } from "../register/FigureDetails";
 
@@ -36,7 +37,7 @@ import { FigDetail, FigureDetails, FigureDetailsToggle } from "../register/Figur
  * a phone on a bad connection.
  */
 export function FigureFrame({
-  series,
+  series: written,
   children,
   /** Overrides the generated table, for figures whose data is better shown another way. */
   data,
@@ -47,6 +48,9 @@ export function FigureFrame({
   data?: React.ReactNode;
   className?: string;
 }) {
+  // The figure's words as the reader sees them: tier codes, phase numbers and section citations
+  // turned into plain words (lib/reader-text.ts). The series itself is unchanged.
+  const series = readerDeep(written);
   const conflicts = conflictsOf(series);
   const sources = sourcesOf(series);
   const tier = tierOf(series);
@@ -97,7 +101,7 @@ export function FigureFrame({
       <FigDetail notes className="border-t border-line/60 bg-paper/40 px-4 py-3 sm:px-5">
         <p className="t-micro leading-snug text-muted">
           <span className="font-semibold text-ink">
-            {TIER_META[tier].short} · {TIER_META[tier].label}
+            {TIER_META[tier].label}
           </span>
           {" — "}
           {sources.map((s) => s.name).join("; ")}

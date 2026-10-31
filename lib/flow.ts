@@ -23,13 +23,13 @@ export interface FlowAct {
 }
 
 export const FLOW_ACTS: FlowAct[] = [
-  { id: "kitui", label: "Part I — Kitui today", blurb: "Who lives here, and what do they need?", opensOn: "kitui" },
-  { id: "contest", label: "Part II — The contest", blurb: "Who is running, and where does Dr. Mulu stand?", opensOn: "race" },
-  { id: "strategy", label: "Part III — The strategy", blurb: "What should the campaign do, and why?", opensOn: "goal" },
-  { id: "delivery", label: "Part IV — How Firefly delivers", blurb: "Who does the work, when, and how?", opensOn: "engagement" },
-  { id: "proof", label: "Part V — Proof and protection", blurb: "How will we know it works, and how is it kept safe and lawful?", opensOn: "success" },
-  { id: "decision", label: "Part VI — The decision", blurb: "What is Dr. Mulu being asked to decide?", opensOn: "receives" },
-  { id: "reference", label: "Annexes", blurb: "Reference", opensOn: "annex-evidence" },
+  { id: "kitui", label: "Kitui today", blurb: "Who lives here, and what do they need?", opensOn: "kitui" },
+  { id: "contest", label: "The contest", blurb: "Who is running, and where does Dr. Mulu stand?", opensOn: "race" },
+  { id: "strategy", label: "The strategy", blurb: "What should the campaign do, and why?", opensOn: "goal" },
+  { id: "delivery", label: "How Firefly delivers", blurb: "Who does the work, when, and how?", opensOn: "engagement" },
+  { id: "proof", label: "Proof and protection", blurb: "How will we know it works, and how is it kept safe and lawful?", opensOn: "success" },
+  { id: "decision", label: "The decision", blurb: "What is Dr. Mulu being asked to decide?", opensOn: "receives" },
+  { id: "reference", label: "Reference shelf", blurb: "Sources, the ward register, playbooks and the fine print", opensOn: "annex-evidence" },
 ];
 
 const ACT_BY_OPENER = new Map(FLOW_ACTS.map((a) => [a.opensOn as string, a]));

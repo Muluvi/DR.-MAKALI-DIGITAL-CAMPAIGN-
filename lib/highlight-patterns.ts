@@ -51,7 +51,11 @@ export const datePatterns = "August 2026|December 2026|April 2027|August 2027|20
 // anything that is not a real section, so a stray figure never becomes a link to nowhere. A
 // citation flagged "[CHECK REF]" by the October 2026 renumbering names a number that was wrong
 // before it moved, so it is left as text rather than linked to whatever carries that number now.
-export const crossRefPattern = "Section\\s+\\d+(?:\\.\\d+){1,2}(?![.\\d]*\\s*\\[CHECK REF\\])";
+const REF_NUM = "(?:\\d+|[A-H])(?:\\.\\d+){0,2}\\b";
+export const crossRefPattern = `(?:Sections?\\s+|§\\s?|Annex(?:es)?\\s+)${REF_NUM}(?:\\s*(?:,|and|or|&|–|to)\\s*(?:§\\s?)?${REF_NUM})*(?![.\\d]*\\s*\\[CHECK REF\\])`;
+/** Pulls each section number out of a matched reference: "Sections 2.5 and 2.6" → ["2.5", "2.6"]. */
+export const refNumbers = (text: string): string[] =>
+  [...text.replace(/^(?:Sections?\s+|§\s?|Annex(?:es)?\s+)/i, "").matchAll(/(?:\d+|[A-H])(?:\.\d+){0,2}\b/g)].map((m) => m[0]);
 const statusPhrasePattern = STATUS_PHRASES.map((p) => p.pattern).join("|");
 const workingTriggerPattern = WORKING_TRIGGERS.map((p) => p.pattern).join("|");
 const bannerTriggerPattern = BANNER_TRIGGERS.map((p) => p.pattern).join("|");

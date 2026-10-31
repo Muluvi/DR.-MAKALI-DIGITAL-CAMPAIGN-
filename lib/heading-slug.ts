@@ -12,6 +12,14 @@ export function headingNumber(text: string): string | null {
   return match[1];
 }
 
+/**
+ * The heading as the reader sees it: the same words without the leading number. The number still
+ * makes the id (headingSlug), so every shared link and every check keyed on it is unchanged.
+ */
+export function displayTitle(text: string): string {
+  return text.trim().replace(LEADING_NUMBER, "").trim() || text.trim();
+}
+
 export function headingSlug(text: string): string | null {
   const num = headingNumber(text);
   if (!num) return null;
@@ -60,14 +68,14 @@ export const SECTIONS = [
   { id: "receives", part: 6, number: "21", label: "What he receives", blurb: "The three scope levels, compared, and the deliverables schedule" },
   { id: "commitments", part: 6, number: "22", label: "Commitments", blurb: "What Firefly commits to, and what the campaign provides" },
   { id: "ask", part: 6, number: "23", label: "The ask", blurb: "One week and one export, and the window that sets the pace" },
-  { id: "annex-evidence", part: 7, number: "A", label: "Annex A — Evidence & sources", blurb: "The evidence standard, the three tiers, and every source" },
-  { id: "annex-county", part: 7, number: "B", label: "Annex B — Ward register", blurb: "The 40-ward register, 2022" },
-  { id: "annex-playbooks", part: 7, number: "C", label: "Annex C — Playbooks", blurb: "Platform playbooks, formats and copy samples" },
-  { id: "annex-volunteers", part: 7, number: "D", label: "Annex D — Volunteers", blurb: "The volunteer programme reference" },
-  { id: "annex-technology", part: 7, number: "E", label: "Annex E — Technology", blurb: "The technology architecture and the voter model" },
-  { id: "annex-runbooks", part: 7, number: "F", label: "Annex F — Runbooks", blurb: "Response tiers, holding lines, security and incidents" },
-  { id: "annex-terms", part: 7, number: "G", label: "Annex G — Terms", blurb: "Confidentiality and use" },
-  { id: "annex-glossary", part: 7, number: "H", label: "Annex H — Glossary", blurb: "The terms of art, one plain line each" },
+  { id: "annex-evidence", part: 7, number: "A", label: "Evidence & sources", blurb: "The evidence standard, the three tiers, and every source" },
+  { id: "annex-county", part: 7, number: "B", label: "Ward register", blurb: "The 40-ward register, 2022" },
+  { id: "annex-playbooks", part: 7, number: "C", label: "Playbooks", blurb: "Platform playbooks, formats and copy samples" },
+  { id: "annex-volunteers", part: 7, number: "D", label: "Volunteers", blurb: "The volunteer programme reference" },
+  { id: "annex-technology", part: 7, number: "E", label: "Technology", blurb: "The technology architecture and the voter model" },
+  { id: "annex-runbooks", part: 7, number: "F", label: "Runbooks", blurb: "Response tiers, holding lines, security and incidents" },
+  { id: "annex-terms", part: 7, number: "G", label: "Terms", blurb: "Confidentiality and use" },
+  { id: "annex-glossary", part: 7, number: "H", label: "Glossary", blurb: "The terms of art, one plain line each" },
 ] as const;
 
 
@@ -77,13 +85,13 @@ export type TabId = (typeof SECTIONS)[number]["id"];
 /** The parts, for navigation that groups each Part's chapters under one choice. */
 export const PARTS = [
   { part: 0, label: "Cover", blurb: "Who this is for, and the case on one screen" },
-  { part: 1, label: "Part I — Kitui today", blurb: "Who lives here, and what do they need?" },
-  { part: 2, label: "Part II — The contest", blurb: "Who is running, and where does Dr. Mulu stand?" },
-  { part: 3, label: "Part III — The strategy", blurb: "What should the campaign do, and why?" },
-  { part: 4, label: "Part IV — How Firefly delivers", blurb: "Who does the work, when, and how?" },
-  { part: 5, label: "Part V — Proof and protection", blurb: "How will we know it works, and how is it kept safe and lawful?" },
-  { part: 6, label: "Part VI — The decision", blurb: "What is Dr. Mulu being asked to decide?" },
-  { part: 7, label: "Annexes", blurb: "Reference" },
+  { part: 1, label: "Kitui today", blurb: "Who lives here, and what do they need?" },
+  { part: 2, label: "The contest", blurb: "Who is running, and where does Dr. Mulu stand?" },
+  { part: 3, label: "The strategy", blurb: "What should the campaign do, and why?" },
+  { part: 4, label: "How Firefly delivers", blurb: "Who does the work, when, and how?" },
+  { part: 5, label: "Proof and protection", blurb: "How will we know it works, and how is it kept safe and lawful?" },
+  { part: 6, label: "The decision", blurb: "What is Dr. Mulu being asked to decide?" },
+  { part: 7, label: "Reference shelf", blurb: "Sources, the ward register, playbooks and the fine print" },
 ] as const;
 
 export type PartId = (typeof PARTS)[number]["part"];

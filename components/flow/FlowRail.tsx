@@ -33,7 +33,7 @@ export function FlowRail({
             >
               <span className="flow-rail__tick" aria-hidden="true" />
               <span className="flow-rail__name">
-                <b>{it.number}</b> {it.label}
+                {it.label}
               </span>
             </button>
           </li>

@@ -228,7 +228,7 @@ export function RapidResponsePhoneMockup() {
       <div className="mt-6 pt-4 border-t border-line text-xs text-muted flex flex-col sm:flex-row items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-rose-500" />
-          <span>Prevents Liar&apos;s Dividend through strict provenance metadata (§20.4)</span>
+          <span>Prevents Liar&apos;s Dividend through strict provenance metadata</span>
         </div>
         <span className="font-mono text-[11px] text-muted/80">War Room Hash: #DEBUNK-MN-042</span>
       </div>

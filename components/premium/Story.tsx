@@ -129,7 +129,7 @@ export function Story() {
           <li key={f.id} className="pf-story__step" data-active={pinned && step === i ? "true" : undefined}>
             <div className="pf-story__card">
               <p className="pf-story__n">
-                Step {i + 1} of {N} <span>§{f.section}</span>
+                Step {i + 1} of {N}
               </p>
               {i === 2 && (
                 <ul className="pf-story__paths">

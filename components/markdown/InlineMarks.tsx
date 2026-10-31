@@ -9,7 +9,8 @@ import { CrossSectionLink } from "./CrossSectionLink";
 import { FoldBody } from "./FoldBody";
 import { InertMarks } from "./InertMarks";
 import { HighlightedText } from "./HighlightedText";
-import { useSectionNumberMap } from "./SectionNumberMap";
+import { useSectionNumberMap, useSectionTitleMap } from "./SectionNumberMap";
+import { plainLabels } from "../../lib/plain-labels";
 
 /**
  * The chips a reader sees where the source carries a working mark (lib/inline-marks.ts says which
@@ -72,7 +73,7 @@ function tierBadgeText(tiers: number[], head: string): string {
     const extra = head.replace(/^Tier [123]\s*/, "").trim();
     return `${TIER_META[tiers[0] as Tier].short}${extra ? ` ${extra}` : ""}`;
   }
-  return head.replace(/Tier ([123])/g, "T$1");
+  return head.replace(/Tier ([123])/g, (_, n) => TIER_META[Number(n) as Tier].short);
 }
 
 export function TierMark({ tiers, head, rest }: { tiers?: string; head?: string; rest?: string }) {
@@ -121,9 +122,10 @@ export function StatusMark({ status, note }: { status?: string; note?: string })
 
 export function XrefMark({ refs, raw }: { refs?: string; raw?: string }) {
   const map = useSectionNumberMap();
+  const titles = useSectionTitleMap();
   const inert = useContext(InertMarks);
   const list = (refs ?? "").split(",").filter(Boolean);
-  const resolved = list.map((n) => ({ n, id: map[n] }));
+  const resolved = list.map((n) => ({ n, id: map[n], title: titles[n] ?? n }));
   // A reference to a number with no heading is left exactly as typed rather than drawn as a chip
   // that goes nowhere.
   if (!resolved.length || resolved.some((r) => !r.id)) return <>{raw}</>;
@@ -131,7 +133,8 @@ export function XrefMark({ refs, raw }: { refs?: string; raw?: string }) {
     <span className="xchip-row">
       {resolved.map((r) => (
         <span key={r.n} className="xchip">
-          {inert ? <span>§{r.n}</span> : <CrossSectionLink id={r.id!}>§{r.n}</CrossSectionLink>}
+          <span className="xchip__k" aria-hidden="true">→ </span>
+          {inert ? <span>{r.title}</span> : <CrossSectionLink id={r.id!}>{r.title}</CrossSectionLink>}
         </span>
       ))}
     </span>
@@ -149,12 +152,12 @@ export function counselNote(text: string): ReactNode | null {
  * markdown renderer.
  */
 export function InlineMarks({ text }: { text: string }) {
-  if (!hasInlineMark(text)) return <>{text}</>;
+  if (!hasInlineMark(text)) return <>{plainLabels(text)}</>;
   return (
     <>
       {tokenizeInline(text).map((p, i) => {
         switch (p.type) {
-          case "text": return <span key={i}>{p.text}</span>;
+          case "text": return <span key={i}>{plainLabels(p.text)}</span>;
           case "tier": return <TierMark key={i} tiers={p.tiers.join(",")} head={p.head} rest={p.rest} />;
           case "conflict": return <ConflictMark key={i} conflict={p.id} />;
           case "checkref": return <CheckRefMark key={i} />;
@@ -173,12 +176,14 @@ export function InlineMarks({ text }: { text: string }) {
  */
 export function WindowChip() {
   const map = useSectionNumberMap();
+  const titles = useSectionTitleMap();
   const inert = useContext(InertMarks);
   const id = map["5.2"] ?? "race-sec-5-2";
+  const title = titles["5.2"] ?? "How Wiper chooses its candidate";
   return (
     <span className="wchip">
-      <span className="wchip__k">Wiper decision:</span> late Oct–Nov 2026 · reported · <span className="wchip__t">Tier 3</span> ·{" "}
-      {inert ? <span>§2.5</span> : <CrossSectionLink id={id}>§2.5</CrossSectionLink>}
+      <span className="wchip__k">Wiper decision:</span> late Oct–Nov 2026 · reported · <span className="wchip__t">Unconfirmed</span> ·{" "}
+      {inert ? <span>{title}</span> : <CrossSectionLink id={id}>{title}</CrossSectionLink>}
     </span>
   );
 }

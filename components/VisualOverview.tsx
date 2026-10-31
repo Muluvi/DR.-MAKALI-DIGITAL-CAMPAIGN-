@@ -14,7 +14,7 @@ type VisualOverviewProps = {
 const signals = [
   { label: "Evidence base", value: "Source-led", detail: "Claims keep provenance and uncertainty visible.", icon: ShieldCheck, tone: "gold" },
   { label: "Geography", value: "40 wards", detail: "Prioritise by reach, register and field coverage.", icon: MapPinned, tone: "blue" },
-  { label: "Operating route", value: "−1 → 3", detail: "Nomination sprint through measurement and learning.", icon: Route, tone: "coral" },
+  { label: "Operating route", value: "5 phases", detail: "Nomination sprint, set-up, awareness, persuasion, turnout.", icon: Route, tone: "coral" },
   { label: "Decision model", value: "200k", detail: "A benchmark to test, not a forecast to promise.", icon: BarChart3, tone: "green" },
 ] as const;
 
@@ -46,12 +46,10 @@ export function VisualOverview({ sections, wordCounts, visibleWordCounts }: Visu
       <div className="visual-overview__rail" aria-label="Document route">
         {sections.slice(0, 6).map((section, index) => (
           <Link key={section.id} href={`#section-${section.id}`} className="visual-overview__step">
-            <span>{section.number}</span>
             <strong>{section.label}</strong>
             {index < 3 ? <ArrowDownRight aria-hidden="true" /> : <ArrowUpRight aria-hidden="true" />}
           </Link>
         ))}
-        <span className="visual-overview__tail">+{Math.max(0, sections.length - 6)} sections</span>
       </div>
 
       <p className="visual-overview__caption">

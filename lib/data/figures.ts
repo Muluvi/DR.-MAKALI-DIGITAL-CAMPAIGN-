@@ -73,7 +73,7 @@ sourced("register.2022.with-prisons", register.countyTotalWithPrisons, "voters",
 const ECVR = "IEBC, Enhanced Continuous Voter Registration county annex (July 2026)";
 // Tier 3 and unconfirmed (25 September 2026): reported by an aggregator. No IEBC document giving
 // the July total is in hand; the ECVR annex is April's release and carries the drive only.
-const REGISTER_2026_REPORTED = "Venas News, registered voters by county, July 2026 [S4]; unconfirmed until IEBC's own July figure is in hand";
+const REGISTER_2026_REPORTED = "Venas News, registered voters by county, July 2026; unconfirmed until IEBC's own July figure is in hand";
 sourced("register.2026", 605_703, "voters", "T3", REGISTER_2026_REPORTED, { asOf: "2026-07" });
 sourced("register.2026.ecvr-drive", 61_839, "voters", "T1", ECVR, { asOf: "2026-04-28", note: "New voters in ECVR Phase 1, the 30-day drive that closed 28 April 2026. A further phase ran 25 June to 25 July 2026 (IEBC gazette notice, 24 June 2026)." });
 modelled("register.2026.growth", v("register.2026") - v("register.2022"), "voters", "605,703 less 532,758: growth since 2022.", { tier: "T3" });
@@ -322,15 +322,15 @@ modelled("reach.offline", v("register.2026") - v("reach.smartphone"), "voters", 
 modelled("reach.smartphone.short", v("benchmark") - v("reach.smartphone"), "votes", "200,000 less the digital ceiling.");
 modelled("reach.smartphone.of-benchmark", pct(v("reach.smartphone"), v("benchmark")), "percent", "The digital ceiling / 200,000.");
 
-// ---- the county budget (Section 2.5): CFSP FY2026/27 [S47, S48]
+// ---- the county budget (Section 2.5): CFSP FY2026/27
 const CFSP = "Kitui County Fiscal Strategy Paper FY2026/27, as approved by the County Assembly";
 sourced("budget.total", 13.79e9, "ksh", "T3", CFSP, { note: "Cited through secondary reporting of the Paper; verify. The Paper sets the envelope at KSh 13.79bn (confirmed 25 September 2026); a KSh 13.78bn reading is not used.", decimals: 2 });
 sourced("budget.equitable", 11.64e9, "ksh", "T1", CFSP, { decimals: 2 });
 sourced("budget.osr", 1.12e9, "ksh", "T3", CFSP, {
   decimals: 2,
-  alt: { value: 1.339e9, source: "County Assembly revision of the CFSP [S48]", tier: "T3", note: "Raised by the Assembly. The final approved FY2026/27 budget settles which applies; until it is in hand, both are shown." },
+  alt: { value: 1.339e9, source: "County Assembly revision of the CFSP", tier: "T3", note: "Raised by the Assembly. The final approved FY2026/27 budget settles which applies; until it is in hand, both are shown." },
 });
-sourced("budget.osr.revised", 1.339e9, "ksh", "T3", "County Assembly revision of the CFSP [S48]", { decimals: 3 });
+sourced("budget.osr.revised", 1.339e9, "ksh", "T3", "County Assembly revision of the CFSP", { decimals: 3 });
 sourced("budget.grants", 1.04e9, "ksh", "T1", CFSP, { decimals: 2, note: "Conditional and unconditional grants in the Paper (confirmed 25 September 2026); a KSh 1.03bn reading is not used." });
 modelled("budget.rounding", 13.79e9 - (11.64e9 + 1.12e9 + 1.04e9), "ksh", "Published total less the three parts: rounding in the source, shown as its own segment.", { decimals: 2 });
 
@@ -408,7 +408,7 @@ target("target.contact-universe.lean", 60_000, "count", "Realistic Phase 3 conta
 target("target.contact-universe.standard", 150_000, "count", "Realistic Phase 3 contact universe at Level 2.", { source: T_FIREFLY });
 target("target.contact-universe.premium", 250_000, "count", "Realistic Phase 3 contact universe at Level 3.", { source: T_FIREFLY });
 target("target.content.first", 100, "count", "Pieces of content approved and scheduled in Phase 0.", { source: T_FIREFLY });
-target("target.captains", 400, "count", "Ward captains, 10 per ward: a campaign-owned recommendation (Section 13.3).", { source: T_CAMPAIGN });
+target("target.captains", 400, "count", "Ward captains, 10 per ward: a campaign-owned recommendation.", { source: T_CAMPAIGN });
 target("target.captains.pool", 240, "count", "Of the 400 captains, those recommended for the pool's wards: campaign-owned.", { source: T_CAMPAIGN });
 target("target.ambassadors", 800, "count", "M-Pesa 'Economic Ambassadors': a campaign-owned recommendation.", { source: T_CAMPAIGN });
 target("target.stage-champions", 1_200, "count", "Boda-boda Stage Champions, 30 per ward: a campaign-owned recommendation.", { source: T_CAMPAIGN });

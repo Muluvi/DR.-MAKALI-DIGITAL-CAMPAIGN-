@@ -6,7 +6,8 @@ import measured from "../../data/section-heights.json";
 
 import { useChromeVisible } from "../../hooks/use-chrome-visible";
 import { FLOW_ACTS, FLOW_ORDER, actOf } from "../../lib/flow";
-import type { TabId } from "../../lib/heading-slug";
+import { partOf, type TabId } from "../../lib/heading-slug";
+import { PartDots } from "../flow/PartDots";
 
 /**
  * The navigation chrome (brief G-7): the dock and the kiondo progress spine.
@@ -52,9 +53,9 @@ export function Dock({
         {/* Named by its visible text plus a hidden clause, so the name a voice user speaks is the one
             they see (WCAG 2.5.3; Lighthouse "label-content-name-mismatch"). */}
         <button type="button" className="pf-dock__where" onClick={onOpenIndex}>
-          <span className="pf-dock__numeral" aria-hidden="true">{actNumeral(tab) || "·"}</span>
+          <span className="pf-dock__numeral" aria-hidden="true">{partOf(tab) === 0 || actOf(tab).id === "reference" ? "·" : <PartDots actId={actOf(tab).id} />}</span>
           <span className="pf-dock__label">
-            {number && <b className="pf-dock__num">§{number}</b>} {label}
+            {number && <b className="pf-dock__num">{number} ·</b>} {label}
           </span>
           <span className="sr-only">. Open the index.</span>
         </button>
@@ -138,7 +139,7 @@ export function Spine({ onSelect }: { onSelect: (tab: TabId) => void }) {
   }, []);
 
   return (
-    <nav ref={ref} className="pf-spine print:hidden" aria-label="Acts">
+    <nav ref={ref} className="pf-spine print:hidden" aria-label="Parts">
       <ol>
         {FLOW_ACTS.map((a, i) => {
           return (
@@ -147,14 +148,14 @@ export function Spine({ onSelect }: { onSelect: (tab: TabId) => void }) {
                 type="button"
                 onClick={() => onSelect(a.opensOn)}
                 aria-current={i === active ? "true" : undefined}
-                aria-label={`Act ${ROMAN[i]}: ${a.label}`}
+                aria-label={a.label}
                 data-vt-source=""
               >
                 <span className="pf-spine__track" aria-hidden="true">
                   <span className="pf-spine__fill" style={{ "--fill": `var(--fill-${i}, 0)` } as React.CSSProperties} />
                 </span>
                 <span className="pf-spine__name" aria-hidden="true">
-                  <b data-vt-numeral="">{ROMAN[i]}</b> <span data-vt-title="">{a.label}</span>
+                  <span data-vt-title="">{a.label}</span>
                 </span>
               </button>
             </li>

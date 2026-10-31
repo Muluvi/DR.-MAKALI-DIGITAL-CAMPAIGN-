@@ -25,9 +25,9 @@ export type Tier = 1 | 2 | 3;
 // 3's must say "Unconfirmed" outright, per the source-discipline rule that a Tier 3 claim is
 // never shown without a visible unconfirmed marker.
 export const TIER_META: Record<Tier, { label: string; short: string; description: string }> = {
-  1: { label: "Official", short: "T1", description: "Named public institution — IEBC, KNBS, Controller of Budget, Auditor-General, NDMA, Communications Authority, Kenya Law, Kenya Gazette, county government." },
-  2: { label: "Reported", short: "T2", description: "Established media, not officially confirmed." },
-  3: { label: "Unconfirmed (single-source)", short: "T3 Unconfirmed", description: "One local or partisan digital outlet only — unconfirmed." },
+  1: { label: "Official", short: "Official", description: "Named public institution — IEBC, KNBS, Controller of Budget, Auditor-General, NDMA, Communications Authority, Kenya Law, Kenya Gazette, county government." },
+  2: { label: "Reported", short: "Reported", description: "Established media, not officially confirmed." },
+  3: { label: "Unconfirmed (single-source)", short: "Unconfirmed", description: "One local or partisan digital outlet only — unconfirmed." },
 };
 
 /** Geographic granularity a figure was measured or reported at. Never conflate these. */

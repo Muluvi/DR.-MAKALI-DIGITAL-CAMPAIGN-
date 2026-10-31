@@ -1,3 +1,4 @@
+import { tierWord } from "../../lib/tier-word";
 import type { Figure, FigureState, Tier } from "../../lib/data/schema";
 
 /**
@@ -21,7 +22,7 @@ export function ProvPill({ p }: { p: Provenance }) {
   const state = p.state ?? "sourced";
   if (state === "needed") return <span className="pf-pp pf-pp--needed">Data needed</span>;
   if (state === "target") return <span className="pf-pp pf-pp--target">Target</span>;
-  if (state === "modelled") return <span className="pf-pp pf-pp--modelled">Modelled{p.tier ? ` · ${p.tier}` : ""}</span>;
+  if (state === "modelled") return <span className="pf-pp pf-pp--modelled">Modelled</span>;
   if (!p.tier) return <span className="pf-pp pf-pp--needed">No tier</span>;
-  return <span className={`pf-pp pf-pp--${p.tier.toLowerCase()}`}>{p.tier}</span>;
+  return <span className={`pf-pp pf-pp--${p.tier.toLowerCase()}`}>{tierWord(p.tier)}</span>;
 }

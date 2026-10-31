@@ -123,7 +123,7 @@ Every figure in the store, 629 in all: 447 read off a named document, 114 modell
 | The Star, August 2022 | Tier 2 | Not stated | `result.2022.gov.musila.media` 114,606 |
 | A 2026 report, per Firefly Public Data & Evidence Audit (24 Sep 2026) | Tier 3 | 2026 | `boda.riders` 14,000; `boda.unlicensed` 10,921 |
 | Catholic Diocese of Kitui, per Firefly Public Data & Evidence Audit (24 Sep 2026) | Tier 3 | Not stated | `church.catholic` 240,000 |
-| County Assembly revision of the CFSP [S48] | Tier 3 | Not stated | `budget.osr.revised` KSh 1,339,000,000 |
+| County Assembly revision of the CFSP | Tier 3 | Not stated | `budget.osr.revised` KSh 1,339,000,000 |
 | Farm-gate price as quoted in the message matrix; source pending | Tier 3 | Not stated | `price.ndengu.farmgate` KSh 40 |
 | Kitui Agricultural Show 2023, per Firefly Public Data & Evidence Audit (24 Sep 2026) | Tier 3 | Not stated | `show.2023` 70,000 |
 | Kitui Central Project Inventory 2013–2026, awaiting line items | Tier 3 | Not stated | `record.cdf.boreholes` 84; `record.cdf.school-water` 142 |
@@ -134,7 +134,7 @@ Every figure in the store, 629 in all: 447 read off a named document, 114 modell
 | Public Facebook page, as displayed | Tier 3 | Not stated | `channel.fb.posts` 745 |
 | Public X profile @MakaliMulu, indexed snapshot, per Firefly Public Data & Evidence Audit (24 Sep 2026) | Tier 3 | 2026-09 | `channel.x.followers` 5,100 |
 | Stats Kenya, reporting KNBS for 2022 | Tier 3 | 2022 | `poverty.2022.statskenya` 58.3% |
-| Venas News, registered voters by county, July 2026 [S4]; unconfirmed until IEBC's own July figure is in hand | Tier 3 | 2026-07 | `register.2026` 605,703 |
+| Venas News, registered voters by county, July 2026; unconfirmed until IEBC's own July figure is in hand | Tier 3 | 2026-07 | `register.2026` 605,703 |
 
 #### Modelled figures, and how each is computed
 
@@ -291,7 +291,7 @@ Every figure in the store, 629 in all: 447 read off a named document, 114 modell
 | `target.contact-universe.standard` | 150,000 | Realistic Phase 3 contact universe at Level 2. |
 | `target.contact-universe.premium` | 250,000 | Realistic Phase 3 contact universe at Level 3. |
 | `target.content.first` | 100 | Pieces of content approved and scheduled in Phase 0. |
-| `target.captains` | 400 | Ward captains, 10 per ward: a campaign-owned recommendation (Section 13.3). |
+| `target.captains` | 400 | Ward captains, 10 per ward: a campaign-owned recommendation. |
 | `target.captains.pool` | 240 | Of the 400 captains, those recommended for the pool's wards: campaign-owned. |
 | `target.ambassadors` | 800 | M-Pesa 'Economic Ambassadors': a campaign-owned recommendation. |
 | `target.stage-champions` | 1,200 | Boda-boda Stage Champions, 30 per ward: a campaign-owned recommendation. |

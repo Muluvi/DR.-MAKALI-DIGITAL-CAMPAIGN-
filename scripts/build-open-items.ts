@@ -146,7 +146,7 @@ for (const f of Object.values(FIGURES)) {
 }
 
 // 3. register rows marked needed (imported late so a stale JSON cannot break the import order)
-const { REGISTER_ORDER } = await import("../lib/register/specs/index.ts");
+const { REGISTER_SOURCE: REGISTER_ORDER } = await import("../lib/register/specs/index.ts");
 for (const spec of REGISTER_ORDER) {
   if (SELF.has(spec.id)) continue;
   for (const r of spec.rows) {

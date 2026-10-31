@@ -1,5 +1,6 @@
 "use client";
 
+import { tierWord } from "../../lib/tier-word";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowLeft, Search, ShieldCheck } from "lucide-react";
@@ -75,7 +76,7 @@ function Row({ p }: { p: ProjectRow }) {
         </div>
       </div>
       <div className="mt-3 flex flex-wrap items-center gap-2 text-[0.7rem] text-slate-400">
-        <span className="rounded-full border border-white/20 px-2 py-0.5 font-semibold text-slate-200">T{p.provenance.tier}</span>
+        <span className="rounded-full border border-white/20 px-2 py-0.5 font-semibold text-slate-200">{tierWord(p.provenance.tier)}</span>
         <span>{p.provenance.method} · as of {p.provenance.as_of} · {p.provenance.source_id}, p. {p.page}</span>
         {unconfirmed && (
           <span className="rounded-full border border-dashed border-amber-300/60 px-2 py-0.5 font-semibold text-amber-200">

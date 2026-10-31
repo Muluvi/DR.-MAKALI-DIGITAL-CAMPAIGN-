@@ -62,12 +62,12 @@ export const RESEARCH_MODULES: string[][] = [
     "Ninety days of his own channels, exported and coded twice · reach by city mapped to sub-county · engagement on reach · language and format mix · the public comparison with the two nomination rivals",
     "Every post in the window · his Meta Insights export · public posts of the two nomination rivals · no personal data",
     "Week 1",
-    "If reach concentrates in Kitui Central, output weight shifts to Mwingi and the arid belt. If it lands in Mwingi but does not convert, the problem is message, not reach (Section 12.7).",
+    "If reach concentrates in Kitui Central, output weight shifts to Mwingi and the arid belt. If it lands in Mwingi but does not convert, the problem is message, not reach.",
   ],
   [
     "2. The ward-level record",
     "The 2017 and 2022 governor results by ward and polling station, set against the pool and the twelve decisive wards · Wiper's 2022 share, ward by ward",
-    "IEBC Forms 37A and 37B for all 40 wards · public records, not yet in hand (Section 2.2)",
+    "IEBC Forms 37A and 37B for all 40 wards · public records, not yet in hand",
     "On receipt",
     "If Wiper carried the pool wards in 2022, the gap there is his own recognition and reach is the answer. If it did not, party flow is part of the problem and Section 6.3's direct-contact plan widens.",
   ],
@@ -96,7 +96,7 @@ export const MODULES_SERIES: FigureSeries = {
 export const TRACKER_DIMENSIONS: string[][] = [
   [
     "1. Ward infrastructure & school laboratories",
-    "Kitui Central NG-CDF project ledger · Ministry of Education infrastructure DB · classroom and TVET counts pending the project ledger (see §E.3)",
+    "Kitui Central NG-CDF project ledger · Ministry of Education infrastructure DB · classroom and TVET counts pending the project ledger",
     "Monthly sync · on-site geotagged photo audit; certified contractor handovers",
   ],
   [
@@ -107,7 +107,7 @@ export const TRACKER_DIMENSIONS: string[][] = [
   [
     "3. Public financial stewardship ledger",
     "Office of the Auditor-General certified reports (2013–2025) · Controller of Budget reports",
-    "Annual / statutory audit cycle · each year's audit opinion as the OAG report states it; the 2013–2025 reports are not yet retrieved (Section 10.1)",
+    "Annual / statutory audit cycle · each year's audit opinion as the OAG report states it; the 2013–2025 reports are not yet retrieved",
   ],
   [
     "4. Secondary & tertiary bursary distribution",

@@ -29,7 +29,7 @@ export const AUDIENCE_FACETS = [
   { label: "Geographic locus", items: ["Rural: 95.2%", "Urban: 4.8%"] },
   { label: "Age demographic", items: ["Youth (18–35): ~44%", "Mid/senior (36+): 56%"] },
   { label: "Connectivity status", items: ["Offline: 73.8%", "Online: 26.2%"] },
-  { label: "Primary language", items: ["Kikamba: ~76% (7.3)", "Kiswahili: ~16%", "English: ~8%"] },
+  { label: "Primary language", items: ["Kikamba: ~76%", "Kiswahili: ~16%", "English: ~8%"] },
   { label: "Livelihood clusters", items: ["Dryland agrarian", "Pastoral / livestock", "Informal / bodaboda"] },
   { label: "Diaspora matrix", items: ["Nairobi / Mombasa", "Remittance leverage", "Family opinion shapers"] },
 ];
@@ -42,7 +42,7 @@ export const AUDIENCE_SERIES: FigureSeries = {
   note:
     "Connectivity and language are the two facets the rest of the proposal turns on: 73.8% offline " +
     "sets the channel mix, ~76% Kikamba sets the language mix. The 73.8% / 26.2% split is the " +
-    "CA/KNBS 2023/24 rate (§4.1), which supersedes the 2019 census's 86.4% / 13.6%.",
+    "CA/KNBS 2023/24 rate, which supersedes the 2019 census's 86.4% / 13.6%.",
 };
 
 /* ------------------------------------------------------------------ §4.5 the segments */
@@ -115,7 +115,7 @@ export const VISIT_LOOP = [
     title: "Verification",
     steps: [
       "Delivered, delayed or not done.",
-      "Published either way to the service-delivery tracker (§15) — and the result feeds the next visit.",
+      "Published either way to the service-delivery tracker — and the result feeds the next visit.",
     ],
   },
 ];

@@ -70,7 +70,7 @@ export function FlowChrome({
 
   return (
     <div className="flow-chrome" data-hidden={hidden || !visible ? "true" : "false"} aria-hidden={hidden ? "true" : undefined}>
-      <button type="button" className="flow-chrome__pill" onClick={onOpenIndex} aria-label={`${label}. Section ${position + 1} of ${total}. Open the index.`}>
+      <button type="button" className="flow-chrome__pill" onClick={onOpenIndex} aria-label={`${label}. Open the index.`}>
         <span className="flow-chrome__ring" aria-hidden="true">
           <svg viewBox="0 0 34 34">
             <circle cx="17" cy="17" r={R} className="flow-chrome__ring-bg" />
@@ -79,7 +79,7 @@ export function FlowChrome({
           <span className="flow-chrome__ring-num">{pct}</span>
         </span>
         <span className="flow-chrome__text">
-          <span className="flow-chrome__num">§{number}</span>
+          {number ? <span className="flow-chrome__num">{number}</span> : null}
           <span className="flow-chrome__label">{label}</span>
         </span>
         <span className="flow-chrome__index" aria-hidden="true">

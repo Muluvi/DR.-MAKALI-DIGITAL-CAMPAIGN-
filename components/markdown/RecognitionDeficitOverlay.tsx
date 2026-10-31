@@ -54,7 +54,7 @@ const STATUS_META: Record<RecognitionStatus, { label: string; note: string; clas
   },
   deficit: {
     label: "Never held office",
-    note: "Out-of-constituency. Lower recall here is the hypothesis Week 1 tests (§7.1).",
+    note: "Out-of-constituency. Lower recall here is the hypothesis Week 1 tests.",
     className: "border-rose-500/25 bg-rose-500/[0.04]",
     dot: "bg-rose-500",
   },
@@ -258,7 +258,7 @@ export function RecognitionDeficitOverlay() {
           <span>
             Recognition status here is <strong>structural</strong> — derived from where Dr. Mulu has held office, not
             from any measure of opinion. §7.3 records ward-level recognition as unmeasured; the IEBC&rsquo;s ward-level
-            results (§2.2) are the official record the analysis reads next.
+            results are the official record the analysis reads next.
           </span>
         </p>
         <p className="t-small text-muted flex items-start gap-1.5">

@@ -145,7 +145,7 @@ Every figure in the store, 629 in all: 447 read off a named document, 114 modell
 | The Star, August 2022 | Tier 2 | Not stated | `result.2022.gov.musila.media` {{result.2022.gov.musila.media}} |
 | A 2026 report, per Firefly Public Data & Evidence Audit (24 Sep 2026) | Tier 3 | 2026 | `boda.riders` {{boda.riders}}; `boda.unlicensed` {{boda.unlicensed}} |
 | Catholic Diocese of Kitui, per Firefly Public Data & Evidence Audit (24 Sep 2026) | Tier 3 | Not stated | `church.catholic` {{church.catholic}} |
-| County Assembly revision of the CFSP [S48] | Tier 3 | Not stated | `budget.osr.revised` KSh {{budget.osr.revised}} |
+| County Assembly revision of the CFSP | Tier 3 | Not stated | `budget.osr.revised` KSh {{budget.osr.revised}} |
 | Farm-gate price as quoted in the message matrix; source pending | Tier 3 | Not stated | `price.ndengu.farmgate` KSh {{price.ndengu.farmgate}} |
 | Kitui Agricultural Show 2023, per Firefly Public Data & Evidence Audit (24 Sep 2026) | Tier 3 | Not stated | `show.2023` {{show.2023}} |
 | Kitui Central Project Inventory 2013–2026, awaiting line items | Tier 3 | Not stated | `record.cdf.boreholes` {{record.cdf.boreholes}}; `record.cdf.school-water` {{record.cdf.school-water}} |
@@ -156,7 +156,7 @@ Every figure in the store, 629 in all: 447 read off a named document, 114 modell
 | Public Facebook page, as displayed | Tier 3 | Not stated | `channel.fb.posts` {{channel.fb.posts}} |
 | Public X profile @MakaliMulu, indexed snapshot, per Firefly Public Data & Evidence Audit (24 Sep 2026) | Tier 3 | 2026-09 | `channel.x.followers` {{channel.x.followers}} |
 | Stats Kenya, reporting KNBS for 2022 | Tier 3 | 2022 | `poverty.2022.statskenya` {{poverty.2022.statskenya}}% |
-| Venas News, registered voters by county, July 2026 [S4]; unconfirmed until IEBC's own July figure is in hand | Tier 3 | 2026-07 | `register.2026` {{register.2026}} |
+| Venas News, registered voters by county, July 2026; unconfirmed until IEBC's own July figure is in hand | Tier 3 | 2026-07 | `register.2026` {{register.2026}} |
 
 #### Modelled figures, and how each is computed
 
@@ -313,7 +313,7 @@ Every figure in the store, 629 in all: 447 read off a named document, 114 modell
 | `target.contact-universe.standard` | {{target.contact-universe.standard}} | Realistic Phase 3 contact universe at Level 2. |
 | `target.contact-universe.premium` | {{target.contact-universe.premium}} | Realistic Phase 3 contact universe at Level 3. |
 | `target.content.first` | {{target.content.first}} | Pieces of content approved and scheduled in Phase 0. |
-| `target.captains` | {{target.captains}} | Ward captains, 10 per ward: a campaign-owned recommendation (Section 13.3). |
+| `target.captains` | {{target.captains}} | Ward captains, 10 per ward: a campaign-owned recommendation. |
 | `target.captains.pool` | {{target.captains.pool}} | Of the 400 captains, those recommended for the pool's wards: campaign-owned. |
 | `target.ambassadors` | {{target.ambassadors}} | M-Pesa 'Economic Ambassadors': a campaign-owned recommendation. |
 | `target.stage-champions` | {{target.stage-champions}} | Boda-boda Stage Champions, 30 per ward: a campaign-owned recommendation. |

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { X, Search, ChevronRight, Layers, Compass, MessageSquare, Megaphone, Shield, Database, Gauge, FileText, BookLock, ClipboardList, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck, Users, TriangleAlert, FileCog } from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
 import { FLOW_ACTS, FLOW_SECTIONS, actOf } from "../lib/flow";
-import { ACT_PORTRAITS, ACT_ROMAN } from "../lib/premium/acts";
+import { ACT_PORTRAITS } from "../lib/premium/acts";
 import { Portrait } from "./Portrait";
 import { readingMinutes } from "../hooks/useReadingProgress";
 import type { SectionItem } from "../lib/section-index";
@@ -157,10 +157,6 @@ export function MobileTOCModal({
     });
   }, [sections, searchQuery, selectedTabFilter]);
 
-  // Counts shown in the header/pills — derived from the live index rather than hardcoded,
-  // so they never drift from the document again the way the old "26 Sections" figure did.
-  const subSectionCount = useMemo(() => sections.filter((s) => s.level === 2).length, [sections]);
-  const partCount = useMemo(() => sections.filter((s) => s.level === 3).length, [sections]);
 
   if (!isOpen) return null;
 
@@ -189,7 +185,7 @@ export function MobileTOCModal({
             <div>
               <h2 id={titleId} className="pf-idx__title">The index</h2>
               <p className="pf-idx__meta">
-                {FLOW_ACTS.length} acts · {PARTS.filter((p) => p.part > 0 && p.part < 7).length} sections, {SECTIONS.filter((s) => s.part === 7).length} annexes, {subSectionCount} sub-sections, {partCount} parts
+                Six parts, then the reference shelf
               </p>
             </div>
             <button type="button" onClick={onClose} className="pf-idx__close" aria-label="Close the index">
@@ -202,7 +198,7 @@ export function MobileTOCModal({
               {/* The seven acts (brief G-7): each with its numeral, its portrait, what it answers
                   and how long it takes; one tap to its opener, and the act's title carries across
                   to the chapter it lands on (lib/premium/transition.ts). */}
-              <ol className="pf-idx__acts" aria-label="The seven acts">
+              <ol className="pf-idx__acts" aria-label="The six parts and the reference shelf">
                 {FLOW_ACTS.map((a, i) => {
                   const mins = readingMinutes(
                     FLOW_SECTIONS.filter((s) => actOf(s.id as TabId).id === a.id).reduce((n, s) => n + (wordCounts[s.id as TabId] ?? 0), 0)
@@ -220,8 +216,7 @@ export function MobileTOCModal({
                         <span className="pf-idx__img" aria-hidden="true">
                           <Portrait id={ACT_PORTRAITS[i]} sizes="96px" fade={false} />
                         </span>
-                        <span className="pf-idx__n" data-vt-numeral="" aria-hidden="true">{ACT_ROMAN[i]}</span>
-                        <span className="pf-idx__text">
+                                                <span className="pf-idx__text">
                           <span className="pf-idx__label" data-vt-title="">{a.label}</span>
                           <span className="pf-idx__blurb">{a.blurb}</span>
                           <span className="pf-idx__min">
@@ -258,7 +253,7 @@ export function MobileTOCModal({
                 <input
                   type="text"
                   placeholder="Search sections (e.g., Nomination, Radio, 40 Wards, SMS)..."
-                  aria-label="Search sections by number, title or part"
+                  aria-label="Search sections by title or part"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   ref={searchRef}
@@ -306,8 +301,7 @@ export function MobileTOCModal({
                             className="pf-idx__row"
                           >
                             <Icon size={15} aria-hidden="true" className="pf-idx__rowicon" />
-                            <span className="pf-idx__rownum">{s.number}</span>
-                            <span className="pf-idx__rowlabel" data-vt-title="">{s.label}</span>
+                                                        <span className="pf-idx__rowlabel" data-vt-title="">{s.label}</span>
                             <span className="pf-idx__rowmin">{mins} min</span>
                             {/* State carried by a word and a mark, not by colour alone. */}
                             <span className="pf-idx__rowstate">{isHere ? "Here" : isRead ? "✓ Read" : "New"}</span>
@@ -364,8 +358,7 @@ export function MobileTOCModal({
                         className="fx-press fx-focus w-full py-3 px-2 flex items-center justify-between text-left hover:bg-paper/70 active:bg-paper rounded-xl transition-colors group cursor-pointer min-h-[50px]"
                       >
                         <div className={`flex items-start gap-2.5 sm:gap-3 min-w-0 pr-2 ${item.level === 3 ? "pl-3 sm:pl-5" : ""}`}>
-                          <span className="font-mono t-micro tabular-nums text-accent shrink-0 mt-0.5 min-w-[38px]">{item.number}</span>
-                          <div className="min-w-0">
+                                                    <div className="min-w-0">
                             <span className={`block t-label text-ink group-hover:text-accent transition-colors ${item.level === 2 ? "font-bold" : "font-medium"}`}>
                               {item.title}
                             </span>
