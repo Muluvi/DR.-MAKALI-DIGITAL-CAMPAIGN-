@@ -5,7 +5,7 @@ import re
 
 import pandas as pd
 
-from src import config, wards as wardlib
+from src import claims as claimslib, config, wards as wardlib
 
 CURRENT_PARTY = "Wiper Patriotic Front"
 STALE_PARTY = "Wiper Democratic Movement"
@@ -377,18 +377,38 @@ def t3_without_t1(frames: dict[str, pd.DataFrame], sources: pd.DataFrame) -> lis
 
 
 def claims_coverage(claims: pd.DataFrame) -> list[dict]:
+    """The sourcing gap is a figure no reader can trace anywhere in the document. A figure
+    tiered where it is introduced and restated without the marker in a summary is not one."""
     out: list[dict] = []
     if claims.empty:
         return out
-    unsourced = int((claims["source_cited"] == "no").sum())
-    share = unsourced / len(claims)
-    out.append(_finding(
-        "claim-sourcing", "high" if share > 0.5 else "medium", "Site content",
-        f"{unsourced:,} of {len(claims):,} numeric claims ({share:.0%}) carry no visible tier "
-        "marker within 70 characters.",
-        "Most are restatements of figures tiered elsewhere on the page. Prioritise the ones that "
-        "state a figure for the first time.",
-    ))
+
+    labelled = int((claims["source_cited"] == "yes").sum())
+    missing = claimslib.never_stated(claims)
+    first = claims[claims["first_statement"]] if "first_statement" in claims else claims.iloc[0:0]
+    first_bare = int((first["source_cited"] == "no").sum())
+    if missing.empty:
+        out.append(_finding(
+            "claim-sourcing", "ok", "Site content",
+            f"Every figure on the site carries a tier or a visible status somewhere in the "
+            f"document. {labelled:,} of {len(claims):,} numeric claims are labelled where they "
+            f"stand; {first_bare:,} first statements rely on a tier given later in the reading "
+            "order or in Annex A.",
+            "Keep labelling new figures where they are introduced.",
+        ))
+    else:
+        figures = "; ".join(
+            f"{r.file} ({r.location.split(' · ')[0]}): {r.figure}" for r in missing.head(10).itertuples()
+        )
+        out.append(_finding(
+            "claim-sourcing", "high" if len(missing) > 25 else "medium", "Site content",
+            f"{len(missing):,} {'figure carries' if len(missing) == 1 else 'figures carry'} no "
+            "tier or status anywhere in the document, so a "
+            f"reader cannot trace them: {figures}. Of {len(claims):,} numeric claims, "
+            f"{labelled:,} are labelled where they stand.",
+            "Give each a source and tier where it is first stated, or remove it. Do not supply a "
+            "tier without a document behind it.",
+        ))
     t3 = claims[claims["tier"] == 3]
     if not t3.empty:
         out.append(_finding(

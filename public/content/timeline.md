@@ -75,7 +75,7 @@ id: fig-4-7-profile-fixes
 **One definition per number.** Four different quantities are in play, and earlier drafts quoted them interchangeably:
 
 ```visual
-{"kind":"nested","items":[{"label":"Contact universe","text":"Everyone reachable by any owned channel, SMS or otherwise","fields":[{"label":"Where it is set","text":"21.1: ~60k / ~150k / ~250k by level"}],"items":[{"label":"Consented SMS contacts","text":"Phone numbers held with opt-in, reachable by SMS","fields":[{"label":"Where it is set","text":"15.3.3: 120,000 by Phase 3"}]}]},{"label":"Pledged voters","text":"CRM records with phone, ward and polling station logged","fields":[{"label":"Where it is set","text":"18.2 GE-01: 220,000 target"}],"items":[{"label":"Verified supporters","text":"Pledged voters confirmed by a second touch","fields":[{"label":"Where it is set","text":"8.2.4: 200,000 target"}]}]}]}
+{"kind":"nested","items":[{"label":"Contact universe","text":"Everyone reachable by any owned channel, SMS or otherwise","fields":[{"label":"Where it is set","text":"21.1: ~60k / ~150k / ~250k by level (targets)"}],"items":[{"label":"Consented SMS contacts","text":"Phone numbers held with opt-in, reachable by SMS","fields":[{"label":"Where it is set","text":"15.3.3: 120,000 by Phase 3"}]}]},{"label":"Pledged voters","text":"CRM records with phone, ward and polling station logged","fields":[{"label":"Where it is set","text":"18.2 GE-01: 220,000 target"}],"items":[{"label":"Verified supporters","text":"Pledged voters confirmed by a second touch","fields":[{"label":"Where it is set","text":"8.2.4: 200,000 target"}]}]}]}
 ```
 
 They are nested, not alternatives: consented contacts ⊂ contact universe, and verified supporters ⊂ pledged voters. The figure below carries every phase target.

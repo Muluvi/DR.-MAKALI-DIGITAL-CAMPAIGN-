@@ -163,8 +163,7 @@ Kenyan campaigns face account takeover, phishing of staff and volunteers,
 leaked internal material, and increasingly the fabrication of audio and video.
 Kenya's Communications Authority attributed rising cyber threat volumes in part
 to **inadequate system patching, insufficient phishing awareness, and the
-growing use of AI tools by malicious actors**, issuing 21.8 million threat
-advisories in a single quarter.
+growing use of AI tools by malicious actors**, issuing 21.8 million threat advisories (Communications Authority, Tier 1) in a single quarter.
 
 ```visual
 kind: checklist

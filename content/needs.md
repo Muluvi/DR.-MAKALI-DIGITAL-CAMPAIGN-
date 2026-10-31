@@ -180,7 +180,7 @@ items:
 
 The county's *Delivering the Kitui Promise* scorecard (August 2022 – August 2025) itemises {{scorecard.itemised}} of the {{scorecard.claimed}} projects it claims, KSh {{scorecard.itemised.ksh|bn}} billion in all. Summed from its own tables:
 
-| Constituency | Projects | KSh, itemised | KSh per registered voter (2022) |
+| Constituency | Projects | KSh, itemised (Tier 1) | KSh per registered voter (2022, calculated) |
 |---|---:|---:|---:|
 | Kitui Central | {{scorecard.kitui-central.projects}} | {{scorecard.kitui-central.ksh|m1}}m | {{scorecard.kitui-central.per-voter}} |
 | Mwingi North | {{scorecard.mwingi-north.projects}} | {{scorecard.mwingi-north.ksh|m1}}m | {{scorecard.mwingi-north.per-voter}} |
@@ -192,7 +192,7 @@ The county's *Delivering the Kitui Promise* scorecard (August 2022 – August 20
 | Mwingi West | {{scorecard.mwingi-west.projects}} | {{scorecard.mwingi-west.ksh|m1}}m | {{scorecard.mwingi-west.per-voter}} |
 | Countywide or headquarters | — | {{scorecard.countywide.ksh|m1}}m | — |
 
-**How to read it, and how not to.** It covers only the {{scorecard.itemised}} itemised projects, not the county budget and not all {{scorecard.claimed}} projects (Tier 1 as a record of what the county claims, not evidence that the claims are true). Kitui Central's figure includes the county referral hospital and town works that serve the whole county: its health spending alone is KSh {{scorecard.kitui-central.health.ksh|m1}}m of the KSh {{scorecard.health.attributed.ksh|m1}}m attributed to constituencies. The pool's four constituencies receive {{scorecard.pool.share}}% of constituency-attributed spending against {{pool.share}}% of the register, so the proposal does not claim the pool was neglected. The specific gap is Mwingi West, with less than a third of Kitui Central's spending per voter and KSh {{scorecard.mwingi-west.water.ksh|m1}}m for water. The full list is [kitui-scorecard-projects.csv](/data/kitui-scorecard-projects.csv), and the tracker's questions are in Section 15.1.1.
+**How to read it, and how not to.** It covers only the {{scorecard.itemised}} itemised projects, not the county budget and not all {{scorecard.claimed}} projects (Tier 1 as a record of what the county claims, not evidence that the claims are true). Kitui Central's figure includes the county referral hospital and town works that serve the whole county: its health spending alone is KSh {{scorecard.kitui-central.health.ksh|m1}}m of the KSh {{scorecard.health.attributed.ksh|m1}}m attributed to constituencies (Tier 1, county scorecard). The pool's four constituencies receive {{scorecard.pool.share}}% of constituency-attributed spending against {{pool.share}}% of the register, so the proposal does not claim the pool was neglected. The specific gap is Mwingi West, with less than a third of Kitui Central's spending per voter and KSh {{scorecard.mwingi-west.water.ksh|m1}}m for water (Tier 1). The full list is [kitui-scorecard-projects.csv](/data/kitui-scorecard-projects.csv), and the tracker's questions are in Section 15.1.1.
 
 **What it means for the campaign.** The audit record is the evidence for Dr. Mulu's position (Chapter 9): the county's problem is not a lack of money but how it is managed, which is the discipline he has practised.
 

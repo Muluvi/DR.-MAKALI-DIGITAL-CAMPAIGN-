@@ -79,14 +79,14 @@ The county's Fiscal Strategy Paper for FY2026/27 sets a resource envelope of **K
 **The budget envelope.** The county's Fiscal Strategy Paper for FY2026/27 sets a resource envelope of **KSh 13.79 billion**; the total is cited through secondary reporting of the Paper (Tier 3) until the Paper is cited directly. The figures here are the Fiscal Strategy Paper's (the CFSP), not the Annual Development Plan's (the ADP), which is a different document. An earlier draft gave an ADP envelope of KSh 14.27 billion; it is not confirmed and is not used.
 
 *   **Equitable share:** KSh 11.64 billion (84.3% of the envelope) (Tier 1).
-*   **Own-source revenue:** KSh 1.12 billion in the Fiscal Strategy Paper (8.1%), raised to **KSh 1.339 billion** by the County Assembly. The approved FY2026/27 budget settles which applies; until it is in hand, both are shown (Tier 3, verify).
+*   **Own-source revenue:** KSh 1.12 billion in the Fiscal Strategy Paper (8.1%, Tier 3), raised to **KSh 1.339 billion** by the County Assembly (Tier 3). The approved FY2026/27 budget settles which applies; until it is in hand, both are shown, and both are marked verify.
 *   **Conditional grants:** KSh 1.04 billion (7.5%) (Tier 1).
 
 ```figure
 id: fig-2-5-budget
 ```
 
-The three parts sum to KSh 13.80 billion against a published total of 13.79. The KSh 0.01 billion difference is rounding in the source, and is shown as its own segment rather than absorbed.
+The three parts sum to KSh 13.80 billion (calculated) against a published total of 13.79. The KSh 0.01 billion difference is rounding in the source, and is shown as its own segment rather than absorbed.
 
 **The budget itself was not approved on time.** The FY2026/27 county budget was still unapproved after 30 June 2026 (Tier 2, The Star, 6 July 2026). Once the approved budget is in hand, its figures replace the Fiscal Strategy Paper's here.
 

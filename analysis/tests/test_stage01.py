@@ -160,7 +160,81 @@ def test_claims_register_has_the_required_columns():
     df = claims.build()
     assert list(df.columns) == [
         "file", "location", "claim", "value", "unit", "source_cited", "tier", "status",
+        "figure", "first_statement",
     ]
+
+
+# SYNTHETIC: every markdown string below is invented test input for the detector. None of it
+# is site content or data, and none of it is written anywhere.
+
+def _one(rows, **kw):
+    found = claims._claims_in(rows, "t.md", 1, "Test", **kw)
+    assert len(found) == 1, found
+    return found[0]
+
+
+def test_a_tier_marker_near_the_figure_sources_it():
+    c = _one(["Turnout was 61.7% (IEBC, Tier 1)."])
+    assert (c["tier"], c["source_cited"], c["status"]) == (1, "yes", config.TAG_OK)
+
+
+def test_a_bare_figure_is_unsourced():
+    c = _one(["Turnout was 61.7% that year."])
+    assert (c["source_cited"], c["status"]) == ("no", "unsourced")
+
+
+def test_a_table_tier_column_sources_the_row():
+    rows = ["| Measure | Value | Tier |", "|---|---|---|", "| Stunting | 25.1% | T1 |"]
+    c = _one(rows, scan_from=2)
+    assert c["tier"] == 1
+
+
+def test_a_tier_in_the_column_header_sources_the_cell():
+    rows = ["| Ward | KSh, itemised (Tier 1) |", "|---|---|", "| Kyangwithya | 12,400,000 |"]
+    assert _one(rows, scan_from=2)["tier"] == 1
+
+
+def test_a_target_table_is_a_commitment_not_a_claim():
+    rows = ["| Metric | Target |", "|---|---|", "| Opt-out rate | 2.5% |"]
+    c = _one(rows, scan_from=2)
+    assert (c["status"], c["source_cited"]) == ("target", "yes")
+
+
+def test_a_visual_item_carries_its_own_tier():
+    found = claims._visual_claims({"items": [{"value": "55.2%", "label": "poverty", "tier": 1}]},
+                                  "t.md", 1, "Test")
+    assert [(c["value"], c["tier"]) for c in found] == [(55.2, 1)]
+
+
+def test_years_phone_numbers_and_section_lists_are_not_claims():
+    assert claims._claims_in(["In 2022 and again in September 2026."], "t.md", 1, "T") == []
+    assert claims._claims_in(["Call 0712 345 678 for help."], "t.md", 1, "T") == []
+    assert claims._claims_in(["See Sections 3.2, 4.10 and 5.6."], "t.md", 1, "T") == []
+    assert claims._claims_in(["Messages stay under 160 characters."], "t.md", 1, "T") == []
+
+
+def test_modelled_and_excluded_figures_carry_a_visible_status():
+    assert _one(["A cost of KSh 13.80 billion (calculated)."])["status"] == "modelled"
+    assert _one(["The 114,606 reading is not used."])["status"] == "excluded"
+
+
+def test_million_and_digits_are_one_figure_and_never_stated_finds_the_gap():
+    df = pd.DataFrame(
+        claims._claims_in(["Population 53.4 million (KNBS, Tier 1)."], "a.md", 1, "A")
+        + claims._claims_in(["Of 53,400,000 people, 9,999 are counted."], "b.md", 2, "B")
+    )
+    scale = df["unit"].map({"million": 1e6}).fillna(1)
+    df["figure"] = [f"{v * k:.6g}" for v, k in zip(df["value"], scale)]
+    missing = claims.never_stated(df)
+    assert list(missing["figure"]) == ["9999"]
+
+
+def test_claims_coverage_reports_never_stated_figures():
+    df = claims.build()
+    finding = checks.claims_coverage(df)[0]
+    assert finding["check"] == "claim-sourcing"
+    gap = claims.never_stated(df)
+    assert (finding["severity"] == "ok") == gap.empty
 
 
 def test_unfilled_templates_have_headers_and_no_example_rows():

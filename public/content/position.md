@@ -22,7 +22,7 @@ Kitui voters are ready for a leader who understands economics, respects public m
 **Kitui has ample developmental resources; what it lacks is disciplined, accountable deployment.** The county's primary developmental obstacle is not a lack of funding, but a lack of fiscal discipline, project oversight, and structural monitoring and evaluation.
 ```
 
-**Kitui has ample developmental resources; what it lacks is disciplined, accountable deployment.** The county's Fiscal Strategy Paper for FY2026/27 gives the executive an annual envelope of **KSh 13.79 billion** (Tier 3, Section 1.5). Against it, the Auditor-General's FY2023/24 report records unconfirmed cash balances of KSh 670 million, KSh 1,090 million in uncollected revenue, an IFMIS variance and unexplained transfers (Tier 1), and the Controller of Budget records about KSh 1.3 billion in pending bills as of FY2020/21 (Tier 1). Section 3.7 sets out the figures.
+**Kitui has ample developmental resources; what it lacks is disciplined, accountable deployment.** The county's Fiscal Strategy Paper for FY2026/27 gives the executive an annual envelope of **KSh 13.79 billion** (Tier 3, Section 1.5). Against it, the Auditor-General's FY2023/24 report records unconfirmed cash balances of KSh 670 million, KSh 1,090 million in uncollected revenue (Tier 1), an IFMIS variance and unexplained transfers (Tier 1), and the Controller of Budget records about KSh 1.3 billion in pending bills as of FY2020/21 (Tier 1). Section 3.7 sets out the figures.
 
 *Source conflict: an earlier version graded the KSh 13.79 billion envelope Tier 1; it is cited through secondary reporting of the Paper, and the Tier 3 grade above is the verified one.*
 

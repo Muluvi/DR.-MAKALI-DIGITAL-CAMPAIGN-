@@ -167,7 +167,7 @@ items:
   - label: "Q6. The unitemised projects"
     text: "{{scorecard.claimed}} claimed, {{scorecard.itemised}} itemised: where is the list of the other {{scorecard.unitemised}}?"
   - label: "Q7. Kangu Kangu"
-    text: "KSh {{scorecard.kangu.ksh|m1}} million for {{scorecard.kangu.households}}+ households, commissioned after the period the scorecard covers: what has been delivered since?"
+    text: "KSh {{scorecard.kangu.ksh|m1}} million for {{scorecard.kangu.households}}+ households (Tier 1, county scorecard), commissioned after the period the scorecard covers: what has been delivered since?"
   - label: "Q8. Boda boda sheds"
     text: "{{scorecard.boda.sheds}} claimed; {{scorecard.boda.sheds.itemised}} itemised."
   - label: "Q9. Ward attributions"
@@ -289,7 +289,7 @@ items:
   - label: "Minimum 3 headline and 3 visual variations per ad set"
   - label: "Monday–Thursday learning; Friday–Sunday optimisation and scaling"
   - label: "Effort split: **30% testing, 70% proven performers**"
-  - label: "Automatic kill rule: any ad below **1.5% CTR** after 5,000 impressions is paused"
+  - label: "Automatic kill rule: any ad below the **1.5% CTR** threshold after 5,000 impressions is paused"
 ```
 
 #### Performance benchmarks
