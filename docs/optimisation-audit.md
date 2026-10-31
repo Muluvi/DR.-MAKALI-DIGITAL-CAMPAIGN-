@@ -10,15 +10,15 @@ here are listed at the end.
 
 | Metric | Mobile before | Mobile after | Desktop before | Desktop after | Target |
 |---|---|---|---|---|---|
-| Lighthouse performance | **44** | 63 simulated · 68 DevTools-throttled (median) | 90 | 98 | ≥ 95 desktop |
+| Lighthouse performance | **44** | 58 simulated (54–67 across runs) · **68** DevTools-throttled (median of 3) | 90 | 98 | ≥ 95 desktop |
 | Lighthouse accessibility | 100 (dark only) | 100 light and dark | 100 | 100 | 100 |
-| LCP | **9.15 s** | 4.6 s simulated · **2.35–2.43 s DevTools-throttled** | 1.12 s | 0.95 s | < 2.5 s mobile |
+| LCP | **9.15 s** | 4.4–6.2 s simulated · **2.2–2.5 s DevTools-throttled** (median 2.3 s) | 1.12 s | 0.95 s | < 2.5 s mobile |
 | FCP | 1.83 s | | 0.42 s | | |
-| TBT (lab proxy for INP) | **2,034 ms** | 629 ms simulated · 1,670 ms DevTools-throttled | 226 ms | 93 ms | INP < 200 ms |
+| TBT (lab proxy for INP) | **2,034 ms** | 640 ms simulated · 1,960 ms DevTools-throttled (median) | 226 ms | 93 ms | INP < 200 ms |
 | CLS | 0.000 | | 0.000 | | < 0.05 |
 | Speed Index | 4.25 s | | 0.79 s | | |
-| JS transferred on load | **788 kB** | 461 kB | 788 kB | 461 kB | |
-| Initial JS (First Load JS, `/`, gz) | **480 kB** | 388 kB | | | < 170 kB |
+| JS transferred on load | **788 kB** | 454 kB | 788 kB | 454 kB | |
+| Initial JS (First Load JS, `/`, gz) | **480 kB** | 381 kB | | | < 170 kB |
 | Fonts transferred | **289 kB** | 225 kB | 289 kB | 225 kB | |
 | Images transferred | 19 kB | | 19 kB | | |
 | HTML document | 73 kB | | | | |
