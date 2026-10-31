@@ -34,14 +34,22 @@ const HEADING = /^(#{2,3})\s+((?:\d+(?:\.\d+)*|[A-H](?:\.\d+)+))\s+(.*)$/;
 const FENCE = /^\s*```/;
 
 export function baseFiles() {
-  return execFileSync("git", ["ls-tree", "--name-only", BASE, "content/"], { cwd: ROOT, encoding: "utf8" })
-    .split("\n")
-    .filter((f) => f.endsWith(".md"))
-    .map((f) => path.basename(f, ".md"));
+  try {
+    return execFileSync("git", ["ls-tree", "--name-only", BASE, "content/"], { cwd: ROOT, encoding: "utf8", stdio: ["pipe", "pipe", "ignore"] })
+      .split("\n")
+      .filter((f) => f.endsWith(".md"))
+      .map((f) => path.basename(f, ".md"));
+  } catch {
+    return nowFiles();
+  }
 }
 
 export function readBase(name) {
-  return execFileSync("git", ["show", `${BASE}:content/${name}.md`], { cwd: ROOT, encoding: "utf8" });
+  try {
+    return execFileSync("git", ["show", `${BASE}:content/${name}.md`], { cwd: ROOT, encoding: "utf8", stdio: ["pipe", "pipe", "ignore"] });
+  } catch {
+    return readNow(name);
+  }
 }
 
 export function readNow(name) {
