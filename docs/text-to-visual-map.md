@@ -160,5 +160,29 @@ checkpoint.
 
 | | Visible before | Visible after (checkpoint) |
 |---|---|---|
-| Acts I–III (§1–§12) | 6,545 | see checkpoint |
-| Whole document | 20,016 of 58,472 | see checkpoint |
+| Acts I–III (§1–§12) | 6,545 | **5,891** (−654, −10%) |
+| Whole document | 20,016 of 58,472 | **18,017** (−1,999, −10%) |
+
+Per section, Acts I–III, before → after: §1 554 → 492 · §2 331 → 277 · §3 476 → 459 · §4 606 → 542 ·
+§5 459 → 401 · §6 439 → 380 · §7 598 → 536 · §8 352 → 295 · §9 279 → 218 · §10 1,157 → 1,098 ·
+§11 576 → 531 · §12 718 → 662. The drop is G-3 (each chapter's restating opening paragraph now
+folds). Nothing left the document: `npm run check:content` passes, with 115 words of new visual
+labels counted apart.
+
+### Phone screens with marks (390 × 844, each section route, folds in their default state)
+
+"Marks" means a chart SVG, image, canvas or data table at least 120 × 60 px is on screen
+(`scripts/optimisation/screen-coverage.mjs`, run on `main` and on this branch).
+
+| | Screens | Screens with no marks |
+|---|---|---|
+| `main` (figures and panels closed) | 196 | 189 (96%) |
+| This branch | 356 | 259 (73%) |
+
+The document is longer, because the visuals now take the space they need. Most of the remaining
+screens without marks carry visual cards (`stats`, `cards`, `tabs`), which this strict measure
+does not count. Counting those too (any `vz-*` visual block), Acts I–III have **61 of 166** screens
+with no visual: §1 5/15, §2 14/30, §3 8/17, §4 2/16, §5 5/10, §6 7/14, §7 1/7, §8 3/6, §9 1/3,
+§10 7/20, §11 2/10, §12 6/18. §2 is overstated: its pinned county stays on screen through all four
+steps but is measured at one position. The brief's "every phone screen has a visual" is **not yet
+met** for Acts I–III; §2 (unpinned parts), §3, §6, §10 and §12 are the next conversions.

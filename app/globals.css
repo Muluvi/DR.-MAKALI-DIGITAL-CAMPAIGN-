@@ -3,7 +3,7 @@
 /* Decision map: compresses the document's route into a visual scan before prose begins. */
 .visual-overview {
   --overview-ink: var(--ink, #f4f0e8);
-  --overview-muted: color-mix(in oklch, var(--overview-ink) 64%, transparent);
+  --overview-muted: color-mix(in oklch, var(--overview-ink) 72%, transparent); /* 64% gave 4.43:1 on the light ground (visual-first pass, Lighthouse) */
   --overview-line: color-mix(in oklch, var(--overview-ink) 16%, transparent);
   margin: clamp(1.5rem, 4vw, 3rem) 0;
   padding: clamp(1rem, 3vw, 1.5rem);

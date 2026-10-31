@@ -12,8 +12,9 @@ choices and licences are in `docs/toolkit.md`; the section-by-section conversion
 | Phase 2 documents | Done |
 | Commit 1, toolkit | Done |
 | Performance (P-1, P-2, P-4, P-7, P-8) | Done; P-3, P-5, P-6, P-9 open |
-| Area commits, Acts I–III | See git log |
-| Checkpoint after Acts I–III | Reached at the end of the first session |
+| Text to visual G-1, G-2, G-3, §3 visuals | Done |
+| Typography, spacing (touch targets), colour (theme) | Done (first items) |
+| Checkpoint after Acts I–III | **Reached**: screenshots in `docs/optimisation/screenshots/checkpoint-acts-1-3/` |
 | Acts IV–VI and annexes | Not started |
 
 ## 1. Performance (largest gap: mobile 44, LCP 9.2 s, 480 kB initial JS)
@@ -29,6 +30,23 @@ choices and licences are in `docs/toolkit.md`; the section-by-section conversion
 | P-7 | Lightweight service worker, stale-while-revalidate for `/`, `/content/*.md`, `/data/*.csv` | `public/sw.js`, registration in `ClientPage` | Reopen on weak signal | S |
 | P-8 | `prefers-reduced-data`: no Ken Burns, noise or decorative motion | CSS | Data and battery | S |
 | P-9 | Split the render-blocking stylesheet: section-specific CSS loads with its section | `app/*.css`, component imports | Mobile render delay | M |
+
+### At the checkpoint (median of three mobile runs, dark theme)
+
+Mobile 61 (LCP 5.2 s, TBT 736 ms, CLS 0) · desktop 98 · accessibility 100 in light and in dark.
+Lighthouse's headless Chrome reports a light colour scheme, so once the theme followed the device
+the audit reached the light theme for the first time and found one contrast miss (overview card
+labels, 4.43:1); fixed.
+
+### Next, in order
+
+1. P-3 server-side markdown and P-9 CSS split: the mobile LCP and the 170 kB target.
+2. Acts I–III remaining prose-only screens (61 of 166; most in §2, §3, §6, §10, §12), then Acts IV–VI by the same method.
+3. Laptop layout: sticky contents rail on the left, figures breaking wider than the prose column
+   (at 1440 px the column is centred with wide empty margins).
+4. Design tokens doc (`docs/design-tokens.md`) and component guide; type-scale and colour-literal
+   consolidation (103 font sizes, 210 hex literals).
+5. Toasts, copy-link buttons, keyboard shortcuts, resume-reading control.
 
 ### Measured after P-1, P-2, P-4, P-7, P-8 (same build, same machine as the audit)
 

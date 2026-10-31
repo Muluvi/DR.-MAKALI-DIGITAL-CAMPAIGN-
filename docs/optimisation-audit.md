@@ -10,15 +10,15 @@ here are listed at the end.
 
 | Metric | Mobile before | Mobile after | Desktop before | Desktop after | Target |
 |---|---|---|---|---|---|
-| Lighthouse performance | **44** | | 90 | | ≥ 95 desktop |
-| Lighthouse accessibility | 100 | | 100 | | 100 |
-| LCP | **9.15 s** | | 1.12 s | | < 2.5 s mobile |
+| Lighthouse performance | **44** | 61 (checkpoint, median of 3) | 90 | 98 | ≥ 95 desktop |
+| Lighthouse accessibility | 100 (dark only) | 100 light and dark | 100 | 100 | 100 |
+| LCP | **9.15 s** | 5.2 s | 1.12 s | 1.0 s | < 2.5 s mobile |
 | FCP | 1.83 s | | 0.42 s | | |
-| TBT (lab proxy for INP) | **2,034 ms** | | 226 ms | | INP < 200 ms |
+| TBT (lab proxy for INP) | **2,034 ms** | 736 ms | 226 ms | 96 ms | INP < 200 ms |
 | CLS | 0.000 | | 0.000 | | < 0.05 |
 | Speed Index | 4.25 s | | 0.79 s | | |
-| JS transferred on load | **788 kB** | | 788 kB | | |
-| Initial JS (First Load JS, `/`, gz) | **480 kB** | | | | < 170 kB |
+| JS transferred on load | **788 kB** | 461 kB | 788 kB | 461 kB | |
+| Initial JS (First Load JS, `/`, gz) | **480 kB** | 388 kB | | | < 170 kB |
 | Fonts transferred | **289 kB** | | 289 kB | | |
 | Images transferred | 19 kB | | 19 kB | | |
 | HTML document | 73 kB | | | | |
@@ -98,7 +98,9 @@ scroll-driven animation (`animation-timeline: view()/scroll()`) is already used 
 reading time already uses): **58,472 words** in the document, **20,016 visible on load** (34%).
 Per section, see `docs/text-to-visual-map.md`.
 
-**Visual coverage on a phone.** Walking `/full` at 390×844, one screen at a time, and asking whether
+**Visual coverage on a phone.** *Superseded: `/full` opens every fold, so this measured the
+expanded document. The like-for-like measure, per section route with folds in their default
+state, is in `docs/text-to-visual-map.md`.* Walking `/full` at 390×844, one screen at a time, and asking whether
 any figure, table, image, chart SVG or visual block (≥ 120×60 px) intersects it: **326 of 533
 screens (61%) contain prose only.** Worst: §10 The message (36 of 47), §3 What voters need (20 of
 28), §2 How Kitui voted (18 of 24), §5 The race (18 of 22), §19 Lawful (18 of 26).
@@ -146,6 +148,6 @@ npm run build && npx next start -p 3100
 
 - Lighthouse: `npx lighthouse http://localhost:3100/ [--preset=desktop] --only-categories=performance,accessibility`
 - Bundle: temporarily wrap `next.config.ts` with `@next/bundle-analyzer` in `analyzerMode: 'json'`.
-- Screenshots, screen coverage and DOM probes: `scripts/optimisation/*.mjs` (Playwright; run with `NODE_PATH=$(npm root -g)` if Playwright is global).
+- Screenshots, screen coverage and DOM probes: `scripts/optimisation/*.mjs` (Playwright; the repo does not depend on it, so `npm i --no-save playwright` first).
 - Lighthouse summary: `node scripts/optimisation/lighthouse-summary.mjs report.json`.
 - Word counts: the `visibleWordCounts` the route already computes (`app/[[...slug]]/page.tsx`).
