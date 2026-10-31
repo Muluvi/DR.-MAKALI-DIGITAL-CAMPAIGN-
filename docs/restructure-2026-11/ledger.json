@@ -20,5 +20,16 @@
     "note": "The open item electricity.national closes: KNBS 2019 Volume IV Table 2.19, read via rKenyaCensus (analysis Stage 15, docs/open-data/REGISTER.md).",
     "text": "No verified national comparison is available yet; the record that would settle it is the KNBS 2019 Census Volume IV household table.",
     "replacement": "Measured by main lighting source, **{{electricity.mains.2019}}%** of Kitui households were lit by mains electricity against **{{electricity.national}}%** nationally (Tier 1, KNBS 2019 Census Volume IV)."
+  },
+  {
+    "file": "workstreams-platforms",
+    "section": "15.1.3",
+    "first12": "| Metric | Global standard | Campaign target |",
+    "words": 8,
+    "kind": "replaced",
+    "home": "",
+    "note": "The \"Global standard\" column of the performance benchmarks is removed (Firefly, 31 October 2026): no source or tier was in hand for any of its values. The campaign targets are unchanged.",
+    "text": "| Metric | Global standard | Campaign target |\n|---|---|---|\n| Facebook CTR | 1.0–1.5% | ≥ 1.5% |\n| Facebook CPM | $1–$5 | ≤ $2 |\n| Google Search CTR | 2–5% | ≥ 3% |\n| TikTok engagement rate | 3–6% | ≥ 5% |\n| YouTube view rate | 30–50% | ≥ 35% |\n| **SMS delivery rate** | 98–99.9% | ≥ 98% |\n| **SMS opt-out rate** | — | **< 2%** |",
+    "replacement": "| Metric | Campaign target |\n|---|---|\n| Facebook CTR | ≥ 1.5% |\n| Facebook CPM | ≤ $2 |\n| Google Search CTR | ≥ 3% |\n| TikTok engagement rate | ≥ 5% |\n| YouTube view rate | ≥ 35% |\n| **SMS delivery rate** | ≥ 98% |\n| **SMS opt-out rate** | **< 2%** |"
   }
 ]

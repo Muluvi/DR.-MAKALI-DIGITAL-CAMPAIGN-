@@ -192,15 +192,15 @@ id: asset-library
 
 #### Performance benchmarks
 
-| Metric | Global standard | Campaign target |
-|---|---|---|
-| Facebook CTR | 1.0–1.5% | ≥ 1.5% |
-| Facebook CPM | $1–$5 | ≤ $2 |
-| Google Search CTR | 2–5% | ≥ 3% |
-| TikTok engagement rate | 3–6% | ≥ 5% |
-| YouTube view rate | 30–50% | ≥ 35% |
-| **SMS delivery rate** | 98–99.9% | ≥ 98% |
-| **SMS opt-out rate** | — | **< 2%** |
+| Metric | Campaign target |
+|---|---|
+| Facebook CTR | ≥ 1.5% |
+| Facebook CPM | ≤ $2 |
+| Google Search CTR | ≥ 3% |
+| TikTok engagement rate | ≥ 5% |
+| YouTube view rate | ≥ 35% |
+| **SMS delivery rate** | ≥ 98% |
+| **SMS opt-out rate** | **< 2%** |
 
 ### 15.1.4 Workstream 4 — Accessibility and inclusion
 
