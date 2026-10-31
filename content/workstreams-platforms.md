@@ -292,7 +292,7 @@ items:
   - label: "Automatic kill rule: any ad below the **1.5% CTR** threshold after 5,000 impressions is paused"
 ```
 
-#### Performance benchmarks
+#### Performance targets
 
 | Metric | Campaign target |
 |---|---|
