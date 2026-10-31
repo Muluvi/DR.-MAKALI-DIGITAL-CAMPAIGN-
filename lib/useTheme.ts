@@ -10,14 +10,25 @@ import { useEffect, useState } from "react";
  */
 export type ThemeMode = "light" | "dark";
 
+/**
+ * The reader's theme: a stored choice if there is one, else the device's colour scheme (the brief
+ * for the visual-first pass: follow prefers-color-scheme, keep a manual toggle that persists). The
+ * pre-paint script in app/layout.tsx applies the same rule before first paint, so this only reads
+ * what it set.
+ */
 function readStored(): ThemeMode {
   try {
     const saved = localStorage.getItem("theme");
     if (saved === "light" || saved === "sepia") return "light";
+    if (saved === "dark") return "dark";
   } catch {
-    // Blocked storage is not a reason to fail: the default stands.
+    // Blocked storage is not a reason to fail: the device's scheme decides.
   }
-  return "dark";
+  try {
+    return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  } catch {
+    return "dark";
+  }
 }
 
 function apply(mode: ThemeMode) {

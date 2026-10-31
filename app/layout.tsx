@@ -132,6 +132,14 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             __html: `try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.setAttribute("data-story-pin","")}catch(e){}`,
           }}
         />
+        {/* The theme, before first paint (visual-first pass). A stored choice wins; without one the
+            page follows the device's colour scheme. Setting the class here, not after hydration,
+            removes the flash of the dark ground a light-theme reader used to get. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=null;try{t=localStorage.getItem("theme")}catch(e){}var l=t==="light"||t==="sepia"||(t!=="dark"&&matchMedia("(prefers-color-scheme: light)").matches);document.documentElement.classList.toggle("dark",!l)}catch(e){}`,
+          }}
+        />
         {/* With scripts off, no fold, accordion, card or tab can open, so every one ships open
             and its control is hidden (brief §Q: JS-off; lib/fold.ts). */}
         <noscript>
