@@ -17,7 +17,7 @@ import { PanelFold } from "./markdown/PanelFold";
 import { MicroFX } from "./premium/MicroFX";
 import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
 import { MobileTOCModal } from "./MobileTOCModal";
-import { resolveLegacySectionId, SECTIONS, type TabId } from "../lib/heading-slug";
+import { isLiveSectionId, resolveLegacySectionId, SECTIONS, type TabId } from "../lib/heading-slug";
 import { FLOW_ORDER, FLOW_SECTIONS, FLOW_ACTS, flowIndex, opensAct } from "../lib/flow";
 import { sectionHeight } from "../lib/section-heights";
 import type { SectionItem } from "../lib/section-index";
@@ -180,14 +180,18 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
 
   const navigateToSection = useCallback(
     (rawId: string) => {
-      const id = resolveLegacySectionId(rawId, validSectionIds);
-      const targetTab = id.split("-sec-")[0];
-      forceFor(id);
-      const onPage = typeof document !== "undefined" && document.getElementById(`section-${targetTab}`);
-      if (!onPage && TAB_IDS.includes(targetTab)) {
-        router.push(`/#${id}`, { scroll: false });
-      }
-      scrollToSectionWhenReady(id, "smooth");
+      const go = (id: string) => {
+        const targetTab = id.split("-sec-")[0];
+        forceFor(id);
+        const onPage = typeof document !== "undefined" && document.getElementById(`section-${targetTab}`);
+        if (!onPage && TAB_IDS.includes(targetTab)) {
+          router.push(`/#${id}`, { scroll: false });
+        }
+        scrollToSectionWhenReady(id, "smooth");
+      };
+      // A live id goes at once; only an old shared id waits for the redirect map to load.
+      if (isLiveSectionId(rawId, validSectionIds)) go(rawId);
+      else void resolveLegacySectionId(rawId, validSectionIds).then(go);
     },
     [router, validSectionIds, forceFor]
   );
@@ -210,8 +214,8 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
     // After the first paint, deliberately. The server never saw the fragment, so forcing a
     // section to mount during hydration would make the client's first render disagree with the
     // HTML it is hydrating.
-    const frame = requestAnimationFrame(() => {
-      const id = raw.startsWith("section-") ? raw : resolveLegacySectionId(raw, validSectionIds);
+    const frame = requestAnimationFrame(async () => {
+      const id = raw.startsWith("section-") ? raw : await resolveLegacySectionId(raw, validSectionIds);
       // A legacy link to a single-section route can name text that now lives on another route
       // (the October 2026 restructure moved headings between files). The whole document holds
       // every section, so the link is handed to it, exactly as navigateToSection does.
@@ -230,10 +234,10 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
   // A fragment that changes while the page is open — the back button, or a legacy link clicked
   // from another tab.
   useEffect(() => {
-    const onHashChange = () => {
+    const onHashChange = async () => {
       const raw = window.location.hash.replace(/^#/, "");
       if (!raw) return;
-      const id = raw.startsWith("section-") ? raw : resolveLegacySectionId(raw, validSectionIds);
+      const id = raw.startsWith("section-") ? raw : await resolveLegacySectionId(raw, validSectionIds);
       forceFor(id);
       scrollToSectionWhenReady(id, "smooth");
     };
