@@ -1046,9 +1046,22 @@ html { scroll-padding-bottom: calc(var(--pf-dock-h) + 24px); }
 .pf-story__stage { position: relative; height: 70svh; min-height: 420px; }
 .pf-story__county { position: absolute; inset: 0; }
 .pf-story__county > svg { position: absolute; inset: 4% 12%; width: 76%; height: 92%; }
-.pf-story[data-pinned="true"] .pf-story__static { display: none; }
+/* The cover county, traced once (visual-first pass, replaces the WebGL scene). Each ward carries
+   pathLength="1", so one dash covers its whole outline. Only `from` is animated: the default style
+   is the finished map, so reduced motion (1ms, globals.css), no script and print all show it. */
+.pf-county--draw .pf-county__ward { stroke: var(--paper); stroke-width: 2; stroke-linejoin: round; }
+@keyframes pf-ward-trace { from { stroke-dasharray: 1; stroke-dashoffset: 1; } to { stroke-dasharray: 1; stroke-dashoffset: 0; } }
+@keyframes pf-ward-fill { from { fill-opacity: 0; } }
+.pf-county--draw .pf-county__ward {
+  animation:
+    pf-ward-trace var(--pf-dur-settle) var(--pf-ease-out) both,
+    pf-ward-fill var(--pf-dur-deliberate) var(--pf-ease-out) calc(var(--pf-dur-settle) * 0.6) both;
+}
+@media (prefers-reduced-data: reduce) { .pf-county--draw .pf-county__ward { animation: none; } }
+.pf-story__static .pf-county__ward { transition: opacity var(--pf-dur-fast) var(--pf-ease-out); }
+.pf-story__static .pf-county__ward[data-dim="true"] { opacity: 0.45; }
 /* The pinned layout follows the pre-paint flag on <html> (app/layout.tsx), so it is in place before
-   the story hydrates; whether the scene or the static county draws still follows data-pinned. */
+   the story hydrates. */
 :root[data-story-pin] .pf-story__stage {
   position: sticky;
   top: 0;
@@ -1449,7 +1462,8 @@ html:not(.dark) .text-emerald-600 { color: #065f46 !important; }   /* 6.4:1 on e
   .pf-hero__sub { max-width: 32ch; margin-top: 12px; font-size: 1rem; line-height: 1.45; }
   .pf-seal { margin-bottom: 16px; font-size: 11px; }
   .pf-hero__portrait { right: -12vw; height: 54svh; max-width: 78vw; }
-  .pf-hero__county > svg { inset: 30% 0 8% 20%; width: 80%; height: 58%; }
+  /* Below the subtitle and left of the portrait, so no line of copy sits on a ward fill. */
+  .pf-hero__county > svg { inset: 44% 30% 8% 0; width: 70%; height: 48%; }
   .pf-hero__steps { left: var(--pf-gutter); right: var(--pf-gutter); bottom: calc(var(--pf-dock-h) + 16px + env(safe-area-inset-bottom)); }
   .pf-step { max-width: none; padding: 11px 12px; font-size: 14px; line-height: 1.38; }
   .pf-hero__pick { top: auto; right: var(--pf-gutter); bottom: calc(var(--pf-dock-h) + 14px + env(safe-area-inset-bottom)); left: auto; max-width: min(17rem, calc(100vw - 2 * var(--pf-gutter))); }

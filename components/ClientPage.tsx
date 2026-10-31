@@ -326,13 +326,12 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
         <div className="pf-grain print:hidden" aria-hidden="true" />
 
         {/* ----------------------------------------------------------- hero */}
-        {/* The cover (brief G-2, §10 Cover): the county in 3D behind, the portrait large in
-            front, the title in the display face. It scrolls through the county's story and ends
-            on the tile map with the pool resolved; the four figures follow as big numbers. The
+        {/* The cover (brief G-2, §10 Cover): the county behind, the portrait large in
+            front, the title in the display face, and the county drawn ward by ward (SVG; the WebGL
+            scene was removed in the visual-first pass). The four figures follow as big numbers. The
             static county is in the HTML for print, reduced motion and scripts off. */}
         {expanded && (
           <CoverHero
-            theme={theme === "light" ? "light" : "dark"}
             byline={
               <p className="pf-byline">
                 <WiperUmbrellaLogo />
@@ -415,7 +414,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
                   {/* Chapter 2's argument, told once over a pinned county before the chapter's detail. */}
                   {item.id === "votes" && (
                     <PanelFold label="The analysis in four steps: the winning number, where the votes are, the routes, and where he has held office">
-                      <Story theme={theme === "light" ? "light" : "dark"} />
+                      <Story />
                     </PanelFold>
                   )}
                   {/* On the /cover route there is no hero, so the cover figures open the section. */}

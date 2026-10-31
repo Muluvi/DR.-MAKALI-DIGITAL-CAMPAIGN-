@@ -5,7 +5,7 @@
  * area by two orders of magnitude and a choropleth would let the empty north outshout the dense
  * centre. Real ward polygons do exist (public/geo/kitui-wards.topo.json, see
  * docs/visual-premium/GEOGRAPHY.md); they are used only where geography itself is the point, in
- * CountyScene and CountyStatic.
+ * CountyStatic.
  *
  * Constituency blocks are placed roughly as the county sits: Mwingi across the north, Kitui West,
  * Central and Rural through the middle and south-west, Kitui East as the long eastern strip, Kitui
