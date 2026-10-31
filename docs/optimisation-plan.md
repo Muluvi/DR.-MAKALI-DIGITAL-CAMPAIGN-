@@ -52,6 +52,32 @@ labels, 4.43:1); fixed.
    consolidation (103 font sizes, 210 hex literals).
 5. Toasts, copy-link buttons, keyboard shortcuts, resume-reading control.
 
+### Mobile performance, second round (after the merge)
+
+| Change | Effect |
+|---|---|
+| Streamed sections wait for `load` and an idle main thread before observing | Nothing mounts while the first screen hydrates |
+| Arriving sections render in a React transition | Rendering yields to input |
+| §2's four-step story (≈ 2,300 nodes) lazy-mounts on the flow; `/full` and section routes still server-render it | First-screen DOM 5,940 → 3,646 |
+| Newsreader no longer preloaded | Fonts 289 → 225 kB on the critical path |
+
+Measured (medians): simulated 61 → 63, LCP 5.2 → 4.6 s, TBT 736 → 629 ms; DevTools-throttled
+61 → 68, **LCP 3.1 → 2.35–2.43 s (target met)**, TBT 2,300 → 1,670 ms. Deep links into §2 still
+land under the header (112 px). What remains is module evaluation and hydration of the client
+bundle (≈ 320 ms in webpack's loader alone at 4× CPU), which needs the client bundle itself made
+smaller.
+
+### Bundle and stylesheet trims
+
+- The legacy deep-link map (1,704 entries, ≈ 9 kB gz) loads only for an id that is not live:
+  First Load JS 389 → 381 kB.
+- P-5 (`LazyMotion`) rejected: 40 files would move from `motion.*` to `m.*`, and the site's
+  `layoutId` / `LayoutGroup` animations need the `domMax` feature set, so the saving is ≈ 10–15 kB.
+- Unused CSS (`scripts/optimisation/prune-css.mjs`): pruning every stylesheet removed ≈ 46 kB raw
+  but changed rendered heights (a figure table in §19 by 82 px, a §10 panel card by 21 px), so it
+  was not kept. Pruning only `visual-fx.css` (108 of its 154 effect classes unused) left every
+  element height identical on the three most sensitive pages and was kept: CSS 66.6 kB gzipped.
+
 ### P-3, tried and reverted
 
 `MarkdownViewer` has no hooks, so it was made a server component and streamed sections were

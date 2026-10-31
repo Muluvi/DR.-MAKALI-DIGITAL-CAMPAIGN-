@@ -24,6 +24,10 @@ const newsreader = Newsreader({
   subsets: ['latin'],
   variable: '--font-newsreader',
   display: 'swap',
+  // Not preloaded (visual-first pass, mobile performance): its two files are 120 kB, and preloaded
+  // they competed with the render-blocking CSS for the first second on slow 4G. The adjusted
+  // Georgia fallback holds the same metrics, so the swap moves nothing.
+  preload: false,
   style: ['normal', 'italic'],
   fallback: ['Georgia', 'Charter', 'serif'],
 });

@@ -98,3 +98,4 @@ is ever copied, its **MIT + Commons Clause** licence must be recorded here and i
 | @formkit/auto-animate | `InteractiveTable` already animates row changes with Motion `LayoutGroup`. |
 | Lottie / Rive | No commissioned illustration. |
 | Three.js / @react-three/fiber | Removed: WebGL is on the reject list. |
+| Motion `LazyMotion` / `m` | Would touch 40 files for ≈ 10–15 kB, because `layoutId` and `LayoutGroup` need the large `domMax` features. |

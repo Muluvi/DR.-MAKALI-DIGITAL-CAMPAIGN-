@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { startTransition, useEffect, useRef, useState } from "react";
 
 import { MarkdownViewer } from "../MarkdownViewer";
 import { SectionSkeleton } from "../SectionSkeleton";
@@ -56,8 +56,31 @@ export function StreamedSection({
   const unobservable = typeof window !== "undefined" && typeof IntersectionObserver === "undefined";
   const wanted = force || near || unobservable;
 
+  // Nothing streams until the page has loaded and the main thread is idle (visual-first pass,
+  // mobile performance). Sections near the top used to start fetching and mounting during
+  // hydration, so a phone on slow 4G was building three sections it had not scrolled to while the
+  // first screen was still becoming interactive: most of the measured blocking time.
+  const [settled, setSettled] = useState(false);
   useEffect(() => {
-    if (wanted) return;
+    let idle = 0;
+    let timer = 0;
+    const go = () => {
+      const ric = (window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number }).requestIdleCallback;
+      if (ric) idle = ric(() => setSettled(true), { timeout: 2500 });
+      else timer = window.setTimeout(() => setSettled(true), 300);
+    };
+    if (document.readyState === "complete") go();
+    else window.addEventListener("load", go, { once: true });
+    return () => {
+      window.removeEventListener("load", go);
+      const cic = (window as Window & { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback;
+      if (idle && cic) cic(idle);
+      window.clearTimeout(timer);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (wanted || !settled) return;
     const el = ref.current;
     if (!el) return;
     // Two screens of runway. Long enough that a fast scroll rarely outruns the fetch, short
@@ -73,7 +96,7 @@ export function StreamedSection({
     );
     io.observe(el);
     return () => io.disconnect();
-  }, [wanted]);
+  }, [wanted, settled]);
 
   useEffect(() => {
     if (!wanted || markdown !== null) return;
@@ -84,7 +107,10 @@ export function StreamedSection({
     fetch(contentUrl(tabId))
       .then((r) => (r.ok ? r.text() : Promise.reject(new Error(String(r.status)))))
       .then((text) => {
-        if (live) setMarkdown(text);
+        // A transition, so React renders the arriving section in slices that yield to input
+        // rather than in one long task (a 2,300-node section measured 712 ms blocking on a
+        // throttled phone).
+        if (live) startTransition(() => setMarkdown(text));
       })
       .catch(() => {
         if (live) setFailed(true);

@@ -1,5 +1,3 @@
-import { ANCHOR_REDIRECTS } from "./anchors/redirects";
-
 // Extracts the leading section number from a markdown heading (e.g. "4.3 SMS, USSD and the
 // offline majority" -> "4-3", "4.3.2 The SMS layer" -> "4-3-2") so every numbered heading gets a
 // stable, predictable id.
@@ -111,11 +109,18 @@ export function sectionId(tabId: TabId, slug: string): string {
  * build fails if any pre-rebuild id lands on nothing.
  *
  * `validIds`, when given, is checked FIRST, so an id that names a live heading is returned as is.
+ *
+ * The map (1,704 entries, ≈ 9 kB gzipped) is loaded only when an id is not already live, which is
+ * the rare case of an old shared link (visual-first pass: it was in every reader's first-load
+ * bundle). `isLiveSectionId` answers the common case synchronously.
  */
-export function resolveLegacySectionId(id: string, validIds?: ReadonlySet<string>): string {
-  if (!id) return id;
-  if (validIds?.has(id)) return id;
-  if (!id.includes("-sec-")) return id;
+export function isLiveSectionId(id: string, validIds?: ReadonlySet<string>): boolean {
+  return !id || !!validIds?.has(id) || !id.includes("-sec-");
+}
+
+export async function resolveLegacySectionId(id: string, validIds?: ReadonlySet<string>): Promise<string> {
+  if (isLiveSectionId(id, validIds)) return id;
+  const { ANCHOR_REDIRECTS } = await import("./anchors/redirects");
   const target = ANCHOR_REDIRECTS[id];
   if (!target) return id;
   if (validIds && !validIds.has(target)) return id;

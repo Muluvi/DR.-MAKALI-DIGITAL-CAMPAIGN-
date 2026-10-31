@@ -221,12 +221,6 @@
 /*  progress) or                                                            */
 /*  stay inside a decorative band that content never sits on.                */
 /* ========================================================================== */
-
-@keyframes fx-marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
-@keyframes fx-float { 0%, 100% { transform: translate3d(0, 0, 0); } 50% { transform: translate3d(0, -6px, 0); } }
-@keyframes fx-gradient-shift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-@keyframes fx-shimmer { from { transform: translate3d(-120%, 0, 0); } to { transform: translate3d(220%, 0, 0); } }
-@keyframes fx-live-blink { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(0.86); } }
 @keyframes fx-conveyor { from { background-position: 0 0; } to { background-position: 56px 0; } }
 /* Aurora / mesh-gradient drift. Three blurred colour wells on independent
    cycles; because they are transforms on a blurred layer the compositor keeps
@@ -253,37 +247,14 @@
    panel where "falling" is the subject rather than decoration. */
 @keyframes fx-fall { from { transform: translate3d(0, -12%, 0); opacity: 0; } 12% { opacity: 0.7; } 88% { opacity: 0.7; } to { transform: translate3d(var(--fx-sway, 12px), 112%, 0); opacity: 0; } }
 
-.fx-loop-marquee { animation: fx-marquee var(--fx-loop-dur, 38s) linear infinite; }
-
-
-.fx-loop-float   { animation: fx-float 4.2s ease-in-out infinite; animation-delay: var(--fx-delay, 0ms); }
-
-
-.fx-loop-blink   { animation: fx-live-blink 1.8s ease-in-out infinite; }
-
 
 /* Marquees stop when the pointer is on them — the brief's "loop with pause on
    hover", and the reason a ticker can carry real content. */
-.fx-pause-on-hover:hover .fx-loop-marquee,
-.fx-pause-on-hover:hover .fx-loop-marquee-rev,
-.fx-pause-on-hover:focus-within .fx-loop-marquee,
-.fx-pause-on-hover:focus-within .fx-loop-marquee-rev { animation-play-state: paused; }
 
 /* Animated gradient fill, for rails and brand bands. */
-.fx-gradient-live {
-  background-size: 220% 220%;
-  animation: fx-gradient-shift var(--fx-loop-dur, 12s) ease infinite;
-}
 
 /* Shimmer sweep — a light bar crossing an element. Confined to its own
    ::after so it never affects the element's own paint. */
-.fx-shimmer { position: relative; overflow: hidden; isolation: isolate; }
-.fx-shimmer::after {
-  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(105deg, transparent 32%, color-mix(in srgb, white 22%, transparent) 50%, transparent 68%);
-  animation: fx-shimmer var(--fx-loop-dur, 2.6s) var(--fx-ease-out) infinite;
-}
-.dark .fx-shimmer::after { background: linear-gradient(105deg, transparent 32%, color-mix(in srgb, white 12%, transparent) 50%, transparent 68%); }
 
 /* ========================================================================== */
 /*  §22 — BACKGROUND & ENVIRONMENTAL FIELDS                                  */
@@ -345,13 +316,6 @@
 
 
 /* Mesh-gradient plate for cards that want a lit surface rather than a flat fill. */
-.fx-mesh {
-  background:
-    radial-gradient(at 18% 12%, color-mix(in srgb, var(--color-accent) 16%, transparent) 0px, transparent 52%),
-    radial-gradient(at 86% 8%,  color-mix(in srgb, var(--color-gold) 13%, transparent) 0px, transparent 50%),
-    radial-gradient(at 72% 92%, color-mix(in srgb, var(--color-phase-3) 12%, transparent) 0px, transparent 55%),
-    var(--color-card);
-}
 
 /* Particle / mote field. The motes are real elements the component emits, so
    each can carry its own delay and drift without a canvas or a rAF loop. */
@@ -417,24 +381,9 @@
 
 
 /* Background slide-in from an edge. */
-.fx-bg-slide { position: relative; overflow: hidden; isolation: isolate; }
-.fx-bg-slide::before {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  background: var(--color-accent);
-  transform: translate3d(-101%, 0, 0);
-  transition: transform 360ms var(--fx-ease-entrance);
-}
-.fx-bg-slide:hover::before, .fx-bg-slide:focus-visible::before { transform: none; }
 
 
 /* Shine / sweep across a button or image on hover. */
-.fx-shine { position: relative; overflow: hidden; isolation: isolate; }
-.fx-shine::before {
-  content: ""; position: absolute; top: 0; bottom: 0; width: 42%; z-index: 2; pointer-events: none;
-  background: linear-gradient(100deg, transparent, color-mix(in srgb, white 40%, transparent), transparent);
-  transform: translate3d(-160%, 0, 0) skewX(-16deg);
-}
-.fx-shine:hover::before { transition: transform 720ms var(--fx-ease-out); transform: translate3d(340%, 0, 0) skewX(-16deg); }
 
 /* Pointer-tracked spotlight. --px/--py are written by use-pointer-fx.ts as
    percentages, so the glow is a background-position change on one layer. */
@@ -473,10 +422,6 @@
 }
 
 /* Icon micro-interactions: rotate, float, nudge-forward arrow, swap. */
-
-
-.fx-icon-nudge { transition: transform var(--fx-dur-medium) var(--fx-ease-entrance); }
-.group:hover .fx-icon-nudge, .fx-icon-nudge:hover { transform: translate3d(3px, 0, 0); }
 .fx-icon-rise  { transition: transform var(--fx-dur-medium) var(--fx-ease-entrance); }
 .group:hover .fx-icon-rise { transform: translate3d(0, -2px, 0) scale(1.08); }
 
@@ -516,7 +461,6 @@
 
 
 /* Rubber-band overscroll at the boundaries of a rail. */
-.fx-rubber { overscroll-behavior: contain; }
 
 
 /* Slider handles.
@@ -587,26 +531,14 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 
 /* Accordion / disclosure without animating height. `grid-template-rows`
    interpolates 0fr→1fr on the compositor; the child carries overflow:hidden. */
-.fx-collapse { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--fx-dur-medium) var(--fx-ease-entrance), opacity var(--fx-dur-fast) linear; opacity: 0; }
-.fx-collapse[data-open="true"] { grid-template-rows: 1fr; opacity: 1; }
-.fx-collapse > * { overflow: hidden; min-height: 0; }
 
 
 /* Modal / dialog and its backdrop. */
-@keyframes fx-backdrop-in { from { opacity: 0; backdrop-filter: blur(0); } to { opacity: 1; backdrop-filter: blur(6px); } }
-@keyframes fx-modal-in { from { opacity: 0; transform: translate3d(0, 14px, 0) scale(0.97); } to { opacity: 1; transform: none; } }
-.fx-backdrop { animation: fx-backdrop-in var(--fx-dur-medium) var(--fx-ease-out) both; }
-.fx-modal    { animation: fx-modal-in var(--fx-dur-medium) var(--fx-ease-spring) both; }
 
 /* Drawer / sheet / off-canvas, one keyframe per edge. */
-@keyframes fx-sheet-bottom { from { transform: translate3d(0, 100%, 0); } to { transform: none; } }
-.fx-sheet-bottom { animation: fx-sheet-bottom 380ms var(--fx-ease-entrance) both; }
 
 
 /* Dropdown / menu with a staggered item cascade. */
-@keyframes fx-menu-in { from { opacity: 0; transform: translate3d(0, -6px, 0) scale(0.98); transform-origin: top; } to { opacity: 1; transform: none; } }
-.fx-menu { animation: fx-menu-in 200ms var(--fx-ease-entrance) both; }
-.fx-menu > * { animation: fx-slide-down 260ms var(--fx-ease-entrance) both; animation-delay: calc(var(--fx-i, 0) * 34ms); --fx-travel: 6px; }
 
 
 /* Filter / sort reflow and list insert-remove. FLIP is done in JS by the grid
@@ -632,23 +564,9 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 /*  frame rather than at any point along a growth curve.                     */
 /* ========================================================================== */
 
-@keyframes fx-bar-growx { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-@keyframes fx-ring-fill { from { stroke-dashoffset: var(--fx-ring-len, 302); } to { stroke-dashoffset: var(--fx-ring-target, 0); } }
-.fx-bar-h { transform-origin: left;   animation: fx-bar-growx var(--fx-dur-deliberate) var(--fx-ease-entrance) both var(--fx-delay, 0ms); }
-.fx-ring  { animation: fx-ring-fill var(--fx-dur-deliberate) var(--fx-ease-entrance) both var(--fx-delay, 0ms); }
-
 
 /* Odometer / vertical digit roll. The column holds 0-9 stacked; the wheel is
    translated to the target digit. */
-.fx-odometer { display: inline-flex; overflow: hidden; height: 1em; line-height: 1; vertical-align: baseline; }
-.fx-odometer-col { display: block; overflow: hidden; height: 1em; }
-.fx-odometer-wheel {
-  display: flex; flex-direction: column;
-  transform: translate3d(0, calc(var(--fx-digit, 0) * -1em), 0);
-  transition: transform 700ms var(--fx-ease-entrance);
-  transition-delay: calc(var(--fx-i, 0) * 55ms);
-}
-.fx-odometer-wheel > span { height: 1em; line-height: 1; font-variant-numeric: tabular-nums; }
 
 
 /* ========================================================================== */
@@ -673,19 +591,6 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 /*  §11 — LOADING & PROGRESS                                                 */
 /* ========================================================================== */
 
-@keyframes fx-skeleton-pulse { 0%, 100% { opacity: 0.55; } 50% { opacity: 0.9; } }
-@keyframes fx-skeleton-sweep { from { background-position: -180% 0; } to { background-position: 280% 0; } }
-.fx-skeleton {
-  background: linear-gradient(90deg,
-    color-mix(in srgb, var(--color-line) 45%, transparent) 25%,
-    color-mix(in srgb, var(--color-line) 80%, transparent) 42%,
-    color-mix(in srgb, var(--color-line) 45%, transparent) 62%);
-  background-size: 220% 100%;
-  animation: fx-skeleton-sweep 1.6s linear infinite;
-  border-radius: 8px;
-}
-.fx-skeleton-pulse { animation: fx-skeleton-pulse 1.5s ease-in-out infinite; }
-
 
 /* ========================================================================== */
 /*  §12 — TYPOGRAPHIC EFFECTS                                                */
@@ -699,67 +604,28 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
    with its own transform, which establishes a containing block, so the
    ancestor's clipped background never reaches those glyphs and the text
    renders fully transparent. Use it on a heading that is not split. */
-.fx-text-gradient {
-  background: linear-gradient(100deg, var(--color-ink) 8%, var(--color-accent) 46%, var(--color-gold) 88%);
-  background-size: 200% 100%;
-  -webkit-background-clip: text; background-clip: text;
-  color: transparent; -webkit-text-fill-color: transparent;
-}
 
 
 /* Line / word / character reveal. The splitter emits one span per unit and
    sets --fx-i; the mask is a per-unit overflow clip so the line rises out of
    nothing rather than fading in place. */
-.fx-split-line { display: block; overflow: hidden; }
-.fx-split-line > span,
-.fx-split-word > span,
-.fx-split-char > span {
-  display: inline-block;
-  animation: fx-slide-up var(--fx-dur-entrance) var(--fx-ease-entrance) both;
-  animation-delay: calc(var(--fx-i, 0) * var(--fx-split-stagger, 42ms) + var(--fx-delay, 0ms));
-  --fx-travel: 100%;
-}
-.fx-split-word > span { --fx-travel: 14px; }
-.fx-split-char > span { --fx-travel: 10px; animation-delay: calc(var(--fx-i, 0) * var(--fx-split-stagger, 22ms) + var(--fx-delay, 0ms)); }
 
 
 /* Typewriter — a steps() caret over a clipped inline block. */
-@keyframes fx-typewrite { from { width: 0; } to { width: 100%; } }
-@keyframes fx-caret { 50% { opacity: 0; } }
-.fx-typewriter {
-  display: inline-block; overflow: hidden; white-space: nowrap;
-  border-right: 2px solid var(--color-accent);
-  width: 0;
-  animation: fx-typewrite var(--fx-type-dur, 2.4s) steps(var(--fx-type-steps, 32), end) forwards,
-             fx-caret 780ms step-end infinite;
-  animation-delay: var(--fx-delay, 0ms), 0ms;
-}
 
 
 /* Cycling word swap — the outgoing word leaves upward, the incoming arrives
    from below, inside a fixed-height clip so nothing reflows. */
-.fx-cycler { display: inline-grid; overflow: hidden; vertical-align: bottom; height: 1.16em; }
-.fx-cycler > span { grid-area: 1 / 1; transition: transform 420ms var(--fx-ease-entrance), opacity 300ms linear; }
-.fx-cycler > span[data-state="out"]  { transform: translate3d(0, -110%, 0); opacity: 0; }
-.fx-cycler > span[data-state="in"]   { transform: none; opacity: 1; }
-.fx-cycler > span[data-state="next"] { transform: translate3d(0, 110%, 0); opacity: 0; }
 
 /* ========================================================================== */
 /*  §13 — MEDIA (IMAGES & VIDEO)                                             */
 /* ========================================================================== */
 
 /* Ken Burns. Slow, and only on a portrait that is already the focal point. */
-@keyframes fx-kenburns {
-  0%   { transform: scale(1.02) translate3d(0, 0, 0); }
-  100% { transform: scale(1.11) translate3d(-1.5%, -2%, 0); }
-}
-.fx-kenburns { animation: fx-kenburns 22s var(--fx-ease-out) alternate infinite; will-change: transform; }
 
 
 /* Masked gradients — images and rails that fade out rather than stopping at a
    hard edge. */
-
-.fx-mask-fade-x { mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent); }
 
 
 /* Glassmorphism and neumorphism. Both are surface treatments rather than
@@ -809,17 +675,9 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 .fx-tilt[data-engaged="true"] { transition: transform 90ms linear; }
 /* Layers inside a tilting card sit at real z-offsets, so the parallax between
    them is a consequence of the rotation rather than a second animation. */
-.fx-z-1 { transform: translateZ(18px); }
-
-.fx-z-3 { transform: translateZ(58px); }
 
 
 /* Post-processing: bloom and vignette, as compositor filters over a band. */
-
-.fx-vignette::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
-  background: radial-gradient(ellipse 90% 80% at 50% 45%, transparent 55%, rgba(4, 10, 24, 0.28));
-}
 
 
 /* ========================================================================== */
@@ -828,24 +686,12 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 
 
 /* Active-link indicator that slides between items in a rail. */
-.fx-rail-indicator {
-  position: absolute; left: 0; width: 2px; border-radius: 2px; background: var(--color-accent);
-  height: var(--fx-rail-h, 0px);
-  transform: translate3d(0, var(--fx-rail-y, 0px), 0);
-  transition: transform 380ms var(--fx-ease-entrance), height 380ms var(--fx-ease-entrance);
-}
 
 /* Scroll-spy dots. */
-.fx-navdot { transition: transform 260ms var(--fx-ease-spring), background-color 220ms linear, width 260ms var(--fx-ease-spring); }
-.fx-navdot[aria-current="true"] { transform: scale(1.35); }
 
 /* Back-to-top reveal. */
-.fx-backtotop { opacity: 0; transform: translate3d(0, 12px, 0) scale(0.9); pointer-events: none; transition: opacity 260ms linear, transform 300ms var(--fx-ease-spring); }
-.fx-backtotop[data-visible="true"] { opacity: 1; transform: none; pointer-events: auto; }
 
 /* Sticky header state change. */
-.fx-header { transition: background-color 320ms linear, backdrop-filter 320ms linear, box-shadow 320ms linear, padding 320ms var(--fx-ease-entrance); }
-.fx-header[data-stuck="true"] { box-shadow: 0 4px 20px -12px rgba(8, 20, 40, 0.35); }
 
 
 /* ========================================================================== */
@@ -858,10 +704,6 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 /* ========================================================================== */
 
 
-.fx-input-glow { transition: box-shadow 240ms var(--fx-ease-out), border-color 200ms linear; }
-.fx-input-glow:focus, .fx-input-glow:focus-within { box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 16%, transparent); border-color: var(--color-accent); }
-
-
 /* ========================================================================== */
 /*  §18 — ORCHESTRATION                                                      */
 /* ========================================================================== */
@@ -869,8 +711,6 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 
 /* Hero choreography: one named timeline the header's parts opt into by index,
    so the whole entrance can be retimed from a single custom property. */
-.fx-hero-seq { --fx-beat: 90ms; }
-.fx-hero-seq > * { animation-delay: calc(var(--fx-i, 0) * var(--fx-beat) + 120ms); }
 
 /* ========================================================================== */
 /*  §19 / §20 — ENABLING, BRAND & THEME                                      */
@@ -894,25 +734,6 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 
 /* Custom cursor. The native cursor is only hidden where a replacement is
    actually painted, and never on a touch device or a form control. */
-@media (hover: hover) and (pointer: fine) {
-  .fx-cursor-host { cursor: none; }
-  .fx-cursor-host a, .fx-cursor-host button, .fx-cursor-host input,
-  .fx-cursor-host textarea, .fx-cursor-host select, .fx-cursor-host [role="button"] { cursor: none; }
-}
-.fx-cursor-dot, .fx-cursor-ring {
-  position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;
-  border-radius: 50%; mix-blend-mode: difference;
-  opacity: 0;
-  transition: opacity 160ms linear;
-}
-[data-cursor-live="true"] .fx-cursor-dot,
-[data-cursor-live="true"] .fx-cursor-ring { opacity: 1; }
-.fx-cursor-dot  { width: 7px; height: 7px; background: white; transform: translate3d(var(--cx, -50px), var(--cy, -50px), 0) translate(-50%, -50%); }
-.fx-cursor-ring {
-  width: 34px; height: 34px; border: 1.5px solid white;
-  transform: translate3d(var(--cx-lag, -50px), var(--cy-lag, -50px), 0) translate(-50%, -50%) scale(var(--c-scale, 1));
-  transition: width 200ms var(--fx-ease-out), height 200ms var(--fx-ease-out), opacity 200ms linear;
-}
 
 
 /* Seasonal / campaign-phase accent overrides, one attribute on the shell. */
@@ -936,36 +757,25 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 
 @media (prefers-reduced-motion: reduce) {
   /* 1. Ambient loops stop. */
-  .fx-loop-marquee, .fx-loop-marquee-rev, .fx-loop-breathe, .fx-loop-float,
-  .fx-loop-drift, .fx-loop-spin, .fx-loop-orbit, .fx-loop-conveyor, .fx-loop-wave,
-  .fx-gradient-live, .fx-text-gradient-live, .fx-kenburns, .fx-blob, .fx-cube,
-  .fx-caustics, .fx-ribbon, .fx-nudge, .fx-heartbeat, .fx-glow-pulse, .fx-datapoint,
-  .fx-catchment, .fx-pattern-diagonal, .fx-kinetic {
+  .fx-pattern-diagonal {
     animation: none !important;
   }
   .fx-aurora span, .fx-motes i { animation: none !important; }
   .fx-grain::before { animation: none !important; }
-  .fx-shimmer::after { animation: none !important; opacity: 0; }
-  .fx-skeleton { animation: none !important; background: color-mix(in srgb, var(--color-line) 55%, transparent); }
-  .fx-skeleton-pulse { animation: none !important; opacity: 0.7; }
   
   
    /* a spinner that does not spin is a bug */
 
   /* 2. Charts render at the truth, not at a point on a growth curve. */
-  .fx-bar, .fx-bar-h, .fx-ring, .fx-sweep, .fx-needle, .fx-point, .fx-cell,
-  .fx-region, .fx-pin, .fx-draw, .fx-stroke-fill, .fx-check, .fx-cross, .fx-flap {
+  .fx-region {
     animation: none !important;
     transform: none !important;
     stroke-dashoffset: var(--fx-ring-target, 0) !important;
     opacity: 1 !important;
   }
-  .fx-odometer-wheel { transition: none !important; }
 
   /* 3. Entrances resolve instantly to their finished state. */
-  [class*="fx-in-"], .fx-split-line > span, .fx-split-word > span, .fx-split-char > span,
-  .fx-spring, .fx-damped, .fx-gravity, .fx-elastic, .fx-softbody,
-  .fx-highlight-text::before, .fx-tracking-in, .fx-weight-in, .fx-frame-draw {
+  [class*="fx-in-"] {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
@@ -973,7 +783,6 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
     filter: none !important;
     letter-spacing: inherit !important;
   }
-  .fx-typewriter { animation: none !important; width: auto !important; border-right-color: transparent !important; }
   
   
 
@@ -984,12 +793,9 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
   .fx-magnetic, .fx-tilt, .fx-photo-frame:hover, .fx-zoom-frame:hover > * {
     transform: none !important;
   }
-  .fx-lift, .fx-press, .fx-underline::after, .fx-marker::before, .fx-bg-slide::before,
-  .fx-field, .fx-input-glow, .fx-switch > .fx-switch-thumb, .fx-navdot, .fx-backtotop,
-  input[type="range"]::-webkit-slider-thumb, input[type="range"]::-moz-range-thumb {
+  .fx-lift, .fx-press, .fx-marker::before, input[type="range"]::-webkit-slider-thumb, input[type="range"]::-moz-range-thumb {
     transition-duration: 0.09s !important;
   }
-  .fx-shine::before { display: none !important; }
   .fx-spotlight::before, .fx-glow-border::after { transition: none !important; }
 }
 
@@ -1001,10 +807,7 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 /* ========================================================================== */
 
 @media print {
-  [class*="fx-in-"], [class*="fx-out-"], [class*="fx-loop-"],
-  .fx-split-line > span, .fx-split-word > span, .fx-split-char > span,
-  .fx-bar, .fx-bar-h, .fx-ring, .fx-sweep, .fx-needle, .fx-point, .fx-cell,
-  .fx-region, .fx-pin, .fx-draw, .fx-typewriter, .fx-tracking-in {
+  [class*="fx-in-"], [class*="fx-out-"], [class*="fx-loop-"], .fx-region {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
@@ -1012,11 +815,8 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
     filter: none !important;
     width: auto !important;
   }
-  .fx-aurora, .fx-motes, .fx-caustics, .fx-grain::before, .fx-curtain,
-  .fx-cursor-dot, .fx-cursor-ring, .fx-preloader, .fx-pattern-diagonal,
-  .fx-pattern-grid, .fx-pattern-dots, .fx-vignette::after { display: none !important; }
-  .fx-glass, .fx-neumorph { background: white !important; box-shadow: none !important; backdrop-filter: none !important; }
-  .fx-text-gradient { -webkit-text-fill-color: currentColor; color: black !important; background: none !important; }
+  .fx-aurora, .fx-motes, .fx-grain::before, .fx-pattern-diagonal, .fx-pattern-grid, .fx-pattern-dots { display: none !important; }
+  .fx-glass { background: white !important; box-shadow: none !important; backdrop-filter: none !important; }
   .fx-lift, .fx-tilt, .fx-photo-frame { transform: none !important; box-shadow: none !important; }
 }
 
@@ -1025,9 +825,8 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 /* ========================================================================== */
 
 @media (prefers-reduced-data: reduce) {
-  .fx-aurora, .fx-motes, .fx-caustics, .fx-grain::before, .pf-grain { display: none; }
+  .fx-aurora, .fx-motes, .fx-grain::before, .pf-grain { display: none; }
   /* Decorative motion costs battery and frames on the phones that ask for less data. */
-  .fx-kenburns, .fx-loop-float { animation: none !important; }
   .fx-glass { backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--color-card); }
 }
 
@@ -1163,7 +962,6 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
 @media print {
   /* Folds print open. A briefing kit with a heading and nothing under it is worse than a long
      one, and the collapse is a reading convenience, not an editorial decision. */
-  .fx-collapse { grid-template-rows: 1fr !important; opacity: 1 !important; }
   .prose thead th:not(.not-prose *) { position: static; backdrop-filter: none; }
   .prose blockquote:not(.not-prose *)::before { display: none; }
 }
