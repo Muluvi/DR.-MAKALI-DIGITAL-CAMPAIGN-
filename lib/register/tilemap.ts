@@ -53,6 +53,9 @@ const EFFORT: Record<string, number> = {
 };
 const effortStep = (v: number) => (v >= 35 ? 5 : v >= 30 ? 4 : v >= 25 ? 3 : 2);
 
+// The twelve largest wards by 2022 register: the "where the votes are" layer of the ward map.
+const LARGEST = new Set([...WARD_TILES].sort((a, b) => b.voters - a.voters).slice(0, 12).map((t) => t.id));
+
 export const LAYERS: Record<TileLayerId, TileLayer> = {
   register: {
     id: "register",
@@ -148,6 +151,19 @@ export const LAYERS: Record<TileLayerId, TileLayer> = {
       const s = effortStep(v);
       return { fill: `var(--seq-${s})`, ink: seqInk(s), label: `${v}%`, hatch: true };
     },
+  },
+  largest: {
+    id: "largest",
+    name: "The twelve largest wards",
+    description: `The twelve wards with the most registered voters, which together hold ${formatFigure(FIGURES["pareto.top12.share"])}% of the 2022 register; ${formatFigure(FIGURES["pareto.top12.in-pool"])} of them are in the pool where he has never held office.`,
+    source: "IEBC, Registered Voters per County Assembly Ward (2022)",
+    tier: "T1",
+    state: "sourced",
+    legend: [
+      { label: "One of the twelve largest", fill: "var(--accent-solid)" },
+      { label: "The other 28 wards", fill: "var(--neutral-fill)" },
+    ],
+    style: (t) => (LARGEST.has(t.id) ? { fill: "var(--accent-solid)", ink: "var(--on-accent)", label: k(t.voters) } : { fill: "var(--neutral-fill)", ink: INK, label: k(t.voters) }),
   },
   "reach-targets": {
     id: "reach-targets",

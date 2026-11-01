@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useEffect, useRef, useId } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Search, ChevronRight, Layers, Compass, MessageSquare, Megaphone, Shield, Database, Gauge, FileText, BookLock, ClipboardList, CalendarClock, Workflow, ListChecks, Handshake, Radio, ShieldCheck, Users, TriangleAlert, FileCog } from "lucide-react";
+import { X, Search, ChevronRight, Layers, Compass, MessageSquare, Megaphone, Shield, Database, Gauge, FileText, BookLock, ClipboardList, CalendarClock, ListChecks, Handshake, Radio, ShieldCheck, Users, TriangleAlert, FileCog } from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
 import { FLOW_ACTS, FLOW_SECTIONS, actOf } from "../lib/flow";
 import { ACT_PORTRAITS } from "../lib/premium/acts";
@@ -27,26 +27,18 @@ const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: 
   channels: Megaphone,
   engagement: Handshake,
   timeline: CalendarClock,
-  "workstreams-platforms": Layers,
-  "workstreams-media": Megaphone,
-  "workstreams-ground": Radio,
-  "workstreams-data": Workflow,
-  coalitions: Handshake,
-  team: Users,
+  workstreams: Layers,
   success: Gauge,
   lawful: Shield,
   response: TriangleAlert,
   receives: ListChecks,
-  commitments: Handshake,
   ask: Handshake,
   "annex-evidence": ClipboardList,
-  "annex-county": FileText,
   "annex-playbooks": MessageSquare,
   "annex-volunteers": Users,
   "annex-technology": FileCog,
   "annex-runbooks": ShieldCheck,
   "annex-terms": Shield,
-  "annex-glossary": FileText,
 };
 
 /** An act's label as the argument rail shows it: no leading "The", first word of an "X and Y". */

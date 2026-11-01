@@ -5,6 +5,7 @@ import type { Bar, CellState, Chart as ChartSpec, FigureSpec, Ref } from "../../
 import { group } from "../../lib/data/format";
 import { FigDetail } from "./FigureDetails";
 import { TileMap } from "./TileMap";
+import { WARD_MAP_ROUTE } from "./MapLayerLink";
 import { FunnelV2 } from "../premium/FunnelV2";
 import { Reveal } from "../premium/Reveal";
 import { CountUp } from "../premium/CountUp";
@@ -60,6 +61,12 @@ function Part({ c, spec }: { c: ChartSpec; spec: FigureSpec }) {
     case "slope": return <Slope chart={c} title={spec.title} />;
     case "funnel": return <Reveal><FunnelV2 chart={c} id={spec.id} /></Reveal>;
     case "tilemap": return <TileMap id={spec.id} layers={c.layers} initial={c.initial} showWardList={c.showWardList} />;
+    case "maplink":
+      return (
+        <p className="rb-note">
+          <a className="font-semibold text-accent underline underline-offset-2" href={`/${WARD_MAP_ROUTE}#ward-map-${c.layer}`}>{c.label}</a>
+        </p>
+      );
     case "timeline": return <Timeline uid={uid} chart={c} title={spec.title} />;
     case "steps": return <Steps chart={c} />;
     case "cards": return <Cards chart={c} />;

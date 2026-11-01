@@ -33,9 +33,10 @@ export function headingSlug(text: string): string | null {
 //
 // Six Parts, following the campaign-planning sequence: research, then the contest, then the
 // strategy the evidence justifies, then delivery, then proof and protection, then the decision.
-// One route per chapter, so a chapter is a unit of argument and a link target. Chapter 15 is four
-// routes, because the fourteen workstreams would otherwise be the heaviest page on the site; they
-// carry 15.1 to 15.4 and are told apart by their labels.
+// One route per chapter, so a chapter is a unit of argument and a link target. The consolidation
+// pass (November 2026) folded the four workstream routes into one, "The workstreams", with four
+// tabs, and merged commitments, the team, coalitions, the ward register and the glossary into the
+// chapters that now hold them.
 //
 // Labels are the navigation, so they are sized for the narrowest place they appear. Blurbs are the
 // question or contents each chapter answers.
@@ -43,7 +44,7 @@ export const SECTIONS = [
   { id: "cover", part: 0, number: "", label: "Cover", blurb: "Prepared for Dr. Makali Mulu, by Firefly Management, on one line of terms" },
   { id: "brief", part: 0, number: "", label: "In brief", blurb: "The case on one screen" },
   { id: "kitui", part: 1, number: "1", label: "Kitui at a glance", blurb: "The people, the land, living standards, how the county is run, and its money" },
-  { id: "votes", part: 1, number: "2", label: "How Kitui voted", blurb: "The electorate, the results since 2013, where the votes are, and the number it takes" },
+  { id: "votes", part: 1, number: "2", label: "How Kitui voted", blurb: "The electorate, the results since 2013, where the votes are, the 40-ward register and the number it takes" },
   { id: "needs", part: 1, number: "3", label: "What voters need", blurb: "Water, food, health, roads, jobs, the cost of living, county money and Mui Basin" },
   { id: "news", part: 1, number: "4", label: "How voters get news", blurb: "Where people get information, who owns the airwaves, and what each channel can reach" },
   { id: "race", part: 2, number: "5", label: "The race for 2027", blurb: "An open seat, the Wiper nomination, the field, and each rival on the record" },
@@ -54,28 +55,20 @@ export const SECTIONS = [
   { id: "message", part: 3, number: "10", label: "The message", blurb: "One claim, three pillars, six themes; discipline, framing, samples and counter-messaging" },
   { id: "voters", part: 3, number: "11", label: "The voters to win", blurb: "The universes, the six segments, and how large each is" },
   { id: "channels", part: 3, number: "12", label: "Channels & language", blurb: "Where the effort goes, which channel does which job, language, a week, and when the plan changes" },
-  { id: "engagement", part: 4, number: "13", label: "How it works", blurb: "How the proposal is built, who owns what, scope, rhythm, approvals and escalation" },
-  { id: "timeline", part: 4, number: "14", label: "Timeline to Aug 2027", blurb: "The first four weeks, Phase 0, six fixes, the target ladder and the three phases" },
-  { id: "workstreams-platforms", part: 4, number: "15.1", label: "Platforms & content", blurb: "Workstreams 1 to 4: the tracker, the brief, creative testing, accessibility" },
-  { id: "workstreams-media", part: 4, number: "15.2", label: "Media", blurb: "Workstreams 5 and 6: paid and earned media" },
-  { id: "workstreams-ground", part: 4, number: "15.3", label: "Ground & offline", blurb: "Workstreams 7 to 10: ground integration, the field loop, SMS, USSD and voice, volunteers" },
-  { id: "workstreams-data", part: 4, number: "15.4", label: "Data & technology", blurb: "Workstreams 11 to 14: the data layer, the voter model, the stack, analytics" },
-  { id: "coalitions", part: 4, number: "16", label: "Coalitions", blurb: "Coalitions and endorsements, in sequence" },
-  { id: "team", part: 4, number: "17", label: "The team", blurb: "The Firefly core, the surge roles, and how the existing team is upskilled" },
+  { id: "engagement", part: 4, number: "13", label: "How it works", blurb: "How the proposal is built, who owns what, scope, rhythm, approvals, escalation and the team" },
+  { id: "timeline", part: 4, number: "14", label: "Timeline to Aug 2027", blurb: "The first four weeks, set-up, six fixes, the target ladder, the three phases and the endorsement sequence" },
+  { id: "workstreams", part: 4, number: "15", label: "The workstreams", blurb: "Fourteen workstreams in four tabs: platforms and content, media, ground and offline, data and technology" },
   { id: "success", part: 5, number: "18", label: "Measuring success", blurb: "How success is judged, the scorecards, recognition, and the presence audit" },
   { id: "lawful", part: 5, number: "19", label: "Lawful & ethical", blurb: "Our standard, the Data Protection Act, the charter, IEBC clearance, open items" },
   { id: "response", part: 5, number: "20", label: "Risks & response", blurb: "Risks, the war room, defamation, manipulated media, competitor monitoring" },
-  { id: "receives", part: 6, number: "21", label: "What he receives", blurb: "The three scope levels, compared, and the deliverables schedule" },
-  { id: "commitments", part: 6, number: "22", label: "Commitments", blurb: "What Firefly commits to, and what the campaign provides" },
+  { id: "receives", part: 6, number: "21", label: "What you get and what you provide", blurb: "The three scope levels, the deliverables schedule, what Firefly commits to and what the campaign provides" },
   { id: "ask", part: 6, number: "23", label: "The ask", blurb: "One week and one export, and the window that sets the pace" },
   { id: "annex-evidence", part: 7, number: "A", label: "Evidence & sources", blurb: "The evidence standard, the three tiers, and every source" },
-  { id: "annex-county", part: 7, number: "B", label: "Ward register", blurb: "The 40-ward register, 2022" },
   { id: "annex-playbooks", part: 7, number: "C", label: "Playbooks", blurb: "Platform playbooks, formats and copy samples" },
   { id: "annex-volunteers", part: 7, number: "D", label: "Volunteers", blurb: "The volunteer programme reference" },
   { id: "annex-technology", part: 7, number: "E", label: "Technology", blurb: "The technology architecture and the voter model" },
   { id: "annex-runbooks", part: 7, number: "F", label: "Runbooks", blurb: "Response tiers, holding lines, security and incidents" },
-  { id: "annex-terms", part: 7, number: "G", label: "Terms", blurb: "Confidentiality and use" },
-  { id: "annex-glossary", part: 7, number: "H", label: "Glossary", blurb: "The terms of art, one plain line each" },
+  { id: "annex-terms", part: 7, number: "G", label: "Fine print", blurb: "Confidentiality and use, and the terms of art, one plain line each" },
 ] as const;
 
 
@@ -91,7 +84,7 @@ export const PARTS = [
   { part: 4, label: "How Firefly delivers", blurb: "Who does the work, when, and how?" },
   { part: 5, label: "Proof and protection", blurb: "How will we know it works, and how is it kept safe and lawful?" },
   { part: 6, label: "The decision", blurb: "What is Dr. Mulu being asked to decide?" },
-  { part: 7, label: "Reference shelf", blurb: "Sources, the ward register, playbooks and the fine print" },
+  { part: 7, label: "Reference shelf", blurb: "Sources, playbooks, technology, runbooks and the fine print" },
 ] as const;
 
 export type PartId = (typeof PARTS)[number]["part"];

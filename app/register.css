@@ -214,6 +214,9 @@
 .tm:has(input[value="register"]:checked) .tm-fill { fill: var(--f-register, var(--f-default)); }
 .tm:has(input[value="register"]:checked) .tm-lab[data-l="register"], .tm:has(input[value="register"]:checked) .tm-hatch[data-l="register"] { display: inline; }
 .tm:has(input[value="register"]:checked) .tm-panel[data-l="register"] { display: block; }
+.tm:has(input[value="largest"]:checked) .tm-fill { fill: var(--f-largest, var(--f-default)); }
+.tm:has(input[value="largest"]:checked) .tm-lab[data-l="largest"], .tm:has(input[value="largest"]:checked) .tm-hatch[data-l="largest"] { display: inline; }
+.tm:has(input[value="largest"]:checked) .tm-panel[data-l="largest"] { display: block; }
 .tm:has(input[value="footprint"]:checked) .tm-fill { fill: var(--f-footprint, var(--f-default)); }
 .tm:has(input[value="footprint"]:checked) .tm-lab[data-l="footprint"], .tm:has(input[value="footprint"]:checked) .tm-hatch[data-l="footprint"] { display: inline; }
 .tm:has(input[value="footprint"]:checked) .tm-panel[data-l="footprint"] { display: block; }
@@ -229,6 +232,9 @@
 .tm:has(input[value="reach-targets"]:checked) .tm-fill { fill: var(--f-reach-targets, var(--f-default)); }
 .tm:has(input[value="reach-targets"]:checked) .tm-lab[data-l="reach-targets"], .tm:has(input[value="reach-targets"]:checked) .tm-hatch[data-l="reach-targets"] { display: inline; }
 .tm:has(input[value="reach-targets"]:checked) .tm-panel[data-l="reach-targets"] { display: block; }
+
+/* The workstreams' groups: one shows at a time with JavaScript; print shows them all. */
+@media print { [data-ws-hidden][hidden] { display: revert !important; } }
 
 /* ------------------------------------------------------------------ motion: still by default */
 .rx-draw { transform: none; opacity: 1; }

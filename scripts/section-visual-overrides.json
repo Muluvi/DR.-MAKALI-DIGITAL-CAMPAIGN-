@@ -11,11 +11,11 @@
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "workstreams-platforms-sec-15-1-2": {
+  "workstreams-sec-15-1-2": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "workstreams-platforms-sec-15-1-4": {
+  "workstreams-sec-15-1-4": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
@@ -23,7 +23,7 @@
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "team-sec-17-5": {
+  "engagement-sec-17-5": {
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
@@ -55,7 +55,7 @@
     "kind": "none",
     "note": "Declutter brief 5.3 (c): this stepper redrew 2.11's own bullets, which stay in the section as its record (folded under the lead where the section has one). Drawing them again would show the same text twice."
   },
-  "team-sec-17-1": {
+  "engagement-sec-17-1": {
     "kind": "none",
     "note": "Declutter brief 5.3 (c): this checklist redrew 4.6's own bullets, which stay in the section as its record (folded under the lead where the section has one). Drawing them again would show the same text twice."
   },

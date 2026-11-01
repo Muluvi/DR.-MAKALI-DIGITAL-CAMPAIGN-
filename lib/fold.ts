@@ -21,11 +21,17 @@
 /** The custom event every fold body listens for, alongside the browser's own `beforematch`. */
 export const REVEAL_EVENT = "fold:reveal";
 
+/** Fired on a workstream tab panel (components/markdown/WorkstreamTabs.tsx) to bring it forward. */
+export const PANEL_EVENT = "ws-panel-reveal";
+
 /**
  * Open every closed fold that contains `el`, innermost last, so the target is on screen before the
  * caller scrolls to it.
  */
 export function revealAround(el: Element | null): void {
+  // A target inside a hidden workstream tab: the tab bar hears this and opens the target's group
+  // first (The workstreams, consolidation Step 4H). Anywhere else, nothing listens.
+  el?.dispatchEvent(new Event(PANEL_EVENT, { bubbles: true }));
   const chain: Element[] = [];
   for (let n = el?.parentElement ?? null; n; n = n.parentElement) {
     if (n.getAttribute("data-fold-body") === "closed") chain.push(n);

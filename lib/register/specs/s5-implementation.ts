@@ -36,22 +36,7 @@ const WS: { n: number; name: string; owner: Owner; ownerText: string; sec: strin
 ];
 const OWNER_LABEL: Record<Owner, string> = { firefly: "Firefly operates", team: "Your team runs, to a brief", outside: "Outside this engagement" };
 
-export const FIG_5_1: FigureSpec = {
-  id: "fig-5-1-workstreams",
-  section: "1.4.2",
-  title: "Of the fourteen workstreams, Firefly operates the analysis, the data and the offline layer, and your team keeps publishing",
-  question: "Who owns what?",
-  takeaway: "Workstream 9, the offline layer, is the one Firefly runs directly and the one the race turns on; two workstreams sit outside the engagement.",
-  sources: [PROPOSAL],
-  chart: {
-    type: "cards",
-    columns: 3,
-    cards: WS.map((w) => ({ kicker: `WS ${w.n} · ${OWNER_LABEL[w.owner]}`, title: w.name, body: w.ownerText, meta: `Section ${w.sec}`, tone: w.owner === "firefly" ? ("accent" as const) : w.owner === "outside" ? ("outside" as const) : undefined })),
-  },
-  notes: ["Solid accent border: Firefly operates. Plain: your team, directed. Dashed: outside this engagement."],
-  columns: [{ key: "ws", label: "WS", numeric: true }, { key: "name", label: "Workstream" }, { key: "owner", label: "Owner" }, { key: "sec", label: "Section" }],
-  rows: WS.map((w) => ({ cells: { ws: w.n, name: w.name, owner: w.ownerText, sec: w.sec } })),
-};
+// fig-5-1-workstreams is collapsed into fig-5-2 below (consolidation pass, Step 4H).
 
 /* ------------------------------------------------------------------ fig-5-2-workstream-panels */
 
@@ -62,16 +47,34 @@ const GROUPS = [
   { title: "Data and technology (WS 11–14)", produces: "The data layer, the scored voter file, the weekly read and the monthly report", owner: "Firefly", often: "Weekly read; monthly report; audit refreshed monthly" },
 ];
 
+/** The group each workstream sits in (WS 1–4, 5–6, 7–10, 11–14), as the tabs in The workstreams. */
+const groupOf = (n: number) => GROUPS[n <= 4 ? 0 : n <= 6 ? 1 : n <= 10 ? 2 : 3];
+
+/**
+ * The one summary of the fourteen workstreams (consolidation pass, Step 4H). fig-5-1, which drew the
+ * same fourteen with their owners in How it works, is collapsed into this figure: its cards are the
+ * second part here, and its fence points to this one.
+ */
 export const FIG_5_2: FigureSpec = {
   id: "fig-5-2-workstream-panels",
   section: "4.5",
-  title: "Four groups of work, each with one product, one owner and one rhythm",
-  question: "What does each group produce?",
-  takeaway: "Most of the output is your team's existing work, now directed; Firefly's own products are the brief, the analysis and the offline dispatch.",
+  title: `${CountWord(WS.length)} workstreams in ${countWord(GROUPS.length)} groups: Firefly operates the analysis, the data and the offline layer, and your team keeps publishing`,
+  question: "What does each group produce, and who owns each workstream?",
+  takeaway: "Most of the output is your team's existing work, now directed; Firefly's own products are the brief, the analysis and the offline dispatch. Workstream 9, the offline layer, is the one Firefly runs directly and the one the race turns on; two workstreams sit outside the engagement.",
   sources: [PROPOSAL],
-  chart: { type: "cards", columns: 2, cards: GROUPS.map((g) => ({ title: g.title, body: g.produces, meta: `Owner: ${g.owner} · ${g.often}` })) },
-  columns: [{ key: "group", label: "Group" }, { key: "produces", label: "Produces" }, { key: "owner", label: "Owner" }, { key: "often", label: "How often" }],
-  rows: GROUPS.map((g) => ({ cells: { group: g.title, produces: g.produces, owner: g.owner, often: g.often } })),
+  chart: {
+    type: "composite",
+    parts: [
+      { heading: "The four groups: one product, one owner, one rhythm", chart: { type: "cards", columns: 2, cards: GROUPS.map((g) => ({ title: g.title, body: g.produces, meta: `Owner: ${g.owner} · ${g.often}` })) } },
+      {
+        heading: "The fourteen workstreams, and who owns each",
+        chart: { type: "cards", columns: 3, cards: WS.map((w) => ({ kicker: `WS ${w.n} · ${OWNER_LABEL[w.owner]}`, title: w.name, body: w.ownerText, tone: w.owner === "firefly" ? ("accent" as const) : w.owner === "outside" ? ("outside" as const) : undefined })) },
+      },
+    ],
+  },
+  notes: ["Solid accent border: Firefly operates. Plain: your team, directed. Dashed: outside this engagement."],
+  columns: [{ key: "ws", label: "WS", numeric: true }, { key: "name", label: "Workstream" }, { key: "group", label: "Group" }, { key: "owner", label: "Owner" }, { key: "produces", label: "The group produces" }, { key: "often", label: "How often" }],
+  rows: WS.map((w) => ({ cells: { ws: w.n, name: w.name, group: groupOf(w.n).title, owner: w.ownerText, produces: groupOf(w.n).produces, often: groupOf(w.n).often } })),
 };
 
 /* ------------------------------------------------------------------ fig-5-3-four-weeks */
@@ -402,4 +405,4 @@ export const FIG_5_9: FigureSpec = {
   ],
 };
 
-export const S5: FigureSpec[] = [FIG_5_1, FIG_5_2, FIG_5_3, FIG_5_4, FIG_5_4_LADDER, FIG_5_5, FIG_5_6, FIG_5_7, FIG_5_8, FIG_5_9];
+export const S5: FigureSpec[] = [FIG_5_2, FIG_5_3, FIG_5_4, FIG_5_4_LADDER, FIG_5_5, FIG_5_6, FIG_5_7, FIG_5_8, FIG_5_9];

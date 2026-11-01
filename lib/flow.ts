@@ -29,7 +29,7 @@ export const FLOW_ACTS: FlowAct[] = [
   { id: "delivery", label: "How Firefly delivers", blurb: "Who does the work, when, and how?", opensOn: "engagement" },
   { id: "proof", label: "Proof and protection", blurb: "How will we know it works, and how is it kept safe and lawful?", opensOn: "success" },
   { id: "decision", label: "The decision", blurb: "What is Dr. Mulu being asked to decide?", opensOn: "receives" },
-  { id: "reference", label: "Reference shelf", blurb: "Sources, the ward register, playbooks and the fine print", opensOn: "annex-evidence" },
+  { id: "reference", label: "Reference shelf", blurb: "Sources, playbooks, technology, runbooks and the fine print", opensOn: "annex-evidence" },
 ];
 
 const ACT_BY_OPENER = new Map(FLOW_ACTS.map((a) => [a.opensOn as string, a]));

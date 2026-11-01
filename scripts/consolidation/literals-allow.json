@@ -22,7 +22,7 @@
    "why": "An axis-label rule: scales of two million and above print in millions."
   },
   {
-   "file": "content/workstreams-platforms.md",
+   "file": "content/workstreams.md",
    "literal": "5,000",
    "why": "An ad rule's sample size (impressions before the kill rule applies), already allowed by lib/data/allow.ts."
   },

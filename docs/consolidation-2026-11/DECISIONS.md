@@ -399,3 +399,66 @@ Moving each to a `FigureSpec` (option a) would re-express qualitative tables in 
 vocabulary, which is a rewrite of their presentation, not a consolidation of facts. It was not done
 in this pass and is reported as outstanding. The two systems now share one data rule: neither types
 a registry value.
+
+## Step 4: section merges
+
+**Stops: 36 → 31.** Six parts plus the reference shelf, unchanged.
+
+### Merge machinery (built once, used for every merge)
+
+- **`scripts/consolidation/merge-chapter.mjs`** moves a whole chapter file into another, word for
+  word.
+  - Every section keeps its number, so its anchor id and its check-content key travel with it.
+  - Each section is logged as `moved` with `whole: true`.
+  - The heading added for an absorbed chapter is logged as `added`.
+- **`scripts/declutter/check-content.mjs`** accepts a section that has left its file only when the
+  ledger moves its words elsewhere; an unlogged disappearance still fails. A section moved
+  **whole** is credited with its words as they stood at the base being checked. Otherwise, words
+  that earlier passes added between a767371 and 2f29920 would count as cut. Measured after the
+  merges: 0.85% drift against a767371 (the baseline was 0.88%), and 0.04% against 2f29920.
+- **`scripts/restructure-2026-11/check-preservation.mjs`** also looks for a unit in every file its
+  file's passages were moved to by a logged move. All 430 units and 2,307 tokens, names and
+  acronyms are still found.
+- **`scripts/consolidation/anchor-moves.mjs`** writes `lib/anchors/consolidation-2026-11.json`:
+  every heading live at 2f29920 that moved, mapped to the heading with the same number today, or to
+  `anchor-overrides.json` (none were needed). There are 30 moves.
+  - `scripts/build-anchors.ts` reads it first, and checks each lands where it says.
+  - November's and October's targets now land through it.
+  - `verify` runs it with `--check`.
+- **`next.config.ts`** redirects every retired route: `/commitments`, `/team`, `/coalitions`,
+  `/annex-county`, `/annex-glossary` and the four `/workstreams-*` routes.
+
+### Done
+
+| | Merge | How |
+|---|---|---|
+| D4.1 | **M** Commitments into What he receives | `commitments` moved whole into `receives` under "What Firefly commits to, and what the campaign provides". Receives is relabelled **"What you get and what you provide"**. The decision panel follows the text. `ask` stays separate |
+| D4.2 | **O** Terms and Glossary, one "Fine print" | `annex-glossary` moved whole into `annex-terms`, relabelled **"Fine print"** |
+| D4.3 | **J** Coalitions into the timeline | `coalitions` moved whole into `timeline`, before After the election, as "Coalitions and endorsements, in sequence" |
+| D4.4 | **I** The team into How it works | `team` moved whole into `engagement` as "The team" |
+| D4.5 | **D** The ward register into How Kitui voted | `annex-county`'s 40-ward register moved whole into `votes`, beside where the votes are |
+| D4.6 | **D** One layered ward map | fig-3-2 (How Kitui voted) is the one ward map. Six layers, switched by radio, which also works without JavaScript: register size, the twelve largest wards (new layer), the three zones, where he has held office, party flow and in-reach share. The full ward list opens beneath it, and the figure's own table is the sortable 40-ward table. The footprint, party-flow and zones figures keep their findings, stats and charts, but their own tile maps become a link to the right layer (`/votes#ward-map-footprint`), so "where he is known" in Record and reach opens the map on that layer. The cover's footprint map, the effort map (strategy) and the reach-target map (measurement) are not geography views of the contest and stay |
+| D4.7 | **H** The workstreams, one section with four tabs | The four `workstreams-*` routes moved whole into `workstreams`, "The workstreams". The tabs (Platforms & content · Media · Ground & offline · Data & technology) are drawn from a marker where each group begins, because the page lays prose out section by section and a wrapper cannot span sections. The tab bar hides blocks outside the active group's range. Every group is server-rendered, so all four show with JavaScript off and in print. An old anchor, such as `workstreams-media-sec-15-2-1` or `/workstreams-media`, opens the right tab (through `revealAround`), and `#ws-media` names a tab |
+| D4.8 | **H** One summary of the fourteen workstreams | fig-5-1 (owners, How it works) collapsed into fig-5-2 (groups, The workstreams). fig-5-2 draws both, and its table gives every workstream its group, owner, product and rhythm. The fig-5-1 fence points to it |
+| D4.9 | **N** The data explorer | In Evidence & sources, above the generated source table. It is searchable by name, source or value. Filters: topic, reliability (in words) and state. It downloads the whole registry as CSV, and `#data-<id>` links to any figure. It reads the registry directly. The generated table stays beneath as the print and JavaScript-off copy |
+
+### Not done in this pass, and why
+
+**A, B, C, E, K, L** (living conditions, county money, reach, results, escalation protocol,
+security) and the filtered indicator views of **G**:
+
+- Each is a passage-level move inside chapters: dozens of paragraphs, each needing a ledger entry,
+  a pointer written in words, and a check that the two copies of a fact meet in one place.
+- Done properly, that is the larger half of Step 4. It could not be finished to that standard
+  alongside the structural merges and the remaining steps in this session, so it is reported as
+  outstanding, not done badly.
+- **The data they depend on is already single-sourced:**
+  - reach: `reach.*` (Step 1)
+  - segments: `data/segments.ts`
+  - escalation: `data/escalation.ts`
+  - indicators: `data/kpis.ts` with registry targets
+  - fiscal: `data/fiscal-audit.ts` reads the registry
+
+  So the remaining merges move prose, not facts.
+
+**Volunteers into Workstream 10 (J):** not done, for the same reason.

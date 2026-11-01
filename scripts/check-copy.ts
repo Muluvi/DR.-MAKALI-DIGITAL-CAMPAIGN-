@@ -39,9 +39,9 @@ const POLL_OK = [
 // the contest and the record — carry the county's money as evidence and are exempt, as Part 2 was.
 const ENGAGEMENT = new Set([
   "cover.md", "brief.md", "goal.md", "position.md", "message.md", "voters.md", "channels.md",
-  "engagement.md", "timeline.md", "workstreams-platforms.md", "workstreams-media.md",
-  "workstreams-ground.md", "workstreams-data.md", "coalitions.md", "team.md", "success.md",
-  "lawful.md", "response.md", "receives.md", "commitments.md", "ask.md", "annex-playbooks.md",
+  "engagement.md", "timeline.md", "workstreams.md",
+  "success.md",
+  "lawful.md", "response.md", "receives.md", "ask.md", "annex-playbooks.md",
   "annex-volunteers.md", "annex-technology.md",
 ]);
 const MONEY = /\b(budget|budgets|spend|spending|spent|cost|costs|costed|costing|fee|fees|price|prices|pricing|fundrais\w*|donor|donors|donation|donations)\b/gi;
