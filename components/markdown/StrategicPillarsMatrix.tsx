@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Building2, BarChart3, Languages, CheckSquare, ShieldCheck, ArrowRight, Sparkles, FileCheck2 } from "lucide-react";
+import { fmt } from "../../lib/data/read";
 
 interface StrategicPillar {
   id: string;
@@ -34,7 +35,7 @@ const STRATEGIC_PILLARS: StrategicPillar[] = [
     subtitle: "Track Record Visualization & Evidence Maps",
     icon: BarChart3,
     corePremise: "Transforms dense county documentation into clear visual graphics, ward maps, and before-and-after project comparisons that ordinary citizens can instantly understand and interrogate.",
-    tangibleProofPoint: "12,573 bursary beneficiaries (KSh 47M) and evaluated NG-CDF projects certified as best in Eastern Region.",
+    tangibleProofPoint: `${fmt("record.bursary.recipients")} bursary beneficiaries (KSh ${fmt("record.bursary.ksh", "m")}M) and evaluated NG-CDF projects certified as best in Eastern Region.`,
     deliveryFormat: "Interactive infographics, mobile-first ward cartograms, and before/after project cards.",
     verificationAudit: "Public register of all school classrooms, bursary disbursements, and water points."
   },

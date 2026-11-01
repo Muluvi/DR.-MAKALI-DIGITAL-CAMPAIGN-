@@ -16,3 +16,6 @@ analysis/.venv/
 analysis/**/__pycache__/
 analysis/.pytest_cache/
 __pycache__/
+
+# Generated at build from data/analysis/ by scripts/copy-analysis.mjs (one editable copy)
+public/content/analysis/

@@ -18,6 +18,9 @@
 import register from "../../data/ward-register.json" with { type: "json" };
 import projectsByWard from "../../data/analysis/projects-by-ward.json" with { type: "json" };
 import type { Figure, Tier, Unit } from "./schema";
+// Documents also cited outside the registry are defined once, in data/sources.ts, and read here by
+// name (consolidation pass, Step 2), so a source cannot be named two ways.
+import { AUDITOR_GENERAL_FY2023_24, CONTROLLER_OF_BUDGET, COURT_OF_APPEAL_2018, FISCAL_STRATEGY_PAPER_FY2026_27, IEBC_REGISTER_2026_REPORTED, IEBC_WARD_REGISTER, KDHS_2022, KNBS_CENSUS_2019, MEDIA_2022_DECLARATION } from "../../data/sources.ts";
 
 const FIG: Record<string, Figure> = {};
 
@@ -53,7 +56,7 @@ const pct = (part: number, whole: number) => (part / whole) * 100;
 
 /* =============================================================== 1. the register, generated */
 
-const IEBC_WARDS = "IEBC, Registered Voters per County Assembly Ward (2022)";
+const IEBC_WARDS = IEBC_WARD_REGISTER.name;
 
 type Constituency = { id: string; name: string; voters: number; wards: { name: string; voters: number }[] };
 const CONSTITUENCIES = register.constituencies as Constituency[];
@@ -73,7 +76,7 @@ sourced("register.2022.with-prisons", register.countyTotalWithPrisons, "voters",
 const ECVR = "IEBC, Enhanced Continuous Voter Registration county annex (July 2026)";
 // Tier 3 and unconfirmed (25 September 2026): reported by an aggregator. No IEBC document giving
 // the July total is in hand; the ECVR annex is April's release and carries the drive only.
-const REGISTER_2026_REPORTED = "Venas News, registered voters by county, July 2026; unconfirmed until IEBC's own July figure is in hand";
+const REGISTER_2026_REPORTED = IEBC_REGISTER_2026_REPORTED.name;
 sourced("register.2026", 605_703, "voters", "T3", REGISTER_2026_REPORTED, { asOf: "2026-07" });
 sourced("register.2026.ecvr-drive", 61_839, "voters", "T1", ECVR, { asOf: "2026-04-28", note: "New voters in ECVR Phase 1, the 30-day drive that closed 28 April 2026. A further phase ran 25 June to 25 July 2026 (IEBC gazette notice, 24 June 2026)." });
 modelled("register.2026.growth", v("register.2026") - v("register.2022"), "voters", "605,703 less 532,758: growth since 2022.", { tier: "T3" });
@@ -115,8 +118,8 @@ modelled("mwingi-north.top3", v("ward.kyuso") + v("ward.tseikuru") + v("ward.mum
 
 // ---- results (Section 2.2). The 2022 figures are cited through media reporting of the IEBC
 // declaration (analysis/config/assumptions.yaml S11-S13), so they are Tier 2 until a form is cited.
-const MEDIA_2022 = "Media reporting of the IEBC 2022 declaration (The Star; Nation; Standard)";
-const COA_2018 = "Court of Appeal, Malombe v Ngilu [2018] KECA 460";
+const MEDIA_2022 = MEDIA_2022_DECLARATION.name;
+const COA_2018 = COURT_OF_APPEAL_2018.name;
 // The governor's race is now cited to the certified result (Form 37C), compiled in Firefly's Public
 // Data & Evidence Audit of 24 September 2026. The certified 35.77% share matches 117,606 for Musila,
 // which settles the two published totals; The Star's 114,606 is kept as the media variant.
@@ -189,7 +192,7 @@ for (const key of ["a", "d"]) {
 }
 
 // ---- people and economy (Section 2.4). KNBS 2019 Census unless stated.
-const CENSUS = "KNBS, 2019 Kenya Population and Housing Census";
+const CENSUS = KNBS_CENSUS_2019.name;
 sourced("census.population", 1_136_187, "people", "T1", CENSUS);
 sourced("census.male", 549_003, "people", "T1", CENSUS);
 sourced("census.female", 587_151, "people", "T1", CENSUS);
@@ -330,7 +333,7 @@ modelled("reach.smartphone.short", v("benchmark") - v("reach.smartphone"), "vote
 modelled("reach.smartphone.of-benchmark", pct(v("reach.smartphone"), v("benchmark")), "percent", "The digital ceiling / 200,000.");
 
 // ---- the county budget (Section 2.5): CFSP FY2026/27
-const CFSP = "Kitui County Fiscal Strategy Paper FY2026/27, as approved by the County Assembly";
+const CFSP = FISCAL_STRATEGY_PAPER_FY2026_27.name;
 sourced("budget.total", 13.79e9, "ksh", "T3", CFSP, { note: "Cited through secondary reporting of the Paper; verify. The Paper sets the envelope at KSh 13.79bn (confirmed 25 September 2026); a KSh 13.78bn reading is not used.", decimals: 2 });
 sourced("budget.equitable", 11.64e9, "ksh", "T1", CFSP, { decimals: 2 });
 sourced("budget.osr", 1.12e9, "ksh", "T3", CFSP, {
@@ -342,7 +345,7 @@ sourced("budget.grants", 1.04e9, "ksh", "T1", CFSP, { decimals: 2, note: "Condit
 modelled("budget.rounding", 13.79e9 - (11.64e9 + 1.12e9 + 1.04e9), "ksh", "Published total less the three parts: rounding in the source, shown as its own segment.", { decimals: 2 });
 
 // ---- the county audit record (Annex B, Section 4.1.2)
-const OAG = "Office of the Auditor-General, Kitui County FY2023/24 audit report";
+const OAG = AUDITOR_GENERAL_FY2023_24.name;
 sourced("audit.cash", 670_000_000, "ksh", "T1", OAG);
 sourced("audit.uncollected", 1_090_000_000, "ksh", "T1", OAG);
 sourced("audit.ifmis", 621_500_000, "ksh", "T1", OAG);
@@ -354,7 +357,7 @@ sourced("record.bursary.ksh", 47_000_000, "ksh", "T1", "Kitui Central NG-CDF bur
 sourced("record.cdf.boreholes", 84, "count", "T3", "Kitui Central Project Inventory 2013–2026, awaiting line items");
 sourced("record.cdf.school-water", 142, "count", "T3", "Kitui Central Project Inventory 2013–2026, awaiting line items");
 // Figures the November 2026 restructure found typed into prose; each now has a token.
-const COB = "Controller of Budget, County Budget Implementation Review Report";
+const COB = CONTROLLER_OF_BUDGET.name;
 sourced("budget.pending-bills.2021", 1.3e9, "ksh", "T1", COB, { asOf: "2020-21", decimals: 1, note: "Outstanding pending bills, FY2020/21." });
 sourced("budget.absorption.q1", 18, "percent", "T1", COB, { asOf: "2025-26 Q1", decimals: 0, note: "Development absorption, FY2025/26 first quarter. Media reports of 5% are not used." });
 sourced("audit.pending.contested", 2.4e9, "ksh", "T3", "OAG County Executive audits FY2021/22 and FY2022/23, as reported; reports not yet retrieved", { decimals: 1, note: "A different measure from the FY2020/21 pending bills: different years, different scope." });
@@ -453,7 +456,7 @@ target("effort.sms.pool", 70, "percent", "Share of SMS/USSD onboarding effort to
 
 // ---- public statistics compiled in Firefly's Public Data & Evidence Audit (24 Sep 2026). Each names
 // the document the audit read; national figures are labelled national wherever they are printed.
-const KDHS = "KNBS, Kenya Demographic and Health Survey 2022, Kitui factsheet, per Firefly's audit";
+const KDHS = KDHS_2022.name;
 sourced("health.insurance", 11.7, "percent", "T1", KDHS, { asOf: "2022", note: "Household population with any health insurance." });
 sourced("health.insurance.nhif", 10.3, "percent", "T1", KDHS, { asOf: "2022" });
 sourced("health.stunting", 25.1, "percent", "T1", "KNBS, KDHS 2022 (via the Advancing Nutrition policy brief), per Firefly's audit", {

@@ -1,6 +1,7 @@
 // Phase 4c — drought and food security. Feeds §B.3.
 import type { SourcedFigure } from "./types";
 import { NDMA_ALERT, IPC_CLASSIFICATION, CBC_CECM_STATEMENT, MEDIA_FLOODING_MARCH_2026 } from "./sources";
+import { fmt, val } from "../lib/data/read.ts";
 
 export const NDMA_DROUGHT_PHASE: SourcedFigure<string> = {
   label: "NDMA drought early warning phase, Kitui County",
@@ -18,13 +19,13 @@ export const IPC_FOOD_SECURITY_PHASE: SourcedFigure<string> = {
 
 export const FOOD_RESERVE_HOUSEHOLDS: SourcedFigure = {
   label: "Households holding food reserves",
-  value: 28000,
+  value: val("food.reserve-households"),
   unit: "households, of a stated base of 1.2m+",
   provenance: {
     source: CBC_CECM_STATEMENT,
     granularity: "county",
     note:
-      "The CECM's stated household base (over 1.2 million) is markedly higher than the 2019 census household count for the whole county (262,942 — §2.8.1). Rendered exactly as stated rather than corrected; the discrepancy may reflect the CECM conflating population with households, but this pass has no second source to resolve which figure is right.",
+      `The CECM's stated household base (over 1.2 million) is markedly higher than the 2019 census household count for the whole county (${fmt("census.households")} — Section 2.8.1). Rendered exactly as stated rather than corrected; the discrepancy may reflect the CECM conflating population with households, but this pass has no second source to resolve which figure is right.`,
   },
 };
 

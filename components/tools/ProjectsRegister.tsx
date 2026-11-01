@@ -1,6 +1,6 @@
 "use client";
 
-import { tierWord } from "../../lib/tier-word";
+import { tierWord } from "../../data/types";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowLeft, Search, ShieldCheck } from "lucide-react";

@@ -20,7 +20,7 @@ const SAMPLE_REPORTS: ServiceReport[] = [
     ward: "Kyuso",
     constituency: "Mwingi North",
     category: "Water Infrastructure",
-    issue: "Kyuso Solar-powered borehole pump failed; 1,200 households walking 8km to Tana River basin.",
+    issue: "Solar-powered borehole pump reported as failed; households walking to the river to fetch water.",
     channel: "USSD",
     status: "Raised with County",
     outcomeNote: "Formal query submitted to County Water Chief Officer; Ward Coordinator verifying solar inverter warranty."

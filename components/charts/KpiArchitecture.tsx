@@ -6,6 +6,7 @@ import { Flag, Trophy } from "lucide-react";
 import { STAGE_1_TARGETS, STAGE_2_TARGETS } from "../../data/kpis";
 import { useMotionPreset } from "../../hooks/useMotionPreset";
 import { STAGGER, drawPath, fadeUp, staggerContainer, VIEWPORT_TALL } from "../../lib/motion";
+import { fmt } from "../../lib/data/read";
 
 /**
  * §1.5's KPI architecture, as layout rather than as box-drawing characters.
@@ -141,7 +142,7 @@ export function KpiArchitecture() {
         <Stage
           kicker="Stage 2"
           title="General election targets"
-          sub="Victory threshold: ≥ 200,000 votes"
+          sub={`Benchmark: ≥ ${fmt("benchmark")} votes`}
           items={STAGE_2_TARGETS}
           tone="general"
         />

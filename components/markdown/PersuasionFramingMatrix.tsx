@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Brain, CheckCircle2, Droplet, Coins, HeartHandshake, GraduationCap } from "lucide-react";
+import { fmt } from "../../lib/data/read";
 
 interface PersuasionTheme {
   id: string;
@@ -23,12 +24,12 @@ const PERSUASION_THEMES: PersuasionTheme[] = [
       {
         name: "Loss Aversion",
         description: "Losses are felt 2x more intensely than equivalent gains.",
-        scriptFraming: "“Approximately 400,000 people in Kitui still depend on surface water for drinking. Every dry season costs our families more than permanent boreholes would.”"
+        scriptFraming: `“Approximately ${fmt("water.surface")} people in Kitui still depend on surface water for drinking. Every dry season costs our families more than permanent boreholes would.”`
       },
       {
         name: "Social Proof",
         description: "People take cues from the verified actions of their peers.",
-        scriptFraming: "“Over 14,000 families across Kitui East and Mwingi North have already signed the sand dam resolution. Add your household.”"
+        scriptFraming: "“Families across Kitui East and Mwingi North are signing the sand dam resolution. Add your household.”"
       },
       {
         name: "Verification Bias",
@@ -98,8 +99,8 @@ const PERSUASION_THEMES: PersuasionTheme[] = [
       },
       {
         name: "Verification Bias",
-        description: "Empirical proof of 12,573 bursary disbursements.",
-        scriptFraming: "“KSh 47 million directly disbursed to 12,573 students in Kitui Central. Scrutinize the published beneficiary register.”"
+        description: `Empirical proof of ${fmt("record.bursary.recipients")} bursary disbursements.`,
+        scriptFraming: `“KSh ${fmt("record.bursary.ksh", "m")} million directly disbursed to ${fmt("record.bursary.recipients")} students in Kitui Central. Scrutinize the published beneficiary register.”`
       }
     ]
   }

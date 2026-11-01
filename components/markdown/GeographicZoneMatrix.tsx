@@ -7,6 +7,7 @@ import { MapPin, Radio, Compass, TrendingUp, Percent, AlertTriangle } from "luci
 import { CONSTITUENCIES, COUNTY_TOTAL_WARDS } from "../../data/ward-register";
 import { TierBadge } from "./TierBadge";
 import { DURATION } from "../../lib/motion";
+import { fmt as reg } from "../../lib/data/read";
 
 /**
  * §3.5 zone model, bound to the verified IEBC register.
@@ -62,10 +63,10 @@ const GEOGRAPHIC_ZONES: GeographicZone[] = [
     name: "The Urban & Central Anchor",
     subCounties: "Kitui Central · Kitui West · Katulani",
     constituencyIds: ["kitui-central", "kitui-west"],
-    population: "223,970",
+    population: reg("zone.anchor.population"),
     popShare: "19.7%",
     density: "~190 persons / km²",
-    households: "58,724",
+    households: reg("zone.anchor.households"),
     nominationWeight: 20,
     generalWeight: 25,
     connectivityProfile: "Highest in the county — the urban core is where the connected minority is concentrated.",
@@ -77,10 +78,10 @@ const GEOGRAPHIC_ZONES: GeographicZone[] = [
     name: "The Northern Block — Mwingi",
     subCounties: "Mwingi Central · Kyuso · Mumoni · Tseikuru",
     constituencyIds: ["mwingi-north", "mwingi-west", "mwingi-central"],
-    population: "255,795",
+    population: reg("zone.mwingi.population"),
     popShare: "22.5%",
     density: "~53 persons / km²",
-    households: "57,821",
+    households: reg("zone.mwingi.households"),
     nominationWeight: 35,
     generalWeight: 25,
     connectivityProfile: "Low to medium. Kikamba radio and SMS carry the load; USSD reaches the rest.",
@@ -92,10 +93,10 @@ const GEOGRAPHIC_ZONES: GeographicZone[] = [
     name: "The Arid & Resource Belt",
     subCounties: "Mutomo · Ikutha · Mwingi East · Mutitu · Migwani",
     constituencyIds: ["kitui-south", "kitui-east"],
-    population: "416,001",
+    population: reg("zone.arid.population"),
     popShare: "36.6%",
     density: "~19 persons / km²",
-    households: "89,070",
+    households: reg("zone.arid.households"),
     nominationWeight: 30,
     generalWeight: 35,
     connectivityProfile:

@@ -1,4 +1,4 @@
-import { tierWord } from "../../lib/tier-word";
+import { tierWord } from "../../data/types";
 import type { Cell, CellState, FigureSpec, SourceRef } from "../../lib/register/types";
 import { group } from "../../lib/data/format";
 import { Chart } from "./charts";

@@ -1,5 +1,6 @@
 import type { ClaimStatus } from "../components/markdown/ClaimBadge";
 import type { TabId } from "./heading-slug";
+import { fmt } from "./data/read.ts";
 
 // Source markdown hard-wraps around 80 columns, which leaves a literal "\n" inside a single
 // text node wherever a phrase happens to wrap — so every multi-word pattern below matches on
@@ -11,7 +12,7 @@ export function ws(phrase: string): string {
 // The derived figure the proposal leans on hardest, matched at its canonical first statement so
 // the "show the working" drawer appears once, not on every later restatement.
 export const WORKING_TRIGGERS: { pattern: string; id: string }[] = [
-  { pattern: ws("approximately 200,000 votes\\.?"), id: "win-threshold" },
+  { pattern: ws(`approximately ${fmt("benchmark")} votes\\.?`), id: "win-threshold" },
 ];
 
 // Figures the copy itself already states a status for — an approved fiscal-strategy-paper
@@ -21,7 +22,7 @@ export const WORKING_TRIGGERS: { pattern: string; id: string }[] = [
 // wording so a badge never lands next to a number the text doesn't make a claim about.
 export const STATUS_PHRASES: { pattern: string; status: ClaimStatus }[] = [
   { pattern: ws("KSh13\\.79 billion"), status: "verified" },
-  { pattern: ws("532,758 voters"), status: "verified" },
+  { pattern: ws(`${fmt("register.2022")} voters`), status: "verified" },
   { pattern: ws("approximately 1\\.2 million by 2024"), status: "estimate" },
   { pattern: ws("KSh97\\.56 million"), status: "verified" },
 ];

@@ -30,6 +30,21 @@ export const TIER_META: Record<Tier, { label: string; short: string; description
   3: { label: "Unconfirmed (single-source)", short: "Unconfirmed", description: "One local or partisan digital outlet only — unconfirmed." },
 };
 
+/**
+ * The plain word for a tier, from TIER_META: "Official", "Reported", "Unconfirmed". Accepts the
+ * registry's codes ("T1") or the numbers (1) so every view prints the same word. The single tier
+ * vocabulary for the site (consolidation pass, Step 2): lib/tier-word.ts and component-local maps
+ * are retired in its favour.
+ */
+export function tierWord(tier: string | number | null | undefined): string {
+  if (tier === null || tier === undefined) return "";
+  const n = Number(String(tier).replace(/^T/, ""));
+  return n === 1 || n === 2 || n === 3 ? TIER_META[n].short : String(tier);
+}
+
+/** The registry's code for a numeric tier: 1 -> "T1". */
+export const tierCode = (tier: number): "T1" | "T2" | "T3" | null => (tier === 1 || tier === 2 || tier === 3 ? (`T${tier}` as "T1" | "T2" | "T3") : null);
+
 /** Geographic granularity a figure was measured or reported at. Never conflate these. */
 export type Granularity = "national" | "county" | "constituency" | "ward";
 

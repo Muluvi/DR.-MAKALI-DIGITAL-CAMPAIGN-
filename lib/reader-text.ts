@@ -1,3 +1,4 @@
+import { tierWord } from "../data/types.ts";
 import { plainLabels } from "./plain-labels.ts";
 
 /**
@@ -17,12 +18,11 @@ const PAREN_REF = new RegExp(
 );
 const LEAD_REF = new RegExp(String.raw`^§\s?${NUM}(?:['’]s)?\s*(?:—|–|-|:)\s*(\S)?`);
 const TIER_CODE = /\bT([123])\b/g;
-const TIER_WORD: Record<string, string> = { "1": "Official", "2": "Reported", "3": "Unconfirmed" };
 
 export function readerText(input: string): string {
   let s = input.replace(PAREN_REF, "");
   s = s.replace(LEAD_REF, (_, c?: string) => (c ? c.toUpperCase() : ""));
-  s = s.replace(TIER_CODE, (_, n: string) => TIER_WORD[n]).replace(/\bUnconfirmed,?\s+unconfirmed\b/g, "Unconfirmed");
+  s = s.replace(TIER_CODE, (_, n: string) => tierWord(n)).replace(/\bUnconfirmed,?\s+unconfirmed\b/g, "Unconfirmed");
   return plainLabels(s);
 }
 

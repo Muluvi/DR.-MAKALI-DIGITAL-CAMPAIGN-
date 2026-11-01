@@ -2,6 +2,7 @@
 // the Phase 6c electoral-timeline chart.
 import type { Source } from "./types";
 import { COURT_OF_APPEAL_2018, IEBC_2022_RESULTS, MEDIA_2022_DECLARATION } from "./sources";
+import { val } from "../lib/data/read.ts";
 
 export interface RaceResult {
   candidate: string;
@@ -32,29 +33,29 @@ export const ELECTORAL_HISTORY: ElectionRace[] = [
     year: 2017,
     office: "Kitui Governor",
     results: [
-      { candidate: "Charity Ngilu", votes: 169990, source: COURT_OF_APPEAL_2018 },
-      { candidate: "David Musila", votes: 114827, source: COURT_OF_APPEAL_2018 },
-      { candidate: "Julius Malombe", votes: 74681, source: COURT_OF_APPEAL_2018 },
+      { candidate: "Charity Ngilu", votes: val("result.2017.gov.ngilu"), source: COURT_OF_APPEAL_2018 },
+      { candidate: "David Musila", votes: val("result.2017.gov.musila"), source: COURT_OF_APPEAL_2018 },
+      { candidate: "Julius Malombe", votes: val("result.2017.gov.malombe"), source: COURT_OF_APPEAL_2018 },
     ],
   },
   {
     year: 2022,
     office: "Kitui Governor",
     results: [
-      { candidate: "Julius Malombe", party: "Wiper", votes: 198004, source: IEBC_2022_RESULTS },
-      { candidate: "David Musila", party: "Jubilee", votes: 117606, source: IEBC_2022_RESULTS, disputedFigureId: "musila-2022-governor-votes" },
-      { candidate: "Mueke", party: "UDA", votes: 10639, source: IEBC_2022_RESULTS },
+      { candidate: "Julius Malombe", party: "Wiper", votes: val("result.2022.gov.malombe"), source: IEBC_2022_RESULTS },
+      { candidate: "David Musila", party: "Jubilee", votes: val("result.2022.gov.musila"), source: IEBC_2022_RESULTS, disputedFigureId: "musila-2022-governor-votes" },
+      { candidate: "Mueke", party: "UDA", votes: val("result.2022.gov.mueke"), source: IEBC_2022_RESULTS },
     ],
   },
   {
     year: 2022,
     office: "Kitui Senator",
-    results: [{ candidate: "Enoch Wambua", votes: 191317, source: MEDIA_2022_DECLARATION }],
+    results: [{ candidate: "Enoch Wambua", votes: val("result.2022.senate.wambua"), source: MEDIA_2022_DECLARATION }],
   },
   {
     year: 2022,
     office: "Kitui Woman Representative",
-    results: [{ candidate: "Irene Kasalu", votes: 201899, source: MEDIA_2022_DECLARATION }],
+    results: [{ candidate: "Irene Kasalu", votes: val("result.2022.womanrep.kasalu"), source: MEDIA_2022_DECLARATION }],
   },
 ];
 

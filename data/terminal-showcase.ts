@@ -1,3 +1,4 @@
+import { fmt, val } from "../lib/data/read.ts";
 export type TerminalModeId = "dgp" | "mea" | "iad" | "tpc";
 
 export interface TerminalMode {
@@ -40,7 +41,7 @@ export const TERMINAL_MODES: TerminalMode[] = [
     name: "Turnout & Pacing Check",
     label: "Turnout Pacing (TPC)",
     cadence: "Hourly on Polling Day",
-    summary: "Real-time vote velocity pacing across all 40 wards against the 198,004 threshold required for victory.",
+    summary: `Real-time vote velocity pacing across all 40 wards against the ${fmt("benchmark")} benchmark.`,
   },
 ];
 
@@ -121,7 +122,7 @@ export const WARD_DATA: Record<string, WardPulseData> = {
       timestamp: "14:18 EAT",
     },
     turnoutPacing: {
-      registeredVoters: 19538,
+      registeredVoters: val("ward.township"),
       targetTurnoutPct: 78,
       currentPacingPct: 81.2,
       projectedVotes: 12660,
@@ -162,7 +163,7 @@ export const WARD_DATA: Record<string, WardPulseData> = {
       timestamp: "11:05 EAT",
     },
     turnoutPacing: {
-      registeredVoters: 19921,
+      registeredVoters: val("ward.kyuso"),
       targetTurnoutPct: 72,
       currentPacingPct: 74.8,
       projectedVotes: 10725,
@@ -203,7 +204,7 @@ export const WARD_DATA: Record<string, WardPulseData> = {
       timestamp: "16:40 EAT",
     },
     turnoutPacing: {
-      registeredVoters: 11039,
+      registeredVoters: val("ward.mutha"),
       targetTurnoutPct: 70,
       currentPacingPct: 71.4,
       projectedVotes: 5510,
@@ -244,7 +245,7 @@ export const WARD_DATA: Record<string, WardPulseData> = {
       timestamp: "09:30 EAT",
     },
     turnoutPacing: {
-      registeredVoters: 11759,
+      registeredVoters: val("ward.miambani"),
       targetTurnoutPct: 75,
       currentPacingPct: 77.1,
       projectedVotes: 6350,
@@ -285,7 +286,7 @@ export const WARD_DATA: Record<string, WardPulseData> = {
       timestamp: "13:45 EAT",
     },
     turnoutPacing: {
-      registeredVoters: 14678,
+      registeredVoters: val("ward.migwani"),
       targetTurnoutPct: 76,
       currentPacingPct: 79.5,
       projectedVotes: 8860,

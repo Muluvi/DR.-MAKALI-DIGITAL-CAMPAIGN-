@@ -35,6 +35,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import ts from "typescript";
 import { FIGURES } from "../../lib/data/figures.ts";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
@@ -64,36 +65,26 @@ for (const [id, f] of Object.entries(FIGURES)) {
 }
 
 /* ------------------------------------------------------------ comment stripping */
-/** Code with comments blanked (newlines kept, so line numbers hold). Strings are left in place. */
-function stripCode(src) {
-  let out = "";
-  let i = 0;
-  let quote = null;
-  while (i < src.length) {
-    const c = src[i];
-    const n = src[i + 1];
-    if (quote) {
-      out += c;
-      if (c === "\\") { out += n ?? ""; i += 2; continue; }
-      if (c === quote) quote = null;
-      i += 1;
-      continue;
-    }
-    if (c === "/" && n === "/") {
-      while (i < src.length && src[i] !== "\n") i += 1;
-      continue;
-    }
-    if (c === "/" && n === "*") {
-      i += 2;
-      while (i < src.length && !(src[i] === "*" && src[i + 1] === "/")) { if (src[i] === "\n") out += "\n"; i += 1; }
-      i += 2;
-      continue;
-    }
-    if (c === "'" || c === '"' || c === "`") quote = c;
-    out += c;
-    i += 1;
-  }
-  return out;
+/**
+ * Code with every comment blanked (newlines kept, so line numbers hold). Comment ranges come from
+ * the TypeScript parser, so an apostrophe in JSX text or a "//" inside a string cannot confuse it.
+ */
+function stripCode(src, file) {
+  const kind = file.endsWith(".tsx") ? ts.ScriptKind.TSX : file.endsWith(".ts") ? ts.ScriptKind.TS : ts.ScriptKind.JS;
+  const sf = ts.createSourceFile(file, src, ts.ScriptTarget.Latest, true, kind);
+  const ranges = new Map();
+  const take = (list) => { for (const r of list ?? []) ranges.set(r.pos, r.end); };
+  // Every node and every token (commas, braces), so a comment after a "," or before a "}" is found.
+  const visit = (node) => {
+    take(ts.getLeadingCommentRanges(src, node.getFullStart()));
+    take(ts.getTrailingCommentRanges(src, node.getEnd()));
+    for (const child of node.getChildren(sf)) visit(child);
+  };
+  visit(sf);
+  take(ts.getLeadingCommentRanges(src, sf.endOfFileToken.getFullStart()));
+  const chars = src.split("");
+  for (const [pos, end] of ranges) for (let i = pos; i < end; i++) if (chars[i] !== "\n") chars[i] = " ";
+  return chars.join("");
 }
 /** Markdown with comments, {{tokens}} and the generated source table blanked (newlines kept). */
 const blank = (m) => m.replace(/[^\n]/g, " ");
@@ -121,7 +112,7 @@ const hits = [];
 const files = DIRS.flatMap(walk).filter((f) => !SKIP_FILES.has(f) && !SKIP_PATH.some((r) => r.test(f))).sort();
 for (const file of files) {
   const raw = fs.readFileSync(path.join(ROOT, file), "utf8");
-  const text = file.endsWith(".md") ? stripMd(raw) : stripCode(raw);
+  const text = file.endsWith(".md") ? stripMd(raw) : stripCode(raw, file);
   text.split("\n").forEach((line, idx) => {
     for (const m of line.matchAll(LITERAL)) {
       const value = toNumber(m[1], m[2]);

@@ -1,3 +1,4 @@
+import { fmt, val } from "../lib/data/read.ts";
 /**
  * Centralized Electoral Arithmetic and Official Certified Benchmarks
  * Single Source of Truth for all quantitative claims across prose and visuals.
@@ -15,13 +16,13 @@ export interface CertifiedResult {
 
 export const ELECTORAL_ARITHMETIC = {
   // Electorate baselines
-  register2022Certified: 532758, // 40 wards (532,833 including 75 prisons) - T1
-  register2026ECVRReported: 605703, // July 2026 reported - T3 uncertified
+  register2022Certified: val("register.2022"), // 40 wards; prisons in register.2022.with-prisons - T1
+  register2026ECVRReported: val("register.2026"), // July 2026 reported - T3 uncertified
   turnoutHistoricalAvgPct: 61.7, // Certified 2022 county turnout, IEBC Form 37C - T1
 
   // Winning thresholds & margins
-  victoryThresholdBenchmark: 200000, // Derived from Malombe 2022 winning total
-  malombe2022Certified: 198004,
+  victoryThresholdBenchmark: val("benchmark"), // Derived from Malombe 2022 winning total
+  malombe2022Certified: val("result.2022.gov.malombe"),
   pathBWinningMargin: 12183, // 200,000 - 187,817 = +12,183
 
   // Sourced historical certified peak votes
@@ -30,7 +31,7 @@ export const ELECTORAL_ARITHMETIC = {
       candidate: "Irene Kasalu",
       office: "Woman Representative",
       year: 2022,
-      votes: 201899,
+      votes: val("result.2022.womanrep.kasalu"),
       tier: "T1",
       source: "IEBC Certified Results 2022",
     },
@@ -38,7 +39,7 @@ export const ELECTORAL_ARITHMETIC = {
       candidate: "Julius Malombe",
       office: "Governor",
       year: 2022,
-      votes: 198004,
+      votes: val("result.2022.gov.malombe"),
       tier: "T1",
       source: "IEBC Certified Results 2022",
     },
@@ -46,7 +47,7 @@ export const ELECTORAL_ARITHMETIC = {
       candidate: "Enoch Wambua",
       office: "Senator",
       year: 2022,
-      votes: 191317,
+      votes: val("result.2022.senate.wambua"),
       tier: "T1",
       source: "IEBC Certified Results 2022",
     },
@@ -54,7 +55,7 @@ export const ELECTORAL_ARITHMETIC = {
       candidate: "Charity Ngilu",
       office: "Governor",
       year: 2017,
-      votes: 169990,
+      votes: val("result.2017.gov.ngilu"),
       tier: "T1",
       source: "IEBC Certified Results 2017",
     },
@@ -62,7 +63,7 @@ export const ELECTORAL_ARITHMETIC = {
       candidate: "David Musila",
       office: "Governor",
       year: 2017,
-      votes: 114827,
+      votes: val("result.2017.gov.musila"),
       tier: "T1",
       source: "IEBC Certified Results 2017",
     },
@@ -70,10 +71,10 @@ export const ELECTORAL_ARITHMETIC = {
       candidate: "David Musila",
       office: "Governor",
       year: 2022,
-      votes: 117606, // IEBC Form 37C; The Star's early 114,606 is not used
+      votes: val("result.2022.gov.musila"), // IEBC Form 37C; The Star's early total (result.2022.gov.musila.media) is not used
       tier: "T1",
       source: "IEBC Certified Results 2022",
-      notes: "117,606 certified (IEBC Form 37C); The Star's early total of 114,606 is not used",
+      notes: `${fmt("result.2022.gov.musila")} certified (IEBC Form 37C); The Star's early total of ${fmt("result.2022.gov.musila.media")} is not used`,
     },
   ] as CertifiedResult[],
 
@@ -101,7 +102,7 @@ export const ELECTORAL_ARITHMETIC = {
     internetUsePct: 26.2, // CA/KNBS 2023/24
     mobilePhoneOwnershipPct: 44.1, // CA/KNBS 2023/24
     historical2019InternetPct: 13.6, // KNBS 2019 Census reference
-    consentedSmsTarget: 120000, // Observable rural milestone
-    supporterDatabaseTarget: 200000, // Observable 40-ward DB milestone
+    consentedSmsTarget: val("target.sms"), // Observable rural milestone
+    supporterDatabaseTarget: val("target.supporters"), // Observable 40-ward DB milestone
   },
 } as const;

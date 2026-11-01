@@ -1,3 +1,4 @@
+import { val } from "../lib/data/read.ts";
 // §5.2.3.3's USSD menu and §5.2.3.3's SMS layer, as data for the feature-phone specimen.
 //
 // Two rules govern this file, and they are the reason it is data rather than copy inside a
@@ -36,18 +37,38 @@ export interface UssdOption {
   /** As printed: Kikamba first, English after the slash, where the document gives both. */
   kikamba: string | null;
   english: string;
+  /** What choosing it does, in one line. */
+  does: string;
   /** §5.2.1's service-delivery tracker is reachable from this option. */
   crossReference?: string;
 }
 
+/**
+ * THE USSD MENU, defined once (consolidation pass, Step 2). Read by the menu figure
+ * (fig-5-2-3-ussd-menu), the menu tree in Platforms & content, the reach split on the cover, the
+ * phone showcase and the feature-phone specimen. An earlier four-option tree (manifesto,
+ * tracker, volunteer, privacy) disagreed with it; its plan items now sit under option 1
+ * (PLAN_ITEMS) and its privacy option is the charter's opt-out, whose menu position is set when
+ * the shortcode is provisioned.
+ */
 export const USSD_MENU: UssdOption[] = [
-  { key: "1", kikamba: "Sisemo sya Mulu", english: "Mulu's plan for my ward" },
-  { key: "2", kikamba: "Andikithya kuvota", english: "Voter registration info" },
-  { key: "3", kikamba: "Ripoti wia", english: "Report a local issue", crossReference: "Section 4.5" },
-  { key: "4", kikamba: "Kuthukuma", english: "Volunteer" },
-  { key: "5", kikamba: "Kwithukiisya", english: "Get updates (opt-in)" },
-  { key: "6", kikamba: null, english: "Kiswahili / English" },
+  { key: "1", kikamba: "Sisemo sya Mulu", english: "Mulu's plan for my ward", does: "His plan, ward by ward." },
+  { key: "2", kikamba: "Andikithya kuvota", english: "Voter registration info", does: "Where and how to register." },
+  { key: "3", kikamba: "Ripoti wia", english: "Report a local issue", does: "Opens a report in the service-delivery tracker: the option that matters most.", crossReference: "Section 4.5" },
+  { key: "4", kikamba: "Kuthukuma", english: "Volunteer", does: "Joins the volunteer list." },
+  { key: "5", kikamba: "Kwithukiisya", english: "Get updates (opt-in)", does: "Consent to the SMS list." },
+  { key: "6", kikamba: null, english: "Kiswahili / English", does: "Switches the menu language." },
 ];
+
+/** Option 1's plan items: the policy proposals the menu reads out (proposals for the campaign to decide). */
+export const PLAN_ITEMS = [
+  "Ward funds by a published, needs-weighted formula",
+  "Ksh 85/kg ndengu floor price & cold hubs",
+  "Free boda boda licenses & TVET bursaries",
+];
+
+/** A menu line as the handset prints it: "1. Sisemo sya Mulu / Mulu's plan for my ward". */
+export const menuLine = (o: UssdOption): string => `${o.key}. ${o.kikamba ? `${o.kikamba} / ` : ""}${o.english}`;
 
 /** §5.2.3.3 prints the shortcode as an unresolved placeholder. It stays one. */
 export const USSD_SHORTCODE_PLACEHOLDER = "the campaign shortcode";
@@ -119,4 +140,4 @@ export const SMS_SPECIMENS: SmsSpecimen[] = [
 ];
 
 /** §5.2.3.3's consented-contact target at Phase 3. */
-export const CONSENTED_CONTACTS = 120000;
+export const CONSENTED_CONTACTS = val("target.sms");

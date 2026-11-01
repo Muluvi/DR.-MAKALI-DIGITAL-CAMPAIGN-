@@ -12,6 +12,8 @@
  * This runs the same contract as a build step, and additionally checks the two published copies
  * have not drifted apart: data/analysis/ is what the site imports, public/content/analysis/ is
  * what a reader can fetch and check. If those two disagree, the page and its receipts disagree.
+ * Since the consolidation pass the served copy is generated from data/analysis/ by
+ * scripts/copy-analysis.mjs (verify runs it first), and this check still compares them byte for byte.
  *
  * To change any figure here, change the data pack or the assumptions and re-run the pipeline:
  *   cd analysis && python -m src.run_all && python -m src.publish --approved

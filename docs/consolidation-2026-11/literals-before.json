@@ -2,10 +2,10 @@
  "summary": {
   "filesScanned": 293,
   "registryValues": 295,
-  "exact": 181,
+  "exact": 180,
   "rounded": 13,
   "allowed": 0,
-  "filesWithHits": 45,
+  "filesWithHits": 44,
   "distinctValues": 78
  },
  "byFile": {
@@ -175,11 +175,6 @@
    "allowed": 0
   },
   "components/charts/KpiArchitecture.tsx": {
-   "exact": 1,
-   "rounded": 0,
-   "allowed": 0
-  },
-  "components/markdown/InteractiveTable.tsx": {
    "exact": 1,
    "rounded": 0,
    "allowed": 0
@@ -650,17 +645,6 @@
    "grade": "exact",
    "ids": [
     "zone.arid.households"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/markdown/InteractiveTable.tsx",
-   "line": 202,
-   "literal": "532,758",
-   "value": 532758,
-   "grade": "exact",
-   "ids": [
-    "register.2022"
    ],
    "allowed": false
   },

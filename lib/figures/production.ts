@@ -19,6 +19,7 @@
  * contradicted in §3.6.1.
  */
 import { CONTENT_TYPES } from "../../data/message-architecture";
+import { PLAN_ITEMS, USSD_MENU as USSD_SPEC, menuLine } from "../../data/ussd-specimen";
 import { CountWord, countWord } from "../count-word";
 import type { FigureSeries } from "./types";
 
@@ -102,26 +103,15 @@ export const FORMAT_SERIES: FigureSeries = {
 
 /* ------------------------------------------------------------------ §4.5.2 the USSD menu */
 
+/** The menu tree, from data/ussd-specimen.ts (the one definition); option 1 opens the plan items. */
 export const USSD_MENU = {
   root: "The campaign shortcode (zero-rated gateway)",
-  nodes: [
-    {
-      label: "1. Dr. Makali Mulu manifesto summary",
-      children: [
-        "1. Ward funds by a published, needs-weighted formula",
-        "2. Ksh 85/kg ndengu floor price & cold hubs",
-        "3. Free boda boda licenses & TVET bursaries",
-      ],
-    },
-    { label: "2. Ward development tracker (enter ward name)" },
-    { label: "3. Volunteer as a ward captain" },
-    { label: "4. Privacy policy & data opt-out" },
-  ],
+  nodes: USSD_SPEC.map((o) => ({ label: menuLine(o), ...(o.key === "1" ? { children: PLAN_ITEMS.map((p, i) => `${i + 1}. ${p}`) } : {}) })),
 };
 
 export const USSD_SERIES: FigureSeries = {
   id: "ussd-menu",
-  headline: "Four options, one of which is the way out",
+  headline: `${CountWord(USSD_SPEC.length)} options, and the third puts the tracker on a feature phone`,
   measure: "§15.1.2's USSD interactive menu tree",
   points: [],
   note:
@@ -129,7 +119,7 @@ export const USSD_SERIES: FigureSeries = {
     "this figure says nothing here should be printed, dialled or published as a working number. " +
     "The root carries no digits " +
     "because a menu tree lifted into a slide is how an unprovisioned shortcode reaches a flyer. " +
-    "Option 4 is the DPA opt-out §15.4.1 requires, reachable from the top menu rather than buried.",
+    "The charter's data opt-out must be reachable from the menu; its position is set when the shortcode is provisioned.",
 };
 
 /* ------------------------------------------------------------------ §4.5.2 the weekly cycle */

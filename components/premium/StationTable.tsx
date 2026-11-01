@@ -1,5 +1,6 @@
 import { RADIO_STATIONS } from "../../data/media-ownership";
 import { ProvPill } from "./ProvPill";
+import { tierCode } from "../../data/types";
 
 /**
  * The §2.7 station table in the G-6 system, fixing D-03 (one character per line on a phone).
@@ -13,7 +14,6 @@ import { ProvPill } from "./ProvPill";
  * The words and tiers are exactly those of data/media-ownership.ts and the component that renders
  * it today; reach stays a qualitative 1-3 reading, labelled as such, never a listenership figure.
  */
-const TIER = { 1: "T1", 2: "T2", 3: "T3" } as const;
 
 export function StationTable() {
   return (
@@ -49,7 +49,7 @@ export function StationTable() {
                     {reach}
                   </td>
                   <td data-label="Tier">
-                    <ProvPill p={{ tier: TIER[s.source.tier as 1 | 2 | 3] ?? null }} />
+                    <ProvPill p={{ tier: tierCode(s.source.tier) }} />
                   </td>
                 </tr>
               );

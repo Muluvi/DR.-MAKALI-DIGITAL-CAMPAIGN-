@@ -7,6 +7,7 @@ import { Calculator, CheckCircle2, AlertTriangle, TrendingUp, Layers, ShieldAler
 
 import { ALL_WARDS, CONSTITUENCIES, COUNTY_TOTAL_WARDS } from "../../data/ward-register";
 import { FIGURES } from "../../lib/data/figures";
+import { fmt, val } from "../../lib/data/read";
 
 /**
  * §3.4.3 — the four structural paths to ~200,000, showing the working.
@@ -20,9 +21,9 @@ import { FIGURES } from "../../lib/data/figures";
  */
 
 /** 2022 winning total (Malombe), §5.2.4.1. The benchmark every path is measured against. */
-const WINNING_TOTAL_2022 = 198004;
+const WINNING_TOTAL_2022 = val("result.2022.gov.malombe");
 /** The round benchmark §3.4.3 states the paths against. */
-const TARGET_THRESHOLD = 200000;
+const TARGET_THRESHOLD = val("benchmark");
 
 const byId = (id: string) => {
   const c = CONSTITUENCIES.find((x) => x.id === id);
@@ -145,7 +146,7 @@ export function PathTo200kCalculator() {
                 Coalition Arithmetic Engine
               </span>
               <span className="t-label font-mono font-bold text-muted">
-                Target: 200,000 Votes
+                Target: {fmt("benchmark")} Votes
               </span>
             </div>
             <h4 className="font-serif text-base sm:text-lg font-bold text-ink mt-0.5">
@@ -216,8 +217,8 @@ export function PathTo200kCalculator() {
         <p role="status" aria-live="polite" aria-atomic="true" className="sr-only">
           {`${selectedPath.name}. ${selectedPath.voterPool.toLocaleString()} registered voters across ${selectedPath.wardCount} wards, ${selectedPath.shareOfCounty.toFixed(2)} percent of the county register. ${
             selectedPath.isViable
-              ? `Clears the 200,000 benchmark by ${selectedPath.marginOverBenchmark.toLocaleString()}.`
-              : `Short of the 200,000 benchmark by ${Math.abs(selectedPath.marginOverBenchmark).toLocaleString()}.`
+              ? `Clears the ${fmt("benchmark")} benchmark by ${selectedPath.marginOverBenchmark.toLocaleString()}.`
+              : `Short of the ${fmt("benchmark")} benchmark by ${Math.abs(selectedPath.marginOverBenchmark).toLocaleString()}.`
           }`}
         </p>
         {/* Animated Progress Bar */}
@@ -302,7 +303,7 @@ export function PathTo200kCalculator() {
       <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
         <span className="flex items-center gap-1.5">
           <Percent size={12} className="text-accent" />
-          <span>IEBC Benchmark: Minimum winning threshold is 198,004 – 200,000 valid votes in a 3-way contest.</span>
+          <span>The benchmark: the 2022 winning tally, {fmt("result.2022.gov.malombe")} (IEBC Form 37C), rounded to {fmt("benchmark")}. There is no fixed threshold: the most votes wins.</span>
         </span>
       </div>
     </div>

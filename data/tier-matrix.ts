@@ -1,3 +1,4 @@
+import { fmt } from "../lib/data/read.ts";
 // §5.5.2 "The scope levels compared", transcribed exactly.
 //
 // Nine attributes across three tiers. Every string here is the cell as §5.5.2 prints it — the
@@ -40,9 +41,9 @@ export const TIER_ATTRIBUTES: TierAttribute[] = [
   { label: "Arid-belt reach", lean: "Weak", standard: "Strong", premium: "Strong" },
   {
     label: "Realistic Phase 3 contact universe",
-    lean: "~60,000",
-    standard: "~150,000",
-    premium: "~250,000",
+    lean: `~${fmt("target.contact-universe.lean")}`,
+    standard: `~${fmt("target.contact-universe.standard")}`,
+    premium: `~${fmt("target.contact-universe.premium")}`,
   },
   // Migrated out of components/DataVisualizations.tsx, which was the only place these three
   // shares existed. They were hard-coded there as a percentage "of verified ceiling" — a figure
