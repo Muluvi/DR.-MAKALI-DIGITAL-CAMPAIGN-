@@ -1,0 +1,3070 @@
+{
+ "summary": {
+  "filesScanned": 293,
+  "registryValues": 299,
+  "exact": 220,
+  "rounded": 20,
+  "allowed": 0,
+  "filesWithHits": 62,
+  "distinctValues": 81
+ },
+ "byFile": {
+  "components/markdown/KpiPhaseBlock.tsx": {
+   "exact": 16,
+   "rounded": 1,
+   "allowed": 0
+  },
+  "components/figures/registry.tsx": {
+   "exact": 14,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "data/electoral-arithmetic.ts": {
+   "exact": 14,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "lib/figures/annex.ts": {
+   "exact": 10,
+   "rounded": 2,
+   "allowed": 0
+  },
+  "lib/figures/threshold.ts": {
+   "exact": 11,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "lib/figures/reach.ts": {
+   "exact": 7,
+   "rounded": 3,
+   "allowed": 0
+  },
+  "components/register/charts.tsx": {
+   "exact": 7,
+   "rounded": 1,
+   "allowed": 0
+  },
+  "data/electoral-history.ts": {
+   "exact": 8,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/markdown/AudienceSegmentationMatrix.tsx": {
+   "exact": 6,
+   "rounded": 1,
+   "allowed": 0
+  },
+  "components/markdown/PathTo200kCalculator.tsx": {
+   "exact": 7,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "data/terminal-showcase.ts": {
+   "exact": 7,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/markdown/GeographicZoneMatrix.tsx": {
+   "exact": 6,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/tools/KiemsTabletInspector.tsx": {
+   "exact": 6,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "data/county-profile.ts": {
+   "exact": 6,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "data/fiscal-audit.ts": {
+   "exact": 6,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "data/kpis.ts": {
+   "exact": 6,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/markdown/DerivedFigureDrawer.tsx": {
+   "exact": 5,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/premium/FunnelV2.tsx": {
+   "exact": 5,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "data/disputed-figures.ts": {
+   "exact": 5,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "lib/register/tilemap.ts": {
+   "exact": 1,
+   "rounded": 4,
+   "allowed": 0
+  },
+  "components/ChartComponent.tsx": {
+   "exact": 4,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/markdown/PersuasionFramingMatrix.tsx": {
+   "exact": 4,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/partviz/primitives.tsx": {
+   "exact": 3,
+   "rounded": 1,
+   "allowed": 0
+  },
+  "lib/data/allow.ts": {
+   "exact": 3,
+   "rounded": 1,
+   "allowed": 0
+  },
+  "components/markdown/PathTo200kBlockContent.tsx": {
+   "exact": 3,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/markdown/PublicServiceDeliveryTracker.tsx": {
+   "exact": 3,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/tools/ToolsHub.tsx": {
+   "exact": 3,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "data/tier-matrix.ts": {
+   "exact": 3,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "lib/figures/governance.ts": {
+   "exact": 2,
+   "rounded": 1,
+   "allowed": 0
+  },
+  "lib/figures/ground.ts": {
+   "exact": 3,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/charts/PathTo200kChart.tsx": {
+   "exact": 2,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/markdown/ElectoralTimelineBlockContent.tsx": {
+   "exact": 2,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "content/success.md": {
+   "exact": 2,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "data/drought-food-security.ts": {
+   "exact": 2,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "lib/figures/register.ts": {
+   "exact": 2,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "lib/figures/research.ts": {
+   "exact": 2,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "lib/figures/targeting.ts": {
+   "exact": 2,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "lib/highlight-patterns.ts": {
+   "exact": 2,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "lib/register/specs/s3-analysis.ts": {
+   "exact": 2,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "app/layout.tsx": {
+   "exact": 1,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/DecisionPanel.tsx": {
+   "exact": 1,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/charts/ConstituencyBarChart.tsx": {
+   "exact": 1,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/charts/ElectoralTimelineChart.tsx": {
+   "exact": 1,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/charts/FiscalAuditChart.tsx": {
+   "exact": 1,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/charts/KpiArchitecture.tsx": {
+   "exact": 1,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/charts/VoteFunnel.tsx": {
+   "exact": 1,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/markdown/FiscalAuditPanel.tsx": {
+   "exact": 1,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/markdown/InteractiveTable.tsx": {
+   "exact": 1,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/markdown/StrategicPillarsMatrix.tsx": {
+   "exact": 1,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/phone/screens/YouTubeScreen.tsx": {
+   "exact": 0,
+   "rounded": 1,
+   "allowed": 0
+  },
+  "components/premium/CountUp.tsx": {
+   "exact": 0,
+   "rounded": 1,
+   "allowed": 0
+  },
+  "components/premium/Countdown.tsx": {
+   "exact": 1,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/terminal/screens/TurnoutScreen.tsx": {
+   "exact": 1,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "content/annex-runbooks.md": {
+   "exact": 0,
+   "rounded": 1,
+   "allowed": 0
+  },
+  "content/goal.md": {
+   "exact": 1,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "content/workstreams-platforms.md": {
+   "exact": 1,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "data/ussd-specimen.ts": {
+   "exact": 1,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "lib/figures/messaging.ts": {
+   "exact": 1,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "lib/premium/county.ts": {
+   "exact": 1,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "lib/register/specs/s4-strategy.ts": {
+   "exact": 0,
+   "rounded": 1,
+   "allowed": 0
+  },
+  "lib/scroll-to-section.ts": {
+   "exact": 0,
+   "rounded": 1,
+   "allowed": 0
+  },
+  "lib/section-heights.ts": {
+   "exact": 1,
+   "rounded": 0,
+   "allowed": 0
+  }
+ },
+ "hits": [
+  {
+   "file": "app/layout.tsx",
+   "line": 77,
+   "literal": "1200",
+   "value": 1200,
+   "grade": "exact",
+   "ids": [
+    "target.stage-champions"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/ChartComponent.tsx",
+   "line": 84,
+   "literal": "1_000_000",
+   "value": 1000000,
+   "grade": "exact",
+   "ids": [
+    "target.reach.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/ChartComponent.tsx",
+   "line": 84,
+   "literal": "1_000_000",
+   "value": 1000000,
+   "grade": "exact",
+   "ids": [
+    "target.reach.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/ChartComponent.tsx",
+   "line": 85,
+   "literal": "1_000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/ChartComponent.tsx",
+   "line": 85,
+   "literal": "1_000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/DecisionPanel.tsx",
+   "line": 78,
+   "literal": "30,430",
+   "value": 30430,
+   "grade": "exact",
+   "ids": [
+    "census.area"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/charts/ConstituencyBarChart.tsx",
+   "line": 44,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/charts/ElectoralTimelineChart.tsx",
+   "line": 92,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/charts/FiscalAuditChart.tsx",
+   "line": 41,
+   "literal": "1_000_000",
+   "value": 1000000,
+   "grade": "exact",
+   "ids": [
+    "target.reach.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/charts/KpiArchitecture.tsx",
+   "line": 144,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/charts/PathTo200kChart.tsx",
+   "line": 20,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/charts/PathTo200kChart.tsx",
+   "line": 26,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/charts/VoteFunnel.tsx",
+   "line": 46,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/figures/registry.tsx",
+   "line": 194,
+   "literal": "13,319",
+   "value": 13319,
+   "grade": "exact",
+   "ids": [
+    "register.2022.ward-mean"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/figures/registry.tsx",
+   "line": 209,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/figures/registry.tsx",
+   "line": 210,
+   "literal": "198,004",
+   "value": 198004,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.malombe"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/figures/registry.tsx",
+   "line": 214,
+   "literal": "198,004",
+   "value": 198004,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.malombe"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/figures/registry.tsx",
+   "line": 215,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/figures/registry.tsx",
+   "line": 225,
+   "literal": "200_198",
+   "value": 200198,
+   "grade": "exact",
+   "ids": [
+    "bloc.mwingi",
+    "path.a.registered"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/figures/registry.tsx",
+   "line": 226,
+   "literal": "75_372",
+   "value": 75372,
+   "grade": "exact",
+   "ids": [
+    "con.kitui-south"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/figures/registry.tsx",
+   "line": 251,
+   "literal": "13,319",
+   "value": 13319,
+   "grade": "exact",
+   "ids": [
+    "register.2022.ward-mean"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/figures/registry.tsx",
+   "line": 251,
+   "literal": "19,921",
+   "value": 19921,
+   "grade": "exact",
+   "ids": [
+    "ward.kyuso"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/figures/registry.tsx",
+   "line": 251,
+   "literal": "7,429",
+   "value": 7429,
+   "grade": "exact",
+   "ids": [
+    "ward.tharaka"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/figures/registry.tsx",
+   "line": 321,
+   "literal": "532,758",
+   "value": 532758,
+   "grade": "exact",
+   "ids": [
+    "register.2022"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/figures/registry.tsx",
+   "line": 345,
+   "literal": "198,004",
+   "value": 198004,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.malombe"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/figures/registry.tsx",
+   "line": 647,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/figures/registry.tsx",
+   "line": 1103,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/AudienceSegmentationMatrix.tsx",
+   "line": 46,
+   "literal": "507,000",
+   "value": 507000,
+   "grade": "exact",
+   "ids": [
+    "segment.rural.voters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/AudienceSegmentationMatrix.tsx",
+   "line": 62,
+   "literal": "80,000",
+   "value": 80000,
+   "grade": "exact",
+   "ids": [
+    "target.sms.phase-2"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/AudienceSegmentationMatrix.tsx",
+   "line": 62,
+   "literal": "105,000",
+   "value": 105000,
+   "grade": "rounded",
+   "ids": [
+    "path.d.at80.short"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/AudienceSegmentationMatrix.tsx",
+   "line": 78,
+   "literal": "234,000",
+   "value": 234000,
+   "grade": "exact",
+   "ids": [
+    "segment.youth.voters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/AudienceSegmentationMatrix.tsx",
+   "line": 92,
+   "literal": "26,000",
+   "value": 26000,
+   "grade": "exact",
+   "ids": [
+    "segment.urban.voters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/AudienceSegmentationMatrix.tsx",
+   "line": 108,
+   "literal": "25,000",
+   "value": 25000,
+   "grade": "exact",
+   "ids": [
+    "target.ussd.phase-2",
+    "scorecard.kangu.households"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/AudienceSegmentationMatrix.tsx",
+   "line": 126,
+   "literal": "150,000",
+   "value": 150000,
+   "grade": "exact",
+   "ids": [
+    "target.followers.phase-2",
+    "target.contact-universe.standard"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/DerivedFigureDrawer.tsx",
+   "line": 10,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/DerivedFigureDrawer.tsx",
+   "line": 12,
+   "literal": "198,004",
+   "value": 198004,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.malombe"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/DerivedFigureDrawer.tsx",
+   "line": 13,
+   "literal": "532,758",
+   "value": 532758,
+   "grade": "exact",
+   "ids": [
+    "register.2022"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/DerivedFigureDrawer.tsx",
+   "line": 16,
+   "literal": "198,004",
+   "value": 198004,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.malombe"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/DerivedFigureDrawer.tsx",
+   "line": 16,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/ElectoralTimelineBlockContent.tsx",
+   "line": 11,
+   "literal": "169990",
+   "value": 169990,
+   "grade": "exact",
+   "ids": [
+    "result.2017.gov.ngilu"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/ElectoralTimelineBlockContent.tsx",
+   "line": 12,
+   "literal": "198004",
+   "value": 198004,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.malombe"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/FiscalAuditPanel.tsx",
+   "line": 11,
+   "literal": "1_000_000",
+   "value": 1000000,
+   "grade": "exact",
+   "ids": [
+    "target.reach.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/GeographicZoneMatrix.tsx",
+   "line": 65,
+   "literal": "223,970",
+   "value": 223970,
+   "grade": "exact",
+   "ids": [
+    "zone.anchor.population"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/GeographicZoneMatrix.tsx",
+   "line": 68,
+   "literal": "58,724",
+   "value": 58724,
+   "grade": "exact",
+   "ids": [
+    "zone.anchor.households"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/GeographicZoneMatrix.tsx",
+   "line": 80,
+   "literal": "255,795",
+   "value": 255795,
+   "grade": "exact",
+   "ids": [
+    "zone.mwingi.population"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/GeographicZoneMatrix.tsx",
+   "line": 83,
+   "literal": "57,821",
+   "value": 57821,
+   "grade": "exact",
+   "ids": [
+    "zone.mwingi.households"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/GeographicZoneMatrix.tsx",
+   "line": 95,
+   "literal": "416,001",
+   "value": 416001,
+   "grade": "exact",
+   "ids": [
+    "zone.arid.population"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/GeographicZoneMatrix.tsx",
+   "line": 98,
+   "literal": "89,070",
+   "value": 89070,
+   "grade": "exact",
+   "ids": [
+    "zone.arid.households"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/InteractiveTable.tsx",
+   "line": 202,
+   "literal": "532,758",
+   "value": 532758,
+   "grade": "exact",
+   "ids": [
+    "register.2022"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/KpiPhaseBlock.tsx",
+   "line": 36,
+   "literal": "15000",
+   "value": 15000,
+   "grade": "exact",
+   "ids": [
+    "channel.fb.followers",
+    "target.sms.phase-1",
+    "target.subscribers.phase-2"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/KpiPhaseBlock.tsx",
+   "line": 36,
+   "literal": "40000",
+   "value": 40000,
+   "grade": "exact",
+   "ids": [
+    "target.sms.phase-1b"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/KpiPhaseBlock.tsx",
+   "line": 36,
+   "literal": "80000",
+   "value": 80000,
+   "grade": "exact",
+   "ids": [
+    "target.sms.phase-2"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/KpiPhaseBlock.tsx",
+   "line": 36,
+   "literal": "120000",
+   "value": 120000,
+   "grade": "exact",
+   "ids": [
+    "target.sms"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/KpiPhaseBlock.tsx",
+   "line": 41,
+   "literal": "5000",
+   "value": 5000,
+   "grade": "exact",
+   "ids": [
+    "target.ussd.phase-1",
+    "target.subscribers.phase-1",
+    "target.volunteers.phase-2"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/KpiPhaseBlock.tsx",
+   "line": 41,
+   "literal": "25000",
+   "value": 25000,
+   "grade": "exact",
+   "ids": [
+    "target.ussd.phase-2",
+    "scorecard.kangu.households"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/KpiPhaseBlock.tsx",
+   "line": 41,
+   "literal": "60000",
+   "value": 60000,
+   "grade": "exact",
+   "ids": [
+    "target.ussd.phase-3",
+    "target.contact-universe.lean"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/KpiPhaseBlock.tsx",
+   "line": 46,
+   "literal": "3000",
+   "value": 3000,
+   "grade": "exact",
+   "ids": [
+    "target.tracker.phase-2"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/KpiPhaseBlock.tsx",
+   "line": 46,
+   "literal": "8000",
+   "value": 8000,
+   "grade": "exact",
+   "ids": [
+    "target.tracker.phase-3"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/KpiPhaseBlock.tsx",
+   "line": 51,
+   "literal": "400000",
+   "value": 400000,
+   "grade": "exact",
+   "ids": [
+    "water.surface"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/KpiPhaseBlock.tsx",
+   "line": 51,
+   "literal": "1000000",
+   "value": 1000000,
+   "grade": "exact",
+   "ids": [
+    "target.reach.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/KpiPhaseBlock.tsx",
+   "line": 51,
+   "literal": "3000000",
+   "value": 3000000,
+   "grade": "exact",
+   "ids": [
+    "target.reach.phase-2"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/KpiPhaseBlock.tsx",
+   "line": 51,
+   "literal": "5000000",
+   "value": 5000000,
+   "grade": "exact",
+   "ids": [
+    "target.reach.phase-3"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/KpiPhaseBlock.tsx",
+   "line": 56,
+   "literal": "20000",
+   "value": 20000,
+   "grade": "rounded",
+   "ids": [
+    "ward.kyuso",
+    "ward.township"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/KpiPhaseBlock.tsx",
+   "line": 56,
+   "literal": "50000",
+   "value": 50000,
+   "grade": "exact",
+   "ids": [
+    "target.followers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/KpiPhaseBlock.tsx",
+   "line": 56,
+   "literal": "150000",
+   "value": 150000,
+   "grade": "exact",
+   "ids": [
+    "target.followers.phase-2",
+    "target.contact-universe.standard"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/KpiPhaseBlock.tsx",
+   "line": 56,
+   "literal": "250000",
+   "value": 250000,
+   "grade": "exact",
+   "ids": [
+    "target.followers.phase-3",
+    "target.contact-universe.premium"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/PathTo200kBlockContent.tsx",
+   "line": 10,
+   "literal": "200_000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/PathTo200kBlockContent.tsx",
+   "line": 43,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/PathTo200kBlockContent.tsx",
+   "line": 47,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/PathTo200kCalculator.tsx",
+   "line": 23,
+   "literal": "198004",
+   "value": 198004,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.malombe"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/PathTo200kCalculator.tsx",
+   "line": 25,
+   "literal": "200000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/PathTo200kCalculator.tsx",
+   "line": 148,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/PathTo200kCalculator.tsx",
+   "line": 219,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/PathTo200kCalculator.tsx",
+   "line": 220,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/PathTo200kCalculator.tsx",
+   "line": 305,
+   "literal": "198,004",
+   "value": 198004,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.malombe"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/PathTo200kCalculator.tsx",
+   "line": 305,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/PersuasionFramingMatrix.tsx",
+   "line": 26,
+   "literal": "400,000",
+   "value": 400000,
+   "grade": "exact",
+   "ids": [
+    "water.surface"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/PersuasionFramingMatrix.tsx",
+   "line": 31,
+   "literal": "14,000",
+   "value": 14000,
+   "grade": "exact",
+   "ids": [
+    "boda.riders"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/PersuasionFramingMatrix.tsx",
+   "line": 101,
+   "literal": "12,573",
+   "value": 12573,
+   "grade": "exact",
+   "ids": [
+    "record.bursary.recipients"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/PersuasionFramingMatrix.tsx",
+   "line": 102,
+   "literal": "12,573",
+   "value": 12573,
+   "grade": "exact",
+   "ids": [
+    "record.bursary.recipients"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/PublicServiceDeliveryTracker.tsx",
+   "line": 23,
+   "literal": "1,200",
+   "value": 1200,
+   "grade": "exact",
+   "ids": [
+    "target.stage-champions"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/PublicServiceDeliveryTracker.tsx",
+   "line": 81,
+   "literal": "5000",
+   "value": 5000,
+   "grade": "exact",
+   "ids": [
+    "target.ussd.phase-1",
+    "target.subscribers.phase-1",
+    "target.volunteers.phase-2"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/PublicServiceDeliveryTracker.tsx",
+   "line": 83,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/markdown/StrategicPillarsMatrix.tsx",
+   "line": 37,
+   "literal": "12,573",
+   "value": 12573,
+   "grade": "exact",
+   "ids": [
+    "record.bursary.recipients"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/partviz/primitives.tsx",
+   "line": 15,
+   "literal": "1_000_000",
+   "value": 1000000,
+   "grade": "exact",
+   "ids": [
+    "target.reach.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/partviz/primitives.tsx",
+   "line": 15,
+   "literal": "1_000_000",
+   "value": 1000000,
+   "grade": "exact",
+   "ids": [
+    "target.reach.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/partviz/primitives.tsx",
+   "line": 16,
+   "literal": "10_000",
+   "value": 10000,
+   "grade": "rounded",
+   "ids": [
+    "ward.waita",
+    "ward.voo-kyamatu"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/partviz/primitives.tsx",
+   "line": 16,
+   "literal": "1_000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/phone/screens/YouTubeScreen.tsx",
+   "line": 52,
+   "literal": "12000",
+   "value": 12000,
+   "grade": "rounded",
+   "ids": [
+    "ward.kiomo-kyethani",
+    "ward.kivou",
+    "ward.mbitini",
+    "ward.miambani",
+    "ward.nzambani",
+    "ward.ikutha",
+    "sub.katulani.households",
+    "sub.mutitu.households"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/premium/CountUp.tsx",
+   "line": 36,
+   "literal": "10000",
+   "value": 10000,
+   "grade": "rounded",
+   "ids": [
+    "ward.waita",
+    "ward.voo-kyamatu"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/premium/Countdown.tsx",
+   "line": 6,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/premium/FunnelV2.tsx",
+   "line": 61,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/premium/FunnelV2.tsx",
+   "line": 92,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/premium/FunnelV2.tsx",
+   "line": 93,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/premium/FunnelV2.tsx",
+   "line": 102,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/premium/FunnelV2.tsx",
+   "line": 103,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/register/charts.tsx",
+   "line": 131,
+   "literal": "2_000_000",
+   "value": 2000000,
+   "grade": "exact",
+   "ids": [
+    "livestock.goats"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/register/charts.tsx",
+   "line": 131,
+   "literal": "1_000_000",
+   "value": 1000000,
+   "grade": "exact",
+   "ids": [
+    "target.reach.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/register/charts.tsx",
+   "line": 132,
+   "literal": "10_000",
+   "value": 10000,
+   "grade": "rounded",
+   "ids": [
+    "ward.waita",
+    "ward.voo-kyamatu"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/register/charts.tsx",
+   "line": 132,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/register/charts.tsx",
+   "line": 179,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/register/charts.tsx",
+   "line": 188,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/register/charts.tsx",
+   "line": 189,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/register/charts.tsx",
+   "line": 454,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/terminal/screens/TurnoutScreen.tsx",
+   "line": 23,
+   "literal": "198,004",
+   "value": 198004,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.malombe"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/tools/KiemsTabletInspector.tsx",
+   "line": 22,
+   "literal": "1200",
+   "value": 1200,
+   "grade": "exact",
+   "ids": [
+    "target.stage-champions"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/tools/KiemsTabletInspector.tsx",
+   "line": 41,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/tools/KiemsTabletInspector.tsx",
+   "line": 71,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/tools/KiemsTabletInspector.tsx",
+   "line": 249,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/tools/KiemsTabletInspector.tsx",
+   "line": 260,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/tools/KiemsTabletInspector.tsx",
+   "line": 260,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/tools/ToolsHub.tsx",
+   "line": 53,
+   "literal": "200000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/tools/ToolsHub.tsx",
+   "line": 61,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "components/tools/ToolsHub.tsx",
+   "line": 63,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "content/annex-runbooks.md",
+   "line": 81,
+   "literal": "10,000",
+   "value": 10000,
+   "grade": "rounded",
+   "ids": [
+    "ward.waita",
+    "ward.voo-kyamatu"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "content/goal.md",
+   "line": 66,
+   "literal": "1,000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "content/success.md",
+   "line": 83,
+   "literal": "1,000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "content/success.md",
+   "line": 150,
+   "literal": "1,000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "content/workstreams-platforms.md",
+   "line": 293,
+   "literal": "5,000",
+   "value": 5000,
+   "grade": "exact",
+   "ids": [
+    "target.ussd.phase-1",
+    "target.subscribers.phase-1",
+    "target.volunteers.phase-2"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/county-profile.ts",
+   "line": 17,
+   "literal": "1_136_187",
+   "value": 1136187,
+   "grade": "exact",
+   "ids": [
+    "census.population"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/county-profile.ts",
+   "line": 23,
+   "literal": "549,003",
+   "value": 549003,
+   "grade": "exact",
+   "ids": [
+    "census.male"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/county-profile.ts",
+   "line": 23,
+   "literal": "587,151",
+   "value": 587151,
+   "grade": "exact",
+   "ids": [
+    "census.female"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/county-profile.ts",
+   "line": 30,
+   "literal": "587_151",
+   "value": 587151,
+   "grade": "exact",
+   "ids": [
+    "census.female"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/county-profile.ts",
+   "line": 60,
+   "literal": "143_340",
+   "value": 143340,
+   "grade": "exact",
+   "ids": [
+    "ict.internet.2019.people"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/county-profile.ts",
+   "line": 71,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/disputed-figures.ts",
+   "line": 23,
+   "literal": "105991",
+   "value": 105991,
+   "grade": "exact",
+   "ids": [
+    "sub.kitui-central.population"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/disputed-figures.ts",
+   "line": 37,
+   "literal": "114606",
+   "value": 114606,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.musila.media"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/disputed-figures.ts",
+   "line": 38,
+   "literal": "117606",
+   "value": 117606,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.musila"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/disputed-figures.ts",
+   "line": 42,
+   "literal": "117,606",
+   "value": 117606,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.musila"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/disputed-figures.ts",
+   "line": 42,
+   "literal": "114,606",
+   "value": 114606,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.musila.media"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/drought-food-security.ts",
+   "line": 21,
+   "literal": "28000",
+   "value": 28000,
+   "grade": "exact",
+   "ids": [
+    "food.reserve-households"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/drought-food-security.ts",
+   "line": 27,
+   "literal": "262,942",
+   "value": 262942,
+   "grade": "exact",
+   "ids": [
+    "census.households"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-arithmetic.ts",
+   "line": 18,
+   "literal": "532758",
+   "value": 532758,
+   "grade": "exact",
+   "ids": [
+    "register.2022"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-arithmetic.ts",
+   "line": 19,
+   "literal": "605703",
+   "value": 605703,
+   "grade": "exact",
+   "ids": [
+    "register.2026"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-arithmetic.ts",
+   "line": 23,
+   "literal": "200000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-arithmetic.ts",
+   "line": 24,
+   "literal": "198004",
+   "value": 198004,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.malombe"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-arithmetic.ts",
+   "line": 33,
+   "literal": "201899",
+   "value": 201899,
+   "grade": "exact",
+   "ids": [
+    "result.2022.womanrep.kasalu"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-arithmetic.ts",
+   "line": 41,
+   "literal": "198004",
+   "value": 198004,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.malombe"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-arithmetic.ts",
+   "line": 49,
+   "literal": "191317",
+   "value": 191317,
+   "grade": "exact",
+   "ids": [
+    "result.2022.senate.wambua"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-arithmetic.ts",
+   "line": 57,
+   "literal": "169990",
+   "value": 169990,
+   "grade": "exact",
+   "ids": [
+    "result.2017.gov.ngilu"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-arithmetic.ts",
+   "line": 65,
+   "literal": "114827",
+   "value": 114827,
+   "grade": "exact",
+   "ids": [
+    "result.2017.gov.musila"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-arithmetic.ts",
+   "line": 73,
+   "literal": "117606",
+   "value": 117606,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.musila"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-arithmetic.ts",
+   "line": 76,
+   "literal": "117,606",
+   "value": 117606,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.musila"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-arithmetic.ts",
+   "line": 76,
+   "literal": "114,606",
+   "value": 114606,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.musila.media"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-arithmetic.ts",
+   "line": 104,
+   "literal": "120000",
+   "value": 120000,
+   "grade": "exact",
+   "ids": [
+    "target.sms"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-arithmetic.ts",
+   "line": 105,
+   "literal": "200000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-history.ts",
+   "line": 35,
+   "literal": "169990",
+   "value": 169990,
+   "grade": "exact",
+   "ids": [
+    "result.2017.gov.ngilu"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-history.ts",
+   "line": 36,
+   "literal": "114827",
+   "value": 114827,
+   "grade": "exact",
+   "ids": [
+    "result.2017.gov.musila"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-history.ts",
+   "line": 37,
+   "literal": "74681",
+   "value": 74681,
+   "grade": "exact",
+   "ids": [
+    "result.2017.gov.malombe"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-history.ts",
+   "line": 44,
+   "literal": "198004",
+   "value": 198004,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.malombe"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-history.ts",
+   "line": 45,
+   "literal": "117606",
+   "value": 117606,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.musila"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-history.ts",
+   "line": 46,
+   "literal": "10639",
+   "value": 10639,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.mueke"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-history.ts",
+   "line": 52,
+   "literal": "191317",
+   "value": 191317,
+   "grade": "exact",
+   "ids": [
+    "result.2022.senate.wambua"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/electoral-history.ts",
+   "line": 57,
+   "literal": "201899",
+   "value": 201899,
+   "grade": "exact",
+   "ids": [
+    "result.2022.womanrep.kasalu"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/fiscal-audit.ts",
+   "line": 11,
+   "literal": "13_790_000_000",
+   "value": 13790000000,
+   "grade": "exact",
+   "ids": [
+    "budget.total"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/fiscal-audit.ts",
+   "line": 19,
+   "literal": "670_000_000",
+   "value": 670000000,
+   "grade": "exact",
+   "ids": [
+    "audit.cash"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/fiscal-audit.ts",
+   "line": 25,
+   "literal": "1_090_000_000",
+   "value": 1090000000,
+   "grade": "exact",
+   "ids": [
+    "audit.uncollected"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/fiscal-audit.ts",
+   "line": 31,
+   "literal": "621_500_000",
+   "value": 621500000,
+   "grade": "exact",
+   "ids": [
+    "audit.ifmis"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/fiscal-audit.ts",
+   "line": 37,
+   "literal": "356_200_000",
+   "value": 356200000,
+   "grade": "exact",
+   "ids": [
+    "audit.transfers"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/fiscal-audit.ts",
+   "line": 45,
+   "literal": "1_300_000_000",
+   "value": 1300000000,
+   "grade": "exact",
+   "ids": [
+    "budget.pending-bills.2021"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/kpis.ts",
+   "line": 121,
+   "literal": "220,000",
+   "value": 220000,
+   "grade": "exact",
+   "ids": [
+    "target.pledged-voters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/kpis.ts",
+   "line": 122,
+   "literal": "220000",
+   "value": 220000,
+   "grade": "exact",
+   "ids": [
+    "target.pledged-voters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/kpis.ts",
+   "line": 146,
+   "literal": "1,578",
+   "value": 1578,
+   "grade": "exact",
+   "ids": [
+    "register.polling-stations"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/kpis.ts",
+   "line": 147,
+   "literal": "1578",
+   "value": 1578,
+   "grade": "exact",
+   "ids": [
+    "register.polling-stations"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/kpis.ts",
+   "line": 204,
+   "literal": "220,000",
+   "value": 220000,
+   "grade": "exact",
+   "ids": [
+    "target.pledged-voters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/kpis.ts",
+   "line": 206,
+   "literal": "1,578",
+   "value": 1578,
+   "grade": "exact",
+   "ids": [
+    "register.polling-stations"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/terminal-showcase.ts",
+   "line": 43,
+   "literal": "198,004",
+   "value": 198004,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.malombe"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/terminal-showcase.ts",
+   "line": 124,
+   "literal": "19538",
+   "value": 19538,
+   "grade": "exact",
+   "ids": [
+    "ward.township"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/terminal-showcase.ts",
+   "line": 165,
+   "literal": "19921",
+   "value": 19921,
+   "grade": "exact",
+   "ids": [
+    "ward.kyuso"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/terminal-showcase.ts",
+   "line": 206,
+   "literal": "11039",
+   "value": 11039,
+   "grade": "exact",
+   "ids": [
+    "ward.mui",
+    "ward.mutha"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/terminal-showcase.ts",
+   "line": 247,
+   "literal": "11759",
+   "value": 11759,
+   "grade": "exact",
+   "ids": [
+    "ward.miambani"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/terminal-showcase.ts",
+   "line": 275,
+   "literal": "5,100",
+   "value": 5100,
+   "grade": "exact",
+   "ids": [
+    "channel.x.followers"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/terminal-showcase.ts",
+   "line": 288,
+   "literal": "14678",
+   "value": 14678,
+   "grade": "exact",
+   "ids": [
+    "ward.migwani"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/tier-matrix.ts",
+   "line": 43,
+   "literal": "60,000",
+   "value": 60000,
+   "grade": "exact",
+   "ids": [
+    "target.ussd.phase-3",
+    "target.contact-universe.lean"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/tier-matrix.ts",
+   "line": 44,
+   "literal": "150,000",
+   "value": 150000,
+   "grade": "exact",
+   "ids": [
+    "target.followers.phase-2",
+    "target.contact-universe.standard"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/tier-matrix.ts",
+   "line": 45,
+   "literal": "250,000",
+   "value": 250000,
+   "grade": "exact",
+   "ids": [
+    "target.followers.phase-3",
+    "target.contact-universe.premium"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "data/ussd-specimen.ts",
+   "line": 122,
+   "literal": "120000",
+   "value": 120000,
+   "grade": "exact",
+   "ids": [
+    "target.sms"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/data/allow.ts",
+   "line": 12,
+   "literal": "1,000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/data/allow.ts",
+   "line": 12,
+   "literal": "1,000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/data/allow.ts",
+   "line": 18,
+   "literal": "10,000",
+   "value": 10000,
+   "grade": "rounded",
+   "ids": [
+    "ward.waita",
+    "ward.voo-kyamatu"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/data/allow.ts",
+   "line": 18,
+   "literal": "5,000",
+   "value": 5000,
+   "grade": "exact",
+   "ids": [
+    "target.ussd.phase-1",
+    "target.subscribers.phase-1",
+    "target.volunteers.phase-2"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/annex.ts",
+   "line": 53,
+   "literal": "507,000",
+   "value": 507000,
+   "grade": "exact",
+   "ids": [
+    "segment.rural.voters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/annex.ts",
+   "line": 60,
+   "literal": "80,000",
+   "value": 80000,
+   "grade": "exact",
+   "ids": [
+    "target.sms.phase-2"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/annex.ts",
+   "line": 60,
+   "literal": "105,000",
+   "value": 105000,
+   "grade": "rounded",
+   "ids": [
+    "path.d.at80.short"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/annex.ts",
+   "line": 67,
+   "literal": "234,000",
+   "value": 234000,
+   "grade": "exact",
+   "ids": [
+    "segment.youth.voters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/annex.ts",
+   "line": 74,
+   "literal": "26,000",
+   "value": 26000,
+   "grade": "exact",
+   "ids": [
+    "segment.urban.voters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/annex.ts",
+   "line": 81,
+   "literal": "25,000",
+   "value": 25000,
+   "grade": "exact",
+   "ids": [
+    "target.ussd.phase-2",
+    "scorecard.kangu.households"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/annex.ts",
+   "line": 247,
+   "literal": "77,000",
+   "value": 77000,
+   "grade": "rounded",
+   "ids": [
+    "sub.kyuso.population"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/annex.ts",
+   "line": 252,
+   "literal": "234,000",
+   "value": 234000,
+   "grade": "exact",
+   "ids": [
+    "segment.youth.voters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/annex.ts",
+   "line": 258,
+   "literal": "50,000",
+   "value": 50000,
+   "grade": "exact",
+   "ids": [
+    "target.followers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/annex.ts",
+   "line": 267,
+   "literal": "45,000",
+   "value": 45000,
+   "grade": "exact",
+   "ids": [
+    "policy.ndengu-output"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/annex.ts",
+   "line": 450,
+   "literal": "12,573",
+   "value": 12573,
+   "grade": "exact",
+   "ids": [
+    "record.bursary.recipients"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/annex.ts",
+   "line": 493,
+   "literal": "12,573",
+   "value": 12573,
+   "grade": "exact",
+   "ids": [
+    "record.bursary.recipients"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/governance.ts",
+   "line": 97,
+   "literal": "10,000",
+   "value": 10000,
+   "grade": "rounded",
+   "ids": [
+    "ward.waita",
+    "ward.voo-kyamatu"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/governance.ts",
+   "line": 122,
+   "literal": "5,000,000",
+   "value": 5000000,
+   "grade": "exact",
+   "ids": [
+    "target.reach.phase-3"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/governance.ts",
+   "line": 143,
+   "literal": "5,000,000",
+   "value": 5000000,
+   "grade": "exact",
+   "ids": [
+    "target.reach.phase-3"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/ground.ts",
+   "line": 53,
+   "literal": "1,200",
+   "value": 1200,
+   "grade": "exact",
+   "ids": [
+    "target.stage-champions"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/ground.ts",
+   "line": 141,
+   "literal": "14,000",
+   "value": 14000,
+   "grade": "exact",
+   "ids": [
+    "boda.riders"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/ground.ts",
+   "line": 155,
+   "literal": "14,000",
+   "value": 14000,
+   "grade": "exact",
+   "ids": [
+    "boda.riders"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/messaging.ts",
+   "line": 105,
+   "literal": "12,573",
+   "value": 12573,
+   "grade": "exact",
+   "ids": [
+    "record.bursary.recipients"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/reach.ts",
+   "line": 124,
+   "literal": "65_000",
+   "value": 65000,
+   "grade": "rounded",
+   "ids": [
+    "con.kitui-east"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/reach.ts",
+   "line": 124,
+   "literal": "80_000",
+   "value": 80000,
+   "grade": "exact",
+   "ids": [
+    "target.sms.phase-2"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/reach.ts",
+   "line": 125,
+   "literal": "50_000",
+   "value": 50000,
+   "grade": "exact",
+   "ids": [
+    "target.followers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/reach.ts",
+   "line": 125,
+   "literal": "65_000",
+   "value": 65000,
+   "grade": "rounded",
+   "ids": [
+    "con.kitui-east"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/reach.ts",
+   "line": 129,
+   "literal": "45_000",
+   "value": 45000,
+   "grade": "exact",
+   "ids": [
+    "policy.ndengu-output"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/reach.ts",
+   "line": 130,
+   "literal": "25_000",
+   "value": 25000,
+   "grade": "exact",
+   "ids": [
+    "target.ussd.phase-2",
+    "scorecard.kangu.households"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/reach.ts",
+   "line": 131,
+   "literal": "8_000",
+   "value": 8000,
+   "grade": "exact",
+   "ids": [
+    "target.tracker.phase-3"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/reach.ts",
+   "line": 131,
+   "literal": "12_000",
+   "value": 12000,
+   "grade": "rounded",
+   "ids": [
+    "ward.kiomo-kyethani",
+    "ward.kivou",
+    "ward.mbitini",
+    "ward.miambani",
+    "ward.nzambani",
+    "ward.ikutha",
+    "sub.katulani.households",
+    "sub.mutitu.households"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/reach.ts",
+   "line": 177,
+   "literal": "250_000",
+   "value": 250000,
+   "grade": "exact",
+   "ids": [
+    "target.followers.phase-3",
+    "target.contact-universe.premium"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/reach.ts",
+   "line": 203,
+   "literal": "532,758",
+   "value": 532758,
+   "grade": "exact",
+   "ids": [
+    "register.2022"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/register.ts",
+   "line": 49,
+   "literal": "198_004",
+   "value": 198004,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.malombe"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/register.ts",
+   "line": 52,
+   "literal": "200_000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/research.ts",
+   "line": 115,
+   "literal": "12,573",
+   "value": 12573,
+   "grade": "exact",
+   "ids": [
+    "record.bursary.recipients"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/research.ts",
+   "line": 126,
+   "literal": "12,573",
+   "value": 12573,
+   "grade": "exact",
+   "ids": [
+    "record.bursary.recipients"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/targeting.ts",
+   "line": 44,
+   "literal": "191_811",
+   "value": 191811,
+   "grade": "exact",
+   "ids": [
+    "path.d.registered"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/targeting.ts",
+   "line": 104,
+   "literal": "83,496",
+   "value": 83496,
+   "grade": "exact",
+   "ids": [
+    "pareto.top12.in-pool.voters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/threshold.ts",
+   "line": 32,
+   "literal": "61_839",
+   "value": 61839,
+   "grade": "exact",
+   "ids": [
+    "register.2026.ecvr-drive"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/threshold.ts",
+   "line": 41,
+   "literal": "605_703",
+   "value": 605703,
+   "grade": "exact",
+   "ids": [
+    "register.2026"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/threshold.ts",
+   "line": 75,
+   "literal": "532,833",
+   "value": 532833,
+   "grade": "exact",
+   "ids": [
+    "register.2022.with-prisons"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/threshold.ts",
+   "line": 108,
+   "literal": "198,004",
+   "value": 198004,
+   "grade": "exact",
+   "ids": [
+    "result.2022.gov.malombe"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/threshold.ts",
+   "line": 108,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/threshold.ts",
+   "line": 162,
+   "literal": "605,703",
+   "value": 605703,
+   "grade": "exact",
+   "ids": [
+    "register.2026"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/threshold.ts",
+   "line": 162,
+   "literal": "532,758",
+   "value": 532758,
+   "grade": "exact",
+   "ids": [
+    "register.2022"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/threshold.ts",
+   "line": 162,
+   "literal": "61,839",
+   "value": 61839,
+   "grade": "exact",
+   "ids": [
+    "register.2026.ecvr-drive"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/threshold.ts",
+   "line": 167,
+   "literal": "605,703",
+   "value": 605703,
+   "grade": "exact",
+   "ids": [
+    "register.2026"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/threshold.ts",
+   "line": 198,
+   "literal": "605,703",
+   "value": 605703,
+   "grade": "exact",
+   "ids": [
+    "register.2026"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/figures/threshold.ts",
+   "line": 198,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/highlight-patterns.ts",
+   "line": 14,
+   "literal": "200,000",
+   "value": 200000,
+   "grade": "exact",
+   "ids": [
+    "benchmark",
+    "target.supporters"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/highlight-patterns.ts",
+   "line": 24,
+   "literal": "532,758",
+   "value": 532758,
+   "grade": "exact",
+   "ids": [
+    "register.2022"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/premium/county.ts",
+   "line": 46,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/register/specs/s3-analysis.ts",
+   "line": 87,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/register/specs/s3-analysis.ts",
+   "line": 87,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/register/specs/s4-strategy.ts",
+   "line": 94,
+   "literal": "10,000",
+   "value": 10000,
+   "grade": "rounded",
+   "ids": [
+    "ward.waita",
+    "ward.voo-kyamatu"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/register/tilemap.ts",
+   "line": 35,
+   "literal": "1000",
+   "value": 1000,
+   "grade": "exact",
+   "ids": [
+    "target.volunteers.phase-1"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/register/tilemap.ts",
+   "line": 40,
+   "literal": "11_000",
+   "value": 11000,
+   "grade": "rounded",
+   "ids": [
+    "ward.mui",
+    "ward.kwa-mutonga-kithumula",
+    "ward.kanyangi",
+    "ward.mutha",
+    "register.2026.continuous",
+    "result.2022.gov.mueke",
+    "boda.unlicensed"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/register/tilemap.ts",
+   "line": 40,
+   "literal": "13_000",
+   "value": 13000,
+   "grade": "rounded",
+   "ids": [
+    "ward.nguni",
+    "ward.nuu",
+    "ward.zombe-mwitika",
+    "ward.chuluni",
+    "ward.mutomo",
+    "register.2022.ward-mean",
+    "record.bursary.recipients"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/register/tilemap.ts",
+   "line": 67,
+   "literal": "11,000",
+   "value": 11000,
+   "grade": "rounded",
+   "ids": [
+    "ward.mui",
+    "ward.kwa-mutonga-kithumula",
+    "ward.kanyangi",
+    "ward.mutha",
+    "register.2026.continuous",
+    "result.2022.gov.mueke",
+    "boda.unlicensed"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/register/tilemap.ts",
+   "line": 68,
+   "literal": "13,000",
+   "value": 13000,
+   "grade": "rounded",
+   "ids": [
+    "ward.nguni",
+    "ward.nuu",
+    "ward.zombe-mwitika",
+    "ward.chuluni",
+    "ward.mutomo",
+    "register.2022.ward-mean",
+    "record.bursary.recipients"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/scroll-to-section.ts",
+   "line": 66,
+   "literal": "12000",
+   "value": 12000,
+   "grade": "rounded",
+   "ids": [
+    "ward.kiomo-kyethani",
+    "ward.kivou",
+    "ward.mbitini",
+    "ward.miambani",
+    "ward.nzambani",
+    "ward.ikutha",
+    "sub.katulani.households",
+    "sub.mutitu.households"
+   ],
+   "allowed": false
+  },
+  {
+   "file": "lib/section-heights.ts",
+   "line": 25,
+   "literal": "40000",
+   "value": 40000,
+   "grade": "exact",
+   "ids": [
+    "target.sms.phase-1b"
+   ],
+   "allowed": false
+  }
+ ]
+}

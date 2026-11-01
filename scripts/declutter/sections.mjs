@@ -165,7 +165,14 @@ export function reachableText(lines) {
   return [p.prose, ...p.visuals.flatMap((v) => visualStrings(v)), ...p.fences.map((f) => f.body)].join("\n");
 }
 
+/**
+ * The ledger's entries. CONTENT_LEDGER may name several ledgers, comma-separated, when a later pass
+ * is weighed against an earlier pass's base too: the consolidation pass (docs/consolidation-2026-11)
+ * keeps the restructure's check against a767371 running by adding its own ledger to that run.
+ */
 export function loadCuts() {
-  const file = path.join(ROOT, LEDGER);
-  return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8")) : [];
+  return LEDGER.split(",").map((f) => f.trim()).filter(Boolean).flatMap((f) => {
+    const file = path.join(ROOT, f);
+    return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8")) : [];
+  });
 }
