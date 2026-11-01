@@ -1,35 +1,57 @@
 [
-  {
-    "file": "kitui",
-    "section": "1.1",
-    "first12": "No verified figure is available yet for the full age bands (0–14,",
-    "words": 4,
-    "kind": "replaced",
-    "home": "KNBS 2019 Census tables via rKenyaCensus (docs/open-data/REGISTER.md)",
-    "note": "The open item census.age-bands closes: the KNBS 2019 Volume III Kitui table, read via rKenyaCensus (analysis Stage 15, docs/open-data/REGISTER.md).",
-    "text": "No verified figure is available yet for the full age bands (0–14, 15–34, 35–59, 60 and over); the record that would settle it is KNBS 2019 Census Volume III, the Kitui table.",
-    "replacement": "The 2019 census puts **{{census.age.0-14.share}}%** of residents at 0–14, **{{census.age.15-34.share}}%** at 15–34, **{{census.age.35-59.share}}%** at 35–59 and **{{census.age.60-plus.share}}%** at 60 and over (Tier 1, KNBS 2019 Census Volume III)."
-  },
-  {
-    "file": "kitui",
-    "section": "1.3",
-    "first12": "No verified national comparison is available yet; the record that would settle",
-    "words": -2,
-    "kind": "replaced",
-    "home": "KNBS 2019 Census tables via rKenyaCensus (docs/open-data/REGISTER.md)",
-    "note": "The open item electricity.national closes: KNBS 2019 Volume IV Table 2.19, read via rKenyaCensus (analysis Stage 15, docs/open-data/REGISTER.md).",
-    "text": "No verified national comparison is available yet; the record that would settle it is the KNBS 2019 Census Volume IV household table.",
-    "replacement": "Measured by main lighting source, **{{electricity.mains.2019}}%** of Kitui households were lit by mains electricity against **{{electricity.national}}%** nationally (Tier 1, KNBS 2019 Census Volume IV)."
-  },
-  {
-    "file": "workstreams-platforms",
-    "section": "15.1.3",
-    "first12": "| Metric | Global standard | Campaign target |",
-    "words": 8,
-    "kind": "replaced",
-    "home": "",
-    "note": "The \"Global standard\" column of the performance benchmarks is removed (Firefly, 31 October 2026): no source or tier was in hand for any of its values. The campaign targets are unchanged.",
-    "text": "| Metric | Global standard | Campaign target |\n|---|---|---|\n| Facebook CTR | 1.0–1.5% | ≥ 1.5% |\n| Facebook CPM | $1–$5 | ≤ $2 |\n| Google Search CTR | 2–5% | ≥ 3% |\n| TikTok engagement rate | 3–6% | ≥ 5% |\n| YouTube view rate | 30–50% | ≥ 35% |\n| **SMS delivery rate** | 98–99.9% | ≥ 98% |\n| **SMS opt-out rate** | — | **< 2%** |",
-    "replacement": "| Metric | Campaign target |\n|---|---|\n| Facebook CTR | ≥ 1.5% |\n| Facebook CPM | ≤ $2 |\n| Google Search CTR | ≥ 3% |\n| TikTok engagement rate | ≥ 5% |\n| YouTube view rate | ≥ 35% |\n| **SMS delivery rate** | ≥ 98% |\n| **SMS opt-out rate** | **< 2%** |"
-  }
+ {
+  "file": "kitui",
+  "section": "1.1",
+  "first12": "No verified figure is available yet for the full age bands (0–14,",
+  "words": 4,
+  "kind": "replaced",
+  "home": "KNBS 2019 Census tables via rKenyaCensus (docs/open-data/REGISTER.md)",
+  "note": "The open item census.age-bands closes: the KNBS 2019 Volume III Kitui table, read via rKenyaCensus (analysis Stage 15, docs/open-data/REGISTER.md).",
+  "text": "No verified figure is available yet for the full age bands (0–14, 15–34, 35–59, 60 and over); the record that would settle it is KNBS 2019 Census Volume III, the Kitui table.",
+  "replacement": "The 2019 census puts **{{census.age.0-14.share}}%** of residents at 0–14, **{{census.age.15-34.share}}%** at 15–34, **{{census.age.35-59.share}}%** at 35–59 and **{{census.age.60-plus.share}}%** at 60 and over (Tier 1, KNBS 2019 Census Volume III)."
+ },
+ {
+  "file": "kitui",
+  "section": "1.3",
+  "first12": "No verified national comparison is available yet; the record that would settle",
+  "words": -2,
+  "kind": "replaced",
+  "home": "KNBS 2019 Census tables via rKenyaCensus (docs/open-data/REGISTER.md)",
+  "note": "The open item electricity.national closes: KNBS 2019 Volume IV Table 2.19, read via rKenyaCensus (analysis Stage 15, docs/open-data/REGISTER.md).",
+  "text": "No verified national comparison is available yet; the record that would settle it is the KNBS 2019 Census Volume IV household table.",
+  "replacement": "Measured by main lighting source, **{{electricity.mains.2019}}%** of Kitui households were lit by mains electricity against **{{electricity.national}}%** nationally (Tier 1, KNBS 2019 Census Volume IV)."
+ },
+ {
+  "file": "workstreams-platforms",
+  "section": "15.1.3",
+  "first12": "| Metric | Global standard | Campaign target |",
+  "words": 8,
+  "kind": "replaced",
+  "home": "",
+  "note": "The \"Global standard\" column of the performance benchmarks is removed (Firefly, 31 October 2026): no source or tier was in hand for any of its values. The campaign targets are unchanged.",
+  "text": "| Metric | Global standard | Campaign target |\n|---|---|---|\n| Facebook CTR | 1.0–1.5% | ≥ 1.5% |\n| Facebook CPM | $1–$5 | ≤ $2 |\n| Google Search CTR | 2–5% | ≥ 3% |\n| TikTok engagement rate | 3–6% | ≥ 5% |\n| YouTube view rate | 30–50% | ≥ 35% |\n| **SMS delivery rate** | 98–99.9% | ≥ 98% |\n| **SMS opt-out rate** | — | **< 2%** |",
+  "replacement": "| Metric | Campaign target |\n|---|---|\n| Facebook CTR | ≥ 1.5% |\n| Facebook CPM | ≤ $2 |\n| Google Search CTR | ≥ 3% |\n| TikTok engagement rate | ≥ 5% |\n| YouTube view rate | ≥ 35% |\n| **SMS delivery rate** | ≥ 98% |\n| **SMS opt-out rate** | **< 2%** |"
+ },
+ {
+  "file": "annex-playbooks",
+  "section": "C.2",
+  "first12": "Kitui Rural / Mbitini: Dr. Makali Mulu guarantees a KSh {{policy.ward-fund|m}} million",
+  "words": 4,
+  "kind": "replaced",
+  "home": "docs/DISPUTES-RESOLVED.md (C6)",
+  "note": "C6 settled on 1 November 2026: the platform is a published, needs-weighted allocation formula, so the SMS sample no longer promises a flat per-ward fund.",
+  "text": "*\"Kitui Rural / Mbitini: Dr. Makali Mulu guarantees a KSh {{policy.ward-fund|m}} million Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. Reply STOP to opt out.\"*",
+  "replacement": "*\"Kitui Rural / Mbitini: Dr. Mulu will fund wards by need, on one published formula. Solar water to Mbitini Market first. Reply 1 to join, STOP to opt out.\"*"
+ },
+ {
+  "file": "voters",
+  "section": "11.1",
+  "first12": "Expected turnout universe | Ballots expected at the {{turnout.constant}}% turnout rate",
+  "words": 7,
+  "kind": "replaced",
+  "home": "docs/DISPUTES-RESOLVED.md (C8)",
+  "note": "C8 settled on 1 November 2026: the 2022 turnout universe is the certified count (IEBC Form 37C, Tier 1), not the register × 61.7%.",
+  "text": "| Expected turnout universe | Ballots expected at the {{turnout.constant}}% turnout rate (the certified 2022 rate) | **~{{ballots.2022}}** | Derived at the modelling constant, Section 2.5 | —",
+  "replacement": "| Expected turnout universe | Ballots cast at the {{turnout.constant}}% turnout rate (the certified 2022 count) | **{{ballots.2022}}** | IEBC Form 37C (Tier 1), Section 2.5 | —"
+ }
 ]

@@ -426,10 +426,8 @@ test("every row of §3.6.1's deployment matrix allocates exactly 100%", () => {
     assert.equal(shares.reduce((n, v) => n + v, 0), 100, medium);
   }
 
-  // C-21, stated as an assertion: the bulk SMS rail allocates Kikamba nothing, which is what
-  // §4.5.9 requires and what §3.6.1's channel list — "2G Bulk SMS & USSD" under Kikamba —
-  // contradicts. If a Kikamba share ever appears on this row, the conflict has been resolved one
-  // way and this test should be the thing that says so.
+  // C-21, settled for the law: the bulk SMS rail allocates Kikamba nothing, as §15.3.3 requires
+  // (Communications Authority, Tier 1). A Kikamba share on this row would break the rule again.
   const sms = ROWS.find(([m]) => m === "Direct 2G bulk SMS")?.[1] ?? [];
   assert.deepEqual(sms, [80, 20], "80% Kiswahili and 20% English — no Kikamba on the SMS rail");
 });

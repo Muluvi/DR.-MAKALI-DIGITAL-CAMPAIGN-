@@ -4,6 +4,10 @@ Everything the restructure found and did not settle. Nothing listed here was cha
 
 ## 1. Conflicts C1 to C8 (preview 10.1), not resolved
 
+> **Settled on 1 November 2026.** Each of C1 to C8 now has one chosen version in the content; the
+> choice, the rejected version and the reason are in `docs/DISPUTES-RESOLVED.md`. The entries below
+> are kept as the record of what was in dispute.
+
 Each location carries the marker `[CONFLICT Cn: see open items]` in the text.
 
 ### C1

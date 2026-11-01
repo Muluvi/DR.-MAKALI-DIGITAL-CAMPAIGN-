@@ -1,0 +1,76 @@
+{
+  "decidedOn": "2026-11-01",
+  "note": "Conflicts settled by a logged decision. scripts/declutter/check-content.mjs (check 9) lets a [CONFLICT Cn] marker leave the content only when Cn is listed here. Reasons are in docs/DISPUTES-RESOLVED.md.",
+  "settled": [
+    {
+      "id": "C1",
+      "chosen": "50 / 30 / 20 content mix governs what is published; 76 / 16 / 8 is a Tier 3 estimate of who speaks what; SMS is Kiswahili and English; at least 4 of 7 weekly posts Kikamba-first sits above the 50% floor"
+    },
+    {
+      "id": "C2",
+      "chosen": "Bulk political SMS carries English or Kiswahili only (Communications Authority, Tier 1)"
+    },
+    {
+      "id": "C3",
+      "chosen": "7 Firefly / 6 your team / 2 outside, Workstream 1 shared (the workstream register's own count)"
+    },
+    {
+      "id": "C4",
+      "chosen": "Firefly publishes nothing and holds no credentials; your team runs the owned platforms"
+    },
+    {
+      "id": "C5",
+      "chosen": "The tracker is the citizen-report register with his verified NG-CDF record; the post-election dashboard is a pledge, not a deliverable"
+    },
+    {
+      "id": "C6",
+      "chosen": "A published, needs-weighted allocation formula; the KSh 100m-per-ward guarantee is withdrawn from copy"
+    },
+    {
+      "id": "C7",
+      "chosen": "The §4.2 ownership map governs the station list; Sang'u FM, in no ownership source, leaves the operating lists"
+    },
+    {
+      "id": "C8",
+      "chosen": "328,760 certified valid votes (IEBC Form 37C, Tier 1) for 2022; the modelled method stays for 2026"
+    }
+  ],
+  "figureLevel": [
+    {
+      "id": "C-5",
+      "chosen": "5 of the top 11 wards, 4 of them in the top 8 (the register)"
+    },
+    {
+      "id": "C-6",
+      "chosen": "51.73% (275,570 / 532,758, correctly rounded)"
+    },
+    {
+      "id": "C-7",
+      "chosen": "21 deficit wards (the pool excludes Kitui East)"
+    },
+    {
+      "id": "C-21",
+      "chosen": "As C2"
+    },
+    {
+      "id": "C-22",
+      "chosen": "500 signatures from each of the 8 sub-counties (4,000), the stricter reading; statutory figure to be confirmed with counsel"
+    }
+  ],
+  "fenceEdits": [
+    {
+      "id": "C5",
+      "file": "annex-technology",
+      "from": "and provides an interactive \"Kitui Economic Blueprint\" where citizens can track proposed ward-level investments for the 2027–2032 gubernatorial term.",
+      "to": "and runs the citizen-report register (Section 15.1.1). The \"Kitui Economic Blueprint\" for the 2027–2032 term is published as manifesto content, not as a tracker of ward-level investments he cannot yet make."
+    }
+  ],
+  "retiredTokens": [
+    {
+      "id": "C6",
+      "file": "content/annex-playbooks.md",
+      "token": "{{policy.ward-fund}}",
+      "why": "The SMS sample no longer promises a flat per-ward fund; the withdrawn figure stays on record in §10 (content/message.md)."
+    }
+  ]
+}

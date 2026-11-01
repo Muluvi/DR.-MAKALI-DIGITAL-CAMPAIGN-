@@ -52,7 +52,7 @@ Firefly is a **Kenya-based media and consulting company**. This proposal deliber
     operation and publishing, content production, platform tactics, earned media, and the two
     ground workstreams (integration and the field-to-digital loop).
 *   **Two are not this engagement's to touch** — volunteer organising, and the technology stack
-    Dr. Mulu already holds. [CONFLICT C3: see open items]
+    Dr. Mulu already holds.
 
 The figure below names the owner against each of the fourteen; Section 13.3 states what is outside scope. Commercial terms are settled separately and appear nowhere in this document.
 
@@ -100,7 +100,7 @@ kind: inout
 out:
   - label: "Publishing to Dr. Mulu's owned accounts"
     text: "Firefly briefs, approves and measures."
-    body: "It does not post, and does not hold credentials. The single exception is the offline layer in §15.3.3, which Firefly operates end to end. [CONFLICT C4: see open items]"
+    body: "It does not post, and does not hold credentials. The single exception is the offline layer in §15.3.3, which Firefly operates end to end."
   - label: "Replacing or restaffing the existing team"
     text: "Section 17.5 sets out how Firefly assesses and upskills it."
     body: "Where a capability gap cannot be closed by upskilling, Firefly names the gap and the campaign decides — Firefly does not propose itself for the role."

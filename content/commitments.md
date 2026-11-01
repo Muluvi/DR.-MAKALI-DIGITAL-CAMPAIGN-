@@ -13,7 +13,7 @@ what the ballot returns.
 kind: checklist
 items:
   - label: "The scope"
-    body: "is the fourteen workstreams in Section 13.2, with an owner named against each — six Firefly operates, six the existing team runs to a Firefly brief, two are outside the engagement — and boundaries stated so that what is outside them is as clear as what is inside. [CONFLICT C3: see open items]"
+    body: "is the fourteen workstreams in Section 13.2, with an owner named against each — seven Firefly operates, six the existing team runs to a Firefly brief, two are outside the engagement, with Workstream 1 shared (Firefly builds the tracker; your team runs the platforms) — and boundaries stated so that what is outside them is as clear as what is inside."
   - label: "The cadence"
     text: "is in Section 13.4:"
     body: "the weekly brief, the calendar, the approval path and the monthly review. Section 21.1 states what each engagement level carries, measured in depth of intelligence rather than in volume of Firefly's output."

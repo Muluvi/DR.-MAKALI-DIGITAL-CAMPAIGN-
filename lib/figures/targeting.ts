@@ -96,8 +96,6 @@ export const TARGETING_SUMMARY: SummaryRow[] = [
     value: `${n(DEFICIT_POOL)} registered`,
     detail: `Mwingi (${n(MWINGI_BLOC)}) + Kitui South (${n(KITUI_SOUTH)}) = ${DEFICIT_POOL_SHARE.toFixed(2)}% of the register.`,
     section: "§6.2",
-    stated: "51.72%",
-    conflicts: ["C-6"],
   },
   {
     label: "Overlap finding",
@@ -105,29 +103,24 @@ export const TARGETING_SUMMARY: SummaryRow[] = [
     detail:
       "Direct 1:1 overlap: Kyuso, Tseikuru, Mumoni, Athi and Ikanga/Kyatune sit in the deficit zones, 83,496 voters between them. Four of the five are in the top 8.",
     section: "§6.2",
-    stated: "5 of top 8 wards",
-    conflicts: ["C-5"],
   },
   {
     label: "Operational mandate",
     value: "65% digital · 70% offline SMS",
     detail: `Directed to Mwingi and Kitui South — ${DEFICIT_WARD_COUNT} wards — where he has never held office.`,
     section: "§6.2",
-    stated: "24 northern and southern deficit wards",
-    conflicts: ["C-7"],
   },
 ];
 
 export const TARGETING_SERIES: FigureSeries = {
   id: "targeting-summary",
-  headline: "What §6.2 established, and the three lines of it that are in dispute",
+  headline: "What §6.2 established, each line computed from the register",
   measure: `The eight findings of §6.2, each computed from the ${n(COUNTY_REGISTER)} register and pointing back at the subsection that established it`,
   // The rows are statements rather than a measurable series, so the frame takes no points: the
   // mark draws them. Declaring points here would put a bar chart behind a ledger.
   points: [],
-  conflicts: ["C-5", "C-6", "C-7"],
   note:
     "Every figure is derived from the register rather than restated, so this summary cannot drift " +
-    "from what it summarises. Where §7.3 printed a different figure, the printed one is shown " +
-    "beside the computed one and neither has been changed.",
+    "from what it summarises. Three lines once printed other values (C-5, C-6, C-7); the " +
+    "register's count is the one used (docs/DISPUTES-RESOLVED.md).",
 };

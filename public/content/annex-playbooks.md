@@ -33,7 +33,7 @@ id: format-specs
 
 #### B. Bulk SMS on 2G: a ward-specific sample
 
-> *"Kitui Rural / Mbitini: Dr. Makali Mulu guarantees a KSh 100 million Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. Reply STOP to opt out."* [CONFLICT C6: see open items]
+> *"Kitui Rural / Mbitini: Dr. Mulu will fund wards by need, on one published formula. Solar water to Mbitini Market first. Reply 1 to join, STOP to opt out."*
 
 #### C. The USSD menu
 

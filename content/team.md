@@ -96,7 +96,7 @@ Surge roles are activated by phase and scope level.
 
 **Community management and video editing are not on this list, and that is deliberate.** Both are
 roles your team already fills. Adding them here would have been Firefly selling back capability the
-campaign has. [CONFLICT C4: see open items]
+campaign has.
 
 **Surge triggers are explicit.** Each remaining surge role has a named activation condition — a
 phase date, an engagement level, or a KPI threshold. Roles are not added speculatively.

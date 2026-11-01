@@ -17,7 +17,9 @@ const TURNOUT = `${fmt("turnout.constant")}%`;
 
 const funnel = (reg: "2022" | "2026") => [
   { label: `Registered voters, ${reg === "2022" ? "2022" : "July 2026"}`, value: num(`register.${reg}`), state: F(`register.${reg}`).state },
-  { label: `Ballots cast at the ${TURNOUT} turnout rate`, value: num(`ballots.${reg}`), state: "modelled" as const, note: `${fmt(`register.${reg}`)} × ${TURNOUT} = ${fmt(`ballots.${reg}`)}. The rate is the certified 2022 turnout, carried forward.` },
+  reg === "2022"
+    ? { label: `Ballots cast, 2022 (${TURNOUT} turnout)`, value: num("ballots.2022"), state: F("ballots.2022").state, note: `${fmt("ballots.2022")} certified valid votes for governor (IEBC Form 37C), ${TURNOUT} of the register.` }
+    : { label: `Ballots cast at the ${TURNOUT} turnout rate`, value: num("ballots.2026"), state: "modelled" as const, note: `${fmt("register.2026")} × ${TURNOUT} = ${fmt("ballots.2026")}. The rate is the certified 2022 turnout, carried forward.` },
   { label: "Votes to win: the benchmark", value: num("benchmark"), state: "target" as const, note: `${fmt("benchmark")} is ${fmt(reg === "2022" ? "benchmark.share-of-ballots" : "benchmark.share-of-ballots.2026")}% of those ballots. A constant here, not re-derived from the register.` },
 ];
 
@@ -33,7 +35,7 @@ export const FIG_3_1: FigureSpec = {
   columns: [{ key: "step", label: "Step" }, { key: "y2022", label: "2022 register", numeric: true }, { key: "y2026", label: "July 2026 register", numeric: true }],
   rows: [
     { cells: { step: "Registered voters", y2022: num("register.2022"), y2026: num("register.2026") } },
-    { cells: { step: `Ballots at ${TURNOUT}`, y2022: num("ballots.2022"), y2026: num("ballots.2026") }, state: "modelled" },
+    { cells: { step: `Ballots (2022 certified; July 2026 at ${TURNOUT})`, y2022: num("ballots.2022"), y2026: num("ballots.2026") }, state: "modelled" },
     { cells: { step: "Benchmark", y2022: num("benchmark"), y2026: num("benchmark") }, state: "target" },
     { cells: { step: "Benchmark as % of ballots", y2022: Number(fmt("benchmark.share-of-ballots")), y2026: Number(fmt("benchmark.share-of-ballots.2026")) }, state: "modelled" },
   ],

@@ -51,7 +51,7 @@ export function ElectoralHistoryPanel() {
                           {r.candidate}
                           {r.disputedFigureId &&
                             (DISPUTED_FIGURES.find((d) => d.id === r.disputedFigureId)?.status === "resolved-preferred" ? (
-                              <span className="ml-1.5 t-micro font-black text-muted">Two published values ↓</span>
+                              <span className="ml-1.5 t-micro font-black text-muted">Source note ↓</span>
                             ) : (
                               <span className="ml-1.5 t-micro font-black text-danger">Disputed ↓</span>
                             ))}

@@ -28,7 +28,7 @@ items:
   - value: "{{turnout.2022}}%"
     label: "turnout, 2022"
     tier: 1
-    body: "**{{turnout.2022}}%** certified: {{result.2022.gov.valid}} valid votes for governor, of {{register.2022}} registered (Tier 1, IEBC Form 37C). Chapter 2 carries this rate forward to 2027 as a stated assumption. [CONFLICT C8: see open items]"
+    body: "**{{turnout.2022}}%** certified: {{result.2022.gov.valid}} valid votes for governor, of {{register.2022}} registered (Tier 1, IEBC Form 37C). Chapter 2 carries this rate forward to 2027 as a stated assumption."
 ```
 
 ```figure
@@ -117,7 +117,7 @@ Governor Julius Malombe's certified 2022 winning total was {{result.2022.gov.mal
 *   **The benchmark: {{benchmark}} votes.** Governor Julius Malombe's certified 2022 winning total was **{{result.2022.gov.malombe}} votes** (Section 2.2). This document rounds it to **{{benchmark}}** and uses that one figure as the benchmark everywhere: every route below, the digital ceiling in Section 4.3 and the objectives in Chapter 8 are measured against it.
 *   **[CALC, not a forecast] The same share of a larger register.** In 2022 the winning tally was **{{benchmark.share-2022}}%** of the register (calculated). Held against the July 2026 register of {{register.2026}}, the equivalent tally is **≈{{benchmark.2026-equivalent.rounded}} votes** (calculated). Treat {{benchmark}} as the floor and ≈{{benchmark.2026-equivalent.rounded}} as the equivalent on today's register: the number to win is ≈{{benchmark}}–{{benchmark.2026-equivalent.rounded}} (calculated).
 *   **The turnout rate: {{turnout.constant}}%.** The certified 2022 county turnout was **{{turnout.2022}}%**: {{result.2022.gov.valid}} valid votes of {{register.2022}} registered (Tier 1, IEBC Form 37C). Every calculation here carries that rate forward to 2027. The rate is measured; carrying it forward is an assumption, and the scenario model brackets it at 55–72%.
-    *   At {{turnout.constant}}% of the 2022 register (calculated), total ballots cast equal approximately **{{ballots.2022}} votes**. [CONFLICT C8: see open items]
+    *   At {{turnout.constant}}% of the 2022 register, total ballots cast were **{{ballots.2022}} votes**: the certified count of valid votes for governor (Tier 1, IEBC Form 37C).
     *   To reach **{{benchmark}}**, a winning candidate needs about **{{benchmark.share-of-ballots}}% of ballots cast**, which is **{{benchmark.share-of-register}}% of the registered electorate** (calculated).
 
 ```figure

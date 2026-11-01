@@ -92,11 +92,10 @@ export const FORMAT_SERIES: FigureSeries = {
   headline: "Five channels, and only one of them may carry Kikamba text",
   measure: "§15.1.2's production format specifications — channel, technical specification, language and creative treatment",
   points: [],
-  conflicts: ["C-21"],
   note:
     "The SMS row states the constraint twice over: “Kiswahili or English only (CA rule)”, and " +
     "GSM-7 encoding with no accented unicode — which rules out the ĩ and ũ Kikamba orthography " +
-    "needs. §12.4 nonetheless lists 2G bulk SMS among Kikamba's channels. C-21.",
+    "needs. Kikamba travels by radio, voice notes and USSD instead (§12.4).",
 };
 
 /* ------------------------------------------------------------------ §4.5.2 the USSD menu */

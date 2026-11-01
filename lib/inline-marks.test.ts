@@ -49,9 +49,19 @@ test("splitTier keeps the source and caveat behind the badge, word for word", ()
 });
 
 test("every conflict marker becomes a chip", () => {
+  // The marker form still works wherever an unsettled conflict is marked.
+  const sample = "Two counts disagree. [CONFLICT C9: see open items]";
+  assert.equal(tokenizeInline(sample).filter((p) => p.type === "conflict").length, 1);
   const raw = [...all.matchAll(/\[CONFLICT C\d/g)].length;
-  assert.equal(raw, 27, "the restructure left 27 conflict markers in the content");
   assert.equal(tokenizeInline(all).filter((p) => p.type === "conflict").length, raw);
+});
+
+test("no conflict logged as settled is still marked in the content", () => {
+  const settled = new Set<string>(
+    JSON.parse(fs.readFileSync(path.join(process.cwd(), "docs", "disputes-resolved.json"), "utf8")).settled.map((d: { id: string }) => d.id),
+  );
+  const left = [...all.matchAll(/\[CONFLICT (C\d+)/g)].map((m) => m[1]).filter((id) => settled.has(id));
+  assert.deepEqual(left, [], "C1 to C8 were settled on 1 November 2026 (docs/DISPUTES-RESOLVED.md)");
 });
 
 test("every [CHECK REF] is matched, so none reaches a reader", () => {

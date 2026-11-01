@@ -64,7 +64,7 @@ items:
   - label: "**One station is associated with Kalonzo Musyoka**, the Wiper party leader:"
     text: "**Athiani FM**. It is party-sensitive rather than hostile, and it matters most during the nomination window, when coverage may track party leadership sentiment rather than merit."
   - label: "**The stations open to the campaign are commercially or institutionally independent**:"
-    text: "**Musyi FM** (Royal Media Services), **County FM** (Kitui-based independent) and **Wikwatyo FM** (Seventh-Day Adventist Church, Kitui). These are the placement targets. [CONFLICT C7: see open items]"
+    text: "**Musyi FM** (Royal Media Services), **County FM** (Kitui-based independent) and **Wikwatyo FM** (Seventh-Day Adventist Church, Kitui). These are the placement targets."
 ```
 
 **The ownership map.** This table governs. It is the version reconciled against `data/media-ownership.ts`, which the site renders directly.
@@ -81,8 +81,6 @@ items:
 | **Akamba FM** | 103.3 (Kitui) | Independent, launched 2023 | Secondary — newer, may be more accessible |
 | **KBC Mwatu FM** | 93.1 | Public broadcaster | Institutional coverage |
 
-<!-- keep -->
-[CONFLICT C7: see open items]
 
 **What it means for the campaign:** the radio plan runs through Musyi, County FM and Wikwatyo, treats Athiani as party-sensitive, and treats Mbaitu and Syokimau as monitoring targets rather than placement targets. Attacks on Dr. Makali Mulu are more likely to start on air than online, which is why radio monitoring sits in the war room (Annex F.4).
 
@@ -142,7 +140,7 @@ preset: channel
 items:
   - title: "Kikamba radio"
     fields:
-      - { label: "Reach", text: "the CA/KARF audience report for Lower Eastern (Kitui, Machakos and Makueni together) puts Musyi FM at {{radio.musyi}}% of listeners, Citizen Radio {{radio.citizen}}%, Athiani FM {{radio.athiani}}%, Mbaitu FM {{radio.mbaitu}}%, County FM {{radio.county}}% and Mwatu FM {{radio.mwatu}}% (Tier 2). It is a regional and an earlier measurement, so it ranks the stations rather than sizing Kitui's audience. [CONFLICT C7: see open items]" }
+      - { label: "Reach", text: "the CA/KARF audience report for Lower Eastern (Kitui, Machakos and Makueni together) puts Musyi FM at {{radio.musyi}}% of listeners, Citizen Radio {{radio.citizen}}%, Athiani FM {{radio.athiani}}%, Mbaitu FM {{radio.mbaitu}}%, County FM {{radio.county}}% and Mwatu FM {{radio.mwatu}}% (Tier 2). It is a regional and an earlier measurement, so it ranks the stations rather than sizing Kitui's audience." }
       - { label: "The stations", text: "*   *Musyi FM (Royal Media Services):* the market leader in Ukambani; commercially independent. **Priority placement.**\n    *   *County FM (Kitui-based independent):* local ward news and debates, strong in Kitui Town, Kabati and Kwa Vonza. **Priority placement.**\n    *   *Wikwatyo FM (Seventh-Day Adventist Church, Kitui):* broad rural trust. **Priority for community and service-delivery programming.**\n    *   *Mbaitu FM, Syokimau FM (Ngilu-associated) and Athiani FM (Wiper leadership):* **monitoring targets, not placement targets** — Section 4.2 has the ownership map and the posture for each." }
       - { label: null, text: "**What the campaign would run** (campaign-owned, outside this engagement, Section 13.3):\n*   *Weekly morning interviews:* two-hour studio interviews (06:30–08:30) with Dr. Mulu in the weeks a policy is launched.\n    *   *Kikamba jingles and testimonials:* 45-second stories from farmers in Mwingi North, Kitui South and Kitui Rural on how Dr. Mulu's economic plan protects their harvest prices.\n    *   *Outside broadcasts:* sponsored live broadcast vans at major market rallies in Kalundu, Kabati and Mutomo." }
   - title: "SMS and USSD"

@@ -29,13 +29,25 @@ const read = (f) => {
 };
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
+// Disputes settled on 1 November 2026 (docs/disputes-resolved.json). "CONFLICT" is the word in the
+// `[CONFLICT Cn: see open items]` markers, which are markup, and check-content.mjs check 9 already
+// requires every unsettled marker to stay put; a token is excused only in the file the decision
+// names, so nothing else can slip through.
+const settledFile = path.join(ROOT, "docs", "disputes-resolved.json");
+const settlement = fs.existsSync(settledFile) ? JSON.parse(fs.readFileSync(settledFile, "utf8")) : { settled: [], retiredTokens: [] };
+const markersSettled = settlement.settled.length > 0;
+const retired = new Set((settlement.retiredTokens ?? []).map((r) => `${r.file}|${r.token}`));
+
 const errors = [];
 let checked = 0;
 for (const u of units) {
   const text = u.files.map(read).join("\n");
+  const excused = (t) => u.files.some((f) => retired.has(`${f}|{{${t}}}`));
   const missing = [
-    ...u.tokens.filter((t) => !new RegExp(`\\{\\{${esc(t)}(\\|[a-z0-9]+)?\\}\\}`).test(text)).map((t) => `{{${t}}}`),
-    ...[...u.acronyms, ...u.names].filter((n) => !new RegExp(`(?<![\\w])${esc(n)}(?![\\w])`).test(text)),
+    ...u.tokens.filter((t) => !excused(t) && !new RegExp(`\\{\\{${esc(t)}(\\|[a-z0-9]+)?\\}\\}`).test(text)).map((t) => `{{${t}}}`),
+    ...[...u.acronyms, ...u.names]
+      .filter((n) => !(markersSettled && n === "CONFLICT"))
+      .filter((n) => !new RegExp(`(?<![\\w])${esc(n)}(?![\\w])`).test(text)),
   ];
   checked += u.tokens.length + u.acronyms.length + u.names.length;
   if (missing.length) errors.push(`${u.c} (${u.from}, ${u.treatment}) → ${u.files.join(", ")}: missing ${missing.join(", ")}`);

@@ -61,13 +61,11 @@ id: fig-5-2-4-stack
 
 ##### 5. Public Service-Delivery Tracker (Section 15.1.1)
 *   **Tooling Recommendation:** **Next.js App Router Web Platform with Interactive GIS Ward Map (Vercel / Cloudflare Edge Hosting)**.
-*   **Function & Purpose:** The public-facing evidence engine supporting Dr. Mulu's good-governance brand. Displays verifiable records of 13 years of Kitui Central NG-CDF projects (schools, boreholes, dispensaries, bursary audits) and provides an interactive "Kitui Economic Blueprint" where citizens can track proposed ward-level investments for the 2027–2032 gubernatorial term.
+*   **Function & Purpose:** The public-facing evidence engine supporting Dr. Mulu's good-governance brand. Displays verifiable records of 13 years of Kitui Central NG-CDF projects (schools, boreholes, dispensaries, bursary audits) and runs the citizen-report register (Section 15.1.1). The "Kitui Economic Blueprint" for the 2027–2032 term is published as manifesto content, not as a tracker of ward-level investments he cannot yet make.
 *   **Data Held & Processed:** Public infrastructure records, project GPS coordinates, photo/video documentation, project completion certificates, and public comment/feedback forms.
 *   **DPA 2019 Exposure & Compliance:** **LOW RISK.** Public government and campaign policy data. Feedback forms collect standard consented contact details governed by an explicit privacy policy.
 *   **Procurement Status:** **Awaiting campaign decision** *(Approval of digital design mockups and public domain registration)*.
 ```
-
-[CONFLICT C5: see open items]
 
 #### The procurement matrix
 
