@@ -5,13 +5,12 @@
  * clearance checklist, a DPA and Election Offences matrix, an org chart, a roles and ownership
  * matrix, and the reporting line between the existing team and Firefly.
  *
- * C-22 IS WHY THE FIRST TWO ARE HERE TOGETHER. §5.3.5 states the nomination endorsement requirement
- * as "500 Registered Voter Nomination Endorsement Signatures per Sub-County" — 4,000 across eight.
- * §5.3.5, fifty lines later, states it as "500 registered voter signatures from at least 5 of the
- * 8 Sub-Counties" — 500 in total. They differ by a factor of eight, and a nomination paper short of
- * the statutory count is rejected. Both are transcribed exactly and both carry the flag; neither
- * figure resolves them, because reading the Elections Act regulation is not a thing a figure should
- * do on Firefly's behalf.
+ * C-22, SETTLED (November 2026). The endorsement requirement was stated two ways: 500 signatures
+ * per sub-county (4,000 across eight) and 500 from at least 5 of the 8 sub-counties (500 in total).
+ * A nomination paper short of the statutory count is rejected; one with more signatures than the
+ * law needs is not. So the campaign works to the stricter reading, 500 from each of the eight, and
+ * the Field Ops roll (250 per ward, 10,000 in all) already clears it. The statutory figure itself
+ * is still to be confirmed against the Elections Act regulations, and row 6 says so.
  *
  * §5.3.5's STATUS COLUMN IS THE OTHER THING WORTH KEEPING EXACTLY. Seven clearances, and they are
  * at five different stages: Verified, Pending Filing Window, Active/Current, Scheduled,
@@ -31,7 +30,7 @@ export const COMPLIANCE_TIERS = [
       "Kenya Revenue Authority (KRA) tax compliance certificate",
       "Directorate of Criminal Investigations (DCI) police clearance certificate",
       "Higher Education Loans Board (HELB) clearance certificate",
-      "500 registered voter nomination endorsement signatures per sub-county",
+      "500 registered voter nomination endorsement signatures from each of the 8 sub-counties (4,000; the stricter reading)",
     ],
   },
   {
@@ -55,15 +54,13 @@ export const COMPLIANCE_TIERS = [
 
 export const COMPLIANCE_SERIES: FigureSeries = {
   id: "compliance-architecture",
-  headline: "Three statutes, and the first one has a signature count the document gives twice",
+  headline: "Three statutes, and a signature count worked to its stricter reading",
   measure: "§19.4's statutory compliance architecture",
   points: [],
-  conflicts: ["C-22"],
   note:
-    "The signature line reads “per sub-county” here — 4,000 across eight — and “from at least 5 " +
-    "of the 8 Sub-Counties” in §19.4, which is 500 in total. Both are printed as stated. A " +
-    "nomination paper short of the statutory count is rejected, so this is C-22 and it has a " +
-    "deadline on it.",
+    "The endorsement count was stated two ways, 500 per sub-county (4,000) or 500 from at least " +
+    "5 of the 8 (500 in total). A paper short of the statutory count is rejected and a surplus is " +
+    "not, so the campaign works to 4,000; the statutory figure is confirmed with counsel before filing.",
 };
 
 /* ------------------------------------------------------------------ §5.3.5 the clearances */
@@ -96,8 +93,8 @@ export const IEBC_CLEARANCES: string[][] = [
   ],
   [
     "6. Voter nomination endorsement roll",
-    "500 registered voter signatures from at least 5 of the 8 sub-counties (Elections Act regulations).",
-    "Operationalized: Field Ops registering 250 signatures per ward — a 10,000 total buffer roll.",
+    "500 registered voter signatures from each of the 8 sub-counties, 4,000 in all: the stricter of the two readings the document gave (Elections Act regulations; to be confirmed with counsel).",
+    "Operationalized: Field Ops registering 250 signatures per ward — a 10,000 total buffer roll, clearing either reading.",
   ],
   [
     "7. Party nomination / direct ticket seal",
@@ -111,12 +108,10 @@ export const CLEARANCE_SERIES: FigureSeries = {
   headline: "Seven clearances at five different stages, and one the campaign will not yet claim",
   measure: "§19.4's IEBC statutory nomination clearance checklist — dimension, statutory standard, current status",
   points: [],
-  conflicts: ["C-22"],
   note:
     "The status column is the point: two Verified, one Active, one Scheduled, one Pending the " +
     "filing window, one Operationalized — and one that reads “[Requires legal confirmation]”, " +
-    "the document declining to claim a deadline it has not confirmed. Row 6's signature count " +
-    "disagrees with §19.4's by a factor of eight: C-22.",
+    "the document declining to claim a deadline it has not confirmed.",
 };
 
 /* ------------------------------------------------------------------ §5.3.5 the liability matrix */

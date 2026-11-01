@@ -37,7 +37,7 @@ items:
   - label: "Web management and digital architecture"
     body: "Development and deployment of a high-performance campaign web portal hosting the manifesto, tracking media appearances, and capturing volunteer data. Lightweight, rapid-loading frameworks so the site is usable on 3G and on feature-phone browsers — non-negotiable in a county at {{ict.internet}}% internet use (CA/KNBS 2023/24). **WCAG 2.1 AA compliance from build, not retrofitted** (Section 15.1.4). Search engine optimisation for \"Kitui Governor 2027\", \"Kitui development\" and related terms. A \"Meet Dr. Mulu\" page with biography, parliamentary record, M&E credentials and vision for Kitui. **Audit before build:** an existing Kitui Central NG-CDF web presence is already live. Phase 0 audits and integrates it rather than duplicating it."
   - label: "Brand management"
-    body: "Core messaging matrix ensuring consistency across broadcast, print and digital. Dynamic digital press kits for media houses and influencers — approved biographies, high-resolution assets, policy briefs (Section 15.2.2). Daily management of Facebook, X, Instagram, TikTok, YouTube and WhatsApp. Community management: responses to comments, DMs and mentions within **2 hours** during peak periods. [CONFLICT C4: see open items]"
+    body: "Core messaging matrix ensuring consistency across broadcast, print and digital. Dynamic digital press kits for media houses and influencers — approved biographies, high-resolution assets, policy briefs (Section 15.2.2). Daily management of Facebook, X, Instagram, TikTok, YouTube and WhatsApp stays with your team, which publishes and holds the credentials (Section 13.2); Firefly sets the standard in the weekly brief. Community management: your team responds to comments, DMs and mentions within **2 hours** during peak periods."
   - label: "Civic content and visual data"
     body: "Infographic analyses highlighting Kitui's economic challenges and Dr. Mulu's proposed solutions, anchored to the KSh {{budget.total|bn}} billion county envelope. Content calendars tailored to each segment in Section 10.4. Graphics, short video, motion graphics and policy explainers in English, Kiswahili and Kikamba. Human-interest storytelling: constituent testimonials, verified project outcomes, vision-driven narratives. A weekly **\"Dr. Mulu Explains\"** series breaking down county budgets, revenue sources and development economics in plain language."
 ```
@@ -80,7 +80,7 @@ qualification, running in public, before the election rather than after it.
 
 A simple public tool through which any Kitui resident can report and follow up
 on a local service-delivery issue — a broken water point, an impassable feeder
-road, a market without sanitation, a stalled project. [CONFLICT C5: see open items]
+road, a market without sanitation, a stalled project.
 
 **Deliberately multi-channel, because the people with the most to report have
 the least connectivity:**
@@ -188,7 +188,7 @@ items:
 
 #### The service-delivery performance tracker
 
-The campaign builds and maintains the **Kitui County Service-Delivery Performance Tracker**, a live analytical dashboard and open-data ledger that serves a dual purpose: during the campaign, it operates as an **irrefutable evidence asset** countering opposition claims; post-election, it transitions into the **Governor's Day-One Public Delivery Dashboard**. [CONFLICT C5: see open items]
+The campaign builds and maintains the **Kitui County Service-Delivery Performance Tracker**, a live analytical dashboard and open-data ledger that serves a dual purpose: during the campaign, it operates as an **irrefutable evidence asset** countering opposition claims. Its scope is the citizen-report register above, with Dr. Mulu's verified NG-CDF record as its proof layer. Turning it into a **Governor's Day-One Public Delivery Dashboard** after the election is a pledge Dr. Mulu may choose to make, not a deliverable of this engagement: until he holds office it must never imply powers he does not hold.
 
 ```figure
 id: delivery-tracker
@@ -199,8 +199,8 @@ id: delivery-tracker
 1.  **As a Campaign Credibility Asset (Pre-Election):**
     *   *Public Web & USSD Transparency:* Voters can dial `*[shortcode]#` or visit the web portal to query exact project GPS coordinates, contract values, and completion certificates in their own village.
     *   *Debate & Media Weapon:* Equips candidate and spokespersons with instant, primary-sourced factual data to rebut rival exaggerations on live radio and television debates.
-2.  **As a Day-One Governing Tool (Post-Election):**
-    *   *Statutory Ward Equalization Tracking:* Establishes the operational framework for managing the **Ksh {{policy.ward-fund|m}} Million/Ward Annual Fund**, tracking execution velocity and contractor payments across all 40 wards in real time.
+2.  **As a Day-One Governing Tool (Post-Election; a pledge Dr. Mulu may make, not a deliverable of this engagement):**
+    *   *Statutory Ward Equalization Tracking:* Establishes the operational framework for managing ward development funds allocated by the published, needs-weighted formula that replaced the Ksh {{policy.ward-fund|m}} million equal-ward guarantee (Section 10.1), tracking execution velocity and contractor payments across all 40 wards in real time.
     *   *Zero Pending Bills Enforcer:* Integrates directly into the County Treasury accounting system to ensure all ward projects are verified before invoice settlement, preventing the recurrence of county debt.
 
 ### 15.1.2 Workstream 2 — The content brief and asset governance

@@ -1,5 +1,7 @@
 # Conflicts — where the document disagrees with itself
 
+> **1 November 2026:** C-5, C-6, C-7, C-21 and C-22, the conflicts still flagged on the page, are settled; see `docs/DISPUTES-RESOLVED.md`. The entries below are the record of what was in dispute.
+
 **Firefly reconciles these. This audit does not.** Under hard rule 2, no number, claim or tier in
 `public/content/` has been changed. Where a figure draws on a number that is in dispute, the figure
 carries a visible **Under review** flag pointing here, and shows every version that is stated, dated

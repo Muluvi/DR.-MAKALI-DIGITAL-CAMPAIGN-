@@ -28,7 +28,7 @@ substance fixed, delivery natural.
 | Likely attack | Response structure |
 |---|---|
 | **"He is a national MP, not a county manager"** | Acknowledge the distinction, then reframe: county government's central failure mode is budget execution, which is the one discipline he has done professionally at national scale — and the certification of Kitui Central as best evaluated constituency in the Eastern region is the county-level proof |
-| **"He is from Kitui Central and will favour it"** | Commit to a published, methodology-first allocation formula across all 40 wards, published before allocation and audited after — an economist's answer, and one no rival can match [CONFLICT C6: see open items] |
+| **"He is from Kitui Central and will favour it"** | Commit to a published, methodology-first allocation formula across all 40 wards, published before allocation and audited after — an economist's answer, and one no rival can match |
 | **"Others have been more visible on the ground"** | Do not contest the premise. Reframe visibility as a means, not a qualification: the question is what a leader does with the office, and offer the verification record |
 | **"NG-CDF questions"** | Lead with the documented record — bursary numbers, project list, the Eastern region evaluation certification — and invite scrutiny. **Never defensive; an evaluator welcomes audit.** |
 | **"Too technical / not close to ordinary people"** | Answer in Kikamba, with a household example. The best rebuttal to "too technical" is a demonstration, not a denial |

@@ -58,7 +58,7 @@ The campaign monitors four complementary intelligence streams around the clock:
 kind: cards
 items:
   - title: "Vernacular radio triage (06:00–21:00 EAT)"
-    body: "Dedicated audio recording monitors tracking morning and evening talk shows across *Musyi FM, Mbaitu FM, Sang'u FM, County FM*, and *Athiani FM*. Immediate audio clipping of candidate mentions or political challenger assertions. [CONFLICT C7: see open items]"
+    body: "Dedicated audio recording monitors tracking morning and evening talk shows across *Musyi FM, Mbaitu FM, Syokimau FM, County FM*, and *Athiani FM*, the stations in the Section 4.2 ownership map. Immediate audio clipping of candidate mentions or political challenger assertions."
   - title: "Ward WhatsApp network"
     body: "40 Constituency Monitoring Assistants monitoring ~{{target.whatsapp-groups}} major community, market, church, and clan WhatsApp groups across all eight sub-counties."
   - title: "Social listening keyword feeds"

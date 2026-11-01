@@ -11,7 +11,9 @@
  *      reported separately and does not count towards the balance, so it cannot hide a loss.
  *   5  Duplicate cuts are real. For every cut logged as a duplicate (or replaced by a chip), every {{token}} and every
  *      capitalised name in the cut text appears at the logged canonical home.
- *   9  Conflicts C1 to C8: the same 27 `[CONFLICT Cn` markers, each still after the words it
+ *   9  Conflicts C1 to C8: every `[CONFLICT Cn` marker still after the words it followed, unless
+ *      docs/disputes-resolved.json lists Cn as settled (then no marker for it may remain). A
+ *      marker can leave the content only by a logged decision. The original wording continues:
  *      followed at 4bfc078 (so still inside the passage it marked).
  *
  *     node scripts/declutter/check-content.mjs            # report and fail on a breach
@@ -28,7 +30,28 @@ const SHOW = process.argv.includes("--sections");
 
 const before = Object.fromEntries(baseFiles().map((f) => [f, readBase(f)]));
 const after = Object.fromEntries(nowFiles().map((f) => [f, readNow(f)]));
-const secBefore = Object.values(Object.fromEntries(Object.entries(before).map(([f, t]) => [f, sectionsOf(f, t)]))).flat();
+
+/*
+ * Settled disputes (docs/disputes-resolved.json, decided 1 November 2026). Two things follow from a
+ * logged decision, and only these two:
+ *   - a retired `[CONFLICT Cn: see open items]` marker is markup, not prose, so checks 3 and 4 weigh
+ *     the base text without it;
+ *   - a figure or textversion fence the decision had to correct is compared after applying the
+ *     exact edit logged under `fenceEdits` (old text -> new text), so no other change can pass.
+ * Wording changed in prose by a decision is logged as a cut in the ledger like any other.
+ */
+const settlement = (() => {
+  const file = path.join(ROOT, "docs", "disputes-resolved.json");
+  return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8")) : { settled: [], fenceEdits: [] };
+})();
+const SETTLED_IDS = new Set(settlement.settled.map((d) => d.id));
+const settle = (t) => {
+  let out = t.replace(/ ?\[CONFLICT (C\d+): see open items\]/g, (m, id) => (SETTLED_IDS.has(id) ? "" : m));
+  for (const e of settlement.fenceEdits ?? []) out = out.split(e.from).join(e.to);
+  return out;
+};
+const weighed = Object.fromEntries(Object.entries(before).map(([f, t]) => [f, settle(t)]));
+const secBefore = Object.values(Object.fromEntries(Object.entries(weighed).map(([f, t]) => [f, sectionsOf(f, t)]))).flat();
 const secAfter = Object.values(Object.fromEntries(Object.entries(after).map(([f, t]) => [f, sectionsOf(f, t)]))).flat();
 const byKeyAfter = Object.fromEntries(secAfter.map((s) => [s.key, s]));
 const byNumberAfter = Object.fromEntries(secAfter.filter((s) => s.number !== "(intro)").map((s) => [s.number, s]));
@@ -44,7 +67,7 @@ const fenceBodies = (texts, kind) => {
   return out.sort();
 };
 for (const kind of ["figure", "textversion"]) {
-  const b = fenceBodies(before, kind);
+  const b = fenceBodies(weighed, kind);
   const a = fenceBodies(after, kind);
   const missing = b.filter((x) => !a.includes(x));
   if (missing.length || a.length !== b.length) errors.push(`3: ${kind} fences ${b.length} before, ${a.length} after; missing or changed: ${missing.map((x) => x.slice(0, 40)).join(" | ")}`);
@@ -151,16 +174,21 @@ const contextsBefore = [];
 for (const [f, t] of Object.entries(before)) {
   for (const m of t.matchAll(MARK)) contextsBefore.push({ f, id: m[1], ctx: plain(t.slice(Math.max(0, (m.index ?? 0) - 160), m.index)).split(" ").slice(-5).join(" ") });
 }
+// Conflicts settled by a logged decision (docs/DISPUTES-RESOLVED.md, machine-readable list beside it).
+const settledFile = path.join(ROOT, "docs", "disputes-resolved.json");
+const SETTLED = new Set(fs.existsSync(settledFile) ? JSON.parse(fs.readFileSync(settledFile, "utf8")).settled.map((d) => d.id) : []);
 const markersAfter = Object.values(after).reduce((n, t) => n + [...t.matchAll(MARK)].length, 0);
-if (markersAfter !== contextsBefore.length) errors.push(`9: ${contextsBefore.length} conflict markers before, ${markersAfter} after`);
+const expected = contextsBefore.filter((c) => !SETTLED.has(c.id));
+if (markersAfter !== expected.length) errors.push(`9: ${expected.length} unsettled conflict markers expected, ${markersAfter} found`);
+for (const [f, t] of Object.entries(after)) for (const m of t.matchAll(MARK)) if (SETTLED.has(m[1])) errors.push(`9: ${m[1]} is logged as settled but still marked in ${f}`);
 let placed = 0;
-for (const c of contextsBefore) {
+for (const c of expected) {
   const t = after[c.f] ?? "";
   const ok = [...t.matchAll(MARK)].some((m) => m[1] === c.id && plain(t.slice(Math.max(0, (m.index ?? 0) - 200), m.index)).endsWith(c.ctx));
   if (ok) placed += 1;
   else errors.push(`9: ${c.id} in ${c.f} no longer follows "${c.ctx}"`);
 }
-console.log(`9. conflict markers: ${markersAfter} (was ${contextsBefore.length}); ${placed} still follow the words they marked`);
+console.log(`9. conflict markers: ${markersAfter} (was ${contextsBefore.length}; ${contextsBefore.length - expected.length} retired by ${SETTLED.size} logged decisions); ${placed} still follow the words they marked`);
 
 if (errors.length) {
   console.log("\ncheck-content: FAILED");

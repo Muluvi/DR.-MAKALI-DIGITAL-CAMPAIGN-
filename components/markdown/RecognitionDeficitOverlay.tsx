@@ -5,7 +5,6 @@ import { Target, MapPin, TrendingDown, AlertTriangle, Radio } from "lucide-react
 
 import { ALL_WARDS, CONSTITUENCIES, COUNTY_TOTAL_WARDS, MWINGI_BLOC_TOTAL } from "../../data/ward-register";
 import { TierBadge } from "./TierBadge";
-import { UnderReview } from "../figures/UnderReview";
 
 /**
  * §3.4 — recognition deficit mapped against voter concentration.
@@ -110,8 +109,8 @@ const DEFICIT_IN_TOP_8_VOTERS = DEFICIT_IN_TOP_8.reduce((sum, w) => sum + w.vote
  *
  * The retired cross-match block closed on "5 of the Top 11 Wards (Kyuso, Tseikuru, Mumoni, Athi,
  * Ikanga) … 83,496 Voters", and against the register that is exactly right. The §3.10 summary
- * table says "5 of top 8", which is not: Ikanga/Kyatune ranks 11th. Both windows are computed here
- * so the panel can show where the two claims part company instead of picking one — C-5.
+ * table said "5 of top 8", which is not: Ikanga/Kyatune ranks 11th. C-5 is settled for the register:
+ * 5 of the top 11, of which 4 sit in the top 8, and both windows are computed here.
  */
 const DEFICIT_IN_TOP_11 = DECISIVE_WARDS.filter((w) => w.rank <= 11 && w.status === "deficit");
 const DEFICIT_IN_TOP_11_VOTERS = DEFICIT_IN_TOP_11.reduce((sum, w) => sum + w.voters, 0);
@@ -245,14 +244,6 @@ export function RecognitionDeficitOverlay() {
         <p className="t-small text-muted font-medium pl-[18px]">
           Either way, the wards that decide the election are the wards where Dr. Mulu is least known.
         </p>
-        {/* §3.10's summary table reads "5 of top 8 wards", which is the top-11 count printed
-            against the top-8 window. Both figures above are computed from the register; neither
-            sentence in the content has been changed. */}
-        <UnderReview ids={["C-5"]}>
-          §7.3 summarises this overlap as “5 of top 8 wards”. Ranked on the register,
-          Ikanga/Kyatune is 11th — so the five named wards are 5 of the top 11, as §6.2 itself
-          states, and 4 of them are in the top 8. Both counts are shown; neither has been changed.
-        </UnderReview>
         <p className="t-small text-muted flex items-start gap-1.5">
           <AlertTriangle size={12} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
           <span>

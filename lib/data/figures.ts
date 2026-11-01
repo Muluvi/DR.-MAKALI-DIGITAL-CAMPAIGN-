@@ -153,10 +153,13 @@ modelled("benchmark.2026-equivalent.share", pct(v("result.2022.gov.malombe"), v(
 target("turnout.constant", v("turnout.2022"), "percent", "The turnout rate used in every calculation: the certified 2022 county rate carried forward to 2027. An assumption about 2027, not a measurement of it; the scenario model brackets it at 55–72%.", { decimals: 1 });
 const TURNOUT = v("turnout.constant") / 100;
 modelled("turnout.rate", TURNOUT, "percent", "The turnout rate as a multiplier, for the working shown in Section 2.5.", { decimals: 3 });
-modelled("ballots.2022", Math.round(v("register.2022") * TURNOUT), "votes", "2022 register × the turnout rate (the certified 2022 rate, carried forward).");
+// C8, settled (November 2026): for 2022 the ballots are measured, so the document uses the
+// certified count, not the register × 61.7% (which gave 328,712, a rounding artefact of the rate).
+// The modelled method stays for 2026, where there is no count yet.
+sourced("ballots.2022", v("result.2022.gov.valid"), "votes", "T1", IEBC_37C, { note: "Certified valid votes for governor, 2022: the turnout universe the benchmark is measured against." });
 modelled("ballots.2026", Math.round(v("register.2026") * TURNOUT), "votes", "July 2026 register × the 2022 turnout rate, carried forward.");
 modelled("benchmark.share-of-ballots.2026", pct(v("benchmark"), v("register.2026") * TURNOUT), "percent", "200,000 / ballots at the 2022 turnout rate on the July 2026 register.");
-modelled("benchmark.share-of-ballots", pct(v("benchmark"), v("register.2022") * TURNOUT), "percent", "200,000 / ballots at the 2022 turnout rate.");
+modelled("benchmark.share-of-ballots", pct(v("benchmark"), v("ballots.2022")), "percent", "200,000 / the 328,760 certified 2022 ballots.");
 modelled("benchmark.share-of-register", pct(v("benchmark"), v("register.2022")), "percent", "200,000 / 2022 register.");
 modelled("gap.wambua-to-benchmark-2022", v("result.2022.gov.malombe") - v("result.2022.senate.wambua"), "votes", "198,004 less 191,317.");
 

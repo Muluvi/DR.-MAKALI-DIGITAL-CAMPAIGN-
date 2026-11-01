@@ -88,18 +88,18 @@ id: language-map
 ```
 
 <!-- keep -->
-[CONFLICT C1: see open items] [CONFLICT C2: see open items]
+**Which number governs.** The shares in the language map describe who speaks what (Tier 3, an estimate); the target for what the campaign publishes is the 50 / 30 / 20 content mix below. Bulk SMS carries Kiswahili and English only, by law (Section 15.3.3), and the weekly rule of at least four Kikamba-first posts in seven (Section 12.6) sits above the 50% floor.
 
 Language is central to trust in Kitui.
 
-* **Kikamba** — deep local resonance, especially on WhatsApp, TikTok, Facebook, SMS and radio. Local proverbs, idioms and cultural reference; the working examples below all need native-speaker verification before publication.
+* **Kikamba** — deep local resonance, especially on WhatsApp, TikTok, Facebook, voice notes and radio. Local proverbs, idioms and cultural reference; the working examples below all need native-speaker verification before publication.
 * **Kiswahili** — broader reach, urban and younger audiences, national framing
 * **English** — policy depth, professional audiences, national media
 
 **One channel consequence.** Bulk political SMS cannot be sent in Kikamba (Section 15.3.3), so Kikamba travels by radio, WhatsApp voice notes, USSD menu text, barazas and in person, and SMS carries the Kiswahili and English versions of the same message.
 
 ```visual
-{"kind":"donut","title":"Content mix for locally facing platforms","items":[{"label":"Kikamba","value":"50%","body":"WhatsApp, TikTok, Facebook grassroots, voice notes, radio, USSD — **not bulk SMS** (§15.3.3) [CONFLICT C1: see open items]"},{"label":"Kiswahili","value":"30%","body":"General social, national reach, SMS"},{"label":"English","value":"20%","body":"Policy documents, website, X, YouTube, national media"}]}
+{"kind":"donut","title":"Content mix for locally facing platforms","items":[{"label":"Kikamba","value":"50%","body":"WhatsApp, TikTok, Facebook grassroots, voice notes, radio, USSD — **not bulk SMS** (§15.3.3)"},{"label":"Kiswahili","value":"30%","body":"General social, national reach, SMS"},{"label":"English","value":"20%","body":"Policy documents, website, X, YouTube, national media"}]}
 ```
 
 ```visual
@@ -111,8 +111,6 @@ Language is central to trust in Kitui.
 ```figure
 id: language-deployment
 ```
-
-[CONFLICT C1: see open items]
 
 ## 12.5 Register, dialect and quality control
 
@@ -146,7 +144,7 @@ The current pattern, as observed from the public page, is a daily record of wher
 id: fig-4-5-calendar
 ```
 
-**Two rules on top.** At least two of the seven originate in a ward inside the deficit pool. At least four are Kikamba-first. Both rules are set by the Week 1 audit rather than by preference, and both are checked in the Monday review. [CONFLICT C1: see open items]
+**Two rules on top.** At least two of the seven originate in a ward inside the deficit pool. At least four are Kikamba-first. Both rules are set by the Week 1 audit rather than by preference, and both are checked in the Monday review.
 
 ```visual
 {"kind":"contrast","left":{"title":"What changed","items":[{"label":"two fields on a Thursday post, and a language rule."}]},"right":{"title":"What did not change","items":[{"label":"who takes the photograph, who writes the caption, and who presses publish."}]}}

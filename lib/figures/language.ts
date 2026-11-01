@@ -7,17 +7,11 @@
  * 76/16/8 shares, same audiences, same channels — so the banner is a summary of the thing eleven
  * lines below it. Rule 1a retires both once a figure carries the fuller one's facts.
  *
- * THE FIGURE'S REAL JOB IS C-21, and it is a compliance conflict rather than a rounding. §3.6.1
- * lists "2G Bulk SMS & USSD" among Kikamba's dominant channels. §4.5.9 states, citing the
- * Communications Authority at Tier 1, that bulk political SMS is restricted to English or
- * Kiswahili and that an operator may refuse a non-compliant message outright — and six other
- * places in the document agree with §4.5.9, including §3.6.1 in the same subsection, which gives
- * the SMS rail 80% Kiswahili and 20% English and allocates Kikamba none of it.
- *
- * So the Kikamba channel list below is transcribed EXACTLY as §3.6.1 states it, bulk SMS included,
- * and the channel carries the flag. Quietly dropping it would hide the one conflict in this file
- * that could have a message refused by an operator after the campaign had committed a 48-hour
- * lodging lead time. Hard rule 2: Firefly reconciles, this does not.
+ * C-21, SETTLED (November 2026). §12.4 once listed "2G Bulk SMS & USSD" among Kikamba's channels,
+ * against §15.3.3, which states at Tier 1 (Communications Authority) that bulk political SMS is
+ * restricted to English or Kiswahili and that an operator may refuse a non-compliant message
+ * outright. The law decides it: Kikamba's channel list drops bulk SMS, and the SMS rail stays
+ * 80% Kiswahili, 20% English. The decision and its reason are logged in docs/DISPUTES-RESOLVED.md.
  */
 import type { FigurePoint, FigureSeries } from "./types";
 import type { Source } from "../../data/types";
@@ -52,10 +46,11 @@ export const LANGUAGES: LanguageRow[] = [
       "Village elders and clan leaders",
       "Agro-pastoralists (Mwingi and South)",
     ],
-    // Transcribed as §3.6.1 states it. "2G Bulk SMS" is the conflict, not a typo to fix here.
-    channels: ["Vernacular radio (Musyi, Wikwatyo)", "2G Bulk SMS & USSD", "Baraza PA addresses", "Megaphone audio clips"],
+    // C2 / C-21, settled (November 2026): bulk political SMS cannot carry Kikamba (Communications
+    // Authority rule, Tier 1; GSM-7 cannot encode ĩ or ũ), so Kikamba's list keeps USSD and drops
+    // bulk SMS, as §12.4's own "one channel consequence" and §15.3.3 state.
+    channels: ["Vernacular radio (Musyi, Wikwatyo)", "USSD menus and WhatsApp voice notes", "Baraza PA addresses", "Megaphone audio clips"],
     objective: "Establish emotional affinity, cultural authenticity and unshakeable community stewardship trust.",
-    conflicts: ["C-21"],
   },
   {
     name: "Kiswahili (and Sheng)",
@@ -104,12 +99,10 @@ export const LANGUAGE_SPLIT: FigureSeries = {
     note: l.objective,
     conflicts: l.conflicts,
   })),
-  conflicts: ["C-21"],
   note:
-    "The three shares are stated in §12.4 without a citation and sum to 100%, so they are a " +
-    "language map rather than a measurement. Kikamba's channel list is transcribed exactly as " +
-    "§12.4 gives it, including 2G Bulk SMS — which §15.3.3 says the Communications Authority " +
-    "closes to Kikamba. Neither line has been changed.",
+    "The three shares are stated in §12.4 without a citation and sum to 100%, so they describe who " +
+    "speaks what (a language map, Tier 3), not a target. The content target is the 50 / 30 / 20 mix " +
+    "in §12.4; bulk SMS carries Kiswahili and English only (§15.3.3).",
 };
 
 /** §3.6.1's channel-by-channel allocation, whose SMS row is the version C-21 points at. */
@@ -133,8 +126,7 @@ export const LANGUAGE_DEPLOYMENT: DeploymentRow[] = [
     medium: "Direct 2G bulk SMS",
     primary: { language: "Kiswahili", share: 80 },
     secondary: [{ language: "English", share: 20 }],
-    note: "Kiswahili rural, English for urban centres and youth boda. Kikamba is allocated none of this rail — which is what §15.3.3 requires and §12.4 contradicts.",
-    conflicts: ["C-21"],
+    note: "Kiswahili rural, English for urban centres and youth boda. Kikamba is allocated none of this rail, as §15.3.3 requires.",
   },
   {
     medium: "USSD menu system",

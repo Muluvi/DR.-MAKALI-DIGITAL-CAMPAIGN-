@@ -231,11 +231,10 @@ const DEFICIT_SERIES: FigureSeries = {
       note: "Kitui Central, West, Rural and East — 19 wards",
     },
   ],
-  conflicts: ["C-6", "C-7"],
   note:
-    `The pool spans ${DEFICIT_WARD_COUNT} wards, not the 24 the operational mandate directs effort into — ` +
-    `the mandate's count includes three Kitui East border wards that this pool excludes. The share computes to ` +
-    `${DEFICIT_POOL_SHARE.toFixed(4)}%, which rounds to ${DEFICIT_POOL_SHARE.toFixed(2)}%; the prose prints 51.72%.`,
+    `The pool spans ${DEFICIT_WARD_COUNT} wards; the operational mandate directs effort into these ${DEFICIT_WARD_COUNT}, not ` +
+    `the 24 an earlier count reached by adding three Kitui East border wards the pool excludes. The share computes to ` +
+    `${DEFICIT_POOL_SHARE.toFixed(4)}%, which rounds to ${DEFICIT_POOL_SHARE.toFixed(2)}%.`,
 };
 
 /* ------------------------------------------------------------------ §3.4 the register itself */
@@ -311,11 +310,10 @@ const DEPLOYMENT_SERIES: FigureSeries = {
   headline: "Every medium is allocated to the whole, and only one of them is allocated to Kikamba alone",
   measure: "§12.4's language allocation per campaign output medium. Each row totals 100%.",
   points: [],
-  conflicts: ["C-21"],
   note:
-    "The bulk SMS row gives Kikamba no allocation, which is what §15.3.3 requires — the " +
-    "Communications Authority restricts political bulk SMS to English or Kiswahili — and what " +
-    "§12.4's channel list contradicts. USSD is not restricted, and takes 50% Kikamba here.",
+    "The bulk SMS row gives Kikamba no allocation, as §15.3.3 requires: the Communications " +
+    "Authority restricts political bulk SMS to English or Kiswahili. USSD is not restricted, and " +
+    "takes 50% Kikamba here.",
 };
 
 const BYPASS_SERIES: FigureSeries = {

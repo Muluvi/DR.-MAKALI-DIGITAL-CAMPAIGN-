@@ -205,9 +205,6 @@ penalise unsolicited messaging.
 > instead — and a **2020 draft revision** proposed narrowing the sending window to 08:00–18:00
 > `[VERIFY whether in force]`.
 
-<!-- keep -->
-[CONFLICT C2: see open items]
-
 **Message architecture** — 160 characters, **English or Kiswahili only**, ward-tagged:
 
 | Type | Frequency | Language | Example structure |
