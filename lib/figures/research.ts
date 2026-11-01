@@ -19,6 +19,7 @@
  * operates. Nothing is commissioned.
  */
 import type { FigureSeries } from "./types";
+import { regFmt } from "./from-registry";
 
 /* ------------------------------------------------------------------ §5.1.2 the two programmes */
 
@@ -112,7 +113,7 @@ export const TRACKER_DIMENSIONS: string[][] = [
   [
     "4. Secondary & tertiary bursary distribution",
     "NG-CDF bursary disbursements ledger · NG-CDF constituency records — not HELB, which holds national loan data",
-    "Termly disbursement audit · receipt count pending the ledger; §6.1 gives 12,573 as Tier 1",
+    `Termly disbursement audit · receipt count pending the ledger; the record gives ${regFmt("record.bursary.recipients")} as Tier 1`,
   ],
 ];
 
@@ -123,6 +124,6 @@ export const TRACKER_SERIES: FigureSeries = {
   points: [],
   note:
     "The classroom and TVET counts and the bursary receipt count are stated as pending the project " +
-    "ledger, and they are printed that way rather than filled with an estimate. §6.1's 12,573 " +
-    "bursary recipients is the Tier 1 figure the document does have, and the row says so.",
+    "ledger, and they are printed that way rather than filled with an estimate. The record's " +
+    `${regFmt("record.bursary.recipients")} bursary recipients is the Tier 1 figure the document does have, and the row says so.`,
 };

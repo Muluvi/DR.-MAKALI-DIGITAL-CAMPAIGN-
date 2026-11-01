@@ -1,86 +1,10 @@
 /**
- * §2.8.3 and §4.5.6 — who owns the air in Kitui, and the four ways the campaign gets on it anyway.
- *
- * ONE FACT SHAPES THIS WHOLE FILE: §2.8.3 and §2.8.3 disagree about which stations are hostile, and
- * the disagreement is not cosmetic. §2.8.3's diagram files **Musyi FM** under "TIER 1: HOSTILE /
- * GATEKEEPER COMMERCIAL STATIONS"; §2.8.3 says Musyi FM is open to the campaign and carries the
- * placement budget; `data/media-ownership.ts` reads "Priority — commercially independent"; and
- * §3.6.3 [CHECK REF]'s rebalance scales vernacular radio effort UP into Musyi from 20% to 37%. Athiani FM is
- * the same argument at lower volume — "hostile" in the diagram, "party-sensitive rather than
- * hostile" in the prose. C-20.
- *
- * So the roster below is built from `data/media-ownership.ts`, which §2.8.3 names as the version
- * that governs, and each station carries what §2.8.3's diagram said about it where the two differ.
- * Picking one and rendering it silently is the single thing this figure must not do: a reader
- * deciding where to spend the placement budget needs to see that the document gives two answers.
- *
- * TWO STATIONS THE DIAGRAM NAMES ARE IN NO OWNERSHIP MAP. Sang'u FM (listed hostile) and
- * Mang'elete (listed as a neutral bypass route) appear in the prose of six chapters and in none of
- * the eight rows of `data/media-ownership.ts`. They are carried here as explicit unknowns rather
- * than dropped, because an omission a reader cannot see is the kind this audit will not produce.
+ * The gatekeeper-bypass architecture: four ways the campaign reaches voters without a commercial
+ * station's permission (Media). The station roster and the "hostile stations" diagram this file
+ * once carried were retired with their figures (consolidation pass, Step 3); who owns which
+ * station is data/media-ownership.ts, the map the proposal says governs.
  */
-import { RADIO_STATIONS } from "../../data/media-ownership";
 import { regFmt } from "./from-registry";
-
-export type RosterRow = {
-  label: string;
-  value: string;
-  detail: string;
-  section: string;
-  stated?: string;
-  conflicts?: string[];
-};
-
-/** The four stations §2.8.3's diagram grouped as Tier 1 hostile gatekeepers, in its order. */
-const DIAGRAM_HOSTILE = ["Musyi FM", "Mbaitu FM", "Sang'u FM", "Athiani FM"];
-
-/** What §2.8.3's diagram asserted about every station in that group. */
-const DIAGRAM_CLAIM = "Tier 1 hostile / gatekeeper — politically aligned ownership and editorial vetoes";
-
-/**
- * A station the diagram names that the ownership map does not carry.
- *
- * Stated as an absence, with the word "not" in it, because that is the honest rendering. The
- * alternative — leaving the row out — would make the diagram and the figure disagree about how
- * many stations exist, which is a worse failure than admitting a gap.
- */
-const NOT_IN_MAP = (name: string, role: string): RosterRow => ({
-  label: name,
-  value: "Not in the ownership map",
-  detail: `${role} No owner, frequency or posture is recorded for it in data/media-ownership.ts, which carries eight stations. It appears in the prose of six chapters.`,
-  section: "§1.2",
-  stated: DIAGRAM_CLAIM,
-  conflicts: ["C-20"],
-});
-
-const stationRow = (name: string): RosterRow => {
-  const s = RADIO_STATIONS.find((r) => r.name === name);
-  if (!s) return NOT_IN_MAP(name, "Named in §1.2's hostile tier.");
-
-  // The diagram and the ownership map agree about a station only when the map's posture is one
-  // the campaign does not place into. Ngilu's two stations are monitoring targets on both
-  // readings; Musyi and Athiani are not.
-  const agrees = /Monitor|As above/.test(s.posture);
-
-  return {
-    label: s.name,
-    value: s.alignment,
-    detail: `${s.frequency ?? "Kitui frequency not published"} · ${s.posture}`,
-    section: "§1.2",
-    stated: agrees ? undefined : DIAGRAM_CLAIM,
-    conflicts: agrees ? undefined : ["C-20"],
-  };
-};
-
-/** §2.8.3's hostile tier, read against the ownership map §2.8.3 says governs. */
-export const RADIO_GATEKEEPERS: RosterRow[] = DIAGRAM_HOSTILE.map(stationRow);
-
-/** The stations §2.8.3's diagram routed around them to, and what the map says about those. */
-export const BYPASS_STATIONS: RosterRow[] = [
-  stationRow("Wikwatyo FM"),
-  NOT_IN_MAP("Mang'elete", "Named in §1.2 and §15.2.2 as a neutral, church-owned bypass route."),
-  stationRow("County FM"),
-];
 
 /**
  * §4.5.6's four bypass pillars, at both the levels the document states them.

@@ -25,7 +25,7 @@ import { SEVERITY_TIERS } from "../../data/escalation";
 import { CountWord, countWord } from "../count-word";
 import { RADIO_STATIONS } from "../../data/media-ownership";
 import { regFmt } from "./from-registry";
-import { SEGMENTS, segment, shareText, sizeText } from "../../data/segments";
+import { segment, shareText, sizeText } from "../../data/segments";
 import type { FigureSeries } from "./types";
 
 /** The stations the ownership map marks for placement, and the ones it marks for monitoring. */
@@ -100,17 +100,6 @@ export const AUDIENCE_SEGMENTS: string[][] = [
     "Remittance relief & audited fiscal prudence",
   ],
 ];
-
-export const SEGMENTS_SERIES: FigureSeries = {
-  id: "audience-segments",
-  headline: `${CountWord(SEGMENTS.length)} segments, and ${countWord(SEGMENTS.filter((x) => !x.size).length)} of them have no official size`,
-  measure: "§15's audience segment comparative summary — size, data tier, primary channel and persuasion hook",
-  points: [],
-  note:
-    "The data tier column is the one to read first. Three segments are sized from the census and " +
-    "the register (data/segments.ts, read from the registry); the other three have no published " +
-    "count and carry what is known instead, never an estimate.",
-};
 
 /* ------------------------------------------------------------------ §3.2.3 the visit loop */
 
@@ -431,7 +420,7 @@ export const HOLDING_POSITIONS = [
     kikamba:
       "Kũthũkũma nĩ wĩtĩkĩlo na wathi mũseo. Nĩ mũthũkũmi mũmanya meko, ũte na kambĩ sya kũya mbesa sya mwananchi.",
     source:
-      "National Assembly Hansard; Kitui Central NG-CDF project inventory (84 solar boreholes; classroom and bursary counts pending the inventory — the Tier 1 figure in §6.1 and §6.1.1 [CHECK REF] is 12,573 bursary recipients and KSh 47m, and only that figure should be used until it is reconciled).",
+      `National Assembly Hansard; Kitui Central NG-CDF project inventory (84 solar boreholes; classroom and bursary counts pending the inventory — the Tier 1 figure in Record and reach is ${regFmt("record.bursary.recipients")} bursary recipients and KSh ${regFmt("record.bursary.ksh", "m")}m, and only that figure should be used until it is reconciled).`,
   },
   {
     question: '2. The "northern & southern recognition deficit" question',
@@ -474,8 +463,8 @@ export const HOLDING_SERIES: FigureSeries = {
   points: [],
   note:
     "TWO OF THE FOUR SOURCE CELLS DECLINE TO CLAIM SOMETHING, and both are kept exactly. Position 1 " +
-    "says the classroom and bursary counts are pending the inventory and that only §6.1's 12,573 " +
-    "recipients and KSh 47m should be used until reconciled. Position 2 says the ward allocation " +
+    `says the classroom and bursary counts are pending the inventory and that only the record's ${regFmt("record.bursary.recipients")} ` +
+    `recipients and KSh ${regFmt("record.bursary.ksh", "m")}m should be used until reconciled. ` + "Position 2 says the ward allocation " +
     "methodology does not exist yet and the line should not go on air before it does. A runbook " +
     "that hid either would be a runbook that sends a spokesperson on air with an unverified figure.",
 };

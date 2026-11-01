@@ -8,45 +8,25 @@ import { REGISTER } from "../../lib/register/specs";
 import {
   Allocation,
   BarList,
-  BuildUp,
   GapBar,
   Hierarchy,
-  Ledger,
-  MessageHouse,
   PairedRows,
-  RangeBars,
-  RegisterGroups,
   ShareBar,
-  SlopeChart,
   SpecTable,
   Stepper,
   TierGrid,
   Tree,
 } from "./marks";
-import { CONSTITUENCIES } from "../../data/ward-register";
 import {
-  COALITION_PATHS,
   CONSTITUENCY_RANKING,
   BIG_FOUR_TOTAL,
   BIG_FOUR_WARDS,
   COUNTY_REGISTER,
-  DEFICIT_POOL,
-  DEFICIT_POOL_SHARE,
-  DEFICIT_WARD_COUNT,
-  THRESHOLD_ROUNDED,
-  TOP_12,
-  TOP_20,
-  BOTTOM_10,
-  WARD_RANKING,
-  WINNING_TOTAL_2022,
 } from "../../lib/figures/register";
-import { REGISTER_GROWTH_SERIES, THRESHOLD_SERIES } from "../../lib/figures/threshold";
-import { TARGETING_SERIES, TARGETING_SUMMARY } from "../../lib/figures/targeting";
-import { BYPASS_PILLARS, BYPASS_STATIONS, RADIO_GATEKEEPERS } from "../../lib/figures/media";
+import { BYPASS_PILLARS } from "../../lib/figures/media";
 import { LANGUAGES, LANGUAGE_DEPLOYMENT, LANGUAGE_SPLIT } from "../../lib/figures/language";
 import {
   AUDIENCE_FACETS,
-  AUDIENCE_SEGMENTS,
   AUDIENCE_SERIES,
   CHANNEL_MESSAGE_SERIES,
   CONFLICT_PROTOCOL,
@@ -62,7 +42,6 @@ import {
   PROVENANCE_MANDATE,
   RESPONSE_MATRIX,
   RESPONSE_SLA,
-  SEGMENTS_SERIES,
   SEGMENT_MESSAGE_SERIES,
   SLA_SERIES,
   TIERS_SERIES,
@@ -95,9 +74,6 @@ import {
   TRACKER_DIMENSIONS,
   TRACKER_SERIES,
 } from "../../lib/figures/research";
-import { GENERAL_ELECTION_KPIS, NOMINATION_KPIS } from "../../data/kpis";
-import { KpiArchitecture } from "../charts/KpiArchitecture";
-import { KpiScorecards } from "../charts/KpiScorecards";
 import {
   APPROVAL_SERIES,
   APPROVAL_STEPS,
@@ -107,8 +83,6 @@ import {
   LIBRARY_SERIES,
   PRODUCTION_SERIES,
   PRODUCTION_TIERS,
-  USSD_MENU,
-  USSD_SERIES,
   WEEKLY_CYCLE,
   WEEKLY_SERIES,
 } from "../../lib/figures/production";
@@ -136,26 +110,14 @@ import {
   SUPPORTER_SCHEMA_SERIES,
 } from "../../lib/figures/data-layer";
 import {
-  CENTRAL_CLAIM,
-  CLAIM_EVIDENCE,
   COUNTER_FIRE,
   COUNTER_FIRE_SERIES,
   CULTURAL_REGISTERS,
-  MESSAGE_HOUSE,
-  MESSAGE_PILLARS,
   QC_SERIES,
   QC_STAGES,
   REGISTERS_SERIES,
 } from "../../lib/figures/messaging";
-import {
-  EFFORT_REBALANCE,
-  OFFLINE_CHANNELS,
-  OFFLINE_UNMEASURED,
-  PLATFORM_SIZING,
-  REACH_SPLIT,
-} from "../../lib/figures/reach";
-import { regFmt, regNum } from "../../lib/figures/from-registry";
-import { CountWord } from "../../lib/count-word";
+import { regFmt } from "../../lib/figures/from-registry";
 import { IEBC_WARD_REGISTER } from "../../data/sources";
 import type { FigurePoint, FigureSeries } from "../../lib/figures/types";
 
@@ -183,74 +145,11 @@ const officialRegister = {
 
 /* ------------------------------------------------------------------ §3.4.2 concentration */
 
-const WARD_RANKING_SERIES: FigureSeries = {
-  id: "ward-ranking",
-  headline: `Twelve of the forty wards hold ${TOP_12.toLocaleString("en-KE")} voters — ${((TOP_12 / COUNTY_REGISTER) * 100).toFixed(2)}% of the register`,
-  measure: "Registered voters per ward, 2022 IEBC register, largest first",
-  points: WARD_RANKING.map<FigurePoint>((w) => ({
-    label: `${w.name} (${w.constituency})`,
-    value: w.voters,
-    ...officialRegister,
-  })),
-  note: `Registration is concentrated, not evenly spread: a flat distribution would put ${regFmt("register.2022.ward-mean")} voters in each ward.`,
-};
-
 /* ------------------------------------------------------------------ §3.4.3 the four paths */
-
-const PATHS_SERIES: FigureSeries = {
-  id: "paths-to-threshold",
-  headline: `Three of the four routes clear ${THRESHOLD_ROUNDED.toLocaleString("en-KE")} on the register, and none of them clears it on ballots`,
-  measure: `Registered voters per coalition, and the ballots each yields at the certified 61.7% turnout`,
-  points: COALITION_PATHS.map<FigurePoint>((p) => ({
-    label: `Path ${p.id} — ${p.name}`,
-    value: p.registered,
-    ...officialRegister,
-    note:
-      `${p.wards} wards · ${p.share.toFixed(2)}% of the register · about ${p.ballots.toLocaleString("en-KE")} ballots at 61.7%` +
-      ` · ${p.marginOverRounded >= 0 ? "+" : "−"}${Math.abs(p.marginOverRounded).toLocaleString("en-KE")} against ${regFmt("benchmark")}` +
-      ` · ${p.marginOver2022 >= 0 ? "+" : "−"}${Math.abs(p.marginOver2022).toLocaleString("en-KE")} against ${regFmt("result.2022.gov.malombe")}`,
-    conflicts: p.id === "B" ? ["C-4"] : undefined,
-  })),
-  note:
-    `Both margins are shown on every path because the paths' prose mixes them: Path B quotes the margin over ${regFmt("result.2022.gov.malombe")} ` +
-    `while naming the ${regFmt("benchmark")} benchmark. Neither number has been changed.`,
-};
 
 /* ------------------------------------------------------------------ §3.4 the deficit pool */
 
-const DEFICIT_SERIES: FigureSeries = {
-  id: "deficit-pool",
-  headline: `${DEFICIT_POOL.toLocaleString("en-KE")} registered voters — ${DEFICIT_POOL_SHARE.toFixed(2)}% of the county — sit in the constituencies where he is least known`,
-  measure: "Registered voters in the Mwingi bloc and Kitui South, against the rest of the county",
-  points: [
-    { label: "Mwingi North, West and Central", value: regNum("bloc.mwingi"), ...officialRegister, note: "15 wards" },
-    { label: "Kitui South", value: regNum("con.kitui-south"), ...officialRegister, note: "6 wards" },
-    {
-      label: "The rest of the county",
-      value: COUNTY_REGISTER - DEFICIT_POOL,
-      ...officialRegister,
-      note: "Kitui Central, West, Rural and East — 19 wards",
-    },
-  ],
-  note:
-    `The pool spans ${DEFICIT_WARD_COUNT} wards; the operational mandate directs effort into these ${DEFICIT_WARD_COUNT}, not ` +
-    `the 24 an earlier count reached by adding three Kitui East border wards the pool excludes. The share computes to ` +
-    `${DEFICIT_POOL_SHARE.toFixed(4)}%, which rounds to ${DEFICIT_POOL_SHARE.toFixed(2)}%.`,
-};
-
 /* ------------------------------------------------------------------ §3.4 the register itself */
-
-const REGISTER_SERIES: FigureSeries = {
-  id: "register-map",
-  headline: `${COUNTY_REGISTER.toLocaleString("en-KE")} registered voters across 40 wards, and they are not evenly spread`,
-  measure: "Registered voters per ward, grouped by constituency — 2022 IEBC register",
-  points: WARD_RANKING.map<FigurePoint>((w) => ({
-    label: `${w.name} (${w.constituency})`,
-    value: w.voters,
-    ...officialRegister,
-  })),
-  note: `A flat distribution would put ${regFmt("register.2022.ward-mean")} voters in every ward. The largest holds ${regFmt("ward.kyuso")} and the smallest ${regFmt("ward.tharaka")}.`,
-};
 
 /* ------------------------------------------------------------------ §3.4.4 constituency power */
 
@@ -269,40 +168,7 @@ const CONSTITUENCY_SERIES: FigureSeries = {
 
 /* ------------------------------------------------------------------ §3.6.3 the rebalance */
 
-const REBALANCE_SERIES: FigureSeries = {
-  id: "effort-rebalance",
-  headline: "The rebalance moves effort out of digital and into radio, SMS and USSD",
-  measure: "Share of campaign effort per channel, as a traditional pitch would weight it and as §3.6.3 [CHECK REF] weights it",
-  points: EFFORT_REBALANCE.map<FigurePoint>((row) => ({
-    label: row.label,
-    value: row.to,
-    unit: "%",
-    source: IEBC_WARD_REGISTER,
-    tier: 3,
-    asOf: "2026",
-    kind: "illustrative",
-    granularity: "county",
-    note: `${row.from}% → ${row.to}%${row.note ? ` · ${row.note}` : ""}`,
-  })),
-  note:
-    "Effort, not money. The weighting is on output and targeting; no budget figure is stated " +
-    "anywhere in this pass (D-11). Both columns sum to 100%.",
-};
-
 /* ------------------------------------------------------------------ §3.7 who owns the air */
-
-const GATEKEEPER_SERIES: FigureSeries = {
-  id: "radio-gatekeepers",
-  headline: "The document names four hostile stations, and disagrees with itself about two of them",
-  measure:
-    "§1.2's Tier 1 hostile tier, read against data/media-ownership.ts — the reconciled map §1.2 says governs",
-  points: [],
-  conflicts: ["C-20"],
-  note:
-    "Ownership associations are publicly reported, not certified, and §1.2 carries the standing " +
-    "instruction to verify this map before any placement is booked. The bypass architecture these " +
-    "four are routed around is stated in full in §15.2.2.",
-};
 
 /* ------------------------------------------------------------------ §7.3 the language map */
 
@@ -333,59 +199,6 @@ const BYPASS_SERIES: FigureSeries = {
 type FigureEntry = { render: () => React.ReactNode; note: string };
 
 export const FIGURES: Record<string, FigureEntry> = {
-  "reach-split": {
-    note: "The register split by connectivity, and the digital ceiling.",
-    render: () => (
-      <FigureFrame series={REACH_SPLIT}>
-        <ShareBar series={REACH_SPLIT} />
-        <p className="mt-3 rounded-lg border border-gold/40 bg-gold/[0.06] px-3 py-2 t-micro leading-snug text-ink">
-          <strong className="font-bold text-gold">The digital ceiling.</strong> Capturing every
-          voter reachable online assembles about {regFmt("reach.smartphone")} reachable people — and
-          reach is not votes — leaving the campaign{" "}
-          <strong className="font-bold">{regFmt("reach.smartphone.short")} short</strong> of the{" "}
-          {regFmt("benchmark")} benchmark.
-        </p>
-      </FigureFrame>
-    ),
-  },
-
-  "platform-sizing": {
-    note: "Five platforms, each as a range, against the register.",
-    render: () => (
-      <FigureFrame series={PLATFORM_SIZING}>
-        <RangeBars series={PLATFORM_SIZING} />
-      </FigureFrame>
-    ),
-  },
-
-  "offline-channels": {
-    note: "Six offline channels: one measured, five not measured.",
-    render: () => (
-      <FigureFrame series={OFFLINE_CHANNELS}>
-        <BarList series={OFFLINE_CHANNELS} />
-        <SpecTable
-          caption="Offline channels with no measured reach in Kitui"
-          columns={["Channel", "Reach", "Basis it is argued on", "Role"]}
-          rows={OFFLINE_UNMEASURED.map((c) => [c.label, "Not measured", c.source ? `${c.basis} (${c.source.name})` : c.basis, c.role])}
-          emphasise={1}
-        />
-      </FigureFrame>
-    ),
-  },
-
-  "effort-rebalance": {
-    note: "The traditional pitch against the rebalanced weighting.",
-    render: () => (
-      <FigureFrame series={REBALANCE_SERIES}>
-        <SlopeChart
-          rows={EFFORT_REBALANCE.map((r) => ({ label: r.label, from: r.from, to: r.to, note: r.note ?? undefined }))}
-          fromLabel="Traditional pitch"
-          toLabel="Rebalanced — §3.6.3 [CHECK REF]"
-        />
-      </FigureFrame>
-    ),
-  },
-
   "audience-overview": {
     note: "Six ways of cutting the electorate.",
     render: () => (
@@ -393,20 +206,6 @@ export const FIGURES: Record<string, FigureEntry> = {
         <TierGrid
           tiers={AUDIENCE_FACETS}
           flow="Connectivity and language are the two facets the rest of the proposal turns on."
-        />
-      </FigureFrame>
-    ),
-  },
-
-  "audience-segments": {
-    note: "Six segments, their size, tier, channel and hook.",
-    render: () => (
-      <FigureFrame series={SEGMENTS_SERIES}>
-        <SpecTable
-          caption="§15 audience segment comparative summary"
-          columns={["Segment", "Sized electorate", "Data tier", "Primary channel", "Decisive persuasion hook"]}
-          rows={AUDIENCE_SEGMENTS}
-          emphasise={2}
         />
       </FigureFrame>
     ),
@@ -632,35 +431,6 @@ export const FIGURES: Record<string, FigureEntry> = {
     ),
   },
 
-  "nomination-scorecard": {
-    note: "The four nomination-window indicators, with their unmeasured baselines shown as absences.",
-    render: () => (
-      <KpiScorecards
-        stage={1}
-        kpis={NOMINATION_KPIS}
-        title="Stage 1 — nomination window scorecard"
-        note="Four indicators, measured against the Wiper primary-voter universe rather than the countywide public."
-      />
-    ),
-  },
-
-  "ge-scorecard": {
-    note: "The five general-election indicators, anchored to the winning threshold.",
-    render: () => (
-      <KpiScorecards
-        stage={2}
-        kpis={GENERAL_ELECTION_KPIS}
-        title="Stage 2 — general election scorecard"
-        note={`${CountWord(GENERAL_ELECTION_KPIS.length)} indicators, every one anchored to the ~${regFmt("benchmark")}-vote benchmark.`}
-      />
-    ),
-  },
-
-  "kpi-architecture": {
-    note: "The two stages of targets, anchored to the vote threshold.",
-    render: () => <KpiArchitecture />,
-  },
-
   "research-and-tracker": {
     note: "The research programme and the service-delivery tracker.",
     render: () => (
@@ -721,15 +491,6 @@ export const FIGURES: Record<string, FigureEntry> = {
           columns={["Channel & medium", "Technical specification", "Language & creative treatment"]}
           rows={FORMAT_SPECS}
         />
-      </FigureFrame>
-    ),
-  },
-
-  "ussd-menu": {
-    note: "The USSD menu tree, with the shortcode still unprovisioned.",
-    render: () => (
-      <FigureFrame series={USSD_SERIES}>
-        <Tree root={USSD_MENU.root} nodes={USSD_MENU.nodes} />
       </FigureFrame>
     ),
   },
@@ -928,15 +689,6 @@ export const FIGURES: Record<string, FigureEntry> = {
     ),
   },
 
-  "message-house": {
-    note: "The central claim in three languages over its three pillars.",
-    render: () => (
-      <FigureFrame series={MESSAGE_HOUSE}>
-        <MessageHouse claim={CENTRAL_CLAIM} evidence={CLAIM_EVIDENCE} pillars={MESSAGE_PILLARS} />
-      </FigureFrame>
-    ),
-  },
-
   "language-map": {
     note: "The three languages, their reach, their audiences and their channels.",
     render: () => (
@@ -990,60 +742,6 @@ export const FIGURES: Record<string, FigureEntry> = {
     ),
   },
 
-  "radio-gatekeepers": {
-    note: "The four stations the diagram called hostile, and what the ownership map says.",
-    render: () => (
-      <FigureFrame series={GATEKEEPER_SERIES}>
-        <p className="mb-2 t-micro font-bold uppercase tracking-wide text-muted">
-          §1.2: Tier 1 hostile / gatekeeper commercial stations
-        </p>
-        <Ledger rows={RADIO_GATEKEEPERS} statedLabel="§1.2's diagram calls this" nameFirst />
-        <p className="mb-2 mt-4 t-micro font-bold uppercase tracking-wide text-muted">
-          §1.2: the stations it routes around them to
-        </p>
-        <Ledger rows={BYPASS_STATIONS} statedLabel="§1.2's diagram calls this" nameFirst />
-        <p className="mb-2 mt-4 t-micro font-bold uppercase tracking-wide text-muted">
-          And the four routes that need no station at all — stated in full in §15.2.2
-        </p>
-        <ol className="not-prose m-0 list-none space-y-1.5 p-0">
-          {BYPASS_PILLARS.map((pillar, i) => (
-            <li key={pillar.label} className="rounded-lg border border-line bg-paper/60 px-3 py-2.5">
-              <p className="m-0 t-micro font-bold text-ink">
-                {/* Numbered because §5.2.2.2 numbers them and because four routes executed in
-                    parallel still have an order of deployment. */}
-                <span className="mr-1.5 tabular-nums text-muted">{i + 1}.</span>
-                {pillar.label}
-              </p>
-              <p className="m-0 mt-0.5 t-micro leading-snug text-muted">{pillar.summary}</p>
-            </li>
-          ))}
-        </ol>
-      </FigureFrame>
-    ),
-  },
-
-  "targeting-summary": {
-    note: "The eight findings of §6.2, computed, with the three that are in dispute flagged.",
-    render: () => (
-      <FigureFrame series={TARGETING_SERIES}>
-        <Ledger rows={TARGETING_SUMMARY} />
-      </FigureFrame>
-    ),
-  },
-
-  "register-map": {
-    note: "The whole register, grouped by constituency.",
-    render: () => (
-      <FigureFrame series={REGISTER_SERIES}>
-        <RegisterGroups
-          groups={CONSTITUENCIES.map((c) => ({ name: c.name, voters: c.voters, wards: c.wards }))}
-          countyTotal={COUNTY_REGISTER}
-          scaleMax={Math.max(...WARD_RANKING.map((w) => w.voters))}
-        />
-      </FigureFrame>
-    ),
-  },
-
   "constituency-power": {
     note: "The eight constituencies, ranked, with the Big 4 bracket.",
     render: () => (
@@ -1062,65 +760,6 @@ export const FIGURES: Record<string, FigureEntry> = {
     ),
   },
 
-  "threshold-build-up": {
-    note: "Register → ballots → the votes that win.",
-    render: () => (
-      <FigureFrame series={THRESHOLD_SERIES}>
-        <BuildUp
-          series={THRESHOLD_SERIES}
-          threshold={{ value: WINNING_TOTAL_2022, label: "What won the seat in 2022" }}
-        />
-      </FigureFrame>
-    ),
-  },
-
-  "register-growth": {
-    note: "The 2026 register and the like-for-like threshold on it.",
-    render: () => (
-      <FigureFrame series={REGISTER_GROWTH_SERIES}>
-        <BuildUp series={REGISTER_GROWTH_SERIES} />
-      </FigureFrame>
-    ),
-  },
-
-  "ward-ranking": {
-    note: "The forty wards, ranked, with the concentration brackets.",
-    render: () => (
-      <FigureFrame series={WARD_RANKING_SERIES}>
-        <BarList
-          series={WARD_RANKING_SERIES}
-          cumulative
-          limit={12}
-          brackets={[
-            { through: 12, label: `Top 12 wards: ${TOP_12.toLocaleString("en-KE")} voters, ${((TOP_12 / COUNTY_REGISTER) * 100).toFixed(2)}% of the register` },
-            { through: 20, label: `Top 20 wards: ${TOP_20.toLocaleString("en-KE")}, ${((TOP_20 / COUNTY_REGISTER) * 100).toFixed(2)}%` },
-            { through: 40, label: `Bottom 10 wards: ${BOTTOM_10.toLocaleString("en-KE")}, ${((BOTTOM_10 / COUNTY_REGISTER) * 100).toFixed(2)}% — across a quarter of the wards and most of the distance` },
-          ]}
-        />
-      </FigureFrame>
-    ),
-  },
-
-  "paths-to-threshold": {
-    note: "The four coalition routes, on the register and on ballots.",
-    render: () => (
-      <FigureFrame series={PATHS_SERIES}>
-        <BuildUp
-          series={PATHS_SERIES}
-          threshold={{ value: THRESHOLD_ROUNDED, label: `The ~${regFmt("benchmark")} benchmark` }}
-        />
-      </FigureFrame>
-    ),
-  },
-
-  "deficit-pool": {
-    note: "Where the recognition deficit sits, as a share of the register.",
-    render: () => (
-      <FigureFrame series={DEFICIT_SERIES}>
-        <ShareBar series={DEFICIT_SERIES} />
-      </FigureFrame>
-    ),
-  },
 };
 
 /**
@@ -1140,6 +779,28 @@ function StoryPointer({ spec }: { spec: { id: string; title: string; section: st
 }
 
 /**
+ * Legacy figures collapsed into the register figure that already drew the same facts (consolidation
+ * pass, Step 3). The fence stays where it was, so every check keyed on it holds, and renders a
+ * pointer to the surviving figure. Each is also recorded in scripts/figure-retirements.json.
+ */
+const COLLAPSED: Record<string, string> = {
+  "nomination-scorecard": "fig-5-6-kpis",
+  "ge-scorecard": "fig-5-6-kpis",
+};
+
+function CollapsedPointer({ spec }: { spec: { id: string; title: string } }) {
+  return (
+    <p className="pf-storyptr not-prose">
+      <a href={`#${spec.id}`}>
+        <span className="pf-storyptr__k">Figure</span>
+        <span className="pf-storyptr__t">{spec.title}</span>
+        <span className="pf-storyptr__h">Drawn once, above, with every indicator, its baseline, target, method and owner</span>
+      </a>
+    </p>
+  );
+}
+
+/**
  * The fence's renderer.
  *
  * An unknown id is drawn as a visible gap rather than silently dropped: a typo in a fence would
@@ -1148,6 +809,8 @@ function StoryPointer({ spec }: { spec: { id: string; title: string; section: st
 export function Figure({ id }: { id: string }) {
   // The brief's figure register (lib/register/specs) is looked up first: one spec draws the chart,
   // the table view and the CSV.
+  const survivor = COLLAPSED[id] ? REGISTER[COLLAPSED[id]] : undefined;
+  if (survivor) return <CollapsedPointer spec={survivor} />;
   const spec = REGISTER[id];
   if (spec && STORY_FIGURES.has(id)) return <StoryPointer spec={spec} />;
   if (spec) return <RegisterFigure spec={spec} />;

@@ -57,6 +57,31 @@ function registerIds() {
 
 const ids = registeredIds();
 for (const id of registerIds()) ids.add(id);
+
+/*
+ * Collapsed figures (consolidation pass, Step 3). A legacy figure collapsed into a register figure
+ * keeps its fence and renders a pointer to the survivor. Its id is accepted only if (a) the
+ * COLLAPSED map in registry.tsx names a survivor that is itself a live figure, and (b) the same
+ * pair is recorded under `collapsed` in scripts/figure-retirements.json, so a collapse cannot be
+ * made in code without being logged, or logged without being made.
+ */
+{
+  const src = fs.readFileSync(REGISTRY, "utf8");
+  const block = src.slice(src.indexOf("const COLLAPSED"), src.indexOf("};", src.indexOf("const COLLAPSED")));
+  const inCode = new Map([...block.matchAll(/"([a-z0-9-]+)":\s*"([a-z0-9-]+)"/g)].map((m) => [m[1], m[2]]));
+  const logged = new Map((JSON.parse(fs.readFileSync(path.join(ROOT, "scripts", "figure-retirements.json"), "utf8")).collapsed ?? []).map((c) => [c.id, c.into]));
+  const problems = [];
+  for (const [id, into] of inCode) {
+    if (!ids.has(into)) problems.push(`${id} collapses into ${into}, which is not a live figure`);
+    if (logged.get(id) !== into) problems.push(`${id} -> ${into} is in registry.tsx COLLAPSED but not logged in figure-retirements.json collapsed`);
+  }
+  for (const [id, into] of logged) if (inCode.get(id) !== into) problems.push(`${id} -> ${into} is logged as collapsed but registry.tsx COLLAPSED does not map it`);
+  if (problems.length) {
+    console.error("verify-figure-fences: collapsed figures disagree:\n  " + problems.join("\n  "));
+    process.exit(1);
+  }
+  for (const id of inCode.keys()) ids.add(id);
+}
 if (ids.size === 0) {
   console.error("verify-figure-fences: no figure ids found in registry.tsx — has FIGURES changed shape?");
   process.exit(1);

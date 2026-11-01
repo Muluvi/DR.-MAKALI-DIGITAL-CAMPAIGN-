@@ -18,67 +18,7 @@
  * slogan would be doing the exact thing §3.6.2 exists to prevent.
  */
 import type { FigureSeries } from "./types";
-
-export type ClaimLine = { language: string; text: string };
-
-/** The central claim, in the three languages §7.1.1 [CHECK REF] states it in. */
-export const CENTRAL_CLAIM: ClaimLine[] = [
-  { language: "English", text: "The Proven Economist for Kitui's Economy: Clean Hands, Real Jobs, and Lasting Wealth." },
-  { language: "Kikamba", text: "Muvisi wa Mbee wa Utonga na Kazi: Mbee wa Mbee na Wathi Mumo." },
-  { language: "Kiswahili", text: "Uchumi Bora na Kazi: Uongozi wa Uwazi na Maendeleo ya Kweli." },
-];
-
-/** §7.1.1 [CHECK REF]'s primary evidence line, which is what the claim rests on rather than decoration. */
-export const CLAIM_EVIDENCE =
-  "13-year legislative record as Vice-Chair / Ranking Member of the National Assembly Departmental " +
-  "Committee on Finance & National Planning and Public Debt & Privatization.";
-
-export type MessagePillar = {
-  /** The hierarchy block's short name for the pillar. */
-  short: string;
-  /** The subsection heading's full name, and the campaign pillars it carries. */
-  full: string;
-  carries: string;
-  proofPoint: string;
-  proofSource: string;
-};
-
-export const MESSAGE_PILLARS: MessagePillar[] = [
-  {
-    short: "Integrity & prudence",
-    full: "Fiscal Integrity & Transparent Public Finance",
-    carries: "Campaign pillars 2.2.1 and 2.2.4",
-    proofPoint: "13 years of clean CDF audit certificates",
-    proofSource: "Auditor-General",
-  },
-  {
-    short: "Jobs & wealth",
-    full: "Household Economic Empowerment & Agrarian Value Addition",
-    carries: "Campaign pillar 2.2.3",
-    proofPoint: "Sub-county value-add investment model",
-    proofSource: "KNBS census",
-  },
-  {
-    short: "Devolution & water",
-    full: "Devolution Equity, Universal Water Access & Healthcare",
-    carries: "Campaign pillars 2.2.1 and 2.2.2",
-    proofPoint: "Ward funds allocated by one needs-weighted formula, published before any allocation",
-    proofSource: "§7.1 [CHECK REF] message architecture",
-  },
-];
-
-export const MESSAGE_HOUSE: FigureSeries = {
-  id: "message-house",
-  headline: "One claim, three languages, three pillars — and a named proof point under each",
-  measure: "§7.1 [CHECK REF]'s message architecture and §7.1.1 [CHECK REF]'s central claim, drawn as one house",
-  points: [],
-  note:
-    "The three language versions are printed at equal weight because §12.4 puts 76% of the " +
-    "county's primary reach in Kikamba, and §12.5 forbids machine translation of it and requires " +
-    "a named cultural sign-off for every vernacular line. Each is transcribed exactly as §7.1.1 [CHECK REF] " +
-    "states it. The pillar names are §7.1 [CHECK REF]'s short forms; the full headings and the campaign pillars " +
-    "each one carries are printed beneath them.",
-};
+import { regFmt } from "./from-registry";
 
 /* ------------------------------------------------------------------ §3.5.1 counter-fire */
 
@@ -102,7 +42,7 @@ export const COUNTER_FIRE = [
   {
     rumour: "Economists only care about numbers, not the poor.",
     answers: [
-      "FACT: 13 years of Kitui Central CDF directed the majority of funds to needy student bursaries — 12,573 recipients, KSh 47m (Tier 1, §6.1) — and village boreholes.",
+      `FACT: 13 years of Kitui Central CDF directed the majority of funds to needy student bursaries — ${regFmt("record.bursary.recipients")} recipients, KSh ${regFmt("record.bursary.ksh", "m")}m (Tier 1) — and village boreholes.`,
     ],
     note: "Share pending the ledger.",
   },

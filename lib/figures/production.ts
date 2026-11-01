@@ -109,19 +109,6 @@ export const USSD_MENU = {
   nodes: USSD_SPEC.map((o) => ({ label: menuLine(o), ...(o.key === "1" ? { children: PLAN_ITEMS.map((p, i) => `${i + 1}. ${p}`) } : {}) })),
 };
 
-export const USSD_SERIES: FigureSeries = {
-  id: "ussd-menu",
-  headline: `${CountWord(USSD_SPEC.length)} options, and the third puts the tracker on a feature phone`,
-  measure: "§15.1.2's USSD interactive menu tree",
-  points: [],
-  note:
-    "THE SHORTCODE IS NOT PROVISIONED. §22.2 lists it as pending at contracting, and the note above " +
-    "this figure says nothing here should be printed, dialled or published as a working number. " +
-    "The root carries no digits " +
-    "because a menu tree lifted into a slide is how an unprovisioned shortcode reaches a flyer. " +
-    "The charter's data opt-out must be reachable from the menu; its position is set when the shortcode is provisioned.",
-};
-
 /* ------------------------------------------------------------------ §4.5.2 the weekly cycle */
 
 export const WEEKLY_CYCLE: string[][] = [
